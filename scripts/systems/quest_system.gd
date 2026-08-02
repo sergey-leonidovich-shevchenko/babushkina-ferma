@@ -85,6 +85,8 @@ static func mission_state(game: Node, mission_id: String) -> String:
 
 ## Возвращает мировую позицию NPC, сохраняя совместимость с витриной анимаций.
 static func npc_position(game: Node, npc_id: String) -> Vector2:
+	if game.npc_movement.has(npc_id):
+		return game.npc_movement[npc_id].position
 	if npc_id == "miron": return game.guild_master_position
 	if npc_id == "agafya": return game.herbalist_position
 	return NPCS.get(npc_id, {}).get("position", Vector2.ZERO)

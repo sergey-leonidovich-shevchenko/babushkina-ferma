@@ -4,6 +4,8 @@ extends "res://tests/suites/suite_base.gd"
 ## Запускает все сценарии текущего набора тестов в фиксированном порядке.
 func run() -> void:
 	test_animation_frame_modes()
+	test_directional_character_atlas_frames()
+	test_npc_wander_stays_near_home()
 	test_living_sprite_motion_and_atlases()
 	test_player_attack_and_slime_reaction()
 	test_enemy_hurt_and_death_lifecycle()
@@ -17,6 +19,38 @@ func test_animation_frame_modes() -> void:
 	var game := make_game()
 	expect(game.AnimationSystem.frame(0.7, 4, 10.0) == 3, "looped animation wraps frames deterministically")
 	expect(game.AnimationSystem.frame(2.0, 6, 10.0, false) == 5, "one-shot animation holds its final frame")
+	game.free()
+
+
+## Сценарий: новый общий аниматор выбирает строку направления и четыре последовательных кадра.
+## Исходное состояние: атлас героя имеет восемь строк и четыре столбца, герой смотрит на северо-восток.
+## Ожидаемый результат: ячейки целочисленные, строка равна пяти, покой держит первый кадр, а ходьба меняет его.
+func test_directional_character_atlas_frames() -> void:
+	var game := make_game()
+	var texture: Texture2D = game.DirectionalCharacterSystem.HERO_TEXTURES[0]
+	var idle: Rect2 = game.DirectionalCharacterSystem.source_rect(texture, Vector2(1, -1), 0.4, false)
+	var walking: Rect2 = game.DirectionalCharacterSystem.source_rect(texture, Vector2(1, -1), 0.4, true)
+	expect(texture.get_width() == 888 and texture.get_height() == 1776, "directional atlas uses exact 222-pixel cells")
+	expect(idle.position == Vector2(0, 1110) and idle.size == Vector2(222, 222), "north-east selects row five and idle frame zero")
+	expect(walking.position.x > idle.position.x and walking.position.y == idle.position.y, "walk time advances the frame without changing direction")
+	game.free()
+
+
+## Сценарий: житель начинает прогулку без случайности и не покидает безопасный радиус дома.
+## Исходное состояние: бабушка стоит дома, её таймер ожидания принудительно завершён, активна деревня.
+## Ожидаемый результат: движение начинается сразу, позиция меняется, радиус соблюдается и шаг обучения отмечается.
+func test_npc_wander_stays_near_home() -> void:
+	var game := make_game()
+	game.language_screen = false; game.title_screen = false; game.current_location = "overworld"
+	var state: Dictionary = game.npc_movement["grandmother"]
+	var home: Vector2 = state.home
+	state.timer = 0.0
+	game.NpcMovementSystem.update(game, 0.1)
+	expect(state.moving and state.position != home, "NPC starts a deterministic walk when the pause expires")
+	for _frame in 80:
+		game.NpcMovementSystem.update(game, 0.1)
+	expect(state.position.distance_to(home) <= game.NpcMovementSystem.WANDER_RADIUS + 1.0, "NPC stays inside the configured home radius")
+	expect(game.tutorial_events_completed.has("npc_wander"), "NPC walk has a tester tutorial event")
 	game.free()
 
 

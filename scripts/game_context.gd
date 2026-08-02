@@ -51,6 +51,7 @@ const PresentationSystem := preload("res://scripts/systems/presentation_system.g
 const InterfaceRenderer := preload("res://scripts/systems/interface_renderer.gd")
 const AnimationSystem := preload("res://scripts/systems/animation_system.gd")
 const AnimationRenderer := preload("res://scripts/systems/animation_renderer.gd")
+const DirectionalCharacterSystem := preload("res://scripts/systems/directional_character_system.gd"); const NpcMovementSystem := preload("res://scripts/systems/npc_movement_system.gd")
 const AudioSystem := preload("res://scripts/systems/audio_system.gd")
 const ContentRegistry := preload("res://scripts/systems/content_registry.gd")
 const BuildingSystem := preload("res://scripts/systems/building_system.gd")
@@ -239,7 +240,7 @@ var companion_positions := {}
 var companion_moving := {}
 var companion_directions := {}
 var companion_attack_timer := 0.0
-var companion_heal_timer := 0.0
+var companion_heal_timer := 0.0; var npc_movement := {}
 
 # RPG-состояние вертикального среза.
 var player_hp: int:

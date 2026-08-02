@@ -4,10 +4,13 @@ const REQUIRED_DIRECTIONS := 8
 const MIN_WALK_FRAMES := 3
 const MAX_WALK_FRAMES := 5
 const AUDIT := {
-	"hero":{"directions":4,"frames":1,"asset":"hero_progression_atlas.png"},
-	"companion_mila":{"directions":1,"frames":1,"asset":"companion_atlas.png"},
-	"companion_borislav":{"directions":1,"frames":1,"asset":"companion_atlas.png"},
-	"companion_luna":{"directions":1,"frames":1,"asset":"companion_atlas.png"},
+	"hero":{"directions":8,"frames":4,"asset":"directional/hero_*_walk_8dir.png"},
+	"npc_grandmother":{"directions":8,"frames":4,"asset":"directional/npc_grandmother_walk_8dir.png"},
+	"npc_official":{"directions":8,"frames":4,"asset":"directional/npc_official_walk_8dir.png"},
+	"npc_herbalist":{"directions":8,"frames":4,"asset":"directional/npc_herbalist_walk_8dir.png"},
+	"companion_mila":{"directions":8,"frames":4,"asset":"directional/companion_mila_walk_8dir.png"},
+	"companion_borislav":{"directions":8,"frames":4,"asset":"directional/companion_borislav_walk_8dir.png"},
+	"companion_luna":{"directions":8,"frames":4,"asset":"directional/companion_luna_walk_8dir.png"},
 	"orc":{"directions":1,"frames":1,"asset":"enemy_rank_atlas.png"}, "skeleton":{"directions":1,"frames":1,"asset":"enemy_rank_atlas.png"},
 	"undead":{"directions":1,"frames":1,"asset":"enemy_rank_atlas.png"}, "cave_guardian":{"directions":1,"frames":1,"asset":"enemy_rank_atlas.png"},
 	"pirate":{"directions":1,"frames":1,"asset":"pirate_enemy_atlas.png"}, "zombie_pirate":{"directions":1,"frames":1,"asset":"pirate_enemy_atlas.png"},
@@ -36,5 +39,5 @@ static func backlog() -> Array[String]:
 ## Возвращает один из восьми индексов направления по часовой стрелке, начиная снизу.
 static func direction_index(direction: Vector2) -> int:
 	if direction.length_squared() < 0.001: return 0
-	var angle := fposmod(atan2(direction.x, direction.y), TAU)
+	var angle := fposmod(atan2(-direction.x, direction.y), TAU)
 	return int(round(angle / (TAU / 8.0))) % 8

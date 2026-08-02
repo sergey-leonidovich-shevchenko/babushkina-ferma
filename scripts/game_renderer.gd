@@ -158,9 +158,10 @@ func draw_player() -> void:
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_rpg_world() -> void:
 	# Бабушка и верстак.
-	draw_npc_sprite(0, npc_position, 0.0)
-	if player.distance_to(npc_position) < 150.0:
-		draw_string(UI_FONT, npc_position + Vector2(-50, 55), LocaleSystem.entity("grandmother"), HORIZONTAL_ALIGNMENT_CENTER, 100, 16, Color("293c2f"))
+	var grandmother: Dictionary = NpcMovementSystem.actor(self, "grandmother", npc_position)
+	draw_npc_sprite(0, grandmother.position, grandmother.direction, grandmother.moving)
+	if player.distance_to(grandmother.position) < 150.0:
+		draw_string(UI_FONT, grandmother.position + Vector2(-50, 55), LocaleSystem.entity("grandmother"), HORIZONTAL_ALIGNMENT_CENTER, 100, 16, Color("293c2f"))
 	draw_rect(Rect2(workbench_position - Vector2(32, 20), Vector2(64, 44)), Color("865334"))
 	draw_line(workbench_position - Vector2(25, 8), workbench_position + Vector2(25, -8), Color("d09a59"), 5)
 	if player.distance_to(workbench_position) < 150.0:
@@ -254,24 +255,18 @@ func draw_companions() -> void:
 		draw_companion_sprite(companion_id, position)
 
 
-## Отрисовывает одного напарника из трёхколоночного прозрачного атласа.
+## Отрисовывает одного напарника из его атласа восьми направлений.
 func draw_companion_sprite(companion_id: String, position: Vector2) -> void:
 	var data: Dictionary = CompanionSystem.COMPANIONS.get(companion_id, {})
 	if data.is_empty():
 		return
-	var source_width := COMPANION_ATLAS.get_width() / 3.0
-	var source := Rect2(float(data.sprite) * source_width, 0, source_width, COMPANION_ATLAS.get_height())
-	draw_circle(position + Vector2(0, 28), 22, Color(0.05, 0.08, 0.08, 0.28))
 	var moving: bool = companion_moving.get(companion_id, false) and current_location != "prison_interior"
 	var direction: Vector2 = companion_directions.get(companion_id, Vector2.DOWN)
-	draw_living_atlas_sprite(COMPANION_ATLAS, source, position, Vector2(104, 104), walk_animation_time, moving, float(data.sprite) * 1.7, direction.x < -0.1)
+	DirectionalCharacterSystem.draw_companion(self, companion_id, position, direction, moving)
 
-## Отрисовывает NPC из общего атласа с индивидуальной фазой дыхания.
-func draw_npc_sprite(sprite_index: int, position: Vector2, phase: float, tint: Color = Color.WHITE) -> void:
-	var source_width := NPC_ATLAS.get_width() / 3.0
-	var source := Rect2(float(sprite_index) * source_width, 0, source_width, NPC_ATLAS.get_height())
-	draw_circle(position + Vector2(0, 27), 21, Color(0.05, 0.08, 0.08, 0.24))
-	draw_living_atlas_sprite(NPC_ATLAS, source, position, Vector2(104, 104), walk_animation_time, false, phase, false, tint)
+## Отрисовывает NPC из атласа восьми направлений по фактическому состоянию движения.
+func draw_npc_sprite(sprite_index: int, position: Vector2, direction: Vector2 = Vector2.DOWN, moving: bool = false, tint: Color = Color.WHITE) -> void:
+	DirectionalCharacterSystem.draw_npc(self, sprite_index, position, direction, moving, tint)
 
 ## Применяет общий цикл дыхания или шага к одному прозрачному атласному спрайту.
 func draw_living_atlas_sprite(texture: Texture2D, source: Rect2, position: Vector2, size: Vector2, time: float, moving: bool, phase: float, flip_x: bool = false, modulate: Color = Color.WHITE) -> void:
@@ -286,7 +281,7 @@ func draw_living_atlas_sprite(texture: Texture2D, source: Rect2, position: Vecto
 
 ## Отрисовывает сюжетного NPC, его имя и маркер состояния миссии.
 func draw_mission_npc(position: Vector2, npc_name: String, mission_id: String, sprite_index: int) -> void:
-	draw_npc_sprite(sprite_index, position, float(sprite_index) * 1.9)
+	draw_npc_sprite(sprite_index, position)
 	if player.distance_to(position) < 155.0:
 		draw_string(UI_FONT, position + Vector2(-62, 58), npc_name, HORIZONTAL_ALIGNMENT_CENTER, 124, 15, Color("293c2f"))
 	var state: String = mission_states.get(mission_id, QuestSystem.AVAILABLE)
@@ -300,7 +295,8 @@ func draw_quest_npcs() -> void:
 		var data: Dictionary = QuestSystem.NPCS[npc_id]
 		if data.location != current_location: continue
 		var position := QuestSystem.npc_position(self, npc_id)
-		draw_npc_sprite(int(data.sprite), position, float(data.sprite) * 1.9, data.tint)
+		var movement: Dictionary = NpcMovementSystem.actor(self, npc_id, position)
+		draw_npc_sprite(int(data.sprite), position, movement.direction, movement.moving, data.tint)
 		if player.distance_to(position) < 155.0:
 			draw_string(UI_FONT, position + Vector2(-76, 58), QuestSystem.npc_name(npc_id), HORIZONTAL_ALIGNMENT_CENTER, 152, 15, Color("293c2f") if current_location == "overworld" else Color("fff0bd"))
 		var marker := QuestSystem.npc_marker(self, npc_id)

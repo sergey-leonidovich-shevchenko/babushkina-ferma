@@ -1,0 +1,58 @@
+extends RefCounted
+
+const COLUMNS := 4
+const ROWS := 8
+const WALK_FPS := 8.0
+const AnimationAssetRegistry := preload("res://scripts/systems/animation_asset_registry.gd")
+
+const HERO_TEXTURES := [
+	preload("res://assets/game/characters/directional/hero_farmer_walk_8dir.png"),
+	preload("res://assets/game/characters/directional/hero_scout_walk_8dir.png"),
+	preload("res://assets/game/characters/directional/hero_guardian_walk_8dir.png"),
+	preload("res://assets/game/characters/directional/hero_moon_walk_8dir.png"),
+]
+const NPC_TEXTURES := [
+	preload("res://assets/game/characters/directional/npc_grandmother_walk_8dir.png"),
+	preload("res://assets/game/characters/directional/npc_official_walk_8dir.png"),
+	preload("res://assets/game/characters/directional/npc_herbalist_walk_8dir.png"),
+]
+const COMPANION_TEXTURES := {
+	"mila": preload("res://assets/game/characters/directional/companion_mila_walk_8dir.png"),
+	"borislav": preload("res://assets/game/characters/directional/companion_borislav_walk_8dir.png"),
+	"luna": preload("res://assets/game/characters/directional/companion_luna_walk_8dir.png"),
+}
+
+
+## Возвращает область одного кадра атласа 4 × 8 для заданного направления и времени шага.
+static func source_rect(texture: Texture2D, direction: Vector2, animation_time: float, moving: bool) -> Rect2:
+	var cell_size := Vector2(texture.get_width() / float(COLUMNS), texture.get_height() / float(ROWS))
+	var row: int = AnimationAssetRegistry.direction_index(direction)
+	var frame: int = int(animation_time * WALK_FPS) % COLUMNS if moving else 0
+	return Rect2(Vector2(frame, row) * cell_size, cell_size)
+
+
+## Рисует героя в облике, соответствующем текущему диапазону уровней.
+static func draw_hero(game: Node2D, position: Vector2, direction: Vector2, moving: bool, modulate: Color = Color.WHITE) -> void:
+	var stage: int = game.SkillSystem.hero_skin_stage(game.player_level)
+	draw_actor(game, HERO_TEXTURES[stage], position, Vector2(86, 86), direction, game.walk_animation_time, moving, modulate)
+
+
+## Рисует один из трёх архетипов жителя с полноценным направленным циклом шага.
+static func draw_npc(game: Node2D, sprite_index: int, position: Vector2, direction: Vector2, moving: bool, tint: Color = Color.WHITE) -> void:
+	if sprite_index < 0 or sprite_index >= NPC_TEXTURES.size():
+		return
+	draw_actor(game, NPC_TEXTURES[sprite_index], position, Vector2(96, 96), direction, game.walk_animation_time, moving, tint)
+
+
+## Рисует выбранного напарника по его фактическому направлению движения.
+static func draw_companion(game: Node2D, companion_id: String, position: Vector2, direction: Vector2, moving: bool) -> void:
+	if not COMPANION_TEXTURES.has(companion_id):
+		return
+	draw_actor(game, COMPANION_TEXTURES[companion_id], position, Vector2(100, 100), direction, game.walk_animation_time, moving)
+
+
+## Рисует общий спрайт актёра с единой точкой опоры у ног и мягкой тенью.
+static func draw_actor(game: Node2D, texture: Texture2D, position: Vector2, size: Vector2, direction: Vector2, animation_time: float, moving: bool, modulate: Color = Color.WHITE) -> void:
+	game.draw_circle(position + Vector2(0, 25), 20.0, Color(0.05, 0.08, 0.08, 0.25))
+	var destination := Rect2(position - Vector2(size.x * 0.5, size.y * 0.68), size)
+	game.draw_texture_rect_region(texture, destination, source_rect(texture, direction, animation_time, moving), modulate)

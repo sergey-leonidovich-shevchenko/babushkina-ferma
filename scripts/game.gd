@@ -82,6 +82,7 @@ func _ready() -> void:
 		title_screen = false
 		MenuSystem.open_pause(self)
 		MenuSystem.open_settings(self, false)
+	NpcMovementSystem.initialize(self)
 	sync_background_location()
 	# На старте постоянная подпись локации достаточна; крупная карточка остаётся для новых мест.
 	if current_location != "overworld": DiscoverySystem.show_location(self, current_location)
@@ -125,6 +126,7 @@ func _physics_process(delta: float) -> void:
 	update_fishing(delta)
 	update_status_effects(delta)
 	CompanionSystem.update(self, delta)
+	NpcMovementSystem.update(self, delta)
 	PlayerSystem.update_animation(self, delta)
 	AnimationSystem.update(self, delta)
 	SkillSystem.update_resources(self, delta)
@@ -449,7 +451,7 @@ func nearest_interaction() -> String:
 	var interactions := {}
 	if current_location == "overworld":
 		interactions = {
-			"npc": npc_position,
+			"npc": NpcMovementSystem.actor(self, "grandmother", npc_position).position,
 			"shop": BuildingSystem.SHOP_STALL_POSITION,
 			"crate": BuildingSystem.SELL_CRATE_POSITION,
 			"workbench": workbench_position,
