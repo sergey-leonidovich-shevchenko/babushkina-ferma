@@ -54,5 +54,14 @@ static func draw_companion(game: Node2D, companion_id: String, position: Vector2
 ## Рисует общий спрайт актёра с единой точкой опоры у ног и мягкой тенью.
 static func draw_actor(game: Node2D, texture: Texture2D, position: Vector2, size: Vector2, direction: Vector2, animation_time: float, moving: bool, modulate: Color = Color.WHITE) -> void:
 	game.draw_circle(position + Vector2(0, 25), 20.0, Color(0.05, 0.08, 0.08, 0.25))
-	var destination := Rect2(position - Vector2(size.x * 0.5, size.y * 0.68), size)
-	game.draw_texture_rect_region(texture, destination, source_rect(texture, direction, animation_time, moving), modulate)
+	if moving:
+		var destination := Rect2(position - Vector2(size.x * 0.5, size.y * 0.68), size)
+		game.draw_texture_rect_region(texture, destination, source_rect(texture, direction, animation_time, true), modulate)
+		return
+	var phase: float = fposmod((position.x + position.y) * 0.013, TAU)
+	var motion: Dictionary = game.PresentationSystem.living_motion(animation_time, false, phase)
+	var world_transform: Vector2 = -game.camera_offset
+	var sprite_scale: Vector2 = motion.scale
+	game.draw_set_transform(world_transform + position + Vector2(motion.offset), float(motion.rotation), sprite_scale)
+	game.draw_texture_rect_region(texture, Rect2(Vector2(-size.x * 0.5, -size.y * 0.68), size), source_rect(texture, direction, animation_time, false), modulate)
+	game.draw_set_transform(world_transform, 0.0, Vector2.ONE)
