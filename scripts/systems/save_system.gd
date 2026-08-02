@@ -4,10 +4,13 @@ const SAVE_PATH := "user://farm-save.json"
 
 static func snapshot(game: Node) -> Dictionary:
 	var plot_data := []
+	var drops := []
 	for cell in game.plots:
 		var plot: Dictionary = game.plots[cell]
 		plot_data.append({"x":cell.x,"y":cell.y,"tilled":plot.tilled,"planted":plot.planted,"watered":plot.watered,"growth":plot.growth,"stage":plot.stage})
-	return {"version":1,"player":[game.player.x,game.player.y],"location":game.current_location,"day":game.day,"minutes":game.game_minutes,"energy":game.energy,"coins":game.coins,"xp":game.player_xp,"level":game.player_level,"hp":game.player_hp,"counts":game.export_inventory_counts().duplicate(true),"slots":game.inventory_slots.duplicate(true),"hotbar":game.hotbar_slots.duplicate(true),"equipment":game.equipment.duplicate(true),"quest_active":game.quest_active,"quest_complete":game.quest_complete,"weapons":{"sword":game.sword_crafted,"bow":game.has_bow,"crystal":game.has_crystal_sword,"equipped":game.equipped_weapon},"plots":plot_data,"resource_hits":game.resource_nodes.map(func(node): return node.hits),"food_active":game.food_nodes.map(func(node): return node.active),"enemies":game.enemy_nodes.map(func(enemy): return {"hp":enemy.hp,"alive":enemy.alive})}
+	for item in game.dropped_items:
+		drops.append({"kind":item.kind,"count":item.count,"position":[item.position.x,item.position.y]})
+	return {"version":1,"player":[game.player.x,game.player.y],"location":game.current_location,"day":game.day,"minutes":game.game_minutes,"energy":game.energy,"coins":game.coins,"xp":game.player_xp,"level":game.player_level,"hp":game.player_hp,"counts":game.export_inventory_counts().duplicate(true),"slots":game.inventory_slots.duplicate(true),"hotbar":game.hotbar_slots.duplicate(true),"equipment":game.equipment.duplicate(true),"quest_active":game.quest_active,"quest_complete":game.quest_complete,"missions":game.mission_states.duplicate(true),"weapons":{"sword":game.sword_crafted,"bow":game.has_bow,"crystal":game.has_crystal_sword,"equipped":game.equipped_weapon},"plots":plot_data,"resource_hits":game.resource_nodes.map(func(node): return node.hits),"food_active":game.food_nodes.map(func(node): return node.active),"enemies":game.enemy_nodes.map(func(enemy): return {"hp":enemy.hp,"alive":enemy.alive}),"drops":drops}
 
 static func apply(game: Node, data: Dictionary) -> bool:
 	if data.get("version", 0) != 1: return false
@@ -16,6 +19,7 @@ static func apply(game: Node, data: Dictionary) -> bool:
 	game.player_xp = data.xp; game.player_level = data.level; game.player_hp = data.hp
 	game.import_inventory_counts(data.counts); game.inventory_slots.assign(data.slots); game.hotbar_slots.assign(data.hotbar)
 	game.equipment = data.equipment.duplicate(true); game.quest_active = data.quest_active; game.quest_complete = data.quest_complete
+	game.mission_states = data.get("missions", game.mission_states).duplicate(true)
 	game.sword_crafted = data.weapons.sword; game.has_bow = data.weapons.bow; game.has_crystal_sword = data.weapons.crystal; game.equipped_weapon = data.weapons.equipped
 	for saved_plot in data.plots:
 		var cell := Vector2i(saved_plot.x, saved_plot.y)
@@ -27,6 +31,9 @@ static func apply(game: Node, data: Dictionary) -> bool:
 	for index in mini(data.food_active.size(), game.food_nodes.size()): game.food_nodes[index].active = data.food_active[index]
 	for index in mini(data.get("enemies",[]).size(), game.enemy_nodes.size()):
 		game.enemy_nodes[index].hp = data.enemies[index].hp; game.enemy_nodes[index].alive = data.enemies[index].alive
+	game.dropped_items.clear()
+	for item in data.get("drops", []):
+		game.dropped_items.append({"kind":item.kind,"count":item.count,"position":Vector2(item.position[0],item.position[1])})
 	game.InventorySystem.recalculate_stats(game); game.player_hp = mini(game.player_hp, game.player_max_hp)
 	game.sync_background_location(); game.update_camera(); return true
 

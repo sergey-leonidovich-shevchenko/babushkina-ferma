@@ -29,6 +29,7 @@ const ITEM_DATA := {
 	"bones": {"name": "Кости", "short": "Кости", "color": Color("ded8be")},
 	"ancient_key": {"name": "Древний ключ", "short": "Ключ", "color": Color("c29b50")},
 	"blue_gem": {"name": "Синий алмаз", "short": "Алмаз", "color": Color("5cbce8")},
+	"moon_relic": {"name": "Лунная реликвия", "short": "Реликвия", "color": Color("d4ecff")},
 	"iron_helmet": {"name": "Железный шлем", "short": "Шлем", "color": Color("b8c3ca"), "equip": "head"},
 	"guardian_armor": {"name": "Доспех хранителя", "short": "Доспех", "color": Color("d79b42"), "equip": "body"},
 	"travel_boots": {"name": "Походные сапоги", "short": "Сапоги", "color": Color("8c6745"), "equip": "legs"},

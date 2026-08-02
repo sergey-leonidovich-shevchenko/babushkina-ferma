@@ -76,7 +76,7 @@ var iron_helmet := 0
 var guardian_armor := 0
 var travel_boots := 0
 var crystal_ring := 0
-var materials := {"fiber":0,"rare_seeds":0,"metal":0,"bones":0,"ancient_key":0,"blue_gem":0,"red_crystal":0,"green_crystal":0,"orc_blade":0}
+var materials := {"fiber":0,"rare_seeds":0,"metal":0,"bones":0,"ancient_key":0,"blue_gem":0,"red_crystal":0,"green_crystal":0,"orc_blade":0,"moon_relic":0}
 var crafting_open := false
 var crafting_selected := 0
 var world_gate_position := Vector2(2200, 760)
@@ -84,7 +84,8 @@ var enemy_nodes := [
 	{"kind":"plant","location":"forest","position":Vector2(920,430),"hp":5,"alive":true},
 	{"kind":"orc","location":"ruins","position":Vector2(1180,500),"hp":8,"alive":true},
 	{"kind":"skeleton","location":"cave","position":Vector2(880,520),"hp":6,"alive":true},
-	{"kind":"undead","location":"cursed","position":Vector2(1320,460),"hp":10,"alive":true}
+	{"kind":"undead","location":"cursed","position":Vector2(1320,460),"hp":10,"alive":true},
+	{"kind":"cave_guardian","location":"cave","position":Vector2(1450,500),"hp":12,"alive":true}
 ]
 var dropped_items: Array = []
 var shop_selected := 0
@@ -156,9 +157,13 @@ var resource_nodes := [
 	{"position": Vector2(1500, 330), "location": "cave", "kind": "green_crystal", "hits": 3}
 ]
 var npc_position := Vector2(325, 360)
+var guild_master_position := Vector2(360, 620)
+var herbalist_position := Vector2(850, 650)
 var workbench_position := Vector2(760, 176)
 var quest_active := false
 var quest_complete := false
+var mission_states := {"story_relic":"available", "side_seed":"available"}
+var quest_log_open := false
 var tutorial_visible := true
 var tutorial_step := 0
 var tutorial_steps := [
@@ -184,7 +189,9 @@ var tutorial_steps := [
 	{"event": "equip", "text": "Надень или сними меч клавишей R"},
 	{"event": "collision", "text": "Проверь препятствие и перейди реку только по мосту"},
 	{"event": "travel", "text": "Найди светящийся вход в пещеру и нажми E"},
-	{"event": "locations", "text": "Найди золотые врата и посети следующую локацию"}
+	{"event": "locations", "text": "Найди золотые врата и посети следующую локацию"},
+	{"event": "mission_accept", "text": "Поговори со старостой или травницей и возьми миссию"},
+	{"event": "mission_complete", "text": "Победи цель, подбери предмет и вернись за наградой"}
 ]
 
 func _ready() -> void:
@@ -209,7 +216,7 @@ func _physics_process(delta: float) -> void:
 	update_status_effects(delta)
 	if benchmark_autoplay:
 		update_benchmark_route(delta)
-	if shop_open or inventory_open or crafting_open:
+	if shop_open or inventory_open or crafting_open or quest_log_open:
 		queue_redraw()
 		return
 	update_player_movement(delta)
@@ -374,6 +381,11 @@ func _unhandled_input(event: InputEvent) -> void:
 	if shop_open:
 		handle_shop_input(event)
 		return
+	if quest_log_open:
+		if event is InputEventKey and event.pressed and not event.echo and event.keycode in [KEY_J, KEY_ESCAPE]:
+			toggle_quest_log()
+			queue_redraw()
+		return
 	if crafting_open:
 		handle_crafting_input(event)
 		return
@@ -406,6 +418,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			KEY_F5: save_game()
 			KEY_F8: load_game()
 			KEY_I, KEY_TAB: open_inventory()
+			KEY_J: toggle_quest_log()
 		queue_redraw()
 
 func targeted_plot() -> Vector2i:
@@ -495,6 +508,8 @@ func nearest_interaction() -> String:
 	if current_location == "overworld":
 		interactions = {
 			"npc": npc_position,
+			"guild_master": guild_master_position,
+			"herbalist": herbalist_position,
 			"shop": Vector2(972, 278),
 			"crate": Vector2(820, 420),
 			"workbench": workbench_position,
@@ -547,6 +562,10 @@ func perform_context_action() -> bool:
 		"npc":
 			talk_to_grandmother()
 			return true
+		"guild_master":
+			return QuestSystem.talk(self, "story_relic")
+		"herbalist":
+			return QuestSystem.talk(self, "side_seed")
 		"shop":
 			open_shop()
 			return true
@@ -830,6 +849,12 @@ func update_status_effects(delta: float) -> void:
 func talk_to_grandmother() -> void:
 	QuestSystem.talk_to_grandmother(self)
 
+func toggle_quest_log() -> void:
+	quest_log_open = not quest_log_open
+	if quest_log_open:
+		clear_movement_keys()
+		message = "Журнал заданий открыт"
+
 func attack_slime() -> bool:
 	var attack_range := 280.0 if equipped_weapon == "bow" else 105.0
 	if not slime_alive or player.distance_to(slime_position) > attack_range:
@@ -985,6 +1010,9 @@ func grant_tester_kit() -> void:
 	loot_available = false
 	for index in food_nodes.size():
 		food_nodes[index].active = true
+	for index in enemy_nodes.size():
+		enemy_nodes[index].alive = true
+		enemy_nodes[index].hp = CombatSystem.TYPES[enemy_nodes[index].kind].hp
 	message = "QA-набор выдан: ресурсы, морковь и монеты"
 
 func handle_shop_input(event: InputEvent) -> void:
@@ -1153,6 +1181,8 @@ func draw_rpg_world() -> void:
 	draw_circle(npc_position - Vector2(0, 15), 13, Color("e7b68b"))
 	draw_rect(Rect2(npc_position - Vector2(15, 2), Vector2(30, 35)), Color("854d6f"))
 	draw_string(ThemeDB.fallback_font, npc_position + Vector2(-40, 55), "Бабушка", HORIZONTAL_ALIGNMENT_LEFT, -1, 16, Color("293c2f"))
+	draw_mission_npc(guild_master_position, "Староста Мирон", "story_relic", Color("496b8c"))
+	draw_mission_npc(herbalist_position, "Травница Агафья", "side_seed", Color("568255"))
 	draw_rect(Rect2(workbench_position - Vector2(32, 20), Vector2(64, 44)), Color("865334"))
 	draw_line(workbench_position - Vector2(25, 8), workbench_position + Vector2(25, -8), Color("d09a59"), 5)
 	draw_string(ThemeDB.fallback_font, workbench_position + Vector2(-45, 45), "Верстак", HORIZONTAL_ALIGNMENT_LEFT, -1, 16, Color("293c2f"))
@@ -1164,14 +1194,20 @@ func draw_rpg_world() -> void:
 	elif loot_available:
 		draw_circle(slime_position, 13, Color("78d6a5"))
 		draw_circle(slime_position - Vector2(4, 4), 4, Color("baf1c8"))
-	for item in dropped_items:
-		draw_circle(item.position, 12, inventory_item_color(item.kind))
-		draw_circle(item.position - Vector2(3, 3), 3, Color("fff3c4"))
 	draw_food_nodes()
 	# Вход в отдельную пещерную локацию.
 	draw_circle(cave_entrance_position, 52, Color("283a43"))
 	draw_circle(cave_entrance_position, 38 + sin(Time.get_ticks_msec() / 170.0) * 4, Color("66d5cf"), false, 6)
 	draw_string(ThemeDB.fallback_font, cave_entrance_position + Vector2(-58, 78), "Кристальная пещера", HORIZONTAL_ALIGNMENT_LEFT, -1, 16, Color("d7fff4"))
+
+func draw_mission_npc(position: Vector2, npc_name: String, mission_id: String, color: Color) -> void:
+	draw_circle(position - Vector2(0, 16), 13, Color("e6b38a"))
+	draw_rect(Rect2(position - Vector2(16, 2), Vector2(32, 38)), color)
+	draw_string(ThemeDB.fallback_font, position + Vector2(-62, 58), npc_name, HORIZONTAL_ALIGNMENT_CENTER, 124, 15, Color("293c2f"))
+	var state: String = mission_states.get(mission_id, QuestSystem.AVAILABLE)
+	var marker := "!" if state == QuestSystem.AVAILABLE else ("✓" if state == QuestSystem.COMPLETED else "?")
+	draw_circle(position - Vector2(0, 62), 16, Color("f1ca5c") if state != QuestSystem.COMPLETED else Color("70bd78"))
+	draw_string(ThemeDB.fallback_font, position + Vector2(-8, -56), marker, HORIZONTAL_ALIGNMENT_CENTER, 16, 20, Color("3b3225"))
 
 func draw_food_nodes() -> void:
 	for food in food_nodes:
@@ -1205,8 +1241,18 @@ func draw_resource_nodes() -> void:
 	for node in resource_nodes:
 		if node.hits <= 0 or node.location != current_location:
 			continue
-		var texture: Texture2D = RESOURCE_CRYSTAL if node.kind == "crystal" else RESOURCE_ROCK
-		draw_texture_rect(texture, Rect2(node.position - Vector2(28, 28), Vector2(56, 56)), false)
+		var is_crystal: bool = node.kind in ["crystal", "red_crystal", "green_crystal"]
+		var texture: Texture2D = RESOURCE_CRYSTAL if is_crystal else RESOURCE_ROCK
+		var tint := Color.WHITE
+		if node.kind == "red_crystal": tint = Color("ef6872")
+		elif node.kind == "green_crystal": tint = Color("6bdc83")
+		draw_texture_rect(texture, Rect2(node.position - Vector2(28, 28), Vector2(56, 56)), false, tint)
+
+func draw_dropped_items() -> void:
+	for item in dropped_items:
+		draw_circle(item.position, 15, inventory_item_color(item.kind))
+		draw_circle(item.position, 23 + sin(Time.get_ticks_msec() / 150.0) * 3, Color("fff0a8"), false, 3)
+		draw_string(ThemeDB.fallback_font, item.position + Vector2(-55, 42), inventory_item_name(item.kind), HORIZONTAL_ALIGNMENT_CENTER, 110, 13, Color("fff4cf"))
 
 func draw_enemy_nodes_and_gate() -> void:
 	draw_circle(world_gate_position, 42 + sin(Time.get_ticks_msec() / 180.0) * 4, Color("e6b85e"), false, 6)
@@ -1274,6 +1320,8 @@ func interaction_position(interaction: String) -> Vector2:
 			return food_nodes[index].position
 	match interaction:
 		"npc": return npc_position
+		"guild_master": return guild_master_position
+		"herbalist": return herbalist_position
 		"shop": return Vector2(972, 278)
 		"crate": return Vector2(820, 420)
 		"workbench": return workbench_position
@@ -1298,6 +1346,8 @@ func draw_ui() -> void:
 	var minutes := int(game_minutes) % 60
 	draw_string(ThemeDB.fallback_font, Vector2(24, 34), "ДЕНЬ %d   %02d:%02d" % [day, hours, minutes], HORIZONTAL_ALIGNMENT_LEFT, -1, 22, Color("ffe39d"))
 	draw_string(ThemeDB.fallback_font, Vector2(24, 68), "⚡ %d   🪙 %d   Семена: %d   Морковь: %d" % [energy, coins, seeds, carrots], HORIZONTAL_ALIGNMENT_LEFT, -1, 20, Color.WHITE)
+	draw_rect(Rect2(990, 14, 145, 36), Color("4d6659"))
+	draw_string(ThemeDB.fallback_font, Vector2(1000, 38), "J • ЗАДАНИЯ", HORIZONTAL_ALIGNMENT_CENTER, 125, 14, Color("fff0bd"))
 	draw_player_status_bars()
 	draw_string(ThemeDB.fallback_font, Vector2(390, 94), "Слизь %d  Камень %d  Кристалл %d  Рыба %d  Оружие: %s" % [slime_gel, stone, crystals, fish, equipped_weapon], HORIZONTAL_ALIGNMENT_LEFT, 740, 13, Color("bde8d2"))
 	if fishing_state == "casting":
@@ -1308,9 +1358,7 @@ func draw_ui() -> void:
 	draw_rect(Rect2(190, 510, 772, 34), Color("182f2b"))
 	draw_string(ThemeDB.fallback_font, Vector2(211, 533), message, HORIZONTAL_ALIGNMENT_CENTER, 730, 17, Color("fff4cf"))
 	draw_hotbar()
-	if quest_active:
-		draw_rect(Rect2(850, 108, 278, 52), Color("293b34"))
-		draw_string(ThemeDB.fallback_font, Vector2(865, 140), "Квест: морковь %d/10" % mini(carrots, 10), HORIZONTAL_ALIGNMENT_LEFT, -1, 18, Color("ffe5a2"))
+	draw_mission_tracker()
 	if tutorial_visible and tutorial_step < tutorial_steps.size():
 		draw_rect(Rect2(18, 108, 420, 68), Color("263c36"))
 		draw_string(ThemeDB.fallback_font, Vector2(34, 132), "ОБУЧЕНИЕ %d/%d  [T скрыть • Y заново • F9 QA]" % [tutorial_step + 1, tutorial_steps.size()], HORIZONTAL_ALIGNMENT_LEFT, -1, 14, Color("9ed6b3"))
@@ -1321,6 +1369,42 @@ func draw_ui() -> void:
 		draw_inventory()
 	if crafting_open:
 		draw_crafting_window()
+	if quest_log_open:
+		draw_quest_log()
+
+func draw_mission_tracker() -> void:
+	var lines: Array[String] = []
+	if quest_active:
+		lines.append("Бабушкина морковь: %d/10" % mini(carrots, 10))
+	for mission_id in QuestSystem.MISSIONS:
+		if mission_states.get(mission_id) == QuestSystem.ACTIVE:
+			lines.append("%s — %s" % [QuestSystem.MISSIONS[mission_id].title, QuestSystem.objective_text(self, mission_id)])
+	if lines.is_empty():
+		return
+	var height := 30.0 + lines.size() * 22.0
+	draw_rect(Rect2(790, 108, 338, height), Color(0.10, 0.18, 0.16, 0.92))
+	draw_string(ThemeDB.fallback_font, Vector2(804, 130), "ЗАДАНИЯ [J]", HORIZONTAL_ALIGNMENT_LEFT, 310, 15, Color("f1ca5c"))
+	for index in lines.size():
+		draw_string(ThemeDB.fallback_font, Vector2(804, 153 + index * 22), lines[index], HORIZONTAL_ALIGNMENT_LEFT, 310, 14, Color("fff4cf"))
+
+func draw_quest_log() -> void:
+	draw_rect(Rect2(120, 62, 912, 524), Color("29251f"))
+	draw_rect(Rect2(140, 82, 872, 484), Color("e6d3a4"))
+	draw_rect(Rect2(140, 82, 872, 64), Color("5d4937"))
+	draw_string(ThemeDB.fallback_font, Vector2(326, 125), "ЖУРНАЛ ЗАДАНИЙ", HORIZONTAL_ALIGNMENT_CENTER, 500, 28, Color("fff1c4"))
+	var row_y := 172.0
+	for mission_id in QuestSystem.MISSIONS:
+		var mission: Dictionary = QuestSystem.MISSIONS[mission_id]
+		var state: String = mission_states.get(mission_id, QuestSystem.AVAILABLE)
+		var state_name: String = {QuestSystem.AVAILABLE:"НЕ ВЗЯТО", QuestSystem.ACTIVE:"АКТИВНО", QuestSystem.COMPLETED:"ВЫПОЛНЕНО"}[state]
+		draw_rect(Rect2(170, row_y, 812, 142), Color("fff0bd") if state != QuestSystem.COMPLETED else Color("c9e2bd"))
+		draw_string(ThemeDB.fallback_font, Vector2(190, row_y + 29), "%s • %s" % [mission.type, mission.title], HORIZONTAL_ALIGNMENT_LEFT, 520, 20, Color("493b2f"))
+		draw_string(ThemeDB.fallback_font, Vector2(770, row_y + 29), state_name, HORIZONTAL_ALIGNMENT_RIGHT, 185, 15, Color("50704e"))
+		draw_string(ThemeDB.fallback_font, Vector2(190, row_y + 62), mission.description, HORIZONTAL_ALIGNMENT_LEFT, 745, 15, Color("493b2f"))
+		draw_string(ThemeDB.fallback_font, Vector2(190, row_y + 92), "Цель: %s" % QuestSystem.objective_text(self, mission_id), HORIZONTAL_ALIGNMENT_LEFT, 520, 16, Color("6b5038"))
+		draw_string(ThemeDB.fallback_font, Vector2(190, row_y + 119), "Награда: %d монет • %d XP • %s ×%d" % [mission.coins, mission.xp, inventory_item_name(mission.reward_item), mission.reward_count], HORIZONTAL_ALIGNMENT_LEFT, 720, 14, Color("49704d"))
+		row_y += 158.0
+	draw_string(ThemeDB.fallback_font, Vector2(320, 548), "J или Esc — закрыть", HORIZONTAL_ALIGNMENT_CENTER, 512, 16, Color("493b2f"))
 
 func draw_player_status_bars() -> void:
 	var hp_ratio := clampf(float(player_hp) / float(player_max_hp), 0.0, 1.0)
@@ -1458,12 +1542,12 @@ func _input(event: InputEvent) -> void:
 		var is_movement_key := update_movement_key_state(event)
 		if not title_screen and event.pressed and is_movement_key:
 			apply_immediate_key_response(event)
-		if is_action_key and not title_screen and not shop_open and not inventory_open:
+		if is_action_key and not title_screen and not shop_open and not inventory_open and not quest_log_open:
 			if event.pressed and not event.echo:
 				if not perform_context_action() and current_location == "overworld":
 					use_active_item()
 			get_viewport().set_input_as_handled()
-		if is_attack_key and not title_screen and not shop_open and not inventory_open:
+		if is_attack_key and not title_screen and not shop_open and not inventory_open and not quest_log_open:
 			if event.pressed and not event.echo:
 				attack_nearest_enemy()
 			get_viewport().set_input_as_handled()
@@ -1473,6 +1557,10 @@ func handle_gamepad_and_touch(event: InputEvent) -> bool:
 		title_screen = false
 		return true
 	if event is InputEventJoypadButton and event.pressed:
+		if quest_log_open:
+			if event.button_index in [JOY_BUTTON_B, JOY_BUTTON_BACK]:
+				toggle_quest_log()
+			return true
 		if inventory_open:
 			handle_inventory_input(event)
 			return true
@@ -1492,7 +1580,13 @@ func handle_gamepad_and_touch(event: InputEvent) -> bool:
 			JOY_BUTTON_Y:
 				open_inventory()
 				return true
+			JOY_BUTTON_BACK:
+				toggle_quest_log()
+				return true
 	if event is InputEventScreenTouch and event.pressed:
+		if Rect2(990, 0, 162, 62).has_point(event.position):
+			toggle_quest_log()
+			return true
 		if inventory_open:
 			if event.position.y >= 136.0 and event.position.y < 480.0 and event.position.x >= 72.0 and event.position.x < 744.0:
 				var column := clampi(int((event.position.x - 72.0) / 112.0), 0, 5)

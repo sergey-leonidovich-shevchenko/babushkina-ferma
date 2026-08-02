@@ -27,6 +27,8 @@ func _initialize() -> void:
 	test_crafting_window_and_save_snapshot()
 	test_enemy_families_loot_tables_and_world_route()
 	test_colored_crystals_and_orc_equipment_loot()
+	test_story_and_side_mission_chains()
+	test_mission_progress_and_drops_are_saved()
 	test_gameplay_systems_are_modular()
 	print("TESTS: %d passed, %d failed" % [passed, failed])
 	quit(0 if failed == 0 else 1)
@@ -436,4 +438,60 @@ func test_colored_crystals_and_orc_equipment_loot() -> void:
 		if item.kind == "orc_blade":
 			found_blade = true
 	expect(found_blade, "orc loot table includes an equippable blade")
+	game.free()
+
+func test_story_and_side_mission_chains() -> void:
+	var game := make_game()
+	game.player = game.guild_master_position
+	expect(game.nearest_interaction() == "guild_master", "story mission giver is interactive")
+	game.perform_context_action()
+	expect(game.mission_states.story_relic == game.QuestSystem.ACTIVE, "guild master starts story mission")
+	game.current_location = "cave"
+	game.player = game.enemy_nodes[4].position
+	for _hit in 12:
+		game.attack_nearest_enemy()
+	expect(not game.enemy_nodes[4].alive, "cave guardian can be defeated for story mission")
+	var relic_drop := -1
+	for index in game.dropped_items.size():
+		if game.dropped_items[index].kind == "moon_relic":
+			relic_drop = index
+	expect(relic_drop >= 0, "cave guardian drops the moon relic")
+	game.collect_dropped_item(relic_drop)
+	expect(game.materials.moon_relic == 1, "quest relic can be collected")
+	game.current_location = "overworld"
+	game.player = game.guild_master_position
+	game.perform_context_action()
+	expect(game.mission_states.story_relic == game.QuestSystem.COMPLETED, "relic can be returned to complete story mission")
+	expect(game.coins == 140 and game.guardian_armor == 1, "story mission grants coins and equipment")
+	game.player = game.herbalist_position
+	game.perform_context_action()
+	expect(game.mission_states.side_seed == game.QuestSystem.ACTIVE, "herbalist starts side mission")
+	game.materials.rare_seeds = 1
+	game.perform_context_action()
+	expect(game.mission_states.side_seed == game.QuestSystem.COMPLETED, "side mission accepts its requested loot")
+	expect(game.berries == 3 and game.coins == 175, "side mission grants food and coins")
+	game.toggle_quest_log()
+	expect(game.quest_log_open, "J journal state can be opened")
+	game.toggle_quest_log()
+	var journal_button := InputEventJoypadButton.new()
+	journal_button.button_index = JOY_BUTTON_BACK
+	journal_button.pressed = true
+	expect(game.handle_gamepad_and_touch(journal_button) and game.quest_log_open, "gamepad can open mission journal")
+	var journal_touch := InputEventScreenTouch.new()
+	journal_touch.position = Vector2(1060, 30)
+	journal_touch.pressed = true
+	expect(game.handle_gamepad_and_touch(journal_touch) and not game.quest_log_open, "touch HUD button closes mission journal")
+	game.free()
+
+func test_mission_progress_and_drops_are_saved() -> void:
+	var game := make_game()
+	game.mission_states.story_relic = game.QuestSystem.ACTIVE
+	game.dropped_items.append({"kind":"moon_relic","count":1,"position":Vector2(700, 500)})
+	var snapshot: Dictionary = game.SaveSystem.snapshot(game)
+	game.mission_states.story_relic = game.QuestSystem.AVAILABLE
+	game.dropped_items.clear()
+	expect(game.SaveSystem.apply(game, snapshot), "mission snapshot can be restored")
+	expect(game.mission_states.story_relic == game.QuestSystem.ACTIVE, "save restores mission state")
+	expect(game.dropped_items.size() == 1 and game.dropped_items[0].kind == "moon_relic", "save restores uncollected quest loot")
+	expect(game.dropped_items[0].position == Vector2(700, 500), "save restores quest loot position")
 	game.free()

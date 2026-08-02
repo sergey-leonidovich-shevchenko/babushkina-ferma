@@ -4,7 +4,8 @@ const TYPES := {
 	"plant": {"name":"Хищное растение","hp":5,"damage":12,"xp":14,"color":Color("4d9b4f"),"loot":{"fiber":2,"rare_seeds":1}},
 	"orc": {"name":"Орк-разбойник","hp":8,"damage":18,"xp":22,"color":Color("789348"),"loot":{"metal":2,"coins":15,"orc_blade":1}},
 	"skeleton": {"name":"Скелет","hp":6,"damage":16,"xp":18,"color":Color("d8d3ba"),"loot":{"bones":3,"ancient_key":1}},
-	"undead": {"name":"Проклятый рыцарь","hp":10,"damage":22,"xp":30,"color":Color("745c86"),"loot":{"bones":2,"blue_gem":1}}
+	"undead": {"name":"Проклятый рыцарь","hp":10,"damage":22,"xp":30,"color":Color("745c86"),"loot":{"bones":2,"blue_gem":1}},
+	"cave_guardian": {"name":"Хранитель глубин","hp":12,"damage":24,"xp":40,"color":Color("527f91"),"loot":{"moon_relic":1,"blue_gem":2}}
 }
 
 static func nearest(game: Node) -> int:
