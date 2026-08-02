@@ -1,0 +1,11 @@
+Pixabay Content License assets adapted for use in Бабушкина ферма.
+
+Sources (download filenames preserve contributor and Pixabay media id):
+- keinianz-helmet-5724641.jpg — contributor Keinianz, armor/helmet/boots/shields sheet.
+- keinianz-diamond-5724650.jpg — contributor Keinianz, gems and ore sheet.
+- pikura-retro-9342597.png — contributor Pikurā, retro health bars.
+- divexfre-orange-9741354.png — contributor Divexfre, pixel orange.
+
+License summary: https://pixabay.com/service/license-summary/
+The imported files are cropped, background-keyed, resized adaptations and are not
+distributed as standalone stock originals.

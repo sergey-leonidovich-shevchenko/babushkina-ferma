@@ -23,6 +23,7 @@ func _initialize() -> void:
 	test_experience_from_farming_combat_and_quest()
 	test_food_healing_and_temporary_effects()
 	test_world_collisions_and_bridge_passage()
+	test_hotbar_assignment_equipment_and_universal_input()
 	print("TESTS: %d passed, %d failed" % [passed, failed])
 	quit(0 if failed == 0 else 1)
 
@@ -300,6 +301,10 @@ func test_food_healing_and_temporary_effects() -> void:
 	game.player = game.food_nodes[0].position
 	game.food_nodes[0].active = true
 	expect(game.perform_repeatable_action() and game.mushrooms == 1, "wild food sprite can be collected while action is held")
+	game.oranges = 1
+	game.player_hp = 60
+	game.energy = 5
+	expect(game.consume_item("orange") and game.player_hp == 80 and game.energy == 7, "orange restores health and energy")
 	game.free()
 
 func test_world_collisions_and_bridge_passage() -> void:
@@ -326,4 +331,33 @@ func test_world_collisions_and_bridge_passage() -> void:
 	game.player = Vector2(1120, 510)
 	game.move_player_with_collisions(Vector2(100, 100))
 	expect(game.player.y > 510.0, "diagonal collision slides along an obstacle instead of sticking")
+	game.free()
+
+func test_hotbar_assignment_equipment_and_universal_input() -> void:
+	var game := make_game()
+	game.inventory_selected = 1
+	expect(game.assign_selected_to_hotbar(0) and game.hotbar_slots[0] == "carrot", "inventory item can be assigned to any quick slot")
+	game.carrots = 1
+	game.player_hp = 50
+	game.select_hotbar(0)
+	expect(game.use_active_item() and game.player_hp == 65, "quick slot uses the item currently in hand")
+	game.iron_helmet = 1
+	game.inventory_selected = 16
+	expect(game.equip_selected_item() and game.equipment.head == "iron_helmet", "helmet equips into head slot")
+	expect(game.player_max_hp == 110, "helmet increases maximum health")
+	game.crystal_ring = 1
+	game.inventory_selected = 19
+	game.equip_selected_item()
+	game.player = game.slime_position
+	game.attack_slime()
+	expect(game.slime_hp == 1, "equipped ring increases combat damage")
+	var right := InputEventJoypadButton.new()
+	right.button_index = JOY_BUTTON_DPAD_RIGHT
+	right.pressed = true
+	var previous_slot: int = game.selected_hotbar
+	expect(game.handle_gamepad_and_touch(right) and game.selected_hotbar == posmod(previous_slot + 1, 10), "gamepad cycles quick slots")
+	var touch := InputEventScreenTouch.new()
+	touch.position = Vector2(176 + 3 * 80 + 20, 580)
+	touch.pressed = true
+	expect(game.handle_gamepad_and_touch(touch) and game.selected_hotbar == 3, "touch selects a quick slot")
 	game.free()

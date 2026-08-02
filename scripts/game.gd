@@ -15,6 +15,12 @@ const RESOURCE_CRYSTAL := preload("res://assets/game/resources/blue-crystal.png"
 const RESOURCE_ROCK := preload("res://assets/game/resources/rock.png")
 const NavigationSystem := preload("res://scripts/systems/navigation_system.gd")
 const PlayerSystem := preload("res://scripts/systems/player_system.gd")
+const InventorySystem := preload("res://scripts/systems/inventory_system.gd")
+const ITEM_HELMET := preload("res://assets/game/items/iron_helmet.png")
+const ITEM_ARMOR := preload("res://assets/game/items/guardian_armor.png")
+const ITEM_BOOTS := preload("res://assets/game/items/travel_boots.png")
+const ITEM_DIAMOND := preload("res://assets/game/items/crystal_ring.png")
+const ITEM_ORANGE := preload("res://assets/game/items/orange.png")
 const WORLD_SIZE := Vector2(2400, 1200)
 const STAGE_DURATION := 5.0
 const GROWTH_DURATION := 20.0
@@ -48,7 +54,14 @@ var shop_open := false
 var inventory_open := false
 var inventory_selected := 0
 var inventory_move_from := -1
-var inventory_slots := ["seeds", "carrot", "pickaxe", "fishing_rod", "slime", "wood", "stone", "crystal", "fish", "sword", "bow", "crystal_sword", "apple", "berries", "nut", "mushroom"]
+var inventory_slots := ["seeds", "carrot", "pickaxe", "fishing_rod", "slime", "wood", "stone", "crystal", "fish", "sword", "bow", "crystal_sword", "apple", "berries", "nut", "mushroom", "iron_helmet", "guardian_armor", "travel_boots", "crystal_ring", "orange", "", "", ""]
+var hotbar_slots := ["hoe", "seeds", "water", "hand", "pickaxe", "fishing_rod", "carrot", "apple", "berries", "mushroom"]
+var selected_hotbar := 0
+var equipment := {"head": "", "body": "", "legs": "", "hands": "", "ring": ""}
+var iron_helmet := 0
+var guardian_armor := 0
+var travel_boots := 0
+var crystal_ring := 0
 var dropped_items: Array = []
 var shop_selected := 0
 var shop_products := [
@@ -101,6 +114,7 @@ var apples := 0
 var berries := 0
 var nuts := 0
 var mushrooms := 0
+var oranges := 0
 var food_nodes := [
 	{"position": Vector2(1320, 720), "kind": "mushroom", "active": true},
 	{"position": Vector2(1740, 360), "kind": "berries", "active": true},
@@ -137,7 +151,9 @@ var tutorial_steps := [
 	{"event": "fight", "text": "Иди по дороге в лес и атакуй слизня [F]"},
 	{"event": "loot", "text": "Подбери выпавшую слизь клавишей E"},
 	{"event": "inventory", "text": "Открой инвентарь [I] и осмотри добычу"},
+	{"event": "hotbar", "text": "В рюкзаке выбери предмет и назначь его клавишей 1–0"},
 	{"event": "eat", "text": "Выбери еду в рюкзаке и нажми E или Enter"},
+	{"event": "equipment", "text": "Выбери шлем или броню и надень клавишей Q"},
 	{"event": "mine", "text": "Выбери кирку [5] и добудь камень или кристалл"},
 	{"event": "fish", "text": "Выбери удочку [6] и поймай рыбу у пруда"},
 	{"event": "craft", "text": "Вернись к верстаку и создай меч [E]"},
@@ -198,7 +214,7 @@ func update_player_movement(delta: float) -> void:
 	if direction.length() == 0.0:
 		return
 	facing = direction
-	var current_speed := speed * (1.3 if speed_timer > 0.0 else 1.0)
+	var current_speed := speed * (1.3 if speed_timer > 0.0 else 1.0) * InventorySystem.speed_multiplier(self)
 	move_player_with_collisions(direction * current_speed * delta)
 	walk_animation_time += delta
 	notify_tutorial("move")
@@ -293,6 +309,9 @@ func perform_repeatable_action() -> bool:
 	if interaction.begins_with("food:"):
 		return collect_food(int(interaction.get_slice(":", 1)))
 	if current_location == "overworld":
+		var held_kind: String = hotbar_slots[selected_hotbar]
+		if not InventorySystem.data(held_kind).has("tool"):
+			return false
 		use_selected_tool()
 		notify_tutorial("hold_action")
 		return true
@@ -355,12 +374,16 @@ func _unhandled_input(event: InputEvent) -> void:
 		use_selected_tool()
 	if event is InputEventKey and event.pressed and not event.echo:
 		match event.keycode:
-			KEY_1: selected_tool = Tool.HOE
-			KEY_2: selected_tool = Tool.SEEDS
-			KEY_3: selected_tool = Tool.WATER
-			KEY_4: selected_tool = Tool.HAND
-			KEY_5: selected_tool = Tool.PICKAXE
-			KEY_6: selected_tool = Tool.ROD
+			KEY_1: select_hotbar(0)
+			KEY_2: select_hotbar(1)
+			KEY_3: select_hotbar(2)
+			KEY_4: select_hotbar(3)
+			KEY_5: select_hotbar(4)
+			KEY_6: select_hotbar(5)
+			KEY_7: select_hotbar(6)
+			KEY_8: select_hotbar(7)
+			KEY_9: select_hotbar(8)
+			KEY_0: select_hotbar(9)
 			KEY_B: open_shop()
 			KEY_N: sleep_until_morning()
 			KEY_F: attack_slime()
@@ -368,7 +391,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			KEY_T: tutorial_visible = not tutorial_visible
 			KEY_Y: reset_tutorial()
 			KEY_F9: grant_tester_kit()
-			KEY_I: open_inventory()
+			KEY_I, KEY_TAB: open_inventory()
 		queue_redraw()
 
 func targeted_plot() -> Vector2i:
@@ -635,9 +658,16 @@ func inventory_item_count(kind: String) -> int:
 		"berries": return berries
 		"nut": return nuts
 		"mushroom": return mushrooms
+		"orange": return oranges
+		"iron_helmet": return iron_helmet
+		"guardian_armor": return guardian_armor
+		"travel_boots": return travel_boots
+		"crystal_ring": return crystal_ring
 	return 0
 
 func inventory_item_name(kind: String) -> String:
+	if InventorySystem.ITEM_DATA.has(kind):
+		return InventorySystem.data(kind).name
 	match kind:
 		"seeds": return "Семена моркови"
 		"carrot": return "Морковь"
@@ -682,24 +712,51 @@ func change_inventory_count(kind: String, amount: int) -> bool:
 		"berries": berries += amount
 		"nut": nuts += amount
 		"mushroom": mushrooms += amount
+		"orange": oranges += amount
+		"iron_helmet": iron_helmet += amount
+		"guardian_armor": guardian_armor += amount
+		"travel_boots": travel_boots += amount
+		"crystal_ring": crystal_ring += amount
 		_:
 			return false
 	return true
 
 func handle_inventory_input(event: InputEvent) -> void:
+	if event is InputEventJoypadButton and event.pressed:
+		match event.button_index:
+			JOY_BUTTON_DPAD_LEFT: inventory_selected = posmod(inventory_selected - 1, inventory_slots.size())
+			JOY_BUTTON_DPAD_RIGHT: inventory_selected = posmod(inventory_selected + 1, inventory_slots.size())
+			JOY_BUTTON_DPAD_UP: inventory_selected = posmod(inventory_selected - 6, inventory_slots.size())
+			JOY_BUTTON_DPAD_DOWN: inventory_selected = posmod(inventory_selected + 6, inventory_slots.size())
+			JOY_BUTTON_A: consume_selected_item()
+			JOY_BUTTON_X: equip_selected_item()
+			JOY_BUTTON_Y: inventory_open = false
+		queue_redraw()
+		return
 	if not (event is InputEventKey and event.pressed and not event.echo):
 		return
 	match event.keycode:
-		KEY_ESCAPE, KEY_I:
+		KEY_ESCAPE, KEY_I, KEY_TAB:
 			inventory_open = false
 			inventory_move_from = -1
-		KEY_LEFT: inventory_selected = posmod(inventory_selected - 1, 16)
-		KEY_RIGHT: inventory_selected = posmod(inventory_selected + 1, 16)
-		KEY_UP: inventory_selected = posmod(inventory_selected - 4, 16)
-		KEY_DOWN: inventory_selected = posmod(inventory_selected + 4, 16)
+		KEY_LEFT: inventory_selected = posmod(inventory_selected - 1, inventory_slots.size())
+		KEY_RIGHT: inventory_selected = posmod(inventory_selected + 1, inventory_slots.size())
+		KEY_UP: inventory_selected = posmod(inventory_selected - 6, inventory_slots.size())
+		KEY_DOWN: inventory_selected = posmod(inventory_selected + 6, inventory_slots.size())
 		KEY_M: move_inventory_slot()
 		KEY_X: drop_selected_item()
 		KEY_ENTER, KEY_E: consume_selected_item()
+		KEY_Q: equip_selected_item()
+		KEY_1: assign_selected_to_hotbar(0)
+		KEY_2: assign_selected_to_hotbar(1)
+		KEY_3: assign_selected_to_hotbar(2)
+		KEY_4: assign_selected_to_hotbar(3)
+		KEY_5: assign_selected_to_hotbar(4)
+		KEY_6: assign_selected_to_hotbar(5)
+		KEY_7: assign_selected_to_hotbar(6)
+		KEY_8: assign_selected_to_hotbar(7)
+		KEY_9: assign_selected_to_hotbar(8)
+		KEY_0: assign_selected_to_hotbar(9)
 		KEY_DELETE, KEY_BACKSPACE: delete_selected_item()
 	queue_redraw()
 
@@ -756,7 +813,10 @@ func collect_food(index: int) -> bool:
 
 func consume_selected_item() -> bool:
 	var kind: String = inventory_slots[inventory_selected]
-	if kind not in ["carrot", "apple", "berries", "nut", "mushroom"]:
+	return consume_item(kind)
+
+func consume_item(kind: String) -> bool:
+	if kind not in ["carrot", "apple", "berries", "nut", "mushroom", "orange"]:
 		message = "Этот предмет нельзя съесть"
 		return false
 	if not change_inventory_count(kind, -1):
@@ -779,8 +839,33 @@ func consume_selected_item() -> bool:
 		"mushroom":
 			speed_timer = 10.0
 			message = "Гриб: скорость +30% на 10 секунд"
+		"orange":
+			heal_player(20)
+			energy = mini(energy + 2, 12)
+			message = "Апельсин: +20 здоровья и +2 энергии"
 	notify_tutorial("eat")
 	return true
+
+func select_hotbar(index: int) -> bool:
+	return InventorySystem.select_hotbar(self, index)
+
+func assign_selected_to_hotbar(index: int) -> bool:
+	return InventorySystem.assign_hotbar(self, inventory_selected, index)
+
+func equip_selected_item() -> bool:
+	return InventorySystem.equip(self, inventory_slots[inventory_selected])
+
+func use_active_item() -> bool:
+	var kind: String = hotbar_slots[selected_hotbar]
+	var item := InventorySystem.data(kind)
+	if item.get("edible", false):
+		return consume_item(kind)
+	if item.has("tool"):
+		selected_tool = item.tool
+		use_selected_tool()
+		return true
+	message = "Этот предмет нельзя использовать с панели"
+	return false
 
 func heal_player(amount: int) -> int:
 	return PlayerSystem.heal(self, amount)
@@ -815,7 +900,7 @@ func attack_slime() -> bool:
 	if not slime_alive or player.distance_to(slime_position) > attack_range:
 		message = "Рядом нет противника"
 		return false
-	var damage := 1 + (1 if strength_timer > 0.0 else 0)
+	var damage := 1 + (1 if strength_timer > 0.0 else 0) + InventorySystem.damage_bonus(self)
 	if equipped_weapon == "forest_sword": damage = 2
 	elif equipped_weapon == "crystal_sword": damage = 3
 	elif equipped_weapon == "bow": damage = 2
@@ -913,6 +998,11 @@ func grant_tester_kit() -> void:
 	berries = maxi(berries, 3)
 	nuts = maxi(nuts, 3)
 	mushrooms = maxi(mushrooms, 3)
+	oranges = maxi(oranges, 3)
+	iron_helmet = maxi(iron_helmet, 1)
+	guardian_armor = maxi(guardian_armor, 1)
+	travel_boots = maxi(travel_boots, 1)
+	crystal_ring = maxi(crystal_ring, 1)
 	player_hp = player_max_hp
 	slime_alive = true
 	slime_hp = 3
@@ -1173,6 +1263,8 @@ func draw_cave_world() -> void:
 	draw_string(ThemeDB.fallback_font, Vector2(90, 100), "КРИСТАЛЬНАЯ ПЕЩЕРА", HORIZONTAL_ALIGNMENT_LEFT, -1, 28, Color("9ce9dd"))
 
 func inventory_item_color(kind: String) -> Color:
+	if InventorySystem.ITEM_DATA.has(kind):
+		return InventorySystem.data(kind).color
 	match kind:
 		"seeds": return Color("d8b86b")
 		"carrot": return Color("ee7a32")
@@ -1191,6 +1283,22 @@ func inventory_item_color(kind: String) -> Color:
 		"nut": return Color("a8733e")
 		"mushroom": return Color("d95c50")
 	return Color.WHITE
+
+func item_texture(kind: String) -> Texture2D:
+	match kind:
+		"iron_helmet": return ITEM_HELMET
+		"guardian_armor": return ITEM_ARMOR
+		"travel_boots": return ITEM_BOOTS
+		"crystal_ring": return ITEM_DIAMOND
+		"orange": return ITEM_ORANGE
+	return null
+
+func draw_item_icon(kind: String, rect: Rect2) -> void:
+	var texture := item_texture(kind)
+	if texture:
+		draw_texture_rect(texture, rect, false)
+	else:
+		draw_circle(rect.get_center(), minf(rect.size.x, rect.size.y) * 0.34, inventory_item_color(kind))
 
 func interaction_position(interaction: String) -> Vector2:
 	if interaction.begins_with("drop:"):
@@ -1232,18 +1340,14 @@ func draw_ui() -> void:
 	draw_string(ThemeDB.fallback_font, Vector2(24, 68), "⚡ %d   🪙 %d   Семена: %d   Морковь: %d" % [energy, coins, seeds, carrots], HORIZONTAL_ALIGNMENT_LEFT, -1, 20, Color.WHITE)
 	draw_player_status_bars()
 	draw_string(ThemeDB.fallback_font, Vector2(390, 94), "Слизь %d  Камень %d  Кристалл %d  Рыба %d  Оружие: %s" % [slime_gel, stone, crystals, fish, equipped_weapon], HORIZONTAL_ALIGNMENT_LEFT, 740, 13, Color("bde8d2"))
-	var tools := ["1 Мотыга", "2 Семена", "3 Лейка", "4 Руки", "5 Кирка", "6 Удочка"]
-	for i in 6:
-		var box := Rect2(480 + i * 111, 18, 103, 55)
-		draw_rect(box, Color("d8bd77") if i == selected_tool else Color("38564d"))
-		draw_string(ThemeDB.fallback_font, box.position + Vector2(6, 34), tools[i], HORIZONTAL_ALIGNMENT_LEFT, -1, 14, Color("1f312b") if i == selected_tool else Color.WHITE)
 	if fishing_state == "casting":
 		draw_string(ThemeDB.fallback_font, Vector2(576, 205), "Поплавок... %.1f" % maxf(fishing_timer, 0.0), HORIZONTAL_ALIGNMENT_CENTER, 260, 20, Color("d7f6ff"))
 	elif fishing_state == "ready":
 		draw_circle(Vector2(576, 195), 22 + sin(Time.get_ticks_msec() / 100.0) * 3, Color("ffdc5c"))
 		draw_string(ThemeDB.fallback_font, Vector2(576, 202), "!", HORIZONTAL_ALIGNMENT_CENTER, 20, 24, Color("5b4526"))
-	draw_rect(Rect2(190, 592, 772, 42), Color("182f2b"))
-	draw_string(ThemeDB.fallback_font, Vector2(576, 620), message, HORIZONTAL_ALIGNMENT_CENTER, 730, 18, Color("fff4cf"))
+	draw_rect(Rect2(190, 510, 772, 34), Color("182f2b"))
+	draw_string(ThemeDB.fallback_font, Vector2(211, 533), message, HORIZONTAL_ALIGNMENT_CENTER, 730, 17, Color("fff4cf"))
+	draw_hotbar()
 	if quest_active:
 		draw_rect(Rect2(850, 108, 278, 52), Color("293b34"))
 		draw_string(ThemeDB.fallback_font, Vector2(865, 140), "Квест: морковь %d/10" % mini(carrots, 10), HORIZONTAL_ALIGNMENT_LEFT, -1, 18, Color("ffe5a2"))
@@ -1276,27 +1380,68 @@ func draw_player_status_bars() -> void:
 		draw_rect(Rect2(450, 108, 680, 26), Color(0.08, 0.16, 0.14, 0.88))
 		draw_string(ThemeDB.fallback_font, Vector2(465, 127), "ЭФФЕКТЫ: " + "   ".join(effects), HORIZONTAL_ALIGNMENT_LEFT, 650, 15, Color("ffeaa3"))
 
+func draw_hotbar() -> void:
+	var start_x := 176.0
+	for index in 10:
+		var slot := Rect2(start_x + index * 80.0, 558, 72, 72)
+		var selected := index == selected_hotbar
+		draw_rect(slot, Color("f2c96f") if selected else Color("263c36"))
+		draw_rect(slot.grow(-4), Color("fff0bd") if selected else Color("49665c"))
+		var kind: String = hotbar_slots[index]
+		var item := InventorySystem.data(kind)
+		draw_item_icon(kind, Rect2(slot.position + Vector2(17, 10), Vector2(38, 38)))
+		draw_string(ThemeDB.fallback_font, slot.position + Vector2(5, 16), str(index + 1 if index < 9 else 0), HORIZONTAL_ALIGNMENT_LEFT, -1, 13, Color("352e28") if selected else Color.WHITE)
+		draw_string(ThemeDB.fallback_font, slot.position + Vector2(4, 61), item.short, HORIZONTAL_ALIGNMENT_CENTER, 64, 11, Color("352e28") if selected else Color.WHITE)
+
 func draw_inventory() -> void:
-	draw_rect(Rect2(180, 64, 792, 520), Color("2d2925"))
-	draw_rect(Rect2(198, 82, 756, 484), Color("e8cf96"))
-	draw_rect(Rect2(198, 82, 756, 70), Color("594334"))
-	draw_string(ThemeDB.fallback_font, Vector2(576, 128), "РЮКЗАК", HORIZONTAL_ALIGNMENT_CENTER, 320, 30, Color("fff0bd"))
+	draw_rect(Rect2(38, 40, 1076, 552), Color("2d2925"))
+	draw_rect(Rect2(54, 56, 1044, 520), Color("e8cf96"))
+	draw_rect(Rect2(54, 56, 1044, 62), Color("594334"))
+	draw_string(ThemeDB.fallback_font, Vector2(330, 98), "РЮКЗАК • TAB", HORIZONTAL_ALIGNMENT_CENTER, 320, 27, Color("fff0bd"))
 	for index in inventory_slots.size():
-		var column := index % 4
-		var row := index / 4
-		var slot := Rect2(242 + column * 136, 176 + row * 78, 118, 66)
+		var column := index % 6
+		var row := index / 6
+		var slot := Rect2(72 + column * 112, 136 + row * 86, 102, 72)
 		var selected := index == inventory_selected
 		var moving := index == inventory_move_from
 		draw_rect(slot, Color("f0c96f") if selected else Color("715744"))
 		draw_rect(slot.grow(-4), Color("fff0bd") if not moving else Color("95d2a6"))
 		var kind: String = inventory_slots[index]
 		if not kind.is_empty() and inventory_item_count(kind) > 0:
-			draw_circle(slot.position + Vector2(22, 23), 13, inventory_item_color(kind))
-			draw_string(ThemeDB.fallback_font, slot.position + Vector2(43, 25), inventory_item_name(kind), HORIZONTAL_ALIGNMENT_LEFT, 68, 13, Color("352e28"))
-			draw_string(ThemeDB.fallback_font, slot.position + Vector2(90, 54), "×%d" % inventory_item_count(kind), HORIZONTAL_ALIGNMENT_LEFT, -1, 16, Color("352e28"))
+			draw_item_icon(kind, Rect2(slot.position + Vector2(5, 8), Vector2(34, 34)))
+			draw_string(ThemeDB.fallback_font, slot.position + Vector2(40, 25), inventory_item_name(kind), HORIZONTAL_ALIGNMENT_LEFT, 58, 11, Color("352e28"))
+			draw_string(ThemeDB.fallback_font, slot.position + Vector2(76, 58), "×%d" % inventory_item_count(kind), HORIZONTAL_ALIGNMENT_LEFT, -1, 14, Color("352e28"))
 		else:
 			draw_string(ThemeDB.fallback_font, slot.position + Vector2(45, 39), "—", HORIZONTAL_ALIGNMENT_LEFT, -1, 18, Color("937d61"))
-	draw_string(ThemeDB.fallback_font, Vector2(576, 526), "Стрелки: слот   M: переместить   X: выбросить   Delete: удалить   I: закрыть", HORIZONTAL_ALIGNMENT_CENTER, 710, 16, Color("493b2f"))
+	draw_equipment_panel()
+	for index in 10:
+		var assign_box := Rect2(72 + index * 68, 492, 62, 44)
+		draw_rect(assign_box, Color("f0c96f") if index == selected_hotbar else Color("715744"))
+		draw_string(ThemeDB.fallback_font, assign_box.position + Vector2(3, 14), str(index + 1 if index < 9 else 0), HORIZONTAL_ALIGNMENT_LEFT, -1, 11, Color.WHITE)
+		draw_string(ThemeDB.fallback_font, assign_box.position + Vector2(4, 35), InventorySystem.data(hotbar_slots[index]).short, HORIZONTAL_ALIGNMENT_CENTER, 54, 9, Color.WHITE)
+	draw_rect(Rect2(770, 500, 142, 38), Color("6e9b63"))
+	draw_rect(Rect2(928, 500, 142, 38), Color("c08a55"))
+	draw_string(ThemeDB.fallback_font, Vector2(778, 525), "СЪЕСТЬ • A", HORIZONTAL_ALIGNMENT_CENTER, 126, 13, Color.WHITE)
+	draw_string(ThemeDB.fallback_font, Vector2(936, 525), "НАДЕТЬ • X", HORIZONTAL_ALIGNMENT_CENTER, 126, 13, Color.WHITE)
+	draw_string(ThemeDB.fallback_font, Vector2(72, 563), "E съесть • Q надеть • 1–0 назначить • M переместить • X выбросить • Delete удалить", HORIZONTAL_ALIGNMENT_LEFT, 990, 13, Color("493b2f"))
+
+func draw_equipment_panel() -> void:
+	draw_rect(Rect2(770, 136, 300, 350), Color("6f5542"))
+	draw_string(ThemeDB.fallback_font, Vector2(790, 168), "ЭКИПИРОВКА", HORIZONTAL_ALIGNMENT_CENTER, 260, 22, Color("fff0bd"))
+	draw_circle(Vector2(920, 265), 48, Color("e5b68d"))
+	draw_rect(Rect2(882, 310, 76, 105), Color("638d72"))
+	var slots := ["head", "body", "legs", "hands", "ring"]
+	var labels := {"head":"Голова", "body":"Тело", "legs":"Ноги", "hands":"Руки", "ring":"Кольцо"}
+	for index in slots.size():
+		var slot_name: String = slots[index]
+		var left := index % 2 == 0
+		var box := Rect2(790 if left else 972, 195 + (index / 2) * 82, 82, 64)
+		draw_rect(box, Color("fff0bd"))
+		var kind: String = equipment[slot_name]
+		draw_string(ThemeDB.fallback_font, box.position + Vector2(4, 16), labels[slot_name], HORIZONTAL_ALIGNMENT_CENTER, 74, 11, Color("493b2f"))
+		if not kind.is_empty():
+			draw_item_icon(kind, Rect2(box.position + Vector2(23, 23), Vector2(36, 36)))
+			draw_string(ThemeDB.fallback_font, box.position + Vector2(4, 59), InventorySystem.data(kind).short, HORIZONTAL_ALIGNMENT_CENTER, 74, 10, Color("493b2f"))
 
 func draw_shop() -> void:
 	# Отдельная сцена-интерьер поверх игрового мира.
@@ -1329,6 +1474,9 @@ func draw_shop() -> void:
 	draw_string(ThemeDB.fallback_font, Vector2(690, 495), "↑↓ выбрать   Enter купить   X продать   B закрыть", HORIZONTAL_ALIGNMENT_CENTER, 560, 18, Color("493b2f"))
 
 func _input(event: InputEvent) -> void:
+	if handle_gamepad_and_touch(event):
+		get_viewport().set_input_as_handled()
+		return
 	if event is InputEventKey:
 		var is_action_key := set_action_key_state(event)
 		var is_attack_key := set_attack_key_state(event)
@@ -1338,9 +1486,54 @@ func _input(event: InputEvent) -> void:
 		if is_action_key and not title_screen and not shop_open and not inventory_open:
 			if event.pressed and not event.echo:
 				if not perform_context_action() and current_location == "overworld":
-					use_selected_tool()
+					use_active_item()
 			get_viewport().set_input_as_handled()
 		if is_attack_key and not title_screen and not shop_open and not inventory_open:
 			if event.pressed and not event.echo:
 				attack_slime()
 			get_viewport().set_input_as_handled()
+
+func handle_gamepad_and_touch(event: InputEvent) -> bool:
+	if title_screen and ((event is InputEventJoypadButton and event.pressed) or (event is InputEventScreenTouch and event.pressed)):
+		title_screen = false
+		return true
+	if event is InputEventJoypadButton and event.pressed:
+		if inventory_open:
+			handle_inventory_input(event)
+			return true
+		match event.button_index:
+			JOY_BUTTON_DPAD_LEFT:
+				select_hotbar(posmod(selected_hotbar - 1, 10))
+				return true
+			JOY_BUTTON_DPAD_RIGHT:
+				select_hotbar(posmod(selected_hotbar + 1, 10))
+				return true
+			JOY_BUTTON_A:
+				if not perform_context_action(): use_active_item()
+				return true
+			JOY_BUTTON_X:
+				attack_slime()
+				return true
+			JOY_BUTTON_Y:
+				open_inventory()
+				return true
+	if event is InputEventScreenTouch and event.pressed:
+		if inventory_open:
+			if event.position.y >= 136.0 and event.position.y < 480.0 and event.position.x >= 72.0 and event.position.x < 744.0:
+				var column := clampi(int((event.position.x - 72.0) / 112.0), 0, 5)
+				var row := clampi(int((event.position.y - 136.0) / 86.0), 0, 3)
+				inventory_selected = row * 6 + column
+			elif event.position.y >= 490.0 and event.position.y < 545.0 and event.position.x < 760.0:
+				assign_selected_to_hotbar(clampi(int((event.position.x - 72.0) / 68.0), 0, 9))
+			elif Rect2(770, 490, 150, 58).has_point(event.position):
+				consume_selected_item()
+			elif Rect2(928, 490, 150, 58).has_point(event.position):
+				equip_selected_item()
+			return true
+		if event.position.y >= 548.0:
+			var index := clampi(int((event.position.x - 176.0) / 80.0), 0, 9)
+			select_hotbar(index)
+		else:
+			if not perform_context_action(): use_active_item()
+		return true
+	return false
