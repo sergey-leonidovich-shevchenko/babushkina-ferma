@@ -17,6 +17,11 @@ const QUEST_BUTTON := Rect2(1066, 10, 72, 50)
 const HOTBAR_ORIGIN := Vector2(279, 584)
 const HOTBAR_SLOT_SIZE := Vector2(54, 54)
 const HOTBAR_PITCH := 60.0
+const STORAGE_LEFT_ROWS := Rect2(96, 168, 430, 320)
+const STORAGE_RIGHT_ROWS := Rect2(626, 168, 430, 320)
+const STORAGE_TRANSFER_ONE := Rect2(454, 494, 116, 36)
+const STORAGE_TRANSFER_ALL := Rect2(582, 494, 116, 36)
+const FORGE_ROWS := Rect2(164, 154, 824, 396)
 
 const INK := Color("f8f1dc")
 const MUTED := Color("b9c8b8")
@@ -78,6 +83,8 @@ static func draw(game: Node) -> void:
 	if game.shop_open: game.draw_shop()
 	if game.inventory_open: draw_inventory(game)
 	if game.crafting_open: game.draw_crafting_window()
+	if game.storage_open: game.draw_storage_window()
+	if game.forge_open: game.draw_forge_window()
 	if game.quest_log_open: game.draw_quest_log()
 	if game.skill_menu_open: game.draw_skill_menu()
 

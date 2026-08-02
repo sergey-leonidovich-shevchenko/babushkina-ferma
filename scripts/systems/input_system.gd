@@ -52,7 +52,7 @@ static func set_attack_key_state(game: Node, event: InputEventKey) -> bool:
 
 ## Обновляет относящуюся к методу часть состояния на текущем кадре.
 static func update_held_action(game: Node, delta: float) -> void:
-	if not game.action_held or game.title_screen or game.shop_open or game.inventory_open:
+	if not game.action_held or game.title_screen or game.shop_open or game.inventory_open or game.storage_open or game.forge_open:
 		return
 	game.action_repeat_timer -= delta
 	if game.action_repeat_timer > 0.0:
@@ -63,7 +63,7 @@ static func update_held_action(game: Node, delta: float) -> void:
 
 ## Обновляет удерживаемого атаки на текущем кадре.
 static func update_held_attack(game: Node, delta: float) -> void:
-	if not game.attack_held or game.title_screen or game.shop_open or game.inventory_open:
+	if not game.attack_held or game.title_screen or game.shop_open or game.inventory_open or game.storage_open or game.forge_open:
 		return
 	game.attack_repeat_timer -= delta
 	if game.attack_repeat_timer <= 0.0:
@@ -139,3 +139,67 @@ static func handle_inventory_mouse(game: Node, event: InputEventMouseButton) -> 
 		elif game.InventorySystem.can_equip(kind): game.equip_selected_item()
 	game.InventorySystem.keep_selection_visible(game)
 	game.queue_redraw()
+
+
+## Обрабатывает клавиатуру и геймпад двухколоночного домашнего сундука.
+static func handle_storage_input(game: Node, event: InputEvent) -> void:
+	var command := -1
+	if event is InputEventKey and event.pressed and not event.echo:
+		command = int(event.keycode)
+	elif event is InputEventJoypadButton and event.pressed:
+		command = {JOY_BUTTON_DPAD_UP:KEY_UP, JOY_BUTTON_DPAD_DOWN:KEY_DOWN, JOY_BUTTON_DPAD_LEFT:KEY_LEFT, JOY_BUTTON_DPAD_RIGHT:KEY_RIGHT, JOY_BUTTON_A:KEY_ENTER, JOY_BUTTON_X:KEY_X, JOY_BUTTON_B:KEY_ESCAPE}.get(event.button_index, -1)
+	if command < 0: return
+	match command:
+		KEY_ESCAPE, KEY_C: game.storage_open = false
+		KEY_LEFT, KEY_RIGHT, KEY_TAB:
+			game.storage_side = 1 - game.storage_side
+			game.storage_selected = 0
+		KEY_UP: game.storage_selected -= 1
+		KEY_DOWN: game.storage_selected += 1
+		KEY_ENTER, KEY_E, KEY_SPACE: game.StorageSystem.transfer_selected(game)
+		KEY_X: game.StorageSystem.transfer_selected(game, true)
+	game.StorageSystem.clamp_selection(game)
+	game.queue_redraw()
+
+
+## Обрабатывает касания колонок и кнопок переноса домашнего сундука.
+static func handle_storage_touch(game: Node, position: Vector2) -> bool:
+	if game.InterfaceRenderer.STORAGE_TRANSFER_ONE.has_point(position):
+		game.StorageSystem.transfer_selected(game)
+	elif game.InterfaceRenderer.STORAGE_TRANSFER_ALL.has_point(position):
+		game.StorageSystem.transfer_selected(game, true)
+	else:
+		var side := 0 if game.InterfaceRenderer.STORAGE_LEFT_ROWS.has_point(position) else (1 if game.InterfaceRenderer.STORAGE_RIGHT_ROWS.has_point(position) else -1)
+		if side >= 0:
+			var previous_side: int = game.storage_side
+			game.storage_side = side
+			var items: Array[String] = game.StorageSystem.selected_items(game)
+			var start: int = game.StorageSystem.visible_start(game.storage_selected if side == previous_side else 0, items.size())
+			game.storage_selected = mini(start + int((position.y - 168.0) / 40.0), maxi(items.size() - 1, 0))
+	game.queue_redraw()
+	return true
+
+
+## Обрабатывает клавиатуру и геймпад окна улучшений кузницы.
+static func handle_forge_input(game: Node, event: InputEvent) -> void:
+	var command := -1
+	if event is InputEventKey and event.pressed and not event.echo:
+		command = int(event.keycode)
+	elif event is InputEventJoypadButton and event.pressed:
+		command = {JOY_BUTTON_DPAD_UP:KEY_UP, JOY_BUTTON_DPAD_DOWN:KEY_DOWN, JOY_BUTTON_A:KEY_ENTER, JOY_BUTTON_B:KEY_ESCAPE}.get(event.button_index, -1)
+	if command < 0: return
+	match command:
+		KEY_ESCAPE, KEY_C: game.forge_open = false
+		KEY_UP: game.forge_selected = posmod(game.forge_selected - 1, game.ForgeSystem.UPGRADES.size())
+		KEY_DOWN: game.forge_selected = posmod(game.forge_selected + 1, game.ForgeSystem.UPGRADES.size())
+		KEY_ENTER, KEY_E, KEY_SPACE: game.ForgeSystem.upgrade(game, game.forge_selected)
+	game.queue_redraw()
+
+
+## Обрабатывает касание строки кузницы как выбор и подтверждение улучшения.
+static func handle_forge_touch(game: Node, position: Vector2) -> bool:
+	if game.InterfaceRenderer.FORGE_ROWS.has_point(position):
+		game.forge_selected = clampi(int((position.y - game.InterfaceRenderer.FORGE_ROWS.position.y) / 44.0), 0, game.ForgeSystem.UPGRADES.size() - 1)
+		game.ForgeSystem.upgrade(game, game.forge_selected)
+	game.queue_redraw()
+	return true

@@ -10,6 +10,8 @@ const STEP_IDS := [
 	"shield", "lizard",
 	"building_enter", "locked_building", "castle_floor", "companion_recruit", "companion_change",
 	"enemy_levels", "enemy_movement", "contact_hazard", "static_attacker", "hero_skin",
+	"chest_install", "chest_open", "chest_deposit", "chest_withdraw",
+	"forge_open", "weapon_sharpen", "armor_upgrade", "arrow_sharpen",
 ]
 
 

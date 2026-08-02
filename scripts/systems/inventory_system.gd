@@ -30,6 +30,7 @@ const ITEM_DATA := {
 	"fish": {"name": "Речная рыба", "short": "Рыба", "color": Color("5aa4d6")},
 	"sword": {"name": "Лесной меч", "short": "Меч", "color": Color("d9e4e6")},
 	"bow": {"name": "Охотничий лук", "short": "Лук", "color": Color("c58a4d")},
+	"arrows": {"name": "Стрелы", "short": "Стрелы", "color": Color("d9cfad")},
 	"crystal_sword": {"name": "Кристальный меч", "short": "Кр. меч", "color": Color("6ce8ef")},
 	"fiber": {"name": "Лесное волокно", "short": "Волокно", "color": Color("85a85a")},
 	"rare_seeds": {"name": "Редкие семена", "short": "Ред. сем.", "color": Color("d4b765")},
@@ -49,7 +50,8 @@ const ITEM_DATA := {
 	"travel_boots": {"name": "Походные сапоги", "short": "Сапоги", "color": Color("8c6745"), "equip": "legs"},
 	"crystal_ring": {"name": "Алмазный талисман", "short": "Алмаз", "color": Color("62dce5"), "equip": "ring"},
 	"orc_blade": {"name": "Клинок орка", "short": "Клинок", "color": Color("8aa05c"), "equip": "hands"},
-	"oak_shield": {"name": "Дубовый щит", "short": "Щит", "color": Color("7d5b47"), "equip": "offhand"}
+	"oak_shield": {"name": "Дубовый щит", "short": "Щит", "color": Color("7d5b47"), "equip": "offhand"},
+	"home_chest": {"name": "Домашний сундук", "short": "Сундук", "color": Color("a66d35")},
 }
 
 ## Возвращает локализованные метаданные предмета по его идентификатору.
@@ -209,8 +211,8 @@ static func damage_bonus(game: Node) -> int:
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func speed_multiplier(game: Node) -> float:
-	return 1.1 if game.equipment.legs == "travel_boots" else 1.0
+	return (1.1 if game.equipment.legs == "travel_boots" else 1.0) + game.ForgeSystem.boots_speed_bonus(game)
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func incoming_damage(game: Node, amount: int) -> int:
-	return maxi(1, amount - (5 if game.equipment.get("offhand", "") == "oak_shield" else 0))
+	return maxi(1, amount - (5 if game.equipment.get("offhand", "") == "oak_shield" else 0) - game.ForgeSystem.armor_defense_bonus(game))

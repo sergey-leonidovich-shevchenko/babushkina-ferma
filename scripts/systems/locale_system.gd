@@ -82,6 +82,16 @@ const UI := {
 	"inventory_help":["ЛКМ выбрать/перетащить • ПКМ использовать • колесо прокрутить • 1–0 назначить • S сортировать","Left click select/drag • right click use • wheel scroll • 1–0 assign • S sort","Clic izq. elegir/arrastrar • clic der. usar • rueda mover • 1–0 asignar • S ordenar","Linksklick wählen/ziehen • Rechtsklick nutzen • Rad scrollen • 1–0 belegen • S sortieren","Clic gauche choisir/glisser • clic droit utiliser • molette défiler • 1–0 assigner • S trier","左键选择/拖动 • 右键使用 • 滚轮滚动 • 1–0分配 • S排序"],
 	"craft_help":["↑↓ рецепт • Enter создать • C/Esc закрыть","↑↓ recipe • Enter craft • C/Esc close","↑↓ receta • Enter crear • C/Esc cerrar","↑↓ Rezept • Enter herstellen • C/Esc schließen","↑↓ recette • Entrée fabriquer • C/Esc fermer","↑↓配方 • Enter制作 • C/Esc关闭"],
 	"shop_help":["↑↓ выбрать   Enter купить   X продать   B закрыть","↑↓ select   Enter buy   X sell   B close","↑↓ elegir   Enter comprar   X vender   B cerrar","↑↓ wählen   Enter kaufen   X verkaufen   B schließen","↑↓ choisir   Entrée acheter   X vendre   B fermer","↑↓选择   Enter购买   X出售   B关闭"],
+	"home_storage":["ДОМАШНИЙ СУНДУК","HOME STORAGE","ALMACÉN DE CASA","HAUSTRUHE","COFFRE DE MAISON","家庭储物箱"],
+	"backpack_column":["РЮКЗАК","BACKPACK","MOCHILA","RUCKSACK","SAC","背包"],
+	"chest_column":["СУНДУК","CHEST","COFRE","TRUHE","COFFRE","箱子"],
+	"transfer_one":["ENTER • 1 ШТ.","ENTER • ONE","ENTER • UNO","ENTER • EINS","ENTRÉE • UN","ENTER • 一个"],
+	"transfer_all":["X • ВЕСЬ СТЕК","X • ALL","X • TODO","X • ALLES","X • TOUT","X • 全部"],
+	"storage_help":["←→/Tab колонка • ↑↓ предмет • Enter/A один • X весь стек • C/Esc/B закрыть","←→/Tab column • ↑↓ item • Enter/A one • X whole stack • C/Esc/B close","←→/Tab columna • ↑↓ objeto • Enter/A uno • X todo • C/Esc/B cerrar","←→/Tab Spalte • ↑↓ Gegenstand • Enter/A eins • X Stapel • C/Esc/B schließen","←→/Tab colonne • ↑↓ objet • Entrée/A un • X pile • C/Échap/B fermer","←→/Tab切换 • ↑↓物品 • Enter/A一个 • X全部 • C/Esc/B关闭"],
+	"forge_title":["КУЗНИЦА • УЛУЧШЕНИЯ","FORGE • UPGRADES","FORJA • MEJORAS","SCHMIEDE • VERBESSERUNGEN","FORGE • AMÉLIORATIONS","铁匠铺 • 强化"],
+	"upgrade_level":["УР. %d/%d","LV. %d/%d","NV. %d/%d","ST. %d/%d","NIV. %d/%d","等级 %d/%d"],
+	"upgrade_max":["МАКСИМУМ","MAXIMUM","MÁXIMO","MAXIMUM","MAXIMUM","已满级"],
+	"forge_help":["↑↓ выбрать • Enter/A улучшить • C/Esc/B закрыть","↑↓ select • Enter/A upgrade • C/Esc/B close","↑↓ elegir • Enter/A mejorar • C/Esc/B cerrar","↑↓ wählen • Enter/A verbessern • C/Esc/B schließen","↑↓ choisir • Entrée/A améliorer • C/Échap/B fermer","↑↓选择 • Enter/A强化 • C/Esc/B关闭"],
 	"hint_location":["Новая область: исследуй окружение, ресурсы и существ.","New area: explore its surroundings, resources, and creatures.","Nueva zona: explora recursos y criaturas.","Neues Gebiet: Erkunde Umgebung, Ressourcen und Wesen.","Nouvelle zone : explore les ressources et les créatures.","新区域：探索环境、资源和生物。"],
 	"quest_close":["J или Esc — закрыть","J or Esc — close","J o Esc — cerrar","J oder Esc — schließen","J ou Échap — fermer","J或Esc — 关闭"],
 	"skill_help":["Стрелки/D-pad — выбрать • Enter/A — вложить очко • K/Esc/Y — закрыть","Arrows/D-pad — select • Enter/A — spend point • K/Esc/Y — close","Flechas/D-pad — elegir • Enter/A — gastar punto • K/Esc/Y — cerrar","Pfeile/D-pad — wählen • Enter/A — Punkt setzen • K/Esc/Y — schließen","Flèches/D-pad — choisir • Entrée/A — dépenser • K/Esc/Y — fermer","方向键/D-pad选择 • Enter/A加点 • K/Esc/Y关闭"],
@@ -145,6 +155,16 @@ const TEXT := {
 	"companion_recruited":["%s свободен и присоединился к группе","%s is free and joined the party","%s está libre y se unió al grupo","%s ist frei und schließt sich an","%s est libre et rejoint le groupe","%s已获自由并加入队伍"],
 	"companion_resting":["%s ждёт в безопасном месте","%s is waiting in a safe place","%s espera en un lugar seguro","%s wartet an einem sicheren Ort","%s attend dans un lieu sûr","%s正在安全地点等待"],
 	"companion_active":["%s в группе (%d/%d)","%s in party (%d/%d)","%s en el grupo (%d/%d)","%s in der Gruppe (%d/%d)","%s dans le groupe (%d/%d)","%s加入队伍（%d/%d）"],
+	"chest_installed":["Домашний сундук установлен у стены","Home chest installed by the wall","Cofre instalado junto a la pared","Haustruhe an der Wand aufgestellt","Coffre installé contre le mur","家庭储物箱已放在墙边"],
+	"chest_missing":["Сначала купи или создай домашний сундук","Buy or craft a home chest first","Primero compra o fabrica un cofre","Kaufe oder baue zuerst eine Haustruhe","Achète ou fabrique d'abord un coffre","请先购买或制作家庭储物箱"],
+	"chest_opened":["Сундук открыт: выбери колонку и предмет","Chest opened: select a column and item","Cofre abierto: elige columna y objeto","Truhe geöffnet: Spalte und Gegenstand wählen","Coffre ouvert : choisis une colonne et un objet","储物箱已打开：选择栏和物品"],
+	"chest_deposited":["В сундук: %s ×%d","Stored: %s ×%d","Guardado: %s ×%d","Eingelagert: %s ×%d","Déposé : %s ×%d","已存入：%s ×%d"],
+	"chest_withdrawn":["В рюкзак: %s ×%d","Withdrawn: %s ×%d","Retirado: %s ×%d","Entnommen: %s ×%d","Retiré : %s ×%d","已取出：%s ×%d"],
+	"chest_already_owned":["Домашний сундук уже установлен","The home chest is already installed","El cofre ya está instalado","Die Haustruhe ist bereits aufgestellt","Le coffre est déjà installé","家庭储物箱已安装"],
+	"forge_opened":["Кузница открыта: выбери улучшение","Forge opened: choose an upgrade","Forja abierta: elige una mejora","Schmiede geöffnet: Verbesserung wählen","Forge ouverte : choisis une amélioration","铁匠铺已打开：选择强化"],
+	"forge_max":["Предмет уже улучшен до максимума","Item is already fully upgraded","El objeto ya está al máximo","Gegenstand ist bereits voll verbessert","L'objet est déjà amélioré au maximum","物品已经满级"],
+	"forge_need_item":["Сначала получи предмет: %s","Obtain the item first: %s","Consigue primero el objeto: %s","Beschaffe zuerst den Gegenstand: %s","Obtiens d'abord l'objet : %s","请先获得物品：%s"],
+	"forge_upgraded":["Улучшено: %s • уровень %d","Upgraded: %s • level %d","Mejorado: %s • nivel %d","Verbessert: %s • Stufe %d","Amélioré : %s • niveau %d","已强化：%s • 等级%d"],
 }
 
 const ITEMS := {
@@ -162,6 +182,7 @@ const ITEMS := {
 	"tusk":["Кабаний клык","Boar tusk","Colmillo de jabalí","Eberhauer","Défense de sanglier","野猪獠牙"], "bat_wing":["Крыло летучей мыши","Bat wing","Ala de murciélago","Fledermausflügel","Aile de chauve-souris","蝙蝠翼"], "lizard_scale":["Чешуя листохвоста","Leaf-tail scale","Escama de lagarto","Blattschwanzschuppe","Écaille de lézard","叶尾蜥鳞片"],
 	"iron_helmet":["Железный шлем","Iron helmet","Casco de hierro","Eisenhelm","Casque de fer","铁头盔"], "guardian_armor":["Доспех хранителя","Guardian armor","Armadura del guardián","Wächterrüstung","Armure du gardien","守护者铠甲"], "travel_boots":["Походные сапоги","Travel boots","Botas de viaje","Reisestiefel","Bottes de voyage","旅行靴"],
 	"crystal_ring":["Алмазный талисман","Diamond talisman","Talismán de diamante","Diamanttalisman","Talisman de diamant","钻石护符"], "orc_blade":["Клинок орка","Orc blade","Hoja orca","Orkklinge","Lame orque","兽人之刃"], "oak_shield":["Дубовый щит","Oak shield","Escudo de roble","Eichenschild","Bouclier de chêne","橡木盾"],
+	"arrows":["Стрелы","Arrows","Flechas","Pfeile","Flèches","箭矢"], "home_chest":["Домашний сундук","Home chest","Cofre de casa","Haustruhe","Coffre de maison","家庭储物箱"],
 }
 
 const LOCATIONS := {
@@ -231,6 +252,14 @@ const TUTORIAL := {
 	"contact_hazard":["Осторожно проверь урон плюща или кактуса","Carefully test ivy or cactus contact damage","Prueba con cuidado el daño de la hiedra o el cactus","Teste vorsichtig den Kontaktschaden von Efeu oder Kaktus","Teste prudemment les dégâts du lierre ou du cactus","小心测试藤蔓或仙人掌的接触伤害"],
 	"static_attacker":["Переживи дальнюю атаку колючего цветка","Survive a thorn bloom ranged attack","Sobrevive al ataque a distancia de la flor espinosa","Überstehe den Fernangriff der Dornenblüte","Survis à l'attaque à distance de la fleur épineuse","承受一次荆棘花的远程攻击"],
 	"hero_skin":["Получи 6 уровень и проверь новый облик","Reach level 6 and check the new outfit","Alcanza el nivel 6 y mira el nuevo aspecto","Erreiche Stufe 6 und prüfe das neue Aussehen","Atteins le niveau 6 et découvre la nouvelle tenue","达到6级并查看新外观"],
+	"chest_install":["Купи или создай домашний сундук","Buy or craft a home chest","Compra o fabrica un cofre de casa","Kaufe oder baue eine Haustruhe","Achète ou fabrique un coffre de maison","购买或制作家庭储物箱"],
+	"chest_open":["Открой установленный сундук дома [E]","Open the installed chest at home [E]","Abre el cofre instalado en casa [E]","Öffne die aufgestellte Truhe zu Hause [E]","Ouvre le coffre installé à la maison [E]","在家打开已放置的储物箱 [E]"],
+	"chest_deposit":["Положи предмет из рюкзака в сундук","Move an item from backpack to chest","Guarda un objeto de la mochila","Lege einen Gegenstand in die Truhe","Dépose un objet du sac dans le coffre","把背包物品放入箱子"],
+	"chest_withdraw":["Забери предмет из сундука обратно","Take an item back from the chest","Retira un objeto del cofre","Nimm einen Gegenstand aus der Truhe","Reprends un objet du coffre","从箱子取回物品"],
+	"forge_open":["Открой улучшения у наковальни кузницы","Open upgrades at the forge anvil","Abre las mejoras en el yunque","Öffne Verbesserungen am Amboss","Ouvre les améliorations à l'enclume","在铁砧打开强化界面"],
+	"weapon_sharpen":["Заточи меч или улучши лук","Sharpen a sword or improve a bow","Afila una espada o mejora un arco","Schärfe ein Schwert oder verbessere einen Bogen","Aiguise une épée ou améliore un arc","磨利剑或强化弓"],
+	"armor_upgrade":["Усиль доспех, шлем, щит или сапоги","Reinforce armor, helmet, shield, or boots","Refuerza armadura, casco, escudo o botas","Verstärke Rüstung, Helm, Schild oder Stiefel","Renforce armure, casque, bouclier ou bottes","强化盔甲、头盔、盾牌或靴子"],
+	"arrow_sharpen":["Закали и заточи наконечники стрел","Harden and sharpen arrowheads","Templa y afila las puntas de flecha","Härte und schärfe Pfeilspitzen","Trempe et aiguise les pointes de flèche","淬炼并磨利箭头"],
 }
 
 const SKILLS := {
@@ -261,6 +290,7 @@ const ENTITIES := {
 	"companion_mila":["Мила Щитоносица","Mila Shieldbearer","Mila Escudera","Mila Schildträgerin","Mila Porte-bouclier","盾卫米拉"], "companion_borislav":["Борислав Ветеран","Borislav the Veteran","Borislav el Veterano","Borislav der Veteran","Borislav le Vétéran","老兵鲍里斯拉夫"], "companion_luna":["Луна Целительница","Luna the Healer","Luna la Sanadora","Luna die Heilerin","Luna la Guérisseuse","治疗师露娜"],
 	"berries":["Ягодный куст","Berry bush","Arbusto de bayas","Beerenbusch","Buisson à baies","浆果灌木"], "mushroom":["Грибная поляна","Mushroom patch","Claro de setas","Pilzplatz","Carré de champignons","蘑菇地"], "watermelon":["Арбузная бахча","Watermelon patch","Melonar","Melonenfeld","Carré de pastèques","西瓜地"], "apple":["Яблоня","Apple tree","Manzano","Apfelbaum","Pommier","苹果树"], "nut":["Ореховое дерево","Nut tree","Nogal","Nussbaum","Noyer","坚果树"],
 	"chest":["Старый сундук","Old chest","Cofre viejo","Alte Truhe","Vieux coffre","旧宝箱"], "bone_pile":["Груда костей","Bone pile","Pila de huesos","Knochenhaufen","Tas d'os","骨堆"], "sack":["Брошенный мешок","Abandoned sack","Saco abandonado","Verlassener Sack","Sac abandonné","废弃麻袋"], "trash":["Куча хлама","Junk pile","Montón de basura","Gerümpelhaufen","Tas de débris","垃圾堆"],
+	"home_chest":["Домашний сундук","Home chest","Cofre de casa","Haustruhe","Coffre de maison","家庭储物箱"], "forge":["Наковальня","Forge anvil","Yunque","Amboss","Enclume","铁砧"],
 }
 
 ## Возвращает индекс выбранного языка с безопасным запасным значением.

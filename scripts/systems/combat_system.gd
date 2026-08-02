@@ -140,6 +140,7 @@ static func attack(game: Node, index: int) -> bool:
 	if game.equipped_weapon == "forest_sword": damage += 1
 	elif game.equipped_weapon == "crystal_sword": damage += 2
 	elif game.equipped_weapon == "bow": damage += 1
+	damage += game.ForgeSystem.weapon_damage_bonus(game, game.equipped_weapon)
 	game.AnimationSystem.begin_player_attack(game)
 	game.play_sfx("attack")
 	apply_damage(game, index, damage)

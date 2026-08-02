@@ -50,6 +50,8 @@ static func interaction_position(game: Node, interaction: String) -> Vector2:
 		return game.BuildingSystem.interaction_position(game, interaction)
 	if interaction.begins_with("prisoner:"):
 		return game.CompanionSystem.interaction_position(interaction)
+	if interaction == "home_chest":
+		return game.StorageSystem.CHEST_POSITION
 	for prefix in ["drop", "container", "resource", "food"]:
 		if not interaction.begins_with(prefix + ":"):
 			continue

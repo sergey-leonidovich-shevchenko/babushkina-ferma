@@ -12,6 +12,7 @@ const LootContainerSystem := preload("res://scripts/systems/loot_container_syste
 const TutorialSystem := preload("res://scripts/systems/tutorial_system.gd")
 const WorldSystem := preload("res://scripts/systems/world_system.gd")
 const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
+const ForgeSystem := preload("res://scripts/systems/forge_system.gd")
 
 ## Проверяет ссылки между управляемыми данными каталогами до начала игры. Добавление
 ## контента с опечаткой падает в тестах, а не через несколько часов прохождения.
@@ -25,6 +26,11 @@ static func validate() -> Array[String]:
 			_validate_item(errors, items, kind, "recipe[%d].inputs" % recipe_index)
 	for product_index in ShopSystem.PRODUCTS.size():
 		_validate_item(errors, items, ShopSystem.PRODUCTS[product_index].kind, "shop[%d]" % product_index)
+	for upgrade_index in ForgeSystem.UPGRADES.size():
+		var upgrade: Dictionary = ForgeSystem.UPGRADES[upgrade_index]
+		_validate_item(errors, items, upgrade.kind, "forge[%d].kind" % upgrade_index)
+		for kind in upgrade.cost:
+			_validate_item(errors, items, kind, "forge[%d].cost" % upgrade_index)
 	for enemy_kind in CombatSystem.TYPES:
 		for kind in CombatSystem.TYPES[enemy_kind].loot:
 			if kind != "coins": _validate_item(errors, items, kind, "enemy.%s.loot" % enemy_kind)

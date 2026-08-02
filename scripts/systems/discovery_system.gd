@@ -16,6 +16,8 @@ const STATIC_HINTS := {
 	"world_gate": {"title":"Золотые врата","text":"Переносят в следующую область мира. Подойди к свечению и нажми E."},
 	"bridge": {"title":"Мост","text":"Воду нельзя пересечь пешком. Ищи мосты — только по ним можно перейти реку."},
 	"slime": {"title":"Слизень","text":"Враг ближнего боя. Атакуй клавишей F; выпавшие ресурсы подбираются через E."},
+	"home_chest": {"title":"Домашний сундук","text":"Хранит предметы дома и переносит целые стопки."},
+	"forge": {"title":"Наковальня","text":"Улучшает оружие, броню и наконечники стрел."},
 }
 
 const LOCATION_HINTS := {
@@ -78,6 +80,10 @@ static func scan_nearby(game: Node) -> bool:
 		for companion_id in game.CompanionSystem.COMPANIONS:
 			var companion: Dictionary = game.CompanionSystem.COMPANIONS[companion_id]
 			add_candidate(candidates, "companion:%s" % companion_id, companion.position, {"title":game.CompanionSystem.name(game, companion_id),"text":game.LocaleSystem.ui("hint_companion")})
+	if game.current_location == "cottage_interior" and game.home_chest_owned:
+		add_candidate(candidates, "home_chest", game.StorageSystem.CHEST_POSITION, static_hint(game, "home_chest"))
+	if game.current_location == "forge_interior":
+		add_candidate(candidates, "forge", game.BuildingSystem.INTERIORS.forge_interior.service_position, static_hint(game, "forge"))
 	for resource in game.resource_nodes:
 		if resource.hits > 0 and resource.location == game.current_location:
 			add_candidate(candidates, "resource:%s" % resource.kind, resource.position, resource_hint(game, resource.kind))
@@ -123,7 +129,7 @@ static func add_candidate(candidates: Array[Dictionary], id: String, position: V
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func static_hint(game: Node, kind: String) -> Dictionary:
-	var tutorial_key: String = {"grandmother":"talk","guild_master":"mission_accept","herbalist":"side_mission","shop":"trade","workbench":"craft_window","farm":"plant","pond":"fish","cave":"travel","bridge":"collision","slime":"fight","world_gate":"locations"}.get(kind, "move")
+	var tutorial_key: String = {"grandmother":"talk","guild_master":"mission_accept","herbalist":"side_mission","shop":"trade","workbench":"craft_window","farm":"plant","pond":"fish","cave":"travel","bridge":"collision","slime":"fight","world_gate":"locations","home_chest":"chest_open","forge":"forge_open"}.get(kind, "move")
 	var title: String = game.LocaleSystem.entity(kind)
 	if kind == "guild_master": title = game.LocaleSystem.quest("story_relic", "giver")
 	if kind == "herbalist": title = game.LocaleSystem.quest("side_seed", "giver")

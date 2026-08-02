@@ -53,6 +53,19 @@ func _ready() -> void:
 		companion_positions = {"mila":Vector2(620, 650), "borislav":Vector2(780, 650)}
 	if "--enemy-levels-preview" in OS.get_cmdline_user_args():
 		configure_enemy_levels_preview()
+	if "--storage-preview" in OS.get_cmdline_user_args():
+		language_screen = false
+		title_screen = false
+		current_location = "cottage_interior"
+		home_chest_owned = true
+		grant_tester_kit()
+		StorageSystem.open(self)
+	if "--forge-preview" in OS.get_cmdline_user_args():
+		language_screen = false
+		title_screen = false
+		current_location = "forge_interior"
+		grant_tester_kit()
+		open_forge()
 	sync_background_location()
 	DiscoverySystem.show_location(self, current_location)
 	queue_redraw()
@@ -105,7 +118,7 @@ func _physics_process(delta: float) -> void:
 	WildlifeSystem.update(self, delta)
 	if benchmark_autoplay:
 		update_benchmark_route(delta)
-	if shop_open or inventory_open or crafting_open or quest_log_open or skill_menu_open:
+	if shop_open or inventory_open or crafting_open or storage_open or forge_open or quest_log_open or skill_menu_open:
 		queue_redraw()
 		return
 	update_player_movement(delta)
@@ -246,6 +259,12 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	if shop_open:
 		handle_shop_input(event)
+		return
+	if storage_open:
+		handle_storage_input(event)
+		return
+	if forge_open:
+		handle_forge_input(event)
 		return
 	if quest_log_open:
 		if event is InputEventKey and event.pressed and not event.echo and event.keycode in [KEY_J, KEY_ESCAPE]:
@@ -460,6 +479,11 @@ func nearest_interaction() -> String:
 	if not building_interaction.is_empty():
 		nearest = building_interaction
 		nearest_distance = player.distance_to(BuildingSystem.interaction_position(self, building_interaction))
+	if home_chest_owned and current_location == "cottage_interior":
+		var chest_distance := player.distance_to(StorageSystem.CHEST_POSITION)
+		if chest_distance < nearest_distance:
+			nearest = "home_chest"
+			nearest_distance = chest_distance
 	var prisoner_interaction := CompanionSystem.nearest_prisoner(self, nearest_distance)
 	if not prisoner_interaction.is_empty():
 		nearest = prisoner_interaction
@@ -508,6 +532,8 @@ func perform_context_action() -> bool:
 		return BuildingSystem.use_service(self, interaction.get_slice(":", 1))
 	if interaction.begins_with("prisoner:"):
 		return CompanionSystem.interact(self, interaction.get_slice(":", 1))
+	if interaction == "home_chest":
+		return StorageSystem.open(self)
 	if interaction.begins_with("drop:"):
 		return collect_dropped_item(int(interaction.get_slice(":", 1)))
 	if interaction.begins_with("container:"):
@@ -991,6 +1017,29 @@ func handle_crafting_input(event: InputEvent) -> void:
 		KEY_ENTER, KEY_E: CraftingSystem.craft(self, crafting_selected)
 	queue_redraw()
 
+## Открывает интерфейс установленного домашнего сундука.
+func open_storage() -> bool:
+	return StorageSystem.open(self)
+
+## Обрабатывает клавиатуру и геймпад окна домашнего сундука.
+func handle_storage_input(event: InputEvent) -> void:
+	InputSystem.handle_storage_input(self, event)
+
+## Открывает отдельное меню улучшений только у наковальни кузницы.
+func open_forge() -> bool:
+	if current_location != "forge_interior":
+		return false
+	forge_open = true
+	forge_selected = 0
+	clear_movement_keys()
+	message = LocaleSystem.text("forge_opened")
+	notify_tutorial("forge_open")
+	return true
+
+## Обрабатывает выбор и подтверждение улучшения в кузнице с клавиатуры и геймпада.
+func handle_forge_input(event: InputEvent) -> void:
+	InputSystem.handle_forge_input(self, event)
+
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func export_inventory_counts() -> Dictionary:
 	return state.inventory.counts.duplicate(true)
@@ -1039,6 +1088,11 @@ func grant_tester_kit() -> void:
 	materials.healing_potion = maxi(materials.healing_potion, 2)
 	materials.oak_shield = maxi(materials.oak_shield, 1)
 	materials.lizard_scale = maxi(materials.lizard_scale, 2)
+	materials.arrows = maxi(materials.arrows, 30)
+	materials.metal = maxi(materials.metal, 20)
+	materials.stone = maxi(materials.stone, 20)
+	materials.fiber = maxi(materials.fiber, 10)
+	materials.hide = maxi(materials.hide, 6)
 	iron_helmet = maxi(iron_helmet, 1)
 	guardian_armor = maxi(guardian_armor, 1)
 	travel_boots = maxi(travel_boots, 1)
@@ -1183,6 +1237,10 @@ func handle_gamepad_and_touch(event: InputEvent) -> bool:
 		if discovery_card_rect().has_point(event.position) and not discovery_current.is_empty():
 			DiscoverySystem.dismiss(self)
 			return true
+		if storage_open:
+			return InputSystem.handle_storage_touch(self, event.position)
+		if forge_open:
+			return InputSystem.handle_forge_touch(self, event.position)
 		if InterfaceRenderer.QUEST_BUTTON.has_point(event.position):
 			toggle_quest_log()
 			return true

@@ -1,6 +1,6 @@
 extends RefCounted
 
-const DEFAULT_SLOTS := ["seeds", "carrot", "pickaxe", "fishing_rod", "slime", "wood", "stone", "crystal", "fish", "sword", "bow", "crystal_sword", "apple", "berries", "nut", "mushroom", "iron_helmet", "guardian_armor", "travel_boots", "crystal_ring", "orange", "orc_blade", "red_crystal", "green_crystal", "raw_meat", "hide", "fur", "tusk", "bat_wing", "watermelon", "healing_potion", "oak_shield", "lizard_scale", ""]
+const DEFAULT_SLOTS := ["seeds", "carrot", "pickaxe", "fishing_rod", "slime", "wood", "stone", "crystal", "fish", "sword", "bow", "crystal_sword", "apple", "berries", "nut", "mushroom", "iron_helmet", "guardian_armor", "travel_boots", "crystal_ring", "orange", "orc_blade", "red_crystal", "green_crystal", "raw_meat", "hide", "fur", "tusk", "bat_wing", "watermelon", "healing_potion", "oak_shield", "lizard_scale", "arrows", "home_chest", ""]
 const DEFAULT_HOTBAR := ["hoe", "seeds", "water", "hand", "pickaxe", "fishing_rod", "carrot", "apple", "berries", "mushroom"]
 const DEFAULT_EQUIPMENT := {"head": "", "body": "", "legs": "", "hands": "", "offhand": "", "ring": ""}
 const INITIAL_COUNTS := {
@@ -12,6 +12,7 @@ const INITIAL_COUNTS := {
 	"red_crystal": 0, "green_crystal": 0, "orc_blade": 0, "moon_relic": 0,
 	"raw_meat": 0, "hide": 0, "fur": 0, "tusk": 0, "bat_wing": 0,
 	"lizard_scale": 0, "watermelon": 0, "healing_potion": 0, "oak_shield": 0,
+	"arrows": 0, "home_chest": 0,
 }
 
 var counts: Dictionary = INITIAL_COUNTS.duplicate(true)
@@ -56,4 +57,3 @@ func change(kind: String, amount: int) -> bool:
 func import_counts(saved_counts: Dictionary) -> void:
 	for kind in counts:
 		counts[kind] = maxi(int(saved_counts.get(kind, 0)), 0)
-
