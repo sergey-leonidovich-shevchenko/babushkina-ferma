@@ -18,6 +18,10 @@ const STAGE_DURATION := 5.0
 const GROWTH_DURATION := 20.0
 const MAX_BASE_HP := 100
 const XP_PER_LEVEL := 50
+const PLAYER_RADIUS := 18.0
+const BRIDGE_RECT := Rect2(1450, 805, 110, 395)
+const TREE_POSITIONS := [Vector2(1210,190), Vector2(1430,250), Vector2(1740,170), Vector2(1990,290), Vector2(2240,180), Vector2(1320,680), Vector2(1880,720), Vector2(2210,650)]
+const CAVE_DECORATIONS := [Vector2(480,250), Vector2(720,600), Vector2(1040,300), Vector2(1380,720), Vector2(1720,280), Vector2(2050,620)]
 
 enum Tool { HOE, SEEDS, WATER, HAND, PICKAXE, ROD }
 
@@ -136,6 +140,7 @@ var tutorial_steps := [
 	{"event": "fish", "text": "Выбери удочку [6] и поймай рыбу у пруда"},
 	{"event": "craft", "text": "Вернись к верстаку и создай меч [E]"},
 	{"event": "equip", "text": "Надень или сними меч клавишей R"},
+	{"event": "collision", "text": "Проверь препятствие и перейди реку только по мосту"},
 	{"event": "travel", "text": "Найди светящийся вход в пещеру и нажми E"}
 ]
 
@@ -192,10 +197,62 @@ func update_player_movement(delta: float) -> void:
 		return
 	facing = direction
 	var current_speed := speed * (1.3 if speed_timer > 0.0 else 1.0)
-	player += direction * current_speed * delta
+	move_player_with_collisions(direction * current_speed * delta)
 	walk_animation_time += delta
 	notify_tutorial("move")
 	clamp_player_position()
+
+func move_player_with_collisions(motion: Vector2) -> void:
+	var step_count := maxi(1, ceili(motion.length() / 8.0))
+	var step := motion / float(step_count)
+	var was_blocked := false
+	for _index in step_count:
+		var horizontal := player + Vector2(step.x, 0.0)
+		if is_position_walkable(horizontal):
+			player = horizontal
+		elif not is_zero_approx(step.x):
+			was_blocked = true
+		var vertical := player + Vector2(0.0, step.y)
+		if is_position_walkable(vertical):
+			player = vertical
+		elif not is_zero_approx(step.y):
+			was_blocked = true
+	if was_blocked:
+		notify_tutorial("collision")
+
+func is_position_walkable(position: Vector2) -> bool:
+	if position.x < 40.0 or position.x > WORLD_SIZE.x - 40.0 or position.y < 120.0 or position.y > WORLD_SIZE.y - 80.0:
+		return false
+	if current_location == "cave":
+		for decoration in CAVE_DECORATIONS:
+			if position.distance_to(decoration) < PLAYER_RADIUS + 38.0:
+				return false
+	else:
+		if position.y + PLAYER_RADIUS > 860.0 and not BRIDGE_RECT.grow(-18.0).has_point(position):
+			return false
+		var pond_delta := position - pond_position
+		if pow(pond_delta.x / (189.0 + PLAYER_RADIUS), 2.0) + pow(pond_delta.y / (105.0 + PLAYER_RADIUS), 2.0) < 1.0:
+			return false
+		for tree in TREE_POSITIONS:
+			if position.distance_to(tree + Vector2(0, 35)) < PLAYER_RADIUS + 42.0:
+				return false
+		var solid_rects := [
+			Rect2(54, 130, 190, 150), Rect2(895, 175, 158, 117),
+			Rect2(790, 392, 60, 54), Rect2(workbench_position - Vector2(32, 20), Vector2(64, 44))
+		]
+		for rect in solid_rects:
+			if circle_intersects_rect(position, PLAYER_RADIUS, rect):
+				return false
+		if slime_alive and position.distance_to(slime_position) < PLAYER_RADIUS + 28.0:
+			return false
+	for node in resource_nodes:
+		if node.hits > 0 and node.location == current_location and position.distance_to(node.position) < PLAYER_RADIUS + 30.0:
+			return false
+	return true
+
+func circle_intersects_rect(center: Vector2, radius: float, rect: Rect2) -> bool:
+	var closest := Vector2(clampf(center.x, rect.position.x, rect.end.x), clampf(center.y, rect.position.y, rect.end.y))
+	return center.distance_squared_to(closest) < radius * radius
 
 func update_game_clock(delta: float) -> void:
 	# Одна реальная секунда равна одной игровой минуте.
@@ -566,7 +623,8 @@ func mine_resource(index: int) -> bool:
 func is_near_fishing_water() -> bool:
 	if current_location != "overworld":
 		return false
-	var near_pond := player.distance_to(pond_position) < 175.0
+	# Радиус взаимодействия чуть больше коллизии берега, чтобы удочка доставала до воды.
+	var near_pond := player.distance_to(pond_position) < 235.0
 	var near_river := player.y > 800.0
 	return near_pond or near_river
 

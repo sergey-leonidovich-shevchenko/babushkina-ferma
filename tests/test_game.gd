@@ -22,6 +22,7 @@ func _initialize() -> void:
 	test_tutorial_reset_and_tester_kit()
 	test_experience_from_farming_combat_and_quest()
 	test_food_healing_and_temporary_effects()
+	test_world_collisions_and_bridge_passage()
 	print("TESTS: %d passed, %d failed" % [passed, failed])
 	quit(0 if failed == 0 else 1)
 
@@ -291,6 +292,7 @@ func test_food_healing_and_temporary_effects() -> void:
 	game.mushrooms = 1
 	game.inventory_selected = 15
 	game.consume_selected_item()
+	game.slime_alive = false
 	game.move_right_held = true
 	var start_x: float = game.player.x
 	game.update_player_movement(1.0)
@@ -298,4 +300,30 @@ func test_food_healing_and_temporary_effects() -> void:
 	game.player = game.food_nodes[0].position
 	game.food_nodes[0].active = true
 	expect(game.perform_repeatable_action() and game.mushrooms == 1, "wild food sprite can be collected while action is held")
+	game.free()
+
+func test_world_collisions_and_bridge_passage() -> void:
+	var game := make_game()
+	game.player = game.slime_position - Vector2(90, 0)
+	game.move_player_with_collisions(Vector2(120, 0))
+	expect(game.player.x <= game.slime_position.x - game.PLAYER_RADIUS - 27.0, "living enemy blocks player movement")
+	var rock: Dictionary = game.resource_nodes[0]
+	game.player = rock.position - Vector2(100, 0)
+	game.move_player_with_collisions(Vector2(140, 0))
+	expect(game.player.x < rock.position.x - game.PLAYER_RADIUS - 28.0, "active rock blocks player movement")
+	game.resource_nodes[0].hits = 0
+	game.move_player_with_collisions(Vector2(140, 0))
+	expect(game.player.x > rock.position.x, "depleted resource no longer blocks movement")
+	game.player = game.pond_position - Vector2(260, 0)
+	game.move_player_with_collisions(Vector2(160, 0))
+	expect(game.player.x < game.pond_position.x - 200.0, "pond shoreline blocks player movement")
+	game.player = Vector2(1200, 830)
+	game.move_player_with_collisions(Vector2(0, 80))
+	expect(game.player.y <= 842.0, "river blocks movement away from bridge")
+	game.player = Vector2(1500, 830)
+	game.move_player_with_collisions(Vector2(0, 80))
+	expect(game.player.y > 860.0, "bridge allows crossing the river")
+	game.player = Vector2(1120, 510)
+	game.move_player_with_collisions(Vector2(100, 100))
+	expect(game.player.y > 510.0, "diagonal collision slides along an obstacle instead of sticking")
 	game.free()
