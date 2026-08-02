@@ -5,8 +5,15 @@ const PLANT_SHEET := preload("res://assets/game/environment/farm_plants.png")
 const FOREST_TREE := preload("res://assets/game/environment/forest_tree.png")
 const RED_MUSHROOMS := preload("res://assets/game/environment/red_mushrooms.png")
 const CAVE_CRYSTAL := preload("res://assets/game/environment/cave_crystal.png")
+const GRASS_TILE := preload("res://assets/game/tiles/grass.png")
+const ROAD_TILE := preload("res://assets/game/tiles/road-brick.png")
+const CAVE_FLOOR_TILE := preload("res://assets/game/tiles/cave-floor.png")
 
 var location := "overworld"
+
+func _ready() -> void:
+	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED
 
 func set_location(value: String) -> void:
 	if location != value:
@@ -18,10 +25,9 @@ func _draw() -> void:
 	else: draw_overworld()
 
 func draw_overworld() -> void:
-	draw_rect(Rect2(Vector2.ZERO, WORLD_SIZE), Color("7fad5c"))
-	for y in range(150, int(WORLD_SIZE.y), 190):
-		for x in range(70 + (y % 140), int(WORLD_SIZE.x), 210):
-			draw_circle(Vector2(x, y), 3.0, Color("99bd6a"))
+	# Один повторяющийся GPU-тайл вместо одноцветного пола и тысяч draw calls.
+	draw_rect(Rect2(Vector2.ZERO, WORLD_SIZE), Color("6f9d50"))
+	draw_texture_rect(GRASS_TILE, Rect2(Vector2.ZERO, WORLD_SIZE), true)
 	draw_rect(Rect2(0, 860, WORLD_SIZE.x, 340), Color("4f9fb0"))
 	for x in range(0, int(WORLD_SIZE.x), 70): draw_line(Vector2(x, 900), Vector2(x + 34, 900), Color("83c9c5"), 3)
 	# Дом, лавка и ящик продажи.
@@ -39,15 +45,14 @@ func draw_overworld() -> void:
 	draw_string(ThemeDB.fallback_font, Vector2(753, 473), "Продажа [E]", HORIZONTAL_ALIGNMENT_LEFT, -1, 17, Color("213a2c"))
 	# Дорога и лес рисуются один раз и затем только сдвигаются transform-ом.
 	draw_rect(Rect2(1030, 360, 1370, 150), Color("b68b5c"))
-	for x in range(1080, 2380, 110): draw_circle(Vector2(x, 430), 6, Color("94704f"))
+	draw_texture_rect(ROAD_TILE, Rect2(1030, 360, 1370, 150), true)
 	var trees := [Vector2(1210,190), Vector2(1430,250), Vector2(1740,170), Vector2(1990,290), Vector2(2240,180), Vector2(1320,680), Vector2(1880,720), Vector2(2210,650)]
 	for tree in trees: draw_texture_rect(FOREST_TREE, Rect2(tree - Vector2(96,128), Vector2(192,192)), false)
 	draw_texture_rect(RED_MUSHROOMS, Rect2(1380,570,72,72), false)
 
 func draw_cave() -> void:
 	draw_rect(Rect2(Vector2.ZERO, WORLD_SIZE), Color("18232c"))
-	for y in range(100, int(WORLD_SIZE.y), 230):
-		for x in range(80, int(WORLD_SIZE.x), 260): draw_circle(Vector2(x + (y % 160), y), 4, Color("34434b"))
+	draw_texture_rect(CAVE_FLOOR_TILE, Rect2(Vector2.ZERO, WORLD_SIZE), true, Color(0.72, 0.78, 0.8, 1.0))
 	draw_circle(Vector2(180,430), 54, Color("0e151a"))
 	draw_circle(Vector2(180,430), 40, Color("b1e4d5"), false, 5)
 	var crystals := [Vector2(480,250), Vector2(720,600), Vector2(1040,300), Vector2(1380,720), Vector2(1720,280), Vector2(2050,620)]
