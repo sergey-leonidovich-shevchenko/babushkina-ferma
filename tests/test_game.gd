@@ -43,6 +43,7 @@ func _initialize() -> void:
 	test_regrowing_forage_harvest_value_and_sale()
 	test_forage_atlas_cells_are_isolated_and_bottom_anchored()
 	test_new_pixel_items_watermelon_shield_potion_and_lizard()
+	test_animated_enemy_sprites_replace_primitives()
 	test_unbounded_scrolling_inventory_and_forage_save()
 	test_gameplay_systems_are_modular()
 	print("TESTS: %d passed, %d failed" % [passed, failed])
@@ -878,6 +879,16 @@ func test_new_pixel_items_watermelon_shield_potion_and_lizard() -> void:
 	var legacy_snapshot: Dictionary = game.SaveSystem.snapshot(game)
 	legacy_snapshot.equipment.erase("offhand")
 	expect(game.SaveSystem.apply(game, legacy_snapshot) and game.equipment.has("offhand") and not game.wildlife_nodes[lizard_index].alive, "older saves migrate the shield slot while preserving lizard state")
+	game.free()
+
+func test_animated_enemy_sprites_replace_primitives() -> void:
+	var game := make_game()
+	expect(game.PREDATOR_PLANT_SHEET.get_width() == 256 and game.PREDATOR_PLANT_SHEET.get_height() == 256, "predator plant has a four-direction four-frame sprite sheet")
+	expect(game.ORC_IDLE_SHEET.get_width() == 256 and game.ORC_IDLE_SHEET.get_height() == 256, "orc has a four-direction four-frame sprite sheet")
+	expect(game.CAVE_GUARDIAN_TEXTURE.get_size() == Vector2(256, 256), "Depth Guardian is optimized to a compact transparent game texture")
+	expect(game.SKELETON_WARRIOR_TEXTURE.get_size() == Vector2(256, 256) and game.CURSED_KNIGHT_TEXTURE.get_size() == Vector2(256, 256), "skeleton and cursed knight use compact transparent game textures")
+	expect(game.enemy_sprite_texture("plant") == game.PREDATOR_PLANT_SHEET and game.enemy_sprite_texture("orc") == game.ORC_IDLE_SHEET and game.enemy_sprite_texture("cave_guardian") == game.CAVE_GUARDIAN_TEXTURE and game.enemy_sprite_texture("skeleton") == game.SKELETON_WARRIOR_TEXTURE and game.enemy_sprite_texture("undead") == game.CURSED_KNIGHT_TEXTURE, "all five modular enemy families render with real sprite textures")
+	expect(game.enemy_direction_row(Vector2.DOWN) == 0 and game.enemy_direction_row(Vector2.UP) == 1 and game.enemy_direction_row(Vector2.LEFT) == 2 and game.enemy_direction_row(Vector2.RIGHT) == 3, "enemy idle animation faces the nearby player in all directions")
 	game.free()
 
 func test_unbounded_scrolling_inventory_and_forage_save() -> void:

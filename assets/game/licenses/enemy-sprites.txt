@@ -1,0 +1,22 @@
+Predator plant idle sprite
+Source pack: Free Predator Plant Mobs Pixel Art Pack
+https://craftpix.net/freebies/free-predator-plant-mobs-pixel-art-pack/
+
+Orc idle sprite
+Source pack: Free Top-Down Orc Game Character Pixel Art
+https://craftpix.net/freebies/free-top-down-orc-game-character-pixel-art/
+
+Original license files are preserved in the corresponding assets/inbox pack directories.
+License reference supplied with both downloads: https://craftpix.net/file-licenses/
+
+Depth Guardian boss
+Created specifically for this project with the built-in OpenAI image generation tool.
+Final production asset was generated on a flat #ff00ff background and converted to an alpha PNG locally.
+Prompt summary: original bulky ancient crystal-armored top-down cave sentinel, dark stone armor,
+cyan/teal crystals and a pale moon core, matching the existing handcrafted pixel-art scale.
+
+Skeleton warrior and cursed knight
+Created specifically for this project with the built-in OpenAI image generation tool.
+Both were generated on flat #ff00ff backgrounds and converted to alpha PNGs locally.
+Prompt summaries: an ivory skeleton with chipped sword and wooden shield; a charcoal-armored
+undead knight with violet spectral cracks. Both match the same top-down pixel-art silhouette rules.

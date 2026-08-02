@@ -8,6 +8,11 @@ const PLANT_SHEET := preload("res://assets/game/environment/farm_plants.png")
 const SUPPLY_SHEET := preload("res://assets/game/ui/farm_supplies.png")
 const FARMER_SHEET := preload("res://assets/game/characters/farmer_walk.png")
 const SLIME_SHEET := preload("res://assets/game/enemies/slime_idle.png")
+const PREDATOR_PLANT_SHEET := preload("res://assets/game/enemies/predator_plant_idle.png")
+const ORC_IDLE_SHEET := preload("res://assets/game/enemies/orc_idle.png")
+const CAVE_GUARDIAN_TEXTURE := preload("res://assets/game/enemies/cave_guardian.png")
+const SKELETON_WARRIOR_TEXTURE := preload("res://assets/game/enemies/skeleton_warrior.png")
+const CURSED_KNIGHT_TEXTURE := preload("res://assets/game/enemies/cursed_knight.png")
 const FOREST_TREE := preload("res://assets/game/environment/forest_tree.png")
 const RED_MUSHROOMS := preload("res://assets/game/environment/red_mushrooms.png")
 const CAVE_CRYSTAL := preload("res://assets/game/environment/cave_crystal.png")
@@ -1553,17 +1558,35 @@ func draw_enemy_nodes_and_gate() -> void:
 		if not enemy.alive or enemy.location != current_location: continue
 		var data: Dictionary = CombatSystem.TYPES[enemy.kind]
 		var position: Vector2 = enemy.position
-		draw_circle(position, 30, data.color)
-		if enemy.kind == "plant":
-			for angle in 6: draw_circle(position + Vector2.RIGHT.rotated(angle * TAU / 6.0) * 27, 12, Color("73b957"))
-		elif enemy.kind == "orc":
-			draw_rect(Rect2(position - Vector2(22, 35), Vector2(44, 62)), Color("596d38"))
-		elif enemy.kind in ["skeleton","undead"]:
-			draw_circle(position - Vector2(0, 18), 18, data.color)
-			draw_line(position - Vector2(0, 2), position + Vector2(0, 30), data.color, 8)
+		var enemy_texture := enemy_sprite_texture(enemy.kind)
+		if enemy.kind in ["cave_guardian", "skeleton", "undead"]:
+			var bob := sin(Time.get_ticks_msec() / 180.0) * 2.0
+			var size := 124.0 if enemy.kind == "cave_guardian" else (92.0 if enemy.kind == "skeleton" else 108.0)
+			draw_texture_rect(enemy_texture, Rect2(position - Vector2(size * 0.5, size * 0.70 + bob), Vector2(size, size)), false)
+		elif enemy_texture:
+			var frame := int(Time.get_ticks_msec() / 180.0) % 4
+			var row := enemy_direction_row(player - position)
+			var size := 82.0 if enemy.kind == "plant" else 74.0
+			draw_texture_rect_region(enemy_texture, Rect2(position - Vector2(size * 0.5, size * 0.64), Vector2(size, size)), Rect2(frame * 64, row * 64, 64, 64))
+		else:
+			draw_circle(position, 30, data.color)
 		draw_rect(Rect2(position - Vector2(31, 48), Vector2(62, 7)), Color("402d32"))
 		draw_rect(Rect2(position - Vector2(30, 47), Vector2(60.0 * enemy.hp / float(data.hp), 5)), Color("dc554b"))
 		draw_string(UI_FONT, position + Vector2(-65, 55), LocaleSystem.entity(enemy.kind), HORIZONTAL_ALIGNMENT_CENTER, 130, 14, Color("fff0bd"))
+
+func enemy_sprite_texture(kind: String) -> Texture2D:
+	match kind:
+		"plant": return PREDATOR_PLANT_SHEET
+		"orc": return ORC_IDLE_SHEET
+		"cave_guardian": return CAVE_GUARDIAN_TEXTURE
+		"skeleton": return SKELETON_WARRIOR_TEXTURE
+		"undead": return CURSED_KNIGHT_TEXTURE
+	return null
+
+func enemy_direction_row(direction: Vector2) -> int:
+	if absf(direction.x) > absf(direction.y):
+		return 2 if direction.x < 0.0 else 3
+	return 1 if direction.y < 0.0 else 0
 
 func draw_wildlife() -> void:
 	for animal in wildlife_nodes:
