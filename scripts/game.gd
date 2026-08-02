@@ -16,6 +16,8 @@ const RESOURCE_ROCK := preload("res://assets/game/resources/rock.png")
 const WORLD_SIZE := Vector2(2400, 1200)
 const STAGE_DURATION := 5.0
 const GROWTH_DURATION := 20.0
+const MAX_BASE_HP := 100
+const XP_PER_LEVEL := 50
 
 enum Tool { HOE, SEEDS, WATER, HAND, PICKAXE, ROD }
 
@@ -40,7 +42,7 @@ var shop_open := false
 var inventory_open := false
 var inventory_selected := 0
 var inventory_move_from := -1
-var inventory_slots := ["seeds", "carrot", "pickaxe", "fishing_rod", "slime", "wood", "stone", "crystal", "fish", "sword", "bow", "crystal_sword", "", "", "", ""]
+var inventory_slots := ["seeds", "carrot", "pickaxe", "fishing_rod", "slime", "wood", "stone", "crystal", "fish", "sword", "bow", "crystal_sword", "apple", "berries", "nut", "mushroom"]
 var dropped_items: Array = []
 var shop_selected := 0
 var shop_products := [
@@ -64,8 +66,14 @@ var benchmark_autoplay := false
 var benchmark_elapsed := 0.0
 
 # RPG-состояние вертикального среза.
-var player_hp := 5
+var player_hp := MAX_BASE_HP
+var player_max_hp := MAX_BASE_HP
 var player_xp := 0
+var player_level := 1
+var strength_timer := 0.0
+var regeneration_timer := 0.0
+var speed_timer := 0.0
+var regeneration_tick_timer := 0.0
 var slime_position := Vector2(1580, 500)
 var slime_hp := 3
 var slime_alive := true
@@ -83,6 +91,16 @@ var equipped_weapon := "none"
 var stone := 0
 var crystals := 0
 var fish := 0
+var apples := 0
+var berries := 0
+var nuts := 0
+var mushrooms := 0
+var food_nodes := [
+	{"position": Vector2(1320, 720), "kind": "mushroom", "active": true},
+	{"position": Vector2(1740, 360), "kind": "berries", "active": true},
+	{"position": Vector2(2010, 640), "kind": "nut", "active": true},
+	{"position": Vector2(1110, 330), "kind": "apple", "active": true}
+]
 var fishing_state := "idle"
 var fishing_timer := 0.0
 var pond_position := Vector2(650, 700)
@@ -113,6 +131,7 @@ var tutorial_steps := [
 	{"event": "fight", "text": "Иди по дороге в лес и атакуй слизня [F]"},
 	{"event": "loot", "text": "Подбери выпавшую слизь клавишей E"},
 	{"event": "inventory", "text": "Открой инвентарь [I] и осмотри добычу"},
+	{"event": "eat", "text": "Выбери еду в рюкзаке и нажми E или Enter"},
 	{"event": "mine", "text": "Выбери кирку [5] и добудь камень или кристалл"},
 	{"event": "fish", "text": "Выбери удочку [6] и поймай рыбу у пруда"},
 	{"event": "craft", "text": "Вернись к верстаку и создай меч [E]"},
@@ -139,6 +158,7 @@ func _physics_process(delta: float) -> void:
 	update_crops(delta)
 	update_combat(delta)
 	update_fishing(delta)
+	update_status_effects(delta)
 	if benchmark_autoplay:
 		update_benchmark_route(delta)
 	if shop_open or inventory_open:
@@ -171,7 +191,8 @@ func update_player_movement(delta: float) -> void:
 	if direction.length() == 0.0:
 		return
 	facing = direction
-	player += direction * speed * delta
+	var current_speed := speed * (1.3 if speed_timer > 0.0 else 1.0)
+	player += direction * current_speed * delta
 	walk_animation_time += delta
 	notify_tutorial("move")
 	clamp_player_position()
@@ -274,6 +295,8 @@ func perform_repeatable_action() -> bool:
 		return mine_resource(int(interaction.get_slice(":", 1)))
 	if interaction.begins_with("drop:"):
 		return collect_dropped_item(int(interaction.get_slice(":", 1)))
+	if interaction.begins_with("food:"):
+		return collect_food(int(interaction.get_slice(":", 1)))
 	if current_location == "overworld":
 		use_selected_tool()
 		notify_tutorial("hold_action")
@@ -390,7 +413,7 @@ func use_selected_tool() -> void:
 				plot.stage_flash = 0.0
 				seeds -= 1
 				energy -= 1
-				message = "Морковь посажена. Теперь полей [3]"
+				award_xp(1, "Посадка моркови")
 				notify_tutorial("plant")
 			elif seeds <= 0: message = "Семена кончились. Купи у лавки [B]"
 			else: message = "Сначала вспаши пустую землю"
@@ -469,6 +492,14 @@ func nearest_interaction() -> String:
 		if distance < nearest_distance:
 			nearest_distance = distance
 			nearest = "resource:%d" % index
+	for index in food_nodes.size():
+		var food: Dictionary = food_nodes[index]
+		if not food.active or current_location != "overworld":
+			continue
+		var distance: float = player.distance_to(food.position)
+		if distance < nearest_distance:
+			nearest_distance = distance
+			nearest = "food:%d" % index
 	return nearest
 
 func perform_context_action() -> bool:
@@ -477,6 +508,8 @@ func perform_context_action() -> bool:
 		return collect_dropped_item(int(interaction.get_slice(":", 1)))
 	if interaction.begins_with("resource:"):
 		return mine_resource(int(interaction.get_slice(":", 1)))
+	if interaction.begins_with("food:"):
+		return collect_food(int(interaction.get_slice(":", 1)))
 	match interaction:
 		"npc":
 			talk_to_grandmother()
@@ -602,6 +635,10 @@ func inventory_item_count(kind: String) -> int:
 		"fish": return fish
 		"bow": return 1 if has_bow else 0
 		"crystal_sword": return 1 if has_crystal_sword else 0
+		"apple": return apples
+		"berries": return berries
+		"nut": return nuts
+		"mushroom": return mushrooms
 	return 0
 
 func inventory_item_name(kind: String) -> String:
@@ -618,6 +655,10 @@ func inventory_item_name(kind: String) -> String:
 		"fish": return "Речная рыба"
 		"bow": return "Охотничий лук"
 		"crystal_sword": return "Кристальный меч"
+		"apple": return "Лесное яблоко"
+		"berries": return "Лесные ягоды"
+		"nut": return "Крепкий орех"
+		"mushroom": return "Красный гриб"
 	return "Пусто"
 
 func change_inventory_count(kind: String, amount: int) -> bool:
@@ -641,6 +682,10 @@ func change_inventory_count(kind: String, amount: int) -> bool:
 		"fish": fish += amount
 		"bow": has_bow = amount > 0
 		"crystal_sword": has_crystal_sword = amount > 0
+		"apple": apples += amount
+		"berries": berries += amount
+		"nut": nuts += amount
+		"mushroom": mushrooms += amount
 		_:
 			return false
 	return true
@@ -658,6 +703,7 @@ func handle_inventory_input(event: InputEvent) -> void:
 		KEY_DOWN: inventory_selected = posmod(inventory_selected + 4, 16)
 		KEY_M: move_inventory_slot()
 		KEY_X: drop_selected_item()
+		KEY_ENTER, KEY_E: consume_selected_item()
 		KEY_DELETE, KEY_BACKSPACE: delete_selected_item()
 	queue_redraw()
 
@@ -700,6 +746,76 @@ func collect_dropped_item(index: int) -> bool:
 	message = "Поднято: %s" % inventory_item_name(item.kind)
 	return true
 
+func collect_food(index: int) -> bool:
+	if index < 0 or index >= food_nodes.size():
+		return false
+	var food: Dictionary = food_nodes[index]
+	if not food.active or current_location != "overworld" or player.distance_to(food.position) > 92.0:
+		return false
+	food.active = false
+	food_nodes[index] = food
+	change_inventory_count(food.kind, 1)
+	message = "Собрано: %s. Съешь в рюкзаке [I]" % inventory_item_name(food.kind)
+	return true
+
+func consume_selected_item() -> bool:
+	var kind: String = inventory_slots[inventory_selected]
+	if kind not in ["carrot", "apple", "berries", "nut", "mushroom"]:
+		message = "Этот предмет нельзя съесть"
+		return false
+	if not change_inventory_count(kind, -1):
+		message = "Еда закончилась"
+		return false
+	match kind:
+		"carrot":
+			heal_player(15)
+			message = "Морковь: +15 здоровья"
+		"apple":
+			heal_player(30)
+			message = "Яблоко: +30 здоровья"
+		"berries":
+			regeneration_timer = 8.0
+			regeneration_tick_timer = 0.0
+			message = "Ягоды: регенерация +5 HP/с на 8 секунд"
+		"nut":
+			strength_timer = 12.0
+			message = "Орех: +1 к силе на 12 секунд"
+		"mushroom":
+			speed_timer = 10.0
+			message = "Гриб: скорость +30% на 10 секунд"
+	notify_tutorial("eat")
+	return true
+
+func heal_player(amount: int) -> int:
+	var previous_hp := player_hp
+	player_hp = mini(player_hp + amount, player_max_hp)
+	return player_hp - previous_hp
+
+func award_xp(amount: int, reason: String = "") -> void:
+	player_xp += amount
+	var leveled_up := false
+	while player_xp >= XP_PER_LEVEL:
+		player_xp -= XP_PER_LEVEL
+		player_level += 1
+		player_max_hp += 10
+		player_hp = player_max_hp
+		leveled_up = true
+	if leveled_up:
+		message = "Новый уровень %d! Максимум здоровья +10" % player_level
+	elif not reason.is_empty():
+		message = "%s: +%d опыта" % [reason, amount]
+
+func update_status_effects(delta: float) -> void:
+	strength_timer = maxf(strength_timer - delta, 0.0)
+	speed_timer = maxf(speed_timer - delta, 0.0)
+	if regeneration_timer <= 0.0:
+		return
+	regeneration_timer = maxf(regeneration_timer - delta, 0.0)
+	regeneration_tick_timer += delta
+	while regeneration_tick_timer >= 1.0:
+		regeneration_tick_timer -= 1.0
+		heal_player(5)
+
 func talk_to_grandmother() -> void:
 	notify_tutorial("talk")
 	if not quest_active and not quest_complete:
@@ -708,7 +824,7 @@ func talk_to_grandmother() -> void:
 	elif quest_active and carrots >= 10:
 		carrots -= 10
 		coins += 50
-		player_xp += 25
+		award_xp(25)
 		quest_active = false
 		quest_complete = true
 		has_bow = true
@@ -724,7 +840,7 @@ func attack_slime() -> bool:
 	if not slime_alive or player.distance_to(slime_position) > attack_range:
 		message = "Рядом нет противника"
 		return false
-	var damage := 1
+	var damage := 1 + (1 if strength_timer > 0.0 else 0)
 	if equipped_weapon == "forest_sword": damage = 2
 	elif equipped_weapon == "crystal_sword": damage = 3
 	elif equipped_weapon == "bow": damage = 2
@@ -734,8 +850,8 @@ func attack_slime() -> bool:
 	if slime_hp <= 0:
 		slime_alive = false
 		loot_available = true
-		player_xp += 5
-		message = "Слизень побеждён! Подбери добычу [E]"
+		award_xp(10)
+		message = "Слизень побеждён! +10 опыта. Подбери добычу [E]"
 	return true
 
 func update_combat(delta: float) -> void:
@@ -745,10 +861,10 @@ func update_combat(delta: float) -> void:
 	slime_attack_timer += delta
 	if slime_attack_timer >= 1.5:
 		slime_attack_timer = 0.0
-		player_hp -= 1
-		message = "Слизень атакует! -1 здоровье"
+		player_hp -= 20
+		message = "Слизень атакует! -20 здоровья"
 		if player_hp <= 0:
-			player_hp = 5
+			player_hp = player_max_hp
 			player = Vector2(260, 360)
 			coins = maxi(0, coins - 5)
 			message = "Бабушка спасла тебя. Потеряно 5 монет"
@@ -818,10 +934,16 @@ func grant_tester_kit() -> void:
 	slime_gel = maxi(slime_gel, 10)
 	wood = maxi(wood, 10)
 	crystals = maxi(crystals, 10)
-	player_hp = 5
+	apples = maxi(apples, 3)
+	berries = maxi(berries, 3)
+	nuts = maxi(nuts, 3)
+	mushrooms = maxi(mushrooms, 3)
+	player_hp = player_max_hp
 	slime_alive = true
 	slime_hp = 3
 	loot_available = false
+	for index in food_nodes.size():
+		food_nodes[index].active = true
 	message = "QA-набор выдан: ресурсы, морковь и монеты"
 
 func handle_shop_input(event: InputEvent) -> void:
@@ -1033,10 +1155,27 @@ func draw_rpg_world() -> void:
 	for item in dropped_items:
 		draw_circle(item.position, 12, inventory_item_color(item.kind))
 		draw_circle(item.position - Vector2(3, 3), 3, Color("fff3c4"))
+	draw_food_nodes()
 	# Вход в отдельную пещерную локацию.
 	draw_circle(cave_entrance_position, 52, Color("283a43"))
 	draw_circle(cave_entrance_position, 38 + sin(Time.get_ticks_msec() / 170.0) * 4, Color("66d5cf"), false, 6)
 	draw_string(ThemeDB.fallback_font, cave_entrance_position + Vector2(-58, 78), "Кристальная пещера", HORIZONTAL_ALIGNMENT_LEFT, -1, 16, Color("d7fff4"))
+
+func draw_food_nodes() -> void:
+	for food in food_nodes:
+		if not food.active:
+			continue
+		var position: Vector2 = food.position
+		match food.kind:
+			"mushroom":
+				draw_texture_rect(RED_MUSHROOMS, Rect2(position - Vector2(28, 28), Vector2(56, 56)), false)
+			"berries":
+				draw_texture_rect_region(PLANT_SHEET, Rect2(position - Vector2(44, 70), Vector2(88, 88)), Rect2(288, 0, 96, 96))
+			"apple":
+				draw_texture_rect_region(PLANT_SHEET, Rect2(position - Vector2(44, 70), Vector2(88, 88)), Rect2(288, 144, 96, 96))
+			"nut":
+				draw_texture_rect_region(PLANT_SHEET, Rect2(position - Vector2(44, 70), Vector2(88, 88)), Rect2(288, 288, 96, 96))
+		draw_circle(position, 30, Color(1.0, 0.88, 0.32, 0.24))
 
 func draw_resource_nodes() -> void:
 	for node in resource_nodes:
@@ -1072,6 +1211,10 @@ func inventory_item_color(kind: String) -> Color:
 		"fish": return Color("5aa4d6")
 		"bow": return Color("c58a4d")
 		"crystal_sword": return Color("6ce8ef")
+		"apple": return Color("df4b45")
+		"berries": return Color("7656c7")
+		"nut": return Color("a8733e")
+		"mushroom": return Color("d95c50")
 	return Color.WHITE
 
 func interaction_position(interaction: String) -> Vector2:
@@ -1083,6 +1226,10 @@ func interaction_position(interaction: String) -> Vector2:
 		var index := int(interaction.get_slice(":", 1))
 		if index >= 0 and index < resource_nodes.size():
 			return resource_nodes[index].position
+	if interaction.begins_with("food:"):
+		var index := int(interaction.get_slice(":", 1))
+		if index >= 0 and index < food_nodes.size():
+			return food_nodes[index].position
 	match interaction:
 		"npc": return npc_position
 		"shop": return Vector2(972, 278)
@@ -1103,12 +1250,13 @@ func draw_interaction_highlight() -> void:
 	draw_string(ThemeDB.fallback_font, center + Vector2(-45, -48), "E • действие", HORIZONTAL_ALIGNMENT_CENTER, 90, 16, Color("fff4bd"))
 
 func draw_ui() -> void:
-	draw_rect(Rect2(0, 0, 1152, 98), Color("182f2b"))
+	draw_rect(Rect2(0, 0, 1152, 106), Color("182f2b"))
 	var hours := floori(game_minutes / 60.0)
 	var minutes := int(game_minutes) % 60
 	draw_string(ThemeDB.fallback_font, Vector2(24, 34), "ДЕНЬ %d   %02d:%02d" % [day, hours, minutes], HORIZONTAL_ALIGNMENT_LEFT, -1, 22, Color("ffe39d"))
 	draw_string(ThemeDB.fallback_font, Vector2(24, 68), "⚡ %d   🪙 %d   Семена: %d   Морковь: %d" % [energy, coins, seeds, carrots], HORIZONTAL_ALIGNMENT_LEFT, -1, 20, Color.WHITE)
-	draw_string(ThemeDB.fallback_font, Vector2(24, 91), "❤ %d  XP %d  Слизь %d  Камень %d  Кристалл %d  Рыба %d  Оружие: %s" % [player_hp, player_xp, slime_gel, stone, crystals, fish, equipped_weapon], HORIZONTAL_ALIGNMENT_LEFT, -1, 14, Color("bde8d2"))
+	draw_player_status_bars()
+	draw_string(ThemeDB.fallback_font, Vector2(390, 94), "Слизь %d  Камень %d  Кристалл %d  Рыба %d  Оружие: %s" % [slime_gel, stone, crystals, fish, equipped_weapon], HORIZONTAL_ALIGNMENT_LEFT, 740, 13, Color("bde8d2"))
 	var tools := ["1 Мотыга", "2 Семена", "3 Лейка", "4 Руки", "5 Кирка", "6 Удочка"]
 	for i in 6:
 		var box := Rect2(480 + i * 111, 18, 103, 55)
@@ -1132,6 +1280,26 @@ func draw_ui() -> void:
 		draw_shop()
 	if inventory_open:
 		draw_inventory()
+
+func draw_player_status_bars() -> void:
+	var hp_ratio := clampf(float(player_hp) / float(player_max_hp), 0.0, 1.0)
+	var hp_bar := Rect2(24, 77, 160, 18)
+	draw_rect(hp_bar, Color("3a2528"))
+	draw_rect(hp_bar.grow(-2), Color("71333a"))
+	draw_rect(Rect2(hp_bar.position + Vector2(2, 2), Vector2((hp_bar.size.x - 4) * hp_ratio, hp_bar.size.y - 4)), Color("e25555").lerp(Color("63cf72"), hp_ratio))
+	draw_string(ThemeDB.fallback_font, Vector2(29, 91), "HP %d/%d" % [player_hp, player_max_hp], HORIZONTAL_ALIGNMENT_CENTER, 150, 13, Color.WHITE)
+	var xp_ratio := clampf(float(player_xp) / float(XP_PER_LEVEL), 0.0, 1.0)
+	var xp_bar := Rect2(202, 77, 170, 18)
+	draw_rect(xp_bar, Color("222e3c"))
+	draw_rect(Rect2(xp_bar.position + Vector2(2, 2), Vector2((xp_bar.size.x - 4) * xp_ratio, xp_bar.size.y - 4)), Color("5b9de3"))
+	draw_string(ThemeDB.fallback_font, Vector2(205, 91), "УР. %d • XP %d/%d" % [player_level, player_xp, XP_PER_LEVEL], HORIZONTAL_ALIGNMENT_CENTER, 164, 13, Color.WHITE)
+	var effects: Array[String] = []
+	if regeneration_timer > 0.0: effects.append("❤ реген %.0fс" % regeneration_timer)
+	if strength_timer > 0.0: effects.append("⚔ сила %.0fс" % strength_timer)
+	if speed_timer > 0.0: effects.append("➜ скорость %.0fс" % speed_timer)
+	if not effects.is_empty():
+		draw_rect(Rect2(450, 108, 680, 26), Color(0.08, 0.16, 0.14, 0.88))
+		draw_string(ThemeDB.fallback_font, Vector2(465, 127), "ЭФФЕКТЫ: " + "   ".join(effects), HORIZONTAL_ALIGNMENT_LEFT, 650, 15, Color("ffeaa3"))
 
 func draw_inventory() -> void:
 	draw_rect(Rect2(180, 64, 792, 520), Color("2d2925"))

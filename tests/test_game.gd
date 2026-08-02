@@ -20,6 +20,8 @@ func _initialize() -> void:
 	test_bow_reward_and_crystal_sword_upgrade()
 	test_held_action_repeats_tools_without_reopening_ui()
 	test_tutorial_reset_and_tester_kit()
+	test_experience_from_farming_combat_and_quest()
+	test_food_healing_and_temporary_effects()
 	print("TESTS: %d passed, %d failed" % [passed, failed])
 	quit(0 if failed == 0 else 1)
 
@@ -149,7 +151,7 @@ func test_inventory_move_drop_delete_and_pickup() -> void:
 	game.inventory_move_from = 0
 	game.inventory_selected = 13
 	game.move_inventory_slot()
-	expect(game.inventory_slots[13] == "seeds" and game.inventory_slots[0] == "", "inventory item moves between slots")
+	expect(game.inventory_slots[13] == "seeds" and game.inventory_slots[0] == "berries", "inventory items swap between slots")
 	game.seeds = 2
 	game.inventory_selected = 13
 	expect(game.drop_selected_item(), "inventory item can be dropped")
@@ -245,4 +247,55 @@ func test_tutorial_reset_and_tester_kit() -> void:
 	game.grant_tester_kit()
 	expect(game.coins >= 500 and game.carrots >= 10 and game.crystals >= 10, "F9 grants tester resources")
 	expect(game.slime_alive and game.slime_hp == 3, "F9 restores combat target")
+	game.free()
+
+func test_experience_from_farming_combat_and_quest() -> void:
+	var game := make_game()
+	game.player = Vector2(390, 240)
+	game.facing = Vector2.RIGHT
+	game.plots[Vector2i.ZERO].tilled = true
+	game.selected_tool = game.Tool.SEEDS
+	game.use_selected_tool()
+	expect(game.player_xp == 1, "planting a crop grants experience")
+	game.player = game.slime_position
+	game.attack_slime()
+	game.attack_slime()
+	game.attack_slime()
+	expect(game.player_xp == 11, "defeating an enemy grants experience")
+	game.quest_active = true
+	game.carrots = 10
+	game.talk_to_grandmother()
+	expect(game.player_xp == 36, "completing a quest grants experience through the shared XP system")
+	game.award_xp(14)
+	expect(game.player_level == 2 and game.player_xp == 0 and game.player_max_hp == 110, "experience raises level and maximum health")
+	game.free()
+
+func test_food_healing_and_temporary_effects() -> void:
+	var game := make_game()
+	game.player_hp = 50
+	game.apples = 1
+	game.inventory_selected = 12
+	expect(game.consume_selected_item(), "apple can be eaten from inventory")
+	expect(game.player_hp == 80 and game.apples == 0, "apple restores health without exceeding the live health maximum")
+	game.berries = 1
+	game.inventory_selected = 13
+	game.consume_selected_item()
+	game.update_status_effects(2.1)
+	expect(game.player_hp == 90 and game.regeneration_timer > 0.0, "berries regenerate health over time")
+	game.nuts = 1
+	game.inventory_selected = 14
+	game.consume_selected_item()
+	game.player = game.slime_position
+	game.attack_slime()
+	expect(game.slime_hp == 1, "nut strength effect increases combat damage")
+	game.mushrooms = 1
+	game.inventory_selected = 15
+	game.consume_selected_item()
+	game.move_right_held = true
+	var start_x: float = game.player.x
+	game.update_player_movement(1.0)
+	expect(game.player.x - start_x > game.speed, "mushroom effect increases movement speed")
+	game.player = game.food_nodes[0].position
+	game.food_nodes[0].active = true
+	expect(game.perform_repeatable_action() and game.mushrooms == 1, "wild food sprite can be collected while action is held")
 	game.free()
