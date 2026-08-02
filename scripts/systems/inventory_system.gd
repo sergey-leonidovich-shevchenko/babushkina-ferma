@@ -54,6 +54,10 @@ const ITEM_DATA := {
 	"oak_shield": {"name": "Дубовый щит", "short": "Щит", "color": Color("7d5b47"), "equip": "offhand"},
 	"home_chest": {"name": "Домашний сундук", "short": "Сундук", "color": Color("a66d35")},
 	"guild_badge": {"name": "Знак гильдии", "short": "Знак", "color": Color("efc766"), "equip": "ring"},
+	"pirate_doubloon": {"name": "Пиратский дублон", "short": "Дублон", "color": Color("e7bd4d")},
+	"ectoplasm": {"name": "Морская эктоплазма", "short": "Эктопл.", "color": Color("71d9d0")},
+	"cursed_compass": {"name": "Проклятый компас", "short": "Компас", "color": Color("b66572")},
+	"pirate_cutlass": {"name": "Абордажная сабля", "short": "Сабля", "color": Color("d8e2df"), "equip": "hands"},
 }
 
 ## Возвращает локализованные метаданные предмета по его идентификатору.
@@ -70,7 +74,7 @@ static func category(kind: String) -> String:
 	if item.has("tool"): return "tool"
 	if item.has("edible"): return "food"
 	if item.has("equip"): return "equipment"
-	if kind in ["ancient_key", "moon_relic"]: return "quest"
+	if kind in ["ancient_key", "moon_relic", "cursed_compass"]: return "quest"
 	return "resource"
 
 ## Возвращает ключ локализованного описания выбранной категории предмета.
@@ -210,6 +214,7 @@ static func damage_bonus(game: Node) -> int:
 	if game.equipment.ring == "guild_badge": bonus += 1
 	if game.equipment.hands == "orc_blade":
 		bonus += 2
+	if game.equipment.hands == "pirate_cutlass": bonus += 3
 	return bonus + game.SkillSystem.combat_bonus(game)
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.

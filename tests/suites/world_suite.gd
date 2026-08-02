@@ -144,7 +144,7 @@ func test_discoveries_and_tutorial_checklist_are_saved() -> void:
 	game.SaveSystem.apply(game, snapshot)
 	expect(game.seen_discoveries.has("shop") and game.seen_discoveries.has("enemy:orc"), "save restores discovered feature history")
 	expect(game.tutorial_step == save_step + 1 and game.tutorial_events_completed.has("save"), "save restores tutorial checklist progress")
-	var required_events := ["move","village_paths","character_animation","forage_harvest","forage_regrow","forage_sale","plant","rewater","trade","fight","hotbar","equipment","fish_cast","fish_hook","fish_control","fish","tree_chop","tree_fall","tree_regrow","craft_window","story_chain","side_quests","mission_complete","journal","side_mission","colored_crystal","day","level_up","skill_point","profession","pause_menu","settings","save","wildlife","world_loot","watermelon","potion","shield","lizard"]
+	var required_events := ["move","village_paths","character_animation","forage_harvest","forage_regrow","forage_sale","plant","rewater","trade","fight","hotbar","equipment","fish_cast","fish_hook","fish_control","fish","tree_chop","tree_fall","tree_regrow","craft_window","story_chain","side_quests","mission_complete","journal","side_mission","colored_crystal","day","level_up","skill_point","profession","pause_menu","settings","save","wildlife","world_loot","watermelon","potion","shield","lizard","pirate_ship","pirate_quest","pirate_loot"]
 	for event_name in required_events:
 		expect(game.tutorial_steps.any(func(step): return step.event == event_name), "tutorial covers feature: %s" % event_name)
 	game.free()
@@ -210,7 +210,7 @@ func test_seeded_world_loot_generation_and_opening() -> void:
 	var different: Array = game.LootContainerSystem.generate(654321)
 	expect(first == repeated, "same world seed generates identical loot containers")
 	expect(first != different, "different world seed changes positions types or contents")
-	expect(first.size() == 19, "random loot is distributed across all seven locations")
+	expect(first.size() == 22, "random loot is distributed across all eight locations")
 	game.world_loot_seed = 123456
 	game.world_loot_nodes = first
 	var container: Dictionary = game.world_loot_nodes[0]

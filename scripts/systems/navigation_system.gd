@@ -1,5 +1,7 @@
 extends RefCounted
 
+const PirateShipSystem := preload("res://scripts/systems/pirate_ship_system.gd")
+
 ## Выполняет операцию «перемещения» и возвращает результат согласно контракту метода.
 static func move(game: Node, motion: Vector2) -> void:
 	var step_count := maxi(1, ceili(motion.length() / 8.0))
@@ -25,6 +27,7 @@ static func is_walkable(game: Node, position: Vector2) -> bool:
 		if game.current_location == "cottage_interior" and game.home_chest_owned and position.distance_to(game.StorageSystem.CHEST_POSITION) < game.PLAYER_RADIUS + 42.0:
 			return false
 		return game.BuildingSystem.is_walkable_inside(game.current_location, position, game.PLAYER_RADIUS)
+	if game.current_location == "pirate_ship" and not PirateShipSystem.is_walkable(position, game.PLAYER_RADIUS): return false
 	if position.x < 40.0 or position.x > game.WORLD_SIZE.x - 40.0 or position.y < 120.0 or position.y > game.WORLD_SIZE.y - 80.0:
 		return false
 	for building_id in game.BuildingSystem.buildings_at(game.current_location):
@@ -97,6 +100,7 @@ static func move_enemy(game: Node, enemy_index: int, motion: Vector2) -> Vector2
 ## Проверяет путь врага без ложного столкновения с ним самим.
 static func enemy_position_walkable(game: Node, position: Vector2, enemy_index: int) -> bool:
 	const RADIUS := 27.0
+	if game.current_location == "pirate_ship" and not PirateShipSystem.is_walkable(position, RADIUS): return false
 	if position.x < 40.0 or position.x > game.WORLD_SIZE.x - 40.0 or position.y < 120.0 or position.y > game.WORLD_SIZE.y - 80.0:
 		return false
 	for building_id in game.BuildingSystem.buildings_at(game.current_location):

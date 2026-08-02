@@ -6,12 +6,17 @@ const MAX_ENEMY_LEVEL := 5
 const AGGRO_RADIUS := 380.0
 const MELEE_DISTANCE := 68.0
 const FAMILY_ORDER := ["plant", "orc", "skeleton", "undead", "cave_guardian"]
+const PIRATE_FAMILIES := ["pirate", "zombie_pirate", "sea_ghost", "drowned_captain"]
 const TYPES := {
 	"plant": {"name":"Хищное растение","hp":5,"damage":12,"xp":14,"speed":0.0,"mobile":false,"range":155.0,"loot":{"fiber":2,"rare_seeds":1}},
 	"orc": {"name":"Орк-разбойник","hp":8,"damage":18,"xp":22,"speed":105.0,"mobile":true,"range":MELEE_DISTANCE,"loot":{"metal":2,"coins":15,"orc_blade":1}},
 	"skeleton": {"name":"Скелет","hp":6,"damage":16,"xp":18,"speed":92.0,"mobile":true,"range":MELEE_DISTANCE,"loot":{"bones":3,"ancient_key":1}},
 	"undead": {"name":"Проклятый рыцарь","hp":10,"damage":22,"xp":30,"speed":78.0,"mobile":true,"range":MELEE_DISTANCE,"loot":{"bones":2,"blue_gem":1}},
-	"cave_guardian": {"name":"Хранитель глубин","hp":12,"damage":24,"xp":40,"speed":66.0,"mobile":true,"range":MELEE_DISTANCE + 8.0,"loot":{"moon_relic":1,"blue_gem":2}}
+	"cave_guardian": {"name":"Хранитель глубин","hp":12,"damage":24,"xp":40,"speed":66.0,"mobile":true,"range":MELEE_DISTANCE + 8.0,"loot":{"moon_relic":1,"blue_gem":2}},
+	"pirate": {"name":"Пират-корсар","hp":9,"damage":18,"xp":24,"speed":108.0,"mobile":true,"range":MELEE_DISTANCE,"loot":{"pirate_doubloon":2,"metal":1}},
+	"zombie_pirate": {"name":"Зомби-матрос","hp":12,"damage":21,"xp":30,"speed":76.0,"mobile":true,"range":MELEE_DISTANCE,"loot":{"pirate_doubloon":2,"bones":2}},
+	"sea_ghost": {"name":"Морской призрак","hp":10,"damage":20,"xp":34,"speed":96.0,"mobile":true,"range":MELEE_DISTANCE + 10.0,"loot":{"ectoplasm":2,"pirate_doubloon":1}},
+	"drowned_captain": {"name":"Утопший капитан","hp":18,"damage":26,"xp":65,"speed":72.0,"mobile":true,"range":MELEE_DISTANCE + 8.0,"loot":{"cursed_compass":1,"pirate_doubloon":6}}
 }
 const SPAWNS := [
 	{"kind":"plant","location":"forest","position":Vector2(920,430),"level":1},
@@ -39,6 +44,11 @@ const SPAWNS := [
 	{"kind":"cave_guardian","location":"cave","position":Vector2(1220,760),"level":3},
 	{"kind":"cave_guardian","location":"cave","position":Vector2(1680,300),"level":4},
 	{"kind":"cave_guardian","location":"cave","position":Vector2(2160,680),"level":5},
+	{"kind":"pirate","location":"pirate_ship","position":Vector2(650,430),"level":2},
+	{"kind":"pirate","location":"pirate_ship","position":Vector2(1180,760),"level":3},
+	{"kind":"zombie_pirate","location":"pirate_ship","position":Vector2(1420,450),"level":3},
+	{"kind":"sea_ghost","location":"pirate_ship","position":Vector2(1740,740),"level":4},
+	{"kind":"drowned_captain","location":"pirate_ship","position":Vector2(1980,520),"level":5},
 ]
 
 
@@ -171,6 +181,7 @@ static func apply_damage(game: Node, index: int, damage: int, attacker_name: Str
 			if kind == "coins": game.coins += count
 			else: game.dropped_items.append({"kind":kind,"count":count,"position":enemy.position})
 		game.message = "%s • ур. %d: +%d XP" % [LocaleSystem.entity(enemy.kind), enemy.level, reward]
+		if enemy.kind in PIRATE_FAMILIES: game.notify_tutorial("pirate_loot")
 	else:
 		var prefix := "%s → " % attacker_name if not attacker_name.is_empty() else ""
 		game.message = "%s%s: -%d HP" % [prefix, LocaleSystem.entity(enemy.kind), damage]

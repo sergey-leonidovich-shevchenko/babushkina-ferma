@@ -11,6 +11,7 @@ const CAVE_FLOOR_TILE := preload("res://assets/game/tiles/cave-floor.png")
 const BRIDGES := preload("res://assets/game/environment/bridges.png")
 const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
 const BuildingSystem := preload("res://scripts/systems/building_system.gd")
+const PirateShipRenderer := preload("res://scripts/systems/pirate_ship_renderer.gd")
 
 var location := "overworld"
 
@@ -30,6 +31,7 @@ func _draw() -> void:
 	if BuildingSystem.is_interior(location): draw_interior()
 	elif location == "overworld": draw_overworld()
 	elif location == "cave": draw_cave()
+	elif location == "pirate_ship": PirateShipRenderer.draw(self)
 	else: draw_adventure_location()
 
 ## Отрисовывает пол, стены и название отдельной интерьерной локации.

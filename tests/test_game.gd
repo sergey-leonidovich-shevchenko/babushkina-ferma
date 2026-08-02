@@ -17,6 +17,7 @@ const MenuSuite = preload("res://tests/suites/menu_suite.gd")
 const StorySuite = preload("res://tests/suites/story_suite.gd")
 const FishingSuite = preload("res://tests/suites/fishing_suite.gd")
 const TreeSuite = preload("res://tests/suites/tree_suite.gd")
+const PirateShipSuite = preload("res://tests/suites/pirate_ship_suite.gd")
 var passed := 0
 var failed := 0
 
@@ -37,6 +38,7 @@ func _initialize() -> void:
 	StorySuite.new(self).run()
 	FishingSuite.new(self).run()
 	TreeSuite.new(self).run()
+	PirateShipSuite.new(self).run()
 	ArchitectureSuite.run(self)
 	print("TESTS: %d passed, %d failed" % [passed, failed])
 	quit(0 if failed == 0 else 1)

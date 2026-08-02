@@ -2,8 +2,8 @@ extends RefCounted
 
 const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
 
-const LOCATIONS := ["overworld","forest","rocky","ruins","cave","cursed","glassworks"]
-const NAMES := {"overworld":"Деревня и гильдия","forest":"Обычный лес","rocky":"Каменистая область","ruins":"Орочьи руины","cave":"Кристальные пещеры","cursed":"Проклятая земля","glassworks":"Мастерская стеклодува"}
+const LOCATIONS := ["overworld","forest","rocky","ruins","cave","cursed","glassworks","pirate_ship"]
+const NAMES := {"overworld":"Деревня и гильдия","forest":"Обычный лес","rocky":"Каменистая область","ruins":"Орочьи руины","cave":"Кристальные пещеры","cursed":"Проклятая земля","glassworks":"Мастерская стеклодува","pirate_ship":"Корабль «Чёрная сельдь»"}
 
 ## Выполняет операцию «следующего локации» и возвращает результат согласно контракту метода.
 static func next_location(current: String) -> String:
@@ -21,4 +21,5 @@ static func travel(game: Node) -> void:
 	game.play_sfx("travel")
 	game.message = name(game.current_location)
 	game.notify_tutorial("locations")
+	if game.current_location == "pirate_ship": game.notify_tutorial("pirate_ship")
 	game.DiscoverySystem.show_location(game, game.current_location)

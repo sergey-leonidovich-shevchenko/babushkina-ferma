@@ -11,7 +11,7 @@ func run() -> void:
 	test_tracker_stays_compact_with_many_active_quests()
 	test_old_save_receives_new_mission_states()
 
-## Сценарий: контент содержит пять связанных глав, девять побочных историй и одиннадцать жителей.
+## Сценарий: контент содержит пять связанных глав, десять побочных историй и двенадцать жителей.
 ## Исходное состояние: неизменённые декларативные каталоги сюжетной системы.
 ## Ожидаемый результат: количество, типы, зависимости, предметы и владельцы всех заданий согласованы.
 func test_story_and_side_catalog_structure() -> void:
@@ -19,8 +19,8 @@ func test_story_and_side_catalog_structure() -> void:
 	var story_ids: Array = game.QuestSystem.MISSIONS.keys().filter(func(id): return String(id).begins_with("story_"))
 	var side_ids: Array = game.QuestSystem.MISSIONS.keys().filter(func(id): return String(id).begins_with("side_"))
 	expect(story_ids.size() == 5, "main plot contains five chapters")
-	expect(side_ids.size() == 9, "world contains nine dedicated side quests")
-	expect(game.QuestSystem.NPCS.size() == 11, "eleven named quest NPCs populate the world")
+	expect(side_ids.size() == 10, "world contains ten dedicated side quests")
+	expect(game.QuestSystem.NPCS.size() == 12, "twelve named quest NPCs populate the world")
 	var visual_signatures := {}
 	for npc_id in game.QuestSystem.NPCS:
 		var npc: Dictionary = game.QuestSystem.NPCS[npc_id]
@@ -64,7 +64,7 @@ func test_five_chapter_main_story_unlocks_in_order() -> void:
 ## Ожидаемый результат: восемь новых и существующая лесная история завершаются независимо без повторной награды.
 func test_all_new_side_quests_can_be_completed() -> void:
 	var game := make_game()
-	var owners := {"side_seed":"agafya","side_fisher":"varvara","side_smith":"gavrila","side_miner":"zlata","side_hunter":"saveliy","side_bones":"elizar","side_wings":"lada","side_glass":"tikhon","side_feast":"dunya"}
+	var owners := {"side_seed":"agafya","side_fisher":"varvara","side_smith":"gavrila","side_miner":"zlata","side_hunter":"saveliy","side_bones":"elizar","side_wings":"lada","side_glass":"tikhon","side_feast":"dunya","side_pirate_compass":"elena"}
 	for mission_id in owners:
 		var npc_id: String = owners[mission_id]
 		var npc: Dictionary = game.QuestSystem.NPCS[npc_id]
@@ -123,14 +123,14 @@ func test_quest_journal_has_keyboard_and_gamepad_pages() -> void:
 	game.free()
 
 ## Сценарий: одновременное принятие множества историй не превращает HUD в длинный список.
-## Исходное состояние: все четырнадцать миссий вручную отмечены активными для стресс-проверки представления.
+## Исходное состояние: все пятнадцать миссий вручную отмечены активными для стресс-проверки представления.
 ## Ожидаемый результат: локализованная сводная строка существует, а визуальный контракт ограничивает трекер тремя целями и итогом.
 func test_tracker_stays_compact_with_many_active_quests() -> void:
 	var game := make_game()
 	for mission_id in game.QuestSystem.MISSIONS: game.mission_states[mission_id] = game.QuestSystem.ACTIVE
 	var lines: Array[String] = game.PresentationSystem.quest_tracker_lines(game)
-	expect(lines.size() == 4 and lines.back().contains("11"), "tracker keeps three objectives and summarizes eleven hidden quests")
-	expect(30.0 + lines.size() * 22.0 <= 120.0, "quest tracker remains compact with fourteen active missions")
+	expect(lines.size() == 4 and lines.back().contains("12"), "tracker keeps three objectives and summarizes twelve hidden quests")
+	expect(30.0 + lines.size() * 22.0 <= 120.0, "quest tracker remains compact with fifteen active missions")
 	game.free()
 
 ## Сценарий: сохранение старой версии с двумя миссиями получает безопасные состояния нового контента.

@@ -397,10 +397,11 @@ func draw_world_loot() -> void:
 		var position: Vector2 = container.position.round()
 		var alpha := 0.38 if container.opened else 1.0
 		match container.kind:
-			"chest":
+			"chest", "pirate_chest":
 				draw_rect(Rect2(position - Vector2(27, 16), Vector2(54, 34)), Color(0.35, 0.20, 0.10, alpha))
 				draw_rect(Rect2(position - Vector2(24, 13), Vector2(48, 12)), Color(0.62, 0.36, 0.16, alpha))
 				draw_rect(Rect2(position - Vector2(4, 4), Vector2(8, 13)), Color(0.93, 0.72, 0.25, alpha))
+				if container.kind == "pirate_chest": draw_circle(position + Vector2(0,-2), 7, Color("d8d4c1", alpha))
 				if container.opened:
 					draw_line(position - Vector2(24, 16), position + Vector2(20, -32), Color(0.48, 0.27, 0.12, alpha), 8)
 			"bone_pile":
@@ -430,7 +431,7 @@ func draw_enemy_nodes_and_gate() -> void:
 		var position: Vector2 = enemy.position
 		AnimationRenderer.draw_enemy(self, enemy)
 		if not enemy.alive: continue
-		var sprite_height := 126.0 if enemy.kind == "cave_guardian" else (104.0 if enemy.kind == "undead" else 96.0)
+		var sprite_height := 126.0 if enemy.kind in ["cave_guardian","drowned_captain"] else (104.0 if enemy.kind in ["undead","sea_ghost"] else 96.0)
 		var bar_y := position.y - sprite_height * 0.72
 		draw_string(UI_FONT, Vector2(position.x - 65, bar_y - 9), LocaleSystem.ui("enemy_level", [enemy.level]), HORIZONTAL_ALIGNMENT_CENTER, 130, 13, Color("ffd46a"))
 		draw_rect(Rect2(Vector2(position.x - 31, bar_y), Vector2(62, 7)), Color("402d32"))
@@ -544,6 +545,14 @@ func draw_item_icon(kind: String, rect: Rect2) -> void:
 		draw_circle(center, minf(rect.size.x, rect.size.y) * 0.34, Color("e5b94f"))
 		draw_circle(center, minf(rect.size.x, rect.size.y) * 0.25, Color("684839"))
 		draw_colored_polygon(PackedVector2Array([center + Vector2(-7, -2), center + Vector2(0, -9), center + Vector2(7, -2), center + Vector2(4, 8), center + Vector2(-4, 8)]), Color("ffe28a"))
+	elif kind == "pirate_doubloon":
+		draw_circle(rect.get_center(), minf(rect.size.x, rect.size.y) * 0.34, Color("e7bd4d")); draw_circle(rect.get_center(), minf(rect.size.x, rect.size.y) * 0.22, Color("7d5729"), false, 3)
+	elif kind == "ectoplasm":
+		draw_circle(rect.get_center() + Vector2(0,3), minf(rect.size.x, rect.size.y) * 0.28, Color(0.44,0.88,0.84,0.72)); draw_circle(rect.get_center() - Vector2(8,8), 4, Color("c8fff3"))
+	elif kind == "cursed_compass":
+		var compass_center := rect.get_center(); draw_circle(compass_center, minf(rect.size.x, rect.size.y) * 0.34, Color("b98b52")); draw_circle(compass_center, minf(rect.size.x, rect.size.y) * 0.25, Color("272d35")); draw_line(compass_center + Vector2(-7,9), compass_center + Vector2(7,-9), Color("db5b62"), 4)
+	elif kind == "pirate_cutlass":
+		var blade_center := rect.get_center(); draw_line(blade_center + Vector2(-10,12),blade_center + Vector2(12,-13),Color("e3ece8"),6); draw_arc(blade_center + Vector2(3,-3),18,-1.1,0.8,10,Color("d7e1df"),4); draw_line(blade_center + Vector2(-13,9),blade_center + Vector2(-5,17),Color("ad7a42"),5)
 	else:
 		draw_circle(rect.get_center(), minf(rect.size.x, rect.size.y) * 0.34, inventory_item_color(kind))
 

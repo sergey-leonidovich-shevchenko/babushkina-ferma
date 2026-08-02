@@ -134,6 +134,7 @@ static func apply(game: Node, data: Dictionary) -> bool:
 		game.world_loot_nodes.clear()
 		for container in data.containers:
 			game.world_loot_nodes.append({"id":container.id,"kind":container.kind,"location":container.location,"position":Vector2(container.position[0],container.position[1]),"opened":container.opened,"contents":container.contents.duplicate(true)})
+		game.world_loot_nodes = game.LootContainerSystem.merge_missing_location(game.world_loot_nodes, game.world_loot_seed, "pirate_ship")
 	game.dropped_items.clear()
 	for item in data.get("drops", []):
 		game.dropped_items.append({"kind":item.kind,"count":item.count,"position":Vector2(item.position[0],item.position[1])})

@@ -7,6 +7,7 @@ const TYPES := {
 	"bone_pile": {"name":"Груда костей","rolls":2,"table":[["bones",1,4,45],["ancient_key",1,1,8],["bat_wing",1,2,17],["coins",3,12,20],["blue_gem",1,1,10]]},
 	"sack": {"name":"Брошенный мешок","rolls":2,"table":[["seeds",2,6,27],["carrot",1,3,18],["apple",1,2,13],["berries",1,3,13],["watermelon",1,1,9],["fiber",1,3,20]]},
 	"trash": {"name":"Куча хлама","rolls":2,"table":[["stone",1,3,25],["wood",1,3,25],["metal",1,2,18],["coins",1,8,18],["orange",1,1,4],["fiber",1,3,10]]},
+	"pirate_chest": {"name":"Пиратский сундук","rolls":3,"table":[["pirate_doubloon",2,6,38],["ectoplasm",1,2,22],["metal",1,3,18],["healing_potion",1,1,12],["pirate_cutlass",1,1,4],["coins",12,35,6]]},
 }
 
 const SPAWNS := [
@@ -17,7 +18,15 @@ const SPAWNS := [
 	{"location":"cave","count":3,"types":["chest","bone_pile"],"positions":[Vector2(400,690),Vector2(740,750),Vector2(1200,650),Vector2(1880,420),Vector2(2140,700)]},
 	{"location":"cursed","count":3,"types":["bone_pile","chest"],"positions":[Vector2(490,390),Vector2(930,710),Vector2(1510,650),Vector2(1930,360),Vector2(2180,700)]},
 	{"location":"glassworks","count":2,"types":["chest","sack"],"positions":[Vector2(650,690),Vector2(1380,360),Vector2(1980,680),Vector2(1050,720)]},
+	{"location":"pirate_ship","count":3,"types":["pirate_chest"],"positions":[Vector2(520,720),Vector2(980,350),Vector2(1330,800),Vector2(1870,360),Vector2(2050,790)]},
 ]
+
+## Дополняет старое сохранение контейнерами локации, которой ещё не было в его снимке.
+static func merge_missing_location(current: Array, seed_value: int, location: String) -> Array:
+	if current.any(func(container): return container.location == location): return current
+	for container in generate(seed_value):
+		if container.location == location: current.append(container)
+	return current
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func random_seed() -> int:

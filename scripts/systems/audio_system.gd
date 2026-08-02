@@ -8,6 +8,7 @@ const MUSIC_BY_LOCATION := {
 	"cave": "cave",
 	"cursed": "danger",
 	"glassworks": "workshop",
+	"pirate_ship": "pirate",
 	"cottage_interior": "village", "shop_interior": "village", "guild_interior": "village",
 	"forge_interior": "workshop", "chapel_interior": "cave", "prison_interior": "danger",
 	"tower_interior": "forest", "castle_hall": "danger", "castle_upper": "danger", "castle_dungeon": "cave",

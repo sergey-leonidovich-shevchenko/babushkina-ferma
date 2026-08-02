@@ -44,6 +44,7 @@ const MISSIONS := {
 	"side_wings": {"type":"ПОБОЧНОЕ","title":"Ночное лекарство","giver":"Ведунья Лада","description":"Принеси четыре крыла летучих мышей для защитного настоя.","item":"bat_wing","count":4,"coins":60,"xp":35,"reward_item":"healing_potion","reward_count":2},
 	"side_glass": {"type":"ПОБОЧНОЕ","title":"Хрустальная плавка","giver":"Стеклодув Тихон","description":"Принеси четыре кристалла для новой партии лунного стекла.","item":"crystal","count":4,"coins":95,"xp":45,"reward_item":"orange","reward_count":3},
 	"side_feast": {"type":"ПОБОЧНОЕ","title":"Праздник урожая","giver":"Повариха Дуня","description":"Собери три гриба для общего деревенского стола.","item":"mushroom","count":3,"coins":45,"xp":25,"reward_item":"apple","reward_count":5},
+	"side_pirate_compass": {"type":"ПОБОЧНОЕ","title":"Курс мёртвого капитана","giver":"Штурман Елена","description":"Победи Утопшего капитана на «Чёрной сельди» и принеси его проклятый компас.","item":"cursed_compass","count":1,"coins":180,"xp":90,"reward_item":"pirate_cutlass","reward_count":1},
 }
 
 const NPCS := {
@@ -58,6 +59,7 @@ const NPCS := {
 	"radomir":{"location":"ruins","position":Vector2(650,440),"sprite":1,"tint":Color("e4e8ef"),"missions":["story_orc_blade"]},
 	"lada":{"location":"cursed","position":Vector2(410,500),"sprite":2,"tint":Color("eacfff"),"missions":["story_cursed_gem","side_wings"]},
 	"tikhon":{"location":"glassworks","position":Vector2(480,500),"sprite":0,"tint":Color("cceeff"),"missions":["side_glass"]},
+	"elena":{"location":"pirate_ship","position":Vector2(360,520),"sprite":2,"tint":Color("f2c6a0"),"missions":["side_pirate_compass"]},
 }
 
 ## Создаёт полный набор начальных состояний, включая контент новых версий игры.
@@ -172,6 +174,7 @@ static func talk(game: Node, mission_id: String) -> bool:
 		game.play_sfx("quest_accept")
 		game.notify_tutorial("mission_accept")
 		game.notify_tutorial("story_chain" if mission.type == LocaleSystem.quest("story_relic", "type") else "side_quests")
+		if mission_id == "side_pirate_compass": game.notify_tutorial("pirate_quest")
 		return true
 	if state == ACTIVE:
 		var current: int = game.inventory_item_count(mission.item)

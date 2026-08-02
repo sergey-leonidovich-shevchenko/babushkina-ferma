@@ -179,7 +179,7 @@ func test_crafting_window_and_save_snapshot() -> void:
 	expect(game.equipment.head == "iron_helmet" and game.plots[Vector2i.ZERO].tilled, "save restores equipment and farm state")
 	game.free()
 
-## Сценарий: семейства врагов используют свои таблицы добычи, а маршрут связывает семь локаций.
+## Сценарий: семейства врагов используют свои таблицы добычи, а маршрут связывает восемь локаций.
 ## Исходное состояние: новая игра с живыми целями; здоровье, позиции, оружие и добыча настраиваются сценарием.
 ## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_enemy_families_loot_tables_and_world_route() -> void:
@@ -195,8 +195,8 @@ func test_enemy_families_loot_tables_and_world_route() -> void:
 	game.current_location = "overworld"
 	game.WorldSystem.travel(game)
 	expect(game.current_location == "forest", "world gate travels from village to forest")
-	for _location in 6: game.WorldSystem.travel(game)
-	expect(game.current_location == "overworld", "world route connects all seven locations in a loop")
+	for _location in 7: game.WorldSystem.travel(game)
+	expect(game.current_location == "overworld", "world route connects all eight locations in a loop")
 	game.free()
 
 ## Сценарий: игровые механики принадлежат отдельным системам, а не композиционному корню.

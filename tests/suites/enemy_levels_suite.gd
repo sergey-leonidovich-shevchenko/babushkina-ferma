@@ -15,7 +15,7 @@ func run() -> void:
 ## Ожидаемый результат: уровни полны, здоровье с опытом растут, а элита оставляет втрое больше предметов.
 func test_enemy_catalog_scaling_and_ranked_loot() -> void:
 	var game := make_game()
-	expect(game.enemy_nodes.size() == 25, "five enemy families expose five levels each")
+	expect(game.enemy_nodes.size() == 30, "five ranked families and five pirate encounters populate the world")
 	for kind in game.CombatSystem.FAMILY_ORDER:
 		var levels: Array = game.enemy_nodes.filter(func(enemy): return enemy.kind == kind).map(func(enemy): return enemy.level)
 		expect(levels == [1, 2, 3, 4, 5], "%s family contains levels one through five" % kind)
