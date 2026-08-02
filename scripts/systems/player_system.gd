@@ -37,7 +37,9 @@ static func award_xp(game: Node, amount: int, reason: String = "") -> void:
 		game.player_max_hp += 10
 		game.player_hp = game.player_max_hp
 		leveled_up = true
-	if leveled_up: game.message = "Новый уровень %d! Максимум здоровья +10" % game.player_level
+	if leveled_up:
+		game.message = "Новый уровень %d! Максимум здоровья +10" % game.player_level
+		game.notify_tutorial("level_up")
 	elif not reason.is_empty(): game.message = "%s: +%d опыта" % [reason, amount]
 
 static func update_effects(game: Node, delta: float) -> void:

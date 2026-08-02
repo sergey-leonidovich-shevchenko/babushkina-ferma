@@ -72,6 +72,8 @@ static func talk(game: Node, mission_id: String) -> bool:
 		game.mission_states[mission_id] = COMPLETED
 		game.message = "%s выполнено! +%d монет, +%d XP, %s" % [mission.title, mission.coins, mission.xp, game.inventory_item_name(mission.reward_item)]
 		game.notify_tutorial("mission_complete")
+		if mission_id == "side_seed":
+			game.notify_tutorial("side_mission")
 		return true
 	game.message = "%s благодарит тебя за помощь" % mission.giver
 	return true

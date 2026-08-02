@@ -29,6 +29,8 @@ func _initialize() -> void:
 	test_colored_crystals_and_orc_equipment_loot()
 	test_story_and_side_mission_chains()
 	test_mission_progress_and_drops_are_saved()
+	test_contextual_discoveries_and_new_item_hints()
+	test_discoveries_and_tutorial_checklist_are_saved()
 	test_gameplay_systems_are_modular()
 	print("TESTS: %d passed, %d failed" % [passed, failed])
 	quit(0 if failed == 0 else 1)
@@ -415,7 +417,7 @@ func test_gameplay_systems_are_modular() -> void:
 	expect(game.FarmSystem != null and game.FishingSystem != null and game.QuestSystem != null, "farm fishing and quest systems are separate modules")
 	expect(game.CombatSystem != null and game.CraftingSystem != null and game.SaveSystem != null, "combat crafting and save systems are separate modules")
 	expect(game.WorldSystem != null and game.RenderSystem != null, "world and rendering coordinators are separate modules")
-	expect(game.ResourceSystem != null and game.ShopSystem != null and game.TutorialSystem != null, "resources shop and tutorial are separate modules")
+	expect(game.ResourceSystem != null and game.ShopSystem != null and game.TutorialSystem != null and game.DiscoverySystem != null, "resources shop tutorial and discoveries are separate modules")
 	game.free()
 
 func test_colored_crystals_and_orc_equipment_loot() -> void:
@@ -494,4 +496,42 @@ func test_mission_progress_and_drops_are_saved() -> void:
 	expect(game.mission_states.story_relic == game.QuestSystem.ACTIVE, "save restores mission state")
 	expect(game.dropped_items.size() == 1 and game.dropped_items[0].kind == "moon_relic", "save restores uncollected quest loot")
 	expect(game.dropped_items[0].position == Vector2(700, 500), "save restores quest loot position")
+	game.free()
+
+func test_contextual_discoveries_and_new_item_hints() -> void:
+	var game := make_game()
+	game.discovery_current.clear()
+	game.seen_discoveries.clear()
+	game.player = Vector2(972, 278)
+	expect(game.DiscoverySystem.scan_nearby(game), "approaching an unknown feature opens a contextual hint")
+	expect(game.discovery_current.id == "shop" and game.seen_discoveries.has("shop"), "shop hint explains and remembers the discovered feature")
+	game.DiscoverySystem.dismiss(game)
+	expect(not game.DiscoverySystem.scan_nearby(game), "seen feature does not repeat its hint")
+	game.current_location = "cave"
+	game.player = Vector2(700, 500)
+	game.dropped_items.append({"kind":"moon_relic","count":1,"position":game.player})
+	expect(game.DiscoverySystem.scan_nearby(game), "new dropped item opens a discovery hint")
+	expect(game.discovery_current.id == "item:moon_relic" and "Мирону" in game.discovery_current.text, "quest item hint explains where to bring it")
+	game.DiscoverySystem.dismiss(game)
+	expect(game.discovery_current.is_empty(), "context hint can be dismissed")
+	game.free()
+
+func test_discoveries_and_tutorial_checklist_are_saved() -> void:
+	var game := make_game()
+	game.seen_discoveries = {"shop":true,"enemy:orc":true}
+	game.notify_tutorial("save")
+	expect(game.tutorial_step == 0 and game.tutorial_events_completed.has("save"), "future tutorial actions are remembered without skipping current step")
+	game.tutorial_step = game.tutorial_steps.size() - 1
+	game.notify_tutorial("unrelated")
+	expect(game.tutorial_step == game.tutorial_steps.size(), "remembered action completes its checklist step when prerequisites are reached")
+	var snapshot: Dictionary = game.SaveSystem.snapshot(game)
+	game.seen_discoveries.clear()
+	game.tutorial_events_completed.clear()
+	game.tutorial_step = 0
+	game.SaveSystem.apply(game, snapshot)
+	expect(game.seen_discoveries.has("shop") and game.seen_discoveries.has("enemy:orc"), "save restores discovered feature history")
+	expect(game.tutorial_step == game.tutorial_steps.size() and game.tutorial_events_completed.has("save"), "save restores tutorial checklist progress")
+	var required_events := ["move","plant","rewater","trade","fight","hotbar","equipment","fish","craft_window","mission_complete","journal","side_mission","colored_crystal","day","level_up","save"]
+	for event_name in required_events:
+		expect(game.tutorial_steps.any(func(step): return step.event == event_name), "tutorial covers feature: %s" % event_name)
 	game.free()

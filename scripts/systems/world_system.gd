@@ -12,3 +12,4 @@ static func travel(game: Node) -> void:
 	game.sync_background_location(); game.update_camera()
 	game.message = NAMES[game.current_location]
 	game.notify_tutorial("locations")
+	game.DiscoverySystem.show_location(game, game.current_location)

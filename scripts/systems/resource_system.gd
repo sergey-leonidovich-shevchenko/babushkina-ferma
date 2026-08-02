@@ -35,4 +35,6 @@ static func mine(game: Node, index: int) -> bool:
 		game.message += ". Жила исчерпана"
 	game.resource_nodes[index] = resource
 	game.notify_tutorial("mine")
+	if resource.kind in ["red_crystal", "green_crystal"]:
+		game.notify_tutorial("colored_crystal")
 	return true

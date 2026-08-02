@@ -27,6 +27,7 @@ const RenderSystem := preload("res://scripts/systems/render_system.gd")
 const ResourceSystem := preload("res://scripts/systems/resource_system.gd")
 const ShopSystem := preload("res://scripts/systems/shop_system.gd")
 const TutorialSystem := preload("res://scripts/systems/tutorial_system.gd")
+const DiscoverySystem := preload("res://scripts/systems/discovery_system.gd")
 const ITEM_HELMET := preload("res://assets/game/items/iron_helmet.png")
 const ITEM_ARMOR := preload("res://assets/game/items/guardian_armor.png")
 const ITEM_BOOTS := preload("res://assets/game/items/travel_boots.png")
@@ -166,6 +167,11 @@ var mission_states := {"story_relic":"available", "side_seed":"available"}
 var quest_log_open := false
 var tutorial_visible := true
 var tutorial_step := 0
+var tutorial_events_completed := {}
+var seen_discoveries := {}
+var discovery_current := {}
+var discovery_timer := 0.0
+var discovery_scan_timer := 0.0
 var tutorial_steps := [
 	{"event": "move", "text": "Пройди немного стрелками или WASD"},
 	{"event": "talk", "text": "Подойди к бабушке и нажми E"},
@@ -191,7 +197,13 @@ var tutorial_steps := [
 	{"event": "travel", "text": "Найди светящийся вход в пещеру и нажми E"},
 	{"event": "locations", "text": "Найди золотые врата и посети следующую локацию"},
 	{"event": "mission_accept", "text": "Поговори со старостой или травницей и возьми миссию"},
-	{"event": "mission_complete", "text": "Победи цель, подбери предмет и вернись за наградой"}
+	{"event": "mission_complete", "text": "Победи цель, подбери предмет и вернись за наградой"},
+	{"event": "journal", "text": "Открой журнал [J] и проверь цели сюжетных и побочных миссий"},
+	{"event": "side_mission", "text": "Выполни побочную миссию травницы Агафьи"},
+	{"event": "colored_crystal", "text": "Добудь красный или зелёный кристалл киркой [5]"},
+	{"event": "day", "text": "Вернись к дому и закончи день клавишей N"},
+	{"event": "level_up", "text": "Набери 50 XP и повысь уровень персонажа"},
+	{"event": "save", "text": "Сохрани игру [F5], затем проверь загрузку [F8]"}
 ]
 
 func _ready() -> void:
@@ -203,6 +215,7 @@ func _ready() -> void:
 		title_screen = false
 		move_right_held = true
 	sync_background_location()
+	DiscoverySystem.show_location(self, current_location)
 	queue_redraw()
 
 func _physics_process(delta: float) -> void:
@@ -214,6 +227,7 @@ func _physics_process(delta: float) -> void:
 	update_combat(delta)
 	update_fishing(delta)
 	update_status_effects(delta)
+	DiscoverySystem.update(self, delta)
 	if benchmark_autoplay:
 		update_benchmark_route(delta)
 	if shop_open or inventory_open or crafting_open or quest_log_open:
@@ -419,6 +433,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			KEY_F8: load_game()
 			KEY_I, KEY_TAB: open_inventory()
 			KEY_J: toggle_quest_log()
+			KEY_H: DiscoverySystem.dismiss(self)
 		queue_redraw()
 
 func targeted_plot() -> Vector2i:
@@ -492,6 +507,7 @@ func sleep_until_morning() -> void:
 	game_minutes = 6.0 * 60.0
 	energy = 12
 	message = "День %d, 06:00. Доброе утро!" % day
+	notify_tutorial("day")
 
 func open_shop() -> void:
 	if player.distance_to(Vector2(972, 278)) > 100.0:
@@ -610,6 +626,7 @@ func enter_cave() -> void:
 	player = cave_exit_position + Vector2(90, 0)
 	update_camera()
 	message = "Кристальная пещера"
+	DiscoverySystem.show_location(self, current_location)
 	notify_tutorial("travel")
 
 func exit_cave() -> void:
@@ -618,6 +635,7 @@ func exit_cave() -> void:
 	player = cave_entrance_position - Vector2(100, 0)
 	update_camera()
 	message = "Ты вернулся в зачарованный лес"
+	DiscoverySystem.show_location(self, current_location)
 
 func open_inventory() -> void:
 	inventory_open = true
@@ -854,6 +872,7 @@ func toggle_quest_log() -> void:
 	if quest_log_open:
 		clear_movement_keys()
 		message = "Журнал заданий открыт"
+		notify_tutorial("journal")
 
 func attack_slime() -> bool:
 	var attack_range := 280.0 if equipped_weapon == "bow" else 105.0
@@ -981,6 +1000,8 @@ func import_inventory_counts(counts: Dictionary) -> void:
 func save_game() -> bool:
 	var saved := SaveSystem.save(self)
 	message = "Игра сохранена" if saved else "Не удалось сохранить игру"
+	if saved:
+		notify_tutorial("save")
 	return saved
 
 func load_game() -> bool:
@@ -1363,6 +1384,7 @@ func draw_ui() -> void:
 		draw_rect(Rect2(18, 108, 420, 68), Color("263c36"))
 		draw_string(ThemeDB.fallback_font, Vector2(34, 132), "ОБУЧЕНИЕ %d/%d  [T скрыть • Y заново • F9 QA]" % [tutorial_step + 1, tutorial_steps.size()], HORIZONTAL_ALIGNMENT_LEFT, -1, 14, Color("9ed6b3"))
 		draw_string(ThemeDB.fallback_font, Vector2(34, 160), tutorial_steps[tutorial_step].text, HORIZONTAL_ALIGNMENT_LEFT, 385, 17, Color.WHITE)
+	draw_discovery_card()
 	if shop_open:
 		draw_shop()
 	if inventory_open:
@@ -1371,6 +1393,20 @@ func draw_ui() -> void:
 		draw_crafting_window()
 	if quest_log_open:
 		draw_quest_log()
+
+func draw_discovery_card() -> void:
+	if discovery_current.is_empty():
+		return
+	var card := Rect2(344, 190, 464, 126)
+	draw_rect(card, Color(0.08, 0.12, 0.11, 0.96))
+	draw_rect(card.grow(-4), Color("355347"))
+	draw_rect(Rect2(card.position + Vector2(4, 4), Vector2(card.size.x - 8, 34)), Color("d5ad55"))
+	draw_string(ThemeDB.fallback_font, card.position + Vector2(18, 27), "НОВОЕ РЯДОМ • ≤3 КЛЕТКИ", HORIZONTAL_ALIGNMENT_LEFT, 320, 13, Color("352c21"))
+	draw_string(ThemeDB.fallback_font, card.position + Vector2(350, 27), "H • скрыть", HORIZONTAL_ALIGNMENT_RIGHT, 94, 12, Color("352c21"))
+	draw_string(ThemeDB.fallback_font, card.position + Vector2(18, 64), discovery_current.title, HORIZONTAL_ALIGNMENT_LEFT, 425, 20, Color("fff0bd"))
+	draw_multiline_string(ThemeDB.fallback_font, card.position + Vector2(18, 88), discovery_current.text, HORIZONTAL_ALIGNMENT_LEFT, 425, 14, 2, Color.WHITE)
+	var ratio := clampf(discovery_timer / DiscoverySystem.CARD_DURATION, 0.0, 1.0)
+	draw_rect(Rect2(card.position + Vector2(8, 116), Vector2((card.size.x - 16) * ratio, 4)), Color("f1ca5c"))
 
 func draw_mission_tracker() -> void:
 	var lines: Array[String] = []
@@ -1584,6 +1620,9 @@ func handle_gamepad_and_touch(event: InputEvent) -> bool:
 				toggle_quest_log()
 				return true
 	if event is InputEventScreenTouch and event.pressed:
+		if Rect2(344, 190, 464, 126).has_point(event.position) and not discovery_current.is_empty():
+			DiscoverySystem.dismiss(self)
+			return true
 		if Rect2(990, 0, 162, 62).has_point(event.position):
 			toggle_quest_log()
 			return true
