@@ -1,0 +1,12 @@
+Title screen key art: Babushkina Ferma — Mystery of Moon Valley
+Created specifically for this project with the built-in OpenAI image generation tool.
+
+Production asset: assets/title_art_rpg.png
+Production size: 1152x648, matching the native game viewport.
+Method: original raster generation, no reference images, no embedded text.
+Prompt summary: wide handcrafted 16-bit pixel-art farming RPG valley at sunrise; grandmother's
+farm and carrot plots in the foreground; an adventurer at a path fork; fishing pond and bridge;
+workshop, forest ruins, and a cyan crystal cave in the distance; title-safe sky; no logos,
+copyrighted characters, UI, watermark, or text.
+
+The localized game title and subtitle are rendered by Godot and are not baked into the image.

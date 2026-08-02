@@ -15,6 +15,9 @@ func _ready() -> void:
 		world_loot_seed = LootContainerSystem.random_seed() if world_loot_seed == 0 else world_loot_seed
 		world_loot_nodes = LootContainerSystem.generate(world_loot_seed)
 	benchmark_autoplay = "--autoplay" in OS.get_cmdline_user_args()
+	if "--title-preview" in OS.get_cmdline_user_args():
+		language_screen = false
+		title_screen = true
 	if benchmark_autoplay:
 		language_screen = false
 		title_screen = false

@@ -34,6 +34,8 @@ func test_localization_language_selector_and_catalogs() -> void:
 	expect(game.language_selected == 1, "language selector moves immediately with keyboard")
 	game.handle_language_input(key_event(KEY_ENTER, KEY_ENTER, true))
 	expect(not game.language_screen and locale.current == "en" and locale.ui("title") == "GRANDMA'S FARM", "Enter applies English before the title screen")
+	expect(locale.ui("title_subtitle") == "MYSTERY OF MOON VALLEY", "new RPG subtitle is localized with the title")
+	expect(game.TITLE_ART.get_width() == 1152 and game.TITLE_ART.get_height() == 648, "title art matches the native viewport without runtime scaling")
 	game.language_screen = true
 	game.language_selected = 0
 	var dpad := InputEventJoypadButton.new()
@@ -276,4 +278,3 @@ func test_held_action_repeats_tools_without_reopening_ui() -> void:
 	game.set_attack_key_state(attack_release)
 	expect(not game.attack_held, "attack stops on F key-up")
 	game.free()
-

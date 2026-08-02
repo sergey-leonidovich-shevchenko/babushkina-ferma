@@ -6,13 +6,30 @@ func _draw() -> void:
 func draw_title_screen() -> void:
 	if title_screen:
 		draw_texture_rect(TITLE_ART, Rect2(0, 0, 1152, 648), false)
-		draw_rect(Rect2(0, 0, 1152, 648), Color(0.04, 0.08, 0.08, 0.25))
-		draw_string(UI_FONT, Vector2(576, 120), LocaleSystem.ui("title"), HORIZONTAL_ALIGNMENT_CENTER, 760, 46, Color("fff4cf"))
-		draw_string(UI_FONT, Vector2(576, 565), LocaleSystem.ui("press_any"), HORIZONTAL_ALIGNMENT_CENTER, 420, 24, Color.WHITE)
+		draw_rect(Rect2(0, 0, 1152, 202), Color(0.03, 0.055, 0.075, 0.38))
+		draw_rect(Rect2(0, 500, 1152, 148), Color(0.025, 0.045, 0.04, 0.32))
+		var pulse := 0.78 + sin(Time.get_ticks_msec() / 520.0) * 0.10
+		for firefly in 7:
+			var phase := Time.get_ticks_msec() / 900.0 + firefly * 1.73
+			var point := Vector2(95 + firefly * 163 + sin(phase) * 22, 390 + cos(phase * 0.73) * 68)
+			draw_circle(point, 3.0, Color(1.0, 0.83, 0.35, 0.20 + pulse * 0.22))
+		var title_rect := Rect2(196, 54, 760, 62)
+		draw_string(UI_FONT, title_rect.position + Vector2(3, 52), LocaleSystem.ui("title"), HORIZONTAL_ALIGNMENT_CENTER, title_rect.size.x, 50, Color(0.08, 0.09, 0.08, 0.78))
+		draw_string(UI_FONT, title_rect.position + Vector2(0, 48), LocaleSystem.ui("title"), HORIZONTAL_ALIGNMENT_CENTER, title_rect.size.x, 50, Color("fff0bd"))
+		draw_rect(Rect2(355, 128, 442, 38), Color(0.12, 0.20, 0.18, 0.80))
+		draw_rect(Rect2(360, 133, 432, 28), Color(0.32, 0.24, 0.16, 0.72))
+		draw_string(UI_FONT, Vector2(370, 155), LocaleSystem.ui("title_subtitle"), HORIZONTAL_ALIGNMENT_CENTER, 412, 20, Color("ffe19a"))
+		draw_string(UI_FONT, Vector2(326, 194), LocaleSystem.ui("title_features"), HORIZONTAL_ALIGNMENT_CENTER, 500, 15, Color(1.0, 0.96, 0.82, 0.88))
+		var start_rect := Rect2(382, 526, 388, 82)
+		draw_rect(start_rect, Color(0.06, 0.13, 0.11, 0.80))
+		draw_rect(start_rect.grow(-4), Color(0.18, 0.34, 0.25, 0.88))
+		draw_rect(start_rect.grow(-8), Color(0.08, 0.18, 0.14, 0.93))
+		draw_string(UI_FONT, Vector2(396, 563), LocaleSystem.ui("press_any"), HORIZONTAL_ALIGNMENT_CENTER, 360, 23, Color("ffe5a3"))
+		draw_string(UI_FONT, Vector2(396, 591), LocaleSystem.ui("title_controls"), HORIZONTAL_ALIGNMENT_CENTER, 360, 14, Color(1, 1, 1, pulse))
 
 func draw_language_screen() -> void:
 	draw_texture_rect(TITLE_ART, Rect2(0, 0, 1152, 648), false)
-	draw_rect(Rect2(0, 0, 1152, 648), Color(0.03, 0.07, 0.07, 0.82))
+	draw_rect(Rect2(0, 0, 1152, 648), Color(0.025, 0.055, 0.055, 0.74))
 	draw_string(UI_FONT, Vector2(196, 112), LocaleSystem.ui("choose_language"), HORIZONTAL_ALIGNMENT_CENTER, 760, 38, Color("fff4cf"))
 	for index in LocaleSystem.LOCALES.size():
 		var rect := language_button_rect(index)

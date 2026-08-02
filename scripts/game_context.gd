@@ -3,7 +3,7 @@ extends Node2D
 const TILE := 48
 const FARM_ORIGIN := Vector2i(408, 216)
 const FARM_SIZE := Vector2i(6, 5)
-const TITLE_ART := preload("res://assets/title_art.png")
+const TITLE_ART := preload("res://assets/title_art_rpg.png")
 const PLANT_SHEET := preload("res://assets/game/environment/farm_plants.png")
 const SUPPLY_SHEET := preload("res://assets/game/ui/farm_supplies.png")
 const FARMER_SHEET := preload("res://assets/game/characters/farmer_walk.png")
