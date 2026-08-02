@@ -71,9 +71,12 @@ func test_farming_fishing_combat_and_quest_sounds() -> void:
 	expect(game.audio_last_sfx == "hoe", "tilling soil has a dedicated sound")
 	game.player = game.pond_position
 	game.selected_tool = game.Tool.ROD
+	game.action_held = true
 	game.use_fishing_rod()
 	expect(game.audio_last_sfx == "fish_cast", "casting the fishing rod has a dedicated sound")
-	game.fishing_timer = 0.0
+	game.action_held = false
+	game.update_fishing(0.01)
+	game.state.fishing.timer = 0.0
 	game.update_fishing(0.01)
 	expect(game.audio_last_sfx == "fish_bite", "fish bite has an attention sound")
 	game.player = game.slime_position

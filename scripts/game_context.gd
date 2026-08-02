@@ -319,8 +319,6 @@ var oranges: int:
 	get: return state.inventory.count("orange")
 	set(value): state.inventory.set_count("orange", value)
 var food_nodes := ForageSystem.default_nodes()
-var fishing_state := "idle"
-var fishing_timer := 0.0
 var pond_position := Vector2(650, 700)
 var resource_nodes := ResourceSystem.default_nodes()
 var npc_position := Vector2(300, 485)

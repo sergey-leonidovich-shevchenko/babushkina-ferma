@@ -121,8 +121,8 @@ static func draw_hud(game: Node) -> void:
 	game.draw_string(game.UI_FONT, LOCATION_BADGE.position + Vector2(12, 43), "  ".join(effects), HORIZONTAL_ALIGNMENT_CENTER, 366, 12, Color("a9dfb8"))
 	draw_header_button(game, SKILL_BUTTON, "K", game.skill_points)
 	draw_header_button(game, QUEST_BUTTON, "J", 0)
-	if game.fishing_state == "casting": game.draw_string(game.UI_FONT, Vector2(446, 115), "%.1f" % maxf(game.fishing_timer, 0.0), HORIZONTAL_ALIGNMENT_CENTER, 260, 20, Color("d7f6ff"))
-	elif game.fishing_state == "ready":
+	if game.state.fishing.phase == game.FishingSystem.PHASE_WAITING: game.draw_string(game.UI_FONT, Vector2(446, 115), "%.1f" % maxf(game.state.fishing.timer, 0.0), HORIZONTAL_ALIGNMENT_CENTER, 260, 20, Color("d7f6ff"))
+	elif game.state.fishing.phase == game.FishingSystem.PHASE_BITE:
 		game.draw_circle(Vector2(576, 105), 20 + sin(Time.get_ticks_msec() / 100.0) * 3, GOLD)
 		game.draw_string(game.UI_FONT, Vector2(566, 112), "!", HORIZONTAL_ALIGNMENT_CENTER, 20, 22, Color("47351f"))
 	if not game.message.is_empty():

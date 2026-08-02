@@ -332,7 +332,7 @@ func draw_fishing_animations() -> void:
 	draw_texture_rect_region(WATER_ANIMATION, Rect2(0, 860, WORLD_SIZE.x, 340), Rect2(water_frame * 16, 0, 16, 16), Color(1,1,1,0.32))
 	var fish_frame := fishing_animation_frame(10, 130)
 	draw_texture_rect_region(FISH_ANIMATION, Rect2(pond_position + Vector2(-24, -8), Vector2(48, 48)), Rect2(fish_frame * 16, 0, 16, 16))
-	if fishing_state == "ready":
+	if state.fishing.phase == FishingSystem.PHASE_BITE:
 		var splash_frame := fishing_animation_frame(18, 80)
 		draw_texture_rect_region(SPLASH_ANIMATION, Rect2(pond_position + Vector2(-32, -32), Vector2(64, 64)), Rect2(splash_frame * 16, 0, 16, 16))
 

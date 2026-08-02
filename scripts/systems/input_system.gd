@@ -40,6 +40,15 @@ static func set_action_key_state(game: Node, event: InputEventKey) -> bool:
 	return true
 
 
+## Синхронизирует удержание основного действия для геймпада и сенсорного экрана, включая отпускание.
+static func set_pointer_action_state(game: Node, event: InputEvent, world_controls_visible: bool) -> bool:
+	if not world_controls_visible: return false
+	var is_action: bool = (event is InputEventJoypadButton and event.button_index == JOY_BUTTON_A) or event is InputEventScreenTouch
+	if not is_action: return false
+	game.action_held = event.pressed
+	return not event.pressed
+
+
 ## Устанавливает относящееся к методу значение и синхронизирует зависимое состояние.
 static func set_attack_key_state(game: Node, event: InputEventKey) -> bool:
 	if event.keycode != KEY_F:
@@ -52,6 +61,7 @@ static func set_attack_key_state(game: Node, event: InputEventKey) -> bool:
 
 ## Обновляет относящуюся к методу часть состояния на текущем кадре.
 static func update_held_action(game: Node, delta: float) -> void:
+	if game.state.fishing.phase != game.FishingSystem.PHASE_IDLE: return
 	if not game.action_held or game.title_screen or game.shop_open or game.inventory_open or game.storage_open or game.forge_open:
 		return
 	game.action_repeat_timer -= delta

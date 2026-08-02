@@ -7,8 +7,7 @@ func _ready() -> void:
 		push_error("Invalid game content: " + content_error)
 	LocaleSystem.load_locale()
 	if is_inside_tree(): SettingsSystem.load(self)
-	AudioSystem.initialize(self)
-	message = LocaleSystem.text("welcome")
+	AudioSystem.initialize(self); message = LocaleSystem.text("welcome")
 	language_selected = maxi(LocaleSystem.LOCALES.find(LocaleSystem.current), 0)
 	for y in FARM_SIZE.y:
 		for x in FARM_SIZE.x:
@@ -70,6 +69,7 @@ func _ready() -> void:
 	if "--contracts-preview" in OS.get_cmdline_user_args():
 		ContractSystem.configure_preview(self)
 	if "--story-preview" in OS.get_cmdline_user_args(): language_screen = false; title_screen = false; quest_log_open = true; quest_log_page = 0
+	if "--fishing-preview" in OS.get_cmdline_user_args(): FishingSystem.configure_preview(self)
 	if MenuSystem.consume_new_game_request():
 		language_screen = false
 		title_screen = false
@@ -121,8 +121,7 @@ func _physics_process(delta: float) -> void:
 	if title_screen or menu_state.pause_open or menu_state.settings_open:
 		queue_redraw()
 		return
-	update_game_clock(delta)
-	update_crops(delta)
+	update_game_clock(delta); update_crops(delta)
 	update_combat(delta)
 	update_fishing(delta)
 	update_status_effects(delta)
@@ -191,6 +190,7 @@ func circle_intersects_rect(center: Vector2, radius: float, rect: Rect2) -> bool
 ## Обновляет относящуюся к методу часть состояния на текущем кадре.
 func update_game_clock(delta: float) -> void:
 	# Одна реальная секунда равна одной игровой минуте.
+	if state.fishing.phase == FishingSystem.PHASE_MINIGAME: return
 	game_minutes += delta
 	if game_minutes >= 24.0 * 60.0:
 		game_minutes -= 24.0 * 60.0
@@ -1180,7 +1180,7 @@ func _input(event: InputEvent) -> void:
 
 ## Обрабатывает относящееся к методу событие и синхронизирует зависимое состояние.
 func handle_gamepad_and_touch(event: InputEvent) -> bool:
-	var world_controls_visible := not (shop_open or inventory_open or crafting_open or storage_open or forge_open or contract_open or quest_log_open or skill_menu_open)
+	var world_controls_visible := not (shop_open or inventory_open or crafting_open or storage_open or forge_open or contract_open or quest_log_open or skill_menu_open); if InputSystem.set_pointer_action_state(self, event, world_controls_visible): return true
 	if world_controls_visible and event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and InterfaceRenderer.PAUSE_BUTTON.has_point(event.position):
 		return MenuSystem.open_pause(self)
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:

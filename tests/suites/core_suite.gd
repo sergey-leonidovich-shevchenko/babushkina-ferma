@@ -285,7 +285,7 @@ func test_pickaxe_mines_surface_and_cave_resources() -> void:
 	expect(game.crystals == 1, "cave mining adds crystal to inventory")
 	game.free()
 
-## Сценарий: рыбалка проходит этапы заброса, ожидания поклёвки и получения рыбы.
+## Сценарий: базовый фасад рыбалки запускает заряд и после отпускания переводит удочку в ожидание.
 ## Исходное состояние: новый изолированный экземпляр игры; необходимые ресурсы, позиции и таймеры задаются в начале сценария.
 ## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_fishing_cast_wait_and_catch_cycle() -> void:
@@ -293,11 +293,13 @@ func test_fishing_cast_wait_and_catch_cycle() -> void:
 	expect(game.WATER_ANIMATION.get_width() == 512 and game.FISH_ANIMATION.get_width() == 160, "CC0 fishing animation sheets are loaded")
 	game.selected_tool = game.Tool.ROD
 	game.player = game.pond_position + Vector2(120, 0)
+	game.action_held = true
 	expect(game.use_fishing_rod(), "rod casts near pond")
-	expect(game.fishing_state == "casting", "fishing enters waiting state")
-	game.update_fishing(2.6)
-	expect(game.fishing_state == "ready", "bite becomes ready after timer")
-	expect(game.use_fishing_rod() and game.fish == 1, "second action catches fish")
+	expect(game.state.fishing.phase == game.FishingSystem.PHASE_CHARGING, "fishing enters cast charge state")
+	game.update_fishing(0.5)
+	game.action_held = false
+	game.update_fishing(0.01)
+	expect(game.state.fishing.phase == game.FishingSystem.PHASE_WAITING and game.state.fishing.cast_power > 0.0, "releasing commits measured cast power")
 	game.free()
 
 ## Сценарий: задание выдаёт лук, а кристаллы улучшают созданный лесной меч.

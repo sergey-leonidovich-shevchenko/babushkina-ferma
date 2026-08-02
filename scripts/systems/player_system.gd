@@ -5,6 +5,7 @@ const WALK_FPS := 10.0
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func movement_direction(game: Node) -> Vector2:
+	if game.state.fishing.phase in [game.FishingSystem.PHASE_CHARGING, game.FishingSystem.PHASE_WAITING, game.FishingSystem.PHASE_BITE, game.FishingSystem.PHASE_MINIGAME]: return Vector2.ZERO
 	return Vector2(
 		float(game.move_right_held) - float(game.move_left_held),
 		float(game.move_down_held) - float(game.move_up_held)
