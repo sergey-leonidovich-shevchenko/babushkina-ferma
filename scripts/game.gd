@@ -20,6 +20,13 @@ const CraftingSystem := preload("res://scripts/systems/crafting_system.gd")
 const SaveSystem := preload("res://scripts/systems/save_system.gd")
 const CombatSystem := preload("res://scripts/systems/combat_system.gd")
 const WorldSystem := preload("res://scripts/systems/world_system.gd")
+const FarmSystem := preload("res://scripts/systems/farm_system.gd")
+const FishingSystem := preload("res://scripts/systems/fishing_system.gd")
+const QuestSystem := preload("res://scripts/systems/quest_system.gd")
+const RenderSystem := preload("res://scripts/systems/render_system.gd")
+const ResourceSystem := preload("res://scripts/systems/resource_system.gd")
+const ShopSystem := preload("res://scripts/systems/shop_system.gd")
+const TutorialSystem := preload("res://scripts/systems/tutorial_system.gd")
 const ITEM_HELMET := preload("res://assets/game/items/iron_helmet.png")
 const ITEM_ARMOR := preload("res://assets/game/items/guardian_armor.png")
 const ITEM_BOOTS := preload("res://assets/game/items/travel_boots.png")
@@ -61,7 +68,7 @@ var shop_open := false
 var inventory_open := false
 var inventory_selected := 0
 var inventory_move_from := -1
-var inventory_slots := ["seeds", "carrot", "pickaxe", "fishing_rod", "slime", "wood", "stone", "crystal", "fish", "sword", "bow", "crystal_sword", "apple", "berries", "nut", "mushroom", "iron_helmet", "guardian_armor", "travel_boots", "crystal_ring", "orange", "", "", ""]
+var inventory_slots := ["seeds", "carrot", "pickaxe", "fishing_rod", "slime", "wood", "stone", "crystal", "fish", "sword", "bow", "crystal_sword", "apple", "berries", "nut", "mushroom", "iron_helmet", "guardian_armor", "travel_boots", "crystal_ring", "orange", "orc_blade", "red_crystal", "green_crystal"]
 var hotbar_slots := ["hoe", "seeds", "water", "hand", "pickaxe", "fishing_rod", "carrot", "apple", "berries", "mushroom"]
 var selected_hotbar := 0
 var equipment := {"head": "", "body": "", "legs": "", "hands": "", "ring": ""}
@@ -69,7 +76,7 @@ var iron_helmet := 0
 var guardian_armor := 0
 var travel_boots := 0
 var crystal_ring := 0
-var materials := {"fiber":0,"rare_seeds":0,"metal":0,"bones":0,"ancient_key":0,"blue_gem":0,"red_crystal":0,"green_crystal":0}
+var materials := {"fiber":0,"rare_seeds":0,"metal":0,"bones":0,"ancient_key":0,"blue_gem":0,"red_crystal":0,"green_crystal":0,"orc_blade":0}
 var crafting_open := false
 var crafting_selected := 0
 var world_gate_position := Vector2(2200, 760)
@@ -82,7 +89,7 @@ var enemy_nodes := [
 var dropped_items: Array = []
 var shop_selected := 0
 var shop_products := [
-	{"name": "Семена моркови ×4", "kind": "seeds", "buy": 5, "sell": 0, "icon": Rect2(0, 55, 36, 45)},
+	{"name": "Семена моркови ×4", "kind": "seeds", "amount": 4, "buy": 5, "sell": 0, "icon": Rect2(0, 55, 36, 45)},
 	{"name": "Морковь", "kind": "carrot", "buy": 10, "sell": 8, "icon": Rect2(34, 112, 30, 28)}
 ]
 var title_alpha := 1.0
@@ -143,10 +150,10 @@ var fishing_timer := 0.0
 var pond_position := Vector2(650, 700)
 var resource_nodes := [
 	{"position": Vector2(1190, 590), "location": "overworld", "kind": "stone", "hits": 2},
-	{"position": Vector2(1830, 610), "location": "overworld", "kind": "crystal", "hits": 3},
+	{"position": Vector2(1830, 610), "location": "overworld", "kind": "red_crystal", "hits": 3},
 	{"position": Vector2(520, 300), "location": "cave", "kind": "crystal", "hits": 3},
 	{"position": Vector2(980, 570), "location": "cave", "kind": "stone", "hits": 2},
-	{"position": Vector2(1500, 330), "location": "cave", "kind": "crystal", "hits": 3}
+	{"position": Vector2(1500, 330), "location": "cave", "kind": "green_crystal", "hits": 3}
 ]
 var npc_position := Vector2(325, 360)
 var workbench_position := Vector2(760, 176)
@@ -256,23 +263,7 @@ func update_game_clock(delta: float) -> void:
 		message = "Наступил день %d" % day
 
 func update_crops(delta: float) -> void:
-	for cell in plots:
-		var plot: Dictionary = plots[cell]
-		if plot.stage_flash > 0.0:
-			plot.stage_flash = maxf(plot.stage_flash - delta, 0.0)
-		if plot.planted and plot.watered and plot.growth < GROWTH_DURATION:
-			var previous_stage: int = plot.stage
-			plot.growth = minf(plot.growth + delta, GROWTH_DURATION)
-			plot.stage = mini(int(plot.growth / STAGE_DURATION), 4)
-			if plot.stage > previous_stage:
-				plot.stage_flash = 0.7
-				# На середине роста земля подсыхает: нужен второй полив.
-				if plot.stage == 2:
-					plot.watered = false
-					message = "Земля подсохла — морковь просит второй полив"
-				if plot.stage >= 4:
-					message = "Морковь созрела — собери её руками [4]"
-		plots[cell] = plot
+	FarmSystem.update(self, delta)
 
 func get_movement_direction() -> Vector2:
 	return PlayerSystem.movement_direction(self)
@@ -580,70 +571,19 @@ func perform_context_action() -> bool:
 	return false
 
 func mine_nearby_resource() -> bool:
-	var interaction := nearest_interaction()
-	if not interaction.begins_with("resource:"):
-		message = "Рядом нет залежей для добычи"
-		return false
-	return mine_resource(int(interaction.get_slice(":", 1)))
+	return ResourceSystem.mine_nearby(self)
 
 func mine_resource(index: int) -> bool:
-	if not has_pickaxe or selected_tool != Tool.PICKAXE:
-		message = "Для добычи выбери кирку [5]"
-		return false
-	if index < 0 or index >= resource_nodes.size():
-		return false
-	var node: Dictionary = resource_nodes[index]
-	if node.hits <= 0 or node.location != current_location or player.distance_to(node.position) > 92.0:
-		return false
-	node.hits -= 1
-	if node.kind == "crystal":
-		crystals += 1
-		message = "Добыт синий кристалл"
-	else:
-		stone += 1
-		message = "Добыт камень"
-	if node.hits <= 0:
-		message += ". Жила исчерпана"
-	resource_nodes[index] = node
-	notify_tutorial("mine")
-	return true
+	return ResourceSystem.mine(self, index)
 
 func is_near_fishing_water() -> bool:
-	if current_location != "overworld":
-		return false
-	# Радиус взаимодействия чуть больше коллизии берега, чтобы удочка доставала до воды.
-	var near_pond := player.distance_to(pond_position) < 235.0
-	var near_river := player.y > 800.0
-	return near_pond or near_river
+	return FishingSystem.is_near_water(self)
 
 func use_fishing_rod() -> bool:
-	if not has_fishing_rod:
-		message = "У тебя нет удочки"
-		return false
-	if not is_near_fishing_water():
-		message = "Подойди к пруду или реке"
-		return false
-	if fishing_state == "idle":
-		fishing_state = "casting"
-		fishing_timer = 2.5
-		message = "Поплавок в воде... жди поклёвки"
-		return true
-	if fishing_state == "ready":
-		fish += 1
-		fishing_state = "idle"
-		message = "Поймана речная рыба!"
-		notify_tutorial("fish")
-		return true
-	message = "Рыба ещё не клюнула"
-	return false
+	return FishingSystem.use_rod(self)
 
 func update_fishing(delta: float) -> void:
-	if fishing_state != "casting":
-		return
-	fishing_timer -= delta
-	if fishing_timer <= 0.0:
-		fishing_state = "ready"
-		message = "КЛЮЁТ! Нажми E ещё раз"
+	FishingSystem.update(self, delta)
 
 func enter_cave() -> void:
 	current_location = "cave"
@@ -693,34 +633,9 @@ func inventory_item_count(kind: String) -> int:
 	return materials.get(kind, 0)
 
 func inventory_item_name(kind: String) -> String:
-	if InventorySystem.ITEM_DATA.has(kind):
-		return InventorySystem.data(kind).name
-	match kind:
-		"seeds": return "Семена моркови"
-		"carrot": return "Морковь"
-		"slime": return "Слизь"
-		"wood": return "Древесина"
-		"sword": return "Лесной меч"
-		"pickaxe": return "Кирка"
-		"fishing_rod": return "Удочка"
-		"stone": return "Камень"
-		"crystal": return "Синий кристалл"
-		"fish": return "Речная рыба"
-		"bow": return "Охотничий лук"
-		"crystal_sword": return "Кристальный меч"
-		"apple": return "Лесное яблоко"
-		"berries": return "Лесные ягоды"
-		"nut": return "Крепкий орех"
-		"mushroom": return "Красный гриб"
-		"fiber": return "Лесное волокно"
-		"rare_seeds": return "Редкие семена"
-		"metal": return "Металл"
-		"bones": return "Кости"
-		"ancient_key": return "Древний ключ"
-		"blue_gem": return "Синий алмаз"
-		"red_crystal": return "Красный кристалл"
-		"green_crystal": return "Зелёный кристалл"
-	return "Пусто"
+	if kind.is_empty():
+		return "Пусто"
+	return InventorySystem.data(kind).name
 
 func change_inventory_count(kind: String, amount: int) -> bool:
 	if amount < 0 and inventory_item_count(kind) < -amount:
@@ -913,23 +828,7 @@ func update_status_effects(delta: float) -> void:
 	PlayerSystem.update_effects(self, delta)
 
 func talk_to_grandmother() -> void:
-	notify_tutorial("talk")
-	if not quest_active and not quest_complete:
-		quest_active = true
-		message = "Задание: принеси бабушке 10 морковок"
-	elif quest_active and carrots >= 10:
-		carrots -= 10
-		coins += 50
-		award_xp(25)
-		quest_active = false
-		quest_complete = true
-		has_bow = true
-		message = "Квест выполнен! +50 монет, +25 опыта и охотничий лук"
-		notify_tutorial("quest_complete")
-	elif quest_active:
-		message = "Бабушка ждёт морковь: %d/10" % carrots
-	else:
-		message = "Спасибо за помощь, внучек!"
+	QuestSystem.talk_to_grandmother(self)
 
 func attack_slime() -> bool:
 	var attack_range := 280.0 if equipped_weapon == "bow" else 105.0
@@ -1020,15 +919,10 @@ func toggle_sword() -> bool:
 	return true
 
 func notify_tutorial(event_name: String) -> void:
-	if tutorial_step >= tutorial_steps.size():
-		return
-	if tutorial_steps[tutorial_step].event == event_name:
-		tutorial_step += 1
+	TutorialSystem.notify(self, event_name)
 
 func reset_tutorial() -> void:
-	tutorial_step = 0
-	tutorial_visible = true
-	message = "Обучение начато заново"
+	TutorialSystem.reset(self)
 
 func open_crafting() -> void:
 	crafting_open = true
@@ -1111,32 +1005,10 @@ func handle_shop_input(event: InputEvent) -> void:
 	queue_redraw()
 
 func buy_selected_product() -> bool:
-	var product: Dictionary = shop_products[shop_selected]
-	if coins < product.buy:
-		message = "Не хватает монет"
-		return false
-	coins -= product.buy
-	if product.kind == "seeds":
-		seeds += 4
-	elif product.kind == "carrot":
-		carrots += 1
-	message = "Куплено: %s" % product.name
-	notify_tutorial("trade")
-	return true
+	return ShopSystem.buy(self, shop_selected)
 
 func sell_selected_product() -> bool:
-	var product: Dictionary = shop_products[shop_selected]
-	if product.sell <= 0:
-		message = "Этот товар лавка не покупает"
-		return false
-	if product.kind == "carrot" and carrots > 0:
-		carrots -= 1
-		coins += product.sell
-		message = "Продано: морковь +%d монет" % product.sell
-		notify_tutorial("trade")
-		return true
-	message = "У тебя нет этого товара"
-	return false
+	return ShopSystem.sell(self, shop_selected)
 
 func sell_carrots() -> void:
 	if carrots > 0:
@@ -1147,23 +1019,14 @@ func sell_carrots() -> void:
 	else: message = "В рюкзаке нет моркови"
 
 func _draw() -> void:
+	RenderSystem.draw(self)
+
+func draw_title_screen() -> void:
 	if title_screen:
 		draw_texture_rect(TITLE_ART, Rect2(0, 0, 1152, 648), false)
 		draw_rect(Rect2(0, 0, 1152, 648), Color(0.04, 0.08, 0.08, 0.25))
 		draw_string(ThemeDB.fallback_font, Vector2(576, 120), "БАБУШКИНА ФЕРМА", HORIZONTAL_ALIGNMENT_CENTER, 760, 46, Color("fff4cf"))
 		draw_string(ThemeDB.fallback_font, Vector2(576, 565), "Нажми любую клавишу", HORIZONTAL_ALIGNMENT_CENTER, 420, 24, Color.WHITE)
-		return
-	draw_set_transform(-camera_offset)
-	if current_location == "overworld":
-		draw_farm()
-		draw_rpg_world()
-		draw_fishing_animations()
-	draw_enemy_nodes_and_gate()
-	draw_resource_nodes()
-	draw_player()
-	draw_interaction_highlight()
-	draw_set_transform(Vector2.ZERO)
-	draw_ui()
 
 func draw_world() -> void:
 	draw_rect(Rect2(Vector2.ZERO, WORLD_SIZE), Color("7fad5c"))
@@ -1378,26 +1241,7 @@ func draw_cave_world() -> void:
 	draw_string(ThemeDB.fallback_font, Vector2(90, 100), "КРИСТАЛЬНАЯ ПЕЩЕРА", HORIZONTAL_ALIGNMENT_LEFT, -1, 28, Color("9ce9dd"))
 
 func inventory_item_color(kind: String) -> Color:
-	if InventorySystem.ITEM_DATA.has(kind):
-		return InventorySystem.data(kind).color
-	match kind:
-		"seeds": return Color("d8b86b")
-		"carrot": return Color("ee7a32")
-		"slime": return Color("72d4a2")
-		"wood": return Color("a46c42")
-		"sword": return Color("d9e4e6")
-		"pickaxe": return Color("87989c")
-		"fishing_rod": return Color("b77a45")
-		"stone": return Color("8f8a7c")
-		"crystal": return Color("54d7e8")
-		"fish": return Color("5aa4d6")
-		"bow": return Color("c58a4d")
-		"crystal_sword": return Color("6ce8ef")
-		"apple": return Color("df4b45")
-		"berries": return Color("7656c7")
-		"nut": return Color("a8733e")
-		"mushroom": return Color("d95c50")
-	return Color.WHITE
+	return InventorySystem.data(kind).color
 
 func item_texture(kind: String) -> Texture2D:
 	match kind:

@@ -26,6 +26,8 @@ func _initialize() -> void:
 	test_hotbar_assignment_equipment_and_universal_input()
 	test_crafting_window_and_save_snapshot()
 	test_enemy_families_loot_tables_and_world_route()
+	test_colored_crystals_and_orc_equipment_loot()
+	test_gameplay_systems_are_modular()
 	print("TESTS: %d passed, %d failed" % [passed, failed])
 	quit(0 if failed == 0 else 1)
 
@@ -403,4 +405,35 @@ func test_enemy_families_loot_tables_and_world_route() -> void:
 	expect(game.current_location == "forest", "world gate travels from village to forest")
 	for _location in 6: game.WorldSystem.travel(game)
 	expect(game.current_location == "overworld", "world route connects all seven locations in a loop")
+	game.free()
+
+func test_gameplay_systems_are_modular() -> void:
+	var game := make_game()
+	expect(game.PlayerSystem != null and game.NavigationSystem != null and game.InventorySystem != null, "player navigation and inventory systems are separate modules")
+	expect(game.FarmSystem != null and game.FishingSystem != null and game.QuestSystem != null, "farm fishing and quest systems are separate modules")
+	expect(game.CombatSystem != null and game.CraftingSystem != null and game.SaveSystem != null, "combat crafting and save systems are separate modules")
+	expect(game.WorldSystem != null and game.RenderSystem != null, "world and rendering coordinators are separate modules")
+	expect(game.ResourceSystem != null and game.ShopSystem != null and game.TutorialSystem != null, "resources shop and tutorial are separate modules")
+	game.free()
+
+func test_colored_crystals_and_orc_equipment_loot() -> void:
+	var game := make_game()
+	game.selected_tool = game.Tool.PICKAXE
+	game.player = game.resource_nodes[1].position
+	expect(game.mine_resource(1), "red crystal vein can be mined")
+	expect(game.materials.red_crystal == 1, "red crystal enters shared inventory")
+	game.current_location = "cave"
+	game.player = game.resource_nodes[4].position
+	expect(game.mine_resource(4), "green crystal vein can be mined")
+	expect(game.materials.green_crystal == 1, "green crystal enters shared inventory")
+	game.current_location = "ruins"
+	game.player = game.enemy_nodes[1].position
+	for _hit in 8:
+		game.attack_nearest_enemy()
+	expect(not game.enemy_nodes[1].alive, "orc can drop its configured equipment loot")
+	var found_blade := false
+	for item in game.dropped_items:
+		if item.kind == "orc_blade":
+			found_blade = true
+	expect(found_blade, "orc loot table includes an equippable blade")
 	game.free()

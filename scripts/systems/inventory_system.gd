@@ -13,14 +13,31 @@ const ITEM_DATA := {
 	"nut": {"name": "Крепкий орех", "short": "Орех", "color": Color("a8733e"), "edible": true},
 	"mushroom": {"name": "Красный гриб", "short": "Гриб", "color": Color("d95c50"), "edible": true},
 	"orange": {"name": "Сочный апельсин", "short": "Апельсин", "color": Color("ff9217"), "edible": true},
+	"slime": {"name": "Слизь", "short": "Слизь", "color": Color("72d4a2")},
+	"wood": {"name": "Древесина", "short": "Дерево", "color": Color("a46c42")},
+	"stone": {"name": "Камень", "short": "Камень", "color": Color("8f8a7c")},
+	"crystal": {"name": "Синий кристалл", "short": "Кристалл", "color": Color("54d7e8")},
+	"red_crystal": {"name": "Красный кристалл", "short": "Красный", "color": Color("ef5d67")},
+	"green_crystal": {"name": "Зелёный кристалл", "short": "Зелёный", "color": Color("69d17d")},
+	"fish": {"name": "Речная рыба", "short": "Рыба", "color": Color("5aa4d6")},
+	"sword": {"name": "Лесной меч", "short": "Меч", "color": Color("d9e4e6")},
+	"bow": {"name": "Охотничий лук", "short": "Лук", "color": Color("c58a4d")},
+	"crystal_sword": {"name": "Кристальный меч", "short": "Кр. меч", "color": Color("6ce8ef")},
+	"fiber": {"name": "Лесное волокно", "short": "Волокно", "color": Color("85a85a")},
+	"rare_seeds": {"name": "Редкие семена", "short": "Ред. сем.", "color": Color("d4b765")},
+	"metal": {"name": "Металл", "short": "Металл", "color": Color("9ca7ae")},
+	"bones": {"name": "Кости", "short": "Кости", "color": Color("ded8be")},
+	"ancient_key": {"name": "Древний ключ", "short": "Ключ", "color": Color("c29b50")},
+	"blue_gem": {"name": "Синий алмаз", "short": "Алмаз", "color": Color("5cbce8")},
 	"iron_helmet": {"name": "Железный шлем", "short": "Шлем", "color": Color("b8c3ca"), "equip": "head"},
 	"guardian_armor": {"name": "Доспех хранителя", "short": "Доспех", "color": Color("d79b42"), "equip": "body"},
 	"travel_boots": {"name": "Походные сапоги", "short": "Сапоги", "color": Color("8c6745"), "equip": "legs"},
-	"crystal_ring": {"name": "Алмазный талисман", "short": "Алмаз", "color": Color("62dce5"), "equip": "ring"}
+	"crystal_ring": {"name": "Алмазный талисман", "short": "Алмаз", "color": Color("62dce5"), "equip": "ring"},
+	"orc_blade": {"name": "Клинок орка", "short": "Клинок", "color": Color("8aa05c"), "equip": "hands"}
 }
 
 static func data(kind: String) -> Dictionary:
-	return ITEM_DATA.get(kind, {"name": kind, "short": kind, "color": Color.WHITE})
+	return ITEM_DATA.get(kind, {"name": "Неизвестный предмет", "short": "?", "color": Color.WHITE})
 
 static func assign_hotbar(game: Node, inventory_index: int, hotbar_index: int) -> bool:
 	if inventory_index < 0 or inventory_index >= game.inventory_slots.size() or hotbar_index < 0 or hotbar_index >= 10:
@@ -61,7 +78,10 @@ static func recalculate_stats(game: Node) -> void:
 	game.player_hp = mini(game.player_hp, game.player_max_hp)
 
 static func damage_bonus(game: Node) -> int:
-	return 1 if game.equipment.ring == "crystal_ring" else 0
+	var bonus := 1 if game.equipment.ring == "crystal_ring" else 0
+	if game.equipment.hands == "orc_blade":
+		bonus += 2
+	return bonus
 
 static func speed_multiplier(game: Node) -> float:
 	return 1.1 if game.equipment.legs == "travel_boots" else 1.0
