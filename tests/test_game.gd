@@ -33,6 +33,8 @@ func _initialize() -> void:
 	test_discoveries_and_tutorial_checklist_are_saved()
 	test_wildlife_flees_and_does_not_talk()
 	test_wildlife_combat_loot_animation_and_save()
+	test_seeded_world_loot_generation_and_opening()
+	test_world_loot_discovery_and_save_persistence()
 	test_gameplay_systems_are_modular()
 	print("TESTS: %d passed, %d failed" % [passed, failed])
 	quit(0 if failed == 0 else 1)
@@ -419,7 +421,7 @@ func test_gameplay_systems_are_modular() -> void:
 	expect(game.FarmSystem != null and game.FishingSystem != null and game.QuestSystem != null, "farm fishing and quest systems are separate modules")
 	expect(game.CombatSystem != null and game.CraftingSystem != null and game.SaveSystem != null, "combat crafting and save systems are separate modules")
 	expect(game.WorldSystem != null and game.RenderSystem != null, "world and rendering coordinators are separate modules")
-	expect(game.ResourceSystem != null and game.ShopSystem != null and game.TutorialSystem != null and game.DiscoverySystem != null and game.WildlifeSystem != null, "resources shop tutorial discoveries and wildlife are separate modules")
+	expect(game.ResourceSystem != null and game.ShopSystem != null and game.TutorialSystem != null and game.DiscoverySystem != null and game.WildlifeSystem != null and game.LootContainerSystem != null, "resources shop tutorial discoveries wildlife and world loot are separate modules")
 	game.free()
 
 func test_colored_crystals_and_orc_equipment_loot() -> void:
@@ -534,7 +536,7 @@ func test_discoveries_and_tutorial_checklist_are_saved() -> void:
 	game.SaveSystem.apply(game, snapshot)
 	expect(game.seen_discoveries.has("shop") and game.seen_discoveries.has("enemy:orc"), "save restores discovered feature history")
 	expect(game.tutorial_step == save_step + 1 and game.tutorial_events_completed.has("save"), "save restores tutorial checklist progress")
-	var required_events := ["move","plant","rewater","trade","fight","hotbar","equipment","fish","craft_window","mission_complete","journal","side_mission","colored_crystal","day","level_up","save","wildlife"]
+	var required_events := ["move","plant","rewater","trade","fight","hotbar","equipment","fish","craft_window","mission_complete","journal","side_mission","colored_crystal","day","level_up","save","wildlife","world_loot"]
 	for event_name in required_events:
 		expect(game.tutorial_steps.any(func(step): return step.event == event_name), "tutorial covers feature: %s" % event_name)
 	game.free()
@@ -581,4 +583,53 @@ func test_wildlife_combat_loot_animation_and_save() -> void:
 	expect(not game.wildlife_nodes[6].alive, "save restores hunted wildlife state")
 	expect(game.wildlife_nodes[6].position != Vector2.ZERO, "save restores moving wildlife position")
 	expect(game.inventory_slots.size() >= 30 and game.inventory_slots.has("bat_wing"), "older 24-slot saves migrate to expanded wildlife inventory")
+	game.free()
+
+func test_seeded_world_loot_generation_and_opening() -> void:
+	var game := make_game()
+	var first: Array = game.LootContainerSystem.generate(123456)
+	var repeated: Array = game.LootContainerSystem.generate(123456)
+	var different: Array = game.LootContainerSystem.generate(654321)
+	expect(first == repeated, "same world seed generates identical loot containers")
+	expect(first != different, "different world seed changes positions types or contents")
+	expect(first.size() == 19, "random loot is distributed across all seven locations")
+	game.world_loot_seed = 123456
+	game.world_loot_nodes = first
+	var container: Dictionary = game.world_loot_nodes[0]
+	game.current_location = container.location
+	game.player = container.position
+	expect(game.nearest_interaction() == "container:0", "unopened world loot receives interaction highlight")
+	expect(not game.NavigationSystem.is_walkable(game, container.position), "world loot blocks player movement")
+	var before_coins: int = game.coins
+	var before_counts: Dictionary = game.export_inventory_counts()
+	expect(game.LootContainerSystem.open(game, 0), "world loot can be searched with context action")
+	for kind in container.contents:
+		if kind == "coins":
+			expect(game.coins == before_coins + container.contents[kind], "container grants rolled coins")
+		else:
+			expect(game.inventory_item_count(kind) == before_counts.get(kind, 0) + container.contents[kind], "container grants rolled item: %s" % kind)
+	expect(game.world_loot_nodes[0].opened, "searched container becomes permanently empty")
+	expect(not game.LootContainerSystem.open(game, 0), "opened container cannot be looted twice")
+	game.free()
+
+func test_world_loot_discovery_and_save_persistence() -> void:
+	var game := make_game()
+	game.world_loot_seed = 777
+	game.world_loot_nodes = game.LootContainerSystem.generate(game.world_loot_seed)
+	var container: Dictionary = game.world_loot_nodes[0]
+	game.current_location = container.location
+	game.player = container.position
+	game.discovery_current.clear()
+	game.seen_discoveries.clear()
+	expect(game.DiscoverySystem.scan_nearby(game), "first nearby container opens contextual discovery")
+	expect(game.discovery_current.id.begins_with("container:") and "находка" in game.discovery_current.text, "container hint explains one-time random loot")
+	game.LootContainerSystem.open(game, 0)
+	var saved_contents: Dictionary = game.world_loot_nodes[0].contents.duplicate(true)
+	var snapshot: Dictionary = game.SaveSystem.snapshot(game)
+	game.world_loot_seed = 1
+	game.world_loot_nodes = game.LootContainerSystem.generate(1)
+	game.SaveSystem.apply(game, snapshot)
+	expect(game.world_loot_seed == 777 and game.world_loot_nodes[0].contents == saved_contents, "save restores generated world and rolled contents")
+	expect(game.world_loot_nodes[0].opened, "save restores already searched container")
+	expect(game.BONE_PILE_TEXTURE.get_width() == 128, "bone pile sprite is loaded")
 	game.free()

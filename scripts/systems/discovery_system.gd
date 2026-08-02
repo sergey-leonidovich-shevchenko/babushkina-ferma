@@ -77,6 +77,9 @@ static func scan_nearby(game: Node) -> bool:
 			add_candidate(candidates, "wildlife:%s" % animal.kind, animal.position, wildlife_hint(game, animal.kind))
 	for item in game.dropped_items:
 		add_candidate(candidates, "item:%s" % item.kind, item.position, item_hint(game, item.kind))
+	for container in game.world_loot_nodes:
+		if not container.opened and container.location == game.current_location:
+			add_candidate(candidates, "container:%s" % container.kind, container.position, container_hint(game, container.kind))
 	var nearest: Dictionary = {}
 	var nearest_distance := RANGE
 	for candidate in candidates:
@@ -126,3 +129,7 @@ static func item_hint(game: Node, kind: String) -> Dictionary:
 	elif kind == "moon_relic":
 		action = "Сюжетный предмет. Подбери через E и отнеси старосте Мирону."
 	return {"title":"Новый предмет: %s" % item.name,"text":action}
+
+static func container_hint(game: Node, kind: String) -> Dictionary:
+	var title: String = game.LootContainerSystem.TYPES[kind].name
+	return {"title":title,"text":"Случайная находка мира. Подойди и нажми E: содержимое определяется один раз и после открытия сохраняется."}

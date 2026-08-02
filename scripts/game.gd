@@ -29,6 +29,7 @@ const ShopSystem := preload("res://scripts/systems/shop_system.gd")
 const TutorialSystem := preload("res://scripts/systems/tutorial_system.gd")
 const DiscoverySystem := preload("res://scripts/systems/discovery_system.gd")
 const WildlifeSystem := preload("res://scripts/systems/wildlife_system.gd")
+const LootContainerSystem := preload("res://scripts/systems/loot_container_system.gd")
 const ITEM_HELMET := preload("res://assets/game/items/iron_helmet.png")
 const ITEM_ARMOR := preload("res://assets/game/items/guardian_armor.png")
 const ITEM_BOOTS := preload("res://assets/game/items/travel_boots.png")
@@ -40,6 +41,7 @@ const SPLASH_ANIMATION := preload("res://assets/game/fishing/Splash Effect.png")
 const DEER_RUN_SHEET := preload("res://assets/game/wildlife/deer_run.png")
 const FOX_RUN_SHEET := preload("res://assets/game/wildlife/fox_run.png")
 const BOAR_RUN_SHEET := preload("res://assets/game/wildlife/boar_run.png")
+const BONE_PILE_TEXTURE := preload("res://assets/game/world_loot/bone_pile.png")
 const WORLD_SIZE := Vector2(2400, 1200)
 const STAGE_DURATION := 5.0
 const GROWTH_DURATION := 20.0
@@ -103,6 +105,8 @@ var wildlife_nodes := [
 	{"kind":"bat","location":"cave","position":Vector2(1780,610),"home":Vector2(1780,610),"direction":Vector2.LEFT,"hp":2,"alive":true,"animation":0.7,"wander_timer":1.0,"panic":0.0},
 	{"kind":"bat","location":"cursed","position":Vector2(840,390),"home":Vector2(840,390),"direction":Vector2.RIGHT,"hp":2,"alive":true,"animation":1.4,"wander_timer":0.4,"panic":0.0}
 ]
+var world_loot_seed := 0
+var world_loot_nodes: Array = []
 var dropped_items: Array = []
 var shop_selected := 0
 var shop_products := [
@@ -219,13 +223,17 @@ var tutorial_steps := [
 	{"event": "day", "text": "Вернись к дому и закончи день клавишей N"},
 	{"event": "level_up", "text": "Набери 50 XP и повысь уровень персонажа"},
 	{"event": "save", "text": "Сохрани игру [F5], затем проверь загрузку [F8]"},
-	{"event": "wildlife", "text": "Найди пугливого зверя, проследи за побегом и добудь его лут [F]"}
+	{"event": "wildlife", "text": "Найди пугливого зверя, проследи за побегом и добудь его лут [F]"},
+	{"event": "world_loot", "text": "Найди случайный сундук, мешок, кости или хлам и обыщи его [E]"}
 ]
 
 func _ready() -> void:
 	for y in FARM_SIZE.y:
 		for x in FARM_SIZE.x:
 			plots[Vector2i(x, y)] = {"tilled": false, "planted": false, "watered": false, "growth": 0.0, "stage": 0, "stage_flash": 0.0}
+	if world_loot_nodes.is_empty():
+		world_loot_seed = LootContainerSystem.random_seed() if world_loot_seed == 0 else world_loot_seed
+		world_loot_nodes = LootContainerSystem.generate(world_loot_seed)
 	benchmark_autoplay = "--autoplay" in OS.get_cmdline_user_args()
 	if benchmark_autoplay:
 		title_screen = false
@@ -565,6 +573,14 @@ func nearest_interaction() -> String:
 		if distance < nearest_distance:
 			nearest_distance = distance
 			nearest = "drop:%d" % index
+	for index in world_loot_nodes.size():
+		var container: Dictionary = world_loot_nodes[index]
+		if container.opened or container.location != current_location:
+			continue
+		var distance: float = player.distance_to(container.position)
+		if distance < nearest_distance:
+			nearest_distance = distance
+			nearest = "container:%d" % index
 	for index in resource_nodes.size():
 		var node: Dictionary = resource_nodes[index]
 		if node.hits <= 0 or node.location != current_location:
@@ -587,6 +603,8 @@ func perform_context_action() -> bool:
 	var interaction := nearest_interaction()
 	if interaction.begins_with("drop:"):
 		return collect_dropped_item(int(interaction.get_slice(":", 1)))
+	if interaction.begins_with("container:"):
+		return LootContainerSystem.open(self, int(interaction.get_slice(":", 1)))
 	if interaction.begins_with("resource:"):
 		return mine_resource(int(interaction.get_slice(":", 1)))
 	if interaction.begins_with("food:"):
@@ -1309,6 +1327,34 @@ func draw_dropped_items() -> void:
 		draw_circle(item.position, 23 + sin(Time.get_ticks_msec() / 150.0) * 3, Color("fff0a8"), false, 3)
 		draw_string(ThemeDB.fallback_font, item.position + Vector2(-55, 42), inventory_item_name(item.kind), HORIZONTAL_ALIGNMENT_CENTER, 110, 13, Color("fff4cf"))
 
+func draw_world_loot() -> void:
+	for container in world_loot_nodes:
+		if container.location != current_location:
+			continue
+		var position: Vector2 = container.position.round()
+		var alpha := 0.38 if container.opened else 1.0
+		match container.kind:
+			"chest":
+				draw_rect(Rect2(position - Vector2(27, 16), Vector2(54, 34)), Color(0.35, 0.20, 0.10, alpha))
+				draw_rect(Rect2(position - Vector2(24, 13), Vector2(48, 12)), Color(0.62, 0.36, 0.16, alpha))
+				draw_rect(Rect2(position - Vector2(4, 4), Vector2(8, 13)), Color(0.93, 0.72, 0.25, alpha))
+				if container.opened:
+					draw_line(position - Vector2(24, 16), position + Vector2(20, -32), Color(0.48, 0.27, 0.12, alpha), 8)
+			"bone_pile":
+				draw_texture_rect(BONE_PILE_TEXTURE, Rect2(position - Vector2(38, 38), Vector2(76, 76)), false, Color(1, 1, 1, alpha))
+			"sack":
+				draw_circle(position + Vector2(0, 5), 22, Color(0.62, 0.47, 0.27, alpha))
+				draw_colored_polygon(PackedVector2Array([position + Vector2(-11,-10),position + Vector2(11,-10),position + Vector2(5,-25),position + Vector2(-5,-25)]), Color(0.76, 0.61, 0.37, alpha))
+			"trash":
+				draw_circle(position, 25, Color(0.26, 0.31, 0.27, alpha))
+				draw_line(position - Vector2(18, 14), position + Vector2(17, 13), Color(0.58, 0.46, 0.31, alpha), 7)
+				draw_circle(position + Vector2(10, -8), 8, Color(0.43, 0.49, 0.45, alpha))
+		if not container.opened:
+			var pulse := 34.0 + sin(Time.get_ticks_msec() / 180.0 + float(container.id)) * 3.0
+			draw_circle(position, pulse, Color(1.0, 0.82, 0.30, 0.35), false, 3)
+		else:
+			draw_string(ThemeDB.fallback_font, position + Vector2(-35, 38), "пусто", HORIZONTAL_ALIGNMENT_CENTER, 70, 12, Color(0.8, 0.8, 0.75, 0.55))
+
 func draw_enemy_nodes_and_gate() -> void:
 	draw_circle(world_gate_position, 42 + sin(Time.get_ticks_msec() / 180.0) * 4, Color("e6b85e"), false, 6)
 	draw_string(ThemeDB.fallback_font, world_gate_position + Vector2(-75, 68), "Путь: " + WorldSystem.NAMES[WorldSystem.next_location(current_location)], HORIZONTAL_ALIGNMENT_LEFT, 180, 14, Color("fff0bd"))
@@ -1391,6 +1437,10 @@ func interaction_position(interaction: String) -> Vector2:
 		var index := int(interaction.get_slice(":", 1))
 		if index >= 0 and index < dropped_items.size():
 			return dropped_items[index].position
+	if interaction.begins_with("container:"):
+		var index := int(interaction.get_slice(":", 1))
+		if index >= 0 and index < world_loot_nodes.size():
+			return world_loot_nodes[index].position
 	if interaction.begins_with("resource:"):
 		var index := int(interaction.get_slice(":", 1))
 		if index >= 0 and index < resource_nodes.size():

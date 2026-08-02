@@ -49,6 +49,9 @@ static func is_walkable(game: Node, position: Vector2) -> bool:
 	for node in game.resource_nodes:
 		if node.hits > 0 and node.location == game.current_location and position.distance_to(node.position) < game.PLAYER_RADIUS + 30.0:
 			return false
+	for container in game.world_loot_nodes:
+		if container.location == game.current_location and position.distance_to(container.position) < game.PLAYER_RADIUS + 25.0:
+			return false
 	return true
 
 static func circle_intersects_rect(center: Vector2, radius: float, rect: Rect2) -> bool:

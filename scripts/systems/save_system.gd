@@ -6,6 +6,7 @@ static func snapshot(game: Node) -> Dictionary:
 	var plot_data := []
 	var drops := []
 	var wildlife := []
+	var containers := []
 	for cell in game.plots:
 		var plot: Dictionary = game.plots[cell]
 		plot_data.append({"x":cell.x,"y":cell.y,"tilled":plot.tilled,"planted":plot.planted,"watered":plot.watered,"growth":plot.growth,"stage":plot.stage})
@@ -13,7 +14,9 @@ static func snapshot(game: Node) -> Dictionary:
 		drops.append({"kind":item.kind,"count":item.count,"position":[item.position.x,item.position.y]})
 	for animal in game.wildlife_nodes:
 		wildlife.append({"hp":animal.hp,"alive":animal.alive,"position":[animal.position.x,animal.position.y]})
-	return {"version":1,"player":[game.player.x,game.player.y],"location":game.current_location,"day":game.day,"minutes":game.game_minutes,"energy":game.energy,"coins":game.coins,"xp":game.player_xp,"level":game.player_level,"hp":game.player_hp,"counts":game.export_inventory_counts().duplicate(true),"slots":game.inventory_slots.duplicate(true),"hotbar":game.hotbar_slots.duplicate(true),"equipment":game.equipment.duplicate(true),"quest_active":game.quest_active,"quest_complete":game.quest_complete,"missions":game.mission_states.duplicate(true),"tutorial":{"step":game.tutorial_step,"events":game.tutorial_events_completed.duplicate(true),"seen":game.seen_discoveries.duplicate(true)},"weapons":{"sword":game.sword_crafted,"bow":game.has_bow,"crystal":game.has_crystal_sword,"equipped":game.equipped_weapon},"plots":plot_data,"resource_hits":game.resource_nodes.map(func(node): return node.hits),"food_active":game.food_nodes.map(func(node): return node.active),"enemies":game.enemy_nodes.map(func(enemy): return {"hp":enemy.hp,"alive":enemy.alive}),"wildlife":wildlife,"drops":drops}
+	for container in game.world_loot_nodes:
+		containers.append({"id":container.id,"kind":container.kind,"location":container.location,"position":[container.position.x,container.position.y],"opened":container.opened,"contents":container.contents.duplicate(true)})
+	return {"version":1,"player":[game.player.x,game.player.y],"location":game.current_location,"day":game.day,"minutes":game.game_minutes,"energy":game.energy,"coins":game.coins,"xp":game.player_xp,"level":game.player_level,"hp":game.player_hp,"counts":game.export_inventory_counts().duplicate(true),"slots":game.inventory_slots.duplicate(true),"hotbar":game.hotbar_slots.duplicate(true),"equipment":game.equipment.duplicate(true),"quest_active":game.quest_active,"quest_complete":game.quest_complete,"missions":game.mission_states.duplicate(true),"tutorial":{"step":game.tutorial_step,"events":game.tutorial_events_completed.duplicate(true),"seen":game.seen_discoveries.duplicate(true)},"weapons":{"sword":game.sword_crafted,"bow":game.has_bow,"crystal":game.has_crystal_sword,"equipped":game.equipped_weapon},"plots":plot_data,"resource_hits":game.resource_nodes.map(func(node): return node.hits),"food_active":game.food_nodes.map(func(node): return node.active),"enemies":game.enemy_nodes.map(func(enemy): return {"hp":enemy.hp,"alive":enemy.alive}),"wildlife":wildlife,"world_loot_seed":game.world_loot_seed,"containers":containers,"drops":drops}
 
 static func apply(game: Node, data: Dictionary) -> bool:
 	if data.get("version", 0) != 1: return false
@@ -50,6 +53,11 @@ static func apply(game: Node, data: Dictionary) -> bool:
 		game.wildlife_nodes[index].hp = data.wildlife[index].hp
 		game.wildlife_nodes[index].alive = data.wildlife[index].alive
 		game.wildlife_nodes[index].position = Vector2(data.wildlife[index].position[0], data.wildlife[index].position[1])
+	if data.has("containers"):
+		game.world_loot_seed = data.get("world_loot_seed", game.world_loot_seed)
+		game.world_loot_nodes.clear()
+		for container in data.containers:
+			game.world_loot_nodes.append({"id":container.id,"kind":container.kind,"location":container.location,"position":Vector2(container.position[0],container.position[1]),"opened":container.opened,"contents":container.contents.duplicate(true)})
 	game.dropped_items.clear()
 	for item in data.get("drops", []):
 		game.dropped_items.append({"kind":item.kind,"count":item.count,"position":Vector2(item.position[0],item.position[1])})
