@@ -69,6 +69,7 @@ func _ready() -> void:
 		open_forge()
 	if "--contracts-preview" in OS.get_cmdline_user_args():
 		ContractSystem.configure_preview(self)
+	if "--story-preview" in OS.get_cmdline_user_args(): language_screen = false; title_screen = false; quest_log_open = true; quest_log_page = 0
 	if MenuSystem.consume_new_game_request():
 		language_screen = false
 		title_screen = false
@@ -93,8 +94,7 @@ func configure_enemy_levels_preview() -> void:
 	title_screen = false
 	current_location = "overworld"
 	player = Vector2(1150, 650)
-	player_level = SkillSystem.MAX_CHARACTER_LEVEL
-	player_hp = player_max_hp
+	player_level = SkillSystem.MAX_CHARACTER_LEVEL; player_hp = player_max_hp
 	tutorial_visible = false
 	for index in mini(5, enemy_nodes.size()):
 		var enemy: Dictionary = enemy_nodes[index]
@@ -450,8 +450,6 @@ func nearest_interaction() -> String:
 	if current_location == "overworld":
 		interactions = {
 			"npc": npc_position,
-			"guild_master": guild_master_position,
-			"herbalist": herbalist_position,
 			"shop": BuildingSystem.SHOP_STALL_POSITION,
 			"crate": BuildingSystem.SELL_CRATE_POSITION,
 			"workbench": workbench_position,
@@ -474,6 +472,10 @@ func nearest_interaction() -> String:
 	if not building_interaction.is_empty():
 		nearest = building_interaction
 		nearest_distance = player.distance_to(BuildingSystem.interaction_position(self, building_interaction))
+	var quest_npc := QuestSystem.nearest_npc(self, nearest_distance)
+	if not quest_npc.is_empty():
+		nearest = "quest_npc:%s" % quest_npc
+		nearest_distance = player.distance_to(QuestSystem.npc_position(self, quest_npc))
 	if home_chest_owned and current_location == "cottage_interior":
 		var chest_distance := player.distance_to(StorageSystem.CHEST_POSITION)
 		if chest_distance < nearest_distance:
@@ -527,6 +529,8 @@ func perform_context_action() -> bool:
 		return BuildingSystem.use_service(self, interaction.get_slice(":", 1))
 	if interaction.begins_with("prisoner:"):
 		return CompanionSystem.interact(self, interaction.get_slice(":", 1))
+	if interaction.begins_with("quest_npc:"):
+		return QuestSystem.talk_to_npc(self, interaction.get_slice(":", 1))
 	if interaction == "home_chest":
 		return StorageSystem.open(self)
 	if interaction.begins_with("drop:"):
@@ -541,10 +545,6 @@ func perform_context_action() -> bool:
 		"npc":
 			talk_to_grandmother()
 			return true
-		"guild_master":
-			return QuestSystem.talk(self, "story_relic")
-		"herbalist":
-			return QuestSystem.talk(self, "side_seed")
 		"shop":
 			open_shop()
 			return true
@@ -1188,6 +1188,7 @@ func handle_gamepad_and_touch(event: InputEvent) -> bool:
 			InputSystem.handle_inventory_mouse(self, event)
 			return true
 		if event.pressed:
+			if quest_log_open and InputSystem.handle_quest_pointer(self, event.position): return true
 			if InterfaceRenderer.QUEST_BUTTON.has_point(event.position): toggle_quest_log(); return true
 			if InterfaceRenderer.SKILL_BUTTON.has_point(event.position): open_skill_menu(); return true
 			var mouse_hotbar := InterfaceRenderer.hotbar_at(event.position)
@@ -1201,8 +1202,7 @@ func handle_gamepad_and_touch(event: InputEvent) -> bool:
 			handle_skill_menu_input(event)
 			return true
 		if quest_log_open:
-			if event.button_index in [JOY_BUTTON_B, JOY_BUTTON_BACK]:
-				toggle_quest_log()
+			InputSystem.handle_modal_input(self, event)
 			return true
 		if inventory_open:
 			handle_inventory_input(event)

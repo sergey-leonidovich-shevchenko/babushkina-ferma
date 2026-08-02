@@ -230,6 +230,18 @@ static func handle_contract_touch(game: Node, position: Vector2) -> bool:
 	return true
 
 
+## Листает страницы журнала по экранным стрелкам и сообщает, было ли касание обработано.
+static func handle_quest_pointer(game: Node, position: Vector2) -> bool:
+	if game.InterfaceRenderer.QUEST_PREV.has_point(position):
+		game.quest_log_page = maxi(0, game.quest_log_page - 1)
+	elif game.InterfaceRenderer.QUEST_NEXT.has_point(position):
+		game.quest_log_page = mini(ceili(float(game.QuestSystem.MISSIONS.size()) / 3.0) - 1, game.quest_log_page + 1)
+	else:
+		return false
+	game.queue_redraw()
+	return true
+
+
 ## Маршрутизирует событие в единственное открытое модальное окно до мирового управления.
 static func handle_modal_input(game: Node, event: InputEvent) -> bool:
 	if game.shop_open:
@@ -241,8 +253,15 @@ static func handle_modal_input(game: Node, event: InputEvent) -> bool:
 	elif game.contract_open:
 		handle_contract_input(game, event)
 	elif game.quest_log_open:
-		if event is InputEventKey and event.pressed and not event.echo and event.keycode in [KEY_J, KEY_ESCAPE]:
-			game.toggle_quest_log()
+		if event is InputEventKey and event.pressed and not event.echo:
+			if event.keycode in [KEY_J, KEY_ESCAPE]: game.toggle_quest_log()
+			elif event.keycode in [KEY_LEFT, KEY_PAGEUP]: game.quest_log_page = maxi(0, game.quest_log_page - 1)
+			elif event.keycode in [KEY_RIGHT, KEY_PAGEDOWN]: game.quest_log_page = mini(ceili(float(game.QuestSystem.MISSIONS.size()) / 3.0) - 1, game.quest_log_page + 1)
+			game.queue_redraw()
+		elif event is InputEventJoypadButton and event.pressed:
+			if event.button_index == JOY_BUTTON_B: game.toggle_quest_log()
+			elif event.button_index == JOY_BUTTON_DPAD_LEFT: game.quest_log_page = maxi(0, game.quest_log_page - 1)
+			elif event.button_index == JOY_BUTTON_DPAD_RIGHT: game.quest_log_page = mini(ceili(float(game.QuestSystem.MISSIONS.size()) / 3.0) - 1, game.quest_log_page + 1)
 			game.queue_redraw()
 	elif game.skill_menu_open:
 		game.handle_skill_menu_input(event)

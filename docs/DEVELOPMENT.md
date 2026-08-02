@@ -44,6 +44,9 @@ tools/Godot.app/Contents/MacOS/Godot --path . -- --forge-preview
 # Три ежедневных заказа и прогресс репутации гильдии
 tools/Godot.app/Contents/MacOS/Godot --path . -- --contracts-preview
 
+# Журнал основной истории и побочных заданий
+tools/Godot.app/Contents/MacOS/Godot --path . -- --story-preview
+
 # Меню паузы поверх тестового мира
 tools/Godot.app/Contents/MacOS/Godot --path . -- --pause-preview
 
@@ -63,7 +66,7 @@ tools/check_architecture.sh
 ./run_tests.sh
 ```
 
-Первая команда контролирует размеры слоёв, утечки отрисовки в фасад, пробельные ошибки, обязательные документы и локальные Markdown-ссылки. Вторая импортирует ресурсы в headless-редакторе и запускает все GDScript-наборы. Успех подтверждается строкой `TESTS: 1152 passed, 0 failed`.
+Первая команда контролирует размеры слоёв, утечки отрисовки в фасад, пробельные ошибки, обязательные документы и локальные Markdown-ссылки. Вторая импортирует ресурсы в headless-редакторе и запускает все GDScript-наборы. Успех подтверждается строкой `TESTS: 1327 passed, 0 failed`.
 
 Git hook `pre-commit` повторяет quality gate, а `post-commit` отправляет успешный коммит в GitHub. GitHub Actions запускает те же проверки на push и pull request.
 

@@ -161,8 +161,6 @@ func draw_rpg_world() -> void:
 	draw_npc_sprite(0, npc_position, 0.0)
 	if player.distance_to(npc_position) < 150.0:
 		draw_string(UI_FONT, npc_position + Vector2(-50, 55), LocaleSystem.entity("grandmother"), HORIZONTAL_ALIGNMENT_CENTER, 100, 16, Color("293c2f"))
-	draw_mission_npc(guild_master_position, LocaleSystem.quest("story_relic", "giver"), "story_relic", 1)
-	draw_mission_npc(herbalist_position, LocaleSystem.quest("side_seed", "giver"), "side_seed", 2)
 	draw_rect(Rect2(workbench_position - Vector2(32, 20), Vector2(64, 44)), Color("865334"))
 	draw_line(workbench_position - Vector2(25, 8), workbench_position + Vector2(25, -8), Color("d09a59"), 5)
 	if player.distance_to(workbench_position) < 150.0:
@@ -259,11 +257,11 @@ func draw_companion_sprite(companion_id: String, position: Vector2) -> void:
 	draw_living_atlas_sprite(COMPANION_ATLAS, source, position, Vector2(104, 104), walk_animation_time, moving, float(data.sprite) * 1.7, direction.x < -0.1)
 
 ## Отрисовывает NPC из общего атласа с индивидуальной фазой дыхания.
-func draw_npc_sprite(sprite_index: int, position: Vector2, phase: float) -> void:
+func draw_npc_sprite(sprite_index: int, position: Vector2, phase: float, tint: Color = Color.WHITE) -> void:
 	var source_width := NPC_ATLAS.get_width() / 3.0
 	var source := Rect2(float(sprite_index) * source_width, 0, source_width, NPC_ATLAS.get_height())
 	draw_circle(position + Vector2(0, 27), 21, Color(0.05, 0.08, 0.08, 0.24))
-	draw_living_atlas_sprite(NPC_ATLAS, source, position, Vector2(104, 104), walk_animation_time, false, phase)
+	draw_living_atlas_sprite(NPC_ATLAS, source, position, Vector2(104, 104), walk_animation_time, false, phase, false, tint)
 
 ## Применяет общий цикл дыхания или шага к одному прозрачному атласному спрайту.
 func draw_living_atlas_sprite(texture: Texture2D, source: Rect2, position: Vector2, size: Vector2, time: float, moving: bool, phase: float, flip_x: bool = false, modulate: Color = Color.WHITE) -> void:
@@ -285,6 +283,20 @@ func draw_mission_npc(position: Vector2, npc_name: String, mission_id: String, s
 	var marker := "!" if state == QuestSystem.AVAILABLE else ("✓" if state == QuestSystem.COMPLETED else "?")
 	draw_circle(position - Vector2(0, 62), 16, Color("f1ca5c") if state != QuestSystem.COMPLETED else Color("70bd78"))
 	draw_string(UI_FONT, position + Vector2(-8, -56), marker, HORIZONTAL_ALIGNMENT_CENTER, 16, 20, Color("3b3225"))
+
+## Отрисовывает жителей с заданиями только в их родной локации и показывает доступность диалога.
+func draw_quest_npcs() -> void:
+	for npc_id in QuestSystem.NPCS:
+		var data: Dictionary = QuestSystem.NPCS[npc_id]
+		if data.location != current_location: continue
+		var position := QuestSystem.npc_position(self, npc_id)
+		draw_npc_sprite(int(data.sprite), position, float(data.sprite) * 1.9, data.tint)
+		if player.distance_to(position) < 155.0:
+			draw_string(UI_FONT, position + Vector2(-76, 58), QuestSystem.npc_name(npc_id), HORIZONTAL_ALIGNMENT_CENTER, 152, 15, Color("293c2f") if current_location == "overworld" else Color("fff0bd"))
+		var marker := QuestSystem.npc_marker(self, npc_id)
+		if marker.is_empty(): continue
+		draw_circle(position - Vector2(0, 62), 16, Color("f1ca5c") if marker != "✓" else Color("70bd78"))
+		draw_string(UI_FONT, position + Vector2(-8, -56), marker, HORIZONTAL_ALIGNMENT_CENTER, 16, 20, Color("3b3225"))
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func forage_sprite_layout(kind: String, position: Vector2) -> Dictionary:
@@ -544,12 +556,7 @@ func discovery_card_rect() -> Rect2:
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_mission_tracker() -> void:
-	var lines: Array[String] = []
-	if quest_active:
-		lines.append("Бабушкина морковь: %d/10" % mini(carrots, 10))
-	for mission_id in QuestSystem.MISSIONS:
-		if mission_states.get(mission_id) == QuestSystem.ACTIVE:
-			lines.append("%s — %s" % [QuestSystem.mission_data(mission_id).title, QuestSystem.objective_text(self, mission_id)])
+	var lines: Array[String] = PresentationSystem.quest_tracker_lines(self)
 	if lines.is_empty():
 		return
 	var height := 30.0 + lines.size() * 22.0
@@ -564,19 +571,27 @@ func draw_quest_log() -> void:
 	draw_rect(Rect2(140, 82, 872, 484), Color("e6d3a4"))
 	draw_rect(Rect2(140, 82, 872, 64), Color("5d4937"))
 	draw_string(UI_FONT, Vector2(326, 125), LocaleSystem.ui("quest_log"), HORIZONTAL_ALIGNMENT_CENTER, 500, 28, Color("fff1c4"))
-	var row_y := 172.0
-	for mission_id in QuestSystem.MISSIONS:
+	var mission_ids: Array = QuestSystem.MISSIONS.keys()
+	var page_count := maxi(1, ceili(float(mission_ids.size()) / 3.0))
+	quest_log_page = clampi(quest_log_page, 0, page_count - 1)
+	var row_y := 158.0
+	for index in range(quest_log_page * 3, mini((quest_log_page + 1) * 3, mission_ids.size())):
+		var mission_id: String = mission_ids[index]
 		var mission: Dictionary = QuestSystem.mission_data(mission_id)
-		var state: String = mission_states.get(mission_id, QuestSystem.AVAILABLE)
-		var state_name: String = {QuestSystem.AVAILABLE:LocaleSystem.ui("available"), QuestSystem.ACTIVE:LocaleSystem.ui("active"), QuestSystem.COMPLETED:LocaleSystem.ui("completed")}[state]
-		draw_rect(Rect2(170, row_y, 812, 142), Color("fff0bd") if state != QuestSystem.COMPLETED else Color("c9e2bd"))
-		draw_string(UI_FONT, Vector2(190, row_y + 29), "%s • %s" % [mission.type, mission.title], HORIZONTAL_ALIGNMENT_LEFT, 520, 20, Color("493b2f"))
-		draw_string(UI_FONT, Vector2(770, row_y + 29), state_name, HORIZONTAL_ALIGNMENT_RIGHT, 185, 15, Color("50704e"))
-		draw_string(UI_FONT, Vector2(190, row_y + 62), mission.description, HORIZONTAL_ALIGNMENT_LEFT, 745, 15, Color("493b2f"))
-		draw_string(UI_FONT, Vector2(190, row_y + 92), LocaleSystem.ui("objective", [QuestSystem.objective_text(self, mission_id)]), HORIZONTAL_ALIGNMENT_LEFT, 520, 16, Color("6b5038"))
-		draw_string(UI_FONT, Vector2(190, row_y + 119), LocaleSystem.ui("reward", [mission.coins, mission.xp, inventory_item_name(mission.reward_item), mission.reward_count]), HORIZONTAL_ALIGNMENT_LEFT, 720, 14, Color("49704d"))
-		row_y += 158.0
-	draw_string(UI_FONT, Vector2(320, 548), LocaleSystem.ui("quest_close"), HORIZONTAL_ALIGNMENT_CENTER, 512, 16, Color("493b2f"))
+		var state := QuestSystem.mission_state(self, mission_id)
+		var state_name: String = {QuestSystem.LOCKED:LocaleSystem.ui("locked"), QuestSystem.AVAILABLE:LocaleSystem.ui("available"), QuestSystem.ACTIVE:LocaleSystem.ui("active"), QuestSystem.COMPLETED:LocaleSystem.ui("completed")}[state]
+		var fill := Color("d4c7a5") if state == QuestSystem.LOCKED else (Color("c9e2bd") if state == QuestSystem.COMPLETED else Color("fff0bd"))
+		draw_rect(Rect2(170, row_y, 812, 116), fill)
+		draw_string(UI_FONT, Vector2(190, row_y + 25), "%s • %s" % [mission.type, mission.title], HORIZONTAL_ALIGNMENT_LEFT, 520, 18, Color("493b2f"))
+		draw_string(UI_FONT, Vector2(730, row_y + 25), state_name, HORIZONTAL_ALIGNMENT_RIGHT, 225, 13, Color("50704e"))
+		draw_string(UI_FONT, Vector2(190, row_y + 50), mission.description, HORIZONTAL_ALIGNMENT_LEFT, 745, 13, Color("493b2f"))
+		draw_string(UI_FONT, Vector2(190, row_y + 76), LocaleSystem.ui("objective", [QuestSystem.objective_text(self, mission_id)]), HORIZONTAL_ALIGNMENT_LEFT, 520, 13, Color("6b5038"))
+		draw_string(UI_FONT, Vector2(190, row_y + 99), LocaleSystem.ui("reward", [mission.coins, mission.xp, inventory_item_name(mission.reward_item), mission.reward_count]), HORIZONTAL_ALIGNMENT_LEFT, 720, 12, Color("49704d"))
+		row_y += 126.0
+	draw_rect(InterfaceRenderer.QUEST_PREV, Color("795d3e")); draw_rect(InterfaceRenderer.QUEST_NEXT, Color("795d3e"))
+	draw_string(UI_FONT, Vector2(180, 550), "←", HORIZONTAL_ALIGNMENT_CENTER, 34, 20, Color("fff0bd")); draw_string(UI_FONT, Vector2(632, 550), "→", HORIZONTAL_ALIGNMENT_CENTER, 34, 20, Color("fff0bd"))
+	draw_string(UI_FONT, Vector2(228, 550), LocaleSystem.ui("quest_page", [quest_log_page + 1, page_count]), HORIZONTAL_ALIGNMENT_LEFT, 390, 13, Color("493b2f"))
+	draw_string(UI_FONT, Vector2(690, 550), LocaleSystem.ui("quest_close"), HORIZONTAL_ALIGNMENT_RIGHT, 290, 13, Color("493b2f"))
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_skill_menu() -> void:

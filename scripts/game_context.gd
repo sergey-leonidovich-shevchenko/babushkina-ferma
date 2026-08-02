@@ -329,8 +329,8 @@ var herbalist_position := Vector2(1220, 535)
 var workbench_position := Vector2(750, 390)
 var quest_active := false
 var quest_complete := false
-var mission_states := {"story_relic":"available", "side_seed":"available"}
-var quest_log_open := false
+var mission_states := QuestSystem.default_states()
+var quest_log_open := false; var quest_log_page := 0
 var skill_menu_open := false
 var skill_menu_selected := 0
 var tutorial_visible := true

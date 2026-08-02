@@ -45,6 +45,12 @@ static func validate() -> Array[String]:
 		var mission: Dictionary = QuestSystem.MISSIONS[mission_id]
 		_validate_item(errors, items, mission.item, "mission.%s.item" % mission_id)
 		_validate_item(errors, items, mission.reward_item, "mission.%s.reward" % mission_id)
+		var requirement: String = mission.get("requires", "")
+		if not requirement.is_empty() and not QuestSystem.MISSIONS.has(requirement): errors.append("mission.%s requires unknown mission: %s" % [mission_id, requirement])
+	for npc_id in QuestSystem.NPCS:
+		_validate_location(errors, QuestSystem.NPCS[npc_id].location, "quest npc.%s" % npc_id)
+		for mission_id in QuestSystem.NPCS[npc_id].missions:
+			if not QuestSystem.MISSIONS.has(mission_id): errors.append("quest npc.%s references unknown mission: %s" % [npc_id, mission_id])
 	for container_kind in LootContainerSystem.TYPES:
 		for entry in LootContainerSystem.TYPES[container_kind].table:
 			if entry[0] != "coins": _validate_item(errors, items, entry[0], "container.%s.loot" % container_kind)

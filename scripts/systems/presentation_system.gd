@@ -50,6 +50,8 @@ static func interaction_position(game: Node, interaction: String) -> Vector2:
 		return game.BuildingSystem.interaction_position(game, interaction)
 	if interaction.begins_with("prisoner:"):
 		return game.CompanionSystem.interaction_position(interaction)
+	if interaction.begins_with("quest_npc:"):
+		return game.QuestSystem.npc_position(game, interaction.get_slice(":", 1))
 	if interaction == "home_chest":
 		return game.StorageSystem.CHEST_POSITION
 	for prefix in ["drop", "container", "resource", "food"]:
@@ -65,8 +67,6 @@ static func interaction_position(game: Node, interaction: String) -> Vector2:
 		return collection[index].position if index >= 0 and index < collection.size() else Vector2.ZERO
 	return {
 		"npc": game.npc_position,
-		"guild_master": game.guild_master_position,
-		"herbalist": game.herbalist_position,
 		"shop": game.BuildingSystem.SHOP_STALL_POSITION,
 		"crate": game.BuildingSystem.SELL_CRATE_POSITION,
 		"workbench": game.workbench_position,
@@ -80,3 +80,17 @@ static func interaction_position(game: Node, interaction: String) -> Vector2:
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func discovery_card_rect() -> Rect2:
 	return Rect2(824, 354, 310, 108)
+
+
+## Собирает не более трёх активных целей и одну сводную строку для компактного HUD.
+static func quest_tracker_lines(game: Node) -> Array[String]:
+	var lines: Array[String] = []
+	if game.quest_active:
+		lines.append("Бабушкина морковь: %d/10" % mini(game.carrots, 10))
+	for mission_id in game.QuestSystem.MISSIONS:
+		if game.mission_states.get(mission_id) == game.QuestSystem.ACTIVE:
+			lines.append("%s — %s" % [game.QuestSystem.mission_data(mission_id).title, game.QuestSystem.objective_text(game, mission_id)])
+	if lines.size() > 3:
+		var hidden_count := lines.size() - 3
+		lines.resize(3); lines.append(game.LocaleSystem.ui("more_quests", [hidden_count]))
+	return lines

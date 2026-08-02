@@ -61,8 +61,6 @@ static func scan_nearby(game: Node) -> bool:
 	var candidates: Array[Dictionary] = []
 	if game.current_location == "overworld":
 		add_candidate(candidates, "grandmother", game.npc_position, static_hint(game, "grandmother"))
-		add_candidate(candidates, "guild_master", game.guild_master_position, static_hint(game, "guild_master"))
-		add_candidate(candidates, "herbalist", game.herbalist_position, static_hint(game, "herbalist"))
 		add_candidate(candidates, "shop", game.BuildingSystem.SHOP_STALL_POSITION, static_hint(game, "shop"))
 		add_candidate(candidates, "workbench", game.workbench_position, static_hint(game, "workbench"))
 		add_candidate(candidates, "farm", Vector2(game.FARM_ORIGIN) + Vector2(game.FARM_SIZE * game.TILE) * 0.5, static_hint(game, "farm"))
@@ -79,6 +77,9 @@ static func scan_nearby(game: Node) -> bool:
 		for building_id in game.BuildingSystem.buildings_at(game.current_location):
 			var building: Dictionary = game.BuildingSystem.BUILDINGS[building_id]
 			add_candidate(candidates, "building:%s" % building_id, building.door, {"title":game.LocaleSystem.location(building.interior),"text":game.LocaleSystem.ui("hint_building")})
+		for npc_id in game.QuestSystem.NPCS:
+			if game.QuestSystem.NPCS[npc_id].location == game.current_location:
+				add_candidate(candidates, "quest_npc:%s" % npc_id, game.QuestSystem.npc_position(game, npc_id), {"title":game.QuestSystem.npc_name(npc_id),"text":game.LocaleSystem.ui("hint_quest_npc")})
 	if game.current_location == "prison_interior":
 		for companion_id in game.CompanionSystem.COMPANIONS:
 			var companion: Dictionary = game.CompanionSystem.COMPANIONS[companion_id]

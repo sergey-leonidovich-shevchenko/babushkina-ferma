@@ -26,6 +26,8 @@ const STORAGE_TRANSFER_ONE := Rect2(454, 494, 116, 36)
 const STORAGE_TRANSFER_ALL := Rect2(582, 494, 116, 36)
 const FORGE_ROWS := Rect2(164, 154, 824, 396)
 const CONTRACT_ROWS := Rect2(154, 190, 844, 300)
+const QUEST_PREV := Rect2(170, 526, 54, 34)
+const QUEST_NEXT := Rect2(622, 526, 54, 34)
 
 const INK := Color("f8f1dc")
 const MUTED := Color("b9c8b8")

@@ -88,7 +88,7 @@ static func apply(game: Node, data: Dictionary) -> bool:
 	game.equipment = data.equipment.duplicate(true)
 	if not game.equipment.has("offhand"): game.equipment.offhand = ""
 	game.quest_active = data.quest_active; game.quest_complete = data.quest_complete
-	game.mission_states = data.get("missions", game.mission_states).duplicate(true)
+	game.mission_states = game.QuestSystem.merge_states(data.get("missions", {}))
 	var tutorial: Dictionary = data.get("tutorial", {})
 	game.tutorial_step = tutorial.get("step", game.tutorial_step)
 	game.tutorial_events_completed = tutorial.get("events", {}).duplicate(true)
