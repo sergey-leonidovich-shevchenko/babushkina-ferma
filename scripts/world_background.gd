@@ -8,6 +8,7 @@ const CAVE_CRYSTAL := preload("res://assets/game/environment/cave_crystal.png")
 const GRASS_TILE := preload("res://assets/game/tiles/grass.png")
 const ROAD_TILE := preload("res://assets/game/tiles/road-brick.png")
 const CAVE_FLOOR_TILE := preload("res://assets/game/tiles/cave-floor.png")
+const BRIDGES := preload("res://assets/game/environment/bridges.png")
 
 var location := "overworld"
 
@@ -30,6 +31,12 @@ func draw_overworld() -> void:
 	draw_texture_rect(GRASS_TILE, Rect2(Vector2.ZERO, WORLD_SIZE), true)
 	draw_rect(Rect2(0, 860, WORLD_SIZE.x, 340), Color("4f9fb0"))
 	for x in range(0, int(WORLD_SIZE.x), 70): draw_line(Vector2(x, 900), Vector2(x + 34, 900), Color("83c9c5"), 3)
+	# Пруд возле фермы и спрайтовый мост через южную реку.
+	draw_set_transform(Vector2(650, 700), 0.0, Vector2(1.8, 1.0))
+	draw_circle(Vector2.ZERO, 105, Color("3f899c"))
+	draw_circle(Vector2.ZERO, 92, Color("58a8b4"))
+	draw_set_transform(Vector2.ZERO)
+	draw_texture_rect_region(BRIDGES, Rect2(1450, 805, 110, 395), Rect2(218, 335, 78, 145))
 	# Дом, лавка и ящик продажи.
 	draw_rect(Rect2(54, 130, 190, 150), Color("e5c478"))
 	draw_colored_polygon(PackedVector2Array([Vector2(38,145), Vector2(149,72), Vector2(260,145)]), Color("9c5338"))

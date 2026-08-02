@@ -15,6 +15,9 @@ func _initialize() -> void:
 	test_nearest_interaction_and_tutorial()
 	test_inventory_move_drop_delete_and_pickup()
 	test_location_transition_to_cave_and_back()
+	test_pickaxe_mines_surface_and_cave_resources()
+	test_fishing_cast_wait_and_catch_cycle()
+	test_bow_reward_and_crystal_sword_upgrade()
 	print("TESTS: %d passed, %d failed" % [passed, failed])
 	quit(0 if failed == 0 else 1)
 
@@ -142,11 +145,11 @@ func test_inventory_move_drop_delete_and_pickup() -> void:
 	var game := make_game()
 	game.inventory_selected = 0
 	game.inventory_move_from = 0
-	game.inventory_selected = 7
+	game.inventory_selected = 13
 	game.move_inventory_slot()
-	expect(game.inventory_slots[7] == "seeds" and game.inventory_slots[0] == "", "inventory item moves between slots")
+	expect(game.inventory_slots[13] == "seeds" and game.inventory_slots[0] == "", "inventory item moves between slots")
 	game.seeds = 2
-	game.inventory_selected = 7
+	game.inventory_selected = 13
 	expect(game.drop_selected_item(), "inventory item can be dropped")
 	expect(game.seeds == 1 and game.dropped_items.size() == 1, "dropping removes one item and creates world loot")
 	game.player = game.dropped_items[0].position
@@ -164,4 +167,41 @@ func test_location_transition_to_cave_and_back() -> void:
 	expect(game.nearest_interaction() == "cave_exit", "cave exit is interactive")
 	game.exit_cave()
 	expect(game.current_location == "overworld", "exit returns to overworld")
+	game.free()
+
+func test_pickaxe_mines_surface_and_cave_resources() -> void:
+	var game := make_game()
+	game.selected_tool = game.Tool.PICKAXE
+	game.player = game.resource_nodes[0].position
+	expect(game.mine_resource(0), "pickaxe mines a surface rock")
+	expect(game.stone == 1, "surface mining adds stone to inventory")
+	game.current_location = "cave"
+	game.player = game.resource_nodes[2].position
+	expect(game.mine_resource(2), "pickaxe mines a cave crystal")
+	expect(game.crystals == 1, "cave mining adds crystal to inventory")
+	game.free()
+
+func test_fishing_cast_wait_and_catch_cycle() -> void:
+	var game := make_game()
+	game.selected_tool = game.Tool.ROD
+	game.player = game.pond_position + Vector2(120, 0)
+	expect(game.use_fishing_rod(), "rod casts near pond")
+	expect(game.fishing_state == "casting", "fishing enters waiting state")
+	game.update_fishing(2.6)
+	expect(game.fishing_state == "ready", "bite becomes ready after timer")
+	expect(game.use_fishing_rod() and game.fish == 1, "second action catches fish")
+	game.free()
+
+func test_bow_reward_and_crystal_sword_upgrade() -> void:
+	var game := make_game()
+	game.quest_active = true
+	game.carrots = 10
+	game.talk_to_grandmother()
+	expect(game.has_bow, "carrot quest rewards hunting bow")
+	game.slime_gel = 3
+	game.wood = 2
+	expect(game.craft_sword(), "basic forest sword can be crafted")
+	game.crystals = 5
+	expect(game.craft_sword(), "five crystals upgrade forest sword")
+	expect(game.has_crystal_sword and game.crystals == 0, "crystal sword is stored in inventory")
 	game.free()

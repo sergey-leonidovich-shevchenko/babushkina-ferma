@@ -11,11 +11,13 @@ const SLIME_SHEET := preload("res://assets/game/enemies/slime_idle.png")
 const FOREST_TREE := preload("res://assets/game/environment/forest_tree.png")
 const RED_MUSHROOMS := preload("res://assets/game/environment/red_mushrooms.png")
 const CAVE_CRYSTAL := preload("res://assets/game/environment/cave_crystal.png")
+const RESOURCE_CRYSTAL := preload("res://assets/game/resources/blue-crystal.png")
+const RESOURCE_ROCK := preload("res://assets/game/resources/rock.png")
 const WORLD_SIZE := Vector2(2400, 1200)
 const STAGE_DURATION := 5.0
 const GROWTH_DURATION := 20.0
 
-enum Tool { HOE, SEEDS, WATER, HAND }
+enum Tool { HOE, SEEDS, WATER, HAND, PICKAXE, ROD }
 
 var player := Vector2(260, 360)
 var camera_offset := Vector2.ZERO
@@ -38,7 +40,7 @@ var shop_open := false
 var inventory_open := false
 var inventory_selected := 0
 var inventory_move_from := -1
-var inventory_slots := ["seeds", "carrot", "slime", "wood", "sword", "", "", "", "", "", "", "", "", "", "", ""]
+var inventory_slots := ["seeds", "carrot", "pickaxe", "fishing_rod", "slime", "wood", "stone", "crystal", "fish", "sword", "bow", "crystal_sword", "", "", "", ""]
 var dropped_items: Array = []
 var shop_selected := 0
 var shop_products := [
@@ -67,6 +69,24 @@ var slime_gel := 0
 var wood := 2
 var sword_crafted := false
 var sword_equipped := false
+var has_pickaxe := true
+var has_fishing_rod := true
+var has_bow := false
+var has_crystal_sword := false
+var equipped_weapon := "none"
+var stone := 0
+var crystals := 0
+var fish := 0
+var fishing_state := "idle"
+var fishing_timer := 0.0
+var pond_position := Vector2(650, 700)
+var resource_nodes := [
+	{"position": Vector2(1190, 590), "location": "overworld", "kind": "stone", "hits": 2},
+	{"position": Vector2(1830, 610), "location": "overworld", "kind": "crystal", "hits": 3},
+	{"position": Vector2(520, 300), "location": "cave", "kind": "crystal", "hits": 3},
+	{"position": Vector2(980, 570), "location": "cave", "kind": "stone", "hits": 2},
+	{"position": Vector2(1500, 330), "location": "cave", "kind": "crystal", "hits": 3}
+]
 var npc_position := Vector2(325, 360)
 var workbench_position := Vector2(760, 176)
 var quest_active := false
@@ -83,6 +103,8 @@ var tutorial_steps := [
 	{"event": "fight", "text": "Иди по дороге в лес и атакуй слизня [F]"},
 	{"event": "loot", "text": "Подбери выпавшую слизь клавишей E"},
 	{"event": "inventory", "text": "Открой инвентарь [I] и осмотри добычу"},
+	{"event": "mine", "text": "Выбери кирку [5] и добудь камень или кристалл"},
+	{"event": "fish", "text": "Выбери удочку [6] и поймай рыбу у пруда"},
 	{"event": "craft", "text": "Вернись к верстаку и создай меч [E]"},
 	{"event": "equip", "text": "Надень или сними меч клавишей R"},
 	{"event": "travel", "text": "Найди светящийся вход в пещеру и нажми E"}
@@ -106,6 +128,7 @@ func _physics_process(delta: float) -> void:
 	update_game_clock(delta)
 	update_crops(delta)
 	update_combat(delta)
+	update_fishing(delta)
 	if benchmark_autoplay:
 		update_benchmark_route(delta)
 	if shop_open or inventory_open:
@@ -257,6 +280,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			KEY_2: selected_tool = Tool.SEEDS
 			KEY_3: selected_tool = Tool.WATER
 			KEY_4: selected_tool = Tool.HAND
+			KEY_5: selected_tool = Tool.PICKAXE
+			KEY_6: selected_tool = Tool.ROD
 			KEY_B: open_shop()
 			KEY_N: sleep_until_morning()
 			KEY_F: attack_slime()
@@ -273,6 +298,12 @@ func valid_plot(cell: Vector2i) -> bool:
 	return cell.x >= 0 and cell.y >= 0 and cell.x < FARM_SIZE.x and cell.y < FARM_SIZE.y
 
 func use_selected_tool() -> void:
+	if selected_tool == Tool.PICKAXE:
+		mine_nearby_resource()
+		return
+	if selected_tool == Tool.ROD:
+		use_fishing_rod()
+		return
 	var cell := targeted_plot()
 	if not valid_plot(cell):
 		message = "Подойди к грядке и повернись к ней"
@@ -366,12 +397,22 @@ func nearest_interaction() -> String:
 		if distance < nearest_distance:
 			nearest_distance = distance
 			nearest = "drop:%d" % index
+	for index in resource_nodes.size():
+		var node: Dictionary = resource_nodes[index]
+		if node.hits <= 0 or node.location != current_location:
+			continue
+		var distance: float = player.distance_to(node.position)
+		if distance < nearest_distance:
+			nearest_distance = distance
+			nearest = "resource:%d" % index
 	return nearest
 
 func perform_context_action() -> bool:
 	var interaction := nearest_interaction()
 	if interaction.begins_with("drop:"):
 		return collect_dropped_item(int(interaction.get_slice(":", 1)))
+	if interaction.begins_with("resource:"):
+		return mine_resource(int(interaction.get_slice(":", 1)))
 	match interaction:
 		"npc":
 			talk_to_grandmother()
@@ -395,6 +436,71 @@ func perform_context_action() -> bool:
 			exit_cave()
 			return true
 	return false
+
+func mine_nearby_resource() -> bool:
+	var interaction := nearest_interaction()
+	if not interaction.begins_with("resource:"):
+		message = "Рядом нет залежей для добычи"
+		return false
+	return mine_resource(int(interaction.get_slice(":", 1)))
+
+func mine_resource(index: int) -> bool:
+	if not has_pickaxe or selected_tool != Tool.PICKAXE:
+		message = "Для добычи выбери кирку [5]"
+		return false
+	if index < 0 or index >= resource_nodes.size():
+		return false
+	var node: Dictionary = resource_nodes[index]
+	if node.hits <= 0 or node.location != current_location or player.distance_to(node.position) > 92.0:
+		return false
+	node.hits -= 1
+	if node.kind == "crystal":
+		crystals += 1
+		message = "Добыт синий кристалл"
+	else:
+		stone += 1
+		message = "Добыт камень"
+	if node.hits <= 0:
+		message += ". Жила исчерпана"
+	resource_nodes[index] = node
+	notify_tutorial("mine")
+	return true
+
+func is_near_fishing_water() -> bool:
+	if current_location != "overworld":
+		return false
+	var near_pond := player.distance_to(pond_position) < 175.0
+	var near_river := player.y > 800.0
+	return near_pond or near_river
+
+func use_fishing_rod() -> bool:
+	if not has_fishing_rod:
+		message = "У тебя нет удочки"
+		return false
+	if not is_near_fishing_water():
+		message = "Подойди к пруду или реке"
+		return false
+	if fishing_state == "idle":
+		fishing_state = "casting"
+		fishing_timer = 2.5
+		message = "Поплавок в воде... жди поклёвки"
+		return true
+	if fishing_state == "ready":
+		fish += 1
+		fishing_state = "idle"
+		message = "Поймана речная рыба!"
+		notify_tutorial("fish")
+		return true
+	message = "Рыба ещё не клюнула"
+	return false
+
+func update_fishing(delta: float) -> void:
+	if fishing_state != "casting":
+		return
+	fishing_timer -= delta
+	if fishing_timer <= 0.0:
+		fishing_state = "ready"
+		message = "КЛЮЁТ! Нажми E ещё раз"
 
 func enter_cave() -> void:
 	current_location = "cave"
@@ -425,6 +531,13 @@ func inventory_item_count(kind: String) -> int:
 		"slime": return slime_gel
 		"wood": return wood
 		"sword": return 1 if sword_crafted else 0
+		"pickaxe": return 1 if has_pickaxe else 0
+		"fishing_rod": return 1 if has_fishing_rod else 0
+		"stone": return stone
+		"crystal": return crystals
+		"fish": return fish
+		"bow": return 1 if has_bow else 0
+		"crystal_sword": return 1 if has_crystal_sword else 0
 	return 0
 
 func inventory_item_name(kind: String) -> String:
@@ -434,6 +547,13 @@ func inventory_item_name(kind: String) -> String:
 		"slime": return "Слизь"
 		"wood": return "Древесина"
 		"sword": return "Лесной меч"
+		"pickaxe": return "Кирка"
+		"fishing_rod": return "Удочка"
+		"stone": return "Камень"
+		"crystal": return "Синий кристалл"
+		"fish": return "Речная рыба"
+		"bow": return "Охотничий лук"
+		"crystal_sword": return "Кристальный меч"
 	return "Пусто"
 
 func change_inventory_count(kind: String, amount: int) -> bool:
@@ -450,6 +570,13 @@ func change_inventory_count(kind: String, amount: int) -> bool:
 				sword_equipped = false
 			elif amount > 0:
 				sword_crafted = true
+		"pickaxe": has_pickaxe = amount > 0
+		"fishing_rod": has_fishing_rod = amount > 0
+		"stone": stone += amount
+		"crystal": crystals += amount
+		"fish": fish += amount
+		"bow": has_bow = amount > 0
+		"crystal_sword": has_crystal_sword = amount > 0
 		_:
 			return false
 	return true
@@ -520,17 +647,22 @@ func talk_to_grandmother() -> void:
 		player_xp += 25
 		quest_active = false
 		quest_complete = true
-		message = "Квест выполнен! +50 монет, +25 опыта"
+		has_bow = true
+		message = "Квест выполнен! +50 монет, +25 опыта и охотничий лук"
 	elif quest_active:
 		message = "Бабушка ждёт морковь: %d/10" % carrots
 	else:
 		message = "Спасибо за помощь, внучек!"
 
 func attack_slime() -> bool:
-	if not slime_alive or player.distance_to(slime_position) > 105.0:
+	var attack_range := 280.0 if equipped_weapon == "bow" else 105.0
+	if not slime_alive or player.distance_to(slime_position) > attack_range:
 		message = "Рядом нет противника"
 		return false
-	var damage := 2 if sword_equipped else 1
+	var damage := 1
+	if equipped_weapon == "forest_sword": damage = 2
+	elif equipped_weapon == "crystal_sword": damage = 3
+	elif equipped_weapon == "bow": damage = 2
 	slime_hp -= damage
 	message = "Удар по слизню: -%d HP" % damage
 	notify_tutorial("fight")
@@ -566,8 +698,16 @@ func collect_loot() -> bool:
 	return true
 
 func craft_sword() -> bool:
-	if sword_crafted:
-		message = "Меч уже создан. Нажми R, чтобы надеть"
+	if sword_crafted and not has_crystal_sword:
+		if crystals < 5:
+			message = "Для улучшения меча нужно 5 кристаллов"
+			return false
+		crystals -= 5
+		has_crystal_sword = true
+		message = "Создан кристальный меч: 3 урона"
+		return true
+	if sword_crafted and has_crystal_sword:
+		message = "Все доступные мечи уже созданы"
 		return false
 	if slime_gel < 3 or wood < 2:
 		message = "Для меча нужно: слизь 3, древесина 2"
@@ -580,11 +720,18 @@ func craft_sword() -> bool:
 	return true
 
 func toggle_sword() -> bool:
-	if not sword_crafted:
-		message = "Сначала создай меч у верстака"
+	var weapons := ["none"]
+	if sword_crafted: weapons.append("forest_sword")
+	if has_bow: weapons.append("bow")
+	if has_crystal_sword: weapons.append("crystal_sword")
+	if weapons.size() == 1:
+		message = "Оружия пока нет"
 		return false
-	sword_equipped = not sword_equipped
-	message = "Меч надет" if sword_equipped else "Меч снят"
+	var current_index := weapons.find(equipped_weapon)
+	equipped_weapon = weapons[(current_index + 1) % weapons.size()]
+	sword_equipped = equipped_weapon == "forest_sword" or equipped_weapon == "crystal_sword"
+	var weapon_names := {"none": "кулаки", "forest_sword": "лесной меч", "bow": "охотничий лук", "crystal_sword": "кристальный меч"}
+	message = "Оружие: %s" % weapon_names[equipped_weapon]
 	notify_tutorial("equip")
 	return true
 
@@ -656,6 +803,7 @@ func _draw() -> void:
 	if current_location == "overworld":
 		draw_farm()
 		draw_rpg_world()
+	draw_resource_nodes()
 	draw_player()
 	draw_interaction_highlight()
 	draw_set_transform(Vector2.ZERO)
@@ -774,18 +922,14 @@ func draw_player() -> void:
 	if absf(facing.x) > absf(facing.y): direction_row = 2 if facing.x < 0 else 3
 	elif facing.y < 0: direction_row = 1
 	draw_texture_rect_region(FARMER_SHEET, Rect2(render_position - Vector2(32, 48), Vector2(64, 64)), Rect2(frame * 64, direction_row * 64, 64, 64))
-	if sword_equipped:
+	if equipped_weapon == "forest_sword":
 		draw_line(render_position + facing * 10.0, render_position + facing * 34.0, Color("d9e4e6"), 5)
+	elif equipped_weapon == "crystal_sword":
+		draw_line(render_position + facing * 10.0, render_position + facing * 38.0, Color("69e6f0"), 7)
+	elif equipped_weapon == "bow":
+		draw_arc(render_position + facing * 18.0, 15, -1.4, 1.4, 12, Color("b77a45"), 4)
 
 func draw_rpg_world() -> void:
-	# Дорога соединяет ферму и большую лесную часть карты.
-	draw_rect(Rect2(1030, 360, 1370, 150), Color("b68b5c"))
-	for x in range(1080, 2380, 110):
-		draw_circle(Vector2(x, 430), 6, Color("94704f"))
-	var tree_positions := [Vector2(1210, 190), Vector2(1430, 250), Vector2(1740, 170), Vector2(1990, 290), Vector2(2240, 180), Vector2(1320, 680), Vector2(1880, 720), Vector2(2210, 650)]
-	for tree_position in tree_positions:
-		draw_texture_rect(FOREST_TREE, Rect2(tree_position - Vector2(96, 128), Vector2(192, 192)), false)
-	draw_texture_rect(RED_MUSHROOMS, Rect2(1380, 570, 72, 72), false)
 	# Бабушка и верстак.
 	draw_circle(npc_position - Vector2(0, 15), 13, Color("e7b68b"))
 	draw_rect(Rect2(npc_position - Vector2(15, 2), Vector2(30, 35)), Color("854d6f"))
@@ -809,6 +953,13 @@ func draw_rpg_world() -> void:
 	draw_circle(cave_entrance_position, 38 + sin(Time.get_ticks_msec() / 170.0) * 4, Color("66d5cf"), false, 6)
 	draw_string(ThemeDB.fallback_font, cave_entrance_position + Vector2(-58, 78), "Кристальная пещера", HORIZONTAL_ALIGNMENT_LEFT, -1, 16, Color("d7fff4"))
 
+func draw_resource_nodes() -> void:
+	for node in resource_nodes:
+		if node.hits <= 0 or node.location != current_location:
+			continue
+		var texture: Texture2D = RESOURCE_CRYSTAL if node.kind == "crystal" else RESOURCE_ROCK
+		draw_texture_rect(texture, Rect2(node.position - Vector2(28, 28), Vector2(56, 56)), false)
+
 func draw_cave_world() -> void:
 	draw_rect(Rect2(Vector2.ZERO, WORLD_SIZE), Color("18232c"))
 	for y in range(100, int(WORLD_SIZE.y), 230):
@@ -829,6 +980,13 @@ func inventory_item_color(kind: String) -> Color:
 		"slime": return Color("72d4a2")
 		"wood": return Color("a46c42")
 		"sword": return Color("d9e4e6")
+		"pickaxe": return Color("87989c")
+		"fishing_rod": return Color("b77a45")
+		"stone": return Color("8f8a7c")
+		"crystal": return Color("54d7e8")
+		"fish": return Color("5aa4d6")
+		"bow": return Color("c58a4d")
+		"crystal_sword": return Color("6ce8ef")
 	return Color.WHITE
 
 func interaction_position(interaction: String) -> Vector2:
@@ -836,6 +994,10 @@ func interaction_position(interaction: String) -> Vector2:
 		var index := int(interaction.get_slice(":", 1))
 		if index >= 0 and index < dropped_items.size():
 			return dropped_items[index].position
+	if interaction.begins_with("resource:"):
+		var index := int(interaction.get_slice(":", 1))
+		if index >= 0 and index < resource_nodes.size():
+			return resource_nodes[index].position
 	match interaction:
 		"npc": return npc_position
 		"shop": return Vector2(972, 278)
@@ -861,12 +1023,17 @@ func draw_ui() -> void:
 	var minutes := int(game_minutes) % 60
 	draw_string(ThemeDB.fallback_font, Vector2(24, 34), "ДЕНЬ %d   %02d:%02d" % [day, hours, minutes], HORIZONTAL_ALIGNMENT_LEFT, -1, 22, Color("ffe39d"))
 	draw_string(ThemeDB.fallback_font, Vector2(24, 68), "⚡ %d   🪙 %d   Семена: %d   Морковь: %d" % [energy, coins, seeds, carrots], HORIZONTAL_ALIGNMENT_LEFT, -1, 20, Color.WHITE)
-	draw_string(ThemeDB.fallback_font, Vector2(24, 91), "❤ %d   XP %d   Слизь %d   Дерево %d   Меч: %s" % [player_hp, player_xp, slime_gel, wood, "надет" if sword_equipped else ("есть" if sword_crafted else "нет")], HORIZONTAL_ALIGNMENT_LEFT, -1, 15, Color("bde8d2"))
-	var tools := ["1 Мотыга", "2 Семена", "3 Лейка", "4 Руки"]
-	for i in 4:
-		var box := Rect2(510 + i * 150, 18, 140, 55)
+	draw_string(ThemeDB.fallback_font, Vector2(24, 91), "❤ %d  XP %d  Слизь %d  Камень %d  Кристалл %d  Рыба %d  Оружие: %s" % [player_hp, player_xp, slime_gel, stone, crystals, fish, equipped_weapon], HORIZONTAL_ALIGNMENT_LEFT, -1, 14, Color("bde8d2"))
+	var tools := ["1 Мотыга", "2 Семена", "3 Лейка", "4 Руки", "5 Кирка", "6 Удочка"]
+	for i in 6:
+		var box := Rect2(480 + i * 111, 18, 103, 55)
 		draw_rect(box, Color("d8bd77") if i == selected_tool else Color("38564d"))
-		draw_string(ThemeDB.fallback_font, box.position + Vector2(8, 34), tools[i], HORIZONTAL_ALIGNMENT_LEFT, -1, 17, Color("1f312b") if i == selected_tool else Color.WHITE)
+		draw_string(ThemeDB.fallback_font, box.position + Vector2(6, 34), tools[i], HORIZONTAL_ALIGNMENT_LEFT, -1, 14, Color("1f312b") if i == selected_tool else Color.WHITE)
+	if fishing_state == "casting":
+		draw_string(ThemeDB.fallback_font, Vector2(576, 205), "Поплавок... %.1f" % maxf(fishing_timer, 0.0), HORIZONTAL_ALIGNMENT_CENTER, 260, 20, Color("d7f6ff"))
+	elif fishing_state == "ready":
+		draw_circle(Vector2(576, 195), 22 + sin(Time.get_ticks_msec() / 100.0) * 3, Color("ffdc5c"))
+		draw_string(ThemeDB.fallback_font, Vector2(576, 202), "!", HORIZONTAL_ALIGNMENT_CENTER, 20, 24, Color("5b4526"))
 	draw_rect(Rect2(190, 592, 772, 42), Color("182f2b"))
 	draw_string(ThemeDB.fallback_font, Vector2(576, 620), message, HORIZONTAL_ALIGNMENT_CENTER, 730, 18, Color("fff4cf"))
 	if quest_active:
