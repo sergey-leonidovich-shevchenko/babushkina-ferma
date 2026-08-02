@@ -1,8 +1,8 @@
-Predator plant idle sprite
+Predator plant idle, hurt and death sprite sheets
 Source pack: Free Predator Plant Mobs Pixel Art Pack
 https://craftpix.net/freebies/free-predator-plant-mobs-pixel-art-pack/
 
-Orc idle sprite
+Orc idle, hurt and death sprite sheets
 Source pack: Free Top-Down Orc Game Character Pixel Art
 https://craftpix.net/freebies/free-top-down-orc-game-character-pixel-art/
 

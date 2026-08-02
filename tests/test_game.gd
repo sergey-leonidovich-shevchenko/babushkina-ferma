@@ -6,6 +6,7 @@ const CoreSuite = preload("res://tests/suites/core_suite.gd")
 const GameplaySuite = preload("res://tests/suites/gameplay_suite.gd")
 const WorldSuite = preload("res://tests/suites/world_suite.gd")
 const ProgressionSuite = preload("res://tests/suites/progression_suite.gd")
+const AnimationSuite = preload("res://tests/suites/animation_suite.gd")
 var passed := 0
 var failed := 0
 
@@ -14,6 +15,7 @@ func _initialize() -> void:
 	GameplaySuite.new(self).run()
 	WorldSuite.new(self).run()
 	ProgressionSuite.new(self).run()
+	AnimationSuite.new(self).run()
 	ArchitectureSuite.run(self)
 	print("TESTS: %d passed, %d failed" % [passed, failed])
 	quit(0 if failed == 0 else 1)

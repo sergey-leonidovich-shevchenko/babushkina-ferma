@@ -10,11 +10,11 @@ const TYPES := {
 	"cave_guardian": {"name":"Хранитель глубин","hp":12,"damage":24,"xp":40,"color":Color("527f91"),"loot":{"moon_relic":1,"blue_gem":2}}
 }
 const SPAWNS := [
-	{"kind":"plant","location":"forest","position":Vector2(920,430),"hp":5,"alive":true},
-	{"kind":"orc","location":"ruins","position":Vector2(1180,500),"hp":8,"alive":true},
-	{"kind":"skeleton","location":"cave","position":Vector2(880,520),"hp":6,"alive":true},
-	{"kind":"undead","location":"cursed","position":Vector2(1320,460),"hp":10,"alive":true},
-	{"kind":"cave_guardian","location":"cave","position":Vector2(1450,500),"hp":12,"alive":true},
+	{"kind":"plant","location":"forest","position":Vector2(920,430),"hp":5,"alive":true,"visual_state":"idle","visual_time":0.0},
+	{"kind":"orc","location":"ruins","position":Vector2(1180,500),"hp":8,"alive":true,"visual_state":"idle","visual_time":0.0},
+	{"kind":"skeleton","location":"cave","position":Vector2(880,520),"hp":6,"alive":true,"visual_state":"idle","visual_time":0.0},
+	{"kind":"undead","location":"cursed","position":Vector2(1320,460),"hp":10,"alive":true,"visual_state":"idle","visual_time":0.0},
+	{"kind":"cave_guardian","location":"cave","position":Vector2(1450,500),"hp":12,"alive":true,"visual_state":"idle","visual_time":0.0},
 ]
 
 
@@ -43,6 +43,8 @@ static func attack(game: Node, index: int) -> bool:
 	elif game.equipped_weapon == "crystal_sword": damage += 2
 	elif game.equipped_weapon == "bow": damage += 1
 	enemy.hp -= damage
+	game.AnimationSystem.begin_player_attack(game)
+	enemy = game.AnimationSystem.hit_enemy(enemy, enemy.hp <= 0)
 	if enemy.hp <= 0:
 		enemy.alive = false
 		game.award_xp(TYPES[enemy.kind].xp)
@@ -54,4 +56,5 @@ static func attack(game: Node, index: int) -> bool:
 		game.message = "%s: +%d XP" % [LocaleSystem.entity(enemy.kind), TYPES[enemy.kind].xp]
 	else: game.message = "%s: -%d HP" % [LocaleSystem.entity(enemy.kind), damage]
 	game.enemy_nodes[index] = enemy
+	game.notify_tutorial("combat_animation")
 	return true

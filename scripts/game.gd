@@ -32,6 +32,7 @@ func _physics_process(delta: float) -> void:
 	update_fishing(delta)
 	update_status_effects(delta)
 	PlayerSystem.update_animation(self, delta)
+	AnimationSystem.update(self, delta)
 	SkillSystem.update_resources(self, delta)
 	ForageSystem.update(self)
 	DiscoverySystem.update(self, delta)
@@ -707,8 +708,11 @@ func attack_slime() -> bool:
 	elif equipped_weapon == "crystal_sword": damage = 3
 	elif equipped_weapon == "bow": damage = 2
 	slime_hp -= damage
+	AnimationSystem.begin_player_attack(self)
+	AnimationSystem.hit_slime(self, slime_hp <= 0)
 	message = "Удар по слизню: -%d HP" % damage
 	notify_tutorial("fight")
+	notify_tutorial("combat_animation")
 	if slime_hp <= 0:
 		slime_alive = false
 		loot_available = true
@@ -744,6 +748,7 @@ func update_combat(delta: float) -> void:
 	slime_attack_timer += delta
 	if slime_attack_timer >= 1.5:
 		slime_attack_timer = 0.0
+		AnimationSystem.begin_slime_attack(self)
 		var incoming_damage := InventorySystem.incoming_damage(self, 20)
 		player_hp -= incoming_damage
 		message = "Слизень атакует! -%d здоровья" % incoming_damage
@@ -863,11 +868,15 @@ func grant_tester_kit() -> void:
 	player_hp = player_max_hp
 	slime_alive = true
 	slime_hp = 3
+	slime_visual_state = "idle"
+	slime_visual_time = 0.0
 	loot_available = false
 	ForageSystem.reset_all(self)
 	for index in enemy_nodes.size():
 		enemy_nodes[index].alive = true
 		enemy_nodes[index].hp = CombatSystem.TYPES[enemy_nodes[index].kind].hp
+		enemy_nodes[index].visual_state = "idle"
+		enemy_nodes[index].visual_time = 0.0
 	for index in wildlife_nodes.size():
 		wildlife_nodes[index].alive = true
 		wildlife_nodes[index].hp = WildlifeSystem.TYPES[wildlife_nodes[index].kind].hp

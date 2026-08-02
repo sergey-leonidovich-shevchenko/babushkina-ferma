@@ -129,28 +129,7 @@ func draw_water_needed_icon(center: Vector2) -> void:
 	draw_circle(center + Vector2(-2, 2), 2.0, Color("ffaaa0"))
 
 func draw_player() -> void:
-	var render_position := player.round()
-	var moving := get_movement_direction() != Vector2.ZERO
-	var frame := PlayerSystem.animation_frame(walk_animation_time, moving)
-	var direction_row := PlayerSystem.direction_row(facing)
-	var bob := roundf(PlayerSystem.sprite_bob(walk_animation_time, moving))
-	var shadow_points := PackedVector2Array()
-	for point_index in 16:
-		var angle := TAU * point_index / 16.0
-		shadow_points.append(render_position + Vector2(cos(angle) * 18.0, 8.0 + sin(angle) * 6.0))
-	draw_colored_polygon(shadow_points, Color(0.08, 0.11, 0.10, 0.35))
-	if moving and frame in [0, 3]:
-		var dust_origin := render_position - facing * 12.0 + Vector2(0, 7)
-		draw_circle(dust_origin + Vector2(-7, 1), 3.0, Color(0.70, 0.66, 0.55, 0.38))
-		draw_circle(dust_origin + Vector2(6, -1), 2.0, Color(0.70, 0.66, 0.55, 0.28))
-	var sprite_rect := Rect2(render_position - Vector2(40, 66) + Vector2(0, bob), Vector2(80, 80))
-	draw_texture_rect_region(FARMER_SHEET, sprite_rect, Rect2(frame * 64, direction_row * 64, 64, 64))
-	if equipped_weapon == "forest_sword":
-		draw_line(render_position + facing * 10.0, render_position + facing * 34.0, Color("d9e4e6"), 5)
-	elif equipped_weapon == "crystal_sword":
-		draw_line(render_position + facing * 10.0, render_position + facing * 38.0, Color("69e6f0"), 7)
-	elif equipped_weapon == "bow":
-		draw_arc(render_position + facing * 18.0, 15, -1.4, 1.4, 12, Color("b77a45"), 4)
+	AnimationRenderer.draw_player(self)
 
 func draw_rpg_world() -> void:
 	# Бабушка и верстак.
@@ -162,11 +141,10 @@ func draw_rpg_world() -> void:
 	draw_rect(Rect2(workbench_position - Vector2(32, 20), Vector2(64, 44)), Color("865334"))
 	draw_line(workbench_position - Vector2(25, 8), workbench_position + Vector2(25, -8), Color("d09a59"), 5)
 	draw_string(UI_FONT, workbench_position + Vector2(-45, 45), LocaleSystem.entity("workbench"), HORIZONTAL_ALIGNMENT_LEFT, -1, 16, Color("293c2f"))
-	if slime_alive:
-		var slime_frame := int(Time.get_ticks_msec() / 140.0) % 6
-		draw_texture_rect_region(SLIME_SHEET, Rect2(slime_position - Vector2(32, 40), Vector2(64, 64)), Rect2(slime_frame * 64, 0, 64, 64))
-		draw_rect(Rect2(slime_position + Vector2(-28, -50), Vector2(56, 7)), Color("402d32"))
-		draw_rect(Rect2(slime_position + Vector2(-27, -49), Vector2(54.0 * slime_hp / 3.0, 5)), Color("dc554b"))
+	if AnimationRenderer.draw_slime(self):
+		if slime_alive:
+			draw_rect(Rect2(slime_position + Vector2(-28, -50), Vector2(56, 7)), Color("402d32"))
+			draw_rect(Rect2(slime_position + Vector2(-27, -49), Vector2(54.0 * slime_hp / 3.0, 5)), Color("dc554b"))
 	elif loot_available:
 		draw_circle(slime_position, 13, Color("78d6a5"))
 		draw_circle(slime_position - Vector2(4, 4), 4, Color("baf1c8"))
@@ -270,21 +248,11 @@ func draw_enemy_nodes_and_gate() -> void:
 	draw_circle(world_gate_position, 42 + sin(Time.get_ticks_msec() / 180.0) * 4, Color("e6b85e"), false, 6)
 	draw_string(UI_FONT, world_gate_position + Vector2(-75, 68), WorldSystem.name(WorldSystem.next_location(current_location)), HORIZONTAL_ALIGNMENT_LEFT, 180, 14, Color("fff0bd"))
 	for enemy in enemy_nodes:
-		if not enemy.alive or enemy.location != current_location: continue
+		if not AnimationSystem.enemy_is_visible(enemy) or enemy.location != current_location: continue
 		var data: Dictionary = CombatSystem.TYPES[enemy.kind]
 		var position: Vector2 = enemy.position
-		var enemy_texture := enemy_sprite_texture(enemy.kind)
-		if enemy.kind in ["cave_guardian", "skeleton", "undead"]:
-			var bob := sin(Time.get_ticks_msec() / 180.0) * 2.0
-			var size := 124.0 if enemy.kind == "cave_guardian" else (92.0 if enemy.kind == "skeleton" else 108.0)
-			draw_texture_rect(enemy_texture, Rect2(position - Vector2(size * 0.5, size * 0.70 + bob), Vector2(size, size)), false)
-		elif enemy_texture:
-			var frame := int(Time.get_ticks_msec() / 180.0) % 4
-			var row := enemy_direction_row(player - position)
-			var size := 82.0 if enemy.kind == "plant" else 74.0
-			draw_texture_rect_region(enemy_texture, Rect2(position - Vector2(size * 0.5, size * 0.64), Vector2(size, size)), Rect2(frame * 64, row * 64, 64, 64))
-		else:
-			draw_circle(position, 30, data.color)
+		AnimationRenderer.draw_enemy(self, enemy)
+		if not enemy.alive: continue
 		draw_rect(Rect2(position - Vector2(31, 48), Vector2(62, 7)), Color("402d32"))
 		draw_rect(Rect2(position - Vector2(30, 47), Vector2(60.0 * enemy.hp / float(data.hp), 5)), Color("dc554b"))
 		draw_string(UI_FONT, position + Vector2(-65, 55), LocaleSystem.entity(enemy.kind), HORIZONTAL_ALIGNMENT_CENTER, 130, 14, Color("fff0bd"))
@@ -640,4 +608,3 @@ func draw_shop() -> void:
 		draw_string(UI_FONT, row.position + Vector2(370, 30), ("%d 🪙" % product.buy) if product.buy > 0 else "—", HORIZONTAL_ALIGNMENT_LEFT, -1, 15, Color("3d3428"))
 		draw_string(UI_FONT, row.position + Vector2(478, 30), ("%d 🪙" % product.sell) if product.sell > 0 else "—", HORIZONTAL_ALIGNMENT_LEFT, -1, 15, Color("3d3428"))
 	draw_string(UI_FONT, Vector2(690, 535), LocaleSystem.ui("shop_help"), HORIZONTAL_ALIGNMENT_CENTER, 560, 16, Color("493b2f"))
-

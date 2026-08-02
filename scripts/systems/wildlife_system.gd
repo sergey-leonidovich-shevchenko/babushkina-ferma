@@ -91,6 +91,7 @@ static func attack(game: Node, index: int) -> bool:
 	elif game.equipped_weapon == "crystal_sword": damage += 2
 	elif game.equipped_weapon == "bow": damage += 1
 	animal.hp -= damage
+	game.AnimationSystem.begin_player_attack(game)
 	animal.panic = 3.0
 	if animal.hp <= 0:
 		animal.alive = false
@@ -102,6 +103,7 @@ static func attack(game: Node, index: int) -> bool:
 	else:
 		game.message = "%s: -%d HP" % [LocaleSystem.entity(animal.kind), damage]
 	game.wildlife_nodes[index] = animal
+	game.notify_tutorial("combat_animation")
 	game.notify_tutorial("wildlife")
 	if animal.kind == "lizard":
 		game.notify_tutorial("lizard")

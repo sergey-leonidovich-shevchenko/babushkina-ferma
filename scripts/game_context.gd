@@ -40,6 +40,8 @@ const ForageSystem := preload("res://scripts/systems/forage_system.gd")
 const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
 const InputSystem := preload("res://scripts/systems/input_system.gd")
 const PresentationSystem := preload("res://scripts/systems/presentation_system.gd")
+const AnimationSystem := preload("res://scripts/systems/animation_system.gd")
+const AnimationRenderer := preload("res://scripts/systems/animation_renderer.gd")
 const ContentRegistry := preload("res://scripts/systems/content_registry.gd")
 const GameState := preload("res://scripts/state/game_state.gd")
 const UI_FONT := preload("res://assets/game/fonts/ui_font.tres")
@@ -182,6 +184,7 @@ var attack_held := false
 var attack_repeat_timer := 0.0
 const ATTACK_REPEAT_INTERVAL := 0.4
 var walk_animation_time := 0.0
+var player_attack_timer := 0.0
 var character_animation_directions := {}
 var benchmark_autoplay := false
 var benchmark_elapsed := 0.0
@@ -220,6 +223,8 @@ var slime_position := Vector2(1580, 500)
 var slime_hp := 3
 var slime_alive := true
 var slime_attack_timer := 0.0
+var slime_visual_state := "idle"
+var slime_visual_time := 0.0
 var loot_available := false
 var slime_gel: int:
 	get: return state.inventory.count("slime")

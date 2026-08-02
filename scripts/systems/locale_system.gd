@@ -153,6 +153,7 @@ const TUTORIAL := {
 	"trade":["Купи или продай товар","Buy or sell an item","Compra o vende un objeto","Kaufe oder verkaufe Ware","Achète ou vends un objet","购买或出售商品"],
 	"quest_complete":["Принеси бабушке 10 морковок","Bring Grandma 10 carrots","Lleva 10 zanahorias a la abuela","Bring Oma 10 Karotten","Apporte 10 carottes à Grand-mère","给奶奶带10根胡萝卜"],
 	"fight":["Атакуй слизня [F]","Attack the slime [F]","Ataca al limo [F]","Greife den Schleim an [F]","Attaque le slime [F]","攻击史莱姆 [F]"],
+	"combat_animation":["Проверь замах, реакцию и смерть врага","Check the swing, hit reaction, and enemy death","Comprueba el golpe, la reacción y la muerte","Prüfe Schlag, Trefferreaktion und Tod","Vérifie l'attaque, la réaction et la mort","检查攻击、受击与死亡动画"],
 	"loot":["Подбери добычу [E]","Pick up loot [E]","Recoge el botín [E]","Sammle Beute ein [E]","Ramasse le butin [E]","拾取战利品 [E]"],
 	"inventory":["Открой рюкзак [Tab]","Open backpack [Tab]","Abre la mochila [Tab]","Öffne den Rucksack [Tab]","Ouvre le sac [Tab]","打开背包 [Tab]"],
 	"hotbar":["Назначь предмет клавишей 1–0","Assign an item with 1–0","Asigna un objeto con 1–0","Belege einen Platz mit 1–0","Assigne un objet avec 1–0","用1–0设置快捷物品"],
