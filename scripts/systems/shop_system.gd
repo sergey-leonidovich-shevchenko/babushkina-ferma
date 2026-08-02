@@ -11,9 +11,11 @@ const PRODUCTS := [
 ]
 
 
+## Возвращает рассчитанное методом значение в безопасном для вызывающего кода виде.
 static func default_products() -> Array:
 	return PRODUCTS.duplicate(true)
 
+## Выполняет операцию «покупки» и возвращает результат согласно контракту метода.
 static func buy(game: Node, product_index: int) -> bool:
 	if product_index < 0 or product_index >= game.shop_products.size():
 		return false
@@ -31,6 +33,7 @@ static func buy(game: Node, product_index: int) -> bool:
 	game.notify_tutorial("trade")
 	return true
 
+## Выполняет операцию «продажи» и возвращает результат согласно контракту метода.
 static func sell(game: Node, product_index: int) -> bool:
 	if product_index < 0 or product_index >= game.shop_products.size():
 		return false

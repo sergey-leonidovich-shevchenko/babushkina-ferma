@@ -27,9 +27,11 @@ const SPAWNS := [
 ]
 
 
+## Возвращает рассчитанное методом значение в безопасном для вызывающего кода виде.
 static func default_animals() -> Array:
 	return SPAWNS.duplicate(true)
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func update(game: Node, delta: float) -> void:
 	for index in game.wildlife_nodes.size():
 		var animal: Dictionary = game.wildlife_nodes[index]
@@ -65,6 +67,7 @@ static func update(game: Node, delta: float) -> void:
 			animal.wander_timer = 0.0
 		game.wildlife_nodes[index] = animal
 
+## Выполняет операцию «ближайшего» и возвращает результат согласно контракту метода.
 static func nearest(game: Node) -> int:
 	var result := -1
 	var limit := 280.0 if game.equipped_weapon == "bow" else 105.0
@@ -77,6 +80,7 @@ static func nearest(game: Node) -> int:
 				result = index
 	return result
 
+## Выполняет операцию «атаки» и возвращает результат согласно контракту метода.
 static func attack(game: Node, index: int) -> bool:
 	if index < 0 or index >= game.wildlife_nodes.size():
 		return false

@@ -1,6 +1,7 @@
 extends "res://tests/suites/suite_base.gd"
 
 
+## Запускает все сценарии текущего набора тестов в фиксированном порядке.
 func run() -> void:
 	test_audio_assets_and_players()
 	test_location_music_and_crossfade()
@@ -8,6 +9,9 @@ func run() -> void:
 	test_farming_fishing_combat_and_quest_sounds()
 
 
+## Сценарий: все звуковые ресурсы загружаются, а проигрыватели музыки и эффектов создаются.
+## Исходное состояние: новая игра с включённым звуком и подготовленными музыкальными и эффектными проигрывателями.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_audio_assets_and_players() -> void:
 	var game := make_game()
 	expect(game.AudioSystem.has_all_assets(), "all original music and sound assets are importable")
@@ -17,6 +21,9 @@ func test_audio_assets_and_players() -> void:
 	game.free()
 
 
+## Сценарий: смена локации плавно переводит музыку на нужную тему без лишнего перезапуска.
+## Исходное состояние: новая игра с включённым звуком и подготовленными музыкальными и эффектными проигрывателями.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_location_music_and_crossfade() -> void:
 	var game := make_game()
 	expect(game.AudioSystem.switch_music(game, "forest"), "entering a new biome changes music")
@@ -30,6 +37,9 @@ func test_location_music_and_crossfade() -> void:
 	game.free()
 
 
+## Сценарий: пул эффектов переиспользует голоса, а шаги не воспроизводятся каждый кадр.
+## Исходное состояние: новая игра с включённым звуком и подготовленными музыкальными и эффектными проигрывателями.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_sfx_pool_and_footstep_throttle() -> void:
 	var game := make_game()
 	var initial_slot: int = game.audio_sfx_slot
@@ -49,6 +59,9 @@ func test_sfx_pool_and_footstep_throttle() -> void:
 	game.free()
 
 
+## Сценарий: ферма, рыбалка, бой и завершение задания вызывают собственные звуки.
+## Исходное состояние: новая игра с живыми целями; здоровье, позиции, оружие и добыча настраиваются сценарием.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_farming_fishing_combat_and_quest_sounds() -> void:
 	var game := make_game()
 	game.player = Vector2(390, 240)

@@ -1,7 +1,7 @@
 extends RefCounted
 
 ## Чистые расчёты представления. Они не рисуют и не меняют игровое состояние,
-## поэтому renderer и тесты используют один контракт.
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 
 static func forage_sprite_layout(forage_sprites: Dictionary, kind: String, position: Vector2) -> Dictionary:
 	var sprite: Dictionary = forage_sprites.get(kind, {})
@@ -13,18 +13,21 @@ static func forage_sprite_layout(forage_sprites: Dictionary, kind: String, posit
 	}
 
 
+## Выполняет операцию «анимации кадра» и возвращает результат согласно контракту метода.
 static func animation_frame(elapsed_ms: int, frame_count: int, frame_ms: int = 140) -> int:
 	if frame_count <= 0 or frame_ms <= 0:
 		return 0
 	return int(elapsed_ms / frame_ms) % frame_count
 
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func enemy_direction_row(direction: Vector2) -> int:
 	if absf(direction.x) > absf(direction.y):
 		return 2 if direction.x < 0.0 else 3
 	return 1 if direction.y < 0.0 else 0
 
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func interaction_position(game: Node, interaction: String) -> Vector2:
 	for prefix in ["drop", "container", "resource", "food"]:
 		if not interaction.begins_with(prefix + ":"):
@@ -51,6 +54,7 @@ static func interaction_position(game: Node, interaction: String) -> Vector2:
 	}.get(interaction, Vector2.ZERO)
 
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func discovery_card_rect() -> Rect2:
 	return Rect2(824, 354, 310, 108)
 

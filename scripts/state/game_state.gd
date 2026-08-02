@@ -9,6 +9,7 @@ var inventory := InventoryState.new()
 var world := WorldState.new()
 
 
+## Приводит загруженное состояние к безопасным допустимым значениям.
 func normalize() -> void:
 	player.normalize()
 	world.normalize()

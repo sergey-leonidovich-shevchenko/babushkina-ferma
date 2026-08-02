@@ -19,11 +19,13 @@ const SPAWNS := [
 	{"location":"glassworks","count":2,"types":["chest","sack"],"positions":[Vector2(650,690),Vector2(1380,360),Vector2(1980,680),Vector2(1050,720)]},
 ]
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func random_seed() -> int:
 	var rng := RandomNumberGenerator.new()
 	rng.randomize()
 	return rng.randi()
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func generate(seed_value: int) -> Array:
 	var rng := RandomNumberGenerator.new()
 	rng.seed = seed_value
@@ -40,6 +42,7 @@ static func generate(seed_value: int) -> Array:
 			next_id += 1
 	return result
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func roll_contents(rng: RandomNumberGenerator, kind: String) -> Dictionary:
 	var data: Dictionary = TYPES[kind]
 	var contents := {}
@@ -50,6 +53,7 @@ static func roll_contents(rng: RandomNumberGenerator, kind: String) -> Dictionar
 		contents[item_kind] = contents.get(item_kind, 0) + count
 	return contents
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func weighted_entry(rng: RandomNumberGenerator, table: Array) -> Array:
 	var total := 0
 	for entry in table:
@@ -61,6 +65,7 @@ static func weighted_entry(rng: RandomNumberGenerator, table: Array) -> Array:
 			return entry
 	return table.back()
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func open(game: Node, index: int) -> bool:
 	if index < 0 or index >= game.world_loot_nodes.size():
 		return false

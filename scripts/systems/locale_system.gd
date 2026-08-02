@@ -231,44 +231,56 @@ const ENTITIES := {
 	"chest":["Старый сундук","Old chest","Cofre viejo","Alte Truhe","Vieux coffre","旧宝箱"], "bone_pile":["Груда костей","Bone pile","Pila de huesos","Knochenhaufen","Tas d'os","骨堆"], "sack":["Брошенный мешок","Abandoned sack","Saco abandonado","Verlassener Sack","Sac abandonné","废弃麻袋"], "trash":["Куча хлама","Junk pile","Montón de basura","Gerümpelhaufen","Tas de débris","垃圾堆"],
 }
 
+## Возвращает индекс выбранного языка с безопасным запасным значением.
 static func index() -> int:
 	return maxi(LOCALES.find(current), 0)
 
+## Возвращает строку текущего языка из набора переводов.
 static func translated(table: Dictionary, key: String, fallback: String = "") -> String:
 	var values: Array = table.get(key, [])
 	return fallback if values.is_empty() else String(values[index()])
 
+## Возвращает локализованную строку интерфейса и подставляет параметры.
 static func ui(key: String, values: Array = []) -> String:
 	var result := translated(UI, key, key)
 	return result % values if not values.is_empty() else result
 
+## Возвращает локализованное игровое сообщение и подставляет параметры.
 static func text(key: String, values: Array = []) -> String:
 	var result := translated(TEXT, key, key)
 	return result % values if not values.is_empty() else result
 
+## Возвращает полное или короткое локализованное название предмета.
 static func item(kind: String, short: bool = false) -> String:
 	var value := translated(ITEMS, kind, kind)
 	return value.left(9) if short else value
 
+## Возвращает локализованный текст шага обучения.
 static func tutorial(event_name: String) -> String:
 	return translated(TUTORIAL, event_name, event_name)
 
+## Возвращает локализованное название локации.
 static func location(kind: String) -> String:
 	return translated(LOCATIONS, kind, kind)
 
+## Возвращает название или описание навыка на выбранном языке.
 static func skill(kind: String, description: bool = false) -> String:
 	var parts := translated(SKILLS, kind, kind).split("|", true, 1)
 	return parts[1] if description and parts.size() > 1 else parts[0]
 
+## Возвращает локализованное поле задания.
 static func quest(mission_id: String, field: String) -> String:
 	return translated(QUESTS, "%s.%s" % [mission_id, field], mission_id)
 
+## Возвращает локализованное название существа или объекта мира.
 static func entity(kind: String) -> String:
 	return translated(ENTITIES, kind, kind)
 
+## Возвращает отображаемое название языка по его индексу.
 static func language_name(locale_index: int) -> String:
 	return LANGUAGE_NAMES[clampi(locale_index, 0, LANGUAGE_NAMES.size() - 1)]
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func load_locale(path: String = SETTINGS_PATH) -> String:
 	var config := ConfigFile.new()
 	if config.load(path) == OK:
@@ -277,6 +289,7 @@ static func load_locale(path: String = SETTINGS_PATH) -> String:
 	TranslationServer.set_locale("zh_CN" if current == "zh" else current)
 	return current
 
+## Устанавливает относящееся к методу значение и синхронизирует зависимое состояние.
 static func set_locale(code: String, persist: bool = true, path: String = SETTINGS_PATH) -> bool:
 	if code not in LOCALES: return false
 	current = code

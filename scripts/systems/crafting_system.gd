@@ -10,11 +10,13 @@ const RECIPES := [
 	{"name":"Дубовый щит", "inputs":{"wood":4,"metal":2}, "output":"oak_shield", "count":1}
 ]
 
+## Проверяет условие «возможности крафта» без изменения состояния.
 static func can_craft(game: Node, recipe: Dictionary) -> bool:
 	for kind in recipe.inputs:
 		if game.inventory_item_count(kind) < game.SkillSystem.material_cost(game, recipe.inputs[kind]): return false
 	return true
 
+## Выполняет операцию «крафта» и возвращает результат согласно контракту метода.
 static func craft(game: Node, index: int) -> bool:
 	if index < 0 or index >= RECIPES.size(): return false
 	var recipe: Dictionary = RECIPES[index]
@@ -30,6 +32,7 @@ static func craft(game: Node, index: int) -> bool:
 	game.notify_tutorial("craft_window")
 	return true
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func ingredients_text(game: Node, recipe: Dictionary) -> String:
 	var parts: Array[String] = []
 	for kind in recipe.inputs:

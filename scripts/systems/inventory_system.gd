@@ -52,6 +52,7 @@ const ITEM_DATA := {
 	"oak_shield": {"name": "Дубовый щит", "short": "Щит", "color": Color("7d5b47"), "equip": "offhand"}
 }
 
+## Возвращает локализованные метаданные предмета по его идентификатору.
 static func data(kind: String) -> Dictionary:
 	var result: Dictionary = ITEM_DATA.get(kind, {"name": kind, "short": "?", "color": Color.WHITE}).duplicate()
 	if LocaleSystem.ITEMS.has(kind):
@@ -59,6 +60,7 @@ static func data(kind: String) -> Dictionary:
 		result.short = LocaleSystem.item(kind, true)
 	return result
 
+## Определяет категорию предмета для отображения и сортировки.
 static func category(kind: String) -> String:
 	var item := data(kind)
 	if item.has("tool"): return "tool"
@@ -67,6 +69,7 @@ static func category(kind: String) -> String:
 	if kind in ["ancient_key", "moon_relic"]: return "quest"
 	return "resource"
 
+## Возвращает ключ локализованного описания выбранной категории предмета.
 static func detail_key(kind: String) -> String:
 	match category(kind):
 		"tool": return "detail_tool"
@@ -75,12 +78,15 @@ static func detail_key(kind: String) -> String:
 		"quest": return "detail_quest"
 		_: return "detail_resource"
 
+## Проверяет заявленное методом условие без изменения игрового состояния.
 static func can_use(kind: String) -> bool:
 	return not kind.is_empty() and data(kind).has("edible")
 
+## Проверяет условие «возможности экипировки» без изменения состояния.
 static func can_equip(kind: String) -> bool:
 	return not kind.is_empty() and data(kind).has("equip")
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func swap_slots(game: Node, from_index: int, to_index: int) -> bool:
 	if from_index < 0 or to_index < 0 or from_index >= game.inventory_slots.size() or to_index >= game.inventory_slots.size() or from_index == to_index:
 		return false
@@ -89,6 +95,7 @@ static func swap_slots(game: Node, from_index: int, to_index: int) -> bool:
 	game.inventory_slots[from_index] = previous
 	return true
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func sort_slots(game: Node) -> void:
 	var selected_kind: String = game.inventory_slots[game.inventory_selected] if game.inventory_selected >= 0 and game.inventory_selected < game.inventory_slots.size() else ""
 	var items: Array[String] = []
@@ -108,6 +115,7 @@ static func sort_slots(game: Node) -> void:
 	game.inventory_move_from = -1
 	game.message = game.LocaleSystem.text("inventory_sorted")
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func ensure_item_slot(game: Node, kind: String) -> int:
 	if kind.is_empty():
 		return -1
@@ -124,6 +132,7 @@ static func ensure_item_slot(game: Node, kind: String) -> int:
 	ensure_capacity(game)
 	return empty
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func ensure_capacity(game: Node) -> void:
 	var last_used := -1
 	for index in game.inventory_slots.size():
@@ -134,12 +143,15 @@ static func ensure_capacity(game: Node) -> void:
 	while game.inventory_slots.size() < required_slots:
 		game.inventory_slots.append("")
 
+## Возвращает рассчитанное методом значение в безопасном для вызывающего кода виде.
 static func max_scroll_row(game: Node) -> int:
 	return maxi(0, ceili(float(game.inventory_slots.size()) / COLUMNS) - VISIBLE_ROWS)
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func scroll(game: Node, rows: int) -> void:
 	game.inventory_scroll_row = clampi(game.inventory_scroll_row + rows, 0, max_scroll_row(game))
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func keep_selection_visible(game: Node) -> void:
 	var selected_row: int = game.inventory_selected / COLUMNS
 	if selected_row < game.inventory_scroll_row:
@@ -148,6 +160,7 @@ static func keep_selection_visible(game: Node) -> void:
 		game.inventory_scroll_row = selected_row - VISIBLE_ROWS + 1
 	game.inventory_scroll_row = clampi(game.inventory_scroll_row, 0, max_scroll_row(game))
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func assign_hotbar(game: Node, inventory_index: int, hotbar_index: int) -> bool:
 	if inventory_index < 0 or inventory_index >= game.inventory_slots.size() or hotbar_index < 0 or hotbar_index >= 10:
 		return false
@@ -160,6 +173,7 @@ static func assign_hotbar(game: Node, inventory_index: int, hotbar_index: int) -
 	game.notify_tutorial("hotbar")
 	return true
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func select_hotbar(game: Node, index: int) -> bool:
 	if index < 0 or index >= game.hotbar_slots.size(): return false
 	game.selected_hotbar = index
@@ -169,6 +183,7 @@ static func select_hotbar(game: Node, index: int) -> bool:
 	game.message = game.LocaleSystem.text("in_hand", [item.name])
 	return not kind.is_empty()
 
+## Выполняет операцию «экипировки» и возвращает результат согласно контракту метода.
 static func equip(game: Node, kind: String) -> bool:
 	var item := data(kind)
 	if not item.has("equip") or game.inventory_item_count(kind) <= 0: return false
@@ -181,17 +196,21 @@ static func equip(game: Node, kind: String) -> bool:
 		game.notify_tutorial("shield")
 	return true
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func recalculate_stats(game: Node) -> void:
 	game.SkillSystem.recalculate_resources(game)
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func damage_bonus(game: Node) -> int:
 	var bonus := 1 if game.equipment.ring == "crystal_ring" else 0
 	if game.equipment.hands == "orc_blade":
 		bonus += 2
 	return bonus + game.SkillSystem.combat_bonus(game)
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func speed_multiplier(game: Node) -> float:
 	return 1.1 if game.equipment.legs == "travel_boots" else 1.0
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func incoming_damage(game: Node, amount: int) -> int:
 	return maxi(1, amount - (5 if game.equipment.get("offhand", "") == "oak_shield" else 0))

@@ -1,5 +1,6 @@
 extends RefCounted
 
+## Координирует отрисовку текущего состояния без изменения игровой логики.
 static func draw(game: Node2D) -> void:
 	if game.language_screen:
 		game.draw_language_screen(); return

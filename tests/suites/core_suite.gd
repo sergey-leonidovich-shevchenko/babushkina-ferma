@@ -1,5 +1,6 @@
 extends "res://tests/suites/suite_base.gd"
 
+## Запускает все сценарии текущего набора тестов в фиксированном порядке.
 func run() -> void:
 	test_localization_language_selector_and_catalogs()
 	test_keyboard_press_and_release()
@@ -18,6 +19,9 @@ func run() -> void:
 	test_bow_reward_and_crystal_sword_upgrade()
 	test_held_action_repeats_tools_without_reopening_ui()
 
+## Сценарий: шесть языков полностью покрывают каталоги, а выбор языка работает на всех устройствах ввода.
+## Исходное состояние: чистые настройки локали и новый экземпляр игры со стартовым выбором языка.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_localization_language_selector_and_catalogs() -> void:
 	var locale = GameScript.LocaleSystem
 	expect(locale.LOCALES == ["ru", "en", "es", "de", "fr", "zh"], "six primary game locales are configured")
@@ -65,6 +69,9 @@ func test_localization_language_selector_and_catalogs() -> void:
 	locale.set_locale("ru", false)
 	game.free()
 
+## Сценарий: нажатие сразу начинает движение, а отпускание немедленно его останавливает.
+## Исходное состояние: новый изолированный экземпляр игры; необходимые ресурсы, позиции и таймеры задаются в начале сценария.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_keyboard_press_and_release() -> void:
 	var game := make_game()
 	var press := key_event(KEY_D, KEY_D, true)
@@ -75,6 +82,9 @@ func test_keyboard_press_and_release() -> void:
 	expect(game.get_movement_direction() == Vector2.ZERO, "movement stops on key-up")
 	game.free()
 
+## Сценарий: первый физический кадр реагирует на клавишу без задержки и скачка позиции.
+## Исходное состояние: новый изолированный экземпляр игры; необходимые ресурсы, позиции и таймеры задаются в начале сценария.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_immediate_keyboard_response() -> void:
 	var game := make_game()
 	var start: Vector2 = game.player
@@ -84,6 +94,9 @@ func test_immediate_keyboard_response() -> void:
 	expect(game.player.x - start.x < 5.0, "first frame has no artificial position jump")
 	game.free()
 
+## Сценарий: герой использует правильные ряды анимации для четырёх направлений и состояния покоя.
+## Исходное состояние: новый изолированный экземпляр игры; необходимые ресурсы, позиции и таймеры задаются в начале сценария.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_four_direction_character_animation() -> void:
 	var game := make_game()
 	expect(game.FARMER_SHEET.get_width() == 384 and game.FARMER_SHEET.get_height() == 256, "hero sheet contains six frames in four directions")
@@ -109,6 +122,9 @@ func test_four_direction_character_animation() -> void:
 	expect(game.character_animation_directions.size() == 4, "save restores tested animation directions")
 	game.free()
 
+## Сценарий: игровые часы начинают отсчёт с первого дня и корректно переходят через полночь.
+## Исходное состояние: новый изолированный экземпляр игры; необходимые ресурсы, позиции и таймеры задаются в начале сценария.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_clock_rolls_to_next_day() -> void:
 	var game := make_game()
 	game.day = 1
@@ -118,6 +134,9 @@ func test_clock_rolls_to_next_day() -> void:
 	expect(game.game_minutes < 1.0, "midnight wraps game time")
 	game.free()
 
+## Сценарий: морковь меняет стадии по времени, просит повторный полив и не растёт сухой.
+## Исходное состояние: новая игра с исходными грядками, растениями и нулевым прогрессом проверяемых таймеров.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_crop_pauses_for_second_watering() -> void:
 	var game := make_game()
 	var cell := Vector2i.ZERO
@@ -140,6 +159,9 @@ func test_crop_pauses_for_second_watering() -> void:
 	expect(game.plots[cell].growth == game.GROWTH_DURATION, "crop becomes ready after second watering")
 	game.free()
 
+## Сценарий: покупка и продажа меняют деньги и количество выбранного товара согласованно.
+## Исходное состояние: новый изолированный экземпляр игры; необходимые ресурсы, позиции и таймеры задаются в начале сценария.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_shop_buy_and_sell() -> void:
 	var game := make_game()
 	game.coins = 20
@@ -153,6 +175,9 @@ func test_shop_buy_and_sell() -> void:
 	expect(game.coins == 23 and game.carrots == 0, "sell transaction updates coins and inventory")
 	game.free()
 
+## Сценарий: задание бабушки принимает десять морковок независимо от способа их получения.
+## Исходное состояние: новый изолированный экземпляр игры; необходимые ресурсы, позиции и таймеры задаются в начале сценария.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_quest_can_be_completed_with_bought_or_grown_carrots() -> void:
 	var game := make_game()
 	game.talk_to_grandmother()
@@ -163,6 +188,9 @@ func test_quest_can_be_completed_with_bought_or_grown_carrots() -> void:
 	expect(game.coins == 70 and game.player_xp == 25, "quest grants coins and experience")
 	game.free()
 
+## Сценарий: бой, подбор добычи, создание меча и его экипировка образуют полный рабочий цикл.
+## Исходное состояние: новая игра с живыми целями; здоровье, позиции, оружие и добыча настраиваются сценарием.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_combat_loot_craft_and_equip_cycle() -> void:
 	var game := make_game()
 	game.player = game.slime_position
@@ -176,6 +204,9 @@ func test_combat_loot_craft_and_equip_cycle() -> void:
 	expect(game.toggle_sword() and game.sword_equipped, "crafted sword can be equipped")
 	game.free()
 
+## Сценарий: подсветка выбирает только ближайший объект, а обучение реагирует на правильное действие.
+## Исходное состояние: новый изолированный экземпляр игры; необходимые ресурсы, позиции и таймеры задаются в начале сценария.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_nearest_interaction_and_tutorial() -> void:
 	var game := make_game()
 	game.player = game.npc_position
@@ -189,6 +220,9 @@ func test_nearest_interaction_and_tutorial() -> void:
 	expect(game.tutorial_step == 1, "expected action advances tutorial")
 	game.free()
 
+## Сценарий: предмет можно переместить, выбросить, подобрать обратно и удалить из рюкзака.
+## Исходное состояние: новая игра со стандартным рюкзаком; нужные количества предметов и открытые окна задаются сценарием.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_inventory_move_drop_delete_and_pickup() -> void:
 	var game := make_game()
 	game.inventory_selected = 0
@@ -205,6 +239,9 @@ func test_inventory_move_drop_delete_and_pickup() -> void:
 	expect(game.delete_selected_item() and game.seeds == 1, "inventory item can be deleted")
 	game.free()
 
+## Сценарий: вход и выход пещеры меняют локацию и размещают героя у правильного портала.
+## Исходное состояние: новый изолированный экземпляр игры; необходимые ресурсы, позиции и таймеры задаются в начале сценария.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_location_transition_to_cave_and_back() -> void:
 	var game := make_game()
 	game.player = game.cave_entrance_position
@@ -217,6 +254,9 @@ func test_location_transition_to_cave_and_back() -> void:
 	expect(game.current_location == "overworld", "exit returns to overworld")
 	game.free()
 
+## Сценарий: кирка добывает камень на поверхности и кристалл в пещере.
+## Исходное состояние: новый изолированный экземпляр игры; необходимые ресурсы, позиции и таймеры задаются в начале сценария.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_pickaxe_mines_surface_and_cave_resources() -> void:
 	var game := make_game()
 	game.selected_tool = game.Tool.PICKAXE
@@ -229,6 +269,9 @@ func test_pickaxe_mines_surface_and_cave_resources() -> void:
 	expect(game.crystals == 1, "cave mining adds crystal to inventory")
 	game.free()
 
+## Сценарий: рыбалка проходит этапы заброса, ожидания поклёвки и получения рыбы.
+## Исходное состояние: новый изолированный экземпляр игры; необходимые ресурсы, позиции и таймеры задаются в начале сценария.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_fishing_cast_wait_and_catch_cycle() -> void:
 	var game := make_game()
 	expect(game.WATER_ANIMATION.get_width() == 512 and game.FISH_ANIMATION.get_width() == 160, "CC0 fishing animation sheets are loaded")
@@ -241,6 +284,9 @@ func test_fishing_cast_wait_and_catch_cycle() -> void:
 	expect(game.use_fishing_rod() and game.fish == 1, "second action catches fish")
 	game.free()
 
+## Сценарий: задание выдаёт лук, а кристаллы улучшают созданный лесной меч.
+## Исходное состояние: новый изолированный экземпляр игры; необходимые ресурсы, позиции и таймеры задаются в начале сценария.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_bow_reward_and_crystal_sword_upgrade() -> void:
 	var game := make_game()
 	game.quest_active = true
@@ -255,6 +301,9 @@ func test_bow_reward_and_crystal_sword_upgrade() -> void:
 	expect(game.has_crystal_sword and game.crystals == 0, "crystal sword is stored in inventory")
 	game.free()
 
+## Сценарий: удержание действия обрабатывает соседние клетки и не открывает окно повторно.
+## Исходное состояние: новый изолированный экземпляр игры; необходимые ресурсы, позиции и таймеры задаются в начале сценария.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_held_action_repeats_tools_without_reopening_ui() -> void:
 	var game := make_game()
 	var press := key_event(KEY_E, KEY_E, true)

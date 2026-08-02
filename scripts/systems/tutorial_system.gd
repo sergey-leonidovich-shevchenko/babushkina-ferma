@@ -11,9 +11,11 @@ const STEP_IDS := [
 ]
 
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func steps() -> Array:
 	return STEP_IDS.map(func(event_id: String): return {"event": event_id})
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func notify(game: Node, event_name: String) -> bool:
 	game.tutorial_events_completed[event_name] = true
 	var previous_step: int = game.tutorial_step
@@ -24,6 +26,7 @@ static func notify(game: Node, event_name: String) -> bool:
 		game.tutorial_step += 1
 	return game.tutorial_step > previous_step
 
+## Выполняет операцию «сброса» и возвращает результат согласно контракту метода.
 static func reset(game: Node) -> void:
 	game.tutorial_step = 0
 	game.tutorial_events_completed.clear()

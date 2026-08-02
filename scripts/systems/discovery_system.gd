@@ -28,6 +28,7 @@ const LOCATION_HINTS := {
 	"glassworks": {"title":"Мастерская стеклодува","text":"Безопасная ремесленная точка для будущих рецептов из цветных кристаллов."},
 }
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func update(game: Node, delta: float) -> void:
 	if game.discovery_timer > 0.0:
 		game.discovery_timer = maxf(game.discovery_timer - delta, 0.0)
@@ -39,15 +40,18 @@ static func update(game: Node, delta: float) -> void:
 	game.discovery_scan_timer = SCAN_INTERVAL
 	scan_nearby(game)
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func show_location(game: Node, location: String) -> bool:
 	if not LOCATION_HINTS.has(location):
 		return false
 	return show(game, "location:%s" % location, {"title":game.LocaleSystem.location(location),"text":game.LocaleSystem.ui("hint_location")})
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func dismiss(game: Node) -> void:
 	game.discovery_timer = 0.0
 	game.discovery_current.clear()
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func scan_nearby(game: Node) -> bool:
 	var candidates: Array[Dictionary] = []
 	if game.current_location == "overworld":
@@ -93,6 +97,7 @@ static func scan_nearby(game: Node) -> bool:
 		return false
 	return show(game, nearest.id, nearest.hint)
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func show(game: Node, id: String, hint: Dictionary) -> bool:
 	if game.seen_discoveries.has(id):
 		return false
@@ -101,9 +106,11 @@ static func show(game: Node, id: String, hint: Dictionary) -> bool:
 	game.discovery_timer = CARD_DURATION
 	return true
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func add_candidate(candidates: Array[Dictionary], id: String, position: Vector2, hint: Dictionary) -> void:
 	candidates.append({"id":id,"position":position,"hint":hint})
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func static_hint(game: Node, kind: String) -> Dictionary:
 	var tutorial_key: String = {"grandmother":"talk","guild_master":"mission_accept","herbalist":"side_mission","shop":"trade","workbench":"craft_window","farm":"plant","pond":"fish","cave":"travel","bridge":"collision","slime":"fight","world_gate":"locations"}.get(kind, "move")
 	var title: String = game.LocaleSystem.entity(kind)
@@ -113,23 +120,29 @@ static func static_hint(game: Node, kind: String) -> Dictionary:
 	if kind == "cave": title = game.LocaleSystem.location("cave")
 	return {"title":title,"text":game.LocaleSystem.tutorial(tutorial_key)}
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func resource_hint(game: Node, kind: String) -> Dictionary:
 	return {"title":game.LocaleSystem.item(kind),"text":game.LocaleSystem.tutorial("mine")}
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func enemy_hint(game: Node, kind: String) -> Dictionary:
 	return {"title":game.LocaleSystem.entity(kind),"text":game.LocaleSystem.ui("hint_enemy")}
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func food_hint(game: Node, kind: String) -> Dictionary:
 	return {"title":game.LocaleSystem.entity(kind),"text":game.LocaleSystem.ui("hint_forage")}
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func wildlife_hint(game: Node, kind: String) -> Dictionary:
 	return {"title":game.LocaleSystem.entity(kind),"text":game.LocaleSystem.ui("hint_wildlife")}
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func item_hint(game: Node, kind: String) -> Dictionary:
 	var item: Dictionary = game.InventorySystem.data(kind)
 	var action: String = game.LocaleSystem.ui("hint_quest_item" if kind == "moon_relic" else "hint_item")
 	return {"title":game.LocaleSystem.ui("new_item", [item.name]),"text":action}
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func container_hint(game: Node, kind: String) -> Dictionary:
 	var title: String = game.LocaleSystem.entity(kind)
 	return {"title":title,"text":game.LocaleSystem.ui("hint_container")}

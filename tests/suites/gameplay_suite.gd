@@ -1,5 +1,6 @@
 extends "res://tests/suites/suite_base.gd"
 
+## Запускает все сценарии текущего набора тестов в фиксированном порядке.
 func run() -> void:
 	test_tutorial_reset_and_tester_kit()
 	test_experience_from_farming_combat_and_quest()
@@ -11,6 +12,9 @@ func run() -> void:
 	test_gameplay_systems_are_modular()
 	test_colored_crystals_and_orc_equipment_loot()
 
+## Сценарий: сброс обучения возвращает первый шаг, а тестовый набор выдаёт нужные ресурсы.
+## Исходное состояние: новый изолированный экземпляр игры; необходимые ресурсы, позиции и таймеры задаются в начале сценария.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_tutorial_reset_and_tester_kit() -> void:
 	var game := make_game()
 	game.tutorial_step = 7
@@ -26,6 +30,9 @@ func test_tutorial_reset_and_tester_kit() -> void:
 	expect(game.slime_alive and game.slime_hp == 3, "F9 restores combat target")
 	game.free()
 
+## Сценарий: фермерство, бой и задание начисляют опыт через единую систему уровней.
+## Исходное состояние: новая игра с живыми целями; здоровье, позиции, оружие и добыча настраиваются сценарием.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_experience_from_farming_combat_and_quest() -> void:
 	var game := make_game()
 	game.player = Vector2(390, 240)
@@ -47,6 +54,9 @@ func test_experience_from_farming_combat_and_quest() -> void:
 	expect(game.player_level == 2 and game.player_xp == 0 and game.player_max_hp == 110, "experience raises level and maximum health")
 	game.free()
 
+## Сценарий: разная еда лечит героя и включает регенерацию, силу или скорость на заданное время.
+## Исходное состояние: новый изолированный экземпляр игры; необходимые ресурсы, позиции и таймеры задаются в начале сценария.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_food_healing_and_temporary_effects() -> void:
 	var game := make_game()
 	game.player_hp = 50
@@ -82,6 +92,9 @@ func test_food_healing_and_temporary_effects() -> void:
 	expect(game.consume_item("orange") and game.player_hp == 80 and game.energy == 7, "orange restores health and energy")
 	game.free()
 
+## Сценарий: враги, ресурсы и вода блокируют путь, а мост и освобождённые клетки остаются проходимыми.
+## Исходное состояние: новый изолированный экземпляр игры; необходимые ресурсы, позиции и таймеры задаются в начале сценария.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_world_collisions_and_bridge_passage() -> void:
 	var game := make_game()
 	game.player = game.slime_position - Vector2(90, 0)
@@ -108,6 +121,9 @@ func test_world_collisions_and_bridge_passage() -> void:
 	expect(game.player.y > 510.0, "diagonal collision slides along an obstacle instead of sticking")
 	game.free()
 
+## Сценарий: быстрые слоты и экипировка одинаково работают с клавиатурой, геймпадом и касанием.
+## Исходное состояние: новая игра со стандартным рюкзаком; нужные количества предметов и открытые окна задаются сценарием.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_hotbar_assignment_equipment_and_universal_input() -> void:
 	var game := make_game()
 	game.inventory_selected = 1
@@ -137,6 +153,9 @@ func test_hotbar_assignment_equipment_and_universal_input() -> void:
 	expect(game.handle_gamepad_and_touch(touch) and game.selected_hotbar == 3, "touch selects a quick slot")
 	game.free()
 
+## Сценарий: верстак создаёт выбранный рецепт, а снимок сохраняет экономику, панель быстрого доступа и экипировку.
+## Исходное состояние: новая игра, изменённое сценарием состояние и отдельный тестовый путь сохранения.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_crafting_window_and_save_snapshot() -> void:
 	var game := make_game()
 	game.player = game.workbench_position
@@ -160,6 +179,9 @@ func test_crafting_window_and_save_snapshot() -> void:
 	expect(game.equipment.head == "iron_helmet" and game.plots[Vector2i.ZERO].tilled, "save restores equipment and farm state")
 	game.free()
 
+## Сценарий: семейства врагов используют свои таблицы добычи, а маршрут связывает семь локаций.
+## Исходное состояние: новая игра с живыми целями; здоровье, позиции, оружие и добыча настраиваются сценарием.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_enemy_families_loot_tables_and_world_route() -> void:
 	var game := make_game()
 	expect(game.CombatSystem.TYPES.has("plant") and game.CombatSystem.TYPES.has("orc") and game.CombatSystem.TYPES.has("skeleton") and game.CombatSystem.TYPES.has("undead"), "combat system defines all enemy families")
@@ -177,6 +199,9 @@ func test_enemy_families_loot_tables_and_world_route() -> void:
 	expect(game.current_location == "overworld", "world route connects all seven locations in a loop")
 	game.free()
 
+## Сценарий: игровые механики принадлежат отдельным системам, а не композиционному корню.
+## Исходное состояние: новый изолированный экземпляр игры; необходимые ресурсы, позиции и таймеры задаются в начале сценария.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_gameplay_systems_are_modular() -> void:
 	var game := make_game()
 	expect(game.PlayerSystem != null and game.NavigationSystem != null and game.InventorySystem != null and game.SkillSystem != null, "player progression navigation and inventory systems are separate modules")
@@ -187,6 +212,9 @@ func test_gameplay_systems_are_modular() -> void:
 	expect(game.AudioSystem != null, "music and sound effects are owned by a separate audio module")
 	game.free()
 
+## Сценарий: цветные жилы дают отдельные ресурсы, а орк может оставить надеваемый клинок.
+## Исходное состояние: новая игра с живыми целями; здоровье, позиции, оружие и добыча настраиваются сценарием.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_colored_crystals_and_orc_equipment_loot() -> void:
 	var game := make_game()
 	game.selected_tool = game.Tool.PICKAXE

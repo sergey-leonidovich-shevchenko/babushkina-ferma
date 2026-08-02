@@ -4,6 +4,7 @@ const SAVE_PATH := "user://farm-save.json"
 const VERSION := 2
 const STATE_SCHEMA := "aggregate-v2"
 
+## Собирает полную сериализуемую копию текущего состояния игры.
 static func snapshot(game: Node) -> Dictionary:
 	var plot_data := []
 	var drops := []
@@ -24,6 +25,7 @@ static func snapshot(game: Node) -> Dictionary:
 	return {"version":VERSION,"state_schema":STATE_SCHEMA,"player":[game.player.x,game.player.y],"location":game.current_location,"day":game.day,"minutes":game.game_minutes,"energy":game.energy,"coins":game.coins,"xp":game.player_xp,"level":game.player_level,"hp":game.player_hp,"progression":{"points":game.skill_points,"levels":game.skill_levels.duplicate(true),"xp":game.skill_xp.duplicate(true),"mana":game.player_mana},"counts":game.export_inventory_counts().duplicate(true),"slots":game.inventory_slots.duplicate(true),"hotbar":game.hotbar_slots.duplicate(true),"equipment":game.equipment.duplicate(true),"quest_active":game.quest_active,"quest_complete":game.quest_complete,"missions":game.mission_states.duplicate(true),"tutorial":{"step":game.tutorial_step,"events":game.tutorial_events_completed.duplicate(true),"seen":game.seen_discoveries.duplicate(true),"animation":game.character_animation_directions.keys()},"weapons":{"sword":game.sword_crafted,"bow":game.has_bow,"crystal":game.has_crystal_sword,"equipped":game.equipped_weapon},"plots":plot_data,"resource_hits":game.resource_nodes.map(func(node): return node.hits),"food_active":game.food_nodes.map(func(node): return node.active),"forage":forage,"enemies":game.enemy_nodes.map(func(enemy): return {"hp":enemy.hp,"alive":enemy.alive}),"wildlife":wildlife,"world_loot_seed":game.world_loot_seed,"containers":containers,"drops":drops}
 
 
+## Обновляет сохранение старой версии до актуальной схемы данных.
 static func migrate(data: Dictionary) -> Dictionary:
 	var migrated := data.duplicate(true)
 	match int(migrated.get("version", 0)):
@@ -37,6 +39,7 @@ static func migrate(data: Dictionary) -> Dictionary:
 			return {}
 	return migrated
 
+## Применяет проверенные данные сохранения к активной игре.
 static func apply(game: Node, data: Dictionary) -> bool:
 	data = migrate(data)
 	if data.is_empty(): return false
@@ -107,6 +110,7 @@ static func apply(game: Node, data: Dictionary) -> bool:
 	game.sync_background_location(); game.update_camera(); return true
 
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func _read_json(path: String) -> Dictionary:
 	if not FileAccess.file_exists(path):
 		return {}
@@ -119,6 +123,7 @@ static func _read_json(path: String) -> Dictionary:
 	return json.data if json.data is Dictionary else {}
 
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func _write_json(path: String, data: Dictionary) -> bool:
 	var file := FileAccess.open(path, FileAccess.WRITE)
 	if not file:
@@ -128,6 +133,7 @@ static func _write_json(path: String, data: Dictionary) -> bool:
 	return file.get_error() == OK
 
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func _copy_file(source: String, destination: String) -> bool:
 	var source_file := FileAccess.open(source, FileAccess.READ)
 	if not source_file:
@@ -140,6 +146,7 @@ static func _copy_file(source: String, destination: String) -> bool:
 	return destination_file.get_error() == OK
 
 
+## Выполняет операцию «сохранения at» и возвращает результат согласно контракту метода.
 static func save_at(game: Node, path: String) -> bool:
 	var temporary := path + ".tmp"
 	var backup := path + ".bak"
@@ -162,10 +169,12 @@ static func save_at(game: Node, path: String) -> bool:
 	return true
 
 
+## Выполняет операцию «сохранения» и возвращает результат согласно контракту метода.
 static func save(game: Node) -> bool:
 	return save_at(game, SAVE_PATH)
 
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func load_at(game: Node, path: String) -> bool:
 	var data := _read_json(path)
 	if not data.is_empty() and apply(game, data):
@@ -174,5 +183,6 @@ static func load_at(game: Node, path: String) -> bool:
 	return not backup.is_empty() and apply(game, backup)
 
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func load(game: Node) -> bool:
 	return load_at(game, SAVE_PATH)

@@ -18,9 +18,11 @@ const SPAWNS := [
 ]
 
 
+## Возвращает рассчитанное методом значение в безопасном для вызывающего кода виде.
 static func default_enemies() -> Array:
 	return SPAWNS.duplicate(true)
 
+## Выполняет операцию «ближайшего» и возвращает результат согласно контракту метода.
 static func nearest(game: Node) -> int:
 	var result := -1
 	var distance_limit := 280.0 if game.equipped_weapon == "bow" else 105.0
@@ -32,6 +34,7 @@ static func nearest(game: Node) -> int:
 				distance_limit = distance; result = index
 	return result
 
+## Выполняет операцию «атаки» и возвращает результат согласно контракту метода.
 static func attack(game: Node, index: int) -> bool:
 	if index < 0 or index >= game.enemy_nodes.size(): return false
 	var enemy: Dictionary = game.enemy_nodes[index]

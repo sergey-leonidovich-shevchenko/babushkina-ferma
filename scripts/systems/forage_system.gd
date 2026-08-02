@@ -23,12 +23,15 @@ const SPAWNS := [
 ]
 
 
+## Возвращает рассчитанное методом значение в безопасном для вызывающего кода виде.
 static func default_nodes() -> Array:
 	return SPAWNS.duplicate(true)
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func total_minutes(game: Node) -> float:
 	return float(game.day - 1) * 1440.0 + game.game_minutes
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func update(game: Node) -> void:
 	var now := total_minutes(game)
 	for index in game.food_nodes.size():
@@ -39,6 +42,7 @@ static func update(game: Node) -> void:
 			game.food_nodes[index] = node
 			game.notify_tutorial("forage_regrow")
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func collect(game: Node, index: int) -> bool:
 	if index < 0 or index >= game.food_nodes.size():
 		return false
@@ -60,12 +64,14 @@ static func collect(game: Node, index: int) -> bool:
 		game.notify_tutorial("watermelon")
 	return true
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func duration_text(minutes: float) -> String:
 	if minutes >= 1440.0:
 		var days := int(minutes / 1440.0)
 		return "%d дн." % days
 	return "%d ч." % int(minutes / 60.0)
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func remaining_text(game: Node, node: Dictionary) -> String:
 	if node.active:
 		return "готово"
@@ -73,6 +79,7 @@ static func remaining_text(game: Node, node: Dictionary) -> String:
 	var hours := ceili(remaining / 60.0)
 	return "%d ч." % hours if hours < 24 else "%d дн. %d ч." % [hours / 24, hours % 24]
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func reset_all(game: Node) -> void:
 	for index in game.food_nodes.size():
 		game.food_nodes[index].active = true

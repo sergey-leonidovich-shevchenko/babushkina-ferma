@@ -13,12 +13,14 @@ const SKILLS := [
 	{"id":"fishing","name":"Рыбалка","icon":"≈","description":"Опыт за улов; с 3 ранга рыба клюёт быстрее","profession":true},
 ]
 
+## Возвращает рассчитанное методом значение в безопасном для вызывающего кода виде.
 static func default_levels() -> Dictionary:
 	var result := {}
 	for skill in SKILLS:
 		result[skill.id] = 0
 	return result
 
+## Возвращает рассчитанное методом значение в безопасном для вызывающего кода виде.
 static func default_xp() -> Dictionary:
 	var result := {}
 	for skill in SKILLS:
@@ -26,15 +28,19 @@ static func default_xp() -> Dictionary:
 			result[skill.id] = 0
 	return result
 
+## Выполняет операцию «xp к следующего персонажа уровня» и возвращает результат согласно контракту метода.
 static func xp_to_next_character_level(level: int) -> int:
 	return 50 + maxi(level - 1, 0) * 25
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func xp_to_next_skill_rank(rank: int) -> int:
 	return 20 + rank * 15
 
+## Возвращает название или описание навыка на выбранном языке.
 static func skill(game: Node, skill_id: String) -> int:
 	return int(game.skill_levels.get(skill_id, 0))
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func award_character_xp(game: Node, amount: int, reason: String = "") -> void:
 	game.player_xp += amount
 	var gained_levels := 0
@@ -53,6 +59,7 @@ static func award_character_xp(game: Node, amount: int, reason: String = "") -> 
 	elif not reason.is_empty():
 		game.message = "%s: +%d опыта" % [reason, amount]
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func award_profession_xp(game: Node, skill_id: String, amount: int) -> bool:
 	if not game.skill_xp.has(skill_id):
 		return false
@@ -67,6 +74,7 @@ static func award_profession_xp(game: Node, skill_id: String, amount: int) -> bo
 		game.notify_tutorial("profession")
 	return ranked_up
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func allocate(game: Node, skill_id: String) -> bool:
 	if game.skill_points <= 0 or not game.skill_levels.has(skill_id):
 		game.message = game.LocaleSystem.text("no_points")
@@ -84,6 +92,7 @@ static func allocate(game: Node, skill_id: String) -> bool:
 	game.notify_tutorial("skill_point")
 	return true
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func recalculate_resources(game: Node) -> void:
 	var equipment_hp := 0
 	if game.equipment.get("head", "") == "iron_helmet": equipment_hp += 10
@@ -95,6 +104,7 @@ static func recalculate_resources(game: Node) -> void:
 	game.player_mana = mini(game.player_mana, game.player_max_mana)
 	game.energy = mini(game.energy, max_stamina(game))
 
+## Обновляет ресурсов на текущем кадре.
 static func update_resources(game: Node, delta: float) -> void:
 	if game.player_mana < game.player_max_mana:
 		game.mana_regen_progress += delta * (1.0 + skill(game, "mana") * 0.15)
@@ -107,26 +117,34 @@ static func update_resources(game: Node, delta: float) -> void:
 			game.stamina_regen_progress -= 4.0
 			game.energy = mini(game.energy + 1, max_stamina(game))
 
+## Возвращает рассчитанное методом значение в безопасном для вызывающего кода виде.
 static func max_stamina(game: Node) -> int:
 	return 12 + skill(game, "stamina") * 2
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func combat_bonus(game: Node) -> int:
 	return skill(game, "combat") / 2
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func harvest_count(game: Node) -> int:
 	return 1 + skill(game, "farming") / 3
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func mined_count(game: Node) -> int:
 	return 1 + skill(game, "mining") / 3
 
+## Выполняет операцию «рыбалки ожидания» и возвращает результат согласно контракту метода.
 static func fishing_wait(game: Node) -> float:
 	return maxf(1.0, 2.5 - skill(game, "fishing") * 0.15)
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func fishing_count(game: Node) -> int:
 	return 1 + skill(game, "fishing") / 5
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func material_cost(game: Node, amount: int) -> int:
 	return maxi(1, amount - skill(game, "smithing") / 3)
 
+## Возвращает рассчитанное методом значение в безопасном для вызывающего кода виде.
 static func name_for(skill_id: String) -> String:
 	return LocaleSystem.skill(skill_id)

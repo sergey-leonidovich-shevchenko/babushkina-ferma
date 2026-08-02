@@ -33,12 +33,14 @@ const MISSIONS := {
 	},
 }
 
+## Выполняет операцию «миссии данных» и возвращает результат согласно контракту метода.
 static func mission_data(mission_id: String) -> Dictionary:
 	var result: Dictionary = MISSIONS[mission_id].duplicate()
 	for field in ["type", "title", "giver", "description"]:
 		result[field] = LocaleSystem.quest(mission_id, field)
 	return result
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func talk_to_grandmother(game: Node) -> void:
 	game.notify_tutorial("talk")
 	if not game.quest_active and not game.quest_complete:
@@ -60,6 +62,7 @@ static func talk_to_grandmother(game: Node) -> void:
 	else:
 		game.message = game.LocaleSystem.text("thanks")
 
+## Выполняет операцию «диалога» и возвращает результат согласно контракту метода.
 static func talk(game: Node, mission_id: String) -> bool:
 	if not MISSIONS.has(mission_id):
 		return false
@@ -90,6 +93,7 @@ static func talk(game: Node, mission_id: String) -> bool:
 	game.message = "%s: %s" % [mission.giver, game.LocaleSystem.text("thanks")]
 	return true
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func objective_text(game: Node, mission_id: String) -> String:
 	var mission: Dictionary = mission_data(mission_id)
 	var state: String = game.mission_states.get(mission_id, AVAILABLE)

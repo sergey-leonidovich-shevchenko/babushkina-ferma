@@ -1,5 +1,6 @@
 extends "res://tests/suites/suite_base.gd"
 
+## Запускает все сценарии текущего набора тестов в фиксированном порядке.
 func run() -> void:
 	test_story_and_side_mission_chains()
 	test_mission_progress_and_drops_are_saved()
@@ -10,6 +11,9 @@ func run() -> void:
 	test_seeded_world_loot_generation_and_opening()
 	test_world_loot_discovery_and_save_persistence()
 
+## Сценарий: сюжетная и побочная миссии проходят от диалога до цели, сдачи и награды.
+## Исходное состояние: новый изолированный экземпляр игры; необходимые ресурсы, позиции и таймеры задаются в начале сценария.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_story_and_side_mission_chains() -> void:
 	var game := make_game()
 	game.player = game.guild_master_position
@@ -53,6 +57,9 @@ func test_story_and_side_mission_chains() -> void:
 	expect(game.handle_gamepad_and_touch(journal_touch) and not game.quest_log_open, "touch HUD button closes mission journal")
 	game.free()
 
+## Сценарий: сохранение восстанавливает этапы миссий и ещё не подобранную сюжетную добычу.
+## Исходное состояние: новая игра, изменённое сценарием состояние и отдельный тестовый путь сохранения.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_mission_progress_and_drops_are_saved() -> void:
 	var game := make_game()
 	game.mission_states.story_relic = game.QuestSystem.ACTIVE
@@ -66,6 +73,9 @@ func test_mission_progress_and_drops_are_saved() -> void:
 	expect(game.dropped_items[0].position == Vector2(700, 500), "save restores quest loot position")
 	game.free()
 
+## Сценарий: новые объекты и выпавшие предметы показывают правильные одноразовые подсказки.
+## Исходное состояние: новый изолированный экземпляр игры; необходимые ресурсы, позиции и таймеры задаются в начале сценария.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_contextual_discoveries_and_new_item_hints() -> void:
 	var game := make_game()
 	game.discovery_current.clear()
@@ -86,6 +96,9 @@ func test_contextual_discoveries_and_new_item_hints() -> void:
 	expect(game.discovery_current.is_empty(), "context hint can be dismissed")
 	game.free()
 
+## Сценарий: изученные объекты и выполненные шаги обучения переживают сохранение и загрузку.
+## Исходное состояние: новая игра, изменённое сценарием состояние и отдельный тестовый путь сохранения.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_discoveries_and_tutorial_checklist_are_saved() -> void:
 	var game := make_game()
 	game.seen_discoveries = {"shop":true,"enemy:orc":true}
@@ -107,6 +120,9 @@ func test_discoveries_and_tutorial_checklist_are_saved() -> void:
 		expect(game.tutorial_steps.any(func(step): return step.event == event_name), "tutorial covers feature: %s" % event_name)
 	game.free()
 
+## Сценарий: пугливые животные убегают от героя, не предлагают диалог и показывают подсказку охоты.
+## Исходное состояние: новая игра с живыми целями; здоровье, позиции, оружие и добыча настраиваются сценарием.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_wildlife_flees_and_does_not_talk() -> void:
 	var game := make_game()
 	var deer: Dictionary = game.wildlife_nodes[0]
@@ -123,6 +139,9 @@ func test_wildlife_flees_and_does_not_talk() -> void:
 	expect(game.discovery_current.id == "wildlife:deer" and "разговаривать нельзя" in game.discovery_current.text, "wildlife hint explains fleeing and hunting")
 	game.free()
 
+## Сценарий: охота на животных учитывает анимацию, видовую добычу и восстановление состояния.
+## Исходное состояние: новая игра, изменённое сценарием состояние и отдельный тестовый путь сохранения.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_wildlife_combat_loot_animation_and_save() -> void:
 	var game := make_game()
 	expect(game.DEER_RUN_SHEET.get_width() == 192 and game.FOX_RUN_SHEET.get_width() == 192 and game.BOAR_RUN_SHEET.get_width() == 160, "wildlife animation sheets are loaded")
@@ -151,6 +170,9 @@ func test_wildlife_combat_loot_animation_and_save() -> void:
 	expect(game.inventory_slots.size() >= 30 and game.inventory_slots.has("bat_wing"), "older 24-slot saves migrate to expanded wildlife inventory")
 	game.free()
 
+## Сценарий: одинаковое зерно создаёт одинаковые тайники, которые открываются только один раз.
+## Исходное состояние: новая игра с живыми целями; здоровье, позиции, оружие и добыча настраиваются сценарием.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_seeded_world_loot_generation_and_opening() -> void:
 	var game := make_game()
 	var first: Array = game.LootContainerSystem.generate(123456)
@@ -178,6 +200,9 @@ func test_seeded_world_loot_generation_and_opening() -> void:
 	expect(not game.LootContainerSystem.open(game, 0), "opened container cannot be looted twice")
 	game.free()
 
+## Сценарий: тайники показывают подсказку, сохраняют содержимое и остаются пустыми после обыска.
+## Исходное состояние: новая игра, изменённое сценарием состояние и отдельный тестовый путь сохранения.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_world_loot_discovery_and_save_persistence() -> void:
 	var game := make_game()
 	game.world_loot_seed = 777

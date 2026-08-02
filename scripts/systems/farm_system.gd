@@ -1,5 +1,6 @@
 extends RefCounted
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func update(game: Node, delta: float) -> void:
 	for cell in game.plots:
 		var plot: Dictionary = game.plots[cell]

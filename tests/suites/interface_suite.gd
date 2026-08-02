@@ -1,6 +1,7 @@
 extends "res://tests/suites/suite_base.gd"
 
 
+## Запускает все сценарии текущего набора тестов в фиксированном порядке.
 func run() -> void:
 	test_inventory_layout_and_touch_mapping()
 	test_item_context_and_actions()
@@ -10,6 +11,9 @@ func run() -> void:
 	test_inventory_sorting()
 
 
+## Сценарий: все ячейки рюкзака и быстрых слотов находятся внутри окна и точно распознают касания.
+## Исходное состояние: новая игра со стандартным рюкзаком; нужные количества предметов и открытые окна задаются сценарием.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_inventory_layout_and_touch_mapping() -> void:
 	var game := make_game()
 	for visible_index in game.InventorySystem.VISIBLE_SLOTS:
@@ -23,6 +27,9 @@ func test_inventory_layout_and_touch_mapping() -> void:
 	game.free()
 
 
+## Сценарий: категория предмета определяет описание и доступность употребления или экипировки.
+## Исходное состояние: новый изолированный экземпляр игры; необходимые ресурсы, позиции и таймеры задаются в начале сценария.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_item_context_and_actions() -> void:
 	var game := make_game()
 	expect(game.InventorySystem.category("hoe") == "tool", "inventory identifies tools")
@@ -38,6 +45,9 @@ func test_item_context_and_actions() -> void:
 	game.free()
 
 
+## Сценарий: игровой интерфейс занимает ограниченную высоту, а его кнопки и быстрые слоты не перекрываются.
+## Исходное состояние: новый изолированный экземпляр игры; необходимые ресурсы, позиции и таймеры задаются в начале сценария.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_hud_layout_is_compact_and_safe() -> void:
 	var game := make_game()
 	expect(game.InterfaceRenderer.HUD_RECT.size.y <= 74.0, "gameplay HUD uses less than one eighth of the screen height")
@@ -49,6 +59,9 @@ func test_hud_layout_is_compact_and_safe() -> void:
 	game.free()
 
 
+## Сценарий: касание выбирает предмет, назначает его в панель быстрого доступа и употребляет через контекстную кнопку.
+## Исходное состояние: новая игра со стандартным рюкзаком; нужные количества предметов и открытые окна задаются сценарием.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_inventory_touch_actions() -> void:
 	var game := make_game()
 	game.open_inventory()
@@ -69,6 +82,9 @@ func test_inventory_touch_actions() -> void:
 	game.free()
 
 
+## Сценарий: мышь перетаскивает предметы, выполняет действие правой кнопкой и выбирает панель быстрого доступа.
+## Исходное состояние: новая игра со стандартным рюкзаком; нужные количества предметов и открытые окна задаются сценарием.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_mouse_drag_context_and_hotbar() -> void:
 	var game := make_game()
 	game.open_inventory()
@@ -102,6 +118,9 @@ func test_mouse_drag_context_and_hotbar() -> void:
 	game.free()
 
 
+## Сценарий: сортировка группирует предметы по назначению и сохраняет текущий выбор.
+## Исходное состояние: новая игра со стандартным рюкзаком; нужные количества предметов и открытые окна задаются сценарием.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_inventory_sorting() -> void:
 	var game := make_game()
 	for kind in game.state.inventory.counts: game.state.inventory.counts[kind] = 0

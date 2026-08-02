@@ -1,8 +1,10 @@
 extends "res://scripts/game_context.gd"
 
+## Отрисовывает текущее визуальное состояние узла.
 func _draw() -> void:
 	RenderSystem.draw(self)
 
+## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_title_screen() -> void:
 	if title_screen:
 		draw_texture_rect(TITLE_ART, Rect2(0, 0, 1152, 648), false)
@@ -27,6 +29,7 @@ func draw_title_screen() -> void:
 		draw_string(UI_FONT, Vector2(396, 563), LocaleSystem.ui("press_any"), HORIZONTAL_ALIGNMENT_CENTER, 360, 23, Color("ffe5a3"))
 		draw_string(UI_FONT, Vector2(396, 591), LocaleSystem.ui("title_controls"), HORIZONTAL_ALIGNMENT_CENTER, 360, 14, Color(1, 1, 1, pulse))
 
+## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_language_screen() -> void:
 	draw_texture_rect(TITLE_ART, Rect2(0, 0, 1152, 648), false)
 	draw_rect(Rect2(0, 0, 1152, 648), Color(0.025, 0.055, 0.055, 0.74))
@@ -39,34 +42,36 @@ func draw_language_screen() -> void:
 		draw_string(UI_FONT, rect.position + Vector2(10, 40), "%d  %s" % [index + 1, LocaleSystem.language_name(index)], HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 20, 24, Color("352e28") if selected else Color.WHITE)
 	draw_string(UI_FONT, Vector2(236, 540), LocaleSystem.ui("confirm"), HORIZONTAL_ALIGNMENT_CENTER, 680, 18, Color.WHITE)
 
+## Отрисовывает мира по текущему состоянию игры.
 func draw_world() -> void:
 	draw_rect(Rect2(Vector2.ZERO, WORLD_SIZE), Color("7fad5c"))
-	# Редкие крупные кластеры вместо ~5000 отдельных draw calls каждый кадр.
+	# Редкие крупные кластеры заменяют около 5000 отдельных команд отрисовки каждый кадр.
 	for y in range(150, int(WORLD_SIZE.y), 190):
 		for x in range(70 + (y % 140), int(WORLD_SIZE.x), 210):
 			draw_circle(Vector2(x, y), 3.0, Color("99bd6a"))
 			draw_line(Vector2(x - 6, y + 7), Vector2(x, y - 2), Color("668f4b"), 2)
 			draw_line(Vector2(x + 6, y + 7), Vector2(x, y - 2), Color("668f4b"), 2)
-	# river
+	# Река.
 	draw_rect(Rect2(0, 860, WORLD_SIZE.x, 340), Color("4f9fb0"))
 	for x in range(0, int(WORLD_SIZE.x), 70): draw_line(Vector2(x, 900), Vector2(x + 34, 900), Color("83c9c5"), 3)
-	# house and bed marker
+	# Дом и указатель кровати.
 	draw_rect(Rect2(54, 130, 190, 150), Color("e5c478"))
 	draw_colored_polygon(PackedVector2Array([Vector2(38,145), Vector2(149,72), Vector2(260,145)]), Color("9c5338"))
 	draw_rect(Rect2(128, 216, 43, 64), Color("6b4328"))
 	draw_string(UI_FONT, Vector2(66, 308), LocaleSystem.ui("home"), HORIZONTAL_ALIGNMENT_LEFT, -1, 17, Color("213a2c"))
-	# shop
+	# Магазин.
 	draw_rect(Rect2(910, 194, 128, 98), Color("f3d88e"))
 	draw_rect(Rect2(895, 175, 158, 30), Color("d66b45"))
 	draw_string(UI_FONT, Vector2(913, 238), LocaleSystem.ui("seeds_sign"), HORIZONTAL_ALIGNMENT_LEFT, -1, 18, Color("55382b"))
 	draw_string(UI_FONT, Vector2(905, 320), LocaleSystem.ui("shop_sign"), HORIZONTAL_ALIGNMENT_LEFT, -1, 17, Color("213a2c"))
-	# Несколько стадий плодовых деревьев из бесплатного sprite sheet.
+	# Несколько стадий плодовых деревьев из бесплатного листа спрайтов.
 	draw_texture_rect_region(PLANT_SHEET, Rect2(270, 126, 290, 90), Rect2(94, 0, 290, 90))
-	# selling crate
+	# Ящик для продажи урожая.
 	draw_rect(Rect2(790, 392, 60, 54), Color("9c633b"))
 	for i in 3: draw_line(Vector2(794, 402 + i * 15), Vector2(846, 402 + i * 15), Color("d09755"), 4)
 	draw_string(UI_FONT, Vector2(753, 473), LocaleSystem.ui("sell_sign"), HORIZONTAL_ALIGNMENT_LEFT, -1, 17, Color("213a2c"))
 
+## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_farm() -> void:
 	for cell in plots:
 		var plot: Dictionary = plots[cell]
@@ -85,6 +90,7 @@ func draw_farm() -> void:
 	if valid_plot(target):
 		draw_rect(Rect2(FARM_ORIGIN + target * TILE, Vector2(TILE - 3, TILE - 3)), Color("fff3a6"), false, 3)
 
+## Отрисовывает культуры по текущему состоянию игры.
 func draw_crop(center: Vector2, plot: Dictionary) -> void:
 	var stage: int = plot.stage
 	var flash: float = plot.stage_flash
@@ -114,6 +120,7 @@ func draw_crop(center: Vector2, plot: Dictionary) -> void:
 		draw_circle(center - Vector2(10, 14), 11, Color("68a54d"))
 		draw_circle(center + Vector2(10, -14), 11, Color("4b873e"))
 
+## Отрисовывает культуры прогресса по текущему состоянию игры.
 func draw_crop_progress(rect: Rect2, plot: Dictionary) -> void:
 	var progress: float = clampf(plot.growth / GROWTH_DURATION, 0.0, 1.0)
 	var bar := Rect2(rect.position + Vector2(3, -10), Vector2(rect.size.x - 6, 7))
@@ -131,6 +138,7 @@ func draw_crop_progress(rect: Rect2, plot: Dictionary) -> void:
 		var marker_x := bar.position.x + bar.size.x * marker / 4.0
 		draw_line(Vector2(marker_x, bar.position.y), Vector2(marker_x, bar.end.y), Color("f7e4b0"), 1.5)
 
+## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_water_needed_icon(center: Vector2) -> void:
 	# Красная капля: заметный сигнал, что рост поставлен на паузу.
 	var pulse := 1.0 + sin(Time.get_ticks_msec() / 130.0) * 0.08
@@ -145,9 +153,11 @@ func draw_water_needed_icon(center: Vector2) -> void:
 	draw_colored_polygon(points, Color("e4473f"))
 	draw_circle(center + Vector2(-2, 2), 2.0, Color("ffaaa0"))
 
+## Отрисовывает героя по текущему состоянию игры.
 func draw_player() -> void:
 	AnimationRenderer.draw_player(self)
 
+## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_rpg_world() -> void:
 	# Бабушка и верстак.
 	draw_circle(npc_position - Vector2(0, 15), 13, Color("e7b68b"))
@@ -170,6 +180,7 @@ func draw_rpg_world() -> void:
 	draw_circle(cave_entrance_position, 38 + sin(Time.get_ticks_msec() / 170.0) * 4, Color("66d5cf"), false, 6)
 	draw_string(UI_FONT, cave_entrance_position + Vector2(-58, 78), LocaleSystem.location("cave"), HORIZONTAL_ALIGNMENT_LEFT, -1, 16, Color("d7fff4"))
 
+## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_mission_npc(position: Vector2, npc_name: String, mission_id: String, color: Color) -> void:
 	draw_circle(position - Vector2(0, 16), 13, Color("e6b38a"))
 	draw_rect(Rect2(position - Vector2(16, 2), Vector2(32, 38)), color)
@@ -179,9 +190,11 @@ func draw_mission_npc(position: Vector2, npc_name: String, mission_id: String, c
 	draw_circle(position - Vector2(0, 62), 16, Color("f1ca5c") if state != QuestSystem.COMPLETED else Color("70bd78"))
 	draw_string(UI_FONT, position + Vector2(-8, -56), marker, HORIZONTAL_ALIGNMENT_CENTER, 16, 20, Color("3b3225"))
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func forage_sprite_layout(kind: String, position: Vector2) -> Dictionary:
 	return PresentationSystem.forage_sprite_layout(FORAGE_SPRITES, kind, position)
 
+## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_food_nodes() -> void:
 	for food in food_nodes:
 		if food.get("location", "overworld") != current_location:
@@ -201,9 +214,11 @@ func draw_food_nodes() -> void:
 		else:
 			draw_string(UI_FONT, position + Vector2(-55, 42), ForageSystem.remaining_text(self, food), HORIZONTAL_ALIGNMENT_CENTER, 110, 12, Color("e7d6a3"))
 
+## Выполняет операцию «рыбалки анимации кадра» и возвращает результат согласно контракту метода.
 func fishing_animation_frame(frame_count: int, frame_ms: int = 140) -> int:
 	return PresentationSystem.animation_frame(Time.get_ticks_msec(), frame_count, frame_ms)
 
+## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_fishing_animations() -> void:
 	var water_frame := fishing_animation_frame(32, 180)
 	draw_texture_rect_region(WATER_ANIMATION, Rect2(0, 860, WORLD_SIZE.x, 340), Rect2(water_frame * 16, 0, 16, 16), Color(1,1,1,0.32))
@@ -213,6 +228,7 @@ func draw_fishing_animations() -> void:
 		var splash_frame := fishing_animation_frame(18, 80)
 		draw_texture_rect_region(SPLASH_ANIMATION, Rect2(pond_position + Vector2(-32, -32), Vector2(64, 64)), Rect2(splash_frame * 16, 0, 16, 16))
 
+## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_resource_nodes() -> void:
 	for node in resource_nodes:
 		if node.hits <= 0 or node.location != current_location:
@@ -224,6 +240,7 @@ func draw_resource_nodes() -> void:
 		elif node.kind == "green_crystal": tint = Color("6bdc83")
 		draw_texture_rect(texture, Rect2(node.position - Vector2(28, 28), Vector2(56, 56)), false, tint)
 
+## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_dropped_items() -> void:
 	for item in dropped_items:
 		if item_texture(item.kind):
@@ -233,6 +250,7 @@ func draw_dropped_items() -> void:
 		draw_circle(item.position, 23 + sin(Time.get_ticks_msec() / 150.0) * 3, Color("fff0a8"), false, 3)
 		draw_string(UI_FONT, item.position + Vector2(-55, 42), inventory_item_name(item.kind), HORIZONTAL_ALIGNMENT_CENTER, 110, 13, Color("fff4cf"))
 
+## Отрисовывает мира добычи по текущему состоянию игры.
 func draw_world_loot() -> void:
 	for container in world_loot_nodes:
 		if container.location != current_location:
@@ -261,6 +279,7 @@ func draw_world_loot() -> void:
 		else:
 			draw_string(UI_FONT, position + Vector2(-35, 38), LocaleSystem.ui("empty"), HORIZONTAL_ALIGNMENT_CENTER, 70, 12, Color(0.8, 0.8, 0.75, 0.55))
 
+## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_enemy_nodes_and_gate() -> void:
 	draw_circle(world_gate_position, 42 + sin(Time.get_ticks_msec() / 180.0) * 4, Color("e6b85e"), false, 6)
 	draw_string(UI_FONT, world_gate_position + Vector2(-75, 68), WorldSystem.name(WorldSystem.next_location(current_location)), HORIZONTAL_ALIGNMENT_LEFT, 180, 14, Color("fff0bd"))
@@ -274,6 +293,7 @@ func draw_enemy_nodes_and_gate() -> void:
 		draw_rect(Rect2(position - Vector2(30, 47), Vector2(60.0 * enemy.hp / float(data.hp), 5)), Color("dc554b"))
 		draw_string(UI_FONT, position + Vector2(-65, 55), LocaleSystem.entity(enemy.kind), HORIZONTAL_ALIGNMENT_CENTER, 130, 14, Color("fff0bd"))
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func enemy_sprite_texture(kind: String) -> Texture2D:
 	match kind:
 		"plant": return PREDATOR_PLANT_SHEET
@@ -283,9 +303,11 @@ func enemy_sprite_texture(kind: String) -> Texture2D:
 		"undead": return CURSED_KNIGHT_TEXTURE
 	return null
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func enemy_direction_row(direction: Vector2) -> int:
 	return PresentationSystem.enemy_direction_row(direction)
 
+## Отрисовывает животных по текущему состоянию игры.
 func draw_wildlife() -> void:
 	for animal in wildlife_nodes:
 		if not animal.alive or animal.location != current_location:
@@ -315,6 +337,7 @@ func draw_wildlife() -> void:
 			draw_rect(Rect2(position - Vector2(25, 44), Vector2(50, 5)), Color("402d32"))
 			draw_rect(Rect2(position - Vector2(24, 43), Vector2(48.0 * animal.hp / float(data.hp), 3)), Color("dc554b"))
 
+## Отрисовывает пещеры мира по текущему состоянию игры.
 func draw_cave_world() -> void:
 	draw_rect(Rect2(Vector2.ZERO, WORLD_SIZE), Color("18232c"))
 	for y in range(100, int(WORLD_SIZE.y), 230):
@@ -328,9 +351,11 @@ func draw_cave_world() -> void:
 		draw_circle(crystal_position, 42, Color(0.35, 0.95, 0.85, 0.12))
 	draw_string(UI_FONT, Vector2(90, 100), LocaleSystem.location("cave").to_upper(), HORIZONTAL_ALIGNMENT_LEFT, -1, 28, Color("9ce9dd"))
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func inventory_item_color(kind: String) -> Color:
 	return InventorySystem.data(kind).color
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func item_texture(kind: String) -> Texture2D:
 	match kind:
 		"iron_helmet": return ITEM_HELMET
@@ -343,6 +368,7 @@ func item_texture(kind: String) -> Texture2D:
 		"watermelon": return ITEM_WATERMELON_SLICE
 	return null
 
+## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_item_icon(kind: String, rect: Rect2) -> void:
 	var texture := item_texture(kind)
 	if texture:
@@ -350,9 +376,11 @@ func draw_item_icon(kind: String, rect: Rect2) -> void:
 	else:
 		draw_circle(rect.get_center(), minf(rect.size.x, rect.size.y) * 0.34, inventory_item_color(kind))
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func interaction_position(interaction: String) -> Vector2:
 	return PresentationSystem.interaction_position(self, interaction)
 
+## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_interaction_highlight() -> void:
 	var interaction := nearest_interaction()
 	if interaction.is_empty():
@@ -362,9 +390,11 @@ func draw_interaction_highlight() -> void:
 	draw_circle(center, pulse, Color("ffe36e"), false, 4.0)
 	draw_string(UI_FONT, center + Vector2(-45, -48), LocaleSystem.ui("action"), HORIZONTAL_ALIGNMENT_CENTER, 90, 16, Color("fff4bd"))
 
+## Отрисовывает интерфейса по текущему состоянию игры.
 func draw_ui() -> void:
 	InterfaceRenderer.draw(self)
 
+## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_discovery_card() -> void:
 	if discovery_current.is_empty():
 		return
@@ -379,9 +409,11 @@ func draw_discovery_card() -> void:
 	var ratio := clampf(discovery_timer / DiscoverySystem.CARD_DURATION, 0.0, 1.0)
 	draw_rect(Rect2(card.position + Vector2(8, card.size.y - 7), Vector2((card.size.x - 16) * ratio, 3)), Color("f1ca5c"))
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func discovery_card_rect() -> Rect2:
 	return PresentationSystem.discovery_card_rect()
 
+## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_mission_tracker() -> void:
 	var lines: Array[String] = []
 	if quest_active:
@@ -397,6 +429,7 @@ func draw_mission_tracker() -> void:
 	for index in lines.size():
 		draw_string(UI_FONT, Vector2(804, 153 + index * 22), lines[index], HORIZONTAL_ALIGNMENT_LEFT, 310, 14, Color("fff4cf"))
 
+## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_quest_log() -> void:
 	draw_rect(Rect2(120, 62, 912, 524), Color("29251f"))
 	draw_rect(Rect2(140, 82, 872, 484), Color("e6d3a4"))
@@ -416,6 +449,7 @@ func draw_quest_log() -> void:
 		row_y += 158.0
 	draw_string(UI_FONT, Vector2(320, 548), LocaleSystem.ui("quest_close"), HORIZONTAL_ALIGNMENT_CENTER, 512, 16, Color("493b2f"))
 
+## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_skill_menu() -> void:
 	draw_rect(Rect2(92, 48, 968, 552), Color("25232c"))
 	draw_rect(Rect2(112, 68, 928, 512), Color("e4d4a9"))
@@ -441,6 +475,7 @@ func draw_skill_menu() -> void:
 			draw_rect(Rect2(bar.position, Vector2(bar.size.x * ratio, bar.size.y)), Color("6da86d"))
 	draw_string(UI_FONT, Vector2(220, 556), LocaleSystem.ui("skill_help"), HORIZONTAL_ALIGNMENT_CENTER, 712, 15, Color("493b2f"))
 
+## Отрисовывает крафта окна по текущему состоянию игры.
 func draw_crafting_window() -> void:
 	draw_rect(Rect2(170, 70, 812, 510), Color("33271f"))
 	draw_rect(Rect2(190, 90, 772, 470), Color("e8cf96"))
@@ -454,6 +489,7 @@ func draw_crafting_window() -> void:
 		draw_string(UI_FONT, row.position + Vector2(250, 35), CraftingSystem.ingredients_text(self, recipe), HORIZONTAL_ALIGNMENT_LEFT, 440, 14, Color("49704d") if CraftingSystem.can_craft(self, recipe) else Color("a64d45"))
 	draw_string(UI_FONT, Vector2(220, 535), LocaleSystem.ui("craft_help"), HORIZONTAL_ALIGNMENT_CENTER, 712, 16, Color("493b2f"))
 
+## Отрисовывает магазина по текущему состоянию игры.
 func draw_shop() -> void:
 	# Отдельная сцена-интерьер поверх игрового мира.
 	draw_rect(Rect2(112, 70, 928, 520), Color("33271f"))

@@ -1,5 +1,6 @@
 extends RefCounted
 
+## Выполняет операцию «перемещения» и возвращает результат согласно контракту метода.
 static func move(game: Node, motion: Vector2) -> void:
 	var step_count := maxi(1, ceili(motion.length() / 8.0))
 	var step := motion / float(step_count)
@@ -18,6 +19,7 @@ static func move(game: Node, motion: Vector2) -> void:
 	if was_blocked:
 		game.notify_tutorial("collision")
 
+## Проверяет заявленное методом условие без изменения игрового состояния.
 static func is_walkable(game: Node, position: Vector2) -> bool:
 	if position.x < 40.0 or position.x > game.WORLD_SIZE.x - 40.0 or position.y < 120.0 or position.y > game.WORLD_SIZE.y - 80.0:
 		return false
@@ -60,6 +62,7 @@ static func is_walkable(game: Node, position: Vector2) -> bool:
 			return false
 	return true
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func circle_intersects_rect(center: Vector2, radius: float, rect: Rect2) -> bool:
 	var closest := Vector2(clampf(center.x, rect.position.x, rect.end.x), clampf(center.y, rect.position.y, rect.end.y))
 	return center.distance_squared_to(closest) < radius * radius

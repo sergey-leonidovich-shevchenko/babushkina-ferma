@@ -1,5 +1,6 @@
 extends "res://scripts/game_renderer.gd"
 
+## Подготавливает узел к работе: создаёт зависимые данные и синхронизирует начальное состояние.
 func _ready() -> void:
 	InputSystem.ensure_default_actions()
 	for content_error in ContentRegistry.validate():
@@ -31,6 +32,7 @@ func _ready() -> void:
 	DiscoverySystem.show_location(self, current_location)
 	queue_redraw()
 
+## Выполняет один физический кадр и обновляет активные игровые системы в заданном порядке.
 func _physics_process(delta: float) -> void:
 	AudioSystem.update(self, delta)
 	if title_screen:
@@ -58,6 +60,7 @@ func _physics_process(delta: float) -> void:
 	update_camera()
 	queue_redraw()
 
+## Обновляет относящуюся к методу часть состояния на текущем кадре.
 func update_benchmark_route(delta: float) -> void:
 	benchmark_elapsed += delta
 	if benchmark_elapsed < 4.0:
@@ -74,6 +77,7 @@ func update_benchmark_route(delta: float) -> void:
 			sync_background_location()
 			player = Vector2(900, 480)
 
+## Обновляет относящуюся к методу часть состояния на текущем кадре.
 func update_player_movement(delta: float) -> void:
 	var direction := get_movement_direction()
 	if direction.length() == 0.0:
@@ -87,15 +91,19 @@ func update_player_movement(delta: float) -> void:
 		notify_tutorial("character_animation")
 	clamp_player_position()
 
+## Выполняет операцию «перемещения героя с коллизий» и возвращает результат согласно контракту метода.
 func move_player_with_collisions(motion: Vector2) -> void:
 	NavigationSystem.move(self, motion)
 
+## Проверяет заявленное методом условие без изменения игрового состояния.
 func is_position_walkable(position: Vector2) -> bool:
 	return NavigationSystem.is_walkable(self, position)
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func circle_intersects_rect(center: Vector2, radius: float, rect: Rect2) -> bool:
 	return NavigationSystem.circle_intersects_rect(center, radius, rect)
 
+## Обновляет относящуюся к методу часть состояния на текущем кадре.
 func update_game_clock(delta: float) -> void:
 	# Одна реальная секунда равна одной игровой минуте.
 	game_minutes += delta
@@ -104,58 +112,73 @@ func update_game_clock(delta: float) -> void:
 		day += 1
 		message = LocaleSystem.text("new_day", [day])
 
+## Обновляет относящуюся к методу часть состояния на текущем кадре.
 func update_crops(delta: float) -> void:
 	FarmSystem.update(self, delta)
 
+## Возвращает рассчитанное методом значение в безопасном для вызывающего кода виде.
 func get_movement_direction() -> Vector2:
 	return PlayerSystem.movement_direction(self)
 
+## Обновляет относящуюся к методу часть состояния на текущем кадре.
 func update_movement_key_state(event: InputEventKey) -> bool:
 	return PlayerSystem.update_movement_key(self, event)
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func clear_movement_keys() -> void:
 	PlayerSystem.clear_keys(self)
 
+## Устанавливает относящееся к методу значение и синхронизирует зависимое состояние.
 func set_action_key_state(event: InputEventKey) -> bool:
 	return InputSystem.set_action_key_state(self, event)
 
+## Обновляет относящуюся к методу часть состояния на текущем кадре.
 func update_held_action(delta: float) -> void:
 	InputSystem.update_held_action(self, delta)
 
+## Устанавливает относящееся к методу значение и синхронизирует зависимое состояние.
 func set_attack_key_state(event: InputEventKey) -> bool:
 	return InputSystem.set_attack_key_state(self, event)
 
+## Обновляет удерживаемого атаки на текущем кадре.
 func update_held_attack(delta: float) -> void:
 	InputSystem.update_held_attack(self, delta)
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func perform_repeatable_action() -> bool:
 	return InputSystem.perform_repeatable_action(self)
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_APPLICATION_FOCUS_OUT:
 		clear_movement_keys()
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func clamp_player_position() -> void:
 	player.x = clampf(player.x, 40.0, WORLD_SIZE.x - 40.0)
 	player.y = clampf(player.y, 120.0, WORLD_SIZE.y - 80.0)
 
+## Обновляет относящуюся к методу часть состояния на текущем кадре.
 func update_camera() -> void:
-	# Камера привязана к целым пикселям: pixel-art не дрожит на субпикселях.
+	# Камера привязана к целым пикселям: пиксельная графика не дрожит на субпикселях.
 	camera_offset.x = roundf(clampf(player.x - 576.0, 0.0, WORLD_SIZE.x - 1152.0))
 	camera_offset.y = roundf(clampf(player.y - 324.0, 0.0, WORLD_SIZE.y - 648.0))
 	var background := get_node_or_null("WorldBackground")
 	if background:
 		background.position = -camera_offset
 
+## Устанавливает относящееся к методу значение и синхронизирует зависимое состояние.
 func sync_background_location() -> void:
 	AudioSystem.switch_music(self, current_location)
 	var background := get_node_or_null("WorldBackground")
 	if background:
 		background.set_location(current_location)
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func apply_immediate_key_response(event: InputEventKey) -> void:
 	InputSystem.apply_immediate_key_response(self, event)
 
+## Обрабатывает команды, которые не были перехвачены более приоритетными экранами.
 func _unhandled_input(event: InputEvent) -> void:
 	if language_screen:
 		handle_language_input(event)
@@ -218,6 +241,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			KEY_H: DiscoverySystem.dismiss(self)
 		queue_redraw()
 
+## Обрабатывает языка ввода и синхронизирует связанное состояние.
 func handle_language_input(event: InputEvent) -> bool:
 	var choose := false
 	if event is InputEventKey and event.pressed and not event.echo:
@@ -244,18 +268,22 @@ func handle_language_input(event: InputEvent) -> bool:
 	queue_redraw()
 	return true
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func language_button_rect(index: int) -> Rect2:
 	var column := index % 2
 	var row := index / 2
 	return Rect2(250 + column * 340, 230 + row * 82, 312, 62)
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func targeted_plot() -> Vector2i:
 	var target := player + facing * 42.0
 	return Vector2i(floori((target.x - FARM_ORIGIN.x) / TILE), floori((target.y - FARM_ORIGIN.y) / TILE))
 
+## Проверяет заявленное методом условие без изменения игрового состояния.
 func valid_plot(cell: Vector2i) -> bool:
 	return cell.x >= 0 and cell.y >= 0 and cell.x < FARM_SIZE.x and cell.y < FARM_SIZE.y
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func use_selected_tool() -> void:
 	if selected_tool == Tool.PICKAXE:
 		mine_nearby_resource()
@@ -325,6 +353,7 @@ func use_selected_tool() -> void:
 	if not action_sfx.is_empty():
 		play_sfx(action_sfx)
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func sleep_until_morning() -> void:
 	if player.distance_to(Vector2(126, 190)) > 105.0:
 		message = LocaleSystem.text("sleep_near_home")
@@ -336,6 +365,7 @@ func sleep_until_morning() -> void:
 	message = LocaleSystem.text("morning", [day])
 	notify_tutorial("day")
 
+## Выполняет заявленный переход режима и обновляет связанный интерфейс.
 func open_shop() -> void:
 	if player.distance_to(Vector2(972, 278)) > 100.0:
 		message = "Подойди к лавке справа"
@@ -346,6 +376,7 @@ func open_shop() -> void:
 	message = "Добро пожаловать в сельскую лавку"
 	notify_tutorial("shop")
 
+## Выполняет операцию «ближайшего взаимодействия» и возвращает результат согласно контракту метода.
 func nearest_interaction() -> String:
 	var interactions := {}
 	if current_location == "overworld":
@@ -401,6 +432,7 @@ func nearest_interaction() -> String:
 			nearest = "food:%d" % index
 	return nearest
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func perform_context_action() -> bool:
 	var interaction := nearest_interaction()
 	if interaction.begins_with("drop:"):
@@ -442,21 +474,27 @@ func perform_context_action() -> bool:
 			return true
 	return false
 
+## Выполняет заявленное игровое действие после проверки условий, затрат и наград.
 func mine_nearby_resource() -> bool:
 	return ResourceSystem.mine_nearby(self)
 
+## Выполняет заявленное игровое действие после проверки условий, затрат и наград.
 func mine_resource(index: int) -> bool:
 	return ResourceSystem.mine(self, index)
 
+## Проверяет заявленное методом условие без изменения игрового состояния.
 func is_near_fishing_water() -> bool:
 	return FishingSystem.is_near_water(self)
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func use_fishing_rod() -> bool:
 	return FishingSystem.use_rod(self)
 
+## Обновляет рыбалки на текущем кадре.
 func update_fishing(delta: float) -> void:
 	FishingSystem.update(self, delta)
 
+## Выполняет заявленный переход режима и обновляет связанный интерфейс.
 func enter_cave() -> void:
 	current_location = "cave"
 	sync_background_location()
@@ -467,6 +505,7 @@ func enter_cave() -> void:
 	notify_tutorial("travel")
 	play_sfx("travel")
 
+## Выполняет заявленный переход режима и обновляет связанный интерфейс.
 func exit_cave() -> void:
 	current_location = "overworld"
 	sync_background_location()
@@ -476,6 +515,7 @@ func exit_cave() -> void:
 	DiscoverySystem.show_location(self, current_location)
 	play_sfx("travel")
 
+## Выполняет заявленный переход режима и обновляет связанный интерфейс.
 func open_inventory() -> void:
 	inventory_open = true
 	inventory_move_from = -1
@@ -486,6 +526,7 @@ func open_inventory() -> void:
 	message = LocaleSystem.text("inventory_open")
 	play_sfx("ui_open")
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func inventory_item_count(kind: String) -> int:
 	match kind:
 		"sword": return 1 if sword_crafted else 0
@@ -495,11 +536,13 @@ func inventory_item_count(kind: String) -> int:
 		"crystal_sword": return 1 if has_crystal_sword else 0
 	return state.inventory.count(kind)
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func inventory_item_name(kind: String) -> String:
 	if kind.is_empty():
 		return "Пусто"
 	return InventorySystem.data(kind).name
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func change_inventory_count(kind: String, amount: int) -> bool:
 	if amount < 0 and inventory_item_count(kind) < -amount:
 		return false
@@ -521,6 +564,7 @@ func change_inventory_count(kind: String, amount: int) -> bool:
 		InventorySystem.ensure_item_slot(self, kind)
 	return true
 
+## Обрабатывает инвентаря ввода и синхронизирует связанное состояние.
 func handle_inventory_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		InputSystem.handle_inventory_mouse(self, event)
@@ -568,6 +612,7 @@ func handle_inventory_input(event: InputEvent) -> void:
 	InventorySystem.keep_selection_visible(self)
 	queue_redraw()
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func move_inventory_slot() -> void:
 	if inventory_move_from < 0:
 		inventory_move_from = inventory_selected
@@ -577,6 +622,7 @@ func move_inventory_slot() -> void:
 	inventory_move_from = -1
 	message = LocaleSystem.text("moved")
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func drop_selected_item() -> bool:
 	var kind: String = inventory_slots[inventory_selected]
 	if kind.is_empty() or not change_inventory_count(kind, -1):
@@ -586,6 +632,7 @@ func drop_selected_item() -> bool:
 	message = LocaleSystem.text("dropped")
 	return true
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func delete_selected_item() -> bool:
 	var kind: String = inventory_slots[inventory_selected]
 	if kind.is_empty() or not change_inventory_count(kind, -1):
@@ -594,6 +641,7 @@ func delete_selected_item() -> bool:
 	message = "Удалена 1 единица: %s" % inventory_item_name(kind)
 	return true
 
+## Выполняет заявленное игровое действие после проверки условий, затрат и наград.
 func collect_dropped_item(index: int) -> bool:
 	if index < 0 or index >= dropped_items.size():
 		return false
@@ -606,13 +654,16 @@ func collect_dropped_item(index: int) -> bool:
 	play_sfx("pickup")
 	return true
 
+## Выполняет заявленное игровое действие после проверки условий, затрат и наград.
 func collect_food(index: int) -> bool:
 	return ForageSystem.collect(self, index)
 
+## Выполняет заявленное игровое действие после проверки условий, затрат и наград.
 func consume_selected_item() -> bool:
 	var kind: String = inventory_slots[inventory_selected]
 	return consume_item(kind)
 
+## Выполняет заявленное игровое действие после проверки условий, затрат и наград.
 func consume_item(kind: String) -> bool:
 	if kind not in ["carrot", "apple", "berries", "nut", "mushroom", "orange", "watermelon", "healing_potion"]:
 		message = LocaleSystem.text("cannot_use")
@@ -652,15 +703,19 @@ func consume_item(kind: String) -> bool:
 	notify_tutorial("eat")
 	return true
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func select_hotbar(index: int) -> bool:
 	return InventorySystem.select_hotbar(self, index)
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func assign_selected_to_hotbar(index: int) -> bool:
 	return InventorySystem.assign_hotbar(self, inventory_selected, index)
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func equip_selected_item() -> bool:
 	return InventorySystem.equip(self, inventory_slots[inventory_selected])
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func use_active_item() -> bool:
 	var kind: String = hotbar_slots[selected_hotbar]
 	var item := InventorySystem.data(kind)
@@ -673,18 +728,23 @@ func use_active_item() -> bool:
 	message = LocaleSystem.text("cannot_use")
 	return false
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func heal_player(amount: int) -> int:
 	return PlayerSystem.heal(self, amount)
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func award_xp(amount: int, reason: String = "") -> void:
 	PlayerSystem.award_xp(self, amount, reason)
 
+## Обновляет относящуюся к методу часть состояния на текущем кадре.
 func update_status_effects(delta: float) -> void:
 	PlayerSystem.update_effects(self, delta)
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func talk_to_grandmother() -> void:
 	QuestSystem.talk_to_grandmother(self)
 
+## Выполняет заявленный переход режима и обновляет связанный интерфейс.
 func toggle_quest_log() -> void:
 	quest_log_open = not quest_log_open
 	if quest_log_open:
@@ -692,6 +752,7 @@ func toggle_quest_log() -> void:
 		message = LocaleSystem.text("journal_open")
 		notify_tutorial("journal")
 
+## Выполняет заявленный переход режима и обновляет связанный интерфейс.
 func open_skill_menu() -> void:
 	skill_menu_open = not skill_menu_open
 	if skill_menu_open:
@@ -699,6 +760,7 @@ func open_skill_menu() -> void:
 		clear_movement_keys()
 		message = "Выбери развитие. Свободных очков: %d" % skill_points
 
+## Обрабатывает относящееся к методу событие и синхронизирует зависимое состояние.
 func handle_skill_menu_input(event: InputEvent) -> void:
 	if event is InputEventJoypadButton and event.pressed:
 		match event.button_index:
@@ -721,6 +783,7 @@ func handle_skill_menu_input(event: InputEvent) -> void:
 		KEY_ENTER, KEY_E: SkillSystem.allocate(self, SkillSystem.SKILLS[skill_menu_selected].id)
 	queue_redraw()
 
+## Выполняет операцию «атаки слизня» и возвращает результат согласно контракту метода.
 func attack_slime() -> bool:
 	var attack_range := 280.0 if equipped_weapon == "bow" else 105.0
 	if not slime_alive or player.distance_to(slime_position) > attack_range:
@@ -746,6 +809,7 @@ func attack_slime() -> bool:
 		message = "Слизень побеждён! +10 опыта. Подбери добычу [E]"
 	return true
 
+## Выполняет операцию «атаки ближайшего врага» и возвращает результат согласно контракту метода.
 func attack_nearest_enemy() -> bool:
 	var enemy_index := CombatSystem.nearest(self)
 	var wildlife_index := WildlifeSystem.nearest(self)
@@ -766,6 +830,7 @@ func attack_nearest_enemy() -> bool:
 	message = LocaleSystem.text("no_enemy")
 	return false
 
+## Обновляет боя на текущем кадре.
 func update_combat(delta: float) -> void:
 	if not slime_alive or player.distance_to(slime_position) > 72.0:
 		slime_attack_timer = 0.0
@@ -783,6 +848,7 @@ func update_combat(delta: float) -> void:
 			coins = maxi(0, coins - 5)
 			message = "Бабушка спасла тебя. Потеряно 5 монет"
 
+## Выполняет заявленное игровое действие после проверки условий, затрат и наград.
 func collect_loot() -> bool:
 	if not loot_available or player.distance_to(slime_position) > 92.0:
 		return false
@@ -792,6 +858,7 @@ func collect_loot() -> bool:
 	notify_tutorial("loot")
 	return true
 
+## Выполняет игровое действие «крафта меча» с проверкой условий и наград.
 func craft_sword() -> bool:
 	if sword_crafted and not has_crystal_sword:
 		if crystals < 5:
@@ -814,6 +881,7 @@ func craft_sword() -> bool:
 	notify_tutorial("craft")
 	return true
 
+## Выполняет заявленный переход режима и обновляет связанный интерфейс.
 func toggle_sword() -> bool:
 	var weapons := ["none"]
 	if sword_crafted: weapons.append("forest_sword")
@@ -830,18 +898,22 @@ func toggle_sword() -> bool:
 	notify_tutorial("equip")
 	return true
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func notify_tutorial(event_name: String) -> void:
 	TutorialSystem.notify(self, event_name)
 
+## Выполняет операцию «сброса обучения» и возвращает результат согласно контракту метода.
 func reset_tutorial() -> void:
 	TutorialSystem.reset(self)
 
+## Выполняет заявленный переход режима и обновляет связанный интерфейс.
 func open_crafting() -> void:
 	crafting_open = true
 	crafting_selected = 0
 	clear_movement_keys()
 	message = LocaleSystem.text("recipe_select")
 
+## Обрабатывает крафта ввода и синхронизирует связанное состояние.
 func handle_crafting_input(event: InputEvent) -> void:
 	if not (event is InputEventKey and event.pressed and not event.echo): return
 	match event.keycode:
@@ -851,12 +923,15 @@ func handle_crafting_input(event: InputEvent) -> void:
 		KEY_ENTER, KEY_E: CraftingSystem.craft(self, crafting_selected)
 	queue_redraw()
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func export_inventory_counts() -> Dictionary:
 	return state.inventory.counts.duplicate(true)
 
+## Устанавливает относящееся к методу значение и синхронизирует зависимое состояние.
 func import_inventory_counts(counts: Dictionary) -> void:
 	state.inventory.import_counts(counts)
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func save_game() -> bool:
 	var saved := SaveSystem.save(self)
 	message = LocaleSystem.text("saved" if saved else "save_failed")
@@ -864,6 +939,7 @@ func save_game() -> bool:
 		notify_tutorial("save")
 	return saved
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func load_game() -> bool:
 	var loaded := SaveSystem.load(self)
 	message = LocaleSystem.text("loaded" if loaded else "load_failed")
@@ -871,12 +947,14 @@ func load_game() -> bool:
 		sync_background_location()
 	return loaded
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func play_sfx(sound_id: String) -> bool:
 	var played := AudioSystem.play_sfx(self, sound_id)
 	if played and sound_id != "step":
 		notify_tutorial("audio_feedback")
 	return played
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func grant_tester_kit() -> void:
 	coins = maxi(coins, 500)
 	carrots = maxi(carrots, 10)
@@ -916,6 +994,7 @@ func grant_tester_kit() -> void:
 		wildlife_nodes[index].position = wildlife_nodes[index].home
 	message = "QA-набор выдан: ресурсы, морковь, монеты и 3 очка навыков"
 
+## Обрабатывает магазина ввода и синхронизирует связанное состояние.
 func handle_shop_input(event: InputEvent) -> void:
 	if not (event is InputEventKey and event.pressed and not event.echo):
 		return
@@ -933,12 +1012,15 @@ func handle_shop_input(event: InputEvent) -> void:
 			sell_selected_product()
 	queue_redraw()
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func buy_selected_product() -> bool:
 	return ShopSystem.buy(self, shop_selected)
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func sell_selected_product() -> bool:
 	return ShopSystem.sell(self, shop_selected)
 
+## Выполняет операцию «продажи моркови» и возвращает результат согласно контракту метода.
 func sell_carrots() -> void:
 	if carrots > 0:
 		var earned := carrots * 8
@@ -947,6 +1029,7 @@ func sell_carrots() -> void:
 		message = "Продано! +%d монет" % earned
 	else: message = "В рюкзаке нет моркови"
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func _input(event: InputEvent) -> void:
 	if handle_gamepad_and_touch(event):
 		get_viewport().set_input_as_handled()
@@ -967,6 +1050,7 @@ func _input(event: InputEvent) -> void:
 				attack_nearest_enemy()
 			get_viewport().set_input_as_handled()
 
+## Обрабатывает относящееся к методу событие и синхронизирует зависимое состояние.
 func handle_gamepad_and_touch(event: InputEvent) -> bool:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if inventory_open:

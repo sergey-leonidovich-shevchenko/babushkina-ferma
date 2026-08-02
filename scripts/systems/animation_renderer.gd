@@ -15,6 +15,7 @@ const ORC_HURT := preload("res://assets/game/enemies/orc_hurt.png")
 const ORC_DEATH := preload("res://assets/game/enemies/orc_death.png")
 
 
+## Отрисовывает героя по текущему состоянию игры.
 static func draw_player(game: Node2D) -> void:
 	var position: Vector2 = game.player.round()
 	var moving: bool = game.get_movement_direction() != Vector2.ZERO
@@ -47,6 +48,7 @@ static func draw_player(game: Node2D) -> void:
 		game.draw_arc(position + game.facing * 18.0, pull, -1.4, 1.4, 12, Color("b77a45"), 4)
 
 
+## Отрисовывает слизня по текущему состоянию игры.
 static func draw_slime(game: Node2D) -> bool:
 	if not game.AnimationSystem.slime_is_visible(game):
 		return false
@@ -61,6 +63,7 @@ static func draw_slime(game: Node2D) -> bool:
 	return true
 
 
+## Отрисовывает врага по текущему состоянию игры.
 static func draw_enemy(game: Node2D, enemy: Dictionary) -> void:
 	var state: String = enemy.get("visual_state", "idle")
 	var kind: String = enemy.kind

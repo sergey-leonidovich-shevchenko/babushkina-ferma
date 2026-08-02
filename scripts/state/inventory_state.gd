@@ -23,14 +23,17 @@ var selected_hotbar: int = 0
 var scroll_row: int = 0
 
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func count(kind: String) -> int:
 	return int(counts.get(kind, 0))
 
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func has(kind: String, amount: int = 1) -> bool:
 	return amount >= 0 and count(kind) >= amount
 
 
+## Устанавливает относящееся к методу значение и синхронизирует зависимое состояние.
 func set_count(kind: String, amount: int) -> bool:
 	if kind.is_empty() or not counts.has(kind) or amount < 0:
 		return false
@@ -38,6 +41,7 @@ func set_count(kind: String, amount: int) -> bool:
 	return true
 
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func change(kind: String, amount: int) -> bool:
 	if not counts.has(kind):
 		return false
@@ -48,6 +52,7 @@ func change(kind: String, amount: int) -> bool:
 	return true
 
 
+## Устанавливает относящееся к методу значение и синхронизирует зависимое состояние.
 func import_counts(saved_counts: Dictionary) -> void:
 	for kind in counts:
 		counts[kind] = maxi(int(saved_counts.get(kind, 0)), 0)

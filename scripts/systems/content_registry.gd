@@ -13,7 +13,7 @@ const TutorialSystem := preload("res://scripts/systems/tutorial_system.gd")
 const WorldSystem := preload("res://scripts/systems/world_system.gd")
 const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
 
-## Проверяет ссылки между data-driven каталогами до начала игры. Добавление
+## Проверяет ссылки между управляемыми данными каталогами до начала игры. Добавление
 ## контента с опечаткой падает в тестах, а не через несколько часов прохождения.
 static func validate() -> Array[String]:
 	var errors: Array[String] = []
@@ -56,12 +56,13 @@ static func validate() -> Array[String]:
 	return errors
 
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func _validate_item(errors: Array[String], items: Dictionary, kind: String, owner: String) -> void:
 	if not items.has(kind):
 		errors.append("%s references unknown item: %s" % [owner, kind])
 
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func _validate_location(errors: Array[String], location: String, owner: String) -> void:
 	if location not in WorldSystem.LOCATIONS:
 		errors.append("%s references unknown location: %s" % [owner, location])
-

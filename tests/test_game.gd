@@ -12,6 +12,7 @@ const InterfaceSuite = preload("res://tests/suites/interface_suite.gd")
 var passed := 0
 var failed := 0
 
+## Запускает все наборы тестов и завершает процесс с кодом результата.
 func _initialize() -> void:
 	CoreSuite.new(self).run()
 	GameplaySuite.new(self).run()
@@ -24,6 +25,7 @@ func _initialize() -> void:
 	print("TESTS: %d passed, %d failed" % [passed, failed])
 	quit(0 if failed == 0 else 1)
 
+## Создаёт изолированный экземпляр игры с отключёнными стартовыми экранами.
 func make_game() -> Node:
 	var game := GameScript.new()
 	game._ready()
@@ -31,6 +33,7 @@ func make_game() -> Node:
 	game.title_screen = false
 	return game
 
+## Создаёт клавиатурное событие с заданными логической и физической клавишами.
 func key_event(keycode: Key, physical_keycode: Key, pressed: bool) -> InputEventKey:
 	var event := InputEventKey.new()
 	event.keycode = keycode
@@ -38,6 +41,7 @@ func key_event(keycode: Key, physical_keycode: Key, pressed: bool) -> InputEvent
 	event.pressed = pressed
 	return event
 
+## Регистрирует успешную или проваленную проверку с понятным названием.
 func expect(condition: bool, label: String) -> void:
 	if condition:
 		passed += 1

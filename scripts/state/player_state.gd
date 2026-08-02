@@ -15,6 +15,7 @@ var skill_points: int = 0
 var energy: int = 12
 
 
+## Приводит загруженное состояние к безопасным допустимым значениям.
 func normalize() -> void:
 	hp = clampi(hp, 0, maxi(max_hp, 1))
 	mana = clampi(mana, 0, maxi(max_mana, 0))

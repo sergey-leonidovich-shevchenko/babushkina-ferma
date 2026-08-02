@@ -24,6 +24,7 @@ const STEP_INTERVAL := 0.32
 const SFX_POOL_SIZE := 6
 
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func initialize(game: Node) -> void:
 	if game.get_node_or_null("AudioMusicA"):
 		return
@@ -40,6 +41,7 @@ static func initialize(game: Node) -> void:
 	switch_music(game, game.current_location, true)
 
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func switch_music(game: Node, location: String, immediate: bool = false) -> bool:
 	var track: String = MUSIC_BY_LOCATION.get(location, "village")
 	if track == game.audio_current_music:
@@ -64,6 +66,7 @@ static func switch_music(game: Node, location: String, immediate: bool = false) 
 	return true
 
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func update(game: Node, delta: float) -> void:
 	update_crossfade(game, delta)
 	game.audio_step_timer = maxf(game.audio_step_timer - delta, 0.0)
@@ -74,6 +77,7 @@ static func update(game: Node, delta: float) -> void:
 		game.audio_step_timer = STEP_INTERVAL
 
 
+## Обновляет плавного перехода на текущем кадре.
 static func update_crossfade(game: Node, delta: float) -> void:
 	if game.audio_music_fade <= 0.0:
 		return
@@ -86,6 +90,7 @@ static func update_crossfade(game: Node, delta: float) -> void:
 		outgoing.stop()
 
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func play_sfx(game: Node, sound_id: String) -> bool:
 	if not game.audio_enabled or sound_id not in SFX_IDS:
 		return false
@@ -100,6 +105,7 @@ static func play_sfx(game: Node, sound_id: String) -> bool:
 	return true
 
 
+## Устанавливает относящееся к методу значение и синхронизирует зависимое состояние.
 static func set_enabled(game: Node, enabled: bool) -> void:
 	game.audio_enabled = enabled
 	for suffix in ["A", "B"]:
@@ -116,10 +122,12 @@ static func set_enabled(game: Node, enabled: bool) -> void:
 			effect.stop()
 
 
+## Выполняет операцию «музыки героя» и возвращает результат согласно контракту метода.
 static func music_player(game: Node, slot: int) -> AudioStreamPlayer:
 	return game.get_node("AudioMusicA" if slot == 0 else "AudioMusicB")
 
 
+## Проверяет заявленное методом условие без изменения игрового состояния.
 static func has_all_assets() -> bool:
 	for track in MUSIC_BY_LOCATION.values():
 		if not ResourceLoader.exists(MUSIC_PATH % track):

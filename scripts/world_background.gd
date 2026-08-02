@@ -15,20 +15,24 @@ const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
 
 var location := "overworld"
 
+## Подготавливает узел к работе: создаёт зависимые данные и синхронизирует начальное состояние.
 func _ready() -> void:
 	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED
 
+## Устанавливает относящееся к методу значение и синхронизирует зависимое состояние.
 func set_location(value: String) -> void:
 	if location != value:
 		location = value
 		queue_redraw()
 
+## Отрисовывает текущее визуальное состояние узла.
 func _draw() -> void:
 	if location == "overworld": draw_overworld()
 	elif location == "cave": draw_cave()
 	else: draw_adventure_location()
 
+## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_adventure_location() -> void:
 	var colors := {"forest":Color("315c3c"),"rocky":Color("6f6a5b"),"ruins":Color("665849"),"cursed":Color("3e304b"),"glassworks":Color("6f493b")}
 	var names := {"forest":LocaleSystem.location("forest").to_upper(),"rocky":LocaleSystem.location("rocky").to_upper(),"ruins":LocaleSystem.location("ruins").to_upper(),"cursed":LocaleSystem.location("cursed").to_upper(),"glassworks":LocaleSystem.location("glassworks").to_upper()}
@@ -41,8 +45,9 @@ func draw_adventure_location() -> void:
 			else: draw_rect(Rect2(x - 20,y - 35,40,70), Color("b86f4d"))
 	draw_string(UI_FONT, Vector2(80, 100), names.get(location, location), HORIZONTAL_ALIGNMENT_LEFT, -1, 30, Color("fff0bd"))
 
+## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_overworld() -> void:
-	# Один повторяющийся GPU-тайл вместо одноцветного пола и тысяч draw calls.
+	# Один повторяющийся графический тайл вместо одноцветного пола и тысяч команд отрисовки.
 	draw_rect(Rect2(Vector2.ZERO, WORLD_SIZE), Color("6f9d50"))
 	draw_texture_rect(GRASS_TILE, Rect2(Vector2.ZERO, WORLD_SIZE), true)
 	draw_rect(Rect2(0, 860, WORLD_SIZE.x, 340), Color("4f9fb0"))
@@ -66,13 +71,14 @@ func draw_overworld() -> void:
 	draw_rect(Rect2(790, 392, 60, 54), Color("9c633b"))
 	for i in 3: draw_line(Vector2(794, 402 + i * 15), Vector2(846, 402 + i * 15), Color("d09755"), 4)
 	draw_string(UI_FONT, Vector2(753, 473), LocaleSystem.ui("sell_sign"), HORIZONTAL_ALIGNMENT_LEFT, -1, 17, Color("213a2c"))
-	# Дорога и лес рисуются один раз и затем только сдвигаются transform-ом.
+	# Дорога и лес рисуются один раз и затем только сдвигаются преобразованием узла.
 	draw_rect(Rect2(1030, 360, 1370, 150), Color("b68b5c"))
 	draw_texture_rect(ROAD_TILE, Rect2(1030, 360, 1370, 150), true)
 	var trees := [Vector2(1210,190), Vector2(1430,250), Vector2(1740,170), Vector2(1990,290), Vector2(2240,180), Vector2(1320,680), Vector2(1880,720), Vector2(2210,650)]
 	for tree in trees: draw_texture_rect(FOREST_TREE, Rect2(tree - Vector2(96,128), Vector2(192,192)), false)
 	draw_texture_rect(RED_MUSHROOMS, Rect2(1380,570,72,72), false)
 
+## Отрисовывает пещеры по текущему состоянию игры.
 func draw_cave() -> void:
 	draw_rect(Rect2(Vector2.ZERO, WORLD_SIZE), Color("18232c"))
 	draw_texture_rect(CAVE_FLOOR_TILE, Rect2(Vector2.ZERO, WORLD_SIZE), true, Color(0.72, 0.78, 0.8, 1.0))

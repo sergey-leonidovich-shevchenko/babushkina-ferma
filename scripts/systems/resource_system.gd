@@ -15,9 +15,11 @@ const SPAWNS := [
 ]
 
 
+## Возвращает рассчитанное методом значение в безопасном для вызывающего кода виде.
 static func default_nodes() -> Array:
 	return SPAWNS.duplicate(true)
 
+## Выполняет заявленное игровое действие после проверки условий, затрат и наград.
 static func mine_nearby(game: Node) -> bool:
 	var interaction: String = game.nearest_interaction()
 	if not interaction.begins_with("resource:"):
@@ -25,6 +27,7 @@ static func mine_nearby(game: Node) -> bool:
 		return false
 	return mine(game, int(interaction.get_slice(":", 1)))
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func mine(game: Node, index: int) -> bool:
 	if not game.has_pickaxe or game.selected_tool != game.Tool.PICKAXE:
 		game.message = game.LocaleSystem.text("need_pickaxe")

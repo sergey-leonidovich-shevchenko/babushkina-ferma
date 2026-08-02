@@ -1,5 +1,6 @@
 extends "res://tests/suites/suite_base.gd"
 
+## Запускает все сценарии текущего набора тестов в фиксированном порядке.
 func run() -> void:
 	test_character_level_skill_points_and_resource_attributes()
 	test_profession_progress_and_gameplay_bonuses()
@@ -10,6 +11,9 @@ func run() -> void:
 	test_animated_enemy_sprites_replace_primitives()
 	test_unbounded_scrolling_inventory_and_forage_save()
 
+## Сценарий: новый уровень выдаёт очко, а навыки здоровья, маны и выносливости меняют характеристики.
+## Исходное состояние: новый изолированный экземпляр игры; необходимые ресурсы, позиции и таймеры задаются в начале сценария.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_character_level_skill_points_and_resource_attributes() -> void:
 	var game := make_game()
 	game.award_xp(50, "Проверка уровня")
@@ -30,6 +34,9 @@ func test_character_level_skill_points_and_resource_attributes() -> void:
 	expect(game.player_mana > 0 and game.energy == 1, "mana and stamina recover over real time")
 	game.free()
 
+## Сценарий: практика развивает ремёсла, а ранги усиливают урожай, добычу, бой, рыбалку и крафт.
+## Исходное состояние: новый изолированный экземпляр игры; необходимые ресурсы, позиции и таймеры задаются в начале сценария.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_profession_progress_and_gameplay_bonuses() -> void:
 	var game := make_game()
 	game.skill_xp.farming = 19
@@ -52,6 +59,9 @@ func test_profession_progress_and_gameplay_bonuses() -> void:
 	expect(game.crystals == 2 and game.skill_xp.mining == 3 and game.player_xp == 1, "mining action applies yield bonus and both XP tracks")
 	game.free()
 
+## Сценарий: прогресс навыков сохраняется, а окно развития работает с клавиатурой, геймпадом и касанием.
+## Исходное состояние: новая игра, изменённое сценарием состояние и отдельный тестовый путь сохранения.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_progression_save_and_universal_skill_menu_input() -> void:
 	var game := make_game()
 	game.skill_points = 2
@@ -86,6 +96,9 @@ func test_progression_save_and_universal_skill_menu_input() -> void:
 	expect(game.skill_points == 0 and game.skill_levels.vitality == 0, "older saves migrate to default RPG skills")
 	game.free()
 
+## Сценарий: дикорастущие растения созревают по разным срокам, восстанавливаются и продаются по своей цене.
+## Исходное состояние: новая игра с исходными грядками, растениями и нулевым прогрессом проверяемых таймеров.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_regrowing_forage_harvest_value_and_sale() -> void:
 	var game := make_game()
 	var forage: Dictionary = game.ForageSystem.TYPES
@@ -114,6 +127,9 @@ func test_regrowing_forage_harvest_value_and_sale() -> void:
 	expect(game.collect_food(4), "forest berry bushes are harvestable outside the village")
 	game.free()
 
+## Сценарий: растения используют отдельные ячейки атласа и правильно привязаны к земле.
+## Исходное состояние: новая игра с исходными грядками, растениями и нулевым прогрессом проверяемых таймеров.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_forage_atlas_cells_are_isolated_and_bottom_anchored() -> void:
 	var game := make_game()
 	var texture_size: Vector2 = game.PLANT_SHEET.get_size()
@@ -131,6 +147,9 @@ func test_forage_atlas_cells_are_isolated_and_bottom_anchored() -> void:
 	expect(game.forage_sprite_layout("mushroom", Vector2.ZERO).is_empty(), "separate mushroom texture does not accidentally sample the plant atlas")
 	game.free()
 
+## Сценарий: арбуз, зелье, щит и луговой ящер работают в сборе, крафте, употреблении, бою и сохранении.
+## Исходное состояние: новый изолированный экземпляр игры; необходимые ресурсы, позиции и таймеры задаются в начале сценария.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_new_pixel_items_watermelon_shield_potion_and_lizard() -> void:
 	var game := make_game()
 	expect(game.ITEM_HEALING_POTION.get_size() == Vector2(64, 64) and game.ITEM_OAK_SHIELD.get_size() == Vector2(64, 64), "potion and shield are compact imported game textures")
@@ -174,6 +193,9 @@ func test_new_pixel_items_watermelon_shield_potion_and_lizard() -> void:
 	expect(game.SaveSystem.apply(game, legacy_snapshot) and game.equipment.has("offhand") and not game.wildlife_nodes[lizard_index].alive, "older saves migrate the shield slot while preserving lizard state")
 	game.free()
 
+## Сценарий: все семейства врагов используют подходящие анимированные спрайты вместо примитивов.
+## Исходное состояние: новая игра с живыми целями; здоровье, позиции, оружие и добыча настраиваются сценарием.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_animated_enemy_sprites_replace_primitives() -> void:
 	var game := make_game()
 	expect(game.PREDATOR_PLANT_SHEET.get_width() == 256 and game.PREDATOR_PLANT_SHEET.get_height() == 256, "predator plant has a four-direction four-frame sprite sheet")
@@ -184,6 +206,9 @@ func test_animated_enemy_sprites_replace_primitives() -> void:
 	expect(game.enemy_direction_row(Vector2.DOWN) == 0 and game.enemy_direction_row(Vector2.UP) == 1 and game.enemy_direction_row(Vector2.LEFT) == 2 and game.enemy_direction_row(Vector2.RIGHT) == 3, "enemy idle animation faces the nearby player in all directions")
 	game.free()
 
+## Сценарий: рюкзак расширяется строками, прокручивается и сохраняет урожай с таймерами роста.
+## Исходное состояние: новая игра, изменённое сценарием состояние и отдельный тестовый путь сохранения.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_unbounded_scrolling_inventory_and_forage_save() -> void:
 	var game := make_game()
 	var original_slots: int = game.inventory_slots.size()

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Convert downloaded Pixabay sheets into small transparent game sprites."""
+"""Преобразует загруженные листы Pixabay в компактные прозрачные игровые спрайты."""
 
 from pathlib import Path
 from PIL import Image
@@ -8,6 +8,7 @@ DOWNLOADS = Path.home() / "Downloads"
 OUTPUT = Path(__file__).resolve().parents[1] / "assets" / "game" / "items"
 
 
+# Вырезает область, удаляет однотонный фон и помещает результат в игровую ячейку 64×64.
 def keyed_crop(source: Path, box: tuple[int, int, int, int], output: str) -> None:
     image = Image.open(source).convert("RGBA").crop(box)
     background = image.getpixel((0, 0))[:3]
@@ -25,6 +26,7 @@ def keyed_crop(source: Path, box: tuple[int, int, int, int], output: str) -> Non
     canvas.save(OUTPUT / output)
 
 
+# Обрезает прозрачные поля готового изображения и центрирует его в игровой ячейке 64×64.
 def alpha_sprite(source: Path, output: str) -> None:
     image = Image.open(source).convert("RGBA")
     bounds = image.getbbox()
@@ -36,6 +38,7 @@ def alpha_sprite(source: Path, output: str) -> None:
     canvas.save(OUTPUT / output)
 
 
+# Импортирует все ожидаемые исходники из загрузок в каталог игровых предметов.
 def main() -> None:
     OUTPUT.mkdir(parents=True, exist_ok=True)
     armor = DOWNLOADS / "keinianz-helmet-5724641.jpg"
@@ -45,7 +48,7 @@ def main() -> None:
     keyed_crop(armor, (2380, 470, 2920, 980), "travel_boots.png")
     keyed_crop(gems, (460, 480, 960, 1030), "crystal_ring.png")
     alpha_sprite(DOWNLOADS / "divexfre-orange-9741354.png", "orange.png")
-    # The source contains several bars; keep it as an atlas, compact enough for HUD regions.
+    # Исходник содержит несколько полос, поэтому сохраняем его компактным атласом для интерфейса.
     health = Image.open(DOWNLOADS / "pikura-retro-9342597.png").convert("RGBA")
     health.thumbnail((352, 512), Image.Resampling.NEAREST)
     health.save(OUTPUT / "health_bars.png")

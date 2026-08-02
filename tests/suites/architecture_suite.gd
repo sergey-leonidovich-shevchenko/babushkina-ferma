@@ -3,6 +3,7 @@ extends RefCounted
 const TEST_SAVE_PATH := "user://farm-refactor-test.json"
 
 
+## Запускает все сценарии текущего набора тестов в фиксированном порядке.
 static func run(context: SceneTree) -> void:
 	test_typed_state_is_the_source_of_truth(context)
 	test_inventory_state_is_data_driven(context)
@@ -11,8 +12,12 @@ static func run(context: SceneTree) -> void:
 	test_composition_root_and_test_runner_stay_small(context)
 	test_save_v2_migration_and_backup(context)
 	test_presentation_calculations_are_pure(context)
+	test_all_methods_have_russian_documentation(context)
 
 
+## Сценарий: фасад игры читает и изменяет данные только через типизированные состояния героя, мира и инвентаря.
+## Исходное состояние: новый экземпляр игры и значения позиции, здоровья и дня, заданные самим сценарием.
+## Ожидаемый результат: изменения фасада сразу видны в состоянии и наоборот, без рассинхронизированных копий.
 static func test_typed_state_is_the_source_of_truth(context: SceneTree) -> void:
 	var game: Node = context.make_game()
 	game.player = Vector2(701, 419)
@@ -26,6 +31,9 @@ static func test_typed_state_is_the_source_of_truth(context: SceneTree) -> void:
 	game.free()
 
 
+## Сценарий: зарегистрированный ресурс проходит через общее состояние инвентаря без отдельной ветки в игровом фасаде.
+## Исходное состояние: новый экземпляр игры со стандартным каталогом и нулевым количеством волокна.
+## Ожидаемый результат: известный предмет меняется и экспортируется, а неизвестный идентификатор отклоняется.
 static func test_inventory_state_is_data_driven(context: SceneTree) -> void:
 	var game: Node = context.make_game()
 	context.expect(game.change_inventory_count("fiber", 4), "registered item count changes without a game facade match branch")
@@ -36,6 +44,9 @@ static func test_inventory_state_is_data_driven(context: SceneTree) -> void:
 	game.free()
 
 
+## Сценарий: все переназначаемые игровые команды регистрируются через единый каталог системы ввода.
+## Исходное состояние: новый экземпляр игры после выполнения стандартной регистрации действий.
+## Ожидаемый результат: каждое действие существует в карте ввода, включая движение и использование предмета.
 static func test_input_actions_are_centralized(context: SceneTree) -> void:
 	var game: Node = context.make_game()
 	for action in game.InputSystem.ACTION_BINDINGS:
@@ -44,6 +55,9 @@ static func test_input_actions_are_centralized(context: SceneTree) -> void:
 	game.free()
 
 
+## Сценарий: все идентификаторы рецептов, добычи, заданий, магазинов и точек появления разрешаются через реестр контента.
+## Исходное состояние: новая игра со всеми встроенными таблицами данных и стандартными объектами мира.
+## Ожидаемый результат: реестр не сообщает ошибок, а враги и растения принадлежат профильным системам.
 static func test_content_references_are_valid(context: SceneTree) -> void:
 	var game: Node = context.make_game()
 	var errors: Array[String] = game.ContentRegistry.validate()
@@ -52,6 +66,9 @@ static func test_content_references_are_valid(context: SceneTree) -> void:
 	game.free()
 
 
+## Сценарий: композиционный корень, отрисовщики и запуск тестов сохраняют ограниченные ответственности и размеры.
+## Исходное состояние: исходные тексты ключевых модулей читаются напрямую без запуска игровой сцены.
+## Ожидаемый результат: отрисовка и мышиный ввод делегированы, а количество исполняемых строк не превышает лимиты.
 static func test_composition_root_and_test_runner_stay_small(context: SceneTree) -> void:
 	var game_source := FileAccess.get_file_as_string("res://scripts/game.gd")
 	var renderer_source := FileAccess.get_file_as_string("res://scripts/game_renderer.gd")
@@ -59,12 +76,15 @@ static func test_composition_root_and_test_runner_stay_small(context: SceneTree)
 	var input_source := FileAccess.get_file_as_string("res://scripts/systems/input_system.gd")
 	var runner_source := FileAccess.get_file_as_string("res://tests/test_game.gd")
 	context.expect(not game_source.contains("func draw_") and renderer_source.contains("func draw_world"), "composition root delegates all drawing to the renderer layer")
-	context.expect(game_source.count("\n") + 1 <= 1100 and renderer_source.count("\n") + 1 <= 700, "composition and renderer stay below enforced size limits")
-	context.expect(renderer_source.contains("InterfaceRenderer.draw(self)") and interface_source.count("\n") + 1 <= 300, "HUD and inventory rendering live in a bounded interface module")
+	context.expect(_code_line_count(game_source) <= 1100 and _code_line_count(renderer_source) <= 700, "composition and renderer stay below enforced size limits")
+	context.expect(renderer_source.contains("InterfaceRenderer.draw(self)") and _code_line_count(interface_source) <= 300, "HUD and inventory rendering live in a bounded interface module")
 	context.expect(input_source.contains("func handle_inventory_mouse") and not game_source.contains("func handle_inventory_mouse"), "desktop inventory pointer behavior belongs to the input system")
-	context.expect(runner_source.count("\n") + 1 < 80 and runner_source.contains("CoreSuite.new(self).run()"), "test entry point only orchestrates bounded suites")
+	context.expect(_code_line_count(runner_source) < 80 and runner_source.contains("CoreSuite.new(self).run()"), "test entry point only orchestrates bounded suites")
 
 
+## Сценарий: старая схема сохранения мигрирует, а повреждённый основной файл заменяется последней корректной копией.
+## Исходное состояние: чистые тестовые пути, новый снимок второй версии и подготовленная копия первой версии.
+## Ожидаемый результат: обе версии загружаются, атомарная запись создаёт резерв, а повреждение не теряет прогресс.
 static func test_save_v2_migration_and_backup(context: SceneTree) -> void:
 	_cleanup_save_files()
 	var game: Node = context.make_game()
@@ -90,6 +110,9 @@ static func test_save_v2_migration_and_backup(context: SceneTree) -> void:
 	_cleanup_save_files()
 
 
+## Сценарий: расчёты представления возвращают одинаковые кадры и прямоугольники для одинаковых входных данных.
+## Исходное состояние: новый экземпляр игры и фиксированные значения времени, числа кадров и расположения карточки.
+## Ожидаемый результат: кадры корректно зацикливаются, неверные параметры безопасны, а раскладка имеет одного владельца.
 static func test_presentation_calculations_are_pure(context: SceneTree) -> void:
 	var game: Node = context.make_game()
 	context.expect(game.PresentationSystem.animation_frame(560, 4, 140) == 0, "animation frame calculation wraps deterministically")
@@ -98,6 +121,73 @@ static func test_presentation_calculations_are_pure(context: SceneTree) -> void:
 	game.free()
 
 
+## Сценарий: каждый метод в игровых и тестовых сценариях имеет непосредственно над объявлением русскую документацию.
+## Исходное состояние: рекурсивно собран список всех файлов сценариев в каталогах игры и тестов.
+## Ожидаемый результат: перед каждым объявлением метода есть документирующий комментарий с кириллицей.
+static func test_all_methods_have_russian_documentation(context: SceneTree) -> void:
+	var errors: Array[String] = []
+	for root in ["res://scripts", "res://tests"]:
+		for path in _collect_gd_files(root):
+			errors.append_array(_documentation_errors(path))
+	context.expect(errors.is_empty(), "every GDScript method has adjacent Russian documentation: %s" % [errors])
+
+
+## Рекурсивно собирает пути всех файлов сценариев внутри указанного каталога проекта.
+static func _collect_gd_files(root: String) -> Array[String]:
+	var result: Array[String] = []
+	var directory := DirAccess.open(root)
+	if directory == null:
+		return result
+	directory.list_dir_begin()
+	var entry := directory.get_next()
+	while not entry.is_empty():
+		var path := root.path_join(entry)
+		if directory.current_is_dir() and not entry.begins_with("."):
+			result.append_array(_collect_gd_files(path))
+		elif entry.ends_with(".gd"):
+			result.append(path)
+		entry = directory.get_next()
+	directory.list_dir_end()
+	return result
+
+
+## Возвращает перечень методов файла, у которых отсутствует соседняя русская документация.
+static func _documentation_errors(path: String) -> Array[String]:
+	var result: Array[String] = []
+	var lines := FileAccess.get_file_as_string(path).split("\n")
+	for index in lines.size():
+		var declaration := String(lines[index]).strip_edges()
+		if not declaration.begins_with("func ") and not declaration.begins_with("static func "):
+			continue
+		var previous := index - 1
+		while previous >= 0 and String(lines[previous]).strip_edges().is_empty():
+			previous -= 1
+		var documentation := String(lines[previous]).strip_edges() if previous >= 0 else ""
+		if not documentation.begins_with("##") or not _contains_cyrillic(documentation):
+			result.append("%s:%d" % [path, index + 1])
+	return result
+
+
+## Проверяет наличие хотя бы одной русской буквы в документирующей строке.
+static func _contains_cyrillic(value: String) -> bool:
+	for index in value.length():
+		var code := value.unicode_at(index)
+		if (code >= 0x0410 and code <= 0x044F) or code in [0x0401, 0x0451]:
+			return true
+	return false
+
+
+## Считает только исполняемые строки, чтобы документация не влияла на архитектурные лимиты модулей.
+static func _code_line_count(source: String) -> int:
+	var result := 0
+	for line in source.split("\n"):
+		var stripped := String(line).strip_edges()
+		if not stripped.is_empty() and not stripped.begins_with("#"):
+			result += 1
+	return result
+
+
+## Удаляет временные тестовые данные, не затрагивая пользовательское сохранение.
 static func _cleanup_save_files() -> void:
 	for suffix in ["", ".tmp", ".bak"]:
 		DirAccess.remove_absolute(ProjectSettings.globalize_path(TEST_SAVE_PATH + suffix))

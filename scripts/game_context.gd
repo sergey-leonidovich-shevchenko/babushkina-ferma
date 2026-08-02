@@ -74,8 +74,8 @@ const BRIDGE_RECT := Rect2(1450, 805, 110, 395)
 const TREE_POSITIONS := [Vector2(1210,190), Vector2(1430,250), Vector2(1740,170), Vector2(1990,290), Vector2(2240,180), Vector2(1320,680), Vector2(1880,720), Vector2(2210,650)]
 const CAVE_DECORATIONS := [Vector2(480,250), Vector2(720,600), Vector2(1040,300), Vector2(1380,720), Vector2(1720,280), Vector2(2050,620)]
 const FORAGE_SPRITES := {
-	# The atlas is packed in 72×72 cells here. A larger source region leaks
-	# neighbouring growth stages into the same world sprite.
+	# Атлас упакован в ячейки 72×72; область большего размера захватывает
+	# соседние стадии роста и показывает несколько частей дерева одновременно.
 	"berries": {"source": Rect2(696, 0, 72, 72), "size": Vector2(88, 88), "anchor": Vector2(44, 70)},
 	"apple": {"source": Rect2(696, 144, 72, 72), "size": Vector2(88, 88), "anchor": Vector2(44, 70)},
 	"nut": {"source": Rect2(696, 288, 72, 72), "size": Vector2(88, 88), "anchor": Vector2(44, 70)},
@@ -298,31 +298,37 @@ var discovery_scan_timer := 0.0
 var tutorial_steps := TutorialSystem.steps()
 
 
-## Узкий контракт данных, который нужен renderer. Композиционный корень
+## Узкий контракт данных, который нужен отрисовщику. Композиционный корень
 ## переопределяет операции; объявления здесь позволяют проверять слой отдельно.
 func language_button_rect(_index: int) -> Rect2:
 	return Rect2()
 
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func targeted_plot() -> Vector2i:
 	return Vector2i.ZERO
 
 
+## Проверяет заявленное методом условие без изменения игрового состояния.
 func valid_plot(_cell: Vector2i) -> bool:
 	return false
 
 
+## Возвращает рассчитанное методом значение в безопасном для вызывающего кода виде.
 func get_movement_direction() -> Vector2:
 	return Vector2.ZERO
 
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func inventory_item_name(_kind: String) -> String:
 	return ""
 
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func inventory_item_count(_kind: String) -> int:
 	return 0
 
 
+## Выполняет операцию «ближайшего взаимодействия» и возвращает результат согласно контракту метода.
 func nearest_interaction() -> String:
 	return ""

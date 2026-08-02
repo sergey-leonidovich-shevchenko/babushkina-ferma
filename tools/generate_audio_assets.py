@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the original low-fi soundtrack and SFX for Babushkina Ferma."""
+"""Создаёт оригинальную ретро-музыку и звуковые эффекты для «Бабушкиной фермы»."""
 
 from __future__ import annotations
 
@@ -12,10 +12,12 @@ RATE = 11025
 ROOT = Path(__file__).resolve().parents[1] / "assets" / "game" / "audio"
 
 
+# Переводит номер ноты в частоту звука в герцах.
 def midi(note: int) -> float:
     return 440.0 * 2.0 ** ((note - 69) / 12.0)
 
 
+# Возвращает значение выбранной формы звуковой волны для текущей фазы.
 def oscillator(phase: float, shape: str) -> float:
     if shape == "sine":
         return math.sin(phase)
@@ -24,10 +26,12 @@ def oscillator(phase: float, shape: str) -> float:
     return 1.0 if math.sin(phase) >= 0.0 else -1.0
 
 
+# Рассчитывает плавную огибающую атаки и затухания отдельной ноты.
 def envelope(local: float, duration: float, attack: float = 0.025, release: float = 0.08) -> float:
     return min(local / attack, 1.0, max((duration - local) / release, 0.0))
 
 
+# Добавляет синтезированную ноту в общий звуковой буфер с учётом громкости и огибающей.
 def add_note(buffer: list[float], start: float, duration: float, note: int, volume: float, shape: str) -> None:
     begin = int(start * RATE)
     count = min(int(duration * RATE), len(buffer) - begin)
@@ -41,6 +45,7 @@ def add_note(buffer: list[float], start: float, duration: float, note: int, volu
         buffer[begin + offset] += sample * volume * envelope(local, duration)
 
 
+# Добавляет воспроизводимый ударный акцент с локальным генератором случайного шума.
 def add_percussion(buffer: list[float], beat: float, strong: bool, seed: int) -> None:
     rng = random.Random(seed)
     begin = int(beat * RATE)
@@ -53,6 +58,7 @@ def add_percussion(buffer: list[float], beat: float, strong: bool, seed: int) ->
         buffer[begin + offset] += (tone * 0.12 + noise * 0.055) * decay
 
 
+# Нормализует отсчёты и записывает одноканальный звуковой файл в формате WAV.
 def write_wave(path: Path, samples: list[float]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     peak = max(max(abs(value) for value in samples), 0.001)
@@ -68,6 +74,7 @@ def write_wave(path: Path, samples: list[float]) -> None:
         output.writeframes(frames)
 
 
+# Собирает музыкальную тему из баса, аккордов, мелодии и ударных по заданному темпу.
 def music(name: str, root: int, progression: list[int], melody: list[int | None], bpm: int, shape: str, seed: int) -> None:
     beat = 60.0 / bpm
     beats = 32
@@ -85,6 +92,7 @@ def music(name: str, root: int, progression: list[int], melody: list[int | None]
     write_wave(ROOT / "music" / f"{name}.wav", samples)
 
 
+# Синтезирует короткий игровой эффект из меняющихся тонов и управляемого шума.
 def sfx(name: str, duration: float, tones: list[tuple[float, float, float, str]], noise: float = 0.0, seed: int = 1) -> None:
     samples = [0.0] * int(duration * RATE)
     rng = random.Random(seed)
@@ -99,6 +107,7 @@ def sfx(name: str, duration: float, tones: list[tuple[float, float, float, str]]
     write_wave(ROOT / "sfx" / f"{name}.wav", samples)
 
 
+# Создаёт полный набор музыкальных тем локаций и звуков всех поддерживаемых действий.
 def main() -> None:
     music("village", 60, [0, 5, 9, 7], [12, 16, 19, 16, 14, 12, 9, 11], 112, "triangle", 10)
     music("forest", 57, [0, 3, 7, 5], [12, None, 15, 19, 17, 15, 10, None], 96, "sine", 20)

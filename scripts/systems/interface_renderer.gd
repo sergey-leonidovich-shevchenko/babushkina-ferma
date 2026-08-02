@@ -27,12 +27,14 @@ const PARCHMENT := Color("e8d7aa")
 const GOLD := Color("efc766")
 
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func inventory_slot_rect(visible_index: int) -> Rect2:
 	var column := visible_index % 6
 	var row := visible_index / 6
 	return Rect2(INVENTORY_GRID_ORIGIN + Vector2(column * INVENTORY_SLOT_PITCH.x, row * INVENTORY_SLOT_PITCH.y), INVENTORY_SLOT_SIZE)
 
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func inventory_slot_at(point: Vector2, scroll_row: int, slot_count: int) -> int:
 	for visible_index in 30:
 		if inventory_slot_rect(visible_index).has_point(point):
@@ -40,26 +42,31 @@ static func inventory_slot_at(point: Vector2, scroll_row: int, slot_count: int) 
 	return -1
 
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func inventory_hotbar_rect(index: int) -> Rect2:
 	return Rect2(INVENTORY_HOTBAR_ORIGIN + Vector2(index * INVENTORY_HOTBAR_PITCH, 0), INVENTORY_HOTBAR_SIZE)
 
 
+## Выполняет операцию «инвентаря быстрой панели at» и возвращает результат согласно контракту метода.
 static func inventory_hotbar_at(point: Vector2) -> int:
 	for index in 10:
 		if inventory_hotbar_rect(index).has_point(point): return index
 	return -1
 
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func hotbar_rect(index: int) -> Rect2:
 	return Rect2(HOTBAR_ORIGIN + Vector2(index * HOTBAR_PITCH, 0), HOTBAR_SLOT_SIZE)
 
 
+## Выполняет операцию «быстрой панели at» и возвращает результат согласно контракту метода.
 static func hotbar_at(point: Vector2) -> int:
 	for index in 10:
 		if hotbar_rect(index).has_point(point): return index
 	return -1
 
 
+## Координирует отрисовку текущего состояния без изменения игровой логики.
 static func draw(game: Node) -> void:
 	draw_hud(game)
 	game.draw_mission_tracker()
@@ -75,6 +82,7 @@ static func draw(game: Node) -> void:
 	if game.skill_menu_open: game.draw_skill_menu()
 
 
+## Отрисовывает HUD по текущему состоянию игры.
 static func draw_hud(game: Node) -> void:
 	game.draw_rect(HUD_RECT, Color(0.035, 0.065, 0.06, 0.94))
 	game.draw_line(Vector2(0, 73), Vector2(1152, 73), Color("456456"), 2)
@@ -107,12 +115,14 @@ static func draw_hud(game: Node) -> void:
 	draw_hotbar(game)
 
 
+## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 static func draw_bar(game: Node, rect: Rect2, ratio: float, label: String, color: Color) -> void:
 	game.draw_rect(rect, Color("17231f"))
 	game.draw_rect(Rect2(rect.position + Vector2(2, 2), Vector2((rect.size.x - 4) * clampf(ratio, 0.0, 1.0), rect.size.y - 4)), color)
 	game.draw_string(game.UI_FONT, rect.position + Vector2(4, 14), label, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 8, 11, Color.WHITE)
 
 
+## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 static func draw_header_button(game: Node, rect: Rect2, key: String, badge: int) -> void:
 	panel(game, rect, Color("29463d"))
 	game.draw_string(game.UI_FONT, rect.position + Vector2(4, 32), key, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 8, 18, Color("ffe39d"))
@@ -121,6 +131,7 @@ static func draw_header_button(game: Node, rect: Rect2, key: String, badge: int)
 		game.draw_string(game.UI_FONT, rect.position + Vector2(rect.size.x - 14, 13), str(badge), HORIZONTAL_ALIGNMENT_CENTER, 12, 10, Color.WHITE)
 
 
+## Отрисовывает быстрой панели по текущему состоянию игры.
 static func draw_hotbar(game: Node) -> void:
 	for index in 10:
 		var rect: Rect2 = hotbar_rect(index)
@@ -134,6 +145,7 @@ static func draw_hotbar(game: Node) -> void:
 			game.draw_string(game.UI_FONT, rect.position + Vector2(28, 48), str(game.inventory_item_count(kind)), HORIZONTAL_ALIGNMENT_RIGHT, 20, 10, Color("493726") if selected else INK)
 
 
+## Отрисовывает инвентаря по текущему состоянию игры.
 static func draw_inventory(game: Node) -> void:
 	game.draw_rect(VIEWPORT, Color(0.015, 0.025, 0.02, 0.72))
 	panel(game, INVENTORY_WINDOW, Color("172b26"))
@@ -157,6 +169,7 @@ static func draw_inventory(game: Node) -> void:
 	game.draw_string(game.UI_FONT, Vector2(72, 578), game.LocaleSystem.ui("inventory_help"), HORIZONTAL_ALIGNMENT_LEFT, 1000, 11, MUTED)
 
 
+## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 static func draw_inventory_slot(game: Node, index: int, visible_index: int) -> void:
 	var rect: Rect2 = inventory_slot_rect(visible_index)
 	var selected: bool = index == game.inventory_selected
@@ -169,6 +182,7 @@ static func draw_inventory_slot(game: Node, index: int, visible_index: int) -> v
 	game.draw_string(game.UI_FONT, rect.position + Vector2(46, 57), "×%d" % game.inventory_item_count(kind), HORIZONTAL_ALIGNMENT_RIGHT, 26, 11, Color("473726") if selected else INK)
 
 
+## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 static func draw_scrollbar(game: Node) -> void:
 	var total_rows := ceili(float(game.inventory_slots.size()) / game.InventorySystem.COLUMNS)
 	var track := Rect2(584, 132, 6, 326)
@@ -179,11 +193,13 @@ static func draw_scrollbar(game: Node) -> void:
 	game.draw_string(game.UI_FONT, Vector2(492, 113), game.LocaleSystem.ui("row", [game.inventory_scroll_row + 1, maxi(total_rows - game.InventorySystem.VISIBLE_ROWS + 1, 1)]), HORIZONTAL_ALIGNMENT_RIGHT, 98, 10, MUTED)
 
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func selected_kind(game: Node) -> String:
 	if game.inventory_selected < 0 or game.inventory_selected >= game.inventory_slots.size(): return ""
 	return game.inventory_slots[game.inventory_selected]
 
 
+## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 static func draw_item_detail(game: Node) -> void:
 	var rect := Rect2(612, 118, 202, 354)
 	panel(game, rect, Color("263e36"))
@@ -201,6 +217,7 @@ static func draw_item_detail(game: Node) -> void:
 	game.draw_multiline_string(game.UI_FONT, Vector2(630, 346), game.LocaleSystem.ui(game.InventorySystem.detail_key(kind)), HORIZONTAL_ALIGNMENT_LEFT, 166, 13, 3, MUTED)
 
 
+## Отрисовывает экипировки по текущему состоянию игры.
 static func draw_equipment(game: Node) -> void:
 	panel(game, Rect2(830, 118, 242, 354), Color("263e36"))
 	game.draw_string(game.UI_FONT, Vector2(846, 148), game.LocaleSystem.ui("equipment"), HORIZONTAL_ALIGNMENT_CENTER, 210, 17, Color("ffe8a7"))
@@ -218,6 +235,7 @@ static func draw_equipment(game: Node) -> void:
 		if not kind.is_empty(): game.draw_item_icon(kind, Rect2(rect.position + Vector2(14, 22), Vector2(38, 38)))
 
 
+## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 static func draw_inventory_hotbar_slot(game: Node, index: int) -> void:
 	var rect: Rect2 = inventory_hotbar_rect(index)
 	var selected: bool = index == game.selected_hotbar
@@ -227,11 +245,13 @@ static func draw_inventory_hotbar_slot(game: Node, index: int) -> void:
 	game.draw_string(game.UI_FONT, rect.position + Vector2(4, 13), str(index + 1 if index < 9 else 0), HORIZONTAL_ALIGNMENT_LEFT, 10, 9, Color("493726") if selected else MUTED)
 
 
+## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 static func draw_action_button(game: Node, rect: Rect2, label: String, enabled: bool) -> void:
 	game.draw_rect(rect, Color("668d68") if enabled else Color("3f5049"))
 	game.draw_string(game.UI_FONT, rect.position + Vector2(5, 30), label, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 10, 11, Color.WHITE if enabled else Color("87958c"))
 
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func panel(game: Node, rect: Rect2, color: Color) -> void:
 	game.draw_rect(rect, Color(0.02, 0.035, 0.03, 0.95))
 	game.draw_rect(rect.grow(-3), color)

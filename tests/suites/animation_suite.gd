@@ -1,6 +1,7 @@
 extends "res://tests/suites/suite_base.gd"
 
 
+## Запускает все сценарии текущего набора тестов в фиксированном порядке.
 func run() -> void:
 	test_animation_frame_modes()
 	test_player_attack_and_slime_reaction()
@@ -8,6 +9,9 @@ func run() -> void:
 	test_slime_attack_returns_to_idle()
 
 
+## Сценарий: циклическая и одноразовая анимации выбирают правильные кадры.
+## Исходное состояние: новый изолированный экземпляр игры; необходимые ресурсы, позиции и таймеры задаются в начале сценария.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_animation_frame_modes() -> void:
 	var game := make_game()
 	expect(game.AnimationSystem.frame(0.7, 4, 10.0) == 3, "looped animation wraps frames deterministically")
@@ -15,6 +19,9 @@ func test_animation_frame_modes() -> void:
 	game.free()
 
 
+## Сценарий: атака героя запускает замах и реакцию слизня на попадание.
+## Исходное состояние: новая игра с живыми целями; здоровье, позиции, оружие и добыча настраиваются сценарием.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_player_attack_and_slime_reaction() -> void:
 	var game := make_game()
 	game.player = game.slime_position
@@ -27,6 +34,9 @@ func test_player_attack_and_slime_reaction() -> void:
 	game.free()
 
 
+## Сценарий: обычный враг проходит состояния ранения, гибели и исчезновения.
+## Исходное состояние: новая игра с живыми целями; здоровье, позиции, оружие и добыча настраиваются сценарием.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_enemy_hurt_and_death_lifecycle() -> void:
 	var game := make_game()
 	game.current_location = "forest"
@@ -44,6 +54,9 @@ func test_enemy_hurt_and_death_lifecycle() -> void:
 	game.free()
 
 
+## Сценарий: атака слизня завершается возвратом в состояние покоя.
+## Исходное состояние: новая игра с живыми целями; здоровье, позиции, оружие и добыча настраиваются сценарием.
+## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_slime_attack_returns_to_idle() -> void:
 	var game := make_game()
 	game.AnimationSystem.begin_slime_attack(game)

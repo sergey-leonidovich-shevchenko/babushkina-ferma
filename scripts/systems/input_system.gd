@@ -1,6 +1,6 @@
 extends RefCounted
 
-## Единственная точка регистрации gameplay-действий. UI может переназначить
+## Единственная точка регистрации игровых действий. Интерфейс может переназначить
 ## InputMap без изменений в бою, ферме или инвентаре.
 const ACTION_BINDINGS := {
 	"move_left": [KEY_A, KEY_LEFT],
@@ -17,6 +17,7 @@ const ACTION_BINDINGS := {
 }
 
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func ensure_default_actions() -> void:
 	for action in ACTION_BINDINGS:
 		if not InputMap.has_action(action):
@@ -29,6 +30,7 @@ static func ensure_default_actions() -> void:
 			InputMap.action_add_event(action, event)
 
 
+## Устанавливает относящееся к методу значение и синхронизирует зависимое состояние.
 static func set_action_key_state(game: Node, event: InputEventKey) -> bool:
 	if event.keycode != KEY_E and event.keycode != KEY_SPACE:
 		return false
@@ -38,6 +40,7 @@ static func set_action_key_state(game: Node, event: InputEventKey) -> bool:
 	return true
 
 
+## Устанавливает относящееся к методу значение и синхронизирует зависимое состояние.
 static func set_attack_key_state(game: Node, event: InputEventKey) -> bool:
 	if event.keycode != KEY_F:
 		return false
@@ -47,6 +50,7 @@ static func set_attack_key_state(game: Node, event: InputEventKey) -> bool:
 	return true
 
 
+## Обновляет относящуюся к методу часть состояния на текущем кадре.
 static func update_held_action(game: Node, delta: float) -> void:
 	if not game.action_held or game.title_screen or game.shop_open or game.inventory_open:
 		return
@@ -57,6 +61,7 @@ static func update_held_action(game: Node, delta: float) -> void:
 	perform_repeatable_action(game)
 
 
+## Обновляет удерживаемого атаки на текущем кадре.
 static func update_held_attack(game: Node, delta: float) -> void:
 	if not game.attack_held or game.title_screen or game.shop_open or game.inventory_open:
 		return
@@ -66,6 +71,7 @@ static func update_held_attack(game: Node, delta: float) -> void:
 		game.attack_nearest_enemy()
 
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func perform_repeatable_action(game: Node) -> bool:
 	var interaction: String = game.nearest_interaction()
 	if interaction.begins_with("resource:"):
@@ -84,6 +90,7 @@ static func perform_repeatable_action(game: Node) -> bool:
 	return true
 
 
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func apply_immediate_key_response(game: Node, event: InputEventKey) -> void:
 	if event.echo:
 		return
@@ -102,6 +109,7 @@ static func apply_immediate_key_response(game: Node, event: InputEventKey) -> vo
 		game.facing = direction
 
 
+## Обрабатывает инвентаря мыши и синхронизирует связанное состояние.
 static func handle_inventory_mouse(game: Node, event: InputEventMouseButton) -> void:
 	if event.pressed and event.button_index in [MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_DOWN]:
 		game.InventorySystem.scroll(game, -1 if event.button_index == MOUSE_BUTTON_WHEEL_UP else 1)
