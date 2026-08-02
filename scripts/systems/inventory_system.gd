@@ -1,5 +1,9 @@
 extends RefCounted
 
+const COLUMNS := 6
+const VISIBLE_ROWS := 5
+const VISIBLE_SLOTS := COLUMNS * VISIBLE_ROWS
+
 const ITEM_DATA := {
 	"hoe": {"name": "Мотыга", "short": "Мотыга", "color": Color("a87542"), "tool": 0},
 	"seeds": {"name": "Семена моркови", "short": "Семена", "color": Color("d8b86b"), "tool": 1},
@@ -44,6 +48,46 @@ const ITEM_DATA := {
 
 static func data(kind: String) -> Dictionary:
 	return ITEM_DATA.get(kind, {"name": "Неизвестный предмет", "short": "?", "color": Color.WHITE})
+
+static func ensure_item_slot(game: Node, kind: String) -> int:
+	if kind.is_empty():
+		return -1
+	var existing: int = game.inventory_slots.find(kind)
+	if existing >= 0:
+		ensure_capacity(game)
+		return existing
+	var empty: int = game.inventory_slots.find("")
+	if empty < 0:
+		empty = game.inventory_slots.size()
+		game.inventory_slots.append(kind)
+	else:
+		game.inventory_slots[empty] = kind
+	ensure_capacity(game)
+	return empty
+
+static func ensure_capacity(game: Node) -> void:
+	var last_used := -1
+	for index in game.inventory_slots.size():
+		if not String(game.inventory_slots[index]).is_empty():
+			last_used = index
+	var required_rows := maxi(VISIBLE_ROWS, ceili(float(last_used + 1) / COLUMNS) + 1)
+	var required_slots := required_rows * COLUMNS
+	while game.inventory_slots.size() < required_slots:
+		game.inventory_slots.append("")
+
+static func max_scroll_row(game: Node) -> int:
+	return maxi(0, ceili(float(game.inventory_slots.size()) / COLUMNS) - VISIBLE_ROWS)
+
+static func scroll(game: Node, rows: int) -> void:
+	game.inventory_scroll_row = clampi(game.inventory_scroll_row + rows, 0, max_scroll_row(game))
+
+static func keep_selection_visible(game: Node) -> void:
+	var selected_row: int = game.inventory_selected / COLUMNS
+	if selected_row < game.inventory_scroll_row:
+		game.inventory_scroll_row = selected_row
+	elif selected_row >= game.inventory_scroll_row + VISIBLE_ROWS:
+		game.inventory_scroll_row = selected_row - VISIBLE_ROWS + 1
+	game.inventory_scroll_row = clampi(game.inventory_scroll_row, 0, max_scroll_row(game))
 
 static func assign_hotbar(game: Node, inventory_index: int, hotbar_index: int) -> bool:
 	if inventory_index < 0 or inventory_index >= game.inventory_slots.size() or hotbar_index < 0 or hotbar_index >= 10:

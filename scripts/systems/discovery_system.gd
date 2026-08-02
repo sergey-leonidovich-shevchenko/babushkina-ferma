@@ -62,9 +62,9 @@ static func scan_nearby(game: Node) -> bool:
 		add_candidate(candidates, "bridge", game.BRIDGE_RECT.get_center(), STATIC_HINTS.bridge)
 		if game.slime_alive:
 			add_candidate(candidates, "slime", game.slime_position, STATIC_HINTS.slime)
-		for food in game.food_nodes:
-			if food.active:
-				add_candidate(candidates, "food:%s" % food.kind, food.position, food_hint(game, food.kind))
+	for food in game.food_nodes:
+		if food.active and food.get("location", "overworld") == game.current_location:
+			add_candidate(candidates, "food:%s" % food.kind, food.position, food_hint(game, food.kind))
 	add_candidate(candidates, "world_gate", game.world_gate_position, STATIC_HINTS.world_gate)
 	for resource in game.resource_nodes:
 		if resource.hits > 0 and resource.location == game.current_location:
@@ -113,7 +113,8 @@ static func enemy_hint(game: Node, kind: String) -> Dictionary:
 	return {"title":enemy.name,"text":"Опасный противник. F атакует, оружие меняется клавишей R; следи за полосой здоровья."}
 
 static func food_hint(game: Node, kind: String) -> Dictionary:
-	return {"title":game.inventory_item_name(kind),"text":"Дикорастущая еда. Подбери через E, затем съешь из рюкзака для лечения или временного эффекта."}
+	var forage: Dictionary = game.ForageSystem.TYPES[kind]
+	return {"title":forage.name,"text":"Собери через E: урожай вернётся через %s. Чем дольше созревание, тем выше цена в лавке — сейчас %d монет за штуку." % [game.ForageSystem.duration_text(forage.growth_minutes), forage.sell]}
 
 static func wildlife_hint(game: Node, kind: String) -> Dictionary:
 	var animal: Dictionary = game.WildlifeSystem.TYPES[kind]

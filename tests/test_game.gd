@@ -39,6 +39,8 @@ func _initialize() -> void:
 	test_character_level_skill_points_and_resource_attributes()
 	test_profession_progress_and_gameplay_bonuses()
 	test_progression_save_and_universal_skill_menu_input()
+	test_regrowing_forage_harvest_value_and_sale()
+	test_unbounded_scrolling_inventory_and_forage_save()
 	test_gameplay_systems_are_modular()
 	print("TESTS: %d passed, %d failed" % [passed, failed])
 	quit(0 if failed == 0 else 1)
@@ -342,7 +344,7 @@ func test_food_healing_and_temporary_effects() -> void:
 	expect(game.player.x - start_x > game.speed, "mushroom effect increases movement speed")
 	game.player = game.food_nodes[0].position
 	game.food_nodes[0].active = true
-	expect(game.perform_repeatable_action() and game.mushrooms == 1, "wild food sprite can be collected while action is held")
+	expect(game.perform_repeatable_action() and game.mushrooms == 2, "wild food sprite can be collected while action is held")
 	game.oranges = 1
 	game.player_hp = 60
 	game.energy = 5
@@ -450,7 +452,7 @@ func test_gameplay_systems_are_modular() -> void:
 	expect(game.FarmSystem != null and game.FishingSystem != null and game.QuestSystem != null, "farm fishing and quest systems are separate modules")
 	expect(game.CombatSystem != null and game.CraftingSystem != null and game.SaveSystem != null, "combat crafting and save systems are separate modules")
 	expect(game.WorldSystem != null and game.RenderSystem != null, "world and rendering coordinators are separate modules")
-	expect(game.ResourceSystem != null and game.ShopSystem != null and game.TutorialSystem != null and game.DiscoverySystem != null and game.WildlifeSystem != null and game.LootContainerSystem != null, "resources shop tutorial discoveries wildlife and world loot are separate modules")
+	expect(game.ResourceSystem != null and game.ShopSystem != null and game.TutorialSystem != null and game.DiscoverySystem != null and game.WildlifeSystem != null and game.LootContainerSystem != null and game.ForageSystem != null, "resources shop tutorial discoveries wildlife forage and world loot are separate modules")
 	game.free()
 
 func test_colored_crystals_and_orc_equipment_loot() -> void:
@@ -565,7 +567,7 @@ func test_discoveries_and_tutorial_checklist_are_saved() -> void:
 	game.SaveSystem.apply(game, snapshot)
 	expect(game.seen_discoveries.has("shop") and game.seen_discoveries.has("enemy:orc"), "save restores discovered feature history")
 	expect(game.tutorial_step == save_step + 1 and game.tutorial_events_completed.has("save"), "save restores tutorial checklist progress")
-	var required_events := ["move","character_animation","plant","rewater","trade","fight","hotbar","equipment","fish","craft_window","mission_complete","journal","side_mission","colored_crystal","day","level_up","skill_point","profession","save","wildlife","world_loot"]
+	var required_events := ["move","character_animation","forage_harvest","forage_regrow","forage_sale","plant","rewater","trade","fight","hotbar","equipment","fish","craft_window","mission_complete","journal","side_mission","colored_crystal","day","level_up","skill_point","profession","save","wildlife","world_loot"]
 	for event_name in required_events:
 		expect(game.tutorial_steps.any(func(step): return step.event == event_name), "tutorial covers feature: %s" % event_name)
 	game.free()
@@ -737,4 +739,62 @@ func test_progression_save_and_universal_skill_menu_input() -> void:
 	legacy_snapshot.erase("progression")
 	game.SaveSystem.apply(game, legacy_snapshot)
 	expect(game.skill_points == 0 and game.skill_levels.vitality == 0, "older saves migrate to default RPG skills")
+	game.free()
+
+func test_regrowing_forage_harvest_value_and_sale() -> void:
+	var game := make_game()
+	var forage: Dictionary = game.ForageSystem.TYPES
+	expect(forage.berries.growth_minutes < forage.mushroom.growth_minutes and forage.mushroom.growth_minutes < forage.apple.growth_minutes and forage.apple.growth_minutes < forage.nut.growth_minutes, "forage crops have increasing hour and day growth times")
+	expect(forage.berries.sell < forage.mushroom.sell and forage.mushroom.sell < forage.apple.sell and forage.apple.sell < forage.nut.sell, "slower forage crops sell for progressively more")
+	var berry_index := 1
+	game.player = game.food_nodes[berry_index].position
+	var harvest_time: float = game.ForageSystem.total_minutes(game)
+	expect(game.collect_food(berry_index), "ripe berry bush can be harvested with context action")
+	expect(game.berries == 3 and not game.food_nodes[berry_index].active, "berry harvest enters inventory and empties the bush")
+	expect(is_equal_approx(game.food_nodes[berry_index].ready_at, harvest_time + 360.0), "berry bush schedules regrowth in six game hours")
+	game.game_minutes += 359.0
+	game.ForageSystem.update(game)
+	expect(not game.food_nodes[berry_index].active, "forage does not regrow before its timer")
+	game.game_minutes += 2.0
+	game.ForageSystem.update(game)
+	expect(game.food_nodes[berry_index].active and game.tutorial_events_completed.has("forage_regrow"), "forage becomes harvestable after enough game time")
+	game.shop_selected = 2
+	var coins_before: int = game.coins
+	expect(game.sell_selected_product(), "shop buys harvested berries")
+	expect(game.coins == coins_before + forage.berries.sell and game.tutorial_events_completed.has("forage_sale"), "forage sale uses growth-based price and tutorial event")
+	var apple: Dictionary = game.food_nodes[3]
+	expect(not game.NavigationSystem.is_walkable(game, apple.position), "fruit trees remain solid world obstacles")
+	game.current_location = "forest"
+	game.player = game.food_nodes[4].position
+	expect(game.collect_food(4), "forest berry bushes are harvestable outside the village")
+	game.free()
+
+func test_unbounded_scrolling_inventory_and_forage_save() -> void:
+	var game := make_game()
+	var original_slots: int = game.inventory_slots.size()
+	for kind in ["fiber","rare_seeds","metal","bones","ancient_key","blue_gem","moon_relic"]:
+		expect(game.change_inventory_count(kind, 1), "new inventory category can be added: %s" % kind)
+	expect(game.inventory_slots.size() > original_slots and game.inventory_slots.size() % game.InventorySystem.COLUMNS == 0, "inventory grows by complete rows without a slot limit")
+	expect(game.inventory_slots.has("fiber") and game.inventory_slots.has("moon_relic"), "expanded inventory exposes all acquired material categories")
+	game.open_inventory()
+	expect(game.InventorySystem.max_scroll_row(game) > 0, "expanded inventory exposes vertical scrolling")
+	var drag := InputEventScreenDrag.new()
+	drag.relative = Vector2(0, -50)
+	expect(game.handle_gamepad_and_touch(drag) and game.inventory_scroll_row == 1, "touch drag scrolls the inventory down")
+	game.inventory_selected = game.inventory_slots.size() - 1
+	game.InventorySystem.keep_selection_visible(game)
+	expect(game.inventory_scroll_row == game.InventorySystem.max_scroll_row(game), "keyboard or gamepad selection keeps the last row visible")
+	game.inventory_open = false
+	var nut_index := 2
+	game.current_location = "overworld"
+	game.player = game.food_nodes[nut_index].position
+	game.collect_food(nut_index)
+	var saved_ready_at: float = game.food_nodes[nut_index].ready_at
+	var snapshot: Dictionary = game.SaveSystem.snapshot(game)
+	game.food_nodes[nut_index].active = true
+	game.food_nodes[nut_index].ready_at = 0.0
+	game.inventory_slots.resize(6)
+	game.SaveSystem.apply(game, snapshot)
+	expect(not game.food_nodes[nut_index].active and game.food_nodes[nut_index].ready_at == saved_ready_at, "save restores forage regrowth timers")
+	expect(game.inventory_slots.size() > 30 and game.inventory_slots.has("moon_relic"), "save restores the dynamically expanded inventory")
 	game.free()

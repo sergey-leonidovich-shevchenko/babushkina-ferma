@@ -7,6 +7,7 @@ static func snapshot(game: Node) -> Dictionary:
 	var drops := []
 	var wildlife := []
 	var containers := []
+	var forage := []
 	for cell in game.plots:
 		var plot: Dictionary = game.plots[cell]
 		plot_data.append({"x":cell.x,"y":cell.y,"tilled":plot.tilled,"planted":plot.planted,"watered":plot.watered,"growth":plot.growth,"stage":plot.stage})
@@ -16,7 +17,9 @@ static func snapshot(game: Node) -> Dictionary:
 		wildlife.append({"hp":animal.hp,"alive":animal.alive,"position":[animal.position.x,animal.position.y]})
 	for container in game.world_loot_nodes:
 		containers.append({"id":container.id,"kind":container.kind,"location":container.location,"position":[container.position.x,container.position.y],"opened":container.opened,"contents":container.contents.duplicate(true)})
-	return {"version":1,"player":[game.player.x,game.player.y],"location":game.current_location,"day":game.day,"minutes":game.game_minutes,"energy":game.energy,"coins":game.coins,"xp":game.player_xp,"level":game.player_level,"hp":game.player_hp,"progression":{"points":game.skill_points,"levels":game.skill_levels.duplicate(true),"xp":game.skill_xp.duplicate(true),"mana":game.player_mana},"counts":game.export_inventory_counts().duplicate(true),"slots":game.inventory_slots.duplicate(true),"hotbar":game.hotbar_slots.duplicate(true),"equipment":game.equipment.duplicate(true),"quest_active":game.quest_active,"quest_complete":game.quest_complete,"missions":game.mission_states.duplicate(true),"tutorial":{"step":game.tutorial_step,"events":game.tutorial_events_completed.duplicate(true),"seen":game.seen_discoveries.duplicate(true),"animation":game.character_animation_directions.keys()},"weapons":{"sword":game.sword_crafted,"bow":game.has_bow,"crystal":game.has_crystal_sword,"equipped":game.equipped_weapon},"plots":plot_data,"resource_hits":game.resource_nodes.map(func(node): return node.hits),"food_active":game.food_nodes.map(func(node): return node.active),"enemies":game.enemy_nodes.map(func(enemy): return {"hp":enemy.hp,"alive":enemy.alive}),"wildlife":wildlife,"world_loot_seed":game.world_loot_seed,"containers":containers,"drops":drops}
+	for node in game.food_nodes:
+		forage.append({"active":node.active,"ready_at":node.get("ready_at", 0.0)})
+	return {"version":1,"player":[game.player.x,game.player.y],"location":game.current_location,"day":game.day,"minutes":game.game_minutes,"energy":game.energy,"coins":game.coins,"xp":game.player_xp,"level":game.player_level,"hp":game.player_hp,"progression":{"points":game.skill_points,"levels":game.skill_levels.duplicate(true),"xp":game.skill_xp.duplicate(true),"mana":game.player_mana},"counts":game.export_inventory_counts().duplicate(true),"slots":game.inventory_slots.duplicate(true),"hotbar":game.hotbar_slots.duplicate(true),"equipment":game.equipment.duplicate(true),"quest_active":game.quest_active,"quest_complete":game.quest_complete,"missions":game.mission_states.duplicate(true),"tutorial":{"step":game.tutorial_step,"events":game.tutorial_events_completed.duplicate(true),"seen":game.seen_discoveries.duplicate(true),"animation":game.character_animation_directions.keys()},"weapons":{"sword":game.sword_crafted,"bow":game.has_bow,"crystal":game.has_crystal_sword,"equipped":game.equipped_weapon},"plots":plot_data,"resource_hits":game.resource_nodes.map(func(node): return node.hits),"food_active":game.food_nodes.map(func(node): return node.active),"forage":forage,"enemies":game.enemy_nodes.map(func(enemy): return {"hp":enemy.hp,"alive":enemy.alive}),"wildlife":wildlife,"world_loot_seed":game.world_loot_seed,"containers":containers,"drops":drops}
 
 static func apply(game: Node, data: Dictionary) -> bool:
 	if data.get("version", 0) != 1: return false
@@ -38,6 +41,10 @@ static func apply(game: Node, data: Dictionary) -> bool:
 			game.inventory_slots.append(kind)
 	while game.inventory_slots.size() < inventory_catalog.size():
 		game.inventory_slots.append("")
+	for kind in game.export_inventory_counts():
+		if game.inventory_item_count(kind) > 0:
+			game.InventorySystem.ensure_item_slot(game, kind)
+	game.InventorySystem.ensure_capacity(game)
 	game.hotbar_slots.assign(data.hotbar)
 	game.equipment = data.equipment.duplicate(true); game.quest_active = data.quest_active; game.quest_complete = data.quest_complete
 	game.mission_states = data.get("missions", game.mission_states).duplicate(true)
@@ -56,7 +63,12 @@ static func apply(game: Node, data: Dictionary) -> bool:
 			for key in ["tilled","planted","watered","growth","stage"]: plot[key] = saved_plot[key]
 			game.plots[cell] = plot
 	for index in mini(data.resource_hits.size(), game.resource_nodes.size()): game.resource_nodes[index].hits = data.resource_hits[index]
-	for index in mini(data.food_active.size(), game.food_nodes.size()): game.food_nodes[index].active = data.food_active[index]
+	if data.has("forage"):
+		for index in mini(data.forage.size(), game.food_nodes.size()):
+			game.food_nodes[index].active = data.forage[index].active
+			game.food_nodes[index].ready_at = data.forage[index].ready_at
+	else:
+		for index in mini(data.get("food_active", []).size(), game.food_nodes.size()): game.food_nodes[index].active = data.food_active[index]
 	for index in mini(data.get("enemies",[]).size(), game.enemy_nodes.size()):
 		game.enemy_nodes[index].hp = data.enemies[index].hp; game.enemy_nodes[index].alive = data.enemies[index].alive
 	for index in mini(data.get("wildlife",[]).size(), game.wildlife_nodes.size()):

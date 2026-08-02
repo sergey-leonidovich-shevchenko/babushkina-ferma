@@ -31,6 +31,7 @@ const DiscoverySystem := preload("res://scripts/systems/discovery_system.gd")
 const WildlifeSystem := preload("res://scripts/systems/wildlife_system.gd")
 const LootContainerSystem := preload("res://scripts/systems/loot_container_system.gd")
 const SkillSystem := preload("res://scripts/systems/skill_system.gd")
+const ForageSystem := preload("res://scripts/systems/forage_system.gd")
 const ITEM_HELMET := preload("res://assets/game/items/iron_helmet.png")
 const ITEM_ARMOR := preload("res://assets/game/items/guardian_armor.png")
 const ITEM_BOOTS := preload("res://assets/game/items/travel_boots.png")
@@ -76,6 +77,8 @@ var shop_open := false
 var inventory_open := false
 var inventory_selected := 0
 var inventory_move_from := -1
+var inventory_scroll_row := 0
+var inventory_touch_drag_y := 0.0
 var inventory_slots := ["seeds", "carrot", "pickaxe", "fishing_rod", "slime", "wood", "stone", "crystal", "fish", "sword", "bow", "crystal_sword", "apple", "berries", "nut", "mushroom", "iron_helmet", "guardian_armor", "travel_boots", "crystal_ring", "orange", "orc_blade", "red_crystal", "green_crystal", "raw_meat", "hide", "fur", "tusk", "bat_wing", ""]
 var hotbar_slots := ["hoe", "seeds", "water", "hand", "pickaxe", "fishing_rod", "carrot", "apple", "berries", "mushroom"]
 var selected_hotbar := 0
@@ -112,7 +115,11 @@ var dropped_items: Array = []
 var shop_selected := 0
 var shop_products := [
 	{"name": "Семена моркови ×4", "kind": "seeds", "amount": 4, "buy": 5, "sell": 0, "icon": Rect2(0, 55, 36, 45)},
-	{"name": "Морковь", "kind": "carrot", "buy": 10, "sell": 8, "icon": Rect2(34, 112, 30, 28)}
+	{"name": "Морковь", "kind": "carrot", "buy": 10, "sell": 8, "icon": Rect2(34, 112, 30, 28)},
+	{"name": "Лесные ягоды • 6 ч.", "kind": "berries", "buy": 0, "sell": 4, "forage": true},
+	{"name": "Красный гриб • 12 ч.", "kind": "mushroom", "buy": 0, "sell": 7, "forage": true},
+	{"name": "Лесное яблоко • 1 день", "kind": "apple", "buy": 0, "sell": 12, "forage": true},
+	{"name": "Крепкий орех • 2 дня", "kind": "nut", "buy": 0, "sell": 22, "forage": true}
 ]
 var title_alpha := 1.0
 var movement_enabled := false
@@ -170,10 +177,14 @@ var nuts := 0
 var mushrooms := 0
 var oranges := 0
 var food_nodes := [
-	{"position": Vector2(1320, 720), "kind": "mushroom", "active": true},
-	{"position": Vector2(1740, 360), "kind": "berries", "active": true},
-	{"position": Vector2(2010, 640), "kind": "nut", "active": true},
-	{"position": Vector2(1110, 330), "kind": "apple", "active": true}
+	{"position": Vector2(1320, 720), "location":"overworld", "kind":"mushroom", "active":true, "ready_at":0.0},
+	{"position": Vector2(1740, 360), "location":"overworld", "kind":"berries", "active":true, "ready_at":0.0},
+	{"position": Vector2(2010, 640), "location":"overworld", "kind":"nut", "active":true, "ready_at":0.0},
+	{"position": Vector2(1110, 330), "location":"overworld", "kind":"apple", "active":true, "ready_at":0.0},
+	{"position": Vector2(620, 690), "location":"forest", "kind":"berries", "active":true, "ready_at":0.0},
+	{"position": Vector2(1420, 350), "location":"forest", "kind":"apple", "active":true, "ready_at":0.0},
+	{"position": Vector2(1880, 680), "location":"forest", "kind":"nut", "active":true, "ready_at":0.0},
+	{"position": Vector2(980, 720), "location":"forest", "kind":"mushroom", "active":true, "ready_at":0.0}
 ]
 var fishing_state := "idle"
 var fishing_timer := 0.0
@@ -205,6 +216,9 @@ var discovery_scan_timer := 0.0
 var tutorial_steps := [
 	{"event": "move", "text": "Пройди немного стрелками или WASD"},
 	{"event": "character_animation", "text": "Пройди во все четыре стороны и проверь анимацию героя"},
+	{"event": "forage_harvest", "text": "Найди куст или плодовое дерево и собери урожай [E]"},
+	{"event": "forage_regrow", "text": "Дождись повторного созревания дикого растения по игровым часам"},
+	{"event": "forage_sale", "text": "Продай урожай в лавке: долгие культуры стоят дороже"},
 	{"event": "talk", "text": "Подойди к бабушке и нажми E"},
 	{"event": "hold_action", "text": "Выбери мотыгу [1] и держи движение + E"},
 	{"event": "plant", "text": "Вспаши грядку [1], посади морковь [2]"},
@@ -267,6 +281,7 @@ func _physics_process(delta: float) -> void:
 	update_status_effects(delta)
 	PlayerSystem.update_animation(self, delta)
 	SkillSystem.update_resources(self, delta)
+	ForageSystem.update(self)
 	DiscoverySystem.update(self, delta)
 	WildlifeSystem.update(self, delta)
 	if benchmark_autoplay:
@@ -620,7 +635,7 @@ func nearest_interaction() -> String:
 			nearest = "resource:%d" % index
 	for index in food_nodes.size():
 		var food: Dictionary = food_nodes[index]
-		if not food.active or current_location != "overworld":
+		if not food.active or food.get("location", "overworld") != current_location:
 			continue
 		var distance: float = player.distance_to(food.position)
 		if distance < nearest_distance:
@@ -704,6 +719,8 @@ func exit_cave() -> void:
 func open_inventory() -> void:
 	inventory_open = true
 	inventory_move_from = -1
+	InventorySystem.ensure_capacity(self)
+	InventorySystem.keep_selection_visible(self)
 	clear_movement_keys()
 	notify_tutorial("inventory")
 	message = "Инвентарь открыт"
@@ -771,9 +788,15 @@ func change_inventory_count(kind: String, amount: int) -> bool:
 		_:
 			if not materials.has(kind): return false
 			materials[kind] += amount
+	if amount > 0 and inventory_item_count(kind) > 0:
+		InventorySystem.ensure_item_slot(self, kind)
 	return true
 
 func handle_inventory_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index in [MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_DOWN]:
+		InventorySystem.scroll(self, -1 if event.button_index == MOUSE_BUTTON_WHEEL_UP else 1)
+		queue_redraw()
+		return
 	if event is InputEventJoypadButton and event.pressed:
 		match event.button_index:
 			JOY_BUTTON_DPAD_LEFT: inventory_selected = posmod(inventory_selected - 1, inventory_slots.size())
@@ -783,6 +806,7 @@ func handle_inventory_input(event: InputEvent) -> void:
 			JOY_BUTTON_A: consume_selected_item()
 			JOY_BUTTON_X: equip_selected_item()
 			JOY_BUTTON_Y: inventory_open = false
+		InventorySystem.keep_selection_visible(self)
 		queue_redraw()
 		return
 	if not (event is InputEventKey and event.pressed and not event.echo):
@@ -795,6 +819,8 @@ func handle_inventory_input(event: InputEvent) -> void:
 		KEY_RIGHT: inventory_selected = posmod(inventory_selected + 1, inventory_slots.size())
 		KEY_UP: inventory_selected = posmod(inventory_selected - 6, inventory_slots.size())
 		KEY_DOWN: inventory_selected = posmod(inventory_selected + 6, inventory_slots.size())
+		KEY_PAGEUP: inventory_selected = maxi(0, inventory_selected - InventorySystem.VISIBLE_SLOTS)
+		KEY_PAGEDOWN: inventory_selected = mini(inventory_slots.size() - 1, inventory_selected + InventorySystem.VISIBLE_SLOTS)
 		KEY_M: move_inventory_slot()
 		KEY_X: drop_selected_item()
 		KEY_ENTER, KEY_E: consume_selected_item()
@@ -810,6 +836,7 @@ func handle_inventory_input(event: InputEvent) -> void:
 		KEY_9: assign_selected_to_hotbar(8)
 		KEY_0: assign_selected_to_hotbar(9)
 		KEY_DELETE, KEY_BACKSPACE: delete_selected_item()
+	InventorySystem.keep_selection_visible(self)
 	queue_redraw()
 
 func move_inventory_slot() -> void:
@@ -852,16 +879,7 @@ func collect_dropped_item(index: int) -> bool:
 	return true
 
 func collect_food(index: int) -> bool:
-	if index < 0 or index >= food_nodes.size():
-		return false
-	var food: Dictionary = food_nodes[index]
-	if not food.active or current_location != "overworld" or player.distance_to(food.position) > 92.0:
-		return false
-	food.active = false
-	food_nodes[index] = food
-	change_inventory_count(food.kind, 1)
-	message = "Собрано: %s. Съешь в рюкзаке [I]" % inventory_item_name(food.kind)
-	return true
+	return ForageSystem.collect(self, index)
 
 func consume_selected_item() -> bool:
 	var kind: String = inventory_slots[inventory_selected]
@@ -1137,8 +1155,7 @@ func grant_tester_kit() -> void:
 	slime_alive = true
 	slime_hp = 3
 	loot_available = false
-	for index in food_nodes.size():
-		food_nodes[index].active = true
+	ForageSystem.reset_all(self)
 	for index in enemy_nodes.size():
 		enemy_nodes[index].alive = true
 		enemy_nodes[index].hp = CombatSystem.TYPES[enemy_nodes[index].kind].hp
@@ -1337,7 +1354,6 @@ func draw_rpg_world() -> void:
 	elif loot_available:
 		draw_circle(slime_position, 13, Color("78d6a5"))
 		draw_circle(slime_position - Vector2(4, 4), 4, Color("baf1c8"))
-	draw_food_nodes()
 	# Вход в отдельную пещерную локацию.
 	draw_circle(cave_entrance_position, 52, Color("283a43"))
 	draw_circle(cave_entrance_position, 38 + sin(Time.get_ticks_msec() / 170.0) * 4, Color("66d5cf"), false, 6)
@@ -1354,19 +1370,23 @@ func draw_mission_npc(position: Vector2, npc_name: String, mission_id: String, c
 
 func draw_food_nodes() -> void:
 	for food in food_nodes:
-		if not food.active:
+		if food.get("location", "overworld") != current_location:
 			continue
 		var position: Vector2 = food.position
+		var alpha := 1.0 if food.active else 0.36
 		match food.kind:
 			"mushroom":
-				draw_texture_rect(RED_MUSHROOMS, Rect2(position - Vector2(28, 28), Vector2(56, 56)), false)
+				draw_texture_rect(RED_MUSHROOMS, Rect2(position - Vector2(28, 28), Vector2(56, 56)), false, Color(1, 1, 1, alpha))
 			"berries":
-				draw_texture_rect_region(PLANT_SHEET, Rect2(position - Vector2(44, 70), Vector2(88, 88)), Rect2(288, 0, 96, 96))
+				draw_texture_rect_region(PLANT_SHEET, Rect2(position - Vector2(44, 70), Vector2(88, 88)), Rect2(288, 0, 96, 96), Color(1, 1, 1, alpha))
 			"apple":
-				draw_texture_rect_region(PLANT_SHEET, Rect2(position - Vector2(44, 70), Vector2(88, 88)), Rect2(288, 144, 96, 96))
+				draw_texture_rect_region(PLANT_SHEET, Rect2(position - Vector2(44, 70), Vector2(88, 88)), Rect2(288, 144, 96, 96), Color(1, 1, 1, alpha))
 			"nut":
-				draw_texture_rect_region(PLANT_SHEET, Rect2(position - Vector2(44, 70), Vector2(88, 88)), Rect2(288, 288, 96, 96))
-		draw_circle(position, 30, Color(1.0, 0.88, 0.32, 0.24))
+				draw_texture_rect_region(PLANT_SHEET, Rect2(position - Vector2(44, 70), Vector2(88, 88)), Rect2(288, 288, 96, 96), Color(1, 1, 1, alpha))
+		if food.active:
+			draw_circle(position, 30 + sin(Time.get_ticks_msec() / 170.0) * 3, Color(1.0, 0.88, 0.32, 0.24), false, 3)
+		else:
+			draw_string(ThemeDB.fallback_font, position + Vector2(-55, 42), ForageSystem.remaining_text(self, food), HORIZONTAL_ALIGNMENT_CENTER, 110, 12, Color("e7d6a3"))
 
 func fishing_animation_frame(frame_count: int, frame_ms: int = 140) -> int:
 	return int(Time.get_ticks_msec() / frame_ms) % frame_count
@@ -1676,10 +1696,12 @@ func draw_inventory() -> void:
 	draw_rect(Rect2(38, 40, 1076, 552), Color("2d2925"))
 	draw_rect(Rect2(54, 56, 1044, 520), Color("e8cf96"))
 	draw_rect(Rect2(54, 56, 1044, 62), Color("594334"))
-	draw_string(ThemeDB.fallback_font, Vector2(330, 98), "РЮКЗАК • TAB", HORIZONTAL_ALIGNMENT_CENTER, 320, 27, Color("fff0bd"))
-	for index in inventory_slots.size():
+	draw_string(ThemeDB.fallback_font, Vector2(270, 98), "БЕЗРАЗМЕРНЫЙ РЮКЗАК • TAB", HORIZONTAL_ALIGNMENT_CENTER, 440, 25, Color("fff0bd"))
+	var first_visible := inventory_scroll_row * InventorySystem.COLUMNS
+	var last_visible := mini(first_visible + InventorySystem.VISIBLE_SLOTS, inventory_slots.size())
+	for index in range(first_visible, last_visible):
 		var column := index % 6
-		var row := index / 6
+		var row := index / 6 - inventory_scroll_row
 		var slot := Rect2(72 + column * 112, 126 + row * 69, 102, 61)
 		var selected := index == inventory_selected
 		var moving := index == inventory_move_from
@@ -1692,6 +1714,13 @@ func draw_inventory() -> void:
 			draw_string(ThemeDB.fallback_font, slot.position + Vector2(73, 51), "×%d" % inventory_item_count(kind), HORIZONTAL_ALIGNMENT_LEFT, -1, 13, Color("352e28"))
 		else:
 			draw_string(ThemeDB.fallback_font, slot.position + Vector2(45, 39), "—", HORIZONTAL_ALIGNMENT_LEFT, -1, 18, Color("937d61"))
+	var total_rows := ceili(float(inventory_slots.size()) / InventorySystem.COLUMNS)
+	var scroll_track := Rect2(750, 126, 10, 337)
+	draw_rect(scroll_track, Color("8c7559"))
+	var thumb_height := maxf(34.0, scroll_track.size.y * InventorySystem.VISIBLE_ROWS / float(maxi(total_rows, InventorySystem.VISIBLE_ROWS)))
+	var scroll_ratio := float(inventory_scroll_row) / float(maxi(InventorySystem.max_scroll_row(self), 1))
+	draw_rect(Rect2(scroll_track.position + Vector2(1, (scroll_track.size.y - thumb_height) * scroll_ratio), Vector2(8, thumb_height)), Color("f0c96f"))
+	draw_string(ThemeDB.fallback_font, Vector2(650, 106), "строка %d/%d" % [inventory_scroll_row + 1, maxi(total_rows - InventorySystem.VISIBLE_ROWS + 1, 1)], HORIZONTAL_ALIGNMENT_RIGHT, 100, 11, Color("d8c49a"))
 	draw_equipment_panel()
 	for index in 10:
 		var assign_box := Rect2(72 + index * 68, 492, 62, 44)
@@ -1702,7 +1731,7 @@ func draw_inventory() -> void:
 	draw_rect(Rect2(928, 500, 142, 38), Color("c08a55"))
 	draw_string(ThemeDB.fallback_font, Vector2(778, 525), "СЪЕСТЬ • A", HORIZONTAL_ALIGNMENT_CENTER, 126, 13, Color.WHITE)
 	draw_string(ThemeDB.fallback_font, Vector2(936, 525), "НАДЕТЬ • X", HORIZONTAL_ALIGNMENT_CENTER, 126, 13, Color.WHITE)
-	draw_string(ThemeDB.fallback_font, Vector2(72, 563), "E съесть • Q надеть • 1–0 назначить • M переместить • X выбросить • Delete удалить", HORIZONTAL_ALIGNMENT_LEFT, 990, 13, Color("493b2f"))
+	draw_string(ThemeDB.fallback_font, Vector2(72, 563), "Колесо/PgUp/PgDn — прокрутка • E съесть • Q надеть • 1–0 назначить • M переместить • X выбросить", HORIZONTAL_ALIGNMENT_LEFT, 990, 13, Color("493b2f"))
 
 func draw_equipment_panel() -> void:
 	draw_rect(Rect2(770, 136, 300, 350), Color("6f5542"))
@@ -1773,22 +1802,25 @@ func draw_shop() -> void:
 	draw_texture_rect_region(SUPPLY_SHEET, Rect2(175, 208, 176, 136), Rect2(0, 0, 176, 136))
 	draw_string(ThemeDB.fallback_font, Vector2(174, 470), "Бабушкины запасы", HORIZONTAL_ALIGNMENT_LEFT, -1, 18, Color("fff1c4"))
 	# Таблица товаров.
-	var table := Rect2(405, 190, 570, 260)
+	var table := Rect2(405, 174, 570, 324)
 	draw_rect(table, Color("fff4cf"))
-	draw_rect(Rect2(table.position, Vector2(table.size.x, 48)), Color("53704b"))
-	draw_string(ThemeDB.fallback_font, table.position + Vector2(62, 31), "ТОВАР", HORIZONTAL_ALIGNMENT_LEFT, -1, 18, Color.WHITE)
-	draw_string(ThemeDB.fallback_font, table.position + Vector2(350, 31), "КУПИТЬ", HORIZONTAL_ALIGNMENT_LEFT, -1, 18, Color.WHITE)
-	draw_string(ThemeDB.fallback_font, table.position + Vector2(455, 31), "ПРОДАТЬ", HORIZONTAL_ALIGNMENT_LEFT, -1, 18, Color.WHITE)
+	draw_rect(Rect2(table.position, Vector2(table.size.x, 42)), Color("53704b"))
+	draw_string(ThemeDB.fallback_font, table.position + Vector2(62, 28), "ТОВАР / СРОК РОСТА", HORIZONTAL_ALIGNMENT_LEFT, -1, 15, Color.WHITE)
+	draw_string(ThemeDB.fallback_font, table.position + Vector2(350, 28), "КУПИТЬ", HORIZONTAL_ALIGNMENT_LEFT, -1, 15, Color.WHITE)
+	draw_string(ThemeDB.fallback_font, table.position + Vector2(455, 28), "ПРОДАТЬ", HORIZONTAL_ALIGNMENT_LEFT, -1, 15, Color.WHITE)
 	for i in shop_products.size():
 		var product: Dictionary = shop_products[i]
-		var row := Rect2(table.position + Vector2(0, 48 + i * 86), Vector2(table.size.x, 86))
+		var row := Rect2(table.position + Vector2(0, 42 + i * 47), Vector2(table.size.x, 47))
 		draw_rect(row, Color("f2c96f") if i == shop_selected else Color("f8e8b5"))
 		draw_rect(row, Color("76543c"), false, 2)
-		draw_texture_rect_region(SUPPLY_SHEET, Rect2(row.position + Vector2(10, 9), Vector2(52, 66)), product.icon)
-		draw_string(ThemeDB.fallback_font, row.position + Vector2(72, 50), product.name, HORIZONTAL_ALIGNMENT_LEFT, 260, 19, Color("3d3428"))
-		draw_string(ThemeDB.fallback_font, row.position + Vector2(370, 50), "%d 🪙" % product.buy, HORIZONTAL_ALIGNMENT_LEFT, -1, 19, Color("3d3428"))
-		draw_string(ThemeDB.fallback_font, row.position + Vector2(478, 50), ("%d 🪙" % product.sell) if product.sell > 0 else "—", HORIZONTAL_ALIGNMENT_LEFT, -1, 19, Color("3d3428"))
-	draw_string(ThemeDB.fallback_font, Vector2(690, 495), "↑↓ выбрать   Enter купить   X продать   B закрыть", HORIZONTAL_ALIGNMENT_CENTER, 560, 18, Color("493b2f"))
+		if product.has("icon"):
+			draw_texture_rect_region(SUPPLY_SHEET, Rect2(row.position + Vector2(12, 5), Vector2(34, 38)), product.icon)
+		else:
+			draw_item_icon(product.kind, Rect2(row.position + Vector2(13, 7), Vector2(32, 32)))
+		draw_string(ThemeDB.fallback_font, row.position + Vector2(56, 30), product.name, HORIZONTAL_ALIGNMENT_LEFT, 286, 14, Color("3d3428"))
+		draw_string(ThemeDB.fallback_font, row.position + Vector2(370, 30), ("%d 🪙" % product.buy) if product.buy > 0 else "—", HORIZONTAL_ALIGNMENT_LEFT, -1, 15, Color("3d3428"))
+		draw_string(ThemeDB.fallback_font, row.position + Vector2(478, 30), ("%d 🪙" % product.sell) if product.sell > 0 else "—", HORIZONTAL_ALIGNMENT_LEFT, -1, 15, Color("3d3428"))
+	draw_string(ThemeDB.fallback_font, Vector2(690, 535), "↑↓ выбрать   Enter купить   X продать   B закрыть", HORIZONTAL_ALIGNMENT_CENTER, 560, 16, Color("493b2f"))
 
 func _input(event: InputEvent) -> void:
 	if handle_gamepad_and_touch(event):
@@ -1847,6 +1879,13 @@ func handle_gamepad_and_touch(event: InputEvent) -> bool:
 			JOY_BUTTON_START:
 				open_skill_menu()
 				return true
+	if event is InputEventScreenDrag and inventory_open:
+		inventory_touch_drag_y += event.relative.y
+		if absf(inventory_touch_drag_y) >= 36.0:
+			InventorySystem.scroll(self, -1 if inventory_touch_drag_y > 0.0 else 1)
+			inventory_touch_drag_y = 0.0
+		queue_redraw()
+		return true
 	if event is InputEventScreenTouch and event.pressed:
 		if Rect2(344, 190, 464, 126).has_point(event.position) and not discovery_current.is_empty():
 			DiscoverySystem.dismiss(self)
@@ -1868,7 +1907,7 @@ func handle_gamepad_and_touch(event: InputEvent) -> bool:
 			if event.position.y >= 126.0 and event.position.y < 471.0 and event.position.x >= 72.0 and event.position.x < 744.0:
 				var column := clampi(int((event.position.x - 72.0) / 112.0), 0, 5)
 				var row := clampi(int((event.position.y - 126.0) / 69.0), 0, 4)
-				inventory_selected = row * 6 + column
+				inventory_selected = mini((row + inventory_scroll_row) * 6 + column, inventory_slots.size() - 1)
 			elif event.position.y >= 490.0 and event.position.y < 545.0 and event.position.x < 760.0:
 				assign_selected_to_hotbar(clampi(int((event.position.x - 72.0) / 68.0), 0, 9))
 			elif Rect2(770, 490, 150, 58).has_point(event.position):

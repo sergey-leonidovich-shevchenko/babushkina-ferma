@@ -52,6 +52,12 @@ static func is_walkable(game: Node, position: Vector2) -> bool:
 	for container in game.world_loot_nodes:
 		if container.location == game.current_location and position.distance_to(container.position) < game.PLAYER_RADIUS + 25.0:
 			return false
+	for food in game.food_nodes:
+		if food.get("location", "overworld") != game.current_location:
+			continue
+		var radius := 38.0 if game.ForageSystem.TYPES[food.kind].tree else 24.0
+		if position.distance_to(food.position) < game.PLAYER_RADIUS + radius:
+			return false
 	return true
 
 static func circle_intersects_rect(center: Vector2, radius: float, rect: Rect2) -> bool:
