@@ -47,6 +47,7 @@ const ITEM_DATA := {
 	"ancient_key": {"name": "Древний ключ", "short": "Ключ", "color": Color("c29b50")},
 	"blue_gem": {"name": "Синий алмаз", "short": "Алмаз", "color": Color("5cbce8")},
 	"moon_relic": {"name": "Лунная реликвия", "short": "Реликвия", "color": Color("d4ecff")},
+	"eclipse_core": {"name": "Сердце затмения", "short": "Затмение", "color": Color("9feeff"), "equip": "ring"},
 	"raw_meat": {"name": "Сырое мясо", "short": "Мясо", "color": Color("c96767")},
 	"hide": {"name": "Оленья шкура", "short": "Шкура", "color": Color("a77a55")},
 	"fur": {"name": "Лисий мех", "short": "Мех", "color": Color("dc8a47")},
@@ -219,6 +220,7 @@ static func recalculate_stats(game: Node) -> void:
 static func damage_bonus(game: Node) -> int:
 	var bonus := 1 if game.equipment.ring == "crystal_ring" else 0
 	if game.equipment.ring == "guild_badge": bonus += 1
+	if game.equipment.ring == "eclipse_core": bonus += 2
 	if game.equipment.hands == "orc_blade":
 		bonus += 2
 	if game.equipment.hands == "pirate_cutlass": bonus += 3

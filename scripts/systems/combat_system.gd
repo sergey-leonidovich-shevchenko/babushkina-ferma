@@ -152,16 +152,21 @@ static func attack(game: Node, index: int) -> bool:
 	var attack_range := 280.0 if game.equipped_weapon == "bow" else 105.0
 	if game.player.distance_to(enemy.position) > attack_range: return false
 	game.PotionSystem.break_invisibility(game)
-	var damage: int = 1 + (1 if game.strength_timer > 0 else 0) + game.InventorySystem.damage_bonus(game)
-	if game.equipped_weapon == "forest_sword": damage += 1
-	elif game.equipped_weapon == "crystal_sword": damage += 2
-	elif game.equipped_weapon == "bow": damage += 1
-	damage += game.ForgeSystem.weapon_damage_bonus(game, game.equipped_weapon)
+	var damage: int = player_attack_damage(game)
 	game.AnimationSystem.begin_player_attack(game)
 	game.play_sfx("attack")
 	apply_damage(game, index, damage)
 	game.notify_tutorial("combat_animation")
 	return true
+
+
+## Рассчитывает единый урон героя для обычных врагов и событийных боссов.
+static func player_attack_damage(game: Node) -> int:
+	var damage: int = 1 + (1 if game.strength_timer > 0 else 0) + game.InventorySystem.damage_bonus(game)
+	if game.equipped_weapon == "forest_sword": damage += 1
+	elif game.equipped_weapon == "crystal_sword": damage += 2
+	elif game.equipped_weapon == "bow": damage += 1
+	return damage + game.ForgeSystem.weapon_damage_bonus(game, game.equipped_weapon)
 
 
 ## Наносит урон цели и масштабирует опыт с добычей по её уровню ровно один раз.

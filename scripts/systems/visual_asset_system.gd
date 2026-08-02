@@ -67,11 +67,13 @@ static func blocks_event_position(location: String, position: Vector2, radius: f
 static func draw_eclipse_world(canvas: CanvasItem, location: String, portal_position: Vector2, portal_visible: bool) -> void:
 	if portal_visible:
 		canvas.draw_texture_rect_region(ECLIPSE_ATLAS, Rect2(portal_position - Vector2(64, 112), Vector2(128, 128)), eclipse_source(0))
-	if location != "moon_glade": return
-	canvas.draw_texture_rect_region(ECLIPSE_ATLAS, Rect2(700, 300, 128, 128), eclipse_source(1))
-	canvas.draw_texture_rect_region(ECLIPSE_ATLAS, Rect2(1080, 520, 150, 150), eclipse_source(2))
-	canvas.draw_texture_rect_region(ECLIPSE_ATLAS, Rect2(1610, 270, 160, 160), eclipse_source(3))
-	canvas.draw_texture_rect_region(ECLIPSE_ATLAS, Rect2(1960, 650, 132, 120), eclipse_source(3, true))
+
+
+## Рисует уникальный талисман затмения через ту же ячейку лунного кристалла.
+static func draw_eclipse_item(canvas: CanvasItem, kind: String, rect: Rect2) -> bool:
+	if kind != "eclipse_core": return false
+	canvas.draw_texture_rect_region(ECLIPSE_ATLAS, rect, eclipse_source(2))
+	return true
 
 
 ## Возвращает фон приключенческого биома из единого визуального каталога.

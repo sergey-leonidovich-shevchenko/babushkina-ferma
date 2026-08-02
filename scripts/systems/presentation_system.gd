@@ -46,6 +46,9 @@ static func enemy_direction_row(direction: Vector2) -> int:
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func interaction_position(game: Node, interaction: String) -> Vector2:
+	if interaction.begins_with("moon_"):
+		if interaction == "moon_portal": return game.WorldEventSystem.RETURN_PORTAL_POSITION if game.current_location == "moon_glade" else game.WorldEventSystem.PORTAL_POSITION
+		return game.MoonGladeSystem.interaction_position(interaction)
 	if interaction.begins_with("building:") or interaction.begins_with("interior_"):
 		return game.BuildingSystem.interaction_position(game, interaction)
 	if interaction.begins_with("prisoner:"):
@@ -85,6 +88,7 @@ static func discovery_card_rect() -> Rect2:
 ## Собирает не более трёх активных целей и одну сводную строку для компактного HUD.
 static func quest_tracker_lines(game: Node) -> Array[String]:
 	var lines: Array[String] = []
+	if game.current_location == "moon_glade": lines.append(game.MoonGladeSystem.objective(game))
 	if game.quest_active:
 		lines.append("Бабушкина морковь: %d/10" % mini(game.carrots, 10))
 	for mission_id in game.QuestSystem.MISSIONS:

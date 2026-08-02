@@ -80,10 +80,13 @@ static func darkness(minutes: float) -> float:
 
 ## Возвращает ближайший доступный лунный портал либо пустое взаимодействие.
 static func nearest_interaction(game: Node, maximum_distance: float) -> String:
+	var moon_interaction: String = game.MoonGladeSystem.nearest_interaction(game, maximum_distance)
+	if not moon_interaction.is_empty():
+		maximum_distance = game.player.distance_to(game.MoonGladeSystem.interaction_position(moon_interaction))
 	var portal := PORTAL_POSITION if game.current_location == "overworld" else RETURN_PORTAL_POSITION
 	if game.current_location == "moon_glade" or eclipse_active(game.day, game.game_minutes):
 		if game.player.distance_to(portal) < maximum_distance: return "moon_portal"
-	return ""
+	return moon_interaction
 
 
 ## Перемещает героя между деревней и Лунной поляной через временный портал.
@@ -92,9 +95,11 @@ static func use_portal(game: Node) -> bool:
 		game.current_location = "overworld"; game.player = PORTAL_POSITION - Vector2(90, 0)
 	elif eclipse_active(game.day, game.game_minutes):
 		game.current_location = "moon_glade"; game.player = RETURN_PORTAL_POSITION + Vector2(90, 0)
+		game.MoonGladeSystem.prepare(game)
 	else:
 		return false
 	game.sync_background_location(); game.update_camera(); game.notify_tutorial("moon_portal")
+	if game.current_location == "moon_glade": game.DiscoverySystem.show_location(game, "moon_glade")
 	game.message = "Лунная поляна" if game.current_location == "moon_glade" else "Возвращение в деревню"
 	return true
 

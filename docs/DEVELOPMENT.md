@@ -55,6 +55,9 @@ tools/Godot.app/Contents/MacOS/Godot --path . -- --settings-preview
 
 # Автоматическое движение для benchmark
 tools/Godot.app/Contents/MacOS/Godot --path . --max-fps 60 --quit-after 480 --print-fps -- --autoplay
+
+# Финальная встреча приключения Лунной поляны
+tools/Godot.app/Contents/MacOS/Godot --path . -- --moon-glade-preview
 ```
 
 ## Обязательная проверка

@@ -1,6 +1,7 @@
 extends RefCounted
 
 const TreeSystem := preload("res://scripts/systems/tree_system.gd")
+const MoonGladeSystem := preload("res://scripts/systems/moon_glade_system.gd")
 
 var location: String = "overworld"
 var day: int = 1
@@ -13,6 +14,7 @@ var dropped_items: Array = []
 var world_loot_seed: int = 0
 var world_loot_nodes: Array = []
 var tree_nodes: Array = TreeSystem.default_nodes()
+var moon_glade: Dictionary = MoonGladeSystem.default_state()
 
 
 ## Приводит загруженное состояние к безопасным допустимым значениям.
@@ -21,6 +23,7 @@ func normalize() -> void:
 	minutes = fposmod(minutes, 24.0 * 60.0)
 	coins = maxi(coins, 0)
 	weather_day = maxi(weather_day, 0)
+	moon_glade = MoonGladeSystem.normalize_state(moon_glade)
 	for index in tree_nodes.size():
 		var tree: Dictionary = tree_nodes[index]
 		tree.health = clampi(int(tree.get("health", TreeSystem.MAX_HEALTH)), 0, TreeSystem.MAX_HEALTH)

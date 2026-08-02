@@ -52,6 +52,8 @@ func _ready() -> void:
 		companion_positions = {"mila":Vector2(620, 650), "borislav":Vector2(780, 650)}
 	if "--enemy-levels-preview" in OS.get_cmdline_user_args():
 		configure_enemy_levels_preview()
+	if "--moon-glade-preview" in OS.get_cmdline_user_args():
+		configure_moon_glade_preview()
 	if "--storage-preview" in OS.get_cmdline_user_args():
 		language_screen = false
 		title_screen = false
@@ -115,13 +117,23 @@ func configure_enemy_levels_preview() -> void:
 		hazard.cooldown = 999.0
 		hazard_nodes[index] = hazard
 
+
+## Готовит витрину финального этапа Лунной поляны со Стражем, алтарём и наградой.
+func configure_moon_glade_preview() -> void:
+	language_screen = false; title_screen = false; current_location = "moon_glade"
+	day = 5; game_minutes = 21.0 * 60.0; player = Vector2(1710, 610); tutorial_visible = false
+	MoonGladeSystem.prepare(self)
+	var moon_state: Dictionary = state.world.moon_glade
+	moon_state.flower_collected = true; moon_state.crystal_charged = true; moon_state.echoes = [true, true, true]
+	moon_state.altar_activated = true; moon_state.guardian_alive = true; moon_state.guardian_hp = MoonGladeSystem.GUARDIAN_MAX_HP
+
 ## Выполняет один физический кадр и обновляет активные игровые системы в заданном порядке.
 func _physics_process(delta: float) -> void:
 	AudioSystem.update(self, delta)
 	if title_screen or menu_state.pause_open or menu_state.settings_open:
 		queue_redraw()
 		return
-	update_game_clock(delta); WorldEventSystem.update(self); update_crops(delta); TreeSystem.update(self, delta)
+	update_game_clock(delta); WorldEventSystem.update(self); update_crops(delta); TreeSystem.update(self, delta); MoonGladeSystem.update(self, delta)
 	update_combat(delta)
 	update_fishing(delta)
 	update_status_effects(delta)
@@ -539,6 +551,8 @@ func perform_context_action() -> bool:
 		return StorageSystem.open(self)
 	if interaction == "moon_portal":
 		return WorldEventSystem.use_portal(self)
+	if interaction.begins_with("moon_"):
+		return MoonGladeSystem.interact(self, interaction)
 	if interaction.begins_with("drop:"):
 		return collect_dropped_item(int(interaction.get_slice(":", 1)))
 	if interaction.begins_with("container:"):
@@ -876,6 +890,8 @@ func attack_slime() -> bool:
 
 ## Выполняет операцию «атаки ближайшего врага» и возвращает результат согласно контракту метода.
 func attack_nearest_enemy() -> bool:
+	if MoonGladeSystem.attack_guardian(self):
+		return true
 	var enemy_index := CombatSystem.nearest(self)
 	var wildlife_index := WildlifeSystem.nearest(self)
 	var enemy_distance := INF

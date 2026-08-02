@@ -203,6 +203,7 @@ func draw_world_events() -> void:
 	var portal_position := WorldEventSystem.RETURN_PORTAL_POSITION if current_location == "moon_glade" else WorldEventSystem.PORTAL_POSITION
 	var portal_visible := current_location == "moon_glade" or (current_location == "overworld" and WorldEventSystem.eclipse_active(day, game_minutes))
 	VisualAssetSystem.draw_eclipse_world(self, current_location, portal_position, portal_visible)
+	MoonGladeRenderer.draw(self)
 	if portal_visible and player.distance_to(portal_position) < 160.0:
 		draw_string(UI_FONT, portal_position + Vector2(-90, 55), "E • Лунный портал", HORIZONTAL_ALIGNMENT_CENTER, 180, 15, Color("e4dbff"))
 
@@ -540,6 +541,8 @@ func draw_item_icon(kind: String, rect: Rect2) -> void:
 	elif texture:
 		draw_texture_rect(texture, rect, false)
 	elif VisualAssetSystem.draw_pirate_item(self, kind, rect):
+		pass
+	elif VisualAssetSystem.draw_eclipse_item(self, kind, rect):
 		pass
 	elif kind == "home_chest":
 		draw_rect(rect.grow(-4), Color("9b6231"))

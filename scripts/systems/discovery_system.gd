@@ -29,6 +29,7 @@ const LOCATION_HINTS := {
 	"cave": {"title":"Кристальная пещера","text":"Синие и зелёные жилы, нежить и Хранитель глубин ждут внутри."},
 	"cursed": {"title":"Проклятая земля","text":"Сильная нежить оставляет кости, ключи и редкие самоцветы."},
 	"glassworks": {"title":"Мастерская стеклодува","text":"Безопасная ремесленная точка для будущих рецептов из цветных кристаллов."},
+	"moon_glade": {"title":"Лунная поляна","text":"Редкое приключение затмения: следуй по светящейся тропе от цветка до сундука."},
 }
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
@@ -88,6 +89,14 @@ static func scan_nearby(game: Node) -> bool:
 			add_candidate(candidates, "companion:%s" % companion_id, companion.position, {"title":game.CompanionSystem.name(game, companion_id),"text":game.LocaleSystem.ui("hint_companion")})
 	if game.current_location == "cottage_interior" and game.home_chest_owned:
 		add_candidate(candidates, "home_chest", game.StorageSystem.CHEST_POSITION, static_hint(game, "home_chest"))
+	if game.current_location == "moon_glade":
+		var moon_state: Dictionary = game.state.world.moon_glade
+		if not moon_state.flower_collected: add_candidate(candidates, "moon_flower", game.MoonGladeSystem.FLOWER_POSITION, {"title":game.LocaleSystem.entity("moon_flower"),"text":game.LocaleSystem.tutorial("moon_flower")})
+		elif not moon_state.crystal_charged: add_candidate(candidates, "moon_crystal", game.MoonGladeSystem.CRYSTAL_POSITION, {"title":game.LocaleSystem.entity("moon_crystal"),"text":game.LocaleSystem.tutorial("moon_crystal")})
+		elif not game.MoonGladeSystem.echoes_complete(moon_state):
+			for index in game.MoonGladeSystem.ECHO_POSITIONS.size():
+				if not moon_state.echoes[index]: add_candidate(candidates, "moon_echo:%d" % index, game.MoonGladeSystem.ECHO_POSITIONS[index], {"title":game.LocaleSystem.entity("moon_echo"),"text":game.LocaleSystem.tutorial("moon_echoes")})
+		elif not moon_state.altar_activated: add_candidate(candidates, "moon_altar", game.MoonGladeSystem.ALTAR_POSITION, {"title":game.LocaleSystem.entity("moon_altar"),"text":game.LocaleSystem.tutorial("moon_altar")})
 	if game.current_location == "forge_interior":
 		add_candidate(candidates, "forge", game.BuildingSystem.INTERIORS.forge_interior.service_position, static_hint(game, "forge"))
 	if game.current_location == "guild_interior":

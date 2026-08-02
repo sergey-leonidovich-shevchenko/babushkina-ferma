@@ -10,6 +10,9 @@ func run() -> void:
 	test_daylight_darkness_transitions_are_continuous()
 	test_eclipse_crosses_midnight_every_five_days()
 	test_moon_portal_requires_eclipse_and_returns_home()
+	test_moon_glade_adventure_unlocks_in_order()
+	test_eclipse_guardian_combat_and_treasure_reward()
+	test_moon_glade_state_survives_save_and_resets_next_eclipse()
 	test_event_atlases_expose_unique_grid_cells()
 	test_large_event_props_have_collisions()
 	test_event_tutorial_covers_each_new_feature()
@@ -24,6 +27,65 @@ func test_four_seasons_cycle_every_seven_days() -> void:
 	expect(system.season(8) == "summer" and system.season(15) == "autumn", "summer and autumn start on seven-day boundaries")
 	expect(system.season(22) == "winter" and system.season(29) == "spring", "winter completes a repeating twenty-eight-day year")
 	game.free()
+
+
+## Сценарий: редкое приключение последовательно открывает цветок, кристалл, три эха, алтарь и Стража.
+## Исходное состояние: пятый день, 20:00, герой только что входит в свежий портал Лунной поляны.
+## Ожидаемый результат: нельзя перескочить этап, а каждое верное взаимодействие открывает ровно следующую цель.
+func test_moon_glade_adventure_unlocks_in_order() -> void:
+	var game := make_game(); game.day = 5; game.game_minutes = 1200.0; game.current_location = "overworld"; game.player = game.WorldEventSystem.PORTAL_POSITION
+	expect(game.WorldEventSystem.use_portal(game), "fresh eclipse opens the moon glade adventure")
+	var system = game.MoonGladeSystem; var state: Dictionary = game.state.world.moon_glade
+	expect(state.event_day == 5 and system.objective(game) == game.LocaleSystem.text("moon_objective_flower"), "new run starts with the moon flower objective")
+	expect(not system.interact(game, "moon_altar"), "altar cannot bypass the exploration sequence")
+	game.player = system.FLOWER_POSITION; expect(system.interact(game, "moon_flower"), "moon flower starts the ritual route")
+	game.player = system.CRYSTAL_POSITION; expect(system.interact(game, "moon_crystal"), "charged crystal reveals lunar echoes")
+	for index in system.ECHO_POSITIONS.size():
+		game.player = system.ECHO_POSITIONS[index]
+		expect(system.interact(game, "moon_echo:%d" % index), "lunar echo can be calmed: %d" % index)
+	expect(system.echoes_complete(state), "all three echoes are tracked independently")
+	game.player = system.ALTAR_POSITION; expect(system.interact(game, "moon_altar"), "completed echoes awaken the eclipse guardian")
+	expect(state.guardian_alive and state.guardian_hp == system.GUARDIAN_MAX_HP, "guardian begins with full event health")
+	game.free()
+
+
+## Сценарий: Страж наносит урон, блокирует проход, погибает от обычной атаки и открывает уникальную награду.
+## Исходное состояние: алтарь активирован, герой с кристальным мечом стоит рядом с полностью здоровым Стражем.
+## Ожидаемый результат: общий боевой расчёт работает, сундук выдаётся один раз, а талисман повышает HP и урон.
+func test_eclipse_guardian_combat_and_treasure_reward() -> void:
+	var game := make_game(); var system = game.MoonGladeSystem
+	game.current_location = "moon_glade"; game.state.world.moon_glade = system.default_state(); game.state.world.moon_glade.event_day = 5
+	game.state.world.moon_glade.altar_activated = true; game.state.world.moon_glade.guardian_alive = true
+	game.player = system.GUARDIAN_POSITION - Vector2(50, 0); game.equipped_weapon = "crystal_sword"
+	var hp_before: int = game.player_hp; game.state.world.moon_glade.guardian_attack_timer = 0.0; system.update(game, 0.1)
+	expect(game.player_hp < hp_before, "active eclipse guardian deals ranged combat damage")
+	expect(not game.NavigationSystem.is_walkable(game, system.GUARDIAN_POSITION), "active guardian has solid collision")
+	while game.state.world.moon_glade.guardian_alive:
+		expect(system.attack_guardian(game), "normal held attack damages the eclipse guardian")
+	expect(game.state.world.moon_glade.guardian_defeated, "zero guardian health unlocks the lunar chest")
+	var coins_before: int = game.coins; game.player = system.CHEST_POSITION
+	expect(system.interact(game, "moon_chest"), "unlocked lunar chest completes the expedition")
+	expect(game.coins == coins_before + 120 and game.inventory_item_count("blue_gem") == 2 and game.inventory_item_count("healing_potion") == 1, "treasure grants guaranteed repeatable rewards")
+	expect(game.inventory_item_count("eclipse_core") == 1 and not system.interact(game, "moon_chest"), "first clear grants one unique heart and chest cannot duplicate")
+	var old_max_hp: int = game.player_max_hp; expect(game.InventorySystem.equip(game, "eclipse_core"), "eclipse heart equips into the ring slot")
+	expect(game.player_max_hp == old_max_hp + 15 and game.InventorySystem.damage_bonus(game) >= 2, "eclipse heart grants documented health and damage")
+	expect(game.tutorial_events_completed.has("moon_guardian") and game.tutorial_events_completed.has("moon_treasure"), "boss and treasure have tutorial coverage")
+	game.free()
+
+
+## Сценарий: незавершённая экспедиция сохраняется, а следующее затмение создаёт новый маршрут.
+## Исходное состояние: на пятом дне собран цветок и успокоено одно эхо; снимок загружается в новую игру.
+## Ожидаемый результат: прогресс восстанавливается точно, в день 10 сбрасывается, число прошлых побед не теряется.
+func test_moon_glade_state_survives_save_and_resets_next_eclipse() -> void:
+	var game := make_game(); var system = game.MoonGladeSystem
+	game.day = 5; game.game_minutes = 1300.0; game.current_location = "moon_glade"; system.prepare(game)
+	game.state.world.moon_glade.flower_collected = true; game.state.world.moon_glade.crystal_charged = true; game.state.world.moon_glade.echoes[0] = true; game.state.world.moon_glade.completed_runs = 2
+	var snapshot: Dictionary = game.SaveSystem.snapshot(game); var loaded := make_game()
+	expect(loaded.SaveSystem.apply(loaded, snapshot), "save containing moon glade progress loads")
+	expect(loaded.state.world.moon_glade.event_day == 5 and loaded.state.world.moon_glade.echoes[0] and not loaded.state.world.moon_glade.echoes[1], "partial ritual state survives save roundtrip")
+	loaded.day = 10; loaded.game_minutes = 1200.0; system.prepare(loaded)
+	expect(not loaded.state.world.moon_glade.flower_collected and loaded.state.world.moon_glade.completed_runs == 2 and loaded.state.world.moon_glade.event_day == 10, "next eclipse resets route but preserves lifetime victories")
+	game.free(); loaded.free()
 
 
 ## Сценарий: один и тот же день всегда получает одинаковую допустимую погоду.
@@ -131,10 +193,10 @@ func test_large_event_props_have_collisions() -> void:
 
 ## Сценарий: тестер может пройти последовательные подсказки каждой новой механики.
 ## Исходное состояние: каталог обучения загружен вместе с переводами.
-## Ожидаемый результат: сезон, погода, ночь, затмение и портал имеют шаг и непустой русский текст.
+## Ожидаемый результат: календарь, портал и шесть этапов экспедиции имеют шаг и непустой русский текст.
 func test_event_tutorial_covers_each_new_feature() -> void:
 	var game := make_game()
-	for event_name in ["season", "weather", "night", "eclipse", "moon_portal"]:
+	for event_name in ["season", "weather", "night", "eclipse", "moon_portal", "moon_flower", "moon_crystal", "moon_echoes", "moon_altar", "moon_guardian", "moon_treasure"]:
 		expect(game.TutorialSystem.STEP_IDS.has(event_name), "tutorial includes world event step: %s" % event_name)
 		expect(game.LocaleSystem.tutorial(event_name) != event_name, "tutorial explains world event in Russian: %s" % event_name)
 	game.free()
