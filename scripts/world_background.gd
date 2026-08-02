@@ -32,7 +32,23 @@ func _draw() -> void:
 	elif location == "overworld": draw_overworld()
 	elif location == "cave": draw_cave()
 	elif location == "pirate_ship": PirateShipRenderer.draw(self)
+	elif location == "moon_glade": draw_moon_glade()
 	else: draw_adventure_location()
+
+## Отрисовывает редкую ночную локацию, доступную во время Лунного затмения.
+func draw_moon_glade() -> void:
+	draw_rect(Rect2(Vector2.ZERO, WORLD_SIZE), Color("24254f"))
+	for y in range(150, 1100, 110):
+		for x in range(80 + y % 70, 2360, 145):
+			draw_circle(Vector2(x, y), 2.5, Color("8171b0"))
+	var moon_path := PackedVector2Array([Vector2(220, 430), Vector2(700, 365), Vector2(1140, 595), Vector2(1690, 350), Vector2(2020, 700)])
+	draw_polyline(moon_path, Color(0.34, 0.34, 0.62, 0.34), 78.0)
+	draw_polyline(moon_path, Color(0.52, 0.48, 0.76, 0.30), 4.0)
+	draw_set_transform(Vector2(1370, 900), 0.0, Vector2(1.9, 0.72))
+	draw_circle(Vector2.ZERO, 155, Color(0.19, 0.38, 0.58, 0.72))
+	draw_circle(Vector2.ZERO, 137, Color(0.35, 0.55, 0.72, 0.26), false, 5.0)
+	draw_set_transform(Vector2.ZERO)
+	draw_string(UI_FONT, Vector2(80, 100), "ЛУННАЯ ПОЛЯНА", HORIZONTAL_ALIGNMENT_LEFT, -1, 30, Color("e4dbff"))
 
 ## Отрисовывает пол, стены и название отдельной интерьерной локации.
 func draw_interior() -> void:

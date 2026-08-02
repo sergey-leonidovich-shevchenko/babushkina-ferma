@@ -13,7 +13,7 @@ func run() -> void:
 ## Исходное состояние: PNG-файлы прошли удаление однотонного фона и импорт редактором.
 ## Ожидаемый результат: размеры согласованы, углы прозрачны, а центр содержит видимые пиксели.
 func test_generated_atlases_are_importable_and_transparent() -> void:
-	for path in ["res://assets/game/generated/biome_prop_atlas.png", "res://assets/game/generated/pirate_enemy_atlas.png", "res://assets/game/generated/pirate_item_atlas.png", "res://assets/game/generated/potion_atlas.png"]:
+	for path in ["res://assets/game/generated/biome_prop_atlas.png", "res://assets/game/generated/pirate_enemy_atlas.png", "res://assets/game/generated/pirate_item_atlas.png", "res://assets/game/generated/potion_atlas.png", "res://assets/game/generated/seasonal_environment_atlas.png", "res://assets/game/generated/eclipse_event_atlas.png"]:
 		var texture := load(path) as Texture2D
 		var image := texture.get_image()
 		expect(texture != null and image.get_size() == Vector2i(1254, 1254), "generated atlas imports at validated dimensions: %s" % path)

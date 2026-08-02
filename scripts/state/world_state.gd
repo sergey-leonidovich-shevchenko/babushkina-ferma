@@ -6,6 +6,8 @@ var location: String = "overworld"
 var day: int = 1
 var minutes: float = 6.0 * 60.0
 var coins: int = 20
+var weather_day: int = 0
+var weather: String = ""
 var plots: Dictionary = {}
 var dropped_items: Array = []
 var world_loot_seed: int = 0
@@ -18,6 +20,7 @@ func normalize() -> void:
 	day = maxi(day, 1)
 	minutes = fposmod(minutes, 24.0 * 60.0)
 	coins = maxi(coins, 0)
+	weather_day = maxi(weather_day, 0)
 	for index in tree_nodes.size():
 		var tree: Dictionary = tree_nodes[index]
 		tree.health = clampi(int(tree.get("health", TreeSystem.MAX_HEALTH)), 0, TreeSystem.MAX_HEALTH)

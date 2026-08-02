@@ -4,6 +4,8 @@ const BIOME_PROP_ATLAS := preload("res://assets/game/generated/biome_prop_atlas.
 const PIRATE_ENEMY_ATLAS := preload("res://assets/game/generated/pirate_enemy_atlas.png")
 const PIRATE_ITEM_ATLAS := preload("res://assets/game/generated/pirate_item_atlas.png")
 const POTION_ATLAS := preload("res://assets/game/generated/potion_atlas.png")
+const SEASONAL_ATLAS := preload("res://assets/game/generated/seasonal_environment_atlas.png")
+const ECLIPSE_ATLAS := preload("res://assets/game/generated/eclipse_event_atlas.png")
 
 const BIOME_ORDER := ["forest", "rocky", "ruins", "cursed", "glassworks"]
 const PIRATE_ENEMY_ORDER := ["pirate", "zombie_pirate", "sea_ghost", "drowned_captain"]
@@ -25,10 +27,51 @@ const SMALL_PROP_BASES := [
 	Vector2(330, 700), Vector2(820, 610), Vector2(1360, 810),
 	Vector2(1810, 590), Vector2(2260, 520), Vector2(1180, 610),
 ]
+const SEASONAL_TREE_BASE := Vector2(1802, 425)
+const MOON_SOLID_BASES := [Vector2(1148, 650), Vector2(1690, 420), Vector2(2026, 750)]
 const BACKGROUNDS := {
 	"forest": Color("315c3c"), "rocky": Color("6f6a5b"), "ruins": Color("665849"),
 	"cursed": Color("3e304b"), "glassworks": Color("6f493b"),
 }
+
+
+## Возвращает одну ячейку сезонного атласа четыре на два.
+static func seasonal_source(season_index: int, ground_variant: bool = false) -> Rect2:
+	var cell := Vector2(SEASONAL_ATLAS.get_width() / 4.0, SEASONAL_ATLAS.get_height() / 2.0)
+	return Rect2(Vector2(clampi(season_index, 0, 3), 1 if ground_variant else 0) * cell, cell)
+
+
+## Возвращает одну ячейку событийного атласа четыре на два.
+static func eclipse_source(column: int, bottom_row: bool = false) -> Rect2:
+	var cell := Vector2(ECLIPSE_ATLAS.get_width() / 4.0, ECLIPSE_ATLAS.get_height() / 2.0)
+	return Rect2(Vector2(clampi(column, 0, 3), 1 if bottom_row else 0) * cell, cell)
+
+
+## Рисует сезонные ориентиры деревни: дерево и два небольших природных кластера.
+static func draw_seasonal_village(canvas: CanvasItem, season_index: int) -> void:
+	canvas.draw_texture_rect_region(SEASONAL_ATLAS, Rect2(1710, 245, 184, 190), seasonal_source(season_index))
+	for position in [Vector2(1620, 620), Vector2(1970, 720)]:
+		canvas.draw_texture_rect_region(SEASONAL_ATLAS, Rect2(position - Vector2(57, 70), Vector2(114, 104)), seasonal_source(season_index, true))
+
+
+## Проверяет основания сезонного дерева и крупных объектов Лунной поляны для общей навигации.
+static func blocks_event_position(location: String, position: Vector2, radius: float) -> bool:
+	if location == "overworld": return position.distance_to(SEASONAL_TREE_BASE) < radius + 42.0
+	if location == "moon_glade":
+		for base in MOON_SOLID_BASES:
+			if position.distance_to(base) < radius + 42.0: return true
+	return false
+
+
+## Рисует портал и декорации Лунной поляны из единого событийного атласа.
+static func draw_eclipse_world(canvas: CanvasItem, location: String, portal_position: Vector2, portal_visible: bool) -> void:
+	if portal_visible:
+		canvas.draw_texture_rect_region(ECLIPSE_ATLAS, Rect2(portal_position - Vector2(64, 112), Vector2(128, 128)), eclipse_source(0))
+	if location != "moon_glade": return
+	canvas.draw_texture_rect_region(ECLIPSE_ATLAS, Rect2(700, 300, 128, 128), eclipse_source(1))
+	canvas.draw_texture_rect_region(ECLIPSE_ATLAS, Rect2(1080, 520, 150, 150), eclipse_source(2))
+	canvas.draw_texture_rect_region(ECLIPSE_ATLAS, Rect2(1610, 270, 160, 160), eclipse_source(3))
+	canvas.draw_texture_rect_region(ECLIPSE_ATLAS, Rect2(1960, 650, 132, 120), eclipse_source(3, true))
 
 
 ## Возвращает фон приключенческого биома из единого визуального каталога.

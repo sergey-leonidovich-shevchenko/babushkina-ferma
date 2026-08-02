@@ -35,6 +35,8 @@ static func is_walkable(game: Node, position: Vector2) -> bool:
 			return false
 	if game.VisualAssetSystem.blocks_biome_position(game.current_location, position, game.PLAYER_RADIUS):
 		return false
+	if game.VisualAssetSystem.blocks_event_position(game.current_location, position, game.PLAYER_RADIUS):
+		return false
 	if game.current_location in ["cave", "cursed"]:
 		for decoration in game.CAVE_DECORATIONS:
 			if position.distance_to(decoration) < game.PLAYER_RADIUS + 38.0:

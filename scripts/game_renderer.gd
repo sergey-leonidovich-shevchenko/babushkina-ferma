@@ -196,6 +196,16 @@ func draw_buildings() -> void:
 			draw_string(UI_FONT, door + Vector2(-12, -28), "🔒", HORIZONTAL_ALIGNMENT_CENTER, 24, 18, Color("ffb36a"))
 
 
+## Отрисовывает сезонный декор и доступные порталы мировых событий.
+func draw_world_events() -> void:
+	if current_location == "overworld": VisualAssetSystem.draw_seasonal_village(self, WorldEventSystem.SEASONS.find(WorldEventSystem.season(day)))
+	var portal_position := WorldEventSystem.RETURN_PORTAL_POSITION if current_location == "moon_glade" else WorldEventSystem.PORTAL_POSITION
+	var portal_visible := current_location == "moon_glade" or (current_location == "overworld" and WorldEventSystem.eclipse_active(day, game_minutes))
+	VisualAssetSystem.draw_eclipse_world(self, current_location, portal_position, portal_visible)
+	if portal_visible and player.distance_to(portal_position) < 160.0:
+		draw_string(UI_FONT, portal_position + Vector2(-90, 55), "E • Лунный портал", HORIZONTAL_ALIGNMENT_CENTER, 180, 15, Color("e4dbff"))
+
+
 ## Отрисовывает мебель, выходы и переходы между этажами текущего интерьера.
 func draw_interior_objects() -> void:
 	var data: Dictionary = BuildingSystem.interior(current_location)

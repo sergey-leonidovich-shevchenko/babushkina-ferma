@@ -104,7 +104,8 @@ static func draw_hud(game: Node) -> void:
 	var minutes := int(game.game_minutes) % 60
 	panel(game, Rect2(14, 9, 182, 51), Color("29463d"))
 	game.draw_string(game.UI_FONT, Vector2(26, 31), game.LocaleSystem.ui("day", [game.day, hours, minutes]), HORIZONTAL_ALIGNMENT_LEFT, 158, 16, Color("ffe39d"))
-	game.draw_string(game.UI_FONT, Vector2(26, 52), "🪙 %d" % game.coins, HORIZONTAL_ALIGNMENT_LEFT, 158, 14, INK)
+	game.draw_string(game.UI_FONT, Vector2(26, 50), "🪙 %d" % game.coins, HORIZONTAL_ALIGNMENT_LEFT, 158, 12, INK)
+	game.draw_string(game.UI_FONT, Vector2(26, 62), game.WorldEventSystem.hud_text(game), HORIZONTAL_ALIGNMENT_LEFT, 170, 9, Color("bfe1c4"))
 	draw_bar(game, Rect2(212, 12, 176, 18), float(game.player_hp) / game.player_max_hp, "HP %d/%d" % [game.player_hp, game.player_max_hp], Color("d75b59"))
 	var xp_needed: int = game.SkillSystem.xp_to_next_character_level(game.player_level)
 	draw_bar(game, Rect2(400, 12, 176, 18), float(game.player_xp) / xp_needed, "LV %d  XP %d/%d" % [game.player_level, game.player_xp, xp_needed], Color("5796d6"))

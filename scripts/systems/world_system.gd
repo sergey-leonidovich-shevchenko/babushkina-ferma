@@ -3,7 +3,7 @@ extends RefCounted
 const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
 
 const LOCATIONS := ["overworld","forest","rocky","ruins","cave","cursed","glassworks","pirate_ship"]
-const NAMES := {"overworld":"Деревня и гильдия","forest":"Обычный лес","rocky":"Каменистая область","ruins":"Орочьи руины","cave":"Кристальные пещеры","cursed":"Проклятая земля","glassworks":"Мастерская стеклодува","pirate_ship":"Корабль «Чёрная сельдь»"}
+const NAMES := {"overworld":"Деревня и гильдия","forest":"Обычный лес","rocky":"Каменистая область","ruins":"Орочьи руины","cave":"Кристальные пещеры","cursed":"Проклятая земля","glassworks":"Мастерская стеклодува","pirate_ship":"Корабль «Чёрная сельдь»","moon_glade":"Лунная поляна"}
 
 ## Выполняет операцию «следующего локации» и возвращает результат согласно контракту метода.
 static func next_location(current: String) -> String:

@@ -120,7 +120,7 @@ func _physics_process(delta: float) -> void:
 	if title_screen or menu_state.pause_open or menu_state.settings_open:
 		queue_redraw()
 		return
-	update_game_clock(delta); update_crops(delta); TreeSystem.update(self, delta)
+	update_game_clock(delta); WorldEventSystem.update(self); update_crops(delta); TreeSystem.update(self, delta)
 	update_combat(delta)
 	update_fishing(delta)
 	update_status_effects(delta)
@@ -476,6 +476,8 @@ func nearest_interaction() -> String:
 	if not quest_npc.is_empty():
 		nearest = "quest_npc:%s" % quest_npc
 		nearest_distance = player.distance_to(QuestSystem.npc_position(self, quest_npc))
+	var event_interaction := WorldEventSystem.nearest_interaction(self, nearest_distance)
+	if not event_interaction.is_empty(): nearest = event_interaction
 	if home_chest_owned and current_location == "cottage_interior":
 		var chest_distance := player.distance_to(StorageSystem.CHEST_POSITION)
 		if chest_distance < nearest_distance:
@@ -533,6 +535,8 @@ func perform_context_action() -> bool:
 		return QuestSystem.talk_to_npc(self, interaction.get_slice(":", 1))
 	if interaction == "home_chest":
 		return StorageSystem.open(self)
+	if interaction == "moon_portal":
+		return WorldEventSystem.use_portal(self)
 	if interaction.begins_with("drop:"):
 		return collect_dropped_item(int(interaction.get_slice(":", 1)))
 	if interaction.begins_with("container:"):
