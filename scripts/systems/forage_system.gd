@@ -1,5 +1,7 @@
 extends RefCounted
 
+const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
+
 const TYPES := {
 	"berries": {"name":"Ягодный куст","growth_minutes":360.0,"yield":3,"sell":4,"tree":false},
 	"mushroom": {"name":"Грибная поляна","growth_minutes":720.0,"yield":2,"sell":7,"tree":false},
@@ -35,7 +37,7 @@ static func collect(game: Node, index: int) -> bool:
 	game.change_inventory_count(node.kind, amount)
 	game.award_xp(2, "Собирательство")
 	game.SkillSystem.award_profession_xp(game, "farming", 2)
-	game.message = "%s: собрано %s ×%d, новое созревание через %s" % [data.name, game.inventory_item_name(node.kind), amount, duration_text(data.growth_minutes)]
+	game.message = "%s: %s ×%d" % [LocaleSystem.entity(node.kind), game.inventory_item_name(node.kind), amount]
 	game.notify_tutorial("forage_harvest")
 	if node.kind == "watermelon":
 		game.notify_tutorial("watermelon")

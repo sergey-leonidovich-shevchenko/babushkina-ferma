@@ -32,6 +32,8 @@ const WildlifeSystem := preload("res://scripts/systems/wildlife_system.gd")
 const LootContainerSystem := preload("res://scripts/systems/loot_container_system.gd")
 const SkillSystem := preload("res://scripts/systems/skill_system.gd")
 const ForageSystem := preload("res://scripts/systems/forage_system.gd")
+const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
+const UI_FONT := preload("res://assets/game/fonts/ui_font.tres")
 const ITEM_HELMET := preload("res://assets/game/items/iron_helmet.png")
 const ITEM_ARMOR := preload("res://assets/game/items/guardian_armor.png")
 const ITEM_BOOTS := preload("res://assets/game/items/travel_boots.png")
@@ -83,7 +85,10 @@ var seeds := 8
 var carrots := 0
 var coins := 20
 var game_minutes := 6.0 * 60.0
-var message := "Добро пожаловать на Бабушкину ферму!"
+var message := ""
+var language_screen := true
+var language_selected := 0
+var persist_locale_selection := true
 var title_screen := true
 var shop_open := false
 var inventory_open := false
@@ -277,6 +282,9 @@ var tutorial_steps := [
 ]
 
 func _ready() -> void:
+	LocaleSystem.load_locale()
+	message = LocaleSystem.text("welcome")
+	language_selected = maxi(LocaleSystem.LOCALES.find(LocaleSystem.current), 0)
 	for y in FARM_SIZE.y:
 		for x in FARM_SIZE.x:
 			plots[Vector2i(x, y)] = {"tilled": false, "planted": false, "watered": false, "growth": 0.0, "stage": 0, "stage_flash": 0.0}
@@ -285,6 +293,7 @@ func _ready() -> void:
 		world_loot_nodes = LootContainerSystem.generate(world_loot_seed)
 	benchmark_autoplay = "--autoplay" in OS.get_cmdline_user_args()
 	if benchmark_autoplay:
+		language_screen = false
 		title_screen = false
 		move_right_held = true
 	sync_background_location()
@@ -360,7 +369,7 @@ func update_game_clock(delta: float) -> void:
 	if game_minutes >= 24.0 * 60.0:
 		game_minutes -= 24.0 * 60.0
 		day += 1
-		message = "Наступил день %d" % day
+		message = LocaleSystem.text("new_day", [day])
 
 func update_crops(delta: float) -> void:
 	FarmSystem.update(self, delta)
@@ -465,12 +474,16 @@ func apply_immediate_key_response(event: InputEventKey) -> void:
 		facing = direction
 
 func _unhandled_input(event: InputEvent) -> void:
+	if language_screen:
+		handle_language_input(event)
+		return
 	if title_screen:
 		if event.is_pressed():
 			title_screen = false
 			message = "Вспаши землю клавишей E"
 			queue_redraw()
 		return
+
 	if shop_open:
 		handle_shop_input(event)
 		return
@@ -519,6 +532,37 @@ func _unhandled_input(event: InputEvent) -> void:
 			KEY_H: DiscoverySystem.dismiss(self)
 		queue_redraw()
 
+func handle_language_input(event: InputEvent) -> bool:
+	var choose := false
+	if event is InputEventKey and event.pressed and not event.echo:
+		if event.keycode in [KEY_LEFT, KEY_UP]: language_selected = posmod(language_selected - 1, LocaleSystem.LOCALES.size())
+		elif event.keycode in [KEY_RIGHT, KEY_DOWN]: language_selected = posmod(language_selected + 1, LocaleSystem.LOCALES.size())
+		elif event.keycode in [KEY_ENTER, KEY_SPACE]: choose = true
+		elif event.keycode >= KEY_1 and event.keycode <= KEY_6:
+			language_selected = int(event.keycode - KEY_1)
+			choose = true
+	elif event is InputEventJoypadButton and event.pressed:
+		if event.button_index in [JOY_BUTTON_DPAD_LEFT, JOY_BUTTON_DPAD_UP]: language_selected = posmod(language_selected - 1, LocaleSystem.LOCALES.size())
+		elif event.button_index in [JOY_BUTTON_DPAD_RIGHT, JOY_BUTTON_DPAD_DOWN]: language_selected = posmod(language_selected + 1, LocaleSystem.LOCALES.size())
+		elif event.button_index == JOY_BUTTON_A: choose = true
+	elif event is InputEventScreenTouch and event.pressed:
+		for index in LocaleSystem.LOCALES.size():
+			if language_button_rect(index).has_point(event.position):
+				language_selected = index
+				choose = true
+				break
+	if choose:
+		LocaleSystem.set_locale(LocaleSystem.LOCALES[language_selected], persist_locale_selection)
+		language_screen = false
+		message = LocaleSystem.ui("title")
+	queue_redraw()
+	return true
+
+func language_button_rect(index: int) -> Rect2:
+	var column := index % 2
+	var row := index / 2
+	return Rect2(250 + column * 340, 230 + row * 82, 312, 62)
+
 func targeted_plot() -> Vector2i:
 	var target := player + facing * 42.0
 	return Vector2i(floori((target.x - FARM_ORIGIN.x) / TILE), floori((target.y - FARM_ORIGIN.y) / TILE))
@@ -535,11 +579,11 @@ func use_selected_tool() -> void:
 		return
 	var cell := targeted_plot()
 	if not valid_plot(cell):
-		message = "Подойди к грядке и повернись к ней"
+		message = LocaleSystem.text("face_plot")
 		return
 	var plot: Dictionary = plots[cell]
 	if selected_tool != Tool.HAND and energy <= 0:
-		message = "Сил нет. Нажми N у кровати"
+		message = LocaleSystem.text("no_energy")
 		return
 	match selected_tool:
 		Tool.HOE:
@@ -547,8 +591,8 @@ func use_selected_tool() -> void:
 				plot.tilled = true
 				energy -= 1
 				SkillSystem.award_profession_xp(self, "farming", 1)
-				message = "Земля готова. Выбери семена [2]"
-			else: message = "Эта грядка уже вспахана"
+				message = LocaleSystem.text("soil_ready")
+			else: message = LocaleSystem.text("already_tilled")
 		Tool.SEEDS:
 			if plot.tilled and not plot.planted and seeds > 0:
 				plot.planted = true
@@ -560,17 +604,17 @@ func use_selected_tool() -> void:
 				award_xp(1, "Посадка моркови")
 				SkillSystem.award_profession_xp(self, "farming", 2)
 				notify_tutorial("plant")
-			elif seeds <= 0: message = "Семена кончились. Купи у лавки [B]"
-			else: message = "Сначала вспаши пустую землю"
+			elif seeds <= 0: message = LocaleSystem.text("no_seeds")
+			else: message = LocaleSystem.text("till_first")
 		Tool.WATER:
 			if plot.planted and not plot.watered:
 				var is_second_watering: bool = plot.growth >= STAGE_DURATION * 2.0
 				plot.watered = true
 				energy -= 1
 				SkillSystem.award_profession_xp(self, "farming", 1)
-				message = "Полито! Поспи [N], чтобы растение выросло"
+				message = LocaleSystem.text("watered")
 				notify_tutorial("rewater" if is_second_watering else "water")
-			else: message = "Здесь нечего поливать"
+			else: message = LocaleSystem.text("nothing_water")
 		Tool.HAND:
 			if plot.planted and plot.growth >= GROWTH_DURATION:
 				plot.planted = false
@@ -583,20 +627,20 @@ func use_selected_tool() -> void:
 				carrots += harvested
 				award_xp(3)
 				SkillSystem.award_profession_xp(self, "farming", 4)
-				message = "Морковь собрана ×%d! Продай у ящика [E]" % harvested
+				message = LocaleSystem.text("harvested", [inventory_item_name("carrot"), harvested])
 				notify_tutorial("harvest")
-			else: message = "Урожай ещё не созрел"
+			else: message = LocaleSystem.text("not_ripe")
 	plots[cell] = plot
 
 func sleep_until_morning() -> void:
 	if player.distance_to(Vector2(126, 190)) > 105.0:
-		message = "Чтобы спать, подойди к дому"
+		message = LocaleSystem.text("sleep_near_home")
 		return
 	day += 1
 	game_minutes = 6.0 * 60.0
 	energy = SkillSystem.max_stamina(self)
 	player_mana = player_max_mana
-	message = "День %d, 06:00. Доброе утро!" % day
+	message = LocaleSystem.text("morning", [day])
 	notify_tutorial("day")
 
 func open_shop() -> void:
@@ -744,7 +788,7 @@ func open_inventory() -> void:
 	InventorySystem.keep_selection_visible(self)
 	clear_movement_keys()
 	notify_tutorial("inventory")
-	message = "Инвентарь открыт"
+	message = LocaleSystem.text("inventory_open")
 
 func inventory_item_count(kind: String) -> int:
 	match kind:
@@ -869,7 +913,7 @@ func move_inventory_slot() -> void:
 	inventory_slots[inventory_selected] = inventory_slots[inventory_move_from]
 	inventory_slots[inventory_move_from] = previous
 	inventory_move_from = -1
-	message = "Предмет перемещён"
+	message = LocaleSystem.text("moved")
 
 func drop_selected_item() -> bool:
 	var kind: String = inventory_slots[inventory_selected]
@@ -877,7 +921,7 @@ func drop_selected_item() -> bool:
 		message = "В этом слоте нечего выбрасывать"
 		return false
 	dropped_items.append({"kind": kind, "count": 1, "position": player + facing * 50.0})
-	message = "Предмет выброшен рядом"
+	message = LocaleSystem.text("dropped")
 	return true
 
 func delete_selected_item() -> bool:
@@ -896,7 +940,7 @@ func collect_dropped_item(index: int) -> bool:
 		return false
 	change_inventory_count(item.kind, item.count)
 	dropped_items.remove_at(index)
-	message = "Поднято: %s" % inventory_item_name(item.kind)
+	message = LocaleSystem.text("picked", [inventory_item_name(item.kind)])
 	return true
 
 func collect_food(index: int) -> bool:
@@ -908,7 +952,7 @@ func consume_selected_item() -> bool:
 
 func consume_item(kind: String) -> bool:
 	if kind not in ["carrot", "apple", "berries", "nut", "mushroom", "orange", "watermelon", "healing_potion"]:
-		message = "Этот предмет нельзя съесть"
+		message = LocaleSystem.text("cannot_use")
 		return false
 	if not change_inventory_count(kind, -1):
 		message = "Еда закончилась"
@@ -963,7 +1007,7 @@ func use_active_item() -> bool:
 		selected_tool = item.tool
 		use_selected_tool()
 		return true
-	message = "Этот предмет нельзя использовать с панели"
+	message = LocaleSystem.text("cannot_use")
 	return false
 
 func heal_player(amount: int) -> int:
@@ -982,7 +1026,7 @@ func toggle_quest_log() -> void:
 	quest_log_open = not quest_log_open
 	if quest_log_open:
 		clear_movement_keys()
-		message = "Журнал заданий открыт"
+		message = LocaleSystem.text("journal_open")
 		notify_tutorial("journal")
 
 func open_skill_menu() -> void:
@@ -1017,7 +1061,7 @@ func handle_skill_menu_input(event: InputEvent) -> void:
 func attack_slime() -> bool:
 	var attack_range := 280.0 if equipped_weapon == "bow" else 105.0
 	if not slime_alive or player.distance_to(slime_position) > attack_range:
-		message = "Рядом нет противника"
+		message = LocaleSystem.text("no_enemy")
 		return false
 	var damage := 1 + (1 if strength_timer > 0.0 else 0) + InventorySystem.damage_bonus(self)
 	if equipped_weapon == "forest_sword": damage = 2
@@ -1051,7 +1095,7 @@ func attack_nearest_enemy() -> bool:
 		return WildlifeSystem.attack(self, wildlife_index)
 	if current_location == "overworld":
 		return attack_slime()
-	message = "Рядом нет противника"
+	message = LocaleSystem.text("no_enemy")
 	return false
 
 func update_combat(delta: float) -> void:
@@ -1127,7 +1171,7 @@ func open_crafting() -> void:
 	crafting_open = true
 	crafting_selected = 0
 	clear_movement_keys()
-	message = "Выбери рецепт и нажми Enter"
+	message = LocaleSystem.text("recipe_select")
 
 func handle_crafting_input(event: InputEvent) -> void:
 	if not (event is InputEventKey and event.pressed and not event.echo): return
@@ -1154,14 +1198,14 @@ func import_inventory_counts(counts: Dictionary) -> void:
 
 func save_game() -> bool:
 	var saved := SaveSystem.save(self)
-	message = "Игра сохранена" if saved else "Не удалось сохранить игру"
+	message = LocaleSystem.text("saved" if saved else "save_failed")
 	if saved:
 		notify_tutorial("save")
 	return saved
 
 func load_game() -> bool:
 	var loaded := SaveSystem.load(self)
-	message = "Игра загружена" if loaded else "Сохранение не найдено"
+	message = LocaleSystem.text("loaded" if loaded else "load_failed")
 	return loaded
 
 func grant_tester_kit() -> void:
@@ -1237,8 +1281,20 @@ func draw_title_screen() -> void:
 	if title_screen:
 		draw_texture_rect(TITLE_ART, Rect2(0, 0, 1152, 648), false)
 		draw_rect(Rect2(0, 0, 1152, 648), Color(0.04, 0.08, 0.08, 0.25))
-		draw_string(ThemeDB.fallback_font, Vector2(576, 120), "БАБУШКИНА ФЕРМА", HORIZONTAL_ALIGNMENT_CENTER, 760, 46, Color("fff4cf"))
-		draw_string(ThemeDB.fallback_font, Vector2(576, 565), "Нажми любую клавишу", HORIZONTAL_ALIGNMENT_CENTER, 420, 24, Color.WHITE)
+		draw_string(UI_FONT, Vector2(576, 120), LocaleSystem.ui("title"), HORIZONTAL_ALIGNMENT_CENTER, 760, 46, Color("fff4cf"))
+		draw_string(UI_FONT, Vector2(576, 565), LocaleSystem.ui("press_any"), HORIZONTAL_ALIGNMENT_CENTER, 420, 24, Color.WHITE)
+
+func draw_language_screen() -> void:
+	draw_texture_rect(TITLE_ART, Rect2(0, 0, 1152, 648), false)
+	draw_rect(Rect2(0, 0, 1152, 648), Color(0.03, 0.07, 0.07, 0.82))
+	draw_string(UI_FONT, Vector2(196, 112), LocaleSystem.ui("choose_language"), HORIZONTAL_ALIGNMENT_CENTER, 760, 38, Color("fff4cf"))
+	for index in LocaleSystem.LOCALES.size():
+		var rect := language_button_rect(index)
+		var selected := index == language_selected
+		draw_rect(rect, Color("e8bd62") if selected else Color("365548"))
+		draw_rect(rect.grow(-4), Color("fff0bd") if selected else Color("4d7161"))
+		draw_string(UI_FONT, rect.position + Vector2(10, 40), "%d  %s" % [index + 1, LocaleSystem.language_name(index)], HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 20, 24, Color("352e28") if selected else Color.WHITE)
+	draw_string(UI_FONT, Vector2(236, 540), LocaleSystem.ui("confirm"), HORIZONTAL_ALIGNMENT_CENTER, 680, 18, Color.WHITE)
 
 func draw_world() -> void:
 	draw_rect(Rect2(Vector2.ZERO, WORLD_SIZE), Color("7fad5c"))
@@ -1255,18 +1311,18 @@ func draw_world() -> void:
 	draw_rect(Rect2(54, 130, 190, 150), Color("e5c478"))
 	draw_colored_polygon(PackedVector2Array([Vector2(38,145), Vector2(149,72), Vector2(260,145)]), Color("9c5338"))
 	draw_rect(Rect2(128, 216, 43, 64), Color("6b4328"))
-	draw_string(ThemeDB.fallback_font, Vector2(66, 308), "ДОМ • сон [N]", HORIZONTAL_ALIGNMENT_LEFT, -1, 17, Color("213a2c"))
+	draw_string(UI_FONT, Vector2(66, 308), LocaleSystem.ui("home"), HORIZONTAL_ALIGNMENT_LEFT, -1, 17, Color("213a2c"))
 	# shop
 	draw_rect(Rect2(910, 194, 128, 98), Color("f3d88e"))
 	draw_rect(Rect2(895, 175, 158, 30), Color("d66b45"))
-	draw_string(ThemeDB.fallback_font, Vector2(913, 238), "СЕМЕНА", HORIZONTAL_ALIGNMENT_LEFT, -1, 18, Color("55382b"))
-	draw_string(ThemeDB.fallback_font, Vector2(905, 320), "Лавка [B]", HORIZONTAL_ALIGNMENT_LEFT, -1, 17, Color("213a2c"))
+	draw_string(UI_FONT, Vector2(913, 238), LocaleSystem.ui("seeds_sign"), HORIZONTAL_ALIGNMENT_LEFT, -1, 18, Color("55382b"))
+	draw_string(UI_FONT, Vector2(905, 320), LocaleSystem.ui("shop_sign"), HORIZONTAL_ALIGNMENT_LEFT, -1, 17, Color("213a2c"))
 	# Несколько стадий плодовых деревьев из бесплатного sprite sheet.
 	draw_texture_rect_region(PLANT_SHEET, Rect2(270, 126, 290, 90), Rect2(94, 0, 290, 90))
 	# selling crate
 	draw_rect(Rect2(790, 392, 60, 54), Color("9c633b"))
 	for i in 3: draw_line(Vector2(794, 402 + i * 15), Vector2(846, 402 + i * 15), Color("d09755"), 4)
-	draw_string(ThemeDB.fallback_font, Vector2(753, 473), "Продажа [E]", HORIZONTAL_ALIGNMENT_LEFT, -1, 17, Color("213a2c"))
+	draw_string(UI_FONT, Vector2(753, 473), LocaleSystem.ui("sell_sign"), HORIZONTAL_ALIGNMENT_LEFT, -1, 17, Color("213a2c"))
 
 func draw_farm() -> void:
 	for cell in plots:
@@ -1374,12 +1430,12 @@ func draw_rpg_world() -> void:
 	# Бабушка и верстак.
 	draw_circle(npc_position - Vector2(0, 15), 13, Color("e7b68b"))
 	draw_rect(Rect2(npc_position - Vector2(15, 2), Vector2(30, 35)), Color("854d6f"))
-	draw_string(ThemeDB.fallback_font, npc_position + Vector2(-40, 55), "Бабушка", HORIZONTAL_ALIGNMENT_LEFT, -1, 16, Color("293c2f"))
-	draw_mission_npc(guild_master_position, "Староста Мирон", "story_relic", Color("496b8c"))
-	draw_mission_npc(herbalist_position, "Травница Агафья", "side_seed", Color("568255"))
+	draw_string(UI_FONT, npc_position + Vector2(-40, 55), LocaleSystem.entity("grandmother"), HORIZONTAL_ALIGNMENT_LEFT, -1, 16, Color("293c2f"))
+	draw_mission_npc(guild_master_position, LocaleSystem.quest("story_relic", "giver"), "story_relic", Color("496b8c"))
+	draw_mission_npc(herbalist_position, LocaleSystem.quest("side_seed", "giver"), "side_seed", Color("568255"))
 	draw_rect(Rect2(workbench_position - Vector2(32, 20), Vector2(64, 44)), Color("865334"))
 	draw_line(workbench_position - Vector2(25, 8), workbench_position + Vector2(25, -8), Color("d09a59"), 5)
-	draw_string(ThemeDB.fallback_font, workbench_position + Vector2(-45, 45), "Верстак", HORIZONTAL_ALIGNMENT_LEFT, -1, 16, Color("293c2f"))
+	draw_string(UI_FONT, workbench_position + Vector2(-45, 45), LocaleSystem.entity("workbench"), HORIZONTAL_ALIGNMENT_LEFT, -1, 16, Color("293c2f"))
 	if slime_alive:
 		var slime_frame := int(Time.get_ticks_msec() / 140.0) % 6
 		draw_texture_rect_region(SLIME_SHEET, Rect2(slime_position - Vector2(32, 40), Vector2(64, 64)), Rect2(slime_frame * 64, 0, 64, 64))
@@ -1391,16 +1447,16 @@ func draw_rpg_world() -> void:
 	# Вход в отдельную пещерную локацию.
 	draw_circle(cave_entrance_position, 52, Color("283a43"))
 	draw_circle(cave_entrance_position, 38 + sin(Time.get_ticks_msec() / 170.0) * 4, Color("66d5cf"), false, 6)
-	draw_string(ThemeDB.fallback_font, cave_entrance_position + Vector2(-58, 78), "Кристальная пещера", HORIZONTAL_ALIGNMENT_LEFT, -1, 16, Color("d7fff4"))
+	draw_string(UI_FONT, cave_entrance_position + Vector2(-58, 78), LocaleSystem.location("cave"), HORIZONTAL_ALIGNMENT_LEFT, -1, 16, Color("d7fff4"))
 
 func draw_mission_npc(position: Vector2, npc_name: String, mission_id: String, color: Color) -> void:
 	draw_circle(position - Vector2(0, 16), 13, Color("e6b38a"))
 	draw_rect(Rect2(position - Vector2(16, 2), Vector2(32, 38)), color)
-	draw_string(ThemeDB.fallback_font, position + Vector2(-62, 58), npc_name, HORIZONTAL_ALIGNMENT_CENTER, 124, 15, Color("293c2f"))
+	draw_string(UI_FONT, position + Vector2(-62, 58), npc_name, HORIZONTAL_ALIGNMENT_CENTER, 124, 15, Color("293c2f"))
 	var state: String = mission_states.get(mission_id, QuestSystem.AVAILABLE)
 	var marker := "!" if state == QuestSystem.AVAILABLE else ("✓" if state == QuestSystem.COMPLETED else "?")
 	draw_circle(position - Vector2(0, 62), 16, Color("f1ca5c") if state != QuestSystem.COMPLETED else Color("70bd78"))
-	draw_string(ThemeDB.fallback_font, position + Vector2(-8, -56), marker, HORIZONTAL_ALIGNMENT_CENTER, 16, 20, Color("3b3225"))
+	draw_string(UI_FONT, position + Vector2(-8, -56), marker, HORIZONTAL_ALIGNMENT_CENTER, 16, 20, Color("3b3225"))
 
 func forage_sprite_layout(kind: String, position: Vector2) -> Dictionary:
 	var sprite: Dictionary = FORAGE_SPRITES.get(kind, {})
@@ -1428,7 +1484,7 @@ func draw_food_nodes() -> void:
 		if food.active:
 			draw_circle(position, 30 + sin(Time.get_ticks_msec() / 170.0) * 3, Color(1.0, 0.88, 0.32, 0.24), false, 3)
 		else:
-			draw_string(ThemeDB.fallback_font, position + Vector2(-55, 42), ForageSystem.remaining_text(self, food), HORIZONTAL_ALIGNMENT_CENTER, 110, 12, Color("e7d6a3"))
+			draw_string(UI_FONT, position + Vector2(-55, 42), ForageSystem.remaining_text(self, food), HORIZONTAL_ALIGNMENT_CENTER, 110, 12, Color("e7d6a3"))
 
 func fishing_animation_frame(frame_count: int, frame_ms: int = 140) -> int:
 	return int(Time.get_ticks_msec() / frame_ms) % frame_count
@@ -1460,7 +1516,7 @@ func draw_dropped_items() -> void:
 		else:
 			draw_circle(item.position, 15, inventory_item_color(item.kind))
 		draw_circle(item.position, 23 + sin(Time.get_ticks_msec() / 150.0) * 3, Color("fff0a8"), false, 3)
-		draw_string(ThemeDB.fallback_font, item.position + Vector2(-55, 42), inventory_item_name(item.kind), HORIZONTAL_ALIGNMENT_CENTER, 110, 13, Color("fff4cf"))
+		draw_string(UI_FONT, item.position + Vector2(-55, 42), inventory_item_name(item.kind), HORIZONTAL_ALIGNMENT_CENTER, 110, 13, Color("fff4cf"))
 
 func draw_world_loot() -> void:
 	for container in world_loot_nodes:
@@ -1488,11 +1544,11 @@ func draw_world_loot() -> void:
 			var pulse := 34.0 + sin(Time.get_ticks_msec() / 180.0 + float(container.id)) * 3.0
 			draw_circle(position, pulse, Color(1.0, 0.82, 0.30, 0.35), false, 3)
 		else:
-			draw_string(ThemeDB.fallback_font, position + Vector2(-35, 38), "пусто", HORIZONTAL_ALIGNMENT_CENTER, 70, 12, Color(0.8, 0.8, 0.75, 0.55))
+			draw_string(UI_FONT, position + Vector2(-35, 38), LocaleSystem.ui("empty"), HORIZONTAL_ALIGNMENT_CENTER, 70, 12, Color(0.8, 0.8, 0.75, 0.55))
 
 func draw_enemy_nodes_and_gate() -> void:
 	draw_circle(world_gate_position, 42 + sin(Time.get_ticks_msec() / 180.0) * 4, Color("e6b85e"), false, 6)
-	draw_string(ThemeDB.fallback_font, world_gate_position + Vector2(-75, 68), "Путь: " + WorldSystem.NAMES[WorldSystem.next_location(current_location)], HORIZONTAL_ALIGNMENT_LEFT, 180, 14, Color("fff0bd"))
+	draw_string(UI_FONT, world_gate_position + Vector2(-75, 68), WorldSystem.name(WorldSystem.next_location(current_location)), HORIZONTAL_ALIGNMENT_LEFT, 180, 14, Color("fff0bd"))
 	for enemy in enemy_nodes:
 		if not enemy.alive or enemy.location != current_location: continue
 		var data: Dictionary = CombatSystem.TYPES[enemy.kind]
@@ -1507,7 +1563,7 @@ func draw_enemy_nodes_and_gate() -> void:
 			draw_line(position - Vector2(0, 2), position + Vector2(0, 30), data.color, 8)
 		draw_rect(Rect2(position - Vector2(31, 48), Vector2(62, 7)), Color("402d32"))
 		draw_rect(Rect2(position - Vector2(30, 47), Vector2(60.0 * enemy.hp / float(data.hp), 5)), Color("dc554b"))
-		draw_string(ThemeDB.fallback_font, position + Vector2(-65, 55), data.name, HORIZONTAL_ALIGNMENT_CENTER, 130, 14, Color("fff0bd"))
+		draw_string(UI_FONT, position + Vector2(-65, 55), LocaleSystem.entity(enemy.kind), HORIZONTAL_ALIGNMENT_CENTER, 130, 14, Color("fff0bd"))
 
 func draw_wildlife() -> void:
 	for animal in wildlife_nodes:
@@ -1549,7 +1605,7 @@ func draw_cave_world() -> void:
 	for crystal_position in crystal_positions:
 		draw_texture_rect(CAVE_CRYSTAL, Rect2(crystal_position - Vector2(32, 32), Vector2(64, 64)), false)
 		draw_circle(crystal_position, 42, Color(0.35, 0.95, 0.85, 0.12))
-	draw_string(ThemeDB.fallback_font, Vector2(90, 100), "КРИСТАЛЬНАЯ ПЕЩЕРА", HORIZONTAL_ALIGNMENT_LEFT, -1, 28, Color("9ce9dd"))
+	draw_string(UI_FONT, Vector2(90, 100), LocaleSystem.location("cave").to_upper(), HORIZONTAL_ALIGNMENT_LEFT, -1, 28, Color("9ce9dd"))
 
 func inventory_item_color(kind: String) -> Color:
 	return InventorySystem.data(kind).color
@@ -1610,34 +1666,34 @@ func draw_interaction_highlight() -> void:
 	var center := interaction_position(interaction)
 	var pulse := 34.0 + sin(Time.get_ticks_msec() / 130.0) * 4.0
 	draw_circle(center, pulse, Color("ffe36e"), false, 4.0)
-	draw_string(ThemeDB.fallback_font, center + Vector2(-45, -48), "E • действие", HORIZONTAL_ALIGNMENT_CENTER, 90, 16, Color("fff4bd"))
+	draw_string(UI_FONT, center + Vector2(-45, -48), LocaleSystem.ui("action"), HORIZONTAL_ALIGNMENT_CENTER, 90, 16, Color("fff4bd"))
 
 func draw_ui() -> void:
 	draw_rect(Rect2(0, 0, 1152, 106), Color("182f2b"))
 	var hours := floori(game_minutes / 60.0)
 	var minutes := int(game_minutes) % 60
-	draw_string(ThemeDB.fallback_font, Vector2(24, 34), "ДЕНЬ %d   %02d:%02d" % [day, hours, minutes], HORIZONTAL_ALIGNMENT_LEFT, -1, 22, Color("ffe39d"))
-	draw_string(ThemeDB.fallback_font, Vector2(24, 68), "⚡ %d   🪙 %d   Семена: %d   Морковь: %d" % [energy, coins, seeds, carrots], HORIZONTAL_ALIGNMENT_LEFT, -1, 20, Color.WHITE)
+	draw_string(UI_FONT, Vector2(24, 34), LocaleSystem.ui("day", [day, hours, minutes]), HORIZONTAL_ALIGNMENT_LEFT, -1, 22, Color("ffe39d"))
+	draw_string(UI_FONT, Vector2(24, 68), LocaleSystem.ui("resources", [energy, coins, seeds, carrots]), HORIZONTAL_ALIGNMENT_LEFT, -1, 20, Color.WHITE)
 	draw_rect(Rect2(830, 14, 145, 36), Color("4d6659"))
-	var skill_button_text := "K • НАВЫКИ" if skill_points == 0 else "K • НАВЫКИ (%d)" % skill_points
-	draw_string(ThemeDB.fallback_font, Vector2(840, 38), skill_button_text, HORIZONTAL_ALIGNMENT_CENTER, 125, 14, Color("fff0bd"))
+	var skill_button_text := LocaleSystem.ui("skills") if skill_points == 0 else "%s (%d)" % [LocaleSystem.ui("skills"), skill_points]
+	draw_string(UI_FONT, Vector2(840, 38), skill_button_text, HORIZONTAL_ALIGNMENT_CENTER, 125, 14, Color("fff0bd"))
 	draw_rect(Rect2(990, 14, 145, 36), Color("4d6659"))
-	draw_string(ThemeDB.fallback_font, Vector2(1000, 38), "J • ЗАДАНИЯ", HORIZONTAL_ALIGNMENT_CENTER, 125, 14, Color("fff0bd"))
+	draw_string(UI_FONT, Vector2(1000, 38), LocaleSystem.ui("quests"), HORIZONTAL_ALIGNMENT_CENTER, 125, 14, Color("fff0bd"))
 	draw_player_status_bars()
-	draw_string(ThemeDB.fallback_font, Vector2(390, 68), "Слизь %d  Камень %d  Кристалл %d  Рыба %d  Оружие: %s" % [slime_gel, stone, crystals, fish, equipped_weapon], HORIZONTAL_ALIGNMENT_LEFT, 740, 13, Color("bde8d2"))
+	draw_string(UI_FONT, Vector2(390, 68), "Слизь %d  Камень %d  Кристалл %d  Рыба %d  Оружие: %s" % [slime_gel, stone, crystals, fish, equipped_weapon], HORIZONTAL_ALIGNMENT_LEFT, 740, 13, Color("bde8d2"))
 	if fishing_state == "casting":
-		draw_string(ThemeDB.fallback_font, Vector2(576, 205), "Поплавок... %.1f" % maxf(fishing_timer, 0.0), HORIZONTAL_ALIGNMENT_CENTER, 260, 20, Color("d7f6ff"))
+		draw_string(UI_FONT, Vector2(576, 205), "Поплавок... %.1f" % maxf(fishing_timer, 0.0), HORIZONTAL_ALIGNMENT_CENTER, 260, 20, Color("d7f6ff"))
 	elif fishing_state == "ready":
 		draw_circle(Vector2(576, 195), 22 + sin(Time.get_ticks_msec() / 100.0) * 3, Color("ffdc5c"))
-		draw_string(ThemeDB.fallback_font, Vector2(576, 202), "!", HORIZONTAL_ALIGNMENT_CENTER, 20, 24, Color("5b4526"))
+		draw_string(UI_FONT, Vector2(576, 202), "!", HORIZONTAL_ALIGNMENT_CENTER, 20, 24, Color("5b4526"))
 	draw_rect(Rect2(190, 510, 772, 34), Color("182f2b"))
-	draw_string(ThemeDB.fallback_font, Vector2(211, 533), message, HORIZONTAL_ALIGNMENT_CENTER, 730, 17, Color("fff4cf"))
+	draw_string(UI_FONT, Vector2(211, 533), message, HORIZONTAL_ALIGNMENT_CENTER, 730, 17, Color("fff4cf"))
 	draw_hotbar()
 	draw_mission_tracker()
 	if tutorial_visible and tutorial_step < tutorial_steps.size():
 		draw_rect(Rect2(18, 108, 420, 68), Color("263c36"))
-		draw_string(ThemeDB.fallback_font, Vector2(34, 132), "ОБУЧЕНИЕ %d/%d  [T скрыть • Y заново • F9 QA]" % [tutorial_step + 1, tutorial_steps.size()], HORIZONTAL_ALIGNMENT_LEFT, -1, 14, Color("9ed6b3"))
-		draw_string(ThemeDB.fallback_font, Vector2(34, 160), tutorial_steps[tutorial_step].text, HORIZONTAL_ALIGNMENT_LEFT, 385, 17, Color.WHITE)
+		draw_string(UI_FONT, Vector2(34, 132), LocaleSystem.ui("tutorial", [tutorial_step + 1, tutorial_steps.size()]), HORIZONTAL_ALIGNMENT_LEFT, -1, 14, Color("9ed6b3"))
+		draw_string(UI_FONT, Vector2(34, 160), LocaleSystem.tutorial(tutorial_steps[tutorial_step].event), HORIZONTAL_ALIGNMENT_LEFT, 385, 17, Color.WHITE)
 	draw_discovery_card()
 	if shop_open:
 		draw_shop()
@@ -1653,16 +1709,19 @@ func draw_ui() -> void:
 func draw_discovery_card() -> void:
 	if discovery_current.is_empty():
 		return
-	var card := Rect2(344, 190, 464, 126)
+	var card := discovery_card_rect()
 	draw_rect(card, Color(0.08, 0.12, 0.11, 0.96))
 	draw_rect(card.grow(-4), Color("355347"))
-	draw_rect(Rect2(card.position + Vector2(4, 4), Vector2(card.size.x - 8, 34)), Color("d5ad55"))
-	draw_string(ThemeDB.fallback_font, card.position + Vector2(18, 27), "НОВОЕ РЯДОМ • ≤3 КЛЕТКИ", HORIZONTAL_ALIGNMENT_LEFT, 320, 13, Color("352c21"))
-	draw_string(ThemeDB.fallback_font, card.position + Vector2(350, 27), "H • скрыть", HORIZONTAL_ALIGNMENT_RIGHT, 94, 12, Color("352c21"))
-	draw_string(ThemeDB.fallback_font, card.position + Vector2(18, 64), discovery_current.title, HORIZONTAL_ALIGNMENT_LEFT, 425, 20, Color("fff0bd"))
-	draw_multiline_string(ThemeDB.fallback_font, card.position + Vector2(18, 88), discovery_current.text, HORIZONTAL_ALIGNMENT_LEFT, 425, 14, 2, Color.WHITE)
+	draw_rect(Rect2(card.position + Vector2(4, 4), Vector2(card.size.x - 8, 28)), Color("d5ad55"))
+	draw_string(UI_FONT, card.position + Vector2(12, 23), LocaleSystem.ui("new_nearby"), HORIZONTAL_ALIGNMENT_LEFT, 205, 11, Color("352c21"))
+	draw_string(UI_FONT, card.position + Vector2(220, 23), LocaleSystem.ui("hide"), HORIZONTAL_ALIGNMENT_RIGHT, 76, 11, Color("352c21"))
+	draw_string(UI_FONT, card.position + Vector2(12, 51), discovery_current.title, HORIZONTAL_ALIGNMENT_LEFT, 282, 17, Color("fff0bd"))
+	draw_multiline_string(UI_FONT, card.position + Vector2(12, 72), discovery_current.text, HORIZONTAL_ALIGNMENT_LEFT, 282, 12, 2, Color.WHITE)
 	var ratio := clampf(discovery_timer / DiscoverySystem.CARD_DURATION, 0.0, 1.0)
-	draw_rect(Rect2(card.position + Vector2(8, 116), Vector2((card.size.x - 16) * ratio, 4)), Color("f1ca5c"))
+	draw_rect(Rect2(card.position + Vector2(8, card.size.y - 7), Vector2((card.size.x - 16) * ratio, 3)), Color("f1ca5c"))
+
+func discovery_card_rect() -> Rect2:
+	return Rect2(824, 354, 310, 108)
 
 func draw_mission_tracker() -> void:
 	var lines: Array[String] = []
@@ -1670,33 +1729,33 @@ func draw_mission_tracker() -> void:
 		lines.append("Бабушкина морковь: %d/10" % mini(carrots, 10))
 	for mission_id in QuestSystem.MISSIONS:
 		if mission_states.get(mission_id) == QuestSystem.ACTIVE:
-			lines.append("%s — %s" % [QuestSystem.MISSIONS[mission_id].title, QuestSystem.objective_text(self, mission_id)])
+			lines.append("%s — %s" % [QuestSystem.mission_data(mission_id).title, QuestSystem.objective_text(self, mission_id)])
 	if lines.is_empty():
 		return
 	var height := 30.0 + lines.size() * 22.0
 	draw_rect(Rect2(790, 108, 338, height), Color(0.10, 0.18, 0.16, 0.92))
-	draw_string(ThemeDB.fallback_font, Vector2(804, 130), "ЗАДАНИЯ [J]", HORIZONTAL_ALIGNMENT_LEFT, 310, 15, Color("f1ca5c"))
+	draw_string(UI_FONT, Vector2(804, 130), LocaleSystem.ui("quest_tracker"), HORIZONTAL_ALIGNMENT_LEFT, 310, 15, Color("f1ca5c"))
 	for index in lines.size():
-		draw_string(ThemeDB.fallback_font, Vector2(804, 153 + index * 22), lines[index], HORIZONTAL_ALIGNMENT_LEFT, 310, 14, Color("fff4cf"))
+		draw_string(UI_FONT, Vector2(804, 153 + index * 22), lines[index], HORIZONTAL_ALIGNMENT_LEFT, 310, 14, Color("fff4cf"))
 
 func draw_quest_log() -> void:
 	draw_rect(Rect2(120, 62, 912, 524), Color("29251f"))
 	draw_rect(Rect2(140, 82, 872, 484), Color("e6d3a4"))
 	draw_rect(Rect2(140, 82, 872, 64), Color("5d4937"))
-	draw_string(ThemeDB.fallback_font, Vector2(326, 125), "ЖУРНАЛ ЗАДАНИЙ", HORIZONTAL_ALIGNMENT_CENTER, 500, 28, Color("fff1c4"))
+	draw_string(UI_FONT, Vector2(326, 125), LocaleSystem.ui("quest_log"), HORIZONTAL_ALIGNMENT_CENTER, 500, 28, Color("fff1c4"))
 	var row_y := 172.0
 	for mission_id in QuestSystem.MISSIONS:
-		var mission: Dictionary = QuestSystem.MISSIONS[mission_id]
+		var mission: Dictionary = QuestSystem.mission_data(mission_id)
 		var state: String = mission_states.get(mission_id, QuestSystem.AVAILABLE)
-		var state_name: String = {QuestSystem.AVAILABLE:"НЕ ВЗЯТО", QuestSystem.ACTIVE:"АКТИВНО", QuestSystem.COMPLETED:"ВЫПОЛНЕНО"}[state]
+		var state_name: String = {QuestSystem.AVAILABLE:LocaleSystem.ui("available"), QuestSystem.ACTIVE:LocaleSystem.ui("active"), QuestSystem.COMPLETED:LocaleSystem.ui("completed")}[state]
 		draw_rect(Rect2(170, row_y, 812, 142), Color("fff0bd") if state != QuestSystem.COMPLETED else Color("c9e2bd"))
-		draw_string(ThemeDB.fallback_font, Vector2(190, row_y + 29), "%s • %s" % [mission.type, mission.title], HORIZONTAL_ALIGNMENT_LEFT, 520, 20, Color("493b2f"))
-		draw_string(ThemeDB.fallback_font, Vector2(770, row_y + 29), state_name, HORIZONTAL_ALIGNMENT_RIGHT, 185, 15, Color("50704e"))
-		draw_string(ThemeDB.fallback_font, Vector2(190, row_y + 62), mission.description, HORIZONTAL_ALIGNMENT_LEFT, 745, 15, Color("493b2f"))
-		draw_string(ThemeDB.fallback_font, Vector2(190, row_y + 92), "Цель: %s" % QuestSystem.objective_text(self, mission_id), HORIZONTAL_ALIGNMENT_LEFT, 520, 16, Color("6b5038"))
-		draw_string(ThemeDB.fallback_font, Vector2(190, row_y + 119), "Награда: %d монет • %d XP • %s ×%d" % [mission.coins, mission.xp, inventory_item_name(mission.reward_item), mission.reward_count], HORIZONTAL_ALIGNMENT_LEFT, 720, 14, Color("49704d"))
+		draw_string(UI_FONT, Vector2(190, row_y + 29), "%s • %s" % [mission.type, mission.title], HORIZONTAL_ALIGNMENT_LEFT, 520, 20, Color("493b2f"))
+		draw_string(UI_FONT, Vector2(770, row_y + 29), state_name, HORIZONTAL_ALIGNMENT_RIGHT, 185, 15, Color("50704e"))
+		draw_string(UI_FONT, Vector2(190, row_y + 62), mission.description, HORIZONTAL_ALIGNMENT_LEFT, 745, 15, Color("493b2f"))
+		draw_string(UI_FONT, Vector2(190, row_y + 92), LocaleSystem.ui("objective", [QuestSystem.objective_text(self, mission_id)]), HORIZONTAL_ALIGNMENT_LEFT, 520, 16, Color("6b5038"))
+		draw_string(UI_FONT, Vector2(190, row_y + 119), LocaleSystem.ui("reward", [mission.coins, mission.xp, inventory_item_name(mission.reward_item), mission.reward_count]), HORIZONTAL_ALIGNMENT_LEFT, 720, 14, Color("49704d"))
 		row_y += 158.0
-	draw_string(ThemeDB.fallback_font, Vector2(320, 548), "J или Esc — закрыть", HORIZONTAL_ALIGNMENT_CENTER, 512, 16, Color("493b2f"))
+	draw_string(UI_FONT, Vector2(320, 548), LocaleSystem.ui("quest_close"), HORIZONTAL_ALIGNMENT_CENTER, 512, 16, Color("493b2f"))
 
 func draw_player_status_bars() -> void:
 	var hp_ratio := clampf(float(player_hp) / float(player_max_hp), 0.0, 1.0)
@@ -1704,31 +1763,31 @@ func draw_player_status_bars() -> void:
 	draw_rect(hp_bar, Color("3a2528"))
 	draw_rect(hp_bar.grow(-2), Color("71333a"))
 	draw_rect(Rect2(hp_bar.position + Vector2(2, 2), Vector2((hp_bar.size.x - 4) * hp_ratio, hp_bar.size.y - 4)), Color("e25555").lerp(Color("63cf72"), hp_ratio))
-	draw_string(ThemeDB.fallback_font, Vector2(29, 91), "HP %d/%d" % [player_hp, player_max_hp], HORIZONTAL_ALIGNMENT_CENTER, 150, 13, Color.WHITE)
+	draw_string(UI_FONT, Vector2(29, 91), "HP %d/%d" % [player_hp, player_max_hp], HORIZONTAL_ALIGNMENT_CENTER, 150, 13, Color.WHITE)
 	var xp_needed := SkillSystem.xp_to_next_character_level(player_level)
 	var xp_ratio := clampf(float(player_xp) / float(xp_needed), 0.0, 1.0)
 	var xp_bar := Rect2(202, 77, 170, 18)
 	draw_rect(xp_bar, Color("222e3c"))
 	draw_rect(Rect2(xp_bar.position + Vector2(2, 2), Vector2((xp_bar.size.x - 4) * xp_ratio, xp_bar.size.y - 4)), Color("5b9de3"))
-	draw_string(ThemeDB.fallback_font, Vector2(205, 91), "УР. %d • XP %d/%d" % [player_level, player_xp, xp_needed], HORIZONTAL_ALIGNMENT_CENTER, 164, 13, Color.WHITE)
+	draw_string(UI_FONT, Vector2(205, 91), "УР. %d • XP %d/%d" % [player_level, player_xp, xp_needed], HORIZONTAL_ALIGNMENT_CENTER, 164, 13, Color.WHITE)
 	var mana_ratio := clampf(float(player_mana) / float(player_max_mana), 0.0, 1.0)
 	var mana_bar := Rect2(380, 77, 150, 18)
 	draw_rect(mana_bar, Color("252846"))
 	draw_rect(Rect2(mana_bar.position + Vector2(2, 2), Vector2((mana_bar.size.x - 4) * mana_ratio, mana_bar.size.y - 4)), Color("596bd8"))
-	draw_string(ThemeDB.fallback_font, Vector2(383, 91), "МАНА %d/%d" % [player_mana, player_max_mana], HORIZONTAL_ALIGNMENT_CENTER, 144, 13, Color.WHITE)
+	draw_string(UI_FONT, Vector2(383, 91), LocaleSystem.ui("mana_label", [player_mana, player_max_mana]), HORIZONTAL_ALIGNMENT_CENTER, 144, 13, Color.WHITE)
 	var stamina_max := SkillSystem.max_stamina(self)
 	var stamina_ratio := clampf(float(energy) / float(stamina_max), 0.0, 1.0)
 	var stamina_bar := Rect2(538, 77, 150, 18)
 	draw_rect(stamina_bar, Color("3b3222"))
 	draw_rect(Rect2(stamina_bar.position + Vector2(2, 2), Vector2((stamina_bar.size.x - 4) * stamina_ratio, stamina_bar.size.y - 4)), Color("e0a640"))
-	draw_string(ThemeDB.fallback_font, Vector2(541, 91), "СИЛЫ %d/%d" % [energy, stamina_max], HORIZONTAL_ALIGNMENT_CENTER, 144, 13, Color.WHITE)
+	draw_string(UI_FONT, Vector2(541, 91), LocaleSystem.ui("stamina_label", [energy, stamina_max]), HORIZONTAL_ALIGNMENT_CENTER, 144, 13, Color.WHITE)
 	var effects: Array[String] = []
 	if regeneration_timer > 0.0: effects.append("❤ реген %.0fс" % regeneration_timer)
 	if strength_timer > 0.0: effects.append("⚔ сила %.0fс" % strength_timer)
 	if speed_timer > 0.0: effects.append("➜ скорость %.0fс" % speed_timer)
 	if not effects.is_empty():
 		draw_rect(Rect2(450, 108, 680, 26), Color(0.08, 0.16, 0.14, 0.88))
-		draw_string(ThemeDB.fallback_font, Vector2(465, 127), "ЭФФЕКТЫ: " + "   ".join(effects), HORIZONTAL_ALIGNMENT_LEFT, 650, 15, Color("ffeaa3"))
+		draw_string(UI_FONT, Vector2(465, 127), LocaleSystem.ui("effects") + " " + "   ".join(effects), HORIZONTAL_ALIGNMENT_LEFT, 650, 15, Color("ffeaa3"))
 
 func draw_hotbar() -> void:
 	var start_x := 176.0
@@ -1740,14 +1799,14 @@ func draw_hotbar() -> void:
 		var kind: String = hotbar_slots[index]
 		var item := InventorySystem.data(kind)
 		draw_item_icon(kind, Rect2(slot.position + Vector2(17, 10), Vector2(38, 38)))
-		draw_string(ThemeDB.fallback_font, slot.position + Vector2(5, 16), str(index + 1 if index < 9 else 0), HORIZONTAL_ALIGNMENT_LEFT, -1, 13, Color("352e28") if selected else Color.WHITE)
-		draw_string(ThemeDB.fallback_font, slot.position + Vector2(4, 61), item.short, HORIZONTAL_ALIGNMENT_CENTER, 64, 11, Color("352e28") if selected else Color.WHITE)
+		draw_string(UI_FONT, slot.position + Vector2(5, 16), str(index + 1 if index < 9 else 0), HORIZONTAL_ALIGNMENT_LEFT, -1, 13, Color("352e28") if selected else Color.WHITE)
+		draw_string(UI_FONT, slot.position + Vector2(4, 61), item.short, HORIZONTAL_ALIGNMENT_CENTER, 64, 11, Color("352e28") if selected else Color.WHITE)
 
 func draw_inventory() -> void:
 	draw_rect(Rect2(38, 40, 1076, 552), Color("2d2925"))
 	draw_rect(Rect2(54, 56, 1044, 520), Color("e8cf96"))
 	draw_rect(Rect2(54, 56, 1044, 62), Color("594334"))
-	draw_string(ThemeDB.fallback_font, Vector2(270, 98), "БЕЗРАЗМЕРНЫЙ РЮКЗАК • TAB", HORIZONTAL_ALIGNMENT_CENTER, 440, 25, Color("fff0bd"))
+	draw_string(UI_FONT, Vector2(270, 98), LocaleSystem.ui("inventory"), HORIZONTAL_ALIGNMENT_CENTER, 440, 25, Color("fff0bd"))
 	var first_visible := inventory_scroll_row * InventorySystem.COLUMNS
 	var last_visible := mini(first_visible + InventorySystem.VISIBLE_SLOTS, inventory_slots.size())
 	for index in range(first_visible, last_visible):
@@ -1761,53 +1820,53 @@ func draw_inventory() -> void:
 		var kind: String = inventory_slots[index]
 		if not kind.is_empty() and inventory_item_count(kind) > 0:
 			draw_item_icon(kind, Rect2(slot.position + Vector2(5, 6), Vector2(30, 30)))
-			draw_string(ThemeDB.fallback_font, slot.position + Vector2(37, 23), inventory_item_name(kind), HORIZONTAL_ALIGNMENT_LEFT, 61, 10, Color("352e28"))
-			draw_string(ThemeDB.fallback_font, slot.position + Vector2(73, 51), "×%d" % inventory_item_count(kind), HORIZONTAL_ALIGNMENT_LEFT, -1, 13, Color("352e28"))
+			draw_string(UI_FONT, slot.position + Vector2(37, 23), inventory_item_name(kind), HORIZONTAL_ALIGNMENT_LEFT, 61, 10, Color("352e28"))
+			draw_string(UI_FONT, slot.position + Vector2(73, 51), "×%d" % inventory_item_count(kind), HORIZONTAL_ALIGNMENT_LEFT, -1, 13, Color("352e28"))
 		else:
-			draw_string(ThemeDB.fallback_font, slot.position + Vector2(45, 39), "—", HORIZONTAL_ALIGNMENT_LEFT, -1, 18, Color("937d61"))
+			draw_string(UI_FONT, slot.position + Vector2(45, 39), "—", HORIZONTAL_ALIGNMENT_LEFT, -1, 18, Color("937d61"))
 	var total_rows := ceili(float(inventory_slots.size()) / InventorySystem.COLUMNS)
 	var scroll_track := Rect2(750, 126, 10, 337)
 	draw_rect(scroll_track, Color("8c7559"))
 	var thumb_height := maxf(34.0, scroll_track.size.y * InventorySystem.VISIBLE_ROWS / float(maxi(total_rows, InventorySystem.VISIBLE_ROWS)))
 	var scroll_ratio := float(inventory_scroll_row) / float(maxi(InventorySystem.max_scroll_row(self), 1))
 	draw_rect(Rect2(scroll_track.position + Vector2(1, (scroll_track.size.y - thumb_height) * scroll_ratio), Vector2(8, thumb_height)), Color("f0c96f"))
-	draw_string(ThemeDB.fallback_font, Vector2(650, 106), "строка %d/%d" % [inventory_scroll_row + 1, maxi(total_rows - InventorySystem.VISIBLE_ROWS + 1, 1)], HORIZONTAL_ALIGNMENT_RIGHT, 100, 11, Color("d8c49a"))
+	draw_string(UI_FONT, Vector2(650, 106), LocaleSystem.ui("row", [inventory_scroll_row + 1, maxi(total_rows - InventorySystem.VISIBLE_ROWS + 1, 1)]), HORIZONTAL_ALIGNMENT_RIGHT, 100, 11, Color("d8c49a"))
 	draw_equipment_panel()
 	for index in 10:
 		var assign_box := Rect2(72 + index * 68, 492, 62, 44)
 		draw_rect(assign_box, Color("f0c96f") if index == selected_hotbar else Color("715744"))
-		draw_string(ThemeDB.fallback_font, assign_box.position + Vector2(3, 14), str(index + 1 if index < 9 else 0), HORIZONTAL_ALIGNMENT_LEFT, -1, 11, Color.WHITE)
-		draw_string(ThemeDB.fallback_font, assign_box.position + Vector2(4, 35), InventorySystem.data(hotbar_slots[index]).short, HORIZONTAL_ALIGNMENT_CENTER, 54, 9, Color.WHITE)
+		draw_string(UI_FONT, assign_box.position + Vector2(3, 14), str(index + 1 if index < 9 else 0), HORIZONTAL_ALIGNMENT_LEFT, -1, 11, Color.WHITE)
+		draw_string(UI_FONT, assign_box.position + Vector2(4, 35), InventorySystem.data(hotbar_slots[index]).short, HORIZONTAL_ALIGNMENT_CENTER, 54, 9, Color.WHITE)
 	draw_rect(Rect2(770, 500, 142, 38), Color("6e9b63"))
 	draw_rect(Rect2(928, 500, 142, 38), Color("c08a55"))
-	draw_string(ThemeDB.fallback_font, Vector2(778, 525), "СЪЕСТЬ • A", HORIZONTAL_ALIGNMENT_CENTER, 126, 13, Color.WHITE)
-	draw_string(ThemeDB.fallback_font, Vector2(936, 525), "НАДЕТЬ • X", HORIZONTAL_ALIGNMENT_CENTER, 126, 13, Color.WHITE)
-	draw_string(ThemeDB.fallback_font, Vector2(72, 563), "Колесо/PgUp/PgDn — прокрутка • E съесть • Q надеть • 1–0 назначить • M переместить • X выбросить", HORIZONTAL_ALIGNMENT_LEFT, 990, 13, Color("493b2f"))
+	draw_string(UI_FONT, Vector2(778, 525), LocaleSystem.ui("eat"), HORIZONTAL_ALIGNMENT_CENTER, 126, 13, Color.WHITE)
+	draw_string(UI_FONT, Vector2(936, 525), LocaleSystem.ui("equip"), HORIZONTAL_ALIGNMENT_CENTER, 126, 13, Color.WHITE)
+	draw_string(UI_FONT, Vector2(72, 563), LocaleSystem.ui("inventory_help"), HORIZONTAL_ALIGNMENT_LEFT, 990, 13, Color("493b2f"))
 
 func draw_equipment_panel() -> void:
 	draw_rect(Rect2(770, 136, 300, 350), Color("6f5542"))
-	draw_string(ThemeDB.fallback_font, Vector2(790, 168), "ЭКИПИРОВКА", HORIZONTAL_ALIGNMENT_CENTER, 260, 22, Color("fff0bd"))
+	draw_string(UI_FONT, Vector2(790, 168), LocaleSystem.ui("equipment"), HORIZONTAL_ALIGNMENT_CENTER, 260, 22, Color("fff0bd"))
 	draw_circle(Vector2(920, 265), 48, Color("e5b68d"))
 	draw_rect(Rect2(882, 310, 76, 105), Color("638d72"))
 	var slots := ["head", "body", "legs", "hands", "offhand", "ring"]
-	var labels := {"head":"Голова", "body":"Тело", "legs":"Ноги", "hands":"Руки", "offhand":"Щит", "ring":"Кольцо"}
+	var labels := {"head":LocaleSystem.ui("head"), "body":LocaleSystem.ui("body"), "legs":LocaleSystem.ui("legs"), "hands":LocaleSystem.ui("hands"), "offhand":LocaleSystem.ui("offhand"), "ring":LocaleSystem.ui("ring")}
 	for index in slots.size():
 		var slot_name: String = slots[index]
 		var left := index % 2 == 0
 		var box := Rect2(790 if left else 972, 195 + (index / 2) * 82, 82, 64)
 		draw_rect(box, Color("fff0bd"))
 		var kind: String = equipment[slot_name]
-		draw_string(ThemeDB.fallback_font, box.position + Vector2(4, 16), labels[slot_name], HORIZONTAL_ALIGNMENT_CENTER, 74, 11, Color("493b2f"))
+		draw_string(UI_FONT, box.position + Vector2(4, 16), labels[slot_name], HORIZONTAL_ALIGNMENT_CENTER, 74, 11, Color("493b2f"))
 		if not kind.is_empty():
 			draw_item_icon(kind, Rect2(box.position + Vector2(23, 23), Vector2(36, 36)))
-			draw_string(ThemeDB.fallback_font, box.position + Vector2(4, 59), InventorySystem.data(kind).short, HORIZONTAL_ALIGNMENT_CENTER, 74, 10, Color("493b2f"))
+			draw_string(UI_FONT, box.position + Vector2(4, 59), InventorySystem.data(kind).short, HORIZONTAL_ALIGNMENT_CENTER, 74, 10, Color("493b2f"))
 
 func draw_skill_menu() -> void:
 	draw_rect(Rect2(92, 48, 968, 552), Color("25232c"))
 	draw_rect(Rect2(112, 68, 928, 512), Color("e4d4a9"))
 	draw_rect(Rect2(112, 68, 928, 70), Color("493e61"))
-	draw_string(ThemeDB.fallback_font, Vector2(180, 108), "РАЗВИТИЕ ПЕРСОНАЖА", HORIZONTAL_ALIGNMENT_LEFT, 510, 28, Color("fff2c7"))
-	draw_string(ThemeDB.fallback_font, Vector2(735, 106), "Уровень %d • очков: %d" % [player_level, skill_points], HORIZONTAL_ALIGNMENT_RIGHT, 270, 18, Color("f5cf6a"))
+	draw_string(UI_FONT, Vector2(180, 108), LocaleSystem.ui("character"), HORIZONTAL_ALIGNMENT_LEFT, 510, 28, Color("fff2c7"))
+	draw_string(UI_FONT, Vector2(735, 106), LocaleSystem.ui("level_points", [player_level, skill_points]), HORIZONTAL_ALIGNMENT_RIGHT, 270, 18, Color("f5cf6a"))
 	for index in SkillSystem.SKILLS.size():
 		var skill: Dictionary = SkillSystem.SKILLS[index]
 		var column := index % 2
@@ -1816,29 +1875,29 @@ func draw_skill_menu() -> void:
 		var selected := index == skill_menu_selected
 		draw_rect(box, Color("efc75f") if selected else Color("6c5c48"))
 		draw_rect(box.grow(-4), Color("fff0bd") if selected else Color("f0dfb5"))
-		draw_string(ThemeDB.fallback_font, box.position + Vector2(14, 29), "%s  %s" % [skill.icon, skill.name], HORIZONTAL_ALIGNMENT_LEFT, 245, 19, Color("43382f"))
-		draw_string(ThemeDB.fallback_font, box.position + Vector2(310, 29), "РАНГ %d" % SkillSystem.skill(self, skill.id), HORIZONTAL_ALIGNMENT_RIGHT, 88, 15, Color("4c674c"))
-		draw_string(ThemeDB.fallback_font, box.position + Vector2(14, 55), skill.description, HORIZONTAL_ALIGNMENT_LEFT, 380, 12, Color("665746"))
+		draw_string(UI_FONT, box.position + Vector2(14, 29), "%s  %s" % [skill.icon, LocaleSystem.skill(skill.id)], HORIZONTAL_ALIGNMENT_LEFT, 245, 19, Color("43382f"))
+		draw_string(UI_FONT, box.position + Vector2(310, 29), LocaleSystem.ui("rank", [SkillSystem.skill(self, skill.id)]), HORIZONTAL_ALIGNMENT_RIGHT, 88, 15, Color("4c674c"))
+		draw_string(UI_FONT, box.position + Vector2(14, 55), LocaleSystem.skill(skill.id, true), HORIZONTAL_ALIGNMENT_LEFT, 380, 12, Color("665746"))
 		if skill.get("profession", false):
 			var needed := SkillSystem.xp_to_next_skill_rank(SkillSystem.skill(self, skill.id))
 			var ratio := clampf(float(skill_xp.get(skill.id, 0)) / float(needed), 0.0, 1.0)
 			var bar := Rect2(box.position + Vector2(14, 64), Vector2(380, 6))
 			draw_rect(bar, Color("766751"))
 			draw_rect(Rect2(bar.position, Vector2(bar.size.x * ratio, bar.size.y)), Color("6da86d"))
-	draw_string(ThemeDB.fallback_font, Vector2(220, 556), "Стрелки/D-pad — выбрать • Enter/A — вложить очко • K/Esc/Y — закрыть", HORIZONTAL_ALIGNMENT_CENTER, 712, 15, Color("493b2f"))
+	draw_string(UI_FONT, Vector2(220, 556), LocaleSystem.ui("skill_help"), HORIZONTAL_ALIGNMENT_CENTER, 712, 15, Color("493b2f"))
 
 func draw_crafting_window() -> void:
 	draw_rect(Rect2(170, 70, 812, 510), Color("33271f"))
 	draw_rect(Rect2(190, 90, 772, 470), Color("e8cf96"))
 	draw_rect(Rect2(190, 90, 772, 64), Color("744b32"))
-	draw_string(ThemeDB.fallback_font, Vector2(326, 132), "ВЕРСТАК • РЕЦЕПТЫ", HORIZONTAL_ALIGNMENT_CENTER, 500, 28, Color("fff1c4"))
+	draw_string(UI_FONT, Vector2(326, 132), LocaleSystem.ui("workbench"), HORIZONTAL_ALIGNMENT_CENTER, 500, 28, Color("fff1c4"))
 	for index in CraftingSystem.RECIPES.size():
 		var recipe: Dictionary = CraftingSystem.RECIPES[index]
 		var row := Rect2(220, 174 + index * 68, 712, 58)
 		draw_rect(row, Color("f2c96f") if index == crafting_selected else Color("fff0bd"))
-		draw_string(ThemeDB.fallback_font, row.position + Vector2(18, 35), recipe.name, HORIZONTAL_ALIGNMENT_LEFT, 230, 17, Color("493b2f"))
-		draw_string(ThemeDB.fallback_font, row.position + Vector2(250, 35), CraftingSystem.ingredients_text(self, recipe), HORIZONTAL_ALIGNMENT_LEFT, 440, 14, Color("49704d") if CraftingSystem.can_craft(self, recipe) else Color("a64d45"))
-	draw_string(ThemeDB.fallback_font, Vector2(220, 535), "↑↓ рецепт • Enter создать • C/Esc закрыть", HORIZONTAL_ALIGNMENT_CENTER, 712, 16, Color("493b2f"))
+		draw_string(UI_FONT, row.position + Vector2(18, 35), inventory_item_name(recipe.output), HORIZONTAL_ALIGNMENT_LEFT, 230, 17, Color("493b2f"))
+		draw_string(UI_FONT, row.position + Vector2(250, 35), CraftingSystem.ingredients_text(self, recipe), HORIZONTAL_ALIGNMENT_LEFT, 440, 14, Color("49704d") if CraftingSystem.can_craft(self, recipe) else Color("a64d45"))
+	draw_string(UI_FONT, Vector2(220, 535), LocaleSystem.ui("craft_help"), HORIZONTAL_ALIGNMENT_CENTER, 712, 16, Color("493b2f"))
 
 func draw_shop() -> void:
 	# Отдельная сцена-интерьер поверх игрового мира.
@@ -1847,18 +1906,18 @@ func draw_shop() -> void:
 	for plank_y in range(108, 560, 32):
 		draw_line(Vector2(132, plank_y), Vector2(1020, plank_y), Color("d8b878"), 2)
 	draw_rect(Rect2(132, 90, 888, 72), Color("744b32"))
-	draw_string(ThemeDB.fallback_font, Vector2(576, 138), "СЕЛЬСКАЯ ЛАВКА", HORIZONTAL_ALIGNMENT_CENTER, 500, 30, Color("fff1c4"))
+	draw_string(UI_FONT, Vector2(576, 138), LocaleSystem.ui("shop"), HORIZONTAL_ALIGNMENT_CENTER, 500, 30, Color("fff1c4"))
 	# Прилавок и декоративные припасы из набора.
 	draw_rect(Rect2(158, 190, 210, 302), Color("9b663d"))
 	draw_texture_rect_region(SUPPLY_SHEET, Rect2(175, 208, 176, 136), Rect2(0, 0, 176, 136))
-	draw_string(ThemeDB.fallback_font, Vector2(174, 470), "Бабушкины запасы", HORIZONTAL_ALIGNMENT_LEFT, -1, 18, Color("fff1c4"))
+	draw_string(UI_FONT, Vector2(174, 470), LocaleSystem.ui("grandma_stock"), HORIZONTAL_ALIGNMENT_LEFT, -1, 18, Color("fff1c4"))
 	# Таблица товаров.
 	var table := Rect2(405, 174, 570, 324)
 	draw_rect(table, Color("fff4cf"))
 	draw_rect(Rect2(table.position, Vector2(table.size.x, 42)), Color("53704b"))
-	draw_string(ThemeDB.fallback_font, table.position + Vector2(62, 28), "ТОВАР / СРОК РОСТА", HORIZONTAL_ALIGNMENT_LEFT, -1, 15, Color.WHITE)
-	draw_string(ThemeDB.fallback_font, table.position + Vector2(350, 28), "КУПИТЬ", HORIZONTAL_ALIGNMENT_LEFT, -1, 15, Color.WHITE)
-	draw_string(ThemeDB.fallback_font, table.position + Vector2(455, 28), "ПРОДАТЬ", HORIZONTAL_ALIGNMENT_LEFT, -1, 15, Color.WHITE)
+	draw_string(UI_FONT, table.position + Vector2(62, 28), LocaleSystem.ui("product"), HORIZONTAL_ALIGNMENT_LEFT, -1, 15, Color.WHITE)
+	draw_string(UI_FONT, table.position + Vector2(350, 28), LocaleSystem.ui("buy"), HORIZONTAL_ALIGNMENT_LEFT, -1, 15, Color.WHITE)
+	draw_string(UI_FONT, table.position + Vector2(455, 28), LocaleSystem.ui("sell"), HORIZONTAL_ALIGNMENT_LEFT, -1, 15, Color.WHITE)
 	for i in shop_products.size():
 		var product: Dictionary = shop_products[i]
 		var row := Rect2(table.position + Vector2(0, 42 + i * 47), Vector2(table.size.x, 47))
@@ -1868,10 +1927,10 @@ func draw_shop() -> void:
 			draw_texture_rect_region(SUPPLY_SHEET, Rect2(row.position + Vector2(12, 5), Vector2(34, 38)), product.icon)
 		else:
 			draw_item_icon(product.kind, Rect2(row.position + Vector2(13, 7), Vector2(32, 32)))
-		draw_string(ThemeDB.fallback_font, row.position + Vector2(56, 30), product.name, HORIZONTAL_ALIGNMENT_LEFT, 286, 14, Color("3d3428"))
-		draw_string(ThemeDB.fallback_font, row.position + Vector2(370, 30), ("%d 🪙" % product.buy) if product.buy > 0 else "—", HORIZONTAL_ALIGNMENT_LEFT, -1, 15, Color("3d3428"))
-		draw_string(ThemeDB.fallback_font, row.position + Vector2(478, 30), ("%d 🪙" % product.sell) if product.sell > 0 else "—", HORIZONTAL_ALIGNMENT_LEFT, -1, 15, Color("3d3428"))
-	draw_string(ThemeDB.fallback_font, Vector2(690, 535), "↑↓ выбрать   Enter купить   X продать   B закрыть", HORIZONTAL_ALIGNMENT_CENTER, 560, 16, Color("493b2f"))
+		draw_string(UI_FONT, row.position + Vector2(56, 30), inventory_item_name(product.kind), HORIZONTAL_ALIGNMENT_LEFT, 286, 14, Color("3d3428"))
+		draw_string(UI_FONT, row.position + Vector2(370, 30), ("%d 🪙" % product.buy) if product.buy > 0 else "—", HORIZONTAL_ALIGNMENT_LEFT, -1, 15, Color("3d3428"))
+		draw_string(UI_FONT, row.position + Vector2(478, 30), ("%d 🪙" % product.sell) if product.sell > 0 else "—", HORIZONTAL_ALIGNMENT_LEFT, -1, 15, Color("3d3428"))
+	draw_string(UI_FONT, Vector2(690, 535), LocaleSystem.ui("shop_help"), HORIZONTAL_ALIGNMENT_CENTER, 560, 16, Color("493b2f"))
 
 func _input(event: InputEvent) -> void:
 	if handle_gamepad_and_touch(event):
@@ -1938,7 +1997,7 @@ func handle_gamepad_and_touch(event: InputEvent) -> bool:
 		queue_redraw()
 		return true
 	if event is InputEventScreenTouch and event.pressed:
-		if Rect2(344, 190, 464, 126).has_point(event.position) and not discovery_current.is_empty():
+		if discovery_card_rect().has_point(event.position) and not discovery_current.is_empty():
 			DiscoverySystem.dismiss(self)
 			return true
 		if Rect2(990, 0, 162, 62).has_point(event.position):

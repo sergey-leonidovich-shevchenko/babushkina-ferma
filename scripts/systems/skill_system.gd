@@ -1,5 +1,7 @@
 extends RefCounted
 
+const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
+
 const SKILLS := [
 	{"id":"vitality","name":"Здоровье","icon":"❤","description":"+10 к максимальному здоровью за ранг"},
 	{"id":"mana","name":"Мана","icon":"✦","description":"+10 к запасу маны и ускорение её восстановления"},
@@ -45,7 +47,7 @@ static func award_character_xp(game: Node, amount: int, reason: String = "") -> 
 		var old_max_hp: int = game.player_max_hp
 		recalculate_resources(game)
 		game.player_hp = mini(game.player_hp + game.player_max_hp - old_max_hp, game.player_max_hp)
-		game.message = "Новый уровень %d! Получено очко навыка — открой [K]" % game.player_level
+		game.message = game.LocaleSystem.text("level_up", [game.player_level])
 		game.notify_tutorial("level_up")
 	elif not reason.is_empty():
 		game.message = "%s: +%d опыта" % [reason, amount]
@@ -66,7 +68,7 @@ static func award_profession_xp(game: Node, skill_id: String, amount: int) -> bo
 
 static func allocate(game: Node, skill_id: String) -> bool:
 	if game.skill_points <= 0 or not game.skill_levels.has(skill_id):
-		game.message = "Нет свободных очков навыков"
+		game.message = game.LocaleSystem.text("no_points")
 		return false
 	var old_hp: int = game.player_max_hp
 	var old_mana: int = game.player_max_mana
@@ -77,7 +79,7 @@ static func allocate(game: Node, skill_id: String) -> bool:
 	game.player_mana = mini(game.player_mana + game.player_max_mana - old_mana, game.player_max_mana)
 	if skill_id == "stamina":
 		game.energy = mini(game.energy + 2, max_stamina(game))
-	game.message = "%s: ранг %d" % [name_for(skill_id), skill(game, skill_id)]
+	game.message = game.LocaleSystem.text("rank_up", [name_for(skill_id), skill(game, skill_id)])
 	game.notify_tutorial("skill_point")
 	return true
 
@@ -126,7 +128,4 @@ static func material_cost(game: Node, amount: int) -> int:
 	return maxi(1, amount - skill(game, "smithing") / 3)
 
 static func name_for(skill_id: String) -> String:
-	for entry in SKILLS:
-		if entry.id == skill_id:
-			return entry.name
-	return skill_id
+	return LocaleSystem.skill(skill_id)

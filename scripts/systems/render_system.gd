@@ -1,6 +1,8 @@
 extends RefCounted
 
 static func draw(game: Node2D) -> void:
+	if game.language_screen:
+		game.draw_language_screen(); return
 	if game.title_screen:
 		game.draw_title_screen(); return
 	game.draw_set_transform(-game.camera_offset)

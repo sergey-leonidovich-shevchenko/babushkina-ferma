@@ -1,5 +1,7 @@
 extends RefCounted
 
+const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
+
 const AVAILABLE := "available"
 const ACTIVE := "active"
 const COMPLETED := "completed"
@@ -31,11 +33,17 @@ const MISSIONS := {
 	},
 }
 
+static func mission_data(mission_id: String) -> Dictionary:
+	var result: Dictionary = MISSIONS[mission_id].duplicate()
+	for field in ["type", "title", "giver", "description"]:
+		result[field] = LocaleSystem.quest(mission_id, field)
+	return result
+
 static func talk_to_grandmother(game: Node) -> void:
 	game.notify_tutorial("talk")
 	if not game.quest_active and not game.quest_complete:
 		game.quest_active = true
-		game.message = "Задание: принеси бабушке 10 морковок"
+		game.message = game.LocaleSystem.text("carrot_quest")
 	elif game.quest_active and game.carrots >= 10:
 		game.carrots -= 10
 		game.coins += 50
@@ -43,43 +51,43 @@ static func talk_to_grandmother(game: Node) -> void:
 		game.quest_active = false
 		game.quest_complete = true
 		game.has_bow = true
-		game.message = "Квест выполнен! +50 монет, +25 опыта и охотничий лук"
+		game.message = game.LocaleSystem.text("carrot_done")
 		game.notify_tutorial("quest_complete")
 	elif game.quest_active:
-		game.message = "Бабушка ждёт морковь: %d/10" % game.carrots
+		game.message = game.LocaleSystem.text("carrot_wait", [game.carrots])
 	else:
-		game.message = "Спасибо за помощь, внучек!"
+		game.message = game.LocaleSystem.text("thanks")
 
 static func talk(game: Node, mission_id: String) -> bool:
 	if not MISSIONS.has(mission_id):
 		return false
-	var mission: Dictionary = MISSIONS[mission_id]
+	var mission: Dictionary = mission_data(mission_id)
 	var state: String = game.mission_states.get(mission_id, AVAILABLE)
 	if state == AVAILABLE:
 		game.mission_states[mission_id] = ACTIVE
-		game.message = "%s: %s. Открой журнал [J]" % [mission.type, mission.title]
+		game.message = game.LocaleSystem.text("mission_started", [mission.type, mission.title])
 		game.notify_tutorial("mission_accept")
 		return true
 	if state == ACTIVE:
 		var current: int = game.inventory_item_count(mission.item)
 		if current < mission.count:
-			game.message = "%s ждёт: %s %d/%d" % [mission.giver, game.inventory_item_name(mission.item), current, mission.count]
+			game.message = game.LocaleSystem.text("mission_wait", [mission.giver, game.inventory_item_name(mission.item), current, mission.count])
 			return true
 		game.change_inventory_count(mission.item, -mission.count)
 		game.change_inventory_count(mission.reward_item, mission.reward_count)
 		game.coins += mission.coins
 		game.award_xp(mission.xp)
 		game.mission_states[mission_id] = COMPLETED
-		game.message = "%s выполнено! +%d монет, +%d XP, %s" % [mission.title, mission.coins, mission.xp, game.inventory_item_name(mission.reward_item)]
+		game.message = game.LocaleSystem.text("mission_done", [mission.title, mission.coins, mission.xp, game.inventory_item_name(mission.reward_item)])
 		game.notify_tutorial("mission_complete")
 		if mission_id == "side_seed":
 			game.notify_tutorial("side_mission")
 		return true
-	game.message = "%s благодарит тебя за помощь" % mission.giver
+	game.message = "%s: %s" % [mission.giver, game.LocaleSystem.text("thanks")]
 	return true
 
 static func objective_text(game: Node, mission_id: String) -> String:
-	var mission: Dictionary = MISSIONS[mission_id]
+	var mission: Dictionary = mission_data(mission_id)
 	var state: String = game.mission_states.get(mission_id, AVAILABLE)
 	if state == AVAILABLE:
 		return "Поговори: %s" % mission.giver

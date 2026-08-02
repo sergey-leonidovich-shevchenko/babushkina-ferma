@@ -19,4 +19,4 @@ static func reset(game: Node) -> void:
 	game.discovery_scan_timer = 0.0
 	game.character_animation_directions.clear()
 	game.tutorial_visible = true
-	game.message = "Обучение начато заново"
+	game.message = game.LocaleSystem.text("tutorial_reset")

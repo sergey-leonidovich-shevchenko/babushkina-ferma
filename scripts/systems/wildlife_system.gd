@@ -1,5 +1,7 @@
 extends RefCounted
 
+const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
+
 const FEAR_RADIUS := 220.0
 const ROAM_RADIUS := 320.0
 
@@ -79,9 +81,9 @@ static func attack(game: Node, index: int) -> bool:
 		game.SkillSystem.award_profession_xp(game, "combat", maxi(1, TYPES[animal.kind].xp / 2))
 		for kind in TYPES[animal.kind].loot:
 			game.dropped_items.append({"kind":kind,"count":TYPES[animal.kind].loot[kind],"position":animal.position})
-		game.message = "%s добыт: +%d XP" % [TYPES[animal.kind].name, TYPES[animal.kind].xp]
+		game.message = "%s: +%d XP" % [LocaleSystem.entity(animal.kind), TYPES[animal.kind].xp]
 	else:
-		game.message = "%s пугается и убегает: -%d HP" % [TYPES[animal.kind].name, damage]
+		game.message = "%s: -%d HP" % [LocaleSystem.entity(animal.kind), damage]
 	game.wildlife_nodes[index] = animal
 	game.notify_tutorial("wildlife")
 	if animal.kind == "lizard":

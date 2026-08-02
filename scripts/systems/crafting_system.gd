@@ -19,13 +19,13 @@ static func craft(game: Node, index: int) -> bool:
 	if index < 0 or index >= RECIPES.size(): return false
 	var recipe: Dictionary = RECIPES[index]
 	if not can_craft(game, recipe):
-		game.message = "Не хватает: " + ingredients_text(game, recipe)
+		game.message = game.LocaleSystem.text("needs", [ingredients_text(game, recipe)])
 		return false
 	for kind in recipe.inputs: game.change_inventory_count(kind, -game.SkillSystem.material_cost(game, recipe.inputs[kind]))
 	game.change_inventory_count(recipe.output, recipe.count)
 	game.award_xp(4)
 	game.SkillSystem.award_profession_xp(game, "smithing", 6)
-	game.message = "Создано: %s" % recipe.name
+	game.message = game.LocaleSystem.text("crafted", [game.inventory_item_name(recipe.output)])
 	game.notify_tutorial("craft_window")
 	return true
 

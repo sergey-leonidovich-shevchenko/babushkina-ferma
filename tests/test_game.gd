@@ -5,6 +5,7 @@ var passed := 0
 var failed := 0
 
 func _initialize() -> void:
+	test_localization_language_selector_and_catalogs()
 	test_keyboard_press_and_release()
 	test_immediate_keyboard_response()
 	test_four_direction_character_animation()
@@ -50,6 +51,7 @@ func _initialize() -> void:
 func make_game() -> Node:
 	var game := GameScript.new()
 	game._ready()
+	game.language_screen = false
 	game.title_screen = false
 	return game
 
@@ -67,6 +69,51 @@ func expect(condition: bool, label: String) -> void:
 	else:
 		failed += 1
 		push_error("FAIL: " + label)
+
+func test_localization_language_selector_and_catalogs() -> void:
+	var locale = GameScript.LocaleSystem
+	expect(locale.LOCALES == ["ru", "en", "es", "de", "fr", "zh"], "six primary game locales are configured")
+	for table in [locale.UI, locale.TEXT, locale.ITEMS, locale.LOCATIONS, locale.TUTORIAL, locale.SKILLS, locale.QUESTS, locale.ENTITIES]:
+		for key in table:
+			expect(table[key].size() == 6 and table[key].all(func(value): return not String(value).is_empty()), "localization key has six non-empty translations: %s" % key)
+	var game := GameScript.new()
+	game._ready()
+	game.persist_locale_selection = false
+	game.language_selected = 0
+	expect(game.language_screen and game.language_button_rect(0).size == Vector2(312, 62), "new launch opens a keyboard gamepad and touch language selector")
+	var right := key_event(KEY_RIGHT, KEY_RIGHT, true)
+	game.handle_language_input(right)
+	expect(game.language_selected == 1, "language selector moves immediately with keyboard")
+	game.handle_language_input(key_event(KEY_ENTER, KEY_ENTER, true))
+	expect(not game.language_screen and locale.current == "en" and locale.ui("title") == "GRANDMA'S FARM", "Enter applies English before the title screen")
+	game.language_screen = true
+	game.language_selected = 0
+	var dpad := InputEventJoypadButton.new()
+	dpad.button_index = JOY_BUTTON_DPAD_RIGHT
+	dpad.pressed = true
+	game.handle_language_input(dpad)
+	var accept := InputEventJoypadButton.new()
+	accept.button_index = JOY_BUTTON_A
+	accept.pressed = true
+	game.handle_language_input(accept)
+	expect(not game.language_screen and locale.current == "en", "D-pad and A select a language")
+	game.language_screen = true
+	var touch := InputEventScreenTouch.new()
+	touch.position = game.language_button_rect(4).get_center()
+	touch.pressed = true
+	game.handle_language_input(touch)
+	expect(not game.language_screen and locale.current == "fr", "touch selects the tapped language button")
+	locale.set_locale("zh", false)
+	expect(locale.item("watermelon") == "多汁西瓜" and locale.tutorial("shield") == "制作并装备盾牌", "Chinese item and tutorial translations are available")
+	locale.set_locale("de", false)
+	expect(game.InventorySystem.data("oak_shield").name == "Eichenschild" and game.WorldSystem.name("cave") == "Kristallhöhlen", "systems resolve German names dynamically")
+	var settings_path := "user://localization-test.cfg"
+	expect(locale.set_locale("es", true, settings_path), "selected locale can be persisted")
+	locale.set_locale("ru", false)
+	expect(locale.load_locale(settings_path) == "es", "persisted locale is restored on the next launch")
+	DirAccess.remove_absolute(ProjectSettings.globalize_path(settings_path))
+	locale.set_locale("ru", false)
+	game.free()
 
 func test_keyboard_press_and_release() -> void:
 	var game := make_game()
@@ -542,6 +589,8 @@ func test_contextual_discoveries_and_new_item_hints() -> void:
 	game.player = Vector2(972, 278)
 	expect(game.DiscoverySystem.scan_nearby(game), "approaching an unknown feature opens a contextual hint")
 	expect(game.discovery_current.id == "shop" and game.seen_discoveries.has("shop"), "shop hint explains and remembers the discovered feature")
+	var card: Rect2 = game.discovery_card_rect()
+	expect(card.position.x >= 800.0 and card.size.x <= 320.0 and not card.has_point(game.player), "context hint stays compact in the screen corner and does not cover the player")
 	game.DiscoverySystem.dismiss(game)
 	expect(not game.DiscoverySystem.scan_nearby(game), "seen feature does not repeat its hint")
 	game.current_location = "cave"

@@ -1,5 +1,7 @@
 extends RefCounted
 
+const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
+
 const COLUMNS := 6
 const VISIBLE_ROWS := 5
 const VISIBLE_SLOTS := COLUMNS * VISIBLE_ROWS
@@ -51,7 +53,11 @@ const ITEM_DATA := {
 }
 
 static func data(kind: String) -> Dictionary:
-	return ITEM_DATA.get(kind, {"name": "Неизвестный предмет", "short": "?", "color": Color.WHITE})
+	var result: Dictionary = ITEM_DATA.get(kind, {"name": kind, "short": "?", "color": Color.WHITE}).duplicate()
+	if LocaleSystem.ITEMS.has(kind):
+		result.name = LocaleSystem.item(kind)
+		result.short = LocaleSystem.item(kind, true)
+	return result
 
 static func ensure_item_slot(game: Node, kind: String) -> int:
 	if kind.is_empty():
@@ -101,7 +107,7 @@ static func assign_hotbar(game: Node, inventory_index: int, hotbar_index: int) -
 	game.hotbar_slots[hotbar_index] = kind
 	game.selected_hotbar = hotbar_index
 	select_hotbar(game, hotbar_index)
-	game.message = "%s назначен в быстрый слот %d" % [data(kind).name, hotbar_index + 1]
+	game.message = game.LocaleSystem.text("assigned", [data(kind).name, hotbar_index + 1])
 	game.notify_tutorial("hotbar")
 	return true
 
@@ -111,7 +117,7 @@ static func select_hotbar(game: Node, index: int) -> bool:
 	var kind: String = game.hotbar_slots[index]
 	var item := data(kind)
 	if item.has("tool"): game.selected_tool = item.tool
-	game.message = "В руках: %s" % item.name
+	game.message = game.LocaleSystem.text("in_hand", [item.name])
 	return not kind.is_empty()
 
 static func equip(game: Node, kind: String) -> bool:

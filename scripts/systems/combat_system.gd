@@ -1,5 +1,7 @@
 extends RefCounted
 
+const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
+
 const TYPES := {
 	"plant": {"name":"Хищное растение","hp":5,"damage":12,"xp":14,"color":Color("4d9b4f"),"loot":{"fiber":2,"rare_seeds":1}},
 	"orc": {"name":"Орк-разбойник","hp":8,"damage":18,"xp":22,"color":Color("789348"),"loot":{"metal":2,"coins":15,"orc_blade":1}},
@@ -38,7 +40,7 @@ static func attack(game: Node, index: int) -> bool:
 			var count: int = TYPES[enemy.kind].loot[kind]
 			if kind == "coins": game.coins += count
 			else: game.dropped_items.append({"kind":kind,"count":count,"position":enemy.position})
-		game.message = "%s побеждён: +%d XP" % [TYPES[enemy.kind].name, TYPES[enemy.kind].xp]
-	else: game.message = "%s: -%d HP" % [TYPES[enemy.kind].name, damage]
+		game.message = "%s: +%d XP" % [LocaleSystem.entity(enemy.kind), TYPES[enemy.kind].xp]
+	else: game.message = "%s: -%d HP" % [LocaleSystem.entity(enemy.kind), damage]
 	game.enemy_nodes[index] = enemy
 	return true

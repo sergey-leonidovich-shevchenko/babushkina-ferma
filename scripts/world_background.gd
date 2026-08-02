@@ -1,5 +1,7 @@
 extends Node2D
 
+const UI_FONT := preload("res://assets/game/fonts/ui_font.tres")
+
 const WORLD_SIZE := Vector2(2400, 1200)
 const PLANT_SHEET := preload("res://assets/game/environment/farm_plants.png")
 const FOREST_TREE := preload("res://assets/game/environment/forest_tree.png")
@@ -9,6 +11,7 @@ const GRASS_TILE := preload("res://assets/game/tiles/grass.png")
 const ROAD_TILE := preload("res://assets/game/tiles/road-brick.png")
 const CAVE_FLOOR_TILE := preload("res://assets/game/tiles/cave-floor.png")
 const BRIDGES := preload("res://assets/game/environment/bridges.png")
+const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
 
 var location := "overworld"
 
@@ -28,7 +31,7 @@ func _draw() -> void:
 
 func draw_adventure_location() -> void:
 	var colors := {"forest":Color("315c3c"),"rocky":Color("6f6a5b"),"ruins":Color("665849"),"cursed":Color("3e304b"),"glassworks":Color("6f493b")}
-	var names := {"forest":"ОБЫЧНЫЙ ЛЕС","rocky":"КАМЕНИСТАЯ ОБЛАСТЬ","ruins":"ОРOЧЬИ РУИНЫ","cursed":"ПРОКЛЯТАЯ ЗЕМЛЯ","glassworks":"МАСТЕРСКАЯ СТЕКЛОДУВА"}
+	var names := {"forest":LocaleSystem.location("forest").to_upper(),"rocky":LocaleSystem.location("rocky").to_upper(),"ruins":LocaleSystem.location("ruins").to_upper(),"cursed":LocaleSystem.location("cursed").to_upper(),"glassworks":LocaleSystem.location("glassworks").to_upper()}
 	draw_rect(Rect2(Vector2.ZERO, WORLD_SIZE), colors.get(location, Color("48624a")))
 	for y in range(140, 1100, 180):
 		for x in range(100 + (y % 120), 2300, 220):
@@ -36,7 +39,7 @@ func draw_adventure_location() -> void:
 			elif location in ["rocky","ruins"]: draw_circle(Vector2(x,y), 28, Color("8f8875"))
 			elif location == "cursed": draw_circle(Vector2(x,y), 8, Color("8d6aa0"))
 			else: draw_rect(Rect2(x - 20,y - 35,40,70), Color("b86f4d"))
-	draw_string(ThemeDB.fallback_font, Vector2(80, 100), names.get(location, location), HORIZONTAL_ALIGNMENT_LEFT, -1, 30, Color("fff0bd"))
+	draw_string(UI_FONT, Vector2(80, 100), names.get(location, location), HORIZONTAL_ALIGNMENT_LEFT, -1, 30, Color("fff0bd"))
 
 func draw_overworld() -> void:
 	# Один повторяющийся GPU-тайл вместо одноцветного пола и тысяч draw calls.
@@ -54,15 +57,15 @@ func draw_overworld() -> void:
 	draw_rect(Rect2(54, 130, 190, 150), Color("e5c478"))
 	draw_colored_polygon(PackedVector2Array([Vector2(38,145), Vector2(149,72), Vector2(260,145)]), Color("9c5338"))
 	draw_rect(Rect2(128, 216, 43, 64), Color("6b4328"))
-	draw_string(ThemeDB.fallback_font, Vector2(66, 308), "ДОМ • сон [N]", HORIZONTAL_ALIGNMENT_LEFT, -1, 17, Color("213a2c"))
+	draw_string(UI_FONT, Vector2(66, 308), LocaleSystem.ui("home"), HORIZONTAL_ALIGNMENT_LEFT, -1, 17, Color("213a2c"))
 	draw_rect(Rect2(910, 194, 128, 98), Color("f3d88e"))
 	draw_rect(Rect2(895, 175, 158, 30), Color("d66b45"))
-	draw_string(ThemeDB.fallback_font, Vector2(913, 238), "СЕМЕНА", HORIZONTAL_ALIGNMENT_LEFT, -1, 18, Color("55382b"))
-	draw_string(ThemeDB.fallback_font, Vector2(905, 320), "Лавка [B]", HORIZONTAL_ALIGNMENT_LEFT, -1, 17, Color("213a2c"))
+	draw_string(UI_FONT, Vector2(913, 238), LocaleSystem.ui("seeds_sign"), HORIZONTAL_ALIGNMENT_LEFT, -1, 18, Color("55382b"))
+	draw_string(UI_FONT, Vector2(905, 320), LocaleSystem.ui("shop_sign"), HORIZONTAL_ALIGNMENT_LEFT, -1, 17, Color("213a2c"))
 	draw_texture_rect_region(PLANT_SHEET, Rect2(270, 126, 290, 90), Rect2(94, 0, 290, 90))
 	draw_rect(Rect2(790, 392, 60, 54), Color("9c633b"))
 	for i in 3: draw_line(Vector2(794, 402 + i * 15), Vector2(846, 402 + i * 15), Color("d09755"), 4)
-	draw_string(ThemeDB.fallback_font, Vector2(753, 473), "Продажа [E]", HORIZONTAL_ALIGNMENT_LEFT, -1, 17, Color("213a2c"))
+	draw_string(UI_FONT, Vector2(753, 473), LocaleSystem.ui("sell_sign"), HORIZONTAL_ALIGNMENT_LEFT, -1, 17, Color("213a2c"))
 	# Дорога и лес рисуются один раз и затем только сдвигаются transform-ом.
 	draw_rect(Rect2(1030, 360, 1370, 150), Color("b68b5c"))
 	draw_texture_rect(ROAD_TILE, Rect2(1030, 360, 1370, 150), true)
@@ -79,4 +82,4 @@ func draw_cave() -> void:
 	for crystal in crystals:
 		draw_texture_rect(CAVE_CRYSTAL, Rect2(crystal - Vector2(32,32), Vector2(64,64)), false)
 		draw_circle(crystal, 42, Color(0.35,0.95,0.85,0.12))
-	draw_string(ThemeDB.fallback_font, Vector2(90,100), "КРИСТАЛЬНАЯ ПЕЩЕРА", HORIZONTAL_ALIGNMENT_LEFT, -1, 28, Color("9ce9dd"))
+	draw_string(UI_FONT, Vector2(90,100), LocaleSystem.location("cave").to_upper(), HORIZONTAL_ALIGNMENT_LEFT, -1, 28, Color("9ce9dd"))

@@ -11,6 +11,6 @@ static func update(game: Node, delta: float) -> void:
 			if plot.stage > previous_stage:
 				plot.stage_flash = 0.7
 				if plot.stage == 2:
-					plot.watered = false; game.message = "Земля подсохла — морковь просит второй полив"
-				if plot.stage >= 4: game.message = "Морковь созрела — собери её руками [4]"
+					plot.watered = false; game.message = game.LocaleSystem.text("dry_crop")
+				if plot.stage >= 4: game.message = game.LocaleSystem.text("crop_ready")
 		game.plots[cell] = plot

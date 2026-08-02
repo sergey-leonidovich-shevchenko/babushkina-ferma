@@ -1,5 +1,7 @@
 extends RefCounted
 
+const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
+
 const TYPES := {
 	"chest": {"name":"Старый сундук","rolls":3,"table":[["coins",8,24,30],["metal",1,3,18],["blue_gem",1,1,8],["crystal",1,3,16],["apple",1,2,15],["healing_potion",1,1,8],["oak_shield",1,1,5]]},
 	"bone_pile": {"name":"Груда костей","rolls":2,"table":[["bones",1,4,45],["ancient_key",1,1,8],["bat_wing",1,2,17],["coins",3,12,20],["blue_gem",1,1,10]]},
@@ -76,6 +78,6 @@ static func open(game: Node, index: int) -> bool:
 			game.change_inventory_count(kind, count)
 			rewards.append("%s ×%d" % [game.inventory_item_name(kind), count])
 	game.world_loot_nodes[index] = container
-	game.message = "%s: %s" % [TYPES[container.kind].name, ", ".join(rewards)]
+	game.message = "%s: %s" % [LocaleSystem.entity(container.kind), ", ".join(rewards)]
 	game.notify_tutorial("world_loot")
 	return true

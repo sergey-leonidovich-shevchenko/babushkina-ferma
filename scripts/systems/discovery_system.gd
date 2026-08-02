@@ -42,7 +42,7 @@ static func update(game: Node, delta: float) -> void:
 static func show_location(game: Node, location: String) -> bool:
 	if not LOCATION_HINTS.has(location):
 		return false
-	return show(game, "location:%s" % location, LOCATION_HINTS[location])
+	return show(game, "location:%s" % location, {"title":game.LocaleSystem.location(location),"text":game.LocaleSystem.ui("hint_location")})
 
 static func dismiss(game: Node) -> void:
 	game.discovery_timer = 0.0
@@ -51,24 +51,24 @@ static func dismiss(game: Node) -> void:
 static func scan_nearby(game: Node) -> bool:
 	var candidates: Array[Dictionary] = []
 	if game.current_location == "overworld":
-		add_candidate(candidates, "grandmother", game.npc_position, STATIC_HINTS.grandmother)
-		add_candidate(candidates, "guild_master", game.guild_master_position, STATIC_HINTS.guild_master)
-		add_candidate(candidates, "herbalist", game.herbalist_position, STATIC_HINTS.herbalist)
-		add_candidate(candidates, "shop", Vector2(972, 278), STATIC_HINTS.shop)
-		add_candidate(candidates, "workbench", game.workbench_position, STATIC_HINTS.workbench)
-		add_candidate(candidates, "farm", Vector2(game.FARM_ORIGIN) + Vector2(game.FARM_SIZE * game.TILE) * 0.5, STATIC_HINTS.farm)
-		add_candidate(candidates, "pond", game.pond_position, STATIC_HINTS.pond)
-		add_candidate(candidates, "cave", game.cave_entrance_position, STATIC_HINTS.cave)
-		add_candidate(candidates, "bridge", game.BRIDGE_RECT.get_center(), STATIC_HINTS.bridge)
+		add_candidate(candidates, "grandmother", game.npc_position, static_hint(game, "grandmother"))
+		add_candidate(candidates, "guild_master", game.guild_master_position, static_hint(game, "guild_master"))
+		add_candidate(candidates, "herbalist", game.herbalist_position, static_hint(game, "herbalist"))
+		add_candidate(candidates, "shop", Vector2(972, 278), static_hint(game, "shop"))
+		add_candidate(candidates, "workbench", game.workbench_position, static_hint(game, "workbench"))
+		add_candidate(candidates, "farm", Vector2(game.FARM_ORIGIN) + Vector2(game.FARM_SIZE * game.TILE) * 0.5, static_hint(game, "farm"))
+		add_candidate(candidates, "pond", game.pond_position, static_hint(game, "pond"))
+		add_candidate(candidates, "cave", game.cave_entrance_position, static_hint(game, "cave"))
+		add_candidate(candidates, "bridge", game.BRIDGE_RECT.get_center(), static_hint(game, "bridge"))
 		if game.slime_alive:
-			add_candidate(candidates, "slime", game.slime_position, STATIC_HINTS.slime)
+			add_candidate(candidates, "slime", game.slime_position, static_hint(game, "slime"))
 	for food in game.food_nodes:
 		if food.active and food.get("location", "overworld") == game.current_location:
 			add_candidate(candidates, "food:%s" % food.kind, food.position, food_hint(game, food.kind))
-	add_candidate(candidates, "world_gate", game.world_gate_position, STATIC_HINTS.world_gate)
+	add_candidate(candidates, "world_gate", game.world_gate_position, static_hint(game, "world_gate"))
 	for resource in game.resource_nodes:
 		if resource.hits > 0 and resource.location == game.current_location:
-			add_candidate(candidates, "resource:%s" % resource.kind, resource.position, resource_hint(resource.kind))
+			add_candidate(candidates, "resource:%s" % resource.kind, resource.position, resource_hint(game, resource.kind))
 	for enemy in game.enemy_nodes:
 		if enemy.alive and enemy.location == game.current_location:
 			add_candidate(candidates, "enemy:%s" % enemy.kind, enemy.position, enemy_hint(game, enemy.kind))
@@ -104,33 +104,32 @@ static func show(game: Node, id: String, hint: Dictionary) -> bool:
 static func add_candidate(candidates: Array[Dictionary], id: String, position: Vector2, hint: Dictionary) -> void:
 	candidates.append({"id":id,"position":position,"hint":hint})
 
-static func resource_hint(kind: String) -> Dictionary:
-	var names := {"stone":"Каменная залежь","crystal":"Синий кристалл","red_crystal":"Красный кристалл","green_crystal":"Зелёный кристалл"}
-	return {"title":names.get(kind, "Залежь"),"text":"Выбери кирку [5] и удерживай E рядом. Исчерпанная жила перестаёт блокировать путь."}
+static func static_hint(game: Node, kind: String) -> Dictionary:
+	var tutorial_key: String = {"grandmother":"talk","guild_master":"mission_accept","herbalist":"side_mission","shop":"trade","workbench":"craft_window","farm":"plant","pond":"fish","cave":"travel","bridge":"collision","slime":"fight","world_gate":"locations"}.get(kind, "move")
+	var title: String = game.LocaleSystem.entity(kind)
+	if kind == "guild_master": title = game.LocaleSystem.quest("story_relic", "giver")
+	if kind == "herbalist": title = game.LocaleSystem.quest("side_seed", "giver")
+	if kind == "shop": title = game.LocaleSystem.ui("shop")
+	if kind == "cave": title = game.LocaleSystem.location("cave")
+	return {"title":title,"text":game.LocaleSystem.tutorial(tutorial_key)}
+
+static func resource_hint(game: Node, kind: String) -> Dictionary:
+	return {"title":game.LocaleSystem.item(kind),"text":game.LocaleSystem.tutorial("mine")}
 
 static func enemy_hint(game: Node, kind: String) -> Dictionary:
-	var enemy: Dictionary = game.CombatSystem.TYPES[kind]
-	return {"title":enemy.name,"text":"Опасный противник. F атакует, оружие меняется клавишей R; следи за полосой здоровья."}
+	return {"title":game.LocaleSystem.entity(kind),"text":game.LocaleSystem.ui("hint_enemy")}
 
 static func food_hint(game: Node, kind: String) -> Dictionary:
-	var forage: Dictionary = game.ForageSystem.TYPES[kind]
-	return {"title":forage.name,"text":"Собери через E: урожай вернётся через %s. Чем дольше созревание, тем выше цена в лавке — сейчас %d монет за штуку." % [game.ForageSystem.duration_text(forage.growth_minutes), forage.sell]}
+	return {"title":game.LocaleSystem.entity(kind),"text":game.LocaleSystem.ui("hint_forage")}
 
 static func wildlife_hint(game: Node, kind: String) -> Dictionary:
-	var animal: Dictionary = game.WildlifeSystem.TYPES[kind]
-	return {"title":animal.name,"text":"Пугливый дикий зверь: разговаривать нельзя. Он убежит при приближении; атаковать можно клавишей F ради природного лута."}
+	return {"title":game.LocaleSystem.entity(kind),"text":game.LocaleSystem.ui("hint_wildlife")}
 
 static func item_hint(game: Node, kind: String) -> Dictionary:
 	var item: Dictionary = game.InventorySystem.data(kind)
-	var action := "Подбери клавишей E — предмет попадёт в общий инвентарь."
-	if item.get("edible", false):
-		action = "Подбери через E. Еду можно употребить из рюкзака или назначить на быструю панель."
-	elif item.has("equip"):
-		action = "Подбери через E, открой рюкзак [Tab] и надень предмет клавишей Q."
-	elif kind == "moon_relic":
-		action = "Сюжетный предмет. Подбери через E и отнеси старосте Мирону."
-	return {"title":"Новый предмет: %s" % item.name,"text":action}
+	var action: String = game.LocaleSystem.ui("hint_quest_item" if kind == "moon_relic" else "hint_item")
+	return {"title":game.LocaleSystem.ui("new_item", [item.name]),"text":action}
 
 static func container_hint(game: Node, kind: String) -> Dictionary:
-	var title: String = game.LootContainerSystem.TYPES[kind].name
-	return {"title":title,"text":"Случайная находка мира. Подойди и нажми E: содержимое определяется один раз и после открытия сохраняется."}
+	var title: String = game.LocaleSystem.entity(kind)
+	return {"title":title,"text":game.LocaleSystem.ui("hint_container")}
