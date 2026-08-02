@@ -1,0 +1,15 @@
+#!/bin/zsh
+
+project_dir="${0:A:h:h:h:h}"
+local_godot="$project_dir/tools/Godot.app/Contents/MacOS/Godot"
+system_godot="/Applications/Godot.app/Contents/MacOS/Godot"
+
+if [[ -x "$local_godot" ]]; then
+	exec "$local_godot" --path "$project_dir"
+elif [[ -x "$system_godot" ]]; then
+	exec "$system_godot" --path "$project_dir"
+else
+	osascript -e 'display alert "Godot не найден" message "Положите Godot.app в папку tools проекта или установите его в /Applications." as critical'
+	exit 1
+fi
+
