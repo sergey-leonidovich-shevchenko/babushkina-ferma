@@ -160,11 +160,10 @@ func draw_player() -> void:
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_rpg_world() -> void:
 	# Бабушка и верстак.
-	draw_circle(npc_position - Vector2(0, 15), 13, Color("e7b68b"))
-	draw_rect(Rect2(npc_position - Vector2(15, 2), Vector2(30, 35)), Color("854d6f"))
+	draw_npc_sprite(0, npc_position, 0.0)
 	draw_string(UI_FONT, npc_position + Vector2(-40, 55), LocaleSystem.entity("grandmother"), HORIZONTAL_ALIGNMENT_LEFT, -1, 16, Color("293c2f"))
-	draw_mission_npc(guild_master_position, LocaleSystem.quest("story_relic", "giver"), "story_relic", Color("496b8c"))
-	draw_mission_npc(herbalist_position, LocaleSystem.quest("side_seed", "giver"), "side_seed", Color("568255"))
+	draw_mission_npc(guild_master_position, LocaleSystem.quest("story_relic", "giver"), "story_relic", 1)
+	draw_mission_npc(herbalist_position, LocaleSystem.quest("side_seed", "giver"), "side_seed", 2)
 	draw_rect(Rect2(workbench_position - Vector2(32, 20), Vector2(64, 44)), Color("865334"))
 	draw_line(workbench_position - Vector2(25, 8), workbench_position + Vector2(25, -8), Color("d09a59"), 5)
 	draw_string(UI_FONT, workbench_position + Vector2(-45, 45), LocaleSystem.entity("workbench"), HORIZONTAL_ALIGNMENT_LEFT, -1, 16, Color("293c2f"))
@@ -246,12 +245,31 @@ func draw_companion_sprite(companion_id: String, position: Vector2) -> void:
 	var source_width := COMPANION_ATLAS.get_width() / 3.0
 	var source := Rect2(float(data.sprite) * source_width, 0, source_width, COMPANION_ATLAS.get_height())
 	draw_circle(position + Vector2(0, 28), 22, Color(0.05, 0.08, 0.08, 0.28))
-	draw_texture_rect_region(COMPANION_ATLAS, Rect2(position - Vector2(52, 66), Vector2(104, 104)), source)
+	var moving: bool = companion_moving.get(companion_id, false) and current_location != "prison_interior"
+	var direction: Vector2 = companion_directions.get(companion_id, Vector2.DOWN)
+	draw_living_atlas_sprite(COMPANION_ATLAS, source, position, Vector2(104, 104), walk_animation_time, moving, float(data.sprite) * 1.7, direction.x < -0.1)
 
-## Отрисовывает соответствующий элемент по текущим данным активной сцены.
-func draw_mission_npc(position: Vector2, npc_name: String, mission_id: String, color: Color) -> void:
-	draw_circle(position - Vector2(0, 16), 13, Color("e6b38a"))
-	draw_rect(Rect2(position - Vector2(16, 2), Vector2(32, 38)), color)
+## Отрисовывает NPC из общего атласа с индивидуальной фазой дыхания.
+func draw_npc_sprite(sprite_index: int, position: Vector2, phase: float) -> void:
+	var source_width := NPC_ATLAS.get_width() / 3.0
+	var source := Rect2(float(sprite_index) * source_width, 0, source_width, NPC_ATLAS.get_height())
+	draw_circle(position + Vector2(0, 27), 21, Color(0.05, 0.08, 0.08, 0.24))
+	draw_living_atlas_sprite(NPC_ATLAS, source, position, Vector2(104, 104), walk_animation_time, false, phase)
+
+## Применяет общий цикл дыхания или шага к одному прозрачному атласному спрайту.
+func draw_living_atlas_sprite(texture: Texture2D, source: Rect2, position: Vector2, size: Vector2, time: float, moving: bool, phase: float, flip_x: bool = false) -> void:
+	var motion: Dictionary = PresentationSystem.living_motion(time, moving, phase)
+	var sprite_scale: Vector2 = motion.scale
+	if flip_x:
+		sprite_scale.x *= -1.0
+	var world_transform := -camera_offset
+	draw_set_transform(world_transform + position + Vector2(motion.offset), float(motion.rotation), sprite_scale)
+	draw_texture_rect_region(texture, Rect2(Vector2(-size.x * 0.5, -size.y * 0.66), size), source)
+	draw_set_transform(world_transform, 0.0, Vector2.ONE)
+
+## Отрисовывает сюжетного NPC, его имя и маркер состояния миссии.
+func draw_mission_npc(position: Vector2, npc_name: String, mission_id: String, sprite_index: int) -> void:
+	draw_npc_sprite(sprite_index, position, float(sprite_index) * 1.9)
 	draw_string(UI_FONT, position + Vector2(-62, 58), npc_name, HORIZONTAL_ALIGNMENT_CENTER, 124, 15, Color("293c2f"))
 	var state: String = mission_states.get(mission_id, QuestSystem.AVAILABLE)
 	var marker := "!" if state == QuestSystem.AVAILABLE else ("✓" if state == QuestSystem.COMPLETED else "?")
@@ -383,16 +401,12 @@ func draw_wildlife() -> void:
 			continue
 		var data: Dictionary = WildlifeSystem.TYPES[animal.kind]
 		var position: Vector2 = animal.position.round()
-		if animal.kind == "bat":
-			var flap := 10.0 + sin(animal.animation * 14.0) * 8.0
-			draw_colored_polygon(PackedVector2Array([position, position + Vector2(-28, -flap), position + Vector2(-18, 12)]), Color("6f6484"))
-			draw_colored_polygon(PackedVector2Array([position, position + Vector2(28, -flap), position + Vector2(18, 12)]), Color("6f6484"))
-			draw_circle(position, 10, Color("40374e"))
-			draw_circle(position + Vector2(-4, -2), 2, Color("e78a70"))
-			draw_circle(position + Vector2(4, -2), 2, Color("e78a70"))
-		elif animal.kind == "lizard":
-			var bob := sin(animal.animation * 7.0) * 2.0
-			draw_texture_rect(MEADOW_LIZARD, Rect2(position - Vector2(48, 34 - bob), Vector2(96, 64)), false)
+		if animal.kind in ["bat", "lizard"]:
+			var sprite_index := 0 if animal.kind == "bat" else 1
+			var source_width := FANTASY_WILDLIFE_ATLAS.get_width() / 2.0
+			var source := Rect2(float(sprite_index) * source_width, 0, source_width, FANTASY_WILDLIFE_ATLAS.get_height())
+			var size := Vector2(88, 72) if animal.kind == "bat" else Vector2(92, 68)
+			draw_living_atlas_sprite(FANTASY_WILDLIFE_ATLAS, source, position, size, animal.animation, true, float(sprite_index) * 1.3, animal.direction.x < -0.1)
 		else:
 			var texture: Texture2D = DEER_RUN_SHEET
 			if animal.kind == "fox": texture = FOX_RUN_SHEET

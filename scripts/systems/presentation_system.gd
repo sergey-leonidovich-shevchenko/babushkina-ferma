@@ -20,6 +20,23 @@ static func animation_frame(elapsed_ms: int, frame_count: int, frame_ms: int = 1
 	return int(elapsed_ms / frame_ms) % frame_count
 
 
+## Рассчитывает несинхронное дыхание в покое и пружинящий шаг при движении.
+static func living_motion(time: float, moving: bool, phase_offset: float = 0.0) -> Dictionary:
+	var speed := 8.5 if moving else 2.3
+	var phase := time * speed + phase_offset
+	if moving:
+		return {
+			"offset": Vector2(sin(phase * 0.5) * 1.2, -absf(sin(phase)) * 3.5),
+			"scale": Vector2(1.0 + cos(phase) * 0.018, 1.0 - cos(phase) * 0.025),
+			"rotation": sin(phase * 0.5) * 0.035,
+		}
+	return {
+		"offset": Vector2(sin(phase * 0.5) * 0.45, sin(phase) * 0.8),
+		"scale": Vector2(1.0 - sin(phase) * 0.006, 1.0 + sin(phase) * 0.012),
+		"rotation": sin(phase * 0.5) * 0.009,
+	}
+
+
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func enemy_direction_row(direction: Vector2) -> int:
 	if absf(direction.x) > absf(direction.y):

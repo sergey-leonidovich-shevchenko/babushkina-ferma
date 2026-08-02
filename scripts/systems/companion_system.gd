@@ -76,6 +76,8 @@ static func activate(game: Node, companion_id: String) -> void:
 		game.active_companions.pop_front()
 	game.active_companions.append(companion_id)
 	game.companion_positions[companion_id] = game.player + Vector2(-50, 35)
+	game.companion_moving[companion_id] = false
+	game.companion_directions[companion_id] = Vector2.DOWN
 
 
 ## Обновляет следование, лечение и автоматические атаки активной группы.
@@ -86,7 +88,12 @@ static func update(game: Node, delta: float) -> void:
 		var current: Vector2 = game.companion_positions.get(companion_id, desired)
 		if current.distance_to(desired) > 420.0:
 			current = desired
-		game.companion_positions[companion_id] = current.move_toward(desired, 190.0 * delta)
+		var next_position := current.move_toward(desired, 190.0 * delta)
+		var motion := next_position - current
+		game.companion_moving[companion_id] = motion.length_squared() > 0.04
+		if motion.length_squared() > 0.04:
+			game.companion_directions[companion_id] = motion.normalized()
+		game.companion_positions[companion_id] = next_position
 	game.companion_attack_timer -= delta
 	if game.companion_attack_timer <= 0.0:
 		game.companion_attack_timer = ATTACK_INTERVAL

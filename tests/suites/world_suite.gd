@@ -146,6 +146,7 @@ func test_wildlife_flees_and_does_not_talk() -> void:
 func test_wildlife_combat_loot_animation_and_save() -> void:
 	var game := make_game()
 	expect(game.DEER_RUN_SHEET.get_width() == 192 and game.FOX_RUN_SHEET.get_width() == 192 and game.BOAR_RUN_SHEET.get_width() == 160, "wildlife animation sheets are loaded")
+	expect(game.FANTASY_WILDLIFE_ATLAS.get_width() == 2172, "bat and lizard share the coherent fantasy wildlife atlas")
 	expect(game.WildlifeSystem.TYPES.has("deer") and game.WildlifeSystem.TYPES.has("fox") and game.WildlifeSystem.TYPES.has("boar") and game.WildlifeSystem.TYPES.has("bat") and game.WildlifeSystem.TYPES.has("lizard"), "five wildlife species are configured")
 	game.current_location = "cave"
 	game.player = game.wildlife_nodes[6].position

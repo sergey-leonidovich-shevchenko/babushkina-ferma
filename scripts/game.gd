@@ -40,6 +40,17 @@ func _ready() -> void:
 		player = Vector2(576, 470)
 		coins = 500
 		skill_levels.leadership = 2
+	if "--animation-preview" in OS.get_cmdline_user_args():
+		language_screen = false
+		title_screen = false
+		current_location = "overworld"
+		player = Vector2(700, 560)
+		npc_position = Vector2(520, 540)
+		guild_master_position = Vector2(700, 500)
+		herbalist_position = Vector2(880, 540)
+		recruited_companions.assign(["mila", "borislav"])
+		active_companions.assign(["mila", "borislav"])
+		companion_positions = {"mila":Vector2(620, 650), "borislav":Vector2(780, 650)}
 	sync_background_location()
 	DiscoverySystem.show_location(self, current_location)
 	queue_redraw()

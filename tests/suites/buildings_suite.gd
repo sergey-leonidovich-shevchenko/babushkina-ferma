@@ -129,6 +129,8 @@ func test_companion_follow_combat_defense_and_healing() -> void:
 	var before_distance: float = game.companion_positions.mila.distance_to(game.player)
 	game.CompanionSystem.update(game, 0.5)
 	expect(game.companion_positions.mila.distance_to(game.player) < before_distance, "active companion follows the moving hero")
+	expect(game.companion_moving.mila, "following companion switches from idle breathing to walking motion")
+	expect(game.companion_directions.mila.x > 0.0, "following companion remembers its travel direction for sprite mirroring")
 	expect(game.CompanionSystem.defense_bonus(game) == 4, "Mila and Luna combine their defense values")
 	game.companion_heal_timer = 0.0
 	game.CompanionSystem.update(game, 0.01)

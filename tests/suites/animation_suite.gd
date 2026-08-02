@@ -4,6 +4,7 @@ extends "res://tests/suites/suite_base.gd"
 ## Запускает все сценарии текущего набора тестов в фиксированном порядке.
 func run() -> void:
 	test_animation_frame_modes()
+	test_living_sprite_motion_and_atlases()
 	test_player_attack_and_slime_reaction()
 	test_enemy_hurt_and_death_lifecycle()
 	test_slime_attack_returns_to_idle()
@@ -16,6 +17,23 @@ func test_animation_frame_modes() -> void:
 	var game := make_game()
 	expect(game.AnimationSystem.frame(0.7, 4, 10.0) == 3, "looped animation wraps frames deterministically")
 	expect(game.AnimationSystem.frame(2.0, 6, 10.0, false) == 5, "one-shot animation holds its final frame")
+	game.free()
+
+
+## Сценарий: единые атласы NPC и зверей используют разные циклы дыхания и шага.
+## Исходное состояние: новая игра и детерминированные моменты времени для общего motion-профиля.
+## Ожидаемый результат: оба прозрачных атласа загружены, покой живой, фазы различаются, а ходьба заметнее дыхания.
+func test_living_sprite_motion_and_atlases() -> void:
+	var game := make_game()
+	expect(game.NPC_ATLAS.get_width() == 2172 and game.NPC_ATLAS.get_height() == 724, "three coherent NPC sprites are loaded")
+	expect(game.FANTASY_WILDLIFE_ATLAS.get_width() == 2172 and game.FANTASY_WILDLIFE_ATLAS.get_height() == 724, "redrawn bat and lizard atlas is loaded")
+	var idle_start: Dictionary = game.PresentationSystem.living_motion(0.0, false)
+	var idle_later: Dictionary = game.PresentationSystem.living_motion(0.45, false)
+	var shifted: Dictionary = game.PresentationSystem.living_motion(0.45, false, 1.7)
+	var walking: Dictionary = game.PresentationSystem.living_motion(0.45, true)
+	expect(idle_start.offset != idle_later.offset and idle_start.scale != idle_later.scale, "standing characters breathe instead of freezing")
+	expect(idle_later.offset != shifted.offset, "living characters use desynchronized animation phases")
+	expect(absf(walking.offset.y) > absf(idle_later.offset.y) and absf(walking.rotation) > absf(idle_later.rotation), "walking cycle has a stronger step and body lean")
 	game.free()
 
 

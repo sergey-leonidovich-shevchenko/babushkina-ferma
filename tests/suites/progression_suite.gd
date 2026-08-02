@@ -154,7 +154,7 @@ func test_new_pixel_items_watermelon_shield_potion_and_lizard() -> void:
 	var game := make_game()
 	expect(game.ITEM_HEALING_POTION.get_size() == Vector2(64, 64) and game.ITEM_OAK_SHIELD.get_size() == Vector2(64, 64), "potion and shield are compact imported game textures")
 	expect(game.ITEM_WATERMELON.get_size() == Vector2(64, 64) and game.ITEM_WATERMELON_SLICE.get_size() == Vector2(64, 64), "whole and sliced watermelon sprites are available")
-	expect(game.MEADOW_LIZARD.get_size() == Vector2(96, 64), "original meadow lizard has a compact transparent world sprite")
+	expect(game.FANTASY_WILDLIFE_ATLAS.get_size() == Vector2(2172, 724), "redrawn meadow lizard shares the coherent transparent wildlife atlas")
 	expect(not FileAccess.file_exists("res://assets/game/wildlife/foxpool-yoshi-5994957.png"), "trademarked Yoshi download is not distributed with the game")
 	var potion_recipe: int = game.CraftingSystem.RECIPES.find_custom(func(recipe): return recipe.output == "healing_potion")
 	game.berries = 2
