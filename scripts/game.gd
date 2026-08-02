@@ -102,10 +102,14 @@ var tutorial_step := 0
 var tutorial_steps := [
 	{"event": "move", "text": "Пройди немного стрелками или WASD"},
 	{"event": "talk", "text": "Подойди к бабушке и нажми E"},
+	{"event": "hold_action", "text": "Выбери мотыгу [1] и держи движение + E"},
 	{"event": "plant", "text": "Вспаши грядку [1], посади морковь [2]"},
 	{"event": "water", "text": "Полей морковь лейкой [3]"},
+	{"event": "rewater", "text": "Дождись красной капли и полей повторно"},
 	{"event": "harvest", "text": "Дождись роста и собери морковь руками [4]"},
 	{"event": "shop", "text": "Открой сельскую лавку клавишей E"},
+	{"event": "trade", "text": "Купи или продай товар в таблице лавки"},
+	{"event": "quest_complete", "text": "Принеси бабушке 10 морковок (F9 — тест-набор)"},
 	{"event": "fight", "text": "Иди по дороге в лес и атакуй слизня [F]"},
 	{"event": "loot", "text": "Подбери выпавшую слизь клавишей E"},
 	{"event": "inventory", "text": "Открой инвентарь [I] и осмотри добычу"},
@@ -272,6 +276,7 @@ func perform_repeatable_action() -> bool:
 		return collect_dropped_item(int(interaction.get_slice(":", 1)))
 	if current_location == "overworld":
 		use_selected_tool()
+		notify_tutorial("hold_action")
 		return true
 	return false
 
@@ -343,6 +348,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			KEY_F: attack_slime()
 			KEY_R: toggle_sword()
 			KEY_T: tutorial_visible = not tutorial_visible
+			KEY_Y: reset_tutorial()
+			KEY_F9: grant_tester_kit()
 			KEY_I: open_inventory()
 		queue_redraw()
 
@@ -389,10 +396,11 @@ func use_selected_tool() -> void:
 			else: message = "Сначала вспаши пустую землю"
 		Tool.WATER:
 			if plot.planted and not plot.watered:
+				var is_second_watering: bool = plot.growth >= STAGE_DURATION * 2.0
 				plot.watered = true
 				energy -= 1
 				message = "Полито! Поспи [N], чтобы растение выросло"
-				notify_tutorial("water")
+				notify_tutorial("rewater" if is_second_watering else "water")
 			else: message = "Здесь нечего поливать"
 		Tool.HAND:
 			if plot.planted and plot.growth >= GROWTH_DURATION:
@@ -705,6 +713,7 @@ func talk_to_grandmother() -> void:
 		quest_complete = true
 		has_bow = true
 		message = "Квест выполнен! +50 монет, +25 опыта и охотничий лук"
+		notify_tutorial("quest_complete")
 	elif quest_active:
 		message = "Бабушка ждёт морковь: %d/10" % carrots
 	else:
@@ -797,6 +806,24 @@ func notify_tutorial(event_name: String) -> void:
 	if tutorial_steps[tutorial_step].event == event_name:
 		tutorial_step += 1
 
+func reset_tutorial() -> void:
+	tutorial_step = 0
+	tutorial_visible = true
+	message = "Обучение начато заново"
+
+func grant_tester_kit() -> void:
+	coins = maxi(coins, 500)
+	carrots = maxi(carrots, 10)
+	seeds = maxi(seeds, 20)
+	slime_gel = maxi(slime_gel, 10)
+	wood = maxi(wood, 10)
+	crystals = maxi(crystals, 10)
+	player_hp = 5
+	slime_alive = true
+	slime_hp = 3
+	loot_available = false
+	message = "QA-набор выдан: ресурсы, морковь и монеты"
+
 func handle_shop_input(event: InputEvent) -> void:
 	if not (event is InputEventKey and event.pressed and not event.echo):
 		return
@@ -825,6 +852,7 @@ func buy_selected_product() -> bool:
 	elif product.kind == "carrot":
 		carrots += 1
 	message = "Куплено: %s" % product.name
+	notify_tutorial("trade")
 	return true
 
 func sell_selected_product() -> bool:
@@ -836,6 +864,7 @@ func sell_selected_product() -> bool:
 		carrots -= 1
 		coins += product.sell
 		message = "Продано: морковь +%d монет" % product.sell
+		notify_tutorial("trade")
 		return true
 	message = "У тебя нет этого товара"
 	return false
@@ -1097,7 +1126,7 @@ func draw_ui() -> void:
 		draw_string(ThemeDB.fallback_font, Vector2(865, 140), "Квест: морковь %d/10" % mini(carrots, 10), HORIZONTAL_ALIGNMENT_LEFT, -1, 18, Color("ffe5a2"))
 	if tutorial_visible and tutorial_step < tutorial_steps.size():
 		draw_rect(Rect2(18, 108, 420, 68), Color("263c36"))
-		draw_string(ThemeDB.fallback_font, Vector2(34, 132), "ОБУЧЕНИЕ %d/%d  [T — скрыть]" % [tutorial_step + 1, tutorial_steps.size()], HORIZONTAL_ALIGNMENT_LEFT, -1, 15, Color("9ed6b3"))
+		draw_string(ThemeDB.fallback_font, Vector2(34, 132), "ОБУЧЕНИЕ %d/%d  [T скрыть • Y заново • F9 QA]" % [tutorial_step + 1, tutorial_steps.size()], HORIZONTAL_ALIGNMENT_LEFT, -1, 14, Color("9ed6b3"))
 		draw_string(ThemeDB.fallback_font, Vector2(34, 160), tutorial_steps[tutorial_step].text, HORIZONTAL_ALIGNMENT_LEFT, 385, 17, Color.WHITE)
 	if shop_open:
 		draw_shop()

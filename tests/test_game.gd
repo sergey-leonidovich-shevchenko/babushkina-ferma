@@ -19,6 +19,7 @@ func _initialize() -> void:
 	test_fishing_cast_wait_and_catch_cycle()
 	test_bow_reward_and_crystal_sword_upgrade()
 	test_held_action_repeats_tools_without_reopening_ui()
+	test_tutorial_reset_and_tester_kit()
 	print("TESTS: %d passed, %d failed" % [passed, failed])
 	quit(0 if failed == 0 else 1)
 
@@ -229,4 +230,19 @@ func test_held_action_repeats_tools_without_reopening_ui() -> void:
 	expect(game.attack_held, "attack starts on F key-down")
 	game.set_attack_key_state(attack_release)
 	expect(not game.attack_held, "attack stops on F key-up")
+	game.free()
+
+func test_tutorial_reset_and_tester_kit() -> void:
+	var game := make_game()
+	game.tutorial_step = 7
+	game.tutorial_visible = false
+	game.reset_tutorial()
+	expect(game.tutorial_step == 0 and game.tutorial_visible, "Y reset restarts and shows tutorial")
+	game.coins = 0
+	game.carrots = 0
+	game.crystals = 0
+	game.slime_alive = false
+	game.grant_tester_kit()
+	expect(game.coins >= 500 and game.carrots >= 10 and game.crystals >= 10, "F9 grants tester resources")
+	expect(game.slime_alive and game.slime_hp == 3, "F9 restores combat target")
 	game.free()
