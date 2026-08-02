@@ -11,6 +11,7 @@ const INVENTORY_HOTBAR_SIZE := Vector2(50, 46)
 const INVENTORY_HOTBAR_PITCH := 54.0
 const USE_BUTTON := Rect2(612, 490, 96, 48)
 const EQUIP_BUTTON := Rect2(716, 490, 96, 48)
+const SORT_BUTTON := Rect2(704, 55, 136, 34)
 const SKILL_BUTTON := Rect2(986, 10, 72, 50)
 const QUEST_BUTTON := Rect2(1066, 10, 72, 50)
 const HOTBAR_ORIGIN := Vector2(279, 584)
@@ -138,6 +139,7 @@ static func draw_inventory(game: Node) -> void:
 	panel(game, INVENTORY_WINDOW, Color("172b26"))
 	game.draw_rect(Rect2(52, 40, 1048, 64), WOOD)
 	game.draw_string(game.UI_FONT, Vector2(72, 80), game.LocaleSystem.ui("inventory"), HORIZONTAL_ALIGNMENT_LEFT, 620, 24, Color("fff0bd"))
+	draw_action_button(game, SORT_BUTTON, game.LocaleSystem.ui("sort_inventory"), true)
 	game.draw_string(game.UI_FONT, Vector2(874, 78), game.LocaleSystem.ui("close_inventory"), HORIZONTAL_ALIGNMENT_RIGHT, 200, 12, Color("ead5aa"))
 	panel(game, Rect2(62, 118, 536, 354), Color("1b312b"))
 	var first_visible: int = game.inventory_scroll_row * game.InventorySystem.COLUMNS

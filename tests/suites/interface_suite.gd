@@ -6,6 +6,8 @@ func run() -> void:
 	test_item_context_and_actions()
 	test_hud_layout_is_compact_and_safe()
 	test_inventory_touch_actions()
+	test_mouse_drag_context_and_hotbar()
+	test_inventory_sorting()
 
 
 func test_inventory_layout_and_touch_mapping() -> void:
@@ -64,4 +66,59 @@ func test_inventory_touch_actions() -> void:
 	use_touch.position = game.InterfaceRenderer.USE_BUTTON.get_center()
 	use_touch.pressed = true
 	expect(game.handle_gamepad_and_touch(use_touch) and game.player_hp == 55, "touch context button consumes selected food")
+	game.free()
+
+
+func test_mouse_drag_context_and_hotbar() -> void:
+	var game := make_game()
+	game.open_inventory()
+	var first_kind: String = game.inventory_slots[0]
+	var target_kind: String = game.inventory_slots[5]
+	var press := InputEventMouseButton.new()
+	press.button_index = MOUSE_BUTTON_LEFT
+	press.position = game.InterfaceRenderer.inventory_slot_rect(0).get_center()
+	press.pressed = true
+	expect(game.handle_gamepad_and_touch(press) and game.inventory_move_from == 0, "left mouse press starts inventory drag")
+	var release := InputEventMouseButton.new()
+	release.button_index = MOUSE_BUTTON_LEFT
+	release.position = game.InterfaceRenderer.inventory_slot_rect(5).get_center()
+	release.pressed = false
+	expect(game.handle_gamepad_and_touch(release) and game.inventory_slots[5] == first_kind and game.inventory_slots[0] == target_kind, "mouse drag swaps two inventory slots")
+	game.carrots = 1
+	game.inventory_selected = game.inventory_slots.find("carrot")
+	var right_click := InputEventMouseButton.new()
+	right_click.button_index = MOUSE_BUTTON_RIGHT
+	right_click.position = game.InterfaceRenderer.inventory_slot_rect(game.inventory_selected).get_center()
+	right_click.pressed = true
+	game.player_hp = 40
+	game.handle_inventory_input(right_click)
+	expect(game.player_hp == 55 and game.carrots == 0, "right click uses edible inventory item contextually")
+	game.inventory_open = false
+	var hotbar_click := InputEventMouseButton.new()
+	hotbar_click.button_index = MOUSE_BUTTON_LEFT
+	hotbar_click.position = game.InterfaceRenderer.hotbar_rect(4).get_center()
+	hotbar_click.pressed = true
+	expect(game.handle_gamepad_and_touch(hotbar_click) and game.selected_hotbar == 4, "mouse selects a world quick slot")
+	game.free()
+
+
+func test_inventory_sorting() -> void:
+	var game := make_game()
+	for kind in game.state.inventory.counts: game.state.inventory.counts[kind] = 0
+	game.has_pickaxe = true
+	game.change_inventory_count("carrot", 1)
+	game.change_inventory_count("iron_helmet", 1)
+	game.change_inventory_count("moon_relic", 1)
+	game.change_inventory_count("stone", 1)
+	for index in game.inventory_slots.size(): game.inventory_slots[index] = ""
+	game.inventory_slots[0] = "stone"
+	game.inventory_slots[1] = "iron_helmet"
+	game.inventory_slots[2] = "carrot"
+	game.inventory_slots[3] = "pickaxe"
+	game.inventory_slots[4] = "moon_relic"
+	game.inventory_selected = 2
+	game.InventorySystem.sort_slots(game)
+	expect(game.inventory_slots.slice(0, 5) == ["pickaxe", "carrot", "iron_helmet", "moon_relic", "stone"], "sorting groups tools food equipment quests and resources")
+	expect(game.inventory_slots[game.inventory_selected] == "carrot" and game.inventory_scroll_row == 0, "sorting preserves selected item and returns to the first row")
+	expect(game.message == game.LocaleSystem.text("inventory_sorted"), "sorting provides localized feedback")
 	game.free()

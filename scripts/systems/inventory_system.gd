@@ -81,6 +81,33 @@ static func can_use(kind: String) -> bool:
 static func can_equip(kind: String) -> bool:
 	return not kind.is_empty() and data(kind).has("equip")
 
+static func swap_slots(game: Node, from_index: int, to_index: int) -> bool:
+	if from_index < 0 or to_index < 0 or from_index >= game.inventory_slots.size() or to_index >= game.inventory_slots.size() or from_index == to_index:
+		return false
+	var previous: String = game.inventory_slots[to_index]
+	game.inventory_slots[to_index] = game.inventory_slots[from_index]
+	game.inventory_slots[from_index] = previous
+	return true
+
+static func sort_slots(game: Node) -> void:
+	var selected_kind: String = game.inventory_slots[game.inventory_selected] if game.inventory_selected >= 0 and game.inventory_selected < game.inventory_slots.size() else ""
+	var items: Array[String] = []
+	for value in game.inventory_slots:
+		var kind := String(value)
+		if not kind.is_empty() and game.inventory_item_count(kind) > 0: items.append(kind)
+	var order := {"tool":0, "food":1, "equipment":2, "quest":3, "resource":4}
+	items.sort_custom(func(left: String, right: String) -> bool:
+		var left_rank: int = order.get(category(left), 5)
+		var right_rank: int = order.get(category(right), 5)
+		return left < right if left_rank == right_rank else left_rank < right_rank
+	)
+	for index in game.inventory_slots.size(): game.inventory_slots[index] = items[index] if index < items.size() else ""
+	ensure_capacity(game)
+	game.inventory_selected = maxi(items.find(selected_kind), 0)
+	game.inventory_scroll_row = 0
+	game.inventory_move_from = -1
+	game.message = game.LocaleSystem.text("inventory_sorted")
+
 static func ensure_item_slot(game: Node, kind: String) -> int:
 	if kind.is_empty():
 		return -1

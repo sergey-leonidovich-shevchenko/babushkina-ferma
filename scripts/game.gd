@@ -522,9 +522,8 @@ func change_inventory_count(kind: String, amount: int) -> bool:
 	return true
 
 func handle_inventory_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.pressed and event.button_index in [MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_DOWN]:
-		InventorySystem.scroll(self, -1 if event.button_index == MOUSE_BUTTON_WHEEL_UP else 1)
-		queue_redraw()
+	if event is InputEventMouseButton:
+		InputSystem.handle_inventory_mouse(self, event)
 		return
 	if event is InputEventJoypadButton and event.pressed:
 		match event.button_index:
@@ -551,6 +550,7 @@ func handle_inventory_input(event: InputEvent) -> void:
 		KEY_PAGEUP: inventory_selected = maxi(0, inventory_selected - InventorySystem.VISIBLE_SLOTS)
 		KEY_PAGEDOWN: inventory_selected = mini(inventory_slots.size() - 1, inventory_selected + InventorySystem.VISIBLE_SLOTS)
 		KEY_M: move_inventory_slot()
+		KEY_S: InventorySystem.sort_slots(self)
 		KEY_X: drop_selected_item()
 		KEY_ENTER, KEY_E: consume_selected_item()
 		KEY_Q: equip_selected_item()
@@ -573,9 +573,7 @@ func move_inventory_slot() -> void:
 		inventory_move_from = inventory_selected
 		message = "Выбери новый слот и нажми M"
 		return
-	var previous: String = inventory_slots[inventory_selected]
-	inventory_slots[inventory_selected] = inventory_slots[inventory_move_from]
-	inventory_slots[inventory_move_from] = previous
+	InventorySystem.swap_slots(self, inventory_move_from, inventory_selected)
 	inventory_move_from = -1
 	message = LocaleSystem.text("moved")
 
@@ -970,6 +968,15 @@ func _input(event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 
 func handle_gamepad_and_touch(event: InputEvent) -> bool:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if inventory_open:
+			InputSystem.handle_inventory_mouse(self, event)
+			return true
+		if event.pressed:
+			if InterfaceRenderer.QUEST_BUTTON.has_point(event.position): toggle_quest_log(); return true
+			if InterfaceRenderer.SKILL_BUTTON.has_point(event.position): open_skill_menu(); return true
+			var mouse_hotbar := InterfaceRenderer.hotbar_at(event.position)
+			if mouse_hotbar >= 0: select_hotbar(mouse_hotbar); return true
 	if title_screen and ((event is InputEventJoypadButton and event.pressed) or (event is InputEventScreenTouch and event.pressed)):
 		title_screen = false
 		return true

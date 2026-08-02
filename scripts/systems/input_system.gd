@@ -101,3 +101,33 @@ static func apply_immediate_key_response(game: Node, event: InputEventKey) -> vo
 	if direction != Vector2.ZERO:
 		game.facing = direction
 
+
+static func handle_inventory_mouse(game: Node, event: InputEventMouseButton) -> void:
+	if event.pressed and event.button_index in [MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_DOWN]:
+		game.InventorySystem.scroll(game, -1 if event.button_index == MOUSE_BUTTON_WHEEL_UP else 1)
+		game.queue_redraw()
+		return
+	var slot_index: int = game.InterfaceRenderer.inventory_slot_at(event.position, game.inventory_scroll_row, game.inventory_slots.size())
+	if event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed:
+			if slot_index >= 0:
+				game.inventory_selected = slot_index
+				game.inventory_move_from = slot_index if not String(game.inventory_slots[slot_index]).is_empty() else -1
+			else:
+				var hotbar_index: int = game.InterfaceRenderer.inventory_hotbar_at(event.position)
+				if hotbar_index >= 0: game.assign_selected_to_hotbar(hotbar_index)
+				elif game.InterfaceRenderer.USE_BUTTON.has_point(event.position): game.consume_selected_item()
+				elif game.InterfaceRenderer.EQUIP_BUTTON.has_point(event.position): game.equip_selected_item()
+				elif game.InterfaceRenderer.SORT_BUTTON.has_point(event.position): game.InventorySystem.sort_slots(game)
+		elif game.inventory_move_from >= 0:
+			if slot_index >= 0 and game.InventorySystem.swap_slots(game, game.inventory_move_from, slot_index):
+				game.inventory_selected = slot_index
+				game.message = game.LocaleSystem.text("moved")
+			game.inventory_move_from = -1
+	elif event.button_index == MOUSE_BUTTON_RIGHT and event.pressed and slot_index >= 0:
+		game.inventory_selected = slot_index
+		var kind: String = game.inventory_slots[slot_index]
+		if game.InventorySystem.can_use(kind): game.consume_selected_item()
+		elif game.InventorySystem.can_equip(kind): game.equip_selected_item()
+	game.InventorySystem.keep_selection_visible(game)
+	game.queue_redraw()
