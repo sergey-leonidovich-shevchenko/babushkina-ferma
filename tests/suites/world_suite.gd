@@ -48,7 +48,7 @@ func test_story_and_side_mission_chains() -> void:
 	journal_button.pressed = true
 	expect(game.handle_gamepad_and_touch(journal_button) and game.quest_log_open, "gamepad can open mission journal")
 	var journal_touch := InputEventScreenTouch.new()
-	journal_touch.position = Vector2(1060, 30)
+	journal_touch.position = game.InterfaceRenderer.QUEST_BUTTON.get_center()
 	journal_touch.pressed = true
 	expect(game.handle_gamepad_and_touch(journal_touch) and not game.quest_log_open, "touch HUD button closes mission journal")
 	game.free()
@@ -199,4 +199,3 @@ func test_world_loot_discovery_and_save_persistence() -> void:
 	expect(game.world_loot_nodes[0].opened, "save restores already searched container")
 	expect(game.BONE_PILE_TEXTURE.get_width() == 128, "bone pile sprite is loaded")
 	game.free()
-

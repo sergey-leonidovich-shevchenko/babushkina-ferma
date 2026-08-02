@@ -132,7 +132,7 @@ func test_hotbar_assignment_equipment_and_universal_input() -> void:
 	var previous_slot: int = game.selected_hotbar
 	expect(game.handle_gamepad_and_touch(right) and game.selected_hotbar == posmod(previous_slot + 1, 10), "gamepad cycles quick slots")
 	var touch := InputEventScreenTouch.new()
-	touch.position = Vector2(176 + 3 * 80 + 20, 580)
+	touch.position = game.InterfaceRenderer.hotbar_rect(3).get_center()
 	touch.pressed = true
 	expect(game.handle_gamepad_and_touch(touch) and game.selected_hotbar == 3, "touch selects a quick slot")
 	game.free()

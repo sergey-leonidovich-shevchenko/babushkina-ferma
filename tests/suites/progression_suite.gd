@@ -77,7 +77,7 @@ func test_progression_save_and_universal_skill_menu_input() -> void:
 	expect(game.skill_levels.stamina == 1 and game.skill_points == 1, "gamepad assigns a selected skill point")
 	game.skill_menu_open = false
 	var touch := InputEventScreenTouch.new()
-	touch.position = Vector2(860, 30)
+	touch.position = game.InterfaceRenderer.SKILL_BUTTON.get_center()
 	touch.pressed = true
 	expect(game.handle_gamepad_and_touch(touch) and game.skill_menu_open, "touch HUD button opens character development")
 	var legacy_snapshot: Dictionary = snapshot.duplicate(true)

@@ -22,6 +22,11 @@ func _ready() -> void:
 		language_screen = false
 		title_screen = false
 		move_right_held = true
+	if "--inventory-preview" in OS.get_cmdline_user_args():
+		language_screen = false
+		title_screen = false
+		grant_tester_kit()
+		open_inventory()
 	sync_background_location()
 	DiscoverySystem.show_location(self, current_location)
 	queue_redraw()
@@ -1012,7 +1017,7 @@ func handle_gamepad_and_touch(event: InputEvent) -> bool:
 		if discovery_card_rect().has_point(event.position) and not discovery_current.is_empty():
 			DiscoverySystem.dismiss(self)
 			return true
-		if Rect2(990, 0, 162, 62).has_point(event.position):
+		if InterfaceRenderer.QUEST_BUTTON.has_point(event.position):
 			toggle_quest_log()
 			return true
 		if skill_menu_open:
@@ -1022,23 +1027,23 @@ func handle_gamepad_and_touch(event: InputEvent) -> bool:
 				skill_menu_selected = row * 2 + column
 				SkillSystem.allocate(self, SkillSystem.SKILLS[skill_menu_selected].id)
 			return true
-		if Rect2(830, 0, 145, 62).has_point(event.position):
+		if InterfaceRenderer.SKILL_BUTTON.has_point(event.position):
 			open_skill_menu()
 			return true
 		if inventory_open:
-			if event.position.y >= 126.0 and event.position.y < 471.0 and event.position.x >= 72.0 and event.position.x < 744.0:
-				var column := clampi(int((event.position.x - 72.0) / 112.0), 0, 5)
-				var row := clampi(int((event.position.y - 126.0) / 69.0), 0, 4)
-				inventory_selected = mini((row + inventory_scroll_row) * 6 + column, inventory_slots.size() - 1)
-			elif event.position.y >= 490.0 and event.position.y < 545.0 and event.position.x < 760.0:
-				assign_selected_to_hotbar(clampi(int((event.position.x - 72.0) / 68.0), 0, 9))
-			elif Rect2(770, 490, 150, 58).has_point(event.position):
+			var inventory_index := InterfaceRenderer.inventory_slot_at(event.position, inventory_scroll_row, inventory_slots.size())
+			var hotbar_index := InterfaceRenderer.inventory_hotbar_at(event.position)
+			if inventory_index >= 0:
+				inventory_selected = inventory_index
+			elif hotbar_index >= 0:
+				assign_selected_to_hotbar(hotbar_index)
+			elif InterfaceRenderer.USE_BUTTON.has_point(event.position):
 				consume_selected_item()
-			elif Rect2(928, 490, 150, 58).has_point(event.position):
+			elif InterfaceRenderer.EQUIP_BUTTON.has_point(event.position):
 				equip_selected_item()
 			return true
-		if event.position.y >= 548.0:
-			var index := clampi(int((event.position.x - 176.0) / 80.0), 0, 9)
+		var index := InterfaceRenderer.hotbar_at(event.position)
+		if index >= 0:
 			select_hotbar(index)
 		else:
 			if not perform_context_action(): use_active_item()

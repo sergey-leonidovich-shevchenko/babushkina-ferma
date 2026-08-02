@@ -59,6 +59,28 @@ static func data(kind: String) -> Dictionary:
 		result.short = LocaleSystem.item(kind, true)
 	return result
 
+static func category(kind: String) -> String:
+	var item := data(kind)
+	if item.has("tool"): return "tool"
+	if item.has("edible"): return "food"
+	if item.has("equip"): return "equipment"
+	if kind in ["ancient_key", "moon_relic"]: return "quest"
+	return "resource"
+
+static func detail_key(kind: String) -> String:
+	match category(kind):
+		"tool": return "detail_tool"
+		"food": return "detail_food"
+		"equipment": return "detail_equipment"
+		"quest": return "detail_quest"
+		_: return "detail_resource"
+
+static func can_use(kind: String) -> bool:
+	return not kind.is_empty() and data(kind).has("edible")
+
+static func can_equip(kind: String) -> bool:
+	return not kind.is_empty() and data(kind).has("equip")
+
 static func ensure_item_slot(game: Node, kind: String) -> int:
 	if kind.is_empty():
 		return -1
