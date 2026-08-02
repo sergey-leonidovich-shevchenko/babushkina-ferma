@@ -18,6 +18,7 @@ const STATIC_HINTS := {
 	"slime": {"title":"Слизень","text":"Враг ближнего боя. Атакуй клавишей F; выпавшие ресурсы подбираются через E."},
 	"home_chest": {"title":"Домашний сундук","text":"Хранит предметы дома и переносит целые стопки."},
 	"forge": {"title":"Наковальня","text":"Улучшает оружие, броню и наконечники стрел."},
+	"contracts": {"title":"Доска контрактов","text":"Предлагает ежедневные заказы за монеты, опыт и репутацию."},
 }
 
 const LOCATION_HINTS := {
@@ -84,6 +85,8 @@ static func scan_nearby(game: Node) -> bool:
 		add_candidate(candidates, "home_chest", game.StorageSystem.CHEST_POSITION, static_hint(game, "home_chest"))
 	if game.current_location == "forge_interior":
 		add_candidate(candidates, "forge", game.BuildingSystem.INTERIORS.forge_interior.service_position, static_hint(game, "forge"))
+	if game.current_location == "guild_interior":
+		add_candidate(candidates, "contracts", game.BuildingSystem.INTERIORS.guild_interior.service_position, static_hint(game, "contracts"))
 	for resource in game.resource_nodes:
 		if resource.hits > 0 and resource.location == game.current_location:
 			add_candidate(candidates, "resource:%s" % resource.kind, resource.position, resource_hint(game, resource.kind))
@@ -129,7 +132,7 @@ static func add_candidate(candidates: Array[Dictionary], id: String, position: V
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func static_hint(game: Node, kind: String) -> Dictionary:
-	var tutorial_key: String = {"grandmother":"talk","guild_master":"mission_accept","herbalist":"side_mission","shop":"trade","workbench":"craft_window","farm":"plant","pond":"fish","cave":"travel","bridge":"collision","slime":"fight","world_gate":"locations","home_chest":"chest_open","forge":"forge_open"}.get(kind, "move")
+	var tutorial_key: String = {"grandmother":"talk","guild_master":"mission_accept","herbalist":"side_mission","shop":"trade","workbench":"craft_window","farm":"plant","pond":"fish","cave":"travel","bridge":"collision","slime":"fight","world_gate":"locations","home_chest":"chest_open","forge":"forge_open","contracts":"contract_board"}.get(kind, "move")
 	var title: String = game.LocaleSystem.entity(kind)
 	if kind == "guild_master": title = game.LocaleSystem.quest("story_relic", "giver")
 	if kind == "herbalist": title = game.LocaleSystem.quest("side_seed", "giver")

@@ -52,6 +52,7 @@ const ITEM_DATA := {
 	"orc_blade": {"name": "Клинок орка", "short": "Клинок", "color": Color("8aa05c"), "equip": "hands"},
 	"oak_shield": {"name": "Дубовый щит", "short": "Щит", "color": Color("7d5b47"), "equip": "offhand"},
 	"home_chest": {"name": "Домашний сундук", "short": "Сундук", "color": Color("a66d35")},
+	"guild_badge": {"name": "Знак гильдии", "short": "Знак", "color": Color("efc766"), "equip": "ring"},
 }
 
 ## Возвращает локализованные метаданные предмета по его идентификатору.
@@ -205,6 +206,7 @@ static func recalculate_stats(game: Node) -> void:
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func damage_bonus(game: Node) -> int:
 	var bonus := 1 if game.equipment.ring == "crystal_ring" else 0
+	if game.equipment.ring == "guild_badge": bonus += 1
 	if game.equipment.hands == "orc_blade":
 		bonus += 2
 	return bonus + game.SkillSystem.combat_bonus(game)

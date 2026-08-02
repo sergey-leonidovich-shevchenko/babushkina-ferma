@@ -491,6 +491,11 @@ func draw_item_icon(kind: String, rect: Rect2) -> void:
 		for offset in [-5.0, 0.0, 5.0]:
 			draw_line(rect.get_center() + Vector2(-10, 10 + offset), rect.get_center() + Vector2(10, -10 + offset), Color("ead8aa"), 3)
 			draw_colored_polygon(PackedVector2Array([rect.get_center() + Vector2(10, -10 + offset), rect.get_center() + Vector2(4, -9 + offset), rect.get_center() + Vector2(9, -4 + offset)]), Color("8c969c"))
+	elif kind == "guild_badge":
+		var center := rect.get_center()
+		draw_circle(center, minf(rect.size.x, rect.size.y) * 0.34, Color("e5b94f"))
+		draw_circle(center, minf(rect.size.x, rect.size.y) * 0.25, Color("684839"))
+		draw_colored_polygon(PackedVector2Array([center + Vector2(-7, -2), center + Vector2(0, -9), center + Vector2(7, -2), center + Vector2(4, 8), center + Vector2(-4, 8)]), Color("ffe28a"))
 	else:
 		draw_circle(rect.get_center(), minf(rect.size.x, rect.size.y) * 0.34, inventory_item_color(kind))
 

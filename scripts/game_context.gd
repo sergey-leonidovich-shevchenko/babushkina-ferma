@@ -56,6 +56,8 @@ const CompanionSystem := preload("res://scripts/systems/companion_system.gd")
 const EnvironmentHazardSystem := preload("res://scripts/systems/environment_hazard_system.gd")
 const StorageSystem := preload("res://scripts/systems/storage_system.gd")
 const ForgeSystem := preload("res://scripts/systems/forge_system.gd")
+const ContractSystem := preload("res://scripts/systems/contract_system.gd")
+const ContractRenderer := preload("res://scripts/systems/contract_renderer.gd")
 const GameState := preload("res://scripts/state/game_state.gd")
 const UI_FONT := preload("res://assets/game/fonts/ui_font.tres")
 const ITEM_HELMET := preload("res://assets/game/items/iron_helmet.png")
@@ -184,6 +186,12 @@ var home_chest_counts: Dictionary:
 var forge_upgrades: Dictionary:
 	get: return state.forge.upgrades
 	set(value): state.forge.upgrades = value
+var contract_open: bool:
+	get: return state.contracts.board_open
+	set(value): state.contracts.board_open = value
+var contract_selected: int:
+	get: return state.contracts.selected
+	set(value): state.contracts.selected = value
 var world_gate_position := Vector2(2200, 760)
 var enemy_nodes := CombatSystem.default_enemies()
 var hazard_nodes := EnvironmentHazardSystem.default_hazards()

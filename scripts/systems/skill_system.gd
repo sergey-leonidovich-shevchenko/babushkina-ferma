@@ -116,6 +116,7 @@ static func recalculate_resources(game: Node) -> void:
 	if game.equipment.get("head", "") == "iron_helmet": equipment_hp += 10
 	if game.equipment.get("body", "") == "guardian_armor": equipment_hp += 20
 	if game.equipment.get("offhand", "") == "oak_shield": equipment_hp += 5
+	if game.equipment.get("ring", "") == "guild_badge": equipment_hp += 10
 	equipment_hp += game.ForgeSystem.armor_health_bonus(game)
 	game.player_max_hp = game.MAX_BASE_HP + (game.player_level - 1) * 10 + skill(game, "vitality") * 10 + equipment_hp
 	game.player_max_mana = 40 + skill(game, "mana") * 10

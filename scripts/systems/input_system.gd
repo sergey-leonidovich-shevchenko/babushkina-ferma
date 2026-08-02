@@ -203,3 +203,53 @@ static func handle_forge_touch(game: Node, position: Vector2) -> bool:
 		game.ForgeSystem.upgrade(game, game.forge_selected)
 	game.queue_redraw()
 	return true
+
+
+## Обрабатывает клавиатуру и геймпад доски ежедневных контрактов гильдии.
+static func handle_contract_input(game: Node, event: InputEvent) -> void:
+	var command := -1
+	if event is InputEventKey and event.pressed and not event.echo:
+		command = int(event.keycode)
+	elif event is InputEventJoypadButton and event.pressed:
+		command = {JOY_BUTTON_DPAD_UP:KEY_UP, JOY_BUTTON_DPAD_DOWN:KEY_DOWN, JOY_BUTTON_A:KEY_ENTER, JOY_BUTTON_B:KEY_ESCAPE}.get(event.button_index, -1)
+	if command < 0: return
+	match command:
+		KEY_ESCAPE, KEY_C: game.contract_open = false
+		KEY_UP: game.contract_selected = posmod(game.contract_selected - 1, game.ContractSystem.CONTRACT_IDS.size())
+		KEY_DOWN: game.contract_selected = posmod(game.contract_selected + 1, game.ContractSystem.CONTRACT_IDS.size())
+		KEY_ENTER, KEY_E, KEY_SPACE: game.ContractSystem.act_selected(game)
+	game.queue_redraw()
+
+
+## Выбирает касанием строку контракта и сразу выполняет доступное для неё действие.
+static func handle_contract_touch(game: Node, position: Vector2) -> bool:
+	if game.InterfaceRenderer.CONTRACT_ROWS.has_point(position):
+		game.contract_selected = clampi(int((position.y - game.InterfaceRenderer.CONTRACT_ROWS.position.y) / 100.0), 0, game.ContractSystem.CONTRACT_IDS.size() - 1)
+		game.ContractSystem.act_selected(game)
+	game.queue_redraw()
+	return true
+
+
+## Маршрутизирует событие в единственное открытое модальное окно до мирового управления.
+static func handle_modal_input(game: Node, event: InputEvent) -> bool:
+	if game.shop_open:
+		game.handle_shop_input(event)
+	elif game.storage_open:
+		handle_storage_input(game, event)
+	elif game.forge_open:
+		handle_forge_input(game, event)
+	elif game.contract_open:
+		handle_contract_input(game, event)
+	elif game.quest_log_open:
+		if event is InputEventKey and event.pressed and not event.echo and event.keycode in [KEY_J, KEY_ESCAPE]:
+			game.toggle_quest_log()
+			game.queue_redraw()
+	elif game.skill_menu_open:
+		game.handle_skill_menu_input(event)
+	elif game.crafting_open:
+		game.handle_crafting_input(event)
+	elif game.inventory_open:
+		game.handle_inventory_input(event)
+	else:
+		return false
+	return true

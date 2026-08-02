@@ -92,6 +92,19 @@ const UI := {
 	"upgrade_level":["УР. %d/%d","LV. %d/%d","NV. %d/%d","ST. %d/%d","NIV. %d/%d","等级 %d/%d"],
 	"upgrade_max":["МАКСИМУМ","MAXIMUM","MÁXIMO","MAXIMUM","MAXIMUM","已满级"],
 	"forge_help":["↑↓ выбрать • Enter/A улучшить • C/Esc/B закрыть","↑↓ select • Enter/A upgrade • C/Esc/B close","↑↓ elegir • Enter/A mejorar • C/Esc/B cerrar","↑↓ wählen • Enter/A verbessern • C/Esc/B schließen","↑↓ choisir • Entrée/A améliorer • C/Échap/B fermer","↑↓选择 • Enter/A强化 • C/Esc/B关闭"],
+	"contracts_title":["ЕЖЕДНЕВНЫЕ КОНТРАКТЫ","DAILY CONTRACTS","CONTRATOS DIARIOS","TAGESAUFTRÄGE","CONTRATS QUOTIDIENS","每日委托"],
+	"contract_farmer":["Фермерский заказ","Farm order","Encargo agrícola","Farmauftrag","Commande agricole","农场委托"],
+	"contract_hunter":["Охотничий заказ","Hunting order","Encargo de caza","Jagdauftrag","Contrat de chasse","狩猎委托"],
+	"contract_miner":["Шахтёрский заказ","Mining order","Encargo minero","Bergbauauftrag","Contrat minier","采矿委托"],
+	"contract_objective":["Принести: %s %d/%d","Deliver: %s %d/%d","Entregar: %s %d/%d","Liefern: %s %d/%d","Livrer : %s %d/%d","交付：%s %d/%d"],
+	"contract_reward":["Награда: %d монет • %d XP","Reward: %d coins • %d XP","Premio: %d monedas • %d XP","Lohn: %d Münzen • %d EP","Récompense : %d pièces • %d XP","奖励：%d金币 • %d经验"],
+	"contract_status_available":["ENTER • ПРИНЯТЬ","ENTER • ACCEPT","ENTER • ACEPTAR","ENTER • ANNEHMEN","ENTRÉE • ACCEPTER","ENTER • 接受"],
+	"contract_status_active":["ENTER • СДАТЬ","ENTER • COMPLETE","ENTER • ENTREGAR","ENTER • ABGEBEN","ENTRÉE • RENDRE","ENTER • 提交"],
+	"contract_status_completed":["✓ ВЫПОЛНЕНО","✓ COMPLETED","✓ COMPLETADO","✓ ERLEDIGT","✓ TERMINÉ","✓ 已完成"],
+	"guild_rank_progress":["РАНГ %d • до следующего: %d","RANK %d • next in: %d","RANGO %d • faltan: %d","RANG %d • noch: %d","RANG %d • prochain : %d","等级%d • 还需%d"],
+	"guild_rank_max":["РАНГ %d • МАКСИМУМ","RANK %d • MAXIMUM","RANGO %d • MÁXIMO","RANG %d • MAXIMUM","RANG %d • MAXIMUM","等级%d • 已满"],
+	"guild_badge_hint":["На ранге 1: знак гильдии (+10 HP, +1 урон)","At rank 1: guild badge (+10 HP, +1 damage)","Rango 1: insignia (+10 HP, +1 daño)","Rang 1: Gildenabzeichen (+10 HP, +1 Schaden)","Rang 1 : insigne (+10 PV, +1 dégâts)","1级：公会徽章（+10生命，+1伤害）"],
+	"contracts_help":["↑↓ выбрать • Enter/A действие • C/Esc/B закрыть","↑↓ select • Enter/A act • C/Esc/B close","↑↓ elegir • Enter/A actuar • C/Esc/B cerrar","↑↓ wählen • Enter/A Aktion • C/Esc/B schließen","↑↓ choisir • Entrée/A agir • C/Échap/B fermer","↑↓选择 • Enter/A操作 • C/Esc/B关闭"],
 	"hint_location":["Новая область: исследуй окружение, ресурсы и существ.","New area: explore its surroundings, resources, and creatures.","Nueva zona: explora recursos y criaturas.","Neues Gebiet: Erkunde Umgebung, Ressourcen und Wesen.","Nouvelle zone : explore les ressources et les créatures.","新区域：探索环境、资源和生物。"],
 	"quest_close":["J или Esc — закрыть","J or Esc — close","J o Esc — cerrar","J oder Esc — schließen","J ou Échap — fermer","J或Esc — 关闭"],
 	"skill_help":["Стрелки/D-pad — выбрать • Enter/A — вложить очко • K/Esc/Y — закрыть","Arrows/D-pad — select • Enter/A — spend point • K/Esc/Y — close","Flechas/D-pad — elegir • Enter/A — gastar punto • K/Esc/Y — cerrar","Pfeile/D-pad — wählen • Enter/A — Punkt setzen • K/Esc/Y — schließen","Flèches/D-pad — choisir • Entrée/A — dépenser • K/Esc/Y — fermer","方向键/D-pad选择 • Enter/A加点 • K/Esc/Y关闭"],
@@ -165,6 +178,12 @@ const TEXT := {
 	"forge_max":["Предмет уже улучшен до максимума","Item is already fully upgraded","El objeto ya está al máximo","Gegenstand ist bereits voll verbessert","L'objet est déjà amélioré au maximum","物品已经满级"],
 	"forge_need_item":["Сначала получи предмет: %s","Obtain the item first: %s","Consigue primero el objeto: %s","Beschaffe zuerst den Gegenstand: %s","Obtiens d'abord l'objet : %s","请先获得物品：%s"],
 	"forge_upgraded":["Улучшено: %s • уровень %d","Upgraded: %s • level %d","Mejorado: %s • nivel %d","Verbessert: %s • Stufe %d","Amélioré : %s • niveau %d","已强化：%s • 等级%d"],
+	"contracts_opened":["Доска обновлена для дня %d","Contract board updated for day %d","Tablón actualizado para el día %d","Aufträge für Tag %d aktualisiert","Contrats actualisés pour le jour %d","第%d天委托已更新"],
+	"contract_accepted":["Принят заказ: %s","Contract accepted: %s","Contrato aceptado: %s","Auftrag angenommen: %s","Contrat accepté : %s","已接受：%s"],
+	"contract_need":["Для сдачи нужно: %s %d/%d","Required to complete: %s %d/%d","Para entregar: %s %d/%d","Zur Abgabe nötig: %s %d/%d","Requis : %s %d/%d","提交需要：%s %d/%d"],
+	"contract_completed":["Контракт выполнен: +%d монет, +%d XP","Contract complete: +%d coins, +%d XP","Contrato cumplido: +%d monedas, +%d XP","Auftrag erfüllt: +%d Münzen, +%d EP","Contrat terminé : +%d pièces, +%d XP","委托完成：+%d金币，+%d经验"],
+	"contract_already_done":["Этот заказ уже выполнен сегодня","This contract is already done today","Este contrato ya está hecho hoy","Dieser Auftrag ist heute erledigt","Ce contrat est déjà terminé aujourd'hui","今日该委托已完成"],
+	"guild_rank_up":["Ранг гильдии повышен до %d! Премия: %d монет","Guild rank increased to %d! Bonus: %d coins","¡Rango de gremio %d! Bono: %d monedas","Gildenrang %d! Bonus: %d Münzen","Rang de guilde %d ! Prime : %d pièces","公会等级升至%d！奖励%d金币"],
 }
 
 const ITEMS := {
@@ -182,7 +201,7 @@ const ITEMS := {
 	"tusk":["Кабаний клык","Boar tusk","Colmillo de jabalí","Eberhauer","Défense de sanglier","野猪獠牙"], "bat_wing":["Крыло летучей мыши","Bat wing","Ala de murciélago","Fledermausflügel","Aile de chauve-souris","蝙蝠翼"], "lizard_scale":["Чешуя листохвоста","Leaf-tail scale","Escama de lagarto","Blattschwanzschuppe","Écaille de lézard","叶尾蜥鳞片"],
 	"iron_helmet":["Железный шлем","Iron helmet","Casco de hierro","Eisenhelm","Casque de fer","铁头盔"], "guardian_armor":["Доспех хранителя","Guardian armor","Armadura del guardián","Wächterrüstung","Armure du gardien","守护者铠甲"], "travel_boots":["Походные сапоги","Travel boots","Botas de viaje","Reisestiefel","Bottes de voyage","旅行靴"],
 	"crystal_ring":["Алмазный талисман","Diamond talisman","Talismán de diamante","Diamanttalisman","Talisman de diamant","钻石护符"], "orc_blade":["Клинок орка","Orc blade","Hoja orca","Orkklinge","Lame orque","兽人之刃"], "oak_shield":["Дубовый щит","Oak shield","Escudo de roble","Eichenschild","Bouclier de chêne","橡木盾"],
-	"arrows":["Стрелы","Arrows","Flechas","Pfeile","Flèches","箭矢"], "home_chest":["Домашний сундук","Home chest","Cofre de casa","Haustruhe","Coffre de maison","家庭储物箱"],
+	"arrows":["Стрелы","Arrows","Flechas","Pfeile","Flèches","箭矢"], "home_chest":["Домашний сундук","Home chest","Cofre de casa","Haustruhe","Coffre de maison","家庭储物箱"], "guild_badge":["Знак гильдии","Guild badge","Insignia del gremio","Gildenabzeichen","Insigne de guilde","公会徽章"],
 }
 
 const LOCATIONS := {
@@ -260,6 +279,10 @@ const TUTORIAL := {
 	"weapon_sharpen":["Заточи меч или улучши лук","Sharpen a sword or improve a bow","Afila una espada o mejora un arco","Schärfe ein Schwert oder verbessere einen Bogen","Aiguise une épée ou améliore un arc","磨利剑或强化弓"],
 	"armor_upgrade":["Усиль доспех, шлем, щит или сапоги","Reinforce armor, helmet, shield, or boots","Refuerza armadura, casco, escudo o botas","Verstärke Rüstung, Helm, Schild oder Stiefel","Renforce armure, casque, bouclier ou bottes","强化盔甲、头盔、盾牌或靴子"],
 	"arrow_sharpen":["Закали и заточи наконечники стрел","Harden and sharpen arrowheads","Templa y afila las puntas de flecha","Härte und schärfe Pfeilspitzen","Trempe et aiguise les pointes de flèche","淬炼并磨利箭头"],
+	"contract_board":["Открой доску ежедневных контрактов в гильдии","Open the daily contract board in the guild","Abre el tablón diario del gremio","Öffne die Tagesaufträge in der Gilde","Ouvre le tableau des contrats de la guilde","在公会打开每日委托板"],
+	"contract_accept":["Прими фермерский, охотничий или шахтёрский заказ","Accept a farm, hunting, or mining order","Acepta un encargo agrícola, de caza o minero","Nimm einen Farm-, Jagd- oder Bergbauauftrag an","Accepte un contrat agricole, de chasse ou minier","接受农场、狩猎或采矿委托"],
+	"contract_complete":["Принеси требуемые предметы и сдай контракт","Bring the required items and complete a contract","Lleva los objetos y entrega el contrato","Bringe die Gegenstände und gib den Auftrag ab","Apporte les objets et termine un contrat","带回物品并完成委托"],
+	"guild_rank":["Выполни три контракта и получи первый ранг гильдии","Complete three contracts and earn guild rank one","Cumple tres contratos y logra rango uno","Erfülle drei Aufträge für Gildenrang eins","Termine trois contrats pour le rang un","完成三个委托并获得公会1级"],
 }
 
 const SKILLS := {
@@ -290,7 +313,7 @@ const ENTITIES := {
 	"companion_mila":["Мила Щитоносица","Mila Shieldbearer","Mila Escudera","Mila Schildträgerin","Mila Porte-bouclier","盾卫米拉"], "companion_borislav":["Борислав Ветеран","Borislav the Veteran","Borislav el Veterano","Borislav der Veteran","Borislav le Vétéran","老兵鲍里斯拉夫"], "companion_luna":["Луна Целительница","Luna the Healer","Luna la Sanadora","Luna die Heilerin","Luna la Guérisseuse","治疗师露娜"],
 	"berries":["Ягодный куст","Berry bush","Arbusto de bayas","Beerenbusch","Buisson à baies","浆果灌木"], "mushroom":["Грибная поляна","Mushroom patch","Claro de setas","Pilzplatz","Carré de champignons","蘑菇地"], "watermelon":["Арбузная бахча","Watermelon patch","Melonar","Melonenfeld","Carré de pastèques","西瓜地"], "apple":["Яблоня","Apple tree","Manzano","Apfelbaum","Pommier","苹果树"], "nut":["Ореховое дерево","Nut tree","Nogal","Nussbaum","Noyer","坚果树"],
 	"chest":["Старый сундук","Old chest","Cofre viejo","Alte Truhe","Vieux coffre","旧宝箱"], "bone_pile":["Груда костей","Bone pile","Pila de huesos","Knochenhaufen","Tas d'os","骨堆"], "sack":["Брошенный мешок","Abandoned sack","Saco abandonado","Verlassener Sack","Sac abandonné","废弃麻袋"], "trash":["Куча хлама","Junk pile","Montón de basura","Gerümpelhaufen","Tas de débris","垃圾堆"],
-	"home_chest":["Домашний сундук","Home chest","Cofre de casa","Haustruhe","Coffre de maison","家庭储物箱"], "forge":["Наковальня","Forge anvil","Yunque","Amboss","Enclume","铁砧"],
+	"home_chest":["Домашний сундук","Home chest","Cofre de casa","Haustruhe","Coffre de maison","家庭储物箱"], "forge":["Наковальня","Forge anvil","Yunque","Amboss","Enclume","铁砧"], "contracts":["Доска контрактов","Contract board","Tablón de contratos","Auftragstafel","Tableau des contrats","委托板"],
 }
 
 ## Возвращает индекс выбранного языка с безопасным запасным значением.

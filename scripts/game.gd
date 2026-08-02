@@ -66,6 +66,8 @@ func _ready() -> void:
 		current_location = "forge_interior"
 		grant_tester_kit()
 		open_forge()
+	if "--contracts-preview" in OS.get_cmdline_user_args():
+		ContractSystem.configure_preview(self)
 	sync_background_location()
 	DiscoverySystem.show_location(self, current_location)
 	queue_redraw()
@@ -118,7 +120,7 @@ func _physics_process(delta: float) -> void:
 	WildlifeSystem.update(self, delta)
 	if benchmark_autoplay:
 		update_benchmark_route(delta)
-	if shop_open or inventory_open or crafting_open or storage_open or forge_open or quest_log_open or skill_menu_open:
+	if shop_open or inventory_open or crafting_open or storage_open or forge_open or contract_open or quest_log_open or skill_menu_open:
 		queue_redraw()
 		return
 	update_player_movement(delta)
@@ -257,28 +259,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			queue_redraw()
 		return
 
-	if shop_open:
-		handle_shop_input(event)
-		return
-	if storage_open:
-		handle_storage_input(event)
-		return
-	if forge_open:
-		handle_forge_input(event)
-		return
-	if quest_log_open:
-		if event is InputEventKey and event.pressed and not event.echo and event.keycode in [KEY_J, KEY_ESCAPE]:
-			toggle_quest_log()
-			queue_redraw()
-		return
-	if skill_menu_open:
-		handle_skill_menu_input(event)
-		return
-	if crafting_open:
-		handle_crafting_input(event)
-		return
-	if inventory_open:
-		handle_inventory_input(event)
+	if InputSystem.handle_modal_input(self, event):
 		return
 	if event.is_action_pressed("ui_cancel"):
 		title_screen = true
@@ -1169,12 +1150,12 @@ func _input(event: InputEvent) -> void:
 		var is_movement_key := update_movement_key_state(event)
 		if not title_screen and event.pressed and is_movement_key:
 			apply_immediate_key_response(event)
-		if is_action_key and not title_screen and not shop_open and not inventory_open and not quest_log_open and not skill_menu_open:
+		if is_action_key and not title_screen and not shop_open and not inventory_open and not crafting_open and not storage_open and not forge_open and not contract_open and not quest_log_open and not skill_menu_open:
 			if event.pressed and not event.echo:
 				if not perform_context_action() and current_location == "overworld":
 					use_active_item()
 			get_viewport().set_input_as_handled()
-		if is_attack_key and not title_screen and not shop_open and not inventory_open and not quest_log_open and not skill_menu_open:
+		if is_attack_key and not title_screen and not shop_open and not inventory_open and not crafting_open and not storage_open and not forge_open and not contract_open and not quest_log_open and not skill_menu_open:
 			if event.pressed and not event.echo:
 				attack_nearest_enemy()
 			get_viewport().set_input_as_handled()
@@ -1194,6 +1175,10 @@ func handle_gamepad_and_touch(event: InputEvent) -> bool:
 		title_screen = false
 		return true
 	if event is InputEventJoypadButton and event.pressed:
+		var modal_handler: Callable = InputSystem.handle_storage_input if storage_open else (InputSystem.handle_forge_input if forge_open else (InputSystem.handle_contract_input if contract_open else Callable()))
+		if modal_handler.is_valid():
+			modal_handler.call(self, event)
+			return true
 		if skill_menu_open:
 			handle_skill_menu_input(event)
 			return true
@@ -1241,6 +1226,8 @@ func handle_gamepad_and_touch(event: InputEvent) -> bool:
 			return InputSystem.handle_storage_touch(self, event.position)
 		if forge_open:
 			return InputSystem.handle_forge_touch(self, event.position)
+		if contract_open:
+			return InputSystem.handle_contract_touch(self, event.position)
 		if InterfaceRenderer.QUEST_BUTTON.has_point(event.position):
 			toggle_quest_log()
 			return true

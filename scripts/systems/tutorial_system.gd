@@ -12,6 +12,7 @@ const STEP_IDS := [
 	"enemy_levels", "enemy_movement", "contact_hazard", "static_attacker", "hero_skin",
 	"chest_install", "chest_open", "chest_deposit", "chest_withdraw",
 	"forge_open", "weapon_sharpen", "armor_upgrade", "arrow_sharpen",
+	"contract_board", "contract_accept", "contract_complete", "guild_rank",
 ]
 
 
