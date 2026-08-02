@@ -1,5 +1,8 @@
 extends RefCounted
 
+const WALK_FRAME_COUNT := 6
+const WALK_FPS := 10.0
+
 static func movement_direction(game: Node) -> Vector2:
 	return Vector2(
 		float(game.move_right_held) - float(game.move_left_held),
@@ -22,6 +25,24 @@ static func clear_keys(game: Node) -> void:
 	game.move_down_held = false
 	game.action_held = false
 	game.attack_held = false
+
+static func update_animation(game: Node, delta: float) -> void:
+	game.walk_animation_time += delta
+
+static func direction_row(direction: Vector2) -> int:
+	if absf(direction.x) > absf(direction.y):
+		return 1 if direction.x < 0.0 else 2
+	return 3 if direction.y < 0.0 else 0
+
+static func animation_frame(animation_time: float, moving: bool) -> int:
+	if not moving:
+		return 0
+	return int(animation_time * WALK_FPS) % WALK_FRAME_COUNT
+
+static func sprite_bob(animation_time: float, moving: bool) -> float:
+	if moving:
+		return -1.5 if animation_frame(animation_time, true) in [1, 4] else 0.0
+	return sin(animation_time * 2.4) * 0.65
 
 static func heal(game: Node, amount: int) -> int:
 	var previous_hp: int = game.player_hp

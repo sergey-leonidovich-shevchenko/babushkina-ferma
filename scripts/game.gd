@@ -127,6 +127,7 @@ var attack_held := false
 var attack_repeat_timer := 0.0
 const ATTACK_REPEAT_INTERVAL := 0.4
 var walk_animation_time := 0.0
+var character_animation_directions := {}
 var benchmark_autoplay := false
 var benchmark_elapsed := 0.0
 
@@ -203,6 +204,7 @@ var discovery_timer := 0.0
 var discovery_scan_timer := 0.0
 var tutorial_steps := [
 	{"event": "move", "text": "Пройди немного стрелками или WASD"},
+	{"event": "character_animation", "text": "Пройди во все четыре стороны и проверь анимацию героя"},
 	{"event": "talk", "text": "Подойди к бабушке и нажми E"},
 	{"event": "hold_action", "text": "Выбери мотыгу [1] и держи движение + E"},
 	{"event": "plant", "text": "Вспаши грядку [1], посади морковь [2]"},
@@ -263,6 +265,7 @@ func _physics_process(delta: float) -> void:
 	update_combat(delta)
 	update_fishing(delta)
 	update_status_effects(delta)
+	PlayerSystem.update_animation(self, delta)
 	SkillSystem.update_resources(self, delta)
 	DiscoverySystem.update(self, delta)
 	WildlifeSystem.update(self, delta)
@@ -300,8 +303,10 @@ func update_player_movement(delta: float) -> void:
 	facing = direction
 	var current_speed := speed * (1.3 if speed_timer > 0.0 else 1.0) * InventorySystem.speed_multiplier(self)
 	move_player_with_collisions(direction * current_speed * delta)
-	walk_animation_time += delta
 	notify_tutorial("move")
+	character_animation_directions[PlayerSystem.direction_row(direction)] = true
+	if character_animation_directions.size() >= 4:
+		notify_tutorial("character_animation")
 	clamp_player_position()
 
 func move_player_with_collisions(motion: Vector2) -> void:
@@ -1292,11 +1297,21 @@ func draw_water_needed_icon(center: Vector2) -> void:
 
 func draw_player() -> void:
 	var render_position := player.round()
-	var frame := int(walk_animation_time * 8.0) % 6 if get_movement_direction() != Vector2.ZERO else 0
-	var direction_row := 0
-	if absf(facing.x) > absf(facing.y): direction_row = 2 if facing.x < 0 else 3
-	elif facing.y < 0: direction_row = 1
-	draw_texture_rect_region(FARMER_SHEET, Rect2(render_position - Vector2(32, 48), Vector2(64, 64)), Rect2(frame * 64, direction_row * 64, 64, 64))
+	var moving := get_movement_direction() != Vector2.ZERO
+	var frame := PlayerSystem.animation_frame(walk_animation_time, moving)
+	var direction_row := PlayerSystem.direction_row(facing)
+	var bob := roundf(PlayerSystem.sprite_bob(walk_animation_time, moving))
+	var shadow_points := PackedVector2Array()
+	for point_index in 16:
+		var angle := TAU * point_index / 16.0
+		shadow_points.append(render_position + Vector2(cos(angle) * 18.0, 8.0 + sin(angle) * 6.0))
+	draw_colored_polygon(shadow_points, Color(0.08, 0.11, 0.10, 0.35))
+	if moving and frame in [0, 3]:
+		var dust_origin := render_position - facing * 12.0 + Vector2(0, 7)
+		draw_circle(dust_origin + Vector2(-7, 1), 3.0, Color(0.70, 0.66, 0.55, 0.38))
+		draw_circle(dust_origin + Vector2(6, -1), 2.0, Color(0.70, 0.66, 0.55, 0.28))
+	var sprite_rect := Rect2(render_position - Vector2(40, 66) + Vector2(0, bob), Vector2(80, 80))
+	draw_texture_rect_region(FARMER_SHEET, sprite_rect, Rect2(frame * 64, direction_row * 64, 64, 64))
 	if equipped_weapon == "forest_sword":
 		draw_line(render_position + facing * 10.0, render_position + facing * 34.0, Color("d9e4e6"), 5)
 	elif equipped_weapon == "crystal_sword":

@@ -7,6 +7,7 @@ var failed := 0
 func _initialize() -> void:
 	test_keyboard_press_and_release()
 	test_immediate_keyboard_response()
+	test_four_direction_character_animation()
 	test_clock_rolls_to_next_day()
 	test_crop_pauses_for_second_watering()
 	test_shop_buy_and_sell()
@@ -80,6 +81,31 @@ func test_immediate_keyboard_response() -> void:
 	game.update_player_movement(1.0 / 60.0)
 	expect(game.player.x > start.x, "first physics frame moves player without key-repeat delay")
 	expect(game.player.x - start.x < 5.0, "first frame has no artificial position jump")
+	game.free()
+
+func test_four_direction_character_animation() -> void:
+	var game := make_game()
+	expect(game.FARMER_SHEET.get_width() == 384 and game.FARMER_SHEET.get_height() == 256, "hero sheet contains six frames in four directions")
+	expect(game.PlayerSystem.direction_row(Vector2.DOWN) == 0, "down movement uses front-facing animation row")
+	expect(game.PlayerSystem.direction_row(Vector2.LEFT) == 1, "left movement uses left-facing animation row")
+	expect(game.PlayerSystem.direction_row(Vector2.RIGHT) == 2, "right movement uses right-facing animation row")
+	expect(game.PlayerSystem.direction_row(Vector2.UP) == 3, "up movement uses back-facing animation row")
+	expect(game.PlayerSystem.animation_frame(0.45, false) == 0, "idle hero holds a stable pose")
+	expect(game.PlayerSystem.animation_frame(0.11, true) == 1, "walking advances to the next sprite frame immediately")
+	var before: float = game.walk_animation_time
+	game.PlayerSystem.update_animation(game, 0.2)
+	expect(game.walk_animation_time > before, "character animation clock advances independently of key repeat")
+	for direction in [Vector2.DOWN, Vector2.LEFT, Vector2.RIGHT, Vector2.UP]:
+		game.move_left_held = direction == Vector2.LEFT
+		game.move_right_held = direction == Vector2.RIGHT
+		game.move_up_held = direction == Vector2.UP
+		game.move_down_held = direction == Vector2.DOWN
+		game.update_player_movement(1.0 / 60.0)
+	expect(game.tutorial_events_completed.has("character_animation"), "walking in all four directions completes the animation tutorial check")
+	var snapshot: Dictionary = game.SaveSystem.snapshot(game)
+	game.character_animation_directions.clear()
+	game.SaveSystem.apply(game, snapshot)
+	expect(game.character_animation_directions.size() == 4, "save restores tested animation directions")
 	game.free()
 
 func test_clock_rolls_to_next_day() -> void:
@@ -539,7 +565,7 @@ func test_discoveries_and_tutorial_checklist_are_saved() -> void:
 	game.SaveSystem.apply(game, snapshot)
 	expect(game.seen_discoveries.has("shop") and game.seen_discoveries.has("enemy:orc"), "save restores discovered feature history")
 	expect(game.tutorial_step == save_step + 1 and game.tutorial_events_completed.has("save"), "save restores tutorial checklist progress")
-	var required_events := ["move","plant","rewater","trade","fight","hotbar","equipment","fish","craft_window","mission_complete","journal","side_mission","colored_crystal","day","level_up","skill_point","profession","save","wildlife","world_loot"]
+	var required_events := ["move","character_animation","plant","rewater","trade","fight","hotbar","equipment","fish","craft_window","mission_complete","journal","side_mission","colored_crystal","day","level_up","skill_point","profession","save","wildlife","world_loot"]
 	for event_name in required_events:
 		expect(game.tutorial_steps.any(func(step): return step.event == event_name), "tutorial covers feature: %s" % event_name)
 	game.free()
