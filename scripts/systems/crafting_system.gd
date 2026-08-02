@@ -10,7 +10,7 @@ const RECIPES := [
 
 static func can_craft(game: Node, recipe: Dictionary) -> bool:
 	for kind in recipe.inputs:
-		if game.inventory_item_count(kind) < recipe.inputs[kind]: return false
+		if game.inventory_item_count(kind) < game.SkillSystem.material_cost(game, recipe.inputs[kind]): return false
 	return true
 
 static func craft(game: Node, index: int) -> bool:
@@ -19,8 +19,10 @@ static func craft(game: Node, index: int) -> bool:
 	if not can_craft(game, recipe):
 		game.message = "Не хватает: " + ingredients_text(game, recipe)
 		return false
-	for kind in recipe.inputs: game.change_inventory_count(kind, -recipe.inputs[kind])
+	for kind in recipe.inputs: game.change_inventory_count(kind, -game.SkillSystem.material_cost(game, recipe.inputs[kind]))
 	game.change_inventory_count(recipe.output, recipe.count)
+	game.award_xp(4)
+	game.SkillSystem.award_profession_xp(game, "smithing", 6)
 	game.message = "Создано: %s" % recipe.name
 	game.notify_tutorial("craft_window")
 	return true
@@ -28,5 +30,5 @@ static func craft(game: Node, index: int) -> bool:
 static func ingredients_text(game: Node, recipe: Dictionary) -> String:
 	var parts: Array[String] = []
 	for kind in recipe.inputs:
-		parts.append("%s %d/%d" % [game.inventory_item_name(kind), game.inventory_item_count(kind), recipe.inputs[kind]])
+		parts.append("%s %d/%d" % [game.inventory_item_name(kind), game.inventory_item_count(kind), game.SkillSystem.material_cost(game, recipe.inputs[kind])])
 	return ", ".join(parts)

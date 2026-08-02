@@ -33,6 +33,7 @@ static func attack(game: Node, index: int) -> bool:
 	if enemy.hp <= 0:
 		enemy.alive = false
 		game.award_xp(TYPES[enemy.kind].xp)
+		game.SkillSystem.award_profession_xp(game, "combat", TYPES[enemy.kind].xp / 2)
 		for kind in TYPES[enemy.kind].loot:
 			var count: int = TYPES[enemy.kind].loot[kind]
 			if kind == "coins": game.coins += count

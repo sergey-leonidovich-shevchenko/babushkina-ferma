@@ -75,6 +75,7 @@ static func attack(game: Node, index: int) -> bool:
 	if animal.hp <= 0:
 		animal.alive = false
 		game.award_xp(TYPES[animal.kind].xp)
+		game.SkillSystem.award_profession_xp(game, "combat", maxi(1, TYPES[animal.kind].xp / 2))
 		for kind in TYPES[animal.kind].loot:
 			game.dropped_items.append({"kind":kind,"count":TYPES[animal.kind].loot[kind],"position":animal.position})
 		game.message = "%s добыт: +%d XP" % [TYPES[animal.kind].name, TYPES[animal.kind].xp]

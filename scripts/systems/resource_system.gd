@@ -24,13 +24,16 @@ static func mine(game: Node, index: int) -> bool:
 	if resource.hits <= 0 or resource.location != game.current_location or game.player.distance_to(resource.position) > 92.0:
 		return false
 	resource.hits -= 1
+	var yield_count: int = game.SkillSystem.mined_count(game)
 	if resource.kind == "stone":
-		game.stone += 1
+		game.stone += yield_count
 	elif resource.kind == "crystal":
-		game.crystals += 1
+		game.crystals += yield_count
 	else:
-		game.materials[resource.kind] = game.materials.get(resource.kind, 0) + 1
-	game.message = "Добыт %s" % RESOURCE_NAMES.get(resource.kind, resource.kind)
+		game.materials[resource.kind] = game.materials.get(resource.kind, 0) + yield_count
+	game.award_xp(1)
+	game.SkillSystem.award_profession_xp(game, "mining", 3)
+	game.message = "Добыт %s ×%d" % [RESOURCE_NAMES.get(resource.kind, resource.kind), yield_count]
 	if resource.hits <= 0:
 		game.message += ". Жила исчерпана"
 	game.resource_nodes[index] = resource

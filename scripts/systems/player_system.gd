@@ -29,18 +29,7 @@ static func heal(game: Node, amount: int) -> int:
 	return game.player_hp - previous_hp
 
 static func award_xp(game: Node, amount: int, reason: String = "") -> void:
-	game.player_xp += amount
-	var leveled_up := false
-	while game.player_xp >= game.XP_PER_LEVEL:
-		game.player_xp -= game.XP_PER_LEVEL
-		game.player_level += 1
-		game.player_max_hp += 10
-		game.player_hp = game.player_max_hp
-		leveled_up = true
-	if leveled_up:
-		game.message = "Новый уровень %d! Максимум здоровья +10" % game.player_level
-		game.notify_tutorial("level_up")
-	elif not reason.is_empty(): game.message = "%s: +%d опыта" % [reason, amount]
+	game.SkillSystem.award_character_xp(game, amount, reason)
 
 static func update_effects(game: Node, delta: float) -> void:
 	game.strength_timer = maxf(game.strength_timer - delta, 0.0)

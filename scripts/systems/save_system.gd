@@ -16,13 +16,20 @@ static func snapshot(game: Node) -> Dictionary:
 		wildlife.append({"hp":animal.hp,"alive":animal.alive,"position":[animal.position.x,animal.position.y]})
 	for container in game.world_loot_nodes:
 		containers.append({"id":container.id,"kind":container.kind,"location":container.location,"position":[container.position.x,container.position.y],"opened":container.opened,"contents":container.contents.duplicate(true)})
-	return {"version":1,"player":[game.player.x,game.player.y],"location":game.current_location,"day":game.day,"minutes":game.game_minutes,"energy":game.energy,"coins":game.coins,"xp":game.player_xp,"level":game.player_level,"hp":game.player_hp,"counts":game.export_inventory_counts().duplicate(true),"slots":game.inventory_slots.duplicate(true),"hotbar":game.hotbar_slots.duplicate(true),"equipment":game.equipment.duplicate(true),"quest_active":game.quest_active,"quest_complete":game.quest_complete,"missions":game.mission_states.duplicate(true),"tutorial":{"step":game.tutorial_step,"events":game.tutorial_events_completed.duplicate(true),"seen":game.seen_discoveries.duplicate(true)},"weapons":{"sword":game.sword_crafted,"bow":game.has_bow,"crystal":game.has_crystal_sword,"equipped":game.equipped_weapon},"plots":plot_data,"resource_hits":game.resource_nodes.map(func(node): return node.hits),"food_active":game.food_nodes.map(func(node): return node.active),"enemies":game.enemy_nodes.map(func(enemy): return {"hp":enemy.hp,"alive":enemy.alive}),"wildlife":wildlife,"world_loot_seed":game.world_loot_seed,"containers":containers,"drops":drops}
+	return {"version":1,"player":[game.player.x,game.player.y],"location":game.current_location,"day":game.day,"minutes":game.game_minutes,"energy":game.energy,"coins":game.coins,"xp":game.player_xp,"level":game.player_level,"hp":game.player_hp,"progression":{"points":game.skill_points,"levels":game.skill_levels.duplicate(true),"xp":game.skill_xp.duplicate(true),"mana":game.player_mana},"counts":game.export_inventory_counts().duplicate(true),"slots":game.inventory_slots.duplicate(true),"hotbar":game.hotbar_slots.duplicate(true),"equipment":game.equipment.duplicate(true),"quest_active":game.quest_active,"quest_complete":game.quest_complete,"missions":game.mission_states.duplicate(true),"tutorial":{"step":game.tutorial_step,"events":game.tutorial_events_completed.duplicate(true),"seen":game.seen_discoveries.duplicate(true)},"weapons":{"sword":game.sword_crafted,"bow":game.has_bow,"crystal":game.has_crystal_sword,"equipped":game.equipped_weapon},"plots":plot_data,"resource_hits":game.resource_nodes.map(func(node): return node.hits),"food_active":game.food_nodes.map(func(node): return node.active),"enemies":game.enemy_nodes.map(func(enemy): return {"hp":enemy.hp,"alive":enemy.alive}),"wildlife":wildlife,"world_loot_seed":game.world_loot_seed,"containers":containers,"drops":drops}
 
 static func apply(game: Node, data: Dictionary) -> bool:
 	if data.get("version", 0) != 1: return false
 	game.player = Vector2(data.player[0], data.player[1]); game.current_location = data.location
 	game.day = data.day; game.game_minutes = data.minutes; game.energy = data.energy; game.coins = data.coins
 	game.player_xp = data.xp; game.player_level = data.level; game.player_hp = data.hp
+	var progression: Dictionary = data.get("progression", {})
+	game.skill_points = progression.get("points", 0)
+	for skill_id in game.skill_levels:
+		game.skill_levels[skill_id] = progression.get("levels", {}).get(skill_id, 0)
+	for skill_id in game.skill_xp:
+		game.skill_xp[skill_id] = progression.get("xp", {}).get(skill_id, 0)
+	game.player_mana = progression.get("mana", game.player_mana)
 	game.import_inventory_counts(data.counts)
 	var inventory_catalog: Array = game.inventory_slots.duplicate()
 	game.inventory_slots.assign(data.slots)

@@ -30,6 +30,7 @@ const TutorialSystem := preload("res://scripts/systems/tutorial_system.gd")
 const DiscoverySystem := preload("res://scripts/systems/discovery_system.gd")
 const WildlifeSystem := preload("res://scripts/systems/wildlife_system.gd")
 const LootContainerSystem := preload("res://scripts/systems/loot_container_system.gd")
+const SkillSystem := preload("res://scripts/systems/skill_system.gd")
 const ITEM_HELMET := preload("res://assets/game/items/iron_helmet.png")
 const ITEM_ARMOR := preload("res://assets/game/items/guardian_armor.png")
 const ITEM_BOOTS := preload("res://assets/game/items/travel_boots.png")
@@ -134,6 +135,13 @@ var player_hp := MAX_BASE_HP
 var player_max_hp := MAX_BASE_HP
 var player_xp := 0
 var player_level := 1
+var skill_points := 0
+var skill_levels := SkillSystem.default_levels()
+var skill_xp := SkillSystem.default_xp()
+var player_mana := 40
+var player_max_mana := 40
+var mana_regen_progress := 0.0
+var stamina_regen_progress := 0.0
 var strength_timer := 0.0
 var regeneration_timer := 0.0
 var speed_timer := 0.0
@@ -184,6 +192,8 @@ var quest_active := false
 var quest_complete := false
 var mission_states := {"story_relic":"available", "side_seed":"available"}
 var quest_log_open := false
+var skill_menu_open := false
+var skill_menu_selected := 0
 var tutorial_visible := true
 var tutorial_step := 0
 var tutorial_events_completed := {}
@@ -222,6 +232,8 @@ var tutorial_steps := [
 	{"event": "colored_crystal", "text": "Добудь красный или зелёный кристалл киркой [5]"},
 	{"event": "day", "text": "Вернись к дому и закончи день клавишей N"},
 	{"event": "level_up", "text": "Набери 50 XP и повысь уровень персонажа"},
+	{"event": "skill_point", "text": "Открой развитие [K] и вложи полученное очко в навык"},
+	{"event": "profession", "text": "Развивай ремесло практикой: фермерство, крафт, бой, добычу или рыбалку"},
 	{"event": "save", "text": "Сохрани игру [F5], затем проверь загрузку [F8]"},
 	{"event": "wildlife", "text": "Найди пугливого зверя, проследи за побегом и добудь его лут [F]"},
 	{"event": "world_loot", "text": "Найди случайный сундук, мешок, кости или хлам и обыщи его [E]"}
@@ -251,11 +263,12 @@ func _physics_process(delta: float) -> void:
 	update_combat(delta)
 	update_fishing(delta)
 	update_status_effects(delta)
+	SkillSystem.update_resources(self, delta)
 	DiscoverySystem.update(self, delta)
 	WildlifeSystem.update(self, delta)
 	if benchmark_autoplay:
 		update_benchmark_route(delta)
-	if shop_open or inventory_open or crafting_open or quest_log_open:
+	if shop_open or inventory_open or crafting_open or quest_log_open or skill_menu_open:
 		queue_redraw()
 		return
 	update_player_movement(delta)
@@ -425,6 +438,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			toggle_quest_log()
 			queue_redraw()
 		return
+	if skill_menu_open:
+		handle_skill_menu_input(event)
+		return
 	if crafting_open:
 		handle_crafting_input(event)
 		return
@@ -458,6 +474,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			KEY_F8: load_game()
 			KEY_I, KEY_TAB: open_inventory()
 			KEY_J: toggle_quest_log()
+			KEY_K: open_skill_menu()
 			KEY_H: DiscoverySystem.dismiss(self)
 		queue_redraw()
 
@@ -488,6 +505,7 @@ func use_selected_tool() -> void:
 			if not plot.tilled:
 				plot.tilled = true
 				energy -= 1
+				SkillSystem.award_profession_xp(self, "farming", 1)
 				message = "Земля готова. Выбери семена [2]"
 			else: message = "Эта грядка уже вспахана"
 		Tool.SEEDS:
@@ -499,6 +517,7 @@ func use_selected_tool() -> void:
 				seeds -= 1
 				energy -= 1
 				award_xp(1, "Посадка моркови")
+				SkillSystem.award_profession_xp(self, "farming", 2)
 				notify_tutorial("plant")
 			elif seeds <= 0: message = "Семена кончились. Купи у лавки [B]"
 			else: message = "Сначала вспаши пустую землю"
@@ -507,6 +526,7 @@ func use_selected_tool() -> void:
 				var is_second_watering: bool = plot.growth >= STAGE_DURATION * 2.0
 				plot.watered = true
 				energy -= 1
+				SkillSystem.award_profession_xp(self, "farming", 1)
 				message = "Полито! Поспи [N], чтобы растение выросло"
 				notify_tutorial("rewater" if is_second_watering else "water")
 			else: message = "Здесь нечего поливать"
@@ -518,8 +538,11 @@ func use_selected_tool() -> void:
 				plot.growth = 0.0
 				plot.stage = 0
 				plot.stage_flash = 0.0
-				carrots += 1
-				message = "Морковь собрана! Продай у ящика [E]"
+				var harvested: int = SkillSystem.harvest_count(self)
+				carrots += harvested
+				award_xp(3)
+				SkillSystem.award_profession_xp(self, "farming", 4)
+				message = "Морковь собрана ×%d! Продай у ящика [E]" % harvested
 				notify_tutorial("harvest")
 			else: message = "Урожай ещё не созрел"
 	plots[cell] = plot
@@ -530,7 +553,8 @@ func sleep_until_morning() -> void:
 		return
 	day += 1
 	game_minutes = 6.0 * 60.0
-	energy = 12
+	energy = SkillSystem.max_stamina(self)
+	player_mana = player_max_mana
 	message = "День %d, 06:00. Доброе утро!" % day
 	notify_tutorial("day")
 
@@ -864,7 +888,7 @@ func consume_item(kind: String) -> bool:
 			message = "Гриб: скорость +30% на 10 секунд"
 		"orange":
 			heal_player(20)
-			energy = mini(energy + 2, 12)
+			energy = mini(energy + 2, SkillSystem.max_stamina(self))
 			message = "Апельсин: +20 здоровья и +2 энергии"
 	notify_tutorial("eat")
 	return true
@@ -909,6 +933,35 @@ func toggle_quest_log() -> void:
 		message = "Журнал заданий открыт"
 		notify_tutorial("journal")
 
+func open_skill_menu() -> void:
+	skill_menu_open = not skill_menu_open
+	if skill_menu_open:
+		skill_menu_selected = clampi(skill_menu_selected, 0, SkillSystem.SKILLS.size() - 1)
+		clear_movement_keys()
+		message = "Выбери развитие. Свободных очков: %d" % skill_points
+
+func handle_skill_menu_input(event: InputEvent) -> void:
+	if event is InputEventJoypadButton and event.pressed:
+		match event.button_index:
+			JOY_BUTTON_DPAD_LEFT: skill_menu_selected = posmod(skill_menu_selected - 1, SkillSystem.SKILLS.size())
+			JOY_BUTTON_DPAD_RIGHT: skill_menu_selected = posmod(skill_menu_selected + 1, SkillSystem.SKILLS.size())
+			JOY_BUTTON_DPAD_UP: skill_menu_selected = posmod(skill_menu_selected - 2, SkillSystem.SKILLS.size())
+			JOY_BUTTON_DPAD_DOWN: skill_menu_selected = posmod(skill_menu_selected + 2, SkillSystem.SKILLS.size())
+			JOY_BUTTON_A: SkillSystem.allocate(self, SkillSystem.SKILLS[skill_menu_selected].id)
+			JOY_BUTTON_Y, JOY_BUTTON_B, JOY_BUTTON_START: skill_menu_open = false
+		queue_redraw()
+		return
+	if not (event is InputEventKey and event.pressed and not event.echo):
+		return
+	match event.keycode:
+		KEY_ESCAPE, KEY_K: skill_menu_open = false
+		KEY_LEFT: skill_menu_selected = posmod(skill_menu_selected - 1, SkillSystem.SKILLS.size())
+		KEY_RIGHT: skill_menu_selected = posmod(skill_menu_selected + 1, SkillSystem.SKILLS.size())
+		KEY_UP: skill_menu_selected = posmod(skill_menu_selected - 2, SkillSystem.SKILLS.size())
+		KEY_DOWN: skill_menu_selected = posmod(skill_menu_selected + 2, SkillSystem.SKILLS.size())
+		KEY_ENTER, KEY_E: SkillSystem.allocate(self, SkillSystem.SKILLS[skill_menu_selected].id)
+	queue_redraw()
+
 func attack_slime() -> bool:
 	var attack_range := 280.0 if equipped_weapon == "bow" else 105.0
 	if not slime_alive or player.distance_to(slime_position) > attack_range:
@@ -925,6 +978,7 @@ func attack_slime() -> bool:
 		slime_alive = false
 		loot_available = true
 		award_xp(10)
+		SkillSystem.award_profession_xp(self, "combat", 5)
 		message = "Слизень побеждён! +10 опыта. Подбери добычу [E]"
 	return true
 
@@ -1073,6 +1127,7 @@ func grant_tester_kit() -> void:
 	guardian_armor = maxi(guardian_armor, 1)
 	travel_boots = maxi(travel_boots, 1)
 	crystal_ring = maxi(crystal_ring, 1)
+	skill_points = maxi(skill_points, 3)
 	player_hp = player_max_hp
 	slime_alive = true
 	slime_hp = 3
@@ -1086,7 +1141,7 @@ func grant_tester_kit() -> void:
 		wildlife_nodes[index].alive = true
 		wildlife_nodes[index].hp = WildlifeSystem.TYPES[wildlife_nodes[index].kind].hp
 		wildlife_nodes[index].position = wildlife_nodes[index].home
-	message = "QA-набор выдан: ресурсы, морковь и монеты"
+	message = "QA-набор выдан: ресурсы, морковь, монеты и 3 очка навыков"
 
 func handle_shop_input(event: InputEvent) -> void:
 	if not (event is InputEventKey and event.pressed and not event.echo):
@@ -1477,10 +1532,13 @@ func draw_ui() -> void:
 	var minutes := int(game_minutes) % 60
 	draw_string(ThemeDB.fallback_font, Vector2(24, 34), "ДЕНЬ %d   %02d:%02d" % [day, hours, minutes], HORIZONTAL_ALIGNMENT_LEFT, -1, 22, Color("ffe39d"))
 	draw_string(ThemeDB.fallback_font, Vector2(24, 68), "⚡ %d   🪙 %d   Семена: %d   Морковь: %d" % [energy, coins, seeds, carrots], HORIZONTAL_ALIGNMENT_LEFT, -1, 20, Color.WHITE)
+	draw_rect(Rect2(830, 14, 145, 36), Color("4d6659"))
+	var skill_button_text := "K • НАВЫКИ" if skill_points == 0 else "K • НАВЫКИ (%d)" % skill_points
+	draw_string(ThemeDB.fallback_font, Vector2(840, 38), skill_button_text, HORIZONTAL_ALIGNMENT_CENTER, 125, 14, Color("fff0bd"))
 	draw_rect(Rect2(990, 14, 145, 36), Color("4d6659"))
 	draw_string(ThemeDB.fallback_font, Vector2(1000, 38), "J • ЗАДАНИЯ", HORIZONTAL_ALIGNMENT_CENTER, 125, 14, Color("fff0bd"))
 	draw_player_status_bars()
-	draw_string(ThemeDB.fallback_font, Vector2(390, 94), "Слизь %d  Камень %d  Кристалл %d  Рыба %d  Оружие: %s" % [slime_gel, stone, crystals, fish, equipped_weapon], HORIZONTAL_ALIGNMENT_LEFT, 740, 13, Color("bde8d2"))
+	draw_string(ThemeDB.fallback_font, Vector2(390, 68), "Слизь %d  Камень %d  Кристалл %d  Рыба %d  Оружие: %s" % [slime_gel, stone, crystals, fish, equipped_weapon], HORIZONTAL_ALIGNMENT_LEFT, 740, 13, Color("bde8d2"))
 	if fishing_state == "casting":
 		draw_string(ThemeDB.fallback_font, Vector2(576, 205), "Поплавок... %.1f" % maxf(fishing_timer, 0.0), HORIZONTAL_ALIGNMENT_CENTER, 260, 20, Color("d7f6ff"))
 	elif fishing_state == "ready":
@@ -1503,6 +1561,8 @@ func draw_ui() -> void:
 		draw_crafting_window()
 	if quest_log_open:
 		draw_quest_log()
+	if skill_menu_open:
+		draw_skill_menu()
 
 func draw_discovery_card() -> void:
 	if discovery_current.is_empty():
@@ -1559,11 +1619,23 @@ func draw_player_status_bars() -> void:
 	draw_rect(hp_bar.grow(-2), Color("71333a"))
 	draw_rect(Rect2(hp_bar.position + Vector2(2, 2), Vector2((hp_bar.size.x - 4) * hp_ratio, hp_bar.size.y - 4)), Color("e25555").lerp(Color("63cf72"), hp_ratio))
 	draw_string(ThemeDB.fallback_font, Vector2(29, 91), "HP %d/%d" % [player_hp, player_max_hp], HORIZONTAL_ALIGNMENT_CENTER, 150, 13, Color.WHITE)
-	var xp_ratio := clampf(float(player_xp) / float(XP_PER_LEVEL), 0.0, 1.0)
+	var xp_needed := SkillSystem.xp_to_next_character_level(player_level)
+	var xp_ratio := clampf(float(player_xp) / float(xp_needed), 0.0, 1.0)
 	var xp_bar := Rect2(202, 77, 170, 18)
 	draw_rect(xp_bar, Color("222e3c"))
 	draw_rect(Rect2(xp_bar.position + Vector2(2, 2), Vector2((xp_bar.size.x - 4) * xp_ratio, xp_bar.size.y - 4)), Color("5b9de3"))
-	draw_string(ThemeDB.fallback_font, Vector2(205, 91), "УР. %d • XP %d/%d" % [player_level, player_xp, XP_PER_LEVEL], HORIZONTAL_ALIGNMENT_CENTER, 164, 13, Color.WHITE)
+	draw_string(ThemeDB.fallback_font, Vector2(205, 91), "УР. %d • XP %d/%d" % [player_level, player_xp, xp_needed], HORIZONTAL_ALIGNMENT_CENTER, 164, 13, Color.WHITE)
+	var mana_ratio := clampf(float(player_mana) / float(player_max_mana), 0.0, 1.0)
+	var mana_bar := Rect2(380, 77, 150, 18)
+	draw_rect(mana_bar, Color("252846"))
+	draw_rect(Rect2(mana_bar.position + Vector2(2, 2), Vector2((mana_bar.size.x - 4) * mana_ratio, mana_bar.size.y - 4)), Color("596bd8"))
+	draw_string(ThemeDB.fallback_font, Vector2(383, 91), "МАНА %d/%d" % [player_mana, player_max_mana], HORIZONTAL_ALIGNMENT_CENTER, 144, 13, Color.WHITE)
+	var stamina_max := SkillSystem.max_stamina(self)
+	var stamina_ratio := clampf(float(energy) / float(stamina_max), 0.0, 1.0)
+	var stamina_bar := Rect2(538, 77, 150, 18)
+	draw_rect(stamina_bar, Color("3b3222"))
+	draw_rect(Rect2(stamina_bar.position + Vector2(2, 2), Vector2((stamina_bar.size.x - 4) * stamina_ratio, stamina_bar.size.y - 4)), Color("e0a640"))
+	draw_string(ThemeDB.fallback_font, Vector2(541, 91), "СИЛЫ %d/%d" % [energy, stamina_max], HORIZONTAL_ALIGNMENT_CENTER, 144, 13, Color.WHITE)
 	var effects: Array[String] = []
 	if regeneration_timer > 0.0: effects.append("❤ реген %.0fс" % regeneration_timer)
 	if strength_timer > 0.0: effects.append("⚔ сила %.0fс" % strength_timer)
@@ -1635,6 +1707,31 @@ func draw_equipment_panel() -> void:
 			draw_item_icon(kind, Rect2(box.position + Vector2(23, 23), Vector2(36, 36)))
 			draw_string(ThemeDB.fallback_font, box.position + Vector2(4, 59), InventorySystem.data(kind).short, HORIZONTAL_ALIGNMENT_CENTER, 74, 10, Color("493b2f"))
 
+func draw_skill_menu() -> void:
+	draw_rect(Rect2(92, 48, 968, 552), Color("25232c"))
+	draw_rect(Rect2(112, 68, 928, 512), Color("e4d4a9"))
+	draw_rect(Rect2(112, 68, 928, 70), Color("493e61"))
+	draw_string(ThemeDB.fallback_font, Vector2(180, 108), "РАЗВИТИЕ ПЕРСОНАЖА", HORIZONTAL_ALIGNMENT_LEFT, 510, 28, Color("fff2c7"))
+	draw_string(ThemeDB.fallback_font, Vector2(735, 106), "Уровень %d • очков: %d" % [player_level, skill_points], HORIZONTAL_ALIGNMENT_RIGHT, 270, 18, Color("f5cf6a"))
+	for index in SkillSystem.SKILLS.size():
+		var skill: Dictionary = SkillSystem.SKILLS[index]
+		var column := index % 2
+		var row := index / 2
+		var box := Rect2(142 + column * 444, 158 + row * 92, 414, 78)
+		var selected := index == skill_menu_selected
+		draw_rect(box, Color("efc75f") if selected else Color("6c5c48"))
+		draw_rect(box.grow(-4), Color("fff0bd") if selected else Color("f0dfb5"))
+		draw_string(ThemeDB.fallback_font, box.position + Vector2(14, 29), "%s  %s" % [skill.icon, skill.name], HORIZONTAL_ALIGNMENT_LEFT, 245, 19, Color("43382f"))
+		draw_string(ThemeDB.fallback_font, box.position + Vector2(310, 29), "РАНГ %d" % SkillSystem.skill(self, skill.id), HORIZONTAL_ALIGNMENT_RIGHT, 88, 15, Color("4c674c"))
+		draw_string(ThemeDB.fallback_font, box.position + Vector2(14, 55), skill.description, HORIZONTAL_ALIGNMENT_LEFT, 380, 12, Color("665746"))
+		if skill.get("profession", false):
+			var needed := SkillSystem.xp_to_next_skill_rank(SkillSystem.skill(self, skill.id))
+			var ratio := clampf(float(skill_xp.get(skill.id, 0)) / float(needed), 0.0, 1.0)
+			var bar := Rect2(box.position + Vector2(14, 64), Vector2(380, 6))
+			draw_rect(bar, Color("766751"))
+			draw_rect(Rect2(bar.position, Vector2(bar.size.x * ratio, bar.size.y)), Color("6da86d"))
+	draw_string(ThemeDB.fallback_font, Vector2(220, 556), "Стрелки/D-pad — выбрать • Enter/A — вложить очко • K/Esc/Y — закрыть", HORIZONTAL_ALIGNMENT_CENTER, 712, 15, Color("493b2f"))
+
 func draw_crafting_window() -> void:
 	draw_rect(Rect2(170, 70, 812, 510), Color("33271f"))
 	draw_rect(Rect2(190, 90, 772, 470), Color("e8cf96"))
@@ -1688,12 +1785,12 @@ func _input(event: InputEvent) -> void:
 		var is_movement_key := update_movement_key_state(event)
 		if not title_screen and event.pressed and is_movement_key:
 			apply_immediate_key_response(event)
-		if is_action_key and not title_screen and not shop_open and not inventory_open and not quest_log_open:
+		if is_action_key and not title_screen and not shop_open and not inventory_open and not quest_log_open and not skill_menu_open:
 			if event.pressed and not event.echo:
 				if not perform_context_action() and current_location == "overworld":
 					use_active_item()
 			get_viewport().set_input_as_handled()
-		if is_attack_key and not title_screen and not shop_open and not inventory_open and not quest_log_open:
+		if is_attack_key and not title_screen and not shop_open and not inventory_open and not quest_log_open and not skill_menu_open:
 			if event.pressed and not event.echo:
 				attack_nearest_enemy()
 			get_viewport().set_input_as_handled()
@@ -1703,6 +1800,9 @@ func handle_gamepad_and_touch(event: InputEvent) -> bool:
 		title_screen = false
 		return true
 	if event is InputEventJoypadButton and event.pressed:
+		if skill_menu_open:
+			handle_skill_menu_input(event)
+			return true
 		if quest_log_open:
 			if event.button_index in [JOY_BUTTON_B, JOY_BUTTON_BACK]:
 				toggle_quest_log()
@@ -1729,12 +1829,25 @@ func handle_gamepad_and_touch(event: InputEvent) -> bool:
 			JOY_BUTTON_BACK:
 				toggle_quest_log()
 				return true
+			JOY_BUTTON_START:
+				open_skill_menu()
+				return true
 	if event is InputEventScreenTouch and event.pressed:
 		if Rect2(344, 190, 464, 126).has_point(event.position) and not discovery_current.is_empty():
 			DiscoverySystem.dismiss(self)
 			return true
 		if Rect2(990, 0, 162, 62).has_point(event.position):
 			toggle_quest_log()
+			return true
+		if skill_menu_open:
+			if event.position.y >= 158.0 and event.position.y < 526.0 and event.position.x >= 142.0 and event.position.x < 1000.0:
+				var column := clampi(int((event.position.x - 142.0) / 444.0), 0, 1)
+				var row := clampi(int((event.position.y - 158.0) / 92.0), 0, 3)
+				skill_menu_selected = row * 2 + column
+				SkillSystem.allocate(self, SkillSystem.SKILLS[skill_menu_selected].id)
+			return true
+		if Rect2(830, 0, 145, 62).has_point(event.position):
+			open_skill_menu()
 			return true
 		if inventory_open:
 			if event.position.y >= 126.0 and event.position.y < 471.0 and event.position.x >= 72.0 and event.position.x < 744.0:

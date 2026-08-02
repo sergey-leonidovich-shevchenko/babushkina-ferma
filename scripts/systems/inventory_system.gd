@@ -77,17 +77,13 @@ static func equip(game: Node, kind: String) -> bool:
 	return true
 
 static func recalculate_stats(game: Node) -> void:
-	var bonus_hp := 0
-	if game.equipment.head == "iron_helmet": bonus_hp += 10
-	if game.equipment.body == "guardian_armor": bonus_hp += 20
-	game.player_max_hp = game.MAX_BASE_HP + (game.player_level - 1) * 10 + bonus_hp
-	game.player_hp = mini(game.player_hp, game.player_max_hp)
+	game.SkillSystem.recalculate_resources(game)
 
 static func damage_bonus(game: Node) -> int:
 	var bonus := 1 if game.equipment.ring == "crystal_ring" else 0
 	if game.equipment.hands == "orc_blade":
 		bonus += 2
-	return bonus
+	return bonus + game.SkillSystem.combat_bonus(game)
 
 static func speed_multiplier(game: Node) -> float:
 	return 1.1 if game.equipment.legs == "travel_boots" else 1.0

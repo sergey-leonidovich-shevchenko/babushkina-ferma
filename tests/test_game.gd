@@ -35,6 +35,9 @@ func _initialize() -> void:
 	test_wildlife_combat_loot_animation_and_save()
 	test_seeded_world_loot_generation_and_opening()
 	test_world_loot_discovery_and_save_persistence()
+	test_character_level_skill_points_and_resource_attributes()
+	test_profession_progress_and_gameplay_bonuses()
+	test_progression_save_and_universal_skill_menu_input()
 	test_gameplay_systems_are_modular()
 	print("TESTS: %d passed, %d failed" % [passed, failed])
 	quit(0 if failed == 0 else 1)
@@ -417,7 +420,7 @@ func test_enemy_families_loot_tables_and_world_route() -> void:
 
 func test_gameplay_systems_are_modular() -> void:
 	var game := make_game()
-	expect(game.PlayerSystem != null and game.NavigationSystem != null and game.InventorySystem != null, "player navigation and inventory systems are separate modules")
+	expect(game.PlayerSystem != null and game.NavigationSystem != null and game.InventorySystem != null and game.SkillSystem != null, "player progression navigation and inventory systems are separate modules")
 	expect(game.FarmSystem != null and game.FishingSystem != null and game.QuestSystem != null, "farm fishing and quest systems are separate modules")
 	expect(game.CombatSystem != null and game.CraftingSystem != null and game.SaveSystem != null, "combat crafting and save systems are separate modules")
 	expect(game.WorldSystem != null and game.RenderSystem != null, "world and rendering coordinators are separate modules")
@@ -536,7 +539,7 @@ func test_discoveries_and_tutorial_checklist_are_saved() -> void:
 	game.SaveSystem.apply(game, snapshot)
 	expect(game.seen_discoveries.has("shop") and game.seen_discoveries.has("enemy:orc"), "save restores discovered feature history")
 	expect(game.tutorial_step == save_step + 1 and game.tutorial_events_completed.has("save"), "save restores tutorial checklist progress")
-	var required_events := ["move","plant","rewater","trade","fight","hotbar","equipment","fish","craft_window","mission_complete","journal","side_mission","colored_crystal","day","level_up","save","wildlife","world_loot"]
+	var required_events := ["move","plant","rewater","trade","fight","hotbar","equipment","fish","craft_window","mission_complete","journal","side_mission","colored_crystal","day","level_up","skill_point","profession","save","wildlife","world_loot"]
 	for event_name in required_events:
 		expect(game.tutorial_steps.any(func(step): return step.event == event_name), "tutorial covers feature: %s" % event_name)
 	game.free()
@@ -632,4 +635,80 @@ func test_world_loot_discovery_and_save_persistence() -> void:
 	expect(game.world_loot_seed == 777 and game.world_loot_nodes[0].contents == saved_contents, "save restores generated world and rolled contents")
 	expect(game.world_loot_nodes[0].opened, "save restores already searched container")
 	expect(game.BONE_PILE_TEXTURE.get_width() == 128, "bone pile sprite is loaded")
+	game.free()
+
+func test_character_level_skill_points_and_resource_attributes() -> void:
+	var game := make_game()
+	game.award_xp(50, "Проверка уровня")
+	expect(game.player_level == 2 and game.player_xp == 0, "first RPG level requires fifty experience")
+	expect(game.skill_points == 1 and game.SkillSystem.xp_to_next_character_level(2) == 75, "level grants a skill point and next threshold grows")
+	expect(game.SkillSystem.allocate(game, "vitality"), "skill point can be assigned to vitality")
+	expect(game.player_max_hp == 120 and game.skill_levels.vitality == 1, "vitality rank increases maximum health on top of level bonus")
+	game.skill_points = 2
+	game.player_mana = 1
+	expect(game.SkillSystem.allocate(game, "mana"), "mana can be upgraded")
+	expect(game.player_max_mana == 50 and game.player_mana == 11, "mana rank expands and refills the mana pool")
+	var old_stamina_max: int = game.SkillSystem.max_stamina(game)
+	expect(game.SkillSystem.allocate(game, "stamina"), "stamina can be upgraded")
+	expect(game.SkillSystem.max_stamina(game) == old_stamina_max + 2, "stamina rank expands the action resource")
+	game.player_mana = 0
+	game.energy = 0
+	game.SkillSystem.update_resources(game, 4.1)
+	expect(game.player_mana > 0 and game.energy == 1, "mana and stamina recover over real time")
+	game.free()
+
+func test_profession_progress_and_gameplay_bonuses() -> void:
+	var game := make_game()
+	game.skill_xp.farming = 19
+	expect(game.SkillSystem.award_profession_xp(game, "farming", 1), "profession practice raises its rank")
+	expect(game.skill_levels.farming == 1 and game.skill_xp.farming == 0, "profession XP rolls into the next rank")
+	game.skill_levels.farming = 3
+	expect(game.SkillSystem.harvest_count(game) == 2, "farmer rank three grants extra harvest")
+	game.skill_levels.mining = 3
+	expect(game.SkillSystem.mined_count(game) == 2, "mining rank three grants extra ore")
+	game.skill_levels.smithing = 3
+	expect(game.SkillSystem.material_cost(game, 4) == 3, "smithing rank three discounts recipe materials")
+	game.skill_levels.combat = 4
+	expect(game.SkillSystem.combat_bonus(game) == 2, "combat ranks increase damage")
+	game.skill_levels.fishing = 3
+	expect(game.SkillSystem.fishing_wait(game) < 2.5, "fishing ranks shorten bite wait")
+	game.current_location = "cave"
+	game.selected_tool = game.Tool.PICKAXE
+	game.player = game.resource_nodes[2].position
+	game.mine_resource(2)
+	expect(game.crystals == 2 and game.skill_xp.mining == 3 and game.player_xp == 1, "mining action applies yield bonus and both XP tracks")
+	game.free()
+
+func test_progression_save_and_universal_skill_menu_input() -> void:
+	var game := make_game()
+	game.skill_points = 2
+	game.skill_levels.vitality = 2
+	game.skill_levels.smithing = 1
+	game.skill_xp.smithing = 9
+	game.player_mana = 17
+	var snapshot: Dictionary = game.SaveSystem.snapshot(game)
+	game.skill_points = 0
+	game.skill_levels.vitality = 0
+	game.skill_xp.smithing = 0
+	game.player_mana = 0
+	game.SaveSystem.apply(game, snapshot)
+	expect(game.skill_points == 2 and game.skill_levels.vitality == 2, "save restores free points and skill ranks")
+	expect(game.skill_xp.smithing == 9 and game.player_mana == 17, "save restores profession XP and current mana")
+	game.open_skill_menu()
+	expect(game.skill_menu_open, "K action opens the skill window")
+	var accept := InputEventJoypadButton.new()
+	accept.button_index = JOY_BUTTON_A
+	accept.pressed = true
+	game.skill_menu_selected = 2
+	game.handle_skill_menu_input(accept)
+	expect(game.skill_levels.stamina == 1 and game.skill_points == 1, "gamepad assigns a selected skill point")
+	game.skill_menu_open = false
+	var touch := InputEventScreenTouch.new()
+	touch.position = Vector2(860, 30)
+	touch.pressed = true
+	expect(game.handle_gamepad_and_touch(touch) and game.skill_menu_open, "touch HUD button opens character development")
+	var legacy_snapshot: Dictionary = snapshot.duplicate(true)
+	legacy_snapshot.erase("progression")
+	game.SaveSystem.apply(game, legacy_snapshot)
+	expect(game.skill_points == 0 and game.skill_levels.vitality == 0, "older saves migrate to default RPG skills")
 	game.free()
