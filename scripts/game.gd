@@ -16,6 +16,8 @@ const RESOURCE_ROCK := preload("res://assets/game/resources/rock.png")
 const NavigationSystem := preload("res://scripts/systems/navigation_system.gd")
 const PlayerSystem := preload("res://scripts/systems/player_system.gd")
 const InventorySystem := preload("res://scripts/systems/inventory_system.gd")
+const CraftingSystem := preload("res://scripts/systems/crafting_system.gd")
+const SaveSystem := preload("res://scripts/systems/save_system.gd")
 const ITEM_HELMET := preload("res://assets/game/items/iron_helmet.png")
 const ITEM_ARMOR := preload("res://assets/game/items/guardian_armor.png")
 const ITEM_BOOTS := preload("res://assets/game/items/travel_boots.png")
@@ -62,6 +64,9 @@ var iron_helmet := 0
 var guardian_armor := 0
 var travel_boots := 0
 var crystal_ring := 0
+var materials := {"fiber":0,"rare_seeds":0,"metal":0,"bones":0,"ancient_key":0,"blue_gem":0,"red_crystal":0,"green_crystal":0}
+var crafting_open := false
+var crafting_selected := 0
 var dropped_items: Array = []
 var shop_selected := 0
 var shop_products := [
@@ -156,7 +161,7 @@ var tutorial_steps := [
 	{"event": "equipment", "text": "Выбери шлем или броню и надень клавишей Q"},
 	{"event": "mine", "text": "Выбери кирку [5] и добудь камень или кристалл"},
 	{"event": "fish", "text": "Выбери удочку [6] и поймай рыбу у пруда"},
-	{"event": "craft", "text": "Вернись к верстаку и создай меч [E]"},
+	{"event": "craft_window", "text": "Открой верстак, выбери рецепт и создай предмет"},
 	{"event": "equip", "text": "Надень или сними меч клавишей R"},
 	{"event": "collision", "text": "Проверь препятствие и перейди реку только по мосту"},
 	{"event": "travel", "text": "Найди светящийся вход в пещеру и нажми E"}
@@ -184,7 +189,7 @@ func _physics_process(delta: float) -> void:
 	update_status_effects(delta)
 	if benchmark_autoplay:
 		update_benchmark_route(delta)
-	if shop_open or inventory_open:
+	if shop_open or inventory_open or crafting_open:
 		queue_redraw()
 		return
 	update_player_movement(delta)
@@ -365,13 +370,16 @@ func _unhandled_input(event: InputEvent) -> void:
 	if shop_open:
 		handle_shop_input(event)
 		return
+	if crafting_open:
+		handle_crafting_input(event)
+		return
 	if inventory_open:
 		handle_inventory_input(event)
 		return
 	if event.is_action_pressed("ui_cancel"):
 		title_screen = true
 	if event.is_action_pressed("ui_accept") or (event is InputEventKey and event.pressed and event.keycode == KEY_E):
-		use_selected_tool()
+		use_active_item()
 	if event is InputEventKey and event.pressed and not event.echo:
 		match event.keycode:
 			KEY_1: select_hotbar(0)
@@ -391,6 +399,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			KEY_T: tutorial_visible = not tutorial_visible
 			KEY_Y: reset_tutorial()
 			KEY_F9: grant_tester_kit()
+			KEY_F5: save_game()
+			KEY_F8: load_game()
 			KEY_I, KEY_TAB: open_inventory()
 		queue_redraw()
 
@@ -539,7 +549,7 @@ func perform_context_action() -> bool:
 			sell_carrots()
 			return true
 		"workbench":
-			craft_sword()
+			open_crafting()
 			return true
 		"loot":
 			collect_loot()
@@ -663,7 +673,7 @@ func inventory_item_count(kind: String) -> int:
 		"guardian_armor": return guardian_armor
 		"travel_boots": return travel_boots
 		"crystal_ring": return crystal_ring
-	return 0
+	return materials.get(kind, 0)
 
 func inventory_item_name(kind: String) -> String:
 	if InventorySystem.ITEM_DATA.has(kind):
@@ -685,6 +695,14 @@ func inventory_item_name(kind: String) -> String:
 		"berries": return "Лесные ягоды"
 		"nut": return "Крепкий орех"
 		"mushroom": return "Красный гриб"
+		"fiber": return "Лесное волокно"
+		"rare_seeds": return "Редкие семена"
+		"metal": return "Металл"
+		"bones": return "Кости"
+		"ancient_key": return "Древний ключ"
+		"blue_gem": return "Синий алмаз"
+		"red_crystal": return "Красный кристалл"
+		"green_crystal": return "Зелёный кристалл"
 	return "Пусто"
 
 func change_inventory_count(kind: String, amount: int) -> bool:
@@ -718,7 +736,8 @@ func change_inventory_count(kind: String, amount: int) -> bool:
 		"travel_boots": travel_boots += amount
 		"crystal_ring": crystal_ring += amount
 		_:
-			return false
+			if not materials.has(kind): return false
+			materials[kind] += amount
 	return true
 
 func handle_inventory_input(event: InputEvent) -> void:
@@ -986,6 +1005,45 @@ func reset_tutorial() -> void:
 	tutorial_step = 0
 	tutorial_visible = true
 	message = "Обучение начато заново"
+
+func open_crafting() -> void:
+	crafting_open = true
+	crafting_selected = 0
+	clear_movement_keys()
+	message = "Выбери рецепт и нажми Enter"
+
+func handle_crafting_input(event: InputEvent) -> void:
+	if not (event is InputEventKey and event.pressed and not event.echo): return
+	match event.keycode:
+		KEY_ESCAPE, KEY_C: crafting_open = false
+		KEY_UP: crafting_selected = posmod(crafting_selected - 1, CraftingSystem.RECIPES.size())
+		KEY_DOWN: crafting_selected = posmod(crafting_selected + 1, CraftingSystem.RECIPES.size())
+		KEY_ENTER, KEY_E: CraftingSystem.craft(self, crafting_selected)
+	queue_redraw()
+
+func export_inventory_counts() -> Dictionary:
+	var counts := {}
+	for kind in ["seeds","carrot","slime","wood","stone","crystal","fish","apple","berries","nut","mushroom","orange","iron_helmet","guardian_armor","travel_boots","crystal_ring"]:
+		counts[kind] = inventory_item_count(kind)
+	for kind in materials: counts[kind] = materials[kind]
+	return counts
+
+func import_inventory_counts(counts: Dictionary) -> void:
+	seeds = counts.get("seeds",0); carrots = counts.get("carrot",0); slime_gel = counts.get("slime",0); wood = counts.get("wood",0)
+	stone = counts.get("stone",0); crystals = counts.get("crystal",0); fish = counts.get("fish",0)
+	apples = counts.get("apple",0); berries = counts.get("berries",0); nuts = counts.get("nut",0); mushrooms = counts.get("mushroom",0); oranges = counts.get("orange",0)
+	iron_helmet = counts.get("iron_helmet",0); guardian_armor = counts.get("guardian_armor",0); travel_boots = counts.get("travel_boots",0); crystal_ring = counts.get("crystal_ring",0)
+	for kind in materials: materials[kind] = counts.get(kind,0)
+
+func save_game() -> bool:
+	var saved := SaveSystem.save(self)
+	message = "Игра сохранена" if saved else "Не удалось сохранить игру"
+	return saved
+
+func load_game() -> bool:
+	var loaded := SaveSystem.load(self)
+	message = "Игра загружена" if loaded else "Сохранение не найдено"
+	return loaded
 
 func grant_tester_kit() -> void:
 	coins = maxi(coins, 500)
@@ -1359,6 +1417,8 @@ func draw_ui() -> void:
 		draw_shop()
 	if inventory_open:
 		draw_inventory()
+	if crafting_open:
+		draw_crafting_window()
 
 func draw_player_status_bars() -> void:
 	var hp_ratio := clampf(float(player_hp) / float(player_max_hp), 0.0, 1.0)
@@ -1442,6 +1502,19 @@ func draw_equipment_panel() -> void:
 		if not kind.is_empty():
 			draw_item_icon(kind, Rect2(box.position + Vector2(23, 23), Vector2(36, 36)))
 			draw_string(ThemeDB.fallback_font, box.position + Vector2(4, 59), InventorySystem.data(kind).short, HORIZONTAL_ALIGNMENT_CENTER, 74, 10, Color("493b2f"))
+
+func draw_crafting_window() -> void:
+	draw_rect(Rect2(170, 70, 812, 510), Color("33271f"))
+	draw_rect(Rect2(190, 90, 772, 470), Color("e8cf96"))
+	draw_rect(Rect2(190, 90, 772, 64), Color("744b32"))
+	draw_string(ThemeDB.fallback_font, Vector2(326, 132), "ВЕРСТАК • РЕЦЕПТЫ", HORIZONTAL_ALIGNMENT_CENTER, 500, 28, Color("fff1c4"))
+	for index in CraftingSystem.RECIPES.size():
+		var recipe: Dictionary = CraftingSystem.RECIPES[index]
+		var row := Rect2(220, 174 + index * 68, 712, 58)
+		draw_rect(row, Color("f2c96f") if index == crafting_selected else Color("fff0bd"))
+		draw_string(ThemeDB.fallback_font, row.position + Vector2(18, 35), recipe.name, HORIZONTAL_ALIGNMENT_LEFT, 230, 17, Color("493b2f"))
+		draw_string(ThemeDB.fallback_font, row.position + Vector2(250, 35), CraftingSystem.ingredients_text(self, recipe), HORIZONTAL_ALIGNMENT_LEFT, 440, 14, Color("49704d") if CraftingSystem.can_craft(self, recipe) else Color("a64d45"))
+	draw_string(ThemeDB.fallback_font, Vector2(220, 535), "↑↓ рецепт • Enter создать • C/Esc закрыть", HORIZONTAL_ALIGNMENT_CENTER, 712, 16, Color("493b2f"))
 
 func draw_shop() -> void:
 	# Отдельная сцена-интерьер поверх игрового мира.

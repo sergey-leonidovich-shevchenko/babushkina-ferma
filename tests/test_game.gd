@@ -24,6 +24,7 @@ func _initialize() -> void:
 	test_food_healing_and_temporary_effects()
 	test_world_collisions_and_bridge_passage()
 	test_hotbar_assignment_equipment_and_universal_input()
+	test_crafting_window_and_save_snapshot()
 	print("TESTS: %d passed, %d failed" % [passed, failed])
 	quit(0 if failed == 0 else 1)
 
@@ -360,4 +361,27 @@ func test_hotbar_assignment_equipment_and_universal_input() -> void:
 	touch.position = Vector2(176 + 3 * 80 + 20, 580)
 	touch.pressed = true
 	expect(game.handle_gamepad_and_touch(touch) and game.selected_hotbar == 3, "touch selects a quick slot")
+	game.free()
+
+func test_crafting_window_and_save_snapshot() -> void:
+	var game := make_game()
+	game.player = game.workbench_position
+	game.perform_context_action()
+	expect(game.crafting_open, "workbench opens a dedicated recipe window")
+	game.slime_gel = 3
+	game.wood = 2
+	expect(game.CraftingSystem.craft(game, 0) and game.sword_crafted, "selected recipe consumes ingredients and creates output")
+	game.coins = 321
+	game.hotbar_slots[0] = "orange"
+	game.equipment.head = "iron_helmet"
+	game.iron_helmet = 1
+	game.plots[Vector2i.ZERO].tilled = true
+	var snapshot: Dictionary = game.SaveSystem.snapshot(game)
+	game.coins = 0
+	game.hotbar_slots[0] = "hoe"
+	game.equipment.head = ""
+	game.plots[Vector2i.ZERO].tilled = false
+	expect(game.SaveSystem.apply(game, snapshot), "save snapshot can be loaded")
+	expect(game.coins == 321 and game.hotbar_slots[0] == "orange", "save restores economy and quick slots")
+	expect(game.equipment.head == "iron_helmet" and game.plots[Vector2i.ZERO].tilled, "save restores equipment and farm state")
 	game.free()
