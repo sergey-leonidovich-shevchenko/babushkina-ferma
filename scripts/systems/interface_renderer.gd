@@ -2,6 +2,8 @@ extends RefCounted
 
 const VIEWPORT := Rect2(0, 0, 1152, 648)
 const HUD_RECT := Rect2(0, 0, 1152, 74)
+const PLAYER_BARS_RECT := Rect2(212, 9, 364, 51)
+const LOCATION_BADGE := Rect2(588, 9, 390, 51)
 const INVENTORY_WINDOW := Rect2(44, 32, 1064, 584)
 const INVENTORY_GRID_ORIGIN := Vector2(72, 132)
 const INVENTORY_SLOT_SIZE := Vector2(78, 62)
@@ -110,8 +112,10 @@ static func draw_hud(game: Node) -> void:
 	if game.regeneration_timer > 0.0: effects.append("❤ %.0fs" % game.regeneration_timer)
 	if game.strength_timer > 0.0: effects.append("⚔ %.0fs" % game.strength_timer)
 	if game.speed_timer > 0.0: effects.append("➜ %.0fs" % game.speed_timer)
-	game.draw_string(game.UI_FONT, Vector2(598, 31), game.LocaleSystem.ui("location_label", [game.WorldSystem.name(game.current_location)]), HORIZONTAL_ALIGNMENT_LEFT, 368, 14, INK)
-	game.draw_string(game.UI_FONT, Vector2(598, 54), "  ".join(effects), HORIZONTAL_ALIGNMENT_LEFT, 368, 13, Color("a9dfb8"))
+	panel(game, LOCATION_BADGE, Color("203b35"))
+	game.draw_string(game.UI_FONT, LOCATION_BADGE.position + Vector2(12, 23), location_icon(game.current_location), HORIZONTAL_ALIGNMENT_CENTER, 28, 19, Color("efc766"))
+	game.draw_string(game.UI_FONT, LOCATION_BADGE.position + Vector2(43, 22), game.LocaleSystem.ui("location_label", [game.WorldSystem.name(game.current_location)]), HORIZONTAL_ALIGNMENT_CENTER, 334, 15, INK)
+	game.draw_string(game.UI_FONT, LOCATION_BADGE.position + Vector2(12, 43), "  ".join(effects), HORIZONTAL_ALIGNMENT_CENTER, 366, 12, Color("a9dfb8"))
 	draw_header_button(game, SKILL_BUTTON, "K", game.skill_points)
 	draw_header_button(game, QUEST_BUTTON, "J", 0)
 	if game.fishing_state == "casting": game.draw_string(game.UI_FONT, Vector2(446, 115), "%.1f" % maxf(game.fishing_timer, 0.0), HORIZONTAL_ALIGNMENT_CENTER, 260, 20, Color("d7f6ff"))
@@ -122,6 +126,15 @@ static func draw_hud(game: Node) -> void:
 		panel(game, Rect2(286, 544, 580, 30), Color(0.04, 0.08, 0.07, 0.9))
 		game.draw_string(game.UI_FONT, Vector2(300, 565), game.message, HORIZONTAL_ALIGNMENT_CENTER, 552, 14, INK)
 	draw_hotbar(game)
+
+
+## Возвращает компактный символ типа активной внешней зоны или интерьера.
+static func location_icon(location: String) -> String:
+	return {
+		"overworld":"⌂", "forest":"♣", "rocky":"▲", "ruins":"⚔", "cave":"◆", "cursed":"☠", "glassworks":"✦",
+		"cottage_interior":"⌂", "shop_interior":"$", "guild_interior":"⚜", "forge_interior":"◆", "chapel_interior":"✦",
+		"prison_interior":"▦", "tower_interior":"✧", "castle_hall":"♜", "castle_upper":"♜", "castle_dungeon":"▦",
+	}.get(location, "●")
 
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.

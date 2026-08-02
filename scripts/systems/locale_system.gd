@@ -244,7 +244,7 @@ const TUTORIAL := {
 	"equip":["Переключи оружие [R]","Switch weapon [R]","Cambia de arma [R]","Wechsle die Waffe [R]","Change d'arme [R]","切换武器 [R]"],
 	"collision":["Перейди реку по мосту","Cross the river by bridge","Cruza el río por el puente","Überquere den Fluss über die Brücke","Traverse la rivière par le pont","从桥上过河"],
 	"travel":["Войди в пещеру [E]","Enter the cave [E]","Entra en la cueva [E]","Betritt die Höhle [E]","Entre dans la grotte [E]","进入洞穴 [E]"],
-	"locations":["Посети следующую локацию","Visit the next location","Visita la siguiente zona","Besuche das nächste Gebiet","Visite la zone suivante","前往下一个地区"],
+	"locations":["Посети новую локацию и сверь её название в верхней плашке","Visit a new location and check its name in the top badge","Visita otra zona y mira su nombre en la placa superior","Besuche ein neues Gebiet und prüfe den Namen oben","Visite une nouvelle zone et vérifie son nom en haut","前往新区域并查看顶部名称牌"],
 	"mission_accept":["Возьми миссию у NPC","Accept a mission from an NPC","Acepta una misión","Nimm eine Mission an","Accepte une mission","从NPC处接取任务"],
 	"mission_complete":["Выполни сюжетную миссию","Complete a story mission","Completa una misión principal","Schließe eine Hauptmission ab","Termine une mission principale","完成主线任务"],
 	"journal":["Открой журнал [J]","Open journal [J]","Abre el diario [J]","Öffne das Aufgabenbuch [J]","Ouvre le journal [J]","打开任务日志 [J]"],

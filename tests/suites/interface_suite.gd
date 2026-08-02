@@ -52,6 +52,16 @@ func test_hud_layout_is_compact_and_safe() -> void:
 	var game := make_game()
 	expect(game.InterfaceRenderer.HUD_RECT.size.y <= 74.0, "gameplay HUD uses less than one eighth of the screen height")
 	expect(not game.InterfaceRenderer.SKILL_BUTTON.intersects(game.InterfaceRenderer.QUEST_BUTTON), "HUD menu buttons do not overlap")
+	expect(game.InterfaceRenderer.HUD_RECT.encloses(game.InterfaceRenderer.LOCATION_BADGE), "persistent location badge stays inside compact HUD")
+	expect(not game.InterfaceRenderer.LOCATION_BADGE.intersects(game.InterfaceRenderer.PLAYER_BARS_RECT) and not game.InterfaceRenderer.LOCATION_BADGE.intersects(game.InterfaceRenderer.SKILL_BUTTON), "location badge does not overlap player bars or menu buttons")
+	for location in game.WorldSystem.LOCATIONS:
+		expect(not game.InterfaceRenderer.location_icon(location).is_empty(), "location badge has an icon for %s" % location)
+	for location in game.BuildingSystem.INTERIORS:
+		expect(not game.InterfaceRenderer.location_icon(location).is_empty(), "interior location badge has an icon for %s" % location)
+	for locale in game.LocaleSystem.LOCALES:
+		game.LocaleSystem.set_locale(locale)
+		expect(not game.LocaleSystem.ui("location_label", [game.WorldSystem.name("cave")]).is_empty(), "persistent location name is localized for %s" % locale)
+	game.LocaleSystem.set_locale("ru")
 	for index in 10:
 		var rect: Rect2 = game.InterfaceRenderer.hotbar_rect(index)
 		expect(game.InterfaceRenderer.VIEWPORT.encloses(rect), "world quick slot %d stays inside the viewport" % index)
