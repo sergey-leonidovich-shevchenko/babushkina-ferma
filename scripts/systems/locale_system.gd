@@ -237,6 +237,7 @@ const LOCATIONS := {
 
 const TUTORIAL := {
 	"move":["Пройди немного стрелками или WASD","Move with arrows or WASD","Muévete con flechas o WASD","Bewege dich mit Pfeilen oder WASD","Déplace-toi avec les flèches ou WASD","用方向键或WASD移动"],
+	"village_paths":["Следуй по дороге до деревенской площади","Follow the road to the village square","Sigue el camino hasta la plaza del pueblo","Folge dem Weg zum Dorfplatz","Suis le chemin jusqu’à la place du village","沿道路前往村庄广场"],
 	"audio_feedback":["Проверь музыку локации и звук действия","Check location music and an action sound","Comprueba la música y un sonido de acción","Prüfe Gebietsmusik und Aktionsklang","Vérifie la musique et un son d'action","检查区域音乐和动作音效"],
 	"character_animation":["Пройди во все четыре стороны","Walk in all four directions","Camina en cuatro direcciones","Gehe in alle vier Richtungen","Marche dans les quatre directions","向四个方向行走"],
 	"forage_harvest":["Собери дикий урожай [E]","Harvest a wild plant [E]","Cosecha una planta [E]","Ernte eine Wildpflanze [E]","Récolte une plante [E]","采集野生作物 [E]"],

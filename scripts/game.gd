@@ -33,7 +33,7 @@ func _ready() -> void:
 		language_screen = false
 		title_screen = false
 		current_location = "overworld"
-		player = Vector2(590, 360)
+		player = Vector2(590, 360); tutorial_visible = false
 	if "--companions-preview" in OS.get_cmdline_user_args():
 		language_screen = false
 		title_screen = false
@@ -83,7 +83,8 @@ func _ready() -> void:
 		MenuSystem.open_pause(self)
 		MenuSystem.open_settings(self, false)
 	sync_background_location()
-	DiscoverySystem.show_location(self, current_location)
+	# На старте постоянная подпись локации достаточна; крупная карточка остаётся для новых мест.
+	if current_location != "overworld": DiscoverySystem.show_location(self, current_location)
 	queue_redraw()
 
 ## Готовит безопасную витрину пяти рангов врагов, трёх угроз и максимального облика героя.
@@ -169,6 +170,7 @@ func update_player_movement(delta: float) -> void:
 	var current_speed := speed * (1.3 if speed_timer > 0.0 else 1.0) * InventorySystem.speed_multiplier(self)
 	move_player_with_collisions(direction * current_speed * delta)
 	notify_tutorial("move")
+	if current_location == "overworld" and BuildingSystem.VILLAGE_SQUARE.has_point(player): notify_tutorial("village_paths")
 	character_animation_directions[PlayerSystem.direction_row(direction)] = true
 	if character_animation_directions.size() >= 4:
 		notify_tutorial("character_animation")
@@ -433,7 +435,7 @@ func sleep_until_morning() -> void:
 
 ## Выполняет заявленный переход режима и обновляет связанный интерфейс.
 func open_shop() -> void:
-	if current_location != "shop_interior" and player.distance_to(Vector2(972, 278)) > 100.0:
+	if current_location != "shop_interior" and player.distance_to(BuildingSystem.SHOP_STALL_POSITION) > 100.0:
 		message = "Подойди к лавке справа"
 		return
 	shop_open = true
@@ -450,8 +452,8 @@ func nearest_interaction() -> String:
 			"npc": npc_position,
 			"guild_master": guild_master_position,
 			"herbalist": herbalist_position,
-			"shop": Vector2(972, 278),
-			"crate": Vector2(820, 420),
+			"shop": BuildingSystem.SHOP_STALL_POSITION,
+			"crate": BuildingSystem.SELL_CRATE_POSITION,
 			"workbench": workbench_position,
 			"cave_entrance": cave_entrance_position
 		}

@@ -3,11 +3,9 @@ extends Node2D
 const UI_FONT := preload("res://assets/game/fonts/ui_font.tres")
 
 const WORLD_SIZE := Vector2(2400, 1200)
-const PLANT_SHEET := preload("res://assets/game/environment/farm_plants.png")
 const FOREST_TREE := preload("res://assets/game/environment/forest_tree.png")
 const RED_MUSHROOMS := preload("res://assets/game/environment/red_mushrooms.png")
 const CAVE_CRYSTAL := preload("res://assets/game/environment/cave_crystal.png")
-const GRASS_TILE := preload("res://assets/game/tiles/grass.png")
 const ROAD_TILE := preload("res://assets/game/tiles/road-brick.png")
 const CAVE_FLOOR_TILE := preload("res://assets/game/tiles/cave-floor.png")
 const BRIDGES := preload("res://assets/game/environment/bridges.png")
@@ -62,9 +60,27 @@ func draw_adventure_location() -> void:
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_overworld() -> void:
-	# Один повторяющийся графический тайл вместо одноцветного пола и тысяч команд отрисовки.
-	draw_rect(Rect2(Vector2.ZERO, WORLD_SIZE), Color("6f9d50"))
-	draw_texture_rect(GRASS_TILE, Rect2(Vector2.ZERO, WORLD_SIZE), true)
+	# Спокойный луг служит фоном, а редкие кластеры не создают визуальный шум.
+	draw_rect(Rect2(Vector2.ZERO, WORLD_SIZE), Color("79a957"))
+	for y in range(145, 850, 118):
+		for x in range(64 + (y % 83), int(WORLD_SIZE.x), 154):
+			var tuft := Vector2(x, y)
+			draw_line(tuft + Vector2(-5, 6), tuft, Color("5f8d47"), 2)
+			draw_line(tuft + Vector2(5, 6), tuft, Color("5f8d47"), 2)
+			if (x + y) % 5 == 0:
+				draw_circle(tuft - Vector2(0, 3), 2.5, Color("f4d277"))
+	# Общая сеть дорожек связывает двор, площадь, пруд, мост и восточную окраину.
+	draw_village_path(BuildingSystem.VILLAGE_MAIN_PATH)
+	draw_village_path(Rect2(135, 330, 90, 170))
+	draw_village_path(Rect2(555, 185, 92, 315))
+	draw_village_path(Rect2(985, 330, 90, 220))
+	draw_village_path(Rect2(1405, 330, 90, 530))
+	draw_village_path(Rect2(610, 510, 92, 220))
+	draw_rect(BuildingSystem.VILLAGE_SQUARE, Color("a9865e"))
+	draw_texture_rect(ROAD_TILE, BuildingSystem.VILLAGE_SQUARE.grow(-8), true, Color(1, 1, 1, 0.48))
+	# Огород собран в отдельный ухоженный двор с оградой и калиткой к дороге.
+	draw_rect(Rect2(382, 190, 340, 290), Color("668f49"))
+	draw_fence(BuildingSystem.FARM_YARD_RECT, Vector2(588, 490))
 	draw_rect(Rect2(0, 860, WORLD_SIZE.x, 340), Color("4f9fb0"))
 	for x in range(0, int(WORLD_SIZE.x), 70): draw_line(Vector2(x, 900), Vector2(x + 34, 900), Color("83c9c5"), 3)
 	# Пруд возле фермы и спрайтовый мост через южную реку.
@@ -73,25 +89,30 @@ func draw_overworld() -> void:
 	draw_circle(Vector2.ZERO, 92, Color("58a8b4"))
 	draw_set_transform(Vector2.ZERO)
 	draw_texture_rect_region(BRIDGES, Rect2(1450, 805, 110, 395), Rect2(218, 335, 78, 145))
-	# Дом, лавка и ящик продажи.
-	draw_rect(Rect2(54, 130, 190, 150), Color("e5c478"))
-	draw_colored_polygon(PackedVector2Array([Vector2(38,145), Vector2(149,72), Vector2(260,145)]), Color("9c5338"))
-	draw_rect(Rect2(128, 216, 43, 64), Color("6b4328"))
-	draw_string(UI_FONT, Vector2(66, 308), LocaleSystem.ui("home"), HORIZONTAL_ALIGNMENT_LEFT, -1, 17, Color("213a2c"))
-	draw_rect(Rect2(910, 194, 128, 98), Color("f3d88e"))
-	draw_rect(Rect2(895, 175, 158, 30), Color("d66b45"))
-	draw_string(UI_FONT, Vector2(913, 238), LocaleSystem.ui("seeds_sign"), HORIZONTAL_ALIGNMENT_LEFT, -1, 18, Color("55382b"))
-	draw_string(UI_FONT, Vector2(905, 320), LocaleSystem.ui("shop_sign"), HORIZONTAL_ALIGNMENT_LEFT, -1, 17, Color("213a2c"))
-	draw_texture_rect_region(PLANT_SHEET, Rect2(270, 126, 290, 90), Rect2(94, 0, 290, 90))
-	draw_rect(Rect2(790, 392, 60, 54), Color("9c633b"))
-	for i in 3: draw_line(Vector2(794, 402 + i * 15), Vector2(846, 402 + i * 15), Color("d09755"), 4)
-	draw_string(UI_FONT, Vector2(753, 473), LocaleSystem.ui("sell_sign"), HORIZONTAL_ALIGNMENT_LEFT, -1, 17, Color("213a2c"))
-	# Дорога и лес рисуются один раз и затем только сдвигаются преобразованием узла.
-	draw_rect(Rect2(1030, 360, 1370, 150), Color("b68b5c"))
-	draw_texture_rect(ROAD_TILE, Rect2(1030, 360, 1370, 150), true)
-	var trees := [Vector2(1210,190), Vector2(1430,250), Vector2(1740,170), Vector2(1990,290), Vector2(2240,180), Vector2(1320,680), Vector2(1880,720), Vector2(2210,650)]
+	# Лавка сбыта стоит на площади и читается как отдельный сервис, а не второй магазин.
+	draw_rect(BuildingSystem.SELL_CRATE_RECT, Color("8b5835"))
+	for i in 3:
+		draw_line(BuildingSystem.SELL_CRATE_RECT.position + Vector2(4, 10 + i * 15), BuildingSystem.SELL_CRATE_RECT.position + Vector2(56, 10 + i * 15), Color("c78d4e"), 4)
+	draw_string(UI_FONT, BuildingSystem.SELL_CRATE_POSITION + Vector2(-58, 45), LocaleSystem.ui("sell_sign"), HORIZONTAL_ALIGNMENT_CENTER, 116, 15, Color("293c2f"))
+	# Лес сгущается только на восточной и южной окраинах деревни.
+	var trees := [Vector2(1720,180), Vector2(1960,230), Vector2(2220,180), Vector2(1810,700), Vector2(2050,680), Vector2(2250,630), Vector2(1160,760), Vector2(1320,735)]
 	for tree in trees: draw_texture_rect(FOREST_TREE, Rect2(tree - Vector2(96,128), Vector2(192,192)), false)
-	draw_texture_rect(RED_MUSHROOMS, Rect2(1380,570,72,72), false)
+	draw_texture_rect(RED_MUSHROOMS, Rect2(1680,650,72,72), false)
+
+## Рисует один участок дороги с мягкой окантовкой и приглушённой каменной фактурой.
+func draw_village_path(rect: Rect2) -> void:
+	draw_rect(rect.grow(6), Color("8e704f"))
+	draw_rect(rect, Color("b69062"))
+	draw_texture_rect(ROAD_TILE, rect.grow(-5), true, Color(1, 1, 1, 0.38))
+
+## Рисует ограду двора, оставляя у указанной точки свободную калитку.
+func draw_fence(rect: Rect2, gate: Vector2) -> void:
+	var fence_color := Color("7a5537")
+	draw_line(rect.position, Vector2(rect.end.x, rect.position.y), fence_color, 7)
+	draw_line(rect.position, Vector2(rect.position.x, rect.end.y), fence_color, 7)
+	draw_line(Vector2(rect.end.x, rect.position.y), rect.end, fence_color, 7)
+	draw_line(Vector2(rect.position.x, rect.end.y), Vector2(gate.x - 32, rect.end.y), fence_color, 7)
+	draw_line(Vector2(gate.x + 32, rect.end.y), rect.end, fence_color, 7)
 
 ## Отрисовывает пещеры по текущему состоянию игры.
 func draw_cave() -> void:

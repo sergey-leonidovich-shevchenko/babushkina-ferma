@@ -331,7 +331,7 @@ func test_held_action_repeats_tools_without_reopening_ui() -> void:
 	game.action_repeat_timer = 0.0
 	game.update_held_action(0.2)
 	expect(game.plots[Vector2i.ZERO].tilled, "held action tills targeted plot")
-	game.player = Vector2(972, 278)
+	game.player = game.BuildingSystem.SHOP_STALL_POSITION
 	game.perform_repeatable_action()
 	expect(not game.shop_open, "held action does not repeatedly open shop")
 	game.set_action_key_state(release)

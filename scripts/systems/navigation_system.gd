@@ -43,9 +43,11 @@ static func is_walkable(game: Node, position: Vector2) -> bool:
 		for tree in game.TREE_POSITIONS:
 			if position.distance_to(tree + Vector2(0, 35)) < game.PLAYER_RADIUS + 42.0:
 				return false
+		for fence_rect in game.BuildingSystem.FARM_FENCE_RECTS:
+			if circle_intersects_rect(position, game.PLAYER_RADIUS, fence_rect):
+				return false
 		var solid_rects := [
-			Rect2(54, 130, 190, 150), Rect2(895, 175, 158, 117),
-			Rect2(790, 392, 60, 54), Rect2(game.workbench_position - Vector2(32, 20), Vector2(64, 44))
+			game.BuildingSystem.SELL_CRATE_RECT, Rect2(game.workbench_position - Vector2(32, 20), Vector2(64, 44))
 		]
 		for rect in solid_rects:
 			if circle_intersects_rect(position, game.PLAYER_RADIUS, rect):

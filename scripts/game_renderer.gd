@@ -159,12 +159,14 @@ func draw_player() -> void:
 func draw_rpg_world() -> void:
 	# Бабушка и верстак.
 	draw_npc_sprite(0, npc_position, 0.0)
-	draw_string(UI_FONT, npc_position + Vector2(-40, 55), LocaleSystem.entity("grandmother"), HORIZONTAL_ALIGNMENT_LEFT, -1, 16, Color("293c2f"))
+	if player.distance_to(npc_position) < 150.0:
+		draw_string(UI_FONT, npc_position + Vector2(-50, 55), LocaleSystem.entity("grandmother"), HORIZONTAL_ALIGNMENT_CENTER, 100, 16, Color("293c2f"))
 	draw_mission_npc(guild_master_position, LocaleSystem.quest("story_relic", "giver"), "story_relic", 1)
 	draw_mission_npc(herbalist_position, LocaleSystem.quest("side_seed", "giver"), "side_seed", 2)
 	draw_rect(Rect2(workbench_position - Vector2(32, 20), Vector2(64, 44)), Color("865334"))
 	draw_line(workbench_position - Vector2(25, 8), workbench_position + Vector2(25, -8), Color("d09a59"), 5)
-	draw_string(UI_FONT, workbench_position + Vector2(-45, 45), LocaleSystem.entity("workbench"), HORIZONTAL_ALIGNMENT_LEFT, -1, 16, Color("293c2f"))
+	if player.distance_to(workbench_position) < 150.0:
+		draw_string(UI_FONT, workbench_position + Vector2(-55, 45), LocaleSystem.entity("workbench"), HORIZONTAL_ALIGNMENT_CENTER, 110, 16, Color("293c2f"))
 	if AnimationRenderer.draw_slime(self):
 		if slime_alive:
 			draw_rect(Rect2(slime_position + Vector2(-28, -50), Vector2(56, 7)), Color("402d32"))
@@ -174,8 +176,9 @@ func draw_rpg_world() -> void:
 		draw_circle(slime_position - Vector2(4, 4), 4, Color("baf1c8"))
 	# Вход в отдельную пещерную локацию.
 	draw_circle(cave_entrance_position, 52, Color("283a43"))
-	draw_circle(cave_entrance_position, 38 + sin(Time.get_ticks_msec() / 170.0) * 4, Color("66d5cf"), false, 6)
-	draw_string(UI_FONT, cave_entrance_position + Vector2(-58, 78), LocaleSystem.location("cave"), HORIZONTAL_ALIGNMENT_LEFT, -1, 16, Color("d7fff4"))
+	if player.distance_to(cave_entrance_position) < 180.0:
+		draw_circle(cave_entrance_position, 38 + sin(Time.get_ticks_msec() / 170.0) * 4, Color("66d5cf"), false, 6)
+		draw_string(UI_FONT, cave_entrance_position + Vector2(-58, 78), LocaleSystem.location("cave"), HORIZONTAL_ALIGNMENT_LEFT, -1, 16, Color("d7fff4"))
 
 
 ## Отрисовывает внешние спрайты зданий, подписи и состояние закрытых дверей.
@@ -189,8 +192,9 @@ func draw_buildings() -> void:
 		draw_texture_rect_region(BUILDING_ATLAS, destination, source)
 		var unlocked := BuildingSystem.can_enter(self, building_id)
 		var door: Vector2 = data.door
-		draw_circle(door, 19, Color(0.42, 0.88, 0.52, 0.28) if unlocked else Color(0.9, 0.28, 0.25, 0.35), false, 3)
-		if not unlocked:
+		if player.distance_to(door) < 145.0:
+			draw_circle(door, 19, Color(0.42, 0.88, 0.52, 0.28) if unlocked else Color(0.9, 0.28, 0.25, 0.35), false, 3)
+		if not unlocked and player.distance_to(door) < 180.0:
 			draw_string(UI_FONT, door + Vector2(-12, -28), "🔒", HORIZONTAL_ALIGNMENT_CENTER, 24, 18, Color("ffb36a"))
 
 
@@ -275,7 +279,8 @@ func draw_living_atlas_sprite(texture: Texture2D, source: Rect2, position: Vecto
 ## Отрисовывает сюжетного NPC, его имя и маркер состояния миссии.
 func draw_mission_npc(position: Vector2, npc_name: String, mission_id: String, sprite_index: int) -> void:
 	draw_npc_sprite(sprite_index, position, float(sprite_index) * 1.9)
-	draw_string(UI_FONT, position + Vector2(-62, 58), npc_name, HORIZONTAL_ALIGNMENT_CENTER, 124, 15, Color("293c2f"))
+	if player.distance_to(position) < 155.0:
+		draw_string(UI_FONT, position + Vector2(-62, 58), npc_name, HORIZONTAL_ALIGNMENT_CENTER, 124, 15, Color("293c2f"))
 	var state: String = mission_states.get(mission_id, QuestSystem.AVAILABLE)
 	var marker := "!" if state == QuestSystem.AVAILABLE else ("✓" if state == QuestSystem.COMPLETED else "?")
 	draw_circle(position - Vector2(0, 62), 16, Color("f1ca5c") if state != QuestSystem.COMPLETED else Color("70bd78"))
@@ -300,7 +305,7 @@ func draw_food_nodes() -> void:
 			"berries", "apple", "nut":
 				var layout := forage_sprite_layout(food.kind, position)
 				draw_texture_rect_region(PLANT_SHEET, layout.destination, layout.source, Color(1, 1, 1, alpha))
-		if food.active:
+		if food.active and player.distance_to(position) < 170.0:
 			draw_circle(position, 30 + sin(Time.get_ticks_msec() / 170.0) * 3, Color(1.0, 0.88, 0.32, 0.24), false, 3)
 		else:
 			draw_string(UI_FONT, position + Vector2(-55, 42), ForageSystem.remaining_text(self, food), HORIZONTAL_ALIGNMENT_CENTER, 110, 12, Color("e7d6a3"))
@@ -338,8 +343,9 @@ func draw_dropped_items() -> void:
 			draw_item_icon(item.kind, Rect2(item.position - Vector2(22, 22), Vector2(44, 44)))
 		else:
 			draw_circle(item.position, 15, inventory_item_color(item.kind))
-		draw_circle(item.position, 23 + sin(Time.get_ticks_msec() / 150.0) * 3, Color("fff0a8"), false, 3)
-		draw_string(UI_FONT, item.position + Vector2(-55, 42), inventory_item_name(item.kind), HORIZONTAL_ALIGNMENT_CENTER, 110, 13, Color("fff4cf"))
+		if player.distance_to(item.position) < 180.0:
+			draw_circle(item.position, 23 + sin(Time.get_ticks_msec() / 150.0) * 3, Color("fff0a8"), false, 3)
+			draw_string(UI_FONT, item.position + Vector2(-55, 42), inventory_item_name(item.kind), HORIZONTAL_ALIGNMENT_CENTER, 110, 13, Color("fff4cf"))
 
 ## Отрисовывает мира добычи по текущему состоянию игры.
 func draw_world_loot() -> void:
@@ -364,7 +370,7 @@ func draw_world_loot() -> void:
 				draw_circle(position, 25, Color(0.26, 0.31, 0.27, alpha))
 				draw_line(position - Vector2(18, 14), position + Vector2(17, 13), Color(0.58, 0.46, 0.31, alpha), 7)
 				draw_circle(position + Vector2(10, -8), 8, Color(0.43, 0.49, 0.45, alpha))
-		if not container.opened:
+		if not container.opened and player.distance_to(position) < 180.0:
 			var pulse := 34.0 + sin(Time.get_ticks_msec() / 180.0 + float(container.id)) * 3.0
 			draw_circle(position, pulse, Color(1.0, 0.82, 0.30, 0.35), false, 3)
 		else:
@@ -373,8 +379,10 @@ func draw_world_loot() -> void:
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_enemy_nodes_and_gate() -> void:
 	if not BuildingSystem.is_interior(current_location):
-		draw_circle(world_gate_position, 42 + sin(Time.get_ticks_msec() / 180.0) * 4, Color("e6b85e"), false, 6)
-		draw_string(UI_FONT, world_gate_position + Vector2(-75, 68), WorldSystem.name(WorldSystem.next_location(current_location)), HORIZONTAL_ALIGNMENT_LEFT, 180, 14, Color("fff0bd"))
+		draw_circle(world_gate_position, 38, Color(0.90, 0.72, 0.37, 0.28), false, 3)
+		if player.distance_to(world_gate_position) < 185.0:
+			draw_circle(world_gate_position, 42 + sin(Time.get_ticks_msec() / 180.0) * 4, Color("e6b85e"), false, 6)
+			draw_string(UI_FONT, world_gate_position + Vector2(-75, 68), WorldSystem.name(WorldSystem.next_location(current_location)), HORIZONTAL_ALIGNMENT_LEFT, 180, 14, Color("fff0bd"))
 	for enemy in enemy_nodes:
 		if not AnimationSystem.enemy_is_visible(enemy) or enemy.location != current_location: continue
 		var position: Vector2 = enemy.position

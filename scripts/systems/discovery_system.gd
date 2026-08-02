@@ -37,6 +37,8 @@ static func update(game: Node, delta: float) -> void:
 		game.discovery_timer = maxf(game.discovery_timer - delta, 0.0)
 		if game.discovery_timer <= 0.0:
 			game.discovery_current.clear()
+	if game.current_location == "overworld" and game.tutorial_step < 2:
+		return
 	game.discovery_scan_timer -= delta
 	if game.discovery_scan_timer > 0.0 or not game.discovery_current.is_empty():
 		return
@@ -61,7 +63,7 @@ static func scan_nearby(game: Node) -> bool:
 		add_candidate(candidates, "grandmother", game.npc_position, static_hint(game, "grandmother"))
 		add_candidate(candidates, "guild_master", game.guild_master_position, static_hint(game, "guild_master"))
 		add_candidate(candidates, "herbalist", game.herbalist_position, static_hint(game, "herbalist"))
-		add_candidate(candidates, "shop", Vector2(972, 278), static_hint(game, "shop"))
+		add_candidate(candidates, "shop", game.BuildingSystem.SHOP_STALL_POSITION, static_hint(game, "shop"))
 		add_candidate(candidates, "workbench", game.workbench_position, static_hint(game, "workbench"))
 		add_candidate(candidates, "farm", Vector2(game.FARM_ORIGIN) + Vector2(game.FARM_SIZE * game.TILE) * 0.5, static_hint(game, "farm"))
 		add_candidate(candidates, "pond", game.pond_position, static_hint(game, "pond"))

@@ -2,6 +2,7 @@ extends "res://tests/suites/suite_base.gd"
 
 ## Запускает все сценарии текущего набора тестов в фиксированном порядке.
 func run() -> void:
+	test_first_location_has_clear_functional_zones()
 	test_story_and_side_mission_chains()
 	test_mission_progress_and_drops_are_saved()
 	test_contextual_discoveries_and_new_item_hints()
@@ -10,6 +11,33 @@ func run() -> void:
 	test_wildlife_combat_loot_animation_and_save()
 	test_seeded_world_loot_generation_and_opening()
 	test_world_loot_discovery_and_save_persistence()
+
+## Сценарий: первая локация разделена на двор, площадь и дикую окраину без перекрытий ключевых объектов.
+## Исходное состояние: новая игра с исходными координатами зданий, персонажей, растений и ресурсов.
+## Ожидаемый результат: старт находится на дороге, сервисы собраны на площади, опасности вынесены за её пределы, а обучение отмечает прибытие.
+func test_first_location_has_clear_functional_zones() -> void:
+	var game := make_game()
+	var square: Rect2 = game.BuildingSystem.VILLAGE_SQUARE
+	expect(game.BuildingSystem.VILLAGE_MAIN_PATH.has_point(game.player), "new character starts on the readable village road")
+	expect(square.has_point(game.BuildingSystem.SHOP_STALL_POSITION) and square.has_point(game.BuildingSystem.SELL_CRATE_POSITION), "shop stall and sale crate form one market zone")
+	expect(square.has_point(game.guild_master_position) and square.has_point(game.herbalist_position), "quest NPCs form a readable village square")
+	expect(not square.has_point(game.slime_position), "starter combat is kept outside the safe village square")
+	for tree in game.TREE_POSITIONS:
+		expect(not square.has_point(tree), "trees do not block the village square")
+	var farm_rect := Rect2(Vector2(game.FARM_ORIGIN), Vector2(game.FARM_SIZE * game.TILE))
+	expect(game.BuildingSystem.FARM_YARD_RECT.encloses(farm_rect), "all farm plots stay inside the fenced homestead yard")
+	expect(not game.BuildingSystem.destination_rect("cottage").intersects(farm_rect), "cottage sprite does not overlap the farm plots")
+	expect(not game.is_position_walkable(Vector2(500, 490)), "farm fence blocks shortcuts across the garden boundary")
+	expect(game.is_position_walkable(Vector2(588, 490)), "farm gate remains wide enough for the character")
+	game.discovery_current.clear()
+	game.discovery_scan_timer = 0.0
+	game.DiscoverySystem.update(game, 0.1)
+	expect(game.discovery_current.is_empty(), "context cards wait until the introductory village walk is complete")
+	game.player = square.position + Vector2(12, 80)
+	game.move_right_held = true
+	game.update_player_movement(0.05)
+	expect(game.tutorial_events_completed.has("village_paths"), "walking into the square completes the location layout tutorial")
+	game.free()
 
 ## Сценарий: сюжетная и побочная миссии проходят от диалога до цели, сдачи и награды.
 ## Исходное состояние: новый изолированный экземпляр игры; необходимые ресурсы, позиции и таймеры задаются в начале сценария.
@@ -80,7 +108,7 @@ func test_contextual_discoveries_and_new_item_hints() -> void:
 	var game := make_game()
 	game.discovery_current.clear()
 	game.seen_discoveries.clear()
-	game.player = Vector2(972, 278)
+	game.player = game.BuildingSystem.SHOP_STALL_POSITION
 	expect(game.DiscoverySystem.scan_nearby(game), "approaching an unknown feature opens a contextual hint")
 	expect(game.discovery_current.id == "shop" and game.seen_discoveries.has("shop"), "shop hint explains and remembers the discovered feature")
 	var card: Rect2 = game.discovery_card_rect()
@@ -116,7 +144,7 @@ func test_discoveries_and_tutorial_checklist_are_saved() -> void:
 	game.SaveSystem.apply(game, snapshot)
 	expect(game.seen_discoveries.has("shop") and game.seen_discoveries.has("enemy:orc"), "save restores discovered feature history")
 	expect(game.tutorial_step == save_step + 1 and game.tutorial_events_completed.has("save"), "save restores tutorial checklist progress")
-	var required_events := ["move","character_animation","forage_harvest","forage_regrow","forage_sale","plant","rewater","trade","fight","hotbar","equipment","fish","craft_window","mission_complete","journal","side_mission","colored_crystal","day","level_up","skill_point","profession","pause_menu","settings","save","wildlife","world_loot","watermelon","potion","shield","lizard"]
+	var required_events := ["move","village_paths","character_animation","forage_harvest","forage_regrow","forage_sale","plant","rewater","trade","fight","hotbar","equipment","fish","craft_window","mission_complete","journal","side_mission","colored_crystal","day","level_up","skill_point","profession","pause_menu","settings","save","wildlife","world_loot","watermelon","potion","shield","lizard"]
 	for event_name in required_events:
 		expect(game.tutorial_steps.any(func(step): return step.event == event_name), "tutorial covers feature: %s" % event_name)
 	game.free()
