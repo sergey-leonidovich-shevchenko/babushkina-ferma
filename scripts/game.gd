@@ -28,6 +28,18 @@ func _ready() -> void:
 		title_screen = false
 		grant_tester_kit()
 		open_inventory()
+	if "--buildings-preview" in OS.get_cmdline_user_args():
+		language_screen = false
+		title_screen = false
+		current_location = "overworld"
+		player = Vector2(590, 360)
+	if "--companions-preview" in OS.get_cmdline_user_args():
+		language_screen = false
+		title_screen = false
+		current_location = "prison_interior"
+		player = Vector2(576, 470)
+		coins = 500
+		skill_levels.leadership = 2
 	sync_background_location()
 	DiscoverySystem.show_location(self, current_location)
 	queue_redraw()
@@ -43,6 +55,7 @@ func _physics_process(delta: float) -> void:
 	update_combat(delta)
 	update_fishing(delta)
 	update_status_effects(delta)
+	CompanionSystem.update(self, delta)
 	PlayerSystem.update_animation(self, delta)
 	AnimationSystem.update(self, delta)
 	SkillSystem.update_resources(self, delta)
@@ -355,7 +368,7 @@ func use_selected_tool() -> void:
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func sleep_until_morning() -> void:
-	if player.distance_to(Vector2(126, 190)) > 105.0:
+	if current_location != "cottage_interior" and player.distance_to(Vector2(126, 190)) > 105.0:
 		message = LocaleSystem.text("sleep_near_home")
 		return
 	day += 1
@@ -367,7 +380,7 @@ func sleep_until_morning() -> void:
 
 ## Выполняет заявленный переход режима и обновляет связанный интерфейс.
 func open_shop() -> void:
-	if player.distance_to(Vector2(972, 278)) > 100.0:
+	if current_location != "shop_interior" and player.distance_to(Vector2(972, 278)) > 100.0:
 		message = "Подойди к лавке справа"
 		return
 	shop_open = true
@@ -391,9 +404,10 @@ func nearest_interaction() -> String:
 		}
 		if loot_available:
 			interactions["loot"] = slime_position
-	else:
+	elif current_location == "cave":
 		interactions = {"cave_exit": cave_exit_position}
-	interactions["world_gate"] = world_gate_position
+	if not BuildingSystem.is_interior(current_location):
+		interactions["world_gate"] = world_gate_position
 	var nearest := ""
 	var nearest_distance := 92.0
 	for key in interactions:
@@ -401,6 +415,14 @@ func nearest_interaction() -> String:
 		if distance < nearest_distance:
 			nearest_distance = distance
 			nearest = key
+	var building_interaction := BuildingSystem.nearest_interaction(self, nearest_distance)
+	if not building_interaction.is_empty():
+		nearest = building_interaction
+		nearest_distance = player.distance_to(BuildingSystem.interaction_position(self, building_interaction))
+	var prisoner_interaction := CompanionSystem.nearest_prisoner(self, nearest_distance)
+	if not prisoner_interaction.is_empty():
+		nearest = prisoner_interaction
+		nearest_distance = player.distance_to(CompanionSystem.interaction_position(prisoner_interaction))
 	for index in dropped_items.size():
 		var distance: float = player.distance_to(dropped_items[index].position)
 		if distance < nearest_distance:
@@ -435,6 +457,16 @@ func nearest_interaction() -> String:
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func perform_context_action() -> bool:
 	var interaction := nearest_interaction()
+	if interaction.begins_with("building:"):
+		return BuildingSystem.enter(self, interaction.get_slice(":", 1))
+	if interaction == "interior_exit":
+		return BuildingSystem.leave(self)
+	if interaction.begins_with("interior_link:"):
+		return BuildingSystem.travel_inside(self, interaction.get_slice(":", 1))
+	if interaction.begins_with("interior_service:"):
+		return BuildingSystem.use_service(self, interaction.get_slice(":", 1))
+	if interaction.begins_with("prisoner:"):
+		return CompanionSystem.interact(self, interaction.get_slice(":", 1))
 	if interaction.begins_with("drop:"):
 		return collect_dropped_item(int(interaction.get_slice(":", 1)))
 	if interaction.begins_with("container:"):
@@ -766,8 +798,8 @@ func handle_skill_menu_input(event: InputEvent) -> void:
 		match event.button_index:
 			JOY_BUTTON_DPAD_LEFT: skill_menu_selected = posmod(skill_menu_selected - 1, SkillSystem.SKILLS.size())
 			JOY_BUTTON_DPAD_RIGHT: skill_menu_selected = posmod(skill_menu_selected + 1, SkillSystem.SKILLS.size())
-			JOY_BUTTON_DPAD_UP: skill_menu_selected = posmod(skill_menu_selected - 2, SkillSystem.SKILLS.size())
-			JOY_BUTTON_DPAD_DOWN: skill_menu_selected = posmod(skill_menu_selected + 2, SkillSystem.SKILLS.size())
+			JOY_BUTTON_DPAD_UP: skill_menu_selected = posmod(skill_menu_selected - 3, SkillSystem.SKILLS.size())
+			JOY_BUTTON_DPAD_DOWN: skill_menu_selected = posmod(skill_menu_selected + 3, SkillSystem.SKILLS.size())
 			JOY_BUTTON_A: SkillSystem.allocate(self, SkillSystem.SKILLS[skill_menu_selected].id)
 			JOY_BUTTON_Y, JOY_BUTTON_B, JOY_BUTTON_START: skill_menu_open = false
 		queue_redraw()
@@ -778,8 +810,8 @@ func handle_skill_menu_input(event: InputEvent) -> void:
 		KEY_ESCAPE, KEY_K: skill_menu_open = false
 		KEY_LEFT: skill_menu_selected = posmod(skill_menu_selected - 1, SkillSystem.SKILLS.size())
 		KEY_RIGHT: skill_menu_selected = posmod(skill_menu_selected + 1, SkillSystem.SKILLS.size())
-		KEY_UP: skill_menu_selected = posmod(skill_menu_selected - 2, SkillSystem.SKILLS.size())
-		KEY_DOWN: skill_menu_selected = posmod(skill_menu_selected + 2, SkillSystem.SKILLS.size())
+		KEY_UP: skill_menu_selected = posmod(skill_menu_selected - 3, SkillSystem.SKILLS.size())
+		KEY_DOWN: skill_menu_selected = posmod(skill_menu_selected + 3, SkillSystem.SKILLS.size())
 		KEY_ENTER, KEY_E: SkillSystem.allocate(self, SkillSystem.SKILLS[skill_menu_selected].id)
 	queue_redraw()
 
@@ -839,7 +871,7 @@ func update_combat(delta: float) -> void:
 	if slime_attack_timer >= 1.5:
 		slime_attack_timer = 0.0
 		AnimationSystem.begin_slime_attack(self)
-		var incoming_damage := InventorySystem.incoming_damage(self, 20)
+		var incoming_damage := maxi(1, InventorySystem.incoming_damage(self, 20) - CompanionSystem.defense_bonus(self))
 		player_hp -= incoming_damage
 		message = "Слизень атакует! -%d здоровья" % incoming_damage
 		if player_hp <= 0:

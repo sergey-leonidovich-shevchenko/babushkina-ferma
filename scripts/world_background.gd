@@ -12,6 +12,7 @@ const ROAD_TILE := preload("res://assets/game/tiles/road-brick.png")
 const CAVE_FLOOR_TILE := preload("res://assets/game/tiles/cave-floor.png")
 const BRIDGES := preload("res://assets/game/environment/bridges.png")
 const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
+const BuildingSystem := preload("res://scripts/systems/building_system.gd")
 
 var location := "overworld"
 
@@ -28,9 +29,23 @@ func set_location(value: String) -> void:
 
 ## Отрисовывает текущее визуальное состояние узла.
 func _draw() -> void:
-	if location == "overworld": draw_overworld()
+	if BuildingSystem.is_interior(location): draw_interior()
+	elif location == "overworld": draw_overworld()
 	elif location == "cave": draw_cave()
 	else: draw_adventure_location()
+
+## Отрисовывает пол, стены и название отдельной интерьерной локации.
+func draw_interior() -> void:
+	var data: Dictionary = BuildingSystem.interior(location)
+	var room: Rect2 = data.room
+	draw_rect(Rect2(Vector2.ZERO, WORLD_SIZE), Color("16191b"))
+	draw_rect(room.grow(18), Color("302d2d"))
+	draw_rect(room, data.color)
+	for y in range(int(room.position.y), int(room.end.y), 48):
+		for x in range(int(room.position.x), int(room.end.x), 48):
+			var checker := int(x / 48 + y / 48) % 2
+			draw_rect(Rect2(x + 2, y + 2, 44, 44), Color(data.color).lightened(0.06 if checker == 0 else 0.0), false, 1)
+	draw_string(UI_FONT, room.position + Vector2(28, 46), LocaleSystem.location(location).to_upper(), HORIZONTAL_ALIGNMENT_LEFT, room.size.x - 56, 24, Color("fff0bd"))
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_adventure_location() -> void:

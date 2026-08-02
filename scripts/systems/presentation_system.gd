@@ -29,6 +29,10 @@ static func enemy_direction_row(direction: Vector2) -> int:
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func interaction_position(game: Node, interaction: String) -> Vector2:
+	if interaction.begins_with("building:") or interaction.begins_with("interior_"):
+		return game.BuildingSystem.interaction_position(game, interaction)
+	if interaction.begins_with("prisoner:"):
+		return game.CompanionSystem.interaction_position(interaction)
 	for prefix in ["drop", "container", "resource", "food"]:
 		if not interaction.begins_with(prefix + ":"):
 			continue
@@ -57,4 +61,3 @@ static func interaction_position(game: Node, interaction: String) -> Vector2:
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func discovery_card_rect() -> Rect2:
 	return Rect2(824, 354, 310, 108)
-

@@ -11,6 +11,8 @@ const SLIME_SHEET := preload("res://assets/game/enemies/slime_idle.png")
 const PREDATOR_PLANT_SHEET := preload("res://assets/game/enemies/predator_plant_idle.png")
 const ORC_IDLE_SHEET := preload("res://assets/game/enemies/orc_idle.png")
 const CAVE_GUARDIAN_TEXTURE := preload("res://assets/game/enemies/cave_guardian.png")
+const BUILDING_ATLAS := preload("res://assets/game/buildings/building_atlas.png")
+const COMPANION_ATLAS := preload("res://assets/game/buildings/companion_atlas.png")
 const SKELETON_WARRIOR_TEXTURE := preload("res://assets/game/enemies/skeleton_warrior.png")
 const CURSED_KNIGHT_TEXTURE := preload("res://assets/game/enemies/cursed_knight.png")
 const FOREST_TREE := preload("res://assets/game/environment/forest_tree.png")
@@ -45,6 +47,8 @@ const AnimationSystem := preload("res://scripts/systems/animation_system.gd")
 const AnimationRenderer := preload("res://scripts/systems/animation_renderer.gd")
 const AudioSystem := preload("res://scripts/systems/audio_system.gd")
 const ContentRegistry := preload("res://scripts/systems/content_registry.gd")
+const BuildingSystem := preload("res://scripts/systems/building_system.gd")
+const CompanionSystem := preload("res://scripts/systems/companion_system.gd")
 const GameState := preload("res://scripts/state/game_state.gd")
 const UI_FONT := preload("res://assets/game/fonts/ui_font.tres")
 const ITEM_HELMET := preload("res://assets/game/items/iron_helmet.png")
@@ -198,6 +202,9 @@ var audio_sfx_slot := 0
 var audio_music_slot := 1
 var audio_music_fade := 0.0
 var audio_step_timer := 0.0
+var companion_positions := {}
+var companion_attack_timer := 0.0
+var companion_heal_timer := 0.0
 
 # RPG-состояние вертикального среза.
 var player_hp: int:
@@ -217,6 +224,12 @@ var skill_points: int:
 	set(value): state.player.skill_points = value
 var skill_levels := SkillSystem.default_levels()
 var skill_xp := SkillSystem.default_xp()
+var recruited_companions: Array[String]:
+	get: return state.player.recruited_companions
+	set(value): state.player.recruited_companions = value
+var active_companions: Array[String]:
+	get: return state.player.active_companions
+	set(value): state.player.active_companions = value
 var player_mana: int:
 	get: return state.player.mana
 	set(value): state.player.mana = value
@@ -279,7 +292,7 @@ var fishing_timer := 0.0
 var pond_position := Vector2(650, 700)
 var resource_nodes := ResourceSystem.default_nodes()
 var npc_position := Vector2(325, 360)
-var guild_master_position := Vector2(360, 620)
+var guild_master_position := Vector2(1490, 800)
 var herbalist_position := Vector2(850, 650)
 var workbench_position := Vector2(760, 176)
 var quest_active := false

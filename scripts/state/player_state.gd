@@ -13,6 +13,8 @@ var xp: int = 0
 var level: int = 1
 var skill_points: int = 0
 var energy: int = 12
+var recruited_companions: Array[String] = []
+var active_companions: Array[String] = []
 
 
 ## Приводит загруженное состояние к безопасным допустимым значениям.
@@ -23,4 +25,3 @@ func normalize() -> void:
 	level = maxi(level, 1)
 	xp = maxi(xp, 0)
 	skill_points = maxi(skill_points, 0)
-

@@ -8,6 +8,9 @@ const MUSIC_BY_LOCATION := {
 	"cave": "cave",
 	"cursed": "danger",
 	"glassworks": "workshop",
+	"cottage_interior": "village", "shop_interior": "village", "guild_interior": "village",
+	"forge_interior": "workshop", "chapel_interior": "cave", "prison_interior": "danger",
+	"tower_interior": "forest", "castle_hall": "danger", "castle_upper": "danger", "castle_dungeon": "cave",
 }
 const MUSIC_PATH := "res://assets/game/audio/music/%s.wav"
 const SFX_PATH := "res://assets/game/audio/sfx/%s.wav"

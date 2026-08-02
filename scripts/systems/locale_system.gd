@@ -51,6 +51,8 @@ const UI := {
 	"hint_enemy":["Опасный противник. F атакует, R меняет оружие.","Dangerous enemy. F attacks; R changes weapon.","Enemigo peligroso. F ataca; R cambia arma.","Gefährlicher Gegner. F greift an; R wechselt Waffen.","Ennemi dangereux. F attaque ; R change d'arme.","危险敌人。F攻击，R切换武器。"],
 	"hint_forage":["Собери через E. Урожай вырастет снова.","Harvest with E. The produce will regrow.","Cosecha con E. Volverá a crecer.","Ernte mit E. Die Pflanze wächst nach.","Récolte avec E. La plante repoussera.","按E采集，作物会再次生长。"],
 	"hint_wildlife":["Пугливый зверь: разговаривать нельзя, он убегает; F — охота.","Timid wildlife: it cannot talk and flees; F hunts.","Animal tímido: no habla y huye; F permite cazar.","Scheues Tier: Kein Gespräch, es flieht; F startet die Jagd.","Animal peureux : impossible de parler, il fuit ; F chasse.","胆小的动物不会交谈且会逃跑；按F狩猎。"],
+	"hint_building":["Подойди к двери и нажми E. Красный замок показывает условие открытия.","Approach the door and press E. A red lock marks an unlock requirement.","Acércate a la puerta y pulsa E. El candado rojo indica un requisito.","Gehe zur Tür und drücke E. Ein rotes Schloss zeigt eine Bedingung.","Approche de la porte et appuie sur E. Le verrou rouge indique une condition.","靠近门并按E。红锁表示需要满足解锁条件。"],
+	"hint_companion":["E выкупает или назначает напарника. Урон, защита и лечение указаны под именем.","E frees or assigns a companion. Damage, defense and healing appear below the name.","E libera o asigna un compañero. Abajo figuran daño, defensa y curación.","E befreit oder wählt einen Gefährten. Werte stehen unter dem Namen.","E libère ou assigne un compagnon. Ses statistiques sont sous son nom.","按E赎出或指派伙伴。姓名下方显示伤害、防御与治疗。"],
 	"hint_item":["Подбери через E: предмет попадёт в рюкзак.","Pick up with E: the item goes to your backpack.","Recoge con E: irá a tu mochila.","Mit E aufnehmen: Der Gegenstand landet im Rucksack.","Ramasse avec E : l'objet va dans le sac.","按E拾取物品并放入背包。"],
 	"hint_quest_item":["Подбери через E и отнеси старосте Мирону.","Pick it up with E and bring it to Elder Miron.","Recógelo con E y llévalo al anciano Miron.","Nimm es mit E auf und bringe es Ältestem Miron.","Ramasse-le avec E et rapporte-le à l'ancien Miron.","按E拾取并交给村长米隆。"],
 	"hint_container":["Случайная находка. Нажми E, чтобы обыскать один раз.","Random stash. Press E to search it once.","Escondite aleatorio. Pulsa E para buscar una vez.","Zufallsversteck. Drücke E, um es einmal zu durchsuchen.","Cache aléatoire. Appuie sur E pour la fouiller une fois.","随机藏匿物。按E搜索一次。"],
@@ -131,6 +133,16 @@ const TEXT := {
 	"mission_wait":["%s ждёт: %s %d/%d","%s awaits: %s %d/%d","%s espera: %s %d/%d","%s wartet: %s %d/%d","%s attend : %s %d/%d","%s等待：%s %d/%d"],
 	"mission_done":["%s выполнено! +%d монет, +%d XP, %s","%s complete! +%d coins, +%d XP, %s","¡%s completa! +%d monedas, +%d XP, %s","%s erfüllt! +%d Münzen, +%d XP, %s","%s terminée ! +%d pièces, +%d XP, %s","%s完成！+%d金币，+%d经验，%s"],
 	"level_up":["Новый уровень %d! Получено очко навыка [K]","Level %d! Skill point gained [K]","¡Nivel %d! Punto de habilidad [K]","Stufe %d! Fertigkeitspunkt [K]","Niveau %d ! Point de compétence [K]","升到%d级！获得技能点[K]"],
+	"building_locked":["Дверь пока закрыта","The door is locked","La puerta está cerrada","Die Tür ist verschlossen","La porte est fermée","门暂时锁着"],
+	"building_need_mining":["Кузнец пускает учеников с 1 рангом горного дела","The smith admits apprentices with Mining rank 1","El herrero admite aprendices con Minería 1","Der Schmied lässt Lehrlinge mit Bergbau 1 ein","Le forgeron accepte les apprentis avec Minage 1","采矿达到1级后铁匠才会开门"],
+	"building_need_key":["Часовню открывает древний ключ","An ancient key opens the chapel","Una llave antigua abre la capilla","Ein alter Schlüssel öffnet die Kapelle","Une clé ancienne ouvre la chapelle","远古钥匙可以打开礼拜堂"],
+	"building_need_mana":["Башня откроется при 2 ранге маны","The tower opens at Mana rank 2","La torre se abre con Maná 2","Der Turm öffnet sich mit Mana 2","La tour s'ouvre avec Mana 2","法力达到2级后高塔开启"],
+	"building_need_story":["Замок откроется после возвращения реликвии на 3 уровне","The castle opens after returning the relic at level 3","El castillo se abre tras devolver la reliquia al nivel 3","Die Burg öffnet nach Rückgabe der Reliquie ab Stufe 3","Le château s'ouvre après la relique au niveau 3","归还遗物并达到3级后城堡开启"],
+	"companion_need_leadership":["Нужен ранг лидерства %d","Leadership rank %d required","Se necesita Liderazgo %d","Führung Rang %d nötig","Leadership rang %d requis","需要领导力%d级"],
+	"companion_need_coins":["Для выкупа нужно %d монет","Release costs %d coins","La liberación cuesta %d monedas","Die Freilassung kostet %d Münzen","La libération coûte %d pièces","赎身需要%d金币"],
+	"companion_recruited":["%s свободен и присоединился к группе","%s is free and joined the party","%s está libre y se unió al grupo","%s ist frei und schließt sich an","%s est libre et rejoint le groupe","%s已获自由并加入队伍"],
+	"companion_resting":["%s ждёт в безопасном месте","%s is waiting in a safe place","%s espera en un lugar seguro","%s wartet an einem sicheren Ort","%s attend dans un lieu sûr","%s正在安全地点等待"],
+	"companion_active":["%s в группе (%d/%d)","%s in party (%d/%d)","%s en el grupo (%d/%d)","%s in der Gruppe (%d/%d)","%s dans le groupe (%d/%d)","%s加入队伍（%d/%d）"],
 }
 
 const ITEMS := {
@@ -154,6 +166,11 @@ const LOCATIONS := {
 	"overworld":["Деревня и гильдия","Village and guild","Aldea y gremio","Dorf und Gilde","Village et guilde","村庄与公会"], "forest":["Обычный лес","Common forest","Bosque común","Gewöhnlicher Wald","Forêt ordinaire","普通森林"],
 	"rocky":["Каменистая область","Rocky region","Región rocosa","Felsgebiet","Région rocheuse","岩石地区"], "ruins":["Орочьи руины","Orc ruins","Ruinas orcas","Orkruinen","Ruines orques","兽人遗迹"],
 	"cave":["Кристальные пещеры","Crystal caves","Cuevas de cristal","Kristallhöhlen","Grottes de cristal","水晶洞穴"], "cursed":["Проклятая земля","Cursed land","Tierra maldita","Verfluchtes Land","Terre maudite","诅咒之地"], "glassworks":["Мастерская стеклодува","Glassblower workshop","Taller de vidrio","Glasbläserwerkstatt","Atelier du verrier","玻璃工坊"],
+	"cottage_interior":["Дом бабушки","Grandma's cottage","Casa de la abuela","Omas Haus","Maison de Grand-mère","奶奶的小屋"], "shop_interior":["Сельская лавка","Village shop","Tienda rural","Dorfladen","Boutique du village","乡村商店"],
+	"guild_interior":["Зал гильдии","Guild hall","Sala del gremio","Gildenhalle","Hall de guilde","公会大厅"], "forge_interior":["Кузница","Forge","Forja","Schmiede","Forge","铁匠铺"],
+	"chapel_interior":["Лунная часовня","Moon chapel","Capilla lunar","Mondkapelle","Chapelle lunaire","月亮礼拜堂"], "prison_interior":["Тюрьма руин","Ruins prison","Prisión de las ruinas","Ruinengefängnis","Prison des ruines","遗迹监狱"],
+	"tower_interior":["Башня мага","Wizard tower","Torre del mago","Magierturm","Tour du mage","法师塔"], "castle_hall":["Большой зал замка","Castle great hall","Gran salón del castillo","Große Burghalle","Grande salle du château","城堡大厅"],
+	"castle_upper":["Верхний этаж замка","Castle upper floor","Piso superior del castillo","Burgobergeschoss","Étage supérieur du château","城堡上层"], "castle_dungeon":["Подземелье замка","Castle dungeon","Mazmorra del castillo","Burgverlies","Donjon du château","城堡地牢"],
 }
 
 const TUTORIAL := {
@@ -202,12 +219,18 @@ const TUTORIAL := {
 	"potion":["Создай и используй зелье","Craft and use a potion","Fabrica y usa una poción","Stelle einen Trank her","Fabrique et utilise une potion","制作并使用药水"],
 	"shield":["Создай и надень щит","Craft and equip a shield","Fabrica y equipa un escudo","Baue und trage einen Schild","Fabrique et équipe un bouclier","制作并装备盾牌"],
 	"lizard":["Найди лугового листохвоста","Find the meadow leaf-tail","Encuentra al lagarto de pradera","Finde den Wiesen-Blattschwanz","Trouve le lézard des prés","找到草地叶尾蜥"],
+	"building_enter":["Войди в открытое здание [E]","Enter an unlocked building [E]","Entra en un edificio abierto [E]","Betritt ein offenes Gebäude [E]","Entre dans un bâtiment ouvert [E]","进入已开放的建筑 [E]"],
+	"locked_building":["Проверь условие закрытого здания","Check a locked building requirement","Comprueba un edificio cerrado","Prüfe eine Gebäudebedingung","Vérifie la condition d'un bâtiment","检查锁定建筑的条件"],
+	"castle_floor":["Посети этаж и подземелье замка","Visit the castle floor and dungeon","Visita el piso y la mazmorra","Besuche Stockwerk und Verlies","Visite l'étage et le donjon","探索城堡楼层和地牢"],
+	"companion_recruit":["Выкупи первого напарника в тюрьме","Free the first companion in prison","Libera al primer compañero","Befreie den ersten Gefährten","Libère le premier compagnon","在监狱赎出首位伙伴"],
+	"companion_change":["Смени напарника или собери двоих","Change companion or form a pair","Cambia de compañero o forma pareja","Wechsle Gefährten oder bilde ein Duo","Change de compagnon ou forme un duo","更换伙伴或组成双人队"],
 }
 
 const SKILLS := {
 	"vitality":["Здоровье|+10 к максимальному здоровью","Vitality|+10 maximum health","Vitalidad|+10 de salud máxima","Vitalität|+10 maximales Leben","Vitalité|+10 santé maximale","生命|最大生命+10"],
 	"mana":["Мана|+10 маны и быстрее восстановление","Mana|+10 mana and faster recovery","Maná|+10 maná y recuperación","Mana|+10 Mana und Regeneration","Mana|+10 mana et récupération","法力|法力+10并加速恢复"],
 	"stamina":["Стамина|+2 к запасу сил","Stamina|+2 stamina","Energía|+2 de energía","Ausdauer|+2 Ausdauer","Endurance|+2 endurance","耐力|耐力+2"],
+	"leadership":["Лидерство|Сильные спутники; со 2 ранга в группе двое","Leadership|Strong allies; two in party at rank 2","Liderazgo|Aliados fuertes; dos al rango 2","Führung|Starke Gefährten; zwei ab Rang 2","Leadership|Alliés puissants ; deux au rang 2","领导力|招募强力伙伴；2级可带两人"],
 	"farming":["Фермерство|Опыт за грядки; больше урожая","Farming|Farm XP; larger harvests","Agricultura|XP agrícola; más cosecha","Landwirtschaft|Farm-XP; mehr Ernte","Agriculture|XP agricole; récoltes accrues","耕作|获得耕作经验；提高收成"],
 	"smithing":["Кузнечное дело|Опыт за крафт; дешёвые рецепты","Smithing|Craft XP; cheaper recipes","Herrería|XP de creación; recetas baratas","Schmieden|Herstellungs-XP; günstigere Rezepte","Forge|XP de fabrication; recettes réduites","锻造|制作经验；降低配方消耗"],
 	"combat":["Бой|Опыт за победы; больше урона","Combat|Battle XP; more damage","Combate|XP de batalla; más daño","Kampf|Kampf-XP; mehr Schaden","Combat|XP de bataille; plus de dégâts","战斗|战斗经验；提高伤害"],
@@ -227,6 +250,7 @@ const ENTITIES := {
 	"bridge":["Мост","Bridge","Puente","Brücke","Pont","桥"], "world_gate":["Золотые врата","Golden gate","Puerta dorada","Goldenes Tor","Porte dorée","金色传送门"], "workbench":["Верстак","Workbench","Banco de trabajo","Werkbank","Établi","工作台"], "slime":["Слизень","Slime","Limo","Schleim","Slime","史莱姆"],
 	"deer":["Лесной олень","Forest deer","Ciervo del bosque","Waldhirsch","Cerf forestier","森林鹿"], "fox":["Рыжая лиса","Red fox","Zorro rojo","Rotfuchs","Renard roux","赤狐"], "boar":["Дикий кабан","Wild boar","Jabalí","Wildschwein","Sanglier","野猪"], "bat":["Пещерная мышь","Cave bat","Murciélago","Höhlenfledermaus","Chauve-souris","洞穴蝙蝠"], "lizard":["Луговой листохвост","Meadow leaf-tail","Lagarto de pradera","Wiesen-Blattschwanz","Lézard des prés","草地叶尾蜥"],
 	"plant":["Хищное растение","Predatory plant","Planta depredadora","Raubpflanze","Plante prédatrice","食人植物"], "orc":["Орк-разбойник","Orc raider","Orco bandido","Orkräuber","Orc pillard","兽人强盗"], "skeleton":["Скелет","Skeleton","Esqueleto","Skelett","Squelette","骷髅"], "undead":["Проклятый рыцарь","Cursed knight","Caballero maldito","Verfluchter Ritter","Chevalier maudit","诅咒骑士"], "cave_guardian":["Хранитель глубин","Depth Guardian","Guardián profundo","Tiefenwächter","Gardien des profondeurs","深渊守护者"],
+	"companion_mila":["Мила Щитоносица","Mila Shieldbearer","Mila Escudera","Mila Schildträgerin","Mila Porte-bouclier","盾卫米拉"], "companion_borislav":["Борислав Ветеран","Borislav the Veteran","Borislav el Veterano","Borislav der Veteran","Borislav le Vétéran","老兵鲍里斯拉夫"], "companion_luna":["Луна Целительница","Luna the Healer","Luna la Sanadora","Luna die Heilerin","Luna la Guérisseuse","治疗师露娜"],
 	"berries":["Ягодный куст","Berry bush","Arbusto de bayas","Beerenbusch","Buisson à baies","浆果灌木"], "mushroom":["Грибная поляна","Mushroom patch","Claro de setas","Pilzplatz","Carré de champignons","蘑菇地"], "watermelon":["Арбузная бахча","Watermelon patch","Melonar","Melonenfeld","Carré de pastèques","西瓜地"], "apple":["Яблоня","Apple tree","Manzano","Apfelbaum","Pommier","苹果树"], "nut":["Ореховое дерево","Nut tree","Nogal","Nussbaum","Noyer","坚果树"],
 	"chest":["Старый сундук","Old chest","Cofre viejo","Alte Truhe","Vieux coffre","旧宝箱"], "bone_pile":["Груда костей","Bone pile","Pila de huesos","Knochenhaufen","Tas d'os","骨堆"], "sack":["Брошенный мешок","Abandoned sack","Saco abandonado","Verlassener Sack","Sac abandonné","废弃麻袋"], "trash":["Куча хлама","Junk pile","Montón de basura","Gerümpelhaufen","Tas de débris","垃圾堆"],
 }

@@ -69,7 +69,15 @@ static func scan_nearby(game: Node) -> bool:
 	for food in game.food_nodes:
 		if food.active and food.get("location", "overworld") == game.current_location:
 			add_candidate(candidates, "food:%s" % food.kind, food.position, food_hint(game, food.kind))
-	add_candidate(candidates, "world_gate", game.world_gate_position, static_hint(game, "world_gate"))
+	if not game.BuildingSystem.is_interior(game.current_location):
+		add_candidate(candidates, "world_gate", game.world_gate_position, static_hint(game, "world_gate"))
+		for building_id in game.BuildingSystem.buildings_at(game.current_location):
+			var building: Dictionary = game.BuildingSystem.BUILDINGS[building_id]
+			add_candidate(candidates, "building:%s" % building_id, building.door, {"title":game.LocaleSystem.location(building.interior),"text":game.LocaleSystem.ui("hint_building")})
+	if game.current_location == "prison_interior":
+		for companion_id in game.CompanionSystem.COMPANIONS:
+			var companion: Dictionary = game.CompanionSystem.COMPANIONS[companion_id]
+			add_candidate(candidates, "companion:%s" % companion_id, companion.position, {"title":game.CompanionSystem.name(game, companion_id),"text":game.LocaleSystem.ui("hint_companion")})
 	for resource in game.resource_nodes:
 		if resource.hits > 0 and resource.location == game.current_location:
 			add_candidate(candidates, "resource:%s" % resource.kind, resource.position, resource_hint(game, resource.kind))

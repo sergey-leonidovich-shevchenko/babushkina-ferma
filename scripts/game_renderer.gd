@@ -180,6 +180,74 @@ func draw_rpg_world() -> void:
 	draw_circle(cave_entrance_position, 38 + sin(Time.get_ticks_msec() / 170.0) * 4, Color("66d5cf"), false, 6)
 	draw_string(UI_FONT, cave_entrance_position + Vector2(-58, 78), LocaleSystem.location("cave"), HORIZONTAL_ALIGNMENT_LEFT, -1, 16, Color("d7fff4"))
 
+
+## Отрисовывает внешние спрайты зданий, подписи и состояние закрытых дверей.
+func draw_buildings() -> void:
+	var source_size := Vector2(BUILDING_ATLAS.get_width() / 4.0, BUILDING_ATLAS.get_height() / 2.0)
+	for building_id in BuildingSystem.buildings_at(current_location):
+		var data: Dictionary = BuildingSystem.BUILDINGS[building_id]
+		var sprite_index: int = data.sprite
+		var source := Rect2(Vector2(sprite_index % 4, sprite_index / 4) * source_size, source_size)
+		var destination := BuildingSystem.destination_rect(building_id)
+		draw_texture_rect_region(BUILDING_ATLAS, destination, source)
+		var unlocked := BuildingSystem.can_enter(self, building_id)
+		var door: Vector2 = data.door
+		draw_circle(door, 19, Color(0.42, 0.88, 0.52, 0.28) if unlocked else Color(0.9, 0.28, 0.25, 0.35), false, 3)
+		if not unlocked:
+			draw_string(UI_FONT, door + Vector2(-12, -28), "🔒", HORIZONTAL_ALIGNMENT_CENTER, 24, 18, Color("ffb36a"))
+
+
+## Отрисовывает мебель, выходы и переходы между этажами текущего интерьера.
+func draw_interior_objects() -> void:
+	var data: Dictionary = BuildingSystem.interior(current_location)
+	if data.is_empty():
+		return
+	var room: Rect2 = data.room
+	draw_rect(Rect2(room.position + Vector2(34, 48), Vector2(110, 48)), Color("5b3d2c"))
+	draw_rect(Rect2(room.end - Vector2(174, room.size.y - 48), Vector2(120, 54)), Color("735238"))
+	draw_rect(Rect2(data.exit - Vector2(34, 18), Vector2(68, 36)), Color("382d29"))
+	draw_string(UI_FONT, data.exit + Vector2(-44, 38), "E • выход", HORIZONTAL_ALIGNMENT_CENTER, 88, 13, Color("fff0bd"))
+	for link in data.get("links", []):
+		draw_circle(link.position, 34, Color("d6ad52"), false, 5)
+		draw_string(UI_FONT, link.position + Vector2(-58, 6), "ЛЕСТНИЦА", HORIZONTAL_ALIGNMENT_CENTER, 116, 13, Color("fff0bd"))
+	if data.has("service"):
+		var service_position: Vector2 = data.service_position
+		draw_rect(Rect2(service_position - Vector2(52, 24), Vector2(104, 48)), Color("d0a45b"))
+		draw_string(UI_FONT, service_position + Vector2(-48, 5), String(data.service).to_upper(), HORIZONTAL_ALIGNMENT_CENTER, 96, 13, Color("352d26"))
+	if current_location == "prison_interior":
+		for companion_id in CompanionSystem.COMPANIONS:
+			var position: Vector2 = CompanionSystem.COMPANIONS[companion_id].position
+			draw_rect(Rect2(position - Vector2(72, 78), Vector2(144, 150)), Color("2e3338"), false, 5)
+			for bar_x in range(-54, 55, 27):
+				draw_line(position + Vector2(bar_x, -72), position + Vector2(bar_x, 66), Color("85878a"), 4)
+
+
+## Отрисовывает кандидатов тюрьмы и активных напарников с их текущими характеристиками.
+func draw_companions() -> void:
+	if current_location == "prison_interior":
+		for companion_id in CompanionSystem.COMPANIONS:
+			var data: Dictionary = CompanionSystem.COMPANIONS[companion_id]
+			var position: Vector2 = data.position
+			draw_companion_sprite(companion_id, position)
+			var state_text := "В ГРУППЕ" if companion_id in active_companions else ("НАНЯТ" if companion_id in recruited_companions else "%d монет" % int(data.price))
+			draw_string(UI_FONT, position + Vector2(-100, 92), CompanionSystem.name(self, companion_id), HORIZONTAL_ALIGNMENT_CENTER, 200, 15, Color("fff0bd"))
+			draw_string(UI_FONT, position + Vector2(-100, 112), "⚔%d  🛡%d  ✚%d • %s" % [data.damage, data.defense, data.heal, state_text], HORIZONTAL_ALIGNMENT_CENTER, 200, 13, Color("d8e9d2"))
+		return
+	for companion_id in active_companions:
+		var position: Vector2 = companion_positions.get(companion_id, player + Vector2(-50, 35))
+		draw_companion_sprite(companion_id, position)
+
+
+## Отрисовывает одного напарника из трёхколоночного прозрачного атласа.
+func draw_companion_sprite(companion_id: String, position: Vector2) -> void:
+	var data: Dictionary = CompanionSystem.COMPANIONS.get(companion_id, {})
+	if data.is_empty():
+		return
+	var source_width := COMPANION_ATLAS.get_width() / 3.0
+	var source := Rect2(float(data.sprite) * source_width, 0, source_width, COMPANION_ATLAS.get_height())
+	draw_circle(position + Vector2(0, 28), 22, Color(0.05, 0.08, 0.08, 0.28))
+	draw_texture_rect_region(COMPANION_ATLAS, Rect2(position - Vector2(52, 66), Vector2(104, 104)), source)
+
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_mission_npc(position: Vector2, npc_name: String, mission_id: String, color: Color) -> void:
 	draw_circle(position - Vector2(0, 16), 13, Color("e6b38a"))
@@ -281,8 +349,9 @@ func draw_world_loot() -> void:
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_enemy_nodes_and_gate() -> void:
-	draw_circle(world_gate_position, 42 + sin(Time.get_ticks_msec() / 180.0) * 4, Color("e6b85e"), false, 6)
-	draw_string(UI_FONT, world_gate_position + Vector2(-75, 68), WorldSystem.name(WorldSystem.next_location(current_location)), HORIZONTAL_ALIGNMENT_LEFT, 180, 14, Color("fff0bd"))
+	if not BuildingSystem.is_interior(current_location):
+		draw_circle(world_gate_position, 42 + sin(Time.get_ticks_msec() / 180.0) * 4, Color("e6b85e"), false, 6)
+		draw_string(UI_FONT, world_gate_position + Vector2(-75, 68), WorldSystem.name(WorldSystem.next_location(current_location)), HORIZONTAL_ALIGNMENT_LEFT, 180, 14, Color("fff0bd"))
 	for enemy in enemy_nodes:
 		if not AnimationSystem.enemy_is_visible(enemy) or enemy.location != current_location: continue
 		var data: Dictionary = CombatSystem.TYPES[enemy.kind]
@@ -458,19 +527,19 @@ func draw_skill_menu() -> void:
 	draw_string(UI_FONT, Vector2(735, 106), LocaleSystem.ui("level_points", [player_level, skill_points]), HORIZONTAL_ALIGNMENT_RIGHT, 270, 18, Color("f5cf6a"))
 	for index in SkillSystem.SKILLS.size():
 		var skill: Dictionary = SkillSystem.SKILLS[index]
-		var column := index % 2
-		var row := index / 2
-		var box := Rect2(142 + column * 444, 158 + row * 92, 414, 78)
+		var column := index % 3
+		var row := index / 3
+		var box := Rect2(134 + column * 304, 154 + row * 128, 286, 112)
 		var selected := index == skill_menu_selected
 		draw_rect(box, Color("efc75f") if selected else Color("6c5c48"))
 		draw_rect(box.grow(-4), Color("fff0bd") if selected else Color("f0dfb5"))
-		draw_string(UI_FONT, box.position + Vector2(14, 29), "%s  %s" % [skill.icon, LocaleSystem.skill(skill.id)], HORIZONTAL_ALIGNMENT_LEFT, 245, 19, Color("43382f"))
-		draw_string(UI_FONT, box.position + Vector2(310, 29), LocaleSystem.ui("rank", [SkillSystem.skill(self, skill.id)]), HORIZONTAL_ALIGNMENT_RIGHT, 88, 15, Color("4c674c"))
-		draw_string(UI_FONT, box.position + Vector2(14, 55), LocaleSystem.skill(skill.id, true), HORIZONTAL_ALIGNMENT_LEFT, 380, 12, Color("665746"))
+		draw_string(UI_FONT, box.position + Vector2(12, 28), "%s  %s" % [skill.icon, LocaleSystem.skill(skill.id)], HORIZONTAL_ALIGNMENT_LEFT, 184, 16, Color("43382f"))
+		draw_string(UI_FONT, box.position + Vector2(196, 28), LocaleSystem.ui("rank", [SkillSystem.skill(self, skill.id)]), HORIZONTAL_ALIGNMENT_RIGHT, 76, 12, Color("4c674c"))
+		draw_multiline_string(UI_FONT, box.position + Vector2(12, 52), LocaleSystem.skill(skill.id, true), HORIZONTAL_ALIGNMENT_LEFT, 260, 11, 2, Color("665746"))
 		if skill.get("profession", false):
 			var needed := SkillSystem.xp_to_next_skill_rank(SkillSystem.skill(self, skill.id))
 			var ratio := clampf(float(skill_xp.get(skill.id, 0)) / float(needed), 0.0, 1.0)
-			var bar := Rect2(box.position + Vector2(14, 64), Vector2(380, 6))
+			var bar := Rect2(box.position + Vector2(12, 96), Vector2(260, 6))
 			draw_rect(bar, Color("766751"))
 			draw_rect(Rect2(bar.position, Vector2(bar.size.x * ratio, bar.size.y)), Color("6da86d"))
 	draw_string(UI_FONT, Vector2(220, 556), LocaleSystem.ui("skill_help"), HORIZONTAL_ALIGNMENT_CENTER, 712, 15, Color("493b2f"))

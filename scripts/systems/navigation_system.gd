@@ -21,8 +21,13 @@ static func move(game: Node, motion: Vector2) -> void:
 
 ## Проверяет заявленное методом условие без изменения игрового состояния.
 static func is_walkable(game: Node, position: Vector2) -> bool:
+	if game.BuildingSystem.is_interior(game.current_location):
+		return game.BuildingSystem.is_walkable_inside(game.current_location, position, game.PLAYER_RADIUS)
 	if position.x < 40.0 or position.x > game.WORLD_SIZE.x - 40.0 or position.y < 120.0 or position.y > game.WORLD_SIZE.y - 80.0:
 		return false
+	for building_id in game.BuildingSystem.buildings_at(game.current_location):
+		if circle_intersects_rect(position, game.PLAYER_RADIUS, game.BuildingSystem.collision_rect(building_id)):
+			return false
 	if game.current_location in ["cave", "cursed"]:
 		for decoration in game.CAVE_DECORATIONS:
 			if position.distance_to(decoration) < game.PLAYER_RADIUS + 38.0:

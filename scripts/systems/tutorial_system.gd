@@ -8,6 +8,7 @@ const STEP_IDS := [
 	"mission_complete", "journal", "side_mission", "colored_crystal", "day", "level_up",
 	"skill_point", "profession", "save", "wildlife", "world_loot", "watermelon", "potion",
 	"shield", "lizard",
+	"building_enter", "locked_building", "castle_floor", "companion_recruit", "companion_change",
 ]
 
 

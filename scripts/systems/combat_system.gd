@@ -45,10 +45,22 @@ static func attack(game: Node, index: int) -> bool:
 	if game.equipped_weapon == "forest_sword": damage += 1
 	elif game.equipped_weapon == "crystal_sword": damage += 2
 	elif game.equipped_weapon == "bow": damage += 1
-	enemy.hp -= damage
 	game.AnimationSystem.begin_player_attack(game)
-	enemy = game.AnimationSystem.hit_enemy(enemy, enemy.hp <= 0)
 	game.play_sfx("attack")
+	apply_damage(game, index, damage)
+	game.notify_tutorial("combat_animation")
+	return true
+
+
+## Наносит проверенный урон общей цели и единожды выдаёт опыт и таблицу добычи при победе.
+static func apply_damage(game: Node, index: int, damage: int, attacker_name: String = "") -> bool:
+	if index < 0 or index >= game.enemy_nodes.size() or damage <= 0:
+		return false
+	var enemy: Dictionary = game.enemy_nodes[index]
+	if not enemy.alive or enemy.location != game.current_location:
+		return false
+	enemy.hp -= damage
+	enemy = game.AnimationSystem.hit_enemy(enemy, enemy.hp <= 0)
 	game.play_sfx("defeat" if enemy.hp <= 0 else "hit")
 	if enemy.hp <= 0:
 		enemy.alive = false
@@ -59,7 +71,13 @@ static func attack(game: Node, index: int) -> bool:
 			if kind == "coins": game.coins += count
 			else: game.dropped_items.append({"kind":kind,"count":count,"position":enemy.position})
 		game.message = "%s: +%d XP" % [LocaleSystem.entity(enemy.kind), TYPES[enemy.kind].xp]
-	else: game.message = "%s: -%d HP" % [LocaleSystem.entity(enemy.kind), damage]
+	else:
+		var prefix := "%s → " % attacker_name if not attacker_name.is_empty() else ""
+		game.message = "%s%s: -%d HP" % [prefix, LocaleSystem.entity(enemy.kind), damage]
 	game.enemy_nodes[index] = enemy
-	game.notify_tutorial("combat_animation")
 	return true
+
+
+## Передаёт атаку напарника в общий конвейер урона без анимации удара героя.
+static func companion_attack(game: Node, index: int, damage: int, attacker_name: String) -> bool:
+	return apply_damage(game, index, damage, attacker_name)

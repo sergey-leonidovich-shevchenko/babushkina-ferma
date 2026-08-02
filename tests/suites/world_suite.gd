@@ -86,7 +86,8 @@ func test_contextual_discoveries_and_new_item_hints() -> void:
 	var card: Rect2 = game.discovery_card_rect()
 	expect(card.position.x >= 800.0 and card.size.x <= 320.0 and not card.has_point(game.player), "context hint stays compact in the screen corner and does not cover the player")
 	game.DiscoverySystem.dismiss(game)
-	expect(not game.DiscoverySystem.scan_nearby(game), "seen feature does not repeat its hint")
+	game.DiscoverySystem.scan_nearby(game)
+	expect(game.discovery_current.get("id", "") != "shop", "seen feature does not repeat its hint while another nearby discovery may appear")
 	game.current_location = "cave"
 	game.player = Vector2(700, 500)
 	game.dropped_items.append({"kind":"moon_relic","count":1,"position":game.player})

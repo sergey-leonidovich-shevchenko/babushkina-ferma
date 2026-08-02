@@ -22,7 +22,7 @@ static func snapshot(game: Node) -> Dictionary:
 		containers.append({"id":container.id,"kind":container.kind,"location":container.location,"position":[container.position.x,container.position.y],"opened":container.opened,"contents":container.contents.duplicate(true)})
 	for node in game.food_nodes:
 		forage.append({"active":node.active,"ready_at":node.get("ready_at", 0.0)})
-	return {"version":VERSION,"state_schema":STATE_SCHEMA,"player":[game.player.x,game.player.y],"location":game.current_location,"day":game.day,"minutes":game.game_minutes,"energy":game.energy,"coins":game.coins,"xp":game.player_xp,"level":game.player_level,"hp":game.player_hp,"progression":{"points":game.skill_points,"levels":game.skill_levels.duplicate(true),"xp":game.skill_xp.duplicate(true),"mana":game.player_mana},"counts":game.export_inventory_counts().duplicate(true),"slots":game.inventory_slots.duplicate(true),"hotbar":game.hotbar_slots.duplicate(true),"equipment":game.equipment.duplicate(true),"quest_active":game.quest_active,"quest_complete":game.quest_complete,"missions":game.mission_states.duplicate(true),"tutorial":{"step":game.tutorial_step,"events":game.tutorial_events_completed.duplicate(true),"seen":game.seen_discoveries.duplicate(true),"animation":game.character_animation_directions.keys()},"weapons":{"sword":game.sword_crafted,"bow":game.has_bow,"crystal":game.has_crystal_sword,"equipped":game.equipped_weapon},"plots":plot_data,"resource_hits":game.resource_nodes.map(func(node): return node.hits),"food_active":game.food_nodes.map(func(node): return node.active),"forage":forage,"enemies":game.enemy_nodes.map(func(enemy): return {"hp":enemy.hp,"alive":enemy.alive}),"wildlife":wildlife,"world_loot_seed":game.world_loot_seed,"containers":containers,"drops":drops}
+	return {"version":VERSION,"state_schema":STATE_SCHEMA,"player":[game.player.x,game.player.y],"location":game.current_location,"day":game.day,"minutes":game.game_minutes,"energy":game.energy,"coins":game.coins,"xp":game.player_xp,"level":game.player_level,"hp":game.player_hp,"progression":{"points":game.skill_points,"levels":game.skill_levels.duplicate(true),"xp":game.skill_xp.duplicate(true),"mana":game.player_mana},"companions":{"recruited":game.recruited_companions.duplicate(),"active":game.active_companions.duplicate()},"counts":game.export_inventory_counts().duplicate(true),"slots":game.inventory_slots.duplicate(true),"hotbar":game.hotbar_slots.duplicate(true),"equipment":game.equipment.duplicate(true),"quest_active":game.quest_active,"quest_complete":game.quest_complete,"missions":game.mission_states.duplicate(true),"tutorial":{"step":game.tutorial_step,"events":game.tutorial_events_completed.duplicate(true),"seen":game.seen_discoveries.duplicate(true),"animation":game.character_animation_directions.keys()},"weapons":{"sword":game.sword_crafted,"bow":game.has_bow,"crystal":game.has_crystal_sword,"equipped":game.equipped_weapon},"plots":plot_data,"resource_hits":game.resource_nodes.map(func(node): return node.hits),"food_active":game.food_nodes.map(func(node): return node.active),"forage":forage,"enemies":game.enemy_nodes.map(func(enemy): return {"hp":enemy.hp,"alive":enemy.alive}),"wildlife":wildlife,"world_loot_seed":game.world_loot_seed,"containers":containers,"drops":drops}
 
 
 ## Обновляет сохранение старой версии до актуальной схемы данных.
@@ -53,6 +53,17 @@ static func apply(game: Node, data: Dictionary) -> bool:
 	for skill_id in game.skill_xp:
 		game.skill_xp[skill_id] = progression.get("xp", {}).get(skill_id, 0)
 	game.player_mana = progression.get("mana", game.player_mana)
+	var companions: Dictionary = data.get("companions", {})
+	game.recruited_companions.assign(companions.get("recruited", []))
+	game.active_companions.assign(companions.get("active", []))
+	for companion_id in game.active_companions.duplicate():
+		if companion_id not in game.recruited_companions or not game.CompanionSystem.COMPANIONS.has(companion_id):
+			game.active_companions.erase(companion_id)
+	while game.active_companions.size() > game.CompanionSystem.capacity(game):
+		game.active_companions.pop_back()
+	game.companion_positions.clear()
+	for companion_id in game.active_companions:
+		game.companion_positions[companion_id] = game.player + Vector2(-50, 35)
 	game.import_inventory_counts(data.counts)
 	var inventory_catalog: Array = game.inventory_slots.duplicate()
 	game.inventory_slots.assign(data.slots)

@@ -6,6 +6,7 @@ const SKILLS := [
 	{"id":"vitality","name":"Здоровье","icon":"❤","description":"+10 к максимальному здоровью за ранг"},
 	{"id":"mana","name":"Мана","icon":"✦","description":"+10 к запасу маны и ускорение её восстановления"},
 	{"id":"stamina","name":"Стамина","icon":"⚡","description":"+2 к запасу сил за ранг"},
+	{"id":"leadership","name":"Лидерство","icon":"♟","description":"Позволяет нанимать сильных спутников; со 2 ранга в группе двое"},
 	{"id":"farming","name":"Фермерство","icon":"♣","description":"Опыт за работу на грядках; с 3 ранга больше урожая","profession":true},
 	{"id":"smithing","name":"Кузнечное дело","icon":"◆","description":"Опыт за крафт; с 3 ранга рецепты дешевле","profession":true},
 	{"id":"combat","name":"Бой","icon":"⚔","description":"Опыт за победы; каждые 2 ранга дают +1 урон","profession":true},
