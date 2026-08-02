@@ -58,6 +58,7 @@ const StorageSystem := preload("res://scripts/systems/storage_system.gd")
 const ForgeSystem := preload("res://scripts/systems/forge_system.gd")
 const ContractSystem := preload("res://scripts/systems/contract_system.gd")
 const ContractRenderer := preload("res://scripts/systems/contract_renderer.gd")
+const MenuSystem := preload("res://scripts/systems/menu_system.gd"); const MenuRenderer := preload("res://scripts/systems/menu_renderer.gd"); const SettingsSystem := preload("res://scripts/systems/settings_system.gd")
 const GameState := preload("res://scripts/state/game_state.gd")
 const UI_FONT := preload("res://assets/game/fonts/ui_font.tres")
 const ITEM_HELMET := preload("res://assets/game/items/iron_helmet.png")
@@ -137,6 +138,7 @@ var language_screen := true
 var language_selected := 0
 var persist_locale_selection := true
 var title_screen := true
+var menu_state := MenuSystem.MenuState.new(); var settings_state := SettingsSystem.SettingsState.new()
 var shop_open := false
 var inventory_open := false
 var inventory_selected := 0
@@ -207,8 +209,6 @@ var dropped_items: Array:
 	set(value): state.world.dropped_items = value
 var shop_selected := 0
 var shop_products := ShopSystem.default_products()
-var title_alpha := 1.0
-var movement_enabled := false
 var move_left_held := false
 var move_right_held := false
 var move_up_held := false

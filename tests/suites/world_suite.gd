@@ -116,7 +116,7 @@ func test_discoveries_and_tutorial_checklist_are_saved() -> void:
 	game.SaveSystem.apply(game, snapshot)
 	expect(game.seen_discoveries.has("shop") and game.seen_discoveries.has("enemy:orc"), "save restores discovered feature history")
 	expect(game.tutorial_step == save_step + 1 and game.tutorial_events_completed.has("save"), "save restores tutorial checklist progress")
-	var required_events := ["move","character_animation","forage_harvest","forage_regrow","forage_sale","plant","rewater","trade","fight","hotbar","equipment","fish","craft_window","mission_complete","journal","side_mission","colored_crystal","day","level_up","skill_point","profession","save","wildlife","world_loot","watermelon","potion","shield","lizard"]
+	var required_events := ["move","character_animation","forage_harvest","forage_regrow","forage_sale","plant","rewater","trade","fight","hotbar","equipment","fish","craft_window","mission_complete","journal","side_mission","colored_crystal","day","level_up","skill_point","profession","pause_menu","settings","save","wildlife","world_loot","watermelon","potion","shield","lizard"]
 	for event_name in required_events:
 		expect(game.tutorial_steps.any(func(step): return step.event == event_name), "tutorial covers feature: %s" % event_name)
 	game.free()

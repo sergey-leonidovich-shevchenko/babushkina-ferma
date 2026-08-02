@@ -202,6 +202,16 @@ static func save(game: Node) -> bool:
 	return save_at(game, SAVE_PATH)
 
 
+## Проверяет наличие основного или резервного файла сохранения по переданному пути.
+static func has_save_at(path: String) -> bool:
+	return FileAccess.file_exists(path) or FileAccess.file_exists(path + ".bak")
+
+
+## Проверяет, доступно ли продолжение игры из стандартного пользовательского сохранения.
+static func has_save() -> bool:
+	return has_save_at(SAVE_PATH)
+
+
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func load_at(game: Node, path: String) -> bool:
 	var data := _read_json(path)

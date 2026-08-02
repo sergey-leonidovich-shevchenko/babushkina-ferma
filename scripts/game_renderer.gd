@@ -22,12 +22,10 @@ func draw_title_screen() -> void:
 		draw_rect(Rect2(360, 133, 432, 28), Color(0.32, 0.24, 0.16, 0.72))
 		draw_string(UI_FONT, Vector2(370, 155), LocaleSystem.ui("title_subtitle"), HORIZONTAL_ALIGNMENT_CENTER, 412, 20, Color("ffe19a"))
 		draw_string(UI_FONT, Vector2(326, 194), LocaleSystem.ui("title_features"), HORIZONTAL_ALIGNMENT_CENTER, 500, 15, Color(1.0, 0.96, 0.82, 0.88))
-		var start_rect := Rect2(382, 526, 388, 82)
-		draw_rect(start_rect, Color(0.06, 0.13, 0.11, 0.80))
-		draw_rect(start_rect.grow(-4), Color(0.18, 0.34, 0.25, 0.88))
-		draw_rect(start_rect.grow(-8), Color(0.08, 0.18, 0.14, 0.93))
-		draw_string(UI_FONT, Vector2(396, 563), LocaleSystem.ui("press_any"), HORIZONTAL_ALIGNMENT_CENTER, 360, 23, Color("ffe5a3"))
-		draw_string(UI_FONT, Vector2(396, 591), LocaleSystem.ui("title_controls"), HORIZONTAL_ALIGNMENT_CENTER, 360, 14, Color(1, 1, 1, pulse))
+		if menu_state.settings_open:
+			MenuRenderer.draw_settings(self)
+		else:
+			MenuRenderer.draw_title_menu(self)
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_language_screen() -> void:

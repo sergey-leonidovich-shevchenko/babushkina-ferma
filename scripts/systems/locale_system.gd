@@ -14,6 +14,25 @@ const UI := {
 	"title_features":["ФЕРМА • ПРИКЛЮЧЕНИЯ • РЕМЁСЛА","FARM • ADVENTURE • CRAFT","GRANJA • AVENTURA • OFICIOS","FARM • ABENTEUER • HANDWERK","FERME • AVENTURE • ARTISANAT","农场 • 冒险 • 工艺"],
 	"press_any":["НАЧАТЬ ПРИКЛЮЧЕНИЕ","BEGIN ADVENTURE","COMENZAR LA AVENTURA","ABENTEUER BEGINNEN","COMMENCER L'AVENTURE","开始冒险"],
 	"title_controls":["Enter / A / касание","Enter / A / touch","Enter / A / toque","Enter / A / Tippen","Entrée / A / toucher","Enter / A / 触摸"],
+	"continue_game":["ПРОДОЛЖИТЬ","CONTINUE","CONTINUAR","FORTSETZEN","CONTINUER","继续游戏"],
+	"new_game":["НОВАЯ ИГРА","NEW GAME","NUEVA PARTIDA","NEUES SPIEL","NOUVELLE PARTIE","新游戏"],
+	"settings":["НАСТРОЙКИ","SETTINGS","AJUSTES","EINSTELLUNGEN","PARAMÈTRES","设置"],
+	"exit_game":["ВЫЙТИ ИЗ ИГРЫ","EXIT GAME","SALIR DEL JUEGO","SPIEL BEENDEN","QUITTER LE JEU","退出游戏"],
+	"paused":["ПАУЗА","PAUSED","PAUSA","PAUSE","PAUSE","暂停"],
+	"resume":["ПРОДОЛЖИТЬ ИГРУ","RESUME","REANUDAR","WEITERSPIELEN","REPRENDRE","继续"],
+	"save_game":["СОХРАНИТЬ","SAVE GAME","GUARDAR","SPEICHERN","SAUVEGARDER","保存游戏"],
+	"load_game":["ЗАГРУЗИТЬ","LOAD GAME","CARGAR","LADEN","CHARGER","加载游戏"],
+	"return_main_menu":["В ГЛАВНОЕ МЕНЮ","MAIN MENU","MENÚ PRINCIPAL","HAUPTMENÜ","MENU PRINCIPAL","返回主菜单"],
+	"back":["НАЗАД","BACK","ATRÁS","ZURÜCK","RETOUR","返回"],
+	"master_volume":["ОБЩАЯ ГРОМКОСТЬ","MASTER VOLUME","VOLUMEN GENERAL","GESAMTLAUTSTÄRKE","VOLUME GÉNÉRAL","主音量"],
+	"music_volume":["МУЗЫКА","MUSIC","MÚSICA","MUSIK","MUSIQUE","音乐"],
+	"sfx_volume":["ЭФФЕКТЫ","EFFECTS","EFECTOS","EFFEKTE","EFFETS","音效"],
+	"sound_enabled":["ЗВУК","SOUND","SONIDO","TON","SON","声音"],
+	"fullscreen":["ПОЛНЫЙ ЭКРАН","FULLSCREEN","PANTALLA COMPLETA","VOLLBILD","PLEIN ÉCRAN","全屏"],
+	"vsync":["ВЕРТИКАЛЬНАЯ СИНХРОНИЗАЦИЯ","VERTICAL SYNC","SINCRONIZACIÓN VERTICAL","VERTIKALE SYNCHRONISATION","SYNCHRONISATION VERTICALE","垂直同步"],
+	"language_option":["ЯЗЫК","LANGUAGE","IDIOMA","SPRACHE","LANGUE","语言"],
+	"enabled":["ВКЛ","ON","SÍ","AN","OUI","开"],
+	"disabled":["ВЫКЛ","OFF","NO","AUS","NON","关"],
 	"sound_on":["Звук включён","Sound enabled","Sonido activado","Ton eingeschaltet","Son activé","声音已开启"],
 	"sound_off":["Звук выключен","Sound muted","Sonido silenciado","Ton ausgeschaltet","Son coupé","声音已静音"],
 	"day":["ДЕНЬ %d   %02d:%02d","DAY %d   %02d:%02d","DÍA %d   %02d:%02d","TAG %d   %02d:%02d","JOUR %d   %02d:%02d","第%d天   %02d:%02d"],
@@ -137,6 +156,7 @@ const TEXT := {
 	"recipe_select":["Выбери рецепт и нажми Enter","Choose a recipe and press Enter","Elige una receta y pulsa Enter","Wähle ein Rezept und drücke Enter","Choisis une recette et appuie sur Entrée","选择配方并按Enter"],
 	"saved":["Игра сохранена","Game saved","Partida guardada","Spiel gespeichert","Partie sauvegardée","游戏已保存"], "save_failed":["Не удалось сохранить игру","Could not save game","No se pudo guardar","Speichern fehlgeschlagen","Échec de la sauvegarde","保存失败"],
 	"loaded":["Игра загружена","Game loaded","Partida cargada","Spiel geladen","Partie chargée","游戏已加载"], "load_failed":["Сохранение не найдено","Save not found","No se encontró partida","Kein Spielstand gefunden","Sauvegarde introuvable","未找到存档"],
+	"settings_saved":["Настройки применены","Settings applied","Ajustes aplicados","Einstellungen übernommen","Paramètres appliqués","设置已应用"],
 	"tutorial_reset":["Обучение начато заново","Tutorial restarted","Tutorial reiniciado","Tutorial neu gestartet","Tutoriel relancé","教程已重新开始"],
 	"fish_no_rod":["У тебя нет удочки","You have no fishing rod","No tienes caña","Du hast keine Angel","Tu n'as pas de canne","你没有鱼竿"], "fish_need_water":["Подойди к пруду или реке","Go to a pond or river","Acércate al estanque o río","Geh zu Teich oder Fluss","Approche d'un étang ou d'une rivière","靠近池塘或河流"],
 	"fish_cast":["Поплавок в воде... жди поклёвки","Float in the water... wait for a bite","Flotador en el agua... espera","Schwimmer im Wasser... warte","Flotteur à l'eau... attends","浮漂入水……等待咬钩"], "fish_caught":["Поймана рыба ×%d!","Fish caught ×%d!","¡Pez capturado ×%d!","Fisch gefangen ×%d!","Poisson attrapé ×%d !","钓到鱼 ×%d！"],
@@ -254,7 +274,9 @@ const TUTORIAL := {
 	"level_up":["Получи новый уровень","Gain a new level","Sube de nivel","Steige eine Stufe auf","Gagne un niveau","提升等级"],
 	"skill_point":["Вложи очко навыка [K]","Spend a skill point [K]","Gasta un punto [K]","Vergib einen Punkt [K]","Dépense un point [K]","分配技能点 [K]"],
 	"profession":["Развивай ремесло практикой","Train a profession","Entrena una profesión","Trainiere einen Beruf","Entraîne un métier","训练一种职业"],
-	"save":["Сохрани и загрузи игру","Save and load the game","Guarda y carga la partida","Speichere und lade das Spiel","Sauvegarde et charge la partie","保存并加载游戏"],
+	"pause_menu":["Открой меню паузы [Esc/Start]","Open pause menu [Esc/Start]","Abre la pausa [Esc/Start]","Öffne das Pausenmenü [Esc/Start]","Ouvre la pause [Échap/Start]","打开暂停菜单 [Esc/Start]"],
+	"settings":["Измени параметр в меню настроек","Change an option in Settings","Cambia una opción en Ajustes","Ändere eine Einstellung","Modifie une option des paramètres","在设置中修改一项"],
+	"save":["Сохрани игру через меню паузы","Save through the pause menu","Guarda desde el menú de pausa","Speichere über das Pausenmenü","Sauvegarde depuis le menu pause","通过暂停菜单保存"],
 	"wildlife":["Найди пугливого зверя","Find a timid animal","Encuentra un animal tímido","Finde ein scheues Tier","Trouve un animal peureux","找到胆小的动物"],
 	"world_loot":["Обыщи случайный тайник [E]","Search a random stash [E]","Busca un escondite [E]","Durchsuche ein Versteck [E]","Fouille une cache [E]","搜索随机藏匿物 [E]"],
 	"watermelon":["Собери и съешь арбуз","Harvest and eat watermelon","Cosecha y come sandía","Ernte und iss Wassermelone","Récolte et mange une pastèque","收获并吃西瓜"],
@@ -381,6 +403,7 @@ static func set_locale(code: String, persist: bool = true, path: String = SETTIN
 	TranslationServer.set_locale("zh_CN" if code == "zh" else code)
 	if persist:
 		var config := ConfigFile.new()
+		config.load(path)
 		config.set_value("language", "locale", code)
 		return config.save(path) == OK
 	return true

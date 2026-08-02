@@ -16,6 +16,7 @@ const EQUIP_BUTTON := Rect2(716, 490, 96, 48)
 const SORT_BUTTON := Rect2(704, 55, 136, 34)
 const SKILL_BUTTON := Rect2(986, 10, 72, 50)
 const QUEST_BUTTON := Rect2(1066, 10, 72, 50)
+const PAUSE_BUTTON := Rect2(18, 584, 54, 54)
 const HOTBAR_ORIGIN := Vector2(279, 584)
 const HOTBAR_SLOT_SIZE := Vector2(54, 54)
 const HOTBAR_PITCH := 60.0
@@ -125,6 +126,8 @@ static func draw_hud(game: Node) -> void:
 	if not game.message.is_empty():
 		panel(game, Rect2(286, 544, 580, 30), Color(0.04, 0.08, 0.07, 0.9))
 		game.draw_string(game.UI_FONT, Vector2(300, 565), game.message, HORIZONTAL_ALIGNMENT_CENTER, 552, 14, INK)
+	panel(game, PAUSE_BUTTON, Color("29463d"))
+	game.draw_string(game.UI_FONT, PAUSE_BUTTON.position + Vector2(4, 35), "Ⅱ", HORIZONTAL_ALIGNMENT_CENTER, PAUSE_BUTTON.size.x - 8, 22, Color("ffe39d"))
 	draw_hotbar(game)
 
 

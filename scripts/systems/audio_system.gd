@@ -39,9 +39,10 @@ static func initialize(game: Node) -> void:
 	for index in SFX_POOL_SIZE:
 		var player := AudioStreamPlayer.new()
 		player.name = "AudioSfx%d" % index
-		player.volume_db = SFX_VOLUME_DB
+		player.volume_db = sfx_volume_db(game)
 		game.add_child(player)
 	switch_music(game, game.current_location, true)
+	apply_volumes(game)
 
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
@@ -60,7 +61,7 @@ static func switch_music(game: Node, location: String, immediate: bool = false) 
 		stream.loop_begin = 0
 		stream.loop_end = int(stream.get_length() * stream.mix_rate)
 		incoming.stream = stream
-		incoming.volume_db = MUSIC_VOLUME_DB if immediate else SILENT_DB
+		incoming.volume_db = music_volume_db(game) if immediate else SILENT_DB
 		if game.is_inside_tree() and game.audio_enabled:
 			incoming.play()
 	if immediate:
@@ -73,7 +74,7 @@ static func switch_music(game: Node, location: String, immediate: bool = false) 
 static func update(game: Node, delta: float) -> void:
 	update_crossfade(game, delta)
 	game.audio_step_timer = maxf(game.audio_step_timer - delta, 0.0)
-	if game.title_screen or game.shop_open or game.inventory_open or game.crafting_open or game.quest_log_open or game.skill_menu_open:
+	if game.title_screen or game.menu_state.pause_open or game.menu_state.settings_open or game.shop_open or game.inventory_open or game.crafting_open or game.storage_open or game.forge_open or game.contract_open or game.quest_log_open or game.skill_menu_open:
 		return
 	if game.get_movement_direction() != Vector2.ZERO and game.audio_step_timer <= 0.0:
 		play_sfx(game, "step")
@@ -86,9 +87,9 @@ static func update_crossfade(game: Node, delta: float) -> void:
 		return
 	game.audio_music_fade = maxf(game.audio_music_fade - delta, 0.0)
 	var progress: float = 1.0 - game.audio_music_fade / CROSSFADE_SECONDS
-	music_player(game, game.audio_music_slot).volume_db = lerpf(SILENT_DB, MUSIC_VOLUME_DB, progress)
+	music_player(game, game.audio_music_slot).volume_db = lerpf(SILENT_DB, music_volume_db(game), progress)
 	var outgoing := music_player(game, 1 - game.audio_music_slot)
-	outgoing.volume_db = lerpf(MUSIC_VOLUME_DB, SILENT_DB, progress)
+	outgoing.volume_db = lerpf(music_volume_db(game), SILENT_DB, progress)
 	if game.audio_music_fade <= 0.0:
 		outgoing.stop()
 
@@ -103,6 +104,7 @@ static func play_sfx(game: Node, sound_id: String) -> bool:
 	game.audio_sfx_slot = (game.audio_sfx_slot + 1) % SFX_POOL_SIZE
 	if player:
 		player.stream = load(SFX_PATH % sound_id)
+		player.volume_db = sfx_volume_db(game)
 		if game.is_inside_tree():
 			player.play()
 	return true
@@ -123,6 +125,30 @@ static func set_enabled(game: Node, enabled: bool) -> void:
 		var effect: AudioStreamPlayer = game.get_node_or_null("AudioSfx%d" % index)
 		if effect and not enabled:
 			effect.stop()
+	apply_volumes(game)
+
+
+## Применяет раздельные уровни музыки и эффектов ко всем уже созданным проигрывателям.
+static func apply_volumes(game: Node) -> void:
+	for suffix in ["A", "B"]:
+		var music: AudioStreamPlayer = game.get_node_or_null("AudioMusic" + suffix)
+		if music and game.audio_music_fade <= 0.0:
+			music.volume_db = music_volume_db(game) if suffix == ("A" if game.audio_music_slot == 0 else "B") else SILENT_DB
+	for index in SFX_POOL_SIZE:
+		var effect: AudioStreamPlayer = game.get_node_or_null("AudioSfx%d" % index)
+		if effect: effect.volume_db = sfx_volume_db(game)
+
+
+## Рассчитывает итоговую громкость музыки из базового уровня, общего и музыкального ползунков.
+static func music_volume_db(game: Node) -> float:
+	if not game.audio_enabled or game.settings_state.master_volume <= 0.0 or game.settings_state.music_volume <= 0.0: return SILENT_DB
+	return maxf(SILENT_DB, MUSIC_VOLUME_DB + linear_to_db(game.settings_state.master_volume * game.settings_state.music_volume))
+
+
+## Рассчитывает итоговую громкость эффектов из базового уровня, общего и эффектного ползунков.
+static func sfx_volume_db(game: Node) -> float:
+	if not game.audio_enabled or game.settings_state.master_volume <= 0.0 or game.settings_state.sfx_volume <= 0.0: return SILENT_DB
+	return maxf(SILENT_DB, SFX_VOLUME_DB + linear_to_db(game.settings_state.master_volume * game.settings_state.sfx_volume))
 
 
 ## Выполняет операцию «музыки героя» и возвращает результат согласно контракту метода.

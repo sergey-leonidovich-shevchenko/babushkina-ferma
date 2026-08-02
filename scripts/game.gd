@@ -6,6 +6,7 @@ func _ready() -> void:
 	for content_error in ContentRegistry.validate():
 		push_error("Invalid game content: " + content_error)
 	LocaleSystem.load_locale()
+	if is_inside_tree(): SettingsSystem.load(self)
 	AudioSystem.initialize(self)
 	message = LocaleSystem.text("welcome")
 	language_selected = maxi(LocaleSystem.LOCALES.find(LocaleSystem.current), 0)
@@ -68,6 +69,19 @@ func _ready() -> void:
 		open_forge()
 	if "--contracts-preview" in OS.get_cmdline_user_args():
 		ContractSystem.configure_preview(self)
+	if MenuSystem.consume_new_game_request():
+		language_screen = false
+		title_screen = false
+	MenuSystem.prepare_title(self)
+	if "--pause-preview" in OS.get_cmdline_user_args():
+		language_screen = false
+		title_screen = false
+		MenuSystem.open_pause(self)
+	if "--settings-preview" in OS.get_cmdline_user_args():
+		language_screen = false
+		title_screen = false
+		MenuSystem.open_pause(self)
+		MenuSystem.open_settings(self, false)
 	sync_background_location()
 	DiscoverySystem.show_location(self, current_location)
 	queue_redraw()
@@ -103,7 +117,7 @@ func configure_enemy_levels_preview() -> void:
 ## Выполняет один физический кадр и обновляет активные игровые системы в заданном порядке.
 func _physics_process(delta: float) -> void:
 	AudioSystem.update(self, delta)
-	if title_screen:
+	if title_screen or menu_state.pause_open or menu_state.settings_open:
 		queue_redraw()
 		return
 	update_game_clock(delta)
@@ -252,17 +266,14 @@ func _unhandled_input(event: InputEvent) -> void:
 	if language_screen:
 		handle_language_input(event)
 		return
-	if title_screen:
-		if event.is_pressed():
-			title_screen = false
-			message = "Вспаши землю клавишей E"
-			queue_redraw()
+	if title_screen or menu_state.pause_open or menu_state.settings_open:
+		MenuSystem.handle_input(self, event)
 		return
 
 	if InputSystem.handle_modal_input(self, event):
 		return
 	if event.is_action_pressed("ui_cancel"):
-		title_screen = true
+		MenuSystem.open_pause(self)
 	if event.is_action_pressed("ui_accept") or (event is InputEventKey and event.pressed and event.keycode == KEY_E):
 		use_active_item()
 	if event is InputEventKey and event.pressed and not event.echo:
@@ -287,6 +298,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			KEY_F5: save_game()
 			KEY_F6:
 				AudioSystem.set_enabled(self, not audio_enabled)
+				SettingsSystem.save(self)
 				message = LocaleSystem.ui("sound_on" if audio_enabled else "sound_off")
 			KEY_F8: load_game()
 			KEY_I, KEY_TAB: open_inventory()
@@ -1141,6 +1153,10 @@ func sell_carrots() -> void:
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func _input(event: InputEvent) -> void:
+	if not language_screen and (title_screen or menu_state.pause_open or menu_state.settings_open):
+		if MenuSystem.handle_input(self, event):
+			get_viewport().set_input_as_handled()
+		return
 	if handle_gamepad_and_touch(event):
 		get_viewport().set_input_as_handled()
 		return
@@ -1148,20 +1164,23 @@ func _input(event: InputEvent) -> void:
 		var is_action_key := set_action_key_state(event)
 		var is_attack_key := set_attack_key_state(event)
 		var is_movement_key := update_movement_key_state(event)
-		if not title_screen and event.pressed and is_movement_key:
+		if not title_screen and not menu_state.pause_open and event.pressed and is_movement_key:
 			apply_immediate_key_response(event)
-		if is_action_key and not title_screen and not shop_open and not inventory_open and not crafting_open and not storage_open and not forge_open and not contract_open and not quest_log_open and not skill_menu_open:
+		if is_action_key and not title_screen and not menu_state.pause_open and not shop_open and not inventory_open and not crafting_open and not storage_open and not forge_open and not contract_open and not quest_log_open and not skill_menu_open:
 			if event.pressed and not event.echo:
 				if not perform_context_action() and current_location == "overworld":
 					use_active_item()
 			get_viewport().set_input_as_handled()
-		if is_attack_key and not title_screen and not shop_open and not inventory_open and not crafting_open and not storage_open and not forge_open and not contract_open and not quest_log_open and not skill_menu_open:
+		if is_attack_key and not title_screen and not menu_state.pause_open and not shop_open and not inventory_open and not crafting_open and not storage_open and not forge_open and not contract_open and not quest_log_open and not skill_menu_open:
 			if event.pressed and not event.echo:
 				attack_nearest_enemy()
 			get_viewport().set_input_as_handled()
 
 ## Обрабатывает относящееся к методу событие и синхронизирует зависимое состояние.
 func handle_gamepad_and_touch(event: InputEvent) -> bool:
+	var world_controls_visible := not (shop_open or inventory_open or crafting_open or storage_open or forge_open or contract_open or quest_log_open or skill_menu_open)
+	if world_controls_visible and event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and InterfaceRenderer.PAUSE_BUTTON.has_point(event.position):
+		return MenuSystem.open_pause(self)
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if inventory_open:
 			InputSystem.handle_inventory_mouse(self, event)
@@ -1171,9 +1190,6 @@ func handle_gamepad_and_touch(event: InputEvent) -> bool:
 			if InterfaceRenderer.SKILL_BUTTON.has_point(event.position): open_skill_menu(); return true
 			var mouse_hotbar := InterfaceRenderer.hotbar_at(event.position)
 			if mouse_hotbar >= 0: select_hotbar(mouse_hotbar); return true
-	if title_screen and ((event is InputEventJoypadButton and event.pressed) or (event is InputEventScreenTouch and event.pressed)):
-		title_screen = false
-		return true
 	if event is InputEventJoypadButton and event.pressed:
 		var modal_handler: Callable = InputSystem.handle_storage_input if storage_open else (InputSystem.handle_forge_input if forge_open else (InputSystem.handle_contract_input if contract_open else Callable()))
 		if modal_handler.is_valid():
@@ -1209,7 +1225,7 @@ func handle_gamepad_and_touch(event: InputEvent) -> bool:
 				toggle_quest_log()
 				return true
 			JOY_BUTTON_START:
-				open_skill_menu()
+				MenuSystem.open_pause(self)
 				return true
 	if event is InputEventScreenDrag and inventory_open:
 		inventory_touch_drag_y += event.relative.y
@@ -1219,6 +1235,8 @@ func handle_gamepad_and_touch(event: InputEvent) -> bool:
 		queue_redraw()
 		return true
 	if event is InputEventScreenTouch and event.pressed:
+		if world_controls_visible and InterfaceRenderer.PAUSE_BUTTON.has_point(event.position):
+			return MenuSystem.open_pause(self)
 		if discovery_card_rect().has_point(event.position) and not discovery_current.is_empty():
 			DiscoverySystem.dismiss(self)
 			return true
