@@ -94,9 +94,7 @@ func draw_overworld() -> void:
 	for i in 3:
 		draw_line(BuildingSystem.SELL_CRATE_RECT.position + Vector2(4, 10 + i * 15), BuildingSystem.SELL_CRATE_RECT.position + Vector2(56, 10 + i * 15), Color("c78d4e"), 4)
 	draw_string(UI_FONT, BuildingSystem.SELL_CRATE_POSITION + Vector2(-58, 45), LocaleSystem.ui("sell_sign"), HORIZONTAL_ALIGNMENT_CENTER, 116, 15, Color("293c2f"))
-	# Лес сгущается только на восточной и южной окраинах деревни.
-	var trees := [Vector2(1720,180), Vector2(1960,230), Vector2(2220,180), Vector2(1810,700), Vector2(2050,680), Vector2(2250,630), Vector2(1160,760), Vector2(1320,735)]
-	for tree in trees: draw_texture_rect(FOREST_TREE, Rect2(tree - Vector2(96,128), Vector2(192,192)), false)
+	# Динамические деревья рисует игровой слой: после рубки здесь остаётся видимый пень.
 	draw_texture_rect(RED_MUSHROOMS, Rect2(1680,650,72,72), false)
 
 ## Рисует один участок дороги с мягкой окантовкой и приглушённой каменной фактурой.

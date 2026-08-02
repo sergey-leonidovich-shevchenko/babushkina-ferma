@@ -40,8 +40,8 @@ static func is_walkable(game: Node, position: Vector2) -> bool:
 		var pond_delta: Vector2 = position - game.pond_position
 		if pow(pond_delta.x / (189.0 + game.PLAYER_RADIUS), 2.0) + pow(pond_delta.y / (105.0 + game.PLAYER_RADIUS), 2.0) < 1.0:
 			return false
-		for tree in game.TREE_POSITIONS:
-			if position.distance_to(tree + Vector2(0, 35)) < game.PLAYER_RADIUS + 42.0:
+		for tree in game.state.world.tree_nodes:
+			if game.TreeSystem.is_solid(tree) and position.distance_to(tree.position + Vector2(0, 35)) < game.PLAYER_RADIUS + 42.0:
 				return false
 		for fence_rect in game.BuildingSystem.FARM_FENCE_RECTS:
 			if circle_intersects_rect(position, game.PLAYER_RADIUS, fence_rect):
@@ -108,6 +108,8 @@ static func enemy_position_walkable(game: Node, position: Vector2, enemy_index: 
 		var pond_delta: Vector2 = position - game.pond_position
 		if pow(pond_delta.x / 216.0, 2.0) + pow(pond_delta.y / 132.0, 2.0) < 1.0:
 			return false
+		for tree in game.state.world.tree_nodes:
+			if game.TreeSystem.is_solid(tree) and position.distance_to(tree.position + Vector2(0, 35)) < RADIUS + 42.0: return false
 	for index in game.enemy_nodes.size():
 		if index == enemy_index:
 			continue

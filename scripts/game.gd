@@ -7,8 +7,7 @@ func _ready() -> void:
 		push_error("Invalid game content: " + content_error)
 	LocaleSystem.load_locale()
 	if is_inside_tree(): SettingsSystem.load(self)
-	AudioSystem.initialize(self); message = LocaleSystem.text("welcome")
-	language_selected = maxi(LocaleSystem.LOCALES.find(LocaleSystem.current), 0)
+	AudioSystem.initialize(self); message = LocaleSystem.text("welcome"); language_selected = maxi(LocaleSystem.LOCALES.find(LocaleSystem.current), 0)
 	for y in FARM_SIZE.y:
 		for x in FARM_SIZE.x:
 			plots[Vector2i(x, y)] = {"tilled": false, "planted": false, "watered": false, "growth": 0.0, "stage": 0, "stage_flash": 0.0}
@@ -121,7 +120,7 @@ func _physics_process(delta: float) -> void:
 	if title_screen or menu_state.pause_open or menu_state.settings_open:
 		queue_redraw()
 		return
-	update_game_clock(delta); update_crops(delta)
+	update_game_clock(delta); update_crops(delta); TreeSystem.update(self, delta)
 	update_combat(delta)
 	update_fishing(delta)
 	update_status_effects(delta)
@@ -353,6 +352,7 @@ func valid_plot(cell: Vector2i) -> bool:
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func use_selected_tool() -> void:
+	if selected_tool == Tool.AXE: TreeSystem.chop_nearby(self); return
 	if selected_tool == Tool.PICKAXE:
 		mine_nearby_resource()
 		return

@@ -15,7 +15,7 @@ const MUSIC_BY_LOCATION := {
 const MUSIC_PATH := "res://assets/game/audio/music/%s.wav"
 const SFX_PATH := "res://assets/game/audio/sfx/%s.wav"
 const SFX_IDS := [
-	"step", "hoe", "plant", "water", "harvest", "mine", "attack", "hit", "defeat",
+	"step", "hoe", "plant", "water", "harvest", "mine", "chop", "attack", "hit", "defeat",
 	"fish_cast", "fish_bite", "fish_catch", "pickup", "craft", "coin", "quest_accept",
 	"quest_complete", "level_up", "ui_open", "travel",
 ]

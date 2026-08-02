@@ -336,6 +336,36 @@ func draw_fishing_animations() -> void:
 		var splash_frame := fishing_animation_frame(18, 80)
 		draw_texture_rect_region(SPLASH_ANIMATION, Rect2(pond_position + Vector2(-32, -32), Vector2(64, 64)), Rect2(splash_frame * 16, 0, 16, 16))
 
+## Отрисовывает взрослые деревья, пни, саженцы, повреждения и прогресс повторного роста.
+func draw_tree_nodes() -> void:
+	if current_location != "overworld": return
+	for tree in state.world.tree_nodes:
+		var position: Vector2 = tree.position
+		var stage: int = tree.stage
+		var flash: float = tree.hit_flash
+		if stage == 0:
+			draw_rect(Rect2(position + Vector2(-18, 20), Vector2(36, 18)), Color("75492f"), true)
+			draw_ellipse_stump(position + Vector2(0, 20))
+		else:
+			var size := Vector2(64, 64) if stage == 1 else (Vector2(128, 128) if stage == 2 else Vector2(192, 192))
+			var anchor := Vector2(size.x * 0.5, size.y * 0.67)
+			var tint := Color(1.0, 0.72, 0.62) if flash > 0.0 else Color.WHITE
+			draw_texture_rect(FOREST_TREE, Rect2(position - anchor, size), false, tint)
+		if stage < 3:
+			var progress: float = TreeSystem.regrow_progress(tree)
+			var bar := Rect2(position + Vector2(-34, 49), Vector2(68, 8))
+			draw_rect(bar, Color("243b35")); draw_rect(Rect2(bar.position + Vector2.ONE, Vector2((bar.size.x - 2) * progress, bar.size.y - 2)), Color("70c66a"))
+		if stage == 3 and player.distance_to(position + Vector2(0, 28)) < TreeSystem.CHOP_RANGE + 28.0:
+			draw_circle(position + Vector2(0, 28), 52 + sin(Time.get_ticks_msec() / 170.0) * 3, Color(1.0, 0.84, 0.25, 0.34), false, 3)
+		if stage == 3 and int(tree.health) < TreeSystem.MAX_HEALTH:
+			for heart in TreeSystem.MAX_HEALTH: draw_circle(position + Vector2(-14 + heart * 14, -68), 4, Color("df6657") if heart < int(tree.health) else Color("5b493e"))
+
+## Рисует овальный срез пня как самостоятельный пиксельный элемент окружения.
+func draw_ellipse_stump(center: Vector2) -> void:
+	var points := PackedVector2Array()
+	for step in 16: points.append(center + Vector2(cos(TAU * step / 16.0) * 20.0, sin(TAU * step / 16.0) * 8.0))
+	draw_colored_polygon(points, Color("c48b52")); draw_polyline(points, Color("8d5b38"), 2.0)
+
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_resource_nodes() -> void:
 	for node in resource_nodes:

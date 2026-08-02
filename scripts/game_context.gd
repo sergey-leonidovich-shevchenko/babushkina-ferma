@@ -33,6 +33,7 @@ const CombatSystem := preload("res://scripts/systems/combat_system.gd")
 const WorldSystem := preload("res://scripts/systems/world_system.gd")
 const FarmSystem := preload("res://scripts/systems/farm_system.gd")
 const FishingSystem := preload("res://scripts/systems/fishing_system.gd")
+const TreeSystem := preload("res://scripts/systems/tree_system.gd")
 const QuestSystem := preload("res://scripts/systems/quest_system.gd")
 const RenderSystem := preload("res://scripts/systems/render_system.gd")
 const ResourceSystem := preload("res://scripts/systems/resource_system.gd")
@@ -85,7 +86,7 @@ const MAX_BASE_HP := 100
 const XP_PER_LEVEL := 50
 const PLAYER_RADIUS := 18.0
 const BRIDGE_RECT := Rect2(1450, 805, 110, 395)
-const TREE_POSITIONS := [Vector2(1720,180), Vector2(1960,230), Vector2(2220,180), Vector2(1810,700), Vector2(2050,680), Vector2(2250,630), Vector2(1160,760), Vector2(1320,735)]
+const TREE_POSITIONS := TreeSystem.POSITIONS
 const CAVE_DECORATIONS := [Vector2(480,250), Vector2(720,600), Vector2(1040,300), Vector2(1380,720), Vector2(1720,280), Vector2(2050,620)]
 const FORAGE_SPRITES := {
 	# Атлас упакован в ячейки 72×72; область большего размера захватывает
@@ -95,7 +96,7 @@ const FORAGE_SPRITES := {
 	"nut": {"source": Rect2(696, 288, 72, 72), "size": Vector2(88, 88), "anchor": Vector2(44, 70)},
 }
 
-enum Tool { HOE, SEEDS, WATER, HAND, PICKAXE, ROD }
+enum Tool { HOE, SEEDS, WATER, HAND, PICKAXE, ROD, AXE }
 
 var state := GameState.new()
 var player: Vector2:

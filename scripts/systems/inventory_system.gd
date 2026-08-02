@@ -13,6 +13,7 @@ const ITEM_DATA := {
 	"hand": {"name": "Руки", "short": "Руки", "color": Color("e4b486"), "tool": 3},
 	"pickaxe": {"name": "Кирка", "short": "Кирка", "color": Color("87989c"), "tool": 4},
 	"fishing_rod": {"name": "Удочка", "short": "Удочка", "color": Color("b77a45"), "tool": 5},
+	"axe": {"name": "Топор", "short": "Топор", "color": Color("b65f3f"), "tool": 6},
 	"carrot": {"name": "Морковь", "short": "Морковь", "color": Color("ee7a32"), "edible": true},
 	"apple": {"name": "Лесное яблоко", "short": "Яблоко", "color": Color("df4b45"), "edible": true},
 	"berries": {"name": "Лесные ягоды", "short": "Ягоды", "color": Color("7656c7"), "edible": true},
