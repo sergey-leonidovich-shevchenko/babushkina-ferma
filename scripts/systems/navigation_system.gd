@@ -21,11 +21,11 @@ static func move(game: Node, motion: Vector2) -> void:
 static func is_walkable(game: Node, position: Vector2) -> bool:
 	if position.x < 40.0 or position.x > game.WORLD_SIZE.x - 40.0 or position.y < 120.0 or position.y > game.WORLD_SIZE.y - 80.0:
 		return false
-	if game.current_location == "cave":
+	if game.current_location in ["cave", "cursed"]:
 		for decoration in game.CAVE_DECORATIONS:
 			if position.distance_to(decoration) < game.PLAYER_RADIUS + 38.0:
 				return false
-	else:
+	elif game.current_location == "overworld":
 		if position.y + game.PLAYER_RADIUS > 860.0 and not game.BRIDGE_RECT.grow(-18.0).has_point(position):
 			return false
 		var pond_delta: Vector2 = position - game.pond_position
@@ -42,6 +42,9 @@ static func is_walkable(game: Node, position: Vector2) -> bool:
 			if circle_intersects_rect(position, game.PLAYER_RADIUS, rect):
 				return false
 		if game.slime_alive and position.distance_to(game.slime_position) < game.PLAYER_RADIUS + 28.0:
+			return false
+	for enemy in game.enemy_nodes:
+		if enemy.alive and enemy.location == game.current_location and position.distance_to(enemy.position) < game.PLAYER_RADIUS + 30.0:
 			return false
 	for node in game.resource_nodes:
 		if node.hits > 0 and node.location == game.current_location and position.distance_to(node.position) < game.PLAYER_RADIUS + 30.0:

@@ -18,11 +18,16 @@ const PlayerSystem := preload("res://scripts/systems/player_system.gd")
 const InventorySystem := preload("res://scripts/systems/inventory_system.gd")
 const CraftingSystem := preload("res://scripts/systems/crafting_system.gd")
 const SaveSystem := preload("res://scripts/systems/save_system.gd")
+const CombatSystem := preload("res://scripts/systems/combat_system.gd")
+const WorldSystem := preload("res://scripts/systems/world_system.gd")
 const ITEM_HELMET := preload("res://assets/game/items/iron_helmet.png")
 const ITEM_ARMOR := preload("res://assets/game/items/guardian_armor.png")
 const ITEM_BOOTS := preload("res://assets/game/items/travel_boots.png")
 const ITEM_DIAMOND := preload("res://assets/game/items/crystal_ring.png")
 const ITEM_ORANGE := preload("res://assets/game/items/orange.png")
+const WATER_ANIMATION := preload("res://assets/game/fishing/Water Tile.png")
+const FISH_ANIMATION := preload("res://assets/game/fishing/Fish Swimming.png")
+const SPLASH_ANIMATION := preload("res://assets/game/fishing/Splash Effect.png")
 const WORLD_SIZE := Vector2(2400, 1200)
 const STAGE_DURATION := 5.0
 const GROWTH_DURATION := 20.0
@@ -67,6 +72,13 @@ var crystal_ring := 0
 var materials := {"fiber":0,"rare_seeds":0,"metal":0,"bones":0,"ancient_key":0,"blue_gem":0,"red_crystal":0,"green_crystal":0}
 var crafting_open := false
 var crafting_selected := 0
+var world_gate_position := Vector2(2200, 760)
+var enemy_nodes := [
+	{"kind":"plant","location":"forest","position":Vector2(920,430),"hp":5,"alive":true},
+	{"kind":"orc","location":"ruins","position":Vector2(1180,500),"hp":8,"alive":true},
+	{"kind":"skeleton","location":"cave","position":Vector2(880,520),"hp":6,"alive":true},
+	{"kind":"undead","location":"cursed","position":Vector2(1320,460),"hp":10,"alive":true}
+]
 var dropped_items: Array = []
 var shop_selected := 0
 var shop_products := [
@@ -164,7 +176,8 @@ var tutorial_steps := [
 	{"event": "craft_window", "text": "Открой верстак, выбери рецепт и создай предмет"},
 	{"event": "equip", "text": "Надень или сними меч клавишей R"},
 	{"event": "collision", "text": "Проверь препятствие и перейди реку только по мосту"},
-	{"event": "travel", "text": "Найди светящийся вход в пещеру и нажми E"}
+	{"event": "travel", "text": "Найди светящийся вход в пещеру и нажми E"},
+	{"event": "locations", "text": "Найди золотые врата и посети следующую локацию"}
 ]
 
 func _ready() -> void:
@@ -301,7 +314,7 @@ func update_held_attack(delta: float) -> void:
 	attack_repeat_timer -= delta
 	if attack_repeat_timer <= 0.0:
 		attack_repeat_timer = ATTACK_REPEAT_INTERVAL
-		attack_slime()
+		attack_nearest_enemy()
 
 func perform_repeatable_action() -> bool:
 	var interaction := nearest_interaction()
@@ -394,7 +407,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			KEY_0: select_hotbar(9)
 			KEY_B: open_shop()
 			KEY_N: sleep_until_morning()
-			KEY_F: attack_slime()
+			KEY_F: attack_nearest_enemy()
 			KEY_R: toggle_sword()
 			KEY_T: tutorial_visible = not tutorial_visible
 			KEY_Y: reset_tutorial()
@@ -500,6 +513,7 @@ func nearest_interaction() -> String:
 			interactions["loot"] = slime_position
 	else:
 		interactions = {"cave_exit": cave_exit_position}
+	interactions["world_gate"] = world_gate_position
 	var nearest := ""
 	var nearest_distance := 92.0
 	for key in interactions:
@@ -559,6 +573,9 @@ func perform_context_action() -> bool:
 			return true
 		"cave_exit":
 			exit_cave()
+			return true
+		"world_gate":
+			WorldSystem.travel(self)
 			return true
 	return false
 
@@ -933,6 +950,13 @@ func attack_slime() -> bool:
 		message = "Слизень побеждён! +10 опыта. Подбери добычу [E]"
 	return true
 
+func attack_nearest_enemy() -> bool:
+	var enemy_index := CombatSystem.nearest(self)
+	if enemy_index >= 0: return CombatSystem.attack(self, enemy_index)
+	if current_location == "overworld": return attack_slime()
+	message = "Рядом нет противника"
+	return false
+
 func update_combat(delta: float) -> void:
 	if not slime_alive or player.distance_to(slime_position) > 72.0:
 		slime_attack_timer = 0.0
@@ -1133,6 +1157,8 @@ func _draw() -> void:
 	if current_location == "overworld":
 		draw_farm()
 		draw_rpg_world()
+		draw_fishing_animations()
+	draw_enemy_nodes_and_gate()
 	draw_resource_nodes()
 	draw_player()
 	draw_interaction_highlight()
@@ -1300,12 +1326,43 @@ func draw_food_nodes() -> void:
 				draw_texture_rect_region(PLANT_SHEET, Rect2(position - Vector2(44, 70), Vector2(88, 88)), Rect2(288, 288, 96, 96))
 		draw_circle(position, 30, Color(1.0, 0.88, 0.32, 0.24))
 
+func fishing_animation_frame(frame_count: int, frame_ms: int = 140) -> int:
+	return int(Time.get_ticks_msec() / frame_ms) % frame_count
+
+func draw_fishing_animations() -> void:
+	var water_frame := fishing_animation_frame(32, 180)
+	draw_texture_rect_region(WATER_ANIMATION, Rect2(0, 860, WORLD_SIZE.x, 340), Rect2(water_frame * 16, 0, 16, 16), Color(1,1,1,0.32))
+	var fish_frame := fishing_animation_frame(10, 130)
+	draw_texture_rect_region(FISH_ANIMATION, Rect2(pond_position + Vector2(-24, -8), Vector2(48, 48)), Rect2(fish_frame * 16, 0, 16, 16))
+	if fishing_state == "ready":
+		var splash_frame := fishing_animation_frame(18, 80)
+		draw_texture_rect_region(SPLASH_ANIMATION, Rect2(pond_position + Vector2(-32, -32), Vector2(64, 64)), Rect2(splash_frame * 16, 0, 16, 16))
+
 func draw_resource_nodes() -> void:
 	for node in resource_nodes:
 		if node.hits <= 0 or node.location != current_location:
 			continue
 		var texture: Texture2D = RESOURCE_CRYSTAL if node.kind == "crystal" else RESOURCE_ROCK
 		draw_texture_rect(texture, Rect2(node.position - Vector2(28, 28), Vector2(56, 56)), false)
+
+func draw_enemy_nodes_and_gate() -> void:
+	draw_circle(world_gate_position, 42 + sin(Time.get_ticks_msec() / 180.0) * 4, Color("e6b85e"), false, 6)
+	draw_string(ThemeDB.fallback_font, world_gate_position + Vector2(-75, 68), "Путь: " + WorldSystem.NAMES[WorldSystem.next_location(current_location)], HORIZONTAL_ALIGNMENT_LEFT, 180, 14, Color("fff0bd"))
+	for enemy in enemy_nodes:
+		if not enemy.alive or enemy.location != current_location: continue
+		var data: Dictionary = CombatSystem.TYPES[enemy.kind]
+		var position: Vector2 = enemy.position
+		draw_circle(position, 30, data.color)
+		if enemy.kind == "plant":
+			for angle in 6: draw_circle(position + Vector2.RIGHT.rotated(angle * TAU / 6.0) * 27, 12, Color("73b957"))
+		elif enemy.kind == "orc":
+			draw_rect(Rect2(position - Vector2(22, 35), Vector2(44, 62)), Color("596d38"))
+		elif enemy.kind in ["skeleton","undead"]:
+			draw_circle(position - Vector2(0, 18), 18, data.color)
+			draw_line(position - Vector2(0, 2), position + Vector2(0, 30), data.color, 8)
+		draw_rect(Rect2(position - Vector2(31, 48), Vector2(62, 7)), Color("402d32"))
+		draw_rect(Rect2(position - Vector2(30, 47), Vector2(60.0 * enemy.hp / float(data.hp), 5)), Color("dc554b"))
+		draw_string(ThemeDB.fallback_font, position + Vector2(-65, 55), data.name, HORIZONTAL_ALIGNMENT_CENTER, 130, 14, Color("fff0bd"))
 
 func draw_cave_world() -> void:
 	draw_rect(Rect2(Vector2.ZERO, WORLD_SIZE), Color("18232c"))
@@ -1379,6 +1436,7 @@ func interaction_position(interaction: String) -> Vector2:
 		"loot": return slime_position
 		"cave_entrance": return cave_entrance_position
 		"cave_exit": return cave_exit_position
+		"world_gate": return world_gate_position
 	return Vector2.ZERO
 
 func draw_interaction_highlight() -> void:
@@ -1563,7 +1621,7 @@ func _input(event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 		if is_attack_key and not title_screen and not shop_open and not inventory_open:
 			if event.pressed and not event.echo:
-				attack_slime()
+				attack_nearest_enemy()
 			get_viewport().set_input_as_handled()
 
 func handle_gamepad_and_touch(event: InputEvent) -> bool:
@@ -1585,7 +1643,7 @@ func handle_gamepad_and_touch(event: InputEvent) -> bool:
 				if not perform_context_action(): use_active_item()
 				return true
 			JOY_BUTTON_X:
-				attack_slime()
+				attack_nearest_enemy()
 				return true
 			JOY_BUTTON_Y:
 				open_inventory()

@@ -22,8 +22,21 @@ func set_location(value: String) -> void:
 		queue_redraw()
 
 func _draw() -> void:
-	if location == "cave": draw_cave()
-	else: draw_overworld()
+	if location == "overworld": draw_overworld()
+	elif location == "cave": draw_cave()
+	else: draw_adventure_location()
+
+func draw_adventure_location() -> void:
+	var colors := {"forest":Color("315c3c"),"rocky":Color("6f6a5b"),"ruins":Color("665849"),"cursed":Color("3e304b"),"glassworks":Color("6f493b")}
+	var names := {"forest":"ОБЫЧНЫЙ ЛЕС","rocky":"КАМЕНИСТАЯ ОБЛАСТЬ","ruins":"ОРOЧЬИ РУИНЫ","cursed":"ПРОКЛЯТАЯ ЗЕМЛЯ","glassworks":"МАСТЕРСКАЯ СТЕКЛОДУВА"}
+	draw_rect(Rect2(Vector2.ZERO, WORLD_SIZE), colors.get(location, Color("48624a")))
+	for y in range(140, 1100, 180):
+		for x in range(100 + (y % 120), 2300, 220):
+			if location == "forest": draw_texture_rect(FOREST_TREE, Rect2(x - 45, y - 70, 90, 90), false)
+			elif location in ["rocky","ruins"]: draw_circle(Vector2(x,y), 28, Color("8f8875"))
+			elif location == "cursed": draw_circle(Vector2(x,y), 8, Color("8d6aa0"))
+			else: draw_rect(Rect2(x - 20,y - 35,40,70), Color("b86f4d"))
+	draw_string(ThemeDB.fallback_font, Vector2(80, 100), names.get(location, location), HORIZONTAL_ALIGNMENT_LEFT, -1, 30, Color("fff0bd"))
 
 func draw_overworld() -> void:
 	# Один повторяющийся GPU-тайл вместо одноцветного пола и тысяч draw calls.

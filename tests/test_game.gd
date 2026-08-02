@@ -25,6 +25,7 @@ func _initialize() -> void:
 	test_world_collisions_and_bridge_passage()
 	test_hotbar_assignment_equipment_and_universal_input()
 	test_crafting_window_and_save_snapshot()
+	test_enemy_families_loot_tables_and_world_route()
 	print("TESTS: %d passed, %d failed" % [passed, failed])
 	quit(0 if failed == 0 else 1)
 
@@ -190,6 +191,7 @@ func test_pickaxe_mines_surface_and_cave_resources() -> void:
 
 func test_fishing_cast_wait_and_catch_cycle() -> void:
 	var game := make_game()
+	expect(game.WATER_ANIMATION.get_width() == 512 and game.FISH_ANIMATION.get_width() == 160, "CC0 fishing animation sheets are loaded")
 	game.selected_tool = game.Tool.ROD
 	game.player = game.pond_position + Vector2(120, 0)
 	expect(game.use_fishing_rod(), "rod casts near pond")
@@ -384,4 +386,21 @@ func test_crafting_window_and_save_snapshot() -> void:
 	expect(game.SaveSystem.apply(game, snapshot), "save snapshot can be loaded")
 	expect(game.coins == 321 and game.hotbar_slots[0] == "orange", "save restores economy and quick slots")
 	expect(game.equipment.head == "iron_helmet" and game.plots[Vector2i.ZERO].tilled, "save restores equipment and farm state")
+	game.free()
+
+func test_enemy_families_loot_tables_and_world_route() -> void:
+	var game := make_game()
+	expect(game.CombatSystem.TYPES.has("plant") and game.CombatSystem.TYPES.has("orc") and game.CombatSystem.TYPES.has("skeleton") and game.CombatSystem.TYPES.has("undead"), "combat system defines all enemy families")
+	game.current_location = "forest"
+	game.player = game.enemy_nodes[0].position
+	for _hit in 5: game.attack_nearest_enemy()
+	expect(not game.enemy_nodes[0].alive and game.dropped_items.size() == 2, "predatory plant uses its configured loot table")
+	game.player = game.dropped_items[0].position
+	game.collect_dropped_item(0)
+	expect(game.materials.fiber > 0 or game.materials.rare_seeds > 0, "enemy material enters shared inventory")
+	game.current_location = "overworld"
+	game.WorldSystem.travel(game)
+	expect(game.current_location == "forest", "world gate travels from village to forest")
+	for _location in 6: game.WorldSystem.travel(game)
+	expect(game.current_location == "overworld", "world route connects all seven locations in a loop")
 	game.free()
