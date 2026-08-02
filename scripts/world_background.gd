@@ -3,7 +3,6 @@ extends Node2D
 const UI_FONT := preload("res://assets/game/fonts/ui_font.tres")
 
 const WORLD_SIZE := Vector2(2400, 1200)
-const FOREST_TREE := preload("res://assets/game/environment/forest_tree.png")
 const RED_MUSHROOMS := preload("res://assets/game/environment/red_mushrooms.png")
 const CAVE_CRYSTAL := preload("res://assets/game/environment/cave_crystal.png")
 const ROAD_TILE := preload("res://assets/game/tiles/road-brick.png")
@@ -12,6 +11,7 @@ const BRIDGES := preload("res://assets/game/environment/bridges.png")
 const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
 const BuildingSystem := preload("res://scripts/systems/building_system.gd")
 const PirateShipRenderer := preload("res://scripts/systems/pirate_ship_renderer.gd")
+const VisualAssetSystem := preload("res://scripts/systems/visual_asset_system.gd")
 
 var location := "overworld"
 
@@ -49,15 +49,12 @@ func draw_interior() -> void:
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_adventure_location() -> void:
-	var colors := {"forest":Color("315c3c"),"rocky":Color("6f6a5b"),"ruins":Color("665849"),"cursed":Color("3e304b"),"glassworks":Color("6f493b")}
 	var names := {"forest":LocaleSystem.location("forest").to_upper(),"rocky":LocaleSystem.location("rocky").to_upper(),"ruins":LocaleSystem.location("ruins").to_upper(),"cursed":LocaleSystem.location("cursed").to_upper(),"glassworks":LocaleSystem.location("glassworks").to_upper()}
-	draw_rect(Rect2(Vector2.ZERO, WORLD_SIZE), colors.get(location, Color("48624a")))
-	for y in range(140, 1100, 180):
-		for x in range(100 + (y % 120), 2300, 220):
-			if location == "forest": draw_texture_rect(FOREST_TREE, Rect2(x - 45, y - 70, 90, 90), false)
-			elif location in ["rocky","ruins"]: draw_circle(Vector2(x,y), 28, Color("8f8875"))
-			elif location == "cursed": draw_circle(Vector2(x,y), 8, Color("8d6aa0"))
-			else: draw_rect(Rect2(x - 20,y - 35,40,70), Color("b86f4d"))
+	draw_rect(Rect2(Vector2.ZERO, WORLD_SIZE), VisualAssetSystem.background(location))
+	for y in range(150, 1100, 120):
+		for x in range(70 + (y % 90), 2360, 150):
+			draw_circle(Vector2(x, y), 2.5, VisualAssetSystem.background(location).lightened(0.12))
+	VisualAssetSystem.draw_biome(self, location)
 	draw_string(UI_FONT, Vector2(80, 100), names.get(location, location), HORIZONTAL_ALIGNMENT_LEFT, -1, 30, Color("fff0bd"))
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.

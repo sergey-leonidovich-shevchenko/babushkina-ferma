@@ -117,6 +117,11 @@ static func update(game: Node, delta: float) -> void:
 		var enemy: Dictionary = game.enemy_nodes[index]
 		if not enemy.alive or enemy.location != game.current_location:
 			continue
+		if game.invisibility_timer > 0.0:
+			enemy.moving = false
+			enemy.attack_timer = maxf(float(enemy.get("attack_timer", 0.0)) - delta, 0.0)
+			game.enemy_nodes[index] = enemy
+			continue
 		var data: Dictionary = TYPES[enemy.kind]
 		var distance: float = enemy.position.distance_to(game.player)
 		enemy.moving = false
@@ -146,6 +151,7 @@ static func attack(game: Node, index: int) -> bool:
 	if not enemy.alive or enemy.location != game.current_location: return false
 	var attack_range := 280.0 if game.equipped_weapon == "bow" else 105.0
 	if game.player.distance_to(enemy.position) > attack_range: return false
+	game.PotionSystem.break_invisibility(game)
 	var damage: int = 1 + (1 if game.strength_timer > 0 else 0) + game.InventorySystem.damage_bonus(game)
 	if game.equipped_weapon == "forest_sword": damage += 1
 	elif game.equipped_weapon == "crystal_sword": damage += 2
@@ -191,7 +197,8 @@ static func apply_damage(game: Node, index: int, damage: int, attacker_name: Str
 
 ## Применяет входящий урон с учётом экипировки, напарников и спасения после поражения.
 static func damage_player(game: Node, raw_damage: int, source_name: String) -> int:
-	var incoming := maxi(1, game.InventorySystem.incoming_damage(game, raw_damage) - game.CompanionSystem.defense_bonus(game))
+	var potion_defense := 4 if game.defense_timer > 0.0 else 0
+	var incoming := maxi(1, game.InventorySystem.incoming_damage(game, raw_damage) - game.CompanionSystem.defense_bonus(game) - potion_defense)
 	game.player_hp -= incoming
 	game.message = "%s: -%d HP" % [source_name, incoming]
 	if game.player_hp <= 0:

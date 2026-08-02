@@ -39,8 +39,8 @@ func test_four_pirate_enemy_types_have_unique_loot() -> void:
 		expect(game.LocaleSystem.ENTITIES.has(kind), "pirate enemy has six-language name: %s" % kind)
 	expect(game.CombatSystem.TYPES.pirate.loot.has("pirate_doubloon") and game.CombatSystem.TYPES.sea_ghost.loot.has("ectoplasm"), "corsairs and ghosts use distinct loot tables")
 	expect(FileAccess.get_file_as_string("res://scripts/systems/animation_renderer.gd").contains("func draw_pirate_enemy"), "pirate ranks have a dedicated animated renderer")
-	var item_renderer := FileAccess.get_file_as_string("res://scripts/game_renderer.gd")
-	expect(item_renderer.contains("cursed_compass") and item_renderer.contains("pirate_cutlass"), "pirate quest items have dedicated inventory icons")
+	for item_kind in ["pirate_doubloon", "ectoplasm", "cursed_compass", "pirate_cutlass"]:
+		expect(game.VisualAssetSystem.PIRATE_ITEM_CELLS.has(item_kind), "pirate quest item has dedicated atlas icon: %s" % item_kind)
 	game.free()
 
 

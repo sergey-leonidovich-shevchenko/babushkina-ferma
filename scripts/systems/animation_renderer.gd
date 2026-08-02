@@ -36,7 +36,8 @@ static func draw_player(game: Node2D) -> void:
 	var cell_size := Vector2(game.HERO_PROGRESSION_ATLAS.get_width() / 4.0, game.HERO_PROGRESSION_ATLAS.get_height() / 4.0)
 	var skin_stage: int = game.SkillSystem.hero_skin_stage(game.player_level)
 	var source := Rect2(Vector2(skin_stage, row) * cell_size, cell_size)
-	game.draw_living_atlas_sprite(game.HERO_PROGRESSION_ATLAS, source, position + attack_offset, Vector2(82, 82), game.walk_animation_time, moving, 0.0)
+	var hero_modulate := Color(0.72, 0.82, 1.0, 0.38) if game.invisibility_timer > 0.0 else Color.WHITE
+	game.draw_living_atlas_sprite(game.HERO_PROGRESSION_ATLAS, source, position + attack_offset, Vector2(82, 82), game.walk_animation_time, moving, 0.0, false, hero_modulate)
 	if game.equipped_weapon == "crystal_sword" and attacking:
 		game.draw_line(position + game.facing * 10.0, position + game.facing * 39.0, Color("b9f7ff"), 6.0)
 		game.draw_circle(position + game.facing * 34.0, 8.0, Color(0.30, 0.95, 1.0, 0.28))
@@ -83,30 +84,4 @@ static func draw_enemy(game: Node2D, enemy: Dictionary) -> void:
 
 ## Рисует живых и мёртвых пиратов процедурно с дыханием, шагом, рангом и реакцией на удар.
 static func draw_pirate_enemy(game: Node2D, enemy: Dictionary, state: String) -> void:
-	var kind: String = enemy.kind
-	var motion: Dictionary = game.PresentationSystem.living_motion(float(enemy.get("visual_time", 0.0)), bool(enemy.get("moving", false)), float(enemy.level))
-	var position: Vector2 = enemy.position + motion.offset
-	var alpha := clampf(1.4 - float(enemy.get("visual_time", 0.0)), 0.0, 1.0) if state == "death" else 1.0
-	var hurt := 0.45 if state == "hurt" else 0.0
-	var skin := Color("79a56d") if kind == "zombie_pirate" else Color("ddb08a")
-	var coat := Color("315777") if kind == "pirate" else (Color("66523f") if kind == "zombie_pirate" else Color("456d79"))
-	if kind == "drowned_captain": skin = Color("779b91"); coat = Color("6e2636")
-	if kind == "sea_ghost":
-		var ghost_color := Color(0.48 + hurt, 0.9, 0.92, 0.62 * alpha)
-		game.draw_circle(position - Vector2(0, 14), 25, ghost_color)
-		game.draw_colored_polygon(PackedVector2Array([position+Vector2(-25,-8),position+Vector2(25,-8),position+Vector2(18,35),position+Vector2(7,25),position+Vector2(-4,36),position+Vector2(-16,25)]), ghost_color)
-		game.draw_circle(position + Vector2(-9,-18), 4, Color(0.06,0.18,0.24,alpha)); game.draw_circle(position + Vector2(9,-18), 4, Color(0.06,0.18,0.24,alpha))
-		game.draw_arc(position, 34 + sin(float(enemy.visual_time) * 5.0) * 3.0, 0, TAU, 24, Color(0.55,0.98,1.0,0.24 * alpha), 3)
-		return
-	var shadow := PackedVector2Array()
-	for point_index in 16:
-		var angle := TAU * point_index / 16.0
-		shadow.append(position + Vector2(cos(angle) * 25.0, 34.0 + sin(angle) * 8.0))
-	game.draw_colored_polygon(shadow, Color(0.05,0.09,0.11,0.32 * alpha))
-	game.draw_rect(Rect2(position + Vector2(-21,-2),Vector2(42,45)), coat.lightened(hurt), true)
-	game.draw_circle(position - Vector2(0,20), 22, skin.lightened(hurt))
-	game.draw_circle(position + Vector2(-8,-23), 3, Color("1b2328")); game.draw_circle(position + Vector2(8,-23), 3, Color("1b2328"))
-	game.draw_line(position + Vector2(-18,-44),position + Vector2(18,-44),Color("241b20",alpha),12)
-	game.draw_colored_polygon(PackedVector2Array([position+Vector2(-29,-43),position+Vector2(0,-67),position+Vector2(29,-43)]), Color("2c2027",alpha))
-	game.draw_circle(position + Vector2(0,-50), 7, Color("ece5cf",alpha)); game.draw_line(position+Vector2(-6,-56),position+Vector2(6,-44),Color("2c2027",alpha),3); game.draw_line(position+Vector2(6,-56),position+Vector2(-6,-44),Color("2c2027",alpha),3)
-	if kind == "drowned_captain": game.draw_arc(position - Vector2(0,4), 35, -2.4, -0.7, 12, Color("e5bf54",alpha), 6)
+	game.VisualAssetSystem.draw_pirate_enemy(game, enemy, state)

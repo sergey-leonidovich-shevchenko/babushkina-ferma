@@ -33,6 +33,8 @@ static func is_walkable(game: Node, position: Vector2) -> bool:
 	for building_id in game.BuildingSystem.buildings_at(game.current_location):
 		if circle_intersects_rect(position, game.PLAYER_RADIUS, game.BuildingSystem.collision_rect(building_id)):
 			return false
+	if game.VisualAssetSystem.blocks_biome_position(game.current_location, position, game.PLAYER_RADIUS):
+		return false
 	if game.current_location in ["cave", "cursed"]:
 		for decoration in game.CAVE_DECORATIONS:
 			if position.distance_to(decoration) < game.PLAYER_RADIUS + 38.0:
@@ -106,6 +108,8 @@ static func enemy_position_walkable(game: Node, position: Vector2, enemy_index: 
 	for building_id in game.BuildingSystem.buildings_at(game.current_location):
 		if circle_intersects_rect(position, RADIUS, game.BuildingSystem.collision_rect(building_id)):
 			return false
+	if game.VisualAssetSystem.blocks_biome_position(game.current_location, position, RADIUS):
+		return false
 	if game.current_location == "overworld":
 		if position.y + RADIUS > 860.0 and not game.BRIDGE_RECT.grow(-18.0).has_point(position):
 			return false

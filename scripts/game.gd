@@ -759,43 +759,7 @@ func consume_selected_item() -> bool:
 
 ## Выполняет заявленное игровое действие после проверки условий, затрат и наград.
 func consume_item(kind: String) -> bool:
-	if kind not in ["carrot", "apple", "berries", "nut", "mushroom", "orange", "watermelon", "healing_potion"]:
-		message = LocaleSystem.text("cannot_use")
-		return false
-	if not change_inventory_count(kind, -1):
-		message = "Еда закончилась"
-		return false
-	match kind:
-		"carrot":
-			heal_player(15)
-			message = "Морковь: +15 здоровья"
-		"apple":
-			heal_player(30)
-			message = "Яблоко: +30 здоровья"
-		"berries":
-			regeneration_timer = 8.0
-			regeneration_tick_timer = 0.0
-			message = "Ягоды: регенерация +5 HP/с на 8 секунд"
-		"nut":
-			strength_timer = 12.0
-			message = "Орех: +1 к силе на 12 секунд"
-		"mushroom":
-			speed_timer = 10.0
-			message = "Гриб: скорость +30% на 10 секунд"
-		"orange":
-			heal_player(20)
-			energy = mini(energy + 2, SkillSystem.max_stamina(self))
-			message = "Апельсин: +20 здоровья и +2 энергии"
-		"watermelon":
-			heal_player(25)
-			energy = mini(energy + 4, SkillSystem.max_stamina(self))
-			message = "Арбуз: +25 здоровья и +4 энергии"
-		"healing_potion":
-			heal_player(60)
-			message = "Лечебное зелье: +60 здоровья"
-			notify_tutorial("potion")
-	notify_tutorial("eat")
-	return true
+	return PotionSystem.consume(self, kind)
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func select_hotbar(index: int) -> bool:
@@ -883,6 +847,7 @@ func attack_slime() -> bool:
 	if not slime_alive or player.distance_to(slime_position) > attack_range:
 		message = LocaleSystem.text("no_enemy")
 		return false
+	PotionSystem.break_invisibility(self)
 	var damage := 1 + (1 if strength_timer > 0.0 else 0) + InventorySystem.damage_bonus(self)
 	if equipped_weapon == "forest_sword": damage = 2
 	elif equipped_weapon == "crystal_sword": damage = 3
@@ -928,7 +893,7 @@ func attack_nearest_enemy() -> bool:
 func update_combat(delta: float) -> void:
 	CombatSystem.update(self, delta)
 	EnvironmentHazardSystem.update(self, delta)
-	if not slime_alive or player.distance_to(slime_position) > 72.0:
+	if not slime_alive or invisibility_timer > 0.0 or player.distance_to(slime_position) > 72.0:
 		slime_attack_timer = 0.0
 		return
 	slime_attack_timer += delta
@@ -1081,6 +1046,7 @@ func grant_tester_kit() -> void:
 	oranges = maxi(oranges, 3)
 	materials.watermelon = maxi(materials.watermelon, 3)
 	materials.healing_potion = maxi(materials.healing_potion, 2)
+	for potion in PotionSystem.POTIONS: materials[potion] = maxi(materials[potion], 2)
 	materials.oak_shield = maxi(materials.oak_shield, 1)
 	materials.lizard_scale = maxi(materials.lizard_scale, 2)
 	materials.arrows = maxi(materials.arrows, 30)

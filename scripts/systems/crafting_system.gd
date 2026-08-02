@@ -10,6 +10,13 @@ const RECIPES := [
 	{"name":"Дубовый щит", "inputs":{"wood":4,"metal":2}, "output":"oak_shield", "count":1},
 	{"name":"Домашний сундук", "inputs":{"wood":10,"metal":3}, "output":"home_chest", "count":1},
 	{"name":"Стрелы", "inputs":{"wood":2,"metal":1}, "output":"arrows", "count":10},
+	{"name":"Зелье маны", "inputs":{"crystal":1,"berries":1}, "output":"mana_potion", "count":1},
+	{"name":"Зелье энергии", "inputs":{"nut":2,"orange":1}, "output":"energy_potion", "count":1},
+	{"name":"Зелье невидимости", "inputs":{"ectoplasm":1,"mushroom":2}, "output":"invisibility_potion", "count":1},
+	{"name":"Зелье силы", "inputs":{"raw_meat":1,"nut":2}, "output":"strength_potion", "count":1},
+	{"name":"Зелье регенерации", "inputs":{"berries":3,"mushroom":2}, "output":"regeneration_potion", "count":1},
+	{"name":"Зелье скорости", "inputs":{"lizard_scale":1,"mushroom":1}, "output":"speed_potion", "count":1},
+	{"name":"Зелье защиты", "inputs":{"stone":2,"metal":1}, "output":"defense_potion", "count":1},
 ]
 
 ## Проверяет условие «возможности крафта» без изменения состояния.

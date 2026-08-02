@@ -90,6 +90,7 @@ static func attack(game: Node, index: int) -> bool:
 	var attack_range := 280.0 if game.equipped_weapon == "bow" else 105.0
 	if animal.position.distance_to(game.player) > attack_range:
 		return false
+	game.PotionSystem.break_invisibility(game)
 	var damage: int = 1 + (1 if game.strength_timer > 0.0 else 0) + game.InventorySystem.damage_bonus(game)
 	if game.equipped_weapon == "forest_sword": damage += 1
 	elif game.equipped_weapon == "crystal_sword": damage += 2

@@ -56,6 +56,7 @@ const ContentRegistry := preload("res://scripts/systems/content_registry.gd")
 const BuildingSystem := preload("res://scripts/systems/building_system.gd")
 const CompanionSystem := preload("res://scripts/systems/companion_system.gd")
 const EnvironmentHazardSystem := preload("res://scripts/systems/environment_hazard_system.gd")
+const VisualAssetSystem := preload("res://scripts/systems/visual_asset_system.gd"); const PotionSystem := preload("res://scripts/systems/potion_system.gd"); const AnimationAssetRegistry := preload("res://scripts/systems/animation_asset_registry.gd")
 const StorageSystem := preload("res://scripts/systems/storage_system.gd")
 const ForgeSystem := preload("res://scripts/systems/forge_system.gd")
 const ContractSystem := preload("res://scripts/systems/contract_system.gd")
@@ -68,7 +69,6 @@ const ITEM_ARMOR := preload("res://assets/game/items/guardian_armor.png")
 const ITEM_BOOTS := preload("res://assets/game/items/travel_boots.png")
 const ITEM_DIAMOND := preload("res://assets/game/items/crystal_ring.png")
 const ITEM_ORANGE := preload("res://assets/game/items/orange.png")
-const ITEM_HEALING_POTION := preload("res://assets/game/items/healing_potion.png")
 const ITEM_OAK_SHIELD := preload("res://assets/game/items/oak_shield.png")
 const ITEM_WATERMELON := preload("res://assets/game/items/watermelon.png")
 const ITEM_WATERMELON_SLICE := preload("res://assets/game/items/watermelon_slice.png")
@@ -272,9 +272,7 @@ var player_max_mana: int:
 	set(value): state.player.max_mana = value
 var mana_regen_progress := 0.0
 var stamina_regen_progress := 0.0
-var strength_timer := 0.0
-var regeneration_timer := 0.0
-var speed_timer := 0.0
+var strength_timer := 0.0; var regeneration_timer := 0.0; var speed_timer := 0.0; var invisibility_timer := 0.0; var defense_timer := 0.0
 var regeneration_tick_timer := 0.0
 var slime_position := Vector2(1880, 510)
 var slime_hp := 3

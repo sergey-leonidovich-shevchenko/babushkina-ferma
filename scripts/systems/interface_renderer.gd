@@ -115,6 +115,8 @@ static func draw_hud(game: Node) -> void:
 	if game.regeneration_timer > 0.0: effects.append("❤ %.0fs" % game.regeneration_timer)
 	if game.strength_timer > 0.0: effects.append("⚔ %.0fs" % game.strength_timer)
 	if game.speed_timer > 0.0: effects.append("➜ %.0fs" % game.speed_timer)
+	if game.invisibility_timer > 0.0: effects.append("◉ %.0fs" % game.invisibility_timer)
+	if game.defense_timer > 0.0: effects.append("◆ %.0fs" % game.defense_timer)
 	panel(game, LOCATION_BADGE, Color("203b35"))
 	game.draw_string(game.UI_FONT, LOCATION_BADGE.position + Vector2(12, 23), location_icon(game.current_location), HORIZONTAL_ALIGNMENT_CENTER, 28, 19, Color("efc766"))
 	game.draw_string(game.UI_FONT, LOCATION_BADGE.position + Vector2(43, 22), game.LocaleSystem.ui("location_label", [game.WorldSystem.name(game.current_location)]), HORIZONTAL_ALIGNMENT_CENTER, 334, 15, INK)

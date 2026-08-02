@@ -64,11 +64,4 @@ static func award_xp(game: Node, amount: int, reason: String = "") -> void:
 
 ## Обновляет эффектов на текущем кадре.
 static func update_effects(game: Node, delta: float) -> void:
-	game.strength_timer = maxf(game.strength_timer - delta, 0.0)
-	game.speed_timer = maxf(game.speed_timer - delta, 0.0)
-	if game.regeneration_timer <= 0.0: return
-	game.regeneration_timer = maxf(game.regeneration_timer - delta, 0.0)
-	game.regeneration_tick_timer += delta
-	while game.regeneration_tick_timer >= 1.0:
-		game.regeneration_tick_timer -= 1.0
-		heal(game, 5)
+	game.PotionSystem.update_effects(game, delta)

@@ -522,7 +522,6 @@ func item_texture(kind: String) -> Texture2D:
 		"travel_boots": return ITEM_BOOTS
 		"crystal_ring": return ITEM_DIAMOND
 		"orange": return ITEM_ORANGE
-		"healing_potion": return ITEM_HEALING_POTION
 		"oak_shield": return ITEM_OAK_SHIELD
 		"watermelon": return ITEM_WATERMELON_SLICE
 	return null
@@ -530,8 +529,12 @@ func item_texture(kind: String) -> Texture2D:
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_item_icon(kind: String, rect: Rect2) -> void:
 	var texture := item_texture(kind)
-	if texture:
+	if VisualAssetSystem.draw_potion(self, kind, rect):
+		pass
+	elif texture:
 		draw_texture_rect(texture, rect, false)
+	elif VisualAssetSystem.draw_pirate_item(self, kind, rect):
+		pass
 	elif kind == "home_chest":
 		draw_rect(rect.grow(-4), Color("9b6231"))
 		draw_line(rect.position + Vector2(5, rect.size.y * 0.42), rect.position + Vector2(rect.size.x - 5, rect.size.y * 0.42), Color("e0ad52"), 3)
@@ -545,14 +548,6 @@ func draw_item_icon(kind: String, rect: Rect2) -> void:
 		draw_circle(center, minf(rect.size.x, rect.size.y) * 0.34, Color("e5b94f"))
 		draw_circle(center, minf(rect.size.x, rect.size.y) * 0.25, Color("684839"))
 		draw_colored_polygon(PackedVector2Array([center + Vector2(-7, -2), center + Vector2(0, -9), center + Vector2(7, -2), center + Vector2(4, 8), center + Vector2(-4, 8)]), Color("ffe28a"))
-	elif kind == "pirate_doubloon":
-		draw_circle(rect.get_center(), minf(rect.size.x, rect.size.y) * 0.34, Color("e7bd4d")); draw_circle(rect.get_center(), minf(rect.size.x, rect.size.y) * 0.22, Color("7d5729"), false, 3)
-	elif kind == "ectoplasm":
-		draw_circle(rect.get_center() + Vector2(0,3), minf(rect.size.x, rect.size.y) * 0.28, Color(0.44,0.88,0.84,0.72)); draw_circle(rect.get_center() - Vector2(8,8), 4, Color("c8fff3"))
-	elif kind == "cursed_compass":
-		var compass_center := rect.get_center(); draw_circle(compass_center, minf(rect.size.x, rect.size.y) * 0.34, Color("b98b52")); draw_circle(compass_center, minf(rect.size.x, rect.size.y) * 0.25, Color("272d35")); draw_line(compass_center + Vector2(-7,9), compass_center + Vector2(7,-9), Color("db5b62"), 4)
-	elif kind == "pirate_cutlass":
-		var blade_center := rect.get_center(); draw_line(blade_center + Vector2(-10,12),blade_center + Vector2(12,-13),Color("e3ece8"),6); draw_arc(blade_center + Vector2(3,-3),18,-1.1,0.8,10,Color("d7e1df"),4); draw_line(blade_center + Vector2(-13,9),blade_center + Vector2(-5,17),Color("ad7a42"),5)
 	else:
 		draw_circle(rect.get_center(), minf(rect.size.x, rect.size.y) * 0.34, inventory_item_color(kind))
 
@@ -664,9 +659,10 @@ func draw_crafting_window() -> void:
 	draw_rect(Rect2(190, 90, 772, 470), Color("e8cf96"))
 	draw_rect(Rect2(190, 90, 772, 64), Color("744b32"))
 	draw_string(UI_FONT, Vector2(326, 132), LocaleSystem.ui("workbench"), HORIZONTAL_ALIGNMENT_CENTER, 500, 28, Color("fff1c4"))
-	for index in CraftingSystem.RECIPES.size():
+	var first_recipe := clampi(crafting_selected - 4, 0, maxi(0, CraftingSystem.RECIPES.size() - 9))
+	for index in range(first_recipe, mini(first_recipe + 9, CraftingSystem.RECIPES.size())):
 		var recipe: Dictionary = CraftingSystem.RECIPES[index]
-		var row := Rect2(220, 164 + index * 43, 712, 38)
+		var row := Rect2(220, 164 + (index - first_recipe) * 43, 712, 38)
 		draw_rect(row, Color("f2c96f") if index == crafting_selected else Color("fff0bd"))
 		draw_string(UI_FONT, row.position + Vector2(18, 25), inventory_item_name(recipe.output), HORIZONTAL_ALIGNMENT_LEFT, 230, 15, Color("493b2f"))
 		draw_string(UI_FONT, row.position + Vector2(250, 25), CraftingSystem.ingredients_text(self, recipe), HORIZONTAL_ALIGNMENT_LEFT, 440, 12, Color("49704d") if CraftingSystem.can_craft(self, recipe) else Color("a64d45"))

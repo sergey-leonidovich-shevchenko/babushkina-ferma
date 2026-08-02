@@ -152,7 +152,7 @@ func test_forage_atlas_cells_are_isolated_and_bottom_anchored() -> void:
 ## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_new_pixel_items_watermelon_shield_potion_and_lizard() -> void:
 	var game := make_game()
-	expect(game.ITEM_HEALING_POTION.get_size() == Vector2(64, 64) and game.ITEM_OAK_SHIELD.get_size() == Vector2(64, 64), "potion and shield are compact imported game textures")
+	expect(game.VisualAssetSystem.POTION_ATLAS.get_size() == Vector2(1254, 1254) and game.ITEM_OAK_SHIELD.get_size() == Vector2(64, 64), "potion atlas and shield are imported game textures")
 	expect(game.ITEM_WATERMELON.get_size() == Vector2(64, 64) and game.ITEM_WATERMELON_SLICE.get_size() == Vector2(64, 64), "whole and sliced watermelon sprites are available")
 	expect(game.FANTASY_WILDLIFE_ATLAS.get_size() == Vector2(2172, 724), "redrawn meadow lizard shares the coherent transparent wildlife atlas")
 	expect(not FileAccess.file_exists("res://assets/game/wildlife/foxpool-yoshi-5994957.png"), "trademarked Yoshi download is not distributed with the game")

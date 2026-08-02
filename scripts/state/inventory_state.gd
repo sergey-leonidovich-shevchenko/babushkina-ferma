@@ -1,6 +1,6 @@
 extends RefCounted
 
-const DEFAULT_SLOTS := ["seeds", "carrot", "pickaxe", "fishing_rod", "slime", "wood", "stone", "crystal", "fish", "sword", "bow", "crystal_sword", "apple", "berries", "nut", "mushroom", "iron_helmet", "guardian_armor", "travel_boots", "crystal_ring", "orange", "orc_blade", "red_crystal", "green_crystal", "raw_meat", "hide", "fur", "tusk", "bat_wing", "watermelon", "healing_potion", "oak_shield", "lizard_scale", "arrows", "home_chest", "guild_badge", "axe", "pirate_doubloon", "ectoplasm", "cursed_compass", "pirate_cutlass"]
+const DEFAULT_SLOTS := ["seeds", "carrot", "pickaxe", "fishing_rod", "slime", "wood", "stone", "crystal", "fish", "sword", "bow", "crystal_sword", "apple", "berries", "nut", "mushroom", "iron_helmet", "guardian_armor", "travel_boots", "crystal_ring", "orange", "orc_blade", "red_crystal", "green_crystal", "raw_meat", "hide", "fur", "tusk", "bat_wing", "watermelon", "healing_potion", "mana_potion", "energy_potion", "invisibility_potion", "strength_potion", "regeneration_potion", "speed_potion", "defense_potion", "oak_shield", "lizard_scale", "arrows", "home_chest", "guild_badge", "axe", "pirate_doubloon", "ectoplasm", "cursed_compass", "pirate_cutlass"]
 const DEFAULT_HOTBAR := ["hoe", "seeds", "water", "hand", "pickaxe", "fishing_rod", "axe", "apple", "berries", "mushroom"]
 const DEFAULT_EQUIPMENT := {"head": "", "body": "", "legs": "", "hands": "", "offhand": "", "ring": ""}
 const INITIAL_COUNTS := {
@@ -12,6 +12,8 @@ const INITIAL_COUNTS := {
 	"red_crystal": 0, "green_crystal": 0, "orc_blade": 0, "moon_relic": 0,
 	"raw_meat": 0, "hide": 0, "fur": 0, "tusk": 0, "bat_wing": 0,
 	"lizard_scale": 0, "watermelon": 0, "healing_potion": 0, "oak_shield": 0,
+	"mana_potion":0, "energy_potion":0, "invisibility_potion":0, "strength_potion":0,
+	"regeneration_potion":0, "speed_potion":0, "defense_potion":0,
 	"arrows": 0, "home_chest": 0, "guild_badge": 0, "axe": 1,
 	"pirate_doubloon": 0, "ectoplasm": 0, "cursed_compass": 0, "pirate_cutlass": 0,
 }
