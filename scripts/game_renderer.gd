@@ -629,7 +629,9 @@ func draw_quest_log() -> void:
 		draw_string(UI_FONT, Vector2(730, row_y + 25), state_name, HORIZONTAL_ALIGNMENT_RIGHT, 225, 13, Color("50704e"))
 		draw_string(UI_FONT, Vector2(190, row_y + 50), mission.description, HORIZONTAL_ALIGNMENT_LEFT, 745, 13, Color("493b2f"))
 		draw_string(UI_FONT, Vector2(190, row_y + 76), LocaleSystem.ui("objective", [QuestSystem.objective_text(self, mission_id)]), HORIZONTAL_ALIGNMENT_LEFT, 520, 13, Color("6b5038"))
-		draw_string(UI_FONT, Vector2(190, row_y + 99), LocaleSystem.ui("reward", [mission.coins, mission.xp, inventory_item_name(mission.reward_item), mission.reward_count]), HORIZONTAL_ALIGNMENT_LEFT, 720, 12, Color("49704d"))
+		var reward_text: String = LocaleSystem.ui("reward", [mission.coins, mission.xp, inventory_item_name(mission.reward_item), mission.reward_count])
+		if int(mission.get("skill_points", 0)) > 0: reward_text += " • %s" % LocaleSystem.ui("reward_skill_points", [mission.skill_points])
+		draw_string(UI_FONT, Vector2(190, row_y + 99), reward_text, HORIZONTAL_ALIGNMENT_LEFT, 720, 12, Color("49704d"))
 		row_y += 126.0
 	draw_rect(InterfaceRenderer.QUEST_PREV, Color("795d3e")); draw_rect(InterfaceRenderer.QUEST_NEXT, Color("795d3e"))
 	draw_string(UI_FONT, Vector2(180, 550), "←", HORIZONTAL_ALIGNMENT_CENTER, 34, 20, Color("fff0bd")); draw_string(UI_FONT, Vector2(632, 550), "→", HORIZONTAL_ALIGNMENT_CENTER, 34, 20, Color("fff0bd"))

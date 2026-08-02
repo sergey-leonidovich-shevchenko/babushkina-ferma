@@ -24,6 +24,9 @@ const MISSIONS := {
 	"story_orc_blade": {"type":"СЮЖЕТ","title":"Клеймо налётчиков","giver":"Капитан Радомир","description":"Добудь клинок орка, чтобы узнать знак разрушителей печати.","item":"orc_blade","count":1,"coins":110,"xp":65,"reward_item":"metal","reward_count":4,"requires":"story_ancient_key"},
 	"story_cursed_gem": {"type":"СЮЖЕТ","title":"Синий огонь","giver":"Ведунья Лада","description":"Принеси два синих алмаза из проклятой земли для обряда очищения.","item":"blue_gem","count":2,"coins":140,"xp":80,"reward_item":"healing_potion","reward_count":2,"requires":"story_orc_blade"},
 	"story_moon_seal": {"type":"СЮЖЕТ","title":"Печать Лунной долины","giver":"Староста Мирон","description":"Собери три кристалла и восстанови защитную печать долины.","item":"crystal","count":3,"coins":300,"xp":150,"reward_item":"crystal_ring","reward_count":1,"requires":"story_cursed_gem"},
+	"story_eclipse_heart": {"type":"СЮЖЕТ","title":"Сердце затмения","giver":"Ведунья Лада","description":"Покажи Ладе Сердце затмения, не отдавая уникальную реликвию.","item":"eclipse_core","count":1,"coins":180,"xp":110,"reward_item":"mana_potion","reward_count":2,"requires":"story_moon_seal","condition":"moon_glade_clear","keep_item":true},
+	"story_dead_tide": {"type":"СЮЖЕТ","title":"Мёртвый прилив","giver":"Штурман Елена","description":"Собери три сгустка эктоплазмы на «Чёрной сельди» и выясни, что тревожит море.","item":"ectoplasm","count":3,"coins":220,"xp":130,"reward_item":"defense_potion","reward_count":2,"requires":"story_eclipse_heart"},
+	"story_first_dawn": {"type":"СЮЖЕТ","title":"Первый рассвет","giver":"Стеклодув Тихон","description":"Принеси четыре зелёных кристалла для рассветного стекла, способного закрыть разлом.","item":"green_crystal","count":4,"coins":400,"xp":220,"reward_item":"crystal_sword","reward_count":1,"skill_points":1,"requires":"story_dead_tide"},
 	"side_seed": {
 		"type": "ПОБОЧНОЕ",
 		"title": "Редкий росток",
@@ -57,9 +60,9 @@ const NPCS := {
 	"zlata":{"location":"rocky","position":Vector2(410,520),"sprite":2,"tint":Color("ffe0b5"),"missions":["side_miner"]},
 	"elizar":{"location":"ruins","position":Vector2(350,440),"sprite":0,"tint":Color("e6ddff"),"missions":["story_ancient_key","side_bones"]},
 	"radomir":{"location":"ruins","position":Vector2(650,440),"sprite":1,"tint":Color("e4e8ef"),"missions":["story_orc_blade"]},
-	"lada":{"location":"cursed","position":Vector2(410,500),"sprite":2,"tint":Color("eacfff"),"missions":["story_cursed_gem","side_wings"]},
-	"tikhon":{"location":"glassworks","position":Vector2(480,500),"sprite":0,"tint":Color("cceeff"),"missions":["side_glass"]},
-	"elena":{"location":"pirate_ship","position":Vector2(360,520),"sprite":2,"tint":Color("f2c6a0"),"missions":["side_pirate_compass"]},
+	"lada":{"location":"cursed","position":Vector2(410,500),"sprite":2,"tint":Color("eacfff"),"missions":["story_cursed_gem","story_eclipse_heart","side_wings"]},
+	"tikhon":{"location":"glassworks","position":Vector2(480,500),"sprite":0,"tint":Color("cceeff"),"missions":["story_first_dawn","side_glass"]},
+	"elena":{"location":"pirate_ship","position":Vector2(360,520),"sprite":2,"tint":Color("f2c6a0"),"missions":["story_dead_tide","side_pirate_compass"]},
 }
 
 ## Создаёт полный набор начальных состояний, включая контент новых версий игры.
@@ -78,8 +81,11 @@ static func merge_states(saved: Dictionary) -> Dictionary:
 ## Возвращает фактическое состояние с учётом завершения предыдущей главы.
 static func mission_state(game: Node, mission_id: String) -> String:
 	var stored: String = game.mission_states.get(mission_id, AVAILABLE)
-	var requirement: String = MISSIONS.get(mission_id, {}).get("requires", "")
+	var mission: Dictionary = MISSIONS.get(mission_id, {})
+	var requirement: String = mission.get("requires", "")
 	if stored == AVAILABLE and not requirement.is_empty() and game.mission_states.get(requirement, AVAILABLE) != COMPLETED:
+		return LOCKED
+	if stored == AVAILABLE and mission.get("condition", "") == "moon_glade_clear" and int(game.state.world.moon_glade.get("completed_runs", 0)) < 1:
 		return LOCKED
 	return stored
 
@@ -177,18 +183,21 @@ static func talk(game: Node, mission_id: String) -> bool:
 		game.notify_tutorial("mission_accept")
 		game.notify_tutorial("story_chain" if mission.type == LocaleSystem.quest("story_relic", "type") else "side_quests")
 		if mission_id == "side_pirate_compass": game.notify_tutorial("pirate_quest")
+		if mission_id == "story_eclipse_heart": game.notify_tutorial("story_after_eclipse")
 		return true
 	if state == ACTIVE:
 		var current: int = game.inventory_item_count(mission.item)
 		if current < mission.count:
 			game.message = game.LocaleSystem.text("mission_wait", [mission.giver, game.inventory_item_name(mission.item), current, mission.count])
 			return true
-		game.change_inventory_count(mission.item, -mission.count)
+		if not mission.get("keep_item", false): game.change_inventory_count(mission.item, -mission.count)
 		game.change_inventory_count(mission.reward_item, mission.reward_count)
 		game.coins += mission.coins
 		game.award_xp(mission.xp)
+		game.skill_points += int(mission.get("skill_points", 0))
 		game.mission_states[mission_id] = COMPLETED
 		game.message = game.LocaleSystem.text("mission_done", [mission.title, mission.coins, mission.xp, game.inventory_item_name(mission.reward_item)])
+		if int(mission.get("skill_points", 0)) > 0: game.message += " • %s" % game.LocaleSystem.ui("reward_skill_points", [mission.skill_points])
 		game.play_sfx("quest_complete")
 		game.notify_tutorial("mission_complete")
 		if mission.type == LocaleSystem.quest("side_seed", "type"):

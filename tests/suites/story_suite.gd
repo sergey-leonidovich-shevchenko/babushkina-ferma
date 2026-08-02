@@ -4,6 +4,7 @@ extends "res://tests/suites/suite_base.gd"
 func run() -> void:
 	test_story_and_side_catalog_structure()
 	test_five_chapter_main_story_unlocks_in_order()
+	test_after_eclipse_storyline_unlocks_and_completes()
 	test_all_new_side_quests_can_be_completed()
 	test_every_quest_npc_is_present_and_interactive()
 	test_quest_markers_reflect_progress()
@@ -11,14 +12,14 @@ func run() -> void:
 	test_tracker_stays_compact_with_many_active_quests()
 	test_old_save_receives_new_mission_states()
 
-## Сценарий: контент содержит пять связанных глав, десять побочных историй и двенадцать жителей.
+## Сценарий: контент содержит восемь связанных глав, десять побочных историй и двенадцать жителей.
 ## Исходное состояние: неизменённые декларативные каталоги сюжетной системы.
 ## Ожидаемый результат: количество, типы, зависимости, предметы и владельцы всех заданий согласованы.
 func test_story_and_side_catalog_structure() -> void:
 	var game := make_game()
 	var story_ids: Array = game.QuestSystem.MISSIONS.keys().filter(func(id): return String(id).begins_with("story_"))
 	var side_ids: Array = game.QuestSystem.MISSIONS.keys().filter(func(id): return String(id).begins_with("side_"))
-	expect(story_ids.size() == 5, "main plot contains five chapters")
+	expect(story_ids.size() == 8, "main plot contains eight chapters")
 	expect(side_ids.size() == 10, "world contains ten dedicated side quests")
 	expect(game.QuestSystem.NPCS.size() == 12, "twelve named quest NPCs populate the world")
 	var visual_signatures := {}
@@ -57,6 +58,36 @@ func test_five_chapter_main_story_unlocks_in_order() -> void:
 		expect(game.mission_states[mission_id] == game.QuestSystem.COMPLETED, "story chapter completes: %s" % mission_id)
 	expect(game.inventory_item_count("crystal_ring") == 1 and game.coins >= 740, "story finale grants the ring and cumulative coin rewards")
 	expect(game.tutorial_events_completed.has("story_chain"), "main story has a dedicated tutorial event")
+	game.free()
+
+## Сценарий: три главы «Рассвета после затмения» связывают поляну, корабль и мастерскую.
+## Исходное состояние: старая сюжетная печать восстановлена; победа на поляне сначала отсутствует, затем регистрируется вместе с уникальным Сердцем.
+## Ожидаемый результат: арка открывается только после обоих условий, сохраняет Сердце и завершается Кристальным мечом с дополнительным очком навыка.
+func test_after_eclipse_storyline_unlocks_and_completes() -> void:
+	var game := make_game()
+	game.mission_states.story_moon_seal = game.QuestSystem.COMPLETED
+	expect(game.QuestSystem.mission_state(game, "story_eclipse_heart") == game.QuestSystem.LOCKED, "new story remains locked before first moon glade victory")
+	game.state.world.moon_glade.completed_runs = 1
+	game.change_inventory_count("eclipse_core", 1)
+	expect(game.QuestSystem.mission_state(game, "story_eclipse_heart") == game.QuestSystem.AVAILABLE, "moon glade victory unlocks the after-eclipse arc")
+	expect(game.QuestSystem.talk(game, "story_eclipse_heart"), "Lada accepts the eclipse heart chapter")
+	expect(game.QuestSystem.talk(game, "story_eclipse_heart"), "Lada studies the unique eclipse heart")
+	expect(game.inventory_item_count("eclipse_core") == 1 and game.tutorial_events_completed.has("story_after_eclipse"), "unique heart stays with hero and opens dedicated guidance")
+	expect(game.QuestSystem.talk(game, "story_dead_tide"), "Elena accepts the dead tide chapter")
+	var active_snapshot: Dictionary = game.SaveSystem.snapshot(game)
+	game.mission_states.story_dead_tide = game.QuestSystem.AVAILABLE
+	expect(game.SaveSystem.apply(game, active_snapshot), "after-eclipse storyline snapshot loads")
+	expect(game.mission_states.story_dead_tide == game.QuestSystem.ACTIVE and game.inventory_item_count("eclipse_core") == 1, "active chapter and unique heart survive save roundtrip")
+	game.change_inventory_count("ectoplasm", 3)
+	expect(game.QuestSystem.talk(game, "story_dead_tide"), "three ectoplasm complete the ship chapter")
+	var points_before: int = game.skill_points
+	var level_before: int = game.player_level
+	expect(game.QuestSystem.talk(game, "story_first_dawn"), "Tikhon accepts the dawn glass finale")
+	game.change_inventory_count("green_crystal", 4)
+	expect(game.QuestSystem.talk(game, "story_first_dawn"), "green crystals seal the final rift")
+	expect(game.mission_states.story_first_dawn == game.QuestSystem.COMPLETED, "after-eclipse storyline reaches its finale")
+	var level_points: int = game.player_level - level_before
+	expect(game.inventory_item_count("crystal_sword") == 1 and game.skill_points == points_before + level_points + 1, "finale grants crystal sword and one bonus point beyond normal level rewards")
 	game.free()
 
 ## Сценарий: каждое новое побочное задание принимается, проверяет свой предмет и выдаёт награду.
@@ -123,14 +154,14 @@ func test_quest_journal_has_keyboard_and_gamepad_pages() -> void:
 	game.free()
 
 ## Сценарий: одновременное принятие множества историй не превращает HUD в длинный список.
-## Исходное состояние: все пятнадцать миссий вручную отмечены активными для стресс-проверки представления.
+## Исходное состояние: все восемнадцать миссий вручную отмечены активными для стресс-проверки представления.
 ## Ожидаемый результат: локализованная сводная строка существует, а визуальный контракт ограничивает трекер тремя целями и итогом.
 func test_tracker_stays_compact_with_many_active_quests() -> void:
 	var game := make_game()
 	for mission_id in game.QuestSystem.MISSIONS: game.mission_states[mission_id] = game.QuestSystem.ACTIVE
 	var lines: Array[String] = game.PresentationSystem.quest_tracker_lines(game)
-	expect(lines.size() == 4 and lines.back().contains("12"), "tracker keeps three objectives and summarizes twelve hidden quests")
-	expect(30.0 + lines.size() * 22.0 <= 120.0, "quest tracker remains compact with fifteen active missions")
+	expect(lines.size() == 4 and lines.back().contains("15"), "tracker keeps three objectives and summarizes fifteen hidden quests")
+	expect(30.0 + lines.size() * 22.0 <= 120.0, "quest tracker remains compact with eighteen active missions")
 	game.free()
 
 ## Сценарий: сохранение старой версии с двумя миссиями получает безопасные состояния нового контента.
