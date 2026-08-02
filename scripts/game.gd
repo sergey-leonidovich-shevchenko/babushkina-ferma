@@ -52,6 +52,8 @@ var move_right_held := false
 var move_up_held := false
 var move_down_held := false
 var walk_animation_time := 0.0
+var benchmark_autoplay := false
+var benchmark_elapsed := 0.0
 
 # RPG-состояние вертикального среза.
 var player_hp := 5
@@ -90,6 +92,11 @@ func _ready() -> void:
 	for y in FARM_SIZE.y:
 		for x in FARM_SIZE.x:
 			plots[Vector2i(x, y)] = {"tilled": false, "planted": false, "watered": false, "growth": 0.0, "stage": 0, "stage_flash": 0.0}
+	benchmark_autoplay = "--autoplay" in OS.get_cmdline_user_args()
+	if benchmark_autoplay:
+		title_screen = false
+		move_right_held = true
+	sync_background_location()
 	queue_redraw()
 
 func _physics_process(delta: float) -> void:
@@ -99,12 +106,30 @@ func _physics_process(delta: float) -> void:
 	update_game_clock(delta)
 	update_crops(delta)
 	update_combat(delta)
+	if benchmark_autoplay:
+		update_benchmark_route(delta)
 	if shop_open or inventory_open:
 		queue_redraw()
 		return
 	update_player_movement(delta)
 	update_camera()
 	queue_redraw()
+
+func update_benchmark_route(delta: float) -> void:
+	benchmark_elapsed += delta
+	if benchmark_elapsed < 4.0:
+		move_right_held = true
+		move_down_held = false
+	elif benchmark_elapsed < 7.0:
+		move_right_held = true
+		move_down_held = true
+	else:
+		move_right_held = false
+		move_down_held = false
+		if current_location == "overworld":
+			current_location = "cave"
+			sync_background_location()
+			player = Vector2(900, 480)
 
 func update_player_movement(delta: float) -> void:
 	var direction := get_movement_direction()
@@ -183,6 +208,14 @@ func update_camera() -> void:
 	# Камера привязана к целым пикселям: pixel-art не дрожит на субпикселях.
 	camera_offset.x = roundf(clampf(player.x - 576.0, 0.0, WORLD_SIZE.x - 1152.0))
 	camera_offset.y = roundf(clampf(player.y - 324.0, 0.0, WORLD_SIZE.y - 648.0))
+	var background := get_node_or_null("WorldBackground")
+	if background:
+		background.position = -camera_offset
+
+func sync_background_location() -> void:
+	var background := get_node_or_null("WorldBackground")
+	if background:
+		background.set_location(current_location)
 
 func apply_immediate_key_response(event: InputEventKey) -> void:
 	if event.echo:
@@ -365,6 +398,7 @@ func perform_context_action() -> bool:
 
 func enter_cave() -> void:
 	current_location = "cave"
+	sync_background_location()
 	player = cave_exit_position + Vector2(90, 0)
 	update_camera()
 	message = "Кристальная пещера"
@@ -372,6 +406,7 @@ func enter_cave() -> void:
 
 func exit_cave() -> void:
 	current_location = "overworld"
+	sync_background_location()
 	player = cave_entrance_position - Vector2(100, 0)
 	update_camera()
 	message = "Ты вернулся в зачарованный лес"
@@ -619,11 +654,8 @@ func _draw() -> void:
 		return
 	draw_set_transform(-camera_offset)
 	if current_location == "overworld":
-		draw_world()
 		draw_farm()
 		draw_rpg_world()
-	else:
-		draw_cave_world()
 	draw_player()
 	draw_interaction_highlight()
 	draw_set_transform(Vector2.ZERO)
@@ -631,9 +663,12 @@ func _draw() -> void:
 
 func draw_world() -> void:
 	draw_rect(Rect2(Vector2.ZERO, WORLD_SIZE), Color("7fad5c"))
-	for y in range(120, int(WORLD_SIZE.y), 24):
-		for x in range(int(y / 24.0) % 2 * 12, int(WORLD_SIZE.x), 24):
-			draw_circle(Vector2(x, y), 1.5, Color("99bd6a"))
+	# Редкие крупные кластеры вместо ~5000 отдельных draw calls каждый кадр.
+	for y in range(150, int(WORLD_SIZE.y), 190):
+		for x in range(70 + (y % 140), int(WORLD_SIZE.x), 210):
+			draw_circle(Vector2(x, y), 3.0, Color("99bd6a"))
+			draw_line(Vector2(x - 6, y + 7), Vector2(x, y - 2), Color("668f4b"), 2)
+			draw_line(Vector2(x + 6, y + 7), Vector2(x, y - 2), Color("668f4b"), 2)
 	# river
 	draw_rect(Rect2(0, 860, WORLD_SIZE.x, 340), Color("4f9fb0"))
 	for x in range(0, int(WORLD_SIZE.x), 70): draw_line(Vector2(x, 900), Vector2(x + 34, 900), Color("83c9c5"), 3)
@@ -776,8 +811,8 @@ func draw_rpg_world() -> void:
 
 func draw_cave_world() -> void:
 	draw_rect(Rect2(Vector2.ZERO, WORLD_SIZE), Color("18232c"))
-	for y in range(80, int(WORLD_SIZE.y), 80):
-		for x in range(40, int(WORLD_SIZE.x), 110):
+	for y in range(100, int(WORLD_SIZE.y), 230):
+		for x in range(80, int(WORLD_SIZE.x), 260):
 			draw_circle(Vector2(x + (y % 160), y), 4, Color("34434b"))
 	draw_circle(cave_exit_position, 54, Color("0e151a"))
 	draw_circle(cave_exit_position, 40, Color("b1e4d5"), false, 5)
