@@ -53,6 +53,12 @@ var move_left_held := false
 var move_right_held := false
 var move_up_held := false
 var move_down_held := false
+var action_held := false
+var action_repeat_timer := 0.0
+const ACTION_REPEAT_INTERVAL := 0.18
+var attack_held := false
+var attack_repeat_timer := 0.0
+const ATTACK_REPEAT_INTERVAL := 0.4
 var walk_animation_time := 0.0
 var benchmark_autoplay := false
 var benchmark_elapsed := 0.0
@@ -135,6 +141,8 @@ func _physics_process(delta: float) -> void:
 		queue_redraw()
 		return
 	update_player_movement(delta)
+	update_held_action(delta)
+	update_held_attack(delta)
 	update_camera()
 	queue_redraw()
 
@@ -218,6 +226,54 @@ func clear_movement_keys() -> void:
 	move_right_held = false
 	move_up_held = false
 	move_down_held = false
+	action_held = false
+	attack_held = false
+
+func set_action_key_state(event: InputEventKey) -> bool:
+	if event.keycode != KEY_E and event.keycode != KEY_SPACE:
+		return false
+	action_held = event.pressed
+	if event.pressed and not event.echo:
+		action_repeat_timer = ACTION_REPEAT_INTERVAL
+	return true
+
+func update_held_action(delta: float) -> void:
+	if not action_held or title_screen or shop_open or inventory_open:
+		return
+	action_repeat_timer -= delta
+	if action_repeat_timer > 0.0:
+		return
+	action_repeat_timer = ACTION_REPEAT_INTERVAL
+	perform_repeatable_action()
+
+func set_attack_key_state(event: InputEventKey) -> bool:
+	if event.keycode != KEY_F:
+		return false
+	attack_held = event.pressed
+	if event.pressed and not event.echo:
+		attack_repeat_timer = ATTACK_REPEAT_INTERVAL
+	return true
+
+func update_held_attack(delta: float) -> void:
+	if not attack_held or title_screen or shop_open or inventory_open:
+		return
+	attack_repeat_timer -= delta
+	if attack_repeat_timer <= 0.0:
+		attack_repeat_timer = ATTACK_REPEAT_INTERVAL
+		attack_slime()
+
+func perform_repeatable_action() -> bool:
+	var interaction := nearest_interaction()
+	# При удержании повторяем только добычу и полевые инструменты.
+	# NPC, магазин, портал и верстак остаются одноразовыми действиями.
+	if interaction.begins_with("resource:"):
+		return mine_resource(int(interaction.get_slice(":", 1)))
+	if interaction.begins_with("drop:"):
+		return collect_dropped_item(int(interaction.get_slice(":", 1)))
+	if current_location == "overworld":
+		use_selected_tool()
+		return true
+	return false
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_APPLICATION_FOCUS_OUT:
@@ -1102,10 +1158,17 @@ func draw_shop() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
+		var is_action_key := set_action_key_state(event)
+		var is_attack_key := set_attack_key_state(event)
 		var is_movement_key := update_movement_key_state(event)
 		if not title_screen and event.pressed and is_movement_key:
 			apply_immediate_key_response(event)
-	if not title_screen and not shop_open and not inventory_open and event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_E:
-		if not perform_context_action() and current_location == "overworld":
-			use_selected_tool()
-		get_viewport().set_input_as_handled()
+		if is_action_key and not title_screen and not shop_open and not inventory_open:
+			if event.pressed and not event.echo:
+				if not perform_context_action() and current_location == "overworld":
+					use_selected_tool()
+			get_viewport().set_input_as_handled()
+		if is_attack_key and not title_screen and not shop_open and not inventory_open:
+			if event.pressed and not event.echo:
+				attack_slime()
+			get_viewport().set_input_as_handled()

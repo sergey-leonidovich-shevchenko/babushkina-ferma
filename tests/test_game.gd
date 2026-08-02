@@ -18,6 +18,7 @@ func _initialize() -> void:
 	test_pickaxe_mines_surface_and_cave_resources()
 	test_fishing_cast_wait_and_catch_cycle()
 	test_bow_reward_and_crystal_sword_upgrade()
+	test_held_action_repeats_tools_without_reopening_ui()
 	print("TESTS: %d passed, %d failed" % [passed, failed])
 	quit(0 if failed == 0 else 1)
 
@@ -204,4 +205,28 @@ func test_bow_reward_and_crystal_sword_upgrade() -> void:
 	game.crystals = 5
 	expect(game.craft_sword(), "five crystals upgrade forest sword")
 	expect(game.has_crystal_sword and game.crystals == 0, "crystal sword is stored in inventory")
+	game.free()
+
+func test_held_action_repeats_tools_without_reopening_ui() -> void:
+	var game := make_game()
+	var press := key_event(KEY_E, KEY_E, true)
+	var release := key_event(KEY_E, KEY_E, false)
+	expect(game.set_action_key_state(press) and game.action_held, "action starts on key-down")
+	game.selected_tool = game.Tool.HOE
+	game.player = Vector2(390, 240)
+	game.facing = Vector2.RIGHT
+	game.action_repeat_timer = 0.0
+	game.update_held_action(0.2)
+	expect(game.plots[Vector2i.ZERO].tilled, "held action tills targeted plot")
+	game.player = Vector2(972, 278)
+	game.perform_repeatable_action()
+	expect(not game.shop_open, "held action does not repeatedly open shop")
+	game.set_action_key_state(release)
+	expect(not game.action_held, "action stops immediately on key-up")
+	var attack_press := key_event(KEY_F, KEY_F, true)
+	var attack_release := key_event(KEY_F, KEY_F, false)
+	game.set_attack_key_state(attack_press)
+	expect(game.attack_held, "attack starts on F key-down")
+	game.set_attack_key_state(attack_release)
+	expect(not game.attack_held, "attack stops on F key-up")
 	game.free()
