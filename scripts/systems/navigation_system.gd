@@ -1,0 +1,53 @@
+extends RefCounted
+
+static func move(game: Node, motion: Vector2) -> void:
+	var step_count := maxi(1, ceili(motion.length() / 8.0))
+	var step := motion / float(step_count)
+	var was_blocked := false
+	for _index in step_count:
+		var horizontal: Vector2 = game.player + Vector2(step.x, 0.0)
+		if is_walkable(game, horizontal):
+			game.player = horizontal
+		elif not is_zero_approx(step.x):
+			was_blocked = true
+		var vertical: Vector2 = game.player + Vector2(0.0, step.y)
+		if is_walkable(game, vertical):
+			game.player = vertical
+		elif not is_zero_approx(step.y):
+			was_blocked = true
+	if was_blocked:
+		game.notify_tutorial("collision")
+
+static func is_walkable(game: Node, position: Vector2) -> bool:
+	if position.x < 40.0 or position.x > game.WORLD_SIZE.x - 40.0 or position.y < 120.0 or position.y > game.WORLD_SIZE.y - 80.0:
+		return false
+	if game.current_location == "cave":
+		for decoration in game.CAVE_DECORATIONS:
+			if position.distance_to(decoration) < game.PLAYER_RADIUS + 38.0:
+				return false
+	else:
+		if position.y + game.PLAYER_RADIUS > 860.0 and not game.BRIDGE_RECT.grow(-18.0).has_point(position):
+			return false
+		var pond_delta: Vector2 = position - game.pond_position
+		if pow(pond_delta.x / (189.0 + game.PLAYER_RADIUS), 2.0) + pow(pond_delta.y / (105.0 + game.PLAYER_RADIUS), 2.0) < 1.0:
+			return false
+		for tree in game.TREE_POSITIONS:
+			if position.distance_to(tree + Vector2(0, 35)) < game.PLAYER_RADIUS + 42.0:
+				return false
+		var solid_rects := [
+			Rect2(54, 130, 190, 150), Rect2(895, 175, 158, 117),
+			Rect2(790, 392, 60, 54), Rect2(game.workbench_position - Vector2(32, 20), Vector2(64, 44))
+		]
+		for rect in solid_rects:
+			if circle_intersects_rect(position, game.PLAYER_RADIUS, rect):
+				return false
+		if game.slime_alive and position.distance_to(game.slime_position) < game.PLAYER_RADIUS + 28.0:
+			return false
+	for node in game.resource_nodes:
+		if node.hits > 0 and node.location == game.current_location and position.distance_to(node.position) < game.PLAYER_RADIUS + 30.0:
+			return false
+	return true
+
+static func circle_intersects_rect(center: Vector2, radius: float, rect: Rect2) -> bool:
+	var closest := Vector2(clampf(center.x, rect.position.x, rect.end.x), clampf(center.y, rect.position.y, rect.end.y))
+	return center.distance_squared_to(closest) < radius * radius

@@ -13,6 +13,8 @@ const RED_MUSHROOMS := preload("res://assets/game/environment/red_mushrooms.png"
 const CAVE_CRYSTAL := preload("res://assets/game/environment/cave_crystal.png")
 const RESOURCE_CRYSTAL := preload("res://assets/game/resources/blue-crystal.png")
 const RESOURCE_ROCK := preload("res://assets/game/resources/rock.png")
+const NavigationSystem := preload("res://scripts/systems/navigation_system.gd")
+const PlayerSystem := preload("res://scripts/systems/player_system.gd")
 const WORLD_SIZE := Vector2(2400, 1200)
 const STAGE_DURATION := 5.0
 const GROWTH_DURATION := 20.0
@@ -203,56 +205,13 @@ func update_player_movement(delta: float) -> void:
 	clamp_player_position()
 
 func move_player_with_collisions(motion: Vector2) -> void:
-	var step_count := maxi(1, ceili(motion.length() / 8.0))
-	var step := motion / float(step_count)
-	var was_blocked := false
-	for _index in step_count:
-		var horizontal := player + Vector2(step.x, 0.0)
-		if is_position_walkable(horizontal):
-			player = horizontal
-		elif not is_zero_approx(step.x):
-			was_blocked = true
-		var vertical := player + Vector2(0.0, step.y)
-		if is_position_walkable(vertical):
-			player = vertical
-		elif not is_zero_approx(step.y):
-			was_blocked = true
-	if was_blocked:
-		notify_tutorial("collision")
+	NavigationSystem.move(self, motion)
 
 func is_position_walkable(position: Vector2) -> bool:
-	if position.x < 40.0 or position.x > WORLD_SIZE.x - 40.0 or position.y < 120.0 or position.y > WORLD_SIZE.y - 80.0:
-		return false
-	if current_location == "cave":
-		for decoration in CAVE_DECORATIONS:
-			if position.distance_to(decoration) < PLAYER_RADIUS + 38.0:
-				return false
-	else:
-		if position.y + PLAYER_RADIUS > 860.0 and not BRIDGE_RECT.grow(-18.0).has_point(position):
-			return false
-		var pond_delta := position - pond_position
-		if pow(pond_delta.x / (189.0 + PLAYER_RADIUS), 2.0) + pow(pond_delta.y / (105.0 + PLAYER_RADIUS), 2.0) < 1.0:
-			return false
-		for tree in TREE_POSITIONS:
-			if position.distance_to(tree + Vector2(0, 35)) < PLAYER_RADIUS + 42.0:
-				return false
-		var solid_rects := [
-			Rect2(54, 130, 190, 150), Rect2(895, 175, 158, 117),
-			Rect2(790, 392, 60, 54), Rect2(workbench_position - Vector2(32, 20), Vector2(64, 44))
-		]
-		for rect in solid_rects:
-			if circle_intersects_rect(position, PLAYER_RADIUS, rect):
-				return false
-		if slime_alive and position.distance_to(slime_position) < PLAYER_RADIUS + 28.0:
-			return false
-	for node in resource_nodes:
-		if node.hits > 0 and node.location == current_location and position.distance_to(node.position) < PLAYER_RADIUS + 30.0:
-			return false
-	return true
+	return NavigationSystem.is_walkable(self, position)
 
 func circle_intersects_rect(center: Vector2, radius: float, rect: Rect2) -> bool:
-	var closest := Vector2(clampf(center.x, rect.position.x, rect.end.x), clampf(center.y, rect.position.y, rect.end.y))
-	return center.distance_squared_to(closest) < radius * radius
+	return NavigationSystem.circle_intersects_rect(center, radius, rect)
 
 func update_game_clock(delta: float) -> void:
 	# Одна реальная секунда равна одной игровой минуте.
@@ -282,34 +241,13 @@ func update_crops(delta: float) -> void:
 		plots[cell] = plot
 
 func get_movement_direction() -> Vector2:
-	var direction := Vector2(
-		float(move_right_held) - float(move_left_held),
-		float(move_down_held) - float(move_up_held)
-	)
-	return direction.normalized()
+	return PlayerSystem.movement_direction(self)
 
 func update_movement_key_state(event: InputEventKey) -> bool:
-	var handled := true
-	var held := event.pressed
-	if event.keycode == KEY_LEFT or event.physical_keycode == KEY_A:
-		move_left_held = held
-	elif event.keycode == KEY_RIGHT or event.physical_keycode == KEY_D:
-		move_right_held = held
-	elif event.keycode == KEY_UP or event.physical_keycode == KEY_W:
-		move_up_held = held
-	elif event.keycode == KEY_DOWN or event.physical_keycode == KEY_S:
-		move_down_held = held
-	else:
-		handled = false
-	return handled
+	return PlayerSystem.update_movement_key(self, event)
 
 func clear_movement_keys() -> void:
-	move_left_held = false
-	move_right_held = false
-	move_up_held = false
-	move_down_held = false
-	action_held = false
-	attack_held = false
+	PlayerSystem.clear_keys(self)
 
 func set_action_key_state(event: InputEventKey) -> bool:
 	if event.keycode != KEY_E and event.keycode != KEY_SPACE:
@@ -845,34 +783,13 @@ func consume_selected_item() -> bool:
 	return true
 
 func heal_player(amount: int) -> int:
-	var previous_hp := player_hp
-	player_hp = mini(player_hp + amount, player_max_hp)
-	return player_hp - previous_hp
+	return PlayerSystem.heal(self, amount)
 
 func award_xp(amount: int, reason: String = "") -> void:
-	player_xp += amount
-	var leveled_up := false
-	while player_xp >= XP_PER_LEVEL:
-		player_xp -= XP_PER_LEVEL
-		player_level += 1
-		player_max_hp += 10
-		player_hp = player_max_hp
-		leveled_up = true
-	if leveled_up:
-		message = "Новый уровень %d! Максимум здоровья +10" % player_level
-	elif not reason.is_empty():
-		message = "%s: +%d опыта" % [reason, amount]
+	PlayerSystem.award_xp(self, amount, reason)
 
 func update_status_effects(delta: float) -> void:
-	strength_timer = maxf(strength_timer - delta, 0.0)
-	speed_timer = maxf(speed_timer - delta, 0.0)
-	if regeneration_timer <= 0.0:
-		return
-	regeneration_timer = maxf(regeneration_timer - delta, 0.0)
-	regeneration_tick_timer += delta
-	while regeneration_tick_timer >= 1.0:
-		regeneration_tick_timer -= 1.0
-		heal_player(5)
+	PlayerSystem.update_effects(self, delta)
 
 func talk_to_grandmother() -> void:
 	notify_tutorial("talk")
