@@ -40,6 +40,7 @@ func _initialize() -> void:
 	test_profession_progress_and_gameplay_bonuses()
 	test_progression_save_and_universal_skill_menu_input()
 	test_regrowing_forage_harvest_value_and_sale()
+	test_forage_atlas_cells_are_isolated_and_bottom_anchored()
 	test_unbounded_scrolling_inventory_and_forage_save()
 	test_gameplay_systems_are_modular()
 	print("TESTS: %d passed, %d failed" % [passed, failed])
@@ -767,6 +768,23 @@ func test_regrowing_forage_harvest_value_and_sale() -> void:
 	game.current_location = "forest"
 	game.player = game.food_nodes[4].position
 	expect(game.collect_food(4), "forest berry bushes are harvestable outside the village")
+	game.free()
+
+func test_forage_atlas_cells_are_isolated_and_bottom_anchored() -> void:
+	var game := make_game()
+	var texture_size: Vector2 = game.PLANT_SHEET.get_size()
+	var occupied_cells: Array[Rect2] = []
+	for kind in ["berries", "apple", "nut"]:
+		var layout: Dictionary = game.forage_sprite_layout(kind, Vector2(500, 400))
+		var source: Rect2 = layout.source
+		var destination: Rect2 = layout.destination
+		expect(source.size == Vector2(72, 72), "%s uses one exact atlas cell without neighbouring tree parts" % kind)
+		expect(source.position.x >= 0.0 and source.position.y >= 0.0 and source.end.x <= texture_size.x and source.end.y <= texture_size.y, "%s atlas cell stays inside the plant texture" % kind)
+		expect(is_equal_approx(destination.get_center().x, 500.0) and is_equal_approx(destination.end.y, 418.0), "%s sprite remains centred and bottom-anchored to its world position" % kind)
+		for occupied in occupied_cells:
+			expect(not source.intersects(occupied), "%s uses an isolated growth-stage cell" % kind)
+		occupied_cells.append(source)
+	expect(game.forage_sprite_layout("mushroom", Vector2.ZERO).is_empty(), "separate mushroom texture does not accidentally sample the plant atlas")
 	game.free()
 
 func test_unbounded_scrolling_inventory_and_forage_save() -> void:

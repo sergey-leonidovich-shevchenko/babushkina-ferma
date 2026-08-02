@@ -53,6 +53,13 @@ const PLAYER_RADIUS := 18.0
 const BRIDGE_RECT := Rect2(1450, 805, 110, 395)
 const TREE_POSITIONS := [Vector2(1210,190), Vector2(1430,250), Vector2(1740,170), Vector2(1990,290), Vector2(2240,180), Vector2(1320,680), Vector2(1880,720), Vector2(2210,650)]
 const CAVE_DECORATIONS := [Vector2(480,250), Vector2(720,600), Vector2(1040,300), Vector2(1380,720), Vector2(1720,280), Vector2(2050,620)]
+const FORAGE_SPRITES := {
+	# The atlas is packed in 72×72 cells here. A larger source region leaks
+	# neighbouring growth stages into the same world sprite.
+	"berries": {"source": Rect2(696, 0, 72, 72), "size": Vector2(88, 88), "anchor": Vector2(44, 70)},
+	"apple": {"source": Rect2(696, 144, 72, 72), "size": Vector2(88, 88), "anchor": Vector2(44, 70)},
+	"nut": {"source": Rect2(696, 288, 72, 72), "size": Vector2(88, 88), "anchor": Vector2(44, 70)},
+}
 
 enum Tool { HOE, SEEDS, WATER, HAND, PICKAXE, ROD }
 
@@ -1368,6 +1375,15 @@ func draw_mission_npc(position: Vector2, npc_name: String, mission_id: String, c
 	draw_circle(position - Vector2(0, 62), 16, Color("f1ca5c") if state != QuestSystem.COMPLETED else Color("70bd78"))
 	draw_string(ThemeDB.fallback_font, position + Vector2(-8, -56), marker, HORIZONTAL_ALIGNMENT_CENTER, 16, 20, Color("3b3225"))
 
+func forage_sprite_layout(kind: String, position: Vector2) -> Dictionary:
+	var sprite: Dictionary = FORAGE_SPRITES.get(kind, {})
+	if sprite.is_empty():
+		return {}
+	return {
+		"source": sprite.source,
+		"destination": Rect2(position - Vector2(sprite.anchor), Vector2(sprite.size)),
+	}
+
 func draw_food_nodes() -> void:
 	for food in food_nodes:
 		if food.get("location", "overworld") != current_location:
@@ -1377,12 +1393,9 @@ func draw_food_nodes() -> void:
 		match food.kind:
 			"mushroom":
 				draw_texture_rect(RED_MUSHROOMS, Rect2(position - Vector2(28, 28), Vector2(56, 56)), false, Color(1, 1, 1, alpha))
-			"berries":
-				draw_texture_rect_region(PLANT_SHEET, Rect2(position - Vector2(44, 70), Vector2(88, 88)), Rect2(288, 0, 96, 96), Color(1, 1, 1, alpha))
-			"apple":
-				draw_texture_rect_region(PLANT_SHEET, Rect2(position - Vector2(44, 70), Vector2(88, 88)), Rect2(288, 144, 96, 96), Color(1, 1, 1, alpha))
-			"nut":
-				draw_texture_rect_region(PLANT_SHEET, Rect2(position - Vector2(44, 70), Vector2(88, 88)), Rect2(288, 288, 96, 96), Color(1, 1, 1, alpha))
+			"berries", "apple", "nut":
+				var layout := forage_sprite_layout(food.kind, position)
+				draw_texture_rect_region(PLANT_SHEET, layout.destination, layout.source, Color(1, 1, 1, alpha))
 		if food.active:
 			draw_circle(position, 30 + sin(Time.get_ticks_msec() / 170.0) * 3, Color(1.0, 0.88, 0.32, 0.24), false, 3)
 		else:
