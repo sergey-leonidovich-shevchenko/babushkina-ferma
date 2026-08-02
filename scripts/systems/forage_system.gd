@@ -9,6 +9,22 @@ const TYPES := {
 	"apple": {"name":"Яблоня","growth_minutes":1440.0,"yield":3,"sell":12,"tree":true},
 	"nut": {"name":"Ореховое дерево","growth_minutes":2880.0,"yield":2,"sell":22,"tree":true},
 }
+const SPAWNS := [
+	{"position": Vector2(1320, 720), "location":"overworld", "kind":"mushroom", "active":true, "ready_at":0.0},
+	{"position": Vector2(1740, 360), "location":"overworld", "kind":"berries", "active":true, "ready_at":0.0},
+	{"position": Vector2(2010, 640), "location":"overworld", "kind":"nut", "active":true, "ready_at":0.0},
+	{"position": Vector2(1110, 330), "location":"overworld", "kind":"apple", "active":true, "ready_at":0.0},
+	{"position": Vector2(620, 690), "location":"forest", "kind":"berries", "active":true, "ready_at":0.0},
+	{"position": Vector2(1420, 350), "location":"forest", "kind":"apple", "active":true, "ready_at":0.0},
+	{"position": Vector2(1880, 680), "location":"forest", "kind":"nut", "active":true, "ready_at":0.0},
+	{"position": Vector2(770, 510), "location":"overworld", "kind":"watermelon", "active":true, "ready_at":0.0},
+	{"position": Vector2(1760, 740), "location":"forest", "kind":"watermelon", "active":true, "ready_at":0.0},
+	{"position": Vector2(980, 720), "location":"forest", "kind":"mushroom", "active":true, "ready_at":0.0},
+]
+
+
+static func default_nodes() -> Array:
+	return SPAWNS.duplicate(true)
 
 static func total_minutes(game: Node) -> float:
 	return float(game.day - 1) * 1440.0 + game.game_minutes

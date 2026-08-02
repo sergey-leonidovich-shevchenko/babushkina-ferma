@@ -1,5 +1,19 @@
 extends RefCounted
 
+const STEP_IDS := [
+	"move", "character_animation", "forage_harvest", "forage_regrow", "forage_sale",
+	"talk", "hold_action", "plant", "water", "rewater", "harvest", "shop", "trade",
+	"quest_complete", "fight", "loot", "inventory", "hotbar", "eat", "equipment", "mine",
+	"fish", "craft_window", "equip", "collision", "travel", "locations", "mission_accept",
+	"mission_complete", "journal", "side_mission", "colored_crystal", "day", "level_up",
+	"skill_point", "profession", "save", "wildlife", "world_loot", "watermelon", "potion",
+	"shield", "lizard",
+]
+
+
+static func steps() -> Array:
+	return STEP_IDS.map(func(event_id: String): return {"event": event_id})
+
 static func notify(game: Node, event_name: String) -> bool:
 	game.tutorial_events_completed[event_name] = true
 	var previous_step: int = game.tutorial_step

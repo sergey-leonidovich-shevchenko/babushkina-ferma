@@ -1,6 +1,8 @@
 extends RefCounted
 
 const SAVE_PATH := "user://farm-save.json"
+const VERSION := 2
+const STATE_SCHEMA := "aggregate-v2"
 
 static func snapshot(game: Node) -> Dictionary:
 	var plot_data := []
@@ -19,10 +21,25 @@ static func snapshot(game: Node) -> Dictionary:
 		containers.append({"id":container.id,"kind":container.kind,"location":container.location,"position":[container.position.x,container.position.y],"opened":container.opened,"contents":container.contents.duplicate(true)})
 	for node in game.food_nodes:
 		forage.append({"active":node.active,"ready_at":node.get("ready_at", 0.0)})
-	return {"version":1,"player":[game.player.x,game.player.y],"location":game.current_location,"day":game.day,"minutes":game.game_minutes,"energy":game.energy,"coins":game.coins,"xp":game.player_xp,"level":game.player_level,"hp":game.player_hp,"progression":{"points":game.skill_points,"levels":game.skill_levels.duplicate(true),"xp":game.skill_xp.duplicate(true),"mana":game.player_mana},"counts":game.export_inventory_counts().duplicate(true),"slots":game.inventory_slots.duplicate(true),"hotbar":game.hotbar_slots.duplicate(true),"equipment":game.equipment.duplicate(true),"quest_active":game.quest_active,"quest_complete":game.quest_complete,"missions":game.mission_states.duplicate(true),"tutorial":{"step":game.tutorial_step,"events":game.tutorial_events_completed.duplicate(true),"seen":game.seen_discoveries.duplicate(true),"animation":game.character_animation_directions.keys()},"weapons":{"sword":game.sword_crafted,"bow":game.has_bow,"crystal":game.has_crystal_sword,"equipped":game.equipped_weapon},"plots":plot_data,"resource_hits":game.resource_nodes.map(func(node): return node.hits),"food_active":game.food_nodes.map(func(node): return node.active),"forage":forage,"enemies":game.enemy_nodes.map(func(enemy): return {"hp":enemy.hp,"alive":enemy.alive}),"wildlife":wildlife,"world_loot_seed":game.world_loot_seed,"containers":containers,"drops":drops}
+	return {"version":VERSION,"state_schema":STATE_SCHEMA,"player":[game.player.x,game.player.y],"location":game.current_location,"day":game.day,"minutes":game.game_minutes,"energy":game.energy,"coins":game.coins,"xp":game.player_xp,"level":game.player_level,"hp":game.player_hp,"progression":{"points":game.skill_points,"levels":game.skill_levels.duplicate(true),"xp":game.skill_xp.duplicate(true),"mana":game.player_mana},"counts":game.export_inventory_counts().duplicate(true),"slots":game.inventory_slots.duplicate(true),"hotbar":game.hotbar_slots.duplicate(true),"equipment":game.equipment.duplicate(true),"quest_active":game.quest_active,"quest_complete":game.quest_complete,"missions":game.mission_states.duplicate(true),"tutorial":{"step":game.tutorial_step,"events":game.tutorial_events_completed.duplicate(true),"seen":game.seen_discoveries.duplicate(true),"animation":game.character_animation_directions.keys()},"weapons":{"sword":game.sword_crafted,"bow":game.has_bow,"crystal":game.has_crystal_sword,"equipped":game.equipped_weapon},"plots":plot_data,"resource_hits":game.resource_nodes.map(func(node): return node.hits),"food_active":game.food_nodes.map(func(node): return node.active),"forage":forage,"enemies":game.enemy_nodes.map(func(enemy): return {"hp":enemy.hp,"alive":enemy.alive}),"wildlife":wildlife,"world_loot_seed":game.world_loot_seed,"containers":containers,"drops":drops}
+
+
+static func migrate(data: Dictionary) -> Dictionary:
+	var migrated := data.duplicate(true)
+	match int(migrated.get("version", 0)):
+		1:
+			migrated.version = VERSION
+			migrated.state_schema = STATE_SCHEMA
+		VERSION:
+			if migrated.get("state_schema", "") != STATE_SCHEMA:
+				return {}
+		_:
+			return {}
+	return migrated
 
 static func apply(game: Node, data: Dictionary) -> bool:
-	if data.get("version", 0) != 1: return false
+	data = migrate(data)
+	if data.is_empty(): return false
 	game.player = Vector2(data.player[0], data.player[1]); game.current_location = data.location
 	game.day = data.day; game.game_minutes = data.minutes; game.energy = data.energy; game.coins = data.coins
 	game.player_xp = data.xp; game.player_level = data.level; game.player_hp = data.hp
@@ -86,15 +103,76 @@ static func apply(game: Node, data: Dictionary) -> bool:
 	for item in data.get("drops", []):
 		game.dropped_items.append({"kind":item.kind,"count":item.count,"position":Vector2(item.position[0],item.position[1])})
 	game.InventorySystem.recalculate_stats(game); game.player_hp = mini(game.player_hp, game.player_max_hp)
+	game.state.normalize()
 	game.sync_background_location(); game.update_camera(); return true
 
+
+static func _read_json(path: String) -> Dictionary:
+	if not FileAccess.file_exists(path):
+		return {}
+	var file := FileAccess.open(path, FileAccess.READ)
+	if not file:
+		return {}
+	var json := JSON.new()
+	if json.parse(file.get_as_text()) != OK:
+		return {}
+	return json.data if json.data is Dictionary else {}
+
+
+static func _write_json(path: String, data: Dictionary) -> bool:
+	var file := FileAccess.open(path, FileAccess.WRITE)
+	if not file:
+		return false
+	file.store_string(JSON.stringify(data))
+	file.flush()
+	return file.get_error() == OK
+
+
+static func _copy_file(source: String, destination: String) -> bool:
+	var source_file := FileAccess.open(source, FileAccess.READ)
+	if not source_file:
+		return false
+	var destination_file := FileAccess.open(destination, FileAccess.WRITE)
+	if not destination_file:
+		return false
+	destination_file.store_buffer(source_file.get_buffer(source_file.get_length()))
+	destination_file.flush()
+	return destination_file.get_error() == OK
+
+
+static func save_at(game: Node, path: String) -> bool:
+	var temporary := path + ".tmp"
+	var backup := path + ".bak"
+	DirAccess.remove_absolute(ProjectSettings.globalize_path(temporary))
+	if not _write_json(temporary, snapshot(game)) or migrate(_read_json(temporary)).is_empty():
+		DirAccess.remove_absolute(ProjectSettings.globalize_path(temporary))
+		return false
+	if FileAccess.file_exists(path):
+		DirAccess.remove_absolute(ProjectSettings.globalize_path(backup))
+		if not _copy_file(path, backup):
+			DirAccess.remove_absolute(ProjectSettings.globalize_path(temporary))
+			return false
+		DirAccess.remove_absolute(ProjectSettings.globalize_path(path))
+	var rename_error := DirAccess.rename_absolute(ProjectSettings.globalize_path(temporary), ProjectSettings.globalize_path(path))
+	if rename_error != OK:
+		if FileAccess.file_exists(backup):
+			_copy_file(backup, path)
+		DirAccess.remove_absolute(ProjectSettings.globalize_path(temporary))
+		return false
+	return true
+
+
 static func save(game: Node) -> bool:
-	var file := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
-	if not file: return false
-	file.store_string(JSON.stringify(snapshot(game))); return true
+	return save_at(game, SAVE_PATH)
+
+
+static func load_at(game: Node, path: String) -> bool:
+	var data := _read_json(path)
+	if not data.is_empty() and apply(game, data):
+		return true
+	var backup := _read_json(path + ".bak")
+	return not backup.is_empty() and apply(game, backup)
+
 
 static func load(game: Node) -> bool:
-	if not FileAccess.file_exists(SAVE_PATH): return false
-	var file := FileAccess.open(SAVE_PATH, FileAccess.READ)
-	var data = JSON.parse_string(file.get_as_text())
-	return data is Dictionary and apply(game, data)
+	return load_at(game, SAVE_PATH)

@@ -6,6 +6,17 @@ const RESOURCE_NAMES := {
 	"red_crystal": "красный кристалл",
 	"green_crystal": "зелёный кристалл",
 }
+const SPAWNS := [
+	{"position": Vector2(1190, 590), "location": "overworld", "kind": "stone", "hits": 2},
+	{"position": Vector2(1830, 610), "location": "overworld", "kind": "red_crystal", "hits": 3},
+	{"position": Vector2(520, 300), "location": "cave", "kind": "crystal", "hits": 3},
+	{"position": Vector2(980, 570), "location": "cave", "kind": "stone", "hits": 2},
+	{"position": Vector2(1500, 330), "location": "cave", "kind": "green_crystal", "hits": 3},
+]
+
+
+static func default_nodes() -> Array:
+	return SPAWNS.duplicate(true)
 
 static func mine_nearby(game: Node) -> bool:
 	var interaction: String = game.nearest_interaction()
@@ -25,12 +36,8 @@ static func mine(game: Node, index: int) -> bool:
 		return false
 	resource.hits -= 1
 	var yield_count: int = game.SkillSystem.mined_count(game)
-	if resource.kind == "stone":
-		game.stone += yield_count
-	elif resource.kind == "crystal":
-		game.crystals += yield_count
-	else:
-		game.materials[resource.kind] = game.materials.get(resource.kind, 0) + yield_count
+	if not game.change_inventory_count(resource.kind, yield_count):
+		return false
 	game.award_xp(1)
 	game.SkillSystem.award_profession_xp(game, "mining", 3)
 	game.message = game.LocaleSystem.text("mined", [game.inventory_item_name(resource.kind), yield_count])

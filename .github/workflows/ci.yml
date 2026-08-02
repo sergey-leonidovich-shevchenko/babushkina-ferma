@@ -1,0 +1,25 @@
+name: Godot quality gate
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download Godot 4.7.1
+        run: |
+          mkdir -p .ci
+          curl -fsSL -o .ci/godot.zip https://github.com/godotengine/godot/releases/download/4.7.1-stable/Godot_v4.7.1-stable_linux.x86_64.zip
+          unzip -q .ci/godot.zip -d .ci
+          chmod +x .ci/Godot_v4.7.1-stable_linux.x86_64
+      - name: Check architecture
+        run: zsh tools/check_architecture.sh
+      - name: Run automated tests
+        env:
+          FARM_GODOT_BIN: ${{ github.workspace }}/.ci/Godot_v4.7.1-stable_linux.x86_64
+        run: zsh run_tests.sh
+

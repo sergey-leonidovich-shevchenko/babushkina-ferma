@@ -2,5 +2,5 @@
 set -e
 repo_root="$(git rev-parse --show-toplevel)"
 cd "$repo_root"
+tools/check_architecture.sh
 ./run_tests.sh
-

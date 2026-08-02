@@ -12,6 +12,23 @@ const TYPES := {
 	"bat": {"name":"Пещерная летучая мышь","hp":2,"speed":290.0,"frames":4,"xp":4,"loot":{"bat_wing":2},"flying":true},
 	"lizard": {"name":"Луговой листохвост","hp":4,"speed":235.0,"frames":1,"xp":6,"loot":{"lizard_scale":2}},
 }
+const SPAWNS := [
+	{"kind":"deer","location":"overworld","position":Vector2(1320,430),"home":Vector2(1320,430),"direction":Vector2.RIGHT,"hp":3,"alive":true,"animation":0.0,"wander_timer":0.0,"panic":0.0},
+	{"kind":"fox","location":"overworld","position":Vector2(1930,540),"home":Vector2(1930,540),"direction":Vector2.LEFT,"hp":3,"alive":true,"animation":0.4,"wander_timer":0.8,"panic":0.0},
+	{"kind":"deer","location":"forest","position":Vector2(720,650),"home":Vector2(720,650),"direction":Vector2.DOWN,"hp":3,"alive":true,"animation":0.8,"wander_timer":1.0,"panic":0.0},
+	{"kind":"fox","location":"forest","position":Vector2(1560,360),"home":Vector2(1560,360),"direction":Vector2.RIGHT,"hp":3,"alive":true,"animation":1.2,"wander_timer":0.3,"panic":0.0},
+	{"kind":"boar","location":"forest","position":Vector2(2040,620),"home":Vector2(2040,620),"direction":Vector2.LEFT,"hp":5,"alive":true,"animation":0.2,"wander_timer":1.2,"panic":0.0},
+	{"kind":"boar","location":"rocky","position":Vector2(1100,530),"home":Vector2(1100,530),"direction":Vector2.RIGHT,"hp":5,"alive":true,"animation":0.6,"wander_timer":0.5,"panic":0.0},
+	{"kind":"bat","location":"cave","position":Vector2(680,430),"home":Vector2(680,430),"direction":Vector2.UP,"hp":2,"alive":true,"animation":0.0,"wander_timer":0.0,"panic":0.0},
+	{"kind":"bat","location":"cave","position":Vector2(1780,610),"home":Vector2(1780,610),"direction":Vector2.LEFT,"hp":2,"alive":true,"animation":0.7,"wander_timer":1.0,"panic":0.0},
+	{"kind":"bat","location":"cursed","position":Vector2(840,390),"home":Vector2(840,390),"direction":Vector2.RIGHT,"hp":2,"alive":true,"animation":1.4,"wander_timer":0.4,"panic":0.0},
+	{"kind":"lizard","location":"forest","position":Vector2(1180,620),"home":Vector2(1180,620),"direction":Vector2.RIGHT,"hp":4,"alive":true,"animation":0.3,"wander_timer":0.5,"panic":0.0},
+	{"kind":"lizard","location":"overworld","position":Vector2(1040,510),"home":Vector2(1040,510),"direction":Vector2.LEFT,"hp":4,"alive":true,"animation":1.1,"wander_timer":1.0,"panic":0.0},
+]
+
+
+static func default_animals() -> Array:
+	return SPAWNS.duplicate(true)
 
 static func update(game: Node, delta: float) -> void:
 	for index in game.wildlife_nodes.size():

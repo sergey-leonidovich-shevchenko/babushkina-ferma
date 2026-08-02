@@ -9,6 +9,17 @@ const TYPES := {
 	"undead": {"name":"Проклятый рыцарь","hp":10,"damage":22,"xp":30,"color":Color("745c86"),"loot":{"bones":2,"blue_gem":1}},
 	"cave_guardian": {"name":"Хранитель глубин","hp":12,"damage":24,"xp":40,"color":Color("527f91"),"loot":{"moon_relic":1,"blue_gem":2}}
 }
+const SPAWNS := [
+	{"kind":"plant","location":"forest","position":Vector2(920,430),"hp":5,"alive":true},
+	{"kind":"orc","location":"ruins","position":Vector2(1180,500),"hp":8,"alive":true},
+	{"kind":"skeleton","location":"cave","position":Vector2(880,520),"hp":6,"alive":true},
+	{"kind":"undead","location":"cursed","position":Vector2(1320,460),"hp":10,"alive":true},
+	{"kind":"cave_guardian","location":"cave","position":Vector2(1450,500),"hp":12,"alive":true},
+]
+
+
+static func default_enemies() -> Array:
+	return SPAWNS.duplicate(true)
 
 static func nearest(game: Node) -> int:
 	var result := -1

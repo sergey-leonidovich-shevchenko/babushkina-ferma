@@ -1,5 +1,19 @@
 extends RefCounted
 
+const PRODUCTS := [
+	{"kind": "seeds", "amount": 4, "buy": 5, "sell": 0, "icon": Rect2(0, 55, 36, 45)},
+	{"kind": "carrot", "buy": 10, "sell": 8, "icon": Rect2(34, 112, 30, 28)},
+	{"kind": "berries", "buy": 0, "sell": 4, "forage": true},
+	{"kind": "mushroom", "buy": 0, "sell": 7, "forage": true},
+	{"kind": "watermelon", "buy": 0, "sell": 10, "forage": true},
+	{"kind": "apple", "buy": 0, "sell": 12, "forage": true},
+	{"kind": "nut", "buy": 0, "sell": 22, "forage": true},
+]
+
+
+static func default_products() -> Array:
+	return PRODUCTS.duplicate(true)
+
 static func buy(game: Node, product_index: int) -> bool:
 	if product_index < 0 or product_index >= game.shop_products.size():
 		return false
