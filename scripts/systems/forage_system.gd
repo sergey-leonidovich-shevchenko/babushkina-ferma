@@ -3,6 +3,7 @@ extends RefCounted
 const TYPES := {
 	"berries": {"name":"Ягодный куст","growth_minutes":360.0,"yield":3,"sell":4,"tree":false},
 	"mushroom": {"name":"Грибная поляна","growth_minutes":720.0,"yield":2,"sell":7,"tree":false},
+	"watermelon": {"name":"Арбузная бахча","growth_minutes":1080.0,"yield":2,"sell":10,"tree":false},
 	"apple": {"name":"Яблоня","growth_minutes":1440.0,"yield":3,"sell":12,"tree":true},
 	"nut": {"name":"Ореховое дерево","growth_minutes":2880.0,"yield":2,"sell":22,"tree":true},
 }
@@ -36,6 +37,8 @@ static func collect(game: Node, index: int) -> bool:
 	game.SkillSystem.award_profession_xp(game, "farming", 2)
 	game.message = "%s: собрано %s ×%d, новое созревание через %s" % [data.name, game.inventory_item_name(node.kind), amount, duration_text(data.growth_minutes)]
 	game.notify_tutorial("forage_harvest")
+	if node.kind == "watermelon":
+		game.notify_tutorial("watermelon")
 	return true
 
 static func duration_text(minutes: float) -> String:

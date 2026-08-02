@@ -1,9 +1,9 @@
 extends RefCounted
 
 const TYPES := {
-	"chest": {"name":"Старый сундук","rolls":3,"table":[["coins",8,24,35],["metal",1,3,20],["blue_gem",1,1,8],["crystal",1,3,18],["apple",1,2,19]]},
+	"chest": {"name":"Старый сундук","rolls":3,"table":[["coins",8,24,30],["metal",1,3,18],["blue_gem",1,1,8],["crystal",1,3,16],["apple",1,2,15],["healing_potion",1,1,8],["oak_shield",1,1,5]]},
 	"bone_pile": {"name":"Груда костей","rolls":2,"table":[["bones",1,4,45],["ancient_key",1,1,8],["bat_wing",1,2,17],["coins",3,12,20],["blue_gem",1,1,10]]},
-	"sack": {"name":"Брошенный мешок","rolls":2,"table":[["seeds",2,6,30],["carrot",1,3,20],["apple",1,2,15],["berries",1,3,15],["fiber",1,3,20]]},
+	"sack": {"name":"Брошенный мешок","rolls":2,"table":[["seeds",2,6,27],["carrot",1,3,18],["apple",1,2,13],["berries",1,3,13],["watermelon",1,1,9],["fiber",1,3,20]]},
 	"trash": {"name":"Куча хлама","rolls":2,"table":[["stone",1,3,25],["wood",1,3,25],["metal",1,2,18],["coins",1,8,18],["orange",1,1,4],["fiber",1,3,10]]},
 }
 

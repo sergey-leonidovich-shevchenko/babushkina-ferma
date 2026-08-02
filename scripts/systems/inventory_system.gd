@@ -17,6 +17,8 @@ const ITEM_DATA := {
 	"nut": {"name": "Крепкий орех", "short": "Орех", "color": Color("a8733e"), "edible": true},
 	"mushroom": {"name": "Красный гриб", "short": "Гриб", "color": Color("d95c50"), "edible": true},
 	"orange": {"name": "Сочный апельсин", "short": "Апельсин", "color": Color("ff9217"), "edible": true},
+	"watermelon": {"name": "Сочный арбуз", "short": "Арбуз", "color": Color("ef4962"), "edible": true},
+	"healing_potion": {"name": "Лечебное зелье", "short": "Зелье", "color": Color("df3c4d"), "edible": true},
 	"slime": {"name": "Слизь", "short": "Слизь", "color": Color("72d4a2")},
 	"wood": {"name": "Древесина", "short": "Дерево", "color": Color("a46c42")},
 	"stone": {"name": "Камень", "short": "Камень", "color": Color("8f8a7c")},
@@ -39,11 +41,13 @@ const ITEM_DATA := {
 	"fur": {"name": "Лисий мех", "short": "Мех", "color": Color("dc8a47")},
 	"tusk": {"name": "Кабаний клык", "short": "Клык", "color": Color("e4d9b9")},
 	"bat_wing": {"name": "Крыло летучей мыши", "short": "Крыло", "color": Color("76658c")},
+	"lizard_scale": {"name": "Чешуя лугового ящера", "short": "Чешуя", "color": Color("8fcf62")},
 	"iron_helmet": {"name": "Железный шлем", "short": "Шлем", "color": Color("b8c3ca"), "equip": "head"},
 	"guardian_armor": {"name": "Доспех хранителя", "short": "Доспех", "color": Color("d79b42"), "equip": "body"},
 	"travel_boots": {"name": "Походные сапоги", "short": "Сапоги", "color": Color("8c6745"), "equip": "legs"},
 	"crystal_ring": {"name": "Алмазный талисман", "short": "Алмаз", "color": Color("62dce5"), "equip": "ring"},
-	"orc_blade": {"name": "Клинок орка", "short": "Клинок", "color": Color("8aa05c"), "equip": "hands"}
+	"orc_blade": {"name": "Клинок орка", "short": "Клинок", "color": Color("8aa05c"), "equip": "hands"},
+	"oak_shield": {"name": "Дубовый щит", "short": "Щит", "color": Color("7d5b47"), "equip": "offhand"}
 }
 
 static func data(kind: String) -> Dictionary:
@@ -118,6 +122,8 @@ static func equip(game: Node, kind: String) -> bool:
 	recalculate_stats(game)
 	game.message = "%s: %s" % [slot, item.name]
 	game.notify_tutorial("equipment")
+	if kind == "oak_shield":
+		game.notify_tutorial("shield")
 	return true
 
 static func recalculate_stats(game: Node) -> void:
@@ -131,3 +137,6 @@ static func damage_bonus(game: Node) -> int:
 
 static func speed_multiplier(game: Node) -> float:
 	return 1.1 if game.equipment.legs == "travel_boots" else 1.0
+
+static func incoming_damage(game: Node, amount: int) -> int:
+	return maxi(1, amount - (5 if game.equipment.get("offhand", "") == "oak_shield" else 0))

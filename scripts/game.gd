@@ -37,12 +37,17 @@ const ITEM_ARMOR := preload("res://assets/game/items/guardian_armor.png")
 const ITEM_BOOTS := preload("res://assets/game/items/travel_boots.png")
 const ITEM_DIAMOND := preload("res://assets/game/items/crystal_ring.png")
 const ITEM_ORANGE := preload("res://assets/game/items/orange.png")
+const ITEM_HEALING_POTION := preload("res://assets/game/items/healing_potion.png")
+const ITEM_OAK_SHIELD := preload("res://assets/game/items/oak_shield.png")
+const ITEM_WATERMELON := preload("res://assets/game/items/watermelon.png")
+const ITEM_WATERMELON_SLICE := preload("res://assets/game/items/watermelon_slice.png")
 const WATER_ANIMATION := preload("res://assets/game/fishing/Water Tile.png")
 const FISH_ANIMATION := preload("res://assets/game/fishing/Fish Swimming.png")
 const SPLASH_ANIMATION := preload("res://assets/game/fishing/Splash Effect.png")
 const DEER_RUN_SHEET := preload("res://assets/game/wildlife/deer_run.png")
 const FOX_RUN_SHEET := preload("res://assets/game/wildlife/fox_run.png")
 const BOAR_RUN_SHEET := preload("res://assets/game/wildlife/boar_run.png")
+const MEADOW_LIZARD := preload("res://assets/game/wildlife/meadow_lizard.png")
 const BONE_PILE_TEXTURE := preload("res://assets/game/world_loot/bone_pile.png")
 const WORLD_SIZE := Vector2(2400, 1200)
 const STAGE_DURATION := 5.0
@@ -86,15 +91,15 @@ var inventory_selected := 0
 var inventory_move_from := -1
 var inventory_scroll_row := 0
 var inventory_touch_drag_y := 0.0
-var inventory_slots := ["seeds", "carrot", "pickaxe", "fishing_rod", "slime", "wood", "stone", "crystal", "fish", "sword", "bow", "crystal_sword", "apple", "berries", "nut", "mushroom", "iron_helmet", "guardian_armor", "travel_boots", "crystal_ring", "orange", "orc_blade", "red_crystal", "green_crystal", "raw_meat", "hide", "fur", "tusk", "bat_wing", ""]
+var inventory_slots := ["seeds", "carrot", "pickaxe", "fishing_rod", "slime", "wood", "stone", "crystal", "fish", "sword", "bow", "crystal_sword", "apple", "berries", "nut", "mushroom", "iron_helmet", "guardian_armor", "travel_boots", "crystal_ring", "orange", "orc_blade", "red_crystal", "green_crystal", "raw_meat", "hide", "fur", "tusk", "bat_wing", "watermelon", "healing_potion", "oak_shield", "lizard_scale", ""]
 var hotbar_slots := ["hoe", "seeds", "water", "hand", "pickaxe", "fishing_rod", "carrot", "apple", "berries", "mushroom"]
 var selected_hotbar := 0
-var equipment := {"head": "", "body": "", "legs": "", "hands": "", "ring": ""}
+var equipment := {"head": "", "body": "", "legs": "", "hands": "", "offhand": "", "ring": ""}
 var iron_helmet := 0
 var guardian_armor := 0
 var travel_boots := 0
 var crystal_ring := 0
-var materials := {"fiber":0,"rare_seeds":0,"metal":0,"bones":0,"ancient_key":0,"blue_gem":0,"red_crystal":0,"green_crystal":0,"orc_blade":0,"moon_relic":0,"raw_meat":0,"hide":0,"fur":0,"tusk":0,"bat_wing":0}
+var materials := {"fiber":0,"rare_seeds":0,"metal":0,"bones":0,"ancient_key":0,"blue_gem":0,"red_crystal":0,"green_crystal":0,"orc_blade":0,"moon_relic":0,"raw_meat":0,"hide":0,"fur":0,"tusk":0,"bat_wing":0,"lizard_scale":0,"watermelon":0,"healing_potion":0,"oak_shield":0}
 var crafting_open := false
 var crafting_selected := 0
 var world_gate_position := Vector2(2200, 760)
@@ -114,7 +119,9 @@ var wildlife_nodes := [
 	{"kind":"boar","location":"rocky","position":Vector2(1100,530),"home":Vector2(1100,530),"direction":Vector2.RIGHT,"hp":5,"alive":true,"animation":0.6,"wander_timer":0.5,"panic":0.0},
 	{"kind":"bat","location":"cave","position":Vector2(680,430),"home":Vector2(680,430),"direction":Vector2.UP,"hp":2,"alive":true,"animation":0.0,"wander_timer":0.0,"panic":0.0},
 	{"kind":"bat","location":"cave","position":Vector2(1780,610),"home":Vector2(1780,610),"direction":Vector2.LEFT,"hp":2,"alive":true,"animation":0.7,"wander_timer":1.0,"panic":0.0},
-	{"kind":"bat","location":"cursed","position":Vector2(840,390),"home":Vector2(840,390),"direction":Vector2.RIGHT,"hp":2,"alive":true,"animation":1.4,"wander_timer":0.4,"panic":0.0}
+	{"kind":"bat","location":"cursed","position":Vector2(840,390),"home":Vector2(840,390),"direction":Vector2.RIGHT,"hp":2,"alive":true,"animation":1.4,"wander_timer":0.4,"panic":0.0},
+	{"kind":"lizard","location":"forest","position":Vector2(1180,620),"home":Vector2(1180,620),"direction":Vector2.RIGHT,"hp":4,"alive":true,"animation":0.3,"wander_timer":0.5,"panic":0.0},
+	{"kind":"lizard","location":"overworld","position":Vector2(1040,510),"home":Vector2(1040,510),"direction":Vector2.LEFT,"hp":4,"alive":true,"animation":1.1,"wander_timer":1.0,"panic":0.0}
 ]
 var world_loot_seed := 0
 var world_loot_nodes: Array = []
@@ -125,6 +132,7 @@ var shop_products := [
 	{"name": "Морковь", "kind": "carrot", "buy": 10, "sell": 8, "icon": Rect2(34, 112, 30, 28)},
 	{"name": "Лесные ягоды • 6 ч.", "kind": "berries", "buy": 0, "sell": 4, "forage": true},
 	{"name": "Красный гриб • 12 ч.", "kind": "mushroom", "buy": 0, "sell": 7, "forage": true},
+	{"name": "Сочный арбуз • 18 ч.", "kind": "watermelon", "buy": 0, "sell": 10, "forage": true},
 	{"name": "Лесное яблоко • 1 день", "kind": "apple", "buy": 0, "sell": 12, "forage": true},
 	{"name": "Крепкий орех • 2 дня", "kind": "nut", "buy": 0, "sell": 22, "forage": true}
 ]
@@ -191,6 +199,8 @@ var food_nodes := [
 	{"position": Vector2(620, 690), "location":"forest", "kind":"berries", "active":true, "ready_at":0.0},
 	{"position": Vector2(1420, 350), "location":"forest", "kind":"apple", "active":true, "ready_at":0.0},
 	{"position": Vector2(1880, 680), "location":"forest", "kind":"nut", "active":true, "ready_at":0.0},
+	{"position": Vector2(770, 510), "location":"overworld", "kind":"watermelon", "active":true, "ready_at":0.0},
+	{"position": Vector2(1760, 740), "location":"forest", "kind":"watermelon", "active":true, "ready_at":0.0},
 	{"position": Vector2(980, 720), "location":"forest", "kind":"mushroom", "active":true, "ready_at":0.0}
 ]
 var fishing_state := "idle"
@@ -259,7 +269,11 @@ var tutorial_steps := [
 	{"event": "profession", "text": "Развивай ремесло практикой: фермерство, крафт, бой, добычу или рыбалку"},
 	{"event": "save", "text": "Сохрани игру [F5], затем проверь загрузку [F8]"},
 	{"event": "wildlife", "text": "Найди пугливого зверя, проследи за побегом и добудь его лут [F]"},
-	{"event": "world_loot", "text": "Найди случайный сундук, мешок, кости или хлам и обыщи его [E]"}
+	{"event": "world_loot", "text": "Найди случайный сундук, мешок, кости или хлам и обыщи его [E]"},
+	{"event": "watermelon", "text": "Найди арбузную бахчу, собери арбуз [E] и съешь его из рюкзака"},
+	{"event": "potion", "text": "Создай лечебное зелье на верстаке и используй его из рюкзака или hotbar"},
+	{"event": "shield", "text": "Создай дубовый щит, открой [Tab] и надень его клавишей Q"},
+	{"event": "lizard", "text": "Найди лугового листохвоста в деревне или лесу и добудь чешую [F]"}
 ]
 
 func _ready() -> void:
@@ -893,7 +907,7 @@ func consume_selected_item() -> bool:
 	return consume_item(kind)
 
 func consume_item(kind: String) -> bool:
-	if kind not in ["carrot", "apple", "berries", "nut", "mushroom", "orange"]:
+	if kind not in ["carrot", "apple", "berries", "nut", "mushroom", "orange", "watermelon", "healing_potion"]:
 		message = "Этот предмет нельзя съесть"
 		return false
 	if not change_inventory_count(kind, -1):
@@ -920,6 +934,14 @@ func consume_item(kind: String) -> bool:
 			heal_player(20)
 			energy = mini(energy + 2, SkillSystem.max_stamina(self))
 			message = "Апельсин: +20 здоровья и +2 энергии"
+		"watermelon":
+			heal_player(25)
+			energy = mini(energy + 4, SkillSystem.max_stamina(self))
+			message = "Арбуз: +25 здоровья и +4 энергии"
+		"healing_potion":
+			heal_player(60)
+			message = "Лечебное зелье: +60 здоровья"
+			notify_tutorial("potion")
 	notify_tutorial("eat")
 	return true
 
@@ -1039,8 +1061,9 @@ func update_combat(delta: float) -> void:
 	slime_attack_timer += delta
 	if slime_attack_timer >= 1.5:
 		slime_attack_timer = 0.0
-		player_hp -= 20
-		message = "Слизень атакует! -20 здоровья"
+		var incoming_damage := InventorySystem.incoming_damage(self, 20)
+		player_hp -= incoming_damage
+		message = "Слизень атакует! -%d здоровья" % incoming_damage
 		if player_hp <= 0:
 			player_hp = player_max_hp
 			player = Vector2(260, 360)
@@ -1153,6 +1176,10 @@ func grant_tester_kit() -> void:
 	nuts = maxi(nuts, 3)
 	mushrooms = maxi(mushrooms, 3)
 	oranges = maxi(oranges, 3)
+	materials.watermelon = maxi(materials.watermelon, 3)
+	materials.healing_potion = maxi(materials.healing_potion, 2)
+	materials.oak_shield = maxi(materials.oak_shield, 1)
+	materials.lizard_scale = maxi(materials.lizard_scale, 2)
 	iron_helmet = maxi(iron_helmet, 1)
 	guardian_armor = maxi(guardian_armor, 1)
 	travel_boots = maxi(travel_boots, 1)
@@ -1393,6 +1420,8 @@ func draw_food_nodes() -> void:
 		match food.kind:
 			"mushroom":
 				draw_texture_rect(RED_MUSHROOMS, Rect2(position - Vector2(28, 28), Vector2(56, 56)), false, Color(1, 1, 1, alpha))
+			"watermelon":
+				draw_texture_rect(ITEM_WATERMELON, Rect2(position - Vector2(32, 38), Vector2(64, 64)), false, Color(1, 1, 1, alpha))
 			"berries", "apple", "nut":
 				var layout := forage_sprite_layout(food.kind, position)
 				draw_texture_rect_region(PLANT_SHEET, layout.destination, layout.source, Color(1, 1, 1, alpha))
@@ -1426,7 +1455,10 @@ func draw_resource_nodes() -> void:
 
 func draw_dropped_items() -> void:
 	for item in dropped_items:
-		draw_circle(item.position, 15, inventory_item_color(item.kind))
+		if item_texture(item.kind):
+			draw_item_icon(item.kind, Rect2(item.position - Vector2(22, 22), Vector2(44, 44)))
+		else:
+			draw_circle(item.position, 15, inventory_item_color(item.kind))
 		draw_circle(item.position, 23 + sin(Time.get_ticks_msec() / 150.0) * 3, Color("fff0a8"), false, 3)
 		draw_string(ThemeDB.fallback_font, item.position + Vector2(-55, 42), inventory_item_name(item.kind), HORIZONTAL_ALIGNMENT_CENTER, 110, 13, Color("fff4cf"))
 
@@ -1490,6 +1522,9 @@ func draw_wildlife() -> void:
 			draw_circle(position, 10, Color("40374e"))
 			draw_circle(position + Vector2(-4, -2), 2, Color("e78a70"))
 			draw_circle(position + Vector2(4, -2), 2, Color("e78a70"))
+		elif animal.kind == "lizard":
+			var bob := sin(animal.animation * 7.0) * 2.0
+			draw_texture_rect(MEADOW_LIZARD, Rect2(position - Vector2(48, 34 - bob), Vector2(96, 64)), false)
 		else:
 			var texture: Texture2D = DEER_RUN_SHEET
 			if animal.kind == "fox": texture = FOX_RUN_SHEET
@@ -1526,6 +1561,9 @@ func item_texture(kind: String) -> Texture2D:
 		"travel_boots": return ITEM_BOOTS
 		"crystal_ring": return ITEM_DIAMOND
 		"orange": return ITEM_ORANGE
+		"healing_potion": return ITEM_HEALING_POTION
+		"oak_shield": return ITEM_OAK_SHIELD
+		"watermelon": return ITEM_WATERMELON_SLICE
 	return null
 
 func draw_item_icon(kind: String, rect: Rect2) -> void:
@@ -1751,8 +1789,8 @@ func draw_equipment_panel() -> void:
 	draw_string(ThemeDB.fallback_font, Vector2(790, 168), "ЭКИПИРОВКА", HORIZONTAL_ALIGNMENT_CENTER, 260, 22, Color("fff0bd"))
 	draw_circle(Vector2(920, 265), 48, Color("e5b68d"))
 	draw_rect(Rect2(882, 310, 76, 105), Color("638d72"))
-	var slots := ["head", "body", "legs", "hands", "ring"]
-	var labels := {"head":"Голова", "body":"Тело", "legs":"Ноги", "hands":"Руки", "ring":"Кольцо"}
+	var slots := ["head", "body", "legs", "hands", "offhand", "ring"]
+	var labels := {"head":"Голова", "body":"Тело", "legs":"Ноги", "hands":"Руки", "offhand":"Щит", "ring":"Кольцо"}
 	for index in slots.size():
 		var slot_name: String = slots[index]
 		var left := index % 2 == 0

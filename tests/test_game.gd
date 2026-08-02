@@ -41,6 +41,7 @@ func _initialize() -> void:
 	test_progression_save_and_universal_skill_menu_input()
 	test_regrowing_forage_harvest_value_and_sale()
 	test_forage_atlas_cells_are_isolated_and_bottom_anchored()
+	test_new_pixel_items_watermelon_shield_potion_and_lizard()
 	test_unbounded_scrolling_inventory_and_forage_save()
 	test_gameplay_systems_are_modular()
 	print("TESTS: %d passed, %d failed" % [passed, failed])
@@ -568,7 +569,7 @@ func test_discoveries_and_tutorial_checklist_are_saved() -> void:
 	game.SaveSystem.apply(game, snapshot)
 	expect(game.seen_discoveries.has("shop") and game.seen_discoveries.has("enemy:orc"), "save restores discovered feature history")
 	expect(game.tutorial_step == save_step + 1 and game.tutorial_events_completed.has("save"), "save restores tutorial checklist progress")
-	var required_events := ["move","character_animation","forage_harvest","forage_regrow","forage_sale","plant","rewater","trade","fight","hotbar","equipment","fish","craft_window","mission_complete","journal","side_mission","colored_crystal","day","level_up","skill_point","profession","save","wildlife","world_loot"]
+	var required_events := ["move","character_animation","forage_harvest","forage_regrow","forage_sale","plant","rewater","trade","fight","hotbar","equipment","fish","craft_window","mission_complete","journal","side_mission","colored_crystal","day","level_up","skill_point","profession","save","wildlife","world_loot","watermelon","potion","shield","lizard"]
 	for event_name in required_events:
 		expect(game.tutorial_steps.any(func(step): return step.event == event_name), "tutorial covers feature: %s" % event_name)
 	game.free()
@@ -592,7 +593,7 @@ func test_wildlife_flees_and_does_not_talk() -> void:
 func test_wildlife_combat_loot_animation_and_save() -> void:
 	var game := make_game()
 	expect(game.DEER_RUN_SHEET.get_width() == 192 and game.FOX_RUN_SHEET.get_width() == 192 and game.BOAR_RUN_SHEET.get_width() == 160, "wildlife animation sheets are loaded")
-	expect(game.WildlifeSystem.TYPES.has("deer") and game.WildlifeSystem.TYPES.has("fox") and game.WildlifeSystem.TYPES.has("boar") and game.WildlifeSystem.TYPES.has("bat"), "four wildlife species are configured")
+	expect(game.WildlifeSystem.TYPES.has("deer") and game.WildlifeSystem.TYPES.has("fox") and game.WildlifeSystem.TYPES.has("boar") and game.WildlifeSystem.TYPES.has("bat") and game.WildlifeSystem.TYPES.has("lizard"), "five wildlife species are configured")
 	game.current_location = "cave"
 	game.player = game.wildlife_nodes[6].position
 	expect(game.nearest_interaction().is_empty(), "bat has no dialogue interaction")
@@ -785,6 +786,49 @@ func test_forage_atlas_cells_are_isolated_and_bottom_anchored() -> void:
 			expect(not source.intersects(occupied), "%s uses an isolated growth-stage cell" % kind)
 		occupied_cells.append(source)
 	expect(game.forage_sprite_layout("mushroom", Vector2.ZERO).is_empty(), "separate mushroom texture does not accidentally sample the plant atlas")
+	game.free()
+
+func test_new_pixel_items_watermelon_shield_potion_and_lizard() -> void:
+	var game := make_game()
+	expect(game.ITEM_HEALING_POTION.get_size() == Vector2(64, 64) and game.ITEM_OAK_SHIELD.get_size() == Vector2(64, 64), "potion and shield are compact imported game textures")
+	expect(game.ITEM_WATERMELON.get_size() == Vector2(64, 64) and game.ITEM_WATERMELON_SLICE.get_size() == Vector2(64, 64), "whole and sliced watermelon sprites are available")
+	expect(game.MEADOW_LIZARD.get_size() == Vector2(96, 64), "original meadow lizard has a compact transparent world sprite")
+	expect(not FileAccess.file_exists("res://assets/game/wildlife/foxpool-yoshi-5994957.png"), "trademarked Yoshi download is not distributed with the game")
+	var potion_recipe: int = game.CraftingSystem.RECIPES.find_custom(func(recipe): return recipe.output == "healing_potion")
+	game.berries = 2
+	game.mushrooms = 1
+	expect(game.CraftingSystem.craft(game, potion_recipe) and game.inventory_item_count("healing_potion") == 1, "berries and mushroom craft one healing potion")
+	game.player_hp = 25
+	expect(game.consume_item("healing_potion") and game.player_hp == 85 and game.tutorial_events_completed.has("potion"), "healing potion restores sixty HP and completes its tutorial step")
+	var shield_recipe: int = game.CraftingSystem.RECIPES.find_custom(func(recipe): return recipe.output == "oak_shield")
+	game.wood = 4
+	game.materials.metal = 2
+	expect(game.CraftingSystem.craft(game, shield_recipe) and game.inventory_item_count("oak_shield") == 1, "wood and metal craft one oak shield")
+	var hp_without_shield: int = game.player_max_hp
+	expect(game.InventorySystem.equip(game, "oak_shield") and game.equipment.offhand == "oak_shield", "oak shield equips into its dedicated off-hand slot")
+	expect(game.player_max_hp == hp_without_shield + 5 and game.InventorySystem.incoming_damage(game, 20) == 15, "equipped shield adds resilience and blocks five incoming damage")
+	game.player = game.slime_position
+	game.player_hp = 100
+	game.slime_attack_timer = 1.49
+	game.update_combat(0.02)
+	expect(game.player_hp == 85, "oak shield reduces an actual slime hit from twenty to fifteen damage")
+	var watermelon_index: int = game.food_nodes.find_custom(func(node): return node.kind == "watermelon" and node.location == "overworld")
+	game.player = game.food_nodes[watermelon_index].position
+	expect(game.collect_food(watermelon_index) and game.inventory_item_count("watermelon") == 2, "ripe watermelon patch yields two edible watermelons")
+	expect(game.tutorial_events_completed.has("watermelon") and game.shop_products.any(func(product): return product.kind == "watermelon" and product.sell == 10), "watermelon has tutorial coverage and a shop sale price")
+	game.player_hp = 50
+	game.energy = 5
+	expect(game.consume_item("watermelon") and game.player_hp == 75 and game.energy == 9, "watermelon restores health and stamina")
+	var lizard_index: int = game.wildlife_nodes.find_custom(func(animal): return animal.kind == "lizard")
+	game.current_location = game.wildlife_nodes[lizard_index].location
+	game.player = game.wildlife_nodes[lizard_index].position
+	game.wildlife_nodes[lizard_index].hp = 1
+	expect(game.WildlifeSystem.attack(game, lizard_index), "meadow lizard can be encountered and hunted")
+	expect(not game.wildlife_nodes[lizard_index].alive and game.dropped_items.any(func(item): return item.kind == "lizard_scale" and item.count == 2), "meadow lizard drops two crafting scales")
+	expect(game.tutorial_events_completed.has("lizard") and game.WildlifeSystem.TYPES.size() == 5, "new wildlife is documented by tutorial and registered as the fifth species")
+	var legacy_snapshot: Dictionary = game.SaveSystem.snapshot(game)
+	legacy_snapshot.equipment.erase("offhand")
+	expect(game.SaveSystem.apply(game, legacy_snapshot) and game.equipment.has("offhand") and not game.wildlife_nodes[lizard_index].alive, "older saves migrate the shield slot while preserving lizard state")
 	game.free()
 
 func test_unbounded_scrolling_inventory_and_forage_save() -> void:

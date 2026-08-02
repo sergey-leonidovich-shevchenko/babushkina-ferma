@@ -46,7 +46,9 @@ static func apply(game: Node, data: Dictionary) -> bool:
 			game.InventorySystem.ensure_item_slot(game, kind)
 	game.InventorySystem.ensure_capacity(game)
 	game.hotbar_slots.assign(data.hotbar)
-	game.equipment = data.equipment.duplicate(true); game.quest_active = data.quest_active; game.quest_complete = data.quest_complete
+	game.equipment = data.equipment.duplicate(true)
+	if not game.equipment.has("offhand"): game.equipment.offhand = ""
+	game.quest_active = data.quest_active; game.quest_complete = data.quest_complete
 	game.mission_states = data.get("missions", game.mission_states).duplicate(true)
 	var tutorial: Dictionary = data.get("tutorial", {})
 	game.tutorial_step = tutorial.get("step", game.tutorial_step)

@@ -85,6 +85,7 @@ static func recalculate_resources(game: Node) -> void:
 	var equipment_hp := 0
 	if game.equipment.get("head", "") == "iron_helmet": equipment_hp += 10
 	if game.equipment.get("body", "") == "guardian_armor": equipment_hp += 20
+	if game.equipment.get("offhand", "") == "oak_shield": equipment_hp += 5
 	game.player_max_hp = game.MAX_BASE_HP + (game.player_level - 1) * 10 + skill(game, "vitality") * 10 + equipment_hp
 	game.player_max_mana = 40 + skill(game, "mana") * 10
 	game.player_hp = mini(game.player_hp, game.player_max_hp)

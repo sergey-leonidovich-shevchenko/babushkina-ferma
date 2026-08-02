@@ -5,6 +5,13 @@ Sources (download filenames preserve contributor and Pixabay media id):
 - keinianz-diamond-5724650.jpg — contributor Keinianz, gems and ore sheet.
 - pikura-retro-9342597.png — contributor Pikurā, retro health bars.
 - divexfre-orange-9741354.png — contributor Divexfre, pixel orange.
+- divexfre-pixel-art-9741349.png — contributor Divexfre, pixel potion bottle.
+- divexfre-pixel-art-9752553.png — contributor Divexfre, round wooden shield.
+- divexfre-watermelon-9741352.png — contributor Divexfre, whole watermelon.
+- divexfre-red-fruit-9741345.png — contributor Divexfre, watermelon slice.
+
+Original project asset:
+- meadow_lizard.png — original meadow lizard generated for Бабушкина ферма with OpenAI image generation and manually adapted to a transparent 96×64 game sprite. It intentionally does not use the downloaded Yoshi image or Nintendo character design.
 
 License summary: https://pixabay.com/service/license-summary/
 The imported files are cropped, background-keyed, resized adaptations and are not

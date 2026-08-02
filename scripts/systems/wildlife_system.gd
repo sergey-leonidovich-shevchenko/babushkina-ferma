@@ -8,6 +8,7 @@ const TYPES := {
 	"fox": {"name":"Рыжая лиса","hp":3,"speed":275.0,"frames":6,"xp":5,"loot":{"raw_meat":1,"fur":1}},
 	"boar": {"name":"Дикий кабан","hp":5,"speed":220.0,"frames":5,"xp":7,"loot":{"raw_meat":3,"tusk":1}},
 	"bat": {"name":"Пещерная летучая мышь","hp":2,"speed":290.0,"frames":4,"xp":4,"loot":{"bat_wing":2},"flying":true},
+	"lizard": {"name":"Луговой листохвост","hp":4,"speed":235.0,"frames":1,"xp":6,"loot":{"lizard_scale":2}},
 }
 
 static func update(game: Node, delta: float) -> void:
@@ -83,4 +84,6 @@ static func attack(game: Node, index: int) -> bool:
 		game.message = "%s пугается и убегает: -%d HP" % [TYPES[animal.kind].name, damage]
 	game.wildlife_nodes[index] = animal
 	game.notify_tutorial("wildlife")
+	if animal.kind == "lizard":
+		game.notify_tutorial("lizard")
 	return true
