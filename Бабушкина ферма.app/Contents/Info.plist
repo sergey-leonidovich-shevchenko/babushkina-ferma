@@ -8,6 +8,8 @@
 	<string>launch</string>
 	<key>CFBundleIdentifier</key>
 	<string>kz.babushkina.ferma.launcher</string>
+	<key>CFBundleIconFile</key>
+	<string>AppIcon</string>
 	<key>CFBundleName</key>
 	<string>Бабушкина ферма</string>
 	<key>CFBundlePackageType</key>
@@ -20,4 +22,3 @@
 	<true/>
 </dict>
 </plist>
-

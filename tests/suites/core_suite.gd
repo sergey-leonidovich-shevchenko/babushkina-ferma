@@ -3,6 +3,7 @@ extends "res://tests/suites/suite_base.gd"
 ## Запускает все сценарии текущего набора тестов в фиксированном порядке.
 func run() -> void:
 	test_localization_language_selector_and_catalogs()
+	test_application_icon_assets()
 	test_keyboard_press_and_release()
 	test_immediate_keyboard_response()
 	test_four_direction_character_animation()
@@ -18,6 +19,21 @@ func run() -> void:
 	test_fishing_cast_wait_and_catch_cycle()
 	test_bow_reward_and_crystal_sword_upgrade()
 	test_held_action_repeats_tools_without_reopening_ui()
+
+## Сценарий: игра и автономный macOS-лаунчер используют новую фирменную иконку во всех системных представлениях.
+## Исходное состояние: PNG подключён в настройках Godot, а ICNS и ссылка на него находятся внутри app-пакета.
+## Ожидаемый результат: исходник имеет экспортное разрешение, оба ресурса существуют и конфигурации указывают на них.
+func test_application_icon_assets() -> void:
+	var icon: Texture2D = load("res://assets/app_icon.png")
+	expect(icon != null, "application icon can be imported by Godot")
+	expect(icon.get_width() == 1024 and icon.get_height() == 1024, "application icon has a square 1024px export source")
+	expect(ProjectSettings.get_setting("application/config/icon") == "res://assets/app_icon.png", "Godot project uses the branded application icon")
+	var native_icon_path := "res://Бабушкина ферма.app/Contents/Resources/AppIcon.icns"
+	expect(FileAccess.file_exists(native_icon_path), "macOS launcher contains the native ICNS icon family")
+	var native_icon := FileAccess.open(native_icon_path, FileAccess.READ)
+	expect(native_icon != null and native_icon.get_length() > 100000, "native icon contains multiple detailed resolutions")
+	var plist := FileAccess.get_file_as_string("res://Бабушкина ферма.app/Contents/Info.plist")
+	expect(plist.contains("CFBundleIconFile") and plist.contains("AppIcon"), "macOS launcher declares its custom icon")
 
 ## Сценарий: шесть языков полностью покрывают каталоги, а выбор языка работает на всех устройствах ввода.
 ## Исходное состояние: чистые настройки локали и новый экземпляр игры со стартовым выбором языка.

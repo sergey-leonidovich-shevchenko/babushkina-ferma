@@ -1,0 +1,10 @@
+APPLICATION ICON — ORIGINAL PROJECT ASSET
+
+Production assets:
+- assets/app_icon.png
+- Бабушкина ферма.app/Contents/Resources/AppIcon.icns
+
+The original pixel-art illustration was generated for Бабушкина ферма with OpenAI image generation on 2026-08-02. The ICNS file is a mechanically resized native macOS icon family derived from the production PNG.
+
+Final prompt:
+Use case: stylized-concept. Square desktop game application icon for “Бабушкина ферма: Тайна Лунной долины”. A large golden-orange carrot, a warm timber grandmother’s cottage, and a small glowing cyan moon-crystal form one compact emblem. Polished handcrafted 16-bit pixel art matching the title artwork’s warm fantasy-farming palette. Centered bold silhouette, readable at 32×32, calm corners, no text, logos, trademarks, watermark, photorealism, blur, or clutter.
