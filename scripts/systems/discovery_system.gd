@@ -83,7 +83,10 @@ static func scan_nearby(game: Node) -> bool:
 			add_candidate(candidates, "resource:%s" % resource.kind, resource.position, resource_hint(game, resource.kind))
 	for enemy in game.enemy_nodes:
 		if enemy.alive and enemy.location == game.current_location:
-			add_candidate(candidates, "enemy:%s" % enemy.kind, enemy.position, enemy_hint(game, enemy.kind))
+			add_candidate(candidates, "enemy:%s:%d" % [enemy.kind, enemy.level], enemy.position, enemy_hint(game, enemy.kind, enemy.level))
+	for hazard in game.hazard_nodes:
+		if hazard.location == game.current_location:
+			add_candidate(candidates, "hazard:%s:%d" % [hazard.kind, hazard.level], hazard.position, hazard_hint(game, hazard.kind, hazard.level))
 	for animal in game.wildlife_nodes:
 		if animal.alive and animal.location == game.current_location:
 			add_candidate(candidates, "wildlife:%s" % animal.kind, animal.position, wildlife_hint(game, animal.kind))
@@ -133,8 +136,12 @@ static func resource_hint(game: Node, kind: String) -> Dictionary:
 	return {"title":game.LocaleSystem.item(kind),"text":game.LocaleSystem.tutorial("mine")}
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
-static func enemy_hint(game: Node, kind: String) -> Dictionary:
-	return {"title":game.LocaleSystem.entity(kind),"text":game.LocaleSystem.ui("hint_enemy")}
+static func enemy_hint(game: Node, kind: String, level: int = 1) -> Dictionary:
+	return {"title":"%s • %s" % [game.LocaleSystem.entity(kind), game.LocaleSystem.ui("enemy_level", [level])],"text":game.LocaleSystem.ui("hint_enemy")}
+
+## Собирает локализованную карточку неподвижной природной угрозы и её уровня.
+static func hazard_hint(game: Node, kind: String, level: int = 1) -> Dictionary:
+	return {"title":"%s • %s" % [game.LocaleSystem.entity(kind), game.LocaleSystem.ui("enemy_level", [level])],"text":game.LocaleSystem.ui("hint_hazard")}
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func food_hint(game: Node, kind: String) -> Dictionary:

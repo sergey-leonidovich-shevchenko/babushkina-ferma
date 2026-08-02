@@ -51,9 +51,39 @@ func _ready() -> void:
 		recruited_companions.assign(["mila", "borislav"])
 		active_companions.assign(["mila", "borislav"])
 		companion_positions = {"mila":Vector2(620, 650), "borislav":Vector2(780, 650)}
+	if "--enemy-levels-preview" in OS.get_cmdline_user_args():
+		configure_enemy_levels_preview()
 	sync_background_location()
 	DiscoverySystem.show_location(self, current_location)
 	queue_redraw()
+
+## Готовит безопасную витрину пяти рангов врагов, трёх угроз и максимального облика героя.
+func configure_enemy_levels_preview() -> void:
+	language_screen = false
+	title_screen = false
+	current_location = "overworld"
+	player = Vector2(1150, 650)
+	player_level = SkillSystem.MAX_CHARACTER_LEVEL
+	player_hp = player_max_hp
+	tutorial_visible = false
+	for index in mini(5, enemy_nodes.size()):
+		var enemy: Dictionary = enemy_nodes[index]
+		enemy.location = "overworld"
+		enemy.level = index + 1
+		enemy.max_hp = CombatSystem.max_hp(enemy.kind, enemy.level)
+		enemy.hp = enemy.max_hp
+		enemy.position = Vector2(700 + index * 225, 520)
+		enemy.home = enemy.position
+		enemy.attack_timer = 999.0
+		enemy_nodes[index] = enemy
+	for index in mini(3, hazard_nodes.size()):
+		var hazard: Dictionary = hazard_nodes[index]
+		hazard.location = "overworld"
+		hazard.kind = EnvironmentHazardSystem.FAMILY_ORDER[index]
+		hazard.level = 1 + index * 2
+		hazard.position = Vector2(820 + index * 330, 820)
+		hazard.cooldown = 999.0
+		hazard_nodes[index] = hazard
 
 ## Выполняет один физический кадр и обновляет активные игровые системы в заданном порядке.
 func _physics_process(delta: float) -> void:
@@ -875,6 +905,8 @@ func attack_nearest_enemy() -> bool:
 
 ## Обновляет боя на текущем кадре.
 func update_combat(delta: float) -> void:
+	CombatSystem.update(self, delta)
+	EnvironmentHazardSystem.update(self, delta)
 	if not slime_alive or player.distance_to(slime_position) > 72.0:
 		slime_attack_timer = 0.0
 		return
@@ -882,14 +914,7 @@ func update_combat(delta: float) -> void:
 	if slime_attack_timer >= 1.5:
 		slime_attack_timer = 0.0
 		AnimationSystem.begin_slime_attack(self)
-		var incoming_damage := maxi(1, InventorySystem.incoming_damage(self, 20) - CompanionSystem.defense_bonus(self))
-		player_hp -= incoming_damage
-		message = "Слизень атакует! -%d здоровья" % incoming_damage
-		if player_hp <= 0:
-			player_hp = player_max_hp
-			player = Vector2(260, 360)
-			coins = maxi(0, coins - 5)
-			message = "Бабушка спасла тебя. Потеряно 5 монет"
+		CombatSystem.damage_player(self, 20, LocaleSystem.entity("slime"))
 
 ## Выполняет заявленное игровое действие после проверки условий, затрат и наград.
 func collect_loot() -> bool:
@@ -1028,9 +1053,16 @@ func grant_tester_kit() -> void:
 	ForageSystem.reset_all(self)
 	for index in enemy_nodes.size():
 		enemy_nodes[index].alive = true
-		enemy_nodes[index].hp = CombatSystem.TYPES[enemy_nodes[index].kind].hp
+		enemy_nodes[index].hp = CombatSystem.max_hp(enemy_nodes[index].kind, enemy_nodes[index].level)
+		enemy_nodes[index].max_hp = enemy_nodes[index].hp
+		enemy_nodes[index].position = enemy_nodes[index].home
+		enemy_nodes[index].direction = Vector2.DOWN
+		enemy_nodes[index].moving = false
+		enemy_nodes[index].attack_timer = 0.0
 		enemy_nodes[index].visual_state = "idle"
 		enemy_nodes[index].visual_time = 0.0
+	for index in hazard_nodes.size():
+		hazard_nodes[index].cooldown = 0.0
 	for index in wildlife_nodes.size():
 		wildlife_nodes[index].alive = true
 		wildlife_nodes[index].hp = WildlifeSystem.TYPES[wildlife_nodes[index].kind].hp

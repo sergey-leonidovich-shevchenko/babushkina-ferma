@@ -53,6 +53,9 @@ static func is_walkable(game: Node, position: Vector2) -> bool:
 	for enemy in game.enemy_nodes:
 		if enemy.alive and enemy.location == game.current_location and position.distance_to(enemy.position) < game.PLAYER_RADIUS + 30.0:
 			return false
+	for hazard in game.hazard_nodes:
+		if hazard.location == game.current_location and position.distance_to(hazard.position) < game.PLAYER_RADIUS + 30.0:
+			return false
 	for node in game.resource_nodes:
 		if node.hits > 0 and node.location == game.current_location and position.distance_to(node.position) < game.PLAYER_RADIUS + 30.0:
 			return false
@@ -71,3 +74,46 @@ static func is_walkable(game: Node, position: Vector2) -> bool:
 static func circle_intersects_rect(center: Vector2, radius: float, rect: Rect2) -> bool:
 	var closest := Vector2(clampf(center.x, rect.position.x, rect.end.x), clampf(center.y, rect.position.y, rect.end.y))
 	return center.distance_squared_to(closest) < radius * radius
+
+
+## Перемещает мобильного врага по двум осям, позволяя скользить вдоль препятствий.
+static func move_enemy(game: Node, enemy_index: int, motion: Vector2) -> Vector2:
+	if enemy_index < 0 or enemy_index >= game.enemy_nodes.size():
+		return Vector2.ZERO
+	var position: Vector2 = game.enemy_nodes[enemy_index].position
+	var horizontal := position + Vector2(motion.x, 0.0)
+	if enemy_position_walkable(game, horizontal, enemy_index):
+		position = horizontal
+	var vertical := position + Vector2(0.0, motion.y)
+	if enemy_position_walkable(game, vertical, enemy_index):
+		position = vertical
+	return position
+
+
+## Проверяет путь врага без ложного столкновения с ним самим.
+static func enemy_position_walkable(game: Node, position: Vector2, enemy_index: int) -> bool:
+	const RADIUS := 27.0
+	if position.x < 40.0 or position.x > game.WORLD_SIZE.x - 40.0 or position.y < 120.0 or position.y > game.WORLD_SIZE.y - 80.0:
+		return false
+	for building_id in game.BuildingSystem.buildings_at(game.current_location):
+		if circle_intersects_rect(position, RADIUS, game.BuildingSystem.collision_rect(building_id)):
+			return false
+	if game.current_location == "overworld":
+		if position.y + RADIUS > 860.0 and not game.BRIDGE_RECT.grow(-18.0).has_point(position):
+			return false
+		var pond_delta: Vector2 = position - game.pond_position
+		if pow(pond_delta.x / 216.0, 2.0) + pow(pond_delta.y / 132.0, 2.0) < 1.0:
+			return false
+	for index in game.enemy_nodes.size():
+		if index == enemy_index:
+			continue
+		var other: Dictionary = game.enemy_nodes[index]
+		if other.alive and other.location == game.current_location and position.distance_to(other.position) < RADIUS * 2.0:
+			return false
+	for hazard in game.hazard_nodes:
+		if hazard.location == game.current_location and position.distance_to(hazard.position) < RADIUS + 30.0:
+			return false
+	for node in game.resource_nodes:
+		if node.hits > 0 and node.location == game.current_location and position.distance_to(node.position) < RADIUS + 28.0:
+			return false
+	return true

@@ -32,6 +32,9 @@ tools/Godot.app/Contents/MacOS/Godot --path . -- --buildings-preview
 # Тюрьма с тремя кандидатами и лидерством 2
 tools/Godot.app/Contents/MacOS/Godot --path . -- --companions-preview
 
+# Витрина пяти уровней врагов, статичных угроз и облика героя 20 уровня
+tools/Godot.app/Contents/MacOS/Godot --path . -- --enemy-levels-preview
+
 # Автоматическое движение для benchmark
 tools/Godot.app/Contents/MacOS/Godot --path . --max-fps 60 --quit-after 480 --print-fps -- --autoplay
 ```
@@ -45,7 +48,7 @@ tools/check_architecture.sh
 ./run_tests.sh
 ```
 
-Первая команда контролирует размеры слоёв, утечки отрисовки в фасад, пробельные ошибки, обязательные документы и локальные Markdown-ссылки. Вторая импортирует ресурсы в headless-редакторе и запускает все GDScript-наборы. Успех подтверждается строкой `TESTS: 865 passed, 0 failed`.
+Первая команда контролирует размеры слоёв, утечки отрисовки в фасад, пробельные ошибки, обязательные документы и локальные Markdown-ссылки. Вторая импортирует ресурсы в headless-редакторе и запускает все GDScript-наборы. Успех подтверждается строкой `TESTS: 909 passed, 0 failed`.
 
 Git hook `pre-commit` повторяет quality gate, а `post-commit` отправляет успешный коммит в GitHub. GitHub Actions запускает те же проверки на push и pull request.
 

@@ -1,5 +1,7 @@
 extends RefCounted
 
+const MAX_CHARACTER_LEVEL := 20
+
 const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
 
 const SKILLS := [
@@ -43,13 +45,21 @@ static func skill(game: Node, skill_id: String) -> int:
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func award_character_xp(game: Node, amount: int, reason: String = "") -> void:
+	if game.player_level >= MAX_CHARACTER_LEVEL:
+		game.player_level = MAX_CHARACTER_LEVEL
+		game.player_xp = 0
+		return
+	var old_skin_stage := hero_skin_stage(game.player_level)
 	game.player_xp += amount
 	var gained_levels := 0
-	while game.player_xp >= xp_to_next_character_level(game.player_level):
+	while game.player_level < MAX_CHARACTER_LEVEL and game.player_xp >= xp_to_next_character_level(game.player_level):
 		game.player_xp -= xp_to_next_character_level(game.player_level)
 		game.player_level += 1
 		game.skill_points += 1
 		gained_levels += 1
+	if game.player_level >= MAX_CHARACTER_LEVEL:
+		game.player_level = MAX_CHARACTER_LEVEL
+		game.player_xp = 0
 	if gained_levels > 0:
 		var old_max_hp: int = game.player_max_hp
 		recalculate_resources(game)
@@ -57,8 +67,15 @@ static func award_character_xp(game: Node, amount: int, reason: String = "") -> 
 		game.message = game.LocaleSystem.text("level_up", [game.player_level])
 		game.play_sfx("level_up")
 		game.notify_tutorial("level_up")
+		if hero_skin_stage(game.player_level) > old_skin_stage:
+			game.notify_tutorial("hero_skin")
 	elif not reason.is_empty():
 		game.message = "%s: +%d опыта" % [reason, amount]
+
+
+## Сопоставляет уровни 1–5, 6–10, 11–15 и 16–20 колонке облика героя.
+static func hero_skin_stage(level: int) -> int:
+	return clampi(floori(float(clampi(level, 1, MAX_CHARACTER_LEVEL) - 1) / 5.0), 0, 3)
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func award_profession_xp(game: Node, skill_id: String, amount: int) -> bool:

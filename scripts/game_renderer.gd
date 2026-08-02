@@ -257,14 +257,14 @@ func draw_npc_sprite(sprite_index: int, position: Vector2, phase: float) -> void
 	draw_living_atlas_sprite(NPC_ATLAS, source, position, Vector2(104, 104), walk_animation_time, false, phase)
 
 ## Применяет общий цикл дыхания или шага к одному прозрачному атласному спрайту.
-func draw_living_atlas_sprite(texture: Texture2D, source: Rect2, position: Vector2, size: Vector2, time: float, moving: bool, phase: float, flip_x: bool = false) -> void:
+func draw_living_atlas_sprite(texture: Texture2D, source: Rect2, position: Vector2, size: Vector2, time: float, moving: bool, phase: float, flip_x: bool = false, modulate: Color = Color.WHITE) -> void:
 	var motion: Dictionary = PresentationSystem.living_motion(time, moving, phase)
 	var sprite_scale: Vector2 = motion.scale
 	if flip_x:
 		sprite_scale.x *= -1.0
 	var world_transform := -camera_offset
 	draw_set_transform(world_transform + position + Vector2(motion.offset), float(motion.rotation), sprite_scale)
-	draw_texture_rect_region(texture, Rect2(Vector2(-size.x * 0.5, -size.y * 0.66), size), source)
+	draw_texture_rect_region(texture, Rect2(Vector2(-size.x * 0.5, -size.y * 0.66), size), source, modulate)
 	draw_set_transform(world_transform, 0.0, Vector2.ONE)
 
 ## Отрисовывает сюжетного NPC, его имя и маркер состояния миссии.
@@ -372,13 +372,33 @@ func draw_enemy_nodes_and_gate() -> void:
 		draw_string(UI_FONT, world_gate_position + Vector2(-75, 68), WorldSystem.name(WorldSystem.next_location(current_location)), HORIZONTAL_ALIGNMENT_LEFT, 180, 14, Color("fff0bd"))
 	for enemy in enemy_nodes:
 		if not AnimationSystem.enemy_is_visible(enemy) or enemy.location != current_location: continue
-		var data: Dictionary = CombatSystem.TYPES[enemy.kind]
 		var position: Vector2 = enemy.position
 		AnimationRenderer.draw_enemy(self, enemy)
 		if not enemy.alive: continue
-		draw_rect(Rect2(position - Vector2(31, 48), Vector2(62, 7)), Color("402d32"))
-		draw_rect(Rect2(position - Vector2(30, 47), Vector2(60.0 * enemy.hp / float(data.hp), 5)), Color("dc554b"))
+		var sprite_height := 126.0 if enemy.kind == "cave_guardian" else (104.0 if enemy.kind == "undead" else 96.0)
+		var bar_y := position.y - sprite_height * 0.72
+		draw_string(UI_FONT, Vector2(position.x - 65, bar_y - 9), LocaleSystem.ui("enemy_level", [enemy.level]), HORIZONTAL_ALIGNMENT_CENTER, 130, 13, Color("ffd46a"))
+		draw_rect(Rect2(Vector2(position.x - 31, bar_y), Vector2(62, 7)), Color("402d32"))
+		draw_rect(Rect2(Vector2(position.x - 30, bar_y + 1), Vector2(60.0 * enemy.hp / float(enemy.max_hp), 5)), Color("dc554b"))
 		draw_string(UI_FONT, position + Vector2(-65, 55), LocaleSystem.entity(enemy.kind), HORIZONTAL_ALIGNMENT_CENTER, 130, 14, Color("fff0bd"))
+
+
+## Отрисовывает укоренённые растения-угрозы, их уровни и момент дистанционной атаки.
+func draw_hazards() -> void:
+	for hazard in hazard_nodes:
+		if hazard.location != current_location:
+			continue
+		var column: int = EnvironmentHazardSystem.FAMILY_ORDER.find(hazard.kind)
+		var rank: int = EnvironmentHazardSystem.visual_rank(hazard.level)
+		var cell_size := Vector2(HAZARD_RANK_ATLAS.get_width() / 3.0, HAZARD_RANK_ATLAS.get_height() / 3.0)
+		var source := Rect2(Vector2(column, rank) * cell_size, cell_size)
+		var size := Vector2(108, 92) if hazard.kind == "poison_ivy" else (Vector2(104, 112) if hazard.kind == "thorn_bloom" else Vector2(100, 104))
+		draw_living_atlas_sprite(HAZARD_RANK_ATLAS, source, hazard.position, size, hazard.pulse, false, float(column) * 1.2)
+		var top_y: float = hazard.position.y - size.y * 0.72
+		draw_string(UI_FONT, Vector2(hazard.position.x - 58, top_y), LocaleSystem.ui("enemy_level", [hazard.level]), HORIZONTAL_ALIGNMENT_CENTER, 116, 13, Color("ffd46a"))
+		draw_string(UI_FONT, hazard.position + Vector2(-70, 56), LocaleSystem.entity(hazard.kind), HORIZONTAL_ALIGNMENT_CENTER, 140, 13, Color("e9f0c6"))
+		if hazard.kind == "thorn_bloom" and hazard.cooldown > EnvironmentHazardSystem.TYPES.thorn_bloom.interval - 0.22:
+			draw_line(hazard.position - Vector2(0, 24), player, Color(0.78, 0.95, 0.35, 0.72), 3.0)
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func enemy_sprite_texture(kind: String) -> Texture2D:

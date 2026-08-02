@@ -22,6 +22,6 @@ func normalize() -> void:
 	hp = clampi(hp, 0, maxi(max_hp, 1))
 	mana = clampi(mana, 0, maxi(max_mana, 0))
 	energy = maxi(energy, 0)
-	level = maxi(level, 1)
+	level = clampi(level, 1, 20)
 	xp = maxi(xp, 0)
 	skill_points = maxi(skill_points, 0)

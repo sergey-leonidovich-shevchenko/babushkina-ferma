@@ -62,7 +62,7 @@ static func test_content_references_are_valid(context: SceneTree) -> void:
 	var game: Node = context.make_game()
 	var errors: Array[String] = game.ContentRegistry.validate()
 	context.expect(errors.is_empty(), "recipes loot quests spawns shops and tutorials reference valid catalog ids: %s" % [errors])
-	context.expect(game.enemy_nodes == game.CombatSystem.SPAWNS and game.food_nodes == game.ForageSystem.SPAWNS, "feature systems own their default content instead of game.gd")
+	context.expect(game.enemy_nodes.size() == game.CombatSystem.SPAWNS.size() and game.hazard_nodes.size() == game.EnvironmentHazardSystem.SPAWNS.size() and game.food_nodes == game.ForageSystem.SPAWNS, "feature systems own their default content instead of game.gd")
 	game.free()
 
 

@@ -22,7 +22,7 @@ static func snapshot(game: Node) -> Dictionary:
 		containers.append({"id":container.id,"kind":container.kind,"location":container.location,"position":[container.position.x,container.position.y],"opened":container.opened,"contents":container.contents.duplicate(true)})
 	for node in game.food_nodes:
 		forage.append({"active":node.active,"ready_at":node.get("ready_at", 0.0)})
-	return {"version":VERSION,"state_schema":STATE_SCHEMA,"player":[game.player.x,game.player.y],"location":game.current_location,"day":game.day,"minutes":game.game_minutes,"energy":game.energy,"coins":game.coins,"xp":game.player_xp,"level":game.player_level,"hp":game.player_hp,"progression":{"points":game.skill_points,"levels":game.skill_levels.duplicate(true),"xp":game.skill_xp.duplicate(true),"mana":game.player_mana},"companions":{"recruited":game.recruited_companions.duplicate(),"active":game.active_companions.duplicate()},"counts":game.export_inventory_counts().duplicate(true),"slots":game.inventory_slots.duplicate(true),"hotbar":game.hotbar_slots.duplicate(true),"equipment":game.equipment.duplicate(true),"quest_active":game.quest_active,"quest_complete":game.quest_complete,"missions":game.mission_states.duplicate(true),"tutorial":{"step":game.tutorial_step,"events":game.tutorial_events_completed.duplicate(true),"seen":game.seen_discoveries.duplicate(true),"animation":game.character_animation_directions.keys()},"weapons":{"sword":game.sword_crafted,"bow":game.has_bow,"crystal":game.has_crystal_sword,"equipped":game.equipped_weapon},"plots":plot_data,"resource_hits":game.resource_nodes.map(func(node): return node.hits),"food_active":game.food_nodes.map(func(node): return node.active),"forage":forage,"enemies":game.enemy_nodes.map(func(enemy): return {"hp":enemy.hp,"alive":enemy.alive}),"wildlife":wildlife,"world_loot_seed":game.world_loot_seed,"containers":containers,"drops":drops}
+	return {"version":VERSION,"state_schema":STATE_SCHEMA,"player":[game.player.x,game.player.y],"location":game.current_location,"day":game.day,"minutes":game.game_minutes,"energy":game.energy,"coins":game.coins,"xp":game.player_xp,"level":game.player_level,"hp":game.player_hp,"progression":{"points":game.skill_points,"levels":game.skill_levels.duplicate(true),"xp":game.skill_xp.duplicate(true),"mana":game.player_mana},"companions":{"recruited":game.recruited_companions.duplicate(),"active":game.active_companions.duplicate()},"counts":game.export_inventory_counts().duplicate(true),"slots":game.inventory_slots.duplicate(true),"hotbar":game.hotbar_slots.duplicate(true),"equipment":game.equipment.duplicate(true),"quest_active":game.quest_active,"quest_complete":game.quest_complete,"missions":game.mission_states.duplicate(true),"tutorial":{"step":game.tutorial_step,"events":game.tutorial_events_completed.duplicate(true),"seen":game.seen_discoveries.duplicate(true),"animation":game.character_animation_directions.keys()},"weapons":{"sword":game.sword_crafted,"bow":game.has_bow,"crystal":game.has_crystal_sword,"equipped":game.equipped_weapon},"plots":plot_data,"resource_hits":game.resource_nodes.map(func(node): return node.hits),"food_active":game.food_nodes.map(func(node): return node.active),"forage":forage,"enemies":game.enemy_nodes.map(func(enemy): return {"hp":enemy.hp,"alive":enemy.alive,"level":enemy.level,"position":[enemy.position.x,enemy.position.y],"direction":[enemy.direction.x,enemy.direction.y],"attack_timer":enemy.attack_timer}),"hazards":game.hazard_nodes.map(func(hazard): return {"cooldown":hazard.cooldown}),"wildlife":wildlife,"world_loot_seed":game.world_loot_seed,"containers":containers,"drops":drops}
 
 
 ## Обновляет сохранение старой версии до актуальной схемы данных.
@@ -45,7 +45,7 @@ static func apply(game: Node, data: Dictionary) -> bool:
 	if data.is_empty(): return false
 	game.player = Vector2(data.player[0], data.player[1]); game.current_location = data.location
 	game.day = data.day; game.game_minutes = data.minutes; game.energy = data.energy; game.coins = data.coins
-	game.player_xp = data.xp; game.player_level = data.level; game.player_hp = data.hp
+	game.player_xp = data.xp; game.player_level = clampi(int(data.level), 1, game.SkillSystem.MAX_CHARACTER_LEVEL); game.player_hp = data.hp
 	var progression: Dictionary = data.get("progression", {})
 	game.skill_points = progression.get("points", 0)
 	for skill_id in game.skill_levels:
@@ -103,7 +103,16 @@ static func apply(game: Node, data: Dictionary) -> bool:
 	else:
 		for index in mini(data.get("food_active", []).size(), game.food_nodes.size()): game.food_nodes[index].active = data.food_active[index]
 	for index in mini(data.get("enemies",[]).size(), game.enemy_nodes.size()):
-		game.enemy_nodes[index].hp = data.enemies[index].hp; game.enemy_nodes[index].alive = data.enemies[index].alive
+		var saved_enemy: Dictionary = data.enemies[index]
+		game.enemy_nodes[index].level = clampi(int(saved_enemy.get("level", game.enemy_nodes[index].level)), 1, game.CombatSystem.MAX_ENEMY_LEVEL)
+		game.enemy_nodes[index].max_hp = game.CombatSystem.max_hp(game.enemy_nodes[index].kind, game.enemy_nodes[index].level)
+		game.enemy_nodes[index].hp = saved_enemy.hp
+		game.enemy_nodes[index].alive = saved_enemy.alive
+		if saved_enemy.has("position"): game.enemy_nodes[index].position = Vector2(saved_enemy.position[0], saved_enemy.position[1])
+		if saved_enemy.has("direction"): game.enemy_nodes[index].direction = Vector2(saved_enemy.direction[0], saved_enemy.direction[1])
+		game.enemy_nodes[index].attack_timer = saved_enemy.get("attack_timer", 0.0)
+	for index in mini(data.get("hazards", []).size(), game.hazard_nodes.size()):
+		game.hazard_nodes[index].cooldown = data.hazards[index].get("cooldown", 0.0)
 	for index in mini(data.get("wildlife",[]).size(), game.wildlife_nodes.size()):
 		game.wildlife_nodes[index].hp = data.wildlife[index].hp
 		game.wildlife_nodes[index].alive = data.wildlife[index].alive

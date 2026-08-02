@@ -9,6 +9,7 @@ const STEP_IDS := [
 	"skill_point", "profession", "save", "wildlife", "world_loot", "watermelon", "potion",
 	"shield", "lizard",
 	"building_enter", "locked_building", "castle_floor", "companion_recruit", "companion_change",
+	"enemy_levels", "enemy_movement", "contact_hazard", "static_attacker", "hero_skin",
 ]
 
 

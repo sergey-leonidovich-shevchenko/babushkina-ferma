@@ -31,6 +31,9 @@ static func update(game: Node, delta: float) -> void:
 		if enemy.visual_state == "hurt" and enemy.visual_time >= HURT_DURATION:
 			enemy.visual_state = "idle"
 			enemy.visual_time = 0.0
+		elif enemy.visual_state == "attack" and enemy.visual_time >= ENEMY_ATTACK_DURATION:
+			enemy.visual_state = "idle"
+			enemy.visual_time = 0.0
 		game.enemy_nodes[index] = enemy
 
 
