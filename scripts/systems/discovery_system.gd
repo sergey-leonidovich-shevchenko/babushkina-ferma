@@ -72,6 +72,9 @@ static func scan_nearby(game: Node) -> bool:
 	for enemy in game.enemy_nodes:
 		if enemy.alive and enemy.location == game.current_location:
 			add_candidate(candidates, "enemy:%s" % enemy.kind, enemy.position, enemy_hint(game, enemy.kind))
+	for animal in game.wildlife_nodes:
+		if animal.alive and animal.location == game.current_location:
+			add_candidate(candidates, "wildlife:%s" % animal.kind, animal.position, wildlife_hint(game, animal.kind))
 	for item in game.dropped_items:
 		add_candidate(candidates, "item:%s" % item.kind, item.position, item_hint(game, item.kind))
 	var nearest: Dictionary = {}
@@ -108,6 +111,10 @@ static func enemy_hint(game: Node, kind: String) -> Dictionary:
 
 static func food_hint(game: Node, kind: String) -> Dictionary:
 	return {"title":game.inventory_item_name(kind),"text":"Дикорастущая еда. Подбери через E, затем съешь из рюкзака для лечения или временного эффекта."}
+
+static func wildlife_hint(game: Node, kind: String) -> Dictionary:
+	var animal: Dictionary = game.WildlifeSystem.TYPES[kind]
+	return {"title":animal.name,"text":"Пугливый дикий зверь: разговаривать нельзя. Он убежит при приближении; атаковать можно клавишей F ради природного лута."}
 
 static func item_hint(game: Node, kind: String) -> Dictionary:
 	var item: Dictionary = game.InventorySystem.data(kind)

@@ -31,6 +31,8 @@ func _initialize() -> void:
 	test_mission_progress_and_drops_are_saved()
 	test_contextual_discoveries_and_new_item_hints()
 	test_discoveries_and_tutorial_checklist_are_saved()
+	test_wildlife_flees_and_does_not_talk()
+	test_wildlife_combat_loot_animation_and_save()
 	test_gameplay_systems_are_modular()
 	print("TESTS: %d passed, %d failed" % [passed, failed])
 	quit(0 if failed == 0 else 1)
@@ -417,7 +419,7 @@ func test_gameplay_systems_are_modular() -> void:
 	expect(game.FarmSystem != null and game.FishingSystem != null and game.QuestSystem != null, "farm fishing and quest systems are separate modules")
 	expect(game.CombatSystem != null and game.CraftingSystem != null and game.SaveSystem != null, "combat crafting and save systems are separate modules")
 	expect(game.WorldSystem != null and game.RenderSystem != null, "world and rendering coordinators are separate modules")
-	expect(game.ResourceSystem != null and game.ShopSystem != null and game.TutorialSystem != null and game.DiscoverySystem != null, "resources shop tutorial and discoveries are separate modules")
+	expect(game.ResourceSystem != null and game.ShopSystem != null and game.TutorialSystem != null and game.DiscoverySystem != null and game.WildlifeSystem != null, "resources shop tutorial discoveries and wildlife are separate modules")
 	game.free()
 
 func test_colored_crystals_and_orc_equipment_loot() -> void:
@@ -521,17 +523,62 @@ func test_discoveries_and_tutorial_checklist_are_saved() -> void:
 	game.seen_discoveries = {"shop":true,"enemy:orc":true}
 	game.notify_tutorial("save")
 	expect(game.tutorial_step == 0 and game.tutorial_events_completed.has("save"), "future tutorial actions are remembered without skipping current step")
-	game.tutorial_step = game.tutorial_steps.size() - 1
+	var save_step: int = game.tutorial_steps.find_custom(func(step): return step.event == "save")
+	game.tutorial_step = save_step
 	game.notify_tutorial("unrelated")
-	expect(game.tutorial_step == game.tutorial_steps.size(), "remembered action completes its checklist step when prerequisites are reached")
+	expect(game.tutorial_step == save_step + 1, "remembered action completes its checklist step when prerequisites are reached")
 	var snapshot: Dictionary = game.SaveSystem.snapshot(game)
 	game.seen_discoveries.clear()
 	game.tutorial_events_completed.clear()
 	game.tutorial_step = 0
 	game.SaveSystem.apply(game, snapshot)
 	expect(game.seen_discoveries.has("shop") and game.seen_discoveries.has("enemy:orc"), "save restores discovered feature history")
-	expect(game.tutorial_step == game.tutorial_steps.size() and game.tutorial_events_completed.has("save"), "save restores tutorial checklist progress")
-	var required_events := ["move","plant","rewater","trade","fight","hotbar","equipment","fish","craft_window","mission_complete","journal","side_mission","colored_crystal","day","level_up","save"]
+	expect(game.tutorial_step == save_step + 1 and game.tutorial_events_completed.has("save"), "save restores tutorial checklist progress")
+	var required_events := ["move","plant","rewater","trade","fight","hotbar","equipment","fish","craft_window","mission_complete","journal","side_mission","colored_crystal","day","level_up","save","wildlife"]
 	for event_name in required_events:
 		expect(game.tutorial_steps.any(func(step): return step.event == event_name), "tutorial covers feature: %s" % event_name)
+	game.free()
+
+func test_wildlife_flees_and_does_not_talk() -> void:
+	var game := make_game()
+	var deer: Dictionary = game.wildlife_nodes[0]
+	game.player = deer.position - Vector2(60, 0)
+	var before_distance: float = game.player.distance_to(deer.position)
+	game.WildlifeSystem.update(game, 0.2)
+	deer = game.wildlife_nodes[0]
+	expect(game.player.distance_to(deer.position) > before_distance, "timid deer immediately flees from nearby player")
+	game.player = deer.position
+	expect(game.nearest_interaction().is_empty(), "decorative wildlife cannot be talked to")
+	game.discovery_current.clear()
+	game.seen_discoveries.clear()
+	expect(game.DiscoverySystem.scan_nearby(game), "approaching wildlife opens its contextual hint")
+	expect(game.discovery_current.id == "wildlife:deer" and "разговаривать нельзя" in game.discovery_current.text, "wildlife hint explains fleeing and hunting")
+	game.free()
+
+func test_wildlife_combat_loot_animation_and_save() -> void:
+	var game := make_game()
+	expect(game.DEER_RUN_SHEET.get_width() == 192 and game.FOX_RUN_SHEET.get_width() == 192 and game.BOAR_RUN_SHEET.get_width() == 160, "wildlife animation sheets are loaded")
+	expect(game.WildlifeSystem.TYPES.has("deer") and game.WildlifeSystem.TYPES.has("fox") and game.WildlifeSystem.TYPES.has("boar") and game.WildlifeSystem.TYPES.has("bat"), "four wildlife species are configured")
+	game.current_location = "cave"
+	game.player = game.wildlife_nodes[6].position
+	expect(game.nearest_interaction().is_empty(), "bat has no dialogue interaction")
+	game.attack_nearest_enemy()
+	game.attack_nearest_enemy()
+	expect(not game.wildlife_nodes[6].alive, "cave bat can be hunted")
+	var wing_index := -1
+	for index in game.dropped_items.size():
+		if game.dropped_items[index].kind == "bat_wing": wing_index = index
+	expect(wing_index >= 0 and game.dropped_items[wing_index].count == 2, "bat drops two wings")
+	game.player = game.dropped_items[wing_index].position
+	game.collect_dropped_item(wing_index)
+	expect(game.materials.bat_wing == 2, "bat wings enter shared inventory")
+	expect(game.inventory_slots.has("bat_wing") and game.inventory_item_count("bat_wing") == 2, "wildlife loot is visible in expanded inventory")
+	var snapshot: Dictionary = game.SaveSystem.snapshot(game)
+	snapshot.slots = snapshot.slots.slice(0, 24)
+	game.wildlife_nodes[6].alive = true
+	game.wildlife_nodes[6].position = Vector2.ZERO
+	game.SaveSystem.apply(game, snapshot)
+	expect(not game.wildlife_nodes[6].alive, "save restores hunted wildlife state")
+	expect(game.wildlife_nodes[6].position != Vector2.ZERO, "save restores moving wildlife position")
+	expect(game.inventory_slots.size() >= 30 and game.inventory_slots.has("bat_wing"), "older 24-slot saves migrate to expanded wildlife inventory")
 	game.free()

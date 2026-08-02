@@ -28,6 +28,7 @@ const ResourceSystem := preload("res://scripts/systems/resource_system.gd")
 const ShopSystem := preload("res://scripts/systems/shop_system.gd")
 const TutorialSystem := preload("res://scripts/systems/tutorial_system.gd")
 const DiscoverySystem := preload("res://scripts/systems/discovery_system.gd")
+const WildlifeSystem := preload("res://scripts/systems/wildlife_system.gd")
 const ITEM_HELMET := preload("res://assets/game/items/iron_helmet.png")
 const ITEM_ARMOR := preload("res://assets/game/items/guardian_armor.png")
 const ITEM_BOOTS := preload("res://assets/game/items/travel_boots.png")
@@ -36,6 +37,9 @@ const ITEM_ORANGE := preload("res://assets/game/items/orange.png")
 const WATER_ANIMATION := preload("res://assets/game/fishing/Water Tile.png")
 const FISH_ANIMATION := preload("res://assets/game/fishing/Fish Swimming.png")
 const SPLASH_ANIMATION := preload("res://assets/game/fishing/Splash Effect.png")
+const DEER_RUN_SHEET := preload("res://assets/game/wildlife/deer_run.png")
+const FOX_RUN_SHEET := preload("res://assets/game/wildlife/fox_run.png")
+const BOAR_RUN_SHEET := preload("res://assets/game/wildlife/boar_run.png")
 const WORLD_SIZE := Vector2(2400, 1200)
 const STAGE_DURATION := 5.0
 const GROWTH_DURATION := 20.0
@@ -69,7 +73,7 @@ var shop_open := false
 var inventory_open := false
 var inventory_selected := 0
 var inventory_move_from := -1
-var inventory_slots := ["seeds", "carrot", "pickaxe", "fishing_rod", "slime", "wood", "stone", "crystal", "fish", "sword", "bow", "crystal_sword", "apple", "berries", "nut", "mushroom", "iron_helmet", "guardian_armor", "travel_boots", "crystal_ring", "orange", "orc_blade", "red_crystal", "green_crystal"]
+var inventory_slots := ["seeds", "carrot", "pickaxe", "fishing_rod", "slime", "wood", "stone", "crystal", "fish", "sword", "bow", "crystal_sword", "apple", "berries", "nut", "mushroom", "iron_helmet", "guardian_armor", "travel_boots", "crystal_ring", "orange", "orc_blade", "red_crystal", "green_crystal", "raw_meat", "hide", "fur", "tusk", "bat_wing", ""]
 var hotbar_slots := ["hoe", "seeds", "water", "hand", "pickaxe", "fishing_rod", "carrot", "apple", "berries", "mushroom"]
 var selected_hotbar := 0
 var equipment := {"head": "", "body": "", "legs": "", "hands": "", "ring": ""}
@@ -77,7 +81,7 @@ var iron_helmet := 0
 var guardian_armor := 0
 var travel_boots := 0
 var crystal_ring := 0
-var materials := {"fiber":0,"rare_seeds":0,"metal":0,"bones":0,"ancient_key":0,"blue_gem":0,"red_crystal":0,"green_crystal":0,"orc_blade":0,"moon_relic":0}
+var materials := {"fiber":0,"rare_seeds":0,"metal":0,"bones":0,"ancient_key":0,"blue_gem":0,"red_crystal":0,"green_crystal":0,"orc_blade":0,"moon_relic":0,"raw_meat":0,"hide":0,"fur":0,"tusk":0,"bat_wing":0}
 var crafting_open := false
 var crafting_selected := 0
 var world_gate_position := Vector2(2200, 760)
@@ -87,6 +91,17 @@ var enemy_nodes := [
 	{"kind":"skeleton","location":"cave","position":Vector2(880,520),"hp":6,"alive":true},
 	{"kind":"undead","location":"cursed","position":Vector2(1320,460),"hp":10,"alive":true},
 	{"kind":"cave_guardian","location":"cave","position":Vector2(1450,500),"hp":12,"alive":true}
+]
+var wildlife_nodes := [
+	{"kind":"deer","location":"overworld","position":Vector2(1320,430),"home":Vector2(1320,430),"direction":Vector2.RIGHT,"hp":3,"alive":true,"animation":0.0,"wander_timer":0.0,"panic":0.0},
+	{"kind":"fox","location":"overworld","position":Vector2(1930,540),"home":Vector2(1930,540),"direction":Vector2.LEFT,"hp":3,"alive":true,"animation":0.4,"wander_timer":0.8,"panic":0.0},
+	{"kind":"deer","location":"forest","position":Vector2(720,650),"home":Vector2(720,650),"direction":Vector2.DOWN,"hp":3,"alive":true,"animation":0.8,"wander_timer":1.0,"panic":0.0},
+	{"kind":"fox","location":"forest","position":Vector2(1560,360),"home":Vector2(1560,360),"direction":Vector2.RIGHT,"hp":3,"alive":true,"animation":1.2,"wander_timer":0.3,"panic":0.0},
+	{"kind":"boar","location":"forest","position":Vector2(2040,620),"home":Vector2(2040,620),"direction":Vector2.LEFT,"hp":5,"alive":true,"animation":0.2,"wander_timer":1.2,"panic":0.0},
+	{"kind":"boar","location":"rocky","position":Vector2(1100,530),"home":Vector2(1100,530),"direction":Vector2.RIGHT,"hp":5,"alive":true,"animation":0.6,"wander_timer":0.5,"panic":0.0},
+	{"kind":"bat","location":"cave","position":Vector2(680,430),"home":Vector2(680,430),"direction":Vector2.UP,"hp":2,"alive":true,"animation":0.0,"wander_timer":0.0,"panic":0.0},
+	{"kind":"bat","location":"cave","position":Vector2(1780,610),"home":Vector2(1780,610),"direction":Vector2.LEFT,"hp":2,"alive":true,"animation":0.7,"wander_timer":1.0,"panic":0.0},
+	{"kind":"bat","location":"cursed","position":Vector2(840,390),"home":Vector2(840,390),"direction":Vector2.RIGHT,"hp":2,"alive":true,"animation":1.4,"wander_timer":0.4,"panic":0.0}
 ]
 var dropped_items: Array = []
 var shop_selected := 0
@@ -203,7 +218,8 @@ var tutorial_steps := [
 	{"event": "colored_crystal", "text": "Добудь красный или зелёный кристалл киркой [5]"},
 	{"event": "day", "text": "Вернись к дому и закончи день клавишей N"},
 	{"event": "level_up", "text": "Набери 50 XP и повысь уровень персонажа"},
-	{"event": "save", "text": "Сохрани игру [F5], затем проверь загрузку [F8]"}
+	{"event": "save", "text": "Сохрани игру [F5], затем проверь загрузку [F8]"},
+	{"event": "wildlife", "text": "Найди пугливого зверя, проследи за побегом и добудь его лут [F]"}
 ]
 
 func _ready() -> void:
@@ -228,6 +244,7 @@ func _physics_process(delta: float) -> void:
 	update_fishing(delta)
 	update_status_effects(delta)
 	DiscoverySystem.update(self, delta)
+	WildlifeSystem.update(self, delta)
 	if benchmark_autoplay:
 		update_benchmark_route(delta)
 	if shop_open or inventory_open or crafting_open or quest_log_open:
@@ -895,8 +912,21 @@ func attack_slime() -> bool:
 
 func attack_nearest_enemy() -> bool:
 	var enemy_index := CombatSystem.nearest(self)
-	if enemy_index >= 0: return CombatSystem.attack(self, enemy_index)
-	if current_location == "overworld": return attack_slime()
+	var wildlife_index := WildlifeSystem.nearest(self)
+	var enemy_distance := INF
+	var wildlife_distance := INF
+	if enemy_index >= 0:
+		enemy_distance = player.distance_to(enemy_nodes[enemy_index].position)
+	if wildlife_index >= 0:
+		wildlife_distance = player.distance_to(wildlife_nodes[wildlife_index].position)
+	if wildlife_distance < enemy_distance:
+		return WildlifeSystem.attack(self, wildlife_index)
+	if enemy_index >= 0:
+		return CombatSystem.attack(self, enemy_index)
+	if wildlife_index >= 0:
+		return WildlifeSystem.attack(self, wildlife_index)
+	if current_location == "overworld":
+		return attack_slime()
 	message = "Рядом нет противника"
 	return false
 
@@ -1034,6 +1064,10 @@ func grant_tester_kit() -> void:
 	for index in enemy_nodes.size():
 		enemy_nodes[index].alive = true
 		enemy_nodes[index].hp = CombatSystem.TYPES[enemy_nodes[index].kind].hp
+	for index in wildlife_nodes.size():
+		wildlife_nodes[index].alive = true
+		wildlife_nodes[index].hp = WildlifeSystem.TYPES[wildlife_nodes[index].kind].hp
+		wildlife_nodes[index].position = wildlife_nodes[index].home
 	message = "QA-набор выдан: ресурсы, морковь и монеты"
 
 func handle_shop_input(event: InputEvent) -> void:
@@ -1294,6 +1328,32 @@ func draw_enemy_nodes_and_gate() -> void:
 		draw_rect(Rect2(position - Vector2(30, 47), Vector2(60.0 * enemy.hp / float(data.hp), 5)), Color("dc554b"))
 		draw_string(ThemeDB.fallback_font, position + Vector2(-65, 55), data.name, HORIZONTAL_ALIGNMENT_CENTER, 130, 14, Color("fff0bd"))
 
+func draw_wildlife() -> void:
+	for animal in wildlife_nodes:
+		if not animal.alive or animal.location != current_location:
+			continue
+		var data: Dictionary = WildlifeSystem.TYPES[animal.kind]
+		var position: Vector2 = animal.position.round()
+		if animal.kind == "bat":
+			var flap := 10.0 + sin(animal.animation * 14.0) * 8.0
+			draw_colored_polygon(PackedVector2Array([position, position + Vector2(-28, -flap), position + Vector2(-18, 12)]), Color("6f6484"))
+			draw_colored_polygon(PackedVector2Array([position, position + Vector2(28, -flap), position + Vector2(18, 12)]), Color("6f6484"))
+			draw_circle(position, 10, Color("40374e"))
+			draw_circle(position + Vector2(-4, -2), 2, Color("e78a70"))
+			draw_circle(position + Vector2(4, -2), 2, Color("e78a70"))
+		else:
+			var texture: Texture2D = DEER_RUN_SHEET
+			if animal.kind == "fox": texture = FOX_RUN_SHEET
+			elif animal.kind == "boar": texture = BOAR_RUN_SHEET
+			var row := 0
+			if absf(animal.direction.x) > absf(animal.direction.y): row = 2 if animal.direction.x < 0.0 else 3
+			elif animal.direction.y < 0.0: row = 1
+			var frame: int = int(animal.animation * 9.0) % int(data.frames)
+			draw_texture_rect_region(texture, Rect2(position - Vector2(32, 40), Vector2(64, 64)), Rect2(frame * 32, row * 32, 32, 32))
+		if animal.hp < data.hp:
+			draw_rect(Rect2(position - Vector2(25, 44), Vector2(50, 5)), Color("402d32"))
+			draw_rect(Rect2(position - Vector2(24, 43), Vector2(48.0 * animal.hp / float(data.hp), 3)), Color("dc554b"))
+
 func draw_cave_world() -> void:
 	draw_rect(Rect2(Vector2.ZERO, WORLD_SIZE), Color("18232c"))
 	for y in range(100, int(WORLD_SIZE.y), 230):
@@ -1483,16 +1543,16 @@ func draw_inventory() -> void:
 	for index in inventory_slots.size():
 		var column := index % 6
 		var row := index / 6
-		var slot := Rect2(72 + column * 112, 136 + row * 86, 102, 72)
+		var slot := Rect2(72 + column * 112, 126 + row * 69, 102, 61)
 		var selected := index == inventory_selected
 		var moving := index == inventory_move_from
 		draw_rect(slot, Color("f0c96f") if selected else Color("715744"))
 		draw_rect(slot.grow(-4), Color("fff0bd") if not moving else Color("95d2a6"))
 		var kind: String = inventory_slots[index]
 		if not kind.is_empty() and inventory_item_count(kind) > 0:
-			draw_item_icon(kind, Rect2(slot.position + Vector2(5, 8), Vector2(34, 34)))
-			draw_string(ThemeDB.fallback_font, slot.position + Vector2(40, 25), inventory_item_name(kind), HORIZONTAL_ALIGNMENT_LEFT, 58, 11, Color("352e28"))
-			draw_string(ThemeDB.fallback_font, slot.position + Vector2(76, 58), "×%d" % inventory_item_count(kind), HORIZONTAL_ALIGNMENT_LEFT, -1, 14, Color("352e28"))
+			draw_item_icon(kind, Rect2(slot.position + Vector2(5, 6), Vector2(30, 30)))
+			draw_string(ThemeDB.fallback_font, slot.position + Vector2(37, 23), inventory_item_name(kind), HORIZONTAL_ALIGNMENT_LEFT, 61, 10, Color("352e28"))
+			draw_string(ThemeDB.fallback_font, slot.position + Vector2(73, 51), "×%d" % inventory_item_count(kind), HORIZONTAL_ALIGNMENT_LEFT, -1, 13, Color("352e28"))
 		else:
 			draw_string(ThemeDB.fallback_font, slot.position + Vector2(45, 39), "—", HORIZONTAL_ALIGNMENT_LEFT, -1, 18, Color("937d61"))
 	draw_equipment_panel()
@@ -1627,9 +1687,9 @@ func handle_gamepad_and_touch(event: InputEvent) -> bool:
 			toggle_quest_log()
 			return true
 		if inventory_open:
-			if event.position.y >= 136.0 and event.position.y < 480.0 and event.position.x >= 72.0 and event.position.x < 744.0:
+			if event.position.y >= 126.0 and event.position.y < 471.0 and event.position.x >= 72.0 and event.position.x < 744.0:
 				var column := clampi(int((event.position.x - 72.0) / 112.0), 0, 5)
-				var row := clampi(int((event.position.y - 136.0) / 86.0), 0, 3)
+				var row := clampi(int((event.position.y - 126.0) / 69.0), 0, 4)
 				inventory_selected = row * 6 + column
 			elif event.position.y >= 490.0 and event.position.y < 545.0 and event.position.x < 760.0:
 				assign_selected_to_hotbar(clampi(int((event.position.x - 72.0) / 68.0), 0, 9))
