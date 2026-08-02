@@ -92,6 +92,8 @@ static func attack(game: Node, index: int) -> bool:
 	elif game.equipped_weapon == "bow": damage += 1
 	animal.hp -= damage
 	game.AnimationSystem.begin_player_attack(game)
+	game.play_sfx("attack")
+	game.play_sfx("defeat" if animal.hp <= 0 else "hit")
 	animal.panic = 3.0
 	if animal.hp <= 0:
 		animal.alive = false

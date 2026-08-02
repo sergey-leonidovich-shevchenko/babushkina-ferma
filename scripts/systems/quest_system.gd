@@ -44,6 +44,7 @@ static func talk_to_grandmother(game: Node) -> void:
 	if not game.quest_active and not game.quest_complete:
 		game.quest_active = true
 		game.message = game.LocaleSystem.text("carrot_quest")
+		game.play_sfx("quest_accept")
 	elif game.quest_active and game.carrots >= 10:
 		game.carrots -= 10
 		game.coins += 50
@@ -52,6 +53,7 @@ static func talk_to_grandmother(game: Node) -> void:
 		game.quest_complete = true
 		game.has_bow = true
 		game.message = game.LocaleSystem.text("carrot_done")
+		game.play_sfx("quest_complete")
 		game.notify_tutorial("quest_complete")
 	elif game.quest_active:
 		game.message = game.LocaleSystem.text("carrot_wait", [game.carrots])
@@ -66,6 +68,7 @@ static func talk(game: Node, mission_id: String) -> bool:
 	if state == AVAILABLE:
 		game.mission_states[mission_id] = ACTIVE
 		game.message = game.LocaleSystem.text("mission_started", [mission.type, mission.title])
+		game.play_sfx("quest_accept")
 		game.notify_tutorial("mission_accept")
 		return true
 	if state == ACTIVE:
@@ -79,6 +82,7 @@ static func talk(game: Node, mission_id: String) -> bool:
 		game.award_xp(mission.xp)
 		game.mission_states[mission_id] = COMPLETED
 		game.message = game.LocaleSystem.text("mission_done", [mission.title, mission.coins, mission.xp, game.inventory_item_name(mission.reward_item)])
+		game.play_sfx("quest_complete")
 		game.notify_tutorial("mission_complete")
 		if mission_id == "side_seed":
 			game.notify_tutorial("side_mission")

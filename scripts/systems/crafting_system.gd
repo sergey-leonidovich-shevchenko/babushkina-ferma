@@ -26,6 +26,7 @@ static func craft(game: Node, index: int) -> bool:
 	game.award_xp(4)
 	game.SkillSystem.award_profession_xp(game, "smithing", 6)
 	game.message = game.LocaleSystem.text("crafted", [game.inventory_item_name(recipe.output)])
+	game.play_sfx("craft")
 	game.notify_tutorial("craft_window")
 	return true
 

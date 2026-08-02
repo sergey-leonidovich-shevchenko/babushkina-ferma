@@ -184,6 +184,7 @@ func test_gameplay_systems_are_modular() -> void:
 	expect(game.CombatSystem != null and game.CraftingSystem != null and game.SaveSystem != null, "combat crafting and save systems are separate modules")
 	expect(game.WorldSystem != null and game.RenderSystem != null, "world and rendering coordinators are separate modules")
 	expect(game.ResourceSystem != null and game.ShopSystem != null and game.TutorialSystem != null and game.DiscoverySystem != null and game.WildlifeSystem != null and game.LootContainerSystem != null and game.ForageSystem != null, "resources shop tutorial discoveries wildlife forage and world loot are separate modules")
+	expect(game.AudioSystem != null, "music and sound effects are owned by a separate audio module")
 	game.free()
 
 func test_colored_crystals_and_orc_equipment_loot() -> void:
@@ -207,4 +208,3 @@ func test_colored_crystals_and_orc_equipment_loot() -> void:
 			found_blade = true
 	expect(found_blade, "orc loot table includes an equippable blade")
 	game.free()
-

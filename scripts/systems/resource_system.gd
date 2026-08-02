@@ -44,6 +44,7 @@ static func mine(game: Node, index: int) -> bool:
 	if resource.hits <= 0:
 		game.message += ". " + game.LocaleSystem.text("depleted")
 	game.resource_nodes[index] = resource
+	game.play_sfx("mine")
 	game.notify_tutorial("mine")
 	if resource.kind in ["red_crystal", "green_crystal"]:
 		game.notify_tutorial("colored_crystal")

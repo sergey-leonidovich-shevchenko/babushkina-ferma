@@ -5,6 +5,7 @@ func _ready() -> void:
 	for content_error in ContentRegistry.validate():
 		push_error("Invalid game content: " + content_error)
 	LocaleSystem.load_locale()
+	AudioSystem.initialize(self)
 	message = LocaleSystem.text("welcome")
 	language_selected = maxi(LocaleSystem.LOCALES.find(LocaleSystem.current), 0)
 	for y in FARM_SIZE.y:
@@ -23,6 +24,7 @@ func _ready() -> void:
 	queue_redraw()
 
 func _physics_process(delta: float) -> void:
+	AudioSystem.update(self, delta)
 	if title_screen:
 		queue_redraw()
 		return
@@ -138,6 +140,7 @@ func update_camera() -> void:
 		background.position = -camera_offset
 
 func sync_background_location() -> void:
+	AudioSystem.switch_music(self, current_location)
 	var background := get_node_or_null("WorldBackground")
 	if background:
 		background.set_location(current_location)
@@ -197,6 +200,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			KEY_Y: reset_tutorial()
 			KEY_F9: grant_tester_kit()
 			KEY_F5: save_game()
+			KEY_F6:
+				AudioSystem.set_enabled(self, not audio_enabled)
+				message = LocaleSystem.ui("sound_on" if audio_enabled else "sound_off")
 			KEY_F8: load_game()
 			KEY_I, KEY_TAB: open_inventory()
 			KEY_J: toggle_quest_log()
@@ -254,6 +260,7 @@ func use_selected_tool() -> void:
 		message = LocaleSystem.text("face_plot")
 		return
 	var plot: Dictionary = plots[cell]
+	var action_sfx := ""
 	if selected_tool != Tool.HAND and energy <= 0:
 		message = LocaleSystem.text("no_energy")
 		return
@@ -264,6 +271,7 @@ func use_selected_tool() -> void:
 				energy -= 1
 				SkillSystem.award_profession_xp(self, "farming", 1)
 				message = LocaleSystem.text("soil_ready")
+				action_sfx = "hoe"
 			else: message = LocaleSystem.text("already_tilled")
 		Tool.SEEDS:
 			if plot.tilled and not plot.planted and seeds > 0:
@@ -276,6 +284,7 @@ func use_selected_tool() -> void:
 				award_xp(1, "Посадка моркови")
 				SkillSystem.award_profession_xp(self, "farming", 2)
 				notify_tutorial("plant")
+				action_sfx = "plant"
 			elif seeds <= 0: message = LocaleSystem.text("no_seeds")
 			else: message = LocaleSystem.text("till_first")
 		Tool.WATER:
@@ -286,6 +295,7 @@ func use_selected_tool() -> void:
 				SkillSystem.award_profession_xp(self, "farming", 1)
 				message = LocaleSystem.text("watered")
 				notify_tutorial("rewater" if is_second_watering else "water")
+				action_sfx = "water"
 			else: message = LocaleSystem.text("nothing_water")
 		Tool.HAND:
 			if plot.planted and plot.growth >= GROWTH_DURATION:
@@ -301,8 +311,11 @@ func use_selected_tool() -> void:
 				SkillSystem.award_profession_xp(self, "farming", 4)
 				message = LocaleSystem.text("harvested", [inventory_item_name("carrot"), harvested])
 				notify_tutorial("harvest")
+				action_sfx = "harvest"
 			else: message = LocaleSystem.text("not_ripe")
 	plots[cell] = plot
+	if not action_sfx.is_empty():
+		play_sfx(action_sfx)
 
 func sleep_until_morning() -> void:
 	if player.distance_to(Vector2(126, 190)) > 105.0:
@@ -444,6 +457,7 @@ func enter_cave() -> void:
 	message = "Кристальная пещера"
 	DiscoverySystem.show_location(self, current_location)
 	notify_tutorial("travel")
+	play_sfx("travel")
 
 func exit_cave() -> void:
 	current_location = "overworld"
@@ -452,6 +466,7 @@ func exit_cave() -> void:
 	update_camera()
 	message = "Ты вернулся в зачарованный лес"
 	DiscoverySystem.show_location(self, current_location)
+	play_sfx("travel")
 
 func open_inventory() -> void:
 	inventory_open = true
@@ -461,6 +476,7 @@ func open_inventory() -> void:
 	clear_movement_keys()
 	notify_tutorial("inventory")
 	message = LocaleSystem.text("inventory_open")
+	play_sfx("ui_open")
 
 func inventory_item_count(kind: String) -> int:
 	match kind:
@@ -581,6 +597,7 @@ func collect_dropped_item(index: int) -> bool:
 	change_inventory_count(item.kind, item.count)
 	dropped_items.remove_at(index)
 	message = LocaleSystem.text("picked", [inventory_item_name(item.kind)])
+	play_sfx("pickup")
 	return true
 
 func collect_food(index: int) -> bool:
@@ -710,6 +727,8 @@ func attack_slime() -> bool:
 	slime_hp -= damage
 	AnimationSystem.begin_player_attack(self)
 	AnimationSystem.hit_slime(self, slime_hp <= 0)
+	play_sfx("attack")
+	play_sfx("defeat" if slime_hp <= 0 else "hit")
 	message = "Удар по слизню: -%d HP" % damage
 	notify_tutorial("fight")
 	notify_tutorial("combat_animation")
@@ -842,7 +861,15 @@ func save_game() -> bool:
 func load_game() -> bool:
 	var loaded := SaveSystem.load(self)
 	message = LocaleSystem.text("loaded" if loaded else "load_failed")
+	if loaded:
+		sync_background_location()
 	return loaded
+
+func play_sfx(sound_id: String) -> bool:
+	var played := AudioSystem.play_sfx(self, sound_id)
+	if played and sound_id != "step":
+		notify_tutorial("audio_feedback")
+	return played
 
 func grant_tester_kit() -> void:
 	coins = maxi(coins, 500)

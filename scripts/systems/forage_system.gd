@@ -54,6 +54,7 @@ static func collect(game: Node, index: int) -> bool:
 	game.award_xp(2, "Собирательство")
 	game.SkillSystem.award_profession_xp(game, "farming", 2)
 	game.message = "%s: %s ×%d" % [LocaleSystem.entity(node.kind), game.inventory_item_name(node.kind), amount]
+	game.play_sfx("harvest")
 	game.notify_tutorial("forage_harvest")
 	if node.kind == "watermelon":
 		game.notify_tutorial("watermelon")

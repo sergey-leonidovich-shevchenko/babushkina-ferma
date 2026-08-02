@@ -11,6 +11,8 @@ const UI := {
 	"confirm":["Enter / A / касание — выбрать","Enter / A / touch — select","Enter / A / toque — elegir","Enter / A / Tippen — wählen","Entrée / A / toucher — choisir","Enter / A / 触摸 — 选择"],
 	"title":["БАБУШКИНА ФЕРМА","GRANDMA'S FARM","LA GRANJA DE LA ABUELA","OMAS BAUERNHOF","LA FERME DE GRAND-MÈRE","奶奶的农场"],
 	"press_any":["Нажми любую клавишу","Press any key","Pulsa cualquier tecla","Drücke eine Taste","Appuyez sur une touche","按任意键"],
+	"sound_on":["Звук включён","Sound enabled","Sonido activado","Ton eingeschaltet","Son activé","声音已开启"],
+	"sound_off":["Звук выключен","Sound muted","Sonido silenciado","Ton ausgeschaltet","Son coupé","声音已静音"],
 	"day":["ДЕНЬ %d   %02d:%02d","DAY %d   %02d:%02d","DÍA %d   %02d:%02d","TAG %d   %02d:%02d","JOUR %d   %02d:%02d","第%d天   %02d:%02d"],
 	"resources":["⚡ %d   🪙 %d   Семена: %d   Морковь: %d","⚡ %d   🪙 %d   Seeds: %d   Carrots: %d","⚡ %d   🪙 %d   Semillas: %d   Zanahorias: %d","⚡ %d   🪙 %d   Samen: %d   Karotten: %d","⚡ %d   🪙 %d   Graines : %d   Carottes : %d","⚡ %d   🪙 %d   种子：%d   胡萝卜：%d"],
 	"skills":["K • НАВЫКИ","K • SKILLS","K • HABILIDADES","K • FÄHIGKEITEN","K • COMPÉTENCES","K • 技能"],
@@ -139,6 +141,7 @@ const LOCATIONS := {
 
 const TUTORIAL := {
 	"move":["Пройди немного стрелками или WASD","Move with arrows or WASD","Muévete con flechas o WASD","Bewege dich mit Pfeilen oder WASD","Déplace-toi avec les flèches ou WASD","用方向键或WASD移动"],
+	"audio_feedback":["Проверь музыку локации и звук действия","Check location music and an action sound","Comprueba la música y un sonido de acción","Prüfe Gebietsmusik und Aktionsklang","Vérifie la musique et un son d'action","检查区域音乐和动作音效"],
 	"character_animation":["Пройди во все четыре стороны","Walk in all four directions","Camina en cuatro direcciones","Gehe in alle vier Richtungen","Marche dans les quatre directions","向四个方向行走"],
 	"forage_harvest":["Собери дикий урожай [E]","Harvest a wild plant [E]","Cosecha una planta [E]","Ernte eine Wildpflanze [E]","Récolte une plante [E]","采集野生作物 [E]"],
 	"forage_regrow":["Дождись повторного созревания","Wait for a plant to regrow","Espera el nuevo crecimiento","Warte auf neues Wachstum","Attends la repousse","等待植物再生"],

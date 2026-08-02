@@ -48,6 +48,7 @@ static func award_character_xp(game: Node, amount: int, reason: String = "") -> 
 		recalculate_resources(game)
 		game.player_hp = mini(game.player_hp + game.player_max_hp - old_max_hp, game.player_max_hp)
 		game.message = game.LocaleSystem.text("level_up", [game.player_level])
+		game.play_sfx("level_up")
 		game.notify_tutorial("level_up")
 	elif not reason.is_empty():
 		game.message = "%s: +%d опыта" % [reason, amount]

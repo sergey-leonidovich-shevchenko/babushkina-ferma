@@ -45,6 +45,8 @@ static func attack(game: Node, index: int) -> bool:
 	enemy.hp -= damage
 	game.AnimationSystem.begin_player_attack(game)
 	enemy = game.AnimationSystem.hit_enemy(enemy, enemy.hp <= 0)
+	game.play_sfx("attack")
+	game.play_sfx("defeat" if enemy.hp <= 0 else "hit")
 	if enemy.hp <= 0:
 		enemy.alive = false
 		game.award_xp(TYPES[enemy.kind].xp)

@@ -27,6 +27,7 @@ static func buy(game: Node, product_index: int) -> bool:
 	game.coins -= product.buy
 	game.change_inventory_count(product.kind, product.get("amount", 1))
 	game.message = game.LocaleSystem.text("bought", [game.inventory_item_name(product.kind)])
+	game.play_sfx("coin")
 	game.notify_tutorial("trade")
 	return true
 
@@ -42,6 +43,7 @@ static func sell(game: Node, product_index: int) -> bool:
 		return false
 	game.coins += product.sell
 	game.message = game.LocaleSystem.text("sold", [game.inventory_item_name(product.kind), product.sell])
+	game.play_sfx("coin")
 	game.notify_tutorial("trade")
 	if product.get("forage", false):
 		game.notify_tutorial("forage_sale")

@@ -42,6 +42,7 @@ const InputSystem := preload("res://scripts/systems/input_system.gd")
 const PresentationSystem := preload("res://scripts/systems/presentation_system.gd")
 const AnimationSystem := preload("res://scripts/systems/animation_system.gd")
 const AnimationRenderer := preload("res://scripts/systems/animation_renderer.gd")
+const AudioSystem := preload("res://scripts/systems/audio_system.gd")
 const ContentRegistry := preload("res://scripts/systems/content_registry.gd")
 const GameState := preload("res://scripts/state/game_state.gd")
 const UI_FONT := preload("res://assets/game/fonts/ui_font.tres")
@@ -188,6 +189,14 @@ var player_attack_timer := 0.0
 var character_animation_directions := {}
 var benchmark_autoplay := false
 var benchmark_elapsed := 0.0
+var audio_enabled := true
+var audio_current_music := ""
+var audio_last_sfx := ""
+var audio_sfx_count := 0
+var audio_sfx_slot := 0
+var audio_music_slot := 1
+var audio_music_fade := 0.0
+var audio_step_timer := 0.0
 
 # RPG-состояние вертикального среза.
 var player_hp: int:

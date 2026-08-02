@@ -79,5 +79,6 @@ static func open(game: Node, index: int) -> bool:
 			rewards.append("%s ×%d" % [game.inventory_item_name(kind), count])
 	game.world_loot_nodes[index] = container
 	game.message = "%s: %s" % [LocaleSystem.entity(container.kind), ", ".join(rewards)]
+	game.play_sfx("pickup")
 	game.notify_tutorial("world_loot")
 	return true
