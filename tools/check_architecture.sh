@@ -28,5 +28,6 @@ if rg -n '^func draw_' scripts/game.gd >/dev/null; then
 	exit 1
 fi
 
+python3 tools/check_documentation.py
 git diff --check
 print -- "ARCHITECTURE: boundaries and whitespace are valid"
