@@ -79,7 +79,7 @@ static func eclipse_source(column: int, bottom_row: bool = false) -> Rect2:
 ## Рисует сезонные ориентиры деревни: дерево и два небольших природных кластера.
 static func draw_seasonal_village(canvas: CanvasItem, season_index: int) -> void:
 	canvas.draw_texture_rect_region(SEASONAL_ATLAS, Rect2(1710, 245, 184, 190), seasonal_source(season_index))
-	for position in [Vector2(1620, 620), Vector2(1970, 720)]:
+	for position in [Vector2(1620, 620), Vector2(1870, 735)]:
 		canvas.draw_texture_rect_region(SEASONAL_ATLAS, Rect2(position - Vector2(57, 70), Vector2(114, 104)), seasonal_source(season_index, true))
 
 

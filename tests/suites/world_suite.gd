@@ -1,8 +1,11 @@
 extends "res://tests/suites/suite_base.gd"
 
+const VillageLayoutSystem := preload("res://scripts/systems/village_layout_system.gd")
+
 ## Запускает все сценарии текущего набора тестов в фиксированном порядке.
 func run() -> void:
 	test_first_location_has_clear_functional_zones()
+	test_village_hybrid_layout_layers_and_navigation()
 	test_story_and_side_mission_chains()
 	test_mission_progress_and_drops_are_saved()
 	test_contextual_discoveries_and_new_item_hints()
@@ -37,6 +40,25 @@ func test_first_location_has_clear_functional_zones() -> void:
 	game.move_right_held = true
 	game.update_player_movement(0.05)
 	expect(game.tutorial_events_completed.has("village_paths"), "walking into the square completes the location layout tutorial")
+	game.free()
+
+## Сценарий: новая деревня собирается из независимых слоёв земли, воды, дорог, объектов и коллизий.
+## Исходное состояние: новая игра на первой локации и общий атлас деревенского декора четыре на два.
+## Ожидаемый результат: ключевые ориентиры связаны дорогами, вода блокирует движение, мост пропускает героя, а крупный декор имеет коллизии.
+func test_village_hybrid_layout_layers_and_navigation() -> void:
+	var game := make_game()
+	for building_id in ["cottage", "shop_house", "guild_hall"]:
+		var door: Vector2 = game.BuildingSystem.BUILDINGS[building_id].door
+		expect(VillageLayoutSystem.path_reaches(door), "village road reaches building door: %s" % building_id)
+	expect(VillageLayoutSystem.path_reaches(Vector2(game.FARM_ORIGIN) + Vector2(144, 144)), "village road reaches the farm yard")
+	expect(VillageLayoutSystem.path_reaches(game.cave_entrance_position), "village road reaches the adventure exit")
+	expect(VillageLayoutSystem.PROP_CELLS.size() == 8, "village atlas registers all eight prop cells")
+	var prop_atlas: Texture2D = load("res://assets/game/environment/village_prop_atlas.png")
+	expect(prop_atlas != null and prop_atlas.get_width() > 1200 and prop_atlas.get_height() > 700, "high-resolution village prop atlas is imported")
+	expect(VillageLayoutSystem.is_water(Vector2(300, 950), game.PLAYER_RADIUS), "river water is part of the navigation contract")
+	expect(not game.is_position_walkable(Vector2(300, 950)), "player cannot walk through the river away from a bridge")
+	expect(game.is_position_walkable(Vector2(1505, 900)), "bridge remains a usable river crossing")
+	expect(not game.is_position_walkable(VillageLayoutSystem.WELL_POSITION), "well sprite owns a matching solid footprint")
 	game.free()
 
 ## Сценарий: сюжетная и побочная миссии проходят от диалога до цели, сдачи и награды.

@@ -1,6 +1,7 @@
 extends RefCounted
 
 const PirateShipSystem := preload("res://scripts/systems/pirate_ship_system.gd")
+const VillageLayoutSystem := preload("res://scripts/systems/village_layout_system.gd")
 
 ## Выполняет операцию «перемещения» и возвращает результат согласно контракту метода.
 static func move(game: Node, motion: Vector2) -> void:
@@ -43,10 +44,9 @@ static func is_walkable(game: Node, position: Vector2) -> bool:
 			if position.distance_to(decoration) < game.PLAYER_RADIUS + 38.0:
 				return false
 	elif game.current_location == "overworld":
-		if position.y + game.PLAYER_RADIUS > 860.0 and not game.BRIDGE_RECT.grow(-18.0).has_point(position):
+		if VillageLayoutSystem.is_water(position, game.PLAYER_RADIUS):
 			return false
-		var pond_delta: Vector2 = position - game.pond_position
-		if pow(pond_delta.x / (189.0 + game.PLAYER_RADIUS), 2.0) + pow(pond_delta.y / (105.0 + game.PLAYER_RADIUS), 2.0) < 1.0:
+		if VillageLayoutSystem.blocks_scenic_prop(position, game.PLAYER_RADIUS):
 			return false
 		for tree in game.state.world.tree_nodes:
 			if game.TreeSystem.is_solid(tree) and position.distance_to(tree.position + Vector2(0, 35)) < game.PLAYER_RADIUS + 42.0:
@@ -114,10 +114,9 @@ static func enemy_position_walkable(game: Node, position: Vector2, enemy_index: 
 	if game.VisualAssetSystem.blocks_biome_position(game.current_location, position, RADIUS):
 		return false
 	if game.current_location == "overworld":
-		if position.y + RADIUS > 860.0 and not game.BRIDGE_RECT.grow(-18.0).has_point(position):
+		if VillageLayoutSystem.is_water(position, RADIUS):
 			return false
-		var pond_delta: Vector2 = position - game.pond_position
-		if pow(pond_delta.x / 216.0, 2.0) + pow(pond_delta.y / 132.0, 2.0) < 1.0:
+		if VillageLayoutSystem.blocks_scenic_prop(position, RADIUS):
 			return false
 		for tree in game.state.world.tree_nodes:
 			if game.TreeSystem.is_solid(tree) and position.distance_to(tree.position + Vector2(0, 35)) < RADIUS + 42.0: return false

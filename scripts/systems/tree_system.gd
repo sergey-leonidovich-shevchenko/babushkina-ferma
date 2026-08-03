@@ -4,7 +4,7 @@ const MAX_HEALTH := 3
 const CHOP_RANGE := 104.0
 const REGROW_DURATION := 30.0
 const GROWTH_STAGE_DURATION := REGROW_DURATION / 3.0
-const POSITIONS := [Vector2(1720,180), Vector2(1960,230), Vector2(2220,180), Vector2(1810,700), Vector2(2050,680), Vector2(2250,630), Vector2(1160,760), Vector2(1320,735)]
+const POSITIONS := [Vector2(1720,180), Vector2(1960,230), Vector2(2220,180), Vector2(1810,700), Vector2(1860,760), Vector2(2320,650), Vector2(1160,760), Vector2(1320,735)]
 
 
 ## Создаёт независимые состояния взрослых деревьев из единого списка лесных позиций.

@@ -12,7 +12,7 @@ const TYPES := {
 const SPAWNS := [
 	{"position": Vector2(1680, 700), "location":"overworld", "kind":"mushroom", "active":true, "ready_at":0.0},
 	{"position": Vector2(1780, 350), "location":"overworld", "kind":"berries", "active":true, "ready_at":0.0},
-	{"position": Vector2(2010, 640), "location":"overworld", "kind":"nut", "active":true, "ready_at":0.0},
+	{"position": Vector2(2330, 650), "location":"overworld", "kind":"nut", "active":true, "ready_at":0.0},
 	{"position": Vector2(1640, 290), "location":"overworld", "kind":"apple", "active":true, "ready_at":0.0},
 	{"position": Vector2(620, 690), "location":"forest", "kind":"berries", "active":true, "ready_at":0.0},
 	{"position": Vector2(1420, 350), "location":"forest", "kind":"apple", "active":true, "ready_at":0.0},
