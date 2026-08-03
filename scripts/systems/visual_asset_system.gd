@@ -56,7 +56,7 @@ const SMALL_PROP_BASES := [
 	Vector2(330, 700), Vector2(820, 610), Vector2(1360, 810),
 	Vector2(1810, 590), Vector2(2260, 520), Vector2(1180, 610),
 ]
-const SEASONAL_TREE_BASE := Vector2(1802, 425)
+const SEASONAL_TREE_BASE := Vector2(1695, 390)
 const MOON_SOLID_BASES := [Vector2(1148, 650), Vector2(1690, 420), Vector2(2026, 750)]
 const BACKGROUNDS := {
 	"forest": Color("315c3c"), "rocky": Color("6f6a5b"), "ruins": Color("665849"),
@@ -78,8 +78,8 @@ static func eclipse_source(column: int, bottom_row: bool = false) -> Rect2:
 
 ## Рисует сезонные ориентиры деревни: дерево и два небольших природных кластера.
 static func draw_seasonal_village(canvas: CanvasItem, season_index: int) -> void:
-	canvas.draw_texture_rect_region(SEASONAL_ATLAS, Rect2(1710, 245, 184, 190), seasonal_source(season_index))
-	for position in [Vector2(1620, 620), Vector2(1870, 735)]:
+	canvas.draw_texture_rect_region(SEASONAL_ATLAS, Rect2(1605, 210, 184, 190), seasonal_source(season_index))
+	for position in [Vector2(920, 720), Vector2(1450, 785)]:
 		canvas.draw_texture_rect_region(SEASONAL_ATLAS, Rect2(position - Vector2(57, 70), Vector2(114, 104)), seasonal_source(season_index, true))
 
 

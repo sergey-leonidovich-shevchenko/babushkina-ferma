@@ -5,7 +5,7 @@ const WEATHER_NAMES := {"clear":"Ясно", "rain":"Дождь", "wind":"Вет�
 const SEASON_NAMES := {"spring":"Весна", "summer":"Лето", "autumn":"Осень", "winter":"Зима"}
 const DAYS_PER_SEASON := 7
 const ECLIPSE_PERIOD := 5
-const PORTAL_POSITION := Vector2(2050, 520)
+const PORTAL_POSITION := Vector2(2030, 235)
 const RETURN_PORTAL_POSITION := Vector2(220, 430)
 
 

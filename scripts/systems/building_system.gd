@@ -2,18 +2,18 @@ extends RefCounted
 
 const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
 
-const SHOP_STALL_POSITION := Vector2(1080, 530)
-const SELL_CRATE_POSITION := Vector2(980, 530)
-const SELL_CRATE_RECT := Rect2(950, 503, 60, 54)
-const VILLAGE_SQUARE := Rect2(830, 420, 770, 190)
-const VILLAGE_MAIN_PATH := Rect2(120, 450, 2200, 112)
-const FARM_YARD_RECT := Rect2(372, 180, 360, 310)
-const FARM_FENCE_RECTS := [Rect2(368, 176, 368, 10), Rect2(368, 176, 10, 318), Rect2(726, 176, 10, 318), Rect2(368, 484, 188, 10), Rect2(620, 484, 116, 10)]
+const SHOP_STALL_POSITION := Vector2(1080, 535)
+const SELL_CRATE_POSITION := Vector2(955, 535)
+const SELL_CRATE_RECT := Rect2(925, 508, 60, 54)
+const VILLAGE_SQUARE := Rect2(850, 370, 800, 230)
+const VILLAGE_MAIN_PATH := Rect2(300, 940, 620, 105)
+const FARM_YARD_RECT := Rect2(490, 805, 360, 315)
+const FARM_FENCE_RECTS := [Rect2(486, 801, 146, 10), Rect2(704, 801, 150, 10), Rect2(486, 801, 10, 323), Rect2(844, 801, 10, 323), Rect2(486, 1114, 368, 10)]
 
 const BUILDINGS := {
-	"cottage":{"location":"overworld","door":Vector2(180, 370),"sprite":0,"interior":"cottage_interior","size":Vector2(300, 300),"unlock":""},
-	"shop_house":{"location":"overworld","door":Vector2(1030, 390),"sprite":1,"interior":"shop_interior","size":Vector2(300, 300),"unlock":""},
-	"guild_hall":{"location":"overworld","door":Vector2(1450, 390),"sprite":2,"interior":"guild_interior","size":Vector2(330, 310),"unlock":""},
+	"cottage":{"location":"overworld","door":Vector2(330, 950),"sprite":0,"interior":"cottage_interior","size":Vector2(300, 300),"unlock":""},
+	"shop_house":{"location":"overworld","door":Vector2(1050, 370),"sprite":1,"interior":"shop_interior","size":Vector2(300, 300),"unlock":""},
+	"guild_hall":{"location":"overworld","door":Vector2(1450, 370),"sprite":2,"interior":"guild_interior","size":Vector2(330, 310),"unlock":""},
 	"forge":{"location":"rocky","door":Vector2(760, 470),"sprite":3,"interior":"forge_interior","size":Vector2(300, 300),"unlock":"mining"},
 	"chapel":{"location":"cursed","door":Vector2(610, 470),"sprite":4,"interior":"chapel_interior","size":Vector2(290, 300),"unlock":"ancient_key"},
 	"prison":{"location":"ruins","door":Vector2(500, 480),"sprite":5,"interior":"prison_interior","size":Vector2(330, 310),"unlock":""},

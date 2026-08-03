@@ -62,7 +62,7 @@ func test_sfx_pool_and_footstep_throttle() -> void:
 ## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_farming_fishing_combat_and_quest_sounds() -> void:
 	var game := make_game()
-	game.player = Vector2(390, 240)
+	game.player = Vector2(game.FARM_ORIGIN) + Vector2(-18, 24)
 	game.facing = Vector2.RIGHT
 	game.selected_tool = game.Tool.HOE
 	game.use_selected_tool()

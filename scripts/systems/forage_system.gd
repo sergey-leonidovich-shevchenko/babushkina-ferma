@@ -10,14 +10,14 @@ const TYPES := {
 	"nut": {"name":"Ореховое дерево","growth_minutes":2880.0,"yield":2,"sell":22,"tree":true},
 }
 const SPAWNS := [
-	{"position": Vector2(1680, 700), "location":"overworld", "kind":"mushroom", "active":true, "ready_at":0.0},
-	{"position": Vector2(1780, 350), "location":"overworld", "kind":"berries", "active":true, "ready_at":0.0},
-	{"position": Vector2(2330, 650), "location":"overworld", "kind":"nut", "active":true, "ready_at":0.0},
-	{"position": Vector2(1640, 290), "location":"overworld", "kind":"apple", "active":true, "ready_at":0.0},
+	{"position": Vector2(1880, 515), "location":"overworld", "kind":"mushroom", "active":true, "ready_at":0.0},
+	{"position": Vector2(1740, 410), "location":"overworld", "kind":"berries", "active":true, "ready_at":0.0},
+	{"position": Vector2(1280, 1015), "location":"overworld", "kind":"nut", "active":true, "ready_at":0.0},
+	{"position": Vector2(1110, 1010), "location":"overworld", "kind":"apple", "active":true, "ready_at":0.0},
 	{"position": Vector2(620, 690), "location":"forest", "kind":"berries", "active":true, "ready_at":0.0},
 	{"position": Vector2(1420, 350), "location":"forest", "kind":"apple", "active":true, "ready_at":0.0},
 	{"position": Vector2(1880, 680), "location":"forest", "kind":"nut", "active":true, "ready_at":0.0},
-	{"position": Vector2(820, 700), "location":"overworld", "kind":"watermelon", "active":true, "ready_at":0.0},
+	{"position": Vector2(930, 1015), "location":"overworld", "kind":"watermelon", "active":true, "ready_at":0.0},
 	{"position": Vector2(1760, 740), "location":"forest", "kind":"watermelon", "active":true, "ready_at":0.0},
 	{"position": Vector2(980, 720), "location":"forest", "kind":"mushroom", "active":true, "ready_at":0.0},
 ]

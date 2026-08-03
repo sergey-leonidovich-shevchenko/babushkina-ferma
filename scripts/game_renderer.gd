@@ -335,8 +335,6 @@ func fishing_animation_frame(frame_count: int, frame_ms: int = 140) -> int:
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_fishing_animations() -> void:
-	var water_frame := fishing_animation_frame(32, 180)
-	draw_texture_rect_region(WATER_ANIMATION, Rect2(0, 860, WORLD_SIZE.x, 340), Rect2(water_frame * 16, 0, 16, 16), Color(1,1,1,0.32))
 	var fish_frame := fishing_animation_frame(10, 130)
 	draw_texture_rect_region(FISH_ANIMATION, Rect2(pond_position + Vector2(-24, -8), Vector2(48, 48)), Rect2(fish_frame * 16, 0, 16, 16))
 	if state.fishing.phase == FishingSystem.PHASE_BITE:

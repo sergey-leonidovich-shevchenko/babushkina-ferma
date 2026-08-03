@@ -51,11 +51,11 @@ const MISSIONS := {
 }
 
 const NPCS := {
-	"miron":{"location":"overworld","position":Vector2(1450,520),"sprite":1,"tint":Color("fff3d8"),"missions":["story_relic","story_moon_seal"]},
+	"miron":{"location":"overworld","position":Vector2(1450,535),"sprite":1,"tint":Color("fff3d8"),"missions":["story_relic","story_moon_seal"]},
 	"agafya":{"location":"overworld","position":Vector2(1220,535),"sprite":2,"tint":Color("dff2d2"),"missions":["side_seed"]},
-	"varvara":{"location":"overworld","position":Vector2(720,760),"sprite":2,"tint":Color("d7efff"),"missions":["side_fisher"]},
-	"gavrila":{"location":"overworld","position":Vector2(1545,535),"sprite":1,"tint":Color("ffd8c2"),"missions":["side_smith"]},
-	"dunya":{"location":"overworld","position":Vector2(865,535),"sprite":0,"tint":Color("fff0c4"),"missions":["side_feast"]},
+	"varvara":{"location":"overworld","position":Vector2(1550,825),"sprite":2,"tint":Color("d7efff"),"missions":["side_fisher"]},
+	"gavrila":{"location":"overworld","position":Vector2(1545,520),"sprite":1,"tint":Color("ffd8c2"),"missions":["side_smith"]},
+	"dunya":{"location":"overworld","position":Vector2(900,535),"sprite":0,"tint":Color("fff0c4"),"missions":["side_feast"]},
 	"saveliy":{"location":"forest","position":Vector2(350,520),"sprite":1,"tint":Color("d5e6bd"),"missions":["side_hunter"]},
 	"zlata":{"location":"rocky","position":Vector2(410,520),"sprite":2,"tint":Color("ffe0b5"),"missions":["side_miner"]},
 	"elizar":{"location":"ruins","position":Vector2(350,440),"sprite":0,"tint":Color("e6ddff"),"missions":["story_ancient_key","side_bones"]},

@@ -1,5 +1,7 @@
 extends RefCounted
 
+const VillageLayoutSystem := preload("res://scripts/systems/village_layout_system.gd")
+
 const PHASE_IDLE := "idle"
 const PHASE_CHARGING := "charging"
 const PHASE_WAITING := "waiting"
@@ -33,7 +35,11 @@ static func configure_preview(game: Node) -> void:
 
 ## Проверяет, находится ли герой достаточно близко к пригодному для заброса участку воды.
 static func is_near_water(game: Node) -> bool:
-	return game.current_location == "overworld" and (game.player.distance_to(game.pond_position) < 235.0 or game.player.y > 800.0)
+	if game.current_location != "overworld":
+		return false
+	if game.player.distance_to(game.pond_position) < 235.0:
+		return true
+	return absf(game.player.y - VillageLayoutSystem.river_center_y(game.player.x)) < 105.0
 
 
 ## Обрабатывает нажатие удочки в зависимости от текущей стадии заброса или мини-игры.

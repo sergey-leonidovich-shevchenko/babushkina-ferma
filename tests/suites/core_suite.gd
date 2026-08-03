@@ -328,7 +328,7 @@ func test_held_action_repeats_tools_without_reopening_ui() -> void:
 	var release := key_event(KEY_E, KEY_E, false)
 	expect(game.set_action_key_state(press) and game.action_held, "action starts on key-down")
 	game.selected_tool = game.Tool.HOE
-	game.player = Vector2(390, 240)
+	game.player = Vector2(game.FARM_ORIGIN) + Vector2(-18, 24)
 	game.facing = Vector2.RIGHT
 	game.action_repeat_timer = 0.0
 	game.update_held_action(0.2)

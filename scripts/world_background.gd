@@ -8,6 +8,7 @@ const CAVE_CRYSTAL := preload("res://assets/game/environment/cave_crystal.png")
 const ROAD_TILE := preload("res://assets/game/tiles/road-brick.png")
 const CAVE_FLOOR_TILE := preload("res://assets/game/tiles/cave-floor.png")
 const BRIDGES := preload("res://assets/game/environment/bridges.png")
+const FOREST_TREE := preload("res://assets/game/environment/forest_tree.png")
 const VILLAGE_PROPS := preload("res://assets/game/environment/village_prop_atlas.png")
 const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
 const BuildingSystem := preload("res://scripts/systems/building_system.gd")
@@ -80,6 +81,7 @@ func draw_overworld() -> void:
 	# Базовый луг остаётся дешёвым тайловым слоем, поверх которого лежат маршруты и объекты.
 	draw_rect(Rect2(Vector2.ZERO, WORLD_SIZE), Color("6f9d50"))
 	draw_meadow_texture()
+	draw_village_border()
 	draw_village_water()
 	# Связная сеть широких дорог повторяет прогрессию «дом — деревня — приключение».
 	for path in VillageLayoutSystem.PATHS:
@@ -87,10 +89,11 @@ func draw_overworld() -> void:
 	draw_rect(BuildingSystem.VILLAGE_SQUARE, Color("9e8059"))
 	draw_texture_rect(ROAD_TILE, BuildingSystem.VILLAGE_SQUARE.grow(-8), true, Color(1, 1, 1, 0.56))
 	# Огород собран в отдельный ухоженный двор с оградой и калиткой к дороге.
-	draw_rect(Rect2(382, 190, 340, 290), Color("648e49"))
-	draw_fence(BuildingSystem.FARM_YARD_RECT, Vector2(588, 490))
-	# Спрайтовый мост остаётся единственным безопасным переходом через южную реку.
-	draw_texture_rect_region(BRIDGES, Rect2(1450, 805, 110, 395), Rect2(218, 335, 78, 145))
+	draw_rect(BuildingSystem.FARM_YARD_RECT.grow(-10), Color("648e49"))
+	draw_fence(BuildingSystem.FARM_YARD_RECT, Vector2(670, 805))
+	# Два моста связывают усадьбу, деревню и восточную дорогу приключений.
+	for bridge in VillageLayoutSystem.BRIDGES:
+		draw_texture_rect_region(BRIDGES, bridge, Rect2(218, 335, 78, 145))
 	draw_village_props()
 	# Лавка сбыта стоит на площади и читается как отдельный сервис, а не второй магазин.
 	draw_rect(BuildingSystem.SELL_CRATE_RECT, Color("8b5835"))
@@ -103,7 +106,7 @@ func draw_overworld() -> void:
 
 ## Заполняет луг редкими детерминированными травинками и цветами без заметной сетки.
 func draw_meadow_texture() -> void:
-	for y in range(130, 850, 84):
+	for y in range(130, 1140, 84):
 		for x in range(48 + (y * 7) % 73, int(WORLD_SIZE.x), 108):
 			var tuft := Vector2(x, y)
 			draw_line(tuft + Vector2(-4, 5), tuft, Color("4f7e3d"), 2)
@@ -115,16 +118,33 @@ func draw_meadow_texture() -> void:
 			draw_circle(patch + offset, 1.2, Color("fff2bf"))
 
 
+## Формирует плотную лесную рамку и каменистый угол шахты, как в выбранном концепте локации.
+func draw_village_border() -> void:
+	for position in [Vector2(60,175),Vector2(190,155),Vector2(330,170),Vector2(520,145),Vector2(700,165),Vector2(1710,155),Vector2(1870,145),Vector2(2040,165),Vector2(2210,145),Vector2(2350,175),Vector2(65,390),Vector2(2335,430),Vector2(70,850),Vector2(2325,890)]:
+		draw_texture_rect(FOREST_TREE, Rect2(position - Vector2(72, 98), Vector2(144, 144)), false, Color(0.78, 0.94, 0.78, 0.92))
+	for position in [Vector2(70,245),Vector2(120,220),Vector2(175,205),Vector2(225,230),Vector2(95,300)]:
+		draw_circle(position, 38, Color("5e6258"))
+		draw_circle(position - Vector2(8, 9), 24, Color("77796a"))
+		draw_line(position - Vector2(20, 12), position + Vector2(17, 9), Color("484b45"), 4)
+
+
 ## Рисует извилистый берег реки, пруд и спокойные блики отдельным водным слоем.
 func draw_village_water() -> void:
-	var water_polygon := PackedVector2Array(VillageLayoutSystem.RIVER_BANK)
-	water_polygon.append(Vector2(WORLD_SIZE.x, WORLD_SIZE.y))
-	water_polygon.append(Vector2(0, WORLD_SIZE.y))
+	var upper_bank := PackedVector2Array()
+	var lower_bank := PackedVector2Array()
+	for point in VillageLayoutSystem.RIVER_CENTER:
+		upper_bank.append(point - Vector2(0, VillageLayoutSystem.RIVER_HALF_WIDTH))
+		lower_bank.append(point + Vector2(0, VillageLayoutSystem.RIVER_HALF_WIDTH))
+	var water_polygon := PackedVector2Array(upper_bank)
+	for index in range(lower_bank.size() - 1, -1, -1):
+		water_polygon.append(lower_bank[index])
 	draw_colored_polygon(water_polygon, Color("3f91aa"))
-	draw_polyline(PackedVector2Array(VillageLayoutSystem.RIVER_BANK), Color("d0bd79"), 16.0, true)
-	draw_polyline(PackedVector2Array(VillageLayoutSystem.RIVER_BANK), Color("6f9d50"), 6.0, true)
+	draw_polyline(upper_bank, Color("d0bd79"), 12.0, true)
+	draw_polyline(lower_bank, Color("d0bd79"), 12.0, true)
+	draw_polyline(upper_bank, Color("547f43"), 4.0, true)
+	draw_polyline(lower_bank, Color("547f43"), 4.0, true)
 	for x in range(40, int(WORLD_SIZE.x), 92):
-		var y := VillageLayoutSystem.river_bank_y(x) + 46 + (x % 4) * 11
+		var y := VillageLayoutSystem.river_center_y(x) + (x % 3 - 1) * 12
 		draw_line(Vector2(x, y), Vector2(x + 34, y), Color(0.56, 0.84, 0.86, 0.55), 3)
 	draw_set_transform(VillageLayoutSystem.POND_CENTER, 0.0, Vector2(1.8, 1.0))
 	draw_circle(Vector2.ZERO, 111, Color("b6a86d"))
@@ -167,11 +187,18 @@ func draw_village_path(rect: Rect2) -> void:
 ## Рисует ограду двора, оставляя у указанной точки свободную калитку.
 func draw_fence(rect: Rect2, gate: Vector2) -> void:
 	var fence_color := Color("7a5537")
-	draw_line(rect.position, Vector2(rect.end.x, rect.position.y), fence_color, 7)
+	if is_equal_approx(gate.y, rect.position.y):
+		draw_line(rect.position, Vector2(gate.x - 32, rect.position.y), fence_color, 7)
+		draw_line(Vector2(gate.x + 32, rect.position.y), Vector2(rect.end.x, rect.position.y), fence_color, 7)
+	else:
+		draw_line(rect.position, Vector2(rect.end.x, rect.position.y), fence_color, 7)
 	draw_line(rect.position, Vector2(rect.position.x, rect.end.y), fence_color, 7)
 	draw_line(Vector2(rect.end.x, rect.position.y), rect.end, fence_color, 7)
-	draw_line(Vector2(rect.position.x, rect.end.y), Vector2(gate.x - 32, rect.end.y), fence_color, 7)
-	draw_line(Vector2(gate.x + 32, rect.end.y), rect.end, fence_color, 7)
+	if is_equal_approx(gate.y, rect.end.y):
+		draw_line(Vector2(rect.position.x, rect.end.y), Vector2(gate.x - 32, rect.end.y), fence_color, 7)
+		draw_line(Vector2(gate.x + 32, rect.end.y), rect.end, fence_color, 7)
+	else:
+		draw_line(Vector2(rect.position.x, rect.end.y), rect.end, fence_color, 7)
 
 ## Отрисовывает пещеры по текущему состоянию игры.
 func draw_cave() -> void:

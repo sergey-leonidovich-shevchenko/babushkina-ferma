@@ -1,6 +1,6 @@
 extends RefCounted
 
-const BOARD_POSITION := Vector2(310, 370)
+const BOARD_POSITION := Vector2(245, 1030)
 const UPGRADES := [
 	{"id":"house","coins":200,"cost":{"wood":10}},
 	{"id":"greenhouse","coins":450,"cost":{"wood":15,"crystal":3}},

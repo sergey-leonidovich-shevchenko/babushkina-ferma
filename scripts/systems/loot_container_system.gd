@@ -11,7 +11,7 @@ const TYPES := {
 }
 
 const SPAWNS := [
-	{"location":"overworld","count":3,"types":["sack","trash"],"positions":[Vector2(1100,780),Vector2(1710,780),Vector2(2050,410),Vector2(1860,300),Vector2(2140,720)]},
+	{"location":"overworld","count":3,"types":["sack","trash"],"positions":[Vector2(920,760),Vector2(1680,820),Vector2(2090,420),Vector2(1830,315),Vector2(2200,555)]},
 	{"location":"forest","count":3,"types":["chest","sack","trash"],"positions":[Vector2(540,690),Vector2(1260,730),Vector2(1800,350),Vector2(2060,680),Vector2(780,300)]},
 	{"location":"rocky","count":2,"types":["chest","trash"],"positions":[Vector2(620,380),Vector2(1450,680),Vector2(1980,420),Vector2(950,720)]},
 	{"location":"ruins","count":3,"types":["chest","bone_pile","trash"],"positions":[Vector2(560,650),Vector2(990,330),Vector2(1570,690),Vector2(1960,380),Vector2(760,760)]},

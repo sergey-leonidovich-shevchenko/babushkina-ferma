@@ -1,5 +1,7 @@
 extends "res://tests/suites/suite_base.gd"
 
+const VillageLayoutSystem := preload("res://scripts/systems/village_layout_system.gd")
+
 ## Запускает все сценарии текущего набора тестов в фиксированном порядке.
 func run() -> void:
 	test_tutorial_reset_and_tester_kit()
@@ -35,7 +37,7 @@ func test_tutorial_reset_and_tester_kit() -> void:
 ## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_experience_from_farming_combat_and_quest() -> void:
 	var game := make_game()
-	game.player = Vector2(390, 240)
+	game.player = Vector2(game.FARM_ORIGIN) + Vector2(-18, 24)
 	game.facing = Vector2.RIGHT
 	game.plots[Vector2i.ZERO].tilled = true
 	game.selected_tool = game.Tool.SEEDS
@@ -110,12 +112,15 @@ func test_world_collisions_and_bridge_passage() -> void:
 	game.player = game.pond_position - Vector2(260, 0)
 	game.move_player_with_collisions(Vector2(160, 0))
 	expect(game.player.x < game.pond_position.x - 200.0, "pond shoreline blocks player movement")
-	game.player = Vector2(1200, 830)
-	game.move_player_with_collisions(Vector2(0, 80))
-	expect(game.player.y <= 842.0, "river blocks movement away from bridge")
-	game.player = Vector2(1500, 830)
-	game.move_player_with_collisions(Vector2(0, 80))
-	expect(game.player.y > 860.0, "bridge allows crossing the river")
+	var dry_crossing_x := 1200.0
+	var dry_crossing_y := VillageLayoutSystem.river_center_y(dry_crossing_x)
+	game.player = Vector2(dry_crossing_x, dry_crossing_y - 100.0)
+	game.move_player_with_collisions(Vector2(0, 180))
+	expect(game.player.y < dry_crossing_y - VillageLayoutSystem.RIVER_HALF_WIDTH, "river blocks movement away from bridge")
+	var bridge_center: Vector2 = VillageLayoutSystem.BRIDGES[0].get_center()
+	game.player = bridge_center - Vector2(0, 80)
+	game.move_player_with_collisions(Vector2(0, 160))
+	expect(game.player.y > bridge_center.y + 50.0, "bridge allows crossing the river")
 	game.player = Vector2(1120, 510)
 	game.move_player_with_collisions(Vector2(100, 100))
 	expect(game.player.y > 510.0, "diagonal collision slides along an obstacle instead of sticking")
