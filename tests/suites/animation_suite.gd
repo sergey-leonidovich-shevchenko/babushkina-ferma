@@ -5,6 +5,7 @@ extends "res://tests/suites/suite_base.gd"
 func run() -> void:
 	test_animation_frame_modes()
 	test_directional_character_atlas_frames()
+	test_every_human_atlas_uses_actual_left_and_right_rows()
 	test_npc_wander_stays_near_home()
 	test_living_sprite_motion_and_atlases()
 	test_player_attack_and_slime_reaction()
@@ -24,15 +25,35 @@ func test_animation_frame_modes() -> void:
 
 ## Сценарий: новый общий аниматор выбирает строку направления и четыре последовательных кадра.
 ## Исходное состояние: атлас героя имеет восемь строк и четыре столбца, герой смотрит на северо-восток.
-## Ожидаемый результат: ячейки целочисленные, строка равна трём, покой держит первый кадр, а ходьба меняет его.
+## Ожидаемый результат: ячейки целочисленные, выбрана фактическая правая строка пять, покой держит первый кадр, а ходьба меняет его.
 func test_directional_character_atlas_frames() -> void:
 	var game := make_game()
 	var texture: Texture2D = game.DirectionalCharacterSystem.HERO_TEXTURES[0]
 	var idle: Rect2 = game.DirectionalCharacterSystem.source_rect(texture, Vector2(1, -1), 0.4, false)
 	var walking: Rect2 = game.DirectionalCharacterSystem.source_rect(texture, Vector2(1, -1), 0.4, true)
 	expect(texture.get_width() == 888 and texture.get_height() == 1776, "directional atlas uses exact 222-pixel cells")
-	expect(idle.position == Vector2(0, 666) and idle.size == Vector2(222, 222), "north-east selects the actual east-facing row three and idle frame zero")
+	expect(idle.position == Vector2(0, 1110) and idle.size == Vector2(222, 222), "north-east selects the actual right-facing row five and idle frame zero")
 	expect(walking.position.x > idle.position.x and walking.position.y == idle.position.y, "walk time advances the frame without changing direction")
+	game.free()
+
+
+## Сценарий: герой, жители и напарники используют одинаковые реальные строки вправо и влево.
+## Исходное состояние: все человеческие атласы имеют ячейку 222×222 и общий порядок восьми направлений.
+## Ожидаемый результат: движение вправо выбирает строку шесть, влево — строку два, а обе правые диагонали остаются на правой половине атласа.
+func test_every_human_atlas_uses_actual_left_and_right_rows() -> void:
+	var game := make_game()
+	var textures: Array[Texture2D] = []
+	textures.append_array(game.DirectionalCharacterSystem.HERO_TEXTURES)
+	textures.append_array(game.DirectionalCharacterSystem.NPC_TEXTURES)
+	for companion_id in game.DirectionalCharacterSystem.COMPANION_TEXTURES:
+		textures.append(game.DirectionalCharacterSystem.COMPANION_TEXTURES[companion_id])
+	for texture in textures:
+		var east: Rect2 = game.DirectionalCharacterSystem.source_rect(texture, Vector2.RIGHT, 0.0, false)
+		var west: Rect2 = game.DirectionalCharacterSystem.source_rect(texture, Vector2.LEFT, 0.0, false)
+		var north_east: Rect2 = game.DirectionalCharacterSystem.source_rect(texture, Vector2(1, -1), 0.0, false)
+		var south_east: Rect2 = game.DirectionalCharacterSystem.source_rect(texture, Vector2(1, 1), 0.0, false)
+		expect(east.position.y == 1332.0 and west.position.y == 444.0, "human atlas keeps right and left poses on their actual rows: %s" % texture.resource_path)
+		expect(north_east.position.y == 1110.0 and south_east.position.y == 1554.0, "human atlas keeps both right diagonals on their actual rows: %s" % texture.resource_path)
 	game.free()
 
 
