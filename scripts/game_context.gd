@@ -235,7 +235,6 @@ var audio_sfx_count := 0
 var audio_sfx_slot := 0
 var audio_music_slot := 1
 var audio_music_fade := 0.0
-var audio_step_timer := 0.0
 var companion_positions := {}
 var companion_moving := {}
 var companion_directions := {}

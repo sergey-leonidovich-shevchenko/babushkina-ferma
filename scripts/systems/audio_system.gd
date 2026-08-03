@@ -16,7 +16,7 @@ const MUSIC_BY_LOCATION := {
 const MUSIC_PATH := "res://assets/game/audio/music/%s.wav"
 const SFX_PATH := "res://assets/game/audio/sfx/%s.wav"
 const SFX_IDS := [
-	"step", "hoe", "plant", "water", "harvest", "mine", "chop", "attack", "hit", "defeat",
+	"hoe", "plant", "water", "harvest", "mine", "chop", "attack", "hit", "defeat",
 	"fish_cast", "fish_bite", "fish_catch", "pickup", "craft", "coin", "quest_accept",
 	"quest_complete", "level_up", "ui_open", "travel",
 ]
@@ -24,7 +24,6 @@ const MUSIC_VOLUME_DB := -17.0
 const SFX_VOLUME_DB := -7.0
 const SILENT_DB := -45.0
 const CROSSFADE_SECONDS := 0.8
-const STEP_INTERVAL := 0.32
 const SFX_POOL_SIZE := 6
 
 
@@ -74,12 +73,6 @@ static func switch_music(game: Node, location: String, immediate: bool = false) 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func update(game: Node, delta: float) -> void:
 	update_crossfade(game, delta)
-	game.audio_step_timer = maxf(game.audio_step_timer - delta, 0.0)
-	if game.title_screen or game.menu_state.pause_open or game.menu_state.settings_open or game.shop_open or game.inventory_open or game.crafting_open or game.storage_open or game.forge_open or game.contract_open or game.quest_log_open or game.skill_menu_open:
-		return
-	if game.get_movement_direction() != Vector2.ZERO and game.audio_step_timer <= 0.0:
-		play_sfx(game, "step")
-		game.audio_step_timer = STEP_INTERVAL
 
 
 ## Обновляет плавного перехода на текущем кадре.

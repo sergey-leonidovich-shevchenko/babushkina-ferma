@@ -37,9 +37,9 @@ func test_location_music_and_crossfade() -> void:
 	game.free()
 
 
-## Сценарий: пул эффектов переиспользует голоса, а шаги не воспроизводятся каждый кадр.
+## Сценарий: пул эффектов переиспользует голоса, а отключённый звук шагов не попадает в очередь.
 ## Исходное состояние: новая игра с включённым звуком и подготовленными музыкальными и эффектными проигрывателями.
-## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
+## Ожидаемый результат: обычный эффект звучит, неизвестные идентификаторы и шаги отклоняются, движение остаётся бесшумным.
 func test_sfx_pool_and_footstep_throttle() -> void:
 	var game := make_game()
 	var initial_slot: int = game.audio_sfx_slot
@@ -50,12 +50,10 @@ func test_sfx_pool_and_footstep_throttle() -> void:
 	expect(not game.audio_enabled and not game.play_sfx("pickup"), "muted audio rejects effects without growing the voice pool")
 	game.AudioSystem.set_enabled(game, true)
 	game.move_right_held = true
-	game.audio_step_timer = 0.0
 	var before: int = game.audio_sfx_count
 	game.AudioSystem.update(game, 0.01)
-	expect(game.audio_last_sfx == "step" and game.audio_sfx_count == before + 1, "walking produces an immediate footstep")
-	game.AudioSystem.update(game, 0.01)
-	expect(game.audio_sfx_count == before + 1, "footsteps are throttled instead of firing every frame")
+	expect(game.audio_sfx_count == before, "walking stays silent after footstep removal")
+	expect(not game.play_sfx("step") and game.audio_sfx_count == before, "removed footstep cannot be played through the shared API")
 	game.free()
 
 

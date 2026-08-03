@@ -1017,7 +1017,7 @@ func load_game() -> bool:
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func play_sfx(sound_id: String) -> bool:
 	var played := AudioSystem.play_sfx(self, sound_id)
-	if played and sound_id != "step":
+	if played:
 		notify_tutorial("audio_feedback")
 	return played
 

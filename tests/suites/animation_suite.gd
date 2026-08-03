@@ -39,7 +39,7 @@ func test_directional_character_atlas_frames() -> void:
 
 ## Сценарий: герой, жители и напарники используют одинаковые реальные строки вправо и влево.
 ## Исходное состояние: все человеческие атласы имеют ячейку 222×222 и общий порядок восьми направлений.
-## Ожидаемый результат: движение вправо выбирает строку шесть, влево — строку два, а обе правые диагонали остаются на правой половине атласа.
+## Ожидаемый результат: движение вправо выбирает строку шесть, правые строки зеркальны левым, а содержимое каждого кадра имеет безопасный прозрачный отступ.
 func test_every_human_atlas_uses_actual_left_and_right_rows() -> void:
 	var game := make_game()
 	var textures: Array[Texture2D] = []
@@ -54,6 +54,22 @@ func test_every_human_atlas_uses_actual_left_and_right_rows() -> void:
 		var south_east: Rect2 = game.DirectionalCharacterSystem.source_rect(texture, Vector2(1, 1), 0.0, false)
 		expect(east.position.y == 1332.0 and west.position.y == 444.0, "human atlas keeps right and left poses on their actual rows: %s" % texture.resource_path)
 		expect(north_east.position.y == 1110.0 and south_east.position.y == 1554.0, "human atlas keeps both right diagonals on their actual rows: %s" % texture.resource_path)
+		var atlas := Image.load_from_file(ProjectSettings.globalize_path(texture.resource_path))
+		var mirrored_pairs_are_exact := true
+		for pair in [[1, 7], [2, 6], [3, 5]]:
+			for frame in 4:
+				var left_frame := atlas.get_region(Rect2i(frame * 222, pair[0] * 222, 222, 222))
+				var right_frame := atlas.get_region(Rect2i(frame * 222, pair[1] * 222, 222, 222))
+				left_frame.flip_x()
+				mirrored_pairs_are_exact = mirrored_pairs_are_exact and left_frame.get_data() == right_frame.get_data()
+		expect(mirrored_pairs_are_exact, "right-facing human rows are exact clean mirrors: %s" % texture.resource_path)
+		var frames_keep_padding := true
+		for row in 8:
+			for frame in 4:
+				var frame_image := atlas.get_region(Rect2i(frame * 222, row * 222, 222, 222))
+				var opaque_bounds := frame_image.get_used_rect()
+				frames_keep_padding = frames_keep_padding and opaque_bounds.position.y >= 8 and opaque_bounds.end.y <= 214
+		expect(frames_keep_padding, "human frames do not leak into adjacent rows: %s" % texture.resource_path)
 	game.free()
 
 
