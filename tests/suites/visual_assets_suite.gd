@@ -7,17 +7,25 @@ func run() -> void:
 	test_every_adventure_biome_has_two_props()
 	test_large_biome_props_have_safe_collisions()
 	test_pirate_enemies_and_items_cover_their_catalogs()
+	test_every_inventory_item_has_dedicated_icon()
 
 
-## Сценарий: три сгенерированных изображения загружаются Godot как прозрачные текстуры.
+## Сценарий: все сгенерированные изображения загружаются Godot как прозрачные текстуры.
 ## Исходное состояние: PNG-файлы прошли удаление однотонного фона и импорт редактором.
 ## Ожидаемый результат: размеры согласованы, углы прозрачны, а центр содержит видимые пиксели.
 func test_generated_atlases_are_importable_and_transparent() -> void:
-	for path in ["res://assets/game/generated/biome_prop_atlas.png", "res://assets/game/generated/pirate_enemy_atlas.png", "res://assets/game/generated/pirate_item_atlas.png", "res://assets/game/generated/potion_atlas.png", "res://assets/game/generated/seasonal_environment_atlas.png", "res://assets/game/generated/eclipse_event_atlas.png"]:
+	var atlases := {
+		"res://assets/game/generated/biome_prop_atlas.png":Vector2i(1254,1254), "res://assets/game/generated/pirate_enemy_atlas.png":Vector2i(1254,1254),
+		"res://assets/game/generated/pirate_item_atlas.png":Vector2i(1254,1254), "res://assets/game/generated/potion_atlas.png":Vector2i(1254,1254),
+		"res://assets/game/generated/seasonal_environment_atlas.png":Vector2i(1254,1254), "res://assets/game/generated/eclipse_event_atlas.png":Vector2i(1254,1254),
+		"res://assets/game/generated/inventory_core_atlas.png":Vector2i(1536,1024), "res://assets/game/generated/inventory_rare_atlas.png":Vector2i(1536,1024),
+	}
+	for path in atlases:
 		var texture := load(path) as Texture2D
 		var image := texture.get_image()
-		expect(texture != null and image.get_size() == Vector2i(1254, 1254), "generated atlas imports at validated dimensions: %s" % path)
-		expect(image.get_pixel(0, 0).a < 0.05 and image.get_pixel(1253, 1253).a < 0.05, "generated atlas keeps transparent chroma-free corners: %s" % path)
+		var expected_size: Vector2i = atlases[path]
+		expect(texture != null and image.get_size() == expected_size, "generated atlas imports at validated dimensions: %s" % path)
+		expect(image.get_pixel(0, 0).a < 0.05 and image.get_pixel(expected_size.x - 1, expected_size.y - 1).a < 0.05, "generated atlas keeps transparent chroma-free corners: %s" % path)
 		expect(_has_visible_sample(image), "generated atlas contains visible artwork inside transparent canvas: %s" % path)
 
 
@@ -72,4 +80,16 @@ func test_pirate_enemies_and_items_cover_their_catalogs() -> void:
 		var source: Rect2 = game.VisualAssetSystem.pirate_item_source(kind)
 		expect(source.size == Vector2(313.5, 627.0), "active pirate item maps to generated icon atlas: %s" % kind)
 	expect(game.VisualAssetSystem.PIRATE_ITEM_CELLS.size() == 8, "item atlas reserves four future thematic treasures without procedural placeholders")
+	game.free()
+
+
+## Сценарий: каждый предмет, способный попасть в инвентарь, проходит единый визуальный контракт.
+## Исходное состояние: каталог предметов содержит инструменты, еду, ресурсы, экипировку и квестовый лут.
+## Ожидаемый результат: у всех идентификаторов есть отдельная текстура либо конкретная ячейка атласа.
+func test_every_inventory_item_has_dedicated_icon() -> void:
+	var game := make_game()
+	for kind in game.InventorySystem.ITEM_DATA:
+		expect(game.VisualAssetSystem.has_item_icon(kind), "inventory item owns a dedicated icon: %s" % kind)
+	expect(game.VisualAssetSystem.INVENTORY_CORE_CELLS.size() == 24, "core inventory atlas maps every one of its twenty-four cells")
+	expect(game.VisualAssetSystem.INVENTORY_RARE_CELLS.size() == 15, "rare inventory atlas maps all fifteen previously missing items")
 	game.free()

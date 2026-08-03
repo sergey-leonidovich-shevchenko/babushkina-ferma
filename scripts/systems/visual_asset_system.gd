@@ -6,6 +6,17 @@ const PIRATE_ITEM_ATLAS := preload("res://assets/game/generated/pirate_item_atla
 const POTION_ATLAS := preload("res://assets/game/generated/potion_atlas.png")
 const SEASONAL_ATLAS := preload("res://assets/game/generated/seasonal_environment_atlas.png")
 const ECLIPSE_ATLAS := preload("res://assets/game/generated/eclipse_event_atlas.png")
+const INVENTORY_CORE_ATLAS := preload("res://assets/game/generated/inventory_core_atlas.png")
+const INVENTORY_RARE_ATLAS := preload("res://assets/game/generated/inventory_rare_atlas.png")
+const ITEM_TEXTURES := {
+	"iron_helmet": preload("res://assets/game/items/iron_helmet.png"),
+	"guardian_armor": preload("res://assets/game/items/guardian_armor.png"),
+	"travel_boots": preload("res://assets/game/items/travel_boots.png"),
+	"crystal_ring": preload("res://assets/game/items/crystal_ring.png"),
+	"orange": preload("res://assets/game/items/orange.png"),
+	"oak_shield": preload("res://assets/game/items/oak_shield.png"),
+	"watermelon": preload("res://assets/game/items/watermelon_slice.png"),
+}
 
 const BIOME_ORDER := ["forest", "rocky", "ruins", "cursed", "glassworks"]
 const PIRATE_ENEMY_ORDER := ["pirate", "zombie_pirate", "sea_ghost", "drowned_captain"]
@@ -18,6 +29,17 @@ const PIRATE_ITEM_CELLS := {
 const POTION_CELLS := {
 	"healing_potion":Vector2i(0,0), "mana_potion":Vector2i(1,0), "energy_potion":Vector2i(2,0), "invisibility_potion":Vector2i(3,0),
 	"strength_potion":Vector2i(0,1), "regeneration_potion":Vector2i(1,1), "speed_potion":Vector2i(2,1), "defense_potion":Vector2i(3,1),
+}
+const INVENTORY_CORE_CELLS := {
+	"hoe":Vector2i(0,0), "seeds":Vector2i(1,0), "water":Vector2i(2,0), "hand":Vector2i(3,0), "pickaxe":Vector2i(4,0), "fishing_rod":Vector2i(5,0),
+	"axe":Vector2i(0,1), "carrot":Vector2i(1,1), "apple":Vector2i(2,1), "berries":Vector2i(3,1), "nut":Vector2i(4,1), "mushroom":Vector2i(5,1),
+	"slime":Vector2i(0,2), "wood":Vector2i(1,2), "stone":Vector2i(2,2), "crystal":Vector2i(3,2), "red_crystal":Vector2i(4,2), "green_crystal":Vector2i(5,2),
+	"fish":Vector2i(0,3), "sword":Vector2i(1,3), "bow":Vector2i(2,3), "arrows":Vector2i(3,3), "crystal_sword":Vector2i(4,3), "fiber":Vector2i(5,3),
+}
+const INVENTORY_RARE_CELLS := {
+	"rare_seeds":Vector2i(0,0), "metal":Vector2i(1,0), "bones":Vector2i(2,0), "ancient_key":Vector2i(3,0), "blue_gem":Vector2i(4,0), "moon_relic":Vector2i(5,0),
+	"raw_meat":Vector2i(0,1), "hide":Vector2i(1,1), "fur":Vector2i(2,1), "tusk":Vector2i(3,1), "bat_wing":Vector2i(4,1), "lizard_scale":Vector2i(5,1),
+	"orc_blade":Vector2i(0,2), "home_chest":Vector2i(1,2), "guild_badge":Vector2i(2,2),
 }
 const LARGE_PROP_BASES := [
 	Vector2(150, 245), Vector2(720, 230), Vector2(1260, 250), Vector2(1900, 225),
@@ -163,3 +185,28 @@ static func draw_potion(canvas: CanvasItem, kind: String, rect: Rect2) -> bool:
 	if not POTION_CELLS.has(kind): return false
 	canvas.draw_texture_rect_region(POTION_ATLAS, rect.grow(-1), potion_source(kind))
 	return true
+
+
+## Возвращает отдельную текстуру предмета, который не хранится в общем атласе.
+static func item_texture(kind: String) -> Texture2D:
+	return ITEM_TEXTURES.get(kind) as Texture2D
+
+
+## Возвращает область предмета в одном из инвентарных атласов шесть на четыре.
+static func inventory_item_source(kind: String) -> Rect2:
+	var cell := Vector2(INVENTORY_CORE_ATLAS.get_width() / 6.0, INVENTORY_CORE_ATLAS.get_height() / 4.0)
+	var coordinates: Vector2i = INVENTORY_CORE_CELLS.get(kind, INVENTORY_RARE_CELLS.get(kind, Vector2i(-1, -1)))
+	return Rect2(Vector2(coordinates) * cell, cell) if coordinates.x >= 0 else Rect2()
+
+
+## Рисует предмет из основного или редкого инвентарного атласа.
+static func draw_inventory_item(canvas: CanvasItem, kind: String, rect: Rect2) -> bool:
+	var atlas: Texture2D = INVENTORY_CORE_ATLAS if INVENTORY_CORE_CELLS.has(kind) else INVENTORY_RARE_ATLAS
+	if not INVENTORY_CORE_CELLS.has(kind) and not INVENTORY_RARE_CELLS.has(kind): return false
+	canvas.draw_texture_rect_region(atlas, rect.grow(-1), inventory_item_source(kind))
+	return true
+
+
+## Проверяет, что зарегистрированный предмет имеет собственную текстуру или ячейку атласа.
+static func has_item_icon(kind: String) -> bool:
+	return ITEM_TEXTURES.has(kind) or INVENTORY_CORE_CELLS.has(kind) or INVENTORY_RARE_CELLS.has(kind) or POTION_CELLS.has(kind) or PIRATE_ITEM_CELLS.has(kind) or kind == "eclipse_core"

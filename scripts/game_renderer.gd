@@ -523,15 +523,7 @@ func inventory_item_color(kind: String) -> Color:
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func item_texture(kind: String) -> Texture2D:
-	match kind:
-		"iron_helmet": return ITEM_HELMET
-		"guardian_armor": return ITEM_ARMOR
-		"travel_boots": return ITEM_BOOTS
-		"crystal_ring": return ITEM_DIAMOND
-		"orange": return ITEM_ORANGE
-		"oak_shield": return ITEM_OAK_SHIELD
-		"watermelon": return ITEM_WATERMELON_SLICE
-	return null
+	return VisualAssetSystem.item_texture(kind)
 
 ## Возвращает короткий различимый знак для предмета, пока для него не создана собственная текстура.
 func fallback_item_glyph(kind: String) -> String:
@@ -549,19 +541,8 @@ func draw_item_icon(kind: String, rect: Rect2) -> void:
 		pass
 	elif VisualAssetSystem.draw_eclipse_item(self, kind, rect):
 		pass
-	elif kind == "home_chest":
-		draw_rect(rect.grow(-4), Color("9b6231"))
-		draw_line(rect.position + Vector2(5, rect.size.y * 0.42), rect.position + Vector2(rect.size.x - 5, rect.size.y * 0.42), Color("e0ad52"), 3)
-		draw_rect(Rect2(rect.get_center() - Vector2(3, 1), Vector2(6, 9)), Color("f2d06b"))
-	elif kind == "arrows":
-		for offset in [-5.0, 0.0, 5.0]:
-			draw_line(rect.get_center() + Vector2(-10, 10 + offset), rect.get_center() + Vector2(10, -10 + offset), Color("ead8aa"), 3)
-			draw_colored_polygon(PackedVector2Array([rect.get_center() + Vector2(10, -10 + offset), rect.get_center() + Vector2(4, -9 + offset), rect.get_center() + Vector2(9, -4 + offset)]), Color("8c969c"))
-	elif kind == "guild_badge":
-		var center := rect.get_center()
-		draw_circle(center, minf(rect.size.x, rect.size.y) * 0.34, Color("e5b94f"))
-		draw_circle(center, minf(rect.size.x, rect.size.y) * 0.25, Color("684839"))
-		draw_colored_polygon(PackedVector2Array([center + Vector2(-7, -2), center + Vector2(0, -9), center + Vector2(7, -2), center + Vector2(4, 8), center + Vector2(-4, 8)]), Color("ffe28a"))
+	elif VisualAssetSystem.draw_inventory_item(self, kind, rect):
+		pass
 	else:
 		var center := rect.get_center(); var radius := minf(rect.size.x, rect.size.y) * 0.38
 		draw_circle(center, radius, inventory_item_color(kind)); draw_circle(center, radius, Color(0.95, 0.9, 0.72, 0.88), false, 2.0)
