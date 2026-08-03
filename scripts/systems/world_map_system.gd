@@ -1,9 +1,9 @@
 extends RefCounted
 
 const LOCATIONS := {
-	"overworld":Vector2(205, 280), "forest":Vector2(365, 175), "rocky":Vector2(365, 385),
-	"ruins":Vector2(540, 260), "cave":Vector2(540, 430), "cursed":Vector2(715, 355),
-	"glassworks":Vector2(715, 185), "pirate_ship":Vector2(885, 270), "moon_glade":Vector2(885, 430),
+	"overworld":Vector2(205, 280), "forest":Vector2(340, 195), "rocky":Vector2(365, 405),
+	"ruins":Vector2(560, 280), "cave":Vector2(585, 445), "cursed":Vector2(755, 315),
+	"glassworks":Vector2(748, 185), "pirate_ship":Vector2(970, 255), "moon_glade":Vector2(820, 425),
 }
 const CONNECTIONS := [["overworld","forest"],["overworld","rocky"],["forest","ruins"],["rocky","cave"],["ruins","cursed"],["ruins","glassworks"],["cursed","pirate_ship"],["cave","moon_glade"]]
 

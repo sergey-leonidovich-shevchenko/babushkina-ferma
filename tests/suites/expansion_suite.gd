@@ -159,6 +159,7 @@ func test_world_map_discovers_regions_and_marks_story_objective() -> void:
 	game.state.world.castle_campaign.stage = 1
 	expect(game.WorldMapSystem.current_region(game) == "ruins", "castle interior maps to its outdoor ruins region")
 	expect(game.WorldMapSystem.objective_region(game) == "ruins", "active castle investigation marks ruins as story objective")
+	expect(game.WorldMapRenderer.MAP_BACKGROUND.get_width() == 1862 and game.WorldMapRenderer.MAP_BACKGROUND.get_height() == 845, "world map uses selected high-resolution 32-bit-style painted background")
 	expect(game.WorldMapSystem.toggle(game) and game.world_map_open, "map opens from shared keyboard gamepad touch command")
 	expect(game.tutorial_events_completed.has("world_map"), "world map has tutorial coverage")
 	expect(not game.WorldMapSystem.toggle(game) and not game.world_map_open, "same map command closes modal overlay")
