@@ -13,6 +13,8 @@ const INVENTORY_SLOT_PITCH := Vector2(65.5, 58.0)
 const INVENTORY_HOTBAR_ORIGIN := Vector2(207, 544)
 const INVENTORY_HOTBAR_SIZE := Vector2(66, 65)
 const INVENTORY_HOTBAR_PITCH := 73.4
+const INVENTORY_HOTBAR_SKIN_RECT := Rect2(190, 532, 762, 84)
+const WORLD_HOTBAR_PANEL := Rect2(190, 564, 762, 84)
 const USE_BUTTON := Rect2(580, 430, 195, 31)
 const EQUIP_BUTTON := Rect2(580, 469, 94, 29)
 const DROP_BUTTON := Rect2(680, 469, 95, 29)
@@ -22,9 +24,9 @@ const QUEST_BUTTON := Rect2(1066, 10, 72, 50)
 const PAUSE_BUTTON := Rect2(18, 584, 54, 54)
 const DODGE_BUTTON := Rect2(1004, 520, 60, 48)
 const BLOCK_BUTTON := Rect2(1072, 520, 60, 48)
-const HOTBAR_ORIGIN := Vector2(279, 584)
-const HOTBAR_SLOT_SIZE := Vector2(54, 54)
-const HOTBAR_PITCH := 60.0
+const HOTBAR_ORIGIN := Vector2(207, 576)
+const HOTBAR_SLOT_SIZE := INVENTORY_HOTBAR_SIZE
+const HOTBAR_PITCH := INVENTORY_HOTBAR_PITCH
 const STORAGE_LEFT_ROWS := Rect2(96, 168, 430, 320)
 const STORAGE_RIGHT_ROWS := Rect2(626, 168, 430, 320)
 const STORAGE_TRANSFER_ONE := Rect2(454, 494, 116, 36)
@@ -157,8 +159,8 @@ static func draw_hud(game: Node) -> void:
 		game.draw_circle(Vector2(576, 105), 20 + sin(Time.get_ticks_msec() / 100.0) * 3, GOLD)
 		game.draw_string(game.UI_FONT, Vector2(566, 112), "!", HORIZONTAL_ALIGNMENT_CENTER, 20, 22, Color("47351f"))
 	if not game.message.is_empty():
-		panel(game, Rect2(286, 544, 580, 30), Color(0.04, 0.08, 0.07, 0.9))
-		game.draw_string(game.UI_FONT, Vector2(300, 565), game.message, HORIZONTAL_ALIGNMENT_CENTER, 552, 14, INK)
+		panel(game, Rect2(286, 528, 580, 30), Color(0.04, 0.08, 0.07, 0.9))
+		game.draw_string(game.UI_FONT, Vector2(300, 549), game.message, HORIZONTAL_ALIGNMENT_CENTER, 552, 14, INK)
 	panel(game, PAUSE_BUTTON, Color("29463d"))
 	game.draw_string(game.UI_FONT, PAUSE_BUTTON.position + Vector2(4, 35), "Ⅱ", HORIZONTAL_ALIGNMENT_CENTER, PAUSE_BUTTON.size.x - 8, 22, Color("ffe39d"))
 	draw_action_button(game, DODGE_BUTTON, game.LocaleSystem.ui("dodge_short"), game.state.player.dodge_cooldown <= 0.0 and game.energy >= 2)
@@ -191,18 +193,14 @@ static func draw_header_button(game: Node, rect: Rect2, key: String, badge: int)
 		game.draw_string(game.UI_FONT, rect.position + Vector2(rect.size.x - 14, 13), str(badge), HORIZONTAL_ALIGNMENT_CENTER, 12, 10, Color.WHITE)
 
 
-## Отрисовывает быстрой панели по текущему состоянию игры.
+## Рисует игровую панель из того же участка деревянного скина и тех же слотов, что используются в рюкзаке.
 static func draw_hotbar(game: Node) -> void:
+	var skin_size: Vector2 = INVENTORY_SKIN.get_size()
+	var source_scale := Vector2(skin_size.x / VIEWPORT.size.x, skin_size.y / VIEWPORT.size.y)
+	var source_rect := Rect2(INVENTORY_HOTBAR_SKIN_RECT.position * source_scale, INVENTORY_HOTBAR_SKIN_RECT.size * source_scale)
+	game.draw_texture_rect_region(INVENTORY_SKIN, WORLD_HOTBAR_PANEL, source_rect)
 	for index in 10:
-		var rect: Rect2 = hotbar_rect(index)
-		var selected: bool = index == game.selected_hotbar
-		panel(game, rect, GOLD if selected else Color("314e44"))
-		game.draw_rect(rect.grow(-4), Color("f4dfaa") if selected else Color("1e332d"))
-		var kind: String = game.hotbar_slots[index]
-		game.draw_item_icon(kind, Rect2(rect.position + Vector2(12, 8), Vector2(32, 32)))
-		game.draw_string(game.UI_FONT, rect.position + Vector2(4, 14), str(index + 1 if index < 9 else 0), HORIZONTAL_ALIGNMENT_LEFT, 12, 10, Color("493726") if selected else MUTED)
-		if not kind.is_empty() and game.inventory_item_count(kind) > 1:
-			game.draw_string(game.UI_FONT, rect.position + Vector2(28, 48), str(game.inventory_item_count(kind)), HORIZONTAL_ALIGNMENT_RIGHT, 20, 10, Color("493726") if selected else INK)
+		draw_hotbar_slot(game, hotbar_rect(index), index)
 
 
 ## Отрисовывает инвентаря по текущему состоянию игры.
@@ -318,9 +316,13 @@ static func draw_equipment(game: Node) -> void:
 		if not kind.is_empty(): game.draw_item_icon(kind, Rect2(rect.position + Vector2(11, 21), Vector2(38, 39)))
 
 
-## Отрисовывает соответствующий элемент по текущим данным активной сцены.
+## Накладывает содержимое слота рюкзака через общий отрисовщик обеих быстрых панелей.
 static func draw_inventory_hotbar_slot(game: Node, index: int) -> void:
-	var rect: Rect2 = inventory_hotbar_rect(index)
+	draw_hotbar_slot(game, inventory_hotbar_rect(index), index)
+
+
+## Рисует единое динамическое содержимое быстрого слота поверх подготовленной деревянной рамки.
+static func draw_hotbar_slot(game: Node, rect: Rect2, index: int) -> void:
 	var selected: bool = index == game.selected_hotbar
 	if selected:
 		game.draw_rect(rect.grow(1), Color("ffd35d"), false, 3.0)
