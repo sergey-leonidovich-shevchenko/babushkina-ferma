@@ -3,7 +3,7 @@ extends RefCounted
 const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
 
 const COLUMNS := 6
-const VISIBLE_ROWS := 5
+const VISIBLE_ROWS := 6
 const VISIBLE_SLOTS := COLUMNS * VISIBLE_ROWS
 const FILTERS := ["all", "tool", "food", "equipment", "resource", "quest"]
 

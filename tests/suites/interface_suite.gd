@@ -3,6 +3,7 @@ extends "res://tests/suites/suite_base.gd"
 
 ## Запускает все сценарии текущего набора тестов в фиксированном порядке.
 func run() -> void:
+	test_inventory_uses_grandmother_skin_and_six_rows()
 	test_inventory_layout_and_touch_mapping()
 	test_item_context_and_actions()
 	test_hud_layout_is_compact_and_safe()
@@ -11,6 +12,18 @@ func run() -> void:
 	test_inventory_sorting()
 	test_every_owned_item_has_a_visible_slot_and_icon_fallback()
 	test_inventory_category_filters_support_pointer_and_gamepad()
+
+
+## Сценарий: рюкзак использует утверждённый резной скин и сетку эталона 6×6.
+## Исходное состояние: графический ресурс загружен, а константы интерфейса доступны без запуска окна.
+## Ожидаемый результат: скин имеет исходное соотношение 16:9, показаны 36 ячеек, а рабочие панели не выходят за деревянную раму.
+func test_inventory_uses_grandmother_skin_and_six_rows() -> void:
+	var game := make_game()
+	expect(game.InterfaceRenderer.INVENTORY_SKIN.get_size() == Vector2(1672, 941), "inventory uses the approved full-resolution grandmother skin")
+	expect(game.InventorySystem.VISIBLE_ROWS == 6 and game.InventorySystem.VISIBLE_SLOTS == 36, "reference 6 by 6 item grid is preserved")
+	expect(game.InterfaceRenderer.INVENTORY_WINDOW.encloses(game.InterfaceRenderer.inventory_slot_rect(35)), "last cell of the reference grid stays inside the carved frame")
+	expect(game.InterfaceRenderer.INVENTORY_WINDOW.encloses(game.InterfaceRenderer.inventory_hotbar_rect(9)), "tenth quick slot stays inside the carved frame")
+	game.free()
 
 
 ## Сценарий: все ячейки рюкзака и быстрых слотов находятся внутри окна и точно распознают касания.
