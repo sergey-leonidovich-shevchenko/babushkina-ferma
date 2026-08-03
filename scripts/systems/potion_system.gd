@@ -43,7 +43,7 @@ static func _apply_potion(game: Node, kind: String) -> void:
 		"mana_potion": game.player_mana = mini(game.player_mana + 30, game.player_max_mana)
 		"energy_potion": game.energy = mini(game.energy + 8, game.SkillSystem.max_stamina(game))
 		_:
-			game.set(data.timer, maxf(float(game.get(data.timer)), float(data.duration)))
+			game.set(data.timer, maxf(float(game.get(data.timer)), float(data.duration) * game.EstateSystem.potion_multiplier(game)))
 			if kind == "regeneration_potion": game.regeneration_tick_timer = 0.0
 	game.message = "%s: %s" % [game.inventory_item_name(kind), data.message]
 

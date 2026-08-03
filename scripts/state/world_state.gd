@@ -2,6 +2,8 @@ extends RefCounted
 
 const TreeSystem := preload("res://scripts/systems/tree_system.gd")
 const MoonGladeSystem := preload("res://scripts/systems/moon_glade_system.gd")
+const CastleCampaignSystem := preload("res://scripts/systems/castle_campaign_system.gd")
+const EstateSystem := preload("res://scripts/systems/estate_system.gd")
 
 var location: String = "overworld"
 var day: int = 1
@@ -15,6 +17,8 @@ var world_loot_seed: int = 0
 var world_loot_nodes: Array = []
 var tree_nodes: Array = TreeSystem.default_nodes()
 var moon_glade: Dictionary = MoonGladeSystem.default_state()
+var castle_campaign: Dictionary = CastleCampaignSystem.default_state()
+var estate: Dictionary = EstateSystem.default_state()
 
 
 ## Приводит загруженное состояние к безопасным допустимым значениям.
@@ -24,6 +28,8 @@ func normalize() -> void:
 	coins = maxi(coins, 0)
 	weather_day = maxi(weather_day, 0)
 	moon_glade = MoonGladeSystem.normalize_state(moon_glade)
+	castle_campaign = CastleCampaignSystem.normalize_state(castle_campaign)
+	estate = EstateSystem.normalize_state(estate)
 	for index in tree_nodes.size():
 		var tree: Dictionary = tree_nodes[index]
 		tree.health = clampi(int(tree.get("health", TreeSystem.MAX_HEALTH)), 0, TreeSystem.MAX_HEALTH)

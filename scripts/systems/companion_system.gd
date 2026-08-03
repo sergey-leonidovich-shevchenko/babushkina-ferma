@@ -7,11 +7,12 @@ const COMPANIONS := {
 }
 const ATTACK_INTERVAL := 0.8
 const HEAL_INTERVAL := 4.0
+const COMMANDS := ["follow", "wait", "attack", "defend"]
 
 
 ## Возвращает максимально допустимое число активных напарников по лидерству.
 static func capacity(game: Node) -> int:
-	return 2 if game.SkillSystem.skill(game, "leadership") >= 2 else 1
+	return (2 if game.SkillSystem.skill(game, "leadership") >= 2 else 1) + (1 if game.state.world.estate.level >= 3 else 0)
 
 
 ## Возвращает локализованное имя кандидата.
@@ -86,6 +87,11 @@ static func update(game: Node, delta: float) -> void:
 		var index: int = game.active_companions.find(companion_id)
 		var desired: Vector2 = game.player + Vector2(-54 - index * 38, 38 + index * 22)
 		var current: Vector2 = game.companion_positions.get(companion_id, desired)
+		if game.state.player.companion_command == "wait": desired = current
+		elif game.state.player.companion_command == "defend": desired = game.player + Vector2(-34 - index * 28, 26 + index * 18)
+		elif game.state.player.companion_command == "attack":
+			var target_index: int = nearest_command_target(game, current)
+			if target_index >= 0: desired = game.enemy_nodes[target_index].position + Vector2(-58 - index * 24, 28)
 		if current.distance_to(desired) > 420.0:
 			current = desired
 		var next_position := current.move_toward(desired, 190.0 * delta)
@@ -106,14 +112,31 @@ static func update(game: Node, delta: float) -> void:
 			game.PlayerSystem.heal(game, healing)
 
 
+## Находит ближайшую видимую цель для приказа наступления без ограничения оружия героя.
+static func nearest_command_target(game: Node, position: Vector2) -> int:
+	var result := -1
+	var distance_limit := 520.0
+	for index in game.enemy_nodes.size():
+		var enemy: Dictionary = game.enemy_nodes[index]
+		if enemy.alive and enemy.location == game.current_location:
+			var distance: float = position.distance_to(enemy.position)
+			if distance < distance_limit:
+				distance_limit = distance
+				result = index
+	return result
+
+
 ## Ищет доступную цель рядом с каждым напарником и наносит ей его урон.
 static func attack_nearby(game: Node) -> bool:
+	if game.state.player.companion_command in ["wait", "defend"]: return false
 	for companion_id in game.active_companions:
 		var position: Vector2 = game.companion_positions.get(companion_id, game.player)
 		for index in game.enemy_nodes.size():
 			var enemy: Dictionary = game.enemy_nodes[index]
 			if enemy.alive and enemy.location == game.current_location and position.distance_to(enemy.position) <= 130.0:
-				return game.CombatSystem.companion_attack(game, index, int(COMPANIONS[companion_id].damage), name(game, companion_id))
+				var bond_bonus := 1 if int(game.state.player.companion_bonds.get(companion_id, 0)) >= 10 else 0
+				game.state.player.companion_bonds[companion_id] = int(game.state.player.companion_bonds.get(companion_id, 0)) + 1
+				return game.CombatSystem.companion_attack(game, index, int(COMPANIONS[companion_id].damage) + bond_bonus, name(game, companion_id))
 	return false
 
 
@@ -122,6 +145,7 @@ static func defense_bonus(game: Node) -> int:
 	var result := 0
 	for companion_id in game.active_companions:
 		result += int(COMPANIONS.get(companion_id, {}).get("defense", 0))
+	if game.state.player.companion_command == "defend" and not game.active_companions.is_empty(): result += 4
 	return result
 
 
@@ -131,3 +155,12 @@ static func healing_power(game: Node) -> int:
 	for companion_id in game.active_companions:
 		result += int(COMPANIONS.get(companion_id, {}).get("heal", 0))
 	return result
+
+
+## Переключает тактический приказ активной группе по циклу из четырёх режимов.
+static func cycle_command(game: Node) -> String:
+	var index := COMMANDS.find(game.state.player.companion_command)
+	game.state.player.companion_command = COMMANDS[(index + 1) % COMMANDS.size()]
+	game.message = game.LocaleSystem.text("companion_command_%s" % game.state.player.companion_command)
+	game.notify_tutorial("companion_commands")
+	return game.state.player.companion_command

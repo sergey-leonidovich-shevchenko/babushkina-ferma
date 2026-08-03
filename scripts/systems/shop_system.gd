@@ -50,8 +50,9 @@ static func sell(game: Node, product_index: int) -> bool:
 	if not game.change_inventory_count(product.kind, -1):
 		game.message = game.LocaleSystem.text("no_product")
 		return false
-	game.coins += product.sell
-	game.message = game.LocaleSystem.text("sold", [game.inventory_item_name(product.kind), product.sell])
+	var sale_price: int = roundi(float(product.sell) * game.EstateSystem.consume_sale_multiplier(game, product.kind))
+	game.coins += sale_price
+	game.message = game.LocaleSystem.text("sold", [game.inventory_item_name(product.kind), sale_price])
 	game.play_sfx("coin")
 	game.notify_tutorial("trade")
 	if product.get("forage", false):

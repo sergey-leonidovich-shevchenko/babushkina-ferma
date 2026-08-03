@@ -133,7 +133,7 @@ func _physics_process(delta: float) -> void:
 	if title_screen or menu_state.pause_open or menu_state.settings_open:
 		queue_redraw()
 		return
-	update_game_clock(delta); WorldEventSystem.update(self); update_crops(delta); TreeSystem.update(self, delta); MoonGladeSystem.update(self, delta)
+	update_game_clock(delta); WorldEventSystem.update(self); EstateSystem.update_daily_event(self); update_crops(delta); TreeSystem.update(self, delta); MoonGladeSystem.update(self, delta); CastleCampaignSystem.update(self, delta)
 	update_combat(delta)
 	update_fishing(delta)
 	update_status_effects(delta)
@@ -267,7 +267,7 @@ func update_camera() -> void:
 
 ## Устанавливает относящееся к методу значение и синхронизирует зависимое состояние.
 func sync_background_location() -> void:
-	AudioSystem.switch_music(self, current_location)
+	AudioSystem.switch_music(self, current_location); EstateSystem.discover_location(self, current_location)
 	var background := get_node_or_null("WorldBackground")
 	if background:
 		background.set_location(current_location)
@@ -304,6 +304,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			KEY_9: select_hotbar(8)
 			KEY_0: select_hotbar(9)
 			KEY_B: open_shop()
+			KEY_C: CompanionSystem.cycle_command(self)
 			KEY_N: sleep_until_morning()
 			KEY_F: attack_nearest_enemy()
 			KEY_R: toggle_sword()
@@ -424,10 +425,10 @@ func use_selected_tool() -> void:
 				plot.stage = 0
 				plot.stage_flash = 0.0
 				var harvested: int = SkillSystem.harvest_count(self)
-				carrots += harvested
+				carrots += harvested; var quality: String = EstateSystem.record_quality(self, "carrot", harvested)
 				award_xp(3)
 				SkillSystem.award_profession_xp(self, "farming", 4)
-				message = LocaleSystem.text("harvested", [inventory_item_name("carrot"), harvested])
+				message = "%s • %s" % [LocaleSystem.text("harvested", [inventory_item_name("carrot"), harvested]), LocaleSystem.ui("quality_%s" % quality)]
 				notify_tutorial("harvest")
 				action_sfx = "harvest"
 			else: message = LocaleSystem.text("not_ripe")
@@ -492,6 +493,11 @@ func nearest_interaction() -> String:
 		nearest_distance = player.distance_to(QuestSystem.npc_position(self, quest_npc))
 	var event_interaction := WorldEventSystem.nearest_interaction(self, nearest_distance)
 	if not event_interaction.is_empty(): nearest = event_interaction
+	var campaign_interaction := CastleCampaignSystem.nearest_interaction(self, nearest_distance)
+	if not campaign_interaction.is_empty():
+		nearest = campaign_interaction
+		nearest_distance = player.distance_to(CastleCampaignSystem.interaction_position(campaign_interaction))
+	var estate_interaction := EstateSystem.nearest_interaction(self, nearest_distance); if not estate_interaction.is_empty(): nearest = estate_interaction
 	if home_chest_owned and current_location == "cottage_interior":
 		var chest_distance := player.distance_to(StorageSystem.CHEST_POSITION)
 		if chest_distance < nearest_distance:
@@ -553,6 +559,9 @@ func perform_context_action() -> bool:
 		return WorldEventSystem.use_portal(self)
 	if interaction.begins_with("moon_"):
 		return MoonGladeSystem.interact(self, interaction)
+	if interaction.begins_with("castle_"):
+		return CastleCampaignSystem.interact(self, interaction)
+	if interaction == "estate_board": return EstateSystem.purchase_next(self)
 	if interaction.begins_with("drop:"):
 		return collect_dropped_item(int(interaction.get_slice(":", 1)))
 	if interaction.begins_with("container:"):
@@ -892,6 +901,8 @@ func attack_slime() -> bool:
 func attack_nearest_enemy() -> bool:
 	if MoonGladeSystem.attack_guardian(self):
 		return true
+	if CastleCampaignSystem.attack_boss(self):
+		return true
 	var enemy_index := CombatSystem.nearest(self)
 	var wildlife_index := WildlifeSystem.nearest(self)
 	var enemy_distance := INF
@@ -1196,6 +1207,9 @@ func handle_gamepad_and_touch(event: InputEvent) -> bool:
 			handle_inventory_input(event)
 			return true
 		match event.button_index:
+			JOY_BUTTON_LEFT_SHOULDER:
+				CompanionSystem.cycle_command(self)
+				return true
 			JOY_BUTTON_DPAD_LEFT:
 				select_hotbar(posmod(selected_hotbar - 1, 10))
 				return true

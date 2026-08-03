@@ -8,12 +8,12 @@ const STEP_IDS := [
 	"mission_complete", "journal", "side_mission", "colored_crystal", "day", "level_up",
 	"skill_point", "profession", "pause_menu", "settings", "save", "wildlife", "world_loot", "watermelon", "potion",
 	"shield", "lizard",
-	"building_enter", "locked_building", "castle_floor", "companion_recruit", "companion_change",
+	"building_enter", "locked_building", "castle_floor", "companion_recruit", "companion_change", "companion_commands",
 	"enemy_levels", "enemy_movement", "contact_hazard", "static_attacker", "hero_skin",
-	"chest_install", "chest_open", "chest_deposit", "chest_withdraw",
+	"chest_install", "chest_open", "chest_deposit", "chest_withdraw", "estate_upgrade", "item_quality", "world_calendar",
 	"forge_open", "weapon_sharpen", "armor_upgrade", "arrow_sharpen",
 	"contract_board", "contract_accept", "contract_complete", "guild_rank",
-	"pirate_ship", "pirate_quest", "pirate_loot", "invisibility", "season", "weather", "night", "eclipse", "moon_portal", "moon_flower", "moon_crystal", "moon_echoes", "moon_altar", "moon_guardian", "moon_treasure", "story_after_eclipse",
+	"pirate_ship", "pirate_quest", "pirate_loot", "invisibility", "season", "weather", "night", "eclipse", "moon_portal", "moon_flower", "moon_crystal", "moon_echoes", "moon_altar", "moon_guardian", "moon_treasure", "story_after_eclipse", "castle_investigation", "quest_investigation", "boss_phases", "story_choice",
 ]
 
 

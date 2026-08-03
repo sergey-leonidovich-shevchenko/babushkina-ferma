@@ -46,6 +46,9 @@ static func enemy_direction_row(direction: Vector2) -> int:
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func interaction_position(game: Node, interaction: String) -> Vector2:
+	if interaction.begins_with("castle_"):
+		return game.CastleCampaignSystem.interaction_position(interaction)
+	if interaction == "estate_board": return game.EstateSystem.BOARD_POSITION
 	if interaction.begins_with("moon_"):
 		if interaction == "moon_portal": return game.WorldEventSystem.RETURN_PORTAL_POSITION if game.current_location == "moon_glade" else game.WorldEventSystem.PORTAL_POSITION
 		return game.MoonGladeSystem.interaction_position(interaction)
@@ -89,6 +92,8 @@ static func discovery_card_rect() -> Rect2:
 static func quest_tracker_lines(game: Node) -> Array[String]:
 	var lines: Array[String] = []
 	if game.current_location == "moon_glade": lines.append(game.MoonGladeSystem.objective(game))
+	var campaign_objective: String = game.CastleCampaignSystem.objective(game)
+	if not campaign_objective.is_empty() and not game.state.world.castle_campaign.completed: lines.append(campaign_objective)
 	if game.quest_active:
 		lines.append("Бабушкина морковь: %d/10" % mini(game.carrots, 10))
 	for mission_id in game.QuestSystem.MISSIONS:

@@ -15,6 +15,8 @@ var skill_points: int = 0
 var energy: int = 12
 var recruited_companions: Array[String] = []
 var active_companions: Array[String] = []
+var companion_command: String = "follow"
+var companion_bonds: Dictionary = {}
 
 
 ## Приводит загруженное состояние к безопасным допустимым значениям.
@@ -25,3 +27,5 @@ func normalize() -> void:
 	level = clampi(level, 1, 20)
 	xp = maxi(xp, 0)
 	skill_points = maxi(skill_points, 0)
+	if companion_command not in ["follow", "wait", "attack", "defend"]: companion_command = "follow"
+	for companion_id in companion_bonds: companion_bonds[companion_id] = maxi(0, int(companion_bonds[companion_id]))

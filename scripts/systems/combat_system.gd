@@ -166,7 +166,8 @@ static func player_attack_damage(game: Node) -> int:
 	if game.equipped_weapon == "forest_sword": damage += 1
 	elif game.equipped_weapon == "crystal_sword": damage += 2
 	elif game.equipped_weapon == "bow": damage += 1
-	return damage + game.ForgeSystem.weapon_damage_bonus(game, game.equipped_weapon)
+	var campaign_bonus := 2 if game.state.world.castle_campaign.get("choice", "") == "power" else 0
+	return damage + game.ForgeSystem.weapon_damage_bonus(game, game.equipped_weapon) + campaign_bonus
 
 
 ## Наносит урон цели и масштабирует опыт с добычей по её уровню ровно один раз.
