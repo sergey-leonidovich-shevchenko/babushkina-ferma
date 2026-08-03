@@ -8,6 +8,7 @@ const SEASONAL_ATLAS := preload("res://assets/game/generated/seasonal_environmen
 const ECLIPSE_ATLAS := preload("res://assets/game/generated/eclipse_event_atlas.png")
 const INVENTORY_CORE_ATLAS := preload("res://assets/game/generated/inventory_core_atlas.png")
 const INVENTORY_RARE_ATLAS := preload("res://assets/game/generated/inventory_rare_atlas.png")
+const FARM_FOOD_ATLAS := preload("res://assets/game/generated/farm_food_atlas.png")
 const ITEM_TEXTURES := {
 	"iron_helmet": preload("res://assets/game/items/iron_helmet.png"),
 	"guardian_armor": preload("res://assets/game/items/guardian_armor.png"),
@@ -40,6 +41,12 @@ const INVENTORY_RARE_CELLS := {
 	"rare_seeds":Vector2i(0,0), "metal":Vector2i(1,0), "bones":Vector2i(2,0), "ancient_key":Vector2i(3,0), "blue_gem":Vector2i(4,0), "moon_relic":Vector2i(5,0),
 	"raw_meat":Vector2i(0,1), "hide":Vector2i(1,1), "fur":Vector2i(2,1), "tusk":Vector2i(3,1), "bat_wing":Vector2i(4,1), "lizard_scale":Vector2i(5,1),
 	"orc_blade":Vector2i(0,2), "home_chest":Vector2i(1,2), "guild_badge":Vector2i(2,2),
+}
+const FARM_FOOD_CELLS := {
+	"tomato":Vector2i(0,0), "cabbage":Vector2i(1,0), "egg":Vector2i(2,0), "milk":Vector2i(3,0), "wheat":Vector2i(4,0), "corn":Vector2i(5,0),
+	"potato":Vector2i(0,1), "onion":Vector2i(1,1), "cheese":Vector2i(2,1), "rope":Vector2i(3,1), "cotton":Vector2i(4,1), "flower":Vector2i(5,1),
+	"honey":Vector2i(0,2), "bread":Vector2i(1,2), "pie":Vector2i(2,2), "pumpkin":Vector2i(3,2), "flour":Vector2i(4,2), "butter":Vector2i(5,2),
+	"jam":Vector2i(0,3), "soup":Vector2i(1,3), "omelet":Vector2i(2,3), "cornbread":Vector2i(3,3), "wool":Vector2i(4,3), "bouquet":Vector2i(5,3),
 }
 const LARGE_PROP_BASES := [
 	Vector2(150, 245), Vector2(720, 230), Vector2(1260, 250), Vector2(1900, 225),
@@ -195,18 +202,18 @@ static func item_texture(kind: String) -> Texture2D:
 ## Возвращает область предмета в одном из инвентарных атласов шесть на четыре.
 static func inventory_item_source(kind: String) -> Rect2:
 	var cell := Vector2(INVENTORY_CORE_ATLAS.get_width() / 6.0, INVENTORY_CORE_ATLAS.get_height() / 4.0)
-	var coordinates: Vector2i = INVENTORY_CORE_CELLS.get(kind, INVENTORY_RARE_CELLS.get(kind, Vector2i(-1, -1)))
+	var coordinates: Vector2i = INVENTORY_CORE_CELLS.get(kind, INVENTORY_RARE_CELLS.get(kind, FARM_FOOD_CELLS.get(kind, Vector2i(-1, -1))))
 	return Rect2(Vector2(coordinates) * cell, cell) if coordinates.x >= 0 else Rect2()
 
 
 ## Рисует предмет из основного или редкого инвентарного атласа.
 static func draw_inventory_item(canvas: CanvasItem, kind: String, rect: Rect2) -> bool:
-	var atlas: Texture2D = INVENTORY_CORE_ATLAS if INVENTORY_CORE_CELLS.has(kind) else INVENTORY_RARE_ATLAS
-	if not INVENTORY_CORE_CELLS.has(kind) and not INVENTORY_RARE_CELLS.has(kind): return false
+	var atlas: Texture2D = INVENTORY_CORE_ATLAS if INVENTORY_CORE_CELLS.has(kind) else (INVENTORY_RARE_ATLAS if INVENTORY_RARE_CELLS.has(kind) else FARM_FOOD_ATLAS)
+	if not INVENTORY_CORE_CELLS.has(kind) and not INVENTORY_RARE_CELLS.has(kind) and not FARM_FOOD_CELLS.has(kind): return false
 	canvas.draw_texture_rect_region(atlas, rect.grow(-1), inventory_item_source(kind))
 	return true
 
 
 ## Проверяет, что зарегистрированный предмет имеет собственную текстуру или ячейку атласа.
 static func has_item_icon(kind: String) -> bool:
-	return ITEM_TEXTURES.has(kind) or INVENTORY_CORE_CELLS.has(kind) or INVENTORY_RARE_CELLS.has(kind) or POTION_CELLS.has(kind) or PIRATE_ITEM_CELLS.has(kind) or kind == "eclipse_core"
+	return ITEM_TEXTURES.has(kind) or INVENTORY_CORE_CELLS.has(kind) or INVENTORY_RARE_CELLS.has(kind) or FARM_FOOD_CELLS.has(kind) or POTION_CELLS.has(kind) or PIRATE_ITEM_CELLS.has(kind) or kind == "eclipse_core"

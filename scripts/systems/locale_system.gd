@@ -95,6 +95,9 @@ const UI := {
 	"quick_access":["БЫСТРЫЙ ДОСТУП • назначить клавишами 1–0","QUICK ACCESS • assign with 1–0","ACCESO RÁPIDO • asignar con 1–0","SCHNELLZUGRIFF • mit 1–0 belegen","ACCÈS RAPIDE • assigner avec 1–0","快捷栏 • 使用1–0分配"],
 	"empty_slot":["Выберите предмет","Select an item","Elige un objeto","Gegenstand wählen","Choisir un objet","选择物品"],
 	"quantity":["Количество: %d","Quantity: %d","Cantidad: %d","Anzahl: %d","Quantité : %d","数量：%d"],
+	"inventory_all":["ВСЕ","ALL","TODO","ALLE","TOUT","全部"], "inventory_capacity":["СТОПОК %d • ∞ (%d слотов)","STACKS %d • ∞ (%d slots)","PILAS %d • ∞ (%d espacios)","STAPEL %d • ∞ (%d Plätze)","PILES %d • ∞ (%d cases)","堆叠%d • ∞（%d格）"],
+	"sell_value":["Цена продажи: %d 🪙","Sell value: %d 🪙","Precio: %d 🪙","Verkauf: %d 🪙","Vente : %d 🪙","售价：%d 🪙"],
+	"drop_item":["ВЫБРОСИТЬ","DROP","TIRAR","WEGWERFEN","JETER","丢弃"],
 	"category_tool":["ИНСТРУМЕНТ","TOOL","HERRAMIENTA","WERKZEUG","OUTIL","工具"], "category_food":["ЕДА И ЗЕЛЬЯ","FOOD & POTIONS","COMIDA Y POCIONES","NAHRUNG & TRÄNKE","NOURRITURE & POTIONS","食物与药水"],
 	"category_equipment":["ЭКИПИРОВКА","EQUIPMENT","EQUIPO","AUSRÜSTUNG","ÉQUIPEMENT","装备"], "category_resource":["РЕСУРС","RESOURCE","RECURSO","RESSOURCE","RESSOURCE","资源"], "category_quest":["КВЕСТОВЫЙ ПРЕДМЕТ","QUEST ITEM","OBJETO DE MISIÓN","QUESTGEGENSTAND","OBJET DE QUÊTE","任务物品"],
 	"detail_tool":["Возьмите в руку через быстрый слот, затем используйте кнопкой действия.","Assign to the hotbar, then use it with the action button.","Asígnala a la barra y usa el botón de acción.","Der Schnellleiste zuweisen und mit der Aktionstaste benutzen.","Assignez à la barre puis utilisez le bouton d'action.","放入快捷栏后用操作键使用。"],
@@ -284,6 +287,14 @@ const ITEMS := {
 	"arrows":["Стрелы","Arrows","Flechas","Pfeile","Flèches","箭矢"], "home_chest":["Домашний сундук","Home chest","Cofre de casa","Haustruhe","Coffre de maison","家庭储物箱"], "guild_badge":["Знак гильдии","Guild badge","Insignia del gremio","Gildenabzeichen","Insigne de guilde","公会徽章"],
 	"pirate_doubloon":["Пиратский дублон","Pirate doubloon","Doblón pirata","Piratendublone","Doublon pirate","海盗金币"], "ectoplasm":["Морская эктоплазма","Sea ectoplasm","Ectoplasma marino","Meeresektoplasma","Ectoplasme marin","海洋灵质"],
 	"cursed_compass":["Проклятый компас","Cursed compass","Brújula maldita","Verfluchter Kompass","Boussole maudite","诅咒罗盘"], "pirate_cutlass":["Абордажная сабля","Boarding cutlass","Sable de abordaje","Enter-Säbel","Sabre d’abordage","登船弯刀"],
+	"tomato":["Помидор","Tomato","Tomate","Tomate","Tomate","番茄"], "cabbage":["Капуста","Cabbage","Col","Kohl","Chou","卷心菜"], "egg":["Куриное яйцо","Chicken egg","Huevo","Hühnerei","Œuf","鸡蛋"],
+	"milk":["Парное молоко","Fresh milk","Leche fresca","Frische Milch","Lait frais","鲜奶"], "wheat":["Пшеница","Wheat","Trigo","Weizen","Blé","小麦"], "corn":["Кукуруза","Corn","Maíz","Mais","Maïs","玉米"],
+	"potato":["Картофель","Potato","Patata","Kartoffel","Pomme de terre","土豆"], "onion":["Репчатый лук","Onion","Cebolla","Zwiebel","Oignon","洋葱"], "cheese":["Домашний сыр","Farm cheese","Queso casero","Bauernkäse","Fromage fermier","农家奶酪"],
+	"rope":["Крепкая верёвка","Strong rope","Cuerda fuerte","Starkes Seil","Corde solide","结实绳索"], "cotton":["Хлопок","Cotton","Algodón","Baumwolle","Coton","棉花"], "flower":["Луговой цветок","Meadow flower","Flor de prado","Wiesenblume","Fleur des prés","野花"],
+	"honey":["Цветочный мёд","Flower honey","Miel floral","Blütenhonig","Miel de fleurs","花蜜"], "bread":["Деревенский хлеб","Country bread","Pan rústico","Landbrot","Pain de campagne","乡村面包"], "pie":["Яблочный пирог","Apple pie","Tarta de manzana","Apfelkuchen","Tarte aux pommes","苹果派"],
+	"pumpkin":["Тыква","Pumpkin","Calabaza","Kürbis","Citrouille","南瓜"], "flour":["Мешочек муки","Bag of flour","Harina","Mehlsack","Sac de farine","面粉袋"], "butter":["Сливочное масло","Butter","Mantequilla","Butter","Beurre","黄油"],
+	"jam":["Ягодное варенье","Berry jam","Mermelada","Beerenmarmelade","Confiture de baies","莓果酱"], "soup":["Овощной суп","Vegetable soup","Sopa de verduras","Gemüsesuppe","Soupe de légumes","蔬菜汤"], "omelet":["Омлет с зеленью","Herb omelet","Tortilla de hierbas","Kräuteromelett","Omelette aux herbes","香草煎蛋"],
+	"cornbread":["Кукурузный хлеб","Cornbread","Pan de maíz","Maisbrot","Pain de maïs","玉米面包"], "wool":["Овечья шерсть","Sheep wool","Lana","Schafwolle","Laine","羊毛"], "bouquet":["Полевой букет","Field bouquet","Ramo silvestre","Feldblumenstrauß","Bouquet champêtre","野花束"],
 }
 
 const LOCATIONS := {
@@ -338,6 +349,7 @@ const TUTORIAL := {
 	"combat_animation":["Проверь замах, реакцию и смерть врага","Check the swing, hit reaction, and enemy death","Comprueba el golpe, la reacción y la muerte","Prüfe Schlag, Trefferreaktion und Tod","Vérifie l'attaque, la réaction et la mort","检查攻击、受击与死亡动画"],
 	"loot":["Подбери добычу [E]","Pick up loot [E]","Recoge el botín [E]","Sammle Beute ein [E]","Ramasse le butin [E]","拾取战利品 [E]"],
 	"inventory":["Открой рюкзак [Tab]","Open backpack [Tab]","Abre la mochila [Tab]","Öffne den Rucksack [Tab]","Ouvre le sac [Tab]","打开背包 [Tab]"],
+	"inventory_filters":["Выбери вкладку: все, инструменты, еда, экипировка, ресурсы или задания","Choose an inventory category tab","Elige una categoría del inventario","Wähle eine Inventarkategorie","Choisis une catégorie d’inventaire","选择一个背包分类"],
 	"hotbar":["Назначь предмет клавишей 1–0","Assign an item with 1–0","Asigna un objeto con 1–0","Belege einen Platz mit 1–0","Assigne un objet avec 1–0","用1–0设置快捷物品"],
 	"eat":["Употреби еду из рюкзака","Use food from the backpack","Usa comida de la mochila","Benutze Essen aus dem Rucksack","Utilise un aliment du sac","使用背包中的食物"],
 	"equipment":["Надень экипировку [Q]","Equip an item [Q]","Equipa un objeto [Q]","Lege Ausrüstung an [Q]","Équipe un objet [Q]","装备物品 [Q]"],

@@ -5,6 +5,7 @@ const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
 const COLUMNS := 6
 const VISIBLE_ROWS := 5
 const VISIBLE_SLOTS := COLUMNS * VISIBLE_ROWS
+const FILTERS := ["all", "tool", "food", "equipment", "resource", "quest"]
 
 const ITEM_DATA := {
 	"hoe": {"name": "Мотыга", "short": "Мотыга", "color": Color("a87542"), "tool": 0},
@@ -21,6 +22,18 @@ const ITEM_DATA := {
 	"mushroom": {"name": "Красный гриб", "short": "Гриб", "color": Color("d95c50"), "edible": true},
 	"orange": {"name": "Сочный апельсин", "short": "Апельсин", "color": Color("ff9217"), "edible": true},
 	"watermelon": {"name": "Сочный арбуз", "short": "Арбуз", "color": Color("ef4962"), "edible": true},
+	"tomato":{"name":"Помидор","short":"Помидор","color":Color("dc4938"),"edible":true}, "cabbage":{"name":"Капуста","short":"Капуста","color":Color("79a94f"),"edible":true},
+	"egg":{"name":"Куриное яйцо","short":"Яйцо","color":Color("e8c88a"),"edible":true}, "milk":{"name":"Парное молоко","short":"Молоко","color":Color("f5edce"),"edible":true},
+	"wheat":{"name":"Пшеница","short":"Пшеница","color":Color("d6ad4d")}, "corn":{"name":"Кукуруза","short":"Кукуруза","color":Color("e9bd37"),"edible":true},
+	"potato":{"name":"Картофель","short":"Картофель","color":Color("a77a49"),"edible":true}, "onion":{"name":"Репчатый лук","short":"Лук","color":Color("d3a85e"),"edible":true},
+	"cheese":{"name":"Домашний сыр","short":"Сыр","color":Color("efc84c"),"edible":true}, "rope":{"name":"Крепкая верёвка","short":"Верёвка","color":Color("a87945")},
+	"cotton":{"name":"Хлопок","short":"Хлопок","color":Color("eee5cd")}, "flower":{"name":"Луговой цветок","short":"Цветок","color":Color("5887cc")},
+	"honey":{"name":"Цветочный мёд","short":"Мёд","color":Color("e2a734"),"edible":true}, "bread":{"name":"Деревенский хлеб","short":"Хлеб","color":Color("bd793d"),"edible":true},
+	"pie":{"name":"Яблочный пирог","short":"Пирог","color":Color("c98242"),"edible":true}, "pumpkin":{"name":"Тыква","short":"Тыква","color":Color("e8792c"),"edible":true},
+	"flour":{"name":"Мешочек муки","short":"Мука","color":Color("e8d8b1")}, "butter":{"name":"Сливочное масло","short":"Масло","color":Color("f0d45f"),"edible":true},
+	"jam":{"name":"Ягодное варенье","short":"Варенье","color":Color("a93657"),"edible":true}, "soup":{"name":"Овощной суп","short":"Суп","color":Color("ce8840"),"edible":true},
+	"omelet":{"name":"Омлет с зеленью","short":"Омлет","color":Color("edc94f"),"edible":true}, "cornbread":{"name":"Кукурузный хлеб","short":"Кукурузник","color":Color("d79331"),"edible":true},
+	"wool":{"name":"Овечья шерсть","short":"Шерсть","color":Color("ded7c4")}, "bouquet":{"name":"Полевой букет","short":"Букет","color":Color("d86883")},
 	"healing_potion": {"name": "Лечебное зелье", "short": "Зелье", "color": Color("df3c4d"), "edible": true},
 	"mana_potion": {"name":"Зелье маны","short":"Мана","color":Color("276bd9"),"edible":true},
 	"energy_potion": {"name":"Зелье энергии","short":"Энергия","color":Color("f1a21a"),"edible":true},
@@ -156,6 +169,39 @@ static func ensure_counted_items(game: Node) -> void:
 	ensure_capacity(game)
 
 
+## Возвращает реальные индексы слотов, соответствующие активной вкладке инвентаря.
+static func filtered_indices(game: Node) -> Array[int]:
+	var result: Array[int] = []
+	for index in game.inventory_slots.size():
+		var kind := String(game.inventory_slots[index])
+		if game.inventory_filter == "all" or (not kind.is_empty() and game.inventory_item_count(kind) > 0 and category(kind) == game.inventory_filter): result.append(index)
+	return result
+
+
+## Переключает категорию, сбрасывает прокрутку и выбирает первый подходящий предмет.
+static func set_filter(game: Node, filter_id: String) -> bool:
+	if not FILTERS.has(filter_id): return false
+	game.inventory_filter = filter_id
+	game.inventory_scroll_row = 0
+	var indices := filtered_indices(game)
+	if not indices.is_empty(): game.inventory_selected = indices[0]
+	if filter_id != "all": game.notify_tutorial("inventory_filters")
+	return true
+
+
+## Переключает вкладку по кругу для плечевых кнопок геймпада и клавиатуры.
+static func cycle_filter(game: Node, offset: int) -> void:
+	set_filter(game, FILTERS[posmod(FILTERS.find(game.inventory_filter) + offset, FILTERS.size())])
+
+
+## Перемещает выбор по отфильтрованной сетке с циклическим переходом по краям.
+static func move_filtered_selection(game: Node, offset: int) -> void:
+	var indices := filtered_indices(game)
+	if indices.is_empty(): return
+	var position := indices.find(game.inventory_selected)
+	game.inventory_selected = indices[posmod(maxi(position, 0) + offset, indices.size())]
+
+
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func ensure_capacity(game: Node) -> void:
 	var last_used := -1
@@ -169,7 +215,7 @@ static func ensure_capacity(game: Node) -> void:
 
 ## Возвращает рассчитанное методом значение в безопасном для вызывающего кода виде.
 static func max_scroll_row(game: Node) -> int:
-	return maxi(0, ceili(float(game.inventory_slots.size()) / COLUMNS) - VISIBLE_ROWS)
+	return maxi(0, ceili(float(filtered_indices(game).size()) / COLUMNS) - VISIBLE_ROWS)
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func scroll(game: Node, rows: int) -> void:
@@ -177,7 +223,9 @@ static func scroll(game: Node, rows: int) -> void:
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func keep_selection_visible(game: Node) -> void:
-	var selected_row: int = game.inventory_selected / COLUMNS
+	var filtered_position := filtered_indices(game).find(game.inventory_selected)
+	if filtered_position < 0: return
+	var selected_row: int = filtered_position / COLUMNS
 	if selected_row < game.inventory_scroll_row:
 		game.inventory_scroll_row = selected_row
 	elif selected_row >= game.inventory_scroll_row + VISIBLE_ROWS:

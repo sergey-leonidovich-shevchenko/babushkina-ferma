@@ -687,9 +687,10 @@ func draw_shop() -> void:
 	draw_string(UI_FONT, table.position + Vector2(62, 28), LocaleSystem.ui("product"), HORIZONTAL_ALIGNMENT_LEFT, -1, 15, Color.WHITE)
 	draw_string(UI_FONT, table.position + Vector2(350, 28), LocaleSystem.ui("buy"), HORIZONTAL_ALIGNMENT_LEFT, -1, 15, Color.WHITE)
 	draw_string(UI_FONT, table.position + Vector2(455, 28), LocaleSystem.ui("sell"), HORIZONTAL_ALIGNMENT_LEFT, -1, 15, Color.WHITE)
-	for i in shop_products.size():
+	var first_product := clampi(shop_selected - 4, 0, maxi(0, shop_products.size() - 9))
+	for i in range(first_product, mini(first_product + 9, shop_products.size())):
 		var product: Dictionary = shop_products[i]
-		var row := Rect2(table.position + Vector2(0, 42 + i * 32), Vector2(table.size.x, 32))
+		var row := Rect2(table.position + Vector2(0, 42 + (i - first_product) * 32), Vector2(table.size.x, 32))
 		draw_rect(row, Color("f2c96f") if i == shop_selected else Color("f8e8b5"))
 		draw_rect(row, Color("76543c"), false, 2)
 		if product.has("icon"):

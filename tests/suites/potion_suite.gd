@@ -7,6 +7,7 @@ func run() -> void:
 	test_invisibility_suppresses_aggro_and_breaks_on_attack()
 	test_timed_buffs_regenerate_accelerate_and_reduce_damage()
 	test_potion_catalog_crafting_visuals_and_save_roundtrip()
+	test_household_food_chain_is_tradeable_craftable_and_edible()
 
 
 ## Сценарий: лечебное, мановое и энергетическое зелья восстанавливают разные ресурсы.
@@ -68,3 +69,19 @@ func test_potion_catalog_crafting_visuals_and_save_roundtrip() -> void:
 	var restored := make_game(); expect(game.SaveSystem.apply(restored, game.SaveSystem.snapshot(game)), "save with active potion effects loads")
 	expect(restored.invisibility_timer == 12.0 and restored.defense_timer == 21.0, "active stealth and defense timers survive save roundtrip")
 	game.free(); restored.free()
+
+
+## Сценарий: новые продукты покупаются, перерабатываются, употребляются и продаются общими системами.
+## Исходное состояние: герой ранен, имеет достаточно монет, а лавка и верстак используют расширенные каталоги.
+## Ожидаемый результат: помидор лечит, молоко превращается в сыр, блюдо и материал имеют рецепты и цены.
+func test_household_food_chain_is_tradeable_craftable_and_edible() -> void:
+	var game := make_game(); game.coins = 200; game.player_hp = 50
+	var tomato_product: int = game.shop_products.find_custom(func(product): return product.kind == "tomato")
+	expect(tomato_product >= 0 and game.ShopSystem.buy(game, tomato_product), "village shop sells newly introduced farm produce")
+	expect(game.consume_item("tomato") and game.player_hp == 60, "new raw produce uses shared food effect pipeline")
+	game.change_inventory_count("milk", 3)
+	var cheese_recipe: int = game.CraftingSystem.RECIPES.find_custom(func(recipe): return recipe.output == "cheese")
+	expect(cheese_recipe >= 0 and game.CraftingSystem.craft(game, cheese_recipe) and game.inventory_item_count("cheese") == 1, "three milk units craft one farm cheese")
+	for output in ["rope","flour","butter","bread","pie","jam","soup","omelet","cornbread","bouquet"]:
+		expect(game.CraftingSystem.RECIPES.any(func(recipe): return recipe.output == output) and game.ShopSystem.sell_price(output) > 0, "household output has recipe and sale value: %s" % output)
+	game.free()

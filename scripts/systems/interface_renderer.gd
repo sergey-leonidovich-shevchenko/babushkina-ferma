@@ -1,19 +1,21 @@
 extends RefCounted
 
 const VIEWPORT := Rect2(0, 0, 1152, 648)
+const INVENTORY_FILTERS := ["all", "tool", "food", "equipment", "resource", "quest"]
 const HUD_RECT := Rect2(0, 0, 1152, 74)
 const PLAYER_BARS_RECT := Rect2(212, 9, 364, 51)
 const LOCATION_BADGE := Rect2(588, 9, 390, 51)
-const INVENTORY_WINDOW := Rect2(44, 32, 1064, 584)
-const INVENTORY_GRID_ORIGIN := Vector2(72, 132)
-const INVENTORY_SLOT_SIZE := Vector2(78, 62)
-const INVENTORY_SLOT_PITCH := Vector2(86, 68)
-const INVENTORY_HOTBAR_ORIGIN := Vector2(72, 492)
-const INVENTORY_HOTBAR_SIZE := Vector2(50, 46)
-const INVENTORY_HOTBAR_PITCH := 54.0
-const USE_BUTTON := Rect2(612, 490, 96, 48)
-const EQUIP_BUTTON := Rect2(716, 490, 96, 48)
-const SORT_BUTTON := Rect2(704, 55, 136, 34)
+const INVENTORY_WINDOW := Rect2(18, 18, 1116, 616)
+const INVENTORY_GRID_ORIGIN := Vector2(56, 166)
+const INVENTORY_SLOT_SIZE := Vector2(80, 54)
+const INVENTORY_SLOT_PITCH := Vector2(88, 59)
+const INVENTORY_HOTBAR_ORIGIN := Vector2(226, 548)
+const INVENTORY_HOTBAR_SIZE := Vector2(66, 56)
+const INVENTORY_HOTBAR_PITCH := 70.0
+const USE_BUTTON := Rect2(622, 406, 88, 36)
+const EQUIP_BUTTON := Rect2(716, 406, 88, 36)
+const DROP_BUTTON := Rect2(622, 448, 182, 32)
+const SORT_BUTTON := Rect2(914, 111, 166, 38)
 const SKILL_BUTTON := Rect2(986, 10, 72, 50)
 const QUEST_BUTTON := Rect2(1066, 10, 72, 50)
 const PAUSE_BUTTON := Rect2(18, 584, 54, 54)
@@ -53,6 +55,28 @@ static func inventory_slot_at(point: Vector2, scroll_row: int, slot_count: int) 
 		if inventory_slot_rect(visible_index).has_point(point):
 			return mini(scroll_row * 6 + visible_index, slot_count - 1)
 	return -1
+
+
+## Возвращает реальный индекс предмета с учётом активной вкладки и прокрутки.
+static func inventory_slot_at_game(game: Node, point: Vector2) -> int:
+	var indices: Array[int] = game.InventorySystem.filtered_indices(game)
+	for visible_index in game.InventorySystem.VISIBLE_SLOTS:
+		if inventory_slot_rect(visible_index).has_point(point):
+			var position: int = game.inventory_scroll_row * game.InventorySystem.COLUMNS + visible_index
+			return indices[position] if position < indices.size() else -1
+	return -1
+
+
+## Возвращает прямоугольник одной вкладки категорий деревянного рюкзака.
+static func inventory_category_rect(index: int) -> Rect2:
+	return Rect2(54 + index * 91, 111, 86, 38)
+
+
+## Определяет выбранную указателем категорию или возвращает пустую строку.
+static func inventory_category_at(point: Vector2) -> String:
+	for index in INVENTORY_FILTERS.size():
+		if inventory_category_rect(index).has_point(point): return INVENTORY_FILTERS[index]
+	return ""
 
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
@@ -183,25 +207,41 @@ static func draw_hotbar(game: Node) -> void:
 ## Отрисовывает инвентаря по текущему состоянию игры.
 static func draw_inventory(game: Node) -> void:
 	game.draw_rect(VIEWPORT, Color(0.015, 0.025, 0.02, 0.72))
-	panel(game, INVENTORY_WINDOW, Color("172b26"))
-	game.draw_rect(Rect2(52, 40, 1048, 64), WOOD)
-	game.draw_string(game.UI_FONT, Vector2(72, 80), game.LocaleSystem.ui("inventory"), HORIZONTAL_ALIGNMENT_LEFT, 620, 24, Color("fff0bd"))
+	draw_wood_frame(game, INVENTORY_WINDOW)
+	game.draw_rect(Rect2(34, 32, 1084, 66), Color("684026")); game.draw_rect(Rect2(40, 38, 1072, 54), WOOD)
+	game.draw_string(game.UI_FONT, Vector2(62, 76), game.LocaleSystem.ui("inventory"), HORIZONTAL_ALIGNMENT_LEFT, 500, 27, Color("fff0bd"))
+	var occupied: int = game.inventory_slots.filter(func(kind): return not String(kind).is_empty() and game.inventory_item_count(kind) > 0).size()
+	game.draw_string(game.UI_FONT, Vector2(548, 74), game.LocaleSystem.ui("inventory_capacity", [occupied, game.inventory_slots.size()]), HORIZONTAL_ALIGNMENT_CENTER, 230, 13, Color("f7d989"))
 	draw_action_button(game, SORT_BUTTON, game.LocaleSystem.ui("sort_inventory"), true)
-	game.draw_string(game.UI_FONT, Vector2(874, 78), game.LocaleSystem.ui("close_inventory"), HORIZONTAL_ALIGNMENT_RIGHT, 200, 12, Color("ead5aa"))
-	panel(game, Rect2(62, 118, 536, 354), Color("1b312b"))
+	game.draw_string(game.UI_FONT, Vector2(876, 75), game.LocaleSystem.ui("close_inventory"), HORIZONTAL_ALIGNMENT_RIGHT, 212, 12, Color("ead5aa"))
+	draw_category_tabs(game)
+	panel(game, Rect2(44, 156, 548, 326), PARCHMENT)
+	var filtered: Array[int] = game.InventorySystem.filtered_indices(game)
 	var first_visible: int = game.inventory_scroll_row * game.InventorySystem.COLUMNS
 	for visible_index in game.InventorySystem.VISIBLE_SLOTS:
-		var index: int = first_visible + visible_index
-		if index >= game.inventory_slots.size(): break
-		draw_inventory_slot(game, index, visible_index)
+		var position: int = first_visible + visible_index
+		if position >= filtered.size(): break
+		draw_inventory_slot(game, filtered[position], visible_index)
 	draw_scrollbar(game)
 	draw_item_detail(game)
 	draw_equipment(game)
-	game.draw_string(game.UI_FONT, Vector2(72, 485), game.LocaleSystem.ui("quick_access"), HORIZONTAL_ALIGNMENT_LEFT, 520, 12, MUTED)
+	game.draw_string(game.UI_FONT, Vector2(226, 536), game.LocaleSystem.ui("quick_access"), HORIZONTAL_ALIGNMENT_CENTER, 696, 12, Color("f6d58b"))
 	for index in 10: draw_inventory_hotbar_slot(game, index)
 	draw_action_button(game, USE_BUTTON, game.LocaleSystem.ui("eat"), game.InventorySystem.can_use(selected_kind(game)))
 	draw_action_button(game, EQUIP_BUTTON, game.LocaleSystem.ui("equip"), game.InventorySystem.can_equip(selected_kind(game)))
-	game.draw_string(game.UI_FONT, Vector2(72, 578), game.LocaleSystem.ui("inventory_help"), HORIZONTAL_ALIGNMENT_LEFT, 1000, 11, MUTED)
+	draw_action_button(game, DROP_BUTTON, "X • %s" % game.LocaleSystem.ui("drop_item"), not selected_kind(game).is_empty())
+	game.draw_string(game.UI_FONT, Vector2(72, 624), game.LocaleSystem.ui("inventory_help"), HORIZONTAL_ALIGNMENT_CENTER, 1008, 10, Color("e4c993"))
+
+
+## Рисует шесть интерактивных вкладок категорий с крупным состоянием фокуса.
+static func draw_category_tabs(game: Node) -> void:
+	var symbols := ["▦", "⚒", "●", "♜", "◆", "!"]
+	for index in game.InventorySystem.FILTERS.size():
+		var filter_id: String = game.InventorySystem.FILTERS[index]; var active: bool = game.inventory_filter == filter_id; var rect: Rect2 = inventory_category_rect(index)
+		game.draw_rect(rect, GOLD if active else Color("6a452a")); game.draw_rect(rect.grow(-3), Color("5f7545") if active else Color("b9864d"))
+		game.draw_string(game.UI_FONT, rect.position + Vector2(5, 16), symbols[index], HORIZONTAL_ALIGNMENT_CENTER, 18, 14, Color("fff3c4"))
+		var label: String = game.LocaleSystem.ui("inventory_all") if filter_id == "all" else game.LocaleSystem.ui("category_" + filter_id)
+		game.draw_string(game.UI_FONT, rect.position + Vector2(22, 24), label, HORIZONTAL_ALIGNMENT_CENTER, 59, 8, Color("fff3c4"))
 
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
@@ -210,22 +250,22 @@ static func draw_inventory_slot(game: Node, index: int, visible_index: int) -> v
 	var selected: bool = index == game.inventory_selected
 	var moving: bool = index == game.inventory_move_from
 	game.draw_rect(rect, GOLD if selected else Color("567064"))
-	game.draw_rect(rect.grow(-3), Color("d7efc9") if moving else (Color("f2dfad") if selected else Color("29423a")))
+	game.draw_rect(rect.grow(-3), Color("cce6bd") if moving else (Color("ffe8a4") if selected else Color("ead6a4")))
 	var kind: String = game.inventory_slots[index]
 	if kind.is_empty() or game.inventory_item_count(kind) <= 0: return
 	game.draw_item_icon(kind, Rect2(rect.position + Vector2(17, 8), Vector2(44, 40)))
-	game.draw_string(game.UI_FONT, rect.position + Vector2(46, 57), "×%d" % game.inventory_item_count(kind), HORIZONTAL_ALIGNMENT_RIGHT, 26, 11, Color("473726") if selected else INK)
+	game.draw_string(game.UI_FONT, rect.position + Vector2(48, 49), "×%d" % game.inventory_item_count(kind), HORIZONTAL_ALIGNMENT_RIGHT, 26, 10, Color("473726"))
 
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 static func draw_scrollbar(game: Node) -> void:
-	var total_rows := ceili(float(game.inventory_slots.size()) / game.InventorySystem.COLUMNS)
-	var track := Rect2(584, 132, 6, 326)
+	var total_rows := ceili(float(game.InventorySystem.filtered_indices(game).size()) / game.InventorySystem.COLUMNS)
+	var track := Rect2(580, 166, 6, 294)
 	game.draw_rect(track, Color("385047"))
 	var thumb_height := maxf(30.0, track.size.y * game.InventorySystem.VISIBLE_ROWS / float(maxi(total_rows, game.InventorySystem.VISIBLE_ROWS)))
 	var ratio := float(game.inventory_scroll_row) / float(maxi(game.InventorySystem.max_scroll_row(game), 1))
 	game.draw_rect(Rect2(track.position + Vector2(0, (track.size.y - thumb_height) * ratio), Vector2(6, thumb_height)), GOLD)
-	game.draw_string(game.UI_FONT, Vector2(492, 113), game.LocaleSystem.ui("row", [game.inventory_scroll_row + 1, maxi(total_rows - game.InventorySystem.VISIBLE_ROWS + 1, 1)]), HORIZONTAL_ALIGNMENT_RIGHT, 98, 10, MUTED)
+	game.draw_string(game.UI_FONT, Vector2(488, 476), game.LocaleSystem.ui("row", [game.inventory_scroll_row + 1, maxi(total_rows - game.InventorySystem.VISIBLE_ROWS + 1, 1)]), HORIZONTAL_ALIGNMENT_RIGHT, 98, 9, Color("70492d"))
 
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
@@ -236,34 +276,34 @@ static func selected_kind(game: Node) -> String:
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 static func draw_item_detail(game: Node) -> void:
-	var rect := Rect2(612, 118, 202, 354)
-	panel(game, rect, Color("263e36"))
+	var rect := Rect2(610, 156, 202, 326)
+	panel(game, rect, PARCHMENT)
 	var kind := selected_kind(game)
 	if kind.is_empty():
 		game.draw_string(game.UI_FONT, Vector2(630, 300), game.LocaleSystem.ui("empty_slot"), HORIZONTAL_ALIGNMENT_CENTER, 166, 14, MUTED)
 		return
 	var item: Dictionary = game.InventorySystem.data(kind)
-	game.draw_item_icon(kind, Rect2(676, 142, 74, 74))
-	game.draw_string(game.UI_FONT, Vector2(626, 242), item.name, HORIZONTAL_ALIGNMENT_CENTER, 174, 17, Color("ffe8a7"))
+	game.draw_item_icon(kind, Rect2(674, 168, 76, 76))
+	game.draw_string(game.UI_FONT, Vector2(624, 265), item.name, HORIZONTAL_ALIGNMENT_CENTER, 174, 16, Color("4b3425"))
 	var category: String = game.LocaleSystem.ui("category_" + game.InventorySystem.category(kind))
-	game.draw_string(game.UI_FONT, Vector2(626, 269), category, HORIZONTAL_ALIGNMENT_CENTER, 174, 12, MUTED)
-	game.draw_line(Vector2(630, 286), Vector2(796, 286), Color("567064"), 1)
-	game.draw_string(game.UI_FONT, Vector2(630, 316), game.LocaleSystem.ui("quantity", [game.inventory_item_count(kind)]), HORIZONTAL_ALIGNMENT_LEFT, 166, 14, INK)
-	game.draw_multiline_string(game.UI_FONT, Vector2(630, 346), game.LocaleSystem.ui(game.InventorySystem.detail_key(kind)), HORIZONTAL_ALIGNMENT_LEFT, 166, 13, 3, MUTED)
+	game.draw_string(game.UI_FONT, Vector2(626, 287), category, HORIZONTAL_ALIGNMENT_CENTER, 174, 10, Color("688052"))
+	game.draw_line(Vector2(630, 298), Vector2(792, 298), Color("a98755"), 1)
+	game.draw_string(game.UI_FONT, Vector2(630, 320), game.LocaleSystem.ui("quantity", [game.inventory_item_count(kind)]), HORIZONTAL_ALIGNMENT_LEFT, 166, 12, Color("4b3425"))
+	game.draw_multiline_string(game.UI_FONT, Vector2(630, 344), game.LocaleSystem.ui(game.InventorySystem.detail_key(kind)), HORIZONTAL_ALIGNMENT_LEFT, 166, 11, 2, Color("765a3c"))
+	game.draw_string(game.UI_FONT, Vector2(630, 394), game.LocaleSystem.ui("sell_value", [game.ShopSystem.sell_price(kind)]), HORIZONTAL_ALIGNMENT_LEFT, 166, 11, Color("775226"))
 
 
 ## Отрисовывает экипировки по текущему состоянию игры.
 static func draw_equipment(game: Node) -> void:
-	panel(game, Rect2(830, 118, 242, 354), Color("263e36"))
-	game.draw_string(game.UI_FONT, Vector2(846, 148), game.LocaleSystem.ui("equipment"), HORIZONTAL_ALIGNMENT_CENTER, 210, 17, Color("ffe8a7"))
-	game.draw_circle(Vector2(951, 248), 30, Color("d7a981"))
-	game.draw_rect(Rect2(927, 278, 48, 74), Color("597d69"))
+	panel(game, Rect2(830, 156, 278, 326), PARCHMENT)
+	game.draw_string(game.UI_FONT, Vector2(846, 184), game.LocaleSystem.ui("equipment"), HORIZONTAL_ALIGNMENT_CENTER, 246, 17, Color("4b3425"))
+	game.draw_texture_rect_region(game.FARMER_SHEET, Rect2(920, 210, 98, 154), Rect2(20, 8, 24, 46))
 	var slots := ["head", "body", "legs", "hands", "offhand", "ring"]
 	for index in slots.size():
 		var left := index % 2 == 0
-		var rect := Rect2(844 if left else 994, 174 + (index / 2) * 92, 64, 70)
+		var rect := Rect2(846 if left else 1034, 198 + (index / 2) * 88, 58, 64)
 		var slot_name: String = slots[index]
-		game.draw_rect(rect, Color("6b806f"))
+		game.draw_rect(rect, Color("9b7749"))
 		game.draw_rect(rect.grow(-3), Color("e3d3a7"))
 		game.draw_string(game.UI_FONT, rect.position + Vector2(3, 15), game.LocaleSystem.ui(slot_name), HORIZONTAL_ALIGNMENT_CENTER, 58, 9, Color("59452f"))
 		var kind: String = game.equipment[slot_name]
@@ -275,8 +315,8 @@ static func draw_inventory_hotbar_slot(game: Node, index: int) -> void:
 	var rect: Rect2 = inventory_hotbar_rect(index)
 	var selected: bool = index == game.selected_hotbar
 	game.draw_rect(rect, GOLD if selected else Color("567064"))
-	game.draw_rect(rect.grow(-3), Color("f2dfad") if selected else Color("29423a"))
-	game.draw_item_icon(game.hotbar_slots[index], Rect2(rect.position + Vector2(11, 8), Vector2(30, 30)))
+	game.draw_rect(rect.grow(-3), Color("ffe5a0") if selected else Color("c59051"))
+	game.draw_item_icon(game.hotbar_slots[index], Rect2(rect.position + Vector2(14, 8), Vector2(40, 40)))
 	game.draw_string(game.UI_FONT, rect.position + Vector2(4, 13), str(index + 1 if index < 9 else 0), HORIZONTAL_ALIGNMENT_LEFT, 10, 9, Color("493726") if selected else MUTED)
 
 
@@ -290,3 +330,11 @@ static func draw_action_button(game: Node, rect: Rect2, label: String, enabled: 
 static func panel(game: Node, rect: Rect2, color: Color) -> void:
 	game.draw_rect(rect, Color(0.02, 0.035, 0.03, 0.95))
 	game.draw_rect(rect.grow(-3), color)
+
+
+## Рисует многослойную деревянную раму с латунными уголками и прожилками.
+static func draw_wood_frame(game: Node, rect: Rect2) -> void:
+	game.draw_rect(rect, Color("3b2419")); game.draw_rect(rect.grow(-5), Color("9b663b")); game.draw_rect(rect.grow(-13), Color("53331f"))
+	for y in range(int(rect.position.y + 18), int(rect.end.y - 12), 22): game.draw_line(Vector2(rect.position.x + 14, y), Vector2(rect.end.x - 14, y), Color(0.25, 0.12, 0.06, 0.28), 1)
+	for corner in [rect.position + Vector2(9,9), Vector2(rect.end.x - 9, rect.position.y + 9), Vector2(rect.position.x + 9, rect.end.y - 9), rect.end - Vector2(9,9)]:
+		game.draw_circle(corner, 8, Color("d7aa45")); game.draw_circle(corner, 3, Color("76502a"))

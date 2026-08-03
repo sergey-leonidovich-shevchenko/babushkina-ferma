@@ -19,6 +19,7 @@ func test_generated_atlases_are_importable_and_transparent() -> void:
 		"res://assets/game/generated/pirate_item_atlas.png":Vector2i(1254,1254), "res://assets/game/generated/potion_atlas.png":Vector2i(1254,1254),
 		"res://assets/game/generated/seasonal_environment_atlas.png":Vector2i(1254,1254), "res://assets/game/generated/eclipse_event_atlas.png":Vector2i(1254,1254),
 		"res://assets/game/generated/inventory_core_atlas.png":Vector2i(1536,1024), "res://assets/game/generated/inventory_rare_atlas.png":Vector2i(1536,1024),
+		"res://assets/game/generated/farm_food_atlas.png":Vector2i(1536,1024),
 	}
 	for path in atlases:
 		var texture := load(path) as Texture2D
@@ -92,4 +93,5 @@ func test_every_inventory_item_has_dedicated_icon() -> void:
 		expect(game.VisualAssetSystem.has_item_icon(kind), "inventory item owns a dedicated icon: %s" % kind)
 	expect(game.VisualAssetSystem.INVENTORY_CORE_CELLS.size() == 24, "core inventory atlas maps every one of its twenty-four cells")
 	expect(game.VisualAssetSystem.INVENTORY_RARE_CELLS.size() == 15, "rare inventory atlas maps all fifteen previously missing items")
+	expect(game.VisualAssetSystem.FARM_FOOD_CELLS.size() == 24, "farm food atlas maps all twenty-four household items")
 	game.free()

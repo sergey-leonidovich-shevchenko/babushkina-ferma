@@ -74,11 +74,12 @@ static func test_composition_root_and_test_runner_stay_small(context: SceneTree)
 	var renderer_source := FileAccess.get_file_as_string("res://scripts/game_renderer.gd")
 	var interface_source := FileAccess.get_file_as_string("res://scripts/systems/interface_renderer.gd")
 	var input_source := FileAccess.get_file_as_string("res://scripts/systems/input_system.gd")
+	var inventory_input_source := FileAccess.get_file_as_string("res://scripts/systems/inventory_input_system.gd")
 	var runner_source := FileAccess.get_file_as_string("res://tests/test_game.gd")
 	context.expect(not game_source.contains("func draw_") and renderer_source.contains("func draw_world"), "composition root delegates all drawing to the renderer layer")
 	context.expect(_code_line_count(game_source) <= 1100 and _code_line_count(renderer_source) <= 700, "composition and renderer stay below enforced size limits")
 	context.expect(renderer_source.contains("InterfaceRenderer.draw(self)") and _code_line_count(interface_source) <= 300, "HUD and inventory rendering live in a bounded interface module")
-	context.expect(input_source.contains("func handle_inventory_mouse") and not game_source.contains("func handle_inventory_mouse"), "desktop inventory pointer behavior belongs to the input system")
+	context.expect(inventory_input_source.contains("func handle_mouse") and not input_source.contains("func handle_inventory_mouse") and not game_source.contains("func handle_inventory_mouse"), "inventory pointer behavior belongs to its dedicated input system")
 	context.expect(_code_line_count(runner_source) < 80 and runner_source.contains("CoreSuite.new(self).run()"), "test entry point only orchestrates bounded suites")
 
 

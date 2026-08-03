@@ -1,6 +1,6 @@
 extends RefCounted
 
-const DEFAULT_SLOTS := ["seeds", "carrot", "pickaxe", "fishing_rod", "slime", "wood", "stone", "crystal", "fish", "sword", "bow", "crystal_sword", "apple", "berries", "nut", "mushroom", "iron_helmet", "guardian_armor", "travel_boots", "crystal_ring", "orange", "orc_blade", "red_crystal", "green_crystal", "raw_meat", "hide", "fur", "tusk", "bat_wing", "watermelon", "healing_potion", "mana_potion", "energy_potion", "invisibility_potion", "strength_potion", "regeneration_potion", "speed_potion", "defense_potion", "oak_shield", "lizard_scale", "arrows", "home_chest", "guild_badge", "axe", "pirate_doubloon", "ectoplasm", "cursed_compass", "pirate_cutlass", "eclipse_core"]
+const DEFAULT_SLOTS := ["seeds", "carrot", "pickaxe", "fishing_rod", "slime", "wood", "stone", "crystal", "fish", "sword", "bow", "crystal_sword", "apple", "berries", "nut", "mushroom", "iron_helmet", "guardian_armor", "travel_boots", "crystal_ring", "orange", "orc_blade", "red_crystal", "green_crystal", "raw_meat", "hide", "fur", "tusk", "bat_wing", "watermelon", "healing_potion", "mana_potion", "energy_potion", "invisibility_potion", "strength_potion", "regeneration_potion", "speed_potion", "defense_potion", "oak_shield", "lizard_scale", "arrows", "home_chest", "guild_badge", "axe", "pirate_doubloon", "ectoplasm", "cursed_compass", "pirate_cutlass", "eclipse_core", "tomato", "cabbage", "egg", "milk", "wheat", "corn", "potato", "onion", "cheese", "rope", "cotton", "flower", "honey", "bread", "pie", "pumpkin", "flour", "butter", "jam", "soup", "omelet", "cornbread", "wool", "bouquet"]
 const DEFAULT_HOTBAR := ["hoe", "seeds", "water", "hand", "pickaxe", "fishing_rod", "axe", "apple", "berries", "mushroom"]
 const DEFAULT_EQUIPMENT := {"head": "", "body": "", "legs": "", "hands": "", "offhand": "", "ring": ""}
 const INITIAL_COUNTS := {
@@ -17,6 +17,10 @@ const INITIAL_COUNTS := {
 	"arrows": 0, "home_chest": 0, "guild_badge": 0, "axe": 1,
 	"pirate_doubloon": 0, "ectoplasm": 0, "cursed_compass": 0, "pirate_cutlass": 0,
 	"eclipse_core": 0,
+	"tomato":0, "cabbage":0, "egg":0, "milk":0, "wheat":0, "corn":0,
+	"potato":0, "onion":0, "cheese":0, "rope":0, "cotton":0, "flower":0,
+	"honey":0, "bread":0, "pie":0, "pumpkin":0, "flour":0, "butter":0,
+	"jam":0, "soup":0, "omelet":0, "cornbread":0, "wool":0, "bouquet":0,
 }
 
 var counts: Dictionary = INITIAL_COUNTS.duplicate(true)

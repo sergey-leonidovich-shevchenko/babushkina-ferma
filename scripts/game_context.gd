@@ -46,7 +46,7 @@ const LootContainerSystem := preload("res://scripts/systems/loot_container_syste
 const SkillSystem := preload("res://scripts/systems/skill_system.gd")
 const ForageSystem := preload("res://scripts/systems/forage_system.gd")
 const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
-const InputSystem := preload("res://scripts/systems/input_system.gd")
+const InputSystem := preload("res://scripts/systems/input_system.gd"); const InventoryInputSystem := preload("res://scripts/systems/inventory_input_system.gd")
 const PresentationSystem := preload("res://scripts/systems/presentation_system.gd")
 const InterfaceRenderer := preload("res://scripts/systems/interface_renderer.gd")
 const AnimationSystem := preload("res://scripts/systems/animation_system.gd")
@@ -144,7 +144,7 @@ var persist_locale_selection := true
 var title_screen := true
 var menu_state := MenuSystem.MenuState.new(); var settings_state := SettingsSystem.SettingsState.new()
 var shop_open := false
-var inventory_open := false
+var inventory_open := false; var inventory_filter := "all"
 var inventory_selected := 0
 var inventory_move_from := -1
 var inventory_scroll_row := 0

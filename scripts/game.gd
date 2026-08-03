@@ -690,51 +690,7 @@ func change_inventory_count(kind: String, amount: int) -> bool:
 
 ## Обрабатывает инвентаря ввода и синхронизирует связанное состояние.
 func handle_inventory_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
-		InputSystem.handle_inventory_mouse(self, event)
-		return
-	if event is InputEventJoypadButton and event.pressed:
-		match event.button_index:
-			JOY_BUTTON_DPAD_LEFT: inventory_selected = posmod(inventory_selected - 1, inventory_slots.size())
-			JOY_BUTTON_DPAD_RIGHT: inventory_selected = posmod(inventory_selected + 1, inventory_slots.size())
-			JOY_BUTTON_DPAD_UP: inventory_selected = posmod(inventory_selected - 6, inventory_slots.size())
-			JOY_BUTTON_DPAD_DOWN: inventory_selected = posmod(inventory_selected + 6, inventory_slots.size())
-			JOY_BUTTON_A: consume_selected_item()
-			JOY_BUTTON_X: equip_selected_item()
-			JOY_BUTTON_Y: inventory_open = false
-		InventorySystem.keep_selection_visible(self)
-		queue_redraw()
-		return
-	if not (event is InputEventKey and event.pressed and not event.echo):
-		return
-	match event.keycode:
-		KEY_ESCAPE, KEY_I, KEY_TAB:
-			inventory_open = false
-			inventory_move_from = -1
-		KEY_LEFT: inventory_selected = posmod(inventory_selected - 1, inventory_slots.size())
-		KEY_RIGHT: inventory_selected = posmod(inventory_selected + 1, inventory_slots.size())
-		KEY_UP: inventory_selected = posmod(inventory_selected - 6, inventory_slots.size())
-		KEY_DOWN: inventory_selected = posmod(inventory_selected + 6, inventory_slots.size())
-		KEY_PAGEUP: inventory_selected = maxi(0, inventory_selected - InventorySystem.VISIBLE_SLOTS)
-		KEY_PAGEDOWN: inventory_selected = mini(inventory_slots.size() - 1, inventory_selected + InventorySystem.VISIBLE_SLOTS)
-		KEY_M: move_inventory_slot()
-		KEY_S: InventorySystem.sort_slots(self)
-		KEY_X: drop_selected_item()
-		KEY_ENTER, KEY_E: consume_selected_item()
-		KEY_Q: equip_selected_item()
-		KEY_1: assign_selected_to_hotbar(0)
-		KEY_2: assign_selected_to_hotbar(1)
-		KEY_3: assign_selected_to_hotbar(2)
-		KEY_4: assign_selected_to_hotbar(3)
-		KEY_5: assign_selected_to_hotbar(4)
-		KEY_6: assign_selected_to_hotbar(5)
-		KEY_7: assign_selected_to_hotbar(6)
-		KEY_8: assign_selected_to_hotbar(7)
-		KEY_9: assign_selected_to_hotbar(8)
-		KEY_0: assign_selected_to_hotbar(9)
-		KEY_DELETE, KEY_BACKSPACE: delete_selected_item()
-	InventorySystem.keep_selection_visible(self)
-	queue_redraw()
+	InventoryInputSystem.handle(self, event)
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func move_inventory_slot() -> void:
@@ -1081,6 +1037,7 @@ func grant_tester_kit() -> void:
 	materials.watermelon = maxi(materials.watermelon, 3)
 	materials.healing_potion = maxi(materials.healing_potion, 2)
 	for potion in PotionSystem.POTIONS: materials[potion] = maxi(materials[potion], 2)
+	for kind in VisualAssetSystem.FARM_FOOD_CELLS: materials[kind] = maxi(materials[kind], 3)
 	materials.oak_shield = maxi(materials.oak_shield, 1)
 	materials.lizard_scale = maxi(materials.lizard_scale, 2)
 	materials.arrows = maxi(materials.arrows, 30)
@@ -1189,7 +1146,7 @@ func handle_gamepad_and_touch(event: InputEvent) -> bool:
 	if world_controls_visible and event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and InterfaceRenderer.PAUSE_BUTTON.has_point(event.position):
 		return MenuSystem.open_pause(self)
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if inventory_open: InputSystem.handle_inventory_mouse(self, event); return true
+		if inventory_open: InventoryInputSystem.handle_mouse(self, event); return true
 		if event.pressed:
 			if world_controls_visible and InterfaceRenderer.DODGE_BUTTON.has_point(event.position): CombatSystem.start_dodge(self); return true
 			if world_map_open: WorldMapSystem.toggle(self); return true
@@ -1265,17 +1222,7 @@ func handle_gamepad_and_touch(event: InputEvent) -> bool:
 			open_skill_menu()
 			return true
 		if inventory_open:
-			var inventory_index := InterfaceRenderer.inventory_slot_at(event.position, inventory_scroll_row, inventory_slots.size())
-			var hotbar_index := InterfaceRenderer.inventory_hotbar_at(event.position)
-			if inventory_index >= 0:
-				inventory_selected = inventory_index
-			elif hotbar_index >= 0:
-				assign_selected_to_hotbar(hotbar_index)
-			elif InterfaceRenderer.USE_BUTTON.has_point(event.position):
-				consume_selected_item()
-			elif InterfaceRenderer.EQUIP_BUTTON.has_point(event.position):
-				equip_selected_item()
-			return true
+			return InventoryInputSystem.handle_touch(self, event.position)
 		var index := InterfaceRenderer.hotbar_at(event.position)
 		if index >= 0:
 			select_hotbar(index)

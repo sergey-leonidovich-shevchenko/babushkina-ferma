@@ -10,6 +10,7 @@ func run() -> void:
 	test_mouse_drag_context_and_hotbar()
 	test_inventory_sorting()
 	test_every_owned_item_has_a_visible_slot_and_icon_fallback()
+	test_inventory_category_filters_support_pointer_and_gamepad()
 
 
 ## Сценарий: все ячейки рюкзака и быстрых слотов находятся внутри окна и точно распознают касания.
@@ -25,6 +26,23 @@ func test_inventory_layout_and_touch_mapping() -> void:
 		var rect: Rect2 = game.InterfaceRenderer.inventory_hotbar_rect(index)
 		expect(game.InterfaceRenderer.inventory_hotbar_at(rect.get_center()) == index, "inventory quick slot touch maps to %d" % index)
 		expect(not rect.intersects(game.InterfaceRenderer.USE_BUTTON) and not rect.intersects(game.InterfaceRenderer.EQUIP_BUTTON), "quick slot %d does not overlap contextual actions" % index)
+	for index in game.InventorySystem.FILTERS.size():
+		var tab: Rect2 = game.InterfaceRenderer.inventory_category_rect(index)
+		expect(game.InterfaceRenderer.INVENTORY_WINDOW.encloses(tab) and game.InterfaceRenderer.inventory_category_at(tab.get_center()) == game.InventorySystem.FILTERS[index], "wooden inventory category maps exactly: %s" % game.InventorySystem.FILTERS[index])
+	game.free()
+
+
+## Сценарий: категории скрывают неподходящие предметы и переключаются указателем и плечевыми кнопками.
+## Исходное состояние: в рюкзаке есть еда, ресурс и экипировка, активна общая вкладка.
+## Ожидаемый результат: каждая вкладка возвращает только свой тип, выбор остаётся видимым, цикл не выходит за каталог.
+func test_inventory_category_filters_support_pointer_and_gamepad() -> void:
+	var game := make_game(); game.change_inventory_count("carrot", 1); game.change_inventory_count("stone", 1); game.change_inventory_count("iron_helmet", 1); game.open_inventory()
+	expect(game.InventorySystem.set_filter(game, "food") and game.InventorySystem.filtered_indices(game).all(func(index): return game.InventorySystem.category(game.inventory_slots[index]) == "food"), "food tab contains only owned edible items")
+	var click := InputEventMouseButton.new(); click.button_index = MOUSE_BUTTON_LEFT; click.pressed = true; click.position = game.InterfaceRenderer.inventory_category_rect(4).get_center()
+	game.InventoryInputSystem.handle_mouse(game, click)
+	expect(game.inventory_filter == "resource" and game.InventorySystem.category(game.inventory_slots[game.inventory_selected]) == "resource", "mouse selects resource tab and its first owned item")
+	game.InventorySystem.cycle_filter(game, 1)
+	expect(game.inventory_filter == "quest", "gamepad-style category cycling advances in fixed order")
 	game.free()
 
 

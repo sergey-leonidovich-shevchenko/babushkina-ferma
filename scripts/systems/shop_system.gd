@@ -10,12 +10,24 @@ const PRODUCTS := [
 	{"kind": "nut", "buy": 0, "sell": 22, "forage": true},
 	{"kind": "arrows", "amount": 10, "buy": 8, "sell": 1},
 	{"kind": "home_chest", "buy": 120, "sell": 0},
+	{"kind":"tomato","buy":10,"sell":6}, {"kind":"cabbage","buy":14,"sell":8}, {"kind":"egg","buy":12,"sell":7}, {"kind":"milk","buy":18,"sell":10},
+	{"kind":"wheat","buy":8,"sell":4}, {"kind":"corn","buy":12,"sell":7}, {"kind":"potato","buy":9,"sell":5}, {"kind":"onion","buy":9,"sell":5},
+	{"kind":"cotton","buy":14,"sell":8}, {"kind":"flower","buy":0,"sell":7}, {"kind":"honey","buy":22,"sell":14}, {"kind":"pumpkin","buy":20,"sell":12}, {"kind":"wool","buy":25,"sell":15},
+	{"kind":"cheese","buy":0,"sell":28}, {"kind":"rope","buy":0,"sell":12}, {"kind":"bread","buy":0,"sell":24}, {"kind":"pie","buy":0,"sell":42},
+	{"kind":"flour","buy":0,"sell":12}, {"kind":"butter","buy":0,"sell":24}, {"kind":"jam","buy":0,"sell":32}, {"kind":"soup","buy":0,"sell":30},
+	{"kind":"omelet","buy":0,"sell":34}, {"kind":"cornbread","buy":0,"sell":28}, {"kind":"bouquet","buy":0,"sell":36},
 ]
 
 
 ## Возвращает рассчитанное методом значение в безопасном для вызывающего кода виде.
 static func default_products() -> Array:
 	return PRODUCTS.duplicate(true)
+
+## Возвращает базовую цену продажи предмета или ноль для неторгуемого лута.
+static func sell_price(kind: String) -> int:
+	for product in PRODUCTS:
+		if product.kind == kind: return int(product.sell)
+	return 0
 
 ## Выполняет операцию «покупки» и возвращает результат согласно контракту метода.
 static func buy(game: Node, product_index: int) -> bool:

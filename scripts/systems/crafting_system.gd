@@ -17,6 +17,17 @@ const RECIPES := [
 	{"name":"Зелье регенерации", "inputs":{"berries":3,"mushroom":2}, "output":"regeneration_potion", "count":1},
 	{"name":"Зелье скорости", "inputs":{"lizard_scale":1,"mushroom":1}, "output":"speed_potion", "count":1},
 	{"name":"Зелье защиты", "inputs":{"stone":2,"metal":1}, "output":"defense_potion", "count":1},
+	{"name":"Крепкая верёвка", "inputs":{"fiber":2}, "output":"rope", "count":1},
+	{"name":"Мука", "inputs":{"wheat":2}, "output":"flour", "count":1},
+	{"name":"Сливочное масло", "inputs":{"milk":2}, "output":"butter", "count":1},
+	{"name":"Домашний сыр", "inputs":{"milk":3}, "output":"cheese", "count":1},
+	{"name":"Деревенский хлеб", "inputs":{"flour":2}, "output":"bread", "count":1},
+	{"name":"Яблочный пирог", "inputs":{"apple":2,"flour":1,"butter":1}, "output":"pie", "count":1},
+	{"name":"Ягодное варенье", "inputs":{"berries":3,"honey":1}, "output":"jam", "count":1},
+	{"name":"Овощной суп", "inputs":{"carrot":1,"potato":1,"onion":1}, "output":"soup", "count":1},
+	{"name":"Омлет с зеленью", "inputs":{"egg":2,"milk":1}, "output":"omelet", "count":1},
+	{"name":"Кукурузный хлеб", "inputs":{"corn":2,"flour":1}, "output":"cornbread", "count":1},
+	{"name":"Полевой букет", "inputs":{"flower":3,"fiber":1}, "output":"bouquet", "count":1},
 ]
 
 ## Проверяет условие «возможности крафта» без изменения состояния.
