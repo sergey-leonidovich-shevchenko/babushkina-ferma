@@ -24,14 +24,14 @@ func test_animation_frame_modes() -> void:
 
 ## Сценарий: новый общий аниматор выбирает строку направления и четыре последовательных кадра.
 ## Исходное состояние: атлас героя имеет восемь строк и четыре столбца, герой смотрит на северо-восток.
-## Ожидаемый результат: ячейки целочисленные, строка равна пяти, покой держит первый кадр, а ходьба меняет его.
+## Ожидаемый результат: ячейки целочисленные, строка равна трём, покой держит первый кадр, а ходьба меняет его.
 func test_directional_character_atlas_frames() -> void:
 	var game := make_game()
 	var texture: Texture2D = game.DirectionalCharacterSystem.HERO_TEXTURES[0]
 	var idle: Rect2 = game.DirectionalCharacterSystem.source_rect(texture, Vector2(1, -1), 0.4, false)
 	var walking: Rect2 = game.DirectionalCharacterSystem.source_rect(texture, Vector2(1, -1), 0.4, true)
 	expect(texture.get_width() == 888 and texture.get_height() == 1776, "directional atlas uses exact 222-pixel cells")
-	expect(idle.position == Vector2(0, 1110) and idle.size == Vector2(222, 222), "north-east selects row five and idle frame zero")
+	expect(idle.position == Vector2(0, 666) and idle.size == Vector2(222, 222), "north-east selects the actual east-facing row three and idle frame zero")
 	expect(walking.position.x > idle.position.x and walking.position.y == idle.position.y, "walk time advances the frame without changing direction")
 	game.free()
 

@@ -643,7 +643,7 @@ func exit_cave() -> void:
 func open_inventory() -> void:
 	inventory_open = true
 	inventory_move_from = -1
-	InventorySystem.ensure_capacity(self)
+	InventorySystem.ensure_counted_items(self)
 	InventorySystem.keep_selection_visible(self)
 	clear_movement_keys()
 	notify_tutorial("inventory")

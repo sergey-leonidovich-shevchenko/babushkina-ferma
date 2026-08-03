@@ -39,5 +39,5 @@ static func backlog() -> Array[String]:
 ## Возвращает один из восьми индексов направления по часовой стрелке, начиная снизу.
 static func direction_index(direction: Vector2) -> int:
 	if direction.length_squared() < 0.001: return 0
-	var angle := fposmod(atan2(-direction.x, direction.y), TAU)
+	var angle := fposmod(atan2(direction.x, direction.y), TAU)
 	return int(round(angle / (TAU / 8.0))) % 8

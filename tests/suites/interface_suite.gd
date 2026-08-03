@@ -9,6 +9,7 @@ func run() -> void:
 	test_inventory_touch_actions()
 	test_mouse_drag_context_and_hotbar()
 	test_inventory_sorting()
+	test_every_owned_item_has_a_visible_slot_and_icon_fallback()
 
 
 ## Сценарий: все ячейки рюкзака и быстрых слотов находятся внутри окна и точно распознают касания.
@@ -42,6 +43,18 @@ func test_item_context_and_actions() -> void:
 		game.LocaleSystem.set_locale(locale)
 		expect(not game.LocaleSystem.ui("detail_" + game.InventorySystem.category("carrot")).is_empty(), "food detail is localized for %s" % locale)
 	game.LocaleSystem.set_locale("ru")
+	game.free()
+
+
+## Сценарий: частичное старое сохранение содержит предмет, но потеряло его позицию в сетке.
+## Исходное состояние: у героя есть металл и редкие семена, их идентификаторы вручную удалены из слотов.
+## Ожидаемый результат: открытие рюкзака возвращает оба слота, а каждый предмет каталога имеет видимый знак fallback.
+func test_every_owned_item_has_a_visible_slot_and_icon_fallback() -> void:
+	var game := make_game(); game.state.inventory.counts.metal = 3; game.state.inventory.counts.rare_seeds = 2
+	game.inventory_slots.erase("metal"); game.inventory_slots.erase("rare_seeds"); game.open_inventory()
+	expect(game.inventory_slots.has("metal") and game.inventory_slots.has("rare_seeds"), "inventory repairs missing slots for every owned legacy item")
+	for kind in game.InventorySystem.ITEM_DATA:
+		expect(not game.fallback_item_glyph(kind).is_empty(), "registered item always has visible icon fallback: %s" % kind)
 	game.free()
 
 

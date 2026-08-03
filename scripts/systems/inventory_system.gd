@@ -148,6 +148,14 @@ static func ensure_item_slot(game: Node, kind: String) -> int:
 	ensure_capacity(game)
 	return empty
 
+
+## Восстанавливает видимые слоты для всех имеющихся предметов старого или частичного сохранения.
+static func ensure_counted_items(game: Node) -> void:
+	for kind in ITEM_DATA:
+		if game.inventory_item_count(kind) > 0: ensure_item_slot(game, kind)
+	ensure_capacity(game)
+
+
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func ensure_capacity(game: Node) -> void:
 	var last_used := -1

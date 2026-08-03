@@ -13,9 +13,10 @@ func run() -> void:
 ## Исходное состояние: направления перечислены по часовой стрелке, начиная с движения вниз.
 ## Ожидаемый результат: возвращаются все индексы от нуля до семи без повторений.
 func test_eight_direction_index_is_stable() -> void:
-	var game := make_game(); var directions := [Vector2.DOWN,Vector2(-1,1),Vector2.LEFT,Vector2(-1,-1),Vector2.UP,Vector2(1,-1),Vector2.RIGHT,Vector2(1,1)]
+	var game := make_game(); var directions := [Vector2.DOWN,Vector2(1,1),Vector2.RIGHT,Vector2(1,-1),Vector2.UP,Vector2(-1,-1),Vector2.LEFT,Vector2(-1,1)]
 	for expected_row in directions.size():
 		expect(game.AnimationAssetRegistry.direction_index(directions[expected_row]) == expected_row, "direction resolver selects documented animation row %d" % expected_row)
+	expect(game.AnimationAssetRegistry.direction_index(Vector2.RIGHT) == 2 and game.AnimationAssetRegistry.direction_index(Vector2(1, -1)) == 3 and game.AnimationAssetRegistry.direction_index(Vector2(1, 1)) == 1, "east and both east diagonals never select west-facing atlas rows")
 	expect(game.AnimationAssetRegistry.REQUIRED_DIRECTIONS == 8 and game.AnimationAssetRegistry.MIN_WALK_FRAMES == 3 and game.AnimationAssetRegistry.MAX_WALK_FRAMES == 5, "sprite standard enforces eight directions and three-to-five walk frames")
 	game.free()
 

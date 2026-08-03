@@ -533,6 +533,11 @@ func item_texture(kind: String) -> Texture2D:
 		"watermelon": return ITEM_WATERMELON_SLICE
 	return null
 
+## Возвращает короткий различимый знак для предмета, пока для него не создана собственная текстура.
+func fallback_item_glyph(kind: String) -> String:
+	var short_name: String = String(InventorySystem.data(kind).short).strip_edges()
+	return short_name.left(2).to_upper() if not short_name.is_empty() else "?"
+
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_item_icon(kind: String, rect: Rect2) -> void:
 	var texture := item_texture(kind)
@@ -558,7 +563,9 @@ func draw_item_icon(kind: String, rect: Rect2) -> void:
 		draw_circle(center, minf(rect.size.x, rect.size.y) * 0.25, Color("684839"))
 		draw_colored_polygon(PackedVector2Array([center + Vector2(-7, -2), center + Vector2(0, -9), center + Vector2(7, -2), center + Vector2(4, 8), center + Vector2(-4, 8)]), Color("ffe28a"))
 	else:
-		draw_circle(rect.get_center(), minf(rect.size.x, rect.size.y) * 0.34, inventory_item_color(kind))
+		var center := rect.get_center(); var radius := minf(rect.size.x, rect.size.y) * 0.38
+		draw_circle(center, radius, inventory_item_color(kind)); draw_circle(center, radius, Color(0.95, 0.9, 0.72, 0.88), false, 2.0)
+		draw_string(UI_FONT, center + Vector2(-rect.size.x * 0.32, 4), fallback_item_glyph(kind), HORIZONTAL_ALIGNMENT_CENTER, rect.size.x * 0.64, maxi(8, int(rect.size.y * 0.24)), Color("172b26"))
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func interaction_position(interaction: String) -> Vector2:
