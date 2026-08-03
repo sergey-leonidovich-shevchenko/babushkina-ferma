@@ -9,9 +9,12 @@ const ACTION_BINDINGS := {
 	"move_down": [KEY_S, KEY_DOWN],
 	"use_item": [KEY_E, KEY_SPACE],
 	"attack": [KEY_F],
+	"dodge": [KEY_SHIFT],
+	"block": [KEY_G],
 	"inventory": [KEY_TAB, KEY_I],
 	"quests": [KEY_J],
 	"skills": [KEY_K],
+	"world_map": [KEY_M],
 	"save_game": [KEY_F5],
 	"load_game": [KEY_F8],
 }
@@ -254,7 +257,9 @@ static func handle_quest_pointer(game: Node, position: Vector2) -> bool:
 
 ## Маршрутизирует событие в единственное открытое модальное окно до мирового управления.
 static func handle_modal_input(game: Node, event: InputEvent) -> bool:
-	if game.shop_open:
+	if game.world_map_open:
+		if (event is InputEventKey and event.pressed and not event.echo and event.keycode in [KEY_M, KEY_ESCAPE]) or (event is InputEventJoypadButton and event.pressed and event.button_index in [JOY_BUTTON_B, JOY_BUTTON_RIGHT_SHOULDER]): game.WorldMapSystem.toggle(game)
+	elif game.shop_open:
 		game.handle_shop_input(event)
 	elif game.storage_open:
 		handle_storage_input(game, event)

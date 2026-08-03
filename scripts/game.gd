@@ -69,7 +69,7 @@ func _ready() -> void:
 		open_forge()
 	if "--contracts-preview" in OS.get_cmdline_user_args():
 		ContractSystem.configure_preview(self)
-	if "--story-preview" in OS.get_cmdline_user_args(): language_screen = false; title_screen = false; quest_log_open = true; quest_log_page = 0
+	if "--story-preview" in OS.get_cmdline_user_args(): language_screen = false; title_screen = false; quest_log_open = true; quest_log_page = 0; if "--map-preview" in OS.get_cmdline_user_args(): quest_log_open = false; world_map_open = true; state.world.estate.discovered = WorldMapSystem.LOCATIONS.keys()
 	if "--fishing-preview" in OS.get_cmdline_user_args(): FishingSystem.configure_preview(self)
 	if MenuSystem.consume_new_game_request():
 		language_screen = false
@@ -147,7 +147,7 @@ func _physics_process(delta: float) -> void:
 	WildlifeSystem.update(self, delta)
 	if benchmark_autoplay:
 		update_benchmark_route(delta)
-	if shop_open or inventory_open or crafting_open or storage_open or forge_open or contract_open or quest_log_open or skill_menu_open:
+	if shop_open or inventory_open or crafting_open or storage_open or forge_open or contract_open or quest_log_open or skill_menu_open or world_map_open:
 		queue_redraw()
 		return
 	update_player_movement(delta)
@@ -320,6 +320,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			KEY_I, KEY_TAB: open_inventory()
 			KEY_J: toggle_quest_log()
 			KEY_K: open_skill_menu()
+			KEY_M: WorldMapSystem.toggle(self)
 			KEY_H: DiscoverySystem.dismiss(self)
 		queue_redraw()
 
@@ -1162,54 +1163,54 @@ func _input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 		return
 	if event is InputEventKey:
+		if event.keycode == KEY_G: CombatSystem.set_blocking(self, event.pressed)
+		if event.pressed and not event.echo and event.keycode == KEY_SHIFT: CombatSystem.start_dodge(self)
 		var is_action_key := set_action_key_state(event)
 		var is_attack_key := set_attack_key_state(event)
 		var is_movement_key := update_movement_key_state(event)
 		if not title_screen and not menu_state.pause_open and event.pressed and is_movement_key:
 			apply_immediate_key_response(event)
-		if is_action_key and not title_screen and not menu_state.pause_open and not shop_open and not inventory_open and not crafting_open and not storage_open and not forge_open and not contract_open and not quest_log_open and not skill_menu_open:
+		if is_action_key and not title_screen and not menu_state.pause_open and not shop_open and not inventory_open and not crafting_open and not storage_open and not forge_open and not contract_open and not quest_log_open and not skill_menu_open and not world_map_open:
 			if event.pressed and not event.echo:
 				if not perform_context_action() and current_location == "overworld":
 					use_active_item()
 			get_viewport().set_input_as_handled()
-		if is_attack_key and not title_screen and not menu_state.pause_open and not shop_open and not inventory_open and not crafting_open and not storage_open and not forge_open and not contract_open and not quest_log_open and not skill_menu_open:
+		if is_attack_key and not title_screen and not menu_state.pause_open and not shop_open and not inventory_open and not crafting_open and not storage_open and not forge_open and not contract_open and not quest_log_open and not skill_menu_open and not world_map_open:
 			if event.pressed and not event.echo:
 				attack_nearest_enemy()
 			get_viewport().set_input_as_handled()
 
 ## Обрабатывает относящееся к методу событие и синхронизирует зависимое состояние.
 func handle_gamepad_and_touch(event: InputEvent) -> bool:
-	var world_controls_visible := not (shop_open or inventory_open or crafting_open or storage_open or forge_open or contract_open or quest_log_open or skill_menu_open); if InputSystem.set_pointer_action_state(self, event, world_controls_visible): return true
+	var world_controls_visible := not (shop_open or inventory_open or crafting_open or storage_open or forge_open or contract_open or quest_log_open or skill_menu_open or world_map_open); if world_controls_visible and event is InputEventJoypadButton and event.button_index == JOY_BUTTON_RIGHT_STICK: CombatSystem.set_blocking(self, event.pressed); return true
+	if world_controls_visible and event is InputEventScreenTouch and InterfaceRenderer.BLOCK_BUTTON.has_point(event.position): CombatSystem.set_blocking(self, event.pressed); return true
+	if world_controls_visible and event is InputEventScreenTouch and event.pressed and InterfaceRenderer.DODGE_BUTTON.has_point(event.position): CombatSystem.start_dodge(self); return true
+	if InputSystem.set_pointer_action_state(self, event, world_controls_visible): return true
 	if world_controls_visible and event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and InterfaceRenderer.PAUSE_BUTTON.has_point(event.position):
 		return MenuSystem.open_pause(self)
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if inventory_open:
-			InputSystem.handle_inventory_mouse(self, event)
-			return true
+		if inventory_open: InputSystem.handle_inventory_mouse(self, event); return true
 		if event.pressed:
+			if world_controls_visible and InterfaceRenderer.DODGE_BUTTON.has_point(event.position): CombatSystem.start_dodge(self); return true
+			if world_map_open: WorldMapSystem.toggle(self); return true
 			if quest_log_open and InputSystem.handle_quest_pointer(self, event.position): return true
+			if InterfaceRenderer.LOCATION_BADGE.has_point(event.position): WorldMapSystem.toggle(self); return true
 			if InterfaceRenderer.QUEST_BUTTON.has_point(event.position): toggle_quest_log(); return true
 			if InterfaceRenderer.SKILL_BUTTON.has_point(event.position): open_skill_menu(); return true
 			var mouse_hotbar := InterfaceRenderer.hotbar_at(event.position)
 			if mouse_hotbar >= 0: select_hotbar(mouse_hotbar); return true
 	if event is InputEventJoypadButton and event.pressed:
+		if world_map_open: InputSystem.handle_modal_input(self, event); return true
 		var modal_handler: Callable = InputSystem.handle_storage_input if storage_open else (InputSystem.handle_forge_input if forge_open else (InputSystem.handle_contract_input if contract_open else Callable()))
 		if modal_handler.is_valid():
-			modal_handler.call(self, event)
-			return true
-		if skill_menu_open:
-			handle_skill_menu_input(event)
-			return true
-		if quest_log_open:
-			InputSystem.handle_modal_input(self, event)
-			return true
-		if inventory_open:
-			handle_inventory_input(event)
-			return true
+			modal_handler.call(self, event); return true
+		if skill_menu_open: handle_skill_menu_input(event); return true
+		if quest_log_open: InputSystem.handle_modal_input(self, event); return true
+		if inventory_open: handle_inventory_input(event); return true
 		match event.button_index:
-			JOY_BUTTON_LEFT_SHOULDER:
-				CompanionSystem.cycle_command(self)
-				return true
+			JOY_BUTTON_B: CombatSystem.start_dodge(self); return true
+			JOY_BUTTON_RIGHT_SHOULDER: WorldMapSystem.toggle(self); return true
+			JOY_BUTTON_LEFT_SHOULDER: CompanionSystem.cycle_command(self); return true
 			JOY_BUTTON_DPAD_LEFT:
 				select_hotbar(posmod(selected_hotbar - 1, 10))
 				return true

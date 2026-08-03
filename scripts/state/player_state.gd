@@ -17,6 +17,10 @@ var recruited_companions: Array[String] = []
 var active_companions: Array[String] = []
 var companion_command: String = "follow"
 var companion_bonds: Dictionary = {}
+var dodge_timer: float = 0.0
+var dodge_cooldown: float = 0.0
+var blocking: bool = false
+var combat_hits: int = 0
 
 
 ## Приводит загруженное состояние к безопасным допустимым значениям.
@@ -29,3 +33,4 @@ func normalize() -> void:
 	skill_points = maxi(skill_points, 0)
 	if companion_command not in ["follow", "wait", "attack", "defend"]: companion_command = "follow"
 	for companion_id in companion_bonds: companion_bonds[companion_id] = maxi(0, int(companion_bonds[companion_id]))
+	dodge_timer = maxf(dodge_timer, 0.0); dodge_cooldown = maxf(dodge_cooldown, 0.0); combat_hits = maxi(combat_hits, 0)

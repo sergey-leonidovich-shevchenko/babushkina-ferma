@@ -28,10 +28,11 @@ static func buy(game: Node, product_index: int) -> bool:
 	if product.buy <= 0:
 		game.message = game.LocaleSystem.text("shop_buy_only")
 		return false
-	if game.coins < product.buy:
+	var purchase_price: int = roundi(float(product.buy) * game.EstateSystem.purchase_multiplier(game))
+	if game.coins < purchase_price:
 		game.message = game.LocaleSystem.text("no_coins")
 		return false
-	game.coins -= product.buy
+	game.coins -= purchase_price
 	game.change_inventory_count(product.kind, product.get("amount", 1))
 	if product.kind == "home_chest": game.StorageSystem.install(game)
 	game.message = game.LocaleSystem.text("bought", [game.inventory_item_name(product.kind)])

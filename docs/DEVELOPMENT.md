@@ -47,6 +47,9 @@ tools/Godot.app/Contents/MacOS/Godot --path . -- --contracts-preview
 # Журнал основной истории и побочных заданий
 tools/Godot.app/Contents/MacOS/Godot --path . -- --story-preview
 
+# Карта мира со всеми открытыми регионами
+tools/Godot.app/Contents/MacOS/Godot --path . -- --story-preview --map-preview
+
 # Меню паузы поверх тестового мира
 tools/Godot.app/Contents/MacOS/Godot --path . -- --pause-preview
 

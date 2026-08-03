@@ -85,6 +85,11 @@ static func consume_sale_multiplier(game: Node, kind: String) -> float:
 	return multiplier * (1.15 if game.state.world.estate.event == "market" else (0.9 if game.state.world.estate.event == "raid" else 1.0))
 
 
+## Возвращает календарный множитель закупочной цены для путника и дня нападения.
+static func purchase_multiplier(game: Node) -> float:
+	return 0.8 if game.state.world.estate.event == "traveler" else (1.15 if game.state.world.estate.event == "raid" else 1.0)
+
+
 ## Добавляет посещённую локацию на постоянную карту героя.
 static func discover_location(game: Node, location: String) -> void:
 	if location not in game.state.world.estate.discovered: game.state.world.estate.discovered.append(location)

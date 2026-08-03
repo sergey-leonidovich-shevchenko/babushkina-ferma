@@ -10,6 +10,10 @@ func run() -> void:
 	test_companion_commands_change_movement_combat_and_defense()
 	test_estate_upgrades_unlock_permanent_system_benefits()
 	test_item_quality_and_daily_market_change_sale_value()
+	test_world_map_discovers_regions_and_marks_story_objective()
+	test_npc_schedule_reacts_to_time_and_weather()
+	test_combat_dodge_block_critical_and_knockback()
+	test_world_bosses_have_distinct_second_phase_mechanics()
 
 
 ## Сценарий: расследование проходит через совет, три независимые улики и ритуал.
@@ -137,9 +141,81 @@ func test_item_quality_and_daily_market_change_sale_value() -> void:
 	expect(game.ShopSystem.sell(game, 1), "quality crop can be sold through regular shop flow")
 	expect(game.coins - coins_before == roundi(8.0 * 2.1 * 1.15), "iridium quality and market day combine in final sale value")
 	expect(game.state.world.estate.qualities.carrot.iridium == 0, "sold quality unit is removed from its quality stack")
+	game.player = game.food_nodes[0].position
+	expect(game.ForageSystem.collect(game, 0) and game.state.world.estate.qualities.has(game.food_nodes[0].kind), "wild fruit and mushroom harvest also enters shared quality economy")
 	game.EstateSystem.discover_location(game, "cave"); game.day = 3; game.EstateSystem.update_daily_event(game)
 	var snapshot: Dictionary = game.SaveSystem.snapshot(game); game.state.world.estate = game.EstateSystem.default_state()
 	expect(game.SaveSystem.apply(game, snapshot), "estate economy snapshot loads")
 	expect("cave" in game.state.world.estate.discovered and game.state.world.estate.event_day == 3, "map discovery and daily event survive save roundtrip")
 	expect(game.tutorial_events_completed.has("world_calendar"), "living calendar has tutorial coverage")
+	game.free()
+
+
+## Сценарий: герой открывает карту из замка после начала расследования.
+## Исходное состояние: посещены деревня и руины, текущая комната — интерьер замка, акт требует искать улики.
+## Ожидаемый результат: карта показывает родительский регион, сюжетную цель, неизвестные области и работает как модальное окно.
+func test_world_map_discovers_regions_and_marks_story_objective() -> void:
+	var game := make_game(); game.current_location = "castle_upper"; game.state.world.estate.discovered = ["overworld", "ruins"]
+	game.state.world.castle_campaign.stage = 1
+	expect(game.WorldMapSystem.current_region(game) == "ruins", "castle interior maps to its outdoor ruins region")
+	expect(game.WorldMapSystem.objective_region(game) == "ruins", "active castle investigation marks ruins as story objective")
+	expect(game.WorldMapSystem.toggle(game) and game.world_map_open, "map opens from shared keyboard gamepad touch command")
+	expect(game.tutorial_events_completed.has("world_map"), "world map has tutorial coverage")
+	expect(not game.WorldMapSystem.toggle(game) and not game.world_map_open, "same map command closes modal overlay")
+	game.EstateSystem.discover_location(game, "forest")
+	expect("forest" in game.state.world.estate.discovered and "cave" not in game.state.world.estate.discovered, "map reveals only regions actually visited")
+	game.state.world.castle_campaign.stage = 0; game.mission_states.story_relic = game.QuestSystem.ACTIVE
+	expect(game.WorldMapSystem.objective_region(game) == game.QuestSystem.NPCS.miron.location, "active regular quest also supplies its giver region as valid map objective")
+	game.free()
+
+
+## Сценарий: один житель следует дневному распорядку и прячется от снегопада.
+## Исходное состояние: фиксированы дом жителя, четыре времени суток и управляемая запись погоды.
+## Ожидаемый результат: утро, работа, вечер и укрытие дают разные опорные точки и отмечаются обучением.
+func test_npc_schedule_reacts_to_time_and_weather() -> void:
+	var game := make_game(); var state: Dictionary = game.npc_movement.grandmother
+	game.state.world.weather_day = game.day; game.state.world.weather = "clear"
+	game.game_minutes = 6 * 60; var morning: Vector2 = game.NpcMovementSystem.schedule_anchor(game, state)
+	game.game_minutes = 12 * 60; var work: Vector2 = game.NpcMovementSystem.schedule_anchor(game, state)
+	game.game_minutes = 20 * 60; var evening: Vector2 = game.NpcMovementSystem.schedule_anchor(game, state)
+	game.state.world.weather = "snow"; var shelter: Vector2 = game.NpcMovementSystem.schedule_anchor(game, state)
+	expect(morning != work and work != evening and shelter != evening, "NPC schedule owns distinct daily and bad-weather anchors")
+	expect(state.schedule == "shelter" and game.tutorial_events_completed.has("npc_schedule"), "bad weather selects shelter schedule and teaches living world")
+	game.free()
+
+
+## Сценарий: герой применяет рывок, удерживаемый блок и серию из четырёх ударов.
+## Исходное состояние: сил достаточно, два одинаковых героя получают одинаковую атаку, тренировочный враг имеет большой запас здоровья.
+## Ожидаемый результат: рывок неуязвим, блок уменьшает урон, четвёртый удар критический, мобильная цель отталкивается.
+func test_combat_dodge_block_critical_and_knockback() -> void:
+	var dodger := make_game(); dodger.facing = Vector2.RIGHT; var start: Vector2 = dodger.player; var hp_before: int = dodger.player_hp
+	expect(dodger.CombatSystem.start_dodge(dodger) and dodger.player.x > start.x, "dodge spends stamina and immediately moves hero forward")
+	expect(dodger.CombatSystem.damage_player(dodger, 30, "test") == 0 and dodger.player_hp == hp_before, "active dodge grants a short invulnerability window")
+	expect(not dodger.CombatSystem.start_dodge(dodger), "dodge cooldown prevents immediate repeated invulnerability")
+	var blocker := make_game(); var unblocked := make_game(); blocker.CombatSystem.set_blocking(blocker, true)
+	var blocked_damage: int = blocker.CombatSystem.damage_player(blocker, 30, "test"); var full_damage: int = unblocked.CombatSystem.damage_player(unblocked, 30, "test")
+	expect(blocked_damage < full_damage and blocker.energy == unblocked.energy - 1, "held block reduces incoming damage and consumes one stamina per hit")
+	var fighter := make_game(); var enemy: Dictionary = fighter.enemy_nodes[1]; fighter.current_location = enemy.location; fighter.player = enemy.position - Vector2(45, 0)
+	enemy.hp = 100; enemy.max_hp = 100; fighter.enemy_nodes[1] = enemy; var origin: Vector2 = enemy.position
+	for hit in 4:
+		fighter.player = fighter.enemy_nodes[1].position - Vector2(45, 0)
+		expect(fighter.CombatSystem.attack(fighter, 1), "combat combo hit connects: %d" % (hit + 1))
+	enemy = fighter.enemy_nodes[1]
+	expect(enemy.hp == 95, "four-hit chain deals three normal points and a double critical point")
+	expect(enemy.position.x > origin.x, "melee impact knocks mobile enemy away from hero")
+	expect(fighter.tutorial_events_completed.has("critical_hit") and blocker.tutorial_events_completed.has("combat_block") and dodger.tutorial_events_completed.has("combat_dodge"), "all advanced combat actions have tutorial coverage")
+	dodger.free(); blocker.free(); unblocked.free(); fighter.free()
+
+
+## Сценарий: Хранитель глубин и Утопший капитан переходят половину здоровья.
+## Исходное состояние: оба босса находятся во второй фазе при одинаковом уровне, у героя есть десять монет.
+## Ожидаемый результат: Хранитель сильнее бьёт, Капитан применяет отдельное воровство, обычный орк фаз не имеет.
+func test_world_bosses_have_distinct_second_phase_mechanics() -> void:
+	var game := make_game(); var guardian: Dictionary = game.enemy_nodes[4]; var captain: Dictionary = game.enemy_nodes[29]; var orc: Dictionary = game.enemy_nodes[1]
+	guardian.hp = guardian.max_hp / 2; captain.hp = captain.max_hp / 2
+	expect(game.CombatSystem.boss_phase(guardian) == 2 and game.CombatSystem.boss_phase(captain) == 2 and game.CombatSystem.boss_phase(orc) == 0, "only named world bosses own health phases")
+	expect(game.CombatSystem.boss_attack_damage(guardian) == game.CombatSystem.attack_damage(guardian.kind, guardian.level) + 6, "cave guardian second phase empowers seismic strike")
+	game.coins = 10; game.CombatSystem.apply_boss_side_effect(game, captain)
+	expect(game.coins == 8, "drowned captain second phase steals exactly two coins per successful attack")
+	expect(game.tutorial_events_completed.has("boss_identity"), "distinct boss mechanics have tutorial coverage")
 	game.free()

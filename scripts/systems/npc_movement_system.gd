@@ -29,6 +29,7 @@ static func add_actor(game: Node, actor_id: String, location: String, home: Vect
 static func update(game: Node, delta: float) -> void:
 	for actor_id in game.npc_movement:
 		var state: Dictionary = game.npc_movement[actor_id]
+		var anchor: Vector2 = schedule_anchor(game, state)
 		if state.location != game.current_location:
 			state.moving = false
 			continue
@@ -38,8 +39,8 @@ static func update(game: Node, delta: float) -> void:
 		if not state.moving:
 			continue
 		var next_position: Vector2 = state.position + state.direction * WALK_SPEED * delta
-		if next_position.distance_to(state.home) > WANDER_RADIUS or not game.NavigationSystem.is_walkable(game, next_position):
-			state.direction = state.position.direction_to(state.home)
+		if next_position.distance_to(anchor) > WANDER_RADIUS or not game.NavigationSystem.is_walkable(game, next_position):
+			state.direction = state.position.direction_to(anchor)
 			next_position = state.position + state.direction * WALK_SPEED * delta
 			if not game.NavigationSystem.is_walkable(game, next_position):
 				state.moving = false
@@ -47,6 +48,20 @@ static func update(game: Node, delta: float) -> void:
 				continue
 		state.position = next_position
 		game.notify_tutorial("npc_wander")
+
+
+## Возвращает сменяющуюся по времени и погоде точку распорядка жителя.
+static func schedule_anchor(game: Node, state: Dictionary) -> Vector2:
+	var hour: int = int(game.game_minutes / 60.0)
+	var weather: String = game.WorldEventSystem.weather(game)
+	var shift := Vector2.ZERO
+	if weather in ["rain", "storm", "snow"]: shift = Vector2(-18, -24)
+	elif hour < 8: shift = Vector2(-34, 18)
+	elif hour >= 18: shift = Vector2(38, 22)
+	else: shift = Vector2(22, -18)
+	state.schedule = "shelter" if weather in ["rain", "storm", "snow"] else ("morning" if hour < 8 else ("evening" if hour >= 18 else "work"))
+	game.notify_tutorial("npc_schedule")
+	return Vector2(state.home) + shift
 
 
 ## Чередует остановку и одно из восьми направлений без случайности, удобной для тестов.

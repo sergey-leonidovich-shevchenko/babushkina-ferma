@@ -55,9 +55,10 @@ static func collect(game: Node, index: int) -> bool:
 	node.ready_at = total_minutes(game) + float(data.growth_minutes)
 	game.food_nodes[index] = node
 	game.change_inventory_count(node.kind, amount)
+	var quality: String = game.EstateSystem.record_quality(game, node.kind, amount)
 	game.award_xp(2, "Собирательство")
 	game.SkillSystem.award_profession_xp(game, "farming", 2)
-	game.message = "%s: %s ×%d" % [LocaleSystem.entity(node.kind), game.inventory_item_name(node.kind), amount]
+	game.message = "%s: %s ×%d • %s" % [LocaleSystem.entity(node.kind), game.inventory_item_name(node.kind), amount, game.LocaleSystem.ui("quality_%s" % quality)]
 	game.play_sfx("harvest")
 	game.notify_tutorial("forage_harvest")
 	if node.kind == "watermelon":

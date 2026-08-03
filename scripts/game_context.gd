@@ -59,7 +59,7 @@ const CompanionSystem := preload("res://scripts/systems/companion_system.gd")
 const EnvironmentHazardSystem := preload("res://scripts/systems/environment_hazard_system.gd")
 const VisualAssetSystem := preload("res://scripts/systems/visual_asset_system.gd"); const PotionSystem := preload("res://scripts/systems/potion_system.gd"); const AnimationAssetRegistry := preload("res://scripts/systems/animation_asset_registry.gd")
 const WorldEventSystem := preload("res://scripts/systems/world_event_system.gd"); const AtmosphereRenderer := preload("res://scripts/systems/atmosphere_renderer.gd"); const MoonGladeSystem := preload("res://scripts/systems/moon_glade_system.gd"); const MoonGladeRenderer := preload("res://scripts/systems/moon_glade_renderer.gd"); const CastleCampaignSystem := preload("res://scripts/systems/castle_campaign_system.gd"); const CastleCampaignRenderer := preload("res://scripts/systems/castle_campaign_renderer.gd")
-const StorageSystem := preload("res://scripts/systems/storage_system.gd"); const EstateSystem := preload("res://scripts/systems/estate_system.gd")
+const StorageSystem := preload("res://scripts/systems/storage_system.gd"); const EstateSystem := preload("res://scripts/systems/estate_system.gd"); const WorldMapSystem := preload("res://scripts/systems/world_map_system.gd"); const WorldMapRenderer := preload("res://scripts/systems/world_map_renderer.gd")
 const ForgeSystem := preload("res://scripts/systems/forge_system.gd")
 const ContractSystem := preload("res://scripts/systems/contract_system.gd")
 const ContractRenderer := preload("res://scripts/systems/contract_renderer.gd")
@@ -330,7 +330,7 @@ var workbench_position := Vector2(750, 390)
 var quest_active := false
 var quest_complete := false
 var mission_states := QuestSystem.default_states()
-var quest_log_open := false; var quest_log_page := 0
+var quest_log_open := false; var quest_log_page := 0; var world_map_open := false
 var skill_menu_open := false
 var skill_menu_selected := 0
 var tutorial_visible := true

@@ -113,6 +113,8 @@ static func nearest(game: Node) -> int:
 
 ## Обновляет погоню, направление и атаки всех противников активной локации.
 static func update(game: Node, delta: float) -> void:
+	game.state.player.dodge_timer = maxf(game.state.player.dodge_timer - delta, 0.0)
+	game.state.player.dodge_cooldown = maxf(game.state.player.dodge_cooldown - delta, 0.0)
 	for index in game.enemy_nodes.size():
 		var enemy: Dictionary = game.enemy_nodes[index]
 		if not enemy.alive or enemy.location != game.current_location:
@@ -123,6 +125,7 @@ static func update(game: Node, delta: float) -> void:
 			game.enemy_nodes[index] = enemy
 			continue
 		var data: Dictionary = TYPES[enemy.kind]
+		enemy.boss_phase = boss_phase(enemy)
 		var distance: float = enemy.position.distance_to(game.player)
 		enemy.moving = false
 		if bool(data.mobile) and distance <= AGGRO_RADIUS and distance > float(data.range):
@@ -140,8 +143,28 @@ static func update(game: Node, delta: float) -> void:
 			enemy.attack_timer = maxf(0.75, 1.65 - float(enemy.level) * 0.09)
 			enemy.visual_state = "attack"
 			enemy.visual_time = 0.0
-			damage_player(game, attack_damage(enemy.kind, enemy.level), LocaleSystem.entity(enemy.kind))
+			damage_player(game, boss_attack_damage(enemy), LocaleSystem.entity(enemy.kind)); apply_boss_side_effect(game, enemy)
 		game.enemy_nodes[index] = enemy
+
+
+## Возвращает особую фазу уникального босса либо ноль для обычного противника.
+static func boss_phase(enemy: Dictionary) -> int:
+	if enemy.kind not in ["cave_guardian", "drowned_captain"]: return 0
+	return 2 if int(enemy.hp) * 2 <= int(enemy.max_hp) else 1
+
+
+## Рассчитывает разный фазовый удар землетрясения Хранителя и ярости Капитана.
+static func boss_attack_damage(enemy: Dictionary) -> int:
+	var damage := attack_damage(enemy.kind, enemy.level)
+	if boss_phase(enemy) == 2: damage += 6 if enemy.kind == "cave_guardian" else 3
+	return damage
+
+
+## Применяет уникальное похищение монет Утопшим капитаном во второй фазе.
+static func apply_boss_side_effect(game: Node, enemy: Dictionary) -> void:
+	if enemy.kind == "drowned_captain" and boss_phase(enemy) == 2:
+		game.coins = maxi(0, game.coins - 2); game.notify_tutorial("boss_identity")
+	elif enemy.kind == "cave_guardian" and boss_phase(enemy) == 2: game.notify_tutorial("boss_identity")
 
 
 ## Перемещает проверенный удар героя в общую систему урона.
@@ -153,6 +176,8 @@ static func attack(game: Node, index: int) -> bool:
 	if game.player.distance_to(enemy.position) > attack_range: return false
 	game.PotionSystem.break_invisibility(game)
 	var damage: int = player_attack_damage(game)
+	game.state.player.combat_hits += 1
+	if game.state.player.combat_hits % 4 == 0: damage *= 2; game.notify_tutorial("critical_hit")
 	game.AnimationSystem.begin_player_attack(game)
 	game.play_sfx("attack")
 	apply_damage(game, index, damage)
@@ -180,6 +205,7 @@ static func apply_damage(game: Node, index: int, damage: int, attacker_name: Str
 	if enemy.level > 1:
 		game.notify_tutorial("enemy_levels")
 	enemy.hp -= damage
+	if enemy.hp > 0 and bool(TYPES[enemy.kind].mobile): enemy.position = game.NavigationSystem.move_enemy(game, index, game.player.direction_to(enemy.position) * 22.0)
 	enemy = game.AnimationSystem.hit_enemy(enemy, enemy.hp <= 0)
 	game.play_sfx("defeat" if enemy.hp <= 0 else "hit")
 	if enemy.hp <= 0:
@@ -203,8 +229,12 @@ static func apply_damage(game: Node, index: int, damage: int, attacker_name: Str
 
 ## Применяет входящий урон с учётом экипировки, напарников и спасения после поражения.
 static func damage_player(game: Node, raw_damage: int, source_name: String) -> int:
+	if game.state.player.dodge_timer > 0.0:
+		game.message = game.LocaleSystem.text("combat_evaded"); return 0
 	var potion_defense := 4 if game.defense_timer > 0.0 else 0
 	var incoming := maxi(1, game.InventorySystem.incoming_damage(game, raw_damage) - game.CompanionSystem.defense_bonus(game) - potion_defense)
+	if game.state.player.blocking and game.energy > 0:
+		incoming = maxi(1, ceili(float(incoming) * 0.45)); game.energy -= 1; game.notify_tutorial("combat_block")
 	game.player_hp -= incoming
 	game.message = "%s: -%d HP" % [source_name, incoming]
 	if game.player_hp <= 0:
@@ -213,6 +243,22 @@ static func damage_player(game: Node, raw_damage: int, source_name: String) -> i
 		game.coins = maxi(0, game.coins - 5)
 		game.message = "Бабушка спасла тебя. Потеряно 5 монет"
 	return incoming
+
+
+## Начинает короткий рывок с неуязвимостью после проверки сил и перезарядки.
+static func start_dodge(game: Node) -> bool:
+	if game.state.player.dodge_cooldown > 0.0 or game.energy < 2: return false
+	game.energy -= 2; game.state.player.dodge_timer = 0.32; game.state.player.dodge_cooldown = 1.15
+	game.NavigationSystem.move(game, game.facing.normalized() * 92.0)
+	game.play_sfx("travel"); game.notify_tutorial("combat_dodge")
+	return true
+
+
+## Включает удерживаемый блок с клавиатуры, геймпада или сенсорной кнопки.
+static func set_blocking(game: Node, active: bool) -> bool:
+	game.state.player.blocking = active and game.energy > 0
+	if game.state.player.blocking: game.notify_tutorial("combat_block")
+	return game.state.player.blocking
 
 
 ## Передаёт атаку напарника в общий конвейер урона без анимации героя.
