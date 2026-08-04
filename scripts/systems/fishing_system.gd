@@ -54,11 +54,13 @@ static func use_rod(game: Node) -> bool:
 		if state.phase == PHASE_WAITING: game.message = game.LocaleSystem.text("fish_wait")
 		return false
 	if not game.has_fishing_rod: game.message = game.LocaleSystem.text("fish_no_rod"); return false
+	if not game.AdventurePolishSystem.can_use(game, "fishing_rod"): return false
 	if not is_near_water(game): game.message = game.LocaleSystem.text("fish_need_water"); return false
 	state.reset_cast()
 	state.phase = PHASE_CHARGING
 	game.message = game.LocaleSystem.text("fish_charge")
 	game.play_sfx("fish_cast")
+	game.AdventurePolishSystem.consume_durability(game, "fishing_rod")
 	game.notify_tutorial("fish_cast")
 	return true
 

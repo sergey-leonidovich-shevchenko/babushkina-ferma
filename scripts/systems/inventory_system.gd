@@ -74,6 +74,7 @@ const ITEM_DATA := {
 	"orc_blade": {"name": "Клинок орка", "short": "Клинок", "color": Color("8aa05c"), "equip": "hands"},
 	"oak_shield": {"name": "Дубовый щит", "short": "Щит", "color": Color("7d5b47"), "equip": "offhand"},
 	"home_chest": {"name": "Домашний сундук", "short": "Сундук", "color": Color("a66d35")},
+	"backpack_upgrade": {"name": "Расширение рюкзака", "short": "Рюкзак", "color": Color("d7aa52")},
 	"guild_badge": {"name": "Знак гильдии", "short": "Знак", "color": Color("efc766"), "equip": "ring"},
 	"pirate_doubloon": {"name": "Пиратский дублон", "short": "Дублон", "color": Color("e7bd4d")},
 	"ectoplasm": {"name": "Морская эктоплазма", "short": "Эктопл.", "color": Color("71d9d0")},

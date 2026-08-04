@@ -52,9 +52,11 @@ func test_five_chapter_main_story_unlocks_in_order() -> void:
 		game.current_location = npc.location
 		game.player = game.QuestSystem.npc_position(game, npc_id)
 		expect(game.perform_context_action(), "story NPC accepts interaction: %s" % mission_id)
+		game.AdventurePolishSystem.handle_dialogue_key(game, KEY_ENTER)
 		expect(game.mission_states[mission_id] == game.QuestSystem.ACTIVE, "story chapter becomes active: %s" % mission_id)
 		game.change_inventory_count(chapter[2], chapter[3])
 		expect(game.perform_context_action(), "story objective can be returned: %s" % mission_id)
+		game.AdventurePolishSystem.handle_dialogue_key(game, KEY_ENTER)
 		expect(game.mission_states[mission_id] == game.QuestSystem.COMPLETED, "story chapter completes: %s" % mission_id)
 	expect(game.inventory_item_count("crystal_ring") == 1 and game.coins >= 740, "story finale grants the ring and cumulative coin rewards")
 	expect(game.tutorial_events_completed.has("story_chain"), "main story has a dedicated tutorial event")

@@ -167,13 +167,17 @@ static func handle_forge_input(game: Node, event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo:
 		command = int(event.keycode)
 	elif event is InputEventJoypadButton and event.pressed:
-		command = {JOY_BUTTON_DPAD_UP:KEY_UP, JOY_BUTTON_DPAD_DOWN:KEY_DOWN, JOY_BUTTON_A:KEY_ENTER, JOY_BUTTON_B:KEY_ESCAPE}.get(event.button_index, -1)
+		command = {JOY_BUTTON_DPAD_UP:KEY_UP, JOY_BUTTON_DPAD_DOWN:KEY_DOWN, JOY_BUTTON_A:KEY_ENTER, JOY_BUTTON_X:KEY_R, JOY_BUTTON_B:KEY_ESCAPE}.get(event.button_index, -1)
 	if command < 0: return
 	match command:
 		KEY_ESCAPE, KEY_C: game.forge_open = false
 		KEY_UP: game.forge_selected = posmod(game.forge_selected - 1, game.ForgeSystem.UPGRADES.size())
 		KEY_DOWN: game.forge_selected = posmod(game.forge_selected + 1, game.ForgeSystem.UPGRADES.size())
 		KEY_ENTER, KEY_E, KEY_SPACE: game.ForgeSystem.upgrade(game, game.forge_selected)
+		KEY_R:
+			var kind: String = game.ForgeSystem.UPGRADES[game.forge_selected].kind
+			if kind == "sword": kind = "sword"
+			game.AdventurePolishSystem.repair(game, kind)
 	game.queue_redraw()
 
 

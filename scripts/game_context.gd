@@ -61,7 +61,7 @@ const VisualAssetSystem := preload("res://scripts/systems/visual_asset_system.gd
 const WorldEventSystem := preload("res://scripts/systems/world_event_system.gd"); const AtmosphereRenderer := preload("res://scripts/systems/atmosphere_renderer.gd"); const MoonGladeSystem := preload("res://scripts/systems/moon_glade_system.gd"); const MoonGladeRenderer := preload("res://scripts/systems/moon_glade_renderer.gd"); const CastleCampaignSystem := preload("res://scripts/systems/castle_campaign_system.gd"); const CastleCampaignRenderer := preload("res://scripts/systems/castle_campaign_renderer.gd")
 const StorageSystem := preload("res://scripts/systems/storage_system.gd"); const EstateSystem := preload("res://scripts/systems/estate_system.gd"); const WorldMapSystem := preload("res://scripts/systems/world_map_system.gd"); const WorldMapRenderer := preload("res://scripts/systems/world_map_renderer.gd")
 const ForgeSystem := preload("res://scripts/systems/forge_system.gd")
-const ContractSystem := preload("res://scripts/systems/contract_system.gd")
+const ContractSystem := preload("res://scripts/systems/contract_system.gd"); const AdventurePolishSystem := preload("res://scripts/systems/adventure_polish_system.gd"); const AdventurePolishRenderer := preload("res://scripts/systems/adventure_polish_renderer.gd")
 const ContractRenderer := preload("res://scripts/systems/contract_renderer.gd")
 const MenuSystem := preload("res://scripts/systems/menu_system.gd"); const MenuRenderer := preload("res://scripts/systems/menu_renderer.gd"); const SettingsSystem := preload("res://scripts/systems/settings_system.gd")
 const GameState := preload("res://scripts/state/game_state.gd")

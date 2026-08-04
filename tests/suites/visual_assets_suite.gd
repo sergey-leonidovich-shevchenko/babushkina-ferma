@@ -92,6 +92,6 @@ func test_every_inventory_item_has_dedicated_icon() -> void:
 	for kind in game.InventorySystem.ITEM_DATA:
 		expect(game.VisualAssetSystem.has_item_icon(kind), "inventory item owns a dedicated icon: %s" % kind)
 	expect(game.VisualAssetSystem.INVENTORY_CORE_CELLS.size() == 24, "core inventory atlas maps every one of its twenty-four cells")
-	expect(game.VisualAssetSystem.INVENTORY_RARE_CELLS.size() == 15, "rare inventory atlas maps all fifteen previously missing items")
+	expect(game.VisualAssetSystem.INVENTORY_RARE_CELLS.size() == 16, "rare inventory atlas maps all sixteen previously missing items")
 	expect(game.VisualAssetSystem.FARM_FOOD_CELLS.size() == 24, "farm food atlas maps all twenty-four household items")
 	game.free()

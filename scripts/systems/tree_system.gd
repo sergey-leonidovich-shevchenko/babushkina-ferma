@@ -53,6 +53,7 @@ static func chop_nearby(game: Node) -> bool:
 	if game.inventory_item_count("axe") <= 0 or game.selected_tool != game.Tool.AXE:
 		game.message = game.LocaleSystem.text("need_axe")
 		return false
+	if not game.AdventurePolishSystem.can_use(game, "axe"): return false
 	if game.energy <= 0:
 		game.message = game.LocaleSystem.text("no_energy")
 		return false
@@ -63,6 +64,7 @@ static func chop_nearby(game: Node) -> bool:
 	var tree: Dictionary = game.state.world.tree_nodes[index]
 	tree.health -= 1; tree.hit_flash = 0.22; game.energy -= 1
 	game.change_inventory_count("wood", 1); game.award_xp(1); game.play_sfx("chop"); game.notify_tutorial("tree_chop")
+	game.AdventurePolishSystem.consume_durability(game, "axe")
 	if int(tree.health) <= 0:
 		tree.health = 0; tree.stage = 0; tree.regrow_timer = 0.0
 		game.message = game.LocaleSystem.text("tree_felled", [REGROW_DURATION])

@@ -749,4 +749,6 @@ func draw_forge_window() -> void:
 		draw_string(UI_FONT, row.position + Vector2(280, 26), LocaleSystem.ui("upgrade_level", [current_level, ForgeSystem.MAX_UPGRADE_LEVEL]), HORIZONTAL_ALIGNMENT_LEFT, 120, 12, Color("5b4934"))
 		var cost := LocaleSystem.ui("upgrade_max") if current_level >= ForgeSystem.MAX_UPGRADE_LEVEL else ForgeSystem.cost_text(self, upgrade)
 		draw_string(UI_FONT, row.position + Vector2(408, 26), cost, HORIZONTAL_ALIGNMENT_LEFT, 400, 11, Color("49704d") if ForgeSystem.can_upgrade(self, index) else Color("a64d45"))
-	draw_string(UI_FONT, Vector2(164, 552), LocaleSystem.ui("forge_help"), HORIZONTAL_ALIGNMENT_CENTER, 824, 13, Color("493b2f"))
+		var durability: int = int(state.inventory.durability.get(upgrade.kind, state.inventory.durability.get("sword", 100) if upgrade.kind == "sword" else -1))
+		if durability >= 0: draw_string(UI_FONT, row.position + Vector2(690, 26), "◆ %d%%" % durability, HORIZONTAL_ALIGNMENT_RIGHT, 110, 11, Color("49704d") if durability > 20 else Color("a64d45"))
+	draw_string(UI_FONT, Vector2(164, 552), "%s • R / X — ремонт" % LocaleSystem.ui("forge_help"), HORIZONTAL_ALIGNMENT_CENTER, 824, 13, Color("493b2f"))

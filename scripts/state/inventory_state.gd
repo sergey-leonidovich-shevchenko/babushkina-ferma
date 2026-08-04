@@ -30,6 +30,8 @@ var equipment: Dictionary = DEFAULT_EQUIPMENT.duplicate(true)
 var selected_slot: int = 0
 var selected_hotbar: int = 0
 var scroll_row: int = 0
+var backpack_level: int = 0
+var durability: Dictionary = {"hoe":100,"water":100,"pickaxe":100,"fishing_rod":100,"axe":100,"sword":100,"bow":100,"crystal_sword":100,"orc_blade":100}
 
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
@@ -66,3 +68,14 @@ func import_counts(saved_counts: Dictionary) -> void:
 	for kind in counts:
 		var legacy_fallback: int = INITIAL_COUNTS[kind] if kind == "axe" else 0
 		counts[kind] = maxi(int(saved_counts.get(kind, legacy_fallback)), 0)
+
+
+## Возвращает вместимость рюкзака с учётом купленных улучшений.
+func capacity() -> int:
+	return 60 + clampi(backpack_level, 0, 4) * 12
+
+
+## Нормализует износ снаряжения и уровень расширения после загрузки.
+func normalize_meta() -> void:
+	backpack_level = clampi(backpack_level, 0, 4)
+	for kind in durability: durability[kind] = clampi(int(durability[kind]), 0, 100)

@@ -40,7 +40,7 @@ const INVENTORY_CORE_CELLS := {
 const INVENTORY_RARE_CELLS := {
 	"rare_seeds":Vector2i(0,0), "metal":Vector2i(1,0), "bones":Vector2i(2,0), "ancient_key":Vector2i(3,0), "blue_gem":Vector2i(4,0), "moon_relic":Vector2i(5,0),
 	"raw_meat":Vector2i(0,1), "hide":Vector2i(1,1), "fur":Vector2i(2,1), "tusk":Vector2i(3,1), "bat_wing":Vector2i(4,1), "lizard_scale":Vector2i(5,1),
-	"orc_blade":Vector2i(0,2), "home_chest":Vector2i(1,2), "guild_badge":Vector2i(2,2),
+	"orc_blade":Vector2i(0,2), "home_chest":Vector2i(1,2), "guild_badge":Vector2i(2,2), "backpack_upgrade":Vector2i(5,3),
 }
 const FARM_FOOD_CELLS := {
 	"tomato":Vector2i(0,0), "cabbage":Vector2i(1,0), "egg":Vector2i(2,0), "milk":Vector2i(3,0), "wheat":Vector2i(4,0), "corn":Vector2i(5,0),

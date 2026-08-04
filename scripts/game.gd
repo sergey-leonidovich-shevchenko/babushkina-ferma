@@ -27,6 +27,8 @@ func _ready() -> void:
 		title_screen = false
 		grant_tester_kit()
 		open_inventory()
+	if "--creation-preview" in OS.get_cmdline_user_args(): language_screen = false; title_screen = false; AdventurePolishSystem.begin_new_game(self)
+	if "--dialogue-preview" in OS.get_cmdline_user_args(): language_screen = false; title_screen = false; current_location = "overworld"; AdventurePolishSystem.open_quest_dialogue(self, "miron")
 	if "--buildings-preview" in OS.get_cmdline_user_args():
 		language_screen = false
 		title_screen = false
@@ -74,6 +76,7 @@ func _ready() -> void:
 	if MenuSystem.consume_new_game_request():
 		language_screen = false
 		title_screen = false
+		AdventurePolishSystem.begin_new_game(self)
 	MenuSystem.prepare_title(self)
 	if "--pause-preview" in OS.get_cmdline_user_args():
 		language_screen = false
@@ -131,7 +134,8 @@ func configure_moon_glade_preview() -> void:
 func _physics_process(delta: float) -> void:
 	AudioSystem.update(self, delta)
 	update_hud_feedback(delta)
-	if title_screen or menu_state.pause_open or menu_state.settings_open:
+	AdventurePolishSystem.update(self, delta)
+	if title_screen or menu_state.pause_open or menu_state.settings_open or AdventurePolishSystem.has_modal(self):
 		queue_redraw()
 		return
 	update_game_clock(delta); WorldEventSystem.update(self); EstateSystem.update_daily_event(self); update_crops(delta); TreeSystem.update(self, delta); MoonGladeSystem.update(self, delta); CastleCampaignSystem.update(self, delta)
@@ -303,6 +307,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if title_screen or menu_state.pause_open or menu_state.settings_open:
 		MenuSystem.handle_input(self, event)
 		return
+	if AdventurePolishSystem.handle_input(self, event):
+		return
 
 	if InputSystem.handle_modal_input(self, event):
 		return
@@ -394,6 +400,8 @@ func use_selected_tool() -> void:
 	if selected_tool == Tool.ROD:
 		use_fishing_rod()
 		return
+	var durability_kind: String = {Tool.HOE:"hoe", Tool.WATER:"water"}.get(selected_tool, "")
+	if not durability_kind.is_empty() and not AdventurePolishSystem.can_use(self, durability_kind): return
 	var cell := targeted_plot()
 	if not valid_plot(cell):
 		message = LocaleSystem.text("face_plot")
@@ -455,6 +463,7 @@ func use_selected_tool() -> void:
 	plots[cell] = plot
 	if not action_sfx.is_empty():
 		play_sfx(action_sfx)
+		if not durability_kind.is_empty(): AdventurePolishSystem.consume_durability(self, durability_kind)
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func sleep_until_morning() -> void:
@@ -572,7 +581,7 @@ func perform_context_action() -> bool:
 	if interaction.begins_with("prisoner:"):
 		return CompanionSystem.interact(self, interaction.get_slice(":", 1))
 	if interaction.begins_with("quest_npc:"):
-		return QuestSystem.talk_to_npc(self, interaction.get_slice(":", 1))
+		return AdventurePolishSystem.open_quest_dialogue(self, interaction.get_slice(":", 1))
 	if interaction == "home_chest":
 		return StorageSystem.open(self)
 	if interaction == "moon_portal":
@@ -875,9 +884,13 @@ func attack_slime() -> bool:
 
 ## Выполняет операцию «атаки ближайшего врага» и возвращает результат согласно контракту метода.
 func attack_nearest_enemy() -> bool:
+	if equipped_weapon != "none" and not AdventurePolishSystem.can_use(self, "sword" if equipped_weapon == "forest_sword" else equipped_weapon): return false
+	var sfx_before := audio_sfx_count
 	if MoonGladeSystem.attack_guardian(self):
+		AdventurePolishSystem.consume_durability(self, "weapon")
 		return true
 	if CastleCampaignSystem.attack_boss(self):
+		AdventurePolishSystem.consume_durability(self, "weapon")
 		return true
 	var enemy_index := CombatSystem.nearest(self)
 	var wildlife_index := WildlifeSystem.nearest(self)
@@ -888,13 +901,13 @@ func attack_nearest_enemy() -> bool:
 	if wildlife_index >= 0:
 		wildlife_distance = player.distance_to(wildlife_nodes[wildlife_index].position)
 	if wildlife_distance < enemy_distance:
-		return WildlifeSystem.attack(self, wildlife_index)
+		var wildlife_hit := WildlifeSystem.attack(self, wildlife_index); if wildlife_hit: AdventurePolishSystem.consume_durability(self, "weapon"); return wildlife_hit
 	if enemy_index >= 0:
-		return CombatSystem.attack(self, enemy_index)
+		var enemy_hit := CombatSystem.attack(self, enemy_index); if enemy_hit: AdventurePolishSystem.consume_durability(self, "weapon"); return enemy_hit
 	if wildlife_index >= 0:
-		return WildlifeSystem.attack(self, wildlife_index)
+		var second_hit := WildlifeSystem.attack(self, wildlife_index); if second_hit: AdventurePolishSystem.consume_durability(self, "weapon"); return second_hit
 	if current_location == "overworld":
-		return attack_slime()
+		var slime_hit := attack_slime(); if slime_hit and audio_sfx_count > sfx_before: AdventurePolishSystem.consume_durability(self, "weapon"); return slime_hit
 	message = LocaleSystem.text("no_enemy")
 	return false
 
@@ -1136,6 +1149,9 @@ func _input(event: InputEvent) -> void:
 		if MenuSystem.handle_input(self, event):
 			get_viewport().set_input_as_handled()
 		return
+	if AdventurePolishSystem.has_modal(self) and AdventurePolishSystem.handle_input(self, event):
+		get_viewport().set_input_as_handled()
+		return
 	if handle_gamepad_and_touch(event):
 		get_viewport().set_input_as_handled()
 		return
@@ -1168,6 +1184,7 @@ func update_input_device(event: InputEvent) -> void:
 ## Обрабатывает относящееся к методу событие и синхронизирует зависимое состояние.
 func handle_gamepad_and_touch(event: InputEvent) -> bool:
 	var world_controls_visible := not (shop_open or inventory_open or crafting_open or storage_open or forge_open or contract_open or quest_log_open or skill_menu_open or world_map_open); if world_controls_visible and event is InputEventJoypadButton and event.button_index == JOY_BUTTON_RIGHT_STICK: CombatSystem.set_blocking(self, event.pressed); return true
+	if world_controls_visible and event is InputEventJoypadButton and event.pressed and event.button_index == JOY_BUTTON_LEFT_STICK: AdventurePolishSystem.cycle_target(self); return true
 	if world_controls_visible and event is InputEventScreenTouch and InterfaceRenderer.BLOCK_BUTTON.has_point(event.position): CombatSystem.set_blocking(self, event.pressed); return true
 	if world_controls_visible and event is InputEventScreenTouch and event.pressed and InterfaceRenderer.DODGE_BUTTON.has_point(event.position): CombatSystem.start_dodge(self); return true
 	if InputSystem.set_pointer_action_state(self, event, world_controls_visible): return true
@@ -1176,6 +1193,7 @@ func handle_gamepad_and_touch(event: InputEvent) -> bool:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if inventory_open: InventoryInputSystem.handle_mouse(self, event); return true
 		if event.pressed:
+			if world_controls_visible and AdventurePolishSystem.target_at_screen(self, event.position): return true
 			if world_controls_visible and InterfaceRenderer.DODGE_BUTTON.has_point(event.position): CombatSystem.start_dodge(self); return true
 			if world_map_open: WorldMapSystem.toggle(self); return true
 			if quest_log_open and InputSystem.handle_quest_pointer(self, event.position): return true
@@ -1251,6 +1269,7 @@ func handle_gamepad_and_touch(event: InputEvent) -> bool:
 			return true
 		if inventory_open:
 			return InventoryInputSystem.handle_touch(self, event.position)
+		if world_controls_visible and AdventurePolishSystem.target_at_screen(self, event.position): return true
 		var index := InterfaceRenderer.hotbar_at(event.position)
 		if index >= 0:
 			select_hotbar(index)

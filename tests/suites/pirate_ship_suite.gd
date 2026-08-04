@@ -49,7 +49,9 @@ func test_four_pirate_enemy_types_have_unique_loot() -> void:
 ## Ожидаемый результат: босс оставляет компас, сдача даёт награды, а экипированная сабля повышает урон.
 func test_drowned_captain_quest_rewards_cutlass() -> void:
 	var game := make_game(); game.current_location = "pirate_ship"; game.player = game.QuestSystem.npc_position(game, "elena")
-	expect(game.perform_context_action() and game.mission_states.side_pirate_compass == game.QuestSystem.ACTIVE, "navigator starts the drowned captain quest")
+	expect(game.perform_context_action(), "navigator opens the drowned captain quest dialogue")
+	game.AdventurePolishSystem.handle_dialogue_key(game, KEY_ENTER)
+	expect(game.mission_states.side_pirate_compass == game.QuestSystem.ACTIVE, "navigator starts the drowned captain quest")
 	expect(game.tutorial_events_completed.has("pirate_quest"), "accepting ship quest opens its tutorial")
 	var captain_index: int = game.enemy_nodes.find_custom(func(enemy): return enemy.kind == "drowned_captain")
 	game.player = game.enemy_nodes[captain_index].position
@@ -58,7 +60,9 @@ func test_drowned_captain_quest_rewards_cutlass() -> void:
 	expect(compass_index >= 0 and game.tutorial_events_completed.has("pirate_loot"), "captain drops quest compass and explains pirate loot")
 	game.player = game.dropped_items[compass_index].position; game.collect_dropped_item(compass_index)
 	game.player = game.QuestSystem.npc_position(game, "elena")
-	expect(game.perform_context_action() and game.mission_states.side_pirate_compass == game.QuestSystem.COMPLETED, "navigator accepts the cursed compass")
+	expect(game.perform_context_action(), "navigator opens the compass return dialogue")
+	game.AdventurePolishSystem.handle_dialogue_key(game, KEY_ENTER)
+	expect(game.mission_states.side_pirate_compass == game.QuestSystem.COMPLETED, "navigator accepts the cursed compass")
 	expect(game.inventory_item_count("pirate_cutlass") == 1 and game.coins == 200, "quest rewards boarding cutlass coins and experience")
 	var before_bonus: int = game.InventorySystem.damage_bonus(game); game.InventorySystem.equip(game, "pirate_cutlass")
 	expect(game.InventorySystem.damage_bonus(game) == before_bonus + 3, "equipped boarding cutlass grants three damage")

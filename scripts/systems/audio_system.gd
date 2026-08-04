@@ -48,6 +48,11 @@ static func initialize(game: Node) -> void:
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func switch_music(game: Node, location: String, immediate: bool = false) -> bool:
 	var track: String = MUSIC_BY_LOCATION.get(location, "village")
+	return switch_track(game, track, immediate)
+
+
+## Переключает непосредственно музыкальную тему с общим кроссфейдом.
+static func switch_track(game: Node, track: String, immediate: bool = false) -> bool:
 	if track == game.audio_current_music:
 		return false
 	game.audio_current_music = track
@@ -72,7 +77,19 @@ static func switch_music(game: Node, location: String, immediate: bool = false) 
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func update(game: Node, delta: float) -> void:
+	update_adaptive_music(game)
 	update_crossfade(game, delta)
+
+
+## Включает тревожную тему при близкой угрозе и возвращает музыку локации после боя.
+static func update_adaptive_music(game: Node) -> void:
+	if game.title_screen: return
+	var was_active := bool(game.state.player.feedback.get("combat_music", false))
+	var radius: float = 500.0 if was_active else 390.0
+	var threatened: bool = game.enemy_nodes.any(func(enemy): return enemy.alive and enemy.location == game.current_location and game.player.distance_to(enemy.position) <= radius)
+	if threatened == was_active: return
+	game.state.player.feedback.combat_music = threatened
+	switch_track(game, "danger" if threatened else MUSIC_BY_LOCATION.get(game.current_location, "village"))
 
 
 ## Обновляет плавного перехода на текущем кадре.

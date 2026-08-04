@@ -101,6 +101,10 @@ static func loot_multiplier(level: int) -> int:
 static func nearest(game: Node) -> int:
 	var result := -1
 	var distance_limit := 280.0 if game.equipped_weapon == "bow" else 105.0
+	var locked := int(game.state.player.adventure_ui.get("target_enemy", -1))
+	if locked >= 0 and locked < game.enemy_nodes.size():
+		var target: Dictionary = game.enemy_nodes[locked]
+		if target.alive and target.location == game.current_location and game.player.distance_to(target.position) < distance_limit: return locked
 	for index in game.enemy_nodes.size():
 		var enemy: Dictionary = game.enemy_nodes[index]
 		if enemy.alive and enemy.location == game.current_location:

@@ -83,6 +83,7 @@ func test_story_and_side_mission_chains() -> void:
 	game.player = game.guild_master_position
 	expect(game.nearest_interaction() == "quest_npc:miron", "story mission giver is interactive")
 	game.perform_context_action()
+	game.AdventurePolishSystem.handle_dialogue_key(game, KEY_ENTER)
 	expect(game.mission_states.story_relic == game.QuestSystem.ACTIVE, "guild master starts story mission")
 	game.current_location = "cave"
 	game.player = game.enemy_nodes[4].position
@@ -99,13 +100,16 @@ func test_story_and_side_mission_chains() -> void:
 	game.current_location = "overworld"
 	game.player = game.guild_master_position
 	game.perform_context_action()
+	game.AdventurePolishSystem.handle_dialogue_key(game, KEY_ENTER)
 	expect(game.mission_states.story_relic == game.QuestSystem.COMPLETED, "relic can be returned to complete story mission")
 	expect(game.coins == 140 and game.guardian_armor == 1, "story mission grants coins and equipment")
 	game.player = game.herbalist_position
 	game.perform_context_action()
+	game.AdventurePolishSystem.handle_dialogue_key(game, KEY_ENTER)
 	expect(game.mission_states.side_seed == game.QuestSystem.ACTIVE, "herbalist starts side mission")
 	game.materials.rare_seeds = 1
 	game.perform_context_action()
+	game.AdventurePolishSystem.handle_dialogue_key(game, KEY_ENTER)
 	expect(game.mission_states.side_seed == game.QuestSystem.COMPLETED, "side mission accepts its requested loot")
 	expect(game.berries == 3 and game.coins == 175, "side mission grants food and coins")
 	game.toggle_quest_log()

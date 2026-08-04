@@ -32,6 +32,7 @@ static func mine(game: Node, index: int) -> bool:
 	if not game.has_pickaxe or game.selected_tool != game.Tool.PICKAXE:
 		game.message = game.LocaleSystem.text("need_pickaxe")
 		return false
+	if not game.AdventurePolishSystem.can_use(game, "pickaxe"): return false
 	if index < 0 or index >= game.resource_nodes.size():
 		return false
 	var resource: Dictionary = game.resource_nodes[index]
@@ -48,6 +49,7 @@ static func mine(game: Node, index: int) -> bool:
 		game.message += ". " + game.LocaleSystem.text("depleted")
 	game.resource_nodes[index] = resource
 	game.play_sfx("mine")
+	game.AdventurePolishSystem.consume_durability(game, "pickaxe")
 	game.notify_tutorial("mine")
 	if resource.kind in ["red_crystal", "green_crystal"]:
 		game.notify_tutorial("colored_crystal")

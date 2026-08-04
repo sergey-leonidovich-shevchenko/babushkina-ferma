@@ -129,6 +129,7 @@ static func start_new_game(game: Node) -> void:
 		game.get_tree().reload_current_scene()
 	else:
 		game.title_screen = false
+		game.AdventurePolishSystem.begin_new_game(game)
 
 
 ## Сообщает новой сцене, что перезагрузка была запрошена пунктом «Новая игра».

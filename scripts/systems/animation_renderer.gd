@@ -32,7 +32,9 @@ static func draw_player(game: Node2D) -> void:
 		var dust: Vector2 = position - game.facing * 12.0 + Vector2(0, 7)
 		game.draw_circle(dust + Vector2(-7, 1), 3.0, Color(0.70, 0.66, 0.55, 0.38))
 		game.draw_circle(dust + Vector2(6, -1), 2.0, Color(0.70, 0.66, 0.55, 0.28))
-	var hero_modulate := Color(0.72, 0.82, 1.0, 0.38) if game.invisibility_timer > 0.0 else Color.WHITE
+	var clothes_palette := [Color.WHITE, Color("d5ebff"), Color("ffe0cf"), Color("dcf0d1"), Color("eadcff")]
+	var clothes_index := clampi(int(game.state.player.profile.get("clothes", 0)), 0, clothes_palette.size() - 1)
+	var hero_modulate: Color = Color(0.72, 0.82, 1.0, 0.38) if game.invisibility_timer > 0.0 else clothes_palette[clothes_index]
 	game.DirectionalCharacterSystem.draw_hero(game, position + attack_offset, game.facing, moving, hero_modulate)
 	if game.equipped_weapon == "crystal_sword" and attacking:
 		game.draw_line(position + game.facing * 10.0, position + game.facing * 39.0, Color("b9f7ff"), 6.0)
