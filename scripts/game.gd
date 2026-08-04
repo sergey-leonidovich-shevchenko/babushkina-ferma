@@ -54,6 +54,8 @@ func _ready() -> void:
 		companion_positions = {"mila":Vector2(620, 650), "borislav":Vector2(780, 650)}
 	if "--enemy-levels-preview" in OS.get_cmdline_user_args():
 		configure_enemy_levels_preview()
+	if "--enemy-animations-preview" in OS.get_cmdline_user_args():
+		EnemyAnimationLibrary.configure_preview(self)
 	if "--moon-glade-preview" in OS.get_cmdline_user_args():
 		configure_moon_glade_preview()
 	if "--storage-preview" in OS.get_cmdline_user_args():

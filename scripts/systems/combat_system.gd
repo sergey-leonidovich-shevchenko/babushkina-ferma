@@ -10,13 +10,13 @@ const PIRATE_FAMILIES := ["pirate", "zombie_pirate", "sea_ghost", "drowned_capta
 const TYPES := {
 	"plant": {"name":"Хищное растение","hp":5,"damage":12,"xp":14,"speed":0.0,"mobile":false,"range":155.0,"loot":{"fiber":2,"rare_seeds":1}},
 	"orc": {"name":"Орк-разбойник","hp":8,"damage":18,"xp":22,"speed":105.0,"mobile":true,"range":MELEE_DISTANCE,"loot":{"metal":2,"coins":15,"orc_blade":1}},
-	"skeleton": {"name":"Скелет","hp":6,"damage":16,"xp":18,"speed":92.0,"mobile":true,"range":MELEE_DISTANCE,"loot":{"bones":3,"ancient_key":1}},
-	"undead": {"name":"Проклятый рыцарь","hp":10,"damage":22,"xp":30,"speed":78.0,"mobile":true,"range":MELEE_DISTANCE,"loot":{"bones":2,"blue_gem":1}},
-	"cave_guardian": {"name":"Хранитель глубин","hp":12,"damage":24,"xp":40,"speed":66.0,"mobile":true,"range":MELEE_DISTANCE + 8.0,"loot":{"moon_relic":1,"blue_gem":2}},
-	"pirate": {"name":"Пират-корсар","hp":9,"damage":18,"xp":24,"speed":108.0,"mobile":true,"range":MELEE_DISTANCE,"loot":{"pirate_doubloon":2,"metal":1}},
+	"skeleton": {"name":"Скелет","hp":6,"damage":16,"xp":18,"speed":92.0,"mobile":true,"range":220.0,"loot":{"bones":3,"ancient_key":1}},
+	"undead": {"name":"Проклятый рыцарь","hp":10,"damage":22,"xp":30,"speed":78.0,"mobile":true,"range":185.0,"loot":{"bones":2,"blue_gem":1}},
+	"cave_guardian": {"name":"Хранитель глубин","hp":12,"damage":24,"xp":40,"speed":66.0,"mobile":true,"range":145.0,"loot":{"moon_relic":1,"blue_gem":2}},
+	"pirate": {"name":"Пират-корсар","hp":9,"damage":18,"xp":24,"speed":108.0,"mobile":true,"range":220.0,"loot":{"pirate_doubloon":2,"metal":1}},
 	"zombie_pirate": {"name":"Зомби-матрос","hp":12,"damage":21,"xp":30,"speed":76.0,"mobile":true,"range":MELEE_DISTANCE,"loot":{"pirate_doubloon":2,"bones":2}},
-	"sea_ghost": {"name":"Морской призрак","hp":10,"damage":20,"xp":34,"speed":96.0,"mobile":true,"range":MELEE_DISTANCE + 10.0,"loot":{"ectoplasm":2,"pirate_doubloon":1}},
-	"drowned_captain": {"name":"Утопший капитан","hp":18,"damage":26,"xp":65,"speed":72.0,"mobile":true,"range":MELEE_DISTANCE + 8.0,"loot":{"cursed_compass":1,"pirate_doubloon":6}}
+	"sea_ghost": {"name":"Морской призрак","hp":10,"damage":20,"xp":34,"speed":96.0,"mobile":true,"range":190.0,"loot":{"ectoplasm":2,"pirate_doubloon":1}},
+	"drowned_captain": {"name":"Утопший капитан","hp":18,"damage":26,"xp":65,"speed":72.0,"mobile":true,"range":230.0,"loot":{"cursed_compass":1,"pirate_doubloon":6}}
 }
 const SPAWNS := [
 	{"kind":"plant","location":"forest","position":Vector2(920,430),"level":1},
@@ -67,6 +67,8 @@ static func default_enemies() -> Array:
 		enemy.attack_timer = 0.0
 		enemy.visual_state = "idle"
 		enemy.visual_time = 0.0
+		enemy.action_kind = enemy_action_kind(enemy.kind)
+		enemy.action_target = enemy.position
 		result.append(enemy)
 	return result
 
@@ -90,6 +92,14 @@ static func xp_reward(kind: String, level: int) -> int:
 ## Сопоставляет уровни 1–2, 3–4 и 5 трём различимым строкам атласа.
 static func visual_rank(level: int) -> int:
 	return mini(floori(float(clampi(level, 1, MAX_ENEMY_LEVEL) - 1) / 2.0), 2)
+
+
+## Возвращает визуальный тип атаки, который определяет удар, стрелу или магию противника.
+static func enemy_action_kind(kind: String) -> String:
+	if kind in ["skeleton", "pirate", "drowned_captain"]: return "shoot"
+	if kind in ["undead", "sea_ghost"]: return "cast"
+	if kind == "cave_guardian": return "slam"
+	return "melee"
 
 
 ## Возвращает множитель добычи: обычный, двойной для ветерана и тройной для элиты.
@@ -145,8 +155,12 @@ static func update(game: Node, delta: float) -> void:
 		enemy.attack_timer = maxf(float(enemy.get("attack_timer", 0.0)) - delta, 0.0)
 		if distance <= float(data.range) and enemy.attack_timer <= 0.0:
 			enemy.attack_timer = maxf(0.75, 1.65 - float(enemy.level) * 0.09)
+			enemy.direction = enemy.position.direction_to(game.player)
 			enemy.visual_state = "attack"
 			enemy.visual_time = 0.0
+			enemy.action_kind = enemy_action_kind(enemy.kind)
+			enemy.action_target = game.player
+			game.notify_tutorial("enemy_attack_styles")
 			damage_player(game, boss_attack_damage(enemy), LocaleSystem.entity(enemy.kind)); apply_boss_side_effect(game, enemy)
 		game.enemy_nodes[index] = enemy
 

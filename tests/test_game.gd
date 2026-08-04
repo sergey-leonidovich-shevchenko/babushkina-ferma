@@ -24,6 +24,7 @@ const SpriteStandardSuite = preload("res://tests/suites/sprite_standard_suite.gd
 const WorldEventsSuite = preload("res://tests/suites/world_events_suite.gd")
 const ExpansionSuite = preload("res://tests/suites/expansion_suite.gd")
 const AdventurePolishSuite = preload("res://tests/suites/adventure_polish_suite.gd")
+const EnemyAnimationSuite = preload("res://tests/suites/enemy_animation_suite.gd")
 var passed := 0
 var failed := 0
 
@@ -51,6 +52,7 @@ func _initialize() -> void:
 	WorldEventsSuite.new(self).run()
 	ExpansionSuite.new(self).run()
 	AdventurePolishSuite.new(self).run()
+	EnemyAnimationSuite.new(self).run()
 	ArchitectureSuite.run(self)
 	print("TESTS: %d passed, %d failed" % [passed, failed])
 	quit(0 if failed == 0 else 1)

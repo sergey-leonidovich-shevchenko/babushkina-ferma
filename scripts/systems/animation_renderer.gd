@@ -13,6 +13,7 @@ const PLANT_DEATH := preload("res://assets/game/enemies/predator_plant_death.png
 const ORC_IDLE := preload("res://assets/game/enemies/orc_idle.png")
 const ORC_HURT := preload("res://assets/game/enemies/orc_hurt.png")
 const ORC_DEATH := preload("res://assets/game/enemies/orc_death.png")
+const EnemyAnimationLibrary := preload("res://scripts/systems/enemy_animation_library.gd")
 
 
 ## Отрисовывает героя по текущему состоянию игры.
@@ -65,8 +66,8 @@ static func draw_slime(game: Node2D) -> bool:
 static func draw_enemy(game: Node2D, enemy: Dictionary) -> void:
 	var state: String = enemy.get("visual_state", "idle")
 	var kind: String = enemy.kind
-	if kind in game.CombatSystem.PIRATE_FAMILIES:
-		draw_pirate_enemy(game, enemy, state)
+	if kind in EnemyAnimationLibrary.CORE_FAMILIES or kind in EnemyAnimationLibrary.PIRATE_FAMILIES:
+		EnemyAnimationLibrary.draw_enemy(game, enemy, state, game.AnimationSystem.ENEMY_ATTACK_DURATION)
 		return
 	var column: int = game.CombatSystem.FAMILY_ORDER.find(kind)
 	var rank: int = game.CombatSystem.visual_rank(int(enemy.get("level", 1)))

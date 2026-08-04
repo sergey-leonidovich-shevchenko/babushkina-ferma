@@ -52,7 +52,7 @@ func test_all_current_mobile_catalog_entries_are_audited() -> void:
 func test_known_animation_debt_is_explicit_and_documented() -> void:
 	var game := make_game(); var backlog: Array[String] = game.AnimationAssetRegistry.backlog()
 	expect(not backlog.has("hero") and not backlog.has("companion_mila") and not backlog.has("npc_official"), "finished human animation package leaves the redraw backlog")
-	expect(backlog.has("drowned_captain") and backlog.has("deer"), "unfinished enemy and wildlife packages remain explicit")
+	expect(not backlog.has("drowned_captain") and not backlog.has("orc") and backlog.has("deer"), "finished enemy package leaves only wildlife animation debt explicit")
 	var documentation := FileAccess.get_file_as_string("res://docs/SPRITE_STANDARD.md")
 	expect(documentation.contains("восьми направлений") and documentation.contains("трёх до пяти кадров"), "Russian project standard records the permanent animation rule")
 	game.free()

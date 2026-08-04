@@ -35,6 +35,9 @@ tools/Godot.app/Contents/MacOS/Godot --path . -- --companions-preview
 # Витрина пяти уровней врагов, статичных угроз и облика героя 20 уровня
 tools/Godot.app/Contents/MacOS/Godot --path . -- --enemy-levels-preview
 
+# Восемь направлений и боевые действия всех мобильных противников
+tools/Godot.app/Contents/MacOS/Godot --path . -- --enemy-animations-preview
+
 # Установленный домашний сундук с заполненными колонками
 tools/Godot.app/Contents/MacOS/Godot --path . -- --storage-preview
 
