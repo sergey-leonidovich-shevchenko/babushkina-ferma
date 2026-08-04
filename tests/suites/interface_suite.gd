@@ -94,10 +94,14 @@ func test_every_owned_item_has_a_visible_slot_and_icon_fallback() -> void:
 ## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_hud_layout_is_compact_and_safe() -> void:
 	var game := make_game()
-	expect(game.InterfaceRenderer.HUD_RECT.size.y <= 74.0, "gameplay HUD uses less than one eighth of the screen height")
+	expect(game.InterfaceRenderer.HUD_RECT.size.y <= 90.0, "selected adventurer HUD keeps its height below one seventh of the screen")
 	expect(not game.InterfaceRenderer.SKILL_BUTTON.intersects(game.InterfaceRenderer.QUEST_BUTTON), "HUD menu buttons do not overlap")
+	expect(game.InterfaceRenderer.HUD_RECT.encloses(game.InterfaceRenderer.PLAYER_PORTRAIT_RECT) and game.InterfaceRenderer.HUD_RECT.encloses(game.InterfaceRenderer.CLOCK_BADGE), "portrait and calendar stay inside the carved top frame")
 	expect(game.InterfaceRenderer.HUD_RECT.encloses(game.InterfaceRenderer.LOCATION_BADGE), "persistent location badge stays inside compact HUD")
 	expect(not game.InterfaceRenderer.LOCATION_BADGE.intersects(game.InterfaceRenderer.PLAYER_BARS_RECT) and not game.InterfaceRenderer.LOCATION_BADGE.intersects(game.InterfaceRenderer.SKILL_BUTTON), "location badge does not overlap player bars or menu buttons")
+	expect(not game.InterfaceRenderer.PLAYER_BARS_RECT.intersects(game.InterfaceRenderer.CLOCK_BADGE) and not game.InterfaceRenderer.CLOCK_BADGE.intersects(game.InterfaceRenderer.LOCATION_BADGE), "second concept keeps portrait bars clock and location in separate modules")
+	for weather in game.WorldEventSystem.WEATHER_NAMES:
+		expect(not game.InterfaceRenderer.weather_icon(weather).is_empty(), "every weather state has a readable HUD icon: %s" % weather)
 	for location in game.WorldSystem.LOCATIONS:
 		expect(not game.InterfaceRenderer.location_icon(location).is_empty(), "location badge has an icon for %s" % location)
 	for location in game.BuildingSystem.INTERIORS:
