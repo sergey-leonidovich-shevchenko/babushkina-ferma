@@ -1,5 +1,7 @@
 extends RefCounted
 
+const VillageLayoutSystem := preload("res://scripts/systems/village_layout_system.gd")
+
 
 ## Рисует поверх мира освещение, осадки и небесное событие, не затрагивая интерфейс.
 static func draw(game: Node2D) -> void:
@@ -23,10 +25,14 @@ static func draw_lights(game: Node2D, darkness: float) -> void:
 		game.draw_circle(return_screen, 72.0, Color(0.32, 0.66, 1.0, 0.14))
 		return
 	if game.current_location != "overworld": return
-	for point in [Vector2(470, 345), Vector2(805, 345), Vector2(1110, 345), Vector2(1510, 345)]:
-		var screen: Vector2 = point - game.camera_offset
-		game.draw_circle(screen, 34.0, Color(1.0, 0.72, 0.28, darkness * 0.20))
-		game.draw_circle(screen, 12.0, Color(1.0, 0.82, 0.44, darkness * 0.48))
+	# Свет привязан к настоящим фонарям атласа, а несколько колец дают мягкий край без висящих в воздухе дисков.
+	for prop in VillageLayoutSystem.PROP_PLACEMENTS + VillageLayoutSystem.SCENIC_PLACEMENTS:
+		if prop.kind != "lamp": continue
+		var screen: Vector2 = Vector2(prop.position) - game.camera_offset - Vector2(0, 38)
+		for ring in 4:
+			var radius := 42.0 - ring * 8.0
+			game.draw_circle(screen, radius, Color(1.0, 0.72 + ring * 0.025, 0.28, darkness * (0.035 + ring * 0.025)))
+		game.draw_circle(screen, 5.0, Color(1.0, 0.88, 0.56, darkness * 0.58))
 	if game.WorldEventSystem.eclipse_active(game.day, game.game_minutes):
 		var portal_screen: Vector2 = game.WorldEventSystem.PORTAL_POSITION - game.camera_offset
 		game.draw_circle(portal_screen, 76.0, Color(0.28, 0.62, 1.0, 0.16))

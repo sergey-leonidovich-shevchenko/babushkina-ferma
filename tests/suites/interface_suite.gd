@@ -12,6 +12,9 @@ func run() -> void:
 	test_inventory_sorting()
 	test_every_owned_item_has_a_visible_slot_and_icon_fallback()
 	test_inventory_category_filters_support_pointer_and_gamepad()
+	test_sprite_cards_and_action_controls_use_sliced_atlases()
+	test_touch_controls_follow_last_input_device()
+	test_hotbar_readiness_and_hud_feedback_animations()
 
 
 ## Сценарий: рюкзак использует утверждённый резной скин и сетку эталона 6×6.
@@ -212,4 +215,58 @@ func test_inventory_sorting() -> void:
 	expect(game.inventory_slots.slice(0, 5) == ["pickaxe", "carrot", "iron_helmet", "moon_relic", "stone"], "sorting groups tools food equipment quests and resources")
 	expect(game.inventory_slots[game.inventory_selected] == "carrot" and game.inventory_scroll_row == 0, "sorting preserves selected item and returns to the first row")
 	expect(game.message == game.LocaleSystem.text("inventory_sorted"), "sorting provides localized feedback")
+	game.free()
+
+
+## Сценарий: сообщения, обучение и боевые кнопки используют независимые области двух новых пиксельных атласов.
+## Исходное состояние: оба PNG импортированы Godot, а их области и экранные прямоугольники объявлены рендерером.
+## Ожидаемый результат: каждый вырез находится внутри своего атласа, карточки не перекрывают хотбар, а кнопки сохраняют прежние зоны касания.
+func test_sprite_cards_and_action_controls_use_sliced_atlases() -> void:
+	var game := make_game()
+	var renderer = game.InterfaceRenderer
+	expect(renderer.CONTROL_ATLAS != null and renderer.CARD_ATLAS != null, "control and parchment atlases are imported as real textures")
+	var control_bounds := Rect2(Vector2.ZERO, renderer.CONTROL_ATLAS.get_size())
+	for source in renderer.CONTROL_DODGE_SOURCES + renderer.CONTROL_BLOCK_SOURCES + [renderer.CONTROL_PAUSE_SOURCE]:
+		expect(control_bounds.encloses(source), "every action-state sprite is sliced inside the control atlas")
+	var card_bounds := Rect2(Vector2.ZERO, renderer.CARD_ATLAS.get_size())
+	for source in [renderer.CARD_MESSAGE_SOURCE, renderer.CARD_TUTORIAL_SOURCE, renderer.CARD_DISCOVERY_SOURCE, renderer.CARD_QUEST_SOURCE]:
+		expect(card_bounds.encloses(source), "every parchment component is sliced inside the card atlas")
+	expect(not renderer.MESSAGE_CARD.intersects(renderer.WORLD_HOTBAR_PANEL) and not renderer.TUTORIAL_CARD.intersects(renderer.HUD_RECT), "parchment notifications preserve the playable viewport and quick bar")
+	expect(renderer.DODGE_BUTTON.size == Vector2(60, 48) and renderer.BLOCK_BUTTON.size == Vector2(60, 48), "sprite buttons preserve stable touch hit targets")
+	game.free()
+
+
+## Сценарий: мобильные кнопки появляются после касания и автоматически скрываются после клавиатуры или мыши.
+## Исходное состояние: игра запущена на обычной desktop-среде без активного сенсорного режима.
+## Ожидаемый результат: последнее реальное устройство ввода однозначно переключает только видимость мобильного слоя.
+func test_touch_controls_follow_last_input_device() -> void:
+	var game := make_game(); game.touch_controls_visible = false
+	var touch := InputEventScreenTouch.new(); touch.position = game.InterfaceRenderer.DODGE_BUTTON.get_center(); touch.pressed = true
+	game.update_input_device(touch)
+	expect(game.touch_controls_visible, "screen touch reveals sprite combat controls")
+	var keyboard := key_event(KEY_D, KEY_D, true)
+	game.update_input_device(keyboard)
+	expect(not game.touch_controls_visible, "keyboard input hides mobile controls immediately")
+	game.touch_controls_visible = true
+	var mouse := InputEventMouseButton.new(); mouse.button_index = MOUSE_BUTTON_LEFT; mouse.position = Vector2(500, 300); mouse.pressed = false
+	game.update_input_device(mouse)
+	expect(not game.touch_controls_visible, "mouse input also restores the clean desktop HUD")
+	game.free()
+
+
+## Сценарий: хотбар показывает готовность инструмента, а HUD запускает короткие реакции на урон, монеты, время и погоду.
+## Исходное состояние: эталонные значения HUD сначала синхронизированы, затем энергия, здоровье, монеты и игровая минута изменены.
+## Ожидаемый результат: готовность пропорциональна энергии, а все соответствующие таймеры анимации становятся положительными.
+func test_hotbar_readiness_and_hud_feedback_animations() -> void:
+	var game := make_game(); game.hotbar_slots[0] = "hoe"; game.energy = game.SkillSystem.max_stamina(game)
+	expect(is_equal_approx(game.InterfaceRenderer.hotbar_readiness(game, "hoe"), 1.0), "full stamina renders a ready tool condition bar")
+	game.energy = game.SkillSystem.max_stamina(game) / 2
+	expect(game.InterfaceRenderer.hotbar_readiness(game, "hoe") < 0.6, "spent stamina visibly lowers tool readiness")
+	game.update_hud_feedback(0.0)
+	game.player_hp -= 3; game.coins += 2; game.game_minutes += 1.0
+	game.update_hud_feedback(0.01)
+	expect(game.hud_hp_flash > 0.0 and game.hud_coin_pop > 0.0 and game.hud_clock_tick > 0.0, "damage coin and clock changes each start their HUD feedback")
+	game.hud_last_weather = "impossible_weather"
+	game.update_hud_feedback(0.01)
+	expect(game.hud_weather_transition > 0.0, "weather change starts a soft icon transition")
 	game.free()

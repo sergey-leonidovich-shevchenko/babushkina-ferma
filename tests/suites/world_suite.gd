@@ -54,6 +54,10 @@ func test_village_hybrid_layout_layers_and_navigation() -> void:
 	expect(VillageLayoutSystem.path_reaches(game.cave_entrance_position), "village road reaches the adventure exit")
 	expect(VillageLayoutSystem.path_reaches(game.world_gate_position), "eastern road reaches the world frontier")
 	expect(VillageLayoutSystem.PROP_CELLS.size() == 8, "village atlas registers all eight prop cells")
+	expect(VillageLayoutSystem.SCENIC_PLACEMENTS.size() >= 10, "first location gains a dense secondary layer of sliced village props")
+	expect(VillageLayoutSystem.FLOWER_PATCHES.size() >= 20, "meadow decoration is dense enough to break up empty green fields")
+	for prop in VillageLayoutSystem.SCENIC_PLACEMENTS:
+		expect(VillageLayoutSystem.PROP_CELLS.has(prop.kind), "every scenic placement references a valid atlas cell: %s" % prop.kind)
 	var prop_atlas: Texture2D = load("res://assets/game/environment/village_prop_atlas.png")
 	expect(prop_atlas != null and prop_atlas.get_width() > 1200 and prop_atlas.get_height() > 700, "high-resolution village prop atlas is imported")
 	var river_point := Vector2(300, VillageLayoutSystem.river_center_y(300))

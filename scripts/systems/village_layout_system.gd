@@ -34,11 +34,26 @@ const PROP_PLACEMENTS := [
 	{"kind":"cart","position":Vector2(915,455),"size":Vector2(112,88)},
 	{"kind":"mill","position":Vector2(2010,745),"size":Vector2(270,250)},
 ]
+# Небольшой неколлизионный декор уплотняет видимый кадр между ключевыми объектами, не создавая невидимых стен.
+const SCENIC_PLACEMENTS := [
+	{"kind":"bench","position":Vector2(520,430),"size":Vector2(78,54)},
+	{"kind":"lamp","position":Vector2(690,520),"size":Vector2(44,86)},
+	{"kind":"fence","position":Vector2(470,1010),"size":Vector2(72,58)},
+	{"kind":"fence","position":Vector2(545,1010),"size":Vector2(72,58)},
+	{"kind":"gate","position":Vector2(625,1010),"size":Vector2(78,62)},
+	{"kind":"cart","position":Vector2(1120,720),"size":Vector2(84,66)},
+	{"kind":"bench","position":Vector2(1515,435),"size":Vector2(78,54)},
+	{"kind":"lamp","position":Vector2(1780,475),"size":Vector2(44,86)},
+	{"kind":"board","position":Vector2(1910,860),"size":Vector2(82,78)},
+	{"kind":"fence","position":Vector2(2160,930),"size":Vector2(72,58)},
+]
 const SOLID_CIRCLES := [{"center":WELL_POSITION,"radius":42.0}]
 const SOLID_RECTS := [Rect2(985, 562, 90, 34), Rect2(1405, 562, 90, 34), Rect2(1290, 422, 90, 48), Rect2(1908, 595, 204, 128)]
 const FLOWER_PATCHES := [
 	Vector2(290,820),Vector2(420,780),Vector2(900,680),Vector2(1040,740),Vector2(1320,760),
 	Vector2(1600,790),Vector2(1880,420),Vector2(2140,390),Vector2(930,310),Vector2(1520,290),
+	Vector2(360,430),Vector2(560,560),Vector2(760,430),Vector2(1160,320),Vector2(1370,650),
+	Vector2(1680,430),Vector2(1960,520),Vector2(2210,560),Vector2(1850,920),Vector2(1180,980),
 ]
 
 

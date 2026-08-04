@@ -130,6 +130,7 @@ func configure_moon_glade_preview() -> void:
 ## Выполняет один физический кадр и обновляет активные игровые системы в заданном порядке.
 func _physics_process(delta: float) -> void:
 	AudioSystem.update(self, delta)
+	update_hud_feedback(delta)
 	if title_screen or menu_state.pause_open or menu_state.settings_open:
 		queue_redraw()
 		return
@@ -155,6 +156,24 @@ func _physics_process(delta: float) -> void:
 	update_held_attack(delta)
 	update_camera()
 	queue_redraw()
+
+
+## Обновляет короткие визуальные реакции HUD на урон, монеты, новую минуту и смену погоды.
+func update_hud_feedback(delta: float) -> void:
+	if hud_last_hp < 0: hud_last_hp = player_hp
+	if hud_last_coins < 0: hud_last_coins = coins
+	if hud_last_minute < 0: hud_last_minute = int(game_minutes)
+	if hud_last_weather.is_empty(): hud_last_weather = WorldEventSystem.weather(self)
+	if player_hp < hud_last_hp: hud_hp_flash = 0.42
+	if coins != hud_last_coins: hud_coin_pop = 0.36
+	if int(game_minutes) != hud_last_minute: hud_clock_tick = 0.32
+	var weather := WorldEventSystem.weather(self)
+	if weather != hud_last_weather: hud_weather_transition = 0.48
+	hud_last_hp = player_hp; hud_last_coins = coins; hud_last_minute = int(game_minutes); hud_last_weather = weather
+	hud_hp_flash = maxf(0.0, hud_hp_flash - delta)
+	hud_coin_pop = maxf(0.0, hud_coin_pop - delta)
+	hud_clock_tick = maxf(0.0, hud_clock_tick - delta)
+	hud_weather_transition = maxf(0.0, hud_weather_transition - delta)
 
 ## Обновляет относящуюся к методу часть состояния на текущем кадре.
 func update_benchmark_route(delta: float) -> void:
@@ -1112,6 +1131,7 @@ func sell_carrots() -> void:
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func _input(event: InputEvent) -> void:
+	update_input_device(event)
 	if not language_screen and (title_screen or menu_state.pause_open or menu_state.settings_open):
 		if MenuSystem.handle_input(self, event):
 			get_viewport().set_input_as_handled()
@@ -1136,6 +1156,14 @@ func _input(event: InputEvent) -> void:
 			if event.pressed and not event.echo:
 				attack_nearest_enemy()
 			get_viewport().set_input_as_handled()
+
+
+## Запоминает последнее устройство ввода и включает мобильный слой только после настоящего касания.
+func update_input_device(event: InputEvent) -> void:
+	if event is InputEventScreenTouch or event is InputEventScreenDrag:
+		touch_controls_visible = true
+	elif event is InputEventKey or event is InputEventMouseButton or event is InputEventJoypadButton:
+		touch_controls_visible = false
 
 ## Обрабатывает относящееся к методу событие и синхронизирует зависимое состояние.
 func handle_gamepad_and_touch(event: InputEvent) -> bool:

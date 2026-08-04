@@ -10,6 +10,7 @@ const CAVE_FLOOR_TILE := preload("res://assets/game/tiles/cave-floor.png")
 const BRIDGES := preload("res://assets/game/environment/bridges.png")
 const FOREST_TREE := preload("res://assets/game/environment/forest_tree.png")
 const VILLAGE_PROPS := preload("res://assets/game/environment/village_prop_atlas.png")
+const RESOURCE_ROCK := preload("res://assets/game/resources/rock.png")
 const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
 const BuildingSystem := preload("res://scripts/systems/building_system.gd")
 const VillageLayoutSystem := preload("res://scripts/systems/village_layout_system.gd")
@@ -123,9 +124,7 @@ func draw_village_border() -> void:
 	for position in [Vector2(60,175),Vector2(190,155),Vector2(330,170),Vector2(520,145),Vector2(700,165),Vector2(1710,155),Vector2(1870,145),Vector2(2040,165),Vector2(2210,145),Vector2(2350,175),Vector2(65,390),Vector2(2335,430),Vector2(70,850),Vector2(2325,890)]:
 		draw_texture_rect(FOREST_TREE, Rect2(position - Vector2(72, 98), Vector2(144, 144)), false, Color(0.78, 0.94, 0.78, 0.92))
 	for position in [Vector2(70,245),Vector2(120,220),Vector2(175,205),Vector2(225,230),Vector2(95,300)]:
-		draw_circle(position, 38, Color("5e6258"))
-		draw_circle(position - Vector2(8, 9), 24, Color("77796a"))
-		draw_line(position - Vector2(20, 12), position + Vector2(17, 9), Color("484b45"), 4)
+		draw_texture_rect(RESOURCE_ROCK, Rect2(position - Vector2(34, 34), Vector2(68, 68)), false, Color("c7c8b5"))
 
 
 ## Рисует извилистый берег реки, пруд и спокойные блики отдельным водным слоем.
@@ -173,10 +172,17 @@ func draw_village_route(points: Array) -> void:
 func draw_village_props() -> void:
 	var cell_size := Vector2(VILLAGE_PROPS.get_width() / 4.0, VILLAGE_PROPS.get_height() / 2.0)
 	for prop in VillageLayoutSystem.PROP_PLACEMENTS:
-		var size: Vector2 = prop.size
-		var destination := Rect2(prop.position - Vector2(size.x * 0.5, size.y * 0.78), size)
-		var source := Rect2(Vector2(VillageLayoutSystem.PROP_CELLS[prop.kind]) * cell_size, cell_size)
-		draw_texture_rect_region(VILLAGE_PROPS, destination, source)
+		draw_village_prop(prop, cell_size)
+	for prop in VillageLayoutSystem.SCENIC_PLACEMENTS:
+		draw_village_prop(prop, cell_size)
+
+
+## Вырезает один объект деревенского атласа; этим же способом собираются крупные ориентиры и мелкий декор.
+func draw_village_prop(prop: Dictionary, cell_size: Vector2) -> void:
+	var size: Vector2 = prop.size
+	var destination := Rect2(prop.position - Vector2(size.x * 0.5, size.y * 0.78), size)
+	var source := Rect2(Vector2(VillageLayoutSystem.PROP_CELLS[prop.kind]) * cell_size, cell_size)
+	draw_texture_rect_region(VILLAGE_PROPS, destination, source)
 
 ## Рисует один участок дороги с мягкой окантовкой и приглушённой каменной фактурой.
 func draw_village_path(rect: Rect2) -> void:

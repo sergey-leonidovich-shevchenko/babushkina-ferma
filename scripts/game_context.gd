@@ -235,6 +235,8 @@ var audio_sfx_count := 0
 var audio_sfx_slot := 0
 var audio_music_slot := 1
 var audio_music_fade := 0.0
+# Сенсорный профиль и короткие реакции HUD не входят в сохранение: это только состояние представления.
+var touch_controls_visible := OS.has_feature("mobile"); var hud_last_hp := -1; var hud_hp_flash := 0.0; var hud_last_coins := -1; var hud_coin_pop := 0.0; var hud_last_minute := -1; var hud_clock_tick := 0.0; var hud_last_weather := ""; var hud_weather_transition := 0.0
 var companion_positions := {}
 var companion_moving := {}
 var companion_directions := {}

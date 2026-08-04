@@ -173,10 +173,18 @@ func draw_rpg_world() -> void:
 	elif loot_available:
 		draw_circle(slime_position, 13, Color("78d6a5"))
 		draw_circle(slime_position - Vector2(4, 4), 4, Color("baf1c8"))
-	# Вход в отдельную пещерную локацию.
-	draw_circle(cave_entrance_position, 52, Color("283a43"))
+	# Каменная арка заменяет технический тёмный круг и сразу читается как вход в отдельную пещеру.
+	var mouth := PackedVector2Array([
+		cave_entrance_position + Vector2(-46, 38), cave_entrance_position + Vector2(-46, -8),
+		cave_entrance_position + Vector2(-34, -36), cave_entrance_position + Vector2(0, -52),
+		cave_entrance_position + Vector2(34, -36), cave_entrance_position + Vector2(46, -8),
+		cave_entrance_position + Vector2(46, 38),
+	])
+	draw_colored_polygon(mouth, Color("1c2930"))
+	for offset in [Vector2(-43,14), Vector2(-35,-22), Vector2(-10,-45), Vector2(20,-42), Vector2(40,-14), Vector2(42,24)]:
+		draw_texture_rect(RESOURCE_ROCK, Rect2(cave_entrance_position + offset - Vector2(18, 18), Vector2(36, 36)), false, Color("a9ad9e"))
+	draw_line(cave_entrance_position + Vector2(-35, 37), cave_entrance_position + Vector2(35, 37), Color("0f171b"), 6.0)
 	if player.distance_to(cave_entrance_position) < 180.0:
-		draw_circle(cave_entrance_position, 38 + sin(Time.get_ticks_msec() / 170.0) * 4, Color("66d5cf"), false, 6)
 		draw_string(UI_FONT, cave_entrance_position + Vector2(-58, 78), LocaleSystem.location("cave"), HORIZONTAL_ALIGNMENT_LEFT, -1, 16, Color("d7fff4"))
 
 
@@ -191,8 +199,6 @@ func draw_buildings() -> void:
 		draw_texture_rect_region(BUILDING_ATLAS, destination, source)
 		var unlocked := BuildingSystem.can_enter(self, building_id)
 		var door: Vector2 = data.door
-		if player.distance_to(door) < 145.0:
-			draw_circle(door, 19, Color(0.42, 0.88, 0.52, 0.28) if unlocked else Color(0.9, 0.28, 0.25, 0.35), false, 3)
 		if not unlocked and player.distance_to(door) < 180.0:
 			draw_string(UI_FONT, door + Vector2(-12, -28), "🔒", HORIZONTAL_ALIGNMENT_CENTER, 24, 18, Color("ffb36a"))
 
@@ -324,9 +330,7 @@ func draw_food_nodes() -> void:
 			"berries", "apple", "nut":
 				var layout := forage_sprite_layout(food.kind, position)
 				draw_texture_rect_region(PLANT_SHEET, layout.destination, layout.source, Color(1, 1, 1, alpha))
-		if food.active and player.distance_to(position) < 170.0:
-			draw_circle(position, 30 + sin(Time.get_ticks_msec() / 170.0) * 3, Color(1.0, 0.88, 0.32, 0.24), false, 3)
-		else:
+		if not food.active:
 			draw_string(UI_FONT, position + Vector2(-55, 42), ForageSystem.remaining_text(self, food), HORIZONTAL_ALIGNMENT_CENTER, 110, 12, Color("e7d6a3"))
 
 ## Выполняет операцию «рыбалки анимации кадра» и возвращает результат согласно контракту метода.
@@ -360,8 +364,6 @@ func draw_tree_nodes() -> void:
 			var progress: float = TreeSystem.regrow_progress(tree)
 			var bar := Rect2(position + Vector2(-34, 49), Vector2(68, 8))
 			draw_rect(bar, Color("243b35")); draw_rect(Rect2(bar.position + Vector2.ONE, Vector2((bar.size.x - 2) * progress, bar.size.y - 2)), Color("70c66a"))
-		if stage == 3 and player.distance_to(position + Vector2(0, 28)) < TreeSystem.CHOP_RANGE + 28.0:
-			draw_circle(position + Vector2(0, 28), 52 + sin(Time.get_ticks_msec() / 170.0) * 3, Color(1.0, 0.84, 0.25, 0.34), false, 3)
 		if stage == 3 and int(tree.health) < TreeSystem.MAX_HEALTH:
 			for heart in TreeSystem.MAX_HEALTH: draw_circle(position + Vector2(-14 + heart * 14, -68), 4, Color("df6657") if heart < int(tree.health) else Color("5b493e"))
 
@@ -390,9 +392,6 @@ func draw_dropped_items() -> void:
 			draw_item_icon(item.kind, Rect2(item.position - Vector2(22, 22), Vector2(44, 44)))
 		else:
 			draw_circle(item.position, 15, inventory_item_color(item.kind))
-		if player.distance_to(item.position) < 180.0:
-			draw_circle(item.position, 23 + sin(Time.get_ticks_msec() / 150.0) * 3, Color("fff0a8"), false, 3)
-			draw_string(UI_FONT, item.position + Vector2(-55, 42), inventory_item_name(item.kind), HORIZONTAL_ALIGNMENT_CENTER, 110, 13, Color("fff4cf"))
 
 ## Отрисовывает мира добычи по текущему состоянию игры.
 func draw_world_loot() -> void:
@@ -418,10 +417,7 @@ func draw_world_loot() -> void:
 				draw_circle(position, 25, Color(0.26, 0.31, 0.27, alpha))
 				draw_line(position - Vector2(18, 14), position + Vector2(17, 13), Color(0.58, 0.46, 0.31, alpha), 7)
 				draw_circle(position + Vector2(10, -8), 8, Color(0.43, 0.49, 0.45, alpha))
-		if not container.opened and player.distance_to(position) < 180.0:
-			var pulse := 34.0 + sin(Time.get_ticks_msec() / 180.0 + float(container.id)) * 3.0
-			draw_circle(position, pulse, Color(1.0, 0.82, 0.30, 0.35), false, 3)
-		else:
+		if container.opened:
 			draw_string(UI_FONT, position + Vector2(-35, 38), LocaleSystem.ui("empty"), HORIZONTAL_ALIGNMENT_CENTER, 70, 12, Color(0.8, 0.8, 0.75, 0.55))
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
@@ -556,9 +552,14 @@ func draw_interaction_highlight() -> void:
 	if interaction.is_empty():
 		return
 	var center := interaction_position(interaction)
-	var pulse := 34.0 + sin(Time.get_ticks_msec() / 130.0) * 4.0
-	draw_circle(center, pulse, Color("ffe36e"), false, 4.0)
-	draw_string(UI_FONT, center + Vector2(-45, -48), LocaleSystem.ui("action"), HORIZONTAL_ALIGNMENT_CENTER, 90, 16, Color("fff4bd"))
+	var radius := 24.0 + sin(Time.get_ticks_msec() / 180.0) * 1.5
+	var color := Color(1.0, 0.85, 0.36, 0.82)
+	var corner := 8.0
+	# Четыре коротких угла читаются как выбор, но не закрывают сам предмет и окружение.
+	for signs: Vector2 in [Vector2(-1,-1), Vector2(1,-1), Vector2(-1,1), Vector2(1,1)]:
+		var point: Vector2 = center + signs * radius
+		draw_line(point, point - Vector2(signs.x * corner, 0), color, 2.0)
+		draw_line(point, point - Vector2(0, signs.y * corner), color, 2.0)
 
 ## Отрисовывает интерфейса по текущему состоянию игры.
 func draw_ui() -> void:
@@ -569,13 +570,11 @@ func draw_discovery_card() -> void:
 	if discovery_current.is_empty():
 		return
 	var card := discovery_card_rect()
-	draw_rect(card, Color(0.08, 0.12, 0.11, 0.96))
-	draw_rect(card.grow(-4), Color("355347"))
-	draw_rect(Rect2(card.position + Vector2(4, 4), Vector2(card.size.x - 8, 28)), Color("d5ad55"))
-	draw_string(UI_FONT, card.position + Vector2(12, 23), LocaleSystem.ui("new_nearby"), HORIZONTAL_ALIGNMENT_LEFT, 205, 11, Color("352c21"))
-	draw_string(UI_FONT, card.position + Vector2(220, 23), LocaleSystem.ui("hide"), HORIZONTAL_ALIGNMENT_RIGHT, 76, 11, Color("352c21"))
-	draw_string(UI_FONT, card.position + Vector2(12, 51), discovery_current.title, HORIZONTAL_ALIGNMENT_LEFT, 282, 17, Color("fff0bd"))
-	draw_multiline_string(UI_FONT, card.position + Vector2(12, 72), discovery_current.text, HORIZONTAL_ALIGNMENT_LEFT, 282, 12, 2, Color.WHITE)
+	draw_texture_rect_region(InterfaceRenderer.CARD_ATLAS, card, InterfaceRenderer.CARD_DISCOVERY_SOURCE)
+	draw_string(UI_FONT, card.position + Vector2(18, 25), LocaleSystem.ui("new_nearby"), HORIZONTAL_ALIGNMENT_LEFT, 190, 10, Color("f6dda1"))
+	draw_string(UI_FONT, card.position + Vector2(218, 25), LocaleSystem.ui("hide"), HORIZONTAL_ALIGNMENT_RIGHT, 76, 9, Color("f6dda1"))
+	draw_string(UI_FONT, card.position + Vector2(18, 53), discovery_current.title, HORIZONTAL_ALIGNMENT_LEFT, 274, 15, Color("4c3425"))
+	draw_multiline_string(UI_FONT, card.position + Vector2(18, 73), discovery_current.text, HORIZONTAL_ALIGNMENT_LEFT, 274, 11, 2, Color("654930"))
 	var ratio := clampf(discovery_timer / DiscoverySystem.CARD_DURATION, 0.0, 1.0)
 	draw_rect(Rect2(card.position + Vector2(8, card.size.y - 7), Vector2((card.size.x - 16) * ratio, 3)), Color("f1ca5c"))
 
@@ -589,10 +588,11 @@ func draw_mission_tracker() -> void:
 	if lines.is_empty():
 		return
 	var height := 30.0 + lines.size() * 22.0
-	draw_rect(Rect2(790, 108, 338, height), Color(0.10, 0.18, 0.16, 0.92))
-	draw_string(UI_FONT, Vector2(804, 130), LocaleSystem.ui("quest_tracker"), HORIZONTAL_ALIGNMENT_LEFT, 310, 15, Color("f1ca5c"))
+	var tracker := Rect2(790, 108, 338, height)
+	draw_texture_rect_region(InterfaceRenderer.CARD_ATLAS, tracker, InterfaceRenderer.CARD_QUEST_SOURCE)
+	draw_string(UI_FONT, Vector2(820, 132), LocaleSystem.ui("quest_tracker"), HORIZONTAL_ALIGNMENT_LEFT, 276, 13, Color("5a3823"))
 	for index in lines.size():
-		draw_string(UI_FONT, Vector2(804, 153 + index * 22), lines[index], HORIZONTAL_ALIGNMENT_LEFT, 310, 14, Color("fff4cf"))
+		draw_string(UI_FONT, Vector2(822, 156 + index * 22), "◆  " + lines[index], HORIZONTAL_ALIGNMENT_LEFT, 274, 11, Color("654930"))
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_quest_log() -> void:
