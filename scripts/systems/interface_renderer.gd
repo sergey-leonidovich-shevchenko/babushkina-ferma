@@ -2,12 +2,25 @@ extends RefCounted
 
 const VIEWPORT := Rect2(0, 0, 1152, 648)
 const INVENTORY_SKIN := preload("res://assets/game/ui/inventory_grandmother_skin.png")
+const HUD_PORTRAIT_FRAME := preload("res://assets/game/ui/hud/hud_portrait_frame.tres")
+const HUD_STATUS_FRAME := preload("res://assets/game/ui/hud/hud_status_frame.tres")
+const HUD_CLOCK_FRAME := preload("res://assets/game/ui/hud/hud_clock_frame.tres")
+const HUD_LOCATION_FRAME := preload("res://assets/game/ui/hud/hud_location_frame.tres")
+const HUD_SKILL_BUTTON := preload("res://assets/game/ui/hud/hud_skill_button.tres")
+const HUD_QUEST_BUTTON := preload("res://assets/game/ui/hud/hud_quest_button.tres")
+const WEATHER_ICONS := {
+	"clear":preload("res://assets/game/ui/hud/weather_clear.tres"),
+	"rain":preload("res://assets/game/ui/hud/weather_rain.tres"),
+	"wind":preload("res://assets/game/ui/hud/weather_wind.tres"),
+	"snow":preload("res://assets/game/ui/hud/weather_snow.tres"),
+	"storm":preload("res://assets/game/ui/hud/weather_storm.tres"),
+}
 const INVENTORY_FILTERS := ["all", "tool", "food", "equipment", "resource", "quest"]
-const HUD_RECT := Rect2(0, 0, 1152, 90)
-const PLAYER_PORTRAIT_RECT := Rect2(12, 8, 72, 74)
-const PLAYER_BARS_RECT := Rect2(92, 8, 328, 74)
-const CLOCK_BADGE := Rect2(434, 8, 256, 74)
-const LOCATION_BADGE := Rect2(704, 8, 258, 74)
+const HUD_RECT := Rect2(0, 0, 1152, 96)
+const PLAYER_PORTRAIT_RECT := Rect2(0, 0, 100, 96)
+const PLAYER_BARS_RECT := Rect2(100, 0, 330, 96)
+const CLOCK_BADGE := Rect2(430, 0, 290, 96)
+const LOCATION_BADGE := Rect2(720, 0, 250, 96)
 const INVENTORY_WINDOW := Rect2(88, 7, 976, 634)
 const INVENTORY_GRID_ORIGIN := Vector2(149, 164)
 const INVENTORY_SLOT_SIZE := Vector2(57, 50)
@@ -21,8 +34,8 @@ const USE_BUTTON := Rect2(580, 430, 195, 31)
 const EQUIP_BUTTON := Rect2(580, 469, 94, 29)
 const DROP_BUTTON := Rect2(680, 469, 95, 29)
 const SORT_BUTTON := Rect2(649, 90, 175, 42)
-const SKILL_BUTTON := Rect2(974, 8, 78, 74)
-const QUEST_BUTTON := Rect2(1062, 8, 78, 74)
+const SKILL_BUTTON := Rect2(970, 0, 91, 96)
+const QUEST_BUTTON := Rect2(1061, 0, 91, 96)
 const PAUSE_BUTTON := Rect2(18, 584, 54, 54)
 const DODGE_BUTTON := Rect2(1004, 520, 60, 48)
 const BLOCK_BUTTON := Rect2(1072, 520, 60, 48)
@@ -43,7 +56,6 @@ const MUTED := Color("b9c8b8")
 const PANEL := Color(0.055, 0.09, 0.08, 0.96)
 const PANEL_INNER := Color("203b35")
 const WOOD := Color("78563b")
-const PARCHMENT := Color("e8d7aa")
 const GOLD := Color("efc766")
 
 
@@ -113,9 +125,9 @@ static func draw(game: Node) -> void:
 	draw_hud(game)
 	game.draw_mission_tracker()
 	if game.tutorial_visible and game.tutorial_step < game.tutorial_steps.size():
-		panel(game, Rect2(18, 104, 405, 64), PANEL)
-		game.draw_string(game.UI_FONT, Vector2(32, 126), game.LocaleSystem.ui("tutorial", [game.tutorial_step + 1, game.tutorial_steps.size()]), HORIZONTAL_ALIGNMENT_LEFT, 375, 12, Color("9ed6b3"))
-		game.draw_string(game.UI_FONT, Vector2(32, 153), game.LocaleSystem.tutorial(game.tutorial_steps[game.tutorial_step].event), HORIZONTAL_ALIGNMENT_LEFT, 375, 15, INK)
+		panel(game, Rect2(18, 110, 405, 64), PANEL)
+		game.draw_string(game.UI_FONT, Vector2(32, 132), game.LocaleSystem.ui("tutorial", [game.tutorial_step + 1, game.tutorial_steps.size()]), HORIZONTAL_ALIGNMENT_LEFT, 375, 12, Color("9ed6b3"))
+		game.draw_string(game.UI_FONT, Vector2(32, 159), game.LocaleSystem.tutorial(game.tutorial_steps[game.tutorial_step].event), HORIZONTAL_ALIGNMENT_LEFT, 375, 15, INK)
 	game.draw_discovery_card()
 	if game.shop_open: game.draw_shop()
 	if game.inventory_open: draw_inventory(game)
@@ -129,14 +141,19 @@ static func draw(game: Node) -> void:
 
 ## Отрисовывает HUD по текущему состоянию игры.
 static func draw_hud(game: Node) -> void:
-	draw_wood_frame(game, HUD_RECT)
+	game.draw_texture_rect(HUD_PORTRAIT_FRAME, PLAYER_PORTRAIT_RECT, false)
+	game.draw_texture_rect(HUD_STATUS_FRAME, PLAYER_BARS_RECT, false)
+	game.draw_texture_rect(HUD_CLOCK_FRAME, CLOCK_BADGE, false)
+	game.draw_texture_rect(HUD_LOCATION_FRAME, LOCATION_BADGE, false)
+	game.draw_texture_rect(HUD_SKILL_BUTTON, SKILL_BUTTON, false)
+	game.draw_texture_rect(HUD_QUEST_BUTTON, QUEST_BUTTON, false)
 	var hours := floori(game.game_minutes / 60.0)
 	var minutes := int(game.game_minutes) % 60
 	draw_player_portrait(game)
-	draw_hud_bar(game, Rect2(98, 12, 316, 18), float(game.player_hp) / game.player_max_hp, "♥  HP", "%d/%d" % [game.player_hp, game.player_max_hp], Color("c94d47"))
-	draw_hud_bar(game, Rect2(98, 35, 316, 18), float(game.player_mana) / game.player_max_mana, "◆  MP", "%d/%d" % [game.player_mana, game.player_max_mana], Color("5368c9"))
+	draw_hud_bar(game, Rect2(120, 10, 292, 20), float(game.player_hp) / game.player_max_hp, "♥ HP", "%d/%d" % [game.player_hp, game.player_max_hp], Color("c94d47"))
+	draw_hud_bar(game, Rect2(120, 38, 292, 20), float(game.player_mana) / game.player_max_mana, "◆ MP", "%d/%d" % [game.player_mana, game.player_max_mana], Color("5368c9"))
 	var stamina_max: int = game.SkillSystem.max_stamina(game)
-	draw_hud_bar(game, Rect2(98, 58, 316, 18), float(game.energy) / stamina_max, "✦  EN", "%d/%d" % [game.energy, stamina_max], Color("d49a32"))
+	draw_hud_bar(game, Rect2(120, 66, 292, 20), float(game.energy) / stamina_max, "✦ EN", "%d/%d" % [game.energy, stamina_max], Color("d49a32"))
 	draw_clock_badge(game, hours, minutes)
 	var effects: Array[String] = []
 	if game.regeneration_timer > 0.0: effects.append("❤ %.0fs" % game.regeneration_timer)
@@ -145,14 +162,12 @@ static func draw_hud(game: Node) -> void:
 	if game.invisibility_timer > 0.0: effects.append("◉ %.0fs" % game.invisibility_timer)
 	if game.defense_timer > 0.0: effects.append("◆ %.0fs" % game.defense_timer)
 	if not game.active_companions.is_empty(): effects.append(game.LocaleSystem.ui("companion_command", [game.LocaleSystem.ui("companion_command_%s" % game.state.player.companion_command)]))
-	draw_carved_panel(game, LOCATION_BADGE, false)
-	game.draw_string(game.UI_FONT, LOCATION_BADGE.position + Vector2(10, 24), location_icon(game.current_location), HORIZONTAL_ALIGNMENT_CENTER, 24, 16, GOLD)
-	game.draw_string(game.UI_FONT, LOCATION_BADGE.position + Vector2(38, 23), game.WorldSystem.name(game.current_location).to_upper(), HORIZONTAL_ALIGNMENT_CENTER, 210, 12, Color("ffe8a8"))
-	game.draw_line(Vector2(714, 43), Vector2(952, 43), Color("b47a3d"), 1)
-	game.draw_string(game.UI_FONT, Vector2(716, 67), "●  %d" % game.coins, HORIZONTAL_ALIGNMENT_LEFT, 60, 13, GOLD)
-	game.draw_string(game.UI_FONT, Vector2(778, 67), "  ".join(effects), HORIZONTAL_ALIGNMENT_CENTER, 170, 9, Color("f3dab0"))
-	draw_header_button(game, SKILL_BUTTON, "K", game.skill_points)
-	draw_header_button(game, QUEST_BUTTON, "J", 0)
+	game.draw_string(game.UI_FONT, Vector2(742, 33), location_icon(game.current_location), HORIZONTAL_ALIGNMENT_CENTER, 22, 16, GOLD)
+	game.draw_string(game.UI_FONT, Vector2(764, 31), game.WorldSystem.name(game.current_location).to_upper(), HORIZONTAL_ALIGNMENT_CENTER, 178, 11, Color("ffe8a8"))
+	game.draw_string(game.UI_FONT, Vector2(746, 76), "●  %d" % game.coins, HORIZONTAL_ALIGNMENT_LEFT, 54, 12, GOLD)
+	game.draw_string(game.UI_FONT, Vector2(801, 76), "  ".join(effects), HORIZONTAL_ALIGNMENT_CENTER, 141, 8, Color("f3dab0"))
+	draw_hud_icon_badge(game, SKILL_BUTTON, game.skill_points)
+	draw_hud_icon_badge(game, QUEST_BUTTON, active_quest_count(game))
 	if game.state.fishing.phase == game.FishingSystem.PHASE_WAITING: game.draw_string(game.UI_FONT, Vector2(446, 115), "%.1f" % maxf(game.state.fishing.timer, 0.0), HORIZONTAL_ALIGNMENT_CENTER, 260, 20, Color("d7f6ff"))
 	elif game.state.fishing.phase == game.FishingSystem.PHASE_BITE:
 		game.draw_circle(Vector2(576, 105), 20 + sin(Time.get_ticks_msec() / 100.0) * 3, GOLD)
@@ -178,61 +193,53 @@ static func location_icon(location: String) -> String:
 
 ## Рисует портрет текущего облика героя, уровень и тонкую шкалу опыта в левой медальонной секции.
 static func draw_player_portrait(game: Node) -> void:
-	draw_carved_panel(game, PLAYER_PORTRAIT_RECT, false)
-	game.draw_circle(Vector2(48, 39), 27, Color("2d211c"))
-	game.draw_circle(Vector2(48, 39), 28, GOLD, false, 2.0)
 	var stage: int = game.SkillSystem.hero_skin_stage(game.player_level)
 	var texture: Texture2D = game.DirectionalCharacterSystem.HERO_TEXTURES[stage]
 	var source: Rect2 = game.DirectionalCharacterSystem.source_rect(texture, Vector2.DOWN, 0.0, false)
 	source.position += Vector2(source.size.x * 0.22, 0.0)
 	source.size = Vector2(source.size.x * 0.56, source.size.y * 0.62)
-	game.draw_texture_rect_region(texture, Rect2(20, 9, 56, 57), source)
-	game.draw_rect(Rect2(20, 66, 56, 12), Color("4a2d1c"))
-	game.draw_string(game.UI_FONT, Vector2(22, 75), "УР. %d" % game.player_level, HORIZONTAL_ALIGNMENT_CENTER, 52, 9, Color("ffe5a0"))
+	game.draw_texture_rect_region(texture, Rect2(27, 7, 58, 61), source)
+	game.draw_string(game.UI_FONT, Vector2(28, 86), game.LocaleSystem.ui("level_short", [game.player_level]), HORIZONTAL_ALIGNMENT_CENTER, 57, 8, Color("ffe5a0"))
 	var xp_needed: int = game.SkillSystem.xp_to_next_character_level(game.player_level)
-	game.draw_rect(Rect2(20, 79, 56 * clampf(float(game.player_xp) / xp_needed, 0.0, 1.0), 2), GOLD)
+	game.draw_rect(Rect2(30, 90, 53 * clampf(float(game.player_xp) / xp_needed, 0.0, 1.0), 2), GOLD)
 
 
 ## Рисует статусную шкалу с отдельной иконкой, подписью и числовым значением в стиле выбранного макета.
 static func draw_hud_bar(game: Node, rect: Rect2, ratio: float, label: String, value: String, color: Color) -> void:
-	game.draw_rect(rect, Color("2d1c14"))
-	game.draw_rect(rect.grow(-2), Color("5a3824"))
-	game.draw_rect(Rect2(rect.position + Vector2(78, 4), Vector2((rect.size.x - 84) * clampf(ratio, 0.0, 1.0), rect.size.y - 8)), color)
-	game.draw_string(game.UI_FONT, rect.position + Vector2(7, 14), label, HORIZONTAL_ALIGNMENT_LEFT, 68, 10, Color("ffe4a2"))
-	game.draw_string(game.UI_FONT, rect.position + Vector2(80, 14), value, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 88, 10, Color.WHITE)
+	game.draw_rect(Rect2(rect.position + Vector2(61, 6), Vector2((rect.size.x - 70) * clampf(ratio, 0.0, 1.0), rect.size.y - 12)), Color(color, 0.92))
+	game.draw_string(game.UI_FONT, rect.position + Vector2(8, 15), label, HORIZONTAL_ALIGNMENT_LEFT, 50, 9, Color("ffe4a2"))
+	game.draw_string(game.UI_FONT, rect.position + Vector2(64, 15), value, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 75, 9, Color.WHITE)
 
 
 ## Рисует центральную пергаментную карточку времени, дня, сезона и текущей погоды.
 static func draw_clock_badge(game: Node, hours: int, minutes: int) -> void:
-	draw_carved_panel(game, CLOCK_BADGE, true)
 	var weather: String = game.WorldEventSystem.weather(game)
 	var season: String = game.WorldEventSystem.season(game.day)
-	game.draw_string(game.UI_FONT, Vector2(448, 46), weather_icon(weather), HORIZONTAL_ALIGNMENT_CENTER, 35, 24, Color("bd7b23"))
-	game.draw_string(game.UI_FONT, Vector2(486, 46), "%02d:%02d" % [hours, minutes], HORIZONTAL_ALIGNMENT_CENTER, 188, 29, Color("4a2c1b"))
+	game.draw_texture_rect(weather_icon(weather), Rect2(499, 22, 36, 36), false)
+	game.draw_string(game.UI_FONT, Vector2(520, 54), "%02d:%02d" % [hours, minutes], HORIZONTAL_ALIGNMENT_CENTER, 174, 28, Color("4a2c1b"))
 	var calendar := "%s  •  %s  •  %s" % [game.LocaleSystem.ui("day_short", [game.day]), game.LocaleSystem.ui("season_" + season), game.LocaleSystem.ui("weather_" + weather)]
-	game.draw_string(game.UI_FONT, Vector2(448, 70), calendar.to_upper(), HORIZONTAL_ALIGNMENT_CENTER, 228, 10, Color("6b4326"))
+	game.draw_string(game.UI_FONT, Vector2(462, 82), calendar.to_upper(), HORIZONTAL_ALIGNMENT_CENTER, 230, 9, Color("6b4326"))
 
 
-## Возвращает компактный погодный символ, хорошо различимый в пиксельной панели.
-static func weather_icon(weather: String) -> String:
-	return {"clear":"☀", "rain":"☂", "wind":"≋", "snow":"✧", "storm":"ϟ"}.get(weather, "☀")
+## Возвращает вырезанную из погодного атласа иконку либо безопасный солнечный вариант.
+static func weather_icon(weather: String) -> Texture2D:
+	return WEATHER_ICONS.get(weather, WEATHER_ICONS.clear)
 
 
-## Рисует резную деревянную либо пергаментную секцию внутри общей верхней рамы.
-static func draw_carved_panel(game: Node, rect: Rect2, parchment: bool) -> void:
-	game.draw_rect(rect, Color("2b180f"))
-	game.draw_rect(rect.grow(-3), Color("a06a3c") if not parchment else Color("a9753e"))
-	game.draw_rect(rect.grow(-7), PARCHMENT if parchment else Color("51311f"))
-	game.draw_rect(rect.grow(-7), Color("e7c26a") if parchment else Color("c08a49"), false, 1.0)
-
-
-## Отрисовывает соответствующий элемент по текущим данным активной сцены.
-static func draw_header_button(game: Node, rect: Rect2, key: String, badge: int) -> void:
-	draw_carved_panel(game, rect, false)
-	game.draw_string(game.UI_FONT, rect.position + Vector2(4, 48), key, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 8, 27, Color("ffe39d"))
+## Накладывает числовой бейдж на нарисованную иконку навыков или журнала, не подменяя её буквой.
+static func draw_hud_icon_badge(game: Node, rect: Rect2, badge: int) -> void:
 	if badge > 0:
-		game.draw_circle(rect.position + Vector2(rect.size.x - 8, 8), 9, Color("db6a52"))
-		game.draw_string(game.UI_FONT, rect.position + Vector2(rect.size.x - 14, 13), str(badge), HORIZONTAL_ALIGNMENT_CENTER, 12, 10, Color.WHITE)
+		game.draw_circle(rect.position + Vector2(rect.size.x - 15, 15), 10, Color("c64d35"))
+		game.draw_circle(rect.position + Vector2(rect.size.x - 15, 15), 10, GOLD, false, 2.0)
+		game.draw_string(game.UI_FONT, rect.position + Vector2(rect.size.x - 22, 20), str(badge), HORIZONTAL_ALIGNMENT_CENTER, 14, 9, Color.WHITE)
+
+
+## Подсчитывает активные сюжетные и побочные задания для бейджа нарисованного свитка.
+static func active_quest_count(game: Node) -> int:
+	var count := 1 if game.quest_active and not game.quest_complete else 0
+	for state in game.mission_states.values():
+		if state == "active": count += 1
+	return count
 
 
 ## Рисует игровую панель из того же участка деревянного скина и тех же слотов, что используются в рюкзаке.
@@ -385,11 +392,3 @@ static func draw_action_button(game: Node, rect: Rect2, label: String, enabled: 
 static func panel(game: Node, rect: Rect2, color: Color) -> void:
 	game.draw_rect(rect, Color(0.02, 0.035, 0.03, 0.95))
 	game.draw_rect(rect.grow(-3), color)
-
-
-## Рисует многослойную деревянную раму с латунными уголками и прожилками.
-static func draw_wood_frame(game: Node, rect: Rect2) -> void:
-	game.draw_rect(rect, Color("3b2419")); game.draw_rect(rect.grow(-5), Color("9b663b")); game.draw_rect(rect.grow(-13), Color("53331f"))
-	for y in range(int(rect.position.y + 18), int(rect.end.y - 12), 22): game.draw_line(Vector2(rect.position.x + 14, y), Vector2(rect.end.x - 14, y), Color(0.25, 0.12, 0.06, 0.28), 1)
-	for corner in [rect.position + Vector2(9,9), Vector2(rect.end.x - 9, rect.position.y + 9), Vector2(rect.position.x + 9, rect.end.y - 9), rect.end - Vector2(9,9)]:
-		game.draw_circle(corner, 8, Color("d7aa45")); game.draw_circle(corner, 3, Color("76502a"))

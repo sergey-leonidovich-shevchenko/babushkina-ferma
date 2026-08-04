@@ -82,6 +82,7 @@ const UI := {
 	"hint_quest_npc":["Житель может дать или принять задание. Подойди и нажми E.","This resident can offer or finish a quest. Approach and press E.","Este habitante ofrece o completa una misión. Acércate y pulsa E.","Dieser Bewohner vergibt oder beendet eine Aufgabe. Nähere dich und drücke E.","Cet habitant propose ou termine une quête. Approche et appuie sur E.","这位居民可以发布或完成任务。靠近并按E。"],
 	"character":["РАЗВИТИЕ ПЕРСОНАЖА","CHARACTER DEVELOPMENT","DESARROLLO DEL PERSONAJE","CHARAKTERENTWICKLUNG","PROGRESSION DU PERSONNAGE","角色成长"],
 	"level_points":["Уровень %d • очков: %d","Level %d • points: %d","Nivel %d • puntos: %d","Stufe %d • Punkte: %d","Niveau %d • points : %d","等级%d • 点数：%d"],
+	"level_short":["УР. %d","LV. %d","NV. %d","ST. %d","NIV. %d","等级 %d"],
 	"rank":["РАНГ %d","RANK %d","RANGO %d","RANG %d","RANG %d","等级 %d"],
 	"empty":["Пусто","Empty","Vacío","Leer","Vide","空"],
 	"ready":["готово","ready","listo","bereit","prêt","可收获"],

@@ -94,14 +94,25 @@ func test_every_owned_item_has_a_visible_slot_and_icon_fallback() -> void:
 ## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_hud_layout_is_compact_and_safe() -> void:
 	var game := make_game()
-	expect(game.InterfaceRenderer.HUD_RECT.size.y <= 90.0, "selected adventurer HUD keeps its height below one seventh of the screen")
+	expect(game.InterfaceRenderer.HUD_RECT.size.y <= 96.0, "sliced adventurer HUD keeps its height below one sixth of the screen")
 	expect(not game.InterfaceRenderer.SKILL_BUTTON.intersects(game.InterfaceRenderer.QUEST_BUTTON), "HUD menu buttons do not overlap")
 	expect(game.InterfaceRenderer.HUD_RECT.encloses(game.InterfaceRenderer.PLAYER_PORTRAIT_RECT) and game.InterfaceRenderer.HUD_RECT.encloses(game.InterfaceRenderer.CLOCK_BADGE), "portrait and calendar stay inside the carved top frame")
 	expect(game.InterfaceRenderer.HUD_RECT.encloses(game.InterfaceRenderer.LOCATION_BADGE), "persistent location badge stays inside compact HUD")
 	expect(not game.InterfaceRenderer.LOCATION_BADGE.intersects(game.InterfaceRenderer.PLAYER_BARS_RECT) and not game.InterfaceRenderer.LOCATION_BADGE.intersects(game.InterfaceRenderer.SKILL_BUTTON), "location badge does not overlap player bars or menu buttons")
 	expect(not game.InterfaceRenderer.PLAYER_BARS_RECT.intersects(game.InterfaceRenderer.CLOCK_BADGE) and not game.InterfaceRenderer.CLOCK_BADGE.intersects(game.InterfaceRenderer.LOCATION_BADGE), "second concept keeps portrait bars clock and location in separate modules")
 	for weather in game.WorldEventSystem.WEATHER_NAMES:
-		expect(not game.InterfaceRenderer.weather_icon(weather).is_empty(), "every weather state has a readable HUD icon: %s" % weather)
+		expect(game.InterfaceRenderer.weather_icon(weather) is AtlasTexture, "every weather state uses a sliced pixel-art icon: %s" % weather)
+	var hud_sprites := [game.InterfaceRenderer.HUD_PORTRAIT_FRAME, game.InterfaceRenderer.HUD_STATUS_FRAME, game.InterfaceRenderer.HUD_CLOCK_FRAME, game.InterfaceRenderer.HUD_LOCATION_FRAME, game.InterfaceRenderer.HUD_SKILL_BUTTON, game.InterfaceRenderer.HUD_QUEST_BUTTON]
+	for sprite in hud_sprites:
+		expect(sprite is AtlasTexture and sprite.region.size.y == 248.0, "every top HUD module is a real slice of the production atlas")
+	expect(game.InterfaceRenderer.HUD_PORTRAIT_FRAME.region.end.x == game.InterfaceRenderer.HUD_STATUS_FRAME.region.position.x, "portrait and status atlas slices meet at the authored divider")
+	expect(game.InterfaceRenderer.HUD_STATUS_FRAME.region.end.x == game.InterfaceRenderer.HUD_CLOCK_FRAME.region.position.x, "status and clock atlas slices meet at the authored divider")
+	expect(game.InterfaceRenderer.HUD_CLOCK_FRAME.region.end.x == game.InterfaceRenderer.HUD_LOCATION_FRAME.region.position.x, "clock and location atlas slices meet at the authored divider")
+	expect(game.InterfaceRenderer.HUD_LOCATION_FRAME.region.end.x == game.InterfaceRenderer.HUD_SKILL_BUTTON.region.position.x, "location and skill atlas slices meet at the authored divider")
+	expect(game.InterfaceRenderer.HUD_SKILL_BUTTON.region.end.x == game.InterfaceRenderer.HUD_QUEST_BUTTON.region.position.x, "skill book and quest scroll use adjacent authored sprites")
+	game.quest_active = true
+	game.mission_states["hud_test"] = "active"
+	expect(game.InterfaceRenderer.active_quest_count(game) == 2, "quest scroll badge counts active story and side missions without keyboard letters")
 	for location in game.WorldSystem.LOCATIONS:
 		expect(not game.InterfaceRenderer.location_icon(location).is_empty(), "location badge has an icon for %s" % location)
 	for location in game.BuildingSystem.INTERIORS:
