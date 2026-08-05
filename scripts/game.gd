@@ -138,10 +138,11 @@ func _physics_process(delta: float) -> void:
 	AudioSystem.update(self, delta)
 	update_hud_feedback(delta)
 	AdventurePolishSystem.update(self, delta)
+	if DebugPlaygroundSystem.active(self): DebugPlaygroundSystem.update(self, delta); delta = DebugPlaygroundSystem.simulation_delta(self, delta); if delta <= 0.0: queue_redraw(); return
 	if title_screen or menu_state.pause_open or menu_state.settings_open or AdventurePolishSystem.has_modal(self):
 		queue_redraw()
 		return
-	update_game_clock(delta); WorldEventSystem.update(self); sync_background_environment(); EstateSystem.update_daily_event(self); update_crops(delta); TreeSystem.update(self, delta); MoonGladeSystem.update(self, delta); CastleCampaignSystem.update(self, delta)
+	update_game_clock(delta); WorldEventSystem.update(self); sync_background_environment(); EstateSystem.update_daily_event(self); VillageEventSystem.update(self); update_crops(delta); TreeSystem.update(self, delta); MoonGladeSystem.update(self, delta); CastleCampaignSystem.update(self, delta)
 	update_combat(delta)
 	update_fishing(delta)
 	update_status_effects(delta)
@@ -152,8 +153,7 @@ func _physics_process(delta: float) -> void:
 	SkillSystem.update_resources(self, delta)
 	ForageSystem.update(self)
 	if not DebugPlaygroundSystem.active(self): DiscoverySystem.update(self, delta)
-	if DebugPlaygroundSystem.active(self): DebugPlaygroundSystem.update(self, delta)
-	else: WildlifeSystem.update(self, delta)
+	if not DebugPlaygroundSystem.active(self): WildlifeSystem.update(self, delta)
 	if benchmark_autoplay:
 		update_benchmark_route(delta)
 	if shop_open or inventory_open or crafting_open or storage_open or forge_open or contract_open or quest_log_open or skill_menu_open or world_map_open:
@@ -533,8 +533,8 @@ func nearest_interaction() -> String:
 	if not quest_npc.is_empty():
 		nearest = "quest_npc:%s" % quest_npc
 		nearest_distance = player.distance_to(QuestSystem.npc_position(self, quest_npc))
-	var event_interaction := WorldEventSystem.nearest_interaction(self, nearest_distance)
-	if not event_interaction.is_empty(): nearest = event_interaction
+	var event_interaction := WorldEventSystem.nearest_interaction(self, nearest_distance); if not event_interaction.is_empty(): nearest = event_interaction
+	var village_event := VillageEventSystem.nearest_interaction(self, nearest_distance); if not village_event.is_empty(): nearest = village_event
 	var campaign_interaction := CastleCampaignSystem.nearest_interaction(self, nearest_distance)
 	if not campaign_interaction.is_empty():
 		nearest = campaign_interaction
@@ -601,6 +601,7 @@ func perform_context_action() -> bool:
 		return WorldEventSystem.use_portal(self)
 	if interaction.begins_with("moon_"):
 		return MoonGladeSystem.interact(self, interaction)
+	if interaction.begins_with("village_event:"): return VillageEventSystem.interact(self, interaction.get_slice(":", 1))
 	if interaction.begins_with("castle_"):
 		return CastleCampaignSystem.interact(self, interaction)
 	if interaction == "estate_board": return EstateSystem.purchase_next(self)

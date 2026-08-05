@@ -219,14 +219,7 @@ func draw_interior_objects() -> void:
 	var data: Dictionary = BuildingSystem.interior(current_location)
 	if data.is_empty():
 		return
-	var room: Rect2 = data.room
-	draw_rect(Rect2(room.position + Vector2(34, 48), Vector2(110, 48)), Color("5b3d2c"))
-	draw_rect(Rect2(room.end - Vector2(174, room.size.y - 48), Vector2(120, 54)), Color("735238"))
-	draw_rect(Rect2(data.exit - Vector2(34, 18), Vector2(68, 36)), Color("382d29"))
-	draw_string(UI_FONT, data.exit + Vector2(-44, 38), "E • выход", HORIZONTAL_ALIGNMENT_CENTER, 88, 13, Color("fff0bd"))
-	for link in data.get("links", []):
-		draw_circle(link.position, 34, Color("d6ad52"), false, 5)
-		draw_string(UI_FONT, link.position + Vector2(-58, 6), "ЛЕСТНИЦА", HORIZONTAL_ALIGNMENT_CENTER, 116, 13, Color("fff0bd"))
+	InteriorRenderer.draw(self)
 	if data.has("service"):
 		var service_position: Vector2 = data.service_position
 		draw_rect(Rect2(service_position - Vector2(52, 24), Vector2(104, 48)), Color("d0a45b"))
@@ -300,9 +293,9 @@ func draw_mission_npc(position: Vector2, npc_name: String, mission_id: String, s
 func draw_quest_npcs() -> void:
 	for npc_id in QuestSystem.NPCS:
 		var data: Dictionary = QuestSystem.NPCS[npc_id]
-		if data.location != current_location: continue
 		var position := QuestSystem.npc_position(self, npc_id)
 		var movement: Dictionary = NpcMovementSystem.actor(self, npc_id, position)
+		if String(movement.get("location", data.location)) != current_location: continue
 		draw_npc_sprite(int(data.sprite), position, movement.direction, movement.moving, data.tint)
 		if player.distance_to(position) < 155.0:
 			draw_string(UI_FONT, position + Vector2(-76, 58), QuestSystem.npc_name(npc_id), HORIZONTAL_ALIGNMENT_CENTER, 152, 15, Color("293c2f") if current_location == "overworld" else Color("fff0bd"))
@@ -402,12 +395,7 @@ func draw_world_loot() -> void:
 		var alpha := 0.38 if container.opened else 1.0
 		match container.kind:
 			"chest", "pirate_chest":
-				draw_rect(Rect2(position - Vector2(27, 16), Vector2(54, 34)), Color(0.35, 0.20, 0.10, alpha))
-				draw_rect(Rect2(position - Vector2(24, 13), Vector2(48, 12)), Color(0.62, 0.36, 0.16, alpha))
-				draw_rect(Rect2(position - Vector2(4, 4), Vector2(8, 13)), Color(0.93, 0.72, 0.25, alpha))
-				if container.kind == "pirate_chest": draw_circle(position + Vector2(0,-2), 7, Color("d8d4c1", alpha))
-				if container.opened:
-					draw_line(position - Vector2(24, 16), position + Vector2(20, -32), Color(0.48, 0.27, 0.12, alpha), 8)
+				WorldPolishRenderer.draw_cell(self,4,0,Rect2(position-Vector2(38,38),Vector2(76,76)),Color(1,1,1,alpha))
 			"bone_pile":
 				draw_texture_rect(BONE_PILE_TEXTURE, Rect2(position - Vector2(38, 38), Vector2(76, 76)), false, Color(1, 1, 1, alpha))
 			"sack":
@@ -423,7 +411,7 @@ func draw_world_loot() -> void:
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_enemy_nodes_and_gate() -> void:
 	if not BuildingSystem.is_interior(current_location):
-		draw_circle(world_gate_position, 38, Color(0.90, 0.72, 0.37, 0.28), false, 3)
+		WorldPolishRenderer.draw_cell(self,4,1,Rect2(world_gate_position-Vector2(54,64),Vector2(108,108)),Color(1,1,1,0.88))
 		if player.distance_to(world_gate_position) < 185.0:
 			draw_circle(world_gate_position, 42 + sin(Time.get_ticks_msec() / 180.0) * 4, Color("e6b85e"), false, 6)
 			draw_string(UI_FONT, world_gate_position + Vector2(-75, 68), WorldSystem.name(WorldSystem.next_location(current_location)), HORIZONTAL_ALIGNMENT_LEFT, 180, 14, Color("fff0bd"))

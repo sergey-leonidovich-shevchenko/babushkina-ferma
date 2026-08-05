@@ -106,7 +106,8 @@ static func npc_name(npc_id: String) -> String:
 static func nearest_npc(game: Node, distance_limit: float = 92.0) -> String:
 	var nearest := ""
 	for npc_id in NPCS:
-		if NPCS[npc_id].location != game.current_location: continue
+		var movement: Dictionary = game.npc_movement.get(npc_id, {})
+		if String(movement.get("location", NPCS[npc_id].location)) != game.current_location: continue
 		var distance: float = game.player.distance_to(npc_position(game, npc_id))
 		if distance < distance_limit:
 			distance_limit = distance

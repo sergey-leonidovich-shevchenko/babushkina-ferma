@@ -15,7 +15,7 @@ static func draw_world(game: Node2D) -> void:
 		game.draw_circle(footprint.position + Vector2(4, 4), 2.5, Color(0.20, 0.16, 0.10, float(footprint.time) * 0.16))
 	if float(feedback.get("timer", 0.0)) > 0.0:
 		var action := String(feedback.get("action", ""))
-		if game.AdventurePolishSystem.ACTIONS.has(action): draw_effect(game, int(game.AdventurePolishSystem.ACTIONS[action]), feedback.position, 62.0, game.facing.x < -0.1)
+		if game.AdventurePolishSystem.ACTIONS.has(action): draw_effect(game, int(game.AdventurePolishSystem.ACTIONS[action]), feedback.position, 62.0, game.facing.x < -0.1); game.WorldPolishRenderer.draw_effect(game,{"mine":"stone","chop":"wood","fish_cast":"splash","harvest":"leaves"}.get(action,"dust"),feedback.position+Vector2(0,18),clampf(float(feedback.timer)*2.0,0.0,1.0))
 	for number in feedback.get("damage_numbers", []):
 		game.draw_string(game.UI_FONT, number.position, number.text, HORIZONTAL_ALIGNMENT_CENTER, 70, 21, number.color)
 	draw_target(game); draw_enemy_telegraphs(game)

@@ -37,14 +37,7 @@ static func draw_player(game: Node2D) -> void:
 	var clothes_index := clampi(int(game.state.player.profile.get("clothes", 0)), 0, clothes_palette.size() - 1)
 	var hero_modulate: Color = Color(0.72, 0.82, 1.0, 0.38) if game.invisibility_timer > 0.0 else clothes_palette[clothes_index]
 	game.DirectionalCharacterSystem.draw_hero(game, position + attack_offset, game.facing, moving, hero_modulate)
-	if game.equipped_weapon == "crystal_sword" and attacking:
-		game.draw_line(position + game.facing * 10.0, position + game.facing * 39.0, Color("b9f7ff"), 6.0)
-		game.draw_circle(position + game.facing * 34.0, 8.0, Color(0.30, 0.95, 1.0, 0.28))
-	elif game.equipped_weapon == "forest_sword" and attacking:
-		game.draw_line(position + game.facing * 10.0, position + game.facing * 37.0, Color("e4ddd0"), 6.0)
-	elif game.equipped_weapon == "bow":
-		var pull := 20.0 if attacking else 15.0
-		game.draw_arc(position + game.facing * 18.0, pull, -1.4, 1.4, 12, Color("b77a45"), 4)
+	game.WorldPolishRenderer.draw_held_weapon(game,game.equipped_weapon,position,game.facing,attacking)
 
 
 ## Отрисовывает слизня по текущему состоянию игры.

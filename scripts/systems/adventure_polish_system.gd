@@ -94,7 +94,7 @@ static func open_quest_dialogue(game: Node, npc_id: String) -> bool:
 	var mission_id: String = game.QuestSystem.mission_for_npc(game, npc_id)
 	var dialogue := {"npc_id":npc_id,"mission_id":mission_id,"page":0,"reward":false,"revealed":0.0}
 	if mission_id.is_empty():
-		dialogue.text = game.LocaleSystem.text("thanks"); dialogue.choices = ["leave"]
+		dialogue.text = game.VillageLifeSystem.dialogue_text(game, npc_id); dialogue.choices = ["continue", "leave"]; dialogue.personal = true
 	else:
 		var mission: Dictionary = game.QuestSystem.mission_data(mission_id)
 		var state: String = game.QuestSystem.mission_state(game, mission_id)
@@ -121,6 +121,8 @@ static func handle_dialogue_key(game: Node, key: int) -> void:
 		ui.dialogue_open = false; return
 	if key in [KEY_ENTER, KEY_SPACE]:
 		var mission_id := String(dialogue.get("mission_id", ""))
+		if mission_id.is_empty() and bool(dialogue.get("personal", false)):
+			game.VillageLifeSystem.claim_personal_request(game, String(dialogue.get("npc_id", ""))); ui.dialogue_open = false; return
 		if not mission_id.is_empty():
 			var before: String = game.QuestSystem.mission_state(game, mission_id)
 			game.QuestSystem.talk(game, mission_id)
@@ -134,16 +136,15 @@ static func handle_dialogue_key(game: Node, key: int) -> void:
 ## Передаёт съедобный предмет из активного слота и повышает отношение жителя.
 static func give_hotbar_gift(game: Node, npc_id: String) -> bool:
 	var kind: String = game.hotbar_slots[game.selected_hotbar]
-	if npc_id.is_empty() or not game.InventorySystem.data(kind).get("edible", false) or not game.change_inventory_count(kind, -1):
+	if npc_id.is_empty() or not game.InventorySystem.data(kind).get("edible", false) or game.inventory_item_count(kind) <= 0:
 		game.message = "Для подарка выбери еду на панели"; return false
-	game.state.player.relationships[npc_id] = mini(100, int(game.state.player.relationships.get(npc_id, 0)) + 8)
-	game.message = "Подарок принят • дружба +8"; game.play_sfx("quest_accept"); game.notify_tutorial("npc_gift")
-	return true
+	return game.VillageLifeSystem.give_gift(game, npc_id, kind)
 
 
 ## Сохраняет последнюю квестовую встречу NPC для будущих реплик.
 static func remember_quest(game: Node, npc_id: String, mission_id: String) -> void:
-	game.state.player.quest_memory[npc_id] = {"mission":mission_id,"day":game.day,"state":game.QuestSystem.mission_state(game, mission_id)}
+	var remembered: Dictionary = game.state.player.quest_memory.get(npc_id, {}).duplicate(true)
+	remembered.mission = mission_id; remembered.day = game.day; remembered.state = game.QuestSystem.mission_state(game, mission_id); game.state.player.quest_memory[npc_id] = remembered
 
 
 ## Переключает фиксацию между доступными живыми противниками текущей локации.

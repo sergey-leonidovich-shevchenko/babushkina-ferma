@@ -9,6 +9,13 @@ func run() -> void:
 	test_wildlife_runtime_has_reactions_and_death()
 	test_debug_playground_controls_world_state()
 	test_debug_collision_and_enemy_factory()
+	test_villagers_follow_building_schedule_and_relationships()
+	test_personal_requests_and_daily_gifts()
+	test_distinct_interiors_have_solid_reachable_furniture()
+	test_village_events_have_gameplay_and_rewards()
+	test_debug_inspector_supports_pause_step_pointer_and_graph()
+	test_world_polish_atlas_has_complete_transparent_grid()
+	test_expansion_features_have_tutorial_steps()
 
 
 ## Сценарий: первая карта делится на районы, а ключевые двери остаются связаны дорогами.
@@ -87,4 +94,96 @@ func test_debug_collision_and_enemy_factory() -> void:
 	expect(not game.DebugPlaygroundSystem.is_walkable(game,wall.get_center(),game.PLAYER_RADIUS), "debug obstacle participates in collision testing")
 	game.DebugPlaygroundSystem.toggle_collisions(game); expect(game.DebugPlaygroundSystem.is_walkable(game,wall.get_center(),game.PLAYER_RADIUS), "debug collision switch immediately opens obstacle")
 	game.DebugPlaygroundSystem.change_enemy_level(game,1); game.DebugPlaygroundSystem.spawn_enemy(game); expect(game.enemy_nodes.size() == 1 and game.enemy_nodes[0].level == 2 and game.enemy_nodes[0].location == game.DebugPlaygroundSystem.LOCATION, "debug factory spawns selected enemy level in isolation")
+	game.free()
+
+
+## Сценарий: деревенский житель уходит на работу внутрь здания и остаётся доступен для разговора там.
+## Исходное состояние: ясный полдень, Мирон создан на своей стартовой позиции площади.
+## Ожидаемый результат: расписание переносит Мирона в гильдию, а поиск NPC использует новое место и позицию.
+func test_villagers_follow_building_schedule_and_relationships() -> void:
+	var game := make_game(); game.game_minutes = 12 * 60; game.state.world.weather = "clear"; game.state.world.weather_day = game.day
+	game.NpcMovementSystem.update(game,0.01); var state: Dictionary = game.npc_movement.miron
+	expect(state.location == "guild_interior" and state.schedule == "работает", "village schedule moves working NPC into their actual building")
+	game.current_location = "guild_interior"; game.player = state.position
+	expect(game.QuestSystem.nearest_npc(game) == "miron", "quest interaction follows scheduled NPC across locations")
+	expect(game.VillageLifeSystem.friendship_tier(55) == "добрый друг" and game.VillageLifeSystem.dialogue_text(game,"miron").contains("дружба"), "relationship tier and schedule enrich ordinary dialogue")
+	game.free()
+
+
+## Сценарий: подарок учитывает вкус и дневной лимит, а дружба открывает персональное поручение.
+## Исходное состояние: у героя есть любимая еда Мирона и три моркови, отношения почти достигли порога.
+## Ожидаемый результат: любимый подарок даёт двенадцать дружбы один раз, поручение забирает предметы и выдаёт награду один раз.
+func test_personal_requests_and_daily_gifts() -> void:
+	var game := make_game(); game.change_inventory_count("carrot",4); game.state.player.relationships.miron = 10
+	expect(game.VillageLifeSystem.give_gift(game,"miron","carrot") and game.state.player.relationships.miron == 22, "favorite gift applies NPC-specific friendship value")
+	expect(not game.VillageLifeSystem.give_gift(game,"miron","carrot") and game.inventory_item_count("carrot") == 3, "daily gift guard preserves item after first gift")
+	var coins: int = game.coins; expect(game.VillageLifeSystem.claim_personal_request(game,"miron") and game.coins == coins + 28 and game.inventory_item_count("carrot") == 0, "personal friendship request consumes objective and grants reward")
+	expect(not game.VillageLifeSystem.claim_personal_request(game,"miron"), "personal friendship request cannot be rewarded twice")
+	game.free()
+
+
+## Сценарий: четыре главных интерьера имеют разные атласные наборы и честные коллизии мебели.
+## Исходное состояние: проверяются центральные точки мебели, рабочие точки перед ней и выходы помещений.
+## Ожидаемый результат: мебель твёрдая, рабочая зона и выход достижимы, наборы не совпадают.
+func test_distinct_interiors_have_solid_reachable_furniture() -> void:
+	var game := make_game(); var first_cells: Array = []
+	for location in ["cottage_interior","shop_interior","guild_interior","forge_interior"]:
+		var props: Array = game.InteriorRenderer.PROPS[location]; first_cells.append(props[0].cell)
+		expect(not game.BuildingSystem.is_walkable_inside(location,props[0].position,game.PLAYER_RADIUS), "interior furniture owns collision: %s" % location)
+		var data: Dictionary = game.BuildingSystem.INTERIORS[location]
+		expect(game.BuildingSystem.is_walkable_inside(location,data.exit-Vector2(0,35),game.PLAYER_RADIUS) and game.BuildingSystem.is_walkable_inside(location,data.get("service_position",data.exit),game.PLAYER_RADIUS), "exit and front service remain reachable: %s" % location)
+	expect(first_cells.duplicate().all(func(cell): return first_cells.count(cell) == 1), "main interiors use four distinct thematic prop cells")
+	game.free()
+
+
+## Сценарий: календарные события создают торговлю, пир и защищаемое нападение с единственной наградой.
+## Исходное состояние: события последовательно задаются вручную, здоровье снижено, враги очищены.
+## Ожидаемый результат: рынок открывает торговлю, пир лечит, нападение создаёт три цели и награждает после победы.
+func test_village_events_have_gameplay_and_rewards() -> void:
+	var game := make_game(); game.current_location = "overworld"; game.state.world.estate.event = "market"; game.player = game.VillageEventSystem.POSITIONS.market
+	expect(game.VillageEventSystem.interact(game,"market") and game.shop_open, "market event exposes actual trading window")
+	game.shop_open = false; game.state.world.estate.event = "festival"; game.state.world.estate.event_state = {}; game.player_hp = 20; game.energy = 1
+	expect(game.VillageEventSystem.interact(game,"festival") and game.player_hp == game.player_max_hp and game.energy == game.SkillSystem.max_stamina(game), "festival feast restores hero resources")
+	game.state.world.estate.event = "raid"; game.state.world.estate.event_state = {}; game.enemy_nodes.clear(); game.VillageEventSystem.update(game)
+	expect(game.VillageEventSystem.raid_alive(game) == 3 and game.VillageEventSystem.blocks_position(game,game.VillageEventSystem.POSITIONS.raid,game.PLAYER_RADIUS), "raid creates three scaled enemies and solid barricade")
+	for enemy in game.enemy_nodes: enemy.alive = false
+	var coins: int = game.coins; game.VillageEventSystem.update(game); game.VillageEventSystem.update(game)
+	expect(game.coins == coins + 90 and game.state.world.estate.event_state.rewarded, "raid victory grants its reward exactly once")
+	game.free()
+
+
+## Сценарий: стенд управляется мышью, ставит мир на паузу, делает один кадр и собирает график.
+## Исходное состояние: открыт чистый полигон, выбрана кнопка паузы и затем кнопка шага.
+## Ожидаемый результат: кнопки меняют состояние, дельта равна нулю на паузе и 1/12 на одном шаге, история FPS растёт.
+func test_debug_inspector_supports_pause_step_pointer_and_graph() -> void:
+	var game := make_game(); game.DebugPlaygroundSystem.configure(game); var pause_rect: Rect2 = game.DebugPlaygroundSystem.BUTTONS[4].rect; var step_rect: Rect2 = game.DebugPlaygroundSystem.BUTTONS[5].rect
+	expect(game.DebugPlaygroundSystem.handle_pointer(game,pause_rect.get_center()) and is_zero_approx(game.DebugPlaygroundSystem.simulation_delta(game,0.2)), "mouse pause button freezes debug simulation")
+	game.DebugPlaygroundSystem.handle_pointer(game,step_rect.get_center()); expect(is_equal_approx(game.DebugPlaygroundSystem.simulation_delta(game,0.2),1.0/12.0), "frame-step advances one fixed debug frame")
+	game.DebugPlaygroundSystem.update(game,0.016); game.DebugPlaygroundSystem.update(game,0.016)
+	expect(game.get_meta("debug_playground").frame_history.size() == 2 and game.get_meta("debug_playground").hitboxes and game.get_meta("debug_playground").routes, "debug graph and spatial overlays are enabled and stateful")
+	game.free()
+
+
+## Сценарий: новый атлас интерьеров, событий, оружия и частиц соблюдает строгую сетку и прозрачность.
+## Исходное состояние: движок импортировал PNG 640×512 как ресурс Texture2D.
+## Ожидаемый результат: все двадцать ячеек непустые, углы прозрачны и пурпурный chroma-key отсутствует.
+func test_world_polish_atlas_has_complete_transparent_grid() -> void:
+	var game := make_game(); var image: Image = game.WorldPolishRenderer.ATLAS.get_image(); var filled := true; var chroma := false
+	for row in 4:
+		for column in 5:
+			if not image.get_region(Rect2i(column*128,row*128,128,128)).get_used_rect().has_area(): filled = false
+	for y in range(0,image.get_height(),4):
+		for x in range(0,image.get_width(),4):
+			var pixel: Color = image.get_pixel(x,y); if pixel.a > 0.1 and pixel.r > 0.9 and pixel.b > 0.9 and pixel.g < 0.15: chroma = true
+	expect(image.get_size() == Vector2i(640,512) and image.get_pixel(0,0).a < 0.05 and filled and not chroma, "world polish atlas is transparent chroma-free complete 5x4 grid")
+	game.free()
+
+
+## Сценарий: тестер получает пошаговые подсказки для каждой добавленной механики большого этапа.
+## Исходное состояние: загружен единый каталог обучающих событий и их русские тексты.
+## Ожидаемый результат: личные просьбы, четыре события, мебель и инспектор зарегистрированы и описаны.
+func test_expansion_features_have_tutorial_steps() -> void:
+	var game := make_game()
+	for event in ["personal_request","market_event","festival_event","night_trader","raid_event","interior_furniture","debug_inspector"]:
+		expect(event in game.TutorialSystem.STEP_IDS and not game.LocaleSystem.tutorial(event).is_empty(), "expansion feature has tutorial coverage: %s" % event)
 	game.free()

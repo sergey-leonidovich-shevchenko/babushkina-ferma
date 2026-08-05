@@ -12,7 +12,7 @@ const QUALITY_ORDER := ["normal", "silver", "gold", "iridium"]
 
 ## Создаёт состояние усадьбы, качества предметов, карты и события дня.
 static func default_state() -> Dictionary:
-	return {"level":0,"qualities":{},"discovered":["overworld"],"event_day":0,"event":""}
+	return {"level":0,"qualities":{},"discovered":["overworld"],"event_day":0,"event":"","event_state":{}}
 
 
 ## Нормализует прогресс усадьбы и открытые области старого сохранения.

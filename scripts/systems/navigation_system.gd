@@ -45,6 +45,7 @@ static func is_walkable(game: Node, position: Vector2) -> bool:
 			if position.distance_to(decoration) < game.PLAYER_RADIUS + 38.0:
 				return false
 	elif game.current_location == "overworld":
+		if game.VillageEventSystem.blocks_position(game, position, game.PLAYER_RADIUS): return false
 		if VillageLayoutSystem.is_water(position, game.PLAYER_RADIUS):
 			return false
 		if VillageLayoutSystem.blocks_scenic_prop(position, game.PLAYER_RADIUS):

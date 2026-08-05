@@ -22,16 +22,22 @@ const BUILDINGS := {
 }
 
 const INTERIORS := {
-	"cottage_interior":{"building":"cottage","room":Rect2(210, 120, 732, 440),"spawn":Vector2(576, 500),"exit":Vector2(576, 545),"color":Color("876a45"),"service":"bed","service_position":Vector2(350, 260)},
-	"shop_interior":{"building":"shop_house","room":Rect2(170, 100, 812, 470),"spawn":Vector2(576, 510),"exit":Vector2(576, 555),"color":Color("9b7445"),"service":"shop","service_position":Vector2(576, 230)},
-	"guild_interior":{"building":"guild_hall","room":Rect2(120, 90, 912, 500),"spawn":Vector2(576, 525),"exit":Vector2(576, 575),"color":Color("79573d"),"service":"contracts","service_position":Vector2(576, 230)},
-	"forge_interior":{"building":"forge","room":Rect2(150, 100, 852, 480),"spawn":Vector2(576, 520),"exit":Vector2(576, 565),"color":Color("6b5347"),"service":"forge","service_position":Vector2(576, 240)},
+	"cottage_interior":{"building":"cottage","room":Rect2(210, 120, 732, 440),"spawn":Vector2(576, 500),"exit":Vector2(576, 545),"color":Color("876a45"),"service":"bed","service_position":Vector2(350, 340)},
+	"shop_interior":{"building":"shop_house","room":Rect2(170, 100, 812, 470),"spawn":Vector2(576, 510),"exit":Vector2(576, 555),"color":Color("9b7445"),"service":"shop","service_position":Vector2(576, 330)},
+	"guild_interior":{"building":"guild_hall","room":Rect2(120, 90, 912, 500),"spawn":Vector2(576, 525),"exit":Vector2(576, 575),"color":Color("79573d"),"service":"contracts","service_position":Vector2(576, 330)},
+	"forge_interior":{"building":"forge","room":Rect2(150, 100, 852, 480),"spawn":Vector2(576, 520),"exit":Vector2(576, 565),"color":Color("6b5347"),"service":"forge","service_position":Vector2(576, 340)},
 	"chapel_interior":{"building":"chapel","room":Rect2(210, 80, 732, 500),"spawn":Vector2(576, 520),"exit":Vector2(576, 565),"color":Color("665b72")},
 	"prison_interior":{"building":"prison","room":Rect2(100, 80, 952, 510),"spawn":Vector2(576, 525),"exit":Vector2(576, 575),"color":Color("55575d")},
 	"tower_interior":{"building":"wizard_tower","room":Rect2(220, 70, 712, 520),"spawn":Vector2(576, 525),"exit":Vector2(576, 575),"color":Color("58456d")},
 	"castle_hall":{"building":"moon_castle","room":Rect2(100, 80, 1700, 920),"spawn":Vector2(900, 910),"exit":Vector2(900, 965),"color":Color("6b5c56"),"links":[{"position":Vector2(1490, 220),"target":"castle_upper","spawn":Vector2(576, 520)},{"position":Vector2(270, 830),"target":"castle_dungeon","spawn":Vector2(576, 520)}]},
 	"castle_upper":{"building":"moon_castle","room":Rect2(180, 80, 792, 500),"spawn":Vector2(576, 520),"exit":Vector2(576, 565),"color":Color("76655a"),"back":"castle_hall","back_spawn":Vector2(1430, 250)},
 	"castle_dungeon":{"building":"moon_castle","room":Rect2(120, 80, 912, 510),"spawn":Vector2(576, 520),"exit":Vector2(576, 570),"color":Color("3d4650"),"back":"castle_hall","back_spawn":Vector2(330, 800)},
+}
+const INTERIOR_SOLIDS := {
+	"cottage_interior":[Rect2(265,195,150,120),Rect2(738,225,105,105)],
+	"shop_interior":[Rect2(471,163,210,125),Rect2(795,220,90,90)],
+	"guild_interior":[Rect2(476,163,200,125),Rect2(806,241,88,88)],
+	"forge_interior":[Rect2(486,170,180,140),Rect2(806,241,88,88)],
 }
 
 
@@ -159,7 +165,7 @@ static func enter(game: Node, building_id: String) -> bool:
 	game.update_camera()
 	game.message = game.LocaleSystem.location(target)
 	game.play_sfx("travel")
-	game.notify_tutorial("building_enter")
+	game.notify_tutorial("building_enter"); game.notify_tutorial("interior_furniture")
 	return true
 
 
@@ -203,4 +209,7 @@ static func leave(game: Node) -> bool:
 static func is_walkable_inside(location: String, position: Vector2, radius: float) -> bool:
 	if not INTERIORS.has(location):
 		return true
-	return INTERIORS[location].room.grow(-radius).has_point(position)
+	if not INTERIORS[location].room.grow(-radius).has_point(position): return false
+	for solid in INTERIOR_SOLIDS.get(location, []):
+		if (solid as Rect2).grow(radius).has_point(position): return false
+	return true
