@@ -46,13 +46,13 @@ func test_all_current_mobile_catalog_entries_are_audited() -> void:
 	game.free()
 
 
-## Сценарий: старые одноракурсные ассеты не маскируются процедурным покачиванием как готовая анимация.
-## Исходное состояние: машинный аудит отражает фактическое число направлений и кадров текущих файлов.
-## Ожидаемый результат: долг остаётся явным, а правило подробно записано в проектной документации.
+## Сценарий: после пакета животных ни один подвижный объект не остаётся с одноракурсным ассетом.
+## Исходное состояние: машинный аудит отражает фактическое число направлений и кадров всех файлов.
+## Ожидаемый результат: backlog пуст, а постоянное правило подробно записано в документации.
 func test_known_animation_debt_is_explicit_and_documented() -> void:
 	var game := make_game(); var backlog: Array[String] = game.AnimationAssetRegistry.backlog()
 	expect(not backlog.has("hero") and not backlog.has("companion_mila") and not backlog.has("npc_official"), "finished human animation package leaves the redraw backlog")
-	expect(not backlog.has("drowned_captain") and not backlog.has("orc") and backlog.has("deer"), "finished enemy package leaves only wildlife animation debt explicit")
+	expect(backlog.is_empty(), "finished wildlife package closes the complete moving actor redraw backlog")
 	var documentation := FileAccess.get_file_as_string("res://docs/SPRITE_STANDARD.md")
 	expect(documentation.contains("восьми направлений") and documentation.contains("трёх до пяти кадров"), "Russian project standard records the permanent animation rule")
 	game.free()

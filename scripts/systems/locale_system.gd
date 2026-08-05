@@ -401,6 +401,7 @@ const TUTORIAL := {
 	"settings":["Измени параметр в меню настроек","Change an option in Settings","Cambia una opción en Ajustes","Ändere eine Einstellung","Modifie une option des paramètres","在设置中修改一项"],
 	"save":["Сохрани игру через меню паузы","Save through the pause menu","Guarda desde el menú de pausa","Speichere über das Pausenmenü","Sauvegarde depuis le menu pause","通过暂停菜单保存"],
 	"wildlife":["Найди пугливого зверя","Find a timid animal","Encuentra un animal tímido","Finde ein scheues Tier","Trouve un animal peureux","找到胆小的动物"],
+	"wildlife_behavior":["Проверь реакцию зверя: бегство или контратака","Test an animal reaction: flee or counterattack","Prueba la reacción: huida o contraataque","Teste Flucht oder Gegenangriff","Teste la fuite ou la contre-attaque","测试动物逃跑或反击"],
 	"world_loot":["Обыщи случайный тайник [E]","Search a random stash [E]","Busca un escondite [E]","Durchsuche ein Versteck [E]","Fouille une cache [E]","搜索随机藏匿物 [E]"],
 	"watermelon":["Собери и съешь арбуз","Harvest and eat watermelon","Cosecha y come sandía","Ernte und iss Wassermelone","Récolte et mange une pastèque","收获并吃西瓜"],
 	"potion":["Создай и используй зелье","Craft and use a potion","Fabrica y usa una poción","Stelle einen Trank her","Fabrique et utilise une potion","制作并使用药水"],

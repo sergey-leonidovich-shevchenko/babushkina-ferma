@@ -15,8 +15,8 @@ const AUDIT := {
 	"undead":{"directions":8,"frames":3,"asset":"animated/core_enemy_walk_8dir.png"}, "cave_guardian":{"directions":8,"frames":3,"asset":"animated/core_enemy_walk_8dir.png"},
 	"pirate":{"directions":8,"frames":3,"asset":"animated/pirate_enemy_walk_8dir.png"}, "zombie_pirate":{"directions":8,"frames":3,"asset":"animated/pirate_enemy_walk_8dir.png"},
 	"sea_ghost":{"directions":8,"frames":3,"asset":"animated/pirate_enemy_walk_8dir.png"}, "drowned_captain":{"directions":8,"frames":3,"asset":"animated/pirate_enemy_walk_8dir.png"},
-	"deer":{"directions":2,"frames":6,"asset":"deer_run.png"}, "fox":{"directions":2,"frames":6,"asset":"fox_run.png"}, "boar":{"directions":2,"frames":5,"asset":"boar_run.png"},
-	"bat":{"directions":2,"frames":1,"asset":"fantasy_wildlife_atlas.png"}, "lizard":{"directions":2,"frames":3,"asset":"fantasy_wildlife_atlas.png"},
+	"deer":{"directions":8,"frames":3,"asset":"directional/deer_actions_8dir.png"}, "fox":{"directions":8,"frames":3,"asset":"directional/fox_actions_8dir.png"}, "boar":{"directions":8,"frames":3,"asset":"directional/boar_actions_8dir.png"},
+	"bat":{"directions":8,"frames":3,"asset":"directional/bat_actions_8dir.png"}, "lizard":{"directions":8,"frames":3,"asset":"directional/lizard_actions_8dir.png"},
 }
 
 

@@ -56,6 +56,7 @@ func _ready() -> void:
 		configure_enemy_levels_preview()
 	if "--enemy-animations-preview" in OS.get_cmdline_user_args():
 		EnemyAnimationLibrary.configure_preview(self)
+	if "--debug-playground" in OS.get_cmdline_user_args(): DebugPlaygroundSystem.configure(self)
 	if "--moon-glade-preview" in OS.get_cmdline_user_args():
 		configure_moon_glade_preview()
 	if "--storage-preview" in OS.get_cmdline_user_args():
@@ -140,7 +141,7 @@ func _physics_process(delta: float) -> void:
 	if title_screen or menu_state.pause_open or menu_state.settings_open or AdventurePolishSystem.has_modal(self):
 		queue_redraw()
 		return
-	update_game_clock(delta); WorldEventSystem.update(self); EstateSystem.update_daily_event(self); update_crops(delta); TreeSystem.update(self, delta); MoonGladeSystem.update(self, delta); CastleCampaignSystem.update(self, delta)
+	update_game_clock(delta); WorldEventSystem.update(self); sync_background_environment(); EstateSystem.update_daily_event(self); update_crops(delta); TreeSystem.update(self, delta); MoonGladeSystem.update(self, delta); CastleCampaignSystem.update(self, delta)
 	update_combat(delta)
 	update_fishing(delta)
 	update_status_effects(delta)
@@ -150,8 +151,9 @@ func _physics_process(delta: float) -> void:
 	AnimationSystem.update(self, delta)
 	SkillSystem.update_resources(self, delta)
 	ForageSystem.update(self)
-	DiscoverySystem.update(self, delta)
-	WildlifeSystem.update(self, delta)
+	if not DebugPlaygroundSystem.active(self): DiscoverySystem.update(self, delta)
+	if DebugPlaygroundSystem.active(self): DebugPlaygroundSystem.update(self, delta)
+	else: WildlifeSystem.update(self, delta)
 	if benchmark_autoplay:
 		update_benchmark_route(delta)
 	if shop_open or inventory_open or crafting_open or storage_open or forge_open or contract_open or quest_log_open or skill_menu_open or world_map_open:
@@ -292,10 +294,17 @@ func update_camera() -> void:
 
 ## Устанавливает относящееся к методу значение и синхронизирует зависимое состояние.
 func sync_background_location() -> void:
-	AudioSystem.switch_music(self, current_location); EstateSystem.discover_location(self, current_location)
+	AudioSystem.switch_music(self, current_location)
+	if not DebugPlaygroundSystem.active(self): EstateSystem.discover_location(self, current_location)
 	var background := get_node_or_null("WorldBackground")
 	if background:
 		background.set_location(current_location)
+		background.set_environment(WorldEventSystem.season(day), WorldEventSystem.weather(self))
+
+## Обновляет только сезон и погоду фонового слоя при смене календарного состояния.
+func sync_background_environment() -> void:
+	var background := get_node_or_null("WorldBackground")
+	if background: background.set_environment(WorldEventSystem.season(day), WorldEventSystem.weather(self))
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func apply_immediate_key_response(event: InputEventKey) -> void:
@@ -309,6 +318,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if title_screen or menu_state.pause_open or menu_state.settings_open:
 		MenuSystem.handle_input(self, event)
 		return
+	if DebugPlaygroundSystem.handle_input(self, event): return
 	if AdventurePolishSystem.handle_input(self, event):
 		return
 
@@ -320,6 +330,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		use_active_item()
 	if event is InputEventKey and event.pressed and not event.echo:
 		match event.keycode:
+			KEY_F10: DebugPlaygroundSystem.configure(self)
 			KEY_1: select_hotbar(0)
 			KEY_2: select_hotbar(1)
 			KEY_3: select_hotbar(2)

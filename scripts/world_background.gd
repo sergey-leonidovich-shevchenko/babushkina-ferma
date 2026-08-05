@@ -16,8 +16,11 @@ const BuildingSystem := preload("res://scripts/systems/building_system.gd")
 const VillageLayoutSystem := preload("res://scripts/systems/village_layout_system.gd")
 const PirateShipRenderer := preload("res://scripts/systems/pirate_ship_renderer.gd")
 const VisualAssetSystem := preload("res://scripts/systems/visual_asset_system.gd")
+const DebugPlaygroundSystem := preload("res://scripts/systems/debug_playground_system.gd"); const DebugPlaygroundRenderer := preload("res://scripts/systems/debug_playground_renderer.gd")
 
 var location := "overworld"
+var season := "spring"
+var weather := "clear"
 
 ## Подготавливает узел к работе: создаёт зависимые данные и синхронизирует начальное состояние.
 func _ready() -> void:
@@ -30,6 +33,11 @@ func set_location(value: String) -> void:
 		location = value
 		queue_redraw()
 
+## Синхронизирует сезон и погоду фонового слоя без доступа к изменяемому состоянию игры.
+func set_environment(next_season: String, next_weather: String) -> void:
+	if season == next_season and weather == next_weather: return
+	season = next_season; weather = next_weather; queue_redraw()
+
 ## Отрисовывает текущее визуальное состояние узла.
 func _draw() -> void:
 	if BuildingSystem.is_interior(location): draw_interior()
@@ -37,6 +45,7 @@ func _draw() -> void:
 	elif location == "cave": draw_cave()
 	elif location == "pirate_ship": PirateShipRenderer.draw(self)
 	elif location == "moon_glade": draw_moon_glade()
+	elif location == DebugPlaygroundSystem.LOCATION: DebugPlaygroundRenderer.draw_background(self)
 	else: draw_adventure_location()
 
 ## Отрисовывает редкую ночную локацию, доступную во время Лунного затмения.
@@ -80,8 +89,10 @@ func draw_adventure_location() -> void:
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_overworld() -> void:
 	# Базовый луг остаётся дешёвым тайловым слоем, поверх которого лежат маршруты и объекты.
-	draw_rect(Rect2(Vector2.ZERO, WORLD_SIZE), Color("6f9d50"))
+	var palette := VillageLayoutSystem.seasonal_palette(season)
+	draw_rect(Rect2(Vector2.ZERO, WORLD_SIZE), palette.grass)
 	draw_meadow_texture()
+	draw_village_districts()
 	draw_village_border()
 	draw_village_water()
 	# Связная сеть широких дорог повторяет прогрессию «дом — деревня — приключение».
@@ -103,6 +114,32 @@ func draw_overworld() -> void:
 	draw_string(UI_FONT, BuildingSystem.SELL_CRATE_POSITION + Vector2(-58, 45), LocaleSystem.ui("sell_sign"), HORIZONTAL_ALIGNMENT_CENTER, 116, 15, Color("293c2f"))
 	# Динамические деревья рисует игровой слой: после рубки здесь остаётся видимый пень.
 	draw_texture_rect(RED_MUSHROOMS, Rect2(1680,650,72,72), false)
+	draw_village_ambient_life()
+
+
+## Различает кварталы мягкими бордюрами и напольными деталями, не превращая карту в набор прямоугольников.
+func draw_village_districts() -> void:
+	var palette := VillageLayoutSystem.seasonal_palette(season)
+	for district_id in VillageLayoutSystem.DISTRICTS:
+		var district: Rect2 = VillageLayoutSystem.DISTRICTS[district_id]
+		var tint: Color = palette.grass_light
+		if district_id == "market": tint = Color(palette.path).lightened(0.08)
+		elif district_id == "guild": tint = Color(palette.grass).darkened(0.07)
+		elif district_id == "riverwalk": tint = Color("719a73")
+		draw_rect(district.grow(-12), Color(tint, 0.22))
+		draw_rect(district.grow(-12), Color(tint).lightened(0.12), false, 3.0)
+
+
+## Добавляет спокойную жизнь площади: птиц, вывески районов, фонари и сезонные листья.
+func draw_village_ambient_life() -> void:
+	for spot in VillageLayoutSystem.AMBIENT_SPOTS:
+		draw_circle(spot, 4.0, Color("57463d")); draw_line(spot + Vector2(-4,-2), spot + Vector2(-9,-7), Color("57463d"), 2); draw_line(spot + Vector2(4,-2), spot + Vector2(9,-7), Color("57463d"), 2)
+	for lamp in VillageLayoutSystem.LANTERNS:
+		draw_line(lamp, lamp - Vector2(0,34), Color("594333"), 5); draw_circle(lamp - Vector2(0,39), 8, Color("ffe083") if weather != "rain" else Color("c8d5b4"))
+	if season == "autumn":
+		for index in 18: draw_circle(Vector2(120 + index * 127, 205 + (index * 83) % 810), 4, Color("cf7545"))
+	elif season == "winter":
+		for index in 24: draw_circle(Vector2(70 + index * 97, 150 + (index * 61) % 920), 3, Color(0.93,0.97,1.0,0.8))
 
 
 ## Заполняет луг редкими детерминированными травинками и цветами без заметной сетки.
@@ -121,9 +158,9 @@ func draw_meadow_texture() -> void:
 
 ## Формирует плотную лесную рамку и каменистый угол шахты, как в выбранном концепте локации.
 func draw_village_border() -> void:
-	for position in [Vector2(60,175),Vector2(190,155),Vector2(330,170),Vector2(520,145),Vector2(700,165),Vector2(1710,155),Vector2(1870,145),Vector2(2040,165),Vector2(2210,145),Vector2(2350,175),Vector2(65,390),Vector2(2335,430),Vector2(70,850),Vector2(2325,890)]:
+	for position in VillageLayoutSystem.BORDER_TREES:
 		draw_texture_rect(FOREST_TREE, Rect2(position - Vector2(72, 98), Vector2(144, 144)), false, Color(0.78, 0.94, 0.78, 0.92))
-	for position in [Vector2(70,245),Vector2(120,220),Vector2(175,205),Vector2(225,230),Vector2(95,300)]:
+	for position in VillageLayoutSystem.BORDER_ROCKS:
 		draw_texture_rect(RESOURCE_ROCK, Rect2(position - Vector2(34, 34), Vector2(68, 68)), false, Color("c7c8b5"))
 
 
@@ -156,8 +193,9 @@ func draw_village_water() -> void:
 
 ## Рисует криволинейную дорогу с мягким краем и неброскими каменными деталями.
 func draw_village_route(points: Array) -> void:
+	var palette := VillageLayoutSystem.seasonal_palette(season)
 	draw_polyline(PackedVector2Array(points), Color("7f6649"), 108.0, true)
-	draw_polyline(PackedVector2Array(points), Color("b39365"), 94.0, true)
+	draw_polyline(PackedVector2Array(points), palette.path, 94.0, true)
 	for index in points.size() - 1:
 		var start: Vector2 = points[index]
 		var finish: Vector2 = points[index + 1]

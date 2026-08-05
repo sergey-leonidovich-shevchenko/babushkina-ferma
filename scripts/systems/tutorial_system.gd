@@ -6,7 +6,7 @@ const STEP_IDS := [
 	"quest_complete", "fight", "combat_animation", "combat_dodge", "combat_block", "critical_hit", "loot", "inventory", "inventory_filters", "hotbar", "eat", "equipment", "mine", "tree_chop", "tree_fall", "tree_regrow",
 	"fish_cast", "fish_hook", "fish_control", "fish", "craft_window", "equip", "collision", "travel", "locations", "mission_accept", "story_chain", "side_quests",
 	"mission_complete", "journal", "side_mission", "colored_crystal", "day", "level_up",
-	"skill_point", "profession", "pause_menu", "settings", "save", "wildlife", "world_loot", "watermelon", "potion",
+	"skill_point", "profession", "pause_menu", "settings", "save", "wildlife", "wildlife_behavior", "world_loot", "watermelon", "potion",
 	"shield", "lizard",
 	"building_enter", "locked_building", "castle_floor", "companion_recruit", "companion_change", "companion_commands",
 	"enemy_levels", "enemy_movement", "enemy_attack_styles", "boss_identity", "contact_hazard", "static_attacker", "hero_skin",

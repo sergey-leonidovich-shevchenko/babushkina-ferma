@@ -474,26 +474,21 @@ func enemy_direction_row(direction: Vector2) -> int:
 ## Отрисовывает животных по текущему состоянию игры.
 func draw_wildlife() -> void:
 	for animal in wildlife_nodes:
-		if not animal.alive or animal.location != current_location:
+		if animal.location != current_location:
 			continue
 		var data: Dictionary = WildlifeSystem.TYPES[animal.kind]
 		var position: Vector2 = animal.position.round()
-		if animal.kind in ["bat", "lizard"]:
-			var sprite_index := 0 if animal.kind == "bat" else 1
-			var source_width := FANTASY_WILDLIFE_ATLAS.get_width() / 2.0
-			var source := Rect2(float(sprite_index) * source_width, 0, source_width, FANTASY_WILDLIFE_ATLAS.get_height())
-			var size := Vector2(88, 72) if animal.kind == "bat" else Vector2(92, 68)
-			draw_living_atlas_sprite(FANTASY_WILDLIFE_ATLAS, source, position, size, animal.animation, true, float(sprite_index) * 1.3, animal.direction.x < -0.1)
-		else:
-			var texture: Texture2D = DEER_RUN_SHEET
-			if animal.kind == "fox": texture = FOX_RUN_SHEET
-			elif animal.kind == "boar": texture = BOAR_RUN_SHEET
-			var row := 0
-			if absf(animal.direction.x) > absf(animal.direction.y): row = 2 if animal.direction.x < 0.0 else 3
-			elif animal.direction.y < 0.0: row = 1
-			var frame: int = int(animal.animation * 9.0) % int(data.frames)
-			draw_texture_rect_region(texture, Rect2(position - Vector2(32, 40), Vector2(64, 64)), Rect2(frame * 32, row * 32, 32, 32))
-		if animal.hp < data.hp:
+		var state_name: String = animal.get("visual_state", "idle")
+		var column := 0
+		if state_name in ["run", "flee"]: column = 1 + int(animal.animation * (11.0 if state_name == "flee" else 8.0)) % 3
+		elif state_name == "attack": column = 3
+		elif state_name == "hurt": column = 4
+		elif state_name == "death": column = 5
+		var row := AnimationAssetRegistry.direction_index(animal.direction)
+		var draw_size := Vector2(88, 88) if animal.kind != "bat" else Vector2(94, 94)
+		draw_circle(position + Vector2(0, 12), 18.0, Color(0.08, 0.12, 0.08, 0.25))
+		draw_texture_rect_region(WILDLIFE_ACTION_SHEETS[animal.kind], Rect2(position - draw_size * Vector2(0.5, 0.72), draw_size), Rect2(column * 128, row * 128, 128, 128))
+		if animal.alive and animal.hp < data.hp:
 			draw_rect(Rect2(position - Vector2(25, 44), Vector2(50, 5)), Color("402d32"))
 			draw_rect(Rect2(position - Vector2(24, 43), Vector2(48.0 * animal.hp / float(data.hp), 3)), Color("dc554b"))
 

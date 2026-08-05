@@ -4,6 +4,9 @@ const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
 
 const FEAR_RADIUS := 220.0
 const ROAM_RADIUS := 320.0
+const HURT_DURATION := 0.26
+const DEATH_DURATION := 1.25
+const BOAR_ATTACK_DISTANCE := 72.0
 
 const TYPES := {
 	"deer": {"name":"Лесной олень","hp":3,"speed":250.0,"frames":6,"xp":5,"loot":{"raw_meat":2,"hide":1}},
@@ -29,19 +32,31 @@ const SPAWNS := [
 
 ## Возвращает рассчитанное методом значение в безопасном для вызывающего кода виде.
 static func default_animals() -> Array:
-	return SPAWNS.duplicate(true)
+	var result := SPAWNS.duplicate(true)
+	for animal in result:
+		animal.visual_state = "idle"; animal.state_timer = 0.0; animal.moving = false; animal.attack_timer = 0.0
+	return result
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func update(game: Node, delta: float) -> void:
 	for index in game.wildlife_nodes.size():
 		var animal: Dictionary = game.wildlife_nodes[index]
-		if not animal.alive or animal.location != game.current_location:
+		if animal.location != game.current_location:
 			continue
+		animal.state_timer = maxf(float(animal.get("state_timer", 0.0)) - delta, 0.0)
+		animal.attack_timer = maxf(float(animal.get("attack_timer", 0.0)) - delta, 0.0)
+		if not animal.alive:
+			animal.visual_state = "death"; game.wildlife_nodes[index] = animal; continue
 		animal.animation += delta
 		animal.wander_timer -= delta
 		animal.panic = maxf(animal.panic - delta, 0.0)
 		var distance_to_player: float = animal.position.distance_to(game.player)
 		var afraid: bool = distance_to_player <= FEAR_RADIUS or animal.panic > 0.0
+		if animal.visual_state == "hurt" and animal.state_timer > 0.0:
+			game.wildlife_nodes[index] = animal; continue
+		if animal.kind == "boar" and distance_to_player <= BOAR_ATTACK_DISTANCE and animal.attack_timer <= 0.0:
+			animal.direction = animal.position.direction_to(game.player); animal.visual_state = "attack"; animal.state_timer = 0.34; animal.attack_timer = 1.2
+			game.CombatSystem.damage_player(game, 7, LocaleSystem.entity("boar")); game.wildlife_nodes[index] = animal; game.notify_tutorial("wildlife_behavior"); continue
 		var direction: Vector2 = animal.direction
 		var move_speed := 38.0
 		if afraid:
@@ -62,9 +77,11 @@ static func update(game: Node, delta: float) -> void:
 		next_position.y = clampf(next_position.y, 130.0, game.WORLD_SIZE.y - 90.0)
 		if TYPES[animal.kind].get("flying", false) or game.is_position_walkable(next_position):
 			animal.position = next_position
+			animal.moving = true
 		else:
-			animal.direction = -direction
+			animal.direction = -direction; animal.moving = false
 			animal.wander_timer = 0.0
+		animal.visual_state = "flee" if afraid else ("run" if animal.moving else "idle")
 		game.wildlife_nodes[index] = animal
 
 ## Выполняет операцию «ближайшего» и возвращает результат согласно контракту метода.
@@ -99,9 +116,9 @@ static func attack(game: Node, index: int) -> bool:
 	game.AnimationSystem.begin_player_attack(game)
 	game.play_sfx("attack")
 	game.play_sfx("defeat" if animal.hp <= 0 else "hit")
-	animal.panic = 3.0
+	animal.panic = 3.0; animal.visual_state = "hurt"; animal.state_timer = HURT_DURATION
 	if animal.hp <= 0:
-		animal.alive = false
+		animal.alive = false; animal.visual_state = "death"; animal.state_timer = DEATH_DURATION
 		game.award_xp(TYPES[animal.kind].xp)
 		game.SkillSystem.award_profession_xp(game, "combat", maxi(1, TYPES[animal.kind].xp / 2))
 		for kind in TYPES[animal.kind].loot:

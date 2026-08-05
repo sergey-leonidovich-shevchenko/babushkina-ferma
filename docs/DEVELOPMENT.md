@@ -38,6 +38,9 @@ tools/Godot.app/Contents/MacOS/Godot --path . -- --enemy-levels-preview
 # Восемь направлений и боевые действия всех мобильных противников
 tools/Godot.app/Contents/MacOS/Godot --path . -- --enemy-animations-preview
 
+# Полигон времени, погоды, предметов, врагов, анимаций, квестов и коллизий
+tools/Godot.app/Contents/MacOS/Godot --path . -- --debug-playground
+
 # Установленный домашний сундук с заполненными колонками
 tools/Godot.app/Contents/MacOS/Godot --path . -- --storage-preview
 
@@ -65,6 +68,8 @@ tools/Godot.app/Contents/MacOS/Godot --path . --max-fps 60 --quit-after 480 --pr
 # Финальная встреча приключения Лунной поляны
 tools/Godot.app/Contents/MacOS/Godot --path . -- --moon-glade-preview
 ```
+
+Полигон также открывается из обычной игры клавишей `F10`. На стенде `F1–F3` меняют время, погоду и сезон; `F4` выдаёт тестовый набор; `F5–F6` создают врага и выбирают уровень; `Page Up/Page Down` меняют семейство; `F7` прокручивает состояния животных; `F8` телепортирует по зонам; `F9` меняет состояние квеста; `C` включает коллизии; `F10` возвращает в исходную локацию. Справа постоянно видны FPS, количество объектов, координаты и последнее действие.
 
 ## Обязательная проверка
 
