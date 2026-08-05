@@ -57,6 +57,7 @@ func _ready() -> void:
 	if "--enemy-animations-preview" in OS.get_cmdline_user_args():
 		EnemyAnimationLibrary.configure_preview(self)
 	if "--debug-playground" in OS.get_cmdline_user_args(): DebugPlaygroundSystem.configure(self)
+	if "--farm-life-preview" in OS.get_cmdline_user_args(): language_screen=false; title_screen=false; current_location="overworld"; state.world.estate.level=3; player=Vector2(445,710); day=4; tutorial_visible=false
 	if "--moon-glade-preview" in OS.get_cmdline_user_args():
 		configure_moon_glade_preview()
 	if "--storage-preview" in OS.get_cmdline_user_args():
@@ -90,8 +91,7 @@ func _ready() -> void:
 		title_screen = false
 		MenuSystem.open_pause(self)
 		MenuSystem.open_settings(self, false)
-	NpcMovementSystem.initialize(self)
-	sync_background_location()
+	NpcMovementSystem.initialize(self); FarmLifeSystem.initialize(self); sync_background_location()
 	# На старте постоянная подпись локации достаточна; крупная карточка остаётся для новых мест.
 	if current_location != "overworld": DiscoverySystem.show_location(self, current_location)
 	queue_redraw()
@@ -135,16 +135,14 @@ func configure_moon_glade_preview() -> void:
 
 ## Выполняет один физический кадр и обновляет активные игровые системы в заданном порядке.
 func _physics_process(delta: float) -> void:
-	AudioSystem.update(self, delta)
-	update_hud_feedback(delta)
-	AdventurePolishSystem.update(self, delta)
+	AudioSystem.update(self, delta); update_hud_feedback(delta)
+	AdventurePolishSystem.update(self, delta); delta = FarmLifeSystem.simulation_delta(self,delta); if delta <= 0.0: queue_redraw(); return
 	if DebugPlaygroundSystem.active(self): DebugPlaygroundSystem.update(self, delta); delta = DebugPlaygroundSystem.simulation_delta(self, delta); if delta <= 0.0: queue_redraw(); return
-	if title_screen or menu_state.pause_open or menu_state.settings_open or AdventurePolishSystem.has_modal(self):
+	if title_screen or menu_state.pause_open or menu_state.settings_open or AdventurePolishSystem.has_modal(self) or FarmLifeSystem.modal_active(self):
 		queue_redraw()
 		return
-	update_game_clock(delta); WorldEventSystem.update(self); sync_background_environment(); EstateSystem.update_daily_event(self); VillageEventSystem.update(self); update_crops(delta); TreeSystem.update(self, delta); MoonGladeSystem.update(self, delta); CastleCampaignSystem.update(self, delta)
-	update_combat(delta)
-	update_fishing(delta)
+	update_game_clock(delta); WorldEventSystem.update(self); sync_background_environment(); EstateSystem.update_daily_event(self); VillageEventSystem.update(self); FarmLifeSystem.update(self,delta); update_crops(delta); TreeSystem.update(self, delta); MoonGladeSystem.update(self, delta); CastleCampaignSystem.update(self, delta)
+	update_combat(delta); update_fishing(delta)
 	update_status_effects(delta)
 	CompanionSystem.update(self, delta)
 	NpcMovementSystem.update(self, delta)
@@ -318,7 +316,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if title_screen or menu_state.pause_open or menu_state.settings_open:
 		MenuSystem.handle_input(self, event)
 		return
-	if DebugPlaygroundSystem.handle_input(self, event): return
+	if DebugPlaygroundSystem.handle_input(self,event) or FarmLifeSystem.handle_input(self,event): queue_redraw(); return
 	if AdventurePolishSystem.handle_input(self, event):
 		return
 
@@ -488,7 +486,7 @@ func sleep_until_morning() -> void:
 	energy = SkillSystem.max_stamina(self)
 	player_mana = player_max_mana
 	message = LocaleSystem.text("morning", [day])
-	notify_tutorial("day")
+	notify_tutorial("day"); FarmLifeSystem.on_sleep(self)
 
 ## Выполняет заявленный переход режима и обновляет связанный интерфейс.
 func open_shop() -> void:
@@ -534,7 +532,8 @@ func nearest_interaction() -> String:
 		nearest = "quest_npc:%s" % quest_npc
 		nearest_distance = player.distance_to(QuestSystem.npc_position(self, quest_npc))
 	var event_interaction := WorldEventSystem.nearest_interaction(self, nearest_distance); if not event_interaction.is_empty(): nearest = event_interaction
-	var village_event := VillageEventSystem.nearest_interaction(self, nearest_distance); if not village_event.is_empty(): nearest = village_event
+	var village_event := VillageEventSystem.nearest_interaction(self,nearest_distance); if not village_event.is_empty(): nearest = village_event
+	var life_interaction := FarmLifeSystem.nearest_interaction(self,nearest_distance); if not life_interaction.is_empty(): nearest = life_interaction
 	var campaign_interaction := CastleCampaignSystem.nearest_interaction(self, nearest_distance)
 	if not campaign_interaction.is_empty():
 		nearest = campaign_interaction
@@ -601,7 +600,8 @@ func perform_context_action() -> bool:
 		return WorldEventSystem.use_portal(self)
 	if interaction.begins_with("moon_"):
 		return MoonGladeSystem.interact(self, interaction)
-	if interaction.begins_with("village_event:"): return VillageEventSystem.interact(self, interaction.get_slice(":", 1))
+	if interaction.begins_with("village_event:"): return VillageEventSystem.interact(self,interaction.get_slice(":",1))
+	if interaction.begins_with("life:"): return FarmLifeSystem.interact(self,interaction)
 	if interaction.begins_with("castle_"):
 		return CastleCampaignSystem.interact(self, interaction)
 	if interaction == "estate_board": return EstateSystem.purchase_next(self)
@@ -1046,7 +1046,7 @@ func import_inventory_counts(counts: Dictionary) -> void:
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func save_game() -> bool:
-	var saved := SaveSystem.save(self)
+	var saved := FarmLifeSystem.save_active(self)
 	message = LocaleSystem.text("saved" if saved else "save_failed")
 	if saved:
 		notify_tutorial("save")
@@ -1054,7 +1054,7 @@ func save_game() -> bool:
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func load_game() -> bool:
-	var loaded := SaveSystem.load(self)
+	var loaded := FarmLifeSystem.load_active(self)
 	message = LocaleSystem.text("loaded" if loaded else "load_failed")
 	if loaded:
 		sync_background_location()

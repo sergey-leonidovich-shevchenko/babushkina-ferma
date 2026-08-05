@@ -1,7 +1,7 @@
 extends RefCounted
 
 const POSITIONS := {"market":Vector2(1130,650),"festival":Vector2(1320,650),"traveler":Vector2(1620,650),"raid":Vector2(890,650)}
-const RAID_SPAWNS := [Vector2(870,690),Vector2(1050,720),Vector2(1220,690)]
+const RAID_SPAWNS := [Vector2(870,690),Vector2(1050,720),Vector2(1220,690),Vector2(1110,610)]
 
 
 ## Возвращает память текущего события, совместимую со старыми сохранениями.
@@ -20,10 +20,11 @@ static func update(game: Node) -> void:
 		cleanup_raid(game)
 		for index in RAID_SPAWNS.size():
 			var level: int = clampi(1 + game.day / 7, 1, 5); var hp: int = int(game.CombatSystem.max_hp("orc", level))
-			game.enemy_nodes.append({"kind":"orc","location":"overworld","position":RAID_SPAWNS[index],"home":RAID_SPAWNS[index],"level":level,"max_hp":hp,"hp":hp,"alive":true,"direction":Vector2.LEFT,"moving":false,"attack_timer":1.5 + index * 0.2,"visual_state":"idle","visual_time":0.0,"action_kind":game.CombatSystem.enemy_action_kind("orc"),"action_target":game.player,"event_raid":true})
+			if index == RAID_SPAWNS.size()-1: level = mini(5,level+1); hp = game.CombatSystem.max_hp("orc",level)*2
+			game.enemy_nodes.append({"kind":"orc","location":"overworld","position":RAID_SPAWNS[index],"home":RAID_SPAWNS[index],"level":level,"max_hp":hp,"hp":hp,"alive":true,"direction":Vector2.LEFT,"moving":false,"attack_timer":1.5 + index * 0.2,"visual_state":"idle","visual_time":0.0,"action_kind":game.CombatSystem.enemy_action_kind("orc"),"action_target":game.player,"event_raid":true,"event_raid_boss":index==RAID_SPAWNS.size()-1})
 		value.spawned = true; game.state.world.estate.event_state = value; game.notify_tutorial("raid_event")
 	if event == "raid" and bool(value.spawned) and not bool(value.rewarded) and raid_alive(game) == 0:
-		value.rewarded = true; game.state.world.estate.event_state = value; game.coins += 90; game.award_xp(45,"combat"); game.message = "Налёт отражён • +90 монет • +45 опыта"; game.play_sfx("quest_complete")
+		value.rewarded = true; game.state.world.estate.event_state = value; game.coins += 120; game.award_xp(60,"combat"); var expansion: Dictionary = game.FarmLifeSystem.state(game); expansion.reputation = int(expansion.reputation)+10; game.message = "Капитан налётчиков побеждён • +120 монет • +60 опыта • репутация +10"; game.play_sfx("quest_complete")
 
 
 ## Удаляет завершённый временный отряд, не затрагивая постоянных противников мира.

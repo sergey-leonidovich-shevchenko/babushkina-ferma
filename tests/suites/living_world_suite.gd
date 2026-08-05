@@ -138,17 +138,17 @@ func test_distinct_interiors_have_solid_reachable_furniture() -> void:
 
 ## Сценарий: календарные события создают торговлю, пир и защищаемое нападение с единственной наградой.
 ## Исходное состояние: события последовательно задаются вручную, здоровье снижено, враги очищены.
-## Ожидаемый результат: рынок открывает торговлю, пир лечит, нападение создаёт три цели и награждает после победы.
+## Ожидаемый результат: рынок открывает торговлю, пир лечит, нападение создаёт отряд с капитаном и награждает после победы.
 func test_village_events_have_gameplay_and_rewards() -> void:
 	var game := make_game(); game.current_location = "overworld"; game.state.world.estate.event = "market"; game.player = game.VillageEventSystem.POSITIONS.market
 	expect(game.VillageEventSystem.interact(game,"market") and game.shop_open, "market event exposes actual trading window")
 	game.shop_open = false; game.state.world.estate.event = "festival"; game.state.world.estate.event_state = {}; game.player_hp = 20; game.energy = 1
 	expect(game.VillageEventSystem.interact(game,"festival") and game.player_hp == game.player_max_hp and game.energy == game.SkillSystem.max_stamina(game), "festival feast restores hero resources")
 	game.state.world.estate.event = "raid"; game.state.world.estate.event_state = {}; game.enemy_nodes.clear(); game.VillageEventSystem.update(game)
-	expect(game.VillageEventSystem.raid_alive(game) == 3 and game.VillageEventSystem.blocks_position(game,game.VillageEventSystem.POSITIONS.raid,game.PLAYER_RADIUS), "raid creates three scaled enemies and solid barricade")
+	expect(game.VillageEventSystem.raid_alive(game) == 4 and game.enemy_nodes.any(func(enemy): return enemy.get("event_raid_boss",false)) and game.VillageEventSystem.blocks_position(game,game.VillageEventSystem.POSITIONS.raid,game.PLAYER_RADIUS), "raid creates scaled squad, captain and solid barricade")
 	for enemy in game.enemy_nodes: enemy.alive = false
 	var coins: int = game.coins; game.VillageEventSystem.update(game); game.VillageEventSystem.update(game)
-	expect(game.coins == coins + 90 and game.state.world.estate.event_state.rewarded, "raid victory grants its reward exactly once")
+	expect(game.coins == coins + 120 and game.state.world.estate.event_state.rewarded and game.FarmLifeSystem.state(game).reputation == 10, "raid captain victory grants reward and reputation exactly once")
 	game.free()
 
 

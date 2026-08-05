@@ -9,6 +9,7 @@ const ECLIPSE_ATLAS := preload("res://assets/game/generated/eclipse_event_atlas.
 const INVENTORY_CORE_ATLAS := preload("res://assets/game/generated/inventory_core_atlas.png")
 const INVENTORY_RARE_ATLAS := preload("res://assets/game/generated/inventory_rare_atlas.png")
 const FARM_FOOD_ATLAS := preload("res://assets/game/generated/farm_food_atlas.png")
+const FARM_LIFE_ATLAS := preload("res://assets/game/expansion_pack/expansion_atlas.png")
 const ITEM_TEXTURES := {
 	"iron_helmet": preload("res://assets/game/items/iron_helmet.png"),
 	"guardian_armor": preload("res://assets/game/items/guardian_armor.png"),
@@ -48,6 +49,7 @@ const FARM_FOOD_CELLS := {
 	"honey":Vector2i(0,2), "bread":Vector2i(1,2), "pie":Vector2i(2,2), "pumpkin":Vector2i(3,2), "flour":Vector2i(4,2), "butter":Vector2i(5,2),
 	"jam":Vector2i(0,3), "soup":Vector2i(1,3), "omelet":Vector2i(2,3), "cornbread":Vector2i(3,3), "wool":Vector2i(4,3), "bouquet":Vector2i(5,3),
 }
+const FARM_LIFE_CELLS := {"rustic_table":Vector2i(0,2),"wooden_chair":Vector2i(1,2),"woven_rug":Vector2i(2,2),"potted_fern":Vector2i(3,2),"wooden_wardrobe":Vector2i(4,2),"museum_token":Vector2i(2,1)}
 const LARGE_PROP_BASES := [
 	Vector2(150, 245), Vector2(720, 230), Vector2(1260, 250), Vector2(1900, 225),
 	Vector2(360, 1050), Vector2(980, 1030), Vector2(1600, 1050), Vector2(2220, 1030),
@@ -214,6 +216,12 @@ static func draw_inventory_item(canvas: CanvasItem, kind: String, rect: Rect2) -
 	return true
 
 
+## Рисует предмет быта или музейную награду из атласа жизненного расширения.
+static func draw_farm_life_item(canvas: CanvasItem, kind: String, rect: Rect2) -> bool:
+	if not FARM_LIFE_CELLS.has(kind): return false
+	canvas.draw_texture_rect_region(FARM_LIFE_ATLAS,rect.grow(-1),Rect2(Vector2(FARM_LIFE_CELLS[kind])*Vector2(128,128),Vector2(128,128))); return true
+
+
 ## Проверяет, что зарегистрированный предмет имеет собственную текстуру или ячейку атласа.
 static func has_item_icon(kind: String) -> bool:
-	return ITEM_TEXTURES.has(kind) or INVENTORY_CORE_CELLS.has(kind) or INVENTORY_RARE_CELLS.has(kind) or FARM_FOOD_CELLS.has(kind) or POTION_CELLS.has(kind) or PIRATE_ITEM_CELLS.has(kind) or kind == "eclipse_core"
+	return ITEM_TEXTURES.has(kind) or INVENTORY_CORE_CELLS.has(kind) or INVENTORY_RARE_CELLS.has(kind) or FARM_FOOD_CELLS.has(kind) or FARM_LIFE_CELLS.has(kind) or POTION_CELLS.has(kind) or PIRATE_ITEM_CELLS.has(kind) or kind == "eclipse_core"

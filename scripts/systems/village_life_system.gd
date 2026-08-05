@@ -26,9 +26,8 @@ static func gift_value(game: Node, npc_id: String, kind: String) -> int:
 	var remembered := memory(game, npc_id)
 	if int(remembered.get("gift_day", 0)) == game.day: return 0
 	var taste: Dictionary = PREFERENCES.get(npc_id, {})
-	if kind in taste.get("loves", []): return 12
-	if kind in taste.get("likes", []): return 6
-	return 8 if game.InventorySystem.data(kind).get("edible", false) else -2
+	var value := 12 if kind in taste.get("loves",[]) else (6 if kind in taste.get("likes",[]) else (8 if game.InventorySystem.data(kind).get("edible",false) else -2))
+	return value*2 if game.FarmLifeSystem.birthday_npc(game)==npc_id else value
 
 
 ## Передаёт выбранный предмет NPC, записывает реакцию и не разрешает фармить дружбу в один день.

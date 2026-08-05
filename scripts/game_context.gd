@@ -64,6 +64,7 @@ const ContractSystem := preload("res://scripts/systems/contract_system.gd"); con
 const ContractRenderer := preload("res://scripts/systems/contract_renderer.gd")
 const VillageForegroundRenderer := preload("res://scripts/systems/village_foreground_renderer.gd"); const VillageLayoutSystem := preload("res://scripts/systems/village_layout_system.gd")
 const DebugPlaygroundSystem := preload("res://scripts/systems/debug_playground_system.gd"); const DebugPlaygroundRenderer := preload("res://scripts/systems/debug_playground_renderer.gd"); const InteriorRenderer := preload("res://scripts/systems/interior_renderer.gd"); const VillageEventRenderer := preload("res://scripts/systems/village_event_renderer.gd"); const WorldPolishRenderer := preload("res://scripts/systems/world_polish_renderer.gd")
+const FarmLifeSystem := preload("res://scripts/systems/farm_life_system.gd"); const FarmLifeRenderer := preload("res://scripts/systems/farm_life_renderer.gd")
 const MenuSystem := preload("res://scripts/systems/menu_system.gd"); const MenuRenderer := preload("res://scripts/systems/menu_renderer.gd"); const SettingsSystem := preload("res://scripts/systems/settings_system.gd")
 const GameState := preload("res://scripts/state/game_state.gd")
 const UI_FONT := preload("res://assets/game/fonts/ui_font.tres")

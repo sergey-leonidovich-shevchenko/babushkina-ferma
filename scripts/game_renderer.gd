@@ -520,6 +520,8 @@ func draw_item_icon(kind: String, rect: Rect2) -> void:
 		pass
 	elif VisualAssetSystem.draw_inventory_item(self, kind, rect):
 		pass
+	elif VisualAssetSystem.draw_farm_life_item(self,kind,rect):
+		pass
 	else:
 		var center := rect.get_center(); var radius := minf(rect.size.x, rect.size.y) * 0.38
 		draw_circle(center, radius, inventory_item_color(kind)); draw_circle(center, radius, Color(0.95, 0.9, 0.72, 0.88), false, 2.0)

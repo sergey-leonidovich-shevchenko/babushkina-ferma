@@ -12,7 +12,7 @@ const QUALITY_ORDER := ["normal", "silver", "gold", "iridium"]
 
 ## Создаёт состояние усадьбы, качества предметов, карты и события дня.
 static func default_state() -> Dictionary:
-	return {"level":0,"qualities":{},"discovered":["overworld"],"event_day":0,"event":"","event_state":{}}
+	return {"level":0,"qualities":{},"discovered":["overworld"],"event_day":0,"event":"","event_state":{},"expansion":{}}
 
 
 ## Нормализует прогресс усадьбы и открытые области старого сохранения.
@@ -87,7 +87,8 @@ static func consume_sale_multiplier(game: Node, kind: String) -> float:
 
 ## Возвращает календарный множитель закупочной цены для путника и дня нападения.
 static func purchase_multiplier(game: Node) -> float:
-	return 0.8 if game.state.world.estate.event == "traveler" else (1.15 if game.state.world.estate.event == "raid" else 1.0)
+	var reputation_discount := minf(float(game.state.world.estate.get("expansion",{}).get("reputation",0))*0.002,0.15)
+	return (0.8 if game.state.world.estate.event == "traveler" else (1.15 if game.state.world.estate.event == "raid" else 1.0)) * (1.0-reputation_discount)
 
 
 ## Добавляет посещённую локацию на постоянную карту героя.

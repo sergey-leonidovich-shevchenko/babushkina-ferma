@@ -80,6 +80,9 @@ const ITEM_DATA := {
 	"ectoplasm": {"name": "Морская эктоплазма", "short": "Эктопл.", "color": Color("71d9d0")},
 	"cursed_compass": {"name": "Проклятый компас", "short": "Компас", "color": Color("b66572")},
 	"pirate_cutlass": {"name": "Абордажная сабля", "short": "Сабля", "color": Color("d8e2df"), "equip": "hands"},
+	"rustic_table":{"name":"Дубовый стол","short":"Стол","color":Color("9d6739")}, "wooden_chair":{"name":"Резной стул","short":"Стул","color":Color("a87843")},
+	"woven_rug":{"name":"Тканый ковёр","short":"Ковёр","color":Color("b34f3d")}, "potted_fern":{"name":"Папоротник в горшке","short":"Цветок","color":Color("5f9d4c")},
+	"wooden_wardrobe":{"name":"Деревянный шкаф","short":"Шкаф","color":Color("80502f")}, "museum_token":{"name":"Жетон хранителя","short":"Жетон","color":Color("e3b84c")},
 }
 
 ## Возвращает локализованные метаданные предмета по его идентификатору.

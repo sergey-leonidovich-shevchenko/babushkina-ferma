@@ -28,6 +28,11 @@ const RECIPES := [
 	{"name":"Омлет с зеленью", "inputs":{"egg":2,"milk":1}, "output":"omelet", "count":1},
 	{"name":"Кукурузный хлеб", "inputs":{"corn":2,"flour":1}, "output":"cornbread", "count":1},
 	{"name":"Полевой букет", "inputs":{"flower":3,"fiber":1}, "output":"bouquet", "count":1},
+	{"name":"Дубовый стол", "inputs":{"wood":8}, "output":"rustic_table", "count":1},
+	{"name":"Резной стул", "inputs":{"wood":4}, "output":"wooden_chair", "count":1},
+	{"name":"Тканый ковёр", "inputs":{"fiber":5,"wool":2}, "output":"woven_rug", "count":1},
+	{"name":"Папоротник в горшке", "inputs":{"fiber":2,"flower":2,"stone":1}, "output":"potted_fern", "count":1},
+	{"name":"Деревянный шкаф", "inputs":{"wood":10,"metal":2}, "output":"wooden_wardrobe", "count":1},
 ]
 
 ## Проверяет условие «возможности крафта» без изменения состояния.

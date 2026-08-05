@@ -22,6 +22,10 @@ static func draw(game: Node2D) -> void:
 		var label: String = game.WorldSystem.name(location) if discovered else game.LocaleSystem.ui("map_unknown")
 		game.draw_rect(Rect2(position + Vector2(-78, 19), Vector2(156, 22)), Color(0.025, 0.055, 0.045, 0.82), true)
 		game.draw_string(game.UI_FONT, position + Vector2(-76, 35), label, HORIZONTAL_ALIGNMENT_CENTER, 152, 13, Color("f8f1dc"))
+		if discovered:
+			var quest_here: bool = location == objective; var npc_here: bool = game.npc_movement.values().any(func(actor): return String(actor.get("location",""))==location)
+			if quest_here: game.draw_string(game.UI_FONT,position+Vector2(17,-13),"!",HORIZONTAL_ALIGNMENT_CENTER,20,22,Color("ffe36e"))
+			if npc_here: game.draw_circle(position+Vector2(-20,-15),5,Color("8dd9ff"))
 	game.draw_string(game.UI_FONT, Vector2(122, 94), game.LocaleSystem.ui("world_map"), HORIZONTAL_ALIGNMENT_LEFT, 600, 24, Color("efc766"))
 	game.draw_string(game.UI_FONT, Vector2(670, 92), game.LocaleSystem.ui("map_legend"), HORIZONTAL_ALIGNMENT_RIGHT, 350, 13, Color("b9c8b8"))
 	game.draw_string(game.UI_FONT, Vector2(320, 565), game.LocaleSystem.ui("map_close"), HORIZONTAL_ALIGNMENT_CENTER, 512, 14, Color("b9c8b8"))

@@ -193,11 +193,13 @@ static func attack(game: Node, index: int) -> bool:
 	var attack_range := 280.0 if game.equipped_weapon == "bow" else 105.0
 	if game.player.distance_to(enemy.position) > attack_range: return false
 	game.PotionSystem.break_invisibility(game)
-	var damage: int = player_attack_damage(game)
+	var damage: int = roundi(player_attack_damage(game) * game.FarmLifeSystem.vulnerability(enemy.kind,game.equipped_weapon))
 	game.state.player.combat_hits += 1
-	if game.state.player.combat_hits % 4 == 0: damage *= 2; game.notify_tutorial("critical_hit")
+	var critical: bool = game.state.player.combat_hits % 4 == 0
+	if critical: damage *= 2; game.notify_tutorial("critical_hit")
 	game.AnimationSystem.begin_player_attack(game)
 	game.play_sfx("attack")
+	game.FarmLifeSystem.register_player_attack(game,enemy.position,critical)
 	apply_damage(game, index, damage)
 	game.notify_tutorial("combat_animation")
 	return true
