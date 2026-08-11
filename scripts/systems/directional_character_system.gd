@@ -3,6 +3,10 @@ extends RefCounted
 const COLUMNS := 4
 const ROWS := 8
 const WALK_FPS := 8.0
+const HERO_BASE_SIZE := Vector2(86, 86)
+const HERO_VISUAL_SCALE := 0.75
+const HERO_DRAW_SIZE := HERO_BASE_SIZE * HERO_VISUAL_SCALE
+const HERO_SHADOW_RADII := Vector2(18, 6) * HERO_VISUAL_SCALE
 const AnimationAssetRegistry := preload("res://scripts/systems/animation_asset_registry.gd")
 
 const HERO_TEXTURES := [
@@ -34,7 +38,7 @@ static func source_rect(texture: Texture2D, direction: Vector2, animation_time: 
 ## Рисует героя в облике, соответствующем текущему диапазону уровней.
 static func draw_hero(game: Node2D, position: Vector2, direction: Vector2, moving: bool, modulate: Color = Color.WHITE) -> void:
 	var stage: int = game.SkillSystem.hero_skin_stage(game.player_level)
-	draw_actor(game, HERO_TEXTURES[stage], position, Vector2(86, 86), direction, game.walk_animation_time, moving, modulate)
+	draw_actor(game, HERO_TEXTURES[stage], position, HERO_DRAW_SIZE, direction, game.walk_animation_time, moving, modulate, HERO_SHADOW_RADII)
 
 
 ## Рисует один из трёх архетипов жителя с полноценным направленным циклом шага.
@@ -52,8 +56,8 @@ static func draw_companion(game: Node2D, companion_id: String, position: Vector2
 
 
 ## Рисует общий спрайт актёра с единой точкой опоры у ног и мягкой тенью.
-static func draw_actor(game: Node2D, texture: Texture2D, position: Vector2, size: Vector2, direction: Vector2, animation_time: float, moving: bool, modulate: Color = Color.WHITE) -> void:
-	draw_soft_shadow(game, position + Vector2(0, 25), Vector2(18, 6))
+static func draw_actor(game: Node2D, texture: Texture2D, position: Vector2, size: Vector2, direction: Vector2, animation_time: float, moving: bool, modulate: Color = Color.WHITE, shadow_radii: Vector2 = Vector2(18, 6)) -> void:
+	draw_soft_shadow(game, position + Vector2(0, 25), shadow_radii)
 	if moving:
 		var destination := Rect2(position - Vector2(size.x * 0.5, size.y * 0.68), size)
 		var world_transform: Vector2 = -game.camera_offset

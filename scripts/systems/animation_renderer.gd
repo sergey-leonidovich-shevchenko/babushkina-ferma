@@ -19,25 +19,21 @@ const EnemyAnimationLibrary := preload("res://scripts/systems/enemy_animation_li
 ## Отрисовывает героя по текущему состоянию игры.
 static func draw_player(game: Node2D) -> void:
 	var position: Vector2 = game.player.round()
+	var visual_scale: float = game.DirectionalCharacterSystem.HERO_VISUAL_SCALE
 	var moving: bool = game.get_movement_direction() != Vector2.ZERO
 	var attacking: bool = game.player_attack_timer > 0.0
 	var attack_progress: float = 1.0 - game.player_attack_timer / game.AnimationSystem.PLAYER_ATTACK_DURATION if attacking else 0.0
-	var attack_offset: Vector2 = game.facing * sin(attack_progress * PI) * 7.0
-	var shadow := PackedVector2Array()
-	for point_index in 16:
-		var angle := TAU * point_index / 16.0
-		shadow.append(position + Vector2(cos(angle) * 18.0, 8.0 + sin(angle) * 6.0))
-	game.draw_colored_polygon(shadow, Color(0.08, 0.11, 0.10, 0.35))
+	var attack_offset: Vector2 = game.facing * sin(attack_progress * PI) * 7.0 * visual_scale
 	var walk_frame: int = game.PlayerSystem.animation_frame(game.walk_animation_time, moving)
 	if moving and walk_frame in [0, 3]:
-		var dust: Vector2 = position - game.facing * 12.0 + Vector2(0, 7)
-		game.draw_circle(dust + Vector2(-7, 1), 3.0, Color(0.70, 0.66, 0.55, 0.38))
-		game.draw_circle(dust + Vector2(6, -1), 2.0, Color(0.70, 0.66, 0.55, 0.28))
+		var dust: Vector2 = position - game.facing * 12.0 * visual_scale + Vector2(0, 7) * visual_scale
+		game.draw_circle(dust + Vector2(-7, 1) * visual_scale, 3.0 * visual_scale, Color(0.70, 0.66, 0.55, 0.38))
+		game.draw_circle(dust + Vector2(6, -1) * visual_scale, 2.0 * visual_scale, Color(0.70, 0.66, 0.55, 0.28))
 	var clothes_palette := [Color.WHITE, Color("d5ebff"), Color("ffe0cf"), Color("dcf0d1"), Color("eadcff")]
 	var clothes_index := clampi(int(game.state.player.profile.get("clothes", 0)), 0, clothes_palette.size() - 1)
 	var hero_modulate: Color = Color(0.72, 0.82, 1.0, 0.38) if game.invisibility_timer > 0.0 else clothes_palette[clothes_index]
 	game.DirectionalCharacterSystem.draw_hero(game, position + attack_offset, game.facing, moving, hero_modulate)
-	game.WorldPolishRenderer.draw_held_weapon(game,game.equipped_weapon,position,game.facing,attacking)
+	game.WorldPolishRenderer.draw_held_weapon(game,game.equipped_weapon,position,game.facing,attacking,visual_scale)
 
 
 ## Отрисовывает слизня по текущему состоянию игры.

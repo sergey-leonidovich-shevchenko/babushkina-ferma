@@ -5,6 +5,7 @@ extends "res://tests/suites/suite_base.gd"
 func run() -> void:
 	test_animation_frame_modes()
 	test_directional_character_atlas_frames()
+	test_hero_visual_scale_matches_world_proportions()
 	test_every_human_atlas_uses_actual_left_and_right_rows()
 	test_npc_wander_stays_near_home()
 	test_living_sprite_motion_and_atlases()
@@ -20,6 +21,21 @@ func test_animation_frame_modes() -> void:
 	var game := make_game()
 	expect(game.AnimationSystem.frame(0.7, 4, 10.0) == 3, "looped animation wraps frames deterministically")
 	expect(game.AnimationSystem.frame(2.0, 6, 10.0, false) == 5, "one-shot animation holds its final frame")
+	game.free()
+
+
+## Сценарий: главный герой визуально уменьшен относительно жителей, зданий и предметов окружения.
+## Исходное состояние: базовый авторский размер героя равен 86×86, а игровой масштаб задан одной общей константой.
+## Ожидаемый результат: герой, его тень и предмет в руке используют масштаб 75%, при этом физическая коллизия не меняется.
+func test_hero_visual_scale_matches_world_proportions() -> void:
+	var game := make_game()
+	var characters = game.DirectionalCharacterSystem
+	expect(is_equal_approx(characters.HERO_VISUAL_SCALE, 0.75), "hero is exactly twenty-five percent smaller than the source presentation size")
+	expect(characters.HERO_DRAW_SIZE == Vector2(64.5, 64.5), "hero draw size fits doors and nearby village residents")
+	expect(characters.HERO_SHADOW_RADII == Vector2(13.5, 4.5), "hero shadow follows the reduced visual footprint")
+	var held_item: Rect2 = game.WorldPolishRenderer.held_weapon_destination(Vector2.ZERO, Vector2.RIGHT, false, characters.HERO_VISUAL_SCALE)
+	expect(held_item.size == Vector2(36, 36), "held equipment shrinks together with the hero instead of covering the body")
+	expect(game.PLAYER_RADIUS == 18.0, "visual resizing does not silently alter navigation and interaction collision")
 	game.free()
 
 
