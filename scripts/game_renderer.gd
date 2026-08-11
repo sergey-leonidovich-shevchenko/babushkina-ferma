@@ -22,6 +22,7 @@ func draw_title_screen() -> void:
 		draw_rect(Rect2(360, 133, 432, 28), Color(0.32, 0.24, 0.16, 0.72))
 		draw_string(UI_FONT, Vector2(370, 155), LocaleSystem.ui("title_subtitle"), HORIZONTAL_ALIGNMENT_CENTER, 412, 20, Color("ffe19a"))
 		draw_string(UI_FONT, Vector2(326, 194), LocaleSystem.ui("title_features"), HORIZONTAL_ALIGNMENT_CENTER, 500, 15, Color(1.0, 0.96, 0.82, 0.88))
+		draw_string(UI_FONT, Vector2(1020, 630), "v%s" % ProjectSettings.get_setting("application/config/version", "0.0.0"), HORIZONTAL_ALIGNMENT_RIGHT, 110, 13, Color(1.0, 0.96, 0.82, 0.72))
 		if menu_state.settings_open:
 			MenuRenderer.draw_settings(self)
 		else:

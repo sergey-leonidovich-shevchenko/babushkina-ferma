@@ -2,5 +2,6 @@
 set -e
 repo_root="$(git rev-parse --show-toplevel)"
 cd "$repo_root"
+python3 tools/bump_version.py --stage
 tools/check_architecture.sh
 ./run_tests.sh

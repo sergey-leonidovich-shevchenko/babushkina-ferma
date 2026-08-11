@@ -24,6 +24,8 @@ for suite in tests/suites/*_suite.gd; do
 	check_limit "$suite" 350
 done
 
+python3 tools/bump_version.py --check
+
 if rg -n '^func draw_' scripts/game.gd >/dev/null; then
 	print -u2 -- "Rendering leaked back into scripts/game.gd"
 	exit 1

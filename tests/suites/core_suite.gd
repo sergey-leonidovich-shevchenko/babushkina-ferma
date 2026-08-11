@@ -4,6 +4,7 @@ extends "res://tests/suites/suite_base.gd"
 func run() -> void:
 	test_localization_language_selector_and_catalogs()
 	test_application_icon_assets()
+	test_application_version_is_synchronized_and_automated()
 	test_keyboard_press_and_release()
 	test_immediate_keyboard_response()
 	test_four_direction_character_animation()
@@ -35,6 +36,22 @@ func test_application_icon_assets() -> void:
 	expect(native_icon != null and native_icon.get_length() > 100000, "native icon contains multiple detailed resolutions")
 	var plist := FileAccess.get_file_as_string("res://Бабушкина ферма.app/Contents/Info.plist")
 	expect(plist.contains("CFBundleIconFile") and plist.contains("AppIcon"), "macOS launcher declares its custom icon")
+
+
+## Сценарий: версия приложения имеет один SemVer-источник и повышается каждым будущим коммитом.
+## Исходное состояние: VERSION, настройки Godot, Info.plist и pre-commit hook читаются напрямую.
+## Ожидаемый результат: SemVer не ниже 0.0.1, metadata совпадают, а hook вызывает автоматический patch-bump до тестов.
+func test_application_version_is_synchronized_and_automated() -> void:
+	var version := FileAccess.get_file_as_string("res://VERSION").strip_edges()
+	var parts := version.split(".")
+	var valid := parts.size() == 3 and parts[0].is_valid_int() and parts[1].is_valid_int() and parts[2].is_valid_int()
+	var not_below_initial := valid and (int(parts[0]) > 0 or int(parts[1]) > 0 or int(parts[2]) >= 1)
+	expect(not_below_initial, "application uses semantic version not below 0.0.1")
+	expect(ProjectSettings.get_setting("application/config/version") == version, "Godot application metadata matches VERSION")
+	var plist := FileAccess.get_file_as_string("res://Бабушкина ферма.app/Contents/Info.plist")
+	expect(plist.count("<string>%s</string>" % version) >= 2, "macOS short and build versions match VERSION")
+	var hook := FileAccess.get_file_as_string("res://.githooks/pre-commit")
+	expect(hook.contains("bump_version.py --stage") and hook.find("bump_version.py") < hook.find("run_tests.sh"), "pre-commit bumps and stages version before quality gate")
 
 ## Сценарий: шесть языков полностью покрывают каталоги, а выбор языка работает на всех устройствах ввода.
 ## Исходное состояние: чистые настройки локали и новый экземпляр игры со стартовым выбором языка.
