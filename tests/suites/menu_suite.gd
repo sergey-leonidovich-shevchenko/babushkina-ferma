@@ -11,6 +11,7 @@ func run() -> void:
 	test_pause_save_and_load_cycle()
 	test_fullscreen_is_default_and_migrates_legacy_windowed_config()
 	test_settings_persist_and_apply_audio_levels()
+	test_title_visual_design_assets_and_layout()
 	test_menu_keyboard_gamepad_touch_and_layout()
 	test_exit_is_safe_outside_scene_tree()
 
@@ -35,6 +36,22 @@ func test_title_continue_and_new_game_contract() -> void:
 	expect(not game.title_screen and game.coins == 246, "Continue restores progress and enters the world")
 	game.free()
 	cleanup_files()
+
+
+## Сценарий: титульный экран использует самостоятельный атмосферный арт, кириллический шрифт и встроенную доску меню.
+## Исходное состояние: ресурсы меню импортированы, а четыре hit-зоны должны совпадать с нарисованными плашками справа.
+## Ожидаемый результат: фон имеет нативное разрешение, Alice содержит кириллицу с fallback, а название и кнопки занимают разные безопасные области.
+func test_title_visual_design_assets_and_layout() -> void:
+	var game := make_game()
+	expect(game.TITLE_ART.resource_path.ends_with("title_background_v2.png") and game.TITLE_ART.get_size() == Vector2(1152, 648), "title uses the native-resolution authored farm-and-adventure background")
+	expect(game.MENU_FONT.has_char("Б".unicode_at(0)) and game.MENU_FONT.get_string_size("БАБУШКИНА ФЕРМА", HORIZONTAL_ALIGNMENT_LEFT, -1, 54).x > 300.0, "Alice menu font imports real Cyrillic title glyphs")
+	expect(game.MENU_FONT.has_char("菜".unicode_at(0)), "menu font keeps the configured CJK fallback for every supported locale")
+	expect(FileAccess.file_exists("res://assets/game/fonts/Alice-OFL.txt"), "bundled decorative font keeps its open license beside the asset")
+	var painted_board := Rect2(786, 300, 306, 268)
+	for index in game.MenuSystem.TITLE_ITEMS.size():
+		expect(painted_board.encloses(game.MenuRenderer.title_item_rect(index)), "title hit row fits its painted inventory-style button: %d" % index)
+	expect(not game.MenuRenderer.TITLE_WORDMARK_RECT.intersects(game.MenuRenderer.TITLE_PANEL), "storybook wordmark stays clear of the integrated menu board")
+	game.free()
 
 
 ## Сценарий: открытая пауза полностью останавливает игровое время и безопасно возобновляет его.

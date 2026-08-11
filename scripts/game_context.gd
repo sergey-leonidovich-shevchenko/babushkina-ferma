@@ -3,7 +3,7 @@ extends Node2D
 const TILE := 48
 const FARM_ORIGIN := Vector2i(80, 880)
 const FARM_SIZE := Vector2i(6, 5)
-const TITLE_ART := preload("res://assets/title_art_rpg.png")
+const TITLE_ART := preload("res://assets/game/ui/title/title_background_v2.png")
 const PLANT_SHEET := preload("res://assets/game/environment/farm_plants.png")
 const SUPPLY_SHEET := preload("res://assets/game/ui/farm_supplies.png")
 const FARMER_SHEET := preload("res://assets/game/characters/farmer_walk.png")
@@ -67,7 +67,7 @@ const DebugPlaygroundSystem := preload("res://scripts/systems/debug_playground_s
 const FarmLifeSystem := preload("res://scripts/systems/farm_life_system.gd"); const FarmLifeRenderer := preload("res://scripts/systems/farm_life_renderer.gd")
 const MenuSystem := preload("res://scripts/systems/menu_system.gd"); const MenuRenderer := preload("res://scripts/systems/menu_renderer.gd"); const SettingsSystem := preload("res://scripts/systems/settings_system.gd")
 const GameState := preload("res://scripts/state/game_state.gd")
-const UI_FONT := preload("res://assets/game/fonts/ui_font.tres")
+const UI_FONT := preload("res://assets/game/fonts/ui_font.tres"); const MENU_FONT := preload("res://assets/game/fonts/menu_font.tres")
 const ITEM_HELMET := preload("res://assets/game/items/iron_helmet.png")
 const ITEM_ARMOR := preload("res://assets/game/items/guardian_armor.png")
 const ITEM_BOOTS := preload("res://assets/game/items/travel_boots.png")

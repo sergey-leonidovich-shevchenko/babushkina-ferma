@@ -8,21 +8,13 @@ func _draw() -> void:
 func draw_title_screen() -> void:
 	if title_screen:
 		draw_texture_rect(TITLE_ART, Rect2(0, 0, 1152, 648), false)
-		draw_rect(Rect2(0, 0, 1152, 202), Color(0.03, 0.055, 0.075, 0.38))
-		draw_rect(Rect2(0, 500, 1152, 148), Color(0.025, 0.045, 0.04, 0.32))
 		var pulse := 0.78 + sin(Time.get_ticks_msec() / 520.0) * 0.10
-		for firefly in 7:
+		for firefly in 5:
 			var phase := Time.get_ticks_msec() / 900.0 + firefly * 1.73
-			var point := Vector2(95 + firefly * 163 + sin(phase) * 22, 390 + cos(phase * 0.73) * 68)
+			var point := Vector2(112 + firefly * 139 + sin(phase) * 22, 390 + cos(phase * 0.73) * 68)
 			draw_circle(point, 3.0, Color(1.0, 0.83, 0.35, 0.20 + pulse * 0.22))
-		var title_rect := Rect2(196, 54, 760, 62)
-		draw_string(UI_FONT, title_rect.position + Vector2(3, 52), LocaleSystem.ui("title"), HORIZONTAL_ALIGNMENT_CENTER, title_rect.size.x, 50, Color(0.08, 0.09, 0.08, 0.78))
-		draw_string(UI_FONT, title_rect.position + Vector2(0, 48), LocaleSystem.ui("title"), HORIZONTAL_ALIGNMENT_CENTER, title_rect.size.x, 50, Color("fff0bd"))
-		draw_rect(Rect2(355, 128, 442, 38), Color(0.12, 0.20, 0.18, 0.80))
-		draw_rect(Rect2(360, 133, 432, 28), Color(0.32, 0.24, 0.16, 0.72))
-		draw_string(UI_FONT, Vector2(370, 155), LocaleSystem.ui("title_subtitle"), HORIZONTAL_ALIGNMENT_CENTER, 412, 20, Color("ffe19a"))
-		draw_string(UI_FONT, Vector2(326, 194), LocaleSystem.ui("title_features"), HORIZONTAL_ALIGNMENT_CENTER, 500, 15, Color(1.0, 0.96, 0.82, 0.88))
-		draw_string(UI_FONT, Vector2(1020, 630), "v%s" % ProjectSettings.get_setting("application/config/version", "0.0.0"), HORIZONTAL_ALIGNMENT_RIGHT, 110, 13, Color(1.0, 0.96, 0.82, 0.72))
+		MenuRenderer.draw_title_wordmark(self)
+		draw_string(MENU_FONT, Vector2(1020, 630), "v%s" % ProjectSettings.get_setting("application/config/version", "0.0.0"), HORIZONTAL_ALIGNMENT_RIGHT, 110, 13, Color(1.0, 0.92, 0.72, 0.78))
 		if menu_state.settings_open:
 			MenuRenderer.draw_settings(self)
 		else:
@@ -32,14 +24,14 @@ func draw_title_screen() -> void:
 func draw_language_screen() -> void:
 	draw_texture_rect(TITLE_ART, Rect2(0, 0, 1152, 648), false)
 	draw_rect(Rect2(0, 0, 1152, 648), Color(0.025, 0.055, 0.055, 0.74))
-	draw_string(UI_FONT, Vector2(196, 112), LocaleSystem.ui("choose_language"), HORIZONTAL_ALIGNMENT_CENTER, 760, 38, Color("fff4cf"))
+	draw_string(MENU_FONT, Vector2(196, 112), LocaleSystem.ui("choose_language"), HORIZONTAL_ALIGNMENT_CENTER, 760, 38, Color("fff4cf"))
 	for index in LocaleSystem.LOCALES.size():
 		var rect := language_button_rect(index)
 		var selected := index == language_selected
 		draw_rect(rect, Color("e8bd62") if selected else Color("365548"))
 		draw_rect(rect.grow(-4), Color("fff0bd") if selected else Color("4d7161"))
-		draw_string(UI_FONT, rect.position + Vector2(10, 40), "%d  %s" % [index + 1, LocaleSystem.language_name(index)], HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 20, 24, Color("352e28") if selected else Color.WHITE)
-	draw_string(UI_FONT, Vector2(236, 540), LocaleSystem.ui("confirm"), HORIZONTAL_ALIGNMENT_CENTER, 680, 18, Color.WHITE)
+		draw_string(MENU_FONT, rect.position + Vector2(10, 40), "%d  %s" % [index + 1, LocaleSystem.language_name(index)], HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 20, 24, Color("352e28") if selected else Color.WHITE)
+	draw_string(MENU_FONT, Vector2(236, 540), LocaleSystem.ui("confirm"), HORIZONTAL_ALIGNMENT_CENTER, 680, 18, Color.WHITE)
 
 ## Отрисовывает мира по текущему состоянию игры.
 func draw_world() -> void:

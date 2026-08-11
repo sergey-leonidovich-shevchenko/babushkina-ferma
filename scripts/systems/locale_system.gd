@@ -17,6 +17,7 @@ const UI := {
 	"continue_game":["ПРОДОЛЖИТЬ","CONTINUE","CONTINUAR","FORTSETZEN","CONTINUER","继续游戏"],
 	"new_game":["НОВАЯ ИГРА","NEW GAME","NUEVA PARTIDA","NEUES SPIEL","NOUVELLE PARTIE","新游戏"],
 	"settings":["НАСТРОЙКИ","SETTINGS","AJUSTES","EINSTELLUNGEN","PARAMÈTRES","设置"],
+	"main_menu":["МЕНЮ","MENU","MENÚ","MENÜ","MENU","菜单"],
 	"exit_game":["ВЫЙТИ ИЗ ИГРЫ","EXIT GAME","SALIR DEL JUEGO","SPIEL BEENDEN","QUITTER LE JEU","退出游戏"],
 	"paused":["ПАУЗА","PAUSED","PAUSA","PAUSE","PAUSE","暂停"],
 	"resume":["ПРОДОЛЖИТЬ ИГРУ","RESUME","REANUDAR","WEITERSPIELEN","REPRENDRE","继续"],
