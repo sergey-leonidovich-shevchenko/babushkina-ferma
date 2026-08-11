@@ -280,8 +280,7 @@ func draw_mission_npc(position: Vector2, npc_name: String, mission_id: String, s
 		draw_string(UI_FONT, position + Vector2(-62, 58), npc_name, HORIZONTAL_ALIGNMENT_CENTER, 124, 15, Color("293c2f"))
 	var state: String = mission_states.get(mission_id, QuestSystem.AVAILABLE)
 	var marker := "!" if state == QuestSystem.AVAILABLE else ("✓" if state == QuestSystem.COMPLETED else "?")
-	draw_circle(position - Vector2(0, 62), 16, Color("f1ca5c") if state != QuestSystem.COMPLETED else Color("70bd78"))
-	draw_string(UI_FONT, position + Vector2(-8, -56), marker, HORIZONTAL_ALIGNMENT_CENTER, 16, 20, Color("3b3225"))
+	draw_quest_marker(position, marker)
 
 ## Отрисовывает жителей с заданиями только в их родной локации и показывает доступность диалога.
 func draw_quest_npcs() -> void:
@@ -295,8 +294,20 @@ func draw_quest_npcs() -> void:
 			draw_string(UI_FONT, position + Vector2(-76, 58), QuestSystem.npc_name(npc_id), HORIZONTAL_ALIGNMENT_CENTER, 152, 15, Color("293c2f") if current_location == "overworld" else Color("fff0bd"))
 		var marker := QuestSystem.npc_marker(self, npc_id)
 		if marker.is_empty(): continue
-		draw_circle(position - Vector2(0, 62), 16, Color("f1ca5c") if marker != "✓" else Color("70bd78"))
-		draw_string(UI_FONT, position + Vector2(-8, -56), marker, HORIZONTAL_ALIGNMENT_CENTER, 16, 20, Color("3b3225"))
+		draw_quest_marker(position, marker)
+
+
+## Рисует компактный пиксельный маркер задания, не перекрывающий голову персонажа и окружение.
+func draw_quest_marker(position: Vector2, marker: String) -> void:
+	var bob := sin(Time.get_ticks_msec() / 240.0 + position.x * 0.01) * 2.0
+	var center := position + Vector2(0, -67 + bob)
+	var color := Color("75bf79") if marker == "✓" else Color("efc85c")
+	var shadow := PackedVector2Array([center+Vector2(-9,-8),center+Vector2(9,-8),center+Vector2(9,7),center+Vector2(0,13),center+Vector2(-9,7)])
+	draw_colored_polygon(shadow, Color(0.12,0.14,0.12,0.42))
+	var badge := PackedVector2Array([center+Vector2(-7,-9),center+Vector2(7,-9),center+Vector2(7,5),center+Vector2(0,10),center+Vector2(-7,5)])
+	draw_colored_polygon(badge, color)
+	draw_polyline(PackedVector2Array([badge[0],badge[1],badge[2],badge[3],badge[4],badge[0]]), Color("5a4524"), 1.5)
+	draw_string(UI_FONT, center + Vector2(-6, 3), marker, HORIZONTAL_ALIGNMENT_CENTER, 12, 12, Color("30281d"))
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func forage_sprite_layout(kind: String, position: Vector2) -> Dictionary:
@@ -340,8 +351,7 @@ func draw_tree_nodes() -> void:
 		var stage: int = tree.stage
 		var flash: float = tree.hit_flash
 		if stage == 0:
-			draw_rect(Rect2(position + Vector2(-18, 20), Vector2(36, 18)), Color("75492f"), true)
-			draw_ellipse_stump(position + Vector2(0, 20))
+			VillageAmbientRenderer.draw_stump(self, position)
 		else:
 			var size := Vector2(64, 64) if stage == 1 else (Vector2(128, 128) if stage == 2 else Vector2(192, 192))
 			var anchor := Vector2(size.x * 0.5, size.y * 0.67)
@@ -353,12 +363,6 @@ func draw_tree_nodes() -> void:
 			draw_rect(bar, Color("243b35")); draw_rect(Rect2(bar.position + Vector2.ONE, Vector2((bar.size.x - 2) * progress, bar.size.y - 2)), Color("70c66a"))
 		if stage == 3 and int(tree.health) < TreeSystem.MAX_HEALTH:
 			for heart in TreeSystem.MAX_HEALTH: draw_circle(position + Vector2(-14 + heart * 14, -68), 4, Color("df6657") if heart < int(tree.health) else Color("5b493e"))
-
-## Рисует овальный срез пня как самостоятельный пиксельный элемент окружения.
-func draw_ellipse_stump(center: Vector2) -> void:
-	var points := PackedVector2Array()
-	for step in 16: points.append(center + Vector2(cos(TAU * step / 16.0) * 20.0, sin(TAU * step / 16.0) * 8.0))
-	draw_colored_polygon(points, Color("c48b52")); draw_polyline(points, Color("8d5b38"), 2.0)
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_resource_nodes() -> void:
@@ -382,25 +386,7 @@ func draw_dropped_items() -> void:
 
 ## Отрисовывает мира добычи по текущему состоянию игры.
 func draw_world_loot() -> void:
-	for container in world_loot_nodes:
-		if container.location != current_location:
-			continue
-		var position: Vector2 = container.position.round()
-		var alpha := 0.38 if container.opened else 1.0
-		match container.kind:
-			"chest", "pirate_chest":
-				WorldPolishRenderer.draw_cell(self,4,0,Rect2(position-Vector2(38,38),Vector2(76,76)),Color(1,1,1,alpha))
-			"bone_pile":
-				draw_texture_rect(BONE_PILE_TEXTURE, Rect2(position - Vector2(38, 38), Vector2(76, 76)), false, Color(1, 1, 1, alpha))
-			"sack":
-				draw_circle(position + Vector2(0, 5), 22, Color(0.62, 0.47, 0.27, alpha))
-				draw_colored_polygon(PackedVector2Array([position + Vector2(-11,-10),position + Vector2(11,-10),position + Vector2(5,-25),position + Vector2(-5,-25)]), Color(0.76, 0.61, 0.37, alpha))
-			"trash":
-				draw_circle(position, 25, Color(0.26, 0.31, 0.27, alpha))
-				draw_line(position - Vector2(18, 14), position + Vector2(17, 13), Color(0.58, 0.46, 0.31, alpha), 7)
-				draw_circle(position + Vector2(10, -8), 8, Color(0.43, 0.49, 0.45, alpha))
-		if container.opened:
-			draw_string(UI_FONT, position + Vector2(-35, 38), LocaleSystem.ui("empty"), HORIZONTAL_ALIGNMENT_CENTER, 70, 12, Color(0.8, 0.8, 0.75, 0.55))
+	WorldLootRenderer.draw(self)
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_enemy_nodes_and_gate() -> void:

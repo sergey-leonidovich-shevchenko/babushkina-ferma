@@ -12,6 +12,7 @@ tmp/
 /showcase_*.png.import
 /assets/game/tiles/*_preview.png
 /assets/game/tiles/*_preview.png.import
+/assets/game/environment/source/
 /assets/generated/level_drafts/*
 !/assets/generated/level_drafts/README_FIRST_LEVEL_MASTER.md
 !/assets/generated/level_drafts/README_FIRST_LEVEL_TILING.md

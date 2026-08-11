@@ -62,7 +62,7 @@ const StorageSystem := preload("res://scripts/systems/storage_system.gd"); const
 const ForgeSystem := preload("res://scripts/systems/forge_system.gd")
 const ContractSystem := preload("res://scripts/systems/contract_system.gd"); const AdventurePolishSystem := preload("res://scripts/systems/adventure_polish_system.gd"); const AdventurePolishRenderer := preload("res://scripts/systems/adventure_polish_renderer.gd")
 const ContractRenderer := preload("res://scripts/systems/contract_renderer.gd")
-const VillageForegroundRenderer := preload("res://scripts/systems/village_foreground_renderer.gd"); const VillageLayoutSystem := preload("res://scripts/systems/village_layout_system.gd")
+const VillageForegroundRenderer := preload("res://scripts/systems/village_foreground_renderer.gd"); const VillageLayoutSystem := preload("res://scripts/systems/village_layout_system.gd"); const VillageAmbientRenderer := preload("res://scripts/systems/village_ambient_renderer.gd"); const WorldLootRenderer := preload("res://scripts/systems/world_loot_renderer.gd")
 const DebugPlaygroundSystem := preload("res://scripts/systems/debug_playground_system.gd"); const DebugPlaygroundRenderer := preload("res://scripts/systems/debug_playground_renderer.gd"); const DebugOverlaySystem := preload("res://scripts/systems/debug_overlay_system.gd"); const DebugOverlayRenderer := preload("res://scripts/systems/debug_overlay_renderer.gd"); const InteriorRenderer := preload("res://scripts/systems/interior_renderer.gd"); const VillageEventRenderer := preload("res://scripts/systems/village_event_renderer.gd"); const WorldPolishRenderer := preload("res://scripts/systems/world_polish_renderer.gd")
 const FarmLifeSystem := preload("res://scripts/systems/farm_life_system.gd"); const FarmLifeRenderer := preload("res://scripts/systems/farm_life_renderer.gd")
 const MenuSystem := preload("res://scripts/systems/menu_system.gd"); const MenuRenderer := preload("res://scripts/systems/menu_renderer.gd"); const SettingsSystem := preload("res://scripts/systems/settings_system.gd")
@@ -81,7 +81,6 @@ const FISH_ANIMATION := preload("res://assets/game/fishing/Fish Swimming.png")
 const SPLASH_ANIMATION := preload("res://assets/game/fishing/Splash Effect.png")
 const DEER_RUN_SHEET := preload("res://assets/game/wildlife/deer_run.png"); const FOX_RUN_SHEET := preload("res://assets/game/wildlife/fox_run.png"); const BOAR_RUN_SHEET := preload("res://assets/game/wildlife/boar_run.png"); const FANTASY_WILDLIFE_ATLAS := preload("res://assets/game/wildlife/fantasy_wildlife_atlas.png")
 const WILDLIFE_ACTION_SHEETS := {"deer":preload("res://assets/game/wildlife/directional/deer_actions_8dir.png"),"fox":preload("res://assets/game/wildlife/directional/fox_actions_8dir.png"),"boar":preload("res://assets/game/wildlife/directional/boar_actions_8dir.png"),"bat":preload("res://assets/game/wildlife/directional/bat_actions_8dir.png"),"lizard":preload("res://assets/game/wildlife/directional/lizard_actions_8dir.png")}
-const BONE_PILE_TEXTURE := preload("res://assets/game/world_loot/bone_pile.png")
 const WORLD_SIZE := Vector2(2400, 1200)
 const STAGE_DURATION := 5.0
 const GROWTH_DURATION := 20.0

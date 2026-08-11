@@ -53,7 +53,7 @@ static func draw_companion(game: Node2D, companion_id: String, position: Vector2
 
 ## Рисует общий спрайт актёра с единой точкой опоры у ног и мягкой тенью.
 static func draw_actor(game: Node2D, texture: Texture2D, position: Vector2, size: Vector2, direction: Vector2, animation_time: float, moving: bool, modulate: Color = Color.WHITE) -> void:
-	game.draw_circle(position + Vector2(0, 25), 20.0, Color(0.05, 0.08, 0.08, 0.25))
+	draw_soft_shadow(game, position + Vector2(0, 25), Vector2(18, 6))
 	if moving:
 		var destination := Rect2(position - Vector2(size.x * 0.5, size.y * 0.68), size)
 		var world_transform: Vector2 = -game.camera_offset
@@ -68,3 +68,12 @@ static func draw_actor(game: Node2D, texture: Texture2D, position: Vector2, size
 	game.draw_set_transform(world_transform + position + Vector2(motion.offset), float(motion.rotation), motion.scale)
 	game.draw_texture_rect_region(texture, Rect2(Vector2(-size.x * 0.5, -size.y * 0.68), size), source_rect(texture, direction, animation_time, false), modulate)
 	game.draw_set_transform(world_transform, 0.0, Vector2.ONE)
+
+
+## Рисует компактную эллиптическую тень, согласованную с точкой опоры персонажа.
+static func draw_soft_shadow(game: Node2D, center: Vector2, radii: Vector2) -> void:
+	var points := PackedVector2Array()
+	for step in 16:
+		var angle := TAU * step / 16.0
+		points.append(center + Vector2(cos(angle) * radii.x, sin(angle) * radii.y))
+	game.draw_colored_polygon(points, Color(0.05, 0.08, 0.08, 0.22))

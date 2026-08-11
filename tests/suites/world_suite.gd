@@ -2,6 +2,7 @@ extends "res://tests/suites/suite_base.gd"
 
 const VillageLayoutSystem := preload("res://scripts/systems/village_layout_system.gd")
 const FirstLevelArtSystem := preload("res://scripts/systems/first_level_art_system.gd")
+const VillageAmbientRenderer := preload("res://scripts/systems/village_ambient_renderer.gd")
 
 ## Запускает все сценарии текущего набора тестов в фиксированном порядке.
 func run() -> void:
@@ -9,6 +10,7 @@ func run() -> void:
 	test_first_location_has_clear_functional_zones()
 	test_village_hybrid_layout_layers_and_navigation()
 	test_bridge_render_data_and_discovery_covers_both_crossings()
+	test_village_ambient_layer_respects_grid_and_seasons()
 	test_story_and_side_mission_chains()
 	test_mission_progress_and_drops_are_saved()
 	test_contextual_discoveries_and_new_item_hints()
@@ -120,6 +122,20 @@ func test_bridge_render_data_and_discovery_covers_both_crossings() -> void:
 	var foreground_source := FileAccess.get_file_as_string("res://scripts/systems/village_foreground_renderer.gd")
 	expect(not foreground_source.contains("BUILDING_ATLAS") and not foreground_source.contains("bridge.has_point"), "approaching houses and bridges no longer swaps in legacy foreground sprites")
 	game.free()
+
+
+## Сценарий: живой слой первой локации использует валидные ячейки, позиции и сезонные ограничения.
+## Исходное состояние: производственный атлас содержит двенадцать ячеек, а карта — детерминированные размещения.
+## Ожидаемый результат: декор остаётся внутри мира, осенние листья появляются только осенью, а зимняя вода не цветёт.
+func test_village_ambient_layer_respects_grid_and_seasons() -> void:
+	expect(VillageAmbientRenderer.CELLS.size() == 12, "village ambient catalog exposes all twelve authored sprites")
+	expect(VillageAmbientRenderer.PLACEMENTS.size() >= 20, "first location owns a dense but bounded living decoration layer")
+	for placement in VillageAmbientRenderer.PLACEMENTS:
+		expect(VillageAmbientRenderer.CELLS.has(placement.kind), "ambient placement references a valid atlas cell: %s" % placement.kind)
+		expect(FirstLevelArtSystem.WORLD_RECT.has_point(placement.position), "ambient placement stays inside first-level world: %s" % placement.kind)
+	expect(VillageAmbientRenderer.source_rect("stump") == Rect2(362,362,362,362), "stump resolves to its isolated production cell")
+	expect(VillageAmbientRenderer.is_visible_in_season("leaves","autumn") and not VillageAmbientRenderer.is_visible_in_season("leaves","summer"), "leaf swirl belongs only to autumn")
+	expect(not VillageAmbientRenderer.is_visible_in_season("water_lilies","winter"), "winter hides flowering water plants")
 
 ## Сценарий: сюжетная и побочная миссии проходят от диалога до цели, сдачи и награды.
 ## Исходное состояние: новый изолированный экземпляр игры; необходимые ресурсы, позиции и таймеры задаются в начале сценария.
@@ -338,5 +354,5 @@ func test_world_loot_discovery_and_save_persistence() -> void:
 	game.SaveSystem.apply(game, snapshot)
 	expect(game.world_loot_seed == 777 and game.world_loot_nodes[0].contents == saved_contents, "save restores generated world and rolled contents")
 	expect(game.world_loot_nodes[0].opened, "save restores already searched container")
-	expect(game.BONE_PILE_TEXTURE.get_width() == 128, "bone pile sprite is loaded")
+	expect(game.WorldLootRenderer.ATLAS.get_width() == 1774, "shared world-loot atlas replaces the standalone bone-pile placeholder")
 	game.free()
