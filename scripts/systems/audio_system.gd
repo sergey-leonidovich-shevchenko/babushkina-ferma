@@ -22,6 +22,7 @@ const SFX_IDS := [
 ]
 const MUSIC_VOLUME_DB := -17.0
 const SFX_VOLUME_DB := -7.0
+const TRAVEL_VOLUME_OFFSET_DB := -4.0
 const SILENT_DB := -45.0
 const CROSSFADE_SECONDS := 0.8
 const SFX_POOL_SIZE := 6
@@ -115,7 +116,7 @@ static func play_sfx(game: Node, sound_id: String) -> bool:
 	game.audio_sfx_slot = (game.audio_sfx_slot + 1) % SFX_POOL_SIZE
 	if player:
 		player.stream = load(SFX_PATH % sound_id)
-		player.volume_db = sfx_volume_db(game)
+		player.volume_db = sound_volume_db(game, sound_id)
 		if game.is_inside_tree():
 			player.play()
 	return true
@@ -160,6 +161,12 @@ static func music_volume_db(game: Node) -> float:
 static func sfx_volume_db(game: Node) -> float:
 	if not game.audio_enabled or game.settings_state.master_volume <= 0.0 or game.settings_state.sfx_volume <= 0.0: return SILENT_DB
 	return maxf(SILENT_DB, SFX_VOLUME_DB + linear_to_db(game.settings_state.master_volume * game.settings_state.sfx_volume))
+
+
+## Возвращает громкость отдельного эффекта и дополнительно смягчает мелодию перехода.
+static func sound_volume_db(game: Node, sound_id: String) -> float:
+	var offset := TRAVEL_VOLUME_OFFSET_DB if sound_id == "travel" else 0.0
+	return maxf(SILENT_DB, sfx_volume_db(game) + offset)
 
 
 ## Выполняет операцию «музыки героя» и возвращает результат согласно контракту метода.

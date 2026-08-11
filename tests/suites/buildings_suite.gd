@@ -3,6 +3,8 @@ extends "res://tests/suites/suite_base.gd"
 ## Запускает сценарии зданий, интерьеров, условий доступа и группы напарников.
 func run() -> void:
 	test_building_catalog_entry_exit_and_collision()
+	test_automatic_building_transition_and_reentry_guard()
+	test_automatic_cave_gate_and_portal_routes()
 	test_progress_gated_buildings()
 	test_castle_has_multiple_connected_locations()
 	test_prison_recruitment_switching_and_capacity()
@@ -39,6 +41,54 @@ func test_building_catalog_entry_exit_and_collision() -> void:
 	expect(game.BuildingSystem.enter(game, "shop_house"), "village shop has its own accessible interior")
 	game.player = game.BuildingSystem.INTERIORS.shop_interior.service_position
 	expect(game.perform_context_action() and game.shop_open, "shop counter opens the existing trade table")
+	game.free()
+
+
+## Сценарий: открытая дверь и выход срабатывают от подхода без кнопки, а точка появления не отправляет героя обратно.
+## Исходное состояние: герой стоит непосредственно у двери доступного дома, система перехода взведена.
+## Ожидаемый результат: вход и выход автоматические, звук мелодии проигрывается, повторный переход возможен только после выхода из зоны.
+func test_automatic_building_transition_and_reentry_guard() -> void:
+	var game := make_game()
+	var cottage: Dictionary = game.BuildingSystem.BUILDINGS.cottage
+	game.player = cottage.door
+	expect(game.LocationTransitionSystem.update(game, 0.01), "approaching an unlocked building enters without pressing the action button")
+	expect(game.current_location == "cottage_interior" and game.audio_last_sfx == "travel", "automatic building entry keeps location audio feedback")
+	expect(game.tutorial_events_completed.has("building_enter"), "automatic doorway still completes the building tutorial")
+	game.LocationTransitionSystem.update(game, 1.0)
+	expect(game.current_location == "cottage_interior" and game.location_transition_armed, "interior spawn stays outside the exit trigger and safely rearms")
+	game.player = game.BuildingSystem.INTERIORS.cottage_interior.exit
+	expect(game.LocationTransitionSystem.update(game, 0.01) and game.current_location == "overworld", "approaching the interior exit returns outdoors without a button")
+	expect(game.player.distance_to(cottage.door) > game.LocationTransitionSystem.TRIGGER_RADIUS, "outdoor spawn cannot immediately bounce back through the door")
+	game.current_location = "rocky"; game.player = game.BuildingSystem.BUILDINGS.forge.door
+	game.location_transition_armed = true; game.location_transition_cooldown = 0.0
+	var sounds_before: int = game.audio_sfx_count
+	expect(not game.LocationTransitionSystem.update(game, 0.01) and game.current_location == "rocky", "automatic transition respects a locked building")
+	var sounds_after_lock: int = game.audio_sfx_count
+	game.LocationTransitionSystem.update(game, 1.0)
+	expect(sounds_after_lock == sounds_before + 1 and game.audio_sfx_count == sounds_after_lock, "locked door feedback does not repeat while the hero remains in its trigger")
+	game.player += Vector2(100, 0); game.LocationTransitionSystem.update(game, 0.01)
+	game.skill_levels.mining = 1; game.player = game.BuildingSystem.BUILDINGS.forge.door
+	expect(game.LocationTransitionSystem.update(game, 0.01) and game.current_location == "forge_interior", "leaving and returning rearms an unlocked doorway")
+	game.free()
+
+
+## Сценарий: пещера, золотые врата и редкий портал используют тот же автоматический маршрут.
+## Исходное состояние: герой последовательно ставится в активные зоны переходов, кнопка действия не вызывается.
+## Ожидаемый результат: каждый маршрут меняет локацию один раз и лунный портал получает общий мелодичный эффект.
+func test_automatic_cave_gate_and_portal_routes() -> void:
+	var game := make_game()
+	game.player = game.cave_entrance_position
+	expect(game.LocationTransitionSystem.update(game, 0.01) and game.current_location == "cave", "cave entrance activates automatically")
+	game.LocationTransitionSystem.update(game, 1.0); game.player = game.cave_exit_position
+	expect(game.LocationTransitionSystem.update(game, 0.01) and game.current_location == "overworld", "cave exit activates automatically")
+	game.current_location = "forest"; game.player = game.world_gate_position
+	game.location_transition_armed = true; game.location_transition_cooldown = 0.0
+	expect(game.LocationTransitionSystem.update(game, 0.01) and game.current_location == "rocky", "golden world gate advances the route without an action button")
+	game.current_location = "overworld"; game.day = 5; game.game_minutes = 21.0 * 60.0
+	game.player = game.WorldEventSystem.PORTAL_POSITION
+	game.location_transition_armed = true; game.location_transition_cooldown = 0.0
+	expect(game.LocationTransitionSystem.update(game, 0.01) and game.current_location == "moon_glade", "eclipse portal activates automatically when available")
+	expect(game.audio_last_sfx == "travel", "moon portal uses the same melodic travel feedback")
 	game.free()
 
 

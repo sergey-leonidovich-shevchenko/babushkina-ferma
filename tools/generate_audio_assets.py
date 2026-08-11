@@ -59,10 +59,10 @@ def add_percussion(buffer: list[float], beat: float, strong: bool, seed: int) ->
 
 
 # Нормализует отсчёты и записывает одноканальный звуковой файл в формате WAV.
-def write_wave(path: Path, samples: list[float]) -> None:
+def write_wave(path: Path, samples: list[float], target_peak: float = 0.88) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     peak = max(max(abs(value) for value in samples), 0.001)
-    scale = 0.88 / peak
+    scale = target_peak / peak
     frames = bytearray()
     for value in samples:
         integer = int(max(-1.0, min(1.0, value * scale)) * 32767)
@@ -107,6 +107,18 @@ def sfx(name: str, duration: float, tones: list[tuple[float, float, float, str]]
     write_wave(ROOT / "sfx" / f"{name}.wav", samples)
 
 
+# Создаёт мягкий переходный колокольчик из отдельных нот без резкого шума и частотного скольжения.
+def melodic_transition(name: str) -> None:
+    duration = 0.82
+    samples = [0.0] * int(duration * RATE)
+    for index, note in enumerate([64, 67, 71, 76]):
+        start = index * 0.13
+        add_note(samples, start, 0.34, note, 0.11, "sine")
+        add_note(samples, start + 0.018, 0.27, note + 12, 0.025, "triangle")
+    add_note(samples, 0.39, 0.42, 52, 0.035, "sine")
+    write_wave(ROOT / "sfx" / f"{name}.wav", samples, 0.48)
+
+
 # Создаёт полный набор музыкальных тем локаций и звуков всех поддерживаемых действий.
 def main() -> None:
     music("village", 60, [0, 5, 9, 7], [12, 16, 19, 16, 14, 12, 9, 11], 112, "triangle", 10)
@@ -137,7 +149,7 @@ def main() -> None:
     sfx("quest_complete", 0.85, [(523, 784, 0.11, "triangle"), (659, 988, 0.08, "sine")], 0.0, 17)
     sfx("level_up", 0.80, [(392, 1175, 0.11, "triangle"), (523, 1568, 0.07, "sine")], 0.0, 18)
     sfx("ui_open", 0.16, [(420, 620, 0.10, "square")], 0.0, 19)
-    sfx("travel", 0.52, [(220, 660, 0.10, "sine"), (330, 990, 0.06, "triangle")], 0.04, 20)
+    melodic_transition("travel")
 
 
 if __name__ == "__main__":

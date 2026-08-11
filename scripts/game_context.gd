@@ -30,7 +30,7 @@ const InventorySystem := preload("res://scripts/systems/inventory_system.gd")
 const CraftingSystem := preload("res://scripts/systems/crafting_system.gd")
 const SaveSystem := preload("res://scripts/systems/save_system.gd")
 const CombatSystem := preload("res://scripts/systems/combat_system.gd")
-const WorldSystem := preload("res://scripts/systems/world_system.gd")
+const WorldSystem := preload("res://scripts/systems/world_system.gd"); const LocationTransitionSystem := preload("res://scripts/systems/location_transition_system.gd")
 const FarmSystem := preload("res://scripts/systems/farm_system.gd")
 const FishingSystem := preload("res://scripts/systems/fishing_system.gd")
 const TreeSystem := preload("res://scripts/systems/tree_system.gd")
@@ -219,6 +219,7 @@ var move_down_held := false
 var action_held := false
 var action_repeat_timer := 0.0
 const ACTION_REPEAT_INTERVAL := 0.18
+var location_transition_armed := true; var location_transition_cooldown := 0.0
 var attack_held := false
 var attack_repeat_timer := 0.0
 const ATTACK_REPEAT_INTERVAL := 0.4

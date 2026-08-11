@@ -18,6 +18,9 @@ func test_audio_assets_and_players() -> void:
 	expect(game.get_node_or_null("AudioMusicA") != null and game.get_node_or_null("AudioMusicB") != null, "music uses two players for crossfades")
 	expect(game.get_node_or_null("AudioSfx5") != null, "sound effects use a six-voice pool")
 	expect(game.audio_current_music == "village", "village theme starts in the overworld")
+	var travel_stream: AudioStreamWAV = load(game.AudioSystem.SFX_PATH % "travel")
+	expect(travel_stream.get_length() >= 0.8, "travel feedback is a complete four-note melodic phrase instead of a short sharp sweep")
+	expect(game.AudioSystem.sound_volume_db(game, "travel") <= game.AudioSystem.sfx_volume_db(game) - 3.9, "travel melody is independently softened by at least four decibels")
 	game.free()
 
 

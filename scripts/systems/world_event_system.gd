@@ -140,7 +140,7 @@ static func use_portal(game: Node) -> bool:
 		game.MoonGladeSystem.prepare(game)
 	else:
 		return false
-	game.sync_background_location(); game.update_camera(); game.notify_tutorial("moon_portal")
+	game.sync_background_location(); game.update_camera(); game.notify_tutorial("moon_portal"); game.play_sfx("travel")
 	if game.current_location == "moon_glade": game.DiscoverySystem.show_location(game, "moon_glade")
 	game.message = "Лунная поляна" if game.current_location == "moon_glade" else "Возвращение в деревню"
 	return true

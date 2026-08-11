@@ -180,6 +180,7 @@ func _physics_process(delta: float) -> void:
 		queue_redraw()
 		return
 	update_player_movement(delta)
+	LocationTransitionSystem.update(self, delta)
 	update_held_action(delta)
 	update_held_attack(delta)
 	update_camera()
