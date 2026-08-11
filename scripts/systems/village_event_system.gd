@@ -1,6 +1,6 @@
 extends RefCounted
 
-const POSITIONS := {"market":Vector2(1130,650),"festival":Vector2(1320,650),"traveler":Vector2(1620,650),"raid":Vector2(890,650)}
+const POSITIONS := {"market":Vector2(1250,500),"festival":Vector2(1420,520),"traveler":Vector2(1690,500),"raid":Vector2(930,470)}
 const RAID_SPAWNS := [Vector2(870,690),Vector2(1050,720),Vector2(1220,690),Vector2(1110,610)]
 
 

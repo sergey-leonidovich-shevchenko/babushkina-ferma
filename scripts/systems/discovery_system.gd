@@ -67,7 +67,7 @@ static func scan_nearby(game: Node) -> bool:
 		add_candidate(candidates, "farm", Vector2(game.FARM_ORIGIN) + Vector2(game.FARM_SIZE * game.TILE) * 0.5, static_hint(game, "farm"))
 		add_candidate(candidates, "pond", game.pond_position, static_hint(game, "pond"))
 		add_candidate(candidates, "cave", game.cave_entrance_position, static_hint(game, "cave"))
-		add_candidate(candidates, "bridge", game.BRIDGE_RECT.get_center(), static_hint(game, "bridge"))
+		add_candidate(candidates, "bridge", game.VillageLayoutSystem.nearest_bridge_center(game.player), static_hint(game, "bridge"))
 		for tree in game.state.world.tree_nodes:
 			if int(tree.stage) == 3: add_candidate(candidates, String(tree.id), tree.position, {"title":game.LocaleSystem.text("tree_title"),"text":game.LocaleSystem.tutorial("tree_chop")})
 		if game.slime_alive:

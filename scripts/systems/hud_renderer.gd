@@ -2,10 +2,7 @@ extends RefCounted
 
 ## Рисует динамический верхний HUD, сообщения, мобильные боевые кнопки и их короткие реакции.
 static func draw(game: Node, ui) -> void:
-	game.draw_texture_rect(ui.HUD_PORTRAIT_FRAME, ui.PLAYER_PORTRAIT_RECT, false)
-	game.draw_texture_rect(ui.HUD_STATUS_FRAME, ui.PLAYER_BARS_RECT, false)
-	game.draw_texture_rect(ui.HUD_CLOCK_FRAME, ui.CLOCK_BADGE, false)
-	game.draw_texture_rect(ui.HUD_LOCATION_FRAME, ui.LOCATION_BADGE, false)
+	ui.draw_hud_background(game)
 	draw_menu_button(game, ui, ui.HUD_SKILL_BUTTON, ui.SKILL_BUTTON, game.LocaleSystem.ui("skills"), game.skill_points)
 	draw_menu_button(game, ui, ui.HUD_QUEST_BUTTON, ui.QUEST_BUTTON, game.LocaleSystem.ui("quests"), active_quest_count(game))
 	var hours := floori(game.game_minutes / 60.0); var minutes := int(game.game_minutes) % 60
@@ -62,7 +59,8 @@ static func draw_bar(game: Node, rect: Rect2, ratio: float, label: String, value
 
 ## Рисует календарную карточку с плавной сменой минут и погодной иконки.
 static func draw_clock(game: Node, ui, hours: int, minutes: int) -> void:
-	var weather: String = game.WorldEventSystem.weather(game); var season: String = game.WorldEventSystem.season(game.day)
+	var weather: String = game.WorldEventSystem.location_weather(game.day, game.current_location)
+	var season: String = game.WorldEventSystem.season(game.day)
 	var tick: float = clampf(game.hud_clock_tick / 0.32, 0.0, 1.0); var scale: float = 1.0 + sin(clampf(game.hud_weather_transition / 0.48, 0.0, 1.0) * PI) * 0.12
 	game.draw_texture_rect(ui.weather_icon(weather), Rect2(Vector2(517, 40) - Vector2(18, 18) * scale, Vector2(36, 36) * scale), false)
 	game.draw_string(game.UI_FONT, Vector2(520, 54 - tick * 2.0), "%02d:%02d" % [hours, minutes], HORIZONTAL_ALIGNMENT_CENTER, 174, 28, Color("4a2c1b"))

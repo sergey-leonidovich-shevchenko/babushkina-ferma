@@ -56,12 +56,15 @@ static func draw_actor(game: Node2D, texture: Texture2D, position: Vector2, size
 	game.draw_circle(position + Vector2(0, 25), 20.0, Color(0.05, 0.08, 0.08, 0.25))
 	if moving:
 		var destination := Rect2(position - Vector2(size.x * 0.5, size.y * 0.68), size)
-		game.draw_texture_rect_region(texture, destination, source_rect(texture, direction, animation_time, true), modulate)
+		var world_transform: Vector2 = -game.camera_offset
+		game.draw_set_transform(world_transform + position, 0.0, Vector2.ONE)
+		var local_destination := Rect2(destination.position - position, destination.size)
+		game.draw_texture_rect_region(texture, local_destination, source_rect(texture, direction, animation_time, true), modulate)
+		game.draw_set_transform(world_transform, 0.0, Vector2.ONE)
 		return
 	var phase: float = fposmod((position.x + position.y) * 0.013, TAU)
 	var motion: Dictionary = game.PresentationSystem.living_motion(animation_time, false, phase)
 	var world_transform: Vector2 = -game.camera_offset
-	var sprite_scale: Vector2 = motion.scale
-	game.draw_set_transform(world_transform + position + Vector2(motion.offset), float(motion.rotation), sprite_scale)
+	game.draw_set_transform(world_transform + position + Vector2(motion.offset), float(motion.rotation), motion.scale)
 	game.draw_texture_rect_region(texture, Rect2(Vector2(-size.x * 0.5, -size.y * 0.68), size), source_rect(texture, direction, animation_time, false), modulate)
 	game.draw_set_transform(world_transform, 0.0, Vector2.ONE)

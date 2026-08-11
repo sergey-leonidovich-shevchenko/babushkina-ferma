@@ -7,6 +7,7 @@ func run() -> void:
 	test_keyboard_press_and_release()
 	test_immediate_keyboard_response()
 	test_four_direction_character_animation()
+	test_joypad_stick_starts_and_stops_movement()
 	test_clock_rolls_to_next_day()
 	test_crop_pauses_for_second_watering()
 	test_shop_buy_and_sell()
@@ -108,6 +109,27 @@ func test_immediate_keyboard_response() -> void:
 	game.update_player_movement(1.0 / 60.0)
 	expect(game.player.x > start.x, "first physics frame moves player without key-repeat delay")
 	expect(game.player.x - start.x < 5.0, "first frame has no artificial position jump")
+	game.free()
+
+
+## Сценарий: левый стик геймпада сразу задаёт вектор движения, а отпускание в зоне мёртвой зоны остановит движение.
+## Исходное состояние: новый изолированный экземпляр игры с включённым контролем игрока.
+## Ожидаемый результат: движение начинается при наклоне стика и останавливается при возвращении в центр.
+func test_joypad_stick_starts_and_stops_movement() -> void:
+	var game := make_game()
+	var start: Vector2 = game.player
+	expect(game.set_movement_motion_state(joypad_motion_event(JOY_AXIS_LEFT_X, 0.86)), "left stick right push is registered")
+	expect(game.get_movement_direction() == Vector2.RIGHT, "movement direction resolves to right from stick axis")
+	game.update_player_movement(1.0 / 60.0)
+	expect(game.player.x > start.x, "analog movement moves player on first physics frame")
+	expect(game.set_movement_motion_state(joypad_motion_event(JOY_AXIS_LEFT_X, 0.0)), "left stick centered event is handled")
+	expect(game.get_movement_direction() == Vector2.ZERO, "centered analog axis clears movement")
+	var dpad := joypad_button_event(JOY_BUTTON_DPAD_LEFT, true)
+	expect(game.set_movement_button_state(dpad), "d-pad left press is registered")
+	expect(game.get_movement_direction() == Vector2.LEFT, "movement direction resolves to left from D-pad")
+	dpad.pressed = false
+	expect(game.set_movement_button_state(dpad), "d-pad left release is registered")
+	expect(game.get_movement_direction() == Vector2.ZERO, "d-pad release clears movement")
 	game.free()
 
 ## Сценарий: герой использует правильные ряды анимации для четырёх направлений и состояния покоя.

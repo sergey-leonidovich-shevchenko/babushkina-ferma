@@ -6,8 +6,8 @@ const PAUSE_MIN := 1.4
 const PAUSE_STEP := 0.37
 const VILLAGE_WORK := {"miron":"guild_interior","agafya":"overworld","varvara":"overworld","gavrila":"overworld","dunya":"shop_interior"}
 const VILLAGE_HOME := {"miron":"guild_interior","agafya":"cottage_interior","varvara":"cottage_interior","gavrila":"guild_interior","dunya":"shop_interior"}
-const WORK_ANCHORS := {"miron":Vector2(690,310),"agafya":Vector2(1220,535),"varvara":Vector2(1550,825),"gavrila":Vector2(1545,520),"dunya":Vector2(690,315)}
-const SOCIAL_ANCHORS := {"miron":Vector2(1370,535),"agafya":Vector2(1280,560),"varvara":Vector2(1510,790),"gavrila":Vector2(1470,550),"dunya":Vector2(970,550)}
+const WORK_ANCHORS := {"miron":Vector2(690,310),"agafya":Vector2(1300,470),"varvara":Vector2(1020,900),"gavrila":Vector2(920,360),"dunya":Vector2(690,315)}
+const SOCIAL_ANCHORS := {"miron":Vector2(1700,470),"agafya":Vector2(1300,500),"varvara":Vector2(1050,900),"gavrila":Vector2(950,410),"dunya":Vector2(1510,470)}
 
 
 ## Создаёт детерминированное состояние движения для бабушки и всех квестовых жителей.

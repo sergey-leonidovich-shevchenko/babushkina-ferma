@@ -18,6 +18,7 @@ const ACTION_BINDINGS := {
 	"save_game": [KEY_F5],
 	"load_game": [KEY_F8],
 }
+const JOY_AXIS_DEAD_ZONE := 0.2
 
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
@@ -60,6 +61,63 @@ static func set_attack_key_state(game: Node, event: InputEventKey) -> bool:
 	if event.pressed and not event.echo:
 		game.attack_repeat_timer = game.ATTACK_REPEAT_INTERVAL
 	return true
+
+
+## Обновляет направление движения по кнопкам D-Pad.
+static func set_movement_button_state(game: Node, event: InputEventJoypadButton) -> bool:
+	if not event.pressed and event.button_index in [JOY_BUTTON_DPAD_LEFT, JOY_BUTTON_DPAD_RIGHT, JOY_BUTTON_DPAD_UP, JOY_BUTTON_DPAD_DOWN]:
+		if event.button_index == JOY_BUTTON_DPAD_LEFT:
+			game.move_left_held = false
+		elif event.button_index == JOY_BUTTON_DPAD_RIGHT:
+			game.move_right_held = false
+		elif event.button_index == JOY_BUTTON_DPAD_UP:
+			game.move_up_held = false
+		elif event.button_index == JOY_BUTTON_DPAD_DOWN:
+			game.move_down_held = false
+		return true
+	if not event.pressed:
+		return false
+	match event.button_index:
+		JOY_BUTTON_DPAD_LEFT:
+			game.move_left_held = true
+			game.move_right_held = false
+		JOY_BUTTON_DPAD_RIGHT:
+			game.move_right_held = true
+			game.move_left_held = false
+		JOY_BUTTON_DPAD_UP:
+			game.move_up_held = true
+			game.move_down_held = false
+		JOY_BUTTON_DPAD_DOWN:
+			game.move_down_held = true
+			game.move_up_held = false
+		_:
+			return false
+	return true
+
+
+## Обновляет направление движения для левого стикa геймпада с dead-zone.
+static func set_movement_motion_state(game: Node, event: InputEventJoypadMotion) -> bool:
+	match event.axis:
+		JOY_AXIS_LEFT_X:
+			var x_axis := clampf(event.axis_value, -1.0, 1.0)
+			if absf(x_axis) < JOY_AXIS_DEAD_ZONE:
+				game.move_left_held = false
+				game.move_right_held = false
+			else:
+				game.move_left_held = x_axis < 0.0
+				game.move_right_held = x_axis > 0.0
+			return true
+		JOY_AXIS_LEFT_Y:
+			var y_axis := clampf(event.axis_value, -1.0, 1.0)
+			if absf(y_axis) < JOY_AXIS_DEAD_ZONE:
+				game.move_up_held = false
+				game.move_down_held = false
+			else:
+				# В Godot по умолчанию ось Y на стикe растет вниз.
+				game.move_up_held = y_axis < 0.0
+				game.move_down_held = y_axis > 0.0
+			return true
+	return false
 
 
 ## Обновляет относящуюся к методу часть состояния на текущем кадре.

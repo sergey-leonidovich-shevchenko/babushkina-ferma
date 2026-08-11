@@ -5,6 +5,7 @@ extends "res://tests/suites/suite_base.gd"
 func run() -> void:
 	test_four_seasons_cycle_every_seven_days()
 	test_weather_is_deterministic_and_season_safe()
+	test_weather_by_location_does_not_mutate_state()
 	test_rain_waters_tilled_plots_on_new_day()
 	test_seasons_change_crop_growth_speed()
 	test_daylight_darkness_transitions_are_continuous()
@@ -98,6 +99,28 @@ func test_weather_is_deterministic_and_season_safe() -> void:
 		expect(value == system.weather_for_day(day), "daily weather is deterministic on day %d" % day)
 		expect(not (system.season(day) == "winter" and value in ["rain", "storm"]), "winter excludes rain on day %d" % day)
 		expect(value != "snow" or system.season(day) == "winter", "snow remains a winter-only weather on day %d" % day)
+	game.free()
+
+
+## Сценарий: локальный прогноз по локации не изменяет глобальное состояние погоды.
+## Исходное состояние: глобальная погода в явном режиме и локация игрока — overworld.
+## Ожидаемый результат: запрос для леса не ломает сохранённое состояние, а локальный запрос стабилен.
+func test_weather_by_location_does_not_mutate_state() -> void:
+	var game := make_game(); var system = game.WorldEventSystem
+	game.current_location = "overworld"
+	game.day = 8
+	game.state.world.weather_day = 4
+	game.state.world.weather = "clear"
+	var overworld_state: String = game.state.world.weather
+	var before_day: int = game.state.world.weather_day
+	var forest_local: String = system.weather(game, "forest")
+	expect(system.WEATHER_NAMES.has(forest_local), "local location weather has a valid key")
+	expect(game.state.world.weather == overworld_state and game.state.world.weather_day == before_day, "location query keeps world weather unchanged")
+	var forest_local_two: String = system.weather(game, "forest")
+	expect(forest_local == forest_local_two, "location query is deterministic and repeatable")
+	var current_weather: String = system.weather(game)
+	var expected_current: String = system.location_weather(game.day, "overworld")
+	expect(current_weather == expected_current, "global query for current location resolves by deterministic overworld profile")
 	game.free()
 
 

@@ -4,3 +4,16 @@ tools/
 assets/inbox/
 tmp/
 *.log
+
+# Локальные концепты и воспроизводимые результаты нарезки уровня не входят в релиз.
+/level_*.png
+/level_*.png.import
+/showcase_*.png
+/showcase_*.png.import
+/assets/game/tiles/*_preview.png
+/assets/game/tiles/*_preview.png.import
+/assets/generated/level_drafts/*
+!/assets/generated/level_drafts/README_FIRST_LEVEL_MASTER.md
+!/assets/generated/level_drafts/README_FIRST_LEVEL_TILING.md
+!/assets/generated/level_drafts/first_level_fairytale_master_v1.png
+!/assets/generated/level_drafts/first_level_ingame_preview.png

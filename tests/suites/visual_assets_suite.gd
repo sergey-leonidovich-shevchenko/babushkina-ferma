@@ -8,6 +8,7 @@ func run() -> void:
 	test_large_biome_props_have_safe_collisions()
 	test_pirate_enemies_and_items_cover_their_catalogs()
 	test_every_inventory_item_has_dedicated_icon()
+	test_cave_textures_have_improved_resources()
 
 
 ## Сценарий: все сгенерированные изображения загружаются Godot как прозрачные текстуры.
@@ -95,3 +96,21 @@ func test_every_inventory_item_has_dedicated_icon() -> void:
 	expect(game.VisualAssetSystem.INVENTORY_RARE_CELLS.size() == 16, "rare inventory atlas maps all sixteen previously missing items")
 	expect(game.VisualAssetSystem.FARM_FOOD_CELLS.size() == 24, "farm food atlas maps all twenty-four household items")
 	game.free()
+
+
+## Сценарий: пещерные текстуры обновлены на детальные и заметные спрайты.
+## Исходное состояние: у пещерного пола и входов использовались малые условные пиктограммы.
+## Ожидаемый результат: кристаллы, камни и фон выглядят богаче и имеют читаемые формы.
+func test_cave_textures_have_improved_resources() -> void:
+	var resource_icons := {
+		"res://assets/game/resources/rock.png": Vector2i(64, 64),
+		"res://assets/game/resources/blue-crystal.png": Vector2i(64, 64),
+		"res://assets/game/environment/cave_crystal.png": Vector2i(64, 64),
+	}
+	for path in resource_icons:
+		var image := Image.load_from_file(ProjectSettings.globalize_path(path))
+		var expected_size: Vector2i = resource_icons[path]
+		expect(image != null, "cave resource imports without null image: %s" % path)
+		expect(image.get_size() == expected_size, "cave resource keeps expected detail size: %s" % path)
+		expect(image.get_pixel(0, 0).a < 0.03 and image.get_pixel(expected_size.x - 1, expected_size.y - 1).a < 0.03, "resource corners stay transparent for edge cleanup: %s" % path)
+		expect(_has_visible_sample(image), "resource has visible art: %s" % path)

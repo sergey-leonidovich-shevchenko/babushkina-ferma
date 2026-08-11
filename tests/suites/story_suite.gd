@@ -6,6 +6,7 @@ func run() -> void:
 	test_five_chapter_main_story_unlocks_in_order()
 	test_after_eclipse_storyline_unlocks_and_completes()
 	test_all_new_side_quests_can_be_completed()
+	test_ordered_mission_ids_respects_state_and_type_priority()
 	test_every_quest_npc_is_present_and_interactive()
 	test_quest_markers_reflect_progress()
 	test_quest_journal_has_keyboard_and_gamepad_pages()
@@ -112,6 +113,46 @@ func test_all_new_side_quests_can_be_completed() -> void:
 	expect(game.tutorial_events_completed.has("side_quests") and game.tutorial_events_completed.has("side_mission"), "side stories have tutorial coverage")
 	game.free()
 
+## Сценарий: сортировка списка миссий должна сначала держать активные, затем доступные, затем блокированные и завершённые.
+## Исходное состояние: настраиваем микс активных/доступных/заблокированных/завершённых миссий из обоих типов.
+## Ожидаемый результат: активные в верхней зоне, внутри них сначала сюжет, затем побочные; затем доступные, блокированные и завершённые в стабильном порядке.
+func test_ordered_mission_ids_respects_state_and_type_priority() -> void:
+	var game := make_game()
+	var manual_states: Dictionary = game.QuestSystem.default_states()
+	manual_states.story_relic = game.QuestSystem.ACTIVE
+	manual_states.story_ancient_key = game.QuestSystem.ACTIVE
+	manual_states.side_fisher = game.QuestSystem.ACTIVE
+	manual_states.side_glass = game.QuestSystem.AVAILABLE
+	manual_states.side_miner = game.QuestSystem.AVAILABLE
+	manual_states.side_seed = game.QuestSystem.COMPLETED
+	manual_states.story_moon_seal = game.QuestSystem.LOCKED
+	manual_states.side_bones = game.QuestSystem.LOCKED
+	game.mission_states = manual_states
+
+	var input_ids: Array[String] = [
+		"side_seed",
+		"story_moon_seal",
+		"side_bones",
+		"side_miner",
+		"story_ancient_key",
+		"story_relic",
+		"side_fisher",
+		"side_glass",
+	]
+	var ordered: Array[String] = game.QuestSystem.ordered_mission_ids(game, input_ids)
+	var expected: Array[String] = [
+		"story_ancient_key",
+		"story_relic",
+		"side_fisher",
+		"side_glass",
+		"side_miner",
+		"story_moon_seal",
+		"side_bones",
+		"side_seed",
+	]
+	expect(ordered == expected, "ordered_mission_ids applies state + story/type priorities with stable tie-break by id")
+	game.free()
+
 ## Сценарий: каждый объявленный NPC существует в своей локации и выбирается ближайшим взаимодействием.
 ## Исходное состояние: герой последовательно телепортируется точно к каждому жителю.
 ## Ожидаемый результат: универсальный поиск возвращает идентификатор этого жителя и локализованное имя не пусто.
@@ -162,7 +203,8 @@ func test_tracker_stays_compact_with_many_active_quests() -> void:
 	var game := make_game()
 	for mission_id in game.QuestSystem.MISSIONS: game.mission_states[mission_id] = game.QuestSystem.ACTIVE
 	var lines: Array[String] = game.PresentationSystem.quest_tracker_lines(game)
-	expect(lines.size() == 4 and lines.back().contains("15"), "tracker keeps three objectives and summarizes fifteen hidden quests")
+	var expected_hidden := int(game.QuestSystem.MISSIONS.size()) - 2
+	expect(lines.size() == 4 and lines.back().contains(str(expected_hidden)), "tracker keeps three objective slots and summarizes hidden quests")
 	expect(30.0 + lines.size() * 22.0 <= 120.0, "quest tracker remains compact with eighteen active missions")
 	game.free()
 

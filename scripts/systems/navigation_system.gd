@@ -5,6 +5,9 @@ const VillageLayoutSystem := preload("res://scripts/systems/village_layout_syste
 
 ## Выполняет операцию «перемещения» и возвращает результат согласно контракту метода.
 static func move(game: Node, motion: Vector2) -> void:
+	if game.DebugOverlaySystem.noclip(game):
+		game.player += motion
+		return
 	var step_count := maxi(1, ceili(motion.length() / 8.0))
 	var step := motion / float(step_count)
 	var was_blocked := false
@@ -24,66 +27,71 @@ static func move(game: Node, motion: Vector2) -> void:
 
 ## Проверяет заявленное методом условие без изменения игрового состояния.
 static func is_walkable(game: Node, position: Vector2) -> bool:
-	if game.DebugPlaygroundSystem.active(game): return game.DebugPlaygroundSystem.is_walkable(game, position, game.PLAYER_RADIUS)
-	if game.MoonGladeSystem.blocks_position(game, position, game.PLAYER_RADIUS): return false
+	return walkability_reason(game, position) == "walkable"
+
+
+## Объясняет результат навигации кодом конкретного препятствия для игровой диагностики.
+static func walkability_reason(game: Node, position: Vector2) -> String:
+	if game.DebugPlaygroundSystem.active(game): return "walkable" if game.DebugPlaygroundSystem.is_walkable(game, position, game.PLAYER_RADIUS) else "debug_obstacle"
+	if game.MoonGladeSystem.blocks_position(game, position, game.PLAYER_RADIUS): return "guardian"
 	if game.BuildingSystem.is_interior(game.current_location):
-		if game.FarmLifeSystem.blocks_position(game,position,game.PLAYER_RADIUS): return false
+		if game.FarmLifeSystem.blocks_position(game,position,game.PLAYER_RADIUS): return "furniture"
 		if game.current_location == "cottage_interior" and game.home_chest_owned and position.distance_to(game.StorageSystem.CHEST_POSITION) < game.PLAYER_RADIUS + 42.0:
-			return false
-		return game.BuildingSystem.is_walkable_inside(game.current_location, position, game.PLAYER_RADIUS)
-	if game.current_location == "pirate_ship" and not PirateShipSystem.is_walkable(position, game.PLAYER_RADIUS): return false
+			return "storage"
+		return "walkable" if game.BuildingSystem.is_walkable_inside(game.current_location, position, game.PLAYER_RADIUS) else "interior"
+	if game.current_location == "pirate_ship" and not PirateShipSystem.is_walkable(position, game.PLAYER_RADIUS): return "ship"
 	if position.x < 40.0 or position.x > game.WORLD_SIZE.x - 40.0 or position.y < 120.0 or position.y > game.WORLD_SIZE.y - 80.0:
-		return false
+		return "boundary"
 	for building_id in game.BuildingSystem.buildings_at(game.current_location):
 		if circle_intersects_rect(position, game.PLAYER_RADIUS, game.BuildingSystem.collision_rect(building_id)):
-			return false
+			return "building"
 	if game.VisualAssetSystem.blocks_biome_position(game.current_location, position, game.PLAYER_RADIUS):
-		return false
+		return "biome_prop"
 	if game.VisualAssetSystem.blocks_event_position(game.current_location, position, game.PLAYER_RADIUS):
-		return false
+		return "event_prop"
 	if game.current_location in ["cave", "cursed"]:
 		for decoration in game.CAVE_DECORATIONS:
 			if position.distance_to(decoration) < game.PLAYER_RADIUS + 38.0:
-				return false
+				return "cave_prop"
 	elif game.current_location == "overworld":
-		if game.VillageEventSystem.blocks_position(game, position, game.PLAYER_RADIUS): return false
+		if game.VillageEventSystem.blocks_position(game, position, game.PLAYER_RADIUS): return "village_event"
 		if VillageLayoutSystem.is_water(position, game.PLAYER_RADIUS):
-			return false
+			return "water"
 		if VillageLayoutSystem.blocks_scenic_prop(position, game.PLAYER_RADIUS):
-			return false
+			return "scenic_prop"
 		for tree in game.state.world.tree_nodes:
 			if game.TreeSystem.is_solid(tree) and position.distance_to(tree.position + Vector2(0, 35)) < game.PLAYER_RADIUS + 42.0:
-				return false
+				return "tree"
 		for fence_rect in game.BuildingSystem.FARM_FENCE_RECTS:
 			if circle_intersects_rect(position, game.PLAYER_RADIUS, fence_rect):
-				return false
+				return "fence"
 		var solid_rects := [
 			game.BuildingSystem.SELL_CRATE_RECT, Rect2(game.workbench_position - Vector2(32, 20), Vector2(64, 44))
 		]
 		for rect in solid_rects:
 			if circle_intersects_rect(position, game.PLAYER_RADIUS, rect):
-				return false
+				return "world_prop"
 		if game.slime_alive and position.distance_to(game.slime_position) < game.PLAYER_RADIUS + 28.0:
-			return false
+			return "enemy"
 	for enemy in game.enemy_nodes:
 		if enemy.alive and enemy.location == game.current_location and position.distance_to(enemy.position) < game.PLAYER_RADIUS + 30.0:
-			return false
+			return "enemy"
 	for hazard in game.hazard_nodes:
 		if hazard.location == game.current_location and position.distance_to(hazard.position) < game.PLAYER_RADIUS + 30.0:
-			return false
+			return "hazard"
 	for node in game.resource_nodes:
 		if node.hits > 0 and node.location == game.current_location and position.distance_to(node.position) < game.PLAYER_RADIUS + 30.0:
-			return false
+			return "resource"
 	for container in game.world_loot_nodes:
 		if container.location == game.current_location and position.distance_to(container.position) < game.PLAYER_RADIUS + 25.0:
-			return false
+			return "loot"
 	for food in game.food_nodes:
 		if food.get("location", "overworld") != game.current_location:
 			continue
 		var radius := 38.0 if game.ForageSystem.TYPES[food.kind].tree else 24.0
 		if position.distance_to(food.position) < game.PLAYER_RADIUS + radius:
-			return false
-	return true
+			return "forage"
+	return "walkable"
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func circle_intersects_rect(center: Vector2, radius: float, rect: Rect2) -> bool:

@@ -81,6 +81,7 @@ func test_food_healing_and_temporary_effects() -> void:
 	game.inventory_selected = 15
 	game.consume_selected_item()
 	game.slime_alive = false
+	game.player = Vector2(600, 400)
 	game.move_right_held = true
 	var start_x: float = game.player.x
 	game.update_player_movement(1.0)

@@ -1,7 +1,7 @@
 extends Node2D
 
 const TILE := 48
-const FARM_ORIGIN := Vector2i(526, 850)
+const FARM_ORIGIN := Vector2i(80, 880)
 const FARM_SIZE := Vector2i(6, 5)
 const TITLE_ART := preload("res://assets/title_art_rpg.png")
 const PLANT_SHEET := preload("res://assets/game/environment/farm_plants.png")
@@ -63,7 +63,7 @@ const ForgeSystem := preload("res://scripts/systems/forge_system.gd")
 const ContractSystem := preload("res://scripts/systems/contract_system.gd"); const AdventurePolishSystem := preload("res://scripts/systems/adventure_polish_system.gd"); const AdventurePolishRenderer := preload("res://scripts/systems/adventure_polish_renderer.gd")
 const ContractRenderer := preload("res://scripts/systems/contract_renderer.gd")
 const VillageForegroundRenderer := preload("res://scripts/systems/village_foreground_renderer.gd"); const VillageLayoutSystem := preload("res://scripts/systems/village_layout_system.gd")
-const DebugPlaygroundSystem := preload("res://scripts/systems/debug_playground_system.gd"); const DebugPlaygroundRenderer := preload("res://scripts/systems/debug_playground_renderer.gd"); const InteriorRenderer := preload("res://scripts/systems/interior_renderer.gd"); const VillageEventRenderer := preload("res://scripts/systems/village_event_renderer.gd"); const WorldPolishRenderer := preload("res://scripts/systems/world_polish_renderer.gd")
+const DebugPlaygroundSystem := preload("res://scripts/systems/debug_playground_system.gd"); const DebugPlaygroundRenderer := preload("res://scripts/systems/debug_playground_renderer.gd"); const DebugOverlaySystem := preload("res://scripts/systems/debug_overlay_system.gd"); const DebugOverlayRenderer := preload("res://scripts/systems/debug_overlay_renderer.gd"); const InteriorRenderer := preload("res://scripts/systems/interior_renderer.gd"); const VillageEventRenderer := preload("res://scripts/systems/village_event_renderer.gd"); const WorldPolishRenderer := preload("res://scripts/systems/world_polish_renderer.gd")
 const FarmLifeSystem := preload("res://scripts/systems/farm_life_system.gd"); const FarmLifeRenderer := preload("res://scripts/systems/farm_life_renderer.gd")
 const MenuSystem := preload("res://scripts/systems/menu_system.gd"); const MenuRenderer := preload("res://scripts/systems/menu_renderer.gd"); const SettingsSystem := preload("res://scripts/systems/settings_system.gd")
 const GameState := preload("res://scripts/state/game_state.gd")
@@ -88,9 +88,10 @@ const GROWTH_DURATION := 20.0
 const MAX_BASE_HP := 100
 const XP_PER_LEVEL := 50
 const PLAYER_RADIUS := 18.0
-const BRIDGE_RECT := Rect2(755, 575, 100, 190)
+const BRIDGE_RECT := Rect2(590, 445, 100, 190)
 const TREE_POSITIONS := TreeSystem.POSITIONS
 const CAVE_DECORATIONS := [Vector2(480,250), Vector2(720,600), Vector2(1040,300), Vector2(1380,720), Vector2(1720,280), Vector2(2050,620)]
+const CAVE_FLOOR_TILE := preload("res://assets/game/tiles/cave-floor.png")
 const FORAGE_SPRITES := {
 	# Атлас упакован в ячейки 72×72; область большего размера захватывает
 	# соседние стадии роста и показывает несколько частей дерева одновременно.
@@ -109,13 +110,12 @@ var camera_offset := Vector2.ZERO
 var current_location: String:
 	get: return state.world.location
 	set(value): state.world.location = value
-var cave_entrance_position := Vector2(180, 280)
+var cave_entrance_position := Vector2(1730, 150)
 var cave_exit_position := Vector2(180, 430)
 var facing: Vector2:
 	get: return state.player.facing
 	set(value): state.player.facing = value
-var speed := 210.0
-var selected_tool: Tool = Tool.HOE
+var speed := 210.0; var selected_tool: Tool = Tool.HOE
 var plots: Dictionary:
 	get: return state.world.plots
 	set(value): state.world.plots = value
@@ -137,8 +137,7 @@ var coins: int:
 var game_minutes: float:
 	get: return state.world.minutes
 	set(value): state.world.minutes = value
-var message := ""
-var language_screen := true
+var message := ""; var language_screen := true
 var language_selected := 0
 var persist_locale_selection := true
 var title_screen := true
@@ -198,7 +197,8 @@ var contract_open: bool:
 var contract_selected: int:
 	get: return state.contracts.selected
 	set(value): state.contracts.selected = value
-var world_gate_position := Vector2(2200, 760)
+var world_gate_position: Vector2:
+	get: return Vector2(2260, 1080) if current_location == "overworld" else Vector2(2200, 760)
 var enemy_nodes := CombatSystem.default_enemies()
 var hazard_nodes := EnvironmentHazardSystem.default_hazards()
 var wildlife_nodes := WildlifeSystem.default_animals()
@@ -277,7 +277,7 @@ var mana_regen_progress := 0.0
 var stamina_regen_progress := 0.0
 var strength_timer := 0.0; var regeneration_timer := 0.0; var speed_timer := 0.0; var invisibility_timer := 0.0; var defense_timer := 0.0
 var regeneration_tick_timer := 0.0
-var slime_position := Vector2(2010, 470)
+var slime_position := Vector2(1800, 750)
 var slime_hp := 3
 var slime_alive := true
 var slime_attack_timer := 0.0
@@ -322,12 +322,12 @@ var oranges: int:
 	get: return state.inventory.count("orange")
 	set(value): state.inventory.set_count("orange", value)
 var food_nodes := ForageSystem.default_nodes()
-var pond_position := Vector2(1550, 965)
+var pond_position := Vector2(1560, 850)
 var resource_nodes := ResourceSystem.default_nodes()
-var npc_position := Vector2(350, 1020)
-var guild_master_position := Vector2(1450, 535)
-var herbalist_position := Vector2(1220, 535)
-var workbench_position := Vector2(430, 1080)
+var npc_position := Vector2(420, 940)
+var guild_master_position := Vector2(1700, 470)
+var herbalist_position := Vector2(1300, 470)
+var workbench_position := Vector2(500, 1035)
 var quest_active := false
 var quest_complete := false
 var mission_states := QuestSystem.default_states()

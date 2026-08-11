@@ -12,6 +12,7 @@ static func run(context: SceneTree) -> void:
 	test_composition_root_and_test_runner_stay_small(context)
 	test_save_v2_migration_and_backup(context)
 	test_presentation_calculations_are_pure(context)
+	test_generation_pipeline_is_portable_and_git_clean(context)
 	test_all_methods_have_russian_documentation(context)
 
 
@@ -120,6 +121,18 @@ static func test_presentation_calculations_are_pure(context: SceneTree) -> void:
 	context.expect(game.PresentationSystem.animation_frame(10, 0, 0) == 0, "animation frame calculation handles invalid content data")
 	context.expect(game.PresentationSystem.discovery_card_rect() == game.discovery_card_rect(), "discovery layout has one presentation owner")
 	game.free()
+
+
+## Сценарий: генераторы уровня работают после клонирования, а воспроизводимые черновики не раздувают Git.
+## Исходное состояние: читаются исходники двух генераторов и правила игнорирования локальных результатов.
+## Ожидаемый результат: абсолютных пользовательских путей нет, master разрешён, тысячи нарезанных тайлов игнорируются.
+static func test_generation_pipeline_is_portable_and_git_clean(context: SceneTree) -> void:
+	var concept_source := FileAccess.get_file_as_string("res://scripts/generate_level_concepts.py")
+	var split_source := FileAccess.get_file_as_string("res://scripts/split_fairytale_level_tiles.py")
+	var ignore_source := FileAccess.get_file_as_string("res://.gitignore")
+	var portable := not concept_source.contains("/Users/") and not split_source.contains("/Users/") and concept_source.contains("Path(__file__).resolve()")
+	var clean := ignore_source.contains("/assets/generated/level_drafts/*") and ignore_source.contains("!/assets/generated/level_drafts/first_level_fairytale_master_v1.png")
+	context.expect(portable and clean, "level generation is clone-portable and excludes reproducible tile drafts from Git")
 
 
 ## Сценарий: каждый метод в игровых и тестовых сценариях имеет непосредственно над объявлением русскую документацию.

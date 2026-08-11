@@ -20,6 +20,7 @@ const WEATHER_ICONS := {
 }
 const INVENTORY_FILTERS := ["all", "tool", "food", "equipment", "resource", "quest"]
 const HUD_RECT := Rect2(0, 0, 1152, 96)
+const HUD_TOPBAR_SKIN_RECT := Rect2(0, 0, 1152, 96)
 const PLAYER_PORTRAIT_RECT := Rect2(0, 0, 100, 96)
 const PLAYER_BARS_RECT := Rect2(100, 0, 330, 96)
 const CLOCK_BADGE := Rect2(430, 0, 290, 96)
@@ -28,11 +29,11 @@ const INVENTORY_WINDOW := Rect2(88, 7, 976, 634)
 const INVENTORY_GRID_ORIGIN := Vector2(149, 164)
 const INVENTORY_SLOT_SIZE := Vector2(57, 50)
 const INVENTORY_SLOT_PITCH := Vector2(65.5, 58.0)
-const INVENTORY_HOTBAR_ORIGIN := Vector2(207, 544)
+const INVENTORY_HOTBAR_ORIGIN := Vector2(207, 568)
 const INVENTORY_HOTBAR_SIZE := Vector2(66, 65)
 const INVENTORY_HOTBAR_PITCH := 73.4
 const INVENTORY_HOTBAR_SKIN_RECT := Rect2(190, 532, 762, 84)
-const WORLD_HOTBAR_PANEL := Rect2(190, 564, 762, 84)
+const WORLD_HOTBAR_PANEL := Rect2(190, 558, 762, 84)
 const USE_BUTTON := Rect2(580, 430, 195, 31)
 const EQUIP_BUTTON := Rect2(580, 469, 94, 29)
 const DROP_BUTTON := Rect2(680, 469, 95, 29)
@@ -45,7 +46,7 @@ const BLOCK_BUTTON := Rect2(1072, 520, 60, 48)
 const MESSAGE_CARD := Rect2(286, 490, 580, 66)
 const TUTORIAL_CARD := Rect2(18, 106, 405, 102)
 const INTERACTION_PROMPT := Rect2(840, 438, 294, 58)
-const HOTBAR_ORIGIN := Vector2(207, 576)
+const HOTBAR_ORIGIN := INVENTORY_HOTBAR_ORIGIN
 const HOTBAR_SLOT_SIZE := INVENTORY_HOTBAR_SIZE
 const HOTBAR_PITCH := INVENTORY_HOTBAR_PITCH
 const STORAGE_LEFT_ROWS := Rect2(96, 168, 430, 320)
@@ -159,6 +160,14 @@ static func draw(game: Node) -> void:
 ## Отрисовывает HUD по текущему состоянию игры.
 static func draw_hud(game: Node) -> void:
 	HudRenderer.draw(game, game.InterfaceRenderer)
+
+
+## Рисует единый верхний фон из того же деревянного скина, что и инвентарь.
+static func draw_hud_background(game: Node) -> void:
+	var skin_size: Vector2 = INVENTORY_SKIN.get_size()
+	var source_scale := Vector2(skin_size.x / VIEWPORT.size.x, skin_size.y / VIEWPORT.size.y)
+	var source_rect := Rect2(HUD_TOPBAR_SKIN_RECT.position * source_scale, HUD_TOPBAR_SKIN_RECT.size * source_scale)
+	game.draw_texture_rect_region(INVENTORY_SKIN, HUD_RECT, source_rect)
 
 
 ## Возвращает компактный символ типа активной внешней зоны или интерьера.

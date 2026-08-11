@@ -7,11 +7,48 @@ const DAYS_PER_SEASON := 7
 const ECLIPSE_PERIOD := 5
 const PORTAL_POSITION := Vector2(2030, 235)
 const RETURN_PORTAL_POSITION := Vector2(220, 430)
+const LOCATION_WEATHER_PROFILE := {
+	"overworld": {"clear_to_wind": 0, "wind_to_rain": 0, "rain_boost": 0, "clear_boost": 0},
+	"forest": {"clear_to_wind": 4, "wind_to_rain": 2, "rain_boost": 1, "clear_boost": 0},
+	"rocky": {"clear_to_wind": 2, "wind_to_rain": 3, "rain_boost": 2, "clear_boost": 0},
+	"ruins": {"clear_to_wind": 2, "wind_to_rain": 1, "rain_boost": 1, "storm_bonus": 1, "clear_boost": 0},
+	"cave": {"clear_to_wind": 1, "wind_to_rain": 1, "rain_boost": 0, "clear_boost": 1},
+	"cursed": {"clear_to_wind": 6, "wind_to_rain": 4, "rain_boost": 1, "storm_bonus": 1},
+	"glassworks": {"clear_to_wind": 1, "wind_to_rain": 1, "rain_boost": 1, "clear_boost": 0},
+	"pirate_ship": {"clear_to_wind": 5, "wind_to_rain": 3, "rain_boost": 2, "storm_bonus": 2},
+	"moon_glade": {"clear_to_wind": 1, "wind_to_rain": 1, "clear_boost": 0},
+}
 
 
 ## Возвращает сезон календарного дня; каждые семь дней начинается следующий сезон.
 static func season(day: int) -> String:
 	return SEASONS[((maxi(day, 1) - 1) / DAYS_PER_SEASON) % SEASONS.size()]
+
+
+## Применяет локальный климат локации к глобальной погоде дня, сохраняя зимнюю валидацию.
+static func apply_location_profile(day: int, base_weather: String, location: String) -> String:
+	var profile: Dictionary = LOCATION_WEATHER_PROFILE.get(location, LOCATION_WEATHER_PROFILE.get("overworld", {}))
+	var seed := posmod(day * 59 + String(location).length() * 11, 10)
+	match base_weather:
+		"clear":
+			if int(profile.get("clear_to_wind", 0)) > 0 and seed < int(profile.get("clear_to_wind", 0)):
+				base_weather = "wind"
+		"wind":
+			if int(profile.get("wind_to_rain", 0)) > 0 and seed < int(profile.get("wind_to_rain", 0)):
+				base_weather = "rain"
+		"rain":
+			var boost := int(profile.get("rain_boost", 0))
+			if boost > 0 and (seed + boost) % 7 == 0:
+				base_weather = "storm"
+		"storm":
+			if int(profile.get("storm_bonus", 0)) > 0 and int(profile.get("clear_boost", 0)) > 0 and (seed % 10) < 2:
+				base_weather = "rain"
+	return base_weather
+
+
+## Возвращает погоду дня для указанной локации, с учётом локального профиля.
+static func location_weather(day: int, location: String) -> String:
+	return apply_location_profile(day, weather_for_day(day), location)
 
 
 ## Возвращает локализованное короткое название текущего сезона.
@@ -30,18 +67,23 @@ static func weather_for_day(day: int) -> String:
 	return "clear"
 
 
-## Возвращает погоду состояния и безопасно восстанавливает её при старом сохранении.
-static func weather(game: Node) -> String:
-	if game.state.world.weather_day != game.day or not WEATHER_NAMES.has(game.state.world.weather):
-		game.state.world.weather_day = game.day
-		game.state.world.weather = weather_for_day(game.day)
-	return game.state.world.weather
+## Возвращает погоду состояния для текущей/переданной локации и безопасно восстанавливает её при старом сохранении.
+static func weather(game: Node, location: String = "") -> String:
+	var target_location: String = location if not location.is_empty() else game.current_location
+	if target_location.is_empty(): target_location = "overworld"
+	var requested_is_current: bool = target_location == game.current_location
+	if requested_is_current:
+		if game.state.world.weather_day != game.day or not WEATHER_NAMES.has(game.state.world.weather):
+			game.state.world.weather_day = game.day
+			game.state.world.weather = location_weather(game.day, target_location)
+		return game.state.world.weather
+	return location_weather(game.day, target_location)
 
 
 ## Синхронизирует смену дня, поливает грядки осадками и открывает обучающие подсказки.
 static func update(game: Node) -> void:
 	var previous_day: int = game.state.world.weather_day
-	var current_weather := weather(game)
+	var current_weather := weather(game, game.current_location)
 	if previous_day != game.day:
 		if current_weather in ["rain", "storm"]:
 			for cell in game.plots:

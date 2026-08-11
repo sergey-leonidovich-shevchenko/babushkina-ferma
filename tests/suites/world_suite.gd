@@ -1,11 +1,14 @@
 extends "res://tests/suites/suite_base.gd"
 
 const VillageLayoutSystem := preload("res://scripts/systems/village_layout_system.gd")
+const FirstLevelArtSystem := preload("res://scripts/systems/first_level_art_system.gd")
 
 ## Запускает все сценарии текущего набора тестов в фиксированном порядке.
 func run() -> void:
+	test_first_level_master_is_sliced_into_a_seamless_world_grid()
 	test_first_location_has_clear_functional_zones()
 	test_village_hybrid_layout_layers_and_navigation()
+	test_bridge_render_data_and_discovery_covers_both_crossings()
 	test_story_and_side_mission_chains()
 	test_mission_progress_and_drops_are_saved()
 	test_contextual_discoveries_and_new_item_hints()
@@ -14,6 +17,19 @@ func run() -> void:
 	test_wildlife_combat_loot_animation_and_save()
 	test_seeded_world_loot_generation_and_opening()
 	test_world_loot_discovery_and_save_persistence()
+
+
+## Сценарий: цельный мастер первой локации нарезается на игровую сетку без деформации и щелей.
+## Исходное состояние: исходное изображение 1536×1024 и игровой мир 2400×1200.
+## Ожидаемый результат: центральные 48×24 исходных тайла образуют 48×24 игровых тайла и точно закрывают мир.
+func test_first_level_master_is_sliced_into_a_seamless_world_grid() -> void:
+	var master: Texture2D = load("res://assets/generated/level_drafts/first_level_fairytale_master_v1.png")
+	expect(master != null and master.get_size() == Vector2(1536, 1024), "fairytale first-level master is imported at its authored resolution")
+	expect(FirstLevelArtSystem.layout_is_valid(), "fairytale master crop maps to the complete 2400x1200 world")
+	expect(FirstLevelArtSystem.source_rect(Vector2i.ZERO) == Rect2(0, 128, 32, 32), "first playable sprite starts on the tile-aligned crop row")
+	expect(FirstLevelArtSystem.world_rect(Vector2i(47, 23)) == Rect2(2350, 1150, 50, 50), "last playable sprite closes the lower-right world corner")
+	var mapped_center := FirstLevelArtSystem.source_to_world(Vector2(768, 512))
+	expect(mapped_center == Vector2(1200, 600), "master center maps to the center of the playable world")
 
 ## Сценарий: первая локация разделена на двор, площадь и дикую окраину без перекрытий ключевых объектов.
 ## Исходное состояние: новая игра с исходными координатами зданий, персонажей, растений и ресурсов.
@@ -30,8 +46,8 @@ func test_first_location_has_clear_functional_zones() -> void:
 	var farm_rect := Rect2(Vector2(game.FARM_ORIGIN), Vector2(game.FARM_SIZE * game.TILE))
 	expect(game.BuildingSystem.FARM_YARD_RECT.encloses(farm_rect), "all farm plots stay inside the fenced homestead yard")
 	expect(not game.BuildingSystem.destination_rect("cottage").intersects(farm_rect), "cottage sprite does not overlap the farm plots")
-	expect(not game.is_position_walkable(Vector2(490, 900)), "farm fence blocks shortcuts across the garden boundary")
-	expect(game.is_position_walkable(Vector2(670, 805)), "farm gate remains wide enough for the character")
+	expect(not game.is_position_walkable(Vector2(38, 900)), "farm fence blocks shortcuts across the garden boundary")
+	expect(game.is_position_walkable(Vector2(190, 830)), "farm gate remains wide enough for the character")
 	game.discovery_current.clear()
 	game.discovery_scan_timer = 0.0
 	game.DiscoverySystem.update(game, 0.1)
@@ -65,6 +81,7 @@ func test_village_hybrid_layout_layers_and_navigation() -> void:
 	expect(not game.is_position_walkable(river_point), "player cannot walk through the river away from a bridge")
 	expect(game.is_position_walkable(VillageLayoutSystem.BRIDGES[0].get_center()), "bridge remains a usable river crossing")
 	expect(not game.is_position_walkable(VillageLayoutSystem.WELL_POSITION), "well sprite owns a matching solid footprint")
+	expect(not game.is_position_walkable(Vector2(850, 220)), "decorative forge from the master art owns a matching solid footprint")
 	var cottage_door: Vector2 = game.BuildingSystem.BUILDINGS.cottage.door
 	var square_center: Vector2 = game.BuildingSystem.VILLAGE_SQUARE.get_center()
 	expect(cottage_door.y > VillageLayoutSystem.river_center_y(cottage_door.x) + VillageLayoutSystem.RIVER_HALF_WIDTH, "homestead is placed south of the river like the selected concept")
@@ -72,7 +89,36 @@ func test_village_hybrid_layout_layers_and_navigation() -> void:
 	expect(game.FARM_ORIGIN.y > VillageLayoutSystem.river_center_y(game.FARM_ORIGIN.x), "farm field belongs to the southern homestead zone")
 	expect(VillageLayoutSystem.BRIDGES.size() == 2, "homestead and eastern frontier have separate river bridges")
 	expect(not VillageLayoutSystem.is_water(Vector2(300, 1000), game.PLAYER_RADIUS), "river is narrow and no longer replaces the entire southern half of the map")
-	expect(game.cave_entrance_position.x < 500.0 and game.cave_entrance_position.y < 400.0, "mine entrance forms the north-western frontier landmark")
+	expect(game.cave_entrance_position.x > 1600.0 and game.cave_entrance_position.y < 260.0, "mine entrance matches the northern ruined gate in the selected master")
+	game.free()
+
+
+## Сценарий: для обоих мостов используются корректные кадры спрайтов и единая контекстная подсказка.
+## Исходное состояние: новая игра на территории деревни.
+## Ожидаемый результат: обе переправы рендерятся без сдвига, и подсказка «bridge» показывается рядом с нужным мостом.
+func test_bridge_render_data_and_discovery_covers_both_crossings() -> void:
+	var game := make_game()
+	game.current_location = "overworld"
+	var east_bridge_center: Vector2 = VillageLayoutSystem.BRIDGES[1].get_center()
+	expect(VillageLayoutSystem.bridge_render_rect(0).size == Vector2(100, 190), "first bridge uses the intended render size")
+	expect(VillageLayoutSystem.bridge_render_rect(1).size == Vector2(100, 190), "second bridge uses the intended render size")
+	expect(VillageLayoutSystem.BRIDGE_RENDER_SIZES[0] == Vector2(100, 190), "first bridge render source frame has full bridge resolution")
+	expect(VillageLayoutSystem.BRIDGE_RENDER_SIZES[1] == Vector2(100, 190), "second bridge render source frame has full bridge resolution")
+	expect(VillageLayoutSystem.bridge_navigation_rect(0).size == Vector2(156, 238), "small bridge owns a forgiving navigation lane matching its visible width")
+	expect(VillageLayoutSystem.bridge_navigation_rect(1).size == Vector2(156, 238), "main bridge owns a forgiving navigation lane matching its visible width")
+	expect(VillageLayoutSystem.nearest_bridge_center(east_bridge_center) == east_bridge_center, "nearest-bridge helper picks eastern crossing")
+	for bridge_index in VillageLayoutSystem.BRIDGES.size():
+		var bridge_center: Vector2 = VillageLayoutSystem.BRIDGES[bridge_index].get_center()
+		game.player = bridge_center - Vector2(0, 115)
+		game.move_player_with_collisions(Vector2(0, 230))
+		expect(game.player.y > bridge_center.y + 80.0, "player crosses the complete visible bridge without catching on water: %d" % bridge_index)
+	game.player = east_bridge_center
+	game.discovery_current.clear()
+	game.discovery_scan_timer = 0.0
+	expect(game.DiscoverySystem.scan_nearby(game), "bridge around player is found as a contextual discovery")
+	expect(game.discovery_current.id == "bridge", "bridge discovery uses a single stable hint id")
+	var foreground_source := FileAccess.get_file_as_string("res://scripts/systems/village_foreground_renderer.gd")
+	expect(not foreground_source.contains("BUILDING_ATLAS") and not foreground_source.contains("bridge.has_point"), "approaching houses and bridges no longer swaps in legacy foreground sprites")
 	game.free()
 
 ## Сценарий: сюжетная и побочная миссии проходят от диалога до цели, сдачи и награды.

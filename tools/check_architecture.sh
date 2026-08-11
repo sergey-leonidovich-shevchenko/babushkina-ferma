@@ -17,6 +17,7 @@ check_limit() {
 }
 
 check_limit scripts/game.gd 1100
+check_limit scripts/game_core.gd 1200
 check_limit scripts/game_renderer.gd 700
 check_limit scripts/game_context.gd 350
 for suite in tests/suites/*_suite.gd; do

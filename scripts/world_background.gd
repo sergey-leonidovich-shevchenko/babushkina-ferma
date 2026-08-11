@@ -3,20 +3,33 @@ extends Node2D
 const UI_FONT := preload("res://assets/game/fonts/ui_font.tres")
 
 const WORLD_SIZE := Vector2(2400, 1200)
+const GRASS_TILE := preload("res://assets/game/tiles/grass.png")
+const GRASS_TILE_VARIANT_1 := preload("res://assets/game/tiles/grass_var_1.png")
+const GRASS_TILE_VARIANT_2 := preload("res://assets/game/tiles/grass_var_2.png")
 const RED_MUSHROOMS := preload("res://assets/game/environment/red_mushrooms.png")
 const CAVE_CRYSTAL := preload("res://assets/game/environment/cave_crystal.png")
 const ROAD_TILE := preload("res://assets/game/tiles/road-brick.png")
 const CAVE_FLOOR_TILE := preload("res://assets/game/tiles/cave-floor.png")
+const WATER_TILE := preload("res://assets/game/fishing/Water Tile.png")
 const BRIDGES := preload("res://assets/game/environment/bridges.png")
 const FOREST_TREE := preload("res://assets/game/environment/forest_tree.png")
 const VILLAGE_PROPS := preload("res://assets/game/environment/village_prop_atlas.png")
 const RESOURCE_ROCK := preload("res://assets/game/resources/rock.png")
+const FIRST_LEVEL_MASTER := preload("res://assets/generated/level_drafts/first_level_fairytale_master_v1.png")
 const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
 const BuildingSystem := preload("res://scripts/systems/building_system.gd")
 const VillageLayoutSystem := preload("res://scripts/systems/village_layout_system.gd")
+const FirstLevelArtSystem := preload("res://scripts/systems/first_level_art_system.gd")
 const PirateShipRenderer := preload("res://scripts/systems/pirate_ship_renderer.gd")
 const VisualAssetSystem := preload("res://scripts/systems/visual_asset_system.gd")
 const DebugPlaygroundSystem := preload("res://scripts/systems/debug_playground_system.gd"); const DebugPlaygroundRenderer := preload("res://scripts/systems/debug_playground_renderer.gd")
+const CAVE_DECORATIONS := [Vector2(480,250), Vector2(720,600), Vector2(1040,300), Vector2(1380,720), Vector2(1720,280), Vector2(2050,620)]
+
+const GRASS_VARIANTS := [
+	GRASS_TILE,
+	GRASS_TILE_VARIANT_1,
+	GRASS_TILE_VARIANT_2,
+]
 
 var location := "overworld"
 var season := "spring"
@@ -88,33 +101,62 @@ func draw_adventure_location() -> void:
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_overworld() -> void:
-	# Базовый луг остаётся дешёвым тайловым слоем, поверх которого лежат маршруты и объекты.
-	var palette := VillageLayoutSystem.seasonal_palette(season)
-	draw_rect(Rect2(Vector2.ZERO, WORLD_SIZE), palette.grass)
-	draw_meadow_texture()
-	draw_village_districts()
-	draw_village_border()
-	draw_village_water()
-	# Связная сеть широких дорог повторяет прогрессию «дом — деревня — приключение».
-	for path in VillageLayoutSystem.PATHS:
-		draw_village_route(path)
-	draw_rect(BuildingSystem.VILLAGE_SQUARE, Color("9e8059"))
-	draw_texture_rect(ROAD_TILE, BuildingSystem.VILLAGE_SQUARE.grow(-8), true, Color(1, 1, 1, 0.56))
-	# Огород собран в отдельный ухоженный двор с оградой и калиткой к дороге.
-	draw_rect(BuildingSystem.FARM_YARD_RECT.grow(-10), Color("648e49"))
-	draw_fence(BuildingSystem.FARM_YARD_RECT, Vector2(670, 805))
-	# Два моста связывают усадьбу, деревню и восточную дорогу приключений.
-	for bridge in VillageLayoutSystem.BRIDGES:
-		draw_texture_rect_region(BRIDGES, bridge, Rect2(218, 335, 78, 145))
-	draw_village_props()
-	# Лавка сбыта стоит на площади и читается как отдельный сервис, а не второй магазин.
-	draw_rect(BuildingSystem.SELL_CRATE_RECT, Color("8b5835"))
-	for i in 3:
-		draw_line(BuildingSystem.SELL_CRATE_RECT.position + Vector2(4, 10 + i * 15), BuildingSystem.SELL_CRATE_RECT.position + Vector2(56, 10 + i * 15), Color("c78d4e"), 4)
-	draw_string(UI_FONT, BuildingSystem.SELL_CRATE_POSITION + Vector2(-58, 45), LocaleSystem.ui("sell_sign"), HORIZONTAL_ALIGNMENT_CENTER, 116, 15, Color("293c2f"))
-	# Динамические деревья рисует игровой слой: после рубки здесь остаётся видимый пень.
-	draw_texture_rect(RED_MUSHROOMS, Rect2(1680,650,72,72), false)
-	draw_village_ambient_life()
+	# Выбранный мастер собирается из сетки 32×32. Объекты игрового состояния
+	# (урожай, персонажи, ресурсы) остаются независимыми верхними слоями.
+	var tint := Color.WHITE
+	if weather == "rain": tint = Color("d5e2dd")
+	elif season == "autumn": tint = Color("ffe0b4")
+	elif season == "winter": tint = Color("dce9ef")
+	FirstLevelArtSystem.draw_level(self, FIRST_LEVEL_MASTER, tint)
+
+
+## Выбирает детерминированный вариант травы для старого процедурного режима и тестов палитры.
+func _grass_variant(col: int, row: int) -> Texture2D:
+	var index: int = abs(col * 31 + row * 17) % GRASS_VARIANTS.size()
+	return GRASS_VARIANTS[index]
+
+
+## Отрисовывает полный тайлмап первой локации, где каждый квадрат получает отдельный спрайт.
+func draw_overworld_tile_grid(palette: Dictionary) -> void:
+	var tile_size: int = VillageLayoutSystem.OVERWORLD_TILE_SIZE
+	var tile_count: Vector2i = VillageLayoutSystem.OVERWORLD_TILE_COUNT
+	for row in range(tile_count.y):
+		for col in range(tile_count.x):
+			var tile_type := VillageLayoutSystem.overworld_tile(Vector2i(col, row), season)
+			var destination := Rect2(Vector2(col * tile_size, row * tile_size), Vector2(tile_size, tile_size))
+			match tile_type:
+				VillageLayoutSystem.OVERWORLD_TILE_GRASS:
+					var tint: Color = palette.grass
+					var wave: float = fmod((col * 37 + row * 59) * 0.015 + sin((col + row) * 0.2), 1.0)
+					tint = tint.lerp(palette.grass_light, clamp(wave, 0.0, 0.25))
+					draw_texture_rect(_grass_variant(col, row), destination, false, tint)
+				VillageLayoutSystem.OVERWORLD_TILE_ROAD:
+					draw_texture_rect(ROAD_TILE, destination, false, palette.path.darkened(0.1))
+				VillageLayoutSystem.OVERWORLD_TILE_FARM:
+					draw_texture_rect(CAVE_FLOOR_TILE, destination, true, palette.grass_light.darkened(0.15))
+				VillageLayoutSystem.OVERWORLD_TILE_WATER:
+					draw_texture_rect_region(WATER_TILE, destination, Rect2(Vector2(0.0, 0.0), Vector2(16, 16)), Color(1.0, 1.0, 1.0, 0.82))
+				VillageLayoutSystem.OVERWORLD_TILE_STONE:
+					draw_texture_rect(CAVE_FLOOR_TILE, destination, false, Color(0.65, 0.66, 0.67, 0.92))
+				VillageLayoutSystem.OVERWORLD_TILE_BORDER_ROCK:
+					draw_texture_rect(RESOURCE_ROCK, destination, false, Color(1, 1, 1, 0.9))
+				_:
+					draw_texture_rect(_grass_variant(col, row), destination, false, palette.grass)
+
+
+## Добавляет лёгкую детализирующую сетку травинок и цветочных пятен, чтобы карта не выглядела плоской.
+func draw_meadow_lacing() -> void:
+	var seed := 11.37
+	for row in range(0, int(WORLD_SIZE.y), 27):
+		for col in range(0, int(WORLD_SIZE.x), 31):
+			var noise := sin(col * 0.024 + row * 0.031 + seed) * 0.5 + 0.5
+			var noise2 := cos(col * 0.041 - row * 0.017 + seed * 1.3) * 0.5 + 0.5
+			var pos := Vector2(col + (noise2 - 0.5) * 18.0, row + (noise - 0.5) * 12.0)
+			if noise < 0.13 and not VillageLayoutSystem.is_water(pos, 22.0) and not VillageLayoutSystem.is_river_park(pos):
+				var shade := Color("4f7e3d").lerp(Color("5f9552"), noise)
+				draw_circle(pos, 1.4 + noise2 * 1.5, shade)
+				if noise2 < 0.18:
+					draw_circle(pos + Vector2(2.5, -3.5), 0.9, Color("efd7a5"))
 
 
 ## Различает кварталы мягкими бордюрами и напольными деталями, не превращая карту в набор прямоугольников.
@@ -247,11 +289,85 @@ func draw_fence(rect: Rect2, gate: Vector2) -> void:
 ## Отрисовывает пещеры по текущему состоянию игры.
 func draw_cave() -> void:
 	draw_rect(Rect2(Vector2.ZERO, WORLD_SIZE), Color("18232c"))
-	draw_texture_rect(CAVE_FLOOR_TILE, Rect2(Vector2.ZERO, WORLD_SIZE), true, Color(0.72, 0.78, 0.8, 1.0))
+	_draw_cave_floor()
+	_draw_cave_shadows()
+	_draw_cave_rock_clusters()
+	_draw_cave_crystals()
+	_draw_cave_light_frets()
 	draw_circle(Vector2(180,430), 54, Color("0e151a"))
 	draw_circle(Vector2(180,430), 40, Color("b1e4d5"), false, 5)
-	var crystals := [Vector2(480,250), Vector2(720,600), Vector2(1040,300), Vector2(1380,720), Vector2(1720,280), Vector2(2050,620)]
-	for crystal in crystals:
-		draw_texture_rect(CAVE_CRYSTAL, Rect2(crystal - Vector2(32,32), Vector2(64,64)), false)
-		draw_circle(crystal, 42, Color(0.35,0.95,0.85,0.12))
 	draw_string(UI_FONT, Vector2(90,100), LocaleSystem.location("cave").to_upper(), HORIZONTAL_ALIGNMENT_LEFT, -1, 28, Color("9ce9dd"))
+
+
+## Заполняет пещерный пол текстурой и легкой неровностью, чтобы убрать эффект однотонной заливки.
+func _draw_cave_floor() -> void:
+	draw_texture_rect(CAVE_FLOOR_TILE, Rect2(Vector2.ZERO, WORLD_SIZE), true, Color(0.72, 0.78, 0.8, 1.0))
+	for y in range(18, int(WORLD_SIZE.y), 36):
+		for x in range(-12, int(WORLD_SIZE.x) + 12, 48):
+			var x_shift := sin(float(x) * 0.034 + float(y) * 0.021 + float(int(x + y) % 9)) * 8.0
+			var y_shift := cos(float(x) * 0.013 + float(y) * 0.049) * 5.0
+			var shade := Color("253341").lightened(0.15 * sin(float(x) * 0.09 + float(y) * 0.04))
+			draw_line(Vector2(x + x_shift, y + y_shift), Vector2(x + 36.0 + x_shift, y + y_shift + 0.5), shade, 1.8)
+
+
+## Рисует левую и правую «стенки» с мягкими выступами, чтобы пещера читалась как объём.
+func _draw_cave_shadows() -> void:
+	var left_wall := PackedVector2Array()
+	var right_wall := PackedVector2Array()
+	for row in range(0, 14):
+		var pos_y := float(row) * (WORLD_SIZE.y / 13.0)
+		var noise := sin(pos_y * 0.014) * 28.0
+		left_wall.append(Vector2(56.0 + noise + cos(pos_y * 0.07) * 12.0, pos_y))
+		right_wall.append(Vector2(WORLD_SIZE.x - 56.0 - noise - sin(pos_y * 0.07) * 12.0, pos_y))
+	left_wall.append(Vector2(0.0, WORLD_SIZE.y)); left_wall.append(Vector2(0.0, 0.0))
+	right_wall.append(Vector2(WORLD_SIZE.x, WORLD_SIZE.y)); right_wall.append(Vector2(WORLD_SIZE.x, 0.0))
+	draw_colored_polygon(left_wall, Color("101822", 0.62))
+	draw_colored_polygon(right_wall, Color("111b25", 0.62))
+
+
+## Добавляет скопления крупных валунов и пустот, которые дают игроку ощущение масштабной локации.
+func _draw_cave_rock_clusters() -> void:
+	for cluster: Vector2 in CAVE_DECORATIONS:
+		var base: Vector2 = cluster + Vector2(0, 4)
+		draw_texture_rect(CAVE_FLOOR_TILE, Rect2(base - Vector2(30, 16), Vector2(60, 32)), false, Color(0.18, 0.21, 0.24, 0.32))
+		for ring in 6:
+			var shift_angle := float(ring) * TAU / 6.0
+			var shift := Vector2(cos(shift_angle) * 34.0, sin(shift_angle) * 18.0)
+			var size := Vector2(48, 48)
+			var tint := Color(1.0, 1.0, 1.0, 0.78)
+			if ring % 2 == 0:
+				size = Vector2(56, 56)
+				draw_ellipse_stone(base + shift - Vector2(size.x * 0.5, size.y * 0.5), size, Color("201f25"), 0.44)
+			draw_texture_rect(RESOURCE_ROCK, Rect2(base + shift - Vector2(size.x * 0.5, size.y * 0.8), size), false, tint)
+
+
+## Рисует кристаллы и мягкий свечащийся контур, чтобы пещера читалась живой.
+func _draw_cave_crystals() -> void:
+	var crystal_phase := fmod(Time.get_ticks_msec() / 500.0, TAU)
+	for index in CAVE_DECORATIONS.size():
+		var crystal: Vector2 = CAVE_DECORATIONS[index]
+		var pulse := 0.07 * sin(crystal_phase + float(index))
+		var size := Vector2(68, 68)
+		draw_texture_rect(CAVE_CRYSTAL, Rect2(crystal - size * 0.5 + Vector2(0, pulse), size), false)
+		draw_circle(crystal, 42 + pulse * 5.0, Color(0.35, 0.95, 0.85, 0.14))
+		draw_circle(crystal + Vector2(18, -19), 4.0, Color("f2f0ec", 0.2))
+
+
+## Рисует плоский овал-пятно тени для валунного элемента.
+func draw_ellipse_stone(center: Vector2, size: Vector2, color: Color, alpha: float = 1.0) -> void:
+	var points := PackedVector2Array()
+	for step in 20:
+		var angle := TAU * float(step) / 20.0
+		points.append(center + Vector2(cos(angle) * size.x * 0.5, sin(angle) * size.y * 0.35))
+	var shaded := color if alpha >= 1.0 else Color(color.r, color.g, color.b, color.a * alpha)
+	draw_colored_polygon(points, shaded)
+
+
+## Добавляет точки света от сталактитов и мелкий туман для глубины пещерного пространства.
+func _draw_cave_light_frets() -> void:
+	for point in [Vector2(270, 95), Vector2(920, 142), Vector2(1600, 88), Vector2(2140, 166)]:
+		draw_line(point, point + Vector2(24, 2), Color("9f8c8d"), 3.0)
+		draw_line(point + Vector2(24, 2), point + Vector2(30, -14), Color("b8a6a6"), 2.4)
+	for smoke in [Vector2(500,300), Vector2(1340,640), Vector2(1900,390)]:
+		var radius := 26.0 + sin(float(smoke.y) * 0.04 + Time.get_ticks_msec() * 0.001) * 4.0
+		draw_circle(smoke, radius, Color(0.85, 0.93, 0.99, 0.05))

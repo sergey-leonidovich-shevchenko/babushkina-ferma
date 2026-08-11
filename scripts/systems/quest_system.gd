@@ -51,11 +51,11 @@ const MISSIONS := {
 }
 
 const NPCS := {
-	"miron":{"location":"overworld","position":Vector2(1450,535),"sprite":1,"tint":Color("fff3d8"),"missions":["story_relic","story_moon_seal"]},
-	"agafya":{"location":"overworld","position":Vector2(1220,535),"sprite":2,"tint":Color("dff2d2"),"missions":["side_seed"]},
-	"varvara":{"location":"overworld","position":Vector2(1550,825),"sprite":2,"tint":Color("d7efff"),"missions":["side_fisher"]},
-	"gavrila":{"location":"overworld","position":Vector2(1545,520),"sprite":1,"tint":Color("ffd8c2"),"missions":["side_smith"]},
-	"dunya":{"location":"overworld","position":Vector2(900,535),"sprite":0,"tint":Color("fff0c4"),"missions":["side_feast"]},
+	"miron":{"location":"overworld","position":Vector2(1700,470),"sprite":1,"tint":Color("fff3d8"),"missions":["story_relic","story_moon_seal"]},
+	"agafya":{"location":"overworld","position":Vector2(1300,470),"sprite":2,"tint":Color("dff2d2"),"missions":["side_seed"]},
+	"varvara":{"location":"overworld","position":Vector2(1020,900),"sprite":2,"tint":Color("d7efff"),"missions":["side_fisher"]},
+	"gavrila":{"location":"overworld","position":Vector2(920,360),"sprite":1,"tint":Color("ffd8c2"),"missions":["side_smith"]},
+	"dunya":{"location":"overworld","position":Vector2(1510,450),"sprite":0,"tint":Color("fff0c4"),"missions":["side_feast"]},
 	"saveliy":{"location":"forest","position":Vector2(350,520),"sprite":1,"tint":Color("d5e6bd"),"missions":["side_hunter"]},
 	"zlata":{"location":"rocky","position":Vector2(410,520),"sprite":2,"tint":Color("ffe0b5"),"missions":["side_miner"]},
 	"elizar":{"location":"ruins","position":Vector2(350,440),"sprite":0,"tint":Color("e6ddff"),"missions":["story_ancient_key","side_bones"]},
@@ -113,6 +113,81 @@ static func nearest_npc(game: Node, distance_limit: float = 92.0) -> String:
 			distance_limit = distance
 			nearest = npc_id
 	return nearest
+
+
+## Возвращает признак сюжетного задания по идентификатору.
+static func is_story_mission(mission_id: String) -> bool:
+	return mission_id.begins_with("story_")
+
+
+## Возвращает приоритет порядка состояния для UI/журнала.
+static func _state_rank(state: String) -> int:
+	match state:
+		ACTIVE:
+			return 0
+		AVAILABLE:
+			return 1
+		LOCKED:
+			return 2
+		COMPLETED:
+			return 3
+		_:
+			return 4
+
+
+## Возвращает список миссий с единым приоритетом сортировки:
+## 1) активные, затем доступные, затем закрытые и завершённые;
+## 2) внутри состояния — сначала сюжет, потом побочные;
+## 3) затем по id для стабильности.
+static func ordered_mission_ids(game: Node, mission_ids: Array[String] = []) -> Array[String]:
+	var result: Array[String] = []
+	if mission_ids.is_empty():
+		for mission_id in MISSIONS:
+			result.append(mission_id)
+	else:
+		result = mission_ids.duplicate()
+	result.sort_custom(func(a: String, b: String) -> bool:
+		var rank_a: int = _state_rank(mission_state(game, a))
+		var rank_b: int = _state_rank(mission_state(game, b))
+		if rank_a != rank_b: return rank_a < rank_b
+		if is_story_mission(a) != is_story_mission(b):
+			return is_story_mission(a)
+		if MISSIONS[a].type != MISSIONS[b].type:
+			return MISSIONS[a].type < MISSIONS[b].type
+		return a < b
+	)
+	return result
+
+
+## Возвращает все активные миссии с приоритетом по типу: сначала сюжетные, затем побочные.
+static func active_mission_ids(game: Node) -> Array[String]:
+	var active: Array[String] = []
+	for mission_id in game.mission_states.keys():
+		if game.mission_states.get(mission_id, AVAILABLE) == ACTIVE:
+			active.append(String(mission_id))
+	return ordered_mission_ids(game, active)
+
+
+## Возвращает рекомендуемую локацию для текущего активного задания.
+static func objective_region(game: Node) -> String:
+	for mission_id in active_mission_ids(game):
+		for npc_id in NPCS:
+			if mission_id in NPCS[npc_id].missions:
+				return String(NPCS[npc_id].location)
+	return ""
+
+
+## Возвращает текст сводного прогресса сюжетной линии для UI и HUD.
+static func story_progress_text(game: Node) -> String:
+	var total: int
+	var complete: int
+	for mission_id in MISSIONS:
+		if not is_story_mission(mission_id):
+			continue
+		total += 1
+		if mission_state(game, mission_id) == COMPLETED:
+			complete += 1
+	return "Сюжет: %d/%d" % [complete, total]
 
 ## Выбирает активное либо первое открытое задание указанного жителя.
 static func mission_for_npc(game: Node, npc_id: String) -> String:

@@ -30,8 +30,7 @@ static func objective_region(game: Node) -> String:
 	var campaign: Dictionary = game.state.world.castle_campaign
 	if int(campaign.stage) == 1: return "ruins"
 	if int(campaign.stage) in [2, 3, 4]: return "ruins"
-	for mission_id in game.QuestSystem.MISSIONS:
-		if String(game.mission_states.get(mission_id, game.QuestSystem.AVAILABLE)) == game.QuestSystem.ACTIVE:
-			for npc_id in game.QuestSystem.NPCS:
-				if mission_id in game.QuestSystem.NPCS[npc_id].missions: return String(game.QuestSystem.NPCS[npc_id].location)
+	var quest_region: String = game.QuestSystem.objective_region(game)
+	if not quest_region.is_empty():
+		return quest_region
 	return ""

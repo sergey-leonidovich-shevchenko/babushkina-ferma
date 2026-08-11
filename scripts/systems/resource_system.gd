@@ -7,8 +7,8 @@ const RESOURCE_NAMES := {
 	"green_crystal": "зелёный кристалл",
 }
 const SPAWNS := [
-	{"position": Vector2(330, 265), "location": "overworld", "kind": "stone", "hits": 2},
-	{"position": Vector2(430, 300), "location": "overworld", "kind": "red_crystal", "hits": 3},
+	{"position": Vector2(1200, 300), "location": "overworld", "kind": "stone", "hits": 2},
+	{"position": Vector2(1710, 190), "location": "overworld", "kind": "red_crystal", "hits": 3},
 	{"position": Vector2(520, 300), "location": "cave", "kind": "crystal", "hits": 3},
 	{"position": Vector2(980, 570), "location": "cave", "kind": "stone", "hits": 2},
 	{"position": Vector2(1500, 330), "location": "cave", "kind": "green_crystal", "hits": 3},

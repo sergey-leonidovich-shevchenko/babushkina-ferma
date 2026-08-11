@@ -14,6 +14,8 @@ func run() -> void:
 	test_distinct_interiors_have_solid_reachable_furniture()
 	test_village_events_have_gameplay_and_rewards()
 	test_debug_inspector_supports_pause_step_pointer_and_graph()
+	test_runtime_debug_overlay_classifies_navigation_grid()
+	test_runtime_debug_overlay_controls_pause_layers_and_noclip()
 	test_world_polish_atlas_has_complete_transparent_grid()
 	test_expansion_features_have_tutorial_steps()
 
@@ -23,10 +25,13 @@ func run() -> void:
 ## Ожидаемый результат: районы различимы, а дом, магазин и гильдия достигаются дорожной сетью.
 func test_village_has_distinct_connected_districts() -> void:
 	var game := make_game(); var layout = game.VillageLayoutSystem
-	expect(layout.DISTRICTS.size() == 6 and layout.district_at(Vector2(1050,430)) == "market" and layout.district_at(Vector2(1450,430)) == "guild", "village exposes six readable functional districts")
-	for point in [Vector2(330,950),Vector2(1050,370),Vector2(1450,370)]: expect(layout.path_reaches(point), "village road reaches service landmark: %s" % point)
+	expect(layout.DISTRICTS.size() == 6 and layout.district_at(Vector2(1300,430)) == "market" and layout.district_at(Vector2(2110,250)) == "guild", "village exposes six readable functional districts")
+	for building_id in ["cottage","shop_house","guild_hall"]:
+		var point: Vector2 = game.BuildingSystem.BUILDINGS[building_id].door
+		expect(layout.path_reaches(point), "village road reaches service landmark: %s" % point)
 	expect(layout.is_water(Vector2(1200,layout.river_center_y(1200)),18.0) and not layout.is_water(layout.BRIDGES[0].get_center(),18.0), "river blocks movement while bridge preserves navigation")
-	expect(layout.blocks_scenic_prop(layout.BORDER_TREES[0] + Vector2(0,28),18.0) and layout.blocks_scenic_prop(layout.BORDER_ROCKS[0],18.0), "visible village border trees and rocks own matching collision shapes")
+	expect(layout.blocks_scenic_prop(Vector2(850,220),18.0), "visible decorative forge from the master owns a matching collision shape")
+	expect(not layout.blocks_scenic_prop(Vector2(1170,537),18.0), "removed procedural props no longer leave invisible collision walls")
 	game.free()
 
 
@@ -161,6 +166,45 @@ func test_debug_inspector_supports_pause_step_pointer_and_graph() -> void:
 	game.DebugPlaygroundSystem.handle_pointer(game,step_rect.get_center()); expect(is_equal_approx(game.DebugPlaygroundSystem.simulation_delta(game,0.2),1.0/12.0), "frame-step advances one fixed debug frame")
 	game.DebugPlaygroundSystem.update(game,0.016); game.DebugPlaygroundSystem.update(game,0.016)
 	expect(game.get_meta("debug_playground").frame_history.size() == 2 and game.get_meta("debug_playground").hitboxes and game.get_meta("debug_playground").routes, "debug graph and spatial overlays are enabled and stateful")
+	game.free()
+
+
+## Сценарий: внутриигровая панель использует те же правила, по которым реально движется герой.
+## Исходное состояние: F11 открывает панель на обычной первой локации с видимой сеткой 50 пикселей.
+## Ожидаемый результат: проход, вода, здание и враг получают разные причины и цвета категорий.
+func test_runtime_debug_overlay_classifies_navigation_grid() -> void:
+	var game := make_game(); game.current_location = "overworld"; game.player = Vector2(1160,650); game.update_camera()
+	game.DebugOverlaySystem.handle_input(game,key_event(KEY_F11,KEY_F11,true))
+	var state: Dictionary = game.get_meta(game.DebugOverlaySystem.META_KEY)
+	expect(game.DebugOverlaySystem.active(game) and state.grid and state.cache.size() > 200, "F11 opens cached navigation overlay in the current location")
+	var water: Vector2 = Vector2(1200,game.VillageLayoutSystem.river_center_y(1200))
+	var building: Vector2 = game.BuildingSystem.collision_rect("cottage").get_center()
+	var enemy_position := Vector2(1160,650)
+	for y in range(150,1100,50):
+		for x in range(100,2300,50):
+			if game.NavigationSystem.walkability_reason(game,Vector2(x,y)) == "walkable": enemy_position = Vector2(x,y); break
+		if enemy_position != Vector2(1160,650): break
+	game.enemy_nodes = [{"alive":true,"location":"overworld","position":enemy_position}]
+	expect(game.NavigationSystem.walkability_reason(game,water) == "water", "debug classifier identifies actual river collision")
+	expect(game.NavigationSystem.walkability_reason(game,building) == "building", "debug classifier identifies actual building collision")
+	expect(game.NavigationSystem.walkability_reason(game,enemy_position) == "enemy", "debug classifier identifies dynamic enemy collision")
+	expect(game.DebugOverlayRenderer.reason_color("walkable") != game.DebugOverlayRenderer.reason_color("water") and game.DebugOverlayRenderer.reason_color("enemy") != game.DebugOverlayRenderer.reason_color("building"), "navigation categories own distinct overlay colors")
+	game.free()
+
+
+## Сценарий: диагностические команды работают поверх мира и не меняют честную карту коллизий.
+## Исходное состояние: панель открыта, симуляция запущена, хитбоксы скрыты и noclip выключен.
+## Ожидаемый результат: кнопки включают слои, пауза делает шаг, а noclip двигает сквозь стену без перекраски стены.
+func test_runtime_debug_overlay_controls_pause_layers_and_noclip() -> void:
+	var game := make_game(); game.current_location = "overworld"; game.DebugOverlaySystem.toggle(game)
+	game.DebugOverlaySystem.handle_pointer(game,game.DebugOverlaySystem.BUTTONS[1].rect.get_center())
+	game.DebugOverlaySystem.handle_pointer(game,game.DebugOverlaySystem.BUTTONS[4].rect.get_center())
+	expect(game.get_meta(game.DebugOverlaySystem.META_KEY).hitboxes and is_zero_approx(game.DebugOverlaySystem.simulation_delta(game,0.2)), "debug buttons enable hitboxes and pause the running world")
+	game.DebugOverlaySystem.request_step(game)
+	expect(is_equal_approx(game.DebugOverlaySystem.simulation_delta(game,0.2),1.0/12.0), "debug frame-step advances exactly one fixed frame")
+	var wall: Vector2 = game.BuildingSystem.collision_rect("cottage").get_center(); game.player = wall - Vector2(100,0)
+	game.DebugOverlaySystem.toggle_option(game,"noclip"); game.NavigationSystem.move(game,Vector2(100,0))
+	expect(game.player == wall and game.NavigationSystem.walkability_reason(game,wall) == "building", "noclip bypasses movement collision while inspector preserves its real reason")
 	game.free()
 
 

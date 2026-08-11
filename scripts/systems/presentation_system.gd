@@ -92,14 +92,28 @@ static func discovery_card_rect() -> Rect2:
 static func quest_tracker_lines(game: Node) -> Array[String]:
 	var lines: Array[String] = []
 	if game.current_location == "moon_glade": lines.append(game.MoonGladeSystem.objective(game))
+	var story_progress: String = game.QuestSystem.story_progress_text(game)
+	if not story_progress.is_empty(): lines.append(story_progress)
 	var campaign_objective: String = game.CastleCampaignSystem.objective(game)
 	if not campaign_objective.is_empty() and not game.state.world.castle_campaign.completed: lines.append(campaign_objective)
 	if game.quest_active:
 		lines.append("Бабушкина морковь: %d/10" % mini(game.carrots, 10))
-	for mission_id in game.QuestSystem.MISSIONS:
-		if game.mission_states.get(mission_id) == game.QuestSystem.ACTIVE:
-			lines.append("%s — %s" % [game.QuestSystem.mission_data(mission_id).title, game.QuestSystem.objective_text(game, mission_id)])
-	if lines.size() > 3:
-		var hidden_count := lines.size() - 3
-		lines.resize(3); lines.append(game.LocaleSystem.ui("more_quests", [hidden_count]))
+	var mission_lines: Array[String] = []
+	for mission_id in game.QuestSystem.active_mission_ids(game):
+		mission_lines.append("%s — %s" % [game.QuestSystem.mission_data(mission_id).title, game.QuestSystem.objective_text(game, mission_id)])
+	var header_size: int = lines.size()
+	if header_size >= 3:
+		if mission_lines.is_empty():
+			return lines.slice(0, 3)
+		var hidden_count: int = mission_lines.size()
+		lines = lines.slice(0, 3)
+		lines.append(game.LocaleSystem.ui("more_quests", [hidden_count]))
+		return lines
+	var mission_budget: int = 3 - header_size
+	for mission_line in mission_lines.slice(0, mini(mission_budget, mission_lines.size())):
+		lines.append(mission_line)
+	var shown_missions: int = min(mission_budget, mission_lines.size())
+	var hidden_count: int = mission_lines.size() - shown_missions
+	if hidden_count > 0:
+		lines.append(game.LocaleSystem.ui("more_quests", [hidden_count]))
 	return lines
