@@ -9,6 +9,7 @@ func run() -> void:
 	test_title_continue_and_new_game_contract()
 	test_pause_stops_world_and_resumes()
 	test_pause_save_and_load_cycle()
+	test_fullscreen_is_default_and_migrates_legacy_windowed_config()
 	test_settings_persist_and_apply_audio_levels()
 	test_menu_keyboard_gamepad_touch_and_layout()
 	test_exit_is_safe_outside_scene_tree()
@@ -73,6 +74,32 @@ func test_pause_save_and_load_cycle() -> void:
 	cleanup_files()
 
 
+## Сценарий: приложение стартует на весь экран и обновляет старую оконную настройку только один раз.
+## Исходное состояние: проект имеет полноэкранный boot-mode, а старый конфиг содержит fullscreen=false без версии схемы.
+## Ожидаемый результат: первый запуск мигрирует режим в fullscreen, новая игра его сохраняет, а последующий явный выбор пользователя остаётся доступен.
+func test_fullscreen_is_default_and_migrates_legacy_windowed_config() -> void:
+	cleanup_files()
+	var game := make_game()
+	expect(ProjectSettings.get_setting("display/window/size/mode") == 3, "project opens fullscreen before the first game scene is ready")
+	expect(game.settings_state.fullscreen_enabled, "fresh settings default to fullscreen")
+	var legacy := ConfigFile.new()
+	legacy.set_value("display","fullscreen",false)
+	expect(legacy.save(TEST_SETTINGS_PATH) == OK, "legacy windowed settings fixture is written")
+	expect(game.SettingsSystem.load(game,TEST_SETTINGS_PATH,false), "legacy display settings are loaded")
+	expect(game.settings_state.fullscreen_enabled, "legacy implicit windowed default migrates to fullscreen")
+	var migrated := ConfigFile.new()
+	expect(migrated.load(TEST_SETTINGS_PATH) == OK and int(migrated.get_value("meta","schema_version",0)) == game.SettingsSystem.SETTINGS_SCHEMA, "fullscreen migration records the current settings schema")
+	game.title_screen = true
+	game.MenuSystem.start_new_game(game)
+	expect(not game.title_screen and game.settings_state.fullscreen_enabled, "starting gameplay from title keeps fullscreen state")
+	game.settings_state.fullscreen_enabled = false
+	expect(game.SettingsSystem.save(game,TEST_SETTINGS_PATH), "explicit later windowed choice can be saved")
+	var restored := make_game()
+	expect(restored.SettingsSystem.load(restored,TEST_SETTINGS_PATH,false) and not restored.settings_state.fullscreen_enabled, "explicit schema-v2 windowed choice remains respected")
+	game.free(); restored.free()
+	cleanup_files()
+
+
 ## Сценарий: раздельные настройки звука, экрана и языка переживают новый запуск.
 ## Исходное состояние: чистый конфигурационный файл и игра со значениями по умолчанию вне реального окна.
 ## Ожидаемый результат: проценты, переключатели и язык сохраняются, нормализуются и меняют расчёт громкости плееров.
@@ -89,13 +116,13 @@ func test_settings_persist_and_apply_audio_levels() -> void:
 	game.menu_state.settings_selected = 5; game.MenuSystem.adjust_setting(game, 1, TEST_SETTINGS_PATH, false)
 	game.menu_state.settings_selected = 6; game.MenuSystem.adjust_setting(game, 1, TEST_SETTINGS_PATH, false)
 	expect(game.SettingsSystem.percent(game.settings_state.master_volume) == 90 and game.SettingsSystem.percent(game.settings_state.music_volume) == 80 and game.SettingsSystem.percent(game.settings_state.sfx_volume) == 80, "three volume controls move independently in ten-percent steps")
-	expect(not game.audio_enabled and game.settings_state.fullscreen_enabled and not game.settings_state.vsync_enabled, "sound fullscreen and VSync toggles change independently")
+	expect(not game.audio_enabled and not game.settings_state.fullscreen_enabled and not game.settings_state.vsync_enabled, "sound fullscreen and VSync toggles change independently")
 	expect(game.AudioSystem.music_volume_db(game) == game.AudioSystem.SILENT_DB and game.AudioSystem.sfx_volume_db(game) == game.AudioSystem.SILENT_DB, "disabled sound mutes both calculated audio channels")
 	var restored := make_game()
 	restored.LocaleSystem.load_locale(TEST_SETTINGS_PATH)
 	expect(restored.SettingsSystem.load(restored, TEST_SETTINGS_PATH, false), "settings file loads on a later launch")
 	expect(restored.SettingsSystem.percent(restored.settings_state.master_volume) == 90 and restored.SettingsSystem.percent(restored.settings_state.music_volume) == 80 and restored.SettingsSystem.percent(restored.settings_state.sfx_volume) == 80, "later launch restores all volume controls")
-	expect(not restored.audio_enabled and restored.settings_state.fullscreen_enabled and not restored.settings_state.vsync_enabled and restored.LocaleSystem.current == "en", "later launch restores switches and selected language")
+	expect(not restored.audio_enabled and not restored.settings_state.fullscreen_enabled and not restored.settings_state.vsync_enabled and restored.LocaleSystem.current == "en", "later launch restores switches and selected language")
 	expect(restored.tutorial_events_completed.is_empty() and game.tutorial_events_completed.has("settings"), "opening settings has tutorial coverage without polluting a new game")
 	game.LocaleSystem.set_locale("ru", false)
 	game.free(); restored.free()

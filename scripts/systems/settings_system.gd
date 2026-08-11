@@ -2,12 +2,13 @@ extends RefCounted
 
 const SETTINGS_PATH := "user://farm-settings.cfg"
 const VOLUME_STEP := 0.1
+const SETTINGS_SCHEMA := 2
 
 class SettingsState:
 	var master_volume := 1.0
 	var music_volume := 0.7
 	var sfx_volume := 0.9
-	var fullscreen_enabled := false
+	var fullscreen_enabled := true
 	var vsync_enabled := true
 
 
@@ -19,8 +20,13 @@ static func load(game: Node, path: String = SETTINGS_PATH, apply_display: bool =
 	game.settings_state.master_volume = clampf(float(config.get_value("audio", "master", 1.0)), 0.0, 1.0)
 	game.settings_state.music_volume = clampf(float(config.get_value("audio", "music", 0.7)), 0.0, 1.0)
 	game.settings_state.sfx_volume = clampf(float(config.get_value("audio", "effects", 0.9)), 0.0, 1.0)
-	game.settings_state.fullscreen_enabled = bool(config.get_value("display", "fullscreen", false))
+	game.settings_state.fullscreen_enabled = bool(config.get_value("display", "fullscreen", true))
 	game.settings_state.vsync_enabled = bool(config.get_value("display", "vsync", true))
+	if loaded and int(config.get_value("meta", "schema_version", 1)) < SETTINGS_SCHEMA:
+		game.settings_state.fullscreen_enabled = true
+		config.set_value("display", "fullscreen", true)
+		config.set_value("meta", "schema_version", SETTINGS_SCHEMA)
+		config.save(path)
 	if apply_display and game.is_inside_tree():
 		apply_display_settings(game)
 	if game.get_node_or_null("AudioMusicA"):
@@ -32,6 +38,7 @@ static func load(game: Node, path: String = SETTINGS_PATH, apply_display: bool =
 static func save(game: Node, path: String = SETTINGS_PATH) -> bool:
 	var config := ConfigFile.new()
 	config.load(path)
+	config.set_value("meta", "schema_version", SETTINGS_SCHEMA)
 	config.set_value("language", "locale", game.LocaleSystem.current)
 	config.set_value("audio", "enabled", game.audio_enabled)
 	config.set_value("audio", "master", game.settings_state.master_volume)
