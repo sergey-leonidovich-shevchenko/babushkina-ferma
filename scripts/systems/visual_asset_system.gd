@@ -10,7 +10,8 @@ const INVENTORY_CORE_ATLAS := preload("res://assets/game/generated/inventory_cor
 const INVENTORY_RARE_ATLAS := preload("res://assets/game/generated/inventory_rare_atlas.png")
 const FARM_FOOD_ATLAS := preload("res://assets/game/generated/farm_food_atlas.png")
 const FARM_LIFE_ATLAS := preload("res://assets/game/expansion_pack/expansion_atlas.png")
-const ITEM_TEXTURES := {}
+const ITEM_ICON_DIRECTORY := "res://assets/game/items/catalog"
+static var item_icon_cache: Dictionary = {}
 
 const BIOME_ORDER := ["forest", "rocky", "ruins", "cursed", "glassworks"]
 const PIRATE_ENEMY_ORDER := ["pirate", "zombie_pirate", "sea_ghost", "drowned_captain"]
@@ -189,9 +190,24 @@ static func draw_potion(canvas: CanvasItem, kind: String, rect: Rect2) -> bool:
 	return true
 
 
-## Возвращает отдельную текстуру предмета, который не хранится в общем атласе.
+## Загружает отдельные иконки до первого кадра, чтобы отрисовка не инициировала ресурсные операции.
+static func initialize_item_icons(kinds: Array) -> void:
+	item_icon_cache.clear()
+	for value in kinds:
+		var kind := String(value)
+		var path := "%s/%s.png" % [ITEM_ICON_DIRECTORY, kind]
+		if ResourceLoader.exists(path): item_icon_cache[kind] = load(path)
+
+
+## Возвращает заранее кэшированную отдельную текстуру предмета.
 static func item_texture(kind: String) -> Texture2D:
-	return ITEM_TEXTURES.get(kind) as Texture2D
+	return item_icon_cache.get(kind) as Texture2D
+
+
+## Вписывает квадратную иконку в доступную область без растяжения по одной из осей.
+static func fitted_icon_rect(rect: Rect2) -> Rect2:
+	var side := minf(rect.size.x, rect.size.y)
+	return Rect2(rect.get_center() - Vector2(side, side) * 0.5, Vector2(side, side))
 
 
 ## Возвращает атлас, которому принадлежит предмет основного каталога рюкзака.
@@ -235,4 +251,4 @@ static func draw_farm_life_item(canvas: CanvasItem, kind: String, rect: Rect2) -
 
 ## Проверяет, что зарегистрированный предмет имеет собственную текстуру или ячейку атласа.
 static func has_item_icon(kind: String) -> bool:
-	return ITEM_TEXTURES.has(kind) or INVENTORY_CORE_CELLS.has(kind) or INVENTORY_RARE_CELLS.has(kind) or FARM_FOOD_CELLS.has(kind) or FARM_LIFE_CELLS.has(kind) or POTION_CELLS.has(kind) or PIRATE_ITEM_CELLS.has(kind) or kind == "eclipse_core"
+	return item_texture(kind) != null

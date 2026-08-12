@@ -93,30 +93,29 @@ func test_pirate_enemies_and_items_cover_their_catalogs() -> void:
 
 ## Сценарий: каждый предмет, способный попасть в инвентарь, проходит единый визуальный контракт.
 ## Исходное состояние: каталог предметов содержит инструменты, еду, ресурсы, экипировку и квестовый лут.
-## Ожидаемый результат: у всех идентификаторов есть отдельная текстура либо конкретная ячейка атласа.
+## Ожидаемый результат: у всех идентификаторов есть заранее загруженная отдельная текстура.
 func test_every_inventory_item_has_dedicated_icon() -> void:
 	var game := make_game()
+	game.VisualAssetSystem.initialize_item_icons(game.InventorySystem.ITEM_DATA.keys())
 	for kind in game.InventorySystem.ITEM_DATA:
 		expect(game.VisualAssetSystem.has_item_icon(kind), "inventory item owns a dedicated icon: %s" % kind)
-	expect(game.VisualAssetSystem.INVENTORY_CORE_CELLS.size() == 24, "core inventory atlas maps every one of its twenty-four cells")
-	expect(game.VisualAssetSystem.INVENTORY_RARE_CELLS.size() == 23, "rare inventory atlas maps resources and all seven high-resolution equipment icons")
-	expect(game.VisualAssetSystem.FARM_FOOD_CELLS.size() == 24, "farm food atlas maps all twenty-four household items")
+	var fitted: Rect2 = game.VisualAssetSystem.fitted_icon_rect(Rect2(10, 20, 74, 52))
+	expect(fitted.size == Vector2(52, 52) and fitted.get_center() == Vector2(47, 46), "separate square icon is centered without non-uniform stretching")
 	game.free()
 
 
-## Сценарий: каждый предмет общего каталога вырезается только из собственной ячейки атласа.
-## Исходное состояние: основные, редкие и продуктовые иконки лежат в трёх сетках шесть на четыре.
-## Ожидаемый результат: исходная область принадлежит верному атласу, а безопасная обрезка не касается границ соседних спрайтов.
-func test_inventory_atlas_sources_are_bounded_and_bleed_safe() -> void:
+## Сценарий: каждый предмет каталога использует отдельный очищенный прозрачный PNG.
+## Исходное состояние: инструмент нарезки сформировал квадратные файлы вместо выборки соседних областей во время игры.
+## Ожидаемый результат: каждый предмет импортируется, имеет единый размер и прозрачные углы без чужих фрагментов атласа.
+func test_inventory_icons_are_individual_clean_sprites() -> void:
 	var game := make_game()
-	var atlas_families := [game.VisualAssetSystem.INVENTORY_CORE_CELLS, game.VisualAssetSystem.INVENTORY_RARE_CELLS, game.VisualAssetSystem.FARM_FOOD_CELLS]
-	for family in atlas_families:
-		for kind in family:
-			var atlas: Texture2D = game.VisualAssetSystem.inventory_item_atlas(kind)
-			var source: Rect2 = game.VisualAssetSystem.inventory_item_source(kind)
-			var safe: Rect2 = game.VisualAssetSystem.safe_atlas_source(source)
-			expect(atlas != null and Rect2(Vector2.ZERO, atlas.get_size()).encloses(source), "item source stays inside its actual atlas: %s" % kind)
-			expect(source.encloses(safe) and safe.position > source.position and safe.end < source.end, "item crop leaves transparent guard pixels on every edge: %s" % kind)
+	for kind in game.InventorySystem.ITEM_DATA:
+		var path := "res://assets/game/items/catalog/%s.png" % kind
+		var image := Image.load_from_file(ProjectSettings.globalize_path(path))
+		expect(image != null and image.get_size() == Vector2i(256, 256), "item owns normalized individual sprite: %s" % kind)
+		expect(image.get_pixel(0, 0).a < 0.01 and image.get_pixel(255, 255).a < 0.01, "individual item sprite keeps transparent guard corners: %s" % kind)
+		var used := image.get_used_rect()
+		expect(maxi(used.size.x, used.size.y) >= 190 and maxi(used.size.x, used.size.y) <= 220, "individual item fills its canvas without shrinking or clipping: %s" % kind)
 	game.free()
 
 

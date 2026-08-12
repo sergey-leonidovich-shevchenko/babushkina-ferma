@@ -519,18 +519,9 @@ func fallback_item_glyph(kind: String) -> String:
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_item_icon(kind: String, rect: Rect2) -> void:
 	var texture := item_texture(kind)
-	if VisualAssetSystem.draw_potion(self, kind, rect):
-		pass
-	elif texture:
-		draw_texture_rect(texture, rect, false)
-	elif VisualAssetSystem.draw_pirate_item(self, kind, rect):
-		pass
-	elif VisualAssetSystem.draw_eclipse_item(self, kind, rect):
-		pass
-	elif VisualAssetSystem.draw_inventory_item(self, kind, rect):
-		pass
-	elif VisualAssetSystem.draw_farm_life_item(self,kind,rect):
-		pass
+	var destination := VisualAssetSystem.fitted_icon_rect(rect)
+	if texture:
+		draw_texture_rect(texture, destination, false)
 	else:
 		var center := rect.get_center(); var radius := minf(rect.size.x, rect.size.y) * 0.38
 		draw_circle(center, radius, inventory_item_color(kind)); draw_circle(center, radius, Color(0.95, 0.9, 0.72, 0.88), false, 2.0)

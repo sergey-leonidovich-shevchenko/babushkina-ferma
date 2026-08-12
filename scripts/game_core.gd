@@ -3,6 +3,7 @@ extends "res://scripts/game_renderer.gd"
 ## Подготавливает узел к работе: создаёт зависимые данные и синхронизирует начальное состояние.
 func _ready() -> void:
 	InputSystem.ensure_default_actions()
+	VisualAssetSystem.initialize_item_icons(InventorySystem.ITEM_DATA.keys())
 	for content_error in ContentRegistry.validate():
 		push_error("Invalid game content: " + content_error)
 	LocaleSystem.load_locale()
