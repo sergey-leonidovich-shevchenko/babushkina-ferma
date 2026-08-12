@@ -10,6 +10,8 @@ const SETTINGS_ITEM_ORIGIN := Vector2(280, 112)
 const TITLE_ITEM_SIZE := Vector2(254, 43)
 const PAUSE_ITEM_SIZE := Vector2(376, 50)
 const SETTINGS_ITEM_SIZE := Vector2(592, 48)
+const TITLE_HIGHLIGHT_BASE := 1.16
+const TITLE_HIGHLIGHT_PULSE := 0.06
 
 
 ## Возвращает прямоугольник строки главного меню для отрисовки и единой hit-зоны.
@@ -126,16 +128,20 @@ static func draw_item(game: Node, rect: Rect2, label: String, selected: bool, en
 ## Подсвечивает готовую нарисованную плашку, не закрывая её древесно-пергаментную фактуру.
 static func draw_title_item(game: Node, rect: Rect2, label: String, selected: bool, enabled: bool) -> void:
 	if selected:
-		var pulse := 0.18 + sin(Time.get_ticks_msec() / 240.0) * 0.04
-		game.draw_rect(rect, Color(1.0, 0.82, 0.35, pulse))
-		game.draw_rect(rect.grow(2), Color("ffd66d"), false, 2.0)
-		var marker := PackedVector2Array([rect.position + Vector2(-13, rect.size.y * 0.5), rect.position + Vector2(-7, rect.size.y * 0.5 - 6), rect.position + Vector2(-1, rect.size.y * 0.5), rect.position + Vector2(-7, rect.size.y * 0.5 + 6)])
-		game.draw_colored_polygon(marker, Color("ffd66d"))
+		game.draw_texture_rect_region(game.TITLE_ART, rect, rect, title_highlight_modulate(Time.get_ticks_msec()))
+		var glow_alpha := 0.08 + sin(Time.get_ticks_msec() / 260.0) * 0.025
+		game.draw_rect(rect.grow(-4), Color(1.0, 0.84, 0.48, glow_alpha))
 	elif not enabled:
 		game.draw_rect(rect, Color(0.18, 0.16, 0.13, 0.34))
 	var text_color := Color("4a2816") if enabled else Color("8f8069")
 	game.draw_string(game.MENU_FONT, rect.position + Vector2(9, 29) + Vector2(1, 2), label, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 18, 21, Color(1.0, 0.92, 0.72, 0.55))
 	game.draw_string(game.MENU_FONT, rect.position + Vector2(9, 29), label, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 18, 21, text_color)
+
+
+## Возвращает тёплую пульсирующую модуляцию, которая осветляет пиксели выбранной плашки без рамки.
+static func title_highlight_modulate(milliseconds: int) -> Color:
+	var brightness := TITLE_HIGHLIGHT_BASE + sin(milliseconds / 260.0) * TITLE_HIGHLIGHT_PULSE
+	return Color(brightness, brightness * 0.98, brightness * 0.86, 1.0)
 
 
 ## Показывает результат сохранения, загрузки или применения параметров внутри текущего меню.

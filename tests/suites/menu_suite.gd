@@ -51,6 +51,9 @@ func test_title_visual_design_assets_and_layout() -> void:
 	for index in game.MenuSystem.TITLE_ITEMS.size():
 		expect(painted_board.encloses(game.MenuRenderer.title_item_rect(index)), "title hit row fits its painted inventory-style button: %d" % index)
 	expect(not game.MenuRenderer.TITLE_WORDMARK_RECT.intersects(game.MenuRenderer.TITLE_PANEL), "storybook wordmark stays clear of the integrated menu board")
+	var highlight_dark: Color = game.MenuRenderer.title_highlight_modulate(0)
+	var highlight_bright: Color = game.MenuRenderer.title_highlight_modulate(408)
+	expect(highlight_dark.r > 1.0 and highlight_bright.r > highlight_dark.r, "selected title row brightens its original pixels with an animated warm pulse")
 	game.free()
 
 
