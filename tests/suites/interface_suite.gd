@@ -36,11 +36,18 @@ func test_inventory_layout_and_touch_mapping() -> void:
 	var game := make_game()
 	for visible_index in game.InventorySystem.VISIBLE_SLOTS:
 		var rect: Rect2 = game.InterfaceRenderer.inventory_slot_rect(visible_index)
+		var icon_rect: Rect2 = game.InterfaceRenderer.inventory_icon_rect(visible_index)
 		expect(game.InterfaceRenderer.INVENTORY_WINDOW.encloses(rect), "inventory grid slot %d stays inside its window" % visible_index)
 		expect(game.InterfaceRenderer.inventory_slot_at(rect.get_center(), 0, game.inventory_slots.size()) == visible_index, "inventory touch maps exactly to slot %d" % visible_index)
+		expect(rect.encloses(icon_rect) and icon_rect.get_center().is_equal_approx(rect.get_center()), "inventory icon uses flex-style centering in slot %d" % visible_index)
+		if visible_index >= game.InventorySystem.COLUMNS:
+			var previous_icon: Rect2 = game.InterfaceRenderer.inventory_icon_rect(visible_index - game.InventorySystem.COLUMNS)
+			expect(is_equal_approx(icon_rect.get_center().x, previous_icon.get_center().x) and is_equal_approx(icon_rect.get_center().y - previous_icon.get_center().y, game.InterfaceRenderer.INVENTORY_SLOT_PITCH.y), "inventory row %d cannot accumulate icon offset" % (visible_index / game.InventorySystem.COLUMNS))
 	for index in 10:
 		var rect: Rect2 = game.InterfaceRenderer.inventory_hotbar_rect(index)
+		var icon_rect: Rect2 = game.InterfaceRenderer.hotbar_icon_rect(rect)
 		expect(game.InterfaceRenderer.inventory_hotbar_at(rect.get_center()) == index, "inventory quick slot touch maps to %d" % index)
+		expect(rect.encloses(icon_rect) and icon_rect.get_center().is_equal_approx(rect.get_center()), "quick slot icon uses the same flex-style centering: %d" % index)
 		expect(not rect.intersects(game.InterfaceRenderer.USE_BUTTON) and not rect.intersects(game.InterfaceRenderer.EQUIP_BUTTON), "quick slot %d does not overlap contextual actions" % index)
 	for index in game.InventorySystem.FILTERS.size():
 		var tab: Rect2 = game.InterfaceRenderer.inventory_category_rect(index)

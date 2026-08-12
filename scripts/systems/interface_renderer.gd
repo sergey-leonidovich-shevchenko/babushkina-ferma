@@ -84,6 +84,16 @@ static func inventory_slot_rect(visible_index: int) -> Rect2:
 	return Rect2(INVENTORY_GRID_ORIGIN + Vector2(column * INVENTORY_SLOT_PITCH.x, row * INVENTORY_SLOT_PITCH.y), INVENTORY_SLOT_SIZE)
 
 
+## Центрирует содержимое внутри контейнера как CSS flex с выравниванием по обеим осям.
+static func centered_rect(container: Rect2, size: Vector2) -> Rect2:
+	return Rect2(container.get_center() - size * 0.5, size)
+
+
+## Возвращает одинаково центрированную область иконки для любой из тридцати шести ячеек рюкзака.
+static func inventory_icon_rect(visible_index: int) -> Rect2:
+	return centered_rect(inventory_slot_rect(visible_index), Vector2(40, 40))
+
+
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func inventory_slot_at(point: Vector2, scroll_row: int, slot_count: int) -> int:
 	for visible_index in 36:
@@ -117,6 +127,11 @@ static func inventory_category_at(point: Vector2) -> String:
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func inventory_hotbar_rect(index: int) -> Rect2:
 	return Rect2(INVENTORY_HOTBAR_ORIGIN + Vector2(index * INVENTORY_HOTBAR_PITCH, 0), INVENTORY_HOTBAR_SIZE)
+
+
+## Центрирует иконку быстрого доступа в рамке тем же flex-правилом, что и основную сетку.
+static func hotbar_icon_rect(rect: Rect2) -> Rect2:
+	return centered_rect(rect, Vector2(43, 43))
 
 
 ## Выполняет операцию «инвентаря быстрой панели at» и возвращает результат согласно контракту метода.
@@ -273,7 +288,7 @@ static func draw_inventory_slot(game: Node, index: int, visible_index: int) -> v
 		game.draw_rect(rect.grow(2), Color(1.0, 0.72, 0.17, pulse), false, 3.0)
 	var kind: String = game.inventory_slots[index]
 	if kind.is_empty() or game.inventory_item_count(kind) <= 0: return
-	game.draw_item_icon(kind, Rect2(rect.position + Vector2(8, 3), Vector2(41, 40)))
+	game.draw_item_icon(kind, inventory_icon_rect(visible_index))
 	game.draw_string(game.UI_FONT, rect.position + Vector2(31, 47), str(game.inventory_item_count(kind)), HORIZONTAL_ALIGNMENT_RIGHT, 22, 10, Color("3d281c"))
 
 
@@ -337,8 +352,7 @@ static func draw_hotbar_slot(game: Node, rect: Rect2, index: int) -> void:
 	if selected:
 		var pulse: float = 0.76 + sin(Time.get_ticks_msec() / 150.0) * 0.18
 		game.draw_rect(rect.grow(1), Color(1.0, 0.82, 0.28, pulse), false, 3.0)
-	var icon_offset: Vector2 = Vector2(0, -2 if selected else 0)
-	if not kind.is_empty(): game.draw_item_icon(kind, Rect2(rect.position + Vector2(12, 8) + icon_offset, Vector2(43, 43)))
+	if not kind.is_empty(): game.draw_item_icon(kind, hotbar_icon_rect(rect))
 	if kind.is_empty() or count <= 0:
 		game.draw_rect(rect.grow(-4), Color(0.10, 0.07, 0.05, 0.50))
 	game.draw_string(game.UI_FONT, rect.position + Vector2(4, 14), str(index + 1 if index < 9 else 0), HORIZONTAL_ALIGNMENT_LEFT, 11, 9, Color("ffe7a0"))
