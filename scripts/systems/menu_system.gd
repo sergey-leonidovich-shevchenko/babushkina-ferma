@@ -95,6 +95,7 @@ static func activate_title(game: Node, save_path: String = "") -> bool:
 		"new_game": start_new_game(game)
 		"settings": open_settings(game, true)
 		"exit_game": request_exit(game)
+	game.AudioSystem.update_context_music(game)
 	game.queue_redraw()
 	return true
 
@@ -147,6 +148,7 @@ static func return_to_title(game: Node) -> void:
 	game.menu_state.settings_open = false
 	game.title_screen = true
 	prepare_title(game)
+	game.AudioSystem.update_context_music(game)
 	game.clear_movement_keys()
 
 

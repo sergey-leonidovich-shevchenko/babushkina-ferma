@@ -50,6 +50,10 @@ func test_first_location_has_clear_functional_zones() -> void:
 	expect(not game.BuildingSystem.destination_rect("cottage").intersects(farm_rect), "cottage sprite does not overlap the farm plots")
 	expect(not game.is_position_walkable(Vector2(38, 900)), "farm fence blocks shortcuts across the garden boundary")
 	expect(game.is_position_walkable(Vector2(190, 830)), "farm gate remains wide enough for the character")
+	var cottage_door: Vector2 = game.BuildingSystem.BUILDINGS.cottage.door
+	game.player = cottage_door
+	game.move_player_with_collisions(Vector2(150, 0))
+	expect(game.player.x >= cottage_door.x + 149.0, "visible road beside the cottage is a continuous walkable corridor to the right")
 	game.discovery_current.clear()
 	game.discovery_scan_timer = 0.0
 	game.DiscoverySystem.update(game, 0.1)

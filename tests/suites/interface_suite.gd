@@ -107,7 +107,9 @@ func test_hud_layout_is_compact_and_safe() -> void:
 		expect(game.InterfaceRenderer.weather_icon(weather) is AtlasTexture, "every weather state uses a sliced pixel-art icon: %s" % weather)
 	var hud_sprites := [game.InterfaceRenderer.HUD_PORTRAIT_FRAME, game.InterfaceRenderer.HUD_STATUS_FRAME, game.InterfaceRenderer.HUD_CLOCK_FRAME, game.InterfaceRenderer.HUD_LOCATION_FRAME, game.InterfaceRenderer.HUD_SKILL_BUTTON, game.InterfaceRenderer.HUD_QUEST_BUTTON]
 	for sprite in hud_sprites:
-		expect(sprite is AtlasTexture and sprite.region.size.y == 248.0, "every top HUD module is a real slice of the production atlas")
+		expect(sprite is AtlasTexture and sprite.region.size.y == 96.0, "every top HUD module is a real slice of the native grandmother-style production atlas")
+	expect(game.InterfaceRenderer.HUD_PORTRAIT_FRAME.atlas.resource_path.ends_with("grandmother_hud_atlas_v2.png"), "top HUD uses its own authored wood parchment and brass art instead of stretching inventory pixels")
+	expect(game.InterfaceRenderer.HUD_SKILL_ICON.get_size() == Vector2(72, 72) and game.InterfaceRenderer.HUD_QUEST_ICON.get_size() == Vector2(72, 72), "new HUD keeps readable pixel-art book and scroll icons inside its authored button frames")
 	expect(game.InterfaceRenderer.HUD_PORTRAIT_FRAME.region.end.x == game.InterfaceRenderer.HUD_STATUS_FRAME.region.position.x, "portrait and status atlas slices meet at the authored divider")
 	expect(game.InterfaceRenderer.HUD_STATUS_FRAME.region.end.x == game.InterfaceRenderer.HUD_CLOCK_FRAME.region.position.x, "status and clock atlas slices meet at the authored divider")
 	expect(game.InterfaceRenderer.HUD_CLOCK_FRAME.region.end.x == game.InterfaceRenderer.HUD_LOCATION_FRAME.region.position.x, "clock and location atlas slices meet at the authored divider")

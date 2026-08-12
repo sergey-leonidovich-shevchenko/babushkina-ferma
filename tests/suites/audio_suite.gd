@@ -17,7 +17,11 @@ func test_audio_assets_and_players() -> void:
 	expect(game.AudioSystem.has_all_assets(), "all original music and sound assets are importable")
 	expect(game.get_node_or_null("AudioMusicA") != null and game.get_node_or_null("AudioMusicB") != null, "music uses two players for crossfades")
 	expect(game.get_node_or_null("AudioSfx5") != null, "sound effects use a six-voice pool")
-	expect(game.audio_current_music == "village", "village theme starts in the overworld")
+	expect(game.audio_current_music == "menu", "main menu owns a separate calm music theme")
+	var menu_stream: AudioStreamWAV = load(game.AudioSystem.MUSIC_PATH % "menu")
+	var village_stream: AudioStreamWAV = load(game.AudioSystem.MUSIC_PATH % "village")
+	expect(menu_stream.get_length() >= 40.0 and village_stream.get_length() >= 50.0, "menu and first-level themes are long relaxed loops instead of short repetitive phrases")
+	expect(menu_stream.get_length() != village_stream.get_length(), "menu and village use independently composed music rather than one shared track")
 	var travel_stream: AudioStreamWAV = load(game.AudioSystem.SFX_PATH % "travel")
 	expect(travel_stream.get_length() >= 0.8, "travel feedback is a complete four-note melodic phrase instead of a short sharp sweep")
 	expect(game.AudioSystem.sound_volume_db(game, "travel") <= game.AudioSystem.sfx_volume_db(game) - 3.9, "travel melody is independently softened by at least four decibels")
@@ -29,6 +33,8 @@ func test_audio_assets_and_players() -> void:
 ## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_location_music_and_crossfade() -> void:
 	var game := make_game()
+	game.AudioSystem.update_context_music(game)
+	expect(game.audio_current_music == "village", "leaving the title screen starts the melodic first-level theme")
 	expect(game.AudioSystem.switch_music(game, "forest"), "entering a new biome changes music")
 	expect(game.audio_current_music == "forest" and game.audio_music_fade > 0.0, "forest music begins an audible crossfade")
 	game.AudioSystem.update_crossfade(game, game.AudioSystem.CROSSFADE_SECONDS)
@@ -37,6 +43,9 @@ func test_location_music_and_crossfade() -> void:
 	game.current_location = "cursed"
 	game.sync_background_location()
 	expect(game.audio_current_music == "danger", "cursed land selects the danger theme")
+	game.title_screen = true
+	game.AudioSystem.update_context_music(game)
+	expect(game.audio_current_music == "menu", "returning to title crossfades back to its dedicated theme")
 	game.free()
 
 

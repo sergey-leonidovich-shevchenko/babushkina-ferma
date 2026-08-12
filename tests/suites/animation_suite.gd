@@ -24,17 +24,17 @@ func test_animation_frame_modes() -> void:
 	game.free()
 
 
-## Сценарий: главный герой визуально уменьшен относительно жителей, зданий и предметов окружения.
+## Сценарий: главный герой умеренно увеличен относительно прежней версии, но остаётся меньше жителей и дверей.
 ## Исходное состояние: базовый авторский размер героя равен 86×86, а игровой масштаб задан одной общей константой.
-## Ожидаемый результат: герой, его тень и предмет в руке используют масштаб 75%, при этом физическая коллизия не меняется.
+## Ожидаемый результат: герой, его тень и предмет в руке используют увеличенный масштаб 84%, при этом физическая коллизия не меняется.
 func test_hero_visual_scale_matches_world_proportions() -> void:
 	var game := make_game()
 	var characters = game.DirectionalCharacterSystem
-	expect(is_equal_approx(characters.HERO_VISUAL_SCALE, 0.75), "hero is exactly twenty-five percent smaller than the source presentation size")
-	expect(characters.HERO_DRAW_SIZE == Vector2(64.5, 64.5), "hero draw size fits doors and nearby village residents")
-	expect(characters.HERO_SHADOW_RADII == Vector2(13.5, 4.5), "hero shadow follows the reduced visual footprint")
+	expect(is_equal_approx(characters.HERO_VISUAL_SCALE, 0.84), "hero regains a readable twelve-percent visual increase without changing navigation collision")
+	expect(characters.HERO_DRAW_SIZE == Vector2(72.24, 72.24), "hero draw size stays below doors and nearby village residents")
+	expect(characters.HERO_SHADOW_RADII == Vector2(15.12, 5.04), "hero shadow follows the enlarged visual footprint")
 	var held_item: Rect2 = game.WorldPolishRenderer.held_weapon_destination(Vector2.ZERO, Vector2.RIGHT, false, characters.HERO_VISUAL_SCALE)
-	expect(held_item.size == Vector2(36, 36), "held equipment shrinks together with the hero instead of covering the body")
+	expect(held_item.size == Vector2(40.32, 40.32), "held equipment grows together with the hero without covering the body")
 	expect(game.PLAYER_RADIUS == 18.0, "visual resizing does not silently alter navigation and interaction collision")
 	game.free()
 

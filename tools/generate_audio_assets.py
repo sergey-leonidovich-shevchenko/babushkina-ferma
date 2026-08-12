@@ -92,6 +92,28 @@ def music(name: str, root: int, progression: list[int], melody: list[int | None]
     write_wave(ROOT / "music" / f"{name}.wav", samples)
 
 
+# Собирает длинную ненавязчивую тему без ударных: редкая мелодия лежит на мягких аккордах и спокойно замыкается в петлю.
+def gentle_music(name: str, root: int, progression: list[int], melody: list[int | None], bpm: int) -> None:
+    beat = 60.0 / bpm
+    beats = len(progression) * 8
+    samples = [0.0] * int(beats * beat * RATE)
+    for phrase, interval in enumerate(progression):
+        start = phrase * 8 * beat
+        chord_root = root + interval
+        for chord_note, volume in [(0, 0.038), (4, 0.026), (7, 0.031)]:
+            add_note(samples, start, beat * 7.82, chord_root + chord_note, volume, "sine")
+        for pulse in range(4):
+            add_note(samples, start + pulse * beat * 2.0, beat * 1.72, chord_root - 12, 0.048, "triangle")
+    for index in range(beats):
+        note = melody[index % len(melody)]
+        if note is None:
+            continue
+        duration = beat * (1.52 if index % 4 == 0 else 0.82)
+        add_note(samples, index * beat, duration, root + note, 0.060, "triangle")
+        add_note(samples, index * beat + 0.025, duration * 0.78, root + note + 12, 0.014, "sine")
+    write_wave(ROOT / "music" / f"{name}.wav", samples, 0.52)
+
+
 # Синтезирует короткий игровой эффект из меняющихся тонов и управляемого шума.
 def sfx(name: str, duration: float, tones: list[tuple[float, float, float, str]], noise: float = 0.0, seed: int = 1) -> None:
     samples = [0.0] * int(duration * RATE)
@@ -121,7 +143,8 @@ def melodic_transition(name: str) -> None:
 
 # Создаёт полный набор музыкальных тем локаций и звуков всех поддерживаемых действий.
 def main() -> None:
-    music("village", 60, [0, 5, 9, 7], [12, 16, 19, 16, 14, 12, 9, 11], 112, "triangle", 10)
+    gentle_music("menu", 57, [0, 5, 9, 7, 0, 4], [12, None, None, 16, None, 19, None, None, 17, None, 14, None], 70)
+    gentle_music("village", 55, [0, 5, 9, 7, 0, 4, 5, 7], [12, None, 16, None, None, 19, None, 16, 14, None, None, 12, None, 9, None, 11], 76)
     music("forest", 57, [0, 3, 7, 5], [12, None, 15, 19, 17, 15, 10, None], 96, "sine", 20)
     music("rocky", 50, [0, 5, 2, 7], [12, 12, 15, 14, 10, 12, 7, 10], 104, "triangle", 30)
     music("cave", 45, [0, 1, 5, 3], [12, None, 13, None, 19, 18, 13, None], 80, "sine", 40)

@@ -7,10 +7,10 @@ static func draw(game: Node, ui) -> void:
 	draw_menu_button(game, ui, ui.HUD_QUEST_BUTTON, ui.QUEST_BUTTON, game.LocaleSystem.ui("quests"), active_quest_count(game))
 	var hours := floori(game.game_minutes / 60.0); var minutes := int(game.game_minutes) % 60
 	draw_player_portrait(game, ui)
-	draw_bar(game, Rect2(120, 10, 292, 20), float(game.player_hp) / game.player_max_hp, "♥ HP", "%d/%d" % [game.player_hp, game.player_max_hp], Color("c94d47"))
-	draw_bar(game, Rect2(120, 38, 292, 20), float(game.player_mana) / game.player_max_mana, "◆ MP", "%d/%d" % [game.player_mana, game.player_max_mana], Color("5368c9"))
+	draw_bar(game, Rect2(187, 13, 274, 18), float(game.player_hp) / game.player_max_hp, "♥ HP", "%d/%d" % [game.player_hp, game.player_max_hp], Color("c94d47"))
+	draw_bar(game, Rect2(187, 39, 274, 18), float(game.player_mana) / game.player_max_mana, "◆ MP", "%d/%d" % [game.player_mana, game.player_max_mana], Color("5368c9"))
 	var stamina_max: int = game.SkillSystem.max_stamina(game)
-	draw_bar(game, Rect2(120, 66, 292, 20), float(game.energy) / stamina_max, "✦ EN", "%d/%d" % [game.energy, stamina_max], Color("d49a32"))
+	draw_bar(game, Rect2(187, 65, 274, 18), float(game.energy) / stamina_max, "✦ EN", "%d/%d" % [game.energy, stamina_max], Color("d49a32"))
 	draw_clock(game, ui, hours, minutes)
 	var effects: Array[String] = []
 	if game.regeneration_timer > 0.0: effects.append("❤ %.0fs" % game.regeneration_timer)
@@ -19,11 +19,11 @@ static func draw(game: Node, ui) -> void:
 	if game.invisibility_timer > 0.0: effects.append("◉ %.0fs" % game.invisibility_timer)
 	if game.defense_timer > 0.0: effects.append("◆ %.0fs" % game.defense_timer)
 	if not game.active_companions.is_empty(): effects.append(game.LocaleSystem.ui("companion_command", [game.LocaleSystem.ui("companion_command_%s" % game.state.player.companion_command)]))
-	game.draw_string(game.UI_FONT, Vector2(742, 33), ui.location_icon(game.current_location), HORIZONTAL_ALIGNMENT_CENTER, 22, 16, ui.GOLD)
-	game.draw_string(game.UI_FONT, Vector2(764, 31), game.WorldSystem.name(game.current_location).to_upper(), HORIZONTAL_ALIGNMENT_CENTER, 178, 11, Color("ffe8a8"))
+	game.draw_string(game.UI_FONT, Vector2(695, 42), ui.location_icon(game.current_location), HORIZONTAL_ALIGNMENT_CENTER, 22, 15, Color("6f4325"))
+	game.draw_string(game.UI_FONT, Vector2(718, 41), game.WorldSystem.name(game.current_location).to_upper(), HORIZONTAL_ALIGNMENT_CENTER, 184, 11, Color("51301c"))
 	var coin_pop: float = sin(clampf(game.hud_coin_pop / 0.36, 0.0, 1.0) * PI) * 3.0
-	game.draw_string(game.UI_FONT, Vector2(746, 76 - coin_pop), "●  %d" % game.coins, HORIZONTAL_ALIGNMENT_LEFT, 54, 12 + int(coin_pop), ui.GOLD)
-	game.draw_string(game.UI_FONT, Vector2(801, 76), "  ".join(effects), HORIZONTAL_ALIGNMENT_CENTER, 141, 8, Color("f3dab0"))
+	game.draw_string(game.UI_FONT, Vector2(700, 70 - coin_pop), "●  %d" % game.coins, HORIZONTAL_ALIGNMENT_LEFT, 70, 12 + int(coin_pop), Color("a16c22"))
+	game.draw_string(game.UI_FONT, Vector2(768, 70), "  ".join(effects), HORIZONTAL_ALIGNMENT_CENTER, 142, 8, Color("6e4b31"))
 	if game.state.fishing.phase == game.FishingSystem.PHASE_WAITING: game.draw_string(game.UI_FONT, Vector2(446, 115), "%.1f" % maxf(game.state.fishing.timer, 0.0), HORIZONTAL_ALIGNMENT_CENTER, 260, 20, Color("d7f6ff"))
 	elif game.state.fishing.phase == game.FishingSystem.PHASE_BITE: game.draw_circle(Vector2(576, 105), 20 + sin(Time.get_ticks_msec() / 100.0) * 3, ui.GOLD); game.draw_string(game.UI_FONT, Vector2(566, 112), "!", HORIZONTAL_ALIGNMENT_CENTER, 20, 22, Color("47351f"))
 	if not game.message.is_empty():
@@ -42,19 +42,20 @@ static func draw_player_portrait(game: Node, ui) -> void:
 	var stage: int = game.SkillSystem.hero_skin_stage(game.player_level); var texture: Texture2D = game.DirectionalCharacterSystem.HERO_TEXTURES[stage]
 	var source: Rect2 = game.DirectionalCharacterSystem.source_rect(texture, Vector2.DOWN, 0.0, false)
 	source.position += Vector2(source.size.x * 0.22, 0.0); source.size = Vector2(source.size.x * 0.56, source.size.y * 0.62)
-	game.draw_texture_rect_region(texture, Rect2(27, 7, 58, 61), source)
-	if fmod(Time.get_ticks_msec() / 1000.0, 4.8) > 4.62: game.draw_line(Vector2(45, 35), Vector2(68, 35), Color("513527"), 2.0)
-	game.draw_string(game.UI_FONT, Vector2(28, 86), game.LocaleSystem.ui("level_short", [game.player_level]), HORIZONTAL_ALIGNMENT_CENTER, 57, 8, Color("ffe5a0"))
+	game.draw_texture_rect_region(texture, Rect2(43, 8, 72, 72), source)
+	if fmod(Time.get_ticks_msec() / 1000.0, 4.8) > 4.62: game.draw_line(Vector2(65, 40), Vector2(91, 40), Color("513527"), 2.0)
+	game.draw_string(game.UI_FONT, Vector2(52, 88), game.LocaleSystem.ui("level_short", [game.player_level]), HORIZONTAL_ALIGNMENT_CENTER, 56, 8, Color("ffe5a0"))
 	var needed: int = game.SkillSystem.xp_to_next_character_level(game.player_level)
-	game.draw_rect(Rect2(30, 90, 53 * clampf(float(game.player_xp) / needed, 0.0, 1.0), 2), ui.GOLD)
+	game.draw_rect(Rect2(53, 91, 54 * clampf(float(game.player_xp) / needed, 0.0, 1.0), 2), ui.GOLD)
 
 
 ## Рисует одну статусную шкалу и белую вспышку здоровья после полученного урона.
 static func draw_bar(game: Node, rect: Rect2, ratio: float, label: String, value: String, color: Color) -> void:
 	var flash: float = game.hud_hp_flash / 0.42 if label.begins_with("♥") else 0.0
 	var bar_color: Color = Color(color, 0.92).lerp(Color.WHITE, clampf(flash, 0.0, 1.0) * 0.55)
-	game.draw_rect(Rect2(rect.position + Vector2(61, 6), Vector2((rect.size.x - 70) * clampf(ratio, 0.0, 1.0), rect.size.y - 12)), bar_color)
-	game.draw_string(game.UI_FONT, rect.position + Vector2(8, 15), label, HORIZONTAL_ALIGNMENT_LEFT, 50, 9, Color("ffe4a2")); game.draw_string(game.UI_FONT, rect.position + Vector2(64, 15), value, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 75, 9, Color.WHITE)
+	var trough := Rect2(rect.position + Vector2(53, 5), Vector2(rect.size.x - 61, rect.size.y - 10))
+	game.draw_rect(trough, Color("4b2f20")); game.draw_rect(Rect2(trough.position + Vector2.ONE, Vector2((trough.size.x - 2) * clampf(ratio, 0.0, 1.0), trough.size.y - 2)), bar_color)
+	game.draw_string(game.UI_FONT, rect.position + Vector2(4, 14), label, HORIZONTAL_ALIGNMENT_LEFT, 46, 9, Color("5b3821")); game.draw_string(game.UI_FONT, rect.position + Vector2(56, 14), value, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 65, 9, Color("fff4d0"))
 
 
 ## Рисует календарную карточку с плавной сменой минут и погодной иконки.
@@ -62,15 +63,18 @@ static func draw_clock(game: Node, ui, hours: int, minutes: int) -> void:
 	var weather: String = game.WorldEventSystem.location_weather(game.day, game.current_location)
 	var season: String = game.WorldEventSystem.season(game.day)
 	var tick: float = clampf(game.hud_clock_tick / 0.32, 0.0, 1.0); var scale: float = 1.0 + sin(clampf(game.hud_weather_transition / 0.48, 0.0, 1.0) * PI) * 0.12
-	game.draw_texture_rect(ui.weather_icon(weather), Rect2(Vector2(517, 40) - Vector2(18, 18) * scale, Vector2(36, 36) * scale), false)
-	game.draw_string(game.UI_FONT, Vector2(520, 54 - tick * 2.0), "%02d:%02d" % [hours, minutes], HORIZONTAL_ALIGNMENT_CENTER, 174, 28, Color("4a2c1b"))
+	game.draw_texture_rect(ui.weather_icon(weather), Rect2(Vector2(524, 39) - Vector2(13, 13) * scale, Vector2(26, 26) * scale), false)
+	game.draw_string(game.UI_FONT, Vector2(543, 52 - tick * 2.0), "%02d:%02d" % [hours, minutes], HORIZONTAL_ALIGNMENT_CENTER, 82, 22, Color("4a2c1b"))
 	var calendar := "%s  •  %s  •  %s" % [game.LocaleSystem.ui("day_short", [game.day]), game.LocaleSystem.ui("season_" + season), game.LocaleSystem.ui("weather_" + weather)]
-	game.draw_string(game.UI_FONT, Vector2(462, 82), calendar.to_upper(), HORIZONTAL_ALIGNMENT_CENTER, 230, 9, Color("6b4326"))
+	game.draw_string(game.UI_FONT, Vector2(513, 78), calendar.to_upper(), HORIZONTAL_ALIGNMENT_CENTER, 130, 6, Color("6b4326"))
 
 
 ## Рисует книгу или свиток с наведением, подписью и анимированным бейджем.
 static func draw_menu_button(game: Node, ui, texture: Texture2D, rect: Rect2, label: String, badge: int) -> void:
 	var hovered := game.is_inside_tree() and rect.has_point(game.get_local_mouse_position()); game.draw_texture_rect(texture, rect.grow(3.0 if hovered else 0.0), false, Color(1.08, 1.04, 0.88) if hovered else Color.WHITE)
+	var icon: Texture2D = ui.HUD_SKILL_ICON if rect == ui.SKILL_BUTTON else ui.HUD_QUEST_ICON
+	var icon_size := Vector2(50, 62) if rect == ui.SKILL_BUTTON else Vector2(58, 62)
+	game.draw_texture_rect(icon, Rect2(rect.get_center() - icon_size * 0.5, icon_size), false)
 	if badge > 0:
 		var center := rect.position + Vector2(rect.size.x - 15 + sin(Time.get_ticks_msec() / 125.0) * 2.0, 15)
 		game.draw_circle(center, 10, Color("c64d35")); game.draw_circle(center, 10, ui.GOLD, false, 2.0); game.draw_string(game.UI_FONT, center + Vector2(-7, 5), str(badge), HORIZONTAL_ALIGNMENT_CENTER, 14, 9, Color.WHITE)

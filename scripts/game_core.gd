@@ -94,7 +94,7 @@ func _ready() -> void:
 		title_screen = false
 		MenuSystem.open_pause(self)
 		MenuSystem.open_settings(self, false)
-	NpcMovementSystem.initialize(self); FarmLifeSystem.initialize(self); sync_background_location()
+	NpcMovementSystem.initialize(self); FarmLifeSystem.initialize(self); sync_background_location(); AudioSystem.update_context_music(self)
 	if has_meta("capture_first_level_clean"):
 		var preview_life := FarmLifeSystem.state(self)
 		preview_life.first_day = 6; preview_life.cutscene = ""; preview_life.cutscene_timer = 0.0

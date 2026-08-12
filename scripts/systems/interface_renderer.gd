@@ -2,12 +2,14 @@ extends RefCounted
 
 const VIEWPORT := Rect2(0, 0, 1152, 648)
 const INVENTORY_SKIN := preload("res://assets/game/ui/inventory_grandmother_skin.png")
-const HUD_PORTRAIT_FRAME := preload("res://assets/game/ui/hud/hud_portrait_frame.tres")
-const HUD_STATUS_FRAME := preload("res://assets/game/ui/hud/hud_status_frame.tres")
-const HUD_CLOCK_FRAME := preload("res://assets/game/ui/hud/hud_clock_frame.tres")
-const HUD_LOCATION_FRAME := preload("res://assets/game/ui/hud/hud_location_frame.tres")
-const HUD_SKILL_BUTTON := preload("res://assets/game/ui/hud/hud_skill_button.tres")
-const HUD_QUEST_BUTTON := preload("res://assets/game/ui/hud/hud_quest_button.tres")
+const HUD_PORTRAIT_FRAME := preload("res://assets/game/ui/hud/grandmother_hud_portrait_v2.tres")
+const HUD_STATUS_FRAME := preload("res://assets/game/ui/hud/grandmother_hud_status_v2.tres")
+const HUD_CLOCK_FRAME := preload("res://assets/game/ui/hud/grandmother_hud_clock_v2.tres")
+const HUD_LOCATION_FRAME := preload("res://assets/game/ui/hud/grandmother_hud_location_v2.tres")
+const HUD_SKILL_BUTTON := preload("res://assets/game/ui/hud/grandmother_hud_skill_v2.tres")
+const HUD_QUEST_BUTTON := preload("res://assets/game/ui/hud/grandmother_hud_quest_v2.tres")
+const HUD_SKILL_ICON := preload("res://assets/game/ui/hud/grandmother_hud_skill_icon_v2.png")
+const HUD_QUEST_ICON := preload("res://assets/game/ui/hud/grandmother_hud_quest_icon_v2.png")
 const CONTROL_ATLAS := preload("res://assets/game/ui/controls/control_atlas.png")
 const CARD_ATLAS := preload("res://assets/game/ui/cards/card_atlas.png")
 const HudRenderer := preload("res://scripts/systems/hud_renderer.gd")
@@ -20,11 +22,10 @@ const WEATHER_ICONS := {
 }
 const INVENTORY_FILTERS := ["all", "tool", "food", "equipment", "resource", "quest"]
 const HUD_RECT := Rect2(0, 0, 1152, 96)
-const HUD_TOPBAR_SKIN_RECT := Rect2(0, 0, 1152, 96)
-const PLAYER_PORTRAIT_RECT := Rect2(0, 0, 100, 96)
-const PLAYER_BARS_RECT := Rect2(100, 0, 330, 96)
-const CLOCK_BADGE := Rect2(430, 0, 290, 96)
-const LOCATION_BADGE := Rect2(720, 0, 250, 96)
+const PLAYER_PORTRAIT_RECT := Rect2(0, 0, 165, 96)
+const PLAYER_BARS_RECT := Rect2(165, 0, 321, 96)
+const CLOCK_BADGE := Rect2(486, 0, 184, 96)
+const LOCATION_BADGE := Rect2(670, 0, 267, 96)
 const INVENTORY_WINDOW := Rect2(88, 7, 976, 634)
 const INVENTORY_GRID_ORIGIN := Vector2(149, 164)
 const INVENTORY_SLOT_SIZE := Vector2(57, 50)
@@ -38,8 +39,8 @@ const USE_BUTTON := Rect2(580, 430, 195, 31)
 const EQUIP_BUTTON := Rect2(580, 469, 94, 29)
 const DROP_BUTTON := Rect2(680, 469, 95, 29)
 const SORT_BUTTON := Rect2(649, 90, 175, 42)
-const SKILL_BUTTON := Rect2(970, 0, 91, 96)
-const QUEST_BUTTON := Rect2(1061, 0, 91, 96)
+const SKILL_BUTTON := Rect2(937, 0, 102, 96)
+const QUEST_BUTTON := Rect2(1039, 0, 113, 96)
 const PAUSE_BUTTON := Rect2(18, 584, 54, 54)
 const DODGE_BUTTON := Rect2(1004, 520, 60, 48)
 const BLOCK_BUTTON := Rect2(1072, 520, 60, 48)
@@ -164,10 +165,13 @@ static func draw_hud(game: Node) -> void:
 
 ## Рисует единый верхний фон из того же деревянного скина, что и инвентарь.
 static func draw_hud_background(game: Node) -> void:
-	var skin_size: Vector2 = INVENTORY_SKIN.get_size()
-	var source_scale := Vector2(skin_size.x / VIEWPORT.size.x, skin_size.y / VIEWPORT.size.y)
-	var source_rect := Rect2(HUD_TOPBAR_SKIN_RECT.position * source_scale, HUD_TOPBAR_SKIN_RECT.size * source_scale)
-	game.draw_texture_rect_region(INVENTORY_SKIN, HUD_RECT, source_rect)
+	var modules := [
+		[HUD_PORTRAIT_FRAME, PLAYER_PORTRAIT_RECT], [HUD_STATUS_FRAME, PLAYER_BARS_RECT],
+		[HUD_CLOCK_FRAME, CLOCK_BADGE], [HUD_LOCATION_FRAME, LOCATION_BADGE],
+		[HUD_SKILL_BUTTON, SKILL_BUTTON], [HUD_QUEST_BUTTON, QUEST_BUTTON],
+	]
+	for module in modules:
+		game.draw_texture_rect(module[0], module[1], false)
 
 
 ## Возвращает компактный символ типа активной внешней зоны или интерьера.

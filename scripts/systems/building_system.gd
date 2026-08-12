@@ -61,7 +61,8 @@ static func destination_rect(building_id: String) -> Rect2:
 ## Возвращает твёрдую часть здания, оставляя свободный подход к двери снизу.
 static func collision_rect(building_id: String) -> Rect2:
 	var destination := destination_rect(building_id)
-	return Rect2(destination.position + Vector2(34, 44), destination.size - Vector2(68, 82))
+	var bottom_inset := 104.0 if building_id == "cottage" else 82.0
+	return Rect2(destination.position + Vector2(34, 44), destination.size - Vector2(68, bottom_inset))
 
 
 ## Возвращает здания, расположенные в указанной внешней локации.

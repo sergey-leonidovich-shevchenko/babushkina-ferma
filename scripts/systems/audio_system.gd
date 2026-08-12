@@ -13,6 +13,8 @@ const MUSIC_BY_LOCATION := {
 	"forge_interior": "workshop", "chapel_interior": "cave", "prison_interior": "danger",
 	"tower_interior": "forest", "castle_hall": "danger", "castle_upper": "danger", "castle_dungeon": "cave",
 }
+const MENU_TRACK := "menu"
+const MUSIC_TRACKS := ["menu", "village", "forest", "rocky", "danger", "cave", "workshop", "pirate"]
 const MUSIC_PATH := "res://assets/game/audio/music/%s.wav"
 const SFX_PATH := "res://assets/game/audio/sfx/%s.wav"
 const SFX_IDS := [
@@ -42,7 +44,7 @@ static func initialize(game: Node) -> void:
 		player.name = "AudioSfx%d" % index
 		player.volume_db = sfx_volume_db(game)
 		game.add_child(player)
-	switch_music(game, game.current_location, true)
+	switch_track(game, MENU_TRACK if game.title_screen or game.language_screen else MUSIC_BY_LOCATION.get(game.current_location, "village"), true)
 	apply_volumes(game)
 
 
@@ -78,8 +80,17 @@ static func switch_track(game: Node, track: String, immediate: bool = false) -> 
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func update(game: Node, delta: float) -> void:
+	update_context_music(game)
 	update_adaptive_music(game)
 	update_crossfade(game, delta)
+
+
+## Выбирает отдельную спокойную тему меню и возвращает музыку локации сразу после входа в игру.
+static func update_context_music(game: Node) -> void:
+	if game.title_screen or game.language_screen:
+		switch_track(game, MENU_TRACK)
+	elif game.audio_current_music == MENU_TRACK:
+		switch_music(game, game.current_location)
 
 
 ## Включает тревожную тему при близкой угрозе и возвращает музыку локации после боя.
@@ -176,7 +187,7 @@ static func music_player(game: Node, slot: int) -> AudioStreamPlayer:
 
 ## Проверяет заявленное методом условие без изменения игрового состояния.
 static func has_all_assets() -> bool:
-	for track in MUSIC_BY_LOCATION.values():
+	for track in MUSIC_TRACKS:
 		if not ResourceLoader.exists(MUSIC_PATH % track):
 			return false
 	for sound_id in SFX_IDS:
