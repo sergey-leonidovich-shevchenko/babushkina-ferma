@@ -1,5 +1,6 @@
 extends RefCounted
 
+const TITLE_BUTTON_SELECTED_ART := preload("res://assets/game/ui/title/title_button_selected_v1.png")
 const TITLE_PANEL := Rect2(746, 244, 360, 360)
 const PAUSE_PANEL := Rect2(358, 92, 436, 464)
 const SETTINGS_PANEL := Rect2(250, 54, 652, 540)
@@ -7,16 +8,22 @@ const TITLE_WORDMARK_RECT := Rect2(38, 34, 694, 72)
 const TITLE_ITEM_ORIGIN := Vector2(814, 329)
 const PAUSE_ITEM_ORIGIN := Vector2(388, 144)
 const SETTINGS_ITEM_ORIGIN := Vector2(280, 112)
-const TITLE_ITEM_SIZE := Vector2(254, 43)
+const TITLE_ITEM_SIZE := Vector2(222, 43)
+const TITLE_SELECTED_ART_SIZE := Vector2(238, 56)
 const PAUSE_ITEM_SIZE := Vector2(376, 50)
 const SETTINGS_ITEM_SIZE := Vector2(592, 48)
-const TITLE_HIGHLIGHT_BASE := 1.16
-const TITLE_HIGHLIGHT_PULSE := 0.06
+const TITLE_HIGHLIGHT_ALPHA_BASE := 0.90
+const TITLE_HIGHLIGHT_ALPHA_PULSE := 0.08
 
 
 ## Возвращает прямоугольник строки главного меню для отрисовки и единой hit-зоны.
 static func title_item_rect(index: int) -> Rect2:
 	return Rect2(TITLE_ITEM_ORIGIN + Vector2(0, index * 52), TITLE_ITEM_SIZE)
+
+
+## Центрирует отдельный спрайт выбранного состояния поверх настоящей нарисованной плашки.
+static func title_selected_art_rect(item_rect: Rect2) -> Rect2:
+	return Rect2(item_rect.get_center() - TITLE_SELECTED_ART_SIZE * 0.5, TITLE_SELECTED_ART_SIZE)
 
 
 ## Возвращает прямоугольник строки меню паузы для отрисовки и единой hit-зоны.
@@ -128,9 +135,7 @@ static func draw_item(game: Node, rect: Rect2, label: String, selected: bool, en
 ## Подсвечивает готовую нарисованную плашку, не закрывая её древесно-пергаментную фактуру.
 static func draw_title_item(game: Node, rect: Rect2, label: String, selected: bool, enabled: bool) -> void:
 	if selected:
-		game.draw_texture_rect_region(game.TITLE_ART, rect, rect, title_highlight_modulate(Time.get_ticks_msec()))
-		var glow_alpha := 0.08 + sin(Time.get_ticks_msec() / 260.0) * 0.025
-		game.draw_rect(rect.grow(-4), Color(1.0, 0.84, 0.48, glow_alpha))
+		game.draw_texture_rect(TITLE_BUTTON_SELECTED_ART, title_selected_art_rect(rect), false, title_highlight_modulate(Time.get_ticks_msec()))
 	elif not enabled:
 		game.draw_rect(rect, Color(0.18, 0.16, 0.13, 0.34))
 	var text_color := Color("4a2816") if enabled else Color("8f8069")
@@ -138,10 +143,10 @@ static func draw_title_item(game: Node, rect: Rect2, label: String, selected: bo
 	game.draw_string(game.MENU_FONT, rect.position + Vector2(9, 29), label, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 18, 21, text_color)
 
 
-## Возвращает тёплую пульсирующую модуляцию, которая осветляет пиксели выбранной плашки без рамки.
+## Возвращает прозрачность спокойного пульса отдельного спрайта выбранной плашки.
 static func title_highlight_modulate(milliseconds: int) -> Color:
-	var brightness := TITLE_HIGHLIGHT_BASE + sin(milliseconds / 260.0) * TITLE_HIGHLIGHT_PULSE
-	return Color(brightness, brightness * 0.98, brightness * 0.86, 1.0)
+	var alpha := TITLE_HIGHLIGHT_ALPHA_BASE + sin(milliseconds / 260.0) * TITLE_HIGHLIGHT_ALPHA_PULSE
+	return Color(1.0, 1.0, 1.0, alpha)
 
 
 ## Показывает результат сохранения, загрузки или применения параметров внутри текущего меню.

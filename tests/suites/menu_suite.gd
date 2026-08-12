@@ -47,13 +47,17 @@ func test_title_visual_design_assets_and_layout() -> void:
 	expect(game.MENU_FONT.has_char("Б".unicode_at(0)) and game.MENU_FONT.get_string_size("БАБУШКИНА ФЕРМА", HORIZONTAL_ALIGNMENT_LEFT, -1, 54).x > 300.0, "Alice menu font imports real Cyrillic title glyphs")
 	expect(game.MENU_FONT.has_char("菜".unicode_at(0)), "menu font keeps the configured CJK fallback for every supported locale")
 	expect(FileAccess.file_exists("res://assets/game/fonts/Alice-OFL.txt"), "bundled decorative font keeps its open license beside the asset")
+	expect(game.MenuRenderer.TITLE_BUTTON_SELECTED_ART.resource_path.ends_with("title_button_selected_v1.png") and game.MenuRenderer.TITLE_BUTTON_SELECTED_ART.get_size() == Vector2(238, 56), "selected title row uses its own fitted pixel-art sprite instead of sampling the full background")
+	var selected_image: Image = game.MenuRenderer.TITLE_BUTTON_SELECTED_ART.get_image()
+	expect(selected_image.get_pixel(0, 0).a == 0.0 and selected_image.get_pixel(119, 28).a > 0.9, "selected title sprite has transparent corners and an opaque illuminated center")
 	var painted_board := Rect2(786, 300, 306, 268)
 	for index in game.MenuSystem.TITLE_ITEMS.size():
 		expect(painted_board.encloses(game.MenuRenderer.title_item_rect(index)), "title hit row fits its painted inventory-style button: %d" % index)
+		expect(game.MenuRenderer.title_selected_art_rect(game.MenuRenderer.title_item_rect(index)).get_center() == game.MenuRenderer.title_item_rect(index).get_center(), "selected title art stays centered on its painted button: %d" % index)
 	expect(not game.MenuRenderer.TITLE_WORDMARK_RECT.intersects(game.MenuRenderer.TITLE_PANEL), "storybook wordmark stays clear of the integrated menu board")
 	var highlight_dark: Color = game.MenuRenderer.title_highlight_modulate(0)
 	var highlight_bright: Color = game.MenuRenderer.title_highlight_modulate(408)
-	expect(highlight_dark.r > 1.0 and highlight_bright.r > highlight_dark.r, "selected title row brightens its original pixels with an animated warm pulse")
+	expect(highlight_dark.a < highlight_bright.a and highlight_bright.a <= 1.0, "selected title art breathes with a bounded opacity pulse")
 	game.free()
 
 
