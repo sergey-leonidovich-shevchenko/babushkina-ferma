@@ -92,6 +92,23 @@ func test_every_owned_item_has_a_visible_slot_and_icon_fallback() -> void:
 	game.free()
 
 
+## Сценарий: общая вкладка рюкзака не выдаёт будущие предметы с нулевым количеством за занятые слоты.
+## Исходное состояние: стандартный список хранит идентификаторы открываемых позднее предметов, но герой ими ещё не владеет.
+## Ожидаемый результат: сначала отображаются только полученные предметы, затем настоящие пустые слоты, а карточка не показывает скрытый предмет.
+func test_inventory_all_filter_hides_zero_count_placeholders() -> void:
+	var game := make_game()
+	game.inventory_selected = game.inventory_slots.find("carrot")
+	game.open_inventory()
+	var indices: Array[int] = game.InventorySystem.filtered_indices(game)
+	var first_empty_position := indices.find_custom(func(index: int) -> bool: return String(game.inventory_slots[index]).is_empty())
+	expect(indices.all(func(index: int) -> bool: return String(game.inventory_slots[index]).is_empty() or game.inventory_item_count(game.inventory_slots[index]) > 0), "all tab excludes catalog placeholders that the player does not own")
+	expect(first_empty_position < 0 or indices.slice(0, first_empty_position).all(func(index: int) -> bool: return game.inventory_item_count(game.inventory_slots[index]) > 0), "owned item icons are compacted before genuine empty slots")
+	expect(game.inventory_selected == indices[0] and not game.InterfaceRenderer.selected_kind(game).is_empty(), "opening inventory repairs selection from a hidden zero-count item")
+	game.inventory_selected = game.inventory_slots.find("carrot")
+	expect(game.InterfaceRenderer.selected_kind(game).is_empty(), "right detail panel rejects an unowned placeholder even when its legacy slot is selected")
+	game.free()
+
+
 ## Сценарий: игровой интерфейс занимает ограниченную высоту, а его кнопки и быстрые слоты не перекрываются.
 ## Исходное состояние: новый изолированный экземпляр игры; необходимые ресурсы, позиции и таймеры задаются в начале сценария.
 ## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
@@ -141,6 +158,7 @@ func test_hud_layout_is_compact_and_safe() -> void:
 ## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_inventory_touch_actions() -> void:
 	var game := make_game()
+	game.carrots = 1
 	game.open_inventory()
 	var select_touch := InputEventScreenTouch.new()
 	select_touch.position = game.InterfaceRenderer.inventory_slot_rect(1).get_center()
@@ -151,7 +169,6 @@ func test_inventory_touch_actions() -> void:
 	assign_touch.pressed = true
 	expect(game.handle_gamepad_and_touch(assign_touch) and game.hotbar_slots[7] == "carrot", "touch assigns selected item in redesigned quick access")
 	game.player_hp = 40
-	game.carrots = 1
 	var use_touch := InputEventScreenTouch.new()
 	use_touch.position = game.InterfaceRenderer.USE_BUTTON.get_center()
 	use_touch.pressed = true
@@ -165,23 +182,27 @@ func test_inventory_touch_actions() -> void:
 func test_mouse_drag_context_and_hotbar() -> void:
 	var game := make_game()
 	game.open_inventory()
-	var first_kind: String = game.inventory_slots[0]
-	var target_kind: String = game.inventory_slots[5]
+	var visible_indices: Array[int] = game.InventorySystem.filtered_indices(game)
+	var first_index := visible_indices[0]
+	var target_index := visible_indices[5]
+	var first_kind: String = game.inventory_slots[first_index]
+	var target_kind: String = game.inventory_slots[target_index]
 	var press := InputEventMouseButton.new()
 	press.button_index = MOUSE_BUTTON_LEFT
 	press.position = game.InterfaceRenderer.inventory_slot_rect(0).get_center()
 	press.pressed = true
-	expect(game.handle_gamepad_and_touch(press) and game.inventory_move_from == 0, "left mouse press starts inventory drag")
+	expect(game.handle_gamepad_and_touch(press) and game.inventory_move_from == first_index, "left mouse press starts inventory drag")
 	var release := InputEventMouseButton.new()
 	release.button_index = MOUSE_BUTTON_LEFT
 	release.position = game.InterfaceRenderer.inventory_slot_rect(5).get_center()
 	release.pressed = false
-	expect(game.handle_gamepad_and_touch(release) and game.inventory_slots[5] == first_kind and game.inventory_slots[0] == target_kind, "mouse drag swaps two inventory slots")
+	expect(game.handle_gamepad_and_touch(release) and game.inventory_slots[target_index] == first_kind and game.inventory_slots[first_index] == target_kind, "mouse drag swaps two inventory slots")
 	game.carrots = 1
 	game.inventory_selected = game.inventory_slots.find("carrot")
+	var carrot_position: int = game.InventorySystem.filtered_indices(game).find(game.inventory_selected)
 	var right_click := InputEventMouseButton.new()
 	right_click.button_index = MOUSE_BUTTON_RIGHT
-	right_click.position = game.InterfaceRenderer.inventory_slot_rect(game.inventory_selected).get_center()
+	right_click.position = game.InterfaceRenderer.inventory_slot_rect(carrot_position).get_center()
 	right_click.pressed = true
 	game.player_hp = 40
 	game.handle_inventory_input(right_click)

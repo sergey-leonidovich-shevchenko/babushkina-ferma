@@ -175,11 +175,15 @@ static func ensure_counted_items(game: Node) -> void:
 
 ## Возвращает реальные индексы слотов, соответствующие активной вкладке инвентаря.
 static func filtered_indices(game: Node) -> Array[int]:
-	var result: Array[int] = []
+	var owned: Array[int] = []
+	var empty: Array[int] = []
 	for index in game.inventory_slots.size():
 		var kind := String(game.inventory_slots[index])
-		if game.inventory_filter == "all" or (not kind.is_empty() and game.inventory_item_count(kind) > 0 and category(kind) == game.inventory_filter): result.append(index)
-	return result
+		if kind.is_empty():
+			if game.inventory_filter == "all": empty.append(index)
+		elif game.inventory_item_count(kind) > 0 and (game.inventory_filter == "all" or category(kind) == game.inventory_filter):
+			owned.append(index)
+	return owned + empty
 
 
 ## Переключает категорию, сбрасывает прокрутку и выбирает первый подходящий предмет.
@@ -227,8 +231,12 @@ static func scroll(game: Node, rows: int) -> void:
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func keep_selection_visible(game: Node) -> void:
-	var filtered_position := filtered_indices(game).find(game.inventory_selected)
-	if filtered_position < 0: return
+	var indices := filtered_indices(game)
+	if indices.is_empty(): return
+	var filtered_position := indices.find(game.inventory_selected)
+	if filtered_position < 0:
+		game.inventory_selected = indices[0]
+		filtered_position = 0
 	var selected_row: int = filtered_position / COLUMNS
 	if selected_row < game.inventory_scroll_row:
 		game.inventory_scroll_row = selected_row

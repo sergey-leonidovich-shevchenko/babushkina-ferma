@@ -99,8 +99,24 @@ func test_every_inventory_item_has_dedicated_icon() -> void:
 	for kind in game.InventorySystem.ITEM_DATA:
 		expect(game.VisualAssetSystem.has_item_icon(kind), "inventory item owns a dedicated icon: %s" % kind)
 	expect(game.VisualAssetSystem.INVENTORY_CORE_CELLS.size() == 24, "core inventory atlas maps every one of its twenty-four cells")
-	expect(game.VisualAssetSystem.INVENTORY_RARE_CELLS.size() == 16, "rare inventory atlas maps all sixteen previously missing items")
+	expect(game.VisualAssetSystem.INVENTORY_RARE_CELLS.size() == 23, "rare inventory atlas maps resources and all seven high-resolution equipment icons")
 	expect(game.VisualAssetSystem.FARM_FOOD_CELLS.size() == 24, "farm food atlas maps all twenty-four household items")
+	game.free()
+
+
+## Сценарий: каждый предмет общего каталога вырезается только из собственной ячейки атласа.
+## Исходное состояние: основные, редкие и продуктовые иконки лежат в трёх сетках шесть на четыре.
+## Ожидаемый результат: исходная область принадлежит верному атласу, а безопасная обрезка не касается границ соседних спрайтов.
+func test_inventory_atlas_sources_are_bounded_and_bleed_safe() -> void:
+	var game := make_game()
+	var atlas_families := [game.VisualAssetSystem.INVENTORY_CORE_CELLS, game.VisualAssetSystem.INVENTORY_RARE_CELLS, game.VisualAssetSystem.FARM_FOOD_CELLS]
+	for family in atlas_families:
+		for kind in family:
+			var atlas: Texture2D = game.VisualAssetSystem.inventory_item_atlas(kind)
+			var source: Rect2 = game.VisualAssetSystem.inventory_item_source(kind)
+			var safe: Rect2 = game.VisualAssetSystem.safe_atlas_source(source)
+			expect(atlas != null and Rect2(Vector2.ZERO, atlas.get_size()).encloses(source), "item source stays inside its actual atlas: %s" % kind)
+			expect(source.encloses(safe) and safe.position > source.position and safe.end < source.end, "item crop leaves transparent guard pixels on every edge: %s" % kind)
 	game.free()
 
 

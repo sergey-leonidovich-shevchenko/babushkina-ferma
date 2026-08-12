@@ -216,6 +216,9 @@ func test_unbounded_scrolling_inventory_and_forage_save() -> void:
 		expect(game.change_inventory_count(kind, 1), "new inventory category can be added: %s" % kind)
 	expect(game.inventory_slots.size() > original_slots and game.inventory_slots.size() % game.InventorySystem.COLUMNS == 0, "inventory grows by complete rows without a slot limit")
 	expect(game.inventory_slots.has("fiber") and game.inventory_slots.has("moon_relic"), "expanded inventory exposes all acquired material categories")
+	for kind in game.state.inventory.counts:
+		game.state.inventory.counts[kind] = 1
+	game.InventorySystem.ensure_counted_items(game)
 	game.open_inventory()
 	expect(game.InventorySystem.max_scroll_row(game) > 0, "expanded inventory exposes vertical scrolling")
 	var drag := InputEventScreenDrag.new()

@@ -10,15 +10,7 @@ const INVENTORY_CORE_ATLAS := preload("res://assets/game/generated/inventory_cor
 const INVENTORY_RARE_ATLAS := preload("res://assets/game/generated/inventory_rare_atlas.png")
 const FARM_FOOD_ATLAS := preload("res://assets/game/generated/farm_food_atlas.png")
 const FARM_LIFE_ATLAS := preload("res://assets/game/expansion_pack/expansion_atlas.png")
-const ITEM_TEXTURES := {
-	"iron_helmet": preload("res://assets/game/items/iron_helmet.png"),
-	"guardian_armor": preload("res://assets/game/items/guardian_armor.png"),
-	"travel_boots": preload("res://assets/game/items/travel_boots.png"),
-	"crystal_ring": preload("res://assets/game/items/crystal_ring.png"),
-	"orange": preload("res://assets/game/items/orange.png"),
-	"oak_shield": preload("res://assets/game/items/oak_shield.png"),
-	"watermelon": preload("res://assets/game/items/watermelon_slice.png"),
-}
+const ITEM_TEXTURES := {}
 
 const BIOME_ORDER := ["forest", "rocky", "ruins", "cursed", "glassworks"]
 const PIRATE_ENEMY_ORDER := ["pirate", "zombie_pirate", "sea_ghost", "drowned_captain"]
@@ -41,7 +33,8 @@ const INVENTORY_CORE_CELLS := {
 const INVENTORY_RARE_CELLS := {
 	"rare_seeds":Vector2i(0,0), "metal":Vector2i(1,0), "bones":Vector2i(2,0), "ancient_key":Vector2i(3,0), "blue_gem":Vector2i(4,0), "moon_relic":Vector2i(5,0),
 	"raw_meat":Vector2i(0,1), "hide":Vector2i(1,1), "fur":Vector2i(2,1), "tusk":Vector2i(3,1), "bat_wing":Vector2i(4,1), "lizard_scale":Vector2i(5,1),
-	"orc_blade":Vector2i(0,2), "home_chest":Vector2i(1,2), "guild_badge":Vector2i(2,2), "backpack_upgrade":Vector2i(5,3),
+	"orc_blade":Vector2i(0,2), "home_chest":Vector2i(1,2), "guild_badge":Vector2i(2,2), "iron_helmet":Vector2i(3,2), "guardian_armor":Vector2i(4,2), "travel_boots":Vector2i(5,2),
+	"crystal_ring":Vector2i(0,3), "orange":Vector2i(1,3), "watermelon":Vector2i(2,3), "oak_shield":Vector2i(3,3), "backpack_upgrade":Vector2i(5,3),
 }
 const FARM_FOOD_CELLS := {
 	"tomato":Vector2i(0,0), "cabbage":Vector2i(1,0), "egg":Vector2i(2,0), "milk":Vector2i(3,0), "wheat":Vector2i(4,0), "corn":Vector2i(5,0),
@@ -178,7 +171,7 @@ static func pirate_item_source(kind: String) -> Rect2:
 static func draw_pirate_item(canvas: CanvasItem, kind: String, rect: Rect2) -> bool:
 	if not PIRATE_ITEM_CELLS.has(kind):
 		return false
-	canvas.draw_texture_rect_region(PIRATE_ITEM_ATLAS, rect.grow(-1), pirate_item_source(kind))
+	canvas.draw_texture_rect_region(PIRATE_ITEM_ATLAS, rect.grow(-1), safe_atlas_source(pirate_item_source(kind), 12.0))
 	return true
 
 
@@ -192,7 +185,7 @@ static func potion_source(kind: String) -> Rect2:
 ## Рисует зелье из общего атласа и сообщает, был ли вид предмета распознан.
 static func draw_potion(canvas: CanvasItem, kind: String, rect: Rect2) -> bool:
 	if not POTION_CELLS.has(kind): return false
-	canvas.draw_texture_rect_region(POTION_ATLAS, rect.grow(-1), potion_source(kind))
+	canvas.draw_texture_rect_region(POTION_ATLAS, rect.grow(-1), safe_atlas_source(potion_source(kind), 12.0))
 	return true
 
 
@@ -201,25 +194,43 @@ static func item_texture(kind: String) -> Texture2D:
 	return ITEM_TEXTURES.get(kind) as Texture2D
 
 
-## Возвращает область предмета в одном из инвентарных атласов шесть на четыре.
+## Возвращает атлас, которому принадлежит предмет основного каталога рюкзака.
+static func inventory_item_atlas(kind: String) -> Texture2D:
+	if INVENTORY_CORE_CELLS.has(kind): return INVENTORY_CORE_ATLAS
+	if INVENTORY_RARE_CELLS.has(kind): return INVENTORY_RARE_ATLAS
+	if FARM_FOOD_CELLS.has(kind): return FARM_FOOD_ATLAS
+	return null
+
+
+## Возвращает область предмета в фактическом инвентарном атласе шесть на четыре.
 static func inventory_item_source(kind: String) -> Rect2:
-	var cell := Vector2(INVENTORY_CORE_ATLAS.get_width() / 6.0, INVENTORY_CORE_ATLAS.get_height() / 4.0)
+	var atlas := inventory_item_atlas(kind)
+	if atlas == null: return Rect2()
+	var cell := Vector2(atlas.get_width() / 6.0, atlas.get_height() / 4.0)
 	var coordinates: Vector2i = INVENTORY_CORE_CELLS.get(kind, INVENTORY_RARE_CELLS.get(kind, FARM_FOOD_CELLS.get(kind, Vector2i(-1, -1))))
 	return Rect2(Vector2(coordinates) * cell, cell) if coordinates.x >= 0 else Rect2()
 
 
+## Убирает служебные пиксели с границ сгенерированной ячейки, не захватывая соседний спрайт.
+static func safe_atlas_source(source: Rect2, padding: float = 18.0) -> Rect2:
+	if source.size.x <= padding * 2.0 or source.size.y <= padding * 2.0: return source
+	return source.grow(-padding)
+
+
 ## Рисует предмет из основного или редкого инвентарного атласа.
 static func draw_inventory_item(canvas: CanvasItem, kind: String, rect: Rect2) -> bool:
-	var atlas: Texture2D = INVENTORY_CORE_ATLAS if INVENTORY_CORE_CELLS.has(kind) else (INVENTORY_RARE_ATLAS if INVENTORY_RARE_CELLS.has(kind) else FARM_FOOD_ATLAS)
-	if not INVENTORY_CORE_CELLS.has(kind) and not INVENTORY_RARE_CELLS.has(kind) and not FARM_FOOD_CELLS.has(kind): return false
-	canvas.draw_texture_rect_region(atlas, rect.grow(-1), inventory_item_source(kind))
+	var atlas := inventory_item_atlas(kind)
+	if atlas == null: return false
+	canvas.draw_texture_rect_region(atlas, rect.grow(-1), safe_atlas_source(inventory_item_source(kind)))
 	return true
 
 
 ## Рисует предмет быта или музейную награду из атласа жизненного расширения.
 static func draw_farm_life_item(canvas: CanvasItem, kind: String, rect: Rect2) -> bool:
 	if not FARM_LIFE_CELLS.has(kind): return false
-	canvas.draw_texture_rect_region(FARM_LIFE_ATLAS,rect.grow(-1),Rect2(Vector2(FARM_LIFE_CELLS[kind])*Vector2(128,128),Vector2(128,128))); return true
+	var source := Rect2(Vector2(FARM_LIFE_CELLS[kind]) * Vector2(128, 128), Vector2(128, 128))
+	canvas.draw_texture_rect_region(FARM_LIFE_ATLAS, rect.grow(-1), safe_atlas_source(source, 14.0))
+	return true
 
 
 ## Проверяет, что зарегистрированный предмет имеет собственную текстуру или ячейку атласа.

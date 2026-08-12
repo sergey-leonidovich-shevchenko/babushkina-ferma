@@ -290,7 +290,8 @@ static func draw_scrollbar(game: Node) -> void:
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func selected_kind(game: Node) -> String:
 	if game.inventory_selected < 0 or game.inventory_selected >= game.inventory_slots.size(): return ""
-	return game.inventory_slots[game.inventory_selected]
+	var kind: String = game.inventory_slots[game.inventory_selected]
+	return kind if not kind.is_empty() and game.inventory_item_count(kind) > 0 else ""
 
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
