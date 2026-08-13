@@ -49,6 +49,7 @@ func test_inventory_layout_and_touch_mapping() -> void:
 		expect(game.InterfaceRenderer.inventory_hotbar_at(rect.get_center()) == index, "inventory quick slot touch maps to %d" % index)
 		expect(rect.encloses(icon_rect) and icon_rect.get_center().is_equal_approx(rect.get_center()), "quick slot icon uses the same flex-style centering: %d" % index)
 		expect(not rect.intersects(game.InterfaceRenderer.USE_BUTTON) and not rect.intersects(game.InterfaceRenderer.EQUIP_BUTTON), "quick slot %d does not overlap contextual actions" % index)
+		expect(game.InterfaceRenderer.INVENTORY_HOTBAR_SKIN_RECT.encloses(rect), "inventory quick slot %d is centered inside the carved skin strip" % index)
 	for index in game.InventorySystem.FILTERS.size():
 		var tab: Rect2 = game.InterfaceRenderer.inventory_category_rect(index)
 		expect(game.InterfaceRenderer.INVENTORY_WINDOW.encloses(tab) and game.InterfaceRenderer.inventory_category_at(tab.get_center()) == game.InventorySystem.FILTERS[index], "wooden inventory category maps exactly: %s" % game.InventorySystem.FILTERS[index])

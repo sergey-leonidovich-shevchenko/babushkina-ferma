@@ -16,6 +16,7 @@ func run() -> void:
 	test_debug_inspector_supports_pause_step_pointer_and_graph()
 	test_runtime_debug_overlay_classifies_navigation_grid()
 	test_runtime_debug_overlay_controls_pause_layers_and_noclip()
+	test_grandmother_side_gate_stays_walkable()
 	test_world_polish_atlas_has_complete_transparent_grid()
 	test_expansion_features_have_tutorial_steps()
 
@@ -170,13 +171,16 @@ func test_debug_inspector_supports_pause_step_pointer_and_graph() -> void:
 
 
 ## Сценарий: внутриигровая панель использует те же правила, по которым реально движется герой.
-## Исходное состояние: F11 открывает панель на обычной первой локации с видимой сеткой 50 пикселей.
+## Исходное состояние: F10 открывает панель на обычной первой локации с видимой сеткой 50 пикселей.
 ## Ожидаемый результат: проход, вода, здание и враг получают разные причины и цвета категорий.
 func test_runtime_debug_overlay_classifies_navigation_grid() -> void:
 	var game := make_game(); game.current_location = "overworld"; game.player = Vector2(1160,650); game.update_camera()
-	game.DebugOverlaySystem.handle_input(game,key_event(KEY_F11,KEY_F11,true))
+	var location: String = game.current_location; var position: Vector2 = game.player
+	game.DebugOverlaySystem.handle_input(game,key_event(KEY_F10,KEY_F10,true))
 	var state: Dictionary = game.get_meta(game.DebugOverlaySystem.META_KEY)
-	expect(game.DebugOverlaySystem.active(game) and state.grid and state.cache.size() > 200, "F11 opens cached navigation overlay in the current location")
+	expect(game.DebugOverlaySystem.active(game) and state.grid and state.cache.size() > 200, "F10 opens cached navigation overlay in the current location")
+	expect(game.current_location == location and game.player == position and not game.DebugPlaygroundSystem.active(game), "F10 keeps the tester on the exact live level instead of replacing it with a playground")
+	expect(not game.DebugOverlaySystem.button_enabled("tile_edit") and not game.DebugOverlaySystem.button_enabled("save_patch") and game.DebugOverlaySystem.button_enabled("grid"), "unfinished editor tools stay visible but disabled while runtime diagnostics remain available")
 	var water: Vector2 = Vector2(1200,game.VillageLayoutSystem.river_center_y(1200))
 	var building: Vector2 = game.BuildingSystem.collision_rect("cottage").get_center()
 	var enemy_position := Vector2(1160,650)
@@ -205,6 +209,17 @@ func test_runtime_debug_overlay_controls_pause_layers_and_noclip() -> void:
 	var wall: Vector2 = game.BuildingSystem.collision_rect("cottage").get_center(); game.player = wall - Vector2(100,0)
 	game.DebugOverlaySystem.toggle_option(game,"noclip"); game.NavigationSystem.move(game,Vector2(100,0))
 	expect(game.player == wall and game.NavigationSystem.walkability_reason(game,wall) == "building", "noclip bypasses movement collision while inspector preserves its real reason")
+	game.free()
+
+
+## Сценарий: справа от бабушки существует честная калитка, совпадающая с видимым маршрутом двора.
+## Исходное состояние: герой стоит на высоте бабушки и движется горизонтально через правую сторону фермерского забора.
+## Ожидаемый результат: весь коридор калитки проходим, но секции забора выше и ниже по-прежнему блокируют движение.
+func test_grandmother_side_gate_stays_walkable() -> void:
+	var game := make_game(); game.current_location = "overworld"; game.slime_alive = false; game.enemy_nodes.clear(); game.resource_nodes.clear(); game.food_nodes.clear(); game.world_loot_nodes.clear()
+	for x in range(420, 501, 10):
+		expect(game.NavigationSystem.walkability_reason(game, Vector2(x, 940)) == "walkable", "grandmother side gate remains walkable at x=%d" % x)
+	expect(game.NavigationSystem.walkability_reason(game, Vector2(452, 845)) == "fence" and game.NavigationSystem.walkability_reason(game, Vector2(452, 1040)) == "fence", "solid fence sections remain blocked above and below grandmother gate")
 	game.free()
 
 

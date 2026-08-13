@@ -3,18 +3,22 @@ extends RefCounted
 const META_KEY := "debug_overlay"
 const GRID_SIZES := [25, 50, 100]
 const REFRESH_INTERVAL := 0.14
-const PANEL := Rect2(774, 58, 360, 522)
+const PANEL := Rect2(774, 26, 360, 596)
 const BUTTONS := [
-	{"rect":Rect2(794,274,150,30),"action":"grid","label":"СЕТКА"},
-	{"rect":Rect2(964,274,150,30),"action":"hitboxes","label":"ХИТБОКСЫ"},
-	{"rect":Rect2(794,312,150,30),"action":"routes","label":"МАРШРУТЫ"},
-	{"rect":Rect2(964,312,150,30),"action":"labels","label":"ПОДПИСИ"},
-	{"rect":Rect2(794,350,150,30),"action":"pause","label":"ПАУЗА"},
-	{"rect":Rect2(964,350,150,30),"action":"step","label":"ШАГ КАДРА"},
-	{"rect":Rect2(794,388,150,30),"action":"noclip","label":"NOCLIP"},
-	{"rect":Rect2(964,388,150,30),"action":"grid_size","label":"РАЗМЕР СЕТКИ"},
-	{"rect":Rect2(794,426,150,30),"action":"opacity_down","label":"ПРОЗРАЧНЕЕ"},
-	{"rect":Rect2(964,426,150,30),"action":"opacity_up","label":"ЯРЧЕ"},
+	{"rect":Rect2(794,242,150,28),"action":"grid","label":"СЕТКА","enabled":true},
+	{"rect":Rect2(964,242,150,28),"action":"hitboxes","label":"ХИТБОКСЫ","enabled":true},
+	{"rect":Rect2(794,276,150,28),"action":"routes","label":"МАРШРУТЫ","enabled":true},
+	{"rect":Rect2(964,276,150,28),"action":"labels","label":"ПОДПИСИ","enabled":true},
+	{"rect":Rect2(794,310,150,28),"action":"pause","label":"ПАУЗА","enabled":true},
+	{"rect":Rect2(964,310,150,28),"action":"step","label":"ШАГ КАДРА","enabled":true},
+	{"rect":Rect2(794,344,150,28),"action":"noclip","label":"NOCLIP","enabled":true},
+	{"rect":Rect2(964,344,150,28),"action":"grid_size","label":"РАЗМЕР СЕТКИ","enabled":true},
+	{"rect":Rect2(794,378,150,28),"action":"opacity_down","label":"ПРОЗРАЧНЕЕ","enabled":true},
+	{"rect":Rect2(964,378,150,28),"action":"opacity_up","label":"ЯРЧЕ","enabled":true},
+	{"rect":Rect2(794,420,150,28),"action":"tile_edit","label":"ПРАВКА ТАЙЛОВ","enabled":false},
+	{"rect":Rect2(964,420,150,28),"action":"object_move","label":"ДВИГАТЬ ОБЪЕКТЫ","enabled":false},
+	{"rect":Rect2(794,454,150,28),"action":"spawn","label":"СОЗДАТЬ ОБЪЕКТ","enabled":false},
+	{"rect":Rect2(964,454,150,28),"action":"save_patch","label":"СОХРАНИТЬ ПАТЧ","enabled":false},
 ]
 
 
@@ -33,14 +37,14 @@ static func active(game: Node) -> bool:
 	return bool(game.get_meta(META_KEY, {}).get("open", false))
 
 
-## Открывает или закрывает панель F11, сохраняя выбранные диагностические слои.
+## Открывает или закрывает панель F10/F11, сохраняя выбранные диагностические слои.
 static func toggle(game: Node) -> void:
 	var state: Dictionary = game.get_meta(META_KEY, default_state())
 	state.open = not bool(state.get("open", false)) if game.has_meta(META_KEY) else true
 	state.refresh_left = 0.0
 	game.set_meta(META_KEY, state)
 	if state.open: refresh_grid(game)
-	game.message = "DEBUG: F11 — закрыть" if state.open else "Debug-панель закрыта"
+	game.message = "DEBUG: F10 — закрыть" if state.open else "Debug-панель закрыта"
 	game.queue_redraw()
 
 
@@ -84,7 +88,7 @@ static func refresh_grid(game: Node) -> void:
 
 ## Перехватывает только команды панели, не заменяя управление игрой при закрытом окне.
 static func handle_input(game: Node, event: InputEvent) -> bool:
-	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_F11:
+	if event is InputEventKey and event.pressed and not event.echo and event.keycode in [KEY_F10, KEY_F11]:
 		toggle(game); return true
 	if not active(game): return false
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and PANEL.has_point(event.position):
@@ -108,6 +112,7 @@ static func handle_input(game: Node, event: InputEvent) -> bool:
 static func handle_pointer(game: Node, point: Vector2) -> bool:
 	for button in BUTTONS:
 		if not button.rect.has_point(point): continue
+		if not bool(button.get("enabled", true)): return true
 		match String(button.action):
 			"grid", "hitboxes", "routes", "labels", "noclip": toggle_option(game, button.action)
 			"pause": toggle_option(game, "paused")
@@ -117,6 +122,13 @@ static func handle_pointer(game: Node, point: Vector2) -> bool:
 			"opacity_up": change_opacity(game, 0.08)
 		game.queue_redraw(); return true
 	return true
+
+
+## Сообщает интерфейсу и тестам, доступна ли команда для изменения прямо сейчас.
+static func button_enabled(action: String) -> bool:
+	for button in BUTTONS:
+		if String(button.action) == action: return bool(button.get("enabled", true))
+	return false
 
 
 ## Переключает один булев диагностический слой и немедленно инвалидирует сетку.

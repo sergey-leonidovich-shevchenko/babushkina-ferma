@@ -101,7 +101,7 @@ static func draw_panel(game: Node2D) -> void:
 	var state: Dictionary = game.get_meta(game.DebugOverlaySystem.META_KEY)
 	var panel: Rect2 = game.DebugOverlaySystem.PANEL
 	game.draw_rect(panel, PANEL_FILL); game.draw_rect(panel, PANEL_BORDER, false, 3.0)
-	game.draw_string(game.UI_FONT, panel.position + Vector2(18,31), "DEBUG НАВИГАЦИИ · F11", HORIZONTAL_ALIGNMENT_LEFT, panel.size.x - 36, 19, Color("caffdf"))
+	game.draw_string(game.UI_FONT, panel.position + Vector2(18,31), "DEBUG УРОВНЯ · F10", HORIZONTAL_ALIGNMENT_LEFT, panel.size.x - 36, 19, Color("caffdf"))
 	var tile: Dictionary = game.DebugOverlaySystem.inspect_screen_point(game, game.get_local_mouse_position())
 	var status := "ПАУЗА" if state.paused else "RUN"
 	var lines := [
@@ -113,9 +113,10 @@ static func draw_panel(game: Node2D) -> void:
 	for index in lines.size(): game.draw_string(game.UI_FONT, panel.position + Vector2(18,61 + index*20), lines[index], HORIZONTAL_ALIGNMENT_LEFT, panel.size.x - 36, 13, Color("e9fff3"))
 	draw_legend(game, panel.position + Vector2(18,151), float(state.opacity))
 	for button in game.DebugOverlaySystem.BUTTONS: draw_button(game, button, state)
-	draw_graph(game, state, Rect2(panel.position + Vector2(20,416), Vector2(320,48)))
-	game.draw_string(game.UI_FONT, panel.position + Vector2(18,496), "G сетка · H хитбоксы · P пути · L подписи", HORIZONTAL_ALIGNMENT_LEFT, panel.size.x - 36, 12, Color("a9d9c2"))
-	game.draw_string(game.UI_FONT, panel.position + Vector2(18,514), "V noclip · Space пауза · . шаг · -/+ яркость", HORIZONTAL_ALIGNMENT_LEFT, panel.size.x - 36, 12, Color("a9d9c2"))
+	game.draw_string(game.UI_FONT, panel.position + Vector2(18,386), "СЕРЫЕ ИНСТРУМЕНТЫ — В РАЗРАБОТКЕ", HORIZONTAL_ALIGNMENT_LEFT, panel.size.x - 36, 10, Color("81958d"))
+	draw_graph(game, state, Rect2(panel.position + Vector2(20,466), Vector2(320,46)))
+	game.draw_string(game.UI_FONT, panel.position + Vector2(18,548), "G сетка · H хитбоксы · P пути · L подписи", HORIZONTAL_ALIGNMENT_LEFT, panel.size.x - 36, 12, Color("a9d9c2"))
+	game.draw_string(game.UI_FONT, panel.position + Vector2(18,568), "V noclip · Space пауза · . шаг · -/+ яркость", HORIZONTAL_ALIGNMENT_LEFT, panel.size.x - 36, 12, Color("a9d9c2"))
 
 
 ## Рисует четыре категории клеток с одинаковой прозрачностью текущего режима.
@@ -129,13 +130,15 @@ static func draw_legend(game: Node2D, origin: Vector2, opacity: float) -> void:
 
 ## Рисует кнопку панели и выделяет включённые логические режимы.
 static func draw_button(game: Node2D, button: Dictionary, state: Dictionary) -> void:
+	var enabled := bool(button.get("enabled", true))
 	var action := String(button.action); var state_key := "paused" if action == "pause" else action
 	var active := bool(state.get(state_key, false)) if state.has(state_key) else false
-	var fill := Color("287856") if active else Color("263f3a")
-	game.draw_rect(button.rect, fill); game.draw_rect(button.rect, PANEL_BORDER if active else Color("6f9585"), false, 2.0)
+	var fill := Color("287856") if active else (Color("263f3a") if enabled else Color("1c2926"))
+	var border := PANEL_BORDER if active else (Color("6f9585") if enabled else Color("45534e"))
+	game.draw_rect(button.rect, fill); game.draw_rect(button.rect, border, false, 2.0)
 	var label := String(button.label)
 	if action == "grid_size": label = "СЕТКА %d px" % int(state.grid_size)
-	game.draw_string(game.UI_FONT, button.rect.position + Vector2(5,20), label, HORIZONTAL_ALIGNMENT_CENTER, button.rect.size.x - 10, 11, Color.WHITE)
+	game.draw_string(game.UI_FONT, button.rect.position + Vector2(5,19), label, HORIZONTAL_ALIGNMENT_CENTER, button.rect.size.x - 10, 10, Color.WHITE if enabled else Color("71817b"))
 
 
 ## Рисует историю FPS последних девяноста кадров с ориентиром шестидесяти кадров.

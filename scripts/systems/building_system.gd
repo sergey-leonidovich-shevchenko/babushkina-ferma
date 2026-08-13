@@ -8,7 +8,9 @@ const SELL_CRATE_RECT := Rect2(1550, 428, 60, 54)
 const VILLAGE_SQUARE := Rect2(930, 270, 870, 340)
 const VILLAGE_MAIN_PATH := Rect2(315, 760, 720, 105)
 const FARM_YARD_RECT := Rect2(38, 830, 420, 350)
-const FARM_FENCE_RECTS := [Rect2(38,826,120,10),Rect2(220,826,242,10),Rect2(38,826,10,358),Rect2(452,826,10,358),Rect2(38,1174,424,10)]
+# Правая сторона разделена калиткой напротив бабушки: визуальный проход больше не
+# перекрывается одним длинным невидимым прямоугольником коллизии.
+const FARM_FENCE_RECTS := [Rect2(38,826,120,10),Rect2(220,826,242,10),Rect2(38,826,10,358),Rect2(452,826,10,44),Rect2(452,1000,10,184),Rect2(38,1174,424,10)]
 
 const BUILDINGS := {
 	"cottage":{"location":"overworld","door":Vector2(420, 790),"sprite":0,"interior":"cottage_interior","size":Vector2(300, 300),"unlock":""},

@@ -367,7 +367,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		use_active_item()
 	if event is InputEventKey and event.pressed and not event.echo:
 		match event.keycode:
-			KEY_F10: DebugPlaygroundSystem.configure(self)
 			KEY_1: select_hotbar(0)
 			KEY_2: select_hotbar(1)
 			KEY_3: select_hotbar(2)
