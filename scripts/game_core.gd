@@ -60,6 +60,12 @@ func _ready() -> void:
 	if "--debug-playground" in OS.get_cmdline_user_args(): DebugPlaygroundSystem.configure(self)
 	if "--debug-navigation" in OS.get_cmdline_user_args(): DebugOverlaySystem.toggle(self)
 	if "--farm-life-preview" in OS.get_cmdline_user_args(): language_screen=false; title_screen=false; current_location="overworld"; state.world.estate.level=3; player=Vector2(445,710); day=4; tutorial_visible=false
+	if "--farm-plot-preview" in OS.get_cmdline_user_args():
+		language_screen = false; title_screen = false; current_location = "overworld"; player = Vector2(224, 1030); tutorial_visible = false
+		var preview_stages := [0, 1, 2, 3, 4]
+		for preview_x in preview_stages.size():
+			var preview_plot: Dictionary = plots[Vector2i(preview_x, 1)]
+			preview_plot.tilled = true; preview_plot.planted = true; preview_plot.watered = preview_x % 2 == 0; preview_plot.stage = preview_stages[preview_x]; preview_plot.growth = preview_x * STAGE_DURATION; plots[Vector2i(preview_x, 1)] = preview_plot
 	if "--first-level-preview" in OS.get_cmdline_user_args() or "--capture-first-level" in OS.get_cmdline_user_args(): language_screen=false; title_screen=false; current_location="overworld"; player=Vector2(1160,650); tutorial_visible=false
 	if "--capture-first-level" in OS.get_cmdline_user_args(): set_meta("capture_first_level_frames", 6); set_meta("capture_first_level_clean", true)
 	if "--moon-glade-preview" in OS.get_cmdline_user_args():
@@ -96,6 +102,8 @@ func _ready() -> void:
 		MenuSystem.open_pause(self)
 		MenuSystem.open_settings(self, false)
 	NpcMovementSystem.initialize(self); FarmLifeSystem.initialize(self); sync_background_location(); AudioSystem.update_context_music(self)
+	if "--farm-plot-preview" in OS.get_cmdline_user_args():
+		var farm_preview_life := FarmLifeSystem.state(self); farm_preview_life.first_day = 6; farm_preview_life.cutscene = ""; farm_preview_life.cutscene_timer = 0.0; message = ""; DiscoverySystem.dismiss(self)
 	if has_meta("capture_first_level_clean"):
 		var preview_life := FarmLifeSystem.state(self)
 		preview_life.first_day = 6; preview_life.cutscene = ""; preview_life.cutscene_timer = 0.0

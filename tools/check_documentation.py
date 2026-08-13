@@ -18,6 +18,7 @@ REQUIRED_DOCUMENTS = (
     "PERFORMANCE.md",
     "TECH_DEBT.md",
     "SPRITE_AUDIT.md",
+    "docs/ART_GUIDE.md",
     "docs/README.md",
     "docs/GAME_GUIDE.md",
     "docs/CONTROLS.md",

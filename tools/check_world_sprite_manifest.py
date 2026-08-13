@@ -21,13 +21,14 @@ ASSET_PATTERN = re.compile(r'res://(assets/[^"\']+\.(?:png|jpg|jpeg|webp))', re.
 SIZE_PATTERN = re.compile(r"^(\d+(?:\.\d+)?)×(\d+(?:\.\d+)?)$")
 
 
-# Читает размеры PNG без внешних библиотек, чтобы проверка одинаково работала в CI и локально.
-def png_size(path: Path) -> tuple[int, int] | None:
+# Читает размеры и формат PNG без внешних библиотек, чтобы проверка одинаково работала в CI и локально.
+def png_metadata(path: Path) -> tuple[int, int, int, int] | None:
     with path.open("rb") as stream:
-        header = stream.read(24)
+        header = stream.read(26)
     if header[:8] != b"\x89PNG\r\n\x1a\n" or header[12:16] != b"IHDR":
         return None
-    return struct.unpack(">II", header[16:24])
+    width, height = struct.unpack(">II", header[16:24])
+    return width, height, header[24], header[25]
 
 
 # Собирает прямые ссылки на мировые изображения только из утверждённых владельцев отрисовки.
@@ -73,10 +74,12 @@ def validate(root: Path, manifest: dict) -> tuple[list[str], Counter[str], Count
             if not path.is_file():
                 errors.append(f"{entry['id']}: отсутствует {relative}")
                 continue
-            actual = png_size(path)
+            metadata = png_metadata(path)
             expected = (int(asset.get("width", -1)), int(asset.get("height", -1)))
-            if actual is not None and actual != expected:
-                errors.append(f"{entry['id']}: {relative} имеет {actual}, в реестре {expected}")
+            if metadata is not None and metadata[:2] != expected:
+                errors.append(f"{entry['id']}: {relative} имеет {metadata[:2]}, в реестре {expected}")
+            if metadata is not None and (metadata[2] != 8 or metadata[3] not in {2, 6}):
+                errors.append(f"{entry['id']}: {relative} должен быть 8-bit RGB/RGBA PNG, сейчас bit_depth={metadata[2]} color_type={metadata[3]}")
         if entry["status"] == "compliant":
             for raw_size in entry["runtime_sizes"]:
                 match = SIZE_PATTERN.fullmatch(str(raw_size))

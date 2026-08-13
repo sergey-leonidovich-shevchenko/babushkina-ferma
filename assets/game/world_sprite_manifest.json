@@ -7,6 +7,7 @@
     "scripts/systems/animation_renderer.gd",
     "scripts/systems/directional_character_system.gd",
     "scripts/systems/enemy_animation_library.gd",
+    "scripts/systems/farm_visual_system.gd",
     "scripts/systems/farm_life_renderer.gd",
     "scripts/systems/village_ambient_renderer.gd",
     "scripts/systems/world_loot_renderer.gd",
@@ -107,17 +108,17 @@
     {
       "id": "WS-006",
       "family": "Грядки и культуры",
-      "assets": [{"path":"assets/game/environment/farm_plants.png","width":768,"height":432}],
-      "render_owner": "GameRenderer.draw_farm",
-      "source_layout": "смешанный лист культур; земля рисуется примитивами",
-      "runtime_sizes": ["45×45", "48×48", "разные процедурные стадии"],
-      "target_modules": ["48×48", "24×24"],
+      "assets": [{"path":"assets/game/environment/farm_plot_atlas.png","width":240,"height":96}],
+      "render_owner": "FarmVisualSystem и GameRenderer.draw_farm",
+      "source_layout": "строгий атлас 5×2 с целыми ячейками 48×48",
+      "runtime_sizes": ["48×48"],
+      "target_modules": ["48×48"],
       "anchor": "центр участка 2×2",
       "collision": "грядки проходимы; взаимодействие по клетке 48×48",
-      "status": "redraw",
+      "status": "compliant",
       "priority": "P1",
-      "debt": "Зелёные квадраты и линии земли являются заглушками; стадии культур смешивают спрайты и примитивы.",
-      "done_when": "Каждая грядка занимает 2×2 клетки, имеет сухую/влажную/вспаханную текстуру, а все четыре стадии каждой культуры центрированы в 48×48."
+      "debt": "Закрыт: процедурные квадраты заменены единым модульным атласом земли и моркови.",
+      "done_when": "Пять состояний земли и пять стадий моркови используют изолированные ячейки 48×48, один нижний anchor и nearest-фильтрацию."
     },
     {
       "id": "WS-007",

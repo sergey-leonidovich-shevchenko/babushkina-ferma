@@ -66,50 +66,27 @@ func draw_world() -> void:
 func draw_farm() -> void:
 	for cell in plots:
 		var plot: Dictionary = plots[cell]
-		var rect := Rect2(FARM_ORIGIN + cell * TILE, Vector2(TILE - 3, TILE - 3))
-		if plot.tilled:
-			draw_rect(rect, Color("835238") if not plot.watered else Color("4e4539"))
-			for line_y in 3: draw_line(rect.position + Vector2(5, 13 + line_y * 12), rect.position + Vector2(40, 13 + line_y * 12), Color("a86c47"), 2)
-		else:
-			draw_rect(rect, Color("73994f"))
+		var rect := FarmVisualSystem.plot_rect(Vector2(FARM_ORIGIN), cell)
+		draw_texture_rect_region(FarmVisualSystem.ATLAS, rect, FarmVisualSystem.soil_source(plot))
 		if plot.planted:
-			draw_crop(rect.get_center(), plot)
+			draw_crop(rect, plot)
 			draw_crop_progress(rect, plot)
 			if not plot.watered and plot.growth < GROWTH_DURATION:
 				draw_water_needed_icon(rect.position + Vector2(8, 4))
 	var target := targeted_plot()
 	if valid_plot(target):
-		draw_rect(Rect2(FARM_ORIGIN + target * TILE, Vector2(TILE - 3, TILE - 3)), Color("fff3a6"), false, 3)
+		draw_rect(FarmVisualSystem.plot_rect(Vector2(FARM_ORIGIN), target), Color("fff3a6"), false, 3)
 
 ## Отрисовывает культуры по текущему состоянию игры.
-func draw_crop(center: Vector2, plot: Dictionary) -> void:
+func draw_crop(rect: Rect2, plot: Dictionary) -> void:
 	var stage: int = plot.stage
 	var flash: float = plot.stage_flash
-	var bounce := 1.0 + sin(flash * 18.0) * flash * 0.16
+	var center := rect.get_center()
 	if flash > 0.0:
 		draw_circle(center - Vector2(0, 8), 20.0 * flash, Color(1.0, 0.91, 0.38, flash * 0.35), false, 3.0)
-	if stage == 0:
-		draw_circle(center + Vector2(0, 5), 4, Color("d6b66a"))
-		draw_line(center + Vector2(0, 3), center - Vector2(0, 3), Color("5e8a42"), 3)
-	elif stage == 1:
-		draw_line(center + Vector2(0, 7), center - Vector2(0, 8 * bounce), Color("315a36"), 4)
-		draw_colored_polygon(PackedVector2Array([center - Vector2(1, 6), center - Vector2(12, 12), center - Vector2(5, 2)]), Color("63a34e"))
-		draw_colored_polygon(PackedVector2Array([center - Vector2(-1, 5), center - Vector2(-11, 11), center - Vector2(-5, 1)]), Color("4f843f"))
-	elif stage == 2:
-		draw_circle(center + Vector2(0, 8), 5, Color("e98a3d"))
-		draw_line(center + Vector2(0, 5), center - Vector2(0, 14 * bounce), Color("315a36"), 5)
-		draw_circle(center - Vector2(8, 10), 8 * bounce, Color("5d9849"))
-		draw_circle(center + Vector2(8, -11), 8 * bounce, Color("4a813e"))
-	elif stage == 3:
-		draw_colored_polygon(PackedVector2Array([center + Vector2(-7, 3), center + Vector2(7, 3), center + Vector2(3, 18), center + Vector2(-2, 20)]), Color("ee7a32"))
-		draw_line(center + Vector2(0, 5), center - Vector2(0, 18 * bounce), Color("315a36"), 5)
-		draw_circle(center - Vector2(9, 13), 10 * bounce, Color("66a24d"))
-		draw_circle(center + Vector2(9, -13), 10 * bounce, Color("4b833e"))
-	else:
-		draw_colored_polygon(PackedVector2Array([center + Vector2(-8, 1), center + Vector2(8, 1), center + Vector2(4, 20), center + Vector2(0, 24), center + Vector2(-5, 19)]), Color("f4772d"))
-		draw_line(center + Vector2(0, 3), center - Vector2(0, 19), Color("315a36"), 5)
-		draw_circle(center - Vector2(10, 14), 11, Color("68a54d"))
-		draw_circle(center + Vector2(10, -14), 11, Color("4b873e"))
+	var pixel_bounce := roundf(sin(flash * 18.0) * flash * 3.0)
+	var destination := Rect2(rect.position + Vector2(0, -pixel_bounce), rect.size)
+	draw_texture_rect_region(FarmVisualSystem.ATLAS, destination, FarmVisualSystem.crop_source(stage))
 
 ## Отрисовывает культуры прогресса по текущему состоянию игры.
 func draw_crop_progress(rect: Rect2, plot: Dictionary) -> void:

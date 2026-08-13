@@ -11,6 +11,7 @@ func run() -> void:
 	test_joypad_stick_starts_and_stops_movement()
 	test_clock_rolls_to_next_day()
 	test_crop_pauses_for_second_watering()
+	test_farm_visual_atlas_uses_exact_modular_cells()
 	test_shop_buy_and_sell()
 	test_quest_can_be_completed_with_bought_or_grown_carrots()
 	test_combat_loot_craft_and_equip_cycle()
@@ -212,6 +213,26 @@ func test_crop_pauses_for_second_watering() -> void:
 	game.plots[cell] = plot
 	game.update_crops(10.0)
 	expect(game.plots[cell].growth == game.GROWTH_DURATION, "crop becomes ready after second watering")
+	game.free()
+
+## Сценарий: все состояния грядки и стадии моркови берутся из строгих модульных ячеек нового атласа.
+## Исходное состояние: новый экземпляр игры и набор сухих, влажных, пустых и посаженных состояний участка.
+## Ожидаемый результат: атлас равен 240×96, каждая область ровно 48×48 и ни одна стадия не пересекает соседнюю.
+func test_farm_visual_atlas_uses_exact_modular_cells() -> void:
+	var game := make_game()
+	var visual = game.FarmVisualSystem
+	expect(visual.atlas_is_valid() and visual.ATLAS.get_size() == Vector2(240, 96), "farm visual atlas is an exact 5 by 2 grid of 48 pixel cells")
+	var soil_states := [
+		{"tilled":false, "planted":false, "watered":false},
+		{"tilled":true, "planted":false, "watered":false},
+		{"tilled":true, "planted":false, "watered":true},
+		{"tilled":true, "planted":true, "watered":false},
+		{"tilled":true, "planted":true, "watered":true},
+	]
+	for index in soil_states.size():
+		expect(visual.soil_source(soil_states[index]) == Rect2(index * 48, 0, 48, 48), "soil state uses isolated atlas cell: %d" % index)
+		expect(visual.crop_source(index) == Rect2(index * 48, 48, 48, 48), "carrot stage uses isolated atlas cell: %d" % index)
+	expect(visual.plot_rect(Vector2(80, 880), Vector2i(2, 3)) == Rect2(176, 1024, 48, 48), "farm plot remains aligned to two by two base cells")
 	game.free()
 
 ## Сценарий: покупка и продажа меняют деньги и количество выбранного товара согласованно.

@@ -151,14 +151,15 @@ static func test_world_sprite_manifest_tracks_grid_migration(context: SceneTree)
 		var entry_id := String(entry.get("id", ""))
 		ids[entry_id] = true
 		var priority := String(entry.get("priority", ""))
-		priorities[priority] = int(priorities.get(priority, 0)) + 1
 		if entry.get("status") == "compliant":
 			complete_count += 1
+		else:
+			priorities[priority] = int(priorities.get(priority, 0)) + 1
 		context.expect(not entry.get("assets", []).is_empty() and not entry.get("runtime_sizes", []).is_empty() and not entry.get("target_modules", []).is_empty(), "%s records sources actual sizes and target modules" % entry_id)
 		context.expect(not String(entry.get("anchor", "")).is_empty() and not String(entry.get("collision", "")).is_empty() and not String(entry.get("done_when", "")).is_empty(), "%s records geometry and completion criteria" % entry_id)
 	context.expect(int(manifest.get("base_cell", 0)) == 24, "world sprite audit uses the shared 24 px base cell")
 	context.expect(entries.size() == 23 and ids.size() == entries.size(), "world sprite audit keeps all 23 ids unique")
-	context.expect(complete_count == 2 and priorities.P1 == 7 and priorities.P2 == 13 and priorities.P3 == 3, "migration queue counts remain explicit and reviewable")
+	context.expect(complete_count == 3 and priorities.P1 == 6 and priorities.P2 == 13 and priorities.P3 == 1, "migration queue counts remain explicit and reviewable")
 
 
 ## Сценарий: каждый метод в игровых и тестовых сценариях имеет непосредственно над объявлением русскую документацию.
