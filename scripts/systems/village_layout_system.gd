@@ -72,7 +72,8 @@ const FLOWER_PATCHES := [
 	Vector2(360,430),Vector2(560,560),Vector2(760,430),Vector2(1160,320),Vector2(1370,650),
 	Vector2(1680,430),Vector2(1960,520),Vector2(2210,560),Vector2(1850,920),Vector2(1180,980),
 ]
-const OVERWORLD_TILE_SIZE := 24
+const SpatialGridSystem := preload("res://scripts/systems/spatial_grid_system.gd")
+const OVERWORLD_TILE_SIZE := SpatialGridSystem.BASE_CELL
 const OVERWORLD_TILE_COUNT := Vector2i(100, 50)
 const OVERWORLD_TILE_GRASS := 0
 const OVERWORLD_TILE_ROAD := 1

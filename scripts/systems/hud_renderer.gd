@@ -63,10 +63,11 @@ static func draw_clock(game: Node, ui, hours: int, minutes: int) -> void:
 	var weather: String = game.WorldEventSystem.location_weather(game.day, game.current_location)
 	var season: String = game.WorldEventSystem.season(game.day)
 	var tick: float = clampf(game.hud_clock_tick / 0.32, 0.0, 1.0); var scale: float = 1.0 + sin(clampf(game.hud_weather_transition / 0.48, 0.0, 1.0) * PI) * 0.12
-	game.draw_texture_rect(ui.weather_icon(weather), Rect2(Vector2(524, 39) - Vector2(13, 13) * scale, Vector2(26, 26) * scale), false)
-	game.draw_string(game.UI_FONT, Vector2(543, 52 - tick * 2.0), "%02d:%02d" % [hours, minutes], HORIZONTAL_ALIGNMENT_CENTER, 82, 22, Color("4a2c1b"))
+	var weather_rect: Rect2 = ui.centered_rect(ui.CLOCK_WEATHER_RECT, ui.CLOCK_WEATHER_RECT.size * scale)
+	game.draw_texture_rect(ui.weather_icon(weather), weather_rect, false)
+	game.draw_string(game.UI_FONT, ui.CLOCK_TIME_RECT.position + Vector2(0, 29 - tick * 2.0), "%02d:%02d" % [hours, minutes], HORIZONTAL_ALIGNMENT_CENTER, ui.CLOCK_TIME_RECT.size.x, 20, Color("4a2c1b"))
 	var calendar := "%s  •  %s  •  %s" % [game.LocaleSystem.ui("day_short", [game.day]), game.LocaleSystem.ui("season_" + season), game.LocaleSystem.ui("weather_" + weather)]
-	game.draw_string(game.UI_FONT, Vector2(513, 78), calendar.to_upper(), HORIZONTAL_ALIGNMENT_CENTER, 130, 6, Color("6b4326"))
+	game.draw_string(game.UI_FONT, ui.CLOCK_CALENDAR_RECT.position + Vector2(0, 12), calendar.to_upper(), HORIZONTAL_ALIGNMENT_CENTER, ui.CLOCK_CALENDAR_RECT.size.x, 6, Color("6b4326"))
 
 
 ## Рисует книгу или свиток с наведением, подписью и анимированным бейджем.

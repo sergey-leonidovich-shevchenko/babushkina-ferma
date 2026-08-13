@@ -125,6 +125,7 @@ func test_hud_layout_is_compact_and_safe() -> void:
 	expect(game.InterfaceRenderer.HUD_RECT.size.y <= 96.0, "sliced adventurer HUD keeps its height below one sixth of the screen")
 	expect(not game.InterfaceRenderer.SKILL_BUTTON.intersects(game.InterfaceRenderer.QUEST_BUTTON), "HUD menu buttons do not overlap")
 	expect(game.InterfaceRenderer.HUD_RECT.encloses(game.InterfaceRenderer.PLAYER_PORTRAIT_RECT) and game.InterfaceRenderer.HUD_RECT.encloses(game.InterfaceRenderer.CLOCK_BADGE), "portrait and calendar stay inside the carved top frame")
+	expect(game.InterfaceRenderer.CLOCK_BADGE.encloses(game.InterfaceRenderer.CLOCK_WEATHER_RECT) and game.InterfaceRenderer.CLOCK_BADGE.encloses(game.InterfaceRenderer.CLOCK_TIME_RECT) and game.InterfaceRenderer.CLOCK_BADGE.encloses(game.InterfaceRenderer.CLOCK_CALENDAR_RECT), "clock icon time and calendar own separate centered safe areas")
 	expect(game.InterfaceRenderer.HUD_RECT.encloses(game.InterfaceRenderer.LOCATION_BADGE), "persistent location badge stays inside compact HUD")
 	expect(not game.InterfaceRenderer.LOCATION_BADGE.intersects(game.InterfaceRenderer.PLAYER_BARS_RECT) and not game.InterfaceRenderer.LOCATION_BADGE.intersects(game.InterfaceRenderer.SKILL_BUTTON), "location badge does not overlap player bars or menu buttons")
 	expect(not game.InterfaceRenderer.PLAYER_BARS_RECT.intersects(game.InterfaceRenderer.CLOCK_BADGE) and not game.InterfaceRenderer.CLOCK_BADGE.intersects(game.InterfaceRenderer.LOCATION_BADGE), "second concept keeps portrait bars clock and location in separate modules")

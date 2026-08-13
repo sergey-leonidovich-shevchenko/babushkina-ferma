@@ -47,10 +47,21 @@ static func draw_world(game: Node2D) -> void:
 ## Накладывает полупрозрачный цвет и контур на каждую видимую клетку навигации.
 static func draw_grid(game: Node2D, state: Dictionary) -> void:
 	var opacity := float(state.opacity)
+	var size := int(state.grid_size)
 	for cell in state.get("cache", []):
 		var color := reason_color(String(cell.reason)); color.a = opacity
 		game.draw_rect(cell.rect, color)
-		game.draw_rect(cell.rect, Color(color.r, color.g, color.b, minf(opacity + 0.24, 0.82)), false, 1.0)
+		game.draw_rect(cell.rect, Color(color.r, color.g, color.b, minf(opacity + 0.18, 0.72)), false, 1.0)
+	# Утолщённый контур объединяет четыре базовые клетки 24×24 в читаемый модуль 48×48.
+	if size == game.SpatialGridSystem.BASE_CELL:
+		var block: int = game.SpatialGridSystem.BLOCK_CELL
+		var start_x: int = floori(game.camera_offset.x / block) * block
+		var start_y: int = floori(game.camera_offset.y / block) * block
+		var end_x: int = ceili((game.camera_offset.x + 1152.0) / block) * block
+		var end_y: int = ceili((game.camera_offset.y + 648.0) / block) * block
+		for y in range(start_y, end_y, block):
+			for x in range(start_x, end_x, block):
+				game.draw_rect(Rect2(x, y, block, block), Color(0.86, 1.0, 0.91, 0.34), false, 1.6)
 
 
 ## Показывает точные известные окружности и прямоугольники физических объектов.
@@ -107,7 +118,7 @@ static func draw_panel(game: Node2D) -> void:
 	var lines := [
 		"FPS %d · %s · %s" % [Engine.get_frames_per_second(), game.current_location, status],
 		"Герой: %.0f, %.0f · радиус %.0f" % [game.player.x, game.player.y, game.PLAYER_RADIUS],
-		"Курсор: %.0f, %.0f · клетка %d px" % [tile.center.x, tile.center.y, int(state.grid_size)],
+		"Курсор: %.0f, %.0f · тайл %d×%d" % [tile.center.x, tile.center.y, int(state.grid_size), int(state.grid_size)],
 		"Результат: %s" % reason_label(tile.reason),
 	]
 	for index in lines.size(): game.draw_string(game.UI_FONT, panel.position + Vector2(18,61 + index*20), lines[index], HORIZONTAL_ALIGNMENT_LEFT, panel.size.x - 36, 13, Color("e9fff3"))

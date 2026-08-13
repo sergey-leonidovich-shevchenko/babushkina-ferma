@@ -1,6 +1,6 @@
 [application]
 config/name="Бабушкина ферма: Тайна Лунной долины"
-config/version="0.0.13"
+config/version="0.0.14"
 config/icon="res://assets/app_icon.png"
 run/main_scene="res://main.tscn"
 

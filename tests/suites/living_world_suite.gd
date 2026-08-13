@@ -26,6 +26,8 @@ func run() -> void:
 ## Ожидаемый результат: районы различимы, а дом, магазин и гильдия достигаются дорожной сетью.
 func test_village_has_distinct_connected_districts() -> void:
 	var game := make_game(); var layout = game.VillageLayoutSystem
+	expect(game.SpatialGridSystem.BASE_CELL == 24 and layout.OVERWORLD_TILE_SIZE == game.SpatialGridSystem.BASE_CELL, "world renderer and layout share one 24-pixel base grid")
+	expect(game.SpatialGridSystem.BLOCK_CELL == game.SpatialGridSystem.BASE_CELL * 2 and game.SpatialGridSystem.proportion("door_passage") == Vector2i(2,1), "one major block contains four base cells and doors reserve a two-cell passage")
 	expect(layout.DISTRICTS.size() == 6 and layout.district_at(Vector2(1300,430)) == "market" and layout.district_at(Vector2(2110,250)) == "guild", "village exposes six readable functional districts")
 	for building_id in ["cottage","shop_house","guild_hall"]:
 		var point: Vector2 = game.BuildingSystem.BUILDINGS[building_id].door
@@ -179,6 +181,7 @@ func test_runtime_debug_overlay_classifies_navigation_grid() -> void:
 	game.DebugOverlaySystem.handle_input(game,key_event(KEY_F10,KEY_F10,true))
 	var state: Dictionary = game.get_meta(game.DebugOverlaySystem.META_KEY)
 	expect(game.DebugOverlaySystem.active(game) and state.grid and state.cache.size() > 200, "F10 opens cached navigation overlay in the current location")
+	expect(state.grid_size == game.SpatialGridSystem.BASE_CELL and game.DebugOverlaySystem.GRID_SIZES == [12,24,48,96], "debug overlay opens on the exact art grid and exposes detail base block and overview scales")
 	expect(game.current_location == location and game.player == position and not game.DebugPlaygroundSystem.active(game), "F10 keeps the tester on the exact live level instead of replacing it with a playground")
 	expect(not game.DebugOverlaySystem.button_enabled("tile_edit") and not game.DebugOverlaySystem.button_enabled("save_patch") and game.DebugOverlaySystem.button_enabled("grid"), "unfinished editor tools stay visible but disabled while runtime diagnostics remain available")
 	var water: Vector2 = Vector2(1200,game.VillageLayoutSystem.river_center_y(1200))

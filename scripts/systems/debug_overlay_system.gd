@@ -1,7 +1,8 @@
 extends RefCounted
 
 const META_KEY := "debug_overlay"
-const GRID_SIZES := [25, 50, 100]
+const SpatialGridSystem := preload("res://scripts/systems/spatial_grid_system.gd")
+const GRID_SIZES := SpatialGridSystem.DEBUG_SIZES
 const REFRESH_INTERVAL := 0.14
 const PANEL := Rect2(774, 26, 360, 596)
 const BUTTONS := [
@@ -26,8 +27,8 @@ const BUTTONS := [
 static func default_state() -> Dictionary:
 	return {
 		"open":true, "grid":true, "hitboxes":false, "routes":false, "labels":false,
-		"paused":false, "step_requested":false, "noclip":false, "grid_size":50,
-		"opacity":0.30, "refresh_left":0.0, "cache":[], "counts":{},
+		"paused":false, "step_requested":false, "noclip":false, "grid_size":SpatialGridSystem.DEFAULT_DEBUG_SIZE,
+		"opacity":0.22, "refresh_left":0.0, "cache":[], "counts":{},
 		"cache_location":"", "cache_camera":Vector2(-9999,-9999), "frame_history":[],
 	}
 
