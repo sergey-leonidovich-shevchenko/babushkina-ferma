@@ -16,6 +16,8 @@ REQUIRED_DOCUMENTS = (
     "TESTING.md",
     "QA_CHECKLIST.md",
     "PERFORMANCE.md",
+    "TECH_DEBT.md",
+    "SPRITE_AUDIT.md",
     "docs/README.md",
     "docs/GAME_GUIDE.md",
     "docs/CONTROLS.md",

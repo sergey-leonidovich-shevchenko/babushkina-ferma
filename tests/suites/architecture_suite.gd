@@ -13,6 +13,7 @@ static func run(context: SceneTree) -> void:
 	test_save_v2_migration_and_backup(context)
 	test_presentation_calculations_are_pure(context)
 	test_generation_pipeline_is_portable_and_git_clean(context)
+	test_world_sprite_manifest_tracks_grid_migration(context)
 	test_all_methods_have_russian_documentation(context)
 
 
@@ -133,6 +134,31 @@ static func test_generation_pipeline_is_portable_and_git_clean(context: SceneTre
 	var portable := not concept_source.contains("/Users/") and not split_source.contains("/Users/") and concept_source.contains("Path(__file__).resolve()")
 	var clean := ignore_source.contains("/assets/generated/level_drafts/*") and ignore_source.contains("!/assets/generated/level_drafts/first_level_fairytale_master_v1.png")
 	context.expect(portable and clean, "level generation is clone-portable and excludes reproducible tile drafts from Git")
+
+
+## Сценарий: каждое семейство мировых изображений учтено в постоянном аудите миграции на базовую сетку.
+## Исходное состояние: машинный манифест содержит фактические и целевые размеры, статус и приоритет всех известных семейств.
+## Ожидаемый результат: сетка совпадает с SpatialGridSystem, идентификаторы уникальны, а очередь долга имеет зафиксированный объём.
+static func test_world_sprite_manifest_tracks_grid_migration(context: SceneTree) -> void:
+	var source := FileAccess.get_file_as_string("res://assets/game/world_sprite_manifest.json")
+	var manifest: Dictionary = JSON.parse_string(source)
+	var entries: Array = manifest.get("entries", [])
+	var ids: Dictionary = {}
+	var priorities := {"P1": 0, "P2": 0, "P3": 0}
+	var complete_count := 0
+	for entry_value in entries:
+		var entry: Dictionary = entry_value
+		var entry_id := String(entry.get("id", ""))
+		ids[entry_id] = true
+		var priority := String(entry.get("priority", ""))
+		priorities[priority] = int(priorities.get(priority, 0)) + 1
+		if entry.get("status") == "compliant":
+			complete_count += 1
+		context.expect(not entry.get("assets", []).is_empty() and not entry.get("runtime_sizes", []).is_empty() and not entry.get("target_modules", []).is_empty(), "%s records sources actual sizes and target modules" % entry_id)
+		context.expect(not String(entry.get("anchor", "")).is_empty() and not String(entry.get("collision", "")).is_empty() and not String(entry.get("done_when", "")).is_empty(), "%s records geometry and completion criteria" % entry_id)
+	context.expect(int(manifest.get("base_cell", 0)) == 24, "world sprite audit uses the shared 24 px base cell")
+	context.expect(entries.size() == 23 and ids.size() == entries.size(), "world sprite audit keeps all 23 ids unique")
+	context.expect(complete_count == 2 and priorities.P1 == 7 and priorities.P2 == 13 and priorities.P3 == 3, "migration queue counts remain explicit and reviewable")
 
 
 ## Сценарий: каждый метод в игровых и тестовых сценариях имеет непосредственно над объявлением русскую документацию.
