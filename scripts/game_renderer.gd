@@ -71,7 +71,9 @@ func draw_farm() -> void:
 		if plot.planted:
 			draw_crop(rect, plot)
 			draw_crop_progress(rect, plot)
-			if not plot.watered and plot.growth < GROWTH_DURATION:
+			if WorldEventSystem.season(day) == "winter" and plot.growth < GROWTH_DURATION:
+				draw_winter_dormancy_icon(rect.position + Vector2(rect.size.x - 7, 3))
+			elif not plot.watered and plot.growth < GROWTH_DURATION:
 				draw_water_needed_icon(rect.position + Vector2(8, 4))
 	var target := targeted_plot()
 	if valid_plot(target):
@@ -99,12 +101,19 @@ func draw_crop_progress(rect: Rect2, plot: Dictionary) -> void:
 		draw_polyline(PackedVector2Array([icon_center + Vector2(-5, 0), icon_center + Vector2(-1, 4), icon_center + Vector2(6, -5)]), Color("28583b"), 3.0)
 		return
 	draw_rect(bar, Color("243b35"))
-	var fill_color := Color("e58b3e").lerp(Color("6fcb62"), progress)
+	var fill_color := Color("7aa6c5") if WorldEventSystem.season(day) == "winter" else Color("e58b3e").lerp(Color("6fcb62"), progress)
 	draw_rect(Rect2(bar.position + Vector2(1, 1), Vector2((bar.size.x - 2) * progress, bar.size.y - 2)), fill_color)
 	# Четыре крупных деления — по одному на каждую стадию.
 	for marker in range(1, 4):
 		var marker_x := bar.position.x + bar.size.x * marker / 4.0
 		draw_line(Vector2(marker_x, bar.position.y), Vector2(marker_x, bar.end.y), Color("f7e4b0"), 1.5)
+
+## Рисует снежинку над уснувшей культурой вместо ошибочного требования полива зимой.
+func draw_winter_dormancy_icon(center: Vector2) -> void:
+	var color := Color("e9f7ff")
+	for direction in [Vector2(0, 8), Vector2(7, 4), Vector2(7, -4)]:
+		draw_line(center - direction, center + direction, color, 2.0)
+	draw_circle(center, 2.0, Color("8db9d5"))
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_water_needed_icon(center: Vector2) -> void:
@@ -289,6 +298,11 @@ func draw_food_nodes() -> void:
 			continue
 		var position: Vector2 = food.position
 		var alpha := 1.0 if food.active else 0.36
+		if OrchardSystem.handles(food.kind):
+			OrchardSystem.draw_tree(self, food)
+			if not food.active:
+				draw_string(UI_FONT, position + Vector2(-55, 42), ForageSystem.remaining_text(self, food), HORIZONTAL_ALIGNMENT_CENTER, 110, 12, Color("e7d6a3"))
+			continue
 		match food.kind:
 			"mushroom":
 				draw_texture_rect(RED_MUSHROOMS, Rect2(position - Vector2(28, 28), Vector2(56, 56)), false, Color(1, 1, 1, alpha))

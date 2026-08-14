@@ -7,6 +7,7 @@ func run() -> void:
 	test_progression_save_and_universal_skill_menu_input()
 	test_regrowing_forage_harvest_value_and_sale()
 	test_forage_atlas_cells_are_isolated_and_bottom_anchored()
+	test_orchard_growth_weather_harvest_icons_and_save()
 	test_new_pixel_items_watermelon_shield_potion_and_lizard()
 	test_animated_enemy_sprites_replace_primitives()
 	test_unbounded_scrolling_inventory_and_forage_save()
@@ -146,6 +147,40 @@ func test_forage_atlas_cells_are_isolated_and_bottom_anchored() -> void:
 		occupied_cells.append(source)
 	expect(game.forage_sprite_layout("mushroom", Vector2.ZERO).is_empty(), "separate mushroom texture does not accidentally sample the plant atlas")
 	game.free()
+
+
+## Сценарий: новые яблоня, груша, вишня и слива используют четыре стадии, погоду, урожай и сохранение.
+## Исходное состояние: новая игра содержит молодой сад, зрелые лесные деревья и отдельные иконки трёх новых плодов.
+## Ожидаемый результат: стадии не пересекаются в атласе, дерево взрослеет, зимой отдыхает, весной собирается и точно загружается.
+func test_orchard_growth_weather_harvest_icons_and_save() -> void:
+	var game := make_game(); var orchard = game.OrchardSystem
+	expect(orchard.TREE_ATLAS.get_size() == Vector2(1254,1254), "fruit tree atlas is imported as the authored square source")
+	var occupied: Array[Rect2] = []
+	for kind in ["apple","pear","cherry","plum"]:
+		for stage in 4:
+			var source: Rect2 = orchard.source_rect(kind,stage)
+			expect(source.size == Vector2(313.5,313.5), "%s stage %d uses one exact four-by-four atlas cell" % [kind,stage])
+			for previous in occupied: expect(not source.intersects(previous), "%s stage %d does not bleed into another tree cell" % [kind,stage])
+			occupied.append(source)
+	var anchor: Rect2 = orchard.destination_rect(Vector2(500,400),3)
+	expect(anchor.get_center().x == 500.0 and anchor.end.y == 418.0, "all mature fruit trees share one centered ground anchor")
+	expect(orchard.weather_tint("summer","clear") != orchard.weather_tint("autumn","clear") and orchard.weather_tint("winter","snow") != Color.WHITE, "season and weather select visibly different tree palettes")
+	for kind in ["pear","cherry","plum"]: expect(game.VisualAssetSystem.has_item_icon(kind), "%s has a standalone centred inventory icon" % kind)
+	var pear_index: int = game.food_nodes.find_custom(func(node): return node.kind == "pear" and node.location == "overworld")
+	var pear: Dictionary = game.food_nodes[pear_index]; game.game_minutes = pear.ready_at + 1.0
+	game.ForageSystem.update(game)
+	expect(game.food_nodes[pear_index].stage == 1 and not game.food_nodes[pear_index].active, "young pear advances by exactly one visible growth stage")
+	var cherry_index: int = game.food_nodes.find_custom(func(node): return node.kind == "cherry" and node.location == "forest")
+	game.current_location = "forest"; game.player = game.food_nodes[cherry_index].position; game.day = 22
+	expect(not game.collect_food(cherry_index) and game.inventory_item_count("cherry") == 0, "winter blocks fruit harvest even from a previously mature tree")
+	game.day = 29; game.state.world.weather_day = 29; game.state.world.weather = "clear"
+	expect(game.collect_food(cherry_index) and game.inventory_item_count("cherry") == 4, "spring harvest grants the configured cherry yield")
+	expect(game.tutorial_events_completed.has("orchard_trees") and game.LocaleSystem.TUTORIAL.orchard_trees.size() == 6, "first orchard harvest completes its six-language tutorial step")
+	expect(game.food_nodes[cherry_index].stage == 2 and not game.food_nodes[cherry_index].active, "harvest returns an adult tree to its fruit-renewal stage")
+	var snapshot: Dictionary = game.SaveSystem.snapshot(game); var loaded := make_game()
+	expect(loaded.SaveSystem.apply(loaded,snapshot), "orchard snapshot loads through the common save system")
+	expect(loaded.food_nodes[cherry_index].stage == 2 and loaded.food_nodes[cherry_index].ready_at == game.food_nodes[cherry_index].ready_at and loaded.inventory_item_count("cherry") == 4, "fruit-tree stage, timer and harvested items survive save roundtrip")
+	game.free(); loaded.free()
 
 ## Сценарий: арбуз, зелье, щит и луговой ящер работают в сборе, крафте, употреблении, бою и сохранении.
 ## Исходное состояние: новый изолированный экземпляр игры; необходимые ресурсы, позиции и таймеры задаются в начале сценария.

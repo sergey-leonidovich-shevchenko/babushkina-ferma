@@ -1,11 +1,11 @@
 extends RefCounted
 
-const DEFAULT_SLOTS := ["seeds", "carrot", "pickaxe", "fishing_rod", "slime", "wood", "stone", "crystal", "fish", "sword", "bow", "crystal_sword", "apple", "berries", "nut", "mushroom", "iron_helmet", "guardian_armor", "travel_boots", "crystal_ring", "orange", "orc_blade", "red_crystal", "green_crystal", "raw_meat", "hide", "fur", "tusk", "bat_wing", "watermelon", "healing_potion", "mana_potion", "energy_potion", "invisibility_potion", "strength_potion", "regeneration_potion", "speed_potion", "defense_potion", "oak_shield", "lizard_scale", "arrows", "home_chest", "guild_badge", "axe", "pirate_doubloon", "ectoplasm", "cursed_compass", "pirate_cutlass", "eclipse_core", "tomato", "cabbage", "egg", "milk", "wheat", "corn", "potato", "onion", "cheese", "rope", "cotton", "flower", "honey", "bread", "pie", "pumpkin", "flour", "butter", "jam", "soup", "omelet", "cornbread", "wool", "bouquet", "rustic_table", "wooden_chair", "woven_rug", "potted_fern", "wooden_wardrobe", "museum_token"]
+const DEFAULT_SLOTS := ["seeds", "carrot", "pickaxe", "fishing_rod", "slime", "wood", "stone", "crystal", "fish", "sword", "bow", "crystal_sword", "apple", "berries", "nut", "mushroom", "iron_helmet", "guardian_armor", "travel_boots", "crystal_ring", "orange", "orc_blade", "red_crystal", "green_crystal", "raw_meat", "hide", "fur", "tusk", "bat_wing", "watermelon", "healing_potion", "mana_potion", "energy_potion", "invisibility_potion", "strength_potion", "regeneration_potion", "speed_potion", "defense_potion", "oak_shield", "lizard_scale", "arrows", "home_chest", "guild_badge", "axe", "pirate_doubloon", "ectoplasm", "cursed_compass", "pirate_cutlass", "eclipse_core", "tomato", "cabbage", "egg", "milk", "wheat", "corn", "potato", "onion", "cheese", "rope", "cotton", "flower", "honey", "bread", "pie", "pumpkin", "flour", "butter", "jam", "soup", "omelet", "cornbread", "wool", "bouquet", "rustic_table", "wooden_chair", "woven_rug", "potted_fern", "wooden_wardrobe", "museum_token", "pear", "cherry", "plum"]
 const DEFAULT_HOTBAR := ["hoe", "seeds", "water", "hand", "pickaxe", "fishing_rod", "axe", "apple", "berries", "mushroom"]
 const DEFAULT_EQUIPMENT := {"head": "", "body": "", "legs": "", "hands": "", "offhand": "", "ring": ""}
 const INITIAL_COUNTS := {
 	"seeds": 8, "carrot": 0, "slime": 0, "wood": 2, "stone": 0,
-	"crystal": 0, "fish": 0, "apple": 0, "berries": 0, "nut": 0,
+	"crystal": 0, "fish": 0, "apple": 0, "pear": 0, "cherry": 0, "plum": 0, "berries": 0, "nut": 0,
 	"mushroom": 0, "orange": 0, "iron_helmet": 0, "guardian_armor": 0,
 	"travel_boots": 0, "crystal_ring": 0, "fiber": 0, "rare_seeds": 0,
 	"metal": 0, "bones": 0, "ancient_key": 0, "blue_gem": 0,

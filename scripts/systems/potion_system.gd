@@ -53,6 +53,9 @@ static func _apply_food(game: Node, kind: String) -> void:
 	match kind:
 		"carrot": game.heal_player(15); game.message = "Морковь: +15 здоровья"
 		"apple": game.heal_player(30); game.message = "Яблоко: +30 здоровья"
+		"pear": game.heal_player(24); game.energy = mini(game.energy + 2, game.SkillSystem.max_stamina(game)); game.message = "Груша: +24 здоровья и +2 энергии"
+		"cherry": game.regeneration_timer = 6.0; game.regeneration_tick_timer = 0.0; game.message = "Вишня: регенерация +5 HP/с на 6 секунд"
+		"plum": game.heal_player(20); game.player_mana = mini(game.player_mana + 8, game.player_max_mana); game.message = "Слива: +20 здоровья и +8 маны"
 		"berries": game.regeneration_timer = 8.0; game.regeneration_tick_timer = 0.0; game.message = "Ягоды: регенерация +5 HP/с на 8 секунд"
 		"nut": game.strength_timer = 12.0; game.message = "Орех: +1 к силе на 12 секунд"
 		"mushroom": game.speed_timer = 10.0; game.message = "Гриб: скорость +30% на 10 секунд"

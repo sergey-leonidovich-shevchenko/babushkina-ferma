@@ -8,6 +8,7 @@ func run() -> void:
 	test_weather_by_location_does_not_mutate_state()
 	test_rain_waters_tilled_plots_on_new_day()
 	test_seasons_change_crop_growth_speed()
+	test_carrots_are_dormant_in_winter()
 	test_daylight_darkness_transitions_are_continuous()
 	test_eclipse_crosses_midnight_every_five_days()
 	test_moon_portal_requires_eclipse_and_returns_home()
@@ -139,13 +140,27 @@ func test_rain_waters_tilled_plots_on_new_day() -> void:
 
 ## Сценарий: одинаковая политая культура растёт с сезонным коэффициентом.
 ## Исходное состояние: погода зафиксирована ясной, сравниваются весенний и зимний множители.
-## Ожидаемый результат: весна ускоряет рост, а зимний холод заметно замедляет его.
+## Ожидаемый результат: весна ускоряет рост, а зимой множитель полностью останавливает культуру.
 func test_seasons_change_crop_growth_speed() -> void:
 	var game := make_game(); game.state.world.weather_day = 1; game.state.world.weather = "clear"; game.day = 1
 	var spring_speed: float = game.WorldEventSystem.crop_growth_multiplier(game)
 	game.day = 22; game.state.world.weather_day = 22; game.state.world.weather = "clear"
 	var winter_speed: float = game.WorldEventSystem.crop_growth_multiplier(game)
-	expect(spring_speed == 1.15 and winter_speed == 0.55 and spring_speed > winter_speed, "seasonal crop rates reward spring and challenge winter")
+	expect(spring_speed == 1.15 and winter_speed == 0.0 and spring_speed > winter_speed, "seasonal crop rates reward spring and stop outdoor crops in winter")
+	game.free()
+
+
+## Сценарий: политая морковь не растёт даже при большом реальном delta в зимний день.
+## Исходное состояние: первая грядка посажена, полита и имеет незавершённую первую стадию; календарь установлен на день 22.
+## Ожидаемый результат: рост, стадия и полив остаются неизменными, пока не наступит весна.
+func test_carrots_are_dormant_in_winter() -> void:
+	var game := make_game(); var cell := Vector2i.ZERO
+	game.day = 22; game.state.world.weather_day = 22; game.state.world.weather = "snow"
+	game.plots[cell].tilled = true; game.plots[cell].planted = true; game.plots[cell].watered = true
+	game.plots[cell].growth = 4.0; game.plots[cell].stage = 0
+	game.FarmSystem.update(game, 30.0)
+	expect(game.plots[cell].growth == 4.0 and game.plots[cell].stage == 0, "winter update keeps planted carrot growth completely frozen")
+	expect(game.plots[cell].watered, "winter dormancy does not consume the second-watering state")
 	game.free()
 
 

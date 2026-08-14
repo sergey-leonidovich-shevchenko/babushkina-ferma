@@ -94,9 +94,11 @@ static func append_forage(game: Node, result: Array[Dictionary]) -> void:
 		var node: Dictionary = game.food_nodes[index]
 		if String(node.get("location", "overworld")) != game.current_location: continue
 		var data: Dictionary = game.ForageSystem.TYPES[node.kind]; var bounds := forage_bounds(game, node)
-		add(result, "forage:%d:%s" % [index,node.kind], "СБОР", game.LocaleSystem.entity(node.kind), node.position, bounds, 55, "круг r%d" % (38 if data.tree else 24), "готово" if node.active else "растёт", [
+		var orchard_stage: int = game.OrchardSystem.stage(node) if game.OrchardSystem.handles(node.kind) else -1
+		add(result, "forage:%d:%s" % [index,node.kind], "СБОР", game.LocaleSystem.entity(node.kind), node.position, bounds, 55, "круг r%d" % (38 if data.tree else 24), "готово" if game.ForageSystem.is_collectable(game,node) else ("зимний покой" if node.active else "растёт"), [
 			"урожай %d · продажа %d" % [data.yield,data.sell],
 			"цикл %s · осталось %s" % [game.ForageSystem.duration_text(data.growth_minutes),game.ForageSystem.remaining_text(game,node)],
+			"стадия %s" % ("%d/3 · %d%%" % [orchard_stage,roundi(game.OrchardSystem.growth_progress(game,node,data)*100.0)] if orchard_stage >= 0 else "нет"),
 			"ready_at %.1f · active %s" % [node.ready_at,str(node.active)],
 		])
 
@@ -229,6 +231,8 @@ static func centered_bounds(position: Vector2, size: Vector2) -> Rect2:
 
 ## Возвращает фактическую область дерева или куста из атласа с безопасным размером для отдельных иконок.
 static func forage_bounds(game: Node, node: Dictionary) -> Rect2:
+	if game.OrchardSystem.handles(node.kind):
+		return game.OrchardSystem.destination_rect(node.position, game.OrchardSystem.stage(node))
 	if node.kind in game.FORAGE_SPRITES:
 		var layout: Dictionary = game.forage_sprite_layout(node.kind,node.position)
 		return layout.destination

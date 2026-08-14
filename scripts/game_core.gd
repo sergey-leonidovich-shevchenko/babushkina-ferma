@@ -627,7 +627,7 @@ func nearest_interaction() -> String:
 			nearest = "resource:%d" % index
 	for index in food_nodes.size():
 		var food: Dictionary = food_nodes[index]
-		if not food.active or food.get("location", "overworld") != current_location:
+		if not ForageSystem.is_collectable(self, food) or food.get("location", "overworld") != current_location:
 			continue
 		var distance: float = player.distance_to(food.position)
 		if distance < nearest_distance:

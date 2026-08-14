@@ -96,7 +96,7 @@ static func update(game: Node) -> void:
 
 ## Возвращает множитель роста культур с учётом сезона и естественного полива.
 static func crop_growth_multiplier(game: Node) -> float:
-	var multiplier: float = {"spring":1.15, "summer":1.0, "autumn":0.9, "winter":0.55}[season(game.day)]
+	var multiplier: float = {"spring":1.15, "summer":1.0, "autumn":0.9, "winter":0.0}[season(game.day)]
 	if weather(game) in ["rain", "storm"]: multiplier *= 1.1
 	return multiplier
 
