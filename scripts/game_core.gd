@@ -131,7 +131,7 @@ func _ready() -> void:
 		message = ""; DiscoverySystem.dismiss(self)
 	if "--level-editor-preview" in OS.get_cmdline_user_args() or "--capture-level-editor" in OS.get_cmdline_user_args():
 		language_screen=false; title_screen=false; current_location="overworld"; player=Vector2(1160,650); tutorial_visible=false; LevelEditorSystem.toggle(self)
-		var editor_state: Dictionary = get_meta(LevelEditorSystem.META_KEY); LevelEditorSystem.import_current_level(self,editor_state); set_meta(LevelEditorSystem.META_KEY,editor_state)
+		var editor_state: Dictionary = get_meta(LevelEditorSystem.META_KEY); LevelEditorSystem.configure_preview(self,editor_state); set_meta(LevelEditorSystem.META_KEY,editor_state)
 		if "--capture-level-editor" in OS.get_cmdline_user_args(): set_meta("capture_level_editor_frames",6)
 	# На старте постоянная подпись локации достаточна; крупная карточка остаётся для новых мест.
 	if current_location != "overworld": DiscoverySystem.show_location(self, current_location)

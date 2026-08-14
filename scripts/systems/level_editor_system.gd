@@ -1,7 +1,8 @@
 extends RefCounted
 
+const AssetCatalogSystem := preload("res://scripts/systems/level_editor_asset_catalog_system.gd")
 const META_KEY := "level_editor"
-const FORMAT_VERSION := 1
+const FORMAT_VERSION := 2
 const PROJECT_DIRECTORY := "res://level_designs"
 const USER_DIRECTORY := "user://level_designs"
 const GRID_SIZES := [12, 24, 48, 96]
@@ -13,28 +14,31 @@ const PANEL := Rect2(10,10,334,628)
 const CLOSE_BUTTON := Rect2(306,20,28,28)
 const CATEGORY_PREV := Rect2(24,82,30,28)
 const CATEGORY_NEXT := Rect2(300,82,30,28)
-const ASSET_ROWS := Rect2(22,122,310,286)
+const ASSET_ROWS := Rect2(22,122,310,230)
 const ASSET_ROW_HEIGHT := 46
-const VISIBLE_ASSETS := 6
-const NEW_BUTTON := Rect2(22,420,72,30)
-const SAVE_BUTTON := Rect2(100,420,72,30)
-const LOAD_BUTTON := Rect2(178,420,72,30)
-const EXPORT_BUTTON := Rect2(256,420,76,30)
-const IMPORT_BUTTON := Rect2(22,458,310,30)
-const GRID_BUTTON := Rect2(22,496,96,30)
-const SLICE_BUTTON := Rect2(124,496,98,30)
-const LAYER_BUTTON := Rect2(228,496,104,30)
-const COLLISION_BUTTON := Rect2(22,534,126,30)
-const LEVEL_NAME_BUTTON := Rect2(154,534,178,30)
-const OBJECT_NAME_BUTTON := Rect2(22,572,150,30)
-const OBJECT_NOTE_BUTTON := Rect2(178,572,154,30)
+const VISIBLE_ASSETS := 5
+const SELECT_TOOL_BUTTON := Rect2(22,360,96,30)
+const PAINT_TOOL_BUTTON := Rect2(124,360,98,30)
+const ERASE_TOOL_BUTTON := Rect2(228,360,104,30)
+const NEW_BUTTON := Rect2(22,398,72,30)
+const SAVE_BUTTON := Rect2(100,398,72,30)
+const LOAD_BUTTON := Rect2(178,398,72,30)
+const EXPORT_BUTTON := Rect2(256,398,76,30)
+const IMPORT_BUTTON := Rect2(22,436,310,30)
+const GRID_BUTTON := Rect2(22,474,96,30)
+const SLICE_BUTTON := Rect2(124,474,98,30)
+const LAYER_BUTTON := Rect2(228,474,104,30)
+const COLLISION_BUTTON := Rect2(22,512,126,30)
+const LEVEL_NAME_BUTTON := Rect2(154,512,178,30)
+const OBJECT_NAME_BUTTON := Rect2(22,550,150,30)
+const OBJECT_NOTE_BUTTON := Rect2(178,550,154,30)
 
 static var _catalog: Array[Dictionary] = []
 
 
 ## Создаёт полное временное состояние конструктора, которое не попадает в обычное сохранение игры.
 static func default_state(game: Node) -> Dictionary:
-	return {"active":false,"base_location":game.current_location,"level_name":"%s_custom" % game.current_location,"level_notes":"","objects":[],"selected":-1,"selected_asset":"","category":0,"scroll":0,"grid":24,"snap":true,"slice_size":0,"slice_index":0,"layer":"objects","collision":false,"drag_kind":"","mouse":Vector2.ZERO,"history":[],"future":[],"status":"F12 — закрыть конструктор","text_mode":"","text_buffer":"","draft_cursor":-1,"panel_hidden":false,"capture_pending":0,"export_png":"","next_id":1}
+	return {"active":false,"base_location":game.current_location,"level_name":"%s_custom" % game.current_location,"level_notes":"","objects":[],"selected":-1,"selected_asset":"","category":0,"scroll":0,"grid":24,"snap":true,"slice_size":0,"slice_index":0,"layer":"objects","collision":false,"tool":"select","drag_kind":"","drag_offset":Vector2.ZERO,"last_brush_cell":Vector2i(-2147483648,-2147483648),"stroke_cells":{},"stroke_history_pushed":false,"mouse":Vector2.ZERO,"history":[],"future":[],"status":"F12 — закрыть конструктор","text_mode":"","text_buffer":"","draft_cursor":-1,"panel_hidden":false,"capture_pending":0,"export_png":"","next_id":1}
 
 
 ## Проверяет, перехватывает ли конструктор симуляцию, ввод и интерфейс текущей игры.
@@ -59,41 +63,18 @@ static func toggle(game: Node) -> void:
 ## Рекурсивно строит ленивый каталог всех растровых игровых ресурсов и распределяет их по группам.
 static func catalog() -> Array[Dictionary]:
 	if not _catalog.is_empty(): return _catalog
-	_scan_directory("res://assets/game",_catalog)
-	_catalog.sort_custom(func(left: Dictionary,right: Dictionary): return "%s:%s" % [left.category,left.name] < "%s:%s" % [right.category,right.name])
+	_catalog = AssetCatalogSystem.scan("res://assets/game")
 	return _catalog
 
 
 ## Добавляет изображения каталога из папки и всех её подпапок без загрузки тяжёлых текстур в память.
 static func _scan_directory(path: String, result: Array[Dictionary]) -> void:
-	var directory := DirAccess.open(path)
-	if directory == null: return
-	directory.list_dir_begin()
-	var entry := directory.get_next()
-	while not entry.is_empty():
-		var child := path.path_join(entry)
-		if directory.current_is_dir() and not entry.begins_with("."):
-			_scan_directory(child,result)
-		elif (entry.to_lower().ends_with(".png") or entry.to_lower().ends_with(".webp")) and not "preview" in entry.to_lower():
-			result.append({"path":child,"name":entry.get_basename().replace("_"," ").replace("-"," "),"category":category_for_path(child)})
-		entry = directory.get_next()
-	directory.list_dir_end()
+	result.append_array(AssetCatalogSystem.scan(path))
 
 
 ## Определяет пользовательскую группу спрайта по стабильной структуре каталогов проекта.
 static func category_for_path(path: String) -> String:
-	var lower := path.to_lower()
-	if "/tiles/" in lower: return "terrain"
-	if "/buildings/" in lower: return "buildings"
-	if "/characters/" in lower: return "characters"
-	if "/enemies/" in lower or "/wildlife/" in lower: return "enemies"
-	if "/items/" in lower or "/resources/" in lower or "/world_loot/" in lower: return "items"
-	if "/farming/" in lower: return "farming"
-	if "/fishing/" in lower: return "fishing"
-	if "/ui/" in lower: return "ui"
-	if "/environment/" in lower and ("tree" in lower or "plant" in lower or "mushroom" in lower or "orchard" in lower): return "vegetation"
-	if "/environment/" in lower or "/world_polish/" in lower or "/expansion_pack/" in lower: return "decor"
-	return "other"
+	return AssetCatalogSystem.category_for_path(path)
 
 
 ## Возвращает отфильтрованные элементы активной категории для панели ресурсов.
@@ -159,14 +140,17 @@ static func _handle_mouse(game: Node, state: Dictionary, event: InputEventMouseB
 			pan_camera(game,Vector2(0,-96 if event.button_index == MOUSE_BUTTON_WHEEL_UP else 96))
 		return
 	if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
-		state.drag_kind = ""; state.selected_asset = ""; state.selected = -1; state.status = "Выбор снят"; return
+		state.drag_kind = ""; state.selected_asset = ""; state.selected = -1; state.tool = "select"; state.status = "Режим выбора"; return
 	if event.button_index != MOUSE_BUTTON_LEFT: return
 	if event.pressed:
 		if PANEL.has_point(event.position): _handle_panel_click(game,state,event.position)
 		else: _handle_world_press(game,state,event.position)
-	elif state.drag_kind == "asset":
-		if not PANEL.has_point(event.position): place_selected_asset(game,state,event.position)
-		state.drag_kind = ""
+	elif state.drag_kind == "catalog_asset":
+		if not PANEL.has_point(event.position):
+			_begin_stroke(state); place_selected_asset(game,state,event.position,false)
+		state.drag_kind = ""; state.stroke_history_pushed = false
+	elif state.drag_kind in ["paint","erase"]:
+		state.drag_kind = ""; state.stroke_history_pushed = false; state.stroke_cells = {}; state.last_brush_cell = Vector2i(-2147483648,-2147483648)
 	elif state.drag_kind == "object":
 		state.drag_kind = ""; state.status = "Объект перемещён"
 
@@ -175,7 +159,11 @@ static func _handle_mouse(game: Node, state: Dictionary, event: InputEventMouseB
 static func _handle_motion(game: Node, state: Dictionary, event: InputEventMouseMotion) -> void:
 	if state.drag_kind == "object" and valid_selection(state):
 		var world: Vector2 = event.position + Vector2(game.camera_offset)
-		state.objects[state.selected].position = snap(state,world)
+		state.objects[state.selected].position = snap(state,world+Vector2(state.drag_offset))
+	elif state.drag_kind == "paint":
+		paint_to(game,state,event.position)
+	elif state.drag_kind == "erase":
+		erase_at(game,state,event.position)
 
 
 ## Выполняет команду экранной панели или начинает перенос выбранного ресурса на холст.
@@ -186,9 +174,13 @@ static func _handle_panel_click(game: Node, state: Dictionary, point: Vector2) -
 	if ASSET_ROWS.has_point(point):
 		var row: int = int((point.y-ASSET_ROWS.position.y)/ASSET_ROW_HEIGHT)
 		var entries: Array[Dictionary] = visible_catalog(state); var index: int = int(state.scroll)+row
-		if index < entries.size(): state.selected_asset = entries[index].path; state.drag_kind = "asset"; state.slice_index = 0; state.status = "Перетащи спрайт на карту"
+		if index < entries.size():
+			activate_asset(state,entries[index]); state.drag_kind = "catalog_asset"; state.status = "Кликни или веди по карте · B кисть"
 		return
-	if NEW_BUTTON.has_point(point): new_draft(game,state)
+	if SELECT_TOOL_BUTTON.has_point(point): state.tool="select"; state.drag_kind=""; state.status="Выбор и перемещение · V"
+	elif PAINT_TOOL_BUTTON.has_point(point): state.tool="paint"; state.status="Кисть · выбери спрайт и рисуй · B"
+	elif ERASE_TOOL_BUTTON.has_point(point): state.tool="erase"; state.drag_kind=""; state.status="Ластик · кликни или веди · E"
+	elif NEW_BUTTON.has_point(point): new_draft(game,state)
 	elif SAVE_BUTTON.has_point(point): save_draft(game,state,false)
 	elif LOAD_BUTTON.has_point(point): load_next_draft(game,state)
 	elif EXPORT_BUTTON.has_point(point): save_draft(game,state,true)
@@ -205,13 +197,14 @@ static func _handle_panel_click(game: Node, state: Dictionary, point: Vector2) -
 ## Выбирает верхний объект мира для перетаскивания либо рисует текущим спрайтом.
 static func _handle_world_press(game: Node, state: Dictionary, screen_point: Vector2) -> void:
 	var world: Vector2 = screen_point + Vector2(game.camera_offset)
+	if String(state.tool) == "paint" and not String(state.selected_asset).is_empty():
+		_begin_stroke(state); state.drag_kind = "paint"; paint_to(game,state,screen_point); return
+	if String(state.tool) == "erase":
+		_begin_stroke(state); state.drag_kind = "erase"; erase_at(game,state,screen_point); return
 	var selected: int = object_at(state,world)
 	if selected >= 0:
-		push_history(state); state.selected = selected; state.drag_kind = "object"; state.selected_asset = ""; return
-	if not String(state.selected_asset).is_empty():
-		place_selected_asset(game,state,screen_point)
-	else:
-		state.selected = -1
+		push_history(state); state.selected = selected; state.drag_kind = "object"; state.drag_offset = Vector2(state.objects[selected].position)-world; return
+	state.selected = -1
 
 
 ## Обрабатывает отмену, удаление, копирование, слои, трансформации, историю и перемещение камеры.
@@ -220,7 +213,10 @@ static func _handle_key(game: Node, state: Dictionary, event: InputEventKey) -> 
 	if command_pressed and ((event.keycode == KEY_Z and event.shift_pressed) or event.keycode == KEY_Y): redo(state); return
 	if command_pressed and event.keycode == KEY_Z: undo(state); return
 	match event.keycode:
-		KEY_ESCAPE: state.selected_asset = ""; state.selected = -1; state.drag_kind = ""
+		KEY_ESCAPE: state.selected_asset = ""; state.selected = -1; state.drag_kind = ""; state.tool = "select"
+		KEY_B: state.tool = "paint"; state.status = "Кисть · кликни или веди"
+		KEY_V: state.tool = "select"; state.drag_kind = ""; state.status = "Выбор и перемещение"
+		KEY_E: state.tool = "erase"; state.drag_kind = ""; state.status = "Ластик · кликни или веди"
 		KEY_DELETE,KEY_BACKSPACE: delete_selected(state)
 		KEY_D: duplicate_selected(state)
 		KEY_N: begin_text(state,"object_name" if valid_selection(state) else "level_name",state.objects[state.selected].name if valid_selection(state) else state.level_name)
@@ -243,7 +239,7 @@ static func _handle_key(game: Node, state: Dictionary, event: InputEventKey) -> 
 
 ## Переключает категорию ресурсов по кольцу и возвращает список к первой строке.
 static func change_category(state: Dictionary, step: int) -> void:
-	state.category = posmod(int(state.category)+step,CATEGORIES.size()); state.scroll = 0; state.selected_asset = ""; state.status = CATEGORY_NAMES[CATEGORIES[state.category]]
+	state.category = posmod(int(state.category)+step,CATEGORIES.size()); state.scroll = 0; state.status = CATEGORY_NAMES[CATEGORIES[state.category]]
 
 
 ## Начинает безопасный пользовательский ввод для одного из текстовых полей конструктора.
@@ -251,17 +247,104 @@ static func begin_text(state: Dictionary, mode: String, current: String) -> void
 	state.text_mode = mode; state.text_buffer = current; state.status = "Ввод текста · Enter сохранить · Esc отменить"
 
 
+## Включает кисть выбранного ресурса и применяет его безопасные настройки слоя и якоря.
+static func activate_asset(state: Dictionary, entry: Dictionary) -> void:
+	state.selected_asset = String(entry.path); state.tool = "paint"; state.slice_index = 0
+	state.slice_size = int(entry.get("slice_size",0)); state.layer = String(entry.get("layer","objects")); state.collision = bool(entry.get("collision",false))
+
+
 ## Создаёт объект выбранного ресурса с текущими сеткой, срезом, слоем и коллизией.
-static func place_selected_asset(game: Node, state: Dictionary, screen_point: Vector2) -> void:
+static func place_selected_asset(game: Node, state: Dictionary, screen_point: Vector2, record_history: bool = true) -> void:
 	var path := String(state.selected_asset)
 	if path.is_empty(): return
 	var texture := ResourceLoader.load(path) as Texture2D
 	if texture == null: state.status = "Не удалось загрузить %s" % path; return
-	push_history(state)
+	if record_history: push_history(state)
+	var entry := AssetCatalogSystem.find(catalog(),path)
 	var source := selected_source(texture,state)
 	var size: Vector2 = source.size if source.size != Vector2.ZERO else texture.get_size()
-	var object := {"id":int(state.next_id),"asset_path":path,"name":path.get_file().get_basename(),"notes":"","position":snap(state,screen_point+game.camera_offset),"size":size,"source":source,"layer":state.layer,"collision":state.collision,"rotation":0.0,"flip_x":false,"flip_y":false,"reference":false,"runtime_id":"","original_position":Vector2.ZERO,"hidden":false}
+	var world := screen_point + Vector2(game.camera_offset)
+	var anchor := String(entry.get("anchor","center"))
+	var position := placement_position(state,world,anchor)
+	if anchor == "tile": _remove_ground_at(state,position,String(state.layer))
+	var object := {"id":int(state.next_id),"asset_path":path,"name":path.get_file().get_basename(),"notes":"","position":position,"size":size,"source":source,"anchor":anchor,"layer":state.layer,"collision":state.collision,"rotation":0.0,"flip_x":false,"flip_y":false,"reference":false,"runtime_id":"","original_position":Vector2.ZERO,"hidden":false}
 	state.next_id = int(state.next_id)+1; state.objects.append(object); state.selected = state.objects.size()-1; state.status = "Размещено: %s" % object.name
+
+
+## Начинает единый мазок, чтобы вся непрерывная линия отменялась одной командой Ctrl+Z.
+static func _begin_stroke(state: Dictionary) -> void:
+	if not bool(state.stroke_history_pushed): push_history(state)
+	state.stroke_history_pushed = true; state.stroke_cells = {}; state.last_brush_cell = Vector2i(-2147483648,-2147483648)
+
+
+## Заполняет все пропущенные клетки между событиями мыши и не оставляет дыр при быстром движении.
+static func paint_to(game: Node, state: Dictionary, screen_point: Vector2) -> void:
+	var target := grid_cell(state,screen_point+Vector2(game.camera_offset))
+	var first_cell := int(state.last_brush_cell.x) == -2147483648
+	var start: Vector2i = target if first_cell else Vector2i(state.last_brush_cell)
+	var cells := cells_between(start,target); if not first_cell and not cells.is_empty(): cells.pop_front()
+	for cell in cells:
+		var key := "%d:%d"%[cell.x,cell.y]
+		if state.stroke_cells.has(key): continue
+		state.stroke_cells[key]=true
+		place_selected_asset(game,state,screen_for_cell(game,state,cell),false)
+	state.last_brush_cell = target
+
+
+## Стирает верхний элемент в каждой пройденной клетке тем же непрерывным алгоритмом, что и кисть.
+static func erase_at(game: Node, state: Dictionary, screen_point: Vector2) -> void:
+	var target := grid_cell(state,screen_point+Vector2(game.camera_offset))
+	var first_cell := int(state.last_brush_cell.x) == -2147483648; var start: Vector2i = target if first_cell else Vector2i(state.last_brush_cell)
+	var cells := cells_between(start,target); if not first_cell and not cells.is_empty(): cells.pop_front()
+	for cell in cells:
+		var key := "%d:%d"%[cell.x,cell.y]
+		if state.stroke_cells.has(key): continue
+		state.stroke_cells[key]=true
+		var world := Vector2(cell)*int(state.grid)+Vector2.ONE*int(state.grid)*0.5
+		var index := object_at(state,world)
+		if index >= 0: state.objects.remove_at(index); state.selected = -1
+	state.last_brush_cell = target; state.status = "Ластик"
+
+
+## Возвращает все клетки дискретной линии Брезенхэма, включая начало и конец мазка.
+static func cells_between(start: Vector2i, finish: Vector2i) -> Array[Vector2i]:
+	var result: Array[Vector2i] = []
+	var current := start; var delta := (finish-start).abs(); var step := Vector2i(1 if start.x<finish.x else -1,1 if start.y<finish.y else -1); var error := delta.x-delta.y
+	while true:
+		result.append(current)
+		if current == finish: break
+		var doubled := error*2
+		if doubled > -delta.y: error -= delta.y; current.x += step.x
+		if doubled < delta.x: error += delta.x; current.y += step.y
+	return result
+
+
+## Преобразует клетку мира обратно в экранную точку внутри клетки для общей функции размещения.
+static func screen_for_cell(game: Node, state: Dictionary, cell: Vector2i) -> Vector2:
+	return Vector2(cell)*int(state.grid)+Vector2.ONE*int(state.grid)*0.5-Vector2(game.camera_offset)
+
+
+## Вычисляет индекс малой клетки с привязкой вниз, поэтому соседние тайлы касаются ровно границами.
+static func grid_cell(state: Dictionary, world: Vector2) -> Vector2i:
+	var grid := int(state.grid)
+	return Vector2i(floori(world.x/grid),floori(world.y/grid))
+
+
+## Выбирает координату якоря: левый верх для земли, низ для объектов и центр для предметов.
+static func placement_position(state: Dictionary, world: Vector2, anchor: String) -> Vector2:
+	if not bool(state.snap): return world.round()
+	var grid := int(state.grid); var origin := Vector2(grid_cell(state,world))*grid
+	if anchor == "tile": return origin
+	if anchor == "bottom": return origin+Vector2(grid*0.5,grid)
+	return origin+Vector2.ONE*grid*0.5
+
+
+## Заменяет только тайл того же слоя в клетке, не затрагивая дерево, NPC или декор поверх него.
+static func _remove_ground_at(state: Dictionary, position: Vector2, layer: String) -> void:
+	for index in range(state.objects.size()-1,-1,-1):
+		var object: Dictionary = state.objects[index]
+		if String(object.get("anchor","center")) == "tile" and String(object.layer) == layer and Vector2(object.position).is_equal_approx(position):
+			state.objects.remove_at(index)
 
 
 ## Вычисляет срез атласа для выбранного размера и безопасно зацикливает номер кадра.
@@ -285,13 +368,21 @@ static func snap(state: Dictionary, position: Vector2) -> Vector2:
 	return Vector2(roundf(position.x/grid),roundf(position.y/grid))*grid
 
 
+## Возвращает мировой прямоугольник спрайта по единому контракту якорей редактора.
+static func object_bounds(object: Dictionary) -> Rect2:
+	var size := Vector2(object.size)*object_scale(object); var position := Vector2(object.position)
+	match String(object.get("anchor","center")):
+		"tile": return Rect2(position,size)
+		"bottom": return Rect2(position-Vector2(size.x*0.5,size.y),size)
+		_: return Rect2(position-size*0.5,size)
+
+
 ## Возвращает индекс верхнего видимого объекта под мировой точкой с учётом масштаба.
 static func object_at(state: Dictionary, world: Vector2) -> int:
 	for index in range(state.objects.size()-1,-1,-1):
 		var object: Dictionary = state.objects[index]
 		if object.get("hidden",false): continue
-		var bounds := Rect2(Vector2(object.position)-Vector2(object.size)*object_scale(object)*0.5,Vector2(object.size)*object_scale(object))
-		if bounds.has_point(world): return index
+		if object_bounds(object).has_point(world): return index
 	return -1
 
 
@@ -374,7 +465,7 @@ static func import_current_level(game: Node, state: Dictionary) -> void:
 	push_history(state); state.objects=[]; state.selected=-1; state.base_location=game.current_location; state.level_name="%s_redesign"%game.current_location
 	for candidate in game.DebugObjectInspectorSystem.candidates(game):
 		if candidate.id=="player" or candidate.category in ["ДОБЫЧА","ПЕРЕХОД"]: continue
-		state.objects.append({"id":int(state.next_id),"asset_path":"","name":candidate.name,"notes":"","position":candidate.position,"size":candidate.bounds.size,"source":Rect2(),"layer":"objects","collision":not String(candidate.collision).begins_with("нет"),"rotation":0.0,"flip_x":false,"flip_y":false,"reference":true,"runtime_id":candidate.id,"original_position":candidate.position,"hidden":false,"scale":1.0}); state.next_id+=1
+		state.objects.append({"id":int(state.next_id),"asset_path":"","name":candidate.name,"notes":"","position":candidate.position,"size":candidate.bounds.size,"source":Rect2(),"anchor":"center","layer":"objects","collision":not String(candidate.collision).begins_with("нет"),"rotation":0.0,"flip_x":false,"flip_y":false,"reference":true,"runtime_id":candidate.id,"original_position":candidate.position,"hidden":false,"scale":1.0}); state.next_id+=1
 	state.status="Импортировано референсов: %d"%state.objects.size()
 
 
@@ -383,7 +474,7 @@ static func document(state: Dictionary) -> Dictionary:
 	var objects:=[]
 	for object in state.objects:
 		var source: Rect2=object.source
-		objects.append({"id":object.id,"asset_path":object.asset_path,"name":object.name,"notes":object.notes,"position":[object.position.x,object.position.y],"size":[object.size.x,object.size.y],"source":[] if source.size==Vector2.ZERO else [source.position.x,source.position.y,source.size.x,source.size.y],"layer":object.layer,"collision":object.collision,"rotation":object.rotation,"flip_x":object.flip_x,"flip_y":object.flip_y,"scale":object_scale(object),"reference":object.reference,"runtime_id":object.runtime_id,"original_position":[object.original_position.x,object.original_position.y],"hidden":object.hidden})
+		objects.append({"id":object.id,"asset_path":object.asset_path,"name":object.name,"notes":object.notes,"position":[object.position.x,object.position.y],"size":[object.size.x,object.size.y],"source":[] if source.size==Vector2.ZERO else [source.position.x,source.position.y,source.size.x,source.size.y],"anchor":String(object.get("anchor","center")),"layer":object.layer,"collision":object.collision,"rotation":object.rotation,"flip_x":object.flip_x,"flip_y":object.flip_y,"scale":object_scale(object),"reference":object.reference,"runtime_id":object.runtime_id,"original_position":[object.original_position.x,object.original_position.y],"hidden":object.hidden})
 	return {"format":"babushkina-ferma-level-draft","version":FORMAT_VERSION,"level_name":state.level_name,"level_notes":state.level_notes,"base_location":state.base_location,"grid":state.grid,"objects":objects}
 
 
@@ -435,10 +526,28 @@ static func load_draft(game: Node, state: Dictionary, path: String) -> bool:
 	push_history(state); state.objects=[]; state.level_name=String(parsed.get("level_name","untitled_level")); state.level_notes=String(parsed.get("level_notes","")); state.base_location=String(parsed.get("base_location",game.current_location)); state.grid=int(parsed.get("grid",24)); state.next_id=1
 	for saved in parsed.get("objects",[]):
 		var source_data:Array=saved.get("source",[]); var source:=Rect2() if source_data.size()!=4 else Rect2(source_data[0],source_data[1],source_data[2],source_data[3]); var position:=Vector2(saved.position[0],saved.position[1]); var original_data:Array=saved.get("original_position",[position.x,position.y])
-		state.objects.append({"id":int(saved.get("id",state.next_id)),"asset_path":String(saved.get("asset_path","")),"name":String(saved.get("name","Объект")),"notes":String(saved.get("notes","")),"position":position,"size":Vector2(saved.size[0],saved.size[1]),"source":source,"layer":String(saved.get("layer","objects")),"collision":bool(saved.get("collision",false)),"rotation":float(saved.get("rotation",0.0)),"flip_x":bool(saved.get("flip_x",false)),"flip_y":bool(saved.get("flip_y",false)),"reference":bool(saved.get("reference",false)),"runtime_id":String(saved.get("runtime_id","")),"original_position":Vector2(original_data[0],original_data[1]),"hidden":bool(saved.get("hidden",false)),"scale":float(saved.get("scale",1.0))}); state.next_id=maxi(int(state.next_id),int(saved.get("id",0))+1)
+		state.objects.append({"id":int(saved.get("id",state.next_id)),"asset_path":String(saved.get("asset_path","")),"name":String(saved.get("name","Объект")),"notes":String(saved.get("notes","")),"position":position,"size":Vector2(saved.size[0],saved.size[1]),"source":source,"anchor":String(saved.get("anchor","center")),"layer":String(saved.get("layer","objects")),"collision":bool(saved.get("collision",false)),"rotation":float(saved.get("rotation",0.0)),"flip_x":bool(saved.get("flip_x",false)),"flip_y":bool(saved.get("flip_y",false)),"reference":bool(saved.get("reference",false)),"runtime_id":String(saved.get("runtime_id","")),"original_position":Vector2(original_data[0],original_data[1]),"hidden":bool(saved.get("hidden",false)),"scale":float(saved.get("scale",1.0))}); state.next_id=maxi(int(state.next_id),int(saved.get("id",0))+1)
 	state.selected=-1; state.status="Загружено: %s · %d объектов"%[path,state.objects.size()]
 	if game.WorldSystem.NAMES.has(state.base_location): game.current_location=state.base_location; game.sync_background_location()
 	return true
+
+
+## Собирает плотный демонстрационный фрагмент новой земли, дорог и воды для визуального QA редактора.
+static func configure_preview(game: Node, state: Dictionary) -> void:
+	state.objects=[]; state.history=[]; state.future=[]; state.next_id=1; state.level_name="Кисть местности 24×24"; state.grid=24
+	var origin := Vector2(game.camera_offset)+Vector2(360,120)
+	activate_asset(state,AssetCatalogSystem.metadata("res://assets/game/tiles/editor/terrain/grass_lush.png"))
+	for row in range(14):
+		for column in range(22): place_selected_asset(game,state,origin+Vector2(column*24+12,row*24+12),false)
+	activate_asset(state,AssetCatalogSystem.metadata("res://assets/game/tiles/editor/terrain/dirt_path_horizontal.png"))
+	for column in range(22): place_selected_asset(game,state,origin+Vector2(column*24+12,7*24+12),false)
+	activate_asset(state,AssetCatalogSystem.metadata("res://assets/game/tiles/editor/terrain/dirt_path_vertical.png"))
+	for row in range(14): place_selected_asset(game,state,origin+Vector2(10*24+12,row*24+12),false)
+	activate_asset(state,AssetCatalogSystem.metadata("res://assets/game/tiles/editor/terrain/dirt_path_cross.png")); place_selected_asset(game,state,origin+Vector2(10*24+12,7*24+12),false)
+	activate_asset(state,AssetCatalogSystem.metadata("res://assets/game/tiles/editor/water/water_clear.png"))
+	for row in range(2,7):
+		for column in range(16,21): place_selected_asset(game,state,origin+Vector2(column*24+12,row*24+12),false)
+	activate_asset(state,AssetCatalogSystem.metadata("res://assets/game/tiles/editor/terrain/grass_flowers.png")); state.mouse=Vector2(672,492); state.selected=-1; state.history=[]; state.future=[]; state.status="Клик — один тайл · зажать — непрерывная кисть"
 
 
 ## Завершает отложенный захват чистого игрового кадра после скрытия панели редактора.

@@ -7,6 +7,13 @@ const BUTTON_ACTIVE := Color("557544")
 const TEXT := Color("fff0c8")
 const MUTED := Color("c5ae83")
 const SELECTED := Color("ffd45c")
+static var _texture_cache: Dictionary = {}
+
+
+## Удерживает загруженные редакторские текстуры между кадрами, чтобы GPU не показывал белый placeholder.
+static func texture_for(path: String) -> Texture2D:
+	if not _texture_cache.has(path): _texture_cache[path]=ResourceLoader.load(path) as Texture2D
+	return _texture_cache[path]
 
 
 ## Рисует размещённые элементы одного смыслового слоя под или над игровыми объектами.
@@ -25,26 +32,30 @@ static func draw_layer(game: Node2D, layer: String) -> void:
 
 ## Отрисовывает обычный спрайт либо технический референс импортированного runtime-объекта.
 static func draw_object(game: Node2D, object: Dictionary, selected: bool) -> void:
-	var size:Vector2=Vector2(object.size)*game.LevelEditorSystem.object_scale(object); var center:Vector2=object.position
+	var bounds: Rect2 = game.LevelEditorSystem.object_bounds(object); var size := bounds.size; var center := bounds.get_center()
 	if bool(object.reference):
-		var changed: bool = center.distance_to(Vector2(object.original_position))>0.5
+		var changed: bool = Vector2(object.position).distance_to(Vector2(object.original_position))>0.5
 		if changed or selected:
-			var color: Color = Color(0.35,0.8,1.0,0.22 if changed else 0.12); game.draw_rect(Rect2(center-size*0.5,size),color); game.draw_rect(Rect2(center-size*0.5,size),Color("6dd5ff"),false,2.0)
+			var color: Color = Color(0.35,0.8,1.0,0.22 if changed else 0.12); game.draw_rect(bounds,color); game.draw_rect(bounds,Color("6dd5ff"),false,2.0)
 	else:
-		var texture: Texture2D = ResourceLoader.load(String(object.asset_path)) as Texture2D
+		var texture: Texture2D = texture_for(String(object.asset_path))
 		if texture!=null:
-			var scale_vector: Vector2 = Vector2(-1.0 if object.flip_x else 1.0,-1.0 if object.flip_y else 1.0)
-			game.draw_set_transform(center,float(object.rotation),scale_vector)
-			var destination: Rect2 = Rect2(-size*0.5,size); var source:Rect2=object.source
-			if source.size==Vector2.ZERO: game.draw_texture_rect(texture,destination,false)
-			else: game.draw_texture_rect_region(texture,destination,source)
-			game.draw_set_transform(Vector2.ZERO)
-	if bool(object.collision): game.draw_rect(Rect2(center-size*0.5,size),Color(0.95,0.24,0.22,0.55),false,2.0)
+			var source:Rect2=object.source
+			if is_zero_approx(float(object.rotation)) and not bool(object.flip_x) and not bool(object.flip_y):
+				if source.size==Vector2.ZERO: game.draw_texture_rect(texture,bounds,false)
+				else: game.draw_texture_rect_region(texture,bounds,source)
+			else:
+				var scale_vector: Vector2 = Vector2(-1.0 if object.flip_x else 1.0,-1.0 if object.flip_y else 1.0); game.draw_set_transform(center-game.camera_offset,float(object.rotation),scale_vector)
+				var destination: Rect2 = Rect2(-size*0.5,size)
+				if source.size==Vector2.ZERO: game.draw_texture_rect(texture,destination,false)
+				else: game.draw_texture_rect_region(texture,destination,source)
+				game.draw_set_transform(-game.camera_offset)
+	if bool(object.collision): game.draw_rect(bounds,Color(0.95,0.24,0.22,0.55),false,2.0)
 	if selected:
-		var bounds: Rect2 = Rect2(center-size*0.5,size); game.draw_rect(bounds.grow(4),SELECTED,false,3.0)
+		game.draw_rect(bounds.grow(4),SELECTED,false,3.0)
 		for corner in [bounds.position,bounds.position+Vector2(bounds.size.x,0),bounds.end,bounds.position+Vector2(0,bounds.size.y)]: game.draw_rect(Rect2(corner-Vector2(4,4),Vector2(8,8)),Color("fff2a3"))
 	if not String(object.name).is_empty() and (selected or bool(object.reference)):
-		var label: Rect2 = Rect2(center+Vector2(-90,-size.y*0.5-25),Vector2(180,20)); game.draw_rect(label,Color(0.03,0.025,0.02,0.78)); game.draw_string(game.UI_FONT,label.position+Vector2(4,15),String(object.name),HORIZONTAL_ALIGNMENT_CENTER,label.size.x-8,12,TEXT)
+		var label: Rect2 = Rect2(Vector2(center.x-90,bounds.position.y-25),Vector2(180,20)); game.draw_rect(label,Color(0.03,0.025,0.02,0.78)); game.draw_string(game.UI_FONT,label.position+Vector2(4,15),String(object.name),HORIZONTAL_ALIGNMENT_CENTER,label.size.x-8,12,TEXT)
 
 
 ## Накладывает лёгкую модульную сетку только на видимую область рабочего холста.
@@ -56,13 +67,13 @@ static func draw_grid(game: Node2D, state: Dictionary) -> void:
 
 ## Показывает полупрозрачный спрайт у курсора во время переноса из каталога.
 static func draw_drag_preview(game: Node2D, state: Dictionary) -> void:
-	if state.drag_kind!="asset" or String(state.selected_asset).is_empty(): return
-	var texture: Texture2D = ResourceLoader.load(String(state.selected_asset)) as Texture2D
+	if String(state.selected_asset).is_empty() or String(state.tool)!="paint": return
+	var texture: Texture2D = texture_for(String(state.selected_asset))
 	if texture==null:return
-	var source: Rect2 = game.LevelEditorSystem.selected_source(texture,state); var size: Vector2 = source.size if source.size!=Vector2.ZERO else texture.get_size(); var center: Vector2 = game.LevelEditorSystem.snap(state,Vector2(state.mouse)+Vector2(game.camera_offset)); var destination: Rect2 = Rect2(center-size*0.5,size)
+	var source: Rect2 = game.LevelEditorSystem.selected_source(texture,state); var size: Vector2 = source.size if source.size!=Vector2.ZERO else texture.get_size(); var entry: Dictionary = game.LevelEditorSystem.AssetCatalogSystem.find(game.LevelEditorSystem.catalog(),String(state.selected_asset)); var position: Vector2 = game.LevelEditorSystem.placement_position(state,Vector2(state.mouse)+Vector2(game.camera_offset),String(entry.get("anchor","center"))); var destination: Rect2 = game.LevelEditorSystem.object_bounds({"position":position,"size":size,"anchor":entry.get("anchor","center"),"scale":1.0})
 	if source.size==Vector2.ZERO: game.draw_texture_rect(texture,destination,false,Color(1,1,1,0.62))
 	else: game.draw_texture_rect_region(texture,destination,source,Color(1,1,1,0.62))
-	game.draw_rect(destination,SELECTED,false,2.0)
+	game.draw_rect(destination,Color("8ef09d"),false,2.0)
 
 
 ## Рисует всю панель каталога, настройки объекта, статус и строку горячих клавиш.
@@ -77,6 +88,7 @@ static func draw_panel(game: Node2D) -> void:
 	draw_button(game,game.LevelEditorSystem.CATEGORY_PREV,"‹",false); draw_button(game,game.LevelEditorSystem.CATEGORY_NEXT,"›",false)
 	var category:String=game.LevelEditorSystem.CATEGORIES[int(state.category)]; game.draw_string(game.UI_FONT,Vector2(62,102),game.LevelEditorSystem.CATEGORY_NAMES[category],HORIZONTAL_ALIGNMENT_CENTER,230,14,TEXT)
 	draw_assets(game,state)
+	draw_button(game,game.LevelEditorSystem.SELECT_TOOL_BUTTON,"V · ВЫБОР",state.tool=="select"); draw_button(game,game.LevelEditorSystem.PAINT_TOOL_BUTTON,"B · КИСТЬ",state.tool=="paint"); draw_button(game,game.LevelEditorSystem.ERASE_TOOL_BUTTON,"E · ЛАСТИК",state.tool=="erase")
 	draw_button(game,game.LevelEditorSystem.NEW_BUTTON,"НОВЫЙ",false); draw_button(game,game.LevelEditorSystem.SAVE_BUTTON,"СОХР.",false); draw_button(game,game.LevelEditorSystem.LOAD_BUTTON,"ЗАГР.",false); draw_button(game,game.LevelEditorSystem.EXPORT_BUTTON,"ЭКСПОРТ",true)
 	draw_button(game,game.LevelEditorSystem.IMPORT_BUTTON,"ИМПОРТИРОВАТЬ ТЕКУЩУЮ ЛОКАЦИЮ",false)
 	draw_button(game,game.LevelEditorSystem.GRID_BUTTON,"СЕТКА %d"%int(state.grid),false); draw_button(game,game.LevelEditorSystem.SLICE_BUTTON,"СРЕЗ %s"%("ALL" if int(state.slice_size)==0 else str(state.slice_size)),false); draw_button(game,game.LevelEditorSystem.LAYER_BUTTON,layer_name(String(state.layer)),true)
@@ -85,7 +97,7 @@ static func draw_panel(game: Node2D) -> void:
 	var status: String = String(state.status); if not String(state.text_mode).is_empty(): status="▌ "+String(state.text_buffer)
 	game.draw_rect(Rect2(20,607,314,22),Color("2c2119")); game.draw_string(game.UI_FONT,Vector2(25,623),status,HORIZONTAL_ALIGNMENT_LEFT,304,11,Color("ffe099"))
 	draw_selection_info(game,state)
-	game.draw_string(game.UI_FONT,Vector2(356,24),"F12 закрыть · WASD камера · Del удалить · D копия · Ctrl+Z/Y · Q поворот · X/Y отражение · [ ] масштаб",HORIZONTAL_ALIGNMENT_LEFT,780,12,Color(1,0.95,0.78,0.92))
+	game.draw_string(game.UI_FONT,Vector2(356,24),"F12 закрыть · B кисть · V выбор · E ластик · WASD камера · Ctrl+Z/Y · Q поворот · [ ] масштаб",HORIZONTAL_ALIGNMENT_LEFT,780,12,Color(1,0.95,0.78,0.92))
 
 
 ## Рисует шесть видимых строк ресурсов с настоящими миниатюрами и путями файлов.
@@ -94,7 +106,7 @@ static func draw_assets(game: Node2D, state: Dictionary) -> void:
 	for row in game.LevelEditorSystem.VISIBLE_ASSETS:
 		var index: int = start+row; var rect: Rect2 = Rect2(22,122+row*game.LevelEditorSystem.ASSET_ROW_HEIGHT,310,42); var selected: bool = index<entries.size() and entries[index].path==state.selected_asset; game.draw_rect(rect,BUTTON_ACTIVE if selected else Color("3c2c20")); game.draw_rect(rect,SELECTED if selected else Color("75563a"),false,1.5)
 		if index>=entries.size(): continue
-		var entry:Dictionary=entries[index]; var texture: Texture2D = ResourceLoader.load(String(entry.path)) as Texture2D
+		var entry:Dictionary=entries[index]; var texture: Texture2D = texture_for(String(entry.path))
 		if texture!=null:
 			var source: Rect2 = game.LevelEditorSystem.selected_source(texture,state) if selected else Rect2(); var texture_size: Vector2 = source.size if source.size!=Vector2.ZERO else texture.get_size(); var scale: float = minf(34.0/maxf(texture_size.x,1),34.0/maxf(texture_size.y,1)); var thumb: Rect2 = Rect2(Vector2(28,126+row*game.LevelEditorSystem.ASSET_ROW_HEIGHT)+(Vector2(36,34)-texture_size*scale)*0.5,texture_size*scale)
 			if source.size==Vector2.ZERO: game.draw_texture_rect(texture,thumb,false)
@@ -107,7 +119,7 @@ static func draw_assets(game: Node2D, state: Dictionary) -> void:
 static func draw_selection_info(game: Node2D, state: Dictionary) -> void:
 	if not game.LevelEditorSystem.valid_selection(state): return
 	var object:Dictionary=state.objects[state.selected]; var rect:=Rect2(356,42,300,82); game.draw_rect(rect,Color(0.04,0.03,0.02,0.88)); game.draw_rect(rect,SELECTED,false,2)
-	var lines: Array[String] = ["%s · #%s"%[object.name,object.id],"x %.0f · y %.0f · %.0f×%.0f"%[object.position.x,object.position.y,object.size.x,object.size.y],"%s · scale %.2f · collision %s"%[layer_name(object.layer),game.LevelEditorSystem.object_scale(object),"да"if object.collision else"нет"]]
+	var lines: Array[String] = ["%s · #%s"%[object.name,object.id],"x %.0f · y %.0f · %.0f×%.0f"%[object.position.x,object.position.y,object.size.x,object.size.y],"%s · %s · scale %.2f · collision %s"%[layer_name(object.layer),String(object.get("anchor","center")),game.LevelEditorSystem.object_scale(object),"да"if object.collision else"нет"]]
 	for index in lines.size(): game.draw_string(game.UI_FONT,rect.position+Vector2(10,22+index*21),lines[index],HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-20,12,TEXT)
 
 
