@@ -99,6 +99,7 @@ static func append_forage(game: Node, result: Array[Dictionary]) -> void:
 			"урожай %d · продажа %d" % [data.yield,data.sell],
 			"цикл %s · осталось %s" % [game.ForageSystem.duration_text(data.growth_minutes),game.ForageSystem.remaining_text(game,node)],
 			"стадия %s" % ("%d/3 · %d%%" % [orchard_stage,roundi(game.OrchardSystem.growth_progress(game,node,data)*100.0)] if orchard_stage >= 0 else "нет"),
+			"плодоношение %s" % ("%d%%" % roundi(game.OrchardSystem.fruit_progress(game,node,data)*100.0) if orchard_stage == 3 else "после взросления"),
 			"ready_at %.1f · active %s" % [node.ready_at,str(node.active)],
 		])
 

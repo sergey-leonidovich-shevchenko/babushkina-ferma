@@ -27,6 +27,16 @@ static func update_node(game: Node, node: Dictionary, data: Dictionary, now: flo
 		return node
 	var current_stage := stage(node)
 	var ready_at := float(node.get("ready_at", 0.0))
+	# Взрослое дерево больше не проходит стадии роста повторно: таймер относится
+	# только к новому урожаю и по завершении возвращает плоды на ту же крону.
+	if current_stage >= 3:
+		if ready_at <= 0.0: ready_at = now + float(data.get("growth_minutes", 1440.0))
+		if now >= ready_at:
+			node.active = true
+			ready_at = 0.0
+		node.stage = 3
+		node.ready_at = ready_at
+		return node
 	if ready_at <= 0.0:
 		ready_at = now + stage_duration(data)
 	while current_stage < 3 and now >= ready_at:
@@ -41,10 +51,10 @@ static func update_node(game: Node, node: Dictionary, data: Dictionary, now: flo
 	return node
 
 
-## Переводит собранное взрослое дерево в фазу повторного цветения до следующего урожая.
+## Снимает плоды со взрослого дерева, не откатывая его к молодой стадии роста.
 static func start_fruit_cycle(node: Dictionary, data: Dictionary, now: float) -> Dictionary:
 	node.active = false
-	node.stage = 2
+	node.stage = 3
 	node.ready_at = now + float(data.get("growth_minutes", 1440.0))
 	return node
 
@@ -65,16 +75,34 @@ static func growth_progress(game: Node, node: Dictionary, data: Dictionary) -> f
 	return clampf((float(current_stage) + local_progress) / 3.0, 0.0, 1.0)
 
 
+## Возвращает отдельный прогресс плодоношения уже выросшего дерева.
+static func fruit_progress(game: Node, node: Dictionary, data: Dictionary) -> float:
+	if stage(node) < 3: return 0.0
+	if bool(node.get("active", false)): return 1.0
+	var duration := maxf(float(data.get("growth_minutes", 1440.0)), 1.0)
+	var remaining := maxf(float(node.get("ready_at", 0.0)) - game.ForageSystem.total_minutes(game), 0.0)
+	return clampf(1.0 - remaining / duration, 0.0, 1.0)
+
+
+## Выбирает вид кроны отдельно от постоянной стадии дерева: листья, цветы или плоды.
+static func visual_stage(game: Node, node: Dictionary, data: Dictionary) -> int:
+	var current_stage := stage(node)
+	if current_stage < 3: return current_stage
+	if game.WorldEventSystem.season(game.day) == WINTER: return 1
+	if bool(node.get("active", false)): return 3
+	return 2 if fruit_progress(game, node, data) >= 0.55 else 1
+
+
 ## Возвращает ячейку атласа по породе и стадии без захвата соседних изображений.
 static func source_rect(kind: String, current_stage: int, winter: bool = false) -> Rect2:
 	if not handles(kind):
 		return Rect2()
 	var cell := TREE_ATLAS.get_size() / Vector2(STAGE_COUNT, SPECIES_ROWS.size())
 	var visual_stage := clampi(current_stage, 0, 3)
-	# Зимой плодоносящая колонка заменяется цветущей: светлые точки становятся снегом,
-	# а яркие плоды не просвечивают через морозный погодный слой.
+	# Прямой запрос зимней плодоносящей колонки получает зелёную крону без плодов;
+	# снег отрисовывается отдельным погодным слоем и не меняет геометрию дерева.
 	if winter and visual_stage == 3:
-		visual_stage = 2
+		visual_stage = 1
 	return Rect2(Vector2(visual_stage, int(SPECIES_ROWS[kind])) * cell, cell)
 
 
@@ -97,6 +125,7 @@ static func weather_tint(season: String, weather: String) -> Color:
 ## Рисует одну стадию сада и отдельные анимированные детали снега, дождя и ветра.
 static func draw_tree(game: Node2D, node: Dictionary) -> void:
 	var current_stage := stage(node)
+	var data: Dictionary = game.ForageSystem.TYPES[node.kind]
 	var current_season: String = game.WorldEventSystem.season(game.day)
 	var current_weather: String = game.WorldEventSystem.weather(game)
 	var position: Vector2 = node.position
@@ -104,7 +133,7 @@ static func draw_tree(game: Node2D, node: Dictionary) -> void:
 	if current_weather in ["wind", "storm"]:
 		position.x += roundf(sin(time * 2.4 + position.y * 0.01) * (2.0 if current_weather == "storm" else 1.0))
 	var destination := destination_rect(position, current_stage)
-	game.draw_texture_rect_region(TREE_ATLAS, destination, source_rect(node.kind, current_stage, current_season == WINTER), weather_tint(current_season, current_weather))
+	game.draw_texture_rect_region(TREE_ATLAS, destination, source_rect(node.kind, visual_stage(game,node,data), current_season == WINTER), weather_tint(current_season, current_weather))
 	_draw_weather_details(game, destination, current_stage, current_season, current_weather, time)
 
 

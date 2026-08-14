@@ -176,10 +176,14 @@ func test_orchard_growth_weather_harvest_icons_and_save() -> void:
 	game.day = 29; game.state.world.weather_day = 29; game.state.world.weather = "clear"
 	expect(game.collect_food(cherry_index) and game.inventory_item_count("cherry") == 4, "spring harvest grants the configured cherry yield")
 	expect(game.tutorial_events_completed.has("orchard_trees") and game.LocaleSystem.TUTORIAL.orchard_trees.size() == 6, "first orchard harvest completes its six-language tutorial step")
-	expect(game.food_nodes[cherry_index].stage == 2 and not game.food_nodes[cherry_index].active, "harvest returns an adult tree to its fruit-renewal stage")
+	var cherry_data: Dictionary = game.ForageSystem.TYPES.cherry
+	expect(game.food_nodes[cherry_index].stage == 3 and not game.food_nodes[cherry_index].active, "harvest keeps the cherry tree permanently adult")
+	expect(orchard.visual_stage(game,game.food_nodes[cherry_index],cherry_data) == 1, "freshly harvested adult tree uses the leafy crown without cherries")
+	game.food_nodes[cherry_index].ready_at = game.ForageSystem.total_minutes(game) + cherry_data.growth_minutes * 0.4
+	expect(orchard.visual_stage(game,game.food_nodes[cherry_index],cherry_data) == 2, "late fruit cycle switches the same adult tree from leaves to flowering")
 	var snapshot: Dictionary = game.SaveSystem.snapshot(game); var loaded := make_game()
 	expect(loaded.SaveSystem.apply(loaded,snapshot), "orchard snapshot loads through the common save system")
-	expect(loaded.food_nodes[cherry_index].stage == 2 and loaded.food_nodes[cherry_index].ready_at == game.food_nodes[cherry_index].ready_at and loaded.inventory_item_count("cherry") == 4, "fruit-tree stage, timer and harvested items survive save roundtrip")
+	expect(loaded.food_nodes[cherry_index].stage == 3 and loaded.food_nodes[cherry_index].ready_at == game.food_nodes[cherry_index].ready_at and loaded.inventory_item_count("cherry") == 4, "adult tree, fruit timer and harvested items survive save roundtrip")
 	game.free(); loaded.free()
 
 ## Сценарий: арбуз, зелье, щит и луговой ящер работают в сборе, крафте, употреблении, бою и сохранении.
