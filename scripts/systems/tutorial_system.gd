@@ -2,7 +2,7 @@ extends RefCounted
 
 const STEP_IDS := [
 	"move", "village_paths", "audio_feedback", "character_animation", "npc_wander", "npc_schedule", "forage_harvest", "forage_regrow", "forage_sale", "orchard_trees",
-	"talk", "hold_action", "plant", "water", "rewater", "harvest", "shop", "trade",
+	"talk", "hold_action", "plant", "water", "rewater", "harvest", "shop", "trade", "seed_catalog",
 	"quest_complete", "fight", "combat_animation", "combat_dodge", "combat_block", "critical_hit", "loot", "inventory", "inventory_filters", "hotbar", "eat", "equipment", "mine", "tree_chop", "tree_fall", "tree_regrow",
 	"fish_cast", "fish_hook", "fish_control", "fish", "craft_window", "equip", "collision", "travel", "locations", "mission_accept", "story_chain", "side_quests",
 	"mission_complete", "journal", "side_mission", "colored_crystal", "day", "level_up",

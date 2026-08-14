@@ -1,6 +1,6 @@
 extends RefCounted
 
-const DEFAULT_SLOTS := ["seeds", "carrot", "pickaxe", "fishing_rod", "slime", "wood", "stone", "crystal", "fish", "sword", "bow", "crystal_sword", "apple", "berries", "nut", "mushroom", "iron_helmet", "guardian_armor", "travel_boots", "crystal_ring", "orange", "orc_blade", "red_crystal", "green_crystal", "raw_meat", "hide", "fur", "tusk", "bat_wing", "watermelon", "healing_potion", "mana_potion", "energy_potion", "invisibility_potion", "strength_potion", "regeneration_potion", "speed_potion", "defense_potion", "oak_shield", "lizard_scale", "arrows", "home_chest", "guild_badge", "axe", "pirate_doubloon", "ectoplasm", "cursed_compass", "pirate_cutlass", "eclipse_core", "tomato", "cabbage", "egg", "milk", "wheat", "corn", "potato", "onion", "cheese", "rope", "cotton", "flower", "honey", "bread", "pie", "pumpkin", "flour", "butter", "jam", "soup", "omelet", "cornbread", "wool", "bouquet", "rustic_table", "wooden_chair", "woven_rug", "potted_fern", "wooden_wardrobe", "museum_token", "pear", "cherry", "plum"]
+const DEFAULT_SLOTS := ["seeds", "carrot", "pickaxe", "fishing_rod", "slime", "wood", "stone", "crystal", "fish", "sword", "bow", "crystal_sword", "apple", "berries", "nut", "mushroom", "iron_helmet", "guardian_armor", "travel_boots", "crystal_ring", "orange", "orc_blade", "red_crystal", "green_crystal", "raw_meat", "hide", "fur", "tusk", "bat_wing", "watermelon", "healing_potion", "mana_potion", "energy_potion", "invisibility_potion", "strength_potion", "regeneration_potion", "speed_potion", "defense_potion", "oak_shield", "lizard_scale", "arrows", "home_chest", "guild_badge", "axe", "pirate_doubloon", "ectoplasm", "cursed_compass", "pirate_cutlass", "eclipse_core", "tomato", "cabbage", "egg", "milk", "wheat", "corn", "potato", "onion", "cheese", "rope", "cotton", "flower", "honey", "bread", "pie", "pumpkin", "flour", "butter", "jam", "soup", "omelet", "cornbread", "wool", "bouquet", "rustic_table", "wooden_chair", "woven_rug", "potted_fern", "wooden_wardrobe", "museum_token", "pear", "cherry", "plum", "tomato_seeds", "cabbage_seeds", "wheat_seeds", "corn_seeds", "potato_seeds", "onion_seeds", "pumpkin_seeds", "strawberry_seeds", "beet_seeds", "pepper_seeds", "cucumber_seeds", "sunflower_seeds", "cotton_seeds", "melon_seeds", "herb_seeds"]
 const DEFAULT_HOTBAR := ["hoe", "seeds", "water", "hand", "pickaxe", "fishing_rod", "axe", "apple", "berries", "mushroom"]
 const DEFAULT_EQUIPMENT := {"head": "", "body": "", "legs": "", "hands": "", "offhand": "", "ring": ""}
 const INITIAL_COUNTS := {
@@ -22,6 +22,9 @@ const INITIAL_COUNTS := {
 	"honey":0, "bread":0, "pie":0, "pumpkin":0, "flour":0, "butter":0,
 	"jam":0, "soup":0, "omelet":0, "cornbread":0, "wool":0, "bouquet":0,
 	"rustic_table":0,"wooden_chair":0,"woven_rug":0,"potted_fern":0,"wooden_wardrobe":0,"museum_token":0,
+	"tomato_seeds":0,"cabbage_seeds":0,"wheat_seeds":0,"corn_seeds":0,"potato_seeds":0,
+	"onion_seeds":0,"pumpkin_seeds":0,"strawberry_seeds":0,"beet_seeds":0,"pepper_seeds":0,
+	"cucumber_seeds":0,"sunflower_seeds":0,"cotton_seeds":0,"melon_seeds":0,"herb_seeds":0,
 }
 
 var counts: Dictionary = INITIAL_COUNTS.duplicate(true)

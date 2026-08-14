@@ -8,6 +8,7 @@ func run() -> void:
 	test_regrowing_forage_harvest_value_and_sale()
 	test_forage_atlas_cells_are_isolated_and_bottom_anchored()
 	test_orchard_growth_weather_harvest_icons_and_save()
+	test_seed_bag_catalog_shop_purchase_icons_and_save()
 	test_new_pixel_items_watermelon_shield_potion_and_lizard()
 	test_animated_enemy_sprites_replace_primitives()
 	test_unbounded_scrolling_inventory_and_forage_save()
@@ -230,6 +231,31 @@ func test_new_pixel_items_watermelon_shield_potion_and_lizard() -> void:
 	var legacy_snapshot: Dictionary = game.SaveSystem.snapshot(game)
 	legacy_snapshot.equipment.erase("offhand")
 	expect(game.SaveSystem.apply(game, legacy_snapshot) and game.equipment.has("offhand") and not game.wildlife_nodes[lizard_index].alive, "older saves migrate the shield slot while preserving lizard state")
+	game.free()
+
+## Сценарий: шестнадцать мешков семян имеют отдельные иконки, доступны в лавке и сохраняются после покупки.
+## Исходное состояние: новая игра, полный каталог магазина и достаточный запас монет; предметов нового сорта в рюкзаке нет.
+## Ожидаемый результат: мешки не зависят от атласной разметки интерфейса, покупка выдаёт четыре семени, уменьшает запас и переживает загрузку.
+func test_seed_bag_catalog_shop_purchase_icons_and_save() -> void:
+	var game := make_game()
+	var seed_kinds := ["seeds", "tomato_seeds", "cabbage_seeds", "wheat_seeds", "corn_seeds", "potato_seeds", "onion_seeds", "pumpkin_seeds", "strawberry_seeds", "beet_seeds", "pepper_seeds", "cucumber_seeds", "sunflower_seeds", "cotton_seeds", "melon_seeds", "herb_seeds"]
+	var seed_products: Array = game.shop_products.filter(func(product): return product.get("seed", false))
+	expect(seed_products.size() == 16 and game.shop_products[0].kind == "seeds", "shop exposes all sixteen seed bags without changing the historical carrot position")
+	for kind in seed_kinds:
+		var texture: Texture2D = game.VisualAssetSystem.item_texture(kind)
+		expect(texture != null and texture.get_size() == Vector2(256, 256), "%s has an independent centred 256px icon" % kind)
+		expect(game.LocaleSystem.ITEMS.has(kind) and game.LocaleSystem.ITEMS[kind].size() == 6, "%s is translated into all six supported languages" % kind)
+	var tomato_index: int = game.shop_products.find_custom(func(product): return product.kind == "tomato_seeds")
+	var price: int = game.shop_products[tomato_index].buy
+	game.coins = 1000
+	expect(game.ShopSystem.buy(game, tomato_index), "a new seed variety can be bought from the common shop flow")
+	expect(game.inventory_item_count("tomato_seeds") == 4 and game.coins == 1000 - price, "one purchase grants four tomato seed bags and charges the declared price")
+	expect(game.shop_products[tomato_index].stock == 7 and game.tutorial_events_completed.has("seed_catalog"), "seed stock decreases from eight and the catalog tutorial is completed")
+	var snapshot: Dictionary = game.SaveSystem.snapshot(game)
+	var loaded := make_game()
+	expect(loaded.SaveSystem.apply(loaded, snapshot), "save with purchased seed varieties loads through the common save system")
+	expect(loaded.inventory_item_count("tomato_seeds") == 4 and loaded.inventory_slots.has("tomato_seeds"), "purchased seed variety and its inventory slot survive loading")
+	loaded.free()
 	game.free()
 
 ## Сценарий: все семейства врагов используют подходящие анимированные спрайты вместо примитивов.

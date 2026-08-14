@@ -195,7 +195,8 @@ static func initialize_item_icons(kinds: Array) -> void:
 	item_icon_cache.clear()
 	for value in kinds:
 		var kind := String(value)
-		var path := "%s/%s.png" % [ITEM_ICON_DIRECTORY, kind]
+		var icon_kind := "carrot_seeds" if kind == "seeds" else kind
+		var path := "%s/%s.png" % [ITEM_ICON_DIRECTORY, icon_kind]
 		if ResourceLoader.exists(path): item_icon_cache[kind] = load(path)
 
 

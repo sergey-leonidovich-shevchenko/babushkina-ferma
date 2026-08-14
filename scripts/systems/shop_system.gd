@@ -1,7 +1,7 @@
 extends RefCounted
 
 const PRODUCTS := [
-	{"kind": "seeds", "amount": 4, "buy": 5, "sell": 0, "icon": Rect2(0, 55, 36, 45)},
+	{"kind": "seeds", "amount": 4, "buy": 5, "sell": 0, "seed": true, "icon": Rect2(0, 55, 36, 45)},
 	{"kind": "carrot", "buy": 10, "sell": 8, "icon": Rect2(34, 112, 30, 28)},
 	{"kind": "berries", "buy": 0, "sell": 4, "forage": true},
 	{"kind": "mushroom", "buy": 0, "sell": 7, "forage": true},
@@ -20,6 +20,14 @@ const PRODUCTS := [
 	{"kind":"cheese","buy":0,"sell":28}, {"kind":"rope","buy":0,"sell":12}, {"kind":"bread","buy":0,"sell":24}, {"kind":"pie","buy":0,"sell":42},
 	{"kind":"flour","buy":0,"sell":12}, {"kind":"butter","buy":0,"sell":24}, {"kind":"jam","buy":0,"sell":32}, {"kind":"soup","buy":0,"sell":30},
 	{"kind":"omelet","buy":0,"sell":34}, {"kind":"cornbread","buy":0,"sell":28}, {"kind":"bouquet","buy":0,"sell":36},
+	{"kind":"tomato_seeds","amount":4,"buy":7,"sell":0,"seed":true}, {"kind":"cabbage_seeds","amount":4,"buy":8,"sell":0,"seed":true},
+	{"kind":"wheat_seeds","amount":4,"buy":6,"sell":0,"seed":true}, {"kind":"corn_seeds","amount":4,"buy":8,"sell":0,"seed":true},
+	{"kind":"potato_seeds","amount":4,"buy":7,"sell":0,"seed":true}, {"kind":"onion_seeds","amount":4,"buy":7,"sell":0,"seed":true},
+	{"kind":"pumpkin_seeds","amount":4,"buy":12,"sell":0,"seed":true}, {"kind":"strawberry_seeds","amount":4,"buy":14,"sell":0,"seed":true},
+	{"kind":"beet_seeds","amount":4,"buy":8,"sell":0,"seed":true}, {"kind":"pepper_seeds","amount":4,"buy":10,"sell":0,"seed":true},
+	{"kind":"cucumber_seeds","amount":4,"buy":9,"sell":0,"seed":true}, {"kind":"sunflower_seeds","amount":4,"buy":10,"sell":0,"seed":true},
+	{"kind":"cotton_seeds","amount":4,"buy":12,"sell":0,"seed":true}, {"kind":"melon_seeds","amount":4,"buy":15,"sell":0,"seed":true},
+	{"kind":"herb_seeds","amount":4,"buy":18,"sell":0,"seed":true},
 ]
 
 
@@ -62,6 +70,7 @@ static func buy(game: Node, product_index: int) -> bool:
 	game.message = game.LocaleSystem.text("bought", [game.inventory_item_name(product.kind)])
 	game.play_sfx("coin")
 	game.notify_tutorial("trade")
+	if product.get("seed", false): game.notify_tutorial("seed_catalog")
 	return true
 
 
@@ -69,7 +78,7 @@ static func buy(game: Node, product_index: int) -> bool:
 static func refresh_stock(product: Dictionary, day: int) -> void:
 	if int(product.get("stock_day", 0)) == day: return
 	product.stock_day = day
-	product.stock = 8 if product.kind == "seeds" else (1 if product.kind in ["home_chest", "backpack_upgrade"] else 4)
+	product.stock = 8 if product.get("seed", false) else (1 if product.kind in ["home_chest", "backpack_upgrade"] else 4)
 
 ## Выполняет операцию «продажи» и возвращает результат согласно контракту метода.
 static func sell(game: Node, product_index: int) -> bool:
