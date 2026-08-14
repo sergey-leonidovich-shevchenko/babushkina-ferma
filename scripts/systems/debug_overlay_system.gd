@@ -17,7 +17,7 @@ const BUTTONS := [
 	{"rect":Rect2(794,378,150,28),"action":"opacity_down","label":"ПРОЗРАЧНЕЕ","enabled":true},
 	{"rect":Rect2(964,378,150,28),"action":"opacity_up","label":"ЯРЧЕ","enabled":true},
 	{"rect":Rect2(794,420,150,28),"action":"farming","label":"ПАХОТНАЯ ЗЕМЛЯ","enabled":true},
-	{"rect":Rect2(964,420,150,28),"action":"object_move","label":"ДВИГАТЬ ОБЪЕКТЫ","enabled":false},
+	{"rect":Rect2(964,420,150,28),"action":"level_editor","label":"КОНСТРУКТОР","enabled":true},
 	{"rect":Rect2(794,454,150,28),"action":"spawn","label":"СОЗДАТЬ ОБЪЕКТ","enabled":false},
 	{"rect":Rect2(964,454,150,28),"action":"save_patch","label":"СОХРАНИТЬ ПАТЧ","enabled":false},
 ]
@@ -122,6 +122,7 @@ static func handle_pointer(game: Node, point: Vector2) -> bool:
 		if not bool(button.get("enabled", true)): return true
 		match String(button.action):
 			"grid", "hitboxes", "routes", "labels", "noclip", "farming": toggle_option(game, button.action)
+			"level_editor": game.LevelEditorSystem.toggle(game)
 			"pause": toggle_option(game, "paused")
 			"step": request_step(game)
 			"grid_size": cycle_grid_size(game)

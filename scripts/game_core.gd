@@ -125,13 +125,25 @@ func _ready() -> void:
 		var preview_life := FarmLifeSystem.state(self)
 		preview_life.first_day = 6; preview_life.cutscene = ""; preview_life.cutscene_timer = 0.0
 		message = ""; DiscoverySystem.dismiss(self)
+	if "--level-editor-preview" in OS.get_cmdline_user_args() or "--capture-level-editor" in OS.get_cmdline_user_args():
+		language_screen=false; title_screen=false; current_location="overworld"; player=Vector2(1160,650); tutorial_visible=false; LevelEditorSystem.toggle(self)
+		var editor_state: Dictionary = get_meta(LevelEditorSystem.META_KEY); LevelEditorSystem.import_current_level(self,editor_state); set_meta(LevelEditorSystem.META_KEY,editor_state)
+		if "--capture-level-editor" in OS.get_cmdline_user_args(): set_meta("capture_level_editor_frames",6)
 	# На старте постоянная подпись локации достаточна; крупная карточка остаётся для новых мест.
 	if current_location != "overworld": DiscoverySystem.show_location(self, current_location)
 	queue_redraw()
 
 
-## Сохраняет автоматический игровой скриншот после нескольких отрисованных кадров в режиме проверки уровня.
+## Сохраняет автоматические игровые скриншоты после нескольких отрисованных кадров в режимах визуальной проверки.
 func _process(_delta: float) -> void:
+	LevelEditorSystem.update_export_capture(self)
+	if has_meta("capture_level_editor_frames"):
+		var editor_frames_left := int(get_meta("capture_level_editor_frames"))-1; set_meta("capture_level_editor_frames",editor_frames_left)
+		if editor_frames_left<=0:
+			remove_meta("capture_level_editor_frames")
+			var editor_image := get_viewport().get_texture().get_image(); var editor_output := ProjectSettings.globalize_path("res://assets/generated/level_drafts/level_editor_ingame_preview.png")
+			var editor_error := editor_image.save_png(editor_output); if editor_error!=OK: push_error("Не удалось сохранить предпросмотр конструктора: %s"%editor_error)
+			get_tree().quit(); return
 	if not has_meta("capture_first_level_frames"): return
 	var frames_left := int(get_meta("capture_first_level_frames")) - 1
 	set_meta("capture_first_level_frames", frames_left)
@@ -183,6 +195,7 @@ func configure_moon_glade_preview() -> void:
 ## Выполняет один физический кадр и обновляет активные игровые системы в заданном порядке.
 func _physics_process(delta: float) -> void:
 	AudioSystem.update(self, delta); update_hud_feedback(delta)
+	if LevelEditorSystem.active(self): queue_redraw(); return
 	DebugOverlaySystem.update(self, delta); delta = DebugOverlaySystem.simulation_delta(self, delta); if delta <= 0.0: queue_redraw(); return
 	AdventurePolishSystem.update(self, delta); delta = FarmLifeSystem.simulation_delta(self,delta); if delta <= 0.0: queue_redraw(); return
 	if DebugPlaygroundSystem.active(self): DebugPlaygroundSystem.update(self, delta); delta = DebugPlaygroundSystem.simulation_delta(self, delta); if delta <= 0.0: queue_redraw(); return
@@ -1190,6 +1203,9 @@ func sell_carrots() -> void:
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func _input(event: InputEvent) -> void:
 	update_input_device(event)
+	if not language_screen and not title_screen and not menu_state.pause_open and LevelEditorSystem.handle_input(self,event):
+		get_viewport().set_input_as_handled()
+		return
 	if not language_screen and (title_screen or menu_state.pause_open or menu_state.settings_open):
 		if MenuSystem.handle_input(self, event):
 			get_viewport().set_input_as_handled()
