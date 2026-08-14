@@ -128,6 +128,7 @@ static func draw_panel(game: Node2D) -> void:
 	draw_graph(game, state, Rect2(panel.position + Vector2(20,466), Vector2(320,46)))
 	game.draw_string(game.UI_FONT, panel.position + Vector2(18,548), "G сетка · H хитбоксы · P пути · L подписи", HORIZONTAL_ALIGNMENT_LEFT, panel.size.x - 36, 12, Color("a9d9c2"))
 	game.draw_string(game.UI_FONT, panel.position + Vector2(18,568), "V noclip · Space пауза · . шаг · -/+ яркость", HORIZONTAL_ALIGNMENT_LEFT, panel.size.x - 36, 12, Color("a9d9c2"))
+	game.DebugMissionRenderer.draw(game)
 
 
 ## Рисует четыре категории клеток с одинаковой прозрачностью текущего режима.

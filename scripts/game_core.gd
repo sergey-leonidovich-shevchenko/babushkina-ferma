@@ -59,6 +59,10 @@ func _ready() -> void:
 		EnemyAnimationLibrary.configure_preview(self)
 	if "--debug-playground" in OS.get_cmdline_user_args(): DebugPlaygroundSystem.configure(self)
 	if "--debug-navigation" in OS.get_cmdline_user_args(): DebugOverlaySystem.toggle(self)
+	if "--debug-missions" in OS.get_cmdline_user_args():
+		language_screen = false; title_screen = false
+		if not DebugOverlaySystem.active(self): DebugOverlaySystem.toggle(self)
+		var debug_state: Dictionary = get_meta(DebugOverlaySystem.META_KEY); debug_state.missions_expanded = true; set_meta(DebugOverlaySystem.META_KEY, debug_state)
 	if "--farm-life-preview" in OS.get_cmdline_user_args(): language_screen=false; title_screen=false; current_location="overworld"; state.world.estate.level=3; player=Vector2(445,710); day=4; tutorial_visible=false
 	if "--farm-plot-preview" in OS.get_cmdline_user_args():
 		language_screen = false; title_screen = false; current_location = "overworld"; player = Vector2(224, 1030); tutorial_visible = false

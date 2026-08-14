@@ -30,6 +30,7 @@ static func default_state() -> Dictionary:
 		"paused":false, "step_requested":false, "noclip":false, "grid_size":SpatialGridSystem.DEFAULT_DEBUG_SIZE,
 		"opacity":0.22, "refresh_left":0.0, "cache":[], "counts":{},
 		"cache_location":"", "cache_camera":Vector2(-9999,-9999), "frame_history":[],
+		"missions_expanded":false, "mission_page":0, "mission_details":"", "mission_completion":{},
 	}
 
 
@@ -92,6 +93,8 @@ static func handle_input(game: Node, event: InputEvent) -> bool:
 	if event is InputEventKey and event.pressed and not event.echo and event.keycode in [KEY_F10, KEY_F11]:
 		toggle(game); return true
 	if not active(game): return false
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		if game.DebugMissionSystem.handle_pointer(game, event.position): return true
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and PANEL.has_point(event.position):
 		return handle_pointer(game, event.position)
 	if not (event is InputEventKey and event.pressed and not event.echo): return false

@@ -14,6 +14,9 @@ func run() -> void:
 	test_npc_schedule_reacts_to_time_and_weather()
 	test_combat_dodge_block_critical_and_knockback()
 	test_world_bosses_have_distinct_second_phase_mechanics()
+	test_debug_mission_queue_is_ordered_collapsible_and_inspectable()
+	test_debug_mission_completion_uses_real_rewards_and_consumes_world_source()
+	test_debug_completion_resolves_locked_story_and_moon_expedition()
 
 
 ## Сценарий: расследование проходит через совет, три независимые улики и ритуал.
@@ -219,4 +222,47 @@ func test_world_bosses_have_distinct_second_phase_mechanics() -> void:
 	game.coins = 10; game.CombatSystem.apply_boss_side_effect(game, captain)
 	expect(game.coins == 8, "drowned captain second phase steals exactly two coins per successful attack")
 	expect(game.tutorial_events_completed.has("boss_identity"), "distinct boss mechanics have tutorial coverage")
+	game.free()
+
+
+## Сценарий: debug-панель показывает полную устойчивую очередь миссий и открывает подробности выбранной строки.
+## Исходное состояние: новая игра, F10 включён, список миссий свёрнут и прогресс ещё не изменён.
+## Ожидаемый результат: обучение идёт первым, сюжет образует цепочку, заголовок раскрывает список, а кнопка i открывает описание.
+func test_debug_mission_queue_is_ordered_collapsible_and_inspectable() -> void:
+	var game := make_game(); game.DebugOverlaySystem.toggle(game)
+	var ids: Array[String] = game.DebugMissionSystem.ordered_ids(game)
+	expect(ids[0] == game.DebugMissionSystem.GRANDMOTHER_ID and ids[1] == "story_relic" and ids[8] == "story_first_dawn", "debug mission queue starts with tutorial and chronological story chain")
+	expect(ids.size() == game.QuestSystem.MISSIONS.size() + 1 and game.DebugMissionSystem.page_count(game) == 3, "debug mission queue contains every mission on three bounded pages")
+	expect(game.DebugMissionSystem.handle_pointer(game, game.DebugMissionSystem.HEADER.get_center()) and game.get_meta(game.DebugOverlaySystem.META_KEY).missions_expanded, "mission header expands inside live F10 overlay")
+	var first_row: Dictionary = game.DebugMissionSystem.visible_rows(game)[0]
+	expect(game.DebugMissionSystem.handle_pointer(game, first_row.info.get_center()), "mission info icon handles click")
+	expect(game.get_meta(game.DebugOverlaySystem.META_KEY).mission_details == game.DebugMissionSystem.GRANDMOTHER_ID, "mission info icon opens selected details modal")
+	game.free()
+
+
+## Сценарий: debug-завершение обычной миссии применяет штатную награду и опустошает связанный источник предмета.
+## Исходное состояние: сюжетная реликвия лежит и в выпавшем предмете, и в содержимом закрытого сундука; задание не принято.
+## Ожидаемый результат: обычная сдача выдаёт точные монеты, XP и броню, предмет исчезает, а сундук отображается открытым.
+func test_debug_mission_completion_uses_real_rewards_and_consumes_world_source() -> void:
+	var game := make_game(); game.DebugOverlaySystem.toggle(game); var coins_before: int = game.coins; var level_before: int = game.player_level; var points_before: int = game.skill_points
+	game.dropped_items.append({"kind":"moon_relic", "count":1, "position":Vector2(100,100)})
+	game.world_loot_nodes[0].contents.moon_relic = 1; game.world_loot_nodes[0].opened = false
+	expect(game.DebugMissionSystem.debug_complete(game, "story_relic"), "debug completion accepts available story mission")
+	expect(game.mission_states.story_relic == game.QuestSystem.COMPLETED and game.coins == coins_before + 120 and game.player_level == level_before + 1 and game.skill_points == points_before + 1, "debug completion delegates exact coins and level-up XP to normal quest system")
+	expect(game.guardian_armor == 1 and game.inventory_item_count("moon_relic") == 0, "normal quest reward is granted and consumed objective does not remain in inventory")
+	expect(not game.dropped_items.any(func(item): return item.kind == "moon_relic") and game.world_loot_nodes[0].opened and game.world_loot_nodes[0].contents.is_empty(), "world objective disappears and its source chest becomes visibly empty")
+	expect(game.get_meta(game.DebugOverlaySystem.META_KEY).mission_completion.open and game.message.contains("Сердце пещеры"), "completion opens reward modal using the existing completion message")
+	game.free()
+
+
+## Сценарий: debug-завершение поздней главы последовательно закрывает зависимости и уникальную Лунную экспедицию.
+## Исходное состояние: совершенно новая сюжетная цепочка, закрытое Сердце затмения и нет квестовой реликвии.
+## Ожидаемый результат: предыдущие главы получают штатные награды, лунный сундук открыт, уникальный предмет сохранён и глава завершена.
+func test_debug_completion_resolves_locked_story_and_moon_expedition() -> void:
+	var game := make_game(); game.DebugOverlaySystem.toggle(game)
+	expect(game.DebugMissionSystem.debug_complete(game, "story_eclipse_heart"), "debug completion can resolve a locked conditioned story mission")
+	for mission_id in ["story_relic", "story_ancient_key", "story_orc_blade", "story_cursed_gem", "story_moon_seal", "story_eclipse_heart"]:
+		expect(game.mission_states[mission_id] == game.QuestSystem.COMPLETED, "story dependency completed consistently: %s" % mission_id)
+	expect(game.state.world.moon_glade.chest_opened and game.state.world.moon_glade.completed_runs == 1, "conditioned mission completes its actual expedition and opens moon chest")
+	expect(game.inventory_item_count("eclipse_core") == 1 and game.inventory_item_count("mana_potion") == 2, "keep-item objective remains while normal mission reward is granted")
 	game.free()
