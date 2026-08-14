@@ -16,7 +16,7 @@ const BUTTONS := [
 	{"rect":Rect2(964,344,150,28),"action":"grid_size","label":"РАЗМЕР СЕТКИ","enabled":true},
 	{"rect":Rect2(794,378,150,28),"action":"opacity_down","label":"ПРОЗРАЧНЕЕ","enabled":true},
 	{"rect":Rect2(964,378,150,28),"action":"opacity_up","label":"ЯРЧЕ","enabled":true},
-	{"rect":Rect2(794,420,150,28),"action":"tile_edit","label":"ПРАВКА ТАЙЛОВ","enabled":false},
+	{"rect":Rect2(794,420,150,28),"action":"farming","label":"ПАХОТНАЯ ЗЕМЛЯ","enabled":true},
 	{"rect":Rect2(964,420,150,28),"action":"object_move","label":"ДВИГАТЬ ОБЪЕКТЫ","enabled":false},
 	{"rect":Rect2(794,454,150,28),"action":"spawn","label":"СОЗДАТЬ ОБЪЕКТ","enabled":false},
 	{"rect":Rect2(964,454,150,28),"action":"save_patch","label":"СОХРАНИТЬ ПАТЧ","enabled":false},
@@ -26,7 +26,7 @@ const BUTTONS := [
 ## Создаёт исходное состояние панели, не добавляемое в сохранение игры.
 static func default_state() -> Dictionary:
 	return {
-		"open":true, "grid":true, "hitboxes":false, "routes":false, "labels":false,
+		"open":true, "grid":true, "hitboxes":false, "routes":false, "labels":false, "farming":false,
 		"paused":false, "step_requested":false, "noclip":false, "grid_size":SpatialGridSystem.DEFAULT_DEBUG_SIZE,
 		"opacity":0.22, "refresh_left":0.0, "cache":[], "counts":{},
 		"cache_location":"", "cache_camera":Vector2(-9999,-9999), "frame_history":[],
@@ -80,8 +80,11 @@ static func refresh_grid(game: Node) -> void:
 	var counts := {}
 	for y in range(start_y, end_y, size):
 		for x in range(start_x, end_x, size):
-			var reason: String = game.NavigationSystem.walkability_reason(game, Vector2(x + size * 0.5, y + size * 0.5))
-			cache.append({"rect":Rect2(x,y,size,size), "reason":reason})
+			var center := Vector2(x + size * 0.5, y + size * 0.5)
+			var reason: String = game.NavigationSystem.walkability_reason(game, center)
+			var farm_cell: Vector2i = game.WorldFarmingSystem.cell_at(center)
+			var farming_reason: String = game.WorldFarmingSystem.tillability_reason(game, game.current_location, farm_cell)
+			cache.append({"rect":Rect2(x,y,size,size), "reason":reason, "farming_reason":farming_reason})
 			counts[reason] = int(counts.get(reason, 0)) + 1
 	state.cache = cache; state.counts = counts; state.cache_location = game.current_location
 	state.cache_camera = game.camera_offset; state.refresh_left = REFRESH_INTERVAL
@@ -118,7 +121,7 @@ static func handle_pointer(game: Node, point: Vector2) -> bool:
 		if not button.rect.has_point(point): continue
 		if not bool(button.get("enabled", true)): return true
 		match String(button.action):
-			"grid", "hitboxes", "routes", "labels", "noclip": toggle_option(game, button.action)
+			"grid", "hitboxes", "routes", "labels", "noclip", "farming": toggle_option(game, button.action)
 			"pause": toggle_option(game, "paused")
 			"step": request_step(game)
 			"grid_size": cycle_grid_size(game)
@@ -186,4 +189,5 @@ static func inspect_screen_point(game: Node, screen_point: Vector2) -> Dictionar
 	var world: Vector2 = screen_point + Vector2(game.camera_offset)
 	var origin: Vector2 = Vector2(floori(world.x / size) * size, floori(world.y / size) * size)
 	var center: Vector2 = origin + Vector2.ONE * size * 0.5
-	return {"origin":origin, "center":center, "reason":game.NavigationSystem.walkability_reason(game, center)}
+	var farming_reason: String = game.WorldFarmingSystem.tillability_reason(game, game.current_location, game.WorldFarmingSystem.cell_at(center))
+	return {"origin":origin, "center":center, "reason":game.NavigationSystem.walkability_reason(game, center), "farming_reason":farming_reason}

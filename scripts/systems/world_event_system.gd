@@ -88,6 +88,10 @@ static func update(game: Node) -> void:
 		if current_weather in ["rain", "storm"]:
 			for cell in game.plots:
 				if game.plots[cell].tilled: game.plots[cell].watered = true
+		for key in game.state.world.world_plots:
+			var plot: Dictionary = game.state.world.world_plots[key]
+			if plot.tilled and location_weather(game.day, String(plot.location)) in ["rain", "storm"]: plot.watered = true
+			game.state.world.world_plots[key] = plot
 		game.notify_tutorial("season")
 		if current_weather != "clear": game.notify_tutorial("weather")
 	if is_night(game.game_minutes): game.notify_tutorial("night")

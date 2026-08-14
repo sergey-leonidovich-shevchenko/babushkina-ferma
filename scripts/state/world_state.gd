@@ -12,6 +12,7 @@ var coins: int = 20
 var weather_day: int = 0
 var weather: String = ""
 var plots: Dictionary = {}
+var world_plots: Dictionary = {}
 var dropped_items: Array = []
 var world_loot_seed: int = 0
 var world_loot_nodes: Array = []

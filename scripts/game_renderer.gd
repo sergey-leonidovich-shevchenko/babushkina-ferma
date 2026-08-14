@@ -64,21 +64,30 @@ func draw_world() -> void:
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_farm() -> void:
-	for cell in plots:
-		var plot: Dictionary = plots[cell]
-		var rect := FarmVisualSystem.plot_rect(Vector2(FARM_ORIGIN), cell)
-		draw_texture_rect_region(FarmVisualSystem.ATLAS, rect, FarmVisualSystem.soil_source(plot))
-		if plot.planted:
-			draw_crop(rect, plot)
-			draw_crop_progress(rect, plot)
-			var crop_kind: String = String(plot.get("crop_kind", "carrot"))
-			if not CropCatalogSystem.grows_in_season(crop_kind, WorldEventSystem.season(day)) and plot.growth < GROWTH_DURATION:
-				draw_season_pause_icon(rect.position + Vector2(rect.size.x - 7, 3))
-			elif not plot.watered and plot.growth < GROWTH_DURATION:
-				draw_water_needed_icon(rect.position + Vector2(8, 4))
-	var target := targeted_plot()
-	if valid_plot(target):
-		draw_rect(FarmVisualSystem.plot_rect(Vector2(FARM_ORIGIN), target), Color("fff3a6"), false, 3)
+	if current_location == "overworld":
+		for cell in plots:
+			var plot: Dictionary = plots[cell]
+			var rect := FarmVisualSystem.plot_rect(Vector2(FARM_ORIGIN), cell)
+			draw_plot(rect, plot)
+	for key in state.world.world_plots:
+		var plot: Dictionary = state.world.world_plots[key]
+		if String(plot.location) == current_location:
+			draw_plot(WorldFarmingSystem.cell_rect(plot.cell), plot)
+	var cultivation_target: Dictionary = WorldFarmingSystem.target(self)
+	if bool(cultivation_target.valid) or bool(cultivation_target.legacy):
+		draw_rect(cultivation_target.rect, Color("fff3a6"), false, 3)
+
+## Отрисовывает землю и состояние одной грядки независимо от её локации.
+func draw_plot(rect: Rect2, plot: Dictionary) -> void:
+	draw_texture_rect_region(FarmVisualSystem.ATLAS, rect, FarmVisualSystem.soil_source(plot))
+	if plot.planted:
+		draw_crop(rect, plot)
+		draw_crop_progress(rect, plot)
+		var crop_kind: String = String(plot.get("crop_kind", "carrot"))
+		if not CropCatalogSystem.grows_in_season(crop_kind, WorldEventSystem.season(day)) and plot.growth < GROWTH_DURATION:
+			draw_season_pause_icon(rect.position + Vector2(rect.size.x - 7, 3))
+		elif not plot.watered and plot.growth < GROWTH_DURATION:
+			draw_water_needed_icon(rect.position + Vector2(8, 4))
 
 ## Отрисовывает культуры по текущему состоянию игры.
 func draw_crop(rect: Rect2, plot: Dictionary) -> void:

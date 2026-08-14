@@ -4,19 +4,28 @@ extends RefCounted
 static func update(game: Node, delta: float) -> void:
 	for cell in game.plots:
 		var plot: Dictionary = game.plots[cell]
-		if plot.stage_flash > 0.0: plot.stage_flash = maxf(plot.stage_flash - delta, 0.0)
-		var crop_kind: String = String(plot.get("crop_kind", "carrot"))
-		var current_season: String = game.WorldEventSystem.season(game.day)
-		if plot.planted and plot.watered and plot.growth < game.GROWTH_DURATION and game.CropCatalogSystem.grows_in_season(crop_kind, current_season):
-			var previous_stage: int = plot.stage
-			plot.growth = minf(plot.growth + delta * game.WorldEventSystem.crop_growth_multiplier(game) * game.EstateSystem.crop_multiplier(game), game.GROWTH_DURATION)
-			plot.stage = mini(int(plot.growth / game.STAGE_DURATION), 4)
-			if plot.stage > previous_stage:
-				plot.stage_flash = 0.7
-				if plot.stage == 2:
-					plot.watered = false; game.message = game.LocaleSystem.text("dry_crop")
-				if plot.stage >= 4: game.message = game.LocaleSystem.text("crop_ready")
+		update_plot(game, plot, delta)
 		game.plots[cell] = plot
+	for key in game.state.world.world_plots:
+		var plot: Dictionary = game.state.world.world_plots[key]
+		update_plot(game, plot, delta)
+		game.state.world.world_plots[key] = plot
+
+
+## Обновляет одну культуру независимо от того, находится она на домашнем или мировом участке.
+static func update_plot(game: Node, plot: Dictionary, delta: float) -> void:
+	if plot.stage_flash > 0.0: plot.stage_flash = maxf(plot.stage_flash - delta, 0.0)
+	var crop_kind: String = String(plot.get("crop_kind", "carrot"))
+	var current_season: String = game.WorldEventSystem.season(game.day)
+	if plot.planted and plot.watered and plot.growth < game.GROWTH_DURATION and game.CropCatalogSystem.grows_in_season(crop_kind, current_season):
+		var previous_stage: int = plot.stage
+		plot.growth = minf(plot.growth + delta * game.WorldEventSystem.crop_growth_multiplier(game) * game.EstateSystem.crop_multiplier(game), game.GROWTH_DURATION)
+		plot.stage = mini(int(plot.growth / game.STAGE_DURATION), 4)
+		if plot.stage > previous_stage:
+			plot.stage_flash = 0.7
+			if plot.stage == 2:
+				plot.watered = false; game.message = game.LocaleSystem.text("dry_crop")
+			if plot.stage >= 4: game.message = game.LocaleSystem.text("crop_ready")
 
 
 ## Возвращает выбранный на панели мешок семян, сохраняя морковь как совместимый вариант по умолчанию.

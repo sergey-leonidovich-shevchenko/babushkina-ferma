@@ -30,6 +30,7 @@ static func reason_label(reason: String) -> String:
 		"guardian":"страж", "hazard":"опасность", "resource":"ресурс", "loot":"контейнер",
 		"forage":"растение", "interior":"стена помещения", "furniture":"мебель",
 		"storage":"сундук", "debug_obstacle":"объект полигона",
+		"tillable":"можно вспахать", "location_blocked":"локация запрещена", "paved_road":"каменная дорога", "bridge":"мост",
 	}
 	return labels.get(reason, reason)
 
@@ -50,7 +51,8 @@ static func draw_grid(game: Node2D, state: Dictionary) -> void:
 	var opacity := float(state.opacity)
 	var size := int(state.grid_size)
 	for cell in state.get("cache", []):
-		var color := reason_color(String(cell.reason)); color.a = opacity
+		var reason := String(cell.get("farming_reason", "location_blocked")) if bool(state.get("farming", false)) else String(cell.reason)
+		var color := farming_reason_color(reason) if bool(state.get("farming", false)) else reason_color(reason); color.a = opacity
 		game.draw_rect(cell.rect, color)
 		game.draw_rect(cell.rect, Color(color.r, color.g, color.b, minf(opacity + 0.18, 0.72)), false, 1.0)
 	# Утолщённый контур объединяет четыре базовые клетки 24×24 в читаемый модуль 48×48.
@@ -63,6 +65,13 @@ static func draw_grid(game: Node2D, state: Dictionary) -> void:
 		for y in range(start_y, end_y, block):
 			for x in range(start_x, end_x, block):
 				game.draw_rect(Rect2(x, y, block, block), Color(0.86, 1.0, 0.91, 0.34), false, 1.6)
+
+
+## Выбирает цвет режима пахотности: зелёный для земли, красный для запрета и синий для воды.
+static func farming_reason_color(reason: String) -> Color:
+	if reason == "tillable" or reason == "legacy_plot": return WALKABLE
+	if reason in ["water", "bridge", "ship"]: return WATER
+	return STATIC_BLOCKED
 
 
 ## Показывает точные известные окружности и прямоугольники физических объектов.
@@ -128,6 +137,7 @@ static func draw_panel(game: Node2D) -> void:
 		"Герой: %.0f, %.0f · радиус %.0f" % [game.player.x, game.player.y, game.PLAYER_RADIUS],
 		"Курсор: %.0f, %.0f · тайл %d×%d" % [tile.center.x, tile.center.y, int(state.grid_size), int(state.grid_size)],
 		"Результат: %s" % reason_label(tile.reason),
+		"Пахотность: %s" % reason_label(String(tile.get("farming_reason", "нет данных"))),
 	]
 	for index in lines.size(): game.draw_string(game.UI_FONT, panel.position + Vector2(18,61 + index*20), lines[index], HORIZONTAL_ALIGNMENT_LEFT, panel.size.x - 36, 13, Color("e9fff3"))
 	draw_legend(game, panel.position + Vector2(18,151), float(state.opacity))

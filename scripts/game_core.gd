@@ -476,28 +476,21 @@ func use_selected_tool() -> void:
 		return
 	var durability_kind: String = {Tool.HOE:"hoe", Tool.WATER:"water"}.get(selected_tool, "")
 	if not durability_kind.is_empty() and not AdventurePolishSystem.can_use(self, durability_kind): return
-	var cell := targeted_plot()
-	if not valid_plot(cell):
-		message = LocaleSystem.text("face_plot")
-		return
-	var plot: Dictionary = plots[cell]
+	var cultivation_target: Dictionary = WorldFarmingSystem.target(self)
+	var plot: Dictionary = WorldFarmingSystem.read_target(self, cultivation_target)
 	var action_sfx := ""
 	if selected_tool != Tool.HAND and energy <= 0:
 		message = LocaleSystem.text("no_energy")
 		return
 	match selected_tool:
 		Tool.HOE:
-			if not plot.tilled:
-				plot.tilled = true
-				energy -= 1
-				SkillSystem.award_profession_xp(self, "farming", 1)
-				message = LocaleSystem.text("soil_ready")
-				action_sfx = "hoe"
-			else: message = LocaleSystem.text("already_tilled")
+			if WorldFarmingSystem.till(self, cultivation_target, plot): action_sfx = "hoe"
 		Tool.SEEDS:
-			if FarmSystem.plant(self, plot): action_sfx = "plant"
+			if not cultivation_target.valid: message = WorldFarmingSystem.blocked_message(self, cultivation_target.reason)
+			elif FarmSystem.plant(self, plot): action_sfx = "plant"
 		Tool.WATER:
-			if plot.planted and not plot.watered:
+			if not cultivation_target.valid: message = WorldFarmingSystem.blocked_message(self, cultivation_target.reason)
+			elif plot.planted and not plot.watered:
 				var is_second_watering: bool = plot.growth >= STAGE_DURATION * 2.0
 				plot.watered = true
 				energy -= 1
@@ -507,8 +500,9 @@ func use_selected_tool() -> void:
 				action_sfx = "water"
 			else: message = LocaleSystem.text("nothing_water")
 		Tool.HAND:
-			if FarmSystem.harvest(self, plot): action_sfx = "harvest"
-	plots[cell] = plot
+			if not cultivation_target.valid: message = WorldFarmingSystem.blocked_message(self, cultivation_target.reason)
+			elif FarmSystem.harvest(self, plot): action_sfx = "harvest"
+	WorldFarmingSystem.write_target(self, cultivation_target, plot)
 	if not action_sfx.is_empty():
 		play_sfx(action_sfx)
 		if not durability_kind.is_empty(): AdventurePolishSystem.consume_durability(self, durability_kind)

@@ -33,9 +33,22 @@ static func candidates(game: Node) -> Array[Dictionary]:
 	var result: Array[Dictionary] = []
 	append_buildings(game, result); append_world_props(game, result); append_trees(game, result); append_forage(game, result)
 	append_resources(game, result); append_containers(game, result); append_drops(game, result); append_hazards(game, result)
-	append_enemies(game, result); append_wildlife(game, result); append_npcs(game, result); append_companions(game, result)
+	append_enemies(game, result); append_wildlife(game, result); append_npcs(game, result); append_companions(game, result); append_world_plots(game, result)
 	append_player(game, result)
 	return result
+
+
+## Добавляет свободные мировые грядки с координатами, культурой, влагой и стадией роста.
+static func append_world_plots(game: Node, result: Array[Dictionary]) -> void:
+	for key in game.state.world.world_plots:
+		var plot: Dictionary = game.state.world.world_plots[key]
+		if String(plot.location) != game.current_location: continue
+		var rect: Rect2 = game.WorldFarmingSystem.cell_rect(plot.cell)
+		add(result, "world_plot:%s" % key, "ГРЯДКА", "Свободный участок", rect.get_center(), rect, 12, "тайл 48×48 · проходимый", "посажено" if plot.planted else "вспахано", [
+			"локация %s · клетка %d/%d" % [plot.location,plot.cell.x,plot.cell.y],
+			"культура %s · стадия %d/4" % [plot.crop_kind,plot.stage],
+			"рост %.1f/%.1f · полив %s" % [plot.growth,game.GROWTH_DURATION,str(plot.watered)],
+		])
 
 
 ## Добавляет один нормализованный объект с общей геометрией, состоянием и техническими строками.

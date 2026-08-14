@@ -13,6 +13,8 @@ static func draw(game: Node2D) -> void:
 		game.draw_interior_objects()
 	elif game.current_location == "overworld":
 		game.VillageAmbientRenderer.draw_ground(game); game.draw_farm(); game.draw_rpg_world(); game.draw_fishing_animations()
+	else:
+		game.draw_farm()
 	if not game.BuildingSystem.is_interior(game.current_location):
 		game.draw_buildings(); game.draw_world_events(); game.VillageEventRenderer.draw(game); game.draw_quest_npcs()
 	game.CastleCampaignRenderer.draw(game); game.draw_hazards(); game.draw_enemy_nodes_and_gate(); game.draw_tree_nodes(); game.draw_resource_nodes(); game.draw_food_nodes(); game.draw_world_loot(); game.draw_wildlife(); game.draw_dropped_items(); game.draw_companions(); game.FarmLifeRenderer.draw_world(game); game.draw_player(); game.VillageForegroundRenderer.draw(game); game.AdventurePolishRenderer.draw_world(game); game.draw_interaction_highlight(); game.DebugPlaygroundRenderer.draw_world_overlay(game); game.DebugOverlayRenderer.draw_world(game)

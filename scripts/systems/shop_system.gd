@@ -30,6 +30,8 @@ const PRODUCTS := [
 	{"kind":"herb_seeds","amount":4,"buy":18,"sell":0,"seed":true},
 	{"kind":"strawberry","buy":0,"sell":18}, {"kind":"beet","buy":0,"sell":7}, {"kind":"pepper","buy":0,"sell":11},
 	{"kind":"cucumber","buy":0,"sell":8}, {"kind":"sunflower","buy":0,"sell":12}, {"kind":"melon","buy":0,"sell":16}, {"kind":"herbs","buy":0,"sell":14},
+	{"kind":"stone","buy":0,"sell":1}, {"kind":"fiber","buy":0,"sell":2}, {"kind":"bones","buy":0,"sell":3}, {"kind":"metal","buy":0,"sell":7},
+	{"kind":"crystal","buy":0,"sell":12}, {"kind":"red_crystal","buy":0,"sell":16}, {"kind":"green_crystal","buy":0,"sell":16}, {"kind":"pirate_doubloon","buy":0,"sell":22},
 ]
 
 
