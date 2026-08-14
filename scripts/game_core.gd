@@ -63,6 +63,10 @@ func _ready() -> void:
 		language_screen = false; title_screen = false
 		if not DebugOverlaySystem.active(self): DebugOverlaySystem.toggle(self)
 		var debug_state: Dictionary = get_meta(DebugOverlaySystem.META_KEY); debug_state.missions_expanded = true; set_meta(DebugOverlaySystem.META_KEY, debug_state)
+	if "--debug-inspector" in OS.get_cmdline_user_args():
+		language_screen = false; title_screen = false; current_location = "overworld"; player = Vector2(1160,650); tutorial_visible = false
+		if not DebugOverlaySystem.active(self): DebugOverlaySystem.toggle(self)
+		set_meta("debug_inspector_cursor",Vector2(576,324))
 	if "--farm-life-preview" in OS.get_cmdline_user_args(): language_screen=false; title_screen=false; current_location="overworld"; state.world.estate.level=3; player=Vector2(445,710); day=4; tutorial_visible=false
 	if "--farm-plot-preview" in OS.get_cmdline_user_args():
 		language_screen = false; title_screen = false; current_location = "overworld"; player = Vector2(224, 1030); tutorial_visible = false
@@ -108,6 +112,8 @@ func _ready() -> void:
 	NpcMovementSystem.initialize(self); FarmLifeSystem.initialize(self); sync_background_location(); AudioSystem.update_context_music(self)
 	if "--farm-plot-preview" in OS.get_cmdline_user_args():
 		var farm_preview_life := FarmLifeSystem.state(self); farm_preview_life.first_day = 6; farm_preview_life.cutscene = ""; farm_preview_life.cutscene_timer = 0.0; message = ""; DiscoverySystem.dismiss(self)
+	if "--debug-inspector" in OS.get_cmdline_user_args():
+		var inspector_life := FarmLifeSystem.state(self); inspector_life.first_day = 6; inspector_life.cutscene = ""; inspector_life.cutscene_timer = 0.0; message = ""; DiscoverySystem.dismiss(self)
 	if has_meta("capture_first_level_clean"):
 		var preview_life := FarmLifeSystem.state(self)
 		preview_life.first_day = 6; preview_life.cutscene = ""; preview_life.cutscene_timer = 0.0

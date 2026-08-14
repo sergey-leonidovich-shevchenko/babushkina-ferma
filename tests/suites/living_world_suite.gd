@@ -15,6 +15,7 @@ func run() -> void:
 	test_village_events_have_gameplay_and_rewards()
 	test_debug_inspector_supports_pause_step_pointer_and_graph()
 	test_runtime_debug_overlay_classifies_navigation_grid()
+	test_runtime_debug_object_inspector_identifies_visual_objects()
 	test_runtime_debug_overlay_controls_pause_layers_and_noclip()
 	test_grandmother_side_gate_stays_walkable()
 	test_world_polish_atlas_has_complete_transparent_grid()
@@ -196,6 +197,33 @@ func test_runtime_debug_overlay_classifies_navigation_grid() -> void:
 	expect(game.NavigationSystem.walkability_reason(game,building) == "building", "debug classifier identifies actual building collision")
 	expect(game.NavigationSystem.walkability_reason(game,enemy_position) == "enemy", "debug classifier identifies dynamic enemy collision")
 	expect(game.DebugOverlayRenderer.reason_color("walkable") != game.DebugOverlayRenderer.reason_color("water") and game.DebugOverlayRenderer.reason_color("enemy") != game.DebugOverlayRenderer.reason_color("building"), "navigation categories own distinct overlay colors")
+	game.free()
+
+
+## Сценарий: курсор F10 выбирает объект по его видимой области, а не только по цвету навигационной клетки.
+## Исходное состояние: герой, бабушка, дерево, сундук, ресурс, враг и здание находятся в активном мире с известными координатами.
+## Ожидаемый результат: каждый тип возвращает имя, ID, X/Y, bounds, коллизию и технические строки; панели не выбирают мир насквозь.
+func test_runtime_debug_object_inspector_identifies_visual_objects() -> void:
+	var game := make_game(); game.current_location = "overworld"; game.DebugOverlaySystem.toggle(game); game.camera_offset = Vector2(100,200)
+	var enemy := {"kind":"orc","location":"overworld","position":Vector2(800,600),"home":Vector2(760,600),"direction":Vector2.LEFT,"moving":true,"attack_timer":0.2,"visual_state":"attack","visual_time":0.1,"action_kind":"melee","action_target":Vector2(700,600),"level":3,"max_hp":15,"hp":9,"alive":true}
+	game.enemy_nodes = [enemy]
+	var enemy_target: Dictionary = game.DebugObjectInspectorSystem.hovered_object(game,enemy.position-game.camera_offset)
+	expect(enemy_target.id == "enemy:0:orc" and enemy_target.name == game.LocaleSystem.entity("orc") and enemy_target.position == enemy.position, "debug hover resolves enemy id name and world coordinates")
+	expect((enemy_target.bounds as Rect2).has_point(enemy.position) and String(enemy_target.collision).contains("r30") and enemy_target.details.any(func(line): return String(line).contains("HP 9/15")), "enemy info exposes visual bounds collision and combat state")
+	var building_center: Vector2 = game.BuildingSystem.destination_rect("cottage").get_center(); var building_target: Dictionary = game.DebugObjectInspectorSystem.hovered_object(game,building_center-game.camera_offset)
+	expect(building_target.id == "building:cottage" and building_target.category == "ЗДАНИЕ" and building_target.details.any(func(line): return String(line).contains("cottage_interior")), "debug hover resolves building sprite and interior metadata")
+	var tree: Dictionary = game.state.world.tree_nodes[0]; var tree_target: Dictionary = game.DebugObjectInspectorSystem.hovered_object(game,tree.position-game.camera_offset+Vector2(0,-70))
+	expect(String(tree_target.id).begins_with("tree_") and (tree_target.bounds as Rect2).size == Vector2(192,192), "tree crown uses complete visible sprite bounds")
+	var player_target: Dictionary = game.DebugObjectInspectorSystem.hovered_object(game,game.player-game.camera_offset)
+	expect(player_target.id == "player" and player_target.priority > enemy_target.priority and player_target.details.any(func(line): return String(line).contains("HP")), "player owns highest hover priority and complete RPG info")
+	var container: Dictionary = game.world_loot_nodes.filter(func(node): return node.location == "overworld")[0]; game.camera_offset = container.position-Vector2(180,300)
+	var container_target: Dictionary = game.DebugObjectInspectorSystem.hovered_object(game,Vector2(180,300))
+	expect(String(container_target.id).begins_with("container:") and container_target.details.any(func(line): return String(line).contains("содержимое")), "loot container exposes persistent id open state and exact contents")
+	var grandmother: Dictionary = game.npc_movement.grandmother; game.camera_offset = grandmother.position-Vector2(220,300)
+	var npc_target: Dictionary = game.DebugObjectInspectorSystem.hovered_object(game,Vector2(220,300))
+	expect(npc_target.id == "npc:grandmother" and npc_target.details.any(func(line): return String(line).contains("home")), "NPC inspector exposes runtime schedule direction and home anchor")
+	expect(game.DebugObjectInspectorRenderer.bounds_text(enemy_target.bounds).contains("×"), "INFO renderer formats sprite position and dimensions")
+	expect(game.DebugObjectInspectorSystem.hovered_object(game,game.DebugOverlaySystem.PANEL.get_center()).is_empty(), "debug panel prevents selecting hidden world objects")
 	game.free()
 
 

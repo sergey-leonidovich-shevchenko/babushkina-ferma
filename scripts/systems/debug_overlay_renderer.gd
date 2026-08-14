@@ -42,6 +42,7 @@ static func draw_world(game: Node2D) -> void:
 	if bool(state.routes): draw_routes(game)
 	if bool(state.hitboxes): draw_hitboxes(game)
 	if bool(state.labels): draw_labels(game)
+	game.DebugObjectInspectorRenderer.draw_world(game)
 
 
 ## Накладывает полупрозрачный цвет и контур на каждую видимую клетку навигации.
@@ -113,7 +114,14 @@ static func draw_panel(game: Node2D) -> void:
 	var panel: Rect2 = game.DebugOverlaySystem.PANEL
 	game.draw_rect(panel, PANEL_FILL); game.draw_rect(panel, PANEL_BORDER, false, 3.0)
 	game.draw_string(game.UI_FONT, panel.position + Vector2(18,31), "DEBUG УРОВНЯ · F10", HORIZONTAL_ALIGNMENT_LEFT, panel.size.x - 36, 19, Color("caffdf"))
-	var tile: Dictionary = game.DebugOverlaySystem.inspect_screen_point(game, game.get_local_mouse_position())
+	var pointer: Vector2 = game.get_meta("debug_inspector_cursor",game.get_local_mouse_position())
+	var target: Dictionary = game.DebugObjectInspectorSystem.hovered_object(game,pointer)
+	if not target.is_empty():
+		game.DebugObjectInspectorRenderer.draw_info(game,panel,target)
+		draw_lower_panel(game,state,panel)
+		game.DebugMissionRenderer.draw(game)
+		return
+	var tile: Dictionary = game.DebugOverlaySystem.inspect_screen_point(game,pointer)
 	var status := "ПАУЗА" if state.paused else "RUN"
 	var lines := [
 		"FPS %d · %s · %s" % [Engine.get_frames_per_second(), game.current_location, status],
@@ -123,12 +131,17 @@ static func draw_panel(game: Node2D) -> void:
 	]
 	for index in lines.size(): game.draw_string(game.UI_FONT, panel.position + Vector2(18,61 + index*20), lines[index], HORIZONTAL_ALIGNMENT_LEFT, panel.size.x - 36, 13, Color("e9fff3"))
 	draw_legend(game, panel.position + Vector2(18,151), float(state.opacity))
+	draw_lower_panel(game,state,panel)
+	game.DebugMissionRenderer.draw(game)
+
+
+## Рисует общие кнопки, график и подсказки ниже взаимозаменяемых INFO/навигационных данных.
+static func draw_lower_panel(game: Node2D, state: Dictionary, panel: Rect2) -> void:
 	for button in game.DebugOverlaySystem.BUTTONS: draw_button(game, button, state)
 	game.draw_string(game.UI_FONT, panel.position + Vector2(18,386), "СЕРЫЕ ИНСТРУМЕНТЫ — В РАЗРАБОТКЕ", HORIZONTAL_ALIGNMENT_LEFT, panel.size.x - 36, 10, Color("81958d"))
 	draw_graph(game, state, Rect2(panel.position + Vector2(20,466), Vector2(320,46)))
 	game.draw_string(game.UI_FONT, panel.position + Vector2(18,548), "G сетка · H хитбоксы · P пути · L подписи", HORIZONTAL_ALIGNMENT_LEFT, panel.size.x - 36, 12, Color("a9d9c2"))
 	game.draw_string(game.UI_FONT, panel.position + Vector2(18,568), "V noclip · Space пауза · . шаг · -/+ яркость", HORIZONTAL_ALIGNMENT_LEFT, panel.size.x - 36, 12, Color("a9d9c2"))
-	game.DebugMissionRenderer.draw(game)
 
 
 ## Рисует четыре категории клеток с одинаковой прозрачностью текущего режима.
