@@ -9,6 +9,7 @@ func run() -> void:
 	test_forage_atlas_cells_are_isolated_and_bottom_anchored()
 	test_orchard_growth_weather_harvest_icons_and_save()
 	test_seed_bag_catalog_shop_purchase_icons_and_save()
+	test_crop_varieties_five_stages_seasons_regrowth_and_save()
 	test_new_pixel_items_watermelon_shield_potion_and_lizard()
 	test_animated_enemy_sprites_replace_primitives()
 	test_unbounded_scrolling_inventory_and_forage_save()
@@ -257,6 +258,41 @@ func test_seed_bag_catalog_shop_purchase_icons_and_save() -> void:
 	expect(loaded.inventory_item_count("tomato_seeds") == 4 and loaded.inventory_slots.has("tomato_seeds"), "purchased seed variety and its inventory slot survive loading")
 	loaded.free()
 	game.free()
+
+## Сценарий: каждый мешок сажает собственную пятистадийную культуру, а многолетники плодоносят повторно и меняют сезонный вид.
+## Исходное состояние: летний день, подготовленные грядки, по одному мешку томата и клубники и полный каталог визуальных атласов.
+## Ожидаемый результат: сорт хранится в грядке и сохранении, урожай соответствует семенам, несезонная посадка блокируется, клубника остаётся взрослой.
+func test_crop_varieties_five_stages_seasons_regrowth_and_save() -> void:
+	var game := make_game()
+	expect(game.CropCatalogSystem.CROPS.size() == 16 and game.FarmVisualSystem.CROP_LAYOUT.size() == 16, "all sixteen seed varieties own crop rules and authored sprites")
+	for crop_kind in game.CropCatalogSystem.CROPS:
+		var texture: Texture2D = game.FarmVisualSystem.crop_texture(crop_kind)
+		for stage in 5:
+			var source: Rect2 = game.FarmVisualSystem.crop_source(stage, crop_kind, "summer")
+			var cell_image: Image = texture.get_image().get_region(Rect2i(Vector2i(source.position),Vector2i(source.size)))
+			expect(source.size == Vector2(64,64) and source.position.x >= 0 and source.position.y >= 0 and source.end.x <= texture.get_width() and source.end.y <= texture.get_height() and cell_image.get_used_rect().has_area(), "%s stage %d is nonempty and stays inside its atlas" % [crop_kind, stage])
+	var cell := Vector2i.ZERO
+	var plot: Dictionary = game.plots[cell]
+	plot.tilled = true; game.day = 8; game.plots[cell] = plot
+	game.state.inventory.set_count("tomato_seeds", 1); game.hotbar_slots[1] = "tomato_seeds"; game.select_hotbar(1)
+	expect(game.selected_tool == game.Tool.SEEDS and game.FarmSystem.plant(game, plot), "a selected tomato bag behaves as the seed tool and plants in summer")
+	expect(plot.crop_kind == "tomato" and game.inventory_item_count("tomato_seeds") == 0 and game.tutorial_events_completed.has("crop_variety"), "planting records the exact variety, consumes its bag and advances tutorial")
+	plot.watered = true; game.plots[cell] = plot; game.update_crops(10.1); plot = game.plots[cell]; plot.watered = true; game.plots[cell] = plot; game.update_crops(10.0); plot = game.plots[cell]
+	expect(plot.stage == 4 and game.FarmSystem.harvest(game, plot) and game.inventory_item_count("tomato") == 1, "tomato crosses all five stages and yields tomato rather than carrot")
+	var strawberry_cell := Vector2i(1,0); var strawberry_plot: Dictionary = game.plots[strawberry_cell]
+	strawberry_plot.tilled = true; game.state.inventory.set_count("strawberry_seeds",1); game.hotbar_slots[1] = "strawberry_seeds"
+	expect(game.FarmSystem.plant(game, strawberry_plot), "summer allows planting the perennial strawberry")
+	strawberry_plot.growth = game.GROWTH_DURATION; strawberry_plot.stage = 4
+	expect(game.FarmSystem.harvest(game, strawberry_plot) and strawberry_plot.planted and strawberry_plot.stage == 2 and game.inventory_item_count("strawberry") == 1, "strawberry harvest keeps its adult crown for a new fruit cycle")
+	expect(game.tutorial_events_completed.has("perennial_crop") and game.FarmVisualSystem.crop_source(4,"strawberry","summer") != game.FarmVisualSystem.crop_source(4,"strawberry","winter"), "perennial tutorial and four-season artwork are active")
+	var pumpkin_plot: Dictionary = game.plots[Vector2i(2,0)]; pumpkin_plot.tilled = true; game.day = 1; game.state.inventory.set_count("pumpkin_seeds",1); game.hotbar_slots[1] = "pumpkin_seeds"
+	expect(not game.FarmSystem.plant(game,pumpkin_plot) and game.inventory_item_count("pumpkin_seeds") == 1, "autumn pumpkin seed is preserved when planting is attempted in spring")
+	game.day = 22; strawberry_plot.watered = true; var dormant_growth: float = strawberry_plot.growth; game.plots[strawberry_cell] = strawberry_plot; game.update_crops(5.0)
+	expect(game.plots[strawberry_cell].growth == dormant_growth, "winter seasonal strawberry artwork accompanies genuinely paused growth")
+	var snapshot: Dictionary = game.SaveSystem.snapshot(game); var loaded := make_game()
+	expect(loaded.SaveSystem.apply(loaded,snapshot) and loaded.plots[strawberry_cell].crop_kind == "strawberry", "save roundtrip preserves the exact planted crop variety")
+	for kind in ["strawberry","beet","pepper","cucumber","sunflower","melon","herbs"]: expect(game.VisualAssetSystem.has_item_icon(kind), "%s harvest has a standalone inventory icon" % kind)
+	loaded.free(); game.free()
 
 ## Сценарий: все семейства врагов используют подходящие анимированные спрайты вместо примитивов.
 ## Исходное состояние: новая игра с живыми целями; здоровье, позиции, оружие и добыча настраиваются сценарием.

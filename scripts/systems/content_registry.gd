@@ -14,6 +14,7 @@ const WorldSystem := preload("res://scripts/systems/world_system.gd")
 const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
 const ForgeSystem := preload("res://scripts/systems/forge_system.gd")
 const ContractSystem := preload("res://scripts/systems/contract_system.gd")
+const CropCatalogSystem := preload("res://scripts/systems/crop_catalog_system.gd")
 
 ## Проверяет ссылки между управляемыми данными каталогами до начала игры. Добавление
 ## контента с опечаткой падает в тестах, а не через несколько часов прохождения.
@@ -27,6 +28,10 @@ static func validate() -> Array[String]:
 			_validate_item(errors, items, kind, "recipe[%d].inputs" % recipe_index)
 	for product_index in ShopSystem.PRODUCTS.size():
 		_validate_item(errors, items, ShopSystem.PRODUCTS[product_index].kind, "shop[%d]" % product_index)
+	for crop_kind in CropCatalogSystem.CROPS:
+		var crop: Dictionary = CropCatalogSystem.CROPS[crop_kind]
+		_validate_item(errors, items, crop.seed, "crop.%s.seed" % crop_kind)
+		_validate_item(errors, items, crop.harvest, "crop.%s.harvest" % crop_kind)
 	for upgrade_index in ForgeSystem.UPGRADES.size():
 		var upgrade: Dictionary = ForgeSystem.UPGRADES[upgrade_index]
 		_validate_item(errors, items, upgrade.kind, "forge[%d].kind" % upgrade_index)

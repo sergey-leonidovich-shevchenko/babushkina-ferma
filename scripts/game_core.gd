@@ -11,7 +11,7 @@ func _ready() -> void:
 	AudioSystem.initialize(self); message = LocaleSystem.text("welcome"); language_selected = maxi(LocaleSystem.LOCALES.find(LocaleSystem.current), 0)
 	for y in FARM_SIZE.y:
 		for x in FARM_SIZE.x:
-			plots[Vector2i(x, y)] = {"tilled": false, "planted": false, "watered": false, "growth": 0.0, "stage": 0, "stage_flash": 0.0}
+			plots[Vector2i(x, y)] = {"tilled": false, "planted": false, "watered": false, "growth": 0.0, "stage": 0, "stage_flash": 0.0, "crop_kind": "carrot"}
 	if world_loot_nodes.is_empty():
 		world_loot_seed = LootContainerSystem.random_seed() if world_loot_seed == 0 else world_loot_seed
 		world_loot_nodes = LootContainerSystem.generate(world_loot_seed)
@@ -74,6 +74,13 @@ func _ready() -> void:
 		for preview_x in preview_stages.size():
 			var preview_plot: Dictionary = plots[Vector2i(preview_x, 1)]
 			preview_plot.tilled = true; preview_plot.planted = true; preview_plot.watered = preview_x % 2 == 0; preview_plot.stage = preview_stages[preview_x]; preview_plot.growth = preview_x * STAGE_DURATION; plots[Vector2i(preview_x, 1)] = preview_plot
+	if "--crop-catalog-preview" in OS.get_cmdline_user_args():
+		language_screen = false; title_screen = false; current_location = "overworld"; player = Vector2(224, 1030); tutorial_visible = false
+		var crop_kinds: Array = CropCatalogSystem.CROPS.keys()
+		for preview_index in mini(crop_kinds.size(), FARM_SIZE.x * FARM_SIZE.y):
+			var preview_cell := Vector2i(preview_index % FARM_SIZE.x, preview_index / FARM_SIZE.x)
+			var crop_plot: Dictionary = plots[preview_cell]
+			crop_plot.tilled = true; crop_plot.planted = true; crop_plot.watered = true; crop_plot.stage = 4; crop_plot.growth = GROWTH_DURATION; crop_plot.crop_kind = crop_kinds[preview_index]; plots[preview_cell] = crop_plot
 	if "--first-level-preview" in OS.get_cmdline_user_args() or "--capture-first-level" in OS.get_cmdline_user_args(): language_screen=false; title_screen=false; current_location="overworld"; player=Vector2(1160,650); tutorial_visible=false
 	if "--capture-first-level" in OS.get_cmdline_user_args(): set_meta("capture_first_level_frames", 6); set_meta("capture_first_level_clean", true)
 	if "--moon-glade-preview" in OS.get_cmdline_user_args():
@@ -488,19 +495,7 @@ func use_selected_tool() -> void:
 				action_sfx = "hoe"
 			else: message = LocaleSystem.text("already_tilled")
 		Tool.SEEDS:
-			if plot.tilled and not plot.planted and seeds > 0:
-				plot.planted = true
-				plot.growth = 0.0
-				plot.stage = 0
-				plot.stage_flash = 0.0
-				seeds -= 1
-				energy -= 1
-				award_xp(1, "Посадка моркови")
-				SkillSystem.award_profession_xp(self, "farming", 2)
-				notify_tutorial("plant")
-				action_sfx = "plant"
-			elif seeds <= 0: message = LocaleSystem.text("no_seeds")
-			else: message = LocaleSystem.text("till_first")
+			if FarmSystem.plant(self, plot): action_sfx = "plant"
 		Tool.WATER:
 			if plot.planted and not plot.watered:
 				var is_second_watering: bool = plot.growth >= STAGE_DURATION * 2.0
@@ -512,21 +507,7 @@ func use_selected_tool() -> void:
 				action_sfx = "water"
 			else: message = LocaleSystem.text("nothing_water")
 		Tool.HAND:
-			if plot.planted and plot.growth >= GROWTH_DURATION:
-				plot.planted = false
-				plot.tilled = true
-				plot.watered = false
-				plot.growth = 0.0
-				plot.stage = 0
-				plot.stage_flash = 0.0
-				var harvested: int = SkillSystem.harvest_count(self)
-				carrots += harvested; var quality: String = EstateSystem.record_quality(self, "carrot", harvested)
-				award_xp(3)
-				SkillSystem.award_profession_xp(self, "farming", 4)
-				message = "%s • %s" % [LocaleSystem.text("harvested", [inventory_item_name("carrot"), harvested]), LocaleSystem.ui("quality_%s" % quality)]
-				notify_tutorial("harvest")
-				action_sfx = "harvest"
-			else: message = LocaleSystem.text("not_ripe")
+			if FarmSystem.harvest(self, plot): action_sfx = "harvest"
 	plots[cell] = plot
 	if not action_sfx.is_empty():
 		play_sfx(action_sfx)

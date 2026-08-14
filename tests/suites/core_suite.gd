@@ -215,13 +215,14 @@ func test_crop_pauses_for_second_watering() -> void:
 	expect(game.plots[cell].growth == game.GROWTH_DURATION, "crop becomes ready after second watering")
 	game.free()
 
-## Сценарий: все состояния грядки и стадии моркови берутся из строгих модульных ячеек нового атласа.
+## Сценарий: состояния земли и пять стадий культуры берутся из строгих модульных ячеек производственных атласов.
 ## Исходное состояние: новый экземпляр игры и набор сухих, влажных, пустых и посаженных состояний участка.
-## Ожидаемый результат: атлас равен 240×96, каждая область ровно 48×48 и ни одна стадия не пересекает соседнюю.
+## Ожидаемый результат: земля остаётся в сетке 48×48, растения используют независимые ячейки 64×64 и не пересекают соседей.
 func test_farm_visual_atlas_uses_exact_modular_cells() -> void:
 	var game := make_game()
 	var visual = game.FarmVisualSystem
 	expect(visual.atlas_is_valid() and visual.ATLAS.get_size() == Vector2(240, 96), "farm visual atlas is an exact 5 by 2 grid of 48 pixel cells")
+	expect(visual.crop_atlases_are_valid(), "six production crop atlases register all sixteen plant families")
 	var soil_states := [
 		{"tilled":false, "planted":false, "watered":false},
 		{"tilled":true, "planted":false, "watered":false},
@@ -231,7 +232,8 @@ func test_farm_visual_atlas_uses_exact_modular_cells() -> void:
 	]
 	for index in soil_states.size():
 		expect(visual.soil_source(soil_states[index]) == Rect2(index * 48, 0, 48, 48), "soil state uses isolated atlas cell: %d" % index)
-		expect(visual.crop_source(index) == Rect2(index * 48, 48, 48, 48), "carrot stage uses isolated atlas cell: %d" % index)
+		expect(visual.crop_source(index) == Rect2(index * 64, 0, 64, 64), "carrot stage uses isolated production cell: %d" % index)
+	expect(visual.crop_source(4, "strawberry", "spring") == Rect2(256, 0, 64, 64) and visual.crop_source(4, "strawberry", "winter") == Rect2(256, 192, 64, 64), "seasonal perennial selects a distinct authored row")
 	expect(visual.plot_rect(Vector2(80, 880), Vector2i(2, 3)) == Rect2(176, 1024, 48, 48), "farm plot remains aligned to two by two base cells")
 	game.free()
 

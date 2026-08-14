@@ -28,6 +28,8 @@ const PRODUCTS := [
 	{"kind":"cucumber_seeds","amount":4,"buy":9,"sell":0,"seed":true}, {"kind":"sunflower_seeds","amount":4,"buy":10,"sell":0,"seed":true},
 	{"kind":"cotton_seeds","amount":4,"buy":12,"sell":0,"seed":true}, {"kind":"melon_seeds","amount":4,"buy":15,"sell":0,"seed":true},
 	{"kind":"herb_seeds","amount":4,"buy":18,"sell":0,"seed":true},
+	{"kind":"strawberry","buy":0,"sell":18}, {"kind":"beet","buy":0,"sell":7}, {"kind":"pepper","buy":0,"sell":11},
+	{"kind":"cucumber","buy":0,"sell":8}, {"kind":"sunflower","buy":0,"sell":12}, {"kind":"melon","buy":0,"sell":16}, {"kind":"herbs","buy":0,"sell":14},
 ]
 
 

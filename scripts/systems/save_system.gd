@@ -13,7 +13,7 @@ static func snapshot(game: Node) -> Dictionary:
 	var forage := []
 	for cell in game.plots:
 		var plot: Dictionary = game.plots[cell]
-		plot_data.append({"x":cell.x,"y":cell.y,"tilled":plot.tilled,"planted":plot.planted,"watered":plot.watered,"growth":plot.growth,"stage":plot.stage})
+		plot_data.append({"x":cell.x,"y":cell.y,"tilled":plot.tilled,"planted":plot.planted,"watered":plot.watered,"growth":plot.growth,"stage":plot.stage,"crop_kind":plot.get("crop_kind","carrot")})
 	for item in game.dropped_items:
 		drops.append({"kind":item.kind,"count":item.count,"position":[item.position.x,item.position.y]})
 	for animal in game.wildlife_nodes:
@@ -116,6 +116,7 @@ static func apply(game: Node, data: Dictionary) -> bool:
 		if game.plots.has(cell):
 			var plot: Dictionary = game.plots[cell]
 			for key in ["tilled","planted","watered","growth","stage"]: plot[key] = saved_plot[key]
+			plot.crop_kind = String(saved_plot.get("crop_kind", "carrot"))
 			game.plots[cell] = plot
 	for index in mini(data.resource_hits.size(), game.resource_nodes.size()): game.resource_nodes[index].hits = data.resource_hits[index]
 	for index in mini(data.get("trees", []).size(), game.state.world.tree_nodes.size()):

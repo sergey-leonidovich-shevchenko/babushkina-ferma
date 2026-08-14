@@ -108,17 +108,25 @@
     {
       "id": "WS-006",
       "family": "Грядки и культуры",
-      "assets": [{"path":"assets/game/environment/farm_plot_atlas.png","width":240,"height":96}],
+      "assets": [
+        {"path":"assets/game/environment/farm_plot_atlas.png","width":240,"height":96},
+        {"path":"assets/game/farming/crops/atlases/annual_a.png","width":320,"height":256},
+        {"path":"assets/game/farming/crops/atlases/annual_b.png","width":320,"height":256},
+        {"path":"assets/game/farming/crops/atlases/annual_c.png","width":320,"height":256},
+        {"path":"assets/game/farming/crops/atlases/annual_d.png","width":320,"height":128},
+        {"path":"assets/game/farming/crops/atlases/strawberry_seasons.png","width":320,"height":256},
+        {"path":"assets/game/farming/crops/atlases/herbs_seasons.png","width":320,"height":256}
+      ],
       "render_owner": "FarmVisualSystem и GameRenderer.draw_farm",
-      "source_layout": "строгий атлас 5×2 с целыми ячейками 48×48",
+      "source_layout": "земля 5×2 по 48×48; культуры 5 стадий по 64×64, сезонные многолетники 5×4",
       "runtime_sizes": ["48×48"],
       "target_modules": ["48×48"],
       "anchor": "центр участка 2×2",
       "collision": "грядки проходимы; взаимодействие по клетке 48×48",
       "status": "compliant",
       "priority": "P1",
-      "debt": "Закрыт: процедурные квадраты заменены единым модульным атласом земли и моркови.",
-      "done_when": "Пять состояний земли и пять стадий моркови используют изолированные ячейки 48×48, один нижний anchor и nearest-фильтрацию."
+      "debt": "Закрыт: шестнадцать культур получили пять изолированных стадий; клубника и травы имеют четыре сезонных ряда.",
+      "done_when": "Все культуры используют пять ячеек 64×64, единый нижний anchor и nearest-фильтрацию; сезонные многолетники содержат четыре полных ряда."
     },
     {
       "id": "WS-007",

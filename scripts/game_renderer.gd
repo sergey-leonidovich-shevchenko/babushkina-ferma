@@ -71,8 +71,9 @@ func draw_farm() -> void:
 		if plot.planted:
 			draw_crop(rect, plot)
 			draw_crop_progress(rect, plot)
-			if WorldEventSystem.season(day) == "winter" and plot.growth < GROWTH_DURATION:
-				draw_winter_dormancy_icon(rect.position + Vector2(rect.size.x - 7, 3))
+			var crop_kind: String = String(plot.get("crop_kind", "carrot"))
+			if not CropCatalogSystem.grows_in_season(crop_kind, WorldEventSystem.season(day)) and plot.growth < GROWTH_DURATION:
+				draw_season_pause_icon(rect.position + Vector2(rect.size.x - 7, 3))
 			elif not plot.watered and plot.growth < GROWTH_DURATION:
 				draw_water_needed_icon(rect.position + Vector2(8, 4))
 	var target := targeted_plot()
@@ -82,13 +83,15 @@ func draw_farm() -> void:
 ## Отрисовывает культуры по текущему состоянию игры.
 func draw_crop(rect: Rect2, plot: Dictionary) -> void:
 	var stage: int = plot.stage
+	var crop_kind: String = String(plot.get("crop_kind", "carrot"))
+	var season: String = WorldEventSystem.season(day)
 	var flash: float = plot.stage_flash
 	var center := rect.get_center()
 	if flash > 0.0:
 		draw_circle(center - Vector2(0, 8), 20.0 * flash, Color(1.0, 0.91, 0.38, flash * 0.35), false, 3.0)
 	var pixel_bounce := roundf(sin(flash * 18.0) * flash * 3.0)
 	var destination := Rect2(rect.position + Vector2(0, -pixel_bounce), rect.size)
-	draw_texture_rect_region(FarmVisualSystem.ATLAS, destination, FarmVisualSystem.crop_source(stage))
+	draw_texture_rect_region(FarmVisualSystem.crop_texture(crop_kind), destination, FarmVisualSystem.crop_source(stage, crop_kind, season))
 
 ## Отрисовывает культуры прогресса по текущему состоянию игры.
 func draw_crop_progress(rect: Rect2, plot: Dictionary) -> void:
@@ -108,11 +111,13 @@ func draw_crop_progress(rect: Rect2, plot: Dictionary) -> void:
 		var marker_x := bar.position.x + bar.size.x * marker / 4.0
 		draw_line(Vector2(marker_x, bar.position.y), Vector2(marker_x, bar.end.y), Color("f7e4b0"), 1.5)
 
-## Рисует снежинку над уснувшей культурой вместо ошибочного требования полива зимой.
-func draw_winter_dormancy_icon(center: Vector2) -> void:
-	var color := Color("e9f7ff")
-	for direction in [Vector2(0, 8), Vector2(7, 4), Vector2(7, -4)]:
-		draw_line(center - direction, center + direction, color, 2.0)
+## Рисует маленькие сезонные часы над уснувшей культурой вместо ошибочного требования полива.
+func draw_season_pause_icon(center: Vector2) -> void:
+	var color := Color("f4dda0")
+	draw_circle(center, 8.0, Color("3b4c42"))
+	draw_circle(center, 7.0, color, false, 2.0)
+	draw_line(center, center + Vector2(0, -4), color, 2.0)
+	draw_line(center, center + Vector2(4, 2), color, 2.0)
 	draw_circle(center, 2.0, Color("8db9d5"))
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
