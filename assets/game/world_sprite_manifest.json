@@ -166,18 +166,19 @@
       "family": "Заборы, калитки и деревенский декор",
       "assets": [
         {"path":"assets/game/environment/village_prop_atlas.png","width":1672,"height":941},
-        {"path":"assets/game/environment/village_ambient_atlas_v1.png","width":1448,"height":1086}
+        {"path":"assets/game/environment/village_ambient_atlas_v1.png","width":1448,"height":1086},
+        {"path":"assets/game/environment/buildable_fence_atlas_v1.png","width":512,"height":320}
       ],
-      "render_owner": "WorldBackground и VillageAmbientRenderer",
-      "source_layout": "атласы 4×2 и 4×3 с крупными нецелыми ячейками назначения",
-      "runtime_sizes": ["44×86", "58×112", "68×68", "70×70", "72×58", "78×54", "82×82", "112×88", "270×250"],
+      "render_owner": "WorldBackground, VillageAmbientRenderer и FenceRenderer",
+      "source_layout": "legacy-атласы 4×2/4×3; пользовательская ограда — строгие 8×5 ячеек по 64×64",
+      "runtime_sizes": ["24×24 footprint", "48×24 gate footprint", "52×58", "72×64", "legacy random sizes"],
       "target_modules": ["48×48", "72×72", "96×96", "120×96", "288×240"],
       "anchor": "нижний центр; у ограды — края клетки",
       "collision": "часть декора проходима, коллизии крупных объектов хранятся отдельными списками",
       "status": "migration",
       "priority": "P1",
-      "debt": "Почти все назначения некратны 24; визуальные заборы и FARM_FENCE_RECTS описаны разными структурами.",
-      "done_when": "Сегменты забора имеют 24×48 с углами/концами/калиткой 48×48; крупный декор использует каталог опоры и коллизии из одной записи."
+      "debt": "Пользовательские секции уже используют общую структуру sprite/collision/save; статические FARM_FENCE_RECTS и часть декора остаются legacy.",
+      "done_when": "Статический периметр фермы переведён на FenceSystem; крупный декор использует каталог опоры и коллизии из одной записи."
     },
     {
       "id": "WS-010",

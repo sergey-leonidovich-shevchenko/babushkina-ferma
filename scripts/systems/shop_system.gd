@@ -14,6 +14,7 @@ const PRODUCTS := [
 	{"kind": "arrows", "amount": 10, "buy": 8, "sell": 1},
 	{"kind": "home_chest", "buy": 120, "sell": 0},
 	{"kind": "backpack_upgrade", "buy": 120, "sell": 0},
+	{"kind":"fence_kit","amount":8,"buy":24,"sell":1}, {"kind":"gate_kit","amount":1,"buy":30,"sell":8},
 	{"kind":"tomato","buy":10,"sell":6}, {"kind":"cabbage","buy":14,"sell":8}, {"kind":"egg","buy":12,"sell":7}, {"kind":"milk","buy":18,"sell":10},
 	{"kind":"wheat","buy":8,"sell":4}, {"kind":"corn","buy":12,"sell":7}, {"kind":"potato","buy":9,"sell":5}, {"kind":"onion","buy":9,"sell":5},
 	{"kind":"cotton","buy":14,"sell":8}, {"kind":"flower","buy":0,"sell":7}, {"kind":"honey","buy":22,"sell":14}, {"kind":"pumpkin","buy":20,"sell":12}, {"kind":"wool","buy":25,"sell":15},

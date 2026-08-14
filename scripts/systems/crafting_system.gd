@@ -33,6 +33,8 @@ const RECIPES := [
 	{"name":"Тканый ковёр", "inputs":{"fiber":5,"wool":2}, "output":"woven_rug", "count":1},
 	{"name":"Папоротник в горшке", "inputs":{"fiber":2,"flower":2,"stone":1}, "output":"potted_fern", "count":1},
 	{"name":"Деревянный шкаф", "inputs":{"wood":10,"metal":2}, "output":"wooden_wardrobe", "count":1},
+	{"name":"Секции забора", "inputs":{"wood":2}, "output":"fence_kit", "count":8},
+	{"name":"Набор калитки", "inputs":{"wood":3,"metal":1}, "output":"gate_kit", "count":1},
 ]
 
 ## Проверяет условие «возможности крафта» без изменения состояния.

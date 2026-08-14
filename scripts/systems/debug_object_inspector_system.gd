@@ -33,9 +33,23 @@ static func candidates(game: Node) -> Array[Dictionary]:
 	var result: Array[Dictionary] = []
 	append_buildings(game, result); append_world_props(game, result); append_trees(game, result); append_forage(game, result)
 	append_resources(game, result); append_containers(game, result); append_drops(game, result); append_hazards(game, result)
-	append_enemies(game, result); append_wildlife(game, result); append_npcs(game, result); append_companions(game, result); append_world_plots(game, result)
+	append_enemies(game, result); append_wildlife(game, result); append_npcs(game, result); append_companions(game, result); append_world_plots(game, result); append_fences(game,result)
 	append_player(game, result)
 	return result
+
+
+## Добавляет построенные игроком секции и калитки с материалом, клетками и фактической коллизией.
+static func append_fences(game: Node, result: Array[Dictionary]) -> void:
+	var values: Array=game.FenceSystem.structures(game)
+	for index in values.size():
+		var structure: Dictionary=values[index]
+		if String(structure.get("location",""))!=game.current_location: continue
+		var center: Vector2=game.FenceSystem.structure_center(structure); var size:=Vector2(72,64) if structure.kind=="gate" else Vector2(52,58); var cells: Array[Vector2i]=game.FenceSystem.occupied_cells(structure)
+		add(result,"player_fence:%d"%index,"ОГРАДА","Калитка" if structure.kind=="gate" else "Секция забора",center,centered_bounds(center,size),58,"нет · открыта" if structure.kind=="gate" and structure.open else "клетки 24×24 · твёрдая","открыта" if structure.get("open",false) else "закрыта",[
+			"материал %s · style %d"%[game.FenceSystem.style_name(game,int(structure.style)),int(structure.style)],
+			"клетки %s · ориентация %d"%[str(cells),int(structure.orientation)],
+			"соединение mask %d"%game.FenceSystem.connection_mask(game,structure),
+		])
 
 
 ## Добавляет свободные мировые грядки с координатами, культурой, влагой и стадией роста.

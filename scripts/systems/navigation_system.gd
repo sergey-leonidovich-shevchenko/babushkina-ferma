@@ -49,6 +49,7 @@ static func walkability_reason(game: Node, position: Vector2) -> String:
 		return "biome_prop"
 	if game.VisualAssetSystem.blocks_event_position(game.current_location, position, game.PLAYER_RADIUS):
 		return "event_prop"
+	if game.FenceSystem.blocks_position(game,position,game.PLAYER_RADIUS): return "player_fence"
 	if game.current_location in ["cave", "cursed"]:
 		for decoration in game.CAVE_DECORATIONS:
 			if position.distance_to(decoration) < game.PLAYER_RADIUS + 38.0:

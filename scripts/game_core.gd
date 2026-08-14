@@ -83,6 +83,8 @@ func _ready() -> void:
 			crop_plot.tilled = true; crop_plot.planted = true; crop_plot.watered = true; crop_plot.stage = 4; crop_plot.growth = GROWTH_DURATION; crop_plot.crop_kind = crop_kinds[preview_index]; plots[preview_cell] = crop_plot
 	if "--first-level-preview" in OS.get_cmdline_user_args() or "--capture-first-level" in OS.get_cmdline_user_args(): language_screen=false; title_screen=false; current_location="overworld"; player=Vector2(1160,650); tutorial_visible=false
 	if "--capture-first-level" in OS.get_cmdline_user_args(): set_meta("capture_first_level_frames", 6); set_meta("capture_first_level_clean", true)
+	if "--fence-preview" in OS.get_cmdline_user_args() or "--capture-fences" in OS.get_cmdline_user_args(): FenceSystem.configure_preview(self)
+	if "--capture-fences" in OS.get_cmdline_user_args(): set_meta("capture_fence_frames",6)
 	if "--moon-glade-preview" in OS.get_cmdline_user_args():
 		configure_moon_glade_preview()
 	if "--storage-preview" in OS.get_cmdline_user_args():
@@ -121,6 +123,8 @@ func _ready() -> void:
 		var farm_preview_life := FarmLifeSystem.state(self); farm_preview_life.first_day = 6; farm_preview_life.cutscene = ""; farm_preview_life.cutscene_timer = 0.0; message = ""; DiscoverySystem.dismiss(self)
 	if "--debug-inspector" in OS.get_cmdline_user_args():
 		var inspector_life := FarmLifeSystem.state(self); inspector_life.first_day = 6; inspector_life.cutscene = ""; inspector_life.cutscene_timer = 0.0; message = ""; DiscoverySystem.dismiss(self)
+	if "--fence-preview" in OS.get_cmdline_user_args() or "--capture-fences" in OS.get_cmdline_user_args():
+		var fence_preview_life:=FarmLifeSystem.state(self); fence_preview_life.first_day=6; fence_preview_life.cutscene=""; fence_preview_life.cutscene_timer=0.0; fence_preview_life.achievements=["first_week","collector","curator","beloved","rancher"]; message=""; DiscoverySystem.dismiss(self)
 	if has_meta("capture_first_level_clean"):
 		var preview_life := FarmLifeSystem.state(self)
 		preview_life.first_day = 6; preview_life.cutscene = ""; preview_life.cutscene_timer = 0.0
@@ -137,6 +141,12 @@ func _ready() -> void:
 ## Сохраняет автоматические игровые скриншоты после нескольких отрисованных кадров в режимах визуальной проверки.
 func _process(_delta: float) -> void:
 	LevelEditorSystem.update_export_capture(self)
+	if has_meta("capture_fence_frames"):
+		var fence_frames_left:=int(get_meta("capture_fence_frames"))-1; set_meta("capture_fence_frames",fence_frames_left)
+		if fence_frames_left<=0:
+			remove_meta("capture_fence_frames"); var fence_image:=get_viewport().get_texture().get_image(); var fence_output:=ProjectSettings.globalize_path("res://assets/generated/level_drafts/fence_building_ingame_preview.png"); var fence_error:=fence_image.save_png(fence_output)
+			if fence_error!=OK: push_error("Не удалось сохранить предпросмотр оград: %s"%fence_error)
+			get_tree().quit(); return
 	if has_meta("capture_level_editor_frames"):
 		var editor_frames_left := int(get_meta("capture_level_editor_frames"))-1; set_meta("capture_level_editor_frames",editor_frames_left)
 		if editor_frames_left<=0:
@@ -196,6 +206,7 @@ func configure_moon_glade_preview() -> void:
 func _physics_process(delta: float) -> void:
 	AudioSystem.update(self, delta); update_hud_feedback(delta)
 	if LevelEditorSystem.active(self): queue_redraw(); return
+	FenceSystem.update(self,delta)
 	DebugOverlaySystem.update(self, delta); delta = DebugOverlaySystem.simulation_delta(self, delta); if delta <= 0.0: queue_redraw(); return
 	AdventurePolishSystem.update(self, delta); delta = FarmLifeSystem.simulation_delta(self,delta); if delta <= 0.0: queue_redraw(); return
 	if DebugPlaygroundSystem.active(self): DebugPlaygroundSystem.update(self, delta); delta = DebugPlaygroundSystem.simulation_delta(self, delta); if delta <= 0.0: queue_redraw(); return
@@ -583,6 +594,8 @@ func nearest_interaction() -> String:
 		nearest = campaign_interaction
 		nearest_distance = player.distance_to(CastleCampaignSystem.interaction_position(campaign_interaction))
 	var estate_interaction := EstateSystem.nearest_interaction(self, nearest_distance); if not estate_interaction.is_empty(): nearest = estate_interaction
+	var fence_gate_interaction:=FenceSystem.nearest_gate(self,nearest_distance)
+	if not fence_gate_interaction.is_empty(): nearest=fence_gate_interaction; nearest_distance=player.distance_to(FenceSystem.structure_center(FenceSystem.structures(self)[int(fence_gate_interaction.get_slice(":",1))]))
 	if home_chest_owned and current_location == "cottage_interior":
 		var chest_distance := player.distance_to(StorageSystem.CHEST_POSITION)
 		if chest_distance < nearest_distance:
@@ -649,6 +662,7 @@ func perform_context_action() -> bool:
 	if interaction.begins_with("castle_"):
 		return CastleCampaignSystem.interact(self, interaction)
 	if interaction == "estate_board": return EstateSystem.purchase_next(self)
+	if interaction.begins_with("fence_gate:"): return FenceSystem.toggle_gate(self,int(interaction.get_slice(":",1)))
 	if interaction.begins_with("drop:"):
 		return collect_dropped_item(int(interaction.get_slice(":", 1)))
 	if interaction.begins_with("container:"):
@@ -1213,6 +1227,8 @@ func _input(event: InputEvent) -> void:
 	if AdventurePolishSystem.has_modal(self) and AdventurePolishSystem.handle_input(self, event):
 		get_viewport().set_input_as_handled()
 		return
+	if not language_screen and not title_screen and not menu_state.pause_open and not (shop_open or inventory_open or crafting_open or storage_open or forge_open or contract_open or quest_log_open or skill_menu_open or world_map_open) and FenceSystem.handle_input(self,event):
+		get_viewport().set_input_as_handled(); return
 	if event is InputEventJoypadMotion:
 		var world_controls_visible := not (shop_open or inventory_open or crafting_open or storage_open or forge_open or contract_open or quest_log_open or skill_menu_open or world_map_open)
 		if world_controls_visible:

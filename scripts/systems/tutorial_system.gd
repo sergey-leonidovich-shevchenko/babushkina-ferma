@@ -14,7 +14,7 @@ const STEP_IDS := [
 	"forge_open", "weapon_sharpen", "armor_upgrade", "arrow_sharpen",
 	"contract_board", "contract_accept", "contract_complete", "guild_rank",
 	"pirate_ship", "pirate_quest", "pirate_loot", "invisibility", "season", "weather", "night", "eclipse", "moon_portal", "moon_flower", "moon_crystal", "moon_echoes", "moon_altar", "moon_guardian", "moon_treasure", "story_after_eclipse", "castle_investigation", "quest_investigation", "boss_phases", "story_choice",
-	"character_creation", "dialogue_choices", "npc_gift", "personal_request", "market_event", "festival_event", "night_trader", "raid_event", "interior_furniture", "debug_inspector", "target_lock", "durability_low", "durability_broken", "repair", "backpack_upgrade", "animal_feed", "animal_product", "museum", "secret_puzzle", "furniture_place", "photo_mode",
+	"character_creation", "dialogue_choices", "npc_gift", "personal_request", "market_event", "festival_event", "night_trader", "raid_event", "interior_furniture", "debug_inspector", "target_lock", "durability_low", "durability_broken", "repair", "backpack_upgrade", "animal_feed", "animal_product", "museum", "secret_puzzle", "furniture_place", "photo_mode", "fence_build", "fence_gate", "fence_weather",
 ]
 
 

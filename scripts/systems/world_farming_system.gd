@@ -4,7 +4,7 @@ const VillageLayoutSystem := preload("res://scripts/systems/village_layout_syste
 
 const CELL_SIZE := 48
 const OUTDOOR_LOCATIONS := ["overworld", "forest", "rocky", "ruins", "cursed", "glassworks", "moon_glade"]
-const BLOCKED_NAVIGATION_REASONS := ["boundary", "building", "biome_prop", "event_prop", "cave_prop", "scenic_prop", "tree", "fence", "world_prop", "water", "ship", "guardian", "hazard", "resource", "loot", "forage", "village_event", "interior", "furniture", "storage", "debug_obstacle"]
+const BLOCKED_NAVIGATION_REASONS := ["boundary", "building", "biome_prop", "event_prop", "cave_prop", "scenic_prop", "tree", "fence", "player_fence", "world_prop", "water", "ship", "guardian", "hazard", "resource", "loot", "forage", "village_event", "interior", "furniture", "storage", "debug_obstacle"]
 const COMMON_FINDS := [["stone", 1, 3], ["fiber", 1, 2], ["bones", 1, 2], ["metal", 1, 1]]
 const UNCOMMON_FINDS := [["crystal", 1, 2], ["red_crystal", 1, 1], ["green_crystal", 1, 1], ["pirate_doubloon", 1, 2]]
 const POTION_FINDS := [["healing_potion", 1, 1], ["mana_potion", 1, 1], ["energy_potion", 1, 1], ["regeneration_potion", 1, 1]]

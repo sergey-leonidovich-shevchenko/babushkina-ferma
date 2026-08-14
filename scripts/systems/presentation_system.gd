@@ -49,6 +49,8 @@ static func interaction_position(game: Node, interaction: String) -> Vector2:
 	if interaction.begins_with("castle_"):
 		return game.CastleCampaignSystem.interaction_position(interaction)
 	if interaction == "estate_board": return game.EstateSystem.BOARD_POSITION
+	if interaction.begins_with("fence_gate:"):
+		var fence_index:=int(interaction.get_slice(":",1)); var fences: Array=game.FenceSystem.structures(game); return game.FenceSystem.structure_center(fences[fence_index]) if fence_index>=0 and fence_index<fences.size() else Vector2.ZERO
 	if interaction.begins_with("moon_"):
 		if interaction == "moon_portal": return game.WorldEventSystem.RETURN_PORTAL_POSITION if game.current_location == "moon_glade" else game.WorldEventSystem.PORTAL_POSITION
 		return game.MoonGladeSystem.interaction_position(interaction)

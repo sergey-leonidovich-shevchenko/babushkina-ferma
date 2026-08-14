@@ -24,6 +24,10 @@ const UI := {
 	"save_game":["СОХРАНИТЬ","SAVE GAME","GUARDAR","SPEICHERN","SAUVEGARDER","保存游戏"],
 	"load_game":["ЗАГРУЗИТЬ","LOAD GAME","CARGAR","LADEN","CHARGER","加载游戏"],
 	"return_main_menu":["В ГЛАВНОЕ МЕНЮ","MAIN MENU","MENÚ PRINCIPAL","HAUPTMENÜ","MENU PRINCIPAL","返回主菜单"],
+	"fence_builder":["СТРОИТЕЛЬСТВО ОГРАД","FENCE BUILDER","CONSTRUCTOR DE CERCAS","ZAUNBAU","CONSTRUCTION DE CLÔTURES","围栏建造"],
+	"fence_section":["Секция","Section","Sección","Abschnitt","Section","围栏段"],
+	"fence_gate":["Калитка","Gate","Puerta","Tor","Portillon","栅栏门"],
+	"fence_controls":["Z закрыть · Q материал · G тип · R поворот · E строить · X убрать","Z close · Q material · G type · R rotate · E build · X remove","Z cerrar · Q material · G tipo · R girar · E construir · X quitar","Z schließen · Q Material · G Typ · R drehen · E bauen · X entfernen","Z fermer · Q matériau · G type · R pivoter · E construire · X retirer","Z关闭 · Q材质 · G类型 · R旋转 · E建造 · X拆除"],
 	"back":["НАЗАД","BACK","ATRÁS","ZURÜCK","RETOUR","返回"],
 	"master_volume":["ОБЩАЯ ГРОМКОСТЬ","MASTER VOLUME","VOLUMEN GENERAL","GESAMTLAUTSTÄRKE","VOLUME GÉNÉRAL","主音量"],
 	"music_volume":["МУЗЫКА","MUSIC","MÚSICA","MUSIK","MUSIQUE","音乐"],
@@ -281,6 +285,14 @@ const TEXT := {
 	"castle_objective_boss":["Регент теней: %d/%d HP","Shadow Regent: %d/%d HP","Regente de las Sombras: %d/%d HP","Schattenregent: %d/%d HP","Régent des ombres : %d/%d PV","暗影摄政王：%d/%d生命"],
 	"castle_objective_choice":["Замок: выбери судьбу разлома","Castle: choose the rift's fate","Castillo: elige el destino de la grieta","Burg: Wähle das Schicksal des Risses","Château : choisis le destin de la faille","城堡：选择裂隙命运"],
 	"castle_objective_complete":["Тень над замком рассеяна","The shadow over the castle is gone","La sombra sobre el castillo se disipó","Der Schatten über der Burg ist fort","L’ombre sur le château s’est dissipée","城堡阴影已经消散"],
+	"fence_builder_open":["Режим строительства ограды включён","Fence building mode enabled","Modo de construcción de cercas activado","Zaunbaumodus aktiviert","Mode construction de clôture activé","围栏建造模式已开启"],
+	"fence_builder_closed":["Режим строительства ограды закрыт","Fence building mode closed","Modo de construcción de cercas cerrado","Zaunbaumodus beendet","Mode construction de clôture fermé","围栏建造模式已关闭"],
+	"fence_cannot_build":["Здесь нельзя поставить ограду","A fence cannot be placed here","No se puede colocar una cerca aquí","Hier kann kein Zaun gebaut werden","Impossible de poser une clôture ici","此处无法建造围栏"],
+	"fence_no_items":["Не хватает предмета: %s","Missing item: %s","Falta el objeto: %s","Gegenstand fehlt: %s","Objet manquant : %s","缺少物品：%s"],
+	"fence_built":["Ограда построена","Fence built","Cerca construida","Zaun gebaut","Clôture construite","围栏已建造"],
+	"fence_removed":["Ограда разобрана, набор возвращён","Fence removed and kit returned","Cerca retirada y kit devuelto","Zaun entfernt und Bausatz zurückgegeben","Clôture retirée et kit rendu","围栏已拆除，材料已返还"],
+	"fence_gate_opened":["Калитка открыта","Gate opened","Puerta abierta","Tor geöffnet","Portillon ouvert","栅栏门已打开"],
+	"fence_gate_closed":["Калитка закрыта","Gate closed","Puerta cerrada","Tor geschlossen","Portillon fermé","栅栏门已关闭"],
 }
 
 const ITEMS := {
@@ -335,6 +347,8 @@ const ITEMS := {
 	"pumpkin":["Тыква","Pumpkin","Calabaza","Kürbis","Citrouille","南瓜"], "flour":["Мешочек муки","Bag of flour","Harina","Mehlsack","Sac de farine","面粉袋"], "butter":["Сливочное масло","Butter","Mantequilla","Butter","Beurre","黄油"],
 	"jam":["Ягодное варенье","Berry jam","Mermelada","Beerenmarmelade","Confiture de baies","莓果酱"], "soup":["Овощной суп","Vegetable soup","Sopa de verduras","Gemüsesuppe","Soupe de légumes","蔬菜汤"], "omelet":["Омлет с зеленью","Herb omelet","Tortilla de hierbas","Kräuteromelett","Omelette aux herbes","香草煎蛋"],
 	"cornbread":["Кукурузный хлеб","Cornbread","Pan de maíz","Maisbrot","Pain de maïs","玉米面包"], "wool":["Овечья шерсть","Sheep wool","Lana","Schafwolle","Laine","羊毛"], "bouquet":["Полевой букет","Field bouquet","Ramo silvestre","Feldblumenstrauß","Bouquet champêtre","野花束"],
+	"fence_kit":["Набор секции ограды","Fence section kit","Kit de sección de cerca","Zaunabschnitt-Bausatz","Kit de section de clôture","围栏段材料包"],
+	"gate_kit":["Набор калитки","Gate kit","Kit de puerta","Tor-Bausatz","Kit de portillon","栅栏门材料包"],
 }
 
 const LOCATIONS := {
@@ -374,6 +388,9 @@ const TUTORIAL := {
 	"museum":["Передай уникальную находку музейному постаменту в гильдии","Donate a unique find to the museum pedestal in the guild","Dona un hallazgo único al museo del gremio","Spende einen einzigartigen Fund an das Gildenmuseum","Donne une trouvaille unique au musée de la guilde","把独特发现捐给公会博物馆"],
 	"secret_puzzle":["Исследуй светящиеся механизмы — рядом появится тайный клад","Inspect glowing mechanisms to reveal hidden treasure","Investiga mecanismos brillantes para revelar tesoros","Untersuche leuchtende Mechanismen für verborgene Schätze","Examine les mécanismes lumineux pour révéler un trésor","调查发光机关以发现隐藏宝藏"],
 	"furniture_place":["Дома нажми Z, выбери мебель Q и установи Enter","At home press Z, choose furniture with Q, and place with Enter","En casa pulsa Z, elige con Q y coloca con Enter","Drücke zu Hause Z, wähle mit Q und platziere mit Enter","Chez toi, appuie sur Z, choisis avec Q et place avec Entrée","在家按Z，按Q选择家具，按回车放置"],
+	"fence_build":["На улице нажми Z: Q меняет материал, G — секцию или калитку, E строит по сетке","Outdoors press Z: Q changes material, G selects section or gate, E builds on the grid","Al aire libre pulsa Z: Q cambia material, G elige sección o puerta y E construye","Drücke draußen Z: Q wechselt Material, G Abschnitt oder Tor, E baut im Raster","Dehors, appuie sur Z : Q change le matériau, G choisit section ou portillon, E construit","在户外按Z：Q切换材质，G选择围栏段或门，E按网格建造"],
+	"fence_gate":["Подойди к калитке и нажми E, чтобы открыть или закрыть её","Approach a gate and press E to open or close it","Acércate a una puerta y pulsa E para abrirla o cerrarla","Gehe zum Tor und drücke E, um es zu öffnen oder zu schließen","Approche du portillon et appuie sur E pour l’ouvrir ou le fermer","靠近栅栏门并按E开关"],
+	"fence_weather":["Осмотри ограду в дождь, снег и разные сезоны: материал меняется вместе с погодой","Inspect a fence in rain, snow, and different seasons: its finish follows the weather","Observa la cerca con lluvia, nieve y estaciones: su acabado cambia con el clima","Betrachte den Zaun bei Regen, Schnee und Jahreszeiten: seine Oberfläche reagiert aufs Wetter","Observe la clôture sous la pluie, la neige et les saisons : son aspect suit la météo","在雨雪和不同季节观察围栏：外观会随天气变化"],
 	"photo_mode":["P включает фоторежим, G — сетку, Enter сохраняет снимок","P opens photo mode, G toggles grid, Enter saves","P abre el modo foto, G activa la cuadrícula, Enter guarda","P öffnet Fotomodus, G das Raster, Enter speichert","P ouvre le mode photo, G la grille, Entrée enregistre","P开启拍照模式，G切换网格，回车保存"],
 	"target_lock":["Нажми Q рядом с врагами для фиксации цели","Press Q near enemies to lock a target","Pulsa Q cerca de enemigos para fijar objetivo","Drücke Q nahe Gegnern zur Zielerfassung","Appuie sur Q près des ennemis pour les verrouiller","靠近敌人按Q锁定目标"],
 	"durability_low":["Следи за прочностью инструмента в кузнице","Watch tool durability at the forge","Vigila la durabilidad en la forja","Beachte die Haltbarkeit in der Schmiede","Surveille la durabilité à la forge","在铁匠铺查看工具耐久"],

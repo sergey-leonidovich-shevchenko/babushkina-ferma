@@ -26,7 +26,7 @@ static func reason_label(reason: String) -> String:
 		"walkable":"проходимо", "water":"вода", "ship":"вне палубы", "boundary":"граница мира",
 		"building":"здание", "biome_prop":"объект биома", "event_prop":"объект события",
 		"cave_prop":"скала пещеры", "village_event":"объект события", "scenic_prop":"декорация",
-		"tree":"дерево", "fence":"забор", "world_prop":"объект мира", "enemy":"враг",
+		"tree":"дерево", "fence":"забор", "player_fence":"построенный забор", "world_prop":"объект мира", "enemy":"враг",
 		"guardian":"страж", "hazard":"опасность", "resource":"ресурс", "loot":"контейнер",
 		"forage":"растение", "interior":"стена помещения", "furniture":"мебель",
 		"storage":"сундук", "debug_obstacle":"объект полигона",
