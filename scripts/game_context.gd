@@ -21,10 +21,9 @@ const SKELETON_WARRIOR_TEXTURE := preload("res://assets/game/enemies/skeleton_wa
 const CURSED_KNIGHT_TEXTURE := preload("res://assets/game/enemies/cursed_knight.png")
 const FOREST_TREE_GROWTH_ATLAS := preload("res://assets/game/environment/forest_tree_growth_atlas_v1.png")
 const RED_MUSHROOMS := preload("res://assets/game/environment/red_mushrooms.png")
-const CAVE_CRYSTAL := preload("res://assets/game/environment/cave_crystal.png")
 const RESOURCE_CRYSTAL := preload("res://assets/game/resources/blue-crystal.png")
 const RESOURCE_ROCK := preload("res://assets/game/resources/rock.png")
-const NavigationSystem := preload("res://scripts/systems/navigation_system.gd"); const SpatialGridSystem := preload("res://scripts/systems/spatial_grid_system.gd"); const WorldVisualProfileSystem := preload("res://scripts/systems/world_visual_profile_system.gd"); const FarmVisualSystem := preload("res://scripts/systems/farm_visual_system.gd"); const CropCatalogSystem := preload("res://scripts/systems/crop_catalog_system.gd")
+const NavigationSystem := preload("res://scripts/systems/navigation_system.gd"); const SpatialGridSystem := preload("res://scripts/systems/spatial_grid_system.gd"); const WorldVisualProfileSystem := preload("res://scripts/systems/world_visual_profile_system.gd"); const CaveVisualSystem := preload("res://scripts/systems/cave_visual_system.gd"); const FarmVisualSystem := preload("res://scripts/systems/farm_visual_system.gd"); const CropCatalogSystem := preload("res://scripts/systems/crop_catalog_system.gd")
 const PlayerSystem := preload("res://scripts/systems/player_system.gd")
 const InventorySystem := preload("res://scripts/systems/inventory_system.gd")
 const CraftingSystem := preload("res://scripts/systems/crafting_system.gd")
@@ -88,8 +87,7 @@ const MAX_BASE_HP := 100
 const XP_PER_LEVEL := 50
 const PLAYER_RADIUS := 18.0
 const TREE_POSITIONS := TreeSystem.POSITIONS
-const CAVE_DECORATIONS := [Vector2(480,250), Vector2(720,600), Vector2(1040,300), Vector2(1380,720), Vector2(1720,280), Vector2(2050,620)]
-const CAVE_FLOOR_TILE := preload("res://assets/game/tiles/cave-floor.png")
+const CAVE_DECORATIONS := CaveVisualSystem.POSITIONS
 const FORAGE_SPRITES := {
 	# Атлас упакован в ячейки 72×72; область большего размера захватывает
 	# соседние стадии роста и показывает несколько частей дерева одновременно.

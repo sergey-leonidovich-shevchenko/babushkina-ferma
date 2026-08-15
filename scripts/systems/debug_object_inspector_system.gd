@@ -243,6 +243,10 @@ static func append_companions(game: Node, result: Array[Dictionary]) -> void:
 
 ## Добавляет верстак, торговые точки, переход мира и домашний сундук как технические объекты.
 static func append_world_props(game: Node, result: Array[Dictionary]) -> void:
+	if game.current_location in ["cave","cursed"]:
+		for index in game.CAVE_DECORATIONS.size():
+			var position:Vector2=game.CAVE_DECORATIONS[index]; var bounds:Rect2=game.CaveVisualSystem.cluster_bounds(position); var collision:Rect2=game.CaveVisualSystem.collision_rect(position)
+			add(result,"cave_decor:%d"%index,"ПЕЩЕРА","Валунная кристальная группа",position,bounds,32,rect_description(collision),"декорация",["профиль 120×96","камни 48×48 · кристалл 72×72"])
 	if game.current_location == "overworld":
 		add(result,"prop:workbench","ОБЪЕКТ","Верстак",game.workbench_position,centered_bounds(game.workbench_position,Vector2(64,44)),45,"прямоугольник 64×44 · твёрдый","доступен")
 		add(result,"prop:shop_stall","ТОРГОВЛЯ","Лавка",game.BuildingSystem.SHOP_STALL_POSITION,centered_bounds(game.BuildingSystem.SHOP_STALL_POSITION,Vector2(76,64)),42,"нет · взаимодействие","доступна")

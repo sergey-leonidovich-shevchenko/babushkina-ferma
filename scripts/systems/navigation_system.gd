@@ -52,7 +52,7 @@ static func walkability_reason(game: Node, position: Vector2) -> String:
 	if game.FenceSystem.blocks_position(game,position,game.PLAYER_RADIUS): return "player_fence"
 	if game.current_location in ["cave", "cursed"]:
 		for decoration in game.CAVE_DECORATIONS:
-			if position.distance_to(decoration) < game.PLAYER_RADIUS + 38.0:
+			if circle_intersects_rect(position,game.PLAYER_RADIUS,game.CaveVisualSystem.collision_rect(decoration)):
 				return "cave_prop"
 	elif game.current_location == "overworld":
 		if game.VillageEventSystem.blocks_position(game, position, game.PLAYER_RADIUS): return "village_event"

@@ -50,6 +50,9 @@ tools/Godot.app/Contents/MacOS/Godot --path . -- --first-level-preview --debug-m
 # Четыре стадии лесного дерева с общей линией земли
 tools/Godot.app/Contents/MacOS/Godot --path . -- --tree-stages-preview
 
+# Нормализованные валуны, кристаллы и проходы пещеры
+tools/Godot.app/Contents/MacOS/Godot --path . -- --cave-preview
+
 # Контрольный кадр F10 с курсором инспектора над героем
 tools/Godot.app/Contents/MacOS/Godot --path . -- --debug-inspector
 

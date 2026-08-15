@@ -454,14 +454,7 @@ func draw_wildlife() -> void:
 
 ## Отрисовывает пещеры мира по текущему состоянию игры.
 func draw_cave_world() -> void:
-	_draw_cave_floor_for_world()
 	_draw_cave_exit_gate()
-	var crystal_positions := CAVE_DECORATIONS
-	for index in crystal_positions.size():
-		var crystal_position: Vector2 = crystal_positions[index]
-		var pulse := 0.06 * cos(Time.get_ticks_msec() / 200.0 + float(index))
-		draw_texture_rect(CAVE_CRYSTAL, Rect2(crystal_position - Vector2(34, 34 + pulse), Vector2(68, 68)), false)
-		draw_circle(crystal_position, 42, Color(0.35, 0.95, 0.85, 0.12 + pulse * 0.5))
 	draw_string(UI_FONT, Vector2(90, 100), LocaleSystem.location("cave").to_upper(), HORIZONTAL_ALIGNMENT_LEFT, -1, 28, Color("9ce9dd"))
 
 
@@ -476,7 +469,7 @@ func _draw_cave_entrance() -> void:
 	draw_colored_polygon(frame, Color("1f2f3d", 0.75))
 	draw_polyline(frame, Color("0b1218"), 2.5)
 	for offset in [Vector2(-44, 26), Vector2(-34,-20), Vector2(-10,-45), Vector2(12,-51), Vector2(36,-20), Vector2(47,25)]:
-		draw_texture_rect(RESOURCE_ROCK, Rect2(cave_entrance_position + offset - Vector2(18, 18), Vector2(36, 36)), false, Color("a7ad9e"))
+		draw_texture_rect(RESOURCE_ROCK,CaveVisualSystem.entrance_rock_rect(cave_entrance_position,offset),false,Color("a7ad9e"))
 	for offset in [Vector2(-36, 48), Vector2(34, 48), Vector2(0, -20)]:
 		draw_circle(cave_entrance_position + offset, 5.0, Color("e2f6ff", 0.4))
 	draw_rect(Rect2(cave_entrance_position + Vector2(-44, -50), Vector2(88, 34)), Color("0b171f", 0.52))
@@ -493,15 +486,6 @@ func _draw_cave_exit_gate() -> void:
 	var glow := 0.18 + sin(Time.get_ticks_msec() / 250.0) * 0.09
 	draw_circle(cave_exit_position, 34.0, Color(0.55, 0.95, 0.86, glow))
 
-
-## Отрисовывает пещерный «подлэйаут» без влияния на игровую логику.
-func _draw_cave_floor_for_world() -> void:
-	draw_rect(Rect2(Vector2.ZERO, WORLD_SIZE), Color("18232c"))
-	draw_texture_rect(CAVE_FLOOR_TILE, Rect2(Vector2.ZERO, WORLD_SIZE), true, Color(0.72, 0.78, 0.8, 1.0))
-	for stripe in range(80, int(WORLD_SIZE.x), 260):
-		draw_line(Vector2(stripe, 100), Vector2(stripe + 30, 1000), Color("364655", 0.38), 8.0)
-		for y in [200, 460, 790]:
-			draw_circle(Vector2(stripe + 18 + (y % 23), y + float(y % 50) * 0.4), 5 + (stripe % 30) * 0.04, Color("34434b", 0.44))
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func inventory_item_color(kind: String) -> Color:

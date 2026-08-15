@@ -22,8 +22,8 @@ const VillageLayoutSystem := preload("res://scripts/systems/village_layout_syste
 const FirstLevelArtSystem := preload("res://scripts/systems/first_level_art_system.gd")
 const PirateShipRenderer := preload("res://scripts/systems/pirate_ship_renderer.gd")
 const VisualAssetSystem := preload("res://scripts/systems/visual_asset_system.gd")
+const CaveVisualSystem := preload("res://scripts/systems/cave_visual_system.gd")
 const DebugPlaygroundSystem := preload("res://scripts/systems/debug_playground_system.gd"); const DebugPlaygroundRenderer := preload("res://scripts/systems/debug_playground_renderer.gd")
-const CAVE_DECORATIONS := [Vector2(480,250), Vector2(720,600), Vector2(1040,300), Vector2(1380,720), Vector2(1720,280), Vector2(2050,620)]
 
 const GRASS_VARIANTS := [
 	GRASS_TILE,
@@ -203,7 +203,7 @@ func draw_village_border() -> void:
 	for position in VillageLayoutSystem.BORDER_TREES:
 		draw_texture_rect_region(FOREST_TREE_GROWTH_ATLAS,Rect2(position-Vector2(96,144),Vector2(192,192)),Rect2(768,0,256,256),Color(0.78,0.94,0.78,0.92))
 	for position in VillageLayoutSystem.BORDER_ROCKS:
-		draw_texture_rect(RESOURCE_ROCK, Rect2(position - Vector2(34, 34), Vector2(68, 68)), false, Color("c7c8b5"))
+		draw_texture_rect(RESOURCE_ROCK,Rect2(position-Vector2(36,48),Vector2(72,72)),false,Color("c7c8b5"))
 
 
 ## Рисует извилистый берег реки, пруд и спокойные блики отдельным водным слоем.
@@ -327,28 +327,22 @@ func _draw_cave_shadows() -> void:
 
 ## Добавляет скопления крупных валунов и пустот, которые дают игроку ощущение масштабной локации.
 func _draw_cave_rock_clusters() -> void:
-	for cluster: Vector2 in CAVE_DECORATIONS:
+	for cluster: Vector2 in CaveVisualSystem.POSITIONS:
 		var base: Vector2 = cluster + Vector2(0, 4)
-		draw_texture_rect(CAVE_FLOOR_TILE, Rect2(base - Vector2(30, 16), Vector2(60, 32)), false, Color(0.18, 0.21, 0.24, 0.32))
+		draw_texture_rect(CAVE_FLOOR_TILE,Rect2(base-Vector2(36,12),Vector2(72,24)),false,Color(0.18,0.21,0.24,0.32))
 		for ring in 6:
-			var shift_angle := float(ring) * TAU / 6.0
-			var shift := Vector2(cos(shift_angle) * 34.0, sin(shift_angle) * 18.0)
-			var size := Vector2(48, 48)
-			var tint := Color(1.0, 1.0, 1.0, 0.78)
-			if ring % 2 == 0:
-				size = Vector2(56, 56)
-				draw_ellipse_stone(base + shift - Vector2(size.x * 0.5, size.y * 0.5), size, Color("201f25"), 0.44)
-			draw_texture_rect(RESOURCE_ROCK, Rect2(base + shift - Vector2(size.x * 0.5, size.y * 0.8), size), false, tint)
+			var rect:=CaveVisualSystem.rock_rect(cluster,ring)
+			if ring%2==0: draw_ellipse_stone(rect.get_center()+Vector2(0,15),Vector2(48,24),Color("201f25"),0.44)
+			draw_texture_rect(RESOURCE_ROCK,rect,false,Color(1.0,1.0,1.0,0.78))
 
 
 ## Рисует кристаллы и мягкий свечащийся контур, чтобы пещера читалась живой.
 func _draw_cave_crystals() -> void:
 	var crystal_phase := fmod(Time.get_ticks_msec() / 500.0, TAU)
-	for index in CAVE_DECORATIONS.size():
-		var crystal: Vector2 = CAVE_DECORATIONS[index]
+	for index in CaveVisualSystem.POSITIONS.size():
+		var crystal: Vector2 = CaveVisualSystem.POSITIONS[index]
 		var pulse := 0.07 * sin(crystal_phase + float(index))
-		var size := Vector2(68, 68)
-		draw_texture_rect(CAVE_CRYSTAL, Rect2(crystal - size * 0.5 + Vector2(0, pulse), size), false)
+		draw_texture_rect(CAVE_CRYSTAL,CaveVisualSystem.crystal_rect(crystal,pulse),false)
 		draw_circle(crystal, 42 + pulse * 5.0, Color(0.35, 0.95, 0.85, 0.14))
 		draw_circle(crystal + Vector2(18, -19), 4.0, Color("f2f0ec", 0.2))
 
