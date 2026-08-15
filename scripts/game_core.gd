@@ -231,7 +231,7 @@ func _physics_process(delta: float) -> void:
 		return
 	update_game_clock(delta); WorldEventSystem.update(self); sync_background_environment(); EstateSystem.update_daily_event(self); VillageEventSystem.update(self); FarmLifeSystem.update(self,delta); update_crops(delta); TreeSystem.update(self, delta); MoonGladeSystem.update(self, delta); CastleCampaignSystem.update(self, delta)
 	update_combat(delta); update_fishing(delta)
-	update_status_effects(delta)
+	update_status_effects(delta); SpellSystem.update(self,delta)
 	CompanionSystem.update(self, delta)
 	NpcMovementSystem.update(self, delta)
 	PlayerSystem.update_animation(self, delta)
@@ -1243,6 +1243,9 @@ func _input(event: InputEvent) -> void:
 				get_viewport().set_input_as_handled()
 				return
 	if event is InputEventKey:
+		var world_magic:=not (title_screen or menu_state.pause_open or shop_open or inventory_open or crafting_open or storage_open or forge_open or contract_open or quest_log_open or skill_menu_open or world_map_open)
+		if world_magic and event.pressed and not event.echo and event.keycode==KEY_C: SpellSystem.cast(self); get_viewport().set_input_as_handled(); return
+		if world_magic and event.pressed and not event.echo and event.keycode==KEY_X: SpellSystem.cycle(self); get_viewport().set_input_as_handled(); return
 		if event.keycode == KEY_G: CombatSystem.set_blocking(self, event.pressed)
 		if event.pressed and not event.echo and event.keycode == KEY_SHIFT: CombatSystem.start_dodge(self)
 		var is_action_key := set_action_key_state(event)
@@ -1284,6 +1287,10 @@ func update_input_device(event: InputEvent) -> void:
 ## Обрабатывает относящееся к методу событие и синхронизирует зависимое состояние.
 func handle_gamepad_and_touch(event: InputEvent) -> bool:
 	var world_controls_visible := not (shop_open or inventory_open or crafting_open or storage_open or forge_open or contract_open or quest_log_open or skill_menu_open or world_map_open); if world_controls_visible and event is InputEventJoypadButton and event.button_index == JOY_BUTTON_RIGHT_STICK: CombatSystem.set_blocking(self, event.pressed); return true
+	if world_controls_visible and event is InputEventJoypadButton and event.pressed and event.button_index==JOY_BUTTON_MISC1: return SpellSystem.cast(self)
+	if world_controls_visible and event is InputEventJoypadButton and event.pressed and event.button_index==JOY_BUTTON_PADDLE1: SpellSystem.cycle(self); return true
+	if world_controls_visible and event is InputEventScreenTouch and event.pressed and SpellRenderer.CAST_BUTTON.has_point(event.position): return SpellSystem.cast(self)
+	if world_controls_visible and event is InputEventScreenTouch and event.pressed and SpellRenderer.CYCLE_BUTTON.has_point(event.position): SpellSystem.cycle(self); return true
 	if world_controls_visible and event is InputEventJoypadButton and event.pressed and event.button_index == JOY_BUTTON_LEFT_STICK: AdventurePolishSystem.cycle_target(self); return true
 	if world_controls_visible and event is InputEventScreenTouch and InterfaceRenderer.BLOCK_BUTTON.has_point(event.position): CombatSystem.set_blocking(self, event.pressed); return true
 	if world_controls_visible and event is InputEventScreenTouch and event.pressed and InterfaceRenderer.DODGE_BUTTON.has_point(event.position): CombatSystem.start_dodge(self); return true

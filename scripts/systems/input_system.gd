@@ -9,6 +9,8 @@ const ACTION_BINDINGS := {
 	"move_down": [KEY_S, KEY_DOWN],
 	"use_item": [KEY_E, KEY_SPACE],
 	"attack": [KEY_F],
+	"cast_spell": [KEY_C],
+	"cycle_spell": [KEY_X],
 	"dodge": [KEY_SHIFT],
 	"block": [KEY_G],
 	"inventory": [KEY_TAB, KEY_I],

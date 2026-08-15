@@ -27,7 +27,7 @@ const AdventurePolishSuite = preload("res://tests/suites/adventure_polish_suite.
 const EnemyAnimationSuite = preload("res://tests/suites/enemy_animation_suite.gd")
 const LivingWorldSuite = preload("res://tests/suites/living_world_suite.gd")
 const FarmLifeSuite = preload("res://tests/suites/farm_life_suite.gd"); const WorldFarmingSuite = preload("res://tests/suites/world_farming_suite.gd"); const LevelEditorSuite = preload("res://tests/suites/level_editor_suite.gd"); const FenceBuildingSuite = preload("res://tests/suites/fence_building_suite.gd")
-const FirstChapterSuite = preload("res://tests/suites/first_chapter_suite.gd")
+const FirstChapterSuite = preload("res://tests/suites/first_chapter_suite.gd"); const SpellSuite = preload("res://tests/suites/spell_suite.gd")
 var passed := 0
 var failed := 0
 
@@ -37,7 +37,7 @@ func _initialize() -> void:
 	GameplaySuite.new(self).run()
 	WorldSuite.new(self).run()
 	BuildingsSuite.new(self).run()
-	ProgressionSuite.new(self).run(); TalentSuite.new(self).run()
+	ProgressionSuite.new(self).run(); TalentSuite.new(self).run(); SpellSuite.new(self).run()
 	AnimationSuite.new(self).run()
 	AudioSuite.new(self).run()
 	InterfaceSuite.new(self).run()

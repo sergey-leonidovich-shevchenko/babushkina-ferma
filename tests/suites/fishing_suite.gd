@@ -5,6 +5,7 @@ extends "res://tests/suites/suite_base.gd"
 func run() -> void:
 	test_cast_release_hook_and_miss()
 	test_bar_inertia_and_fish_behaviors()
+	test_season_weather_and_night_ecology()
 	test_progress_tutorial_escape_and_success()
 	test_quality_treasure_and_collection_save()
 	test_gamepad_and_touch_hold_state()
@@ -27,6 +28,27 @@ func test_cast_release_hook_and_miss() -> void:
 	game.state.fishing.phase = game.FishingSystem.PHASE_BITE; game.state.fishing.timer = 0.01; game.update_fishing(0.02)
 	expect(game.state.fishing.phase == game.FishingSystem.PHASE_IDLE, "expired hook window resets fishing")
 	game.free()
+
+
+## Сценарий: дополнительные виды появляются только в своём сезоне, погоде или ночном событии.
+## Исходное состояние: календарь и таланты управляемо переключаются между весной, летом, зимой, грозой и затмением.
+## Ожидаемый результат: базовая рыба доступна всегда, а редкие виды честно фильтруются средой и снастью.
+func test_season_weather_and_night_ecology() -> void:
+	var game := _fishing_game(); var fishing: Variant = game.FishingSystem
+	var spring: Dictionary = fishing.fish_data("spring_trout"); var catfish: Dictionary = fishing.fish_data("summer_catfish"); var winter: Dictionary = fishing.fish_data("winter_char"); var moon: Dictionary = fishing.fish_data("moon_koi")
+	game.day = 1; game.game_minutes = 12.0*60.0
+	expect(fishing.habitat_matches(game,spring) and not fishing.habitat_matches(game,catfish),"spring daytime exposes trout but hides summer catfish")
+	game.day = 8; game.game_minutes = 21.0*60.0
+	expect(fishing.habitat_matches(game,catfish) and not fishing.habitat_matches(game,winter),"summer night exposes catfish but hides winter char")
+	game.day = 22; game.game_minutes = 12.0*60.0
+	expect(fishing.habitat_matches(game,winter),"winter calendar exposes cold-water char")
+	game.day = 5; game.game_minutes = 21.0*60.0
+	expect(fishing.habitat_matches(game,moon),"fifth-night eclipse exposes moon koi")
+	game.talent_levels.fish_fine_rod = 0; expect(fishing.available_fish(game).all(func(fish): return String(fish.id) != "summer_catfish"),"locked fine-rod fish cannot enter the actual catch pool")
+	expect(fishing.FISH_CATALOG.size() == 11,"fishing ecology contains eleven distinct species")
+	for locale in game.LocaleSystem.LOCALES:
+		game.LocaleSystem.current=locale; expect(not game.LocaleSystem.text("fish_moon_koi").is_empty(),"new fish catalog is localized for %s" % locale)
+	game.LocaleSystem.current="ru"; game.free()
 
 
 ## Сценарий: зелёная зона имеет инерцию и отскок, а каталог содержит пять характеров движения рыбы.

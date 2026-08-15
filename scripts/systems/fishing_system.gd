@@ -21,6 +21,12 @@ const FISH_CATALOG := [
 	{"id":"deep_pike", "name_key":"fish_deep_pike", "behavior":"dart", "difficulty":58.0, "min_size":38, "max_size":92, "requires":"fish_deep_water", "advanced_rod":true},
 	{"id":"stone_loach", "name_key":"fish_stone_loach", "behavior":"sinker", "difficulty":42.0, "min_size":16, "max_size":41, "requires":"fish_fine_rod"},
 	{"id":"sunny_ide", "name_key":"fish_sunny_ide", "behavior":"floater", "difficulty":48.0, "min_size":27, "max_size":61, "requires":"fish_big_game", "advanced_rod":true},
+	{"id":"spring_trout", "name_key":"fish_spring_trout", "behavior":"smooth", "difficulty":34.0, "min_size":22, "max_size":55, "seasons":["spring"], "weather":["clear","rain"]},
+	{"id":"summer_catfish", "name_key":"fish_summer_catfish", "behavior":"sinker", "difficulty":46.0, "min_size":35, "max_size":78, "seasons":["summer"], "time":"night", "requires":"fish_fine_rod"},
+	{"id":"autumn_carp", "name_key":"fish_autumn_carp", "behavior":"mixed", "difficulty":39.0, "min_size":28, "max_size":69, "seasons":["autumn"]},
+	{"id":"winter_char", "name_key":"fish_winter_char", "behavior":"dart", "difficulty":53.0, "min_size":26, "max_size":64, "seasons":["winter"], "requires":"fish_fine_rod"},
+	{"id":"storm_eel", "name_key":"fish_storm_eel", "behavior":"dart", "difficulty":68.0, "min_size":44, "max_size":110, "weather":["storm"], "requires":"fish_deep_water", "advanced_rod":true},
+	{"id":"moon_koi", "name_key":"fish_moon_koi", "behavior":"floater", "difficulty":62.0, "min_size":31, "max_size":76, "time":"eclipse", "requires":"fish_big_game", "advanced_rod":true},
 ]
 
 
@@ -119,9 +125,7 @@ static func _update_bite(game: Node, delta: float) -> void:
 ## Выбирает рыбу и подготавливает вертикальную мини-игру с обучающим первым уловом.
 static func _start_minigame(game: Node) -> void:
 	var state = game.state.fishing
-	var available: Array[Dictionary] = []
-	for candidate in FISH_CATALOG:
-		if game.TalentSystem.can_catch_fish(game, candidate): available.append(candidate)
+	var available: Array[Dictionary] = available_fish(game)
 	var fish: Dictionary = available[state.total_caught % available.size()]
 	state.phase = PHASE_MINIGAME
 	state.elapsed = 0.0
@@ -137,6 +141,25 @@ static func _start_minigame(game: Node) -> void:
 	state.treasure_progress = 0.0; state.treasure_caught = false
 	game.message = game.LocaleSystem.text("fish_control")
 	game.notify_tutorial("fish_control")
+
+
+## Возвращает рыб, доступных для текущего сезона, погоды, времени и изученной снасти.
+static func available_fish(game: Node) -> Array[Dictionary]:
+	var result: Array[Dictionary] = []
+	for candidate in FISH_CATALOG:
+		if habitat_matches(game,candidate) and game.TalentSystem.can_catch_fish(game,candidate): result.append(candidate)
+	return result if not result.is_empty() else [FISH_CATALOG[0]]
+
+
+## Проверяет календарную среду рыбы отдельно от требований талантов и удочки.
+static func habitat_matches(game: Node, fish: Dictionary) -> bool:
+	var season: String = game.WorldEventSystem.season(game.day); var weather: String = game.WorldEventSystem.weather(game)
+	if fish.has("seasons") and season not in fish.seasons: return false
+	if fish.has("weather") and weather not in fish.weather: return false
+	var time_rule: String = String(fish.get("time","")); var hour := float(game.game_minutes) / 60.0
+	if time_rule == "night" and hour >= 6.0 and hour < 20.0: return false
+	if time_rule == "eclipse" and not game.WorldEventSystem.eclipse_active(game.day,game.game_minutes): return false
+	return true
 
 
 ## Обновляет инерционную зелёную зону, характер движения рыбы и обе шкалы прогресса.
