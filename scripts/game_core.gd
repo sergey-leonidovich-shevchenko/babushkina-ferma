@@ -227,7 +227,7 @@ func _physics_process(delta: float) -> void:
 	AdventurePolishSystem.update(self, delta); delta = FarmLifeSystem.simulation_delta(self,delta); if delta <= 0.0: queue_redraw(); return
 	if DebugPlaygroundSystem.active(self): DebugPlaygroundSystem.update(self, delta); delta = DebugPlaygroundSystem.simulation_delta(self, delta); if delta <= 0.0: queue_redraw(); return
 	FirstChapterSystem.update(self)
-	if title_screen or menu_state.pause_open or menu_state.settings_open or AdventurePolishSystem.has_modal(self) or FarmLifeSystem.modal_active(self) or FirstChapterSystem.modal_active(self):
+	if title_screen or menu_state.pause_open or menu_state.settings_open or menu_state.defeat_open or AdventurePolishSystem.has_modal(self) or FarmLifeSystem.modal_active(self) or FirstChapterSystem.modal_active(self):
 		queue_redraw()
 		return
 	update_game_clock(delta); WorldEventSystem.update(self); sync_background_environment(); EstateSystem.update_daily_event(self); VillageEventSystem.update(self); FarmLifeSystem.update(self,delta); update_crops(delta); TreeSystem.update(self, delta); MoonGladeSystem.update(self, delta); CastleCampaignSystem.update(self, delta)
@@ -417,7 +417,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if language_screen:
 		handle_language_input(event)
 		return
-	if title_screen or menu_state.pause_open or menu_state.settings_open:
+	if title_screen or menu_state.pause_open or menu_state.settings_open or menu_state.defeat_open:
 		MenuSystem.handle_input(self, event)
 		return
 	if DebugOverlaySystem.handle_input(self, event): queue_redraw(); return
@@ -1222,7 +1222,7 @@ func _input(event: InputEvent) -> void:
 	if not language_screen and not title_screen and not menu_state.pause_open and LevelEditorSystem.handle_input(self,event):
 		get_viewport().set_input_as_handled()
 		return
-	if not language_screen and (title_screen or menu_state.pause_open or menu_state.settings_open):
+	if not language_screen and (title_screen or menu_state.pause_open or menu_state.settings_open or menu_state.defeat_open):
 		if MenuSystem.handle_input(self, event):
 			get_viewport().set_input_as_handled()
 		return

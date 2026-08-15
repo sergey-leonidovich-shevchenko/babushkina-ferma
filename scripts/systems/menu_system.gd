@@ -15,12 +15,18 @@ class MenuState:
 	var settings_from_title := true
 	var notice := ""
 	var quit_requested := false
+	var confirmation := ""
+	var confirm_selected := 1
+	var defeat_open := false
+	var defeat_source := ""
+	var defeat_lost_coins := 0
 
 
 ## Подготавливает разумный первый выбор главного меню с учётом наличия сохранения.
 static func prepare_title(game: Node, save_path: String = "") -> void:
 	game.menu_state.title_selected = 0 if has_save(game, save_path) else 1
 	game.menu_state.notice = ""
+	game.menu_state.confirmation = ""
 
 
 ## Проверяет основной или переданный тестовый путь сохранения вместе с резервной копией.
@@ -94,7 +100,7 @@ static func activate_title(game: Node, save_path: String = "") -> bool:
 			game.menu_state.notice = game.LocaleSystem.text("loaded")
 		"new_game": start_new_game(game)
 		"settings": open_settings(game, true)
-		"exit_game": request_exit(game)
+		"exit_game": request_confirmation(game, "exit_game")
 	game.AudioSystem.update_context_music(game)
 	game.queue_redraw()
 	return true
@@ -116,8 +122,8 @@ static func activate_pause(game: Node, save_path: String = "") -> bool:
 			if loaded: resume(game)
 			return loaded
 		"settings": open_settings(game, false)
-		"return_main_menu": return_to_title(game)
-		"exit_game": request_exit(game)
+		"return_main_menu": request_confirmation(game, "return_main_menu")
+		"exit_game": request_confirmation(game, "exit_game")
 	game.queue_redraw()
 	return true
 
@@ -159,6 +165,67 @@ static func request_exit(game: Node) -> void:
 		game.get_tree().quit()
 
 
+## Открывает безопасное подтверждение потенциально разрушительной системной команды.
+static func request_confirmation(game: Node, action: String) -> void:
+	game.menu_state.confirmation = action
+	game.menu_state.confirm_selected = 1
+	game.queue_redraw()
+
+
+## Отменяет подтверждение без изменения текущего экрана или состояния мира.
+static func cancel_confirmation(game: Node) -> void:
+	game.menu_state.confirmation = ""
+	game.menu_state.confirm_selected = 1
+	game.queue_redraw()
+
+
+## Выполняет подтверждённую команду ровно один раз и очищает модальное состояние.
+static func confirm_action(game: Node) -> void:
+	var action: String = game.menu_state.confirmation
+	cancel_confirmation(game)
+	if action == "return_main_menu": return_to_title(game)
+	elif action == "exit_game": request_exit(game)
+
+
+## Открывает модальный экран спасения после поражения и фиксирует фактическую потерю монет.
+static func open_defeat(game: Node, source: String, lost_coins: int) -> void:
+	game.menu_state.defeat_open = true
+	game.menu_state.defeat_source = source
+	game.menu_state.defeat_lost_coins = lost_coins
+	game.clear_movement_keys()
+	game.queue_redraw()
+
+
+## Закрывает экран поражения после того, как игрок явно подтвердил продолжение.
+static func acknowledge_defeat(game: Node) -> void:
+	game.menu_state.defeat_open = false
+	game.menu_state.defeat_source = ""
+	game.menu_state.defeat_lost_coins = 0
+	game.queue_redraw()
+
+
+## Возвращает короткое описание единственного устойчивого слота сохранения для меню паузы.
+static func save_summary(game: Node, save_path: String = "") -> String:
+	var path: String = game.SaveSystem.SAVE_PATH if save_path.is_empty() else save_path
+	if not game.SaveSystem.has_save_at(path): return game.LocaleSystem.ui("save_empty")
+	var data = JSON.parse_string(FileAccess.get_file_as_string(path))
+	if not data is Dictionary: return game.LocaleSystem.ui("save_empty")
+	var minutes := int(data.get("minutes", 360))
+	var location: String = game.WorldSystem.name(String(data.get("location", "overworld")))
+	return game.LocaleSystem.ui("save_summary", [int(data.get("day", 1)), minutes / 60, minutes % 60, location])
+
+
+## Перемещает фокус по двум колонкам параметров, сохраняя логичный вертикальный цикл.
+static func move_settings_selection(game: Node, delta: int) -> void:
+	var index: int = game.menu_state.settings_selected
+	var row := index / 2
+	var column := index % 2
+	row += delta
+	if row < 0: row = 5; column = posmod(column - 1, 2)
+	elif row > 5: row = 0; column = (column + 1) % 2
+	game.menu_state.settings_selected = row * 2 + column
+
+
 ## Изменяет выбранный параметр на один шаг, сразу применяет и сохраняет результат.
 static func adjust_setting(game: Node, direction: int, path: String = "", apply_display: bool = true) -> void:
 	var settings_path: String = game.SettingsSystem.SETTINGS_PATH if path.is_empty() else path
@@ -194,6 +261,13 @@ static func handle_input(game: Node, event: InputEvent, settings_path: String = 
 		command = {JOY_BUTTON_DPAD_UP:KEY_UP, JOY_BUTTON_DPAD_DOWN:KEY_DOWN, JOY_BUTTON_DPAD_LEFT:KEY_LEFT, JOY_BUTTON_DPAD_RIGHT:KEY_RIGHT, JOY_BUTTON_A:KEY_ENTER, JOY_BUTTON_B:KEY_ESCAPE, JOY_BUTTON_START:KEY_ESCAPE}.get(event.button_index, -1)
 	elif (event is InputEventScreenTouch and event.pressed) or (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT):
 		var point: Vector2 = event.position
+		if game.menu_state.defeat_open:
+			if game.MenuRenderer.DEFEAT_CONTINUE.has_point(point): acknowledge_defeat(game); return true
+			return false
+		if not game.menu_state.confirmation.is_empty():
+			if game.MenuRenderer.CONFIRM_ACCEPT.has_point(point): game.menu_state.confirm_selected = 0; confirm_action(game); return true
+			if game.MenuRenderer.CONFIRM_CANCEL.has_point(point): cancel_confirmation(game); return true
+			return false
 		if game.menu_state.settings_open:
 			var setting_index: int = game.MenuRenderer.settings_item_at(point)
 			if setting_index >= 0:
@@ -213,10 +287,22 @@ static func handle_input(game: Node, event: InputEvent, settings_path: String = 
 		return false
 	if command < 0:
 		return false
+	if game.menu_state.defeat_open:
+		if command in [KEY_ENTER, KEY_SPACE, KEY_ESCAPE]: acknowledge_defeat(game)
+		return true
+	if not game.menu_state.confirmation.is_empty():
+		match command:
+			KEY_LEFT, KEY_RIGHT, KEY_UP, KEY_DOWN: game.menu_state.confirm_selected = 1 - game.menu_state.confirm_selected
+			KEY_ENTER, KEY_SPACE:
+				if game.menu_state.confirm_selected == 0: confirm_action(game)
+				else: cancel_confirmation(game)
+			KEY_ESCAPE: cancel_confirmation(game)
+		game.queue_redraw()
+		return true
 	if game.menu_state.settings_open:
 		match command:
-			KEY_UP: game.menu_state.settings_selected = posmod(game.menu_state.settings_selected - 1, SETTING_ITEMS.size())
-			KEY_DOWN: game.menu_state.settings_selected = posmod(game.menu_state.settings_selected + 1, SETTING_ITEMS.size())
+			KEY_UP: move_settings_selection(game, -1)
+			KEY_DOWN: move_settings_selection(game, 1)
 			KEY_LEFT: adjust_setting(game, -1, settings_path, apply_display)
 			KEY_RIGHT, KEY_ENTER, KEY_SPACE: adjust_setting(game, 1, settings_path, apply_display)
 			KEY_ESCAPE: close_settings(game, settings_path)

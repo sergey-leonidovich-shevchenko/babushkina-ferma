@@ -30,3 +30,5 @@ tmp/
 !/assets/generated/level_drafts/cave_ingame_preview.png
 !/assets/generated/ui/system_settings_ingame_preview.png
 !/assets/generated/ui/hud_ingame_preview.png
+!/assets/generated/ui/language_ingame_preview.png
+!/assets/generated/ui/defeat_ingame_preview.png

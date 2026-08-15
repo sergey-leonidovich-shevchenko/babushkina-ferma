@@ -19,19 +19,11 @@ func draw_title_screen() -> void:
 			MenuRenderer.draw_settings(self)
 		else:
 			MenuRenderer.draw_title_menu(self)
+		if not menu_state.confirmation.is_empty(): MenuRenderer.draw_confirmation(self)
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_language_screen() -> void:
-	draw_texture_rect(TITLE_ART, Rect2(0, 0, 1152, 648), false)
-	draw_rect(Rect2(0, 0, 1152, 648), Color(0.025, 0.055, 0.055, 0.74))
-	draw_string(MENU_FONT, Vector2(196, 112), LocaleSystem.ui("choose_language"), HORIZONTAL_ALIGNMENT_CENTER, 760, 38, Color("fff4cf"))
-	for index in LocaleSystem.LOCALES.size():
-		var rect := language_button_rect(index)
-		var selected := index == language_selected
-		draw_rect(rect, Color("e8bd62") if selected else Color("365548"))
-		draw_rect(rect.grow(-4), Color("fff0bd") if selected else Color("4d7161"))
-		draw_string(MENU_FONT, rect.position + Vector2(10, 40), "%d  %s" % [index + 1, LocaleSystem.language_name(index)], HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 20, 24, Color("352e28") if selected else Color.WHITE)
-	draw_string(MENU_FONT, Vector2(236, 540), LocaleSystem.ui("confirm"), HORIZONTAL_ALIGNMENT_CENTER, 680, 18, Color.WHITE)
+	MenuRenderer.draw_language_screen(self)
 
 ## Отрисовывает мира по текущему состоянию игры.
 func draw_world() -> void:

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Бабушкина ферма: Тайна Лунной долины"
-config/version="0.0.40"
+config/version="0.0.41"
 run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.7")
 config/icon="res://assets/app_icon.png"

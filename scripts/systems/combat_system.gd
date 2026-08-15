@@ -261,10 +261,12 @@ static func damage_player(game: Node, raw_damage: int, source_name: String) -> i
 	game.player_hp -= incoming
 	game.message = "%s: -%d HP" % [source_name, incoming]
 	if game.player_hp <= 0:
+		var lost_coins := mini(5, game.coins)
 		game.player_hp = game.player_max_hp
 		game.player = Vector2(260, 360)
-		game.coins = maxi(0, game.coins - 5)
-		game.message = "Бабушка спасла тебя. Потеряно 5 монет"
+		game.coins -= lost_coins
+		game.message = game.LocaleSystem.ui("defeat_saved", [source_name])
+		game.MenuSystem.open_defeat(game, source_name, lost_coins)
 	return incoming
 
 

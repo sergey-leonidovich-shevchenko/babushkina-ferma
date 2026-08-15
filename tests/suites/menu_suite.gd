@@ -15,6 +15,8 @@ func run() -> void:
 	test_title_visual_design_assets_and_layout()
 	test_shared_ui_kit_has_independent_scalable_components()
 	test_menu_keyboard_gamepad_touch_and_layout()
+	test_settings_grid_confirmation_and_save_summary()
+	test_defeat_screen_pauses_and_resumes_safely()
 	test_exit_is_safe_outside_scene_tree()
 
 
@@ -214,6 +216,47 @@ func test_menu_keyboard_gamepad_touch_and_layout() -> void:
 	game.free()
 
 
+## Сценарий: настройки, сохранение и опасные команды используют завершённый системный UX.
+## Исходное состояние: открыты параметры в сетке две на шесть, затем создано сохранение и запрошен выход из титульного экрана.
+## Ожидаемый результат: геометрия и навигация совпадают, слот показывает живые данные, а выход выполняется только после явного «Да».
+func test_settings_grid_confirmation_and_save_summary() -> void:
+	cleanup_files()
+	var game := make_game()
+	var first: Rect2 = game.MenuRenderer.settings_item_rect(0); var second: Rect2 = game.MenuRenderer.settings_item_rect(1); var below: Rect2 = game.MenuRenderer.settings_item_rect(2)
+	expect(first.position.y == second.position.y and second.position.x > first.end.x and below.position.x == first.position.x and below.position.y > first.end.y, "settings form a non-overlapping two-column six-row card grid")
+	game.menu_state.settings_selected = 0; game.MenuSystem.move_settings_selection(game, 1)
+	expect(game.menu_state.settings_selected == 2, "Down follows the visual column instead of zigzagging across settings")
+	game.day = 7; game.game_minutes = 13 * 60 + 25; game.current_location = "forest"
+	expect(game.SaveSystem.save_at(game, TEST_SAVE_PATH), "system UI fixture creates its explicit save slot")
+	var summary: String = game.MenuSystem.save_summary(game, TEST_SAVE_PATH)
+	expect(summary.contains("7") and summary.contains("13:25") and summary.contains(game.WorldSystem.name("forest")), "pause save card exposes day time and localized location")
+	game.title_screen = true; game.menu_state.title_selected = 3; game.MenuSystem.activate_title(game)
+	expect(game.menu_state.confirmation == "exit_game" and not game.menu_state.quit_requested, "Exit first opens a safe confirmation")
+	game.menu_state.confirm_selected = 0; game.MenuSystem.confirm_action(game)
+	expect(game.menu_state.confirmation.is_empty() and game.menu_state.quit_requested, "explicit Yes executes the queued exit exactly once")
+	var language_source := FileAccess.get_file_as_string("res://scripts/game_renderer.gd")
+	expect(language_source.contains("MenuRenderer.draw_language_screen") and game.MenuRenderer.LANGUAGE_PANEL.encloses(game.language_button_rect(0)) and game.MenuRenderer.LANGUAGE_PANEL.encloses(game.language_button_rect(5)), "language selection reuses the storybook panel while retaining all touch targets")
+	for preview_path in ["res://assets/generated/ui/system_settings_ingame_preview.png", "res://assets/generated/ui/language_ingame_preview.png", "res://assets/generated/ui/defeat_ingame_preview.png"]:
+		var preview := Image.load_from_file(ProjectSettings.globalize_path(preview_path))
+		expect(preview != null and preview.get_width() >= 1152 and absf(float(preview.get_width()) / preview.get_height() - 16.0 / 9.0) < 0.01, "%s remains a native-or-larger 16:9 visual reference" % preview_path)
+	game.free(); cleanup_files()
+
+
+## Сценарий: смертельный урон открывает отдельный экран спасения и останавливает симуляцию до подтверждения.
+## Исходное состояние: у героя одна жизнь и три монеты, источник наносит заведомо смертельный удар.
+## Ожидаемый результат: герой спасён дома, теряет только доступные монеты, мир заморожен и Enter возвращает управление.
+func test_defeat_screen_pauses_and_resumes_safely() -> void:
+	var game := make_game(); game.player_hp = 1; game.coins = 3; game.game_minutes = 420.0
+	game.CombatSystem.damage_player(game, 20, "Тестовый противник")
+	expect(game.menu_state.defeat_open and game.menu_state.defeat_source == "Тестовый противник" and game.menu_state.defeat_lost_coins == 3, "defeat modal records source and exact affordable penalty")
+	expect(game.player_hp == game.player_max_hp and game.player == Vector2(260, 360) and game.coins == 0, "Grandma rescue restores health and moves the hero home without negative coins")
+	game._physics_process(2.0)
+	expect(game.game_minutes == 420.0, "defeat modal freezes world time")
+	game.MenuSystem.handle_input(game, key_event(KEY_ENTER, KEY_ENTER, true))
+	expect(not game.menu_state.defeat_open, "keyboard or gamepad confirmation returns control after reading the defeat result")
+	game.free()
+
+
 ## Сценарий: пункт выхода формирует штатный запрос, не завершая изолированный тестовый runner.
 ## Исходное состояние: экземпляр игры не добавлен в SceneTree и на главном экране выбран последний пункт.
 ## Ожидаемый результат: запрос фиксируется, а тест продолжает выполнение и может освободить экземпляр.
@@ -222,7 +265,9 @@ func test_exit_is_safe_outside_scene_tree() -> void:
 	game.title_screen = true
 	game.menu_state.title_selected = 3
 	expect(game.MenuSystem.activate_title(game), "Exit command is accepted from the title menu")
-	expect(game.menu_state.quit_requested, "Exit records a graceful quit request outside SceneTree")
+	expect(game.menu_state.confirmation == "exit_game" and not game.menu_state.quit_requested, "Exit first records a confirmation without terminating an isolated test")
+	game.menu_state.confirm_selected = 0; game.MenuSystem.confirm_action(game)
+	expect(game.menu_state.quit_requested, "confirmed Exit records a graceful quit request outside SceneTree")
 	game.free()
 
 
