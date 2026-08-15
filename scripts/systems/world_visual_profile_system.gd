@@ -10,6 +10,7 @@ const PROFILES := {
 	"tree_stump": {"visual_size": Vector2(72, 72), "anchor": "bottom_center", "collision_size": Vector2(48, 48), "collision_offset": Vector2(0, -24)},
 	"tree_sapling": {"visual_size": Vector2(72, 72), "anchor": "bottom_center", "collision_size": Vector2(48, 48), "collision_offset": Vector2(0, -24)},
 	"tree_young": {"visual_size": Vector2(120, 120), "anchor": "bottom_center", "collision_size": Vector2(48, 48), "collision_offset": Vector2(0, -24)},
+	"tree_flowering": {"visual_size": Vector2(168, 168), "anchor": "bottom_center", "collision_size": Vector2(48, 48), "collision_offset": Vector2(0, -24)},
 	"tree_adult": {"visual_size": Vector2(192, 192), "anchor": "bottom_center", "collision_size": Vector2(48, 48), "collision_offset": Vector2(0, -24)},
 	"hero": {"visual_size": Vector2(72, 96), "anchor": "bottom_center", "collision_size": Vector2(48, 24), "collision_offset": Vector2(0, -12)},
 	"resident": {"visual_size": Vector2(96, 96), "anchor": "bottom_center", "collision_size": Vector2(48, 24), "collision_offset": Vector2(0, -12)},

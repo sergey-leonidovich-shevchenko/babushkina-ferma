@@ -1,6 +1,7 @@
 .DS_Store
 .godot/
-tools/
+tools/*
+!tools/build_forest_tree_atlas.py
 assets/inbox/
 tmp/
 *.log
@@ -21,3 +22,4 @@ tmp/
 !/assets/generated/level_drafts/level_editor_ingame_preview.png
 !/assets/generated/level_drafts/first_level_visual_master_v2.png
 !/assets/generated/level_drafts/README_FIRST_LEVEL_VISUAL_V2.md
+!/assets/generated/level_drafts/tree_stages_ingame_preview.png

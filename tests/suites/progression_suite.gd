@@ -164,16 +164,18 @@ func test_forage_atlas_cells_are_isolated_and_bottom_anchored() -> void:
 ## Ожидаемый результат: стадии не пересекаются в атласе, дерево взрослеет, зимой отдыхает, весной собирается и точно загружается.
 func test_orchard_growth_weather_harvest_icons_and_save() -> void:
 	var game := make_game(); var orchard = game.OrchardSystem
-	expect(orchard.TREE_ATLAS.get_size() == Vector2(1254,1254), "fruit tree atlas is imported as the authored square source")
+	expect(orchard.TREE_ATLAS.get_size() == Vector2(1024,1024), "fruit tree atlas is normalized to four strict rows and columns")
 	var occupied: Array[Rect2] = []
 	for kind in ["apple","pear","cherry","plum"]:
 		for stage in 4:
 			var source: Rect2 = orchard.source_rect(kind,stage)
-			expect(source.size == Vector2(313.5,313.5), "%s stage %d uses one exact four-by-four atlas cell" % [kind,stage])
+			expect(source.size == Vector2(256,256), "%s stage %d uses one exact integer atlas cell" % [kind,stage])
 			for previous in occupied: expect(not source.intersects(previous), "%s stage %d does not bleed into another tree cell" % [kind,stage])
 			occupied.append(source)
 	var anchor: Rect2 = orchard.destination_rect(Vector2(500,400),3)
 	expect(anchor.get_center().x == 500.0 and anchor.end.y == 418.0, "all mature fruit trees share one centered ground anchor")
+	var orchard_sizes := [Vector2(72,72),Vector2(120,120),Vector2(168,168),Vector2(192,192)]
+	for stage in 4: expect(orchard.destination_rect(Vector2(500,400),stage).size == orchard_sizes[stage], "fruit tree stage %d follows the shared modular profile" % stage)
 	expect(orchard.weather_tint("summer","clear") != orchard.weather_tint("autumn","clear") and orchard.weather_tint("winter","snow") != Color.WHITE, "season and weather select visibly different tree palettes")
 	for kind in ["pear","cherry","plum"]: expect(game.VisualAssetSystem.has_item_icon(kind), "%s has a standalone centred inventory icon" % kind)
 	var pear_index: int = game.food_nodes.find_custom(func(node): return node.kind == "pear" and node.location == "overworld")

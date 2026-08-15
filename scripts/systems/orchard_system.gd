@@ -1,6 +1,7 @@
 extends RefCounted
 
-const TREE_ATLAS := preload("res://assets/game/environment/orchard/fruit_trees_clear.png")
+const TREE_ATLAS := preload("res://assets/game/environment/orchard/fruit_trees_4x4_v2.png")
+const WorldVisualProfileSystem := preload("res://scripts/systems/world_visual_profile_system.gd")
 const SPECIES_ROWS := {"apple":0, "pear":1, "cherry":2, "plum":3}
 const STAGE_COUNT := 4
 const WINTER := "winter"
@@ -97,7 +98,7 @@ static func visual_stage(game: Node, node: Dictionary, data: Dictionary) -> int:
 static func source_rect(kind: String, current_stage: int, winter: bool = false) -> Rect2:
 	if not handles(kind):
 		return Rect2()
-	var cell := TREE_ATLAS.get_size() / Vector2(STAGE_COUNT, SPECIES_ROWS.size())
+	var cell := Vector2(256,256)
 	var visual_stage := clampi(current_stage, 0, 3)
 	# Прямой запрос зимней плодоносящей колонки получает зелёную крону без плодов;
 	# снег отрисовывается отдельным погодным слоем и не меняет геометрию дерева.
@@ -108,9 +109,8 @@ static func source_rect(kind: String, current_stage: int, winter: bool = false) 
 
 ## Рассчитывает единый привязанный к земле прямоугольник каждой стадии дерева.
 static func destination_rect(position: Vector2, current_stage: int) -> Rect2:
-	var sizes := [Vector2(68, 72), Vector2(108, 112), Vector2(142, 146), Vector2(154, 158)]
-	var size: Vector2 = sizes[clampi(current_stage, 0, 3)]
-	return Rect2(position - Vector2(size.x * 0.5, size.y - 18.0), size)
+	var profiles:=["tree_sapling","tree_young","tree_flowering","tree_adult"]
+	return WorldVisualProfileSystem.visual_rect(profiles[clampi(current_stage,0,3)],position+Vector2(0,18))
 
 
 ## Подбирает сезонно-погодный цвет, сохраняя читаемость исходного пиксель-арта.

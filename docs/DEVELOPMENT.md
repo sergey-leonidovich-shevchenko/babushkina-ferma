@@ -47,6 +47,9 @@ tools/Godot.app/Contents/MacOS/Godot --path . -- --first-level-preview --debug-n
 # Первая локация с раскрытой QA-очередью всех миссий
 tools/Godot.app/Contents/MacOS/Godot --path . -- --first-level-preview --debug-missions
 
+# Четыре стадии лесного дерева с общей линией земли
+tools/Godot.app/Contents/MacOS/Godot --path . -- --tree-stages-preview
+
 # Контрольный кадр F10 с курсором инспектора над героем
 tools/Godot.app/Contents/MacOS/Godot --path . -- --debug-inspector
 

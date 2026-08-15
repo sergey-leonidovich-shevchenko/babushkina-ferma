@@ -7,6 +7,7 @@ func run() -> void:
 	test_three_hits_fell_tree_and_give_wood()
 	test_stump_grows_through_three_visible_stages()
 	test_tree_collision_depends_on_growth_stage()
+	test_tree_atlas_stages_share_grid_anchor_and_collision()
 	test_tree_state_and_legacy_axe_are_saved_safely()
 	test_tree_feature_has_audio_and_tutorial_coverage()
 
@@ -72,6 +73,28 @@ func test_tree_collision_depends_on_growth_stage() -> void:
 	expect(game.is_position_walkable(tree_position), "small sapling remains passable")
 	game.state.world.tree_nodes[0].stage = 2
 	expect(not game.is_position_walkable(tree_position), "young tree restores solid collision")
+	game.free()
+
+
+## Сценарий: четыре стадии лесного дерева читаются из строгого атласа и не меняют точку роста.
+## Исходное состояние: один узел последовательно принимает стадии пня, саженца, молодого и взрослого дерева.
+## Ожидаемый результат: каждая стадия занимает отдельную ячейку 256×256, стоит на общей линии земли и использует основание 48×48.
+func test_tree_atlas_stages_share_grid_anchor_and_collision() -> void:
+	var game := make_game()
+	expect(game.FOREST_TREE_GROWTH_ATLAS.get_size() == Vector2(1024,256), "forest growth atlas has four strict integer cells")
+	var tree: Dictionary = game.state.world.tree_nodes[0].duplicate(true)
+	var expected_sizes := [Vector2(72,72),Vector2(72,72),Vector2(120,120),Vector2(192,192)]
+	var ground_y: float = game.TreeSystem.ground_anchor(tree.position).y
+	for stage in 4:
+		tree.stage = stage
+		var source: Rect2 = game.TreeSystem.source_rect(stage)
+		var destination: Rect2 = game.TreeSystem.destination_rect(tree)
+		var collision: Rect2 = game.TreeSystem.collision_rect(tree)
+		expect(source == Rect2(stage*256,0,256,256), "tree stage %d samples only its isolated atlas cell" % stage)
+		expect(destination.size == expected_sizes[stage] and destination.end.y == ground_y, "tree stage %d keeps modular size and shared ground anchor" % stage)
+		expect(collision.size == Vector2(48,48) and collision.get_center().x == tree.position.x, "tree stage %d derives its centered base from the visual profile" % stage)
+	game.TreeSystem.configure_preview(game)
+	expect(game.state.world.tree_nodes.size()==4 and game.state.world.tree_nodes[0].stage==0 and game.state.world.tree_nodes[3].stage==3, "visual QA preview exposes every stage in deterministic order")
 	game.free()
 
 

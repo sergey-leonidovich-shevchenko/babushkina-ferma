@@ -147,18 +147,17 @@
       "id": "WS-008",
       "family": "Деревья, саженцы и пни",
       "assets": [
-        {"path":"assets/game/environment/forest_tree.png","width":256,"height":256},
-        {"path":"assets/game/environment/village_ambient_atlas_v1.png","width":1448,"height":1086}
+        {"path":"assets/game/environment/forest_tree_growth_atlas_v1.png","width":1024,"height":256}
       ],
-      "render_owner": "GameRenderer и VillageAmbientRenderer",
-      "source_layout": "дерево отдельно; пень в ячейке 362×362",
-      "runtime_sizes": ["58×58", "64×64", "128×128", "192×192"],
+      "render_owner": "GameRenderer и TreeSystem",
+      "source_layout": "строгий атлас 4×1 с целыми ячейками 256×256",
+      "runtime_sizes": ["72×72", "120×120", "192×192"],
       "target_modules": ["72×72", "120×120", "192×192"],
       "anchor": "нижний центр ствола",
-      "collision": "основание взрослого дерева около 84 px, стадии используют смещение +35",
-      "status": "migration",
+      "collision": "единое основание 48×48 из профиля стадии; пень и саженец проходимы",
+      "status": "compliant",
       "priority": "P1",
-      "debt": "Только взрослая стадия кратна сетке; пень и две стадии имеют случайные размеры, опора коллизии задана отдельно.",
+      "debt": "Закрыт: четыре отдельные стадии кратны сетке, используют общую нижнюю опору и один источник геометрии для F10 и навигации.",
       "done_when": "Пень 72×72, саженец 72×72, молодое дерево 120×120, взрослое 192×192; единая опора и основание 48×48."
     },
     {
@@ -205,6 +204,7 @@
       "family": "Ягоды, грибы, арбузы и плодовые деревья",
       "assets": [
         {"path":"assets/game/environment/farm_plants.png","width":768,"height":432},
+        {"path":"assets/game/environment/orchard/fruit_trees_4x4_v2.png","width":1024,"height":1024},
         {"path":"assets/game/environment/red_mushrooms.png","width":64,"height":64},
         {"path":"assets/game/items/watermelon.png","width":64,"height":64}
       ],

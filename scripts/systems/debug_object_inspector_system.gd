@@ -113,9 +113,8 @@ static func append_trees(game: Node, result: Array[Dictionary]) -> void:
 	if game.current_location != "overworld": return
 	for index in game.state.world.tree_nodes.size():
 		var tree: Dictionary = game.state.world.tree_nodes[index]; var stage := int(tree.stage)
-		var size := Vector2(68,54) if stage == 0 else (Vector2(64,64) if stage == 1 else (Vector2(128,128) if stage == 2 else Vector2(192,192)))
-		var bounds := Rect2(tree.position - Vector2(size.x * 0.5, size.y * (0.67 if stage > 0 else 0.5)), size)
-		add(result, String(tree.get("id", "tree_%d" % index)), "ДЕРЕВО", "Лесное дерево", tree.position, bounds, 34, "основание круг r42" if game.TreeSystem.is_solid(tree) else "нет", "стадия %d/3" % stage, [
+		var bounds:Rect2=game.TreeSystem.destination_rect(tree); var collision:Rect2=game.TreeSystem.collision_rect(tree)
+		add(result, String(tree.get("id", "tree_%d" % index)), "ДЕРЕВО", "Лесное дерево", tree.position, bounds, 34, rect_description(collision) if game.TreeSystem.is_solid(tree) else "нет", "стадия %d/3" % stage, [
 			"здоровье %d/%d" % [tree.health,game.TreeSystem.MAX_HEALTH],
 			"отрастание %.1f/%.1f сек" % [tree.regrow_timer,game.TreeSystem.REGROW_DURATION],
 			"прогресс %d%%" % roundi(game.TreeSystem.regrow_progress(tree) * 100.0),

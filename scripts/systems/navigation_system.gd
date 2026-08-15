@@ -61,7 +61,7 @@ static func walkability_reason(game: Node, position: Vector2) -> String:
 		if VillageLayoutSystem.blocks_scenic_prop(position, game.PLAYER_RADIUS):
 			return "scenic_prop"
 		for tree in game.state.world.tree_nodes:
-			if game.TreeSystem.is_solid(tree) and position.distance_to(tree.position + Vector2(0, 35)) < game.PLAYER_RADIUS + 42.0:
+			if game.TreeSystem.is_solid(tree) and circle_intersects_rect(position,game.PLAYER_RADIUS,game.TreeSystem.collision_rect(tree)):
 				return "tree"
 		for fence_rect in game.BuildingSystem.farm_fence_rects():
 			if circle_intersects_rect(position, game.PLAYER_RADIUS, fence_rect):

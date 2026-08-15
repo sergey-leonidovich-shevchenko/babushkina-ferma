@@ -84,6 +84,8 @@ func _ready() -> void:
 			crop_plot.tilled = true; crop_plot.planted = true; crop_plot.watered = true; crop_plot.stage = 4; crop_plot.growth = GROWTH_DURATION; crop_plot.crop_kind = crop_kinds[preview_index]; plots[preview_cell] = crop_plot
 	if "--first-level-preview" in OS.get_cmdline_user_args() or "--capture-first-level" in OS.get_cmdline_user_args(): language_screen=false; title_screen=false; current_location="overworld"; player=Vector2(1160,650); tutorial_visible=false
 	if "--capture-first-level" in OS.get_cmdline_user_args(): set_meta("capture_first_level_frames", 6); set_meta("capture_first_level_clean", true)
+	if "--tree-stages-preview" in OS.get_cmdline_user_args() or "--capture-tree-stages" in OS.get_cmdline_user_args(): TreeSystem.configure_preview(self)
+	if "--capture-tree-stages" in OS.get_cmdline_user_args(): set_meta("capture_tree_stage_frames",6)
 	if "--fence-preview" in OS.get_cmdline_user_args() or "--capture-fences" in OS.get_cmdline_user_args(): FenceSystem.configure_preview(self)
 	if "--capture-fences" in OS.get_cmdline_user_args(): set_meta("capture_fence_frames",6)
 	if "--moon-glade-preview" in OS.get_cmdline_user_args():
@@ -149,6 +151,7 @@ func _ready() -> void:
 ## Сохраняет автоматические игровые скриншоты после нескольких отрисованных кадров в режимах визуальной проверки.
 func _process(_delta: float) -> void:
 	LevelEditorSystem.update_export_capture(self)
+	if TreeSystem.update_preview_capture(self): return
 	if has_meta("capture_talent_frames"):
 		var talent_frames_left := int(get_meta("capture_talent_frames")) - 1; set_meta("capture_talent_frames", talent_frames_left)
 		if talent_frames_left <= 0:

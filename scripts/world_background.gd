@@ -12,7 +12,7 @@ const ROAD_TILE := preload("res://assets/game/tiles/road-brick.png")
 const CAVE_FLOOR_TILE := preload("res://assets/game/tiles/cave-floor.png")
 const WATER_TILE := preload("res://assets/game/fishing/Water Tile.png")
 const BRIDGES := preload("res://assets/game/environment/bridges.png")
-const FOREST_TREE := preload("res://assets/game/environment/forest_tree.png")
+const FOREST_TREE_GROWTH_ATLAS := preload("res://assets/game/environment/forest_tree_growth_atlas_v1.png")
 const VILLAGE_PROPS := preload("res://assets/game/environment/village_prop_atlas.png")
 const RESOURCE_ROCK := preload("res://assets/game/resources/rock.png")
 const FIRST_LEVEL_MASTER := preload("res://assets/game/locations/overworld/overworld_master_24_v2.png")
@@ -201,7 +201,7 @@ func draw_meadow_texture() -> void:
 ## Формирует плотную лесную рамку и каменистый угол шахты, как в выбранном концепте локации.
 func draw_village_border() -> void:
 	for position in VillageLayoutSystem.BORDER_TREES:
-		draw_texture_rect(FOREST_TREE, Rect2(position - Vector2(72, 98), Vector2(144, 144)), false, Color(0.78, 0.94, 0.78, 0.92))
+		draw_texture_rect_region(FOREST_TREE_GROWTH_ATLAS,Rect2(position-Vector2(96,144),Vector2(192,192)),Rect2(768,0,256,256),Color(0.78,0.94,0.78,0.92))
 	for position in VillageLayoutSystem.BORDER_ROCKS:
 		draw_texture_rect(RESOURCE_ROCK, Rect2(position - Vector2(34, 34), Vector2(68, 68)), false, Color("c7c8b5"))
 

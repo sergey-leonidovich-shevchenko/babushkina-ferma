@@ -344,22 +344,17 @@ func draw_fishing_animations() -> void:
 func draw_tree_nodes() -> void:
 	if current_location != "overworld": return
 	for tree in state.world.tree_nodes:
-		var position: Vector2 = tree.position
 		var stage: int = tree.stage
 		var flash: float = tree.hit_flash
-		if stage == 0:
-			VillageAmbientRenderer.draw_stump(self, position)
-		else:
-			var size := Vector2(64, 64) if stage == 1 else (Vector2(128, 128) if stage == 2 else Vector2(192, 192))
-			var anchor := Vector2(size.x * 0.5, size.y * 0.67)
-			var tint := Color(1.0, 0.72, 0.62) if flash > 0.0 else Color.WHITE
-			draw_texture_rect(FOREST_TREE, Rect2(position - anchor, size), false, tint)
+		var destination:=TreeSystem.destination_rect(tree)
+		var tint := Color(1.0, 0.72, 0.62) if flash > 0.0 else Color.WHITE
+		draw_texture_rect_region(FOREST_TREE_GROWTH_ATLAS,destination,TreeSystem.source_rect(stage),tint)
 		if stage < 3:
 			var progress: float = TreeSystem.regrow_progress(tree)
-			var bar := Rect2(position + Vector2(-34, 49), Vector2(68, 8))
+			var bar := Rect2(Vector2(destination.get_center().x-36,destination.end.y+6), Vector2(72, 8))
 			draw_rect(bar, Color("243b35")); draw_rect(Rect2(bar.position + Vector2.ONE, Vector2((bar.size.x - 2) * progress, bar.size.y - 2)), Color("70c66a"))
 		if stage == 3 and int(tree.health) < TreeSystem.MAX_HEALTH:
-			for heart in TreeSystem.MAX_HEALTH: draw_circle(position + Vector2(-14 + heart * 14, -68), 4, Color("df6657") if heart < int(tree.health) else Color("5b493e"))
+			for heart in TreeSystem.MAX_HEALTH: draw_circle(Vector2(destination.get_center().x-14+heart*14,destination.position.y-8),4,Color("df6657") if heart<int(tree.health) else Color("5b493e"))
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_resource_nodes() -> void:
