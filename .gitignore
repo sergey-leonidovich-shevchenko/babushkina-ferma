@@ -32,3 +32,8 @@ tmp/
 !/assets/generated/ui/hud_ingame_preview.png
 !/assets/generated/ui/language_ingame_preview.png
 !/assets/generated/ui/defeat_ingame_preview.png
+!/assets/generated/ui/inventory_ingame_preview.png
+!/assets/generated/ui/shop_ingame_preview.png
+!/assets/generated/ui/crafting_ingame_preview.png
+!/assets/generated/ui/storage_ingame_preview.png
+!/assets/generated/ui/forge_ingame_preview.png

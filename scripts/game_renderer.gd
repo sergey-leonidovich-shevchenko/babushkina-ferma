@@ -591,107 +591,16 @@ func draw_skill_menu() -> void:
 
 ## Отрисовывает крафта окна по текущему состоянию игры.
 func draw_crafting_window() -> void:
-	draw_rect(Rect2(170, 70, 812, 510), Color("33271f"))
-	draw_rect(Rect2(190, 90, 772, 470), Color("e8cf96"))
-	draw_rect(Rect2(190, 90, 772, 64), Color("744b32"))
-	var station_title := "КОТЕЛОК • ДОМАШНЯЯ КУХНЯ" if crafting_station == "cauldron" else LocaleSystem.ui("workbench")
-	draw_string(UI_FONT, Vector2(326, 132), station_title, HORIZONTAL_ALIGNMENT_CENTER, 500, 28, Color("fff1c4"))
-	var visible := CraftingSystem.visible_indices(self)
-	var selected_position := maxi(visible.find(crafting_selected), 0)
-	var first_position := clampi(selected_position - 4, 0, maxi(0, visible.size() - 9))
-	for position in range(first_position, mini(first_position + 9, visible.size())):
-		var index: int = visible[position]
-		var recipe: Dictionary = CraftingSystem.RECIPES[index]
-		var row := Rect2(220, 164 + (position - first_position) * 43, 712, 38)
-		draw_rect(row, Color("f2c96f") if index == crafting_selected else Color("fff0bd"))
-		draw_string(UI_FONT, row.position + Vector2(18, 25), inventory_item_name(recipe.output), HORIZONTAL_ALIGNMENT_LEFT, 230, 15, Color("493b2f"))
-		draw_string(UI_FONT, row.position + Vector2(250, 25), CraftingSystem.ingredients_text(self, recipe), HORIZONTAL_ALIGNMENT_LEFT, 440, 12, Color("49704d") if CraftingSystem.can_craft(self, recipe) else Color("a64d45"))
-	draw_string(UI_FONT, Vector2(220, 535), LocaleSystem.ui("craft_help"), HORIZONTAL_ALIGNMENT_CENTER, 712, 16, Color("493b2f"))
+	ItemWindowRenderer.draw_crafting(self)
 
 ## Отрисовывает магазина по текущему состоянию игры.
 func draw_shop() -> void:
-	# Отдельная сцена-интерьер поверх игрового мира.
-	draw_rect(Rect2(112, 70, 928, 520), Color("33271f"))
-	draw_rect(Rect2(132, 90, 888, 480), Color("f0d49a"))
-	for plank_y in range(108, 560, 32):
-		draw_line(Vector2(132, plank_y), Vector2(1020, plank_y), Color("d8b878"), 2)
-	draw_rect(Rect2(132, 90, 888, 72), Color("744b32"))
-	draw_string(UI_FONT, Vector2(576, 138), LocaleSystem.ui("shop"), HORIZONTAL_ALIGNMENT_CENTER, 500, 30, Color("fff1c4"))
-	# Прилавок и декоративные припасы из набора.
-	draw_rect(Rect2(158, 190, 210, 302), Color("9b663d"))
-	draw_texture_rect_region(SUPPLY_SHEET, Rect2(175, 208, 176, 136), Rect2(0, 0, 176, 136))
-	draw_string(UI_FONT, Vector2(174, 470), LocaleSystem.ui("grandma_stock"), HORIZONTAL_ALIGNMENT_LEFT, -1, 18, Color("fff1c4"))
-	# Таблица товаров.
-	var table := Rect2(405, 174, 570, 340)
-	draw_rect(table, Color("fff4cf"))
-	draw_rect(Rect2(table.position, Vector2(table.size.x, 42)), Color("53704b"))
-	draw_string(UI_FONT, table.position + Vector2(62, 28), LocaleSystem.ui("product"), HORIZONTAL_ALIGNMENT_LEFT, -1, 15, Color.WHITE)
-	draw_string(UI_FONT, table.position + Vector2(350, 28), LocaleSystem.ui("buy"), HORIZONTAL_ALIGNMENT_LEFT, -1, 15, Color.WHITE)
-	draw_string(UI_FONT, table.position + Vector2(455, 28), LocaleSystem.ui("sell"), HORIZONTAL_ALIGNMENT_LEFT, -1, 15, Color.WHITE)
-	var first_product := clampi(shop_selected - 4, 0, maxi(0, shop_products.size() - 9))
-	for i in range(first_product, mini(first_product + 9, shop_products.size())):
-		var product: Dictionary = shop_products[i]
-		var row := Rect2(table.position + Vector2(0, 42 + (i - first_product) * 32), Vector2(table.size.x, 32))
-		draw_rect(row, Color("f2c96f") if i == shop_selected else Color("f8e8b5"))
-		draw_rect(row, Color("76543c"), false, 2)
-		if product.has("icon"):
-			draw_texture_rect_region(SUPPLY_SHEET, Rect2(row.position + Vector2(15, 3), Vector2(24, 26)), product.icon)
-		else:
-			draw_item_icon(product.kind, Rect2(row.position + Vector2(13, 3), Vector2(26, 26)))
-		draw_string(UI_FONT, row.position + Vector2(48, 22), inventory_item_name(product.kind), HORIZONTAL_ALIGNMENT_LEFT, 295, 13, Color("3d3428"))
-		draw_string(UI_FONT, row.position + Vector2(370, 22), ("%d 🪙" % product.buy) if product.buy > 0 else "—", HORIZONTAL_ALIGNMENT_LEFT, -1, 13, Color("3d3428"))
-		draw_string(UI_FONT, row.position + Vector2(478, 22), ("%d 🪙" % product.sell) if product.sell > 0 else "—", HORIZONTAL_ALIGNMENT_LEFT, -1, 13, Color("3d3428"))
-	draw_string(UI_FONT, Vector2(690, 535), LocaleSystem.ui("shop_help"), HORIZONTAL_ALIGNMENT_CENTER, 560, 16, Color("493b2f"))
+	ItemWindowRenderer.draw_shop(self)
 
 ## Отрисовывает две колонки домашнего сундука и команды переноса предметов.
 func draw_storage_window() -> void:
-	draw_rect(Rect2(54, 64, 1044, 510), Color("17251f"))
-	draw_rect(Rect2(72, 82, 1008, 474), Color("d7bd82"))
-	draw_rect(Rect2(72, 82, 1008, 58), Color("70472d"))
-	draw_string(UI_FONT, Vector2(326, 121), LocaleSystem.ui("home_storage"), HORIZONTAL_ALIGNMENT_CENTER, 500, 26, Color("fff1c4"))
-	draw_string(UI_FONT, Vector2(96, 158), LocaleSystem.ui("backpack_column"), HORIZONTAL_ALIGNMENT_LEFT, 430, 16, Color("493b2f"))
-	draw_string(UI_FONT, Vector2(626, 158), LocaleSystem.ui("chest_column"), HORIZONTAL_ALIGNMENT_LEFT, 430, 16, Color("493b2f"))
-	draw_storage_column(StorageSystem.inventory_items(self), 0, Rect2(96, 168, 430, 320))
-	draw_storage_column(StorageSystem.stored_items(self), 1, Rect2(626, 168, 430, 320))
-	draw_rect(InterfaceRenderer.STORAGE_TRANSFER_ONE, Color("6b8f60"))
-	draw_rect(InterfaceRenderer.STORAGE_TRANSFER_ALL, Color("8f7045"))
-	draw_string(UI_FONT, InterfaceRenderer.STORAGE_TRANSFER_ONE.position + Vector2(4, 24), LocaleSystem.ui("transfer_one"), HORIZONTAL_ALIGNMENT_CENTER, 108, 12, Color.WHITE)
-	draw_string(UI_FONT, InterfaceRenderer.STORAGE_TRANSFER_ALL.position + Vector2(4, 24), LocaleSystem.ui("transfer_all"), HORIZONTAL_ALIGNMENT_CENTER, 108, 12, Color.WHITE)
-	draw_string(UI_FONT, Vector2(96, 548), LocaleSystem.ui("storage_help"), HORIZONTAL_ALIGNMENT_CENTER, 960, 13, Color("493b2f"))
-
-## Отрисовывает одну прокручиваемую колонку предметов домашнего сундука.
-func draw_storage_column(items: Array[String], side: int, rect: Rect2) -> void:
-	draw_rect(rect, Color("fff0bd"))
-	var selected := storage_selected if storage_side == side else 0
-	var start := StorageSystem.visible_start(selected, items.size())
-	for visible_index in StorageSystem.MAX_VISIBLE_ROWS:
-		var index := start + visible_index
-		var row := Rect2(rect.position + Vector2(0, visible_index * 40), Vector2(rect.size.x, 40))
-		var active := storage_side == side and index == storage_selected
-		draw_rect(row, Color("efc766") if active else (Color("f3dfaa") if visible_index % 2 == 0 else Color("ead39a")))
-		if index >= items.size(): continue
-		var kind: String = items[index]
-		draw_item_icon(kind, Rect2(row.position + Vector2(8, 5), Vector2(30, 30)))
-		draw_string(UI_FONT, row.position + Vector2(48, 25), inventory_item_name(kind), HORIZONTAL_ALIGNMENT_LEFT, 290, 13, Color("3d3428"))
-		var amount := inventory_item_count(kind) if side == 0 else state.storage.count(kind)
-		draw_string(UI_FONT, row.position + Vector2(350, 25), "×%d" % amount, HORIZONTAL_ALIGNMENT_RIGHT, 60, 13, Color("3d3428"))
+	ItemWindowRenderer.draw_storage(self)
 
 ## Отрисовывает список постоянных улучшений кузницы с уровнями и стоимостью.
 func draw_forge_window() -> void:
-	draw_rect(Rect2(120, 64, 912, 520), Color("241d1a"))
-	draw_rect(Rect2(142, 84, 868, 478), Color("c7a46d"))
-	draw_rect(Rect2(142, 84, 868, 58), Color("563b32"))
-	draw_string(UI_FONT, Vector2(326, 123), LocaleSystem.ui("forge_title"), HORIZONTAL_ALIGNMENT_CENTER, 500, 26, Color("fff1c4"))
-	for index in ForgeSystem.UPGRADES.size():
-		var upgrade: Dictionary = ForgeSystem.UPGRADES[index]
-		var row := Rect2(164, 154 + index * 44, 824, 40)
-		var current_level := ForgeSystem.level(self, upgrade.kind)
-		draw_rect(row, Color("e9c36f") if index == forge_selected else Color("ecd8a6"))
-		draw_item_icon(upgrade.kind, Rect2(row.position + Vector2(7, 5), Vector2(30, 30)))
-		draw_string(UI_FONT, row.position + Vector2(48, 26), inventory_item_name(upgrade.kind), HORIZONTAL_ALIGNMENT_LEFT, 230, 14, Color("3d3428"))
-		draw_string(UI_FONT, row.position + Vector2(280, 26), LocaleSystem.ui("upgrade_level", [current_level, ForgeSystem.MAX_UPGRADE_LEVEL]), HORIZONTAL_ALIGNMENT_LEFT, 120, 12, Color("5b4934"))
-		var cost := LocaleSystem.ui("upgrade_max") if current_level >= ForgeSystem.MAX_UPGRADE_LEVEL else ForgeSystem.cost_text(self, upgrade)
-		draw_string(UI_FONT, row.position + Vector2(408, 26), cost, HORIZONTAL_ALIGNMENT_LEFT, 400, 11, Color("49704d") if ForgeSystem.can_upgrade(self, index) else Color("a64d45"))
-		var durability: int = int(state.inventory.durability.get(upgrade.kind, state.inventory.durability.get("sword", 100) if upgrade.kind == "sword" else -1))
-		if durability >= 0: draw_string(UI_FONT, row.position + Vector2(690, 26), "◆ %d%%" % durability, HORIZONTAL_ALIGNMENT_RIGHT, 110, 11, Color("49704d") if durability > 20 else Color("a64d45"))
-	draw_string(UI_FONT, Vector2(164, 552), "%s • R / X — ремонт" % LocaleSystem.ui("forge_help"), HORIZONTAL_ALIGNMENT_CENTER, 824, 13, Color("493b2f"))
+	ItemWindowRenderer.draw_forge(self)

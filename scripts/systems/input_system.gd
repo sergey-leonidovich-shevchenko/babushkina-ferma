@@ -226,7 +226,7 @@ static func handle_storage_touch(game: Node, position: Vector2) -> bool:
 			game.storage_side = side
 			var items: Array[String] = game.StorageSystem.selected_items(game)
 			var start: int = game.StorageSystem.visible_start(game.storage_selected if side == previous_side else 0, items.size())
-			game.storage_selected = mini(start + int((position.y - 168.0) / 40.0), maxi(items.size() - 1, 0))
+			game.storage_selected = mini(start + int((position.y - game.InterfaceRenderer.STORAGE_LEFT_ROWS.position.y) / 40.0), maxi(items.size() - 1, 0))
 	game.queue_redraw()
 	return true
 

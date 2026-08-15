@@ -4,6 +4,7 @@ extends "res://tests/suites/suite_base.gd"
 ## Запускает все сценарии текущего набора тестов в фиксированном порядке.
 func run() -> void:
 	test_inventory_uses_grandmother_skin_and_six_rows()
+	test_item_windows_share_storybook_shell_and_close_control()
 	test_inventory_layout_and_touch_mapping()
 	test_item_context_and_actions()
 	test_hud_layout_is_compact_and_safe()
@@ -15,6 +16,27 @@ func run() -> void:
 	test_sprite_cards_and_action_controls_use_sliced_atlases()
 	test_touch_controls_follow_last_input_device()
 	test_hotbar_readiness_and_hud_feedback_animations()
+
+
+## Сценарий: рюкзак, лавка, верстак, сундук и кузница образуют одно художественное семейство.
+## Исходное состояние: общий renderer и пять эталонных снимков доступны, а рюкзак открыт для проверки кнопки закрытия.
+## Ожидаемый результат: секции входят в общий каркас, снимки сохраняют 16:9, фокус не использует внешнюю рамку и крестик закрывает окно.
+func test_item_windows_share_storybook_shell_and_close_control() -> void:
+	var game := make_game()
+	var renderer = game.ItemWindowRenderer
+	for section in [renderer.CRAFT_SECTION, renderer.SHOP_STOCK_SECTION, renderer.SHOP_TABLE_SECTION, renderer.STORAGE_LEFT_SECTION, renderer.STORAGE_RIGHT_SECTION, renderer.FORGE_SECTION]:
+		expect(renderer.SHELL.encloses(section), "shared storybook shell encloses every item-window section")
+	expect(not game.InterfaceRenderer.STORAGE_LEFT_ROWS.intersects(game.InterfaceRenderer.STORAGE_TRANSFER_ONE) and not game.InterfaceRenderer.STORAGE_RIGHT_ROWS.intersects(game.InterfaceRenderer.STORAGE_TRANSFER_ALL), "storage rows stay clear of transfer controls after grid alignment")
+	var interface_source := FileAccess.get_file_as_string("res://scripts/systems/interface_renderer.gd")
+	expect(not interface_source.contains("draw_rect(rect.grow(2)") and not interface_source.contains("draw_rect(rect.grow(1)"), "inventory and hotbar focus use selected sprite art instead of an external yellow rectangle")
+	for name in ["inventory", "shop", "crafting", "storage", "forge"]:
+		var path := "res://assets/generated/ui/%s_ingame_preview.png" % name
+		var preview := Image.load_from_file(ProjectSettings.globalize_path(path))
+		expect(preview != null and preview.get_width() >= 1152 and absf(float(preview.get_width()) / preview.get_height() - 16.0 / 9.0) < 0.01, "%s item window keeps a native-or-larger 16:9 reference" % name)
+	game.open_inventory()
+	var close := InputEventMouseButton.new(); close.button_index = MOUSE_BUTTON_LEFT; close.pressed = true; close.position = renderer.CLOSE_BUTTON.get_center()
+	expect(game.handle_gamepad_and_touch(close) and not renderer.is_open(game), "painted close button dismisses the active item window through the shared hit zone")
+	game.free()
 
 
 ## Сценарий: рюкзак использует утверждённый резной скин и сетку эталона 6×6.

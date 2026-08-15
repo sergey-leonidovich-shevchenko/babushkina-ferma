@@ -1288,6 +1288,9 @@ func update_input_device(event: InputEvent) -> void:
 ## Обрабатывает относящееся к методу событие и синхронизирует зависимое состояние.
 func handle_gamepad_and_touch(event: InputEvent) -> bool:
 	var world_controls_visible := not (shop_open or inventory_open or crafting_open or storage_open or forge_open or contract_open or quest_log_open or skill_menu_open or world_map_open); if world_controls_visible and event is InputEventJoypadButton and event.button_index == JOY_BUTTON_RIGHT_STICK: CombatSystem.set_blocking(self, event.pressed); return true
+	var close_pointer: bool = (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT) or (event is InputEventScreenTouch and event.pressed)
+	if ItemWindowRenderer.is_open(self) and close_pointer and ItemWindowRenderer.CLOSE_BUTTON.has_point(event.position):
+		return ItemWindowRenderer.close_active(self)
 	if world_controls_visible and event is InputEventJoypadButton and event.pressed and event.button_index==JOY_BUTTON_MISC1: return SpellSystem.cast(self)
 	if world_controls_visible and event is InputEventJoypadButton and event.pressed and event.button_index==JOY_BUTTON_PADDLE1: SpellSystem.cycle(self); return true
 	if world_controls_visible and event is InputEventScreenTouch and event.pressed and SpellRenderer.CAST_BUTTON.has_point(event.position): return SpellSystem.cast(self)

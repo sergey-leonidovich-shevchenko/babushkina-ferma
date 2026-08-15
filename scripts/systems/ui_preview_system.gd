@@ -4,6 +4,7 @@ extends RefCounted
 ## Настраивает запрошенный системный экран и при необходимости включает автоматический снимок.
 static func configure(game: Node) -> void:
 	var arguments := OS.get_cmdline_user_args()
+	if configure_item_window_capture(game, arguments): return
 	if "--capture-hud" in arguments:
 		game.language_screen = false; game.title_screen = false; game.current_location = "overworld"; game.tutorial_visible = false; game.message = ""
 		game.player = Vector2(1160, 650); game.set_meta("capture_hud_clean", true); game.set_meta("capture_ui_frames", 6); game.set_meta("capture_ui_output", "res://assets/generated/ui/hud_ingame_preview.png")
@@ -23,6 +24,31 @@ static func configure(game: Node) -> void:
 	if "--capture-settings" in arguments:
 		game.set_meta("capture_ui_frames", 6)
 		game.set_meta("capture_ui_output", "res://assets/generated/ui/system_settings_ingame_preview.png")
+
+
+## Настраивает один из пяти предметных экранов как воспроизводимый полноэкранный визуальный эталон.
+static func configure_item_window_capture(game: Node, arguments: PackedStringArray) -> bool:
+	var mode := ""
+	var outputs := {
+		"--capture-inventory":"inventory_ingame_preview.png", "--capture-shop":"shop_ingame_preview.png",
+		"--capture-crafting":"crafting_ingame_preview.png", "--capture-storage":"storage_ingame_preview.png",
+		"--capture-forge":"forge_ingame_preview.png",
+	}
+	for flag in outputs:
+		if flag in arguments: mode = flag; break
+	if mode.is_empty(): return false
+	game.language_screen = false; game.title_screen = false; game.current_location = "overworld"; game.tutorial_visible = false; game.message = ""
+	game.set_meta("capture_hud_clean", true); game.set_meta("capture_ui_frames", 6)
+	game.set_meta("capture_ui_output", "res://assets/generated/ui/%s" % outputs[mode])
+	match mode:
+		"--capture-inventory": game.open_inventory()
+		"--capture-shop": game.shop_open = true; game.shop_selected = 0; game.coins = 240
+		"--capture-crafting": game.CraftingSystem.open(game, "workbench")
+		"--capture-storage":
+			game.home_chest_owned = true; game.current_location = "cottage_interior"; game.state.storage.change("carrot", 12); game.state.storage.change("crystal", 4); game.StorageSystem.open(game)
+		"--capture-forge":
+			game.current_location = "forge_interior"; game.change_inventory_count("sword", 1); game.materials.metal = 8; game.materials.stone = 5; game.open_forge()
+	return true
 
 
 ## Убирает сюжетные карточки только из чистого эталона HUD после инициализации живого мира.

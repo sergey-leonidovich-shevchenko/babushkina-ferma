@@ -13,6 +13,7 @@ const HUD_QUEST_ICON := preload("res://assets/game/ui/hud/grandmother_hud_quest_
 const CONTROL_ATLAS := preload("res://assets/game/ui/controls/control_atlas.png")
 const CARD_ATLAS := preload("res://assets/game/ui/cards/card_atlas.png")
 const HudRenderer := preload("res://scripts/systems/hud_renderer.gd")
+const UiKitSystem := preload("res://scripts/systems/ui_kit_system.gd")
 const WEATHER_ICONS := {
 	"clear":preload("res://assets/game/ui/hud/weather_clear.tres"),
 	"rain":preload("res://assets/game/ui/hud/weather_rain.tres"),
@@ -53,10 +54,10 @@ const INTERACTION_PROMPT := Rect2(840, 438, 294, 58)
 const HOTBAR_ORIGIN := Vector2(207, 568)
 const HOTBAR_SLOT_SIZE := INVENTORY_HOTBAR_SIZE
 const HOTBAR_PITCH := INVENTORY_HOTBAR_PITCH
-const STORAGE_LEFT_ROWS := Rect2(96, 168, 430, 320)
-const STORAGE_RIGHT_ROWS := Rect2(626, 168, 430, 320)
-const STORAGE_TRANSFER_ONE := Rect2(454, 494, 116, 36)
-const STORAGE_TRANSFER_ALL := Rect2(582, 494, 116, 36)
+const STORAGE_LEFT_ROWS := Rect2(96, 190, 430, 320)
+const STORAGE_RIGHT_ROWS := Rect2(626, 190, 430, 320)
+const STORAGE_TRANSFER_ONE := Rect2(454, 520, 116, 36)
+const STORAGE_TRANSFER_ALL := Rect2(582, 520, 116, 36)
 const FORGE_ROWS := Rect2(164, 154, 824, 396)
 const CONTRACT_ROWS := Rect2(154, 190, 844, 300)
 const QUEST_PREV := Rect2(170, 526, 54, 34)
@@ -263,8 +264,7 @@ static func draw_inventory_title(game: Node, label: String, rect: Rect2, font_si
 
 ## Накладывает только динамическую подпись и состояние доступности, сохраняя нарисованную кнопку скина.
 static func draw_inventory_button_label(game: Node, rect: Rect2, label: String, enabled: bool, color: Color) -> void:
-	if not enabled:
-		game.draw_rect(rect.grow(-3), Color(0.12, 0.12, 0.1, 0.48))
+	if not enabled: game.draw_rect(rect.grow(-3), Color(0.12, 0.12, 0.1, 0.48))
 	game.draw_string(game.UI_FONT, rect.position + Vector2(4, rect.size.y * 0.68), label, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 8, 10, color if enabled else Color("a89f82"))
 
 
@@ -273,9 +273,7 @@ static func draw_category_tabs(game: Node) -> void:
 	var symbols := ["▦", "⚒", "●", "♜", "◆", "!"]
 	for index in game.InventorySystem.FILTERS.size():
 		var filter_id: String = game.InventorySystem.FILTERS[index]; var active: bool = game.inventory_filter == filter_id; var rect: Rect2 = inventory_category_rect(index)
-		if active:
-			game.draw_rect(rect.grow(-3), Color(0.31, 0.43, 0.22, 0.88))
-			game.draw_rect(rect, GOLD, false, 2.0)
+		UiKitSystem.draw_nine_patch(game, "tab_selected" if active else "tab_normal", rect)
 		game.draw_string(game.UI_FONT, rect.position + Vector2(4, 17), symbols[index], HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 8, 15, Color("ffe8a8"))
 		var label: String = game.LocaleSystem.ui("inventory_all") if filter_id == "all" else game.LocaleSystem.ui("category_" + filter_id)
 		game.draw_string(game.UI_FONT, rect.position + Vector2(4, 37), label, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 8, 7, Color("fff1bd"))
@@ -286,10 +284,8 @@ static func draw_inventory_slot(game: Node, index: int, visible_index: int) -> v
 	var rect: Rect2 = inventory_slot_rect(visible_index)
 	var selected: bool = index == game.inventory_selected
 	var moving: bool = index == game.inventory_move_from
-	if moving: game.draw_rect(rect.grow(-4), Color(0.55, 0.76, 0.46, 0.38))
-	if selected:
-		var pulse := 0.72 + sin(Time.get_ticks_msec() / 145.0) * 0.18
-		game.draw_rect(rect.grow(2), Color(1.0, 0.72, 0.17, pulse), false, 3.0)
+	UiKitSystem.draw_slot(game, rect, selected)
+	if moving: game.draw_rect(rect.grow(-8), Color(0.55, 0.76, 0.46, 0.30))
 	var kind: String = game.inventory_slots[index]
 	if kind.is_empty() or game.inventory_item_count(kind) <= 0: return
 	game.draw_item_icon(kind, inventory_icon_rect(visible_index))
@@ -300,6 +296,7 @@ static func draw_inventory_slot(game: Node, index: int, visible_index: int) -> v
 static func draw_scrollbar(game: Node) -> void:
 	var total_rows := ceili(float(game.InventorySystem.filtered_indices(game).size()) / game.InventorySystem.COLUMNS)
 	var track := Rect2(542, 174, 7, 292)
+	game.draw_texture_rect(UiKitSystem.texture("scrollbar"), Rect2(530, 164, 31, 312), false)
 	var thumb_height := maxf(30.0, track.size.y * game.InventorySystem.VISIBLE_ROWS / float(maxi(total_rows, game.InventorySystem.VISIBLE_ROWS)))
 	var ratio := float(game.inventory_scroll_row) / float(maxi(game.InventorySystem.max_scroll_row(game), 1))
 	game.draw_rect(Rect2(track.position + Vector2(0, (track.size.y - thumb_height) * ratio), Vector2(7, thumb_height)), Color("f2c55d"))
@@ -353,9 +350,7 @@ static func draw_hotbar_slot(game: Node, rect: Rect2, index: int) -> void:
 	var selected: bool = index == game.selected_hotbar
 	var kind: String = game.hotbar_slots[index]
 	var count: int = game.inventory_item_count(kind) if not kind.is_empty() else 0
-	if selected:
-		var pulse: float = 0.76 + sin(Time.get_ticks_msec() / 150.0) * 0.18
-		game.draw_rect(rect.grow(1), Color(1.0, 0.82, 0.28, pulse), false, 3.0)
+	UiKitSystem.draw_slot(game, rect, selected)
 	if not kind.is_empty(): game.draw_item_icon(kind, hotbar_icon_rect(rect))
 	if kind.is_empty() or count <= 0:
 		game.draw_rect(rect.grow(-4), Color(0.10, 0.07, 0.05, 0.50))
