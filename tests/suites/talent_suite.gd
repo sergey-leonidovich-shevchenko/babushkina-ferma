@@ -4,6 +4,7 @@ extends "res://tests/suites/suite_base.gd"
 func run() -> void:
 	test_dependent_talent_tree_and_permanent_effects()
 	test_talent_unlocks_farming_fishing_cooking_and_traps()
+	test_multirank_localization_respec_and_balance_debug()
 
 
 ## Сценарий: очко общего уровня открывает только доступный узел, а изученные боевые таланты постоянно меняют характеристики.
@@ -17,8 +18,8 @@ func test_dependent_talent_tree_and_permanent_effects() -> void:
 	expect(game.TalentSystem.unlock(game, "combat_strength"), "root strength talent spends one common level point")
 	expect(game.TalentSystem.unlock(game, "combat_vitality"), "vitality becomes available after strength")
 	expect(game.TalentSystem.unlock(game, "combat_agility"), "independent agility branch can use the remaining point")
-	expect(game.TalentSystem.combat_damage_bonus(game) == 1 and is_equal_approx(game.TalentSystem.movement_multiplier(game), 1.08), "combat talents expose real damage and movement bonuses")
-	expect(game.player_max_hp == base_hp + 15 and game.skill_points == 0, "vitality recalculates health and all three points are consumed")
+	expect(game.TalentSystem.combat_damage_bonus(game) == 1 and is_equal_approx(game.TalentSystem.movement_multiplier(game), 1.04), "combat talents expose rank-scaled damage and movement bonuses")
+	expect(game.player_max_hp == base_hp + 10 and game.skill_points == 0, "vitality recalculates health and all three points are consumed")
 	expect(game.tutorial_events_completed.has("talent_tree"), "first learned talent advances the dedicated tutorial")
 	game.free()
 
@@ -70,4 +71,24 @@ func test_talent_unlocks_farming_fishing_cooking_and_traps() -> void:
 	var loaded := make_game()
 	expect(loaded.SaveSystem.apply(loaded, snapshot) and loaded.talent_levels.fish_crab_traps == 1 and loaded.state.fishing.traps.size() == 1, "talent tree and persistent trap survive save roundtrip")
 	loaded.free()
+	game.free()
+
+
+## Сценарий: отдельные способности имеют несколько рангов, весь интерфейс локализован, а платный сброс возвращает очки.
+## Исходное состояние: герой с четырьмя очками, пятьюстами монетами и открытой диагностической панелью.
+## Ожидаемый результат: ранги суммируют эффект, тексты существуют на шести языках, сброс очищает билд и баланс отражает состояние.
+func test_multirank_localization_respec_and_balance_debug() -> void:
+	var game := make_game(); game.skill_points = 4; game.coins = game.TalentSystem.RESPEC_COST; var original_hp: int = game.player_max_hp
+	expect(game.TalentSystem.max_rank("combat_strength") == 3 and game.TalentSystem.unlock(game,"combat_strength") and game.TalentSystem.unlock(game,"combat_strength"), "strength accepts a second rank instead of treating the node as binary")
+	expect(game.TalentSystem.rank(game,"combat_strength") == 2 and game.TalentSystem.combat_damage_bonus(game) == 2, "two strength ranks provide two permanent damage")
+	for locale in game.LocaleSystem.LOCALES:
+		game.LocaleSystem.current = locale
+		expect(not game.TalentSystem.word(game,"combat_strength").is_empty() and not game.TalentSystem.word(game,"combat_strength",true).is_empty(), "talent name and description are localized for %s" % locale)
+	game.LocaleSystem.current = "ru"
+	var balance: Dictionary = game.DebugBalanceSystem.snapshot(game)
+	expect(balance.damage == game.CombatSystem.player_attack_damage(game) and balance.spent_points == 2 and balance.xp_sources.has("крафт"), "debug balance snapshot reports live build and XP source data")
+	game.DebugOverlaySystem.toggle(game); var debug_state: Dictionary = game.get_meta(game.DebugOverlaySystem.META_KEY)
+	expect(game.DebugOverlaySystem.handle_pointer(game,Rect2(794,454,150,28).get_center()) and bool(game.get_meta(game.DebugOverlaySystem.META_KEY).balance), "F10 balance button enables the live diagnostic card")
+	expect(game.TalentSystem.respec(game) and game.TalentSystem.spent_points(game) == 0 and game.skill_points == 4 and game.coins == 0, "paid respec clears every rank and refunds all invested points")
+	expect(game.tutorial_events_completed.has("talent_respec") and game.player_max_hp == original_hp, "respec recalculates resources and completes its tutorial step")
 	game.free()

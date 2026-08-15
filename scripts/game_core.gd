@@ -924,30 +924,11 @@ func open_skill_menu() -> void:
 	if skill_menu_open:
 		skill_menu_selected = clampi(skill_menu_selected, 0, TalentSystem.TALENTS.size() - 1)
 		clear_movement_keys()
-		message = "Выбери развитие. Свободных очков: %d" % skill_points
+		message = TalentSystem.word(self, "choose", false, [skill_points])
 
 ## Обрабатывает относящееся к методу событие и синхронизирует зависимое состояние.
 func handle_skill_menu_input(event: InputEvent) -> void:
-	if event is InputEventJoypadButton and event.pressed:
-		match event.button_index:
-			JOY_BUTTON_DPAD_LEFT: skill_menu_selected = posmod(skill_menu_selected - 5, TalentSystem.TALENTS.size())
-			JOY_BUTTON_DPAD_RIGHT: skill_menu_selected = posmod(skill_menu_selected + 5, TalentSystem.TALENTS.size())
-			JOY_BUTTON_DPAD_UP: skill_menu_selected = posmod(skill_menu_selected - 1, TalentSystem.TALENTS.size())
-			JOY_BUTTON_DPAD_DOWN: skill_menu_selected = posmod(skill_menu_selected + 1, TalentSystem.TALENTS.size())
-			JOY_BUTTON_A: TalentSystem.unlock(self, TalentSystem.at(skill_menu_selected).id)
-			JOY_BUTTON_Y, JOY_BUTTON_B, JOY_BUTTON_START: skill_menu_open = false
-		queue_redraw()
-		return
-	if not (event is InputEventKey and event.pressed and not event.echo):
-		return
-	match event.keycode:
-		KEY_ESCAPE, KEY_K: skill_menu_open = false
-		KEY_LEFT: skill_menu_selected = posmod(skill_menu_selected - 5, TalentSystem.TALENTS.size())
-		KEY_RIGHT: skill_menu_selected = posmod(skill_menu_selected + 5, TalentSystem.TALENTS.size())
-		KEY_UP: skill_menu_selected = posmod(skill_menu_selected - 1, TalentSystem.TALENTS.size())
-		KEY_DOWN: skill_menu_selected = posmod(skill_menu_selected + 1, TalentSystem.TALENTS.size())
-		KEY_ENTER, KEY_E: TalentSystem.unlock(self, TalentSystem.at(skill_menu_selected).id)
-	queue_redraw()
+	TalentInputSystem.handle(self, event)
 
 ## Выполняет операцию «атаки слизня» и возвращает результат согласно контракту метода.
 func attack_slime() -> bool:
@@ -1312,6 +1293,7 @@ func handle_gamepad_and_touch(event: InputEvent) -> bool:
 				if mouse_recipe >= 0: crafting_selected = mouse_recipe; CraftingSystem.craft(self, mouse_recipe); queue_redraw()
 				return true
 			if skill_menu_open:
+				if TalentRenderer.RESPEC_BUTTON.has_point(event.position): TalentSystem.respec(self); queue_redraw(); return true
 				var mouse_talent := TalentRenderer.node_at(event.position)
 				if mouse_talent >= 0: skill_menu_selected = mouse_talent; TalentSystem.unlock(self, TalentSystem.at(mouse_talent).id); queue_redraw()
 				return true
@@ -1382,6 +1364,7 @@ func handle_gamepad_and_touch(event: InputEvent) -> bool:
 			if touch_recipe >= 0: crafting_selected = touch_recipe; CraftingSystem.craft(self, touch_recipe); queue_redraw()
 			return true
 		if skill_menu_open:
+			if TalentRenderer.RESPEC_BUTTON.has_point(event.position): TalentSystem.respec(self); queue_redraw(); return true
 			var talent_index := TalentRenderer.node_at(event.position)
 			if talent_index >= 0:
 				skill_menu_selected = talent_index; TalentSystem.unlock(self, TalentSystem.at(skill_menu_selected).id); queue_redraw()

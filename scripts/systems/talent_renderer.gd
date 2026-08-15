@@ -5,6 +5,7 @@ const COLUMN_WIDTH := 244.0
 const COLUMN_GAP := 10.0
 const NODE_HEIGHT := 62.0
 const NODE_GAP := 7.0
+const RESPEC_BUTTON := Rect2(832, 548, 230, 28)
 
 
 ## Возвращает прямоугольник узла дерева, общий для мыши, касания и отрисовки.
@@ -28,14 +29,14 @@ static func draw(game: Node2D) -> void:
 	game.draw_rect(PANEL.grow(-5), Color("835124"))
 	game.draw_rect(Rect2(64, 44, 1024, 558), Color("ead39b"))
 	game.draw_rect(Rect2(64, 44, 1024, 84), Color("593118"))
-	game.draw_string(game.UI_FONT, Vector2(86, 80), "ДЕРЕВО СПОСОБНОСТЕЙ", HORIZONTAL_ALIGNMENT_LEFT, 480, 25, Color("fff0bd"))
-	game.draw_string(game.UI_FONT, Vector2(750, 76), "УРОВЕНЬ %d   •   ОЧКОВ %d" % [game.player_level, game.skill_points], HORIZONTAL_ALIGNMENT_RIGHT, 312, 16, Color("f7cc63"))
+	game.draw_string(game.UI_FONT, Vector2(86, 80), game.TalentSystem.word(game, "title"), HORIZONTAL_ALIGNMENT_LEFT, 480, 25, Color("fff0bd"))
+	game.draw_string(game.UI_FONT, Vector2(750, 76), game.LocaleSystem.ui("level_points", [game.player_level, game.skill_points]).to_upper(), HORIZONTAL_ALIGNMENT_RIGHT, 312, 16, Color("f7cc63"))
 	_draw_xp_bar(game)
 	for group_index in game.TalentSystem.GROUPS.size():
 		var group: Dictionary = game.TalentSystem.GROUPS[group_index]
 		var header := Rect2(72 + group_index * (COLUMN_WIDTH + COLUMN_GAP), 134, COLUMN_WIDTH, 26)
 		game.draw_rect(header, Color("68401f"))
-		game.draw_string(game.UI_FONT, header.position + Vector2(8, 18), "%s  %s" % [group.icon, group.name], HORIZONTAL_ALIGNMENT_CENTER, header.size.x - 16, 12, Color("fff0bd"))
+		game.draw_string(game.UI_FONT, header.position + Vector2(8, 18), "%s  %s" % [group.icon, game.TalentSystem.word(game, "group_%s" % group.id)], HORIZONTAL_ALIGNMENT_CENTER, header.size.x - 16, 12, Color("fff0bd"))
 	_draw_dependencies(game)
 	for index in game.TalentSystem.TALENTS.size():
 		_draw_node(game, index)
@@ -72,7 +73,8 @@ static func _draw_node(game: Node2D, index: int) -> void:
 	var talent: Dictionary = game.TalentSystem.TALENTS[index]
 	var rect := node_rect(index)
 	var selected: bool = index == game.skill_menu_selected
-	var learned: bool = game.TalentSystem.has(game, String(talent.id))
+	var current_rank: int = game.TalentSystem.rank(game, String(talent.id))
+	var learned: bool = current_rank > 0
 	var available: bool = game.TalentSystem.can_unlock(game, String(talent.id))
 	var outer := Color("efc75f") if selected else Color("59402a")
 	var inner := Color("b9d184") if learned else (Color("f5d77c") if available else Color("c8b58a"))
@@ -80,8 +82,8 @@ static func _draw_node(game: Node2D, index: int) -> void:
 	game.draw_rect(rect.grow(-3), inner)
 	game.draw_circle(rect.position + Vector2(26, 31), 17, Color("3f5a34") if learned else Color("6e5030"))
 	game.draw_string(game.UI_FONT, rect.position + Vector2(10, 37), String(talent.icon), HORIZONTAL_ALIGNMENT_CENTER, 32, 18, Color("fff4cd"))
-	game.draw_string(game.UI_FONT, rect.position + Vector2(50, 24), String(talent.name), HORIZONTAL_ALIGNMENT_LEFT, 178, 14, Color("3d2c20"))
-	var status := "ИЗУЧЕНО" if learned else ("ДОСТУПНО" if available else "ЗАКРЫТО")
+	game.draw_string(game.UI_FONT, rect.position + Vector2(50, 24), game.TalentSystem.word(game, String(talent.id)), HORIZONTAL_ALIGNMENT_LEFT, 178, 14, Color("3d2c20"))
+	var status: String = game.TalentSystem.word(game, "rank", false, [current_rank, game.TalentSystem.max_rank(String(talent.id))]) if learned else (game.TalentSystem.word(game, "available") if available else game.TalentSystem.word(game, "locked"))
 	game.draw_string(game.UI_FONT, rect.position + Vector2(50, 47), status, HORIZONTAL_ALIGNMENT_LEFT, 178, 10, Color("41613f") if learned else Color("755238"))
 
 
@@ -91,8 +93,10 @@ static func _draw_selected_details(game: Node2D) -> void:
 	var rect := Rect2(72, 516, 1008, 70)
 	game.draw_rect(rect, Color("6a4325"))
 	game.draw_rect(rect.grow(-3), Color("f4e1af"))
-	game.draw_string(game.UI_FONT, rect.position + Vector2(14, 25), String(talent.description), HORIZONTAL_ALIGNMENT_LEFT, 650, 13, Color("4a3525"))
+	game.draw_string(game.UI_FONT, rect.position + Vector2(14, 25), game.TalentSystem.word(game, String(talent.id), true), HORIZONTAL_ALIGNMENT_LEFT, 650, 13, Color("4a3525"))
 	var missing: Array[String] = game.TalentSystem.missing_requirements(game, String(talent.id))
-	var hint := "Enter / E / A — изучить" if missing.is_empty() else "Нужно: %s" % game.TalentSystem.requirement_names(missing)
+	var hint: String = game.TalentSystem.word(game, "learn_hint") if missing.is_empty() else game.TalentSystem.word(game, "need", false, [game.TalentSystem.requirement_names(game, missing)])
 	game.draw_string(game.UI_FONT, rect.position + Vector2(14, 50), hint, HORIZONTAL_ALIGNMENT_LEFT, 650, 11, Color("795534"))
-	game.draw_string(game.UI_FONT, rect.position + Vector2(690, 42), "K / Esc / B — закрыть", HORIZONTAL_ALIGNMENT_RIGHT, 294, 12, Color("795534"))
+	game.draw_rect(RESPEC_BUTTON, Color("80502f")); game.draw_rect(RESPEC_BUTTON, Color("d7aa52"), false, 2.0)
+	game.draw_string(game.UI_FONT, RESPEC_BUTTON.position + Vector2(6, 19), game.TalentSystem.word(game, "respec", false, [game.TalentSystem.RESPEC_COST]), HORIZONTAL_ALIGNMENT_CENTER, RESPEC_BUTTON.size.x - 12, 10, Color("fff0bd"))
+	game.draw_string(game.UI_FONT, rect.position + Vector2(690, 22), game.TalentSystem.word(game, "close"), HORIZONTAL_ALIGNMENT_RIGHT, 294, 10, Color("795534"))

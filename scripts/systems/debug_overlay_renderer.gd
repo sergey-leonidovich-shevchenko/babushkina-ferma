@@ -129,6 +129,7 @@ static func draw_panel(game: Node2D) -> void:
 		game.DebugObjectInspectorRenderer.draw_info(game,panel,target)
 		draw_lower_panel(game,state,panel)
 		game.DebugMissionRenderer.draw(game)
+		if bool(state.get("balance", false)): draw_balance(game)
 		return
 	var tile: Dictionary = game.DebugOverlaySystem.inspect_screen_point(game,pointer)
 	var status := "ПАУЗА" if state.paused else "RUN"
@@ -143,6 +144,7 @@ static func draw_panel(game: Node2D) -> void:
 	draw_legend(game, panel.position + Vector2(18,151), float(state.opacity))
 	draw_lower_panel(game,state,panel)
 	game.DebugMissionRenderer.draw(game)
+	if bool(state.get("balance", false)): draw_balance(game)
 
 
 ## Рисует общие кнопки, график и подсказки ниже взаимозаменяемых INFO/навигационных данных.
@@ -152,6 +154,16 @@ static func draw_lower_panel(game: Node2D, state: Dictionary, panel: Rect2) -> v
 	draw_graph(game, state, Rect2(panel.position + Vector2(20,466), Vector2(320,46)))
 	game.draw_string(game.UI_FONT, panel.position + Vector2(18,548), "G сетка · H хитбоксы · P пути · L подписи", HORIZONTAL_ALIGNMENT_LEFT, panel.size.x - 36, 12, Color("a9d9c2"))
 	game.draw_string(game.UI_FONT, panel.position + Vector2(18,568), "V noclip · Space пауза · . шаг · -/+ яркость", HORIZONTAL_ALIGNMENT_LEFT, panel.size.x - 36, 12, Color("a9d9c2"))
+
+
+## Рисует отдельную карточку живого баланса поверх локации по запросу тестировщика.
+static func draw_balance(game: Node2D) -> void:
+	var rect := Rect2(24, 78, 410, 252)
+	game.draw_rect(rect, Color(0.025,0.045,0.05,0.96)); game.draw_rect(rect, PANEL_BORDER, false, 3.0)
+	game.draw_string(game.UI_FONT, rect.position + Vector2(18,32), "БАЛАНС · ТЕКУЩИЙ БИЛД", HORIZONTAL_ALIGNMENT_LEFT, rect.size.x-36, 17, Color("caffdf"))
+	var lines: Array[String] = game.DebugBalanceSystem.lines(game)
+	for index in lines.size(): game.draw_string(game.UI_FONT, rect.position + Vector2(18,64+index*25), lines[index], HORIZONTAL_ALIGNMENT_LEFT, rect.size.x-36, 13, Color("e9fff3"))
+	game.draw_string(game.UI_FONT, rect.position + Vector2(18,226), "Источники XP: посадка 1 · урожай 3 · крафт 4 · ловушка 8", HORIZONTAL_ALIGNMENT_LEFT, rect.size.x-36, 10, Color("91b3a4"))
 
 
 ## Рисует четыре категории клеток с одинаковой прозрачностью текущего режима.

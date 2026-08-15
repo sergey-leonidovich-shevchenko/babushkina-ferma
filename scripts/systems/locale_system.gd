@@ -470,6 +470,7 @@ const TUTORIAL := {
 	"level_up":["Получи новый уровень","Gain a new level","Sube de nivel","Steige eine Stufe auf","Gagne un niveau","提升等级"],
 	"skill_point":["Вложи очко навыка [K]","Spend a skill point [K]","Gasta un punto [K]","Vergib einen Punkt [K]","Dépense un point [K]","分配技能点 [K]"],
 	"talent_tree":["Изучи талант и его зависимости [K]","Learn a talent and its prerequisites [K]","Aprende un talento y sus requisitos [K]","Erlerne ein Talent und seine Voraussetzungen [K]","Apprends un talent et ses prérequis [K]","学习天赋及其前置条件 [K]"],
+	"talent_respec":["При необходимости сбрось билд в дереве за монеты [R]","Reset your build for coins when needed [R]","Reinicia tu configuración por monedas cuando lo necesites [R]","Setze deinen Build bei Bedarf für Münzen zurück [R]","Réinitialise ton build contre des pièces si nécessaire [R]","需要时花费金币重置能力配置 [R]"],
 	"profession":["Развивай ремесло практикой","Train a profession","Entrena una profesión","Trainiere einen Beruf","Entraîne un métier","训练一种职业"],
 	"pause_menu":["Открой меню паузы [Esc/Start]","Open pause menu [Esc/Start]","Abre la pausa [Esc/Start]","Öffne das Pausenmenü [Esc/Start]","Ouvre la pause [Échap/Start]","打开暂停菜单 [Esc/Start]"],
 	"settings":["Измени параметр в меню настроек","Change an option in Settings","Cambia una opción en Ajustes","Ändere eine Einstellung","Modifie une option des paramètres","在设置中修改一项"],

@@ -18,7 +18,7 @@ const BUTTONS := [
 	{"rect":Rect2(964,378,150,28),"action":"opacity_up","label":"ЯРЧЕ","enabled":true},
 	{"rect":Rect2(794,420,150,28),"action":"farming","label":"ПАХОТНАЯ ЗЕМЛЯ","enabled":true},
 	{"rect":Rect2(964,420,150,28),"action":"level_editor","label":"КОНСТРУКТОР","enabled":true},
-	{"rect":Rect2(794,454,150,28),"action":"spawn","label":"СОЗДАТЬ ОБЪЕКТ","enabled":false},
+	{"rect":Rect2(794,454,150,28),"action":"balance","label":"БАЛАНС","enabled":true},
 	{"rect":Rect2(964,454,150,28),"action":"save_patch","label":"СОХРАНИТЬ ПАТЧ","enabled":false},
 ]
 
@@ -26,7 +26,7 @@ const BUTTONS := [
 ## Создаёт исходное состояние панели, не добавляемое в сохранение игры.
 static func default_state() -> Dictionary:
 	return {
-		"open":true, "grid":true, "hitboxes":false, "routes":false, "labels":false, "farming":false,
+		"open":true, "grid":true, "hitboxes":false, "routes":false, "labels":false, "farming":false, "balance":false,
 		"paused":false, "step_requested":false, "noclip":false, "grid_size":SpatialGridSystem.DEFAULT_DEBUG_SIZE,
 		"opacity":0.22, "refresh_left":0.0, "cache":[], "counts":{},
 		"cache_location":"", "cache_camera":Vector2(-9999,-9999), "frame_history":[],
@@ -121,7 +121,7 @@ static func handle_pointer(game: Node, point: Vector2) -> bool:
 		if not button.rect.has_point(point): continue
 		if not bool(button.get("enabled", true)): return true
 		match String(button.action):
-			"grid", "hitboxes", "routes", "labels", "noclip", "farming": toggle_option(game, button.action)
+			"grid", "hitboxes", "routes", "labels", "noclip", "farming", "balance": toggle_option(game, button.action)
 			"level_editor": game.LevelEditorSystem.toggle(game)
 			"pause": toggle_option(game, "paused")
 			"step": request_step(game)
