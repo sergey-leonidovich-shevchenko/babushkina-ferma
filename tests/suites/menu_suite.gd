@@ -11,6 +11,7 @@ func run() -> void:
 	test_pause_save_and_load_cycle()
 	test_fullscreen_is_default_and_migrates_legacy_windowed_config()
 	test_settings_persist_and_apply_audio_levels()
+	test_accessibility_and_control_preset_are_effective_and_persistent()
 	test_title_visual_design_assets_and_layout()
 	test_menu_keyboard_gamepad_touch_and_layout()
 	test_exit_is_safe_outside_scene_tree()
@@ -118,8 +119,9 @@ func test_fullscreen_is_default_and_migrates_legacy_windowed_config() -> void:
 	expect(not game.title_screen and game.settings_state.fullscreen_enabled, "starting gameplay from title keeps fullscreen state")
 	game.settings_state.fullscreen_enabled = false
 	expect(game.SettingsSystem.save(game,TEST_SETTINGS_PATH), "explicit later windowed choice can be saved")
+	var schema_two:=ConfigFile.new(); schema_two.load(TEST_SETTINGS_PATH); schema_two.set_value("meta","schema_version",2); schema_two.save(TEST_SETTINGS_PATH)
 	var restored := make_game()
-	expect(restored.SettingsSystem.load(restored,TEST_SETTINGS_PATH,false) and not restored.settings_state.fullscreen_enabled, "explicit schema-v2 windowed choice remains respected")
+	expect(restored.SettingsSystem.load(restored,TEST_SETTINGS_PATH,false) and not restored.settings_state.fullscreen_enabled, "explicit schema-v2 windowed choice remains respected during accessibility migration")
 	game.free(); restored.free()
 	cleanup_files()
 
@@ -138,7 +140,7 @@ func test_settings_persist_and_apply_audio_levels() -> void:
 	game.menu_state.settings_selected = 3; game.MenuSystem.adjust_setting(game, 1, TEST_SETTINGS_PATH, false)
 	game.menu_state.settings_selected = 4; game.MenuSystem.adjust_setting(game, 1, TEST_SETTINGS_PATH, false)
 	game.menu_state.settings_selected = 5; game.MenuSystem.adjust_setting(game, 1, TEST_SETTINGS_PATH, false)
-	game.menu_state.settings_selected = 6; game.MenuSystem.adjust_setting(game, 1, TEST_SETTINGS_PATH, false)
+	game.menu_state.settings_selected = 10; game.MenuSystem.adjust_setting(game, 1, TEST_SETTINGS_PATH, false)
 	expect(game.SettingsSystem.percent(game.settings_state.master_volume) == 90 and game.SettingsSystem.percent(game.settings_state.music_volume) == 80 and game.SettingsSystem.percent(game.settings_state.sfx_volume) == 80, "three volume controls move independently in ten-percent steps")
 	expect(not game.audio_enabled and not game.settings_state.fullscreen_enabled and not game.settings_state.vsync_enabled, "sound fullscreen and VSync toggles change independently")
 	expect(game.AudioSystem.music_volume_db(game) == game.AudioSystem.SILENT_DB and game.AudioSystem.sfx_volume_db(game) == game.AudioSystem.SILENT_DB, "disabled sound mutes both calculated audio channels")
@@ -151,6 +153,21 @@ func test_settings_persist_and_apply_audio_levels() -> void:
 	game.LocaleSystem.set_locale("ru", false)
 	game.free(); restored.free()
 	cleanup_files()
+
+
+## Сценарий: игрок включает доступность и выбирает леворукую схему управления из обычного меню.
+## Исходное состояние: анимации, дрожание и стандартные WASD включены, настройки ещё не сохранены.
+## Ожидаемый результат: эффекты успокаиваются, контраст усиливается, IJKL управляют героем и весь выбор переживает запуск.
+func test_accessibility_and_control_preset_are_effective_and_persistent() -> void:
+	cleanup_files(); var game:=make_game(); game.MenuSystem.open_settings(game,false)
+	for setting_index in [6,7,8,9]: game.menu_state.settings_selected=setting_index; game.MenuSystem.adjust_setting(game,1,TEST_SETTINGS_PATH,false)
+	expect(game.settings_state.reduced_motion and not game.settings_state.screen_shake_enabled and game.settings_state.high_contrast and game.settings_state.control_preset=="left_handed","accessibility switches and left-handed preset change independently")
+	game.AdventurePolishSystem.begin_action(game,"hit",game.player); expect(game.AdventurePolishSystem.shake_offset(game)==Vector2.ZERO,"reduced motion and disabled shake suppress camera displacement")
+	expect(is_equal_approx(game.MenuRenderer.title_highlight_modulate(0,true).a,game.MenuRenderer.title_highlight_modulate(408,true).a),"reduced motion turns the title pulse into a stable highlight")
+	var left_event:=key_event(KEY_J,KEY_J,true); expect(game.PlayerSystem.update_movement_key(game,left_event) and game.move_left_held,"left-handed preset remaps world movement through InputMap")
+	game.PlayerSystem.clear_keys(game); var old_event:=key_event(KEY_A,KEY_A,true); expect(not game.PlayerSystem.update_movement_key(game,old_event),"old WASD binding no longer fires after an explicit remap")
+	var restored:=make_game(); expect(restored.SettingsSystem.load(restored,TEST_SETTINGS_PATH,false) and restored.settings_state.reduced_motion and restored.settings_state.high_contrast and restored.settings_state.control_preset=="left_handed","accessibility and control preset persist across launch")
+	game.InputSystem.apply_control_preset("standard"); game.free(); restored.free(); cleanup_files()
 
 
 ## Сценарий: меню одинаково управляется клавиатурой, геймпадом и касанием по видимым строкам.
@@ -170,7 +187,7 @@ func test_menu_keyboard_gamepad_touch_and_layout() -> void:
 	expect(game.MenuSystem.handle_input(game, touch, TEST_SETTINGS_PATH, false) and not game.title_screen, "touch activates the exact New Game row")
 	var viewport := Rect2(0, 0, 1152, 648)
 	expect(viewport.encloses(game.MenuRenderer.TITLE_PANEL) and viewport.encloses(game.MenuRenderer.PAUSE_PANEL) and viewport.encloses(game.MenuRenderer.SETTINGS_PANEL), "all system panels fit the native viewport")
-	expect(game.MenuRenderer.title_item_at(game.MenuRenderer.title_item_rect(3).get_center()) == 3 and game.MenuRenderer.pause_item_at(game.MenuRenderer.pause_item_rect(5).get_center()) == 5 and game.MenuRenderer.settings_item_at(game.MenuRenderer.settings_item_rect(7).get_center()) == 7, "mouse and touch hit zones match rendered menu rows")
+	expect(game.MenuRenderer.title_item_at(game.MenuRenderer.title_item_rect(3).get_center()) == 3 and game.MenuRenderer.pause_item_at(game.MenuRenderer.pause_item_rect(5).get_center()) == 5 and game.MenuRenderer.settings_item_at(game.MenuRenderer.settings_item_rect(11).get_center()) == 11, "mouse and touch hit zones match rendered menu rows")
 	expect(viewport.encloses(game.InterfaceRenderer.PAUSE_BUTTON) and not game.InterfaceRenderer.PAUSE_BUTTON.intersects(game.InterfaceRenderer.hotbar_rect(0)), "touch pause control stays inside HUD and away from hotbar")
 	game.free()
 

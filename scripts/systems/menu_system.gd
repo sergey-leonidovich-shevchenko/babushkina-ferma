@@ -2,7 +2,7 @@ extends RefCounted
 
 const TITLE_ITEMS := ["continue_game", "new_game", "settings", "exit_game"]
 const PAUSE_ITEMS := ["resume", "save_game", "load_game", "settings", "return_main_menu", "exit_game"]
-const SETTING_ITEMS := ["master_volume", "music_volume", "sfx_volume", "sound_enabled", "fullscreen", "vsync", "language_option", "back"]
+const SETTING_ITEMS := ["master_volume", "music_volume", "sfx_volume", "sound_enabled", "fullscreen", "vsync", "reduced_motion", "screen_shake", "high_contrast", "control_preset", "language_option", "back"]
 
 static var start_after_reload := false
 
@@ -169,6 +169,10 @@ static func adjust_setting(game: Node, direction: int, path: String = "", apply_
 		"sound_enabled": game.audio_enabled = not game.audio_enabled
 		"fullscreen": game.settings_state.fullscreen_enabled = not game.settings_state.fullscreen_enabled
 		"vsync": game.settings_state.vsync_enabled = not game.settings_state.vsync_enabled
+		"reduced_motion": game.settings_state.reduced_motion = not game.settings_state.reduced_motion
+		"screen_shake": game.settings_state.screen_shake_enabled = not game.settings_state.screen_shake_enabled
+		"high_contrast": game.settings_state.high_contrast = not game.settings_state.high_contrast
+		"control_preset": game.settings_state.control_preset = "left_handed" if game.settings_state.control_preset=="standard" else "standard"; game.InputSystem.apply_control_preset(game.settings_state.control_preset)
 		"language_option":
 			var next := posmod(game.LocaleSystem.index() + direction, game.LocaleSystem.LOCALES.size())
 			game.LocaleSystem.set_locale(game.LocaleSystem.LOCALES[next], false)

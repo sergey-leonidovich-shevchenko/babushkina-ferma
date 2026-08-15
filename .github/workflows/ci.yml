@@ -22,4 +22,11 @@ jobs:
         env:
           FARM_GODOT_BIN: ${{ github.workspace }}/.ci/Godot_v4.7.1-stable_linux.x86_64
         run: zsh run_tests.sh
-
+      - name: Run gameplay smoke test
+        env:
+          FARM_GODOT_BIN: ${{ github.workspace }}/.ci/Godot_v4.7.1-stable_linux.x86_64
+        run: zsh tools/smoke_test.sh
+      - name: Enforce performance budget
+        env:
+          FARM_GODOT_BIN: ${{ github.workspace }}/.ci/Godot_v4.7.1-stable_linux.x86_64
+        run: zsh tools/performance_gate.sh

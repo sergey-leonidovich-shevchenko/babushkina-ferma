@@ -1,8 +1,9 @@
 extends RefCounted
 
 const AssetCatalogSystem := preload("res://scripts/systems/level_editor_asset_catalog_system.gd")
+const ValidationSystem := preload("res://scripts/systems/level_editor_validation_system.gd")
 const META_KEY := "level_editor"
-const FORMAT_VERSION := 2
+const FORMAT_VERSION := 3
 const PROJECT_DIRECTORY := "res://level_designs"
 const USER_DIRECTORY := "user://level_designs"
 const GRID_SIZES := [12, 24, 48, 96]
@@ -24,7 +25,8 @@ const NEW_BUTTON := Rect2(22,398,72,30)
 const SAVE_BUTTON := Rect2(100,398,72,30)
 const LOAD_BUTTON := Rect2(178,398,72,30)
 const EXPORT_BUTTON := Rect2(256,398,76,30)
-const IMPORT_BUTTON := Rect2(22,436,310,30)
+const IMPORT_BUTTON := Rect2(22,436,200,30)
+const VALIDATE_BUTTON := Rect2(228,436,104,30)
 const GRID_BUTTON := Rect2(22,474,96,30)
 const SLICE_BUTTON := Rect2(124,474,98,30)
 const LAYER_BUTTON := Rect2(228,474,104,30)
@@ -38,7 +40,7 @@ static var _catalog: Array[Dictionary] = []
 
 ## Создаёт полное временное состояние конструктора, которое не попадает в обычное сохранение игры.
 static func default_state(game: Node) -> Dictionary:
-	return {"active":false,"base_location":game.current_location,"level_name":"%s_custom" % game.current_location,"level_notes":"","objects":[],"selected":-1,"selected_asset":"","category":0,"scroll":0,"grid":24,"snap":true,"slice_size":0,"slice_index":0,"layer":"objects","collision":false,"tool":"select","drag_kind":"","drag_offset":Vector2.ZERO,"last_brush_cell":Vector2i(-2147483648,-2147483648),"stroke_cells":{},"stroke_history_pushed":false,"mouse":Vector2.ZERO,"history":[],"future":[],"status":"F12 — закрыть конструктор","text_mode":"","text_buffer":"","draft_cursor":-1,"panel_hidden":false,"capture_pending":0,"export_png":"","next_id":1}
+	return {"active":false,"base_location":game.current_location,"level_name":"%s_custom" % game.current_location,"level_notes":"","objects":[],"selected":-1,"selected_asset":"","category":0,"scroll":0,"grid":24,"snap":true,"slice_size":0,"slice_index":0,"layer":"objects","collision":false,"tool":"select","drag_kind":"","drag_offset":Vector2.ZERO,"last_brush_cell":Vector2i(-2147483648,-2147483648),"stroke_cells":{},"stroke_history_pushed":false,"mouse":Vector2.ZERO,"history":[],"future":[],"status":"F12 — закрыть конструктор","validation":{},"text_mode":"","text_buffer":"","draft_cursor":-1,"panel_hidden":false,"capture_pending":0,"export_png":"","next_id":1}
 
 
 ## Проверяет, перехватывает ли конструктор симуляцию, ввод и интерфейс текущей игры.
@@ -185,6 +187,7 @@ static func _handle_panel_click(game: Node, state: Dictionary, point: Vector2) -
 	elif LOAD_BUTTON.has_point(point): load_next_draft(game,state)
 	elif EXPORT_BUTTON.has_point(point): save_draft(game,state,true)
 	elif IMPORT_BUTTON.has_point(point): import_current_level(game,state)
+	elif VALIDATE_BUTTON.has_point(point): validate_draft(state)
 	elif GRID_BUTTON.has_point(point): state.grid = GRID_SIZES[(GRID_SIZES.find(int(state.grid))+1)%GRID_SIZES.size()]; state.status = "Сетка %d px" % state.grid
 	elif SLICE_BUTTON.has_point(point): state.slice_size = SLICE_SIZES[(SLICE_SIZES.find(int(state.slice_size))+1)%SLICE_SIZES.size()]; state.slice_index = 0; state.status = slice_label(state)
 	elif LAYER_BUTTON.has_point(point): state.layer = LAYERS[(LAYERS.find(String(state.layer))+1)%LAYERS.size()]
@@ -230,6 +233,7 @@ static func _handle_key(game: Node, state: Dictionary, event: InputEventKey) -> 
 		KEY_PERIOD: state.slice_index += 1
 		KEY_PAGEUP: move_layer(state,1)
 		KEY_PAGEDOWN: move_layer(state,-1)
+		KEY_R: validate_draft(state)
 		KEY_W,KEY_UP: pan_camera(game,Vector2(0,-int(state.grid)))
 		KEY_S,KEY_DOWN: pan_camera(game,Vector2(0,int(state.grid)))
 		KEY_A,KEY_LEFT: pan_camera(game,Vector2(-int(state.grid),0))
@@ -269,6 +273,7 @@ static func place_selected_asset(game: Node, state: Dictionary, screen_point: Ve
 	if anchor == "tile": _remove_ground_at(state,position,String(state.layer))
 	var object := {"id":int(state.next_id),"asset_path":path,"name":path.get_file().get_basename(),"notes":"","position":position,"size":size,"source":source,"anchor":anchor,"layer":state.layer,"collision":state.collision,"rotation":0.0,"flip_x":false,"flip_y":false,"reference":false,"runtime_id":"","original_position":Vector2.ZERO,"hidden":false}
 	state.next_id = int(state.next_id)+1; state.objects.append(object); state.selected = state.objects.size()-1; state.status = "Размещено: %s" % object.name
+	ValidationSystem.rebuild_autotile_masks(state); state.validation={}
 
 
 ## Начинает единый мазок, чтобы вся непрерывная линия отменялась одной командой Ctrl+Z.
@@ -303,7 +308,7 @@ static func erase_at(game: Node, state: Dictionary, screen_point: Vector2) -> vo
 		var world := Vector2(cell)*int(state.grid)+Vector2.ONE*int(state.grid)*0.5
 		var index := object_at(state,world)
 		if index >= 0: state.objects.remove_at(index); state.selected = -1
-	state.last_brush_cell = target; state.status = "Ластик"
+	ValidationSystem.rebuild_autotile_masks(state); state.validation={}; state.last_brush_cell = target; state.status = "Ластик"
 
 
 ## Возвращает все клетки дискретной линии Брезенхэма, включая начало и конец мазка.
@@ -471,15 +476,23 @@ static func import_current_level(game: Node, state: Dictionary) -> void:
 
 ## Формирует JSON-совместимый документ со всеми дизайнерскими решениями и комментариями автора.
 static func document(state: Dictionary) -> Dictionary:
+	ValidationSystem.rebuild_autotile_masks(state)
 	var objects:=[]
 	for object in state.objects:
 		var source: Rect2=object.source
-		objects.append({"id":object.id,"asset_path":object.asset_path,"name":object.name,"notes":object.notes,"position":[object.position.x,object.position.y],"size":[object.size.x,object.size.y],"source":[] if source.size==Vector2.ZERO else [source.position.x,source.position.y,source.size.x,source.size.y],"anchor":String(object.get("anchor","center")),"layer":object.layer,"collision":object.collision,"rotation":object.rotation,"flip_x":object.flip_x,"flip_y":object.flip_y,"scale":object_scale(object),"reference":object.reference,"runtime_id":object.runtime_id,"original_position":[object.original_position.x,object.original_position.y],"hidden":object.hidden})
-	return {"format":"babushkina-ferma-level-draft","version":FORMAT_VERSION,"level_name":state.level_name,"level_notes":state.level_notes,"base_location":state.base_location,"grid":state.grid,"objects":objects}
+		objects.append({"id":object.id,"asset_path":object.asset_path,"name":object.name,"notes":object.notes,"position":[object.position.x,object.position.y],"size":[object.size.x,object.size.y],"source":[] if source.size==Vector2.ZERO else [source.position.x,source.position.y,source.size.x,source.size.y],"anchor":String(object.get("anchor","center")),"layer":object.layer,"collision":object.collision,"rotation":object.rotation,"flip_x":object.flip_x,"flip_y":object.flip_y,"scale":object_scale(object),"autotile_mask":int(object.get("autotile_mask",0)),"autotile_family":String(object.get("autotile_family","")),"reference":object.reference,"runtime_id":object.runtime_id,"original_position":[object.original_position.x,object.original_position.y],"hidden":object.hidden})
+	return {"format":"babushkina-ferma-level-draft","version":FORMAT_VERSION,"level_name":state.level_name,"level_notes":state.level_notes,"base_location":state.base_location,"grid":state.grid,"validation":ValidationSystem.validate(state),"objects":objects}
+
+
+## Запускает полный аудит карты и сохраняет подробный отчёт для панели конструктора.
+static func validate_draft(state: Dictionary) -> Dictionary:
+	ValidationSystem.rebuild_autotile_masks(state); var report:=ValidationSystem.validate(state); state.validation=report; state.status=ValidationSystem.summary(report); return report
 
 
 ## Записывает черновик в пользовательскую папку или экспортирует JSON и запрашивает чистое PNG-превью.
 static func save_draft(game: Node, state: Dictionary, export_to_project: bool) -> bool:
+	var report:=validate_draft(state)
+	if export_to_project and not bool(report.valid): state.status="Экспорт отменён · исправь %d ошибок"%report.errors.size(); return false
 	var directory:=PROJECT_DIRECTORY if export_to_project else USER_DIRECTORY; var absolute:=ProjectSettings.globalize_path(directory); DirAccess.make_dir_recursive_absolute(absolute)
 	var slug:=slugify(String(state.level_name)); var path:=directory.path_join(slug+".json"); var file:=FileAccess.open(path,FileAccess.WRITE)
 	if file==null: state.status="Ошибка записи: %s"%path; return false
@@ -526,7 +539,8 @@ static func load_draft(game: Node, state: Dictionary, path: String) -> bool:
 	push_history(state); state.objects=[]; state.level_name=String(parsed.get("level_name","untitled_level")); state.level_notes=String(parsed.get("level_notes","")); state.base_location=String(parsed.get("base_location",game.current_location)); state.grid=int(parsed.get("grid",24)); state.next_id=1
 	for saved in parsed.get("objects",[]):
 		var source_data:Array=saved.get("source",[]); var source:=Rect2() if source_data.size()!=4 else Rect2(source_data[0],source_data[1],source_data[2],source_data[3]); var position:=Vector2(saved.position[0],saved.position[1]); var original_data:Array=saved.get("original_position",[position.x,position.y])
-		state.objects.append({"id":int(saved.get("id",state.next_id)),"asset_path":String(saved.get("asset_path","")),"name":String(saved.get("name","Объект")),"notes":String(saved.get("notes","")),"position":position,"size":Vector2(saved.size[0],saved.size[1]),"source":source,"anchor":String(saved.get("anchor","center")),"layer":String(saved.get("layer","objects")),"collision":bool(saved.get("collision",false)),"rotation":float(saved.get("rotation",0.0)),"flip_x":bool(saved.get("flip_x",false)),"flip_y":bool(saved.get("flip_y",false)),"reference":bool(saved.get("reference",false)),"runtime_id":String(saved.get("runtime_id","")),"original_position":Vector2(original_data[0],original_data[1]),"hidden":bool(saved.get("hidden",false)),"scale":float(saved.get("scale",1.0))}); state.next_id=maxi(int(state.next_id),int(saved.get("id",0))+1)
+		state.objects.append({"id":int(saved.get("id",state.next_id)),"asset_path":String(saved.get("asset_path","")),"name":String(saved.get("name","Объект")),"notes":String(saved.get("notes","")),"position":position,"size":Vector2(saved.size[0],saved.size[1]),"source":source,"anchor":String(saved.get("anchor","center")),"layer":String(saved.get("layer","objects")),"collision":bool(saved.get("collision",false)),"rotation":float(saved.get("rotation",0.0)),"flip_x":bool(saved.get("flip_x",false)),"flip_y":bool(saved.get("flip_y",false)),"autotile_mask":int(saved.get("autotile_mask",0)),"reference":bool(saved.get("reference",false)),"runtime_id":String(saved.get("runtime_id","")),"original_position":Vector2(original_data[0],original_data[1]),"hidden":bool(saved.get("hidden",false)),"scale":float(saved.get("scale",1.0))}); state.next_id=maxi(int(state.next_id),int(saved.get("id",0))+1)
+	ValidationSystem.rebuild_autotile_masks(state); state.validation=ValidationSystem.validate(state)
 	state.selected=-1; state.status="Загружено: %s · %d объектов"%[path,state.objects.size()]
 	if game.WorldSystem.NAMES.has(state.base_location): game.current_location=state.base_location; game.sync_background_location()
 	return true

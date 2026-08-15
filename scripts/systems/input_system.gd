@@ -20,6 +20,7 @@ const ACTION_BINDINGS := {
 	"save_game": [KEY_F5],
 	"load_game": [KEY_F8],
 }
+const LEFT_HANDED_BINDINGS := {"move_left":[KEY_J],"move_right":[KEY_L],"move_up":[KEY_I],"move_down":[KEY_K],"use_item":[KEY_O],"attack":[KEY_P],"cast_spell":[KEY_U],"cycle_spell":[KEY_Y],"dodge":[KEY_H],"block":[KEY_N]}
 const JOY_AXIS_DEAD_ZONE := 0.2
 
 
@@ -36,9 +37,24 @@ static func ensure_default_actions() -> void:
 			InputMap.action_add_event(action, event)
 
 
+## Переназначает мировые клавиши одним доступным пресетом, сохраняя остальные системные действия.
+static func apply_control_preset(preset: String) -> void:
+	ensure_default_actions()
+	var bindings:Dictionary=ACTION_BINDINGS if preset=="standard" else LEFT_HANDED_BINDINGS
+	for action in LEFT_HANDED_BINDINGS:
+		InputMap.action_erase_events(action)
+		for keycode in bindings[action]:
+			var event:=InputEventKey.new(); event.physical_keycode=keycode; InputMap.action_add_event(action,event)
+
+
+## Проверяет клавишу через переназначаемый InputMap, а не через жёстко записанный keycode.
+static func matches(event: InputEventKey, action: String) -> bool:
+	return event.is_action(action)
+
+
 ## Устанавливает относящееся к методу значение и синхронизирует зависимое состояние.
 static func set_action_key_state(game: Node, event: InputEventKey) -> bool:
-	if event.keycode != KEY_E and event.keycode != KEY_SPACE:
+	if not matches(event,"use_item"):
 		return false
 	game.action_held = event.pressed
 	if event.pressed and not event.echo:
@@ -57,7 +73,7 @@ static func set_pointer_action_state(game: Node, event: InputEvent, world_contro
 
 ## Устанавливает относящееся к методу значение и синхронизирует зависимое состояние.
 static func set_attack_key_state(game: Node, event: InputEventKey) -> bool:
-	if event.keycode != KEY_F:
+	if not matches(event,"attack"):
 		return false
 	game.attack_held = event.pressed
 	if event.pressed and not event.echo:
@@ -168,16 +184,10 @@ static func apply_immediate_key_response(game: Node, event: InputEventKey) -> vo
 	if event.echo:
 		return
 	var direction := Vector2.ZERO
-	match event.keycode:
-		KEY_LEFT: direction = Vector2.LEFT
-		KEY_RIGHT: direction = Vector2.RIGHT
-		KEY_UP: direction = Vector2.UP
-		KEY_DOWN: direction = Vector2.DOWN
-	match event.physical_keycode:
-		KEY_A: direction = Vector2.LEFT
-		KEY_D: direction = Vector2.RIGHT
-		KEY_W: direction = Vector2.UP
-		KEY_S: direction = Vector2.DOWN
+	if matches(event,"move_left"): direction=Vector2.LEFT
+	elif matches(event,"move_right"): direction=Vector2.RIGHT
+	elif matches(event,"move_up"): direction=Vector2.UP
+	elif matches(event,"move_down"): direction=Vector2.DOWN
 	if direction != Vector2.ZERO:
 		game.facing = direction
 

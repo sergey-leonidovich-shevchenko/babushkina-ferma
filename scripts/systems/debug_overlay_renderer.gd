@@ -20,6 +20,16 @@ static func reason_color(reason: String) -> Color:
 	return STATIC_BLOCKED
 
 
+## Усиливает различимость категорий сетки для включённого режима высокой контрастности.
+static func accessible_reason_color(game: Node, reason: String) -> Color:
+	if not game.settings_state.high_contrast: return reason_color(reason)
+	if reason=="walkable": return Color("00ff70")
+	if reason in ["water","ship"]: return Color("00b7ff")
+	if reason in DYNAMIC_REASONS: return Color("ffe600")
+	if reason in INTERIOR_REASONS: return Color("d878ff")
+	return Color("ff2855")
+
+
 ## Возвращает короткое русское описание причины для инспектора клетки.
 static func reason_label(reason: String) -> String:
 	var labels := {
@@ -52,7 +62,7 @@ static func draw_grid(game: Node2D, state: Dictionary) -> void:
 	var size := int(state.grid_size)
 	for cell in state.get("cache", []):
 		var reason := String(cell.get("farming_reason", "location_blocked")) if bool(state.get("farming", false)) else String(cell.reason)
-		var color := farming_reason_color(reason) if bool(state.get("farming", false)) else reason_color(reason); color.a = opacity
+		var color := farming_reason_color(reason) if bool(state.get("farming", false)) else accessible_reason_color(game,reason); color.a = opacity
 		game.draw_rect(cell.rect, color)
 		game.draw_rect(cell.rect, Color(color.r, color.g, color.b, minf(opacity + 0.18, 0.72)), false, 1.0)
 	# Утолщённый контур объединяет четыре базовые клетки 24×24 в читаемый модуль 48×48.

@@ -14,10 +14,10 @@ static func movement_direction(game: Node) -> Vector2:
 ## Обновляет относящуюся к методу часть состояния на текущем кадре.
 static func update_movement_key(game: Node, event: InputEventKey) -> bool:
 	var held := event.pressed
-	if event.keycode == KEY_LEFT or event.physical_keycode == KEY_A: game.move_left_held = held
-	elif event.keycode == KEY_RIGHT or event.physical_keycode == KEY_D: game.move_right_held = held
-	elif event.keycode == KEY_UP or event.physical_keycode == KEY_W: game.move_up_held = held
-	elif event.keycode == KEY_DOWN or event.physical_keycode == KEY_S: game.move_down_held = held
+	if game.InputSystem.matches(event,"move_left"): game.move_left_held = held
+	elif game.InputSystem.matches(event,"move_right"): game.move_right_held = held
+	elif game.InputSystem.matches(event,"move_up"): game.move_up_held = held
+	elif game.InputSystem.matches(event,"move_down"): game.move_down_held = held
 	else: return false
 	return true
 

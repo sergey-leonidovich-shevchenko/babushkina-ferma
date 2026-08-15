@@ -11,7 +11,7 @@ const SETTINGS_ITEM_ORIGIN := Vector2(280, 112)
 const TITLE_ITEM_SIZE := Vector2(222, 43)
 const TITLE_SELECTED_ART_SIZE := Vector2(238, 56)
 const PAUSE_ITEM_SIZE := Vector2(376, 50)
-const SETTINGS_ITEM_SIZE := Vector2(592, 48)
+const SETTINGS_ITEM_SIZE := Vector2(592, 34)
 const TITLE_HIGHLIGHT_ALPHA_BASE := 0.90
 const TITLE_HIGHLIGHT_ALPHA_PULSE := 0.08
 
@@ -33,7 +33,7 @@ static func pause_item_rect(index: int) -> Rect2:
 
 ## Возвращает прямоугольник строки настроек для отрисовки и единой hit-зоны.
 static func settings_item_rect(index: int) -> Rect2:
-	return Rect2(SETTINGS_ITEM_ORIGIN + Vector2(0, index * 55), SETTINGS_ITEM_SIZE)
+	return Rect2(SETTINGS_ITEM_ORIGIN + Vector2(0, index * 38), SETTINGS_ITEM_SIZE)
 
 
 ## Находит строку главного меню в экранной точке либо возвращает отсутствие попадания.
@@ -52,7 +52,7 @@ static func pause_item_at(point: Vector2) -> int:
 
 ## Находит строку настроек в экранной точке либо возвращает отсутствие попадания.
 static func settings_item_at(point: Vector2) -> int:
-	for index in 8:
+	for index in 12:
 		if settings_item_rect(index).has_point(point): return index
 	return -1
 
@@ -100,6 +100,10 @@ static func draw_settings(game: Node) -> void:
 		game.LocaleSystem.ui("enabled" if game.audio_enabled else "disabled"),
 		game.LocaleSystem.ui("enabled" if game.settings_state.fullscreen_enabled else "disabled"),
 		game.LocaleSystem.ui("enabled" if game.settings_state.vsync_enabled else "disabled"),
+		game.LocaleSystem.ui("enabled" if game.settings_state.reduced_motion else "disabled"),
+		game.LocaleSystem.ui("enabled" if game.settings_state.screen_shake_enabled else "disabled"),
+		game.LocaleSystem.ui("enabled" if game.settings_state.high_contrast else "disabled"),
+		game.LocaleSystem.ui("left_handed_controls" if game.settings_state.control_preset=="left_handed" else "standard_controls"),
 		game.LocaleSystem.language_name(game.LocaleSystem.index()),
 		"",
 	]
@@ -125,17 +129,17 @@ static func draw_panel(game: Node, rect: Rect2) -> void:
 ## Рисует строку меню с различимыми состояниями выбора и недоступности.
 static func draw_item(game: Node, rect: Rect2, label: String, selected: bool, enabled: bool) -> void:
 	game.draw_rect(Rect2(rect.position + Vector2(3, 4), rect.size), Color(0.04, 0.02, 0.01, 0.52))
-	game.draw_rect(rect, Color("efc766") if selected else Color("8e5a2a"))
+	game.draw_rect(rect, (Color("fff18a") if game.settings_state.high_contrast else Color("efc766")) if selected else Color("8e5a2a"))
 	game.draw_rect(rect.grow(-3), Color("f2dca4") if selected else Color("5b351e"))
 	game.draw_rect(rect.grow(-6), Color("fff0c0") if selected else Color("714526"), false, 1.0)
 	var color := Color("3d2416") if selected else (Color("fff0cf") if enabled else Color("9b8a70"))
-	game.draw_string(game.MENU_FONT, rect.position + Vector2(12, 32), label, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 24, 20, color)
+	game.draw_string(game.MENU_FONT, rect.position + Vector2(12, 24), label, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 24, 16, color)
 
 
 ## Подсвечивает готовую нарисованную плашку, не закрывая её древесно-пергаментную фактуру.
 static func draw_title_item(game: Node, rect: Rect2, label: String, selected: bool, enabled: bool) -> void:
 	if selected:
-		game.draw_texture_rect(TITLE_BUTTON_SELECTED_ART, title_selected_art_rect(rect), false, title_highlight_modulate(Time.get_ticks_msec()))
+		game.draw_texture_rect(TITLE_BUTTON_SELECTED_ART, title_selected_art_rect(rect), false, title_highlight_modulate(Time.get_ticks_msec(),game.settings_state.reduced_motion))
 	elif not enabled:
 		game.draw_rect(rect, Color(0.18, 0.16, 0.13, 0.34))
 	var text_color := Color("4a2816") if enabled else Color("8f8069")
@@ -144,8 +148,8 @@ static func draw_title_item(game: Node, rect: Rect2, label: String, selected: bo
 
 
 ## Возвращает прозрачность спокойного пульса отдельного спрайта выбранной плашки.
-static func title_highlight_modulate(milliseconds: int) -> Color:
-	var alpha := TITLE_HIGHLIGHT_ALPHA_BASE + sin(milliseconds / 260.0) * TITLE_HIGHLIGHT_ALPHA_PULSE
+static func title_highlight_modulate(milliseconds: int, reduced_motion: bool = false) -> Color:
+	var alpha := TITLE_HIGHLIGHT_ALPHA_BASE if reduced_motion else TITLE_HIGHLIGHT_ALPHA_BASE + sin(milliseconds / 260.0) * TITLE_HIGHLIGHT_ALPHA_PULSE
 	return Color(1.0, 1.0, 1.0, alpha)
 
 

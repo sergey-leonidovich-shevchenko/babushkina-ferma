@@ -14,6 +14,9 @@ func run() -> void:
 	test_object_tools_and_history_preserve_layout()
 	test_current_location_import_creates_editable_references()
 	test_open_json_draft_round_trip_preserves_author_intent()
+	test_autotile_masks_follow_four_neighbor_topology()
+	test_road_brush_selects_visual_modules_and_rotations()
+	test_validation_blocks_broken_export_and_reports_map_issues()
 	test_runtime_integration_freezes_simulation_and_draws_editor_layers()
 
 
@@ -173,6 +176,46 @@ func test_open_json_draft_round_trip_preserves_author_intent() -> void:
 	expect(restored.level_notes==state.level_notes and object.name=="Тихая поляна" and object.layer=="ground" and object.collision, "draft round-trip preserves labels notes layers and collision intent")
 	expect(is_equal_approx(float(object.rotation),PI*0.5) and is_equal_approx(float(object.scale),1.5), "draft round-trip preserves object transforms")
 	DirAccess.remove_absolute(ProjectSettings.globalize_path(TEST_DRAFT)); game.free()
+
+
+## Сценарий: дизайнер рисует три одинаковых тайла земли Г-образной непрерывной кистью.
+## Исходное состояние: сетка 24 px, клетки касаются сторонами, диагональные клетки соседями не считаются.
+## Ожидаемый результат: каждому тайлу назначается стабильная четырёхбитная маска N/E/S/W для будущего автотайла.
+func test_autotile_masks_follow_four_neighbor_topology() -> void:
+	var game:=make_game(); var state:Dictionary=game.LevelEditorSystem.default_state(game); state.selected_asset="res://assets/game/tiles/editor/terrain/grass_lush.png"; state.layer="ground"
+	var entry:Dictionary=game.LevelEditorSystem.AssetCatalogSystem.metadata(state.selected_asset); game.LevelEditorSystem.activate_asset(state,entry)
+	for point in [Vector2(12,12),Vector2(36,12),Vector2(36,36)]: game.LevelEditorSystem.place_selected_asset(game,state,point,false)
+	var masks:Array=[]
+	for object in state.objects: masks.append(int(object.get("autotile_mask",0)))
+	expect(masks==[2,12,1],"autotile masks encode east, south-west and north neighbors without diagonal leakage")
+	var payload:Dictionary=game.LevelEditorSystem.document(state)
+	expect(payload.objects[1].autotile_mask==12,"open JSON export preserves the generated autotile topology")
+	game.free()
+
+
+## Сценарий: дорожная кисть рисует линию с поворотом без ручного выбора трёх разных PNG.
+## Исходное состояние: выбран любой модуль семейства dirt_path, три клетки образуют угол восток–юг.
+## Ожидаемый результат: окончания и угол подставляются автоматически, а семейство остаётся связным после замены путей.
+func test_road_brush_selects_visual_modules_and_rotations() -> void:
+	var game:=make_game(); var state:Dictionary=game.LevelEditorSystem.default_state(game); var entry:Dictionary=game.LevelEditorSystem.AssetCatalogSystem.metadata("res://assets/game/tiles/editor/terrain/dirt_path_horizontal.png"); game.LevelEditorSystem.activate_asset(state,entry); state.layer="ground"
+	for point in [Vector2(12,12),Vector2(36,12),Vector2(36,36)]: game.LevelEditorSystem.place_selected_asset(game,state,point,false)
+	expect(String(state.objects[0].asset_path).ends_with("dirt_path_end.png") and is_equal_approx(float(state.objects[0].rotation),PI*0.5),"west road endpoint rotates toward its eastern neighbor")
+	expect(String(state.objects[1].asset_path).ends_with("dirt_path_corner.png") and int(state.objects[1].autotile_mask)==12,"middle road cell becomes the matching south-west corner")
+	expect(String(state.objects[2].asset_path).ends_with("dirt_path_end.png") and int(state.objects[2].autotile_mask)==1,"south road endpoint remains connected after visual path substitution")
+	game.free()
+
+
+## Сценарий: перед экспортом карта содержит пустое имя, пропавший ресурс и непроходимую землю.
+## Исходное состояние: обычное локальное сохранение допустимо для незавершённого черновика, проектный экспорт обязан быть строгим.
+## Ожидаемый результат: валидатор перечисляет ошибки и предупреждение, а затем принимает исправленный ресурс и название.
+func test_validation_blocks_broken_export_and_reports_map_issues() -> void:
+	var game:=make_game(); var state:Dictionary=game.LevelEditorSystem.default_state(game); state.level_name=""; state.objects=[{"id":1,"asset_path":"res://missing.png","name":"Сломанный тайл","position":Vector2.ZERO,"size":Vector2(24,24),"source":Rect2(),"anchor":"tile","layer":"ground","collision":true,"rotation":0.0,"reference":false}]
+	var broken:Dictionary=game.LevelEditorSystem.validate_draft(state)
+	expect(not broken.valid and broken.errors.size()>=2 and broken.warnings.size()==1,"validator reports missing title sprite and suspicious ground collision")
+	expect(not game.LevelEditorSystem.save_draft(game,state,true),"strict project export is blocked while validation errors remain")
+	state.level_name="valid editor map"; state.objects[0].asset_path="res://assets/game/tiles/editor/terrain/grass_lush.png"; var ready:Dictionary=game.LevelEditorSystem.validate_draft(state)
+	expect(ready.valid and String(state.status).contains("готово"),"corrected draft becomes export-ready while retaining non-fatal warnings")
+	game.free()
 
 
 ## Сценарий: конструктор подключён к единственному игровому циклу, отрисовке и диагностической панели.

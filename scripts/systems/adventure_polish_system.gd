@@ -215,6 +215,7 @@ static func update_footprints(game: Node, feedback: Dictionary, delta: float) ->
 
 ## Возвращает детерминированное смещение камеры для короткого удара без размытия пикселей.
 static func shake_offset(game: Node) -> Vector2:
+	if game.settings_state.reduced_motion or not game.settings_state.screen_shake_enabled: return Vector2.ZERO
 	var amount := float(game.state.player.feedback.get("camera_shake", 0.0))
 	if amount <= 0.0: return Vector2.ZERO
 	var phase := Time.get_ticks_msec() / 24

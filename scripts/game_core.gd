@@ -1244,10 +1244,10 @@ func _input(event: InputEvent) -> void:
 				return
 	if event is InputEventKey:
 		var world_magic:=not (title_screen or menu_state.pause_open or shop_open or inventory_open or crafting_open or storage_open or forge_open or contract_open or quest_log_open or skill_menu_open or world_map_open)
-		if world_magic and event.pressed and not event.echo and event.keycode==KEY_C: SpellSystem.cast(self); get_viewport().set_input_as_handled(); return
-		if world_magic and event.pressed and not event.echo and event.keycode==KEY_X: SpellSystem.cycle(self); get_viewport().set_input_as_handled(); return
-		if event.keycode == KEY_G: CombatSystem.set_blocking(self, event.pressed)
-		if event.pressed and not event.echo and event.keycode == KEY_SHIFT: CombatSystem.start_dodge(self)
+		if world_magic and event.pressed and not event.echo and InputSystem.matches(event,"cast_spell"): SpellSystem.cast(self); get_viewport().set_input_as_handled(); return
+		if world_magic and event.pressed and not event.echo and InputSystem.matches(event,"cycle_spell"): SpellSystem.cycle(self); get_viewport().set_input_as_handled(); return
+		if InputSystem.matches(event,"block"): CombatSystem.set_blocking(self, event.pressed)
+		if event.pressed and not event.echo and InputSystem.matches(event,"dodge"): CombatSystem.start_dodge(self)
 		var is_action_key := set_action_key_state(event)
 		var is_attack_key := set_attack_key_state(event)
 		var is_movement_key := update_movement_key_state(event)

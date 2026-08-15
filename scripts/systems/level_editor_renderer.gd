@@ -90,13 +90,14 @@ static func draw_panel(game: Node2D) -> void:
 	draw_assets(game,state)
 	draw_button(game,game.LevelEditorSystem.SELECT_TOOL_BUTTON,"V · ВЫБОР",state.tool=="select"); draw_button(game,game.LevelEditorSystem.PAINT_TOOL_BUTTON,"B · КИСТЬ",state.tool=="paint"); draw_button(game,game.LevelEditorSystem.ERASE_TOOL_BUTTON,"E · ЛАСТИК",state.tool=="erase")
 	draw_button(game,game.LevelEditorSystem.NEW_BUTTON,"НОВЫЙ",false); draw_button(game,game.LevelEditorSystem.SAVE_BUTTON,"СОХР.",false); draw_button(game,game.LevelEditorSystem.LOAD_BUTTON,"ЗАГР.",false); draw_button(game,game.LevelEditorSystem.EXPORT_BUTTON,"ЭКСПОРТ",true)
-	draw_button(game,game.LevelEditorSystem.IMPORT_BUTTON,"ИМПОРТИРОВАТЬ ТЕКУЩУЮ ЛОКАЦИЮ",false)
+	draw_button(game,game.LevelEditorSystem.IMPORT_BUTTON,"ИМПОРТ ЛОКАЦИИ",false); draw_button(game,game.LevelEditorSystem.VALIDATE_BUTTON,"R · ПРОВЕРКА",not state.validation.is_empty() and bool(state.validation.get("valid",false)))
 	draw_button(game,game.LevelEditorSystem.GRID_BUTTON,"СЕТКА %d"%int(state.grid),false); draw_button(game,game.LevelEditorSystem.SLICE_BUTTON,"СРЕЗ %s"%("ALL" if int(state.slice_size)==0 else str(state.slice_size)),false); draw_button(game,game.LevelEditorSystem.LAYER_BUTTON,layer_name(String(state.layer)),true)
 	draw_button(game,game.LevelEditorSystem.COLLISION_BUTTON,"КОЛЛИЗИЯ %s"%("ДА"if state.collision else"НЕТ"),bool(state.collision)); draw_button(game,game.LevelEditorSystem.LEVEL_NAME_BUTTON,"НАЗВАНИЕ УРОВНЯ",false)
 	draw_button(game,game.LevelEditorSystem.OBJECT_NAME_BUTTON,"ПОДПИСЬ ОБЪЕКТА",false); draw_button(game,game.LevelEditorSystem.OBJECT_NOTE_BUTTON,"ЗАМЕТКА",false)
 	var status: String = String(state.status); if not String(state.text_mode).is_empty(): status="▌ "+String(state.text_buffer)
 	game.draw_rect(Rect2(20,607,314,22),Color("2c2119")); game.draw_string(game.UI_FONT,Vector2(25,623),status,HORIZONTAL_ALIGNMENT_LEFT,304,11,Color("ffe099"))
 	draw_selection_info(game,state)
+	draw_validation_info(game,state)
 	game.draw_string(game.UI_FONT,Vector2(356,24),"F12 закрыть · B кисть · V выбор · E ластик · WASD камера · Ctrl+Z/Y · Q поворот · [ ] масштаб",HORIZONTAL_ALIGNMENT_LEFT,780,12,Color(1,0.95,0.78,0.92))
 
 
@@ -121,6 +122,14 @@ static func draw_selection_info(game: Node2D, state: Dictionary) -> void:
 	var object:Dictionary=state.objects[state.selected]; var rect:=Rect2(356,42,300,82); game.draw_rect(rect,Color(0.04,0.03,0.02,0.88)); game.draw_rect(rect,SELECTED,false,2)
 	var lines: Array[String] = ["%s · #%s"%[object.name,object.id],"x %.0f · y %.0f · %.0f×%.0f"%[object.position.x,object.position.y,object.size.x,object.size.y],"%s · %s · scale %.2f · collision %s"%[layer_name(object.layer),String(object.get("anchor","center")),game.LevelEditorSystem.object_scale(object),"да"if object.collision else"нет"]]
 	for index in lines.size(): game.draw_string(game.UI_FONT,rect.position+Vector2(10,22+index*21),lines[index],HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-20,12,TEXT)
+
+
+## Показывает справа первые проблемы последней проверки, не перекрывая рабочий холст.
+static func draw_validation_info(game: Node2D, state: Dictionary) -> void:
+	if state.validation.is_empty(): return
+	var report:Dictionary=state.validation; var issues:Array=[]; issues.append_array(report.get("errors",[])); issues.append_array(report.get("warnings",[])); var rect:=Rect2(670,42,458,34+mini(issues.size(),4)*18); game.draw_rect(rect,Color(0.04,0.03,0.02,0.90)); game.draw_rect(rect,Color("72d68a") if report.valid else Color("ef6961"),false,2)
+	game.draw_string(game.UI_FONT,rect.position+Vector2(10,21),game.LevelEditorSystem.ValidationSystem.summary(report),HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-20,12,TEXT)
+	for index in mini(issues.size(),4): game.draw_string(game.UI_FONT,rect.position+Vector2(10,41+index*18),"• "+String(issues[index]).left(64),HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-20,10,MUTED)
 
 
 ## Рисует одну кнопку в едином деревянно-золотом стиле интерфейса игры.
