@@ -40,6 +40,9 @@ func test_atlas_has_strict_modular_layout() -> void:
 			var origin := Vector2i(column*64,row*64)
 			transparent_corners = transparent_corners and image.get_pixelv(origin).a<0.1 and image.get_pixelv(origin+Vector2i(63,63)).a<0.1
 	expect(transparent_corners, "every fence module keeps transparent padding and cannot bleed into its neighbour")
+	var game:=make_game()
+	expect(game.WorldVisualProfileSystem.visual_size("fence_section")==Vector2(48,48) and game.WorldVisualProfileSystem.visual_size("fence_gate")==Vector2(72,72), "runtime fence and gate artwork use exact modular frames")
+	game.free()
 	expect(ResourceLoader.exists("res://assets/game/items/catalog/fence_kit.png") and ResourceLoader.exists("res://assets/game/items/catalog/gate_kit.png"), "section and gate kits have dedicated inventory icons")
 
 

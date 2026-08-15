@@ -2,6 +2,7 @@
 .godot/
 tools/*
 !tools/build_forest_tree_atlas.py
+!tools/build_village_prop_atlas.py
 assets/inbox/
 tmp/
 *.log

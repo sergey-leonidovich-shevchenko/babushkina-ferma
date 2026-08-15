@@ -2,6 +2,7 @@ extends RefCounted
 
 const ATLAS:=preload("res://assets/game/environment/buildable_fence_atlas_v1.png")
 const SOURCE_CELL:=Vector2(64,64)
+const WorldVisualProfileSystem:=preload("res://scripts/systems/world_visual_profile_system.gd")
 
 
 ## Возвращает столбец и поворот модульного рисунка для любой маски четырёх соседей.
@@ -43,10 +44,11 @@ static func draw_world(game: Node2D) -> void:
 
 ## Рисует одну секцию или калитку из строки выбранного материала.
 static func draw_structure(game: Node2D, structure: Dictionary) -> void:
-	var center: Vector2=game.FenceSystem.structure_center(structure); var rotation:=0.0; var column:=0; var size:=Vector2(52,58)
-	if structure.kind=="gate": column=7 if structure.open else 6; rotation=PI*0.5 if int(structure.orientation)==1 else 0.0; size=Vector2(72,64)
+	var center: Vector2=game.FenceSystem.structure_center(structure); var rotation:=0.0; var column:=0; var profile_id:="fence_section"
+	if structure.kind=="gate": column=7 if structure.open else 6; rotation=PI*0.5 if int(structure.orientation)==1 else 0.0; profile_id="fence_gate"
 	else:
 		var visual:=visual_for_mask(game.FenceSystem.connection_mask(game,structure)); column=visual.column; rotation=visual.rotation
+	var size:Vector2=WorldVisualProfileSystem.visual_size(profile_id)
 	game.draw_set_transform(center-game.camera_offset,rotation); game.draw_texture_rect_region(ATLAS,Rect2(-size*0.5,size),source(int(structure.style),column),climate_color(game)); game.draw_set_transform(-game.camera_offset)
 	draw_weather_detail(game,center,size)
 

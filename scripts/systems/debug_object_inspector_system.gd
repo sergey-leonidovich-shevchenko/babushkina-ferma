@@ -50,7 +50,7 @@ static func append_fences(game: Node, result: Array[Dictionary]) -> void:
 	for index in values.size():
 		var structure: Dictionary=values[index]
 		if String(structure.get("location",""))!=game.current_location: continue
-		var center: Vector2=game.FenceSystem.structure_center(structure); var size:=Vector2(72,64) if structure.kind=="gate" else Vector2(52,58); var cells: Array[Vector2i]=game.FenceSystem.occupied_cells(structure)
+		var center: Vector2=game.FenceSystem.structure_center(structure); var size:Vector2=game.WorldVisualProfileSystem.visual_size("fence_gate" if structure.kind=="gate" else "fence_section"); var cells: Array[Vector2i]=game.FenceSystem.occupied_cells(structure)
 		add(result,"player_fence:%d"%index,"ОГРАДА","Калитка" if structure.kind=="gate" else "Секция забора",center,centered_bounds(center,size),58,"нет · открыта" if structure.kind=="gate" and structure.open else "клетки 24×24 · твёрдая","открыта" if structure.get("open",false) else "закрыта",[
 			"материал %s · style %d"%[game.FenceSystem.style_name(game,int(structure.style)),int(structure.style)],
 			"клетки %s · ориентация %d"%[str(cells),int(structure.orientation)],
@@ -248,6 +248,10 @@ static func append_world_props(game: Node, result: Array[Dictionary]) -> void:
 			var position:Vector2=game.CAVE_DECORATIONS[index]; var bounds:Rect2=game.CaveVisualSystem.cluster_bounds(position); var collision:Rect2=game.CaveVisualSystem.collision_rect(position)
 			add(result,"cave_decor:%d"%index,"ПЕЩЕРА","Валунная кристальная группа",position,bounds,32,rect_description(collision),"декорация",["профиль 120×96","камни 48×48 · кристалл 72×72"])
 	if game.current_location == "overworld":
+		var village_props:Array=game.VillageLayoutSystem.PROP_PLACEMENTS+game.VillageLayoutSystem.SCENIC_PLACEMENTS
+		for index in village_props.size():
+			var prop:Dictionary=village_props[index]; var bounds:Rect2=game.VillageLayoutSystem.prop_rect(prop); var collision:Rect2=game.VillageLayoutSystem.prop_collision_rect(prop)
+			add(result,"village_prop:%d:%s"%[index,prop.kind],"ДЕКОР","Деревенский объект: %s"%prop.kind,prop.position,bounds,31,rect_description(collision) if collision.has_area() else "нет · декор", "твёрдый" if collision.has_area() else "проходимый",["профиль %s"%game.VillageLayoutSystem.PROP_PROFILES[prop.kind],"ячейка %s"%str(game.VillageLayoutSystem.PROP_CELLS[prop.kind])])
 		add(result,"prop:workbench","ОБЪЕКТ","Верстак",game.workbench_position,centered_bounds(game.workbench_position,Vector2(64,44)),45,"прямоугольник 64×44 · твёрдый","доступен")
 		add(result,"prop:shop_stall","ТОРГОВЛЯ","Лавка",game.BuildingSystem.SHOP_STALL_POSITION,centered_bounds(game.BuildingSystem.SHOP_STALL_POSITION,Vector2(76,64)),42,"нет · взаимодействие","доступна")
 		add(result,"prop:sell_crate","ТОРГОВЛЯ","Ящик продажи",game.BuildingSystem.SELL_CRATE_POSITION,game.BuildingSystem.SELL_CRATE_RECT,48,rect_description(game.BuildingSystem.SELL_CRATE_RECT),"доступен")

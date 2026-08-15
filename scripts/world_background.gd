@@ -13,7 +13,7 @@ const CAVE_FLOOR_TILE := preload("res://assets/game/tiles/cave-floor.png")
 const WATER_TILE := preload("res://assets/game/fishing/Water Tile.png")
 const BRIDGES := preload("res://assets/game/environment/bridges.png")
 const FOREST_TREE_GROWTH_ATLAS := preload("res://assets/game/environment/forest_tree_growth_atlas_v1.png")
-const VILLAGE_PROPS := preload("res://assets/game/environment/village_prop_atlas.png")
+const VILLAGE_PROPS := preload("res://assets/game/environment/village_prop_atlas_v2.png")
 const RESOURCE_ROCK := preload("res://assets/game/resources/rock.png")
 const FIRST_LEVEL_MASTER := preload("res://assets/game/locations/overworld/overworld_master_24_v2.png")
 const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
@@ -250,19 +250,15 @@ func draw_village_route(points: Array) -> void:
 
 ## Расставляет независимые спрайты площади и мельницы из общего атласа четыре на два.
 func draw_village_props() -> void:
-	var cell_size := Vector2(VILLAGE_PROPS.get_width() / 4.0, VILLAGE_PROPS.get_height() / 2.0)
 	for prop in VillageLayoutSystem.PROP_PLACEMENTS:
-		draw_village_prop(prop, cell_size)
+		draw_village_prop(prop)
 	for prop in VillageLayoutSystem.SCENIC_PLACEMENTS:
-		draw_village_prop(prop, cell_size)
+		draw_village_prop(prop)
 
 
 ## Вырезает один объект деревенского атласа; этим же способом собираются крупные ориентиры и мелкий декор.
-func draw_village_prop(prop: Dictionary, cell_size: Vector2) -> void:
-	var size: Vector2 = prop.size
-	var destination := Rect2(prop.position - Vector2(size.x * 0.5, size.y * 0.78), size)
-	var source := Rect2(Vector2(VillageLayoutSystem.PROP_CELLS[prop.kind]) * cell_size, cell_size)
-	draw_texture_rect_region(VILLAGE_PROPS, destination, source)
+func draw_village_prop(prop: Dictionary) -> void:
+	draw_texture_rect_region(VILLAGE_PROPS,VillageLayoutSystem.prop_rect(prop),VillageLayoutSystem.prop_source_rect(prop.kind))
 
 ## Рисует один участок дороги с мягкой окантовкой и приглушённой каменной фактурой.
 func draw_village_path(rect: Rect2) -> void:

@@ -39,31 +39,31 @@ const PROP_CELLS := {
 	"well":Vector2i(0,0), "bench":Vector2i(1,0), "lamp":Vector2i(2,0), "board":Vector2i(3,0),
 	"cart":Vector2i(0,1), "fence":Vector2i(1,1), "gate":Vector2i(2,1), "mill":Vector2i(3,1),
 }
+const PROP_PROFILES := {"well":"village_well","bench":"village_bench","lamp":"village_lamp","board":"village_board","cart":"village_cart","fence":"village_fence","gate":"village_gate","mill":"village_mill"}
+const PROP_ATLAS_CELL := Vector2(512,512)
 const PROP_PLACEMENTS := [
-	{"kind":"well","position":WELL_POSITION,"size":Vector2(112,112)},
-	{"kind":"bench","position":Vector2(1030,585),"size":Vector2(104,72)},
-	{"kind":"bench","position":Vector2(1450,585),"size":Vector2(104,72)},
-	{"kind":"lamp","position":Vector2(875,535),"size":Vector2(58,112)},
-	{"kind":"lamp","position":Vector2(1640,535),"size":Vector2(58,112)},
-	{"kind":"board","position":Vector2(1335,460),"size":Vector2(110,104)},
-	{"kind":"cart","position":Vector2(915,455),"size":Vector2(112,88)},
-	{"kind":"mill","position":Vector2(2010,745),"size":Vector2(270,250)},
+	{"kind":"well","position":WELL_POSITION,"solid":true},
+	{"kind":"bench","position":Vector2(1030,585)},
+	{"kind":"bench","position":Vector2(1450,585)},
+	{"kind":"lamp","position":Vector2(875,535)},
+	{"kind":"lamp","position":Vector2(1640,535)},
+	{"kind":"board","position":Vector2(1335,460)},
+	{"kind":"cart","position":Vector2(915,455),"solid":true},
+	{"kind":"mill","position":Vector2(2010,745),"solid":true},
 ]
 # Небольшой неколлизионный декор уплотняет видимый кадр между ключевыми объектами, не создавая невидимых стен.
 const SCENIC_PLACEMENTS := [
-	{"kind":"bench","position":Vector2(520,430),"size":Vector2(78,54)},
-	{"kind":"lamp","position":Vector2(690,520),"size":Vector2(44,86)},
-	{"kind":"fence","position":Vector2(470,1010),"size":Vector2(72,58)},
-	{"kind":"fence","position":Vector2(545,1010),"size":Vector2(72,58)},
-	{"kind":"gate","position":Vector2(625,1010),"size":Vector2(78,62)},
-	{"kind":"cart","position":Vector2(1120,720),"size":Vector2(84,66)},
-	{"kind":"bench","position":Vector2(1515,435),"size":Vector2(78,54)},
-	{"kind":"lamp","position":Vector2(1780,475),"size":Vector2(44,86)},
-	{"kind":"board","position":Vector2(1910,860),"size":Vector2(82,78)},
-	{"kind":"fence","position":Vector2(2160,930),"size":Vector2(72,58)},
+	{"kind":"bench","position":Vector2(520,430)},
+	{"kind":"lamp","position":Vector2(690,520)},
+	{"kind":"fence","position":Vector2(470,1010)},
+	{"kind":"fence","position":Vector2(545,1010)},
+	{"kind":"gate","position":Vector2(625,1010)},
+	{"kind":"cart","position":Vector2(1120,720)},
+	{"kind":"bench","position":Vector2(1515,435)},
+	{"kind":"lamp","position":Vector2(1780,475)},
+	{"kind":"board","position":Vector2(1910,860)},
+	{"kind":"fence","position":Vector2(2160,930)},
 ]
-const SOLID_CIRCLES := [{"center":WELL_POSITION,"radius":42.0}]
-const SOLID_RECTS := [Rect2(1170,520,90,34),Rect2(1530,510,90,34),Rect2(1840,540,220,110),Rect2(2010,650,210,130)]
 const MASTER_SOLID_RECTS := [
 	Rect2(250,120,230,260), Rect2(730,120,260,230), Rect2(1490,120,380,105),
 	Rect2(2240,120,160,780), Rect2(1760,570,250,150), Rect2(1970,890,250,190),
@@ -87,6 +87,22 @@ const OVERWORLD_TILE_BORDER_ROCK := 5
 ## Возвращает координаты ячейки сетки (0-based) для центра тайла.
 static func tile_center(cell: Vector2i) -> Vector2:
 	return Vector2(cell) * OVERWORLD_TILE_SIZE + Vector2(OVERWORLD_TILE_SIZE * 0.5, OVERWORLD_TILE_SIZE * 0.5)
+
+
+## Возвращает видимый прямоугольник деревенского объекта с общей линией земли.
+static func prop_rect(prop: Dictionary) -> Rect2:
+	return WorldVisualProfileSystem.visual_rect(String(PROP_PROFILES[prop.kind]),Vector2(prop.position)+Vector2(0,24))
+
+
+## Возвращает одну из восьми целых ячеек нормализованного деревенского атласа.
+static func prop_source_rect(kind: String) -> Rect2:
+	return Rect2(Vector2(PROP_CELLS[kind])*PROP_ATLAS_CELL,PROP_ATLAS_CELL)
+
+
+## Возвращает основание только действительно твёрдого размещения, не превращая мелкий декор в стены.
+static func prop_collision_rect(prop: Dictionary) -> Rect2:
+	if not bool(prop.get("solid",false)): return Rect2()
+	return WorldVisualProfileSystem.collision_rect(String(PROP_PROFILES[prop.kind]),Vector2(prop.position)+Vector2(0,24))
 
 ## Возвращает тип тайла по позиции ячейки, учитывая сезон и особенности ландшафта.
 static func overworld_tile(cell: Vector2i, season: String = "spring") -> int:
@@ -236,9 +252,11 @@ static func is_water(position: Vector2, radius: float) -> bool:
 
 ## Проверяет столкновение с крупным декором площади, который не является частью зданий.
 static func blocks_scenic_prop(position: Vector2, radius: float) -> bool:
-	for circle in SOLID_CIRCLES:
-		if position.distance_to(circle.center) < radius + float(circle.radius):
-			return true
+	for prop in PROP_PLACEMENTS:
+		var prop_collision:Rect2=prop_collision_rect(prop)
+		if prop_collision.has_area():
+			var prop_closest:=Vector2(clampf(position.x,prop_collision.position.x,prop_collision.end.x),clampf(position.y,prop_collision.position.y,prop_collision.end.y))
+			if position.distance_squared_to(prop_closest)<radius*radius: return true
 	for rect in MASTER_SOLID_RECTS:
 		var closest := Vector2(clampf(position.x, rect.position.x, rect.end.x), clampf(position.y, rect.position.y, rect.end.y))
 		if position.distance_squared_to(closest) < radius * radius:

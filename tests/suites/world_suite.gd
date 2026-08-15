@@ -80,8 +80,17 @@ func test_village_hybrid_layout_layers_and_navigation() -> void:
 	expect(VillageLayoutSystem.FLOWER_PATCHES.size() >= 20, "meadow decoration is dense enough to break up empty green fields")
 	for prop in VillageLayoutSystem.SCENIC_PLACEMENTS:
 		expect(VillageLayoutSystem.PROP_CELLS.has(prop.kind), "every scenic placement references a valid atlas cell: %s" % prop.kind)
-	var prop_atlas: Texture2D = load("res://assets/game/environment/village_prop_atlas.png")
-	expect(prop_atlas != null and prop_atlas.get_width() > 1200 and prop_atlas.get_height() > 700, "high-resolution village prop atlas is imported")
+	var prop_atlas: Texture2D = load("res://assets/game/environment/village_prop_atlas_v2.png")
+	expect(prop_atlas != null and prop_atlas.get_size()==Vector2(2048,1024), "village props use a strict four-by-two atlas with integer 512 px cells")
+	var occupied_sources:Array[Rect2]=[]
+	for kind in VillageLayoutSystem.PROP_CELLS:
+		var source:Rect2=VillageLayoutSystem.prop_source_rect(kind)
+		expect(source.size==Vector2(512,512) and source.end.x<=prop_atlas.get_width() and source.end.y<=prop_atlas.get_height(), "village prop owns one complete source cell: %s"%kind)
+		for previous in occupied_sources: expect(not source.intersects(previous), "village prop source does not bleed into a neighbour: %s"%kind)
+		occupied_sources.append(source)
+	for prop in VillageLayoutSystem.PROP_PLACEMENTS+VillageLayoutSystem.SCENIC_PLACEMENTS:
+		var rect:Rect2=VillageLayoutSystem.prop_rect(prop)
+		expect(fmod(rect.size.x,24.0)==0.0 and fmod(rect.size.y,24.0)==0.0 and rect.end.y==prop.position.y+24.0, "village prop follows modular size and shared ground anchor: %s"%prop.kind)
 	var river_point := Vector2(300, VillageLayoutSystem.river_center_y(300))
 	expect(VillageLayoutSystem.is_water(river_point, game.PLAYER_RADIUS), "river water is part of the navigation contract")
 	expect(not game.is_position_walkable(river_point), "player cannot walk through the river away from a bridge")
@@ -137,6 +146,7 @@ func test_village_ambient_layer_respects_grid_and_seasons() -> void:
 	for placement in VillageAmbientRenderer.PLACEMENTS:
 		expect(VillageAmbientRenderer.CELLS.has(placement.kind), "ambient placement references a valid atlas cell: %s" % placement.kind)
 		expect(FirstLevelArtSystem.WORLD_RECT.has_point(placement.position), "ambient placement stays inside first-level world: %s" % placement.kind)
+		expect(VillageAmbientRenderer.destination_rect(placement.position).size==Vector2(72,72) and VillageAmbientRenderer.destination_rect(placement.position).end.y==placement.position.y+24.0, "ambient placement keeps one stable modular frame: %s"%placement.kind)
 	expect(VillageAmbientRenderer.source_rect("stump") == Rect2(362,362,362,362), "stump resolves to its isolated production cell")
 	expect(VillageAmbientRenderer.is_visible_in_season("leaves","autumn") and not VillageAmbientRenderer.is_visible_in_season("leaves","summer"), "leaf swirl belongs only to autumn")
 	expect(not VillageAmbientRenderer.is_visible_in_season("water_lilies","winter"), "winter hides flowering water plants")
