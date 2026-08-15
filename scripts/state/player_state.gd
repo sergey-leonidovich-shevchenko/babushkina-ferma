@@ -3,7 +3,7 @@ extends RefCounted
 ## Типизированное изменяемое состояние героя. Логика остаётся в системах,
 ## поэтому модель можно создавать и тестировать без Node/сцены.
 
-var position: Vector2 = Vector2(420, 800)
+var position: Vector2 = Vector2(420, 790)
 var facing: Vector2 = Vector2.RIGHT
 var hp: int = 100
 var max_hp: int = 100

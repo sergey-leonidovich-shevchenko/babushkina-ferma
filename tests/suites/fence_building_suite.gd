@@ -6,6 +6,7 @@ const TEST_SAVE_PATH := "user://fence-building-suite.json"
 ## Запускает сценарии атласа, сетки, строительства, соединений, калиток, погоды и сохранения.
 func run() -> void:
 	test_atlas_has_strict_modular_layout()
+	test_static_farm_perimeter_uses_the_same_small_grid()
 	test_builder_uses_small_grid_and_five_materials()
 	test_sections_connect_in_every_required_direction()
 	test_gate_occupies_two_cells_and_changes_collision()
@@ -13,6 +14,18 @@ func run() -> void:
 	test_shop_crafting_icons_localization_and_tutorials()
 	test_fences_survive_save_and_load()
 	test_renderer_reacts_to_season_and_weather()
+
+
+## Сценарий: старый забор усадьбы больше не использует тонкие произвольные прямоугольники поверх картинки.
+## Исходное состояние: периметр описан шестью span-блоками и двумя открытыми калитками на базовой сетке.
+## Ожидаемый результат: вся геометрия кратна 24 px, секции блокируют, обе калитки проходят и доступны инспектору F10.
+func test_static_farm_perimeter_uses_the_same_small_grid() -> void:
+	var game:=make_game(); var rects:Array[Rect2]=game.BuildingSystem.farm_fence_rects(); var gates:Array[Rect2]=game.BuildingSystem.farm_gate_rects()
+	expect(rects.size()==6 and rects.all(func(rect:Rect2): return fmod(rect.position.x,24.0)==0.0 and fmod(rect.position.y,24.0)==0.0 and fmod(rect.size.x,24.0)==0.0 and fmod(rect.size.y,24.0)==0.0), "static farm fence uses only complete 24-pixel cells")
+	expect(gates==[Rect2(144,816,72,24),Rect2(432,864,24,144)], "top and grandmother gates are explicit grid-aligned passages")
+	expect(game.NavigationSystem.walkability_reason(game,rects[0].get_center())=="fence" and game.NavigationSystem.walkability_reason(game,gates[1].get_center())=="walkable", "navigation reads the same static fence and gate geometry")
+	var inspected:Array[Dictionary]=game.DebugObjectInspectorSystem.candidates(game); expect(inspected.any(func(entry:Dictionary): return entry.id=="farm_fence:0") and inspected.any(func(entry:Dictionary): return entry.id=="farm_gate:1"), "F10 inspector exposes static sections and named open gates")
+	game.free()
 
 
 ## Сценарий: художественный лист читается как строгий модульный атлас без захвата соседних изображений.

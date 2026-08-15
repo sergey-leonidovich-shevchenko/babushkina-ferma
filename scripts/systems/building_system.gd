@@ -8,9 +8,9 @@ const SELL_CRATE_RECT := Rect2(1550, 428, 60, 54)
 const VILLAGE_SQUARE := Rect2(930, 270, 870, 340)
 const VILLAGE_MAIN_PATH := Rect2(315, 760, 720, 105)
 const FARM_YARD_RECT := Rect2(38, 830, 420, 350)
-# Правая сторона разделена калиткой напротив бабушки: визуальный проход больше не
-# перекрывается одним длинным невидимым прямоугольником коллизии.
-const FARM_FENCE_RECTS := [Rect2(38,826,120,10),Rect2(220,826,242,10),Rect2(38,826,10,358),Rect2(452,826,10,44),Rect2(452,1000,10,184),Rect2(38,1174,424,10)]
+const FARM_FENCE_CELL_SIZE := 24
+const FARM_FENCE_SPANS := [Rect2i(2,34,4,1),Rect2i(9,34,10,1),Rect2i(1,34,1,16),Rect2i(18,34,1,2),Rect2i(18,42,1,8),Rect2i(2,49,16,1)]
+const FARM_GATE_SPANS := [Rect2i(6,34,3,1),Rect2i(18,36,1,6)]
 
 const BUILDINGS := {
 	"cottage":{"location":"overworld","door":Vector2(420, 790),"sprite":0,"interior":"cottage_interior","size":Vector2(300, 300),"unlock":""},
@@ -41,6 +41,22 @@ const INTERIOR_SOLIDS := {
 	"guild_interior":[Rect2(476,163,200,125),Rect2(806,241,88,88)],
 	"forge_interior":[Rect2(486,170,180,140),Rect2(806,241,88,88)],
 }
+
+
+## Возвращает твёрдые секции старого фермерского периметра как прямоугольники базовых клеток 24 px.
+static func farm_fence_rects() -> Array[Rect2]:
+	var result: Array[Rect2] = []
+	for span in FARM_FENCE_SPANS:
+		result.append(Rect2(Vector2(span.position * FARM_FENCE_CELL_SIZE), Vector2(span.size * FARM_FENCE_CELL_SIZE)))
+	return result
+
+
+## Возвращает две честные калитки фермы, которые остаются видимыми в F10 и свободными для движения.
+static func farm_gate_rects() -> Array[Rect2]:
+	var result: Array[Rect2] = []
+	for span in FARM_GATE_SPANS:
+		result.append(Rect2(Vector2(span.position * FARM_FENCE_CELL_SIZE), Vector2(span.size * FARM_FENCE_CELL_SIZE)))
+	return result
 
 
 ## Проверяет, относится ли идентификатор локации к интерьеру здания.

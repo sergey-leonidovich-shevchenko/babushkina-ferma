@@ -87,7 +87,6 @@ const GROWTH_DURATION := 20.0
 const MAX_BASE_HP := 100
 const XP_PER_LEVEL := 50
 const PLAYER_RADIUS := 18.0
-const BRIDGE_RECT := Rect2(590, 445, 100, 190)
 const TREE_POSITIONS := TreeSystem.POSITIONS
 const CAVE_DECORATIONS := [Vector2(480,250), Vector2(720,600), Vector2(1040,300), Vector2(1380,720), Vector2(1720,280), Vector2(2050,620)]
 const CAVE_FLOOR_TILE := preload("res://assets/game/tiles/cave-floor.png")

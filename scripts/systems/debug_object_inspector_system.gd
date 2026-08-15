@@ -40,6 +40,13 @@ static func candidates(game: Node) -> Array[Dictionary]:
 
 ## Добавляет построенные игроком секции и калитки с материалом, клетками и фактической коллизией.
 static func append_fences(game: Node, result: Array[Dictionary]) -> void:
+	if game.current_location=="overworld":
+		var static_rects:Array[Rect2]=game.BuildingSystem.farm_fence_rects()
+		for index in static_rects.size():
+			var rect:=static_rects[index]; add(result,"farm_fence:%d"%index,"ОГРАДА","Фермерский забор",rect.get_center(),rect,57,"сетка 24×24 · твёрдая","постоянная",["span %s"%str(game.BuildingSystem.FARM_FENCE_SPANS[index]),"профиль старой усадьбы"])
+		var gates:Array[Rect2]=game.BuildingSystem.farm_gate_rects()
+		for index in gates.size():
+			var rect:=gates[index]; add(result,"farm_gate:%d"%index,"ОГРАДА","Открытая калитка фермы",rect.get_center(),rect,56,"нет · проход","открыта",["span %s"%str(game.BuildingSystem.FARM_GATE_SPANS[index]),"верхняя" if index==0 else "рядом с бабушкой"])
 	var values: Array=game.FenceSystem.structures(game)
 	for index in values.size():
 		var structure: Dictionary=values[index]

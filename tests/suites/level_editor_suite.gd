@@ -16,6 +16,7 @@ func run() -> void:
 	test_open_json_draft_round_trip_preserves_author_intent()
 	test_autotile_masks_follow_four_neighbor_topology()
 	test_road_brush_selects_visual_modules_and_rotations()
+	test_water_brush_builds_shores_and_preserves_family()
 	test_validation_blocks_broken_export_and_reports_map_issues()
 	test_runtime_integration_freezes_simulation_and_draws_editor_layers()
 
@@ -202,6 +203,23 @@ func test_road_brush_selects_visual_modules_and_rotations() -> void:
 	expect(String(state.objects[0].asset_path).ends_with("dirt_path_end.png") and is_equal_approx(float(state.objects[0].rotation),PI*0.5),"west road endpoint rotates toward its eastern neighbor")
 	expect(String(state.objects[1].asset_path).ends_with("dirt_path_corner.png") and int(state.objects[1].autotile_mask)==12,"middle road cell becomes the matching south-west corner")
 	expect(String(state.objects[2].asset_path).ends_with("dirt_path_end.png") and int(state.objects[2].autotile_mask)==1,"south road endpoint remains connected after visual path substitution")
+	game.free()
+
+
+## Сценарий: дизайнер рисует цельный квадрат воды одной кистью вместо ручного выбора каждого берега.
+## Исходное состояние: выбран обычный water_clear, девять клеток образуют водоём три на три.
+## Ожидаемый результат: центр становится живой водой, стороны — берегами, углы — повёрнутыми углами, а семейство переживает JSON round-trip.
+func test_water_brush_builds_shores_and_preserves_family() -> void:
+	var game:=make_game(); var state:Dictionary=game.LevelEditorSystem.default_state(game); var entry:Dictionary=game.LevelEditorSystem.AssetCatalogSystem.metadata("res://assets/game/tiles/editor/water/water_clear.png"); game.LevelEditorSystem.activate_asset(state,entry); state.layer="ground"
+	for y in 3:
+		for x in 3: game.LevelEditorSystem.place_selected_asset(game,state,Vector2(12+x*24,12+y*24),false)
+	var by_cell:Dictionary={}
+	for object in state.objects: by_cell[Vector2i(int(object.position.x/24),int(object.position.y/24))]=object
+	expect(String(by_cell[Vector2i(1,0)].asset_path).ends_with("shore_north.png") and String(by_cell[Vector2i(0,1)].asset_path).ends_with("shore_west.png"), "water brush automatically selects matching north and west shores")
+	expect(String(by_cell[Vector2i(0,0)].asset_path).ends_with("shore_outer_corner.png") and int(by_cell[Vector2i(0,0)].autotile_mask)==6, "water corner is an isolated crop-safe module with the correct topology")
+	expect(String(by_cell[Vector2i(1,1)].asset_path).contains("water_") and String(by_cell[Vector2i(1,1)].autotile_family)=="water_body", "water interior keeps a stable family after visual substitution")
+	var payload:Dictionary=game.LevelEditorSystem.document(state); var saved_family:=String(payload.objects[4].autotile_family)
+	expect(saved_family=="water_body", "open level document preserves automatic shoreline ownership")
 	game.free()
 
 
