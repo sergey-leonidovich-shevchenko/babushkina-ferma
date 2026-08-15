@@ -4,6 +4,10 @@ extends RefCounted
 ## Настраивает запрошенный системный экран и при необходимости включает автоматический снимок.
 static func configure(game: Node) -> void:
 	var arguments := OS.get_cmdline_user_args()
+	if "--capture-hud" in arguments:
+		game.language_screen = false; game.title_screen = false; game.current_location = "overworld"; game.tutorial_visible = false; game.message = ""
+		game.player = Vector2(1160, 650); game.set_meta("capture_hud_clean", true); game.set_meta("capture_ui_frames", 6); game.set_meta("capture_ui_output", "res://assets/generated/ui/hud_ingame_preview.png")
+		return
 	if not ("--settings-preview" in arguments or "--capture-settings" in arguments): return
 	game.language_screen = false
 	game.title_screen = false
@@ -12,6 +16,14 @@ static func configure(game: Node) -> void:
 	if "--capture-settings" in arguments:
 		game.set_meta("capture_ui_frames", 6)
 		game.set_meta("capture_ui_output", "res://assets/generated/ui/system_settings_ingame_preview.png")
+
+
+## Убирает сюжетные карточки только из чистого эталона HUD после инициализации живого мира.
+static func finalize(game: Node) -> void:
+	if not game.has_meta("capture_hud_clean"): return
+	var life: Dictionary = game.FarmLifeSystem.state(game)
+	life.first_day = 6; life.cutscene = ""; life.cutscene_timer = 0.0
+	game.message = ""; game.DiscoverySystem.dismiss(game)
 
 
 ## Сохраняет системный UI-экран после стабилизации нескольких кадров и завершает режим предпросмотра.

@@ -123,7 +123,7 @@ func _ready() -> void:
 		title_screen = false
 		MenuSystem.open_pause(self)
 	UiPreviewSystem.configure(self)
-	NpcMovementSystem.initialize(self); FarmLifeSystem.initialize(self); FirstChapterSystem.initialize(self); sync_background_location(); AudioSystem.update_context_music(self)
+	NpcMovementSystem.initialize(self); FarmLifeSystem.initialize(self); FirstChapterSystem.initialize(self); UiPreviewSystem.finalize(self); sync_background_location(); AudioSystem.update_context_music(self)
 	if "--talent-preview" in OS.get_cmdline_user_args() or "--capture-talent-tree" in OS.get_cmdline_user_args():
 		var talent_preview_life := FarmLifeSystem.state(self); talent_preview_life.first_day = 6; talent_preview_life.cutscene = ""; talent_preview_life.cutscene_timer = 0.0; message = ""; DiscoverySystem.dismiss(self)
 	if "--farm-plot-preview" in OS.get_cmdline_user_args():

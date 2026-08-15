@@ -22,8 +22,8 @@ static func draw(game: Node, ui) -> void:
 	game.draw_string(game.UI_FONT, Vector2(695, 42), ui.location_icon(game.current_location), HORIZONTAL_ALIGNMENT_CENTER, 22, 15, Color("6f4325"))
 	game.draw_string(game.UI_FONT, Vector2(718, 41), game.WorldSystem.name(game.current_location).to_upper(), HORIZONTAL_ALIGNMENT_CENTER, 184, 11, Color("51301c"))
 	var coin_pop: float = sin(clampf(game.hud_coin_pop / 0.36, 0.0, 1.0) * PI) * 3.0
-	game.draw_string(game.UI_FONT, Vector2(700, 70 - coin_pop), "●  %d" % game.coins, HORIZONTAL_ALIGNMENT_LEFT, 70, 12 + int(coin_pop), Color("a16c22"))
-	game.draw_string(game.UI_FONT, Vector2(768, 70), "  ".join(effects), HORIZONTAL_ALIGNMENT_CENTER, 142, 8, Color("6e4b31"))
+	game.draw_string(game.UI_FONT, Vector2(700, 70 - coin_pop), secondary_summary(game), HORIZONTAL_ALIGNMENT_LEFT, 186, 10 + int(coin_pop), Color("7b5226"))
+	draw_effect_chips(game, effects)
 	if game.state.fishing.phase == game.FishingSystem.PHASE_WAITING: game.draw_string(game.UI_FONT, Vector2(446, 115), "%.1f" % maxf(game.state.fishing.timer, 0.0), HORIZONTAL_ALIGNMENT_CENTER, 260, 20, Color("d7f6ff"))
 	elif game.state.fishing.phase == game.FishingSystem.PHASE_BITE: game.draw_circle(Vector2(576, 105), 20 + sin(Time.get_ticks_msec() / 100.0) * 3, ui.GOLD); game.draw_string(game.UI_FONT, Vector2(566, 112), "!", HORIZONTAL_ALIGNMENT_CENTER, 20, 22, Color("47351f"))
 	if not game.message.is_empty():
@@ -35,6 +35,27 @@ static func draw(game: Node, ui) -> void:
 		draw_action_button(game, ui, ui.DODGE_BUTTON, game.LocaleSystem.ui("dodge_short"), game.state.player.dodge_cooldown <= 0.0 and game.energy >= 2, game.state.player.dodge_timer > 0.0, true)
 		draw_action_button(game, ui, ui.BLOCK_BUTTON, game.LocaleSystem.ui("block_short"), game.energy > 0, game.state.player.blocking, false)
 	ui.draw_hotbar(game)
+
+
+## Формирует компактную строку монет, репутации и дня рождения без второго календаря внизу экрана.
+static func secondary_summary(game: Node) -> String:
+	var reputation := int(game.FarmLifeSystem.state(game).reputation)
+	var summary := "● %d   ★ %d" % [game.coins, reputation]
+	var birthday: String = game.FarmLifeSystem.birthday_npc(game)
+	if not birthday.is_empty(): summary += "   🎂 %s" % game.QuestSystem.npc_name(birthday)
+	return summary
+
+
+## Рисует только активные временные эффекты отдельными компактными плашками под верхней панелью.
+static func draw_effect_chips(game: Node, effects: Array[String]) -> void:
+	var x := 690.0
+	for effect in effects:
+		var width := clampf(game.UI_FONT.get_string_size(effect, HORIZONTAL_ALIGNMENT_LEFT, -1, 8).x + 18.0, 48.0, 126.0)
+		var rect := Rect2(x, 100, width, 20)
+		if rect.end.x > 1128.0: break
+		game.draw_rect(rect, Color(0.11, 0.07, 0.04, 0.88)); game.draw_rect(rect, Color("b88b42"), false, 1.0)
+		game.draw_string(game.UI_FONT, rect.position + Vector2(8, 14), effect, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 16, 8, Color("ffe7ad"))
+		x += width + 6.0
 
 
 ## Рисует портрет героя, редкое моргание, уровень и шкалу опыта.

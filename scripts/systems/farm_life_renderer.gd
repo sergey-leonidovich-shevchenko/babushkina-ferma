@@ -24,14 +24,11 @@ static func draw_world(game: Node) -> void:
 	for enemy in game.enemy_nodes:
 		if enemy.location==game.current_location and enemy.alive and bool(enemy.get("event_raid_boss",false)): draw_cell(game,Vector2i(4,3),enemy.position+Vector2(0,-92),Vector2(70,70)); game.draw_string(game.UI_FONT,enemy.position+Vector2(-75,-122),"КАПИТАН НАЛЁТЧИКОВ",HORIZONTAL_ALIGNMENT_CENTER,150,13,Color("ffcf75"))
 
-## Отрисовывает цель первого дня, календарь, репутацию, кат-сцену, энциклопедию и фоторежим.
+## Отрисовывает цель первого дня, кат-сцену, энциклопедию и фоторежим без дублирования календаря HUD.
 static func draw_ui(game: Node) -> void:
 	# Полноэкранные игровые окна получают весь фокус и не смешиваются с календарём или событиями мира.
 	if game.inventory_open or game.shop_open or game.quest_log_open or game.world_map_open or game.skill_menu_open or game.crafting_open or game.storage_open or game.forge_open or game.contract_open: return
 	var value: Dictionary = game.FarmLifeSystem.state(game)
-	var birthday: String = game.FarmLifeSystem.birthday_npc(game); var calendar: String = "День %d • репутация %d" % [game.day,value.reputation]
-	if not birthday.is_empty(): calendar += " • 🎂 %s" % game.QuestSystem.npc_name(birthday)
-	game.draw_rect(Rect2(14,610,330,26),Color(0.07,0.10,0.08,0.78)); game.draw_string(game.UI_FONT,Vector2(25,629),calendar,HORIZONTAL_ALIGNMENT_LEFT,-1,13,Color("fff0bd"))
 	if not String(value.cutscene).is_empty():
 		game.draw_rect(Rect2(0,0,1152,648),Color(0,0,0,0.38)); game.draw_rect(Rect2(170,245,812,150),Color("39251b")); game.draw_rect(Rect2(178,253,796,134),Color("efdca8")); game.draw_string(game.UI_FONT,Vector2(220,305),"БАБУШКИНА ФЕРМА",HORIZONTAL_ALIGNMENT_CENTER,712,30,Color("4b3020")); game.draw_string(game.UI_FONT,Vector2(220,350),"Новый день — новая история",HORIZONTAL_ALIGNMENT_CENTER,712,20,Color("745033"))
 	if bool(value.compendium): draw_compendium(game,value)

@@ -159,12 +159,13 @@ static func hotbar_at(point: Vector2) -> int:
 ## Координирует отрисовку текущего состояния без изменения игровой логики.
 static func draw(game: Node) -> void:
 	draw_hud(game)
-	game.draw_mission_tracker()
-	if game.tutorial_visible and game.tutorial_step < game.tutorial_steps.size():
+	var clean_hud_preview := game.has_meta("capture_hud_clean")
+	if not clean_hud_preview: game.draw_mission_tracker()
+	if not clean_hud_preview and game.tutorial_visible and game.tutorial_step < game.tutorial_steps.size():
 		draw_atlas_piece(game, CARD_ATLAS, TUTORIAL_CARD, CARD_TUTORIAL_SOURCE)
 		game.draw_string(game.UI_FONT, Vector2(78, 132), game.LocaleSystem.ui("tutorial", [game.tutorial_step + 1, game.tutorial_steps.size()]), HORIZONTAL_ALIGNMENT_LEFT, 325, 11, Color("5b3b24"))
 		game.draw_multiline_string(game.UI_FONT, Vector2(44, 158), game.LocaleSystem.tutorial(game.tutorial_steps[game.tutorial_step].event), HORIZONTAL_ALIGNMENT_LEFT, 355, 13, 2, Color("4e3828"))
-	game.draw_discovery_card()
+	if not clean_hud_preview: game.draw_discovery_card()
 	HudRenderer.draw_interaction_prompt(game, game.InterfaceRenderer)
 	if game.shop_open: game.draw_shop()
 	if game.inventory_open: draw_inventory(game)

@@ -141,6 +141,13 @@ func test_hud_layout_is_compact_and_safe() -> void:
 	expect(game.InterfaceRenderer.HUD_CLOCK_FRAME.region.end.x == game.InterfaceRenderer.HUD_LOCATION_FRAME.region.position.x, "clock and location atlas slices meet at the authored divider")
 	expect(game.InterfaceRenderer.HUD_LOCATION_FRAME.region.end.x == game.InterfaceRenderer.HUD_SKILL_BUTTON.region.position.x, "location and skill atlas slices meet at the authored divider")
 	expect(game.InterfaceRenderer.HUD_SKILL_BUTTON.region.end.x == game.InterfaceRenderer.HUD_QUEST_BUTTON.region.position.x, "skill book and quest scroll use adjacent authored sprites")
+	game.FarmLifeSystem.state(game).reputation = 17
+	expect(game.InterfaceRenderer.HudRenderer.secondary_summary(game).contains("20") and game.InterfaceRenderer.HudRenderer.secondary_summary(game).contains("17"), "location module combines coins and reputation without a duplicate bottom calendar")
+	var farm_life_source := FileAccess.get_file_as_string("res://scripts/systems/farm_life_renderer.gd")
+	expect(not farm_life_source.contains("Rect2(14,610,330,26)"), "legacy bottom calendar strip no longer competes with the clock and hotbar")
+	var hud_preview: Texture2D = load("res://assets/generated/ui/hud_ingame_preview.png")
+	var preview_size := hud_preview.get_size() if hud_preview != null else Vector2.ZERO
+	expect(hud_preview != null and preview_size.x >= 1152.0 and is_equal_approx(preview_size.x / preview_size.y, 16.0 / 9.0), "clean HUD reference preserves the native sixteen-by-nine visual-test canvas at fullscreen resolution")
 	game.quest_active = true
 	game.mission_states["hud_test"] = "active"
 	expect(game.InterfaceRenderer.active_quest_count(game) == 2, "quest scroll badge counts active story and side missions without keyboard letters")
