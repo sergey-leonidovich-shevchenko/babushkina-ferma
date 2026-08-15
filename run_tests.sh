@@ -38,13 +38,22 @@ game_godot="$(resolve_godot_path)" || {
 "$game_godot" --version >/dev/null
 # Импортируем новые изображения и ресурсы до компиляции тестов.
 "$game_godot" --headless --editor --path . --quit
-test_output="$("$game_godot" --headless --path . --script res://tests/test_game.gd 2>&1)"
-print -r -- "$test_output"
-if print -r -- "$test_output" | grep -Eq 'SCRIPT ERROR|Parse Error|Failed to load script'; then
+
+# Храним многотысячный подробный вывод во временном файле, чтобы shell не переполнял буфер команды.
+test_log="$(mktemp /tmp/babushkina-ferma-tests.XXXXXX)"
+trap 'rm -f "$test_log"' EXIT
+set +e
+"$game_godot" --headless --path . --script res://tests/test_game.gd >"$test_log" 2>&1
+test_code=$?
+set -e
+if grep -Eq 'SCRIPT ERROR|Parse Error|Failed to load script' "$test_log"; then
+	cat "$test_log"
 	print -u2 -- "Godot reported a script compilation/runtime error"
 	exit 1
 fi
-if ! print -r -- "$test_output" | grep -Eq 'TESTS: [0-9]+ passed, 0 failed'; then
+if [[ $test_code -ne 0 ]] || ! grep -Eq 'TESTS: [0-9]+ passed, 0 failed' "$test_log"; then
+	tail -100 "$test_log"
 	print -u2 -- "Test success marker was not found"
 	exit 1
 fi
+grep -E 'TESTS: [0-9]+ passed, 0 failed' "$test_log" | tail -1
