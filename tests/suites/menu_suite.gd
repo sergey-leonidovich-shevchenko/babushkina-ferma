@@ -13,6 +13,7 @@ func run() -> void:
 	test_settings_persist_and_apply_audio_levels()
 	test_accessibility_and_control_preset_are_effective_and_persistent()
 	test_title_visual_design_assets_and_layout()
+	test_shared_ui_kit_has_independent_scalable_components()
 	test_menu_keyboard_gamepad_touch_and_layout()
 	test_exit_is_safe_outside_scene_tree()
 
@@ -59,6 +60,27 @@ func test_title_visual_design_assets_and_layout() -> void:
 	var highlight_dark: Color = game.MenuRenderer.title_highlight_modulate(0)
 	var highlight_bright: Color = game.MenuRenderer.title_highlight_modulate(408)
 	expect(highlight_dark.a < highlight_bright.a and highlight_bright.a <= 1.0, "selected title art breathes with a bounded opacity pulse")
+	game.free()
+
+
+## Сценарий: системные меню используют единый набор нарисованных компонентов вместо процедурных прямоугольников.
+## Исходное состояние: UI Kit нарезан на независимые PNG, а манифест задаёт базовую сетку и nine-patch поля.
+## Ожидаемый результат: все компоненты прозрачны по углам, имеют собственный файл и формируют кэшируемые масштабируемые стили.
+func test_shared_ui_kit_has_independent_scalable_components() -> void:
+	var game := make_game()
+	var kit = game.MenuRenderer.UiKitSystem
+	var manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://assets/game/ui/ui_kit_manifest.json"))
+	expect(int(manifest.design_viewport[0]) == 1152 and int(manifest.design_viewport[1]) == 648 and int(manifest.base_spacing) == 8, "UI kit fixes the native viewport and eight-pixel spacing contract")
+	expect(kit.TEXTURES.size() == 16 and manifest.components.size() == 16, "manifest and runtime register all sixteen authored UI components")
+	for component in kit.TEXTURES:
+		var texture: Texture2D = kit.texture(component)
+		var image: Image = texture.get_image()
+		expect(texture.resource_path.contains("/kit_v1/") and image.get_pixel(0, 0).a == 0.0 and image.get_pixel(image.get_width() - 1, image.get_height() - 1).a == 0.0, "%s is an independent transparent sprite without atlas bleed" % component)
+	for component in kit.NINE_PATCH_MARGINS:
+		var first: StyleBoxTexture = kit.style(component)
+		expect(first == kit.style(component) and first.texture == kit.texture(component), "%s reuses a cached nine-patch style with the matching authored texture" % component)
+	var centered: Rect2 = kit.centered_content_rect(Rect2(100, 100, 64, 64), Vector2(128, 32), 8)
+	expect(centered.get_center() == Vector2(132, 132) and centered.size == Vector2(48, 12), "oversized wide content scales down and remains flex-centered inside its safe area")
 	game.free()
 
 

@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "design_viewport": [1152, 648],
+  "base_spacing": 8,
+  "icon_sizes": [24, 48, 72, 96],
+  "palette": {
+    "wood_dark": "32190f",
+    "wood": "714526",
+    "parchment": "f2dca4",
+    "brass": "efc766",
+    "ink": "3d281c",
+    "leaf": "66804c",
+    "danger": "a83f2a",
+    "focus": "ffe28b"
+  },
+  "components": {
+    "panel_large": {"mode": "nine_patch", "margins": [48, 56, 48, 48]},
+    "panel_medium": {"mode": "nine_patch", "margins": [40, 42, 40, 40]},
+    "button_normal": {"mode": "nine_patch", "margins": [34, 28, 34, 28]},
+    "button_selected": {"mode": "nine_patch", "margins": [34, 28, 34, 28]},
+    "slot_normal": {"mode": "fixed_or_uniform", "safe_content": [18, 18, 18, 18]},
+    "slot_selected": {"mode": "fixed_or_uniform", "safe_content": [18, 18, 18, 18]},
+    "progress_frame": {"mode": "nine_patch", "margins": [26, 20, 26, 20]},
+    "scrollbar": {"mode": "vertical_three_slice"},
+    "tooltip": {"mode": "nine_patch", "margins": [26, 24, 26, 24]},
+    "tab_normal": {"mode": "nine_patch", "margins": [26, 24, 26, 24]},
+    "tab_selected": {"mode": "nine_patch", "margins": [26, 24, 26, 24]},
+    "portrait_frame": {"mode": "fixed_or_uniform"},
+    "badge": {"mode": "fixed_or_uniform"},
+    "close_button": {"mode": "fixed_or_uniform"},
+    "quest_ribbon": {"mode": "nine_patch", "margins": [52, 32, 52, 32]},
+    "divider": {"mode": "horizontal_three_slice"}
+  }
+}

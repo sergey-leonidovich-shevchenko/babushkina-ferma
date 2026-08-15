@@ -1,6 +1,7 @@
 extends RefCounted
 
 const TITLE_BUTTON_SELECTED_ART := preload("res://assets/game/ui/title/title_button_selected_v1.png")
+const UiKitSystem := preload("res://scripts/systems/ui_kit_system.gd")
 const TITLE_PANEL := Rect2(746, 244, 360, 360)
 const PAUSE_PANEL := Rect2(358, 92, 436, 464)
 const SETTINGS_PANEL := Rect2(250, 54, 652, 540)
@@ -116,24 +117,14 @@ static func draw_settings(game: Node) -> void:
 
 ## Рисует деревянную рамку системного окна в общей палитре интерфейса игры.
 static func draw_panel(game: Node, rect: Rect2) -> void:
-	game.draw_rect(Rect2(rect.position + Vector2(5, 7), rect.size), Color(0.05, 0.025, 0.015, 0.58))
-	game.draw_rect(rect, Color("32190f"))
-	game.draw_rect(rect.grow(-4), Color("9a632d"))
-	game.draw_rect(rect.grow(-8), Color("e1ad50"))
-	game.draw_rect(rect.grow(-12), Color("4f2c18"))
-	game.draw_rect(rect.grow(-18), Color("2b3528"))
-	for corner in [rect.position + Vector2(9, 9), rect.position + Vector2(rect.size.x - 9, 9), rect.position + Vector2(9, rect.size.y - 9), rect.end - Vector2(9, 9)]:
-		game.draw_circle(corner, 4.0, Color("ffd36b"))
+	UiKitSystem.draw_panel(game, rect, rect.size.x >= 420.0 or rect.size.y >= 300.0)
 
 
 ## Рисует строку меню с различимыми состояниями выбора и недоступности.
 static func draw_item(game: Node, rect: Rect2, label: String, selected: bool, enabled: bool) -> void:
-	game.draw_rect(Rect2(rect.position + Vector2(3, 4), rect.size), Color(0.04, 0.02, 0.01, 0.52))
-	game.draw_rect(rect, (Color("fff18a") if game.settings_state.high_contrast else Color("efc766")) if selected else Color("8e5a2a"))
-	game.draw_rect(rect.grow(-3), Color("f2dca4") if selected else Color("5b351e"))
-	game.draw_rect(rect.grow(-6), Color("fff0c0") if selected else Color("714526"), false, 1.0)
-	var color := Color("3d2416") if selected else (Color("fff0cf") if enabled else Color("9b8a70"))
-	game.draw_string(game.MENU_FONT, rect.position + Vector2(12, 24), label, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 24, 16, color)
+	UiKitSystem.draw_button(game, rect, selected, enabled, game.settings_state.reduced_motion, Time.get_ticks_msec())
+	var color := UiKitSystem.COLORS.ink if enabled else UiKitSystem.COLORS.text_disabled
+	game.draw_string(game.MENU_FONT, rect.position + Vector2(12, rect.size.y * 0.63), label, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 24, 16, color)
 
 
 ## Подсвечивает готовую нарисованную плашку, не закрывая её древесно-пергаментную фактуру.

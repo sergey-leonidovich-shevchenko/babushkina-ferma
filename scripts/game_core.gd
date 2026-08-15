@@ -122,11 +122,7 @@ func _ready() -> void:
 		language_screen = false
 		title_screen = false
 		MenuSystem.open_pause(self)
-	if "--settings-preview" in OS.get_cmdline_user_args():
-		language_screen = false
-		title_screen = false
-		MenuSystem.open_pause(self)
-		MenuSystem.open_settings(self, false)
+	UiPreviewSystem.configure(self)
 	NpcMovementSystem.initialize(self); FarmLifeSystem.initialize(self); FirstChapterSystem.initialize(self); sync_background_location(); AudioSystem.update_context_music(self)
 	if "--talent-preview" in OS.get_cmdline_user_args() or "--capture-talent-tree" in OS.get_cmdline_user_args():
 		var talent_preview_life := FarmLifeSystem.state(self); talent_preview_life.first_day = 6; talent_preview_life.cutscene = ""; talent_preview_life.cutscene_timer = 0.0; message = ""; DiscoverySystem.dismiss(self)
@@ -154,6 +150,7 @@ func _process(_delta: float) -> void:
 	LevelEditorSystem.update_export_capture(self)
 	if CaveVisualSystem.update_preview_capture(self): return
 	if TreeSystem.update_preview_capture(self): return
+	if UiPreviewSystem.update_capture(self): return
 	if has_meta("capture_talent_frames"):
 		var talent_frames_left := int(get_meta("capture_talent_frames")) - 1; set_meta("capture_talent_frames", talent_frames_left)
 		if talent_frames_left <= 0:
@@ -184,7 +181,6 @@ func _process(_delta: float) -> void:
 	var error := image.save_png(output)
 	if error != OK: push_error("Не удалось сохранить предпросмотр первой локации: %s" % error)
 	get_tree().quit()
-
 ## Готовит безопасную витрину пяти рангов врагов, трёх угроз и максимального облика героя.
 func configure_enemy_levels_preview() -> void:
 	language_screen = false

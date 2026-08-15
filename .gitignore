@@ -3,6 +3,7 @@
 tools/*
 !tools/build_forest_tree_atlas.py
 !tools/build_village_prop_atlas.py
+!tools/build_ui_kit.py
 assets/inbox/
 tmp/
 *.log
@@ -15,6 +16,8 @@ tmp/
 /assets/game/tiles/*_preview.png
 /assets/game/tiles/*_preview.png.import
 /assets/game/environment/source/
+/assets/generated/ui_sources/*_chroma.png
+/assets/generated/ui_sources/*_chroma.png.import
 /assets/generated/level_drafts/*
 !/assets/generated/level_drafts/README_FIRST_LEVEL_MASTER.md
 !/assets/generated/level_drafts/README_FIRST_LEVEL_TILING.md
@@ -25,3 +28,4 @@ tmp/
 !/assets/generated/level_drafts/README_FIRST_LEVEL_VISUAL_V2.md
 !/assets/generated/level_drafts/tree_stages_ingame_preview.png
 !/assets/generated/level_drafts/cave_ingame_preview.png
+!/assets/generated/ui/system_settings_ingame_preview.png
