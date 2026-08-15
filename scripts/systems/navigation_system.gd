@@ -81,7 +81,7 @@ static func walkability_reason(game: Node, position: Vector2) -> String:
 		if hazard.location == game.current_location and position.distance_to(hazard.position) < game.PLAYER_RADIUS + 30.0:
 			return "hazard"
 	for node in game.resource_nodes:
-		if node.hits > 0 and node.location == game.current_location and position.distance_to(node.position) < game.PLAYER_RADIUS + 30.0:
+		if node.hits > 0 and node.location == game.current_location and circle_intersects_rect(position,game.PLAYER_RADIUS,game.ResourceSystem.collision_rect(node)):
 			return "resource"
 	for container in game.world_loot_nodes:
 		if container.location == game.current_location and position.distance_to(container.position) < game.PLAYER_RADIUS + 25.0:
@@ -89,8 +89,8 @@ static func walkability_reason(game: Node, position: Vector2) -> String:
 	for food in game.food_nodes:
 		if food.get("location", "overworld") != game.current_location:
 			continue
-		var radius := 38.0 if game.ForageSystem.TYPES[food.kind].tree else 24.0
-		if position.distance_to(food.position) < game.PLAYER_RADIUS + radius:
+		var collision:Rect2=game.OrchardSystem.collision_rect(food.position,game.OrchardSystem.stage(food)) if game.OrchardSystem.handles(food.kind) else game.ForageSystem.collision_rect(food)
+		if circle_intersects_rect(position,game.PLAYER_RADIUS,collision):
 			return "forage"
 	return "walkable"
 
@@ -131,7 +131,7 @@ static func enemy_position_walkable(game: Node, position: Vector2, enemy_index: 
 		if VillageLayoutSystem.blocks_scenic_prop(position, RADIUS):
 			return false
 		for tree in game.state.world.tree_nodes:
-			if game.TreeSystem.is_solid(tree) and position.distance_to(tree.position + Vector2(0, 35)) < RADIUS + 42.0: return false
+			if game.TreeSystem.is_solid(tree) and circle_intersects_rect(position,RADIUS,game.TreeSystem.collision_rect(tree)): return false
 	for index in game.enemy_nodes.size():
 		if index == enemy_index:
 			continue
@@ -142,6 +142,6 @@ static func enemy_position_walkable(game: Node, position: Vector2, enemy_index: 
 		if hazard.location == game.current_location and position.distance_to(hazard.position) < RADIUS + 30.0:
 			return false
 	for node in game.resource_nodes:
-		if node.hits > 0 and node.location == game.current_location and position.distance_to(node.position) < RADIUS + 28.0:
+		if node.hits > 0 and node.location == game.current_location and circle_intersects_rect(position,RADIUS,game.ResourceSystem.collision_rect(node)):
 			return false
 	return true

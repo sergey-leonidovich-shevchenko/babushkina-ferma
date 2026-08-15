@@ -113,6 +113,12 @@ static func destination_rect(position: Vector2, current_stage: int) -> Rect2:
 	return WorldVisualProfileSystem.visual_rect(profiles[clampi(current_stage,0,3)],position+Vector2(0,18))
 
 
+## Возвращает единое основание плодового дерева независимо от листьев, цветов или урожая.
+static func collision_rect(position: Vector2, current_stage: int) -> Rect2:
+	var profiles:=["tree_sapling","tree_young","tree_flowering","tree_adult"]
+	return WorldVisualProfileSystem.collision_rect(profiles[clampi(current_stage,0,3)],position+Vector2(0,18))
+
+
 ## Подбирает сезонно-погодный цвет, сохраняя читаемость исходного пиксель-арта.
 static func weather_tint(season: String, weather: String) -> Color:
 	if season == WINTER: return Color("b9cee2")

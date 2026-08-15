@@ -8,6 +8,7 @@ func run() -> void:
 	test_experience_from_farming_combat_and_quest()
 	test_food_healing_and_temporary_effects()
 	test_world_collisions_and_bridge_passage()
+	test_resource_visual_profile_matches_navigation_and_debug_geometry()
 	test_hotbar_assignment_equipment_and_universal_input()
 	test_crafting_window_and_save_snapshot()
 	test_enemy_families_loot_tables_and_world_route()
@@ -106,7 +107,8 @@ func test_world_collisions_and_bridge_passage() -> void:
 	var rock: Dictionary = game.resource_nodes[0]
 	game.player = rock.position - Vector2(100, 0)
 	game.move_player_with_collisions(Vector2(140, 0))
-	expect(game.player.x < rock.position.x - game.PLAYER_RADIUS - 28.0, "active rock blocks player movement")
+	var rock_collision:Rect2=game.ResourceSystem.collision_rect(rock)
+	expect(game.player.x<=rock_collision.position.x-game.PLAYER_RADIUS+0.01, "active rock blocks player movement at the profiled edge")
 	game.resource_nodes[0].hits = 0
 	game.move_player_with_collisions(Vector2(140, 0))
 	expect(game.player.x > rock.position.x, "depleted resource no longer blocks movement")
@@ -125,6 +127,22 @@ func test_world_collisions_and_bridge_passage() -> void:
 	game.player = Vector2(1120, 510)
 	game.move_player_with_collisions(Vector2(100, 100))
 	expect(game.player.y > 510.0, "diagonal collision slides along an obstacle instead of sticking")
+	game.free()
+
+
+## Сценарий: камень и цветная жила используют один кратный сетке профиль изображения и препятствия.
+## Исходное состояние: два активных ресурса разных видов находятся в стандартных точках мира.
+## Ожидаемый результат: оба имеют вид 72×72, основание 48×48 и навигация освобождает ту же область после истощения.
+func test_resource_visual_profile_matches_navigation_and_debug_geometry() -> void:
+	var game:=make_game()
+	for index in [0,1]:
+		var node:Dictionary=game.resource_nodes[index]
+		var visual:Rect2=game.ResourceSystem.destination_rect(node); var collision:Rect2=game.ResourceSystem.collision_rect(node)
+		expect(visual.size==Vector2(72,72) and visual.end.y==node.position.y+24.0, "resource %s uses modular bottom-anchored artwork"%node.kind)
+		expect(collision.size==Vector2(48,48) and collision.get_center()==node.position, "resource %s derives navigation base from the same profile"%node.kind)
+		expect(not game.NavigationSystem.is_walkable(game,node.position), "active resource %s blocks its visible base"%node.kind)
+	game.resource_nodes[0].hits=0
+	expect(game.NavigationSystem.is_walkable(game,game.resource_nodes[0].position), "depleted resource releases the profiled collision area")
 	game.free()
 
 ## Сценарий: быстрые слоты и экипировка одинаково работают с клавиатурой, геймпадом и касанием.

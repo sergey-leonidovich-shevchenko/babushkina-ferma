@@ -319,10 +319,10 @@ func draw_food_nodes() -> void:
 			continue
 		match food.kind:
 			"mushroom":
-				draw_texture_rect(RED_MUSHROOMS, Rect2(position - Vector2(28, 28), Vector2(56, 56)), false, Color(1, 1, 1, alpha))
+				draw_texture_rect(RED_MUSHROOMS, ForageSystem.destination_rect(food), false, Color(1, 1, 1, alpha))
 			"watermelon":
-				draw_texture_rect(ITEM_WATERMELON, Rect2(position - Vector2(32, 38), Vector2(64, 64)), false, Color(1, 1, 1, alpha))
-			"berries", "apple", "nut":
+				draw_texture_rect(ITEM_WATERMELON, ForageSystem.destination_rect(food), false, Color(1, 1, 1, alpha))
+			"berries", "nut":
 				var layout := forage_sprite_layout(food.kind, position)
 				draw_texture_rect_region(PLANT_SHEET, layout.destination, layout.source, Color(1, 1, 1, alpha))
 		if not food.active:
@@ -366,7 +366,7 @@ func draw_resource_nodes() -> void:
 		var tint := Color.WHITE
 		if node.kind == "red_crystal": tint = Color("ef6872")
 		elif node.kind == "green_crystal": tint = Color("6bdc83")
-		draw_texture_rect(texture, Rect2(node.position - Vector2(28, 28), Vector2(56, 56)), false, tint)
+		draw_texture_rect(texture, ResourceSystem.destination_rect(node), false, tint)
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_dropped_items() -> void:

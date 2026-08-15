@@ -2,7 +2,6 @@ extends RefCounted
 
 const ACTOR_SIZE := Vector2(96, 96)
 const COMPANION_SIZE := Vector2(100, 100)
-const RESOURCE_SIZE := Vector2(56, 56)
 const DROP_SIZE := Vector2(44, 44)
 
 
@@ -128,7 +127,8 @@ static func append_forage(game: Node, result: Array[Dictionary]) -> void:
 		if String(node.get("location", "overworld")) != game.current_location: continue
 		var data: Dictionary = game.ForageSystem.TYPES[node.kind]; var bounds := forage_bounds(game, node)
 		var orchard_stage: int = game.OrchardSystem.stage(node) if game.OrchardSystem.handles(node.kind) else -1
-		add(result, "forage:%d:%s" % [index,node.kind], "СБОР", game.LocaleSystem.entity(node.kind), node.position, bounds, 55, "круг r%d" % (38 if data.tree else 24), "готово" if game.ForageSystem.is_collectable(game,node) else ("зимний покой" if node.active else "растёт"), [
+		var collision:Rect2=game.OrchardSystem.collision_rect(node.position,orchard_stage) if orchard_stage>=0 else game.ForageSystem.collision_rect(node)
+		add(result, "forage:%d:%s" % [index,node.kind], "СБОР", game.LocaleSystem.entity(node.kind), node.position, bounds, 55, rect_description(collision), "готово" if game.ForageSystem.is_collectable(game,node) else ("зимний покой" if node.active else "растёт"), [
 			"урожай %d · продажа %d" % [data.yield,data.sell],
 			"цикл %s · осталось %s" % [game.ForageSystem.duration_text(data.growth_minutes),game.ForageSystem.remaining_text(game,node)],
 			"стадия %s" % ("%d/3 · %d%%" % [orchard_stage,roundi(game.OrchardSystem.growth_progress(game,node,data)*100.0)] if orchard_stage >= 0 else "нет"),
@@ -143,7 +143,8 @@ static func append_resources(game: Node, result: Array[Dictionary]) -> void:
 		var node: Dictionary = game.resource_nodes[index]
 		if node.location != game.current_location or int(node.hits) <= 0: continue
 		var name: String = game.ResourceSystem.RESOURCE_NAMES.get(node.kind, node.kind)
-		add(result, "resource:%d:%s" % [index,node.kind], "РЕСУРС", name, node.position, centered_bounds(node.position, RESOURCE_SIZE), 70, "круг r30 · твёрдый", "доступен", ["ударов осталось %d" % node.hits,"добыча %s" % game.inventory_item_name(node.kind)])
+		var bounds:Rect2=game.ResourceSystem.destination_rect(node); var collision:Rect2=game.ResourceSystem.collision_rect(node)
+		add(result, "resource:%d:%s" % [index,node.kind], "РЕСУРС", name, node.position, bounds, 70, rect_description(collision), "доступен", ["ударов осталось %d" % node.hits,"добыча %s" % game.inventory_item_name(node.kind)])
 
 
 ## Добавляет закрытые и уже опустошённые мировые контейнеры с точным содержимым.
@@ -266,12 +267,12 @@ static func centered_bounds(position: Vector2, size: Vector2) -> Rect2:
 ## Возвращает фактическую область дерева или куста из атласа с безопасным размером для отдельных иконок.
 static func forage_bounds(game: Node, node: Dictionary) -> Rect2:
 	if game.OrchardSystem.handles(node.kind):
-		return game.OrchardSystem.destination_rect(node.position, game.OrchardSystem.stage(node))
+		var data:Dictionary=game.ForageSystem.TYPES[node.kind]
+		return game.OrchardSystem.destination_rect(node.position,game.OrchardSystem.visual_stage(game,node,data))
 	if node.kind in game.FORAGE_SPRITES:
 		var layout: Dictionary = game.forage_sprite_layout(node.kind,node.position)
 		return layout.destination
-	var size := Vector2(64,64) if node.kind == "watermelon" else Vector2(56,56)
-	return centered_bounds(node.position,size)
+	return game.ForageSystem.destination_rect(node)
 
 
 ## Форматирует прямоугольную коллизию без потери координат и размеров.

@@ -2,6 +2,7 @@ extends RefCounted
 
 const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
 const OrchardSystem := preload("res://scripts/systems/orchard_system.gd")
+const WorldVisualProfileSystem := preload("res://scripts/systems/world_visual_profile_system.gd")
 
 const TYPES := {
 	"berries": {"name":"Ягодный куст","growth_minutes":360.0,"yield":3,"sell":4,"tree":false},
@@ -37,6 +38,28 @@ const SPAWNS := [
 ## Возвращает рассчитанное методом значение в безопасном для вызывающего кода виде.
 static func default_nodes() -> Array:
 	return SPAWNS.duplicate(true)
+
+
+## Выбирает модульный визуальный класс гриба, бахчи, куста или дикого дерева.
+static func profile_id(kind: String) -> String:
+	if kind=="mushroom": return "forage_patch"
+	if bool(TYPES.get(kind,{}).get("tree",false)): return "forage_tree"
+	return "forage_crop"
+
+
+## Возвращает единую линию земли для всех недревесных собираемых объектов.
+static func ground_anchor(position: Vector2) -> Vector2:
+	return position+Vector2(0,24)
+
+
+## Строит модульный прямоугольник гриба, бахчи, ягодного куста или дикого орешника.
+static func destination_rect(node: Dictionary) -> Rect2:
+	return WorldVisualProfileSystem.visual_rect(profile_id(String(node.kind)),ground_anchor(Vector2(node.position)))
+
+
+## Строит основание собираемого объекта из того же профиля, который используется renderer-ом.
+static func collision_rect(node: Dictionary) -> Rect2:
+	return WorldVisualProfileSystem.collision_rect(profile_id(String(node.kind)),ground_anchor(Vector2(node.position)))
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func total_minutes(game: Node) -> float:

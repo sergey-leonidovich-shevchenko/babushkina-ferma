@@ -52,6 +52,7 @@ if grep -Eq 'SCRIPT ERROR|Parse Error|Failed to load script' "$test_log"; then
 	exit 1
 fi
 if [[ $test_code -ne 0 ]] || ! grep -Eq 'TESTS: [0-9]+ passed, 0 failed' "$test_log"; then
+	grep -E 'FAIL:|SCRIPT ERROR|Parse Error|Failed to load script' "$test_log" || true
 	tail -100 "$test_log"
 	print -u2 -- "Test success marker was not found"
 	exit 1

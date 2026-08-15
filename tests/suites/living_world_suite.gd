@@ -212,7 +212,7 @@ func test_runtime_debug_object_inspector_identifies_visual_objects() -> void:
 	expect((enemy_target.bounds as Rect2).has_point(enemy.position) and String(enemy_target.collision).contains("r30") and enemy_target.details.any(func(line): return String(line).contains("HP 9/15")), "enemy info exposes visual bounds collision and combat state")
 	var building_center: Vector2 = game.BuildingSystem.destination_rect("cottage").get_center(); var building_target: Dictionary = game.DebugObjectInspectorSystem.hovered_object(game,building_center-game.camera_offset)
 	expect(building_target.id == "building:cottage" and building_target.category == "ЗДАНИЕ" and building_target.details.any(func(line): return String(line).contains("cottage_interior")), "debug hover resolves building sprite and interior metadata")
-	var tree: Dictionary = game.state.world.tree_nodes[0]; var tree_target: Dictionary = game.DebugObjectInspectorSystem.hovered_object(game,tree.position-game.camera_offset+Vector2(0,-70))
+	var tree: Dictionary = game.state.world.tree_nodes[0]; var tree_target: Dictionary = game.DebugObjectInspectorSystem.hovered_object(game,tree.position-game.camera_offset+Vector2(70,-70))
 	expect(String(tree_target.id).begins_with("tree_") and (tree_target.bounds as Rect2).size == Vector2(192,192), "tree crown uses complete visible sprite bounds")
 	var player_target: Dictionary = game.DebugObjectInspectorSystem.hovered_object(game,game.player-game.camera_offset)
 	expect(player_target.id == "player" and player_target.priority > enemy_target.priority and player_target.details.any(func(line): return String(line).contains("HP")), "player owns highest hover priority and complete RPG info")

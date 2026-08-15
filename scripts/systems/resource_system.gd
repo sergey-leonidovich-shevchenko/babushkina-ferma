@@ -1,5 +1,7 @@
 extends RefCounted
 
+const WorldVisualProfileSystem := preload("res://scripts/systems/world_visual_profile_system.gd")
+const VISUAL_PROFILE := "resource_node"
 const RESOURCE_NAMES := {
 	"stone": "камень",
 	"crystal": "синий кристалл",
@@ -18,6 +20,21 @@ const SPAWNS := [
 ## Возвращает рассчитанное методом значение в безопасном для вызывающего кода виде.
 static func default_nodes() -> Array:
 	return SPAWNS.duplicate(true)
+
+
+## Возвращает общую нижнюю опору жилы так, чтобы её основание оставалось на исходной позиции.
+static func ground_anchor(position: Vector2) -> Vector2:
+	return position+Vector2(0,24)
+
+
+## Строит видимый прямоугольник камня или кристалла через общий модульный профиль.
+static func destination_rect(node: Dictionary) -> Rect2:
+	return WorldVisualProfileSystem.visual_rect(VISUAL_PROFILE,ground_anchor(Vector2(node.position)))
+
+
+## Строит совпадающее с видимым основанием препятствие 48×48 для навигации и F10.
+static func collision_rect(node: Dictionary) -> Rect2:
+	return WorldVisualProfileSystem.collision_rect(VISUAL_PROFILE,ground_anchor(Vector2(node.position)))
 
 ## Выполняет заявленное игровое действие после проверки условий, затрат и наград.
 static func mine_nearby(game: Node) -> bool:

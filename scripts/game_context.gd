@@ -93,9 +93,8 @@ const CAVE_FLOOR_TILE := preload("res://assets/game/tiles/cave-floor.png")
 const FORAGE_SPRITES := {
 	# Атлас упакован в ячейки 72×72; область большего размера захватывает
 	# соседние стадии роста и показывает несколько частей дерева одновременно.
-	"berries": {"source": Rect2(696, 0, 72, 72), "size": Vector2(88, 88), "anchor": Vector2(44, 70)},
-	"apple": {"source": Rect2(696, 144, 72, 72), "size": Vector2(88, 88), "anchor": Vector2(44, 70)},
-	"nut": {"source": Rect2(696, 288, 72, 72), "size": Vector2(88, 88), "anchor": Vector2(44, 70)},
+	"berries": {"source": Rect2(696, 0, 72, 72), "profile": "forage_crop"},
+	"nut": {"source": Rect2(696, 288, 72, 72), "profile": "forage_tree"},
 }
 
 enum Tool { HOE, SEEDS, WATER, HAND, PICKAXE, ROD, AXE }

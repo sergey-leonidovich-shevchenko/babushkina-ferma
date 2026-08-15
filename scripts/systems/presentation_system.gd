@@ -1,5 +1,7 @@
 extends RefCounted
 
+const WorldVisualProfileSystem := preload("res://scripts/systems/world_visual_profile_system.gd")
+
 ## Чистые расчёты представления. Они не рисуют и не меняют игровое состояние,
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 
@@ -9,7 +11,7 @@ static func forage_sprite_layout(forage_sprites: Dictionary, kind: String, posit
 		return {}
 	return {
 		"source": sprite.source,
-		"destination": Rect2(position - Vector2(sprite.anchor), Vector2(sprite.size)),
+		"destination": WorldVisualProfileSystem.visual_rect(String(sprite.profile),position+Vector2(0,24)),
 	}
 
 
