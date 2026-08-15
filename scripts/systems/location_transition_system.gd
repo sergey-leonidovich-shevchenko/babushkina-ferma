@@ -75,7 +75,9 @@ static func activate(game: Node, transition: String) -> bool:
 		game.exit_cave()
 		return true
 	if transition == "world_gate":
+		if not game.FirstChapterSystem.can_use_world_gate(game): return false
 		game.WorldSystem.travel(game)
+		game.FirstChapterSystem.on_location_changed(game)
 		return true
 	if transition == "moon_portal":
 		return game.WorldEventSystem.use_portal(game)

@@ -29,8 +29,6 @@ static func draw_ui(game: Node) -> void:
 	# Полноэкранные игровые окна получают весь фокус и не смешиваются с календарём или событиями мира.
 	if game.inventory_open or game.shop_open or game.quest_log_open or game.world_map_open or game.skill_menu_open or game.crafting_open or game.storage_open or game.forge_open or game.contract_open: return
 	var value: Dictionary = game.FarmLifeSystem.state(game)
-	if int(value.first_day) < 6:
-		game.draw_rect(Rect2(798,104,330,54),Color(0.08,0.12,0.10,0.90)); game.draw_string(game.UI_FONT,Vector2(814,128),"ПЕРВЫЙ ДЕНЬ",HORIZONTAL_ALIGNMENT_LEFT,-1,15,Color("e8bd62")); game.draw_string(game.UI_FONT,Vector2(814,150),game.FarmLifeSystem.first_day_objective(game),HORIZONTAL_ALIGNMENT_LEFT,-1,14,Color("fff4cf"))
 	var birthday: String = game.FarmLifeSystem.birthday_npc(game); var calendar: String = "День %d • репутация %d" % [game.day,value.reputation]
 	if not birthday.is_empty(): calendar += " • 🎂 %s" % game.QuestSystem.npc_name(birthday)
 	game.draw_rect(Rect2(14,610,330,26),Color(0.07,0.10,0.08,0.78)); game.draw_string(game.UI_FONT,Vector2(25,629),calendar,HORIZONTAL_ALIGNMENT_LEFT,-1,13,Color("fff0bd"))

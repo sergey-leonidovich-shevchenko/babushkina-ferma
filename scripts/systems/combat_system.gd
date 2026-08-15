@@ -241,6 +241,7 @@ static func apply_damage(game: Node, index: int, damage: int, attacker_name: Str
 			if kind == "coins": game.coins += count
 			else: game.dropped_items.append({"kind":kind,"count":count,"position":enemy.position})
 		game.message = "%s • ур. %d: +%d XP" % [LocaleSystem.entity(enemy.kind), enemy.level, reward]
+		game.FirstChapterSystem.on_enemy_defeated(game,enemy)
 		if enemy.kind in PIRATE_FAMILIES: game.notify_tutorial("pirate_loot")
 	else:
 		var prefix := "%s → " % attacker_name if not attacker_name.is_empty() else ""

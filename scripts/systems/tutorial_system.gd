@@ -5,7 +5,7 @@ const STEP_IDS := [
 	"talk", "hold_action", "free_farming", "wide_tilling", "buried_loot", "plant", "water", "rewater", "harvest", "shop", "trade", "seed_catalog", "crop_variety", "perennial_crop",
 	"quest_complete", "fight", "combat_animation", "combat_dodge", "combat_block", "critical_hit", "loot", "inventory", "inventory_filters", "hotbar", "eat", "equipment", "mine", "tree_chop", "tree_fall", "tree_regrow",
 	"fish_cast", "fish_hook", "fish_control", "fish", "advanced_fishing", "crab_trap_place", "crab_trap_collect", "craft_window", "cooking", "equip", "collision", "travel", "locations", "mission_accept", "story_chain", "side_quests",
-	"mission_complete", "journal", "side_mission", "colored_crystal", "day", "level_up",
+	"mission_complete", "journal", "side_mission", "colored_crystal", "day", "chapter_bridge", "chapter_guardian", "chapter_reward", "level_up",
 	"skill_point", "talent_tree", "talent_respec", "profession", "pause_menu", "settings", "save", "wildlife", "wildlife_behavior", "world_loot", "watermelon", "potion",
 	"shield", "lizard",
 	"building_enter", "locked_building", "castle_floor", "companion_recruit", "companion_change", "companion_commands",

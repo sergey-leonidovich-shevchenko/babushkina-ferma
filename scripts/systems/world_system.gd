@@ -15,11 +15,13 @@ static func name(kind: String) -> String:
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func travel(game: Node) -> void:
-	game.current_location = next_location(game.current_location)
+	var early_return: String = game.FirstChapterSystem.early_return_location(game)
+	game.current_location = early_return if not early_return.is_empty() else next_location(game.current_location)
 	game.player = Vector2(220, 430)
 	game.sync_background_location(); game.update_camera()
 	game.play_sfx("travel")
 	game.message = name(game.current_location)
 	game.notify_tutorial("locations")
+	game.FirstChapterSystem.on_location_changed(game)
 	if game.current_location == "pirate_ship": game.notify_tutorial("pirate_ship")
 	game.DiscoverySystem.show_location(game, game.current_location)

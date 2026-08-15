@@ -124,7 +124,7 @@ func _ready() -> void:
 		title_screen = false
 		MenuSystem.open_pause(self)
 		MenuSystem.open_settings(self, false)
-	NpcMovementSystem.initialize(self); FarmLifeSystem.initialize(self); sync_background_location(); AudioSystem.update_context_music(self)
+	NpcMovementSystem.initialize(self); FarmLifeSystem.initialize(self); FirstChapterSystem.initialize(self); sync_background_location(); AudioSystem.update_context_music(self)
 	if "--talent-preview" in OS.get_cmdline_user_args() or "--capture-talent-tree" in OS.get_cmdline_user_args():
 		var talent_preview_life := FarmLifeSystem.state(self); talent_preview_life.first_day = 6; talent_preview_life.cutscene = ""; talent_preview_life.cutscene_timer = 0.0; message = ""; DiscoverySystem.dismiss(self)
 	if "--farm-plot-preview" in OS.get_cmdline_user_args():
@@ -225,7 +225,8 @@ func _physics_process(delta: float) -> void:
 	DebugOverlaySystem.update(self, delta); delta = DebugOverlaySystem.simulation_delta(self, delta); if delta <= 0.0: queue_redraw(); return
 	AdventurePolishSystem.update(self, delta); delta = FarmLifeSystem.simulation_delta(self,delta); if delta <= 0.0: queue_redraw(); return
 	if DebugPlaygroundSystem.active(self): DebugPlaygroundSystem.update(self, delta); delta = DebugPlaygroundSystem.simulation_delta(self, delta); if delta <= 0.0: queue_redraw(); return
-	if title_screen or menu_state.pause_open or menu_state.settings_open or AdventurePolishSystem.has_modal(self) or FarmLifeSystem.modal_active(self):
+	FirstChapterSystem.update(self)
+	if title_screen or menu_state.pause_open or menu_state.settings_open or AdventurePolishSystem.has_modal(self) or FarmLifeSystem.modal_active(self) or FirstChapterSystem.modal_active(self):
 		queue_redraw()
 		return
 	update_game_clock(delta); WorldEventSystem.update(self); sync_background_environment(); EstateSystem.update_daily_event(self); VillageEventSystem.update(self); FarmLifeSystem.update(self,delta); update_crops(delta); TreeSystem.update(self, delta); MoonGladeSystem.update(self, delta); CastleCampaignSystem.update(self, delta)
@@ -605,6 +606,7 @@ func nearest_interaction() -> String:
 	var event_interaction := WorldEventSystem.nearest_interaction(self, nearest_distance); if not event_interaction.is_empty(): nearest = event_interaction
 	var village_event := VillageEventSystem.nearest_interaction(self,nearest_distance); if not village_event.is_empty(): nearest = village_event
 	var life_interaction := FarmLifeSystem.nearest_interaction(self,nearest_distance); if not life_interaction.is_empty(): nearest = life_interaction
+	var chapter_interaction := FirstChapterSystem.nearest_interaction(self,nearest_distance); if not chapter_interaction.is_empty(): nearest = chapter_interaction
 	var campaign_interaction := CastleCampaignSystem.nearest_interaction(self, nearest_distance)
 	if not campaign_interaction.is_empty():
 		nearest = campaign_interaction
@@ -675,6 +677,7 @@ func perform_context_action() -> bool:
 		return MoonGladeSystem.interact(self, interaction)
 	if interaction.begins_with("village_event:"): return VillageEventSystem.interact(self,interaction.get_slice(":",1))
 	if interaction.begins_with("life:"): return FarmLifeSystem.interact(self,interaction)
+	if interaction == "chapter_bridge": return FirstChapterSystem.repair_bridge(self)
 	if interaction.begins_with("castle_"):
 		return CastleCampaignSystem.interact(self, interaction)
 	if interaction == "estate_board": return EstateSystem.purchase_next(self)
@@ -1051,7 +1054,7 @@ func toggle_sword() -> bool:
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func notify_tutorial(event_name: String) -> void:
-	TutorialSystem.notify(self, event_name)
+	TutorialSystem.notify(self, event_name); FirstChapterSystem.observe(self,event_name)
 
 ## Выполняет операцию «сброса обучения» и возвращает результат согласно контракту метода.
 func reset_tutorial() -> void:
@@ -1222,6 +1225,8 @@ func _input(event: InputEvent) -> void:
 		if MenuSystem.handle_input(self, event):
 			get_viewport().set_input_as_handled()
 		return
+	if FirstChapterSystem.handle_input(self,event):
+		get_viewport().set_input_as_handled(); queue_redraw(); return
 	if AdventurePolishSystem.has_modal(self) and AdventurePolishSystem.handle_input(self, event):
 		get_viewport().set_input_as_handled()
 		return
