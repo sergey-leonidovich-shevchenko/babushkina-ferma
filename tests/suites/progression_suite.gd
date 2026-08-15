@@ -68,31 +68,39 @@ func test_profession_progress_and_gameplay_bonuses() -> void:
 func test_progression_save_and_universal_skill_menu_input() -> void:
 	var game := make_game()
 	game.skill_points = 2
+	game.talent_levels.combat_strength = 1
 	game.skill_levels.vitality = 2
 	game.skill_levels.smithing = 1
 	game.skill_xp.smithing = 9
 	game.player_mana = 17
 	var snapshot: Dictionary = game.SaveSystem.snapshot(game)
 	game.skill_points = 0
+	game.talent_levels.combat_strength = 0
 	game.skill_levels.vitality = 0
 	game.skill_xp.smithing = 0
 	game.player_mana = 0
 	game.SaveSystem.apply(game, snapshot)
-	expect(game.skill_points == 2 and game.skill_levels.vitality == 2, "save restores free points and skill ranks")
+	expect(game.skill_points == 2 and game.skill_levels.vitality == 2 and game.talent_levels.combat_strength == 1, "save restores free points skill ranks and learned talents")
 	expect(game.skill_xp.smithing == 9 and game.player_mana == 17, "save restores profession XP and current mana")
 	game.open_skill_menu()
 	expect(game.skill_menu_open, "K action opens the skill window")
 	var accept := InputEventJoypadButton.new()
 	accept.button_index = JOY_BUTTON_A
 	accept.pressed = true
-	game.skill_menu_selected = 2
+	game.skill_menu_selected = 1
 	game.handle_skill_menu_input(accept)
-	expect(game.skill_levels.stamina == 1 and game.skill_points == 1, "gamepad assigns a selected skill point")
+	expect(game.talent_levels.combat_agility == 1 and game.skill_points == 1, "gamepad assigns a selected root talent point")
 	game.skill_menu_open = false
 	var touch := InputEventScreenTouch.new()
 	touch.position = game.InterfaceRenderer.SKILL_BUTTON.get_center()
 	touch.pressed = true
 	expect(game.handle_gamepad_and_touch(touch) and game.skill_menu_open, "touch HUD button opens character development")
+	var talent_mouse := InputEventMouseButton.new()
+	talent_mouse.button_index = MOUSE_BUTTON_LEFT
+	talent_mouse.position = game.TalentRenderer.node_rect(3).get_center()
+	talent_mouse.pressed = true
+	expect(game.TalentRenderer.node_at(talent_mouse.position) == 3 and game.handle_gamepad_and_touch(talent_mouse), "tree uses one shared node geometry for rendering and pointer input")
+	expect(game.talent_levels.combat_power_strike == 1 and game.skill_points == 0, "mouse click learns an available dependent talent without leaking through to the HUD")
 	var legacy_snapshot: Dictionary = snapshot.duplicate(true)
 	legacy_snapshot.erase("progression")
 	game.SaveSystem.apply(game, legacy_snapshot)

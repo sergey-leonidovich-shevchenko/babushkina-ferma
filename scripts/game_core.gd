@@ -3,6 +3,7 @@ extends "res://scripts/game_renderer.gd"
 ## Подготавливает узел к работе: создаёт зависимые данные и синхронизирует начальное состояние.
 func _ready() -> void:
 	InputSystem.ensure_default_actions()
+	talent_levels = TalentSystem.merge_levels(talent_levels)
 	VisualAssetSystem.initialize_item_icons(InventorySystem.ITEM_DATA.keys())
 	for content_error in ContentRegistry.validate():
 		push_error("Invalid game content: " + content_error)
@@ -104,6 +105,11 @@ func _ready() -> void:
 		ContractSystem.configure_preview(self)
 	if "--story-preview" in OS.get_cmdline_user_args(): language_screen = false; title_screen = false; quest_log_open = true; quest_log_page = 0; if "--map-preview" in OS.get_cmdline_user_args(): quest_log_open = false; world_map_open = true; state.world.estate.discovered = WorldMapSystem.LOCATIONS.keys()
 	if "--fishing-preview" in OS.get_cmdline_user_args(): FishingSystem.configure_preview(self)
+	if "--talent-preview" in OS.get_cmdline_user_args() or "--capture-talent-tree" in OS.get_cmdline_user_args():
+		language_screen = false; title_screen = false; current_location = "overworld"; tutorial_visible = false; player_level = 7; player_xp = 82; skill_points = 4
+		for talent_id in ["combat_strength", "combat_agility", "combat_vitality", "farm_orchard", "farm_wide_till", "fish_fine_rod", "craft_apprentice"]: talent_levels[talent_id] = 1
+		skill_menu_selected = 7; skill_menu_open = true
+		if "--capture-talent-tree" in OS.get_cmdline_user_args(): set_meta("capture_talent_frames", 6)
 	if MenuSystem.consume_new_game_request():
 		language_screen = false
 		title_screen = false
@@ -119,6 +125,8 @@ func _ready() -> void:
 		MenuSystem.open_pause(self)
 		MenuSystem.open_settings(self, false)
 	NpcMovementSystem.initialize(self); FarmLifeSystem.initialize(self); sync_background_location(); AudioSystem.update_context_music(self)
+	if "--talent-preview" in OS.get_cmdline_user_args() or "--capture-talent-tree" in OS.get_cmdline_user_args():
+		var talent_preview_life := FarmLifeSystem.state(self); talent_preview_life.first_day = 6; talent_preview_life.cutscene = ""; talent_preview_life.cutscene_timer = 0.0; message = ""; DiscoverySystem.dismiss(self)
 	if "--farm-plot-preview" in OS.get_cmdline_user_args():
 		var farm_preview_life := FarmLifeSystem.state(self); farm_preview_life.first_day = 6; farm_preview_life.cutscene = ""; farm_preview_life.cutscene_timer = 0.0; message = ""; DiscoverySystem.dismiss(self)
 	if "--debug-inspector" in OS.get_cmdline_user_args():
@@ -141,6 +149,13 @@ func _ready() -> void:
 ## Сохраняет автоматические игровые скриншоты после нескольких отрисованных кадров в режимах визуальной проверки.
 func _process(_delta: float) -> void:
 	LevelEditorSystem.update_export_capture(self)
+	if has_meta("capture_talent_frames"):
+		var talent_frames_left := int(get_meta("capture_talent_frames")) - 1; set_meta("capture_talent_frames", talent_frames_left)
+		if talent_frames_left <= 0:
+			remove_meta("capture_talent_frames")
+			var talent_image := get_viewport().get_texture().get_image(); var talent_output := ProjectSettings.globalize_path("res://assets/generated/ui/talent_tree_ingame_preview.png")
+			var talent_error := talent_image.save_png(talent_output); if talent_error != OK: push_error("Не удалось сохранить дерево талантов: %s" % talent_error)
+			get_tree().quit(); return
 	if has_meta("capture_fence_frames"):
 		var fence_frames_left:=int(get_meta("capture_fence_frames"))-1; set_meta("capture_fence_frames",fence_frames_left)
 		if fence_frames_left<=0:
@@ -277,7 +292,7 @@ func update_player_movement(delta: float) -> void:
 	if direction.length() == 0.0:
 		return
 	facing = direction
-	var current_speed := speed * (1.3 if speed_timer > 0.0 else 1.0) * InventorySystem.speed_multiplier(self)
+	var current_speed := speed * (1.3 if speed_timer > 0.0 else 1.0) * InventorySystem.speed_multiplier(self) * TalentSystem.movement_multiplier(self)
 	move_player_with_collisions(direction * current_speed * delta)
 	notify_tutorial("move")
 	if current_location == "overworld" and BuildingSystem.VILLAGE_SQUARE.has_point(player): notify_tutorial("village_paths")
@@ -508,7 +523,7 @@ func use_selected_tool() -> void:
 		return
 	match selected_tool:
 		Tool.HOE:
-			if WorldFarmingSystem.till(self, cultivation_target, plot): action_sfx = "hoe"
+			if WorldFarmingSystem.till_pattern(self, cultivation_target) > 0: action_sfx = "hoe"
 		Tool.SEEDS:
 			if not cultivation_target.valid: message = WorldFarmingSystem.blocked_message(self, cultivation_target.reason)
 			elif FarmSystem.plant(self, plot): action_sfx = "plant"
@@ -526,7 +541,8 @@ func use_selected_tool() -> void:
 		Tool.HAND:
 			if not cultivation_target.valid: message = WorldFarmingSystem.blocked_message(self, cultivation_target.reason)
 			elif FarmSystem.harvest(self, plot): action_sfx = "harvest"
-	WorldFarmingSystem.write_target(self, cultivation_target, plot)
+	if selected_tool != Tool.HOE:
+		WorldFarmingSystem.write_target(self, cultivation_target, plot)
 	if not action_sfx.is_empty():
 		play_sfx(action_sfx)
 		if not durability_kind.is_empty(): AdventurePolishSystem.consume_durability(self, durability_kind)
@@ -863,6 +879,12 @@ func equip_selected_item() -> bool:
 func use_active_item() -> bool:
 	var kind: String = hotbar_slots[selected_hotbar]
 	var item := InventorySystem.data(kind)
+	if kind == "crab_trap": return FishingSystem.use_crab_trap(self)
+	if kind == "fruit_sapling": return OrchardSystem.plant_sapling(self)
+	if kind == "cauldron":
+		if not TalentSystem.has(self, "farm_cooking"): message = "Сначала изучи «Домашнюю кухню»"; return false
+		open_crafting("cauldron")
+		return true
 	if item.get("edible", false):
 		return consume_item(kind)
 	if item.has("tool"):
@@ -900,7 +922,7 @@ func toggle_quest_log() -> void:
 func open_skill_menu() -> void:
 	skill_menu_open = not skill_menu_open
 	if skill_menu_open:
-		skill_menu_selected = clampi(skill_menu_selected, 0, SkillSystem.SKILLS.size() - 1)
+		skill_menu_selected = clampi(skill_menu_selected, 0, TalentSystem.TALENTS.size() - 1)
 		clear_movement_keys()
 		message = "Выбери развитие. Свободных очков: %d" % skill_points
 
@@ -908,11 +930,11 @@ func open_skill_menu() -> void:
 func handle_skill_menu_input(event: InputEvent) -> void:
 	if event is InputEventJoypadButton and event.pressed:
 		match event.button_index:
-			JOY_BUTTON_DPAD_LEFT: skill_menu_selected = posmod(skill_menu_selected - 1, SkillSystem.SKILLS.size())
-			JOY_BUTTON_DPAD_RIGHT: skill_menu_selected = posmod(skill_menu_selected + 1, SkillSystem.SKILLS.size())
-			JOY_BUTTON_DPAD_UP: skill_menu_selected = posmod(skill_menu_selected - 3, SkillSystem.SKILLS.size())
-			JOY_BUTTON_DPAD_DOWN: skill_menu_selected = posmod(skill_menu_selected + 3, SkillSystem.SKILLS.size())
-			JOY_BUTTON_A: SkillSystem.allocate(self, SkillSystem.SKILLS[skill_menu_selected].id)
+			JOY_BUTTON_DPAD_LEFT: skill_menu_selected = posmod(skill_menu_selected - 5, TalentSystem.TALENTS.size())
+			JOY_BUTTON_DPAD_RIGHT: skill_menu_selected = posmod(skill_menu_selected + 5, TalentSystem.TALENTS.size())
+			JOY_BUTTON_DPAD_UP: skill_menu_selected = posmod(skill_menu_selected - 1, TalentSystem.TALENTS.size())
+			JOY_BUTTON_DPAD_DOWN: skill_menu_selected = posmod(skill_menu_selected + 1, TalentSystem.TALENTS.size())
+			JOY_BUTTON_A: TalentSystem.unlock(self, TalentSystem.at(skill_menu_selected).id)
 			JOY_BUTTON_Y, JOY_BUTTON_B, JOY_BUTTON_START: skill_menu_open = false
 		queue_redraw()
 		return
@@ -920,11 +942,11 @@ func handle_skill_menu_input(event: InputEvent) -> void:
 		return
 	match event.keycode:
 		KEY_ESCAPE, KEY_K: skill_menu_open = false
-		KEY_LEFT: skill_menu_selected = posmod(skill_menu_selected - 1, SkillSystem.SKILLS.size())
-		KEY_RIGHT: skill_menu_selected = posmod(skill_menu_selected + 1, SkillSystem.SKILLS.size())
-		KEY_UP: skill_menu_selected = posmod(skill_menu_selected - 3, SkillSystem.SKILLS.size())
-		KEY_DOWN: skill_menu_selected = posmod(skill_menu_selected + 3, SkillSystem.SKILLS.size())
-		KEY_ENTER, KEY_E: SkillSystem.allocate(self, SkillSystem.SKILLS[skill_menu_selected].id)
+		KEY_LEFT: skill_menu_selected = posmod(skill_menu_selected - 5, TalentSystem.TALENTS.size())
+		KEY_RIGHT: skill_menu_selected = posmod(skill_menu_selected + 5, TalentSystem.TALENTS.size())
+		KEY_UP: skill_menu_selected = posmod(skill_menu_selected - 1, TalentSystem.TALENTS.size())
+		KEY_DOWN: skill_menu_selected = posmod(skill_menu_selected + 1, TalentSystem.TALENTS.size())
+		KEY_ENTER, KEY_E: TalentSystem.unlock(self, TalentSystem.at(skill_menu_selected).id)
 	queue_redraw()
 
 ## Выполняет операцию «атаки слизня» и возвращает результат согласно контракту метода.
@@ -1055,21 +1077,16 @@ func reset_tutorial() -> void:
 	TutorialSystem.reset(self)
 
 ## Выполняет заявленный переход режима и обновляет связанный интерфейс.
-func open_crafting() -> void:
-	crafting_open = true
-	crafting_selected = 0
-	clear_movement_keys()
-	message = LocaleSystem.text("recipe_select")
+func open_crafting(station: String = "workbench") -> void:
+	CraftingSystem.open(self, station)
 
 ## Обрабатывает крафта ввода и синхронизирует связанное состояние.
 func handle_crafting_input(event: InputEvent) -> void:
-	if not (event is InputEventKey and event.pressed and not event.echo): return
-	match event.keycode:
-		KEY_ESCAPE, KEY_C: crafting_open = false
-		KEY_UP: crafting_selected = posmod(crafting_selected - 1, CraftingSystem.RECIPES.size())
-		KEY_DOWN: crafting_selected = posmod(crafting_selected + 1, CraftingSystem.RECIPES.size())
-		KEY_ENTER, KEY_E: CraftingSystem.craft(self, crafting_selected)
-	queue_redraw()
+	CraftingSystem.handle_input(self, event)
+
+## Находит видимый рецепт под указателем в текущем окне верстака или котелка.
+func crafting_recipe_at(position: Vector2) -> int:
+	return CraftingSystem.recipe_at(self, position)
 
 ## Открывает интерфейс установленного домашнего сундука.
 func open_storage() -> bool:
@@ -1290,6 +1307,14 @@ func handle_gamepad_and_touch(event: InputEvent) -> bool:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if inventory_open: InventoryInputSystem.handle_mouse(self, event); return true
 		if event.pressed:
+			if crafting_open:
+				var mouse_recipe := crafting_recipe_at(event.position)
+				if mouse_recipe >= 0: crafting_selected = mouse_recipe; CraftingSystem.craft(self, mouse_recipe); queue_redraw()
+				return true
+			if skill_menu_open:
+				var mouse_talent := TalentRenderer.node_at(event.position)
+				if mouse_talent >= 0: skill_menu_selected = mouse_talent; TalentSystem.unlock(self, TalentSystem.at(mouse_talent).id); queue_redraw()
+				return true
 			if world_controls_visible and AdventurePolishSystem.target_at_screen(self, event.position): return true
 			if world_controls_visible and InterfaceRenderer.DODGE_BUTTON.has_point(event.position): CombatSystem.start_dodge(self); return true
 			if world_map_open: WorldMapSystem.toggle(self); return true
@@ -1304,6 +1329,7 @@ func handle_gamepad_and_touch(event: InputEvent) -> bool:
 		var modal_handler: Callable = InputSystem.handle_storage_input if storage_open else (InputSystem.handle_forge_input if forge_open else (InputSystem.handle_contract_input if contract_open else Callable()))
 		if modal_handler.is_valid():
 			modal_handler.call(self, event); return true
+		if crafting_open: handle_crafting_input(event); return true
 		if skill_menu_open: handle_skill_menu_input(event); return true
 		if quest_log_open: InputSystem.handle_modal_input(self, event); return true
 		if inventory_open: handle_inventory_input(event); return true
@@ -1351,15 +1377,17 @@ func handle_gamepad_and_touch(event: InputEvent) -> bool:
 			return InputSystem.handle_forge_touch(self, event.position)
 		if contract_open:
 			return InputSystem.handle_contract_touch(self, event.position)
-		if InterfaceRenderer.QUEST_BUTTON.has_point(event.position):
-			toggle_quest_log()
+		if crafting_open:
+			var touch_recipe := crafting_recipe_at(event.position)
+			if touch_recipe >= 0: crafting_selected = touch_recipe; CraftingSystem.craft(self, touch_recipe); queue_redraw()
 			return true
 		if skill_menu_open:
-			if event.position.y >= 158.0 and event.position.y < 526.0 and event.position.x >= 142.0 and event.position.x < 1000.0:
-				var column := clampi(int((event.position.x - 142.0) / 444.0), 0, 1)
-				var row := clampi(int((event.position.y - 158.0) / 92.0), 0, 3)
-				skill_menu_selected = row * 2 + column
-				SkillSystem.allocate(self, SkillSystem.SKILLS[skill_menu_selected].id)
+			var talent_index := TalentRenderer.node_at(event.position)
+			if talent_index >= 0:
+				skill_menu_selected = talent_index; TalentSystem.unlock(self, TalentSystem.at(skill_menu_selected).id); queue_redraw()
+			return true
+		if InterfaceRenderer.QUEST_BUTTON.has_point(event.position):
+			toggle_quest_log()
 			return true
 		if InterfaceRenderer.SKILL_BUTTON.has_point(event.position):
 			open_skill_menu()

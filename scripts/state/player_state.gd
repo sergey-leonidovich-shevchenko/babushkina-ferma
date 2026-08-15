@@ -12,6 +12,7 @@ var max_mana: int = 40
 var xp: int = 0
 var level: int = 1
 var skill_points: int = 0
+var talent_levels: Dictionary = {}
 var energy: int = 12
 var recruited_companions: Array[String] = []
 var active_companions: Array[String] = []
@@ -21,6 +22,7 @@ var dodge_timer: float = 0.0
 var dodge_cooldown: float = 0.0
 var blocking: bool = false
 var combat_hits: int = 0
+var craft_count: int = 0
 var profile: Dictionary = {"created":false,"name":"Гаврила","farm_name":"Бабушкина ферма","appearance":0,"clothes":0,"specialization":"farmer"}
 var relationships: Dictionary = {}
 var quest_memory: Dictionary = {}
@@ -38,7 +40,7 @@ func normalize() -> void:
 	skill_points = maxi(skill_points, 0)
 	if companion_command not in ["follow", "wait", "attack", "defend"]: companion_command = "follow"
 	for companion_id in companion_bonds: companion_bonds[companion_id] = maxi(0, int(companion_bonds[companion_id]))
-	dodge_timer = maxf(dodge_timer, 0.0); dodge_cooldown = maxf(dodge_cooldown, 0.0); combat_hits = maxi(combat_hits, 0)
+	dodge_timer = maxf(dodge_timer, 0.0); dodge_cooldown = maxf(dodge_cooldown, 0.0); combat_hits = maxi(combat_hits, 0); craft_count = maxi(craft_count, 0)
 	profile = profile.merged({"created":false,"name":"Гаврила","farm_name":"Бабушкина ферма","appearance":0,"clothes":0,"specialization":"farmer"}, false)
 	for npc_id in relationships: relationships[npc_id] = clampi(int(relationships[npc_id]), 0, 100)
 	adventure_ui.choice = maxi(0, int(adventure_ui.get("choice", 0)))

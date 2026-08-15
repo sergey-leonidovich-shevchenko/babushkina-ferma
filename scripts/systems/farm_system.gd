@@ -44,6 +44,9 @@ static func plant(game: Node, plot: Dictionary) -> bool:
 	if game.inventory_item_count(seed_kind) <= 0:
 		game.message = game.LocaleSystem.text("no_seeds")
 		return false
+	if not game.TalentSystem.can_plant_crop(game, crop_kind):
+		game.message = "Эта культура откроется в ветке «Редкие культуры»"
+		return false
 	if not game.CropCatalogSystem.grows_in_season(crop_kind, game.WorldEventSystem.season(game.day)):
 		game.message = game.LocaleSystem.text("crop_out_of_season")
 		return false

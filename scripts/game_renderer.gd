@@ -616,40 +616,22 @@ func draw_quest_log() -> void:
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_skill_menu() -> void:
-	draw_rect(Rect2(92, 48, 968, 552), Color("25232c"))
-	draw_rect(Rect2(112, 68, 928, 512), Color("e4d4a9"))
-	draw_rect(Rect2(112, 68, 928, 70), Color("493e61"))
-	draw_string(UI_FONT, Vector2(180, 108), LocaleSystem.ui("character"), HORIZONTAL_ALIGNMENT_LEFT, 510, 28, Color("fff2c7"))
-	draw_string(UI_FONT, Vector2(735, 106), LocaleSystem.ui("level_points", [player_level, skill_points]), HORIZONTAL_ALIGNMENT_RIGHT, 270, 18, Color("f5cf6a"))
-	for index in SkillSystem.SKILLS.size():
-		var skill: Dictionary = SkillSystem.SKILLS[index]
-		var column := index % 3
-		var row := index / 3
-		var box := Rect2(134 + column * 304, 154 + row * 128, 286, 112)
-		var selected := index == skill_menu_selected
-		draw_rect(box, Color("efc75f") if selected else Color("6c5c48"))
-		draw_rect(box.grow(-4), Color("fff0bd") if selected else Color("f0dfb5"))
-		draw_string(UI_FONT, box.position + Vector2(12, 28), "%s  %s" % [skill.icon, LocaleSystem.skill(skill.id)], HORIZONTAL_ALIGNMENT_LEFT, 184, 16, Color("43382f"))
-		draw_string(UI_FONT, box.position + Vector2(196, 28), LocaleSystem.ui("rank", [SkillSystem.skill(self, skill.id)]), HORIZONTAL_ALIGNMENT_RIGHT, 76, 12, Color("4c674c"))
-		draw_multiline_string(UI_FONT, box.position + Vector2(12, 52), LocaleSystem.skill(skill.id, true), HORIZONTAL_ALIGNMENT_LEFT, 260, 11, 2, Color("665746"))
-		if skill.get("profession", false):
-			var needed := SkillSystem.xp_to_next_skill_rank(SkillSystem.skill(self, skill.id))
-			var ratio := clampf(float(skill_xp.get(skill.id, 0)) / float(needed), 0.0, 1.0)
-			var bar := Rect2(box.position + Vector2(12, 96), Vector2(260, 6))
-			draw_rect(bar, Color("766751"))
-			draw_rect(Rect2(bar.position, Vector2(bar.size.x * ratio, bar.size.y)), Color("6da86d"))
-	draw_string(UI_FONT, Vector2(220, 556), LocaleSystem.ui("skill_help"), HORIZONTAL_ALIGNMENT_CENTER, 712, 15, Color("493b2f"))
+	TalentRenderer.draw(self)
 
 ## Отрисовывает крафта окна по текущему состоянию игры.
 func draw_crafting_window() -> void:
 	draw_rect(Rect2(170, 70, 812, 510), Color("33271f"))
 	draw_rect(Rect2(190, 90, 772, 470), Color("e8cf96"))
 	draw_rect(Rect2(190, 90, 772, 64), Color("744b32"))
-	draw_string(UI_FONT, Vector2(326, 132), LocaleSystem.ui("workbench"), HORIZONTAL_ALIGNMENT_CENTER, 500, 28, Color("fff1c4"))
-	var first_recipe := clampi(crafting_selected - 4, 0, maxi(0, CraftingSystem.RECIPES.size() - 9))
-	for index in range(first_recipe, mini(first_recipe + 9, CraftingSystem.RECIPES.size())):
+	var station_title := "КОТЕЛОК • ДОМАШНЯЯ КУХНЯ" if crafting_station == "cauldron" else LocaleSystem.ui("workbench")
+	draw_string(UI_FONT, Vector2(326, 132), station_title, HORIZONTAL_ALIGNMENT_CENTER, 500, 28, Color("fff1c4"))
+	var visible := CraftingSystem.visible_indices(self)
+	var selected_position := maxi(visible.find(crafting_selected), 0)
+	var first_position := clampi(selected_position - 4, 0, maxi(0, visible.size() - 9))
+	for position in range(first_position, mini(first_position + 9, visible.size())):
+		var index: int = visible[position]
 		var recipe: Dictionary = CraftingSystem.RECIPES[index]
-		var row := Rect2(220, 164 + (index - first_recipe) * 43, 712, 38)
+		var row := Rect2(220, 164 + (position - first_position) * 43, 712, 38)
 		draw_rect(row, Color("f2c96f") if index == crafting_selected else Color("fff0bd"))
 		draw_string(UI_FONT, row.position + Vector2(18, 25), inventory_item_name(recipe.output), HORIZONTAL_ALIGNMENT_LEFT, 230, 15, Color("493b2f"))
 		draw_string(UI_FONT, row.position + Vector2(250, 25), CraftingSystem.ingredients_text(self, recipe), HORIZONTAL_ALIGNMENT_LEFT, 440, 12, Color("49704d") if CraftingSystem.can_craft(self, recipe) else Color("a64d45"))

@@ -43,7 +43,7 @@ const TutorialSystem := preload("res://scripts/systems/tutorial_system.gd")
 const DiscoverySystem := preload("res://scripts/systems/discovery_system.gd")
 const WildlifeSystem := preload("res://scripts/systems/wildlife_system.gd")
 const LootContainerSystem := preload("res://scripts/systems/loot_container_system.gd")
-const SkillSystem := preload("res://scripts/systems/skill_system.gd")
+const SkillSystem := preload("res://scripts/systems/skill_system.gd"); const TalentSystem := preload("res://scripts/systems/talent_system.gd")
 const ForageSystem := preload("res://scripts/systems/forage_system.gd"); const OrchardSystem := preload("res://scripts/systems/orchard_system.gd")
 const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
 const InputSystem := preload("res://scripts/systems/input_system.gd"); const InventoryInputSystem := preload("res://scripts/systems/inventory_input_system.gd")
@@ -61,7 +61,7 @@ const WorldEventSystem := preload("res://scripts/systems/world_event_system.gd")
 const StorageSystem := preload("res://scripts/systems/storage_system.gd"); const EstateSystem := preload("res://scripts/systems/estate_system.gd"); const WorldMapSystem := preload("res://scripts/systems/world_map_system.gd"); const WorldMapRenderer := preload("res://scripts/systems/world_map_renderer.gd")
 const ForgeSystem := preload("res://scripts/systems/forge_system.gd")
 const ContractSystem := preload("res://scripts/systems/contract_system.gd"); const AdventurePolishSystem := preload("res://scripts/systems/adventure_polish_system.gd"); const AdventurePolishRenderer := preload("res://scripts/systems/adventure_polish_renderer.gd")
-const ContractRenderer := preload("res://scripts/systems/contract_renderer.gd")
+const ContractRenderer := preload("res://scripts/systems/contract_renderer.gd"); const TalentRenderer := preload("res://scripts/systems/talent_renderer.gd")
 const VillageForegroundRenderer := preload("res://scripts/systems/village_foreground_renderer.gd"); const VillageLayoutSystem := preload("res://scripts/systems/village_layout_system.gd"); const VillageAmbientRenderer := preload("res://scripts/systems/village_ambient_renderer.gd"); const WorldLootRenderer := preload("res://scripts/systems/world_loot_renderer.gd")
 const DebugPlaygroundSystem := preload("res://scripts/systems/debug_playground_system.gd"); const DebugPlaygroundRenderer := preload("res://scripts/systems/debug_playground_renderer.gd"); const DebugOverlaySystem := preload("res://scripts/systems/debug_overlay_system.gd"); const DebugOverlayRenderer := preload("res://scripts/systems/debug_overlay_renderer.gd"); const DebugMissionSystem := preload("res://scripts/systems/debug_mission_system.gd"); const DebugMissionRenderer := preload("res://scripts/systems/debug_mission_renderer.gd"); const DebugObjectInspectorSystem := preload("res://scripts/systems/debug_object_inspector_system.gd"); const DebugObjectInspectorRenderer := preload("res://scripts/systems/debug_object_inspector_renderer.gd"); const InteriorRenderer := preload("res://scripts/systems/interior_renderer.gd"); const VillageEventRenderer := preload("res://scripts/systems/village_event_renderer.gd"); const WorldPolishRenderer := preload("res://scripts/systems/world_polish_renderer.gd"); const LevelEditorSystem := preload("res://scripts/systems/level_editor_system.gd"); const LevelEditorRenderer := preload("res://scripts/systems/level_editor_renderer.gd"); const FenceSystem := preload("res://scripts/systems/fence_system.gd"); const FenceRenderer := preload("res://scripts/systems/fence_renderer.gd")
 const FarmLifeSystem := preload("res://scripts/systems/farm_life_system.gd"); const FarmLifeRenderer := preload("res://scripts/systems/farm_life_renderer.gd")
@@ -174,11 +174,8 @@ var crystal_ring: int:
 var materials: Dictionary:
 	get: return state.inventory.counts
 	set(value): state.inventory.import_counts(value)
-var crafting_open := false
-var crafting_selected := 0
-var storage_open := false
-var storage_side := 0
-var storage_selected := 0
+var crafting_open := false; var crafting_selected := 0; var crafting_station := "workbench"
+var storage_open := false; var storage_side := 0; var storage_selected := 0
 var forge_open := false
 var forge_selected := 0
 var home_chest_owned: bool:
@@ -261,6 +258,9 @@ var skill_points: int:
 	set(value): state.player.skill_points = value
 var skill_levels := SkillSystem.default_levels()
 var skill_xp := SkillSystem.default_xp()
+var talent_levels: Dictionary:
+	get: return state.player.talent_levels
+	set(value): state.player.talent_levels = value
 var recruited_companions: Array[String]:
 	get: return state.player.recruited_companions
 	set(value): state.player.recruited_companions = value

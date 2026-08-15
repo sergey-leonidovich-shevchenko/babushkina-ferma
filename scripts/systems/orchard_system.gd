@@ -122,6 +122,40 @@ static func weather_tint(season: String, weather: String) -> Color:
 	return Color.WHITE
 
 
+## Высаживает новый фруктовый саженец на свободной обрабатываемой клетке мира.
+static func plant_sapling(game: Node) -> bool:
+	if not game.TalentSystem.has(game, "farm_orchard"):
+		game.message = "Сначала изучи способность «Садовод»"
+		return false
+	if game.inventory_item_count("fruit_sapling") <= 0:
+		game.message = "В рюкзаке нет фруктового саженца"
+		return false
+	if game.energy < 2:
+		game.message = game.LocaleSystem.text("no_energy")
+		return false
+	var target: Dictionary = game.WorldFarmingSystem.target(game)
+	if not bool(target.get("valid", false)):
+		game.message = game.WorldFarmingSystem.blocked_message(game, String(target.get("reason", "location_blocked")))
+		return false
+	var position: Vector2 = Rect2(target.rect).get_center()
+	for node in game.food_nodes:
+		if String(node.get("location", "overworld")) == game.current_location and Vector2(node.position).distance_to(position) < 100.0:
+			game.message = "Деревьям нужно свободное место вокруг"
+			return false
+	var planted_count: int = game.food_nodes.filter(func(node): return bool(node.get("planted_by_player", false))).size()
+	var species: Array = SPECIES_ROWS.keys()
+	var kind: String = String(species[planted_count % species.size()])
+	var data: Dictionary = game.ForageSystem.TYPES[kind]
+	game.food_nodes.append({"position":position, "location":game.current_location, "kind":kind, "active":false, "ready_at":game.ForageSystem.total_minutes(game) + stage_duration(data), "stage":0, "planted_by_player":true})
+	game.change_inventory_count("fruit_sapling", -1)
+	game.energy -= 2
+	game.award_xp(5, "Посадка фруктового дерева")
+	game.SkillSystem.award_profession_xp(game, "farming", 5)
+	game.message = "Высажено дерево: %s" % game.inventory_item_name(kind)
+	game.notify_tutorial("orchard_planting")
+	return true
+
+
 ## Рисует одну стадию сада и отдельные анимированные детали снега, дождя и ветра.
 static func draw_tree(game: Node2D, node: Dictionary) -> void:
 	var current_stage := stage(node)

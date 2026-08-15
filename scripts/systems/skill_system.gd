@@ -120,7 +120,7 @@ static func recalculate_resources(game: Node) -> void:
 	if game.equipment.get("ring", "") == "eclipse_core": equipment_hp += 15
 	equipment_hp += game.ForgeSystem.armor_health_bonus(game)
 	var campaign_choice: String = String(game.state.world.castle_campaign.get("choice", ""))
-	game.player_max_hp = game.MAX_BASE_HP + (game.player_level - 1) * 10 + skill(game, "vitality") * 10 + equipment_hp + (20 if campaign_choice == "seal" else 0) + (10 if game.state.world.estate.level >= 1 else 0)
+	game.player_max_hp = game.MAX_BASE_HP + (game.player_level - 1) * 10 + skill(game, "vitality") * 10 + game.TalentSystem.health_bonus(game) + equipment_hp + (20 if campaign_choice == "seal" else 0) + (10 if game.state.world.estate.level >= 1 else 0)
 	game.player_max_mana = 40 + skill(game, "mana") * 10 + (20 if campaign_choice == "power" else 0)
 	game.player_hp = mini(game.player_hp, game.player_max_hp)
 	game.player_mana = mini(game.player_mana, game.player_max_mana)

@@ -207,11 +207,13 @@ static func attack(game: Node, index: int) -> bool:
 
 ## Рассчитывает единый урон героя для обычных врагов и событийных боссов.
 static func player_attack_damage(game: Node) -> int:
-	var damage: int = 1 + (1 if game.strength_timer > 0 else 0) + game.InventorySystem.damage_bonus(game)
+	var damage: int = 1 + (1 if game.strength_timer > 0 else 0) + game.InventorySystem.damage_bonus(game) + game.TalentSystem.combat_damage_bonus(game)
 	if game.equipped_weapon == "forest_sword": damage += 1
 	elif game.equipped_weapon == "crystal_sword": damage += 2
 	elif game.equipped_weapon == "bow": damage += 1
 	var campaign_bonus := 2 if game.state.world.castle_campaign.get("choice", "") == "power" else 0
+	if game.TalentSystem.has(game, "combat_power_strike") and posmod(game.state.player.combat_hits + 1, 4) == 0:
+		damage += 2
 	return damage + game.ForgeSystem.weapon_damage_bonus(game, game.equipped_weapon) + campaign_bonus
 
 

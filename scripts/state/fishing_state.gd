@@ -29,6 +29,7 @@ var treasure_loot := ""
 var total_caught := 0
 var best_sizes: Dictionary = {}
 var result_text := ""
+var traps: Array = []
 
 
 ## Возвращает мини-игру в безопасное исходное состояние, сохраняя рыбную коллекцию героя.
@@ -55,4 +56,6 @@ func normalize() -> void:
 	total_caught = maxi(total_caught, 0)
 	for fish_kind in best_sizes:
 		best_sizes[fish_kind] = maxi(int(best_sizes[fish_kind]), 0)
+	for trap in traps:
+		trap.ready_day = maxi(int(trap.get("ready_day", 1)), 1)
 	reset_cast()

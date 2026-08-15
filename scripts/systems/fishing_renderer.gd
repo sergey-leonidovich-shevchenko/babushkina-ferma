@@ -1,5 +1,15 @@
 extends RefCounted
 
+## Рисует установленные в текущей локации крабовые ловушки как постоянные мировые объекты.
+static func draw_traps(game: Node2D) -> void:
+	for trap in game.state.fishing.traps:
+		if String(trap.location) != game.current_location: continue
+		var position := Vector2(trap.position)
+		game.draw_item_icon("crab_trap", Rect2(position - Vector2(28, 28), Vector2(56, 56)))
+		if game.day >= int(trap.ready_day):
+			game.draw_circle(position + Vector2(20, -24), 8, Color("f3c75d"))
+			game.draw_string(game.UI_FONT, position + Vector2(14, -19), "!", HORIZONTAL_ALIGNMENT_CENTER, 12, 12, Color("47301d"))
+
 const PANEL := Rect2(770, 104, 326, 414)
 const WATER_TRACK := Rect2(816, 158, 118, 300)
 const PROGRESS_TRACK := Rect2(956, 158, 28, 300)

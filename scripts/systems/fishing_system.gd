@@ -18,9 +18,9 @@ const TREASURE_LOOT := [
 const FISH_CATALOG := [
 	{"id":"river_perch", "name_key":"fish_river_perch", "behavior":"mixed", "difficulty":28.0, "min_size":18, "max_size":36},
 	{"id":"silver_bream", "name_key":"fish_silver_bream", "behavior":"smooth", "difficulty":22.0, "min_size":24, "max_size":48},
-	{"id":"deep_pike", "name_key":"fish_deep_pike", "behavior":"dart", "difficulty":58.0, "min_size":38, "max_size":92},
-	{"id":"stone_loach", "name_key":"fish_stone_loach", "behavior":"sinker", "difficulty":42.0, "min_size":16, "max_size":41},
-	{"id":"sunny_ide", "name_key":"fish_sunny_ide", "behavior":"floater", "difficulty":48.0, "min_size":27, "max_size":61},
+	{"id":"deep_pike", "name_key":"fish_deep_pike", "behavior":"dart", "difficulty":58.0, "min_size":38, "max_size":92, "requires":"fish_deep_water", "advanced_rod":true},
+	{"id":"stone_loach", "name_key":"fish_stone_loach", "behavior":"sinker", "difficulty":42.0, "min_size":16, "max_size":41, "requires":"fish_fine_rod"},
+	{"id":"sunny_ide", "name_key":"fish_sunny_ide", "behavior":"floater", "difficulty":48.0, "min_size":27, "max_size":61, "requires":"fish_big_game", "advanced_rod":true},
 ]
 
 
@@ -53,7 +53,11 @@ static func use_rod(game: Node) -> bool:
 	if state.phase in [PHASE_CHARGING, PHASE_WAITING, PHASE_RESULT]:
 		if state.phase == PHASE_WAITING: game.message = game.LocaleSystem.text("fish_wait")
 		return false
-	if not game.has_fishing_rod: game.message = game.LocaleSystem.text("fish_no_rod"); return false
+	var held_kind: String = String(game.hotbar_slots[game.selected_hotbar]) if game.selected_hotbar >= 0 and game.selected_hotbar < game.hotbar_slots.size() else ""
+	if not game.has_fishing_rod and game.inventory_item_count("advanced_fishing_rod") <= 0: game.message = game.LocaleSystem.text("fish_no_rod"); return false
+	if held_kind == "advanced_fishing_rod" and not game.TalentSystem.has(game, "fish_fine_rod"):
+		game.message = "Сначала изучи талант «Точная снасть»"
+		return false
 	if not game.AdventurePolishSystem.can_use(game, "fishing_rod"): return false
 	if not is_near_water(game): game.message = game.LocaleSystem.text("fish_need_water"); return false
 	state.reset_cast()
@@ -115,12 +119,15 @@ static func _update_bite(game: Node, delta: float) -> void:
 ## Выбирает рыбу и подготавливает вертикальную мини-игру с обучающим первым уловом.
 static func _start_minigame(game: Node) -> void:
 	var state = game.state.fishing
-	var fish: Dictionary = FISH_CATALOG[state.total_caught % FISH_CATALOG.size()]
+	var available: Array[Dictionary] = []
+	for candidate in FISH_CATALOG:
+		if game.TalentSystem.can_catch_fish(game, candidate): available.append(candidate)
+	var fish: Dictionary = available[state.total_caught % available.size()]
 	state.phase = PHASE_MINIGAME
 	state.elapsed = 0.0
 	state.bar_y = 0.74
 	state.bar_velocity = 0.0
-	state.bar_size = clampf(0.24 + game.SkillSystem.skill(game, "fishing") * 0.014, 0.24, 0.42)
+	state.bar_size = clampf(0.24 + game.SkillSystem.skill(game, "fishing") * 0.014 + game.TalentSystem.fishing_bar_bonus(game), 0.24, 0.48)
 	state.fish_id = fish.id; state.fish_name = game.LocaleSystem.text(fish.name_key); state.fish_behavior = fish.behavior; state.fish_difficulty = fish.difficulty
 	state.fish_y = 0.48; state.fish_velocity = 0.0; state.fish_target = 0.48; state.fish_target_timer = 0.15
 	state.catch_progress = 0.22; state.perfect = true
@@ -198,8 +205,8 @@ static func _update_treasure(state: RefCounted, delta: float) -> void:
 static func _complete_catch(game: Node) -> void:
 	var state = game.state.fishing
 	var catch_index: int = state.total_caught
-	var fish: Dictionary = FISH_CATALOG[catch_index % FISH_CATALOG.size()]
-	var size_factor := clampf(state.cast_power * 0.7 + game.SkillSystem.skill(game, "fishing") * 0.03 - (0.0 if state.perfect else 0.08), 0.0, 1.0)
+	var fish := fish_data(state.fish_id)
+	var size_factor := clampf(state.cast_power * 0.7 + game.SkillSystem.skill(game, "fishing") * 0.03 + game.TalentSystem.fishing_size_bonus(game) - (0.0 if state.perfect else 0.08), 0.0, 1.0)
 	state.fish_size = roundi(lerpf(float(fish.min_size), float(fish.max_size), size_factor))
 	state.quality = _quality_for(state.cast_power, state.perfect)
 	var previous_best := int(state.best_sizes.get(state.fish_id, 0))
@@ -218,6 +225,44 @@ static func _complete_catch(game: Node) -> void:
 	game.message = state.result_text
 	game.play_sfx("fish_catch")
 	game.notify_tutorial("fish")
+	if bool(fish.get("advanced_rod", false)): game.notify_tutorial("advanced_fishing")
+
+
+## Возвращает данные уже выбранной рыбы, не меняя результат при завершении мини-игры.
+static func fish_data(fish_id: String) -> Dictionary:
+	for fish in FISH_CATALOG:
+		if String(fish.id) == fish_id: return fish
+	return FISH_CATALOG[0]
+
+
+## Устанавливает новую ловушку у воды либо собирает созревшую существующую ловушку.
+static func use_crab_trap(game: Node) -> bool:
+	if not game.TalentSystem.has(game, "fish_crab_traps"):
+		game.message = "Изучи «Крабовые ловушки» в ветке рыбалки"
+		return false
+	for trap in game.state.fishing.traps:
+		if String(trap.location) == game.current_location and game.player.distance_to(Vector2(trap.position)) < 90.0:
+			if game.day < int(trap.ready_day):
+				game.message = "Ловушка будет готова завтра"
+				return false
+			game.change_inventory_count("crab", 1)
+			trap.ready_day = game.day + 1
+			game.award_xp(8, "Крабовая ловушка")
+			game.SkillSystem.award_profession_xp(game, "fishing", 6)
+			game.message = "Пойман речной краб • +8 XP"
+			game.notify_tutorial("crab_trap_collect")
+			return true
+	if not is_near_water(game):
+		game.message = game.LocaleSystem.text("fish_need_water")
+		return false
+	if game.inventory_item_count("crab_trap") <= 0:
+		game.message = "Нужна крабовая ловушка"
+		return false
+	game.change_inventory_count("crab_trap", -1)
+	game.state.fishing.traps.append({"location":game.current_location, "position":game.player + game.facing.normalized() * 54.0, "ready_day":game.day + 1})
+	game.message = "Ловушка установлена • проверь её завтра"
+	game.notify_tutorial("crab_trap_place")
+	return true
 
 
 ## Завершает сорвавшийся улов и возвращает управление миру после короткого результата.
