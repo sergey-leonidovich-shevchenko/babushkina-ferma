@@ -11,10 +11,25 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE_IMAGE = ROOT / "assets" / "generated" / "level_drafts" / "first_level_fairytale_master_v1.png"
 OUTPUT_DIR = ROOT / "assets" / "generated" / "level_drafts" / "first_level_tiles_32"
+RUNTIME_IMAGE = ROOT / "assets" / "game" / "locations" / "overworld" / "overworld_master_24_v2.png"
 TILE_SIZE = 32
+RUNTIME_TILE_SIZE = 24
+RUNTIME_COLUMNS = 100
+RUNTIME_ROWS = 50
+PLAYABLE_CROP = (0, 128, 1536, 896)
+
+
+def bake_runtime_master(source: Image.Image) -> None:
+	"""Запекает выбранную композицию в нативную игровую сетку 100×50 без runtime-масштабирования."""
+	playable = source.crop(PLAYABLE_CROP)
+	runtime_size = (RUNTIME_COLUMNS * RUNTIME_TILE_SIZE, RUNTIME_ROWS * RUNTIME_TILE_SIZE)
+	runtime = playable.resize(runtime_size, Image.Resampling.NEAREST)
+	RUNTIME_IMAGE.parent.mkdir(parents=True, exist_ok=True)
+	runtime.save(RUNTIME_IMAGE)
 
 
 def main() -> None:
+	"""Нарезает исходный мастер для аудита и создаёт нативный runtime-мастер первой локации."""
 	OUT_RAW = OUTPUT_DIR / "raw"
 	OUT_GRID = OUTPUT_DIR / "grid"
 	OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -22,6 +37,7 @@ def main() -> None:
 	OUT_GRID.mkdir(exist_ok=True)
 
 	src = Image.open(SOURCE_IMAGE).convert("RGBA")
+	bake_runtime_master(src)
 	width, height = src.size
 	columns = width // TILE_SIZE
 	rows = height // TILE_SIZE
@@ -73,6 +89,12 @@ def main() -> None:
 	grid_preview.save(OUTPUT_DIR / "first_level_fairytale_master_v1_grid.png")
 	metadata = {
 		"source": str(SOURCE_IMAGE),
+		"runtime_master": {
+			"path": str(RUNTIME_IMAGE),
+			"tile_size": RUNTIME_TILE_SIZE,
+			"columns": RUNTIME_COLUMNS,
+			"rows": RUNTIME_ROWS,
+		},
 		"tile_size": TILE_SIZE,
 		"grid": {"cols": columns, "rows": rows, "total": total},
 		"raw": {"path": "raw", "count": total},

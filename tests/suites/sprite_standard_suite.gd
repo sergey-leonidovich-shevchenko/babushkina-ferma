@@ -3,10 +3,22 @@ extends "res://tests/suites/suite_base.gd"
 
 ## Запускает проверку обязательного стандарта и полноты реестра движущихся объектов.
 func run() -> void:
+	test_world_visual_profiles_are_grid_safe()
 	test_eight_direction_index_is_stable()
 	test_human_character_package_is_compliant()
 	test_all_current_mobile_catalog_entries_are_audited()
 	test_known_animation_debt_is_explicit_and_documented()
+
+
+## Сценарий: главные семейства мирового арта используют общий машинно-проверяемый каталог геометрии.
+## Исходное состояние: каталог содержит землю, мост, четыре стадии дерева, героя, жителей, животных и ранги врагов.
+## Ожидаемый результат: все размеры кратны 24 px, anchors валидны, а визуальный и физический мост совпадают.
+func test_world_visual_profiles_are_grid_safe() -> void:
+	var profiles = GameScript.WorldVisualProfileSystem
+	expect(profiles.validation_errors().is_empty(), "all shared visual profiles satisfy the 24-pixel geometry contract")
+	expect(profiles.visual_size("terrain") == Vector2(24, 24) and profiles.visual_size("farm_plot") == Vector2(48, 48), "terrain and farm plots use base grid modules")
+	expect(profiles.visual_rect("hero", Vector2(100, 200)) == Rect2(64, 104, 72, 96), "hero profile keeps the authored bottom-center foot anchor")
+	expect(profiles.collision_rect("bridge", Vector2(100, 200)) == Rect2(52, 104, 96, 192), "bridge collision is derived from the same four-by-eight-cell profile")
 
 
 ## Сценарий: восемь векторов движения однозначно сопоставляются восьми строкам будущих атласов.

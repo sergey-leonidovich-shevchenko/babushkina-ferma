@@ -8,13 +8,15 @@ const RIVER_CENTER := [
 const RIVER_HALF_WIDTH := 58.0
 const POND_CENTER := Vector2(1560, 850)
 const POND_RADII := Vector2(150, 82)
-const BRIDGES := [Rect2(590, 445, 100, 190), Rect2(1350, 715, 100, 190)]
+const WorldVisualProfileSystem := preload("res://scripts/systems/world_visual_profile_system.gd")
+const BRIDGE_SIZE := WorldVisualProfileSystem.PROFILES.bridge.visual_size
+const BRIDGES := [Rect2(592, 444, 96, 192), Rect2(1352, 714, 96, 192)]
 const BRIDGE_RENDER_REGIONS := [
 	Rect2(218, 335, 100, 190),
 	Rect2(218, 483, 100, 190),
 ]
 const BRIDGE_RENDER_OFFSETS := [Vector2.ZERO, Vector2.ZERO]
-const BRIDGE_RENDER_SIZES := [Vector2(100, 190), Vector2(100, 190)]
+const BRIDGE_RENDER_SIZES := [BRIDGE_SIZE, BRIDGE_SIZE]
 const DISTRICTS := {
 	"homestead":Rect2(38, 690, 720, 490), "farm":Rect2(38, 830, 420, 350),
 	"market":Rect2(1120, 250, 560, 350), "guild":Rect2(1780, 120, 500, 430),
@@ -180,10 +182,9 @@ static func is_on_bridge(position: Vector2, margin: float = 0.0) -> bool:
 	return false
 
 
-## Возвращает широкую непрерывную полосу прохода, совпадающую с видимой настилкой моста.
+## Возвращает непрерывную полосу прохода, которая точно совпадает с утверждённым прямоугольником настила.
 static func bridge_navigation_rect(index: int) -> Rect2:
-	var bridge: Rect2 = BRIDGES[index % BRIDGES.size()]
-	return Rect2(bridge.position - Vector2(28, 24), bridge.size + Vector2(56, 48))
+	return BRIDGES[index % BRIDGES.size()]
 
 
 ## Возвращает область атласа для конкретного моста (0/1), чтобы можно было точечно подправить визуальный стиль.

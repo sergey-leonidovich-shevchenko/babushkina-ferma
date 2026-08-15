@@ -24,7 +24,7 @@ const RED_MUSHROOMS := preload("res://assets/game/environment/red_mushrooms.png"
 const CAVE_CRYSTAL := preload("res://assets/game/environment/cave_crystal.png")
 const RESOURCE_CRYSTAL := preload("res://assets/game/resources/blue-crystal.png")
 const RESOURCE_ROCK := preload("res://assets/game/resources/rock.png")
-const NavigationSystem := preload("res://scripts/systems/navigation_system.gd"); const SpatialGridSystem := preload("res://scripts/systems/spatial_grid_system.gd"); const FarmVisualSystem := preload("res://scripts/systems/farm_visual_system.gd"); const CropCatalogSystem := preload("res://scripts/systems/crop_catalog_system.gd")
+const NavigationSystem := preload("res://scripts/systems/navigation_system.gd"); const SpatialGridSystem := preload("res://scripts/systems/spatial_grid_system.gd"); const WorldVisualProfileSystem := preload("res://scripts/systems/world_visual_profile_system.gd"); const FarmVisualSystem := preload("res://scripts/systems/farm_visual_system.gd"); const CropCatalogSystem := preload("res://scripts/systems/crop_catalog_system.gd")
 const PlayerSystem := preload("res://scripts/systems/player_system.gd")
 const InventorySystem := preload("res://scripts/systems/inventory_system.gd")
 const CraftingSystem := preload("res://scripts/systems/crafting_system.gd")

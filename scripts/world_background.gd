@@ -15,7 +15,7 @@ const BRIDGES := preload("res://assets/game/environment/bridges.png")
 const FOREST_TREE := preload("res://assets/game/environment/forest_tree.png")
 const VILLAGE_PROPS := preload("res://assets/game/environment/village_prop_atlas.png")
 const RESOURCE_ROCK := preload("res://assets/game/resources/rock.png")
-const FIRST_LEVEL_MASTER := preload("res://assets/generated/level_drafts/first_level_fairytale_master_v1.png")
+const FIRST_LEVEL_MASTER := preload("res://assets/game/locations/overworld/overworld_master_24_v2.png")
 const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
 const BuildingSystem := preload("res://scripts/systems/building_system.gd")
 const VillageLayoutSystem := preload("res://scripts/systems/village_layout_system.gd")
@@ -101,7 +101,7 @@ func draw_adventure_location() -> void:
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_overworld() -> void:
-	# Выбранный мастер собирается из сетки 32×32. Объекты игрового состояния
+	# Фон запечён в нативные 100×50 клеток по 24 px. Объекты игрового состояния
 	# (урожай, персонажи, ресурсы) остаются независимыми верхними слоями.
 	var tint := Color.WHITE
 	if weather == "rain": tint = Color("d5e2dd")

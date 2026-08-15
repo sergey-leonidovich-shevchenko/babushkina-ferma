@@ -21,16 +21,16 @@ func run() -> void:
 	test_world_loot_discovery_and_save_persistence()
 
 
-## Сценарий: цельный мастер первой локации нарезается на игровую сетку без деформации и щелей.
-## Исходное состояние: исходное изображение 1536×1024 и игровой мир 2400×1200.
-## Ожидаемый результат: центральные 48×24 исходных тайла образуют 48×24 игровых тайла и точно закрывают мир.
+## Сценарий: цельный мастер первой локации хранится в нативной игровой сетке без runtime-деформации и щелей.
+## Исходное состояние: запечённое изображение 2400×1200 и игровой мир того же размера.
+## Ожидаемый результат: сто на пятьдесят ячеек 24×24 совпадают в источнике и мире один к одному.
 func test_first_level_master_is_sliced_into_a_seamless_world_grid() -> void:
-	var master: Texture2D = load("res://assets/generated/level_drafts/first_level_fairytale_master_v1.png")
-	expect(master != null and master.get_size() == Vector2(1536, 1024), "fairytale first-level master is imported at its authored resolution")
-	expect(FirstLevelArtSystem.layout_is_valid(), "fairytale master crop maps to the complete 2400x1200 world")
-	expect(FirstLevelArtSystem.source_rect(Vector2i.ZERO) == Rect2(0, 128, 32, 32), "first playable sprite starts on the tile-aligned crop row")
-	expect(FirstLevelArtSystem.world_rect(Vector2i(47, 23)) == Rect2(2350, 1150, 50, 50), "last playable sprite closes the lower-right world corner")
-	var mapped_center := FirstLevelArtSystem.source_to_world(Vector2(768, 512))
+	var master: Texture2D = load("res://assets/game/locations/overworld/overworld_master_24_v2.png")
+	expect(master != null and master.get_size() == Vector2(2400, 1200), "fairytale first-level runtime master is imported at native world resolution")
+	expect(FirstLevelArtSystem.layout_is_valid(), "fairytale master owns the complete 100x50 base grid")
+	expect(FirstLevelArtSystem.source_rect(Vector2i.ZERO) == Rect2(0, 0, 24, 24), "first playable sprite starts at the first base cell")
+	expect(FirstLevelArtSystem.world_rect(Vector2i(99, 49)) == Rect2(2376, 1176, 24, 24), "last playable sprite closes the lower-right world corner")
+	var mapped_center := FirstLevelArtSystem.source_to_world(Vector2(1200, 600))
 	expect(mapped_center == Vector2(1200, 600), "master center maps to the center of the playable world")
 
 ## Сценарий: первая локация разделена на двор, площадь и дикую окраину без перекрытий ключевых объектов.
@@ -106,12 +106,12 @@ func test_bridge_render_data_and_discovery_covers_both_crossings() -> void:
 	var game := make_game()
 	game.current_location = "overworld"
 	var east_bridge_center: Vector2 = VillageLayoutSystem.BRIDGES[1].get_center()
-	expect(VillageLayoutSystem.bridge_render_rect(0).size == Vector2(100, 190), "first bridge uses the intended render size")
-	expect(VillageLayoutSystem.bridge_render_rect(1).size == Vector2(100, 190), "second bridge uses the intended render size")
-	expect(VillageLayoutSystem.BRIDGE_RENDER_SIZES[0] == Vector2(100, 190), "first bridge render source frame has full bridge resolution")
-	expect(VillageLayoutSystem.BRIDGE_RENDER_SIZES[1] == Vector2(100, 190), "second bridge render source frame has full bridge resolution")
-	expect(VillageLayoutSystem.bridge_navigation_rect(0).size == Vector2(156, 238), "small bridge owns a forgiving navigation lane matching its visible width")
-	expect(VillageLayoutSystem.bridge_navigation_rect(1).size == Vector2(156, 238), "main bridge owns a forgiving navigation lane matching its visible width")
+	expect(VillageLayoutSystem.bridge_render_rect(0).size == Vector2(96, 192), "first bridge uses the four-by-eight-cell render size")
+	expect(VillageLayoutSystem.bridge_render_rect(1).size == Vector2(96, 192), "second bridge uses the four-by-eight-cell render size")
+	expect(VillageLayoutSystem.BRIDGE_RENDER_SIZES[0] == Vector2(96, 192), "first bridge follows the shared visual profile")
+	expect(VillageLayoutSystem.BRIDGE_RENDER_SIZES[1] == Vector2(96, 192), "second bridge follows the shared visual profile")
+	expect(VillageLayoutSystem.bridge_navigation_rect(0) == VillageLayoutSystem.BRIDGES[0], "small bridge uses one exact rect for art and navigation")
+	expect(VillageLayoutSystem.bridge_navigation_rect(1) == VillageLayoutSystem.BRIDGES[1], "main bridge uses one exact rect for art and navigation")
 	expect(VillageLayoutSystem.nearest_bridge_center(east_bridge_center) == east_bridge_center, "nearest-bridge helper picks eastern crossing")
 	for bridge_index in VillageLayoutSystem.BRIDGES.size():
 		var bridge_center: Vector2 = VillageLayoutSystem.BRIDGES[bridge_index].get_center()
