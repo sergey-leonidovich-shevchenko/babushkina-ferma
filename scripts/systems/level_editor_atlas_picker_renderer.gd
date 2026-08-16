@@ -4,6 +4,7 @@ const AtlasPickerSystem := preload("res://scripts/systems/level_editor_atlas_pic
 const TEXT := Color("fff0c8")
 const MUTED := Color("c5ae83")
 const SELECTED := Color("ffd45c")
+const ROW_TEXT := Color("4b2c17")
 
 
 ## Рисует модальное окно равномерных кадров или произвольного source-rect поверх живой карты.
@@ -25,12 +26,12 @@ static func draw_grid(game: Node2D, state: Dictionary, texture: Texture2D) -> vo
 	var count:=AtlasPickerSystem.frame_count(texture,state); var page:=clampi(int(state.get("atlas_page",0)),0,AtlasPickerSystem.page_count(texture,state)-1); var start:=page*AtlasPickerSystem.PAGE_SIZE
 	for local_index in AtlasPickerSystem.PAGE_SIZE:
 		var index:=start+local_index; var column:=local_index%AtlasPickerSystem.GRID_COLUMNS; var row:=local_index/AtlasPickerSystem.GRID_COLUMNS; var rect:=Rect2(AtlasPickerSystem.GRID_AREA.position+Vector2(column*AtlasPickerSystem.GRID_CELL.x,row*AtlasPickerSystem.GRID_CELL.y),AtlasPickerSystem.GRID_CELL-Vector2(4,4)); var active:=index==int(state.slice_index)
-		game.DebugUiKitSystem.draw_catalog_row(game,rect,active)
+		game.DebugUiKitSystem.draw_catalog_row(game,rect,active,true)
 		if index>=count: continue
 		var preview_state:=state.duplicate(); preview_state.slice_index=index; preview_state.source_mode="grid"; var source:=AtlasPickerSystem.selected_source(texture,preview_state); var source_size:=source.size if source.size!=Vector2.ZERO else texture.get_size(); var scale:=minf(68.0/maxf(source_size.x,1),68.0/maxf(source_size.y,1)); var destination:=Rect2(rect.position+Vector2((rect.size.x-source_size.x*scale)*0.5,10),source_size*scale)
 		if source.size==Vector2.ZERO: game.draw_texture_rect(texture,destination,false)
 		else: game.draw_texture_rect_region(texture,destination,source)
-		game.draw_ui_string(game.UI_FONT,rect.position+Vector2(4,rect.size.y-5),"#%d"%(index+1),HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-8,9,SELECTED if active else MUTED)
+		game.draw_ui_string(game.UI_FONT,rect.position+Vector2(4,rect.size.y-5),"#%d"%(index+1),HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-8,9,ROW_TEXT)
 	draw_button(game,AtlasPickerSystem.PAGE_PREV,"‹ СТРАНИЦА",false); draw_button(game,AtlasPickerSystem.PAGE_LABEL,"%d / %d · %d кадров"%[page+1,AtlasPickerSystem.page_count(texture,state),count],true); draw_button(game,AtlasPickerSystem.PAGE_NEXT,"СТРАНИЦА ›",false)
 
 

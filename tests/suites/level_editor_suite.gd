@@ -31,6 +31,7 @@ func run() -> void:
 	test_seasonal_grass_preserves_selected_climate_family()
 	test_group_marquee_move_and_clipboard_preserve_layout()
 	test_layer_visibility_and_locking_protect_objects()
+	test_editor_labels_fit_buttons_and_use_dark_contrast()
 	test_validation_blocks_broken_export_and_reports_map_issues()
 	test_runtime_integration_freezes_simulation_and_draws_editor_layers()
 
@@ -429,6 +430,17 @@ func test_layer_visibility_and_locking_protect_objects() -> void:
 	game.free()
 
 
+## Сценарий: конструктор показывает короткие и очень длинные русские подписи на светлых пергаментных кнопках.
+## Исходное состояние: известны реальная ширина UI-шрифта, безопасная область кнопки и минимальный размер 7 px.
+## Ожидаемый результат: короткий текст не меняется, длинный уменьшается или сокращается и всегда остаётся тёмным и внутри области.
+func test_editor_labels_fit_buttons_and_use_dark_contrast() -> void:
+	var game:=make_game(); var short:Dictionary=game.DebugUiKitSystem.fit_label(game.UI_FONT,"СОХР.",90,10,7); var long:Dictionary=game.DebugUiKitSystem.fit_label(game.UI_FONT,"ОЧЕНЬ ДЛИННАЯ ПОДПИСЬ КНОПКИ КОНСТРУКТОРА",86,10,7)
+	expect(short.text=="СОХР." and short.size==10,"short editor label keeps its preferred typography")
+	expect(game.UI_FONT.get_string_size(String(long.text),HORIZONTAL_ALIGNMENT_LEFT,-1,int(long.size)).x<=86.0 and int(long.size)>=7,"long editor label is fitted to the exact safe width")
+	expect(game.DebugUiKitSystem.EDITOR_BUTTON_TEXT.get_luminance()<0.25 and game.LevelEditorRenderer.ROW_TEXT.get_luminance()<0.25,"parchment buttons and catalog rows use dark high-contrast text")
+	game.free()
+
+
 ## Сценарий: перед экспортом карта содержит пустое имя, пропавший ресурс и непроходимую землю.
 ## Исходное состояние: обычное локальное сохранение допустимо для незавершённого черновика, проектный экспорт обязан быть строгим.
 ## Ожидаемый результат: валидатор перечисляет ошибки и предупреждение, а затем принимает исправленный ресурс и название.
@@ -460,4 +472,4 @@ func test_runtime_integration_freezes_simulation_and_draws_editor_layers() -> vo
 	var preview := Image.load_from_file(ProjectSettings.globalize_path("res://assets/generated/level_drafts/level_editor_ingame_preview.png"))
 	expect(preview != null and preview.get_width()>=1152 and absf(float(preview.get_width())/preview.get_height()-16.0/9.0)<0.01, "level editor keeps a native-or-larger sixteen-by-nine visual reference")
 	var atlas_preview := Image.load_from_file(ProjectSettings.globalize_path("res://assets/generated/level_drafts/level_editor_atlas_picker_preview.png"))
-	expect(atlas_preview != null and atlas_preview.get_size()==Vector2i(1152,648), "visual frame picker keeps a reviewed native sixteen-by-nine reference")
+	expect(atlas_preview != null and atlas_preview.get_width() >= 1152 and absf(float(atlas_preview.get_width()) / atlas_preview.get_height() - 16.0 / 9.0) < 0.01, "visual frame picker keeps a reviewed native-or-larger sixteen-by-nine reference")

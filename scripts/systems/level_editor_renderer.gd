@@ -10,6 +10,9 @@ const BUTTON_ACTIVE := Color("557544")
 const TEXT := Color("fff0c8")
 const MUTED := Color("c5ae83")
 const SELECTED := Color("ffd45c")
+const ROW_TEXT := Color("4b2c17")
+const ROW_MUTED := Color("76563b")
+const ROW_SELECTED := Color("75420f")
 const TRANSITION_TEXTURES := {"dirt":"res://assets/game/tiles/editor/transitions/dirt_edge.png","gravel":"res://assets/game/tiles/editor/transitions/gravel_edge.png","sand":"res://assets/game/tiles/editor/transitions/sand_edge.png"}
 const TRANSITION_CORNER_TEXTURES := {"dirt":"res://assets/game/tiles/editor/transitions/dirt_inner_corner.png","gravel":"res://assets/game/tiles/editor/transitions/gravel_inner_corner.png","sand":"res://assets/game/tiles/editor/transitions/sand_inner_corner.png"}
 const TRANSITION_BITS := [1,2,4,8]
@@ -157,7 +160,7 @@ static func draw_panel(game: Node2D) -> void:
 static func draw_assets(game: Node2D, state: Dictionary) -> void:
 	var entries: Array[Dictionary] = game.LevelEditorSystem.visible_catalog(state); var start: int = clampi(int(state.scroll),0,maxi(entries.size()-game.LevelEditorSystem.VISIBLE_ASSETS,0))
 	for row in game.LevelEditorSystem.VISIBLE_ASSETS:
-		var index: int = start+row; var rect: Rect2 = Rect2(22,122+row*game.LevelEditorSystem.ASSET_ROW_HEIGHT,360,42); var selected: bool = index<entries.size() and entries[index].path==state.selected_asset; game.DebugUiKitSystem.draw_catalog_row(game,rect,selected)
+		var index: int = start+row; var rect: Rect2 = Rect2(22,122+row*game.LevelEditorSystem.ASSET_ROW_HEIGHT,360,42); var selected: bool = index<entries.size() and entries[index].path==state.selected_asset; game.DebugUiKitSystem.draw_catalog_row(game,rect,selected,true)
 		if index>=entries.size(): continue
 		var entry:Dictionary=entries[index]; var texture: Texture2D = texture_for(String(entry.path))
 		if texture!=null:
@@ -165,9 +168,9 @@ static func draw_assets(game: Node2D, state: Dictionary) -> void:
 			if source.size==Vector2.ZERO: game.draw_texture_rect(texture,thumb,false)
 			else: game.draw_texture_rect_region(texture,thumb,source)
 		var badge:="  ◈" if not String(entry.get("unique_key","")).is_empty() else ("  ▦%d"%int(entry.get("frame_count",1)) if bool(entry.get("sliced",false)) else "")
-		game.draw_ui_string(game.UI_FONT,Vector2(70,141+row*game.LevelEditorSystem.ASSET_ROW_HEIGHT),(String(entry.name)+badge).left(35),HORIZONTAL_ALIGNMENT_LEFT,270,12,TEXT)
-		game.draw_ui_string(game.UI_FONT,Vector2(70,157+row*game.LevelEditorSystem.ASSET_ROW_HEIGHT),String(entry.path).trim_prefix("res://assets/game/").left(47),HORIZONTAL_ALIGNMENT_LEFT,270,9,MUTED)
-		game.draw_ui_string(game.UI_FONT,Vector2(348,149+row*game.LevelEditorSystem.ASSET_ROW_HEIGHT),"★" if String(entry.path) in state.favorites else "☆",HORIZONTAL_ALIGNMENT_CENTER,28,16,SELECTED if String(entry.path) in state.favorites else MUTED)
+		var fitted:Dictionary=game.DebugUiKitSystem.fit_label(game.UI_FONT,String(entry.name)+badge,260,11,8); game.draw_ui_string(game.UI_FONT,Vector2(70,141+row*game.LevelEditorSystem.ASSET_ROW_HEIGHT),String(fitted.text),HORIZONTAL_ALIGNMENT_LEFT,260,int(fitted.size),ROW_TEXT)
+		var path_label:Dictionary=game.DebugUiKitSystem.fit_label(game.UI_FONT,String(entry.path).trim_prefix("res://assets/game/"),260,9,7); game.draw_ui_string(game.UI_FONT,Vector2(70,157+row*game.LevelEditorSystem.ASSET_ROW_HEIGHT),String(path_label.text),HORIZONTAL_ALIGNMENT_LEFT,260,int(path_label.size),ROW_MUTED)
+		game.draw_ui_string(game.UI_FONT,Vector2(348,149+row*game.LevelEditorSystem.ASSET_ROW_HEIGHT),"★" if String(entry.path) in state.favorites else "☆",HORIZONTAL_ALIGNMENT_CENTER,28,16,ROW_SELECTED if String(entry.path) in state.favorites else ROW_MUTED)
 
 
 ## Показывает краткие технические параметры выбранного объекта справа от панели.
