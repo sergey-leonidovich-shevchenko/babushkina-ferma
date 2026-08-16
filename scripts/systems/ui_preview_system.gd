@@ -26,6 +26,12 @@ static func configure(game: Node) -> void:
 		game.UiFeedbackSystem.press(game, game.MenuRenderer.settings_item_rect(game.menu_state.settings_selected))
 		game.set_meta("capture_ui_frames", 4); game.set_meta("capture_ui_output", "res://assets/generated/ui/ui_feedback_ingame_preview.png")
 		return
+	if "--capture-adaptive-ui" in arguments:
+		game.language_screen = false; game.title_screen = false; game.current_location = "overworld"; game.touch_controls_visible = true
+		game.settings_state.text_scale = 1.2; game.settings_state.touch_scale = 1.3
+		game.MenuSystem.open_pause(game); game.MenuSystem.open_settings(game, false); game.menu_state.settings_selected = 10
+		game.set_meta("capture_ui_frames", 6); game.set_meta("capture_ui_output", "res://assets/generated/ui/adaptive_ui_ingame_preview.png")
+		return
 	if not ("--settings-preview" in arguments or "--capture-settings" in arguments): return
 	game.language_screen = false
 	game.title_screen = false

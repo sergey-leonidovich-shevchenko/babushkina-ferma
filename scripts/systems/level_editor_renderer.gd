@@ -55,7 +55,7 @@ static func draw_object(game: Node2D, object: Dictionary, selected: bool) -> voi
 		game.draw_rect(bounds.grow(4),SELECTED,false,3.0)
 		for corner in [bounds.position,bounds.position+Vector2(bounds.size.x,0),bounds.end,bounds.position+Vector2(0,bounds.size.y)]: game.draw_rect(Rect2(corner-Vector2(4,4),Vector2(8,8)),Color("fff2a3"))
 	if not String(object.name).is_empty() and (selected or bool(object.reference)):
-		var label: Rect2 = Rect2(Vector2(center.x-90,bounds.position.y-25),Vector2(180,20)); game.draw_rect(label,Color(0.03,0.025,0.02,0.78)); game.draw_string(game.UI_FONT,label.position+Vector2(4,15),String(object.name),HORIZONTAL_ALIGNMENT_CENTER,label.size.x-8,12,TEXT)
+		var label: Rect2 = Rect2(Vector2(center.x-90,bounds.position.y-25),Vector2(180,20)); game.draw_rect(label,Color(0.03,0.025,0.02,0.78)); game.draw_ui_string(game.UI_FONT,label.position+Vector2(4,15),String(object.name),HORIZONTAL_ALIGNMENT_CENTER,label.size.x-8,12,TEXT)
 
 
 ## Накладывает лёгкую модульную сетку только на видимую область рабочего холста.
@@ -82,11 +82,11 @@ static func draw_panel(game: Node2D) -> void:
 	var state:Dictionary=game.get_meta(game.LevelEditorSystem.META_KEY)
 	if bool(state.panel_hidden): return
 	var panel:Rect2=game.LevelEditorSystem.PANEL; game.draw_rect(panel,PANEL_FILL); game.draw_rect(panel,PANEL_BORDER,false,3.0)
-	game.draw_string(game.MENU_FONT,Vector2(24,43),"КОНСТРУКТОР УРОВНЕЙ",HORIZONTAL_ALIGNMENT_LEFT,270,18,TEXT)
+	game.draw_ui_string(game.MENU_FONT,Vector2(24,43),"КОНСТРУКТОР УРОВНЕЙ",HORIZONTAL_ALIGNMENT_LEFT,270,18,TEXT)
 	draw_button(game,game.LevelEditorSystem.CLOSE_BUTTON,"×",false)
-	game.draw_string(game.UI_FONT,Vector2(24,67),"%s · %d объектов"%[state.level_name,state.objects.size()],HORIZONTAL_ALIGNMENT_LEFT,304,12,MUTED)
+	game.draw_ui_string(game.UI_FONT,Vector2(24,67),"%s · %d объектов"%[state.level_name,state.objects.size()],HORIZONTAL_ALIGNMENT_LEFT,304,12,MUTED)
 	draw_button(game,game.LevelEditorSystem.CATEGORY_PREV,"‹",false); draw_button(game,game.LevelEditorSystem.CATEGORY_NEXT,"›",false)
-	var category:String=game.LevelEditorSystem.CATEGORIES[int(state.category)]; game.draw_string(game.UI_FONT,Vector2(62,102),game.LevelEditorSystem.CATEGORY_NAMES[category],HORIZONTAL_ALIGNMENT_CENTER,230,14,TEXT)
+	var category:String=game.LevelEditorSystem.CATEGORIES[int(state.category)]; game.draw_ui_string(game.UI_FONT,Vector2(62,102),game.LevelEditorSystem.CATEGORY_NAMES[category],HORIZONTAL_ALIGNMENT_CENTER,230,14,TEXT)
 	draw_assets(game,state)
 	draw_button(game,game.LevelEditorSystem.SELECT_TOOL_BUTTON,"V · ВЫБОР",state.tool=="select"); draw_button(game,game.LevelEditorSystem.PAINT_TOOL_BUTTON,"B · КИСТЬ",state.tool=="paint"); draw_button(game,game.LevelEditorSystem.ERASE_TOOL_BUTTON,"E · ЛАСТИК",state.tool=="erase")
 	draw_button(game,game.LevelEditorSystem.NEW_BUTTON,"НОВЫЙ",false); draw_button(game,game.LevelEditorSystem.SAVE_BUTTON,"СОХР.",false); draw_button(game,game.LevelEditorSystem.LOAD_BUTTON,"ЗАГР.",false); draw_button(game,game.LevelEditorSystem.EXPORT_BUTTON,"ЭКСПОРТ",true)
@@ -95,10 +95,10 @@ static func draw_panel(game: Node2D) -> void:
 	draw_button(game,game.LevelEditorSystem.COLLISION_BUTTON,"КОЛЛИЗИЯ %s"%("ДА"if state.collision else"НЕТ"),bool(state.collision)); draw_button(game,game.LevelEditorSystem.LEVEL_NAME_BUTTON,"НАЗВАНИЕ УРОВНЯ",false)
 	draw_button(game,game.LevelEditorSystem.OBJECT_NAME_BUTTON,"ПОДПИСЬ ОБЪЕКТА",false); draw_button(game,game.LevelEditorSystem.OBJECT_NOTE_BUTTON,"ЗАМЕТКА",false)
 	var status: String = String(state.status); if not String(state.text_mode).is_empty(): status="▌ "+String(state.text_buffer)
-	game.draw_rect(Rect2(20,607,314,22),Color("2c2119")); game.draw_string(game.UI_FONT,Vector2(25,623),status,HORIZONTAL_ALIGNMENT_LEFT,304,11,Color("ffe099"))
+	game.draw_rect(Rect2(20,607,314,22),Color("2c2119")); game.draw_ui_string(game.UI_FONT,Vector2(25,623),status,HORIZONTAL_ALIGNMENT_LEFT,304,11,Color("ffe099"))
 	draw_selection_info(game,state)
 	draw_validation_info(game,state)
-	game.draw_string(game.UI_FONT,Vector2(356,24),"F12 закрыть · B кисть · V выбор · E ластик · WASD камера · Ctrl+Z/Y · Q поворот · [ ] масштаб",HORIZONTAL_ALIGNMENT_LEFT,780,12,Color(1,0.95,0.78,0.92))
+	game.draw_ui_string(game.UI_FONT,Vector2(356,24),"F12 закрыть · B кисть · V выбор · E ластик · WASD камера · Ctrl+Z/Y · Q поворот · [ ] масштаб",HORIZONTAL_ALIGNMENT_LEFT,780,12,Color(1,0.95,0.78,0.92))
 
 
 ## Рисует шесть видимых строк ресурсов с настоящими миниатюрами и путями файлов.
@@ -112,8 +112,8 @@ static func draw_assets(game: Node2D, state: Dictionary) -> void:
 			var source: Rect2 = game.LevelEditorSystem.selected_source(texture,state) if selected else Rect2(); var texture_size: Vector2 = source.size if source.size!=Vector2.ZERO else texture.get_size(); var scale: float = minf(34.0/maxf(texture_size.x,1),34.0/maxf(texture_size.y,1)); var thumb: Rect2 = Rect2(Vector2(28,126+row*game.LevelEditorSystem.ASSET_ROW_HEIGHT)+(Vector2(36,34)-texture_size*scale)*0.5,texture_size*scale)
 			if source.size==Vector2.ZERO: game.draw_texture_rect(texture,thumb,false)
 			else: game.draw_texture_rect_region(texture,thumb,source)
-		game.draw_string(game.UI_FONT,Vector2(70,141+row*game.LevelEditorSystem.ASSET_ROW_HEIGHT),String(entry.name).left(31),HORIZONTAL_ALIGNMENT_LEFT,252,12,TEXT)
-		game.draw_string(game.UI_FONT,Vector2(70,157+row*game.LevelEditorSystem.ASSET_ROW_HEIGHT),String(entry.path).trim_prefix("res://assets/game/").left(42),HORIZONTAL_ALIGNMENT_LEFT,252,9,MUTED)
+		game.draw_ui_string(game.UI_FONT,Vector2(70,141+row*game.LevelEditorSystem.ASSET_ROW_HEIGHT),String(entry.name).left(31),HORIZONTAL_ALIGNMENT_LEFT,252,12,TEXT)
+		game.draw_ui_string(game.UI_FONT,Vector2(70,157+row*game.LevelEditorSystem.ASSET_ROW_HEIGHT),String(entry.path).trim_prefix("res://assets/game/").left(42),HORIZONTAL_ALIGNMENT_LEFT,252,9,MUTED)
 
 
 ## Показывает краткие технические параметры выбранного объекта справа от панели.
@@ -121,20 +121,20 @@ static func draw_selection_info(game: Node2D, state: Dictionary) -> void:
 	if not game.LevelEditorSystem.valid_selection(state): return
 	var object:Dictionary=state.objects[state.selected]; var rect:=Rect2(356,42,300,82); game.draw_rect(rect,Color(0.04,0.03,0.02,0.88)); game.draw_rect(rect,SELECTED,false,2)
 	var lines: Array[String] = ["%s · #%s"%[object.name,object.id],"x %.0f · y %.0f · %.0f×%.0f"%[object.position.x,object.position.y,object.size.x,object.size.y],"%s · %s · scale %.2f · collision %s"%[layer_name(object.layer),String(object.get("anchor","center")),game.LevelEditorSystem.object_scale(object),"да"if object.collision else"нет"]]
-	for index in lines.size(): game.draw_string(game.UI_FONT,rect.position+Vector2(10,22+index*21),lines[index],HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-20,12,TEXT)
+	for index in lines.size(): game.draw_ui_string(game.UI_FONT,rect.position+Vector2(10,22+index*21),lines[index],HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-20,12,TEXT)
 
 
 ## Показывает справа первые проблемы последней проверки, не перекрывая рабочий холст.
 static func draw_validation_info(game: Node2D, state: Dictionary) -> void:
 	if state.validation.is_empty(): return
 	var report:Dictionary=state.validation; var issues:Array=[]; issues.append_array(report.get("errors",[])); issues.append_array(report.get("warnings",[])); var rect:=Rect2(670,42,458,34+mini(issues.size(),4)*18); game.draw_rect(rect,Color(0.04,0.03,0.02,0.90)); game.draw_rect(rect,Color("72d68a") if report.valid else Color("ef6961"),false,2)
-	game.draw_string(game.UI_FONT,rect.position+Vector2(10,21),game.LevelEditorSystem.ValidationSystem.summary(report),HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-20,12,TEXT)
-	for index in mini(issues.size(),4): game.draw_string(game.UI_FONT,rect.position+Vector2(10,41+index*18),"• "+String(issues[index]).left(64),HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-20,10,MUTED)
+	game.draw_ui_string(game.UI_FONT,rect.position+Vector2(10,21),game.LevelEditorSystem.ValidationSystem.summary(report),HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-20,12,TEXT)
+	for index in mini(issues.size(),4): game.draw_ui_string(game.UI_FONT,rect.position+Vector2(10,41+index*18),"• "+String(issues[index]).left(64),HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-20,10,MUTED)
 
 
 ## Рисует одну кнопку в едином деревянно-золотом стиле интерфейса игры.
 static func draw_button(game: Node2D, rect: Rect2, label: String, active: bool) -> void:
-	game.draw_rect(rect,BUTTON_ACTIVE if active else BUTTON_FILL); game.draw_rect(rect,SELECTED if active else PANEL_BORDER,false,1.5); game.draw_string(game.UI_FONT,rect.position+Vector2(4,20),label,HORIZONTAL_ALIGNMENT_CENTER,rect.size.x-8,11,TEXT)
+	game.draw_rect(rect,BUTTON_ACTIVE if active else BUTTON_FILL); game.draw_rect(rect,SELECTED if active else PANEL_BORDER,false,1.5); game.draw_ui_string(game.UI_FONT,rect.position+Vector2(4,20),label,HORIZONTAL_ALIGNMENT_CENTER,rect.size.x-8,11,TEXT)
 
 
 ## Переводит внутренний идентификатор слоя в короткую русскую подпись.

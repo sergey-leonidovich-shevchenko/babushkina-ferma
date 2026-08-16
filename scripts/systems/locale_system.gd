@@ -48,6 +48,8 @@ const UI := {
 	"screen_shake":["ДРОЖАНИЕ КАМЕРЫ","CAMERA SHAKE","VIBRACIÓN DE CÁMARA","KAMERAWACKELN","SECOUSSE DE CAMÉRA","镜头震动"],
 	"high_contrast":["ВЫСОКИЙ КОНТРАСТ","HIGH CONTRAST","ALTO CONTRASTE","HOHER KONTRAST","CONTRASTE ÉLEVÉ","高对比度"],
 	"control_preset":["СХЕМА УПРАВЛЕНИЯ","CONTROL PRESET","ESQUEMA DE CONTROL","STEUERUNGSSCHEMA","SCHÉMA DE COMMANDES","控制方案"],
+	"text_scale":["МАСШТАБ ТЕКСТА","TEXT SCALE","ESCALA DE TEXTO","TEXTGRÖSSE","TAILLE DU TEXTE","文字大小"],
+	"touch_scale":["РАЗМЕР ТАЧ-КНОПОК","TOUCH BUTTON SIZE","TAMAÑO TÁCTIL","TOUCH-GRÖSSE","TAILLE TACTILE","触控按钮大小"],
 	"standard_controls":["ОБЫЧНАЯ","STANDARD","ESTÁNDAR","STANDARD","STANDARD","标准"],
 	"left_handed_controls":["ДЛЯ ЛЕВШИ","LEFT-HANDED","ZURDOS","LINKSHÄNDIG","GAUCHER","左手模式"],
 	"language_option":["ЯЗЫК","LANGUAGE","IDIOMA","SPRACHE","LANGUE","语言"],

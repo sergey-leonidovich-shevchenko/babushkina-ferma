@@ -14,6 +14,7 @@ func run() -> void:
 	test_accessibility_and_control_preset_are_effective_and_persistent()
 	test_title_visual_design_assets_and_layout()
 	test_shared_ui_kit_has_independent_scalable_components()
+	test_adaptive_viewport_text_and_touch_contract()
 	test_menu_keyboard_gamepad_touch_and_layout()
 	test_settings_grid_confirmation_and_save_summary()
 	test_defeat_screen_pauses_and_resumes_safely()
@@ -83,6 +84,32 @@ func test_shared_ui_kit_has_independent_scalable_components() -> void:
 		expect(first == kit.style(component) and first.texture == kit.texture(component), "%s reuses a cached nine-patch style with the matching authored texture" % component)
 	var centered: Rect2 = kit.centered_content_rect(Rect2(100, 100, 64, 64), Vector2(128, 32), 8)
 	expect(centered.get_center() == Vector2(132, 132) and centered.size == Vector2(48, 12), "oversized wide content scales down and remains flex-centered inside its safe area")
+	game.free()
+
+
+## Сценарий: интерфейс сохраняет пропорции, читаемость и точные касания на Full HD, 2K, 4K и экране с safe-area.
+## Исходное состояние: внутренний viewport зафиксирован на 1152×648, включены увеличенный текст и крупные сенсорные кнопки.
+## Ожидаемый результат: все разрешения используют единый масштаб, преобразования обратимы, текст не переполняет строку, а hit-зоны совпадают с рисунком.
+func test_adaptive_viewport_text_and_touch_contract() -> void:
+	var game := make_game(); var scale_system = game.UiScaleSystem
+	expect(ProjectSettings.get_setting("display/window/size/viewport_width") == 1152 and ProjectSettings.get_setting("display/window/size/viewport_height") == 648 and ProjectSettings.get_setting("display/window/stretch/aspect") == "keep", "project fixes one undistorted design viewport for every display density")
+	for resolution in [Vector2(1920,1080), Vector2(2560,1440), Vector2(3840,2160)]:
+		var layout: Dictionary = scale_system.viewport_layout(resolution)
+		expect(absf(float(layout.scale) - resolution.x / 1152.0) < 0.001 and Vector2(layout.offset).length() < 0.01, "%s scales the sixteen-by-nine canvas without letterbox drift" % resolution)
+		var design_point := Vector2(937, 520)
+		expect(scale_system.screen_to_design(scale_system.design_to_screen(design_point,resolution),resolution).is_equal_approx(design_point), "%s keeps rendered controls and pointer coordinates reversible" % resolution)
+	var ultrawide := Vector2(2400,1080); var physical_safe := Rect2(300,54,1800,972)
+	var safe_design: Rect2 = scale_system.safe_area_design(ultrawide,physical_safe)
+	expect(Rect2(Vector2.ZERO,scale_system.DESIGN_SIZE).encloses(safe_design) and safe_design.size.x < scale_system.DESIGN_SIZE.x, "safe-area is converted into the letterboxed design canvas and clipped to visible content")
+	game.settings_state.text_scale = 1.2
+	var fitted: int = scale_system.fitted_font_size(game,game.UI_FONT,"VERY LONG LOCALIZED INTERFACE LABEL",200.0,14)
+	expect(fitted <= 17 and game.UI_FONT.get_string_size("VERY LONG LOCALIZED INTERFACE LABEL",HORIZONTAL_ALIGNMENT_LEFT,-1,fitted).x <= 200.0, "large text preference stays bounded by the real localized label container")
+	game.settings_state.touch_scale = 1.3
+	var dodge: Rect2 = game.InterfaceRenderer.dodge_button_rect(game); var block: Rect2 = game.InterfaceRenderer.block_button_rect(game)
+	expect(dodge.size.x > game.InterfaceRenderer.DODGE_BUTTON.size.x and dodge.size.y >= 48.0 and not dodge.intersects(block), "large touch controls grow around their centers without overlapping adjacent actions")
+	expect(game.InterfaceRenderer.VIEWPORT.encloses(dodge) and game.InterfaceRenderer.VIEWPORT.encloses(block), "enlarged touch controls remain inside the design safe-area")
+	var preview := Image.load_from_file(ProjectSettings.globalize_path("res://assets/generated/ui/adaptive_ui_ingame_preview.png"))
+	expect(preview != null and preview.get_size() == Vector2i(1152,648), "adaptive settings visual reference covers text and touch scaling on the native design canvas")
 	game.free()
 
 
@@ -165,6 +192,8 @@ func test_settings_persist_and_apply_audio_levels() -> void:
 	game.menu_state.settings_selected = 4; game.MenuSystem.adjust_setting(game, 1, TEST_SETTINGS_PATH, false)
 	game.menu_state.settings_selected = 5; game.MenuSystem.adjust_setting(game, 1, TEST_SETTINGS_PATH, false)
 	game.menu_state.settings_selected = 10; game.MenuSystem.adjust_setting(game, 1, TEST_SETTINGS_PATH, false)
+	game.menu_state.settings_selected = 11; game.MenuSystem.adjust_setting(game, 1, TEST_SETTINGS_PATH, false)
+	game.menu_state.settings_selected = 12; game.MenuSystem.adjust_setting(game, 1, TEST_SETTINGS_PATH, false)
 	expect(game.SettingsSystem.percent(game.settings_state.master_volume) == 90 and game.SettingsSystem.percent(game.settings_state.music_volume) == 80 and game.SettingsSystem.percent(game.settings_state.sfx_volume) == 80, "three volume controls move independently in ten-percent steps")
 	expect(not game.audio_enabled and not game.settings_state.fullscreen_enabled and not game.settings_state.vsync_enabled, "sound fullscreen and VSync toggles change independently")
 	expect(game.AudioSystem.music_volume_db(game) == game.AudioSystem.SILENT_DB and game.AudioSystem.sfx_volume_db(game) == game.AudioSystem.SILENT_DB, "disabled sound mutes both calculated audio channels")
@@ -173,6 +202,7 @@ func test_settings_persist_and_apply_audio_levels() -> void:
 	expect(restored.SettingsSystem.load(restored, TEST_SETTINGS_PATH, false), "settings file loads on a later launch")
 	expect(restored.SettingsSystem.percent(restored.settings_state.master_volume) == 90 and restored.SettingsSystem.percent(restored.settings_state.music_volume) == 80 and restored.SettingsSystem.percent(restored.settings_state.sfx_volume) == 80, "later launch restores all volume controls")
 	expect(not restored.audio_enabled and not restored.settings_state.fullscreen_enabled and not restored.settings_state.vsync_enabled and restored.LocaleSystem.current == "en", "later launch restores switches and selected language")
+	expect(is_equal_approx(restored.settings_state.text_scale, 1.1) and is_equal_approx(restored.settings_state.touch_scale, 1.15), "later launch restores adaptive text and touch scales")
 	expect(restored.tutorial_events_completed.is_empty() and game.tutorial_events_completed.has("settings"), "opening settings has tutorial coverage without polluting a new game")
 	game.LocaleSystem.set_locale("ru", false)
 	game.free(); restored.free()
@@ -217,13 +247,13 @@ func test_menu_keyboard_gamepad_touch_and_layout() -> void:
 
 
 ## Сценарий: настройки, сохранение и опасные команды используют завершённый системный UX.
-## Исходное состояние: открыты параметры в сетке две на шесть, затем создано сохранение и запрошен выход из титульного экрана.
+## Исходное состояние: открыты параметры в сетке две на семь, затем создано сохранение и запрошен выход из титульного экрана.
 ## Ожидаемый результат: геометрия и навигация совпадают, слот показывает живые данные, а выход выполняется только после явного «Да».
 func test_settings_grid_confirmation_and_save_summary() -> void:
 	cleanup_files()
 	var game := make_game()
 	var first: Rect2 = game.MenuRenderer.settings_item_rect(0); var second: Rect2 = game.MenuRenderer.settings_item_rect(1); var below: Rect2 = game.MenuRenderer.settings_item_rect(2)
-	expect(first.position.y == second.position.y and second.position.x > first.end.x and below.position.x == first.position.x and below.position.y > first.end.y, "settings form a non-overlapping two-column six-row card grid")
+	expect(first.position.y == second.position.y and second.position.x > first.end.x and below.position.x == first.position.x and below.position.y > first.end.y, "settings form a non-overlapping two-column seven-row card grid")
 	game.menu_state.settings_selected = 0; game.MenuSystem.move_settings_selection(game, 1)
 	expect(game.menu_state.settings_selected == 2, "Down follows the visual column instead of zigzagging across settings")
 	game.day = 7; game.game_minutes = 13 * 60 + 25; game.current_location = "forest"

@@ -25,4 +25,4 @@ static func draw(game: Node2D) -> void:
 		var tint := Color(0.82,0.92,1.0,alpha) if container.kind == "pirate_chest" else Color(1.0,1.0,1.0,alpha)
 		game.draw_texture_rect_region(ATLAS, Rect2(position-size*0.5,size), source_rect(container.kind), tint)
 		if container.opened:
-			game.draw_string(game.UI_FONT, position+Vector2(-35,38), game.LocaleSystem.ui("empty"), HORIZONTAL_ALIGNMENT_CENTER, 70, 12, Color(0.8,0.8,0.75,0.55))
+			game.draw_ui_string(game.UI_FONT, position+Vector2(-35,38), game.LocaleSystem.ui("empty"), HORIZONTAL_ALIGNMENT_CENTER, 70, 12, Color(0.8,0.8,0.75,0.55))

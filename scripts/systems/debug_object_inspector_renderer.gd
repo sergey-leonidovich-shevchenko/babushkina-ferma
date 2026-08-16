@@ -25,7 +25,7 @@ static func draw_world(game: Node2D) -> void:
 static func draw_info(game: Node2D, panel: Rect2, target: Dictionary) -> void:
 	var rect := Rect2(panel.position+Vector2(12,42),Vector2(panel.size.x-24,170))
 	game.draw_rect(rect,INFO_FILL); game.draw_rect(rect,INFO_BORDER,false,1.5)
-	game.draw_string(game.UI_FONT,rect.position+Vector2(10,18),"INFO · %s" % target.category,HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-20,12,Color("78e2b1"))
+	game.draw_ui_string(game.UI_FONT,rect.position+Vector2(10,18),"INFO · %s" % target.category,HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-20,12,Color("78e2b1"))
 	var lines: Array[String] = [
 		"Имя: %s" % target.name,
 		"ID: %s" % target.id,
@@ -37,7 +37,7 @@ static func draw_info(game: Node2D, panel: Rect2, target: Dictionary) -> void:
 	]
 	for detail in target.details: lines.append(String(detail))
 	for index in mini(lines.size(),10):
-		game.draw_string(game.UI_FONT,rect.position+Vector2(10,37+index*13),lines[index],HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-20,9,INFO_TEXT if index < 7 else INFO_MUTED)
+		game.draw_ui_string(game.UI_FONT,rect.position+Vector2(10,37+index*13),lines[index],HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-20,9,INFO_TEXT if index < 7 else INFO_MUTED)
 
 
 ## Возвращает координаты и размер визуального прямоугольника для компактной диагностической строки.

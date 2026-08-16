@@ -25,7 +25,7 @@ static func draw_header(game: Node2D, state: Dictionary) -> void:
 	var complete := 1 if game.quest_complete else 0
 	for mission_id in game.QuestSystem.MISSIONS:
 		if game.QuestSystem.mission_state(game, mission_id) == game.QuestSystem.COMPLETED: complete += 1
-	game.draw_string(game.UI_FONT, rect.position + Vector2(10,23), "%s МИССИИ · %d/%d" % [marker, complete, game.DebugMissionSystem.ordered_ids(game).size()], HORIZONTAL_ALIGNMENT_LEFT, rect.size.x - 20, 13, TEXT)
+	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(10,23), "%s МИССИИ · %d/%d" % [marker, complete, game.DebugMissionSystem.ordered_ids(game).size()], HORIZONTAL_ALIGNMENT_LEFT, rect.size.x - 20, 13, TEXT)
 
 
 ## Рисует восемь миссий страницы со статусом, прогрессом и кнопками подробностей и завершения.
@@ -37,7 +37,7 @@ static func draw_list(game: Node2D, state: Dictionary) -> void:
 	var page := int(state.get("mission_page", 0)) + 1; var pages: int = game.DebugMissionSystem.page_count(game)
 	draw_small_button(game, game.DebugMissionSystem.PREVIOUS, "‹", page > 1)
 	draw_small_button(game, game.DebugMissionSystem.NEXT, "›", page < pages)
-	game.draw_string(game.UI_FONT, Vector2(408,574), "СТРАНИЦА %d/%d · i подробности · ✓ пройти" % [page, pages], HORIZONTAL_ALIGNMENT_CENTER, 288, 11, MUTED)
+	game.draw_ui_string(game.UI_FONT, Vector2(408,574), "СТРАНИЦА %d/%d · i подробности · ✓ пройти" % [page, pages], HORIZONTAL_ALIGNMENT_CENTER, 288, 11, MUTED)
 
 
 ## Рисует одну миссию с компактным типом, названием, состоянием и текущей целью.
@@ -46,8 +46,8 @@ static func draw_row(game: Node2D, row: Dictionary) -> void:
 	var status: String = game.DebugMissionSystem.mission_state(game, mission_id)
 	var colors := {game.QuestSystem.AVAILABLE:Color("dfbd62"), game.QuestSystem.ACTIVE:Color("65d7ff"), game.QuestSystem.LOCKED:Color("808b87"), game.QuestSystem.COMPLETED:Color("6ce49c")}
 	game.draw_rect(row.rect, ROW_FILL); game.draw_rect(row.rect, Color("34554a"), false, 1.0)
-	game.draw_string(game.UI_FONT, row.rect.position + Vector2(8,15), "%s · %s" % [view.type, view.title], HORIZONTAL_ALIGNMENT_LEFT, 286, 11, colors.get(status, TEXT))
-	game.draw_string(game.UI_FONT, row.rect.position + Vector2(8,32), String(view.objective), HORIZONTAL_ALIGNMENT_LEFT, 286, 10, MUTED)
+	game.draw_ui_string(game.UI_FONT, row.rect.position + Vector2(8,15), "%s · %s" % [view.type, view.title], HORIZONTAL_ALIGNMENT_LEFT, 286, 11, colors.get(status, TEXT))
+	game.draw_ui_string(game.UI_FONT, row.rect.position + Vector2(8,32), String(view.objective), HORIZONTAL_ALIGNMENT_LEFT, 286, 10, MUTED)
 	draw_small_button(game, row.info, "i", true)
 	draw_small_button(game, row.complete, "✓", status != game.QuestSystem.COMPLETED)
 
@@ -55,7 +55,7 @@ static func draw_row(game: Node2D, row: Dictionary) -> void:
 ## Рисует компактную квадратную кнопку с явным disabled-состоянием.
 static func draw_small_button(game: Node2D, rect: Rect2, label: String, enabled: bool) -> void:
 	game.draw_rect(rect, Color("285e4c") if enabled else Color("26332f")); game.draw_rect(rect, PANEL_BORDER if enabled else Color("4c5d56"), false, 1.5)
-	game.draw_string(game.UI_FONT, rect.position + Vector2(2,20), label, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 4, 14, TEXT if enabled else Color("687970"))
+	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(2,20), label, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 4, 14, TEXT if enabled else Color("687970"))
 
 
 ## Рисует подробности задания и полный состав его награды в центральной модальной карточке.
@@ -63,9 +63,9 @@ static func draw_details(game: Node2D, mission_id: String) -> void:
 	var view: Dictionary = game.DebugMissionSystem.mission_view(game, mission_id)
 	var rect := Rect2(332, 148, 488, 360)
 	draw_modal_frame(game, rect, "%s · %s" % [view.type, view.title])
-	game.draw_string(game.UI_FONT, rect.position + Vector2(24,70), "Выдаёт: %s" % view.giver, HORIZONTAL_ALIGNMENT_LEFT, rect.size.x - 48, 13, Color("dfbd62"))
+	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(24,70), "Выдаёт: %s" % view.giver, HORIZONTAL_ALIGNMENT_LEFT, rect.size.x - 48, 13, Color("dfbd62"))
 	draw_wrapped(game, String(view.description), rect.position + Vector2(24,98), rect.size.x - 48, 14, TEXT)
-	game.draw_string(game.UI_FONT, rect.position + Vector2(24,230), "ЦЕЛЬ: %s" % view.objective, HORIZONTAL_ALIGNMENT_LEFT, rect.size.x - 48, 13, Color("65d7ff"))
+	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(24,230), "ЦЕЛЬ: %s" % view.objective, HORIZONTAL_ALIGNMENT_LEFT, rect.size.x - 48, 13, Color("65d7ff"))
 	draw_wrapped(game, "НАГРАДА: %s" % view.reward, rect.position + Vector2(24,260), rect.size.x - 48, 13, Color("6ce49c"))
 	draw_small_button(game, Rect2(510,468,132,34), "ЗАКРЫТЬ", true)
 
@@ -74,7 +74,7 @@ static func draw_details(game: Node2D, mission_id: String) -> void:
 static func draw_completion(game: Node2D, completion: Dictionary) -> void:
 	var rect := Rect2(374, 188, 404, 282); var view: Dictionary = game.DebugMissionSystem.mission_view(game, String(completion.id))
 	draw_modal_frame(game, rect, "МИССИЯ ЗАВЕРШЕНА")
-	game.draw_string(game.UI_FONT, rect.position + Vector2(24,82), String(view.title), HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 48, 21, Color("6ce49c"))
+	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(24,82), String(view.title), HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 48, 21, Color("6ce49c"))
 	draw_wrapped(game, String(completion.get("message", "")), rect.position + Vector2(28,120), rect.size.x - 56, 13, TEXT)
 	draw_small_button(game, Rect2(510,430,132,34), "ПРИНЯТЬ", true)
 
@@ -82,7 +82,7 @@ static func draw_completion(game: Node2D, completion: Dictionary) -> void:
 ## Рисует общий затемнённый фон и рамку модального окна поверх обеих debug-панелей.
 static func draw_modal_frame(game: Node2D, rect: Rect2, title: String) -> void:
 	game.draw_rect(Rect2(0,0,1152,648), Color(0.0,0.0,0.0,0.58)); game.draw_rect(rect, PANEL_FILL); game.draw_rect(rect, PANEL_BORDER, false, 3.0)
-	game.draw_string(game.UI_FONT, rect.position + Vector2(18,38), title, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 36, 18, Color("caffdf"))
+	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(18,38), title, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 36, 18, Color("caffdf"))
 
 
 ## Переносит русский текст по словам без зависимости от отдельного Control-узла.
@@ -91,6 +91,6 @@ static func draw_wrapped(game: Node2D, value: String, origin: Vector2, width: fl
 	for word in value.split(" "):
 		var candidate := String(word) if line.is_empty() else "%s %s" % [line, word]
 		if game.UI_FONT.get_string_size(candidate, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size).x > width and not line.is_empty():
-			game.draw_string(game.UI_FONT, Vector2(origin.x,y), line, HORIZONTAL_ALIGNMENT_LEFT, width, font_size, color); y += font_size + 6; line = String(word)
+			game.draw_ui_string(game.UI_FONT, Vector2(origin.x,y), line, HORIZONTAL_ALIGNMENT_LEFT, width, font_size, color); y += font_size + 6; line = String(word)
 		else: line = candidate
-	if not line.is_empty(): game.draw_string(game.UI_FONT, Vector2(origin.x,y), line, HORIZONTAL_ALIGNMENT_LEFT, width, font_size, color)
+	if not line.is_empty(): game.draw_ui_string(game.UI_FONT, Vector2(origin.x,y), line, HORIZONTAL_ALIGNMENT_LEFT, width, font_size, color)

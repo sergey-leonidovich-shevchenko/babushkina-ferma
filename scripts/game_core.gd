@@ -1279,13 +1279,13 @@ func handle_gamepad_and_touch(event: InputEvent) -> bool:
 		return ItemWindowRenderer.close_active(self)
 	if world_controls_visible and event is InputEventJoypadButton and event.pressed and event.button_index==JOY_BUTTON_MISC1: return SpellSystem.cast(self)
 	if world_controls_visible and event is InputEventJoypadButton and event.pressed and event.button_index==JOY_BUTTON_PADDLE1: SpellSystem.cycle(self); return true
-	if world_controls_visible and event is InputEventScreenTouch and event.pressed and SpellRenderer.CAST_BUTTON.has_point(event.position): return SpellSystem.cast(self)
-	if world_controls_visible and event is InputEventScreenTouch and event.pressed and SpellRenderer.CYCLE_BUTTON.has_point(event.position): SpellSystem.cycle(self); return true
+	if world_controls_visible and event is InputEventScreenTouch and event.pressed and SpellRenderer.cast_button_rect(self).has_point(event.position): return SpellSystem.cast(self)
+	if world_controls_visible and event is InputEventScreenTouch and event.pressed and SpellRenderer.cycle_button_rect(self).has_point(event.position): SpellSystem.cycle(self); return true
 	if world_controls_visible and event is InputEventJoypadButton and event.pressed and event.button_index == JOY_BUTTON_LEFT_STICK: AdventurePolishSystem.cycle_target(self); return true
-	if world_controls_visible and event is InputEventScreenTouch and InterfaceRenderer.BLOCK_BUTTON.has_point(event.position): CombatSystem.set_blocking(self, event.pressed); return true
-	if world_controls_visible and event is InputEventScreenTouch and event.pressed and InterfaceRenderer.DODGE_BUTTON.has_point(event.position): CombatSystem.start_dodge(self); return true
+	if world_controls_visible and event is InputEventScreenTouch and InterfaceRenderer.block_button_rect(self).has_point(event.position): CombatSystem.set_blocking(self, event.pressed); return true
+	if world_controls_visible and event is InputEventScreenTouch and event.pressed and InterfaceRenderer.dodge_button_rect(self).has_point(event.position): CombatSystem.start_dodge(self); return true
 	if InputSystem.set_pointer_action_state(self, event, world_controls_visible): return true
-	if world_controls_visible and event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and InterfaceRenderer.PAUSE_BUTTON.has_point(event.position):
+	if world_controls_visible and event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and InterfaceRenderer.pause_button_rect(self).has_point(event.position):
 		return MenuSystem.open_pause(self)
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if inventory_open: InventoryInputSystem.handle_mouse(self, event); return true
@@ -1302,7 +1302,7 @@ func handle_gamepad_and_touch(event: InputEvent) -> bool:
 				if mouse_talent >= 0: skill_menu_selected = mouse_talent; TalentSystem.unlock(self, TalentSystem.at(mouse_talent).id); queue_redraw()
 				return true
 			if world_controls_visible and AdventurePolishSystem.target_at_screen(self, event.position): return true
-			if world_controls_visible and InterfaceRenderer.DODGE_BUTTON.has_point(event.position): CombatSystem.start_dodge(self); return true
+			if world_controls_visible and InterfaceRenderer.dodge_button_rect(self).has_point(event.position): CombatSystem.start_dodge(self); return true
 			if world_map_open: return WorldMapSystem.handle_pointer(self, event.position)
 			if quest_log_open and InputSystem.handle_quest_pointer(self, event.position): return true
 			if InterfaceRenderer.LOCATION_BADGE.has_point(event.position): WorldMapSystem.toggle(self); return true
@@ -1353,7 +1353,7 @@ func handle_gamepad_and_touch(event: InputEvent) -> bool:
 		return true
 	if event is InputEventScreenTouch and event.pressed:
 		if world_map_open: return WorldMapSystem.handle_pointer(self, event.position)
-		if world_controls_visible and InterfaceRenderer.PAUSE_BUTTON.has_point(event.position):
+		if world_controls_visible and InterfaceRenderer.pause_button_rect(self).has_point(event.position):
 			return MenuSystem.open_pause(self)
 		if discovery_card_rect().has_point(event.position) and not discovery_current.is_empty():
 			DiscoverySystem.dismiss(self)

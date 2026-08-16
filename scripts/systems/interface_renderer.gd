@@ -82,6 +82,24 @@ const CARD_DISCOVERY_SOURCE := Rect2(86, 646, 470, 456)
 const CARD_QUEST_SOURCE := Rect2(710, 646, 476, 470)
 
 
+## Возвращает адаптивную hit-зону кнопки паузы для текущего размера сенсорного управления.
+static func pause_button_rect(game: Node) -> Rect2:
+	return game.UiScaleSystem.touch_rect(game, PAUSE_BUTTON)
+
+
+## Возвращает адаптивную hit-зону рывка с сохранением безопасного отступа от края.
+static func dodge_button_rect(game: Node) -> Rect2:
+	var block := block_button_rect(game)
+	var size: Vector2 = game.UiScaleSystem.touch_rect(game, DODGE_BUTTON).size
+	return Rect2(Vector2(block.position.x - 8.0 - size.x, DODGE_BUTTON.get_center().y - size.y * 0.5), size)
+
+
+## Возвращает адаптивную hit-зону блока с сохранением безопасного отступа от края.
+static func block_button_rect(game: Node) -> Rect2:
+	var size: Vector2 = game.UiScaleSystem.touch_rect(game, BLOCK_BUTTON).size
+	return Rect2(Vector2(VIEWPORT.end.x - 20.0 - size.x, BLOCK_BUTTON.get_center().y - size.y * 0.5), size)
+
+
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func inventory_slot_rect(visible_index: int) -> Rect2:
 	var column := visible_index % 6
@@ -226,7 +244,7 @@ static func draw_hotbar(game: Node) -> void:
 	var kind: String = game.hotbar_slots[game.selected_hotbar]
 	if not kind.is_empty():
 		game.draw_rect(Rect2(430, 550, 292, 24), Color(0.16, 0.08, 0.035, 0.92))
-		game.draw_string(game.UI_FONT, Vector2(440, 567), game.InventorySystem.data(kind).name, HORIZONTAL_ALIGNMENT_CENTER, 272, 11, Color("ffe4a2"))
+		game.draw_ui_string(game.UI_FONT, Vector2(440, 567), game.InventorySystem.data(kind).name, HORIZONTAL_ALIGNMENT_CENTER, 272, 11, Color("ffe4a2"))
 
 
 ## Отрисовывает инвентаря по текущему состоянию игры.
@@ -235,9 +253,9 @@ static func draw_inventory(game: Node) -> void:
 	game.draw_texture_rect(INVENTORY_SKIN, VIEWPORT, false)
 	draw_inventory_title(game, game.LocaleSystem.ui("backpack_column"), Rect2(456, 19, 240, 43), 27)
 	var occupied: int = game.inventory_slots.filter(func(kind): return not String(kind).is_empty() and game.inventory_item_count(kind) > 0).size()
-	game.draw_string(game.UI_FONT, Vector2(496, 77), "%d / ∞" % occupied, HORIZONTAL_ALIGNMENT_CENTER, 160, 12, Color("f9df91"))
+	game.draw_ui_string(game.UI_FONT, Vector2(496, 77), "%d / ∞" % occupied, HORIZONTAL_ALIGNMENT_CENTER, 160, 12, Color("f9df91"))
 	draw_inventory_button_label(game, SORT_BUTTON, game.LocaleSystem.ui("sort_inventory"), true, Color("ffe8a8"))
-	game.draw_string(game.UI_FONT, Vector2(992, 86), "×", HORIZONTAL_ALIGNMENT_CENTER, 34, 29, Color("ffe9a4"))
+	game.draw_ui_string(game.UI_FONT, Vector2(992, 86), "×", HORIZONTAL_ALIGNMENT_CENTER, 34, 29, Color("ffe9a4"))
 	draw_category_tabs(game)
 	var filtered: Array[int] = game.InventorySystem.filtered_indices(game)
 	var first_visible: int = game.inventory_scroll_row * game.InventorySystem.COLUMNS
@@ -257,14 +275,14 @@ static func draw_inventory(game: Node) -> void:
 
 ## Рисует надпись с пиксельной тенью поверх резной таблички инвентаря.
 static func draw_inventory_title(game: Node, label: String, rect: Rect2, font_size: int) -> void:
-	game.draw_string(game.UI_FONT, rect.position + Vector2(2, rect.size.y - 5 + 2), label, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x, font_size, Color("3a1c0f"))
-	game.draw_string(game.UI_FONT, rect.position + Vector2(0, rect.size.y - 5), label, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x, font_size, Color("fff0b3"))
+	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(2, rect.size.y - 5 + 2), label, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x, font_size, Color("3a1c0f"))
+	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(0, rect.size.y - 5), label, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x, font_size, Color("fff0b3"))
 
 
 ## Накладывает только динамическую подпись и состояние доступности, сохраняя нарисованную кнопку скина.
 static func draw_inventory_button_label(game: Node, rect: Rect2, label: String, enabled: bool, color: Color) -> void:
 	if not enabled: game.draw_rect(rect.grow(-3), Color(0.12, 0.12, 0.1, 0.48))
-	game.draw_string(game.UI_FONT, rect.position + Vector2(4, rect.size.y * 0.68), label, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 8, 10, color if enabled else Color("a89f82"))
+	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(4, rect.size.y * 0.68), label, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 8, 10, color if enabled else Color("a89f82"))
 
 
 ## Рисует шесть интерактивных вкладок категорий с крупным состоянием фокуса.
@@ -273,9 +291,9 @@ static func draw_category_tabs(game: Node) -> void:
 	for index in game.InventorySystem.FILTERS.size():
 		var filter_id: String = game.InventorySystem.FILTERS[index]; var active: bool = game.inventory_filter == filter_id; var rect: Rect2 = inventory_category_rect(index)
 		UiKitSystem.draw_nine_patch(game, "tab_selected" if active else "tab_normal", rect)
-		game.draw_string(game.UI_FONT, rect.position + Vector2(4, 17), symbols[index], HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 8, 15, Color("ffe8a8"))
+		game.draw_ui_string(game.UI_FONT, rect.position + Vector2(4, 17), symbols[index], HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 8, 15, Color("ffe8a8"))
 		var label: String = game.LocaleSystem.ui("inventory_all") if filter_id == "all" else game.LocaleSystem.ui("category_" + filter_id)
-		game.draw_string(game.UI_FONT, rect.position + Vector2(4, 37), label, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 8, 7, Color("fff1bd"))
+		game.draw_ui_string(game.UI_FONT, rect.position + Vector2(4, 37), label, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 8, 7, Color("fff1bd"))
 
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
@@ -288,7 +306,7 @@ static func draw_inventory_slot(game: Node, index: int, visible_index: int) -> v
 	var kind: String = game.inventory_slots[index]
 	if kind.is_empty() or game.inventory_item_count(kind) <= 0: return
 	game.draw_item_icon(kind, inventory_icon_rect(visible_index))
-	game.draw_string(game.UI_FONT, rect.position + Vector2(31, 47), str(game.inventory_item_count(kind)), HORIZONTAL_ALIGNMENT_RIGHT, 22, 10, Color("3d281c"))
+	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(31, 47), str(game.inventory_item_count(kind)), HORIZONTAL_ALIGNMENT_RIGHT, 22, 10, Color("3d281c"))
 
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
@@ -299,7 +317,7 @@ static func draw_scrollbar(game: Node) -> void:
 	var thumb_height := maxf(30.0, track.size.y * game.InventorySystem.VISIBLE_ROWS / float(maxi(total_rows, game.InventorySystem.VISIBLE_ROWS)))
 	var ratio := float(game.inventory_scroll_row) / float(maxi(game.InventorySystem.max_scroll_row(game), 1))
 	game.draw_rect(Rect2(track.position + Vector2(0, (track.size.y - thumb_height) * ratio), Vector2(7, thumb_height)), Color("f2c55d"))
-	game.draw_string(game.UI_FONT, Vector2(443, 496), game.LocaleSystem.ui("row", [game.inventory_scroll_row + 1, maxi(total_rows - game.InventorySystem.VISIBLE_ROWS + 1, 1)]), HORIZONTAL_ALIGNMENT_RIGHT, 91, 8, Color("70492d"))
+	game.draw_ui_string(game.UI_FONT, Vector2(443, 496), game.LocaleSystem.ui("row", [game.inventory_scroll_row + 1, maxi(total_rows - game.InventorySystem.VISIBLE_ROWS + 1, 1)]), HORIZONTAL_ALIGNMENT_RIGHT, 91, 8, Color("70492d"))
 
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
@@ -313,28 +331,28 @@ static func selected_kind(game: Node) -> String:
 static func draw_item_detail(game: Node) -> void:
 	var kind := selected_kind(game)
 	if kind.is_empty():
-		game.draw_string(game.UI_FONT, Vector2(580, 319), game.LocaleSystem.ui("empty_slot"), HORIZONTAL_ALIGNMENT_CENTER, 195, 14, Color("80684a"))
+		game.draw_ui_string(game.UI_FONT, Vector2(580, 319), game.LocaleSystem.ui("empty_slot"), HORIZONTAL_ALIGNMENT_CENTER, 195, 14, Color("80684a"))
 		return
 	var item: Dictionary = game.InventorySystem.data(kind)
 	game.draw_item_icon(kind, Rect2(641, 165, 74, 74))
-	game.draw_string(game.UI_FONT, Vector2(579, 280), item.name, HORIZONTAL_ALIGNMENT_CENTER, 197, 16, Color("4b3425"))
+	game.draw_ui_string(game.UI_FONT, Vector2(579, 280), item.name, HORIZONTAL_ALIGNMENT_CENTER, 197, 16, Color("4b3425"))
 	var category: String = game.LocaleSystem.ui("category_" + game.InventorySystem.category(kind))
-	game.draw_string(game.UI_FONT, Vector2(580, 300), category, HORIZONTAL_ALIGNMENT_CENTER, 195, 9, Color("66804c"))
+	game.draw_ui_string(game.UI_FONT, Vector2(580, 300), category, HORIZONTAL_ALIGNMENT_CENTER, 195, 9, Color("66804c"))
 	game.draw_line(Vector2(583, 309), Vector2(772, 309), Color("a98755"), 1)
-	game.draw_string(game.UI_FONT, Vector2(585, 329), game.LocaleSystem.ui("quantity", [game.inventory_item_count(kind)]), HORIZONTAL_ALIGNMENT_LEFT, 185, 11, Color("4b3425"))
+	game.draw_ui_string(game.UI_FONT, Vector2(585, 329), game.LocaleSystem.ui("quantity", [game.inventory_item_count(kind)]), HORIZONTAL_ALIGNMENT_LEFT, 185, 11, Color("4b3425"))
 	game.draw_multiline_string(game.UI_FONT, Vector2(585, 351), game.LocaleSystem.ui(game.InventorySystem.detail_key(kind)), HORIZONTAL_ALIGNMENT_LEFT, 185, 10, 2, Color("765a3c"))
-	game.draw_string(game.UI_FONT, Vector2(585, 415), game.LocaleSystem.ui("sell_value", [game.ShopSystem.sell_price(kind)]), HORIZONTAL_ALIGNMENT_LEFT, 185, 10, Color("775226"))
+	game.draw_ui_string(game.UI_FONT, Vector2(585, 415), game.LocaleSystem.ui("sell_value", [game.ShopSystem.sell_price(kind)]), HORIZONTAL_ALIGNMENT_LEFT, 185, 10, Color("775226"))
 
 
 ## Отрисовывает экипировки по текущему состоянию игры.
 static func draw_equipment(game: Node) -> void:
-	game.draw_string(game.UI_FONT, Vector2(812, 181), game.LocaleSystem.ui("equipment"), HORIZONTAL_ALIGNMENT_CENTER, 194, 16, Color("4b3425"))
+	game.draw_ui_string(game.UI_FONT, Vector2(812, 181), game.LocaleSystem.ui("equipment"), HORIZONTAL_ALIGNMENT_CENTER, 194, 16, Color("4b3425"))
 	var slots := ["head", "body", "legs", "hands", "offhand", "ring"]
 	for index in slots.size():
 		var left := index % 2 == 0
 		var rect := Rect2(812 if left else 944, 190 + (index / 2) * 89, 59, 68)
 		var slot_name: String = slots[index]
-		game.draw_string(game.UI_FONT, rect.position + Vector2(3, 14), game.LocaleSystem.ui(slot_name), HORIZONTAL_ALIGNMENT_CENTER, 53, 8, Color("59452f"))
+		game.draw_ui_string(game.UI_FONT, rect.position + Vector2(3, 14), game.LocaleSystem.ui(slot_name), HORIZONTAL_ALIGNMENT_CENTER, 53, 8, Color("59452f"))
 		var kind: String = game.equipment[slot_name]
 		if not kind.is_empty(): game.draw_item_icon(kind, Rect2(rect.position + Vector2(11, 21), Vector2(38, 39)))
 
@@ -353,9 +371,9 @@ static func draw_hotbar_slot(game: Node, rect: Rect2, index: int) -> void:
 	if not kind.is_empty(): game.draw_item_icon(kind, hotbar_icon_rect(rect))
 	if kind.is_empty() or count <= 0:
 		game.draw_rect(rect.grow(-4), Color(0.10, 0.07, 0.05, 0.50))
-	game.draw_string(game.UI_FONT, rect.position + Vector2(4, 14), str(index + 1 if index < 9 else 0), HORIZONTAL_ALIGNMENT_LEFT, 11, 9, Color("ffe7a0"))
+	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(4, 14), str(index + 1 if index < 9 else 0), HORIZONTAL_ALIGNMENT_LEFT, 11, 9, Color("ffe7a0"))
 	if not kind.is_empty() and count > 1:
-		game.draw_string(game.UI_FONT, rect.position + Vector2(37, 59), str(count), HORIZONTAL_ALIGNMENT_RIGHT, 23, 9, Color("ffe7a0"))
+		game.draw_ui_string(game.UI_FONT, rect.position + Vector2(37, 59), str(count), HORIZONTAL_ALIGNMENT_RIGHT, 23, 9, Color("ffe7a0"))
 	var readiness: float = hotbar_readiness(game, kind)
 	if not kind.is_empty() and readiness < 1.0:
 		game.draw_rect(Rect2(rect.position + Vector2(7, 58), Vector2(52, 4)), Color("3d2921"))

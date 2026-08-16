@@ -4,6 +4,16 @@ extends RefCounted
 const CYCLE_BUTTON:=Rect2(1018,444,54,54)
 const CAST_BUTTON:=Rect2(1078,444,54,54)
 
+## Возвращает адаптивную область сенсорного переключения выбранного заклинания.
+static func cycle_button_rect(game: Node) -> Rect2:
+	var cast: Rect2 = cast_button_rect(game); var size: Vector2 = game.UiScaleSystem.touch_rect(game, CYCLE_BUTTON).size
+	return Rect2(Vector2(cast.position.x - 6.0 - size.x, CYCLE_BUTTON.get_center().y - size.y * 0.5), size)
+
+## Возвращает адаптивную область сенсорного применения выбранного заклинания.
+static func cast_button_rect(game: Node) -> Rect2:
+	var size: Vector2 = game.UiScaleSystem.touch_rect(game, CAST_BUTTON).size
+	return Rect2(Vector2(1152.0 - 20.0 - size.x, CAST_BUTTON.get_center().y - size.y * 0.5), size)
+
 ## Отрисовывает короткие световые круги лечения, снаряда и ледяной волны в координатах мира.
 static func draw_world(game: Node) -> void:
 	for effect in game.SpellSystem.state(game).effects:
@@ -13,6 +23,6 @@ static func draw_world(game: Node) -> void:
 static func draw_ui(game: Node) -> void:
 	if game.inventory_open or game.shop_open or game.quest_log_open or game.world_map_open or game.skill_menu_open or game.crafting_open or game.storage_open or game.forge_open or game.AdventurePolishSystem.has_modal(game) or game.FirstChapterSystem.modal_active(game): return
 	var spell:Dictionary=game.SpellSystem.selected(game); var cooldown:float=game.SpellSystem.selected_cooldown(game); var rect:=Rect2(930,500,198,42); game.draw_rect(rect,Color(0.08,0.10,0.18,0.88)); game.draw_rect(rect,Color("7aa9d8"),false,2.0)
-	game.draw_string(game.UI_FONT,rect.position+Vector2(8,18),"%s %s"%[spell.icon,game.SpellSystem.word(game,String(spell.id))],HORIZONTAL_ALIGNMENT_LEFT,146,11,Color("d9edff")); game.draw_string(game.UI_FONT,rect.position+Vector2(8,35),"C • %d MP%s"%[spell.cost," • %.1f"%cooldown if cooldown>0.0 else ""],HORIZONTAL_ALIGNMENT_LEFT,180,10,Color("9fc8ef"))
+	game.draw_ui_string(game.UI_FONT,rect.position+Vector2(8,18),"%s %s"%[spell.icon,game.SpellSystem.word(game,String(spell.id))],HORIZONTAL_ALIGNMENT_LEFT,146,11,Color("d9edff")); game.draw_ui_string(game.UI_FONT,rect.position+Vector2(8,35),"C • %d MP%s"%[spell.cost," • %.1f"%cooldown if cooldown>0.0 else ""],HORIZONTAL_ALIGNMENT_LEFT,180,10,Color("9fc8ef"))
 	if game.touch_controls_visible:
-		for data in [[CYCLE_BUTTON,"↻"],[CAST_BUTTON,String(spell.icon)]]: game.draw_rect(data[0],Color(0.08,0.10,0.18,0.88)); game.draw_rect(data[0],Color("7aa9d8"),false,2.0); game.draw_string(game.UI_FONT,data[0].position+Vector2(5,35),data[1],HORIZONTAL_ALIGNMENT_CENTER,44,23,Color("d9edff"))
+		for data in [[cycle_button_rect(game),"↻"],[cast_button_rect(game),String(spell.icon)]]: game.draw_rect(data[0],Color(0.08,0.10,0.18,0.88)); game.draw_rect(data[0],Color("7aa9d8"),false,2.0); game.draw_ui_string(game.UI_FONT,data[0].position+Vector2(5,data[0].size.y*0.65),data[1],HORIZONTAL_ALIGNMENT_CENTER,data[0].size.x-10,23,Color("d9edff"))

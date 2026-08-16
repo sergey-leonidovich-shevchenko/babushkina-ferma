@@ -23,7 +23,7 @@ static func draw_marker(game: Node2D, position: Vector2, color: Color, label: St
 	var pulse := 25.0 + sin(game.walk_animation_time * 3.0) * 4.0
 	game.draw_circle(position, pulse, Color(color, 0.22), false, 4.0)
 	game.draw_colored_polygon(PackedVector2Array([position + Vector2(-18, 14), position + Vector2(18, 14), position + Vector2(11, -12), position + Vector2(-11, -12)]), Color(color, 0.78))
-	game.draw_string(game.UI_FONT, position + Vector2(-70, 42), label, HORIZONTAL_ALIGNMENT_CENTER, 140, 12, Color("fff0cf"))
+	game.draw_ui_string(game.UI_FONT, position + Vector2(-70, 42), label, HORIZONTAL_ALIGNMENT_CENTER, 140, 12, Color("fff0cf"))
 
 
 ## Рисует силуэт босса, радиус телеграфа и полосу текущей фазы.
@@ -38,4 +38,4 @@ static func draw_boss(game: Node2D, state: Dictionary) -> void:
 	game.draw_colored_polygon(PackedVector2Array([position + Vector2(-48, 70), position + Vector2(48, 70), position + Vector2(0, 22)]), Color(color, 0.86))
 	var bar := Rect2(position + Vector2(-65, -92), Vector2(130, 11))
 	game.draw_rect(bar, Color("20182b")); game.draw_rect(Rect2(bar.position + Vector2(2, 2), Vector2((bar.size.x - 4) * float(state.boss_hp) / game.CastleCampaignSystem.BOSS_MAX_HP, 7)), color)
-	game.draw_string(game.UI_FONT, position + Vector2(-90, -103), "%s • %s" % [game.LocaleSystem.entity("shadow_regent"), game.LocaleSystem.ui("boss_phase", [phase])], HORIZONTAL_ALIGNMENT_CENTER, 180, 13, Color("fff0ef"))
+	game.draw_ui_string(game.UI_FONT, position + Vector2(-90, -103), "%s • %s" % [game.LocaleSystem.entity("shadow_regent"), game.LocaleSystem.ui("boss_phase", [phase])], HORIZONTAL_ALIGNMENT_CENTER, 180, 13, Color("fff0ef"))

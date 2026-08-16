@@ -2,7 +2,7 @@ extends RefCounted
 
 const SETTINGS_PATH := "user://farm-settings.cfg"
 const VOLUME_STEP := 0.1
-const SETTINGS_SCHEMA := 3
+const SETTINGS_SCHEMA := 4
 
 class SettingsState:
 	var master_volume := 1.0
@@ -14,6 +14,8 @@ class SettingsState:
 	var screen_shake_enabled := true
 	var high_contrast := false
 	var control_preset := "standard"
+	var text_scale := 1.0
+	var touch_scale := 1.0
 
 
 ## Загружает пользовательские параметры, нормализует значения и применяет их к доступным системам устройства.
@@ -30,10 +32,12 @@ static func load(game: Node, path: String = SETTINGS_PATH, apply_display: bool =
 	game.settings_state.screen_shake_enabled = bool(config.get_value("accessibility", "screen_shake", true))
 	game.settings_state.high_contrast = bool(config.get_value("accessibility", "high_contrast", false))
 	game.settings_state.control_preset = String(config.get_value("controls", "preset", "standard")) if String(config.get_value("controls", "preset", "standard")) in ["standard","left_handed"] else "standard"
+	game.settings_state.text_scale = game.UiScaleSystem.normalized_scale(float(config.get_value("accessibility", "text_scale", 1.0)), game.UiScaleSystem.TEXT_SCALES)
+	game.settings_state.touch_scale = game.UiScaleSystem.normalized_scale(float(config.get_value("controls", "touch_scale", 1.0)), game.UiScaleSystem.TOUCH_SCALES)
 	var previous_schema:=int(config.get_value("meta","schema_version",1))
 	if loaded and previous_schema<SETTINGS_SCHEMA:
 		if previous_schema<2: game.settings_state.fullscreen_enabled=true; config.set_value("display","fullscreen",true)
-		config.set_value("accessibility","reduced_motion",game.settings_state.reduced_motion); config.set_value("accessibility","screen_shake",game.settings_state.screen_shake_enabled); config.set_value("accessibility","high_contrast",game.settings_state.high_contrast); config.set_value("controls","preset",game.settings_state.control_preset); config.set_value("meta","schema_version",SETTINGS_SCHEMA); config.save(path)
+		config.set_value("accessibility","reduced_motion",game.settings_state.reduced_motion); config.set_value("accessibility","screen_shake",game.settings_state.screen_shake_enabled); config.set_value("accessibility","high_contrast",game.settings_state.high_contrast); config.set_value("accessibility","text_scale",game.settings_state.text_scale); config.set_value("controls","preset",game.settings_state.control_preset); config.set_value("controls","touch_scale",game.settings_state.touch_scale); config.set_value("meta","schema_version",SETTINGS_SCHEMA); config.save(path)
 	if apply_display and game.is_inside_tree():
 		apply_display_settings(game)
 	if game.get_node_or_null("AudioMusicA"):
@@ -57,7 +61,9 @@ static func save(game: Node, path: String = SETTINGS_PATH) -> bool:
 	config.set_value("accessibility", "reduced_motion", game.settings_state.reduced_motion)
 	config.set_value("accessibility", "screen_shake", game.settings_state.screen_shake_enabled)
 	config.set_value("accessibility", "high_contrast", game.settings_state.high_contrast)
+	config.set_value("accessibility", "text_scale", game.settings_state.text_scale)
 	config.set_value("controls", "preset", game.settings_state.control_preset)
+	config.set_value("controls", "touch_scale", game.settings_state.touch_scale)
 	return config.save(path) == OK
 
 

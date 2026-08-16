@@ -123,7 +123,7 @@ static func draw_labels(game: Node2D) -> void:
 static func draw_object_label(game: Node2D, position: Vector2, text: String) -> void:
 	var rect := Rect2(position + Vector2(-55,-68), Vector2(110,20))
 	game.draw_rect(rect, Color(0.01,0.02,0.02,0.82))
-	game.draw_string(game.UI_FONT, rect.position + Vector2(4,15), text, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 8, 11, Color.WHITE)
+	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(4,15), text, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 8, 11, Color.WHITE)
 
 
 ## Рисует экранную панель, легенду, инспектор курсора, кнопки и график FPS.
@@ -132,7 +132,7 @@ static func draw_panel(game: Node2D) -> void:
 	var state: Dictionary = game.get_meta(game.DebugOverlaySystem.META_KEY)
 	var panel: Rect2 = game.DebugOverlaySystem.PANEL
 	game.draw_rect(panel, PANEL_FILL); game.draw_rect(panel, PANEL_BORDER, false, 3.0)
-	game.draw_string(game.UI_FONT, panel.position + Vector2(18,31), "DEBUG УРОВНЯ · F10", HORIZONTAL_ALIGNMENT_LEFT, panel.size.x - 36, 19, Color("caffdf"))
+	game.draw_ui_string(game.UI_FONT, panel.position + Vector2(18,31), "DEBUG УРОВНЯ · F10", HORIZONTAL_ALIGNMENT_LEFT, panel.size.x - 36, 19, Color("caffdf"))
 	var pointer: Vector2 = game.get_meta("debug_inspector_cursor",game.get_local_mouse_position())
 	var target: Dictionary = game.DebugObjectInspectorSystem.hovered_object(game,pointer)
 	if not target.is_empty():
@@ -150,7 +150,7 @@ static func draw_panel(game: Node2D) -> void:
 		"Результат: %s" % reason_label(tile.reason),
 		"Пахотность: %s" % reason_label(String(tile.get("farming_reason", "нет данных"))),
 	]
-	for index in lines.size(): game.draw_string(game.UI_FONT, panel.position + Vector2(18,61 + index*20), lines[index], HORIZONTAL_ALIGNMENT_LEFT, panel.size.x - 36, 13, Color("e9fff3"))
+	for index in lines.size(): game.draw_ui_string(game.UI_FONT, panel.position + Vector2(18,61 + index*20), lines[index], HORIZONTAL_ALIGNMENT_LEFT, panel.size.x - 36, 13, Color("e9fff3"))
 	draw_legend(game, panel.position + Vector2(18,151), float(state.opacity))
 	draw_lower_panel(game,state,panel)
 	game.DebugMissionRenderer.draw(game)
@@ -160,20 +160,20 @@ static func draw_panel(game: Node2D) -> void:
 ## Рисует общие кнопки, график и подсказки ниже взаимозаменяемых INFO/навигационных данных.
 static func draw_lower_panel(game: Node2D, state: Dictionary, panel: Rect2) -> void:
 	for button in game.DebugOverlaySystem.BUTTONS: draw_button(game, button, state)
-	game.draw_string(game.UI_FONT, panel.position + Vector2(18,386), "СЕРЫЕ ИНСТРУМЕНТЫ — В РАЗРАБОТКЕ", HORIZONTAL_ALIGNMENT_LEFT, panel.size.x - 36, 10, Color("81958d"))
+	game.draw_ui_string(game.UI_FONT, panel.position + Vector2(18,386), "СЕРЫЕ ИНСТРУМЕНТЫ — В РАЗРАБОТКЕ", HORIZONTAL_ALIGNMENT_LEFT, panel.size.x - 36, 10, Color("81958d"))
 	draw_graph(game, state, Rect2(panel.position + Vector2(20,466), Vector2(320,46)))
-	game.draw_string(game.UI_FONT, panel.position + Vector2(18,548), "G сетка · H хитбоксы · P пути · L подписи", HORIZONTAL_ALIGNMENT_LEFT, panel.size.x - 36, 12, Color("a9d9c2"))
-	game.draw_string(game.UI_FONT, panel.position + Vector2(18,568), "V noclip · Space пауза · . шаг · -/+ яркость", HORIZONTAL_ALIGNMENT_LEFT, panel.size.x - 36, 12, Color("a9d9c2"))
+	game.draw_ui_string(game.UI_FONT, panel.position + Vector2(18,548), "G сетка · H хитбоксы · P пути · L подписи", HORIZONTAL_ALIGNMENT_LEFT, panel.size.x - 36, 12, Color("a9d9c2"))
+	game.draw_ui_string(game.UI_FONT, panel.position + Vector2(18,568), "V noclip · Space пауза · . шаг · -/+ яркость", HORIZONTAL_ALIGNMENT_LEFT, panel.size.x - 36, 12, Color("a9d9c2"))
 
 
 ## Рисует отдельную карточку живого баланса поверх локации по запросу тестировщика.
 static func draw_balance(game: Node2D) -> void:
 	var rect := Rect2(24, 78, 410, 252)
 	game.draw_rect(rect, Color(0.025,0.045,0.05,0.96)); game.draw_rect(rect, PANEL_BORDER, false, 3.0)
-	game.draw_string(game.UI_FONT, rect.position + Vector2(18,32), "БАЛАНС · ТЕКУЩИЙ БИЛД", HORIZONTAL_ALIGNMENT_LEFT, rect.size.x-36, 17, Color("caffdf"))
+	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(18,32), "БАЛАНС · ТЕКУЩИЙ БИЛД", HORIZONTAL_ALIGNMENT_LEFT, rect.size.x-36, 17, Color("caffdf"))
 	var lines: Array[String] = game.DebugBalanceSystem.lines(game)
-	for index in lines.size(): game.draw_string(game.UI_FONT, rect.position + Vector2(18,64+index*25), lines[index], HORIZONTAL_ALIGNMENT_LEFT, rect.size.x-36, 13, Color("e9fff3"))
-	game.draw_string(game.UI_FONT, rect.position + Vector2(18,226), "Источники XP: посадка 1 · урожай 3 · крафт 4 · ловушка 8", HORIZONTAL_ALIGNMENT_LEFT, rect.size.x-36, 10, Color("91b3a4"))
+	for index in lines.size(): game.draw_ui_string(game.UI_FONT, rect.position + Vector2(18,64+index*25), lines[index], HORIZONTAL_ALIGNMENT_LEFT, rect.size.x-36, 13, Color("e9fff3"))
+	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(18,226), "Источники XP: посадка 1 · урожай 3 · крафт 4 · ловушка 8", HORIZONTAL_ALIGNMENT_LEFT, rect.size.x-36, 10, Color("91b3a4"))
 
 
 ## Рисует четыре категории клеток с одинаковой прозрачностью текущего режима.
@@ -182,7 +182,7 @@ static func draw_legend(game: Node2D, origin: Vector2, opacity: float) -> void:
 	for index in entries.size():
 		var x := origin.x + (index % 3) * 106; var y := origin.y + (index / 3) * 25
 		var color: Color = entries[index][0]; color.a = maxf(opacity,0.5)
-		game.draw_rect(Rect2(x,y,15,15),color); game.draw_string(game.UI_FONT,Vector2(x+21,y+13),entries[index][1],HORIZONTAL_ALIGNMENT_LEFT,82,11,Color("e9fff3"))
+		game.draw_rect(Rect2(x,y,15,15),color); game.draw_ui_string(game.UI_FONT,Vector2(x+21,y+13),entries[index][1],HORIZONTAL_ALIGNMENT_LEFT,82,11,Color("e9fff3"))
 
 
 ## Рисует кнопку панели и выделяет включённые логические режимы.
@@ -195,7 +195,7 @@ static func draw_button(game: Node2D, button: Dictionary, state: Dictionary) -> 
 	game.draw_rect(button.rect, fill); game.draw_rect(button.rect, border, false, 2.0)
 	var label := String(button.label)
 	if action == "grid_size": label = "СЕТКА %d px" % int(state.grid_size)
-	game.draw_string(game.UI_FONT, button.rect.position + Vector2(5,19), label, HORIZONTAL_ALIGNMENT_CENTER, button.rect.size.x - 10, 10, Color.WHITE if enabled else Color("71817b"))
+	game.draw_ui_string(game.UI_FONT, button.rect.position + Vector2(5,19), label, HORIZONTAL_ALIGNMENT_CENTER, button.rect.size.x - 10, 10, Color.WHITE if enabled else Color("71817b"))
 
 
 ## Рисует историю FPS последних девяноста кадров с ориентиром шестидесяти кадров.

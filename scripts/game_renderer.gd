@@ -1,5 +1,10 @@
 extends "res://scripts/game_context.gd"
 
+## Рисует строку с пользовательским масштабом текста и безопасным уменьшением при нехватке ширины.
+func draw_ui_string(font: Font, position: Vector2, text: String, alignment: HorizontalAlignment = HORIZONTAL_ALIGNMENT_LEFT, width: float = -1.0, font_size: int = 16, color: Color = Color.WHITE) -> void:
+	var effective_size := UiScaleSystem.fitted_font_size(self, font, text, width, font_size)
+	draw_string(font, position, text, alignment, width, effective_size, color)
+
 ## Отрисовывает текущее визуальное состояние узла.
 func _draw() -> void:
 	RenderSystem.draw(self)

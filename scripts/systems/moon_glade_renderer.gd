@@ -31,7 +31,7 @@ static func draw_guardian(game: Node2D, state: Dictionary) -> void:
 	var bar := Rect2(position + Vector2(-52, -94), Vector2(104, 9))
 	game.draw_rect(bar, Color("251d38")); game.draw_rect(bar.grow(-2), Color("9d58ce"))
 	game.draw_rect(Rect2(bar.position + Vector2(2, 2), Vector2((bar.size.x - 4) * float(state.guardian_hp) / game.MoonGladeSystem.GUARDIAN_MAX_HP, bar.size.y - 4)), Color("7cf2e8"))
-	game.draw_string(game.UI_FONT, position + Vector2(-80, -105), game.LocaleSystem.entity("eclipse_guardian"), HORIZONTAL_ALIGNMENT_CENTER, 160, 14, Color("f3eaff"))
+	game.draw_ui_string(game.UI_FONT, position + Vector2(-80, -105), game.LocaleSystem.entity("eclipse_guardian"), HORIZONTAL_ALIGNMENT_CENTER, 160, 14, Color("f3eaff"))
 
 
 ## Рисует одну ячейку событийного атласа с точкой опоры у нижней границы.

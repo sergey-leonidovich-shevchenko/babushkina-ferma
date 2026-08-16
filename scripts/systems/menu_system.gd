@@ -2,7 +2,7 @@ extends RefCounted
 
 const TITLE_ITEMS := ["continue_game", "new_game", "settings", "exit_game"]
 const PAUSE_ITEMS := ["resume", "save_game", "load_game", "settings", "return_main_menu", "exit_game"]
-const SETTING_ITEMS := ["master_volume", "music_volume", "sfx_volume", "sound_enabled", "fullscreen", "vsync", "reduced_motion", "screen_shake", "high_contrast", "control_preset", "language_option", "back"]
+const SETTING_ITEMS := ["master_volume", "music_volume", "sfx_volume", "sound_enabled", "fullscreen", "vsync", "reduced_motion", "screen_shake", "high_contrast", "control_preset", "text_scale", "touch_scale", "language_option", "back"]
 
 static var start_after_reload := false
 
@@ -223,10 +223,11 @@ static func move_settings_selection(game: Node, delta: int) -> void:
 	var index: int = game.menu_state.settings_selected
 	var row := index / 2
 	var column := index % 2
+	var row_count := ceili(float(SETTING_ITEMS.size()) / 2.0)
 	row += delta
-	if row < 0: row = 5; column = posmod(column - 1, 2)
-	elif row > 5: row = 0; column = (column + 1) % 2
-	game.menu_state.settings_selected = row * 2 + column
+	if row < 0: row = row_count - 1; column = posmod(column - 1, 2)
+	elif row >= row_count: row = 0; column = (column + 1) % 2
+	game.menu_state.settings_selected = mini(row * 2 + column, SETTING_ITEMS.size() - 1)
 	game.UiFeedbackSystem.focus(game, "settings:%d" % game.menu_state.settings_selected)
 
 
@@ -245,6 +246,8 @@ static func adjust_setting(game: Node, direction: int, path: String = "", apply_
 		"screen_shake": game.settings_state.screen_shake_enabled = not game.settings_state.screen_shake_enabled
 		"high_contrast": game.settings_state.high_contrast = not game.settings_state.high_contrast
 		"control_preset": game.settings_state.control_preset = "left_handed" if game.settings_state.control_preset=="standard" else "standard"; game.InputSystem.apply_control_preset(game.settings_state.control_preset)
+		"text_scale": game.settings_state.text_scale = game.UiScaleSystem.cycle_scale(game.settings_state.text_scale, direction, game.UiScaleSystem.TEXT_SCALES)
+		"touch_scale": game.settings_state.touch_scale = game.UiScaleSystem.cycle_scale(game.settings_state.touch_scale, direction, game.UiScaleSystem.TOUCH_SCALES)
 		"language_option":
 			var next := posmod(game.LocaleSystem.index() + direction, game.LocaleSystem.LOCALES.size())
 			game.LocaleSystem.set_locale(game.LocaleSystem.LOCALES[next], false)

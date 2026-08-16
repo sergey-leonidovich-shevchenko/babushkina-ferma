@@ -17,11 +17,11 @@ static func draw_overlay(game: Node2D) -> void:
 	game.draw_rect(panel, Color(0.035,0.065,0.06,0.94)); game.draw_rect(panel, Color("d5a94d"), false, 3)
 	var enemy: String = game.DebugPlaygroundSystem.ENEMIES[state.enemy_index]
 	var lines := ["ПОЛИГОН ОТЛАДКИ", "FPS: %d · объектов: %d" % [Engine.get_frames_per_second(), game.enemy_nodes.size() + game.wildlife_nodes.size()], "Позиция: %d, %d · %s" % [game.player.x, game.player.y,"ПАУЗА" if state.paused else "RUN"], "День %d · %02d:%02d" % [game.day, int(game.game_minutes)/60, int(game.game_minutes)%60], "%s · %s" % [game.WorldEventSystem.season(game.day), game.WorldEventSystem.weather(game)], "Враг: %s · ур. %d" % [enemy, state.enemy_level], "Выбрано: %s" % state.selected, "F4 набор · F6 уровень · F7 анимация", "F8 телепорт · F9 квест · C коллизии", "PgUp/PgDn тип · I инспектор · F10 выход"]
-	for index in lines.size(): game.draw_string(game.UI_FONT, panel.position + Vector2(20,34 + index * 21), lines[index], HORIZONTAL_ALIGNMENT_LEFT, panel.size.x - 40, 15, Color("fff0c8") if index != 0 else Color("ffd36a"))
+	for index in lines.size(): game.draw_ui_string(game.UI_FONT, panel.position + Vector2(20,34 + index * 21), lines[index], HORIZONTAL_ALIGNMENT_LEFT, panel.size.x - 40, 15, Color("fff0c8") if index != 0 else Color("ffd36a"))
 	draw_graph(game,state,Rect2(755,275,355,55))
 	for button in game.DebugPlaygroundSystem.BUTTONS:
-		game.draw_rect(button.rect,Color("3c6759")); game.draw_rect(button.rect,Color("d5a94d"),false,2); game.draw_string(game.UI_FONT,button.rect.position+Vector2(5,21),button.label,HORIZONTAL_ALIGNMENT_CENTER,button.rect.size.x-10,12,Color("fff0c8"))
-	game.draw_string(game.UI_FONT,Vector2(755,520),"Последнее: %s" % state.command,HORIZONTAL_ALIGNMENT_LEFT,355,13,Color("ffd36a"))
+		game.draw_rect(button.rect,Color("3c6759")); game.draw_rect(button.rect,Color("d5a94d"),false,2); game.draw_ui_string(game.UI_FONT,button.rect.position+Vector2(5,21),button.label,HORIZONTAL_ALIGNMENT_CENTER,button.rect.size.x-10,12,Color("fff0c8"))
+	game.draw_ui_string(game.UI_FONT,Vector2(755,520),"Последнее: %s" % state.command,HORIZONTAL_ALIGNMENT_LEFT,355,13,Color("ffd36a"))
 
 
 ## Рисует компактный график FPS за последние сто двадцать кадров.

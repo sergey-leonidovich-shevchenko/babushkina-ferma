@@ -32,11 +32,11 @@ static func close_active(game: Node) -> bool:
 static func draw_shell(game: Node, title: String, subtitle: String = "") -> void:
 	game.draw_rect(VIEWPORT, Color(0.012, 0.020, 0.016, 0.78))
 	UiKitSystem.draw_panel(game, SHELL, true)
-	game.draw_string(game.MENU_FONT, Vector2(250, 103), title, HORIZONTAL_ALIGNMENT_CENTER, 652, 28, Color("fff0bd"))
+	game.draw_ui_string(game.MENU_FONT, Vector2(250, 103), title, HORIZONTAL_ALIGNMENT_CENTER, 652, 28, Color("fff0bd"))
 	if not subtitle.is_empty():
-		game.draw_string(game.UI_FONT, Vector2(306, 128), subtitle, HORIZONTAL_ALIGNMENT_CENTER, 540, 10, Color("efd59b"))
+		game.draw_ui_string(game.UI_FONT, Vector2(306, 128), subtitle, HORIZONTAL_ALIGNMENT_CENTER, 540, 10, Color("efd59b"))
 	game.draw_texture_rect(UiKitSystem.texture("close_button"), CLOSE_BUTTON, false)
-	game.draw_string(game.MENU_FONT, CLOSE_BUTTON.position + Vector2(4, 37), "×", HORIZONTAL_ALIGNMENT_CENTER, CLOSE_BUTTON.size.x - 8, 24, Color("fff0bd"))
+	game.draw_ui_string(game.MENU_FONT, CLOSE_BUTTON.position + Vector2(4, 37), "×", HORIZONTAL_ALIGNMENT_CENTER, CLOSE_BUTTON.size.x - 8, 24, Color("fff0bd"))
 
 
 ## Рисует пергаментную секцию внутри общего предметного окна, сохраняя латунные углы.
@@ -53,7 +53,7 @@ static func draw_row(game: Node, rect: Rect2, selected: bool, enabled: bool = tr
 
 ## Рисует подсказку управления в спокойной нижней области общего каркаса.
 static func draw_help(game: Node, text: String) -> void:
-	game.draw_string(game.UI_FONT, Vector2(166, 582), text, HORIZONTAL_ALIGNMENT_CENTER, 820, 11, Color("efd59b"))
+	game.draw_ui_string(game.UI_FONT, Vector2(166, 582), text, HORIZONTAL_ALIGNMENT_CENTER, 820, 11, Color("efd59b"))
 
 
 ## Рисует верстак или котелок в едином предметном каркасе с иконками результатов и доступностью рецептов.
@@ -71,8 +71,8 @@ static func draw_crafting(game: Node) -> void:
 		var available: bool = game.CraftingSystem.can_craft(game, recipe)
 		draw_row(game, row, index == game.crafting_selected, available)
 		game.draw_item_icon(String(recipe.output), Rect2(row.position + Vector2(14, 5), Vector2(28, 28)))
-		game.draw_string(game.UI_FONT, row.position + Vector2(52, 25), game.inventory_item_name(recipe.output), HORIZONTAL_ALIGNMENT_LEFT, 210, 13, UiKitSystem.COLORS.ink)
-		game.draw_string(game.UI_FONT, row.position + Vector2(270, 24), game.CraftingSystem.ingredients_text(game, recipe), HORIZONTAL_ALIGNMENT_LEFT, 420, 10, UiKitSystem.COLORS.success if available else UiKitSystem.COLORS.danger)
+		game.draw_ui_string(game.UI_FONT, row.position + Vector2(52, 25), game.inventory_item_name(recipe.output), HORIZONTAL_ALIGNMENT_LEFT, 210, 13, UiKitSystem.COLORS.ink)
+		game.draw_ui_string(game.UI_FONT, row.position + Vector2(270, 24), game.CraftingSystem.ingredients_text(game, recipe), HORIZONTAL_ALIGNMENT_LEFT, 420, 10, UiKitSystem.COLORS.success if available else UiKitSystem.COLORS.danger)
 	draw_help(game, game.LocaleSystem.ui("craft_help"))
 
 
@@ -82,13 +82,13 @@ static func draw_shop(game: Node) -> void:
 	draw_section(game, SHOP_STOCK_SECTION)
 	draw_section(game, SHOP_TABLE_SECTION)
 	game.draw_texture_rect_region(game.SUPPLY_SHEET, Rect2(145, 184, 200, 154), Rect2(0, 0, 176, 136))
-	game.draw_string(game.MENU_FONT, Vector2(130, 382), game.LocaleSystem.ui("grandma_stock"), HORIZONTAL_ALIGNMENT_CENTER, 230, 18, Color("fff0bd"))
+	game.draw_ui_string(game.MENU_FONT, Vector2(130, 382), game.LocaleSystem.ui("grandma_stock"), HORIZONTAL_ALIGNMENT_CENTER, 230, 18, Color("fff0bd"))
 	game.draw_multiline_string(game.UI_FONT, Vector2(136, 418), game.LocaleSystem.ui("shop_help"), HORIZONTAL_ALIGNMENT_CENTER, 218, 11, 3, Color("efd59b"))
 	var table := Rect2(405, 174, 570, 340)
 	UiKitSystem.draw_nine_patch(game, "quest_ribbon", Rect2(table.position, Vector2(table.size.x, 42)))
-	game.draw_string(game.UI_FONT, table.position + Vector2(52, 28), game.LocaleSystem.ui("product"), HORIZONTAL_ALIGNMENT_LEFT, 280, 13, Color("fff0cf"))
-	game.draw_string(game.UI_FONT, table.position + Vector2(360, 28), game.LocaleSystem.ui("buy"), HORIZONTAL_ALIGNMENT_CENTER, 78, 13, Color("fff0cf"))
-	game.draw_string(game.UI_FONT, table.position + Vector2(460, 28), game.LocaleSystem.ui("sell"), HORIZONTAL_ALIGNMENT_CENTER, 78, 13, Color("fff0cf"))
+	game.draw_ui_string(game.UI_FONT, table.position + Vector2(52, 28), game.LocaleSystem.ui("product"), HORIZONTAL_ALIGNMENT_LEFT, 280, 13, Color("fff0cf"))
+	game.draw_ui_string(game.UI_FONT, table.position + Vector2(360, 28), game.LocaleSystem.ui("buy"), HORIZONTAL_ALIGNMENT_CENTER, 78, 13, Color("fff0cf"))
+	game.draw_ui_string(game.UI_FONT, table.position + Vector2(460, 28), game.LocaleSystem.ui("sell"), HORIZONTAL_ALIGNMENT_CENTER, 78, 13, Color("fff0cf"))
 	var first_product: int = clampi(game.shop_selected - 4, 0, maxi(0, game.shop_products.size() - 9))
 	for index in range(first_product, mini(first_product + 9, game.shop_products.size())):
 		var product: Dictionary = game.shop_products[index]
@@ -98,9 +98,9 @@ static func draw_shop(game: Node) -> void:
 			game.draw_texture_rect_region(game.SUPPLY_SHEET, Rect2(row.position + Vector2(13, 3), Vector2(26, 26)), product.icon)
 		else:
 			game.draw_item_icon(String(product.kind), Rect2(row.position + Vector2(13, 3), Vector2(26, 26)))
-		game.draw_string(game.UI_FONT, row.position + Vector2(48, 22), game.inventory_item_name(product.kind), HORIZONTAL_ALIGNMENT_LEFT, 290, 11, UiKitSystem.COLORS.ink)
-		game.draw_string(game.UI_FONT, row.position + Vector2(360, 22), ("%d ●" % product.buy) if product.buy > 0 else "—", HORIZONTAL_ALIGNMENT_CENTER, 78, 11, UiKitSystem.COLORS.ink)
-		game.draw_string(game.UI_FONT, row.position + Vector2(460, 22), ("%d ●" % product.sell) if product.sell > 0 else "—", HORIZONTAL_ALIGNMENT_CENTER, 78, 11, UiKitSystem.COLORS.ink)
+		game.draw_ui_string(game.UI_FONT, row.position + Vector2(48, 22), game.inventory_item_name(product.kind), HORIZONTAL_ALIGNMENT_LEFT, 290, 11, UiKitSystem.COLORS.ink)
+		game.draw_ui_string(game.UI_FONT, row.position + Vector2(360, 22), ("%d ●" % product.buy) if product.buy > 0 else "—", HORIZONTAL_ALIGNMENT_CENTER, 78, 11, UiKitSystem.COLORS.ink)
+		game.draw_ui_string(game.UI_FONT, row.position + Vector2(460, 22), ("%d ●" % product.sell) if product.sell > 0 else "—", HORIZONTAL_ALIGNMENT_CENTER, 78, 11, UiKitSystem.COLORS.ink)
 	draw_help(game, game.LocaleSystem.ui("shop_help"))
 
 
@@ -109,14 +109,14 @@ static func draw_storage(game: Node) -> void:
 	draw_shell(game, game.LocaleSystem.ui("home_storage"))
 	draw_section(game, STORAGE_LEFT_SECTION)
 	draw_section(game, STORAGE_RIGHT_SECTION)
-	game.draw_string(game.MENU_FONT, Vector2(96, 176), game.LocaleSystem.ui("backpack_column"), HORIZONTAL_ALIGNMENT_CENTER, 430, 16, Color("fff0bd"))
-	game.draw_string(game.MENU_FONT, Vector2(626, 176), game.LocaleSystem.ui("chest_column"), HORIZONTAL_ALIGNMENT_CENTER, 430, 16, Color("fff0bd"))
+	game.draw_ui_string(game.MENU_FONT, Vector2(96, 176), game.LocaleSystem.ui("backpack_column"), HORIZONTAL_ALIGNMENT_CENTER, 430, 16, Color("fff0bd"))
+	game.draw_ui_string(game.MENU_FONT, Vector2(626, 176), game.LocaleSystem.ui("chest_column"), HORIZONTAL_ALIGNMENT_CENTER, 430, 16, Color("fff0bd"))
 	draw_storage_column(game, game.StorageSystem.inventory_items(game), 0, game.InterfaceRenderer.STORAGE_LEFT_ROWS)
 	draw_storage_column(game, game.StorageSystem.stored_items(game), 1, game.InterfaceRenderer.STORAGE_RIGHT_ROWS)
 	UiKitSystem.draw_button(game, game.InterfaceRenderer.STORAGE_TRANSFER_ONE, false, true, game.settings_state.reduced_motion, Time.get_ticks_msec())
 	UiKitSystem.draw_button(game, game.InterfaceRenderer.STORAGE_TRANSFER_ALL, false, true, game.settings_state.reduced_motion, Time.get_ticks_msec())
-	game.draw_string(game.UI_FONT, game.InterfaceRenderer.STORAGE_TRANSFER_ONE.position + Vector2(4, 24), game.LocaleSystem.ui("transfer_one"), HORIZONTAL_ALIGNMENT_CENTER, 108, 10, UiKitSystem.COLORS.ink)
-	game.draw_string(game.UI_FONT, game.InterfaceRenderer.STORAGE_TRANSFER_ALL.position + Vector2(4, 24), game.LocaleSystem.ui("transfer_all"), HORIZONTAL_ALIGNMENT_CENTER, 108, 10, UiKitSystem.COLORS.ink)
+	game.draw_ui_string(game.UI_FONT, game.InterfaceRenderer.STORAGE_TRANSFER_ONE.position + Vector2(4, 24), game.LocaleSystem.ui("transfer_one"), HORIZONTAL_ALIGNMENT_CENTER, 108, 10, UiKitSystem.COLORS.ink)
+	game.draw_ui_string(game.UI_FONT, game.InterfaceRenderer.STORAGE_TRANSFER_ALL.position + Vector2(4, 24), game.LocaleSystem.ui("transfer_all"), HORIZONTAL_ALIGNMENT_CENTER, 108, 10, UiKitSystem.COLORS.ink)
 	draw_help(game, game.LocaleSystem.ui("storage_help"))
 
 
@@ -131,9 +131,9 @@ static func draw_storage_column(game: Node, items: Array[String], side: int, rec
 		if index >= items.size(): continue
 		var kind: String = items[index]
 		game.draw_item_icon(kind, Rect2(row.position + Vector2(10, 5), Vector2(28, 28)))
-		game.draw_string(game.UI_FONT, row.position + Vector2(48, 25), game.inventory_item_name(kind), HORIZONTAL_ALIGNMENT_LEFT, 290, 11, UiKitSystem.COLORS.ink)
+		game.draw_ui_string(game.UI_FONT, row.position + Vector2(48, 25), game.inventory_item_name(kind), HORIZONTAL_ALIGNMENT_LEFT, 290, 11, UiKitSystem.COLORS.ink)
 		var amount: int = game.inventory_item_count(kind) if side == 0 else game.state.storage.count(kind)
-		game.draw_string(game.UI_FONT, row.position + Vector2(350, 25), "×%d" % amount, HORIZONTAL_ALIGNMENT_RIGHT, 60, 11, UiKitSystem.COLORS.ink)
+		game.draw_ui_string(game.UI_FONT, row.position + Vector2(350, 25), "×%d" % amount, HORIZONTAL_ALIGNMENT_RIGHT, 60, 11, UiKitSystem.COLORS.ink)
 
 
 ## Рисует кузницу как список постоянных улучшений с иконкой, рангом, стоимостью и прочностью.
@@ -147,11 +147,11 @@ static func draw_forge(game: Node) -> void:
 		var available: bool = game.ForgeSystem.can_upgrade(game, index)
 		draw_row(game, row, index == game.forge_selected, available or current_level >= game.ForgeSystem.MAX_UPGRADE_LEVEL)
 		game.draw_item_icon(String(upgrade.kind), Rect2(row.position + Vector2(10, 5), Vector2(30, 30)))
-		game.draw_string(game.UI_FONT, row.position + Vector2(50, 26), game.inventory_item_name(upgrade.kind), HORIZONTAL_ALIGNMENT_LEFT, 220, 12, UiKitSystem.COLORS.ink)
-		game.draw_string(game.UI_FONT, row.position + Vector2(278, 26), game.LocaleSystem.ui("upgrade_level", [current_level, game.ForgeSystem.MAX_UPGRADE_LEVEL]), HORIZONTAL_ALIGNMENT_LEFT, 130, 10, Color("6b5136"))
+		game.draw_ui_string(game.UI_FONT, row.position + Vector2(50, 26), game.inventory_item_name(upgrade.kind), HORIZONTAL_ALIGNMENT_LEFT, 220, 12, UiKitSystem.COLORS.ink)
+		game.draw_ui_string(game.UI_FONT, row.position + Vector2(278, 26), game.LocaleSystem.ui("upgrade_level", [current_level, game.ForgeSystem.MAX_UPGRADE_LEVEL]), HORIZONTAL_ALIGNMENT_LEFT, 130, 10, Color("6b5136"))
 		var cost: String = game.LocaleSystem.ui("upgrade_max") if current_level >= game.ForgeSystem.MAX_UPGRADE_LEVEL else game.ForgeSystem.cost_text(game, upgrade)
-		game.draw_string(game.UI_FONT, row.position + Vector2(410, 25), cost, HORIZONTAL_ALIGNMENT_LEFT, 278, 9, UiKitSystem.COLORS.success if available else UiKitSystem.COLORS.danger)
+		game.draw_ui_string(game.UI_FONT, row.position + Vector2(410, 25), cost, HORIZONTAL_ALIGNMENT_LEFT, 278, 9, UiKitSystem.COLORS.success if available else UiKitSystem.COLORS.danger)
 		var durability: int = int(game.state.inventory.durability.get(upgrade.kind, game.state.inventory.durability.get("sword", 100) if upgrade.kind == "sword" else -1))
 		if durability >= 0:
-			game.draw_string(game.UI_FONT, row.position + Vector2(690, 25), "◆ %d%%" % durability, HORIZONTAL_ALIGNMENT_RIGHT, 110, 9, UiKitSystem.COLORS.success if durability > 20 else UiKitSystem.COLORS.danger)
+			game.draw_ui_string(game.UI_FONT, row.position + Vector2(690, 25), "◆ %d%%" % durability, HORIZONTAL_ALIGNMENT_RIGHT, 110, 9, UiKitSystem.COLORS.success if durability > 20 else UiKitSystem.COLORS.danger)
 	draw_help(game, "%s • R / X — ремонт" % game.LocaleSystem.ui("forge_help"))
