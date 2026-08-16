@@ -171,15 +171,11 @@ func draw_rpg_world() -> void:
 ## Отрисовывает внешние спрайты зданий, подписи и состояние закрытых дверей.
 func draw_buildings() -> void:
 	# В первой локации здания уже являются отдельными областями мастер-атласа;
-	# повторный атлас оставлен только для остальных внешних биомов.
+	# отдельные фасады используются в остальных внешних биомах и конструкторе.
 	if current_location == "overworld": return
-	var source_size := Vector2(BUILDING_ATLAS.get_width() / 4.0, BUILDING_ATLAS.get_height() / 2.0)
 	for building_id in BuildingSystem.buildings_at(current_location):
 		var data: Dictionary = BuildingSystem.BUILDINGS[building_id]
-		var sprite_index: int = data.sprite
-		var source := Rect2(Vector2(sprite_index % 4, sprite_index / 4) * source_size, source_size)
-		var destination := BuildingSystem.destination_rect(building_id)
-		draw_texture_rect_region(BUILDING_ATLAS, destination, source)
+		BuildingVisualSystem.draw_building(self,building_id,Vector2(data.door))
 		var unlocked := BuildingSystem.can_enter(self, building_id)
 		var door: Vector2 = data.door
 		if not unlocked and player.distance_to(door) < 180.0:

@@ -70,5 +70,5 @@ static func _scan_directory(path: String, result: Array[Dictionary]) -> void:
 ## Проверяет расширение и исключает контрольные изображения из пользовательского каталога.
 static func _is_placeable_image(filename: String) -> bool:
 	var lower := filename.to_lower()
-	if "preview" in lower or "master" in lower: return false
+	if "preview" in lower or "master" in lower or "atlas" in lower: return false
 	return IMAGE_EXTENSIONS.any(func(extension: String): return lower.ends_with(extension))

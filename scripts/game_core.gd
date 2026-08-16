@@ -85,6 +85,7 @@ func _ready() -> void:
 	if "--first-level-preview" in OS.get_cmdline_user_args() or "--capture-first-level" in OS.get_cmdline_user_args(): language_screen=false; title_screen=false; current_location="overworld"; player=Vector2(1160,650); tutorial_visible=false
 	if "--capture-first-level" in OS.get_cmdline_user_args(): set_meta("capture_first_level_frames", 6); set_meta("capture_first_level_clean", true)
 	if "--water-navigation-preview" in OS.get_cmdline_user_args() or "--capture-water-navigation" in OS.get_cmdline_user_args(): WaterVisualSystem.configure_navigation_preview(self)
+	BuildingVisualSystem.configure_from_arguments(self,OS.get_cmdline_user_args())
 	if "--cave-preview" in OS.get_cmdline_user_args() or "--capture-cave" in OS.get_cmdline_user_args(): CaveVisualSystem.configure_preview(self); if "--capture-cave" in OS.get_cmdline_user_args(): set_meta("capture_cave_frames",6)
 	if "--tree-stages-preview" in OS.get_cmdline_user_args() or "--capture-tree-stages" in OS.get_cmdline_user_args(): TreeSystem.configure_preview(self)
 	if "--capture-tree-stages" in OS.get_cmdline_user_args(): set_meta("capture_tree_stage_frames",6)
@@ -142,6 +143,7 @@ func _ready() -> void:
 ## Сохраняет автоматические игровые скриншоты после нескольких отрисованных кадров в режимах визуальной проверки.
 func _process(_delta: float) -> void:
 	LevelEditorSystem.update_export_capture(self)
+	if BuildingVisualSystem.update_preview_capture(self): return
 	if WaterVisualSystem.update_preview_capture(self): return
 	if CaveVisualSystem.update_preview_capture(self): return
 	if TreeSystem.update_preview_capture(self): return

@@ -43,8 +43,9 @@ static func walkability_reason(game: Node, position: Vector2) -> String:
 	if position.x < 40.0 or position.x > game.WORLD_SIZE.x - 40.0 or position.y < 120.0 or position.y > game.WORLD_SIZE.y - 80.0:
 		return "boundary"
 	for building_id in game.BuildingSystem.buildings_at(game.current_location):
-		if circle_intersects_rect(position, game.PLAYER_RADIUS, game.BuildingSystem.collision_rect(building_id)):
-			return "building"
+		for solid in game.BuildingSystem.collision_rects(building_id):
+			if circle_intersects_rect(position,game.PLAYER_RADIUS,solid): return "building"
+		if not game.BuildingSystem.can_enter(game,building_id) and circle_intersects_rect(position,game.PLAYER_RADIUS,game.BuildingSystem.door_rect(building_id)): return "building"
 	if game.VisualAssetSystem.blocks_biome_position(game.current_location, position, game.PLAYER_RADIUS):
 		return "biome_prop"
 	if game.VisualAssetSystem.blocks_event_position(game.current_location, position, game.PLAYER_RADIUS):
@@ -121,7 +122,7 @@ static func enemy_position_walkable(game: Node, position: Vector2, enemy_index: 
 	if position.x < 40.0 or position.x > game.WORLD_SIZE.x - 40.0 or position.y < 120.0 or position.y > game.WORLD_SIZE.y - 80.0:
 		return false
 	for building_id in game.BuildingSystem.buildings_at(game.current_location):
-		if circle_intersects_rect(position, RADIUS, game.BuildingSystem.collision_rect(building_id)):
+		if circle_intersects_rect(position,RADIUS,game.BuildingSystem.collision_rect(building_id)):
 			return false
 	if game.VisualAssetSystem.blocks_biome_position(game.current_location, position, RADIUS):
 		return false

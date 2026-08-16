@@ -4,6 +4,7 @@ tools/*
 !tools/build_forest_tree_atlas.py
 !tools/build_village_prop_atlas.py
 !tools/build_ui_kit.py
+!tools/build_building_sprites.py
 assets/inbox/
 tmp/
 *.log
@@ -28,6 +29,11 @@ tmp/
 !/assets/generated/level_drafts/README_FIRST_LEVEL_VISUAL_V2.md
 !/assets/generated/level_drafts/tree_stages_ingame_preview.png
 !/assets/generated/level_drafts/cave_ingame_preview.png
+!/assets/generated/level_drafts/building_rocky_ingame_preview.png
+!/assets/generated/level_drafts/building_cursed_ingame_preview.png
+!/assets/generated/level_drafts/building_forest_ingame_preview.png
+!/assets/generated/level_drafts/building_ruins_ingame_preview.png
+!/assets/generated/level_drafts/building_collision_ingame_preview.png
 !/assets/generated/ui/system_settings_ingame_preview.png
 !/assets/generated/ui/hud_ingame_preview.png
 !/assets/generated/ui/language_ingame_preview.png

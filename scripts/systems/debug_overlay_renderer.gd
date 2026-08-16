@@ -88,7 +88,8 @@ static func farming_reason_color(reason: String) -> Color:
 static func draw_hitboxes(game: Node2D) -> void:
 	game.draw_circle(game.player, game.PLAYER_RADIUS, WALKABLE, false, 3.0)
 	for building_id in game.BuildingSystem.buildings_at(game.current_location):
-		game.draw_rect(game.BuildingSystem.collision_rect(building_id), STATIC_BLOCKED, false, 3.0)
+		for solid in game.BuildingSystem.collision_rects(building_id): game.draw_rect(solid,STATIC_BLOCKED,false,3.0)
+		game.draw_rect(game.BuildingSystem.door_rect(building_id),WALKABLE if game.BuildingSystem.can_enter(game,building_id) else STATIC_BLOCKED,false,3.0)
 	for enemy in game.enemy_nodes:
 		if enemy.alive and enemy.location == game.current_location: game.draw_circle(enemy.position, 30.0, DYNAMIC_BLOCKED, false, 3.0)
 	for hazard in game.hazard_nodes:

@@ -19,7 +19,18 @@ func test_building_catalog_entry_exit_and_collision() -> void:
 	var game := make_game()
 	expect(game.BuildingSystem.BUILDINGS.size() == 8, "eight distinct exterior buildings are configured")
 	expect(game.BuildingSystem.INTERIORS.size() == 10, "buildings expose ten separate interior locations")
-	expect(game.BUILDING_ATLAS.get_width() > 1700 and game.BUILDING_ATLAS.get_height() > 800, "eight-building pixel atlas is loaded")
+	expect(game.BuildingVisualSystem.TEXTURES.size()==8 and game.BuildingVisualSystem.PROFILES.size()==8, "eight independent building sprites own eight modular geometry profiles")
+	for building_id in game.BuildingSystem.BUILDINGS:
+		var profile:Dictionary=game.BuildingVisualSystem.profile(building_id); var texture:Texture2D=game.BuildingVisualSystem.texture(building_id); var image:Image=texture.get_image(); var destination:Rect2=game.BuildingSystem.destination_rect(building_id); var door_rect:Rect2=game.BuildingSystem.door_rect(building_id); var solids:Array[Rect2]=game.BuildingSystem.collision_rects(building_id)
+		expect(game.BuildingVisualSystem.profile_is_valid(building_id) and destination.size==texture.get_size(), "%s facade uses a native crop-safe canvas on the 24 px grid"%building_id)
+		expect(image.get_pixel(0,0).a==0.0 and image.get_pixel(image.get_width()-1,image.get_height()-1).a==0.0, "%s independent PNG has transparent corners without neighbour bleed"%building_id)
+		expect(door_rect.size==Vector2(48,24) and solids.size()==2 and not solids[0].intersects(door_rect) and not solids[1].intersects(door_rect), "%s exposes a real two-cell doorway between split foundation collisions"%building_id)
+	for preview_name in ["rocky","cursed","forest","ruins","collision"]:
+		var preview:Image=Image.load_from_file(ProjectSettings.globalize_path("res://assets/generated/level_drafts/building_%s_ingame_preview.png"%preview_name))
+		expect(preview!=null and preview.get_size()==Vector2i(1152,648), "%s keeps a current native gameplay preview for facade and collision review"%preview_name)
+	var renderer_source:=FileAccess.get_file_as_string("res://scripts/game_renderer.gd"); var context_source:=FileAccess.get_file_as_string("res://scripts/game_context.gd"); var catalog_source:=FileAccess.get_file_as_string("res://scripts/systems/level_editor_asset_catalog_system.gd")
+	expect(renderer_source.contains("BuildingVisualSystem.draw_building") and not renderer_source.contains("BUILDING_ATLAS") and not context_source.contains("building_atlas.png"), "runtime renders separate facades without fractional atlas source rectangles")
+	expect(catalog_source.contains("or \"atlas\" in lower"), "level editor hides source atlases and exposes only placeable independent facades")
 	expect(game.COMPANION_ATLAS.get_width() > 2100 and game.COMPANION_ATLAS.get_height() > 700, "three-companion pixel atlas is loaded")
 	var cottage: Dictionary = game.BuildingSystem.BUILDINGS.cottage
 	game.player = cottage.door
@@ -36,7 +47,8 @@ func test_building_catalog_entry_exit_and_collision() -> void:
 	game.player = game.BuildingSystem.INTERIORS.cottage_interior.exit
 	expect(game.nearest_interaction() == "interior_exit" and game.perform_context_action(), "interior exit returns through the same building")
 	expect(game.current_location == "overworld" and game.player.y > cottage.door.y, "hero appears outside below the cottage door")
-	expect(not game.NavigationSystem.is_walkable(game, game.BuildingSystem.collision_rect("cottage").get_center()), "exterior building body blocks movement")
+	var cottage_wall:Vector2=game.BuildingSystem.collision_rects("cottage")[0].get_center()
+	expect(not game.NavigationSystem.is_walkable(game,cottage_wall) and game.NavigationSystem.is_walkable(game,cottage.door), "exterior walls block movement while the unlocked 48 px doorway remains physically open")
 	game.player = game.BuildingSystem.BUILDINGS.shop_house.door
 	expect(game.BuildingSystem.enter(game, "shop_house"), "village shop has its own accessible interior")
 	game.player = game.BuildingSystem.INTERIORS.shop_interior.service_position

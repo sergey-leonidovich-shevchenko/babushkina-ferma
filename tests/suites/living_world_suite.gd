@@ -187,7 +187,7 @@ func test_runtime_debug_overlay_classifies_navigation_grid() -> void:
 	expect(game.current_location == location and game.player == position and not game.DebugPlaygroundSystem.active(game), "F10 keeps the tester on the exact live level instead of replacing it with a playground")
 	expect(not game.DebugOverlaySystem.button_enabled("tile_edit") and not game.DebugOverlaySystem.button_enabled("save_patch") and game.DebugOverlaySystem.button_enabled("grid"), "unfinished editor tools stay visible but disabled while runtime diagnostics remain available")
 	var water: Vector2 = Vector2(1200,game.VillageLayoutSystem.river_center_y(1200))
-	var building: Vector2 = game.BuildingSystem.collision_rect("cottage").get_center()
+	var building: Vector2 = game.BuildingSystem.collision_rects("cottage")[0].get_center()
 	var enemy_position := Vector2(1160,650)
 	for y in range(150,1100,50):
 		for x in range(100,2300,50):
@@ -238,7 +238,7 @@ func test_runtime_debug_overlay_controls_pause_layers_and_noclip() -> void:
 	expect(game.get_meta(game.DebugOverlaySystem.META_KEY).hitboxes and is_zero_approx(game.DebugOverlaySystem.simulation_delta(game,0.2)), "debug buttons enable hitboxes and pause the running world")
 	game.DebugOverlaySystem.request_step(game)
 	expect(is_equal_approx(game.DebugOverlaySystem.simulation_delta(game,0.2),1.0/12.0), "debug frame-step advances exactly one fixed frame")
-	var wall: Vector2 = game.BuildingSystem.collision_rect("cottage").get_center(); game.player = wall - Vector2(100,0)
+	var wall: Vector2 = game.BuildingSystem.collision_rects("cottage")[0].get_center(); game.player = wall - Vector2(100,0)
 	game.DebugOverlaySystem.toggle_option(game,"noclip"); game.NavigationSystem.move(game,Vector2(100,0))
 	expect(game.player == wall and game.NavigationSystem.walkability_reason(game,wall) == "building", "noclip bypasses movement collision while inspector preserves its real reason")
 	game.free()

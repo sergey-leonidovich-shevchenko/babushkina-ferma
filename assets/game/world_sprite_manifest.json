@@ -5,6 +5,7 @@
     "scripts/world_background.gd",
     "scripts/systems/adventure_polish_renderer.gd",
     "scripts/systems/animation_renderer.gd",
+    "scripts/systems/building_visual_system.gd",
     "scripts/systems/directional_character_system.gd",
     "scripts/systems/enemy_animation_library.gd",
     "scripts/systems/farm_visual_system.gd",
@@ -22,7 +23,8 @@
     "assets/game/generated/inventory_core_atlas.png",
     "assets/game/generated/inventory_rare_atlas.png",
     "assets/game/generated/farm_food_atlas.png",
-    "assets/generated/level_drafts/water_navigation_ingame_preview.png"
+    "assets/generated/level_drafts/water_navigation_ingame_preview.png",
+    "assets/generated/level_drafts/building_%s_ingame_preview.png"
   ],
   "entries": [
     {
@@ -257,17 +259,26 @@
     {
       "id": "WS-012",
       "family": "Здания внешних локаций",
-      "assets": [{"path":"assets/game/buildings/building_atlas.png","width":1774,"height":887}],
-      "render_owner": "BuildingSystem и GameRenderer",
-      "source_layout": "4×2, ячейки имеют дробный расчёт из 1774×887",
-      "runtime_sizes": ["290×300", "300×300", "330×310", "380×350"],
-      "target_modules": ["288×288", "336×312", "384×360"],
-      "anchor": "дверь и нижний центр фасада",
-      "collision": "прямоугольник здания с ручным нижним отступом двери",
-      "status": "redraw",
+      "assets": [
+        {"path":"assets/game/buildings/exteriors/cottage.png","width":336,"height":408},
+        {"path":"assets/game/buildings/exteriors/shop_house.png","width":384,"height":360},
+        {"path":"assets/game/buildings/exteriors/guild_hall.png","width":408,"height":408},
+        {"path":"assets/game/buildings/exteriors/forge.png","width":360,"height":384},
+        {"path":"assets/game/buildings/exteriors/chapel.png","width":288,"height":408},
+        {"path":"assets/game/buildings/exteriors/prison.png","width":384,"height":336},
+        {"path":"assets/game/buildings/exteriors/wizard_tower.png","width":312,"height":432},
+        {"path":"assets/game/buildings/exteriors/moon_castle.png","width":432,"height":384}
+      ],
+      "render_owner": "BuildingVisualSystem, BuildingSystem и GameRenderer",
+      "source_layout": "восемь самостоятельных crop-safe RGBA-фасадов без выборки соседней ячейки",
+      "runtime_sizes": ["288×408", "312×432", "336×408", "360×384", "384×336", "384×360", "408×408", "432×384"],
+      "target_modules": ["288×408", "312×432", "336×408", "360×384", "384×336", "384×360", "408×408", "432×384"],
+      "anchor": "нижний центр фасада; видимая ступень привязана к координате двери",
+      "collision": "фундамент из двух прямоугольников по сетке 24 px с реальным свободным дверным проёмом 48×24",
+      "status": "compliant",
       "priority": "P2",
-      "debt": "Атлас не делится на целые ячейки; размеры фасадов и коллизий не кратны 24.",
-      "done_when": "Каждое здание экспортировано отдельным PNG или строгой целой ячейкой; дверь 48 px, фасад и фундамент кратны 24."
+      "debt": "Закрыт: дробный авторский лист хранится только как источник, runtime использует отдельные фасады и общий геометрический профиль.",
+      "done_when": "Сохранить независимые PNG без масштабирования, модульные фасады и фундаменты, свободную дверь 48×24, F10-контур и кадры четырёх внешних биомов."
     },
     {
       "id": "WS-013",

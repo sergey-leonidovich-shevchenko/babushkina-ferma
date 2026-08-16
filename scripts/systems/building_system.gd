@@ -1,6 +1,7 @@
 extends RefCounted
 
 const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
+const BuildingVisualSystem := preload("res://scripts/systems/building_visual_system.gd")
 
 const SHOP_STALL_POSITION := Vector2(1500, 430)
 const SELL_CRATE_POSITION := Vector2(1580, 455)
@@ -13,14 +14,14 @@ const FARM_FENCE_SPANS := [Rect2i(2,34,4,1),Rect2i(9,34,10,1),Rect2i(1,34,1,16),
 const FARM_GATE_SPANS := [Rect2i(6,34,3,1),Rect2i(18,36,1,6)]
 
 const BUILDINGS := {
-	"cottage":{"location":"overworld","door":Vector2(420, 790),"sprite":0,"interior":"cottage_interior","size":Vector2(300, 300),"unlock":""},
-	"shop_house":{"location":"overworld","door":Vector2(1480, 390),"sprite":1,"interior":"shop_interior","size":Vector2(300, 300),"unlock":""},
-	"guild_hall":{"location":"overworld","door":Vector2(2110, 250),"sprite":2,"interior":"guild_interior","size":Vector2(330, 310),"unlock":""},
-	"forge":{"location":"rocky","door":Vector2(760, 470),"sprite":3,"interior":"forge_interior","size":Vector2(300, 300),"unlock":"mining"},
-	"chapel":{"location":"cursed","door":Vector2(610, 470),"sprite":4,"interior":"chapel_interior","size":Vector2(290, 300),"unlock":"ancient_key"},
-	"prison":{"location":"ruins","door":Vector2(500, 480),"sprite":5,"interior":"prison_interior","size":Vector2(330, 310),"unlock":""},
-	"wizard_tower":{"location":"forest","door":Vector2(1710, 470),"sprite":6,"interior":"tower_interior","size":Vector2(300, 320),"unlock":"mana"},
-	"moon_castle":{"location":"ruins","door":Vector2(1590, 510),"sprite":7,"interior":"castle_hall","size":Vector2(380, 350),"unlock":"story"},
+	"cottage":{"location":"overworld","door":Vector2(420,790),"interior":"cottage_interior","unlock":""},
+	"shop_house":{"location":"overworld","door":Vector2(1480,390),"interior":"shop_interior","unlock":""},
+	"guild_hall":{"location":"overworld","door":Vector2(2110,250),"interior":"guild_interior","unlock":""},
+	"forge":{"location":"rocky","door":Vector2(760,470),"interior":"forge_interior","unlock":"mining"},
+	"chapel":{"location":"cursed","door":Vector2(610,470),"interior":"chapel_interior","unlock":"ancient_key"},
+	"prison":{"location":"ruins","door":Vector2(500,480),"interior":"prison_interior","unlock":""},
+	"wizard_tower":{"location":"forest","door":Vector2(1710,470),"interior":"tower_interior","unlock":"mana"},
+	"moon_castle":{"location":"ruins","door":Vector2(1590,510),"interior":"castle_hall","unlock":"story"},
 }
 
 const INTERIORS := {
@@ -71,16 +72,22 @@ static func interior(location: String) -> Dictionary:
 
 ## Возвращает прямоугольник назначения спрайта относительно координаты двери.
 static func destination_rect(building_id: String) -> Rect2:
-	var data: Dictionary = BUILDINGS[building_id]
-	var size: Vector2 = data.size
-	return Rect2(data.door - Vector2(size.x * 0.5, size.y - 24.0), size)
+	return BuildingVisualSystem.destination_rect(building_id,Vector2(BUILDINGS[building_id].door))
+
+
+## Возвращает две твёрдые секции фундамента с честным свободным проёмом двери 48 px.
+static func collision_rects(building_id: String) -> Array[Rect2]:
+	return BuildingVisualSystem.collision_rects(building_id,Vector2(BUILDINGS[building_id].door))
+
+
+## Возвращает интерактивную область внешней двери шириной две базовые клетки.
+static func door_rect(building_id: String) -> Rect2:
+	return BuildingVisualSystem.door_rect(building_id,Vector2(BUILDINGS[building_id].door))
 
 
 ## Возвращает твёрдую часть здания, оставляя свободный подход к двери снизу.
 static func collision_rect(building_id: String) -> Rect2:
-	var destination := destination_rect(building_id)
-	var bottom_inset := 104.0 if building_id == "cottage" else 82.0
-	return Rect2(destination.position + Vector2(34, 44), destination.size - Vector2(68, bottom_inset))
+	return BuildingVisualSystem.collision_bounds(building_id,Vector2(BUILDINGS[building_id].door))
 
 
 ## Возвращает здания, расположенные в указанной внешней локации.

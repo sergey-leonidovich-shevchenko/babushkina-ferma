@@ -2,6 +2,14 @@
 
 Файлы:
 - assets/game/buildings/building_atlas.png
+- assets/game/buildings/exteriors/cottage.png
+- assets/game/buildings/exteriors/shop_house.png
+- assets/game/buildings/exteriors/guild_hall.png
+- assets/game/buildings/exteriors/forge.png
+- assets/game/buildings/exteriors/chapel.png
+- assets/game/buildings/exteriors/prison.png
+- assets/game/buildings/exteriors/wizard_tower.png
+- assets/game/buildings/exteriors/moon_castle.png
 - assets/game/buildings/companion_atlas.png
 - assets/game/characters/npc_atlas.png
 - assets/game/wildlife/fantasy_wildlife_atlas.png
@@ -14,3 +22,5 @@
 Исходные запросы задавали оригинальный уютный fantasy pixel-art, прозрачный игровой фон после chroma-key обработки и фиксированную сетку: 4×2 для восьми зданий, 3×1 для трёх напарников, 3×1 для жителей и 2×1 для зверей.
 
 Новые запросы задавали режим создания (`mode: generate`) и три фиксированные сетки без текста: 5×3 для семейств «хищное растение / орк / скелет / проклятый рыцарь / кристальный хранитель» с рангами «обычный / ветеран / элита»; 3×3 для «ядовитый плющ / колючий цветок / кактус» в тех же рангах; 4×4 для героя с колонками уровней 1–5, 6–10, 11–15, 16–20 и строками направлений вниз, влево, вправо, вверх. Итоговые PNG очищены от chroma-key, получили прозрачный фон и приведены к целочисленному размеру ячеек атласа.
+
+Восемь файлов `assets/game/buildings/exteriors/*.png` не являются новой генерацией: они воспроизводимо извлекаются из исходного `building_atlas.png` скриптом `tools/build_building_sprites.py`. Обрезаются только прозрачные поля и случайные пиксели соседних дробных ячеек; сами фасады не масштабируются и помещаются в прозрачные холсты, кратные базовой сетке 24 px.

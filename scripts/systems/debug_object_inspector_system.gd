@@ -93,11 +93,12 @@ static func append_player(game: Node, result: Array[Dictionary]) -> void:
 static func append_buildings(game: Node, result: Array[Dictionary]) -> void:
 	for building_id in game.BuildingSystem.buildings_at(game.current_location):
 		var data: Dictionary = game.BuildingSystem.BUILDINGS[building_id]
-		var collision: Rect2 = game.BuildingSystem.collision_rect(building_id)
+		var collision: Rect2=game.BuildingSystem.collision_rect(building_id); var profile:Dictionary=game.BuildingVisualSystem.profile(building_id)
 		var names := {"cottage":"Дом бабушки","shop_house":"Сельская лавка","guild_hall":"Гильдия","forge":"Кузница","chapel":"Часовня","prison":"Тюрьма","wizard_tower":"Башня волшебника","moon_castle":"Лунный замок"}
 		var unlocked: bool = game.BuildingSystem.can_enter(game, building_id)
 		add(result, "building:%s" % building_id, "ЗДАНИЕ", names.get(building_id, building_id), data.door, game.BuildingSystem.destination_rect(building_id), 20, rect_description(collision), "открыто" if unlocked else "закрыто", [
-			"дверь %.0f / %.0f · sprite %d" % [data.door.x,data.door.y,int(data.sprite)],
+			"дверь %.0f / %.0f · проём %.0f×%.0f" % [data.door.x,data.door.y,Vector2(profile.door_size).x,Vector2(profile.door_size).y],
+			"фасад %.0f×%.0f · фундамент %.0f×%.0f" % [Vector2(profile.visual_size).x,Vector2(profile.visual_size).y,Vector2(profile.foundation_size).x,Vector2(profile.foundation_size).y],
 			"интерьер %s" % data.interior,
 			"условие %s" % ("нет" if String(data.unlock).is_empty() else String(data.unlock)),
 		])
