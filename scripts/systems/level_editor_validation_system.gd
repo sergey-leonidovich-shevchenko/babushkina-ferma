@@ -5,6 +5,7 @@ const WaterVisualSystem := preload("res://scripts/systems/water_visual_system.gd
 
 const DIRECTIONS := [Vector2i(0,-1),Vector2i(1,0),Vector2i(0,1),Vector2i(-1,0)]
 const DIRECTION_BITS := [1,2,4,8]
+const SURFACE_PRIORITY := {"grass":0,"dirt":1,"sand":2,"gravel":3}
 
 
 ## Пересчитывает четырёхстороннюю маску соседей для каждого тайла земли одного ресурса.
@@ -22,6 +23,28 @@ static func rebuild_autotile_masks(state: Dictionary) -> void:
 			if neighbor_index>=0: mask|=DIRECTION_BITS[direction_index]
 		object.autotile_mask=mask; state.objects[index]=object
 	_apply_visual_variants(state)
+	_rebuild_surface_transitions(state)
+
+
+## Создаёт маски переходных накладок там, где соседствуют разные сухие покрытия.
+static func _rebuild_surface_transitions(state: Dictionary) -> void:
+	var cells:Dictionary={}
+	for index in state.objects.size():
+		var object:Dictionary=state.objects[index]; object.transition_masks={}; state.objects[index]=object
+		if _is_ground_tile(object): cells[_cell_layer_key(_cell(state,Vector2(object.position)),String(object.layer))]=index
+	for index in state.objects.size():
+		var object:Dictionary=state.objects[index]
+		if not _is_ground_tile(object): continue
+		var surface:=_surface_kind(object)
+		if not SURFACE_PRIORITY.has(surface): continue
+		var cell:=_cell(state,Vector2(object.position)); var masks:Dictionary={}
+		for direction_index in DIRECTIONS.size():
+			var neighbor_index:=int(cells.get(_cell_layer_key(cell+DIRECTIONS[direction_index],String(object.layer)),-1))
+			if neighbor_index<0: continue
+			var neighbor_surface:=_surface_kind(state.objects[neighbor_index])
+			if not SURFACE_PRIORITY.has(neighbor_surface) or int(SURFACE_PRIORITY[neighbor_surface])<=int(SURFACE_PRIORITY[surface]): continue
+			masks[neighbor_surface]=int(masks.get(neighbor_surface,0))|DIRECTION_BITS[direction_index]
+		object.transition_masks=masks; state.objects[index]=object
 
 
 ## Подставляет бесшовную вариацию травы, берег воды либо дорожный модуль по маске соседей.
@@ -50,7 +73,7 @@ static func _variant_for_mask(mask: int) -> Dictionary:
 
 ## Проверяет структуру черновика, ресурсы, дубликаты клеток и опасные параметры перед экспортом.
 static func validate(state: Dictionary) -> Dictionary:
-	var errors: Array[String]=[]; var warnings: Array[String]=[]; var occupied: Dictionary={}; var ids: Dictionary={}
+	var errors: Array[String]=[]; var warnings: Array[String]=[]; var occupied: Dictionary={}; var ids: Dictionary={}; var unique_keys:Dictionary={}
 	if String(state.level_name).strip_edges().is_empty(): errors.append("У уровня нет названия")
 	if int(state.grid) not in [12,24,48,96]: errors.append("Неизвестный размер сетки: %s"%state.grid)
 	if state.objects.is_empty(): warnings.append("Карта пока пуста")
@@ -58,6 +81,9 @@ static func validate(state: Dictionary) -> Dictionary:
 		var object: Dictionary=state.objects[index]; var label:="#%s %s"%[object.get("id",index),object.get("name","Объект")]
 		if ids.has(object.get("id",index)): errors.append("Повторяется id %s"%object.get("id",index))
 		ids[object.get("id",index)]=true
+		var unique_key:=String(object.get("unique_key",""))
+		if not unique_key.is_empty() and unique_keys.has(unique_key): errors.append("%s: уникальный объект уже размещён как #%s"%[label,unique_keys[unique_key]])
+		if not unique_key.is_empty(): unique_keys[unique_key]=object.get("id",index)
 		if String(object.get("layer","")) not in ["background","ground","objects","foreground"]: errors.append("%s: неизвестный слой"%label)
 		if Vector2(object.get("size",Vector2.ZERO)).x<=0 or Vector2(object.get("size",Vector2.ZERO)).y<=0: errors.append("%s: нулевой размер"%label)
 		if not bool(object.get("reference",false)) and (String(object.get("asset_path","")).is_empty() or not ResourceLoader.exists(String(object.asset_path))): errors.append("%s: спрайт не найден"%label)
@@ -97,6 +123,11 @@ static func _key(cell: Vector2i, asset_path: String, layer: String) -> String:
 	return "%d:%d:%s:%s"%[cell.x,cell.y,layer,asset_path]
 
 
+## Формирует ключ клетки без семейства, чтобы сопоставить разные соседние покрытия.
+static func _cell_layer_key(cell: Vector2i, layer: String) -> String:
+	return "%d:%d:%s"%[cell.x,cell.y,layer]
+
+
 ## Возвращает сохранённое семейство объекта после автоматической замены исходного PNG.
 static func _object_family(object: Dictionary) -> String:
 	var stored:=String(object.get("autotile_family",""))
@@ -110,4 +141,17 @@ static func _family(path: String) -> String:
 		if basename.begins_with(family+"_"): return family
 	if basename=="grass_lush": return "grass"
 	if basename.begins_with("water_") or basename.begins_with("shore_") or basename=="pond_rocky": return "water_body"
+	return ""
+
+
+## Возвращает исходный тип покрытия даже после автоматической замены визуального модуля.
+static func _surface_kind(object: Dictionary) -> String:
+	var stored:=String(object.get("surface_kind",""))
+	if not stored.is_empty(): return stored
+	var basename:=String(object.get("asset_path","")).get_file().get_basename().to_lower()
+	if basename.begins_with("grass_") or basename=="grass": return "grass"
+	if "water" in basename or basename.begins_with("shore_") or basename.begins_with("river_") or basename.begins_with("pond_"): return "water"
+	if "sand" in basename: return "sand"
+	if "gravel" in basename or "stone_road" in basename or "cobble" in basename: return "gravel"
+	if "dirt" in basename or "soil" in basename or "mud" in basename: return "dirt"
 	return ""

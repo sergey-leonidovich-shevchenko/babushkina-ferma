@@ -1,7 +1,7 @@
 extends RefCounted
 
 const ValidationSystem := preload("res://scripts/systems/level_editor_validation_system.gd")
-const FORMAT_VERSION := 3
+const FORMAT_VERSION := 4
 const PROJECT_DIRECTORY := "res://level_designs"
 const USER_DIRECTORY := "user://level_designs"
 
@@ -28,6 +28,10 @@ static func document(state: Dictionary) -> Dictionary:
 			"scale": clampf(float(object.get("scale", 1.0)), 0.25, 4.0),
 			"autotile_mask": int(object.get("autotile_mask", 0)),
 			"autotile_family": String(object.get("autotile_family", "")),
+			"unique_key": String(object.get("unique_key", "")),
+			"catalog_category": String(object.get("catalog_category", "other")),
+			"surface_kind": String(object.get("surface_kind", "")),
+			"transition_masks": object.get("transition_masks", {}).duplicate(true),
 			"reference": object.reference,
 			"runtime_id": object.runtime_id,
 			"original_position": [object.original_position.x, object.original_position.y],
@@ -159,6 +163,10 @@ static func _restore_object(saved: Dictionary, next_id: int) -> Dictionary:
 		"flip_y": bool(saved.get("flip_y", false)),
 		"autotile_mask": int(saved.get("autotile_mask", 0)),
 		"autotile_family": String(saved.get("autotile_family", "")),
+		"unique_key": String(saved.get("unique_key", "")),
+		"catalog_category": String(saved.get("catalog_category", "other")),
+		"surface_kind": String(saved.get("surface_kind", "")),
+		"transition_masks": saved.get("transition_masks", {}).duplicate(true),
 		"reference": bool(saved.get("reference", false)),
 		"runtime_id": String(saved.get("runtime_id", "")),
 		"original_position": Vector2(original_data[0], original_data[1]),

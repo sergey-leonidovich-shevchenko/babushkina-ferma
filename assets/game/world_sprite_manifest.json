@@ -34,18 +34,22 @@
         {"path":"assets/game/tiles/grass_var_1.png","width":24,"height":24},
         {"path":"assets/game/tiles/grass_var_2.png","width":24,"height":24},
         {"path":"assets/game/tiles/editor/terrain/grass_flowers.png","width":24,"height":24},
-        {"path":"assets/game/tiles/editor/terrain/grass_lush.png","width":24,"height":24}
+        {"path":"assets/game/tiles/editor/terrain/grass_lush.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/terrain/ground_gravel.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/transitions/dirt_edge.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/transitions/gravel_edge.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/transitions/sand_edge.png","width":24,"height":24}
       ],
       "render_owner": "WorldBackground",
-      "source_layout": "отдельные бесшовные тайлы",
+      "source_layout": "отдельные бесшовные тайлы и прозрачные переходные края N/E/S/W",
       "runtime_sizes": ["24×24"],
       "target_modules": ["24×24"],
       "anchor": "верхний левый угол клетки",
       "collision": "проходимая поверхность",
       "status": "compliant",
       "priority": "P3",
-      "debt": "Нет; требуется сохранить контракт при расширении вариантов.",
-      "done_when": "Все новые варианты остаются бесшовными 24×24 и используют nearest-фильтрацию."
+      "debt": "Закрыт: трава, земля, песок и гравий получили автоматические прозрачные переходы без ручного выбора поворота.",
+      "done_when": "Все новые варианты остаются бесшовными 24×24, используют nearest-фильтрацию и стыкуются через transition_masks."
     },
     {
       "id": "WS-003",

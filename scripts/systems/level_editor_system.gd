@@ -6,11 +6,11 @@ const DocumentStore := preload("res://scripts/editor/level_editor_document_store
 const PreferencesStore := preload("res://scripts/editor/level_editor_preferences_store.gd")
 const ToolSystem := preload("res://scripts/systems/level_editor_tool_system.gd")
 const META_KEY := "level_editor"
-const FORMAT_VERSION := 3
+const FORMAT_VERSION := 4
 const PROJECT_DIRECTORY := "res://level_designs"
 const USER_DIRECTORY := "user://level_designs"
 const GRID_SIZES := [12, 24, 48, 96]
-const SLICE_SIZES := [0, 24, 32, 48, 64, 96, 128]
+const SLICE_SIZES := [0, 16, 24, 32, 48, 64, 96, 128, 222, 256]
 const LAYERS := ["background", "ground", "objects", "foreground"]
 const CATEGORIES := ["terrain", "buildings", "vegetation", "decor", "characters", "enemies", "items", "farming", "fishing", "ui", "other"]
 const CATEGORY_NAMES := {"terrain":"ЗЕМЛЯ","buildings":"ДОМА","vegetation":"РАСТЕНИЯ","decor":"ДЕКОР","characters":"ПЕРСОНАЖИ","enemies":"ВРАГИ","items":"ПРЕДМЕТЫ","farming":"ФЕРМА","fishing":"ВОДА/РЫБАЛКА","ui":"ИНТЕРФЕЙС","other":"ПРОЧЕЕ"}
@@ -60,7 +60,8 @@ static func toggle(game: Node) -> void:
 	var state: Dictionary = game.get_meta(META_KEY, default_state(game))
 	state.active = not bool(state.active)
 	state.base_location = game.current_location if state.objects.is_empty() else state.base_location
-	state.status = "Конструктор открыт · каталог %d спрайтов" % catalog().size() if state.active else "Конструктор закрыт"
+	var audit:=AssetCatalogSystem.audit(catalog())
+	state.status = "Каталог %d · дома %d/%d · листы %d · к нарезке %d" % [audit.placeable,audit.buildings,audit.expected_buildings,audit.sliced,audit.excluded_composites.size()] if state.active else "Конструктор закрыт"
 	state.panel_hidden = false
 	game.set_meta(META_KEY,state)
 	game.clear_movement_keys()
@@ -285,22 +286,28 @@ static func activate_asset(state: Dictionary, entry: Dictionary) -> void:
 
 
 ## Создаёт объект выбранного ресурса с текущими сеткой, срезом, слоем и коллизией.
-static func place_selected_asset(game: Node, state: Dictionary, screen_point: Vector2, record_history: bool = true) -> void:
+static func place_selected_asset(game: Node, state: Dictionary, screen_point: Vector2, record_history: bool = true) -> bool:
 	var path := String(state.selected_asset)
-	if path.is_empty(): return
-	var texture := ResourceLoader.load(path) as Texture2D
-	if texture == null: state.status = "Не удалось загрузить %s" % path; return
-	if record_history: push_history(state)
+	if path.is_empty(): return false
 	var entry := AssetCatalogSystem.find(catalog(),path)
+	var unique_key:=String(entry.get("unique_key",""))
+	if not unique_key.is_empty() and unique_is_placed(state,unique_key):
+		state.status="Уникальный персонаж уже находится на уровне"; return false
+	var texture := ResourceLoader.load(path) as Texture2D
+	if texture == null: state.status = "Не удалось загрузить %s" % path; return false
+	if record_history: push_history(state)
 	var source := selected_source(texture,state)
-	var size: Vector2 = source.size if source.size != Vector2.ZERO else texture.get_size()
+	var profiled_size:=Vector2(entry.get("display_size",Vector2.ZERO))
+	var size: Vector2 = profiled_size if profiled_size!=Vector2.ZERO else (source.size if source.size != Vector2.ZERO else texture.get_size())
 	var world := screen_point + Vector2(game.camera_offset)
 	var anchor := String(entry.get("anchor","center"))
+	if anchor=="tile": size=Vector2.ONE*int(state.grid)
 	var position := placement_position(state,world,anchor)
 	if anchor == "tile": _remove_ground_at(state,position,String(state.layer))
-	var object := {"id":int(state.next_id),"asset_path":path,"name":path.get_file().get_basename(),"notes":"","position":position,"size":size,"source":source,"anchor":anchor,"layer":state.layer,"collision":state.collision,"rotation":0.0,"flip_x":false,"flip_y":false,"reference":false,"runtime_id":"","original_position":Vector2.ZERO,"hidden":false}
+	var object := {"id":int(state.next_id),"asset_path":path,"name":path.get_file().get_basename(),"notes":"","position":position,"size":size,"source":source,"anchor":anchor,"layer":state.layer,"collision":state.collision,"rotation":0.0,"flip_x":false,"flip_y":false,"reference":false,"runtime_id":"","original_position":Vector2.ZERO,"hidden":false,"unique_key":unique_key,"catalog_category":String(entry.get("category","other")),"surface_kind":String(entry.get("surface_kind","")),"transition_masks":{}}
 	state.next_id = int(state.next_id)+1; state.objects.append(object); state.selected = state.objects.size()-1; state.status = "Размещено: %s" % object.name
 	ValidationSystem.rebuild_autotile_masks(state); state.validation={}
+	return true
 
 
 ## Начинает единый мазок, чтобы вся непрерывная линия отменялась одной командой Ctrl+Z.
@@ -444,7 +451,14 @@ static func delete_selected(state: Dictionary) -> void:
 ## Создаёт копию выбранного объекта со смещением на одну клетку текущей сетки.
 static func duplicate_selected(state: Dictionary) -> void:
 	if not valid_selection(state): return
+	if not String(state.objects[state.selected].get("unique_key","")).is_empty(): state.status="Уникального персонажа нельзя дублировать"; return
 	push_history(state); var copy: Dictionary = state.objects[state.selected].duplicate(true); copy.id = state.next_id; state.next_id += 1; copy.position = Vector2(copy.position)+Vector2(int(state.grid),int(state.grid)); copy.name = "%s копия" % copy.name; state.objects.append(copy); state.selected = state.objects.size()-1; state.status = "Создана копия"
+
+
+## Проверяет занятость уникального ключа среди видимых и скрытых объектов текущего черновика.
+static func unique_is_placed(state: Dictionary, unique_key: String) -> bool:
+	if unique_key.is_empty(): return false
+	return state.objects.any(func(object: Dictionary): return String(object.get("unique_key",""))==unique_key)
 
 
 ## Изменяет поворот, отражение или масштаб выбранного объекта предсказуемым шагом.
@@ -504,8 +518,15 @@ static func import_current_level(game: Node, state: Dictionary) -> void:
 	push_history(state); state.objects=[]; state.selected=-1; state.base_location=game.current_location; state.level_name="%s_redesign"%game.current_location
 	for candidate in game.DebugObjectInspectorSystem.candidates(game):
 		if candidate.id=="player" or candidate.category in ["ДОБЫЧА","ПЕРЕХОД"]: continue
-		state.objects.append({"id":int(state.next_id),"asset_path":"","name":candidate.name,"notes":"","position":candidate.position,"size":candidate.bounds.size,"source":Rect2(),"anchor":"center","layer":"objects","collision":not String(candidate.collision).begins_with("нет"),"rotation":0.0,"flip_x":false,"flip_y":false,"reference":true,"runtime_id":candidate.id,"original_position":candidate.position,"hidden":false,"scale":1.0}); state.next_id+=1
+		state.objects.append({"id":int(state.next_id),"asset_path":"","name":candidate.name,"notes":"","position":candidate.position,"size":candidate.bounds.size,"source":Rect2(),"anchor":"center","layer":"objects","collision":not String(candidate.collision).begins_with("нет"),"rotation":0.0,"flip_x":false,"flip_y":false,"reference":true,"runtime_id":candidate.id,"original_position":candidate.position,"hidden":false,"scale":1.0,"unique_key":runtime_unique_key(String(candidate.id)),"catalog_category":"reference","surface_kind":"","transition_masks":{}}); state.next_id+=1
 	state.status="Импортировано референсов: %d"%state.objects.size()
+
+
+## Сопоставляет технический идентификатор живого NPC или напарника с ключом уникальности каталога.
+static func runtime_unique_key(runtime_id: String) -> String:
+	var normalized:=runtime_id.to_lower()
+	if normalized.begins_with("npc:") or normalized.begins_with("companion:"): return normalized
+	return ""
 
 
 ## Формирует JSON-совместимый документ со всеми дизайнерскими решениями и комментариями автора.

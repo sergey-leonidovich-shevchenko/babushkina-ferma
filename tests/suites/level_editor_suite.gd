@@ -7,9 +7,11 @@ const TEST_PREFERENCES := "user://level_editor_preferences_suite.json"
 ## Запускает сценарии каталога, рисования, редактирования, импорта и обменного формата конструктора.
 func run() -> void:
 	test_catalog_contains_grouped_game_assets()
+	test_catalog_profiles_all_buildings_and_safe_sprite_sheets()
 	test_f12_and_drag_drop_place_sprite_on_live_level()
 	test_catalog_click_keeps_brush_for_later_map_click()
 	test_click_brush_paints_every_crossed_grid_cell()
+	test_small_grid_places_neighboring_tiles_without_gaps()
 	test_ground_brush_replaces_cell_and_undoes_whole_stroke()
 	test_rectangle_fill_is_one_dense_undoable_operation()
 	test_eyedropper_copies_existing_object_into_brush()
@@ -17,11 +19,13 @@ func run() -> void:
 	test_new_editor_shortcuts_route_to_tools_and_filters()
 	test_asset_anchors_keep_tiles_dense_and_large_objects_grounded()
 	test_object_tools_and_history_preserve_layout()
+	test_unique_characters_cannot_be_placed_or_duplicated_twice()
 	test_current_location_import_creates_editable_references()
 	test_open_json_draft_round_trip_preserves_author_intent()
 	test_autotile_masks_follow_four_neighbor_topology()
 	test_road_brush_selects_visual_modules_and_rotations()
 	test_water_brush_builds_shores_and_preserves_family()
+	test_mixed_surfaces_generate_persistent_transition_masks()
 	test_validation_blocks_broken_export_and_reports_map_issues()
 	test_runtime_integration_freezes_simulation_and_draws_editor_layers()
 
@@ -42,6 +46,22 @@ func test_catalog_contains_grouped_game_assets() -> void:
 	expect(entries.all(func(entry: Dictionary): return not "preview" in String(entry.path).to_lower()), "catalog hides technical preview sheets that are not placeable game objects")
 	for category in ["terrain","buildings","vegetation","characters","items","farming","fishing","ui"]:
 		expect(int(categories.get(category,0)) > 0, "level editor catalog exposes populated group: %s" % category)
+	game.free()
+
+
+## Сценарий: каталог проходит аудит домов, направленных персонажей и безопасных модульных атласов.
+## Исходное состояние: в проекте лежат восемь отдельных фасадов, лист бабушки 4×8 и строгий атлас забора 8×5.
+## Ожидаемый результат: все дома доступны, листы режутся по целым кадрам, а бабушка помечена уникальной сущностью.
+func test_catalog_profiles_all_buildings_and_safe_sprite_sheets() -> void:
+	var game:=make_game(); game.LevelEditorSystem._catalog.clear(); var entries:Array[Dictionary]=game.LevelEditorSystem.catalog(); var audit:Dictionary=game.LevelEditorSystem.AssetCatalogSystem.audit(entries)
+	expect(audit.buildings==8 and audit.missing_buildings.is_empty(),"catalog audit exposes every expected building exterior")
+	var grandmother:Dictionary=game.LevelEditorSystem.AssetCatalogSystem.find(entries,"res://assets/game/characters/directional/npc_grandmother_walk_8dir.png")
+	expect(grandmother.slice_size==222 and grandmother.frame_count==32 and grandmother.display_size==Vector2(96,96) and grandmother.unique_key=="npc:grandmother","directional grandmother sheet is presented as a correctly scaled unique frame")
+	var fence:Dictionary=game.LevelEditorSystem.AssetCatalogSystem.find(entries,"res://assets/game/environment/buildable_fence_atlas_v1.png")
+	expect(fence.slice_size==64 and fence.frame_count==40,"strict fence atlas is paintable frame by frame without leaking adjacent sprites")
+	var plants:Dictionary=game.LevelEditorSystem.AssetCatalogSystem.find(entries,"res://assets/game/environment/farm_plants.png")
+	expect(plants.slice_size==48 and plants.frame_count==144,"legacy plant sheet is paintable as exact individual cells instead of one oversized image")
+	expect(not entries.any(func(entry:Dictionary):return String(entry.path).ends_with("bridges.png") or String(entry.path).ends_with("fruit_trees_clear.png")) and audit.excluded_composites.size()==2,"irregular montage sheets are reported for extraction instead of masquerading as placeable sprites")
 	game.free()
 
 
@@ -95,6 +115,19 @@ func test_click_brush_paints_every_crossed_grid_cell() -> void:
 	var positions: Array = state.objects.map(func(object: Dictionary): return Vector2(object.position))
 	expect(state.objects.size()==5 and positions==[Vector2(504,336),Vector2(528,336),Vector2(552,336),Vector2(576,336),Vector2(600,336)], "held brush rasterizes every crossed 24 px cell without gaps or duplicate cells on return")
 	expect(state.objects.all(func(object: Dictionary): return object.anchor=="tile" and object.layer=="ground" and game.LevelEditorSystem.object_bounds(object).size==Vector2(24,24)), "terrain brush uses dense top-left tile bounds instead of sprite-center spacing")
+	game.free()
+
+
+## Сценарий: дизайнер уменьшает рабочую сетку до 12 px и ставит два тайла в соседние клетки.
+## Исходное состояние: выбрана бесшовная трава, привязка включена, между центрами кликов ровно одна малая клетка.
+## Ожидаемый результат: оба визуальных прямоугольника имеют размер 12×12 и соприкасаются общей границей без зазора.
+func test_small_grid_places_neighboring_tiles_without_gaps() -> void:
+	var game:=make_game(); var state:Dictionary=game.LevelEditorSystem.default_state(game); state.grid=12
+	game.LevelEditorSystem.activate_asset(state,game.LevelEditorSystem.AssetCatalogSystem.metadata("res://assets/game/tiles/editor/terrain/grass_lush.png"))
+	game.LevelEditorSystem.place_selected_asset(game,state,Vector2(6,6),false); game.LevelEditorSystem.place_selected_asset(game,state,Vector2(18,6),false)
+	var first:Rect2=game.LevelEditorSystem.object_bounds(state.objects[0]); var second:Rect2=game.LevelEditorSystem.object_bounds(state.objects[1])
+	expect(first.size==Vector2(12,12) and second.size==Vector2(12,12),"terrain sprite follows the selected small grid instead of retaining a forced native gap")
+	expect(is_equal_approx(first.end.x,second.position.x) and first.position.y==second.position.y,"adjacent grid sprites touch exactly edge to edge")
 	game.free()
 
 
@@ -202,6 +235,18 @@ func test_object_tools_and_history_preserve_layout() -> void:
 	game.free()
 
 
+## Сценарий: дизайнер пытается повторно поставить и продублировать единственную бабушку.
+## Исходное состояние: один кадр бабушки уже находится в черновике и остаётся выбранным.
+## Ожидаемый результат: кисть и команда D отказываются создавать дубль, но после удаления персонажа место освобождается.
+func test_unique_characters_cannot_be_placed_or_duplicated_twice() -> void:
+	var game:=make_game(); var state:Dictionary=game.LevelEditorSystem.default_state(game); var entry:Dictionary=game.LevelEditorSystem.AssetCatalogSystem.metadata("res://assets/game/characters/directional/npc_grandmother_walk_8dir.png"); game.LevelEditorSystem.activate_asset(state,entry)
+	expect(game.LevelEditorSystem.place_selected_asset(game,state,Vector2(120,120),false),"first unique grandmother placement succeeds")
+	expect(not game.LevelEditorSystem.place_selected_asset(game,state,Vector2(240,120),false) and state.objects.size()==1 and String(state.status).contains("Уникальный"),"second grandmother placement is rejected with an explicit status")
+	game.LevelEditorSystem.duplicate_selected(state); expect(state.objects.size()==1 and String(state.status).contains("нельзя дублировать"),"duplicate command also protects unique characters")
+	game.LevelEditorSystem.delete_selected(state); expect(game.LevelEditorSystem.place_selected_asset(game,state,Vector2(240,120),false) and state.objects.size()==1,"deleting a unique character permits placing it elsewhere")
+	game.free()
+
+
 ## Сценарий: уже существующая игровая локация становится основой нового дизайнерского черновика.
 ## Исходное состояние: первая локация содержит здания, NPC, декорации и коллизии runtime-систем.
 ## Ожидаемый результат: импорт создаёт именованные референсы с исходной позицией, размерами и техническим id.
@@ -213,6 +258,10 @@ func test_current_location_import_creates_editable_references() -> void:
 	expect(state.objects.size()>5 and bool(first.get("reference",false)), "current level imports its runtime objects as editable references")
 	expect(not String(first.get("runtime_id","")).is_empty() and Vector2(first.get("size",Vector2.ZERO))>Vector2.ZERO, "imported reference keeps technical id and visible bounds")
 	expect(first.get("position",Vector2.ZERO)==first.get("original_position",Vector2.ONE), "import records original coordinates for an unambiguous redesign diff")
+	var grandmother_references:Array=state.objects.filter(func(object:Dictionary):return String(object.get("runtime_id",""))=="npc:grandmother")
+	expect(grandmother_references.size()==1 and grandmother_references[0].unique_key=="npc:grandmother","imported live grandmother reserves the same unique key as the sprite catalog")
+	game.LevelEditorSystem.activate_asset(state,game.LevelEditorSystem.AssetCatalogSystem.metadata("res://assets/game/characters/directional/npc_grandmother_walk_8dir.png"))
+	expect(not game.LevelEditorSystem.place_selected_asset(game,state,Vector2(600,400),false),"editor refuses a second grandmother even when the first one came from live-location import")
 	game.free()
 
 
@@ -277,6 +326,21 @@ func test_water_brush_builds_shores_and_preserves_family() -> void:
 	expect(String(by_cell[Vector2i(1,1)].asset_path).contains("water_") and String(by_cell[Vector2i(1,1)].autotile_family)=="water_body", "water interior keeps a stable family after visual substitution")
 	var payload:Dictionary=game.LevelEditorSystem.document(state); var saved_family:=String(payload.objects[4].autotile_family)
 	expect(saved_family=="water_body", "open level document preserves automatic shoreline ownership")
+	game.free()
+
+
+## Сценарий: дизайнер рисует рядом траву, землю и гравий без ручного выбора пограничных тайлов.
+## Исходное состояние: три сухих покрытия занимают соседние клетки одной сетки слева направо.
+## Ожидаемый результат: на более лёгких покрытиях возникают направленные маски переходов и сохраняются в JSON версии 4.
+func test_mixed_surfaces_generate_persistent_transition_masks() -> void:
+	var game:=make_game(); var state:Dictionary=game.LevelEditorSystem.default_state(game)
+	for data in [["res://assets/game/tiles/editor/terrain/grass_lush.png",Vector2(12,12)],["res://assets/game/tiles/editor/terrain/ground_dirt.png",Vector2(36,12)],["res://assets/game/tiles/editor/terrain/ground_gravel.png",Vector2(60,12)]]:
+		game.LevelEditorSystem.activate_asset(state,game.LevelEditorSystem.AssetCatalogSystem.metadata(data[0])); game.LevelEditorSystem.place_selected_asset(game,state,data[1],false)
+	expect(int(state.objects[0].transition_masks.get("dirt",0))==2,"grass receives an east-facing dirt transition")
+	expect(int(state.objects[1].transition_masks.get("gravel",0))==2,"dirt receives an east-facing gravel transition")
+	var payload:Dictionary=game.LevelEditorSystem.document(state)
+	expect(payload.version==4 and int(payload.objects[0].transition_masks.get("dirt",0))==2,"open level document persists cross-surface transition ownership")
+	for path in game.LevelEditorRenderer.TRANSITION_TEXTURES.values(): expect(ResourceLoader.exists(path),"transition texture exists: %s"%path)
 	game.free()
 
 

@@ -7,6 +7,9 @@ const BUTTON_ACTIVE := Color("557544")
 const TEXT := Color("fff0c8")
 const MUTED := Color("c5ae83")
 const SELECTED := Color("ffd45c")
+const TRANSITION_TEXTURES := {"dirt":"res://assets/game/tiles/editor/transitions/dirt_edge.png","gravel":"res://assets/game/tiles/editor/transitions/gravel_edge.png","sand":"res://assets/game/tiles/editor/transitions/sand_edge.png"}
+const TRANSITION_BITS := [1,2,4,8]
+const TRANSITION_ROTATIONS := [0.0,PI*0.5,PI,-PI*0.5]
 static var _texture_cache: Dictionary = {}
 
 
@@ -51,12 +54,28 @@ static func draw_object(game: Node2D, object: Dictionary, selected: bool) -> voi
 				if source.size==Vector2.ZERO: game.draw_texture_rect(texture,destination,false)
 				else: game.draw_texture_rect_region(texture,destination,source)
 				game.draw_set_transform(-game.camera_offset)
+		draw_surface_transitions(game,object,bounds)
 	if bool(object.collision): game.draw_rect(bounds,Color(0.95,0.24,0.22,0.55),false,2.0)
 	if selected:
 		game.draw_rect(bounds.grow(4),SELECTED,false,3.0)
 		for corner in [bounds.position,bounds.position+Vector2(bounds.size.x,0),bounds.end,bounds.position+Vector2(0,bounds.size.y)]: game.draw_rect(Rect2(corner-Vector2(4,4),Vector2(8,8)),Color("fff2a3"))
 	if not String(object.name).is_empty() and (selected or bool(object.reference)):
 		var label: Rect2 = Rect2(Vector2(center.x-90,bounds.position.y-25),Vector2(180,20)); game.draw_rect(label,Color(0.03,0.025,0.02,0.78)); game.draw_ui_string(game.UI_FONT,label.position+Vector2(4,15),String(object.name),HORIZONTAL_ALIGNMENT_CENTER,label.size.x-8,12,TEXT)
+
+
+## Накладывает на края тайла переходы к более плотному соседнему покрытию без создания зазоров в сетке.
+static func draw_surface_transitions(game: Node2D, object: Dictionary, bounds: Rect2) -> void:
+	var masks:Dictionary=object.get("transition_masks",{})
+	if masks.is_empty(): return
+	for surface in masks:
+		var path:=String(TRANSITION_TEXTURES.get(String(surface),"")); var texture:=texture_for(path) if not path.is_empty() else null
+		if texture==null: continue
+		var mask:=int(masks[surface])
+		for direction_index in TRANSITION_BITS.size():
+			if mask&TRANSITION_BITS[direction_index]==0: continue
+			game.draw_set_transform(bounds.get_center()-game.camera_offset,float(TRANSITION_ROTATIONS[direction_index]))
+			game.draw_texture_rect(texture,Rect2(-bounds.size*0.5,bounds.size),false)
+			game.draw_set_transform(-game.camera_offset)
 
 
 ## Накладывает лёгкую модульную сетку только на видимую область рабочего холста.
@@ -71,7 +90,13 @@ static func draw_drag_preview(game: Node2D, state: Dictionary) -> void:
 	if String(state.selected_asset).is_empty() or String(state.tool)!="paint": return
 	var texture: Texture2D = texture_for(String(state.selected_asset))
 	if texture==null:return
-	var source: Rect2 = game.LevelEditorSystem.selected_source(texture,state); var size: Vector2 = source.size if source.size!=Vector2.ZERO else texture.get_size(); var entry: Dictionary = game.LevelEditorSystem.AssetCatalogSystem.find(game.LevelEditorSystem.catalog(),String(state.selected_asset)); var position: Vector2 = game.LevelEditorSystem.placement_position(state,Vector2(state.mouse)+Vector2(game.camera_offset),String(entry.get("anchor","center"))); var destination: Rect2 = game.LevelEditorSystem.object_bounds({"position":position,"size":size,"anchor":entry.get("anchor","center"),"scale":1.0})
+	var source: Rect2 = game.LevelEditorSystem.selected_source(texture,state)
+	var entry: Dictionary = game.LevelEditorSystem.AssetCatalogSystem.find(game.LevelEditorSystem.catalog(),String(state.selected_asset))
+	var size:=Vector2(entry.get("display_size",Vector2.ZERO))
+	if size==Vector2.ZERO: size=source.size if source.size!=Vector2.ZERO else texture.get_size()
+	if String(entry.get("anchor","center"))=="tile": size=Vector2.ONE*int(state.grid)
+	var position: Vector2 = game.LevelEditorSystem.placement_position(state,Vector2(state.mouse)+Vector2(game.camera_offset),String(entry.get("anchor","center")))
+	var destination: Rect2 = game.LevelEditorSystem.object_bounds({"position":position,"size":size,"anchor":entry.get("anchor","center"),"scale":1.0})
 	if source.size==Vector2.ZERO: game.draw_texture_rect(texture,destination,false,Color(1,1,1,0.62))
 	else: game.draw_texture_rect_region(texture,destination,source,Color(1,1,1,0.62))
 	game.draw_rect(destination,Color("8ef09d"),false,2.0)
@@ -118,10 +143,11 @@ static func draw_assets(game: Node2D, state: Dictionary) -> void:
 		if index>=entries.size(): continue
 		var entry:Dictionary=entries[index]; var texture: Texture2D = texture_for(String(entry.path))
 		if texture!=null:
-			var source: Rect2 = game.LevelEditorSystem.selected_source(texture,state) if selected else Rect2(); var texture_size: Vector2 = source.size if source.size!=Vector2.ZERO else texture.get_size(); var scale: float = minf(34.0/maxf(texture_size.x,1),34.0/maxf(texture_size.y,1)); var thumb: Rect2 = Rect2(Vector2(28,126+row*game.LevelEditorSystem.ASSET_ROW_HEIGHT)+(Vector2(36,34)-texture_size*scale)*0.5,texture_size*scale)
+			var slice_size:=int(entry.get("slice_size",0)); var source:Rect2=game.LevelEditorSystem.selected_source(texture,state) if selected else (Rect2(0,0,slice_size,slice_size) if slice_size>0 else Rect2()); var texture_size: Vector2 = source.size if source.size!=Vector2.ZERO else texture.get_size(); var scale: float = minf(34.0/maxf(texture_size.x,1),34.0/maxf(texture_size.y,1)); var thumb: Rect2 = Rect2(Vector2(28,126+row*game.LevelEditorSystem.ASSET_ROW_HEIGHT)+(Vector2(36,34)-texture_size*scale)*0.5,texture_size*scale)
 			if source.size==Vector2.ZERO: game.draw_texture_rect(texture,thumb,false)
 			else: game.draw_texture_rect_region(texture,thumb,source)
-		game.draw_ui_string(game.UI_FONT,Vector2(70,141+row*game.LevelEditorSystem.ASSET_ROW_HEIGHT),String(entry.name).left(35),HORIZONTAL_ALIGNMENT_LEFT,270,12,TEXT)
+		var badge:="  ◈" if not String(entry.get("unique_key","")).is_empty() else ("  ▦%d"%int(entry.get("frame_count",1)) if bool(entry.get("sliced",false)) else "")
+		game.draw_ui_string(game.UI_FONT,Vector2(70,141+row*game.LevelEditorSystem.ASSET_ROW_HEIGHT),(String(entry.name)+badge).left(35),HORIZONTAL_ALIGNMENT_LEFT,270,12,TEXT)
 		game.draw_ui_string(game.UI_FONT,Vector2(70,157+row*game.LevelEditorSystem.ASSET_ROW_HEIGHT),String(entry.path).trim_prefix("res://assets/game/").left(47),HORIZONTAL_ALIGNMENT_LEFT,270,9,MUTED)
 		game.draw_ui_string(game.UI_FONT,Vector2(348,149+row*game.LevelEditorSystem.ASSET_ROW_HEIGHT),"★" if String(entry.path) in state.favorites else "☆",HORIZONTAL_ALIGNMENT_CENTER,28,16,SELECTED if String(entry.path) in state.favorites else MUTED)
 
