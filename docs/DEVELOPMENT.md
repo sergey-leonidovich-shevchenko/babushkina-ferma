@@ -26,6 +26,9 @@ tools/Godot.app/Contents/MacOS/Godot --path . -- --title-preview
 # Заполненный рюкзак
 tools/Godot.app/Contents/MacOS/Godot --path . -- --inventory-preview
 
+# Контекстный HUD со всеми одновременно активными безопасными зонами
+tools/Godot.app/Contents/MacOS/Godot --path . -- --capture-context-hud
+
 # Деревенские здания без стартовых экранов
 tools/Godot.app/Contents/MacOS/Godot --path . -- --buildings-preview
 

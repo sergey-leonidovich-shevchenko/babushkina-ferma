@@ -42,6 +42,12 @@
       "sha256": "f9ecfb226ea91d0db394caf759028f5ee6103c20679b9e9e8c3d63d3f9b064f7"
     },
     {
+      "file": "context_hud_ingame_preview.png",
+      "width": 1152,
+      "height": 648,
+      "sha256": "2f8d72040da8192db201f9db34e6268fd96c106174c74c8e77b4a6bfaa3acb35"
+    },
+    {
       "file": "creation_ingame_preview.png",
       "width": 1152,
       "height": 648,

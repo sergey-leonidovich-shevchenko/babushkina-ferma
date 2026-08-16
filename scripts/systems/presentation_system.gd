@@ -1,6 +1,7 @@
 extends RefCounted
 
 const WorldVisualProfileSystem := preload("res://scripts/systems/world_visual_profile_system.gd")
+const HudLayoutSystem := preload("res://scripts/systems/hud_layout_system.gd")
 
 ## Чистые расчёты представления. Они не рисуют и не меняют игровое состояние,
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
@@ -89,7 +90,7 @@ static func interaction_position(game: Node, interaction: String) -> Vector2:
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func discovery_card_rect() -> Rect2:
-	return Rect2(824, 354, 310, 108)
+	return HudLayoutSystem.DISCOVERY_RECT
 
 
 ## Собирает не более трёх активных целей и одну сводную строку для компактного HUD.

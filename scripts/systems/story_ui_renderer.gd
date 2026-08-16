@@ -2,6 +2,7 @@ class_name StoryUiRenderer
 extends RefCounted
 
 const UiKitSystem := preload("res://scripts/systems/ui_kit_system.gd")
+const HudLayoutSystem := preload("res://scripts/systems/hud_layout_system.gd")
 
 const QUEST_WINDOW := Rect2(86, 42, 980, 552)
 const QUEST_HEADER := Rect2(326, 54, 500, 66)
@@ -10,8 +11,8 @@ const QUEST_PREV := Rect2(94, 500, 42, 42)
 const QUEST_NEXT := Rect2(1016, 500, 42, 42)
 const DIALOGUE_WINDOW := Rect2(68, 344, 1016, 286)
 const DIALOGUE_PORTRAIT := Rect2(96, 374, 176, 178)
-const TUTORIAL_CARD := Rect2(18, 106, 414, 112)
-const NOTIFICATION_CARD := Rect2(286, 486, 580, 72)
+const TUTORIAL_CARD := HudLayoutSystem.TUTORIAL_RECT
+const NOTIFICATION_CARD := HudLayoutSystem.NOTIFICATION_RECT
 const REWARD_WINDOW := Rect2(122, 144, 908, 386)
 const REWARD_ICONS := ["fruit_sapling", "healing_potion", "travel_boots"]
 
@@ -127,7 +128,7 @@ static func draw_tutorial(game: Node2D) -> void:
 
 ## Рисует системное сообщение как спокойную пергаментную плашку с типовой иконкой награды или события.
 static func draw_notification(game: Node2D) -> void:
-	if game.message.is_empty() or game.inventory_open or game.shop_open or game.quest_log_open or game.skill_menu_open or game.crafting_open or game.storage_open or game.forge_open or game.contract_open: return
+	if game.message.is_empty() or game.hud_message_timer <= 0.0 or game.inventory_open or game.shop_open or game.quest_log_open or game.skill_menu_open or game.crafting_open or game.storage_open or game.forge_open or game.contract_open: return
 	if game.AdventurePolishSystem.has_modal(game) or game.FirstChapterSystem.modal_active(game) or game.menu_state.pause_open or game.menu_state.settings_open or game.menu_state.defeat_open: return
 	var bob := 0.0 if game.settings_state.reduced_motion else sin(Time.get_ticks_msec() / 260.0) * 1.5
 	var rect := Rect2(NOTIFICATION_CARD.position + Vector2(0, bob), NOTIFICATION_CARD.size)
@@ -135,7 +136,7 @@ static func draw_notification(game: Node2D) -> void:
 	var reward: bool = "+" in game.message or "награ" in game.message.to_lower() or "получ" in game.message.to_lower()
 	UiKitSystem.draw_nine_patch(game, "badge", Rect2(rect.position + Vector2(18, 12), Vector2(46, 46)))
 	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(28, 45), "★" if reward else "!", HORIZONTAL_ALIGNMENT_CENTER, 26, 17, Color("8c542e"))
-	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(76, 44), game.message, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 102, 12, UiKitSystem.COLORS.ink)
+	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(70, 42), game.message, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 90, 11, UiKitSystem.COLORS.ink)
 
 
 ## Рисует итог главы как три крупные коллекционные карты, сохраняя исходные зоны выбора наград.

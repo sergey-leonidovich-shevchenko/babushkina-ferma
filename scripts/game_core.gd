@@ -27,7 +27,7 @@ func _physics_process(delta: float) -> void:
 	GameLoop.physics_process(self, delta)
 
 
-## Обновляет короткие визуальные реакции HUD на урон, монеты, новую минуту и смену погоды.
+## Обновляет короткие реакции HUD и автоматически убирает прочитанное системное сообщение.
 func update_hud_feedback(delta: float) -> void:
 	if hud_last_hp < 0: hud_last_hp = player_hp
 	if hud_last_coins < 0: hud_last_coins = coins
@@ -38,11 +38,18 @@ func update_hud_feedback(delta: float) -> void:
 	if int(game_minutes) != hud_last_minute: hud_clock_tick = 0.32
 	var weather := WorldEventSystem.weather(self)
 	if weather != hud_last_weather: hud_weather_transition = 0.48
+	if message != hud_last_message:
+		hud_last_message = message
+		hud_message_timer = HudLayoutSystem.notification_duration(message) if not message.is_empty() else 0.0
 	hud_last_hp = player_hp; hud_last_coins = coins; hud_last_minute = int(game_minutes); hud_last_weather = weather
 	hud_hp_flash = maxf(0.0, hud_hp_flash - delta)
 	hud_coin_pop = maxf(0.0, hud_coin_pop - delta)
 	hud_clock_tick = maxf(0.0, hud_clock_tick - delta)
 	hud_weather_transition = maxf(0.0, hud_weather_transition - delta)
+	hud_message_timer = maxf(0.0, hud_message_timer - delta)
+	if hud_message_timer <= 0.0 and not message.is_empty():
+		message = ""
+		hud_last_message = ""
 
 ## Обновляет относящуюся к методу часть состояния на текущем кадре.
 func update_benchmark_route(delta: float) -> void:

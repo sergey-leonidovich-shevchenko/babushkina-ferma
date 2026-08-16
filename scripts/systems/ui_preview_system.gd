@@ -9,6 +9,13 @@ static func configure(game: Node) -> void:
 	if configure_character_window_capture(game, arguments): return
 	if configure_item_window_capture(game, arguments): return
 	if configure_story_window_capture(game, arguments): return
+	if "--capture-context-hud" in arguments:
+		game.language_screen = false; game.title_screen = false; game.current_location = "overworld"; game.player = Vector2(420, 880)
+		game.tutorial_visible = true; game.message = "Новый предмет добавлен в рюкзак"
+		game.discovery_current = {"title":"Старая яблоня", "text":"Плодоносит повторно и меняется вместе с сезоном."}; game.discovery_timer = game.DiscoverySystem.CARD_DURATION
+		var context_life: Dictionary = game.FarmLifeSystem.state(game); context_life.first_day = 6; context_life.cutscene = ""; context_life.cutscene_timer = 0.0
+		game.set_meta("capture_ui_frames", 8); game.set_meta("capture_ui_output", "res://assets/generated/ui/context_hud_ingame_preview.png")
+		return
 	if "--capture-hud" in arguments:
 		game.language_screen = false; game.title_screen = false; game.current_location = "overworld"; game.tutorial_visible = false; game.message = ""
 		game.player = Vector2(1160, 650); game.set_meta("capture_hud_clean", true); game.set_meta("capture_ui_frames", 6); game.set_meta("capture_ui_output", "res://assets/generated/ui/hud_ingame_preview.png")

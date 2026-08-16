@@ -190,6 +190,7 @@ static func _handle_mouse(game: Node, event: InputEventMouseButton, world_visibl
 		return true
 	if game.world_map_open: return game.WorldMapSystem.handle_pointer(game, event.position)
 	if game.quest_log_open and game.InputSystem.handle_quest_pointer(game, event.position): return true
+	if world_visible and game.InterfaceRenderer.OBJECTIVE_CARD.has_point(event.position) and not game.HudLayoutSystem.primary_objective(game).is_empty(): game.toggle_quest_log(); return true
 	if game.InterfaceRenderer.LOCATION_BADGE.has_point(event.position): game.WorldMapSystem.toggle(game); return true
 	if game.InterfaceRenderer.QUEST_BUTTON.has_point(event.position): game.toggle_quest_log(); return true
 	if game.InterfaceRenderer.SKILL_BUTTON.has_point(event.position): game.open_skill_menu(); return true
@@ -243,6 +244,7 @@ static func _handle_touch(game: Node, event: InputEventScreenTouch, world_visibl
 			game.queue_redraw()
 		return true
 	if game.skill_menu_open: return _handle_talent_pointer(game, event.position)
+	if world_visible and game.InterfaceRenderer.OBJECTIVE_CARD.has_point(event.position) and not game.HudLayoutSystem.primary_objective(game).is_empty(): game.toggle_quest_log(); return true
 	if game.InterfaceRenderer.QUEST_BUTTON.has_point(event.position): game.toggle_quest_log(); return true
 	if game.InterfaceRenderer.SKILL_BUTTON.has_point(event.position): game.open_skill_menu(); return true
 	if game.inventory_open: return game.InventoryInputSystem.handle_touch(game, event.position)

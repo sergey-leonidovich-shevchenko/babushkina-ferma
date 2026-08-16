@@ -36,7 +36,7 @@ const ForageSystem := preload("res://scripts/systems/forage_system.gd"); const O
 const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
 const InputSystem := preload("res://scripts/systems/input_system.gd"); const InventoryInputSystem := preload("res://scripts/systems/inventory_input_system.gd"); const TalentInputSystem := preload("res://scripts/systems/talent_input_system.gd")
 const PresentationSystem := preload("res://scripts/systems/presentation_system.gd")
-const InterfaceRenderer := preload("res://scripts/systems/interface_renderer.gd"); const ItemWindowRenderer := preload("res://scripts/systems/item_window_renderer.gd"); const StoryUiRenderer := preload("res://scripts/systems/story_ui_renderer.gd"); const CharacterUiRenderer := preload("res://scripts/systems/character_ui_renderer.gd")
+const InterfaceRenderer := preload("res://scripts/systems/interface_renderer.gd"); const ItemWindowRenderer := preload("res://scripts/systems/item_window_renderer.gd"); const StoryUiRenderer := preload("res://scripts/systems/story_ui_renderer.gd"); const CharacterUiRenderer := preload("res://scripts/systems/character_ui_renderer.gd"); const HudLayoutSystem := preload("res://scripts/systems/hud_layout_system.gd")
 const AnimationSystem := preload("res://scripts/systems/animation_system.gd"); const AnimationRenderer := preload("res://scripts/systems/animation_renderer.gd"); const EnemyAnimationLibrary := preload("res://scripts/systems/enemy_animation_library.gd"); const CreatureVisualProfileSystem := preload("res://scripts/systems/creature_visual_profile_system.gd")
 const DirectionalCharacterSystem := preload("res://scripts/systems/directional_character_system.gd"); const NpcMovementSystem := preload("res://scripts/systems/npc_movement_system.gd"); const VillageLifeSystem := preload("res://scripts/systems/village_life_system.gd"); const VillageEventSystem := preload("res://scripts/systems/village_event_system.gd")
 const AudioSystem := preload("res://scripts/systems/audio_system.gd")
@@ -214,7 +214,7 @@ var audio_sfx_slot := 0
 var audio_music_slot := 1
 var audio_music_fade := 0.0
 # Сенсорный профиль и короткие реакции HUD не входят в сохранение: это только состояние представления.
-var touch_controls_visible := OS.has_feature("mobile"); var hud_last_hp := -1; var hud_hp_flash := 0.0; var hud_last_coins := -1; var hud_coin_pop := 0.0; var hud_last_minute := -1; var hud_clock_tick := 0.0; var hud_last_weather := ""; var hud_weather_transition := 0.0
+var touch_controls_visible := OS.has_feature("mobile"); var hud_last_hp := -1; var hud_hp_flash := 0.0; var hud_last_coins := -1; var hud_coin_pop := 0.0; var hud_last_minute := -1; var hud_clock_tick := 0.0; var hud_last_weather := ""; var hud_weather_transition := 0.0; var hud_last_message := ""; var hud_message_timer := 0.0
 var ui_last_layer := ""; var ui_transition_timer := 0.0; var ui_pressed_timer := 0.0; var ui_focus_timer := 0.0; var ui_sound_cooldown := 0.0; var ui_pressed_rect := Rect2(); var ui_focus_id := ""; var ui_particles: Array = []
 var companion_positions := {}
 var companion_moving := {}

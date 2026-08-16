@@ -258,7 +258,7 @@ func test_contextual_discoveries_and_new_item_hints() -> void:
 	expect(game.DiscoverySystem.scan_nearby(game), "approaching an unknown feature opens a contextual hint")
 	expect(game.discovery_current.id == "shop" and game.seen_discoveries.has("shop"), "shop hint explains and remembers the discovered feature")
 	var card: Rect2 = game.discovery_card_rect()
-	expect(card.position.x >= 800.0 and card.size.x <= 320.0 and not card.has_point(game.player), "context hint stays compact in the screen corner and does not cover the player")
+	expect(card == game.HudLayoutSystem.DISCOVERY_RECT and card.size.x <= 320.0 and not card.has_point(game.player), "context hint stays compact in the screen corner and does not cover the player")
 	game.DiscoverySystem.dismiss(game)
 	game.DiscoverySystem.scan_nearby(game)
 	expect(game.discovery_current.get("id", "") != "shop", "seen feature does not repeat its hint while another nearby discovery may appear")

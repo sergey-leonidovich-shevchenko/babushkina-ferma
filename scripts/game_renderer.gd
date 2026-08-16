@@ -465,17 +465,9 @@ func draw_discovery_card() -> void:
 func discovery_card_rect() -> Rect2:
 	return PresentationSystem.discovery_card_rect()
 
-## Отрисовывает соответствующий элемент по текущим данным активной сцены.
+## Рисует одну приоритетную цель через общий координатор HUD вместо перекрывающегося списка.
 func draw_mission_tracker() -> void:
-	var lines: Array[String] = PresentationSystem.quest_tracker_lines(self)
-	if lines.is_empty():
-		return
-	var height := 30.0 + lines.size() * 22.0
-	var tracker := Rect2(790, 108, 338, height)
-	draw_texture_rect_region(InterfaceRenderer.CARD_ATLAS, tracker, InterfaceRenderer.CARD_QUEST_SOURCE)
-	draw_string(UI_FONT, Vector2(820, 132), LocaleSystem.ui("quest_tracker"), HORIZONTAL_ALIGNMENT_LEFT, 276, 13, Color("5a3823"))
-	for index in lines.size():
-		draw_string(UI_FONT, Vector2(822, 156 + index * 22), "◆  " + lines[index], HORIZONTAL_ALIGNMENT_LEFT, 274, 11, Color("654930"))
+	InterfaceRenderer.HudRenderer.draw_objective_card(self)
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_quest_log() -> void:

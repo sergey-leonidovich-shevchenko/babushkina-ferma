@@ -1,5 +1,8 @@
 extends RefCounted
 
+const UiKitSystem := preload("res://scripts/systems/ui_kit_system.gd")
+const HudLayoutSystem := preload("res://scripts/systems/hud_layout_system.gd")
+
 ## Рисует динамический верхний HUD, сообщения, мобильные боевые кнопки и их короткие реакции.
 static func draw(game: Node, ui) -> void:
 	ui.draw_hud_background(game)
@@ -116,7 +119,30 @@ static func draw_action_button(game: Node, ui, rect: Rect2, label: String, enabl
 		var ratio: float = clampf(game.state.player.dodge_cooldown / 1.15, 0.0, 1.0); game.draw_arc(rect.get_center(), 23, -PI / 2.0, -PI / 2.0 + TAU * ratio, 24, Color(0.12, 0.08, 0.05, 0.78), 5.0)
 
 
+## Рисует единственную приоритетную цель с прямой ссылкой на полный журнал заданий.
+static func draw_objective_card(game: Node) -> void:
+	var objective: Dictionary = HudLayoutSystem.primary_objective(game)
+	if objective.is_empty(): return
+	var rect := HudLayoutSystem.OBJECTIVE_RECT
+	UiKitSystem.draw_nine_patch(game, "tooltip", rect)
+	UiKitSystem.draw_nine_patch(game, "badge", Rect2(rect.position + Vector2(12, 12), Vector2(42, 42)))
+	var icon := "◆" if String(objective.kind) in ["story", "chapter", "moon"] else "●"
+	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(21, 41), icon, HORIZONTAL_ALIGNMENT_CENTER, 24, 15, Color("8a542e"))
+	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(64, 25), String(objective.title).to_upper(), HORIZONTAL_ALIGNMENT_LEFT, 285, 10, Color("75472c"))
+	var hidden := HudLayoutSystem.hidden_objective_count(game)
+	var journal_hint: String = game.LocaleSystem.ui("hud_journal_hint") + (" +%d" % hidden if hidden > 0 else "")
+	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(354, 25), journal_hint, HORIZONTAL_ALIGNMENT_RIGHT, 136, 8, Color("876440"))
+	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(64, 50), String(objective.text), HORIZONTAL_ALIGNMENT_LEFT, 424, 10, UiKitSystem.COLORS.ink)
+	var ratio := float(objective.get("ratio", -1.0))
+	if ratio >= 0.0:
+		var track := Rect2(rect.position + Vector2(64, 62), Vector2(424, 7))
+		game.draw_rect(track, Color("493426")); game.draw_rect(Rect2(track.position + Vector2.ONE, Vector2((track.size.x - 2) * clampf(ratio, 0.0, 1.0), track.size.y - 2)), Color("719451"))
+
+
 ## Показывает команду взаимодействия в углу экрана, не закрывая выбранный объект.
 static func draw_interaction_prompt(game: Node, ui) -> void:
-	if game.nearest_interaction().is_empty(): return
-	ui.draw_atlas_piece(game, ui.CONTROL_ATLAS, ui.INTERACTION_PROMPT, Rect2(940, 96, 300, 184)); game.draw_ui_string(game.UI_FONT, ui.INTERACTION_PROMPT.position + Vector2(48, 37), game.LocaleSystem.ui("action"), HORIZONTAL_ALIGNMENT_CENTER, 228, 12, Color("4b3424"))
+	if game.inventory_open or game.shop_open or game.quest_log_open or game.world_map_open or game.skill_menu_open or game.crafting_open or game.storage_open or game.forge_open or game.contract_open or game.AdventurePolishSystem.has_modal(game): return
+	var interaction: String = game.nearest_interaction()
+	if interaction.is_empty(): return
+	ui.draw_atlas_piece(game, ui.CONTROL_ATLAS, ui.INTERACTION_PROMPT, Rect2(940, 96, 300, 184))
+	game.draw_ui_string(game.UI_FONT, ui.INTERACTION_PROMPT.position + Vector2(42, 37), HudLayoutSystem.interaction_label(game, interaction), HORIZONTAL_ALIGNMENT_CENTER, 240, 11, Color("4b3424"))
