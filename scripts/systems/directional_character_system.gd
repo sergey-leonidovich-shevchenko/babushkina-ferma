@@ -3,10 +3,13 @@ extends RefCounted
 const COLUMNS := 4
 const ROWS := 8
 const WALK_FPS := 8.0
-const HERO_BASE_SIZE := Vector2(86, 86)
-const HERO_VISUAL_SCALE := 0.92
-const HERO_DRAW_SIZE := HERO_BASE_SIZE * HERO_VISUAL_SCALE
-const HERO_SHADOW_RADII := Vector2(18, 6) * HERO_VISUAL_SCALE
+const HERO_BASE_SIZE:=Vector2(72,96)
+const HERO_VISUAL_SCALE:=1.0
+const HERO_DRAW_SIZE:=HERO_BASE_SIZE
+const NPC_DRAW_SIZE:=Vector2(96,96)
+const COMPANION_DRAW_SIZE:=Vector2(96,96)
+const GROUND_OFFSET:=Vector2(0,24)
+const HERO_SHADOW_RADII:=Vector2(18,6)
 const AnimationAssetRegistry := preload("res://scripts/systems/animation_asset_registry.gd")
 
 const HERO_TEXTURES := [
@@ -45,21 +48,46 @@ static func draw_hero(game: Node2D, position: Vector2, direction: Vector2, movin
 static func draw_npc(game: Node2D, sprite_index: int, position: Vector2, direction: Vector2, moving: bool, tint: Color = Color.WHITE) -> void:
 	if sprite_index < 0 or sprite_index >= NPC_TEXTURES.size():
 		return
-	draw_actor(game, NPC_TEXTURES[sprite_index], position, Vector2(96, 96), direction, game.walk_animation_time, moving, tint)
+	draw_actor(game, NPC_TEXTURES[sprite_index], position, NPC_DRAW_SIZE, direction, game.walk_animation_time, moving, tint)
 
 
 ## Рисует выбранного напарника по его фактическому направлению движения.
 static func draw_companion(game: Node2D, companion_id: String, position: Vector2, direction: Vector2, moving: bool) -> void:
 	if not COMPANION_TEXTURES.has(companion_id):
 		return
-	draw_actor(game, COMPANION_TEXTURES[companion_id], position, Vector2(100, 100), direction, game.walk_animation_time, moving)
+	draw_actor(game, COMPANION_TEXTURES[companion_id], position, COMPANION_DRAW_SIZE, direction, game.walk_animation_time, moving)
+
+
+## Возвращает видимую рамку актёра относительно общей нижней точки ног на 24 px ниже логической позиции.
+static func actor_rect(position:Vector2,size:Vector2)->Rect2:
+	return Rect2(position+GROUND_OFFSET-Vector2(size.x*0.5,size.y),size)
+
+
+## Проверяет модульные рамки всех людей и строгую сетку их восьминаправленных атласов.
+static func profiles_are_valid()->bool:
+	if HERO_DRAW_SIZE!=Vector2(72,96) or NPC_DRAW_SIZE!=Vector2(96,96) or COMPANION_DRAW_SIZE!=Vector2(96,96): return false
+	for texture in HERO_TEXTURES+NPC_TEXTURES+COMPANION_TEXTURES.values():
+		if texture.get_size()!=Vector2(888,1776) or texture.get_width()%COLUMNS!=0 or texture.get_height()%ROWS!=0: return false
+	return true
+
+
+## Сохраняет контрольный игровой кадр героя, жителей и напарников в общих модульных рамках.
+static func update_preview_capture(game:Node)->bool:
+	if not game.has_meta("capture_character_frames"): return false
+	var frames_left:=int(game.get_meta("capture_character_frames"))-1; game.set_meta("capture_character_frames",frames_left)
+	if frames_left>0: return false
+	game.remove_meta("capture_character_frames"); var image:=game.get_viewport().get_texture().get_image()
+	if image==null: game.get_tree().quit(); return true
+	var output:=ProjectSettings.globalize_path("res://assets/generated/level_drafts/characters_ingame_preview.png"); var error:=image.save_png(output)
+	if error!=OK: push_error("Не удалось сохранить предпросмотр человеческих персонажей: %s"%error)
+	game.get_tree().quit(); return true
 
 
 ## Рисует общий спрайт актёра с единой точкой опоры у ног и мягкой тенью.
 static func draw_actor(game: Node2D, texture: Texture2D, position: Vector2, size: Vector2, direction: Vector2, animation_time: float, moving: bool, modulate: Color = Color.WHITE, shadow_radii: Vector2 = Vector2(18, 6)) -> void:
-	draw_soft_shadow(game, position + Vector2(0, 25), shadow_radii)
+	draw_soft_shadow(game,position+GROUND_OFFSET,shadow_radii)
 	if moving:
-		var destination := Rect2(position - Vector2(size.x * 0.5, size.y * 0.68), size)
+		var destination:=actor_rect(position,size)
 		var world_transform: Vector2 = -game.camera_offset
 		game.draw_set_transform(world_transform + position, 0.0, Vector2.ONE)
 		var local_destination := Rect2(destination.position - position, destination.size)
@@ -70,7 +98,7 @@ static func draw_actor(game: Node2D, texture: Texture2D, position: Vector2, size
 	var motion: Dictionary = game.PresentationSystem.living_motion(animation_time, false, phase)
 	var world_transform: Vector2 = -game.camera_offset
 	game.draw_set_transform(world_transform + position + Vector2(motion.offset), float(motion.rotation), motion.scale)
-	game.draw_texture_rect_region(texture, Rect2(Vector2(-size.x * 0.5, -size.y * 0.68), size), source_rect(texture, direction, animation_time, false), modulate)
+	game.draw_texture_rect_region(texture, actor_rect(Vector2.ZERO,size), source_rect(texture, direction, animation_time, false), modulate)
 	game.draw_set_transform(world_transform, 0.0, Vector2.ONE)
 
 

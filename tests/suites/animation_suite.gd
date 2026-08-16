@@ -24,18 +24,20 @@ func test_animation_frame_modes() -> void:
 	game.free()
 
 
-## Сценарий: главный герой умеренно увеличен относительно прежней версии, но остаётся меньше жителей и дверей.
-## Исходное состояние: базовый авторский размер героя равен 86×86, а игровой масштаб задан одной общей константой.
-## Ожидаемый результат: герой, его тень и предмет в руке используют увеличенный масштаб 92%, при этом физическая коллизия не меняется.
+## Сценарий: герой, жители и напарники используют утверждённые модульные рамки с общей точкой ног.
+## Исходное состояние: все люди загружают строгие восьминаправленные атласы и не меняют физику героя.
+## Ожидаемый результат: герой занимает 72×96, остальные 96×96, предмет и тень согласованы с профилем.
 func test_hero_visual_scale_matches_world_proportions() -> void:
 	var game := make_game()
 	var characters = game.DirectionalCharacterSystem
-	expect(is_equal_approx(characters.HERO_VISUAL_SCALE, 0.92), "hero gains a small readable increase without changing navigation collision")
-	expect(characters.HERO_DRAW_SIZE == Vector2(79.12, 79.12), "hero draw size stays below doors and nearby village residents")
-	expect(characters.HERO_SHADOW_RADII == Vector2(16.56, 5.52), "hero shadow follows the enlarged visual footprint")
+	expect(characters.profiles_are_valid(), "all human profiles use strict eight-direction atlases and modular frames")
+	expect(characters.HERO_DRAW_SIZE==Vector2(72,96) and characters.NPC_DRAW_SIZE==Vector2(96,96) and characters.COMPANION_DRAW_SIZE==Vector2(96,96), "hero residents and companions use approved 72/96 px classes")
+	expect(characters.actor_rect(Vector2(200,200),characters.HERO_DRAW_SIZE).end.y==224.0 and characters.actor_rect(Vector2(200,200),characters.NPC_DRAW_SIZE).end.y==224.0, "different human frames share the exact same foot anchor")
+	expect(characters.HERO_SHADOW_RADII == Vector2(18,6), "hero shadow follows the modular visual footprint")
 	var held_item: Rect2 = game.WorldPolishRenderer.held_weapon_destination(Vector2.ZERO, Vector2.RIGHT, false, characters.HERO_VISUAL_SCALE)
-	expect(held_item.size == Vector2(44.16, 44.16), "held equipment grows together with the hero without covering the body")
+	expect(held_item.size == Vector2(48,48), "held equipment uses one complete hand module without fractional scaling")
 	expect(game.PLAYER_RADIUS == 18.0, "visual resizing does not silently alter navigation and interaction collision")
+	var preview:=Image.load_from_file(ProjectSettings.globalize_path("res://assets/generated/level_drafts/characters_ingame_preview.png")); expect(preview!=null and preview.get_size()==Vector2i(1152,648),"human profile migration keeps a current native gameplay preview")
 	game.free()
 
 

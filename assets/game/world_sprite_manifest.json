@@ -32,6 +32,7 @@
     "assets/generated/level_drafts/environment_%s_ingame_preview.png"
     ,"assets/generated/level_drafts/farm_life_ingame_preview.png"
     ,"assets/generated/level_drafts/world_loot_ingame_preview.png"
+    ,"assets/generated/level_drafts/characters_ingame_preview.png"
   ],
   "entries": [
     {
@@ -434,14 +435,14 @@
       ],
       "render_owner": "DirectionalCharacterSystem",
       "source_layout": "4×8 кадров по 222×222",
-      "runtime_sizes": ["79.12×79.12", "96×96", "100×100"],
+      "runtime_sizes": ["72×96", "96×96"],
       "target_modules": ["72×96", "96×96"],
-      "anchor": "нижняя точка ног",
+      "anchor": "общая нижняя точка ног на 24 px ниже логической позиции для героя, жителей и напарников",
       "collision": "круг героя 18 px; NPC не блокируют движение",
-      "status": "migration",
+      "status": "compliant",
       "priority": "P2",
-      "debt": "Направления и анимации готовы, но три runtime-профиля не используют общую модульную рамку и визуальная высота героя квадратная.",
-      "done_when": "Герой использует рамку 72×96, жители/напарники — утверждённую 96×96; точка ног одинакова и не меняет игровую коллизию."
+      "debt": "Закрыт: дробный 79.12 и отдельный размер 100 удалены; все десять атласов используют два модульных профиля и общий actor_rect.",
+      "done_when": "Сохраняются рамки героя 72×96 и жителей/напарников 96×96, восемь строк по четыре кадра, общая точка ног и неизменный радиус героя."
     },
     {
       "id": "WS-019",

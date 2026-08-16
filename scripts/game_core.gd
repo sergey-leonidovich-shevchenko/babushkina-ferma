@@ -1,5 +1,4 @@
 extends "res://scripts/game_renderer.gd"
-
 ## Подготавливает узел к работе: создаёт зависимые данные и синхронизирует начальное состояние.
 func _ready() -> void:
 	InputSystem.ensure_default_actions()
@@ -43,17 +42,14 @@ func _ready() -> void:
 		player = Vector2(576, 470)
 		coins = 500
 		skill_levels.leadership = 2
-	if "--animation-preview" in OS.get_cmdline_user_args():
+	if "--animation-preview" in OS.get_cmdline_user_args() or "--capture-characters" in OS.get_cmdline_user_args():
 		language_screen = false
 		title_screen = false
 		current_location = "overworld"
-		player = Vector2(700, 560)
-		npc_position = Vector2(520, 540)
-		guild_master_position = Vector2(700, 500)
-		herbalist_position = Vector2(880, 540)
-		recruited_companions.assign(["mila", "borislav"])
-		active_companions.assign(["mila", "borislav"])
-		companion_positions = {"mila":Vector2(620, 650), "borislav":Vector2(780, 650)}
+		player=Vector2(700,850); npc_position=Vector2(500,810); guild_master_position=Vector2(650,790); herbalist_position=Vector2(830,810)
+		recruited_companions.assign(["mila","borislav","luna"]); active_companions.assign(["mila","borislav","luna"])
+		companion_positions={"mila":Vector2(560,930),"borislav":Vector2(700,930),"luna":Vector2(840,930)}
+		if "--capture-characters" in OS.get_cmdline_user_args(): enemy_nodes=[]; hazard_nodes=[]; wildlife_nodes=[]; set_meta("capture_character_frames",8); set_meta("capture_first_level_clean",true)
 	if "--enemy-levels-preview" in OS.get_cmdline_user_args():
 		configure_enemy_levels_preview()
 	if "--enemy-animations-preview" in OS.get_cmdline_user_args():
@@ -85,8 +81,7 @@ func _ready() -> void:
 	if "--first-level-preview" in OS.get_cmdline_user_args() or "--capture-first-level" in OS.get_cmdline_user_args(): language_screen=false; title_screen=false; current_location="overworld"; player=Vector2(1160,650); tutorial_visible=false
 	if "--capture-first-level" in OS.get_cmdline_user_args(): set_meta("capture_first_level_frames", 6); set_meta("capture_first_level_clean", true)
 	if "--water-navigation-preview" in OS.get_cmdline_user_args() or "--capture-water-navigation" in OS.get_cmdline_user_args(): WaterVisualSystem.configure_navigation_preview(self)
-	BuildingVisualSystem.configure_from_arguments(self,OS.get_cmdline_user_args())
-	EnvironmentVisualSystem.configure_from_arguments(self,OS.get_cmdline_user_args())
+	BuildingVisualSystem.configure_from_arguments(self,OS.get_cmdline_user_args()); EnvironmentVisualSystem.configure_from_arguments(self,OS.get_cmdline_user_args())
 	FarmLifeVisualSystem.configure_preview(self,OS.get_cmdline_user_args()); WorldLootRenderer.configure_preview(self,OS.get_cmdline_user_args())
 	if "--cave-preview" in OS.get_cmdline_user_args() or "--capture-cave" in OS.get_cmdline_user_args(): CaveVisualSystem.configure_preview(self); if "--capture-cave" in OS.get_cmdline_user_args(): set_meta("capture_cave_frames",6)
 	if "--tree-stages-preview" in OS.get_cmdline_user_args() or "--capture-tree-stages" in OS.get_cmdline_user_args(): TreeSystem.configure_preview(self)
@@ -144,11 +139,11 @@ func _ready() -> void:
 
 ## Сохраняет автоматические игровые скриншоты после нескольких отрисованных кадров в режимах визуальной проверки.
 func _process(_delta: float) -> void:
-	LevelEditorSystem.update_export_capture(self)
-	if EnvironmentVisualSystem.update_preview_capture(self): return
+	LevelEditorSystem.update_export_capture(self); if EnvironmentVisualSystem.update_preview_capture(self): return
 	if BuildingVisualSystem.update_preview_capture(self): return
 	if FarmLifeVisualSystem.update_preview_capture(self): return
 	if WorldLootRenderer.update_preview_capture(self): return
+	if DirectionalCharacterSystem.update_preview_capture(self): return
 	if WaterVisualSystem.update_preview_capture(self): return
 	if CaveVisualSystem.update_preview_capture(self): return
 	if TreeSystem.update_preview_capture(self): return

@@ -1,7 +1,5 @@
 extends RefCounted
 
-const ACTOR_SIZE := Vector2(96, 96)
-const COMPANION_SIZE := Vector2(100, 100)
 const DROP_SIZE := Vector2(44, 44)
 
 
@@ -99,7 +97,7 @@ static func add(result: Array[Dictionary], id: String, category: String, name: S
 ## Добавляет героя с текущими RPG-ресурсами, направлением, движением и радиусом физики.
 static func append_player(game: Node, result: Array[Dictionary]) -> void:
 	var size: Vector2 = game.DirectionalCharacterSystem.HERO_DRAW_SIZE
-	var bounds := actor_bounds(game.player, size)
+	var bounds:Rect2=game.DirectionalCharacterSystem.actor_rect(game.player,size)
 	var moving: bool = game.get_movement_direction() != Vector2.ZERO
 	add(result, "player", "ГЕРОЙ", String(game.state.player.profile.get("name", "Герой")), game.player, bounds, 120, "круг r%.0f · твёрдый" % game.PLAYER_RADIUS, "жив · %s" % ("идёт" if moving else "стоит"), [
 		"HP %d/%d · MP %d/%d · EN %d/%d" % [game.player_hp,game.player_max_hp,game.player_mana,game.player_max_mana,game.energy,game.SkillSystem.max_stamina(game)],
@@ -241,7 +239,7 @@ static func append_npcs(game: Node, result: Array[Dictionary]) -> void:
 		if String(actor.get("location","")) != game.current_location: continue
 		var name: String = game.LocaleSystem.entity("grandmother") if actor_id == "grandmother" else game.QuestSystem.npc_name(actor_id)
 		var missions: Array = [] if actor_id == "grandmother" else game.QuestSystem.NPCS.get(actor_id,{}).get("missions",[])
-		add(result, "npc:%s" % actor_id, "NPC", name, actor.position, actor_bounds(actor.position,ACTOR_SIZE), 100, "нет · диалог", String(actor.get("schedule","без расписания")), [
+		add(result, "npc:%s" % actor_id, "NPC", name, actor.position, game.DirectionalCharacterSystem.actor_rect(actor.position,game.DirectionalCharacterSystem.NPC_DRAW_SIZE), 100, "нет · диалог", String(actor.get("schedule","без расписания")), [
 			"home %.0f / %.0f · %s" % [actor.home.x,actor.home.y,actor.home_location],
 			"dir %.2f / %.2f · moving %s" % [actor.direction.x,actor.direction.y,str(actor.moving)],
 			"миссии %s" % (", ".join(missions) if not missions.is_empty() else "обучение"),
@@ -255,7 +253,7 @@ static func append_companions(game: Node, result: Array[Dictionary]) -> void:
 		if not visible: continue
 		var data: Dictionary = game.CompanionSystem.COMPANIONS[companion_id]
 		var position: Vector2 = data.position if game.current_location == "prison_interior" else game.companion_positions.get(companion_id,game.player)
-		add(result, "companion:%s" % companion_id, "НАПАРНИК", game.CompanionSystem.name(game,companion_id), position, actor_bounds(position,COMPANION_SIZE), 105, "нет · союзник", "активен" if companion_id in game.active_companions else ("нанят" if companion_id in game.recruited_companions else "заключён"), [
+		add(result, "companion:%s" % companion_id, "НАПАРНИК", game.CompanionSystem.name(game,companion_id), position, game.DirectionalCharacterSystem.actor_rect(position,game.DirectionalCharacterSystem.COMPANION_DRAW_SIZE), 105, "нет · союзник", "активен" if companion_id in game.active_companions else ("нанят" if companion_id in game.recruited_companions else "заключён"), [
 			"урон %d · защита %d · лечение %d" % [data.damage,data.defense,data.heal],
 			"лидерство %d · цена %d" % [data.leadership,data.price],
 			"приказ %s" % game.state.player.companion_command,
