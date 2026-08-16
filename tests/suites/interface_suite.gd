@@ -18,6 +18,7 @@ func run() -> void:
 	test_sprite_cards_and_action_controls_use_sliced_atlases()
 	test_touch_controls_follow_last_input_device()
 	test_hotbar_readiness_and_hud_feedback_animations()
+	test_ui_feedback_transitions_focus_press_particles_and_sounds()
 
 
 ## Сценарий: карта, календарь, бестиарий, коллекции и рецепты открываются как вкладки одной энциклопедии.
@@ -55,6 +56,36 @@ func test_world_guide_unifies_map_calendar_bestiary_collections_and_recipes() ->
 		expect(preview != null and preview.get_width() >= 1152 and absf(float(preview.get_width()) / preview.get_height() - 16.0 / 9.0) < 0.01, "%s guide chapter keeps a native-or-larger 16:9 reference" % name)
 	var spell_source := FileAccess.get_file_as_string("res://scripts/systems/spell_renderer.gd")
 	expect(spell_source.contains("game.world_map_open"), "world-only spell hint stays hidden behind the encyclopedia")
+	game.free()
+
+
+## Сценарий: открытие окна, смена фокуса, нажатие и возврат используют единое семейство визуального и звукового отклика.
+## Исходное состояние: новая игра с включённым звуком, обычной анимацией и пустым runtime-состоянием UI feedback.
+## Ожидаемый результат: переход запускается один раз, фокус не звенит повторно, кнопка утопает, частицы затухают, а reduced motion отключает движение.
+func test_ui_feedback_transitions_focus_press_particles_and_sounds() -> void:
+	var game := make_game()
+	var feedback = game.UiFeedbackSystem
+	game.language_screen = false; game.title_screen = false; game.ui_last_layer = "world"; game.world_map_open = true
+	var sound_count: int = game.audio_sfx_count
+	feedback.update(game, 0.01)
+	expect(game.ui_transition_timer > 0.0 and game.audio_sfx_count == sound_count + 1 and game.audio_last_sfx == "ui_open", "opening a modal starts one transition and its quiet opening cue")
+	expect(feedback.focus(game, "guide:1") and not feedback.focus(game, "guide:1"), "focus feedback fires only when the logical control changes")
+	var button: Rect2 = game.WorldMapRenderer.TAB_RECTS[1]
+	feedback.press(game, button)
+	expect(game.ui_pressed_timer > 0.0 and game.ui_particles.size() == 8 and game.audio_last_sfx == "ui_press", "press feedback creates one deterministic eight-spark burst")
+	feedback.update(game, 0.04)
+	var animated: Rect2 = feedback.animated_button_rect(game, button, false)
+	expect(animated.position.y > button.position.y and animated.size.x < button.size.x, "pressed button moves inward without changing its hit zone")
+	feedback.update(game, feedback.PARTICLE_DURATION + 0.01)
+	expect(game.ui_particles.is_empty() and game.ui_pressed_timer == 0.0, "short-lived UI effects are removed after their declared lifetime")
+	game.settings_state.reduced_motion = true
+	feedback.press(game, button)
+	expect(game.ui_particles.is_empty() and game.ui_pressed_timer == 0.0 and feedback.animated_button_rect(game, button, true) == button, "reduced motion preserves sound and state while disabling movement and particles")
+	for sound_id in ["ui_open", "ui_focus", "ui_press", "ui_back"]:
+		expect(ResourceLoader.exists(game.AudioSystem.SFX_PATH % sound_id), "%s has an imported original audio asset" % sound_id)
+	expect(game.AudioSystem.sound_volume_db(game, "ui_press") < game.AudioSystem.sfx_volume_db(game), "UI cues are deliberately quieter than world action effects")
+	var preview := Image.load_from_file(ProjectSettings.globalize_path("res://assets/generated/ui/ui_feedback_ingame_preview.png"))
+	expect(preview != null and preview.get_width() >= 1152 and absf(float(preview.get_width()) / preview.get_height() - 16.0 / 9.0) < 0.01, "UI feedback reference keeps a native-or-larger 16:9 frame")
 	game.free()
 
 

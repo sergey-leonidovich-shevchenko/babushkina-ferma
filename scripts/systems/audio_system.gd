@@ -20,11 +20,12 @@ const SFX_PATH := "res://assets/game/audio/sfx/%s.wav"
 const SFX_IDS := [
 	"hoe", "plant", "water", "harvest", "mine", "chop", "attack", "hit", "defeat",
 	"fish_cast", "fish_bite", "fish_catch", "pickup", "craft", "coin", "quest_accept",
-	"quest_complete", "level_up", "ui_open", "travel",
+	"quest_complete", "level_up", "ui_open", "ui_focus", "ui_press", "ui_back", "travel",
 ]
 const MUSIC_VOLUME_DB := -17.0
 const SFX_VOLUME_DB := -7.0
 const TRAVEL_VOLUME_OFFSET_DB := -4.0
+const UI_VOLUME_OFFSET_DB := -7.0
 const SILENT_DB := -45.0
 const CROSSFADE_SECONDS := 0.8
 const SFX_POOL_SIZE := 6
@@ -176,7 +177,7 @@ static func sfx_volume_db(game: Node) -> float:
 
 ## Возвращает громкость отдельного эффекта и дополнительно смягчает мелодию перехода.
 static func sound_volume_db(game: Node, sound_id: String) -> float:
-	var offset := TRAVEL_VOLUME_OFFSET_DB if sound_id == "travel" else 0.0
+	var offset := TRAVEL_VOLUME_OFFSET_DB if sound_id == "travel" else (UI_VOLUME_OFFSET_DB if sound_id.begins_with("ui_") else 0.0)
 	return maxf(SILENT_DB, sfx_volume_db(game) + offset)
 
 

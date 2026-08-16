@@ -21,6 +21,7 @@ static func toggle(game: Node) -> bool:
 ## Выбирает вкладку энциклопедии по безопасно ограниченному индексу.
 static func set_page(game: Node, page: int) -> int:
 	game.world_guide_page = clampi(page, 0, PAGE_COUNT - 1)
+	game.UiFeedbackSystem.focus(game, "world_guide:%d" % game.world_guide_page)
 	game.queue_redraw()
 	return game.world_guide_page
 
@@ -28,6 +29,7 @@ static func set_page(game: Node, page: int) -> int:
 ## Переключает вкладку по кругу для клавиатуры и плечевых кнопок геймпада.
 static func cycle_page(game: Node, offset: int) -> int:
 	game.world_guide_page = posmod(game.world_guide_page + offset, PAGE_COUNT)
+	game.UiFeedbackSystem.focus(game, "world_guide:%d" % game.world_guide_page)
 	game.queue_redraw()
 	return game.world_guide_page
 
@@ -36,10 +38,10 @@ static func cycle_page(game: Node, offset: int) -> int:
 static func handle_pointer(game: Node, point: Vector2) -> bool:
 	if game.WorldMapRenderer.CLOSE_BUTTON.has_point(point): return toggle(game)
 	var page: int = game.WorldMapRenderer.page_at(point)
-	if page >= 0: set_page(game, page); return true
+	if page >= 0: game.UiFeedbackSystem.press(game, game.WorldMapRenderer.TAB_RECTS[page]); set_page(game, page); return true
 	if game.world_guide_page == 4:
 		var recipe: int = game.WorldMapRenderer.recipe_at(game, point)
-		if recipe >= 0: game.world_guide_selected = recipe; game.queue_redraw(); return true
+		if recipe >= 0: game.UiFeedbackSystem.press(game, game.WorldMapRenderer.recipe_rect_for_index(game, recipe)); game.world_guide_selected = recipe; game.UiFeedbackSystem.focus(game, "recipe:%d" % recipe); game.queue_redraw(); return true
 	return true
 
 
@@ -47,6 +49,7 @@ static func handle_pointer(game: Node, point: Vector2) -> bool:
 static func move_selection(game: Node, offset: int) -> int:
 	if game.world_guide_page != 4: return game.world_guide_selected
 	game.world_guide_selected = posmod(game.world_guide_selected + offset, game.CraftingSystem.RECIPES.size())
+	game.UiFeedbackSystem.focus(game, "recipe:%d" % game.world_guide_selected)
 	game.queue_redraw()
 	return game.world_guide_selected
 

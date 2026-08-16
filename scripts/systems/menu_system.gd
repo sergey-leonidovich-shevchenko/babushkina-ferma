@@ -86,11 +86,13 @@ static func move_selection(game: Node, delta: int, save_path: String = "") -> vo
 		if field != "title_selected" or selected != 0 or has_save(game, save_path):
 			break
 	game.menu_state.set(field, selected)
+	game.UiFeedbackSystem.focus(game, "%s:%d" % [field, selected])
 
 
 ## Выполняет выбранную команду главного меню и возвращает признак успешной операции.
 static func activate_title(game: Node, save_path: String = "") -> bool:
 	var path: String = game.SaveSystem.SAVE_PATH if save_path.is_empty() else save_path
+	game.UiFeedbackSystem.press(game, game.MenuRenderer.title_item_rect(game.menu_state.title_selected))
 	match TITLE_ITEMS[game.menu_state.title_selected]:
 		"continue_game":
 			if not game.SaveSystem.load_at(game, path):
@@ -109,6 +111,7 @@ static func activate_title(game: Node, save_path: String = "") -> bool:
 ## Выполняет выбранную команду паузы, используя атомарные сохранение и загрузку.
 static func activate_pause(game: Node, save_path: String = "") -> bool:
 	var path: String = game.SaveSystem.SAVE_PATH if save_path.is_empty() else save_path
+	game.UiFeedbackSystem.press(game, game.MenuRenderer.pause_item_rect(game.menu_state.pause_selected))
 	match PAUSE_ITEMS[game.menu_state.pause_selected]:
 		"resume": resume(game)
 		"save_game":
@@ -224,11 +227,13 @@ static func move_settings_selection(game: Node, delta: int) -> void:
 	if row < 0: row = 5; column = posmod(column - 1, 2)
 	elif row > 5: row = 0; column = (column + 1) % 2
 	game.menu_state.settings_selected = row * 2 + column
+	game.UiFeedbackSystem.focus(game, "settings:%d" % game.menu_state.settings_selected)
 
 
 ## Изменяет выбранный параметр на один шаг, сразу применяет и сохраняет результат.
 static func adjust_setting(game: Node, direction: int, path: String = "", apply_display: bool = true) -> void:
 	var settings_path: String = game.SettingsSystem.SETTINGS_PATH if path.is_empty() else path
+	game.UiFeedbackSystem.press(game, game.MenuRenderer.settings_item_rect(game.menu_state.settings_selected))
 	match SETTING_ITEMS[game.menu_state.settings_selected]:
 		"master_volume": game.settings_state.master_volume = clampf(game.settings_state.master_volume + direction * game.SettingsSystem.VOLUME_STEP, 0.0, 1.0)
 		"music_volume": game.settings_state.music_volume = clampf(game.settings_state.music_volume + direction * game.SettingsSystem.VOLUME_STEP, 0.0, 1.0)

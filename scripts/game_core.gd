@@ -206,7 +206,7 @@ func configure_moon_glade_preview() -> void:
 
 ## Выполняет один физический кадр и обновляет активные игровые системы в заданном порядке.
 func _physics_process(delta: float) -> void:
-	AudioSystem.update(self, delta); update_hud_feedback(delta)
+	AudioSystem.update(self, delta); update_hud_feedback(delta); UiFeedbackSystem.update(self, delta)
 	if LevelEditorSystem.active(self): queue_redraw(); return
 	FenceSystem.update(self,delta)
 	DebugOverlaySystem.update(self, delta); delta = DebugOverlaySystem.simulation_delta(self, delta); if delta <= 0.0: queue_redraw(); return

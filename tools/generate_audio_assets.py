@@ -172,6 +172,9 @@ def main() -> None:
     sfx("quest_complete", 0.85, [(523, 784, 0.11, "triangle"), (659, 988, 0.08, "sine")], 0.0, 17)
     sfx("level_up", 0.80, [(392, 1175, 0.11, "triangle"), (523, 1568, 0.07, "sine")], 0.0, 18)
     sfx("ui_open", 0.16, [(420, 620, 0.10, "square")], 0.0, 19)
+    sfx("ui_focus", 0.085, [(610, 720, 0.055, "sine")], 0.0, 22)
+    sfx("ui_press", 0.14, [(520, 390, 0.065, "triangle"), (780, 660, 0.025, "sine")], 0.0, 23)
+    sfx("ui_back", 0.18, [(560, 360, 0.055, "sine")], 0.0, 24)
     melodic_transition("travel")
 
 

@@ -5,9 +5,9 @@ const FishingRenderer := preload("res://scripts/systems/fishing_renderer.gd")
 ## Координирует отрисовку текущего состояния без изменения игровой логики.
 static func draw(game: Node2D) -> void:
 	if game.language_screen:
-		game.draw_language_screen(); return
+		game.draw_language_screen(); game.UiFeedbackRenderer.draw(game); return
 	if game.title_screen:
-		game.draw_title_screen(); return
+		game.draw_title_screen(); game.UiFeedbackRenderer.draw(game); return
 	game.draw_set_transform(-game.camera_offset + game.AdventurePolishSystem.shake_offset(game))
 	if game.BuildingSystem.is_interior(game.current_location):
 		game.draw_interior_objects()
@@ -29,3 +29,4 @@ static func draw(game: Node2D) -> void:
 		game.DebugPlaygroundRenderer.draw_overlay(game); game.DebugOverlayRenderer.draw_panel(game)
 	if not clean_level_capture: game.LevelEditorRenderer.draw_panel(game)
 	if game.menu_state.pause_open or game.menu_state.settings_open or game.menu_state.defeat_open: game.MenuRenderer.draw_pause_layer(game)
+	game.UiFeedbackRenderer.draw(game)

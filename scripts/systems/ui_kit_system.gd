@@ -1,5 +1,7 @@
 extends RefCounted
 
+const UiFeedbackSystem := preload("res://scripts/systems/ui_feedback_system.gd")
+
 const TEXTURES := {
 	"panel_large": preload("res://assets/game/ui/kit_v1/panel_large.png"),
 	"panel_medium": preload("res://assets/game/ui/kit_v1/panel_medium.png"),
@@ -77,6 +79,7 @@ static func draw_panel(canvas: CanvasItem, rect: Rect2, large: bool = true) -> v
 
 ## Рисует кнопку с внутренним светом фокуса и спокойным disabled-состоянием без внешней рамки.
 static func draw_button(canvas: CanvasItem, rect: Rect2, selected: bool, enabled: bool, reduced_motion: bool = false, milliseconds: int = 0) -> void:
+	rect = UiFeedbackSystem.animated_button_rect(canvas, rect, reduced_motion)
 	var component := "button_selected" if selected and enabled else "button_normal"
 	draw_nine_patch(canvas, component, rect)
 	if selected and enabled and not reduced_motion:

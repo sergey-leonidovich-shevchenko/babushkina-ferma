@@ -23,6 +23,7 @@ static func close_active(game: Node) -> bool:
 	if not is_open(game): return false
 	game.inventory_open = false; game.shop_open = false; game.crafting_open = false; game.storage_open = false; game.forge_open = false
 	game.inventory_move_from = -1
+	game.UiFeedbackSystem.back(game)
 	game.queue_redraw()
 	return true
 

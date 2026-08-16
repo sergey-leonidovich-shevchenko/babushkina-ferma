@@ -182,6 +182,13 @@ static func recipe_row_rect(visible_index: int) -> Rect2:
 	return Rect2(82, 174 + visible_index * 43, 450, 39)
 
 
+## Возвращает экранную область фактического рецепта внутри текущего прокрученного окна.
+static func recipe_rect_for_index(game: Node, recipe_index: int) -> Rect2:
+	var selected := clampi(game.world_guide_selected, 0, game.CraftingSystem.RECIPES.size() - 1)
+	var first := clampi(selected - 4, 0, maxi(0, game.CraftingSystem.RECIPES.size() - 9))
+	return recipe_row_rect(recipe_index - first)
+
+
 ## Находит фактический индекс рецепта под указателем с учётом текущего окна прокрутки.
 static func recipe_at(game: Node, point: Vector2) -> int:
 	var selected := clampi(game.world_guide_selected, 0, game.CraftingSystem.RECIPES.size() - 1)

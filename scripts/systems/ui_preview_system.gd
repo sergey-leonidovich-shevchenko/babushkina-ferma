@@ -19,6 +19,13 @@ static func configure(game: Node) -> void:
 		game.language_screen = false; game.title_screen = false; game.current_location = "overworld"; game.tutorial_visible = false
 		game.set_meta("capture_hud_clean", true); game.MenuSystem.open_defeat(game, "Пират-призрак", 5); game.set_meta("capture_ui_frames", 6); game.set_meta("capture_ui_output", "res://assets/generated/ui/defeat_ingame_preview.png")
 		return
+	if "--capture-ui-feedback" in arguments:
+		game.language_screen = false; game.title_screen = false; game.current_location = "overworld"
+		game.MenuSystem.open_pause(game); game.MenuSystem.open_settings(game, false); game.menu_state.settings_selected = 7
+		game.ui_last_layer = "settings"; game.ui_transition_timer = game.UiFeedbackSystem.TRANSITION_DURATION
+		game.UiFeedbackSystem.press(game, game.MenuRenderer.settings_item_rect(game.menu_state.settings_selected))
+		game.set_meta("capture_ui_frames", 4); game.set_meta("capture_ui_output", "res://assets/generated/ui/ui_feedback_ingame_preview.png")
+		return
 	if not ("--settings-preview" in arguments or "--capture-settings" in arguments): return
 	game.language_screen = false
 	game.title_screen = false
