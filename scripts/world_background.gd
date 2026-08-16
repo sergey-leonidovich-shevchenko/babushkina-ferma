@@ -8,7 +8,6 @@ const GRASS_TILE_VARIANT_1 := preload("res://assets/game/tiles/grass_var_1.png")
 const GRASS_TILE_VARIANT_2 := preload("res://assets/game/tiles/grass_var_2.png")
 const RED_MUSHROOMS := preload("res://assets/game/environment/red_mushrooms.png")
 const CAVE_CRYSTAL := preload("res://assets/game/environment/cave_crystal.png")
-const ROAD_TILE := preload("res://assets/game/tiles/road-brick.png")
 const CAVE_FLOOR_TILE := preload("res://assets/game/tiles/cave-floor.png")
 const WATER_TILE := preload("res://assets/game/fishing/Water Tile.png")
 const BRIDGES := preload("res://assets/game/environment/bridges.png")
@@ -20,6 +19,7 @@ const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
 const BuildingSystem := preload("res://scripts/systems/building_system.gd")
 const VillageLayoutSystem := preload("res://scripts/systems/village_layout_system.gd")
 const FirstLevelArtSystem := preload("res://scripts/systems/first_level_art_system.gd")
+const RoadVisualSystem := preload("res://scripts/systems/road_visual_system.gd")
 const PirateShipRenderer := preload("res://scripts/systems/pirate_ship_renderer.gd")
 const VisualAssetSystem := preload("res://scripts/systems/visual_asset_system.gd")
 const CaveVisualSystem := preload("res://scripts/systems/cave_visual_system.gd")
@@ -120,9 +120,14 @@ func _grass_variant(col: int, row: int) -> Texture2D:
 func draw_overworld_tile_grid(palette: Dictionary) -> void:
 	var tile_size: int = VillageLayoutSystem.OVERWORLD_TILE_SIZE
 	var tile_count: Vector2i = VillageLayoutSystem.OVERWORLD_TILE_COUNT
+	var road_cells: Dictionary={}
 	for row in range(tile_count.y):
 		for col in range(tile_count.x):
-			var tile_type := VillageLayoutSystem.overworld_tile(Vector2i(col, row), season)
+			var cell:=Vector2i(col,row)
+			if VillageLayoutSystem.overworld_tile(cell,season)==VillageLayoutSystem.OVERWORLD_TILE_ROAD: road_cells[cell]=true
+	for row in range(tile_count.y):
+		for col in range(tile_count.x):
+			var cell:=Vector2i(col,row); var tile_type:=VillageLayoutSystem.overworld_tile(cell,season)
 			var destination := Rect2(Vector2(col * tile_size, row * tile_size), Vector2(tile_size, tile_size))
 			match tile_type:
 				VillageLayoutSystem.OVERWORLD_TILE_GRASS:
@@ -131,7 +136,7 @@ func draw_overworld_tile_grid(palette: Dictionary) -> void:
 					tint = tint.lerp(palette.grass_light, clamp(wave, 0.0, 0.25))
 					draw_texture_rect(_grass_variant(col, row), destination, false, tint)
 				VillageLayoutSystem.OVERWORLD_TILE_ROAD:
-					draw_texture_rect(ROAD_TILE, destination, false, palette.path.darkened(0.1))
+					RoadVisualSystem.draw_module(self,RoadVisualSystem.FAMILY_STONE,cell,RoadVisualSystem.neighbor_mask(cell,road_cells),palette.path.darkened(0.1))
 				VillageLayoutSystem.OVERWORLD_TILE_FARM:
 					draw_texture_rect(CAVE_FLOOR_TILE, destination, true, palette.grass_light.darkened(0.15))
 				VillageLayoutSystem.OVERWORLD_TILE_WATER:
@@ -264,7 +269,7 @@ func draw_village_prop(prop: Dictionary) -> void:
 func draw_village_path(rect: Rect2) -> void:
 	draw_rect(rect.grow(6), Color("8e704f"))
 	draw_rect(rect, Color("b69062"))
-	draw_texture_rect(ROAD_TILE, rect.grow(-5), true, Color(1, 1, 1, 0.38))
+	draw_texture_rect(RoadVisualSystem.texture(RoadVisualSystem.FAMILY_STONE,"cross"),rect.grow(-5),true,Color(1,1,1,0.38))
 
 ## Рисует ограду двора, оставляя у указанной точки свободную калитку.
 func draw_fence(rect: Rect2, gate: Vector2) -> void:

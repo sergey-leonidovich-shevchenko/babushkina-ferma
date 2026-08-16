@@ -3,10 +3,12 @@ extends "res://tests/suites/suite_base.gd"
 const VillageLayoutSystem := preload("res://scripts/systems/village_layout_system.gd")
 const FirstLevelArtSystem := preload("res://scripts/systems/first_level_art_system.gd")
 const VillageAmbientRenderer := preload("res://scripts/systems/village_ambient_renderer.gd")
+const RoadVisualSystem := preload("res://scripts/systems/road_visual_system.gd")
 
 ## Запускает все сценарии текущего набора тестов в фиксированном порядке.
 func run() -> void:
 	test_first_level_master_is_sliced_into_a_seamless_world_grid()
+	test_modular_road_catalog_builds_connected_first_location_routes()
 	test_first_location_has_clear_functional_zones()
 	test_village_hybrid_layout_layers_and_navigation()
 	test_bridge_render_data_and_discovery_covers_both_crossings()
@@ -32,6 +34,34 @@ func test_first_level_master_is_sliced_into_a_seamless_world_grid() -> void:
 	expect(FirstLevelArtSystem.world_rect(Vector2i(99, 49)) == Rect2(2376, 1176, 24, 24), "last playable sprite closes the lower-right world corner")
 	var mapped_center := FirstLevelArtSystem.source_to_world(Vector2(1200, 600))
 	expect(mapped_center == Vector2(1200, 600), "master center maps to the center of the playable world")
+
+
+## Сценарий: первая локация собирает живые дороги из полного набора отдельных тайлов 24×24.
+## Исходное состояние: девять маршрутов деревни образуют одну сеть, а dirt/stone каталоги содержат прямые, углы, T/X, окончания и травяные переходы.
+## Ожидаемый результат: все модули crop-safe, шестнадцать масок разрешаются, сеть четырёхсвязна и её честный проход шире двух базовых клеток.
+func test_modular_road_catalog_builds_connected_first_location_routes() -> void:
+	expect(RoadVisualSystem.MODULES.size()==2 and RoadVisualSystem.MODULE_KINDS.size()==6, "road catalog owns complete dirt and stone families")
+	for family in RoadVisualSystem.MODULES:
+		for kind in RoadVisualSystem.MODULE_KINDS:
+			var texture: Texture2D = RoadVisualSystem.texture(family,kind); var image:=texture.get_image()
+			expect(texture.get_size()==Vector2(24,24) and image.get_pixel(0,0).a>0.99 and image.get_pixel(23,23).a>0.99, "%s %s is an opaque crop-safe 24 px module"%[family,kind])
+	for mask in 16:
+		var variant: Dictionary=RoadVisualSystem.variant_for_mask(mask)
+		expect(String(variant.kind) in RoadVisualSystem.MODULE_KINDS and fmod(absf(float(variant.rotation)),PI*0.5)<0.001, "road neighbor mask %d resolves to a canonical quarter-turn module"%mask)
+	var cells:Dictionary=RoadVisualSystem.route_cells(VillageLayoutSystem.PATHS); var start:Vector2i=cells.keys()[0]; var visited:Dictionary={start:true}; var frontier:Array[Vector2i]=[start]
+	while not frontier.is_empty():
+		var cell:Vector2i=frontier.pop_front()
+		for direction in RoadVisualSystem.DIRECTIONS:
+			var neighbor: Vector2i=cell+Vector2i(direction)
+			if cells.has(neighbor) and not visited.has(neighbor): visited[neighbor]=true; frontier.append(neighbor)
+	expect(cells.size()>180 and visited.size()==cells.size(), "rasterized village road network is dense and four-connected without diagonal gaps")
+	for path in VillageLayoutSystem.PATHS:
+		expect(cells.has(RoadVisualSystem.world_cell(path[0])) and cells.has(RoadVisualSystem.world_cell(path.back())), "road network preserves every authored route endpoint")
+	expect(RoadVisualSystem.profile().visual_size==Vector2(24,24) and float(RoadVisualSystem.profile().navigation_half_width)*2.0>=48.0, "road profile shares the base grid while navigation keeps a two-cell-wide readable corridor")
+	var background_source:=FileAccess.get_file_as_string("res://scripts/world_background.gd")
+	expect(background_source.contains("RoadVisualSystem.draw_module") and background_source.contains("RoadVisualSystem.neighbor_mask") and not background_source.contains("road-brick.png"), "runtime procedural locations consume connected modular roads while the painted first-location master avoids a duplicated tile overlay")
+	var preview: Texture2D=load("res://assets/generated/level_drafts/first_level_ingame_preview.png")
+	expect(preview!=null and preview.get_size()==Vector2(1152,648), "road migration keeps a current native gameplay preview for visual seam review")
 
 ## Сценарий: первая локация разделена на двор, площадь и дикую окраину без перекрытий ключевых объектов.
 ## Исходное состояние: новая игра с исходными координатами зданий, персонажей, растений и ресурсов.

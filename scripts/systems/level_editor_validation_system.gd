@@ -1,5 +1,7 @@
 extends RefCounted
 
+const RoadVisualSystem := preload("res://scripts/systems/road_visual_system.gd")
+
 const DIRECTIONS := [Vector2i(0,-1),Vector2i(1,0),Vector2i(0,1),Vector2i(-1,0)]
 const DIRECTION_BITS := [1,2,4,8]
 
@@ -52,12 +54,7 @@ static func _water_variant_for_mask(mask: int, cell: Vector2i) -> Dictionary:
 
 ## Выбирает канонический модуль и поворот по четырём битам N/E/S/W.
 static func _variant_for_mask(mask: int) -> Dictionary:
-	if mask==15: return {"kind":"cross","rotation":0.0}
-	if mask in [7,11,13,14]: return {"kind":"t_junction","rotation":{11:0.0,7:PI*0.5,14:PI,13:-PI*0.5}[mask]}
-	if mask in [3,6,9,12]: return {"kind":"corner","rotation":{3:0.0,6:PI*0.5,12:PI,9:-PI*0.5}[mask]}
-	if mask==5: return {"kind":"vertical","rotation":0.0}
-	if mask==10: return {"kind":"horizontal","rotation":0.0}
-	return {"kind":"end","rotation":{0:0.0,1:0.0,2:PI*0.5,4:PI,8:-PI*0.5}.get(mask,0.0)}
+	return RoadVisualSystem.variant_for_mask(mask)
 
 
 ## Проверяет структуру черновика, ресурсы, дубликаты клеток и опасные параметры перед экспортом.
