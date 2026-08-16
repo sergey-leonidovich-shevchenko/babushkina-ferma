@@ -142,6 +142,7 @@ static func draw_collections(game: Node2D) -> void:
 		var rect := Rect2(82 + (index % 4) * 249, 204 + (index / 4) * 120, 234, 104)
 		UiKitSystem.draw_panel(game, rect, false)
 		var record := int(game.state.fishing.best_sizes.get(fish.id, 0))
+		var catch_count := int(game.state.fishing.catch_counts.get(fish.id, 0)); var best_quality := String(game.state.fishing.best_qualities.get(fish.id, "normal"))
 		var icon_rect := UiKitSystem.draw_slot(game, Rect2(rect.position + Vector2(12, 18), Vector2(64, 64)), record > 0)
 		game.draw_item_icon("fish", icon_rect)
 		game.draw_ui_string(game.UI_FONT, rect.position + Vector2(84, 33), game.LocaleSystem.text(String(fish.name_key)) if record > 0 else "???", HORIZONTAL_ALIGNMENT_LEFT, 136, 11, Color("fff0cf"))
@@ -149,8 +150,9 @@ static func draw_collections(game: Node2D) -> void:
 		var seasons: Array = fish.get("seasons", [])
 		var condition_parts: Array[String] = []
 		for season in seasons: condition_parts.append(game.LocaleSystem.ui("season_" + String(season)).left(3).to_upper())
-		var condition := " • ".join(condition_parts)
-		game.draw_ui_string(game.UI_FONT, rect.position + Vector2(84, 79), condition if not condition.is_empty() else game.LocaleSystem.ui("guide_all_year"), HORIZONTAL_ALIGNMENT_LEFT, 136, 7, Color("bca57c"))
+		var condition := " • ".join(condition_parts); var habitat_text: String = condition if not condition.is_empty() else game.LocaleSystem.ui("guide_all_year")
+		var detail_text: String = game.LocaleSystem.text("fish_collection_stats", [catch_count, game.LocaleSystem.text("quality_" + best_quality)]) + " • " + habitat_text if record > 0 else habitat_text
+		game.draw_ui_string(game.UI_FONT, rect.position + Vector2(84, 79), detail_text, HORIZONTAL_ALIGNMENT_LEFT, 136, 7, Color("bca57c"))
 
 
 ## Рисует прокручиваемый справочник рецептов и подробности выбранного результата без возможности крафта.

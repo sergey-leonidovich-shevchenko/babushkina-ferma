@@ -21,7 +21,7 @@ static func draw_world(game: Node) -> void:
 
 ## Отрисовывает выбранное заклинание, стоимость, перезарядку и две сенсорные кнопки.
 static func draw_ui(game: Node) -> void:
-	if game.inventory_open or game.shop_open or game.quest_log_open or game.world_map_open or game.skill_menu_open or game.crafting_open or game.storage_open or game.forge_open or game.AdventurePolishSystem.has_modal(game) or game.FirstChapterSystem.modal_active(game): return
+	if game.inventory_open or game.shop_open or game.quest_log_open or game.world_map_open or game.skill_menu_open or game.crafting_open or game.storage_open or game.forge_open or game.AdventurePolishSystem.has_modal(game) or game.FirstChapterSystem.modal_active(game) or game.state.fishing.phase != game.FishingSystem.PHASE_IDLE: return
 	var spell:Dictionary=game.SpellSystem.selected(game); var cooldown:float=game.SpellSystem.selected_cooldown(game); var rect:=Rect2(930,500,198,42); game.draw_rect(rect,Color(0.08,0.10,0.18,0.88)); game.draw_rect(rect,Color("7aa9d8"),false,2.0)
 	game.draw_ui_string(game.UI_FONT,rect.position+Vector2(8,18),"%s %s"%[spell.icon,game.SpellSystem.word(game,String(spell.id))],HORIZONTAL_ALIGNMENT_LEFT,146,11,Color("d9edff")); game.draw_ui_string(game.UI_FONT,rect.position+Vector2(8,35),"C • %d MP%s"%[spell.cost," • %.1f"%cooldown if cooldown>0.0 else ""],HORIZONTAL_ALIGNMENT_LEFT,180,10,Color("9fc8ef"))
 	if game.touch_controls_visible:

@@ -4,7 +4,9 @@ extends "res://tests/suites/suite_base.gd"
 ## Запускает сценарии полного цикла, физики, наград, сохранения и устройств управления рыбалкой.
 func run() -> void:
 	test_cast_release_hook_and_miss()
+	test_cast_depth_hook_grade_and_weighted_ecology()
 	test_bar_inertia_and_fish_behaviors()
+	test_control_streak_line_tension_and_mastery_statistics()
 	test_season_weather_and_night_ecology()
 	test_progress_tutorial_escape_and_success()
 	test_quality_treasure_and_collection_save()
@@ -22,11 +24,34 @@ func test_cast_release_hook_and_miss() -> void:
 	expect(game.state.fishing.cast_power > 0.45, "held action immediately builds cast power")
 	game.action_held = false; game.update_fishing(0.01)
 	expect(game.state.fishing.phase == game.FishingSystem.PHASE_WAITING, "release casts the line")
+	expect(game.state.fishing.water_kind == "pond" and game.FishingSystem.bobber_position(game).distance_to(game.player) > 60.0, "cast records pond habitat and places a visible bobber away from the player")
 	game.state.fishing.timer = 0.0; game.update_fishing(0.01)
 	expect(game.state.fishing.phase == game.FishingSystem.PHASE_BITE, "bite opens a bounded hook window")
 	expect(game.use_fishing_rod() and game.state.fishing.phase == game.FishingSystem.PHASE_MINIGAME, "timely hook starts the minigame")
 	game.state.fishing.phase = game.FishingSystem.PHASE_BITE; game.state.fishing.timer = 0.01; game.update_fishing(0.02)
 	expect(game.state.fishing.phase == game.FishingSystem.PHASE_IDLE, "expired hook window resets fishing")
+	game.free()
+	var cancelled := _fishing_game(); cancelled.action_held = true; cancelled.use_fishing_rod(); cancelled.update_fishing(0.4); cancelled.action_held = false; cancelled.update_fishing(0.01)
+	expect(cancelled.use_fishing_rod() and cancelled.state.fishing.phase == cancelled.FishingSystem.PHASE_IDLE, "action during waiting reels the line in without waiting for a bite")
+	cancelled.state.fishing.phase = cancelled.FishingSystem.PHASE_RESULT
+	expect(cancelled.use_fishing_rod() and cancelled.state.fishing.phase == cancelled.FishingSystem.PHASE_IDLE, "result card can be dismissed immediately with the same action")
+	cancelled.free()
+
+
+## Сценарий: сила заброса выбирает глубину, время реакции оценивает подсечку, а водоём ограничивает взвешенный пул.
+## Исходное состояние: герой поочерёдно проверяет слабый прудовой и дальний речной заброс со всеми снастями.
+## Ожидаемый результат: глубины и оценки устойчивы, пруд не выдаёт речную рыбу, а глубокий пул не содержит мелководную.
+func test_cast_depth_hook_grade_and_weighted_ecology() -> void:
+	var game := _fishing_game(); var balance = game.FishingSystem.FishingBalanceSystem
+	expect(balance.depth_for(0.2) == "shallow" and balance.depth_for(0.5) == "middle" and balance.depth_for(0.9) == "deep", "cast power maps to three explicit fishing depths")
+	expect(balance.cast_grade(0.9) == "perfect" and balance.hook_grade(1.0, game.FishingSystem.HOOK_WINDOW) == "perfect" and balance.hook_grade(0.1, game.FishingSystem.HOOK_WINDOW) == "late", "cast and hook timing receive deterministic skill grades")
+	game.state.fishing.water_kind = "pond"; game.state.fishing.depth_kind = "shallow"
+	var pond_pool: Array[Dictionary] = game.FishingSystem.cast_pool(game)
+	expect(not pond_pool.is_empty() and pond_pool.all(func(fish): return "pond" in fish.waters and "shallow" in fish.depths), "short pond cast contains only matching habitat species")
+	game.talent_levels.fish_fine_rod = 1; game.talent_levels.fish_deep_water = 1; game.talent_levels.fish_big_game = 1; game.change_inventory_count("advanced_fishing_rod", 1)
+	game.state.fishing.water_kind = "river"; game.state.fishing.depth_kind = "deep"; game.state.fishing.cast_power = 0.9
+	var deep_pool: Array[Dictionary] = game.FishingSystem.cast_pool(game); var selected: Dictionary = game.FishingSystem._select_fish(game)
+	expect(not deep_pool.is_empty() and deep_pool.all(func(fish): return "river" in fish.waters and "deep" in fish.depths) and selected in deep_pool, "deep river cast uses a reproducible weighted matching pool")
 	game.free()
 
 
@@ -47,7 +72,7 @@ func test_season_weather_and_night_ecology() -> void:
 	game.talent_levels.fish_fine_rod = 0; expect(fishing.available_fish(game).all(func(fish): return String(fish.id) != "summer_catfish"),"locked fine-rod fish cannot enter the actual catch pool")
 	expect(fishing.FISH_CATALOG.size() == 11,"fishing ecology contains eleven distinct species")
 	for locale in game.LocaleSystem.LOCALES:
-		game.LocaleSystem.current=locale; expect(not game.LocaleSystem.text("fish_moon_koi").is_empty(),"new fish catalog is localized for %s" % locale)
+		game.LocaleSystem.current=locale; expect(not game.LocaleSystem.text("fish_moon_koi").is_empty() and not game.LocaleSystem.text("fish_hook_perfect").is_empty() and not game.LocaleSystem.text("fish_tension", [50]).is_empty(),"fish catalog hook grades and tension are localized for %s" % locale)
 	game.LocaleSystem.current="ru"; game.free()
 
 
@@ -68,6 +93,26 @@ func test_bar_inertia_and_fish_behaviors() -> void:
 	for behavior in ["mixed", "smooth", "sinker", "floater", "dart"]:
 		expect(behavior in behaviors, "fishing catalog contains behavior: %s" % behavior)
 	game.free()
+
+
+## Сценарий: непрерывный контроль ускоряет улов, а долгое нахождение вне зоны натягивает и рвёт леску.
+## Исходное состояние: взрослая рыба сначала удерживается внутри зоны, затем рывковая рыба многократно остаётся у противоположной границы.
+## Ожидаемый результат: серия и множитель растут, натяжение спадает внутри, а достижение 100% завершает улов побегом.
+func test_control_streak_line_tension_and_mastery_statistics() -> void:
+	var game := _active_minigame(); var state = game.state.fishing; state.total_caught = 2
+	state.line_tension = 0.5; state.fish_y = state.bar_y; state.fish_target = state.fish_y; state.fish_target_timer = 99.0; game.action_held = true
+	game.update_fishing(0.1)
+	expect(state.control_streak > 0.0 and state.line_tension < 0.5 and game.FishingSystem.FishingBalanceSystem.control_multiplier(state.control_streak) > 1.0, "contact starts a control streak and safely releases line tension")
+	state.fish_behavior = "dart"; state.fish_difficulty = 68.0; state.catch_progress = 0.8
+	for step in 20:
+		if state.phase != game.FishingSystem.PHASE_MINIGAME: break
+		state.fish_y = 0.03; state.fish_target = 0.03; state.fish_target_timer = 99.0; state.fish_velocity = 0.0; state.bar_y = 0.88; state.bar_velocity = 0.0; game.action_held = false
+		game.update_fishing(0.25)
+	expect(state.phase == game.FishingSystem.PHASE_RESULT and state.escape_reason == "tension", "darting fish can snap a fully tensioned line before the progress meter drains")
+	var caught := _active_minigame(); var caught_state = caught.state.fishing; caught_state.fish_id = "river_perch"; caught_state.fish_name = caught.LocaleSystem.text("fish_river_perch"); caught_state.fish_difficulty = 28.0; caught_state.cast_power = 0.9; caught_state.hook_grade = "perfect"; caught_state.perfect = true; caught_state.max_control_streak = 4.2
+	caught.FishingSystem._complete_catch(caught)
+	expect(caught_state.catch_counts.river_perch >= 1 and caught_state.best_qualities.river_perch == "iridium" and caught_state.perfect_catches == 1 and caught_state.best_control_streak == 4.2, "successful catch persists species count quality perfect total and best control streak")
+	game.free(); caught.free()
 
 
 ## Сценарий: попадание наполняет улов, первый урок не убывает, обычная рыба срывается, полная шкала награждает.
@@ -113,14 +158,16 @@ func test_quality_treasure_and_collection_save() -> void:
 	expect(game.RenderSystem.FishingRenderer.PANEL.end.x <= 1152.0 and game.RenderSystem.FishingRenderer.PANEL.end.y <= 648.0, "fishing panel fits native viewport")
 	var renderer_source:=FileAccess.get_file_as_string("res://scripts/systems/fishing_renderer.gd")
 	var interface_source:=FileAccess.get_file_as_string("res://scripts/systems/interface_renderer.gd")
-	expect(renderer_source.contains("UiKitSystem.draw_modal_panel") and renderer_source.contains("draw_item_icon(\"fish\"") and not renderer_source.contains("draw_colored_polygon(tail") and interface_source.contains("fishing_focus"), "fishing minigame reuses storybook art and suppresses overlapping world cards")
+	var spell_source:=FileAccess.get_file_as_string("res://scripts/systems/spell_renderer.gd")
+	expect(renderer_source.contains("UiKitSystem.draw_modal_panel") and renderer_source.contains("draw_item_icon(\"fish\"") and not renderer_source.contains("draw_colored_polygon(tail") and interface_source.contains("fishing_focus") and spell_source.contains("fishing.phase !="), "fishing minigame reuses storybook art and suppresses overlapping world and magic cards")
 	var preview:=Image.load_from_file(ProjectSettings.globalize_path("res://assets/generated/ui/fishing_ingame_preview.png"))
 	expect(preview!=null and preview.get_size()==Vector2i(1152,648), "fishing minigame keeps an exact native storybook UI reference")
-	state.total_caught = 7; state.best_sizes = {"river_perch":34}; state.phase = game.FishingSystem.PHASE_MINIGAME
+	state.total_caught = 7; state.best_sizes = {"river_perch":34}; state.catch_counts = {"river_perch":5}; state.best_qualities = {"river_perch":"gold"}; state.perfect_catches = 2; state.best_control_streak = 3.6; state.phase = game.FishingSystem.PHASE_MINIGAME
 	var snapshot: Dictionary = game.SaveSystem.snapshot(game)
 	var restored := _fishing_game()
 	expect(game.SaveSystem.apply(restored, snapshot), "save applies fishing collection")
-	expect(restored.state.fishing.total_caught == 7 and restored.state.fishing.best_sizes.river_perch == 34, "catch count and records survive loading")
+	expect(restored.state.fishing.total_caught == 7 and restored.state.fishing.best_sizes.river_perch == 34 and restored.state.fishing.catch_counts.river_perch == 5 and restored.state.fishing.best_qualities.river_perch == "gold", "catch count records and species mastery survive loading")
+	expect(restored.state.fishing.perfect_catches == 2 and is_equal_approx(restored.state.fishing.best_control_streak, 3.6), "perfect total and best control streak survive loading")
 	expect(restored.state.fishing.phase == restored.FishingSystem.PHASE_IDLE, "transient minigame resets after loading")
 	game.free(); restored.free()
 

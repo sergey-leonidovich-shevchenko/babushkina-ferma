@@ -27,7 +27,7 @@ static func draw(game: Node, ui) -> void:
 	var coin_pop: float = sin(clampf(game.hud_coin_pop / 0.36, 0.0, 1.0) * PI) * 3.0
 	game.draw_ui_string(game.UI_FONT, Vector2(700, 70 - coin_pop), secondary_summary(game), HORIZONTAL_ALIGNMENT_LEFT, 186, 10 + int(coin_pop), Color("7b5226"))
 	draw_effect_chips(game, effects)
-	if game.state.fishing.phase == game.FishingSystem.PHASE_WAITING: game.draw_ui_string(game.UI_FONT, Vector2(446, 115), "%.1f" % maxf(game.state.fishing.timer, 0.0), HORIZONTAL_ALIGNMENT_CENTER, 260, 20, Color("d7f6ff"))
+	if game.state.fishing.phase == game.FishingSystem.PHASE_WAITING: game.draw_ui_string(game.UI_FONT, Vector2(446, 115), game.LocaleSystem.text("fish_waiting_short") + " • " + game.LocaleSystem.text("fish_depth_" + game.state.fishing.depth_kind), HORIZONTAL_ALIGNMENT_CENTER, 260, 12, Color("d7f6ff"))
 	elif game.state.fishing.phase == game.FishingSystem.PHASE_BITE: game.draw_circle(Vector2(576, 105), 20 + sin(Time.get_ticks_msec() / 100.0) * 3, ui.GOLD); game.draw_ui_string(game.UI_FONT, Vector2(566, 112), "!", HORIZONTAL_ALIGNMENT_CENTER, 20, 22, Color("47351f"))
 	ui.draw_atlas_piece(game, ui.CONTROL_ATLAS, ui.pause_button_rect(game).grow(9), ui.CONTROL_PAUSE_SOURCE)
 	if game.touch_controls_visible:
