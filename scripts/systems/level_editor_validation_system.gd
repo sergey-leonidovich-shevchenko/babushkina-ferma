@@ -1,6 +1,7 @@
 extends RefCounted
 
 const RoadVisualSystem := preload("res://scripts/systems/road_visual_system.gd")
+const WaterVisualSystem := preload("res://scripts/systems/water_visual_system.gd")
 
 const DIRECTIONS := [Vector2i(0,-1),Vector2i(1,0),Vector2i(0,1),Vector2i(-1,0)]
 const DIRECTION_BITS := [1,2,4,8]
@@ -38,18 +39,8 @@ static func _apply_visual_variants(state: Dictionary) -> void:
 
 ## Выбирает берег, угол, узкое русло или внутреннюю воду для свободно нарисованного водоёма.
 static func _water_variant_for_mask(mask: int, cell: Vector2i) -> Dictionary:
-	var root:="res://assets/game/tiles/editor/water/"
-	if mask==15:
-		var seed:=absi(cell.x*47+cell.y*89+23); var kind:="water_lilies" if seed%19==0 else ("water_ripples" if seed%5==0 else "water_clear")
-		return {"path":root+kind+".png","rotation":0.0}
-	var edges:={7:"shore_west",13:"shore_east",14:"shore_north",11:"shore_south"}
-	if edges.has(mask): return {"path":root+String(edges[mask])+".png","rotation":0.0}
-	var corners:={6:0.0,12:PI*0.5,9:PI,3:-PI*0.5}
-	if corners.has(mask): return {"path":root+"shore_outer_corner.png","rotation":float(corners[mask])}
-	if mask==5: return {"path":root+"river_vertical.png","rotation":0.0}
-	if mask==10: return {"path":root+"river_horizontal.png","rotation":0.0}
-	if mask in [1,2,4,8]: return {"path":root+"river_end.png","rotation":{1:0.0,2:PI*0.5,4:PI,8:-PI*0.5}[mask]}
-	return {"path":root+"pond_rocky.png","rotation":0.0}
+	var variant:=WaterVisualSystem.variant_for_mask(mask,cell)
+	return {"path":WaterVisualSystem.module_path(String(variant.kind)),"rotation":float(variant.rotation)}
 
 
 ## Выбирает канонический модуль и поворот по четырём битам N/E/S/W.

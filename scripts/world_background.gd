@@ -9,7 +9,6 @@ const GRASS_TILE_VARIANT_2 := preload("res://assets/game/tiles/grass_var_2.png")
 const RED_MUSHROOMS := preload("res://assets/game/environment/red_mushrooms.png")
 const CAVE_CRYSTAL := preload("res://assets/game/environment/cave_crystal.png")
 const CAVE_FLOOR_TILE := preload("res://assets/game/tiles/cave-floor.png")
-const WATER_TILE := preload("res://assets/game/fishing/Water Tile.png")
 const BRIDGES := preload("res://assets/game/environment/bridges.png")
 const FOREST_TREE_GROWTH_ATLAS := preload("res://assets/game/environment/forest_tree_growth_atlas_v1.png")
 const VILLAGE_PROPS := preload("res://assets/game/environment/village_prop_atlas_v2.png")
@@ -20,6 +19,7 @@ const BuildingSystem := preload("res://scripts/systems/building_system.gd")
 const VillageLayoutSystem := preload("res://scripts/systems/village_layout_system.gd")
 const FirstLevelArtSystem := preload("res://scripts/systems/first_level_art_system.gd")
 const RoadVisualSystem := preload("res://scripts/systems/road_visual_system.gd")
+const WaterVisualSystem := preload("res://scripts/systems/water_visual_system.gd")
 const PirateShipRenderer := preload("res://scripts/systems/pirate_ship_renderer.gd")
 const VisualAssetSystem := preload("res://scripts/systems/visual_asset_system.gd")
 const CaveVisualSystem := preload("res://scripts/systems/cave_visual_system.gd")
@@ -120,11 +120,13 @@ func _grass_variant(col: int, row: int) -> Texture2D:
 func draw_overworld_tile_grid(palette: Dictionary) -> void:
 	var tile_size: int = VillageLayoutSystem.OVERWORLD_TILE_SIZE
 	var tile_count: Vector2i = VillageLayoutSystem.OVERWORLD_TILE_COUNT
-	var road_cells: Dictionary={}
+	var road_cells: Dictionary={}; var water_cells: Dictionary={}
 	for row in range(tile_count.y):
 		for col in range(tile_count.x):
-			var cell:=Vector2i(col,row)
-			if VillageLayoutSystem.overworld_tile(cell,season)==VillageLayoutSystem.OVERWORLD_TILE_ROAD: road_cells[cell]=true
+			var cell:=Vector2i(col,row); var type:=VillageLayoutSystem.overworld_tile(cell,season)
+			if type==VillageLayoutSystem.OVERWORLD_TILE_ROAD: road_cells[cell]=true
+			elif type==VillageLayoutSystem.OVERWORLD_TILE_WATER: water_cells[cell]=true
+	var water_animation_frame:=posmod(int(Time.get_ticks_msec()/480),4)
 	for row in range(tile_count.y):
 		for col in range(tile_count.x):
 			var cell:=Vector2i(col,row); var tile_type:=VillageLayoutSystem.overworld_tile(cell,season)
@@ -140,7 +142,7 @@ func draw_overworld_tile_grid(palette: Dictionary) -> void:
 				VillageLayoutSystem.OVERWORLD_TILE_FARM:
 					draw_texture_rect(CAVE_FLOOR_TILE, destination, true, palette.grass_light.darkened(0.15))
 				VillageLayoutSystem.OVERWORLD_TILE_WATER:
-					draw_texture_rect_region(WATER_TILE, destination, Rect2(Vector2(0.0, 0.0), Vector2(16, 16)), Color(1.0, 1.0, 1.0, 0.82))
+					WaterVisualSystem.draw_module(self,cell,water_cells,water_animation_frame,Color(1.0,1.0,1.0,0.92))
 				VillageLayoutSystem.OVERWORLD_TILE_STONE:
 					draw_texture_rect(CAVE_FLOOR_TILE, destination, false, Color(0.65, 0.66, 0.67, 0.92))
 				VillageLayoutSystem.OVERWORLD_TILE_BORDER_ROCK:

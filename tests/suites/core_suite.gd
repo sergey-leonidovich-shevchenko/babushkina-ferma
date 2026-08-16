@@ -352,7 +352,7 @@ func test_pickaxe_mines_surface_and_cave_resources() -> void:
 ## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_fishing_cast_wait_and_catch_cycle() -> void:
 	var game := make_game()
-	expect(game.WATER_ANIMATION.get_width() == 512 and game.FISH_ANIMATION.get_width() == 160, "CC0 fishing animation sheets are loaded")
+	expect(game.WaterVisualSystem.MODULES.size()==19 and game.WaterVisualSystem.FISH_SHEET.get_width()==160 and game.WaterVisualSystem.SPLASH_SHEET.get_width()==288, "modular water and CC0 fishing animation sheets are owned by one visual system")
 	game.selected_tool = game.Tool.ROD
 	game.player = game.pond_position + Vector2(120, 0)
 	game.action_held = true

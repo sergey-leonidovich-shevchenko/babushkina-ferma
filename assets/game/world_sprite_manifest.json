@@ -10,6 +10,7 @@
     "scripts/systems/farm_visual_system.gd",
     "scripts/systems/farm_life_renderer.gd",
     "scripts/systems/road_visual_system.gd",
+    "scripts/systems/water_visual_system.gd",
     "scripts/systems/village_ambient_renderer.gd",
     "scripts/systems/world_loot_renderer.gd",
     "scripts/systems/world_polish_renderer.gd",
@@ -20,7 +21,8 @@
     "assets/game/generated/potion_atlas.png",
     "assets/game/generated/inventory_core_atlas.png",
     "assets/game/generated/inventory_rare_atlas.png",
-    "assets/game/generated/farm_food_atlas.png"
+    "assets/game/generated/farm_food_atlas.png",
+    "assets/generated/level_drafts/water_navigation_ingame_preview.png"
   ],
   "entries": [
     {
@@ -104,20 +106,39 @@
       "id": "WS-005",
       "family": "Вода, рыба и всплески",
       "assets": [
-        {"path":"assets/game/fishing/Water Tile.png","width":512,"height":16},
+        {"path":"assets/game/tiles/editor/water/water_clear.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/water/water_ripples.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/water/water_deep.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/water/water_shallow.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/water/water_lilies.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/water/water_sparkles.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/water/shore_north.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/water/shore_south.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/water/shore_west.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/water/shore_east.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/water/shore_outer_corner.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/water/shore_inner_corner.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/water/river_horizontal.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/water/river_vertical.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/water/river_corner.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/water/river_t_junction.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/water/river_cross.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/water/river_end.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/water/pond_rocky.png","width":24,"height":24},
         {"path":"assets/game/fishing/Fish Swimming.png","width":160,"height":16},
-        {"path":"assets/game/fishing/Splash Effect.png","width":288,"height":16}
+        {"path":"assets/game/fishing/Splash Effect.png","width":288,"height":16},
+        {"path":"assets/game/fishing/Bubbles Rising.png","width":128,"height":16}
       ],
-      "render_owner": "WorldBackground и GameRenderer",
-      "source_layout": "кадры 16×16",
-      "runtime_sizes": ["24×24", "48×48", "64×64"],
+      "render_owner": "WaterVisualSystem, WorldBackground и LevelEditorValidationSystem",
+      "source_layout": "19 отдельных crop-safe RGBA-модулей 24×24; прозрачные CC0-эффекты в изолированных кадрах 16×16",
+      "runtime_sizes": ["24×24", "48×48", "72×72"],
       "target_modules": ["24×24", "48×48", "72×72"],
-      "anchor": "вода по клетке; эффекты по центру",
-      "collision": "вода блокирует, мост создаёт проход",
-      "status": "migration",
+      "anchor": "вода по верхнему левому углу клетки; эффекты по центру модульной рамки",
+      "collision": "видимый базовый контур и навигация используют один is_water; мост удаляет клетку из водной топологии",
+      "status": "compliant",
       "priority": "P1",
-      "debt": "Часть 16×16 кадров масштабируется в некратные 64 px области; нет единого берега 24×24.",
-      "done_when": "Вода и берега имеют 24×24 autotile-набор; рыба 48×48, всплеск 72×72, точки воды совпадают с навигацией."
+      "debt": "Закрыт: runtime и конструктор используют один каталог и маски N/E/S/W; рыба, пузырьки и всплеск имеют целочисленный масштаб содержимого 48/48/64 внутри рамок 48/48/72.",
+      "done_when": "Сохраняются 19 модулей 24×24, все шестнадцать масок разрешаются, водные клетки совпадают с is_water, рыба остаётся 48 px, всплеск — в рамке 72 px."
     },
     {
       "id": "WS-006",

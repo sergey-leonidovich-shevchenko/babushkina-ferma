@@ -325,17 +325,9 @@ func draw_food_nodes() -> void:
 		if not food.active:
 			draw_string(UI_FONT, position + Vector2(-55, 42), ForageSystem.remaining_text(self, food), HORIZONTAL_ALIGNMENT_CENTER, 110, 12, Color("e7d6a3"))
 
-## Выполняет операцию «рыбалки анимации кадра» и возвращает результат согласно контракту метода.
-func fishing_animation_frame(frame_count: int, frame_ms: int = 140) -> int:
-	return PresentationSystem.animation_frame(Time.get_ticks_msec(), frame_count, frame_ms)
-
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_fishing_animations() -> void:
-	var fish_frame := fishing_animation_frame(10, 130)
-	draw_texture_rect_region(FISH_ANIMATION, Rect2(pond_position + Vector2(-24, -8), Vector2(48, 48)), Rect2(fish_frame * 16, 0, 16, 16))
-	if state.fishing.phase == FishingSystem.PHASE_BITE:
-		var splash_frame := fishing_animation_frame(18, 80)
-		draw_texture_rect_region(SPLASH_ANIMATION, Rect2(pond_position + Vector2(-32, -32), Vector2(64, 64)), Rect2(splash_frame * 16, 0, 16, 16))
+	WaterVisualSystem.draw_first_location_animations(self)
 
 ## Отрисовывает взрослые деревья, пни, саженцы, повреждения и прогресс повторного роста.
 func draw_tree_nodes() -> void:

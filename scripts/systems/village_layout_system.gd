@@ -110,10 +110,8 @@ static func overworld_tile(cell: Vector2i, season: String = "spring") -> int:
 		return OVERWORLD_TILE_GRASS
 	var position := tile_center(cell)
 	var seasonal_bonus := season == "winter"
-	if is_water(position, OVERWORLD_TILE_SIZE * 0.35):
+	if is_water(position, 0.0):
 		return OVERWORLD_TILE_STONE if seasonal_bonus else OVERWORLD_TILE_WATER
-	if is_river_park(position):
-		return OVERWORLD_TILE_WATER
 	if is_road_or_path(position):
 		return OVERWORLD_TILE_ROAD
 	if is_farm_zone(position):
