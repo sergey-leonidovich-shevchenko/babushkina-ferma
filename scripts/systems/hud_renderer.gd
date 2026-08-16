@@ -26,10 +26,6 @@ static func draw(game: Node, ui) -> void:
 	draw_effect_chips(game, effects)
 	if game.state.fishing.phase == game.FishingSystem.PHASE_WAITING: game.draw_string(game.UI_FONT, Vector2(446, 115), "%.1f" % maxf(game.state.fishing.timer, 0.0), HORIZONTAL_ALIGNMENT_CENTER, 260, 20, Color("d7f6ff"))
 	elif game.state.fishing.phase == game.FishingSystem.PHASE_BITE: game.draw_circle(Vector2(576, 105), 20 + sin(Time.get_ticks_msec() / 100.0) * 3, ui.GOLD); game.draw_string(game.UI_FONT, Vector2(566, 112), "!", HORIZONTAL_ALIGNMENT_CENTER, 20, 22, Color("47351f"))
-	if not game.message.is_empty():
-		var bob: float = sin(Time.get_ticks_msec() / 260.0) * 1.5
-		ui.draw_atlas_piece(game, ui.CARD_ATLAS, Rect2(ui.MESSAGE_CARD.position + Vector2(0, bob), ui.MESSAGE_CARD.size), ui.CARD_MESSAGE_SOURCE)
-		game.draw_string(game.UI_FONT, Vector2(322, 531 + bob), game.message, HORIZONTAL_ALIGNMENT_CENTER, 508, 13, Color("4c3423"))
 	ui.draw_atlas_piece(game, ui.CONTROL_ATLAS, ui.PAUSE_BUTTON.grow(9), ui.CONTROL_PAUSE_SOURCE)
 	if game.touch_controls_visible:
 		draw_action_button(game, ui, ui.DODGE_BUTTON, game.LocaleSystem.ui("dodge_short"), game.state.player.dodge_cooldown <= 0.0 and game.energy >= 2, game.state.player.dodge_timer > 0.0, true)

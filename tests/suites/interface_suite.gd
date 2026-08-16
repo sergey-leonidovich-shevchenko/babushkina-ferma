@@ -5,6 +5,7 @@ extends "res://tests/suites/suite_base.gd"
 func run() -> void:
 	test_inventory_uses_grandmother_skin_and_six_rows()
 	test_item_windows_share_storybook_shell_and_close_control()
+	test_story_windows_share_visual_language_and_input_geometry()
 	test_inventory_layout_and_touch_mapping()
 	test_item_context_and_actions()
 	test_hud_layout_is_compact_and_safe()
@@ -16,6 +17,35 @@ func run() -> void:
 	test_sprite_cards_and_action_controls_use_sliced_atlases()
 	test_touch_controls_follow_last_input_device()
 	test_hotbar_readiness_and_hud_feedback_animations()
+
+
+## Сценарий: журнал, диалог, обучение, уведомление и награда главы используют единый сказочный UI-набор.
+## Исходное состояние: общий сюжетный renderer загружен, геометрия интерактивных зон доступна, эталонные снимки созданы.
+## Ожидаемый результат: панели не выходят за viewport, варианты ответа не пересекаются, а прежняя плоская отрисовка удалена.
+func test_story_windows_share_visual_language_and_input_geometry() -> void:
+	var game := make_game()
+	var renderer = game.StoryUiRenderer
+	expect(Rect2(0, 0, 1152, 648).encloses(renderer.QUEST_WINDOW) and renderer.QUEST_WINDOW.encloses(renderer.QUEST_HEADER), "quest journal and carved title stay in the native viewport")
+	for rect in renderer.QUEST_CARD_RECTS:
+		expect(renderer.QUEST_WINDOW.encloses(rect), "every mission card stays inside the storybook shell")
+	expect(game.InterfaceRenderer.QUEST_PREV == renderer.QUEST_PREV and game.InterfaceRenderer.QUEST_NEXT == renderer.QUEST_NEXT, "quest drawing and pointer navigation share one geometry source")
+	for count in [1, 2, 3]:
+		for index in count:
+			var rect: Rect2 = renderer.dialogue_choice_rect(index, count)
+			expect(renderer.DIALOGUE_WINDOW.encloses(rect) and renderer.dialogue_choice_at(rect.get_center(), count) == index, "dialogue choice %d of %d is centered and touchable" % [index + 1, count])
+			if index > 0: expect(not rect.intersects(renderer.dialogue_choice_rect(index - 1, count)), "dialogue choices never overlap")
+	var dialogue_source := FileAccess.get_file_as_string("res://scripts/systems/adventure_polish_renderer.gd")
+	var quest_source := FileAccess.get_file_as_string("res://scripts/game_renderer.gd")
+	expect(dialogue_source.contains("StoryUiRenderer.draw_dialogue") and quest_source.contains("StoryUiRenderer.draw_quest_log"), "legacy dialogue and quest entry points delegate to the shared story renderer")
+	game.AdventurePolishSystem.open_quest_dialogue(game, "miron")
+	var choices: Array = game.state.player.adventure_ui.dialogue.choices
+	var decline := InputEventMouseButton.new(); decline.button_index = MOUSE_BUTTON_LEFT; decline.pressed = true; decline.position = renderer.dialogue_choice_rect(1, choices.size()).get_center()
+	expect(game.AdventurePolishSystem.handle_input(game, decline) and not game.state.player.adventure_ui.dialogue_open, "mouse and touch geometry activates the chosen dialogue reply")
+	for name in ["quest_log", "dialogue", "tutorial", "notification", "chapter_reward"]:
+		var path := "res://assets/generated/ui/%s_ingame_preview.png" % name
+		var preview := Image.load_from_file(ProjectSettings.globalize_path(path))
+		expect(preview != null and preview.get_width() >= 1152 and absf(float(preview.get_width()) / preview.get_height() - 16.0 / 9.0) < 0.01, "%s story window keeps a native-or-larger 16:9 reference" % name)
+	game.free()
 
 
 ## Сценарий: рюкзак, лавка, верстак, сундук и кузница образуют одно художественное семейство.

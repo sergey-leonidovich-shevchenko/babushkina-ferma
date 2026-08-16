@@ -14,6 +14,7 @@ const CONTROL_ATLAS := preload("res://assets/game/ui/controls/control_atlas.png"
 const CARD_ATLAS := preload("res://assets/game/ui/cards/card_atlas.png")
 const HudRenderer := preload("res://scripts/systems/hud_renderer.gd")
 const UiKitSystem := preload("res://scripts/systems/ui_kit_system.gd")
+const StoryUiRenderer := preload("res://scripts/systems/story_ui_renderer.gd")
 const WEATHER_ICONS := {
 	"clear":preload("res://assets/game/ui/hud/weather_clear.tres"),
 	"rain":preload("res://assets/game/ui/hud/weather_rain.tres"),
@@ -60,8 +61,8 @@ const STORAGE_TRANSFER_ONE := Rect2(454, 520, 116, 36)
 const STORAGE_TRANSFER_ALL := Rect2(582, 520, 116, 36)
 const FORGE_ROWS := Rect2(164, 154, 824, 396)
 const CONTRACT_ROWS := Rect2(154, 190, 844, 300)
-const QUEST_PREV := Rect2(170, 526, 54, 34)
-const QUEST_NEXT := Rect2(622, 526, 54, 34)
+const QUEST_PREV := StoryUiRenderer.QUEST_PREV
+const QUEST_NEXT := StoryUiRenderer.QUEST_NEXT
 
 const INK := Color("f8f1dc")
 const MUTED := Color("b9c8b8")
@@ -161,12 +162,10 @@ static func hotbar_at(point: Vector2) -> int:
 static func draw(game: Node) -> void:
 	draw_hud(game)
 	var clean_hud_preview := game.has_meta("capture_hud_clean")
-	if not clean_hud_preview: game.draw_mission_tracker()
+	if not clean_hud_preview and not game.AdventurePolishSystem.has_modal(game): game.draw_mission_tracker()
 	if not clean_hud_preview and game.tutorial_visible and game.tutorial_step < game.tutorial_steps.size():
-		draw_atlas_piece(game, CARD_ATLAS, TUTORIAL_CARD, CARD_TUTORIAL_SOURCE)
-		game.draw_string(game.UI_FONT, Vector2(78, 132), game.LocaleSystem.ui("tutorial", [game.tutorial_step + 1, game.tutorial_steps.size()]), HORIZONTAL_ALIGNMENT_LEFT, 325, 11, Color("5b3b24"))
-		game.draw_multiline_string(game.UI_FONT, Vector2(44, 158), game.LocaleSystem.tutorial(game.tutorial_steps[game.tutorial_step].event), HORIZONTAL_ALIGNMENT_LEFT, 355, 13, 2, Color("4e3828"))
-	if not clean_hud_preview: game.draw_discovery_card()
+		game.StoryUiRenderer.draw_tutorial(game)
+	if not clean_hud_preview and not game.AdventurePolishSystem.has_modal(game): game.draw_discovery_card()
 	HudRenderer.draw_interaction_prompt(game, game.InterfaceRenderer)
 	if game.shop_open: game.draw_shop()
 	if game.inventory_open: draw_inventory(game)

@@ -5,6 +5,7 @@ extends RefCounted
 static func configure(game: Node) -> void:
 	var arguments := OS.get_cmdline_user_args()
 	if configure_item_window_capture(game, arguments): return
+	if configure_story_window_capture(game, arguments): return
 	if "--capture-hud" in arguments:
 		game.language_screen = false; game.title_screen = false; game.current_location = "overworld"; game.tutorial_visible = false; game.message = ""
 		game.player = Vector2(1160, 650); game.set_meta("capture_hud_clean", true); game.set_meta("capture_ui_frames", 6); game.set_meta("capture_ui_output", "res://assets/generated/ui/hud_ingame_preview.png")
@@ -24,6 +25,36 @@ static func configure(game: Node) -> void:
 	if "--capture-settings" in arguments:
 		game.set_meta("capture_ui_frames", 6)
 		game.set_meta("capture_ui_output", "res://assets/generated/ui/system_settings_ingame_preview.png")
+
+
+## Настраивает журнал, диалог, обучение или награду как воспроизводимый визуальный эталон сюжетного UI.
+static func configure_story_window_capture(game: Node, arguments: PackedStringArray) -> bool:
+	var mode := ""
+	var outputs := {
+		"--capture-quest-log":"quest_log_ingame_preview.png", "--capture-dialogue":"dialogue_ingame_preview.png",
+		"--capture-tutorial":"tutorial_ingame_preview.png", "--capture-notification":"notification_ingame_preview.png",
+		"--capture-chapter-reward":"chapter_reward_ingame_preview.png",
+	}
+	for flag in outputs:
+		if flag in arguments: mode = flag; break
+	if mode.is_empty(): return false
+	game.language_screen = false; game.title_screen = false; game.current_location = "overworld"; game.message = ""
+	game.set_meta("capture_story_clean", true); game.set_meta("capture_ui_frames", 8); game.set_meta("capture_ui_output", "res://assets/generated/ui/%s" % outputs[mode])
+	var chapter: Dictionary = game.FirstChapterSystem.state(game); chapter.completed = true; chapter.reward_pending = false
+	match mode:
+		"--capture-quest-log":
+			game.tutorial_visible = false; game.quest_log_open = true; game.quest_log_page = 0
+			game.mission_states.story_relic = game.QuestSystem.ACTIVE; game.mission_states.side_seed = game.QuestSystem.COMPLETED
+			game.change_inventory_count("moon_relic", 0)
+		"--capture-dialogue":
+			game.tutorial_visible = false; game.AdventurePolishSystem.open_quest_dialogue(game, "miron")
+		"--capture-tutorial":
+			game.tutorial_visible = true; game.tutorial_step = mini(2, game.tutorial_steps.size() - 1)
+		"--capture-notification":
+			game.tutorial_visible = false; game.set_meta("capture_notification_text", "Задание выполнено • +120 монет • редкая награда")
+		"--capture-chapter-reward":
+			game.tutorial_visible = false; chapter.completed = false; chapter.reward_pending = true
+	return true
 
 
 ## Настраивает один из пяти предметных экранов как воспроизводимый полноэкранный визуальный эталон.
@@ -51,21 +82,27 @@ static func configure_item_window_capture(game: Node, arguments: PackedStringArr
 	return true
 
 
-## Убирает сюжетные карточки только из чистого эталона HUD после инициализации живого мира.
+## Убирает стартовые заставки из чистых HUD- и сюжетных эталонов после инициализации живого мира.
 static func finalize(game: Node) -> void:
-	if not game.has_meta("capture_hud_clean"): return
+	if not game.has_meta("capture_hud_clean") and not game.has_meta("capture_story_clean"): return
 	var life: Dictionary = game.FarmLifeSystem.state(game)
 	life.first_day = 6; life.cutscene = ""; life.cutscene_timer = 0.0
+	if game.has_meta("capture_story_clean"):
+		game.current_location = "overworld"
+		game.player = Vector2(1160, 650)
 	game.message = ""; game.DiscoverySystem.dismiss(game)
+	if game.has_meta("capture_notification_text"): game.message = String(game.get_meta("capture_notification_text"))
 
 
 ## Сохраняет системный UI-экран после стабилизации нескольких кадров и завершает режим предпросмотра.
 static func update_capture(game: Node) -> bool:
 	if not game.has_meta("capture_ui_frames"): return false
+	if game.has_meta("capture_notification_text"): game.message = String(game.get_meta("capture_notification_text")); game.queue_redraw()
 	var frames_left := int(game.get_meta("capture_ui_frames")) - 1
 	game.set_meta("capture_ui_frames", frames_left)
 	if frames_left > 0: return false
 	game.remove_meta("capture_ui_frames")
+	if game.has_meta("capture_notification_text"): game.remove_meta("capture_notification_text")
 	var output := ProjectSettings.globalize_path(String(game.get_meta("capture_ui_output")))
 	game.remove_meta("capture_ui_output")
 	var error := game.get_viewport().get_texture().get_image().save_png(output)

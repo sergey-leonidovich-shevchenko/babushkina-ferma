@@ -37,3 +37,8 @@ tmp/
 !/assets/generated/ui/crafting_ingame_preview.png
 !/assets/generated/ui/storage_ingame_preview.png
 !/assets/generated/ui/forge_ingame_preview.png
+!/assets/generated/ui/quest_log_ingame_preview.png
+!/assets/generated/ui/dialogue_ingame_preview.png
+!/assets/generated/ui/tutorial_ingame_preview.png
+!/assets/generated/ui/notification_ingame_preview.png
+!/assets/generated/ui/chapter_reward_ingame_preview.png

@@ -47,6 +47,12 @@ static func handle_input(game: Node, event: InputEvent) -> bool:
 		if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_Q:
 			cycle_target(game); return true
 		return false
+	if bool(ui.get("dialogue_open", false)) and ((event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT) or (event is InputEventScreenTouch and event.pressed)):
+		var choices: Array = ui.get("dialogue", {}).get("choices", ["leave"])
+		var choice_index: int = game.StoryUiRenderer.dialogue_choice_at(event.position, choices.size())
+		if choice_index >= 0:
+			ui.choice = choice_index; handle_dialogue_key(game, KEY_ENTER); game.queue_redraw()
+		return true
 	var key := -1
 	if event is InputEventKey and event.pressed and not event.echo: key = int(event.keycode)
 	elif event is InputEventJoypadButton and event.pressed:

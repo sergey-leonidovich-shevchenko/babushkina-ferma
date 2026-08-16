@@ -557,33 +557,7 @@ func draw_mission_tracker() -> void:
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_quest_log() -> void:
-	draw_rect(Rect2(120, 62, 912, 524), Color("29251f"))
-	draw_rect(Rect2(140, 82, 872, 484), Color("e6d3a4"))
-	draw_rect(Rect2(140, 82, 872, 64), Color("5d4937"))
-	draw_string(UI_FONT, Vector2(326, 125), LocaleSystem.ui("quest_log"), HORIZONTAL_ALIGNMENT_CENTER, 500, 28, Color("fff1c4"))
-	var mission_ids: Array[String] = QuestSystem.ordered_mission_ids(self)
-	var page_count := maxi(1, ceili(float(mission_ids.size()) / 3.0))
-	quest_log_page = clampi(quest_log_page, 0, page_count - 1)
-	var row_y := 158.0
-	for index in range(quest_log_page * 3, mini((quest_log_page + 1) * 3, mission_ids.size())):
-		var mission_id: String = mission_ids[index]
-		var mission: Dictionary = QuestSystem.mission_data(mission_id)
-		var state := QuestSystem.mission_state(self, mission_id)
-		var state_name: String = {QuestSystem.LOCKED:LocaleSystem.ui("locked"), QuestSystem.AVAILABLE:LocaleSystem.ui("available"), QuestSystem.ACTIVE:LocaleSystem.ui("active"), QuestSystem.COMPLETED:LocaleSystem.ui("completed")}[state]
-		var fill := Color("d4c7a5") if state == QuestSystem.LOCKED else (Color("c9e2bd") if state == QuestSystem.COMPLETED else Color("fff0bd"))
-		draw_rect(Rect2(170, row_y, 812, 116), fill)
-		draw_string(UI_FONT, Vector2(190, row_y + 25), "%s • %s" % [mission.type, mission.title], HORIZONTAL_ALIGNMENT_LEFT, 520, 18, Color("493b2f"))
-		draw_string(UI_FONT, Vector2(730, row_y + 25), state_name, HORIZONTAL_ALIGNMENT_RIGHT, 225, 13, Color("50704e"))
-		draw_string(UI_FONT, Vector2(190, row_y + 50), mission.description, HORIZONTAL_ALIGNMENT_LEFT, 745, 13, Color("493b2f"))
-		draw_string(UI_FONT, Vector2(190, row_y + 76), LocaleSystem.ui("objective", [QuestSystem.objective_text(self, mission_id)]), HORIZONTAL_ALIGNMENT_LEFT, 520, 13, Color("6b5038"))
-		var reward_text: String = LocaleSystem.ui("reward", [mission.coins, mission.xp, inventory_item_name(mission.reward_item), mission.reward_count])
-		if int(mission.get("skill_points", 0)) > 0: reward_text += " • %s" % LocaleSystem.ui("reward_skill_points", [mission.skill_points])
-		draw_string(UI_FONT, Vector2(190, row_y + 99), reward_text, HORIZONTAL_ALIGNMENT_LEFT, 720, 12, Color("49704d"))
-		row_y += 126.0
-	draw_rect(InterfaceRenderer.QUEST_PREV, Color("795d3e")); draw_rect(InterfaceRenderer.QUEST_NEXT, Color("795d3e"))
-	draw_string(UI_FONT, Vector2(180, 550), "←", HORIZONTAL_ALIGNMENT_CENTER, 34, 20, Color("fff0bd")); draw_string(UI_FONT, Vector2(632, 550), "→", HORIZONTAL_ALIGNMENT_CENTER, 34, 20, Color("fff0bd"))
-	draw_string(UI_FONT, Vector2(228, 550), LocaleSystem.ui("quest_page", [quest_log_page + 1, page_count]), HORIZONTAL_ALIGNMENT_LEFT, 390, 13, Color("493b2f"))
-	draw_string(UI_FONT, Vector2(690, 550), LocaleSystem.ui("quest_close"), HORIZONTAL_ALIGNMENT_RIGHT, 290, 13, Color("493b2f"))
+	StoryUiRenderer.draw_quest_log(self)
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_skill_menu() -> void:

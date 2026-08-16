@@ -51,7 +51,7 @@ static func draw_enemy_telegraphs(game: Node2D) -> void:
 
 ## Рисует постоянную мини-карту активной локации в свободном правом углу HUD.
 static func draw_minimap(game: Node2D) -> void:
-	if game.inventory_open or game.shop_open or game.quest_log_open or game.world_map_open or game.skill_menu_open or game.crafting_open or game.storage_open or game.forge_open or game.contract_open: return
+	if game.inventory_open or game.shop_open or game.quest_log_open or game.world_map_open or game.skill_menu_open or game.crafting_open or game.storage_open or game.forge_open or game.contract_open or game.AdventurePolishSystem.has_modal(game): return
 	var rect := Rect2(972, 104, 164, 112)
 	game.draw_rect(rect, PANEL); game.draw_rect(rect.grow(-4), Color("29473b"))
 	game.draw_string(game.UI_FONT, rect.position + Vector2(9, 19), game.LocaleSystem.location(game.current_location), HORIZONTAL_ALIGNMENT_LEFT, 144, 13, Color("fff1c6"))
@@ -95,19 +95,4 @@ static func specialization_name(game: Node, kind: String) -> String:
 
 ## Рисует портретную сцену разговора, отношения, описание задания и варианты ответа.
 static func draw_dialogue(game: Node2D) -> void:
-	var ui: Dictionary = game.state.player.adventure_ui
-	var dialogue: Dictionary = ui.get("dialogue", {})
-	var rect := Rect2(110, 386, 932, 228); game.draw_rect(rect, PANEL); game.draw_rect(rect.grow(-9), PARCHMENT)
-	var npc_id := String(dialogue.get("npc_id", "")); var npc_name: String = game.QuestSystem.npc_name(npc_id)
-	game.draw_circle(Vector2(195, 474), 58, Color("9a6d3f")); game.draw_circle(Vector2(195, 461), 32, Color("e1ad78"))
-	game.draw_string(game.UI_FONT, Vector2(124, 558), npc_name, HORIZONTAL_ALIGNMENT_CENTER, 142, 14, Color("4b2d20"))
-	var friendship := int(game.state.player.relationships.get(npc_id, 0))
-	game.draw_string(game.UI_FONT, Vector2(280, 427), "%s  ♥ %d/100" % [dialogue.get("title", "Разговор"), friendship], HORIZONTAL_ALIGNMENT_LEFT, 690, 22, Color("543220"))
-	var full_text := String(dialogue.get("text", "")); var visible_text := full_text.left(floori(float(dialogue.get("revealed", full_text.length()))))
-	game.draw_multiline_string(game.UI_FONT, Vector2(280, 466), visible_text, HORIZONTAL_ALIGNMENT_LEFT, 690, 17, 2, Color("49392b"))
-	var choices: Array = dialogue.get("choices", ["leave"])
-	for index in choices.size():
-		var choice_rect := Rect2(285 + index * 250, 526, 220, 44)
-		game.draw_rect(choice_rect, Color("4f7a43") if index == int(ui.choice) else Color("8b6037")); game.draw_rect(choice_rect, GOLD, false, 2)
-		game.draw_string(game.UI_FONT, choice_rect.position + Vector2(8, 28), game.AdventurePolishSystem.word(game, String(choices[index])), HORIZONTAL_ALIGNMENT_CENTER, 204, 17, Color("fff2c9"))
-	game.draw_string(game.UI_FONT, Vector2(704, 595), game.AdventurePolishSystem.word(game, "gift_hint"), HORIZONTAL_ALIGNMENT_RIGHT, 280, 14, Color("72543b"))
+	game.StoryUiRenderer.draw_dialogue(game)

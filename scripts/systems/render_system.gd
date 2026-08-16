@@ -22,6 +22,10 @@ static func draw(game: Node2D) -> void:
 	game.draw_set_transform(Vector2.ZERO); game.AtmosphereRenderer.draw(game)
 	var clean_level_capture := game.has_meta("capture_first_level_clean")
 	if not clean_level_capture and not bool(game.FarmLifeSystem.state(game).photo_mode) and not game.LevelEditorSystem.active(game): game.draw_ui(); FishingRenderer.draw(game); game.WorldMapRenderer.draw(game); game.AdventurePolishRenderer.draw_ui(game); game.FenceRenderer.draw_ui(game); game.SpellRenderer.draw_ui(game)
-	if not clean_level_capture and not game.LevelEditorSystem.active(game): game.FarmLifeRenderer.draw_ui(game); if not game.has_meta("capture_hud_clean"): game.FirstChapterRenderer.draw_ui(game); game.DebugPlaygroundRenderer.draw_overlay(game); game.DebugOverlayRenderer.draw_panel(game)
+	if not clean_level_capture and not game.LevelEditorSystem.active(game):
+		game.FarmLifeRenderer.draw_ui(game)
+		if not game.has_meta("capture_hud_clean"): game.FirstChapterRenderer.draw_ui(game)
+		game.StoryUiRenderer.draw_notification(game)
+		game.DebugPlaygroundRenderer.draw_overlay(game); game.DebugOverlayRenderer.draw_panel(game)
 	if not clean_level_capture: game.LevelEditorRenderer.draw_panel(game)
 	if game.menu_state.pause_open or game.menu_state.settings_open or game.menu_state.defeat_open: game.MenuRenderer.draw_pause_layer(game)
