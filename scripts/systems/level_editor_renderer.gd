@@ -1,6 +1,7 @@
 extends RefCounted
 
 const AtlasPickerRenderer := preload("res://scripts/systems/level_editor_atlas_picker_renderer.gd")
+const GroupRenderer := preload("res://scripts/systems/level_editor_group_renderer.gd")
 
 const PANEL_FILL := Color(0.075,0.055,0.035,0.97)
 const PANEL_BORDER := Color("d7a94f")
@@ -26,15 +27,17 @@ static func texture_for(path: String) -> Texture2D:
 static func draw_layer(game: Node2D, layer: String) -> void:
 	if not game.LevelEditorSystem.active(game): return
 	var state:Dictionary=game.get_meta(game.LevelEditorSystem.META_KEY)
-	for index in state.objects.size():
-		var object:Dictionary=state.objects[index]
-		if object.get("hidden",false) or String(object.layer)!=layer: continue
-		draw_object(game,object,index==int(state.selected) and not bool(state.panel_hidden))
+	if bool(state.layer_visibility.get(layer,true)):
+		for index in state.objects.size():
+			var object:Dictionary=state.objects[index]
+			if object.get("hidden",false) or String(object.layer)!=layer: continue
+			draw_object(game,object,index==int(state.selected) and not bool(state.panel_hidden))
 	if layer=="foreground":
 		if not bool(state.panel_hidden):
 			draw_grid(game,state)
 			draw_rectangle_preview(game,state)
 			draw_drag_preview(game,state)
+			GroupRenderer.draw_world(game,state)
 
 
 ## Отрисовывает обычный спрайт либо технический референс импортированного runtime-объекта.
@@ -146,6 +149,7 @@ static func draw_panel(game: Node2D) -> void:
 	draw_selection_info(game,state)
 	draw_validation_info(game,state)
 	game.draw_ui_string(game.UI_FONT,Vector2(404,24),"F12 закрыть · B кисть · G прямоугольник · I пипетка · / поиск · F избранное · Ctrl+Z/Y",HORIZONTAL_ALIGNMENT_LEFT,732,12,Color(1,0.95,0.78,0.92))
+	GroupRenderer.draw_panel(game,state)
 	AtlasPickerRenderer.draw(game,state)
 
 

@@ -137,6 +137,7 @@ static func load_draft(game: Node, state: Dictionary, path: String) -> bool:
 	ValidationSystem.rebuild_autotile_masks(state)
 	state.validation = ValidationSystem.validate(state)
 	state.selected = -1
+	state.selected_ids = []
 	state.status = "Загружено: %s · %d объектов" % [path, state.objects.size()]
 	if game.WorldSystem.NAMES.has(state.base_location):
 		game.current_location = state.base_location

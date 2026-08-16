@@ -6,12 +6,9 @@ const DocumentStore := preload("res://scripts/editor/level_editor_document_store
 const PreferencesStore := preload("res://scripts/editor/level_editor_preferences_store.gd")
 const ToolSystem := preload("res://scripts/systems/level_editor_tool_system.gd")
 const AtlasPickerSystem := preload("res://scripts/systems/level_editor_atlas_picker_system.gd")
+const GroupSystem := preload("res://scripts/systems/level_editor_group_system.gd")
 const META_KEY := "level_editor"
-const FORMAT_VERSION := 5
-const PROJECT_DIRECTORY := "res://level_designs"
-const USER_DIRECTORY := "user://level_designs"
 const GRID_SIZES := [12, 24, 48, 96]
-const SLICE_SIZES := AtlasPickerSystem.SLICE_SIZES
 const LAYERS := ["background", "ground", "objects", "foreground"]
 const CATEGORIES := ["terrain", "buildings", "vegetation", "decor", "characters", "enemies", "items", "farming", "fishing", "ui", "other"]
 const CATEGORY_NAMES := {"terrain":"ЗЕМЛЯ","buildings":"ДОМА","vegetation":"РАСТЕНИЯ","decor":"ДЕКОР","characters":"ПЕРСОНАЖИ","enemies":"ВРАГИ","items":"ПРЕДМЕТЫ","farming":"ФЕРМА","fishing":"ВОДА/РЫБАЛКА","ui":"ИНТЕРФЕЙС","other":"ПРОЧЕЕ"}
@@ -48,7 +45,7 @@ static var _catalog: Array[Dictionary] = []
 
 ## Создаёт полное временное состояние конструктора, которое не попадает в обычное сохранение игры.
 static func default_state(game: Node) -> Dictionary:
-	return {"active":false,"base_location":game.current_location,"level_name":"%s_custom" % game.current_location,"level_notes":"","objects":[],"selected":-1,"selected_asset":"","category":0,"scroll":0,"search":"","favorites":PreferencesStore.load_favorites(),"favorites_only":false,"grid":24,"snap":true,"slice_size":0,"slice_index":0,"source_mode":"grid","custom_source":Rect2(),"atlas_picker_open":false,"atlas_page":0,"region_dragging":false,"region_drag_start":Vector2.ZERO,"region_drag_end":Vector2.ZERO,"layer":"objects","collision":false,"tool":"select","drag_kind":"","drag_offset":Vector2.ZERO,"rectangle_start":Vector2i.ZERO,"rectangle_end":Vector2i.ZERO,"last_brush_cell":Vector2i(-2147483648,-2147483648),"stroke_cells":{},"stroke_history_pushed":false,"mouse":Vector2.ZERO,"history":[],"future":[],"status":"F12 — закрыть конструктор","validation":{},"text_mode":"","text_buffer":"","draft_cursor":-1,"panel_hidden":false,"capture_pending":0,"export_png":"","next_id":1}
+	return {"active":false,"base_location":game.current_location,"level_name":"%s_custom" % game.current_location,"level_notes":"","objects":[],"selected":-1,"selected_ids":[],"group_clipboard":[],"group_drag_origins":{},"group_drag_anchor":Vector2.ZERO,"selection_start":Vector2.ZERO,"selection_end":Vector2.ZERO,"selection_additive":false,"layer_visibility":{"background":true,"ground":true,"objects":true,"foreground":true},"layer_locked":{"background":false,"ground":false,"objects":false,"foreground":false},"selected_asset":"","category":0,"scroll":0,"search":"","favorites":PreferencesStore.load_favorites(),"favorites_only":false,"grid":24,"snap":true,"slice_size":0,"slice_index":0,"source_mode":"grid","custom_source":Rect2(),"atlas_picker_open":false,"atlas_page":0,"region_dragging":false,"region_drag_start":Vector2.ZERO,"region_drag_end":Vector2.ZERO,"layer":"objects","collision":false,"tool":"select","drag_kind":"","drag_offset":Vector2.ZERO,"rectangle_start":Vector2i.ZERO,"rectangle_end":Vector2i.ZERO,"last_brush_cell":Vector2i(-2147483648,-2147483648),"stroke_cells":{},"stroke_history_pushed":false,"mouse":Vector2.ZERO,"history":[],"future":[],"status":"F12 — закрыть конструктор","validation":{},"text_mode":"","text_buffer":"","draft_cursor":-1,"panel_hidden":false,"capture_pending":0,"export_png":"","next_id":1}
 
 
 ## Проверяет, перехватывает ли конструктор симуляцию, ввод и интерфейс текущей игры.
@@ -76,11 +73,6 @@ static func catalog() -> Array[Dictionary]:
 	if not _catalog.is_empty(): return _catalog
 	_catalog = AssetCatalogSystem.scan("res://assets/game")
 	return _catalog
-
-
-## Добавляет изображения каталога из папки и всех её подпапок без загрузки тяжёлых текстур в память.
-static func _scan_directory(path: String, result: Array[Dictionary]) -> void:
-	result.append_array(AssetCatalogSystem.scan(path))
 
 
 ## Определяет пользовательскую группу спрайта по стабильной структуре каталогов проекта.
@@ -144,6 +136,7 @@ static func _commit_text(state: Dictionary) -> void:
 static func _handle_mouse(game: Node, state: Dictionary, event: InputEventMouseButton) -> void:
 	state.mouse = event.position
 	if AtlasPickerSystem.handle_input(state,event): return
+	if GroupSystem.handle_mouse(game,state,event): return
 	if event.button_index in [MOUSE_BUTTON_WHEEL_UP,MOUSE_BUTTON_WHEEL_DOWN] and event.pressed:
 		if PANEL.has_point(event.position):
 			state.scroll = maxi(0,int(state.scroll)+( -1 if event.button_index == MOUSE_BUTTON_WHEEL_UP else 1))
@@ -170,6 +163,7 @@ static func _handle_mouse(game: Node, state: Dictionary, event: InputEventMouseB
 
 ## Перемещает выбранный объект или обновляет позицию превью переносимого спрайта.
 static func _handle_motion(game: Node, state: Dictionary, event: InputEventMouseMotion) -> void:
+	if GroupSystem.handle_motion(game,state,event): return
 	if state.drag_kind == "object" and valid_selection(state):
 		var world: Vector2 = event.position + Vector2(game.camera_offset)
 		state.objects[state.selected].position = snap(state,world+Vector2(state.drag_offset))
@@ -238,6 +232,7 @@ static func _handle_world_press(game: Node, state: Dictionary, screen_point: Vec
 
 ## Обрабатывает отмену, удаление, копирование, слои, трансформации, историю и перемещение камеры.
 static func _handle_key(game: Node, state: Dictionary, event: InputEventKey) -> void:
+	if GroupSystem.handle_key(game,state,event): return
 	var command_pressed: bool = event.ctrl_pressed or event.meta_pressed
 	if command_pressed and ((event.keycode == KEY_Z and event.shift_pressed) or event.keycode == KEY_Y): redo(state); return
 	if command_pressed and event.keycode == KEY_Z: undo(state); return
@@ -308,7 +303,7 @@ static func place_selected_asset(game: Node, state: Dictionary, screen_point: Ve
 	var position := placement_position(state,world,anchor)
 	if anchor == "tile": _remove_ground_at(state,position,String(state.layer))
 	var object := {"id":int(state.next_id),"asset_path":path,"name":path.get_file().get_basename(),"notes":"","position":position,"size":size,"source":source,"anchor":anchor,"layer":state.layer,"collision":state.collision,"rotation":0.0,"flip_x":false,"flip_y":false,"reference":false,"runtime_id":"","original_position":Vector2.ZERO,"hidden":false,"unique_key":unique_key,"catalog_category":String(entry.get("category","other")),"surface_kind":String(entry.get("surface_kind","")),"autotile_diagonal_mask":0,"transition_masks":{},"transition_corner_masks":{}}
-	state.next_id = int(state.next_id)+1; state.objects.append(object); state.selected = state.objects.size()-1; state.status = "Размещено: %s" % object.name
+	state.next_id = int(state.next_id)+1; state.objects.append(object); state.selected = state.objects.size()-1; state.selected_ids=[int(object.id)]; state.status = "Размещено: %s" % object.name
 	ValidationSystem.rebuild_autotile_masks(state); state.validation={}
 	return true
 
@@ -426,7 +421,7 @@ static func object_bounds(object: Dictionary) -> Rect2:
 static func object_at(state: Dictionary, world: Vector2) -> int:
 	for index in range(state.objects.size()-1,-1,-1):
 		var object: Dictionary = state.objects[index]
-		if object.get("hidden",false): continue
+		if object.get("hidden",false) or not bool(state.layer_visibility.get(String(object.layer),true)) or bool(state.layer_locked.get(String(object.layer),false)): continue
 		if object_bounds(object).has_point(world): return index
 	return -1
 
@@ -493,13 +488,13 @@ static func push_history(state: Dictionary) -> void:
 ## Возвращает предыдущую компоновку и переносит текущую в стек повтора.
 static func undo(state: Dictionary) -> void:
 	if state.history.is_empty(): state.status="Нечего отменять"; return
-	var future: Array=state.future; future.append({"objects":state.objects.duplicate(true),"level_name":state.level_name,"level_notes":state.level_notes,"next_id":state.next_id}); state.future=future; _restore_history(state,state.history.pop_back()); state.selected=-1; state.status="Отмена"
+	var future: Array=state.future; future.append({"objects":state.objects.duplicate(true),"level_name":state.level_name,"level_notes":state.level_notes,"next_id":state.next_id}); state.future=future; _restore_history(state,state.history.pop_back()); state.selected=-1; state.selected_ids=[]; state.status="Отмена"
 
 
 ## Повторяет последнюю отменённую операцию без потери последующей истории.
 static func redo(state: Dictionary) -> void:
 	if state.future.is_empty(): state.status="Нечего повторять"; return
-	var history: Array=state.history; history.append({"objects":state.objects.duplicate(true),"level_name":state.level_name,"level_notes":state.level_notes,"next_id":state.next_id}); state.history=history; _restore_history(state,state.future.pop_back()); state.selected=-1; state.status="Повтор"
+	var history: Array=state.history; history.append({"objects":state.objects.duplicate(true),"level_name":state.level_name,"level_notes":state.level_notes,"next_id":state.next_id}); state.history=history; _restore_history(state,state.future.pop_back()); state.selected=-1; state.selected_ids=[]; state.status="Повтор"
 
 
 ## Восстанавливает один внутренний снимок истории редактора.
@@ -509,12 +504,12 @@ static func _restore_history(state: Dictionary, snapshot: Dictionary) -> void:
 
 ## Очищает холст, сохраняя текущую компоновку в истории отмены.
 static func new_draft(game: Node, state: Dictionary) -> void:
-	push_history(state); state.objects=[]; state.selected=-1; state.base_location=game.current_location; state.level_name="%s_custom"%game.current_location; state.level_notes=""; state.next_id=1; state.status="Новый пустой черновик"
+	push_history(state); state.objects=[]; state.selected=-1; state.selected_ids=[]; state.base_location=game.current_location; state.level_name="%s_custom"%game.current_location; state.level_notes=""; state.next_id=1; state.status="Новый пустой черновик"
 
 
 ## Импортирует объекты живой локации как редактируемые референсы с исходными координатами.
 static func import_current_level(game: Node, state: Dictionary) -> void:
-	push_history(state); state.objects=[]; state.selected=-1; state.base_location=game.current_location; state.level_name="%s_redesign"%game.current_location
+	push_history(state); state.objects=[]; state.selected=-1; state.selected_ids=[]; state.base_location=game.current_location; state.level_name="%s_redesign"%game.current_location
 	for candidate in game.DebugObjectInspectorSystem.candidates(game):
 		if candidate.id=="player" or candidate.category in ["ДОБЫЧА","ПЕРЕХОД"]: continue
 		state.objects.append({"id":int(state.next_id),"asset_path":"","name":candidate.name,"notes":"","position":candidate.position,"size":candidate.bounds.size,"source":Rect2(),"anchor":"center","layer":"objects","collision":not String(candidate.collision).begins_with("нет"),"rotation":0.0,"flip_x":false,"flip_y":false,"reference":true,"runtime_id":candidate.id,"original_position":candidate.position,"hidden":false,"scale":1.0,"unique_key":runtime_unique_key(String(candidate.id)),"catalog_category":"reference","surface_kind":"","autotile_diagonal_mask":0,"transition_masks":{},"transition_corner_masks":{}}); state.next_id+=1

@@ -29,6 +29,8 @@ func run() -> void:
 	test_water_brush_builds_shores_and_preserves_family()
 	test_mixed_surfaces_generate_persistent_transition_masks()
 	test_seasonal_grass_preserves_selected_climate_family()
+	test_group_marquee_move_and_clipboard_preserve_layout()
+	test_layer_visibility_and_locking_protect_objects()
 	test_validation_blocks_broken_export_and_reports_map_issues()
 	test_runtime_integration_freezes_simulation_and_draws_editor_layers()
 
@@ -392,6 +394,38 @@ func test_seasonal_grass_preserves_selected_climate_family() -> void:
 		var object:Dictionary=state.objects[index]; expect(String(object.autotile_family)=="grass_"+String(samples[index][1]) and String(object.surface_kind)=="grass","%s grass keeps its selected seasonal family and shared transition kind"%samples[index][1])
 	expect(String(state.objects[0].asset_path).ends_with("grass_spring.png") and String(state.objects[2].asset_path).ends_with("grass_autumn.png") and String(state.objects[3].asset_path).ends_with("ground_snow_grass.png"),"non-summer grass is not overwritten by summer flower randomization")
 	var preview:=Image.load_from_file(ProjectSettings.globalize_path("res://assets/generated/level_drafts/editor_transition_preview_v2.png")); expect(preview!=null and preview.get_size()==Vector2i(768,444),"seasonal terrain and inner corners keep a reviewed deterministic visual sheet")
+	game.free()
+
+
+## Сценарий: дизайнер обводит несколько тайлов, перемещает их как группу и копирует стандартными командами.
+## Исходное состояние: три объекта земли расположены рядом, инструмент выбора активен, буфер и выбор пусты.
+## Ожидаемый результат: рамка выбирает два объекта, drag сохраняет расстояние, а вставка и удаление группы являются едиными действиями.
+func test_group_marquee_move_and_clipboard_preserve_layout() -> void:
+	var game:=make_game(); var state:Dictionary=game.LevelEditorSystem.default_state(game); state.tool="select"; var entry:Dictionary=game.LevelEditorSystem.AssetCatalogSystem.metadata("res://assets/game/tiles/editor/terrain/grass_lush.png")
+	game.LevelEditorSystem.activate_asset(state,entry); state.tool="select"
+	for point in [Vector2(492,300),Vector2(516,300),Vector2(588,300)]: game.LevelEditorSystem.place_selected_asset(game,state,point,false)
+	state.tool="select"; state.selected_ids=[]; var press:=InputEventMouseButton.new(); press.button_index=MOUSE_BUTTON_LEFT; press.pressed=true; press.position=Vector2(470,286); game.LevelEditorSystem.GroupSystem.handle_mouse(game,state,press)
+	var motion:=InputEventMouseMotion.new(); motion.position=Vector2(546,330); game.LevelEditorSystem.GroupSystem.handle_motion(game,state,motion); press.pressed=false; press.position=motion.position; game.LevelEditorSystem.GroupSystem.handle_mouse(game,state,press)
+	expect(state.selected_ids.size()==2,"marquee selects the two intersecting tiles and excludes the distant third")
+	var before:=Vector2(state.objects[1].position)-Vector2(state.objects[0].position); press.pressed=true; press.position=Vector2(state.objects[0].position)+Vector2(4,4); game.LevelEditorSystem.GroupSystem.handle_mouse(game,state,press); motion.position=press.position+Vector2(48,24); game.LevelEditorSystem.GroupSystem.handle_motion(game,state,motion); press.pressed=false; press.position=motion.position; game.LevelEditorSystem.GroupSystem.handle_mouse(game,state,press)
+	expect(Vector2(state.objects[1].position)-Vector2(state.objects[0].position)==before and Vector2(state.objects[0].position)==Vector2(528,312),"group drag snaps one shared delta and preserves relative layout")
+	game.LevelEditorSystem.GroupSystem.copy_selection(state); var previous_ids:Array=state.selected_ids.duplicate(); game.LevelEditorSystem.GroupSystem.paste_selection(game,state)
+	expect(state.objects.size()==5 and state.selected_ids.size()==2 and state.selected_ids.all(func(id:int):return id not in previous_ids),"clipboard paste creates two independent ids in one operation")
+	game.LevelEditorSystem.GroupSystem.delete_selection(game,state); expect(state.objects.size()==3 and state.selected_ids.is_empty(),"group delete removes the pasted region together and clears stale selection")
+	game.free()
+
+
+## Сценарий: дизайнер скрывает и блокирует слой земли через компактную панель слоёв.
+## Исходное состояние: на ground находится один видимый объект, а остальные слои доступны и разблокированы.
+## Ожидаемый результат: скрытый или заблокированный объект не выбирается, повторное переключение безопасно возвращает доступ.
+func test_layer_visibility_and_locking_protect_objects() -> void:
+	var game:=make_game(); var state:Dictionary=game.LevelEditorSystem.default_state(game); var entry:Dictionary=game.LevelEditorSystem.AssetCatalogSystem.metadata("res://assets/game/tiles/editor/terrain/grass_lush.png"); game.LevelEditorSystem.activate_asset(state,entry); game.LevelEditorSystem.place_selected_asset(game,state,Vector2(492,300),false); var world:=Vector2(state.objects[0].position)+Vector2(4,4)
+	var click:=InputEventMouseButton.new(); click.button_index=MOUSE_BUTTON_LEFT; click.pressed=true; click.position=Vector2(1060,478); game.LevelEditorSystem.GroupSystem.handle_mouse(game,state,click)
+	expect(not state.layer_visibility.ground and game.LevelEditorSystem.object_at(state,world)==-1,"hidden ground layer disappears from hit testing")
+	game.LevelEditorSystem.GroupSystem.handle_mouse(game,state,click); click.position=Vector2(1100,478); game.LevelEditorSystem.GroupSystem.handle_mouse(game,state,click)
+	expect(state.layer_visibility.ground and state.layer_locked.ground and game.LevelEditorSystem.object_at(state,world)==-1,"locked visible ground remains rendered but protected from selection")
+	click.position=Vector2(1100,478); game.LevelEditorSystem.GroupSystem.handle_mouse(game,state,click); state.layer="ground"; game.LevelEditorSystem.GroupSystem.select_layer(state,"ground")
+	expect(not state.layer_locked.ground and state.selected_ids==[int(state.objects[0].id)],"unlocking restores layer-wide selection")
 	game.free()
 
 
