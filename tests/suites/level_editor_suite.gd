@@ -1,6 +1,7 @@
 extends "res://tests/suites/suite_base.gd"
 
 const TEST_DRAFT := "user://level_designs/level_editor_suite.json"
+const TEST_PREFERENCES := "user://level_editor_preferences_suite.json"
 
 
 ## Запускает сценарии каталога, рисования, редактирования, импорта и обменного формата конструктора.
@@ -10,6 +11,10 @@ func run() -> void:
 	test_catalog_click_keeps_brush_for_later_map_click()
 	test_click_brush_paints_every_crossed_grid_cell()
 	test_ground_brush_replaces_cell_and_undoes_whole_stroke()
+	test_rectangle_fill_is_one_dense_undoable_operation()
+	test_eyedropper_copies_existing_object_into_brush()
+	test_catalog_search_and_favorites_persist_outside_draft()
+	test_new_editor_shortcuts_route_to_tools_and_filters()
 	test_asset_anchors_keep_tiles_dense_and_large_objects_grounded()
 	test_object_tools_and_history_preserve_layout()
 	test_current_location_import_creates_editable_references()
@@ -106,6 +111,58 @@ func test_ground_brush_replaces_cell_and_undoes_whole_stroke() -> void:
 	expect(state.objects.size()==5 and state.objects[0].asset_path.ends_with("grass_lush.png"), "undo restores the replaced terrain cell without touching its neighbors")
 	game.LevelEditorSystem.undo(state)
 	expect(state.objects.is_empty(), "one undo removes the complete continuous five-cell stroke")
+	game.free()
+
+
+## Сценарий: дизайнер протягивает прямоугольную заливку от одной клетки до противоположного угла.
+## Исходное состояние: активна травяная кисть, сетка 24 px, холст и история пусты.
+## Ожидаемый результат: прямоугольник 4×3 заполняется без дыр и целиком отменяется одним Ctrl+Z.
+func test_rectangle_fill_is_one_dense_undoable_operation() -> void:
+	var game:=make_game(); var state:Dictionary=game.LevelEditorSystem.default_state(game); state.active=true
+	game.LevelEditorSystem.activate_asset(state,game.LevelEditorSystem.AssetCatalogSystem.metadata("res://assets/game/tiles/editor/terrain/grass_lush.png")); state.tool="fill"; game.set_meta(game.LevelEditorSystem.META_KEY,state)
+	var press:=InputEventMouseButton.new(); press.button_index=MOUSE_BUTTON_LEFT; press.pressed=true; press.position=Vector2(492,300); game.LevelEditorSystem.handle_input(game,press)
+	var motion:=InputEventMouseMotion.new(); motion.position=Vector2(564,348); motion.button_mask=MOUSE_BUTTON_MASK_LEFT; game.LevelEditorSystem.handle_input(game,motion)
+	var release:=InputEventMouseButton.new(); release.button_index=MOUSE_BUTTON_LEFT; release.pressed=false; release.position=motion.position; game.LevelEditorSystem.handle_input(game,release); state=game.get_meta(game.LevelEditorSystem.META_KEY)
+	expect(state.objects.size()==12 and state.objects.all(func(object:Dictionary):return object.anchor=="tile"),"rectangle fill creates every cell of a dense four by three terrain area")
+	game.LevelEditorSystem.undo(state); expect(state.objects.is_empty(),"one undo removes the complete rectangle fill")
+	game.free()
+
+
+## Сценарий: пипетка берёт уже размещённый срез атласа вместе с параметрами объекта.
+## Исходное состояние: выбранный объект использует конкретный ресурс, слой, коллизию и квадратный source-rect.
+## Ожидаемый результат: пипетка включает кисть того же ресурса, слоя, коллизии и номера кадра.
+func test_eyedropper_copies_existing_object_into_brush() -> void:
+	var game:=make_game(); var state:Dictionary=game.LevelEditorSystem.default_state(game); var path:="res://assets/game/environment/farm_plants.png"
+	var object:={"asset_path":path,"name":"Морковь","layer":"objects","collision":true,"source":Rect2(48,48,48,48)}
+	expect(game.LevelEditorSystem.ToolSystem.pick_object(state,object,game.LevelEditorSystem.CATEGORIES),"eyedropper accepts a real sprite object")
+	expect(state.tool=="paint" and state.selected_asset==path and state.layer=="objects" and state.collision,"eyedropper copies the visual and physical brush settings")
+	expect(state.slice_size==48 and state.slice_index==17,"eyedropper restores the exact square atlas frame")
+	game.free()
+
+
+## Сценарий: дизайнер ищет ресурс по имени, добавляет его в избранное и открывает новое состояние редактора.
+## Исходное состояние: отдельный файл тестовых предпочтений отсутствует, документ карты не содержит UI-настроек.
+## Ожидаемый результат: поиск работает поперёк категорий, избранное загружается отдельно и фильтрует каталог.
+func test_catalog_search_and_favorites_persist_outside_draft() -> void:
+	DirAccess.remove_absolute(ProjectSettings.globalize_path(TEST_PREFERENCES)); var game:=make_game(); var entries:Array[Dictionary]=game.LevelEditorSystem.catalog(); var favorite:="res://assets/game/tiles/editor/terrain/grass_lush.png"; var favorites:Array=[]
+	var searched:Array[Dictionary]=game.LevelEditorSystem.AssetCatalogSystem.filter(entries,"items","grass lush",false,favorites)
+	expect(searched.any(func(entry:Dictionary):return entry.path==favorite),"catalog search matches normalized asset names across category boundaries")
+	expect(game.LevelEditorSystem.PreferencesStore.toggle_favorite(favorites,favorite,TEST_PREFERENCES),"favorite toggle writes the independent editor preferences file")
+	var restored:Array[String]=game.LevelEditorSystem.PreferencesStore.load_favorites(TEST_PREFERENCES); var filtered:Array[Dictionary]=game.LevelEditorSystem.AssetCatalogSystem.filter(entries,"terrain","",true,restored)
+	expect(restored==[favorite] and filtered.size()==1 and filtered[0].path==favorite,"favorite survives reload and restricts the catalog without entering the level document")
+	var state:Dictionary=game.LevelEditorSystem.default_state(game); expect(not game.LevelEditorSystem.document(state).has("favorites"),"level draft remains free from personal catalog preferences")
+	DirAccess.remove_absolute(ProjectSettings.globalize_path(TEST_PREFERENCES)); game.free()
+
+
+## Сценарий: дизайнер переключает новые инструменты только клавиатурой, не покидая холст.
+## Исходное состояние: конструктор активен, текстовый ввод выключен, каталог показывает обычную категорию.
+## Ожидаемый результат: G и I выбирают инструменты, F фильтрует избранное, а slash открывает глобальный поиск.
+func test_new_editor_shortcuts_route_to_tools_and_filters() -> void:
+	var game:=make_game(); var state:Dictionary=game.LevelEditorSystem.default_state(game); state.active=true; game.set_meta(game.LevelEditorSystem.META_KEY,state)
+	game.LevelEditorSystem.handle_input(game,key_event(KEY_G,KEY_G,true)); state=game.get_meta(game.LevelEditorSystem.META_KEY); expect(state.tool=="fill","G selects rectangle fill inside the editor")
+	game.LevelEditorSystem.handle_input(game,key_event(KEY_I,KEY_I,true)); state=game.get_meta(game.LevelEditorSystem.META_KEY); expect(state.tool=="picker","I selects the eyedropper inside the editor")
+	game.LevelEditorSystem.handle_input(game,key_event(KEY_F,KEY_F,true)); state=game.get_meta(game.LevelEditorSystem.META_KEY); expect(state.favorites_only,"F enables the favorites-only catalog filter")
+	game.LevelEditorSystem.handle_input(game,key_event(KEY_SLASH,KEY_SLASH,true)); state=game.get_meta(game.LevelEditorSystem.META_KEY); expect(state.text_mode=="catalog_search","slash opens catalog search without triggering gameplay input")
 	game.free()
 
 

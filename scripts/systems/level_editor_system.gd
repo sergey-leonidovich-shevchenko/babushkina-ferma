@@ -3,6 +3,8 @@ extends RefCounted
 const AssetCatalogSystem := preload("res://scripts/systems/level_editor_asset_catalog_system.gd")
 const ValidationSystem := preload("res://scripts/systems/level_editor_validation_system.gd")
 const DocumentStore := preload("res://scripts/editor/level_editor_document_store.gd")
+const PreferencesStore := preload("res://scripts/editor/level_editor_preferences_store.gd")
+const ToolSystem := preload("res://scripts/systems/level_editor_tool_system.gd")
 const META_KEY := "level_editor"
 const FORMAT_VERSION := 3
 const PROJECT_DIRECTORY := "res://level_designs"
@@ -12,16 +14,20 @@ const SLICE_SIZES := [0, 24, 32, 48, 64, 96, 128]
 const LAYERS := ["background", "ground", "objects", "foreground"]
 const CATEGORIES := ["terrain", "buildings", "vegetation", "decor", "characters", "enemies", "items", "farming", "fishing", "ui", "other"]
 const CATEGORY_NAMES := {"terrain":"ЗЕМЛЯ","buildings":"ДОМА","vegetation":"РАСТЕНИЯ","decor":"ДЕКОР","characters":"ПЕРСОНАЖИ","enemies":"ВРАГИ","items":"ПРЕДМЕТЫ","farming":"ФЕРМА","fishing":"ВОДА/РЫБАЛКА","ui":"ИНТЕРФЕЙС","other":"ПРОЧЕЕ"}
-const PANEL := Rect2(10,10,334,628)
-const CLOSE_BUTTON := Rect2(306,20,28,28)
+const PANEL := Rect2(10,10,382,628)
+const CLOSE_BUTTON := Rect2(354,20,28,28)
 const CATEGORY_PREV := Rect2(24,82,30,28)
-const CATEGORY_NEXT := Rect2(300,82,30,28)
-const ASSET_ROWS := Rect2(22,122,310,230)
+const SEARCH_BUTTON := Rect2(60,82,218,28)
+const CATEGORY_NEXT := Rect2(284,82,30,28)
+const FAVORITES_BUTTON := Rect2(320,82,62,28)
+const ASSET_ROWS := Rect2(22,122,360,230)
 const ASSET_ROW_HEIGHT := 46
 const VISIBLE_ASSETS := 5
-const SELECT_TOOL_BUTTON := Rect2(22,360,96,30)
-const PAINT_TOOL_BUTTON := Rect2(124,360,98,30)
-const ERASE_TOOL_BUTTON := Rect2(228,360,104,30)
+const SELECT_TOOL_BUTTON := Rect2(22,360,68,30)
+const PAINT_TOOL_BUTTON := Rect2(94,360,68,30)
+const FILL_TOOL_BUTTON := Rect2(166,360,68,30)
+const PICKER_TOOL_BUTTON := Rect2(238,360,68,30)
+const ERASE_TOOL_BUTTON := Rect2(310,360,72,30)
 const NEW_BUTTON := Rect2(22,398,72,30)
 const SAVE_BUTTON := Rect2(100,398,72,30)
 const LOAD_BUTTON := Rect2(178,398,72,30)
@@ -41,7 +47,7 @@ static var _catalog: Array[Dictionary] = []
 
 ## Создаёт полное временное состояние конструктора, которое не попадает в обычное сохранение игры.
 static func default_state(game: Node) -> Dictionary:
-	return {"active":false,"base_location":game.current_location,"level_name":"%s_custom" % game.current_location,"level_notes":"","objects":[],"selected":-1,"selected_asset":"","category":0,"scroll":0,"grid":24,"snap":true,"slice_size":0,"slice_index":0,"layer":"objects","collision":false,"tool":"select","drag_kind":"","drag_offset":Vector2.ZERO,"last_brush_cell":Vector2i(-2147483648,-2147483648),"stroke_cells":{},"stroke_history_pushed":false,"mouse":Vector2.ZERO,"history":[],"future":[],"status":"F12 — закрыть конструктор","validation":{},"text_mode":"","text_buffer":"","draft_cursor":-1,"panel_hidden":false,"capture_pending":0,"export_png":"","next_id":1}
+	return {"active":false,"base_location":game.current_location,"level_name":"%s_custom" % game.current_location,"level_notes":"","objects":[],"selected":-1,"selected_asset":"","category":0,"scroll":0,"search":"","favorites":PreferencesStore.load_favorites(),"favorites_only":false,"grid":24,"snap":true,"slice_size":0,"slice_index":0,"layer":"objects","collision":false,"tool":"select","drag_kind":"","drag_offset":Vector2.ZERO,"rectangle_start":Vector2i.ZERO,"rectangle_end":Vector2i.ZERO,"last_brush_cell":Vector2i(-2147483648,-2147483648),"stroke_cells":{},"stroke_history_pushed":false,"mouse":Vector2.ZERO,"history":[],"future":[],"status":"F12 — закрыть конструктор","validation":{},"text_mode":"","text_buffer":"","draft_cursor":-1,"panel_hidden":false,"capture_pending":0,"export_png":"","next_id":1}
 
 
 ## Проверяет, перехватывает ли конструктор симуляцию, ввод и интерфейс текущей игры.
@@ -83,10 +89,7 @@ static func category_for_path(path: String) -> String:
 ## Возвращает отфильтрованные элементы активной категории для панели ресурсов.
 static func visible_catalog(state: Dictionary) -> Array[Dictionary]:
 	var category: String = CATEGORIES[int(state.category)]
-	var result: Array[Dictionary] = []
-	for entry in catalog():
-		if entry.category == category: result.append(entry)
-	return result
+	return AssetCatalogSystem.filter(catalog(),category,String(state.get("search","")),bool(state.get("favorites_only",false)),state.get("favorites",[]))
 
 
 ## Обрабатывает F12, мышь, drag-and-drop, горячие клавиши и режим ввода подписей.
@@ -122,6 +125,8 @@ static func _handle_text_input(game: Node, state: Dictionary, event: InputEvent)
 
 ## Применяет введённый текст к уровню или выбранному объекту и завершает режим ввода.
 static func _commit_text(state: Dictionary) -> void:
+	if String(state.text_mode)=="catalog_search":
+		state.search=String(state.text_buffer).strip_edges(); state.scroll=0; state.text_mode=""; state.text_buffer=""; state.status="Поиск: %s"%(state.search if not String(state.search).is_empty() else "выключен"); return
 	push_history(state)
 	match String(state.text_mode):
 		"level_name": state.level_name = String(state.text_buffer).strip_edges()
@@ -154,6 +159,8 @@ static func _handle_mouse(game: Node, state: Dictionary, event: InputEventMouseB
 		state.drag_kind = ""; state.stroke_history_pushed = false
 	elif state.drag_kind in ["paint","erase"]:
 		state.drag_kind = ""; state.stroke_history_pushed = false; state.stroke_cells = {}; state.last_brush_cell = Vector2i(-2147483648,-2147483648)
+	elif state.drag_kind == "fill":
+		_fill_rectangle(game,state); state.drag_kind=""; state.stroke_history_pushed=false; state.stroke_cells={}
 	elif state.drag_kind == "object":
 		state.drag_kind = ""; state.status = "Объект перемещён"
 
@@ -167,6 +174,8 @@ static func _handle_motion(game: Node, state: Dictionary, event: InputEventMouse
 		paint_to(game,state,event.position)
 	elif state.drag_kind == "erase":
 		erase_at(game,state,event.position)
+	elif state.drag_kind == "fill":
+		state.rectangle_end=grid_cell(state,event.position+Vector2(game.camera_offset))
 
 
 ## Выполняет команду экранной панели или начинает перенос выбранного ресурса на холст.
@@ -174,14 +183,20 @@ static func _handle_panel_click(game: Node, state: Dictionary, point: Vector2) -
 	if CLOSE_BUTTON.has_point(point): toggle(game); return
 	if CATEGORY_PREV.has_point(point): change_category(state,-1); return
 	if CATEGORY_NEXT.has_point(point): change_category(state,1); return
+	if SEARCH_BUTTON.has_point(point): begin_text(state,"catalog_search",String(state.get("search",""))); return
+	if FAVORITES_BUTTON.has_point(point): state.favorites_only=not bool(state.favorites_only); state.scroll=0; state.status="Только избранное" if state.favorites_only else "Все ресурсы категории"; return
 	if ASSET_ROWS.has_point(point):
 		var row: int = int((point.y-ASSET_ROWS.position.y)/ASSET_ROW_HEIGHT)
-		var entries: Array[Dictionary] = visible_catalog(state); var index: int = int(state.scroll)+row
+		var entries: Array[Dictionary] = visible_catalog(state); var start:=clampi(int(state.scroll),0,maxi(entries.size()-VISIBLE_ASSETS,0)); var index: int = start+row
 		if index < entries.size():
-			activate_asset(state,entries[index]); state.drag_kind = "catalog_asset"; state.status = "Кликни или веди по карте · B кисть"
+			if point.x>=ASSET_ROWS.end.x-34:
+				var path:=String(entries[index].path); var added:bool=PreferencesStore.toggle_favorite(state.favorites,path); state.status=("В избранном: " if added else "Удалено из избранного: ")+String(entries[index].name)
+			else: activate_asset(state,entries[index]); state.drag_kind = "catalog_asset"; state.status = "Кликни или веди по карте · B кисть"
 		return
 	if SELECT_TOOL_BUTTON.has_point(point): state.tool="select"; state.drag_kind=""; state.status="Выбор и перемещение · V"
 	elif PAINT_TOOL_BUTTON.has_point(point): state.tool="paint"; state.status="Кисть · выбери спрайт и рисуй · B"
+	elif FILL_TOOL_BUTTON.has_point(point): state.tool="fill"; state.drag_kind=""; state.status="Прямоугольник · протяни между углами · G"
+	elif PICKER_TOOL_BUTTON.has_point(point): state.tool="picker"; state.drag_kind=""; state.status="Пипетка · кликни существующий объект · I"
 	elif ERASE_TOOL_BUTTON.has_point(point): state.tool="erase"; state.drag_kind=""; state.status="Ластик · кликни или веди · E"
 	elif NEW_BUTTON.has_point(point): new_draft(game,state)
 	elif SAVE_BUTTON.has_point(point): save_draft(game,state,false)
@@ -205,6 +220,13 @@ static func _handle_world_press(game: Node, state: Dictionary, screen_point: Vec
 		_begin_stroke(state); state.drag_kind = "paint"; paint_to(game,state,screen_point); return
 	if String(state.tool) == "erase":
 		_begin_stroke(state); state.drag_kind = "erase"; erase_at(game,state,screen_point); return
+	if String(state.tool) == "fill" and not String(state.selected_asset).is_empty():
+		_begin_stroke(state); state.rectangle_start=grid_cell(state,world); state.rectangle_end=state.rectangle_start; state.drag_kind="fill"; state.status="Протяни прямоугольник и отпусти"; return
+	if String(state.tool) == "picker":
+		var picked:=object_at(state,world)
+		if picked>=0: ToolSystem.pick_object(state,state.objects[picked],CATEGORIES)
+		else: state.status="Под курсором нет объекта"
+		return
 	var selected: int = object_at(state,world)
 	if selected >= 0:
 		push_history(state); state.selected = selected; state.drag_kind = "object"; state.drag_offset = Vector2(state.objects[selected].position)-world; return
@@ -219,6 +241,10 @@ static func _handle_key(game: Node, state: Dictionary, event: InputEventKey) -> 
 	match event.keycode:
 		KEY_ESCAPE: state.selected_asset = ""; state.selected = -1; state.drag_kind = ""; state.tool = "select"
 		KEY_B: state.tool = "paint"; state.status = "Кисть · кликни или веди"
+		KEY_G: state.tool = "fill"; state.drag_kind=""; state.status = "Прямоугольник · протяни между углами"
+		KEY_I: state.tool = "picker"; state.drag_kind=""; state.status = "Пипетка · кликни объект"
+		KEY_F: state.favorites_only=not bool(state.favorites_only); state.scroll=0; state.status="Только избранное" if state.favorites_only else "Все ресурсы категории"
+		KEY_SLASH: begin_text(state,"catalog_search",String(state.get("search","")))
 		KEY_V: state.tool = "select"; state.drag_kind = ""; state.status = "Выбор и перемещение"
 		KEY_E: state.tool = "erase"; state.drag_kind = ""; state.status = "Ластик · кликни или веди"
 		KEY_DELETE,KEY_BACKSPACE: delete_selected(state)
@@ -295,6 +321,13 @@ static func paint_to(game: Node, state: Dictionary, screen_point: Vector2) -> vo
 		state.stroke_cells[key]=true
 		place_selected_asset(game,state,screen_for_cell(game,state,cell),false)
 	state.last_brush_cell = target
+
+
+## Заполняет выбранным ресурсом весь протянутый прямоугольник как одну операцию истории.
+static func _fill_rectangle(game: Node, state: Dictionary) -> void:
+	var cells:=ToolSystem.rectangle_cells(Vector2i(state.rectangle_start),Vector2i(state.rectangle_end))
+	for cell in cells: place_selected_asset(game,state,screen_for_cell(game,state,cell),false)
+	state.status="Прямоугольник: %d клеток"%cells.size(); ValidationSystem.rebuild_autotile_masks(state); state.validation={}
 
 
 ## Стирает верхний элемент в каждой пройденной клетке тем же непрерывным алгоритмом, что и кисть.

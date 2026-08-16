@@ -27,6 +27,7 @@ static func draw_layer(game: Node2D, layer: String) -> void:
 	if layer=="foreground":
 		if not bool(state.panel_hidden):
 			draw_grid(game,state)
+			draw_rectangle_preview(game,state)
 			draw_drag_preview(game,state)
 
 
@@ -76,50 +77,59 @@ static func draw_drag_preview(game: Node2D, state: Dictionary) -> void:
 	game.draw_rect(destination,Color("8ef09d"),false,2.0)
 
 
+## Показывает полупрозрачную область будущей прямоугольной заливки до отпускания мыши.
+static func draw_rectangle_preview(game: Node2D, state: Dictionary) -> void:
+	if String(state.drag_kind)!="fill": return
+	var start:=Vector2i(state.rectangle_start); var finish:=Vector2i(state.rectangle_end); var minimum:=Vector2i(mini(start.x,finish.x),mini(start.y,finish.y)); var maximum:=Vector2i(maxi(start.x,finish.x),maxi(start.y,finish.y)); var grid:=int(state.grid)
+	var rect:=Rect2(Vector2(minimum)*grid,Vector2(maximum-minimum+Vector2i.ONE)*grid)
+	game.draw_rect(rect,Color(0.42,0.95,0.55,0.18)); game.draw_rect(rect,Color("8ef09d"),false,2.0)
+
+
 ## Рисует всю панель каталога, настройки объекта, статус и строку горячих клавиш.
 static func draw_panel(game: Node2D) -> void:
 	if not game.LevelEditorSystem.active(game): return
 	var state:Dictionary=game.get_meta(game.LevelEditorSystem.META_KEY)
 	if bool(state.panel_hidden): return
 	var panel:Rect2=game.LevelEditorSystem.PANEL; game.DebugUiKitSystem.draw_panel(game,panel,true)
-	game.draw_ui_string(game.MENU_FONT,Vector2(24,43),"КОНСТРУКТОР УРОВНЕЙ",HORIZONTAL_ALIGNMENT_LEFT,270,18,TEXT)
+	game.draw_ui_string(game.MENU_FONT,Vector2(24,43),"КОНСТРУКТОР УРОВНЕЙ",HORIZONTAL_ALIGNMENT_LEFT,318,18,TEXT)
 	draw_button(game,game.LevelEditorSystem.CLOSE_BUTTON,"×",false)
 	game.draw_ui_string(game.UI_FONT,Vector2(24,67),"%s · %d объектов"%[state.level_name,state.objects.size()],HORIZONTAL_ALIGNMENT_LEFT,304,12,MUTED)
 	draw_button(game,game.LevelEditorSystem.CATEGORY_PREV,"‹",false); draw_button(game,game.LevelEditorSystem.CATEGORY_NEXT,"›",false)
-	var category:String=game.LevelEditorSystem.CATEGORIES[int(state.category)]; game.draw_ui_string(game.UI_FONT,Vector2(62,102),game.LevelEditorSystem.CATEGORY_NAMES[category],HORIZONTAL_ALIGNMENT_CENTER,230,14,TEXT)
+	var category:String=game.LevelEditorSystem.CATEGORIES[int(state.category)]; var search:=String(state.get("search","")); draw_button(game,game.LevelEditorSystem.SEARCH_BUTTON,("⌕ "+search.left(19)) if not search.is_empty() else (game.LevelEditorSystem.CATEGORY_NAMES[category]+" · ПОИСК /"),not search.is_empty()); draw_button(game,game.LevelEditorSystem.FAVORITES_BUTTON,"★ %d"%state.favorites.size(),bool(state.favorites_only))
 	draw_assets(game,state)
-	draw_button(game,game.LevelEditorSystem.SELECT_TOOL_BUTTON,"V · ВЫБОР",state.tool=="select"); draw_button(game,game.LevelEditorSystem.PAINT_TOOL_BUTTON,"B · КИСТЬ",state.tool=="paint"); draw_button(game,game.LevelEditorSystem.ERASE_TOOL_BUTTON,"E · ЛАСТИК",state.tool=="erase")
+	draw_button(game,game.LevelEditorSystem.SELECT_TOOL_BUTTON,"V ВЫБ.",state.tool=="select"); draw_button(game,game.LevelEditorSystem.PAINT_TOOL_BUTTON,"B КИСТЬ",state.tool=="paint"); draw_button(game,game.LevelEditorSystem.FILL_TOOL_BUTTON,"G ЗАЛИВ.",state.tool=="fill"); draw_button(game,game.LevelEditorSystem.PICKER_TOOL_BUTTON,"I ПИПЕТ.",state.tool=="picker"); draw_button(game,game.LevelEditorSystem.ERASE_TOOL_BUTTON,"E ЛАСТ.",state.tool=="erase")
 	draw_button(game,game.LevelEditorSystem.NEW_BUTTON,"НОВЫЙ",false); draw_button(game,game.LevelEditorSystem.SAVE_BUTTON,"СОХР.",false); draw_button(game,game.LevelEditorSystem.LOAD_BUTTON,"ЗАГР.",false); draw_button(game,game.LevelEditorSystem.EXPORT_BUTTON,"ЭКСПОРТ",true)
 	draw_button(game,game.LevelEditorSystem.IMPORT_BUTTON,"ИМПОРТ ЛОКАЦИИ",false); draw_button(game,game.LevelEditorSystem.VALIDATE_BUTTON,"R · ПРОВЕРКА",not state.validation.is_empty() and bool(state.validation.get("valid",false)))
 	draw_button(game,game.LevelEditorSystem.GRID_BUTTON,"СЕТКА %d"%int(state.grid),false); draw_button(game,game.LevelEditorSystem.SLICE_BUTTON,"СРЕЗ %s"%("ALL" if int(state.slice_size)==0 else str(state.slice_size)),false); draw_button(game,game.LevelEditorSystem.LAYER_BUTTON,layer_name(String(state.layer)),true)
 	draw_button(game,game.LevelEditorSystem.COLLISION_BUTTON,"КОЛЛИЗИЯ %s"%("ДА"if state.collision else"НЕТ"),bool(state.collision)); draw_button(game,game.LevelEditorSystem.LEVEL_NAME_BUTTON,"НАЗВАНИЕ УРОВНЯ",false)
 	draw_button(game,game.LevelEditorSystem.OBJECT_NAME_BUTTON,"ПОДПИСЬ ОБЪЕКТА",false); draw_button(game,game.LevelEditorSystem.OBJECT_NOTE_BUTTON,"ЗАМЕТКА",false)
 	var status: String = String(state.status); if not String(state.text_mode).is_empty(): status="▌ "+String(state.text_buffer)
-	game.DebugUiKitSystem.draw_readout(game,Rect2(20,607,314,22),true); game.draw_ui_string(game.UI_FONT,Vector2(25,623),status,HORIZONTAL_ALIGNMENT_LEFT,304,11,Color("ffe099"))
+	game.DebugUiKitSystem.draw_readout(game,Rect2(20,607,362,22),true); game.draw_ui_string(game.UI_FONT,Vector2(25,623),status,HORIZONTAL_ALIGNMENT_LEFT,352,11,Color("ffe099"))
 	draw_selection_info(game,state)
 	draw_validation_info(game,state)
-	game.draw_ui_string(game.UI_FONT,Vector2(356,24),"F12 закрыть · B кисть · V выбор · E ластик · WASD камера · Ctrl+Z/Y · Q поворот · [ ] масштаб",HORIZONTAL_ALIGNMENT_LEFT,780,12,Color(1,0.95,0.78,0.92))
+	game.draw_ui_string(game.UI_FONT,Vector2(404,24),"F12 закрыть · B кисть · G прямоугольник · I пипетка · / поиск · F избранное · Ctrl+Z/Y",HORIZONTAL_ALIGNMENT_LEFT,732,12,Color(1,0.95,0.78,0.92))
 
 
 ## Рисует шесть видимых строк ресурсов с настоящими миниатюрами и путями файлов.
 static func draw_assets(game: Node2D, state: Dictionary) -> void:
 	var entries: Array[Dictionary] = game.LevelEditorSystem.visible_catalog(state); var start: int = clampi(int(state.scroll),0,maxi(entries.size()-game.LevelEditorSystem.VISIBLE_ASSETS,0))
 	for row in game.LevelEditorSystem.VISIBLE_ASSETS:
-		var index: int = start+row; var rect: Rect2 = Rect2(22,122+row*game.LevelEditorSystem.ASSET_ROW_HEIGHT,310,42); var selected: bool = index<entries.size() and entries[index].path==state.selected_asset; game.DebugUiKitSystem.draw_catalog_row(game,rect,selected)
+		var index: int = start+row; var rect: Rect2 = Rect2(22,122+row*game.LevelEditorSystem.ASSET_ROW_HEIGHT,360,42); var selected: bool = index<entries.size() and entries[index].path==state.selected_asset; game.DebugUiKitSystem.draw_catalog_row(game,rect,selected)
 		if index>=entries.size(): continue
 		var entry:Dictionary=entries[index]; var texture: Texture2D = texture_for(String(entry.path))
 		if texture!=null:
 			var source: Rect2 = game.LevelEditorSystem.selected_source(texture,state) if selected else Rect2(); var texture_size: Vector2 = source.size if source.size!=Vector2.ZERO else texture.get_size(); var scale: float = minf(34.0/maxf(texture_size.x,1),34.0/maxf(texture_size.y,1)); var thumb: Rect2 = Rect2(Vector2(28,126+row*game.LevelEditorSystem.ASSET_ROW_HEIGHT)+(Vector2(36,34)-texture_size*scale)*0.5,texture_size*scale)
 			if source.size==Vector2.ZERO: game.draw_texture_rect(texture,thumb,false)
 			else: game.draw_texture_rect_region(texture,thumb,source)
-		game.draw_ui_string(game.UI_FONT,Vector2(70,141+row*game.LevelEditorSystem.ASSET_ROW_HEIGHT),String(entry.name).left(31),HORIZONTAL_ALIGNMENT_LEFT,252,12,TEXT)
-		game.draw_ui_string(game.UI_FONT,Vector2(70,157+row*game.LevelEditorSystem.ASSET_ROW_HEIGHT),String(entry.path).trim_prefix("res://assets/game/").left(42),HORIZONTAL_ALIGNMENT_LEFT,252,9,MUTED)
+		game.draw_ui_string(game.UI_FONT,Vector2(70,141+row*game.LevelEditorSystem.ASSET_ROW_HEIGHT),String(entry.name).left(35),HORIZONTAL_ALIGNMENT_LEFT,270,12,TEXT)
+		game.draw_ui_string(game.UI_FONT,Vector2(70,157+row*game.LevelEditorSystem.ASSET_ROW_HEIGHT),String(entry.path).trim_prefix("res://assets/game/").left(47),HORIZONTAL_ALIGNMENT_LEFT,270,9,MUTED)
+		game.draw_ui_string(game.UI_FONT,Vector2(348,149+row*game.LevelEditorSystem.ASSET_ROW_HEIGHT),"★" if String(entry.path) in state.favorites else "☆",HORIZONTAL_ALIGNMENT_CENTER,28,16,SELECTED if String(entry.path) in state.favorites else MUTED)
 
 
 ## Показывает краткие технические параметры выбранного объекта справа от панели.
 static func draw_selection_info(game: Node2D, state: Dictionary) -> void:
 	if not game.LevelEditorSystem.valid_selection(state): return
-	var object:Dictionary=state.objects[state.selected]; var rect:=Rect2(356,42,300,82); game.DebugUiKitSystem.draw_readout(game,rect,true)
+	var object:Dictionary=state.objects[state.selected]; var rect:=Rect2(404,42,300,82); game.DebugUiKitSystem.draw_readout(game,rect,true)
 	var lines: Array[String] = ["%s · #%s"%[object.name,object.id],"x %.0f · y %.0f · %.0f×%.0f"%[object.position.x,object.position.y,object.size.x,object.size.y],"%s · %s · scale %.2f · collision %s"%[layer_name(object.layer),String(object.get("anchor","center")),game.LevelEditorSystem.object_scale(object),"да"if object.collision else"нет"]]
 	for index in lines.size(): game.draw_ui_string(game.UI_FONT,rect.position+Vector2(10,22+index*21),lines[index],HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-20,12,TEXT)
 

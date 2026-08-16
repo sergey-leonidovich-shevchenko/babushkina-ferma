@@ -18,6 +18,16 @@ static func find(entries: Array[Dictionary], path: String) -> Dictionary:
 	return metadata(path)
 
 
+## Фильтрует каталог по категории, поиску и избранному без повторного обхода файловой системы.
+static func filter(entries: Array[Dictionary], category: String, query: String, favorites_only: bool, favorites: Array) -> Array[Dictionary]:
+	var result: Array[Dictionary] = []; var normalized_query:=query.to_lower().strip_edges()
+	for entry in entries:
+		var path:=String(entry.path); var matches_search:=normalized_query.is_empty() or normalized_query in String(entry.name).to_lower() or normalized_query in path.to_lower()
+		var matches_category:=not normalized_query.is_empty() or favorites_only or String(entry.category)==category
+		if matches_search and matches_category and (not favorites_only or path in favorites): result.append(entry)
+	return result
+
+
 ## Возвращает стабильные настройки слоя, якоря и коллизии по назначению ресурса.
 static func metadata(path: String) -> Dictionary:
 	var lower := path.to_lower()

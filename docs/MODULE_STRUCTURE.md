@@ -82,5 +82,7 @@ flowchart LR
 | Автоматический захват кадров | `scripts/core/game_preview_controller.gd` |
 | Рисование грядок и роста | `scripts/presentation/farm_renderer.gd` |
 | JSON конструктора уровней | `scripts/editor/level_editor_document_store.gd` |
+| Избранное конструктора | `scripts/editor/level_editor_preferences_store.gd` |
+| Заливка и пипетка конструктора | `scripts/systems/level_editor_tool_system.gd` |
 
 [К архитектуре](../ARCHITECTURE.md) · [К разработке](DEVELOPMENT.md) · [К навигатору документации](README.md)
