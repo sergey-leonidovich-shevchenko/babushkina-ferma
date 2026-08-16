@@ -12,9 +12,9 @@ const CUSTOM_AREA := Rect2(430,126,672,384)
 const PAGE_PREV := Rect2(430,526,92,32)
 const PAGE_LABEL := Rect2(528,526,476,32)
 const PAGE_NEXT := Rect2(1010,526,92,32)
-const GRID_COLUMNS := 8
+const GRID_COLUMNS := 7
 const GRID_ROWS := 4
-const GRID_CELL := Vector2(84,96)
+const GRID_CELL := Vector2(96,96)
 const PAGE_SIZE := GRID_COLUMNS*GRID_ROWS
 const SLICE_SIZES := [0,16,24,32,48,64,96,128,222,256]
 

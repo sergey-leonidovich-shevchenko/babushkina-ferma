@@ -247,20 +247,21 @@
       "family": "Ягоды, грибы, арбузы и плодовые деревья",
       "assets": [
         {"path":"assets/game/environment/farm_plants.png","width":768,"height":432},
+        {"path":"assets/game/environment/farm_plants_objects_atlas_v1.png","width":1152,"height":672},
         {"path":"assets/game/environment/orchard/fruit_trees_4x4_v2.png","width":1024,"height":1024},
         {"path":"assets/game/environment/red_mushrooms.png","width":64,"height":64},
         {"path":"assets/game/items/watermelon.png","width":64,"height":64}
       ],
-      "render_owner": "GameRenderer.draw_food_nodes",
-      "source_layout": "ячейки 72×72 и отдельные PNG",
+      "render_owner": "GameRenderer.draw_food_nodes и LevelEditorAssetCatalogSystem",
+      "source_layout": "runtime-монтаж, нормализованный редакторский атлас 12×7 с ячейкой 96×96 и отдельные PNG",
       "runtime_sizes": ["48×48", "72×72", "120×120", "168×168", "192×192"],
       "target_modules": ["48×48", "72×72", "120×120", "168×168", "192×192"],
       "anchor": "нижний центр растения",
       "collision": "основание 24×24 для малых растений и 48×48 для деревьев из общего профиля",
       "status": "compliant",
       "priority": "P2",
-      "debt": "Закрыт: отдельные PNG и целые ячейки атласов используют модульные размеры, общую линию земли и коллизию из того же профиля.",
-      "done_when": "Гриб 48×48, арбуз и куст 72×72, дикий орешник 120×120, садовые стадии 72/120/168/192; опора и основание заданы рядом с визуальным размером."
+      "debt": "Закрыт: отдельные PNG и целые ячейки атласов используют модульные размеры, общую линию земли и коллизию из того же профиля; перекрывающийся монтаж растений заменён в конструкторе на 84 изолированные ячейки.",
+      "done_when": "Гриб 48×48, арбуз и куст 72×72, дикий орешник 120×120, садовые стадии 72/120/168/192; редактор показывает только целые спрайты 96×96, а опора и основание заданы рядом с визуальным размером."
     },
     {
       "id": "WS-012",

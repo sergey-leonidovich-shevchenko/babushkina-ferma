@@ -6,6 +6,7 @@ const SAFE_ATLAS_SLICES := {
 	"buildable_fence_atlas_v1.png":64,
 	"expansion_atlas.png":128,
 	"farm_food_atlas.png":256,
+	"farm_plants_objects_atlas_v1.png":96,
 	"farm_plot_atlas.png":48,
 	"forest_tree_growth_atlas_v1.png":256,
 	"inventory_core_atlas.png":256,
@@ -14,7 +15,7 @@ const SAFE_ATLAS_SLICES := {
 }
 const STRICT_SHEET_SLICES := {
 	"annual_a.png":64,"annual_b.png":64,"annual_c.png":64,"annual_d.png":64,
-	"farm_plants.png":48,"farm_supplies.png":32,"fantasy_icons.png":48,
+	"farm_supplies.png":32,"fantasy_icons.png":48,
 	"fruit_trees_4x4_v2.png":256,"herbs_seasons.png":64,"strawberry_seasons.png":64,
 	"river tileset.png":16,"slime_attack.png":128,"slime_death.png":128,"slime_hurt.png":128,"slime_idle.png":128,
 	"splash effect.png":16,"water tile.png":16,
@@ -121,6 +122,7 @@ static func _scan_directory(path: String, result: Array[Dictionary]) -> void:
 static func _is_placeable_image(filename: String) -> bool:
 	var lower := filename.to_lower()
 	if "preview" in lower or "master" in lower: return false
+	if lower == "farm_plants.png": return false
 	if "atlas" in lower and not SAFE_ATLAS_SLICES.has(lower): return false
 	return IMAGE_EXTENSIONS.any(func(extension: String): return lower.ends_with(extension))
 

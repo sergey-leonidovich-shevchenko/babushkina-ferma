@@ -260,7 +260,7 @@ static func _finalize_previews(game: Node, args: PackedStringArray) -> void:
 		var editor_state: Dictionary = game.get_meta(game.LevelEditorSystem.META_KEY)
 		game.LevelEditorSystem.configure_preview(game, editor_state)
 		if "--level-editor-atlas-preview" in args or "--capture-level-editor-atlas" in args:
-			game.LevelEditorSystem.activate_asset(editor_state,game.LevelEditorSystem.AssetCatalogSystem.metadata("res://assets/game/environment/farm_plants.png"))
+			game.LevelEditorSystem.activate_asset(editor_state,game.LevelEditorSystem.AssetCatalogSystem.metadata("res://assets/game/environment/farm_plants_objects_atlas_v1.png"))
 			game.LevelEditorSystem.AtlasPickerSystem.open(editor_state)
 		game.set_meta(game.LevelEditorSystem.META_KEY, editor_state)
 		if "--capture-level-editor" in args:

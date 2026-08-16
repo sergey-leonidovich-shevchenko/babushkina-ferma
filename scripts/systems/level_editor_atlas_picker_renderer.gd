@@ -5,6 +5,10 @@ const TEXT := Color("fff0c8")
 const MUTED := Color("c5ae83")
 const SELECTED := Color("ffd45c")
 const ROW_TEXT := Color("4b2c17")
+const CARD_GAP := Vector2.ZERO
+const PREVIEW_INSET := Vector2(20,14)
+const LABEL_HEIGHT := 16.0
+static var _visible_source_cache: Dictionary = {}
 
 
 ## Рисует модальное окно равномерных кадров или произвольного source-rect поверх живой карты.
@@ -25,14 +29,22 @@ static func draw(game: Node2D, state: Dictionary) -> void:
 static func draw_grid(game: Node2D, state: Dictionary, texture: Texture2D) -> void:
 	var count:=AtlasPickerSystem.frame_count(texture,state); var page:=clampi(int(state.get("atlas_page",0)),0,AtlasPickerSystem.page_count(texture,state)-1); var start:=page*AtlasPickerSystem.PAGE_SIZE
 	for local_index in AtlasPickerSystem.PAGE_SIZE:
-		var index:=start+local_index; var column:=local_index%AtlasPickerSystem.GRID_COLUMNS; var row:=local_index/AtlasPickerSystem.GRID_COLUMNS; var rect:=Rect2(AtlasPickerSystem.GRID_AREA.position+Vector2(column*AtlasPickerSystem.GRID_CELL.x,row*AtlasPickerSystem.GRID_CELL.y),AtlasPickerSystem.GRID_CELL-Vector2(4,4)); var active:=index==int(state.slice_index)
+		var index:=start+local_index; var column:=local_index%AtlasPickerSystem.GRID_COLUMNS; var row:=local_index/AtlasPickerSystem.GRID_COLUMNS; var rect:=Rect2(AtlasPickerSystem.GRID_AREA.position+Vector2(column*AtlasPickerSystem.GRID_CELL.x,row*AtlasPickerSystem.GRID_CELL.y),AtlasPickerSystem.GRID_CELL-CARD_GAP); var active:=index==int(state.slice_index)
 		game.DebugUiKitSystem.draw_catalog_row(game,rect,active,true)
 		if index>=count: continue
-		var preview_state:=state.duplicate(); preview_state.slice_index=index; preview_state.source_mode="grid"; var source:=AtlasPickerSystem.selected_source(texture,preview_state); var source_size:=source.size if source.size!=Vector2.ZERO else texture.get_size(); var scale:=minf(68.0/maxf(source_size.x,1),68.0/maxf(source_size.y,1)); var destination:=Rect2(rect.position+Vector2((rect.size.x-source_size.x*scale)*0.5,10),source_size*scale)
-		if source.size==Vector2.ZERO: game.draw_texture_rect(texture,destination,false)
-		else: game.draw_texture_rect_region(texture,destination,source)
+		var preview_state:=state.duplicate(); preview_state.slice_index=index; preview_state.source_mode="grid"; var source:=AtlasPickerSystem.selected_source(texture,preview_state); var exact_source:=source if source.size!=Vector2.ZERO else Rect2(Vector2.ZERO,texture.get_size()); var preview_source:=visible_preview_source(texture,exact_source); var content:=Rect2(rect.position+PREVIEW_INSET,rect.size-PREVIEW_INSET*2.0-Vector2(0,LABEL_HEIGHT)); var scale:=minf(content.size.x/maxf(preview_source.size.x,1),content.size.y/maxf(preview_source.size.y,1)); var preview_size:=preview_source.size*scale; var destination:=Rect2(content.position+(content.size-preview_size)*0.5,preview_size)
+		game.draw_texture_rect_region(texture,destination,preview_source)
 		game.draw_ui_string(game.UI_FONT,rect.position+Vector2(4,rect.size.y-5),"#%d"%(index+1),HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-8,9,ROW_TEXT)
 	draw_button(game,AtlasPickerSystem.PAGE_PREV,"‹ СТРАНИЦА",false); draw_button(game,AtlasPickerSystem.PAGE_LABEL,"%d / %d · %d кадров"%[page+1,AtlasPickerSystem.page_count(texture,state),count],true); draw_button(game,AtlasPickerSystem.PAGE_NEXT,"СТРАНИЦА ›",false)
+
+
+## Находит непрозрачную часть точного кадра, чтобы визуально центрировать спрайт, не меняя область его выбора и размещения.
+static func visible_preview_source(texture: Texture2D, exact_source: Rect2) -> Rect2:
+	var key:="%s:%d:%d:%d:%d"%[texture.resource_path,int(exact_source.position.x),int(exact_source.position.y),int(exact_source.size.x),int(exact_source.size.y)]
+	if _visible_source_cache.has(key): return Rect2(_visible_source_cache[key])
+	var image:=texture.get_image(); var bounds:=Rect2i(Vector2i(exact_source.position),Vector2i(exact_source.size)); var used:=image.get_region(bounds).get_used_rect(); var result:=exact_source if used.size==Vector2i.ZERO else Rect2(Vector2i(bounds.position+used.position),used.size)
+	_visible_source_cache[key]=result
+	return result
 
 
 ## Показывает полный исходник и точную рамку пользовательского прямоугольника в его масштабе.

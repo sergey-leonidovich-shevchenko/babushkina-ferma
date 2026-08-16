@@ -2,6 +2,7 @@ extends "res://tests/suites/suite_base.gd"
 
 const TEST_DRAFT := "user://level_designs/level_editor_suite.json"
 const TEST_PREFERENCES := "user://level_editor_preferences_suite.json"
+const AtlasPickerRenderer := preload("res://scripts/systems/level_editor_atlas_picker_renderer.gd")
 
 
 ## Запускает сценарии каталога, рисования, редактирования, импорта и обменного формата конструктора.
@@ -65,8 +66,8 @@ func test_catalog_profiles_all_buildings_and_safe_sprite_sheets() -> void:
 	expect(grandmother.slice_size==222 and grandmother.frame_count==32 and grandmother.display_size==Vector2(96,96) and grandmother.unique_key=="npc:grandmother","directional grandmother sheet is presented as a correctly scaled unique frame")
 	var fence:Dictionary=game.LevelEditorSystem.AssetCatalogSystem.find(entries,"res://assets/game/environment/buildable_fence_atlas_v1.png")
 	expect(fence.slice_size==64 and fence.frame_count==40,"strict fence atlas is paintable frame by frame without leaking adjacent sprites")
-	var plants:Dictionary=game.LevelEditorSystem.AssetCatalogSystem.find(entries,"res://assets/game/environment/farm_plants.png")
-	expect(plants.slice_size==48 and plants.frame_count==144,"legacy plant sheet is paintable as exact individual cells instead of one oversized image")
+	var plants:Dictionary=game.LevelEditorSystem.AssetCatalogSystem.find(entries,"res://assets/game/environment/farm_plants_objects_atlas_v1.png")
+	expect(plants.slice_size==96 and plants.frame_count==84 and not entries.any(func(entry:Dictionary):return String(entry.path).ends_with("farm_plants.png")),"normalized plant atlas exposes 84 isolated objects while the overlapping legacy montage stays hidden")
 	var bridges:Array[Dictionary]=entries.filter(func(entry:Dictionary):return "/environment/bridges/" in String(entry.path))
 	expect(bridges.size()==9 and bridges.all(func(entry:Dictionary):return entry.collision and ResourceLoader.exists(entry.path)),"all nine extracted bridges are independent placeable collision-aware sprites")
 	expect(not entries.any(func(entry:Dictionary):return String(entry.path).ends_with("bridges.png") or String(entry.path).ends_with("fruit_trees_clear.png")) and audit.excluded_composites.is_empty(),"legacy irregular montages no longer masquerade as placeable sprites or unresolved debt")
@@ -74,14 +75,16 @@ func test_catalog_profiles_all_buildings_and_safe_sprite_sheets() -> void:
 
 
 ## Сценарий: дизайнер открывает большой регулярный лист и выбирает кадр на второй строке визуальной таблицы.
-## Исходное состояние: лист растений содержит 16×9 кадров 48 px, окно открыто на первой странице по 32 превью.
-## Ожидаемый результат: клик выбирает десятый индекс и возвращает точный source-rect без части соседнего кадра.
+## Исходное состояние: нормализованный лист растений содержит 12×7 изолированных кадров 96 px, окно открыто на первой странице из 28 широких карточек.
+## Ожидаемый результат: клик выбирает ожидаемый индекс, возвращает точный source-rect, а видимая часть превью центрируется отдельно.
 func test_atlas_picker_selects_paged_regular_frame() -> void:
-	var game:=make_game(); var state:Dictionary=game.LevelEditorSystem.default_state(game); var path:="res://assets/game/environment/farm_plants.png"; var texture:=ResourceLoader.load(path) as Texture2D
+	var game:=make_game(); var state:Dictionary=game.LevelEditorSystem.default_state(game); var path:="res://assets/game/environment/farm_plants_objects_atlas_v1.png"; var texture:=ResourceLoader.load(path) as Texture2D
 	game.LevelEditorSystem.activate_asset(state,game.LevelEditorSystem.AssetCatalogSystem.metadata(path)); expect(game.LevelEditorSystem.AtlasPickerSystem.open(state),"visual atlas picker opens for the selected sprite sheet")
-	expect(game.LevelEditorSystem.AtlasPickerSystem.frame_count(texture,state)==144 and game.LevelEditorSystem.AtlasPickerSystem.page_count(texture,state)==5,"regular atlas is paginated into five bounded preview pages")
+	expect(game.LevelEditorSystem.AtlasPickerSystem.frame_count(texture,state)==84 and game.LevelEditorSystem.AtlasPickerSystem.page_count(texture,state)==3 and game.LevelEditorSystem.AtlasPickerSystem.GRID_CELL==Vector2(96,96) and AtlasPickerRenderer.CARD_GAP==Vector2.ZERO,"normalized atlas is paginated into three bounded pages with wider adjacent square cards")
 	var point:Vector2=game.LevelEditorSystem.AtlasPickerSystem.GRID_AREA.position+Vector2(2.5*game.LevelEditorSystem.AtlasPickerSystem.GRID_CELL.x,1.5*game.LevelEditorSystem.AtlasPickerSystem.GRID_CELL.y)
-	expect(game.LevelEditorSystem.AtlasPickerSystem.select_grid_frame(state,texture,point) and state.slice_index==10 and game.LevelEditorSystem.selected_source(texture,state)==Rect2(480,0,48,48),"clicked preview maps to the exact tenth zero-based 48 px atlas frame")
+	expect(game.LevelEditorSystem.AtlasPickerSystem.select_grid_frame(state,texture,point) and state.slice_index==9 and game.LevelEditorSystem.selected_source(texture,state)==Rect2(864,0,96,96),"clicked preview maps to the exact ninth zero-based 96 px atlas frame")
+	var sample:=Image.create(16,16,false,Image.FORMAT_RGBA8); sample.fill(Color(0,0,0,0)); sample.fill_rect(Rect2i(1,4,4,6),Color.WHITE); var visible:Rect2=AtlasPickerRenderer.visible_preview_source(ImageTexture.create_from_image(sample),Rect2(0,0,16,16))
+	expect(visible==Rect2(1,4,4,6),"preview trims transparent padding before centering while keeping the exact selected source untouched")
 	game.free()
 
 
@@ -197,11 +200,11 @@ func test_rectangle_fill_is_one_dense_undoable_operation() -> void:
 ## Исходное состояние: выбранный объект использует конкретный ресурс, слой, коллизию и квадратный source-rect.
 ## Ожидаемый результат: пипетка включает кисть того же ресурса, слоя, коллизии и номера кадра.
 func test_eyedropper_copies_existing_object_into_brush() -> void:
-	var game:=make_game(); var state:Dictionary=game.LevelEditorSystem.default_state(game); var path:="res://assets/game/environment/farm_plants.png"
-	var object:={"asset_path":path,"name":"Морковь","layer":"objects","collision":true,"source":Rect2(48,48,48,48)}
+	var game:=make_game(); var state:Dictionary=game.LevelEditorSystem.default_state(game); var path:="res://assets/game/environment/farm_plants_objects_atlas_v1.png"
+	var object:={"asset_path":path,"name":"Морковь","layer":"objects","collision":true,"source":Rect2(480,96,96,96)}
 	expect(game.LevelEditorSystem.ToolSystem.pick_object(state,object,game.LevelEditorSystem.CATEGORIES),"eyedropper accepts a real sprite object")
 	expect(state.tool=="paint" and state.selected_asset==path and state.layer=="objects" and state.collision,"eyedropper copies the visual and physical brush settings")
-	expect(state.slice_size==48 and state.slice_index==17,"eyedropper restores the exact square atlas frame")
+	expect(state.slice_size==96 and state.slice_index==17,"eyedropper restores the exact square atlas frame")
 	game.free()
 
 
