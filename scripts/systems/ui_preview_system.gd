@@ -4,6 +4,7 @@ extends RefCounted
 ## Настраивает запрошенный системный экран и при необходимости включает автоматический снимок.
 static func configure(game: Node) -> void:
 	var arguments := OS.get_cmdline_user_args()
+	if configure_character_window_capture(game, arguments): return
 	if configure_item_window_capture(game, arguments): return
 	if configure_story_window_capture(game, arguments): return
 	if "--capture-hud" in arguments:
@@ -25,6 +26,17 @@ static func configure(game: Node) -> void:
 	if "--capture-settings" in arguments:
 		game.set_meta("capture_ui_frames", 6)
 		game.set_meta("capture_ui_output", "res://assets/generated/ui/system_settings_ingame_preview.png")
+
+
+## Настраивает книгу героя и способностей с показательными эффектами и действующей группой.
+static func configure_character_window_capture(game: Node, arguments: PackedStringArray) -> bool:
+	if not ("--talent-preview" in arguments or "--capture-talent-tree" in arguments): return false
+	game.language_screen = false; game.title_screen = false; game.current_location = "overworld"; game.tutorial_visible = false; game.player_level = 7; game.player_xp = 82; game.skill_points = 4; game.coins = 800
+	for talent_id in ["combat_strength", "combat_agility", "combat_vitality", "farm_orchard", "farm_wide_till", "fish_fine_rod", "craft_apprentice"]: game.talent_levels[talent_id] = 1
+	game.recruited_companions.assign(["mila", "borislav", "luna"]); game.active_companions.assign(["mila", "luna"]); game.skill_levels.leadership = 2; game.strength_timer = 28.0; game.regeneration_timer = 17.0; game.speed_timer = 22.0; game.skill_menu_selected = 7; game.skill_menu_open = true
+	game.set_meta("capture_story_clean", true)
+	if "--capture-talent-tree" in arguments: game.set_meta("capture_ui_frames", 6); game.set_meta("capture_ui_output", "res://assets/generated/ui/talent_tree_ingame_preview.png")
+	return true
 
 
 ## Настраивает журнал, диалог, обучение или награду как воспроизводимый визуальный эталон сюжетного UI.

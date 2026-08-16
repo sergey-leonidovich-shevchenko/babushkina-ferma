@@ -108,11 +108,6 @@ func _ready() -> void:
 		ContractSystem.configure_preview(self)
 	if "--story-preview" in OS.get_cmdline_user_args(): language_screen = false; title_screen = false; quest_log_open = true; quest_log_page = 0; if "--map-preview" in OS.get_cmdline_user_args(): quest_log_open = false; world_map_open = true; state.world.estate.discovered = WorldMapSystem.LOCATIONS.keys()
 	if "--fishing-preview" in OS.get_cmdline_user_args(): FishingSystem.configure_preview(self)
-	if "--talent-preview" in OS.get_cmdline_user_args() or "--capture-talent-tree" in OS.get_cmdline_user_args():
-		language_screen = false; title_screen = false; current_location = "overworld"; tutorial_visible = false; player_level = 7; player_xp = 82; skill_points = 4
-		for talent_id in ["combat_strength", "combat_agility", "combat_vitality", "farm_orchard", "farm_wide_till", "fish_fine_rod", "craft_apprentice"]: talent_levels[talent_id] = 1
-		skill_menu_selected = 7; skill_menu_open = true
-		if "--capture-talent-tree" in OS.get_cmdline_user_args(): set_meta("capture_talent_frames", 6)
 	if MenuSystem.consume_new_game_request():
 		language_screen = false
 		title_screen = false
@@ -124,8 +119,6 @@ func _ready() -> void:
 		MenuSystem.open_pause(self)
 	UiPreviewSystem.configure(self)
 	NpcMovementSystem.initialize(self); FarmLifeSystem.initialize(self); FirstChapterSystem.initialize(self); UiPreviewSystem.finalize(self); sync_background_location(); AudioSystem.update_context_music(self)
-	if "--talent-preview" in OS.get_cmdline_user_args() or "--capture-talent-tree" in OS.get_cmdline_user_args():
-		var talent_preview_life := FarmLifeSystem.state(self); talent_preview_life.first_day = 6; talent_preview_life.cutscene = ""; talent_preview_life.cutscene_timer = 0.0; message = ""; DiscoverySystem.dismiss(self)
 	if "--farm-plot-preview" in OS.get_cmdline_user_args():
 		var farm_preview_life := FarmLifeSystem.state(self); farm_preview_life.first_day = 6; farm_preview_life.cutscene = ""; farm_preview_life.cutscene_timer = 0.0; message = ""; DiscoverySystem.dismiss(self)
 	if "--debug-inspector" in OS.get_cmdline_user_args():
@@ -151,13 +144,6 @@ func _process(_delta: float) -> void:
 	if CaveVisualSystem.update_preview_capture(self): return
 	if TreeSystem.update_preview_capture(self): return
 	if UiPreviewSystem.update_capture(self): return
-	if has_meta("capture_talent_frames"):
-		var talent_frames_left := int(get_meta("capture_talent_frames")) - 1; set_meta("capture_talent_frames", talent_frames_left)
-		if talent_frames_left <= 0:
-			remove_meta("capture_talent_frames")
-			var talent_image := get_viewport().get_texture().get_image(); var talent_output := ProjectSettings.globalize_path("res://assets/generated/ui/talent_tree_ingame_preview.png")
-			var talent_error := talent_image.save_png(talent_output); if talent_error != OK: push_error("Не удалось сохранить дерево талантов: %s" % talent_error)
-			get_tree().quit(); return
 	if has_meta("capture_fence_frames"):
 		var fence_frames_left:=int(get_meta("capture_fence_frames"))-1; set_meta("capture_fence_frames",fence_frames_left)
 		if fence_frames_left<=0:
@@ -1309,6 +1295,8 @@ func handle_gamepad_and_touch(event: InputEvent) -> bool:
 				if mouse_recipe >= 0: crafting_selected = mouse_recipe; CraftingSystem.craft(self, mouse_recipe); queue_redraw()
 				return true
 			if skill_menu_open:
+				if TalentRenderer.CLOSE_BUTTON.has_point(event.position): skill_menu_open = false; queue_redraw(); return true
+				if CharacterUiRenderer.COMMAND_BUTTON.has_point(event.position): CompanionSystem.cycle_command(self); queue_redraw(); return true
 				if TalentRenderer.RESPEC_BUTTON.has_point(event.position): TalentSystem.respec(self); queue_redraw(); return true
 				var mouse_talent := TalentRenderer.node_at(event.position)
 				if mouse_talent >= 0: skill_menu_selected = mouse_talent; TalentSystem.unlock(self, TalentSystem.at(mouse_talent).id); queue_redraw()
@@ -1380,6 +1368,8 @@ func handle_gamepad_and_touch(event: InputEvent) -> bool:
 			if touch_recipe >= 0: crafting_selected = touch_recipe; CraftingSystem.craft(self, touch_recipe); queue_redraw()
 			return true
 		if skill_menu_open:
+			if TalentRenderer.CLOSE_BUTTON.has_point(event.position): skill_menu_open = false; queue_redraw(); return true
+			if CharacterUiRenderer.COMMAND_BUTTON.has_point(event.position): CompanionSystem.cycle_command(self); queue_redraw(); return true
 			if TalentRenderer.RESPEC_BUTTON.has_point(event.position): TalentSystem.respec(self); queue_redraw(); return true
 			var talent_index := TalentRenderer.node_at(event.position)
 			if talent_index >= 0:

@@ -47,7 +47,7 @@ const ForageSystem := preload("res://scripts/systems/forage_system.gd"); const O
 const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
 const InputSystem := preload("res://scripts/systems/input_system.gd"); const InventoryInputSystem := preload("res://scripts/systems/inventory_input_system.gd"); const TalentInputSystem := preload("res://scripts/systems/talent_input_system.gd")
 const PresentationSystem := preload("res://scripts/systems/presentation_system.gd")
-const InterfaceRenderer := preload("res://scripts/systems/interface_renderer.gd"); const ItemWindowRenderer := preload("res://scripts/systems/item_window_renderer.gd"); const StoryUiRenderer := preload("res://scripts/systems/story_ui_renderer.gd")
+const InterfaceRenderer := preload("res://scripts/systems/interface_renderer.gd"); const ItemWindowRenderer := preload("res://scripts/systems/item_window_renderer.gd"); const StoryUiRenderer := preload("res://scripts/systems/story_ui_renderer.gd"); const CharacterUiRenderer := preload("res://scripts/systems/character_ui_renderer.gd")
 const AnimationSystem := preload("res://scripts/systems/animation_system.gd"); const AnimationRenderer := preload("res://scripts/systems/animation_renderer.gd"); const EnemyAnimationLibrary := preload("res://scripts/systems/enemy_animation_library.gd")
 const DirectionalCharacterSystem := preload("res://scripts/systems/directional_character_system.gd"); const NpcMovementSystem := preload("res://scripts/systems/npc_movement_system.gd"); const VillageLifeSystem := preload("res://scripts/systems/village_life_system.gd"); const VillageEventSystem := preload("res://scripts/systems/village_event_system.gd")
 const AudioSystem := preload("res://scripts/systems/audio_system.gd")

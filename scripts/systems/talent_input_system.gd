@@ -11,6 +11,7 @@ static func handle(game: Node, event: InputEvent) -> void:
 			JOY_BUTTON_DPAD_DOWN: game.skill_menu_selected = posmod(game.skill_menu_selected + 1, game.TalentSystem.TALENTS.size())
 			JOY_BUTTON_A: game.TalentSystem.unlock(game, game.TalentSystem.at(game.skill_menu_selected).id)
 			JOY_BUTTON_X: game.TalentSystem.respec(game)
+			JOY_BUTTON_LEFT_SHOULDER: game.CompanionSystem.cycle_command(game)
 			JOY_BUTTON_Y, JOY_BUTTON_B, JOY_BUTTON_START: game.skill_menu_open = false
 		game.queue_redraw()
 		return
@@ -18,6 +19,7 @@ static func handle(game: Node, event: InputEvent) -> void:
 		return
 	match event.keycode:
 		KEY_ESCAPE, KEY_K: game.skill_menu_open = false
+		KEY_C: game.CompanionSystem.cycle_command(game)
 		KEY_R: game.TalentSystem.respec(game)
 		KEY_LEFT: game.skill_menu_selected = posmod(game.skill_menu_selected - 5, game.TalentSystem.TALENTS.size())
 		KEY_RIGHT: game.skill_menu_selected = posmod(game.skill_menu_selected + 5, game.TalentSystem.TALENTS.size())

@@ -5,6 +5,7 @@ func run() -> void:
 	test_dependent_talent_tree_and_permanent_effects()
 	test_talent_unlocks_farming_fishing_cooking_and_traps()
 	test_multirank_localization_respec_and_balance_debug()
+	test_character_book_visual_contract_and_companion_controls()
 
 
 ## Сценарий: очко общего уровня открывает только доступный узел, а изученные боевые таланты постоянно меняют характеристики.
@@ -91,4 +92,29 @@ func test_multirank_localization_respec_and_balance_debug() -> void:
 	expect(game.DebugOverlaySystem.handle_pointer(game,Rect2(794,454,150,28).get_center()) and bool(game.get_meta(game.DebugOverlaySystem.META_KEY).balance), "F10 balance button enables the live diagnostic card")
 	expect(game.TalentSystem.respec(game) and game.TalentSystem.spent_points(game) == 0 and game.skill_points == 4 and game.coins == 0, "paid respec clears every rank and refunds all invested points")
 	expect(game.tutorial_events_completed.has("talent_respec") and game.player_max_hp == original_hp, "respec recalculates resources and completes its tutorial step")
+	game.free()
+
+
+## Сценарий: экран развития объединяет живой портрет, характеристики, эффекты, группу и дерево в одну сказочную книгу.
+## Исходное состояние: герой имеет три временных эффекта, двух нанятых напарников и открытое окно развития.
+## Ожидаемый результат: панели входят в viewport, узлы не пересекаются, приказ и закрытие работают через общие hit-зоны, эталон имеет формат 16:9.
+func test_character_book_visual_contract_and_companion_controls() -> void:
+	var game := make_game()
+	var renderer = game.TalentRenderer
+	var character = game.CharacterUiRenderer
+	expect(Rect2(0, 0, 1152, 648).encloses(renderer.PANEL) and renderer.PANEL.encloses(renderer.TREE_PANEL), "character book and talent canvas stay inside the native viewport")
+	expect(renderer.PANEL.encloses(character.PROFILE_PANEL) and character.PROFILE_PANEL.encloses(character.HERO_FRAME), "hero portrait stays inside its carved profile panel")
+	for index in game.TalentSystem.TALENTS.size():
+		var rect: Rect2 = renderer.node_rect(index)
+		expect(renderer.TREE_PANEL.encloses(rect) and renderer.node_at(rect.get_center()) == index, "talent %d shares centered render and pointer geometry" % index)
+		if index % 5 > 0: expect(not rect.intersects(renderer.node_rect(index - 1)), "talent cards in one branch never overlap")
+	game.strength_timer = 12.0; game.regeneration_timer = 8.0; game.speed_timer = 5.0
+	expect(character.effect_entries(game).size() == 3, "character profile reports every active timed effect")
+	game.recruited_companions.assign(["mila"]); game.active_companions.assign(["mila"]); game.skill_menu_open = true
+	var command_click := InputEventMouseButton.new(); command_click.button_index = MOUSE_BUTTON_LEFT; command_click.pressed = true; command_click.position = character.COMMAND_BUTTON.get_center()
+	expect(game.handle_gamepad_and_touch(command_click) and game.state.player.companion_command == "wait", "shared companion command button cycles tactics from the character book")
+	var close_click := InputEventScreenTouch.new(); close_click.pressed = true; close_click.position = renderer.CLOSE_BUTTON.get_center()
+	expect(game.handle_gamepad_and_touch(close_click) and not game.skill_menu_open, "touching the carved close control closes character development")
+	var preview := Image.load_from_file(ProjectSettings.globalize_path("res://assets/generated/ui/talent_tree_ingame_preview.png"))
+	expect(preview != null and preview.get_width() >= 1152 and absf(float(preview.get_width()) / preview.get_height() - 16.0 / 9.0) < 0.01, "character book visual reference keeps a native-or-larger 16:9 canvas")
 	game.free()
