@@ -50,8 +50,8 @@ func _ready() -> void:
 		recruited_companions.assign(["mila","borislav","luna"]); active_companions.assign(["mila","borislav","luna"])
 		companion_positions={"mila":Vector2(560,930),"borislav":Vector2(700,930),"luna":Vector2(840,930)}
 		if "--capture-characters" in OS.get_cmdline_user_args(): enemy_nodes=[]; hazard_nodes=[]; wildlife_nodes=[]; set_meta("capture_character_frames",8); set_meta("capture_first_level_clean",true)
-	if "--enemy-levels-preview" in OS.get_cmdline_user_args():
-		configure_enemy_levels_preview()
+	if "--enemy-levels-preview" in OS.get_cmdline_user_args() or "--capture-creatures" in OS.get_cmdline_user_args():
+		configure_enemy_levels_preview(); if "--capture-creatures" in OS.get_cmdline_user_args(): CreatureVisualProfileSystem.configure_preview(self)
 	if "--enemy-animations-preview" in OS.get_cmdline_user_args():
 		EnemyAnimationLibrary.configure_preview(self)
 	if "--debug-playground" in OS.get_cmdline_user_args(): DebugPlaygroundSystem.configure(self)
@@ -143,7 +143,7 @@ func _process(_delta: float) -> void:
 	if BuildingVisualSystem.update_preview_capture(self): return
 	if FarmLifeVisualSystem.update_preview_capture(self): return
 	if WorldLootRenderer.update_preview_capture(self): return
-	if DirectionalCharacterSystem.update_preview_capture(self): return
+	if DirectionalCharacterSystem.update_preview_capture(self) or CreatureVisualProfileSystem.update_preview_capture(self): return
 	if WaterVisualSystem.update_preview_capture(self): return
 	if CaveVisualSystem.update_preview_capture(self): return
 	if TreeSystem.update_preview_capture(self): return

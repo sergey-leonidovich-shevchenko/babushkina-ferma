@@ -62,12 +62,12 @@ static func draw_enemy(game: Node2D, enemy: Dictionary) -> void:
 	var rank: int = game.CombatSystem.visual_rank(int(enemy.get("level", 1)))
 	var cell_size := Vector2(game.ENEMY_RANK_ATLAS.get_width() / 5.0, game.ENEMY_RANK_ATLAS.get_height() / 3.0)
 	var source := Rect2(Vector2(column, rank) * cell_size, cell_size)
-	var size := 96.0 if kind == "plant" else (126.0 if kind == "cave_guardian" else (104.0 if kind == "undead" else 96.0))
+	var size:Vector2=game.CreatureVisualProfileSystem.enemy_size(int(enemy.get("level",1)))
 	var modulate := Color.WHITE
 	if state == "hurt": modulate = Color(1.0, 0.55, 0.55)
 	elif state == "death": modulate.a = clampf(1.4 - enemy.visual_time, 0.0, 1.0)
 	var direction: Vector2 = enemy.get("direction", Vector2.DOWN)
-	game.draw_living_atlas_sprite(game.ENEMY_RANK_ATLAS, source, enemy.position, Vector2(size, size), float(enemy.get("visual_time", 0.0)), bool(enemy.get("moving", false)), float(column) * 0.9, direction.x < -0.1, modulate)
+	game.draw_living_atlas_sprite(game.ENEMY_RANK_ATLAS,source,enemy.position,size,float(enemy.get("visual_time",0.0)),bool(enemy.get("moving",false)),float(column)*0.9,direction.x<-0.1,modulate)
 
 
 ## Рисует живых и мёртвых пиратов процедурно с дыханием, шагом, рангом и реакцией на удар.

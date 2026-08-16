@@ -377,8 +377,7 @@ func draw_enemy_nodes_and_gate() -> void:
 		var position: Vector2 = enemy.position
 		AnimationRenderer.draw_enemy(self, enemy)
 		if not enemy.alive: continue
-		var sprite_height := 126.0 if enemy.kind in ["cave_guardian","drowned_captain"] else (104.0 if enemy.kind in ["undead","sea_ghost"] else 96.0)
-		var bar_y := position.y - sprite_height * 0.72
+		var sprite_size:Vector2=CreatureVisualProfileSystem.enemy_size(int(enemy.level)); var bar_y:=position.y-sprite_size.y*CreatureVisualProfileSystem.GROUND_RATIO
 		draw_string(UI_FONT, Vector2(position.x - 65, bar_y - 9), LocaleSystem.ui("enemy_level", [enemy.level]), HORIZONTAL_ALIGNMENT_CENTER, 130, 13, Color("ffd46a"))
 		draw_rect(Rect2(Vector2(position.x - 31, bar_y), Vector2(62, 7)), Color("402d32"))
 		draw_rect(Rect2(Vector2(position.x - 30, bar_y + 1), Vector2(60.0 * enemy.hp / float(enemy.max_hp), 5)), Color("dc554b"))
@@ -394,7 +393,7 @@ func draw_hazards() -> void:
 		var rank: int = EnvironmentHazardSystem.visual_rank(hazard.level)
 		var cell_size := Vector2(HAZARD_RANK_ATLAS.get_width() / 3.0, HAZARD_RANK_ATLAS.get_height() / 3.0)
 		var source := Rect2(Vector2(column, rank) * cell_size, cell_size)
-		var size := Vector2(108, 92) if hazard.kind == "poison_ivy" else (Vector2(104, 112) if hazard.kind == "thorn_bloom" else Vector2(100, 104))
+		var size:Vector2=CreatureVisualProfileSystem.hazard_size(hazard.kind)
 		draw_living_atlas_sprite(HAZARD_RANK_ATLAS, source, hazard.position, size, hazard.pulse, false, float(column) * 1.2)
 		var top_y: float = hazard.position.y - size.y * 0.72
 		draw_string(UI_FONT, Vector2(hazard.position.x - 58, top_y), LocaleSystem.ui("enemy_level", [hazard.level]), HORIZONTAL_ALIGNMENT_CENTER, 116, 13, Color("ffd46a"))
@@ -430,7 +429,7 @@ func draw_wildlife() -> void:
 		elif state_name == "hurt": column = 4
 		elif state_name == "death": column = 5
 		var row := AnimationAssetRegistry.direction_index(animal.direction)
-		var draw_size := Vector2(88, 88) if animal.kind != "bat" else Vector2(94, 94)
+		var draw_size:Vector2=CreatureVisualProfileSystem.wildlife_size()
 		draw_circle(position + Vector2(0, 12), 18.0, Color(0.08, 0.12, 0.08, 0.25))
 		draw_texture_rect_region(WILDLIFE_ACTION_SHEETS[animal.kind], Rect2(position - draw_size * Vector2(0.5, 0.72), draw_size), Rect2(column * 128, row * 128, 128, 128))
 		if animal.alive and animal.hp < data.hp:

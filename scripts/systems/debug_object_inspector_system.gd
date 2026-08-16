@@ -192,8 +192,8 @@ static func append_hazards(game: Node, result: Array[Dictionary]) -> void:
 		var node: Dictionary = game.hazard_nodes[index]
 		if node.location != game.current_location: continue
 		var data: Dictionary = game.EnvironmentHazardSystem.TYPES[node.kind]
-		var size := Vector2(108,92) if node.kind == "poison_ivy" else (Vector2(104,112) if node.kind == "thorn_bloom" else Vector2(100,104))
-		add(result, "hazard:%d:%s" % [index,node.kind], "ОПАСНОСТЬ", game.LocaleSystem.entity(node.kind), node.position, actor_bounds(node.position,size), 82, "круг r30 · твёрдый", "активна", [
+		var size:Vector2=game.CreatureVisualProfileSystem.hazard_size(node.kind)
+		add(result, "hazard:%d:%s" % [index,node.kind], "ОПАСНОСТЬ", game.LocaleSystem.entity(node.kind), node.position, game.CreatureVisualProfileSystem.actor_rect(node.position,size), 82, "круг r30 · твёрдый", "активна", [
 			"ур. %d · урон %d" % [node.level,game.EnvironmentHazardSystem.damage(node.kind,node.level)],
 			"режим %s · радиус %.0f" % [data.mode,data.range],
 			"cooldown %.2f · interval %.2f" % [node.cooldown,data.interval],
@@ -207,9 +207,9 @@ static func append_enemies(game: Node, result: Array[Dictionary]) -> void:
 	for index in game.enemy_nodes.size():
 		var enemy: Dictionary = game.enemy_nodes[index]
 		if enemy.location != game.current_location or not game.AnimationSystem.enemy_is_visible(enemy): continue
-		var size_value := 126.0 if enemy.kind in ["cave_guardian","drowned_captain"] else (104.0 if enemy.kind in ["undead","sea_ghost"] else 96.0)
+		var size_value:Vector2=game.CreatureVisualProfileSystem.enemy_size(int(enemy.level))
 		var data: Dictionary = game.CombatSystem.TYPES.get(enemy.kind,{})
-		add(result, "enemy:%d:%s" % [index,enemy.kind], "ВРАГ", game.LocaleSystem.entity(enemy.kind), enemy.position, actor_bounds(enemy.position,Vector2.ONE*size_value), 92, "круг r30 · твёрдый" if enemy.alive else "нет", String(enemy.get("visual_state","idle")), [
+		add(result, "enemy:%d:%s" % [index,enemy.kind], "ВРАГ", game.LocaleSystem.entity(enemy.kind), enemy.position, game.CreatureVisualProfileSystem.actor_rect(enemy.position,size_value), 92, "круг r30 · твёрдый" if enemy.alive else "нет", String(enemy.get("visual_state","idle")), [
 			"HP %d/%d · ур. %d" % [enemy.hp,enemy.max_hp,enemy.level],
 			"урон %d · XP %d" % [game.CombatSystem.attack_damage(enemy.kind,enemy.level),game.CombatSystem.xp_reward(enemy.kind,enemy.level)],
 			"AI %s · mobile %s" % [enemy.get("action_kind",""),str(data.get("mobile",false))],
@@ -223,8 +223,8 @@ static func append_wildlife(game: Node, result: Array[Dictionary]) -> void:
 	for index in game.wildlife_nodes.size():
 		var animal: Dictionary = game.wildlife_nodes[index]
 		if animal.location != game.current_location: continue
-		var data: Dictionary = game.WildlifeSystem.TYPES[animal.kind]; var size := Vector2.ONE * (94.0 if animal.kind == "bat" else 88.0)
-		add(result, "wildlife:%d:%s" % [index,animal.kind], "ЖИВОТНОЕ", game.LocaleSystem.entity(animal.kind), animal.position, actor_bounds(animal.position,size), 85, "нет" if data.get("flying",false) else "круг r24", String(animal.get("visual_state","idle")), [
+		var data:Dictionary=game.WildlifeSystem.TYPES[animal.kind]; var size:Vector2=game.CreatureVisualProfileSystem.wildlife_size()
+		add(result, "wildlife:%d:%s" % [index,animal.kind], "ЖИВОТНОЕ", game.LocaleSystem.entity(animal.kind), animal.position, game.CreatureVisualProfileSystem.actor_rect(animal.position,size), 85, "нет" if data.get("flying",false) else "круг r24", String(animal.get("visual_state","idle")), [
 			"HP %d/%d · alive %s" % [animal.hp,data.hp,str(animal.alive)],
 			"speed %.0f · panic %.2f" % [data.speed,animal.panic],
 			"home %.0f / %.0f · moving %s" % [animal.home.x,animal.home.y,str(animal.get("moving",false))],

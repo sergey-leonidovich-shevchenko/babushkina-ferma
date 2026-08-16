@@ -5,6 +5,7 @@ const CORE_ACTIONS := preload("res://assets/game/enemies/animated/core_enemy_act
 const PIRATE_WALK := preload("res://assets/game/enemies/animated/pirate_enemy_walk_8dir.png")
 const PIRATE_ACTIONS := preload("res://assets/game/enemies/animated/pirate_enemy_actions_8dir.png")
 const AnimationAssetRegistry := preload("res://scripts/systems/animation_asset_registry.gd")
+const CreatureVisualProfileSystem:=preload("res://scripts/systems/creature_visual_profile_system.gd")
 
 const TILE_SIZE := Vector2(128, 128)
 const WALK_FRAMES := 3
@@ -15,10 +16,6 @@ const PIRATE_FAMILIES := ["pirate", "zombie_pirate", "sea_ghost", "drowned_capta
 const ACTION_KINDS := {
 	"orc":"melee", "skeleton":"shoot", "undead":"cast", "cave_guardian":"slam",
 	"pirate":"shoot", "zombie_pirate":"melee", "sea_ghost":"cast", "drowned_captain":"shoot",
-}
-const DISPLAY_SIZES := {
-	"orc":108.0, "skeleton":106.0, "undead":116.0, "cave_guardian":132.0,
-	"pirate":112.0, "zombie_pirate":112.0, "sea_ghost":118.0, "drowned_captain":120.0,
 }
 
 
@@ -110,8 +107,8 @@ static func configure_preview(game: Node) -> void:
 ## Рисует один кадр противника с общей привязкой ног и масштабом конкретного семейства.
 static func draw_actor(game: Node2D, enemy: Dictionary, texture: Texture2D, frame_index: int, modulate: Color) -> void:
 	var kind: String = enemy.kind
-	var size: float = float(DISPLAY_SIZES.get(kind, 108.0))
-	var destination := Rect2(enemy.position - Vector2(size * 0.5, size * 0.72), Vector2(size, size))
+	var size:=CreatureVisualProfileSystem.enemy_size(int(enemy.get("level",1)))
+	var destination:=CreatureVisualProfileSystem.actor_rect(enemy.position,size)
 	game.draw_texture_rect_region(texture, destination, source_rect(kind, enemy.get("direction", Vector2.DOWN), frame_index), modulate)
 
 

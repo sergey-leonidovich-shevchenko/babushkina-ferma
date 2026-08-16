@@ -7,6 +7,7 @@
     "scripts/systems/action_effect_visual_system.gd",
     "scripts/systems/animation_renderer.gd",
     "scripts/systems/building_visual_system.gd",
+    "scripts/systems/creature_visual_profile_system.gd",
     "scripts/systems/directional_character_system.gd",
     "scripts/systems/enemy_animation_library.gd",
     "scripts/systems/environment_visual_system.gd",
@@ -23,6 +24,7 @@
   ],
   "ignored_assets": [
     "assets/game/generated/pirate_item_atlas.png",
+    "assets/game/generated/pirate_enemy_atlas.png",
     "assets/game/generated/potion_atlas.png",
     "assets/game/generated/inventory_core_atlas.png",
     "assets/game/generated/inventory_rare_atlas.png",
@@ -33,6 +35,7 @@
     ,"assets/generated/level_drafts/farm_life_ingame_preview.png"
     ,"assets/generated/level_drafts/world_loot_ingame_preview.png"
     ,"assets/generated/level_drafts/characters_ingame_preview.png"
+    ,"assets/generated/level_drafts/creatures_ingame_preview.png"
   ],
   "entries": [
     {
@@ -451,19 +454,18 @@
         {"path":"assets/game/enemies/animated/core_enemy_walk_8dir.png","width":1536,"height":1024},
         {"path":"assets/game/enemies/animated/core_enemy_actions_8dir.png","width":1536,"height":1024},
         {"path":"assets/game/enemies/animated/pirate_enemy_walk_8dir.png","width":1536,"height":1024},
-        {"path":"assets/game/enemies/animated/pirate_enemy_actions_8dir.png","width":1536,"height":1024},
-        {"path":"assets/game/generated/pirate_enemy_atlas.png","width":1254,"height":1254}
+        {"path":"assets/game/enemies/animated/pirate_enemy_actions_8dir.png","width":1536,"height":1024}
       ],
-      "render_owner": "EnemyAnimationLibrary; старый VisualAssetSystem",
-      "source_layout": "боевые атласы 12×8 по 128; старый пиратский атлас дробный",
-      "runtime_sizes": ["106×106", "108×108", "112×112", "116×116", "118×118", "120×120", "132×132"],
+      "render_owner": "EnemyAnimationLibrary, AnimationRenderer и CreatureVisualProfileSystem",
+      "source_layout": "четыре строгих боевых атласа 12×8 по 128×128 для ходьбы и действий",
+      "runtime_sizes": ["96×96", "120×120", "144×144"],
       "target_modules": ["96×96", "120×120", "144×144"],
-      "anchor": "нижняя точка ног",
+      "anchor": "общая нижняя опора 0.72 для трёх рангов",
       "collision": "радиус 30 px для обычных врагов",
-      "status": "migration",
+      "status": "compliant",
       "priority": "P2",
-      "debt": "Анимационные исходники готовы, но семь близких runtime-размеров не образуют ранговые модули; старый пиратский атлас остаётся загруженным.",
-      "done_when": "Обычный/крупный/босс используют 96/120/144 px; неиспользуемый пиратский атлас удалён после подтверждения ссылок."
+      "debt": "Закрыт: семь близких размеров заменены рангами 96/120/144; старый дробный пиратский лист исключён из активного семейства.",
+      "done_when": "Уровни 1–2/3–4/5 используют 96/120/144 px; ходьба и действия сохраняют восемь направлений и три кадра."
     },
     {
       "id": "WS-020",
@@ -475,31 +477,31 @@
         {"path":"assets/game/wildlife/directional/bat_actions_8dir.png","width":768,"height":1024},
         {"path":"assets/game/wildlife/directional/lizard_actions_8dir.png","width":768,"height":1024}
       ],
-      "render_owner": "GameRenderer.draw_wildlife",
+      "render_owner": "GameRenderer.draw_wildlife и CreatureVisualProfileSystem",
       "source_layout": "6×8 по 128×128",
-      "runtime_sizes": ["88×88", "94×94"],
+      "runtime_sizes": ["96×96"],
       "target_modules": ["96×96"],
       "anchor": "нижняя точка лап",
       "collision": "животные не блокируют героя",
-      "status": "migration",
+      "status": "compliant",
       "priority": "P2",
-      "debt": "Готовые атласы отображаются двумя некратными масштабами.",
-      "done_when": "Все животные используют 96×96, визуальная опора остаётся стабильной во всех состояниях."
+      "debt": "Закрыт: размеры 88 и 94 удалены, пять семейств используют одну рамку 96×96 и общую опору.",
+      "done_when": "Все животные используют 96×96, восемь направлений и шесть состояний; визуальная опора стабильна."
     },
     {
       "id": "WS-021",
       "family": "Неподвижные опасные растения",
       "assets": [{"path":"assets/game/environment/hazard_rank_atlas.png","width":1254,"height":1254}],
-      "render_owner": "GameRenderer.draw_hazards",
+      "render_owner": "GameRenderer.draw_hazards и CreatureVisualProfileSystem",
       "source_layout": "3×3 с ячейкой 418×418",
-      "runtime_sizes": ["100×104", "104×112", "108×92"],
+      "runtime_sizes": ["96×96", "120×120"],
       "target_modules": ["96×96", "120×120"],
       "anchor": "нижний центр",
       "collision": "радиус 30 px",
-      "status": "migration",
+      "status": "compliant",
       "priority": "P2",
-      "debt": "Три семейства имеют три произвольных прямоугольника, не связанные с коллизией.",
-      "done_when": "Малые растения используют 96×96, крупные 120×120, основание и контактная область описаны в TYPES."
+      "debt": "Закрыт: три произвольных прямоугольника заменены малым профилем 96 и крупным 120 с общей опорой.",
+      "done_when": "Ядовитый плющ и кактус используют 96×96, колючий цветок 120×120; F10 получает тот же actor_rect."
     },
     {
       "id": "WS-022",
