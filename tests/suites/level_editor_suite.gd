@@ -247,3 +247,7 @@ func test_runtime_integration_freezes_simulation_and_draws_editor_layers() -> vo
 	for layer in ["background","ground","objects","foreground"]:
 		expect(render.contains("LevelEditorRenderer.draw_layer(game,\"%s\")"%layer), "renderer composes level-editor layer: %s"%layer)
 	expect(debug.contains('"action":"level_editor"') and debug.contains('"enabled":true'), "F10 panel exposes the enabled level-constructor command")
+	var renderer := FileAccess.get_file_as_string("res://scripts/systems/level_editor_renderer.gd")
+	expect(renderer.contains("DebugUiKitSystem.draw_panel") and renderer.contains("DebugUiKitSystem.draw_catalog_row") and renderer.contains("DebugUiKitSystem.draw_readout"), "level editor uses the shared carved shell for panel catalog and technical readouts")
+	var preview := Image.load_from_file(ProjectSettings.globalize_path("res://assets/generated/level_drafts/level_editor_ingame_preview.png"))
+	expect(preview != null and preview.get_width()>=1152 and absf(float(preview.get_width())/preview.get_height()-16.0/9.0)<0.01, "level editor keeps a native-or-larger sixteen-by-nine visual reference")

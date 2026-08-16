@@ -6,20 +6,20 @@ const GRID_SIZES := SpatialGridSystem.DEBUG_SIZES
 const REFRESH_INTERVAL := 0.14
 const PANEL := Rect2(774, 26, 360, 596)
 const BUTTONS := [
-	{"rect":Rect2(794,242,150,28),"action":"grid","label":"СЕТКА","enabled":true},
-	{"rect":Rect2(964,242,150,28),"action":"hitboxes","label":"ХИТБОКСЫ","enabled":true},
-	{"rect":Rect2(794,276,150,28),"action":"routes","label":"МАРШРУТЫ","enabled":true},
-	{"rect":Rect2(964,276,150,28),"action":"labels","label":"ПОДПИСИ","enabled":true},
-	{"rect":Rect2(794,310,150,28),"action":"pause","label":"ПАУЗА","enabled":true},
-	{"rect":Rect2(964,310,150,28),"action":"step","label":"ШАГ КАДРА","enabled":true},
-	{"rect":Rect2(794,344,150,28),"action":"noclip","label":"NOCLIP","enabled":true},
-	{"rect":Rect2(964,344,150,28),"action":"grid_size","label":"РАЗМЕР СЕТКИ","enabled":true},
-	{"rect":Rect2(794,378,150,28),"action":"opacity_down","label":"ПРОЗРАЧНЕЕ","enabled":true},
-	{"rect":Rect2(964,378,150,28),"action":"opacity_up","label":"ЯРЧЕ","enabled":true},
-	{"rect":Rect2(794,420,150,28),"action":"farming","label":"ПАХОТНАЯ ЗЕМЛЯ","enabled":true},
-	{"rect":Rect2(964,420,150,28),"action":"level_editor","label":"КОНСТРУКТОР","enabled":true},
-	{"rect":Rect2(794,454,150,28),"action":"balance","label":"БАЛАНС","enabled":true},
-	{"rect":Rect2(964,454,150,28),"action":"save_patch","label":"СОХРАНИТЬ ПАТЧ","enabled":false},
+	{"rect":Rect2(794,246,150,34),"action":"grid","label":"СЕТКА","enabled":true},
+	{"rect":Rect2(964,246,150,34),"action":"hitboxes","label":"ХИТБОКСЫ","enabled":true},
+	{"rect":Rect2(794,284,150,34),"action":"routes","label":"МАРШРУТЫ","enabled":true},
+	{"rect":Rect2(964,284,150,34),"action":"labels","label":"ПОДПИСИ","enabled":true},
+	{"rect":Rect2(794,322,150,34),"action":"pause","label":"ПАУЗА","enabled":true},
+	{"rect":Rect2(964,322,150,34),"action":"step","label":"ШАГ КАДРА","enabled":true},
+	{"rect":Rect2(794,360,150,34),"action":"noclip","label":"NOCLIP","enabled":true},
+	{"rect":Rect2(964,360,150,34),"action":"grid_size","label":"РАЗМЕР СЕТКИ","enabled":true},
+	{"rect":Rect2(794,398,150,34),"action":"opacity_down","label":"ПРОЗРАЧНЕЕ","enabled":true},
+	{"rect":Rect2(964,398,150,34),"action":"opacity_up","label":"ЯРЧЕ","enabled":true},
+	{"rect":Rect2(794,436,150,34),"action":"farming","label":"ПАХОТНАЯ ЗЕМЛЯ","enabled":true},
+	{"rect":Rect2(964,436,150,34),"action":"level_editor","label":"КОНСТРУКТОР","enabled":true},
+	{"rect":Rect2(794,474,150,34),"action":"balance","label":"БАЛАНС","enabled":true},
+	{"rect":Rect2(964,474,150,34),"action":"save_patch","label":"СОХРАНИТЬ ПАТЧ","enabled":false},
 ]
 
 

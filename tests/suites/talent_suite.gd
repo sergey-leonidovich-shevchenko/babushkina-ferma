@@ -89,7 +89,8 @@ func test_multirank_localization_respec_and_balance_debug() -> void:
 	var balance: Dictionary = game.DebugBalanceSystem.snapshot(game)
 	expect(balance.damage == game.CombatSystem.player_attack_damage(game) and balance.spent_points == 2 and balance.xp_sources.has("крафт"), "debug balance snapshot reports live build and XP source data")
 	game.DebugOverlaySystem.toggle(game); var debug_state: Dictionary = game.get_meta(game.DebugOverlaySystem.META_KEY)
-	expect(game.DebugOverlaySystem.handle_pointer(game,Rect2(794,454,150,28).get_center()) and bool(game.get_meta(game.DebugOverlaySystem.META_KEY).balance), "F10 balance button enables the live diagnostic card")
+	var balance_button: Dictionary = game.DebugOverlaySystem.BUTTONS.filter(func(button: Dictionary): return button.action=="balance")[0]
+	expect(game.DebugOverlaySystem.handle_pointer(game,balance_button.rect.get_center()) and bool(game.get_meta(game.DebugOverlaySystem.META_KEY).balance), "F10 balance button enables the live diagnostic card")
 	expect(game.TalentSystem.respec(game) and game.TalentSystem.spent_points(game) == 0 and game.skill_points == 4 and game.coins == 0, "paid respec clears every rank and refunds all invested points")
 	expect(game.tutorial_events_completed.has("talent_respec") and game.player_max_hp == original_hp, "respec recalculates resources and completes its tutorial step")
 	game.free()

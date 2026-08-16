@@ -131,7 +131,7 @@ static func draw_panel(game: Node2D) -> void:
 	if not game.DebugOverlaySystem.active(game): return
 	var state: Dictionary = game.get_meta(game.DebugOverlaySystem.META_KEY)
 	var panel: Rect2 = game.DebugOverlaySystem.PANEL
-	game.draw_rect(panel, PANEL_FILL); game.draw_rect(panel, PANEL_BORDER, false, 3.0)
+	game.DebugUiKitSystem.draw_panel(game,panel)
 	game.draw_ui_string(game.UI_FONT, panel.position + Vector2(18,31), "DEBUG УРОВНЯ · F10", HORIZONTAL_ALIGNMENT_LEFT, panel.size.x - 36, 19, Color("caffdf"))
 	var pointer: Vector2 = game.get_meta("debug_inspector_cursor",game.get_local_mouse_position())
 	var target: Dictionary = game.DebugObjectInspectorSystem.hovered_object(game,pointer)
@@ -160,16 +160,16 @@ static func draw_panel(game: Node2D) -> void:
 ## Рисует общие кнопки, график и подсказки ниже взаимозаменяемых INFO/навигационных данных.
 static func draw_lower_panel(game: Node2D, state: Dictionary, panel: Rect2) -> void:
 	for button in game.DebugOverlaySystem.BUTTONS: draw_button(game, button, state)
-	game.draw_ui_string(game.UI_FONT, panel.position + Vector2(18,386), "СЕРЫЕ ИНСТРУМЕНТЫ — В РАЗРАБОТКЕ", HORIZONTAL_ALIGNMENT_LEFT, panel.size.x - 36, 10, Color("81958d"))
-	draw_graph(game, state, Rect2(panel.position + Vector2(20,466), Vector2(320,46)))
-	game.draw_ui_string(game.UI_FONT, panel.position + Vector2(18,548), "G сетка · H хитбоксы · P пути · L подписи", HORIZONTAL_ALIGNMENT_LEFT, panel.size.x - 36, 12, Color("a9d9c2"))
-	game.draw_ui_string(game.UI_FONT, panel.position + Vector2(18,568), "V noclip · Space пауза · . шаг · -/+ яркость", HORIZONTAL_ALIGNMENT_LEFT, panel.size.x - 36, 12, Color("a9d9c2"))
+	game.draw_ui_string(game.UI_FONT, panel.position + Vector2(18,500), "СЕРЫЕ ИНСТРУМЕНТЫ — В РАЗРАБОТКЕ", HORIZONTAL_ALIGNMENT_LEFT, panel.size.x - 36, 10, Color("81958d"))
+	draw_graph(game, state, Rect2(panel.position + Vector2(20,512), Vector2(320,40)))
+	game.draw_ui_string(game.UI_FONT, panel.position + Vector2(18,572), "G сетка · H хитбоксы · P пути · L подписи", HORIZONTAL_ALIGNMENT_LEFT, panel.size.x - 36, 10, Color("a9d9c2"))
+	game.draw_ui_string(game.UI_FONT, panel.position + Vector2(18,590), "V noclip · Space пауза · . шаг · -/+ яркость", HORIZONTAL_ALIGNMENT_LEFT, panel.size.x - 36, 10, Color("a9d9c2"))
 
 
 ## Рисует отдельную карточку живого баланса поверх локации по запросу тестировщика.
 static func draw_balance(game: Node2D) -> void:
 	var rect := Rect2(24, 78, 410, 252)
-	game.draw_rect(rect, Color(0.025,0.045,0.05,0.96)); game.draw_rect(rect, PANEL_BORDER, false, 3.0)
+	game.DebugUiKitSystem.draw_panel(game,rect)
 	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(18,32), "БАЛАНС · ТЕКУЩИЙ БИЛД", HORIZONTAL_ALIGNMENT_LEFT, rect.size.x-36, 17, Color("caffdf"))
 	var lines: Array[String] = game.DebugBalanceSystem.lines(game)
 	for index in lines.size(): game.draw_ui_string(game.UI_FONT, rect.position + Vector2(18,64+index*25), lines[index], HORIZONTAL_ALIGNMENT_LEFT, rect.size.x-36, 13, Color("e9fff3"))
@@ -190,17 +190,14 @@ static func draw_button(game: Node2D, button: Dictionary, state: Dictionary) -> 
 	var enabled := bool(button.get("enabled", true))
 	var action := String(button.action); var state_key := "paused" if action == "pause" else action
 	var active := bool(state.get(state_key, false)) if state.has(state_key) else false
-	var fill := Color("287856") if active else (Color("263f3a") if enabled else Color("1c2926"))
-	var border := PANEL_BORDER if active else (Color("6f9585") if enabled else Color("45534e"))
-	game.draw_rect(button.rect, fill); game.draw_rect(button.rect, border, false, 2.0)
 	var label := String(button.label)
 	if action == "grid_size": label = "СЕТКА %d px" % int(state.grid_size)
-	game.draw_ui_string(game.UI_FONT, button.rect.position + Vector2(5,19), label, HORIZONTAL_ALIGNMENT_CENTER, button.rect.size.x - 10, 10, Color.WHITE if enabled else Color("71817b"))
+	game.DebugUiKitSystem.draw_button(game,button.rect,label,active,enabled)
 
 
 ## Рисует историю FPS последних девяноста кадров с ориентиром шестидесяти кадров.
 static func draw_graph(game: Node2D, state: Dictionary, rect: Rect2) -> void:
-	game.draw_rect(rect, Color("102823")); game.draw_line(rect.position + Vector2(0,rect.size.y*0.5), rect.position + Vector2(rect.size.x,rect.size.y*0.5), Color(0.6,0.9,0.7,0.22), 1.0)
+	game.DebugUiKitSystem.draw_readout(game,rect); game.draw_line(rect.position + Vector2(0,rect.size.y*0.5), rect.position + Vector2(rect.size.x,rect.size.y*0.5), Color(0.6,0.9,0.7,0.22), 1.0)
 	var history: Array = state.get("frame_history", []); if history.size() < 2: return
 	var points := PackedVector2Array()
 	for index in history.size(): points.append(rect.position + Vector2(index * rect.size.x / 89.0, rect.size.y - clampf(float(history[index]),0.0,120.0) * rect.size.y / 120.0))

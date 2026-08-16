@@ -32,6 +32,12 @@ static func configure(game: Node) -> void:
 		game.MenuSystem.open_pause(game); game.MenuSystem.open_settings(game, false); game.menu_state.settings_selected = 10
 		game.set_meta("capture_ui_frames", 6); game.set_meta("capture_ui_output", "res://assets/generated/ui/adaptive_ui_ingame_preview.png")
 		return
+	if "--capture-debug-ui" in arguments:
+		game.language_screen = false; game.title_screen = false; game.current_location = "overworld"; game.player = Vector2(1160,650); game.tutorial_visible = false; game.set_meta("capture_hud_clean",true)
+		game.DebugOverlaySystem.toggle(game)
+		var debug_state: Dictionary = game.get_meta(game.DebugOverlaySystem.META_KEY); debug_state.hitboxes = true; debug_state.labels = true; debug_state.opacity = 0.28; game.set_meta(game.DebugOverlaySystem.META_KEY,debug_state); game.DebugOverlaySystem.refresh_grid(game)
+		game.set_meta("capture_ui_frames", 6); game.set_meta("capture_ui_output", "res://assets/generated/ui/debug_overlay_ingame_preview.png")
+		return
 	if not ("--settings-preview" in arguments or "--capture-settings" in arguments): return
 	game.language_screen = false
 	game.title_screen = false

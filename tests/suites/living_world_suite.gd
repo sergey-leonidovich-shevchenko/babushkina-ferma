@@ -17,6 +17,7 @@ func run() -> void:
 	test_runtime_debug_overlay_classifies_navigation_grid()
 	test_runtime_debug_object_inspector_identifies_visual_objects()
 	test_runtime_debug_overlay_controls_pause_layers_and_noclip()
+	test_debug_tools_share_storybook_chrome_and_technical_colors()
 	test_grandmother_side_gate_stays_walkable()
 	test_world_polish_atlas_has_complete_transparent_grid()
 	test_expansion_features_have_tutorial_steps()
@@ -240,6 +241,20 @@ func test_runtime_debug_overlay_controls_pause_layers_and_noclip() -> void:
 	var wall: Vector2 = game.BuildingSystem.collision_rect("cottage").get_center(); game.player = wall - Vector2(100,0)
 	game.DebugOverlaySystem.toggle_option(game,"noclip"); game.NavigationSystem.move(game,Vector2(100,0))
 	expect(game.player == wall and game.NavigationSystem.walkability_reason(game,wall) == "building", "noclip bypasses movement collision while inspector preserves its real reason")
+	game.free()
+
+
+## Сценарий: F10, полигон и конструктор используют общий художественный корпус без потери диагностической цветовой семантики.
+## Исходное состояние: общий Debug UI Kit подключён к трём рендерам, недоступная команда остаётся в панели, а визуальный эталон создан на живом уровне.
+## Ожидаемый результат: деревянные nine-patch компоненты окружают технические экраны, состояния различимы, а скриншот имеет базовое разрешение игры.
+func test_debug_tools_share_storybook_chrome_and_technical_colors() -> void:
+	var game := make_game(); var kit_source := FileAccess.get_file_as_string("res://scripts/systems/debug_ui_kit_system.gd")
+	expect(kit_source.contains("UiKitSystem.draw_panel") and kit_source.contains("UiKitSystem.draw_button") and kit_source.contains("TECH_GREEN") and kit_source.contains("TECH_GOLD"), "debug kit combines the storybook nine-patch shell with explicit diagnostic accents")
+	for renderer_path in ["res://scripts/systems/debug_overlay_renderer.gd","res://scripts/systems/debug_playground_renderer.gd","res://scripts/systems/level_editor_renderer.gd"]:
+		expect(FileAccess.get_file_as_string(renderer_path).contains("DebugUiKitSystem"), "%s consumes the shared debug chrome instead of a disconnected flat panel" % renderer_path)
+	expect(not game.DebugOverlaySystem.button_enabled("save_patch") and game.DebugOverlaySystem.BUTTONS.any(func(button: Dictionary): return button.action=="save_patch"), "unfinished debug action remains visible with a real disabled state")
+	var preview := Image.load_from_file(ProjectSettings.globalize_path("res://assets/generated/ui/debug_overlay_ingame_preview.png"))
+	expect(preview != null and preview.get_size()==Vector2i(1152,648), "live F10 visual reference covers the shared shell grid hitboxes labels and disabled action")
 	game.free()
 
 

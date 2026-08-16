@@ -24,7 +24,7 @@ static func draw_world(game: Node2D) -> void:
 ## Рисует техническую карточку объекта в верхнем INFO-блоке основной F10-панели.
 static func draw_info(game: Node2D, panel: Rect2, target: Dictionary) -> void:
 	var rect := Rect2(panel.position+Vector2(12,42),Vector2(panel.size.x-24,170))
-	game.draw_rect(rect,INFO_FILL); game.draw_rect(rect,INFO_BORDER,false,1.5)
+	game.DebugUiKitSystem.draw_readout(game,rect)
 	game.draw_ui_string(game.UI_FONT,rect.position+Vector2(10,18),"INFO · %s" % target.category,HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-20,12,Color("78e2b1"))
 	var lines: Array[String] = [
 		"Имя: %s" % target.name,

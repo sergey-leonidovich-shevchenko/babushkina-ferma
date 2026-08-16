@@ -81,7 +81,7 @@ static func draw_panel(game: Node2D) -> void:
 	if not game.LevelEditorSystem.active(game): return
 	var state:Dictionary=game.get_meta(game.LevelEditorSystem.META_KEY)
 	if bool(state.panel_hidden): return
-	var panel:Rect2=game.LevelEditorSystem.PANEL; game.draw_rect(panel,PANEL_FILL); game.draw_rect(panel,PANEL_BORDER,false,3.0)
+	var panel:Rect2=game.LevelEditorSystem.PANEL; game.DebugUiKitSystem.draw_panel(game,panel,true)
 	game.draw_ui_string(game.MENU_FONT,Vector2(24,43),"КОНСТРУКТОР УРОВНЕЙ",HORIZONTAL_ALIGNMENT_LEFT,270,18,TEXT)
 	draw_button(game,game.LevelEditorSystem.CLOSE_BUTTON,"×",false)
 	game.draw_ui_string(game.UI_FONT,Vector2(24,67),"%s · %d объектов"%[state.level_name,state.objects.size()],HORIZONTAL_ALIGNMENT_LEFT,304,12,MUTED)
@@ -95,7 +95,7 @@ static func draw_panel(game: Node2D) -> void:
 	draw_button(game,game.LevelEditorSystem.COLLISION_BUTTON,"КОЛЛИЗИЯ %s"%("ДА"if state.collision else"НЕТ"),bool(state.collision)); draw_button(game,game.LevelEditorSystem.LEVEL_NAME_BUTTON,"НАЗВАНИЕ УРОВНЯ",false)
 	draw_button(game,game.LevelEditorSystem.OBJECT_NAME_BUTTON,"ПОДПИСЬ ОБЪЕКТА",false); draw_button(game,game.LevelEditorSystem.OBJECT_NOTE_BUTTON,"ЗАМЕТКА",false)
 	var status: String = String(state.status); if not String(state.text_mode).is_empty(): status="▌ "+String(state.text_buffer)
-	game.draw_rect(Rect2(20,607,314,22),Color("2c2119")); game.draw_ui_string(game.UI_FONT,Vector2(25,623),status,HORIZONTAL_ALIGNMENT_LEFT,304,11,Color("ffe099"))
+	game.DebugUiKitSystem.draw_readout(game,Rect2(20,607,314,22),true); game.draw_ui_string(game.UI_FONT,Vector2(25,623),status,HORIZONTAL_ALIGNMENT_LEFT,304,11,Color("ffe099"))
 	draw_selection_info(game,state)
 	draw_validation_info(game,state)
 	game.draw_ui_string(game.UI_FONT,Vector2(356,24),"F12 закрыть · B кисть · V выбор · E ластик · WASD камера · Ctrl+Z/Y · Q поворот · [ ] масштаб",HORIZONTAL_ALIGNMENT_LEFT,780,12,Color(1,0.95,0.78,0.92))
@@ -105,7 +105,7 @@ static func draw_panel(game: Node2D) -> void:
 static func draw_assets(game: Node2D, state: Dictionary) -> void:
 	var entries: Array[Dictionary] = game.LevelEditorSystem.visible_catalog(state); var start: int = clampi(int(state.scroll),0,maxi(entries.size()-game.LevelEditorSystem.VISIBLE_ASSETS,0))
 	for row in game.LevelEditorSystem.VISIBLE_ASSETS:
-		var index: int = start+row; var rect: Rect2 = Rect2(22,122+row*game.LevelEditorSystem.ASSET_ROW_HEIGHT,310,42); var selected: bool = index<entries.size() and entries[index].path==state.selected_asset; game.draw_rect(rect,BUTTON_ACTIVE if selected else Color("3c2c20")); game.draw_rect(rect,SELECTED if selected else Color("75563a"),false,1.5)
+		var index: int = start+row; var rect: Rect2 = Rect2(22,122+row*game.LevelEditorSystem.ASSET_ROW_HEIGHT,310,42); var selected: bool = index<entries.size() and entries[index].path==state.selected_asset; game.DebugUiKitSystem.draw_catalog_row(game,rect,selected)
 		if index>=entries.size(): continue
 		var entry:Dictionary=entries[index]; var texture: Texture2D = texture_for(String(entry.path))
 		if texture!=null:
@@ -119,7 +119,7 @@ static func draw_assets(game: Node2D, state: Dictionary) -> void:
 ## Показывает краткие технические параметры выбранного объекта справа от панели.
 static func draw_selection_info(game: Node2D, state: Dictionary) -> void:
 	if not game.LevelEditorSystem.valid_selection(state): return
-	var object:Dictionary=state.objects[state.selected]; var rect:=Rect2(356,42,300,82); game.draw_rect(rect,Color(0.04,0.03,0.02,0.88)); game.draw_rect(rect,SELECTED,false,2)
+	var object:Dictionary=state.objects[state.selected]; var rect:=Rect2(356,42,300,82); game.DebugUiKitSystem.draw_readout(game,rect,true)
 	var lines: Array[String] = ["%s · #%s"%[object.name,object.id],"x %.0f · y %.0f · %.0f×%.0f"%[object.position.x,object.position.y,object.size.x,object.size.y],"%s · %s · scale %.2f · collision %s"%[layer_name(object.layer),String(object.get("anchor","center")),game.LevelEditorSystem.object_scale(object),"да"if object.collision else"нет"]]
 	for index in lines.size(): game.draw_ui_string(game.UI_FONT,rect.position+Vector2(10,22+index*21),lines[index],HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-20,12,TEXT)
 
@@ -127,14 +127,14 @@ static func draw_selection_info(game: Node2D, state: Dictionary) -> void:
 ## Показывает справа первые проблемы последней проверки, не перекрывая рабочий холст.
 static func draw_validation_info(game: Node2D, state: Dictionary) -> void:
 	if state.validation.is_empty(): return
-	var report:Dictionary=state.validation; var issues:Array=[]; issues.append_array(report.get("errors",[])); issues.append_array(report.get("warnings",[])); var rect:=Rect2(670,42,458,34+mini(issues.size(),4)*18); game.draw_rect(rect,Color(0.04,0.03,0.02,0.90)); game.draw_rect(rect,Color("72d68a") if report.valid else Color("ef6961"),false,2)
+	var report:Dictionary=state.validation; var issues:Array=[]; issues.append_array(report.get("errors",[])); issues.append_array(report.get("warnings",[])); var rect:=Rect2(670,42,458,34+mini(issues.size(),4)*18); game.DebugUiKitSystem.draw_readout(game,rect,true); game.draw_rect(rect,Color("72d68a") if report.valid else Color("ef6961"),false,2)
 	game.draw_ui_string(game.UI_FONT,rect.position+Vector2(10,21),game.LevelEditorSystem.ValidationSystem.summary(report),HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-20,12,TEXT)
 	for index in mini(issues.size(),4): game.draw_ui_string(game.UI_FONT,rect.position+Vector2(10,41+index*18),"• "+String(issues[index]).left(64),HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-20,10,MUTED)
 
 
 ## Рисует одну кнопку в едином деревянно-золотом стиле интерфейса игры.
 static func draw_button(game: Node2D, rect: Rect2, label: String, active: bool) -> void:
-	game.draw_rect(rect,BUTTON_ACTIVE if active else BUTTON_FILL); game.draw_rect(rect,SELECTED if active else PANEL_BORDER,false,1.5); game.draw_ui_string(game.UI_FONT,rect.position+Vector2(4,20),label,HORIZONTAL_ALIGNMENT_CENTER,rect.size.x-8,11,TEXT)
+	game.DebugUiKitSystem.draw_button(game,rect,label,active,true,true)
 
 
 ## Переводит внутренний идентификатор слоя в короткую русскую подпись.

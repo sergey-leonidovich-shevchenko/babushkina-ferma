@@ -14,19 +14,19 @@ static func draw_background(canvas: Node2D) -> void:
 static func draw_overlay(game: Node2D) -> void:
 	if not game.DebugPlaygroundSystem.active(game): return
 	var state: Dictionary = game.get_meta("debug_playground"); var panel: Rect2 = game.DebugPlaygroundSystem.PANEL
-	game.draw_rect(panel, Color(0.035,0.065,0.06,0.94)); game.draw_rect(panel, Color("d5a94d"), false, 3)
+	game.DebugUiKitSystem.draw_panel(game,panel)
 	var enemy: String = game.DebugPlaygroundSystem.ENEMIES[state.enemy_index]
 	var lines := ["ПОЛИГОН ОТЛАДКИ", "FPS: %d · объектов: %d" % [Engine.get_frames_per_second(), game.enemy_nodes.size() + game.wildlife_nodes.size()], "Позиция: %d, %d · %s" % [game.player.x, game.player.y,"ПАУЗА" if state.paused else "RUN"], "День %d · %02d:%02d" % [game.day, int(game.game_minutes)/60, int(game.game_minutes)%60], "%s · %s" % [game.WorldEventSystem.season(game.day), game.WorldEventSystem.weather(game)], "Враг: %s · ур. %d" % [enemy, state.enemy_level], "Выбрано: %s" % state.selected, "F4 набор · F6 уровень · F7 анимация", "F8 телепорт · F9 квест · C коллизии", "PgUp/PgDn тип · I инспектор · F10 выход"]
 	for index in lines.size(): game.draw_ui_string(game.UI_FONT, panel.position + Vector2(20,34 + index * 21), lines[index], HORIZONTAL_ALIGNMENT_LEFT, panel.size.x - 40, 15, Color("fff0c8") if index != 0 else Color("ffd36a"))
 	draw_graph(game,state,Rect2(755,275,355,55))
 	for button in game.DebugPlaygroundSystem.BUTTONS:
-		game.draw_rect(button.rect,Color("3c6759")); game.draw_rect(button.rect,Color("d5a94d"),false,2); game.draw_ui_string(game.UI_FONT,button.rect.position+Vector2(5,21),button.label,HORIZONTAL_ALIGNMENT_CENTER,button.rect.size.x-10,12,Color("fff0c8"))
+		game.DebugUiKitSystem.draw_button(game,button.rect,button.label,false,true)
 	game.draw_ui_string(game.UI_FONT,Vector2(755,520),"Последнее: %s" % state.command,HORIZONTAL_ALIGNMENT_LEFT,355,13,Color("ffd36a"))
 
 
 ## Рисует компактный график FPS за последние сто двадцать кадров.
 static func draw_graph(game: Node2D, state: Dictionary, rect: Rect2) -> void:
-	game.draw_rect(rect,Color("172824")); game.draw_line(rect.position+Vector2(0,rect.size.y*0.5),rect.position+Vector2(rect.size.x,rect.size.y*0.5),Color(0.7,0.8,0.6,0.22),1)
+	game.DebugUiKitSystem.draw_readout(game,rect); game.draw_line(rect.position+Vector2(0,rect.size.y*0.5),rect.position+Vector2(rect.size.x,rect.size.y*0.5),Color(0.7,0.8,0.6,0.22),1)
 	var history: Array = state.get("frame_history", []); if history.size() < 2: return
 	var points := PackedVector2Array()
 	for index in history.size(): points.append(rect.position+Vector2(index*rect.size.x/119.0,rect.size.y-clampf(float(history[index]),0.0,120.0)*rect.size.y/120.0))

@@ -20,7 +20,7 @@ static func draw(game: Node2D) -> void:
 ## Рисует постоянный заголовок, по которому очередь открывается и сворачивается.
 static func draw_header(game: Node2D, state: Dictionary) -> void:
 	var rect: Rect2 = game.DebugMissionSystem.HEADER
-	game.draw_rect(rect, PANEL_FILL); game.draw_rect(rect, PANEL_BORDER, false, 2.0)
+	game.DebugUiKitSystem.draw_readout(game,rect)
 	var marker := "▼" if bool(state.get("missions_expanded", false)) else "▶"
 	var complete := 1 if game.quest_complete else 0
 	for mission_id in game.QuestSystem.MISSIONS:
@@ -31,7 +31,7 @@ static func draw_header(game: Node2D, state: Dictionary) -> void:
 ## Рисует восемь миссий страницы со статусом, прогрессом и кнопками подробностей и завершения.
 static func draw_list(game: Node2D, state: Dictionary) -> void:
 	var panel: Rect2 = game.DebugMissionSystem.PANEL
-	game.draw_rect(panel, PANEL_FILL); game.draw_rect(panel, PANEL_BORDER, false, 3.0)
+	game.DebugUiKitSystem.draw_panel(game,panel)
 	draw_header(game, state)
 	for row in game.DebugMissionSystem.visible_rows(game): draw_row(game, row)
 	var page := int(state.get("mission_page", 0)) + 1; var pages: int = game.DebugMissionSystem.page_count(game)
@@ -54,8 +54,7 @@ static func draw_row(game: Node2D, row: Dictionary) -> void:
 
 ## Рисует компактную квадратную кнопку с явным disabled-состоянием.
 static func draw_small_button(game: Node2D, rect: Rect2, label: String, enabled: bool) -> void:
-	game.draw_rect(rect, Color("285e4c") if enabled else Color("26332f")); game.draw_rect(rect, PANEL_BORDER if enabled else Color("4c5d56"), false, 1.5)
-	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(2,20), label, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 4, 14, TEXT if enabled else Color("687970"))
+	game.DebugUiKitSystem.draw_button(game,rect,label,false,enabled)
 
 
 ## Рисует подробности задания и полный состав его награды в центральной модальной карточке.
@@ -81,7 +80,7 @@ static func draw_completion(game: Node2D, completion: Dictionary) -> void:
 
 ## Рисует общий затемнённый фон и рамку модального окна поверх обеих debug-панелей.
 static func draw_modal_frame(game: Node2D, rect: Rect2, title: String) -> void:
-	game.draw_rect(Rect2(0,0,1152,648), Color(0.0,0.0,0.0,0.58)); game.draw_rect(rect, PANEL_FILL); game.draw_rect(rect, PANEL_BORDER, false, 3.0)
+	game.draw_rect(Rect2(0,0,1152,648), Color(0.0,0.0,0.0,0.58)); game.DebugUiKitSystem.draw_panel(game,rect)
 	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(18,38), title, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 36, 18, Color("caffdf"))
 
 
