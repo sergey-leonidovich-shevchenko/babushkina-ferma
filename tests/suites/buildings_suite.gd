@@ -31,7 +31,7 @@ func test_building_catalog_entry_exit_and_collision() -> void:
 	var renderer_source:=FileAccess.get_file_as_string("res://scripts/game_renderer.gd"); var context_source:=FileAccess.get_file_as_string("res://scripts/game_context.gd"); var catalog_source:=FileAccess.get_file_as_string("res://scripts/systems/level_editor_asset_catalog_system.gd")
 	expect(renderer_source.contains("BuildingVisualSystem.draw_building") and not renderer_source.contains("BUILDING_ATLAS") and not context_source.contains("building_atlas.png"), "runtime renders separate facades without fractional atlas source rectangles")
 	expect(catalog_source.contains("or \"atlas\" in lower"), "level editor hides source atlases and exposes only placeable independent facades")
-	expect(game.COMPANION_ATLAS.get_width() > 2100 and game.COMPANION_ATLAS.get_height() > 700, "three-companion pixel atlas is loaded")
+	expect(game.DirectionalCharacterSystem.COMPANION_TEXTURES.size()==3 and game.DirectionalCharacterSystem.profiles_are_valid(), "three companions use the current directional sprite catalog")
 	var cottage: Dictionary = game.BuildingSystem.BUILDINGS.cottage
 	game.player = cottage.door
 	expect(game.nearest_interaction() == "building:cottage", "cottage door receives the contextual interaction")

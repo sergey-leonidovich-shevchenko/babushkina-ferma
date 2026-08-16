@@ -1,6 +1,9 @@
 extends "res://tests/suites/suite_base.gd"
 
 const WorldLootRenderer := preload("res://scripts/systems/world_loot_renderer.gd")
+const WorldLootVisualSystem := preload("res://scripts/systems/world_loot_visual_system.gd")
+const WorldVisualProfileSystem := preload("res://scripts/systems/world_visual_profile_system.gd")
+const WorldVisualAuditSystem := preload("res://scripts/systems/world_visual_audit_system.gd")
 
 
 ## Запускает проверки прозрачности, разметки, тематического покрытия и коллизий новых атласов.
@@ -14,6 +17,7 @@ func run() -> void:
 	test_village_ambient_atlas_has_twelve_complete_cells()
 	test_world_loot_atlas_replaces_container_placeholders()
 	test_interior_profiles_keep_current_room_previews()
+	test_world_profiles_use_shared_spatial_contract()
 
 
 ## Сценарий: все сгенерированные изображения загружаются Godot как прозрачные текстуры.
@@ -176,10 +180,24 @@ func _cell_has_visible_sample(image: Image, area: Rect2i) -> bool:
 ## Ожидаемый результат: каждый файл модульный и crop-safe, а пиратский сундук наследует профиль обычного сундука.
 func test_world_loot_atlas_replaces_container_placeholders() -> void:
 	expect(WorldLootRenderer.profiles_are_valid(), "eight world containers own modular independent sprites")
-	for kind in WorldLootRenderer.TEXTURES:
+	for kind in WorldLootVisualSystem.kinds():
 		var texture:Texture2D=WorldLootRenderer.texture(kind); var image:Image=texture.get_image()
 		expect(image.get_pixel(0,0).a<0.05 and image.get_pixel(image.get_width()-1,image.get_height()-1).a<0.05, "%s container keeps crop-safe transparent corners"%kind)
 	expect(WorldLootRenderer.texture("pirate_chest")==WorldLootRenderer.texture("chest") and WorldLootRenderer.collision_rect("chest",Vector2.ZERO).size==Vector2(72,48), "pirate chest reuses the chest art and its matching rectangular base")
 	var preview:=Image.load_from_file(ProjectSettings.globalize_path("res://assets/generated/level_drafts/world_loot_ingame_preview.png")); expect(preview!=null and preview.get_size()==Vector2i(1152,648),"world loot migration keeps a current native gameplay catalog")
 	var renderer_source := FileAccess.get_file_as_string("res://scripts/game_renderer.gd")
 	expect(not renderer_source.contains("draw_circle(position + Vector2(0, 5), 22") and not renderer_source.contains("draw_line(position - Vector2(18, 14)"), "legacy sack and trash geometry is removed from runtime renderer")
+
+
+## Сценарий: мировой лут и сюжетный слизень получают геометрию через единый пространственный контракт.
+## Исходное состояние: каталог хранится в профильных системах, а renderer содержит только делегирование и рисование.
+## Ожидаемый результат: все профили валидны, положение слизня сохранено, а renderer не объявляет размеры и PROFILES.
+func test_world_profiles_use_shared_spatial_contract() -> void:
+	expect(WorldVisualProfileSystem.validation_errors().is_empty(), "central world profiles satisfy the shared spatial contract")
+	expect(WorldLootVisualSystem.validation_errors().is_empty(), "world loot profiles satisfy the shared spatial contract")
+	var report:=WorldVisualAuditSystem.report()
+	expect(WorldVisualAuditSystem.validation_errors().is_empty() and int(report.profile_count)>=90 and report.providers.size()==8, "all migrated visual providers participate in runtime content validation")
+	var slime_rect:=WorldVisualProfileSystem.visual_rect("story_slime",Vector2(100,100))
+	expect(slime_rect.size==Vector2(72,72) and slime_rect.position.is_equal_approx(Vector2(64,48.16)), "story slime keeps its calibrated ground anchor")
+	var renderer_source:=FileAccess.get_file_as_string("res://scripts/systems/world_loot_renderer.gd")
+	expect(not renderer_source.contains("const PROFILES") and not renderer_source.contains("const TEXTURES") and not renderer_source.contains("Vector2(72,72)"), "world loot renderer owns no profile catalog or unique world sizes")

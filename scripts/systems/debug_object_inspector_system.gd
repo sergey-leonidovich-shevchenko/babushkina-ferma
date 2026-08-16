@@ -203,7 +203,7 @@ static func append_hazards(game: Node, result: Array[Dictionary]) -> void:
 ## Добавляет обычного слизня и всех data-driven противников с полным состоянием боя и AI.
 static func append_enemies(game: Node, result: Array[Dictionary]) -> void:
 	if game.current_location == "overworld" and (game.slime_alive or game.AnimationSystem.slime_is_visible(game)):
-		add(result, "enemy:legacy_slime", "ВРАГ", game.LocaleSystem.entity("slime"), game.slime_position, game.CreatureVisualProfileSystem.actor_rect(game.slime_position,game.AnimationRenderer.SLIME_VISUAL_SIZE), 90, "круг r28 · твёрдый", game.slime_visual_state, ["HP %d/3" % game.slime_hp,"loot ready %s" % str(game.loot_available)])
+		add(result, "enemy:legacy_slime", "ВРАГ", game.LocaleSystem.entity("slime"), game.slime_position, game.WorldVisualProfileSystem.visual_rect("story_slime",game.slime_position), 90, "круг r28 · твёрдый", game.slime_visual_state, ["HP %d/3" % game.slime_hp,"loot ready %s" % str(game.loot_available)])
 	for index in game.enemy_nodes.size():
 		var enemy: Dictionary = game.enemy_nodes[index]
 		if enemy.location != game.current_location or not game.AnimationSystem.enemy_is_visible(enemy): continue

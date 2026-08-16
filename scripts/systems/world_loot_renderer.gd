@@ -1,53 +1,36 @@
 extends RefCounted
 
-const TEXTURES:={
-	"sack":preload("res://assets/game/world_loot/containers/sack.png"),"trash":preload("res://assets/game/world_loot/containers/trash.png"),
-	"chest":preload("res://assets/game/world_loot/containers/chest.png"),"bone_pile":preload("res://assets/game/world_loot/containers/bone_pile.png"),
-	"supply_crate":preload("res://assets/game/world_loot/containers/supply_crate.png"),"barrel":preload("res://assets/game/world_loot/containers/barrel.png"),
-	"hollow_log":preload("res://assets/game/world_loot/containers/hollow_log.png"),"fairy_cache":preload("res://assets/game/world_loot/containers/fairy_cache.png"),
-}
-const PROFILES:={
-	"sack":{"visual":Vector2(72,72),"collision":Vector2(48,24)},"trash":{"visual":Vector2(96,72),"collision":Vector2(72,24)},
-	"chest":{"visual":Vector2(96,72),"collision":Vector2(72,48)},"bone_pile":{"visual":Vector2(96,72),"collision":Vector2(72,24)},
-	"supply_crate":{"visual":Vector2(72,72),"collision":Vector2(48,48)},"barrel":{"visual":Vector2(72,72),"collision":Vector2(48,48)},
-	"hollow_log":{"visual":Vector2(96,72),"collision":Vector2(72,24)},"fairy_cache":{"visual":Vector2(72,72),"collision":Vector2(48,48)},
-}
+const WorldLootVisualSystem := preload("res://scripts/systems/world_loot_visual_system.gd")
 
 
 ## Преобразует тематический пиратский сундук в общий визуальный профиль сундука.
 static func resolved_kind(kind:String)->String:
-	return "chest" if kind=="pirate_chest" else kind
+	return WorldLootVisualSystem.resolved_kind(kind)
 
 
 ## Возвращает отдельную текстуру контейнера без дробного source-rect.
 static func texture(kind:String)->Texture2D:
-	return TEXTURES.get(resolved_kind(kind),TEXTURES.chest) as Texture2D
+	return WorldLootVisualSystem.texture(kind)
 
 
 ## Возвращает независимый профиль видимого размера и основания контейнера.
 static func profile(kind:String)->Dictionary:
-	return Dictionary(PROFILES.get(resolved_kind(kind),PROFILES.chest)).duplicate(true)
+	return WorldLootVisualSystem.profile(kind)
 
 
 ## Возвращает видимую область контейнера вокруг совместимой логической позиции.
 static func visual_rect(kind:String,position:Vector2)->Rect2:
-	var size:=Vector2(profile(kind).visual)
-	return Rect2(position-size*0.5,size)
+	return WorldLootVisualSystem.visual_rect(kind,position)
 
 
 ## Возвращает прямоугольное основание контейнера из того же профиля.
 static func collision_rect(kind:String,position:Vector2)->Rect2:
-	var size:=Vector2(profile(kind).collision)
-	return Rect2(position-size*0.5,size)
+	return WorldLootVisualSystem.collision_rect(kind,position)
 
 
 ## Проверяет восемь независимых PNG и кратность всех размеров базовой сетке 24 px.
 static func profiles_are_valid()->bool:
-	if TEXTURES.size()!=8 or PROFILES.size()!=8: return false
-	for kind in TEXTURES:
-		var data:=profile(kind); var visual:=Vector2(data.visual); var collision:=Vector2(data.collision)
-		if texture(kind).get_size()!=visual or int(visual.x)%24!=0 or int(visual.y)%24!=0 or int(collision.x)%24!=0 or int(collision.y)%24!=0: return false
-	return true
+	return WorldLootVisualSystem.validation_errors().is_empty()
 
 
 ## Рисует контейнеры текущей локации и сохраняет читаемое состояние опустошения.
@@ -64,7 +47,7 @@ static func draw(game:Node2D)->void:
 static func configure_preview(game:Node,arguments:PackedStringArray)->bool:
 	if "--capture-world-loot" not in arguments: return false
 	game.language_screen=false; game.title_screen=false; game.current_location="cottage_interior"; game.player=Vector2(576,200); game.tutorial_visible=false; game.enemy_nodes=[]; game.hazard_nodes=[]; game.wildlife_nodes=[]
-	game.world_loot_nodes=[]; var kinds:=TEXTURES.keys()
+	game.world_loot_nodes=[]; var kinds:=WorldLootVisualSystem.kinds()
 	for index in kinds.size(): game.world_loot_nodes.append({"id":"preview_%d"%index,"kind":kinds[index],"location":"cottage_interior","position":Vector2(330+(index%4)*160,310+(index/4)*150),"contents":{},"opened":false})
 	game.set_meta("capture_first_level_clean",true); game.set_meta("capture_world_loot_frames",8)
 	return true

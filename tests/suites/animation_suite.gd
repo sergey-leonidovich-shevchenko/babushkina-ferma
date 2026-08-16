@@ -114,8 +114,8 @@ func test_npc_wander_stays_near_home() -> void:
 ## Ожидаемый результат: оба прозрачных атласа загружены, покой живой, фазы различаются, а ходьба заметнее дыхания.
 func test_living_sprite_motion_and_atlases() -> void:
 	var game := make_game()
-	expect(game.NPC_ATLAS.get_width() == 2172 and game.NPC_ATLAS.get_height() == 724, "three coherent NPC sprites are loaded")
-	expect(game.FANTASY_WILDLIFE_ATLAS.get_width() == 2172 and game.FANTASY_WILDLIFE_ATLAS.get_height() == 724, "redrawn bat and lizard atlas is loaded")
+	expect(game.DirectionalCharacterSystem.profiles_are_valid(), "current directional NPC sprites are loaded through their runtime catalog")
+	expect(game.WILDLIFE_ACTION_SHEETS.bat.get_size() == Vector2(768,1024) and game.WILDLIFE_ACTION_SHEETS.lizard.get_size() == Vector2(768,1024), "current bat and lizard action sheets are loaded")
 	var idle_start: Dictionary = game.PresentationSystem.living_motion(0.0, false)
 	var idle_later: Dictionary = game.PresentationSystem.living_motion(0.45, false)
 	var shifted: Dictionary = game.PresentationSystem.living_motion(0.45, false, 1.7)

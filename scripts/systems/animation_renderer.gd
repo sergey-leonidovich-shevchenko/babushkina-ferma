@@ -4,8 +4,8 @@ const SLIME_IDLE := preload("res://assets/game/enemies/slime_idle.png")
 const SLIME_ATTACK := preload("res://assets/game/enemies/slime_attack.png")
 const SLIME_HURT := preload("res://assets/game/enemies/slime_hurt.png")
 const SLIME_DEATH := preload("res://assets/game/enemies/slime_death.png")
-const SLIME_VISUAL_SIZE := Vector2(72,72)
 const EnemyAnimationLibrary := preload("res://scripts/systems/enemy_animation_library.gd")
+const WorldVisualProfileSystem := preload("res://scripts/systems/world_visual_profile_system.gd")
 
 
 ## Отрисовывает героя по текущему состоянию игры.
@@ -39,7 +39,7 @@ static func draw_slime(game: Node2D) -> bool:
 	elif state == "attack": texture = SLIME_ATTACK; count = 8
 	elif state == "death": texture = SLIME_DEATH; count = 10
 	var frame: int = game.AnimationSystem.frame(game.slime_visual_time, count, 11.0, state != "death")
-	game.draw_texture_rect_region(texture, game.CreatureVisualProfileSystem.actor_rect(game.slime_position,SLIME_VISUAL_SIZE), Rect2(frame * 64, 0, 64, 64))
+	game.draw_texture_rect_region(texture, WorldVisualProfileSystem.visual_rect("story_slime",game.slime_position), Rect2(frame * 64, 0, 64, 64))
 	return true
 
 

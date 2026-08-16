@@ -15,11 +15,13 @@ const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
 const ForgeSystem := preload("res://scripts/systems/forge_system.gd")
 const ContractSystem := preload("res://scripts/systems/contract_system.gd")
 const CropCatalogSystem := preload("res://scripts/systems/crop_catalog_system.gd")
+const WorldVisualAuditSystem := preload("res://scripts/systems/world_visual_audit_system.gd")
 
 ## Проверяет ссылки между управляемыми данными каталогами до начала игры. Добавление
 ## контента с опечаткой падает в тестах, а не через несколько часов прохождения.
 static func validate() -> Array[String]:
 	var errors: Array[String] = []
+	errors.append_array(WorldVisualAuditSystem.validation_errors())
 	var items: Dictionary = InventorySystem.ITEM_DATA
 	for recipe_index in CraftingSystem.RECIPES.size():
 		var recipe: Dictionary = CraftingSystem.RECIPES[recipe_index]

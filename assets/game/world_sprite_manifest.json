@@ -1,43 +1,14 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "base_cell": 24,
-  "scan_sources": [
-    "scripts/world_background.gd",
-    "scripts/systems/adventure_polish_renderer.gd",
-    "scripts/systems/action_effect_visual_system.gd",
-    "scripts/systems/animation_renderer.gd",
-    "scripts/systems/building_visual_system.gd",
-    "scripts/systems/creature_visual_profile_system.gd",
-    "scripts/systems/directional_character_system.gd",
-    "scripts/systems/enemy_animation_library.gd",
-    "scripts/systems/environment_visual_system.gd",
-    "scripts/systems/farm_visual_system.gd",
-    "scripts/systems/farm_life_renderer.gd",
-    "scripts/systems/farm_life_visual_system.gd",
-    "scripts/systems/interior_visual_system.gd",
-    "scripts/systems/road_visual_system.gd",
-    "scripts/systems/water_visual_system.gd",
-    "scripts/systems/village_ambient_renderer.gd",
-    "scripts/systems/world_loot_renderer.gd",
-    "scripts/systems/world_polish_renderer.gd",
-    "scripts/systems/visual_asset_system.gd"
-    ,"scripts/systems/world_polish_renderer.gd"
-  ],
+  "scan_roots": ["scripts"],
   "ignored_assets": [
     "assets/game/generated/pirate_item_atlas.png",
     "assets/game/generated/pirate_enemy_atlas.png",
     "assets/game/generated/potion_atlas.png",
     "assets/game/generated/inventory_core_atlas.png",
     "assets/game/generated/inventory_rare_atlas.png",
-    "assets/game/generated/farm_food_atlas.png",
-    "assets/generated/level_drafts/water_navigation_ingame_preview.png",
-    "assets/generated/level_drafts/building_%s_ingame_preview.png",
-    "assets/generated/level_drafts/environment_%s_ingame_preview.png"
-    ,"assets/generated/level_drafts/farm_life_ingame_preview.png"
-    ,"assets/generated/level_drafts/world_loot_ingame_preview.png"
-    ,"assets/generated/level_drafts/characters_ingame_preview.png"
-    ,"assets/generated/level_drafts/creatures_ingame_preview.png"
-    ,"assets/generated/level_drafts/interior_%s_ingame_preview.png"
+    "assets/game/generated/farm_food_atlas.png"
   ],
   "entries": [
     {
@@ -61,7 +32,9 @@
       "assets": [
         {"path":"assets/game/tiles/grass.png","width":24,"height":24},
         {"path":"assets/game/tiles/grass_var_1.png","width":24,"height":24},
-        {"path":"assets/game/tiles/grass_var_2.png","width":24,"height":24}
+        {"path":"assets/game/tiles/grass_var_2.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/terrain/grass_flowers.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/terrain/grass_lush.png","width":24,"height":24}
       ],
       "render_owner": "WorldBackground",
       "source_layout": "отдельные бесшовные тайлы",
@@ -453,6 +426,7 @@
       "id": "WS-019",
       "family": "Мобильные враги и пираты",
       "assets": [
+		{"path":"assets/game/enemies/enemy_rank_atlas.png","width":1620,"height":972},
         {"path":"assets/game/enemies/animated/core_enemy_walk_8dir.png","width":1536,"height":1024},
         {"path":"assets/game/enemies/animated/core_enemy_actions_8dir.png","width":1536,"height":1024},
         {"path":"assets/game/enemies/animated/pirate_enemy_walk_8dir.png","width":1536,"height":1024},

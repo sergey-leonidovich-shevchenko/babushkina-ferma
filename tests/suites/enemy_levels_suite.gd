@@ -83,7 +83,7 @@ func test_rank_atlases_and_hero_level_cap() -> void:
 	var game := make_game()
 	expect(game.ENEMY_RANK_ATLAS.get_size() == Vector2(1620, 972), "enemy rank atlas keeps exact five by three source grid")
 	expect(game.HAZARD_RANK_ATLAS.get_size() == Vector2(1254, 1254), "hazard rank atlas keeps exact three by three source grid")
-	expect(game.HERO_PROGRESSION_ATLAS.get_size() == Vector2(1256, 1256), "hero progression atlas keeps exact four by four source grid")
+	expect(game.DirectionalCharacterSystem.HERO_TEXTURES.size()==4 and game.DirectionalCharacterSystem.profiles_are_valid(), "four hero progression skins use current directional sheets")
 	expect(game.CreatureVisualProfileSystem.profiles_are_valid() and [game.CreatureVisualProfileSystem.enemy_size(1),game.CreatureVisualProfileSystem.enemy_size(3),game.CreatureVisualProfileSystem.enemy_size(5)]==[Vector2(96,96),Vector2(120,120),Vector2(144,144)],"enemy levels resolve to three modular visual ranks")
 	expect(game.CreatureVisualProfileSystem.wildlife_size()==Vector2(96,96) and game.CreatureVisualProfileSystem.hazard_size("thorn_bloom")==Vector2(120,120),"wildlife and rooted hazards use approved 96/120 px profiles")
 	var preview:=Image.load_from_file(ProjectSettings.globalize_path("res://assets/generated/level_drafts/creatures_ingame_preview.png")); expect(preview!=null and preview.get_size()==Vector2i(1152,648),"creature migration keeps a current native gameplay preview")

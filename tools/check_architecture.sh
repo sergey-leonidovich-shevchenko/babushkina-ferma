@@ -40,6 +40,7 @@ if rg -n '^func draw_' scripts/game.gd >/dev/null; then
 fi
 
 python3 tools/check_documentation.py
+python3 tools/test_world_sprite_manifest.py
 python3 tools/check_world_sprite_manifest.py
 git diff --check
 print -- "ARCHITECTURE: boundaries and whitespace are valid"
