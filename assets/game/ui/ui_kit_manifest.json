@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "design_viewport": [1152, 648],
   "base_spacing": 8,
   "icon_sizes": [24, 48, 72, 96],
@@ -18,6 +18,10 @@
     "panel_medium": {"mode": "nine_patch", "margins": [34, 36, 34, 34]},
     "button_normal": {"mode": "nine_patch", "margins": [24, 12, 24, 12]},
     "button_selected": {"mode": "nine_patch", "margins": [24, 12, 24, 12]},
+    "editor_button_normal": {"mode": "nine_patch", "margins": [20, 8, 20, 8]},
+    "editor_button_selected": {"mode": "nine_patch", "margins": [20, 8, 20, 8]},
+    "editor_card_normal": {"mode": "fixed_or_uniform", "safe_content": [17, 13, 17, 29]},
+    "editor_card_selected": {"mode": "fixed_or_uniform", "safe_content": [17, 13, 17, 29]},
     "slot_normal": {"mode": "fixed_or_uniform", "safe_content": [18, 18, 18, 18]},
     "slot_selected": {"mode": "fixed_or_uniform", "safe_content": [18, 18, 18, 18]},
     "progress_frame": {"mode": "nine_patch", "margins": [24, 18, 24, 18]},

@@ -441,6 +441,7 @@ func test_editor_labels_fit_buttons_and_use_dark_contrast() -> void:
 	expect(short.text=="СОХР." and short.size==10,"short editor label keeps its preferred typography")
 	expect(game.UI_FONT.get_string_size(String(long.text),HORIZONTAL_ALIGNMENT_LEFT,-1,int(long.size)).x<=86.0 and int(long.size)>=7,"long editor label is fitted to the exact safe width")
 	expect(game.DebugUiKitSystem.EDITOR_BUTTON_TEXT.get_luminance()<0.25 and game.LevelEditorRenderer.ROW_TEXT.get_luminance()<0.25,"parchment buttons and catalog rows use dark high-contrast text")
+	var normal:Image=game.MenuRenderer.UiKitSystem.texture("editor_button_normal").get_image(); var selected:Image=game.MenuRenderer.UiKitSystem.texture("editor_card_selected").get_image(); expect(normal.get_pixel(normal.get_width()/2,normal.get_height()/2).get_luminance()>0.65 and selected.get_pixel(selected.get_width()/2,selected.get_height()/2).get_luminance()>0.65,"authored editor controls preserve a bright uninterrupted center under labels and sprite previews")
 	game.free()
 
 

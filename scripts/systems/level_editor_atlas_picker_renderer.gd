@@ -6,7 +6,7 @@ const MUTED := Color("c5ae83")
 const SELECTED := Color("ffd45c")
 const ROW_TEXT := Color("4b2c17")
 const CARD_GAP := Vector2.ZERO
-const PREVIEW_INSET := Vector2(20,14)
+const PREVIEW_INSET := Vector2(17,13)
 const LABEL_HEIGHT := 16.0
 static var _visible_source_cache: Dictionary = {}
 
@@ -35,7 +35,7 @@ static func draw_grid(game: Node2D, state: Dictionary, texture: Texture2D) -> vo
 		var preview_state:=state.duplicate(); preview_state.slice_index=index; preview_state.source_mode="grid"; var source:=AtlasPickerSystem.selected_source(texture,preview_state); var exact_source:=source if source.size!=Vector2.ZERO else Rect2(Vector2.ZERO,texture.get_size()); var preview_source:=visible_preview_source(texture,exact_source); var content:=Rect2(rect.position+PREVIEW_INSET,rect.size-PREVIEW_INSET*2.0-Vector2(0,LABEL_HEIGHT)); var scale:=minf(content.size.x/maxf(preview_source.size.x,1),content.size.y/maxf(preview_source.size.y,1)); var preview_size:=preview_source.size*scale; var destination:=Rect2(content.position+(content.size-preview_size)*0.5,preview_size)
 		game.draw_texture_rect_region(texture,destination,preview_source)
 		game.draw_ui_string(game.UI_FONT,rect.position+Vector2(4,rect.size.y-5),"#%d"%(index+1),HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-8,9,ROW_TEXT)
-	draw_button(game,AtlasPickerSystem.PAGE_PREV,"‹ СТРАНИЦА",false); draw_button(game,AtlasPickerSystem.PAGE_LABEL,"%d / %d · %d кадров"%[page+1,AtlasPickerSystem.page_count(texture,state),count],true); draw_button(game,AtlasPickerSystem.PAGE_NEXT,"СТРАНИЦА ›",false)
+	draw_button(game,AtlasPickerSystem.PAGE_PREV,"‹ НАЗАД",false); draw_button(game,AtlasPickerSystem.PAGE_LABEL,"%d / %d · %d кадров"%[page+1,AtlasPickerSystem.page_count(texture,state),count],true); draw_button(game,AtlasPickerSystem.PAGE_NEXT,"ВПЕРЁД ›",false)
 
 
 ## Находит непрозрачную часть точного кадра, чтобы визуально центрировать спрайт, не меняя область его выбора и размещения.

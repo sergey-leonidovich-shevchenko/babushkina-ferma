@@ -74,11 +74,11 @@ func test_shared_ui_kit_has_independent_scalable_components() -> void:
 	var kit = game.MenuRenderer.UiKitSystem
 	var manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://assets/game/ui/ui_kit_manifest.json"))
 	expect(int(manifest.design_viewport[0]) == 1152 and int(manifest.design_viewport[1]) == 648 and int(manifest.base_spacing) == 8, "UI kit fixes the native viewport and eight-pixel spacing contract")
-	expect(kit.TEXTURES.size() == 16 and manifest.components.size() == 16, "manifest and runtime register all sixteen authored UI components")
+	expect(kit.TEXTURES.size() == 20 and manifest.components.size() == 20, "manifest and runtime register all twenty authored UI components")
 	for component in kit.TEXTURES:
 		var texture: Texture2D = kit.texture(component)
 		var image: Image = texture.get_image()
-		expect(texture.resource_path.contains("/kit_v1/") and image.get_pixel(0, 0).a == 0.0 and image.get_pixel(image.get_width() - 1, image.get_height() - 1).a == 0.0, "%s is an independent transparent sprite without atlas bleed" % component)
+		expect((texture.resource_path.contains("/kit_v1/") or texture.resource_path.contains("/editor_v1/")) and image.get_pixel(0, 0).a == 0.0 and image.get_pixel(image.get_width() - 1, image.get_height() - 1).a == 0.0, "%s is an independent transparent sprite without atlas bleed" % component)
 	for component in kit.NINE_PATCH_MARGINS:
 		var first: StyleBoxTexture = kit.style(component)
 		expect(first == kit.style(component) and first.texture == kit.texture(component), "%s reuses a cached nine-patch style with the matching authored texture" % component)
