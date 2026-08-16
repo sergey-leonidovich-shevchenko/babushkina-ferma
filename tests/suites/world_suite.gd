@@ -398,5 +398,5 @@ func test_world_loot_discovery_and_save_persistence() -> void:
 	game.SaveSystem.apply(game, snapshot)
 	expect(game.world_loot_seed == 777 and game.world_loot_nodes[0].contents == saved_contents, "save restores generated world and rolled contents")
 	expect(game.world_loot_nodes[0].opened, "save restores already searched container")
-	expect(game.WorldLootRenderer.ATLAS.get_width() == 1774, "shared world-loot atlas replaces the standalone bone-pile placeholder")
+	expect(game.WorldLootRenderer.profiles_are_valid(), "independent modular container sprites replace the fractional world-loot atlas")
 	game.free()

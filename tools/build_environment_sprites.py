@@ -36,6 +36,17 @@ BIOME_LARGE_SIZES = {
 }
 BIOME_DETAIL_SIZE = (144, 168)
 ACTION_EFFECT_SIZE = (72, 72)
+LOOT_KINDS = ("sack", "trash", "chest", "bone_pile", "supply_crate", "barrel", "hollow_log", "fairy_cache")
+LOOT_SIZES = {
+    "sack": (72, 72),
+    "trash": (96, 72),
+    "chest": (96, 72),
+    "bone_pile": (96, 72),
+    "supply_crate": (72, 72),
+    "barrel": (72, 72),
+    "hollow_log": (96, 72),
+    "fairy_cache": (72, 72),
+}
 
 
 def crop_cell(
@@ -157,13 +168,24 @@ def build_action_effects() -> None:
     catalog.save(preview, compress_level=6)
 
 
+def build_world_loot() -> None:
+    """Разделяет восемь мировых тайников и сохраняет подходящее каждому видимое основание."""
+    source = Image.open(ROOT / "assets/game/world_loot/world_loot_atlas_v1.png").convert("RGBA")
+    for index, kind in enumerate(LOOT_KINDS):
+        sprite = crop_cell(source, index % 4, index // 4, 4, 2)
+        destination = ROOT / "assets/game/world_loot/containers" / f"{kind}.png"
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        fit_to_canvas(sprite, LOOT_SIZES[kind], False, 4).save(destination, compress_level=6)
+
+
 def main() -> None:
     """Воспроизводимо пересобирает все три семейства окружения относительно корня проекта."""
     build_seasons()
     build_moon()
     build_biomes()
     build_action_effects()
-    print("ENVIRONMENT SPRITES: 8 seasonal · 8 moon · 10 biome · 16 action effects")
+    build_world_loot()
+    print("ENVIRONMENT SPRITES: 8 seasonal · 8 moon · 10 biome · 16 action effects · 8 loot")
 
 
 if __name__ == "__main__":

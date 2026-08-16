@@ -25,7 +25,6 @@ func test_generated_atlases_are_importable_and_transparent() -> void:
 		"res://assets/game/generated/inventory_core_atlas.png":Vector2i(1536,1024), "res://assets/game/generated/inventory_rare_atlas.png":Vector2i(1536,1024),
 		"res://assets/game/generated/farm_food_atlas.png":Vector2i(1536,1024),
 		"res://assets/game/environment/village_ambient_atlas_v1.png":Vector2i(1448,1086),
-		"res://assets/game/world_loot/world_loot_atlas_v1.png":Vector2i(1774,887),
 	}
 	for path in atlases:
 		var texture := load(path) as Texture2D
@@ -162,17 +161,15 @@ func _cell_has_visible_sample(image: Image, area: Rect2i) -> bool:
 	return false
 
 
-## Сценарий: мешок, хлам, сундук и кости больше не используют круги и линии-заглушки.
-## Исходное состояние: новый атлас 4×2 содержит восемь изолированных контейнеров в едином стиле.
-## Ожидаемый результат: каждая ячейка видима, а все активные типы добычи разрешаются в конкретный спрайт.
+## Сценарий: мешок, хлам, сундук и кости больше не используют дробный лист и геометрические заглушки.
+## Исходное состояние: восемь контейнеров экспортированы самостоятельными PNG с собственными профилями.
+## Ожидаемый результат: каждый файл модульный и crop-safe, а пиратский сундук наследует профиль обычного сундука.
 func test_world_loot_atlas_replaces_container_placeholders() -> void:
-	var image := Image.load_from_file(ProjectSettings.globalize_path("res://assets/game/world_loot/world_loot_atlas_v1.png"))
-	expect(image != null and image.get_size() == Vector2i(1774,887), "world loot atlas keeps exact 4x2 production canvas")
-	for row in 2:
-		for column in 4:
-			var area := Rect2i(floori(column*443.5),floori(row*443.5),443,443)
-			expect(_cell_has_visible_sample(image,area), "world loot cell contains artwork: %d:%d" % [column,row])
-	for kind in ["sack","trash","chest","bone_pile","pirate_chest"]:
-		expect(WorldLootRenderer.source_rect(kind).size == Vector2(443.5,443.5), "world container resolves to atlas sprite: %s" % kind)
+	expect(WorldLootRenderer.profiles_are_valid(), "eight world containers own modular independent sprites")
+	for kind in WorldLootRenderer.TEXTURES:
+		var texture:Texture2D=WorldLootRenderer.texture(kind); var image:Image=texture.get_image()
+		expect(image.get_pixel(0,0).a<0.05 and image.get_pixel(image.get_width()-1,image.get_height()-1).a<0.05, "%s container keeps crop-safe transparent corners"%kind)
+	expect(WorldLootRenderer.texture("pirate_chest")==WorldLootRenderer.texture("chest") and WorldLootRenderer.collision_rect("chest",Vector2.ZERO).size==Vector2(72,48), "pirate chest reuses the chest art and its matching rectangular base")
+	var preview:=Image.load_from_file(ProjectSettings.globalize_path("res://assets/generated/level_drafts/world_loot_ingame_preview.png")); expect(preview!=null and preview.get_size()==Vector2i(1152,648),"world loot migration keeps a current native gameplay catalog")
 	var renderer_source := FileAccess.get_file_as_string("res://scripts/game_renderer.gd")
 	expect(not renderer_source.contains("draw_circle(position + Vector2(0, 5), 22") and not renderer_source.contains("draw_line(position - Vector2(18, 14)"), "legacy sack and trash geometry is removed from runtime renderer")

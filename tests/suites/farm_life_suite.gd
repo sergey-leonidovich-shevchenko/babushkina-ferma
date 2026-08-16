@@ -91,11 +91,16 @@ func test_save_slots_compendium_and_photo_mode() -> void:
 	game.free()
 
 
-## Сценарий: новый атлас и подсказки соблюдают производственный контракт проекта.
-## Исходное состояние: Godot импортировал RGBA-атлас пять на четыре, локализация содержит шесть языков.
-## Ожидаемый результат: размер и прозрачность верны, а каждая новая механика имеет отдельный шаг обучения.
+## Сценарий: фермерский атлас, мировые профили и подсказки соблюдают производственный контракт проекта.
+## Исходное состояние: Godot импортировал строгий RGBA-атлас пять на четыре, локализация содержит шесть языков.
+## Ожидаемый результат: все размеры кратны сетке, коллизии совпадают с профилями, а механики имеют обучение.
 func test_expansion_atlas_and_tutorials() -> void:
 	var game:=make_game(); var texture:Texture2D=game.FarmLifeRenderer.ATLAS; var image:=texture.get_image()
 	expect(texture.get_size()==Vector2(640,512) and image.get_pixel(0,0).a<0.05,"farm-life atlas is transparent exact 5x4 production grid")
+	expect(game.FarmLifeVisualSystem.profiles_are_valid() and game.FarmLifeVisualSystem.profile("cow").visual==Vector2(96,96) and game.FarmLifeVisualSystem.profile("trough").visual==Vector2(96,72),"farm-life world profiles use shared 72/96 px modules")
+	var wardrobe_base:Rect2=game.FarmLifeVisualSystem.collision_rect("wooden_wardrobe",Vector2(320,320)); expect(wardrobe_base==Rect2(284,272,72,48),"furniture visual and collision share one bottom-center profile")
+	game.state.world.estate.level=3; game.FarmLifeSystem.initialize(game); var farm_targets:Array=game.DebugObjectInspectorSystem.candidates(game).filter(func(candidate): return String(candidate.category)=="ФЕРМА"); expect(farm_targets.size()==4 and farm_targets.all(func(candidate): return is_equal_approx(float((candidate.bounds as Rect2).end.y),float(candidate.position.y))),"F10 inspector receives all three farm animals and trough from shared bottom anchors")
+	expect(game.FarmLifeSystem.blocks_position(game,game.FarmLifeSystem.ANIMALS[0].position,game.PLAYER_RADIUS) and not game.FarmLifeSystem.blocks_position(game,Vector2(900,900),game.PLAYER_RADIUS),"farm-life navigation blocks visible bases without creating a broad invisible wall")
+	var preview:=Image.load_from_file(ProjectSettings.globalize_path("res://assets/generated/level_drafts/farm_life_ingame_preview.png")); expect(preview!=null and preview.get_size()==Vector2i(1152,648),"farm-life migration keeps a current native gameplay preview for scale and anchor review")
 	for event_name in ["animal_feed","animal_product","museum","secret_puzzle","furniture_place","photo_mode"]: expect(event_name in game.TutorialSystem.STEP_IDS and game.LocaleSystem.TUTORIAL[event_name].size()==6,"new feature has six-language tutorial: %s" % event_name)
 	game.free()

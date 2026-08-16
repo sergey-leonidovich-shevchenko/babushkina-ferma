@@ -85,7 +85,7 @@ static func walkability_reason(game: Node, position: Vector2) -> String:
 		if node.hits > 0 and node.location == game.current_location and circle_intersects_rect(position,game.PLAYER_RADIUS,game.ResourceSystem.collision_rect(node)):
 			return "resource"
 	for container in game.world_loot_nodes:
-		if container.location == game.current_location and position.distance_to(container.position) < game.PLAYER_RADIUS + 25.0:
+		if container.location==game.current_location and circle_intersects_rect(position,game.PLAYER_RADIUS,game.WorldLootRenderer.collision_rect(container.kind,container.position)):
 			return "loot"
 	for food in game.food_nodes:
 		if food.get("location", "overworld") != game.current_location:

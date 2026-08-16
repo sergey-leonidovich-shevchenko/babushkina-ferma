@@ -1,10 +1,11 @@
 extends RefCounted
 
 const ANIMALS := [
-	{"id":"hen","name":"Ряба","product":"egg","position":Vector2(360,735),"cell":Vector2i(0,0)},
-	{"id":"cow","name":"Зорька","product":"milk","position":Vector2(440,720),"cell":Vector2i(1,0)},
-	{"id":"sheep","name":"Облачко","product":"wool","position":Vector2(520,735),"cell":Vector2i(2,0)},
+	{"id":"hen","name":"Ряба","product":"egg","position":Vector2(315,860),"cell":Vector2i(0,0)},
+	{"id":"cow","name":"Зорька","product":"milk","position":Vector2(405,875),"cell":Vector2i(1,0)},
+	{"id":"sheep","name":"Облачко","product":"wool","position":Vector2(510,860),"cell":Vector2i(2,0)},
 ]
+const TROUGH_POSITION:=Vector2(610,860)
 const FURNITURE := {"rustic_table":Vector2i(0,2),"wooden_chair":Vector2i(1,2),"woven_rug":Vector2i(2,2),"potted_fern":Vector2i(3,2),"wooden_wardrobe":Vector2i(4,2)}
 const BIRTHDAYS := {4:"miron",8:"agafya",12:"varvara",16:"gavrila",20:"dunya"}
 const MUSEUM_ITEMS := ["blue_gem","moon_relic","ancient_key","cursed_compass","eclipse_core","red_crystal","green_crystal"]
@@ -55,7 +56,7 @@ static func first_day_objective(game: Node) -> String:
 ## Возвращает ближайшее животное, кормушку, музей или секретный механизм.
 static func nearest_interaction(game: Node, distance_limit: float) -> String:
 	if game.current_location == "overworld" and game.state.world.estate.level >= 3:
-		if game.player.distance_to(Vector2(445,790)) < distance_limit: return "life:trough"
+		if game.player.distance_to(TROUGH_POSITION) < distance_limit: return "life:trough"
 		for animal in ANIMALS:
 			if game.player.distance_to(animal.position) < distance_limit: return "life:animal:%s" % animal.id
 	if game.current_location == "guild_interior" and game.player.distance_to(Vector2(780,270)) < distance_limit: return "life:museum"
@@ -164,11 +165,20 @@ static func place_furniture(game: Node) -> bool:
 	if value.furniture.any(func(item): return Vector2(item.position).distance_to(position)<52.0): game.message = "Здесь уже стоит мебель"; return false
 	game.change_inventory_count(kind,-1); value.furniture.append({"kind":kind,"position":position}); game.message = "Предмет установлен: %s" % game.inventory_item_name(kind); game.notify_tutorial("furniture_place"); return true
 
-## Проверяет коллизию героя с расставленной мебелью в домашнем интерьере.
+## Проверяет коллизию героя с видимыми основаниями животных, мебели, музея и тайников.
 static func blocks_position(game: Node, position: Vector2, radius: float) -> bool:
-	if game.current_location != "cottage_interior": return false
-	for furniture in state(game).furniture:
-		if position.distance_to(Vector2(furniture.position)) < radius+25.0: return true
+	if game.current_location=="overworld" and game.state.world.estate.level>=3:
+		for animal in ANIMALS:
+			if game.FarmLifeVisualSystem.circle_intersects_rect(position,radius,game.FarmLifeVisualSystem.collision_rect(String(animal.id),Vector2(animal.position))): return true
+		if game.FarmLifeVisualSystem.circle_intersects_rect(position,radius,game.FarmLifeVisualSystem.collision_rect("trough",TROUGH_POSITION)): return true
+	if game.current_location=="cottage_interior":
+		for furniture in state(game).furniture:
+			var collision:Rect2=game.FarmLifeVisualSystem.collision_rect(String(furniture.kind),Vector2(furniture.position))
+			if game.FarmLifeVisualSystem.circle_intersects_rect(position,radius,collision): return true
+	if game.current_location=="guild_interior" and game.FarmLifeVisualSystem.circle_intersects_rect(position,radius,game.FarmLifeVisualSystem.collision_rect("museum",Vector2(780,270))): return true
+	if SECRETS.has(game.current_location):
+		var secret_position:=Vector2(SECRETS[game.current_location].position)
+		if game.FarmLifeVisualSystem.circle_intersects_rect(position,radius,game.FarmLifeVisualSystem.collision_rect("secret",secret_position)): return true
 	return false
 
 ## Сохраняет снимок экрана фоторежима в пользовательскую папку проекта.

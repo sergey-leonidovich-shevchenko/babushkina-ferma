@@ -1,28 +1,25 @@
 extends RefCounted
 
-const ATLAS := preload("res://assets/game/expansion_pack/expansion_atlas.png")
-const CELL := Vector2(128,128)
-
-## Отрисовывает одну ячейку нового прозрачного атласа в мировом прямоугольнике.
-static func draw_cell(game: Node, cell: Vector2i, center: Vector2, size: Vector2 = Vector2(82,82)) -> void:
-	game.draw_texture_rect_region(ATLAS,Rect2(center-size*0.5,size),Rect2(Vector2(cell)*CELL,CELL))
+const FarmLifeVisualSystem:=preload("res://scripts/systems/farm_life_visual_system.gd")
+const ATLAS:=FarmLifeVisualSystem.ATLAS
 
 ## Отрисовывает животных фермы, музей, секреты, мебель и боевые снаряды.
 static func draw_world(game: Node) -> void:
 	var value: Dictionary = game.FarmLifeSystem.state(game)
 	if game.current_location == "overworld" and game.state.world.estate.level >= 3:
 		for animal in game.FarmLifeSystem.ANIMALS:
-			draw_cell(game,animal.cell,animal.position,Vector2(76,76)); game.draw_ui_string(game.UI_FONT,animal.position+Vector2(-45,-47),"%s ♥%d" % [animal.name,value.animals[animal.id].bond],HORIZONTAL_ALIGNMENT_CENTER,90,13,Color("fff0bd"))
-		draw_cell(game,Vector2i(3,0),Vector2(445,790),Vector2(88,72))
+			game.FarmLifeVisualSystem.draw(game,animal.id,animal.position); var visual:Rect2=game.FarmLifeVisualSystem.visual_rect(animal.id,animal.position)
+			game.draw_ui_string(game.UI_FONT,Vector2(visual.position.x-8,visual.position.y-18),"%s ♥%d" % [animal.name,value.animals[animal.id].bond],HORIZONTAL_ALIGNMENT_CENTER,visual.size.x+16,13,Color("fff0bd"))
+		game.FarmLifeVisualSystem.draw(game,"trough",game.FarmLifeSystem.TROUGH_POSITION)
 	if game.current_location == "cottage_interior":
-		for furniture in value.furniture: draw_cell(game,game.FarmLifeSystem.FURNITURE.get(furniture.kind,Vector2i.ZERO),Vector2(furniture.position),Vector2(80,80))
-	if game.current_location == "guild_interior": draw_cell(game,Vector2i(0,1),Vector2(780,270),Vector2(92,92))
+		for furniture in value.furniture: game.FarmLifeVisualSystem.draw(game,String(furniture.kind),Vector2(furniture.position))
+	if game.current_location == "guild_interior": game.FarmLifeVisualSystem.draw(game,"museum",Vector2(780,270))
 	if game.FarmLifeSystem.SECRETS.has(game.current_location):
-		var secret: Dictionary = game.FarmLifeSystem.SECRETS[game.current_location]; draw_cell(game,Vector2i(0,3),secret.position,Vector2(78,78))
+		var secret: Dictionary = game.FarmLifeSystem.SECRETS[game.current_location]; game.FarmLifeVisualSystem.draw(game,"secret",secret.position)
 	for projectile in value.projectiles:
 		var position: Vector2 = Vector2(projectile.from).lerp(Vector2(projectile.to),float(projectile.progress)); game.draw_circle(position,7.0,Color("ffe36e")); game.draw_line(position-Vector2(14,0),position,Color.WHITE,3)
 	for enemy in game.enemy_nodes:
-		if enemy.location==game.current_location and enemy.alive and bool(enemy.get("event_raid_boss",false)): draw_cell(game,Vector2i(4,3),enemy.position+Vector2(0,-92),Vector2(70,70)); game.draw_ui_string(game.UI_FONT,enemy.position+Vector2(-75,-122),"КАПИТАН НАЛЁТЧИКОВ",HORIZONTAL_ALIGNMENT_CENTER,150,13,Color("ffcf75"))
+		if enemy.location==game.current_location and enemy.alive and bool(enemy.get("event_raid_boss",false)): game.FarmLifeVisualSystem.draw(game,"raid_banner",enemy.position+Vector2(0,-76)); game.draw_ui_string(game.UI_FONT,enemy.position+Vector2(-75,-184),"КАПИТАН НАЛЁТЧИКОВ",HORIZONTAL_ALIGNMENT_CENTER,150,13,Color("ffcf75"))
 
 ## Отрисовывает цель первого дня, кат-сцену, энциклопедию и фоторежим без дублирования календаря HUD.
 static func draw_ui(game: Node) -> void:

@@ -12,6 +12,7 @@
     "scripts/systems/environment_visual_system.gd",
     "scripts/systems/farm_visual_system.gd",
     "scripts/systems/farm_life_renderer.gd",
+    "scripts/systems/farm_life_visual_system.gd",
     "scripts/systems/road_visual_system.gd",
     "scripts/systems/water_visual_system.gd",
     "scripts/systems/village_ambient_renderer.gd",
@@ -29,6 +30,8 @@
     "assets/generated/level_drafts/water_navigation_ingame_preview.png",
     "assets/generated/level_drafts/building_%s_ingame_preview.png",
     "assets/generated/level_drafts/environment_%s_ingame_preview.png"
+    ,"assets/generated/level_drafts/farm_life_ingame_preview.png"
+    ,"assets/generated/level_drafts/world_loot_ingame_preview.png"
   ],
   "entries": [
     {
@@ -345,17 +348,26 @@
     {
       "id": "WS-015",
       "family": "Случайные контейнеры мира",
-      "assets": [{"path":"assets/game/world_loot/world_loot_atlas_v1.png","width":1774,"height":887}],
+      "assets": [
+        {"path":"assets/game/world_loot/containers/sack.png","width":72,"height":72},
+        {"path":"assets/game/world_loot/containers/trash.png","width":96,"height":72},
+        {"path":"assets/game/world_loot/containers/chest.png","width":96,"height":72},
+        {"path":"assets/game/world_loot/containers/bone_pile.png","width":96,"height":72},
+        {"path":"assets/game/world_loot/containers/supply_crate.png","width":72,"height":72},
+        {"path":"assets/game/world_loot/containers/barrel.png","width":72,"height":72},
+        {"path":"assets/game/world_loot/containers/hollow_log.png","width":96,"height":72},
+        {"path":"assets/game/world_loot/containers/fairy_cache.png","width":72,"height":72}
+      ],
       "render_owner": "WorldLootRenderer",
-      "source_layout": "4×2 с дробной ячейкой 443.5×443.5",
-      "runtime_sizes": ["68×68", "76×76"],
+      "source_layout": "восемь самостоятельных crop-safe RGBA PNG, извлечённых из авторского master без дробной runtime-выборки",
+      "runtime_sizes": ["72×72", "96×72"],
       "target_modules": ["72×72", "96×72"],
-      "anchor": "центр; требуется нижняя опора",
-      "collision": "радиус 25 px для всех контейнеров",
-      "status": "redraw",
+      "anchor": "совместимый центр сохранённой логической позиции; геометрия принадлежит общему профилю",
+      "collision": "индивидуальные прямоугольники 48×24, 48×48, 72×24 или 72×48 из профиля вида",
+      "status": "compliant",
       "priority": "P2",
-      "debt": "Дробная исходная сетка, два некратных масштаба и одинаковая коллизия для сундука, мешка и костей.",
-      "done_when": "Каждый контейнер имеет отдельный PNG/целую ячейку, размер кратен 24 и собственное видимое основание."
+      "debt": "Закрыт: дробный исходный лист остаётся master, а runtime использует восемь независимых изображений без соседних фрагментов и растяжения.",
+      "done_when": "Сохраняются восемь отдельных PNG, размеры кратны 24, а навигация и F10 получают основание из WorldLootRenderer."
     },
     {
       "id": "WS-016",
@@ -394,16 +406,16 @@
       "id": "WS-017",
       "family": "Фермерская жизнь, мебель и музей",
       "assets": [{"path":"assets/game/expansion_pack/expansion_atlas.png","width":640,"height":512}],
-      "render_owner": "FarmLifeRenderer",
-      "source_layout": "строгий 5×4 по 128",
-      "runtime_sizes": ["70×70", "76×76", "78×78", "80×80", "88×72", "92×92"],
-      "target_modules": ["72×72", "96×72", "96×96"],
-      "anchor": "сейчас центр; для мебели нужен нижний центр",
-      "collision": "мебель получает отдельный прямоугольник при размещении",
-      "status": "migration",
+      "render_owner": "FarmLifeVisualSystem и FarmLifeRenderer",
+      "source_layout": "строгий RGBA-атлас 5×4 по 128×128 с семантическим каталогом двенадцати мировых объектов",
+      "runtime_sizes": ["72×72", "72×96", "96×72", "96×96", "96×120"],
+      "target_modules": ["72×72", "72×96", "96×72", "96×96", "96×120"],
+      "anchor": "единый нижний центр логической позиции животного, мебели или интерактивного объекта",
+      "collision": "индивидуальные модульные основания 48×24, 48×48, 72×24 или 72×48; ковёр и знамя проходимы",
+      "status": "compliant",
       "priority": "P2",
-      "debt": "Строгий исходный атлас масштабируется в шесть близких, но некратных размеров.",
-      "done_when": "Малые сущности 72×72, широкие объекты 96×72, крупные 96×96; мебель и её коллизия используют один профиль."
+      "debt": "Закрыт: шесть произвольных близких размеров удалены, строгие ячейки получают размер, опору и основание из одного профиля.",
+      "done_when": "Все двенадцать назначений проходят runtime-валидацию; renderer и мебельная навигация используют FarmLifeVisualSystem."
     },
     {
       "id": "WS-018",

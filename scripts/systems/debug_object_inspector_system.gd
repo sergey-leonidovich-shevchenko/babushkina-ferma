@@ -32,9 +32,29 @@ static func candidates(game: Node) -> Array[Dictionary]:
 	var result: Array[Dictionary] = []
 	append_buildings(game, result); append_world_props(game, result); append_trees(game, result); append_forage(game, result)
 	append_resources(game, result); append_containers(game, result); append_drops(game, result); append_hazards(game, result)
-	append_enemies(game, result); append_wildlife(game, result); append_npcs(game, result); append_companions(game, result); append_world_plots(game, result); append_fences(game,result)
+	append_enemies(game, result); append_wildlife(game, result); append_npcs(game, result); append_companions(game, result); append_farm_life(game,result); append_world_plots(game, result); append_fences(game,result)
 	append_player(game, result)
 	return result
+
+
+## Добавляет животных, кормушку, музей, тайники и установленную мебель из общего визуального профиля.
+static func append_farm_life(game:Node,result:Array[Dictionary])->void:
+	var life:Dictionary=game.FarmLifeSystem.state(game)
+	if game.current_location=="overworld" and game.state.world.estate.level>=3:
+		for animal in game.FarmLifeSystem.ANIMALS:
+			var kind:String=String(animal.id); var position:Vector2=Vector2(animal.position); var memory:Dictionary=life.animals.get(kind,{})
+			add(result,"farm_animal:%s"%kind,"ФЕРМА",String(animal.name),position,game.FarmLifeVisualSystem.visual_rect(kind,position),86,rect_description(game.FarmLifeVisualSystem.collision_rect(kind,position)),"накормлено" if int(memory.get("fed_day",0))==game.day else "ждёт кормления",["продукт %s"%animal.product,"привязанность %d"%int(memory.get("bond",0)),"профиль %s"%str(game.FarmLifeVisualSystem.profile(kind).visual)])
+		var trough:Vector2=game.FarmLifeSystem.TROUGH_POSITION
+		add(result,"farm:trough","ФЕРМА","Кормушка",trough,game.FarmLifeVisualSystem.visual_rect("trough",trough),76,rect_description(game.FarmLifeVisualSystem.collision_rect("trough",trough)),"доступна",["профиль 96×72","кормит всех животных"])
+	if game.current_location=="cottage_interior":
+		for index in life.furniture.size():
+			var furniture:Dictionary=life.furniture[index]; var kind:String=String(furniture.kind); var position:Vector2=Vector2(furniture.position)
+			add(result,"furniture:%d:%s"%[index,kind],"МЕБЕЛЬ",game.inventory_item_name(kind),position,game.FarmLifeVisualSystem.visual_rect(kind,position),74,rect_description(game.FarmLifeVisualSystem.collision_rect(kind,position)),"установлена",["item id %s"%kind,"профиль %s"%str(game.FarmLifeVisualSystem.profile(kind).visual)])
+	if game.current_location=="guild_interior":
+		var museum:Vector2=Vector2(780,270); add(result,"farm:museum","МУЗЕЙ","Витрина музея",museum,game.FarmLifeVisualSystem.visual_rect("museum",museum),73,rect_description(game.FarmLifeVisualSystem.collision_rect("museum",museum)),"доступна",["экспонатов %d/%d"%[life.museum.size(),game.FarmLifeSystem.MUSEUM_ITEMS.size()]])
+	if game.FarmLifeSystem.SECRETS.has(game.current_location):
+		var secret:Dictionary=game.FarmLifeSystem.SECRETS[game.current_location]; var position:Vector2=Vector2(secret.position)
+		add(result,"farm:secret:%s"%game.current_location,"ТАЙНА","Скрытый механизм",position,game.FarmLifeVisualSystem.visual_rect("secret",position),72,rect_description(game.FarmLifeVisualSystem.collision_rect("secret",position)),"разгадан" if bool(life.secrets.get(game.current_location,false)) else "не разгадан",["награда %s"%secret.reward])
 
 
 ## Добавляет построенные игроком секции и калитки с материалом, клетками и фактической коллизией.
@@ -153,8 +173,8 @@ static func append_containers(game: Node, result: Array[Dictionary]) -> void:
 	for index in game.world_loot_nodes.size():
 		var node: Dictionary = game.world_loot_nodes[index]
 		if node.location != game.current_location: continue
-		var size := Vector2(76,76) if node.kind in ["chest","pirate_chest","bone_pile"] else Vector2(68,68)
-		add(result, "container:%s" % node.get("id",index), "КОНТЕЙНЕР", game.LocaleSystem.entity(node.kind), node.position, centered_bounds(node.position,size), 75, "круг r25 · твёрдый", "открыт и пуст" if node.opened else "закрыт", [
+		var bounds:Rect2=game.WorldLootRenderer.visual_rect(node.kind,node.position); var collision:Rect2=game.WorldLootRenderer.collision_rect(node.kind,node.position)
+		add(result, "container:%s" % node.get("id",index), "КОНТЕЙНЕР", game.LocaleSystem.entity(node.kind), node.position, bounds, 75, rect_description(collision), "открыт и пуст" if node.opened else "закрыт", [
 			"runtime index %d" % index,
 			"содержимое %s" % dictionary_text(node.contents),
 			"seed мира %d" % game.world_loot_seed,
