@@ -7,7 +7,7 @@ const PreferencesStore := preload("res://scripts/editor/level_editor_preferences
 const ToolSystem := preload("res://scripts/systems/level_editor_tool_system.gd")
 const AtlasPickerSystem := preload("res://scripts/systems/level_editor_atlas_picker_system.gd")
 const META_KEY := "level_editor"
-const FORMAT_VERSION := 4
+const FORMAT_VERSION := 5
 const PROJECT_DIRECTORY := "res://level_designs"
 const USER_DIRECTORY := "user://level_designs"
 const GRID_SIZES := [12, 24, 48, 96]
@@ -307,7 +307,7 @@ static func place_selected_asset(game: Node, state: Dictionary, screen_point: Ve
 	if anchor=="tile": size=Vector2.ONE*int(state.grid)
 	var position := placement_position(state,world,anchor)
 	if anchor == "tile": _remove_ground_at(state,position,String(state.layer))
-	var object := {"id":int(state.next_id),"asset_path":path,"name":path.get_file().get_basename(),"notes":"","position":position,"size":size,"source":source,"anchor":anchor,"layer":state.layer,"collision":state.collision,"rotation":0.0,"flip_x":false,"flip_y":false,"reference":false,"runtime_id":"","original_position":Vector2.ZERO,"hidden":false,"unique_key":unique_key,"catalog_category":String(entry.get("category","other")),"surface_kind":String(entry.get("surface_kind","")),"transition_masks":{}}
+	var object := {"id":int(state.next_id),"asset_path":path,"name":path.get_file().get_basename(),"notes":"","position":position,"size":size,"source":source,"anchor":anchor,"layer":state.layer,"collision":state.collision,"rotation":0.0,"flip_x":false,"flip_y":false,"reference":false,"runtime_id":"","original_position":Vector2.ZERO,"hidden":false,"unique_key":unique_key,"catalog_category":String(entry.get("category","other")),"surface_kind":String(entry.get("surface_kind","")),"autotile_diagonal_mask":0,"transition_masks":{},"transition_corner_masks":{}}
 	state.next_id = int(state.next_id)+1; state.objects.append(object); state.selected = state.objects.size()-1; state.status = "Размещено: %s" % object.name
 	ValidationSystem.rebuild_autotile_masks(state); state.validation={}
 	return true
@@ -517,7 +517,7 @@ static func import_current_level(game: Node, state: Dictionary) -> void:
 	push_history(state); state.objects=[]; state.selected=-1; state.base_location=game.current_location; state.level_name="%s_redesign"%game.current_location
 	for candidate in game.DebugObjectInspectorSystem.candidates(game):
 		if candidate.id=="player" or candidate.category in ["ДОБЫЧА","ПЕРЕХОД"]: continue
-		state.objects.append({"id":int(state.next_id),"asset_path":"","name":candidate.name,"notes":"","position":candidate.position,"size":candidate.bounds.size,"source":Rect2(),"anchor":"center","layer":"objects","collision":not String(candidate.collision).begins_with("нет"),"rotation":0.0,"flip_x":false,"flip_y":false,"reference":true,"runtime_id":candidate.id,"original_position":candidate.position,"hidden":false,"scale":1.0,"unique_key":runtime_unique_key(String(candidate.id)),"catalog_category":"reference","surface_kind":"","transition_masks":{}}); state.next_id+=1
+		state.objects.append({"id":int(state.next_id),"asset_path":"","name":candidate.name,"notes":"","position":candidate.position,"size":candidate.bounds.size,"source":Rect2(),"anchor":"center","layer":"objects","collision":not String(candidate.collision).begins_with("нет"),"rotation":0.0,"flip_x":false,"flip_y":false,"reference":true,"runtime_id":candidate.id,"original_position":candidate.position,"hidden":false,"scale":1.0,"unique_key":runtime_unique_key(String(candidate.id)),"catalog_category":"reference","surface_kind":"","autotile_diagonal_mask":0,"transition_masks":{},"transition_corner_masks":{}}); state.next_id+=1
 	state.status="Импортировано референсов: %d"%state.objects.size()
 
 

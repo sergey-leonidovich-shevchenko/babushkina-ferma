@@ -62,8 +62,11 @@ static func surface_kind(cell: Vector2i, animation_frame: int = 0) -> String:
 	return "water_clear"
 
 
-## Выбирает берег, угол, узкое русло либо внутреннюю воду по четырёхбитной маске N/E/S/W.
-static func variant_for_mask(mask: int, cell: Vector2i, animation_frame: int = 0) -> Dictionary:
+## Выбирает берег, включая вогнутый диагональный угол, узкое русло либо внутреннюю воду.
+static func variant_for_mask(mask: int, cell: Vector2i, animation_frame: int = 0, diagonal_mask: int = 15) -> Dictionary:
+	if mask==15 and diagonal_mask!=15:
+		for index in 4:
+			if diagonal_mask&(1<<index)==0: return {"kind":"shore_inner_corner","rotation":[0.0,PI*0.5,PI,-PI*0.5][index]}
 	if mask==15: return {"kind":surface_kind(cell,animation_frame),"rotation":0.0}
 	var edges:={7:"shore_west",13:"shore_east",14:"shore_north",11:"shore_south"}
 	if edges.has(mask): return {"kind":String(edges[mask]),"rotation":0.0}
@@ -87,13 +90,21 @@ static func first_location_cells(layout: GDScript, season: String = "spring") ->
 
 ## Рисует одну модульную водную клетку с поворотом вокруг центра без деформации PNG 24×24.
 static func draw_module(canvas: Node2D, cell: Vector2i, cells: Dictionary, animation_frame: int, tint: Color = Color.WHITE) -> void:
-	var mask:=neighbor_mask(cell,cells); var variant:=variant_for_mask(mask,cell,animation_frame); var destination:=Rect2(Vector2(cell)*CELL_SIZE,Vector2(CELL_SIZE,CELL_SIZE))
+	var mask:=neighbor_mask(cell,cells); var diagonal_mask:=diagonal_neighbor_mask(cell,cells); var variant:=variant_for_mask(mask,cell,animation_frame,diagonal_mask); var destination:=Rect2(Vector2(cell)*CELL_SIZE,Vector2(CELL_SIZE,CELL_SIZE))
 	canvas.draw_set_transform(destination.get_center(),float(variant.rotation)); canvas.draw_texture_rect(texture(String(variant.kind)),Rect2(-destination.size*0.5,destination.size),false,tint); canvas.draw_set_transform(Vector2.ZERO)
 
 
 ## Вычисляет четырёхбитную маску соседних водных клеток в порядке N/E/S/W.
 static func neighbor_mask(cell: Vector2i, cells: Dictionary) -> int:
 	var mask:=0; var directions:=[Vector2i(0,-1),Vector2i(1,0),Vector2i(0,1),Vector2i(-1,0)]
+	for index in directions.size():
+		if cells.has(cell+directions[index]): mask|=1<<index
+	return mask
+
+
+## Вычисляет диагональную маску соседней воды в порядке NE/SE/SW/NW для вогнутых берегов.
+static func diagonal_neighbor_mask(cell: Vector2i, cells: Dictionary) -> int:
+	var mask:=0; var directions:=[Vector2i(1,-1),Vector2i(1,1),Vector2i(-1,1),Vector2i(-1,-1)]
 	for index in directions.size():
 		if cells.has(cell+directions[index]): mask|=1<<index
 	return mask

@@ -35,21 +35,27 @@
         {"path":"assets/game/tiles/grass_var_2.png","width":24,"height":24},
         {"path":"assets/game/tiles/editor/terrain/grass_flowers.png","width":24,"height":24},
         {"path":"assets/game/tiles/editor/terrain/grass_lush.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/terrain/grass_spring.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/terrain/grass_autumn.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/terrain/ground_snow_grass.png","width":24,"height":24},
         {"path":"assets/game/tiles/editor/terrain/ground_gravel.png","width":24,"height":24},
         {"path":"assets/game/tiles/editor/transitions/dirt_edge.png","width":24,"height":24},
         {"path":"assets/game/tiles/editor/transitions/gravel_edge.png","width":24,"height":24},
-        {"path":"assets/game/tiles/editor/transitions/sand_edge.png","width":24,"height":24}
+        {"path":"assets/game/tiles/editor/transitions/sand_edge.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/transitions/dirt_inner_corner.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/transitions/gravel_inner_corner.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/transitions/sand_inner_corner.png","width":24,"height":24}
       ],
       "render_owner": "WorldBackground",
-      "source_layout": "отдельные бесшовные тайлы и прозрачные переходные края N/E/S/W",
+      "source_layout": "отдельные бесшовные сезонные тайлы и прозрачные прямые/диагональные переходы",
       "runtime_sizes": ["24×24"],
       "target_modules": ["24×24"],
       "anchor": "верхний левый угол клетки",
       "collision": "проходимая поверхность",
       "status": "compliant",
       "priority": "P3",
-      "debt": "Закрыт: трава, земля, песок и гравий получили автоматические прозрачные переходы без ручного выбора поворота.",
-      "done_when": "Все новые варианты остаются бесшовными 24×24, используют nearest-фильтрацию и стыкуются через transition_masks."
+      "debt": "Закрыт: четыре сезона травы сохраняют выбранное семейство; земля, песок и гравий получили прямые и внутренние диагональные переходы без ручного выбора поворота.",
+      "done_when": "Все варианты остаются бесшовными 24×24, используют nearest-фильтрацию и стыкуются через transition_masks и transition_corner_masks."
     },
     {
       "id": "WS-003",
@@ -122,15 +128,15 @@
         {"path":"assets/game/fishing/Bubbles Rising.png","width":128,"height":16}
       ],
       "render_owner": "WaterVisualSystem, WorldBackground и LevelEditorValidationSystem",
-      "source_layout": "19 отдельных crop-safe RGBA-модулей 24×24; прозрачные CC0-эффекты в изолированных кадрах 16×16",
+      "source_layout": "19 отдельных crop-safe RGBA-модулей 24×24 с кардинальной и диагональной топологией; прозрачные CC0-эффекты в изолированных кадрах 16×16",
       "runtime_sizes": ["24×24", "48×48", "72×72"],
       "target_modules": ["24×24", "48×48", "72×72"],
       "anchor": "вода по верхнему левому углу клетки; эффекты по центру модульной рамки",
       "collision": "видимый базовый контур и навигация используют один is_water; мост удаляет клетку из водной топологии",
       "status": "compliant",
       "priority": "P1",
-      "debt": "Закрыт: runtime и конструктор используют один каталог и маски N/E/S/W; рыба, пузырьки и всплеск имеют целочисленный масштаб содержимого 48/48/64 внутри рамок 48/48/72.",
-      "done_when": "Сохраняются 19 модулей 24×24, все шестнадцать масок разрешаются, водные клетки совпадают с is_water, рыба остаётся 48 px, всплеск — в рамке 72 px."
+      "debt": "Закрыт: runtime и конструктор используют один каталог, маски N/E/S/W и NE/SE/SW/NW; ранее неиспользуемый внутренний берег выбирается при диагональном разрыве. Рыба, пузырьки и всплеск имеют целочисленный масштаб содержимого 48/48/64 внутри рамок 48/48/72.",
+      "done_when": "Сохраняются 19 модулей 24×24, все кардинальные и диагональные случаи разрешаются, водные клетки совпадают с is_water, рыба остаётся 48 px, всплеск — в рамке 72 px."
     },
     {
       "id": "WS-006",

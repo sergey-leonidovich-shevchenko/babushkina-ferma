@@ -28,6 +28,7 @@ func run() -> void:
 	test_road_brush_selects_visual_modules_and_rotations()
 	test_water_brush_builds_shores_and_preserves_family()
 	test_mixed_surfaces_generate_persistent_transition_masks()
+	test_seasonal_grass_preserves_selected_climate_family()
 	test_validation_blocks_broken_export_and_reports_map_issues()
 	test_runtime_integration_freezes_simulation_and_draws_editor_layers()
 
@@ -354,21 +355,43 @@ func test_water_brush_builds_shores_and_preserves_family() -> void:
 	expect(String(by_cell[Vector2i(1,1)].asset_path).contains("water_") and String(by_cell[Vector2i(1,1)].autotile_family)=="water_body", "water interior keeps a stable family after visual substitution")
 	var payload:Dictionary=game.LevelEditorSystem.document(state); var saved_family:=String(payload.objects[4].autotile_family)
 	expect(saved_family=="water_body", "open level document preserves automatic shoreline ownership")
+	for index in range(state.objects.size()-1,-1,-1):
+		if Vector2(state.objects[index].position)==Vector2(48,0): state.objects.remove_at(index)
+	game.LevelEditorSystem.ValidationSystem.rebuild_autotile_masks(state); var center:Dictionary=state.objects.filter(func(object:Dictionary):return Vector2(object.position)==Vector2(24,24))[0]
+	expect(int(center.autotile_mask)==15 and int(center.autotile_diagonal_mask)==14 and String(center.asset_path).ends_with("shore_inner_corner.png"),"missing north-east diagonal selects the crop-safe concave shore while four cardinal neighbors remain connected")
 	game.free()
 
 
 ## Сценарий: дизайнер рисует рядом траву, землю и гравий без ручного выбора пограничных тайлов.
 ## Исходное состояние: три сухих покрытия занимают соседние клетки одной сетки слева направо.
-## Ожидаемый результат: на более лёгких покрытиях возникают направленные маски переходов и сохраняются в JSON версии 4.
+## Ожидаемый результат: прямые и диагональные границы получают разные маски и сохраняются в JSON версии 5.
 func test_mixed_surfaces_generate_persistent_transition_masks() -> void:
 	var game:=make_game(); var state:Dictionary=game.LevelEditorSystem.default_state(game)
 	for data in [["res://assets/game/tiles/editor/terrain/grass_lush.png",Vector2(12,12)],["res://assets/game/tiles/editor/terrain/ground_dirt.png",Vector2(36,12)],["res://assets/game/tiles/editor/terrain/ground_gravel.png",Vector2(60,12)]]:
 		game.LevelEditorSystem.activate_asset(state,game.LevelEditorSystem.AssetCatalogSystem.metadata(data[0])); game.LevelEditorSystem.place_selected_asset(game,state,data[1],false)
+	for data in [["res://assets/game/tiles/editor/terrain/grass_lush.png",Vector2(12,84)],["res://assets/game/tiles/editor/terrain/ground_sand.png",Vector2(36,60)]]:
+		game.LevelEditorSystem.activate_asset(state,game.LevelEditorSystem.AssetCatalogSystem.metadata(data[0])); game.LevelEditorSystem.place_selected_asset(game,state,data[1],false)
 	expect(int(state.objects[0].transition_masks.get("dirt",0))==2,"grass receives an east-facing dirt transition")
 	expect(int(state.objects[1].transition_masks.get("gravel",0))==2,"dirt receives an east-facing gravel transition")
+	expect(int(state.objects[3].transition_corner_masks.get("sand",0))==1 and state.objects[3].transition_masks.is_empty(),"diagonal-only sand neighbor produces a north-east inner corner without a false full edge")
 	var payload:Dictionary=game.LevelEditorSystem.document(state)
-	expect(payload.version==4 and int(payload.objects[0].transition_masks.get("dirt",0))==2,"open level document persists cross-surface transition ownership")
+	expect(payload.version==5 and int(payload.objects[0].transition_masks.get("dirt",0))==2 and int(payload.objects[3].transition_corner_masks.get("sand",0))==1,"open level document persists cardinal and diagonal transition ownership")
 	for path in game.LevelEditorRenderer.TRANSITION_TEXTURES.values(): expect(ResourceLoader.exists(path),"transition texture exists: %s"%path)
+	for path in game.LevelEditorRenderer.TRANSITION_CORNER_TEXTURES.values(): expect(ResourceLoader.exists(path),"transition corner texture exists: %s"%path)
+	game.free()
+
+
+## Сценарий: дизайнер последовательно выбирает весеннюю, летнюю, осеннюю и зимнюю траву из каталога.
+## Исходное состояние: четыре кисти размещаются далеко друг от друга и проходят общий пересчёт автотайлов.
+## Ожидаемый результат: каждое покрытие сохраняет сезонное семейство, а летняя вариативность не заменяет остальные сезоны.
+func test_seasonal_grass_preserves_selected_climate_family() -> void:
+	var game:=make_game(); var state:Dictionary=game.LevelEditorSystem.default_state(game); var samples:=[["grass_spring.png","spring"],["grass_lush.png","summer"],["grass_autumn.png","autumn"],["ground_snow_grass.png","winter"]]
+	for index in samples.size():
+		var path:="res://assets/game/tiles/editor/terrain/"+String(samples[index][0]); game.LevelEditorSystem.activate_asset(state,game.LevelEditorSystem.AssetCatalogSystem.metadata(path)); game.LevelEditorSystem.place_selected_asset(game,state,Vector2(12+index*48,132),false)
+	for index in samples.size():
+		var object:Dictionary=state.objects[index]; expect(String(object.autotile_family)=="grass_"+String(samples[index][1]) and String(object.surface_kind)=="grass","%s grass keeps its selected seasonal family and shared transition kind"%samples[index][1])
+	expect(String(state.objects[0].asset_path).ends_with("grass_spring.png") and String(state.objects[2].asset_path).ends_with("grass_autumn.png") and String(state.objects[3].asset_path).ends_with("ground_snow_grass.png"),"non-summer grass is not overwritten by summer flower randomization")
+	var preview:=Image.load_from_file(ProjectSettings.globalize_path("res://assets/generated/level_drafts/editor_transition_preview_v2.png")); expect(preview!=null and preview.get_size()==Vector2i(768,444),"seasonal terrain and inner corners keep a reviewed deterministic visual sheet")
 	game.free()
 
 

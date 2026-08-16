@@ -20,6 +20,9 @@ func test_water_catalog_animation_and_navigation_share_the_24px_grid() -> void:
 	for mask in 16:
 		var variant:Dictionary=WaterVisualSystem.variant_for_mask(mask,Vector2i(7,11),mask%4)
 		expect(WaterVisualSystem.MODULES.has(String(variant.kind)) and fmod(absf(float(variant.rotation)),PI*0.5)<0.001, "water neighbor mask %d resolves to a registered quarter-turn module"%mask)
+	for missing_diagonal in 4:
+		var variant:Dictionary=WaterVisualSystem.variant_for_mask(15,Vector2i(7,11),0,15&~(1<<missing_diagonal))
+		expect(variant.kind=="shore_inner_corner" and is_equal_approx(float(variant.rotation),[0.0,PI*0.5,PI,-PI*0.5][missing_diagonal]),"missing diagonal %d resolves to the matching concave shoreline"%missing_diagonal)
 	for frame in 4:
 		expect(String(WaterVisualSystem.surface_kind(Vector2i(7,0),frame)) in WaterVisualSystem.SURFACE_KINDS, "animated surface frame %d stays inside the native water catalog"%frame)
 	var cells:=WaterVisualSystem.first_location_cells(VillageLayoutSystem,"spring"); var mismatches:Array=[]

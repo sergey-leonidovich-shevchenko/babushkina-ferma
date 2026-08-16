@@ -5,6 +5,8 @@ const WaterVisualSystem := preload("res://scripts/systems/water_visual_system.gd
 
 const DIRECTIONS := [Vector2i(0,-1),Vector2i(1,0),Vector2i(0,1),Vector2i(-1,0)]
 const DIRECTION_BITS := [1,2,4,8]
+const DIAGONAL_DIRECTIONS := [Vector2i(1,-1),Vector2i(1,1),Vector2i(-1,1),Vector2i(-1,-1)]
+const DIAGONAL_CARDINALS := [[0,1],[1,2],[2,3],[3,0]]
 const SURFACE_PRIORITY := {"grass":0,"dirt":1,"sand":2,"gravel":3}
 
 
@@ -16,12 +18,15 @@ static func rebuild_autotile_masks(state: Dictionary) -> void:
 		if _is_ground_tile(object): lookup[_tile_key(state,object)] = index
 	for index in state.objects.size():
 		var object: Dictionary = state.objects[index]
-		if not _is_ground_tile(object): object.autotile_mask=0; state.objects[index]=object; continue
-		var cell := _cell(state,Vector2(object.position)); var mask := 0; var family:=_object_family(object); var neighbor_asset:=family if not family.is_empty() else String(object.asset_path)
+		if not _is_ground_tile(object): object.autotile_mask=0; object.autotile_diagonal_mask=0; state.objects[index]=object; continue
+		var cell := _cell(state,Vector2(object.position)); var mask := 0; var diagonal_mask:=0; var family:=_object_family(object); var neighbor_asset:=family if not family.is_empty() else String(object.asset_path)
 		for direction_index in DIRECTIONS.size():
 			var neighbor_index: int = int(lookup.get(_key(cell+DIRECTIONS[direction_index],neighbor_asset,String(object.layer)),-1))
 			if neighbor_index>=0: mask|=DIRECTION_BITS[direction_index]
-		object.autotile_mask=mask; state.objects[index]=object
+		for direction_index in DIAGONAL_DIRECTIONS.size():
+			var neighbor_index: int = int(lookup.get(_key(cell+DIAGONAL_DIRECTIONS[direction_index],neighbor_asset,String(object.layer)),-1))
+			if neighbor_index>=0: diagonal_mask|=DIRECTION_BITS[direction_index]
+		object.autotile_mask=mask; object.autotile_diagonal_mask=diagonal_mask; state.objects[index]=object
 	_apply_visual_variants(state)
 	_rebuild_surface_transitions(state)
 
@@ -30,21 +35,29 @@ static func rebuild_autotile_masks(state: Dictionary) -> void:
 static func _rebuild_surface_transitions(state: Dictionary) -> void:
 	var cells:Dictionary={}
 	for index in state.objects.size():
-		var object:Dictionary=state.objects[index]; object.transition_masks={}; state.objects[index]=object
+		var object:Dictionary=state.objects[index]; object.transition_masks={}; object.transition_corner_masks={}; state.objects[index]=object
 		if _is_ground_tile(object): cells[_cell_layer_key(_cell(state,Vector2(object.position)),String(object.layer))]=index
 	for index in state.objects.size():
 		var object:Dictionary=state.objects[index]
 		if not _is_ground_tile(object): continue
 		var surface:=_surface_kind(object)
 		if not SURFACE_PRIORITY.has(surface): continue
-		var cell:=_cell(state,Vector2(object.position)); var masks:Dictionary={}
+		var cell:=_cell(state,Vector2(object.position)); var masks:Dictionary={}; var corner_masks:Dictionary={}
 		for direction_index in DIRECTIONS.size():
 			var neighbor_index:=int(cells.get(_cell_layer_key(cell+DIRECTIONS[direction_index],String(object.layer)),-1))
 			if neighbor_index<0: continue
 			var neighbor_surface:=_surface_kind(state.objects[neighbor_index])
 			if not SURFACE_PRIORITY.has(neighbor_surface) or int(SURFACE_PRIORITY[neighbor_surface])<=int(SURFACE_PRIORITY[surface]): continue
 			masks[neighbor_surface]=int(masks.get(neighbor_surface,0))|DIRECTION_BITS[direction_index]
-		object.transition_masks=masks; state.objects[index]=object
+		for direction_index in DIAGONAL_DIRECTIONS.size():
+			var neighbor_index:=int(cells.get(_cell_layer_key(cell+DIAGONAL_DIRECTIONS[direction_index],String(object.layer)),-1))
+			if neighbor_index<0: continue
+			var neighbor_surface:=_surface_kind(state.objects[neighbor_index])
+			if not SURFACE_PRIORITY.has(neighbor_surface) or int(SURFACE_PRIORITY[neighbor_surface])<=int(SURFACE_PRIORITY[surface]): continue
+			var adjacent:Array=DIAGONAL_CARDINALS[direction_index]
+			if _neighbor_surface(cells,state,cell+DIRECTIONS[int(adjacent[0])],String(object.layer))==neighbor_surface or _neighbor_surface(cells,state,cell+DIRECTIONS[int(adjacent[1])],String(object.layer))==neighbor_surface: continue
+			corner_masks[neighbor_surface]=int(corner_masks.get(neighbor_surface,0))|DIRECTION_BITS[direction_index]
+		object.transition_masks=masks; object.transition_corner_masks=corner_masks; state.objects[index]=object
 
 
 ## Подставляет бесшовную вариацию травы, берег воды либо дорожный модуль по маске соседей.
@@ -52,17 +65,18 @@ static func _apply_visual_variants(state: Dictionary) -> void:
 	for index in state.objects.size():
 		var object:Dictionary=state.objects[index]; var family:=_object_family(object)
 		if family.is_empty(): continue
-		if family=="grass":
+		if family.begins_with("grass"):
 			var cell:=_cell(state,Vector2(object.position)); var seed:=absi(cell.x*73+cell.y*151+19)
-			object.asset_path="res://assets/game/tiles/editor/terrain/%s.png"%("grass_flowers" if seed%17==0 else "grass_lush"); object.rotation=(seed%4)*PI*0.5; object.flip_x=seed%3==0; object.autotile_family=family; object.autotile_managed=true; state.objects[index]=object; continue
+			var season:=family.trim_prefix("grass_") if family!="grass" else "summer"; var filename:String=String({"spring":"grass_spring","summer":"grass_flowers" if seed%17==0 else "grass_lush","autumn":"grass_autumn","winter":"ground_snow_grass"}.get(season,"grass_lush"))
+			object.asset_path="res://assets/game/tiles/editor/terrain/%s.png"%filename; object.rotation=(seed%4)*PI*0.5; object.flip_x=seed%3==0; object.autotile_family="grass_"+season; object.autotile_managed=true; state.objects[index]=object; continue
 		if family=="water_body":
-			var water_variant:=_water_variant_for_mask(int(object.get("autotile_mask",0)),_cell(state,Vector2(object.position))); object.asset_path=water_variant.path; object.rotation=water_variant.rotation; object.autotile_family=family; object.autotile_managed=true; state.objects[index]=object; continue
+			var water_variant:=_water_variant_for_mask(int(object.get("autotile_mask",0)),int(object.get("autotile_diagonal_mask",0)),_cell(state,Vector2(object.position))); object.asset_path=water_variant.path; object.rotation=water_variant.rotation; object.autotile_family=family; object.autotile_managed=true; state.objects[index]=object; continue
 		var variant:=_variant_for_mask(int(object.get("autotile_mask",0))); object.asset_path="res://assets/game/tiles/editor/%s/%s_%s.png"%["water" if family=="river" else "terrain",family,variant.kind]; object.rotation=variant.rotation; object.autotile_family=family; object.autotile_managed=true; state.objects[index]=object
 
 
 ## Выбирает берег, угол, узкое русло или внутреннюю воду для свободно нарисованного водоёма.
-static func _water_variant_for_mask(mask: int, cell: Vector2i) -> Dictionary:
-	var variant:=WaterVisualSystem.variant_for_mask(mask,cell)
+static func _water_variant_for_mask(mask: int, diagonal_mask: int, cell: Vector2i) -> Dictionary:
+	var variant:=WaterVisualSystem.variant_for_mask(mask,cell,0,diagonal_mask)
 	return {"path":WaterVisualSystem.module_path(String(variant.kind)),"rotation":float(variant.rotation)}
 
 
@@ -139,7 +153,10 @@ static func _family(path: String) -> String:
 	var basename:=path.get_file().get_basename()
 	for family in ["dirt_path","stone_road","river"]:
 		if basename.begins_with(family+"_"): return family
-	if basename=="grass_lush": return "grass"
+	if basename=="grass_spring": return "grass_spring"
+	if basename in ["grass_lush","grass_flowers"]: return "grass_summer"
+	if basename=="grass_autumn": return "grass_autumn"
+	if basename=="ground_snow_grass": return "grass_winter"
 	if basename.begins_with("water_") or basename.begins_with("shore_") or basename=="pond_rocky": return "water_body"
 	return ""
 
@@ -149,9 +166,15 @@ static func _surface_kind(object: Dictionary) -> String:
 	var stored:=String(object.get("surface_kind",""))
 	if not stored.is_empty(): return stored
 	var basename:=String(object.get("asset_path","")).get_file().get_basename().to_lower()
-	if basename.begins_with("grass_") or basename=="grass": return "grass"
+	if basename.begins_with("grass_") or basename.ends_with("_grass") or basename=="grass": return "grass"
 	if "water" in basename or basename.begins_with("shore_") or basename.begins_with("river_") or basename.begins_with("pond_"): return "water"
 	if "sand" in basename: return "sand"
 	if "gravel" in basename or "stone_road" in basename or "cobble" in basename: return "gravel"
 	if "dirt" in basename or "soil" in basename or "mud" in basename: return "dirt"
 	return ""
+
+
+## Возвращает тип покрытия соседней клетки либо пустую строку за пределами нарисованной земли.
+static func _neighbor_surface(cells: Dictionary, state: Dictionary, cell: Vector2i, layer: String) -> String:
+	var index:=int(cells.get(_cell_layer_key(cell,layer),-1))
+	return "" if index<0 else _surface_kind(state.objects[index])

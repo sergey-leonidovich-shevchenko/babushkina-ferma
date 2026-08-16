@@ -165,7 +165,7 @@ static func _unique_key(path: String) -> String:
 ## Классифицирует покрытие для автоматической дорисовки границ между соседними материалами.
 static func _surface_kind(path: String) -> String:
 	var basename:=path.get_file().get_basename().to_lower()
-	if basename.begins_with("grass_") or basename=="grass": return "grass"
+	if basename.begins_with("grass_") or basename.ends_with("_grass") or basename=="grass": return "grass"
 	if "water" in basename or basename.begins_with("shore_") or basename.begins_with("river_") or basename.begins_with("pond_"): return "water"
 	if "sand" in basename: return "sand"
 	if "gravel" in basename or "stone_road" in basename or "cobble" in basename: return "gravel"

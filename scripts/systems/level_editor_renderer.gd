@@ -10,6 +10,7 @@ const TEXT := Color("fff0c8")
 const MUTED := Color("c5ae83")
 const SELECTED := Color("ffd45c")
 const TRANSITION_TEXTURES := {"dirt":"res://assets/game/tiles/editor/transitions/dirt_edge.png","gravel":"res://assets/game/tiles/editor/transitions/gravel_edge.png","sand":"res://assets/game/tiles/editor/transitions/sand_edge.png"}
+const TRANSITION_CORNER_TEXTURES := {"dirt":"res://assets/game/tiles/editor/transitions/dirt_inner_corner.png","gravel":"res://assets/game/tiles/editor/transitions/gravel_inner_corner.png","sand":"res://assets/game/tiles/editor/transitions/sand_inner_corner.png"}
 const TRANSITION_BITS := [1,2,4,8]
 const TRANSITION_ROTATIONS := [0.0,PI*0.5,PI,-PI*0.5]
 static var _texture_cache: Dictionary = {}
@@ -67,12 +68,21 @@ static func draw_object(game: Node2D, object: Dictionary, selected: bool) -> voi
 
 ## Накладывает на края тайла переходы к более плотному соседнему покрытию без создания зазоров в сетке.
 static func draw_surface_transitions(game: Node2D, object: Dictionary, bounds: Rect2) -> void:
-	var masks:Dictionary=object.get("transition_masks",{})
-	if masks.is_empty(): return
+	var masks:Dictionary=object.get("transition_masks",{}); var corner_masks:Dictionary=object.get("transition_corner_masks",{})
+	if masks.is_empty() and corner_masks.is_empty(): return
 	for surface in masks:
 		var path:=String(TRANSITION_TEXTURES.get(String(surface),"")); var texture:=texture_for(path) if not path.is_empty() else null
 		if texture==null: continue
 		var mask:=int(masks[surface])
+		for direction_index in TRANSITION_BITS.size():
+			if mask&TRANSITION_BITS[direction_index]==0: continue
+			game.draw_set_transform(bounds.get_center()-game.camera_offset,float(TRANSITION_ROTATIONS[direction_index]))
+			game.draw_texture_rect(texture,Rect2(-bounds.size*0.5,bounds.size),false)
+			game.draw_set_transform(-game.camera_offset)
+	for surface in corner_masks:
+		var path:=String(TRANSITION_CORNER_TEXTURES.get(String(surface),"")); var texture:=texture_for(path) if not path.is_empty() else null
+		if texture==null: continue
+		var mask:=int(corner_masks[surface])
 		for direction_index in TRANSITION_BITS.size():
 			if mask&TRANSITION_BITS[direction_index]==0: continue
 			game.draw_set_transform(bounds.get_center()-game.camera_offset,float(TRANSITION_ROTATIONS[direction_index]))
