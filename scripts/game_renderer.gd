@@ -184,10 +184,10 @@ func draw_buildings() -> void:
 
 ## Отрисовывает сезонный декор и доступные порталы мировых событий.
 func draw_world_events() -> void:
-	if current_location == "overworld": VisualAssetSystem.draw_seasonal_village(self, WorldEventSystem.SEASONS.find(WorldEventSystem.season(day)))
+	if current_location == "overworld": EnvironmentVisualSystem.draw_seasonal_village(self, WorldEventSystem.SEASONS.find(WorldEventSystem.season(day)))
 	var portal_position := WorldEventSystem.RETURN_PORTAL_POSITION if current_location == "moon_glade" else WorldEventSystem.PORTAL_POSITION
 	var portal_visible := current_location == "moon_glade" or (current_location == "overworld" and WorldEventSystem.eclipse_active(day, game_minutes))
-	VisualAssetSystem.draw_eclipse_world(self, current_location, portal_position, portal_visible)
+	EnvironmentVisualSystem.draw_eclipse_world(self, current_location, portal_position, portal_visible)
 	MoonGladeRenderer.draw(self)
 	if portal_visible and player.distance_to(portal_position) < 160.0:
 		draw_string(UI_FONT, portal_position + Vector2(-90, 55), "E • Лунный портал", HORIZONTAL_ALIGNMENT_CENTER, 180, 15, Color("e4dbff"))
@@ -368,7 +368,7 @@ func draw_world_loot() -> void:
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_enemy_nodes_and_gate() -> void:
 	if not BuildingSystem.is_interior(current_location):
-		WorldPolishRenderer.draw_cell(self,4,1,Rect2(world_gate_position-Vector2(54,64),Vector2(108,108)),Color(1,1,1,0.88))
+		WorldPolishRenderer.draw_cell(self,4,1,Rect2(world_gate_position-Vector2(60,60),Vector2(120,120)),Color(1,1,1,0.88))
 		if player.distance_to(world_gate_position) < 185.0:
 			draw_circle(world_gate_position, 42 + sin(Time.get_ticks_msec() / 180.0) * 4, Color("e6b85e"), false, 6)
 			draw_string(UI_FONT, world_gate_position + Vector2(-75, 68), WorldSystem.name(WorldSystem.next_location(current_location)), HORIZONTAL_ALIGNMENT_LEFT, 180, 14, Color("fff0bd"))

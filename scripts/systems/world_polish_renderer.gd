@@ -20,7 +20,7 @@ static func draw_held_weapon(game: Node2D, kind: String, position: Vector2, dire
 	if column < 0: return
 	var destination := held_weapon_destination(position, direction, attacking, visual_scale)
 	draw_cell(game, column, 2, destination)
-	if kind == "bow" and attacking: draw_cell(game,3,2,Rect2(position+direction*38.0-Vector2(16,16),Vector2(32,32)))
+	if kind == "bow" and attacking: draw_cell(game,3,2,Rect2(position+direction*38.0-Vector2(12,12),Vector2(24,24)))
 
 
 ## Рассчитывает экранный прямоугольник предмета в руке с учётом общего визуального масштаба героя.
@@ -34,4 +34,4 @@ static func held_weapon_destination(position: Vector2, direction: Vector2, attac
 ## Рисует короткую тематическую частицу нового набора без изменения игрового состояния.
 static func draw_effect(canvas: Node2D, kind: String, position: Vector2, alpha: float = 1.0) -> void:
 	var column: int = int({"dust":0,"leaves":1,"splash":2,"stone":3,"wood":4}.get(kind, 0))
-	draw_cell(canvas, column, 3, Rect2(position - Vector2(32,32), Vector2(64,64)), Color(1,1,1,alpha))
+	draw_cell(canvas,column,3,Rect2(position-Vector2(36,36),Vector2(72,72)),Color(1,1,1,alpha))

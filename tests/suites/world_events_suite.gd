@@ -201,19 +201,18 @@ func test_moon_portal_requires_eclipse_and_returns_home() -> void:
 	game.free()
 
 
-## Сценарий: оба новых атласа отдают отдельные непересекающиеся ячейки.
-## Исходное состояние: сезонный и событийный листы импортированы как сетки четыре на два.
-## Ожидаемый результат: восемь ячеек каждого листа имеют одинаковый размер и уникальное начало.
+## Сценарий: сезонные и лунные объекты используют самостоятельные модульные изображения.
+## Исходное состояние: дробные исходные листы воспроизводимо разделены на шестнадцать runtime-спрайтов.
+## Ожидаемый результат: все текстуры имеют уникальный путь, прозрачные углы и размер своего профиля.
 func test_event_atlases_expose_unique_grid_cells() -> void:
-	var game := make_game(); var seasonal := {}; var eclipse := {}
-	for row in 2:
-		for column in 4:
-			var seasonal_rect: Rect2 = game.VisualAssetSystem.seasonal_source(column, row == 1)
-			var eclipse_rect: Rect2 = game.VisualAssetSystem.eclipse_source(column, row == 1)
-			seasonal[str(seasonal_rect.position)] = true; eclipse[str(eclipse_rect.position)] = true
-			expect(seasonal_rect.size == Vector2(313.5, 627.0), "seasonal atlas exposes validated cell %d:%d" % [column, row])
-			expect(eclipse_rect.size == Vector2(313.5, 627.0), "eclipse atlas exposes validated cell %d:%d" % [column, row])
-	expect(seasonal.size() == 8 and eclipse.size() == 8, "generated seasonal and eclipse sprites never share a source cell")
+	var game := make_game(); var paths:={}
+	for kind in game.EnvironmentVisualSystem.TEXTURES:
+		if not (kind.begins_with("tree_") or kind.begins_with("ground_") or kind.begins_with("moon_")): continue
+		var texture:Texture2D=game.EnvironmentVisualSystem.texture(kind); var image:Image=texture.get_image()
+		paths[texture.resource_path]=true
+		expect(game.EnvironmentVisualSystem.profile_is_valid(kind), "%s owns a modular profile matching its independent texture"%kind)
+		expect(image.get_pixel(0,0).a<0.05 and image.get_pixel(image.get_width()-1,image.get_height()-1).a<0.05, "%s keeps crop-safe transparent corners"%kind)
+	expect(paths.size()==16, "seasonal and moon runtime objects use sixteen independent sprites")
 	game.free()
 
 
@@ -222,9 +221,9 @@ func test_event_atlases_expose_unique_grid_cells() -> void:
 ## Ожидаемый результат: оба основания блокируются, а точка возвратного портала остаётся проходимой.
 func test_large_event_props_have_collisions() -> void:
 	var game := make_game()
-	expect(not game.NavigationSystem.is_walkable(game, game.VisualAssetSystem.SEASONAL_TREE_BASE), "seasonal landmark tree owns a matching solid base")
+	expect(not game.NavigationSystem.is_walkable(game, game.EnvironmentVisualSystem.SEASONAL_TREE_BASE), "seasonal landmark tree owns a matching solid base")
 	game.current_location = "moon_glade"
-	expect(not game.NavigationSystem.is_walkable(game, game.VisualAssetSystem.MOON_SOLID_BASES[0]), "moon crystal and altar props participate in navigation")
+	expect(not game.NavigationSystem.is_walkable(game, game.EnvironmentVisualSystem.MOON_SOLID_BASES[0]), "moon crystal and altar props participate in navigation")
 	expect(game.NavigationSystem.is_walkable(game, game.WorldEventSystem.RETURN_PORTAL_POSITION), "moon glade return portal remains reachable")
 	game.free()
 

@@ -22,6 +22,7 @@ const RoadVisualSystem := preload("res://scripts/systems/road_visual_system.gd")
 const WaterVisualSystem := preload("res://scripts/systems/water_visual_system.gd")
 const PirateShipRenderer := preload("res://scripts/systems/pirate_ship_renderer.gd")
 const VisualAssetSystem := preload("res://scripts/systems/visual_asset_system.gd")
+const EnvironmentVisualSystem := preload("res://scripts/systems/environment_visual_system.gd")
 const CaveVisualSystem := preload("res://scripts/systems/cave_visual_system.gd")
 const DebugPlaygroundSystem := preload("res://scripts/systems/debug_playground_system.gd"); const DebugPlaygroundRenderer := preload("res://scripts/systems/debug_playground_renderer.gd")
 
@@ -92,11 +93,11 @@ func draw_interior() -> void:
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_adventure_location() -> void:
 	var names := {"forest":LocaleSystem.location("forest").to_upper(),"rocky":LocaleSystem.location("rocky").to_upper(),"ruins":LocaleSystem.location("ruins").to_upper(),"cursed":LocaleSystem.location("cursed").to_upper(),"glassworks":LocaleSystem.location("glassworks").to_upper()}
-	draw_rect(Rect2(Vector2.ZERO, WORLD_SIZE), VisualAssetSystem.background(location))
+	draw_rect(Rect2(Vector2.ZERO, WORLD_SIZE), EnvironmentVisualSystem.background(location))
 	for y in range(150, 1100, 120):
 		for x in range(70 + (y % 90), 2360, 150):
-			draw_circle(Vector2(x, y), 2.5, VisualAssetSystem.background(location).lightened(0.12))
-	VisualAssetSystem.draw_biome(self, location)
+			draw_circle(Vector2(x, y), 2.5, EnvironmentVisualSystem.background(location).lightened(0.12))
+	EnvironmentVisualSystem.draw_biome(self, location)
 	draw_string(UI_FONT, Vector2(80, 100), names.get(location, location), HORIZONTAL_ALIGNMENT_LEFT, -1, 30, Color("fff0bd"))
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.

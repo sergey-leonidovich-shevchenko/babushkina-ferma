@@ -46,9 +46,9 @@ static func walkability_reason(game: Node, position: Vector2) -> String:
 		for solid in game.BuildingSystem.collision_rects(building_id):
 			if circle_intersects_rect(position,game.PLAYER_RADIUS,solid): return "building"
 		if not game.BuildingSystem.can_enter(game,building_id) and circle_intersects_rect(position,game.PLAYER_RADIUS,game.BuildingSystem.door_rect(building_id)): return "building"
-	if game.VisualAssetSystem.blocks_biome_position(game.current_location, position, game.PLAYER_RADIUS):
+	if game.EnvironmentVisualSystem.blocks_biome_position(game.current_location, position, game.PLAYER_RADIUS):
 		return "biome_prop"
-	if game.VisualAssetSystem.blocks_event_position(game.current_location, position, game.PLAYER_RADIUS):
+	if game.EnvironmentVisualSystem.blocks_event_position(game.current_location, position, game.PLAYER_RADIUS):
 		return "event_prop"
 	if game.FenceSystem.blocks_position(game,position,game.PLAYER_RADIUS): return "player_fence"
 	if game.current_location in ["cave", "cursed"]:
@@ -124,7 +124,7 @@ static func enemy_position_walkable(game: Node, position: Vector2, enemy_index: 
 	for building_id in game.BuildingSystem.buildings_at(game.current_location):
 		if circle_intersects_rect(position,RADIUS,game.BuildingSystem.collision_rect(building_id)):
 			return false
-	if game.VisualAssetSystem.blocks_biome_position(game.current_location, position, RADIUS):
+	if game.EnvironmentVisualSystem.blocks_biome_position(game.current_location, position, RADIUS):
 		return false
 	if game.current_location == "overworld":
 		if VillageLayoutSystem.is_water(position, RADIUS):

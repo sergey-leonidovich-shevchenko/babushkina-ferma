@@ -20,9 +20,8 @@ func run() -> void:
 ## Ожидаемый результат: размеры согласованы, углы прозрачны, а центр содержит видимые пиксели.
 func test_generated_atlases_are_importable_and_transparent() -> void:
 	var atlases := {
-		"res://assets/game/generated/biome_prop_atlas.png":Vector2i(1254,1254), "res://assets/game/generated/pirate_enemy_atlas.png":Vector2i(1254,1254),
+		"res://assets/game/generated/pirate_enemy_atlas.png":Vector2i(1254,1254),
 		"res://assets/game/generated/pirate_item_atlas.png":Vector2i(1254,1254), "res://assets/game/generated/potion_atlas.png":Vector2i(1254,1254),
-		"res://assets/game/generated/seasonal_environment_atlas.png":Vector2i(1254,1254), "res://assets/game/generated/eclipse_event_atlas.png":Vector2i(1254,1254),
 		"res://assets/game/generated/inventory_core_atlas.png":Vector2i(1536,1024), "res://assets/game/generated/inventory_rare_atlas.png":Vector2i(1536,1024),
 		"res://assets/game/generated/farm_food_atlas.png":Vector2i(1536,1024),
 		"res://assets/game/environment/village_ambient_atlas_v1.png":Vector2i(1448,1086),
@@ -47,16 +46,21 @@ func _has_visible_sample(image: Image) -> bool:
 
 
 ## Сценарий: каждый из пяти приключенческих биомов получает крупный ориентир и малый декор.
-## Исходное состояние: визуальный каталог использует сетку из пяти столбцов и двух строк.
-## Ожидаемый результат: все локации имеют уникальный столбец и две непустые области атласа.
+## Исходное состояние: дробный исходный лист разделён на десять самостоятельных модульных PNG.
+## Ожидаемый результат: обе текстуры каждого биома валидны, уникальны и не требуют source-rect.
 func test_every_adventure_biome_has_two_props() -> void:
-	var game := make_game()
-	for index in game.VisualAssetSystem.BIOME_ORDER.size():
-		var location: String = game.VisualAssetSystem.BIOME_ORDER[index]
-		expect(game.VisualAssetSystem.biome_column(location) == index, "biome owns a unique visual atlas column: %s" % location)
-		for variant in 2:
-			var source: Rect2 = game.VisualAssetSystem.biome_source(location, variant)
-			expect(source.size.x > 250.0 and source.size.y == 627.0, "biome atlas exposes prop variant %d: %s" % [variant, location])
+	var game := make_game(); var paths:={}
+	for location in game.EnvironmentVisualSystem.BIOME_ORDER:
+		for variant in ["landmark","detail"]:
+			var kind:="%s_%s"%[location,variant]; var texture:Texture2D=game.EnvironmentVisualSystem.texture(kind)
+			paths[texture.resource_path]=true
+			expect(game.EnvironmentVisualSystem.profile_is_valid(kind), "%s owns a modular independent sprite"%kind)
+	expect(paths.size()==10, "five biomes use ten distinct runtime textures")
+	var source:=FileAccess.get_file_as_string("res://scripts/systems/visual_asset_system.gd")
+	expect(not source.contains("biome_prop_atlas.png") and not source.contains("313.5"), "runtime no longer samples the fractional biome atlas")
+	for preview_name in ["season","moon","debug"]:
+		var preview:Image=Image.load_from_file(ProjectSettings.globalize_path("res://assets/generated/level_drafts/environment_%s_ingame_preview.png"%preview_name))
+		expect(preview!=null and preview.get_size()==Vector2i(1152,648), "%s keeps a current native environment preview"%preview_name)
 	game.free()
 
 
@@ -65,12 +69,12 @@ func test_every_adventure_biome_has_two_props() -> void:
 ## Ожидаемый результат: основание дерева непроходимо, а старт и восточные ворота остаются доступными.
 func test_large_biome_props_have_safe_collisions() -> void:
 	var game := make_game(); game.current_location = "forest"
-	var prop_base: Vector2 = game.VisualAssetSystem.LARGE_PROP_BASES[0]
-	expect(game.VisualAssetSystem.blocks_biome_position("forest", prop_base, game.PLAYER_RADIUS), "large biome prop owns collision matching its visible base")
+	var prop_base: Vector2 = game.EnvironmentVisualSystem.LARGE_PROP_BASES[0]
+	expect(game.EnvironmentVisualSystem.blocks_biome_position("forest", prop_base, game.PLAYER_RADIUS), "large biome prop owns collision matching its visible base")
 	expect(not game.NavigationSystem.is_walkable(game, prop_base), "navigation rejects walking through generated biome prop")
 	expect(game.NavigationSystem.is_walkable(game, Vector2(220,430)), "adventure spawn remains clear after visual enrichment")
 	expect(game.NavigationSystem.is_walkable(game, game.world_gate_position), "world gate remains clear after visual enrichment")
-	expect(not game.VisualAssetSystem.blocks_biome_position("overworld", prop_base, game.PLAYER_RADIUS), "biome decoration does not leak into village collision")
+	expect(not game.EnvironmentVisualSystem.blocks_biome_position("overworld", prop_base, game.PLAYER_RADIUS), "biome decoration does not leak into village collision")
 	game.free()
 
 

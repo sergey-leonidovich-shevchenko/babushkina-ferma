@@ -5,6 +5,7 @@ tools/*
 !tools/build_village_prop_atlas.py
 !tools/build_ui_kit.py
 !tools/build_building_sprites.py
+!tools/build_environment_sprites.py
 assets/inbox/
 tmp/
 *.log
@@ -34,6 +35,10 @@ tmp/
 !/assets/generated/level_drafts/building_forest_ingame_preview.png
 !/assets/generated/level_drafts/building_ruins_ingame_preview.png
 !/assets/generated/level_drafts/building_collision_ingame_preview.png
+!/assets/generated/level_drafts/environment_season_ingame_preview.png
+!/assets/generated/level_drafts/environment_moon_ingame_preview.png
+!/assets/generated/level_drafts/environment_debug_ingame_preview.png
+!/assets/generated/level_drafts/action_effects_catalog.png
 !/assets/generated/ui/system_settings_ingame_preview.png
 !/assets/generated/ui/hud_ingame_preview.png
 !/assets/generated/ui/language_ingame_preview.png

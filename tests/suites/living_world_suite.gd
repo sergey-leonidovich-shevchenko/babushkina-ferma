@@ -281,6 +281,12 @@ func test_world_polish_atlas_has_complete_transparent_grid() -> void:
 		for x in range(0,image.get_width(),4):
 			var pixel: Color = image.get_pixel(x,y); if pixel.a > 0.1 and pixel.r > 0.9 and pixel.b > 0.9 and pixel.g < 0.15: chroma = true
 	expect(image.get_size() == Vector2i(640,512) and image.get_pixel(0,0).a < 0.05 and filled and not chroma, "world polish atlas is transparent chroma-free complete 5x4 grid")
+	expect(game.ActionEffectVisualSystem.profiles_are_valid(), "sixteen action effects use independent modular 72x72 sprites")
+	var action_source:=FileAccess.get_file_as_string("res://scripts/systems/adventure_polish_renderer.gd")
+	expect(not action_source.contains("action_effects_atlas.png") and action_source.contains("ActionEffectVisualSystem"), "action feedback no longer samples the fractional source atlas")
+	expect(game.WorldPolishRenderer.held_weapon_destination(Vector2.ZERO,Vector2.RIGHT,false).size==Vector2(48,48), "held weapon keeps the documented 48 px animation slot")
+	var effects_preview:=Image.load_from_file(ProjectSettings.globalize_path("res://assets/generated/level_drafts/action_effects_catalog.png"))
+	expect(effects_preview!=null and effects_preview.get_size()==Vector2i(288,288), "action effect migration keeps a complete four-by-four visual catalog")
 	game.free()
 
 

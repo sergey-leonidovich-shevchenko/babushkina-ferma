@@ -1,11 +1,8 @@
 extends RefCounted
 
-const BIOME_PROP_ATLAS := preload("res://assets/game/generated/biome_prop_atlas.png")
 const PIRATE_ENEMY_ATLAS := preload("res://assets/game/generated/pirate_enemy_atlas.png")
 const PIRATE_ITEM_ATLAS := preload("res://assets/game/generated/pirate_item_atlas.png")
 const POTION_ATLAS := preload("res://assets/game/generated/potion_atlas.png")
-const SEASONAL_ATLAS := preload("res://assets/game/generated/seasonal_environment_atlas.png")
-const ECLIPSE_ATLAS := preload("res://assets/game/generated/eclipse_event_atlas.png")
 const INVENTORY_CORE_ATLAS := preload("res://assets/game/generated/inventory_core_atlas.png")
 const INVENTORY_RARE_ATLAS := preload("res://assets/game/generated/inventory_rare_atlas.png")
 const FARM_FOOD_ATLAS := preload("res://assets/game/generated/farm_food_atlas.png")
@@ -13,7 +10,6 @@ const FARM_LIFE_ATLAS := preload("res://assets/game/expansion_pack/expansion_atl
 const ITEM_ICON_DIRECTORY := "res://assets/game/items/catalog"
 static var item_icon_cache: Dictionary = {}
 
-const BIOME_ORDER := ["forest", "rocky", "ruins", "cursed", "glassworks"]
 const PIRATE_ENEMY_ORDER := ["pirate", "zombie_pirate", "sea_ghost", "drowned_captain"]
 const PIRATE_ITEM_CELLS := {
 	"pirate_doubloon": Vector2i(0, 0), "ectoplasm": Vector2i(1, 0),
@@ -44,101 +40,6 @@ const FARM_FOOD_CELLS := {
 	"jam":Vector2i(0,3), "soup":Vector2i(1,3), "omelet":Vector2i(2,3), "cornbread":Vector2i(3,3), "wool":Vector2i(4,3), "bouquet":Vector2i(5,3),
 }
 const FARM_LIFE_CELLS := {"rustic_table":Vector2i(0,2),"wooden_chair":Vector2i(1,2),"woven_rug":Vector2i(2,2),"potted_fern":Vector2i(3,2),"wooden_wardrobe":Vector2i(4,2),"museum_token":Vector2i(2,1)}
-const LARGE_PROP_BASES := [
-	Vector2(150, 245), Vector2(720, 230), Vector2(1260, 250), Vector2(1900, 225),
-	Vector2(360, 1050), Vector2(980, 1030), Vector2(1600, 1050), Vector2(2220, 1030),
-]
-const SMALL_PROP_BASES := [
-	Vector2(330, 700), Vector2(820, 610), Vector2(1360, 810),
-	Vector2(1810, 590), Vector2(2260, 520), Vector2(1180, 610),
-]
-const SEASONAL_TREE_BASE := Vector2(1695, 390)
-const MOON_SOLID_BASES := [Vector2(1148, 650), Vector2(1690, 420), Vector2(2026, 750)]
-const BACKGROUNDS := {
-	"forest": Color("315c3c"), "rocky": Color("6f6a5b"), "ruins": Color("665849"),
-	"cursed": Color("3e304b"), "glassworks": Color("6f493b"),
-}
-
-
-## Возвращает одну ячейку сезонного атласа четыре на два.
-static func seasonal_source(season_index: int, ground_variant: bool = false) -> Rect2:
-	var cell := Vector2(SEASONAL_ATLAS.get_width() / 4.0, SEASONAL_ATLAS.get_height() / 2.0)
-	return Rect2(Vector2(clampi(season_index, 0, 3), 1 if ground_variant else 0) * cell, cell)
-
-
-## Возвращает одну ячейку событийного атласа четыре на два.
-static func eclipse_source(column: int, bottom_row: bool = false) -> Rect2:
-	var cell := Vector2(ECLIPSE_ATLAS.get_width() / 4.0, ECLIPSE_ATLAS.get_height() / 2.0)
-	return Rect2(Vector2(clampi(column, 0, 3), 1 if bottom_row else 0) * cell, cell)
-
-
-## Рисует сезонные ориентиры деревни: дерево и два небольших природных кластера.
-static func draw_seasonal_village(canvas: CanvasItem, season_index: int) -> void:
-	canvas.draw_texture_rect_region(SEASONAL_ATLAS, Rect2(1605, 210, 184, 190), seasonal_source(season_index))
-	for position in [Vector2(920, 720), Vector2(1450, 785)]:
-		canvas.draw_texture_rect_region(SEASONAL_ATLAS, Rect2(position - Vector2(57, 70), Vector2(114, 104)), seasonal_source(season_index, true))
-
-
-## Проверяет основания сезонного дерева и крупных объектов Лунной поляны для общей навигации.
-static func blocks_event_position(location: String, position: Vector2, radius: float) -> bool:
-	if location == "overworld": return position.distance_to(SEASONAL_TREE_BASE) < radius + 42.0
-	if location == "moon_glade":
-		for base in MOON_SOLID_BASES:
-			if position.distance_to(base) < radius + 42.0: return true
-	return false
-
-
-## Рисует портал и декорации Лунной поляны из единого событийного атласа.
-static func draw_eclipse_world(canvas: CanvasItem, location: String, portal_position: Vector2, portal_visible: bool) -> void:
-	if portal_visible:
-		canvas.draw_texture_rect_region(ECLIPSE_ATLAS, Rect2(portal_position - Vector2(64, 112), Vector2(128, 128)), eclipse_source(0))
-
-
-## Рисует уникальный талисман затмения через ту же ячейку лунного кристалла.
-static func draw_eclipse_item(canvas: CanvasItem, kind: String, rect: Rect2) -> bool:
-	if kind != "eclipse_core": return false
-	canvas.draw_texture_rect_region(ECLIPSE_ATLAS, rect, eclipse_source(2))
-	return true
-
-
-## Возвращает фон приключенческого биома из единого визуального каталога.
-static func background(location: String) -> Color:
-	return BACKGROUNDS.get(location, Color("48624a"))
-
-
-## Возвращает номер столбца биома в атласе или минус один для неизвестной локации.
-static func biome_column(location: String) -> int:
-	return BIOME_ORDER.find(location)
-
-
-## Возвращает область одного биомного объекта в сетке пять на два.
-static func biome_source(location: String, variant: int) -> Rect2:
-	var cell := Vector2(BIOME_PROP_ATLAS.get_width() / 5.0, BIOME_PROP_ATLAS.get_height() / 2.0)
-	return Rect2(Vector2(biome_column(location), clampi(variant, 0, 1)) * cell, cell)
-
-
-## Рисует крупные ориентиры и малый декор выбранного приключенческого биома.
-static func draw_biome(canvas: CanvasItem, location: String) -> void:
-	if biome_column(location) < 0:
-		return
-	var large_size := Vector2(182, 190) if location in ["forest", "cursed"] else Vector2(168, 174)
-	for base in LARGE_PROP_BASES:
-		var rect := Rect2(base - Vector2(large_size.x * 0.5, large_size.y * 0.82), large_size)
-		canvas.draw_texture_rect_region(BIOME_PROP_ATLAS, rect, biome_source(location, 0))
-	for base in SMALL_PROP_BASES:
-		var size := Vector2(112, 104)
-		var rect := Rect2(base - Vector2(size.x * 0.5, size.y * 0.74), size)
-		canvas.draw_texture_rect_region(BIOME_PROP_ATLAS, rect, biome_source(location, 1))
-
-
-## Проверяет столкновение круглого персонажа с основаниями крупных биомных объектов.
-static func blocks_biome_position(location: String, position: Vector2, radius: float) -> bool:
-	if biome_column(location) < 0:
-		return false
-	for base in LARGE_PROP_BASES:
-		if position.distance_to(base - Vector2(0, 12)) < radius + 38.0:
-			return true
-	return false
 
 
 ## Возвращает область семейства пирата в горизонтальном атласе врагов.

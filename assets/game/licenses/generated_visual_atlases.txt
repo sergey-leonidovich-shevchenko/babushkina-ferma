@@ -1,5 +1,9 @@
 ОРИГИНАЛЬНЫЕ ВИЗУАЛЬНЫЕ АТЛАСЫ ПРОЕКТА
 
-Файлы biome_prop_atlas.png, pirate_enemy_atlas.png, pirate_item_atlas.png, potion_atlas.png, village_ambient_atlas_v1.png и world_loot_atlas_v1.png созданы специально для «Бабушкина ферма: Тайна Лунной долины» с помощью встроенного генератора изображений OpenAI и затем локально обработаны для прозрачного фона.
+Файлы biome_prop_atlas.png, seasonal_environment_atlas.png, eclipse_event_atlas.png, pirate_enemy_atlas.png, pirate_item_atlas.png, potion_atlas.png, village_ambient_atlas_v1.png и world_loot_atlas_v1.png созданы специально для «Бабушкина ферма: Тайна Лунной долины» с помощью встроенного генератора изображений OpenAI и затем локально обработаны для прозрачного фона.
 
 Они не импортированы из сторонних бесплатных наборов. Исходные запросы и назначение зафиксированы в истории разработки; итоговые PNG входят в репозиторий проекта.
+
+Файлы в `assets/game/environment/seasons`, `assets/game/environment/moon` и `assets/game/environment/biomes` являются воспроизводимыми runtime-производными этих трёх исходных атласов. Скрипт `tools/build_environment_sprites.py` сохраняет естественные пропорции, удаляет только чужие фрагменты соседних дробных ячеек и внешний chroma-key ореол, после чего помещает рисунок в прозрачный модульный холст.
+
+Шестнадцать файлов `assets/game/effects/actions/effect_*.png` тем же скриптом воспроизводимо извлекаются из оригинального `action_effects_atlas.png`. Они не являются новым сторонним содержимым: исходные пиксели пропорционально вписаны в прозрачные холсты 72×72 и собраны в контрольный каталог.

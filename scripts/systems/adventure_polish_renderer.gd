@@ -1,7 +1,5 @@
 extends RefCounted
 
-const EFFECTS := preload("res://assets/game/effects/action_effects_atlas.png")
-const ATLAS_CELL := Vector2(313.5, 313.5)
 const PANEL := Color(0.12, 0.075, 0.04, 0.96)
 const PARCHMENT := Color("ecd79f")
 const GOLD := Color("efc45f")
@@ -15,18 +13,15 @@ static func draw_world(game: Node2D) -> void:
 		game.draw_circle(footprint.position + Vector2(4, 4), 2.5, Color(0.20, 0.16, 0.10, float(footprint.time) * 0.16))
 	if float(feedback.get("timer", 0.0)) > 0.0:
 		var action := String(feedback.get("action", ""))
-		if game.AdventurePolishSystem.ACTIONS.has(action): draw_effect(game, int(game.AdventurePolishSystem.ACTIONS[action]), feedback.position, 62.0, game.facing.x < -0.1); game.WorldPolishRenderer.draw_effect(game,{"mine":"stone","chop":"wood","fish_cast":"splash","harvest":"leaves"}.get(action,"dust"),feedback.position+Vector2(0,18),clampf(float(feedback.timer)*2.0,0.0,1.0))
+		if game.AdventurePolishSystem.ACTIONS.has(action): draw_effect(game,int(game.AdventurePolishSystem.ACTIONS[action]),feedback.position,game.facing.x<-0.1); game.WorldPolishRenderer.draw_effect(game,{"mine":"stone","chop":"wood","fish_cast":"splash","harvest":"leaves"}.get(action,"dust"),feedback.position+Vector2(0,18),clampf(float(feedback.timer)*2.0,0.0,1.0))
 	for number in feedback.get("damage_numbers", []):
 		game.draw_ui_string(game.UI_FONT, number.position, number.text, HORIZONTAL_ALIGNMENT_CENTER, 70, 21, number.color)
 	draw_target(game); draw_enemy_telegraphs(game)
 
 
-## Вырезает одну независимую ячейку сгенерированного атласа эффектов.
-static func draw_effect(game: Node2D, index: int, position: Vector2, size: float, flip_x: bool = false) -> void:
-	var source := Rect2(Vector2(index % 4, index / 4) * ATLAS_CELL, ATLAS_CELL)
-	var destination := Rect2(position - Vector2.ONE * size * 0.5, Vector2.ONE * size)
-	if flip_x: destination = Rect2(position + Vector2(size * 0.5, -size * 0.5), Vector2(-size, size))
-	game.draw_texture_rect_region(EFFECTS, destination, source)
+## Рисует независимый модульный эффект действия через единый визуальный каталог.
+static func draw_effect(game:Node2D,index:int,position:Vector2,flip_x:bool=false)->void:
+	game.ActionEffectVisualSystem.draw(game,index,position,flip_x)
 
 
 ## Рисует кольцо, направление и имя зафиксированной цели.
