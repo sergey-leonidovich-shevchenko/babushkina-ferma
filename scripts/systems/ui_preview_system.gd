@@ -4,6 +4,7 @@ extends RefCounted
 ## Настраивает запрошенный системный экран и при необходимости включает автоматический снимок.
 static func configure(game: Node) -> void:
 	var arguments := OS.get_cmdline_user_args()
+	if configure_world_guide_capture(game, arguments): return
 	if configure_character_window_capture(game, arguments): return
 	if configure_item_window_capture(game, arguments): return
 	if configure_story_window_capture(game, arguments): return
@@ -26,6 +27,23 @@ static func configure(game: Node) -> void:
 	if "--capture-settings" in arguments:
 		game.set_meta("capture_ui_frames", 6)
 		game.set_meta("capture_ui_output", "res://assets/generated/ui/system_settings_ingame_preview.png")
+
+
+## Настраивает одну из пяти вкладок энциклопедии как воспроизводимый визуальный эталон.
+static func configure_world_guide_capture(game: Node, arguments: PackedStringArray) -> bool:
+	var modes := {"--capture-world-map":0, "--capture-calendar":1, "--capture-bestiary":2, "--capture-collections":3, "--capture-recipes":4}
+	var outputs := ["world_map", "calendar", "bestiary", "collections", "recipe_guide"]
+	var mode := ""
+	for flag in modes:
+		if flag in arguments: mode = flag; break
+	if mode.is_empty(): return false
+	game.language_screen = false; game.title_screen = false; game.current_location = "overworld"; game.tutorial_visible = false; game.world_map_open = true; game.world_guide_page = int(modes[mode]); game.world_guide_selected = 12
+	game.state.world.estate.discovered = game.WorldMapSystem.LOCATIONS.keys()
+	for kind in game.CombatSystem.TYPES: game.seen_discoveries["enemy:%s:1" % kind] = true
+	for index in game.FishingSystem.FISH_CATALOG.size():
+		if index % 2 == 0: game.state.fishing.best_sizes[game.FishingSystem.FISH_CATALOG[index].id] = 24 + index * 4
+	game.set_meta("capture_story_clean", true); game.set_meta("capture_ui_frames", 6); game.set_meta("capture_ui_output", "res://assets/generated/ui/%s_ingame_preview.png" % outputs[int(modes[mode])])
+	return true
 
 
 ## Настраивает книгу героя и способностей с показательными эффектами и действующей группой.

@@ -327,7 +327,7 @@ var workbench_position := Vector2(500, 1035)
 var quest_active := false
 var quest_complete := false
 var mission_states := QuestSystem.default_states()
-var quest_log_open := false; var quest_log_page := 0; var world_map_open := false
+var quest_log_open := false; var quest_log_page := 0; var world_map_open := false; var world_guide_page := 0; var world_guide_selected := 0
 var skill_menu_open := false
 var skill_menu_selected := 0
 var tutorial_visible := true

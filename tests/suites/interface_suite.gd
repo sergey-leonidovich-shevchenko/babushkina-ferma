@@ -6,6 +6,7 @@ func run() -> void:
 	test_inventory_uses_grandmother_skin_and_six_rows()
 	test_item_windows_share_storybook_shell_and_close_control()
 	test_story_windows_share_visual_language_and_input_geometry()
+	test_world_guide_unifies_map_calendar_bestiary_collections_and_recipes()
 	test_inventory_layout_and_touch_mapping()
 	test_item_context_and_actions()
 	test_hud_layout_is_compact_and_safe()
@@ -17,6 +18,44 @@ func run() -> void:
 	test_sprite_cards_and_action_controls_use_sliced_atlases()
 	test_touch_controls_follow_last_input_device()
 	test_hotbar_readiness_and_hud_feedback_animations()
+
+
+## Сценарий: карта, календарь, бестиарий, коллекции и рецепты открываются как вкладки одной энциклопедии.
+## Исходное состояние: новая игра, единый renderer, пять эталонных снимков и переводы шести локалей доступны сценарию.
+## Ожидаемый результат: геометрия не выходит за окно, указатель и геймпад меняют вкладки, открытия учитываются, а снимки сохраняют формат 16:9.
+func test_world_guide_unifies_map_calendar_bestiary_collections_and_recipes() -> void:
+	var game := make_game()
+	var renderer = game.WorldMapRenderer
+	var system = game.WorldMapSystem
+	expect(Rect2(0, 0, 1152, 648).encloses(renderer.WINDOW) and renderer.WINDOW.encloses(renderer.CONTENT), "world encyclopedia and its content stay inside the native viewport")
+	for index in renderer.TAB_RECTS.size():
+		var rect: Rect2 = renderer.TAB_RECTS[index]
+		expect(renderer.WINDOW.encloses(rect) and renderer.page_at(rect.get_center()) == index, "every painted guide tab shares its exact pointer hit zone")
+		if index > 0: expect(not rect.intersects(renderer.TAB_RECTS[index - 1]), "neighboring guide tabs never overlap")
+	game.world_map_open = true
+	expect(system.set_page(game, 4) == 4 and system.cycle_page(game, 1) == 0 and system.cycle_page(game, -1) == 4, "keyboard and gamepad paging wraps across all five guide chapters")
+	game.world_guide_selected = 0
+	expect(system.move_selection(game, -1) == game.CraftingSystem.RECIPES.size() - 1, "recipe selection wraps through the full catalog")
+	var first_recipe: int = renderer.recipe_at(game, renderer.recipe_row_rect(0).get_center())
+	expect(first_recipe >= 0, "recipe row drawing and pointer lookup use one geometry source")
+	system.handle_pointer(game, renderer.TAB_RECTS[2].get_center())
+	expect(game.world_guide_page == 2, "pointer selects the bestiary tab without closing the guide")
+	expect(not system.bestiary_discovered(game, "orc"), "unknown enemy starts hidden in a clean save")
+	game.seen_discoveries["enemy:orc:1"] = true
+	expect(system.bestiary_discovered(game, "orc"), "discovering an enemy reveals its bestiary card")
+	var previous_locale: String = game.LocaleSystem.current
+	for locale in game.LocaleSystem.LOCALES:
+		game.LocaleSystem.current = locale
+		for key in renderer.PAGE_LABEL_KEYS + ["world_guide", "guide_week_forecast", "guide_fish_collection", "guide_recipe_open"]:
+			expect(not game.LocaleSystem.ui(key).is_empty(), "%s guide label is translated for %s" % [key, locale])
+	game.LocaleSystem.current = previous_locale
+	for name in ["world_map", "calendar", "bestiary", "collections", "recipe_guide"]:
+		var path := "res://assets/generated/ui/%s_ingame_preview.png" % name
+		var preview := Image.load_from_file(ProjectSettings.globalize_path(path))
+		expect(preview != null and preview.get_width() >= 1152 and absf(float(preview.get_width()) / preview.get_height() - 16.0 / 9.0) < 0.01, "%s guide chapter keeps a native-or-larger 16:9 reference" % name)
+	var spell_source := FileAccess.get_file_as_string("res://scripts/systems/spell_renderer.gd")
+	expect(spell_source.contains("game.world_map_open"), "world-only spell hint stays hidden behind the encyclopedia")
+	game.free()
 
 
 ## Сценарий: журнал, диалог, обучение, уведомление и награда главы используют единый сказочный UI-набор.

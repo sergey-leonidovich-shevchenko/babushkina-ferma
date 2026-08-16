@@ -1303,7 +1303,7 @@ func handle_gamepad_and_touch(event: InputEvent) -> bool:
 				return true
 			if world_controls_visible and AdventurePolishSystem.target_at_screen(self, event.position): return true
 			if world_controls_visible and InterfaceRenderer.DODGE_BUTTON.has_point(event.position): CombatSystem.start_dodge(self); return true
-			if world_map_open: WorldMapSystem.toggle(self); return true
+			if world_map_open: return WorldMapSystem.handle_pointer(self, event.position)
 			if quest_log_open and InputSystem.handle_quest_pointer(self, event.position): return true
 			if InterfaceRenderer.LOCATION_BADGE.has_point(event.position): WorldMapSystem.toggle(self); return true
 			if InterfaceRenderer.QUEST_BUTTON.has_point(event.position): toggle_quest_log(); return true
@@ -1352,6 +1352,7 @@ func handle_gamepad_and_touch(event: InputEvent) -> bool:
 		queue_redraw()
 		return true
 	if event is InputEventScreenTouch and event.pressed:
+		if world_map_open: return WorldMapSystem.handle_pointer(self, event.position)
 		if world_controls_visible and InterfaceRenderer.PAUSE_BUTTON.has_point(event.position):
 			return MenuSystem.open_pause(self)
 		if discovery_card_rect().has_point(event.position) and not discovery_current.is_empty():

@@ -300,7 +300,18 @@ static func handle_quest_pointer(game: Node, position: Vector2) -> bool:
 ## Маршрутизирует событие в единственное открытое модальное окно до мирового управления.
 static func handle_modal_input(game: Node, event: InputEvent) -> bool:
 	if game.world_map_open:
-		if (event is InputEventKey and event.pressed and not event.echo and event.keycode in [KEY_M, KEY_ESCAPE]) or (event is InputEventJoypadButton and event.pressed and event.button_index in [JOY_BUTTON_B, JOY_BUTTON_RIGHT_SHOULDER]): game.WorldMapSystem.toggle(game)
+		if event is InputEventKey and event.pressed and not event.echo:
+			if event.keycode in [KEY_M, KEY_ESCAPE]: game.WorldMapSystem.toggle(game)
+			elif event.keycode in [KEY_LEFT, KEY_Q, KEY_PAGEUP]: game.WorldMapSystem.cycle_page(game, -1)
+			elif event.keycode in [KEY_RIGHT, KEY_E, KEY_PAGEDOWN]: game.WorldMapSystem.cycle_page(game, 1)
+			elif event.keycode == KEY_UP: game.WorldMapSystem.move_selection(game, -1)
+			elif event.keycode == KEY_DOWN: game.WorldMapSystem.move_selection(game, 1)
+		elif event is InputEventJoypadButton and event.pressed:
+			if event.button_index == JOY_BUTTON_B: game.WorldMapSystem.toggle(game)
+			elif event.button_index in [JOY_BUTTON_LEFT_SHOULDER, JOY_BUTTON_DPAD_LEFT]: game.WorldMapSystem.cycle_page(game, -1)
+			elif event.button_index in [JOY_BUTTON_RIGHT_SHOULDER, JOY_BUTTON_DPAD_RIGHT]: game.WorldMapSystem.cycle_page(game, 1)
+			elif event.button_index == JOY_BUTTON_DPAD_UP: game.WorldMapSystem.move_selection(game, -1)
+			elif event.button_index == JOY_BUTTON_DPAD_DOWN: game.WorldMapSystem.move_selection(game, 1)
 	elif game.shop_open:
 		game.handle_shop_input(event)
 	elif game.storage_open:

@@ -42,3 +42,8 @@ tmp/
 !/assets/generated/ui/tutorial_ingame_preview.png
 !/assets/generated/ui/notification_ingame_preview.png
 !/assets/generated/ui/chapter_reward_ingame_preview.png
+!/assets/generated/ui/world_map_ingame_preview.png
+!/assets/generated/ui/calendar_ingame_preview.png
+!/assets/generated/ui/bestiary_ingame_preview.png
+!/assets/generated/ui/collections_ingame_preview.png
+!/assets/generated/ui/recipe_guide_ingame_preview.png
