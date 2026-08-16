@@ -399,14 +399,16 @@ func test_sprite_cards_and_action_controls_use_sliced_atlases() -> void:
 	game.free()
 
 
-## Сценарий: мобильные кнопки появляются после касания и автоматически скрываются после клавиатуры или мыши.
+## Сценарий: мобильные кнопки появляются после касания, корректно удерживают блок и скрываются после desktop-ввода.
 ## Исходное состояние: игра запущена на обычной desktop-среде без активного сенсорного режима.
-## Ожидаемый результат: последнее реальное устройство ввода однозначно переключает только видимость мобильного слоя.
+## Ожидаемый результат: нажатие и отпускание меняют блок, а последнее устройство однозначно переключает мобильный слой.
 func test_touch_controls_follow_last_input_device() -> void:
 	var game := make_game(); game.touch_controls_visible = false
 	var touch := InputEventScreenTouch.new(); touch.position = game.InterfaceRenderer.DODGE_BUTTON.get_center(); touch.pressed = true
 	game.update_input_device(touch)
 	expect(game.touch_controls_visible, "screen touch reveals sprite combat controls")
+	var block := InputEventScreenTouch.new(); block.position = game.InterfaceRenderer.BLOCK_BUTTON.get_center(); block.pressed = true; expect(game.handle_gamepad_and_touch(block) and game.state.player.blocking, "touch press starts blocking through the modular input router")
+	block.pressed = false; expect(game.handle_gamepad_and_touch(block) and not game.state.player.blocking, "touch release always stops blocking instead of leaving a stuck combat state")
 	var keyboard := key_event(KEY_D, KEY_D, true)
 	game.update_input_device(keyboard)
 	expect(not game.touch_controls_visible, "keyboard input hides mobile controls immediately")

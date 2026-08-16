@@ -1,5 +1,7 @@
 extends "res://scripts/game_context.gd"
 
+const FarmRenderer := preload("res://scripts/presentation/farm_renderer.gd")
+
 ## Рисует строку с пользовательским масштабом текста и безопасным уменьшением при нехватке ширины.
 func draw_ui_string(font: Font, position: Vector2, text: String, alignment: HorizontalAlignment = HORIZONTAL_ALIGNMENT_LEFT, width: float = -1.0, font_size: int = 16, color: Color = Color.WHITE) -> void:
 	var effective_size := UiScaleSystem.fitted_font_size(self, font, text, width, font_size)
@@ -61,85 +63,27 @@ func draw_world() -> void:
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_farm() -> void:
-	if current_location == "overworld":
-		for cell in plots:
-			var plot: Dictionary = plots[cell]
-			var rect := FarmVisualSystem.plot_rect(Vector2(FARM_ORIGIN), cell)
-			draw_plot(rect, plot)
-	for key in state.world.world_plots:
-		var plot: Dictionary = state.world.world_plots[key]
-		if String(plot.location) == current_location:
-			draw_plot(WorldFarmingSystem.cell_rect(plot.cell), plot)
-	var cultivation_target: Dictionary = WorldFarmingSystem.target(self)
-	if bool(cultivation_target.valid) or bool(cultivation_target.legacy):
-		draw_rect(cultivation_target.rect, Color("fff3a6"), false, 3)
+	FarmRenderer.draw(self)
 
 ## Отрисовывает землю и состояние одной грядки независимо от её локации.
 func draw_plot(rect: Rect2, plot: Dictionary) -> void:
-	draw_texture_rect_region(FarmVisualSystem.ATLAS, rect, FarmVisualSystem.soil_source(plot))
-	if plot.planted:
-		draw_crop(rect, plot)
-		draw_crop_progress(rect, plot)
-		var crop_kind: String = String(plot.get("crop_kind", "carrot"))
-		if not CropCatalogSystem.grows_in_season(crop_kind, WorldEventSystem.season(day)) and plot.growth < GROWTH_DURATION:
-			draw_season_pause_icon(rect.position + Vector2(rect.size.x - 7, 3))
-		elif not plot.watered and plot.growth < GROWTH_DURATION:
-			draw_water_needed_icon(rect.position + Vector2(8, 4))
+	FarmRenderer.draw_plot(self, rect, plot)
 
 ## Отрисовывает культуры по текущему состоянию игры.
 func draw_crop(rect: Rect2, plot: Dictionary) -> void:
-	var stage: int = plot.stage
-	var crop_kind: String = String(plot.get("crop_kind", "carrot"))
-	var season: String = WorldEventSystem.season(day)
-	var flash: float = plot.stage_flash
-	var center := rect.get_center()
-	if flash > 0.0:
-		draw_circle(center - Vector2(0, 8), 20.0 * flash, Color(1.0, 0.91, 0.38, flash * 0.35), false, 3.0)
-	var pixel_bounce := roundf(sin(flash * 18.0) * flash * 3.0)
-	var destination := Rect2(rect.position + Vector2(0, -pixel_bounce), rect.size)
-	draw_texture_rect_region(FarmVisualSystem.crop_texture(crop_kind), destination, FarmVisualSystem.crop_source(stage, crop_kind, season))
+	FarmRenderer.draw_crop(self, rect, plot)
 
 ## Отрисовывает культуры прогресса по текущему состоянию игры.
 func draw_crop_progress(rect: Rect2, plot: Dictionary) -> void:
-	var progress: float = clampf(plot.growth / GROWTH_DURATION, 0.0, 1.0)
-	var bar := Rect2(rect.position + Vector2(3, -10), Vector2(rect.size.x - 6, 7))
-	if progress >= 1.0:
-		# Иконка готовности: золотой ромб с зелёной галочкой.
-		var icon_center := rect.position + Vector2(rect.size.x - 5, -7)
-		draw_colored_polygon(PackedVector2Array([icon_center + Vector2(0, -10), icon_center + Vector2(10, 0), icon_center + Vector2(0, 10), icon_center + Vector2(-10, 0)]), Color("ffd45c"))
-		draw_polyline(PackedVector2Array([icon_center + Vector2(-5, 0), icon_center + Vector2(-1, 4), icon_center + Vector2(6, -5)]), Color("28583b"), 3.0)
-		return
-	draw_rect(bar, Color("243b35"))
-	var fill_color := Color("7aa6c5") if WorldEventSystem.season(day) == "winter" else Color("e58b3e").lerp(Color("6fcb62"), progress)
-	draw_rect(Rect2(bar.position + Vector2(1, 1), Vector2((bar.size.x - 2) * progress, bar.size.y - 2)), fill_color)
-	# Четыре крупных деления — по одному на каждую стадию.
-	for marker in range(1, 4):
-		var marker_x := bar.position.x + bar.size.x * marker / 4.0
-		draw_line(Vector2(marker_x, bar.position.y), Vector2(marker_x, bar.end.y), Color("f7e4b0"), 1.5)
+	FarmRenderer.draw_crop_progress(self, rect, plot)
 
 ## Рисует маленькие сезонные часы над уснувшей культурой вместо ошибочного требования полива.
 func draw_season_pause_icon(center: Vector2) -> void:
-	var color := Color("f4dda0")
-	draw_circle(center, 8.0, Color("3b4c42"))
-	draw_circle(center, 7.0, color, false, 2.0)
-	draw_line(center, center + Vector2(0, -4), color, 2.0)
-	draw_line(center, center + Vector2(4, 2), color, 2.0)
-	draw_circle(center, 2.0, Color("8db9d5"))
+	FarmRenderer.draw_season_pause_icon(self, center)
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_water_needed_icon(center: Vector2) -> void:
-	# Красная капля: заметный сигнал, что рост поставлен на паузу.
-	var pulse := 1.0 + sin(Time.get_ticks_msec() / 130.0) * 0.08
-	var points := PackedVector2Array([
-		center + Vector2(0, -9) * pulse,
-		center + Vector2(7, 1) * pulse,
-		center + Vector2(5, 7) * pulse,
-		center + Vector2(0, 10) * pulse,
-		center + Vector2(-5, 7) * pulse,
-		center + Vector2(-7, 1) * pulse
-	])
-	draw_colored_polygon(points, Color("e4473f"))
-	draw_circle(center + Vector2(-2, 2), 2.0, Color("ffaaa0"))
+	FarmRenderer.draw_water_needed_icon(self, center)
 
 ## Отрисовывает героя по текущему состоянию игры.
 func draw_player() -> void:

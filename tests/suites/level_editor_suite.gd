@@ -241,9 +241,11 @@ func test_validation_blocks_broken_export_and_reports_map_issues() -> void:
 ## Ожидаемый результат: режим останавливает симуляцию, рисует все четыре слоя и доступен как включённая команда.
 func test_runtime_integration_freezes_simulation_and_draws_editor_layers() -> void:
 	var core := FileAccess.get_file_as_string("res://scripts/game_core.gd")
+	var loop := FileAccess.get_file_as_string("res://scripts/core/game_loop.gd")
+	var input_router := FileAccess.get_file_as_string("res://scripts/core/game_input_router.gd")
 	var render := FileAccess.get_file_as_string("res://scripts/systems/render_system.gd")
 	var debug := FileAccess.get_file_as_string("res://scripts/systems/debug_overlay_system.gd")
-	expect(core.contains("LevelEditorSystem.active(self)") and core.contains("LevelEditorSystem.handle_input(self,event)"), "live editor owns input and pauses gameplay simulation while open")
+	expect(core.contains("GameLoop.physics_process") and core.contains("GameInputRouter.route") and loop.contains("game.LevelEditorSystem.active(game)") and input_router.contains("game.LevelEditorSystem.handle_input(game, event)"), "live editor owns input and pauses gameplay simulation through dedicated core modules")
 	for layer in ["background","ground","objects","foreground"]:
 		expect(render.contains("LevelEditorRenderer.draw_layer(game,\"%s\")"%layer), "renderer composes level-editor layer: %s"%layer)
 	expect(debug.contains('"action":"level_editor"') and debug.contains('"enabled":true'), "F10 panel exposes the enabled level-constructor command")

@@ -17,9 +17,17 @@ check_limit() {
 }
 
 check_limit scripts/game.gd 1100
-check_limit scripts/game_core.gd 1200
-check_limit scripts/game_renderer.gd 700
+check_limit scripts/game_core.gd 750
+check_limit scripts/game_renderer.gd 450
 check_limit scripts/game_context.gd 350
+check_limit scripts/systems/level_editor_system.gd 420
+check_limit scripts/editor/level_editor_document_store.gd 180
+for module in scripts/core/*.gd; do
+	check_limit "$module" 260
+done
+for module in scripts/presentation/*.gd; do
+	check_limit "$module" 180
+done
 for suite in tests/suites/*_suite.gd; do
 	check_limit "$suite" 350
 done

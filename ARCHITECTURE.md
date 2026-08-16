@@ -7,8 +7,9 @@
 ```mermaid
 flowchart LR
     Input["Клавиатура, мышь, геймпад, тач"] --> Game["game.gd — тонкий фасад"]
-    Game --> Core["game_core.gd — жизненный цикл и оркестрация"]
-    Core --> Systems["scripts/systems — игровые правила"]
+    Game --> Core["game_core.gd — совместимый фасад"]
+    Core --> Orchestration["scripts/core — запуск, кадр, ввод, взаимодействия"]
+    Orchestration --> Systems["scripts/systems — игровые правила"]
     Systems <--> State["GameState и модели состояния"]
     Core --> Renderer["game_renderer.gd"]
     Renderer --> Presentation["presentation / interface / animation renderer"]
@@ -26,11 +27,20 @@ flowchart LR
 | `main.tscn` | Корневая сцена приложения |
 | `scripts/game_context.gd` | Ресурсы сцены, совместимые свойства и общий контракт систем |
 | `scripts/game.gd` | Тонкая точка подключения сцены без собственной логики |
-| `scripts/game_core.gd` | Жизненный цикл, маршрутизация ввода и совместимый фасад игровых операций |
-| `scripts/game_renderer.gd` | Единственная точка отрисовки мира и интерфейсов верхнего уровня |
+| `scripts/game_core.gd` | Совместимый фасад игровых операций без реализации platform routing и preview |
+| `scripts/core/game_bootstrap.gd` | Фазовая инициализация сервисов, мира, preview и runtime-систем |
+| `scripts/core/game_loop.gd` | Единственный порядок обновления физического кадра и правила его остановки |
+| `scripts/core/game_input_router.gd` | Приоритетная маршрутизация клавиатуры, мыши, геймпада и тача |
+| `scripts/core/game_interaction_router.gd` | Выбор ближайшего взаимодействия и передача операции feature-системе |
+| `scripts/core/game_preview_controller.gd` | Захват автоматических визуальных эталонов без загрязнения игрового цикла |
+| `scripts/game_renderer.gd` | Совместимый фасад отрисовки мира и интерфейсов верхнего уровня |
+| `scripts/presentation` | Небольшие тематические отрисовщики, которые только читают состояние |
+| `scripts/editor` | Инструменты разработки и persistence их документов вне runtime-правил |
 | `scripts/world_background.gd` | Фоновая геометрия и тайлы мира |
 
 `game.gd` намеренно состоит только из наследования `game_core.gd`. Совместимые публичные операции остаются доступны сцене и тестам через core, но игровые правила делегируются профильным системам. Фасад не содержит методов `draw_*` и не владеет вторыми копиями игровых данных; свойства контекста проксируют значения в `GameState`.
+
+Практическая карта каталогов, аналогии с веб-архитектурой и правила размещения нового файла находятся в [карте модулей](docs/MODULE_STRUCTURE.md).
 
 ## Модель состояния
 
