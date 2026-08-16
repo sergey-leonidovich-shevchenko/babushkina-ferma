@@ -254,14 +254,19 @@ static func _finalize_previews(game: Node, args: PackedStringArray) -> void:
 		fence_life.achievements = ["first_week", "collector", "curator", "beloved", "rancher"]
 	if game.has_meta("capture_first_level_clean"):
 		_disable_farm_intro(game)
-	if "--level-editor-preview" in args or "--capture-level-editor" in args:
+	if "--level-editor-preview" in args or "--capture-level-editor" in args or "--level-editor-atlas-preview" in args or "--capture-level-editor-atlas" in args:
 		_configure_world_view(game, Vector2(1160, 650))
 		game.LevelEditorSystem.toggle(game)
 		var editor_state: Dictionary = game.get_meta(game.LevelEditorSystem.META_KEY)
 		game.LevelEditorSystem.configure_preview(game, editor_state)
+		if "--level-editor-atlas-preview" in args or "--capture-level-editor-atlas" in args:
+			game.LevelEditorSystem.activate_asset(editor_state,game.LevelEditorSystem.AssetCatalogSystem.metadata("res://assets/game/environment/farm_plants.png"))
+			game.LevelEditorSystem.AtlasPickerSystem.open(editor_state)
 		game.set_meta(game.LevelEditorSystem.META_KEY, editor_state)
 		if "--capture-level-editor" in args:
 			game.set_meta("capture_level_editor_frames", 6)
+		if "--capture-level-editor-atlas" in args:
+			game.set_meta("capture_level_editor_atlas_frames", 6)
 
 ## Переводит сцену в чистый вид первой локации с заданным положением героя.
 static func _configure_world_view(game: Node, player_position: Vector2) -> void:

@@ -95,7 +95,7 @@ def main() -> None:
     source = root / "assets/generated/sprite_sources/forest_tree_growth_source_v1.png"
     destination = root / "assets/game/environment/forest_tree_growth_atlas_v1.png"
     build(source, destination)
-    orchard_source = root / "assets/game/environment/orchard/fruit_trees_clear.png"
+    orchard_source = root / "assets/generated/sprite_sources/orchard_fruit_trees_source_v2.png"
     orchard_destination = root / "assets/game/environment/orchard/fruit_trees_4x4_v2.png"
     normalize_orchard(orchard_source, orchard_destination)
     print(f"TREE ATLASES: forest {CELL_SIZE * STAGE_COUNT}×{CELL_SIZE} · orchard {CELL_SIZE * STAGE_COUNT}×{CELL_SIZE * ORCHARD_SPECIES} RGBA")

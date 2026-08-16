@@ -16,7 +16,7 @@ static func pick_object(state: Dictionary, object: Dictionary, categories: Array
 	if path.is_empty() or not ResourceLoader.exists(path): state.status="У референса нет доступного спрайта"; return false
 	state.selected_asset=path; state.layer=String(object.get("layer","objects")); state.collision=bool(object.get("collision",false)); state.tool="paint"; state.drag_kind=""; state.scroll=0
 	var source:=Rect2(object.get("source",Rect2()))
-	state.slice_size=int(source.size.x) if source.size.x>0 and is_equal_approx(source.size.x,source.size.y) else 0; state.slice_index=0
+	var regular:=source.size.x>0 and is_equal_approx(source.size.x,source.size.y); state.slice_size=int(source.size.x) if regular else 0; state.slice_index=0; state.source_mode="grid" if regular else "custom"; state.custom_source=source
 	if int(state.slice_size)>0:
 		var texture:=ResourceLoader.load(path) as Texture2D; var columns:=maxi(1,int(texture.get_width())/int(state.slice_size))
 		state.slice_index=int(source.position.y/int(state.slice_size))*columns+int(source.position.x/int(state.slice_size))

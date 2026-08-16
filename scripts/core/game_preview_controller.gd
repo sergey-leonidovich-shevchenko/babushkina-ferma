@@ -13,6 +13,7 @@ static func process(game: Node) -> void:
 	if game.TreeSystem.update_preview_capture(game): return
 	if game.UiPreviewSystem.update_capture(game): return
 	if update_named_capture(game, "capture_fence_frames", "res://assets/generated/level_drafts/fence_building_ingame_preview.png", "оград"): return
+	if update_named_capture(game, "capture_level_editor_atlas_frames", "res://assets/generated/level_drafts/level_editor_atlas_picker_preview.png", "визуального выбора спрайта"): return
 	if update_named_capture(game, "capture_level_editor_frames", "res://assets/generated/level_drafts/level_editor_ingame_preview.png", "конструктора"): return
 	update_named_capture(game, "capture_first_level_frames", "res://assets/generated/level_drafts/first_level_ingame_preview.png", "первой локации")
 

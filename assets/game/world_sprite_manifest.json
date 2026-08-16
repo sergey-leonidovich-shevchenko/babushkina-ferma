@@ -158,17 +158,27 @@
     {
       "id": "WS-007",
       "family": "Мосты",
-      "assets": [{"path":"assets/game/environment/bridges.png","width":656,"height":672}],
-      "render_owner": "WorldBackground и VillageLayoutSystem",
-      "source_layout": "композиционный слой; геометрия задана общим профилем 96×192",
-      "runtime_sizes": ["96×192"],
-      "target_modules": ["96×192"],
-      "anchor": "центр прохода",
-      "collision": "тот же прямоугольник 96×192, что у видимого настила",
+      "assets": [
+        {"path":"assets/game/environment/bridges/bridge_stone_vertical.png","width":96,"height":192},
+        {"path":"assets/game/environment/bridges/bridge_stone_arch.png","width":168,"height":96},
+        {"path":"assets/game/environment/bridges/bridge_stone_wood_vertical.png","width":96,"height":192},
+        {"path":"assets/game/environment/bridges/bridge_stone_wood_horizontal.png","width":168,"height":96},
+        {"path":"assets/game/environment/bridges/bridge_wood_vertical.png","width":72,"height":168},
+        {"path":"assets/game/environment/bridges/bridge_wood_horizontal.png","width":168,"height":96},
+        {"path":"assets/game/environment/bridges/bridge_copper_vertical.png","width":72,"height":240},
+        {"path":"assets/game/environment/bridges/bridge_copper_arch.png","width":192,"height":96},
+        {"path":"assets/game/environment/bridges/bridge_copper_arch_rail.png","width":192,"height":120}
+      ],
+      "render_owner": "LevelEditorAssetCatalogSystem и VillageLayoutSystem",
+      "source_layout": "девять самостоятельных crop-safe PNG из лицензионного монтажного исходника; генератор хранится в tools/build_bridge_sprites.py",
+      "runtime_sizes": ["72×168", "72×240", "96×192", "168×96", "192×96", "192×120"],
+      "target_modules": ["72×168", "72×240", "96×192", "168×96", "192×96", "192×120"],
+      "anchor": "нижний центр модульного холста; навигационный мост — центр прохода",
+      "collision": "редактор помечает мосты твёрдыми; опубликованная локация использует явный прямоугольник прохода",
       "status": "compliant",
       "priority": "P1",
-      "debt": "Закрыт: оба перехода используют единый профиль 4×8 клеток для изображения, прохода и F10.",
-      "done_when": "Каждый мост занимает минимум 4×8 клеток, края стыкуются с берегом и ровно тот же прямоугольник используется для прохода."
+      "debt": "Закрыт: нерегулярный лист удалён из runtime-каталога, варианты разделены без соседнего bleed и доступны конструктору по отдельности.",
+      "done_when": "Каждый вариант имеет прозрачный модульный PNG, нижнюю опору, запись каталога и контрольный preview без частей соседей."
     },
     {
       "id": "WS-008",

@@ -1,5 +1,7 @@
 extends RefCounted
 
+const AtlasPickerRenderer := preload("res://scripts/systems/level_editor_atlas_picker_renderer.gd")
+
 const PANEL_FILL := Color(0.075,0.055,0.035,0.97)
 const PANEL_BORDER := Color("d7a94f")
 const BUTTON_FILL := Color("553b25")
@@ -94,6 +96,7 @@ static func draw_drag_preview(game: Node2D, state: Dictionary) -> void:
 	var entry: Dictionary = game.LevelEditorSystem.AssetCatalogSystem.find(game.LevelEditorSystem.catalog(),String(state.selected_asset))
 	var size:=Vector2(entry.get("display_size",Vector2.ZERO))
 	if size==Vector2.ZERO: size=source.size if source.size!=Vector2.ZERO else texture.get_size()
+	if String(state.get("source_mode","grid"))=="custom" and source.size!=Vector2.ZERO: size=source.size
 	if String(entry.get("anchor","center"))=="tile": size=Vector2.ONE*int(state.grid)
 	var position: Vector2 = game.LevelEditorSystem.placement_position(state,Vector2(state.mouse)+Vector2(game.camera_offset),String(entry.get("anchor","center")))
 	var destination: Rect2 = game.LevelEditorSystem.object_bounds({"position":position,"size":size,"anchor":entry.get("anchor","center"),"scale":1.0})
@@ -133,6 +136,7 @@ static func draw_panel(game: Node2D) -> void:
 	draw_selection_info(game,state)
 	draw_validation_info(game,state)
 	game.draw_ui_string(game.UI_FONT,Vector2(404,24),"F12 закрыть · B кисть · G прямоугольник · I пипетка · / поиск · F избранное · Ctrl+Z/Y",HORIZONTAL_ALIGNMENT_LEFT,732,12,Color(1,0.95,0.78,0.92))
+	AtlasPickerRenderer.draw(game,state)
 
 
 ## Рисует шесть видимых строк ресурсов с настоящими миниатюрами и путями файлов.

@@ -5,12 +5,13 @@ const ValidationSystem := preload("res://scripts/systems/level_editor_validation
 const DocumentStore := preload("res://scripts/editor/level_editor_document_store.gd")
 const PreferencesStore := preload("res://scripts/editor/level_editor_preferences_store.gd")
 const ToolSystem := preload("res://scripts/systems/level_editor_tool_system.gd")
+const AtlasPickerSystem := preload("res://scripts/systems/level_editor_atlas_picker_system.gd")
 const META_KEY := "level_editor"
 const FORMAT_VERSION := 4
 const PROJECT_DIRECTORY := "res://level_designs"
 const USER_DIRECTORY := "user://level_designs"
 const GRID_SIZES := [12, 24, 48, 96]
-const SLICE_SIZES := [0, 16, 24, 32, 48, 64, 96, 128, 222, 256]
+const SLICE_SIZES := AtlasPickerSystem.SLICE_SIZES
 const LAYERS := ["background", "ground", "objects", "foreground"]
 const CATEGORIES := ["terrain", "buildings", "vegetation", "decor", "characters", "enemies", "items", "farming", "fishing", "ui", "other"]
 const CATEGORY_NAMES := {"terrain":"ЗЕМЛЯ","buildings":"ДОМА","vegetation":"РАСТЕНИЯ","decor":"ДЕКОР","characters":"ПЕРСОНАЖИ","enemies":"ВРАГИ","items":"ПРЕДМЕТЫ","farming":"ФЕРМА","fishing":"ВОДА/РЫБАЛКА","ui":"ИНТЕРФЕЙС","other":"ПРОЧЕЕ"}
@@ -47,7 +48,7 @@ static var _catalog: Array[Dictionary] = []
 
 ## Создаёт полное временное состояние конструктора, которое не попадает в обычное сохранение игры.
 static func default_state(game: Node) -> Dictionary:
-	return {"active":false,"base_location":game.current_location,"level_name":"%s_custom" % game.current_location,"level_notes":"","objects":[],"selected":-1,"selected_asset":"","category":0,"scroll":0,"search":"","favorites":PreferencesStore.load_favorites(),"favorites_only":false,"grid":24,"snap":true,"slice_size":0,"slice_index":0,"layer":"objects","collision":false,"tool":"select","drag_kind":"","drag_offset":Vector2.ZERO,"rectangle_start":Vector2i.ZERO,"rectangle_end":Vector2i.ZERO,"last_brush_cell":Vector2i(-2147483648,-2147483648),"stroke_cells":{},"stroke_history_pushed":false,"mouse":Vector2.ZERO,"history":[],"future":[],"status":"F12 — закрыть конструктор","validation":{},"text_mode":"","text_buffer":"","draft_cursor":-1,"panel_hidden":false,"capture_pending":0,"export_png":"","next_id":1}
+	return {"active":false,"base_location":game.current_location,"level_name":"%s_custom" % game.current_location,"level_notes":"","objects":[],"selected":-1,"selected_asset":"","category":0,"scroll":0,"search":"","favorites":PreferencesStore.load_favorites(),"favorites_only":false,"grid":24,"snap":true,"slice_size":0,"slice_index":0,"source_mode":"grid","custom_source":Rect2(),"atlas_picker_open":false,"atlas_page":0,"region_dragging":false,"region_drag_start":Vector2.ZERO,"region_drag_end":Vector2.ZERO,"layer":"objects","collision":false,"tool":"select","drag_kind":"","drag_offset":Vector2.ZERO,"rectangle_start":Vector2i.ZERO,"rectangle_end":Vector2i.ZERO,"last_brush_cell":Vector2i(-2147483648,-2147483648),"stroke_cells":{},"stroke_history_pushed":false,"mouse":Vector2.ZERO,"history":[],"future":[],"status":"F12 — закрыть конструктор","validation":{},"text_mode":"","text_buffer":"","draft_cursor":-1,"panel_hidden":false,"capture_pending":0,"export_png":"","next_id":1}
 
 
 ## Проверяет, перехватывает ли конструктор симуляцию, ввод и интерфейс текущей игры.
@@ -102,11 +103,11 @@ static func handle_input(game: Node, event: InputEvent) -> bool:
 	if not String(state.text_mode).is_empty():
 		_handle_text_input(game,state,event); return true
 	if event is InputEventMouseMotion:
-		state.mouse = event.position; _handle_motion(game,state,event); game.set_meta(META_KEY,state); game.queue_redraw(); return true
+		state.mouse = event.position; if not AtlasPickerSystem.handle_input(state,event): _handle_motion(game,state,event); game.set_meta(META_KEY,state); game.queue_redraw(); return true
 	if event is InputEventMouseButton:
 		_handle_mouse(game,state,event); game.set_meta(META_KEY,state); game.queue_redraw(); return true
 	if event is InputEventKey and event.pressed and not event.echo:
-		_handle_key(game,state,event); game.set_meta(META_KEY,state); game.queue_redraw(); return true
+		if not AtlasPickerSystem.handle_input(state,event): _handle_key(game,state,event); game.set_meta(META_KEY,state); game.queue_redraw(); return true
 	return true
 
 
@@ -142,6 +143,7 @@ static func _commit_text(state: Dictionary) -> void:
 ## Обрабатывает нажатие, отпускание, колёсико и размещение ресурсов на мировом холсте.
 static func _handle_mouse(game: Node, state: Dictionary, event: InputEventMouseButton) -> void:
 	state.mouse = event.position
+	if AtlasPickerSystem.handle_input(state,event): return
 	if event.button_index in [MOUSE_BUTTON_WHEEL_UP,MOUSE_BUTTON_WHEEL_DOWN] and event.pressed:
 		if PANEL.has_point(event.position):
 			state.scroll = maxi(0,int(state.scroll)+( -1 if event.button_index == MOUSE_BUTTON_WHEEL_UP else 1))
@@ -206,7 +208,7 @@ static func _handle_panel_click(game: Node, state: Dictionary, point: Vector2) -
 	elif IMPORT_BUTTON.has_point(point): import_current_level(game,state)
 	elif VALIDATE_BUTTON.has_point(point): validate_draft(state)
 	elif GRID_BUTTON.has_point(point): state.grid = GRID_SIZES[(GRID_SIZES.find(int(state.grid))+1)%GRID_SIZES.size()]; state.status = "Сетка %d px" % state.grid
-	elif SLICE_BUTTON.has_point(point): state.slice_size = SLICE_SIZES[(SLICE_SIZES.find(int(state.slice_size))+1)%SLICE_SIZES.size()]; state.slice_index = 0; state.status = slice_label(state)
+	elif SLICE_BUTTON.has_point(point): AtlasPickerSystem.open(state)
 	elif LAYER_BUTTON.has_point(point): state.layer = LAYERS[(LAYERS.find(String(state.layer))+1)%LAYERS.size()]
 	elif COLLISION_BUTTON.has_point(point): state.collision = not bool(state.collision)
 	elif LEVEL_NAME_BUTTON.has_point(point): begin_text(state,"level_name",state.level_name)
@@ -282,7 +284,7 @@ static func begin_text(state: Dictionary, mode: String, current: String) -> void
 ## Включает кисть выбранного ресурса и применяет его безопасные настройки слоя и якоря.
 static func activate_asset(state: Dictionary, entry: Dictionary) -> void:
 	state.selected_asset = String(entry.path); state.tool = "paint"; state.slice_index = 0
-	state.slice_size = int(entry.get("slice_size",0)); state.layer = String(entry.get("layer","objects")); state.collision = bool(entry.get("collision",false))
+	state.slice_size = int(entry.get("slice_size",0)); state.source_mode="grid"; state.custom_source=Rect2(); state.atlas_page=0; state.layer = String(entry.get("layer","objects")); state.collision = bool(entry.get("collision",false))
 
 
 ## Создаёт объект выбранного ресурса с текущими сеткой, срезом, слоем и коллизией.
@@ -299,6 +301,7 @@ static func place_selected_asset(game: Node, state: Dictionary, screen_point: Ve
 	var source := selected_source(texture,state)
 	var profiled_size:=Vector2(entry.get("display_size",Vector2.ZERO))
 	var size: Vector2 = profiled_size if profiled_size!=Vector2.ZERO else (source.size if source.size != Vector2.ZERO else texture.get_size())
+	if String(state.get("source_mode","grid"))=="custom" and source.size!=Vector2.ZERO: size=source.size
 	var world := screen_point + Vector2(game.camera_offset)
 	var anchor := String(entry.get("anchor","center"))
 	if anchor=="tile": size=Vector2.ONE*int(state.grid)
@@ -395,16 +398,12 @@ static func _remove_ground_at(state: Dictionary, position: Vector2, layer: Strin
 
 ## Вычисляет срез атласа для выбранного размера и безопасно зацикливает номер кадра.
 static func selected_source(texture: Texture2D, state: Dictionary) -> Rect2:
-	var size := int(state.slice_size)
-	if size <= 0: return Rect2(Vector2.ZERO,Vector2.ZERO)
-	var columns := maxi(1,int(texture.get_width())/size); var rows := maxi(1,int(texture.get_height())/size); var total := maxi(1,columns*rows)
-	var index := posmod(int(state.slice_index),total)
-	return Rect2(Vector2((index%columns)*size,(index/columns)*size),Vector2(size,size))
+	return AtlasPickerSystem.selected_source(texture,state)
 
 
 ## Возвращает подпись активного режима нарезки атласа и выбранного кадра.
 static func slice_label(state: Dictionary) -> String:
-	return "АТЛАС: ЦЕЛИКОМ" if int(state.slice_size)==0 else "АТЛАС %d · #%d" % [int(state.slice_size),int(state.slice_index)+1]
+	return AtlasPickerSystem.source_label(state)
 
 
 ## Привязывает позицию к выбранной сетке либо оставляет точные координаты при отключённой привязке.

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://juuu7eisqp77"
-path="res://.godot/imported/bridges.png-28c1b9f37b34d4d23265b9e5cd7cd0fd.ctex"
+uid="uid://d0rdcl526vgaf"
+path="res://.godot/imported/bridge_wood_horizontal.png-b8daff3a7a85ab00fb6d3bfd9fac07c6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/game/environment/bridges.png"
-dest_files=["res://.godot/imported/bridges.png-28c1b9f37b34d4d23265b9e5cd7cd0fd.ctex"]
+source_file="res://assets/game/environment/bridges/bridge_wood_horizontal.png"
+dest_files=["res://.godot/imported/bridge_wood_horizontal.png-b8daff3a7a85ab00fb6d3bfd9fac07c6.ctex"]
 
 [params]
 

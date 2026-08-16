@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c074nvh30rbsg"
-path="res://.godot/imported/fruit_trees_clear.png-f316e62c813a7733df9bee1d59b93af3.ctex"
+uid="uid://breo1t5lfbg0o"
+path="res://.godot/imported/bridge_stone_vertical.png-efb70cde7b4d7c51aee07237bf1c1396.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/game/environment/orchard/fruit_trees_clear.png"
-dest_files=["res://.godot/imported/fruit_trees_clear.png-f316e62c813a7733df9bee1d59b93af3.ctex"]
+source_file="res://assets/game/environment/bridges/bridge_stone_vertical.png"
+dest_files=["res://.godot/imported/bridge_stone_vertical.png-efb70cde7b4d7c51aee07237bf1c1396.ctex"]
 
 [params]
 

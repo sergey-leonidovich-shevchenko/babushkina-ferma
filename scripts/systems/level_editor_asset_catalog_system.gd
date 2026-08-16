@@ -19,7 +19,6 @@ const STRICT_SHEET_SLICES := {
 	"river tileset.png":16,"slime_attack.png":128,"slime_death.png":128,"slime_hurt.png":128,"slime_idle.png":128,
 	"splash effect.png":16,"water tile.png":16,
 }
-const IRREGULAR_COMPOSITES := ["bridges.png","fruit_trees_clear.png"]
 
 
 ## Рекурсивно собирает только пригодные для размещения игровые растры и добавляет правила привязки.
@@ -61,7 +60,7 @@ static func metadata(path: String) -> Dictionary:
 		"category":category,
 		"anchor":"tile" if ground else ("bottom" if bottom else "center"),
 		"layer":"ground" if ground else "objects",
-		"collision":category in ["buildings","vegetation"],
+		"collision":category in ["buildings","vegetation"] or "/environment/bridges/" in lower,
 		"slice_size":slice_size,
 		"display_size":display_size,
 		"frame_count":_frame_count(path,slice_size),
@@ -83,7 +82,7 @@ static func audit(entries: Array[Dictionary]) -> Dictionary:
 	var missing: Array[String] = []
 	for building in EXPECTED_BUILDINGS:
 		if not buildings.has(building): missing.append(building)
-	return {"placeable":entries.size(),"buildings":buildings.size(),"expected_buildings":EXPECTED_BUILDINGS.size(),"missing_buildings":missing,"sliced":sliced,"unique":unique,"excluded_composites":IRREGULAR_COMPOSITES.duplicate()}
+	return {"placeable":entries.size(),"buildings":buildings.size(),"expected_buildings":EXPECTED_BUILDINGS.size(),"missing_buildings":missing,"sliced":sliced,"unique":unique,"excluded_composites":[]}
 
 
 ## Определяет пользовательскую группу спрайта по стабильной структуре каталогов проекта.
@@ -122,7 +121,6 @@ static func _scan_directory(path: String, result: Array[Dictionary]) -> void:
 static func _is_placeable_image(filename: String) -> bool:
 	var lower := filename.to_lower()
 	if "preview" in lower or "master" in lower: return false
-	if lower in IRREGULAR_COMPOSITES: return false
 	if "atlas" in lower and not SAFE_ATLAS_SLICES.has(lower): return false
 	return IMAGE_EXTENSIONS.any(func(extension: String): return lower.ends_with(extension))
 

@@ -11,10 +11,6 @@ const POND_RADII := Vector2(150, 82)
 const WorldVisualProfileSystem := preload("res://scripts/systems/world_visual_profile_system.gd")
 const BRIDGE_SIZE := WorldVisualProfileSystem.PROFILES.bridge.visual_size
 const BRIDGES := [Rect2(592, 444, 96, 192), Rect2(1352, 714, 96, 192)]
-const BRIDGE_RENDER_REGIONS := [
-	Rect2(218, 335, 100, 190),
-	Rect2(218, 483, 100, 190),
-]
 const BRIDGE_RENDER_OFFSETS := [Vector2.ZERO, Vector2.ZERO]
 const BRIDGE_RENDER_SIZES := [BRIDGE_SIZE, BRIDGE_SIZE]
 const DISTRICTS := {
@@ -199,13 +195,6 @@ static func is_on_bridge(position: Vector2, margin: float = 0.0) -> bool:
 ## Возвращает непрерывную полосу прохода, которая точно совпадает с утверждённым прямоугольником настила.
 static func bridge_navigation_rect(index: int) -> Rect2:
 	return BRIDGES[index % BRIDGES.size()]
-
-
-## Возвращает область атласа для конкретного моста (0/1), чтобы можно было точечно подправить визуальный стиль.
-static func bridge_sprite_region(index: int) -> Rect2:
-	if BRIDGE_RENDER_REGIONS.is_empty():
-		return Rect2(0, 0, 0, 0)
-	return BRIDGE_RENDER_REGIONS[index % BRIDGE_RENDER_REGIONS.size()]
 
 
 ## Возвращает центр ближайшего моста к позиции; полезно для одной и той же

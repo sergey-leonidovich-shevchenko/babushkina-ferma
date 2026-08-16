@@ -8,6 +8,8 @@ const TEST_PREFERENCES := "user://level_editor_preferences_suite.json"
 func run() -> void:
 	test_catalog_contains_grouped_game_assets()
 	test_catalog_profiles_all_buildings_and_safe_sprite_sheets()
+	test_atlas_picker_selects_paged_regular_frame()
+	test_atlas_picker_preserves_arbitrary_source_region()
 	test_f12_and_drag_drop_place_sprite_on_live_level()
 	test_catalog_click_keeps_brush_for_later_map_click()
 	test_click_brush_paints_every_crossed_grid_cell()
@@ -61,7 +63,33 @@ func test_catalog_profiles_all_buildings_and_safe_sprite_sheets() -> void:
 	expect(fence.slice_size==64 and fence.frame_count==40,"strict fence atlas is paintable frame by frame without leaking adjacent sprites")
 	var plants:Dictionary=game.LevelEditorSystem.AssetCatalogSystem.find(entries,"res://assets/game/environment/farm_plants.png")
 	expect(plants.slice_size==48 and plants.frame_count==144,"legacy plant sheet is paintable as exact individual cells instead of one oversized image")
-	expect(not entries.any(func(entry:Dictionary):return String(entry.path).ends_with("bridges.png") or String(entry.path).ends_with("fruit_trees_clear.png")) and audit.excluded_composites.size()==2,"irregular montage sheets are reported for extraction instead of masquerading as placeable sprites")
+	var bridges:Array[Dictionary]=entries.filter(func(entry:Dictionary):return "/environment/bridges/" in String(entry.path))
+	expect(bridges.size()==9 and bridges.all(func(entry:Dictionary):return entry.collision and ResourceLoader.exists(entry.path)),"all nine extracted bridges are independent placeable collision-aware sprites")
+	expect(not entries.any(func(entry:Dictionary):return String(entry.path).ends_with("bridges.png") or String(entry.path).ends_with("fruit_trees_clear.png")) and audit.excluded_composites.is_empty(),"legacy irregular montages no longer masquerade as placeable sprites or unresolved debt")
+	game.free()
+
+
+## Сценарий: дизайнер открывает большой регулярный лист и выбирает кадр на второй строке визуальной таблицы.
+## Исходное состояние: лист растений содержит 16×9 кадров 48 px, окно открыто на первой странице по 32 превью.
+## Ожидаемый результат: клик выбирает десятый индекс и возвращает точный source-rect без части соседнего кадра.
+func test_atlas_picker_selects_paged_regular_frame() -> void:
+	var game:=make_game(); var state:Dictionary=game.LevelEditorSystem.default_state(game); var path:="res://assets/game/environment/farm_plants.png"; var texture:=ResourceLoader.load(path) as Texture2D
+	game.LevelEditorSystem.activate_asset(state,game.LevelEditorSystem.AssetCatalogSystem.metadata(path)); expect(game.LevelEditorSystem.AtlasPickerSystem.open(state),"visual atlas picker opens for the selected sprite sheet")
+	expect(game.LevelEditorSystem.AtlasPickerSystem.frame_count(texture,state)==144 and game.LevelEditorSystem.AtlasPickerSystem.page_count(texture,state)==5,"regular atlas is paginated into five bounded preview pages")
+	var point:Vector2=game.LevelEditorSystem.AtlasPickerSystem.GRID_AREA.position+Vector2(2.5*game.LevelEditorSystem.AtlasPickerSystem.GRID_CELL.x,1.5*game.LevelEditorSystem.AtlasPickerSystem.GRID_CELL.y)
+	expect(game.LevelEditorSystem.AtlasPickerSystem.select_grid_frame(state,texture,point) and state.slice_index==10 and game.LevelEditorSystem.selected_source(texture,state)==Rect2(480,0,48,48),"clicked preview maps to the exact tenth zero-based 48 px atlas frame")
+	game.free()
+
+
+## Сценарий: дизайнер вручную обводит прямоугольный спрайт внутри нерегулярного монтажного изображения.
+## Исходное состояние: вкладка произвольной области показывает весь лист растений без искажения его пропорций.
+## Ожидаемый результат: экранная рамка переводится в пиксели исходника и объект сохраняет её точный несжатый размер.
+func test_atlas_picker_preserves_arbitrary_source_region() -> void:
+	var game:=make_game(); var state:Dictionary=game.LevelEditorSystem.default_state(game); var path:="res://assets/game/environment/farm_plants.png"; var texture:=ResourceLoader.load(path) as Texture2D
+	game.LevelEditorSystem.activate_asset(state,game.LevelEditorSystem.AssetCatalogSystem.metadata(path)); state.source_mode="custom"; var destination:Rect2=game.LevelEditorSystem.AtlasPickerSystem.texture_destination(texture)
+	state.region_drag_start=game.LevelEditorSystem.AtlasPickerSystem.screen_to_texture(texture,destination.position+destination.size*0.25); game.LevelEditorSystem.AtlasPickerSystem.update_custom_region(state,texture,destination.position+destination.size*0.75)
+	var expected:=Rect2(192,108,384,216); expect(Rect2(state.custom_source)==expected and game.LevelEditorSystem.selected_source(texture,state)==expected,"arbitrary selection keeps exact non-square source pixels")
+	expect(game.LevelEditorSystem.place_selected_asset(game,state,Vector2(600,360)) and Vector2(state.objects[0].size)==expected.size and Rect2(state.objects[0].source)==expected,"placed custom sprite retains source aspect and is never forced into a square profile")
 	game.free()
 
 
@@ -374,3 +402,5 @@ func test_runtime_integration_freezes_simulation_and_draws_editor_layers() -> vo
 	expect(renderer.contains("DebugUiKitSystem.draw_panel") and renderer.contains("DebugUiKitSystem.draw_catalog_row") and renderer.contains("DebugUiKitSystem.draw_readout"), "level editor uses the shared carved shell for panel catalog and technical readouts")
 	var preview := Image.load_from_file(ProjectSettings.globalize_path("res://assets/generated/level_drafts/level_editor_ingame_preview.png"))
 	expect(preview != null and preview.get_width()>=1152 and absf(float(preview.get_width())/preview.get_height()-16.0/9.0)<0.01, "level editor keeps a native-or-larger sixteen-by-nine visual reference")
+	var atlas_preview := Image.load_from_file(ProjectSettings.globalize_path("res://assets/generated/level_drafts/level_editor_atlas_picker_preview.png"))
+	expect(atlas_preview != null and atlas_preview.get_size()==Vector2i(1152,648), "visual frame picker keeps a reviewed native sixteen-by-nine reference")
