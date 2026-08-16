@@ -71,8 +71,8 @@ static func deposit(game: Node, kind: String, amount: int = 1) -> bool:
 	for slot in game.equipment:
 		if game.equipment[slot] == kind and game.inventory_item_count(kind) == 0:
 			game.equipment[slot] = ""
-	if game.inventory_item_count(kind) == 0 and ((kind == "bow" and game.equipped_weapon == "bow") or (kind == "crystal_sword" and game.equipped_weapon == "crystal_sword") or (kind == "sword" and game.equipped_weapon == "forest_sword")):
-		game.equipped_weapon = "hand"
+	if game.inventory_item_count(kind) == 0 and game.WeaponSystem.item_kind(game.equipped_weapon) == kind:
+		game.equipped_weapon = "none"; game.equipment.hands = ""; game.sword_equipped = false
 	game.InventorySystem.recalculate_stats(game)
 	game.message = game.LocaleSystem.text("chest_deposited", [game.inventory_item_name(kind), amount])
 	game.notify_tutorial("chest_deposit")

@@ -1,17 +1,27 @@
 extends RefCounted
 
 const MAX_UPGRADE_LEVEL := 3
+const VISIBLE_ROWS := 9
 const UPGRADES := [
 	{"kind":"sword","group":"weapon","cost":{"metal":2,"stone":1}},
 	{"kind":"crystal_sword","group":"weapon","cost":{"crystal":2,"metal":1}},
 	{"kind":"bow","group":"weapon","cost":{"wood":2,"fiber":2}},
 	{"kind":"arrows","group":"arrows","cost":{"arrows":5,"metal":1}},
 	{"kind":"orc_blade","group":"weapon","cost":{"metal":3,"bones":1}},
+	{"kind":"pirate_cutlass","group":"weapon","cost":{"metal":3,"pirate_doubloon":2}},
+	{"kind":"iron_spear","group":"weapon","cost":{"metal":3,"wood":1}},
+	{"kind":"war_hammer","group":"weapon","cost":{"metal":4,"stone":2}},
+	{"kind":"moon_staff","group":"weapon","cost":{"crystal":3,"metal":1}},
 	{"kind":"iron_helmet","group":"armor","cost":{"metal":2,"stone":1}},
 	{"kind":"guardian_armor","group":"armor","cost":{"metal":4,"crystal":1}},
 	{"kind":"oak_shield","group":"armor","cost":{"wood":3,"metal":1}},
 	{"kind":"travel_boots","group":"armor","cost":{"hide":2,"metal":1}},
 ]
+
+
+## Возвращает первую видимую строку так, чтобы выбранное улучшение не уходило за рамку кузницы.
+static func visible_start(selected: int) -> int:
+	return clampi(selected - VISIBLE_ROWS + 1, 0, maxi(0, UPGRADES.size() - VISIBLE_ROWS))
 
 
 ## Возвращает текущий уровень улучшения предмета.
@@ -87,7 +97,12 @@ static func weapon_damage_bonus(game: Node, equipped_weapon: String) -> int:
 		"forest_sword": return level(game, "sword")
 		"crystal_sword": return level(game, "crystal_sword") * 2
 		"bow": return level(game, "bow") + level(game, "arrows")
-	return level(game, "orc_blade") if game.equipment.get("hands", "") == "orc_blade" else 0
+		"iron_spear": return level(game, "iron_spear")
+		"war_hammer": return level(game, "war_hammer") * 2
+		"moon_staff": return level(game, "moon_staff") * 2
+		"orc_blade": return level(game, "orc_blade")
+		"pirate_cutlass": return level(game, "pirate_cutlass")
+	return 0
 
 
 ## Возвращает снижение входящего урона от улучшенной надетой брони.

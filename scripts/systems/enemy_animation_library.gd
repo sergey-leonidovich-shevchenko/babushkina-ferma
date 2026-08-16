@@ -128,13 +128,16 @@ static func draw_action_effect(game: Node2D, enemy: Dictionary, progress: float)
 
 ## Рисует полное состояние врага: ходьбу, боевое действие, получение урона или смерть.
 static func draw_enemy(game: Node2D, enemy: Dictionary, state: String, attack_duration: float) -> void:
+	var visual_enemy := enemy.duplicate()
 	var modulate := Color.WHITE
-	if state == "hurt": modulate = Color(1.0, 0.48, 0.48)
+	if state == "hurt":
+		modulate = Color(1.0, 0.48, 0.48)
+		visual_enemy.position = enemy.position + Vector2(enemy.get("hurt_direction", Vector2.ZERO)) * sin(float(enemy.get("visual_time", 0.0)) / 0.32 * PI) * 12.0
 	elif state == "death": modulate.a = clampf(1.15 - float(enemy.get("visual_time", 0.0)), 0.0, 1.0)
 	if state == "attack":
 		var progress := clampf(float(enemy.get("visual_time", 0.0)) / attack_duration, 0.0, 1.0)
 		var frame_index := action_frame(progress)
-		draw_actor(game, enemy, action_texture(enemy.kind), body_action_frame(enemy.kind, frame_index), modulate)
-		draw_action_effect(game, enemy, progress)
+		draw_actor(game, visual_enemy, action_texture(enemy.kind), body_action_frame(enemy.kind, frame_index), modulate)
+		draw_action_effect(game, visual_enemy, progress)
 		return
-	draw_actor(game, enemy, walk_texture(enemy.kind), walk_frame(float(enemy.get("visual_time", 0.0)), bool(enemy.get("moving", false))), modulate)
+	draw_actor(game, visual_enemy, walk_texture(enemy.kind), walk_frame(float(enemy.get("visual_time", 0.0)), bool(enemy.get("moving", false))), modulate)

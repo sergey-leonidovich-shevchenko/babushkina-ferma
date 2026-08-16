@@ -195,6 +195,7 @@ func test_story_and_side_mission_chains() -> void:
 	game.player = game.enemy_nodes[4].position
 	for _hit in 12:
 		game.attack_nearest_enemy()
+		game.AnimationSystem.update(game, 1.1)
 	expect(not game.enemy_nodes[4].alive, "cave guardian can be defeated for story mission")
 	var relic_drop := -1
 	for index in game.dropped_items.size():
@@ -326,6 +327,7 @@ func test_wildlife_combat_loot_animation_and_save() -> void:
 	game.player = game.wildlife_nodes[6].position
 	expect(game.nearest_interaction().is_empty(), "bat has no dialogue interaction")
 	game.attack_nearest_enemy()
+	game.AnimationSystem.update(game, 1.1)
 	game.attack_nearest_enemy()
 	expect(not game.wildlife_nodes[6].alive, "cave bat can be hunted")
 	var wing_index := -1

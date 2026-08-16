@@ -254,7 +254,8 @@ static func handle_forge_input(game: Node, event: InputEvent) -> void:
 ## Обрабатывает касание строки кузницы как выбор и подтверждение улучшения.
 static func handle_forge_touch(game: Node, position: Vector2) -> bool:
 	if game.InterfaceRenderer.FORGE_ROWS.has_point(position):
-		game.forge_selected = clampi(int((position.y - game.InterfaceRenderer.FORGE_ROWS.position.y) / 44.0), 0, game.ForgeSystem.UPGRADES.size() - 1)
+		var visible_index := int((position.y - game.InterfaceRenderer.FORGE_ROWS.position.y) / 44.0)
+		game.forge_selected = clampi(game.ForgeSystem.visible_start(game.forge_selected) + visible_index, 0, game.ForgeSystem.UPGRADES.size() - 1)
 		game.ForgeSystem.upgrade(game, game.forge_selected)
 	game.queue_redraw()
 	return true

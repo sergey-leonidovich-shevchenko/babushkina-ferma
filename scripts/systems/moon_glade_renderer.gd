@@ -25,8 +25,13 @@ static func draw(game: Node2D) -> void:
 ## Рисует Стража с пульсацией и полосой здоровья.
 static func draw_guardian(game: Node2D, state: Dictionary) -> void:
 	var position: Vector2 = game.MoonGladeSystem.GUARDIAN_POSITION
+	if float(state.guardian_hurt_timer) > 0.0: position += Vector2.RIGHT * sin(float(state.guardian_hurt_timer) / 0.32 * PI) * 13.0
 	var pulse := 1.0 + sin(game.walk_animation_time * 4.5) * 0.04
-	game.EnvironmentVisualSystem.draw(game,"moon_guardian",position,Color("eadfff"),pulse)
+	if float(state.guardian_windup) > 0.0:
+		var windup_progress := 1.0 - float(state.guardian_windup) / 0.48
+		game.draw_circle(game.MoonGladeSystem.GUARDIAN_POSITION, game.MoonGladeSystem.GUARDIAN_ATTACK_RANGE, Color(0.42, 0.92, 1.0, 0.16 + windup_progress * 0.22), false, 5.0)
+		pulse += windup_progress * 0.12
+	game.EnvironmentVisualSystem.draw(game,"moon_guardian",position,Color("ff7676") if float(state.guardian_hurt_timer) > 0.0 else Color("eadfff"),pulse)
 	var visual:Rect2=game.EnvironmentVisualSystem.visual_rect("moon_guardian",position,pulse); var bar:=Rect2(Vector2(position.x-52,visual.position.y-14),Vector2(104,9))
 	game.draw_rect(bar, Color("251d38")); game.draw_rect(bar.grow(-2), Color("9d58ce"))
 	game.draw_rect(Rect2(bar.position + Vector2(2, 2), Vector2((bar.size.x - 4) * float(state.guardian_hp) / game.MoonGladeSystem.GUARDIAN_MAX_HP, bar.size.y - 4)), Color("7cf2e8"))

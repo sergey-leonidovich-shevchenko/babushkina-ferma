@@ -11,7 +11,7 @@ const BOSS_MAX_HP := 36
 
 ## Создаёт сохранённое состояние сюжетного акта, расследования и финального выбора.
 static func default_state() -> Dictionary:
-	return {"stage":0,"clues":[false,false,false],"boss_alive":false,"boss_defeated":false,"boss_hp":BOSS_MAX_HP,"boss_phase":1,"boss_timer":0.0,"telegraph":0.0,"choice":"","completed":false}
+	return {"stage":0,"clues":[false,false,false],"boss_alive":false,"boss_defeated":false,"boss_hp":BOSS_MAX_HP,"boss_phase":1,"boss_timer":0.0,"telegraph":0.0,"boss_hurt_timer":0.0,"choice":"","completed":false}
 
 
 ## Нормализует данные кампании из новых и старых сохранений.
@@ -105,6 +105,7 @@ static func interact(game: Node, interaction: String) -> bool:
 static func update(game: Node, delta: float) -> void:
 	var state: Dictionary = game.state.world.castle_campaign
 	if not state.boss_alive or game.current_location != "castle_dungeon": return
+	state.boss_hurt_timer = maxf(float(state.boss_hurt_timer) - delta, 0.0)
 	state.boss_timer = maxf(float(state.boss_timer) - delta, 0.0)
 	state.telegraph = maxf(float(state.telegraph) - delta, 0.0)
 	if state.boss_timer > 0.0: return
@@ -123,13 +124,14 @@ static func update(game: Node, delta: float) -> void:
 static func attack_boss(game: Node) -> bool:
 	var state: Dictionary = game.state.world.castle_campaign
 	if not state.boss_alive or game.current_location != "castle_dungeon": return false
-	var attack_range := 280.0 if game.equipped_weapon == "bow" else 112.0
+	var attack_range: float = game.WeaponSystem.range_of(game.equipped_weapon)
 	if game.player.distance_to(BOSS_POSITION) > attack_range: return false
 	game.PotionSystem.break_invisibility(game)
 	var damage: int = game.CombatSystem.player_attack_damage(game)
 	state.boss_hp = maxi(0, int(state.boss_hp) - damage)
+	state.boss_hurt_timer = 0.32
 	state.boss_phase = 3 if state.boss_hp <= 12 else (2 if state.boss_hp <= 24 else 1)
-	game.AnimationSystem.begin_player_attack(game); game.play_sfx("hit")
+	game.AnimationSystem.begin_player_attack(game); game.FarmLifeSystem.register_player_attack(game, BOSS_POSITION, false); game.play_sfx("hit")
 	game.message = game.LocaleSystem.text("castle_boss_hit", [damage, state.boss_phase])
 	if state.boss_hp <= 0:
 		state.boss_alive = false; state.boss_defeated = true; state.stage = 4

@@ -232,6 +232,8 @@ func test_new_pixel_items_watermelon_shield_potion_and_lizard() -> void:
 	game.player_hp = 100
 	game.slime_attack_timer = 1.49
 	game.update_combat(0.02)
+	expect(game.player_hp == 100 and game.slime_attack_pending, "slime begins a readable attack before contact")
+	game.update_combat(0.29)
 	expect(game.player_hp == 85, "oak shield reduces an actual slime hit from twenty to fifteen damage")
 	var watermelon_index: int = game.food_nodes.find_custom(func(node): return node.kind == "watermelon" and node.location == "overworld")
 	game.player = game.food_nodes[watermelon_index].position

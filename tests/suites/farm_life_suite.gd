@@ -76,7 +76,7 @@ func test_birthdays_hearts_and_discount() -> void:
 func test_combat_vulnerability_and_projectile() -> void:
 	var game:=make_game(); game.current_location="forest"; game.player=Vector2(400,400); game.equipped_weapon="bow"; game.enemy_nodes=game.CombatSystem.default_enemies().slice(0,1); game.enemy_nodes[0].location="forest"; game.enemy_nodes[0].position=Vector2(450,400); var hp:int=game.enemy_nodes[0].hp
 	var expected_damage:=roundi(game.CombatSystem.player_attack_damage(game)*game.FarmLifeSystem.vulnerability("plant","bow")); expect(game.CombatSystem.attack(game,0) and game.enemy_nodes[0].hp==hp-expected_damage,"weapon vulnerability multiplies combat damage")
-	var value: Dictionary=game.FarmLifeSystem.state(game); expect(value.projectiles.size()==1 and value.projectiles[0].kind=="arrow" and value.hit_stop>0.0,"combat hit registers visible projectile and short hit stop")
+	var value: Dictionary=game.FarmLifeSystem.state(game); expect(value.projectiles.size()==1 and value.projectiles[0].kind=="bow" and value.hit_stop>0.0,"combat hit registers visible projectile and short hit stop")
 	game.free()
 
 

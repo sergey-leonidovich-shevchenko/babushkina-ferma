@@ -18,6 +18,7 @@ static func default_state(completed_runs: int = 0) -> Dictionary:
 		"echoes": [false, false, false], "altar_activated": false,
 		"guardian_alive": false, "guardian_defeated": false,
 		"guardian_hp": GUARDIAN_MAX_HP, "guardian_attack_timer": 0.0,
+		"guardian_windup": 0.0, "guardian_hurt_timer": 0.0,
 		"chest_opened": false, "completed_runs": maxi(completed_runs, 0),
 	}
 
@@ -110,10 +111,18 @@ static func update(game: Node, delta: float) -> void:
 	if game.current_location != "moon_glade": return
 	var state: Dictionary = game.state.world.moon_glade
 	if not state.guardian_alive or game.invisibility_timer > 0.0: return
+	state.guardian_hurt_timer = maxf(float(state.guardian_hurt_timer) - delta, 0.0)
+	if float(state.guardian_windup) > 0.0:
+		state.guardian_windup = maxf(float(state.guardian_windup) - delta, 0.0)
+		if state.guardian_windup <= 0.0:
+			if game.player.distance_to(GUARDIAN_POSITION) <= GUARDIAN_ATTACK_RANGE * 1.18:
+				game.CombatSystem.damage_player(game, 22, game.LocaleSystem.entity("eclipse_guardian"), GUARDIAN_POSITION)
+			state.guardian_attack_timer = GUARDIAN_ATTACK_INTERVAL
+		return
 	state.guardian_attack_timer = maxf(float(state.guardian_attack_timer) - delta, 0.0)
 	if game.player.distance_to(GUARDIAN_POSITION) <= GUARDIAN_ATTACK_RANGE and state.guardian_attack_timer <= 0.0:
-		state.guardian_attack_timer = GUARDIAN_ATTACK_INTERVAL
-		game.CombatSystem.damage_player(game, 22, game.LocaleSystem.entity("eclipse_guardian"))
+		state.guardian_windup = 0.48
+		game.notify_tutorial("enemy_attack_styles")
 
 
 ## Наносит Стражу урон выбранным оружием и открывает сундук после победы.
@@ -121,12 +130,13 @@ static func attack_guardian(game: Node) -> bool:
 	if game.current_location != "moon_glade": return false
 	var state: Dictionary = game.state.world.moon_glade
 	if not state.guardian_alive: return false
-	var attack_range := 280.0 if game.equipped_weapon == "bow" else 105.0
+	var attack_range: float = game.WeaponSystem.range_of(game.equipped_weapon)
 	if game.player.distance_to(GUARDIAN_POSITION) > attack_range: return false
 	game.PotionSystem.break_invisibility(game)
 	var damage: int = game.CombatSystem.player_attack_damage(game)
 	state.guardian_hp = maxi(0, int(state.guardian_hp) - damage)
-	game.AnimationSystem.begin_player_attack(game); game.play_sfx("attack")
+	state.guardian_hurt_timer = 0.32
+	game.AnimationSystem.begin_player_attack(game); game.FarmLifeSystem.register_player_attack(game, GUARDIAN_POSITION, false); game.play_sfx("attack")
 	if state.guardian_hp <= 0:
 		state.guardian_alive = false; state.guardian_defeated = true
 		game.award_xp(70, game.LocaleSystem.entity("eclipse_guardian")); game.SkillSystem.award_profession_xp(game, "combat", 35)

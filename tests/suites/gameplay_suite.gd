@@ -228,7 +228,7 @@ func test_enemy_families_loot_tables_and_world_route() -> void:
 	expect(game.CombatSystem.TYPES.has("plant") and game.CombatSystem.TYPES.has("orc") and game.CombatSystem.TYPES.has("skeleton") and game.CombatSystem.TYPES.has("undead"), "combat system defines all enemy families")
 	game.current_location = "forest"
 	game.player = game.enemy_nodes[0].position
-	for _hit in 5: game.attack_nearest_enemy()
+	for _hit in 5: game.attack_nearest_enemy(); game.AnimationSystem.update(game, 1.1)
 	expect(not game.enemy_nodes[0].alive and game.dropped_items.size() == 2, "predatory plant uses its configured loot table")
 	game.player = game.dropped_items[0].position
 	game.collect_dropped_item(0)
@@ -270,6 +270,7 @@ func test_colored_crystals_and_orc_equipment_loot() -> void:
 	game.player = game.enemy_nodes[1].position
 	for _hit in 8:
 		game.attack_nearest_enemy()
+		game.AnimationSystem.update(game, 1.1)
 	expect(not game.enemy_nodes[1].alive, "orc can drop its configured equipment loot")
 	var found_blade := false
 	for item in game.dropped_items:

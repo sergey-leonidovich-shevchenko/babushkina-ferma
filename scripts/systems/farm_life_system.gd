@@ -124,13 +124,17 @@ static func birthday_npc(game: Node) -> String:
 
 ## Регистрирует видимый снаряд и короткий hit-stop для оружия героя.
 static func register_player_attack(game: Node, target: Vector2, critical: bool) -> void:
-	var value := state(game); value.projectiles.append({"from":game.player,"to":target,"progress":0.0,"kind":"arrow" if game.equipped_weapon=="bow" else "slash"}); value.hit_stop = 0.07 if critical else 0.035
+	var value := state(game)
+	var weapon_class: String = game.WeaponSystem.weapon_class(game.equipped_weapon)
+	value.projectiles.append({"from":game.player,"to":target,"progress":0.0,"kind":weapon_class})
+	value.hit_stop = 0.07 if critical else 0.035
 
 ## Возвращает уязвимость семейства врага к выбранному типу оружия.
 static func vulnerability(kind: String, weapon: String) -> float:
-	if kind in ["plant","sea_ghost"] and weapon == "bow": return 1.5
-	if kind in ["skeleton","cave_guardian"] and weapon == "crystal_sword": return 1.5
+	if kind in ["plant","sea_ghost"] and weapon in ["bow", "axe"]: return 1.5
+	if kind in ["skeleton","cave_guardian"] and weapon in ["crystal_sword", "war_hammer", "moon_staff"]: return 1.5
 	if kind in ["orc","pirate","zombie_pirate"] and weapon in ["forest_sword","pirate_cutlass"]: return 1.25
+	if kind in ["orc", "undead"] and weapon == "iron_spear": return 1.25
 	return 1.0
 
 ## Завершает день: обновляет цепочку, запускает кат-сцену и выполняет автосохранение активного слота.

@@ -133,7 +133,7 @@ func test_player_attack_and_slime_reaction() -> void:
 	var game := make_game()
 	game.player = game.slime_position
 	expect(game.attack_slime(), "slime accepts a close combat hit")
-	expect(game.player_attack_timer == game.AnimationSystem.PLAYER_ATTACK_DURATION, "combat starts the player attack animation immediately")
+	expect(game.player_attack_timer == game.WeaponSystem.attack_duration(game), "combat starts the selected weapon timeline immediately")
 	expect(game.slime_visual_state == "hurt", "surviving slime enters hurt animation")
 	game.AnimationSystem.update(game, game.AnimationSystem.HURT_DURATION + 0.01)
 	expect(game.slime_visual_state == "idle", "slime returns to idle after hurt animation")

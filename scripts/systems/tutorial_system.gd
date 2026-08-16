@@ -3,7 +3,7 @@ extends RefCounted
 const STEP_IDS := [
 	"move", "village_paths", "audio_feedback", "character_animation", "npc_wander", "npc_schedule", "forage_harvest", "forage_regrow", "forage_sale", "orchard_trees", "orchard_planting",
 	"talk", "hold_action", "free_farming", "wide_tilling", "buried_loot", "plant", "water", "rewater", "harvest", "shop", "trade", "seed_catalog", "crop_variety", "perennial_crop",
-	"quest_complete", "fight", "combat_animation", "combat_dodge", "combat_block", "critical_hit", "magic_cycle", "magic_cast", "loot", "inventory", "inventory_filters", "hotbar", "eat", "equipment", "mine", "tree_chop", "tree_fall", "tree_regrow", "lumber_process",
+	"quest_complete", "fight", "combat_animation", "weapon_cooldown", "combat_hit_reaction", "combat_dodge", "combat_block", "critical_hit", "magic_cycle", "magic_cast", "loot", "inventory", "inventory_filters", "hotbar", "eat", "equipment", "mine", "tree_chop", "tree_fall", "tree_regrow", "lumber_process",
 	"fish_cast", "fish_hook", "fish_control", "fish", "advanced_fishing", "crab_trap_place", "crab_trap_collect", "craft_window", "cooking", "equip", "collision", "travel", "locations", "mission_accept", "story_chain", "side_quests",
 	"mission_complete", "journal", "side_mission", "colored_crystal", "day", "chapter_bridge", "chapter_guardian", "chapter_reward", "level_up",
 	"skill_point", "talent_tree", "talent_respec", "profession", "pause_menu", "settings", "save", "wildlife", "wildlife_behavior", "world_loot", "watermelon", "potion",

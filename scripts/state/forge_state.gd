@@ -1,7 +1,8 @@
 extends RefCounted
 
 const DEFAULT_UPGRADES := {
-	"sword":0, "crystal_sword":0, "bow":0, "arrows":0, "orc_blade":0,
+	"sword":0, "crystal_sword":0, "bow":0, "arrows":0, "orc_blade":0, "pirate_cutlass":0,
+	"iron_spear":0, "war_hammer":0, "moon_staff":0,
 	"iron_helmet":0, "guardian_armor":0, "oak_shield":0, "travel_boots":0,
 }
 

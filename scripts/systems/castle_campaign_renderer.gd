@@ -29,8 +29,10 @@ static func draw_marker(game: Node2D, position: Vector2, color: Color, label: St
 ## Рисует силуэт босса, радиус телеграфа и полосу текущей фазы.
 static func draw_boss(game: Node2D, state: Dictionary) -> void:
 	var position: Vector2 = game.CastleCampaignSystem.BOSS_POSITION
+	if float(state.boss_hurt_timer) > 0.0: position += Vector2.RIGHT * sin(float(state.boss_hurt_timer) / 0.32 * PI) * 12.0
 	var phase: int = int(state.boss_phase)
 	var color: Color = [Color("785397"), Color("a6508e"), Color("d25267")][phase - 1]
+	if float(state.boss_hurt_timer) > 0.0: color = Color("ff6f72")
 	if state.telegraph > 0.0:
 		game.draw_circle(position, 125.0 + phase * 24.0, Color(color, 0.16), false, 6.0)
 	game.draw_circle(position - Vector2(0, 38), 34, color)

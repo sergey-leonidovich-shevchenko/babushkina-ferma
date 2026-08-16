@@ -579,15 +579,13 @@ func handle_skill_menu_input(event: InputEvent) -> void:
 
 ## Выполняет операцию «атаки слизня» и возвращает результат согласно контракту метода.
 func attack_slime() -> bool:
-	var attack_range := 280.0 if equipped_weapon == "bow" else 105.0
+	var attack_range := WeaponSystem.range_of(equipped_weapon)
 	if not slime_alive or player.distance_to(slime_position) > attack_range:
 		message = LocaleSystem.text("no_enemy")
 		return false
 	PotionSystem.break_invisibility(self)
 	var damage := 1 + (1 if strength_timer > 0.0 else 0) + InventorySystem.damage_bonus(self)
-	if equipped_weapon == "forest_sword": damage = 2
-	elif equipped_weapon == "crystal_sword": damage = 3
-	elif equipped_weapon == "bow": damage = 2
+	damage += WeaponSystem.damage_bonus(equipped_weapon)
 	slime_hp -= damage
 	AnimationSystem.begin_player_attack(self)
 	AnimationSystem.hit_slime(self, slime_hp <= 0)
@@ -606,7 +604,9 @@ func attack_slime() -> bool:
 
 ## Выполняет операцию «атаки ближайшего врага» и возвращает результат согласно контракту метода.
 func attack_nearest_enemy() -> bool:
-	if equipped_weapon != "none" and not AdventurePolishSystem.can_use(self, "sword" if equipped_weapon == "forest_sword" else equipped_weapon): return false
+	if not WeaponSystem.can_start_attack(self):
+		if player_attack_cooldown > 0.0: message = "Оружие восстанавливается: %.1f с" % player_attack_cooldown
+		return false
 	var sfx_before := audio_sfx_count
 	if MoonGladeSystem.attack_guardian(self):
 		AdventurePolishSystem.consume_durability(self, "weapon")
@@ -637,14 +637,20 @@ func attack_nearest_enemy() -> bool:
 func update_combat(delta: float) -> void:
 	CombatSystem.update(self, delta)
 	EnvironmentHazardSystem.update(self, delta)
+	if slime_attack_pending:
+		slime_attack_impact_timer = maxf(slime_attack_impact_timer - delta, 0.0)
+		if slime_attack_impact_timer <= 0.0:
+			slime_attack_pending = false
+			CombatSystem.damage_player(self, 20, LocaleSystem.entity("slime"), slime_position)
 	if not slime_alive or invisibility_timer > 0.0 or player.distance_to(slime_position) > 72.0:
 		slime_attack_timer = 0.0
 		return
 	slime_attack_timer += delta
-	if slime_attack_timer >= 1.5:
+	if slime_attack_timer >= 1.5 and not slime_attack_pending:
 		slime_attack_timer = 0.0
 		AnimationSystem.begin_slime_attack(self)
-		CombatSystem.damage_player(self, 20, LocaleSystem.entity("slime"))
+		slime_attack_pending = true
+		slime_attack_impact_timer = 0.28
 
 ## Выполняет заявленное игровое действие после проверки условий, затрат и наград.
 func collect_loot() -> bool:
@@ -681,18 +687,13 @@ func craft_sword() -> bool:
 
 ## Выполняет заявленный переход режима и обновляет связанный интерфейс.
 func toggle_sword() -> bool:
-	var weapons := ["none"]
-	if sword_crafted: weapons.append("forest_sword")
-	if has_bow: weapons.append("bow")
-	if has_crystal_sword: weapons.append("crystal_sword")
+	var weapons := WeaponSystem.available(self)
 	if weapons.size() == 1:
 		message = "Оружия пока нет"
 		return false
-	var current_index := weapons.find(equipped_weapon)
-	equipped_weapon = weapons[(current_index + 1) % weapons.size()]
-	sword_equipped = equipped_weapon == "forest_sword" or equipped_weapon == "crystal_sword"
-	var weapon_names := {"none": "кулаки", "forest_sword": "лесной меч", "bow": "охотничий лук", "crystal_sword": "кристальный меч"}
-	message = "Оружие: %s" % weapon_names[equipped_weapon]
+	WeaponSystem.cycle(self)
+	var item := WeaponSystem.item_kind(equipped_weapon)
+	message = "Оружие: %s" % ("кулаки" if item.is_empty() else inventory_item_name(item))
 	notify_tutorial("equip")
 	return true
 

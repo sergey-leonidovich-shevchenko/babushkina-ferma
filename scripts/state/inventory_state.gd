@@ -1,6 +1,6 @@
 extends RefCounted
 
-const DEFAULT_SLOTS := ["seeds", "carrot", "pickaxe", "fishing_rod", "slime", "wood", "stone", "crystal", "fish", "sword", "bow", "crystal_sword", "apple", "berries", "nut", "mushroom", "iron_helmet", "guardian_armor", "travel_boots", "crystal_ring", "orange", "orc_blade", "red_crystal", "green_crystal", "raw_meat", "hide", "fur", "tusk", "bat_wing", "watermelon", "healing_potion", "mana_potion", "energy_potion", "invisibility_potion", "strength_potion", "regeneration_potion", "speed_potion", "defense_potion", "oak_shield", "lizard_scale", "arrows", "home_chest", "guild_badge", "axe", "pirate_doubloon", "ectoplasm", "cursed_compass", "pirate_cutlass", "eclipse_core", "fence_kit", "gate_kit", "tomato", "cabbage", "egg", "milk", "wheat", "corn", "potato", "onion", "cheese", "rope", "cotton", "flower", "honey", "bread", "pie", "pumpkin", "flour", "butter", "jam", "soup", "omelet", "cornbread", "wool", "bouquet", "rustic_table", "wooden_chair", "woven_rug", "potted_fern", "wooden_wardrobe", "museum_token", "pear", "cherry", "plum", "tomato_seeds", "cabbage_seeds", "wheat_seeds", "corn_seeds", "potato_seeds", "onion_seeds", "pumpkin_seeds", "strawberry_seeds", "beet_seeds", "pepper_seeds", "cucumber_seeds", "sunflower_seeds", "cotton_seeds", "melon_seeds", "herb_seeds", "strawberry", "beet", "pepper", "cucumber", "sunflower", "melon", "herbs", "advanced_fishing_rod", "crab_trap", "cauldron", "fruit_sapling", "crab", "log", "plank", "nails"]
+const DEFAULT_SLOTS := ["seeds", "carrot", "pickaxe", "fishing_rod", "slime", "wood", "stone", "crystal", "fish", "sword", "bow", "crystal_sword", "apple", "berries", "nut", "mushroom", "iron_helmet", "guardian_armor", "travel_boots", "crystal_ring", "orange", "orc_blade", "red_crystal", "green_crystal", "raw_meat", "hide", "fur", "tusk", "bat_wing", "watermelon", "healing_potion", "mana_potion", "energy_potion", "invisibility_potion", "strength_potion", "regeneration_potion", "speed_potion", "defense_potion", "oak_shield", "lizard_scale", "arrows", "home_chest", "guild_badge", "axe", "pirate_doubloon", "ectoplasm", "cursed_compass", "pirate_cutlass", "eclipse_core", "fence_kit", "gate_kit", "tomato", "cabbage", "egg", "milk", "wheat", "corn", "potato", "onion", "cheese", "rope", "cotton", "flower", "honey", "bread", "pie", "pumpkin", "flour", "butter", "jam", "soup", "omelet", "cornbread", "wool", "bouquet", "rustic_table", "wooden_chair", "woven_rug", "potted_fern", "wooden_wardrobe", "museum_token", "pear", "cherry", "plum", "tomato_seeds", "cabbage_seeds", "wheat_seeds", "corn_seeds", "potato_seeds", "onion_seeds", "pumpkin_seeds", "strawberry_seeds", "beet_seeds", "pepper_seeds", "cucumber_seeds", "sunflower_seeds", "cotton_seeds", "melon_seeds", "herb_seeds", "strawberry", "beet", "pepper", "cucumber", "sunflower", "melon", "herbs", "advanced_fishing_rod", "crab_trap", "cauldron", "fruit_sapling", "crab", "log", "plank", "nails", "iron_spear", "war_hammer", "moon_staff"]
 const DEFAULT_HOTBAR := ["hoe", "seeds", "water", "hand", "pickaxe", "fishing_rod", "axe", "apple", "berries", "mushroom"]
 const DEFAULT_EQUIPMENT := {"head": "", "body": "", "legs": "", "hands": "", "offhand": "", "ring": ""}
 const INITIAL_COUNTS := {
@@ -28,6 +28,7 @@ const INITIAL_COUNTS := {
 	"strawberry":0,"beet":0,"pepper":0,"cucumber":0,"sunflower":0,"melon":0,"herbs":0,
 	"fence_kit":0,"gate_kit":0,
 	"advanced_fishing_rod":0,"crab_trap":0,"cauldron":0,"fruit_sapling":0,"crab":0,
+	"iron_spear":0,"war_hammer":0,"moon_staff":0,
 }
 
 var counts: Dictionary = INITIAL_COUNTS.duplicate(true)
@@ -38,7 +39,7 @@ var selected_slot: int = 0
 var selected_hotbar: int = 0
 var scroll_row: int = 0
 var backpack_level: int = 0
-var durability: Dictionary = {"hoe":100,"water":100,"pickaxe":100,"fishing_rod":100,"axe":100,"sword":100,"bow":100,"crystal_sword":100,"orc_blade":100}
+var durability: Dictionary = {"hoe":100,"water":100,"pickaxe":100,"fishing_rod":100,"axe":100,"sword":100,"bow":100,"crystal_sword":100,"orc_blade":100,"pirate_cutlass":100,"iron_spear":100,"war_hammer":100,"moon_staff":100}
 
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.

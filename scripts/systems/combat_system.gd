@@ -65,6 +65,8 @@ static func default_enemies() -> Array:
 		enemy.direction = Vector2.DOWN
 		enemy.moving = false
 		enemy.attack_timer = 0.0
+		enemy.attack_pending = false
+		enemy.impact_timer = 0.0
 		enemy.visual_state = "idle"
 		enemy.visual_time = 0.0
 		enemy.action_kind = enemy_action_kind(enemy.kind)
@@ -110,7 +112,7 @@ static func loot_multiplier(level: int) -> int:
 ## Находит ближайшего живого противника в радиусе выбранного оружия.
 static func nearest(game: Node) -> int:
 	var result := -1
-	var distance_limit := 280.0 if game.equipped_weapon == "bow" else 105.0
+	var distance_limit: float = game.WeaponSystem.range_of(game.equipped_weapon)
 	var locked := int(game.state.player.adventure_ui.get("target_enemy", -1))
 	if locked >= 0 and locked < game.enemy_nodes.size():
 		var target: Dictionary = game.enemy_nodes[locked]
@@ -139,6 +141,13 @@ static func update(game: Node, delta: float) -> void:
 			game.enemy_nodes[index] = enemy
 			continue
 		var data: Dictionary = TYPES[enemy.kind]
+		if bool(enemy.get("attack_pending", false)):
+			enemy.impact_timer = maxf(float(enemy.get("impact_timer", 0.0)) - delta, 0.0)
+			if enemy.impact_timer <= 0.0:
+				enemy.attack_pending = false
+				if enemy.position.distance_to(game.player) <= float(data.range) * 1.35:
+					damage_player(game, boss_attack_damage(enemy), LocaleSystem.entity(enemy.kind), enemy.position)
+					apply_boss_side_effect(game, enemy)
 		enemy.boss_phase = boss_phase(enemy)
 		var distance: float = enemy.position.distance_to(game.player)
 		enemy.moving = false
@@ -153,16 +162,22 @@ static func update(game: Node, delta: float) -> void:
 				game.notify_tutorial("enemy_movement")
 		distance = enemy.position.distance_to(game.player)
 		enemy.attack_timer = maxf(float(enemy.get("attack_timer", 0.0)) - delta, 0.0)
-		if distance <= float(data.range) and enemy.attack_timer <= 0.0:
+		if distance <= float(data.range) and enemy.attack_timer <= 0.0 and not bool(enemy.get("attack_pending", false)):
 			enemy.attack_timer = maxf(0.75, 1.65 - float(enemy.level) * 0.09)
 			enemy.direction = enemy.position.direction_to(game.player)
 			enemy.visual_state = "attack"
 			enemy.visual_time = 0.0
 			enemy.action_kind = enemy_action_kind(enemy.kind)
 			enemy.action_target = game.player
+			enemy.attack_pending = true
+			enemy.impact_timer = attack_impact_delay(enemy.action_kind)
 			game.notify_tutorial("enemy_attack_styles")
-			damage_player(game, boss_attack_damage(enemy), LocaleSystem.entity(enemy.kind)); apply_boss_side_effect(game, enemy)
 		game.enemy_nodes[index] = enemy
+
+
+## Возвращает момент контакта внутри анимации для ближней, дальней и тяжёлой атаки.
+static func attack_impact_delay(action_kind: String) -> float:
+	return {"melee":0.24, "shoot":0.38, "cast":0.42, "slam":0.46}.get(action_kind, 0.28)
 
 
 ## Возвращает особую фазу уникального босса либо ноль для обычного противника.
@@ -190,7 +205,7 @@ static func attack(game: Node, index: int) -> bool:
 	if index < 0 or index >= game.enemy_nodes.size(): return false
 	var enemy: Dictionary = game.enemy_nodes[index]
 	if not enemy.alive or enemy.location != game.current_location: return false
-	var attack_range := 280.0 if game.equipped_weapon == "bow" else 105.0
+	var attack_range: float = game.WeaponSystem.range_of(game.equipped_weapon)
 	if game.player.distance_to(enemy.position) > attack_range: return false
 	game.PotionSystem.break_invisibility(game)
 	var damage: int = roundi(player_attack_damage(game) * game.FarmLifeSystem.vulnerability(enemy.kind,game.equipped_weapon))
@@ -208,9 +223,7 @@ static func attack(game: Node, index: int) -> bool:
 ## Рассчитывает единый урон героя для обычных врагов и событийных боссов.
 static func player_attack_damage(game: Node) -> int:
 	var damage: int = 1 + (1 if game.strength_timer > 0 else 0) + game.InventorySystem.damage_bonus(game) + game.TalentSystem.combat_damage_bonus(game)
-	if game.equipped_weapon == "forest_sword": damage += 1
-	elif game.equipped_weapon == "crystal_sword": damage += 2
-	elif game.equipped_weapon == "bow": damage += 1
+	damage += game.WeaponSystem.damage_bonus(game.equipped_weapon)
 	var campaign_bonus := 2 if game.state.world.castle_campaign.get("choice", "") == "power" else 0
 	if game.TalentSystem.has(game, "combat_power_strike") and posmod(game.state.player.combat_hits + 1, 4) == 0:
 		damage += 2
@@ -227,6 +240,7 @@ static func apply_damage(game: Node, index: int, damage: int, attacker_name: Str
 	if enemy.level > 1:
 		game.notify_tutorial("enemy_levels")
 	enemy.hp -= damage
+	enemy.hurt_direction = game.player.direction_to(enemy.position)
 	if enemy.hp > 0 and bool(TYPES[enemy.kind].mobile): enemy.position = game.NavigationSystem.move_enemy(game, index, game.player.direction_to(enemy.position) * 22.0)
 	enemy = game.AnimationSystem.hit_enemy(enemy, enemy.hp <= 0)
 	game.play_sfx("defeat" if enemy.hp <= 0 else "hit")
@@ -251,7 +265,7 @@ static func apply_damage(game: Node, index: int, damage: int, attacker_name: Str
 
 
 ## Применяет входящий урон с учётом экипировки, напарников и спасения после поражения.
-static func damage_player(game: Node, raw_damage: int, source_name: String) -> int:
+static func damage_player(game: Node, raw_damage: int, source_name: String, source_position: Vector2 = Vector2.INF) -> int:
 	if game.state.player.dodge_timer > 0.0:
 		game.message = game.LocaleSystem.text("combat_evaded"); return 0
 	var potion_defense := 4 if game.defense_timer > 0.0 else 0
@@ -259,6 +273,7 @@ static func damage_player(game: Node, raw_damage: int, source_name: String) -> i
 	if game.state.player.blocking and game.energy > 0:
 		incoming = maxi(1, ceili(float(incoming) * 0.45)); game.energy -= 1; game.notify_tutorial("combat_block")
 	game.player_hp -= incoming
+	game.WeaponSystem.hit_player(game, game.player - game.facing * 24.0 if not source_position.is_finite() else source_position)
 	game.message = "%s: -%d HP" % [source_name, incoming]
 	if game.player_hp <= 0:
 		var lost_coins := mini(5, game.coins)

@@ -34,7 +34,7 @@ const ITEM_DATA := {
 	"cauldron": {"name":"Походный котелок","short":"Котелок","color":Color("b4642f")},
 	"fruit_sapling": {"name":"Фруктовый саженец","short":"Саженец","color":Color("65a34c")},
 	"crab": {"name":"Речной краб","short":"Краб","color":Color("d95743"),"edible":true},
-	"axe": {"name": "Топор", "short": "Топор", "color": Color("b65f3f"), "tool": 6},
+	"axe": {"name": "Топор", "short": "Топор", "color": Color("b65f3f"), "tool": 6, "equip":"hands"},
 	"carrot": {"name": "Морковь", "short": "Морковь", "color": Color("ee7a32"), "edible": true},
 	"apple": {"name": "Лесное яблоко", "short": "Яблоко", "color": Color("df4b45"), "edible": true},
 	"pear": {"name": "Золотая груша", "short": "Груша", "color": Color("d6bb42"), "edible": true},
@@ -82,10 +82,13 @@ const ITEM_DATA := {
 	"red_crystal": {"name": "Красный кристалл", "short": "Красный", "color": Color("ef5d67")},
 	"green_crystal": {"name": "Зелёный кристалл", "short": "Зелёный", "color": Color("69d17d")},
 	"fish": {"name": "Речная рыба", "short": "Рыба", "color": Color("5aa4d6")},
-	"sword": {"name": "Лесной меч", "short": "Меч", "color": Color("d9e4e6")},
-	"bow": {"name": "Охотничий лук", "short": "Лук", "color": Color("c58a4d")},
+	"sword": {"name": "Лесной меч", "short": "Меч", "color": Color("d9e4e6"), "equip":"hands"},
+	"bow": {"name": "Охотничий лук", "short": "Лук", "color": Color("c58a4d"), "equip":"hands"},
 	"arrows": {"name": "Стрелы", "short": "Стрелы", "color": Color("d9cfad")},
-	"crystal_sword": {"name": "Кристальный меч", "short": "Кр. меч", "color": Color("6ce8ef")},
+	"crystal_sword": {"name": "Кристальный меч", "short": "Кр. меч", "color": Color("6ce8ef"), "equip":"hands"},
+	"iron_spear": {"name":"Железное копьё","short":"Копьё","color":Color("aeb9c5"),"equip":"hands"},
+	"war_hammer": {"name":"Кузнечный молот","short":"Молот","color":Color("65727e"),"equip":"hands"},
+	"moon_staff": {"name":"Лунный посох","short":"Посох","color":Color("62cde5"),"equip":"hands"},
 	"fiber": {"name": "Лесное волокно", "short": "Волокно", "color": Color("85a85a")},
 	"rare_seeds": {"name": "Редкие семена", "short": "Ред. сем.", "color": Color("d4b765")},
 	"metal": {"name": "Металл", "short": "Металл", "color": Color("9ca7ae")},
@@ -307,6 +310,9 @@ static func equip(game: Node, kind: String) -> bool:
 	if not item.has("equip") or game.inventory_item_count(kind) <= 0: return false
 	var slot: String = item.equip
 	game.equipment[slot] = "" if game.equipment.get(slot, "") == kind else kind
+	if slot == "hands":
+		game.equipped_weapon = game.WeaponSystem.weapon_for_item(String(game.equipment[slot]))
+		game.sword_equipped = game.equipped_weapon in ["forest_sword", "crystal_sword"]
 	recalculate_stats(game)
 	game.message = "%s: %s" % [slot, item.name]
 	game.notify_tutorial("equipment")

@@ -17,7 +17,7 @@ const PlayerSystem := preload("res://scripts/systems/player_system.gd")
 const InventorySystem := preload("res://scripts/systems/inventory_system.gd")
 const CraftingSystem := preload("res://scripts/systems/crafting_system.gd")
 const SaveSystem := preload("res://scripts/systems/save_system.gd")
-const CombatSystem := preload("res://scripts/systems/combat_system.gd")
+const CombatSystem := preload("res://scripts/systems/combat_system.gd"); const WeaponSystem := preload("res://scripts/systems/weapon_system.gd")
 const WorldSystem := preload("res://scripts/systems/world_system.gd"); const LocationTransitionSystem := preload("res://scripts/systems/location_transition_system.gd")
 const FarmSystem := preload("res://scripts/systems/farm_system.gd"); const WorldFarmingSystem := preload("res://scripts/systems/world_farming_system.gd")
 const FishingSystem := preload("res://scripts/systems/fishing_system.gd")
@@ -203,6 +203,10 @@ var attack_repeat_timer := 0.0
 const ATTACK_REPEAT_INTERVAL := 0.4
 var walk_animation_time := 0.0
 var player_attack_timer := 0.0
+var player_attack_cooldown := 0.0
+var player_attack_weapon := "none"
+var player_hurt_timer := 0.0
+var player_hurt_direction := Vector2.ZERO
 var character_animation_directions := {}
 var benchmark_autoplay := false
 var benchmark_elapsed := 0.0
@@ -263,6 +267,8 @@ var slime_position := Vector2(1800, 750)
 var slime_hp := 3
 var slime_alive := true
 var slime_attack_timer := 0.0
+var slime_attack_pending := false
+var slime_attack_impact_timer := 0.0
 var slime_visual_state := "idle"
 var slime_visual_time := 0.0
 var loot_available := false

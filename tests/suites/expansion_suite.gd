@@ -54,6 +54,7 @@ func test_shadow_regent_changes_three_combat_phases() -> void:
 	while state.boss_alive:
 		expect(game.attack_nearest_enemy(), "normal attack reaches active shadow regent")
 		phases[int(state.boss_phase)] = true
+		game.AnimationSystem.update(game, 1.1)
 	expect(phases.has(1) and phases.has(2) and phases.has(3), "shadow regent exposes all three health phases")
 	expect(state.stage == 4 and state.boss_defeated and game.inventory_item_count("blue_gem") == 3, "boss defeat unlocks choice and grants exact rare loot")
 	game.free()

@@ -154,9 +154,10 @@ static func draw_storage_column(game: Node, items: Array[String], side: int, rec
 static func draw_forge(game: Node) -> void:
 	draw_shell(game, game.LocaleSystem.ui("forge_title"))
 	draw_section(game, FORGE_SECTION)
-	for index in game.ForgeSystem.UPGRADES.size():
+	var first_index: int = game.ForgeSystem.visible_start(game.forge_selected)
+	for index in range(first_index, mini(first_index + game.ForgeSystem.VISIBLE_ROWS, game.ForgeSystem.UPGRADES.size())):
 		var upgrade: Dictionary = game.ForgeSystem.UPGRADES[index]
-		var row := Rect2(164, 154 + index * 44, 824, 40)
+		var row := Rect2(164, 154 + (index - first_index) * 44, 824, 40)
 		var current_level: int = game.ForgeSystem.level(game, upgrade.kind)
 		var available: bool = game.ForgeSystem.can_upgrade(game, index)
 		draw_row(game, row, index == game.forge_selected, available or current_level >= game.ForgeSystem.MAX_UPGRADE_LEVEL)
@@ -168,4 +169,4 @@ static func draw_forge(game: Node) -> void:
 		var durability: int = int(game.state.inventory.durability.get(upgrade.kind, game.state.inventory.durability.get("sword", 100) if upgrade.kind == "sword" else -1))
 		if durability >= 0:
 			game.draw_ui_string(game.UI_FONT, row.position + Vector2(690, 25), "◆ %d%%" % durability, HORIZONTAL_ALIGNMENT_RIGHT, 110, 9, UiKitSystem.COLORS.success if durability > 20 else UiKitSystem.COLORS.danger)
-	draw_help(game, "%s • R / X — ремонт" % game.LocaleSystem.ui("forge_help"))
+	draw_help(game, "%s • R / X — ремонт • %d–%d / %d" % [game.LocaleSystem.ui("forge_help"), first_index + 1, mini(first_index + game.ForgeSystem.VISIBLE_ROWS, game.ForgeSystem.UPGRADES.size()), game.ForgeSystem.UPGRADES.size()])

@@ -49,7 +49,9 @@ func test_mobile_and_rooted_enemy_behaviour() -> void:
 	var plant_start: Vector2 = game.enemy_nodes[0].position
 	game.CombatSystem.update(game, 0.1)
 	expect(game.enemy_nodes[0].position == plant_start and not game.enemy_nodes[0].moving, "rooted predator plant never changes position")
-	expect(game.player_hp < game.player_max_hp and game.enemy_nodes[0].visual_state == "attack", "rooted predator plant attacks from its configured range")
+	expect(game.player_hp == game.player_max_hp and game.enemy_nodes[0].visual_state == "attack", "rooted predator plant shows a ranged windup from its configured range")
+	game.CombatSystem.update(game, 0.26)
+	expect(game.player_hp < game.player_max_hp, "rooted predator plant deals damage on its contact frame")
 	game.free()
 
 

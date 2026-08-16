@@ -87,7 +87,7 @@ static func update(game: Node, delta: float) -> void:
 ## Выполняет операцию «ближайшего» и возвращает результат согласно контракту метода.
 static func nearest(game: Node) -> int:
 	var result := -1
-	var limit := 280.0 if game.equipped_weapon == "bow" else 105.0
+	var limit: float = game.WeaponSystem.range_of(game.equipped_weapon)
 	for index in game.wildlife_nodes.size():
 		var animal: Dictionary = game.wildlife_nodes[index]
 		if animal.alive and animal.location == game.current_location:
@@ -104,16 +104,15 @@ static func attack(game: Node, index: int) -> bool:
 	var animal: Dictionary = game.wildlife_nodes[index]
 	if not animal.alive or animal.location != game.current_location:
 		return false
-	var attack_range := 280.0 if game.equipped_weapon == "bow" else 105.0
+	var attack_range: float = game.WeaponSystem.range_of(game.equipped_weapon)
 	if animal.position.distance_to(game.player) > attack_range:
 		return false
 	game.PotionSystem.break_invisibility(game)
 	var damage: int = 1 + (1 if game.strength_timer > 0.0 else 0) + game.InventorySystem.damage_bonus(game)
-	if game.equipped_weapon == "forest_sword": damage += 1
-	elif game.equipped_weapon == "crystal_sword": damage += 2
-	elif game.equipped_weapon == "bow": damage += 1
+	damage += game.WeaponSystem.damage_bonus(game.equipped_weapon)
 	animal.hp -= damage
 	game.AnimationSystem.begin_player_attack(game)
+	game.FarmLifeSystem.register_player_attack(game, animal.position, false)
 	game.play_sfx("attack")
 	game.play_sfx("defeat" if animal.hp <= 0 else "hit")
 	animal.panic = 3.0; animal.visual_state = "hurt"; animal.state_timer = HURT_DURATION

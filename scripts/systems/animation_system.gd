@@ -2,7 +2,7 @@ extends RefCounted
 
 const PLAYER_ATTACK_DURATION := 0.48
 const HURT_DURATION := 0.32
-const ENEMY_ATTACK_DURATION := 0.55
+const ENEMY_ATTACK_DURATION := 0.72
 const DEATH_DURATION := 0.88
 
 
@@ -17,7 +17,7 @@ static func initialize_enemy(enemy: Dictionary) -> Dictionary:
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func update(game: Node, delta: float) -> void:
-	game.player_attack_timer = maxf(game.player_attack_timer - delta, 0.0)
+	game.WeaponSystem.update(game, delta)
 	game.slime_visual_time += delta
 	if game.slime_visual_state == "hurt" and game.slime_visual_time >= HURT_DURATION:
 		game.slime_visual_state = "idle"
@@ -39,7 +39,7 @@ static func update(game: Node, delta: float) -> void:
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func begin_player_attack(game: Node) -> void:
-	game.player_attack_timer = PLAYER_ATTACK_DURATION
+	game.WeaponSystem.begin_attack(game, true)
 
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.

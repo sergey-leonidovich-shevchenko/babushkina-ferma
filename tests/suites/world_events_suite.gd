@@ -60,7 +60,9 @@ func test_eclipse_guardian_combat_and_treasure_reward() -> void:
 	game.state.world.moon_glade.altar_activated = true; game.state.world.moon_glade.guardian_alive = true
 	game.player = system.GUARDIAN_POSITION - Vector2(50, 0); game.equipped_weapon = "crystal_sword"
 	var hp_before: int = game.player_hp; game.state.world.moon_glade.guardian_attack_timer = 0.0; system.update(game, 0.1)
-	expect(game.player_hp < hp_before, "active eclipse guardian deals ranged combat damage")
+	expect(game.player_hp == hp_before and game.state.world.moon_glade.guardian_windup > 0.0, "active eclipse guardian telegraphs ranged combat damage")
+	system.update(game, 0.5)
+	expect(game.player_hp < hp_before, "eclipse guardian deals damage on its visible contact frame")
 	expect(not game.NavigationSystem.is_walkable(game, system.GUARDIAN_POSITION), "active guardian has solid collision")
 	while game.state.world.moon_glade.guardian_alive:
 		expect(system.attack_guardian(game), "normal held attack damages the eclipse guardian")

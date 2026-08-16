@@ -12,10 +12,17 @@ const WorldVisualProfileSystem := preload("res://scripts/systems/world_visual_pr
 static func draw_player(game: Node2D) -> void:
 	var position: Vector2 = game.player.round()
 	var visual_scale: float = game.DirectionalCharacterSystem.HERO_VISUAL_SCALE
-	var moving: bool = game.get_movement_direction() != Vector2.ZERO
-	var attacking: bool = game.player_attack_timer > 0.0
-	var attack_progress: float = 1.0 - game.player_attack_timer / game.AnimationSystem.PLAYER_ATTACK_DURATION if attacking else 0.0
-	var attack_offset: Vector2 = game.facing * sin(attack_progress * PI) * 7.0 * visual_scale
+	var attack_progress: float = game.WeaponSystem.attack_progress(game)
+	var attacking: bool = attack_progress >= 0.0
+	var moving: bool = game.get_movement_direction() != Vector2.ZERO and not attacking
+	var attack_offset := Vector2.ZERO
+	if attacking:
+		if attack_progress < 0.25: attack_offset = -game.facing * sin(attack_progress / 0.25 * PI * 0.5) * 5.0 * visual_scale
+		elif attack_progress < 0.58: attack_offset = game.facing * sin((attack_progress - 0.25) / 0.33 * PI) * 15.0 * visual_scale
+		else: attack_offset = game.facing * (1.0 - attack_progress) * 7.0 * visual_scale
+	var hurt_offset := Vector2.ZERO
+	if game.player_hurt_timer > 0.0:
+		hurt_offset = game.player_hurt_direction * sin(game.player_hurt_timer / 0.30 * PI) * 10.0 * visual_scale
 	var walk_frame: int = game.PlayerSystem.animation_frame(game.walk_animation_time, moving)
 	if moving and walk_frame in [0, 3]:
 		var dust: Vector2 = position - game.facing * 12.0 * visual_scale + Vector2(0, 7) * visual_scale
@@ -24,8 +31,14 @@ static func draw_player(game: Node2D) -> void:
 	var clothes_palette := [Color.WHITE, Color("d5ebff"), Color("ffe0cf"), Color("dcf0d1"), Color("eadcff")]
 	var clothes_index := clampi(int(game.state.player.profile.get("clothes", 0)), 0, clothes_palette.size() - 1)
 	var hero_modulate: Color = Color(0.72, 0.82, 1.0, 0.38) if game.invisibility_timer > 0.0 else clothes_palette[clothes_index]
-	game.DirectionalCharacterSystem.draw_hero(game, position + attack_offset, game.facing, moving, hero_modulate)
-	game.WorldPolishRenderer.draw_held_weapon(game,game.equipped_weapon,position,game.facing,attacking,visual_scale)
+	if game.player_hurt_timer > 0.0: hero_modulate = Color(1.0, 0.42, 0.42)
+	game.DirectionalCharacterSystem.draw_hero(game, position + attack_offset + hurt_offset, game.facing, moving, hero_modulate)
+	game.WorldPolishRenderer.draw_held_weapon(game, game.player_attack_weapon if attacking else game.equipped_weapon, position + attack_offset + hurt_offset, game.facing, attack_progress, visual_scale)
+	var cooldown: float = game.WeaponSystem.cooldown_ratio(game)
+	if cooldown > 0.0:
+		var bar := Rect2(position + Vector2(-22, 28) * visual_scale, Vector2(44, 4) * visual_scale)
+		game.draw_rect(bar, Color(0.10, 0.08, 0.06, 0.68), true)
+		game.draw_rect(Rect2(bar.position, Vector2(bar.size.x * (1.0 - cooldown), bar.size.y)), Color("f5c45b"), true)
 
 
 ## Отрисовывает слизня по текущему состоянию игры.
@@ -59,7 +72,9 @@ static func draw_enemy(game: Node2D, enemy: Dictionary) -> void:
 	if state == "hurt": modulate = Color(1.0, 0.55, 0.55)
 	elif state == "death": modulate.a = clampf(1.4 - enemy.visual_time, 0.0, 1.0)
 	var direction: Vector2 = enemy.get("direction", Vector2.DOWN)
-	game.draw_living_atlas_sprite(game.ENEMY_RANK_ATLAS,source,enemy.position,size,float(enemy.get("visual_time",0.0)),bool(enemy.get("moving",false)),float(column)*0.9,direction.x<-0.1,modulate)
+	var draw_position: Vector2 = enemy.position
+	if state == "hurt": draw_position += Vector2(enemy.get("hurt_direction", Vector2.ZERO)) * sin(float(enemy.get("visual_time", 0.0)) / game.AnimationSystem.HURT_DURATION * PI) * 10.0
+	game.draw_living_atlas_sprite(game.ENEMY_RANK_ATLAS,source,draw_position,size,float(enemy.get("visual_time",0.0)),bool(enemy.get("moving",false)),float(column)*0.9,direction.x<-0.1,modulate)
 
 
 ## Рисует живых и мёртвых пиратов процедурно с дыханием, шагом, рангом и реакцией на удар.

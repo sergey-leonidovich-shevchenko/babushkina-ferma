@@ -18,9 +18,31 @@ static func draw_world(game: Node) -> void:
 	if game.FarmLifeSystem.SECRETS.has(game.current_location):
 		var secret: Dictionary = game.FarmLifeSystem.SECRETS[game.current_location]; game.FarmLifeVisualSystem.draw(game,"secret",secret.position)
 	for projectile in value.projectiles:
-		var position: Vector2 = Vector2(projectile.from).lerp(Vector2(projectile.to),float(projectile.progress)); game.draw_circle(position,7.0,Color("ffe36e")); game.draw_line(position-Vector2(14,0),position,Color.WHITE,3)
+		draw_combat_effect(game, projectile)
 	for enemy in game.enemy_nodes:
 		if enemy.location==game.current_location and enemy.alive and bool(enemy.get("event_raid_boss",false)): game.FarmLifeVisualSystem.draw(game,"raid_banner",enemy.position+Vector2(0,-76)); game.draw_ui_string(game.UI_FONT,enemy.position+Vector2(-75,-184),"КАПИТАН НАЛЁТЧИКОВ",HORIZONTAL_ALIGNMENT_CENTER,150,13,Color("ffcf75"))
+
+
+## Рисует различимую траекторию клинка, стрелы, копья, тяжёлого удара или магии.
+static func draw_combat_effect(game: Node2D, projectile: Dictionary) -> void:
+	var origin: Vector2 = Vector2(projectile.from)
+	var target: Vector2 = Vector2(projectile.to)
+	var progress: float = float(projectile.progress)
+	var direction: Vector2 = origin.direction_to(target)
+	var position: Vector2 = origin.lerp(target, progress)
+	match String(projectile.kind):
+		"bow":
+			game.draw_line(position - direction * 18.0, position + direction * 8.0, Color("fff1c2"), 3.0)
+			game.draw_circle(position + direction * 8.0, 3.0, Color("e1a653"))
+		"staff":
+			game.draw_circle(position, 10.0, Color(0.25, 0.86, 1.0, 0.36))
+			game.draw_circle(position, 5.0, Color("b9f8ff"))
+		"spear":
+			game.draw_line(origin + direction * 18.0, origin + direction * (28.0 + sin(progress * PI) * 46.0), Color("dce7e9"), 4.0)
+		"heavy":
+			game.draw_arc(target, 10.0 + progress * 22.0, 0.0, TAU, 18, Color(1.0, 0.67, 0.28, 1.0 - progress), 4.0)
+		_:
+			game.draw_arc(origin, 26.0 + progress * 18.0, direction.angle() - 0.8, direction.angle() + 0.8, 14, Color(1.0, 0.88, 0.52, 1.0 - progress * 0.65), 4.0)
 
 ## Отрисовывает цель первого дня, кат-сцену, энциклопедию и фоторежим без дублирования календаря HUD.
 static func draw_ui(game: Node) -> void:

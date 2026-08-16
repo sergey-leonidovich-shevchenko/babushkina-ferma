@@ -238,8 +238,8 @@ static func can_use(game: Node, kind: String) -> bool:
 
 ## Расходует одну единицу прочности после успешного действия.
 static func consume_durability(game: Node, kind: String, amount: int = 1) -> void:
-	if kind == "weapon": kind = game.equipped_weapon
-	if kind == "forest_sword": kind = "sword"
+	if kind == "weapon": kind = game.WeaponSystem.durability_kind(game.equipped_weapon)
+	elif kind == "forest_sword": kind = "sword"
 	if game.state.inventory.durability.has(kind):
 		game.state.inventory.durability[kind] = maxi(0, int(game.state.inventory.durability[kind]) - amount)
 		if int(game.state.inventory.durability[kind]) <= 20: game.notify_tutorial("durability_low")
