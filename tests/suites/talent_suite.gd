@@ -60,7 +60,7 @@ func test_talent_unlocks_farming_fishing_cooking_and_traps() -> void:
 	expect(game.TalentSystem.unlock(game, "fish_fine_rod") and game.TalentSystem.unlock(game, "fish_deep_water"), "fine tackle is required before deep-water fishing")
 	expect(not game.TalentSystem.can_catch_fish(game, game.FishingSystem.fish_data("deep_pike")), "deep pike still requires the advanced physical rod")
 	expect(game.TalentSystem.unlock(game, "craft_apprentice"), "craft apprentice opens advanced devices")
-	game.state.inventory.set_count("wood", 12); game.state.inventory.set_count("metal", 8); game.state.inventory.set_count("fiber", 8)
+	game.state.inventory.set_count("plank", 12); game.state.inventory.set_count("metal", 8); game.state.inventory.set_count("fiber", 8)
 	var rod_recipe: int = game.CraftingSystem.RECIPES.find_custom(func(recipe): return recipe.output == "advanced_fishing_rod")
 	expect(game.CraftingSystem.craft(game, rod_recipe) and game.TalentSystem.can_catch_fish(game, game.FishingSystem.fish_data("deep_pike")), "advanced rod recipe makes deep fish eligible")
 	expect(game.TalentSystem.unlock(game, "fish_crab_traps"), "crab trap branch can be learned independently")

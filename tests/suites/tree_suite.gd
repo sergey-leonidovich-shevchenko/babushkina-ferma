@@ -33,11 +33,12 @@ func test_three_hits_fell_tree_and_give_wood() -> void:
 	var game := _tree_game()
 	var wood_before: int = game.wood
 	var xp_before: int = game.player_xp
+	var logs_before: int = game.inventory_item_count("log")
 	for expected_health in [2, 1, 0]:
 		expect(game.TreeSystem.chop_nearby(game), "axe hit is accepted while tree is grown")
 		expect(game.state.world.tree_nodes[0].health == expected_health, "tree health matches hit count: %d" % expected_health)
 	expect(game.state.world.tree_nodes[0].stage == 0, "third hit replaces grown tree with stump")
-	expect(game.wood == wood_before + 3 and game.player_xp == xp_before + 3, "three hits grant three wood and three character XP")
+	expect(game.wood == wood_before + 3 and game.inventory_item_count("log") == logs_before + 1 and game.player_xp == xp_before + 3, "three hits grant rough wood, one whole log, and three character XP")
 	expect(game.energy == 9 and game.audio_last_sfx == "chop", "chopping spends one stamina and plays chop sound per hit")
 	expect(game.tutorial_events_completed.has("tree_chop") and game.tutorial_events_completed.has("tree_fall"), "hits and felling complete dedicated tutorial steps")
 	game.free()

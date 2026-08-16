@@ -144,7 +144,9 @@ static func configure_item_window_capture(game: Node, arguments: PackedStringArr
 	match mode:
 		"--capture-inventory": game.open_inventory()
 		"--capture-shop": game.shop_open = true; game.shop_selected = 0; game.coins = 240
-		"--capture-crafting": game.CraftingSystem.open(game, "workbench")
+		"--capture-crafting":
+			game.change_inventory_count("log", 3); game.materials.metal = 2; game.CraftingSystem.open(game, "workbench")
+			game.crafting_selected = game.CraftingSystem.RECIPES.find_custom(func(recipe): return recipe.output == "plank")
 		"--capture-storage":
 			game.home_chest_owned = true; game.current_location = "cottage_interior"; game.state.storage.change("carrot", 12); game.state.storage.change("crystal", 4); game.StorageSystem.open(game)
 		"--capture-forge":

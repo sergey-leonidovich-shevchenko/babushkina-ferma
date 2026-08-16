@@ -76,7 +76,7 @@ static func nearest_grown_tree(game: Node) -> int:
 	return nearest
 
 
-## Рубит ближайшее дерево топором, расходует силы, выдаёт древесину и запускает восстановление пня.
+## Рубит ближайшее дерево топором, выдаёт щепу за удар и целое бревно после падения ствола.
 static func chop_nearby(game: Node) -> bool:
 	if game.inventory_item_count("axe") <= 0 or game.selected_tool != game.Tool.AXE:
 		game.message = game.LocaleSystem.text("need_axe")
@@ -95,6 +95,7 @@ static func chop_nearby(game: Node) -> bool:
 	game.AdventurePolishSystem.consume_durability(game, "axe")
 	if int(tree.health) <= 0:
 		tree.health = 0; tree.stage = 0; tree.regrow_timer = 0.0
+		game.change_inventory_count("log", 1)
 		game.message = game.LocaleSystem.text("tree_felled", [REGROW_DURATION])
 		game.notify_tutorial("tree_fall")
 	else:

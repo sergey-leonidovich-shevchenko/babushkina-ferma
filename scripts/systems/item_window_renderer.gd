@@ -67,12 +67,21 @@ static func draw_crafting(game: Node) -> void:
 	for position in range(first_position, mini(first_position + 9, visible.size())):
 		var index: int = visible[position]
 		var recipe: Dictionary = game.CraftingSystem.RECIPES[index]
-		var row := Rect2(220, 164 + (position - first_position) * 43, 712, 38)
+		var row := Rect2(210, 164 + (position - first_position) * 43, 470, 38)
 		var available: bool = game.CraftingSystem.can_craft(game, recipe)
 		draw_row(game, row, index == game.crafting_selected, available)
 		game.draw_item_icon(String(recipe.output), Rect2(row.position + Vector2(14, 5), Vector2(28, 28)))
-		game.draw_ui_string(game.UI_FONT, row.position + Vector2(52, 25), game.inventory_item_name(recipe.output), HORIZONTAL_ALIGNMENT_LEFT, 210, 13, UiKitSystem.COLORS.ink)
-		game.draw_ui_string(game.UI_FONT, row.position + Vector2(270, 24), game.CraftingSystem.ingredients_text(game, recipe), HORIZONTAL_ALIGNMENT_LEFT, 420, 10, UiKitSystem.COLORS.success if available else UiKitSystem.COLORS.danger)
+		game.draw_ui_string(game.UI_FONT, row.position + Vector2(52, 24), game.inventory_item_name(recipe.output), HORIZONTAL_ALIGNMENT_LEFT, 168, 12, UiKitSystem.COLORS.ink)
+		game.draw_ui_string(game.UI_FONT, row.position + Vector2(222, 23), game.CraftingSystem.ingredients_text(game, recipe), HORIZONTAL_ALIGNMENT_LEFT, 232, 9, UiKitSystem.COLORS.success if available else UiKitSystem.COLORS.danger)
+	if not visible.is_empty():
+		var selected: Dictionary = game.CraftingSystem.RECIPES[game.crafting_selected]
+		var detail := Rect2(696, 164, 246, 382)
+		UiKitSystem.draw_nine_patch(game, "quest_ribbon", Rect2(detail.position, Vector2(detail.size.x, 42)))
+		game.draw_ui_string(game.UI_FONT, detail.position + Vector2(10, 27), game.CraftingSystem.category_name(game, selected), HORIZONTAL_ALIGNMENT_CENTER, detail.size.x - 20, 11, Color("fff0cf"))
+		game.draw_item_icon(String(selected.output), Rect2(detail.position + Vector2(75, 58), Vector2(96, 96)))
+		game.draw_ui_string(game.MENU_FONT, detail.position + Vector2(10, 184), game.inventory_item_name(selected.output), HORIZONTAL_ALIGNMENT_CENTER, detail.size.x - 20, 17, UiKitSystem.COLORS.ink)
+		game.draw_multiline_string(game.UI_FONT, detail.position + Vector2(18, 226), game.CraftingSystem.ingredients_text(game, selected), HORIZONTAL_ALIGNMENT_CENTER, detail.size.x - 36, 10, 3, UiKitSystem.COLORS.ink)
+		game.draw_multiline_string(game.UI_FONT, detail.position + Vector2(18, 292), game.CraftingSystem.production_summary(game, selected), HORIZONTAL_ALIGNMENT_CENTER, detail.size.x - 36, 11, 3, UiKitSystem.COLORS.success if game.CraftingSystem.can_craft(game, selected) else UiKitSystem.COLORS.danger)
 	draw_help(game, game.LocaleSystem.ui("craft_help"))
 
 

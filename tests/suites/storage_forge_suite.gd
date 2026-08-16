@@ -17,9 +17,9 @@ func run() -> void:
 func test_chest_can_be_crafted_or_bought_and_installs_at_home() -> void:
 	var game := make_game()
 	var chest_recipe: int = game.CraftingSystem.RECIPES.find_custom(func(recipe): return recipe.output == "home_chest")
-	game.wood = 10
-	game.materials.metal = 3
-	expect(game.CraftingSystem.craft(game, chest_recipe), "home chest can be crafted from wood and metal")
+	game.change_inventory_count("plank", 8)
+	game.change_inventory_count("nails", 6)
+	expect(game.CraftingSystem.craft(game, chest_recipe), "home chest can be assembled from processed planks and forged nails")
 	expect(game.home_chest_owned and game.inventory_item_count("home_chest") == 0, "crafted furnishing installs at home instead of occupying backpack")
 	expect(game.tutorial_events_completed.has("chest_install"), "chest acquisition has an installation tutorial event")
 	game.free()

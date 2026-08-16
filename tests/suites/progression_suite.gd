@@ -221,9 +221,10 @@ func test_new_pixel_items_watermelon_shield_potion_and_lizard() -> void:
 	game.player_hp = 25
 	expect(game.consume_item("healing_potion") and game.player_hp == 85 and game.tutorial_events_completed.has("potion"), "healing potion restores sixty HP and completes its tutorial step")
 	var shield_recipe: int = game.CraftingSystem.RECIPES.find_custom(func(recipe): return recipe.output == "oak_shield")
-	game.wood = 4
-	game.materials.metal = 2
-	expect(game.CraftingSystem.craft(game, shield_recipe) and game.inventory_item_count("oak_shield") == 1, "wood and metal craft one oak shield")
+	game.change_inventory_count("plank", 4)
+	game.change_inventory_count("nails", 3)
+	game.materials.metal = 1
+	expect(game.CraftingSystem.craft(game, shield_recipe) and game.inventory_item_count("oak_shield") == 1, "processed wood, nails, and metal craft one oak shield")
 	var hp_without_shield: int = game.player_max_hp
 	expect(game.InventorySystem.equip(game, "oak_shield") and game.equipment.offhand == "oak_shield", "oak shield equips into its dedicated off-hand slot")
 	expect(game.player_max_hp == hp_without_shield + 5 and game.InventorySystem.incoming_damage(game, 20) == 15, "equipped shield adds resilience and blocks five incoming damage")
