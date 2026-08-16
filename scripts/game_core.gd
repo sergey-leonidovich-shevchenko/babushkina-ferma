@@ -305,7 +305,8 @@ func use_selected_tool() -> void:
 		Tool.WATER:
 			if not cultivation_target.valid: message = WorldFarmingSystem.blocked_message(self, cultivation_target.reason)
 			elif plot.planted and not plot.watered:
-				var is_second_watering: bool = plot.growth >= STAGE_DURATION * 2.0
+				var crop_kind: String = String(plot.get("crop_kind", "carrot"))
+				var is_second_watering: bool = plot.growth >= CropCatalogSystem.growth_duration(crop_kind) * 0.5
 				plot.watered = true
 				energy -= 1
 				SkillSystem.award_profession_xp(self, "farming", 1)

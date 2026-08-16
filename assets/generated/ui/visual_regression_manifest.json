@@ -123,7 +123,13 @@
       "file": "shop_ingame_preview.png",
       "width": 1152,
       "height": 648,
-      "sha256": "1002fbc565749a7ee1396ea289a90d23040b617a096ef6cf407f02f2777c47e0"
+      "sha256": "71a06d51cb4bc292b9e107ddbe9e63b7c2dbfae37631b7ff19fd1a56e69bc6cd"
+    },
+    {
+      "file": "farm_plots_ingame_preview.png",
+      "width": 1152,
+      "height": 648,
+      "sha256": "8c87cc65437f28f67384a78f701ade00accfe27e9fc3822b480592c557cffa05"
     },
     {
       "file": "storage_ingame_preview.png",

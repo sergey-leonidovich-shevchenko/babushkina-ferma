@@ -50,6 +50,12 @@ tools/Godot.app/Contents/MacOS/Godot --path . -- --first-level-preview --debug-m
 # Четыре стадии лесного дерева с общей линией земли
 tools/Godot.app/Contents/MacOS/Godot --path . -- --tree-stages-preview
 
+# Пять стадий грядки, повторный полив и карточка выбранной культуры
+tools/Godot.app/Contents/MacOS/Godot --path . -- --farm-plot-preview
+
+# Автоматический PNG-снимок того же фермерского стенда
+tools/Godot.app/Contents/MacOS/Godot --path . -- --capture-farm-plots
+
 # Нормализованные валуны, кристаллы и проходы пещеры
 tools/Godot.app/Contents/MacOS/Godot --path . -- --cave-preview
 

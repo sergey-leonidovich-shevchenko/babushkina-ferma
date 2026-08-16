@@ -17,15 +17,23 @@ static func update_plot(game: Node, plot: Dictionary, delta: float) -> void:
 	if plot.stage_flash > 0.0: plot.stage_flash = maxf(plot.stage_flash - delta, 0.0)
 	var crop_kind: String = String(plot.get("crop_kind", "carrot"))
 	var current_season: String = game.WorldEventSystem.season(game.day)
-	if plot.planted and plot.watered and plot.growth < game.GROWTH_DURATION and game.CropCatalogSystem.grows_in_season(crop_kind, current_season):
+	var growth_duration: float = game.CropCatalogSystem.growth_duration(crop_kind)
+	var stage_duration: float = game.CropCatalogSystem.stage_duration(crop_kind)
+	if plot.planted and plot.watered and plot.growth < growth_duration and game.CropCatalogSystem.grows_in_season(crop_kind, current_season):
 		var previous_stage: int = plot.stage
-		plot.growth = minf(plot.growth + delta * game.WorldEventSystem.crop_growth_multiplier(game) * game.EstateSystem.crop_multiplier(game), game.GROWTH_DURATION)
-		plot.stage = mini(int(plot.growth / game.STAGE_DURATION), 4)
+		var previous_growth: float = float(plot.growth)
+		var next_growth := minf(previous_growth + delta * game.WorldEventSystem.crop_growth_multiplier(game) * game.EstateSystem.crop_multiplier(game), growth_duration)
+		var watering_threshold := growth_duration * 0.5
+		var crossed_watering_threshold := previous_growth < watering_threshold and next_growth >= watering_threshold
+		plot.growth = watering_threshold if crossed_watering_threshold else next_growth
+		plot.stage = mini(int(plot.growth / stage_duration), 4)
 		if plot.stage > previous_stage:
 			plot.stage_flash = 0.7
-			if plot.stage == 2:
+			if crossed_watering_threshold:
 				plot.watered = false; game.message = game.LocaleSystem.text("dry_crop")
-			if plot.stage >= 4: game.message = game.LocaleSystem.text("crop_ready")
+			if plot.stage >= 4:
+				var harvest_kind: String = String(game.CropCatalogSystem.data(crop_kind).harvest)
+				game.message = game.LocaleSystem.text("crop_ready", [game.inventory_item_name(harvest_kind)])
 
 
 ## Возвращает выбранный на панели мешок семян, сохраняя морковь как совместимый вариант по умолчанию.
@@ -67,22 +75,23 @@ static func plant(game: Node, plot: Dictionary) -> bool:
 
 ## Собирает урожай указанного сорта, а многолетник переводит в повторный цикл без пересадки.
 static func harvest(game: Node, plot: Dictionary) -> bool:
-	if not plot.planted or float(plot.growth) < game.GROWTH_DURATION:
+	var crop_kind: String = String(plot.get("crop_kind", "carrot"))
+	var growth_duration: float = game.CropCatalogSystem.growth_duration(crop_kind)
+	if not plot.planted or float(plot.growth) < growth_duration:
 		game.message = game.LocaleSystem.text("not_ripe")
 		return false
-	var crop_kind: String = String(plot.get("crop_kind", "carrot"))
 	if not game.CropCatalogSystem.grows_in_season(crop_kind, game.WorldEventSystem.season(game.day)):
 		game.message = game.LocaleSystem.text("crop_out_of_season")
 		return false
 	var crop_data: Dictionary = game.CropCatalogSystem.data(crop_kind)
 	var harvest_kind: String = String(crop_data.harvest)
-	var harvested: int = game.SkillSystem.harvest_count(game)
+	var harvested: int = game.CropCatalogSystem.harvest_count(game, crop_kind)
 	game.change_inventory_count(harvest_kind, harvested)
 	var quality: String = game.EstateSystem.record_quality(game, harvest_kind, harvested)
 	if game.CropCatalogSystem.is_perennial(crop_kind):
 		plot.planted = true
-		plot.growth = game.STAGE_DURATION * 2.0
-		plot.stage = 2
+		plot.growth = growth_duration - game.CropCatalogSystem.regrow_duration(crop_kind)
+		plot.stage = mini(int(plot.growth / game.CropCatalogSystem.stage_duration(crop_kind)), 3)
 		game.notify_tutorial("perennial_crop")
 	else:
 		plot.planted = false
@@ -91,8 +100,9 @@ static func harvest(game: Node, plot: Dictionary) -> bool:
 	plot.tilled = true
 	plot.watered = false
 	plot.stage_flash = 0.0
-	game.award_xp(3)
-	game.SkillSystem.award_profession_xp(game, "farming", 4)
+	var experience: int = game.CropCatalogSystem.harvest_xp(crop_kind)
+	game.award_xp(experience, "Урожай: %s" % game.inventory_item_name(harvest_kind))
+	game.SkillSystem.award_profession_xp(game, "farming", experience + 1)
 	game.message = "%s • %s" % [game.LocaleSystem.text("harvested", [game.inventory_item_name(harvest_kind), harvested]), game.LocaleSystem.ui("quality_%s" % quality)]
 	game.notify_tutorial("harvest")
 	return true

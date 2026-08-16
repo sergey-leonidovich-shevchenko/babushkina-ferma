@@ -10,6 +10,7 @@ func run() -> void:
 	test_orchard_growth_weather_harvest_icons_and_save()
 	test_seed_bag_catalog_shop_purchase_icons_and_save()
 	test_crop_varieties_five_stages_seasons_regrowth_and_save()
+	test_crop_balance_distinguishes_growth_yield_xp_and_regrowth()
 	test_new_pixel_items_watermelon_shield_potion_and_lizard()
 	test_animated_enemy_sprites_replace_primitives()
 	test_unbounded_scrolling_inventory_and_forage_save()
@@ -293,13 +294,13 @@ func test_crop_varieties_five_stages_seasons_regrowth_and_save() -> void:
 	game.state.inventory.set_count("tomato_seeds", 1); game.hotbar_slots[1] = "tomato_seeds"; game.select_hotbar(1)
 	expect(game.selected_tool == game.Tool.SEEDS and game.FarmSystem.plant(game, plot), "a selected tomato bag behaves as the seed tool and plants in summer")
 	expect(plot.crop_kind == "tomato" and game.inventory_item_count("tomato_seeds") == 0 and game.tutorial_events_completed.has("crop_variety"), "planting records the exact variety, consumes its bag and advances tutorial")
-	plot.watered = true; game.plots[cell] = plot; game.update_crops(10.1); plot = game.plots[cell]; plot.watered = true; game.plots[cell] = plot; game.update_crops(10.0); plot = game.plots[cell]
-	expect(plot.stage == 4 and game.FarmSystem.harvest(game, plot) and game.inventory_item_count("tomato") == 1, "tomato crosses all five stages and yields tomato rather than carrot")
+	plot.watered = true; game.plots[cell] = plot; game.update_crops(14.1); plot = game.plots[cell]; plot.watered = true; game.plots[cell] = plot; game.update_crops(14.0); plot = game.plots[cell]
+	expect(plot.stage == 4 and game.FarmSystem.harvest(game, plot) and game.inventory_item_count("tomato") == 2, "tomato crosses its longer five stages and yields two tomatoes rather than carrot")
 	var strawberry_cell := Vector2i(1,0); var strawberry_plot: Dictionary = game.plots[strawberry_cell]
 	strawberry_plot.tilled = true; game.state.inventory.set_count("strawberry_seeds",1); game.hotbar_slots[1] = "strawberry_seeds"
 	expect(game.FarmSystem.plant(game, strawberry_plot), "summer allows planting the perennial strawberry")
-	strawberry_plot.growth = game.GROWTH_DURATION; strawberry_plot.stage = 4
-	expect(game.FarmSystem.harvest(game, strawberry_plot) and strawberry_plot.planted and strawberry_plot.stage == 2 and game.inventory_item_count("strawberry") == 1, "strawberry harvest keeps its adult crown for a new fruit cycle")
+	strawberry_plot.growth = game.CropCatalogSystem.growth_duration("strawberry"); strawberry_plot.stage = 4
+	expect(game.FarmSystem.harvest(game, strawberry_plot) and strawberry_plot.planted and strawberry_plot.stage == 2 and game.inventory_item_count("strawberry") == 3, "strawberry harvest keeps its adult crown and gives a generous crop for a new fruit cycle")
 	expect(game.tutorial_events_completed.has("perennial_crop") and game.FarmVisualSystem.crop_source(4,"strawberry","summer") != game.FarmVisualSystem.crop_source(4,"strawberry","winter"), "perennial tutorial and four-season artwork are active")
 	var pumpkin_plot: Dictionary = game.plots[Vector2i(2,0)]; pumpkin_plot.tilled = true; game.day = 1; game.state.inventory.set_count("pumpkin_seeds",1); game.hotbar_slots[1] = "pumpkin_seeds"
 	expect(not game.FarmSystem.plant(game,pumpkin_plot) and game.inventory_item_count("pumpkin_seeds") == 1, "autumn pumpkin seed is preserved when planting is attempted in spring")
@@ -309,6 +310,38 @@ func test_crop_varieties_five_stages_seasons_regrowth_and_save() -> void:
 	expect(loaded.SaveSystem.apply(loaded,snapshot) and loaded.plots[strawberry_cell].crop_kind == "strawberry", "save roundtrip preserves the exact planted crop variety")
 	for kind in ["strawberry","beet","pepper","cucumber","sunflower","melon","herbs"]: expect(game.VisualAssetSystem.has_item_icon(kind), "%s harvest has a standalone inventory icon" % kind)
 	loaded.free(); game.free()
+
+## Сценарий: каталог культур задаёт разный темп, урожайность, опыт и ускоренное повторное плодоношение.
+## Исходное состояние: сравниваются быстрые и долгие культуры при нулевом бонусе фермерства и одинаковом летнем поливе.
+## Ожидаемый результат: профили различаются, стадии считают собственное время, а многолетники сохраняют взрослую основу.
+func test_crop_balance_distinguishes_growth_yield_xp_and_regrowth() -> void:
+	var game := make_game(); game.day = 8; game.state.world.weather_day = 8; game.state.world.weather = "clear"
+	var durations: Dictionary = {}; var yields: Dictionary = {}
+	for crop_kind in game.CropCatalogSystem.CROPS:
+		var crop_data: Dictionary = game.CropCatalogSystem.data(crop_kind)
+		durations[game.CropCatalogSystem.growth_duration(crop_kind)] = true
+		yields[game.CropCatalogSystem.base_yield(crop_kind)] = true
+		expect(crop_data.has("growth") and crop_data.has("yield") and crop_data.has("xp"), "%s owns a complete farming balance profile" % crop_kind)
+	expect(durations.size() >= 10 and yields.size() >= 3 and game.CropCatalogSystem.growth_duration("pumpkin") > game.CropCatalogSystem.growth_duration("carrot"), "sixteen crops provide meaningfully different timing and yield strategies")
+	var carrot_plot: Dictionary = game.WorldFarmingSystem.empty_plot("overworld", Vector2i.ZERO); carrot_plot.planted = true; carrot_plot.watered = true; carrot_plot.crop_kind = "carrot"
+	var tomato_plot: Dictionary = game.WorldFarmingSystem.empty_plot("overworld", Vector2i.ONE); tomato_plot.planted = true; tomato_plot.watered = true; tomato_plot.crop_kind = "tomato"
+	game.FarmSystem.update_plot(game, carrot_plot, 6.0); game.FarmSystem.update_plot(game, tomato_plot, 6.0)
+	expect(carrot_plot.stage == 1 and tomato_plot.stage == 0, "the same six seconds advance fast carrot farther than slow tomato")
+	var skipped_plot: Dictionary = game.WorldFarmingSystem.empty_plot("overworld", Vector2i(2,0)); skipped_plot.planted = true; skipped_plot.watered = true; skipped_plot.crop_kind = "cucumber"
+	game.FarmSystem.update_plot(game, skipped_plot, 100.0)
+	expect(skipped_plot.stage == 2 and not skipped_plot.watered and skipped_plot.growth == game.CropCatalogSystem.growth_duration("cucumber") * 0.5, "a long frame cannot skip the mandatory second-watering threshold")
+	expect(game.CropCatalogSystem.harvest_count(game,"wheat") == 3 and game.CropCatalogSystem.harvest_count(game,"pumpkin") == 1, "crop base yield is added before the shared farming skill bonus")
+	expect(game.CropCatalogSystem.harvest_xp("pumpkin") > game.CropCatalogSystem.harvest_xp("carrot"), "slow valuable crops reward more general and profession experience")
+	for crop_kind in ["strawberry","herbs"]:
+		expect(game.CropCatalogSystem.regrow_duration(crop_kind) < game.CropCatalogSystem.growth_duration(crop_kind), "%s fruits again faster than its first growth" % crop_kind)
+	var renderer_source := FileAccess.get_file_as_string("res://scripts/presentation/farm_renderer.gd")
+	var shop_source := FileAccess.get_file_as_string("res://scripts/systems/item_window_renderer.gd")
+	expect(renderer_source.contains("draw_target_status") and renderer_source.contains("growth_duration(crop_kind)"), "target plot card and progress bar use the selected crop profile")
+	expect(shop_source.contains("growth_seconds_short") and shop_source.contains("crop_for_seed"), "shop rows explain the actual growth time of every seed bag")
+	for locale in game.LocaleSystem.LOCALES:
+		game.LocaleSystem.set_locale(locale)
+		expect(game.LocaleSystem.ui("farm_plot_stage",[2,9]) != "farm_plot_stage" and game.LocaleSystem.text("crop_ready",["X"]).contains("X"), "farm timing and ready messages are localized for %s" % locale)
+	game.LocaleSystem.set_locale("ru"); game.free()
 
 ## Сценарий: все семейства врагов используют подходящие анимированные спрайты вместо примитивов.
 ## Исходное состояние: новая игра с живыми целями; здоровье, позиции, оружие и добыча настраиваются сценарием.

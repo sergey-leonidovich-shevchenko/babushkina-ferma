@@ -135,8 +135,10 @@ static func _configure_world_previews(game: Node, args: PackedStringArray) -> vo
 		_configure_world_view(game, Vector2(445, 710))
 		game.state.world.estate.level = 3
 		game.day = 4
-	if "--farm-plot-preview" in args:
+	if "--farm-plot-preview" in args or "--capture-farm-plots" in args:
 		_configure_farm_plot_preview(game)
+		game.player = Vector2(248, 1010)
+		game.facing = Vector2.UP
 	if "--crop-catalog-preview" in args:
 		_configure_crop_catalog_preview(game)
 	if "--first-level-preview" in args or "--capture-first-level" in args:
@@ -173,7 +175,7 @@ static func _configure_farm_plot_preview(game: Node) -> void:
 		preview_plot.planted = true
 		preview_plot.watered = preview_x % 2 == 0
 		preview_plot.stage = preview_stages[preview_x]
-		preview_plot.growth = preview_x * game.STAGE_DURATION
+		preview_plot.growth = preview_x * game.CropCatalogSystem.stage_duration("carrot")
 		game.plots[Vector2i(preview_x, 1)] = preview_plot
 
 ## Заполняет тестовые грядки зрелыми культурами из полного каталога растений.
@@ -187,8 +189,8 @@ static func _configure_crop_catalog_preview(game: Node) -> void:
 		crop_plot.planted = true
 		crop_plot.watered = true
 		crop_plot.stage = 4
-		crop_plot.growth = game.GROWTH_DURATION
 		crop_plot.crop_kind = crop_kinds[preview_index]
+		crop_plot.growth = game.CropCatalogSystem.growth_duration(String(crop_plot.crop_kind))
 		game.plots[preview_cell] = crop_plot
 
 ## Настраивает preview игровых окон, хранилища, кузницы, контрактов, истории и рыбалки.
@@ -244,7 +246,7 @@ static func _initialize_runtime_systems(game: Node) -> void:
 
 ## Убирает заставки из preview и активирует редактор уровня после запуска runtime-систем.
 static func _finalize_previews(game: Node, args: PackedStringArray) -> void:
-	if "--farm-plot-preview" in args or "--debug-inspector" in args:
+	if "--farm-plot-preview" in args or "--capture-farm-plots" in args or "--debug-inspector" in args:
 		_disable_farm_intro(game)
 	if "--fence-preview" in args or "--capture-fences" in args:
 		_disable_farm_intro(game)

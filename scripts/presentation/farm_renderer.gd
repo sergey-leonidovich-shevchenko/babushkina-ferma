@@ -1,5 +1,7 @@
 extends RefCounted
 
+const UiKitSystem := preload("res://scripts/systems/ui_kit_system.gd")
+
 ## Рисует все локальные и свободно размещённые грядки текущей локации.
 static func draw(game: Node2D) -> void:
 	if game.current_location == "overworld":
@@ -14,6 +16,9 @@ static func draw(game: Node2D) -> void:
 	var cultivation_target: Dictionary = game.WorldFarmingSystem.target(game)
 	if bool(cultivation_target.valid) or bool(cultivation_target.legacy):
 		game.draw_rect(cultivation_target.rect, Color("fff3a6"), false, 3)
+		var targeted_plot: Dictionary = game.WorldFarmingSystem.read_target(game, cultivation_target)
+		if bool(targeted_plot.get("planted", false)):
+			draw_target_status(game, cultivation_target.rect, targeted_plot)
 
 ## Рисует землю и состояние одной грядки независимо от её локации.
 static func draw_plot(game: Node2D, rect: Rect2, plot: Dictionary) -> void:
@@ -23,9 +28,10 @@ static func draw_plot(game: Node2D, rect: Rect2, plot: Dictionary) -> void:
 	draw_crop(game, rect, plot)
 	draw_crop_progress(game, rect, plot)
 	var crop_kind: String = String(plot.get("crop_kind", "carrot"))
-	if not game.CropCatalogSystem.grows_in_season(crop_kind, game.WorldEventSystem.season(game.day)) and plot.growth < game.GROWTH_DURATION:
+	var growth_duration: float = game.CropCatalogSystem.growth_duration(crop_kind)
+	if not game.CropCatalogSystem.grows_in_season(crop_kind, game.WorldEventSystem.season(game.day)) and plot.growth < growth_duration:
 		draw_season_pause_icon(game, rect.position + Vector2(rect.size.x - 7, 3))
-	elif not plot.watered and plot.growth < game.GROWTH_DURATION:
+	elif not plot.watered and plot.growth < growth_duration:
 		draw_water_needed_icon(game, rect.position + Vector2(8, 4))
 
 ## Рисует текущую стадию культуры с короткой анимацией перехода роста.
@@ -43,7 +49,8 @@ static func draw_crop(game: Node2D, rect: Rect2, plot: Dictionary) -> void:
 
 ## Рисует сегментированный прогресс роста либо значок готового урожая.
 static func draw_crop_progress(game: Node2D, rect: Rect2, plot: Dictionary) -> void:
-	var progress: float = clampf(plot.growth / game.GROWTH_DURATION, 0.0, 1.0)
+	var crop_kind: String = String(plot.get("crop_kind", "carrot"))
+	var progress: float = clampf(plot.growth / game.CropCatalogSystem.growth_duration(crop_kind), 0.0, 1.0)
 	var bar := Rect2(rect.position + Vector2(3, -10), Vector2(rect.size.x - 6, 7))
 	if progress >= 1.0:
 		var icon_center := rect.position + Vector2(rect.size.x - 5, -7)
@@ -65,6 +72,30 @@ static func draw_crop_progress(game: Node2D, rect: Rect2, plot: Dictionary) -> v
 	for marker in range(1, 4):
 		var marker_x := bar.position.x + bar.size.x * marker / 4.0
 		game.draw_line(Vector2(marker_x, bar.position.y), Vector2(marker_x, bar.end.y), Color("f7e4b0"), 1.5)
+
+## Рисует над выбранной грядкой компактную карточку сорта, стадии и следующего требуемого действия.
+static func draw_target_status(game: Node2D, plot_rect: Rect2, plot: Dictionary) -> void:
+	var crop_kind: String = String(plot.get("crop_kind", "carrot"))
+	var crop_data: Dictionary = game.CropCatalogSystem.data(crop_kind)
+	var harvest_name: String = game.inventory_item_name(String(crop_data.harvest))
+	var growth_duration: float = game.CropCatalogSystem.growth_duration(crop_kind)
+	var card := Rect2(plot_rect.get_center() + Vector2(-92, -70), Vector2(184, 46))
+	UiKitSystem.draw_nine_patch(game, "tooltip", card)
+	game.draw_ui_string(game.UI_FONT, card.position + Vector2(13, 19), harvest_name, HORIZONTAL_ALIGNMENT_LEFT, 158, 10, UiKitSystem.COLORS.ink)
+	var status: String
+	var status_color := Color("66804c")
+	if float(plot.growth) >= growth_duration:
+		status = game.LocaleSystem.ui("farm_plot_ready")
+	elif not game.CropCatalogSystem.grows_in_season(crop_kind, game.WorldEventSystem.season(game.day)):
+		status = game.LocaleSystem.ui("farm_plot_dormant")
+		status_color = Color("6b7f96")
+	elif not bool(plot.watered):
+		status = game.LocaleSystem.ui("farm_plot_water")
+		status_color = Color("a83f2a")
+	else:
+		var remaining := ceili(growth_duration - float(plot.growth))
+		status = game.LocaleSystem.ui("farm_plot_stage", [int(plot.stage) + 1, remaining])
+	game.draw_ui_string(game.UI_FONT, card.position + Vector2(13, 35), status, HORIZONTAL_ALIGNMENT_LEFT, 158, 8, status_color)
 
 ## Рисует сезонные часы над культурой, рост которой приостановлен погодой.
 static func draw_season_pause_icon(game: Node2D, center: Vector2) -> void:

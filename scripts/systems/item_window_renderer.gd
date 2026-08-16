@@ -98,7 +98,12 @@ static func draw_shop(game: Node) -> void:
 			game.draw_texture_rect_region(game.SUPPLY_SHEET, Rect2(row.position + Vector2(13, 3), Vector2(26, 26)), product.icon)
 		else:
 			game.draw_item_icon(String(product.kind), Rect2(row.position + Vector2(13, 3), Vector2(26, 26)))
-		game.draw_ui_string(game.UI_FONT, row.position + Vector2(48, 22), game.inventory_item_name(product.kind), HORIZONTAL_ALIGNMENT_LEFT, 290, 11, UiKitSystem.COLORS.ink)
+		var product_label: String = game.inventory_item_name(product.kind)
+		if bool(product.get("seed", false)):
+			var crop_kind: String = game.CropCatalogSystem.crop_for_seed(String(product.kind))
+			if not crop_kind.is_empty():
+				product_label += "  •  " + game.LocaleSystem.ui("growth_seconds_short", [roundi(game.CropCatalogSystem.growth_duration(crop_kind))])
+		game.draw_ui_string(game.UI_FONT, row.position + Vector2(48, 22), product_label, HORIZONTAL_ALIGNMENT_LEFT, 290, 11, UiKitSystem.COLORS.ink)
 		game.draw_ui_string(game.UI_FONT, row.position + Vector2(360, 22), ("%d ●" % product.buy) if product.buy > 0 else "—", HORIZONTAL_ALIGNMENT_CENTER, 78, 11, UiKitSystem.COLORS.ink)
 		game.draw_ui_string(game.UI_FONT, row.position + Vector2(460, 22), ("%d ●" % product.sell) if product.sell > 0 else "—", HORIZONTAL_ALIGNMENT_CENTER, 78, 11, UiKitSystem.COLORS.ink)
 	draw_help(game, game.LocaleSystem.ui("shop_help"))

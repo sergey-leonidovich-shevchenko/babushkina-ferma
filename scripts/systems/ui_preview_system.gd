@@ -13,6 +13,10 @@ static func configure(game: Node) -> void:
 		game.language_screen = false; game.title_screen = false; game.current_location = "overworld"; game.tutorial_visible = false; game.message = ""
 		game.player = Vector2(1160, 650); game.set_meta("capture_hud_clean", true); game.set_meta("capture_ui_frames", 6); game.set_meta("capture_ui_output", "res://assets/generated/ui/hud_ingame_preview.png")
 		return
+	if "--capture-farm-plots" in arguments:
+		game.language_screen = false; game.title_screen = false; game.tutorial_visible = false; game.message = ""
+		game.set_meta("capture_hud_clean", true); game.set_meta("capture_ui_frames", 8); game.set_meta("capture_ui_output", "res://assets/generated/ui/farm_plots_ingame_preview.png")
+		return
 	if "--capture-language" in arguments:
 		game.language_screen = true; game.title_screen = false; game.set_meta("capture_ui_frames", 6); game.set_meta("capture_ui_output", "res://assets/generated/ui/language_ingame_preview.png")
 		return
