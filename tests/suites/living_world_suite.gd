@@ -138,11 +138,14 @@ func test_personal_requests_and_daily_gifts() -> void:
 func test_distinct_interiors_have_solid_reachable_furniture() -> void:
 	var game := make_game(); var first_cells: Array = []
 	for location in ["cottage_interior","shop_interior","guild_interior","forge_interior"]:
-		var props: Array = game.InteriorRenderer.PROPS[location]; first_cells.append(props[0].cell)
+		var props: Array = game.InteriorVisualSystem.props(location); first_cells.append(game.InteriorVisualSystem.profile(props[0].kind).cell)
 		expect(not game.BuildingSystem.is_walkable_inside(location,props[0].position,game.PLAYER_RADIUS), "interior furniture owns collision: %s" % location)
 		var data: Dictionary = game.BuildingSystem.INTERIORS[location]
 		expect(game.BuildingSystem.is_walkable_inside(location,data.exit-Vector2(0,35),game.PLAYER_RADIUS) and game.BuildingSystem.is_walkable_inside(location,data.get("service_position",data.exit),game.PLAYER_RADIUS), "exit and front service remain reachable: %s" % location)
 	expect(first_cells.duplicate().all(func(cell): return first_cells.count(cell) == 1), "main interiors use four distinct thematic prop cells")
+	for kind in game.InteriorVisualSystem.PROFILES:
+		var profile: Dictionary = game.InteriorVisualSystem.profile(kind)
+		expect(posmod(int(profile.visual_size.x),24)==0 and posmod(int(profile.visual_size.y),24)==0 and posmod(int(profile.collision_size.x),24)==0 and posmod(int(profile.collision_size.y),24)==0, "interior profile follows 24-pixel art and collision grid: %s" % kind)
 	game.free()
 
 

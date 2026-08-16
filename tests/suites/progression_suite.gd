@@ -315,11 +315,11 @@ func test_crop_varieties_five_stages_seasons_regrowth_and_save() -> void:
 ## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
 func test_animated_enemy_sprites_replace_primitives() -> void:
 	var game := make_game()
-	expect(game.PREDATOR_PLANT_SHEET.get_width() == 256 and game.PREDATOR_PLANT_SHEET.get_height() == 256, "predator plant has a four-direction four-frame sprite sheet")
-	expect(game.ORC_IDLE_SHEET.get_width() == 256 and game.ORC_IDLE_SHEET.get_height() == 256, "orc has a four-direction four-frame sprite sheet")
+	expect(game.CreatureVisualProfileSystem.profiles_are_valid(), "enemy ranks and hazards use modular visual profiles")
+	expect(game.EnemyAnimationLibrary.CORE_FAMILIES.has("orc") and game.EnemyAnimationLibrary.source_rect("orc",Vector2.RIGHT,0).size==Vector2(128,128), "orc uses a complete eight-direction animation library")
 	expect(game.CAVE_GUARDIAN_TEXTURE.get_size() == Vector2(256, 256), "Depth Guardian is optimized to a compact transparent game texture")
 	expect(game.SKELETON_WARRIOR_TEXTURE.get_size() == Vector2(256, 256) and game.CURSED_KNIGHT_TEXTURE.get_size() == Vector2(256, 256), "skeleton and cursed knight use compact transparent game textures")
-	expect(game.enemy_sprite_texture("plant") == game.PREDATOR_PLANT_SHEET and game.enemy_sprite_texture("orc") == game.ORC_IDLE_SHEET and game.enemy_sprite_texture("cave_guardian") == game.CAVE_GUARDIAN_TEXTURE and game.enemy_sprite_texture("skeleton") == game.SKELETON_WARRIOR_TEXTURE and game.enemy_sprite_texture("undead") == game.CURSED_KNIGHT_TEXTURE, "all five modular enemy families render with real sprite textures")
+	expect(game.EnemyAnimationLibrary.walk_texture("orc")!=null and game.EnemyAnimationLibrary.action_texture("orc")!=null and game.HAZARD_RANK_ATLAS!=null, "mobile enemies and rooted plants resolve to their current runtime atlases")
 	expect(game.enemy_direction_row(Vector2.DOWN) == 0 and game.enemy_direction_row(Vector2.UP) == 1 and game.enemy_direction_row(Vector2.LEFT) == 2 and game.enemy_direction_row(Vector2.RIGHT) == 3, "enemy idle animation faces the nearby player in all directions")
 	game.free()
 

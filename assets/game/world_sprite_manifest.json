@@ -14,6 +14,7 @@
     "scripts/systems/farm_visual_system.gd",
     "scripts/systems/farm_life_renderer.gd",
     "scripts/systems/farm_life_visual_system.gd",
+    "scripts/systems/interior_visual_system.gd",
     "scripts/systems/road_visual_system.gd",
     "scripts/systems/water_visual_system.gd",
     "scripts/systems/village_ambient_renderer.gd",
@@ -36,6 +37,7 @@
     ,"assets/generated/level_drafts/world_loot_ingame_preview.png"
     ,"assets/generated/level_drafts/characters_ingame_preview.png"
     ,"assets/generated/level_drafts/creatures_ingame_preview.png"
+    ,"assets/generated/level_drafts/interior_%s_ingame_preview.png"
   ],
   "entries": [
     {
@@ -507,45 +509,36 @@
       "id": "WS-022",
       "family": "Интерьеры, сервисы и домашний сундук",
       "assets": [{"path":"assets/game/world_polish/village_polish_atlas.png","width":640,"height":512}],
-      "render_owner": "InteriorRenderer и GameRenderer.draw_interior_objects",
-      "source_layout": "мебель 128×128; сервисы и сундук частично примитивы",
-      "runtime_sizes": ["88×88", "90×90", "92×92", "105×105", "140×110", "150×120", "180×140", "200×125", "210×125"],
-      "target_modules": ["96×96", "144×120", "192×144", "216×120"],
-      "anchor": "центр; требуется нижняя опора",
-      "collision": "отдельный INTERIOR_SOLIDS",
-      "status": "migration",
+      "render_owner": "InteriorVisualSystem и InteriorRenderer",
+      "source_layout": "строгий атлас 5×4 с целой ячейкой 128×128",
+      "runtime_sizes": ["96×96", "144×120", "192×120", "192×144", "216×120"],
+      "target_modules": ["96×96", "144×120", "192×120", "192×144", "216×120"],
+      "anchor": "единая нижняя центральная опора",
+      "collision": "footprint 72×48, 120×48, 144×72, 168×48 или 192×48 из того же профиля",
+      "status": "compliant",
       "priority": "P2",
-      "debt": "Размеры мебели и INTERIOR_SOLIDS дублируются; сервисы, сундук, двери и решётки частично рисуются примитивами.",
-      "done_when": "Каталог мебели хранит sprite_size, anchor и collision вместе; сервисы и сундук имеют спрайты, все размеры кратны 24."
+      "debt": "Закрыт: произвольные размеры и INTERIOR_SOLIDS удалены; мебель, сервисы, сундук, навигация и F10 используют один профиль.",
+      "done_when": "Сохранять единый каталог, целые source-rect, модульные размеры и четыре игровых preview интерьеров."
     },
     {
       "id": "WS-023",
-      "family": "Устаревшие листы и дубли",
+      "family": "Намеренный fallback сюжетного слизня",
       "assets": [
-        {"path":"assets/game/characters/farmer_idle.png","width":768,"height":256},
-        {"path":"assets/game/characters/farmer_walk.png","width":384,"height":256},
-        {"path":"assets/game/characters/farmer_sword_attack.png","width":512,"height":256},
         {"path":"assets/game/enemies/slime_idle.png","width":384,"height":256},
         {"path":"assets/game/enemies/slime_attack.png","width":640,"height":256},
         {"path":"assets/game/enemies/slime_hurt.png","width":320,"height":256},
-        {"path":"assets/game/enemies/slime_death.png","width":640,"height":256},
-        {"path":"assets/game/enemies/predator_plant_idle.png","width":256,"height":256},
-        {"path":"assets/game/enemies/predator_plant_hurt.png","width":320,"height":256},
-        {"path":"assets/game/enemies/predator_plant_death.png","width":640,"height":256},
-        {"path":"assets/game/enemies/orc_idle.png","width":256,"height":256},
-        {"path":"assets/game/enemies/orc_hurt.png","width":384,"height":256},
-        {"path":"assets/game/enemies/orc_death.png","width":512,"height":256}
+        {"path":"assets/game/enemies/slime_death.png","width":640,"height":256}
       ],
-      "render_owner": "AnimationRenderer legacy branches и GameContext",
-      "source_layout": "старые горизонтальные листы",
-      "runtime_sizes": ["64×64", "96×96"],
-      "target_modules": ["96×96"],
-      "anchor": "разный",
-      "collision": "не является источником коллизии",
-      "status": "legacy",
+      "render_owner": "AnimationRenderer.draw_slime",
+      "source_layout": "четыре горизонтальных листа с целыми кадрами 64×64 для уникального сюжетного противника",
+      "runtime_sizes": ["72×72"],
+      "target_modules": ["72×72"],
+      "anchor": "общая нижняя опора CreatureVisualProfileSystem",
+      "collision": "намеренный круг r28 сюжетной механики; F10 использует модульную видимую рамку 72×72",
+      "status": "compliant",
       "priority": "P3",
-      "debt": "Часть ресурсов перекрыта новыми 8-направленными пакетами, но всё ещё загружается или поддерживает старые ветки.",
-      "done_when": "Статический анализ и тесты подтверждают отсутствие runtime-ссылок; лишние preloads и файлы удалены либо помечены как намеренный fallback."
+      "debt": "Закрыт: девять перекрытых листов героя, орка и хищного растения удалены; четыре листа слизня имеют единственного подтверждённого владельца.",
+      "done_when": "Сохранять сюжетного слизня в модульной рамке 72×72 и не возвращать удалённые preloads рядом с восьминаправленными пакетами."
     }
   ]
 }

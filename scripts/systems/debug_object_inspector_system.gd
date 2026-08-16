@@ -121,9 +121,9 @@ static func append_buildings(game: Node, result: Array[Dictionary]) -> void:
 			"условие %s" % ("нет" if String(data.unlock).is_empty() else String(data.unlock)),
 		])
 	if not game.BuildingSystem.is_interior(game.current_location): return
-	for index in game.BuildingSystem.INTERIOR_SOLIDS.get(game.current_location, []).size():
-		var rect: Rect2 = game.BuildingSystem.INTERIOR_SOLIDS[game.current_location][index]
-		add(result, "interior_solid:%d" % index, "ИНТЕРЬЕР", "Мебель и стена", rect.get_center(), rect, 16, rect_description(rect), "непроходимо", ["комната %s" % game.current_location])
+	for index in game.InteriorVisualSystem.props(game.current_location).size():
+		var prop: Dictionary = game.InteriorVisualSystem.props(game.current_location)[index]; var kind := String(prop.kind); var position := Vector2(prop.position); var rect: Rect2 = game.InteriorVisualSystem.collision_rect(kind,position); var visual: Rect2 = game.InteriorVisualSystem.destination_rect(kind,position)
+		add(result, "interior_prop:%d:%s" % [index,kind], "ИНТЕРЬЕР", game.LocaleSystem.entity(kind), position, visual, 16, rect_description(rect), "непроходимо", ["комната %s" % game.current_location,"рисунок %.0f×%.0f" % [visual.size.x,visual.size.y]])
 
 
 ## Добавляет деревья всех стадий по фактической кроне, включая здоровье и таймер отрастания.
@@ -203,7 +203,7 @@ static func append_hazards(game: Node, result: Array[Dictionary]) -> void:
 ## Добавляет обычного слизня и всех data-driven противников с полным состоянием боя и AI.
 static func append_enemies(game: Node, result: Array[Dictionary]) -> void:
 	if game.current_location == "overworld" and (game.slime_alive or game.AnimationSystem.slime_is_visible(game)):
-		add(result, "enemy:legacy_slime", "ВРАГ", game.LocaleSystem.entity("slime"), game.slime_position, actor_bounds(game.slime_position,Vector2(64,64)), 90, "круг r28 · твёрдый", game.slime_visual_state, ["HP %d/3" % game.slime_hp,"loot ready %s" % str(game.loot_available)])
+		add(result, "enemy:legacy_slime", "ВРАГ", game.LocaleSystem.entity("slime"), game.slime_position, game.CreatureVisualProfileSystem.actor_rect(game.slime_position,game.AnimationRenderer.SLIME_VISUAL_SIZE), 90, "круг r28 · твёрдый", game.slime_visual_state, ["HP %d/3" % game.slime_hp,"loot ready %s" % str(game.loot_available)])
 	for index in game.enemy_nodes.size():
 		var enemy: Dictionary = game.enemy_nodes[index]
 		if enemy.location != game.current_location or not game.AnimationSystem.enemy_is_visible(enemy): continue
@@ -278,7 +278,8 @@ static func append_world_props(game: Node, result: Array[Dictionary]) -> void:
 	if game.current_location == "cottage_interior" and game.home_chest_owned:
 		var stored_total := 0
 		for count in game.home_chest_counts.values(): stored_total += int(count)
-		add(result,"prop:home_chest","ХРАНИЛИЩЕ",game.LocaleSystem.entity("home_chest"),game.StorageSystem.CHEST_POSITION,centered_bounds(game.StorageSystem.CHEST_POSITION,Vector2(84,72)),80,"круг r42 · твёрдый","установлен",["предметов %d" % stored_total])
+		var bounds: Rect2 = game.InteriorVisualSystem.destination_rect("home_chest",game.StorageSystem.CHEST_POSITION); var collision: Rect2 = game.InteriorVisualSystem.collision_rect("home_chest",game.StorageSystem.CHEST_POSITION)
+		add(result,"prop:home_chest","ХРАНИЛИЩЕ",game.LocaleSystem.entity("home_chest"),game.StorageSystem.CHEST_POSITION,bounds,80,rect_description(collision),"установлен",["предметов %d" % stored_total])
 
 
 ## Возвращает визуальный прямоугольник персонажа с общей точкой опоры у ног.

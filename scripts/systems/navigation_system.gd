@@ -36,7 +36,7 @@ static func walkability_reason(game: Node, position: Vector2) -> String:
 	if game.MoonGladeSystem.blocks_position(game, position, game.PLAYER_RADIUS): return "guardian"
 	if game.BuildingSystem.is_interior(game.current_location):
 		if game.FarmLifeSystem.blocks_position(game,position,game.PLAYER_RADIUS): return "furniture"
-		if game.current_location == "cottage_interior" and game.home_chest_owned and position.distance_to(game.StorageSystem.CHEST_POSITION) < game.PLAYER_RADIUS + 42.0:
+		if game.current_location == "cottage_interior" and game.home_chest_owned and circle_intersects_rect(position,game.PLAYER_RADIUS,game.InteriorVisualSystem.collision_rect("home_chest",game.StorageSystem.CHEST_POSITION)):
 			return "storage"
 		return "walkable" if game.BuildingSystem.is_walkable_inside(game.current_location, position, game.PLAYER_RADIUS) else "interior"
 	if game.current_location == "pirate_ship" and not PirateShipSystem.is_walkable(position, game.PLAYER_RADIUS): return "ship"

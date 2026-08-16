@@ -13,6 +13,7 @@ func run() -> void:
 	test_cave_textures_have_improved_resources()
 	test_village_ambient_atlas_has_twelve_complete_cells()
 	test_world_loot_atlas_replaces_container_placeholders()
+	test_interior_profiles_keep_current_room_previews()
 
 
 ## Сценарий: все сгенерированные изображения загружаются Godot как прозрачные текстуры.
@@ -42,6 +43,15 @@ func _has_visible_sample(image: Image) -> bool:
 			if image.get_pixel(x, y).a > 0.5:
 				return true
 	return false
+
+
+## Сценарий: четыре основных помещения снимаются непосредственно из игрового renderer после миграции мебели.
+## Исходное состояние: каталог интерьера уже задаёт ячейку, опору, размер и footprint каждого предмета.
+## Ожидаемый результат: для дома, магазина, гильдии и кузницы сохранены нативные контрольные кадры.
+func test_interior_profiles_keep_current_room_previews() -> void:
+	for location in ["cottage_interior","shop_interior","guild_interior","forge_interior"]:
+		var path:=ProjectSettings.globalize_path("res://assets/generated/level_drafts/interior_%s_ingame_preview.png"%location); var preview:=Image.load_from_file(path)
+		expect(preview!=null and preview.get_size()==Vector2i(1152,648), "interior keeps a current native gameplay preview: %s"%location)
 
 
 ## Сценарий: каждый из пяти приключенческих биомов получает крупный ориентир и малый декор.

@@ -7,7 +7,7 @@ func run() -> void:
 	test_application_version_is_synchronized_and_automated()
 	test_keyboard_press_and_release()
 	test_immediate_keyboard_response()
-	test_four_direction_character_animation()
+	test_eight_direction_character_animation()
 	test_joypad_stick_starts_and_stops_movement()
 	test_clock_rolls_to_next_day()
 	test_crop_pauses_for_second_watering()
@@ -150,12 +150,12 @@ func test_joypad_stick_starts_and_stops_movement() -> void:
 	expect(game.get_movement_direction() == Vector2.ZERO, "d-pad release clears movement")
 	game.free()
 
-## Сценарий: герой использует правильные ряды анимации для четырёх направлений и состояния покоя.
+## Сценарий: герой использует новый восьминаправленный атлас и реагирует без задержки ввода.
 ## Исходное состояние: новый изолированный экземпляр игры; необходимые ресурсы, позиции и таймеры задаются в начале сценария.
-## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
-func test_four_direction_character_animation() -> void:
+## Ожидаемый результат: профиль валиден, основные стороны различаются, а часы шага обновляются независимо от key repeat.
+func test_eight_direction_character_animation() -> void:
 	var game := make_game()
-	expect(game.FARMER_SHEET.get_width() == 384 and game.FARMER_SHEET.get_height() == 256, "hero sheet contains six frames in four directions")
+	expect(game.DirectionalCharacterSystem.profiles_are_valid() and game.DirectionalCharacterSystem.HERO_TEXTURES[0].get_size()==Vector2(888,1776), "hero uses the validated 4x8 directional atlas")
 	expect(game.PlayerSystem.direction_row(Vector2.DOWN) == 0, "down movement uses front-facing animation row")
 	expect(game.PlayerSystem.direction_row(Vector2.LEFT) == 1, "left movement uses left-facing animation row")
 	expect(game.PlayerSystem.direction_row(Vector2.RIGHT) == 2, "right movement uses right-facing animation row")

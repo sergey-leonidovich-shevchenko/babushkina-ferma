@@ -201,14 +201,10 @@ func draw_interior_objects() -> void:
 	InteriorRenderer.draw(self)
 	if data.has("service"):
 		var service_position: Vector2 = data.service_position
-		draw_rect(Rect2(service_position - Vector2(52, 24), Vector2(104, 48)), Color("d0a45b"))
-		draw_string(UI_FONT, service_position + Vector2(-48, 5), LocaleSystem.entity(String(data.service)).to_upper(), HORIZONTAL_ALIGNMENT_CENTER, 96, 13, Color("352d26"))
+		draw_string(UI_FONT, service_position + Vector2(-72, 18), LocaleSystem.entity(String(data.service)).to_upper(), HORIZONTAL_ALIGNMENT_CENTER, 144, 13, Color("fff0bd"))
 	if current_location == "cottage_interior" and home_chest_owned:
 		var chest_position: Vector2 = StorageSystem.CHEST_POSITION
-		draw_rect(Rect2(chest_position - Vector2(46, 24), Vector2(92, 52)), Color("58351f"))
-		draw_rect(Rect2(chest_position - Vector2(42, 20), Vector2(84, 44)), Color("a66d35"))
-		draw_arc(chest_position - Vector2(0, 18), 42, PI, TAU, 16, Color("d19a4b"), 7)
-		draw_rect(Rect2(chest_position - Vector2(7, 4), Vector2(14, 18)), Color("e2bd62"))
+		InteriorRenderer.draw_prop(self,"home_chest",chest_position)
 		draw_string(UI_FONT, chest_position + Vector2(-62, 49), LocaleSystem.entity("home_chest"), HORIZONTAL_ALIGNMENT_CENTER, 124, 13, Color("fff0bd"))
 	if current_location == "prison_interior":
 		for companion_id in CompanionSystem.COMPANIONS:
@@ -400,16 +396,6 @@ func draw_hazards() -> void:
 		draw_string(UI_FONT, hazard.position + Vector2(-70, 56), LocaleSystem.entity(hazard.kind), HORIZONTAL_ALIGNMENT_CENTER, 140, 13, Color("e9f0c6"))
 		if hazard.kind == "thorn_bloom" and hazard.cooldown > EnvironmentHazardSystem.TYPES.thorn_bloom.interval - 0.22:
 			draw_line(hazard.position - Vector2(0, 24), player, Color(0.78, 0.95, 0.35, 0.72), 3.0)
-
-## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
-func enemy_sprite_texture(kind: String) -> Texture2D:
-	match kind:
-		"plant": return PREDATOR_PLANT_SHEET
-		"orc": return ORC_IDLE_SHEET
-		"cave_guardian": return CAVE_GUARDIAN_TEXTURE
-		"skeleton": return SKELETON_WARRIOR_TEXTURE
-		"undead": return CURSED_KNIGHT_TEXTURE
-	return null
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func enemy_direction_row(direction: Vector2) -> int:

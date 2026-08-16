@@ -1,18 +1,10 @@
 extends RefCounted
 
-const PLAYER_IDLE := preload("res://assets/game/characters/farmer_idle.png")
-const PLAYER_WALK := preload("res://assets/game/characters/farmer_walk.png")
-const PLAYER_SWORD_ATTACK := preload("res://assets/game/characters/farmer_sword_attack.png")
 const SLIME_IDLE := preload("res://assets/game/enemies/slime_idle.png")
 const SLIME_ATTACK := preload("res://assets/game/enemies/slime_attack.png")
 const SLIME_HURT := preload("res://assets/game/enemies/slime_hurt.png")
 const SLIME_DEATH := preload("res://assets/game/enemies/slime_death.png")
-const PLANT_IDLE := preload("res://assets/game/enemies/predator_plant_idle.png")
-const PLANT_HURT := preload("res://assets/game/enemies/predator_plant_hurt.png")
-const PLANT_DEATH := preload("res://assets/game/enemies/predator_plant_death.png")
-const ORC_IDLE := preload("res://assets/game/enemies/orc_idle.png")
-const ORC_HURT := preload("res://assets/game/enemies/orc_hurt.png")
-const ORC_DEATH := preload("res://assets/game/enemies/orc_death.png")
+const SLIME_VISUAL_SIZE := Vector2(72,72)
 const EnemyAnimationLibrary := preload("res://scripts/systems/enemy_animation_library.gd")
 
 
@@ -47,7 +39,7 @@ static func draw_slime(game: Node2D) -> bool:
 	elif state == "attack": texture = SLIME_ATTACK; count = 8
 	elif state == "death": texture = SLIME_DEATH; count = 10
 	var frame: int = game.AnimationSystem.frame(game.slime_visual_time, count, 11.0, state != "death")
-	game.draw_texture_rect_region(texture, Rect2(game.slime_position - Vector2(32, 40), Vector2(64, 64)), Rect2(frame * 64, 0, 64, 64))
+	game.draw_texture_rect_region(texture, game.CreatureVisualProfileSystem.actor_rect(game.slime_position,SLIME_VISUAL_SIZE), Rect2(frame * 64, 0, 64, 64))
 	return true
 
 

@@ -82,7 +82,7 @@ func _ready() -> void:
 	if "--capture-first-level" in OS.get_cmdline_user_args(): set_meta("capture_first_level_frames", 6); set_meta("capture_first_level_clean", true)
 	if "--water-navigation-preview" in OS.get_cmdline_user_args() or "--capture-water-navigation" in OS.get_cmdline_user_args(): WaterVisualSystem.configure_navigation_preview(self)
 	BuildingVisualSystem.configure_from_arguments(self,OS.get_cmdline_user_args()); EnvironmentVisualSystem.configure_from_arguments(self,OS.get_cmdline_user_args())
-	FarmLifeVisualSystem.configure_preview(self,OS.get_cmdline_user_args()); WorldLootRenderer.configure_preview(self,OS.get_cmdline_user_args())
+	FarmLifeVisualSystem.configure_preview(self,OS.get_cmdline_user_args()); WorldLootRenderer.configure_preview(self,OS.get_cmdline_user_args()); InteriorVisualSystem.configure_preview(self,OS.get_cmdline_user_args())
 	if "--cave-preview" in OS.get_cmdline_user_args() or "--capture-cave" in OS.get_cmdline_user_args(): CaveVisualSystem.configure_preview(self); if "--capture-cave" in OS.get_cmdline_user_args(): set_meta("capture_cave_frames",6)
 	if "--tree-stages-preview" in OS.get_cmdline_user_args() or "--capture-tree-stages" in OS.get_cmdline_user_args(): TreeSystem.configure_preview(self)
 	if "--capture-tree-stages" in OS.get_cmdline_user_args(): set_meta("capture_tree_stage_frames",6)
@@ -141,7 +141,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	LevelEditorSystem.update_export_capture(self); if EnvironmentVisualSystem.update_preview_capture(self): return
 	if BuildingVisualSystem.update_preview_capture(self): return
-	if FarmLifeVisualSystem.update_preview_capture(self): return
+	if FarmLifeVisualSystem.update_preview_capture(self) or InteriorVisualSystem.update_preview_capture(self): return
 	if WorldLootRenderer.update_preview_capture(self): return
 	if DirectionalCharacterSystem.update_preview_capture(self) or CreatureVisualProfileSystem.update_preview_capture(self): return
 	if WaterVisualSystem.update_preview_capture(self): return

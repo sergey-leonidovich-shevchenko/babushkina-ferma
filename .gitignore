@@ -43,6 +43,10 @@ tmp/
 !/assets/generated/level_drafts/world_loot_ingame_preview.png
 !/assets/generated/level_drafts/characters_ingame_preview.png
 !/assets/generated/level_drafts/creatures_ingame_preview.png
+!/assets/generated/level_drafts/interior_cottage_interior_ingame_preview.png
+!/assets/generated/level_drafts/interior_shop_interior_ingame_preview.png
+!/assets/generated/level_drafts/interior_guild_interior_ingame_preview.png
+!/assets/generated/level_drafts/interior_forge_interior_ingame_preview.png
 !/assets/generated/ui/system_settings_ingame_preview.png
 !/assets/generated/ui/hud_ingame_preview.png
 !/assets/generated/ui/language_ingame_preview.png

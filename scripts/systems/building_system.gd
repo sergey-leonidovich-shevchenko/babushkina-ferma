@@ -2,6 +2,7 @@ extends RefCounted
 
 const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
 const BuildingVisualSystem := preload("res://scripts/systems/building_visual_system.gd")
+const InteriorVisualSystem := preload("res://scripts/systems/interior_visual_system.gd")
 
 const SHOP_STALL_POSITION := Vector2(1500, 430)
 const SELL_CRATE_POSITION := Vector2(1580, 455)
@@ -36,14 +37,6 @@ const INTERIORS := {
 	"castle_upper":{"building":"moon_castle","room":Rect2(180, 80, 792, 500),"spawn":Vector2(576, 520),"exit":Vector2(576, 565),"color":Color("76655a"),"back":"castle_hall","back_spawn":Vector2(1430, 250)},
 	"castle_dungeon":{"building":"moon_castle","room":Rect2(120, 80, 912, 510),"spawn":Vector2(576, 520),"exit":Vector2(576, 570),"color":Color("3d4650"),"back":"castle_hall","back_spawn":Vector2(330, 800)},
 }
-const INTERIOR_SOLIDS := {
-	"cottage_interior":[Rect2(265,195,150,120),Rect2(738,225,105,105)],
-	"shop_interior":[Rect2(471,163,210,125),Rect2(795,220,90,90)],
-	"guild_interior":[Rect2(476,163,200,125),Rect2(806,241,88,88)],
-	"forge_interior":[Rect2(486,170,180,140),Rect2(806,241,88,88)],
-}
-
-
 ## Возвращает твёрдые секции старого фермерского периметра как прямоугольники базовых клеток 24 px.
 static func farm_fence_rects() -> Array[Rect2]:
 	var result: Array[Rect2] = []
@@ -236,6 +229,6 @@ static func is_walkable_inside(location: String, position: Vector2, radius: floa
 	if not INTERIORS.has(location):
 		return true
 	if not INTERIORS[location].room.grow(-radius).has_point(position): return false
-	for solid in INTERIOR_SOLIDS.get(location, []):
+	for solid in InteriorVisualSystem.collision_rects(location):
 		if (solid as Rect2).grow(radius).has_point(position): return false
 	return true
