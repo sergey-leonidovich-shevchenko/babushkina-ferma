@@ -9,12 +9,13 @@ func run() -> void:
 
 
 ## Сценарий: все созданные UI-эталоны входят в один версионированный regression-манифест.
-## Исходное состояние: в assets/generated/ui лежат двадцать три контрольных PNG с зафиксированными размерами и SHA-256.
+## Исходное состояние: в assets/generated/ui лежат двадцать шесть контрольных PNG с зафиксированными размерами и SHA-256.
 ## Ожидаемый результат: список полон, имена уникальны, изображения не пусты, пропорции верны и ни одна контрольная сумма не изменилась.
 func test_manifest_locks_every_ui_reference() -> void:
 	var game := make_game(); var document: Dictionary = game.UiVisualRegressionSystem.manifest(); var names: Dictionary = {}
 	for entry in document.get("references",[]): names[String(entry.file)]=true
-	expect(document.get("references",[]).size()==23 and names.size()==23, "visual manifest owns every UI-001 through UI-010 screenshot exactly once")
+	expect(document.get("references",[]).size()==26 and names.size()==26, "visual manifest owns every approved system and gameplay interface screenshot exactly once")
+	expect(document.get("references",[]).all(func(entry): return int(entry.width)==1152 and int(entry.height)==648), "every UI reference uses the exact design viewport instead of physical fullscreen pixels")
 	expect(game.UiVisualRegressionSystem.validate_references().is_empty(), "visual regression gate accepts every committed reference size contrast aspect and SHA-256")
 	game.free()
 

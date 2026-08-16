@@ -23,12 +23,14 @@ static func manifest() -> Dictionary:
 static func validate_references() -> Array[String]:
 	var errors: Array[String] = []; var document := manifest()
 	if int(document.get("schema",0)) != 1: return ["visual manifest schema"]
+	var design_size:=Vector2i(int(document.get("design_viewport",[0,0])[0]),int(document.get("design_viewport",[0,0])[1]))
 	for entry in document.get("references",[]):
 		var path := REFERENCE_DIRECTORY+String(entry.file)
 		if not FileAccess.file_exists(path): errors.append("missing:%s"%entry.file); continue
 		var image := Image.load_from_file(ProjectSettings.globalize_path(path))
 		if image==null: errors.append("invalid:%s"%entry.file); continue
 		if image.get_width()!=int(entry.width) or image.get_height()!=int(entry.height): errors.append("size:%s"%entry.file)
+		if image.get_size()!=design_size: errors.append("viewport:%s"%entry.file)
 		if absf(float(image.get_width())/maxf(image.get_height(),1)-16.0/9.0)>0.01: errors.append("aspect:%s"%entry.file)
 		if sampled_contrast(image)<0.08: errors.append("blank:%s"%entry.file)
 		if FileAccess.get_sha256(path)!=String(entry.sha256): errors.append("hash:%s"%entry.file)

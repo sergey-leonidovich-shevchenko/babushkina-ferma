@@ -77,6 +77,12 @@ static func draw_panel(canvas: CanvasItem, rect: Rect2, large: bool = true) -> v
 	draw_nine_patch(canvas, "panel_large" if large else "panel_medium", rect)
 
 
+## Рисует непрозрачное модальное полотно под резной рамой, не пропуская подписи игрового мира сквозь декоративные вырезы.
+static func draw_modal_panel(canvas: CanvasItem, rect: Rect2, large: bool = true) -> void:
+	canvas.draw_rect(rect.grow(-18),Color("ead7a1"),true)
+	draw_panel(canvas,rect,large)
+
+
 ## Рисует кнопку с внутренним светом фокуса и спокойным disabled-состоянием без внешней рамки.
 static func draw_button(canvas: CanvasItem, rect: Rect2, selected: bool, enabled: bool, reduced_motion: bool = false, milliseconds: int = 0) -> void:
 	rect = UiFeedbackSystem.animated_button_rect(canvas, rect, reduced_motion)

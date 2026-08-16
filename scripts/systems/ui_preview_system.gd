@@ -1,5 +1,6 @@
 extends RefCounted
 
+const PREVIEW_SIZE := Vector2i(1152,648)
 
 ## Настраивает запрошенный системный экран и при необходимости включает автоматический снимок.
 static func configure(game: Node) -> void:
@@ -18,6 +19,15 @@ static func configure(game: Node) -> void:
 	if "--capture-defeat" in arguments:
 		game.language_screen = false; game.title_screen = false; game.current_location = "overworld"; game.tutorial_visible = false
 		game.set_meta("capture_hud_clean", true); game.MenuSystem.open_defeat(game, "Пират-призрак", 5); game.set_meta("capture_ui_frames", 6); game.set_meta("capture_ui_output", "res://assets/generated/ui/defeat_ingame_preview.png")
+		return
+	if "--capture-fishing-ui" in arguments:
+		game.FishingSystem.configure_preview(game); game.set_meta("capture_hud_clean",true); game.set_meta("capture_ui_frames",6); game.set_meta("capture_ui_output","res://assets/generated/ui/fishing_ingame_preview.png")
+		return
+	if "--capture-creation-ui" in arguments:
+		game.language_screen=false; game.title_screen=false; game.AdventurePolishSystem.begin_new_game(game); game.set_meta("capture_story_clean",true); game.set_meta("capture_ui_frames",6); game.set_meta("capture_ui_output","res://assets/generated/ui/creation_ingame_preview.png")
+		return
+	if "--capture-compendium" in arguments:
+		game.language_screen=false; game.title_screen=false; game.current_location="overworld"; game.tutorial_visible=false; var life:Dictionary=game.FarmLifeSystem.state(game); life.first_day=6; life.cutscene=""; life.compendium=true; life.page=1; game.set_meta("capture_story_clean",true); game.set_meta("capture_ui_frames",6); game.set_meta("capture_ui_output","res://assets/generated/ui/compendium_ingame_preview.png")
 		return
 	if "--capture-ui-feedback" in arguments:
 		game.language_screen = false; game.title_screen = false; game.current_location = "overworld"
@@ -154,7 +164,10 @@ static func update_capture(game: Node) -> bool:
 	if game.has_meta("capture_notification_text"): game.remove_meta("capture_notification_text")
 	var output := ProjectSettings.globalize_path(String(game.get_meta("capture_ui_output")))
 	game.remove_meta("capture_ui_output")
-	var error := game.get_viewport().get_texture().get_image().save_png(output)
+	var image:=game.get_viewport().get_texture().get_image()
+	if image==null: push_error("Renderer не предоставил кадр интерфейса"); game.get_tree().quit(); return true
+	if image.get_size()!=PREVIEW_SIZE: image.resize(PREVIEW_SIZE.x,PREVIEW_SIZE.y,Image.INTERPOLATE_NEAREST)
+	var error := image.save_png(output)
 	if error != OK: push_error("Не удалось сохранить предпросмотр интерфейса: %s" % error)
 	game.get_tree().quit()
 	return true

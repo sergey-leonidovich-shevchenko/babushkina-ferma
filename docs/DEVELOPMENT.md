@@ -77,6 +77,11 @@ tools/Godot.app/Contents/MacOS/Godot --path . -- --pause-preview
 # Страница пользовательских настроек
 tools/Godot.app/Contents/MacOS/Godot --path . -- --settings-preview
 
+# Визуальная проверка рыбалки, создания героя и фермерского справочника
+tools/Godot.app/Contents/MacOS/Godot --path . -- --capture-fishing-ui
+tools/Godot.app/Contents/MacOS/Godot --path . -- --capture-creation-ui
+tools/Godot.app/Contents/MacOS/Godot --path . -- --capture-compendium
+
 # Автоматическое движение для benchmark
 tools/Godot.app/Contents/MacOS/Godot --path . --max-fps 60 --quit-after 480 --print-fps -- --autoplay
 

@@ -31,7 +31,7 @@ static func close_active(game: Node) -> bool:
 ## Рисует общий затемнённый каркас предметного окна с резным заголовком и кнопкой закрытия.
 static func draw_shell(game: Node, title: String, subtitle: String = "") -> void:
 	game.draw_rect(VIEWPORT, Color(0.012, 0.020, 0.016, 0.78))
-	UiKitSystem.draw_panel(game, SHELL, true)
+	UiKitSystem.draw_modal_panel(game, SHELL, true)
 	game.draw_ui_string(game.MENU_FONT, Vector2(250, 103), title, HORIZONTAL_ALIGNMENT_CENTER, 652, 28, Color("fff0bd"))
 	if not subtitle.is_empty():
 		game.draw_ui_string(game.UI_FONT, Vector2(306, 128), subtitle, HORIZONTAL_ALIGNMENT_CENTER, 540, 10, Color("efd59b"))

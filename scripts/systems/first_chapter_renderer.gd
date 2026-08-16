@@ -1,6 +1,8 @@
 class_name FirstChapterRenderer
 extends RefCounted
 
+const UiKitSystem:=preload("res://scripts/systems/ui_kit_system.gd")
+
 ## Отрисовывает строительный узел восточной переправы и его читаемый сюжетный маркер.
 static func draw_world(game: Node) -> void:
 	if game.current_location != "overworld": return
@@ -12,11 +14,13 @@ static func draw_world(game: Node) -> void:
 ## Отрисовывает постоянную компактную цель главы и модальный выбор итогового пути.
 static func draw_ui(game: Node) -> void:
 	if game.inventory_open or game.shop_open or game.quest_log_open or game.world_map_open or game.skill_menu_open or game.crafting_open or game.storage_open or game.forge_open or game.contract_open: return
+	var farm_life:Dictionary=game.FarmLifeSystem.state(game)
+	if bool(farm_life.compendium) or not String(farm_life.cutscene).is_empty(): return
 	var value: Dictionary = game.FirstChapterSystem.state(game)
 	if not value.completed and not value.reward_pending and not game.AdventurePolishSystem.has_modal(game):
-		var card := Rect2(724,103,404,58); game.draw_rect(card,Color(0.07,0.10,0.08,0.91)); game.draw_rect(card,Color("b88b42"),false,2.0)
-		game.draw_ui_string(game.UI_FONT,card.position+Vector2(14,21),game.FirstChapterSystem.word(game,"title"),HORIZONTAL_ALIGNMENT_LEFT,374,13,Color("e8bd62"))
-		game.draw_ui_string(game.UI_FONT,card.position+Vector2(14,46),game.FirstChapterSystem.objective(game),HORIZONTAL_ALIGNMENT_LEFT,374,12,Color("fff4cf"))
+		var card := Rect2(724,103,404,68); UiKitSystem.draw_nine_patch(game,"tooltip",card)
+		game.draw_ui_string(game.UI_FONT,card.position+Vector2(18,24),game.FirstChapterSystem.word(game,"title"),HORIZONTAL_ALIGNMENT_LEFT,366,12,Color("7b4f2d"))
+		game.draw_ui_string(game.UI_FONT,card.position+Vector2(18,49),game.FirstChapterSystem.objective(game),HORIZONTAL_ALIGNMENT_LEFT,366,11,UiKitSystem.COLORS.ink)
 	if value.reward_pending: draw_reward(game)
 
 ## Отрисовывает три визуально различимых карточки награды с иконками физических предметов.

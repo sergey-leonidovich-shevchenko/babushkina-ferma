@@ -6,8 +6,8 @@ const UiKitSystem := preload("res://scripts/systems/ui_kit_system.gd")
 const QUEST_WINDOW := Rect2(86, 42, 980, 552)
 const QUEST_HEADER := Rect2(326, 54, 500, 66)
 const QUEST_CARD_RECTS := [Rect2(132, 132, 888, 124), Rect2(132, 266, 888, 124), Rect2(132, 400, 888, 124)]
-const QUEST_PREV := Rect2(132, 532, 58, 42)
-const QUEST_NEXT := Rect2(962, 532, 58, 42)
+const QUEST_PREV := Rect2(94, 500, 42, 42)
+const QUEST_NEXT := Rect2(1016, 500, 42, 42)
 const DIALOGUE_WINDOW := Rect2(68, 344, 1016, 286)
 const DIALOGUE_PORTRAIT := Rect2(96, 374, 176, 178)
 const TUTORIAL_CARD := Rect2(18, 106, 414, 112)
@@ -19,7 +19,7 @@ const REWARD_ICONS := ["fruit_sapling", "healing_potion", "travel_boots"]
 ## Рисует журнал как резную книгу с тремя отдельными карточками, статусами, наградами и прогрессом.
 static func draw_quest_log(game: Node2D) -> void:
 	game.draw_rect(Rect2(0, 0, 1152, 648), Color(0.015, 0.02, 0.015, 0.72))
-	UiKitSystem.draw_panel(game, QUEST_WINDOW)
+	UiKitSystem.draw_modal_panel(game, QUEST_WINDOW)
 	UiKitSystem.draw_nine_patch(game, "quest_ribbon", QUEST_HEADER)
 	game.draw_ui_string(game.UI_FONT, QUEST_HEADER.position + Vector2(28, 42), game.LocaleSystem.ui("quest_log").to_upper(), HORIZONTAL_ALIGNMENT_CENTER, QUEST_HEADER.size.x - 56, 24, UiKitSystem.COLORS.text_light)
 	var mission_ids: Array[String] = game.QuestSystem.ordered_mission_ids(game)
@@ -30,10 +30,10 @@ static func draw_quest_log(game: Node2D) -> void:
 		if mission_index < mission_ids.size(): draw_mission_card(game, QUEST_CARD_RECTS[visible_index], mission_ids[mission_index])
 	UiKitSystem.draw_button(game, QUEST_PREV, false, game.quest_log_page > 0, true)
 	UiKitSystem.draw_button(game, QUEST_NEXT, false, game.quest_log_page + 1 < page_count, true)
-	game.draw_ui_string(game.UI_FONT, QUEST_PREV.position + Vector2(9, 29), "←", HORIZONTAL_ALIGNMENT_CENTER, 40, 19, UiKitSystem.COLORS.text_light)
-	game.draw_ui_string(game.UI_FONT, QUEST_NEXT.position + Vector2(9, 29), "→", HORIZONTAL_ALIGNMENT_CENTER, 40, 19, UiKitSystem.COLORS.text_light)
-	game.draw_ui_string(game.UI_FONT, Vector2(430, 562), game.LocaleSystem.ui("quest_page", [game.quest_log_page + 1, page_count]), HORIZONTAL_ALIGNMENT_CENTER, 292, 13, UiKitSystem.COLORS.ink)
-	game.draw_ui_string(game.UI_FONT, Vector2(756, 562), game.LocaleSystem.ui("quest_close"), HORIZONTAL_ALIGNMENT_RIGHT, 190, 11, Color("77583a"))
+	game.draw_ui_string(game.UI_FONT, QUEST_PREV.position + Vector2(1, 29), "←", HORIZONTAL_ALIGNMENT_CENTER, 40, 19, UiKitSystem.COLORS.text_light)
+	game.draw_ui_string(game.UI_FONT, QUEST_NEXT.position + Vector2(1, 29), "→", HORIZONTAL_ALIGNMENT_CENTER, 40, 19, UiKitSystem.COLORS.text_light)
+	game.draw_ui_string(game.UI_FONT, Vector2(430, 542), game.LocaleSystem.ui("quest_page", [game.quest_log_page + 1, page_count]), HORIZONTAL_ALIGNMENT_CENTER, 292, 11, UiKitSystem.COLORS.ink)
+	game.draw_ui_string(game.UI_FONT, Vector2(756, 542), game.LocaleSystem.ui("quest_close"), HORIZONTAL_ALIGNMENT_RIGHT, 190, 9, Color("77583a"))
 
 
 ## Рисует одну миссию с цветовым кодом типа, предметной наградой и фактическим прогрессом героя.
@@ -68,18 +68,19 @@ static func draw_mission_card(game: Node2D, rect: Rect2, mission_id: String) -> 
 static func draw_dialogue(game: Node2D) -> void:
 	var ui: Dictionary = game.state.player.adventure_ui
 	var dialogue: Dictionary = ui.get("dialogue", {})
-	UiKitSystem.draw_panel(game, DIALOGUE_WINDOW)
+	game.draw_rect(Rect2(0,0,1152,648),Color(0.012,0.018,0.014,0.34))
+	UiKitSystem.draw_modal_panel(game, DIALOGUE_WINDOW)
 	game.draw_texture_rect(UiKitSystem.texture("portrait_frame"), DIALOGUE_PORTRAIT, false)
 	draw_npc_portrait(game, DIALOGUE_PORTRAIT.grow(-23), String(dialogue.get("npc_id", "")))
 	var npc_id := String(dialogue.get("npc_id", ""))
 	game.draw_ui_string(game.UI_FONT, Vector2(DIALOGUE_PORTRAIT.position.x + 10, 574), game.QuestSystem.npc_name(npc_id), HORIZONTAL_ALIGNMENT_CENTER, DIALOGUE_PORTRAIT.size.x - 20, 12, UiKitSystem.COLORS.text_light)
 	var friendship := int(game.state.player.relationships.get(npc_id, 0))
-	game.draw_ui_string(game.UI_FONT, Vector2(294, 388), "%s" % dialogue.get("title", game.AdventurePolishSystem.word(game, "continue")), HORIZONTAL_ALIGNMENT_LEFT, 540, 21, UiKitSystem.COLORS.ink)
+	game.draw_ui_string(game.UI_FONT, Vector2(294, 430), "%s" % dialogue.get("title", game.AdventurePolishSystem.word(game, "continue")), HORIZONTAL_ALIGNMENT_LEFT, 540, 18, UiKitSystem.COLORS.ink)
 	UiKitSystem.draw_nine_patch(game, "badge", Rect2(850, 365, 180, 54))
 	game.draw_ui_string(game.UI_FONT, Vector2(870, 399), "♥ %d / 100" % friendship, HORIZONTAL_ALIGNMENT_CENTER, 140, 13, Color("934840"))
 	var full_text := String(dialogue.get("text", ""))
 	var visible_text := full_text.left(floori(float(dialogue.get("revealed", full_text.length()))))
-	game.draw_multiline_string(game.UI_FONT, Vector2(294, 432), visible_text, HORIZONTAL_ALIGNMENT_LEFT, 720, 15, 3, Color("4c3828"))
+	game.draw_multiline_string(game.UI_FONT, Vector2(294, 458), visible_text, HORIZONTAL_ALIGNMENT_LEFT, 720, 13, 3, Color("4c3828"))
 	var choices: Array = dialogue.get("choices", ["leave"])
 	for index in choices.size():
 		var choice_rect := dialogue_choice_rect(index, choices.size())
@@ -140,7 +141,7 @@ static func draw_notification(game: Node2D) -> void:
 ## Рисует итог главы как три крупные коллекционные карты, сохраняя исходные зоны выбора наград.
 static func draw_chapter_reward(game: Node2D) -> void:
 	game.draw_rect(Rect2(0, 0, 1152, 648), Color(0.01, 0.015, 0.01, 0.76))
-	UiKitSystem.draw_panel(game, REWARD_WINDOW)
+	UiKitSystem.draw_modal_panel(game, REWARD_WINDOW)
 	UiKitSystem.draw_nine_patch(game, "quest_ribbon", Rect2(322, 158, 508, 66))
 	game.draw_ui_string(game.UI_FONT, Vector2(350, 201), game.FirstChapterSystem.word(game, "reward_title"), HORIZONTAL_ALIGNMENT_CENTER, 452, 23, UiKitSystem.COLORS.text_light)
 	for index in game.FirstChapterSystem.REWARD_RECTS.size():

@@ -1,5 +1,7 @@
 extends RefCounted
 
+const UiKitSystem:=preload("res://scripts/systems/ui_kit_system.gd")
+
 ## Рисует установленные в текущей локации крабовые ловушки как постоянные мировые объекты.
 static func draw_traps(game: Node2D) -> void:
 	for trap in game.state.fishing.traps:
@@ -73,20 +75,15 @@ static func _draw_result(game: Node2D, state: RefCounted) -> void:
 
 ## Рисует оригинальную процедурную пиктограмму рыбы без копирования чужих игровых материалов.
 static func _draw_fish_icon(game: Node2D, position: Vector2) -> void:
-	game.draw_circle(position, 12, Color("f2c55c"))
-	var tail := PackedVector2Array([position + Vector2(-10, 0), position + Vector2(-22, -10), position + Vector2(-22, 10)])
-	game.draw_colored_polygon(tail, Color("df8e48"))
-	game.draw_circle(position + Vector2(5, -3), 2, Color("23363a"))
+	game.draw_item_icon("fish",Rect2(position-Vector2(18,18),Vector2(36,36)))
 
 
 ## Рисует сундук и компактный круговой индикатор его отдельного заполнения.
 static func _draw_treasure(game: Node2D, position: Vector2, progress: float) -> void:
-	game.draw_rect(Rect2(position - Vector2(10, 8), Vector2(20, 16)), Color("b76f3d"), true)
-	game.draw_rect(Rect2(position - Vector2(10, 8), Vector2(20, 16)), Color("f2c55c"), false, 2)
+	game.draw_item_icon("home_chest",Rect2(position-Vector2(15,15),Vector2(30,30)))
 	game.draw_arc(position, 15, -PI * 0.5, -PI * 0.5 + TAU * progress, 20, Color("8df08c"), 3)
 
 
-## Рисует единый затемнённый фон рыбацких карточек с мягкой рамкой.
+## Рисует рыбацкую карточку общей резной панелью вместо отдельной процедурной рамки.
 static func _draw_panel(game: Node2D, rect: Rect2) -> void:
-	game.draw_rect(rect, Color(0.035, 0.075, 0.08, 0.96), true)
-	game.draw_rect(rect, Color("5e8e82"), false, 3)
+	UiKitSystem.draw_modal_panel(game,rect,false)

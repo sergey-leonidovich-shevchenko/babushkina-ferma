@@ -82,6 +82,8 @@ func test_shared_ui_kit_has_independent_scalable_components() -> void:
 	for component in kit.NINE_PATCH_MARGINS:
 		var first: StyleBoxTexture = kit.style(component)
 		expect(first == kit.style(component) and first.texture == kit.texture(component), "%s reuses a cached nine-patch style with the matching authored texture" % component)
+		var values: Array=manifest.components[component].margins; var declared:=Vector4(float(values[0]),float(values[1]),float(values[2]),float(values[3]))
+		expect(declared==kit.NINE_PATCH_MARGINS[component], "%s uses the same authored nine-patch margins in JSON and runtime"%component)
 	var centered: Rect2 = kit.centered_content_rect(Rect2(100, 100, 64, 64), Vector2(128, 32), 8)
 	expect(centered.get_center() == Vector2(132, 132) and centered.size == Vector2(48, 12), "oversized wide content scales down and remains flex-centered inside its safe area")
 	game.free()

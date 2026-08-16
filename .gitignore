@@ -6,6 +6,7 @@ tools/*
 !tools/build_ui_kit.py
 !tools/build_building_sprites.py
 !tools/build_environment_sprites.py
+!tools/update_ui_visual_manifest.py
 assets/inbox/
 tmp/
 *.log
@@ -56,6 +57,9 @@ tmp/
 !/assets/generated/ui/crafting_ingame_preview.png
 !/assets/generated/ui/storage_ingame_preview.png
 !/assets/generated/ui/forge_ingame_preview.png
+!/assets/generated/ui/fishing_ingame_preview.png
+!/assets/generated/ui/creation_ingame_preview.png
+!/assets/generated/ui/compendium_ingame_preview.png
 !/assets/generated/ui/quest_log_ingame_preview.png
 !/assets/generated/ui/dialogue_ingame_preview.png
 !/assets/generated/ui/tutorial_ingame_preview.png

@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "design_viewport": [1152, 648],
   "base_spacing": 8,
   "icon_sizes": [24, 48, 72, 96],
@@ -14,21 +14,21 @@
     "focus": "ffe28b"
   },
   "components": {
-    "panel_large": {"mode": "nine_patch", "margins": [48, 56, 48, 48]},
-    "panel_medium": {"mode": "nine_patch", "margins": [40, 42, 40, 40]},
-    "button_normal": {"mode": "nine_patch", "margins": [34, 28, 34, 28]},
-    "button_selected": {"mode": "nine_patch", "margins": [34, 28, 34, 28]},
+    "panel_large": {"mode": "nine_patch", "margins": [42, 48, 42, 38]},
+    "panel_medium": {"mode": "nine_patch", "margins": [34, 36, 34, 34]},
+    "button_normal": {"mode": "nine_patch", "margins": [24, 12, 24, 12]},
+    "button_selected": {"mode": "nine_patch", "margins": [24, 12, 24, 12]},
     "slot_normal": {"mode": "fixed_or_uniform", "safe_content": [18, 18, 18, 18]},
     "slot_selected": {"mode": "fixed_or_uniform", "safe_content": [18, 18, 18, 18]},
-    "progress_frame": {"mode": "nine_patch", "margins": [26, 20, 26, 20]},
+    "progress_frame": {"mode": "nine_patch", "margins": [24, 18, 24, 18]},
     "scrollbar": {"mode": "vertical_three_slice"},
-    "tooltip": {"mode": "nine_patch", "margins": [26, 24, 26, 24]},
-    "tab_normal": {"mode": "nine_patch", "margins": [26, 24, 26, 24]},
-    "tab_selected": {"mode": "nine_patch", "margins": [26, 24, 26, 24]},
+    "tooltip": {"mode": "nine_patch", "margins": [24, 22, 24, 22]},
+    "tab_normal": {"mode": "nine_patch", "margins": [22, 18, 22, 18]},
+    "tab_selected": {"mode": "nine_patch", "margins": [22, 18, 22, 18]},
     "portrait_frame": {"mode": "fixed_or_uniform"},
     "badge": {"mode": "fixed_or_uniform"},
     "close_button": {"mode": "fixed_or_uniform"},
-    "quest_ribbon": {"mode": "nine_patch", "margins": [52, 32, 52, 32]},
+    "quest_ribbon": {"mode": "nine_patch", "margins": [54, 30, 42, 30]},
     "divider": {"mode": "horizontal_three_slice"}
   }
 }

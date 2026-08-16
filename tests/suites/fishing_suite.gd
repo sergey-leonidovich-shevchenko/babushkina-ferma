@@ -111,6 +111,11 @@ func test_quality_treasure_and_collection_save() -> void:
 	var wood_before: int = game.wood; state.cast_power = 0.5; state.perfect = false; game.FishingSystem._complete_catch(game)
 	expect(game.wood == wood_before + 2 and state.treasure_loot == "wood", "caught treasure awards deterministic bonus loot with the fish")
 	expect(game.RenderSystem.FishingRenderer.PANEL.end.x <= 1152.0 and game.RenderSystem.FishingRenderer.PANEL.end.y <= 648.0, "fishing panel fits native viewport")
+	var renderer_source:=FileAccess.get_file_as_string("res://scripts/systems/fishing_renderer.gd")
+	var interface_source:=FileAccess.get_file_as_string("res://scripts/systems/interface_renderer.gd")
+	expect(renderer_source.contains("UiKitSystem.draw_modal_panel") and renderer_source.contains("draw_item_icon(\"fish\"") and not renderer_source.contains("draw_colored_polygon(tail") and interface_source.contains("fishing_focus"), "fishing minigame reuses storybook art and suppresses overlapping world cards")
+	var preview:=Image.load_from_file(ProjectSettings.globalize_path("res://assets/generated/ui/fishing_ingame_preview.png"))
+	expect(preview!=null and preview.get_size()==Vector2i(1152,648), "fishing minigame keeps an exact native storybook UI reference")
 	state.total_caught = 7; state.best_sizes = {"river_perch":34}; state.phase = game.FishingSystem.PHASE_MINIGAME
 	var snapshot: Dictionary = game.SaveSystem.snapshot(game)
 	var restored := _fishing_game()

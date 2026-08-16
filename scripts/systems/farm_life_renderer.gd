@@ -1,6 +1,7 @@
 extends RefCounted
 
 const FarmLifeVisualSystem:=preload("res://scripts/systems/farm_life_visual_system.gd")
+const UiKitSystem:=preload("res://scripts/systems/ui_kit_system.gd")
 const ATLAS:=FarmLifeVisualSystem.ATLAS
 
 ## Отрисовывает животных фермы, музей, секреты, мебель и боевые снаряды.
@@ -27,14 +28,14 @@ static func draw_ui(game: Node) -> void:
 	if game.inventory_open or game.shop_open or game.quest_log_open or game.world_map_open or game.skill_menu_open or game.crafting_open or game.storage_open or game.forge_open or game.contract_open: return
 	var value: Dictionary = game.FarmLifeSystem.state(game)
 	if not String(value.cutscene).is_empty():
-		game.draw_rect(Rect2(0,0,1152,648),Color(0,0,0,0.38)); game.draw_rect(Rect2(170,245,812,150),Color("39251b")); game.draw_rect(Rect2(178,253,796,134),Color("efdca8")); game.draw_ui_string(game.UI_FONT,Vector2(220,305),"БАБУШКИНА ФЕРМА",HORIZONTAL_ALIGNMENT_CENTER,712,30,Color("4b3020")); game.draw_ui_string(game.UI_FONT,Vector2(220,350),"Новый день — новая история",HORIZONTAL_ALIGNMENT_CENTER,712,20,Color("745033"))
+		game.draw_rect(Rect2(0,0,1152,648),Color(0,0,0,0.38)); UiKitSystem.draw_modal_panel(game,Rect2(170,245,812,150),false); game.draw_ui_string(game.UI_FONT,Vector2(220,305),"БАБУШКИНА ФЕРМА",HORIZONTAL_ALIGNMENT_CENTER,712,30,Color("4b3020")); game.draw_ui_string(game.UI_FONT,Vector2(220,350),"Новый день — новая история",HORIZONTAL_ALIGNMENT_CENTER,712,20,Color("745033"))
 	if bool(value.compendium): draw_compendium(game,value)
 	if bool(value.photo_mode): draw_photo_mode(game,value)
 
 ## Отрисовывает пять страниц календаря, отношений, музея, энциклопедии и достижений.
 static func draw_compendium(game: Node, value: Dictionary) -> void:
-	game.draw_rect(Rect2(90,55,972,535),Color("382318")); game.draw_rect(Rect2(105,70,942,505),Color("ead7a3")); var titles := ["КАЛЕНДАРЬ","ОТНОШЕНИЯ","МУЗЕЙ","ЭНЦИКЛОПЕДИЯ","ДОСТИЖЕНИЯ"]
-	game.draw_ui_string(game.UI_FONT,Vector2(145,115),"‹  %s  ›" % titles[int(value.page)],HORIZONTAL_ALIGNMENT_CENTER,862,30,Color("4c3020")); var lines: Array[String] = []
+	UiKitSystem.draw_modal_panel(game,Rect2(90,55,972,535)); var titles := ["КАЛЕНДАРЬ","ОТНОШЕНИЯ","МУЗЕЙ","ЭНЦИКЛОПЕДИЯ","ДОСТИЖЕНИЯ"]
+	var title:=Rect2(326,67,500,58); UiKitSystem.draw_nine_patch(game,"quest_ribbon",title); game.draw_ui_string(game.UI_FONT,title.position+Vector2(28,39),"‹  %s  ›"%titles[int(value.page)],HORIZONTAL_ALIGNMENT_CENTER,title.size.x-56,20,UiKitSystem.COLORS.text_light); var lines: Array[String] = []
 	match int(value.page):
 		0:
 			for day in range(1,29): lines.append("%02d%s" % [day," 🎂" if game.FarmLifeSystem.BIRTHDAYS.has(day) else ""])
@@ -47,7 +48,7 @@ static func draw_compendium(game: Node, value: Dictionary) -> void:
 		4:
 			for achievement in ["first_week","collector","curator","beloved","rancher"]: lines.append(("✓ " if achievement in value.achievements else "□ ")+achievement.capitalize())
 	for index in mini(lines.size(),24): game.draw_ui_string(game.UI_FONT,Vector2(155+(index/8)*285,160+(index%8)*45),lines[index],HORIZONTAL_ALIGNMENT_LEFT,265,17,Color("513724"))
-	game.draw_ui_string(game.UI_FONT,Vector2(145,550),"V — закрыть • ← → — разделы",HORIZONTAL_ALIGNMENT_CENTER,862,15,Color("765437"))
+	game.draw_ui_string(game.UI_FONT,Vector2(145,535),"V — закрыть • ← → — разделы",HORIZONTAL_ALIGNMENT_CENTER,862,12,Color("765437"))
 
 ## Отрисовывает чистый визир фотокамеры с опциональной сеткой третей.
 static func draw_photo_mode(game: Node, value: Dictionary) -> void:

@@ -180,10 +180,12 @@ static func hotbar_at(point: Vector2) -> int:
 static func draw(game: Node) -> void:
 	draw_hud(game)
 	var clean_hud_preview := game.has_meta("capture_hud_clean")
-	if not clean_hud_preview and not game.AdventurePolishSystem.has_modal(game): game.draw_mission_tracker()
-	if not clean_hud_preview and game.tutorial_visible and game.tutorial_step < game.tutorial_steps.size():
+	var fishing_focus:bool=game.state.fishing.phase in [game.FishingSystem.PHASE_CHARGING,game.FishingSystem.PHASE_MINIGAME,game.FishingSystem.PHASE_RESULT]
+	var farm_life:Dictionary=game.FarmLifeSystem.state(game); var farm_modal:bool=bool(farm_life.compendium) or not String(farm_life.cutscene).is_empty()
+	if not clean_hud_preview and not fishing_focus and not farm_modal and not game.AdventurePolishSystem.has_modal(game): game.draw_mission_tracker()
+	if not clean_hud_preview and not fishing_focus and not farm_modal and game.tutorial_visible and game.tutorial_step < game.tutorial_steps.size():
 		game.StoryUiRenderer.draw_tutorial(game)
-	if not clean_hud_preview and not game.AdventurePolishSystem.has_modal(game): game.draw_discovery_card()
+	if not clean_hud_preview and not fishing_focus and not farm_modal and not game.AdventurePolishSystem.has_modal(game): game.draw_discovery_card()
 	HudRenderer.draw_interaction_prompt(game, game.InterfaceRenderer)
 	if game.shop_open: game.draw_shop()
 	if game.inventory_open: draw_inventory(game)
@@ -394,9 +396,3 @@ static func hotbar_readiness(game: Node, kind: String) -> float:
 ## Вырезает один независимый элемент общего атласа и масштабирует его в нужную область интерфейса.
 static func draw_atlas_piece(game: Node, atlas: Texture2D, destination: Rect2, source: Rect2) -> void:
 	game.draw_texture_rect_region(atlas, destination, source)
-
-
-## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
-static func panel(game: Node, rect: Rect2, color: Color) -> void:
-	game.draw_rect(rect, Color(0.02, 0.035, 0.03, 0.95))
-	game.draw_rect(rect.grow(-3), color)

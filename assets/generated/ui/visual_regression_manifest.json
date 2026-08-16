@@ -1,29 +1,165 @@
 {
   "schema": 1,
-  "design_viewport": [1152, 648],
+  "design_viewport": [
+    1152,
+    648
+  ],
   "references": [
-    {"file":"adaptive_ui_ingame_preview.png","width":1152,"height":648,"sha256":"0ea14060f57771fbbff0109f29a8e156288f43613bce0aee0b89a72cc3e0a64a"},
-    {"file":"bestiary_ingame_preview.png","width":3584,"height":2016,"sha256":"e22eff48e4c61f0c67df85e5141ce26dd220adece4f524cf33476d761060d1cf"},
-    {"file":"calendar_ingame_preview.png","width":3584,"height":2016,"sha256":"9d2ebaed28d911449f8226fd4215e33126643b5d98e31e38d849031a2a7742cd"},
-    {"file":"chapter_reward_ingame_preview.png","width":3584,"height":2016,"sha256":"ccbd06ea36c2c10ebe8db0d13d2b202ae1a83087114344f8a053fc35a7fe1871"},
-    {"file":"collections_ingame_preview.png","width":3584,"height":2016,"sha256":"0df1f364ebf1e9949a02b536566da4eea7ba912a9bd398dae92129750754d0a9"},
-    {"file":"crafting_ingame_preview.png","width":3584,"height":2016,"sha256":"90a1023023a608976896c4b66a099245a2b6c0d1b5da4e8099d9977f4e4b44d9"},
-    {"file":"debug_overlay_ingame_preview.png","width":1152,"height":648,"sha256":"d8c896306482f693bd6bafec1416f12b56db733b9b6e27c5fe78e4b39d28c6ca"},
-    {"file":"defeat_ingame_preview.png","width":1920,"height":1080,"sha256":"25d777736c7c6e25ed78b2c48b6a16c6ef8d20a5e1704c048bd2f58cb907be1b"},
-    {"file":"dialogue_ingame_preview.png","width":3584,"height":2016,"sha256":"963ab1c94f8a63cf18e831e4d2595dc9c3c00aa5024f361be562dbf4d7ba0723"},
-    {"file":"forge_ingame_preview.png","width":3584,"height":2016,"sha256":"928db5a932ab58e783e34f09edc227829d4a002d8dcd7c9188f55432f2f6aa98"},
-    {"file":"hud_ingame_preview.png","width":1920,"height":1080,"sha256":"c5aa790e3a4580bc47afb2cde20734a420841abe0d50049cf1cacd4d6932b316"},
-    {"file":"inventory_ingame_preview.png","width":3584,"height":2016,"sha256":"306868eb6fe3f6005024cb1acfae68fcc039445aa117e60ecb971d6156852ee4"},
-    {"file":"language_ingame_preview.png","width":1920,"height":1080,"sha256":"d619dd1ef3e646f04f6a52f337e36375d1d44bb6ed950cae532ed5f3a514b7d3"},
-    {"file":"notification_ingame_preview.png","width":3584,"height":2016,"sha256":"662d974861acc34a53e5b62b8e3b4d086619081199b43a895dc117955ee58db9"},
-    {"file":"quest_log_ingame_preview.png","width":3584,"height":2016,"sha256":"2456461792c35383ea8be42ed71827df91364ece1de36dbf2978e955f13e084a"},
-    {"file":"recipe_guide_ingame_preview.png","width":3584,"height":2016,"sha256":"d8865007895947cbc4639221c9d25a725c7af6191ba2970b15bf0c1c5aa52d6a"},
-    {"file":"shop_ingame_preview.png","width":3584,"height":2016,"sha256":"b7d430c48190d6995b433f34c7c5e6fb3dbe8d1098cd6656d440220baed29711"},
-    {"file":"storage_ingame_preview.png","width":3584,"height":2016,"sha256":"fddcf0384cc5c552190874acd0a6103c434f797ab80b5e3413213bb5ce7667ea"},
-    {"file":"system_settings_ingame_preview.png","width":1920,"height":1080,"sha256":"b3a68628d0418bf15c8ca27b7b0e3cec2433d4f6906eb7730fd5de32a1872313"},
-    {"file":"talent_tree_ingame_preview.png","width":3584,"height":2016,"sha256":"762fcc87f60ce778c1a18efd16f3fa0e87dfff93cdcc8680a17235255a093d86"},
-    {"file":"tutorial_ingame_preview.png","width":3584,"height":2016,"sha256":"006764e7c8dedee5f84bd63c6fd77324f82f1e8825361a4b06b945c792484548"},
-    {"file":"ui_feedback_ingame_preview.png","width":3584,"height":2016,"sha256":"ac572efd51a40e903f4d6e4e97387fbb247c90f120b2c8eac1552770161321dc"},
-    {"file":"world_map_ingame_preview.png","width":3584,"height":2016,"sha256":"8a09350f4d11e2e5d3e256d0b0bc00b7da28120598fc5c4b0aff7704cf37fffe"}
+    {
+      "file": "adaptive_ui_ingame_preview.png",
+      "width": 1152,
+      "height": 648,
+      "sha256": "a616deb185c040ee6a60cd584ad2923408abe164ff4cd5b046a2b00c83398f70"
+    },
+    {
+      "file": "bestiary_ingame_preview.png",
+      "width": 1152,
+      "height": 648,
+      "sha256": "c7a3776cad7823c97c4b5971812006413e7efbbfb2cc3b60f97841477de546c6"
+    },
+    {
+      "file": "calendar_ingame_preview.png",
+      "width": 1152,
+      "height": 648,
+      "sha256": "df0829852b9366b65a3d76053fe59387bdc418b56a6c619fd15bc30ac6fc770e"
+    },
+    {
+      "file": "chapter_reward_ingame_preview.png",
+      "width": 1152,
+      "height": 648,
+      "sha256": "1088f3fcc8e3a321e8a80ff47cc2f0bcb9f186c628fefa040c1ac1b69fdf4229"
+    },
+    {
+      "file": "collections_ingame_preview.png",
+      "width": 1152,
+      "height": 648,
+      "sha256": "a22f07d83cb9be7b72105a48601add8280bda5d991b0b71b781e97868e257198"
+    },
+    {
+      "file": "compendium_ingame_preview.png",
+      "width": 1152,
+      "height": 648,
+      "sha256": "f9ecfb226ea91d0db394caf759028f5ee6103c20679b9e9e8c3d63d3f9b064f7"
+    },
+    {
+      "file": "creation_ingame_preview.png",
+      "width": 1152,
+      "height": 648,
+      "sha256": "3d9bdc99d45d1f676672c4372f9d3f87923b6904acbe3856c2ceeaa5de7725f0"
+    },
+    {
+      "file": "crafting_ingame_preview.png",
+      "width": 1152,
+      "height": 648,
+      "sha256": "c724392f74bd822a1fddd7e83fb0db7109684d40d8b05e2d68588a4ed8312535"
+    },
+    {
+      "file": "debug_overlay_ingame_preview.png",
+      "width": 1152,
+      "height": 648,
+      "sha256": "884e017f26423381dbe2076a893dd57eec53b5720f1765d6fcf3e95da4adfd5c"
+    },
+    {
+      "file": "defeat_ingame_preview.png",
+      "width": 1152,
+      "height": 648,
+      "sha256": "1f65e597016f77fb78211004bb373c8c197a50e504eaae573a502e42f0504417"
+    },
+    {
+      "file": "dialogue_ingame_preview.png",
+      "width": 1152,
+      "height": 648,
+      "sha256": "a62c37807ef5c1fdaa63106e94f945e74b277904be0dd8a68240d5c9bff19d9a"
+    },
+    {
+      "file": "forge_ingame_preview.png",
+      "width": 1152,
+      "height": 648,
+      "sha256": "d1b8b433ac53bbe80232497f334790fc3ecc222406c024fd50d12425feefb390"
+    },
+    {
+      "file": "fishing_ingame_preview.png",
+      "width": 1152,
+      "height": 648,
+      "sha256": "e7b88ae1758cdfd3b17a0bd5a024638027e70ece1ec509e3ed71c51a1f5f5907"
+    },
+    {
+      "file": "hud_ingame_preview.png",
+      "width": 1152,
+      "height": 648,
+      "sha256": "8ced8bd1c2bc44a8fd7f7f3bafcbe0e9c7cf2f9feba9b91043cf34e7ae4110f8"
+    },
+    {
+      "file": "inventory_ingame_preview.png",
+      "width": 1152,
+      "height": 648,
+      "sha256": "3af8c16e06f126c60623a42ffb43515a7a6f0e7f18d7035865f06df83c32f9fd"
+    },
+    {
+      "file": "language_ingame_preview.png",
+      "width": 1152,
+      "height": 648,
+      "sha256": "ccf219ca1e3167be8efa311b329c58c41eab76b5a7844b33c5169085972d7d97"
+    },
+    {
+      "file": "notification_ingame_preview.png",
+      "width": 1152,
+      "height": 648,
+      "sha256": "ecb2544e4721d5dee508017557025e4a8d57c51e9a8f6e43816552cfb9e708fc"
+    },
+    {
+      "file": "quest_log_ingame_preview.png",
+      "width": 1152,
+      "height": 648,
+      "sha256": "70c58357614889631b02dc0da435e2251d5d7f9c830bcc16868141e1ba86d631"
+    },
+    {
+      "file": "recipe_guide_ingame_preview.png",
+      "width": 1152,
+      "height": 648,
+      "sha256": "51a86c3dd9fb04341906b59794a1852a092ca0e66de0dfdc8b9d0d2e819996ff"
+    },
+    {
+      "file": "shop_ingame_preview.png",
+      "width": 1152,
+      "height": 648,
+      "sha256": "1002fbc565749a7ee1396ea289a90d23040b617a096ef6cf407f02f2777c47e0"
+    },
+    {
+      "file": "storage_ingame_preview.png",
+      "width": 1152,
+      "height": 648,
+      "sha256": "13b7f9f0d7d5d86bd5d4475ab2cc60ad7f6f1fcec9118c9b45b5604e0d0b5d8c"
+    },
+    {
+      "file": "system_settings_ingame_preview.png",
+      "width": 1152,
+      "height": 648,
+      "sha256": "2e27742f77214c5ef02bbc35d006407aad2cccf177cf089f68fe7ded249f6cf5"
+    },
+    {
+      "file": "talent_tree_ingame_preview.png",
+      "width": 1152,
+      "height": 648,
+      "sha256": "29d1b3e0b786a5948cfe5fdd9bf5dc9bd86782dacb5de6c626cc191afa1b56cf"
+    },
+    {
+      "file": "tutorial_ingame_preview.png",
+      "width": 1152,
+      "height": 648,
+      "sha256": "2bc5c647e9f87ef4b6efd1fafaa70fa7dd6e306deb8bb560804e9a91b3b7745a"
+    },
+    {
+      "file": "ui_feedback_ingame_preview.png",
+      "width": 1152,
+      "height": 648,
+      "sha256": "202e4db131a9ec2b729c1ccf68814c8bfe91a6caa3474ad5fd37c6167743d51a"
+    },
+    {
+      "file": "world_map_ingame_preview.png",
+      "width": 1152,
+      "height": 648,
+      "sha256": "e1e3776b812c4841aabeae09f8ce9c3db44df38c60a4aad156b889fd70a818b6"
+    }
   ]
 }

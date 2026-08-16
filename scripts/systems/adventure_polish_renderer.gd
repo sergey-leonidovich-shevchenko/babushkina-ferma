@@ -1,7 +1,6 @@
 extends RefCounted
 
-const PANEL := Color(0.12, 0.075, 0.04, 0.96)
-const PARCHMENT := Color("ecd79f")
+const UiKitSystem:=preload("res://scripts/systems/ui_kit_system.gd")
 const GOLD := Color("efc45f")
 
 
@@ -46,12 +45,13 @@ static func draw_enemy_telegraphs(game: Node2D) -> void:
 
 ## Рисует постоянную мини-карту активной локации в свободном правом углу HUD.
 static func draw_minimap(game: Node2D) -> void:
-	if game.inventory_open or game.shop_open or game.quest_log_open or game.world_map_open or game.skill_menu_open or game.crafting_open or game.storage_open or game.forge_open or game.contract_open or game.AdventurePolishSystem.has_modal(game): return
-	var rect := Rect2(972, 104, 164, 112)
-	game.draw_rect(rect, PANEL); game.draw_rect(rect.grow(-4), Color("29473b"))
-	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(9, 19), game.LocaleSystem.location(game.current_location), HORIZONTAL_ALIGNMENT_LEFT, 144, 13, Color("fff1c6"))
+	var farm_life:Dictionary=game.FarmLifeSystem.state(game)
+	if game.inventory_open or game.shop_open or game.quest_log_open or game.world_map_open or game.skill_menu_open or game.crafting_open or game.storage_open or game.forge_open or game.contract_open or game.AdventurePolishSystem.has_modal(game) or bool(farm_life.compendium) or not String(farm_life.cutscene).is_empty() or game.state.fishing.phase in [game.FishingSystem.PHASE_CHARGING,game.FishingSystem.PHASE_MINIGAME,game.FishingSystem.PHASE_RESULT]: return
+	var rect := Rect2(972, 104, 164, 136)
+	UiKitSystem.draw_panel(game,rect,false)
+	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(9, 30), game.LocaleSystem.location(game.current_location), HORIZONTAL_ALIGNMENT_LEFT, 144, 10, UiKitSystem.COLORS.ink)
 	var world_size: Vector2 = game.WORLD_SIZE
-	var map_rect := Rect2(rect.position + Vector2(8, 27), Vector2(148, 77))
+	var map_rect := Rect2(rect.position + Vector2(8, 38), Vector2(148, 86))
 	game.draw_rect(map_rect, Color("6f9b5a"))
 	if game.current_location == "overworld":
 		game.draw_rect(Rect2(map_rect.position + Vector2(0, 54), Vector2(148, 18)), Color("4d91a3"))
@@ -70,16 +70,16 @@ static func draw_ui(game: Node2D) -> void:
 ## Рисует деревянно-пергаментное окно выбора имени, фермы, внешности и специализации.
 static func draw_creation(game: Node2D) -> void:
 	game.draw_rect(Rect2(0, 0, 1152, 648), Color(0.02, 0.035, 0.03, 0.82))
-	var outer := Rect2(215, 62, 722, 530); game.draw_rect(outer, PANEL); game.draw_rect(outer.grow(-10), PARCHMENT)
-	game.draw_ui_string(game.UI_FONT, Vector2(286, 116), game.AdventurePolishSystem.word(game, "new_story"), HORIZONTAL_ALIGNMENT_CENTER, 580, 34, Color("4e2f20"))
+	var outer := Rect2(215, 62, 722, 530); UiKitSystem.draw_modal_panel(game,outer)
+	var title:=Rect2(326,74,500,58); UiKitSystem.draw_nine_patch(game,"quest_ribbon",title); game.draw_ui_string(game.UI_FONT,title.position+Vector2(28,39),game.AdventurePolishSystem.word(game,"new_story"),HORIZONTAL_ALIGNMENT_CENTER,title.size.x-56,22,UiKitSystem.COLORS.text_light)
 	var profile: Dictionary = game.state.player.profile
 	var fields := [[game.AdventurePolishSystem.word(game,"name"),profile.name],[game.AdventurePolishSystem.word(game,"farm"),profile.farm_name],[game.AdventurePolishSystem.word(game,"appearance"),game.AdventurePolishSystem.word(game,"variant",[int(profile.appearance)+1])],[game.AdventurePolishSystem.word(game,"clothes"),game.AdventurePolishSystem.word(game,"set",[int(profile.clothes)+1])],[game.AdventurePolishSystem.word(game,"calling"),specialization_name(game, String(profile.specialization))]]
 	var selected := int(game.state.player.adventure_ui.get("creation_field", 0))
 	for index in fields.size():
 		var row := Rect2(288, 150 + index * 67, 576, 52)
-		game.draw_rect(row, Color("f5e8bd") if index == selected else Color("d8c18a")); game.draw_rect(row, GOLD, false, 3 if index == selected else 1)
-		game.draw_ui_string(game.UI_FONT, row.position + Vector2(15, 32), fields[index][0], HORIZONTAL_ALIGNMENT_LEFT, 160, 18, Color("6c4a2b"))
-		game.draw_ui_string(game.UI_FONT, row.position + Vector2(180, 33), "‹  %s  ›" % fields[index][1], HORIZONTAL_ALIGNMENT_CENTER, 370, 20, Color("38291e"))
+		UiKitSystem.draw_button(game,row,index==selected,true,game.settings_state.reduced_motion,Time.get_ticks_msec())
+		game.draw_ui_string(game.UI_FONT, row.position + Vector2(15, 32), fields[index][0], HORIZONTAL_ALIGNMENT_LEFT, 160, 15, UiKitSystem.COLORS.text_light)
+		game.draw_ui_string(game.UI_FONT, row.position + Vector2(180, 33), "‹  %s  ›" % fields[index][1], HORIZONTAL_ALIGNMENT_CENTER, 370, 16, UiKitSystem.COLORS.text_light)
 	game.draw_ui_string(game.UI_FONT, Vector2(315, 536), game.AdventurePolishSystem.word(game, "creation_help"), HORIZONTAL_ALIGNMENT_CENTER, 522, 17, Color("573c27"))
 
 

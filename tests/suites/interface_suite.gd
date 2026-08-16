@@ -107,6 +107,8 @@ func test_story_windows_share_visual_language_and_input_geometry() -> void:
 	var dialogue_source := FileAccess.get_file_as_string("res://scripts/systems/adventure_polish_renderer.gd")
 	var quest_source := FileAccess.get_file_as_string("res://scripts/game_renderer.gd")
 	expect(dialogue_source.contains("StoryUiRenderer.draw_dialogue") and quest_source.contains("StoryUiRenderer.draw_quest_log"), "legacy dialogue and quest entry points delegate to the shared story renderer")
+	var farm_life_source:=FileAccess.get_file_as_string("res://scripts/systems/farm_life_renderer.gd")
+	expect(dialogue_source.contains("UiKitSystem.draw_modal_panel") and farm_life_source.contains("UiKitSystem.draw_modal_panel"), "creation and farm compendium reuse the same storybook modal chrome")
 	game.AdventurePolishSystem.open_quest_dialogue(game, "miron")
 	var choices: Array = game.state.player.adventure_ui.dialogue.choices
 	var decline := InputEventMouseButton.new(); decline.button_index = MOUSE_BUTTON_LEFT; decline.pressed = true; decline.position = renderer.dialogue_choice_rect(1, choices.size()).get_center()
