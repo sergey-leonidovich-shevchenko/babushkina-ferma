@@ -3,6 +3,7 @@ extends "res://tests/suites/suite_base.gd"
 const TEST_DRAFT := "user://level_designs/level_editor_suite.json"
 const TEST_PREFERENCES := "user://level_editor_preferences_suite.json"
 const AtlasPickerRenderer := preload("res://scripts/systems/level_editor_atlas_picker_renderer.gd")
+const RuntimeSuite := preload("res://tests/suites/level_editor_runtime_suite.gd")
 
 
 ## Запускает сценарии каталога, рисования, редактирования, импорта и обменного формата конструктора.
@@ -34,7 +35,7 @@ func run() -> void:
 	test_layer_visibility_and_locking_protect_objects()
 	test_editor_labels_fit_buttons_and_use_dark_contrast()
 	test_validation_blocks_broken_export_and_reports_map_issues()
-	test_runtime_integration_freezes_simulation_and_draws_editor_layers()
+	RuntimeSuite.new(context).run()
 
 
 ## Сценарий: каталог автоматически сканирует растровые ресурсы проекта и группирует их по назначению.
@@ -308,7 +309,7 @@ func test_open_json_draft_round_trip_preserves_author_intent() -> void:
 	var game := make_game()
 	var state: Dictionary = game.LevelEditorSystem.default_state(game)
 	state.level_name="level editor suite"; state.level_notes="Общий замысел тестового уровня"; state.selected_asset="res://assets/game/tiles/grass.png"; state.layer="ground"; state.collision=true
-	game.LevelEditorSystem.place_selected_asset(game,state,Vector2(321,222)); state.objects[0].name="Тихая поляна"; state.objects[0].notes="Оставить проход справа"; state.objects[0].rotation=PI*0.5; state.objects[0].scale=1.5
+	game.LevelEditorSystem.place_selected_asset(game,state,Vector2(321,222)); state.objects[0].name="Тихая поляна"; state.objects[0].notes="Оставить проход справа"; state.objects[0].rotation=PI*0.5; state.objects[0].scale=1.5; state.objects[0].runtime_role="exit"; state.objects[0].collision_size=Vector2(30,18); state.objects[0].collision_offset=Vector2(3,-6)
 	var payload: Dictionary = game.LevelEditorSystem.document(state)
 	expect(payload.format=="babushkina-ferma-level-draft" and payload.objects[0].notes=="Оставить проход справа", "export document is self-describing and keeps author notes")
 	expect(game.LevelEditorSystem.save_draft(game,state,false) and FileAccess.file_exists(TEST_DRAFT), "draft saves into the user level-design directory")
@@ -317,6 +318,7 @@ func test_open_json_draft_round_trip_preserves_author_intent() -> void:
 	var object: Dictionary = restored.objects[0]
 	expect(restored.level_notes==state.level_notes and object.name=="Тихая поляна" and object.layer=="ground" and object.collision, "draft round-trip preserves labels notes layers and collision intent")
 	expect(is_equal_approx(float(object.rotation),PI*0.5) and is_equal_approx(float(object.scale),1.5), "draft round-trip preserves object transforms")
+	expect(object.runtime_role=="exit" and object.collision_size==Vector2(30,18) and object.collision_offset==Vector2(3,-6),"draft round-trip preserves runtime role and independent collision geometry")
 	DirAccess.remove_absolute(ProjectSettings.globalize_path(TEST_DRAFT)); game.free()
 
 
@@ -370,7 +372,7 @@ func test_water_brush_builds_shores_and_preserves_family() -> void:
 
 ## Сценарий: дизайнер рисует рядом траву, землю и гравий без ручного выбора пограничных тайлов.
 ## Исходное состояние: три сухих покрытия занимают соседние клетки одной сетки слева направо.
-## Ожидаемый результат: прямые и диагональные границы получают разные маски и сохраняются в JSON версии 5.
+## Ожидаемый результат: прямые и диагональные границы получают разные маски и сохраняются в JSON версии 6.
 func test_mixed_surfaces_generate_persistent_transition_masks() -> void:
 	var game:=make_game(); var state:Dictionary=game.LevelEditorSystem.default_state(game)
 	for data in [["res://assets/game/tiles/editor/terrain/grass_lush.png",Vector2(12,12)],["res://assets/game/tiles/editor/terrain/ground_dirt.png",Vector2(36,12)],["res://assets/game/tiles/editor/terrain/ground_gravel.png",Vector2(60,12)]]:
@@ -381,7 +383,7 @@ func test_mixed_surfaces_generate_persistent_transition_masks() -> void:
 	expect(int(state.objects[1].transition_masks.get("gravel",0))==2,"dirt receives an east-facing gravel transition")
 	expect(int(state.objects[3].transition_corner_masks.get("sand",0))==1 and state.objects[3].transition_masks.is_empty(),"diagonal-only sand neighbor produces a north-east inner corner without a false full edge")
 	var payload:Dictionary=game.LevelEditorSystem.document(state)
-	expect(payload.version==5 and int(payload.objects[0].transition_masks.get("dirt",0))==2 and int(payload.objects[3].transition_corner_masks.get("sand",0))==1,"open level document persists cardinal and diagonal transition ownership")
+	expect(payload.version==6 and int(payload.objects[0].transition_masks.get("dirt",0))==2 and int(payload.objects[3].transition_corner_masks.get("sand",0))==1,"open level document persists cardinal and diagonal transition ownership")
 	for path in game.LevelEditorRenderer.TRANSITION_TEXTURES.values(): expect(ResourceLoader.exists(path),"transition texture exists: %s"%path)
 	for path in game.LevelEditorRenderer.TRANSITION_CORNER_TEXTURES.values(): expect(ResourceLoader.exists(path),"transition corner texture exists: %s"%path)
 	game.free()
@@ -424,11 +426,11 @@ func test_group_marquee_move_and_clipboard_preserve_layout() -> void:
 ## Ожидаемый результат: скрытый или заблокированный объект не выбирается, повторное переключение безопасно возвращает доступ.
 func test_layer_visibility_and_locking_protect_objects() -> void:
 	var game:=make_game(); var state:Dictionary=game.LevelEditorSystem.default_state(game); var entry:Dictionary=game.LevelEditorSystem.AssetCatalogSystem.metadata("res://assets/game/tiles/editor/terrain/grass_lush.png"); game.LevelEditorSystem.activate_asset(state,entry); game.LevelEditorSystem.place_selected_asset(game,state,Vector2(492,300),false); var world:=Vector2(state.objects[0].position)+Vector2(4,4)
-	var click:=InputEventMouseButton.new(); click.button_index=MOUSE_BUTTON_LEFT; click.pressed=true; click.position=Vector2(1060,478); game.LevelEditorSystem.GroupSystem.handle_mouse(game,state,click)
+	var click:=InputEventMouseButton.new(); click.button_index=MOUSE_BUTTON_LEFT; click.pressed=true; click.position=game.LevelEditorSystem.GroupSystem.ROWS_START+Vector2(110,game.LevelEditorSystem.GroupSystem.ROW_HEIGHT*2+14); game.LevelEditorSystem.GroupSystem.handle_mouse(game,state,click)
 	expect(not state.layer_visibility.ground and game.LevelEditorSystem.object_at(state,world)==-1,"hidden ground layer disappears from hit testing")
-	game.LevelEditorSystem.GroupSystem.handle_mouse(game,state,click); click.position=Vector2(1100,478); game.LevelEditorSystem.GroupSystem.handle_mouse(game,state,click)
+	game.LevelEditorSystem.GroupSystem.handle_mouse(game,state,click); click.position=game.LevelEditorSystem.GroupSystem.ROWS_START+Vector2(150,game.LevelEditorSystem.GroupSystem.ROW_HEIGHT*2+14); game.LevelEditorSystem.GroupSystem.handle_mouse(game,state,click)
 	expect(state.layer_visibility.ground and state.layer_locked.ground and game.LevelEditorSystem.object_at(state,world)==-1,"locked visible ground remains rendered but protected from selection")
-	click.position=Vector2(1100,478); game.LevelEditorSystem.GroupSystem.handle_mouse(game,state,click); state.layer="ground"; game.LevelEditorSystem.GroupSystem.select_layer(state,"ground")
+	click.position=game.LevelEditorSystem.GroupSystem.ROWS_START+Vector2(150,game.LevelEditorSystem.GroupSystem.ROW_HEIGHT*2+14); game.LevelEditorSystem.GroupSystem.handle_mouse(game,state,click); state.layer="ground"; game.LevelEditorSystem.GroupSystem.select_layer(state,"ground")
 	expect(not state.layer_locked.ground and state.selected_ids==[int(state.objects[0].id)],"unlocking restores layer-wide selection")
 	game.free()
 
@@ -456,24 +458,3 @@ func test_validation_blocks_broken_export_and_reports_map_issues() -> void:
 	state.level_name="valid editor map"; state.objects[0].asset_path="res://assets/game/tiles/editor/terrain/grass_lush.png"; var ready:Dictionary=game.LevelEditorSystem.validate_draft(state)
 	expect(ready.valid and String(state.status).contains("готово"),"corrected draft becomes export-ready while retaining non-fatal warnings")
 	game.free()
-
-
-## Сценарий: конструктор подключён к единственному игровому циклу, отрисовке и диагностической панели.
-## Исходное состояние: исходники интеграционных модулей и список доступных F10-команд читаются напрямую.
-## Ожидаемый результат: режим останавливает симуляцию, рисует все четыре слоя и доступен как включённая команда.
-func test_runtime_integration_freezes_simulation_and_draws_editor_layers() -> void:
-	var core := FileAccess.get_file_as_string("res://scripts/game_core.gd")
-	var loop := FileAccess.get_file_as_string("res://scripts/core/game_loop.gd")
-	var input_router := FileAccess.get_file_as_string("res://scripts/core/game_input_router.gd")
-	var render := FileAccess.get_file_as_string("res://scripts/systems/render_system.gd")
-	var debug := FileAccess.get_file_as_string("res://scripts/systems/debug_overlay_system.gd")
-	expect(core.contains("GameLoop.physics_process") and core.contains("GameInputRouter.route") and loop.contains("game.LevelEditorSystem.active(game)") and input_router.contains("game.LevelEditorSystem.handle_input(game, event)"), "live editor owns input and pauses gameplay simulation through dedicated core modules")
-	for layer in ["background","ground","objects","foreground"]:
-		expect(render.contains("LevelEditorRenderer.draw_layer(game,\"%s\")"%layer), "renderer composes level-editor layer: %s"%layer)
-	expect(debug.contains('"action":"level_editor"') and debug.contains('"enabled":true'), "F10 panel exposes the enabled level-constructor command")
-	var renderer := FileAccess.get_file_as_string("res://scripts/systems/level_editor_renderer.gd")
-	expect(renderer.contains("DebugUiKitSystem.draw_panel") and renderer.contains("DebugUiKitSystem.draw_catalog_row") and renderer.contains("DebugUiKitSystem.draw_readout"), "level editor uses the shared carved shell for panel catalog and technical readouts")
-	var preview := Image.load_from_file(ProjectSettings.globalize_path("res://assets/generated/level_drafts/level_editor_ingame_preview.png"))
-	expect(preview != null and preview.get_width()>=1152 and absf(float(preview.get_width())/preview.get_height()-16.0/9.0)<0.01, "level editor keeps a native-or-larger sixteen-by-nine visual reference")
-	var atlas_preview := Image.load_from_file(ProjectSettings.globalize_path("res://assets/generated/level_drafts/level_editor_atlas_picker_preview.png"))
-	expect(atlas_preview != null and atlas_preview.get_width() >= 1152 and absf(float(atlas_preview.get_width()) / atlas_preview.get_height() - 16.0 / 9.0) < 0.01, "visual frame picker keeps a reviewed native-or-larger sixteen-by-nine reference")

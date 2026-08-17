@@ -33,6 +33,7 @@ static func is_walkable(game: Node, position: Vector2) -> bool:
 ## Объясняет результат навигации кодом конкретного препятствия для игровой диагностики.
 static func walkability_reason(game: Node, position: Vector2) -> String:
 	if game.DebugPlaygroundSystem.active(game): return "walkable" if game.DebugPlaygroundSystem.is_walkable(game, position, game.PLAYER_RADIUS) else "debug_obstacle"
+	if game.PublishedLevelSystem.blocks_position(game,position,game.PLAYER_RADIUS): return "published_collision"
 	if game.MoonGladeSystem.blocks_position(game, position, game.PLAYER_RADIUS): return "guardian"
 	if game.BuildingSystem.is_interior(game.current_location):
 		if game.FarmLifeSystem.blocks_position(game,position,game.PLAYER_RADIUS): return "furniture"

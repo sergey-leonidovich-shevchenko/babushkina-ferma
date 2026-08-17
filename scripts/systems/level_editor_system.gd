@@ -7,45 +7,49 @@ const PreferencesStore := preload("res://scripts/editor/level_editor_preferences
 const ToolSystem := preload("res://scripts/systems/level_editor_tool_system.gd")
 const AtlasPickerSystem := preload("res://scripts/systems/level_editor_atlas_picker_system.gd")
 const GroupSystem := preload("res://scripts/systems/level_editor_group_system.gd")
+const RuntimeAuthoringSystem := preload("res://scripts/systems/level_editor_runtime_authoring_system.gd")
+const PreviewSystem := preload("res://scripts/systems/level_editor_preview_system.gd")
 const META_KEY := "level_editor"
 const GRID_SIZES := [12, 24, 48, 96]
 const LAYERS := ["background", "ground", "objects", "foreground"]
 const CATEGORIES := ["terrain", "buildings", "vegetation", "decor", "characters", "enemies", "items", "farming", "fishing", "ui", "other"]
 const CATEGORY_NAMES := {"terrain":"ЗЕМЛЯ","buildings":"ДОМА","vegetation":"РАСТЕНИЯ","decor":"ДЕКОР","characters":"ПЕРСОНАЖИ","enemies":"ВРАГИ","items":"ПРЕДМЕТЫ","farming":"ФЕРМА","fishing":"ВОДА/РЫБАЛКА","ui":"ИНТЕРФЕЙС","other":"ПРОЧЕЕ"}
-const PANEL := Rect2(10,10,382,628)
-const CLOSE_BUTTON := Rect2(354,20,28,28)
-const CATEGORY_PREV := Rect2(24,82,30,28)
-const SEARCH_BUTTON := Rect2(60,82,218,28)
-const CATEGORY_NEXT := Rect2(284,82,30,28)
-const FAVORITES_BUTTON := Rect2(320,82,62,28)
-const ASSET_ROWS := Rect2(22,122,360,230)
-const ASSET_ROW_HEIGHT := 46
-const VISIBLE_ASSETS := 5
-const SELECT_TOOL_BUTTON := Rect2(22,360,68,30)
-const PAINT_TOOL_BUTTON := Rect2(94,360,68,30)
-const FILL_TOOL_BUTTON := Rect2(166,360,68,30)
-const PICKER_TOOL_BUTTON := Rect2(238,360,68,30)
-const ERASE_TOOL_BUTTON := Rect2(310,360,72,30)
-const NEW_BUTTON := Rect2(22,398,72,30)
-const SAVE_BUTTON := Rect2(100,398,72,30)
-const LOAD_BUTTON := Rect2(178,398,72,30)
-const EXPORT_BUTTON := Rect2(256,398,76,30)
-const IMPORT_BUTTON := Rect2(22,436,200,30)
-const VALIDATE_BUTTON := Rect2(228,436,104,30)
-const GRID_BUTTON := Rect2(22,474,96,30)
-const SLICE_BUTTON := Rect2(124,474,98,30)
-const LAYER_BUTTON := Rect2(228,474,104,30)
-const COLLISION_BUTTON := Rect2(22,512,126,30)
-const LEVEL_NAME_BUTTON := Rect2(154,512,178,30)
-const OBJECT_NAME_BUTTON := Rect2(22,550,150,30)
-const OBJECT_NOTE_BUTTON := Rect2(178,550,154,30)
+const PANEL := Rect2(10,10,420,628)
+const CLOSE_BUTTON := Rect2(390,20,28,28)
+const CATEGORY_PREV := Rect2(22,78,32,28)
+const SEARCH_BUTTON := Rect2(58,78,246,28)
+const CATEGORY_NEXT := Rect2(310,78,32,28)
+const FAVORITES_BUTTON := Rect2(348,78,70,28)
+const ASSET_ROWS := Rect2(22,116,396,178)
+const ASSET_ROW_HEIGHT := 43
+const VISIBLE_ASSETS := 4
+const SELECT_TOOL_BUTTON := Rect2(22,326,76,30)
+const PAINT_TOOL_BUTTON := Rect2(102,326,76,30)
+const FILL_TOOL_BUTTON := Rect2(182,326,76,30)
+const PICKER_TOOL_BUTTON := Rect2(262,326,76,30)
+const ERASE_TOOL_BUTTON := Rect2(342,326,76,30)
+const NEW_BUTTON := Rect2(22,383,70,30)
+const SAVE_BUTTON := Rect2(96,383,70,30)
+const LOAD_BUTTON := Rect2(170,383,70,30)
+const EXPORT_BUTTON := Rect2(244,383,84,30)
+const IMPORT_BUTTON := Rect2(332,383,86,30)
+const PUBLISH_BUTTON := Rect2(22,419,194,30)
+const VALIDATE_BUTTON := Rect2(222,419,196,30)
+const GRID_BUTTON := Rect2(22,466,128,30)
+const SLICE_BUTTON := Rect2(154,466,128,30)
+const LAYER_BUTTON := Rect2(286,466,132,30)
+const COLLISION_BUTTON := Rect2(22,513,146,30)
+const LEVEL_NAME_BUTTON := Rect2(172,513,120,30)
+const ROLE_BUTTON := Rect2(296,513,122,30)
+const OBJECT_NAME_BUTTON := Rect2(22,549,194,30)
+const OBJECT_NOTE_BUTTON := Rect2(222,549,196,30)
 
 static var _catalog: Array[Dictionary] = []
 
 
 ## Создаёт полное временное состояние конструктора, которое не попадает в обычное сохранение игры.
 static func default_state(game: Node) -> Dictionary:
-	return {"active":false,"base_location":game.current_location,"level_name":"%s_custom" % game.current_location,"level_notes":"","objects":[],"selected":-1,"selected_ids":[],"group_clipboard":[],"group_drag_origins":{},"group_drag_anchor":Vector2.ZERO,"selection_start":Vector2.ZERO,"selection_end":Vector2.ZERO,"selection_additive":false,"layer_visibility":{"background":true,"ground":true,"objects":true,"foreground":true},"layer_locked":{"background":false,"ground":false,"objects":false,"foreground":false},"selected_asset":"","category":0,"scroll":0,"search":"","favorites":PreferencesStore.load_favorites(),"favorites_only":false,"grid":24,"snap":true,"slice_size":0,"slice_index":0,"source_mode":"grid","custom_source":Rect2(),"atlas_picker_open":false,"atlas_page":0,"region_dragging":false,"region_drag_start":Vector2.ZERO,"region_drag_end":Vector2.ZERO,"layer":"objects","collision":false,"tool":"select","drag_kind":"","drag_offset":Vector2.ZERO,"rectangle_start":Vector2i.ZERO,"rectangle_end":Vector2i.ZERO,"last_brush_cell":Vector2i(-2147483648,-2147483648),"stroke_cells":{},"stroke_history_pushed":false,"mouse":Vector2.ZERO,"history":[],"future":[],"status":"F12 — закрыть конструктор","validation":{},"text_mode":"","text_buffer":"","draft_cursor":-1,"panel_hidden":false,"capture_pending":0,"export_png":"","next_id":1}
+	return {"active":false,"base_location":game.current_location,"level_name":"%s_custom" % game.current_location,"level_notes":"","objects":[],"selected":-1,"selected_ids":[],"group_clipboard":[],"group_drag_origins":{},"group_drag_anchor":Vector2.ZERO,"selection_start":Vector2.ZERO,"selection_end":Vector2.ZERO,"selection_additive":false,"layer_visibility":{"background":true,"ground":true,"objects":true,"foreground":true},"layer_locked":{"background":false,"ground":false,"objects":false,"foreground":false},"selected_asset":"","category":0,"scroll":0,"search":"","favorites":PreferencesStore.load_favorites(),"favorites_only":false,"grid":24,"snap":true,"slice_size":0,"slice_index":0,"source_mode":"grid","custom_source":Rect2(),"atlas_picker_open":false,"atlas_page":0,"region_dragging":false,"region_drag_start":Vector2.ZERO,"region_drag_end":Vector2.ZERO,"layer":"objects","collision":false,"collision_view":true,"tool":"select","drag_kind":"","drag_offset":Vector2.ZERO,"rectangle_start":Vector2i.ZERO,"rectangle_end":Vector2i.ZERO,"last_brush_cell":Vector2i(-2147483648,-2147483648),"stroke_cells":{},"stroke_history_pushed":false,"mouse":Vector2.ZERO,"history":[],"future":[],"status":"F12 — закрыть конструктор","validation":{},"text_mode":"","text_buffer":"","draft_cursor":-1,"panel_hidden":false,"capture_pending":0,"export_png":"","next_id":1}
 
 
 ## Проверяет, перехватывает ли конструктор симуляцию, ввод и интерфейс текущей игры.
@@ -200,12 +204,14 @@ static func _handle_panel_click(game: Node, state: Dictionary, point: Vector2) -
 	elif LOAD_BUTTON.has_point(point): load_next_draft(game,state)
 	elif EXPORT_BUTTON.has_point(point): save_draft(game,state,true)
 	elif IMPORT_BUTTON.has_point(point): import_current_level(game,state)
+	elif PUBLISH_BUTTON.has_point(point): game.PublishedLevelSystem.publish_and_play(game,state)
 	elif VALIDATE_BUTTON.has_point(point): validate_draft(state)
 	elif GRID_BUTTON.has_point(point): state.grid = GRID_SIZES[(GRID_SIZES.find(int(state.grid))+1)%GRID_SIZES.size()]; state.status = "Сетка %d px" % state.grid
 	elif SLICE_BUTTON.has_point(point): AtlasPickerSystem.open(state)
 	elif LAYER_BUTTON.has_point(point): state.layer = LAYERS[(LAYERS.find(String(state.layer))+1)%LAYERS.size()]
 	elif COLLISION_BUTTON.has_point(point): state.collision = not bool(state.collision)
 	elif LEVEL_NAME_BUTTON.has_point(point): begin_text(state,"level_name",state.level_name)
+	elif ROLE_BUTTON.has_point(point): RuntimeAuthoringSystem.cycle_role(game.LevelEditorSystem,state)
 	elif OBJECT_NAME_BUTTON.has_point(point): begin_text(state,"object_name" if valid_selection(state) else "level_name",state.objects[state.selected].name if valid_selection(state) else state.level_name)
 	elif OBJECT_NOTE_BUTTON.has_point(point): begin_text(state,"object_notes" if valid_selection(state) else "level_notes",state.objects[state.selected].notes if valid_selection(state) else state.level_notes)
 
@@ -236,6 +242,7 @@ static func _handle_key(game: Node, state: Dictionary, event: InputEventKey) -> 
 	var command_pressed: bool = event.ctrl_pressed or event.meta_pressed
 	if command_pressed and ((event.keycode == KEY_Z and event.shift_pressed) or event.keycode == KEY_Y): redo(state); return
 	if command_pressed and event.keycode == KEY_Z: undo(state); return
+	if RuntimeAuthoringSystem.handle_key(game,state,event): return
 	match event.keycode:
 		KEY_ESCAPE: state.selected_asset = ""; state.selected = -1; state.drag_kind = ""; state.tool = "select"
 		KEY_B: state.tool = "paint"; state.status = "Кисть · кликни или веди"
@@ -302,7 +309,7 @@ static func place_selected_asset(game: Node, state: Dictionary, screen_point: Ve
 	if anchor=="tile": size=Vector2.ONE*int(state.grid)
 	var position := placement_position(state,world,anchor)
 	if anchor == "tile": _remove_ground_at(state,position,String(state.layer))
-	var object := {"id":int(state.next_id),"asset_path":path,"name":path.get_file().get_basename(),"notes":"","position":position,"size":size,"source":source,"anchor":anchor,"layer":state.layer,"collision":state.collision,"rotation":0.0,"flip_x":false,"flip_y":false,"reference":false,"runtime_id":"","original_position":Vector2.ZERO,"hidden":false,"unique_key":unique_key,"catalog_category":String(entry.get("category","other")),"surface_kind":String(entry.get("surface_kind","")),"autotile_diagonal_mask":0,"transition_masks":{},"transition_corner_masks":{}}
+	var object := {"id":int(state.next_id),"asset_path":path,"name":path.get_file().get_basename(),"notes":"","position":position,"size":size,"source":source,"anchor":anchor,"layer":state.layer,"collision":state.collision,"collision_size":size,"collision_offset":Vector2.ZERO,"runtime_role":"","rotation":0.0,"flip_x":false,"flip_y":false,"reference":false,"runtime_id":"","original_position":Vector2.ZERO,"hidden":false,"unique_key":unique_key,"catalog_category":String(entry.get("category","other")),"surface_kind":String(entry.get("surface_kind","")),"autotile_diagonal_mask":0,"transition_masks":{},"transition_corner_masks":{}}
 	state.next_id = int(state.next_id)+1; state.objects.append(object); state.selected = state.objects.size()-1; state.selected_ids=[int(object.id)]; state.status = "Размещено: %s" % object.name
 	ValidationSystem.rebuild_autotile_masks(state); state.validation={}
 	return true
@@ -446,7 +453,7 @@ static func delete_selected(state: Dictionary) -> void:
 static func duplicate_selected(state: Dictionary) -> void:
 	if not valid_selection(state): return
 	if not String(state.objects[state.selected].get("unique_key","")).is_empty(): state.status="Уникального персонажа нельзя дублировать"; return
-	push_history(state); var copy: Dictionary = state.objects[state.selected].duplicate(true); copy.id = state.next_id; state.next_id += 1; copy.position = Vector2(copy.position)+Vector2(int(state.grid),int(state.grid)); copy.name = "%s копия" % copy.name; state.objects.append(copy); state.selected = state.objects.size()-1; state.status = "Создана копия"
+	push_history(state); var copy: Dictionary = state.objects[state.selected].duplicate(true); copy.id = state.next_id; state.next_id += 1; copy.position = Vector2(copy.position)+Vector2(int(state.grid),int(state.grid)); copy.name = "%s копия" % copy.name; copy.runtime_role=""; state.objects.append(copy); state.selected = state.objects.size()-1; state.status = "Создана копия"
 
 
 ## Проверяет занятость уникального ключа среди видимых и скрытых объектов текущего черновика.
@@ -512,7 +519,7 @@ static func import_current_level(game: Node, state: Dictionary) -> void:
 	push_history(state); state.objects=[]; state.selected=-1; state.selected_ids=[]; state.base_location=game.current_location; state.level_name="%s_redesign"%game.current_location
 	for candidate in game.DebugObjectInspectorSystem.candidates(game):
 		if candidate.id=="player" or candidate.category in ["ДОБЫЧА","ПЕРЕХОД"]: continue
-		state.objects.append({"id":int(state.next_id),"asset_path":"","name":candidate.name,"notes":"","position":candidate.position,"size":candidate.bounds.size,"source":Rect2(),"anchor":"center","layer":"objects","collision":not String(candidate.collision).begins_with("нет"),"rotation":0.0,"flip_x":false,"flip_y":false,"reference":true,"runtime_id":candidate.id,"original_position":candidate.position,"hidden":false,"scale":1.0,"unique_key":runtime_unique_key(String(candidate.id)),"catalog_category":"reference","surface_kind":"","autotile_diagonal_mask":0,"transition_masks":{},"transition_corner_masks":{}}); state.next_id+=1
+		state.objects.append({"id":int(state.next_id),"asset_path":"","name":candidate.name,"notes":"","position":candidate.position,"size":candidate.bounds.size,"source":Rect2(),"anchor":"center","layer":"objects","collision":not String(candidate.collision).begins_with("нет"),"collision_size":candidate.bounds.size,"collision_offset":Vector2.ZERO,"runtime_role":"","rotation":0.0,"flip_x":false,"flip_y":false,"reference":true,"runtime_id":candidate.id,"original_position":candidate.position,"hidden":false,"scale":1.0,"unique_key":runtime_unique_key(String(candidate.id)),"catalog_category":"reference","surface_kind":"","autotile_diagonal_mask":0,"transition_masks":{},"transition_corner_masks":{}}); state.next_id+=1
 	state.status="Импортировано референсов: %d"%state.objects.size()
 
 
@@ -560,20 +567,7 @@ static func load_draft(game: Node, state: Dictionary, path: String) -> bool:
 
 ## Собирает плотный демонстрационный фрагмент новой земли, дорог и воды для визуального QA редактора.
 static func configure_preview(game: Node, state: Dictionary) -> void:
-	state.objects=[]; state.history=[]; state.future=[]; state.next_id=1; state.level_name="Кисть местности 24×24"; state.grid=24
-	var origin := Vector2(game.camera_offset)+Vector2(360,120)
-	activate_asset(state,AssetCatalogSystem.metadata("res://assets/game/tiles/editor/terrain/grass_lush.png"))
-	for row in range(14):
-		for column in range(22): place_selected_asset(game,state,origin+Vector2(column*24+12,row*24+12),false)
-	activate_asset(state,AssetCatalogSystem.metadata("res://assets/game/tiles/editor/terrain/dirt_path_horizontal.png"))
-	for column in range(22): place_selected_asset(game,state,origin+Vector2(column*24+12,7*24+12),false)
-	activate_asset(state,AssetCatalogSystem.metadata("res://assets/game/tiles/editor/terrain/dirt_path_vertical.png"))
-	for row in range(14): place_selected_asset(game,state,origin+Vector2(10*24+12,row*24+12),false)
-	activate_asset(state,AssetCatalogSystem.metadata("res://assets/game/tiles/editor/terrain/dirt_path_cross.png")); place_selected_asset(game,state,origin+Vector2(10*24+12,7*24+12),false)
-	activate_asset(state,AssetCatalogSystem.metadata("res://assets/game/tiles/editor/water/water_clear.png"))
-	for row in range(2,7):
-		for column in range(16,21): place_selected_asset(game,state,origin+Vector2(column*24+12,row*24+12),false)
-	activate_asset(state,AssetCatalogSystem.metadata("res://assets/game/tiles/editor/terrain/grass_flowers.png")); state.mouse=Vector2(672,492); state.selected=-1; state.history=[]; state.future=[]; state.status="Клик — один тайл · зажать — непрерывная кисть"
+	PreviewSystem.configure(game,state,game.LevelEditorSystem,AssetCatalogSystem)
 
 
 ## Завершает отложенный захват чистого игрового кадра после скрытия панели редактора.

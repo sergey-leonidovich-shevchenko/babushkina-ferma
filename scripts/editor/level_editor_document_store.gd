@@ -1,7 +1,7 @@
 extends RefCounted
 
 const ValidationSystem := preload("res://scripts/systems/level_editor_validation_system.gd")
-const FORMAT_VERSION := 5
+const FORMAT_VERSION := 6
 const PROJECT_DIRECTORY := "res://level_designs"
 const USER_DIRECTORY := "user://level_designs"
 
@@ -22,6 +22,9 @@ static func document(state: Dictionary) -> Dictionary:
 			"anchor": String(object.get("anchor", "center")),
 			"layer": object.layer,
 			"collision": object.collision,
+			"collision_size": [Vector2(object.get("collision_size", object.size)).x, Vector2(object.get("collision_size", object.size)).y],
+			"collision_offset": [Vector2(object.get("collision_offset", Vector2.ZERO)).x, Vector2(object.get("collision_offset", Vector2.ZERO)).y],
+			"runtime_role": String(object.get("runtime_role", "")),
 			"rotation": object.rotation,
 			"flip_x": object.flip_x,
 			"flip_y": object.flip_y,
@@ -146,21 +149,23 @@ static func load_draft(game: Node, state: Dictionary, path: String) -> bool:
 
 ## Восстанавливает один объект черновика из сериализованного JSON-представления.
 static func _restore_object(saved: Dictionary, next_id: int) -> Dictionary:
-	var source_data: Array = saved.get("source", [])
-	var source := Rect2() if source_data.size() != 4 else Rect2(source_data[0], source_data[1], source_data[2], source_data[3])
-	var position := Vector2(saved.position[0], saved.position[1])
-	var original_data: Array = saved.get("original_position", [position.x, position.y])
+	var source_data: Array = saved.get("source", []); var source := Rect2() if source_data.size() != 4 else Rect2(source_data[0], source_data[1], source_data[2], source_data[3])
+	var position := Vector2(saved.position[0], saved.position[1]); var original_data: Array = saved.get("original_position", [position.x, position.y]); var saved_size := Vector2(saved.size[0], saved.size[1])
+	var collision_size_data: Array = saved.get("collision_size", [saved_size.x, saved_size.y]); var collision_offset_data: Array = saved.get("collision_offset", [0.0, 0.0])
 	return {
 		"id": int(saved.get("id", next_id)),
 		"asset_path": String(saved.get("asset_path", "")),
 		"name": String(saved.get("name", "Объект")),
 		"notes": String(saved.get("notes", "")),
 		"position": position,
-		"size": Vector2(saved.size[0], saved.size[1]),
+		"size": saved_size,
 		"source": source,
 		"anchor": String(saved.get("anchor", "center")),
 		"layer": String(saved.get("layer", "objects")),
 		"collision": bool(saved.get("collision", false)),
+		"collision_size": Vector2(collision_size_data[0], collision_size_data[1]),
+		"collision_offset": Vector2(collision_offset_data[0], collision_offset_data[1]),
+		"runtime_role": String(saved.get("runtime_role", "")),
 		"rotation": float(saved.get("rotation", 0.0)),
 		"flip_x": bool(saved.get("flip_x", false)),
 		"flip_y": bool(saved.get("flip_y", false)),

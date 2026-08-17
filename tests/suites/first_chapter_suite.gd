@@ -14,7 +14,7 @@ func test_five_day_route_uses_real_events_in_order() -> void:
 	var game := make_game(); var chapter: Variant = game.FirstChapterSystem; var value: Dictionary = chapter.state(game)
 	expect(chapter.stage(game) == 0 and chapter.objective(game).contains("бабуш"), "first chapter begins with the grandmother objective")
 	for event_name in ["talk","plant","shop"]: chapter.observe(game,event_name)
-	expect(chapter.stage(game) == 3 and chapter.objective(game).contains("2-го дня"), "day one forms an ordered talk plant and shop route")
+	expect(chapter.stage(game) == 3 and chapter.objective(game).contains("2-го дня") and is_equal_approx(chapter.progress(game),0.25), "day one forms an ordered talk plant and shop route with honest chapter progress")
 	chapter.observe(game,"harvest"); chapter.observe(game,"quest_complete")
 	expect(chapter.stage(game) == 3 and value.events.harvest and value.events.quest_complete, "early real actions are remembered without bypassing the day gate")
 	game.day = 2; chapter.update(game)

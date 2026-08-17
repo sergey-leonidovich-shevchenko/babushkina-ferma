@@ -29,6 +29,8 @@ static func update_input_device(game: Node, event: InputEvent) -> void:
 
 ## Передаёт событие редактору, меню, сюжетному модальному окну или строительству оград.
 static func _handle_high_priority_layer(game: Node, event: InputEvent) -> bool:
+	if game.PublishedLevelSystem.handle_input(game,event):
+		return true
 	if not game.language_screen and not game.title_screen and not game.menu_state.pause_open:
 		if game.LevelEditorSystem.handle_input(game, event):
 			return true

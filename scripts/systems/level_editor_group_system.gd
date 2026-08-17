@@ -1,9 +1,9 @@
 extends RefCounted
 
-const PANEL := Rect2(918,342,224,232)
-const HEADER := Rect2(930,354,200,28)
-const ROWS_START := Vector2(930,392)
-const ROW_HEIGHT := 38
+const PANEL := Rect2(934,430,200,184)
+const HEADER := Rect2(946,442,176,24)
+const ROWS_START := Vector2(946,472)
+const ROW_HEIGHT := 34
 const LAYERS := ["foreground","objects","ground","background"]
 
 
@@ -116,9 +116,9 @@ static func _finish_world_selection(game: Node, state: Dictionary) -> void:
 static func _handle_layer_click(state: Dictionary, point: Vector2) -> void:
 	var row:=int((point.y-ROWS_START.y)/ROW_HEIGHT)
 	if row<0 or row>=LAYERS.size(): return
-	var layer:String=String(LAYERS[row])
-	if point.x<1038: state.layer=layer; state.status="Активный слой: %s"%layer
-	elif point.x<1082: state.layer_visibility[layer]=not bool(state.layer_visibility.get(layer,true)); state.status="Видимость %s"%layer
+	var layer:String=String(LAYERS[row]); var local_x:=point.x-ROWS_START.x
+	if local_x<92: state.layer=layer; state.status="Активный слой: %s"%layer
+	elif local_x<134: state.layer_visibility[layer]=not bool(state.layer_visibility.get(layer,true)); state.status="Видимость %s"%layer
 	else: state.layer_locked[layer]=not bool(state.layer_locked.get(layer,false)); state.status="Блокировка %s"%layer
 
 

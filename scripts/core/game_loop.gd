@@ -8,6 +8,10 @@ static func physics_process(game: Node, delta: float) -> void:
 	if game.LevelEditorSystem.active(game):
 		game.queue_redraw()
 		return
+	game.PublishedLevelSystem.update(game)
+	if game.LevelEditorSystem.active(game):
+		game.queue_redraw()
+		return
 	game.FenceSystem.update(game, delta)
 	game.DebugOverlaySystem.update(game, delta)
 	delta = game.DebugOverlaySystem.simulation_delta(game, delta)

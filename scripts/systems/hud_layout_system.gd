@@ -17,7 +17,7 @@ static func primary_objective(game: Node) -> Dictionary:
 		return _objective(game.LocaleSystem.ui("hud_story_objective"), campaign_text, "story")
 	var chapter: Dictionary = game.FirstChapterSystem.state(game)
 	if not bool(chapter.completed) and not bool(chapter.reward_pending):
-		return _objective(game.FirstChapterSystem.word(game, "title"), game.FirstChapterSystem.objective(game), "chapter")
+		var objective:=_objective(game.FirstChapterSystem.word(game, "title"), game.FirstChapterSystem.objective(game), "chapter"); objective.ratio=game.FirstChapterSystem.progress(game); return objective
 	if game.quest_active and not game.quest_complete:
 		return {"title":game.LocaleSystem.ui("hud_grandmother_quest"), "text":game.LocaleSystem.ui("hud_carrot_progress", [mini(game.carrots, 10), 10]), "kind":"quest", "source":"mission", "ratio":float(mini(game.carrots, 10)) / 10.0}
 	var active: Array[String] = game.QuestSystem.active_mission_ids(game)

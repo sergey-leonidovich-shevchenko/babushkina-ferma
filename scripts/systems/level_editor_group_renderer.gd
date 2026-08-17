@@ -17,8 +17,8 @@ static func draw_world(game: Node2D, state: Dictionary) -> void:
 
 ## Рисует компактную панель видимости и блокировки четырёх слоёв редактора.
 static func draw_panel(game: Node2D, state: Dictionary) -> void:
-	game.DebugUiKitSystem.draw_panel(game,GroupSystem.PANEL,true); game.draw_ui_string(game.MENU_FONT,Vector2(932,376),"СЛОИ · %d ВЫБРАНО"%state.selected_ids.size(),HORIZONTAL_ALIGNMENT_LEFT,194,15,TEXT)
+	game.DebugUiKitSystem.draw_panel(game,GroupSystem.PANEL,true); game.draw_ui_string(game.UI_FONT,GroupSystem.HEADER.position+Vector2(2,17),"СЛОИ  •  ВЫБРАНО: %d"%state.selected_ids.size(),HORIZONTAL_ALIGNMENT_LEFT,GroupSystem.HEADER.size.x-4,10,TEXT)
 	for index in GroupSystem.LAYERS.size():
-		var layer:String=GroupSystem.LAYERS[index]; var rect:=Rect2(GroupSystem.ROWS_START+Vector2(0,index*GroupSystem.ROW_HEIGHT),Vector2(200,32)); game.DebugUiKitSystem.draw_catalog_row(game,rect,String(state.layer)==layer,true)
-		game.draw_ui_string(game.UI_FONT,rect.position+Vector2(8,21),{"foreground":"ПЕРЕДНИЙ","objects":"ОБЪЕКТЫ","ground":"ЗЕМЛЯ","background":"ФОН"}[layer],HORIZONTAL_ALIGNMENT_LEFT,100,10,ROW_TEXT)
-		game.draw_ui_string(game.UI_FONT,rect.position+Vector2(108,21),"◉" if bool(state.layer_visibility.get(layer,true)) else "○",HORIZONTAL_ALIGNMENT_CENTER,40,13,ROW_SELECTED); game.draw_ui_string(game.UI_FONT,rect.position+Vector2(156,21),"◆" if bool(state.layer_locked.get(layer,false)) else "◇",HORIZONTAL_ALIGNMENT_CENTER,40,11,ROW_SELECTED)
+		var layer:String=GroupSystem.LAYERS[index]; var rect:=Rect2(GroupSystem.ROWS_START+Vector2(0,index*GroupSystem.ROW_HEIGHT),Vector2(176,28)); game.DebugUiKitSystem.draw_catalog_row(game,rect,String(state.layer)==layer,true)
+		var fitted:Dictionary=game.DebugUiKitSystem.fit_label(game.UI_FONT,{"foreground":"ПЕРЕДНИЙ","objects":"ОБЪЕКТЫ","ground":"ЗЕМЛЯ","background":"ФОН"}[layer],74,9,7); game.draw_ui_string(game.UI_FONT,rect.position+Vector2(16,19),String(fitted.text),HORIZONTAL_ALIGNMENT_LEFT,74,int(fitted.size),ROW_TEXT)
+		game.draw_ui_string(game.UI_FONT,rect.position+Vector2(96,20),"◉" if bool(state.layer_visibility.get(layer,true)) else "○",HORIZONTAL_ALIGNMENT_CENTER,34,12,ROW_SELECTED); game.draw_ui_string(game.UI_FONT,rect.position+Vector2(138,20),"◆" if bool(state.layer_locked.get(layer,false)) else "◇",HORIZONTAL_ALIGNMENT_CENTER,28,10,ROW_SELECTED)

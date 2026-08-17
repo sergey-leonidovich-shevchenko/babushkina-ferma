@@ -66,6 +66,10 @@ static func word(game: Node, key: String, values: Array = []) -> String:
 static func stage(game: Node) -> int:
 	return clampi(int(state(game).stage), 0, MILESTONES.size())
 
+## Возвращает честную долю завершения первой главы для единственной шкалы основной цели.
+static func progress(game:Node)->float:
+	return clampf(float(stage(game))/float(MILESTONES.size()),0.0,1.0)
+
 ## Запоминает реальное игровое событие и сразу пытается продвинуть последовательную главу.
 static func observe(game: Node, event_name: String) -> void:
 	state(game).events[event_name] = true; update(game)

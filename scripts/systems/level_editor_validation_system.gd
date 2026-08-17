@@ -110,6 +110,73 @@ static func validate(state: Dictionary) -> Dictionary:
 	return {"valid":errors.is_empty(),"errors":errors,"warnings":warnings,"checked":state.objects.size()}
 
 
+## Выполняет строгую runtime-проверку старта, выходов, коллизий и реальной достижимости маршрута.
+static func validate_runtime(state:Dictionary)->Dictionary:
+	var report:=validate(state); var errors:Array[String]=report.errors.duplicate(); var warnings:Array[String]=report.warnings.duplicate(); var spawns:Array[Dictionary]=[]; var exits:Array[Dictionary]=[]
+	for object in state.objects:
+		var role:=String(object.get("runtime_role",""))
+		if role=="spawn": spawns.append(object)
+		elif role=="exit": exits.append(object)
+		elif not role.is_empty() and role!="interaction": errors.append("#%s: неизвестная игровая роль %s"%[object.get("id","?"),role])
+		if bool(object.get("collision",false)):
+			var collision:=_collision_rect(object)
+			if collision.size.x<=0 or collision.size.y<=0: errors.append("#%s: коллизия имеет нулевой размер"%object.get("id","?"))
+	if spawns.size()!=1: errors.append("Нужна ровно одна точка SPAWN, сейчас: %d"%spawns.size())
+	if exits.is_empty(): errors.append("Нужна хотя бы одна точка EXIT")
+	if spawns.size()==1:
+		var spawn_position:=Vector2(spawns[0].position)
+		if _point_blocked(state.objects,spawn_position): errors.append("Точка SPAWN находится внутри коллизии")
+		for exit_object in exits:
+			var exit_position:=Vector2(exit_object.position)
+			if _point_blocked(state.objects,exit_position): errors.append("EXIT #%s находится внутри коллизии"%exit_object.get("id","?"))
+			elif not _reachable(state,spawn_position,exit_position): errors.append("EXIT #%s недостижим от SPAWN"%exit_object.get("id","?"))
+	return {"valid":errors.is_empty(),"errors":errors,"warnings":warnings,"checked":state.objects.size(),"runtime":true}
+
+
+## Возвращает пользовательский прямоугольник препятствия с учётом якоря, масштаба и смещения.
+static func _collision_rect(object:Dictionary)->Rect2:
+	var bounds:=_object_bounds(object); var size:=Vector2(object.get("collision_size",bounds.size)); var offset:=Vector2(object.get("collision_offset",Vector2.ZERO))
+	if size==Vector2.ZERO: size=bounds.size
+	return Rect2(bounds.get_center()+offset-size*0.5,size)
+
+
+## Вычисляет визуальные границы объекта тем же способом, что редактор и runtime-отрисовка.
+static func _object_bounds(object:Dictionary)->Rect2:
+	var size:=Vector2(object.get("size",Vector2(24,24)))*clampf(float(object.get("scale",1.0)),0.25,4.0); var position:=Vector2(object.get("position",Vector2.ZERO))
+	match String(object.get("anchor","center")):
+		"tile": return Rect2(position,size)
+		"bottom": return Rect2(position-Vector2(size.x*0.5,size.y),size)
+		_: return Rect2(position-size*0.5,size)
+
+
+## Проверяет попадание точки игрового маршрута в любое видимое непроходимое препятствие.
+static func _point_blocked(objects:Array,point:Vector2,radius:float=5.0)->bool:
+	for object in objects:
+		if bool(object.get("hidden",false)) or not bool(object.get("collision",false)): continue
+		var rect:=_collision_rect(object); var closest:=Vector2(clampf(point.x,rect.position.x,rect.end.x),clampf(point.y,rect.position.y,rect.end.y))
+		if point.distance_squared_to(closest)<radius*radius: return true
+	return false
+
+
+## Ищет четырёхсторонний путь по малой сетке, чтобы опубликованный выход не оказался декоративным тупиком.
+static func _reachable(state:Dictionary,start:Vector2,finish:Vector2)->bool:
+	var grid:=maxi(6,int(state.get("grid",24))); var bounds:=Rect2(start,Vector2.ONE)
+	for object in state.objects: bounds=bounds.merge(_object_bounds(object))
+	bounds=bounds.merge(Rect2(finish,Vector2.ONE)).grow(grid*3.0)
+	var minimum:=Vector2i(floori(bounds.position.x/grid),floori(bounds.position.y/grid)); var maximum:=Vector2i(ceili(bounds.end.x/grid),ceili(bounds.end.y/grid)); var start_cell:=Vector2i(floori(start.x/grid),floori(start.y/grid)); var finish_cell:=Vector2i(floori(finish.x/grid),floori(finish.y/grid))
+	var queue:Array[Vector2i]=[start_cell]; var cursor:=0; var visited:Dictionary={start_cell:true}
+	while cursor<queue.size() and cursor<25000:
+		var cell:Vector2i=queue[cursor]; cursor+=1
+		if cell==finish_cell: return true
+		for direction in DIRECTIONS:
+			var next:Vector2i=cell+direction
+			if next.x<minimum.x or next.y<minimum.y or next.x>maximum.x or next.y>maximum.y or visited.has(next): continue
+			var center:=(Vector2(next)+Vector2.ONE*0.5)*grid
+			if _point_blocked(state.objects,center,grid*0.28): continue
+			visited[next]=true; queue.append(next)
+	return false
+
+
 ## Возвращает компактную строку результата для панели и журнала конструктора.
 static func summary(report: Dictionary) -> String:
 	if not report.valid: return "ПРОВЕРКА: %d ошибок · %d предупреждений"%[report.errors.size(),report.warnings.size()]
