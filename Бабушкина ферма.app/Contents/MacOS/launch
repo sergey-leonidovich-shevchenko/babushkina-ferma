@@ -1,15 +1,67 @@
 #!/bin/zsh
 
 project_dir="${0:A:h:h:h:h}"
-local_godot="$project_dir/tools/Godot.app/Contents/MacOS/Godot"
-system_godot="/Applications/Godot.app/Contents/MacOS/Godot"
+launcher_data_dir="${HOME}/Library/Application Support/Бабушкина ферма"
+launcher_config="$launcher_data_dir/godot_path"
+launcher_log="${HOME}/Library/Logs/BabushkinaFermaLauncher.log"
+godot_bin="${FARM_GODOT_BIN:-}"
 
-if [[ -x "$local_godot" ]]; then
-	exec "$local_godot" --path "$project_dir"
-elif [[ -x "$system_godot" ]]; then
-	exec "$system_godot" --path "$project_dir"
-else
-	osascript -e 'display alert "Godot не найден" message "Положите Godot.app в папку tools проекта или установите его в /Applications." as critical'
+# Проверяем сохранённый выбор, локальную копию, системные установки, Homebrew и рабочий runtime Codex.
+if [[ -z "$godot_bin" && -f "$launcher_config" ]]; then
+	IFS= read -r godot_bin < "$launcher_config"
+fi
+if [[ ! -x "$godot_bin" ]]; then
+	godot_bin=""
+	for candidate in \
+		"$project_dir/tools/Godot.app/Contents/MacOS/Godot" \
+		"/Applications/Godot.app/Contents/MacOS/Godot" \
+		"${HOME}/Applications/Godot.app/Contents/MacOS/Godot" \
+		"/opt/homebrew/bin/godot" \
+		"/usr/local/bin/godot" \
+		"/tmp/godot-farm-ui/Godot.app/Contents/MacOS/Godot"
+	do
+		if [[ -x "$candidate" ]]; then godot_bin="$candidate"; break; fi
+	done
+fi
+
+# Spotlight находит переименованные и перенесённые копии Godot.app без жёсткой привязки к папке.
+if [[ -z "$godot_bin" && -x /usr/bin/mdfind ]]; then
+	while IFS= read -r app_path; do
+		candidate="$app_path/Contents/MacOS/Godot"
+		if [[ -x "$candidate" ]]; then godot_bin="$candidate"; break; fi
+	done < <(/usr/bin/mdfind 'kMDItemCFBundleIdentifier == "org.godotengine.godot"c' 2>/dev/null)
+fi
+
+# Если автоматический поиск не помог, Finder позволяет один раз выбрать Godot и запоминает его путь.
+if [[ -z "$godot_bin" ]]; then
+	selected_app="$(/usr/bin/osascript <<'APPLESCRIPT'
+try
+	set chosenApplication to choose application with prompt "Выберите Godot.app для запуска «Бабушкиной фермы»"
+	return POSIX path of chosenApplication
+on error
+	return ""
+end try
+APPLESCRIPT
+)"
+	selected_app="${selected_app%/}"
+	if [[ -x "$selected_app/Contents/MacOS/Godot" ]]; then
+		godot_bin="$selected_app/Contents/MacOS/Godot"
+		/bin/mkdir -p "$launcher_data_dir"
+		print -r -- "$godot_bin" > "$launcher_config"
+	fi
+fi
+
+if [[ ! -x "$godot_bin" ]]; then
+	/usr/bin/osascript -e 'display alert "Godot не найден" message "Установите Godot 4.7.1 или положите Godot.app в папку tools проекта." as critical'
 	exit 1
 fi
 
+# Диагностический режим проверяет Finder-лаунчер, не открывая окно игры.
+if [[ "${FARM_LAUNCHER_CHECK:-0}" == "1" ]]; then
+	print -r -- "$godot_bin"
+	exit 0
+fi
+
+/bin/mkdir -p "${launcher_log:h}"
+print -r -- "$(/bin/date '+%Y-%m-%d %H:%M:%S') · $godot_bin · $project_dir" >> "$launcher_log"
+exec "$godot_bin" --path "$project_dir" >> "$launcher_log" 2>&1

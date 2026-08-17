@@ -4,6 +4,7 @@ extends "res://tests/suites/suite_base.gd"
 func run() -> void:
 	test_localization_language_selector_and_catalogs()
 	test_application_icon_assets()
+	test_macos_launcher_discovers_and_remembers_godot()
 	test_application_version_is_synchronized_and_automated()
 	test_keyboard_press_and_release()
 	test_immediate_keyboard_response()
@@ -37,6 +38,16 @@ func test_application_icon_assets() -> void:
 	expect(native_icon != null and native_icon.get_length() > 100000, "native icon contains multiple detailed resolutions")
 	var plist := FileAccess.get_file_as_string("res://Бабушкина ферма.app/Contents/Info.plist")
 	expect(plist.contains("CFBundleIconFile") and plist.contains("AppIcon"), "macOS launcher declares its custom icon")
+
+
+## Сценарий: пользователь запускает app-пакет из Finder после перемещения или установки Godot нестандартным способом.
+## Исходное состояние: локального движка может не быть, но доступны Homebrew, пользовательские Applications, Spotlight или ручной выбор.
+## Ожидаемый результат: лаунчер перебирает источники, запоминает ручной путь, пишет журнал и поддерживает безопасную диагностику без старта игры.
+func test_macos_launcher_discovers_and_remembers_godot() -> void:
+	var launcher:=FileAccess.get_file_as_string("res://Бабушкина ферма.app/Contents/MacOS/launch")
+	expect(launcher.contains("/opt/homebrew/bin/godot") and launcher.contains("/tmp/godot-farm-ui/Godot.app") and launcher.contains("mdfind"),"macOS launcher discovers Homebrew Spotlight and the current Codex runtime")
+	expect(launcher.contains("choose application") and launcher.contains("godot_path") and launcher.contains("FARM_LAUNCHER_CHECK"),"macOS launcher remembers a manual Finder selection and exposes a no-window diagnostic mode")
+	expect(launcher.contains("BabushkinaFermaLauncher.log") and launcher.contains("--path \"$project_dir\""),"macOS launcher logs the selected engine and opens the exact project directory")
 
 
 ## Сценарий: версия приложения имеет один SemVer-источник и повышается каждым будущим коммитом.
