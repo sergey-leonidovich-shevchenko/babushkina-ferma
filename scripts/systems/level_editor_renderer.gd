@@ -13,6 +13,11 @@ const SELECTED := Color("ffd45c")
 const ROW_TEXT := Color("4b2c17")
 const ROW_MUTED := Color("76563b")
 const ROW_SELECTED := Color("75420f")
+const CATALOG_ROW_DRAW_HEIGHT := 40.0
+const CATALOG_TITLE_BASELINE := 17.0
+const CATALOG_PATH_BASELINE := 28.0
+const CATALOG_TITLE_SIZE := 9
+const CATALOG_PATH_SIZE := 7
 const HELP_RECT := Rect2(442,12,690,30)
 const SELECTION_INFO_RECT := Rect2(442,50,330,104)
 const VALIDATION_INFO_RECT := Rect2(782,50,350,106)
@@ -179,17 +184,17 @@ static func draw_panel(game: Node2D) -> void:
 static func draw_assets(game: Node2D, state: Dictionary) -> void:
 	var entries: Array[Dictionary] = game.LevelEditorSystem.visible_catalog(state); var start: int = clampi(int(state.scroll),0,maxi(entries.size()-game.LevelEditorSystem.VISIBLE_ASSETS,0))
 	for row in game.LevelEditorSystem.VISIBLE_ASSETS:
-		var index: int = start+row; var rect: Rect2 = Rect2(game.LevelEditorSystem.ASSET_ROWS.position+Vector2(0,row*game.LevelEditorSystem.ASSET_ROW_HEIGHT),Vector2(game.LevelEditorSystem.ASSET_ROWS.size.x,39)); var selected: bool = index<entries.size() and entries[index].path==state.selected_asset; game.DebugUiKitSystem.draw_catalog_row(game,rect,selected,true)
+		var index: int = start+row; var rect: Rect2 = Rect2(game.LevelEditorSystem.ASSET_ROWS.position+Vector2(0,row*game.LevelEditorSystem.ASSET_ROW_HEIGHT),Vector2(game.LevelEditorSystem.ASSET_ROWS.size.x,CATALOG_ROW_DRAW_HEIGHT)); var selected: bool = index<entries.size() and entries[index].path==state.selected_asset; game.DebugUiKitSystem.draw_catalog_row(game,rect,selected,true)
 		if index>=entries.size(): continue
 		var entry:Dictionary=entries[index]; var texture: Texture2D = texture_for(String(entry.path))
 		if texture!=null:
-			var slice_size:=int(entry.get("slice_size",0)); var source:Rect2=game.LevelEditorSystem.selected_source(texture,state) if selected else (Rect2(0,0,slice_size,slice_size) if slice_size>0 else Rect2()); var texture_size: Vector2 = source.size if source.size!=Vector2.ZERO else texture.get_size(); var scale: float = minf(32.0/maxf(texture_size.x,1),32.0/maxf(texture_size.y,1)); var thumb: Rect2 = Rect2(rect.position+Vector2(7,3)+(Vector2(36,32)-texture_size*scale)*0.5,texture_size*scale)
+			var slice_size:=int(entry.get("slice_size",0)); var source:Rect2=game.LevelEditorSystem.selected_source(texture,state) if selected else (Rect2(0,0,slice_size,slice_size) if slice_size>0 else Rect2()); var texture_size: Vector2 = source.size if source.size!=Vector2.ZERO else texture.get_size(); var scale: float = minf(28.0/maxf(texture_size.x,1),28.0/maxf(texture_size.y,1)); var thumb: Rect2 = Rect2(rect.position+Vector2(9,6)+(Vector2(32,28)-texture_size*scale)*0.5,texture_size*scale)
 			if source.size==Vector2.ZERO: game.draw_texture_rect(texture,thumb,false)
 			else: game.draw_texture_rect_region(texture,thumb,source)
 		var badge:="  ◈" if not String(entry.get("unique_key","")).is_empty() else ("  ▦%d"%int(entry.get("frame_count",1)) if bool(entry.get("sliced",false)) else "")
-		var fitted:Dictionary=game.DebugUiKitSystem.fit_label(game.UI_FONT,String(entry.name)+badge,304,10,8); game.draw_ui_string(game.UI_FONT,rect.position+Vector2(48,16),String(fitted.text),HORIZONTAL_ALIGNMENT_LEFT,304,int(fitted.size),ROW_TEXT)
-		var path_label:Dictionary=game.DebugUiKitSystem.fit_label(game.UI_FONT,String(entry.path).trim_prefix("res://assets/game/"),304,8,7); game.draw_ui_string(game.UI_FONT,rect.position+Vector2(48,30),String(path_label.text),HORIZONTAL_ALIGNMENT_LEFT,304,int(path_label.size),ROW_MUTED)
-		game.draw_ui_string(game.UI_FONT,rect.position+Vector2(rect.size.x-34,25),"★" if String(entry.path) in state.favorites else "☆",HORIZONTAL_ALIGNMENT_CENTER,28,14,ROW_SELECTED if String(entry.path) in state.favorites else ROW_MUTED)
+		var fitted:Dictionary=game.DebugUiKitSystem.fit_label(game.UI_FONT,String(entry.name)+badge,304,CATALOG_TITLE_SIZE,8); game.draw_ui_string(game.UI_FONT,rect.position+Vector2(48,CATALOG_TITLE_BASELINE),String(fitted.text),HORIZONTAL_ALIGNMENT_LEFT,304,int(fitted.size),ROW_TEXT)
+		var path_label:Dictionary=game.DebugUiKitSystem.fit_label(game.UI_FONT,String(entry.path).trim_prefix("res://assets/game/"),304,CATALOG_PATH_SIZE,CATALOG_PATH_SIZE); game.draw_ui_string(game.UI_FONT,rect.position+Vector2(48,CATALOG_PATH_BASELINE),String(path_label.text),HORIZONTAL_ALIGNMENT_LEFT,304,int(path_label.size),ROW_MUTED)
+		game.draw_ui_string(game.UI_FONT,rect.position+Vector2(rect.size.x-34,26),"★" if String(entry.path) in state.favorites else "☆",HORIZONTAL_ALIGNMENT_CENTER,28,12,ROW_SELECTED if String(entry.path) in state.favorites else ROW_MUTED)
 
 
 ## Показывает краткие технические параметры выбранного объекта справа от панели.

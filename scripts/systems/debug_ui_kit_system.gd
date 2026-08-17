@@ -8,6 +8,11 @@ const TECH_GOLD := Color("e7bc62")
 const DISABLED := Color("63706b")
 const EDITOR_BUTTON_TEXT := Color("2b190d")
 const EDITOR_BUTTON_DISABLED := Color("755f49")
+const EDITOR_BUTTON_MIN_PADDING := 10.0
+const EDITOR_BUTTON_MAX_PADDING := 18.0
+const EDITOR_BUTTON_PADDING_RATIO := 0.14
+const EDITOR_BUTTON_BASELINE_RATIO := 0.61
+const EDITOR_BUTTON_FONT_SIZE := 9
 
 
 ## Рисует общий резной корпус и отдельную техническую поверхность для F10 или конструктора уровней.
@@ -25,8 +30,14 @@ static func draw_button(game: Node2D, rect: Rect2, label: String, active: bool, 
 	elif editor: UiKitSystem.draw_nine_patch(game,"editor_button_selected" if active and enabled else "editor_button_normal",rect)
 	else: UiKitSystem.draw_button(game,rect,active,enabled,game.settings_state.reduced_motion,Time.get_ticks_msec())
 	if not enabled: game.draw_rect(rect.grow(-6.0),Color(0.12,0.10,0.08,0.34))
-	var inset:=minf(12.0,maxf(6.0,rect.size.x*0.09)); var fitted:=fit_label(game.UI_FONT,label,rect.size.x-inset*2.0,10 if editor else 11,7 if editor else 8); var color:=EDITOR_BUTTON_TEXT if editor and enabled else (EDITOR_BUTTON_DISABLED if editor else (Color("fff0c8") if enabled else Color("88928d")))
-	game.draw_ui_string(game.UI_FONT,rect.position+Vector2(inset,rect.size.y*0.65),String(fitted.text),HORIZONTAL_ALIGNMENT_CENTER,rect.size.x-inset*2.0,int(fitted.size),color)
+	var layout:=button_text_layout(rect,editor); var fitted:=fit_label(game.UI_FONT,label,float(layout.width),int(layout.preferred_size),int(layout.minimum_size)); var color:=EDITOR_BUTTON_TEXT if editor and enabled else (EDITOR_BUTTON_DISABLED if editor else (Color("fff0c8") if enabled else Color("88928d")))
+	game.draw_ui_string(game.UI_FONT,rect.position+Vector2(float(layout.inset),float(layout.baseline)),String(fitted.text),HORIZONTAL_ALIGNMENT_CENTER,float(layout.width),int(fitted.size),color)
+
+
+## Рассчитывает внутреннюю safe-area подписи как flex-контейнер, не позволяя тексту касаться резной рамки.
+static func button_text_layout(rect: Rect2, editor: bool = false) -> Dictionary:
+	var inset:=clampf(rect.size.x*EDITOR_BUTTON_PADDING_RATIO,EDITOR_BUTTON_MIN_PADDING,EDITOR_BUTTON_MAX_PADDING) if editor else minf(12.0,maxf(6.0,rect.size.x*0.09))
+	return {"inset":inset,"width":maxf(rect.size.x-inset*2.0,1.0),"baseline":rect.size.y*(EDITOR_BUTTON_BASELINE_RATIO if editor else 0.65),"preferred_size":EDITOR_BUTTON_FONT_SIZE if editor else 11,"minimum_size":7 if editor else 8}
 
 
 ## Рисует компактный технический экран внутри деревянного корпуса для сведений, проверки или графика.

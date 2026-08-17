@@ -4,6 +4,7 @@ extends "res://tests/suites/suite_base.gd"
 ## Запускает сценарии визуальной геометрии, игровых ролей, публикации и интеграции конструктора.
 func run()->void:
 	test_editor_visual_hierarchy_has_safe_non_overlapping_zones()
+	test_editor_button_and_catalog_text_keep_carved_frame_padding()
 	test_runtime_roles_collision_geometry_and_reachability()
 	test_publish_starts_playtest_and_exit_returns_to_editor()
 	test_runtime_integration_freezes_simulation_and_draws_editor_layers()
@@ -26,6 +27,17 @@ func test_editor_visual_hierarchy_has_safe_non_overlapping_zones()->void:
 	var labels:=[[editor.PICKER_TOOL_BUTTON,"ПИПЕТКА"],[editor.PUBLISH_BUTTON,"▶  T · ЗАПУСТИТЬ УРОВЕНЬ"],[editor.VALIDATE_BUTTON,"✓  R · ПРОВЕРИТЬ КАРТУ"],[editor.OBJECT_NOTE_BUTTON,"ЗАМЕТКА ДИЗАЙНЕРА"]]
 	for sample in labels:
 		var fitted:Dictionary=game.DebugUiKitSystem.fit_label(game.UI_FONT,String(sample[1]),(sample[0] as Rect2).size.x-14,10,7); expect(game.UI_FONT.get_string_size(String(fitted.text),HORIZONTAL_ALIGNMENT_LEFT,-1,int(fitted.size)).x<=(sample[0] as Rect2).size.x-14,"editor label fits its authored button: %s"%sample[1])
+	game.free()
+
+
+## Сценарий: компактные кнопки и двухстрочные карточки каталога рисуются внутри резной деревянной рамки.
+## Исходное состояние: известны минимальная кнопка 70×32 px и вертикальные метрики обеих строк карточки ресурса.
+## Ожидаемый результат: текст имеет симметричную safe-area, а название и путь не касаются верхней и нижней кромок.
+func test_editor_button_and_catalog_text_keep_carved_frame_padding()->void:
+	var game:=make_game(); var layout:Dictionary=game.DebugUiKitSystem.button_text_layout(Rect2(0,0,70,32),true); var renderer=game.LevelEditorRenderer
+	expect(float(layout.inset)>=10.0 and float(layout.width)<=50.0,"compact editor button reserves carved horizontal borders instead of filling the full texture")
+	expect(float(layout.baseline)>=18.0 and 32.0-float(layout.baseline)>=12.0 and int(layout.preferred_size)<=9,"compact editor label keeps visible vertical breathing room")
+	expect(renderer.CATALOG_TITLE_BASELINE>=16.0 and renderer.CATALOG_PATH_BASELINE-renderer.CATALOG_TITLE_BASELINE>=10.0 and renderer.CATALOG_ROW_DRAW_HEIGHT-renderer.CATALOG_PATH_BASELINE>=12.0,"catalog title and path occupy independent padded baselines")
 	game.free()
 
 
