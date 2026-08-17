@@ -246,6 +246,9 @@ static func _initialize_runtime_systems(game: Node) -> void:
 
 ## Убирает заставки из preview и активирует редактор уровня после запуска runtime-систем.
 static func _finalize_previews(game: Node, args: PackedStringArray) -> void:
+	if "--benchmark-debug-overlay" in args:
+		_configure_world_view(game,Vector2(1160,650))
+		game.DebugOverlaySystem.toggle(game)
 	if "--farm-plot-preview" in args or "--capture-farm-plots" in args or "--debug-inspector" in args:
 		_disable_farm_intro(game)
 	if "--fence-preview" in args or "--capture-fences" in args:

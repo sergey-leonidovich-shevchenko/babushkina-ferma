@@ -15,6 +15,7 @@ func run() -> void:
 	test_village_events_have_gameplay_and_rewards()
 	test_debug_inspector_supports_pause_step_pointer_and_graph()
 	test_runtime_debug_overlay_classifies_navigation_grid()
+	test_runtime_debug_overlay_reuses_batched_visible_cache()
 	test_runtime_debug_object_inspector_identifies_visual_objects()
 	test_runtime_debug_overlay_controls_pause_layers_and_noclip()
 	test_debug_tools_share_storybook_chrome_and_technical_colors()
@@ -178,7 +179,7 @@ func test_debug_inspector_supports_pause_step_pointer_and_graph() -> void:
 
 
 ## Сценарий: внутриигровая панель использует те же правила, по которым реально движется герой.
-## Исходное состояние: F10 открывает панель на обычной первой локации с видимой сеткой 50 пикселей.
+## Исходное состояние: F10 открывает панель на обычной первой локации с видимой базовой сеткой 24 пикселя.
 ## Ожидаемый результат: проход, вода, здание и враг получают разные причины и цвета категорий.
 func test_runtime_debug_overlay_classifies_navigation_grid() -> void:
 	var game := make_game(); game.current_location = "overworld"; game.player = Vector2(1160,650); game.update_camera()
@@ -201,6 +202,26 @@ func test_runtime_debug_overlay_classifies_navigation_grid() -> void:
 	expect(game.NavigationSystem.walkability_reason(game,building) == "building", "debug classifier identifies actual building collision")
 	expect(game.NavigationSystem.walkability_reason(game,enemy_position) == "enemy", "debug classifier identifies dynamic enemy collision")
 	expect(game.DebugOverlayRenderer.reason_color("walkable") != game.DebugOverlayRenderer.reason_color("water") and game.DebugOverlayRenderer.reason_color("enemy") != game.DebugOverlayRenderer.reason_color("building"), "navigation categories own distinct overlay colors")
+	game.free()
+
+
+## Сценарий: открытая F10-сетка остаётся включённой во время движения и не пересчитывает весь экран каждый кадр.
+## Исходное состояние: на базовой сетке один раз построен кэш видимой области и единая цветная texture-карта.
+## Ожидаемый результат: неподвижная камера переиспользует поколение и текстуру, а фермерский слой явно инвалидирует данные.
+func test_runtime_debug_overlay_reuses_batched_visible_cache() -> void:
+	var game:=make_game(); game.current_location="overworld"; game.player=Vector2(1160,650); game.update_camera(); game.DebugOverlaySystem.toggle(game)
+	var initial:Dictionary=game.get_meta(game.DebugOverlaySystem.META_KEY); var generation:=int(initial.cache_generation)
+	var texture:Texture2D=game.DebugOverlayRenderer.grid_texture(game,initial)
+	expect(texture!=null and texture.get_size()==Vector2(initial.cache_columns,initial.cache_rows), "F10 batches all classified cells into one compact nearest-neighbour texture")
+	expect(initial.cache.all(func(cell:Dictionary): return String(cell.farming_reason).is_empty()), "default navigation view skips the unused farming classifier")
+	for _frame in 30: game.DebugOverlaySystem.update(game,0.016)
+	var steady:Dictionary=game.get_meta(game.DebugOverlaySystem.META_KEY)
+	expect(int(steady.cache_generation)==generation, "stationary F10 reuses its expensive navigation cache between refresh intervals")
+	game.camera_offset+=Vector2(12,0); game.DebugOverlaySystem.update(game,0.016)
+	expect(int(game.get_meta(game.DebugOverlaySystem.META_KEY).cache_generation)==generation, "small camera movement remains inside the cached safety margin without a rebuild")
+	game.DebugOverlaySystem.toggle_option(game,"farming"); game.DebugOverlaySystem.update(game,0.016)
+	var farming:Dictionary=game.get_meta(game.DebugOverlaySystem.META_KEY)
+	expect(int(farming.cache_generation)==generation+1 and farming.cache.all(func(cell:Dictionary): return not String(cell.farming_reason).is_empty()), "enabling tillability performs one explicit refresh with farming reasons")
 	game.free()
 
 

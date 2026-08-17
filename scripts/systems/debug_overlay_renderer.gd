@@ -58,23 +58,55 @@ static func draw_world(game: Node2D) -> void:
 
 ## Накладывает полупрозрачный цвет и контур на каждую видимую клетку навигации.
 static func draw_grid(game: Node2D, state: Dictionary) -> void:
-	var opacity := float(state.opacity)
-	var size := int(state.grid_size)
-	for cell in state.get("cache", []):
-		var reason := String(cell.get("farming_reason", "location_blocked")) if bool(state.get("farming", false)) else String(cell.reason)
-		var color := farming_reason_color(reason) if bool(state.get("farming", false)) else accessible_reason_color(game,reason); color.a = opacity
-		game.draw_rect(cell.rect, color)
-		game.draw_rect(cell.rect, Color(color.r, color.g, color.b, minf(opacity + 0.18, 0.72)), false, 1.0)
-	# Утолщённый контур объединяет четыре базовые клетки 24×24 в читаемый модуль 48×48.
-	if size == game.SpatialGridSystem.BASE_CELL:
-		var block: int = game.SpatialGridSystem.BLOCK_CELL
-		var start_x: int = floori(game.camera_offset.x / block) * block
-		var start_y: int = floori(game.camera_offset.y / block) * block
-		var end_x: int = ceili((game.camera_offset.x + 1152.0) / block) * block
-		var end_y: int = ceili((game.camera_offset.y + 648.0) / block) * block
-		for y in range(start_y, end_y, block):
-			for x in range(start_x, end_x, block):
-				game.draw_rect(Rect2(x, y, block, block), Color(0.86, 1.0, 0.91, 0.34), false, 1.6)
+	var texture := grid_texture(game, state)
+	var cache_rect := Rect2(state.get("cache_rect", Rect2()))
+	if texture != null and cache_rect.has_area(): game.draw_texture_rect(texture,cache_rect,false)
+	var lines:=grid_lines_texture(game,state)
+	if lines!=null and cache_rect.has_area():
+		var period:=float(lines.get_width()); var line_start:=Vector2(floorf(cache_rect.position.x/period)*period,floorf(cache_rect.position.y/period)*period)
+		var line_end:=Vector2(ceilf(cache_rect.end.x/period)*period,ceilf(cache_rect.end.y/period)*period)
+		game.draw_texture_rect(lines,Rect2(line_start,line_end-line_start),true)
+	for key in state.get("dynamic_cells",[]):
+		var cell:Dictionary=state.get("cache_cells",{}).get(key,{})
+		if not cell.is_empty() and String(cell.reason)=="enemy":
+			var color:=accessible_reason_color(game,"enemy"); color.a=float(state.opacity)
+			game.draw_rect(cell.rect,color)
+
+
+## Собирает цветные клетки в одну маленькую texture-карту и повторно использует её между кадрами.
+static func grid_texture(game: Node2D, state: Dictionary) -> Texture2D:
+	var columns := int(state.get("cache_columns",0)); var rows := int(state.get("cache_rows",0))
+	if columns<=0 or rows<=0 or state.get("cache",[]).is_empty(): return null
+	var signature := "%d|%.2f|%s|%s"%[int(state.get("cache_generation",0)),float(state.opacity),str(state.get("farming",false)),str(game.settings_state.high_contrast)]
+	var cached: Texture2D = state.get("grid_texture")
+	if cached!=null and String(state.get("grid_texture_signature",""))==signature: return cached
+	var image:=Image.create(columns,rows,false,Image.FORMAT_RGBA8); var farming:=bool(state.get("farming",false)); var opacity:=float(state.opacity)
+	var cells:Array=state.get("cache",[])
+	for index in mini(cells.size(),columns*rows):
+		var cell:Dictionary=cells[index]; var reason:=String(cell.get("farming_reason","location_blocked")) if farming else String(cell.reason)
+		if reason=="enemy": reason="walkable"
+		var color:=farming_reason_color(reason) if farming else accessible_reason_color(game,reason); color.a=opacity
+		image.set_pixel(index%columns,index/columns,color)
+	var texture:=ImageTexture.create_from_image(image)
+	state.grid_texture=texture; state.grid_texture_signature=signature; game.set_meta(game.DebugOverlaySystem.META_KEY,state)
+	return texture
+
+
+## Создаёт повторяемую прозрачную текстуру тонкой сетки и усиленных блоков 48×48 без сотен draw-вызовов.
+static func grid_lines_texture(game:Node2D,state:Dictionary)->Texture2D:
+	var size:=int(state.grid_size); var opacity:=float(state.opacity); var signature:String="%d|%.2f"%[size,opacity]
+	var cached:Texture2D=state.get("grid_lines_texture")
+	if cached!=null and String(state.get("grid_lines_signature",""))==signature: return cached
+	var period:int=game.SpatialGridSystem.BLOCK_CELL if size==game.SpatialGridSystem.BASE_CELL else size
+	var image:=Image.create(period,period,false,Image.FORMAT_RGBA8); image.fill(Color.TRANSPARENT)
+	var thin:=Color(0.92,1.0,0.95,minf(opacity+0.12,0.48)); var strong:=Color(0.86,1.0,0.91,minf(opacity+0.20,0.58))
+	for coordinate in period:
+		image.set_pixel(coordinate,0,strong); image.set_pixel(0,coordinate,strong)
+	if size==game.SpatialGridSystem.BASE_CELL:
+		for coordinate in period:
+			image.set_pixel(coordinate,size,thin); image.set_pixel(size,coordinate,thin)
+	var texture:=ImageTexture.create_from_image(image); state.grid_lines_texture=texture; state.grid_lines_signature=signature; game.set_meta(game.DebugOverlaySystem.META_KEY,state)
+	return texture
 
 
 ## Выбирает цвет режима пахотности: зелёный для земли, красный для запрета и синий для воды.

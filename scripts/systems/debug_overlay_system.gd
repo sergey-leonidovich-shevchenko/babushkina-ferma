@@ -3,7 +3,9 @@ extends RefCounted
 const META_KEY := "debug_overlay"
 const SpatialGridSystem := preload("res://scripts/systems/spatial_grid_system.gd")
 const GRID_SIZES := SpatialGridSystem.DEBUG_SIZES
-const REFRESH_INTERVAL := 0.14
+const REFRESH_INTERVAL := 0.20
+const VIEWPORT_SIZE := Vector2(1152, 648)
+const CACHE_MARGIN_CELLS := 6
 const PANEL := Rect2(774, 26, 360, 596)
 const BUTTONS := [
 	{"rect":Rect2(794,246,150,34),"action":"grid","label":"СЕТКА","enabled":true},
@@ -29,7 +31,9 @@ static func default_state() -> Dictionary:
 		"open":true, "grid":true, "hitboxes":false, "routes":false, "labels":false, "farming":false, "balance":false,
 		"paused":false, "step_requested":false, "noclip":false, "grid_size":SpatialGridSystem.DEFAULT_DEBUG_SIZE,
 		"opacity":0.22, "refresh_left":0.0, "cache":[], "counts":{},
-		"cache_location":"", "cache_camera":Vector2(-9999,-9999), "frame_history":[],
+		"cache_location":"", "cache_camera":Vector2(-9999,-9999), "cache_rect":Rect2(), "cache_columns":0, "cache_rows":0,
+		"cache_generation":0, "cache_cells":{}, "cache_grid_size":0, "cache_farming":false, "cache_invalidated":true,
+		"dynamic_cells":[], "grid_texture":null, "grid_texture_signature":"", "grid_lines_texture":null, "grid_lines_signature":"", "frame_history":[],
 		"missions_expanded":false, "mission_page":0, "mission_details":"", "mission_completion":{},
 	}
 
@@ -43,7 +47,7 @@ static func active(game: Node) -> bool:
 static func toggle(game: Node) -> void:
 	var state: Dictionary = game.get_meta(META_KEY, default_state())
 	state.open = not bool(state.get("open", false)) if game.has_meta(META_KEY) else true
-	state.refresh_left = 0.0
+	state.refresh_left = 0.0; state.cache_invalidated = true
 	game.set_meta(META_KEY, state)
 	if state.open: refresh_grid(game)
 	game.message = "DEBUG: F10 — закрыть" if state.open else "Debug-панель закрыта"
@@ -59,11 +63,15 @@ static func update(game: Node, delta: float) -> void:
 	if history.size() > 90: history.pop_front()
 	state.frame_history = history
 	state.refresh_left = float(state.get("refresh_left", 0.0)) - delta
-	var camera_changed := Vector2(state.get("cache_camera", Vector2.ZERO)).distance_to(game.camera_offset) >= int(state.grid_size) * 0.5
-	if bool(state.grid) and (state.refresh_left <= 0.0 or state.cache_location != game.current_location or camera_changed):
+	var cached_rect := Rect2(state.get("cache_rect", Rect2()))
+	var visible_rect := Rect2(Vector2(game.camera_offset), VIEWPORT_SIZE)
+	var camera_changed := not cached_rect.has_area() or not cached_rect.grow(-int(state.grid_size)*2).encloses(visible_rect)
+	if bool(state.grid) and (bool(state.get("cache_invalidated",false)) or state.cache_location != game.current_location or camera_changed):
 		game.set_meta(META_KEY, state)
 		refresh_grid(game)
 		return
+	if bool(state.grid) and state.refresh_left<=0.0:
+		game.set_meta(META_KEY,state); refresh_dynamic_cells(game); return
 	game.set_meta(META_KEY, state)
 
 
@@ -72,23 +80,71 @@ static func refresh_grid(game: Node) -> void:
 	if not active(game): return
 	var state: Dictionary = game.get_meta(META_KEY)
 	var size := int(state.get("grid_size", 50))
-	var start_x := floori(game.camera_offset.x / size) * size - size
-	var start_y := floori(game.camera_offset.y / size) * size - size
-	var end_x := ceili((game.camera_offset.x + 1152.0) / size) * size + size
-	var end_y := ceili((game.camera_offset.y + 648.0) / size) * size + size
+	var margin := size * CACHE_MARGIN_CELLS
+	var start_x := floori(game.camera_offset.x / size) * size - margin
+	var start_y := floori(game.camera_offset.y / size) * size - margin
+	var end_x := ceili((game.camera_offset.x + VIEWPORT_SIZE.x) / size) * size + margin
+	var end_y := ceili((game.camera_offset.y + VIEWPORT_SIZE.y) / size) * size + margin
 	var cache: Array = []
 	var counts := {}
+	var include_farming := bool(state.get("farming", false))
+	var can_reuse:bool=state.cache_location==game.current_location and int(state.get("cache_grid_size",0))==size and bool(state.get("cache_farming",false))==include_farming and not bool(state.get("cache_invalidated",false))
+	var old_cells:Dictionary=state.get("cache_cells",{}) if can_reuse else {}
+	var cache_cells:Dictionary={}
 	for y in range(start_y, end_y, size):
 		for x in range(start_x, end_x, size):
-			var center := Vector2(x + size * 0.5, y + size * 0.5)
-			var reason: String = game.NavigationSystem.walkability_reason(game, center)
-			var farm_cell: Vector2i = game.WorldFarmingSystem.cell_at(center)
-			var farming_reason: String = game.WorldFarmingSystem.tillability_reason(game, game.current_location, farm_cell)
-			cache.append({"rect":Rect2(x,y,size,size), "reason":reason, "farming_reason":farming_reason})
-			counts[reason] = int(counts.get(reason, 0)) + 1
+			var key:=Vector2i(x,y); var cell:Dictionary=old_cells.get(key,{})
+			if cell.is_empty(): cell=classify_cell(game,x,y,size,include_farming)
+			cache.append(cell); cache_cells[key]=cell
+			counts[cell.reason] = int(counts.get(cell.reason, 0)) + 1
 	state.cache = cache; state.counts = counts; state.cache_location = game.current_location
-	state.cache_camera = game.camera_offset; state.refresh_left = REFRESH_INTERVAL
+	state.cache_camera = game.camera_offset; state.cache_rect = Rect2(start_x,start_y,end_x-start_x,end_y-start_y)
+	state.cache_columns = (end_x-start_x)/size; state.cache_rows = (end_y-start_y)/size
+	state.cache_cells=cache_cells; state.cache_grid_size=size; state.cache_farming=include_farming; state.cache_invalidated=false; state.dynamic_cells=dynamic_cells(game,size)
+	state.cache_generation = int(state.get("cache_generation",0))+1; state.grid_texture = null; state.grid_texture_signature = ""
+	state.refresh_left = REFRESH_INTERVAL
 	game.set_meta(META_KEY, state)
+
+
+## Классифицирует одну новую клетку, не рассчитывая пахотность для обычного навигационного режима.
+static func classify_cell(game:Node,x:int,y:int,size:int,include_farming:bool)->Dictionary:
+	var center:=Vector2(x+size*0.5,y+size*0.5); var reason:String=game.NavigationSystem.walkability_reason(game,center); var farming_reason:=""
+	if include_farming:
+		farming_reason=game.WorldFarmingSystem.tillability_reason(game,game.current_location,game.WorldFarmingSystem.cell_at(center))
+	return {"rect":Rect2(x,y,size,size),"reason":reason,"farming_reason":farming_reason}
+
+
+## Точечно обновляет клетки вокруг подвижных врагов вместо полного пересчёта всей видимой карты.
+static func refresh_dynamic_cells(game:Node)->void:
+	if not active(game): return
+	var state:Dictionary=game.get_meta(META_KEY); var size:=int(state.grid_size); var current:=dynamic_cells(game,size)
+	var affected:Array[Vector2i]=[]
+	for key in state.get("dynamic_cells",[]):
+		if key not in affected: affected.append(key)
+	for key in current:
+		if key not in affected: affected.append(key)
+	var cells:Dictionary=state.get("cache_cells",{}); var farming:=bool(state.get("farming",false))
+	for key in affected:
+		if not cells.has(key): continue
+		var replacement:=classify_cell(game,key.x,key.y,size,farming)
+		cells[key]=replacement
+	state.dynamic_cells=current; state.refresh_left=REFRESH_INTERVAL
+	state.cache_cells=cells; game.set_meta(META_KEY,state)
+
+
+## Возвращает небольшой набор клеток вокруг текущих позиций подвижных противников.
+static func dynamic_cells(game:Node,size:int)->Array[Vector2i]:
+	var result:Array[Vector2i]=[]; var positions:Array[Vector2]=[]
+	if game.current_location=="overworld" and game.slime_alive: positions.append(game.slime_position)
+	for enemy in game.enemy_nodes:
+		if enemy.alive and enemy.location==game.current_location: positions.append(enemy.position)
+	for position in positions:
+		var origin:=Vector2i(floori(position.x/size)*size,floori(position.y/size)*size)
+		for offset_y in range(-2,3):
+			for offset_x in range(-2,3):
+				var key:=origin+Vector2i(offset_x*size,offset_y*size)
+				if key not in result: result.append(key)
+	return result
 
 
 ## Перехватывает только команды панели, не заменяя управление игрой при закрытом окне.
@@ -143,6 +199,8 @@ static func button_enabled(action: String) -> bool:
 static func toggle_option(game: Node, key: String) -> void:
 	var state: Dictionary = game.get_meta(META_KEY)
 	state[key] = not bool(state.get(key, false)); state.refresh_left = 0.0
+	if key in ["farming", "grid"]:
+		state.cache_invalidated=true; state.grid_texture = null; state.grid_texture_signature = ""
 	game.set_meta(META_KEY, state)
 
 
@@ -150,7 +208,7 @@ static func toggle_option(game: Node, key: String) -> void:
 static func cycle_grid_size(game: Node) -> void:
 	var state: Dictionary = game.get_meta(META_KEY)
 	var index := GRID_SIZES.find(int(state.grid_size))
-	state.grid_size = GRID_SIZES[(index + 1) % GRID_SIZES.size()]; state.refresh_left = 0.0
+	state.grid_size = GRID_SIZES[(index + 1) % GRID_SIZES.size()]; state.refresh_left = 0.0; state.cache_invalidated=true
 	game.set_meta(META_KEY, state); refresh_grid(game)
 
 
@@ -158,6 +216,7 @@ static func cycle_grid_size(game: Node) -> void:
 static func change_opacity(game: Node, amount: float) -> void:
 	var state: Dictionary = game.get_meta(META_KEY)
 	state.opacity = clampf(float(state.opacity) + amount, 0.10, 0.70)
+	state.grid_texture = null; state.grid_texture_signature = ""; state.grid_lines_texture=null; state.grid_lines_signature=""
 	game.set_meta(META_KEY, state)
 
 

@@ -15,7 +15,7 @@ const FARM_FENCE_SPANS := [Rect2i(2,34,4,1),Rect2i(9,34,10,1),Rect2i(1,34,1,16),
 const FARM_GATE_SPANS := [Rect2i(6,34,3,1),Rect2i(18,36,1,6)]
 
 const BUILDINGS := {
-	"cottage":{"location":"overworld","door":Vector2(420,790),"interior":"cottage_interior","unlock":""},
+	"cottage":{"location":"overworld","door":Vector2(420,790),"outside_spawn":Vector2(420,888),"interior":"cottage_interior","unlock":""},
 	"shop_house":{"location":"overworld","door":Vector2(1480,390),"interior":"shop_interior","unlock":""},
 	"guild_hall":{"location":"overworld","door":Vector2(2110,250),"interior":"guild_interior","unlock":""},
 	"forge":{"location":"rocky","door":Vector2(760,470),"interior":"forge_interior","unlock":"mining"},
@@ -216,12 +216,28 @@ static func leave(game: Node) -> bool:
 	else:
 		var building: Dictionary = BUILDINGS[data.building]
 		game.current_location = building.location
-		game.player = building.door + Vector2(0, 62)
+		game.player = outdoor_spawn(game, String(data.building))
 	game.sync_background_location()
 	game.update_camera()
 	game.message = game.LocaleSystem.location(game.current_location)
 	game.play_sfx("travel")
 	return true
+
+
+## Находит свободную точку снаружи двери, не зажатую фундаментом, забором или динамическим объектом.
+static func outdoor_spawn(game: Node, building_id: String) -> Vector2:
+	var building: Dictionary = BUILDINGS.get(building_id, {})
+	if building.is_empty(): return game.player
+	var door := Vector2(building.door)
+	var preferred := Vector2(building.get("outside_spawn", door + Vector2(0, 96)))
+	var candidates: Array[Vector2] = [
+		preferred,
+		preferred + Vector2(-48, 0), preferred + Vector2(48, 0),
+		preferred + Vector2(0, 48), preferred + Vector2(-96, 48), preferred + Vector2(96, 48),
+	]
+	for candidate in candidates:
+		if game.NavigationSystem.is_walkable(game, candidate): return candidate
+	return preferred
 
 
 ## Проверяет, остаётся ли центр героя внутри доступной площади помещения.

@@ -71,6 +71,11 @@ func test_automatic_building_transition_and_reentry_guard() -> void:
 	game.player = game.BuildingSystem.INTERIORS.cottage_interior.exit
 	expect(game.LocationTransitionSystem.update(game, 0.01) and game.current_location == "overworld", "approaching the interior exit returns outdoors without a button")
 	expect(game.player.distance_to(cottage.door) > game.LocationTransitionSystem.TRIGGER_RADIUS, "outdoor spawn cannot immediately bounce back through the door")
+	var outdoor_spawn: Vector2 = game.player
+	expect(game.NavigationSystem.walkability_reason(game,outdoor_spawn)=="walkable", "cottage exit places the hero on a genuinely walkable road instead of the farm fence")
+	for motion in [Vector2.LEFT*24.0,Vector2.RIGHT*24.0,Vector2.DOWN*24.0]:
+		game.player=outdoor_spawn; game.NavigationSystem.move(game,motion)
+		expect(game.player.distance_to(outdoor_spawn)>0.1, "hero can move immediately after leaving the cottage: %s"%motion)
 	game.current_location = "rocky"; game.player = game.BuildingSystem.BUILDINGS.forge.door
 	game.location_transition_armed = true; game.location_transition_cooldown = 0.0
 	var sounds_before: int = game.audio_sfx_count

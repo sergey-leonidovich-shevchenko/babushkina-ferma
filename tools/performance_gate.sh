@@ -11,15 +11,22 @@ if [[ ! -x "$game_godot" ]]; then
 	exit 1
 fi
 
-output="$($game_godot --headless --path . --max-fps 60 --quit-after 480 --print-fps -- --autoplay 2>&1)"
-if print -r -- "$output" | rg -q 'SCRIPT ERROR|Parse Error|Invalid game content|ERROR:'; then
-	print -r -- "$output"
-	print -u2 -- "PERFORMANCE: benchmark завершился с ошибкой"
-	exit 1
-fi
-average="$(print -r -- "$output" | awk '/Project FPS:/ { sum += $3; count += 1 } END { if (count) printf "%.0f", sum/count; else print 0 }')"
-if (( average < minimum_fps )); then
-	print -u2 -- "PERFORMANCE: средний FPS $average ниже порога $minimum_fps"
-	exit 1
-fi
-print -- "PERFORMANCE: средний FPS $average · порог $minimum_fps · 480 кадров"
+measure_gameplay() {
+	local label="$1"
+	shift
+	local output="$($game_godot --headless --path . --max-fps 60 --quit-after 480 --print-fps -- "$@" 2>&1)"
+	if print -r -- "$output" | rg -q 'SCRIPT ERROR|Parse Error|Invalid game content|ERROR:'; then
+		print -r -- "$output"
+		print -u2 -- "PERFORMANCE: $label завершился с ошибкой"
+		exit 1
+	fi
+	local average="$(print -r -- "$output" | awk '/Project FPS:/ { sum += $3; count += 1 } END { if (count) printf "%.0f", sum/count; else print 0 }')"
+	if (( average < minimum_fps )); then
+		print -u2 -- "PERFORMANCE: $label — средний FPS $average ниже порога $minimum_fps"
+		exit 1
+	fi
+	print -- "PERFORMANCE: $label · средний FPS $average · порог $minimum_fps · 480 кадров"
+}
+
+measure_gameplay "обычная игра" --autoplay
+measure_gameplay "игра с F10" --autoplay --benchmark-debug-overlay
