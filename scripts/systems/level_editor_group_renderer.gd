@@ -17,7 +17,7 @@ static func draw_world(game: Node2D, state: Dictionary) -> void:
 
 ## Рисует компактную панель видимости и блокировки четырёх слоёв редактора.
 static func draw_panel(game: Node2D, state: Dictionary) -> void:
-	game.DebugUiKitSystem.draw_panel(game,GroupSystem.PANEL,true); game.draw_ui_string(game.UI_FONT,GroupSystem.HEADER.position+Vector2(2,17),"СЛОИ  •  ВЫБРАНО: %d"%state.selected_ids.size(),HORIZONTAL_ALIGNMENT_LEFT,GroupSystem.HEADER.size.x-4,10,TEXT)
+	game.DebugUiKitSystem.draw_panel(game,GroupSystem.PANEL,true); var header:Dictionary=game.DebugUiKitSystem.fit_label(game.UI_FONT,"СЛОИ  •  ВЫБРАНО: %d"%state.selected_ids.size(),GroupSystem.HEADER.size.x-4,10,8); game.draw_ui_string(game.UI_FONT,GroupSystem.HEADER.position+Vector2(2,17),String(header.text),HORIZONTAL_ALIGNMENT_LEFT,GroupSystem.HEADER.size.x-4,int(header.size),TEXT)
 	for index in GroupSystem.LAYERS.size():
 		var layer:String=GroupSystem.LAYERS[index]; var rect:=Rect2(GroupSystem.ROWS_START+Vector2(0,index*GroupSystem.ROW_HEIGHT),Vector2(176,28)); game.DebugUiKitSystem.draw_catalog_row(game,rect,String(state.layer)==layer,true)
 		var fitted:Dictionary=game.DebugUiKitSystem.fit_label(game.UI_FONT,{"foreground":"ПЕРЕДНИЙ","objects":"ОБЪЕКТЫ","ground":"ЗЕМЛЯ","background":"ФОН"}[layer],74,9,7); game.draw_ui_string(game.UI_FONT,rect.position+Vector2(16,19),String(fitted.text),HORIZONTAL_ALIGNMENT_LEFT,74,int(fitted.size),ROW_TEXT)

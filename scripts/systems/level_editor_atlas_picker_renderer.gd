@@ -7,7 +7,9 @@ const SELECTED := Color("ffd45c")
 const ROW_TEXT := Color("4b2c17")
 const CARD_GAP := Vector2.ZERO
 const PREVIEW_INSET := Vector2(17,13)
-const LABEL_HEIGHT := 16.0
+const FRAME_BADGE_OFFSET := Vector2(18,14)
+const FRAME_BADGE_SIZE := Vector2(26,16)
+const FRAME_BADGE_TEXT := Color("ffe3a0")
 static var _visible_source_cache: Dictionary = {}
 
 
@@ -32,9 +34,9 @@ static func draw_grid(game: Node2D, state: Dictionary, texture: Texture2D) -> vo
 		var index:=start+local_index; var column:=local_index%AtlasPickerSystem.GRID_COLUMNS; var row:=local_index/AtlasPickerSystem.GRID_COLUMNS; var rect:=Rect2(AtlasPickerSystem.GRID_AREA.position+Vector2(column*AtlasPickerSystem.GRID_CELL.x,row*AtlasPickerSystem.GRID_CELL.y),AtlasPickerSystem.GRID_CELL-CARD_GAP); var active:=index==int(state.slice_index)
 		game.DebugUiKitSystem.draw_catalog_row(game,rect,active,true)
 		if index>=count: continue
-		var preview_state:=state.duplicate(); preview_state.slice_index=index; preview_state.source_mode="grid"; var source:=AtlasPickerSystem.selected_source(texture,preview_state); var exact_source:=source if source.size!=Vector2.ZERO else Rect2(Vector2.ZERO,texture.get_size()); var preview_source:=visible_preview_source(texture,exact_source); var content:=Rect2(rect.position+PREVIEW_INSET,rect.size-PREVIEW_INSET*2.0-Vector2(0,LABEL_HEIGHT)); var scale:=minf(content.size.x/maxf(preview_source.size.x,1),content.size.y/maxf(preview_source.size.y,1)); var preview_size:=preview_source.size*scale; var destination:=Rect2(content.position+(content.size-preview_size)*0.5,preview_size)
+		var preview_state:=state.duplicate(); preview_state.slice_index=index; preview_state.source_mode="grid"; var source:=AtlasPickerSystem.selected_source(texture,preview_state); var exact_source:=source if source.size!=Vector2.ZERO else Rect2(Vector2.ZERO,texture.get_size()); var preview_source:=visible_preview_source(texture,exact_source); var content:=Rect2(rect.position+PREVIEW_INSET,rect.size-PREVIEW_INSET*2.0); var scale:=minf(content.size.x/maxf(preview_source.size.x,1),content.size.y/maxf(preview_source.size.y,1)); var preview_size:=preview_source.size*scale; var destination:=Rect2(content.position+(content.size-preview_size)*0.5,preview_size)
 		game.draw_texture_rect_region(texture,destination,preview_source)
-		game.draw_ui_string(game.UI_FONT,rect.position+Vector2(4,rect.size.y-5),"#%d"%(index+1),HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-8,9,ROW_TEXT)
+		var badge:=Rect2(rect.position+FRAME_BADGE_OFFSET,FRAME_BADGE_SIZE); game.draw_rect(badge,Color(0.16,0.09,0.035,0.84)); game.draw_rect(badge,Color(0.86,0.64,0.25,0.72),false,1.0); game.draw_ui_string(game.UI_FONT,badge.position+Vector2(2,12),"#%d"%(index+1),HORIZONTAL_ALIGNMENT_CENTER,badge.size.x-4,8,FRAME_BADGE_TEXT)
 	draw_button(game,AtlasPickerSystem.PAGE_PREV,"‹ НАЗАД",false); draw_button(game,AtlasPickerSystem.PAGE_LABEL,"%d / %d · %d кадров"%[page+1,AtlasPickerSystem.page_count(texture,state),count],true); draw_button(game,AtlasPickerSystem.PAGE_NEXT,"ВПЕРЁД ›",false)
 
 

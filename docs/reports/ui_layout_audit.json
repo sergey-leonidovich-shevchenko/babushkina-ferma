@@ -1,0 +1,15 @@
+{
+  "checks": 781,
+  "failed": 0,
+  "issues": [],
+  "passed": 781,
+  "schema": 1,
+  "scope": "project_ui",
+  "source_metrics": {
+    "adaptive_fit_calls": 9,
+    "multiline_draw_calls": 11,
+    "renderer_modules": 35,
+    "text_draw_calls": 259
+  },
+  "surfaces": 8
+}

@@ -202,15 +202,15 @@ static func draw_selection_info(game: Node2D, state: Dictionary) -> void:
 	if not game.LevelEditorSystem.valid_selection(state): return
 	var object:Dictionary=state.objects[state.selected]; var rect:=SELECTION_INFO_RECT; game.DebugUiKitSystem.draw_readout(game,rect,true); var collision:Rect2=game.LevelEditorSystem.RuntimeAuthoringSystem.collision_rect(object,game.LevelEditorSystem.object_bounds(object))
 	var lines: Array[String] = ["%s · #%s"%[object.name,object.id],"x %.0f · y %.0f · %.0f×%.0f"%[object.position.x,object.position.y,object.size.x,object.size.y],"%s · %s · scale %.2f · collision %s"%[layer_name(object.layer),String(object.get("anchor","center")),game.LevelEditorSystem.object_scale(object),"да"if object.collision else"нет"],"роль %s · box %.0f×%.0f + %.0f,%.0f"%[String(object.get("runtime_role","нет")) if not String(object.get("runtime_role","")).is_empty() else "нет",collision.size.x,collision.size.y,Vector2(object.get("collision_offset",Vector2.ZERO)).x,Vector2(object.get("collision_offset",Vector2.ZERO)).y]]
-	for index in lines.size(): game.draw_ui_string(game.UI_FONT,rect.position+Vector2(10,22+index*21),lines[index],HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-20,12,TEXT)
+	for index in lines.size(): var fitted:Dictionary=game.DebugUiKitSystem.fit_label(game.UI_FONT,lines[index],rect.size.x-20,11,8); game.draw_ui_string(game.UI_FONT,rect.position+Vector2(10,22+index*21),String(fitted.text),HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-20,int(fitted.size),TEXT)
 
 
 ## Показывает справа первые проблемы последней проверки, не перекрывая рабочий холст.
 static func draw_validation_info(game: Node2D, state: Dictionary) -> void:
 	if state.validation.is_empty(): return
 	var report:Dictionary=state.validation; var issues:Array=[]; issues.append_array(report.get("errors",[])); issues.append_array(report.get("warnings",[])); var rect:=Rect2(VALIDATION_INFO_RECT.position,Vector2(VALIDATION_INFO_RECT.size.x,34+mini(issues.size(),4)*18)); game.DebugUiKitSystem.draw_readout(game,rect,true); game.draw_rect(rect,Color("72d68a") if report.valid else Color("ef6961"),false,2)
-	game.draw_ui_string(game.UI_FONT,rect.position+Vector2(10,21),game.LevelEditorSystem.ValidationSystem.summary(report),HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-20,12,TEXT)
-	for index in mini(issues.size(),4): game.draw_ui_string(game.UI_FONT,rect.position+Vector2(10,41+index*18),"• "+String(issues[index]).left(64),HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-20,10,MUTED)
+	var summary:Dictionary=game.DebugUiKitSystem.fit_label(game.UI_FONT,game.LevelEditorSystem.ValidationSystem.summary(report),rect.size.x-20,11,8); game.draw_ui_string(game.UI_FONT,rect.position+Vector2(10,21),String(summary.text),HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-20,int(summary.size),TEXT)
+	for index in mini(issues.size(),4): var fitted:Dictionary=game.DebugUiKitSystem.fit_label(game.UI_FONT,"• "+String(issues[index]),rect.size.x-20,9,7); game.draw_ui_string(game.UI_FONT,rect.position+Vector2(10,41+index*18),String(fitted.text),HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-20,int(fitted.size),MUTED)
 
 
 ## Рисует одну кнопку в едином деревянно-золотом стиле интерфейса игры.

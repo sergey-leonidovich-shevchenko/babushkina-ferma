@@ -84,5 +84,6 @@ flowchart LR
 | JSON конструктора уровней | `scripts/editor/level_editor_document_store.gd` |
 | Избранное конструктора | `scripts/editor/level_editor_preferences_store.gd` |
 | Заливка и пипетка конструктора | `scripts/systems/level_editor_tool_system.gd` |
+| Геометрические контракты и аналитика UI | `scripts/systems/ui_layout_audit_system.gd` |
 
 [К архитектуре](../ARCHITECTURE.md) · [К разработке](DEVELOPMENT.md) · [К навигатору документации](README.md)

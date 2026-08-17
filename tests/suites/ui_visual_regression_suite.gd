@@ -7,6 +7,7 @@ func run() -> void:
 	test_visual_difference_detects_changed_frame()
 	test_localized_controls_fit_real_font_contracts()
 	test_context_hud_prioritizes_information_and_explains_actions()
+	test_key_interfaces_pass_project_layout_audit()
 
 
 ## Сценарий: все созданные UI-эталоны входят в один версионированный regression-манифест.
@@ -72,4 +73,15 @@ func test_context_hud_prioritizes_information_and_explains_actions() -> void:
 	expect(game.message.is_empty() and game.hud_message_timer == 0.0, "read notification leaves the playfield instead of becoming permanent clutter")
 	var chapter_renderer_source := FileAccess.get_file_as_string("res://scripts/systems/first_chapter_renderer.gd")
 	expect(not chapter_renderer_source.contains("Rect2(724,103,404,68)"), "legacy chapter card no longer overlaps the unified objective")
+	game.free()
+
+
+## Сценарий: восемь ключевых поверхностей игры проходят единый проектный UI-аудит.
+## Исходное состояние: используются реальные прямоугольники, шрифт, worst-case подписи, сетки и художественные safe-area текущей сборки.
+## Ожидаемый результат: все проверки containment, пересечений, hit-зон, центрирования, padding и базовых линий завершаются без нарушения.
+func test_key_interfaces_pass_project_layout_audit()->void:
+	var game:=make_game(); var report:Dictionary=game.UiLayoutAuditSystem.project_report(game)
+	expect(int(report.surfaces)==8 and int(report.checks)>=750,"layout analytics covers eight key UI surfaces with a broad deterministic contract")
+	expect(int(report.failed)==0 and int(report.passed)==int(report.checks),"project UI report contains no padding overlap containment centering or typography violations")
+	expect(FileAccess.file_exists("res://docs/UI_AUDIT.md") and FileAccess.file_exists("res://docs/reports/ui_layout_audit.json"),"human requirements and machine-readable UI audit remain versioned together")
 	game.free()
