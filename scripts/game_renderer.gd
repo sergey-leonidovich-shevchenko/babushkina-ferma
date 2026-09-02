@@ -459,10 +459,10 @@ func draw_discovery_card() -> void:
 		return
 	var card := discovery_card_rect()
 	draw_texture_rect_region(InterfaceRenderer.CARD_ATLAS, card, InterfaceRenderer.CARD_DISCOVERY_SOURCE)
-	draw_string(UI_FONT, card.position + Vector2(18, 25), LocaleSystem.ui("new_nearby"), HORIZONTAL_ALIGNMENT_LEFT, 190, 10, Color("f6dda1"))
-	draw_string(UI_FONT, card.position + Vector2(218, 25), LocaleSystem.ui("hide"), HORIZONTAL_ALIGNMENT_RIGHT, 76, 9, Color("f6dda1"))
-	draw_string(UI_FONT, card.position + Vector2(18, 53), discovery_current.title, HORIZONTAL_ALIGNMENT_LEFT, 274, 15, Color("4c3425"))
-	draw_multiline_string(UI_FONT, card.position + Vector2(18, 73), discovery_current.text, HORIZONTAL_ALIGNMENT_LEFT, 274, 11, 2, Color("654930"))
+	draw_ui_string(UI_FONT, card.position + Vector2(18, 25), LocaleSystem.ui("new_nearby"), HORIZONTAL_ALIGNMENT_LEFT, 190, 10, Color("f6dda1"))
+	draw_ui_string(UI_FONT, card.position + Vector2(218, 25), LocaleSystem.ui("hide"), HORIZONTAL_ALIGNMENT_RIGHT, 76, 9, Color("f6dda1"))
+	draw_ui_string(UI_FONT, card.position + Vector2(18, 53), discovery_current.title, HORIZONTAL_ALIGNMENT_LEFT, 274, 15, Color("4c3425"))
+	draw_ui_multiline_string(UI_FONT, card.position + Vector2(18, 73), discovery_current.text, HORIZONTAL_ALIGNMENT_LEFT, 274, 31, 10, 3, Color("654930"))
 	var ratio := clampf(discovery_timer / DiscoverySystem.CARD_DURATION, 0.0, 1.0)
 	draw_rect(Rect2(card.position + Vector2(8, card.size.y - 7), Vector2((card.size.x - 16) * ratio, 3)), Color("f1ca5c"))
 

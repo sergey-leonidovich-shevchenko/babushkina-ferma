@@ -8,9 +8,17 @@ const TOUCH_SCALES := [0.9, 1.0, 1.15, 1.3]
 
 ## Возвращает letterbox-преобразование из базовой сцены 1152×648 в реальное окно без искажения пропорций.
 static func viewport_layout(viewport_size: Vector2) -> Dictionary:
-	var scale := minf(viewport_size.x / DESIGN_SIZE.x, viewport_size.y / DESIGN_SIZE.y)
+	return viewport_layout_in_area(viewport_size, Rect2(Vector2.ZERO, viewport_size))
+
+
+## Вписывает дизайн-холст в системную safe-area, сохраняя исходные пропорции и симметричные поля.
+static func viewport_layout_in_area(viewport_size: Vector2, physical_safe_area: Rect2) -> Dictionary:
+	var viewport := Rect2(Vector2.ZERO, viewport_size)
+	var safe_area := physical_safe_area.intersection(viewport)
+	if safe_area.size.x <= 0.0 or safe_area.size.y <= 0.0: safe_area = viewport
+	var scale := minf(safe_area.size.x / DESIGN_SIZE.x, safe_area.size.y / DESIGN_SIZE.y)
 	var content_size := DESIGN_SIZE * scale
-	return {"scale": scale, "offset": (viewport_size - content_size) * 0.5, "content_size": content_size}
+	return {"scale":scale,"offset":safe_area.position+(safe_area.size-content_size)*0.5,"content_size":content_size,"safe_area":safe_area}
 
 
 ## Переводит координату физического экрана в единую дизайн-сетку для точного совпадения рисунка и hit-зоны.
@@ -23,6 +31,13 @@ static func screen_to_design(point: Vector2, viewport_size: Vector2) -> Vector2:
 static func design_to_screen(point: Vector2, viewport_size: Vector2) -> Vector2:
 	var layout := viewport_layout(viewport_size)
 	return Vector2(layout.offset) + point * float(layout.scale)
+
+
+## Переводит дизайн-прямоугольник HUD в физический экран с учётом letterbox и системной safe-area.
+static func design_rect_to_screen(rect: Rect2, viewport_size: Vector2, physical_safe_area: Rect2 = Rect2()) -> Rect2:
+	var safe_area := physical_safe_area if physical_safe_area.size.x > 0.0 and physical_safe_area.size.y > 0.0 else Rect2(Vector2.ZERO, viewport_size)
+	var layout := viewport_layout_in_area(viewport_size, safe_area)
+	return Rect2(Vector2(layout.offset)+rect.position*float(layout.scale),rect.size*float(layout.scale))
 
 
 ## Преобразует системную safe-area в координаты базовой сцены и ограничивает её видимой областью игры.
@@ -69,3 +84,17 @@ static func touch_rect(game: Node, base_rect: Rect2) -> Rect2:
 	var size: Vector2 = base_rect.size * game.settings_state.touch_scale
 	size.x = maxf(size.x, MIN_TOUCH_TARGET.x); size.y = maxf(size.y, MIN_TOUCH_TARGET.y)
 	return Rect2(base_rect.get_center() - size * 0.5, size).intersection(Rect2(Vector2.ZERO, DESIGN_SIZE))
+
+
+## Собирает детерминированный физический кадр так же, как режим keep показывает дизайн-холст на другом формате экрана.
+static func compose_physical_preview(design_image: Image, viewport_size: Vector2i, physical_safe_area: Rect2 = Rect2()) -> Image:
+	var output := Image.create(viewport_size.x,viewport_size.y,false,design_image.get_format())
+	output.fill(Color("0b1512"))
+	var viewport := Vector2(viewport_size)
+	var safe_area := physical_safe_area if physical_safe_area.size.x > 0.0 and physical_safe_area.size.y > 0.0 else Rect2(Vector2.ZERO,viewport)
+	var layout := viewport_layout_in_area(viewport,safe_area)
+	var content_size := Vector2i(roundi(Vector2(layout.content_size).x),roundi(Vector2(layout.content_size).y))
+	var scaled := design_image.duplicate(); scaled.resize(content_size.x,content_size.y,Image.INTERPOLATE_NEAREST)
+	var destination := Vector2i(roundi(Vector2(layout.offset).x),roundi(Vector2(layout.offset).y))
+	output.blit_rect(scaled,Rect2i(Vector2i.ZERO,content_size),destination)
+	return output

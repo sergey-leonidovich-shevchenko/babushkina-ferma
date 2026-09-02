@@ -7,6 +7,7 @@ tools/*
 !tools/build_building_sprites.py
 !tools/build_environment_sprites.py
 !tools/update_ui_visual_manifest.py
+!tools/generate_adaptive_hud_previews.gd
 assets/inbox/
 tmp/
 *.log

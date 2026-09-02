@@ -10,6 +10,8 @@ const ItemWindowRenderer := preload("res://scripts/systems/item_window_renderer.
 const TalentRenderer := preload("res://scripts/systems/talent_renderer.gd")
 const FishingRenderer := preload("res://scripts/systems/fishing_renderer.gd")
 const WorldMapRenderer := preload("res://scripts/systems/world_map_renderer.gd")
+const HudLayoutSystem := preload("res://scripts/systems/hud_layout_system.gd")
+const UiScaleSystem := preload("res://scripts/systems/ui_scale_system.gd")
 
 const MIN_VERTICAL_TEXT_PADDING := 4.0
 const MIN_TOUCH_TARGET := 28.0
@@ -41,12 +43,12 @@ static func project_report(game: Node) -> Dictionary:
 	_check_layer_palette(checks)
 	_check_inventory(checks)
 	_check_item_windows(checks)
-	_check_hud(checks)
+	_check_hud(checks,game)
 	_check_talent_tree(checks)
 	_check_fishing(checks)
 	var localization:=_check_localized_dynamic_text(checks,game)
 	var failed:=checks.filter(func(check:Dictionary):return not bool(check.passed))
-	return {"schema":2,"scope":"project_ui","surfaces":8,"checks":checks.size(),"passed":checks.size()-failed.size(),"failed":failed.size(),"localization":localization,"source_metrics":_source_metrics(),"issues":failed}
+	return {"schema":3,"scope":"project_ui","surfaces":8,"checks":checks.size(),"passed":checks.size()-failed.size(),"failed":failed.size(),"localization":localization,"display_profiles":_display_profile_report(),"source_metrics":_source_metrics(),"issues":failed}
 
 
 ## Проверяет принадлежность кнопок контейнеру, минимальную hit-зону, отсутствие пересечений и текстовую safe-area.
@@ -128,12 +130,28 @@ static func _check_item_windows(checks:Array[Dictionary])->void:
 	_record(checks,"items.storage.transfer.gap",not InterfaceRenderer.STORAGE_TRANSFER_ONE.intersects(InterfaceRenderer.STORAGE_TRANSFER_ALL),"Кнопки переноса пересекаются")
 
 
-## Проверяет шесть независимых модулей постоянного HUD и их принадлежность дизайн-viewport.
-static func _check_hud(checks:Array[Dictionary])->void:
+## Проверяет постоянный HUD, контекстные зоны и их физическую раскладку на трёх форматах экрана.
+static func _check_hud(checks:Array[Dictionary],game:Node)->void:
 	var modules:Array[Rect2]=[InterfaceRenderer.PLAYER_PORTRAIT_RECT,InterfaceRenderer.PLAYER_BARS_RECT,InterfaceRenderer.CLOCK_BADGE,InterfaceRenderer.LOCATION_BADGE,InterfaceRenderer.SKILL_BUTTON,InterfaceRenderer.QUEST_BUTTON]
 	for index in modules.size(): _record(checks,"hud.module.%d.contained"%index,InterfaceRenderer.VIEWPORT.encloses(modules[index]) and InterfaceRenderer.HUD_RECT.encloses(modules[index]),"Модуль HUD выходит за верхний корпус")
 	for first in modules.size():
 		for second in range(first+1,modules.size()): _record(checks,"hud.overlap.%d.%d"%[first,second],not modules[first].intersects(modules[second]),"Модули HUD пересекаются")
+	_record(checks,"hud.context.design.safe",HudLayoutSystem.layout_is_safe(),"Контекстные карточки пересекаются с постоянным HUD или hotbar")
+	for profile in HudLayoutSystem.DISPLAY_PROFILES:
+		var size:=Vector2(profile.size); var physical:Dictionary=HudLayoutSystem.physical_layout(size); var content:Rect2=physical.content; var safe_area:Rect2=physical.safe_area; var cards:Dictionary=physical.cards
+		_record(checks,"hud.profile.%s.content"%profile.id,safe_area.grow(0.1).encloses(content) and is_equal_approx(content.size.x/content.size.y,16.0/9.0),"Дизайн-холст искажён или выходит за safe-area")
+		for key in cards:
+			var card:Rect2=cards[key]; _record(checks,"hud.profile.%s.%s.contained"%[profile.id,key],content.grow(0.1).encloses(card) and safe_area.grow(0.1).encloses(card),"Карточка HUD выходит за физическую safe-area")
+		for first_key in cards:
+			for second_key in cards:
+				if String(first_key)>=String(second_key): continue
+				_record(checks,"hud.profile.%s.%s.%s.overlap"%[profile.id,first_key,second_key],not (cards[first_key] as Rect2).intersects(cards[second_key] as Rect2),"Контекстные карточки пересекаются на физическом экране")
+		for index in modules.size():
+			var module:=UiScaleSystem.design_rect_to_screen(modules[index],size); _record(checks,"hud.profile.%s.module.%d"%[profile.id,index],content.encloses(module),"Модуль верхнего HUD выходит за физический холст")
+		var interaction:Rect2=cards.interaction; _record(checks,"hud.profile.%s.interaction.touch"%profile.id,interaction.size.x>=MIN_TOUCH_TARGET and interaction.size.y>=MIN_TOUCH_TARGET,"Физическая зона взаимодействия слишком мала")
+	var original_scale:=float(game.settings_state.text_scale); game.settings_state.text_scale=AUDIT_TEXT_SCALE
+	_record(checks,"hud.notification.multiline",game.UiScaleSystem.fitted_multiline_font_size(game,game.UI_FONT,"Получено редкое снаряжение и открыта новая глава приключения",HudLayoutSystem.NOTIFICATION_RECT.size.x-90.0,36.0,11)>=7,"Уведомление не помещается в две читаемые строки")
+	game.settings_state.text_scale=original_scale
 
 
 ## Проверяет дерево талантов, двадцать узлов, подробности и кнопку сброса в пределах книги.
@@ -161,7 +179,7 @@ static func _check_fishing(checks:Array[Dictionary])->void:
 
 ## Прогоняет динамический текст игровых журналов и пяти предметных окон на шести языках при масштабе 120%.
 static func _check_localized_dynamic_text(checks:Array[Dictionary],game:Node)->Dictionary:
-	var original_locale:=String(game.LocaleSystem.current); var original_scale:=float(game.settings_state.text_scale); var by_surface:={"fishing":0,"world_guide":0,"quest_log":0,"talent_tree":0,"inventory":0,"shop":0,"crafting":0,"storage":0,"forge":0}; var before:=checks.size()
+	var original_locale:=String(game.LocaleSystem.current); var original_scale:=float(game.settings_state.text_scale); var by_surface:={"fishing":0,"world_guide":0,"quest_log":0,"talent_tree":0,"inventory":0,"shop":0,"crafting":0,"storage":0,"forge":0,"hud":0}; var before:=checks.size()
 	game.settings_state.text_scale=AUDIT_TEXT_SCALE
 	for locale in AUDIT_LOCALES:
 		game.LocaleSystem.set_locale(locale,false)
@@ -174,6 +192,7 @@ static func _check_localized_dynamic_text(checks:Array[Dictionary],game:Node)->D
 		_check_crafting_text(checks,game,locale,by_surface)
 		_check_storage_text(checks,game,locale,by_surface)
 		_check_forge_text(checks,game,locale,by_surface)
+		_check_hud_text(checks,game,locale,by_surface)
 	game.LocaleSystem.set_locale(original_locale,false); game.settings_state.text_scale=original_scale
 	return {"locales":AUDIT_LOCALES.duplicate(),"text_scale":AUDIT_TEXT_SCALE,"surfaces":by_surface,"contracts":checks.size()-before}
 
@@ -273,6 +292,29 @@ static func _check_forge_text(checks:Array[Dictionary],game:Node,locale:String,c
 	for upgrade in game.ForgeSystem.UPGRADES:
 		var kind:=String(upgrade.kind); contracts.append([kind+"_name",game.inventory_item_name(kind),220.0,12,8]); contracts.append([kind+"_cost",game.ForgeSystem.cost_text(game,upgrade,true),278.0,9,7])
 	for contract in contracts: _record_text_contract(checks,game,"forge",locale,contract); counts.forge=int(counts.forge)+1
+
+
+## Проверяет обучение, цели, открытия, уведомления, эффекты и действия адаптивного HUD на шести языках.
+static func _check_hud_text(checks:Array[Dictionary],game:Node,locale:String,counts:Dictionary)->void:
+	var contracts:Array=[["tutorial_progress",game.LocaleSystem.ui("tutorial_progress",[999,999]),196.0,11,8],["tutorial_controls",game.LocaleSystem.ui("tutorial_controls_short"),158.0,8,7],["new_nearby",game.LocaleSystem.ui("new_nearby"),190.0,10,7],["hide",game.LocaleSystem.ui("hide"),76.0,9,7],["story_title",game.LocaleSystem.ui("hud_story_objective"),285.0,10,8],["grandmother_title",game.LocaleSystem.ui("hud_grandmother_quest"),285.0,10,8],["carrots",game.LocaleSystem.ui("hud_carrot_progress",[99,99]),424.0,10,8],["journal",game.LocaleSystem.ui("hud_journal_hint")+" +99",136.0,8,7]]
+	for action_key in ["interact","talk","shop","sell","craft","open","pickup","mine","collect","feed","repair","upgrade","gate","exit","enter"]: contracts.append(["context_"+action_key,game.LocaleSystem.ui("context_action",[game.LocaleSystem.ui("context_"+action_key)]),240.0,11,7])
+	for location in game.WorldSystem.LOCATIONS: contracts.append(["location_"+String(location),game.WorldSystem.name(String(location)).to_upper(),184.0,11,7])
+	for mission_id in game.QuestSystem.MISSIONS:
+		var mission:Dictionary=game.QuestSystem.mission_data(String(mission_id)); contracts.append([String(mission_id)+"_title",mission.title.to_upper(),285.0,10,7]); contracts.append([String(mission_id)+"_objective",game.QuestSystem.objective_text(game,String(mission_id)),424.0,10,7])
+	for kind in game.InventorySystem.ITEM_DATA: contracts.append(["notification_"+String(kind),game.LocaleSystem.ui("new_item",[game.inventory_item_name(String(kind))]),382.0,11,7])
+	for contract in contracts: _record_text_contract(checks,game,"hud",locale,contract); counts.hud=int(counts.hud)+1
+	for step in game.tutorial_steps:
+		_record_multiline_contract(checks,game,"hud",locale,["tutorial_"+String(step.event),game.LocaleSystem.tutorial(String(step.event)),362.0,39.0,11,7]); counts.hud=int(counts.hud)+1
+	for hint_kind in ["grandmother","shop","workbench","farm","pond","cave","bridge","slime","home_chest","forge","contracts"]:
+		var hint:Dictionary=game.DiscoverySystem.static_hint(game,hint_kind); _record_text_contract(checks,game,"hud",locale,["discovery_"+hint_kind+"_title",hint.title,274.0,15,8]); counts.hud=int(counts.hud)+1
+		_record_multiline_contract(checks,game,"hud",locale,["discovery_"+hint_kind+"_text",hint.text,274.0,31.0,10,7]); counts.hud=int(counts.hud)+1
+
+
+## Формирует компактную машинную сводку размеров трёх проверяемых физических экранов.
+static func _display_profile_report()->Array[Dictionary]:
+	var result:Array[Dictionary]=[]
+	for profile in HudLayoutSystem.DISPLAY_PROFILES: result.append({"id":profile.id,"label":profile.label,"width":profile.size.x,"height":profile.size.y})
+	return result
 
 
 ## Фиксирует однострочный контракт по реальной метрике шрифта после пользовательского масштабирования.

@@ -1,7 +1,11 @@
 extends RefCounted
 
+const HudLayoutSystem := preload("res://scripts/systems/hud_layout_system.gd")
+
 const MANIFEST_PATH := "res://assets/generated/ui/visual_regression_manifest.json"
 const REFERENCE_DIRECTORY := "res://assets/generated/ui/"
+const HUD_PROFILE_DIRECTORY := REFERENCE_DIRECTORY + "adaptive_hud/"
+const HUD_PROFILE_MANIFEST_PATH := HUD_PROFILE_DIRECTORY + "manifest.json"
 const LOCALIZED_CONTROL_CONTRACTS := {
 	"title":{"width":694.0,"size":54}, "title_subtitle":{"width":630.0,"size":24},
 	"continue_game":{"width":198.0,"size":21}, "new_game":{"width":198.0,"size":21}, "settings":{"width":240.0,"size":21}, "exit_game":{"width":198.0,"size":21},
@@ -16,6 +20,13 @@ const LOCALIZED_CONTROL_CONTRACTS := {
 static func manifest() -> Dictionary:
 	if not FileAccess.file_exists(MANIFEST_PATH): return {}
 	var parsed = JSON.parse_string(FileAccess.get_file_as_string(MANIFEST_PATH))
+	return parsed if parsed is Dictionary else {}
+
+
+## Загружает отдельный список физических HUD-эталонов, которым разрешены разные пропорции экрана.
+static func hud_profile_manifest() -> Dictionary:
+	if not FileAccess.file_exists(HUD_PROFILE_MANIFEST_PATH): return {}
+	var parsed = JSON.parse_string(FileAccess.get_file_as_string(HUD_PROFILE_MANIFEST_PATH))
 	return parsed if parsed is Dictionary else {}
 
 
@@ -34,6 +45,25 @@ static func validate_references() -> Array[String]:
 		if absf(float(image.get_width())/maxf(image.get_height(),1)-16.0/9.0)>0.01: errors.append("aspect:%s"%entry.file)
 		if sampled_contrast(image)<0.08: errors.append("blank:%s"%entry.file)
 		if FileAccess.get_sha256(path)!=String(entry.sha256): errors.append("hash:%s"%entry.file)
+	return errors
+
+
+## Проверяет размеры, содержательность и точные суммы эталонов HUD для 16:9, 16:10 и 21:9.
+static func validate_hud_profile_references() -> Array[String]:
+	var errors:Array[String]=[]; var document:=hud_profile_manifest()
+	if int(document.get("schema",0))!=1: return ["hud-profile-schema"]
+	var entries:Array=document.get("profiles",[])
+	if entries.size()!=HudLayoutSystem.DISPLAY_PROFILES.size(): errors.append("hud-profile-count")
+	for profile in HudLayoutSystem.DISPLAY_PROFILES:
+		var index:=entries.find_custom(func(entry):return String(entry.get("id",""))==String(profile.id))
+		if index<0: errors.append("hud-profile-missing:%s"%profile.id); continue
+		var entry:Dictionary=entries[index]; var path:=HUD_PROFILE_DIRECTORY+String(entry.file)
+		if not FileAccess.file_exists(path): errors.append("hud-profile-file:%s"%profile.id); continue
+		var image:=Image.load_from_file(ProjectSettings.globalize_path(path)); var size:Vector2i=profile.size
+		if image==null: errors.append("hud-profile-invalid:%s"%profile.id); continue
+		if image.get_size()!=size or int(entry.width)!=size.x or int(entry.height)!=size.y: errors.append("hud-profile-size:%s"%profile.id)
+		if sampled_contrast(image)<0.08: errors.append("hud-profile-blank:%s"%profile.id)
+		if FileAccess.get_sha256(path)!=String(entry.sha256): errors.append("hud-profile-hash:%s"%profile.id)
 	return errors
 
 

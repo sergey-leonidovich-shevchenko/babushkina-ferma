@@ -92,6 +92,8 @@ const UI := {
 	"context_exit":["Выйти","Exit","Salir","Verlassen","Sortir","离开"],
 	"context_enter":["Войти или перейти","Enter or travel","Entrar o viajar","Betreten oder reisen","Entrer ou voyager","进入或前往"],
 	"tutorial":["ОБУЧЕНИЕ %d/%d  [T скрыть • Y заново • F9 QA]","TUTORIAL %d/%d  [T hide • Y reset • F9 QA]","TUTORIAL %d/%d  [T ocultar • Y reiniciar • F9 QA]","TUTORIAL %d/%d  [T aus • Y neu • F9 QA]","TUTORIEL %d/%d  [T masquer • Y relancer • F9 QA]","教程 %d/%d  [T 隐藏 • Y 重置 • F9 测试]"],
+	"tutorial_progress":["ОБУЧЕНИЕ %d/%d","TUTORIAL %d/%d","TUTORIAL %d/%d","TUTORIAL %d/%d","TUTORIEL %d/%d","教程 %d/%d"],
+	"tutorial_controls_short":["T скрыть · Y заново","T hide · Y reset","T ocultar · Y reiniciar","T aus · Y neu","T masquer · Y relancer","T 隐藏 · Y 重置"],
 	"action":["E • действие","E • action","E • acción","E • Aktion","E • action","E • 操作"],
 	"new_nearby":["НОВОЕ РЯДОМ • ≤3 КЛЕТКИ","NEW NEARBY • ≤3 TILES","NUEVO CERCA • ≤3 CASILLAS","NEU IN DER NÄHE • ≤3 FELDER","NOUVEAU À PROXIMITÉ • ≤3 CASES","附近新发现 • ≤3格"],
 	"hide":["H • скрыть","H • hide","H • ocultar","H • ausblenden","H • masquer","H • 隐藏"],

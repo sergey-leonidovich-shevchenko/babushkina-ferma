@@ -29,6 +29,9 @@ tools/Godot.app/Contents/MacOS/Godot --path . -- --inventory-preview
 # Контекстный HUD со всеми одновременно активными безопасными зонами
 tools/Godot.app/Contents/MacOS/Godot --path . -- --capture-context-hud
 
+# Физические эталоны HUD для 16:9, 16:10 и 21:9
+tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/generate_adaptive_hud_previews.gd
+
 # Деревенские здания без стартовых экранов
 tools/Godot.app/Contents/MacOS/Godot --path . -- --buildings-preview
 

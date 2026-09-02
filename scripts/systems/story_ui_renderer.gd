@@ -121,9 +121,10 @@ static func draw_tutorial(game: Node2D) -> void:
 	UiKitSystem.draw_nine_patch(game, "tooltip", TUTORIAL_CARD)
 	var total: int = game.tutorial_steps.size()
 	var step: int = game.tutorial_step + 1
-	game.draw_ui_string(game.UI_FONT, Vector2(42, 132), game.LocaleSystem.ui("tutorial", [step, total]), HORIZONTAL_ALIGNMENT_LEFT, 258, 11, Color("70452b"))
-	UiKitSystem.draw_progress(game, Rect2(300, 116, 104, 28), float(step) / maxi(1, total), Color("76934f"))
-	game.draw_multiline_string(game.UI_FONT, Vector2(42, 160), game.LocaleSystem.tutorial(game.tutorial_steps[game.tutorial_step].event), HORIZONTAL_ALIGNMENT_LEFT, 356, 12, 3, UiKitSystem.COLORS.ink)
+	game.draw_ui_string(game.UI_FONT, Vector2(42, 133), game.LocaleSystem.ui("tutorial_progress", [step, total]), HORIZONTAL_ALIGNMENT_LEFT, 196, 11, Color("70452b"))
+	game.draw_ui_string(game.UI_FONT, Vector2(246, 133), game.LocaleSystem.ui("tutorial_controls_short"), HORIZONTAL_ALIGNMENT_RIGHT, 158, 8, Color("876440"))
+	UiKitSystem.draw_progress(game, Rect2(42, 141, 362, 10), float(step) / maxi(1, total), Color("76934f"))
+	game.draw_ui_multiline_string(game.UI_FONT, Vector2(42, 169), game.LocaleSystem.tutorial(game.tutorial_steps[game.tutorial_step].event), HORIZONTAL_ALIGNMENT_LEFT, 362, 39, 11, 3, UiKitSystem.COLORS.ink)
 
 
 ## Рисует системное сообщение как спокойную пергаментную плашку с типовой иконкой награды или события.
@@ -136,7 +137,7 @@ static func draw_notification(game: Node2D) -> void:
 	var reward: bool = "+" in game.message or "награ" in game.message.to_lower() or "получ" in game.message.to_lower()
 	UiKitSystem.draw_nine_patch(game, "badge", Rect2(rect.position + Vector2(18, 12), Vector2(46, 46)))
 	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(28, 45), "★" if reward else "!", HORIZONTAL_ALIGNMENT_CENTER, 26, 17, Color("8c542e"))
-	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(70, 42), game.message, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 90, 11, UiKitSystem.COLORS.ink)
+	game.draw_ui_multiline_string(game.UI_FONT, rect.position + Vector2(70, 30), game.message, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 90, 36, 11, 2, UiKitSystem.COLORS.ink)
 
 
 ## Рисует итог главы как три крупные коллекционные карты, сохраняя исходные зоны выбора наград.

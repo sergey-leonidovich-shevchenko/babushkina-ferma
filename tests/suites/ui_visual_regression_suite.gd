@@ -7,6 +7,7 @@ func run() -> void:
 	test_visual_difference_detects_changed_frame()
 	test_localized_controls_fit_real_font_contracts()
 	test_context_hud_prioritizes_information_and_explains_actions()
+	test_adaptive_hud_profiles_preserve_safe_layout()
 	test_key_interfaces_pass_project_layout_audit()
 	test_feature_interfaces_fit_six_locales_at_120_percent()
 	test_item_windows_fit_six_locales_at_120_percent()
@@ -51,6 +52,7 @@ func test_localized_controls_fit_real_font_contracts() -> void:
 func test_context_hud_prioritizes_information_and_explains_actions() -> void:
 	var game := make_game(); var layout = game.HudLayoutSystem
 	expect(layout.layout_is_safe(), "tutorial objective minimap discovery notification and interaction prompts own non-overlapping regions")
+	expect(not layout.EFFECTS_RECT.intersects(layout.OBJECTIVE_RECT) and not layout.EFFECTS_RECT.intersects(layout.MINIMAP_RECT), "temporary effects use their own two-row lane below the objective")
 	expect(game.InterfaceRenderer.TUTORIAL_CARD == layout.TUTORIAL_RECT and game.InterfaceRenderer.OBJECTIVE_CARD == layout.OBJECTIVE_RECT and game.discovery_card_rect() == layout.DISCOVERY_RECT, "drawing and pointer input share the coordinator's exact geometry")
 	var objective: Dictionary = layout.primary_objective(game)
 	expect(objective.kind == "chapter" and objective.text == game.FirstChapterSystem.objective(game), "first chapter owns the primary slot instead of creating a competing panel")
@@ -75,6 +77,23 @@ func test_context_hud_prioritizes_information_and_explains_actions() -> void:
 	expect(game.message.is_empty() and game.hud_message_timer == 0.0, "read notification leaves the playfield instead of becoming permanent clutter")
 	var chapter_renderer_source := FileAccess.get_file_as_string("res://scripts/systems/first_chapter_renderer.gd")
 	expect(not chapter_renderer_source.contains("Rect2(724,103,404,68)"), "legacy chapter card no longer overlaps the unified objective")
+	game.free()
+
+
+## Сценарий: полный контекстный HUD показывается на экранах 16:9, 16:10 и 21:9 без растяжения и потери управления.
+## Исходное состояние: три физических профиля используют один дизайн-холст 1152×648, общие карточки и версионированные PNG-эталоны.
+## Ожидаемый результат: холст центрирован в safe-area, карточки не пересекаются, координаты обратимы, а три кадра проходят проверку размеров и SHA-256.
+func test_adaptive_hud_profiles_preserve_safe_layout()->void:
+	var game:=make_game(); var profile_ids:Array[String]=[]
+	expect(game.HudLayoutSystem.DISPLAY_PROFILES.size()==3,"adaptive HUD defines exactly the approved 16:9 16:10 and ultrawide profiles")
+	var clear_color:Color=ProjectSettings.get_setting("rendering/environment/defaults/default_clear_color"); expect(clear_color.is_equal_approx(Color("0b1512")),"letterbox fields use the same quiet valley color as reproducible physical previews")
+	for profile in game.HudLayoutSystem.DISPLAY_PROFILES:
+		profile_ids.append(String(profile.id)); var viewport:=Vector2(profile.size); var physical:Dictionary=game.HudLayoutSystem.physical_layout(viewport); var content:Rect2=physical.content
+		expect(is_equal_approx(content.size.x/content.size.y,16.0/9.0) and (physical.safe_area as Rect2).grow(0.1).encloses(content),"%s keeps the 32-bit design canvas undistorted inside the physical safe-area"%profile.label)
+		expect((physical.cards as Dictionary).values().all(func(rect):return content.grow(0.1).encloses(rect)),"%s keeps every contextual card inside visible game content"%profile.label)
+		var design_point:Vector2=game.HudLayoutSystem.INTERACTION_RECT.get_center(); var screen_point:Vector2=game.UiScaleSystem.design_rect_to_screen(Rect2(design_point,Vector2.ONE),viewport).position
+		expect(game.UiScaleSystem.screen_to_design(screen_point,viewport).is_equal_approx(design_point),"%s preserves pointer mapping for adaptive HUD actions"%profile.label)
+	expect(profile_ids==["16x9","16x10","ultrawide"] and game.UiVisualRegressionSystem.validate_hud_profile_references().is_empty(),"three physical HUD references match their declared dimensions contrast and exact hashes")
 	game.free()
 
 

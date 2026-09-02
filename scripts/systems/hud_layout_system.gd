@@ -1,11 +1,36 @@
 extends RefCounted
 
+const UiScaleSystem := preload("res://scripts/systems/ui_scale_system.gd")
+
 const TUTORIAL_RECT := Rect2(18, 106, 414, 112)
 const OBJECTIVE_RECT := Rect2(446, 106, 510, 82)
 const MINIMAP_RECT := Rect2(972, 104, 164, 136)
 const DISCOVERY_RECT := Rect2(18, 424, 310, 108)
-const NOTIFICATION_RECT := Rect2(340, 474, 472, 64)
+const NOTIFICATION_RECT := Rect2(340, 462, 472, 76)
 const INTERACTION_RECT := Rect2(840, 438, 294, 58)
+const EFFECTS_RECT := Rect2(446, 194, 510, 48)
+const HUD_RESERVED_RECT := Rect2(0, 0, 1152, 96)
+const HOTBAR_RESERVED_RECT := Rect2(190, 548, 762, 100)
+const TOUCH_ACTION_RESERVED_RECT := Rect2(996, 512, 156, 76)
+const DISPLAY_PROFILES := [
+	{"id":"16x9","label":"16:9","size":Vector2i(1152,648)},
+	{"id":"16x10","label":"16:10","size":Vector2i(1280,800)},
+	{"id":"ultrawide","label":"21:9","size":Vector2i(1680,720)},
+]
+
+
+## Возвращает все принадлежащие координатору карточки для отрисовки, ввода и физического аудита.
+static func context_rects() -> Dictionary:
+	return {"tutorial":TUTORIAL_RECT,"objective":OBJECTIVE_RECT,"minimap":MINIMAP_RECT,"discovery":DISCOVERY_RECT,"notification":NOTIFICATION_RECT,"interaction":INTERACTION_RECT,"effects":EFFECTS_RECT}
+
+
+## Преобразует контекстные карточки в физические координаты выбранного экрана без растяжения пиксель-арта.
+static func physical_layout(viewport_size: Vector2, physical_safe_area: Rect2 = Rect2()) -> Dictionary:
+	var safe_area := physical_safe_area if physical_safe_area.size.x > 0.0 and physical_safe_area.size.y > 0.0 else Rect2(Vector2.ZERO,viewport_size)
+	var viewport_layout := UiScaleSystem.viewport_layout_in_area(viewport_size,safe_area)
+	var cards: Dictionary = {}
+	for key in context_rects(): cards[key]=UiScaleSystem.design_rect_to_screen(context_rects()[key],viewport_size,safe_area)
+	return {"scale":viewport_layout.scale,"offset":viewport_layout.offset,"content":Rect2(viewport_layout.offset,viewport_layout.content_size),"safe_area":viewport_layout.safe_area,"cards":cards}
 
 
 ## Возвращает одну приоритетную цель вместо нескольких конкурирующих трекеров на одном экране.
@@ -68,10 +93,16 @@ static func notification_duration(message: String) -> float:
 	return clampf(3.2 + message.length() / 32.0, 3.8, 7.0)
 
 
-## Проверяет отсутствие пересечений у четырёх постоянных информативных зон HUD.
+## Проверяет принадлежность карточек холсту и отсутствие пересечений с постоянным HUD и панелью быстрого доступа.
 static func layout_is_safe() -> bool:
-	var rects := [TUTORIAL_RECT, OBJECTIVE_RECT, MINIMAP_RECT, DISCOVERY_RECT, NOTIFICATION_RECT, INTERACTION_RECT]
+	var viewport := Rect2(Vector2.ZERO,UiScaleSystem.DESIGN_SIZE)
+	var rects: Array[Rect2] = []
+	for rect in context_rects().values():
+		if not viewport.encloses(rect): return false
+		rects.append(rect)
 	for first in rects.size():
 		for second in range(first + 1, rects.size()):
 			if rects[first].intersects(rects[second]): return false
+	for rect in rects:
+		if rect.intersects(HUD_RESERVED_RECT) or rect.intersects(HOTBAR_RESERVED_RECT) or rect.intersects(TOUCH_ACTION_RESERVED_RECT): return false
 	return true

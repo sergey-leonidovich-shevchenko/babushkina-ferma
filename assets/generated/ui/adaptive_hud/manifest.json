@@ -1,0 +1,30 @@
+{
+  "profiles": [
+    {
+      "file": "hud_16x9_preview.png",
+      "height": 648,
+      "id": "16x9",
+      "label": "16:9",
+      "sha256": "6c08b64c1aa9ce787b206e15dbdf499f0ebc8b95aba4ebc0515c4c19bf0f9430",
+      "width": 1152
+    },
+    {
+      "file": "hud_16x10_preview.png",
+      "height": 800,
+      "id": "16x10",
+      "label": "16:10",
+      "sha256": "4af25271901857270dfa13bc77b047883a3683c7924157b4faca85dd52ccc30d",
+      "width": 1280
+    },
+    {
+      "file": "hud_ultrawide_preview.png",
+      "height": 720,
+      "id": "ultrawide",
+      "label": "21:9",
+      "sha256": "9580da59ccd8a1403f370f4d873d93dcc3ae7a7f9a15fe9ecf9d5905b84cbbd8",
+      "width": 1680
+    }
+  ],
+  "schema": 1,
+  "source": "context_hud_ingame_preview.png"
+}

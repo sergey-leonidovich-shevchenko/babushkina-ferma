@@ -47,11 +47,12 @@ static func secondary_summary(game: Node) -> String:
 
 ## Рисует только активные временные эффекты отдельными компактными плашками под верхней панелью.
 static func draw_effect_chips(game: Node, effects: Array[String]) -> void:
-	var x := 690.0
+	var lane := HudLayoutSystem.EFFECTS_RECT; var x := lane.position.x; var y := lane.position.y
 	for effect in effects:
 		var width := clampf(game.UI_FONT.get_string_size(effect, HORIZONTAL_ALIGNMENT_LEFT, -1, 8).x + 18.0, 48.0, 126.0)
-		var rect := Rect2(x, 100, width, 20)
-		if rect.end.x > 1128.0: break
+		if x+width>lane.end.x: x=lane.position.x; y+=24.0
+		var rect := Rect2(x,y,width,20)
+		if rect.end.y>lane.end.y: break
 		game.draw_rect(rect, Color(0.11, 0.07, 0.04, 0.88)); game.draw_rect(rect, Color("b88b42"), false, 1.0)
 		game.draw_ui_string(game.UI_FONT, rect.position + Vector2(8, 14), effect, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 16, 8, Color("ffe7ad"))
 		x += width + 6.0
