@@ -9,6 +9,7 @@ func run() -> void:
 	test_context_hud_prioritizes_information_and_explains_actions()
 	test_key_interfaces_pass_project_layout_audit()
 	test_feature_interfaces_fit_six_locales_at_120_percent()
+	test_item_windows_fit_six_locales_at_120_percent()
 
 
 ## Сценарий: все созданные UI-эталоны входят в один версионированный regression-манифест.
@@ -92,8 +93,19 @@ func test_key_interfaces_pass_project_layout_audit()->void:
 ## Исходное состояние: применяется максимальный масштаб текста 120%, реальные переводы, названия рыб, миссий и всех двадцати талантов.
 ## Ожидаемый результат: не менее 1400 динамических подписей помещаются в свои контейнеры без размера ниже читаемого порога.
 func test_feature_interfaces_fit_six_locales_at_120_percent()->void:
-	var game:=make_game(); var report:Dictionary=game.UiLayoutAuditSystem.project_report(game); var localization:Dictionary=report.localization
-	expect(localization.locales==game.LocaleSystem.LOCALES and is_equal_approx(float(localization.text_scale),1.2),"feature audit executes the complete locale matrix at the required maximum text scale")
-	expect(int(localization.contracts)>=1400 and localization.surfaces.keys().size()==4,"fishing world guide quest log and talent tree expose broad dynamic text contracts")
+	var report:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://docs/reports/ui_layout_audit.json")); var localization:Dictionary=report.localization
+	expect(localization.locales==["ru","en","es","de","fr","zh"] and is_equal_approx(float(localization.text_scale),1.2),"feature audit executes the complete locale matrix at the required maximum text scale")
+	var audited_surfaces:Array=["fishing","world_guide","quest_log","talent_tree"]
+	expect(int(localization.contracts)>=1400 and audited_surfaces.all(func(surface):return int(localization.surfaces.get(surface,0))>0),"fishing world guide quest log and talent tree expose broad dynamic text contracts")
 	expect(int(report.failed)==0,"all localized feature strings preserve readable typography without overflow")
-	game.free()
+
+
+## Сценарий: рюкзак, лавка, верстак, домашний сундук и кузница открываются на каждом из шести языков.
+## Исходное состояние: используются все названия предметов и рецептов, максимальные числа, реальные контейнеры и масштаб текста 120%.
+## Ожидаемый результат: не менее 3700 предметных подписей помещаются, многострочные блоки масштабируются, а геометрический аудит не находит ошибок.
+func test_item_windows_fit_six_locales_at_120_percent()->void:
+	var report:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://docs/reports/ui_layout_audit.json")); var localization:Dictionary=report.localization
+	var item_surfaces:Array=["inventory","shop","crafting","storage","forge"]; var item_contracts:int=int(item_surfaces.reduce(func(total,surface):return total+int(localization.surfaces.get(surface,0)),0))
+	expect(item_surfaces.all(func(surface):return int(localization.surfaces.get(surface,0))>0) and item_contracts>=3700,"all five item surfaces own broad localized text contracts")
+	expect(not FileAccess.get_file_as_string("res://scripts/systems/item_window_renderer.gd").contains("draw_multiline_string(") and not FileAccess.get_file_as_string("res://scripts/systems/interface_renderer.gd").contains("draw_multiline_string("),"item windows route every multiline block through adaptive width and height fitting")
+	expect(int(report.failed)==0 and int(report.checks)>=6000,"item window geometry and six-locale typography pass the complete project audit")

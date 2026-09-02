@@ -83,11 +83,12 @@ static func upgrade(game: Node, index: int) -> bool:
 
 
 ## Формирует строку стоимости следующего уровня для окна кузницы.
-static func cost_text(game: Node, upgrade: Dictionary) -> String:
+static func cost_text(game: Node, upgrade: Dictionary, compact:bool=false) -> String:
 	var parts: Array[String] = []
 	var required := costs(game, upgrade)
 	for kind in required:
-		parts.append("%s %d/%d" % [game.inventory_item_name(kind), game.inventory_item_count(kind), required[kind]])
+		var item_name:String=game.InventorySystem.data(String(kind)).short if compact else game.inventory_item_name(kind)
+		parts.append("%s %d/%d" % [item_name, game.inventory_item_count(kind), required[kind]])
 	return ", ".join(parts)
 
 

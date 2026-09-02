@@ -171,8 +171,9 @@ static func production_summary(game: Node, recipe: Dictionary) -> String:
 	return game.LocaleSystem.ui("craft_output_summary", [int(recipe.count), max_craftable(game, recipe)])
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
-static func ingredients_text(game: Node, recipe: Dictionary) -> String:
+static func ingredients_text(game: Node, recipe: Dictionary, compact:bool=false) -> String:
 	var parts: Array[String] = []
 	for kind in recipe.inputs:
-		parts.append("%s %d/%d" % [game.inventory_item_name(kind), game.inventory_item_count(kind), game.TalentSystem.recipe_material_cost(game, recipe.inputs[kind])])
+		var item_name:String=game.InventorySystem.data(String(kind)).short if compact else game.inventory_item_name(kind)
+		parts.append("%s %d/%d" % [item_name, game.inventory_item_count(kind), game.TalentSystem.recipe_material_cost(game, recipe.inputs[kind])])
 	return ", ".join(parts)

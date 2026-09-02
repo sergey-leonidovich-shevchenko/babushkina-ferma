@@ -40,6 +40,9 @@ const INVENTORY_HOTBAR_ORIGIN := Vector2(207, 543)
 const INVENTORY_HOTBAR_SIZE := Vector2(66, 65)
 const INVENTORY_HOTBAR_PITCH := 73.4
 const INVENTORY_HOTBAR_SKIN_RECT := Rect2(190, 532, 762, 84)
+const INVENTORY_TITLE_RECT := Rect2(456, 19, 240, 43)
+const INVENTORY_DETAIL_RECT := Rect2(565, 145, 226, 360)
+const INVENTORY_EQUIPMENT_RECT := Rect2(797, 145, 226, 324)
 const WORLD_HOTBAR_PANEL := Rect2(190, 558, 762, 84)
 const USE_BUTTON := Rect2(580, 430, 195, 31)
 const EQUIP_BUTTON := Rect2(580, 469, 94, 29)
@@ -59,8 +62,8 @@ const HOTBAR_SLOT_SIZE := INVENTORY_HOTBAR_SIZE
 const HOTBAR_PITCH := INVENTORY_HOTBAR_PITCH
 const STORAGE_LEFT_ROWS := Rect2(96, 190, 430, 320)
 const STORAGE_RIGHT_ROWS := Rect2(626, 190, 430, 320)
-const STORAGE_TRANSFER_ONE := Rect2(454, 520, 116, 36)
-const STORAGE_TRANSFER_ALL := Rect2(582, 520, 116, 36)
+const STORAGE_TRANSFER_ONE := Rect2(430, 524, 140, 36)
+const STORAGE_TRANSFER_ALL := Rect2(582, 524, 140, 36)
 const FORGE_ROWS := Rect2(164, 154, 824, 396)
 const CONTRACT_ROWS := Rect2(154, 190, 844, 300)
 const QUEST_PREV := StoryUiRenderer.QUEST_PREV
@@ -255,7 +258,7 @@ static func draw_hotbar(game: Node) -> void:
 static func draw_inventory(game: Node) -> void:
 	game.draw_rect(VIEWPORT, Color(0.015, 0.025, 0.02, 0.72))
 	game.draw_texture_rect(INVENTORY_SKIN, VIEWPORT, false)
-	draw_inventory_title(game, game.LocaleSystem.ui("backpack_column"), Rect2(456, 19, 240, 43), 27)
+	draw_inventory_title(game, game.LocaleSystem.ui("backpack_column"), INVENTORY_TITLE_RECT, 27)
 	var occupied: int = game.inventory_slots.filter(func(kind): return not String(kind).is_empty() and game.inventory_item_count(kind) > 0).size()
 	game.draw_ui_string(game.UI_FONT, Vector2(496, 77), "%d / ∞" % occupied, HORIZONTAL_ALIGNMENT_CENTER, 160, 12, Color("f9df91"))
 	draw_inventory_button_label(game, SORT_BUTTON, game.LocaleSystem.ui("sort_inventory"), true, Color("ffe8a8"))
@@ -296,7 +299,7 @@ static func draw_category_tabs(game: Node) -> void:
 		var filter_id: String = game.InventorySystem.FILTERS[index]; var active: bool = game.inventory_filter == filter_id; var rect: Rect2 = inventory_category_rect(index)
 		UiKitSystem.draw_nine_patch(game, "tab_selected" if active else "tab_normal", rect)
 		game.draw_ui_string(game.UI_FONT, rect.position + Vector2(4, 17), symbols[index], HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 8, 15, Color("ffe8a8"))
-		var label: String = game.LocaleSystem.ui("inventory_all") if filter_id == "all" else game.LocaleSystem.ui("category_" + filter_id)
+		var label: String = game.LocaleSystem.ui("inventory_all") if filter_id == "all" else game.LocaleSystem.ui("category_short_" + filter_id)
 		game.draw_ui_string(game.UI_FONT, rect.position + Vector2(4, 37), label, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 8, 7, Color("fff1bd"))
 
 
@@ -344,7 +347,7 @@ static func draw_item_detail(game: Node) -> void:
 	game.draw_ui_string(game.UI_FONT, Vector2(580, 300), category, HORIZONTAL_ALIGNMENT_CENTER, 195, 9, Color("66804c"))
 	game.draw_line(Vector2(583, 309), Vector2(772, 309), Color("a98755"), 1)
 	game.draw_ui_string(game.UI_FONT, Vector2(585, 329), game.LocaleSystem.ui("quantity", [game.inventory_item_count(kind)]), HORIZONTAL_ALIGNMENT_LEFT, 185, 11, Color("4b3425"))
-	game.draw_multiline_string(game.UI_FONT, Vector2(585, 351), game.LocaleSystem.ui(game.InventorySystem.detail_key(kind)), HORIZONTAL_ALIGNMENT_LEFT, 185, 10, 2, Color("765a3c"))
+	game.draw_ui_multiline_string(game.UI_FONT, Vector2(585, 351), game.LocaleSystem.ui(game.InventorySystem.detail_key(kind)), HORIZONTAL_ALIGNMENT_LEFT, 185, 48, 10, 3, Color("765a3c"))
 	game.draw_ui_string(game.UI_FONT, Vector2(585, 415), game.LocaleSystem.ui("sell_value", [game.ShopSystem.sell_price(kind)]), HORIZONTAL_ALIGNMENT_LEFT, 185, 10, Color("775226"))
 
 
@@ -356,7 +359,8 @@ static func draw_equipment(game: Node) -> void:
 		var left := index % 2 == 0
 		var rect := Rect2(812 if left else 944, 190 + (index / 2) * 89, 59, 68)
 		var slot_name: String = slots[index]
-		game.draw_ui_string(game.UI_FONT, rect.position + Vector2(3, 14), game.LocaleSystem.ui(slot_name), HORIZONTAL_ALIGNMENT_CENTER, 53, 8, Color("59452f"))
+		var slot_label:String=game.LocaleSystem.ui("offhand_short" if slot_name=="offhand" else slot_name)
+		game.draw_ui_string(game.UI_FONT, rect.position + Vector2(3, 14), slot_label, HORIZONTAL_ALIGNMENT_CENTER, 53, 8, Color("59452f"))
 		var kind: String = game.equipment[slot_name]
 		if not kind.is_empty(): game.draw_item_icon(kind, Rect2(rect.position + Vector2(11, 21), Vector2(38, 39)))
 

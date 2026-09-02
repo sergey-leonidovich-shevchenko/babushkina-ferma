@@ -57,7 +57,7 @@
       "file": "crafting_ingame_preview.png",
       "width": 1152,
       "height": 648,
-      "sha256": "6410e347f9726ca2f27358d45a33ad3f7e7657f12ac867fe0064515e5b50ef6e"
+      "sha256": "65b6ae3e35985eda950db453a898d6c9041aa716c685b89ef906167dbd7d8886"
     },
     {
       "file": "debug_overlay_ingame_preview.png",
@@ -81,7 +81,7 @@
       "file": "forge_ingame_preview.png",
       "width": 1152,
       "height": 648,
-      "sha256": "d1b8b433ac53bbe80232497f334790fc3ecc222406c024fd50d12425feefb390"
+      "sha256": "8e304fc0798eb7a0c17eeee35d3bab477f3aeda766eee6cd424fe5356e44f77e"
     },
     {
       "file": "fishing_ingame_preview.png",
@@ -99,7 +99,7 @@
       "file": "inventory_ingame_preview.png",
       "width": 1152,
       "height": 648,
-      "sha256": "3af8c16e06f126c60623a42ffb43515a7a6f0e7f18d7035865f06df83c32f9fd"
+      "sha256": "e072a4bbaba0e43ec1c84f74b500140ced4dcabeb571031e4fa0ac8569457965"
     },
     {
       "file": "language_ingame_preview.png",
@@ -129,7 +129,7 @@
       "file": "shop_ingame_preview.png",
       "width": 1152,
       "height": 648,
-      "sha256": "71a06d51cb4bc292b9e107ddbe9e63b7c2dbfae37631b7ff19fd1a56e69bc6cd"
+      "sha256": "0fac9bc8b6f1e6f2ea75798a489072dacdef35f9a9796493c17870f7cc28e399"
     },
     {
       "file": "farm_plots_ingame_preview.png",
@@ -141,7 +141,7 @@
       "file": "storage_ingame_preview.png",
       "width": 1152,
       "height": 648,
-      "sha256": "13b7f9f0d7d5d86bd5d4475ab2cc60ad7f6f1fcec9118c9b45b5604e0d0b5d8c"
+      "sha256": "bb764ec27b1f49fe6339cca0a09b21de25ac9cfa931206f2bbd4816c10173d2d"
     },
     {
       "file": "system_settings_ingame_preview.png",

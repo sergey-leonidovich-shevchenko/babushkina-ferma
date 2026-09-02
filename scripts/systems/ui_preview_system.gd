@@ -142,16 +142,21 @@ static func configure_item_window_capture(game: Node, arguments: PackedStringArr
 		if flag in arguments: mode = flag; break
 	if mode.is_empty(): return false
 	game.language_screen = false; game.title_screen = false; game.current_location = "overworld"; game.tutorial_visible = false; game.message = ""
-	game.set_meta("capture_hud_clean", true); game.set_meta("capture_ui_frames", 6)
+	game.settings_state.text_scale = 1.2; game.set_meta("capture_hud_clean", true); game.set_meta("capture_ui_frames", 6)
 	game.set_meta("capture_ui_output", "res://assets/generated/ui/%s" % outputs[mode])
 	match mode:
-		"--capture-inventory": game.open_inventory()
+		"--capture-inventory":
+			for entry in [["carrot",12],["apple",4],["berries",3],["mushroom",6],["healing_potion",2],["mana_potion",2],["iron_helmet",1],["guardian_armor",1],["travel_boots",1],["crystal_ring",1],["oak_shield",1],["log",18],["stone",24],["crystal",8],["metal",12],["bones",9],["rare_seeds",4],["fish",5]]: game.change_inventory_count(String(entry[0]),int(entry[1]))
+			game.open_inventory(); game.inventory_selected=game.inventory_slots.find("crystal_ring"); game.equipment.head="iron_helmet"; game.equipment.body="guardian_armor"; game.equipment.legs="travel_boots"; game.equipment.offhand="oak_shield"; game.equipment.ring="crystal_ring"
 		"--capture-shop": game.shop_open = true; game.shop_selected = 0; game.coins = 240
 		"--capture-crafting":
 			game.change_inventory_count("log", 3); game.materials.metal = 2; game.CraftingSystem.open(game, "workbench")
 			game.crafting_selected = game.CraftingSystem.RECIPES.find_custom(func(recipe): return recipe.output == "plank")
 		"--capture-storage":
-			game.home_chest_owned = true; game.current_location = "cottage_interior"; game.state.storage.change("carrot", 12); game.state.storage.change("crystal", 4); game.StorageSystem.open(game)
+			game.home_chest_owned = true; game.current_location = "cottage_interior"
+			for entry in [["carrot",12],["crystal",4],["apple",7],["mushroom",5],["log",20],["stone",18],["healing_potion",3],["iron_helmet",1]]: game.state.storage.change(String(entry[0]),int(entry[1]))
+			for entry in [["metal",10],["bones",8],["berries",6],["oak_shield",1],["mana_potion",2]]: game.change_inventory_count(String(entry[0]),int(entry[1]))
+			game.StorageSystem.open(game)
 		"--capture-forge":
 			game.current_location = "forge_interior"; game.change_inventory_count("sword", 1); game.materials.metal = 8; game.materials.stone = 5; game.open_forge()
 	return true

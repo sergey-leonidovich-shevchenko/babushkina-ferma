@@ -89,12 +89,23 @@ static func _check_layer_palette(checks:Array[Dictionary])->void:
 
 ## Проверяет сетку рюкзака, категории, действия и десять быстрых слотов относительно художественного корпуса.
 static func _check_inventory(checks:Array[Dictionary])->void:
+	_record(checks,"inventory.title.contained",InterfaceRenderer.INVENTORY_WINDOW.encloses(InterfaceRenderer.INVENTORY_TITLE_RECT),"Заголовок рюкзака выходит за художественный корпус")
+	_record(checks,"inventory.detail.contained",InterfaceRenderer.INVENTORY_WINDOW.encloses(InterfaceRenderer.INVENTORY_DETAIL_RECT),"Карточка предмета выходит за окно")
+	_record(checks,"inventory.equipment.contained",InterfaceRenderer.INVENTORY_WINDOW.encloses(InterfaceRenderer.INVENTORY_EQUIPMENT_RECT),"Манекен экипировки выходит за окно")
 	for index in 36:
 		var slot:=InterfaceRenderer.inventory_slot_rect(index); var icon:=InterfaceRenderer.inventory_icon_rect(index); _record(checks,"inventory.slot.%d.contained"%index,InterfaceRenderer.INVENTORY_WINDOW.encloses(slot),"Слот рюкзака выходит за окно"); _record(checks,"inventory.icon.%d.centered"%index,slot.encloses(icon) and icon.get_center().is_equal_approx(slot.get_center()),"Иконка не центрирована в слоте")
 	for index in 10:
 		var slot:=InterfaceRenderer.inventory_hotbar_rect(index); var icon:=InterfaceRenderer.hotbar_icon_rect(slot); _record(checks,"inventory.hotbar.%d.contained"%index,InterfaceRenderer.INVENTORY_HOTBAR_SKIN_RECT.encloses(slot),"Быстрый слот выходит за резную панель"); _record(checks,"inventory.hotbar.%d.centered"%index,slot.encloses(icon) and icon.get_center().is_equal_approx(slot.get_center()),"Иконка быстрого слота не центрирована")
-	for index in InterfaceRenderer.INVENTORY_FILTERS.size(): _record(checks,"inventory.filter.%d.contained"%index,InterfaceRenderer.INVENTORY_WINDOW.encloses(InterfaceRenderer.inventory_category_rect(index)),"Вкладка категории выходит за окно")
-	for data in [["use",InterfaceRenderer.USE_BUTTON],["equip",InterfaceRenderer.EQUIP_BUTTON],["drop",InterfaceRenderer.DROP_BUTTON],["sort",InterfaceRenderer.SORT_BUTTON]]: _record(checks,"inventory.action.%s.contained"%data[0],InterfaceRenderer.INVENTORY_WINDOW.encloses(data[1]),"Кнопка действия выходит за окно")
+	var filters:Array[Rect2]=[]
+	for index in InterfaceRenderer.INVENTORY_FILTERS.size():
+		var filter:=InterfaceRenderer.inventory_category_rect(index); filters.append(filter); _record(checks,"inventory.filter.%d.contained"%index,InterfaceRenderer.INVENTORY_WINDOW.encloses(filter),"Вкладка категории выходит за окно"); _record(checks,"inventory.filter.%d.touch"%index,filter.size.x>=MIN_TOUCH_TARGET and filter.size.y>=MIN_TOUCH_TARGET,"Вкладка категории меньше hit-зоны")
+	for first in filters.size():
+		for second in range(first+1,filters.size()): _record(checks,"inventory.filter.overlap.%d.%d"%[first,second],not filters[first].intersects(filters[second]),"Вкладки категорий пересекаются")
+	var actions:Array[Rect2]=[]
+	for data in [["use",InterfaceRenderer.USE_BUTTON],["equip",InterfaceRenderer.EQUIP_BUTTON],["drop",InterfaceRenderer.DROP_BUTTON],["sort",InterfaceRenderer.SORT_BUTTON]]:
+		actions.append(data[1]); _record(checks,"inventory.action.%s.contained"%data[0],InterfaceRenderer.INVENTORY_WINDOW.encloses(data[1]),"Кнопка действия выходит за окно"); _record(checks,"inventory.action.%s.touch"%data[0],data[1].size.x>=MIN_TOUCH_TARGET and data[1].size.y>=MIN_TOUCH_TARGET,"Кнопка действия меньше hit-зоны")
+	for first in actions.size():
+		for second in range(first+1,actions.size()): _record(checks,"inventory.action.overlap.%d.%d"%[first,second],not actions[first].intersects(actions[second]),"Кнопки действий пересекаются")
 
 
 ## Проверяет общий каркас и альтернативные рабочие секции магазина, крафта, склада и кузницы.
@@ -103,6 +114,18 @@ static func _check_item_windows(checks:Array[Dictionary])->void:
 	_record(checks,"items.close.contained",ItemWindowRenderer.SHELL.encloses(ItemWindowRenderer.CLOSE_BUTTON),"Кнопка закрытия выходит за корпус")
 	for data in [["craft",ItemWindowRenderer.CRAFT_SECTION],["shop_stock",ItemWindowRenderer.SHOP_STOCK_SECTION],["shop_table",ItemWindowRenderer.SHOP_TABLE_SECTION],["storage_left",ItemWindowRenderer.STORAGE_LEFT_SECTION],["storage_right",ItemWindowRenderer.STORAGE_RIGHT_SECTION],["forge",ItemWindowRenderer.FORGE_SECTION]]: _record(checks,"items.section.%s.contained"%data[0],ItemWindowRenderer.SHELL.encloses(data[1]),"Рабочая секция выходит за общий корпус")
 	_record(checks,"items.storage.gap",ItemWindowRenderer.STORAGE_LEFT_SECTION.end.x<ItemWindowRenderer.STORAGE_RIGHT_SECTION.position.x,"Половины хранилища пересекаются")
+	_record(checks,"items.craft.list",ItemWindowRenderer.CRAFT_SECTION.encloses(ItemWindowRenderer.CRAFT_LIST),"Список рецептов выходит за секцию")
+	_record(checks,"items.craft.detail",ItemWindowRenderer.CRAFT_SECTION.encloses(ItemWindowRenderer.CRAFT_DETAIL),"Подробности рецепта выходят за секцию")
+	_record(checks,"items.craft.columns",not ItemWindowRenderer.CRAFT_LIST.intersects(ItemWindowRenderer.CRAFT_DETAIL),"Список и подробности рецепта пересекаются")
+	_record(checks,"items.shop.table",ItemWindowRenderer.SHOP_TABLE_SECTION.encloses(ItemWindowRenderer.SHOP_TABLE),"Таблица товаров выходит за секцию")
+	for index in 9:
+		_record(checks,"items.craft.row.%d"%index,ItemWindowRenderer.CRAFT_LIST.encloses(ItemWindowRenderer.craft_row_rect(index)),"Строка рецепта выходит за список")
+		_record(checks,"items.shop.row.%d"%index,ItemWindowRenderer.SHOP_TABLE.encloses(ItemWindowRenderer.shop_row_rect(index)),"Строка товара выходит за таблицу")
+		_record(checks,"items.forge.row.%d"%index,ItemWindowRenderer.FORGE_SECTION.encloses(ItemWindowRenderer.forge_row_rect(index)),"Строка улучшения выходит за кузницу")
+	for rows in [[ItemWindowRenderer.craft_row_rect(0),ItemWindowRenderer.craft_row_rect(1)],[ItemWindowRenderer.shop_row_rect(0),ItemWindowRenderer.shop_row_rect(1)],[ItemWindowRenderer.forge_row_rect(0),ItemWindowRenderer.forge_row_rect(1)]]: _record(checks,"items.row.pitch.%d"%checks.size(),not (rows[0] as Rect2).intersects(rows[1]),"Соседние строки предметного окна пересекаются")
+	for data in [["one",InterfaceRenderer.STORAGE_TRANSFER_ONE],["all",InterfaceRenderer.STORAGE_TRANSFER_ALL]]:
+		_record(checks,"items.storage.transfer.%s.contained"%data[0],ItemWindowRenderer.SHELL.encloses(data[1]),"Кнопка переноса выходит за корпус"); _record(checks,"items.storage.transfer.%s.touch"%data[0],data[1].size.x>=MIN_TOUCH_TARGET and data[1].size.y>=MIN_TOUCH_TARGET,"Кнопка переноса меньше hit-зоны"); _record(checks,"items.storage.transfer.%s.clear"%data[0],not data[1].intersects(ItemWindowRenderer.STORAGE_LEFT_SECTION) and not data[1].intersects(ItemWindowRenderer.STORAGE_RIGHT_SECTION),"Кнопка переноса лежит на рамке колонки")
+	_record(checks,"items.storage.transfer.gap",not InterfaceRenderer.STORAGE_TRANSFER_ONE.intersects(InterfaceRenderer.STORAGE_TRANSFER_ALL),"Кнопки переноса пересекаются")
 
 
 ## Проверяет шесть независимых модулей постоянного HUD и их принадлежность дизайн-viewport.
@@ -136,9 +159,9 @@ static func _check_fishing(checks:Array[Dictionary])->void:
 	_record(checks,"fishing.panel.viewport",InterfaceRenderer.VIEWPORT.encloses(FishingRenderer.PANEL),"Панель рыбалки выходит за viewport")
 
 
-## Прогоняет весь динамический текст рыбалки, энциклопедии, журнала и талантов на шести языках при масштабе 120%.
+## Прогоняет динамический текст игровых журналов и пяти предметных окон на шести языках при масштабе 120%.
 static func _check_localized_dynamic_text(checks:Array[Dictionary],game:Node)->Dictionary:
-	var original_locale:=String(game.LocaleSystem.current); var original_scale:=float(game.settings_state.text_scale); var by_surface:={"fishing":0,"world_guide":0,"quest_log":0,"talent_tree":0}; var before:=checks.size()
+	var original_locale:=String(game.LocaleSystem.current); var original_scale:=float(game.settings_state.text_scale); var by_surface:={"fishing":0,"world_guide":0,"quest_log":0,"talent_tree":0,"inventory":0,"shop":0,"crafting":0,"storage":0,"forge":0}; var before:=checks.size()
 	game.settings_state.text_scale=AUDIT_TEXT_SCALE
 	for locale in AUDIT_LOCALES:
 		game.LocaleSystem.set_locale(locale,false)
@@ -146,6 +169,11 @@ static func _check_localized_dynamic_text(checks:Array[Dictionary],game:Node)->D
 		_check_world_guide_text(checks,game,locale,by_surface)
 		_check_quest_text(checks,game,locale,by_surface)
 		_check_talent_text(checks,game,locale,by_surface)
+		_check_inventory_text(checks,game,locale,by_surface)
+		_check_shop_text(checks,game,locale,by_surface)
+		_check_crafting_text(checks,game,locale,by_surface)
+		_check_storage_text(checks,game,locale,by_surface)
+		_check_forge_text(checks,game,locale,by_surface)
 	game.LocaleSystem.set_locale(original_locale,false); game.settings_state.text_scale=original_scale
 	return {"locales":AUDIT_LOCALES.duplicate(),"text_scale":AUDIT_TEXT_SCALE,"surfaces":by_surface,"contracts":checks.size()-before}
 
@@ -193,6 +221,58 @@ static func _check_talent_text(checks:Array[Dictionary],game:Node,locale:String,
 	for talent in game.TalentSystem.TALENTS:
 		var talent_id:=String(talent.id); contracts.append([talent_id+"_node",game.TalentSystem.word(game,talent_id),128.0,10,7]); contracts.append([talent_id+"_detail",game.TalentSystem.word(game,talent_id),488.0,15,9]); _record_multiline_contract(checks,game,"talent_tree",locale,[talent_id+"_description",game.TalentSystem.word(game,talent_id,true),488.0,48.0,11,8]); counts.talent_tree=int(counts.talent_tree)+1
 	for contract in contracts: _record_text_contract(checks,game,"talent_tree",locale,contract); counts.talent_tree=int(counts.talent_tree)+1
+
+
+## Проверяет заголовки, категории, карточку предмета, экипировку и все локализованные имена рюкзака.
+static func _check_inventory_text(checks:Array[Dictionary],game:Node,locale:String,counts:Dictionary)->void:
+	var contracts:Array=[["title",game.LocaleSystem.ui("backpack_column"),240.0,27,13],["quick_access",game.LocaleSystem.ui("quick_access").get_slice(" • ",0),278.0,13,8],["sort",game.LocaleSystem.ui("sort_inventory"),167.0,10,7],["empty",game.LocaleSystem.ui("empty_slot"),195.0,14,9],["quantity",game.LocaleSystem.ui("quantity",[9999]),185.0,11,8],["sell",game.LocaleSystem.ui("sell_value",[9999]),185.0,10,7],["equipment",game.LocaleSystem.ui("equipment"),194.0,16,9],["use",game.LocaleSystem.ui("eat"),187.0,10,7],["equip",game.LocaleSystem.ui("equip"),86.0,10,7],["drop",game.LocaleSystem.ui("drop_item"),87.0,10,7],["row",game.LocaleSystem.ui("row",[99,99]),91.0,8,7]]
+	for filter_id in game.InventorySystem.FILTERS:
+		var key:="inventory_all" if filter_id=="all" else "category_short_"+String(filter_id); contracts.append(["filter_"+String(filter_id),game.LocaleSystem.ui(key),67.0,7,7])
+	for slot in ["head","body","legs","hands","offhand","ring"]: contracts.append(["slot_"+slot,game.LocaleSystem.ui("offhand_short" if slot=="offhand" else slot),53.0,8,7])
+	for kind in game.InventorySystem.ITEM_DATA: contracts.append(["item_"+String(kind),game.inventory_item_name(String(kind)),197.0,16,8])
+	for detail_key in ["detail_tool","detail_food","detail_equipment","detail_quest","detail_resource"]:
+		_record_multiline_contract(checks,game,"inventory",locale,[detail_key,game.LocaleSystem.ui(detail_key),185.0,48.0,10,7]); counts.inventory=int(counts.inventory)+1
+	for contract in contracts: _record_text_contract(checks,game,"inventory",locale,contract); counts.inventory=int(counts.inventory)+1
+
+
+## Проверяет заголовки лавки, колонки цен, справку и каждую строку фактического ассортимента.
+static func _check_shop_text(checks:Array[Dictionary],game:Node,locale:String,counts:Dictionary)->void:
+	var contracts:Array=[["title",game.LocaleSystem.ui("shop"),652.0,28,14],["stock",game.LocaleSystem.ui("grandma_stock"),230.0,18,10],["product",game.LocaleSystem.ui("product"),280.0,13,8],["buy",game.LocaleSystem.ui("buy"),78.0,13,8],["sell",game.LocaleSystem.ui("sell"),78.0,13,8],["help_footer",game.LocaleSystem.ui("shop_help"),820.0,11,8]]
+	for product in game.shop_products:
+		var label:String=game.inventory_item_name(String(product.kind))
+		if bool(product.get("seed",false)):
+			var crop_kind:String=game.CropCatalogSystem.crop_for_seed(String(product.kind))
+			if not crop_kind.is_empty(): label+="  •  "+game.LocaleSystem.ui("growth_seconds_short",[roundi(game.CropCatalogSystem.growth_duration(crop_kind))])
+		contracts.append(["product_"+String(product.kind),label,290.0,11,7])
+	_record_multiline_contract(checks,game,"shop",locale,["help_card",game.LocaleSystem.ui("shop_help"),218.0,62.0,11,7]); counts.shop=int(counts.shop)+1
+	for contract in contracts: _record_text_contract(checks,game,"shop",locale,contract); counts.shop=int(counts.shop)+1
+
+
+## Проверяет оба заголовка станций, рецепты, компактные ингредиенты и полные подробности результата.
+static func _check_crafting_text(checks:Array[Dictionary],game:Node,locale:String,counts:Dictionary)->void:
+	var contracts:Array=[["workbench",game.LocaleSystem.ui("workbench"),652.0,28,14],["cauldron",game.LocaleSystem.ui("cauldron_title"),652.0,28,14],["help",game.LocaleSystem.ui("craft_help"),820.0,11,8]]
+	for category in ["processing","construction","equipment","general"]: contracts.append(["category_"+category,game.LocaleSystem.ui("craft_category_"+category),226.0,11,8])
+	for recipe in game.CraftingSystem.RECIPES:
+		var recipe_id:=String(recipe.output); contracts.append([recipe_id+"_row",game.inventory_item_name(recipe_id),168.0,12,7]); contracts.append([recipe_id+"_cost",game.CraftingSystem.ingredients_text(game,recipe,true),232.0,9,7]); contracts.append([recipe_id+"_detail",game.inventory_item_name(recipe_id),226.0,17,9])
+		_record_multiline_contract(checks,game,"crafting",locale,[recipe_id+"_ingredients",game.CraftingSystem.ingredients_text(game,recipe),210.0,48.0,10,7]); counts.crafting=int(counts.crafting)+1
+		_record_multiline_contract(checks,game,"crafting",locale,[recipe_id+"_summary",game.CraftingSystem.production_summary(game,recipe),210.0,50.0,11,7]); counts.crafting=int(counts.crafting)+1
+	for contract in contracts: _record_text_contract(checks,game,"crafting",locale,contract); counts.crafting=int(counts.crafting)+1
+
+
+## Проверяет обе колонки сундука, кнопки переноса, справку и любое имя предмета в строке хранения.
+static func _check_storage_text(checks:Array[Dictionary],game:Node,locale:String,counts:Dictionary)->void:
+	var contracts:Array=[["title",game.LocaleSystem.ui("home_storage"),652.0,28,14],["backpack",game.LocaleSystem.ui("backpack_column"),430.0,16,9],["chest",game.LocaleSystem.ui("chest_column"),430.0,16,9],["one",game.LocaleSystem.ui("transfer_one"),132.0,13,9],["all",game.LocaleSystem.ui("transfer_all"),132.0,13,9],["help",game.LocaleSystem.ui("storage_help"),820.0,12,8]]
+	for kind in game.InventorySystem.ITEM_DATA: contracts.append(["item_"+String(kind),game.inventory_item_name(String(kind)),290.0,11,8])
+	for contract in contracts: _record_text_contract(checks,game,"storage",locale,contract); counts.storage=int(counts.storage)+1
+
+
+## Проверяет названия улучшений, уровни, компактные стоимости, прочность и полную локализованную справку кузницы.
+static func _check_forge_text(checks:Array[Dictionary],game:Node,locale:String,counts:Dictionary)->void:
+	var help:String="%s • %d–%d/%d"%[game.LocaleSystem.ui("forge_help_with_repair"),99,99,99]
+	var contracts:Array=[["title",game.LocaleSystem.ui("forge_title"),652.0,28,14],["help",help,820.0,11,7],["level",game.LocaleSystem.ui("upgrade_level",[3,3]),130.0,10,7],["maximum",game.LocaleSystem.ui("upgrade_max"),278.0,9,7],["durability","◆ 100%",110.0,9,7]]
+	for upgrade in game.ForgeSystem.UPGRADES:
+		var kind:=String(upgrade.kind); contracts.append([kind+"_name",game.inventory_item_name(kind),220.0,12,8]); contracts.append([kind+"_cost",game.ForgeSystem.cost_text(game,upgrade,true),278.0,9,7])
+	for contract in contracts: _record_text_contract(checks,game,"forge",locale,contract); counts.forge=int(counts.forge)+1
 
 
 ## Фиксирует однострочный контракт по реальной метрике шрифта после пользовательского масштабирования.
