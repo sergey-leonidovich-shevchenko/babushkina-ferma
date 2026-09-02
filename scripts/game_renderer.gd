@@ -7,6 +7,11 @@ func draw_ui_string(font: Font, position: Vector2, text: String, alignment: Hori
 	var effective_size := UiScaleSystem.fitted_font_size(self, font, text, width, font_size)
 	draw_string(font, position, text, alignment, width, effective_size, color)
 
+## Рисует многострочный текст с пользовательским масштабом, сохраняя все строки внутри заданной высоты.
+func draw_ui_multiline_string(font: Font, position: Vector2, text: String, alignment: HorizontalAlignment, width: float, height: float, font_size: int, max_lines: int, color: Color) -> void:
+	var effective_size := UiScaleSystem.fitted_multiline_font_size(self, font, text, width, height, font_size)
+	draw_multiline_string(font, position, text, alignment, width, effective_size, max_lines, color)
+
 ## Отрисовывает текущее визуальное состояние узла.
 func _draw() -> void:
 	RenderSystem.draw(self)

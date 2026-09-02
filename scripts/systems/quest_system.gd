@@ -289,8 +289,8 @@ static func objective_text(game: Node, mission_id: String) -> String:
 	if state == LOCKED:
 		return game.LocaleSystem.ui("locked")
 	if state == AVAILABLE:
-		return "Поговори: %s" % mission.giver
+		return game.LocaleSystem.ui("quest_talk_to", [mission.giver])
 	if state == COMPLETED:
-		return "Выполнено"
+		return game.LocaleSystem.ui("completed")
 	var count: int = mini(game.inventory_item_count(mission.item), mission.count)
 	return "%s: %d/%d" % [game.inventory_item_name(mission.item), count, mission.count]

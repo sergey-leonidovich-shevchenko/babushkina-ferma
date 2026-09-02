@@ -82,7 +82,7 @@ static func _draw_minigame(game: Node2D, state: RefCounted) -> void:
 	game.draw_ui_string(game.UI_FONT, Vector2(info_x, 378), game.LocaleSystem.text("fish_streak", [FishingBalanceText.seconds(state.control_streak), FishingBalanceText.multiplier(state.control_streak)]), HORIZONTAL_ALIGNMENT_LEFT, 132, 9, Color("91df89"))
 	var control_lines: PackedStringArray = game.LocaleSystem.text("fish_hold_hint").split("\n")
 	game.draw_ui_string(game.UI_FONT, Vector2(info_x, 420), control_lines[0] + " / " + control_lines[1], HORIZONTAL_ALIGNMENT_CENTER, 132, 9, Color("d6eadb"))
-	if state.perfect: game.draw_ui_string(game.UI_FONT, Vector2(info_x, 461), "★ PERFECT", HORIZONTAL_ALIGNMENT_CENTER, 132, 14, Color("f6d85d"))
+	if state.perfect: game.draw_ui_string(game.UI_FONT, Vector2(info_x, 461), game.LocaleSystem.text("fish_perfect"), HORIZONTAL_ALIGNMENT_CENTER, 132, 14, Color("f6d85d"))
 
 
 ## Рисует краткую карточку результата, чтобы качество и рекорд не терялись в общем HUD.

@@ -69,7 +69,7 @@ static func draw_map(game: Node2D) -> void:
 	game.draw_texture_rect(game.InterfaceRenderer.weather_icon(weather), Rect2(858, 222, 52, 52), false)
 	game.draw_ui_string(game.UI_FONT, Vector2(920, 251), game.LocaleSystem.ui("season_" + game.WorldEventSystem.season(game.day)), HORIZONTAL_ALIGNMENT_LEFT, 130, 12, Color("67452e"))
 	game.draw_ui_string(game.UI_FONT, Vector2(858, 306), game.LocaleSystem.ui("map_legend"), HORIZONTAL_ALIGNMENT_LEFT, 192, 9, Color("765239"))
-	game.draw_multiline_string(game.UI_FONT, Vector2(858, 356), game.LocaleSystem.ui("map_close"), HORIZONTAL_ALIGNMENT_LEFT, 190, 10, 4, Color("765239"))
+	game.draw_ui_multiline_string(game.UI_FONT, Vector2(858, 356), game.LocaleSystem.ui("map_close"), HORIZONTAL_ALIGNMENT_LEFT, 190, 176, 10, 4, Color("765239"))
 
 
 ## Рисует прогноз на семь дней и сезонную ленту из двадцати восьми календарных ячеек.
@@ -85,7 +85,8 @@ static func draw_calendar(game: Node2D) -> void:
 		game.draw_texture_rect(game.InterfaceRenderer.weather_icon(weather), Rect2(rect.position + Vector2(40, 38), Vector2(52, 52)), false)
 		game.draw_ui_string(game.UI_FONT, rect.position + Vector2(10, 110), game.LocaleSystem.ui("weather_" + weather), HORIZONTAL_ALIGNMENT_CENTER, 111, 10, UiKitSystem.COLORS.ink)
 		game.draw_ui_string(game.UI_FONT, rect.position + Vector2(10, 131), game.LocaleSystem.ui("season_" + game.WorldEventSystem.season(day)), HORIZONTAL_ALIGNMENT_CENTER, 111, 9, Color("735239"))
-		var event_name: String = ["РЫНОК", "ПРАЗДНИК", "ПУТНИК", "НАБЕГ"][posmod(day - 1, 4)]
+		var event_key: String = ["guide_event_market", "guide_event_festival", "guide_event_traveler", "guide_event_raid"][posmod(day - 1, 4)]
+		var event_name: String = game.LocaleSystem.ui(event_key)
 		game.draw_rect(Rect2(rect.position + Vector2(18, 143), Vector2(95, 22)), Color("eed59e"), true)
 		game.draw_ui_string(game.UI_FONT, rect.position + Vector2(20, 159), event_name, HORIZONTAL_ALIGNMENT_CENTER, 91, 7, Color("68432a"))
 	game.draw_ui_string(game.UI_FONT, Vector2(88, 408), game.LocaleSystem.ui("guide_valley_year"), HORIZONTAL_ALIGNMENT_LEFT, 360, 12, Color("fff0cf"))
@@ -112,7 +113,7 @@ static func draw_bestiary(game: Node2D) -> void:
 		var data: Dictionary = game.CombatSystem.TYPES[kind]
 		if known: draw_enemy_portrait(game, kind, Rect2(rect.position + Vector2(10, 19), Vector2(74, 74)))
 		game.draw_ui_string(game.UI_FONT, rect.position + Vector2(88, 28), String(data.name) if known else game.LocaleSystem.ui("guide_unknown_enemy"), HORIZONTAL_ALIGNMENT_LEFT, 210, 11, UiKitSystem.COLORS.ink if known else Color("725f4d"))
-		game.draw_ui_string(game.UI_FONT, rect.position + Vector2(88, 49), "УР. 1–5  •  HP %d  •  УРОН %d" % [data.hp, data.damage], HORIZONTAL_ALIGNMENT_LEFT, 210, 8, Color("765239") if known else Color("8f7c66"))
+		game.draw_ui_string(game.UI_FONT, rect.position + Vector2(88, 49), game.LocaleSystem.ui("guide_enemy_stats", [data.hp, data.damage]), HORIZONTAL_ALIGNMENT_LEFT, 210, 8, Color("765239") if known else Color("8f7c66"))
 		if known:
 			var loot_kinds: Array = data.loot.keys()
 			for loot_index in mini(2, loot_kinds.size()):
@@ -174,7 +175,7 @@ static func draw_recipes(game: Node2D) -> void:
 	var icon_rect := UiKitSystem.draw_slot(game, Rect2(718, 194, 180, 180), false)
 	game.draw_item_icon(String(recipe.output), icon_rect)
 	game.draw_ui_string(game.UI_FONT, Vector2(582, 403), game.inventory_item_name(String(recipe.output)), HORIZONTAL_ALIGNMENT_CENTER, 454, 18, UiKitSystem.COLORS.ink)
-	game.draw_multiline_string(game.UI_FONT, Vector2(588, 448), game.CraftingSystem.ingredients_text(game, recipe), HORIZONTAL_ALIGNMENT_CENTER, 442, 11, 4, Color("694a33"))
+	game.draw_ui_multiline_string(game.UI_FONT, Vector2(588, 448), game.CraftingSystem.ingredients_text(game, recipe), HORIZONTAL_ALIGNMENT_CENTER, 442, 58, 11, 4, Color("694a33"))
 	var unlocked: bool = game.TalentSystem.recipe_unlocked(game, recipe)
 	game.draw_ui_string(game.UI_FONT, Vector2(588, 526), game.LocaleSystem.ui("guide_recipe_open") if unlocked else game.LocaleSystem.ui("guide_recipe_locked"), HORIZONTAL_ALIGNMENT_CENTER, 442, 11, Color("66804c") if unlocked else Color("a83f2a"))
 

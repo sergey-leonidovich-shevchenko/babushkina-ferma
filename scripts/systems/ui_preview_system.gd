@@ -32,7 +32,7 @@ static func configure(game: Node) -> void:
 		game.set_meta("capture_hud_clean", true); game.MenuSystem.open_defeat(game, "Пират-призрак", 5); game.set_meta("capture_ui_frames", 6); game.set_meta("capture_ui_output", "res://assets/generated/ui/defeat_ingame_preview.png")
 		return
 	if "--capture-fishing-ui" in arguments:
-		game.FishingSystem.configure_preview(game); game.set_meta("capture_hud_clean",true); game.set_meta("capture_ui_frames",6); game.set_meta("capture_ui_output","res://assets/generated/ui/fishing_ingame_preview.png")
+		game.settings_state.text_scale = 1.2; game.FishingSystem.configure_preview(game); game.set_meta("capture_hud_clean",true); game.set_meta("capture_ui_frames",6); game.set_meta("capture_ui_output","res://assets/generated/ui/fishing_ingame_preview.png")
 		return
 	if "--capture-creation-ui" in arguments:
 		game.language_screen=false; game.title_screen=false; game.AdventurePolishSystem.begin_new_game(game); game.set_meta("capture_story_clean",true); game.set_meta("capture_ui_frames",6); game.set_meta("capture_ui_output","res://assets/generated/ui/creation_ingame_preview.png")
@@ -78,6 +78,7 @@ static func configure_world_guide_capture(game: Node, arguments: PackedStringArr
 		if flag in arguments: mode = flag; break
 	if mode.is_empty(): return false
 	game.language_screen = false; game.title_screen = false; game.current_location = "overworld"; game.tutorial_visible = false; game.world_map_open = true; game.world_guide_page = int(modes[mode]); game.world_guide_selected = 12
+	game.settings_state.text_scale = 1.2
 	game.state.world.estate.discovered = game.WorldMapSystem.LOCATIONS.keys()
 	for kind in game.CombatSystem.TYPES: game.seen_discoveries["enemy:%s:1" % kind] = true
 	for index in game.FishingSystem.FISH_CATALOG.size():
@@ -90,6 +91,7 @@ static func configure_world_guide_capture(game: Node, arguments: PackedStringArr
 static func configure_character_window_capture(game: Node, arguments: PackedStringArray) -> bool:
 	if not ("--talent-preview" in arguments or "--capture-talent-tree" in arguments): return false
 	game.language_screen = false; game.title_screen = false; game.current_location = "overworld"; game.tutorial_visible = false; game.player_level = 7; game.player_xp = 82; game.skill_points = 4; game.coins = 800
+	game.settings_state.text_scale = 1.2
 	for talent_id in ["combat_strength", "combat_agility", "combat_vitality", "farm_orchard", "farm_wide_till", "fish_fine_rod", "craft_apprentice"]: game.talent_levels[talent_id] = 1
 	game.recruited_companions.assign(["mila", "borislav", "luna"]); game.active_companions.assign(["mila", "luna"]); game.skill_levels.leadership = 2; game.strength_timer = 28.0; game.regeneration_timer = 17.0; game.speed_timer = 22.0; game.skill_menu_selected = 7; game.skill_menu_open = true
 	game.set_meta("capture_story_clean", true)
@@ -109,6 +111,7 @@ static func configure_story_window_capture(game: Node, arguments: PackedStringAr
 		if flag in arguments: mode = flag; break
 	if mode.is_empty(): return false
 	game.language_screen = false; game.title_screen = false; game.current_location = "overworld"; game.message = ""
+	if mode == "--capture-quest-log": game.settings_state.text_scale = 1.2
 	game.set_meta("capture_story_clean", true); game.set_meta("capture_ui_frames", 8); game.set_meta("capture_ui_output", "res://assets/generated/ui/%s" % outputs[mode])
 	var chapter: Dictionary = game.FirstChapterSystem.state(game); chapter.completed = true; chapter.reward_pending = false
 	match mode:

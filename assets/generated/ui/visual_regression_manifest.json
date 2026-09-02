@@ -87,7 +87,7 @@
       "file": "fishing_ingame_preview.png",
       "width": 1152,
       "height": 648,
-      "sha256": "93da906edf05e253a42bf36dd7e261d224d917d605c56e150ecdb10b1d08fba8"
+      "sha256": "72e6509faffe2d923f8d4f7199b2f96d906a7ac72a767e824858b3b06ae918dd"
     },
     {
       "file": "hud_ingame_preview.png",
@@ -117,7 +117,7 @@
       "file": "quest_log_ingame_preview.png",
       "width": 1152,
       "height": 648,
-      "sha256": "70c58357614889631b02dc0da435e2251d5d7f9c830bcc16868141e1ba86d631"
+      "sha256": "b07bcca43b2f8a097141460f015b18f3264f1b387adb59306973c49845812bab"
     },
     {
       "file": "recipe_guide_ingame_preview.png",
@@ -153,7 +153,7 @@
       "file": "talent_tree_ingame_preview.png",
       "width": 1152,
       "height": 648,
-      "sha256": "29d1b3e0b786a5948cfe5fdd9bf5dc9bd86782dacb5de6c626cc191afa1b56cf"
+      "sha256": "2e25b1ae008c7a72034e23b36fc903940e6f55aee8e182fdd6d707147709ff3a"
     },
     {
       "file": "tutorial_ingame_preview.png",
@@ -171,7 +171,7 @@
       "file": "world_map_ingame_preview.png",
       "width": 1152,
       "height": 648,
-      "sha256": "e1e3776b812c4841aabeae09f8ce9c3db44df38c60a4aad156b889fd70a818b6"
+      "sha256": "32efc31817a93c0b0313be8da908893637a7bc93e685b8e3760deee95be01293"
     }
   ]
 }

@@ -10,6 +10,8 @@ const COLUMN_WIDTH := 184.0
 const COLUMN_GAP := 8.0
 const NODE_HEIGHT := 46.0
 const NODE_GAP := 6.0
+const DETAILS_RECT := Rect2(332, 432, 748, 138)
+const LEVEL_BADGE := Rect2(856, 446, 202, 36)
 const RESPEC_BUTTON := Rect2(860, 532, 220, 38)
 const CLOSE_BUTTON := Rect2(1060, 40, 48, 48)
 
@@ -51,8 +53,6 @@ static func draw_tree_header(game: Node2D) -> void:
 		var header := Rect2(332 + group_index * (COLUMN_WIDTH + COLUMN_GAP), 116, COLUMN_WIDTH, 40)
 		UiKitSystem.draw_nine_patch(game, "tab_selected" if group_index == game.skill_menu_selected / 5 else "tab_normal", header)
 		game.draw_ui_string(game.UI_FONT, header.position + Vector2(10, 27), "%s  %s" % [group.icon, game.TalentSystem.word(game, "group_%s" % group.id)], HORIZONTAL_ALIGNMENT_CENTER, header.size.x - 20, 10, Color("fff0cf"))
-	UiKitSystem.draw_nine_patch(game, "badge", Rect2(874, 62, 168, 42))
-	game.draw_ui_string(game.UI_FONT, Vector2(888, 89), game.LocaleSystem.ui("level_points", [game.player_level, game.skill_points]).to_upper(), HORIZONTAL_ALIGNMENT_CENTER, 140, 9, Color("70452b"))
 
 
 ## Рисует линии зависимостей под карточками, отличая уже выполненные связи от закрытых.
@@ -90,10 +90,12 @@ static func draw_node(game: Node2D, index: int) -> void:
 ## Показывает описание выбранной способности, зависимость, управление и отдельный сброс очков.
 static func draw_selected_details(game: Node2D) -> void:
 	var talent: Dictionary = game.TalentSystem.at(game.skill_menu_selected)
-	var rect := Rect2(332, 432, 748, 138)
+	var rect := DETAILS_RECT
 	UiKitSystem.draw_nine_patch(game, "tooltip", rect)
+	UiKitSystem.draw_nine_patch(game, "tab_normal", LEVEL_BADGE)
+	game.draw_ui_string(game.UI_FONT, LEVEL_BADGE.position + Vector2(14, 24), game.LocaleSystem.ui("level_points", [game.player_level, game.skill_points]).to_upper(), HORIZONTAL_ALIGNMENT_CENTER, LEVEL_BADGE.size.x - 28, 9, UiKitSystem.COLORS.text_light)
 	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(20, 28), game.TalentSystem.word(game, String(talent.id)), HORIZONTAL_ALIGNMENT_LEFT, 488, 15, UiKitSystem.COLORS.ink)
-	game.draw_multiline_string(game.UI_FONT, rect.position + Vector2(20, 54), game.TalentSystem.word(game, String(talent.id), true), HORIZONTAL_ALIGNMENT_LEFT, 488, 11, 3, Color("5e4633"))
+	game.draw_ui_multiline_string(game.UI_FONT, rect.position + Vector2(20, 54), game.TalentSystem.word(game, String(talent.id), true), HORIZONTAL_ALIGNMENT_LEFT, 488, 48, 11, 3, Color("5e4633"))
 	var missing: Array[String] = game.TalentSystem.missing_requirements(game, String(talent.id))
 	var hint: String = game.TalentSystem.word(game, "learn_hint") if missing.is_empty() else game.TalentSystem.word(game, "need", false, [game.TalentSystem.requirement_names(game, missing)])
 	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(20, 118), hint, HORIZONTAL_ALIGNMENT_LEFT, 480, 9, Color("80593a"))

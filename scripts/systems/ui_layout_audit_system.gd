@@ -9,9 +9,12 @@ const InterfaceRenderer := preload("res://scripts/systems/interface_renderer.gd"
 const ItemWindowRenderer := preload("res://scripts/systems/item_window_renderer.gd")
 const TalentRenderer := preload("res://scripts/systems/talent_renderer.gd")
 const FishingRenderer := preload("res://scripts/systems/fishing_renderer.gd")
+const WorldMapRenderer := preload("res://scripts/systems/world_map_renderer.gd")
 
 const MIN_VERTICAL_TEXT_PADDING := 4.0
 const MIN_TOUCH_TARGET := 28.0
+const AUDIT_TEXT_SCALE := 1.2
+const AUDIT_LOCALES := ["ru", "en", "es", "de", "fr", "zh"]
 const EDITOR_BUTTONS := [
 	[LevelEditorSystem.CATEGORY_PREV,"‹"],[LevelEditorSystem.SEARCH_BUTTON,"ЗЕМЛЯ · ПОИСК /"],[LevelEditorSystem.CATEGORY_NEXT,"›"],[LevelEditorSystem.FAVORITES_BUTTON,"★ 999"],
 	[LevelEditorSystem.SELECT_TOOL_BUTTON,"ВЫБОР"],[LevelEditorSystem.PAINT_TOOL_BUTTON,"КИСТЬ"],[LevelEditorSystem.FILL_TOOL_BUTTON,"ОБЛАСТЬ"],[LevelEditorSystem.PICKER_TOOL_BUTTON,"ПИПЕТКА"],[LevelEditorSystem.ERASE_TOOL_BUTTON,"ЛАСТИК"],
@@ -41,8 +44,9 @@ static func project_report(game: Node) -> Dictionary:
 	_check_hud(checks)
 	_check_talent_tree(checks)
 	_check_fishing(checks)
+	var localization:=_check_localized_dynamic_text(checks,game)
 	var failed:=checks.filter(func(check:Dictionary):return not bool(check.passed))
-	return {"schema":1,"scope":"project_ui","surfaces":8,"checks":checks.size(),"passed":checks.size()-failed.size(),"failed":failed.size(),"source_metrics":_source_metrics(),"issues":failed}
+	return {"schema":2,"scope":"project_ui","surfaces":8,"checks":checks.size(),"passed":checks.size()-failed.size(),"failed":failed.size(),"localization":localization,"source_metrics":_source_metrics(),"issues":failed}
 
 
 ## Проверяет принадлежность кнопок контейнеру, минимальную hit-зону, отсутствие пересечений и текстовую safe-area.
@@ -113,6 +117,8 @@ static func _check_hud(checks:Array[Dictionary])->void:
 static func _check_talent_tree(checks:Array[Dictionary])->void:
 	_record(checks,"talent.panel.viewport",InterfaceRenderer.VIEWPORT.encloses(TalentRenderer.PANEL),"Книга талантов выходит за viewport")
 	for data in [["title",TalentRenderer.TITLE_RIBBON],["tree",TalentRenderer.TREE_PANEL],["close",TalentRenderer.CLOSE_BUTTON]]: _record(checks,"talent.%s.contained"%data[0],TalentRenderer.PANEL.encloses(data[1]),"Элемент талантов выходит за книгу")
+	_record(checks,"talent.level_badge.contained",TalentRenderer.DETAILS_RECT.encloses(TalentRenderer.LEVEL_BADGE),"Счётчик уровня выходит за панель подробностей")
+	_record(checks,"talent.level_badge.title_gap",not TalentRenderer.LEVEL_BADGE.intersects(TalentRenderer.TITLE_RIBBON),"Счётчик уровня перекрывает заголовок")
 	var nodes:Array[Rect2]=[]
 	for index in 20:
 		var rect:=TalentRenderer.node_rect(index); nodes.append(rect); _record(checks,"talent.node.%d.contained"%index,TalentRenderer.TREE_PANEL.encloses(rect),"Узел таланта выходит за дерево")
@@ -130,6 +136,77 @@ static func _check_fishing(checks:Array[Dictionary])->void:
 	_record(checks,"fishing.panel.viewport",InterfaceRenderer.VIEWPORT.encloses(FishingRenderer.PANEL),"Панель рыбалки выходит за viewport")
 
 
+## Прогоняет весь динамический текст рыбалки, энциклопедии, журнала и талантов на шести языках при масштабе 120%.
+static func _check_localized_dynamic_text(checks:Array[Dictionary],game:Node)->Dictionary:
+	var original_locale:=String(game.LocaleSystem.current); var original_scale:=float(game.settings_state.text_scale); var by_surface:={"fishing":0,"world_guide":0,"quest_log":0,"talent_tree":0}; var before:=checks.size()
+	game.settings_state.text_scale=AUDIT_TEXT_SCALE
+	for locale in AUDIT_LOCALES:
+		game.LocaleSystem.set_locale(locale,false)
+		_check_fishing_text(checks,game,locale,by_surface)
+		_check_world_guide_text(checks,game,locale,by_surface)
+		_check_quest_text(checks,game,locale,by_surface)
+		_check_talent_text(checks,game,locale,by_surface)
+	game.LocaleSystem.set_locale(original_locale,false); game.settings_state.text_scale=original_scale
+	return {"locales":AUDIT_LOCALES.duplicate(),"text_scale":AUDIT_TEXT_SCALE,"surfaces":by_surface,"contracts":checks.size()-before}
+
+
+## Проверяет названия рыб, состояния мини-игры, подсказки и итоговую карточку улова.
+static func _check_fishing_text(checks:Array[Dictionary],game:Node,locale:String,counts:Dictionary)->void:
+	var contracts:Array=[]
+	contracts.append_array([["cast_title",game.LocaleSystem.text("fish_cast_title"),336.0,20,10],["release",game.LocaleSystem.text("fish_release"),336.0,12,8],["minigame_title",game.LocaleSystem.text("fish_minigame_title"),370.0,20,10],["perfect",game.LocaleSystem.text("fish_perfect"),132.0,14,8],["catch_title",game.LocaleSystem.text("fish_catch_title"),402.0,20,10],["escaped",game.LocaleSystem.text("fish_escaped"),402.0,20,10],["result_xp",game.LocaleSystem.text("fish_result_xp",[999]),270.0,10,7],["new_record",game.LocaleSystem.text("fish_new_record"),270.0,11,7],["result_close",game.LocaleSystem.text("fish_result_close"),402.0,10,7]])
+	for key in ["shallow","middle","deep"]: contracts.append(["depth_"+key,game.LocaleSystem.text("fish_depth_"+key),100.0,9,7])
+	for key in ["common","uncommon","rare","legendary"]: contracts.append(["rarity_"+key,game.LocaleSystem.text("fish_rarity_"+key),132.0,9,7])
+	for key in ["mixed","smooth","sinker","floater","dart"]: contracts.append(["behavior_"+key,game.LocaleSystem.text("fish_behavior_"+key),132.0,9,7])
+	for key in ["perfect","good","late"]: contracts.append(["hook_"+key,game.LocaleSystem.text("fish_hook_"+key),132.0,9,7])
+	for key in ["progress","tension"]: contracts.append(["escape_"+key,game.LocaleSystem.text("fish_escape_"+key),402.0,13,8])
+	contracts.append(["progress",game.LocaleSystem.text("fish_catch_progress",[100]),132.0,10,7]); contracts.append(["tension",game.LocaleSystem.text("fish_tension",[100]),132.0,9,7]); contracts.append(["streak",game.LocaleSystem.text("fish_streak",["99.9s","x1.6"]),132.0,9,7]); contracts.append(["hold",game.LocaleSystem.text("fish_hold_hint").replace("\n"," / "),132.0,9,7])
+	for fish in game.FishingSystem.FISH_CATALOG: contracts.append(["fish_"+String(fish.id),game.LocaleSystem.text(String(fish.name_key)),132.0,12,8])
+	for contract in contracts: _record_text_contract(checks,game,"fishing",locale,contract); counts.fishing=int(counts.fishing)+1
+
+
+## Проверяет пять вкладок энциклопедии, карту, календарь, бестиарий, коллекцию и рецепты.
+static func _check_world_guide_text(checks:Array[Dictionary],game:Node,locale:String,counts:Dictionary)->void:
+	var contracts:Array=[["title",game.LocaleSystem.ui("world_guide"),452.0,19,10],["forecast",game.LocaleSystem.ui("guide_week_forecast"),420.0,15,9],["year",game.LocaleSystem.ui("guide_valley_year"),360.0,12,8],["collection",game.LocaleSystem.ui("guide_fish_collection"),600.0,14,8],["legend",game.LocaleSystem.ui("map_legend"),192.0,9,7],["unknown",game.LocaleSystem.ui("map_unknown"),112.0,8,7],["enemy_stats",game.LocaleSystem.ui("guide_enemy_stats",[999,99]),210.0,8,7],["find_enemy",game.LocaleSystem.ui("guide_find_enemy"),118.0,8,7],["recipe_open",game.LocaleSystem.ui("guide_recipe_open"),442.0,11,8],["recipe_locked",game.LocaleSystem.ui("guide_recipe_locked"),442.0,11,8]]
+	for key in WorldMapRenderer.PAGE_LABEL_KEYS: contracts.append([key,game.LocaleSystem.ui(key),158.0,10,7])
+	for key in ["market","festival","traveler","raid"]: contracts.append(["event_"+key,game.LocaleSystem.ui("guide_event_"+key),91.0,7,7])
+	for key in ["spring","summer","autumn","winter"]: contracts.append(["season_"+key,game.LocaleSystem.ui("season_"+key),130.0,12,7])
+	for key in ["clear","rain","wind","snow","storm"]: contracts.append(["weather_"+key,game.LocaleSystem.ui("weather_"+key),111.0,10,7])
+	for location in game.WorldMapSystem.LOCATIONS: contracts.append(["location_"+String(location),game.LocaleSystem.location(String(location)),192.0,16,8])
+	for fish in game.FishingSystem.FISH_CATALOG: contracts.append(["record_"+String(fish.id),game.LocaleSystem.text(String(fish.name_key)),136.0,11,7])
+	for contract in contracts: _record_text_contract(checks,game,"world_guide",locale,contract); counts.world_guide=int(counts.world_guide)+1
+	_record_multiline_contract(checks,game,"world_guide",locale,["map_close",game.LocaleSystem.ui("map_close"),190.0,176.0,10,7]); counts.world_guide=int(counts.world_guide)+1
+
+
+## Проверяет заголовки, состояния, описания, цели и навигацию всех сюжетных и побочных миссий.
+static func _check_quest_text(checks:Array[Dictionary],game:Node,locale:String,counts:Dictionary)->void:
+	var contracts:Array=[["header",game.LocaleSystem.ui("quest_log"),444.0,24,12],["page",game.LocaleSystem.ui("quest_page",[99,99]),292.0,11,8],["close",game.LocaleSystem.ui("quest_close"),190.0,9,7]]
+	for state_key in ["locked","available","active","completed"]: contracts.append(["state_"+state_key,game.LocaleSystem.ui(state_key).to_upper(),180.0,11,8])
+	for mission_id in game.QuestSystem.MISSIONS:
+		var mission:Dictionary=game.QuestSystem.mission_data(String(mission_id)); contracts.append([String(mission_id)+"_type",mission.type,74.0,10,7]); contracts.append([String(mission_id)+"_title",mission.title,510.0,18,9]); contracts.append([String(mission_id)+"_description",mission.description,676.0,11,8]); contracts.append([String(mission_id)+"_objective",game.LocaleSystem.ui("quest_talk_to",[mission.giver]),462.0,10,7])
+	for contract in contracts: _record_text_contract(checks,game,"quest_log",locale,contract); counts.quest_log=int(counts.quest_log)+1
+
+
+## Проверяет четыре ветви, двадцать способностей, статусы, зависимости и управляющие подписи дерева талантов.
+static func _check_talent_text(checks:Array[Dictionary],game:Node,locale:String,counts:Dictionary)->void:
+	var contracts:Array=[["title",game.TalentSystem.word(game,"title"),444.0,20,10],["level_points",game.LocaleSystem.ui("level_points",[20,99]).to_upper(),140.0,9,7],["learned",game.TalentSystem.word(game,"learned"),128.0,8,7],["available",game.TalentSystem.word(game,"available"),128.0,8,7],["locked",game.TalentSystem.word(game,"locked"),128.0,8,7],["rank",game.TalentSystem.word(game,"rank",false,[3,3]),128.0,8,7],["learn_hint",game.TalentSystem.word(game,"learn_hint"),480.0,9,7],["close",game.TalentSystem.word(game,"close"),216.0,8,7],["respec",game.TalentSystem.word(game,"respec",false,[9999]),200.0,8,7]]
+	for group in game.TalentSystem.GROUPS: contracts.append(["group_"+String(group.id),game.TalentSystem.word(game,"group_"+String(group.id)),164.0,10,7])
+	for talent in game.TalentSystem.TALENTS:
+		var talent_id:=String(talent.id); contracts.append([talent_id+"_node",game.TalentSystem.word(game,talent_id),128.0,10,7]); contracts.append([talent_id+"_detail",game.TalentSystem.word(game,talent_id),488.0,15,9]); _record_multiline_contract(checks,game,"talent_tree",locale,[talent_id+"_description",game.TalentSystem.word(game,talent_id,true),488.0,48.0,11,8]); counts.talent_tree=int(counts.talent_tree)+1
+	for contract in contracts: _record_text_contract(checks,game,"talent_tree",locale,contract); counts.talent_tree=int(counts.talent_tree)+1
+
+
+## Фиксирует однострочный контракт по реальной метрике шрифта после пользовательского масштабирования.
+static func _record_text_contract(checks:Array[Dictionary],game:Node,surface:String,locale:String,contract:Array)->void:
+	var effective:int=game.UiScaleSystem.fitted_font_size(game,game.UI_FONT,String(contract[1]),float(contract[2]),int(contract[3])); var actual:float=game.UI_FONT.get_string_size(String(contract[1]),HORIZONTAL_ALIGNMENT_LEFT,-1,effective).x
+	_record(checks,"locale.%s.%s.%s"%[surface,locale,String(contract[0])],actual<=float(contract[2])+0.1 and effective>=int(contract[4]),"Текст не помещается с минимально читаемым размером")
+
+
+## Фиксирует многострочный контракт, учитывая одновременно ширину, высоту и полный объём перевода.
+static func _record_multiline_contract(checks:Array[Dictionary],game:Node,surface:String,locale:String,contract:Array)->void:
+	var effective:int=game.UiScaleSystem.fitted_multiline_font_size(game,game.UI_FONT,String(contract[1]),float(contract[2]),float(contract[3]),int(contract[4])); var actual:Vector2=game.UI_FONT.get_multiline_string_size(String(contract[1]),HORIZONTAL_ALIGNMENT_LEFT,float(contract[2]),effective)
+	_record(checks,"locale.%s.%s.%s"%[surface,locale,String(contract[0])],actual.y<=float(contract[3])+0.1 and effective>=int(contract[5]),"Многострочный текст не помещается с минимально читаемым размером")
+
+
 ## Добавляет одну атомарную проверку с кодом и объяснением только при нарушении.
 static func _record(checks:Array[Dictionary],code:String,passed:bool,message:String)->void:
 	checks.append({"code":code,"passed":passed,"message":"" if passed else message})
@@ -140,7 +217,7 @@ static func _source_metrics()->Dictionary:
 	var paths:Array[String]=[]; _collect_renderers("res://scripts/systems",paths); var text_calls:=0; var fitted_calls:=0; var multiline_calls:=0
 	for path in paths:
 		var source:=FileAccess.get_file_as_string(path); text_calls+=source.count("draw_ui_string("); fitted_calls+=source.count("fit_label("); multiline_calls+=source.count("draw_multiline_string(")
-	return {"renderer_modules":paths.size(),"text_draw_calls":text_calls,"adaptive_fit_calls":fitted_calls,"multiline_draw_calls":multiline_calls}
+	return {"renderer_modules":paths.size(),"adaptive_single_line_calls":text_calls,"explicit_fit_calls":fitted_calls,"adaptive_multiline_calls":paths.reduce(func(total,path):return total+FileAccess.get_file_as_string(path).count("draw_ui_multiline_string("),0),"raw_multiline_calls":multiline_calls}
 
 
 ## Рекурсивно собирает только production-renderer файлы, исключая тесты и инструменты.

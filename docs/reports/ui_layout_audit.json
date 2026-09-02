@@ -1,15 +1,34 @@
 {
-  "checks": 781,
+  "checks": 2235,
   "failed": 0,
   "issues": [],
-  "passed": 781,
-  "schema": 1,
+  "localization": {
+    "contracts": 1452,
+    "locales": [
+      "ru",
+      "en",
+      "es",
+      "de",
+      "fr",
+      "zh"
+    ],
+    "surfaces": {
+      "fishing": 246,
+      "quest_log": 474,
+      "talent_tree": 438,
+      "world_guide": 294
+    },
+    "text_scale": 1.2
+  },
+  "passed": 2235,
+  "schema": 2,
   "scope": "project_ui",
   "source_metrics": {
-    "adaptive_fit_calls": 9,
-    "multiline_draw_calls": 11,
-    "renderer_modules": 35,
-    "text_draw_calls": 259
+    "adaptive_multiline_calls": 3,
+    "adaptive_single_line_calls": 259,
+    "explicit_fit_calls": 9,
+    "raw_multiline_calls": 8,
+    "renderer_modules": 35
   },
   "surfaces": 8
 }

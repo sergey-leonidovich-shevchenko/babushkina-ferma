@@ -55,6 +55,15 @@ static func fitted_font_size(game: Node, font: Font, text: String, width: float,
 	return scaled
 
 
+## Подбирает размер многострочного текста по ширине и высоте, не обрезая последний смысловой ряд при масштабе 120%.
+static func fitted_multiline_font_size(game: Node, font: Font, text: String, width: float, height: float, requested_size: int) -> int:
+	var scaled := maxi(1, roundi(requested_size * game.settings_state.text_scale))
+	if width <= 0.0 or height <= 0.0: return scaled
+	while scaled > 6 and font.get_multiline_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, width, scaled).y > height:
+		scaled -= 1
+	return scaled
+
+
 ## Масштабирует сенсорную кнопку относительно её центра, сохраняя минимальную удобную область 48×48 px.
 static func touch_rect(game: Node, base_rect: Rect2) -> Rect2:
 	var size: Vector2 = base_rect.size * game.settings_state.touch_scale
