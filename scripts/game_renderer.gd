@@ -148,13 +148,9 @@ func draw_interior_objects() -> void:
 	if data.is_empty():
 		return
 	InteriorRenderer.draw(self)
-	if data.has("service"):
-		var service_position: Vector2 = data.service_position
-		draw_string(UI_FONT, service_position + Vector2(-72, 18), LocaleSystem.entity(String(data.service)).to_upper(), HORIZONTAL_ALIGNMENT_CENTER, 144, 13, Color("fff0bd"))
 	if current_location == "cottage_interior" and home_chest_owned:
 		var chest_position: Vector2 = StorageSystem.CHEST_POSITION
 		InteriorRenderer.draw_prop(self,"home_chest",chest_position)
-		draw_string(UI_FONT, chest_position + Vector2(-62, 49), LocaleSystem.entity("home_chest"), HORIZONTAL_ALIGNMENT_CENTER, 124, 13, Color("fff0bd"))
 	if current_location == "prison_interior":
 		for companion_id in CompanionSystem.COMPANIONS:
 			var position: Vector2 = CompanionSystem.COMPANIONS[companion_id].position

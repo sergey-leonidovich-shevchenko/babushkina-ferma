@@ -132,7 +132,8 @@ static func append_buildings(game: Node, result: Array[Dictionary]) -> void:
 	if not game.BuildingSystem.is_interior(game.current_location): return
 	for index in game.InteriorVisualSystem.props(game.current_location).size():
 		var prop: Dictionary = game.InteriorVisualSystem.props(game.current_location)[index]; var kind := String(prop.kind); var position := Vector2(prop.position); var rect: Rect2 = game.InteriorVisualSystem.collision_rect(kind,position); var visual: Rect2 = game.InteriorVisualSystem.destination_rect(kind,position)
-		add(result, "interior_prop:%d:%s" % [index,kind], "ИНТЕРЬЕР", game.LocaleSystem.entity(kind), position, visual, 16, rect_description(rect), "непроходимо", ["комната %s" % game.current_location,"рисунок %.0f×%.0f" % [visual.size.x,visual.size.y]])
+		var collision_label:="декор · проходимо" if rect.size==Vector2.ZERO else "мебель · непроходимо"
+		add(result, "interior_prop:%d:%s" % [index,kind], "ИНТЕРЬЕР", game.LocaleSystem.entity(kind), position, visual, 16, rect_description(rect) if rect.size!=Vector2.ZERO else "нет", collision_label, ["комната %s" % game.current_location,"рисунок %.0f×%.0f" % [visual.size.x,visual.size.y]])
 
 
 ## Добавляет деревья всех стадий по фактической кроне, включая здоровье и таймер отрастания.

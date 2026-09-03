@@ -26,7 +26,7 @@ const BUILDINGS := {
 }
 
 const INTERIORS := {
-	"cottage_interior":{"building":"cottage","room":Rect2(210, 120, 732, 440),"spawn":Vector2(576, 500),"exit":Vector2(576, 545),"color":Color("876a45"),"service":"bed","service_position":Vector2(350, 340)},
+	"cottage_interior":{"building":"cottage","room":Rect2(132, 112, 888, 448),"spawn":Vector2(576, 500),"exit":Vector2(576, 545),"color":Color("876a45"),"service":"bed","service_position":Vector2(300, 390),"services":[{"id":"bed","position":Vector2(300,390)},{"id":"cauldron","position":Vector2(930,390)}]},
 	"shop_interior":{"building":"shop_house","room":Rect2(170, 100, 812, 470),"spawn":Vector2(576, 510),"exit":Vector2(576, 555),"color":Color("9b7445"),"service":"shop","service_position":Vector2(576, 330)},
 	"guild_interior":{"building":"guild_hall","room":Rect2(120, 90, 912, 500),"spawn":Vector2(576, 525),"exit":Vector2(576, 575),"color":Color("79573d"),"service":"contracts","service_position":Vector2(576, 330)},
 	"forge_interior":{"building":"forge","room":Rect2(150, 100, 852, 480),"spawn":Vector2(576, 520),"exit":Vector2(576, 565),"color":Color("6b5347"),"service":"forge","service_position":Vector2(576, 340)},
@@ -133,7 +133,11 @@ static func nearest_interaction(game: Node, distance_limit: float = 92.0) -> Str
 		if distance < distance_limit:
 			distance_limit = distance
 			nearest = "interior_link:%s" % String(link.target)
-	if data.has("service"):
+	if data.has("services"):
+		for service in data.services:
+			var service_distance:float=game.player.distance_to(service.position)
+			if service_distance<distance_limit: distance_limit=service_distance; nearest="interior_service:%s"%String(service.id)
+	elif data.has("service"):
 		var service_distance: float = game.player.distance_to(data.service_position)
 		if service_distance < distance_limit:
 			nearest = "interior_service:%s" % String(data.service)
@@ -152,7 +156,10 @@ static func interaction_position(game: Node, interaction: String) -> Vector2:
 			if link.target == target:
 				return link.position
 	if interaction.begins_with("interior_service:") and is_interior(game.current_location):
-		return INTERIORS[game.current_location].get("service_position", Vector2.ZERO)
+		var data:Dictionary=INTERIORS[game.current_location]; var service_id:=interaction.get_slice(":",1)
+		for service in data.get("services",[]):
+			if String(service.id)==service_id: return Vector2(service.position)
+		return data.get("service_position", Vector2.ZERO)
 	return Vector2.ZERO
 
 
@@ -162,6 +169,7 @@ static func use_service(game: Node, service: String) -> bool:
 		"shop": game.open_shop()
 		"bed": game.sleep_until_morning()
 		"craft": game.open_crafting()
+		"cauldron": game.open_crafting("cauldron")
 		"forge": game.open_forge()
 		"contracts": game.ContractSystem.open(game)
 		_: return false

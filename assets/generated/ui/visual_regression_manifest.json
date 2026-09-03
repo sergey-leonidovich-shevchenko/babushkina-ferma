@@ -1,5 +1,5 @@
 {
-  "schema": 1,
+  "schema": 2,
   "design_viewport": [
     1152,
     648
@@ -9,169 +9,533 @@
       "file": "adaptive_ui_ingame_preview.png",
       "width": 1152,
       "height": 648,
-      "sha256": "a616deb185c040ee6a60cd584ad2923408abe164ff4cd5b046a2b00c83398f70"
+      "sha256": "a616deb185c040ee6a60cd584ad2923408abe164ff4cd5b046a2b00c83398f70",
+      "perceptual": {
+        "grid": [
+          8,
+          8
+        ],
+        "rgb_hex": "040706191912311c0d57381e553a22311f100e0b060508060508061f150a886234926d408d63378d653520160b090b080508071d130ca77c45aa814ab38547aa7b4223160d060a070307061e140cbb8d56d3a86bc99859cc985a23150d0508060307061e130bc6a263d2af6ed6af71c59e6123170d0307060408061b110bab8951c5a262a58554a07c4a1f140c050908030706191a08ba9051c39b5ec39856b28952181a090508070407061c1508523c1f5a3e23583c22503a1e1b1409050806",
+        "thresholds": {
+          "mean": 0.02,
+          "max_cell": 0.1,
+          "changed_ratio": 0.15,
+          "changed_cell": 0.035
+        }
+      }
     },
     {
       "file": "bestiary_ingame_preview.png",
       "width": 1152,
       "height": 648,
-      "sha256": "c7a3776cad7823c97c4b5971812006413e7efbbfb2cc3b60f97841477de546c6"
+      "sha256": "c7a3776cad7823c97c4b5971812006413e7efbbfb2cc3b60f97841477de546c6",
+      "perceptual": {
+        "grid": [
+          8,
+          8
+        ],
+        "rgb_hex": "2d1c0c36271352311b604f3b5e4c3542291437251137220f533919694c2c5e44287e5a33745430634b30694c2c4c3617675636ebc584c9a46ac0a364caae6ca88959eac584685229483f27cda768a07744c59f5dc69e5fa47c47c8a162402e19675040e6c282c79e62cdb283e3bd7cbd955ee2be7f4d3a285a4c2ba683529b7442a4804fa6824f9f7646a7855246331e62502ac5a269a37c48bd9965ba9862987748be9c645a431f3f341437200f3f25124125124327133f24113b221050441e",
+        "thresholds": {
+          "mean": 0.02,
+          "max_cell": 0.1,
+          "changed_ratio": 0.15,
+          "changed_cell": 0.035
+        }
+      }
     },
     {
       "file": "calendar_ingame_preview.png",
       "width": 1152,
       "height": 648,
-      "sha256": "df0829852b9366b65a3d76053fe59387bdc418b56a6c619fd15bc30ac6fc770e"
+      "sha256": "df0829852b9366b65a3d76053fe59387bdc418b56a6c619fd15bc30ac6fc770e",
+      "perceptual": {
+        "grid": [
+          8,
+          8
+        ],
+        "rgb_hex": "2d1c0c36271352311b604f3b5e4c3542291437251137220f533919694c2c755b3773522e654628634b30694c2c4c3617554327b18c59b38d5a997a47917643a48050b7925d604b23746446d0ad71d9b578e3be82b49665bb955dba935a57462c57442cb18752b78d55a57b4a997548a57c4aa57c4a43331f5d4720af844eb68b52a87d449067379766338b5d2f402b19584824a47b48a5804c9a744878552f855f33825b324e391e3f341437200f3f25124125124327133f24113b221050441e",
+        "thresholds": {
+          "mean": 0.02,
+          "max_cell": 0.1,
+          "changed_ratio": 0.15,
+          "changed_cell": 0.035
+        }
+      }
     },
     {
       "file": "chapter_reward_ingame_preview.png",
       "width": 1152,
       "height": 648,
-      "sha256": "1088f3fcc8e3a321e8a80ff47cc2f0bcb9f186c628fefa040c1ac1b69fdf4229"
+      "sha256": "1088f3fcc8e3a321e8a80ff47cc2f0bcb9f186c628fefa040c1ac1b69fdf4229",
+      "perceptual": {
+        "grid": [
+          8,
+          8
+        ],
+        "rgb_hex": "1610081d180e1616161c18111f180d2921141e170e1f170c1010081111091b1712442f124a32121b130e1e1a1116180d0b100b754a24865935916e4192744e755434794f252124180a100ab28a55d6b172e0ba78e0ba78dcb474a8824e1a180c0c12099063329b724089683e906a3d986d407a532a0e110c131608926d3ca67d47b08954b88e52a1784495713c100e0a0b0e08392b0d341f0d301c0c2f1c0d3422113b2d101c190d0e0d08131009201a101d170e27201419140d19150c1a170c",
+        "thresholds": {
+          "mean": 0.02,
+          "max_cell": 0.1,
+          "changed_ratio": 0.15,
+          "changed_cell": 0.035
+        }
+      }
     },
     {
       "file": "collections_ingame_preview.png",
       "width": 1152,
       "height": 648,
-      "sha256": "a22f07d83cb9be7b72105a48601add8280bda5d991b0b71b781e97868e257198"
+      "sha256": "a22f07d83cb9be7b72105a48601add8280bda5d991b0b71b781e97868e257198",
+      "perceptual": {
+        "grid": [
+          8,
+          8
+        ],
+        "rgb_hex": "2d1c0c36271352311b604f3b5e4c3542291437251137220f533919694c2c5e44286e4c2a6b4c2b765e3d694c2c4c3617463216826036896235583b145d4520725232835f3a4f39143a2d1a69401e825d2d5c361a6f4c28855929754e2b362211524126724d2793693269401b7b5e3a885d317b532d3120104c361576491e82532474471e966f3b80501f79491f3f28134c3c1b62391a6f4f3155341b6d4d2b6c441d6d4520442e143f341437200f3f25124125124327133f24113b221050441e",
+        "thresholds": {
+          "mean": 0.02,
+          "max_cell": 0.1,
+          "changed_ratio": 0.15,
+          "changed_cell": 0.035
+        }
+      }
     },
     {
       "file": "compendium_ingame_preview.png",
       "width": 1152,
       "height": 648,
-      "sha256": "f9ecfb226ea91d0db394caf759028f5ee6103c20679b9e9e8c3d63d3f9b064f7"
+      "sha256": "f9ecfb226ea91d0db394caf759028f5ee6103c20679b9e9e8c3d63d3f9b064f7",
+      "perceptual": {
+        "grid": [
+          8,
+          8
+        ],
+        "rgb_hex": "5539197258345a5153624d3b6445238a693d77563179542a392f177f51266944285d442d75583b78552d6d44224933171c261adbb170e5bd7ae5be7be6bf7ce6be7ce6bd7b52441f162419bb9660e7c17ed6b173deb879e6c07ee4bd7b5c4a23232c16b8935ee0ba79e6bf7ce6bf7de6c07ee6be7c3d38213d3915dcb270e6bf7ae5be7be5bf7ce5be7be4bc793e2e1d2b3217af894dbf965bc2985dc0965cc1965bb38d52574b2c40341943321b6448305e4428755a39503a274e3b21695829",
+        "thresholds": {
+          "mean": 0.02,
+          "max_cell": 0.1,
+          "changed_ratio": 0.15,
+          "changed_cell": 0.035
+        }
+      }
     },
     {
       "file": "context_hud_ingame_preview.png",
       "width": 1152,
       "height": 648,
-      "sha256": "6c08b64c1aa9ce787b206e15dbdf499f0ebc8b95aba4ebc0515c4c19bf0f9430"
+      "sha256": "6c08b64c1aa9ce787b206e15dbdf499f0ebc8b95aba4ebc0515c4c19bf0f9430",
+      "perceptual": {
+        "grid": [
+          8,
+          8
+        ],
+        "rgb_hex": "5c3b1b795c3865504777533c80603aa2824d8965357c562a8a613a99724b84603f755334825d3e93724e6d5536595023786240917c53856b493f3a264b3e223c43352d4e4b476752403e1d3e401b41382e403c292e3120443c1f1346611d42554f4a2059622360623061562b574527433e1b2b362a283f3f705331a5835a54421c58452a38301b564529968253907b52645c36666339504725745a307a5e3354501e383e29403d282f32164b37227c61407257339576495d492f514c2e665832",
+        "thresholds": {
+          "mean": 0.02,
+          "max_cell": 0.1,
+          "changed_ratio": 0.15,
+          "changed_cell": 0.035
+        }
+      }
     },
     {
       "file": "creation_ingame_preview.png",
       "width": 1152,
       "height": 648,
-      "sha256": "3d9bdc99d45d1f676672c4372f9d3f87923b6904acbe3856c2ceeaa5de7725f0"
+      "sha256": "3d9bdc99d45d1f676672c4372f9d3f87923b6904acbe3856c2ceeaa5de7725f0",
+      "perceptual": {
+        "grid": [
+          8,
+          8
+        ],
+        "rgb_hex": "13110a18170f131516342414352211211e1419160f1a160e19160f50341675441b794f277c4f276f4a1f39250d11110b171812593e22aa824cbfa66fbfa870a8835024170c13140d0a110c523a22ca9f66c89254ca965bbf95602d1d0f16170e0c120b563b1dbc9a62ae8e5bb09262b18b5424180b0d120e11150b4e371bcaa15ccda463cca464c99d5822190b0e100c0b100a433916bb9258be965dbd965cb68f56312a1017180f0e0f0a17140b261b10261a0f2a1e121f160e211d0e16160d",
+        "thresholds": {
+          "mean": 0.02,
+          "max_cell": 0.1,
+          "changed_ratio": 0.15,
+          "changed_cell": 0.035
+        }
+      }
     },
     {
       "file": "crafting_ingame_preview.png",
       "width": 1152,
       "height": 648,
-      "sha256": "65b6ae3e35985eda950db453a898d6c9041aa716c685b89ef906167dbd7d8886"
+      "sha256": "2d06d8794fb6fe7b629e3128fc8832900c5710f5048217f7b7dbe68dcade5f6b",
+      "perceptual": {
+        "grid": [
+          8,
+          8
+        ],
+        "rgb_hex": "2e210c4e371731241a281c132b1d0f3e2e1748311432240e3724118f6a419e7b4da57f4fa17b4e9a74448d683d3e2711372d1c97764345210a4a240b633716a4672da8804a554329372c1caf8852976a38a6713b935f2d905723a87f4a57442a3b2e1db1874ea47542a86d3c9b6432805024a87f495643293f301bb99157aa7339ad753b915f2d7c5227a87f4a5540293a301899764264411e64411e7d5226a06a2db082454e402117140922180c3427193c30204336242f2317291e0d2c2810",
+        "thresholds": {
+          "mean": 0.02,
+          "max_cell": 0.1,
+          "changed_ratio": 0.15,
+          "changed_cell": 0.035
+        }
+      }
     },
     {
       "file": "debug_overlay_ingame_preview.png",
       "width": 1152,
       "height": 648,
-      "sha256": "7b7818ac8d5ddc3e2e573aa4b3c13823eda17bdaf81f800fa0942eac8ee78937"
+      "sha256": "7b7818ac8d5ddc3e2e573aa4b3c13823eda17bdaf81f800fa0942eac8ee78937",
+      "perceptual": {
+        "grid": [
+          8,
+          8
+        ],
+        "rgb_hex": "654d2c876a4a6354463a33243c33247260445d57444c39204252386259345d4328444a2e5e5d3a232a1f141816181b13416347556c4357633851653c4b5b3733432d0609081e2617395e533f66604864335c6e3e5d6f4362613d584e2e433f214060502e5f7a52676749645660755c565439382c1656502f486134395c52265d7b2a5066445356676750423a295e56334b623a3a56321f5e5a214d4c3548423d4131231f122328263f4829483c227c6140725733957649565c40395b4920565d",
+        "thresholds": {
+          "mean": 0.02,
+          "max_cell": 0.1,
+          "changed_ratio": 0.15,
+          "changed_cell": 0.035
+        }
+      }
     },
     {
       "file": "defeat_ingame_preview.png",
       "width": 1152,
       "height": 648,
-      "sha256": "1f65e597016f77fb78211004bb373c8c197a50e504eaae573a502e42f0504417"
+      "sha256": "1f65e597016f77fb78211004bb373c8c197a50e504eaae573a502e42f0504417",
+      "perceptual": {
+        "grid": [
+          8,
+          8
+        ],
+        "rgb_hex": "16120a1d1a101618191c19141f1a0f2923161e19101f190e10120b11130b0b0e120b0f1010130f13120f0e0e0b161a0f0b110d0b1212583f215a3f294128154e38191013101a1f160a120c0d1312cca167e6bf7be5be7cba8b541d1b111a1a0f0c140b18190ec79f67e1bc79e3bd7cb6895214170d0e130f13180b13170c6e5329492f16442c15725527262619201e160b100a0f140c16180c19180e13140e191a12171a1414160f0e0f0a13120b201b131d191027221619161019170f1a190e",
+        "thresholds": {
+          "mean": 0.02,
+          "max_cell": 0.1,
+          "changed_ratio": 0.15,
+          "changed_cell": 0.035
+        }
+      }
     },
     {
       "file": "dialogue_ingame_preview.png",
       "width": 1152,
       "height": 648,
-      "sha256": "a62c37807ef5c1fdaa63106e94f945e74b277904be0dd8a68240d5c9bff19d9a"
+      "sha256": "a62c37807ef5c1fdaa63106e94f945e74b277904be0dd8a68240d5c9bff19d9a",
+      "perceptual": {
+        "grid": [
+          8,
+          8
+        ],
+        "rgb_hex": "3927114c3c23393639493a2c523c1f6c56344f3a2251381d2726132a2a141b1b281a1d2327291f3126201c110e3024131a251a1a27281f1f261a1a1e262f2b302c1d231e1a37321b1827171f28283024192d231d1a2a313231184c3f26443c1f322f144e371a58351952321d53341c432f16684a2837341c4f3a196b533bddb676e4bd79e5be7be4bd7bdfb6733e2616443517997347e8b15bf1b960c99d5adeb56ec49e604b351b453613664c2761452965482a624629614529684e274d3e19",
+        "thresholds": {
+          "mean": 0.02,
+          "max_cell": 0.1,
+          "changed_ratio": 0.15,
+          "changed_cell": 0.035
+        }
+      }
     },
     {
       "file": "forge_ingame_preview.png",
       "width": 1152,
       "height": 648,
-      "sha256": "8e304fc0798eb7a0c17eeee35d3bab477f3aeda766eee6cd424fe5356e44f77e"
+      "sha256": "be2e8e01b53add12e315b647cfb216fc0cde2d6d019c87eedf0d24c80d267eec",
+      "perceptual": {
+        "grid": [
+          8,
+          8
+        ],
+        "rgb_hex": "2e200c4d3517312217281a11291b0f3c2b154730142f220c3623128f6a41916d42a7804f9069409a74448d683d3a2411382b1c815925b98840b28440b38841b7863e8b66304e3c28382a1c804f1d41210e44220e42220f40200e7d4e18503d2a392b1d5c361aa17340a27440a86d3dae7c4582592f503d29392a1c7e522bb18147ac7d44b17e45b28148784c274f3c29382d1976573587572b895a2d895a2c85562c7e562e43371e14110a21170c3427192a1b0f3c2e1e281a10241b0d1c1c0e",
+        "thresholds": {
+          "mean": 0.02,
+          "max_cell": 0.1,
+          "changed_ratio": 0.15,
+          "changed_cell": 0.035
+        }
+      }
     },
     {
       "file": "fishing_ingame_preview.png",
       "width": 1152,
       "height": 648,
-      "sha256": "72e6509faffe2d923f8d4f7199b2f96d906a7ac72a767e824858b3b06ae918dd"
+      "sha256": "72e6509faffe2d923f8d4f7199b2f96d906a7ac72a767e824858b3b06ae918dd",
+      "perceptual": {
+        "grid": [
+          8,
+          8
+        ],
+        "rgb_hex": "6842207655346654507250348e6538a382457b5f2d6f4b2365522d604a286c50365c4e244a3d1c432514634b2d373016534d2a5a473e52482f4546266654293c494d4c4334453c1c2f434b5a4d372c3c3a253636543f1e3f4e566c6f464f4626384c3d6f60402a404114446043464745814f6a683b57461e6f5e314d562d38431e17495d2747573e6a4b9d884f514a31766131283a20202e163a381d28343652462d46351d51412953462448391d7c61407257339576495d492f554029453e23",
+        "thresholds": {
+          "mean": 0.02,
+          "max_cell": 0.1,
+          "changed_ratio": 0.15,
+          "changed_cell": 0.035
+        }
+      }
     },
     {
       "file": "hud_ingame_preview.png",
       "width": 1152,
       "height": 648,
-      "sha256": "8ced8bd1c2bc44a8fd7f7f3bafcbe0e9c7cf2f9feba9b91043cf34e7ae4110f8"
+      "sha256": "8ced8bd1c2bc44a8fd7f7f3bafcbe0e9c7cf2f9feba9b91043cf34e7ae4110f8",
+      "perceptual": {
+        "grid": [
+          8,
+          8
+        ],
+        "rgb_hex": "5a411f795e3b66554d7052367b552faa7d4680562e734c25403d2f68502d50401d4734216b4f32553f2b5f462851452c454b3c6257365b51295c4e2c534027645330605833607a523d48394353504b47216b5b306d5c367c603875623961592e3a4024204a58504b3c4a4c276660386852395e552b4d52265048223c473e224f64283f434f46316c64492f2f273b3e21544a2a3d381e1744571b394a3836354041382c516a28353b42321a4a351d7d5f3e7256329a7b4c604a303f4a3e124b69",
+        "thresholds": {
+          "mean": 0.02,
+          "max_cell": 0.1,
+          "changed_ratio": 0.15,
+          "changed_cell": 0.035
+        }
+      }
     },
     {
       "file": "inventory_ingame_preview.png",
       "width": 1152,
       "height": 648,
-      "sha256": "e072a4bbaba0e43ec1c84f74b500140ced4dcabeb571031e4fa0ac8569457965"
+      "sha256": "07c7826bb317e6c5e1e7729696dc44c97ade7e0b39411aab1ad429ad26a7f32c",
+      "perceptual": {
+        "grid": [
+          8,
+          8
+        ],
+        "rgb_hex": "4433164332234f39267f4e22825226533b26422f23362a1820190d86653c6b4f3067482b705839675133664e331c140b211c11d7ab6dae8f5f97784bdcc695dcbc83c8a976201a0d312b1eccaa76c89870a08055ddc08cd8bb86caab78211a0e342d1dd7ad72c1a2779a7b51f0d29adcbb8aceae77231e11282110d6b279d3b278aa8f626e6e51a18454c4a06d18120c221f0e7455358263407357345c48317754336e48272c23164224114830165f48325f452780633d725836624726422615",
+        "thresholds": {
+          "mean": 0.02,
+          "max_cell": 0.1,
+          "changed_ratio": 0.15,
+          "changed_cell": 0.035
+        }
+      }
     },
     {
       "file": "language_ingame_preview.png",
       "width": 1152,
       "height": 648,
-      "sha256": "ccf219ca1e3167be8efa311b329c58c41eab76b5a7844b33c5169085972d7d97"
+      "sha256": "ccf219ca1e3167be8efa311b329c58c41eab76b5a7844b33c5169085972d7d97",
+      "perceptual": {
+        "grid": [
+          8,
+          8
+        ],
+        "rgb_hex": "372a30362931392a31362831362a32382a322f27300f1416251c1b62442b683e2557331f5534215c3a213d2f1d1215101d140c5b432ab58f57b8935dd4b074b38e5748351c071313181209674923edb65be9b96cc8a265d6ac695538181818101b15105d4222e3b972e0b875cba567e4ba746e4e261b181014120a594421e1b770e2ba75c9a263e0b56f58441d18150f13110828210b66492a64472a59412664492c4b3c1e1d1a110e110a11120b1f181118160e0d0e0a11110b13110e0d0f0d",
+        "thresholds": {
+          "mean": 0.02,
+          "max_cell": 0.1,
+          "changed_ratio": 0.15,
+          "changed_cell": 0.035
+        }
+      }
     },
     {
       "file": "notification_ingame_preview.png",
       "width": 1152,
       "height": 648,
-      "sha256": "ecb2544e4721d5dee508017557025e4a8d57c51e9a8f6e43816552cfb9e708fc"
+      "sha256": "ecb2544e4721d5dee508017557025e4a8d57c51e9a8f6e43816552cfb9e708fc",
+      "perceptual": {
+        "grid": [
+          8,
+          8
+        ],
+        "rgb_hex": "5a411f795e3b66554d7052367b552faa7d4680562e734c25403d2f68512c50401d4734216c503258422e7f644151452c464b3c6257365b51295c4e2c534026796740958760607a523d48394454514d4a216b5b306d5c367c603876633961592e3a40241e4754514d3c4649276961396953395e552b4d53265048223c473e224f64283f434e452e6c64492f30273b3e21544a2a3d381e61513f5e4f376f55345e51332d526b28353b42321a4a351d7d5f3e7256329a7b4c604a303f4a3e124b69",
+        "thresholds": {
+          "mean": 0.02,
+          "max_cell": 0.1,
+          "changed_ratio": 0.15,
+          "changed_cell": 0.035
+        }
+      }
     },
     {
       "file": "quest_log_ingame_preview.png",
       "width": 1152,
       "height": 648,
-      "sha256": "b07bcca43b2f8a097141460f015b18f3264f1b387adb59306973c49845812bab"
+      "sha256": "b07bcca43b2f8a097141460f015b18f3264f1b387adb59306973c49845812bab",
+      "perceptual": {
+        "grid": [
+          8,
+          8
+        ],
+        "rgb_hex": "21180a3020133b251e46281655351f3e2a1732211330220f1a130a7f562d8e673a947a4c9478448b6b3a8764361b130a1a150d92673c7d5431794d2872441c7b4a1d866133261e0e18150daf8855b78e599b7748967345ae824ea67b43271e0f1c170c9464319c6b389f6c38a06e389e6d3898703f201b10231b0b9f8255c19f7087602f82562993663790683821170f1c1a0b654e31765e3d5641286d53327d5f396c4f2e362f14191409251c0c3020133120113625162a1c1029200f2c2511",
+        "thresholds": {
+          "mean": 0.02,
+          "max_cell": 0.1,
+          "changed_ratio": 0.15,
+          "changed_cell": 0.035
+        }
+      }
     },
     {
       "file": "recipe_guide_ingame_preview.png",
       "width": 1152,
       "height": 648,
-      "sha256": "51a86c3dd9fb04341906b59794a1852a092ca0e66de0dfdc8b9d0d2e819996ff"
+      "sha256": "51a86c3dd9fb04341906b59794a1852a092ca0e66de0dfdc8b9d0d2e819996ff",
+      "perceptual": {
+        "grid": [
+          8,
+          8
+        ],
+        "rgb_hex": "2d1c0c36271352311b604f3b5e4c3542291437251137220f533919694c2c5e44286e4c2a654628634b307c5f3858411f48361ab48f58b590598c6e39c4a564c59d61e5bf7d6a522b271e0fa070389e6e388f6a3beecb8bc78552e1be816b5533281b114827104b2a12896436eecb8ad5a96fe6c2816d573245311080552a8e6131a0713aecc885edca88ecc9876f5633493b17a37a46a57d48896639ebc380ecc683ecc4827c63363f341437200f3f25124125124327133f24113b221050441e",
+        "thresholds": {
+          "mean": 0.02,
+          "max_cell": 0.1,
+          "changed_ratio": 0.15,
+          "changed_cell": 0.035
+        }
+      }
     },
     {
       "file": "shop_ingame_preview.png",
       "width": 1152,
       "height": 648,
-      "sha256": "0fac9bc8b6f1e6f2ea75798a489072dacdef35f9a9796493c17870f7cc28e399"
+      "sha256": "09411bde5162bb5767f47a4ad130f6530636df7eeab761e06ba2960cb15ae368",
+      "perceptual": {
+        "grid": [
+          8,
+          8
+        ],
+        "rgb_hex": "2e210c4e371731241a281c132b1d0f3e2e1748311432240e3724118f6a41916d42af8b59a17b4f9a74448d683d3e27112d261bbb945cc49757a268329b773da78247a0703c554329251c10efcc89d0a76c825a2f9769359667348a643657442a281d0feeca88d0aa6e774f288e61308e6130a579425643292b1e0dbb9c68b9935d7e592d7f5a2f7f592fa37c41554029332811bc8640bc8d4aa6783da97a3da7793ca577394e402117140922180c35271a382c1d43352327180f291e0d2c2810",
+        "thresholds": {
+          "mean": 0.02,
+          "max_cell": 0.1,
+          "changed_ratio": 0.15,
+          "changed_cell": 0.035
+        }
+      }
     },
     {
       "file": "farm_plots_ingame_preview.png",
       "width": 1152,
       "height": 648,
-      "sha256": "8c87cc65437f28f67384a78f701ade00accfe27e9fc3822b480592c557cffa05"
+      "sha256": "8c87cc65437f28f67384a78f701ade00accfe27e9fc3822b480592c557cffa05",
+      "perceptual": {
+        "grid": [
+          8,
+          8
+        ],
+        "rgb_hex": "5a391a7a5d386d564877533c7a5b36a2824d8865347b562a5e4921553e186141214f35183c341d2136454e452c544c2347421f4e42264931203839245849222f463e2e534b4767523f3e1d3e401c473a2a403b292e3120443c1f1346611d43555045216059315d5f3061562b574427433e1b2b362a273e3f564c1e505a2244491c5c472938301b5646299c8957907b5354582c3a4a1a2d3b1e4b3e203b2f1751531e444b37403d283032174d39237d5f3e7256329a7b4c604a30524d2e665832",
+        "thresholds": {
+          "mean": 0.02,
+          "max_cell": 0.1,
+          "changed_ratio": 0.15,
+          "changed_cell": 0.035
+        }
+      }
     },
     {
       "file": "storage_ingame_preview.png",
       "width": 1152,
       "height": 648,
-      "sha256": "bb764ec27b1f49fe6339cca0a09b21de25ac9cfa931206f2bbd4816c10173d2d"
+      "sha256": "232902e99d1b4adc9566d9d420005ce320327c692b2c7a35c3fd649e923d1066",
+      "perceptual": {
+        "grid": [
+          8,
+          8
+        ],
+        "rgb_hex": "2e200c4d3517312217281a112a1c0f3c2b154730142f220c3623128f6a418d6940ae8a59a27c4fa37d4c8d683d3a24113e33115434196e4c239568329069375a3b1f6e4a273d2a1a150d09956835a8773b8f6437805a33a8783ca7763b24150c110d0e865a2c92632f9b723b8e6a3a92632f91622e3424161b19187f501e82511e89602e895f2f81501f83511d2d1b0d433518b48950b48b52bc904cbb9050b48950b2864d45361914110a21170c332618382b1c3b2c1c35271a231b0d1c1c0e",
+        "thresholds": {
+          "mean": 0.02,
+          "max_cell": 0.1,
+          "changed_ratio": 0.15,
+          "changed_cell": 0.035
+        }
+      }
     },
     {
       "file": "system_settings_ingame_preview.png",
       "width": 1152,
       "height": 648,
-      "sha256": "2e27742f77214c5ef02bbc35d006407aad2cccf177cf089f68fe7ded249f6cf5"
+      "sha256": "2e27742f77214c5ef02bbc35d006407aad2cccf177cf089f68fe7ded249f6cf5",
+      "perceptual": {
+        "grid": [
+          8,
+          8
+        ],
+        "rgb_hex": "040706191912311c0d492a12452710311f100e0b060508060508061f150a966a369b743d906739946b3820160b090b080508071d130cac8046aa814ab48648aa7b4223160d060a070307061e140cbe9058d3a86bd2a05ecc985a23150d0508060307061e130bc6a263d2af6ed6af71c59e6123170d0307060408061b110ba6824fc09c62a58554a07c4a20150c060907030706191a08b3894cc39b5ec39856b28952181b0a0408060407061c1508523c1f5a3e23583c22503a1e1b1409050806",
+        "thresholds": {
+          "mean": 0.02,
+          "max_cell": 0.1,
+          "changed_ratio": 0.15,
+          "changed_cell": 0.035
+        }
+      }
     },
     {
       "file": "talent_tree_ingame_preview.png",
       "width": 1152,
       "height": 648,
-      "sha256": "2e25b1ae008c7a72034e23b36fc903940e6f55aee8e182fdd6d707147709ff3a"
+      "sha256": "2e25b1ae008c7a72034e23b36fc903940e6f55aee8e182fdd6d707147709ff3a",
+      "perceptual": {
+        "grid": [
+          8,
+          8
+        ],
+        "rgb_hex": "3e2810452a14492916674a2e745b40462c163c2313311c0e563a156b4f2d73562f8060398065407a5830745430493014493114693f1a876c3a6f542a543a216547248060344d37195d3a1b9e693297703e885f2a8c66328b5e3184532a694520633d1fa1714baa804991652f8e5f328c5e2c8d62316e4e24674928935f28ae834cb78d57b98f58b78d576e461f664524755620c1934fd7b172ebc683ebc683ebc682d8b475836f44342f1251371d492f1a624524644423614322604323382d14",
+        "thresholds": {
+          "mean": 0.02,
+          "max_cell": 0.1,
+          "changed_ratio": 0.15,
+          "changed_cell": 0.035
+        }
+      }
     },
     {
       "file": "tutorial_ingame_preview.png",
       "width": 1152,
       "height": 648,
-      "sha256": "2bc5c647e9f87ef4b6efd1fafaa70fa7dd6e306deb8bb560804e9a91b3b7745a"
+      "sha256": "2bc5c647e9f87ef4b6efd1fafaa70fa7dd6e306deb8bb560804e9a91b3b7745a",
+      "perceptual": {
+        "grid": [
+          8,
+          8
+        ],
+        "rgb_hex": "5a411f795e3b66554d7052367b552faa7d4680562e734c257855348a63407756384734216c503258422e806a45575a39796a4a8b765090774e5c4e2c5340267967409c8c658b8e613d48394555524f4c216b5b306d5c367c603876633961592e3a40241d4652514e3c4445276861396953395e552b4e53265048223c473e224f64283f434c45316c64492f30273b3e21544a2a3d381e1744571b394a3836354041382c516a28353b42321a4a351d7d5f3e7256329a7b4c604a303f4a3e124b69",
+        "thresholds": {
+          "mean": 0.02,
+          "max_cell": 0.1,
+          "changed_ratio": 0.15,
+          "changed_cell": 0.035
+        }
+      }
     },
     {
       "file": "ui_feedback_ingame_preview.png",
       "width": 1152,
       "height": 648,
-      "sha256": "202e4db131a9ec2b729c1ccf68814c8bfe91a6caa3474ad5fd37c6167743d51a"
+      "sha256": "202e4db131a9ec2b729c1ccf68814c8bfe91a6caa3474ad5fd37c6167743d51a",
+      "perceptual": {
+        "grid": [
+          8,
+          8
+        ],
+        "rgb_hex": "040706191912311c0d492a12452710311f100e0b060508060508061f150a8d6637926d40906739946b3820160b090b080508071d130cac8046aa814ab48648aa7b4223160d060a070307061e140cbe9058d3a86bd9a55ed09c5923150d0508060307061e130bc6a263d2af6ed6af71c59e6123170d0307060408061b110ba6824fc09c62a58554a07c4a20150c060907030706191a08b3894cc39b5ec39856b28952181b0a0408060407061c1508523c1f5a3e23583c22503a1e1b1409050806",
+        "thresholds": {
+          "mean": 0.02,
+          "max_cell": 0.1,
+          "changed_ratio": 0.15,
+          "changed_cell": 0.035
+        }
+      }
     },
     {
       "file": "world_map_ingame_preview.png",
       "width": 1152,
       "height": 648,
-      "sha256": "32efc31817a93c0b0313be8da908893637a7bc93e685b8e3760deee95be01293"
+      "sha256": "32efc31817a93c0b0313be8da908893637a7bc93e685b8e3760deee95be01293",
+      "perceptual": {
+        "grid": [
+          8,
+          8
+        ],
+        "rgb_hex": "2d1c0c36271352311b5f4d385b452a42291437251134200e6045217f623f6e583c6c4a2865462861492e694c2c4c36173d361565643a6a64386453286d6135606e5bebc5836b542d2b28144646204e491d63502a554732647c66edc7846b5533493a1c83713e665d3660513651423e6e7864e7c4856d58313232157660367a613462593342514a687457ecc8866f56333d381769522c5b492a424830354e404c5443e5be7d7d63373f3413361f0e3f24124025124327133e24113b22104f421b",
+        "thresholds": {
+          "mean": 0.02,
+          "max_cell": 0.1,
+          "changed_ratio": 0.15,
+          "changed_cell": 0.035
+        }
+      }
     }
   ]
 }

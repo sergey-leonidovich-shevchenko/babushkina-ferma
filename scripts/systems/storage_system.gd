@@ -1,6 +1,6 @@
 extends RefCounted
 
-const CHEST_POSITION := Vector2(790, 260)
+const CHEST_POSITION := Vector2(900, 486)
 const MAX_VISIBLE_ROWS := 8
 
 

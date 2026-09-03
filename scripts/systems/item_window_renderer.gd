@@ -1,6 +1,8 @@
 extends RefCounted
 
 const UiKitSystem := preload("res://scripts/systems/ui_kit_system.gd")
+const ItemTooltipRenderer := preload("res://scripts/presentation/item_tooltip_renderer.gd")
+const ItemPresentationSystem := preload("res://scripts/systems/item_presentation_system.gd")
 
 const VIEWPORT := Rect2(0, 0, 1152, 648)
 const SHELL := Rect2(54, 46, 1044, 556)
@@ -9,6 +11,7 @@ const CRAFT_SECTION := Rect2(194, 146, 764, 414)
 const CRAFT_LIST := Rect2(210, 164, 470, 382)
 const CRAFT_DETAIL := Rect2(696, 164, 246, 382)
 const SHOP_STOCK_SECTION := Rect2(112, 150, 266, 390)
+const SHOP_TOOLTIP := Rect2(120, 188, 250, 292)
 const SHOP_TABLE_SECTION := Rect2(390, 150, 608, 390)
 const SHOP_TABLE := Rect2(405, 174, 570, 340)
 const STORAGE_LEFT_SECTION := Rect2(82, 146, 458, 374)
@@ -19,6 +22,11 @@ const FORGE_SECTION := Rect2(142, 146, 868, 414)
 ## Проверяет, относится ли текущее модальное состояние к общему семейству предметных окон.
 static func is_open(game: Node) -> bool:
 	return game.inventory_open or game.shop_open or game.crafting_open or game.storage_open or game.forge_open
+
+
+## Возвращает hit-зону крестика активного окна, учитывая отдельную геометрию нарисованного скина рюкзака.
+static func close_button_rect(game:Node)->Rect2:
+	return game.InterfaceRenderer.INVENTORY_CLOSE_BUTTON if game.inventory_open else CLOSE_BUTTON
 
 
 ## Закрывает активное предметное окно общей нарисованной кнопкой, очищая состояние перетаскивания.
@@ -54,6 +62,13 @@ static func draw_row(game: Node, rect: Rect2, selected: bool, enabled: bool = tr
 	return rect.grow(-8)
 
 
+## Добавляет к общей строке тонкую метку редкости предмета без уменьшения области текста или hit-зоны.
+static func draw_item_row(game:Node,rect:Rect2,kind:String,selected:bool,enabled:bool=true)->Rect2:
+	var inner:=draw_row(game,rect,selected,enabled)
+	game.draw_rect(Rect2(inner.position+Vector2(1,3),Vector2(3,inner.size.y-6)),ItemPresentationSystem.rarity_color(kind))
+	return inner
+
+
 ## Рисует подсказку управления в спокойной нижней области общего каркаса.
 static func draw_help(game: Node, text: String) -> void:
 	game.draw_ui_string(game.UI_FONT, Vector2(166, 582), text, HORIZONTAL_ALIGNMENT_CENTER, 820, 12, Color("efd59b"))
@@ -72,7 +87,7 @@ static func draw_crafting(game: Node) -> void:
 		var recipe: Dictionary = game.CraftingSystem.RECIPES[index]
 		var row := craft_row_rect(position - first_position)
 		var available: bool = game.CraftingSystem.can_craft(game, recipe)
-		draw_row(game, row, index == game.crafting_selected, available)
+		draw_item_row(game, row, String(recipe.output), index == game.crafting_selected, available)
 		game.draw_item_icon(String(recipe.output), Rect2(row.position + Vector2(14, 5), Vector2(28, 28)))
 		game.draw_ui_string(game.UI_FONT, row.position + Vector2(52, 24), game.inventory_item_name(recipe.output), HORIZONTAL_ALIGNMENT_LEFT, 168, 12, UiKitSystem.COLORS.ink)
 		game.draw_ui_string(game.UI_FONT, row.position + Vector2(222, 23), game.CraftingSystem.ingredients_text(game, recipe, true), HORIZONTAL_ALIGNMENT_LEFT, 232, 9, UiKitSystem.COLORS.success if available else UiKitSystem.COLORS.danger)
@@ -93,9 +108,10 @@ static func draw_shop(game: Node) -> void:
 	draw_shell(game, game.LocaleSystem.ui("shop"), "●  %d" % game.coins)
 	draw_section(game, SHOP_STOCK_SECTION)
 	draw_section(game, SHOP_TABLE_SECTION)
-	game.draw_texture_rect_region(game.SUPPLY_SHEET, Rect2(145, 184, 200, 154), Rect2(0, 0, 176, 136))
-	game.draw_ui_string(game.MENU_FONT, Vector2(130, 382), game.LocaleSystem.ui("grandma_stock"), HORIZONTAL_ALIGNMENT_CENTER, 230, 18, Color("fff0bd"))
-	game.draw_ui_multiline_string(game.UI_FONT, Vector2(136, 418), game.LocaleSystem.ui("shop_help"), HORIZONTAL_ALIGNMENT_CENTER, 218, 62, 11, 3, Color("efd59b"))
+	game.draw_ui_string(game.MENU_FONT, Vector2(130, 180), game.LocaleSystem.ui("grandma_stock"), HORIZONTAL_ALIGNMENT_CENTER, 230, 16, Color("fff0bd"))
+	if not game.shop_products.is_empty():
+		var selected_product:Dictionary=game.shop_products[clampi(game.shop_selected,0,game.shop_products.size()-1)]
+		ItemTooltipRenderer.draw(game,String(selected_product.kind),SHOP_TOOLTIP,game.inventory_item_count(String(selected_product.kind)),true)
 	var table := SHOP_TABLE
 	UiKitSystem.draw_nine_patch(game, "quest_ribbon", Rect2(table.position, Vector2(table.size.x, 42)))
 	game.draw_ui_string(game.UI_FONT, table.position + Vector2(52, 28), game.LocaleSystem.ui("product"), HORIZONTAL_ALIGNMENT_LEFT, 280, 13, Color("fff0cf"))
@@ -105,7 +121,7 @@ static func draw_shop(game: Node) -> void:
 	for index in range(first_product, mini(first_product + 9, game.shop_products.size())):
 		var product: Dictionary = game.shop_products[index]
 		var row := shop_row_rect(index - first_product)
-		draw_row(game, row, index == game.shop_selected)
+		draw_item_row(game, row, String(product.kind), index == game.shop_selected)
 		if product.has("icon"):
 			game.draw_texture_rect_region(game.SUPPLY_SHEET, Rect2(row.position + Vector2(13, 3), Vector2(26, 26)), product.icon)
 		else:
@@ -147,6 +163,7 @@ static func draw_storage_column(game: Node, items: Array[String], side: int, rec
 		draw_row(game, row, game.storage_side == side and index == game.storage_selected)
 		if index >= items.size(): continue
 		var kind: String = items[index]
+		game.draw_rect(Rect2(row.position+Vector2(9,8),Vector2(3,row.size.y-16)),ItemPresentationSystem.rarity_color(kind))
 		game.draw_item_icon(kind, Rect2(row.position + Vector2(10, 5), Vector2(28, 28)))
 		game.draw_ui_string(game.UI_FONT, row.position + Vector2(48, 25), game.inventory_item_name(kind), HORIZONTAL_ALIGNMENT_LEFT, 290, 11, UiKitSystem.COLORS.ink)
 		var amount: int = game.inventory_item_count(kind) if side == 0 else game.state.storage.count(kind)
@@ -163,7 +180,7 @@ static func draw_forge(game: Node) -> void:
 		var row := forge_row_rect(index - first_index)
 		var current_level: int = game.ForgeSystem.level(game, upgrade.kind)
 		var available: bool = game.ForgeSystem.can_upgrade(game, index)
-		draw_row(game, row, index == game.forge_selected, available or current_level >= game.ForgeSystem.MAX_UPGRADE_LEVEL)
+		draw_item_row(game, row, String(upgrade.kind), index == game.forge_selected, available or current_level >= game.ForgeSystem.MAX_UPGRADE_LEVEL)
 		game.draw_item_icon(String(upgrade.kind), Rect2(row.position + Vector2(10, 5), Vector2(30, 30)))
 		game.draw_ui_string(game.UI_FONT, row.position + Vector2(50, 26), game.inventory_item_name(upgrade.kind), HORIZONTAL_ALIGNMENT_LEFT, 220, 12, UiKitSystem.COLORS.ink)
 		game.draw_ui_string(game.UI_FONT, row.position + Vector2(278, 26), game.LocaleSystem.ui("upgrade_level", [current_level, game.ForgeSystem.MAX_UPGRADE_LEVEL]), HORIZONTAL_ALIGNMENT_LEFT, 130, 10, Color("6b5136"))

@@ -5,17 +5,19 @@ extends "res://tests/suites/suite_base.gd"
 func run() -> void:
 	test_manifest_locks_every_ui_reference()
 	test_visual_difference_detects_changed_frame()
+	test_perceptual_gate_tolerates_noise_and_rejects_layout_damage()
 	test_localized_controls_fit_real_font_contracts()
 	test_context_hud_prioritizes_information_and_explains_actions()
 	test_adaptive_hud_profiles_preserve_safe_layout()
 	test_key_interfaces_pass_project_layout_audit()
 	test_feature_interfaces_fit_six_locales_at_120_percent()
 	test_item_windows_fit_six_locales_at_120_percent()
+	test_item_tooltips_explain_rarity_effects_durability_and_comparison()
 
 
 ## Сценарий: все созданные UI-эталоны входят в один версионированный regression-манифест.
 ## Исходное состояние: в assets/generated/ui лежат двадцать восемь контрольных PNG с зафиксированными размерами и SHA-256.
-## Ожидаемый результат: список полон, имена уникальны, изображения не пусты, пропорции верны и ни одна контрольная сумма не изменилась.
+## Ожидаемый результат: список полон, имена уникальны, изображения не пусты, пропорции верны и perceptual-отпечатки совпадают.
 func test_manifest_locks_every_ui_reference() -> void:
 	var game := make_game(); var document: Dictionary = game.UiVisualRegressionSystem.manifest(); var names: Dictionary = {}
 	for entry in document.get("references",[]): names[String(entry.file)]=true
@@ -33,6 +35,22 @@ func test_visual_difference_detects_changed_frame() -> void:
 	var adaptive := Image.load_from_file(directory+"adaptive_ui_ingame_preview.png"); var debug := Image.load_from_file(directory+"debug_overlay_ingame_preview.png")
 	expect(is_zero_approx(game.UiVisualRegressionSystem.visual_difference(adaptive,adaptive)), "pixel sampler reports zero for an unchanged reference")
 	expect(game.UiVisualRegressionSystem.visual_difference(adaptive,debug)>0.08, "pixel sampler reports a material difference for another screen at the same resolution")
+	game.free()
+
+
+## Сценарий: новый perceptual-gate получает кадр с незначительным шумом рендера и кадр с разрушенной крупной областью.
+## Исходное состояние: три изображения 64×64 отличаются либо несколькими значениями каналов, либо заливкой четверти интерфейса.
+## Ожидаемый результат: безопасный шум проходит порог, а крупная потеря панели возвращает измеримый отказ с диагностикой.
+func test_perceptual_gate_tolerates_noise_and_rejects_layout_damage()->void:
+	var game:=make_game(); var baseline:=Image.create(64,64,false,Image.FORMAT_RGBA8); baseline.fill(Color("6f8f57"))
+	var noisy:=baseline.duplicate(); noisy.set_pixel(7,11,Color("708f58")); noisy.set_pixel(52,47,Color("6e8e57"))
+	var damaged:=baseline.duplicate()
+	for y in range(0,32):
+		for x in range(0,32): damaged.set_pixel(x,y,Color("24190f"))
+	var first:Array[int]=game.UiVisualRegressionSystem.image_signature(baseline); var noise:Array[int]=game.UiVisualRegressionSystem.image_signature(noisy); var damage:Array[int]=game.UiVisualRegressionSystem.image_signature(damaged)
+	expect(game.UiVisualRegressionSystem.signatures_match(first,noise),"perceptual gate ignores isolated sub-pixel renderer noise")
+	var metrics:Dictionary=game.UiVisualRegressionSystem.signature_metrics(first,damage)
+	expect(not game.UiVisualRegressionSystem.signatures_match(first,damage) and float(metrics.max_cell)>0.1 and float(metrics.changed_ratio)>0.1,"perceptual gate rejects missing large UI regions and reports local damage")
 	game.free()
 
 
@@ -128,3 +146,22 @@ func test_item_windows_fit_six_locales_at_120_percent()->void:
 	expect(item_surfaces.all(func(surface):return int(localization.surfaces.get(surface,0))>0) and item_contracts>=3700,"all five item surfaces own broad localized text contracts")
 	expect(not FileAccess.get_file_as_string("res://scripts/systems/item_window_renderer.gd").contains("draw_multiline_string(") and not FileAccess.get_file_as_string("res://scripts/systems/interface_renderer.gd").contains("draw_multiline_string("),"item windows route every multiline block through adaptive width and height fitting")
 	expect(int(report.failed)==0 and int(report.checks)>=6000,"item window geometry and six-locale typography pass the complete project audit")
+
+
+## Сценарий: игрок выбирает расходник и новую экипировку в общей предметной карточке рюкзака или лавки.
+## Исходное состояние: надет лесной меч, в рюкзаке есть кристальный меч с прочностью 37%, а интерфейс последовательно переключается на шесть языков.
+## Ожидаемый результат: карточка показывает редкость, точный эффект, прочность и положительную дельту урона относительно надетого меча.
+func test_item_tooltips_explain_rarity_effects_durability_and_comparison()->void:
+	var game:=make_game(); game.change_inventory_count("sword",1); game.change_inventory_count("crystal_sword",1); game.equipment.hands="sword"; game.state.inventory.durability.crystal_sword=37
+	var comparison:Dictionary=game.ItemPresentationSystem.comparison(game,"crystal_sword")
+	expect(game.ItemPresentationSystem.rarity("eclipse_core")=="legendary" and game.ItemPresentationSystem.rarity("carrot")=="common","item card exposes a stable rarity vocabulary from common through legendary")
+	expect(comparison.slot=="hands" and comparison.equipped=="sword" and comparison.rows.any(func(row):return row.id=="damage" and int(row.delta)>0),"equipment comparison uses the currently occupied slot and reports a stronger crystal sword")
+	expect(game.ItemPresentationSystem.durability(game,"crystal_sword")==37,"durability card reads the same saved state consumed by combat and forge repair")
+	for locale in game.LocaleSystem.LOCALES:
+		game.LocaleSystem.set_locale(locale)
+		expect(not game.ItemPresentationSystem.effect_text(game,"regeneration_potion").is_empty() and not game.LocaleSystem.ui("item_compare").is_empty(),"consumable effect and comparison heading are localized for %s"%locale)
+	var renderer_source:=FileAccess.get_file_as_string("res://scripts/presentation/item_tooltip_renderer.gd"); var window_source:=FileAccess.get_file_as_string("res://scripts/systems/item_window_renderer.gd")
+	expect(renderer_source.contains("draw_comparison") and window_source.contains("ItemTooltipRenderer.draw"),"inventory and shop reuse one tooltip renderer instead of duplicating item math")
+	expect(window_source.contains("SHOP_TOOLTIP,game.inventory_item_count(String(selected_product.kind)),true"),"shop places the shared tooltip on an opaque parchment instead of unreadable dark wood")
+	expect(FileAccess.get_file_as_string("res://scripts/systems/ui_preview_system.gd").contains('game.LocaleSystem.set_locale("ru")'),"item-window reference capture is independent from the player's saved language")
+	game.free()

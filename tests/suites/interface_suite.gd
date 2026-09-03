@@ -136,8 +136,9 @@ func test_item_windows_share_storybook_shell_and_close_control() -> void:
 		var preview := Image.load_from_file(ProjectSettings.globalize_path(path))
 		expect(preview != null and preview.get_width() >= 1152 and absf(float(preview.get_width()) / preview.get_height() - 16.0 / 9.0) < 0.01, "%s item window keeps a native-or-larger 16:9 reference" % name)
 	game.open_inventory()
-	var close := InputEventMouseButton.new(); close.button_index = MOUSE_BUTTON_LEFT; close.pressed = true; close.position = renderer.CLOSE_BUTTON.get_center()
-	expect(game.handle_gamepad_and_touch(close) and not renderer.is_open(game), "painted close button dismisses the active item window through the shared hit zone")
+	var close := InputEventMouseButton.new(); close.button_index = MOUSE_BUTTON_LEFT; close.pressed = true; close.position = game.InterfaceRenderer.INVENTORY_CLOSE_BUTTON.get_center()
+	expect(renderer.close_button_rect(game)==game.InterfaceRenderer.INVENTORY_CLOSE_BUTTON and game.handle_gamepad_and_touch(close) and not renderer.is_open(game), "inventory closes from the exact center of its separately painted close button"); game.shop_open=true; close.position=renderer.CLOSE_BUTTON.get_center()
+	expect(renderer.close_button_rect(game)==renderer.CLOSE_BUTTON and game.handle_gamepad_and_touch(close) and not renderer.is_open(game), "shared item windows still close from their common painted button")
 	game.free()
 
 

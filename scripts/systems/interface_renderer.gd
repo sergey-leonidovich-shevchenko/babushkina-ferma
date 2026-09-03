@@ -16,6 +16,7 @@ const HudRenderer := preload("res://scripts/systems/hud_renderer.gd")
 const HudLayoutSystem := preload("res://scripts/systems/hud_layout_system.gd")
 const UiKitSystem := preload("res://scripts/systems/ui_kit_system.gd")
 const StoryUiRenderer := preload("res://scripts/systems/story_ui_renderer.gd")
+const ItemTooltipRenderer := preload("res://scripts/presentation/item_tooltip_renderer.gd")
 const WEATHER_ICONS := {
 	"clear":preload("res://assets/game/ui/hud/weather_clear.tres"),
 	"rain":preload("res://assets/game/ui/hud/weather_rain.tres"),
@@ -41,6 +42,7 @@ const INVENTORY_HOTBAR_SIZE := Vector2(66, 65)
 const INVENTORY_HOTBAR_PITCH := 73.4
 const INVENTORY_HOTBAR_SKIN_RECT := Rect2(190, 532, 762, 84)
 const INVENTORY_TITLE_RECT := Rect2(456, 19, 240, 43)
+const INVENTORY_CLOSE_BUTTON := Rect2(984, 49, 50, 50)
 const INVENTORY_DETAIL_RECT := Rect2(565, 145, 226, 360)
 const INVENTORY_EQUIPMENT_RECT := Rect2(797, 145, 226, 324)
 const WORLD_HOTBAR_PANEL := Rect2(190, 558, 762, 84)
@@ -262,7 +264,7 @@ static func draw_inventory(game: Node) -> void:
 	var occupied: int = game.inventory_slots.filter(func(kind): return not String(kind).is_empty() and game.inventory_item_count(kind) > 0).size()
 	game.draw_ui_string(game.UI_FONT, Vector2(496, 77), "%d / ∞" % occupied, HORIZONTAL_ALIGNMENT_CENTER, 160, 12, Color("f9df91"))
 	draw_inventory_button_label(game, SORT_BUTTON, game.LocaleSystem.ui("sort_inventory"), true, Color("ffe8a8"))
-	game.draw_ui_string(game.UI_FONT, Vector2(992, 86), "×", HORIZONTAL_ALIGNMENT_CENTER, 34, 29, Color("ffe9a4"))
+	game.draw_ui_string(game.UI_FONT, INVENTORY_CLOSE_BUTTON.position + Vector2(4, 37), "×", HORIZONTAL_ALIGNMENT_CENTER, INVENTORY_CLOSE_BUTTON.size.x - 8, 29, Color("ffe9a4"))
 	draw_category_tabs(game)
 	var filtered: Array[int] = game.InventorySystem.filtered_indices(game)
 	var first_visible: int = game.inventory_scroll_row * game.InventorySystem.COLUMNS
@@ -340,15 +342,7 @@ static func draw_item_detail(game: Node) -> void:
 	if kind.is_empty():
 		game.draw_ui_string(game.UI_FONT, Vector2(580, 319), game.LocaleSystem.ui("empty_slot"), HORIZONTAL_ALIGNMENT_CENTER, 195, 14, Color("80684a"))
 		return
-	var item: Dictionary = game.InventorySystem.data(kind)
-	game.draw_item_icon(kind, Rect2(641, 165, 74, 74))
-	game.draw_ui_string(game.UI_FONT, Vector2(579, 280), item.name, HORIZONTAL_ALIGNMENT_CENTER, 197, 16, Color("4b3425"))
-	var category: String = game.LocaleSystem.ui("category_" + game.InventorySystem.category(kind))
-	game.draw_ui_string(game.UI_FONT, Vector2(580, 300), category, HORIZONTAL_ALIGNMENT_CENTER, 195, 9, Color("66804c"))
-	game.draw_line(Vector2(583, 309), Vector2(772, 309), Color("a98755"), 1)
-	game.draw_ui_string(game.UI_FONT, Vector2(585, 329), game.LocaleSystem.ui("quantity", [game.inventory_item_count(kind)]), HORIZONTAL_ALIGNMENT_LEFT, 185, 11, Color("4b3425"))
-	game.draw_ui_multiline_string(game.UI_FONT, Vector2(585, 351), game.LocaleSystem.ui(game.InventorySystem.detail_key(kind)), HORIZONTAL_ALIGNMENT_LEFT, 185, 48, 10, 3, Color("765a3c"))
-	game.draw_ui_string(game.UI_FONT, Vector2(585, 415), game.LocaleSystem.ui("sell_value", [game.ShopSystem.sell_price(kind)]), HORIZONTAL_ALIGNMENT_LEFT, 185, 10, Color("775226"))
+	ItemTooltipRenderer.draw(game,kind,INVENTORY_DETAIL_RECT,game.inventory_item_count(kind))
 
 
 ## Отрисовывает экипировки по текущему состоянию игры.

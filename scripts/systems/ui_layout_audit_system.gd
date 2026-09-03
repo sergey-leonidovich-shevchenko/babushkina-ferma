@@ -92,6 +92,7 @@ static func _check_layer_palette(checks:Array[Dictionary])->void:
 ## Проверяет сетку рюкзака, категории, действия и десять быстрых слотов относительно художественного корпуса.
 static func _check_inventory(checks:Array[Dictionary])->void:
 	_record(checks,"inventory.title.contained",InterfaceRenderer.INVENTORY_WINDOW.encloses(InterfaceRenderer.INVENTORY_TITLE_RECT),"Заголовок рюкзака выходит за художественный корпус")
+	_record(checks,"inventory.close.contained",InterfaceRenderer.INVENTORY_WINDOW.encloses(InterfaceRenderer.INVENTORY_CLOSE_BUTTON) and InterfaceRenderer.INVENTORY_CLOSE_BUTTON.size.x>=MIN_TOUCH_TARGET,"Hit-зона крестика рюкзака не совпадает с художественной кнопкой")
 	_record(checks,"inventory.detail.contained",InterfaceRenderer.INVENTORY_WINDOW.encloses(InterfaceRenderer.INVENTORY_DETAIL_RECT),"Карточка предмета выходит за окно")
 	_record(checks,"inventory.equipment.contained",InterfaceRenderer.INVENTORY_WINDOW.encloses(InterfaceRenderer.INVENTORY_EQUIPMENT_RECT),"Манекен экипировки выходит за окно")
 	for index in 36:
@@ -120,6 +121,7 @@ static func _check_item_windows(checks:Array[Dictionary])->void:
 	_record(checks,"items.craft.detail",ItemWindowRenderer.CRAFT_SECTION.encloses(ItemWindowRenderer.CRAFT_DETAIL),"Подробности рецепта выходят за секцию")
 	_record(checks,"items.craft.columns",not ItemWindowRenderer.CRAFT_LIST.intersects(ItemWindowRenderer.CRAFT_DETAIL),"Список и подробности рецепта пересекаются")
 	_record(checks,"items.shop.table",ItemWindowRenderer.SHOP_TABLE_SECTION.encloses(ItemWindowRenderer.SHOP_TABLE),"Таблица товаров выходит за секцию")
+	_record(checks,"items.shop.tooltip",ItemWindowRenderer.SHOP_STOCK_SECTION.encloses(ItemWindowRenderer.SHOP_TOOLTIP),"Карточка выбранного товара выходит за левую секцию лавки")
 	for index in 9:
 		_record(checks,"items.craft.row.%d"%index,ItemWindowRenderer.CRAFT_LIST.encloses(ItemWindowRenderer.craft_row_rect(index)),"Строка рецепта выходит за список")
 		_record(checks,"items.shop.row.%d"%index,ItemWindowRenderer.SHOP_TABLE.encloses(ItemWindowRenderer.shop_row_rect(index)),"Строка товара выходит за таблицу")
@@ -244,11 +246,15 @@ static func _check_talent_text(checks:Array[Dictionary],game:Node,locale:String,
 
 ## Проверяет заголовки, категории, карточку предмета, экипировку и все локализованные имена рюкзака.
 static func _check_inventory_text(checks:Array[Dictionary],game:Node,locale:String,counts:Dictionary)->void:
-	var contracts:Array=[["title",game.LocaleSystem.ui("backpack_column"),240.0,27,13],["quick_access",game.LocaleSystem.ui("quick_access").get_slice(" • ",0),278.0,13,8],["sort",game.LocaleSystem.ui("sort_inventory"),167.0,10,7],["empty",game.LocaleSystem.ui("empty_slot"),195.0,14,9],["quantity",game.LocaleSystem.ui("quantity",[9999]),185.0,11,8],["sell",game.LocaleSystem.ui("sell_value",[9999]),185.0,10,7],["equipment",game.LocaleSystem.ui("equipment"),194.0,16,9],["use",game.LocaleSystem.ui("eat"),187.0,10,7],["equip",game.LocaleSystem.ui("equip"),86.0,10,7],["drop",game.LocaleSystem.ui("drop_item"),87.0,10,7],["row",game.LocaleSystem.ui("row",[99,99]),91.0,8,7]]
+	var contracts:Array=[["title",game.LocaleSystem.ui("backpack_column"),240.0,27,13],["quick_access",game.LocaleSystem.ui("quick_access").get_slice(" • ",0),278.0,13,8],["sort",game.LocaleSystem.ui("sort_inventory"),167.0,10,7],["empty",game.LocaleSystem.ui("empty_slot"),195.0,14,9],["quantity",game.LocaleSystem.ui("quantity",[9999]),185.0,11,8],["sell",game.LocaleSystem.ui("sell_value",[9999]),185.0,10,7],["equipment",game.LocaleSystem.ui("equipment"),194.0,16,9],["use",game.LocaleSystem.ui("eat"),187.0,10,7],["equip",game.LocaleSystem.ui("equip"),86.0,10,7],["drop",game.LocaleSystem.ui("drop_item"),87.0,10,7],["row",game.LocaleSystem.ui("row",[99,99]),91.0,8,7],["compare",game.LocaleSystem.ui("item_compare"),184.0,8,6],["equipped",game.LocaleSystem.ui("item_equipped"),184.0,8,6],["durability",game.LocaleSystem.ui("item_durability",[100]),184.0,9,7]]
+	for rarity_id in game.ItemPresentationSystem.RARITY_ORDER: contracts.append(["rarity_"+String(rarity_id),game.LocaleSystem.ui("item_rarity_"+String(rarity_id)),118.0,9,6])
+	for stat_id in ["damage","defense","health","speed"]: contracts.append(["stat_"+stat_id,game.LocaleSystem.ui("item_stat_"+stat_id)+"  999%  (+999%)",184.0,8,6])
 	for filter_id in game.InventorySystem.FILTERS:
 		var key:="inventory_all" if filter_id=="all" else "category_short_"+String(filter_id); contracts.append(["filter_"+String(filter_id),game.LocaleSystem.ui(key),67.0,7,7])
 	for slot in ["head","body","legs","hands","offhand","ring"]: contracts.append(["slot_"+slot,game.LocaleSystem.ui("offhand_short" if slot=="offhand" else slot),53.0,8,7])
 	for kind in game.InventorySystem.ITEM_DATA: contracts.append(["item_"+String(kind),game.inventory_item_name(String(kind)),197.0,16,8])
+	for kind in game.ItemPresentationSystem.FOOD_EFFECTS:
+		var effect:String=game.ItemPresentationSystem.effect_text(game,String(kind)); _record_multiline_contract(checks,game,"inventory",locale,["effect_"+String(kind),effect,184.0,34.0,9,6]); counts.inventory=int(counts.inventory)+1
 	for detail_key in ["detail_tool","detail_food","detail_equipment","detail_quest","detail_resource"]:
 		_record_multiline_contract(checks,game,"inventory",locale,[detail_key,game.LocaleSystem.ui(detail_key),185.0,48.0,10,7]); counts.inventory=int(counts.inventory)+1
 	for contract in contracts: _record_text_contract(checks,game,"inventory",locale,contract); counts.inventory=int(counts.inventory)+1
@@ -297,7 +303,7 @@ static func _check_forge_text(checks:Array[Dictionary],game:Node,locale:String,c
 ## Проверяет обучение, цели, открытия, уведомления, эффекты и действия адаптивного HUD на шести языках.
 static func _check_hud_text(checks:Array[Dictionary],game:Node,locale:String,counts:Dictionary)->void:
 	var contracts:Array=[["tutorial_progress",game.LocaleSystem.ui("tutorial_progress",[999,999]),196.0,11,8],["tutorial_controls",game.LocaleSystem.ui("tutorial_controls_short"),158.0,8,7],["new_nearby",game.LocaleSystem.ui("new_nearby"),190.0,10,7],["hide",game.LocaleSystem.ui("hide"),76.0,9,7],["story_title",game.LocaleSystem.ui("hud_story_objective"),285.0,10,8],["grandmother_title",game.LocaleSystem.ui("hud_grandmother_quest"),285.0,10,8],["carrots",game.LocaleSystem.ui("hud_carrot_progress",[99,99]),424.0,10,8],["journal",game.LocaleSystem.ui("hud_journal_hint")+" +99",136.0,8,7]]
-	for action_key in ["interact","talk","shop","sell","craft","open","pickup","mine","collect","feed","repair","upgrade","gate","exit","enter"]: contracts.append(["context_"+action_key,game.LocaleSystem.ui("context_action",[game.LocaleSystem.ui("context_"+action_key)]),240.0,11,7])
+	for action_key in ["interact","talk","shop","sell","craft","sleep","open","pickup","mine","collect","feed","repair","upgrade","gate","exit","enter"]: contracts.append(["context_"+action_key,game.LocaleSystem.ui("context_action",[game.LocaleSystem.ui("context_"+action_key)]),240.0,11,7])
 	for location in game.WorldSystem.LOCATIONS: contracts.append(["location_"+String(location),game.WorldSystem.name(String(location)).to_upper(),184.0,11,7])
 	for mission_id in game.QuestSystem.MISSIONS:
 		var mission:Dictionary=game.QuestSystem.mission_data(String(mission_id)); contracts.append([String(mission_id)+"_title",mission.title.to_upper(),285.0,10,7]); contracts.append([String(mission_id)+"_objective",game.QuestSystem.objective_text(game,String(mission_id)),424.0,10,7])

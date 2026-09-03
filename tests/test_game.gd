@@ -66,7 +66,8 @@ func _initialize() -> void:
 func make_game() -> Node:
 	var game := GameScript.new()
 	game._ready()
-	game.language_screen = false
+	# Каждый сценарий начинает с базовой локали и не наследует язык предыдущего теста или пользовательских настроек.
+	game.LocaleSystem.set_locale("ru"); game.language_screen = false
 	game.title_screen = false
 	return game
 

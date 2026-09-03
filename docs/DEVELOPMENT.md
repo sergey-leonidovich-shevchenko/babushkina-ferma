@@ -105,9 +105,10 @@ tools/Godot.app/Contents/MacOS/Godot --path . -- --moon-glade-preview
 
 ```bash
 tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/generate_ui_layout_audit.gd
+python3 tools/update_ui_visual_manifest.py
 ```
 
-Результат сохраняется в `docs/reports/ui_layout_audit.json`; требования и текущая очередь описаны в [UI-аудите](UI_AUDIT.md).
+Результат сохраняется в `docs/reports/ui_layout_audit.json`; требования и текущая очередь описаны в [UI-аудите](UI_AUDIT.md). Обновитель визуального manifest использует Pillow, сохраняет exact SHA для диагностики и устойчивый perceptual-отпечаток для CI.
 
 Изолированный полигон запускается аргументом `--debug-playground`. На стенде `F1–F3` меняют время, погоду и сезон; `F4` выдаёт тестовый набор; `F5–F6` создают врага и выбирают уровень; `Page Up/Page Down` меняют семейство; `F7` прокручивает состояния животных; `F8` телепортирует; `F9` меняет квест; `C` включает коллизии; `F10` возвращает в игру. `Space` ставит симуляцию на паузу, `.` пропускает один кадр, `H` показывает хитбоксы, `P` — маршруты AI, `I` — инспектор. Основные команды продублированы кнопками; клик по существу показывает его состояние. Панель хранит график последних 120 значений FPS.
 

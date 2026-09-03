@@ -143,6 +143,8 @@ static func configure_item_window_capture(game: Node, arguments: PackedStringArr
 		if flag in arguments: mode = flag; break
 	if mode.is_empty(): return false
 	game.language_screen = false; game.title_screen = false; game.current_location = "overworld"; game.tutorial_visible = false; game.message = ""
+	# Эталон не зависит от сохранённого пользователем языка и всегда воспроизводится на базовой русской локали.
+	game.LocaleSystem.set_locale("ru")
 	game.settings_state.text_scale = 1.2; game.set_meta("capture_hud_clean", true); game.set_meta("capture_ui_frames", 6)
 	game.set_meta("capture_ui_output", "res://assets/generated/ui/%s" % outputs[mode])
 	match mode:

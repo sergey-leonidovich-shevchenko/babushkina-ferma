@@ -1,6 +1,8 @@
 extends RefCounted
 
 const ATLAS := preload("res://assets/game/world_polish/village_polish_atlas.png")
+const CAULDRON := preload("res://assets/game/items/catalog/cauldron.png")
+const FarmLifeVisualSystem := preload("res://scripts/systems/farm_life_visual_system.gd")
 const SOURCE_CELL := Vector2(128, 128)
 const PROFILES := {
 	"bed":{"cell":Vector2i(0,0),"visual_size":Vector2(144,120),"collision_size":Vector2(120,48)},
@@ -8,9 +10,20 @@ const PROFILES := {
 	"contracts":{"cell":Vector2i(2,0),"visual_size":Vector2(192,120),"collision_size":Vector2(168,48)},
 	"forge":{"cell":Vector2i(3,0),"visual_size":Vector2(192,144),"collision_size":Vector2(144,72)},
 	"home_chest":{"cell":Vector2i(4,0),"visual_size":Vector2(96,96),"collision_size":Vector2(72,48)},
+	"cauldron":{"cell":Vector2i(0,0),"visual_size":Vector2(72,96),"collision_size":Vector2(48,24),"standalone":true},
 }
 const ROOM_PROPS := {
-	"cottage_interior":[{"kind":"bed","position":Vector2(340,318)}],
+	"cottage_interior":[
+		{"kind":"bed","position":Vector2(300,350)},
+		{"kind":"woven_rug","position":Vector2(700,486),"decorative":true},
+		{"kind":"wooden_wardrobe","position":Vector2(190,350),"decorative":true},
+		{"kind":"potted_fern","position":Vector2(470,350),"decorative":true},
+		{"kind":"shop","position":Vector2(775,350),"decorative":true},
+		{"kind":"cauldron","position":Vector2(930,350)},
+		{"kind":"rustic_table","position":Vector2(700,450),"decorative":true},
+		{"kind":"wooden_chair","position":Vector2(630,474),"decorative":true},
+		{"kind":"wooden_chair","position":Vector2(770,474),"decorative":true},
+	],
 	"shop_interior":[{"kind":"shop","position":Vector2(576,300)},{"kind":"home_chest","position":Vector2(840,318),"decorative":true}],
 	"guild_interior":[{"kind":"contracts","position":Vector2(576,300)},{"kind":"home_chest","position":Vector2(850,318),"decorative":true}],
 	"forge_interior":[{"kind":"forge","position":Vector2(576,310)},{"kind":"home_chest","position":Vector2(850,318),"decorative":true}],
@@ -19,24 +32,29 @@ const ROOM_PROPS := {
 
 ## Возвращает единый визуальный и физический профиль интерьерного объекта.
 static func profile(kind: String) -> Dictionary:
+	if FarmLifeVisualSystem.PROFILES.has(kind):
+		var furniture:=FarmLifeVisualSystem.profile(kind)
+		return {"cell":furniture.cell,"visual_size":furniture.visual,"collision_size":furniture.collision,"farm_life":true}
 	return PROFILES.get(kind, {})
 
 
 ## Возвращает исходную ячейку строгого атласа 5×4 без захвата соседних рисунков.
 static func source_rect(kind: String) -> Rect2:
+	if FarmLifeVisualSystem.PROFILES.has(kind): return FarmLifeVisualSystem.source_rect(kind)
+	if kind=="cauldron": return Rect2(Vector2.ZERO,CAULDRON.get_size())
 	var cell: Vector2i = PROFILES[kind].cell
 	return Rect2(Vector2(cell) * SOURCE_CELL, SOURCE_CELL)
 
 
 ## Рассчитывает рисунок от нижней центральной опоры объекта.
 static func destination_rect(kind: String, position: Vector2) -> Rect2:
-	var size: Vector2 = PROFILES[kind].visual_size
+	var size: Vector2 = profile(kind).visual_size
 	return Rect2(position - Vector2(size.x * 0.5, size.y), size)
 
 
 ## Рассчитывает честный footprint у пола независимо от высоты рисунка.
 static func collision_rect(kind: String, position: Vector2) -> Rect2:
-	var size: Vector2 = PROFILES[kind].collision_size
+	var size: Vector2 = profile(kind).collision_size
 	return Rect2(position - Vector2(size.x * 0.5, size.y), size)
 
 
@@ -52,12 +70,15 @@ static func props(location: String) -> Array:
 static func collision_rects(location: String) -> Array[Rect2]:
 	var result: Array[Rect2] = []
 	for prop in props(location):
-		result.append(collision_rect(String(prop.kind), Vector2(prop.position)))
+		var collision:=collision_rect(String(prop.kind),Vector2(prop.position))
+		if collision.size!=Vector2.ZERO: result.append(collision)
 	return result
 
 
 ## Рисует объект из строгой ячейки с общей нижней опорой и без искажения соседних спрайтов.
 static func draw(canvas: Node2D, kind: String, position: Vector2, modulate: Color = Color.WHITE) -> void:
+	if FarmLifeVisualSystem.PROFILES.has(kind): FarmLifeVisualSystem.draw(canvas,kind,position,modulate); return
+	if kind=="cauldron": canvas.draw_texture_rect(CAULDRON,destination_rect(kind,position),false,modulate); return
 	canvas.draw_texture_rect_region(ATLAS, destination_rect(kind,position), source_rect(kind), modulate)
 
 

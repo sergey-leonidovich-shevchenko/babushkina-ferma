@@ -1,5 +1,5 @@
 {
-  "checks": 8384,
+  "checks": 8674,
   "display_profiles": [
     {
       "height": 648,
@@ -23,7 +23,7 @@
   "failed": 0,
   "issues": [],
   "localization": {
-    "contracts": 7416,
+    "contracts": 7704,
     "locales": [
       "ru",
       "en",
@@ -36,8 +36,8 @@
       "crafting": 1332,
       "fishing": 246,
       "forge": 186,
-      "hud": 2250,
-      "inventory": 936,
+      "hud": 2256,
+      "inventory": 1218,
       "quest_log": 474,
       "shop": 456,
       "storage": 804,
@@ -46,12 +46,12 @@
     },
     "text_scale": 1.2
   },
-  "passed": 8384,
+  "passed": 8674,
   "schema": 3,
   "scope": "project_ui",
   "source_metrics": {
-    "adaptive_multiline_calls": 9,
-    "adaptive_single_line_calls": 259,
+    "adaptive_multiline_calls": 7,
+    "adaptive_single_line_calls": 255,
     "explicit_fit_calls": 9,
     "raw_multiline_calls": 3,
     "renderer_modules": 35

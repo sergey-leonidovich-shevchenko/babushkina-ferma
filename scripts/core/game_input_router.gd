@@ -118,7 +118,7 @@ static func handle_gamepad_and_touch(game: Node, event: InputEvent) -> bool:
 		return true
 	var close_pointer: bool = (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT) \
 		or (event is InputEventScreenTouch and event.pressed)
-	if game.ItemWindowRenderer.is_open(game) and close_pointer and game.ItemWindowRenderer.CLOSE_BUTTON.has_point(event.position):
+	if game.ItemWindowRenderer.is_open(game) and close_pointer and game.ItemWindowRenderer.close_button_rect(game).has_point(event.position):
 		return game.ItemWindowRenderer.close_active(game)
 	if game.InputSystem.set_pointer_action_state(game, event, world_visible):
 		return true

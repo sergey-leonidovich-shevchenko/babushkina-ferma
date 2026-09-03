@@ -3,6 +3,7 @@ extends "res://tests/suites/suite_base.gd"
 ## Запускает сценарии зданий, интерьеров, условий доступа и группы напарников.
 func run() -> void:
 	test_building_catalog_entry_exit_and_collision()
+	test_cottage_has_distinct_zones_and_working_services()
 	test_automatic_building_transition_and_reentry_guard()
 	test_automatic_cave_gate_and_portal_routes()
 	test_progress_gated_buildings()
@@ -53,6 +54,28 @@ func test_building_catalog_entry_exit_and_collision() -> void:
 	expect(game.BuildingSystem.enter(game, "shop_house"), "village shop has its own accessible interior")
 	game.player = game.BuildingSystem.INTERIORS.shop_interior.service_position
 	expect(game.perform_context_action() and game.shop_open, "shop counter opens the existing trade table")
+	game.free()
+
+
+## Сценарий: дом бабушки собран из интерьерных тайлов и разделён на спальню, кухню, столовую и хранение.
+## Исходное состояние: герой находится в меблированном доме, домашний сундук установлен, обе рабочие точки доступны.
+## Ожидаемый результат: твёрдая мебель блокирует ход, ковёр остаётся проходимым, кровать и котелок выполняют разные действия.
+func test_cottage_has_distinct_zones_and_working_services() -> void:
+	var game:=make_game(); game.current_location="cottage_interior"; game.home_chest_owned=true
+	var props:Array=game.InteriorVisualSystem.props(game.current_location); var kinds:Array=props.map(func(prop): return String(prop.kind))
+	expect(props.size()>=9 and ["bed","wooden_wardrobe","potted_fern","shop","cauldron","rustic_table","wooden_chair","woven_rug"].all(func(kind): return kind in kinds), "cottage contains recognizable sleeping cooking dining and decoration zones")
+	expect(game.InteriorRenderer.COTTAGE_TILES.get_size()==Vector2(1254,1254), "cottage wall and floor sprite sheet is imported at its native generated resolution")
+	expect(game.InteriorVisualSystem.collision_rects(game.current_location).size()==8, "only eight solid furniture pieces contribute to cottage navigation")
+	expect(game.BuildingSystem.is_walkable_inside(game.current_location,Vector2(700,486),game.PLAYER_RADIUS), "woven rug remains a walkable floor decoration")
+	expect(not game.BuildingSystem.is_walkable_inside(game.current_location,Vector2(300,340),game.PLAYER_RADIUS), "bed owns a real collision footprint")
+	game.player=Vector2(930,390)
+	expect(game.nearest_interaction()=="interior_service:cauldron" and game.perform_context_action(), "cauldron is a distinct reachable contextual service")
+	expect(game.crafting_open and game.crafting_station=="cauldron", "cottage cauldron opens only cooking recipes")
+	game.crafting_open=false; game.player=Vector2(300,390); var day_before:int=game.day
+	expect(game.nearest_interaction()=="interior_service:bed" and game.perform_context_action() and game.day==day_before+1, "bed remains reachable and completes the current day")
+	var preview:=Image.load_from_file(ProjectSettings.globalize_path("res://assets/generated/level_drafts/interior_cottage_interior_ingame_preview.png"))
+	expect(preview!=null and preview.get_size()==Vector2i(1152,648), "furnished cottage keeps a current native gameplay preview")
+	expect(not FileAccess.get_file_as_string("res://scripts/game_renderer.gd").contains('"BED"'), "obsolete technical BED label no longer leaks into the finished room")
 	game.free()
 
 
