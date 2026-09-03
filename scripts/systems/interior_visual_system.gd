@@ -1,6 +1,6 @@
 extends RefCounted
 
-const ATLAS := preload("res://assets/game/world_polish/village_polish_atlas.png")
+const ATLAS := preload("res://assets/game/interiors/village_interior_atlas_v2.png")
 const CAULDRON := preload("res://assets/game/items/catalog/cauldron.png")
 const FarmLifeVisualSystem := preload("res://scripts/systems/farm_life_visual_system.gd")
 const SOURCE_CELL := Vector2(128, 128)

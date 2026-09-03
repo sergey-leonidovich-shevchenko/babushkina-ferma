@@ -5,3 +5,11 @@
 Runtime не режет лист приблизительно: `InteriorRenderer` использует фиксированные безопасные прямоугольники и раскладывает их на базовую сетку 24 px. Мебель размещается от нижней центральной опоры через `InteriorVisualSystem`; тот же профиль задаёт коллизию и F10-инспектор. Напольный декор имеет нулевую коллизию и рисуется первым.
 
 Перед заменой листа необходимо переснять `assets/generated/level_drafts/interior_cottage_interior_ingame_preview.png` и прогнать `buildings_suite.gd`.
+
+`village_interior_atlas_v2.png` воспроизводимо строится из исходного `world_polish/village_polish_atlas.png` командой:
+
+```bash
+tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/build_clean_interior_atlas.gd
+```
+
+Скрипт меняет только связанную с прозрачным фоном пурпурную кайму пяти интерьерных ячеек на полупрозрачную тёпло-коричневую контактную тень. Внутренние цвета, оружие, эффекты и магический портал не затрагиваются.
