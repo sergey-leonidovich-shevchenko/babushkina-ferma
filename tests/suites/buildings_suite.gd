@@ -65,6 +65,7 @@ func test_cottage_has_distinct_zones_and_working_services() -> void:
 	var props:Array=game.InteriorVisualSystem.props(game.current_location); var kinds:Array=props.map(func(prop): return String(prop.kind))
 	expect(props.size()>=9 and ["bed","wooden_wardrobe","potted_fern","shop","cauldron","rustic_table","wooden_chair","woven_rug"].all(func(kind): return kind in kinds), "cottage contains recognizable sleeping cooking dining and decoration zones")
 	expect(game.InteriorRenderer.COTTAGE_TILES.get_size()==Vector2(1254,1254), "cottage wall and floor sprite sheet is imported at its native generated resolution")
+	expect(game.InteriorRenderer.COTTAGE_FLOOR.get_size()==Vector2(1254,1254) and game.InteriorRenderer.COTTAGE_FLOOR_SOURCE.size.x/game.InteriorRenderer.COTTAGE_FLOOR_SOURCE.size.y>3.4, "cottage draws one continuous correctly proportioned parquet strip instead of alternating square patterns")
 	var clean_atlas_path:="res://assets/game/interiors/village_interior_atlas_v2.png"; var original_atlas_path:="res://assets/game/world_polish/village_polish_atlas.png"
 	expect(game.InteriorVisualSystem.ATLAS.get_size()==Vector2(640,512) and FileAccess.get_sha256(clean_atlas_path)!=FileAccess.get_sha256(original_atlas_path), "interior uses a separate crop-compatible atlas with the magenta fringe replaced by a dark contact shadow")
 	expect(game.InteriorVisualSystem.collision_rects(game.current_location).size()==8, "only eight solid furniture pieces contribute to cottage navigation")
@@ -77,6 +78,8 @@ func test_cottage_has_distinct_zones_and_working_services() -> void:
 	expect(game.nearest_interaction()=="interior_service:bed" and game.perform_context_action() and game.day==day_before+1, "bed remains reachable and completes the current day")
 	var preview:=Image.load_from_file(ProjectSettings.globalize_path("res://assets/generated/level_drafts/interior_cottage_interior_ingame_preview.png"))
 	expect(preview!=null and preview.get_size()==Vector2i(1152,648), "furnished cottage keeps a current native gameplay preview")
+	var compact_preview:=Image.load_from_file(ProjectSettings.globalize_path("res://assets/generated/level_drafts/cottage_compact_hud_ingame_preview.png"))
+	expect(compact_preview!=null and compact_preview.get_size()==Vector2i(1152,648), "cottage compact HUD and continuous floor keep a dedicated gameplay reference")
 	expect(not FileAccess.get_file_as_string("res://scripts/game_renderer.gd").contains('"BED"'), "obsolete technical BED label no longer leaks into the finished room")
 	game.free()
 

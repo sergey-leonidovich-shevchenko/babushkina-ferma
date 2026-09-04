@@ -9,6 +9,11 @@ static func configure(game: Node) -> void:
 	if configure_character_window_capture(game, arguments): return
 	if configure_item_window_capture(game, arguments): return
 	if configure_story_window_capture(game, arguments): return
+	if "--capture-cottage-ui" in arguments:
+		game.language_screen=false; game.title_screen=false; game.current_location="cottage_interior"; game.player=Vector2(576,430); game.home_chest_owned=true
+		var cottage_life:Dictionary=game.FarmLifeSystem.state(game); cottage_life.first_day=6; cottage_life.cutscene=""; cottage_life.cutscene_timer=0.0; cottage_life.compendium=false
+		game.tutorial_visible=true; game.message=""; game.set_meta("capture_ui_frames",8); game.set_meta("capture_ui_output","res://assets/generated/level_drafts/cottage_compact_hud_ingame_preview.png")
+		return
 	if "--capture-context-hud" in arguments:
 		game.language_screen = false; game.title_screen = false; game.current_location = "overworld"; game.player = Vector2(420, 880)
 		game.settings_state.text_scale = 1.2; game.tutorial_visible = true; game.message = "Новый предмет добавлен в рюкзак"

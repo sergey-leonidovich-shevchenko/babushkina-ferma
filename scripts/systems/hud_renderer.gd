@@ -124,8 +124,19 @@ static func draw_action_button(game: Node, ui, rect: Rect2, label: String, enabl
 static func draw_objective_card(game: Node) -> void:
 	var objective: Dictionary = HudLayoutSystem.primary_objective(game)
 	if objective.is_empty(): return
-	var rect := HudLayoutSystem.OBJECTIVE_RECT
+	var rect := HudLayoutSystem.objective_rect(game)
 	UiKitSystem.draw_nine_patch(game, "tooltip", rect)
+	if HudLayoutSystem.uses_compact_cards(game):
+		var compact_icon := "◆" if String(objective.kind) in ["story", "chapter", "moon"] else "●"
+		game.draw_ui_string(game.UI_FONT,rect.position+Vector2(16,22),compact_icon,HORIZONTAL_ALIGNMENT_CENTER,18,11,Color("8a542e"))
+		game.draw_ui_string(game.UI_FONT,rect.position+Vector2(40,21),String(objective.title).to_upper(),HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-150,9,Color("75472c"))
+		var compact_hidden:int=HudLayoutSystem.hidden_objective_count(game); var compact_hint:String=game.LocaleSystem.ui("hud_journal_hint")+(" +%d"%compact_hidden if compact_hidden>0 else "")
+		game.draw_ui_string(game.UI_FONT,rect.position+Vector2(rect.size.x-112,21),compact_hint,HORIZONTAL_ALIGNMENT_RIGHT,94,7,Color("876440"))
+		game.draw_ui_string(game.UI_FONT,rect.position+Vector2(18,45),String(objective.text),HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-36,9,UiKitSystem.COLORS.ink)
+		var compact_ratio:=float(objective.get("ratio",-1.0))
+		if compact_ratio>=0.0:
+			var compact_track:=Rect2(rect.position+Vector2(18,53),Vector2(rect.size.x-36,4)); game.draw_rect(compact_track,Color("493426")); game.draw_rect(Rect2(compact_track.position+Vector2.ONE,Vector2((compact_track.size.x-2)*clampf(compact_ratio,0.0,1.0),compact_track.size.y-2)),Color("719451"))
+		return
 	UiKitSystem.draw_nine_patch(game, "badge", Rect2(rect.position + Vector2(12, 12), Vector2(42, 42)))
 	var icon := "◆" if String(objective.kind) in ["story", "chapter", "moon"] else "●"
 	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(21, 41), icon, HORIZONTAL_ALIGNMENT_CENTER, 24, 15, Color("8a542e"))

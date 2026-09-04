@@ -72,6 +72,11 @@ func test_context_hud_prioritizes_information_and_explains_actions() -> void:
 	expect(layout.layout_is_safe(), "tutorial objective minimap discovery notification and interaction prompts own non-overlapping regions")
 	expect(not layout.EFFECTS_RECT.intersects(layout.OBJECTIVE_RECT) and not layout.EFFECTS_RECT.intersects(layout.MINIMAP_RECT), "temporary effects use their own two-row lane below the objective")
 	expect(game.InterfaceRenderer.TUTORIAL_CARD == layout.TUTORIAL_RECT and game.InterfaceRenderer.OBJECTIVE_CARD == layout.OBJECTIVE_RECT and game.discovery_card_rect() == layout.DISCOVERY_RECT, "drawing and pointer input share the coordinator's exact geometry")
+	game.current_location="cottage_interior"
+	expect(layout.tutorial_rect(game)==layout.INTERIOR_TUTORIAL_RECT and layout.objective_rect(game)==layout.INTERIOR_OBJECTIVE_RECT and layout.INTERIOR_TUTORIAL_RECT.size.y<=64.0, "small interiors replace both oversized context panels with a shared compact lane")
+	expect(not layout.shows_minimap(game), "interior removes the redundant minimap that used to cover furniture below the location badge")
+	game.current_location="overworld"
+	expect(layout.shows_minimap(game), "outdoor locations keep the useful navigation minimap")
 	var objective: Dictionary = layout.primary_objective(game)
 	expect(objective.kind == "chapter" and objective.text == game.FirstChapterSystem.objective(game), "first chapter owns the primary slot instead of creating a competing panel")
 	var chapter: Dictionary = game.FirstChapterSystem.state(game); chapter.completed = true; chapter.reward_pending = false
@@ -86,7 +91,8 @@ func test_context_hud_prioritizes_information_and_explains_actions() -> void:
 		var talk: String = layout.interaction_label(game,"quest_npc:miron"); var mine: String = layout.interaction_label(game,"resource:0")
 		expect(talk.contains("E / A") and mine.contains("E / A") and talk != mine, "context actions remain specific and localized for %s" % locale)
 	game.LocaleSystem.set_locale("ru")
-	var touch := InputEventScreenTouch.new(); touch.position = layout.OBJECTIVE_RECT.get_center(); touch.pressed = true
+	game.current_location="cottage_interior"
+	var touch := InputEventScreenTouch.new(); touch.position = layout.objective_rect(game).get_center(); touch.pressed = true
 	expect(game.handle_gamepad_and_touch(touch) and game.quest_log_open, "touching the visible objective opens the full journal")
 	game.quest_log_open = false; game.message = "Проверка времени чтения"; game.update_hud_feedback(0.0)
 	var duration: float = game.hud_message_timer

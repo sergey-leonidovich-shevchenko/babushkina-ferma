@@ -47,7 +47,7 @@ static func draw_enemy_telegraphs(game: Node2D) -> void:
 ## Рисует постоянную мини-карту активной локации в свободном правом углу HUD.
 static func draw_minimap(game: Node2D) -> void:
 	var farm_life:Dictionary=game.FarmLifeSystem.state(game)
-	if game.inventory_open or game.shop_open or game.quest_log_open or game.world_map_open or game.skill_menu_open or game.crafting_open or game.storage_open or game.forge_open or game.contract_open or game.AdventurePolishSystem.has_modal(game) or bool(farm_life.compendium) or not String(farm_life.cutscene).is_empty() or game.state.fishing.phase in [game.FishingSystem.PHASE_CHARGING,game.FishingSystem.PHASE_MINIGAME,game.FishingSystem.PHASE_RESULT]: return
+	if not HudLayoutSystem.shows_minimap(game) or game.inventory_open or game.shop_open or game.quest_log_open or game.world_map_open or game.skill_menu_open or game.crafting_open or game.storage_open or game.forge_open or game.contract_open or game.AdventurePolishSystem.has_modal(game) or bool(farm_life.compendium) or not String(farm_life.cutscene).is_empty() or game.state.fishing.phase in [game.FishingSystem.PHASE_CHARGING,game.FishingSystem.PHASE_MINIGAME,game.FishingSystem.PHASE_RESULT]: return
 	var rect := HudLayoutSystem.MINIMAP_RECT
 	UiKitSystem.draw_panel(game,rect,false)
 	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(9, 30), game.LocaleSystem.location(game.current_location), HORIZONTAL_ALIGNMENT_LEFT, 144, 10, UiKitSystem.COLORS.ink)

@@ -4,6 +4,8 @@ const UiScaleSystem := preload("res://scripts/systems/ui_scale_system.gd")
 
 const TUTORIAL_RECT := Rect2(18, 106, 414, 112)
 const OBJECTIVE_RECT := Rect2(446, 106, 510, 82)
+const INTERIOR_TUTORIAL_RECT := Rect2(18, 104, 300, 64)
+const INTERIOR_OBJECTIVE_RECT := Rect2(330, 104, 430, 64)
 const MINIMAP_RECT := Rect2(972, 104, 164, 136)
 const DISCOVERY_RECT := Rect2(18, 424, 310, 108)
 const NOTIFICATION_RECT := Rect2(340, 462, 472, 76)
@@ -22,6 +24,26 @@ const DISPLAY_PROFILES := [
 ## Возвращает все принадлежащие координатору карточки для отрисовки, ввода и физического аудита.
 static func context_rects() -> Dictionary:
 	return {"tutorial":TUTORIAL_RECT,"objective":OBJECTIVE_RECT,"minimap":MINIMAP_RECT,"discovery":DISCOVERY_RECT,"notification":NOTIFICATION_RECT,"interaction":INTERACTION_RECT,"effects":EFFECTS_RECT}
+
+
+## Сообщает, что камера находится в небольшой комнате и крупные карточки перекрыли бы интерьер.
+static func uses_compact_cards(game: Node) -> bool:
+	return String(game.current_location).ends_with("_interior") or game.current_location in ["castle_upper"]
+
+
+## Возвращает карточку обучения, уменьшенную только для камер внутри зданий.
+static func tutorial_rect(game: Node) -> Rect2:
+	return INTERIOR_TUTORIAL_RECT if uses_compact_cards(game) else TUTORIAL_RECT
+
+
+## Возвращает кликабельную карточку цели в том же режиме, в котором она нарисована.
+static func objective_rect(game: Node) -> Rect2:
+	return INTERIOR_OBJECTIVE_RECT if uses_compact_cards(game) else OBJECTIVE_RECT
+
+
+## Скрывает избыточную мини-карту в комнатах, где название места уже постоянно видно в верхнем HUD.
+static func shows_minimap(game: Node) -> bool:
+	return not uses_compact_cards(game)
 
 
 ## Преобразует контекстные карточки в физические координаты выбранного экрана без растяжения пиксель-арта.
@@ -98,13 +120,15 @@ static func notification_duration(message: String) -> float:
 ## Проверяет принадлежность карточек холсту и отсутствие пересечений с постоянным HUD и панелью быстрого доступа.
 static func layout_is_safe() -> bool:
 	var viewport := Rect2(Vector2.ZERO,UiScaleSystem.DESIGN_SIZE)
-	var rects: Array[Rect2] = []
-	for rect in context_rects().values():
-		if not viewport.encloses(rect): return false
-		rects.append(rect)
-	for first in rects.size():
-		for second in range(first + 1, rects.size()):
-			if rects[first].intersects(rects[second]): return false
-	for rect in rects:
-		if rect.intersects(HUD_RESERVED_RECT) or rect.intersects(HOTBAR_RESERVED_RECT) or rect.intersects(TOUCH_ACTION_RESERVED_RECT): return false
+	var variants:Array[Dictionary]=[context_rects(),context_rects().merged({"tutorial":INTERIOR_TUTORIAL_RECT,"objective":INTERIOR_OBJECTIVE_RECT},true)]
+	for variant in variants:
+		var rects: Array[Rect2] = []
+		for rect in variant.values():
+			if not viewport.encloses(rect): return false
+			rects.append(rect)
+		for first in rects.size():
+			for second in range(first + 1, rects.size()):
+				if rects[first].intersects(rects[second]): return false
+		for rect in rects:
+			if rect.intersects(HUD_RESERVED_RECT) or rect.intersects(HOTBAR_RESERVED_RECT) or rect.intersects(TOUCH_ACTION_RESERVED_RECT): return false
 	return true

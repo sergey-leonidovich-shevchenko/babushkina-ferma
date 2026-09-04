@@ -118,13 +118,20 @@ static func draw_npc_portrait(game: Node2D, rect: Rect2, npc_id: String) -> void
 
 ## Рисует компактный шаг обучения в безопасном углу, показывая номер и общий прогресс курса.
 static func draw_tutorial(game: Node2D) -> void:
-	UiKitSystem.draw_nine_patch(game, "tooltip", TUTORIAL_CARD)
+	var rect:=HudLayoutSystem.tutorial_rect(game)
+	UiKitSystem.draw_nine_patch(game, "tooltip", rect)
 	var total: int = game.tutorial_steps.size()
 	var step: int = game.tutorial_step + 1
-	game.draw_ui_string(game.UI_FONT, Vector2(42, 133), game.LocaleSystem.ui("tutorial_progress", [step, total]), HORIZONTAL_ALIGNMENT_LEFT, 196, 11, Color("70452b"))
-	game.draw_ui_string(game.UI_FONT, Vector2(246, 133), game.LocaleSystem.ui("tutorial_controls_short"), HORIZONTAL_ALIGNMENT_RIGHT, 158, 8, Color("876440"))
-	UiKitSystem.draw_progress(game, Rect2(42, 141, 362, 10), float(step) / maxi(1, total), Color("76934f"))
-	game.draw_ui_multiline_string(game.UI_FONT, Vector2(42, 169), game.LocaleSystem.tutorial(game.tutorial_steps[game.tutorial_step].event), HORIZONTAL_ALIGNMENT_LEFT, 362, 39, 11, 3, UiKitSystem.COLORS.ink)
+	if HudLayoutSystem.uses_compact_cards(game):
+		game.draw_ui_string(game.UI_FONT,rect.position+Vector2(18,20),game.LocaleSystem.ui("tutorial_progress",[step,total]),HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-58,9,Color("70452b"))
+		game.draw_ui_string(game.UI_FONT,rect.position+Vector2(rect.size.x-38,20),"T",HORIZONTAL_ALIGNMENT_CENTER,20,8,Color("876440"))
+		UiKitSystem.draw_progress(game,Rect2(rect.position+Vector2(18,25),Vector2(rect.size.x-36,6)),float(step)/maxi(1,total),Color("76934f"))
+		game.draw_ui_string(game.UI_FONT,rect.position+Vector2(18,49),game.LocaleSystem.tutorial(game.tutorial_steps[game.tutorial_step].event),HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-36,10,UiKitSystem.COLORS.ink)
+		return
+	game.draw_ui_string(game.UI_FONT, rect.position+Vector2(24,27), game.LocaleSystem.ui("tutorial_progress", [step, total]), HORIZONTAL_ALIGNMENT_LEFT, 196, 11, Color("70452b"))
+	game.draw_ui_string(game.UI_FONT, rect.position+Vector2(228,27), game.LocaleSystem.ui("tutorial_controls_short"), HORIZONTAL_ALIGNMENT_RIGHT, 158, 8, Color("876440"))
+	UiKitSystem.draw_progress(game, Rect2(rect.position+Vector2(24,35),Vector2(362,10)), float(step) / maxi(1, total), Color("76934f"))
+	game.draw_ui_multiline_string(game.UI_FONT, rect.position+Vector2(24,63), game.LocaleSystem.tutorial(game.tutorial_steps[game.tutorial_step].event), HORIZONTAL_ALIGNMENT_LEFT, 362, 39, 11, 3, UiKitSystem.COLORS.ink)
 
 
 ## Рисует системное сообщение как спокойную пергаментную плашку с типовой иконкой награды или события.

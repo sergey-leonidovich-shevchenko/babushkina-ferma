@@ -139,6 +139,9 @@ static func _check_hud(checks:Array[Dictionary],game:Node)->void:
 	for first in modules.size():
 		for second in range(first+1,modules.size()): _record(checks,"hud.overlap.%d.%d"%[first,second],not modules[first].intersects(modules[second]),"Модули HUD пересекаются")
 	_record(checks,"hud.context.design.safe",HudLayoutSystem.layout_is_safe(),"Контекстные карточки пересекаются с постоянным HUD или hotbar")
+	_record(checks,"hud.context.interior.tutorial.compact",HudLayoutSystem.INTERIOR_TUTORIAL_RECT.size.y<HudLayoutSystem.TUTORIAL_RECT.size.y*0.65,"Обучение внутри комнаты осталось слишком высоким")
+	_record(checks,"hud.context.interior.objective.compact",HudLayoutSystem.INTERIOR_OBJECTIVE_RECT.size.y<HudLayoutSystem.OBJECTIVE_RECT.size.y*0.8,"Цель внутри комнаты осталась слишком высокой")
+	_record(checks,"hud.context.interior.cards.clear",not HudLayoutSystem.INTERIOR_TUTORIAL_RECT.intersects(HudLayoutSystem.INTERIOR_OBJECTIVE_RECT),"Компактные карточки перекрывают друг друга")
 	for profile in HudLayoutSystem.DISPLAY_PROFILES:
 		var size:=Vector2(profile.size); var physical:Dictionary=HudLayoutSystem.physical_layout(size); var content:Rect2=physical.content; var safe_area:Rect2=physical.safe_area; var cards:Dictionary=physical.cards
 		_record(checks,"hud.profile.%s.content"%profile.id,safe_area.grow(0.1).encloses(content) and is_equal_approx(content.size.x/content.size.y,16.0/9.0),"Дизайн-холст искажён или выходит за safe-area")

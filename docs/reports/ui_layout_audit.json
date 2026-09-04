@@ -1,5 +1,5 @@
 {
-  "checks": 8674,
+  "checks": 8677,
   "display_profiles": [
     {
       "height": 648,
@@ -46,12 +46,12 @@
     },
     "text_scale": 1.2
   },
-  "passed": 8674,
+  "passed": 8677,
   "schema": 3,
   "scope": "project_ui",
   "source_metrics": {
     "adaptive_multiline_calls": 7,
-    "adaptive_single_line_calls": 255,
+    "adaptive_single_line_calls": 262,
     "explicit_fit_calls": 9,
     "raw_multiline_calls": 3,
     "renderer_modules": 35
