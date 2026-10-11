@@ -6,6 +6,7 @@ const Art := preload("res://scripts/systems/cave_boss_art_system.gd")
 func run() -> void:
 	test_atlas_regions_are_real_transparent_sprites()
 	test_sheets_cover_attacks_emergence_and_flying_creatures()
+	test_prepared_frames_preserve_every_region_and_anchor()
 
 ## Сценарий: каждый нарисованный кадр можно независимо вырезать по каталогу атласа.
 ## Исходное состояние: шесть новых PNG с настоящим альфа-каналом и явными областями кадров.
@@ -37,3 +38,15 @@ func test_sheets_cover_attacks_emergence_and_flying_creatures() -> void:
 	expect(Art.count("effects",1) == 5 and Art.count("effects",3) == 4, "effects use the actual five crystal frames and four moonfire frames")
 	expect(Art.count("flyers",0) == 4 and Art.count("flyers",1) == 4, "fly and bat own independent four-frame flight loops")
 	expect(FileAccess.file_exists(Art.ROOT + "generation.json"), "sprite generation retains exact prompts and original master paths")
+
+## Сценарий: горячий индекс запрашивает каждый кадр и ошибочные крайние номера.
+## Исходное состояние: исходный каталог содержит 89 областей, кеш уже прогрет отрисовкой.
+## Ожидаемый результат: индексация точно сохраняет рисунок и опору, неверная строка безопасна.
+func test_prepared_frames_preserve_every_region_and_anchor() -> void:
+	for kind in Art.catalog():
+		for original in Art.catalog()[kind].frames:
+			var frame := Art.frame(kind,int(original.row),int(original.column))
+			expect(frame.region == original.region and frame.anchor == original.anchor,"prepared frame exactly matches original atlas region and anchor")
+			expect(frame.source == Rect2(original.region[0],original.region[1],original.region[2],original.region[3]),"prepared source preserves exact integer pixels")
+		expect(Art.frame(kind,999,0).is_empty() and Art.count(kind,999) == 0,"unknown row has no accidental frame")
+		expect(Art.frame(kind,0,-20).column == 0 and Art.frame(kind,0,999).column == Art.count(kind,0)-1,"extreme frame numbers clamp to valid art")

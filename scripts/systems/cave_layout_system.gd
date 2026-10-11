@@ -39,12 +39,8 @@ static func blocks_water(position: Vector2, radius: float, location: String) -> 
 
 ## Проверяет основания крупного декора активной комнаты; маленькие грибы и осыпь проходимы.
 static func blocks_decoration(position: Vector2, radius: float, location: String = "cave") -> bool:
-	if location == "cave_sanctum":
-		for solid in Rooms.Arena.solids():
-			if _circle_in_rect(position,radius,solid): return true
-	for prop in Rooms.decorations(location):
-		var solid := Assets.collision_rect(prop.kind,prop.position)
-		if solid.has_area() and _circle_in_rect(position,radius,solid): return true
+	for solid in _prepare(location).decoration_rects:
+		if Rect2(solid).grow(radius).has_point(position) and _circle_in_rect(position,radius,solid): return true
 	return false
 
 
@@ -71,7 +67,11 @@ static func safe_start(location: String) -> Vector2:
 static func _prepare(location: String) -> Dictionary:
 	if _prepared.has(location): return _prepared[location]
 	var floor := Rooms.floor_polygon(location)
-	var result := {"floor":floor,"walls":[],"segments":_polygon_segments(floor),"pools":[]}
+	var result := {"floor":floor,"walls":[],"segments":_polygon_segments(floor),"pools":[],"decoration_rects":[]}
+	if location == "cave_sanctum": result.decoration_rects.append_array(Rooms.Arena.solids())
+	for prop in Rooms.decorations(location):
+		var solid := Assets.collision_rect(prop.kind,prop.position)
+		if solid.has_area(): result.decoration_rects.append(solid)
 	_append_walls(result.walls,floor)
 	for rock in Rooms.ROCKS.get(location, []):
 		var outline := Rooms.rectangle_polygon(rock); outline.reverse()

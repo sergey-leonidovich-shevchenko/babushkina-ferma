@@ -7,8 +7,11 @@ const Shots := preload("res://scripts/systems/cave_boss_projectile_system.gd")
 
 ## Находит выделенного хранителя святилища, сохраняя прежние индексы остальных врагов.
 static func index(game: Node) -> int:
+	var cached := int(game.get_meta("cave_boss_index", -1))
+	if cached >= 0 and cached < game.enemy_nodes.size() and bool(game.enemy_nodes[cached].get("cave_boss", false)): return cached
 	for enemy_index in game.enemy_nodes.size():
-		if bool(game.enemy_nodes[enemy_index].get("cave_boss", false)): return enemy_index
+		if bool(game.enemy_nodes[enemy_index].get("cave_boss", false)):
+			game.set_meta("cave_boss_index", enemy_index); return enemy_index
 	return -1
 
 ## Начинает пробуждённый у алтаря бой с паузой перед первой атакой.
