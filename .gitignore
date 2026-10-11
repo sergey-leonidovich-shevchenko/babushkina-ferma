@@ -11,6 +11,8 @@ tools/*
 !tools/compact_hud_review.gd
 !tools/runtime_comfort_review.gd
 !tools/runtime_frame_review.gd
+!tools/geometry_benchmark.gd
+!tools/inspector_benchmark.gd
 !tools/audio_composer.py
 !tools/audio_sound_effects.py
 !tools/audit_audio_assets.py

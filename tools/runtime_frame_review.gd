@@ -251,7 +251,12 @@ func _finish() -> void:
 	result.user_saves_unchanged = unchanged
 	var filename := "native_profile_town_%s.json" if profile_town else "native_frames_%s.json"
 	if profile_short: filename = "native_profile_town_%s_short.json"
-	var output := FileAccess.open("res://docs/reports/" + filename % mode, FileAccess.WRITE)
+	var report_directory := "res://docs/reports"
+	for argument in OS.get_cmdline_user_args():
+		if argument.begins_with("--report-dir="): report_directory = argument.trim_prefix("--report-dir=")
+	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(report_directory))
+	var report_path := report_directory.path_join(filename % mode)
+	var output := FileAccess.open(report_path, FileAccess.WRITE)
 	result.slow_frames = slow_frames
 	if output == null:
 		push_error("Не удалось сохранить нативный покадровый замер")
@@ -259,7 +264,7 @@ func _finish() -> void:
 		return
 	output.store_string(JSON.stringify(result, "  ") + "\n")
 	output.close()
-	print("NATIVE FRAME REVIEW: %s" % JSON.stringify({"report":filename % mode,"mode":mode,"samples":frame_ms.size(),"route_finished":route_valid,"user_saves_unchanged":unchanged,"render_frame":result.render_frame}))
+	print("NATIVE FRAME REVIEW: %s" % JSON.stringify({"report":report_path,"mode":mode,"samples":frame_ms.size(),"route_finished":route_valid,"user_saves_unchanged":unchanged,"render_frame":result.render_frame}))
 	# Короткая секционная диагностика не подменяет полную проверку маршрута: её файл явно помечен partial.
 	var run_valid: bool = route_valid or (profile_short and game.current_location == "overworld" and frame_ms_by_location.size() == 1)
 	quit(0 if run_valid and unchanged else 1)

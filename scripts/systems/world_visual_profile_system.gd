@@ -52,12 +52,12 @@ static func visual_size(profile_id: String) -> Vector2:
 
 ## Строит мировой прямоугольник изображения относительно заявленной точки привязки.
 static func visual_rect(profile_id: String, anchor_position: Vector2) -> Rect2:
-	return visual_rect_from(profile(profile_id), anchor_position)
+	return visual_rect_from(PROFILES.get(profile_id, {}), anchor_position)
 
 
 ## Строит прямоугольник коллизии из того же профиля и той же мировой точки привязки.
 static func collision_rect(profile_id: String, anchor_position: Vector2) -> Rect2:
-	return collision_rect_from(profile(profile_id), anchor_position)
+	return collision_rect_from(PROFILES.get(profile_id, {}), anchor_position)
 
 
 ## Нормализует профиль подсистемы к общим ключам размеров, привязки и коллизии.

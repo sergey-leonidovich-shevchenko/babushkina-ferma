@@ -4,6 +4,7 @@ extends "res://tests/suites/suite_base.gd"
 ## Запускает контрактные тесты живой деревни, животных и изолированного полигона отладки.
 func run() -> void:
 	preload("res://tests/suites/wildlife_combat_comfort_suite.gd").new(context).run()
+	preload("res://tests/suites/inspector_query_suite.gd").new(context).run()
 	test_village_has_distinct_connected_districts()
 	test_village_palette_covers_every_season()
 	test_wildlife_atlases_follow_shared_contract()

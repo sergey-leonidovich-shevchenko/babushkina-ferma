@@ -4,6 +4,7 @@ extends "res://tests/suites/suite_base.gd"
 ## Запускает проверку обязательного стандарта и полноты реестра движущихся объектов.
 func run() -> void:
 	test_world_visual_profiles_are_grid_safe()
+	test_geometry_queries_preserve_independent_profiles()
 	test_eight_direction_index_is_stable()
 	test_human_character_package_is_compliant()
 	test_all_current_mobile_catalog_entries_are_audited()
@@ -19,6 +20,30 @@ func test_world_visual_profiles_are_grid_safe() -> void:
 	expect(profiles.visual_size("terrain") == Vector2(24, 24) and profiles.visual_size("farm_plot") == Vector2(48, 48), "terrain and farm plots use base grid modules")
 	expect(profiles.visual_rect("hero", Vector2(100, 200)) == Rect2(52, 104, 96, 96), "hero profile preserves square artwork and the authored bottom-center foot anchor")
 	expect(profiles.collision_rect("bridge", Vector2(100, 200)) == Rect2(52, 104, 96, 192), "bridge collision is derived from the same four-by-eight-cell profile")
+
+
+## Сценарий: вызывающий код редактирует полученные профили после запроса геометрии.
+## Исходное состояние: проверяются все мировые семейства, контейнеры и фасады с отрицательными координатами.
+## Ожидаемый результат: внешние изменения копии не портят последующие размеры, дверной проход и fallback неизвестных ID.
+func test_geometry_queries_preserve_independent_profiles() -> void:
+	var world = GameScript.WorldVisualProfileSystem; var loot = preload("res://scripts/systems/world_loot_visual_system.gd"); var buildings = GameScript.BuildingVisualSystem
+	var position := Vector2(-120, 240)
+	for id in world.PROFILES:
+		var visual: Rect2 = world.visual_rect(id, position); var collision: Rect2 = world.collision_rect(id, position)
+		var copy: Dictionary = world.profile(id); copy.visual_size = Vector2.ONE; copy.collision_size = Vector2.ONE; copy.anchor = "top_left"
+		expect(world.visual_rect(id, position) == visual and world.collision_rect(id, position) == collision and world.profile(id).visual_size != Vector2.ONE, "world geometry remains isolated from profile edits: %s" % id)
+	for kind in loot.kinds():
+		var visual: Rect2 = loot.visual_rect(kind, position); var collision: Rect2 = loot.collision_rect(kind, position)
+		var copy: Dictionary = loot.profile(kind); copy.visual_size = Vector2.ONE; copy.collision_offset = Vector2.ONE
+		expect(loot.visual_rect(kind, position) == visual and loot.collision_rect(kind, position) == collision and loot.profile(kind).visual_size != Vector2.ONE, "loot geometry remains isolated from profile edits: %s" % kind)
+	for id in buildings.PROFILES:
+		var facade: Rect2 = buildings.destination_rect(id, position); var foundation: Rect2 = buildings.collision_bounds(id, position); var walls: Array[Rect2] = buildings.collision_rects(id, position)
+		var copy: Dictionary = buildings.profile(id); copy.visual_size = Vector2.ONE; copy.foundation_size = Vector2.ONE; copy.door_size = Vector2.ONE
+		expect(buildings.destination_rect(id, position) == facade and buildings.collision_bounds(id, position) == foundation and buildings.collision_rects(id, position) == walls, "building geometry remains isolated from profile edits: %s" % id)
+		expect(buildings.door_rect(id, position) == Rect2(-144, 216, 48, 24) and walls[1].position.x - walls[0].end.x == 48, "building retains two-cell doorway after profile edits: %s" % id)
+	expect(world.visual_rect("unknown", position) == Rect2(position, Vector2.ZERO) and world.collision_rect("unknown", position) == Rect2(position, Vector2.ZERO), "unknown world profile retains zero-sized geometry")
+	expect(loot.visual_rect("pirate_chest", position) == loot.visual_rect("chest", position) and loot.collision_rect("unknown", position) == loot.collision_rect("chest", position), "container aliases and unknown-kind chest fallback remain valid")
+	expect(buildings.destination_rect("unknown", position) == buildings.destination_rect("cottage", position) and buildings.collision_rects("unknown", position) == buildings.collision_rects("cottage", position), "unknown building retains cottage fallback")
 
 
 ## Сценарий: восемь векторов движения однозначно сопоставляются восьми строкам будущих атласов.

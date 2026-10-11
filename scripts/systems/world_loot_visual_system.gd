@@ -41,12 +41,12 @@ static func profile(kind: String) -> Dictionary:
 
 ## Возвращает видимую область контейнера через общий пространственный контракт.
 static func visual_rect(kind: String, position: Vector2) -> Rect2:
-	return WorldVisualProfileSystem.visual_rect_from(profile(kind), position)
+	return WorldVisualProfileSystem.visual_rect_from(PROFILES.get(resolved_kind(kind), PROFILES.chest), position)
 
 
 ## Возвращает физическое основание контейнера через общий пространственный контракт.
 static func collision_rect(kind: String, position: Vector2) -> Rect2:
-	return WorldVisualProfileSystem.collision_rect_from(profile(kind), position)
+	return WorldVisualProfileSystem.collision_rect_from(PROFILES.get(resolved_kind(kind), PROFILES.chest), position)
 
 
 ## Проверяет текстуры и все профили контейнеров общим валидатором мировой геометрии.

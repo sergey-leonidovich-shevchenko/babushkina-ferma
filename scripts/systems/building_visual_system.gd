@@ -39,26 +39,26 @@ static func profile(building_id: String) -> Dictionary:
 
 ## Возвращает прямоугольник фасада так, чтобы нижняя видимая ступень совпадала с координатой двери.
 static func destination_rect(building_id: String, door: Vector2) -> Rect2:
-	var size:=Vector2(profile(building_id).visual_size)
+	var size:=Vector2(PROFILES.get(building_id,PROFILES.cottage).visual_size)
 	return Rect2(door-Vector2(size.x*0.5,size.y-BASE_CELL),size)
 
 
 ## Возвращает честную интерактивную область двери шириной две базовые клетки.
 static func door_rect(building_id: String, door: Vector2) -> Rect2:
-	var size:=Vector2(profile(building_id).door_size)
+	var size:=DOOR_SIZE
 	return Rect2(door-Vector2(size.x*0.5,size.y),size)
 
 
 ## Делит твёрдый фундамент на левую и правую части, оставляя видимый дверной проём свободным.
 static func collision_rects(building_id: String, door: Vector2) -> Array[Rect2]:
-	var data:=profile(building_id); var foundation:=Vector2(data.foundation_size); var half_gap:=float(Vector2(data.door_size).x)*0.5; var side_width:=foundation.x*0.5-half_gap
+	var foundation:=Vector2(PROFILES.get(building_id,PROFILES.cottage).foundation_size); var half_gap:=DOOR_SIZE.x*0.5; var side_width:=foundation.x*0.5-half_gap
 	var top:=door.y-BASE_CELL-foundation.y; var left:=door.x-foundation.x*0.5
 	return [Rect2(left,top,side_width,foundation.y),Rect2(door.x+half_gap,top,side_width,foundation.y)]
 
 
 ## Возвращает полный внешний контур фундамента для врагов и обзорных диагностических данных.
 static func collision_bounds(building_id: String, door: Vector2) -> Rect2:
-	var foundation:=Vector2(profile(building_id).foundation_size)
+	var foundation:=Vector2(PROFILES.get(building_id,PROFILES.cottage).foundation_size)
 	return Rect2(door-Vector2(foundation.x*0.5,foundation.y+BASE_CELL),foundation)
 
 

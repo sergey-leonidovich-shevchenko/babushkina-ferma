@@ -1,0 +1,92 @@
+{
+	"baseline_ref": "0d1b1ebd708ec97d81ea9f7e44b4a30cb74b4fe2",
+	"families": {
+		"buildings": {
+			"baseline_median_ms": 195.471,
+			"baseline_ms": [
+				192.646,
+				202.109,
+				205.694,
+				196.929,
+				195.056,
+				195.471,
+				193.756,
+				193.911,
+				196.59
+			],
+			"current_median_ms": 50.841,
+			"current_ms": [
+				51.315,
+				50.217,
+				51.88,
+				50.841,
+				50.744,
+				50.822,
+				50.603,
+				50.94,
+				52.241
+			],
+			"current_source_sha256": "b4c61f41e963a2224bc37819caf18b042b8bb652db3b0ac6a30b1e0585bbdc18",
+			"equal_results": true
+		},
+		"loot": {
+			"baseline_median_ms": 113.732,
+			"baseline_ms": [
+				115.091,
+				109.291,
+				113.955,
+				113.732,
+				114.605,
+				116.48,
+				109.847,
+				108.319,
+				109.555
+			],
+			"current_median_ms": 48.503,
+			"current_ms": [
+				48.651,
+				47.834,
+				47.648,
+				47.69,
+				52.837,
+				48.503,
+				48.542,
+				48.57,
+				48.32
+			],
+			"current_source_sha256": "8fcbd41e81514a548003ce7b2a58b1bbb828896d0adcd7cc852d5c4e02ad9c79",
+			"equal_results": true
+		},
+		"world": {
+			"baseline_median_ms": 115.295,
+			"baseline_ms": [
+				112.925,
+				113.079,
+				110.369,
+				115.295,
+				117.693,
+				118.718,
+				117.537,
+				113.11,
+				115.794
+			],
+			"current_median_ms": 50.436,
+			"current_ms": [
+				49.264,
+				50.093,
+				49.969,
+				50.284,
+				53.164,
+				52.98,
+				50.436,
+				50.618,
+				50.568
+			],
+			"current_source_sha256": "b570a8d4a7461987d98bd07c8e86a52df061f1596578ed7cdb1e9401a456f3ab",
+			"equal_results": true
+		}
+	},
+	"godot": "4.7.1-stable (official)",
+	"iterations_per_sample": 20000,
+	"samples": 9
+}

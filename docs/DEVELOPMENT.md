@@ -181,6 +181,10 @@ python3 tools/generate_audio_assets.py
 
 Локальные релизные ворота запускаются отдельно: `zsh tools/smoke_test.sh` проходит 180 кадров реального игрового цикла, а `zsh tools/performance_gate.sh` проверяет 480 кадров с минимальным средним значением 50 FPS. Обе команды входят в GitHub Actions после архитектурной проверки и полного набора автотестов.
 
+Для реального покадрового сравнения используйте `tools/runtime_frame_review.gd` с `-- --profile-town`; для второго режима добавьте `--benchmark-debug-overlay`. Аргумент `--report-dir=res://docs/reports/<итерация>/<до-или-после>` сохраняет все 1400 измерений отдельно от предыдущих отчётов. Запускайте normal и F10 последовательно; `--headless` для этого инструмента запрещён.
+
+CPU-запросы можно проверить отдельно инструментами `tools/geometry_benchmark.gd` и `tools/inspector_benchmark.gd` в headless-режиме. Сохраните старые модули командой `git show <ref>:scripts/systems/<модуль>.gd` во временные файлы, затем передайте геометрии `--baseline-dir=<каталог-с-тремя-модулями>`, инспектору `--baseline=<старый-debug_object_inspector_system.gd>`. Общие аргументы: `--baseline-ref=<ref>` и `--report=<JSON>`. Каждый инструмент прогревается, чередует порядок девяти проб и проверяет совпадение результатов. Отдельный CPU-микрозамер не заменяет проверку FPS настоящего renderer-а.
+
 Для прямого визуального просмотра новых NPC, дыхания в покое и движения напарников используйте `tools/Godot.app/Contents/MacOS/Godot --path . -- --animation-preview`.
 
 [К архитектуре](../ARCHITECTURE.md) · [К документации](README.md)
