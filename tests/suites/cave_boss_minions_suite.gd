@@ -31,7 +31,7 @@ func test_summons_are_limited_safe_and_animate_before_attacking() -> void:
 		expect(Boss.Attacks.safe(game,minion.position) and game.player.distance_to(minion.position) >= 145.0,"summon emerges on safe dry ground away from the hero")
 		expect(float(minion.emerge) == 1.25,"summon receives its own full emergence animation")
 	expect(not Minions.damage(game,0,100),"emerging skeleton cannot skip resurrection by taking damage")
-	expect(not Minions.safe_floor(game,Vector2(1944,792)),"summons cannot stand on the sanctuary column base")
+	expect(not Minions.safe_floor(game,Vector2(1848,972)) and Minions.safe_floor(game,Vector2(1944,792)),"summons cannot stand on the sanctuary column base")
 	var hp: int = game.player_hp
 	Minions.update(game,0.6)
 	expect(game.player_hp == hp and game.state.world.cave_boss.minions.all(func(minion): return float(minion.emerge)>0.0),"emergence does not include hidden AI attacks")
@@ -123,7 +123,7 @@ func test_weapons_spells_and_companions_can_hit_summons() -> void:
 ## Ожидаемый результат: предупреждение длится 1,2 секунды, виды волны соответствуют стадии, повтор не мгновенный.
 func test_boss_scheduler_summons_stage_specific_creatures() -> void:
 	var game := battle(); var index := Boss.index(game)
-	for sample in [[120,["skeleton"]],[70,["zombie","vampire"]],[30,["skeleton","zombie","vampire"]]]:
+	for sample in [[Data.MAX_HP,["skeleton"]],[Data.MAX_HP/2,["zombie","vampire"]],[Data.MAX_HP/6,["skeleton","zombie","vampire"]]]:
 		Boss.reset(game); game.enemy_nodes[index].hp=sample[0]; Boss.start(game)
 		var state: Dictionary = game.state.world.cave_boss
 		state.recovery=0.0; state.summon_timer=0.0

@@ -24,10 +24,10 @@ func battle() -> Node:
 	return game
 
 ## Сценарий: три стадии открывают собственные наборы из четырёх различных атак.
-## Исходное состояние: хранитель имеет 120 HP и каталог из двенадцати механик.
-## Ожидаемый результат: точные пороги 80 и 40 включают новые стадии, предупреждения не короче 0,9 секунды.
+## Исходное состояние: хранитель имеет 180 HP и каталог из двенадцати механик.
+## Ожидаемый результат: точные пороги 120 и 60 включают новые стадии, предупреждения не короче 0,9 секунды.
 func test_three_phases_have_twelve_distinct_mechanics() -> void:
-	for sample in [[120,1],[81,1],[80,2],[41,2],[40,3],[1,3]]:
+	for sample in [[180,1],[121,1],[120,2],[61,2],[60,3],[1,3]]:
 		expect(Data.phase(sample[0]) == sample[1], "guardian phase uses exact health threshold: " + str(sample))
 	var ids: Array = []
 	for phase in Data.PHASES:
@@ -48,11 +48,11 @@ func test_guardian_uses_custom_ai_and_phase_transition_grace() -> void:
 	expect(game.player_hp == hp and not game.enemy_nodes[index].attack_pending,"custom guardian cannot receive an extra generic AI attack")
 	Attacks.begin(game,"fan",game.enemy_nodes[index])
 	Boss.Shots.launch(game,Vector2(1680,648),Vector2.LEFT,12)
-	game.CombatSystem.apply_damage(game,index,40)
+	game.CombatSystem.apply_damage(game,index,60)
 	var state: Dictionary = game.state.world.cave_boss
 	expect(state.phase == 2 and state.attack.is_empty() and state.projectiles.is_empty(),"health loss immediately starts second phase and removes old hazards")
 	expect(float(state.recovery) >= 2.0,"phase transition grants a two-second response window")
-	game.CombatSystem.apply_damage(game,index,45)
+	game.CombatSystem.apply_damage(game,index,65)
 	expect(state.phase == 3 and game.CombatSystem.boss_phase(game.enemy_nodes[index]) == 3,"third phase is reflected in the common combat API")
 	expect(game.enemy_nodes[index].position == Vector2(1728,648),"guardian takes damage without weapon knockback changing the telegraph origin")
 	game.free()
@@ -118,7 +118,7 @@ func test_pause_exit_victory_and_save_cleanup() -> void:
 	var saved: Dictionary = game.SaveSystem.snapshot(game)
 	Boss.Minions.summon(game,["zombie"]); Boss.Shots.attach_fly(game,5.0)
 	expect(game.SaveSystem.apply(game,saved),"mid-battle progress remains a compatible save")
-	expect(game.enemy_nodes[index].hp == 68 and game.enemy_nodes[index].max_hp == 120,"loading preserves guardian HP and its custom maximum")
+	expect(game.enemy_nodes[index].hp == Data.MAX_HP-52 and game.enemy_nodes[index].max_hp == Data.MAX_HP,"loading preserves guardian HP and its custom maximum")
 	expect(game.state.world.cave_boss.minions.is_empty() and game.state.world.cave_boss.fly_timer == 0.0,"loading grants a fresh warning instead of resuming an unseen hit")
 	Boss.start(game); game.CombatSystem.apply_damage(game,index,200)
 	var drops: int = game.dropped_items.size()
@@ -141,18 +141,18 @@ func test_tutorial_and_localized_attack_labels() -> void:
 	game.LocaleSystem.set_locale("ru",false); game.free()
 
 ## Сценарий: старый страж переносит долю здоровья, а отдельный режим позволяет вручную проверить новый бой.
-## Исходное состояние: прежние сохранения не содержат максимальный HP, новый босс имеет 120 HP.
+## Исходное состояние: прежние сохранения не содержат максимальный HP, новый босс имеет 180 HP.
 ## Ожидаемый результат: нет потери стадий из-за прежнего максимума, проверочный запуск даёт оружие без сохранения.
 func test_legacy_guardian_progress_and_playable_preview() -> void:
-	expect(Data.restored_hp({"hp":34},34)==120,"untouched legacy guardian starts the new encounter at full health")
-	expect(Data.restored_hp({"hp":17},34)==60,"damaged legacy guardian retains the same health fraction")
-	expect(Data.restored_hp({"hp":7,"max_hp":120},34)==7,"new boss saves preserve exact HP instead of scaling twice")
+	expect(Data.restored_hp({"hp":34},34)==Data.MAX_HP,"untouched legacy guardian starts the new encounter at full health")
+	expect(Data.restored_hp({"hp":17},34)==Data.MAX_HP/2,"damaged legacy guardian retains the same health fraction")
+	expect(Data.restored_hp({"hp":7,"max_hp":Data.MAX_HP},34)==7,"new boss saves preserve exact HP instead of scaling twice")
 	var game := make_game(); Boss.configure_preview(game)
 	expect(game.current_location==Data.LOCATION and game.equipped_weapon=="iron_spear","playable boss preview starts in the actual arena with a spear")
 	expect(game.FirstChapterSystem.state(game).completed and game.state.player.profile.created,"preview avoids onboarding dialogs that would pause the battle")
 	Boss.update(game,0.05)
 	expect(not game.state.world.cave_boss.active and game.GameInteractionRouter.perform(game),"preview waits for the real altar interaction")
-	expect(game.state.world.cave_boss.active and game.enemy_nodes[Boss.index(game)].hp==120,"preview starts a live three-stage encounter with the real scheduler")
+	expect(game.state.world.cave_boss.active and game.enemy_nodes[Boss.index(game)].hp==Data.MAX_HP,"preview starts a live three-stage encounter with the real scheduler")
 	game.free()
 
 ## Сценарий: поражение во время боя возвращает героя на доступный пол, а не за пределы пещеры.

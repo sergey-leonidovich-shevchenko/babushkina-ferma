@@ -1,0 +1,382 @@
+{
+  "battles": [
+    {
+      "accepted_attacks": 92,
+      "apples_used": 3,
+      "attacks_seen": [
+        "slam",
+        "fan",
+        "charge",
+        "fissure",
+        "rockfall",
+        "burst",
+        "sweep",
+        "prison",
+        "cross",
+        "spiral",
+        "triple_charge",
+        "pulse"
+      ],
+      "boss_hp": -2,
+      "damage_received": 122,
+      "defeat": false,
+      "hero_hp": 78,
+      "hero_max_hp": 110,
+      "initial_loadout": {
+        "apples": 4,
+        "damage": 2,
+        "hp": 100,
+        "maximum": 100,
+        "weapon": "forest_sword"
+      },
+      "peak_minions": 3,
+      "phase_seconds": {
+        "1": 23.8333333333333,
+        "2": 13.2000000000002,
+        "3": 23.7499999999999
+      },
+      "player_damage": 3,
+      "seconds": 60.78,
+      "seed": 7,
+      "victory": true,
+      "weapon": "forest_sword",
+      "weapon_durability": 8
+    },
+    {
+      "accepted_attacks": 92,
+      "apples_used": 3,
+      "attacks_seen": [
+        "slam",
+        "fan",
+        "charge",
+        "fissure",
+        "rockfall",
+        "burst",
+        "sweep",
+        "prison",
+        "cross",
+        "spiral",
+        "triple_charge",
+        "pulse"
+      ],
+      "boss_hp": -2,
+      "damage_received": 120,
+      "defeat": false,
+      "hero_hp": 80,
+      "hero_max_hp": 110,
+      "initial_loadout": {
+        "apples": 4,
+        "damage": 2,
+        "hp": 100,
+        "maximum": 100,
+        "weapon": "forest_sword"
+      },
+      "peak_minions": 3,
+      "phase_seconds": {
+        "1": 24.8166666666665,
+        "2": 13.2000000000002,
+        "3": 23.6666666666666
+      },
+      "player_damage": 3,
+      "seconds": 61.68,
+      "seed": 23,
+      "victory": true,
+      "weapon": "forest_sword",
+      "weapon_durability": 8
+    },
+    {
+      "accepted_attacks": 86,
+      "apples_used": 3,
+      "attacks_seen": [
+        "slam",
+        "fan",
+        "charge",
+        "fissure",
+        "rockfall",
+        "burst",
+        "sweep",
+        "prison",
+        "cross",
+        "spiral",
+        "triple_charge",
+        "pulse"
+      ],
+      "boss_hp": 0,
+      "damage_received": 112,
+      "defeat": false,
+      "hero_hp": 88,
+      "hero_max_hp": 110,
+      "initial_loadout": {
+        "apples": 4,
+        "damage": 2,
+        "hp": 100,
+        "maximum": 100,
+        "weapon": "forest_sword"
+      },
+      "peak_minions": 3,
+      "phase_seconds": {
+        "1": 24.2666666666666,
+        "2": 13.2000000000002,
+        "3": 19.8333333333335
+      },
+      "player_damage": 3,
+      "seconds": 57.3,
+      "seed": 61,
+      "victory": true,
+      "weapon": "forest_sword",
+      "weapon_durability": 14
+    },
+    {
+      "accepted_attacks": 55,
+      "apples_used": 0,
+      "attacks_seen": [
+        "slam",
+        "fan",
+        "charge",
+        "fissure",
+        "rockfall",
+        "burst",
+        "sweep",
+        "prison",
+        "cross",
+        "spiral",
+        "triple_charge"
+      ],
+      "boss_hp": 0,
+      "damage_received": 41,
+      "defeat": false,
+      "hero_hp": 69,
+      "hero_max_hp": 110,
+      "initial_loadout": {
+        "apples": 4,
+        "damage": 3,
+        "hp": 100,
+        "maximum": 100,
+        "weapon": "iron_spear"
+      },
+      "peak_minions": 2,
+      "phase_seconds": {
+        "1": 14.3333333333336,
+        "2": 13.6666666666669,
+        "3": 13.3666666666669
+      },
+      "player_damage": 4,
+      "seconds": 41.37,
+      "seed": 7,
+      "victory": true,
+      "weapon": "iron_spear",
+      "weapon_durability": 45
+    },
+    {
+      "accepted_attacks": 56,
+      "apples_used": 2,
+      "attacks_seen": [
+        "slam",
+        "fan",
+        "charge",
+        "fissure",
+        "rockfall",
+        "burst",
+        "sweep",
+        "cross",
+        "spiral",
+        "triple_charge",
+        "pulse"
+      ],
+      "boss_hp": -3,
+      "damage_received": 76,
+      "defeat": false,
+      "hero_hp": 94,
+      "hero_max_hp": 110,
+      "initial_loadout": {
+        "apples": 4,
+        "damage": 3,
+        "hp": 100,
+        "maximum": 100,
+        "weapon": "iron_spear"
+      },
+      "peak_minions": 2,
+      "phase_seconds": {
+        "1": 14.3333333333336,
+        "2": 10.9333333333335,
+        "3": 18.6833333333336
+      },
+      "player_damage": 4,
+      "seconds": 43.95,
+      "seed": 23,
+      "victory": true,
+      "weapon": "iron_spear",
+      "weapon_durability": 44
+    },
+    {
+      "accepted_attacks": 55,
+      "apples_used": 1,
+      "attacks_seen": [
+        "slam",
+        "fan",
+        "charge",
+        "fissure",
+        "rockfall",
+        "burst",
+        "sweep",
+        "cross",
+        "spiral",
+        "triple_charge",
+        "pulse"
+      ],
+      "boss_hp": 0,
+      "damage_received": 61,
+      "defeat": false,
+      "hero_hp": 79,
+      "hero_max_hp": 110,
+      "initial_loadout": {
+        "apples": 4,
+        "damage": 3,
+        "hp": 100,
+        "maximum": 100,
+        "weapon": "iron_spear"
+      },
+      "peak_minions": 2,
+      "phase_seconds": {
+        "1": 14.3333333333336,
+        "2": 10.9333333333335,
+        "3": 18.6833333333336
+      },
+      "player_damage": 4,
+      "seconds": 43.95,
+      "seed": 61,
+      "victory": true,
+      "weapon": "iron_spear",
+      "weapon_durability": 45
+    },
+    {
+      "accepted_attacks": 100,
+      "apples_used": 4,
+      "attacks_seen": [
+        "slam",
+        "fan",
+        "charge",
+        "fissure",
+        "rockfall",
+        "burst",
+        "sweep",
+        "prison",
+        "cross",
+        "spiral",
+        "triple_charge",
+        "pulse"
+      ],
+      "boss_hp": 0,
+      "damage_received": 146,
+      "defeat": false,
+      "hero_hp": 84,
+      "hero_max_hp": 110,
+      "initial_loadout": {
+        "apples": 4,
+        "damage": 2,
+        "hp": 100,
+        "maximum": 100,
+        "weapon": "bow"
+      },
+      "peak_minions": 3,
+      "phase_seconds": {
+        "1": 25.9833333333331,
+        "2": 23.3333333333333,
+        "3": 34.166666666666
+      },
+      "player_damage": 3,
+      "seconds": 83.48,
+      "seed": 7,
+      "victory": true,
+      "weapon": "bow",
+      "weapon_durability": 0
+    },
+    {
+      "accepted_attacks": 88,
+      "apples_used": 0,
+      "attacks_seen": [
+        "slam",
+        "fan",
+        "charge",
+        "fissure",
+        "rockfall",
+        "burst",
+        "sweep",
+        "prison",
+        "cross",
+        "spiral",
+        "triple_charge",
+        "pulse"
+      ],
+      "boss_hp": 0,
+      "damage_received": 32,
+      "defeat": false,
+      "hero_hp": 78,
+      "hero_max_hp": 110,
+      "initial_loadout": {
+        "apples": 4,
+        "damage": 2,
+        "hp": 100,
+        "maximum": 100,
+        "weapon": "bow"
+      },
+      "peak_minions": 3,
+      "phase_seconds": {
+        "1": 23.4833333333333,
+        "2": 26.6666666666664,
+        "3": 23.4833333333333
+      },
+      "player_damage": 3,
+      "seconds": 73.63,
+      "seed": 23,
+      "victory": true,
+      "weapon": "bow",
+      "weapon_durability": 12
+    },
+    {
+      "accepted_attacks": 79,
+      "apples_used": 0,
+      "attacks_seen": [
+        "slam",
+        "fan",
+        "charge",
+        "fissure",
+        "rockfall",
+        "burst",
+        "sweep",
+        "prison",
+        "cross",
+        "spiral",
+        "triple_charge",
+        "pulse"
+      ],
+      "boss_hp": 0,
+      "damage_received": 41,
+      "defeat": false,
+      "hero_hp": 69,
+      "hero_max_hp": 110,
+      "initial_loadout": {
+        "apples": 4,
+        "damage": 2,
+        "hp": 100,
+        "maximum": 100,
+        "weapon": "bow"
+      },
+      "peak_minions": 4,
+      "phase_seconds": {
+        "1": 23.4833333333333,
+        "2": 22.5,
+        "3": 20.0000000000001
+      },
+      "player_damage": 3,
+      "seconds": 65.98,
+      "seed": 61,
+      "victory": true,
+      "weapon": "bow",
+      "weapon_durability": 21
+    }
+  ],
+  "note": "Deterministic steering probe, not a human difficulty claim. Level 1, no armor/talents/companions/buffs, 4 apples, no god mode, no dodge. Decisions every 250 ms; real Navigation.move and public attacks/food.",
+  "schema": 1,
+  "step": 0.0166666666666667
+}

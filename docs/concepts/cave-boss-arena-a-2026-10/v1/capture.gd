@@ -31,7 +31,7 @@ func shot(scenario: String) -> void:
 		var index := Boss.index(game)
 		if scenario=="phase1": Boss.Attacks.begin(game,"slam",game.enemy_nodes[index]); Boss.Attacks.update(game,index,0.68)
 		elif scenario=="phase3":
-			game.CombatSystem.apply_damage(game,index,88)
+			game.CombatSystem.apply_damage(game,index,Boss.Data.MAX_HP*2/3+8)
 			Boss.Attacks.begin(game,"cross",game.enemy_nodes[index]); Boss.Attacks.update(game,index,0.68)
 			Boss.Minions.summon(game,["skeleton","zombie","vampire"])
 			for minion in game.state.world.cave_boss.minions: minion.emerge = 0.0

@@ -42,12 +42,9 @@ static func living_count(game: Node) -> int:
 		if minion.alive: count += 1
 	return count
 
-## Держит призывы вдали от оснований фоновых колонн, чтобы ноги не оказывались поверх руин.
+## Использует реальные основания новой арены, не оставляя невидимых колонн прежней комнаты.
 static func safe_floor(game: Node, point: Vector2) -> bool:
-	if not Attacks.safe(game,point): return false
-	for ground in [Vector2(1728,480),Vector2(1944,792)]:
-		if point.distance_to(ground) < 90.0: return false
-	return true
+	return Attacks.safe(game,point)
 
 ## Обновляет выход из земли, погоню, читаемые замахи, броски мух и короткую анимацию смерти.
 static func update(game: Node, delta: float) -> void:

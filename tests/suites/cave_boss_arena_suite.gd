@@ -3,6 +3,7 @@ extends "res://tests/suites/suite_base.gd"
 const Arena := preload("res://scripts/systems/cave_boss_arena_system.gd")
 const Data := preload("res://scripts/systems/cave_boss_arena_data.gd")
 const Layout := preload("res://scripts/systems/cave_layout_system.gd")
+const Boss := preload("res://scripts/systems/cave_boss_system.gd")
 
 ## Проверяет выбранную арену, осознанное пробуждение, награды и совместимость сохранений.
 func run() -> void:
@@ -44,7 +45,7 @@ func test_only_altar_awakens_guardian() -> void:
 	var game := sanctum(); var index: int = game.CaveBossSystem.index(game)
 	game.player = Data.BOSS+Vector2(0,72); game.CaveBossSystem.update(game,5.0)
 	expect(not game.state.world.cave_boss.active and game.player_hp==game.player_max_hp,"entering the arena never starts an unrequested fight")
-	expect(not game.CombatSystem.apply_damage(game,index,200) and game.enemy_nodes[index].hp==120,"sleeping guardian cannot be killed before altar activation")
+	expect(not game.CombatSystem.apply_damage(game,index,200) and game.enemy_nodes[index].hp==Boss.Data.MAX_HP,"sleeping guardian cannot be killed before altar activation")
 	expect(game.CombatSystem.nearest(game)==-1,"sleeping guardian does not steal weapon targeting")
 	expect(not Arena.activate(game),"altar cannot be used remotely")
 	game.player = Data.ALTAR+Vector2(0,72)

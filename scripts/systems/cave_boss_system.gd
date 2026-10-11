@@ -56,6 +56,11 @@ static func on_damage(game: Node) -> void:
 	var phase := Data.phase(int(boss.hp))
 	if phase <= int(state.phase): return
 	state.phase = phase; state.attack = {}; state.zones.clear(); state.projectiles.clear(); state.cycle = 0; state.recovery = 2.2; state.summoning = 0.0
+	state.transition = 2.2
+	for minion in state.minions:
+		minion.attack = 0.0; minion.fly_windup = 0.0
+		minion.cooldown = maxf(float(minion.cooldown),1.0)
+		minion.fly_cooldown = maxf(float(minion.fly_cooldown),1.0)
 	state.summon_timer = maxf(float(state.summon_timer), 5.0)
 	game.notify_tutorial("cave_boss_phases")
 
@@ -83,7 +88,12 @@ static func _tick(game: Node, boss_index: int, delta: float) -> void:
 	state.clock += delta; state.hit_cooldown = maxf(0.0, float(state.hit_cooldown) - delta)
 	for effect in state.effects: effect.time += delta
 	state.effects = state.effects.filter(func(effect): return float(effect.time) < 0.65)
-	Shots.update(game, delta); Shots.update_bites(game, delta); Minions.update(game, delta)
+	Shots.update(game, delta); Shots.update_bites(game, delta)
+	if float(state.transition) > 0.0:
+		state.transition = maxf(0.0,float(state.transition)-delta)
+		state.recovery = maxf(0.0,float(state.recovery)-delta)
+		return
+	Minions.update(game, delta)
 	if game.menu_state.defeat_open: return
 	state.summon_timer = maxf(0.0, float(state.summon_timer) - delta)
 	if not state.attack.is_empty(): Attacks.update(game, boss_index, delta); return

@@ -1,7 +1,7 @@
 extends RefCounted
 
 const LOCATION := "cave_sanctum"
-const MAX_HP := 120
+const MAX_HP := 180
 const MINION_LIMIT := 4
 const ARENA := Rect2(1044, 336, 960, 696)
 const PHASES := [
@@ -59,4 +59,4 @@ static func word(game: Node, key: String, values: Array = []) -> String:
 
 ## Создаёт несохраняемое состояние текущего боя без изменения постоянного здоровья босса.
 static func default_state() -> Dictionary:
-	return {"active":false,"phase":1,"clock":0.0,"recovery":1.5,"cycle":0,"attack":{},"zones":[],"projectiles":[],"effects":[],"minions":[],"summon_timer":12.0,"summoning":0.0,"fly_timer":0.0,"fly_tick":0.0,"hit_cooldown":0.0,"victory":0.0}
+	return {"active":false,"phase":1,"clock":0.0,"recovery":1.5,"transition":0.0,"cycle":0,"attack":{},"zones":[],"projectiles":[],"effects":[],"minions":[],"summon_timer":12.0,"summoning":0.0,"fly_timer":0.0,"fly_tick":0.0,"hit_cooldown":0.0,"victory":0.0}
