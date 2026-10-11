@@ -12,6 +12,7 @@ func run() -> void:
 	test_fade_is_smooth_and_frame_rate_independent()
 	test_current_hero_pose_and_world_coordinates()
 	test_render_queue_prevents_opaque_duplicates()
+	test_camera_culling_keeps_partial_crowns()
 	test_fruit_and_timber_families_share_one_path()
 	test_visibility_cache_is_transient_and_location_scoped()
 
@@ -79,6 +80,35 @@ func test_render_queue_prevents_opaque_duplicates() -> void:
 	expect(is_equal_approx(state.queue[0].alpha,state.queue[0].tint.a),"weather detail alpha matches its tree")
 	Occlusion.begin_frame(game,1.0/60.0)
 	expect(state.queue.is_empty() and state.seen.is_empty(),"new frame clears draw commands and duplicate keys")
+	game.free()
+
+
+## Сценарий: камера проходит через крону, частично видимые деревья касаются каждого края экрана.
+## Исходное состояние: деревья отправляются в переднюю очередь при смещённой камере, ещё одно лежит далеко вне окна.
+## Ожидаемый результат: крайние кроны остаются в очереди, дальнее дерево не создаёт команду и запись прозрачности.
+func test_camera_culling_keeps_partial_crowns() -> void:
+	var game := make_game(); game.player = Vector2(700, 800); game.camera_offset = Vector2(500, 600)
+	game.settings_state.screen_shake_enabled = false
+	Occlusion.begin_frame(game, 1.0 / 60.0)
+	var state: Dictionary = game.get_meta(Occlusion.META_KEY)
+	var view: Rect2 = state.visible_rect
+	var partial: Array[Rect2] = [
+		Rect2(view.position + Vector2(-90, 100), Vector2(100, 100)),
+		Rect2(Vector2(view.end.x - 10, view.position.y + 100), Vector2(100, 100)),
+		Rect2(view.position + Vector2(100, -90), Vector2(100, 100)),
+		Rect2(Vector2(view.position.x + 100, view.end.y - 10), Vector2(100, 100)),
+	]
+	for index in partial.size():
+		Occlusion.submit(game, "edge:%d" % index, Orchard.TREE_ATLAS, partial[index], Orchard.source_rect("apple", 3), 10000)
+	Occlusion.submit(game, "outside", Orchard.TREE_ATLAS, Rect2(-900, -900, 192, 192), Orchard.source_rect("apple", 3), 10000)
+	expect(state.queue.size() == 4, "camera culling keeps crowns intersecting all four viewport edges")
+	expect(not state.entries.has("outside") and not state.seen.has("outside"), "off-camera tree avoids both draw packet and opacity bookkeeping")
+	expect(view.encloses(Rect2(game.camera_offset, Vector2(1152, 648))), "detached game uses design viewport with a safe edge margin")
+	game.camera_offset += Vector2(2000, 0)
+	Occlusion.begin_frame(game, 1.0 / 60.0)
+	var new_state: Dictionary = game.get_meta(Occlusion.META_KEY)
+	Occlusion.submit(game, "old_view", Orchard.TREE_ATLAS, partial[0], Orchard.source_rect("apple", 3), 10000)
+	expect(new_state.queue.is_empty(), "moving camera refreshes culling bounds on the next frame")
 	game.free()
 
 

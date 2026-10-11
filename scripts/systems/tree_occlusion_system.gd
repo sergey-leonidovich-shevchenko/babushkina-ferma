@@ -1,6 +1,7 @@
 extends RefCounted
 
 const HeroVisual := preload("res://scripts/systems/hero_visual_system.gd")
+const WorldVisibility := preload("res://scripts/systems/world_visibility_system.gd")
 const META_KEY := "tree_occlusion_frame"
 const HIDDEN_ALPHA := 0.34
 const FADE_SECONDS := 0.20
@@ -19,6 +20,7 @@ static func begin_frame(game: Node, delta: float = -1.0) -> void:
 	state.queue = []
 	state.seen = {}
 	state.hero_bounds = hero_bounds(game)
+	state.visible_rect = WorldVisibility.visible_rect(game)
 	for key in state.entries.keys():
 		if now - float(state.entries[key].seen_at) > STALE_SECONDS: state.entries.erase(key)
 	game.set_meta(META_KEY, state)
@@ -69,6 +71,7 @@ static func opacity(game: Node, key: String, rect: Rect2, ground_y: float) -> fl
 static func submit(game: Node2D, key: String, texture: Texture2D, rect: Rect2, source: Rect2, ground_y: float, tint: Color = Color.WHITE, overlay: Callable = Callable()) -> void:
 	if not game.has_meta(META_KEY): begin_frame(game)
 	var state: Dictionary = game.get_meta(META_KEY)
+	if not (state.visible_rect as Rect2).intersects(rect, true): return
 	# Один объект не должен иметь непрозрачного дубля под полупрозрачной кроной.
 	if state.seen.has(key): return
 	state.seen[key] = true

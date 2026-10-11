@@ -1,5 +1,6 @@
 extends RefCounted
 
+const WorldVisibility := preload("res://scripts/systems/world_visibility_system.gd")
 const BASE_CELL := 24
 const DOOR_SIZE := Vector2(48,24)
 const TEXTURES := {
@@ -71,7 +72,9 @@ static func profile_is_valid(building_id: String) -> bool:
 
 ## Рисует один внешний фасад один к одному без source-rect и скрытого растяжения дробной ячейки.
 static func draw_building(canvas: Node2D, building_id: String, door: Vector2, tint: Color = Color.WHITE) -> void:
-	canvas.draw_texture_rect(texture(building_id),destination_rect(building_id,door),false,tint)
+	var rect := destination_rect(building_id,door)
+	if WorldVisibility.visible_rect(canvas).intersects(rect, true):
+		canvas.draw_texture_rect(texture(building_id),rect,false,tint)
 
 
 ## Готовит контрольный кадр здания в его настоящем внешнем биоме.
