@@ -2,6 +2,7 @@ extends RefCounted
 
 const HeroActionSystem := preload("res://scripts/systems/hero_action_system.gd")
 const SpriteMatteSystem := preload("res://scripts/systems/sprite_matte_system.gd")
+const Combat := preload("res://scripts/systems/hero_combat_visual_system.gd")
 const WALK_MASTER := preload("res://assets/game/characters/hero_v3/walk_master.png")
 const HOE_MASTER := preload("res://assets/game/characters/hero_v3/hoe_master.png")
 const DRAW_SCALE := 0.32
@@ -59,6 +60,7 @@ static func destination(ground: Vector2, frame: Dictionary) -> Rect2:
 static func draw_actor(game: Node2D, ground: Vector2, direction: Vector2, moving: bool, tint: Color) -> void:
 	var pose := current_pose(game, direction, moving)
 	var action := HeroActionSystem.pose(game)
+	if Combat.active(game): action = {}
 	game.DirectionalCharacterSystem.draw_soft_shadow(game, ground, Vector2(15, 5))
 	if not action.is_empty() and action.action != "hoe" and direction == Vector2.UP: draw_tool(game, ground, action)
 	draw_pose(game, ground, pose, tint)
@@ -67,6 +69,8 @@ static func draw_actor(game: Node2D, ground: Vector2, direction: Vector2, moving
 
 ## Даёт отрисовке и инспектору один источник текущей позы и её фактических границ.
 static func current_pose(game: Node, direction: Vector2, moving: bool) -> Dictionary:
+	var combat_pose := Combat.current_pose(game)
+	if not combat_pose.is_empty(): return combat_pose
 	var action := HeroActionSystem.pose(game)
 	if String(action.get("action", "")) == "hoe": return hoe_pose(action.direction, HeroActionSystem.progress(game))
 	return walk_pose(direction, game.PlayerSystem.visual_animation_time(game, moving), moving)
@@ -92,8 +96,11 @@ static func draw_tool(game: Node2D, ground: Vector2, action: Dictionary) -> void
 
 ## Выводит один production-кадр с локальной очисткой служебного края и общей геометрией preview/runtime.
 static func draw_pose(canvas: CanvasItem, ground: Vector2, frame: Dictionary, tint: Color = Color.WHITE) -> void:
-	var texture := SpriteMatteSystem.clean_texture(frame.texture)
-	canvas.draw_texture_rect_region(texture, destination(ground, frame), frame.source, tint)
+	var texture: Texture2D = frame.texture if bool(frame.get("preserve_alpha",false)) else SpriteMatteSystem.clean_texture(frame.texture)
+	var rect := destination(ground, frame)
+	if bool(frame.get("flip",false)):
+		rect.position.x += rect.size.x; rect.size.x = -rect.size.x
+	canvas.draw_texture_rect_region(texture, rect, frame.source, tint)
 
 
 ## Рисует новый реальный облик в HUD и окне персонажа с сохранением пропорций, без старых восьминаправленных скинов.
@@ -118,3 +125,4 @@ static func profiles_are_valid() -> bool:
 static func warmup() -> void:
 	SpriteMatteSystem.clean_texture(WALK_MASTER)
 	SpriteMatteSystem.clean_texture(HOE_MASTER)
+	Combat.warmup()

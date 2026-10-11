@@ -1,0 +1,1072 @@
+{
+  "blade": {
+    "frames": [
+      {
+        "column": 0.0,
+        "draw_pivot": [
+          136.5,
+          247.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          136.5,
+          247.0
+        ],
+        "region": [
+          41.0,
+          57.0,
+          220.0,
+          253.0
+        ],
+        "row": 0.0,
+        "scale": 0.32,
+        "sprite": "frames/blade-00.png"
+      },
+      {
+        "column": 1.0,
+        "draw_pivot": [
+          95.5,
+          276.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          95.5,
+          276.0
+        ],
+        "region": [
+          375.0,
+          28.0,
+          181.0,
+          282.0
+        ],
+        "row": 0.0,
+        "scale": 0.32,
+        "sprite": "frames/blade-01.png"
+      },
+      {
+        "column": 2.0,
+        "draw_pivot": [
+          164.5,
+          238.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          164.5,
+          238.0
+        ],
+        "region": [
+          621.0,
+          65.0,
+          274.0,
+          244.0
+        ],
+        "row": 0.0,
+        "scale": 0.32,
+        "sprite": "frames/blade-02.png"
+      },
+      {
+        "column": 3.0,
+        "draw_pivot": [
+          127.5,
+          249.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          127.5,
+          249.0
+        ],
+        "region": [
+          958.0,
+          55.0,
+          206.0,
+          255.0
+        ],
+        "row": 0.0,
+        "scale": 0.32,
+        "sprite": "frames/blade-03.png"
+      },
+      {
+        "column": 0.0,
+        "draw_pivot": [
+          139.0,
+          250.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          139.0,
+          250.0
+        ],
+        "region": [
+          34.0,
+          361.0,
+          222.0,
+          256.0
+        ],
+        "row": 1.0,
+        "scale": 0.32,
+        "sprite": "frames/blade-04.png"
+      },
+      {
+        "column": 1.0,
+        "draw_pivot": [
+          95.0,
+          289.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          95.0,
+          289.0
+        ],
+        "region": [
+          378.0,
+          322.0,
+          179.0,
+          295.0
+        ],
+        "row": 1.0,
+        "scale": 0.32,
+        "sprite": "frames/blade-05.png"
+      },
+      {
+        "column": 2.0,
+        "draw_pivot": [
+          185.5,
+          240.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          185.5,
+          240.0
+        ],
+        "region": [
+          609.0,
+          370.0,
+          279.0,
+          246.0
+        ],
+        "row": 1.0,
+        "scale": 0.32,
+        "sprite": "frames/blade-06.png"
+      },
+      {
+        "column": 3.0,
+        "draw_pivot": [
+          109.5,
+          248.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          109.5,
+          248.0
+        ],
+        "region": [
+          977.0,
+          363.0,
+          193.0,
+          254.0
+        ],
+        "row": 1.0,
+        "scale": 0.32,
+        "sprite": "frames/blade-07.png"
+      },
+      {
+        "column": 0.0,
+        "draw_pivot": [
+          84.0,
+          254.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          84.0,
+          254.0
+        ],
+        "region": [
+          79.0,
+          666.0,
+          223.0,
+          260.0
+        ],
+        "row": 2.0,
+        "scale": 0.32,
+        "sprite": "frames/blade-08.png"
+      },
+      {
+        "column": 1.0,
+        "draw_pivot": [
+          88.0,
+          290.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          88.0,
+          290.0
+        ],
+        "region": [
+          380.0,
+          630.0,
+          183.0,
+          296.0
+        ],
+        "row": 2.0,
+        "scale": 0.32,
+        "sprite": "frames/blade-09.png"
+      },
+      {
+        "column": 2.0,
+        "draw_pivot": [
+          97.0,
+          247.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          97.0,
+          247.0
+        ],
+        "region": [
+          675.0,
+          673.0,
+          283.0,
+          253.0
+        ],
+        "row": 2.0,
+        "scale": 0.32,
+        "sprite": "frames/blade-10.png"
+      },
+      {
+        "column": 3.0,
+        "draw_pivot": [
+          83.5,
+          254.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          83.5,
+          254.0
+        ],
+        "region": [
+          1011.0,
+          666.0,
+          175.0,
+          260.0
+        ],
+        "row": 2.0,
+        "scale": 0.32,
+        "sprite": "frames/blade-11.png"
+      },
+      {
+        "column": 0.0,
+        "draw_pivot": [
+          85.0,
+          244.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          85.0,
+          244.0
+        ],
+        "region": [
+          84.0,
+          971.0,
+          220.0,
+          250.0
+        ],
+        "row": 3.0,
+        "scale": 0.32,
+        "sprite": "frames/blade-12.png"
+      },
+      {
+        "column": 1.0,
+        "draw_pivot": [
+          82.0,
+          275.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          82.0,
+          275.0
+        ],
+        "region": [
+          384.0,
+          940.0,
+          171.0,
+          281.0
+        ],
+        "row": 3.0,
+        "scale": 0.32,
+        "sprite": "frames/blade-13.png"
+      },
+      {
+        "column": 2.0,
+        "draw_pivot": [
+          120.0,
+          236.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          120.0,
+          236.0
+        ],
+        "region": [
+          659.0,
+          978.0,
+          287.0,
+          242.0
+        ],
+        "row": 3.0,
+        "scale": 0.32,
+        "sprite": "frames/blade-14.png"
+      },
+      {
+        "column": 3.0,
+        "draw_pivot": [
+          81.0,
+          248.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          81.0,
+          248.0
+        ],
+        "region": [
+          1004.0,
+          966.0,
+          205.0,
+          254.0
+        ],
+        "row": 3.0,
+        "scale": 0.32,
+        "sprite": "frames/blade-15.png"
+      }
+    ],
+    "texture": "blade.png"
+  },
+  "bow": {
+    "frames": [
+      {
+        "column": 0.0,
+        "draw_pivot": [
+          93.0,
+          273.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          93.0,
+          273.0
+        ],
+        "region": [
+          101.0,
+          50.0,
+          200.0,
+          279.0
+        ],
+        "row": 0.0,
+        "scale": 0.32,
+        "sprite": "frames/bow-00.png"
+      },
+      {
+        "column": 1.0,
+        "draw_pivot": [
+          72.5,
+          293.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          72.5,
+          293.0
+        ],
+        "region": [
+          414.0,
+          30.0,
+          151.0,
+          299.0
+        ],
+        "row": 0.0,
+        "scale": 0.32,
+        "sprite": "frames/bow-01.png"
+      },
+      {
+        "column": 2.0,
+        "draw_pivot": [
+          77.5,
+          281.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          77.5,
+          281.0
+        ],
+        "region": [
+          697.0,
+          42.0,
+          151.0,
+          287.0
+        ],
+        "row": 0.0,
+        "scale": 0.32,
+        "sprite": "frames/bow-02.png"
+      },
+      {
+        "column": 3.0,
+        "draw_pivot": [
+          85.0,
+          284.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          85.0,
+          284.0
+        ],
+        "region": [
+          980.0,
+          39.0,
+          191.0,
+          290.0
+        ],
+        "row": 0.0,
+        "scale": 0.32,
+        "sprite": "frames/bow-03.png"
+      },
+      {
+        "column": 0.0,
+        "draw_pivot": [
+          77.0,
+          261.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          77.0,
+          261.0
+        ],
+        "region": [
+          105.0,
+          361.0,
+          167.0,
+          267.0
+        ],
+        "row": 1.0,
+        "scale": 0.32,
+        "sprite": "frames/bow-04.png"
+      },
+      {
+        "column": 1.0,
+        "draw_pivot": [
+          122.5,
+          273.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          122.5,
+          273.0
+        ],
+        "region": [
+          362.0,
+          347.0,
+          217.0,
+          279.0
+        ],
+        "row": 1.0,
+        "scale": 0.32,
+        "sprite": "frames/bow-05.png"
+      },
+      {
+        "column": 2.0,
+        "draw_pivot": [
+          91.0,
+          265.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          91.0,
+          265.0
+        ],
+        "region": [
+          675.0,
+          360.0,
+          226.0,
+          271.0
+        ],
+        "row": 1.0,
+        "scale": 0.32,
+        "sprite": "frames/bow-06.png"
+      },
+      {
+        "column": 3.0,
+        "draw_pivot": [
+          105.0,
+          275.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          105.0,
+          275.0
+        ],
+        "region": [
+          998.0,
+          347.0,
+          207.0,
+          281.0
+        ],
+        "row": 1.0,
+        "scale": 0.32,
+        "sprite": "frames/bow-07.png"
+      },
+      {
+        "column": 0.0,
+        "draw_pivot": [
+          87.0,
+          254.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          87.0,
+          254.0
+        ],
+        "region": [
+          100.0,
+          657.0,
+          170.0,
+          260.0
+        ],
+        "row": 2.0,
+        "scale": 0.32,
+        "sprite": "frames/bow-08.png"
+      },
+      {
+        "column": 1.0,
+        "draw_pivot": [
+          87.0,
+          275.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          87.0,
+          275.0
+        ],
+        "region": [
+          391.0,
+          639.0,
+          220.0,
+          281.0
+        ],
+        "row": 2.0,
+        "scale": 0.32,
+        "sprite": "frames/bow-09.png"
+      },
+      {
+        "column": 2.0,
+        "draw_pivot": [
+          123.0,
+          276.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          123.0,
+          276.0
+        ],
+        "region": [
+          671.0,
+          639.0,
+          211.0,
+          282.0
+        ],
+        "row": 2.0,
+        "scale": 0.32,
+        "sprite": "frames/bow-10.png"
+      },
+      {
+        "column": 3.0,
+        "draw_pivot": [
+          110.0,
+          276.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          110.0,
+          276.0
+        ],
+        "region": [
+          978.0,
+          638.0,
+          212.0,
+          282.0
+        ],
+        "row": 2.0,
+        "scale": 0.32,
+        "sprite": "frames/bow-11.png"
+      },
+      {
+        "column": 0.0,
+        "draw_pivot": [
+          89.5,
+          255.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          89.5,
+          255.0
+        ],
+        "region": [
+          104.0,
+          957.0,
+          159.0,
+          261.0
+        ],
+        "row": 3.0,
+        "scale": 0.32,
+        "sprite": "frames/bow-12.png"
+      },
+      {
+        "column": 1.0,
+        "draw_pivot": [
+          100.5,
+          292.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          100.5,
+          292.0
+        ],
+        "region": [
+          391.0,
+          920.0,
+          172.0,
+          298.0
+        ],
+        "row": 3.0,
+        "scale": 0.32,
+        "sprite": "frames/bow-13.png"
+      },
+      {
+        "column": 2.0,
+        "draw_pivot": [
+          118.5,
+          294.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          118.5,
+          294.0
+        ],
+        "region": [
+          677.0,
+          920.0,
+          194.0,
+          300.0
+        ],
+        "row": 3.0,
+        "scale": 0.32,
+        "sprite": "frames/bow-14.png"
+      },
+      {
+        "column": 3.0,
+        "draw_pivot": [
+          109.0,
+          289.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          109.0,
+          289.0
+        ],
+        "region": [
+          989.0,
+          924.0,
+          210.0,
+          295.0
+        ],
+        "row": 3.0,
+        "scale": 0.32,
+        "sprite": "frames/bow-15.png"
+      }
+    ],
+    "texture": "bow.png"
+  },
+  "bow-contact": {
+    "frames": [
+      {
+        "column": 0.0,
+        "draw_pivot": [
+          96.3984375,
+          287.296875
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          228.5,
+          681.0
+        ],
+        "region": [
+          207.0,
+          77.0,
+          582.0,
+          687.0
+        ],
+        "row": 0.0,
+        "scale": 0.135,
+        "sprite": "frames/bow-contact-00.png"
+      },
+      {
+        "column": 1.0,
+        "draw_pivot": [
+          94.7109375,
+          285.1875
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          224.5,
+          676.0
+        ],
+        "region": [
+          1039.0,
+          82.0,
+          634.0,
+          682.0
+        ],
+        "row": 0.0,
+        "scale": 0.135,
+        "sprite": "frames/bow-contact-01.png"
+      }
+    ],
+    "texture": "bow-contact.png"
+  },
+  "spear": {
+    "frames": [
+      {
+        "column": 0.0,
+        "draw_pivot": [
+          133.5,
+          246.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          133.5,
+          246.0
+        ],
+        "region": [
+          99.0,
+          62.0,
+          262.0,
+          252.0
+        ],
+        "row": 0.0,
+        "scale": 0.32,
+        "sprite": "frames/spear-00.png"
+      },
+      {
+        "column": 1.0,
+        "draw_pivot": [
+          111.5,
+          256.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          111.5,
+          256.0
+        ],
+        "region": [
+          333.0,
+          54.0,
+          244.0,
+          262.0
+        ],
+        "row": 0.0,
+        "scale": 0.32,
+        "sprite": "frames/spear-01.png"
+      },
+      {
+        "column": 2.0,
+        "draw_pivot": [
+          84.5,
+          240.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          84.5,
+          240.0
+        ],
+        "region": [
+          665.0,
+          71.0,
+          322.0,
+          246.0
+        ],
+        "row": 0.0,
+        "scale": 0.32,
+        "sprite": "frames/spear-02.png"
+      },
+      {
+        "column": 3.0,
+        "draw_pivot": [
+          137.0,
+          245.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          137.0,
+          245.0
+        ],
+        "region": [
+          993.0,
+          63.0,
+          261.0,
+          251.0
+        ],
+        "row": 0.0,
+        "scale": 0.32,
+        "sprite": "frames/spear-03.png"
+      },
+      {
+        "column": 0.0,
+        "draw_pivot": [
+          173.5,
+          235.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          173.5,
+          235.0
+        ],
+        "region": [
+          16.0,
+          373.0,
+          258.0,
+          241.0
+        ],
+        "row": 1.0,
+        "scale": 0.32,
+        "sprite": "frames/spear-04.png"
+      },
+      {
+        "column": 1.0,
+        "draw_pivot": [
+          168.0,
+          260.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          168.0,
+          260.0
+        ],
+        "region": [
+          329.0,
+          347.0,
+          252.0,
+          266.0
+        ],
+        "row": 1.0,
+        "scale": 0.32,
+        "sprite": "frames/spear-05.png"
+      },
+      {
+        "column": 2.0,
+        "draw_pivot": [
+          249.5,
+          224.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          249.5,
+          224.0
+        ],
+        "region": [
+          582.0,
+          383.0,
+          341.0,
+          230.0
+        ],
+        "row": 1.0,
+        "scale": 0.32,
+        "sprite": "frames/spear-06.png"
+      },
+      {
+        "column": 3.0,
+        "draw_pivot": [
+          158.5,
+          238.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          158.5,
+          238.0
+        ],
+        "region": [
+          942.0,
+          369.0,
+          241.0,
+          244.0
+        ],
+        "row": 1.0,
+        "scale": 0.32,
+        "sprite": "frames/spear-07.png"
+      },
+      {
+        "column": 0.0,
+        "draw_pivot": [
+          86.5,
+          228.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          86.5,
+          228.0
+        ],
+        "region": [
+          82.0,
+          667.0,
+          275.0,
+          234.0
+        ],
+        "row": 2.0,
+        "scale": 0.32,
+        "sprite": "frames/spear-08.png"
+      },
+      {
+        "column": 1.0,
+        "draw_pivot": [
+          85.5,
+          259.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          85.5,
+          259.0
+        ],
+        "region": [
+          397.0,
+          636.0,
+          217.0,
+          265.0
+        ],
+        "row": 2.0,
+        "scale": 0.32,
+        "sprite": "frames/spear-09.png"
+      },
+      {
+        "column": 2.0,
+        "draw_pivot": [
+          91.5,
+          222.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          91.5,
+          222.0
+        ],
+        "region": [
+          647.0,
+          673.0,
+          350.0,
+          228.0
+        ],
+        "row": 2.0,
+        "scale": 0.32,
+        "sprite": "frames/spear-10.png"
+      },
+      {
+        "column": 3.0,
+        "draw_pivot": [
+          82.5,
+          233.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          82.5,
+          233.0
+        ],
+        "region": [
+          1003.0,
+          661.0,
+          243.0,
+          239.0
+        ],
+        "row": 2.0,
+        "scale": 0.32,
+        "sprite": "frames/spear-11.png"
+      },
+      {
+        "column": 0.0,
+        "draw_pivot": [
+          168.0,
+          233.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          168.0,
+          233.0
+        ],
+        "region": [
+          15.0,
+          956.0,
+          263.0,
+          239.0
+        ],
+        "row": 3.0,
+        "scale": 0.32,
+        "sprite": "frames/spear-12.png"
+      },
+      {
+        "column": 1.0,
+        "draw_pivot": [
+          162.5,
+          266.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          162.5,
+          266.0
+        ],
+        "region": [
+          326.0,
+          923.0,
+          234.0,
+          272.0
+        ],
+        "row": 3.0,
+        "scale": 0.32,
+        "sprite": "frames/spear-13.png"
+      },
+      {
+        "column": 2.0,
+        "draw_pivot": [
+          78.5,
+          227.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          78.5,
+          227.0
+        ],
+        "region": [
+          671.0,
+          962.0,
+          279.0,
+          233.0
+        ],
+        "row": 3.0,
+        "scale": 0.32,
+        "sprite": "frames/spear-14.png"
+      },
+      {
+        "column": 3.0,
+        "draw_pivot": [
+          164.0,
+          233.0
+        ],
+        "draw_scale": 0.32,
+        "pivot": [
+          164.0,
+          233.0
+        ],
+        "region": [
+          919.0,
+          956.0,
+          255.0,
+          239.0
+        ],
+        "row": 3.0,
+        "scale": 0.32,
+        "sprite": "frames/spear-15.png"
+      }
+    ],
+    "texture": "spear.png"
+  }
+}

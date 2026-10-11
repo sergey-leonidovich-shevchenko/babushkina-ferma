@@ -30,10 +30,11 @@ static func draw_player(game: Node2D) -> void:
 	if game.player_hurt_timer > 0.0: hero_modulate = Color(1.0, 0.42, 0.42)
 	var weapon: String = game.player_attack_weapon if attacking else game.equipped_weapon
 	var hands_origin := position + Vector2(0, -24)
-	if direction == Vector2.UP and tool_pose.is_empty():
+	var body_attack := preload("res://scripts/systems/hero_combat_visual_system.gd").active(game)
+	if direction == Vector2.UP and tool_pose.is_empty() and not body_attack:
 		game.WorldPolishRenderer.draw_held_weapon(game, weapon, hands_origin, direction, attack_progress, visual_scale)
 	game.DirectionalCharacterSystem.draw_hero(game, position, direction, moving, hero_modulate)
-	if direction != Vector2.UP and tool_pose.is_empty():
+	if direction != Vector2.UP and tool_pose.is_empty() and not body_attack:
 		game.WorldPolishRenderer.draw_held_weapon(game, weapon, hands_origin, direction, attack_progress, visual_scale)
 	var cooldown: float = game.WeaponSystem.cooldown_ratio(game)
 	if cooldown > 0.0:
