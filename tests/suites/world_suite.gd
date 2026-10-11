@@ -7,6 +7,7 @@ const RoadVisualSystem := preload("res://scripts/systems/road_visual_system.gd")
 
 ## Запускает все сценарии текущего набора тестов в фиксированном порядке.
 func run() -> void:
+	preload("res://tests/suites/cave_location_suite.gd").new(context).run()
 	test_first_level_master_is_sliced_into_a_seamless_world_grid()
 	test_modular_road_catalog_builds_connected_first_location_routes()
 	test_first_location_has_clear_functional_zones()

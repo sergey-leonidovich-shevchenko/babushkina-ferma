@@ -396,7 +396,7 @@ func update_fishing(delta: float) -> void:
 func enter_cave() -> void:
 	current_location = "cave"
 	sync_background_location()
-	player = cave_exit_position + Vector2(90, 0)
+	player = preload("res://scripts/systems/cave_map_data.gd").START
 	update_camera()
 	message = "Кристальная пещера"
 	DiscoverySystem.show_location(self, current_location)

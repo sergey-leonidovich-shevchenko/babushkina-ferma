@@ -2,6 +2,7 @@ extends "res://scripts/game_context.gd"
 
 const FarmRenderer := preload("res://scripts/presentation/farm_renderer.gd")
 const TreeOcclusion := preload("res://scripts/systems/tree_occlusion_system.gd")
+const CaveRenderer := preload("res://scripts/systems/cave_renderer.gd")
 
 ## Рисует строку с пользовательским масштабом текста и безопасным уменьшением при нехватке ширины.
 func draw_ui_string(font: Font, position: Vector2, text: String, alignment: HorizontalAlignment = HORIZONTAL_ALIGNMENT_LEFT, width: float = -1.0, font_size: int = 16, color: Color = Color.WHITE) -> void:
@@ -297,8 +298,12 @@ func draw_tree_nodes() -> void:
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_resource_nodes() -> void:
 	for node in resource_nodes:
-		if node.hits <= 0 or node.location != current_location:
+		if node.location != current_location:
 			continue
+		if current_location == "cave":
+			CaveRenderer.draw_resource(self, node)
+			continue
+		if node.hits <= 0: continue
 		var is_crystal: bool = node.kind in ["crystal", "red_crystal", "green_crystal"]
 		var texture: Texture2D = RESOURCE_CRYSTAL if is_crystal else RESOURCE_ROCK
 		var tint := Color.WHITE
@@ -320,7 +325,9 @@ func draw_world_loot() -> void:
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_enemy_nodes_and_gate() -> void:
-	if not BuildingSystem.is_interior(current_location):
+	if current_location == "cave":
+		CaveRenderer.draw_deep_gate(self)
+	elif not BuildingSystem.is_interior(current_location):
 		WorldPolishRenderer.draw_cell(self,4,1,Rect2(world_gate_position-Vector2(60,60),Vector2(120,120)),Color(1,1,1,0.88))
 		if player.distance_to(world_gate_position) < 185.0:
 			draw_circle(world_gate_position, 42 + sin(Time.get_ticks_msec() / 180.0) * 4, Color("e6b85e"), false, 6)

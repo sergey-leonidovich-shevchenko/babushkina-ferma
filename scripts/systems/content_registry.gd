@@ -61,7 +61,7 @@ static func validate() -> Array[String]:
 	for container_kind in LootContainerSystem.TYPES:
 		for entry in LootContainerSystem.TYPES[container_kind].table:
 			if entry[0] != "coins": _validate_item(errors, items, entry[0], "container.%s.loot" % container_kind)
-	for node in ResourceSystem.SPAWNS:
+	for node in ResourceSystem.default_nodes():
 		_validate_item(errors, items, node.kind, "resource spawn")
 		_validate_location(errors, node.location, "resource spawn")
 	for node in ForageSystem.SPAWNS:

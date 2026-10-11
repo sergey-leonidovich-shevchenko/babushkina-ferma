@@ -7,7 +7,7 @@ const SWEEP_STEP := 2.0
 const SIDE_SPEED := 0.7
 const FAILED_PROBE_META := &"player_corner_failed_probe"
 const FAILURE_CACHE_MS := 90
-const SOLID_REASONS := ["tree", "forage", "resource", "scenic_prop", "biome_prop", "event_prop", "building", "furniture", "storage", "world_prop", "loot", "fence", "player_fence", "cave_prop", "published_collision", "debug_obstacle"]
+const SOLID_REASONS := ["tree", "forage", "resource", "scenic_prop", "biome_prop", "event_prop", "building", "furniture", "storage", "world_prop", "loot", "fence", "player_fence", "cave_prop", "cave_wall", "published_collision", "debug_obstacle"]
 
 
 ## Помогает только намеренному прямому шагу у твёрдого края; удар, вода и живой противник не выбирают обход.

@@ -3,6 +3,7 @@ extends RefCounted
 const FishingRenderer := preload("res://scripts/systems/fishing_renderer.gd")
 const VillagePropRenderer:=preload("res://scripts/systems/village_prop_renderer.gd")
 const TreeOcclusion := preload("res://scripts/systems/tree_occlusion_system.gd")
+const CaveRenderer := preload("res://scripts/systems/cave_renderer.gd")
 
 ## Координирует отрисовку текущего состояния без изменения игровой логики.
 static func draw(game: Node2D) -> void:
@@ -19,10 +20,11 @@ static func draw(game: Node2D) -> void:
 	else:
 		game.draw_farm()
 	game.EnvironmentVisualSystem.draw_biome_trees(game, game.current_location)
+	CaveRenderer.draw_lights(game)
 	game.PublishedLevelRenderer.draw_layer(game,"background"); game.PublishedLevelRenderer.draw_layer(game,"ground"); game.LevelEditorRenderer.draw_layer(game,"background"); game.LevelEditorRenderer.draw_layer(game,"ground")
 	if not game.BuildingSystem.is_interior(game.current_location):
 		game.draw_buildings(); game.draw_world_events(); game.VillageEventRenderer.draw(game); game.draw_quest_npcs()
-	game.CastleCampaignRenderer.draw(game); game.draw_hazards(); game.draw_enemy_nodes_and_gate(); game.draw_tree_nodes(); game.draw_resource_nodes(); game.draw_food_nodes(); game.draw_world_loot(); game.draw_wildlife(); game.draw_dropped_items(); FishingRenderer.draw_traps(game); game.draw_companions(); game.FarmLifeRenderer.draw_world(game); game.FirstChapterRenderer.draw_world(game); game.FenceRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,"objects"); game.LevelEditorRenderer.draw_layer(game,"objects"); game.draw_player(); game.SpellRenderer.draw_world(game); game.InteriorRenderer.draw_foreground(game); game.VillageForegroundRenderer.draw(game); game.AdventurePolishRenderer.draw_world(game); game.draw_interaction_highlight(); game.PublishedLevelRenderer.draw_layer(game,"foreground"); game.LevelEditorRenderer.draw_layer(game,"foreground"); game.DebugPlaygroundRenderer.draw_world_overlay(game); game.DebugOverlayRenderer.draw_world(game)
+	game.CastleCampaignRenderer.draw(game); game.draw_hazards(); game.draw_enemy_nodes_and_gate(); game.draw_tree_nodes(); game.draw_resource_nodes(); game.draw_food_nodes(); game.draw_world_loot(); game.draw_wildlife(); game.draw_dropped_items(); FishingRenderer.draw_traps(game); game.draw_companions(); game.FarmLifeRenderer.draw_world(game); game.FirstChapterRenderer.draw_world(game); game.FenceRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,"objects"); game.LevelEditorRenderer.draw_layer(game,"objects"); game.draw_player(); CaveRenderer.draw_foreground(game); game.SpellRenderer.draw_world(game); game.InteriorRenderer.draw_foreground(game); game.VillageForegroundRenderer.draw(game); game.AdventurePolishRenderer.draw_world(game); game.draw_interaction_highlight(); game.PublishedLevelRenderer.draw_layer(game,"foreground"); game.LevelEditorRenderer.draw_layer(game,"foreground"); game.DebugPlaygroundRenderer.draw_world_overlay(game); game.DebugOverlayRenderer.draw_world(game)
 	game.draw_set_transform(Vector2.ZERO); game.AtmosphereRenderer.draw(game)
 	var clean_level_capture := game.has_meta("capture_first_level_clean")
 	if not clean_level_capture and not bool(game.FarmLifeSystem.state(game).photo_mode) and not game.LevelEditorSystem.active(game): game.draw_ui(); FishingRenderer.draw(game); game.WorldMapRenderer.draw(game); game.AdventurePolishRenderer.draw_ui(game); game.FenceRenderer.draw_ui(game); game.SpellRenderer.draw_ui(game)

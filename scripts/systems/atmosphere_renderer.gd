@@ -5,6 +5,7 @@ const VillageLayoutSystem := preload("res://scripts/systems/village_layout_syste
 
 ## Рисует поверх мира освещение, осадки и небесное событие, не затрагивая интерфейс.
 static func draw(game: Node2D) -> void:
+	if game.current_location == "cave": return
 	var darkness: float = game.WorldEventSystem.darkness(game.game_minutes)
 	if game.current_location == "moon_glade": darkness *= 0.34
 	if darkness > 0.0:

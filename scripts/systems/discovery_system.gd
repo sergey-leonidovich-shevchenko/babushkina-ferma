@@ -26,7 +26,7 @@ const LOCATION_HINTS := {
 	"forest": {"title":"Обычный лес","text":"Здесь водятся хищные растения и растут съедобные ягоды, грибы и орехи."},
 	"rocky": {"title":"Каменистая область","text":"Ищи залежи для кирки и проходы в более опасные земли."},
 	"ruins": {"title":"Орочьи руины","text":"Орки оставляют монеты, металл и оружие. Перед боем проверь здоровье."},
-	"cave": {"title":"Кристальная пещера","text":"Синие и зелёные жилы, нежить и Хранитель глубин ждут внутри."},
+	"cave": {"title":"Кристальная пещера","text":"Камень, металл и три цвета кристаллов находятся у скальных стен. Выход в деревню — снизу слева, путь дальше — сверху справа."},
 	"cursed": {"title":"Проклятая земля","text":"Сильная нежить оставляет кости, ключи и редкие самоцветы."},
 	"glassworks": {"title":"Мастерская стеклодува","text":"Безопасная ремесленная точка для будущих рецептов из цветных кристаллов."},
 	"moon_glade": {"title":"Лунная поляна","text":"Редкое приключение затмения: следуй по светящейся тропе от цветка до сундука."},
@@ -50,7 +50,7 @@ static func update(game: Node, delta: float) -> void:
 static func show_location(game: Node, location: String) -> bool:
 	if not LOCATION_HINTS.has(location):
 		return false
-	return show(game, "location:%s" % location, {"title":game.LocaleSystem.location(location),"text":game.LocaleSystem.ui("hint_location")})
+	return show(game, "location:%s" % location, {"title":game.LocaleSystem.location(location),"text":game.LocaleSystem.ui("hint_cave_veins" if location == "cave" else "hint_location")})
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func dismiss(game: Node) -> void:
@@ -156,6 +156,7 @@ static func static_hint(game: Node, kind: String) -> Dictionary:
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func resource_hint(game: Node, kind: String) -> Dictionary:
+	if kind == "metal": return {"title":game.LocaleSystem.item(kind),"text":game.LocaleSystem.tutorial("cave_veins")}
 	return {"title":game.LocaleSystem.item(kind),"text":game.LocaleSystem.tutorial("mine")}
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.

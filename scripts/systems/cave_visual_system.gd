@@ -33,7 +33,7 @@ static func entrance_rock_rect(entrance: Vector2, offset: Vector2) -> Rect2:
 
 ## Готовит чистый игровой обзор центра пещеры без стартовых экранов и обучающих карточек.
 static func configure_preview(game: Node) -> void:
-	game.language_screen=false; game.title_screen=false; game.current_location="cave"; game.player=Vector2(720,820); game.tutorial_visible=false; game.set_meta("capture_first_level_clean",true)
+	game.language_screen=false; game.title_screen=false; game.current_location="cave"; game.player=preload("res://scripts/systems/cave_map_data.gd").START; game.tutorial_visible=false; game.set_meta("capture_first_level_clean",true)
 
 
 ## Сохраняет контрольный кадр пещеры после нескольких полноценно отрисованных кадров.

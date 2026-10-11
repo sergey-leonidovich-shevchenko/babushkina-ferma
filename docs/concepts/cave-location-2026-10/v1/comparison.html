@@ -23,21 +23,36 @@
 </style>
 <main>
   <h1>Кристальные пещеры</h1>
-  <p>Вторая локация · скальные стены по краям, ресурсные жилы и свободный центр. Макет для выбора дизайна.</p>
+  <p>Вторая локация · выбранный дизайн реализован отдельными спрайтами: скальные стены, ресурсные жилы и свободный центр.</p>
   <div class="comparison">
     <figure>
-      <figcaption>Было — текущая игра</figcaption>
+      <figcaption>Было — прежняя локация</figcaption>
       <a href="before.png"><img src="before.png" alt="Текущая пещера: повторяющийся пол без скального контура" width="1152" height="648"></a>
     </figure>
     <figure>
-      <figcaption>Предлагаемый дизайн</figcaption>
+      <figcaption>Выбранный концепт</figcaption>
       <a href="after.png"><img src="after.png" alt="Концепт пещеры со стенами, входом, проходом в глубину и цветными ресурсными жилами" width="1672" height="941"></a>
+    </figure>
+  </div>
+  <h2>Собранная локация — кадр из Godot</h2>
+  <figure>
+    <a href="ingame-overview.png"><img src="ingame-overview.png" alt="Игровой renderer: модульные стены, семь жил, герой, существующие враги и открытый проход в глубину" width="2400" height="1350"></a>
+  </figure>
+  <p class="note">Обзор всей пещеры без HUD; масштаб отличается от обычной игровой камеры.</p>
+  <div class="comparison">
+    <figure>
+      <figcaption>Игровая камера — вход</figcaption>
+      <a href="ingame-entrance.png"><img src="ingame-entrance.png" alt="Игровой экран у входа в новую пещеру" width="1152" height="648"></a>
+    </figure>
+    <figure>
+      <figcaption>Игровая камера — добыча</figcaption>
+      <a href="ingame-mining.png"><img src="ingame-mining.png" alt="Герой с выбранной киркой возле синей кристальной жилы" width="1152" height="648"></a>
     </figure>
   </div>
   <h2>Модульные элементы</h2>
   <figure class="kit">
     <a href="sprite-kit.png"><img src="sprite-kit.png" alt="Двадцать элементов: стены, углы, вход, жилы, камни, грибы и факел" width="1536" height="1024"></a>
   </figure>
-  <p class="note">Концепт набора для нарезки. Стыки, масштабы и коллизии проверяются при сборке в Godot. Свечение и тени будут отдельными эффектами.</p>
+  <p class="note">Набор нарезан на самостоятельные PNG. Игровой масштаб и основания проверяются автотестами; свечение и тени рисуются отдельным слоем.</p>
 </main>
 </html>

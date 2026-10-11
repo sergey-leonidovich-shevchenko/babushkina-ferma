@@ -2,6 +2,8 @@ extends RefCounted
 
 const DROP_SIZE := Vector2(44, 44)
 const HOVER_CACHE_META := "debug_hover_cache"
+const CaveAssets := preload("res://scripts/systems/cave_asset_system.gd")
+const CaveLayout := preload("res://scripts/systems/cave_layout_system.gd")
 
 
 ## Возвращает верхний видимый объект под экранным курсором или пустой словарь над интерфейсом.
@@ -304,9 +306,26 @@ static func append_companions(game: Node, result: Array[Dictionary], probe: Vect
 			])
 
 
+## Добавляет видимые модульные стены и декор пещеры вместо старых невидимых кристальных групп.
+static func append_cave_props(result: Array[Dictionary], probe: Vector2 = Vector2.INF) -> void:
+	var walls := CaveLayout.walls()
+	for index in walls.size():
+		var wall: Dictionary = walls[index]
+		var bounds := CaveAssets.destination_rect(wall.kind, wall.position)
+		if probe != Vector2.INF and not bounds.has_point(probe): continue
+		add(result, "cave_wall:%d" % index, "СКАЛА", "Скальная стена", wall.position, bounds, 32, "общий скальный контур · непроходимо", "стена", ["модуль %s" % wall.kind, "опора скального контура %s" % str(wall.edge)])
+	for index in CaveLayout.MapData.DECORATIONS.size():
+		var prop: Dictionary = CaveLayout.MapData.DECORATIONS[index]
+		var bounds := CaveAssets.destination_rect(prop.kind, prop.position)
+		if probe != Vector2.INF and not bounds.has_point(probe): continue
+		var solid := CaveAssets.collision_rect(prop.kind, prop.position)
+		add(result, "cave_prop:%d" % index, "ПЕЩЕРА", "Пещерный декор: %s" % prop.kind, prop.position, bounds, 31, rect_description(solid) if solid.has_area() else "нет · декор", "твёрдый" if solid.has_area() else "проходимый")
+
+
 ## Добавляет верстак, торговые точки, переход мира и домашний сундук как технические объекты.
 static func append_world_props(game: Node, result: Array[Dictionary], probe: Vector2 = Vector2.INF) -> void:
-	if game.current_location in ["cave","cursed"]:
+	if game.current_location == "cave": append_cave_props(result, probe)
+	if game.current_location == "cursed":
 		for index in game.CAVE_DECORATIONS.size():
 			var position:Vector2=game.CAVE_DECORATIONS[index]; var bounds:Rect2=game.CaveVisualSystem.cluster_bounds(position); var collision:Rect2=game.CaveVisualSystem.collision_rect(position)
 			if probe == Vector2.INF or bounds.has_point(probe):

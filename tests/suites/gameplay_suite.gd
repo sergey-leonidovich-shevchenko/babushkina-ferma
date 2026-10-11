@@ -9,7 +9,7 @@ func run() -> void:
 	test_food_healing_and_temporary_effects()
 	test_world_collisions_and_bridge_passage()
 	test_resource_visual_profile_matches_navigation_and_debug_geometry()
-	test_cave_decor_uses_one_visible_collision_profile()
+	test_legacy_cursed_decor_uses_one_collision_profile()
 	test_hotbar_assignment_equipment_and_universal_input()
 	test_crafting_window_and_save_snapshot()
 	test_enemy_families_loot_tables_and_world_route()
@@ -148,15 +148,15 @@ func test_resource_visual_profile_matches_navigation_and_debug_geometry() -> voi
 	game.free()
 
 
-## Сценарий: пещерная группа камней и кристалл рисуются один раз и совпадают с препятствием.
-## Исходное состояние: герой находится в пещере у первого из шести декоративных скоплений.
-## Ожидаемый результат: размеры кратны 24, центр блокируется общим rect, F10 видит его, а renderer не заливает фон повторно.
-func test_cave_decor_uses_one_visible_collision_profile() -> void:
-	var game:=make_game(); game.current_location="cave"
+## Сценарий: прежнее валунно-кристальное скопление сохраняет общий профиль в проклятой земле.
+## Исходное состояние: герой находится в области со старым декором; новая пещера отдельно проверяется в CaveLocationSuite.
+## Ожидаемый результат: размеры кратны 24, центр блокируется общим rect, а F10 видит то же основание.
+func test_legacy_cursed_decor_uses_one_collision_profile() -> void:
+	var game:=make_game(); game.current_location="cursed"
 	var position:Vector2=game.CAVE_DECORATIONS[0]
 	expect(game.CaveVisualSystem.cluster_bounds(position).size==Vector2(120,96) and game.CaveVisualSystem.collision_rect(position).size==Vector2(96,72), "cave cluster has modular visible and collision bounds")
 	expect(game.CaveVisualSystem.rock_rect(position,0).size==Vector2(48,48) and game.CaveVisualSystem.crystal_rect(position).size==Vector2(72,72), "cave rocks and crystal use approved asset classes")
-	expect(game.NavigationSystem.walkability_reason(game,position)=="cave_prop", "cave navigation blocks the same profiled cluster base")
+	expect(game.NavigationSystem.walkability_reason(game,position)=="cave_prop", "cursed area navigation retains the legacy profiled cluster base")
 	var inspected:Dictionary=game.DebugObjectInspectorSystem.candidates(game).filter(func(entry): return entry.id=="cave_decor:0")[0]
 	expect((inspected.bounds as Rect2)==game.CaveVisualSystem.cluster_bounds(position) and String(inspected.collision).contains("96×72"), "F10 reports the exact cave profile")
 	var renderer_source:=FileAccess.get_file_as_string("res://scripts/game_renderer.gd")

@@ -7,7 +7,6 @@ const GRASS_TILE := preload("res://assets/game/tiles/grass.png")
 const GRASS_TILE_VARIANT_1 := preload("res://assets/game/tiles/grass_var_1.png")
 const GRASS_TILE_VARIANT_2 := preload("res://assets/game/tiles/grass_var_2.png")
 const RED_MUSHROOMS := preload("res://assets/game/environment/red_mushrooms.png")
-const CAVE_CRYSTAL := preload("res://assets/game/environment/cave_crystal.png")
 const CAVE_FLOOR_TILE := preload("res://assets/game/tiles/cave-floor.png")
 const FOREST_TREE_GROWTH_ATLAS := preload("res://assets/game/environment/forest_tree_growth_atlas_v1.png")
 const VILLAGE_PROPS := preload("res://assets/game/environment/village_prop_atlas_v2.png")
@@ -23,7 +22,7 @@ const WaterVisualSystem := preload("res://scripts/systems/water_visual_system.gd
 const PirateShipRenderer := preload("res://scripts/systems/pirate_ship_renderer.gd")
 const VisualAssetSystem := preload("res://scripts/systems/visual_asset_system.gd")
 const EnvironmentVisualSystem := preload("res://scripts/systems/environment_visual_system.gd")
-const CaveVisualSystem := preload("res://scripts/systems/cave_visual_system.gd")
+const CaveRenderer := preload("res://scripts/systems/cave_renderer.gd")
 const DebugPlaygroundSystem := preload("res://scripts/systems/debug_playground_system.gd"); const DebugPlaygroundRenderer := preload("res://scripts/systems/debug_playground_renderer.gd")
 
 const GRASS_VARIANTS := [
@@ -276,82 +275,6 @@ func draw_fence(rect: Rect2, gate: Vector2) -> void:
 	else:
 		draw_line(Vector2(rect.position.x, rect.end.y), rect.end, fence_color, 7)
 
-## Отрисовывает пещеры по текущему состоянию игры.
+## Собирает пещеру из общего контура, повторяемого пола и отдельных модульных спрайтов.
 func draw_cave() -> void:
-	draw_rect(Rect2(Vector2.ZERO, WORLD_SIZE), Color("18232c"))
-	_draw_cave_floor()
-	_draw_cave_shadows()
-	_draw_cave_rock_clusters()
-	_draw_cave_crystals()
-	_draw_cave_light_frets()
-	draw_circle(Vector2(180,430), 54, Color("0e151a"))
-	draw_circle(Vector2(180,430), 40, Color("b1e4d5"), false, 5)
-	draw_string(UI_FONT, Vector2(90,100), LocaleSystem.location("cave").to_upper(), HORIZONTAL_ALIGNMENT_LEFT, -1, 28, Color("9ce9dd"))
-
-
-## Заполняет пещерный пол текстурой и легкой неровностью, чтобы убрать эффект однотонной заливки.
-func _draw_cave_floor() -> void:
-	draw_texture_rect(CAVE_FLOOR_TILE, Rect2(Vector2.ZERO, WORLD_SIZE), true, Color(0.72, 0.78, 0.8, 1.0))
-	for y in range(18, int(WORLD_SIZE.y), 36):
-		for x in range(-12, int(WORLD_SIZE.x) + 12, 48):
-			var x_shift := sin(float(x) * 0.034 + float(y) * 0.021 + float(int(x + y) % 9)) * 8.0
-			var y_shift := cos(float(x) * 0.013 + float(y) * 0.049) * 5.0
-			var shade := Color("253341").lightened(0.15 * sin(float(x) * 0.09 + float(y) * 0.04))
-			draw_line(Vector2(x + x_shift, y + y_shift), Vector2(x + 36.0 + x_shift, y + y_shift + 0.5), shade, 1.8)
-
-
-## Рисует левую и правую «стенки» с мягкими выступами, чтобы пещера читалась как объём.
-func _draw_cave_shadows() -> void:
-	var left_wall := PackedVector2Array()
-	var right_wall := PackedVector2Array()
-	for row in range(0, 14):
-		var pos_y := float(row) * (WORLD_SIZE.y / 13.0)
-		var noise := sin(pos_y * 0.014) * 28.0
-		left_wall.append(Vector2(56.0 + noise + cos(pos_y * 0.07) * 12.0, pos_y))
-		right_wall.append(Vector2(WORLD_SIZE.x - 56.0 - noise - sin(pos_y * 0.07) * 12.0, pos_y))
-	left_wall.append(Vector2(0.0, WORLD_SIZE.y)); left_wall.append(Vector2(0.0, 0.0))
-	right_wall.append(Vector2(WORLD_SIZE.x, WORLD_SIZE.y)); right_wall.append(Vector2(WORLD_SIZE.x, 0.0))
-	draw_colored_polygon(left_wall, Color("101822", 0.62))
-	draw_colored_polygon(right_wall, Color("111b25", 0.62))
-
-
-## Добавляет скопления крупных валунов и пустот, которые дают игроку ощущение масштабной локации.
-func _draw_cave_rock_clusters() -> void:
-	for cluster: Vector2 in CaveVisualSystem.POSITIONS:
-		var base: Vector2 = cluster + Vector2(0, 4)
-		draw_texture_rect(CAVE_FLOOR_TILE,Rect2(base-Vector2(36,12),Vector2(72,24)),false,Color(0.18,0.21,0.24,0.32))
-		for ring in 6:
-			var rect:=CaveVisualSystem.rock_rect(cluster,ring)
-			if ring%2==0: draw_ellipse_stone(rect.get_center()+Vector2(0,15),Vector2(48,24),Color("201f25"),0.44)
-			draw_texture_rect(RESOURCE_ROCK,rect,false,Color(1.0,1.0,1.0,0.78))
-
-
-## Рисует кристаллы и мягкий свечащийся контур, чтобы пещера читалась живой.
-func _draw_cave_crystals() -> void:
-	var crystal_phase := fmod(Time.get_ticks_msec() / 500.0, TAU)
-	for index in CaveVisualSystem.POSITIONS.size():
-		var crystal: Vector2 = CaveVisualSystem.POSITIONS[index]
-		var pulse := 0.07 * sin(crystal_phase + float(index))
-		draw_texture_rect(CAVE_CRYSTAL,CaveVisualSystem.crystal_rect(crystal,pulse),false)
-		draw_circle(crystal, 42 + pulse * 5.0, Color(0.35, 0.95, 0.85, 0.14))
-		draw_circle(crystal + Vector2(18, -19), 4.0, Color("f2f0ec", 0.2))
-
-
-## Рисует плоский овал-пятно тени для валунного элемента.
-func draw_ellipse_stone(center: Vector2, size: Vector2, color: Color, alpha: float = 1.0) -> void:
-	var points := PackedVector2Array()
-	for step in 20:
-		var angle := TAU * float(step) / 20.0
-		points.append(center + Vector2(cos(angle) * size.x * 0.5, sin(angle) * size.y * 0.35))
-	var shaded := color if alpha >= 1.0 else Color(color.r, color.g, color.b, color.a * alpha)
-	draw_colored_polygon(points, shaded)
-
-
-## Добавляет точки света от сталактитов и мелкий туман для глубины пещерного пространства.
-func _draw_cave_light_frets() -> void:
-	for point in [Vector2(270, 95), Vector2(920, 142), Vector2(1600, 88), Vector2(2140, 166)]:
-		draw_line(point, point + Vector2(24, 2), Color("9f8c8d"), 3.0)
-		draw_line(point + Vector2(24, 2), point + Vector2(30, -14), Color("b8a6a6"), 2.4)
-	for smoke in [Vector2(500,300), Vector2(1340,640), Vector2(1900,390)]:
-		var radius := 26.0 + sin(float(smoke.y) * 0.04 + Time.get_ticks_msec() * 0.001) * 4.0
-		draw_circle(smoke, radius, Color(0.85, 0.93, 0.99, 0.05))
+	CaveRenderer.draw_background(self)

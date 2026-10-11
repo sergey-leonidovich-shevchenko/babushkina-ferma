@@ -316,6 +316,8 @@ static func place_selected_asset(game: Node, state: Dictionary, screen_point: Ve
 		if object.runtime_role == "spawn":
 			for existing in state.objects:
 				if String(existing.get("runtime_role", "")) == "spawn": existing.runtime_role = ""
+	if entry.has("collision_size"):
+		object.collision_size = Vector2(entry.collision_size); object.collision_offset = Vector2(entry.get("collision_offset", Vector2.ZERO))
 	state.next_id = int(state.next_id)+1; state.objects.append(object); state.selected = state.objects.size()-1; state.selected_ids=[int(object.id)]; state.status = "Размещено: %s" % object.name
 	ValidationSystem.rebuild_autotile_masks(state); state.validation={}
 	return true

@@ -2,6 +2,7 @@ extends RefCounted
 
 const IMAGE_EXTENSIONS := [".png", ".webp"]
 const ActorSources := preload("res://scripts/editor/editor_actor_source_system.gd")
+const CaveSources := preload("res://scripts/editor/editor_cave_source_system.gd")
 const EXPECTED_BUILDINGS := ["chapel", "cottage", "forge", "guild_hall", "moon_castle", "prison", "shop_house", "wizard_tower"]
 const SAFE_ATLAS_SLICES := {
 	"buildable_fence_atlas_v1.png":64,
@@ -72,6 +73,7 @@ static func metadata(path: String) -> Dictionary:
 		"sliced":slice_size>0,
 	}
 	entry.merge(ActorSources.profile(path), true)
+	entry.merge(CaveSources.profile(path), true)
 	return entry
 
 

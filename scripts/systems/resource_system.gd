@@ -1,12 +1,15 @@
 extends RefCounted
 
 const WorldVisualProfileSystem := preload("res://scripts/systems/world_visual_profile_system.gd")
+const CaveAssets := preload("res://scripts/systems/cave_asset_system.gd")
+const CaveMap := preload("res://scripts/systems/cave_map_data.gd")
 const VISUAL_PROFILE := "resource_node"
 const RESOURCE_NAMES := {
 	"stone": "камень",
 	"crystal": "синий кристалл",
 	"red_crystal": "красный кристалл",
 	"green_crystal": "зелёный кристалл",
+	"metal": "металлическая руда",
 }
 const SPAWNS := [
 	{"position": Vector2(1200, 300), "location": "overworld", "kind": "stone", "hits": 2},
@@ -22,6 +25,8 @@ static func default_nodes() -> Array:
 	var nodes:=SPAWNS.duplicate(true)
 	var placements:Dictionary=preload("res://scripts/systems/village_map_data.gd").RESOURCES
 	for index in placements: nodes[index].position=placements[index]
+	for index in CaveMap.RESOURCES: nodes[index].position = CaveMap.RESOURCES[index]
+	nodes.append_array(CaveMap.EXTRA_RESOURCES.duplicate(true))
 	return nodes
 
 
@@ -32,11 +37,15 @@ static func ground_anchor(position: Vector2) -> Vector2:
 
 ## Строит видимый прямоугольник камня или кристалла через общий модульный профиль.
 static func destination_rect(node: Dictionary) -> Rect2:
+	if node.get("location", "") == "cave":
+		return CaveAssets.destination_rect(CaveAssets.resource_art(node.kind), ground_anchor(Vector2(node.position)))
 	return WorldVisualProfileSystem.visual_rect(VISUAL_PROFILE,ground_anchor(Vector2(node.position)))
 
 
-## Строит совпадающее с видимым основанием препятствие 48×48 для навигации и F10.
+## Строит основание ресурса для навигации и F10 по профилю его локации.
 static func collision_rect(node: Dictionary) -> Rect2:
+	if node.get("location", "") == "cave":
+		return CaveAssets.collision_rect(CaveAssets.resource_art(node.kind), ground_anchor(Vector2(node.position)))
 	return WorldVisualProfileSystem.collision_rect(VISUAL_PROFILE,ground_anchor(Vector2(node.position)))
 
 ## Выполняет заявленное игровое действие после проверки условий, затрат и наград.
@@ -73,4 +82,5 @@ static func mine(game: Node, index: int) -> bool:
 	game.notify_tutorial("mine")
 	if resource.kind in ["red_crystal", "green_crystal"]:
 		game.notify_tutorial("colored_crystal")
+	if resource.kind == "metal" and resource.location == "cave": game.notify_tutorial("cave_veins")
 	return true

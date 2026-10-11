@@ -93,7 +93,7 @@ var current_location: String:
 	get: return state.world.location
 	set(value): state.world.location = value
 var cave_entrance_position := VillageMapData.CAVE_ENTRANCE
-var cave_exit_position := Vector2(180, 430)
+var cave_exit_position := preload("res://scripts/systems/cave_map_data.gd").EXIT
 var facing: Vector2:
 	get: return state.player.facing
 	set(value): state.player.facing = value
@@ -177,7 +177,9 @@ var contract_selected: int:
 	get: return state.contracts.selected
 	set(value): state.contracts.selected = value
 var world_gate_position: Vector2:
-	get: return VillageMapData.FOREST_GATE if current_location == "overworld" else Vector2(2200, 760)
+	get:
+		if current_location == "cave": return preload("res://scripts/systems/cave_map_data.gd").DEEP_GATE
+		return VillageMapData.FOREST_GATE if current_location == "overworld" else Vector2(2200, 760)
 var enemy_nodes := CombatSystem.default_enemies()
 var hazard_nodes := EnvironmentHazardSystem.default_hazards()
 var wildlife_nodes := WildlifeSystem.default_animals()
