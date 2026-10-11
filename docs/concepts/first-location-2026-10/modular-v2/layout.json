@@ -1,0 +1,1745 @@
+{
+  "schema": 1,
+  "purpose": "modular_scene_design_preview",
+  "world_size": [
+    2400,
+    1350
+  ],
+  "grid": 24,
+  "assets": {
+    "well": {
+      "path": "res://assets/game/locations/overworld/modular/prop_well_v1.png",
+      "draw_size": [
+        120,
+        120
+      ],
+      "origin": "existing_project"
+    },
+    "bench": {
+      "path": "res://assets/game/locations/overworld/modular/prop_bench_v1.png",
+      "draw_size": [
+        144,
+        96
+      ],
+      "origin": "existing_project"
+    },
+    "lamp": {
+      "path": "res://assets/game/locations/overworld/modular/prop_lamp_v1.png",
+      "draw_size": [
+        72,
+        144
+      ],
+      "origin": "existing_project"
+    },
+    "board": {
+      "path": "res://assets/game/locations/overworld/modular/prop_board_v1.png",
+      "draw_size": [
+        120,
+        120
+      ],
+      "origin": "existing_project"
+    },
+    "cart": {
+      "path": "res://assets/game/locations/overworld/modular/prop_cart_v1.png",
+      "draw_size": [
+        168,
+        144
+      ],
+      "origin": "existing_project"
+    },
+    "cottage": {
+      "path": "res://assets/game/buildings/exteriors/cottage.png",
+      "draw_size": [
+        336,
+        408
+      ],
+      "origin": "existing_project"
+    },
+    "shop_house": {
+      "path": "res://assets/game/buildings/exteriors/shop_house.png",
+      "draw_size": [
+        384,
+        360
+      ],
+      "origin": "existing_project"
+    },
+    "guild_hall": {
+      "path": "res://assets/game/buildings/exteriors/guild_hall.png",
+      "draw_size": [
+        408,
+        408
+      ],
+      "origin": "existing_project"
+    },
+    "tree": {
+      "path": "res://assets/game/environment/forest_tree_growth_atlas_v1.png",
+      "draw_size": [
+        216,
+        240
+      ],
+      "origin": "existing_project",
+      "source": [
+        768,
+        0,
+        256,
+        256
+      ]
+    },
+    "young_tree": {
+      "path": "res://assets/game/environment/forest_tree_growth_atlas_v1.png",
+      "draw_size": [
+        144,
+        192
+      ],
+      "origin": "existing_project",
+      "source": [
+        512,
+        0,
+        256,
+        256
+      ]
+    },
+    "spring_tree": {
+      "path": "res://assets/game/environment/seasons/tree_spring.png",
+      "draw_size": [
+        288,
+        360
+      ],
+      "origin": "existing_project"
+    },
+    "barrel": {
+      "path": "res://assets/game/world_loot/containers/barrel.png",
+      "draw_size": [
+        48,
+        60
+      ],
+      "origin": "existing_project"
+    },
+    "fence": {
+      "path": "res://assets/game/environment/buildable_fence_atlas_v1.png",
+      "draw_size": [
+        24,
+        32
+      ],
+      "origin": "existing_project"
+    },
+    "crop": {
+      "path": "res://assets/game/environment/farm_plants_objects_atlas_v1.png",
+      "draw_size": [
+        48,
+        48
+      ],
+      "origin": "existing_project"
+    },
+    "bush": {
+      "path": "res://docs/concepts/first-location-2026-10/modular-v2/sprites/bush.png",
+      "draw_size": [
+        120,
+        96
+      ],
+      "origin": "generated_supplement_v2"
+    },
+    "grass": {
+      "path": "res://docs/concepts/first-location-2026-10/modular-v2/sprites/grass.png",
+      "draw_size": [
+        48,
+        48
+      ],
+      "origin": "generated_supplement_v2"
+    },
+    "flowers": {
+      "path": "res://docs/concepts/first-location-2026-10/modular-v2/sprites/flowers.png",
+      "draw_size": [
+        72,
+        60
+      ],
+      "origin": "generated_supplement_v2"
+    },
+    "stones": {
+      "path": "res://docs/concepts/first-location-2026-10/modular-v2/sprites/stones.png",
+      "draw_size": [
+        96,
+        72
+      ],
+      "origin": "generated_supplement_v2"
+    },
+    "reeds": {
+      "path": "res://docs/concepts/first-location-2026-10/modular-v2/sprites/reeds.png",
+      "draw_size": [
+        72,
+        96
+      ],
+      "origin": "generated_supplement_v2"
+    },
+    "fern": {
+      "path": "res://docs/concepts/first-location-2026-10/modular-v2/sprites/fern.png",
+      "draw_size": [
+        72,
+        60
+      ],
+      "origin": "generated_supplement_v2"
+    },
+    "leaves": {
+      "path": "res://docs/concepts/first-location-2026-10/modular-v2/sprites/leaves.png",
+      "draw_size": [
+        72,
+        48
+      ],
+      "origin": "generated_supplement_v2"
+    },
+    "berry_bush": {
+      "path": "res://docs/concepts/first-location-2026-10/modular-v2/sprites/berry_bush.png",
+      "draw_size": [
+        96,
+        84
+      ],
+      "origin": "generated_supplement_v2"
+    },
+    "apple_tree": {
+      "path": "res://assets/game/environment/seasons/tree_summer.png",
+      "draw_size": [
+        216,
+        288
+      ],
+      "origin": "existing_project"
+    }
+  },
+  "objects": [
+    {
+      "asset": "cottage",
+      "anchor": [
+        360,
+        576
+      ]
+    },
+    {
+      "asset": "shop_house",
+      "anchor": [
+        1320,
+        528
+      ]
+    },
+    {
+      "asset": "guild_hall",
+      "anchor": [
+        1776,
+        504
+      ]
+    },
+    {
+      "asset": "well",
+      "anchor": [
+        1296,
+        744
+      ]
+    },
+    {
+      "asset": "spring_tree",
+      "anchor": [
+        1056,
+        432
+      ]
+    },
+    {
+      "asset": "board",
+      "anchor": [
+        624,
+        672
+      ]
+    },
+    {
+      "asset": "board",
+      "anchor": [
+        1728,
+        576
+      ]
+    },
+    {
+      "asset": "cart",
+      "anchor": [
+        1536,
+        648
+      ]
+    },
+    {
+      "asset": "bench",
+      "anchor": [
+        1152,
+        816
+      ]
+    },
+    {
+      "asset": "bench",
+      "anchor": [
+        1464,
+        864
+      ]
+    },
+    {
+      "asset": "lamp",
+      "anchor": [
+        720,
+        624
+      ]
+    },
+    {
+      "asset": "lamp",
+      "anchor": [
+        1680,
+        768
+      ]
+    },
+    {
+      "asset": "lamp",
+      "anchor": [
+        1104,
+        576
+      ]
+    },
+    {
+      "asset": "barrel",
+      "anchor": [
+        528,
+        552
+      ]
+    },
+    {
+      "asset": "barrel",
+      "anchor": [
+        1128,
+        504
+      ]
+    },
+    {
+      "asset": "barrel",
+      "anchor": [
+        1512,
+        504
+      ]
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        0,
+        144
+      ],
+      "tint": "d7dec7"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        144,
+        192
+      ],
+      "tint": "c4d3b1"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        288,
+        168
+      ],
+      "tint": "d0d9bd"
+    },
+    {
+      "asset": "young_tree",
+      "anchor": [
+        432,
+        216
+      ],
+      "tint": "d7dec7"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        576,
+        168
+      ],
+      "tint": "c4d3b1"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        720,
+        120
+      ],
+      "tint": "d0d9bd"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        864,
+        144
+      ],
+      "tint": "d7dec7"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        1008,
+        120
+      ],
+      "tint": "c4d3b1"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        1152,
+        192
+      ],
+      "tint": "d0d9bd"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        1296,
+        168
+      ],
+      "tint": "d7dec7"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        1440,
+        144
+      ],
+      "tint": "c4d3b1"
+    },
+    {
+      "asset": "young_tree",
+      "anchor": [
+        1584,
+        192
+      ],
+      "tint": "d0d9bd"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        1728,
+        168
+      ],
+      "tint": "d7dec7"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        1872,
+        216
+      ],
+      "tint": "c4d3b1"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        2016,
+        144
+      ],
+      "tint": "d0d9bd"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        2160,
+        192
+      ],
+      "tint": "d7dec7"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        2304,
+        168
+      ],
+      "tint": "c4d3b1"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        48,
+        384
+      ],
+      "tint": "d0d9bd"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        -24,
+        576
+      ],
+      "tint": "d7dec7"
+    },
+    {
+      "asset": "young_tree",
+      "anchor": [
+        24,
+        744
+      ],
+      "tint": "c4d3b1"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        -24,
+        936
+      ],
+      "tint": "d0d9bd"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        0,
+        1152
+      ],
+      "tint": "d7dec7"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        144,
+        1200
+      ],
+      "tint": "c4d3b1"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        240,
+        1368
+      ],
+      "tint": "d0d9bd"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        384,
+        1416
+      ],
+      "tint": "d7dec7"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        528,
+        1392
+      ],
+      "tint": "c4d3b1"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        672,
+        1392
+      ],
+      "tint": "d0d9bd"
+    },
+    {
+      "asset": "young_tree",
+      "anchor": [
+        816,
+        1368
+      ],
+      "tint": "d7dec7"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        960,
+        1464
+      ],
+      "tint": "c4d3b1"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        1104,
+        1368
+      ],
+      "tint": "d0d9bd"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        1248,
+        1440
+      ],
+      "tint": "d7dec7"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        1392,
+        1440
+      ],
+      "tint": "c4d3b1"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        1536,
+        1416
+      ],
+      "tint": "d0d9bd"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        1680,
+        1368
+      ],
+      "tint": "d7dec7"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        1824,
+        1464
+      ],
+      "tint": "c4d3b1"
+    },
+    {
+      "asset": "young_tree",
+      "anchor": [
+        1968,
+        1368
+      ],
+      "tint": "d0d9bd"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        2112,
+        1440
+      ],
+      "tint": "d7dec7"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        2256,
+        1392
+      ],
+      "tint": "c4d3b1"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        2400,
+        1392
+      ],
+      "tint": "d0d9bd"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        2376,
+        408
+      ],
+      "tint": "d7dec7"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        2256,
+        528
+      ],
+      "tint": "c4d3b1"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        2400,
+        672
+      ],
+      "tint": "d0d9bd"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        2352,
+        816
+      ],
+      "tint": "d7dec7"
+    },
+    {
+      "asset": "young_tree",
+      "anchor": [
+        2376,
+        960
+      ],
+      "tint": "c4d3b1"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        2448,
+        1128
+      ],
+      "tint": "d0d9bd"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        2040,
+        408
+      ],
+      "tint": "d7dec7"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        2136,
+        456
+      ],
+      "tint": "c4d3b1"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        2016,
+        1032
+      ],
+      "tint": "d0d9bd"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        2136,
+        1104
+      ],
+      "tint": "d7dec7"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        1968,
+        1152
+      ],
+      "tint": "c4d3b1"
+    },
+    {
+      "asset": "young_tree",
+      "anchor": [
+        144,
+        696
+      ],
+      "tint": "d4ddc1"
+    },
+    {
+      "asset": "young_tree",
+      "anchor": [
+        624,
+        432
+      ],
+      "tint": "d4ddc1"
+    },
+    {
+      "asset": "young_tree",
+      "anchor": [
+        744,
+        336
+      ],
+      "tint": "d4ddc1"
+    },
+    {
+      "asset": "young_tree",
+      "anchor": [
+        888,
+        216
+      ],
+      "tint": "d4ddc1"
+    },
+    {
+      "asset": "young_tree",
+      "anchor": [
+        1944,
+        384
+      ],
+      "tint": "d4ddc1"
+    },
+    {
+      "asset": "young_tree",
+      "anchor": [
+        2088,
+        624
+      ],
+      "tint": "d4ddc1"
+    },
+    {
+      "asset": "young_tree",
+      "anchor": [
+        2208,
+        912
+      ],
+      "tint": "d4ddc1"
+    },
+    {
+      "asset": "young_tree",
+      "anchor": [
+        744,
+        1128
+      ],
+      "tint": "d4ddc1"
+    },
+    {
+      "asset": "young_tree",
+      "anchor": [
+        984,
+        1200
+      ],
+      "tint": "d4ddc1"
+    },
+    {
+      "asset": "young_tree",
+      "anchor": [
+        1896,
+        1224
+      ],
+      "tint": "d4ddc1"
+    },
+    {
+      "asset": "bush",
+      "anchor": [
+        96,
+        576
+      ]
+    },
+    {
+      "asset": "bush",
+      "anchor": [
+        216,
+        624
+      ]
+    },
+    {
+      "asset": "bush",
+      "anchor": [
+        600,
+        504
+      ]
+    },
+    {
+      "asset": "bush",
+      "anchor": [
+        552,
+        720
+      ]
+    },
+    {
+      "asset": "bush",
+      "anchor": [
+        816,
+        696
+      ]
+    },
+    {
+      "asset": "bush",
+      "anchor": [
+        1152,
+        528
+      ]
+    },
+    {
+      "asset": "bush",
+      "anchor": [
+        1656,
+        552
+      ]
+    },
+    {
+      "asset": "bush",
+      "anchor": [
+        1848,
+        624
+      ]
+    },
+    {
+      "asset": "bush",
+      "anchor": [
+        1920,
+        888
+      ]
+    },
+    {
+      "asset": "bush",
+      "anchor": [
+        1968,
+        984
+      ]
+    },
+    {
+      "asset": "bush",
+      "anchor": [
+        2160,
+        696
+      ]
+    },
+    {
+      "asset": "bush",
+      "anchor": [
+        816,
+        1176
+      ]
+    },
+    {
+      "asset": "bush",
+      "anchor": [
+        960,
+        1128
+      ]
+    },
+    {
+      "asset": "bush",
+      "anchor": [
+        744,
+        984
+      ]
+    },
+    {
+      "asset": "bush",
+      "anchor": [
+        480,
+        1128
+      ]
+    },
+    {
+      "asset": "bush",
+      "anchor": [
+        96,
+        1176
+      ]
+    },
+    {
+      "asset": "bush",
+      "anchor": [
+        2232,
+        1152
+      ]
+    },
+    {
+      "asset": "bush",
+      "anchor": [
+        2232,
+        384
+      ]
+    },
+    {
+      "asset": "bush",
+      "anchor": [
+        1584,
+        1200
+      ]
+    },
+    {
+      "asset": "berry_bush",
+      "anchor": [
+        96,
+        720
+      ]
+    },
+    {
+      "asset": "berry_bush",
+      "anchor": [
+        552,
+        1128
+      ]
+    },
+    {
+      "asset": "berry_bush",
+      "anchor": [
+        672,
+        1056
+      ]
+    },
+    {
+      "asset": "berry_bush",
+      "anchor": [
+        1992,
+        840
+      ]
+    },
+    {
+      "asset": "berry_bush",
+      "anchor": [
+        2184,
+        696
+      ]
+    },
+    {
+      "asset": "berry_bush",
+      "anchor": [
+        2112,
+        960
+      ]
+    },
+    {
+      "asset": "fern",
+      "anchor": [
+        552,
+        408
+      ]
+    },
+    {
+      "asset": "fern",
+      "anchor": [
+        600,
+        744
+      ]
+    },
+    {
+      "asset": "fern",
+      "anchor": [
+        768,
+        288
+      ]
+    },
+    {
+      "asset": "fern",
+      "anchor": [
+        1944,
+        528
+      ]
+    },
+    {
+      "asset": "fern",
+      "anchor": [
+        2088,
+        552
+      ]
+    },
+    {
+      "asset": "fern",
+      "anchor": [
+        2160,
+        1056
+      ]
+    },
+    {
+      "asset": "fern",
+      "anchor": [
+        864,
+        1200
+      ]
+    },
+    {
+      "asset": "fern",
+      "anchor": [
+        1104,
+        1104
+      ]
+    },
+    {
+      "asset": "fern",
+      "anchor": [
+        624,
+        936
+      ]
+    },
+    {
+      "asset": "fern",
+      "anchor": [
+        1392,
+        1200
+      ]
+    },
+    {
+      "asset": "fern",
+      "anchor": [
+        2208,
+        1248
+      ]
+    },
+    {
+      "asset": "flowers",
+      "anchor": [
+        192,
+        624
+      ]
+    },
+    {
+      "asset": "flowers",
+      "anchor": [
+        504,
+        600
+      ]
+    },
+    {
+      "asset": "flowers",
+      "anchor": [
+        552,
+        768
+      ]
+    },
+    {
+      "asset": "flowers",
+      "anchor": [
+        696,
+        672
+      ]
+    },
+    {
+      "asset": "flowers",
+      "anchor": [
+        1104,
+        768
+      ]
+    },
+    {
+      "asset": "flowers",
+      "anchor": [
+        1440,
+        600
+      ]
+    },
+    {
+      "asset": "flowers",
+      "anchor": [
+        1680,
+        624
+      ]
+    },
+    {
+      "asset": "flowers",
+      "anchor": [
+        1824,
+        576
+      ]
+    },
+    {
+      "asset": "flowers",
+      "anchor": [
+        1944,
+        744
+      ]
+    },
+    {
+      "asset": "flowers",
+      "anchor": [
+        1896,
+        960
+      ]
+    },
+    {
+      "asset": "flowers",
+      "anchor": [
+        1392,
+        864
+      ]
+    },
+    {
+      "asset": "flowers",
+      "anchor": [
+        336,
+        1152
+      ]
+    },
+    {
+      "asset": "flowers",
+      "anchor": [
+        864,
+        1128
+      ]
+    },
+    {
+      "asset": "flowers",
+      "anchor": [
+        1248,
+        1200
+      ]
+    },
+    {
+      "asset": "flowers",
+      "anchor": [
+        2064,
+        1128
+      ]
+    },
+    {
+      "asset": "stones",
+      "anchor": [
+        192,
+        240
+      ]
+    },
+    {
+      "asset": "stones",
+      "anchor": [
+        384,
+        264
+      ]
+    },
+    {
+      "asset": "stones",
+      "anchor": [
+        624,
+        384
+      ]
+    },
+    {
+      "asset": "stones",
+      "anchor": [
+        720,
+        480
+      ]
+    },
+    {
+      "asset": "stones",
+      "anchor": [
+        1008,
+        720
+      ]
+    },
+    {
+      "asset": "stones",
+      "anchor": [
+        1152,
+        888
+      ]
+    },
+    {
+      "asset": "stones",
+      "anchor": [
+        1368,
+        912
+      ]
+    },
+    {
+      "asset": "stones",
+      "anchor": [
+        1680,
+        1032
+      ]
+    },
+    {
+      "asset": "stones",
+      "anchor": [
+        1896,
+        1008
+      ]
+    },
+    {
+      "asset": "stones",
+      "anchor": [
+        2112,
+        1128
+      ]
+    },
+    {
+      "asset": "stones",
+      "anchor": [
+        600,
+        1152
+      ]
+    },
+    {
+      "asset": "reeds",
+      "anchor": [
+        360,
+        336
+      ]
+    },
+    {
+      "asset": "reeds",
+      "anchor": [
+        576,
+        408
+      ]
+    },
+    {
+      "asset": "reeds",
+      "anchor": [
+        744,
+        456
+      ]
+    },
+    {
+      "asset": "reeds",
+      "anchor": [
+        960,
+        648
+      ]
+    },
+    {
+      "asset": "reeds",
+      "anchor": [
+        1080,
+        816
+      ]
+    },
+    {
+      "asset": "reeds",
+      "anchor": [
+        1248,
+        888
+      ]
+    },
+    {
+      "asset": "reeds",
+      "anchor": [
+        1416,
+        1008
+      ]
+    },
+    {
+      "asset": "reeds",
+      "anchor": [
+        1752,
+        1008
+      ]
+    },
+    {
+      "asset": "reeds",
+      "anchor": [
+        1968,
+        1104
+      ]
+    },
+    {
+      "asset": "reeds",
+      "anchor": [
+        2208,
+        1056
+      ]
+    },
+    {
+      "asset": "grass",
+      "anchor": [
+        144,
+        384
+      ]
+    },
+    {
+      "asset": "grass",
+      "anchor": [
+        192,
+        744
+      ]
+    },
+    {
+      "asset": "grass",
+      "anchor": [
+        384,
+        720
+      ]
+    },
+    {
+      "asset": "grass",
+      "anchor": [
+        552,
+        672
+      ]
+    },
+    {
+      "asset": "grass",
+      "anchor": [
+        648,
+        600
+      ]
+    },
+    {
+      "asset": "grass",
+      "anchor": [
+        936,
+        576
+      ]
+    },
+    {
+      "asset": "grass",
+      "anchor": [
+        1104,
+        696
+      ]
+    },
+    {
+      "asset": "grass",
+      "anchor": [
+        1488,
+        768
+      ]
+    },
+    {
+      "asset": "grass",
+      "anchor": [
+        1776,
+        696
+      ]
+    },
+    {
+      "asset": "grass",
+      "anchor": [
+        1944,
+        672
+      ]
+    },
+    {
+      "asset": "grass",
+      "anchor": [
+        2088,
+        768
+      ]
+    },
+    {
+      "asset": "grass",
+      "anchor": [
+        2256,
+        840
+      ]
+    },
+    {
+      "asset": "grass",
+      "anchor": [
+        720,
+        1032
+      ]
+    },
+    {
+      "asset": "grass",
+      "anchor": [
+        864,
+        1080
+      ]
+    },
+    {
+      "asset": "grass",
+      "anchor": [
+        1320,
+        1104
+      ]
+    },
+    {
+      "asset": "grass",
+      "anchor": [
+        1680,
+        1152
+      ]
+    },
+    {
+      "asset": "grass",
+      "anchor": [
+        2016,
+        1200
+      ]
+    },
+    {
+      "asset": "grass",
+      "anchor": [
+        960,
+        288
+      ]
+    },
+    {
+      "asset": "grass",
+      "anchor": [
+        1176,
+        192
+      ]
+    },
+    {
+      "asset": "leaves",
+      "anchor": [
+        144,
+        456
+      ]
+    },
+    {
+      "asset": "leaves",
+      "anchor": [
+        504,
+        456
+      ]
+    },
+    {
+      "asset": "leaves",
+      "anchor": [
+        720,
+        336
+      ]
+    },
+    {
+      "asset": "leaves",
+      "anchor": [
+        1080,
+        408
+      ]
+    },
+    {
+      "asset": "leaves",
+      "anchor": [
+        1944,
+        408
+      ]
+    },
+    {
+      "asset": "leaves",
+      "anchor": [
+        2016,
+        528
+      ]
+    },
+    {
+      "asset": "leaves",
+      "anchor": [
+        2160,
+        1104
+      ]
+    },
+    {
+      "asset": "leaves",
+      "anchor": [
+        720,
+        1176
+      ]
+    },
+    {
+      "asset": "leaves",
+      "anchor": [
+        1680,
+        1272
+      ]
+    },
+    {
+      "asset": "apple_tree",
+      "anchor": [
+        552,
+        1224
+      ]
+    }
+  ],
+  "paths": [
+    [
+      [
+        360,
+        552
+      ],
+      [
+        360,
+        672
+      ],
+      [
+        648,
+        672
+      ],
+      [
+        864,
+        552
+      ]
+    ],
+    [
+      [
+        864,
+        360
+      ],
+      [
+        1008,
+        480
+      ],
+      [
+        1128,
+        672
+      ],
+      [
+        1320,
+        744
+      ],
+      [
+        1608,
+        720
+      ],
+      [
+        1776,
+        600
+      ],
+      [
+        1776,
+        480
+      ]
+    ],
+    [
+      [
+        1320,
+        504
+      ],
+      [
+        1320,
+        576
+      ],
+      [
+        1416,
+        624
+      ],
+      [
+        1512,
+        624
+      ],
+      [
+        1608,
+        720
+      ]
+    ],
+    [
+      [
+        360,
+        672
+      ],
+      [
+        240,
+        768
+      ],
+      [
+        240,
+        792
+      ]
+    ],
+    [
+      [
+        648,
+        672
+      ],
+      [
+        648,
+        864
+      ],
+      [
+        600,
+        960
+      ],
+      [
+        504,
+        984
+      ]
+    ],
+    [
+      [
+        648,
+        864
+      ],
+      [
+        888,
+        864
+      ],
+      [
+        1248,
+        1080
+      ],
+      [
+        1608,
+        1080
+      ],
+      [
+        1608,
+        864
+      ],
+      [
+        1608,
+        720
+      ]
+    ],
+    [
+      [
+        1608,
+        720
+      ],
+      [
+        1824,
+        744
+      ],
+      [
+        2016,
+        744
+      ],
+      [
+        2256,
+        816
+      ]
+    ]
+  ],
+  "river": [
+    [
+      0,
+      264
+    ],
+    [
+      600,
+      336
+    ],
+    [
+      864,
+      456
+    ],
+    [
+      960,
+      600
+    ],
+    [
+      1176,
+      888
+    ],
+    [
+      1560,
+      960
+    ],
+    [
+      2400,
+      1032
+    ]
+  ],
+  "bridges": [
+    [
+      864,
+      456
+    ],
+    [
+      1608,
+      960
+    ]
+  ],
+  "grass_patches": [
+    [
+      360,
+      624,
+      288,
+      240
+    ],
+    [
+      744,
+      1044,
+      288,
+      168
+    ],
+    [
+      1920,
+      600,
+      216,
+      336
+    ],
+    [
+      1680,
+      1200,
+      312,
+      144
+    ]
+  ],
+  "rendering": {
+    "texture_filter": "linear",
+    "source_of_existing_assets": "current project PNGs, unchanged",
+    "generated_decor": "eight independent transparent cutouts",
+    "resolution_previews": [
+      [
+        1920,
+        1080
+      ],
+      [
+        3840,
+        2160
+      ]
+    ]
+  },
+  "terrain_assets": {
+    "grass": "res://assets/game/locations/overworld/modular/grass_meadow_tile_v1.png",
+    "dirt": "res://assets/game/locations/overworld/modular/dirt_material_v1.png",
+    "path": "res://assets/game/locations/overworld/modular/path_material_v1.png",
+    "stone": "res://assets/game/locations/overworld/modular/stone_material_v1.png",
+    "water": "res://assets/game/locations/overworld/modular/water_material_v1.png",
+    "bridge": "res://assets/game/locations/overworld/modular/bridge_modular_v1.png"
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "sprite_checks": [
+    {
+      "sprite": "bush",
+      "size": [
+        343,
+        259
+      ],
+      "transparent": true,
+      "isolated_with_margin": true
+    },
+    {
+      "sprite": "grass",
+      "size": [
+        320,
+        224
+      ],
+      "transparent": true,
+      "isolated_with_margin": true
+    },
+    {
+      "sprite": "flowers",
+      "size": [
+        304,
+        256
+      ],
+      "transparent": true,
+      "isolated_with_margin": true
+    },
+    {
+      "sprite": "stones",
+      "size": [
+        348,
+        215
+      ],
+      "transparent": true,
+      "isolated_with_margin": true
+    },
+    {
+      "sprite": "reeds",
+      "size": [
+        333,
+        326
+      ],
+      "transparent": true,
+      "isolated_with_margin": true
+    },
+    {
+      "sprite": "fern",
+      "size": [
+        369,
+        270
+      ],
+      "transparent": true,
+      "isolated_with_margin": true
+    },
+    {
+      "sprite": "leaves",
+      "size": [
+        350,
+        164
+      ],
+      "transparent": true,
+      "isolated_with_margin": true
+    },
+    {
+      "sprite": "berry_bush",
+      "size": [
+        359,
+        249
+      ],
+      "transparent": true,
+      "isolated_with_margin": true
+    }
+  ],
+  "resolution_renders": [
+    [
+      1920,
+      1080
+    ],
+    [
+      3840,
+      2160
+    ]
+  ],
+  "reused_asset_definitions": 15,
+  "new_sprite_definitions": 8,
+  "object_instances": 177,
+  "grid": 24,
+  "preview_renderer": "Godot, separate render for each resolution"
+}

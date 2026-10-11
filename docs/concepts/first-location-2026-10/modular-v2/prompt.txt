@@ -1,0 +1,17 @@
+Use case: stylized-concept.
+Asset type: reusable 2D game environment sprite atlas, transparent cutouts, exactly four columns by two rows, wide 2:1 sheet, ideally 2048x1024.
+Input image 1: existing grandmother cottage sprite, reference for the game's warm earthy palette and orthographic three-quarter top-down camera, not an edit target.
+Input image 2: existing village props sheet, reference for consistent sprite silhouette, visual language and light direction. Do not repeat these existing buildings or props: they will be reused unchanged in the game.
+Primary request: create a SMALL supplemental nature-decoration kit for the modular 'Moon Valley' village. The user wants simpler cleaner art, much less texture noise than the previous lush pixel-art painting, and truly separate reusable sprites rather than a finished environment picture. Draw clean illustrated 2D sprites at high source resolution, strong readable shapes, restrained details, smooth edges, two to three broad shades per surface with gentle hand-painted shading, muted sage and warm natural earth tones. Match the references' camera, scale language and warm fantasy-farm feeling. No chunky 8-bit pixelation, no photorealistic textures or tiny speckles.
+Grid content in exact reading order:
+row 1 column 1: one low rounded leafy shrub, a simple dark-sage clustered canopy;
+row 1 column 2: one small tuft of meadow grass;
+row 1 column 3: one modest clump of white and pale-yellow wildflowers with green stems;
+row 1 column 4: one group of three smooth mossy gray-brown stones;
+row 2 column 1: one small clump of streamside reeds with two brown cattails;
+row 2 column 2: one low spreading fern;
+row 2 column 3: one small loose patch of fallen warm brown leaves;
+row 2 column 4: one low shrub with a few red berries, visibly a variant of the first shrub.
+Composition constraints: EXACT 4x2 equal square cells, one isolated complete object per cell, each centered horizontally, grounded at roughly 78 percent of cell height. Maximum sprite footprint is 68 percent of cell width and height, plenty of fully transparent margin between objects and around outer borders so each cell can be sliced. Similar scale and simple readable silhouette throughout. Everything faces the same game camera. No overlap between cells, no cast shadows outside the objects, no ground patches, no terrain plane.
+Transparency: genuinely transparent alpha background, no backdrop, no white surface, no fake checkerboard.
+Avoid: any text, numbers, labels, legends, frames, visible grid lines, UI, logos, watermark, buildings, full landscapes, dramatic lighting, excessive flower ornament, thick black outlines, fuzzy edge halos. This is a practical source atlas for slicing and repeated placement across many levels.

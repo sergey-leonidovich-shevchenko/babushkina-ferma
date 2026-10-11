@@ -1,0 +1,5423 @@
+{
+  "schema": 1,
+  "purpose": "lighting_and_sprite_design_preview",
+  "world_size": [
+    2400,
+    1350
+  ],
+  "grid": 24,
+  "assets": {
+    "well": {
+      "path": "res://assets/game/locations/overworld/modular/prop_well_v1.png",
+      "draw_size": [
+        120,
+        120
+      ],
+      "origin": "existing_project"
+    },
+    "bench": {
+      "path": "res://docs/concepts/first-location-2026-10/lighting-v5/sprites/bench.png",
+      "draw_size": [
+        144,
+        68
+      ],
+      "origin": "new_imagegen"
+    },
+    "lamp": {
+      "path": "res://assets/game/locations/overworld/modular/prop_lamp_v1.png",
+      "draw_size": [
+        72,
+        144
+      ],
+      "origin": "existing_project"
+    },
+    "board": {
+      "path": "res://assets/game/locations/overworld/modular/prop_board_v1.png",
+      "draw_size": [
+        120,
+        120
+      ],
+      "origin": "existing_project"
+    },
+    "cart": {
+      "path": "res://assets/game/locations/overworld/modular/prop_cart_v1.png",
+      "draw_size": [
+        168,
+        144
+      ],
+      "origin": "existing_project"
+    },
+    "cottage": {
+      "path": "res://assets/game/buildings/exteriors/cottage.png",
+      "draw_size": [
+        336,
+        408
+      ],
+      "origin": "existing_project"
+    },
+    "shop_house": {
+      "path": "res://assets/game/buildings/exteriors/shop_house.png",
+      "draw_size": [
+        384,
+        360
+      ],
+      "origin": "existing_project"
+    },
+    "guild_hall": {
+      "path": "res://assets/game/buildings/exteriors/guild_hall.png",
+      "draw_size": [
+        408,
+        408
+      ],
+      "origin": "existing_project"
+    },
+    "tree": {
+      "path": "res://assets/game/environment/forest_tree_growth_atlas_v1.png",
+      "draw_size": [
+        216,
+        240
+      ],
+      "origin": "existing_project",
+      "source": [
+        768,
+        0,
+        256,
+        256
+      ]
+    },
+    "young_tree": {
+      "path": "res://assets/game/environment/forest_tree_growth_atlas_v1.png",
+      "draw_size": [
+        144,
+        192
+      ],
+      "origin": "existing_project",
+      "source": [
+        512,
+        0,
+        256,
+        256
+      ]
+    },
+    "spring_tree": {
+      "path": "res://assets/game/environment/seasons/tree_spring.png",
+      "draw_size": [
+        288,
+        360
+      ],
+      "origin": "existing_project"
+    },
+    "barrel": {
+      "path": "res://assets/game/world_loot/containers/barrel.png",
+      "draw_size": [
+        48,
+        60
+      ],
+      "origin": "existing_project"
+    },
+    "fence": {
+      "path": "res://assets/game/environment/buildable_fence_atlas_v1.png",
+      "draw_size": [
+        24,
+        32
+      ],
+      "origin": "existing_project"
+    },
+    "crop": {
+      "path": "res://assets/game/environment/farm_plants_objects_atlas_v1.png",
+      "draw_size": [
+        48,
+        48
+      ],
+      "origin": "existing_project"
+    },
+    "bush": {
+      "path": "res://docs/concepts/first-location-2026-10/modular-v2/sprites/bush.png",
+      "draw_size": [
+        120,
+        96
+      ],
+      "origin": "generated_supplement_v2"
+    },
+    "grass": {
+      "path": "res://docs/concepts/first-location-2026-10/modular-v2/sprites/grass.png",
+      "draw_size": [
+        48,
+        48
+      ],
+      "origin": "generated_supplement_v2"
+    },
+    "flowers": {
+      "path": "res://docs/concepts/first-location-2026-10/modular-v2/sprites/flowers.png",
+      "draw_size": [
+        72,
+        60
+      ],
+      "origin": "generated_supplement_v2"
+    },
+    "stones": {
+      "path": "res://docs/concepts/first-location-2026-10/modular-v2/sprites/stones.png",
+      "draw_size": [
+        96,
+        72
+      ],
+      "origin": "generated_supplement_v2"
+    },
+    "reeds": {
+      "path": "res://docs/concepts/first-location-2026-10/modular-v2/sprites/reeds.png",
+      "draw_size": [
+        72,
+        96
+      ],
+      "origin": "generated_supplement_v2"
+    },
+    "fern": {
+      "path": "res://docs/concepts/first-location-2026-10/modular-v2/sprites/fern.png",
+      "draw_size": [
+        72,
+        60
+      ],
+      "origin": "generated_supplement_v2"
+    },
+    "leaves": {
+      "path": "res://docs/concepts/first-location-2026-10/modular-v2/sprites/leaves.png",
+      "draw_size": [
+        72,
+        48
+      ],
+      "origin": "generated_supplement_v2"
+    },
+    "berry_bush": {
+      "path": "res://docs/concepts/first-location-2026-10/modular-v2/sprites/berry_bush.png",
+      "draw_size": [
+        96,
+        84
+      ],
+      "origin": "generated_supplement_v2"
+    },
+    "apple_tree": {
+      "path": "res://assets/game/environment/seasons/tree_summer.png",
+      "draw_size": [
+        216,
+        288
+      ],
+      "origin": "existing_project"
+    },
+    "lilies": {
+      "path": "res://docs/concepts/first-location-2026-10/lighting-v5/sprites/lilies.png",
+      "draw_size": [
+        64,
+        40
+      ],
+      "origin": "new_imagegen"
+    },
+    "railing_post": {
+      "path": "res://docs/concepts/first-location-2026-10/lighting-v5/sprites/railing_post.png",
+      "draw_size": [
+        16,
+        44
+      ],
+      "origin": "new_imagegen"
+    },
+    "railing_beam": {
+      "path": "res://docs/concepts/first-location-2026-10/lighting-v5/sprites/railing_beam.png",
+      "draw_size": [
+        80,
+        7
+      ],
+      "origin": "new_imagegen"
+    }
+  },
+  "objects": [
+    {
+      "asset": "cottage",
+      "anchor": [
+        360,
+        576
+      ]
+    },
+    {
+      "asset": "shop_house",
+      "anchor": [
+        1320,
+        528
+      ]
+    },
+    {
+      "asset": "guild_hall",
+      "anchor": [
+        1776,
+        504
+      ]
+    },
+    {
+      "asset": "well",
+      "anchor": [
+        1296,
+        744
+      ]
+    },
+    {
+      "asset": "spring_tree",
+      "anchor": [
+        1056,
+        432
+      ]
+    },
+    {
+      "asset": "board",
+      "anchor": [
+        624,
+        672
+      ]
+    },
+    {
+      "asset": "board",
+      "anchor": [
+        1728,
+        576
+      ]
+    },
+    {
+      "asset": "cart",
+      "anchor": [
+        1536,
+        648
+      ]
+    },
+    {
+      "asset": "bench",
+      "anchor": [
+        1224,
+        600
+      ]
+    },
+    {
+      "asset": "bench",
+      "anchor": [
+        1488,
+        792
+      ]
+    },
+    {
+      "asset": "lamp",
+      "anchor": [
+        720,
+        624
+      ]
+    },
+    {
+      "asset": "lamp",
+      "anchor": [
+        1680,
+        768
+      ]
+    },
+    {
+      "asset": "lamp",
+      "anchor": [
+        1104,
+        576
+      ]
+    },
+    {
+      "asset": "barrel",
+      "anchor": [
+        528,
+        552
+      ]
+    },
+    {
+      "asset": "barrel",
+      "anchor": [
+        1128,
+        504
+      ]
+    },
+    {
+      "asset": "barrel",
+      "anchor": [
+        1512,
+        504
+      ]
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        144,
+        192
+      ],
+      "tint": "c4d3b1"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        288,
+        168
+      ],
+      "tint": "d0d9bd"
+    },
+    {
+      "asset": "young_tree",
+      "anchor": [
+        432,
+        216
+      ],
+      "tint": "d7dec7"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        720,
+        120
+      ],
+      "tint": "d0d9bd"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        864,
+        144
+      ],
+      "tint": "d7dec7"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        1440,
+        144
+      ],
+      "tint": "c4d3b1"
+    },
+    {
+      "asset": "young_tree",
+      "anchor": [
+        1584,
+        192
+      ],
+      "tint": "d0d9bd"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        1728,
+        168
+      ],
+      "tint": "d7dec7"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        2160,
+        192
+      ],
+      "tint": "d7dec7"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        48,
+        408
+      ],
+      "tint": "d0d9bd"
+    },
+    {
+      "asset": "young_tree",
+      "anchor": [
+        24,
+        744
+      ],
+      "tint": "c4d3b1"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        0,
+        1152
+      ],
+      "tint": "d7dec7"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        240,
+        1368
+      ],
+      "tint": "d0d9bd"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        384,
+        1416
+      ],
+      "tint": "d7dec7"
+    },
+    {
+      "asset": "young_tree",
+      "anchor": [
+        816,
+        1368
+      ],
+      "tint": "d7dec7"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        960,
+        1464
+      ],
+      "tint": "c4d3b1"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        1104,
+        1368
+      ],
+      "tint": "d0d9bd"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        1536,
+        1416
+      ],
+      "tint": "d0d9bd"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        1680,
+        1368
+      ],
+      "tint": "d7dec7"
+    },
+    {
+      "asset": "young_tree",
+      "anchor": [
+        1968,
+        1368
+      ],
+      "tint": "d0d9bd"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        2256,
+        1392
+      ],
+      "tint": "c4d3b1"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        2376,
+        408
+      ],
+      "tint": "d7dec7"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        2352,
+        816
+      ],
+      "tint": "d7dec7"
+    },
+    {
+      "asset": "young_tree",
+      "anchor": [
+        2376,
+        912
+      ],
+      "tint": "c4d3b1"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        2472,
+        1152
+      ],
+      "tint": "d0d9bd"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        2040,
+        408
+      ],
+      "tint": "d7dec7"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        2016,
+        1152
+      ],
+      "tint": "d0d9bd"
+    },
+    {
+      "asset": "tree",
+      "anchor": [
+        1968,
+        1152
+      ],
+      "tint": "c4d3b1"
+    },
+    {
+      "asset": "young_tree",
+      "anchor": [
+        144,
+        696
+      ],
+      "tint": "d4ddc1"
+    },
+    {
+      "asset": "young_tree",
+      "anchor": [
+        600,
+        480
+      ],
+      "tint": "d4ddc1"
+    },
+    {
+      "asset": "young_tree",
+      "anchor": [
+        768,
+        264
+      ],
+      "tint": "d4ddc1"
+    },
+    {
+      "asset": "young_tree",
+      "anchor": [
+        888,
+        216
+      ],
+      "tint": "d4ddc1"
+    },
+    {
+      "asset": "young_tree",
+      "anchor": [
+        1944,
+        384
+      ],
+      "tint": "d4ddc1"
+    },
+    {
+      "asset": "young_tree",
+      "anchor": [
+        2088,
+        624
+      ],
+      "tint": "d4ddc1"
+    },
+    {
+      "asset": "young_tree",
+      "anchor": [
+        2208,
+        912
+      ],
+      "tint": "d4ddc1"
+    },
+    {
+      "asset": "young_tree",
+      "anchor": [
+        744,
+        1128
+      ],
+      "tint": "d4ddc1"
+    },
+    {
+      "asset": "young_tree",
+      "anchor": [
+        984,
+        1200
+      ],
+      "tint": "d4ddc1"
+    },
+    {
+      "asset": "young_tree",
+      "anchor": [
+        1896,
+        1224
+      ],
+      "tint": "d4ddc1"
+    },
+    {
+      "asset": "bush",
+      "anchor": [
+        96,
+        576
+      ]
+    },
+    {
+      "asset": "bush",
+      "anchor": [
+        216,
+        624
+      ]
+    },
+    {
+      "asset": "bush",
+      "anchor": [
+        600,
+        504
+      ]
+    },
+    {
+      "asset": "bush",
+      "anchor": [
+        552,
+        720
+      ]
+    },
+    {
+      "asset": "bush",
+      "anchor": [
+        816,
+        696
+      ]
+    },
+    {
+      "asset": "bush",
+      "anchor": [
+        1152,
+        528
+      ]
+    },
+    {
+      "asset": "bush",
+      "anchor": [
+        1656,
+        552
+      ]
+    },
+    {
+      "asset": "bush",
+      "anchor": [
+        1848,
+        624
+      ]
+    },
+    {
+      "asset": "bush",
+      "anchor": [
+        1920,
+        888
+      ]
+    },
+    {
+      "asset": "bush",
+      "anchor": [
+        1968,
+        888
+      ]
+    },
+    {
+      "asset": "bush",
+      "anchor": [
+        2160,
+        696
+      ]
+    },
+    {
+      "asset": "bush",
+      "anchor": [
+        816,
+        1176
+      ]
+    },
+    {
+      "asset": "bush",
+      "anchor": [
+        960,
+        1128
+      ]
+    },
+    {
+      "asset": "bush",
+      "anchor": [
+        744,
+        984
+      ]
+    },
+    {
+      "asset": "bush",
+      "anchor": [
+        480,
+        1128
+      ]
+    },
+    {
+      "asset": "bush",
+      "anchor": [
+        96,
+        1176
+      ]
+    },
+    {
+      "asset": "bush",
+      "anchor": [
+        2232,
+        1152
+      ]
+    },
+    {
+      "asset": "bush",
+      "anchor": [
+        2232,
+        384
+      ]
+    },
+    {
+      "asset": "bush",
+      "anchor": [
+        1584,
+        1200
+      ]
+    },
+    {
+      "asset": "berry_bush",
+      "anchor": [
+        96,
+        720
+      ]
+    },
+    {
+      "asset": "berry_bush",
+      "anchor": [
+        552,
+        1128
+      ]
+    },
+    {
+      "asset": "berry_bush",
+      "anchor": [
+        672,
+        1056
+      ]
+    },
+    {
+      "asset": "berry_bush",
+      "anchor": [
+        1992,
+        840
+      ]
+    },
+    {
+      "asset": "berry_bush",
+      "anchor": [
+        2184,
+        696
+      ]
+    },
+    {
+      "asset": "berry_bush",
+      "anchor": [
+        2112,
+        888
+      ]
+    },
+    {
+      "asset": "fern",
+      "anchor": [
+        552,
+        456
+      ]
+    },
+    {
+      "asset": "fern",
+      "anchor": [
+        600,
+        744
+      ]
+    },
+    {
+      "asset": "fern",
+      "anchor": [
+        768,
+        288
+      ]
+    },
+    {
+      "asset": "fern",
+      "anchor": [
+        1944,
+        528
+      ]
+    },
+    {
+      "asset": "fern",
+      "anchor": [
+        2088,
+        552
+      ]
+    },
+    {
+      "asset": "fern",
+      "anchor": [
+        2160,
+        1152
+      ]
+    },
+    {
+      "asset": "fern",
+      "anchor": [
+        864,
+        1200
+      ]
+    },
+    {
+      "asset": "fern",
+      "anchor": [
+        1104,
+        1104
+      ]
+    },
+    {
+      "asset": "fern",
+      "anchor": [
+        624,
+        936
+      ]
+    },
+    {
+      "asset": "fern",
+      "anchor": [
+        1392,
+        1200
+      ]
+    },
+    {
+      "asset": "fern",
+      "anchor": [
+        2208,
+        1248
+      ]
+    },
+    {
+      "asset": "flowers",
+      "anchor": [
+        192,
+        624
+      ]
+    },
+    {
+      "asset": "flowers",
+      "anchor": [
+        504,
+        600
+      ]
+    },
+    {
+      "asset": "flowers",
+      "anchor": [
+        552,
+        768
+      ]
+    },
+    {
+      "asset": "flowers",
+      "anchor": [
+        696,
+        672
+      ]
+    },
+    {
+      "asset": "flowers",
+      "anchor": [
+        1176,
+        720
+      ]
+    },
+    {
+      "asset": "flowers",
+      "anchor": [
+        1440,
+        600
+      ]
+    },
+    {
+      "asset": "flowers",
+      "anchor": [
+        1680,
+        624
+      ]
+    },
+    {
+      "asset": "flowers",
+      "anchor": [
+        1824,
+        576
+      ]
+    },
+    {
+      "asset": "flowers",
+      "anchor": [
+        1944,
+        744
+      ]
+    },
+    {
+      "asset": "flowers",
+      "anchor": [
+        1896,
+        888
+      ]
+    },
+    {
+      "asset": "flowers",
+      "anchor": [
+        1392,
+        840
+      ]
+    },
+    {
+      "asset": "flowers",
+      "anchor": [
+        336,
+        1152
+      ]
+    },
+    {
+      "asset": "flowers",
+      "anchor": [
+        864,
+        1128
+      ]
+    },
+    {
+      "asset": "flowers",
+      "anchor": [
+        1248,
+        1200
+      ]
+    },
+    {
+      "asset": "flowers",
+      "anchor": [
+        2064,
+        1128
+      ]
+    },
+    {
+      "asset": "lilies",
+      "anchor": [
+        187.21,
+        300.79
+      ],
+      "scale": 0.9,
+      "water_center": [
+        187.21,
+        282.79
+      ]
+    },
+    {
+      "asset": "lilies",
+      "anchor": [
+        378.84,
+        323.03
+      ],
+      "scale": 1,
+      "water_center": [
+        378.84,
+        303.03
+      ]
+    },
+    {
+      "asset": "lilies",
+      "anchor": [
+        632.29,
+        359.76
+      ],
+      "scale": 0.8,
+      "water_center": [
+        632.29,
+        343.76
+      ]
+    },
+    {
+      "asset": "lilies",
+      "anchor": [
+        891.43,
+        501.51
+      ],
+      "scale": 1.05,
+      "water_center": [
+        891.43,
+        480.51
+      ]
+    },
+    {
+      "asset": "lilies",
+      "anchor": [
+        1023.74,
+        722.99
+      ],
+      "scale": 0.9,
+      "water_center": [
+        1023.74,
+        704.99
+      ]
+    },
+    {
+      "asset": "lilies",
+      "anchor": [
+        1157.14,
+        894.86
+      ],
+      "scale": 1,
+      "water_center": [
+        1157.14,
+        874.86
+      ]
+    },
+    {
+      "asset": "lilies",
+      "anchor": [
+        1364.72,
+        957.46
+      ],
+      "scale": 0.8,
+      "water_center": [
+        1364.72,
+        941.46
+      ]
+    },
+    {
+      "asset": "lilies",
+      "anchor": [
+        1844.28,
+        1008.25
+      ],
+      "scale": 1.05,
+      "water_center": [
+        1844.28,
+        987.25
+      ]
+    },
+    {
+      "asset": "stones",
+      "anchor": [
+        2112,
+        1128
+      ]
+    },
+    {
+      "asset": "stones",
+      "anchor": [
+        600,
+        1152
+      ]
+    },
+    {
+      "asset": "reeds",
+      "anchor": [
+        360,
+        408
+      ]
+    },
+    {
+      "asset": "reeds",
+      "anchor": [
+        576,
+        432
+      ]
+    },
+    {
+      "asset": "reeds",
+      "anchor": [
+        720,
+        480
+      ]
+    },
+    {
+      "asset": "reeds",
+      "anchor": [
+        912,
+        696
+      ]
+    },
+    {
+      "asset": "reeds",
+      "anchor": [
+        1008,
+        864
+      ]
+    },
+    {
+      "asset": "reeds",
+      "anchor": [
+        1272,
+        840
+      ]
+    },
+    {
+      "asset": "reeds",
+      "anchor": [
+        1416,
+        1056
+      ]
+    },
+    {
+      "asset": "reeds",
+      "anchor": [
+        1752,
+        1080
+      ]
+    },
+    {
+      "asset": "reeds",
+      "anchor": [
+        1968,
+        1104
+      ]
+    },
+    {
+      "asset": "reeds",
+      "anchor": [
+        2208,
+        1128
+      ]
+    },
+    {
+      "asset": "grass",
+      "anchor": [
+        144,
+        384
+      ]
+    },
+    {
+      "asset": "grass",
+      "anchor": [
+        192,
+        744
+      ]
+    },
+    {
+      "asset": "grass",
+      "anchor": [
+        384,
+        720
+      ]
+    },
+    {
+      "asset": "grass",
+      "anchor": [
+        552,
+        672
+      ]
+    },
+    {
+      "asset": "grass",
+      "anchor": [
+        648,
+        600
+      ]
+    },
+    {
+      "asset": "grass",
+      "anchor": [
+        840,
+        624
+      ]
+    },
+    {
+      "asset": "grass",
+      "anchor": [
+        1152,
+        672
+      ]
+    },
+    {
+      "asset": "grass",
+      "anchor": [
+        1488,
+        768
+      ]
+    },
+    {
+      "asset": "grass",
+      "anchor": [
+        1776,
+        696
+      ]
+    },
+    {
+      "asset": "grass",
+      "anchor": [
+        1944,
+        672
+      ]
+    },
+    {
+      "asset": "grass",
+      "anchor": [
+        2088,
+        768
+      ]
+    },
+    {
+      "asset": "grass",
+      "anchor": [
+        2256,
+        840
+      ]
+    },
+    {
+      "asset": "grass",
+      "anchor": [
+        720,
+        1032
+      ]
+    },
+    {
+      "asset": "grass",
+      "anchor": [
+        864,
+        1080
+      ]
+    },
+    {
+      "asset": "grass",
+      "anchor": [
+        1320,
+        1104
+      ]
+    },
+    {
+      "asset": "grass",
+      "anchor": [
+        1680,
+        1152
+      ]
+    },
+    {
+      "asset": "grass",
+      "anchor": [
+        2016,
+        1200
+      ]
+    },
+    {
+      "asset": "grass",
+      "anchor": [
+        960,
+        288
+      ]
+    },
+    {
+      "asset": "grass",
+      "anchor": [
+        1176,
+        192
+      ]
+    },
+    {
+      "asset": "leaves",
+      "anchor": [
+        144,
+        456
+      ]
+    },
+    {
+      "asset": "leaves",
+      "anchor": [
+        504,
+        456
+      ]
+    },
+    {
+      "asset": "leaves",
+      "anchor": [
+        744,
+        264
+      ]
+    },
+    {
+      "asset": "leaves",
+      "anchor": [
+        1080,
+        408
+      ]
+    },
+    {
+      "asset": "leaves",
+      "anchor": [
+        1944,
+        408
+      ]
+    },
+    {
+      "asset": "leaves",
+      "anchor": [
+        2016,
+        528
+      ]
+    },
+    {
+      "asset": "leaves",
+      "anchor": [
+        2160,
+        1128
+      ]
+    },
+    {
+      "asset": "leaves",
+      "anchor": [
+        720,
+        1176
+      ]
+    },
+    {
+      "asset": "leaves",
+      "anchor": [
+        1680,
+        1272
+      ]
+    },
+    {
+      "asset": "apple_tree",
+      "anchor": [
+        552,
+        1224
+      ]
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        206.74,
+        210.33
+      ],
+      "from": [
+        166.73,
+        202.4
+      ],
+      "to": [
+        246.74,
+        210.33
+      ],
+      "elevation": 30,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        206.74,
+        210.33
+      ],
+      "from": [
+        166.73,
+        202.4
+      ],
+      "to": [
+        246.74,
+        210.33
+      ],
+      "elevation": 13,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        286.73,
+        218.7
+      ],
+      "from": [
+        246.74,
+        210.33
+      ],
+      "to": [
+        326.71,
+        218.7
+      ],
+      "elevation": 30,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        286.73,
+        218.7
+      ],
+      "from": [
+        246.74,
+        210.33
+      ],
+      "to": [
+        326.71,
+        218.7
+      ],
+      "elevation": 13,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        366.75,
+        227.74
+      ],
+      "from": [
+        326.71,
+        218.7
+      ],
+      "to": [
+        406.79,
+        227.74
+      ],
+      "elevation": 30,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        366.75,
+        227.74
+      ],
+      "from": [
+        326.71,
+        218.7
+      ],
+      "to": [
+        406.79,
+        227.74
+      ],
+      "elevation": 13,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        447.44,
+        238.18
+      ],
+      "from": [
+        406.79,
+        227.74
+      ],
+      "to": [
+        488.08,
+        238.18
+      ],
+      "elevation": 30,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        447.44,
+        238.18
+      ],
+      "from": [
+        406.79,
+        227.74
+      ],
+      "to": [
+        488.08,
+        238.18
+      ],
+      "elevation": 13,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        528.44,
+        250.52
+      ],
+      "from": [
+        488.08,
+        238.18
+      ],
+      "to": [
+        568.81,
+        250.52
+      ],
+      "elevation": 30,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        528.44,
+        250.52
+      ],
+      "from": [
+        488.08,
+        238.18
+      ],
+      "to": [
+        568.81,
+        250.52
+      ],
+      "elevation": 13,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        612.15,
+        269.18
+      ],
+      "from": [
+        568.81,
+        250.52
+      ],
+      "to": [
+        655.5,
+        269.18
+      ],
+      "elevation": 30,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        612.15,
+        269.18
+      ],
+      "from": [
+        568.81,
+        250.52
+      ],
+      "to": [
+        655.5,
+        269.18
+      ],
+      "elevation": 13,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        696.69,
+        295.32
+      ],
+      "from": [
+        655.5,
+        269.18
+      ],
+      "to": [
+        737.88,
+        295.32
+      ],
+      "elevation": 30,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        696.69,
+        295.32
+      ],
+      "from": [
+        655.5,
+        269.18
+      ],
+      "to": [
+        737.88,
+        295.32
+      ],
+      "elevation": 13,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        991.68,
+        532.71
+      ],
+      "from": [
+        974.2,
+        462.49
+      ],
+      "to": [
+        1009.17,
+        532.71
+      ],
+      "elevation": 30,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        991.68,
+        532.71
+      ],
+      "from": [
+        974.2,
+        462.49
+      ],
+      "to": [
+        1009.17,
+        532.71
+      ],
+      "elevation": 13,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1030.72,
+        599.23
+      ],
+      "from": [
+        1009.17,
+        532.71
+      ],
+      "to": [
+        1052.28,
+        599.23
+      ],
+      "elevation": 30,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1030.72,
+        599.23
+      ],
+      "from": [
+        1009.17,
+        532.71
+      ],
+      "to": [
+        1052.28,
+        599.23
+      ],
+      "elevation": 13,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1072.86,
+        669.65
+      ],
+      "from": [
+        1052.28,
+        599.23
+      ],
+      "to": [
+        1093.44,
+        669.65
+      ],
+      "elevation": 30,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1072.86,
+        669.65
+      ],
+      "from": [
+        1052.28,
+        599.23
+      ],
+      "to": [
+        1093.44,
+        669.65
+      ],
+      "elevation": 13,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1112.76,
+        731.5
+      ],
+      "from": [
+        1093.44,
+        669.65
+      ],
+      "to": [
+        1132.07,
+        731.5
+      ],
+      "elevation": 30,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1112.76,
+        731.5
+      ],
+      "from": [
+        1093.44,
+        669.65
+      ],
+      "to": [
+        1132.07,
+        731.5
+      ],
+      "elevation": 13,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1153.69,
+        786.28
+      ],
+      "from": [
+        1132.07,
+        731.5
+      ],
+      "to": [
+        1175.32,
+        786.28
+      ],
+      "elevation": 30,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1153.69,
+        786.28
+      ],
+      "from": [
+        1132.07,
+        731.5
+      ],
+      "to": [
+        1175.32,
+        786.28
+      ],
+      "elevation": 13,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1196.39,
+        821.78
+      ],
+      "from": [
+        1175.32,
+        786.28
+      ],
+      "to": [
+        1217.46,
+        821.78
+      ],
+      "elevation": 30,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1196.39,
+        821.78
+      ],
+      "from": [
+        1175.32,
+        786.28
+      ],
+      "to": [
+        1217.46,
+        821.78
+      ],
+      "elevation": 13,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1245.41,
+        846.84
+      ],
+      "from": [
+        1217.46,
+        821.78
+      ],
+      "to": [
+        1273.36,
+        846.84
+      ],
+      "elevation": 30,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1245.41,
+        846.84
+      ],
+      "from": [
+        1217.46,
+        821.78
+      ],
+      "to": [
+        1273.36,
+        846.84
+      ],
+      "elevation": 13,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1306.76,
+        860.27
+      ],
+      "from": [
+        1273.36,
+        846.84
+      ],
+      "to": [
+        1340.17,
+        860.27
+      ],
+      "elevation": 30,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1306.76,
+        860.27
+      ],
+      "from": [
+        1273.36,
+        846.84
+      ],
+      "to": [
+        1340.17,
+        860.27
+      ],
+      "elevation": 13,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1378.87,
+        867.89
+      ],
+      "from": [
+        1340.17,
+        860.27
+      ],
+      "to": [
+        1417.56,
+        867.89
+      ],
+      "elevation": 30,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1378.87,
+        867.89
+      ],
+      "from": [
+        1340.17,
+        860.27
+      ],
+      "to": [
+        1417.56,
+        867.89
+      ],
+      "elevation": 13,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1457.8,
+        875.05
+      ],
+      "from": [
+        1417.56,
+        867.89
+      ],
+      "to": [
+        1498.05,
+        875.05
+      ],
+      "elevation": 30,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1457.8,
+        875.05
+      ],
+      "from": [
+        1417.56,
+        867.89
+      ],
+      "to": [
+        1498.05,
+        875.05
+      ],
+      "elevation": 13,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1776.21,
+        906.49
+      ],
+      "from": [
+        1736.55,
+        899.41
+      ],
+      "to": [
+        1815.87,
+        906.49
+      ],
+      "elevation": 30,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1776.21,
+        906.49
+      ],
+      "from": [
+        1736.55,
+        899.41
+      ],
+      "to": [
+        1815.87,
+        906.49
+      ],
+      "elevation": 13,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1855.6,
+        913.27
+      ],
+      "from": [
+        1815.87,
+        906.49
+      ],
+      "to": [
+        1895.33,
+        913.27
+      ],
+      "elevation": 30,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1855.6,
+        913.27
+      ],
+      "from": [
+        1815.87,
+        906.49
+      ],
+      "to": [
+        1895.33,
+        913.27
+      ],
+      "elevation": 13,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1935.1,
+        919.86
+      ],
+      "from": [
+        1895.33,
+        913.27
+      ],
+      "to": [
+        1974.87,
+        919.86
+      ],
+      "elevation": 30,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1935.1,
+        919.86
+      ],
+      "from": [
+        1895.33,
+        913.27
+      ],
+      "to": [
+        1974.87,
+        919.86
+      ],
+      "elevation": 13,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        2014.67,
+        926.29
+      ],
+      "from": [
+        1974.87,
+        919.86
+      ],
+      "to": [
+        2054.48,
+        926.29
+      ],
+      "elevation": 30,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        2014.67,
+        926.29
+      ],
+      "from": [
+        1974.87,
+        919.86
+      ],
+      "to": [
+        2054.48,
+        926.29
+      ],
+      "elevation": 13,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        2094.31,
+        932.63
+      ],
+      "from": [
+        2054.48,
+        926.29
+      ],
+      "to": [
+        2134.14,
+        932.63
+      ],
+      "elevation": 30,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        2094.31,
+        932.63
+      ],
+      "from": [
+        2054.48,
+        926.29
+      ],
+      "to": [
+        2134.14,
+        932.63
+      ],
+      "elevation": 13,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        2173.99,
+        938.9
+      ],
+      "from": [
+        2134.14,
+        932.63
+      ],
+      "to": [
+        2213.85,
+        938.9
+      ],
+      "elevation": 30,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        2173.99,
+        938.9
+      ],
+      "from": [
+        2134.14,
+        932.63
+      ],
+      "to": [
+        2213.85,
+        938.9
+      ],
+      "elevation": 13,
+      "bank": -1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        191.26,
+        365.53
+      ],
+      "from": [
+        151.66,
+        357.67
+      ],
+      "to": [
+        230.87,
+        365.53
+      ],
+      "elevation": 30,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        191.26,
+        365.53
+      ],
+      "from": [
+        151.66,
+        357.67
+      ],
+      "to": [
+        230.87,
+        365.53
+      ],
+      "elevation": 13,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        270.44,
+        373.81
+      ],
+      "from": [
+        230.87,
+        365.53
+      ],
+      "to": [
+        310.02,
+        373.81
+      ],
+      "elevation": 30,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        270.44,
+        373.81
+      ],
+      "from": [
+        230.87,
+        365.53
+      ],
+      "to": [
+        310.02,
+        373.81
+      ],
+      "elevation": 13,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        349.48,
+        382.71
+      ],
+      "from": [
+        310.02,
+        373.81
+      ],
+      "to": [
+        388.93,
+        382.71
+      ],
+      "elevation": 30,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        349.48,
+        382.71
+      ],
+      "from": [
+        310.02,
+        373.81
+      ],
+      "to": [
+        388.93,
+        382.71
+      ],
+      "elevation": 13,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        427.63,
+        392.66
+      ],
+      "from": [
+        388.93,
+        382.71
+      ],
+      "to": [
+        466.34,
+        392.66
+      ],
+      "elevation": 30,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        427.63,
+        392.66
+      ],
+      "from": [
+        388.93,
+        382.71
+      ],
+      "to": [
+        466.34,
+        392.66
+      ],
+      "elevation": 13,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        505.05,
+        404.5
+      ],
+      "from": [
+        466.34,
+        392.66
+      ],
+      "to": [
+        543.76,
+        404.5
+      ],
+      "elevation": 30,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        505.05,
+        404.5
+      ],
+      "from": [
+        466.34,
+        392.66
+      ],
+      "to": [
+        543.76,
+        404.5
+      ],
+      "elevation": 13,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        578.61,
+        419.41
+      ],
+      "from": [
+        543.76,
+        404.5
+      ],
+      "to": [
+        613.46,
+        419.41
+      ],
+      "elevation": 30,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        578.61,
+        419.41
+      ],
+      "from": [
+        543.76,
+        404.5
+      ],
+      "to": [
+        613.46,
+        419.41
+      ],
+      "elevation": 13,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        648.5,
+        441.55
+      ],
+      "from": [
+        613.46,
+        419.41
+      ],
+      "to": [
+        683.54,
+        441.55
+      ],
+      "elevation": 30,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        648.5,
+        441.55
+      ],
+      "from": [
+        613.46,
+        419.41
+      ],
+      "to": [
+        683.54,
+        441.55
+      ],
+      "elevation": 13,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        713.6,
+        469.26
+      ],
+      "from": [
+        683.54,
+        441.55
+      ],
+      "to": [
+        743.65,
+        469.26
+      ],
+      "elevation": 30,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        713.6,
+        469.26
+      ],
+      "from": [
+        683.54,
+        441.55
+      ],
+      "to": [
+        743.65,
+        469.26
+      ],
+      "elevation": 13,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        897.46,
+        680.94
+      ],
+      "from": [
+        875.54,
+        613.21
+      ],
+      "to": [
+        919.39,
+        680.94
+      ],
+      "elevation": 30,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        897.46,
+        680.94
+      ],
+      "from": [
+        875.54,
+        613.21
+      ],
+      "to": [
+        919.39,
+        680.94
+      ],
+      "elevation": 13,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        939.16,
+        748.68
+      ],
+      "from": [
+        919.39,
+        680.94
+      ],
+      "to": [
+        958.94,
+        748.68
+      ],
+      "elevation": 30,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        939.16,
+        748.68
+      ],
+      "from": [
+        919.39,
+        680.94
+      ],
+      "to": [
+        958.94,
+        748.68
+      ],
+      "elevation": 13,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        982.11,
+        822.37
+      ],
+      "from": [
+        958.94,
+        748.68
+      ],
+      "to": [
+        1005.27,
+        822.37
+      ],
+      "elevation": 30,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        982.11,
+        822.37
+      ],
+      "from": [
+        958.94,
+        748.68
+      ],
+      "to": [
+        1005.27,
+        822.37
+      ],
+      "elevation": 13,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1033.3,
+        892.79
+      ],
+      "from": [
+        1005.27,
+        822.37
+      ],
+      "to": [
+        1061.34,
+        892.79
+      ],
+      "elevation": 30,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1033.3,
+        892.79
+      ],
+      "from": [
+        1005.27,
+        822.37
+      ],
+      "to": [
+        1061.34,
+        892.79
+      ],
+      "elevation": 13,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1101.82,
+        958.48
+      ],
+      "from": [
+        1061.34,
+        892.79
+      ],
+      "to": [
+        1142.3,
+        958.48
+      ],
+      "elevation": 30,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1101.82,
+        958.48
+      ],
+      "from": [
+        1061.34,
+        892.79
+      ],
+      "to": [
+        1142.3,
+        958.48
+      ],
+      "elevation": 13,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1187.45,
+        997.42
+      ],
+      "from": [
+        1142.3,
+        958.48
+      ],
+      "to": [
+        1232.6,
+        997.42
+      ],
+      "elevation": 30,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1187.45,
+        997.42
+      ],
+      "from": [
+        1142.3,
+        958.48
+      ],
+      "to": [
+        1232.6,
+        997.42
+      ],
+      "elevation": 13,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1277.55,
+        1015.27
+      ],
+      "from": [
+        1232.6,
+        997.42
+      ],
+      "to": [
+        1322.51,
+        1015.27
+      ],
+      "elevation": 30,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1277.55,
+        1015.27
+      ],
+      "from": [
+        1232.6,
+        997.42
+      ],
+      "to": [
+        1322.51,
+        1015.27
+      ],
+      "elevation": 13,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1363.42,
+        1023.33
+      ],
+      "from": [
+        1322.51,
+        1015.27
+      ],
+      "to": [
+        1404.34,
+        1023.33
+      ],
+      "elevation": 30,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1363.42,
+        1023.33
+      ],
+      "from": [
+        1322.51,
+        1015.27
+      ],
+      "to": [
+        1404.34,
+        1023.33
+      ],
+      "elevation": 13,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1443.78,
+        1030.34
+      ],
+      "from": [
+        1404.34,
+        1023.33
+      ],
+      "to": [
+        1483.22,
+        1030.34
+      ],
+      "elevation": 30,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1443.78,
+        1030.34
+      ],
+      "from": [
+        1404.34,
+        1023.33
+      ],
+      "to": [
+        1483.22,
+        1030.34
+      ],
+      "elevation": 13,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1762.24,
+        1061.89
+      ],
+      "from": [
+        1722.22,
+        1054.75
+      ],
+      "to": [
+        1802.27,
+        1061.89
+      ],
+      "elevation": 30,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1762.24,
+        1061.89
+      ],
+      "from": [
+        1722.22,
+        1054.75
+      ],
+      "to": [
+        1802.27,
+        1061.89
+      ],
+      "elevation": 13,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1842.26,
+        1068.72
+      ],
+      "from": [
+        1802.27,
+        1061.89
+      ],
+      "to": [
+        1882.24,
+        1068.72
+      ],
+      "elevation": 30,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1842.26,
+        1068.72
+      ],
+      "from": [
+        1802.27,
+        1061.89
+      ],
+      "to": [
+        1882.24,
+        1068.72
+      ],
+      "elevation": 13,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1922.2,
+        1075.34
+      ],
+      "from": [
+        1882.24,
+        1068.72
+      ],
+      "to": [
+        1962.15,
+        1075.34
+      ],
+      "elevation": 30,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        1922.2,
+        1075.34
+      ],
+      "from": [
+        1882.24,
+        1068.72
+      ],
+      "to": [
+        1962.15,
+        1075.34
+      ],
+      "elevation": 13,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        2002.09,
+        1081.79
+      ],
+      "from": [
+        1962.15,
+        1075.34
+      ],
+      "to": [
+        2042.02,
+        1081.79
+      ],
+      "elevation": 30,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        2002.09,
+        1081.79
+      ],
+      "from": [
+        1962.15,
+        1075.34
+      ],
+      "to": [
+        2042.02,
+        1081.79
+      ],
+      "elevation": 13,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        2081.94,
+        1088.14
+      ],
+      "from": [
+        2042.02,
+        1081.79
+      ],
+      "to": [
+        2121.86,
+        1088.14
+      ],
+      "elevation": 30,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        2081.94,
+        1088.14
+      ],
+      "from": [
+        2042.02,
+        1081.79
+      ],
+      "to": [
+        2121.86,
+        1088.14
+      ],
+      "elevation": 13,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        2161.76,
+        1094.42
+      ],
+      "from": [
+        2121.86,
+        1088.14
+      ],
+      "to": [
+        2201.65,
+        1094.42
+      ],
+      "elevation": 30,
+      "bank": 1
+    },
+    {
+      "asset": "railing_beam",
+      "anchor": [
+        2161.76,
+        1094.42
+      ],
+      "from": [
+        2121.86,
+        1088.14
+      ],
+      "to": [
+        2201.65,
+        1094.42
+      ],
+      "elevation": 13,
+      "bank": 1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        166.73,
+        202.4
+      ],
+      "bank": -1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        246.74,
+        210.33
+      ],
+      "bank": -1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        326.71,
+        218.7
+      ],
+      "bank": -1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        406.79,
+        227.74
+      ],
+      "bank": -1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        488.08,
+        238.18
+      ],
+      "bank": -1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        568.81,
+        250.52
+      ],
+      "bank": -1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        655.5,
+        269.18
+      ],
+      "bank": -1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        737.88,
+        295.32
+      ],
+      "bank": -1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        974.2,
+        462.49
+      ],
+      "bank": -1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        1009.17,
+        532.71
+      ],
+      "bank": -1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        1052.28,
+        599.23
+      ],
+      "bank": -1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        1093.44,
+        669.65
+      ],
+      "bank": -1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        1132.07,
+        731.5
+      ],
+      "bank": -1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        1175.32,
+        786.28
+      ],
+      "bank": -1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        1217.46,
+        821.78
+      ],
+      "bank": -1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        1273.36,
+        846.84
+      ],
+      "bank": -1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        1340.17,
+        860.27
+      ],
+      "bank": -1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        1417.56,
+        867.89
+      ],
+      "bank": -1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        1498.05,
+        875.05
+      ],
+      "bank": -1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        1736.55,
+        899.41
+      ],
+      "bank": -1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        1815.87,
+        906.49
+      ],
+      "bank": -1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        1895.33,
+        913.27
+      ],
+      "bank": -1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        1974.87,
+        919.86
+      ],
+      "bank": -1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        2054.48,
+        926.29
+      ],
+      "bank": -1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        2134.14,
+        932.63
+      ],
+      "bank": -1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        2213.85,
+        938.9
+      ],
+      "bank": -1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        151.66,
+        357.67
+      ],
+      "bank": 1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        230.87,
+        365.53
+      ],
+      "bank": 1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        310.02,
+        373.81
+      ],
+      "bank": 1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        388.93,
+        382.71
+      ],
+      "bank": 1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        466.34,
+        392.66
+      ],
+      "bank": 1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        543.76,
+        404.5
+      ],
+      "bank": 1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        613.46,
+        419.41
+      ],
+      "bank": 1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        683.54,
+        441.55
+      ],
+      "bank": 1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        743.65,
+        469.26
+      ],
+      "bank": 1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        875.54,
+        613.21
+      ],
+      "bank": 1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        919.39,
+        680.94
+      ],
+      "bank": 1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        958.94,
+        748.68
+      ],
+      "bank": 1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        1005.27,
+        822.37
+      ],
+      "bank": 1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        1061.34,
+        892.79
+      ],
+      "bank": 1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        1142.3,
+        958.48
+      ],
+      "bank": 1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        1232.6,
+        997.42
+      ],
+      "bank": 1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        1322.51,
+        1015.27
+      ],
+      "bank": 1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        1404.34,
+        1023.33
+      ],
+      "bank": 1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        1483.22,
+        1030.34
+      ],
+      "bank": 1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        1722.22,
+        1054.75
+      ],
+      "bank": 1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        1802.27,
+        1061.89
+      ],
+      "bank": 1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        1882.24,
+        1068.72
+      ],
+      "bank": 1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        1962.15,
+        1075.34
+      ],
+      "bank": 1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        2042.02,
+        1081.79
+      ],
+      "bank": 1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        2121.86,
+        1088.14
+      ],
+      "bank": 1
+    },
+    {
+      "asset": "railing_post",
+      "anchor": [
+        2201.65,
+        1094.42
+      ],
+      "bank": 1
+    }
+  ],
+  "paths": [
+    [
+      [
+        360.0,
+        552.0
+      ],
+      [
+        359.08,
+        558.18
+      ],
+      [
+        356.67,
+        566.44
+      ],
+      [
+        353.25,
+        576.38
+      ],
+      [
+        349.33,
+        587.56
+      ],
+      [
+        345.42,
+        599.57
+      ],
+      [
+        342.0,
+        612.0
+      ],
+      [
+        339.58,
+        624.43
+      ],
+      [
+        338.67,
+        636.44
+      ],
+      [
+        339.75,
+        647.62
+      ],
+      [
+        343.33,
+        657.56
+      ],
+      [
+        349.92,
+        665.82
+      ],
+      [
+        360.0,
+        672.0
+      ],
+      [
+        374.15,
+        676.58
+      ],
+      [
+        392.17,
+        680.33
+      ],
+      [
+        413.44,
+        683.25
+      ],
+      [
+        437.33,
+        685.33
+      ],
+      [
+        463.23,
+        686.58
+      ],
+      [
+        490.5,
+        687.0
+      ],
+      [
+        518.52,
+        686.58
+      ],
+      [
+        546.67,
+        685.33
+      ],
+      [
+        574.31,
+        683.25
+      ],
+      [
+        600.83,
+        680.33
+      ],
+      [
+        625.6,
+        676.58
+      ],
+      [
+        648.0,
+        672.0
+      ],
+      [
+        669.21,
+        665.82
+      ],
+      [
+        690.67,
+        657.56
+      ],
+      [
+        712.12,
+        647.62
+      ],
+      [
+        733.33,
+        636.44
+      ],
+      [
+        754.04,
+        624.43
+      ],
+      [
+        774.0,
+        612.0
+      ],
+      [
+        792.96,
+        599.57
+      ],
+      [
+        803.28,
+        590.87
+      ],
+      [
+        801.82,
+        587.63
+      ],
+      [
+        841.33,
+        566.44
+      ],
+      [
+        853.79,
+        558.18
+      ],
+      [
+        864,
+        552
+      ]
+    ],
+    [
+      [
+        864.0,
+        360.0
+      ],
+      [
+        871.03,
+        365.57
+      ],
+      [
+        879.94,
+        372.22
+      ],
+      [
+        890.44,
+        379.88
+      ],
+      [
+        902.22,
+        388.44
+      ],
+      [
+        915.01,
+        397.85
+      ],
+      [
+        928.5,
+        408.0
+      ],
+      [
+        978.56,
+        380.59
+      ],
+      [
+        994.17,
+        397.51
+      ],
+      [
+        1008.14,
+        415.51
+      ],
+      [
+        1019.88,
+        433.6
+      ],
+      [
+        1029.33,
+        450.87
+      ],
+      [
+        1036.99,
+        466.91
+      ],
+      [
+        1043.99,
+        482.46
+      ],
+      [
+        1051.16,
+        497.18
+      ],
+      [
+        1059.26,
+        511.26
+      ],
+      [
+        1070.29,
+        527.46
+      ],
+      [
+        1081.38,
+        543.88
+      ],
+      [
+        1092.74,
+        561.94
+      ],
+      [
+        1103.47,
+        579.66
+      ],
+      [
+        1113.46,
+        596.7
+      ],
+      [
+        1123.24,
+        613.55
+      ],
+      [
+        1132.46,
+        629.46
+      ],
+      [
+        1141.45,
+        644.76
+      ],
+      [
+        1149.77,
+        658.67
+      ],
+      [
+        1158.04,
+        672.17
+      ],
+      [
+        1165.99,
+        684.68
+      ],
+      [
+        1174.13,
+        697.12
+      ],
+      [
+        1183.11,
+        708.44
+      ],
+      [
+        1198.03,
+        715.37
+      ],
+      [
+        1213.5,
+        721.5
+      ],
+      [
+        1229.55,
+        726.88
+      ],
+      [
+        1246.22,
+        731.56
+      ],
+      [
+        1263.56,
+        735.56
+      ],
+      [
+        1281.61,
+        738.94
+      ],
+      [
+        1300.41,
+        741.74
+      ],
+      [
+        1320.0,
+        744.0
+      ],
+      [
+        1341.02,
+        745.67
+      ],
+      [
+        1363.83,
+        746.67
+      ],
+      [
+        1388.06,
+        747.0
+      ],
+      [
+        1413.33,
+        746.67
+      ],
+      [
+        1439.27,
+        745.67
+      ],
+      [
+        1465.5,
+        744.0
+      ],
+      [
+        1491.65,
+        741.67
+      ],
+      [
+        1517.33,
+        738.67
+      ],
+      [
+        1542.19,
+        735.0
+      ],
+      [
+        1565.83,
+        730.67
+      ],
+      [
+        1587.9,
+        725.67
+      ],
+      [
+        1608.0,
+        720.0
+      ],
+      [
+        1626.74,
+        713.36
+      ],
+      [
+        1644.89,
+        705.56
+      ],
+      [
+        1662.38,
+        696.75
+      ],
+      [
+        1679.11,
+        687.11
+      ],
+      [
+        1695.01,
+        676.81
+      ],
+      [
+        1710.0,
+        666.0
+      ],
+      [
+        1723.99,
+        654.86
+      ],
+      [
+        1736.89,
+        643.56
+      ],
+      [
+        1748.62,
+        632.25
+      ],
+      [
+        1759.11,
+        621.11
+      ],
+      [
+        1768.26,
+        610.31
+      ],
+      [
+        1776.0,
+        600.0
+      ],
+      [
+        1781.88,
+        589.62
+      ],
+      [
+        1785.72,
+        578.61
+      ],
+      [
+        1787.81,
+        567.19
+      ],
+      [
+        1788.44,
+        555.56
+      ],
+      [
+        1787.91,
+        543.92
+      ],
+      [
+        1786.5,
+        532.5
+      ],
+      [
+        1784.51,
+        521.49
+      ],
+      [
+        1782.22,
+        511.11
+      ],
+      [
+        1779.94,
+        501.56
+      ],
+      [
+        1777.94,
+        493.06
+      ],
+      [
+        1776.53,
+        485.8
+      ],
+      [
+        1776,
+        480
+      ]
+    ],
+    [
+      [
+        1320.0,
+        504.0
+      ],
+      [
+        1319.69,
+        507.56
+      ],
+      [
+        1318.89,
+        512.11
+      ],
+      [
+        1317.75,
+        517.5
+      ],
+      [
+        1316.44,
+        523.56
+      ],
+      [
+        1315.14,
+        530.11
+      ],
+      [
+        1314.0,
+        537.0
+      ],
+      [
+        1313.19,
+        544.06
+      ],
+      [
+        1312.89,
+        551.11
+      ],
+      [
+        1313.25,
+        558.0
+      ],
+      [
+        1314.44,
+        564.56
+      ],
+      [
+        1316.64,
+        570.61
+      ],
+      [
+        1320.0,
+        576.0
+      ],
+      [
+        1324.64,
+        580.99
+      ],
+      [
+        1330.44,
+        585.94
+      ],
+      [
+        1337.25,
+        590.81
+      ],
+      [
+        1344.89,
+        595.56
+      ],
+      [
+        1353.19,
+        600.13
+      ],
+      [
+        1362.0,
+        604.5
+      ],
+      [
+        1371.14,
+        608.62
+      ],
+      [
+        1380.44,
+        612.44
+      ],
+      [
+        1389.75,
+        615.94
+      ],
+      [
+        1398.89,
+        619.06
+      ],
+      [
+        1407.69,
+        621.76
+      ],
+      [
+        1416.0,
+        624.0
+      ],
+      [
+        1424.0,
+        625.38
+      ],
+      [
+        1432.0,
+        625.67
+      ],
+      [
+        1440.0,
+        625.12
+      ],
+      [
+        1448.0,
+        624.0
+      ],
+      [
+        1456.0,
+        622.54
+      ],
+      [
+        1464.0,
+        621.0
+      ],
+      [
+        1472.0,
+        619.62
+      ],
+      [
+        1480.0,
+        618.67
+      ],
+      [
+        1488.0,
+        618.38
+      ],
+      [
+        1496.0,
+        619.0
+      ],
+      [
+        1504.0,
+        620.79
+      ],
+      [
+        1512.0,
+        624.0
+      ],
+      [
+        1520.31,
+        628.94
+      ],
+      [
+        1529.11,
+        635.56
+      ],
+      [
+        1538.25,
+        643.5
+      ],
+      [
+        1547.56,
+        652.44
+      ],
+      [
+        1556.86,
+        662.06
+      ],
+      [
+        1566.0,
+        672.0
+      ],
+      [
+        1574.81,
+        681.94
+      ],
+      [
+        1583.11,
+        691.56
+      ],
+      [
+        1590.75,
+        700.5
+      ],
+      [
+        1597.56,
+        708.44
+      ],
+      [
+        1603.36,
+        715.06
+      ],
+      [
+        1608,
+        720
+      ]
+    ],
+    [
+      [
+        360.0,
+        672.0
+      ],
+      [
+        353.82,
+        676.87
+      ],
+      [
+        345.56,
+        683.28
+      ],
+      [
+        335.62,
+        690.94
+      ],
+      [
+        324.44,
+        699.56
+      ],
+      [
+        312.43,
+        708.84
+      ],
+      [
+        300.0,
+        718.5
+      ],
+      [
+        287.57,
+        728.24
+      ],
+      [
+        275.56,
+        737.78
+      ],
+      [
+        264.38,
+        746.81
+      ],
+      [
+        254.44,
+        755.06
+      ],
+      [
+        246.18,
+        762.22
+      ],
+      [
+        240.0,
+        768.0
+      ],
+      [
+        235.8,
+        772.6
+      ],
+      [
+        233.06,
+        776.44
+      ],
+      [
+        231.56,
+        779.62
+      ],
+      [
+        231.11,
+        782.22
+      ],
+      [
+        231.49,
+        784.32
+      ],
+      [
+        232.5,
+        786.0
+      ],
+      [
+        233.92,
+        787.35
+      ],
+      [
+        235.56,
+        788.44
+      ],
+      [
+        237.19,
+        789.38
+      ],
+      [
+        238.61,
+        790.22
+      ],
+      [
+        239.62,
+        791.07
+      ],
+      [
+        240,
+        792
+      ]
+    ],
+    [
+      [
+        648.0,
+        672.0
+      ],
+      [
+        648.15,
+        681.58
+      ],
+      [
+        648.56,
+        694.0
+      ],
+      [
+        649.12,
+        708.75
+      ],
+      [
+        649.78,
+        725.33
+      ],
+      [
+        650.43,
+        743.25
+      ],
+      [
+        651.0,
+        762.0
+      ],
+      [
+        651.4,
+        781.08
+      ],
+      [
+        651.56,
+        800.0
+      ],
+      [
+        651.38,
+        818.25
+      ],
+      [
+        650.78,
+        835.33
+      ],
+      [
+        649.68,
+        850.75
+      ],
+      [
+        648.0,
+        864.0
+      ],
+      [
+        645.83,
+        875.59
+      ],
+      [
+        643.33,
+        886.39
+      ],
+      [
+        640.5,
+        896.44
+      ],
+      [
+        637.33,
+        905.78
+      ],
+      [
+        633.83,
+        914.45
+      ],
+      [
+        630.0,
+        922.5
+      ],
+      [
+        625.83,
+        929.97
+      ],
+      [
+        621.33,
+        936.89
+      ],
+      [
+        616.5,
+        943.31
+      ],
+      [
+        611.33,
+        949.28
+      ],
+      [
+        605.83,
+        954.83
+      ],
+      [
+        600.0,
+        960.0
+      ],
+      [
+        593.38,
+        964.6
+      ],
+      [
+        585.67,
+        968.44
+      ],
+      [
+        577.12,
+        971.62
+      ],
+      [
+        568.0,
+        974.22
+      ],
+      [
+        558.54,
+        976.32
+      ],
+      [
+        549.0,
+        978.0
+      ],
+      [
+        539.62,
+        979.35
+      ],
+      [
+        530.67,
+        980.44
+      ],
+      [
+        522.38,
+        981.38
+      ],
+      [
+        515.0,
+        982.22
+      ],
+      [
+        508.79,
+        983.07
+      ],
+      [
+        504,
+        984
+      ]
+    ],
+    [
+      [
+        648.0,
+        864.0
+      ],
+      [
+        659.22,
+        863.31
+      ],
+      [
+        672.72,
+        861.5
+      ],
+      [
+        688.31,
+        858.94
+      ],
+      [
+        705.78,
+        856.0
+      ],
+      [
+        724.91,
+        853.06
+      ],
+      [
+        745.5,
+        850.5
+      ],
+      [
+        767.34,
+        848.69
+      ],
+      [
+        790.22,
+        848.0
+      ],
+      [
+        813.94,
+        848.81
+      ],
+      [
+        838.28,
+        851.5
+      ],
+      [
+        863.03,
+        856.44
+      ],
+      [
+        888.0,
+        864.0
+      ],
+      [
+        913.8,
+        875.12
+      ],
+      [
+        941.06,
+        890.0
+      ],
+      [
+        969.56,
+        907.88
+      ],
+      [
+        999.11,
+        928.0
+      ],
+      [
+        1029.49,
+        949.62
+      ],
+      [
+        1060.5,
+        972.0
+      ],
+      [
+        1091.92,
+        994.38
+      ],
+      [
+        1123.56,
+        1016.0
+      ],
+      [
+        1155.19,
+        1036.12
+      ],
+      [
+        1186.61,
+        1054.0
+      ],
+      [
+        1217.62,
+        1068.88
+      ],
+      [
+        1248.0,
+        1080.0
+      ],
+      [
+        1279.15,
+        1088.25
+      ],
+      [
+        1312.17,
+        1095.0
+      ],
+      [
+        1346.44,
+        1100.25
+      ],
+      [
+        1381.33,
+        1104.0
+      ],
+      [
+        1416.23,
+        1106.25
+      ],
+      [
+        1450.5,
+        1107.0
+      ],
+      [
+        1483.52,
+        1106.25
+      ],
+      [
+        1514.67,
+        1104.0
+      ],
+      [
+        1543.31,
+        1100.25
+      ],
+      [
+        1568.83,
+        1095.0
+      ],
+      [
+        1589.75,
+        1096.06
+      ],
+      [
+        1606.23,
+        1097.84
+      ],
+      [
+        1620.6,
+        1069.33
+      ],
+      [
+        1628.83,
+        1055.67
+      ],
+      [
+        1633.31,
+        1039.5
+      ],
+      [
+        1634.67,
+        1021.33
+      ],
+      [
+        1633.52,
+        1001.67
+      ],
+      [
+        1630.5,
+        981.0
+      ],
+      [
+        1626.23,
+        959.83
+      ],
+      [
+        1621.33,
+        938.67
+      ],
+      [
+        1616.44,
+        918.0
+      ],
+      [
+        1612.17,
+        898.33
+      ],
+      [
+        1609.15,
+        880.17
+      ],
+      [
+        1608.0,
+        864.0
+      ],
+      [
+        1608.0,
+        849.02
+      ],
+      [
+        1608.18,
+        832.5
+      ],
+      [
+        1608.0,
+        819.56
+      ],
+      [
+        1608.0,
+        805.33
+      ],
+      [
+        1608.0,
+        791.6
+      ],
+      [
+        1608.0,
+        778.5
+      ],
+      [
+        1608.0,
+        766.15
+      ],
+      [
+        1608.0,
+        754.67
+      ],
+      [
+        1608.0,
+        744.19
+      ],
+      [
+        1608.0,
+        734.83
+      ],
+      [
+        1608.0,
+        726.73
+      ],
+      [
+        1608,
+        720
+      ]
+    ],
+    [
+      [
+        1608.0,
+        720.0
+      ],
+      [
+        1618.51,
+        721.24
+      ],
+      [
+        1631.78,
+        722.89
+      ],
+      [
+        1647.38,
+        724.88
+      ],
+      [
+        1664.89,
+        727.11
+      ],
+      [
+        1683.9,
+        729.51
+      ],
+      [
+        1704.0,
+        732.0
+      ],
+      [
+        1724.76,
+        734.49
+      ],
+      [
+        1745.78,
+        736.89
+      ],
+      [
+        1766.62,
+        739.12
+      ],
+      [
+        1786.89,
+        741.11
+      ],
+      [
+        1806.15,
+        742.76
+      ],
+      [
+        1824.0,
+        744.0
+      ],
+      [
+        1840.69,
+        744.61
+      ],
+      [
+        1856.83,
+        744.56
+      ],
+      [
+        1872.56,
+        744.0
+      ],
+      [
+        1888.0,
+        743.11
+      ],
+      [
+        1903.27,
+        742.06
+      ],
+      [
+        1918.5,
+        741.0
+      ],
+      [
+        1933.81,
+        740.11
+      ],
+      [
+        1949.33,
+        739.56
+      ],
+      [
+        1965.19,
+        739.5
+      ],
+      [
+        1981.5,
+        740.11
+      ],
+      [
+        1998.4,
+        741.56
+      ],
+      [
+        2016.0,
+        744.0
+      ],
+      [
+        2035.08,
+        747.71
+      ],
+      [
+        2056.0,
+        752.67
+      ],
+      [
+        2078.25,
+        758.62
+      ],
+      [
+        2101.33,
+        765.33
+      ],
+      [
+        2124.75,
+        772.54
+      ],
+      [
+        2148.0,
+        780.0
+      ],
+      [
+        2170.58,
+        787.46
+      ],
+      [
+        2192.0,
+        794.67
+      ],
+      [
+        2211.75,
+        801.38
+      ],
+      [
+        2229.33,
+        807.33
+      ],
+      [
+        2244.25,
+        812.29
+      ],
+      [
+        2256,
+        816
+      ]
+    ]
+  ],
+  "river": [
+    [
+      0,
+      264
+    ],
+    [
+      600,
+      336
+    ],
+    [
+      864,
+      456
+    ],
+    [
+      960,
+      600
+    ],
+    [
+      1176,
+      888
+    ],
+    [
+      1560,
+      960
+    ],
+    [
+      2400,
+      1032
+    ]
+  ],
+  "bridges": [
+    [
+      864,
+      456
+    ],
+    [
+      1608,
+      960
+    ]
+  ],
+  "grass_patches": [
+    [
+      312,
+      624,
+      288,
+      240
+    ],
+    [
+      744,
+      1152,
+      312,
+      216
+    ],
+    [
+      2064,
+      600,
+      288,
+      432
+    ],
+    [
+      1632,
+      1224,
+      360,
+      192
+    ],
+    [
+      1116,
+      300,
+      420,
+      144
+    ]
+  ],
+  "rendering": {
+    "texture_filter": "linear",
+    "source_of_existing_assets": "current project PNGs, unchanged",
+    "generated_decor": "eight independent transparent cutouts",
+    "resolution_previews": [
+      [
+        1920,
+        1080
+      ],
+      [
+        3840,
+        2160
+      ]
+    ]
+  },
+  "terrain_assets": {
+    "grass": "res://docs/concepts/first-location-2026-10/lighting-v5/materials/grass.png",
+    "dirt": "res://assets/game/locations/overworld/modular/dirt_material_v1.png",
+    "path": "res://docs/concepts/first-location-2026-10/lighting-v5/materials/path.png",
+    "stone": "res://assets/game/locations/overworld/modular/stone_material_v1.png",
+    "water": "res://assets/game/locations/overworld/modular/water_material_v1.png",
+    "bridge": "res://assets/game/locations/overworld/modular/bridge_modular_v1.png"
+  },
+  "clearings": [
+    [
+      360,
+      624,
+      216,
+      168
+    ],
+    [
+      732,
+      1008,
+      216,
+      108
+    ],
+    [
+      1800,
+      792,
+      216,
+      156
+    ],
+    [
+      2280,
+      552,
+      168,
+      216
+    ]
+  ],
+  "vegetation_revision": {
+    "reason": "user_requested_fewer_large_trees",
+    "large_trees_before": 44,
+    "large_trees_after": 22,
+    "removed_anchors": [
+      [
+        0,
+        144
+      ],
+      [
+        576,
+        168
+      ],
+      [
+        1008,
+        120
+      ],
+      [
+        1152,
+        192
+      ],
+      [
+        1296,
+        168
+      ],
+      [
+        1872,
+        216
+      ],
+      [
+        2016,
+        144
+      ],
+      [
+        2304,
+        168
+      ],
+      [
+        -24,
+        576
+      ],
+      [
+        -24,
+        936
+      ],
+      [
+        144,
+        1200
+      ],
+      [
+        528,
+        1392
+      ],
+      [
+        672,
+        1392
+      ],
+      [
+        1248,
+        1440
+      ],
+      [
+        1392,
+        1440
+      ],
+      [
+        1824,
+        1464
+      ],
+      [
+        2112,
+        1440
+      ],
+      [
+        2400,
+        1392
+      ],
+      [
+        2256,
+        528
+      ],
+      [
+        2400,
+        672
+      ],
+      [
+        2136,
+        456
+      ],
+      [
+        2136,
+        1104
+      ]
+    ],
+    "other_object_placements_unchanged": false,
+    "decor_adjustments": [
+      {
+        "asset": "fern",
+        "before": [
+          2160,
+          1056
+        ],
+        "after": [
+          2160,
+          1152
+        ],
+        "reason": "move newly exposed fern out of river onto bank"
+      }
+    ]
+  },
+  "riverbank_revision": {
+    "new_sprites": [
+      "bench",
+      "lilies",
+      "railing_post",
+      "railing_beam"
+    ],
+    "removed_river_stones": 9,
+    "removed_stone_anchors": [
+      [
+        192,
+        240
+      ],
+      [
+        384,
+        264
+      ],
+      [
+        624,
+        384
+      ],
+      [
+        720,
+        480
+      ],
+      [
+        1008,
+        720
+      ],
+      [
+        1152,
+        888
+      ],
+      [
+        1368,
+        912
+      ],
+      [
+        1680,
+        1032
+      ],
+      [
+        1896,
+        1008
+      ]
+    ],
+    "lily_clusters": 8,
+    "land_adjustments": [
+      {
+        "asset": "bench",
+        "before": [
+          1152,
+          816
+        ],
+        "after": [
+          1176,
+          648
+        ]
+      },
+      {
+        "asset": "bench",
+        "before": [
+          1464,
+          864
+        ],
+        "after": [
+          1488,
+          792
+        ]
+      },
+      {
+        "asset": "tree",
+        "before": [
+          48,
+          384
+        ],
+        "after": [
+          48,
+          408
+        ]
+      },
+      {
+        "asset": "young_tree",
+        "before": [
+          2376,
+          960
+        ],
+        "after": [
+          2376,
+          912
+        ]
+      },
+      {
+        "asset": "tree",
+        "before": [
+          2448,
+          1128
+        ],
+        "after": [
+          2472,
+          1152
+        ]
+      },
+      {
+        "asset": "tree",
+        "before": [
+          2016,
+          1032
+        ],
+        "after": [
+          2016,
+          1152
+        ]
+      },
+      {
+        "asset": "young_tree",
+        "before": [
+          624,
+          432
+        ],
+        "after": [
+          600,
+          480
+        ]
+      },
+      {
+        "asset": "young_tree",
+        "before": [
+          744,
+          336
+        ],
+        "after": [
+          768,
+          264
+        ]
+      },
+      {
+        "asset": "bush",
+        "before": [
+          1968,
+          984
+        ],
+        "after": [
+          1968,
+          888
+        ]
+      },
+      {
+        "asset": "berry_bush",
+        "before": [
+          2112,
+          960
+        ],
+        "after": [
+          2112,
+          888
+        ]
+      },
+      {
+        "asset": "fern",
+        "before": [
+          552,
+          408
+        ],
+        "after": [
+          552,
+          456
+        ]
+      },
+      {
+        "asset": "flowers",
+        "before": [
+          1104,
+          768
+        ],
+        "after": [
+          1176,
+          720
+        ]
+      },
+      {
+        "asset": "flowers",
+        "before": [
+          1896,
+          960
+        ],
+        "after": [
+          1896,
+          888
+        ]
+      },
+      {
+        "asset": "flowers",
+        "before": [
+          1392,
+          864
+        ],
+        "after": [
+          1392,
+          840
+        ]
+      },
+      {
+        "asset": "reeds",
+        "before": [
+          360,
+          336
+        ],
+        "after": [
+          360,
+          408
+        ]
+      },
+      {
+        "asset": "reeds",
+        "before": [
+          576,
+          408
+        ],
+        "after": [
+          576,
+          432
+        ]
+      },
+      {
+        "asset": "reeds",
+        "before": [
+          744,
+          456
+        ],
+        "after": [
+          720,
+          480
+        ]
+      },
+      {
+        "asset": "reeds",
+        "before": [
+          960,
+          648
+        ],
+        "after": [
+          912,
+          696
+        ]
+      },
+      {
+        "asset": "reeds",
+        "before": [
+          1080,
+          816
+        ],
+        "after": [
+          1008,
+          864
+        ]
+      },
+      {
+        "asset": "reeds",
+        "before": [
+          1248,
+          888
+        ],
+        "after": [
+          1272,
+          840
+        ]
+      },
+      {
+        "asset": "reeds",
+        "before": [
+          1416,
+          1008
+        ],
+        "after": [
+          1416,
+          1056
+        ]
+      },
+      {
+        "asset": "reeds",
+        "before": [
+          1752,
+          1008
+        ],
+        "after": [
+          1752,
+          1080
+        ]
+      },
+      {
+        "asset": "reeds",
+        "before": [
+          2208,
+          1056
+        ],
+        "after": [
+          2208,
+          1128
+        ]
+      },
+      {
+        "asset": "grass",
+        "before": [
+          936,
+          576
+        ],
+        "after": [
+          840,
+          624
+        ]
+      },
+      {
+        "asset": "grass",
+        "before": [
+          1104,
+          696
+        ],
+        "after": [
+          1152,
+          672
+        ]
+      },
+      {
+        "asset": "leaves",
+        "before": [
+          720,
+          336
+        ],
+        "after": [
+          744,
+          264
+        ]
+      },
+      {
+        "asset": "leaves",
+        "before": [
+          2160,
+          1104
+        ],
+        "after": [
+          2160,
+          1128
+        ]
+      }
+    ],
+    "railing_posts": 52,
+    "railing_spans": 46,
+    "bank_offset": 78,
+    "bridge_clearance_half_size": [
+      96,
+      144
+    ],
+    "river_sampling": "Catmull-Rom, 12 steps per segment",
+    "land_placement_measure": "ground contact point; tall canopies may overhang water",
+    "road_samples_shifted_from_guardrail": 26,
+    "bridge_entry_posts_omitted": [],
+    "bench_clearance_adjustments": [
+      {
+        "before": [
+          1176,
+          648
+        ],
+        "after": [
+          1224,
+          600
+        ]
+      }
+    ],
+    "minimum_post_distance_from_path_center": 53.96
+  },
+  "paths_source": [
+    [
+      [
+        360,
+        552
+      ],
+      [
+        360,
+        672
+      ],
+      [
+        648,
+        672
+      ],
+      [
+        864,
+        552
+      ]
+    ],
+    [
+      [
+        864,
+        360
+      ],
+      [
+        1008,
+        480
+      ],
+      [
+        1128,
+        672
+      ],
+      [
+        1320,
+        744
+      ],
+      [
+        1608,
+        720
+      ],
+      [
+        1776,
+        600
+      ],
+      [
+        1776,
+        480
+      ]
+    ],
+    [
+      [
+        1320,
+        504
+      ],
+      [
+        1320,
+        576
+      ],
+      [
+        1416,
+        624
+      ],
+      [
+        1512,
+        624
+      ],
+      [
+        1608,
+        720
+      ]
+    ],
+    [
+      [
+        360,
+        672
+      ],
+      [
+        240,
+        768
+      ],
+      [
+        240,
+        792
+      ]
+    ],
+    [
+      [
+        648,
+        672
+      ],
+      [
+        648,
+        864
+      ],
+      [
+        600,
+        960
+      ],
+      [
+        504,
+        984
+      ]
+    ],
+    [
+      [
+        648,
+        864
+      ],
+      [
+        888,
+        864
+      ],
+      [
+        1248,
+        1080
+      ],
+      [
+        1608,
+        1080
+      ],
+      [
+        1608,
+        864
+      ],
+      [
+        1608,
+        720
+      ]
+    ],
+    [
+      [
+        1608,
+        720
+      ],
+      [
+        1824,
+        744
+      ],
+      [
+        2016,
+        744
+      ],
+      [
+        2256,
+        816
+      ]
+    ]
+  ],
+  "lighting": {
+    "style": "soft_daylight",
+    "cast_direction": [
+      0.48,
+      0.32
+    ],
+    "shadow_color": "#263e34",
+    "blur_world_pixels": 6,
+    "cast_opacity": 0.25,
+    "contact_shadows": true,
+    "production_scenes_changed": false
+  }
+}

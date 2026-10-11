@@ -1,0 +1,174 @@
+{
+  "native_frames": [
+    {
+      "file": "scene-1080p.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "native_render": true,
+      "mean_absolute_rgb_change_0_255": [
+        1.9088030478395062,
+        1.7600221836419754,
+        0.567277199074074
+      ]
+    },
+    {
+      "file": "scene-4k.png",
+      "size": [
+        3840,
+        2160
+      ],
+      "native_render": true,
+      "mean_absolute_rgb_change_0_255": [
+        1.907888454861111,
+        1.7594436005015432,
+        0.5669868827160494
+      ]
+    }
+  ],
+  "shadow_mask_count": 23,
+  "new_sprite_art_unchanged": true,
+  "existing_sprite_art_unchanged": true,
+  "layout_geometry_unchanged_from_v4": true,
+  "renderer_errors": 0,
+  "renderer_warnings": 0,
+  "production_scenes_changed": false,
+  "v4_geometry_checks": {
+    "sprite_checks": [
+      {
+        "name": "bench",
+        "size": [
+          1283,
+          598
+        ],
+        "transparent": true
+      },
+      {
+        "name": "lilies",
+        "size": [
+          1070,
+          651
+        ],
+        "transparent": true
+      },
+      {
+        "name": "railing_beam",
+        "size": [
+          726,
+          116
+        ],
+        "transparent": true
+      },
+      {
+        "name": "railing_post",
+        "size": [
+          179,
+          498
+        ],
+        "transparent": true
+      }
+    ],
+    "large_trees": 22,
+    "removed_river_stone_groups": 9,
+    "water_lily_clusters": [
+      {
+        "center": [
+          187.21,
+          282.79
+        ],
+        "river_center_error": 0.0044
+      },
+      {
+        "center": [
+          378.84,
+          303.03
+        ],
+        "river_center_error": 0.0017
+      },
+      {
+        "center": [
+          632.29,
+          343.76
+        ],
+        "river_center_error": 0.0003
+      },
+      {
+        "center": [
+          891.43,
+          480.51
+        ],
+        "river_center_error": 0.0033
+      },
+      {
+        "center": [
+          1023.74,
+          704.99
+        ],
+        "river_center_error": 0.0016
+      },
+      {
+        "center": [
+          1157.14,
+          874.86
+        ],
+        "river_center_error": 0.0058
+      },
+      {
+        "center": [
+          1364.72,
+          941.46
+        ],
+        "river_center_error": 0.0045
+      },
+      {
+        "center": [
+          1844.28,
+          987.25
+        ],
+        "river_center_error": 0.0017
+      }
+    ],
+    "bench_placement_checks": [
+      {
+        "anchor": [
+          1224,
+          600
+        ],
+        "minimum_foot_distance_from_water_center": 175.8,
+        "minimum_foot_distance_from_path_center": 41.62
+      },
+      {
+        "anchor": [
+          1488,
+          792
+        ],
+        "minimum_foot_distance_from_water_center": 154.67,
+        "minimum_foot_distance_from_path_center": 39.86
+      }
+    ],
+    "minimum_land_contact_distance_from_water_center": 88.14,
+    "minimum_railing_post_distance_from_path_center": 53.96,
+    "native_frames": [
+      [
+        1920,
+        1080
+      ],
+      [
+        3840,
+        2160
+      ]
+    ],
+    "renderer_errors": 0,
+    "renderer_warnings": 0,
+    "production_scenes_changed": false
+  },
+  "comparison_size": [
+    2400,
+    900
+  ],
+  "details_size": [
+    1076,
+    1616
+  ]
+}

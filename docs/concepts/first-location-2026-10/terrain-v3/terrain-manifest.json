@@ -1,0 +1,311 @@
+{
+  "schema": 1,
+  "name": "Лунная долина: поляна, трава и дороги v3",
+  "status": "design_preview",
+  "production_game_assets_replaced": false,
+  "base_grid": 24,
+  "materials": {
+    "grass": {
+      "file": "materials/grass.png",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "opposite_edge_mean_absolute_rgb_difference_0_255": {
+        "horizontal": [
+          6.524720893141946,
+          5.426634768740032,
+          4.137958532695375
+        ],
+        "vertical": [
+          4.698564593301436,
+          4.417862838915471,
+          3.1881977671451356
+        ]
+      }
+    },
+    "path": {
+      "file": "materials/path.png",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "opposite_edge_mean_absolute_rgb_difference_0_255": {
+        "horizontal": [
+          3.8564593301435406,
+          3.5813397129186604,
+          4.616427432216906
+        ],
+        "vertical": [
+          4.192185007974482,
+          4.3022328548644335,
+          3.452950558213716
+        ]
+      }
+    }
+  },
+  "grass_composition": {
+    "base_color": "#879961",
+    "texture_opacity": 0.72,
+    "world_period": 768
+  },
+  "path_composition": {
+    "world_period": 288,
+    "module_world_period": 96,
+    "shader": "road.gdshader"
+  },
+  "overlays": [
+    {
+      "file": "overlays/clearing.png",
+      "source_size": [
+        512,
+        384
+      ],
+      "alpha_range": [
+        0,
+        71
+      ],
+      "alpha": "straight"
+    },
+    {
+      "file": "overlays/grass_dense.png",
+      "source_size": [
+        512,
+        384
+      ],
+      "alpha_range": [
+        0,
+        67
+      ],
+      "alpha": "straight"
+    }
+  ],
+  "roads": [
+    {
+      "file": "roads/horizontal.png",
+      "source_size": [
+        384,
+        384
+      ],
+      "world_size": [
+        96,
+        96
+      ],
+      "ports": [
+        "E",
+        "W"
+      ],
+      "body_width_px": 192,
+      "body_width_world_px": 48,
+      "alpha": "straight"
+    },
+    {
+      "file": "roads/vertical.png",
+      "source_size": [
+        384,
+        384
+      ],
+      "world_size": [
+        96,
+        96
+      ],
+      "ports": [
+        "N",
+        "S"
+      ],
+      "body_width_px": 192,
+      "body_width_world_px": 48,
+      "alpha": "straight"
+    },
+    {
+      "file": "roads/corner.png",
+      "source_size": [
+        384,
+        384
+      ],
+      "world_size": [
+        96,
+        96
+      ],
+      "ports": [
+        "N",
+        "E"
+      ],
+      "body_width_px": 192,
+      "body_width_world_px": 48,
+      "alpha": "straight"
+    },
+    {
+      "file": "roads/junction_t.png",
+      "source_size": [
+        384,
+        384
+      ],
+      "world_size": [
+        96,
+        96
+      ],
+      "ports": [
+        "N",
+        "E",
+        "W"
+      ],
+      "body_width_px": 192,
+      "body_width_world_px": 48,
+      "alpha": "straight"
+    },
+    {
+      "file": "roads/cross.png",
+      "source_size": [
+        384,
+        384
+      ],
+      "world_size": [
+        96,
+        96
+      ],
+      "ports": [
+        "N",
+        "E",
+        "S",
+        "W"
+      ],
+      "body_width_px": 192,
+      "body_width_world_px": 48,
+      "alpha": "straight"
+    },
+    {
+      "file": "roads/end.png",
+      "source_size": [
+        384,
+        384
+      ],
+      "world_size": [
+        96,
+        96
+      ],
+      "ports": [
+        "N"
+      ],
+      "body_width_px": 192,
+      "body_width_world_px": 48,
+      "alpha": "straight"
+    }
+  ],
+  "vegetation_revision": {
+    "reason": "user_requested_fewer_large_trees",
+    "large_trees_before": 44,
+    "large_trees_after": 22,
+    "removed_anchors": [
+      [
+        0,
+        144
+      ],
+      [
+        576,
+        168
+      ],
+      [
+        1008,
+        120
+      ],
+      [
+        1152,
+        192
+      ],
+      [
+        1296,
+        168
+      ],
+      [
+        1872,
+        216
+      ],
+      [
+        2016,
+        144
+      ],
+      [
+        2304,
+        168
+      ],
+      [
+        -24,
+        576
+      ],
+      [
+        -24,
+        936
+      ],
+      [
+        144,
+        1200
+      ],
+      [
+        528,
+        1392
+      ],
+      [
+        672,
+        1392
+      ],
+      [
+        1248,
+        1440
+      ],
+      [
+        1392,
+        1440
+      ],
+      [
+        1824,
+        1464
+      ],
+      [
+        2112,
+        1440
+      ],
+      [
+        2400,
+        1392
+      ],
+      [
+        2256,
+        528
+      ],
+      [
+        2400,
+        672
+      ],
+      [
+        2136,
+        456
+      ],
+      [
+        2136,
+        1104
+      ]
+    ],
+    "other_object_placements_unchanged": false,
+    "decor_adjustments": [
+      {
+        "asset": "fern",
+        "before": [
+          2160,
+          1056
+        ],
+        "after": [
+          2160,
+          1152
+        ],
+        "reason": "move newly exposed fern out of river onto bank"
+      }
+    ]
+  },
+  "generation": {
+    "mode": "built-in imagegen",
+    "prompt_set": "prompts.json"
+  }
+}

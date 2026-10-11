@@ -1,0 +1,90 @@
+{
+	"bench": {
+		"alpha": "straight",
+		"anchor": "bottom_center",
+		"cell": [
+			0,
+			0,
+			1774,
+			887
+		],
+		"crop": [
+			246,
+			159,
+			1283,
+			598
+		],
+		"file": "sprites/bench.png",
+		"size": [
+			1283,
+			598
+		],
+		"source": "source/bench.png"
+	},
+	"lilies": {
+		"alpha": "straight",
+		"anchor": "bottom_center",
+		"cell": [
+			0,
+			0,
+			1254,
+			1254
+		],
+		"crop": [
+			74,
+			302,
+			1070,
+			651
+		],
+		"file": "sprites/lilies.png",
+		"size": [
+			1070,
+			651
+		],
+		"source": "source/lilies.png"
+	},
+	"railing_beam": {
+		"alpha": "straight",
+		"anchor": "bottom_center",
+		"cell": [
+			887,
+			0,
+			887,
+			887
+		],
+		"crop": [
+			80,
+			400,
+			726,
+			116
+		],
+		"file": "sprites/railing_beam.png",
+		"size": [
+			726,
+			116
+		],
+		"source": "source/railing-atlas.png"
+	},
+	"railing_post": {
+		"alpha": "straight",
+		"anchor": "bottom_center",
+		"cell": [
+			0,
+			0,
+			887,
+			887
+		],
+		"crop": [
+			354,
+			200,
+			179,
+			498
+		],
+		"file": "sprites/railing_post.png",
+		"size": [
+			179,
+			498
+		],
+		"source": "source/railing-atlas.png"
+	}
+}

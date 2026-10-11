@@ -1,0 +1,592 @@
+{
+  "schema": 1,
+  "status": "design_preview",
+  "generation": "built-in imagegen",
+  "prompts": "prompt-set.json",
+  "new_sprites": {
+    "bench": {
+      "alpha": "straight",
+      "anchor": "bottom_center",
+      "cell": [
+        0,
+        0,
+        1774,
+        887
+      ],
+      "crop": [
+        246,
+        159,
+        1283,
+        598
+      ],
+      "file": "sprites/bench.png",
+      "size": [
+        1283,
+        598
+      ],
+      "source": "source/bench.png"
+    },
+    "lilies": {
+      "alpha": "straight",
+      "anchor": "bottom_center",
+      "cell": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "crop": [
+        74,
+        302,
+        1070,
+        651
+      ],
+      "file": "sprites/lilies.png",
+      "size": [
+        1070,
+        651
+      ],
+      "source": "source/lilies.png"
+    },
+    "railing_beam": {
+      "alpha": "straight",
+      "anchor": "bottom_center",
+      "cell": [
+        887,
+        0,
+        887,
+        887
+      ],
+      "crop": [
+        80,
+        400,
+        726,
+        116
+      ],
+      "file": "sprites/railing_beam.png",
+      "size": [
+        726,
+        116
+      ],
+      "source": "source/railing-atlas.png"
+    },
+    "railing_post": {
+      "alpha": "straight",
+      "anchor": "bottom_center",
+      "cell": [
+        0,
+        0,
+        887,
+        887
+      ],
+      "crop": [
+        354,
+        200,
+        179,
+        498
+      ],
+      "file": "sprites/railing_post.png",
+      "size": [
+        179,
+        498
+      ],
+      "source": "source/railing-atlas.png"
+    }
+  },
+  "terrain": {
+    "grass_period": 768,
+    "grass_base_color": "#879961",
+    "grass_opacity": 0.72,
+    "earth_period": 288,
+    "road_module_world_size": [
+      96,
+      96
+    ],
+    "road_body_width": 48,
+    "road_module_source_size": [
+      384,
+      384
+    ]
+  },
+  "riverbank_revision": {
+    "new_sprites": [
+      "bench",
+      "lilies",
+      "railing_post",
+      "railing_beam"
+    ],
+    "removed_river_stones": 9,
+    "removed_stone_anchors": [
+      [
+        192,
+        240
+      ],
+      [
+        384,
+        264
+      ],
+      [
+        624,
+        384
+      ],
+      [
+        720,
+        480
+      ],
+      [
+        1008,
+        720
+      ],
+      [
+        1152,
+        888
+      ],
+      [
+        1368,
+        912
+      ],
+      [
+        1680,
+        1032
+      ],
+      [
+        1896,
+        1008
+      ]
+    ],
+    "lily_clusters": 8,
+    "land_adjustments": [
+      {
+        "asset": "bench",
+        "before": [
+          1152,
+          816
+        ],
+        "after": [
+          1176,
+          648
+        ]
+      },
+      {
+        "asset": "bench",
+        "before": [
+          1464,
+          864
+        ],
+        "after": [
+          1488,
+          792
+        ]
+      },
+      {
+        "asset": "tree",
+        "before": [
+          48,
+          384
+        ],
+        "after": [
+          48,
+          408
+        ]
+      },
+      {
+        "asset": "young_tree",
+        "before": [
+          2376,
+          960
+        ],
+        "after": [
+          2376,
+          912
+        ]
+      },
+      {
+        "asset": "tree",
+        "before": [
+          2448,
+          1128
+        ],
+        "after": [
+          2472,
+          1152
+        ]
+      },
+      {
+        "asset": "tree",
+        "before": [
+          2016,
+          1032
+        ],
+        "after": [
+          2016,
+          1152
+        ]
+      },
+      {
+        "asset": "young_tree",
+        "before": [
+          624,
+          432
+        ],
+        "after": [
+          600,
+          480
+        ]
+      },
+      {
+        "asset": "young_tree",
+        "before": [
+          744,
+          336
+        ],
+        "after": [
+          768,
+          264
+        ]
+      },
+      {
+        "asset": "bush",
+        "before": [
+          1968,
+          984
+        ],
+        "after": [
+          1968,
+          888
+        ]
+      },
+      {
+        "asset": "berry_bush",
+        "before": [
+          2112,
+          960
+        ],
+        "after": [
+          2112,
+          888
+        ]
+      },
+      {
+        "asset": "fern",
+        "before": [
+          552,
+          408
+        ],
+        "after": [
+          552,
+          456
+        ]
+      },
+      {
+        "asset": "flowers",
+        "before": [
+          1104,
+          768
+        ],
+        "after": [
+          1176,
+          720
+        ]
+      },
+      {
+        "asset": "flowers",
+        "before": [
+          1896,
+          960
+        ],
+        "after": [
+          1896,
+          888
+        ]
+      },
+      {
+        "asset": "flowers",
+        "before": [
+          1392,
+          864
+        ],
+        "after": [
+          1392,
+          840
+        ]
+      },
+      {
+        "asset": "reeds",
+        "before": [
+          360,
+          336
+        ],
+        "after": [
+          360,
+          408
+        ]
+      },
+      {
+        "asset": "reeds",
+        "before": [
+          576,
+          408
+        ],
+        "after": [
+          576,
+          432
+        ]
+      },
+      {
+        "asset": "reeds",
+        "before": [
+          744,
+          456
+        ],
+        "after": [
+          720,
+          480
+        ]
+      },
+      {
+        "asset": "reeds",
+        "before": [
+          960,
+          648
+        ],
+        "after": [
+          912,
+          696
+        ]
+      },
+      {
+        "asset": "reeds",
+        "before": [
+          1080,
+          816
+        ],
+        "after": [
+          1008,
+          864
+        ]
+      },
+      {
+        "asset": "reeds",
+        "before": [
+          1248,
+          888
+        ],
+        "after": [
+          1272,
+          840
+        ]
+      },
+      {
+        "asset": "reeds",
+        "before": [
+          1416,
+          1008
+        ],
+        "after": [
+          1416,
+          1056
+        ]
+      },
+      {
+        "asset": "reeds",
+        "before": [
+          1752,
+          1008
+        ],
+        "after": [
+          1752,
+          1080
+        ]
+      },
+      {
+        "asset": "reeds",
+        "before": [
+          2208,
+          1056
+        ],
+        "after": [
+          2208,
+          1128
+        ]
+      },
+      {
+        "asset": "grass",
+        "before": [
+          936,
+          576
+        ],
+        "after": [
+          840,
+          624
+        ]
+      },
+      {
+        "asset": "grass",
+        "before": [
+          1104,
+          696
+        ],
+        "after": [
+          1152,
+          672
+        ]
+      },
+      {
+        "asset": "leaves",
+        "before": [
+          720,
+          336
+        ],
+        "after": [
+          744,
+          264
+        ]
+      },
+      {
+        "asset": "leaves",
+        "before": [
+          2160,
+          1104
+        ],
+        "after": [
+          2160,
+          1128
+        ]
+      }
+    ],
+    "railing_posts": 52,
+    "railing_spans": 46,
+    "bank_offset": 78,
+    "bridge_clearance_half_size": [
+      96,
+      144
+    ],
+    "river_sampling": "Catmull-Rom, 12 steps per segment",
+    "land_placement_measure": "ground contact point; tall canopies may overhang water",
+    "road_samples_shifted_from_guardrail": 26,
+    "bridge_entry_posts_omitted": [],
+    "bench_clearance_adjustments": [
+      {
+        "before": [
+          1176,
+          648
+        ],
+        "after": [
+          1224,
+          600
+        ]
+      }
+    ],
+    "minimum_post_distance_from_path_center": 53.96
+  },
+  "vegetation_revision": {
+    "reason": "user_requested_fewer_large_trees",
+    "large_trees_before": 44,
+    "large_trees_after": 22,
+    "removed_anchors": [
+      [
+        0,
+        144
+      ],
+      [
+        576,
+        168
+      ],
+      [
+        1008,
+        120
+      ],
+      [
+        1152,
+        192
+      ],
+      [
+        1296,
+        168
+      ],
+      [
+        1872,
+        216
+      ],
+      [
+        2016,
+        144
+      ],
+      [
+        2304,
+        168
+      ],
+      [
+        -24,
+        576
+      ],
+      [
+        -24,
+        936
+      ],
+      [
+        144,
+        1200
+      ],
+      [
+        528,
+        1392
+      ],
+      [
+        672,
+        1392
+      ],
+      [
+        1248,
+        1440
+      ],
+      [
+        1392,
+        1440
+      ],
+      [
+        1824,
+        1464
+      ],
+      [
+        2112,
+        1440
+      ],
+      [
+        2400,
+        1392
+      ],
+      [
+        2256,
+        528
+      ],
+      [
+        2400,
+        672
+      ],
+      [
+        2136,
+        456
+      ],
+      [
+        2136,
+        1104
+      ]
+    ],
+    "other_object_placements_unchanged": false,
+    "decor_adjustments": [
+      {
+        "asset": "fern",
+        "before": [
+          2160,
+          1056
+        ],
+        "after": [
+          2160,
+          1152
+        ],
+        "reason": "move newly exposed fern out of river onto bank"
+      }
+    ]
+  }
+}

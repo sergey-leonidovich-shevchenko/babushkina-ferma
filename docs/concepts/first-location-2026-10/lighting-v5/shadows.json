@@ -1,0 +1,347 @@
+{
+  "apple_tree": {
+    "file": "shadows/apple_tree-mask.png",
+    "size": [
+      560,
+      704
+    ],
+    "pixels_per_world_pixel": 2,
+    "padding_source_pixels": 64,
+    "sprite_bottom_center_pixels": [
+      280.0,
+      640
+    ],
+    "kind": "unprojected_alpha_silhouette",
+    "alpha": "straight"
+  },
+  "barrel": {
+    "file": "shadows/barrel-mask.png",
+    "size": [
+      224,
+      248
+    ],
+    "pixels_per_world_pixel": 2,
+    "padding_source_pixels": 64,
+    "sprite_bottom_center_pixels": [
+      112.0,
+      184
+    ],
+    "kind": "unprojected_alpha_silhouette",
+    "alpha": "straight"
+  },
+  "bench": {
+    "file": "shadows/bench-mask.png",
+    "size": [
+      416,
+      264
+    ],
+    "pixels_per_world_pixel": 2,
+    "padding_source_pixels": 64,
+    "sprite_bottom_center_pixels": [
+      208.0,
+      200
+    ],
+    "kind": "unprojected_alpha_silhouette",
+    "alpha": "straight"
+  },
+  "berry_bush": {
+    "file": "shadows/berry_bush-mask.png",
+    "size": [
+      320,
+      296
+    ],
+    "pixels_per_world_pixel": 2,
+    "padding_source_pixels": 64,
+    "sprite_bottom_center_pixels": [
+      160.0,
+      232
+    ],
+    "kind": "unprojected_alpha_silhouette",
+    "alpha": "straight"
+  },
+  "board": {
+    "file": "shadows/board-mask.png",
+    "size": [
+      368,
+      368
+    ],
+    "pixels_per_world_pixel": 2,
+    "padding_source_pixels": 64,
+    "sprite_bottom_center_pixels": [
+      184.0,
+      304
+    ],
+    "kind": "unprojected_alpha_silhouette",
+    "alpha": "straight"
+  },
+  "bush": {
+    "file": "shadows/bush-mask.png",
+    "size": [
+      368,
+      320
+    ],
+    "pixels_per_world_pixel": 2,
+    "padding_source_pixels": 64,
+    "sprite_bottom_center_pixels": [
+      184.0,
+      256
+    ],
+    "kind": "unprojected_alpha_silhouette",
+    "alpha": "straight"
+  },
+  "cart": {
+    "file": "shadows/cart-mask.png",
+    "size": [
+      464,
+      416
+    ],
+    "pixels_per_world_pixel": 2,
+    "padding_source_pixels": 64,
+    "sprite_bottom_center_pixels": [
+      232.0,
+      352
+    ],
+    "kind": "unprojected_alpha_silhouette",
+    "alpha": "straight"
+  },
+  "cottage": {
+    "file": "shadows/cottage-mask.png",
+    "size": [
+      800,
+      944
+    ],
+    "pixels_per_world_pixel": 2,
+    "padding_source_pixels": 64,
+    "sprite_bottom_center_pixels": [
+      400.0,
+      880
+    ],
+    "kind": "unprojected_alpha_silhouette",
+    "alpha": "straight"
+  },
+  "fern": {
+    "file": "shadows/fern-mask.png",
+    "size": [
+      272,
+      248
+    ],
+    "pixels_per_world_pixel": 2,
+    "padding_source_pixels": 64,
+    "sprite_bottom_center_pixels": [
+      136.0,
+      184
+    ],
+    "kind": "unprojected_alpha_silhouette",
+    "alpha": "straight"
+  },
+  "flowers": {
+    "file": "shadows/flowers-mask.png",
+    "size": [
+      272,
+      248
+    ],
+    "pixels_per_world_pixel": 2,
+    "padding_source_pixels": 64,
+    "sprite_bottom_center_pixels": [
+      136.0,
+      184
+    ],
+    "kind": "unprojected_alpha_silhouette",
+    "alpha": "straight"
+  },
+  "grass": {
+    "file": "shadows/grass-mask.png",
+    "size": [
+      224,
+      224
+    ],
+    "pixels_per_world_pixel": 2,
+    "padding_source_pixels": 64,
+    "sprite_bottom_center_pixels": [
+      112.0,
+      160
+    ],
+    "kind": "unprojected_alpha_silhouette",
+    "alpha": "straight"
+  },
+  "guild_hall": {
+    "file": "shadows/guild_hall-mask.png",
+    "size": [
+      944,
+      944
+    ],
+    "pixels_per_world_pixel": 2,
+    "padding_source_pixels": 64,
+    "sprite_bottom_center_pixels": [
+      472.0,
+      880
+    ],
+    "kind": "unprojected_alpha_silhouette",
+    "alpha": "straight"
+  },
+  "lamp": {
+    "file": "shadows/lamp-mask.png",
+    "size": [
+      272,
+      416
+    ],
+    "pixels_per_world_pixel": 2,
+    "padding_source_pixels": 64,
+    "sprite_bottom_center_pixels": [
+      136.0,
+      352
+    ],
+    "kind": "unprojected_alpha_silhouette",
+    "alpha": "straight"
+  },
+  "leaves": {
+    "file": "shadows/leaves-mask.png",
+    "size": [
+      272,
+      224
+    ],
+    "pixels_per_world_pixel": 2,
+    "padding_source_pixels": 64,
+    "sprite_bottom_center_pixels": [
+      136.0,
+      160
+    ],
+    "kind": "unprojected_alpha_silhouette",
+    "alpha": "straight"
+  },
+  "railing_beam": {
+    "file": "shadows/railing_beam-mask.png",
+    "size": [
+      288,
+      142
+    ],
+    "pixels_per_world_pixel": 2,
+    "padding_source_pixels": 64,
+    "sprite_bottom_center_pixels": [
+      144.0,
+      78
+    ],
+    "kind": "unprojected_alpha_silhouette",
+    "alpha": "straight"
+  },
+  "railing_post": {
+    "file": "shadows/railing_post-mask.png",
+    "size": [
+      160,
+      216
+    ],
+    "pixels_per_world_pixel": 2,
+    "padding_source_pixels": 64,
+    "sprite_bottom_center_pixels": [
+      80.0,
+      152
+    ],
+    "kind": "unprojected_alpha_silhouette",
+    "alpha": "straight"
+  },
+  "reeds": {
+    "file": "shadows/reeds-mask.png",
+    "size": [
+      272,
+      320
+    ],
+    "pixels_per_world_pixel": 2,
+    "padding_source_pixels": 64,
+    "sprite_bottom_center_pixels": [
+      136.0,
+      256
+    ],
+    "kind": "unprojected_alpha_silhouette",
+    "alpha": "straight"
+  },
+  "shop_house": {
+    "file": "shadows/shop_house-mask.png",
+    "size": [
+      896,
+      848
+    ],
+    "pixels_per_world_pixel": 2,
+    "padding_source_pixels": 64,
+    "sprite_bottom_center_pixels": [
+      448.0,
+      784
+    ],
+    "kind": "unprojected_alpha_silhouette",
+    "alpha": "straight"
+  },
+  "spring_tree": {
+    "file": "shadows/spring_tree-mask.png",
+    "size": [
+      704,
+      848
+    ],
+    "pixels_per_world_pixel": 2,
+    "padding_source_pixels": 64,
+    "sprite_bottom_center_pixels": [
+      352.0,
+      784
+    ],
+    "kind": "unprojected_alpha_silhouette",
+    "alpha": "straight"
+  },
+  "stones": {
+    "file": "shadows/stones-mask.png",
+    "size": [
+      320,
+      272
+    ],
+    "pixels_per_world_pixel": 2,
+    "padding_source_pixels": 64,
+    "sprite_bottom_center_pixels": [
+      160.0,
+      208
+    ],
+    "kind": "unprojected_alpha_silhouette",
+    "alpha": "straight"
+  },
+  "tree": {
+    "file": "shadows/tree-mask.png",
+    "size": [
+      560,
+      608
+    ],
+    "pixels_per_world_pixel": 2,
+    "padding_source_pixels": 64,
+    "sprite_bottom_center_pixels": [
+      280.0,
+      544
+    ],
+    "kind": "unprojected_alpha_silhouette",
+    "alpha": "straight"
+  },
+  "well": {
+    "file": "shadows/well-mask.png",
+    "size": [
+      368,
+      368
+    ],
+    "pixels_per_world_pixel": 2,
+    "padding_source_pixels": 64,
+    "sprite_bottom_center_pixels": [
+      184.0,
+      304
+    ],
+    "kind": "unprojected_alpha_silhouette",
+    "alpha": "straight"
+  },
+  "young_tree": {
+    "file": "shadows/young_tree-mask.png",
+    "size": [
+      416,
+      512
+    ],
+    "pixels_per_world_pixel": 2,
+    "padding_source_pixels": 64,
+    "sprite_bottom_center_pixels": [
+      208.0,
+      448
+    ],
+    "kind": "unprojected_alpha_silhouette",
+    "alpha": "straight"
+  }
+}

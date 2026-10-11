@@ -1,0 +1,210 @@
+{
+  "material_checks": {
+    "grass": {
+      "file": "materials/grass.png",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "opposite_edge_mean_absolute_rgb_difference_0_255": {
+        "horizontal": [
+          6.524720893141946,
+          5.426634768740032,
+          4.137958532695375
+        ],
+        "vertical": [
+          4.698564593301436,
+          4.417862838915471,
+          3.1881977671451356
+        ]
+      }
+    },
+    "path": {
+      "file": "materials/path.png",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "opposite_edge_mean_absolute_rgb_difference_0_255": {
+        "horizontal": [
+          3.8564593301435406,
+          3.5813397129186604,
+          4.616427432216906
+        ],
+        "vertical": [
+          4.192185007974482,
+          4.3022328548644335,
+          3.452950558213716
+        ]
+      }
+    }
+  },
+  "road_module_checks": [
+    {
+      "file": "roads/horizontal.png",
+      "source_size": [
+        384,
+        384
+      ],
+      "world_size": [
+        96,
+        96
+      ],
+      "ports": [
+        "E",
+        "W"
+      ],
+      "body_width_px": 192,
+      "body_width_world_px": 48,
+      "alpha": "straight"
+    },
+    {
+      "file": "roads/vertical.png",
+      "source_size": [
+        384,
+        384
+      ],
+      "world_size": [
+        96,
+        96
+      ],
+      "ports": [
+        "N",
+        "S"
+      ],
+      "body_width_px": 192,
+      "body_width_world_px": 48,
+      "alpha": "straight"
+    },
+    {
+      "file": "roads/corner.png",
+      "source_size": [
+        384,
+        384
+      ],
+      "world_size": [
+        96,
+        96
+      ],
+      "ports": [
+        "N",
+        "E"
+      ],
+      "body_width_px": 192,
+      "body_width_world_px": 48,
+      "alpha": "straight"
+    },
+    {
+      "file": "roads/junction_t.png",
+      "source_size": [
+        384,
+        384
+      ],
+      "world_size": [
+        96,
+        96
+      ],
+      "ports": [
+        "N",
+        "E",
+        "W"
+      ],
+      "body_width_px": 192,
+      "body_width_world_px": 48,
+      "alpha": "straight"
+    },
+    {
+      "file": "roads/cross.png",
+      "source_size": [
+        384,
+        384
+      ],
+      "world_size": [
+        96,
+        96
+      ],
+      "ports": [
+        "N",
+        "E",
+        "S",
+        "W"
+      ],
+      "body_width_px": 192,
+      "body_width_world_px": 48,
+      "alpha": "straight"
+    },
+    {
+      "file": "roads/end.png",
+      "source_size": [
+        384,
+        384
+      ],
+      "world_size": [
+        96,
+        96
+      ],
+      "ports": [
+        "N"
+      ],
+      "body_width_px": 192,
+      "body_width_world_px": 48,
+      "alpha": "straight"
+    }
+  ],
+  "overlay_checks": [
+    {
+      "file": "overlays/clearing.png",
+      "source_size": [
+        512,
+        384
+      ],
+      "alpha_range": [
+        0,
+        71
+      ],
+      "alpha": "straight"
+    },
+    {
+      "file": "overlays/grass_dense.png",
+      "source_size": [
+        512,
+        384
+      ],
+      "alpha_range": [
+        0,
+        67
+      ],
+      "alpha": "straight"
+    }
+  ],
+  "native_frames": [
+    {
+      "file": "scene-1080p.png",
+      "size": [
+        1920,
+        1080
+      ],
+      "native_render": true
+    },
+    {
+      "file": "scene-4k.png",
+      "size": [
+        3840,
+        2160
+      ],
+      "native_render": true
+    }
+  ],
+  "object_instances": 155,
+  "large_trees_before": 44,
+  "large_trees_after": 22,
+  "house_and_prop_placements_unchanged": true,
+  "render_log_errors": 0,
+  "render_log_warnings": 0,
+  "board_size": [
+    1920,
+    1148
+  ]
+}

@@ -1,0 +1,186 @@
+{
+	"atlas": "nature-atlas-v2.png",
+	"grid": [
+		4,
+		2
+	],
+	"schema": 1,
+	"sprites": [
+		{
+			"alpha": true,
+			"anchor": "bottom_center",
+			"crop": [
+				61,
+				147,
+				343,
+				259
+			],
+			"file": "sprites/bush.png",
+			"id": "bush",
+			"size": [
+				343,
+				259
+			],
+			"source_cell": [
+				0,
+				0,
+				444,
+				444
+			]
+		},
+		{
+			"alpha": true,
+			"anchor": "bottom_center",
+			"crop": [
+				68,
+				176,
+				320,
+				224
+			],
+			"file": "sprites/grass.png",
+			"id": "grass",
+			"size": [
+				320,
+				224
+			],
+			"source_cell": [
+				444,
+				0,
+				443,
+				444
+			]
+		},
+		{
+			"alpha": true,
+			"anchor": "bottom_center",
+			"crop": [
+				65,
+				150,
+				304,
+				256
+			],
+			"file": "sprites/flowers.png",
+			"id": "flowers",
+			"size": [
+				304,
+				256
+			],
+			"source_cell": [
+				887,
+				0,
+				444,
+				444
+			]
+		},
+		{
+			"alpha": true,
+			"anchor": "bottom_center",
+			"crop": [
+				32,
+				182,
+				348,
+				215
+			],
+			"file": "sprites/stones.png",
+			"id": "stones",
+			"size": [
+				348,
+				215
+			],
+			"source_cell": [
+				1331,
+				0,
+				443,
+				444
+			]
+		},
+		{
+			"alpha": true,
+			"anchor": "bottom_center",
+			"crop": [
+				62,
+				47,
+				333,
+				326
+			],
+			"file": "sprites/reeds.png",
+			"id": "reeds",
+			"size": [
+				333,
+				326
+			],
+			"source_cell": [
+				0,
+				444,
+				444,
+				443
+			]
+		},
+		{
+			"alpha": true,
+			"anchor": "bottom_center",
+			"crop": [
+				41,
+				97,
+				369,
+				270
+			],
+			"file": "sprites/fern.png",
+			"id": "fern",
+			"size": [
+				369,
+				270
+			],
+			"source_cell": [
+				444,
+				444,
+				443,
+				443
+			]
+		},
+		{
+			"alpha": true,
+			"anchor": "bottom_center",
+			"crop": [
+				36,
+				190,
+				350,
+				164
+			],
+			"file": "sprites/leaves.png",
+			"id": "leaves",
+			"size": [
+				350,
+				164
+			],
+			"source_cell": [
+				887,
+				444,
+				444,
+				443
+			]
+		},
+		{
+			"alpha": true,
+			"anchor": "bottom_center",
+			"crop": [
+				30,
+				116,
+				359,
+				249
+			],
+			"file": "sprites/berry_bush.png",
+			"id": "berry_bush",
+			"size": [
+				359,
+				249
+			],
+			"source_cell": [
+				1331,
+				444,
+				443,
+				443
+			]
+		}
+	]
+}
