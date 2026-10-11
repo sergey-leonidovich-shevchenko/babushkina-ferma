@@ -13,11 +13,12 @@ func _initialize() -> void:
 			var r: Array = entry.region
 			var region := master.get_region(Rect2i(r[0],r[1],r[2],r[3]))
 			var sprite := isolate(region,Vector2(entry.pivot[0],entry.pivot[1]))
-			var factor := float(entry.scale)/0.32
+			var draw_scale := 1.0 if kind=="bow-contact" else 0.32
+			var factor := float(entry.scale)/draw_scale
 			if not is_equal_approx(factor,1): sprite.resize(roundi(sprite.get_width()*factor),roundi(sprite.get_height()*factor),Image.INTERPOLATE_LANCZOS)
 			entry.sprite="frames/%s-%02d.png" % [kind,index]
 			entry.draw_pivot=[float(entry.pivot[0])*factor,float(entry.pivot[1])*factor]
-			entry.draw_scale=0.32
+			entry.draw_scale=draw_scale
 			assert(sprite.save_png(ProjectSettings.globalize_path(ROOT+entry.sprite))==OK)
 	FileAccess.open(ROOT+"frames.json",FileAccess.WRITE).store_string(JSON.stringify(catalog,"  ")+"\n")
 	print("HERO EXTRACTION: 50 isolated RGBA sprites, original masters preserved")

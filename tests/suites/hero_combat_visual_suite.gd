@@ -8,6 +8,21 @@ const Matte := preload("res://scripts/systems/sprite_matte_system.gd")
 func run() -> void:
 	test_full_body_phases_and_ground()
 	test_snapshot_inspector_and_corrected_bow()
+	test_side_bow_prepared_at_display_size()
+
+## Сценарий: два боковых кадра из большого мастера подготавливаются сразу к экранному размеру.
+## Исходное состояние: исходные измерения и мастер сохранены, обе стороны используют одну готовую пару спрайтов.
+## Ожидаемый результат: дополнительное уменьшение в кадре не нужно, исходная опора и габариты сохраняются с точностью округления.
+func test_side_bow_prepared_at_display_size() -> void:
+	for index in 2:
+		var entry: Dictionary = Combat.catalog()["bow-contact"].frames[index]
+		var sprite := Combat.frame_texture("bow-contact",index)
+		var expected := Vector2(entry.region[2],entry.region[3])*float(entry.scale)
+		expect(float(entry.draw_scale)==1.0 and (sprite.get_size()-expected).abs().x<=0.5 and (sprite.get_size()-expected).abs().y<=0.5,"side bow prepared at native display dimensions")
+		var pivot := Vector2(entry.draw_pivot[0],entry.draw_pivot[1])*float(entry.draw_scale)
+		var original := Vector2(entry.pivot[0],entry.pivot[1])*float(entry.scale)
+		expect(pivot.distance_to(original)<0.0001,"prepared bow preserves original measured ground pivot")
+		expect(not sprite.get_image().is_invisible(),"prepared bow keeps visible transparent body")
 
 ## Сценарий: меч, копьё и лук выполняют четыре фазы во всех четырёх ракурсах.
 ## Исходное состояние: измеренные области трёх мастер-листов и два исправленных боковых кадра лука.
@@ -48,6 +63,6 @@ func test_snapshot_inspector_and_corrected_bow() -> void:
 		var left := Combat.pose("bow",Vector2.LEFT,progress)
 		var right := Combat.pose("bow",Vector2.RIGHT,progress)
 		expect(left.texture == Combat.frame_texture("bow-contact",0 if progress<0.78 else 1) and right.texture == left.texture,"side bow uses corrected standalone draw and release")
-		expect(left.flip and not right.flip and left.pivot.x+right.pivot.x == right.source.size.x,"mirroring preserves shooting direction and foot anchor")
+		expect(left.flip and not right.flip and is_equal_approx(left.pivot.x+right.pivot.x,right.source.size.x),"mirroring preserves shooting direction and foot anchor")
 	expect(Combat.frame(0.60,"bow")==1 and Combat.frame(0.65,"bow")==2,"bow holds the drawn string before release")
 	game.free()
