@@ -8,6 +8,7 @@ const DebugKit := preload("res://scripts/systems/debug_ui_kit_system.gd")
 ## Запускает независимые проверки эквивалентности, ключа и ограниченной памяти кеша текстовых метрик.
 func run() -> void:
 	test_results_match_original_algorithms()
+	test_bounded_lines_account_for_tall_fallback()
 	test_cache_key_and_changed_font()
 	test_memory_is_bounded_and_labels_are_copies()
 	Cache.clear()
@@ -31,6 +32,32 @@ func test_results_match_original_algorithms() -> void:
 	game.settings_state.text_scale = 1.2
 	for requested in [-3, 0, 3, 6, 72]:
 		expect(Scale.fitted_font_size(game, game.UI_FONT, "Очень длинная подпись", 12, requested) == _original_size(game.UI_FONT, "Очень длинная подпись", 12, 0, requested, 1.2), "Крайний запрошенный кегль сохраняет исходную семантику: %d" % requested)
+	game.free()
+
+
+## Сценарий: цифры используют обычную гарнитуру, а запасной шрифт увеличивает общую высоту строки.
+## Исходное состояние: независимая копия UI-шрифта с высоким fallback, текст 120% и узкая подпись ресурса.
+## Ожидаемый результат: целая строка помещается по обеим осям, остаётся читаемой и повторно берётся из кеша.
+func test_bounded_lines_account_for_tall_fallback() -> void:
+	Cache.clear(); var game := make_game()
+	var font: Font = game.UI_FONT.duplicate()
+	var fallback := FontFile.new(); fallback.data = FileAccess.get_file_as_bytes("res://assets/game/fonts/Alice-Regular.ttf")
+	for point_size in range(6,17):
+		fallback.get_height(point_size)
+		fallback.set_cache_ascent(0,point_size,point_size*1.3)
+		fallback.set_cache_descent(0,point_size,point_size*0.2)
+	font.fallbacks = [fallback]
+	game.settings_state.text_scale = 1.2
+	var label := "999M"; var area := Vector2(60,18)
+	expect(font.get_height(16) > font.get_multiline_string_size(label,HORIZONTAL_ALIGNMENT_LEFT,100,16).y, "Fallback height exceeds the numeric glyph line")
+	var glyph_size := Scale.fitted_multiline_font_size(game,font,label,area.x,area.y,13)
+	expect(font.get_height(glyph_size) > area.y, "Numeric glyph metrics alone leave the full line outside its rectangle")
+	var size := Scale.fitted_singleline_font_size(game,font,label,area.x,area.y,13)
+	expect(size >= 6 and size < 16 and font.get_height(size) <= area.y and font.get_string_size(label,HORIZONTAL_ALIGNMENT_LEFT,-1,size).x <= area.x, "Tall fallback fits without clipping or shrinking below the readable minimum")
+	var misses: int = Cache.statistics().misses
+	expect(Scale.fitted_singleline_font_size(game,font,label,area.x,area.y,13) == size and Cache.statistics().misses == misses and Cache.statistics().hits == 1, "Bounded labels reuse measured fallback metrics")
+	var tighter := Scale.fitted_singleline_font_size(game,font,label,area.x,area.y-2,13)
+	expect(tighter <= size and font.get_height(tighter) <= area.y-2 and Cache.statistics().misses == misses+1, "A shorter line has its own cached fit")
 	game.free()
 
 

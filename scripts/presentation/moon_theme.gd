@@ -29,13 +29,13 @@ static func panel(canvas: CanvasItem, rect: Rect2, fill: Color = PANEL, border: 
 
 ## Центрирует текст по высоте доступной области с учётом выбранного пользователем масштаба.
 static func text(game: Node, rect: Rect2, label: String, size: int = BODY_SIZE, color: Color = TEXT, alignment: HorizontalAlignment = HORIZONTAL_ALIGNMENT_LEFT) -> void:
-	var fitted: int = mini(game.UiScaleSystem.fitted_font_size(game,game.UI_FONT,label,rect.size.x,size),game.UiScaleSystem.fitted_multiline_font_size(game,game.UI_FONT,label,rect.size.x,rect.size.y,size))
+	var fitted: int = game.UiScaleSystem.fitted_singleline_font_size(game,game.UI_FONT,label,rect.size.x,rect.size.y,size)
 	var baseline := rect.position + Vector2(0, (rect.size.y - game.UI_FONT.get_height(fitted)) * 0.5 + game.UI_FONT.get_ascent(fitted))
 	game.draw_string(game.UI_FONT, baseline, label, alignment, rect.size.x, fitted, color)
 
 ## Рисует название книжным шрифтом, сохраняя системный fallback для всех локалей.
 static func title(game: Node, rect: Rect2, label: String, size: int = 20) -> void:
-	var fitted: int = game.UiScaleSystem.fitted_font_size(game, game.MENU_FONT, label, rect.size.x, size)
+	var fitted: int = game.UiScaleSystem.fitted_singleline_font_size(game, game.MENU_FONT, label, rect.size.x, rect.size.y, size)
 	game.draw_string(game.MENU_FONT, rect.position + Vector2(0, game.MENU_FONT.get_ascent(fitted)), label, HORIZONTAL_ALIGNMENT_LEFT, rect.size.x, fitted, TEXT)
 
 ## Рисует действие с общим состоянием выбора или недоступности без резной декоративной рамки.

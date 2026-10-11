@@ -28,6 +28,20 @@ static func fitted_size(font: Font, text: String, width: float, height: float, r
 	return size
 
 
+## Вписывает одну строку по полной высоте шрифта с fallback; метрики конкретных глифов не заменяют высоту базовой линии.
+static func fitted_line_size(font: Font, text: String, width: float, height: float, requested: int, scale: float) -> int:
+	var key := _key(font, "bounded_line", text, width, height, requested, 6, scale)
+	if not key.is_empty() and _entries.has(key):
+		_hits += 1
+		return _entries[key]
+	_misses += 1
+	var size := maxi(1, roundi(requested * scale))
+	while size > 6 and ((width > 0.0 and font.get_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, -1, size).x > width) or (height > 0.0 and font.get_height(size) > height)):
+		size -= 1
+	_store(key, size)
+	return size
+
+
 ## Повторяет прежние уменьшение и многоточие дословно; наружу выдаёт копию маленького результата, защищая кеш от изменений вызывающего кода.
 static func fitted_label(font: Font, label: String, width: float, preferred: int, minimum: int) -> Dictionary:
 	var key := _key(font, "label", label, width, 0.0, preferred, minimum, 1.0)

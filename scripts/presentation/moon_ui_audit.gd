@@ -39,7 +39,7 @@ static func check(game: Node) -> Array[Dictionary]:
 ## Проверяет однострочный текст с тем же вписыванием по ширине и высоте, которое использует тема.
 static func line(checks: Array[Dictionary], game: Node, key: String, label: String, area: Vector2, preferred: int, minimum: int, font: Font = null) -> void:
 	if font==null: font=game.UI_FONT
-	var fitted: int = mini(game.UiScaleSystem.fitted_font_size(game,font,label,area.x,preferred),game.UiScaleSystem.fitted_multiline_font_size(game,font,label,area.x,area.y,preferred))
+	var fitted: int = game.UiScaleSystem.fitted_singleline_font_size(game,font,label,area.x,area.y,preferred)
 	record(checks,game,key,fitted>=minimum and font.get_string_size(label,HORIZONTAL_ALIGNMENT_LEFT,-1,fitted).x<=area.x+0.1 and font.get_height(fitted)<=area.y+0.1)
 
 ## Проверяет многострочный текст в фактических контейнерах предмета и карточки задания.

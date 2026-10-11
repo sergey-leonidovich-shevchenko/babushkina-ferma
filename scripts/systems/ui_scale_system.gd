@@ -67,6 +67,11 @@ static func fitted_font_size(game: Node, font: Font, text: String, width: float,
 	return TextMetrics.fitted_size(font, text, width, 0.0, requested_size, game.settings_state.text_scale)
 
 
+## Вписывает однострочную подпись по обеим осям с учётом полной высоты системного шрифта и его запасных гарнитур.
+static func fitted_singleline_font_size(game: Node, font: Font, text: String, width: float, height: float, requested_size: int) -> int:
+	return TextMetrics.fitted_line_size(font, text, width, height, requested_size, game.settings_state.text_scale)
+
+
 ## Подбирает размер многострочного текста по ширине и высоте, не обрезая последний смысловой ряд при масштабе 120%.
 static func fitted_multiline_font_size(game: Node, font: Font, text: String, width: float, height: float, requested_size: int) -> int:
 	return TextMetrics.fitted_size(font, text, width, height, requested_size, game.settings_state.text_scale, true)

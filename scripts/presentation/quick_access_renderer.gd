@@ -76,7 +76,7 @@ static func quantity_text(count: int) -> String:
 
 ## Подбирает размер цифр по ширине и высоте при пользовательском масштабе текста до 120%.
 static func label_font_size(game: Node, rect: Rect2, text: String, requested: int) -> int:
-	return game.UiScaleSystem.fitted_multiline_font_size(game, game.UI_FONT, text, rect.size.x, rect.size.y, requested)
+	return game.UiScaleSystem.fitted_singleline_font_size(game, game.UI_FONT, text, rect.size.x, rect.size.y, requested)
 
 
 ## Центрирует подпись по вертикали и добавляет тонкий тёмный контур вместо массивного бейджа.
