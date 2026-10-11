@@ -33,7 +33,7 @@ const OPTIONAL := {
 	"world_plots":[{"location":"s", "x":"n", "y":"n", "tilled":"b", "planted":"b", "watered":"b", "growth":"n", "stage":"n", "crop_kind":"s"}],
 	"trees":[{"!":["health", "stage", "regrow_timer"], "health":"n", "stage":"n", "regrow_timer":"n"}], "food_active":["b"],
 	"forage":[{"!":["active", "ready_at"], "active":"b", "ready_at":"n", "stage":"n", "kind":"s", "location":"s", "position":"p", "planted_by_player":"b"}],
-	"enemies":[{"!":["hp", "alive"], "hp":"n", "alive":"b", "level":"n", "position":"p", "direction":"p", "attack_timer":"n"}],
+	"enemies":[{"!":["hp", "alive"], "hp":"n", "max_hp":"n", "alive":"b", "level":"n", "position":"p", "direction":"p", "attack_timer":"n"}],
 	"hazards":[{"cooldown":"n"}], "wildlife":[{"!":["hp", "alive", "position"], "hp":"n", "alive":"b", "position":"p"}], "world_loot_seed":"n",
 	"containers":[{"!":["id", "kind", "location", "position", "opened", "contents"], "id":"n", "kind":"s", "location":"s", "position":"p", "opened":"b", "contents":{"*":"n"}}],
 	"drops":[{"!":["kind", "count", "position"], "kind":"s", "count":"n", "position":"p", "location":"s"}],

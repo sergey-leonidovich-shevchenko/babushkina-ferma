@@ -139,6 +139,7 @@ static func _configure_world_previews(game: Node, args: PackedStringArray) -> vo
 	if "--cave-preview" in args or "--capture-cave" in args:
 		game.CaveVisualSystem.configure_preview(game)
 		if "--capture-cave" in args: game.set_meta("capture_cave_frames", 6)
+	if "--cave-boss-preview" in args: game.CaveBossSystem.configure_preview(game)
 	if "--tree-stages-preview" in args or "--capture-tree-stages" in args:
 		game.TreeSystem.configure_preview(game)
 	if "--capture-tree-stages" in args: game.set_meta("capture_tree_stage_frames", 6)

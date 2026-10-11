@@ -56,8 +56,15 @@ static func cast(game: Node) -> bool:
 		game.player_hp=mini(game.player_max_hp,game.player_hp+35+game.SkillSystem.skill(game,"mana")*3); success=true
 	elif spell_id=="arcane_bolt":
 		var index:=nearest_enemy(game,float(spell.range))
-		if index>=0: success=game.CombatSystem.apply_damage(game,index,4+game.SkillSystem.skill(game,"mana")/2,"Магия")
+		var distance: float = game.player.distance_to(game.enemy_nodes[index].position) if index >= 0 else float(spell.range)
+		var minion: int = game.CaveBossSystem.Minions.nearest(game, game.player, distance)
+		if minion >= 0: success=game.CaveBossSystem.Minions.damage(game,minion,4+game.SkillSystem.skill(game,"mana")/2)
+		elif index>=0: success=game.CombatSystem.apply_damage(game,index,4+game.SkillSystem.skill(game,"mana")/2,"Магия")
 	else:
+		if game.current_location == game.CaveBossSystem.Data.LOCATION:
+			for minion_index in game.state.world.cave_boss.minions.size():
+				var minion: Dictionary = game.state.world.cave_boss.minions[minion_index]
+				if game.player.distance_to(minion.position) <= float(spell.range) and game.CaveBossSystem.Minions.damage(game,minion_index,2+game.SkillSystem.skill(game,"mana")/3): minion.cooldown += 1.8; success=true
 		for index in game.enemy_nodes.size():
 			var enemy:Dictionary=game.enemy_nodes[index]
 			if enemy.alive and enemy.location==game.current_location and game.player.distance_to(enemy.position)<=float(spell.range):

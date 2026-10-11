@@ -58,7 +58,7 @@ static func default_enemies() -> Array:
 	for spawn in SPAWNS + preload("res://scripts/systems/cave_dungeon_content.gd").ENEMIES:
 		var enemy: Dictionary = spawn.duplicate(true)
 		enemy.level = clampi(int(enemy.level), 1, MAX_ENEMY_LEVEL)
-		enemy.max_hp = max_hp(enemy.kind, enemy.level)
+		enemy.max_hp = preload("res://scripts/systems/cave_boss_data.gd").MAX_HP if enemy.get("cave_boss", false) else max_hp(enemy.kind, enemy.level)
 		enemy.hp = enemy.max_hp
 		enemy.alive = true
 		enemy.home = enemy.position
@@ -133,7 +133,7 @@ static func update(game: Node, delta: float) -> void:
 	game.state.player.dodge_cooldown = maxf(game.state.player.dodge_cooldown - delta, 0.0)
 	for index in game.enemy_nodes.size():
 		var enemy: Dictionary = game.enemy_nodes[index]
-		if not enemy.alive or enemy.location != game.current_location:
+		if not enemy.alive or enemy.location != game.current_location or bool(enemy.get("cave_boss", false)):
 			continue
 		if game.invisibility_timer > 0.0:
 			enemy.moving = false
@@ -182,6 +182,7 @@ static func attack_impact_delay(action_kind: String) -> float:
 
 ## Возвращает особую фазу уникального босса либо ноль для обычного противника.
 static func boss_phase(enemy: Dictionary) -> int:
+	if enemy.get("cave_boss", false): return preload("res://scripts/systems/cave_boss_data.gd").phase(int(enemy.hp), int(enemy.max_hp))
 	if enemy.kind not in ["cave_guardian", "drowned_captain"]: return 0
 	return 2 if int(enemy.hp) * 2 <= int(enemy.max_hp) else 1
 
@@ -241,7 +242,7 @@ static func apply_damage(game: Node, index: int, damage: int, attacker_name: Str
 		game.notify_tutorial("enemy_levels")
 	enemy.hp -= damage
 	enemy.hurt_direction = game.player.direction_to(enemy.position)
-	if enemy.hp > 0 and bool(TYPES[enemy.kind].mobile): enemy.position = game.NavigationSystem.move_enemy(game, index, game.player.direction_to(enemy.position) * 22.0)
+	if enemy.hp > 0 and bool(TYPES[enemy.kind].mobile) and not enemy.get("cave_boss", false): enemy.position = game.NavigationSystem.move_enemy(game, index, game.player.direction_to(enemy.position) * 22.0)
 	enemy = game.AnimationSystem.hit_enemy(enemy, enemy.hp <= 0)
 	game.play_sfx("defeat" if enemy.hp <= 0 else "hit")
 	if enemy.hp <= 0:
@@ -261,6 +262,7 @@ static func apply_damage(game: Node, index: int, damage: int, attacker_name: Str
 		var prefix := "%s → " % attacker_name if not attacker_name.is_empty() else ""
 		game.message = "%s%s: -%d HP" % [prefix, LocaleSystem.entity(enemy.kind), damage]
 	game.enemy_nodes[index] = enemy
+	if enemy.get("cave_boss", false): game.CaveBossSystem.on_damage(game)
 	return true
 
 
@@ -279,6 +281,9 @@ static func damage_player(game: Node, raw_damage: int, source_name: String, sour
 		var lost_coins := mini(5, game.coins)
 		game.player_hp = game.player_max_hp
 		game.player = Vector2(260, 360)
+		if preload("res://scripts/systems/cave_room_data.gd").is_cave(game.current_location):
+			game.player = preload("res://scripts/systems/cave_layout_system.gd").safe_start(game.current_location)
+			game.CaveBossSystem.reset(game)
 		game.coins -= lost_coins
 		game.message = game.LocaleSystem.ui("defeat_saved", [source_name])
 		game.MenuSystem.open_defeat(game, source_name, lost_coins)

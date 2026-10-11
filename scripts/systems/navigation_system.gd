@@ -120,6 +120,9 @@ static func walkability_reason(game: Node, position: Vector2, ignored_enemy: int
 		var collision:Rect2=game.OrchardSystem.collision_rect(food.position,game.OrchardSystem.stage(food)) if game.OrchardSystem.handles(food.kind) else game.ForageSystem.collision_rect(food)
 		if circle_intersects_rect(position,game.PLAYER_RADIUS,collision):
 			return "forage"
+	if include_enemies and game.current_location == "cave_sanctum":
+		for minion in game.state.world.cave_boss.minions:
+			if minion.alive and float(minion.emerge) <= 0.0 and position.distance_to(minion.position) < game.PLAYER_RADIUS + 22.0: return "enemy"
 	return "walkable"
 
 ## Проверяет физическое основание; пустой профиль декора не превращается в невидимую круглую стену.
@@ -145,6 +148,9 @@ static func enemy_penetration(game: Node, position: Vector2) -> float:
 	for enemy in game.enemy_nodes:
 		if enemy.alive and enemy.location == game.current_location:
 			depth += maxf(0.0, game.PLAYER_RADIUS + 30.0 - position.distance_to(enemy.position))
+	if game.current_location == "cave_sanctum":
+		for minion in game.state.world.cave_boss.minions:
+			if minion.alive and float(minion.emerge) <= 0.0: depth += maxf(0.0, game.PLAYER_RADIUS + 22.0 - position.distance_to(minion.position))
 	return depth
 
 

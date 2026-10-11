@@ -334,7 +334,7 @@ func draw_enemy_nodes_and_gate() -> void:
 			draw_circle(world_gate_position, 42 + sin(Time.get_ticks_msec() / 180.0) * 4, Color("e6b85e"), false, 6)
 			draw_string(UI_FONT, world_gate_position + Vector2(-75, 68), WorldSystem.name(WorldSystem.next_location(current_location)), HORIZONTAL_ALIGNMENT_LEFT, 180, 14, Color("fff0bd"))
 	for enemy in enemy_nodes:
-		if not AnimationSystem.enemy_is_visible(enemy) or enemy.location != current_location: continue
+		if not AnimationSystem.enemy_is_visible(enemy) or enemy.location != current_location or enemy.get("cave_boss", false): continue
 		var position: Vector2 = enemy.position
 		AnimationRenderer.draw_enemy(self, enemy)
 		if not enemy.alive: continue

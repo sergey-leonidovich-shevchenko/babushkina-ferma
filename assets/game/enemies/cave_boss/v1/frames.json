@@ -220,15 +220,16 @@
         "row": 3,
         "column": 3,
         "region": [
+          956,
           940,
-          940,
-          314,
+          298,
           314
         ],
         "anchor": [
-          0.5,
+          0.47315436241610737,
           0.9076433121019108
-        ]
+        ],
+        "note": "Left gutter narrowed to exclude the adjacent frame glow; source PNG unchanged."
       }
     ]
   },

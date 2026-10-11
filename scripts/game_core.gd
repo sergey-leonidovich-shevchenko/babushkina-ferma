@@ -629,6 +629,8 @@ func attack_nearest_enemy() -> bool:
 		enemy_distance = player.distance_to(enemy_nodes[enemy_index].position)
 	if wildlife_index >= 0:
 		wildlife_distance = player.distance_to(wildlife_nodes[wildlife_index].position)
+	var minion_index := CaveBossSystem.Minions.nearest(self, player, minf(WeaponSystem.range_of(equipped_weapon), minf(enemy_distance,wildlife_distance)))
+	if minion_index >= 0: return CaveBossSystem.Minions.attack(self,minion_index)
 	if wildlife_distance < enemy_distance:
 		var wildlife_hit := WildlifeSystem.attack(self, wildlife_index); if wildlife_hit: AdventurePolishSystem.consume_durability(self, "weapon"); return wildlife_hit
 	if enemy_index >= 0:
@@ -643,6 +645,7 @@ func attack_nearest_enemy() -> bool:
 ## Обновляет боя на текущем кадре.
 func update_combat(delta: float) -> void:
 	CombatSystem.update(self, delta)
+	CaveBossSystem.update(self, delta)
 	EnvironmentHazardSystem.update(self, delta)
 	if slime_attack_pending:
 		slime_attack_impact_timer = maxf(slime_attack_impact_timer - delta, 0.0)

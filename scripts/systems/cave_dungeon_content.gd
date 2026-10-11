@@ -11,7 +11,7 @@ const ENEMIES := [
 	{"location":"cave_fungal","position":Vector2(648,600),"kind":"skeleton","level":2}, {"location":"cave_fungal","position":Vector2(1752,600),"kind":"cave_guardian","level":2},
 	{"location":"cave_lake","position":Vector2(1728,504),"kind":"cave_guardian","level":3},
 	{"location":"cave_mine","position":Vector2(648,480),"kind":"skeleton","level":3}, {"location":"cave_mine","position":Vector2(1872,720),"kind":"skeleton","level":4},
-	{"location":"cave_sanctum","position":Vector2(816,600),"kind":"skeleton","level":4}, {"location":"cave_sanctum","position":Vector2(1728,744),"kind":"cave_guardian","level":5},
+	{"location":"cave_sanctum","position":Vector2(816,600),"kind":"skeleton","level":4}, {"location":"cave_sanctum","position":Vector2(1728,744),"kind":"cave_guardian","level":5,"cave_boss":true},
 ]
 const LOOT := [
 	{"location":"cave_fungal","count":2,"types":["chest","sack"],"positions":[Vector2(672,816),Vector2(1728,816)]},

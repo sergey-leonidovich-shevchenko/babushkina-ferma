@@ -131,6 +131,8 @@ static func attack_nearby(game: Node) -> bool:
 	if game.state.player.companion_command in ["wait", "defend"]: return false
 	for companion_id in game.active_companions:
 		var position: Vector2 = game.companion_positions.get(companion_id, game.player)
+		var minion: int = game.CaveBossSystem.Minions.nearest(game, position, 130.0)
+		if minion >= 0: return game.CaveBossSystem.Minions.damage(game,minion,int(COMPANIONS[companion_id].damage))
 		for index in game.enemy_nodes.size():
 			var enemy: Dictionary = game.enemy_nodes[index]
 			if enemy.alive and enemy.location == game.current_location and position.distance_to(enemy.position) <= 130.0:
