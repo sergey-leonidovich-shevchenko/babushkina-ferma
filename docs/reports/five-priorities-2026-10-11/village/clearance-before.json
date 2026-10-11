@@ -1,0 +1,160 @@
+{
+  "guild_tree_gap": 36.0,
+  "note": "Width equals admissible center band plus 36px body; moving enemies excluded, live persistent objects retained. Endpoints near interaction targets are included.",
+  "paths": [
+    {
+      "blocked": [],
+      "minimum_width": 106.0,
+      "path": 0,
+      "worst": [
+        1244.76403808594,
+        715.786499023438
+      ]
+    },
+    {
+      "blocked": [],
+      "minimum_width": 158.0,
+      "path": 1,
+      "worst": [
+        1483.19995117188,
+        624.0
+      ]
+    },
+    {
+      "blocked": [],
+      "minimum_width": 94.0,
+      "path": 2,
+      "worst": [
+        240.156173706055,
+        772.875061035156
+      ]
+    },
+    {
+      "blocked": [
+        {
+          "point": [
+            618.357055664062,
+            923.285766601562
+          ],
+          "reason": "world_prop"
+        },
+        {
+          "point": [
+            613.276123046875,
+            933.447692871094
+          ],
+          "reason": "world_prop"
+        },
+        {
+          "point": [
+            613.276123046875,
+            933.447692871094
+          ],
+          "reason": "world_prop"
+        },
+        {
+          "point": [
+            608.419494628906,
+            941.760864257812
+          ],
+          "reason": "world_prop"
+        },
+        {
+          "point": [
+            608.419494628906,
+            941.760864257812
+          ],
+          "reason": "world_prop"
+        },
+        {
+          "point": [
+            602.700500488281,
+            948.998962402344
+          ],
+          "reason": "world_prop"
+        },
+        {
+          "point": [
+            602.700500488281,
+            948.998962402344
+          ],
+          "reason": "world_prop"
+        }
+      ],
+      "minimum_width": 80.0,
+      "path": 3,
+      "worst": [
+        596.119018554688,
+        955.161926269531
+      ]
+    },
+    {
+      "blocked": [],
+      "minimum_width": 130.0,
+      "path": 4,
+      "worst": [
+        1608.0,
+        1020.0
+      ]
+    },
+    {
+      "blocked": [
+        {
+          "point": [
+            1709.37390136719,
+            731.263793945312
+          ],
+          "reason": "scenic_prop"
+        },
+        {
+          "point": [
+            1720.6376953125,
+            732.515319824219
+          ],
+          "reason": "scenic_prop"
+        },
+        {
+          "point": [
+            1731.9013671875,
+            733.766845703125
+          ],
+          "reason": "scenic_prop"
+        },
+        {
+          "point": [
+            1743.16516113281,
+            735.018371582031
+          ],
+          "reason": "scenic_prop"
+        }
+      ],
+      "minimum_width": 134.0,
+      "path": 5,
+      "worst": [
+        1754.42895507812,
+        736.269897460938
+      ]
+    },
+    {
+      "blocked": [],
+      "minimum_width": 176.0,
+      "path": 6,
+      "worst": [
+        744.0,
+        216.0
+      ]
+    },
+    {
+      "blocked": [],
+      "minimum_width": 192.0,
+      "path": 7,
+      "worst": [
+        1944.0,
+        792.0
+      ]
+    }
+  ],
+  "player_radius": 18.0,
+  "resolution": 2,
+  "revision": 2
+}

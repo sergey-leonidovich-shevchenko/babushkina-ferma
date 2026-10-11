@@ -25,7 +25,7 @@ const PROP_PLACEMENTS := [
 	{"kind":"bench","position":Vector2(1176,792),"solid":true},
 	{"kind":"bench","position":Vector2(1512,816),"solid":true},
 	{"kind":"lamp","position":Vector2(768,552),"solid":true},
-	{"kind":"lamp","position":Vector2(1728,696),"solid":true},
+	{"kind":"lamp","position":Vector2(1728,672),"solid":true},
 	{"kind":"board","position":Vector2(1656,528),"solid":true},
 	{"kind":"board","position":Vector2(648,576),"solid":true},
 	{"kind":"cart","position":MapData.SELL_CRATE,"solid":false},
