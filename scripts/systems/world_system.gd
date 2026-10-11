@@ -16,6 +16,7 @@ static func name(kind: String) -> String:
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func travel(game: Node) -> void:
+	if not preload("res://scripts/systems/cave_boss_arena_system.gd").can_exit(game): return
 	var early_return: String = game.FirstChapterSystem.early_return_location(game)
 	game.current_location = early_return if not early_return.is_empty() else next_location(game.current_location)
 	game.player = Vector2(220, 430)

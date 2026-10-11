@@ -20,6 +20,7 @@ var tree_nodes: Array = TreeSystem.default_nodes()
 var moon_glade: Dictionary = MoonGladeSystem.default_state()
 var castle_campaign: Dictionary = CastleCampaignSystem.default_state()
 var estate: Dictionary = EstateSystem.default_state()
+var cave_arena: Dictionary = {"relic_awarded":false}
 var cave_boss: Dictionary = preload("res://scripts/systems/cave_boss_data.gd").default_state()
 
 

@@ -39,6 +39,9 @@ static func blocks_water(position: Vector2, radius: float, location: String) -> 
 
 ## Проверяет основания крупного декора активной комнаты; маленькие грибы и осыпь проходимы.
 static func blocks_decoration(position: Vector2, radius: float, location: String = "cave") -> bool:
+	if location == "cave_sanctum":
+		for solid in Rooms.Arena.solids():
+			if _circle_in_rect(position,radius,solid): return true
 	for prop in Rooms.decorations(location):
 		var solid := Assets.collision_rect(prop.kind,prop.position)
 		if solid.has_area() and _circle_in_rect(position,radius,solid): return true
@@ -54,7 +57,7 @@ static func repair_saved_positions(game: Node) -> void:
 			animal.position = animal.home; animal.habitat_validated = false
 	if Rooms.is_cave(game.current_location):
 		var reason: String = game.NavigationSystem.walkability_reason(game,game.player,-1,false)
-		if reason in ["boundary","cave_wall","cave_prop","cave_water","resource"]: game.player = safe_start(game.current_location)
+		if reason in ["boundary","cave_wall","cave_prop","cave_water","cave_seal","resource"]: game.player = safe_start(game.current_location)
 
 
 ## Выбирает свободную точку входящего туннеля, удалённую от обратного триггера на 96 пикселей.

@@ -59,6 +59,7 @@ static func walkability_reason(game: Node, position: Vector2, ignored_enemy: int
 		if CaveLayout.blocks_position(position,game.PLAYER_RADIUS,game.current_location): return "cave_wall"
 		if CaveLayout.blocks_water(position,game.PLAYER_RADIUS,game.current_location): return "cave_water"
 		if CaveLayout.blocks_decoration(position,game.PLAYER_RADIUS,game.current_location): return "cave_prop"
+		if preload("res://scripts/systems/cave_boss_arena_system.gd").blocks_seal(game,position,game.PLAYER_RADIUS): return "cave_seal"
 	if use_broadphase:
 		if Broadphase.blocks(game, "building", position, game.PLAYER_RADIUS): return "building"
 	else:
@@ -110,8 +111,9 @@ static func walkability_reason(game: Node, position: Vector2, ignored_enemy: int
 		if node.hits > 0 and node.location == game.current_location and circle_intersects_rect(position,game.PLAYER_RADIUS,game.ResourceSystem.collision_rect(node)):
 			return "resource"
 	for container in game.world_loot_nodes:
+		if container.location != game.current_location or not preload("res://scripts/systems/cave_boss_arena_system.gd").container_visible(game,container): continue
 		if use_broadphase and not Broadphase.near_dynamic(position, container.position, game.PLAYER_RADIUS): continue
-		if container.location==game.current_location and circle_intersects_rect(position,game.PLAYER_RADIUS,game.WorldLootRenderer.collision_rect(container.kind,container.position)):
+		if circle_intersects_rect(position,game.PLAYER_RADIUS,game.WorldLootRenderer.container_collision(container)):
 			return "loot"
 	for food in game.food_nodes:
 		if food.get("location", "overworld") != game.current_location:

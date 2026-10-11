@@ -17,7 +17,7 @@ const STEP_IDS := [
 	"character_creation", "dialogue_choices", "npc_gift", "personal_request", "market_event", "festival_event", "night_trader", "raid_event", "interior_furniture", "debug_inspector", "target_lock", "durability_low", "durability_broken", "repair", "backpack_upgrade", "animal_feed", "animal_product", "museum", "secret_puzzle", "furniture_place", "photo_mode", "fence_build", "fence_gate", "fence_weather",
 	"cave_veins",
 	"cave_labyrinth",
-	"cave_boss_phases", "cave_boss_attacks", "cave_boss_summons", "cave_boss_flies", "cave_boss_victory",
+	"cave_boss_altar", "cave_boss_phases", "cave_boss_attacks", "cave_boss_summons", "cave_boss_flies", "cave_boss_victory",
 ]
 
 

@@ -17,6 +17,10 @@ static func nearest(game: Node, distance_limit: float) -> String:
 static func travel(game: Node, port: String) -> bool:
 	for passage in Rooms.passages(game.current_location):
 		if passage.port != port or game.player.distance_to(passage.position) > 92.0: continue
+		if game.current_location == "cave_sanctum":
+			game.CaveBossSystem.reset(game)
+			var boss_index: int = game.CaveBossSystem.index(game)
+			if boss_index >= 0: game.enemy_nodes[boss_index].position = game.enemy_nodes[boss_index].home
 		game.current_location = passage.target; game.player = passage.spawn
 		game.location_transition_armed = false; game.location_transition_cooldown = game.LocationTransitionSystem.REENTRY_DELAY
 		game.companion_positions.clear()

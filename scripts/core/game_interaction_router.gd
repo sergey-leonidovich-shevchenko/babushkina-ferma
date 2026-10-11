@@ -49,10 +49,11 @@ static func _fixed_interactions(game: Node) -> Dictionary:
 			interactions["loot"] = game.slime_position
 	elif game.current_location == "cave":
 		interactions = {"cave_exit": game.cave_exit_position}
+	if preload("res://scripts/systems/cave_boss_arena_system.gd").altar_available(game): interactions["cave_altar"] = preload("res://scripts/systems/cave_boss_arena_data.gd").ALTAR
 	for passage in preload("res://scripts/systems/cave_room_data.gd").passages(game.current_location):
 		interactions["cave_passage:%s" % passage.port] = passage.position
 	if not game.BuildingSystem.is_interior(game.current_location) and (not preload("res://scripts/systems/cave_room_data.gd").is_cave(game.current_location) or preload("res://scripts/systems/cave_room_data.gd").has_world_exit(game.current_location)):
-		interactions["world_gate"] = game.world_gate_position
+		if preload("res://scripts/systems/cave_boss_arena_system.gd").can_exit(game): interactions["world_gate"] = game.world_gate_position
 	return interactions
 
 ## Запрашивает ближайшие точки у независимых feature-систем в их прежнем приоритетном порядке.
@@ -92,7 +93,7 @@ static func _nearest_dynamic_object(game: Node, current: String, distance: float
 			nearest = "drop:%d" % index
 	for index in game.world_loot_nodes.size():
 		var container: Dictionary = game.world_loot_nodes[index]
-		if container.opened or container.location != game.current_location: continue
+		if container.opened or container.location != game.current_location or not preload("res://scripts/systems/cave_boss_arena_system.gd").container_visible(game,container): continue
 		var candidate_distance: float = game.player.distance_to(container.position)
 		if candidate_distance < nearest_distance:
 			nearest_distance = candidate_distance
@@ -116,6 +117,7 @@ static func _nearest_dynamic_object(game: Node, current: String, distance: float
 ## Выполняет найденное контекстное действие через единственного владельца соответствующей механики.
 static func perform(game: Node) -> bool:
 	var interaction: String = nearest(game)
+	if interaction == "cave_altar": return preload("res://scripts/systems/cave_boss_arena_system.gd").activate(game)
 	if interaction.begins_with("cave_passage:"): return game.LocationTransitionSystem.activate(game,interaction)
 	if interaction.begins_with("building:"): return game.BuildingSystem.enter(game, interaction.get_slice(":", 1))
 	if interaction == "interior_exit": return game.BuildingSystem.leave(game)

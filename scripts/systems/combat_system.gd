@@ -12,7 +12,7 @@ const TYPES := {
 	"orc": {"name":"Орк-разбойник","hp":8,"damage":18,"xp":22,"speed":105.0,"mobile":true,"range":MELEE_DISTANCE,"loot":{"metal":2,"coins":15,"orc_blade":1}},
 	"skeleton": {"name":"Скелет","hp":6,"damage":16,"xp":18,"speed":92.0,"mobile":true,"range":220.0,"loot":{"bones":3,"ancient_key":1}},
 	"undead": {"name":"Проклятый рыцарь","hp":10,"damage":22,"xp":30,"speed":78.0,"mobile":true,"range":185.0,"loot":{"bones":2,"blue_gem":1}},
-	"cave_guardian": {"name":"Хранитель глубин","hp":12,"damage":24,"xp":40,"speed":66.0,"mobile":true,"range":145.0,"loot":{"moon_relic":1,"blue_gem":2}},
+	"cave_guardian": {"name":"Хранитель глубин","hp":12,"damage":24,"xp":40,"speed":66.0,"mobile":true,"range":145.0,"loot":{"blue_gem":2}},
 	"pirate": {"name":"Пират-корсар","hp":9,"damage":18,"xp":24,"speed":108.0,"mobile":true,"range":220.0,"loot":{"pirate_doubloon":2,"metal":1}},
 	"zombie_pirate": {"name":"Зомби-матрос","hp":12,"damage":21,"xp":30,"speed":76.0,"mobile":true,"range":MELEE_DISTANCE,"loot":{"pirate_doubloon":2,"bones":2}},
 	"sea_ghost": {"name":"Морской призрак","hp":10,"damage":20,"xp":34,"speed":96.0,"mobile":true,"range":190.0,"loot":{"ectoplasm":2,"pirate_doubloon":1}},
@@ -116,9 +116,11 @@ static func nearest(game: Node) -> int:
 	var locked := int(game.state.player.adventure_ui.get("target_enemy", -1))
 	if locked >= 0 and locked < game.enemy_nodes.size():
 		var target: Dictionary = game.enemy_nodes[locked]
-		if target.alive and target.location == game.current_location and game.player.distance_to(target.position) < distance_limit: return locked
+		if target.get("cave_boss",false) and not game.state.world.cave_boss.active: locked = -1
+		if locked >= 0 and target.alive and target.location == game.current_location and game.player.distance_to(target.position) < distance_limit: return locked
 	for index in game.enemy_nodes.size():
 		var enemy: Dictionary = game.enemy_nodes[index]
+		if enemy.get("cave_boss",false) and not game.state.world.cave_boss.active: continue
 		if enemy.alive and enemy.location == game.current_location:
 			var distance: float = game.player.distance_to(enemy.position)
 			if distance < distance_limit:
@@ -238,6 +240,7 @@ static func apply_damage(game: Node, index: int, damage: int, attacker_name: Str
 	var enemy: Dictionary = game.enemy_nodes[index]
 	if not enemy.alive or enemy.location != game.current_location:
 		return false
+	if enemy.get("cave_boss",false) and not game.state.world.cave_boss.active: return false
 	if enemy.level > 1:
 		game.notify_tutorial("enemy_levels")
 	enemy.hp -= damage

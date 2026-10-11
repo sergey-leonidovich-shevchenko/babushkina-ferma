@@ -33,7 +33,7 @@ static func draw_background(canvas: Node2D, location: String) -> void:
 			canvas.draw_polyline(shore,Color("303c44"),10.0,true); canvas.draw_polyline(shore,Color(0.34,0.43,0.44,0.6),2.0,true)
 	elif location == "cave_mine": _draw_rails(canvas)
 	elif location == "cave_sanctum":
-		for ground in [Vector2(528,480),Vector2(1728,480),Vector2(528,840),Vector2(1944,792)]: EnvVisual.draw(canvas,"ruins_detail",ground)
+		preload("res://scripts/systems/cave_boss_arena_renderer.gd").draw_background(canvas)
 
 
 ## Возвращает одинаковые при каждом входе кластеры растительности, сохраняя свободные проходы.
@@ -53,6 +53,7 @@ static func clusters(location: String) -> Array:
 ## Рисует мягкое дыхание травы, грибницы и блики воды отдельным динамическим слоем.
 static func draw_lights(game: Node2D, visible: Rect2, time: float) -> void:
 	var location: String = game.current_location
+	if location == "cave_sanctum": preload("res://scripts/systems/cave_boss_arena_renderer.gd").draw_lights(game)
 	var beds: Array = GRASS_BEDS if location == "cave_moon" else (FUNGAL_BEDS if location == "cave_fungal" else Rooms.POOLS.get(location,[]))
 	var tint := Color(0.32,0.65,1.0,0.10) if location == "cave_moon" else Color(0.28,0.85,0.62,0.08)
 	for index in beds.size():

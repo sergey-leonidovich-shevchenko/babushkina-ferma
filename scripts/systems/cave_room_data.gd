@@ -1,5 +1,6 @@
 extends RefCounted
 
+const Arena := preload("res://scripts/systems/cave_boss_arena_data.gd")
 const Entrance := preload("res://scripts/systems/cave_map_data.gd")
 const IDS := ["cave", "cave_fungal", "cave_moon", "cave_lake", "cave_mine", "cave_sanctum"]
 const PORTS := {"left": Vector2(192,600), "right": Vector2(2208,600), "top": Vector2(1200,192), "bottom": Vector2(1200,1056), "deep": Entrance.DEEP_GATE}
@@ -17,11 +18,10 @@ const PATHS := {
 	"cave_moon": [Rect2(288,240,696,384), Rect2(936,480,576,192), Rect2(1440,480,672,480), Rect2(1104,624,624,336), Rect2(-120,504,456,192), Rect2(1104,888,192,360)],
 	"cave_lake": [Rect2(288,288,1824,672), Rect2(-120,504,456,192), Rect2(2064,504,456,192), Rect2(1104,-120,192,456)],
 	"cave_mine": [Rect2(288,288,624,384), Rect2(864,528,696,168), Rect2(1512,288,600,672), Rect2(528,624,528,336), Rect2(1008,816,288,144), Rect2(1104,888,192,360), Rect2(2064,504,456,192)],
-	"cave_sanctum": [Rect2(288,288,1824,672), Rect2(-120,504,456,192), Rect2(1920,-120,192,456)],
 }
-const ROCKS := {"cave_sanctum": [Rect2(1128,480,192,216)]}
+const ROCKS := {}
 const POOLS := {"cave_lake": [Rect2(648,432,768,240), Rect2(1656,720,264,144)]}
-const COLORS := {"cave": Color.WHITE, "cave_fungal": Color("abbda3"), "cave_moon": Color("a6b2d5"), "cave_lake": Color("a6c0c7"), "cave_mine": Color("c1ad94"), "cave_sanctum": Color("b3a4c4")}
+const COLORS := {"cave": Color.WHITE, "cave_fungal": Color("abbda3"), "cave_moon": Color("a6b2d5"), "cave_lake": Color("a6c0c7"), "cave_mine": Color("c1ad94"), "cave_sanctum": Color("a7b1cb")}
 static var _floors: Dictionary = {}
 static var _decor: Dictionary = {}
 
@@ -42,6 +42,7 @@ static func passages(location: String) -> Array[Dictionary]:
 
 ## Собирает соединённые залы и узкие коридоры в единственный кешированный полигон пола.
 static func floor_polygon(location: String) -> PackedVector2Array:
+	if location == Arena.LOCATION: return Arena.floor_polygon()
 	if location == "cave": return PackedVector2Array(Entrance.FLOOR)
 	if _floors.has(location): return _floors[location]
 	var floor := PackedVector2Array()
@@ -78,6 +79,7 @@ static func pool_polygon(rectangle: Rect2, organic: bool = false) -> PackedVecto
 
 ## Размещает тематические скальные детали вне главных проходов; схемы создаются один раз.
 static func decorations(location: String) -> Array:
+	if location == Arena.LOCATION: return Arena.PROPS
 	if location == "cave": return Entrance.DECORATIONS
 	if _decor.has(location): return _decor[location]
 	var result: Array = []

@@ -91,6 +91,7 @@ func test_geometry_projectiles_and_multi_step_attacks() -> void:
 	expect(game.state.world.cave_boss.zones.size() == 2,"cross quake creates two perpendicular corridors")
 	Attacks.begin(game,"fissure",game.enemy_nodes[index])
 	expect(game.state.world.cave_boss.zones.size() == 4 and game.state.world.cave_boss.zones[3].trigger > game.state.world.cave_boss.zones[0].trigger,"fissure advances as four delayed explosions")
+	game.player = Vector2(1440,816)
 	Attacks.begin(game,"rockfall",game.enemy_nodes[index])
 	expect(game.state.world.cave_boss.zones.size() == 3,"rockfall locks three successive landing spots")
 	Attacks.begin(game,"triple_charge",game.enemy_nodes[index])
@@ -150,6 +151,7 @@ func test_legacy_guardian_progress_and_playable_preview() -> void:
 	expect(game.current_location==Data.LOCATION and game.equipped_weapon=="iron_spear","playable boss preview starts in the actual arena with a spear")
 	expect(game.FirstChapterSystem.state(game).completed and game.state.player.profile.created,"preview avoids onboarding dialogs that would pause the battle")
 	Boss.update(game,0.05)
+	expect(not game.state.world.cave_boss.active and game.GameInteractionRouter.perform(game),"preview waits for the real altar interaction")
 	expect(game.state.world.cave_boss.active and game.enemy_nodes[Boss.index(game)].hp==120,"preview starts a live three-stage encounter with the real scheduler")
 	game.free()
 

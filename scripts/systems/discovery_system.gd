@@ -61,6 +61,8 @@ static func dismiss(game: Node) -> void:
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func scan_nearby(game: Node) -> bool:
 	var candidates: Array[Dictionary] = []
+	if preload("res://scripts/systems/cave_boss_arena_system.gd").altar_available(game):
+		add_candidate(candidates,"cave_altar",preload("res://scripts/systems/cave_boss_arena_data.gd").ALTAR,{"title":game.LocaleSystem.entity("cave_altar"),"text":game.LocaleSystem.tutorial("cave_boss_altar")})
 	if game.current_location == "overworld":
 		add_candidate(candidates, "grandmother", game.npc_position, static_hint(game, "grandmother"))
 		add_candidate(candidates, "shop", game.BuildingSystem.SHOP_STALL_POSITION, static_hint(game, "shop"))
@@ -78,7 +80,8 @@ static func scan_nearby(game: Node) -> bool:
 			add_candidate(candidates, "food:%s" % food.kind, food.position, food_hint(game, food.kind))
 	if not game.BuildingSystem.is_interior(game.current_location):
 		if not preload("res://scripts/systems/cave_room_data.gd").is_cave(game.current_location) or preload("res://scripts/systems/cave_room_data.gd").has_world_exit(game.current_location):
-			add_candidate(candidates,"world_gate",game.world_gate_position,static_hint(game,"world_gate"))
+			if preload("res://scripts/systems/cave_boss_arena_system.gd").can_exit(game): add_candidate(candidates,"world_gate",game.world_gate_position,static_hint(game,"world_gate"))
+			else: add_candidate(candidates,"cave_seal",game.world_gate_position,{"title":game.LocaleSystem.entity("cave_seal"),"text":game.LocaleSystem.tutorial("cave_boss_altar")})
 		for building_id in game.BuildingSystem.buildings_at(game.current_location):
 			var building: Dictionary = game.BuildingSystem.BUILDINGS[building_id]
 			add_candidate(candidates, "building:%s" % building_id, building.door, {"title":game.LocaleSystem.location(building.interior),"text":game.LocaleSystem.ui("hint_building")})
@@ -118,7 +121,7 @@ static func scan_nearby(game: Node) -> bool:
 	for item in game.dropped_items:
 		add_candidate(candidates, "item:%s" % item.kind, item.position, item_hint(game, item.kind))
 	for container in game.world_loot_nodes:
-		if not container.opened and container.location == game.current_location:
+		if not container.opened and container.location == game.current_location and preload("res://scripts/systems/cave_boss_arena_system.gd").container_visible(game,container):
 			add_candidate(candidates, "container:%s" % container.kind, container.position, container_hint(game, container.kind))
 	var nearest: Dictionary = {}
 	var nearest_distance := RANGE

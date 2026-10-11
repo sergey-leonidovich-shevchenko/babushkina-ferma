@@ -79,6 +79,7 @@ static func open(game: Node, index: int) -> bool:
 	if index < 0 or index >= game.world_loot_nodes.size():
 		return false
 	var container: Dictionary = game.world_loot_nodes[index]
+	if not preload("res://scripts/systems/cave_boss_arena_system.gd").container_visible(game,container): return false
 	if container.opened or container.location != game.current_location or game.player.distance_to(container.position) > 92.0:
 		return false
 	container.opened = true

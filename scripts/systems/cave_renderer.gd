@@ -58,6 +58,7 @@ static func draw_resource(game: Node2D, node: Dictionary) -> void:
 ## Закрывает существ передними скалами; остальные стены и крупный декор перекрывают героя по его силуэту.
 static func draw_foreground(game: Node2D) -> void:
 	if not Rooms.is_cave(game.current_location): return
+	if game.current_location == "cave_sanctum": preload("res://scripts/systems/cave_boss_arena_renderer.gd").draw_foreground(game)
 	var actor := Rect2(game.player - Vector2(48,80), Vector2(96,96))
 	var visible := Visibility.visible_rect(game)
 	for wall in Layout.walls(game.current_location):
@@ -73,7 +74,7 @@ static func draw_foreground(game: Node2D) -> void:
 ## Показывает небольшой ориентир перехода в глубину пещеры, сохраняя существующую игровую связь областей.
 static func draw_deep_gate(game: Node2D) -> void:
 	for passage in Rooms.passages(game.current_location): _draw_passage(game,passage.position,passage.target)
-	if Rooms.has_world_exit(game.current_location): _draw_passage(game,MapData.DEEP_GATE,"cursed")
+	if Rooms.has_world_exit(game.current_location) and preload("res://scripts/systems/cave_boss_arena_system.gd").can_exit(game): _draw_passage(game,game.world_gate_position,"cursed")
 
 
 ## Обозначает выход из туннеля и показывает название соседней комнаты только вблизи героя.

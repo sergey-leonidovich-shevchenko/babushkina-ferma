@@ -3,7 +3,7 @@ extends RefCounted
 const LOCATION := "cave_sanctum"
 const MAX_HP := 120
 const MINION_LIMIT := 4
-const ARENA := Rect2(1368, 312, 696, 624)
+const ARENA := Rect2(1044, 336, 960, 696)
 const PHASES := [
 	["slam", "fan", "charge", "fissure"],
 	["rockfall", "burst", "sweep", "prison"],

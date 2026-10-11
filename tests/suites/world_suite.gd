@@ -9,13 +9,14 @@ const RoadVisualSystem := preload("res://scripts/systems/road_visual_system.gd")
 func run() -> void:
 	preload("res://tests/suites/cave_location_suite.gd").new(context).run()
 	preload("res://tests/suites/cave_labyrinth_suite.gd").new(context).run()
+	preload("res://tests/suites/cave_boss_arena_suite.gd").new(context).run()
 	test_first_level_master_is_sliced_into_a_seamless_world_grid()
 	test_modular_road_catalog_builds_connected_first_location_routes()
 	test_first_location_has_clear_functional_zones()
 	test_village_hybrid_layout_layers_and_navigation()
 	test_bridge_render_data_and_discovery_covers_both_crossings()
 	test_village_ambient_layer_respects_grid_and_seasons()
-	test_story_and_side_mission_chains()
+	preload("res://tests/suites/story_relic_arena_suite.gd").new(context).run()
 	test_mission_progress_and_drops_are_saved()
 	test_contextual_discoveries_and_new_item_hints()
 	test_discoveries_and_tutorial_checklist_are_saved()
@@ -183,57 +184,6 @@ func test_village_ambient_layer_respects_grid_and_seasons() -> void:
 	expect(VillageAmbientRenderer.source_rect("stump") == Rect2(362,362,362,362), "stump resolves to its isolated production cell")
 	expect(VillageAmbientRenderer.is_visible_in_season("leaves","autumn") and not VillageAmbientRenderer.is_visible_in_season("leaves","summer"), "leaf swirl belongs only to autumn")
 	expect(not VillageAmbientRenderer.is_visible_in_season("water_lilies","winter"), "winter hides flowering water plants")
-
-## Сценарий: сюжетная и побочная миссии проходят от диалога до цели, сдачи и награды.
-## Исходное состояние: новый изолированный экземпляр игры; необходимые ресурсы, позиции и таймеры задаются в начале сценария.
-## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
-func test_story_and_side_mission_chains() -> void:
-	var game := make_game()
-	game.player = game.guild_master_position
-	expect(game.nearest_interaction() == "quest_npc:miron", "story mission giver is interactive")
-	game.perform_context_action()
-	game.AdventurePolishSystem.handle_dialogue_key(game, KEY_ENTER)
-	expect(game.mission_states.story_relic == game.QuestSystem.ACTIVE, "guild master starts story mission")
-	game.current_location = "cave"
-	game.player = game.enemy_nodes[4].position
-	for _hit in 12:
-		game.attack_nearest_enemy()
-		game.AnimationSystem.update(game, 1.1)
-	expect(not game.enemy_nodes[4].alive, "cave guardian can be defeated for story mission")
-	var relic_drop := -1
-	for index in game.dropped_items.size():
-		if game.dropped_items[index].kind == "moon_relic":
-			relic_drop = index
-	expect(relic_drop >= 0, "cave guardian drops the moon relic")
-	game.collect_dropped_item(relic_drop)
-	expect(game.materials.moon_relic == 1, "quest relic can be collected")
-	game.current_location = "overworld"
-	game.player = game.guild_master_position
-	game.perform_context_action()
-	game.AdventurePolishSystem.handle_dialogue_key(game, KEY_ENTER)
-	expect(game.mission_states.story_relic == game.QuestSystem.COMPLETED, "relic can be returned to complete story mission")
-	expect(game.coins == 140 and game.guardian_armor == 1, "story mission grants coins and equipment")
-	game.player = game.herbalist_position
-	game.perform_context_action()
-	game.AdventurePolishSystem.handle_dialogue_key(game, KEY_ENTER)
-	expect(game.mission_states.side_seed == game.QuestSystem.ACTIVE, "herbalist starts side mission")
-	game.materials.rare_seeds = 1
-	game.perform_context_action()
-	game.AdventurePolishSystem.handle_dialogue_key(game, KEY_ENTER)
-	expect(game.mission_states.side_seed == game.QuestSystem.COMPLETED, "side mission accepts its requested loot")
-	expect(game.berries == 3 and game.coins == 175, "side mission grants food and coins")
-	game.toggle_quest_log()
-	expect(game.quest_log_open, "J journal state can be opened")
-	game.toggle_quest_log()
-	var journal_button := InputEventJoypadButton.new()
-	journal_button.button_index = JOY_BUTTON_BACK
-	journal_button.pressed = true
-	expect(game.handle_gamepad_and_touch(journal_button) and game.quest_log_open, "gamepad can open mission journal")
-	var journal_touch := InputEventScreenTouch.new()
-	journal_touch.position = preload("res://scripts/systems/menu_hub_system.gd").CLOSE.get_center()
-	journal_touch.pressed = true
-	expect(game.handle_gamepad_and_touch(journal_touch) and not game.quest_log_open, "touch hub close button closes mission journal")
-	game.free()
 
 ## Сценарий: сохранение восстанавливает этапы миссий и ещё не подобранную сюжетную добычу.
 ## Исходное состояние: новая игра, изменённое сценарием состояние и отдельный тестовый путь сохранения.

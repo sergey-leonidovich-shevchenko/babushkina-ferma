@@ -53,7 +53,7 @@ static func nearest_transition(game: Node, distance_limit: float = TRIGGER_RADIU
 	var cave_passage := CavePassages.nearest(game,distance_limit)
 	if not cave_passage.is_empty(): return cave_passage
 	var gate_distance: float = game.player.distance_to(game.world_gate_position) if not CavePassages.Rooms.is_cave(game.current_location) or CavePassages.Rooms.has_world_exit(game.current_location) else INF
-	if gate_distance < distance_limit:
+	if gate_distance < distance_limit and preload("res://scripts/systems/cave_boss_arena_system.gd").can_exit(game):
 		distance_limit = gate_distance
 		nearest = "world_gate"
 	var portal_position: Vector2 = game.WorldEventSystem.PORTAL_POSITION if game.current_location == "overworld" else game.WorldEventSystem.RETURN_PORTAL_POSITION
@@ -79,6 +79,7 @@ static func activate(game: Node, transition: String) -> bool:
 		game.exit_cave()
 		return true
 	if transition == "world_gate":
+		if not preload("res://scripts/systems/cave_boss_arena_system.gd").can_exit(game): return false
 		if CavePassages.Rooms.is_cave(game.current_location) and not CavePassages.Rooms.has_world_exit(game.current_location): return false
 		if not game.FirstChapterSystem.can_use_world_gate(game): return false
 		game.WorldSystem.travel(game)

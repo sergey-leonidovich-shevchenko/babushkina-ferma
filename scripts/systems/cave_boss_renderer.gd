@@ -66,7 +66,7 @@ static func draw_actors(game: Node2D) -> void:
 	var boss: Dictionary = game.enemy_nodes[index]
 	if boss.alive:
 		var color: Color = [Color("72d2cf"),Color("a3abea"),Color("df99c1")][int(state.phase)-1]
-		game.draw_texture_rect(Light.soft_disc(),Rect2(boss.position-Vector2(105,75),Vector2(210,150)),false,Color(color,0.16))
+		game.draw_texture_rect(Light.soft_disc(),Rect2(boss.position-Vector2(105,75),Vector2(210,150)),false,Color(color,0.16 if state.active else 0.04))
 		shadow(game,boss.position,100.0)
 		var row := 0; var column := 3
 		if float(state.summoning) > 0.0: row = 3; column = clampi(floori((1.2-float(state.summoning))/0.3),0,3)
@@ -75,7 +75,7 @@ static func draw_actors(game: Node2D) -> void:
 			row = int(config.row)
 			var elapsed := float(state.attack.elapsed)
 			column = 0 if elapsed < float(config.windup)*0.65 else (1 if elapsed < float(config.windup) else (2 if elapsed < float(config.windup)+0.3 else 3))
-		Art.draw(game,"guardian",row,column,boss.position,200.0,false,Color(1,0.92,0.94) if int(state.phase)==3 else Color.WHITE)
+		Art.draw(game,"guardian",row,column,boss.position,200.0,false,Color("a3abb6") if not state.active else (Color(1,0.92,0.94) if int(state.phase)==3 else Color.WHITE))
 	var sorted: Array = state.minions.duplicate()
 	sorted.sort_custom(func(a,b): return Vector2(a.position).y < Vector2(b.position).y)
 	for minion in sorted: draw_minion(game,minion,float(state.clock))

@@ -28,6 +28,14 @@ static func collision_rect(kind:String,position:Vector2)->Rect2:
 	return WorldLootVisualSystem.collision_rect(kind,position)
 
 
+## Согласует основание наградного сундука с его самостоятельным лунным спрайтом.
+static func container_collision(container: Dictionary) -> Rect2:
+	if container.location == "cave_sanctum":
+		var size := Vector2(72,48)*0.65
+		return Rect2(Vector2(container.position)-Vector2(size.x*0.5,size.y),size)
+	return collision_rect(container.kind,container.position)
+
+
 ## Проверяет восемь независимых PNG и кратность всех размеров базовой сетке 24 px.
 static func profiles_are_valid()->bool:
 	return WorldLootVisualSystem.validation_errors().is_empty()
@@ -36,10 +44,12 @@ static func profiles_are_valid()->bool:
 ## Рисует контейнеры текущей локации и сохраняет читаемое состояние опустошения.
 static func draw(game:Node2D)->void:
 	for container in game.world_loot_nodes:
-		if container.location!=game.current_location: continue
+		if container.location!=game.current_location or not preload("res://scripts/systems/cave_boss_arena_system.gd").container_visible(game,container): continue
 		var position:Vector2=container.position.round(); var alpha:=0.38 if container.opened else 1.0
 		var tint:=Color(0.82,0.92,1.0,alpha) if container.kind=="pirate_chest" else Color(1.0,1.0,1.0,alpha)
-		game.draw_texture_rect(texture(container.kind),visual_rect(container.kind,position),false,tint)
+		if container.location == "cave_sanctum":
+			game.EnvironmentVisualSystem.draw(game,"moon_chest",position,tint,0.65)
+		else: game.draw_texture_rect(texture(container.kind),visual_rect(container.kind,position),false,tint)
 		if container.opened: game.draw_ui_string(game.UI_FONT,position+Vector2(-35,44),game.LocaleSystem.ui("empty"),HORIZONTAL_ALIGNMENT_CENTER,70,12,Color(0.8,0.8,0.75,0.55))
 
 

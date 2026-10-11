@@ -32,7 +32,7 @@ func test_rooms_form_a_reciprocal_labyrinth_with_a_loop() -> void:
 	var shapes := {}
 	for room in Rooms.IDS: shapes[str(Rooms.floor_polygon(room))] = true
 	expect(shapes.size() == 6,"each cave room has its own floor plan")
-	expect(Rooms.POOLS.has("cave_lake") and Rooms.ROCKS.has("cave_sanctum"),"lake and sanctuary have their own physical landmarks")
+	expect(Rooms.POOLS.has("cave_lake") and not Rooms.ROCKS.has("cave_sanctum"),"lake keeps its water and the selected sanctuary leaves a clear central arena")
 
 
 ## Сценарий: герой исследует пол каждой комнаты, подходит к дверям, сундукам и жиле.
@@ -40,6 +40,7 @@ func test_rooms_form_a_reciprocal_labyrinth_with_a_loop() -> void:
 ## Ожидаемый результат: доступный пол связен, входы безопасны, весь постоянный интерактивный контент достижим.
 func test_every_room_has_connected_floor_and_reachable_content() -> void:
 	var game := make_game(); game.world_loot_nodes.clear()
+	game.enemy_nodes[game.CaveBossSystem.index(game)].alive = false
 	for room in Rooms.IDS:
 		game.current_location = room; game.player = Layout.safe_start(room)
 		var reached := _reachable(game)
@@ -102,9 +103,9 @@ func test_depleted_veins_and_drops_stay_in_their_room() -> void:
 	game.free()
 
 
-## Сценарий: герой и противник пытаются пересечь берег озера и скальную перегородку святилища.
-## Исходное состояние: изображения воды и камня имеют совпадающую с навигацией геометрию.
-## Ожидаемый результат: большие движения останавливаются у берега, а в святилище можно обойти скалу.
+## Сценарий: герой и противник пытаются пересечь берег озера и проходят по открытому центру святилища.
+## Исходное состояние: изображение озера совпадает с навигацией, вариант А не содержит центральной скалы.
+## Ожидаемый результат: большие движения останавливаются у берега, в святилище есть место для уклонения.
 func test_water_and_rock_partition_block_real_movement() -> void:
 	var game := make_game(); game.current_location = "cave_lake"; game.enemy_nodes.clear(); game.world_loot_nodes.clear()
 	game.player = Vector2(960,360); game.move_player_with_collisions(Vector2(0,240))
@@ -115,8 +116,8 @@ func test_water_and_rock_partition_block_real_movement() -> void:
 	var enemy_end: Vector2 = game.NavigationSystem.move_enemy(game,0,Vector2(0,240))
 	expect(enemy_end.y < 552 and not Layout.blocks_water(enemy_end,27,"cave_lake"),"enemy cannot tunnel across underground water")
 	game.current_location = "cave_sanctum"
-	expect(game.NavigationSystem.walkability_reason(game,Vector2(1200,600),-1,false) == "cave_wall","sanctuary rock island blocks its visible centre")
-	expect(game.NavigationSystem.walkability_reason(game,Vector2(1008,600),-1,false) == "walkable","floor beside sanctuary island remains traversable")
+	expect(game.NavigationSystem.walkability_reason(game,Vector2(1200,600),-1,false) == "walkable","selected sanctuary centre remains open for dodging")
+	expect(game.NavigationSystem.walkability_reason(game,Vector2(1008,600),-1,false) == "walkable","floor beside the altar remains traversable")
 	game.free()
 
 
@@ -148,7 +149,7 @@ func test_save_round_trip_and_legacy_room_defaults() -> void:
 
 
 ## Сценарий: игрок ищет внешний проход в разных комнатах, а затем достигает глубокого святилища.
-## Исходное состояние: только северный туннель святилища связан с проклятой землёй.
+## Исходное состояние: только северный туннель святилища связан с проклятой землёй и открывается после победы.
 ## Ожидаемый результат: другие комнаты не предлагают прежний короткий переход мира; конечный выход работает.
 func test_only_deep_sanctuary_exposes_the_world_exit() -> void:
 	var game := make_game()
@@ -156,7 +157,9 @@ func test_only_deep_sanctuary_exposes_the_world_exit() -> void:
 		game.current_location = room; game.player = Rooms.PORTS.deep
 		if room == "cave_sanctum": continue
 		expect(game.nearest_interaction() != "world_gate" and not game.LocationTransitionSystem.activate(game,"world_gate"),"%s does not bypass the cave labyrinth" % room)
-	game.current_location = "cave_sanctum"; game.player = Rooms.PORTS.deep
+	game.current_location = "cave_sanctum"; game.player = game.world_gate_position
+	expect(not game.LocationTransitionSystem.activate(game,"world_gate"),"living sanctuary guardian seals the onward exit")
+	game.enemy_nodes[game.CaveBossSystem.index(game)].alive = false
 	expect(game.nearest_interaction() == "world_gate","sanctuary exposes the actual onward world passage")
 	expect(game.LocationTransitionSystem.activate(game,"world_gate") and game.current_location == "cursed","deep passage retains the existing onward world connection")
 	game.free()

@@ -11,7 +11,7 @@ static func index(game: Node) -> int:
 		if bool(game.enemy_nodes[enemy_index].get("cave_boss", false)): return enemy_index
 	return -1
 
-## Начинает бой при входе на правую арену с паузой перед первой атакой.
+## Начинает пробуждённый у алтаря бой с паузой перед первой атакой.
 static func start(game: Node) -> bool:
 	var boss_index := index(game)
 	if game.current_location != Data.LOCATION or boss_index < 0 or not game.enemy_nodes[boss_index].alive: return false
@@ -28,7 +28,7 @@ static func reset(game: Node) -> void:
 ## Готовит отдельный проверочный запуск боя с оружием и едой без автоматической записи сохранения.
 static func configure_preview(game: Node) -> void:
 	game.language_screen = false; game.title_screen = false; game.current_location = Data.LOCATION
-	game.player = Vector2(1596,756); game.tutorial_visible = false
+	game.player = preload("res://scripts/systems/cave_boss_arena_data.gd").ALTAR + Vector2(72,24); game.tutorial_visible = false
 	game.state.player.profile.created = true
 	game.FarmLifeSystem.state(game).cutscene = ""; game.FarmLifeSystem.state(game).cutscene_timer = 0.0
 	game.FirstChapterSystem.state(game).completed = true
@@ -44,10 +44,11 @@ static func on_damage(game: Node) -> void:
 	if boss_index < 0: return
 	var boss: Dictionary = game.enemy_nodes[boss_index]
 	if not boss.alive:
+		preload("res://scripts/systems/cave_boss_arena_system.gd").award_relic(game)
 		reset(game); game.state.world.cave_boss.victory = 4.0
 		game.notify_tutorial("cave_boss_victory")
 		return
-	if not game.state.world.cave_boss.active: start(game)
+	if not game.state.world.cave_boss.active: return
 	var state: Dictionary = game.state.world.cave_boss
 	var phase := Data.phase(int(boss.hp))
 	if phase <= int(state.phase): return
@@ -65,7 +66,6 @@ static func update(game: Node, delta: float) -> void:
 	state.victory = maxf(0.0, float(state.victory) - delta)
 	var boss_index := index(game)
 	if boss_index < 0 or not game.enemy_nodes[boss_index].alive: return
-	if not state.active and Data.ARENA.has_point(game.player): start(game)
 	if not state.active: return
 	on_damage(game)
 	var remaining := maxf(0.0, delta)
