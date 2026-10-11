@@ -85,6 +85,10 @@ static func apply(game: Node, data: Dictionary) -> bool:
 	game.state.world.moon_glade = game.MoonGladeSystem.normalize_state(data.get("moon_glade", {}))
 	game.state.world.castle_campaign = game.CastleCampaignSystem.normalize_state(data.get("castle_campaign", {}))
 	game.state.world.estate = game.EstateSystem.normalize_state(data.get("estate", {}))
+	var farm_life: Dictionary = game.FarmLifeSystem.state(game)
+	for animal in game.FarmLifeSystem.ANIMALS:
+		if not farm_life.animals.has(animal.id):
+			farm_life.animals[animal.id] = {"fed_day":0, "collected_day":0, "bond":0}
 	var companions: Dictionary = data.get("companions", {})
 	game.recruited_companions.assign(companions.get("recruited", []))
 	game.active_companions.assign(companions.get("active", []))
@@ -111,8 +115,7 @@ static func apply(game: Node, data: Dictionary) -> bool:
 			game.InventorySystem.ensure_item_slot(game, kind)
 	game.InventorySystem.ensure_capacity(game)
 	game.hotbar_slots.assign(data.hotbar)
-	game.equipment = data.equipment.duplicate(true)
-	if not game.equipment.has("offhand"): game.equipment.offhand = ""
+	game.equipment = game.state.inventory.DEFAULT_EQUIPMENT.merged(data.equipment, true)
 	game.quest_active = data.quest_active; game.quest_complete = data.quest_complete
 	game.mission_states = game.QuestSystem.merge_states(data.get("missions", {}))
 	var tutorial: Dictionary = data.get("tutorial", {})

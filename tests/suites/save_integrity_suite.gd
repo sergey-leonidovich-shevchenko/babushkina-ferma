@@ -9,6 +9,7 @@ func run() -> void:
 	test_rejects_malformed_state_without_mutation()
 	test_structural_corruption_falls_back_to_backup()
 	test_legacy_and_json_vector_round_trip()
+	test_legacy_defaults_remain_playable_after_loading()
 
 
 ## Сценарий: синтаксически корректное сохранение содержит неправильный тип или неполную запись.
@@ -91,6 +92,28 @@ func test_legacy_and_json_vector_round_trip() -> void:
 	data.erase("state_schema")
 	for key in Save.ValidationSystem.OPTIONAL: data.erase(key)
 	expect(Save.apply(game, data), "version one without later feature groups remains compatible")
+	game.free()
+
+
+## Сценарий: старый слот не содержит все ячейки экипировки и память домашних животных.
+## Исходное состояние: усадьба уже открыла хлев, но сохранение содержит пустые словари новых подсистем.
+## Ожидаемый результат: загрузка восстанавливает ячейки, сохраняет имеющийся предмет, движение и кормление работают.
+func test_legacy_defaults_remain_playable_after_loading() -> void:
+	var game := make_game()
+	var data := Save.snapshot(game)
+	data.equipment = {"head":"iron_helmet"}
+	data.estate.level = 3
+	data.estate.expansion.erase("animals")
+	expect(Save.apply(game, data), "legacy partial equipment and absent animal memory load safely")
+	expect(game.equipment.head == "iron_helmet" and game.equipment.has_all(["body", "legs", "hands", "ring", "offhand"]), "missing equipment slots default without losing equipped item")
+	expect(game.InventorySystem.speed_multiplier(game) >= 1.0 and game.InventorySystem.damage_bonus(game) >= 0, "loaded legacy equipment supports movement and combat")
+	game.change_inventory_count("wheat", 1)
+	expect(game.FarmLifeSystem.interact(game, "life:trough"), "legacy farm can feed animals after loading")
+	var animals: Dictionary = game.FarmLifeSystem.state(game).animals
+	expect(animals.size() == 3 and animals.values().all(func(animal): return int(animal.fed_day) == game.day), "all three missing animal records initialize and receive feed")
+	var before := animals.duplicate(true)
+	data = Save.snapshot(game)
+	expect(Save.apply(game, data) and game.FarmLifeSystem.state(game).animals == before, "existing animal progress survives another load")
 	game.free()
 
 
