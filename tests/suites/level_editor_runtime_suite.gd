@@ -71,6 +71,16 @@ func test_publish_starts_playtest_and_exit_returns_to_editor()->void:
 	expect(game.player==Vector2(state.objects[0].position) and game.PublishedLevelSystem.blocks_position(game,Vector2(state.objects[2].position),8.0),"playtest spawns at the marker and uses the authored collision geometry")
 	game.player=Vector2(state.objects[1].position); game.PublishedLevelSystem.update(game); var restored:Dictionary=game.get_meta(game.LevelEditorSystem.META_KEY)
 	expect(not game.PublishedLevelSystem.active(game) and restored.active and String(restored.status).contains("ПРОЙДЕН"),"reaching the authored exit completes the test and restores the editable draft")
+	var original := FileAccess.get_file_as_string(path)
+	var temporary := ProjectSettings.globalize_path(path+".tmp")
+	DirAccess.make_dir_recursive_absolute(temporary)
+	var blocker:=FileAccess.open(path+".tmp/sentinel",FileAccess.WRITE); blocker.store_string("preserve"); blocker.close()
+	expect(not game.PublishedLevelSystem.publish_and_play(game,state) and not game.PublishedLevelSystem.active(game),"failed publication never starts the playtest")
+	expect(FileAccess.get_file_as_string(path)==original,"failed publication preserves previously published map")
+	DirAccess.remove_absolute(temporary.path_join("sentinel")); DirAccess.remove_absolute(temporary)
+	state.objects[2].notes="republished safely"
+	expect(game.PublishedLevelSystem.publish_and_play(game,state),"publication replaces an existing runtime document")
+	expect(JSON.parse_string(FileAccess.get_file_as_string(path)).objects[2].notes=="republished safely","replacement publishes the complete new document")
 	DirAccess.remove_absolute(ProjectSettings.globalize_path(path)); game.free()
 
 

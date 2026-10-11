@@ -3,6 +3,7 @@ extends "res://tests/suites/suite_base.gd"
 ## Запускает все сценарии текущего набора тестов в фиксированном порядке.
 func run() -> void:
 	preload("res://tests/suites/save_integrity_suite.gd").new(context).run()
+	preload("res://tests/suites/atomic_save_suite.gd").new(context).run()
 	test_localization_language_selector_and_catalogs()
 	test_application_icon_assets()
 	test_macos_launcher_discovers_and_remembers_godot()

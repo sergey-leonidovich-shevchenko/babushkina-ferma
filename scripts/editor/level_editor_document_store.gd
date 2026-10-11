@@ -1,5 +1,6 @@
 extends RefCounted
 
+const JsonStore := preload("res://scripts/systems/atomic_json_store.gd")
 const ValidationSystem := preload("res://scripts/systems/level_editor_validation_system.gd")
 const FORMAT_VERSION := 6
 const PROJECT_DIRECTORY := "res://level_designs"
@@ -72,12 +73,9 @@ static func save_draft(state: Dictionary, export_to_project: bool) -> bool:
 	DirAccess.make_dir_recursive_absolute(absolute)
 	var slug := slugify(String(state.level_name))
 	var path := directory.path_join(slug + ".json")
-	var file := FileAccess.open(path, FileAccess.WRITE)
-	if file == null:
+	if not JsonStore.write(path, document(state)):
 		state.status = "Ошибка записи: %s" % path
 		return false
-	file.store_string(JSON.stringify(document(state), "  "))
-	file.close()
 	state.status = "Экспорт: %s" % path if export_to_project else "Сохранено: %s" % path
 	if export_to_project:
 		state.export_png = PROJECT_DIRECTORY.path_join(slug + ".png")

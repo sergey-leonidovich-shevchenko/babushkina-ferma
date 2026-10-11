@@ -4,6 +4,7 @@ const SAVE_PATH := "user://farm-save.json"
 const VERSION := 2
 const STATE_SCHEMA := "aggregate-v2"
 const ValidationSystem := preload("res://scripts/systems/save_validation_system.gd")
+const JsonStore := preload("res://scripts/systems/atomic_json_store.gd")
 const VectorCodec := preload("res://scripts/systems/save_vector_codec.gd")
 
 ## Собирает полную сериализуемую копию текущего состояния игры.
@@ -176,63 +177,15 @@ static func apply(game: Node, data: Dictionary) -> bool:
 	game.sync_background_location(); game.update_camera(); return true
 
 
-## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
-static func _read_json(path: String) -> Dictionary:
-	if not FileAccess.file_exists(path):
-		return {}
-	var file := FileAccess.open(path, FileAccess.READ)
-	if not file:
-		return {}
-	var json := JSON.new()
-	if json.parse(file.get_as_text()) != OK:
-		return {}
-	return json.data if json.data is Dictionary else {}
+## Проверяет миграцию и всю используемую структуру без изменения игры.
+static func _valid_document(data: Dictionary) -> bool:
+	var migrated := migrate(data)
+	return not migrated.is_empty() and ValidationSystem.valid(migrated)
 
 
-## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
-static func _write_json(path: String, data: Dictionary) -> bool:
-	var file := FileAccess.open(path, FileAccess.WRITE)
-	if not file:
-		return false
-	file.store_string(JSON.stringify(data))
-	file.flush()
-	return file.get_error() == OK
-
-
-## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
-static func _copy_file(source: String, destination: String) -> bool:
-	var source_file := FileAccess.open(source, FileAccess.READ)
-	if not source_file:
-		return false
-	var destination_file := FileAccess.open(destination, FileAccess.WRITE)
-	if not destination_file:
-		return false
-	destination_file.store_buffer(source_file.get_buffer(source_file.get_length()))
-	destination_file.flush()
-	return destination_file.get_error() == OK
-
-
-## Выполняет операцию «сохранения at» и возвращает результат согласно контракту метода.
+## Сохраняет прогресс проверенной заменой файла и ротирует только исправную резервную копию.
 static func save_at(game: Node, path: String) -> bool:
-	var temporary := path + ".tmp"
-	var backup := path + ".bak"
-	DirAccess.remove_absolute(ProjectSettings.globalize_path(temporary))
-	if not _write_json(temporary, snapshot(game)) or migrate(_read_json(temporary)).is_empty():
-		DirAccess.remove_absolute(ProjectSettings.globalize_path(temporary))
-		return false
-	if FileAccess.file_exists(path):
-		DirAccess.remove_absolute(ProjectSettings.globalize_path(backup))
-		if not _copy_file(path, backup):
-			DirAccess.remove_absolute(ProjectSettings.globalize_path(temporary))
-			return false
-		DirAccess.remove_absolute(ProjectSettings.globalize_path(path))
-	var rename_error := DirAccess.rename_absolute(ProjectSettings.globalize_path(temporary), ProjectSettings.globalize_path(path))
-	if rename_error != OK:
-		if FileAccess.file_exists(backup):
-			_copy_file(backup, path)
-		DirAccess.remove_absolute(ProjectSettings.globalize_path(temporary))
-		return false
-	return true
+	return JsonStore.write(path, snapshot(game), _valid_document, true)
 
 
 ## Выполняет операцию «сохранения» и возвращает результат согласно контракту метода.
@@ -252,10 +205,10 @@ static func has_save() -> bool:
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func load_at(game: Node, path: String) -> bool:
-	var data := _read_json(path)
+	var data := JsonStore.read(path)
 	if not data.is_empty() and apply(game, data):
 		return true
-	var backup := _read_json(path + ".bak")
+	var backup := JsonStore.read(path + ".bak")
 	return not backup.is_empty() and apply(game, backup)
 
 

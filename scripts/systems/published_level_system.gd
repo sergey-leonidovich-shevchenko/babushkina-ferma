@@ -1,5 +1,6 @@
 extends RefCounted
 
+const JsonStore := preload("res://scripts/systems/atomic_json_store.gd")
 const META_KEY := "published_level_runtime"
 const PUBLISHED_DIRECTORY := "res://level_designs/published"
 const EXIT_RADIUS := 30.0
@@ -18,12 +19,8 @@ static func publish_and_play(game:Node,state:Dictionary)->bool:
 		state.status="ПУБЛИКАЦИЯ: исправь %d ошибок"%report.errors.size(); return false
 	var document:Dictionary=game.LevelEditorSystem.document(state); document.format="babushkina-ferma-runtime-level"; document.runtime_validation=report
 	var absolute:=ProjectSettings.globalize_path(PUBLISHED_DIRECTORY); DirAccess.make_dir_recursive_absolute(absolute)
-	var path:=PUBLISHED_DIRECTORY.path_join(game.LevelEditorSystem.slugify(String(state.level_name))+".json"); var temporary:=path+".tmp"
-	var file:=FileAccess.open(temporary,FileAccess.WRITE)
-	if file==null: state.status="Не удалось создать runtime-файл"; return false
-	file.store_string(JSON.stringify(document,"  ")); file.close()
-	if FileAccess.file_exists(path): DirAccess.remove_absolute(ProjectSettings.globalize_path(path))
-	if DirAccess.rename_absolute(ProjectSettings.globalize_path(temporary),ProjectSettings.globalize_path(path))!=OK: state.status="Не удалось завершить публикацию"; return false
+	var path:=PUBLISHED_DIRECTORY.path_join(game.LevelEditorSystem.slugify(String(state.level_name))+".json")
+	if not JsonStore.write(path,document): state.status="Не удалось завершить публикацию"; return false
 	state.status="ОПУБЛИКОВАНО: %s"%path
 	return start_playtest(game,state,document,path)
 
