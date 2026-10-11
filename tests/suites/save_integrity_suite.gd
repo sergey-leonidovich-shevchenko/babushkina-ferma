@@ -110,7 +110,7 @@ func test_legacy_defaults_remain_playable_after_loading() -> void:
 	game.change_inventory_count("wheat", 1)
 	expect(game.FarmLifeSystem.interact(game, "life:trough"), "legacy farm can feed animals after loading")
 	var animals: Dictionary = game.FarmLifeSystem.state(game).animals
-	expect(animals.size() == 3 and animals.values().all(func(animal): return int(animal.fed_day) == game.day), "all three missing animal records initialize and receive feed")
+	expect(animals.size() == 6 and animals.values().all(func(animal): return int(animal.fed_day) == game.day), "all six missing animal records initialize and receive feed")
 	var before := animals.duplicate(true)
 	data = Save.snapshot(game)
 	expect(Save.apply(game, data) and game.FarmLifeSystem.state(game).animals == before, "existing animal progress survives another load")

@@ -7,11 +7,7 @@ const ATLAS:=FarmLifeVisualSystem.ATLAS
 ## Отрисовывает животных фермы, музей, секреты, мебель и боевые снаряды.
 static func draw_world(game: Node) -> void:
 	var value: Dictionary = game.FarmLifeSystem.state(game)
-	if game.current_location == "overworld" and game.state.world.estate.level >= 3:
-		for animal in game.FarmLifeSystem.ANIMALS:
-			game.FarmLifeVisualSystem.draw(game,animal.id,animal.position); var visual:Rect2=game.FarmLifeVisualSystem.visual_rect(animal.id,animal.position)
-			game.draw_ui_string(game.UI_FONT,Vector2(visual.position.x-8,visual.position.y-18),"%s ♥%d" % [animal.name,value.animals[animal.id].bond],HORIZONTAL_ALIGNMENT_CENTER,visual.size.x+16,13,Color("fff0bd"))
-		game.FarmLifeVisualSystem.draw(game,"trough",game.FarmLifeSystem.TROUGH_POSITION)
+	preload("res://scripts/systems/livestock_renderer.gd").draw(game)
 	if game.current_location == "cottage_interior":
 		for furniture in value.furniture:
 			if not game.InteriorRenderer.is_foreground_prop(String(furniture.kind),Vector2(furniture.position),game.player):

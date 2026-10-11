@@ -8,6 +8,8 @@ const VISIBLE_SLOTS := COLUMNS * VISIBLE_ROWS
 const FILTERS := ["all", "tool", "food", "equipment", "resource", "quest"]
 
 const ITEM_DATA := {
+	"animal_feed":{"name":"Корм для животных","short":"Корм","color":Color("cba052")},
+	"truffle":{"name":"Лесной трюфель","short":"Трюфель","color":Color("756047")},
 	"hoe": {"name": "Мотыга", "short": "Мотыга", "color": Color("a87542"), "tool": 0},
 	"seeds": {"name": "Семена моркови", "short": "Семена", "color": Color("d8b86b"), "tool": 1},
 	"tomato_seeds": {"name": "Семена томата", "short": "Томат", "color": Color("c94438"), "seed_bag": true, "tool": 1},

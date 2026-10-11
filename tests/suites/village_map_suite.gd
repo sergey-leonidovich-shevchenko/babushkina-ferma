@@ -25,7 +25,7 @@ func test_minimap_is_warm_before_arrival_finishes()->void:
 	game.FarmLifeSystem.state(game).cutscene="arrival"; game.FarmLifeSystem.state(game).cutscene_timer=4.5
 	background._ready()
 	var prepared:Texture2D=Preview._texture
-	expect(prepared!=null and prepared.get_size()==Vector2(200,100),"Мировой фон прогревает миникарту ещё при скрывающем её вступлении")
+	expect(prepared!=null and prepared.get_size()==MapData.WORLD_SIZE/12,"Мировой фон прогревает миникарту всей карты, включая новый южный луг, ещё при скрывающем её вступлении")
 	game.FarmLifeSystem.update(game,4.5)
 	expect(game.FarmLifeSystem.state(game).cutscene.is_empty() and Preview.texture()==prepared,"Окончание вступления получает ту же подготовленную текстуру, а не строит карту в игровом кадре")
 	Preview.warmup()

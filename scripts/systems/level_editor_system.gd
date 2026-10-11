@@ -491,7 +491,8 @@ static func move_layer(state: Dictionary, step: int) -> void:
 
 ## Сдвигает камеру редактора внутри безопасных границ текущего мира.
 static func pan_camera(game: Node, motion: Vector2) -> void:
-	game.camera_offset.x=clampf(game.camera_offset.x+motion.x,0.0,game.WORLD_SIZE.x-1152.0); game.camera_offset.y=clampf(game.camera_offset.y+motion.y,0.0,game.WORLD_SIZE.y-648.0)
+	var bounds: Vector2=game.WorldBoundsSystem.size(game.current_location)
+	game.camera_offset.x=clampf(game.camera_offset.x+motion.x,0.0,bounds.x-1152.0); game.camera_offset.y=clampf(game.camera_offset.y+motion.y,0.0,bounds.y-648.0)
 	var background:=game.get_node_or_null("WorldBackground"); if background: background.position=-game.camera_offset
 
 

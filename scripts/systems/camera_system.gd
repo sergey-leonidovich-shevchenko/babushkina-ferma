@@ -19,9 +19,10 @@ static func target_offset(game: Node) -> Vector2:
 			_room_axis(game.player.x, room.position.x, room.end.x, playfield.position.x, playfield.end.x, VIEWPORT_SIZE.x),
 			_room_axis(game.player.y, room.position.y, room.end.y, playfield.position.y, playfield.end.y, VIEWPORT_SIZE.y)
 		).round()
+	var bounds: Vector2 = game.WorldBoundsSystem.size(game.current_location)
 	return Vector2(
-		clampf(game.player.x - VIEWPORT_SIZE.x * 0.5, 0.0, game.WORLD_SIZE.x - VIEWPORT_SIZE.x),
-		clampf(game.player.y - VIEWPORT_SIZE.y * 0.5, 0.0, game.WORLD_SIZE.y - VIEWPORT_SIZE.y)
+		clampf(game.player.x - VIEWPORT_SIZE.x * 0.5, 0.0, bounds.x - VIEWPORT_SIZE.x),
+		clampf(game.player.y - VIEWPORT_SIZE.y * 0.5, 0.0, bounds.y - VIEWPORT_SIZE.y)
 	).round()
 
 

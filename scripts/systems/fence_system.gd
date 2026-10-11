@@ -156,7 +156,8 @@ static func placement_reason(game: Node, cell: Vector2i, piece: String, orientat
 	if piece=="gate": cells.append(cell+(Vector2i.RIGHT if orientation==0 else Vector2i.DOWN))
 	for occupied in cells:
 		var rect:=Rect2(Vector2(occupied*CELL_SIZE),Vector2(CELL_SIZE,CELL_SIZE)); var center:=rect.get_center()
-		if rect.position.x<40 or rect.position.y<120 or rect.end.x>game.WORLD_SIZE.x-40 or rect.end.y>game.WORLD_SIZE.y-80: return "boundary"
+		var bounds: Vector2=game.WorldBoundsSystem.size(game.current_location)
+		if rect.position.x<40 or rect.position.y<120 or rect.end.x>bounds.x-40 or rect.end.y>bounds.y-80: return "boundary"
 		if structure_at(game,occupied)>=0: return "occupied"
 		if game.current_location=="overworld" and (game.VillageLayoutSystem.is_road_or_path(center) or game.VillageLayoutSystem.is_on_bridge(center,8.0)): return "road"
 		var navigation_reason: String=game.NavigationSystem.walkability_reason(game,center)

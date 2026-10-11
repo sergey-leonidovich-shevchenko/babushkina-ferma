@@ -9,7 +9,7 @@ const CORE := {
 }
 const MEMORY := {"mission":"s", "day":"n", "state":"s", "gift_day":"n", "last_gift":"s", "personal_done":"b", "personal_day":"n"}
 const EXPANSION := {
-	"first_day":"n", "animals":{"*":{"!":["fed_day", "collected_day", "bond"], "fed_day":"n", "collected_day":"n", "bond":"n"}},
+	"livestock_started":"b", "first_day":"n", "animals":{"*":{"!":["fed_day", "collected_day", "bond"], "fed_day":"n", "collected_day":"n", "bond":"n", "water_day":"n", "pet_day":"n", "ready":"n", "production_day":"n", "last_yield_day":"n"}},
 	"furniture":[{"!":["kind", "position"], "kind":"s", "position":"p"}], "build_mode":"b", "build_index":"n",
 	"museum":["s"], "encyclopedia":["s"], "achievements":["s"], "secrets":{"*":"b"}, "reputation":"n", "relationship_scenes":["s"],
 	"cutscene":"s", "cutscene_timer":"n", "compendium":"b", "page":"n", "photo_mode":"b", "photo_grid":"b",

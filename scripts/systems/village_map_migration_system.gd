@@ -16,6 +16,12 @@ static func apply(game:Node,old_revision:int)->void:
 	for tree in game.state.world.tree_nodes:
 		if tree.id=="tree_0" and Vector2(tree.position).is_equal_approx(Vector2(2016,336)):
 			tree.position=MapData.TREES[0]
+	if old_revision<4:
+		preload("res://scripts/systems/livestock_map_migration.gd").apply(game)
+		var old_positions := {2:Vector2(864,1080),3:Vector2(696,1032),10:Vector2(792,984),11:Vector2(936,984),12:Vector2(1008,1080)}
+		for index in old_positions:
+			if index<game.food_nodes.size() and not bool(game.food_nodes[index].get("planted_by_player",false)) and Vector2(game.food_nodes[index].position).is_equal_approx(old_positions[index]):
+				game.food_nodes[index].position=MapData.FORAGE[index]
 	if game.current_location=="overworld" and game.NavigationSystem.walkability_reason(game,game.player,-1,false)!="walkable":
 		game.player=MapData.START if old_revision<2 else nearest_free_position(game,game.player)
 	game.state.world.estate.map_revision=MapData.REVISION

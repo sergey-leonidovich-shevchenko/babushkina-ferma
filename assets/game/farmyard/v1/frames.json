@@ -1,0 +1,352 @@
+{
+  "barn": [
+    {
+      "pivot": [
+        51.0,
+        104
+      ],
+      "size": [
+        102,
+        104
+      ],
+      "sprite": "frames/barn-0.png"
+    }
+  ],
+  "compost": [
+    {
+      "pivot": [
+        22.5,
+        48
+      ],
+      "size": [
+        45,
+        48
+      ],
+      "sprite": "frames/compost-0.png"
+    }
+  ],
+  "coop": [
+    {
+      "pivot": [
+        33.5,
+        80
+      ],
+      "size": [
+        67,
+        80
+      ],
+      "sprite": "frames/coop-0.png"
+    }
+  ],
+  "cow": [
+    {
+      "pivot": [
+        43.0,
+        69
+      ],
+      "size": [
+        86,
+        69
+      ],
+      "sprite": "frames/cow-0.png"
+    },
+    {
+      "pivot": [
+        44.5,
+        68
+      ],
+      "size": [
+        89,
+        68
+      ],
+      "sprite": "frames/cow-1.png"
+    },
+    {
+      "pivot": [
+        45.0,
+        66
+      ],
+      "size": [
+        90,
+        66
+      ],
+      "sprite": "frames/cow-2.png"
+    },
+    {
+      "pivot": [
+        43.5,
+        65
+      ],
+      "size": [
+        87,
+        65
+      ],
+      "sprite": "frames/cow-3.png"
+    },
+    {
+      "pivot": [
+        45.0,
+        44
+      ],
+      "size": [
+        90,
+        44
+      ],
+      "sprite": "frames/cow-4.png"
+    },
+    {
+      "pivot": [
+        23.0,
+        70
+      ],
+      "size": [
+        46,
+        70
+      ],
+      "sprite": "frames/cow-5.png"
+    }
+  ],
+  "hay": [
+    {
+      "pivot": [
+        20.0,
+        34
+      ],
+      "size": [
+        40,
+        34
+      ],
+      "sprite": "frames/hay-0.png"
+    }
+  ],
+  "hen": [
+    {
+      "pivot": [
+        16.0,
+        36
+      ],
+      "size": [
+        32,
+        36
+      ],
+      "sprite": "frames/hen-0.png"
+    },
+    {
+      "pivot": [
+        16.0,
+        34
+      ],
+      "size": [
+        32,
+        34
+      ],
+      "sprite": "frames/hen-1.png"
+    },
+    {
+      "pivot": [
+        16.0,
+        34
+      ],
+      "size": [
+        32,
+        34
+      ],
+      "sprite": "frames/hen-2.png"
+    },
+    {
+      "pivot": [
+        17.5,
+        30
+      ],
+      "size": [
+        35,
+        30
+      ],
+      "sprite": "frames/hen-3.png"
+    },
+    {
+      "pivot": [
+        16.0,
+        24
+      ],
+      "size": [
+        32,
+        24
+      ],
+      "sprite": "frames/hen-4.png"
+    },
+    {
+      "pivot": [
+        12.5,
+        36
+      ],
+      "size": [
+        25,
+        36
+      ],
+      "sprite": "frames/hen-5.png"
+    }
+  ],
+  "pig": [
+    {
+      "pivot": [
+        25.0,
+        37
+      ],
+      "size": [
+        50,
+        37
+      ],
+      "sprite": "frames/pig-0.png"
+    },
+    {
+      "pivot": [
+        26.0,
+        35
+      ],
+      "size": [
+        52,
+        35
+      ],
+      "sprite": "frames/pig-1.png"
+    },
+    {
+      "pivot": [
+        25.0,
+        34
+      ],
+      "size": [
+        50,
+        34
+      ],
+      "sprite": "frames/pig-2.png"
+    },
+    {
+      "pivot": [
+        25.0,
+        35
+      ],
+      "size": [
+        50,
+        35
+      ],
+      "sprite": "frames/pig-3.png"
+    },
+    {
+      "pivot": [
+        26.0,
+        26
+      ],
+      "size": [
+        52,
+        26
+      ],
+      "sprite": "frames/pig-4.png"
+    },
+    {
+      "pivot": [
+        17.0,
+        35
+      ],
+      "size": [
+        34,
+        35
+      ],
+      "sprite": "frames/pig-5.png"
+    }
+  ],
+  "sheep": [
+    {
+      "pivot": [
+        33.0,
+        51
+      ],
+      "size": [
+        66,
+        51
+      ],
+      "sprite": "frames/sheep-0.png"
+    },
+    {
+      "pivot": [
+        33.0,
+        51
+      ],
+      "size": [
+        66,
+        51
+      ],
+      "sprite": "frames/sheep-1.png"
+    },
+    {
+      "pivot": [
+        33.0,
+        51
+      ],
+      "size": [
+        66,
+        51
+      ],
+      "sprite": "frames/sheep-2.png"
+    },
+    {
+      "pivot": [
+        33.5,
+        50
+      ],
+      "size": [
+        67,
+        50
+      ],
+      "sprite": "frames/sheep-3.png"
+    },
+    {
+      "pivot": [
+        35.0,
+        38
+      ],
+      "size": [
+        70,
+        38
+      ],
+      "sprite": "frames/sheep-4.png"
+    },
+    {
+      "pivot": [
+        21.0,
+        53
+      ],
+      "size": [
+        42,
+        53
+      ],
+      "sprite": "frames/sheep-5.png"
+    }
+  ],
+  "trough": [
+    {
+      "pivot": [
+        25.5,
+        40
+      ],
+      "size": [
+        51,
+        40
+      ],
+      "sprite": "frames/trough-0.png"
+    }
+  ],
+  "water_tub": [
+    {
+      "pivot": [
+        20.5,
+        40
+      ],
+      "size": [
+        41,
+        40
+      ],
+      "sprite": "frames/water_tub-0.png"
+    }
+  ]
+}

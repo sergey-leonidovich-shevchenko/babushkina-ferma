@@ -120,7 +120,11 @@ static func interaction_label(game: Node, interaction: String) -> String:
 	elif interaction in ["home_chest", "loot"] or interaction.begins_with("container:"): key = "context_open"
 	elif interaction.begins_with("drop:"): key = "context_pickup"
 	elif interaction.begins_with("resource:"): key = "context_mine"
-	elif interaction.begins_with("food:") or interaction.begins_with("life:animal:"): key = "context_collect"
+	elif interaction.begins_with("food:"): key = "context_collect"
+	elif interaction.begins_with("life:animal:"):
+		var memory: Dictionary=game.FarmLifeSystem.state(game).animals.get(interaction.get_slice(":",2),{})
+		key="context_collect" if int(memory.get("ready",0))>0 else "context_pet"
+	elif interaction=="life:water": key="context_water"
 	elif interaction == "life:trough": key = "context_feed"
 	elif interaction == "chapter_bridge": key = "context_repair"
 	elif interaction == "estate_board": key = "context_upgrade"

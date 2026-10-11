@@ -4,6 +4,8 @@ const DROP_SIZE := Vector2(44, 44)
 const HOVER_CACHE_META := "debug_hover_cache"
 const CaveAssets := preload("res://scripts/systems/cave_asset_system.gd")
 const CaveLayout := preload("res://scripts/systems/cave_layout_system.gd")
+const LivestockVisual := preload("res://scripts/systems/livestock_visual_system.gd")
+const LivestockData := preload("res://scripts/systems/livestock_data.gd")
 
 
 ## Возвращает верхний видимый объект под экранным курсором или пустой словарь над интерфейсом.
@@ -49,14 +51,17 @@ static func candidates(game: Node, probe: Vector2 = Vector2.INF) -> Array[Dictio
 ## Добавляет животных, кормушку, музей, тайники и установленную мебель из общего визуального профиля.
 static func append_farm_life(game:Node,result:Array[Dictionary], probe: Vector2 = Vector2.INF)->void:
 	var life:Dictionary=game.FarmLifeSystem.state(game)
-	if game.current_location=="overworld" and game.state.world.estate.level>=3:
+	if game.current_location=="overworld":
 		for animal in game.FarmLifeSystem.ANIMALS:
-			var kind:String=String(animal.id); var position:Vector2=Vector2(animal.position); var memory:Dictionary=life.animals.get(kind,{})
-			if probe == Vector2.INF or (game.FarmLifeVisualSystem.visual_rect(kind,position)).has_point(probe):
-				add(result,"farm_animal:%s"%kind,"ФЕРМА",String(animal.name),position,game.FarmLifeVisualSystem.visual_rect(kind,position),86,rect_description(game.FarmLifeVisualSystem.collision_rect(kind,position)),"накормлено" if int(memory.get("fed_day",0))==game.day else "ждёт кормления",["продукт %s"%animal.product,"привязанность %d"%int(memory.get("bond",0)),"профиль %s"%str(game.FarmLifeVisualSystem.profile(kind).visual)])
-		var trough:Vector2=game.FarmLifeSystem.TROUGH_POSITION
-		if probe == Vector2.INF or (game.FarmLifeVisualSystem.visual_rect("trough",trough)).has_point(probe):
-			add(result,"farm:trough","ФЕРМА","Кормушка",trough,game.FarmLifeVisualSystem.visual_rect("trough",trough),76,rect_description(game.FarmLifeVisualSystem.collision_rect("trough",trough)),"доступна",["профиль 96×72","кормит всех животных"])
+			var pose:Dictionary=game.FarmLifeSystem.Livestock.pose(game,animal); var position:Vector2=pose.position; var memory:Dictionary=life.animals.get(animal.id,{})
+			var bounds:=LivestockVisual.destination_rect(animal.kind,pose.frame,position)
+			if probe == Vector2.INF or bounds.has_point(probe):
+				add(result,"farm_animal:%s"%animal.id,"ФЕРМА",String(animal.name),position,bounds,86,rect_description(LivestockData.animal_base(animal,position)),game.FarmLifeSystem.Livestock.status(game,memory),["продукт %s"%animal.product,"привязанность %d"%int(memory.get("bond",0)),"кадр %s"%str(bounds.size)])
+		for index in LivestockData.PROPS.size():
+			var prop:Dictionary=LivestockData.PROPS[index]; var bounds:=LivestockVisual.destination_rect(prop.kind,0,prop.position)
+			if probe!=Vector2.INF and not bounds.has_point(probe): continue
+			var names:={"coop":"Курятник","barn":"Укрытие","trough":"Кормушка","water_tub":"Поилка","hay":"Сено","compost":"Компост"}
+			add(result,"farm:trough" if prop.kind=="trough" else "farm_prop:%s:%d"%[prop.kind,index],"ФЕРМА",names[prop.kind],prop.position,bounds,76,rect_description(LivestockData.prop_base(prop)),"стоит",["кадр %s"%str(bounds.size)])
 	if game.current_location=="cottage_interior":
 		for index in life.furniture.size():
 			var furniture:Dictionary=life.furniture[index]; var kind:String=String(furniture.kind); var position:Vector2=Vector2(furniture.position)

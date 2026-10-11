@@ -64,9 +64,11 @@ static func _nearest_feature_interaction(game: Node, current: String, distance: 
 	if not candidate.is_empty(): result = candidate
 	candidate = game.VillageEventSystem.nearest_interaction(game, distance)
 	if not candidate.is_empty(): result = candidate
-	candidate = game.FarmLifeSystem.nearest_interaction(game, distance)
-	if not candidate.is_empty(): result = candidate
-	candidate = game.FirstChapterSystem.nearest_interaction(game, distance)
+	candidate = game.FarmLifeSystem.nearest_interaction(game, active_distance)
+	if not candidate.is_empty():
+		result = candidate
+		active_distance = game.player.distance_to(game.FarmLifeSystem.interaction_position(game,candidate))
+	candidate = game.FirstChapterSystem.nearest_interaction(game, active_distance)
 	if not candidate.is_empty(): result = candidate
 	candidate = game.CastleCampaignSystem.nearest_interaction(game, active_distance)
 	if not candidate.is_empty():

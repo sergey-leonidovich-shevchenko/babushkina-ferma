@@ -55,7 +55,7 @@ static func draw_minimap(game: Node2D) -> void:
 	if not HudLayoutSystem.shows_minimap(game) or game.inventory_open or game.shop_open or game.quest_log_open or game.world_map_open or game.skill_menu_open or game.crafting_open or game.storage_open or game.forge_open or game.contract_open or game.AdventurePolishSystem.has_modal(game) or bool(farm_life.compendium) or not String(farm_life.cutscene).is_empty() or game.state.fishing.phase in [game.FishingSystem.PHASE_CHARGING,game.FishingSystem.PHASE_MINIGAME,game.FishingSystem.PHASE_RESULT]: return
 	var rect := HudLayoutSystem.MINIMAP_RECT
 	game.InterfaceRenderer.HudRenderer.draw_quiet_panel(game,rect)
-	var world_size: Vector2 = game.WORLD_SIZE
+	var world_size: Vector2 = game.WorldBoundsSystem.size(game.current_location)
 	var map_rect := Rect2(rect.position + Vector2(8, 10), Vector2(rect.size.x-16, (rect.size.x-16)*0.5))
 	game.draw_rect(map_rect, Color("283a30"))
 	if game.current_location == "overworld":

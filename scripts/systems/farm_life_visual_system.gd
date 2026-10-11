@@ -12,6 +12,7 @@ const FURNITURE_TEXTURES := {
 }
 static var _furniture_regions: Dictionary = {}
 const PROFILES:={
+	"pig":{"cell":Vector2i(4,0),"visual":Vector2(96,72),"collision":Vector2(48,24)},
 	"hen":{"cell":Vector2i(0,0),"visual":Vector2(72,72),"collision":Vector2(48,24)},
 	"cow":{"cell":Vector2i(1,0),"visual":Vector2(96,96),"collision":Vector2(48,24)},
 	"sheep":{"cell":Vector2i(2,0),"visual":Vector2(96,96),"collision":Vector2(48,24)},
@@ -52,7 +53,7 @@ static func collision_rect(kind:String,ground_position:Vector2)->Rect2:
 
 ## Проверяет строгую сетку исходника и кратность всех игровых размеров базовой клетке 24 px.
 static func profiles_are_valid()->bool:
-	if ATLAS.get_size()!=Vector2(640,512) or PROFILES.size()!=12: return false
+	if ATLAS.get_size()!=Vector2(640,512) or PROFILES.size()!=13: return false
 	for kind in PROFILES:
 		var data:=profile(kind); var cell:=Vector2i(data.cell); var visual:=Vector2(data.visual); var collision:=Vector2(data.collision)
 		if cell.x<0 or cell.x>=5 or cell.y<0 or cell.y>=4: return false

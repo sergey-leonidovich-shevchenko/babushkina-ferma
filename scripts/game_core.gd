@@ -172,8 +172,9 @@ func _notification(what: int) -> void:
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func clamp_player_position() -> void:
-	player.x = clampf(player.x, 40.0, WORLD_SIZE.x - 40.0)
-	player.y = clampf(player.y, 120.0, WORLD_SIZE.y - 80.0)
+	var bounds := WorldBoundsSystem.size(current_location)
+	player.x = clampf(player.x, 40.0, bounds.x - 40.0)
+	player.y = clampf(player.y, 120.0, bounds.y - 80.0)
 
 ## Обновляет камеру с учётом размеров комнаты и сохраняет общую систему координат для фона и ввода.
 func update_camera() -> void:

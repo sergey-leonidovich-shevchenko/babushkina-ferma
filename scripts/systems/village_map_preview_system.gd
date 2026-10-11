@@ -11,9 +11,10 @@ static func warmup()->void:
 ## Создаёт мини-карту из действующего чертежа, поэтому мосты и дома совпадают с игровым миром после редизайна.
 static func texture()->Texture2D:
 	if _texture!=null: return _texture
-	var image:=Image.create(200,100,false,Image.FORMAT_RGBA8)
-	for y in 100:
-		for x in 200:
+	var dimensions:=Vector2i(Layout.MapData.WORLD_SIZE/12)
+	var image:=Image.create(dimensions.x,dimensions.y,false,Image.FORMAT_RGBA8)
+	for y in dimensions.y:
+		for x in dimensions.x:
 			var position:=Vector2(x,y)*12+Vector2(6,6)
 			var color:=Color("788d49")
 			if Layout.is_water(position,0): color=Color("4d8999")

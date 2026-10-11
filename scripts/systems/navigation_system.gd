@@ -53,7 +53,8 @@ static func walkability_reason(game: Node, position: Vector2, ignored_enemy: int
 			return "storage"
 		return "walkable" if game.BuildingSystem.is_walkable_inside(game.current_location, position, game.PLAYER_RADIUS) else "interior"
 	if game.current_location == "pirate_ship" and not PirateShipSystem.is_walkable(position, game.PLAYER_RADIUS): return "ship"
-	if position.x < 40.0 or position.x > game.WORLD_SIZE.x - 40.0 or position.y < 120.0 or position.y > game.WORLD_SIZE.y - 80.0:
+	var bounds: Vector2 = game.WorldBoundsSystem.size(game.current_location)
+	if position.x < 40.0 or position.x > bounds.x - 40.0 or position.y < 120.0 or position.y > bounds.y - 80.0:
 		return "boundary"
 	if CaveLayout.Rooms.is_cave(game.current_location):
 		if CaveLayout.blocks_position(position,game.PLAYER_RADIUS,game.current_location): return "cave_wall"
@@ -181,7 +182,8 @@ static func enemy_position_walkable(game: Node, position: Vector2, enemy_index: 
 	if player_distance < game.PLAYER_RADIUS + 30.0:
 		if not previous.is_finite() or player_distance <= previous.distance_to(game.player) + 0.001: return false
 	if game.current_location == "pirate_ship" and not PirateShipSystem.is_walkable(position, RADIUS): return false
-	if position.x < 40.0 or position.x > game.WORLD_SIZE.x - 40.0 or position.y < 120.0 or position.y > game.WORLD_SIZE.y - 80.0:
+	var bounds: Vector2 = game.WorldBoundsSystem.size(game.current_location)
+	if position.x < 40.0 or position.x > bounds.x - 40.0 or position.y < 120.0 or position.y > bounds.y - 80.0:
 		return false
 	for building_id in game.BuildingSystem.buildings_at(game.current_location):
 		if circle_intersects_rect(position,RADIUS,game.BuildingSystem.collision_rect(building_id)):

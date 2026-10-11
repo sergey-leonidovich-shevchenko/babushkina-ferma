@@ -3,6 +3,7 @@ extends "res://tests/suites/suite_base.gd"
 
 ## Запускает сценарии первого дня, фермерской жизни, коллекций, боя и интерфейса расширения.
 func run() -> void:
+	preload("res://tests/suites/livestock_suite.gd").new(context).run()
 	test_first_day_is_coherent_route()
 	test_animals_feed_then_produce()
 	test_museum_secrets_and_reputation()
@@ -27,12 +28,13 @@ func test_first_day_is_coherent_route() -> void:
 
 ## Сценарий: построенный хлев связывает кормление сегодня с продуктом завтра.
 ## Исходное состояние: у героя есть пшеница, хлев третьего уровня и пустая дневная память Рябы.
-## Ожидаемый результат: кормушка списывает одно зерно, а яйцо выдаётся один раз следующим утром.
+## Ожидаемый результат: кормушка списывает три зерна, улучшенный хлев выдаёт два яйца один раз следующим утром.
 func test_animals_feed_then_produce() -> void:
-	var game := make_game(); game.state.world.estate.level=3; game.current_location="overworld"; game.day=3; game.change_inventory_count("wheat",1); var life=game.FarmLifeSystem
-	expect(life.interact(game,"life:trough") and game.inventory_item_count("wheat")==0,"trough consumes exactly one wheat and feeds all animals")
-	game.day=4; expect(life.interact(game,"life:animal:hen") and game.inventory_item_count("egg")==1,"fed hen produces one egg on the next morning")
-	expect(life.interact(game,"life:animal:hen") and game.inventory_item_count("egg")==1,"animal product cannot be collected twice in one day")
+	var game := make_game(); game.state.world.estate.level=3; game.current_location="overworld"; game.day=3; game.change_inventory_count("wheat",3); game.change_inventory_count("animal_feed",-game.inventory_item_count("animal_feed")); var life=game.FarmLifeSystem
+	expect(life.interact(game,"life:trough") and game.inventory_item_count("wheat")==0,"trough consumes exactly three wheat and feeds all animals")
+	life.interact(game,"life:water")
+	game.day=4; expect(life.interact(game,"life:animal:hen") and game.inventory_item_count("egg")==2,"upgraded barn hen produces two eggs on the next morning")
+	expect(life.interact(game,"life:animal:hen") and game.inventory_item_count("egg")==2,"animal product cannot be collected twice in one day")
 	game.free()
 
 
@@ -105,7 +107,7 @@ func test_expansion_atlas_and_tutorials() -> void:
 		var bounds: Rect2 = game.FarmLifeVisualSystem.visual_rect(kind, Vector2(320,320))
 		expect(bounds.grow(0.001).encloses(destination) and is_equal_approx(destination.end.y,320.0), "isolated furniture stays within its modular bounds and foot anchor: %s" % kind)
 		expect(is_equal_approx(source.size.x / source.size.y, destination.size.x / destination.size.y), "furniture source is not squeezed to a mismatched atlas rectangle: %s" % kind)
-	game.state.world.estate.level=3; game.FarmLifeSystem.initialize(game); var farm_targets:Array=game.DebugObjectInspectorSystem.candidates(game).filter(func(candidate): return String(candidate.category)=="ФЕРМА"); expect(farm_targets.size()==4 and farm_targets.all(func(candidate): return is_equal_approx(float((candidate.bounds as Rect2).end.y),float(candidate.position.y))),"F10 inspector receives all three farm animals and trough from shared bottom anchors")
+	game.state.world.estate.level=3; game.FarmLifeSystem.initialize(game); var farm_targets:Array=game.DebugObjectInspectorSystem.candidates(game).filter(func(candidate): return String(candidate.category)=="ФЕРМА"); expect(farm_targets.size()==13 and farm_targets.all(func(candidate): return is_equal_approx(float((candidate.bounds as Rect2).end.y),float(candidate.position.y))),"F10 inspector receives all six farm animals and seven placed props from actual sprite bounds and bottom anchors")
 	expect(game.FarmLifeSystem.blocks_position(game,game.FarmLifeSystem.ANIMALS[0].position,game.PLAYER_RADIUS) and not game.FarmLifeSystem.blocks_position(game,Vector2(900,900),game.PLAYER_RADIUS),"farm-life navigation blocks visible bases without creating a broad invisible wall")
 	var preview:=Image.load_from_file(ProjectSettings.globalize_path("res://assets/generated/level_drafts/farm_life_ingame_preview.png")); expect(preview!=null and preview.get_size()==Vector2i(1152,648),"farm-life migration keeps a current native gameplay preview for scale and anchor review")
 	for event_name in ["animal_feed","animal_product","museum","secret_puzzle","furniture_place","photo_mode"]: expect(event_name in game.TutorialSystem.STEP_IDS and game.LocaleSystem.TUTORIAL[event_name].size()==6,"new feature has six-language tutorial: %s" % event_name)

@@ -57,9 +57,12 @@ static func tillability_reason(game: Node, location: String, cell: Vector2i) -> 
 	if location not in OUTDOOR_LOCATIONS:
 		return "location_blocked"
 	var rect := cell_rect(cell)
-	if rect.position.x < 40.0 or rect.position.y < 120.0 or rect.end.x > game.WORLD_SIZE.x - 40.0 or rect.end.y > game.WORLD_SIZE.y - 80.0:
+	var bounds: Vector2 = game.WorldBoundsSystem.size(location)
+	if rect.position.x < 40.0 or rect.position.y < 120.0 or rect.end.x > bounds.x - 40.0 or rect.end.y > bounds.y - 80.0:
 		return "boundary"
 	if location == "overworld":
+		for pen in preload("res://scripts/systems/livestock_data.gd").PENS.values():
+			if Rect2(pen.rect).intersects(rect): return "world_prop"
 		if VillageLayoutSystem.is_on_bridge(rect.get_center(), CELL_SIZE * 0.4):
 			return "bridge"
 		if VillageLayoutSystem.is_road_or_path(rect.get_center()):
@@ -187,7 +190,8 @@ static func restore(game: Node, saved_plots: Array) -> void:
 		var cell := Vector2i(int(saved.get("x", -1)), int(saved.get("y", -1)))
 		if location not in OUTDOOR_LOCATIONS: continue
 		var rect := cell_rect(cell)
-		if rect.position.x < 0.0 or rect.position.y < 0.0 or rect.end.x > game.WORLD_SIZE.x or rect.end.y > game.WORLD_SIZE.y: continue
+		var bounds: Vector2 = game.WorldBoundsSystem.size(location)
+		if rect.position.x < 0.0 or rect.position.y < 0.0 or rect.end.x > bounds.x or rect.end.y > bounds.y: continue
 		var plot := empty_plot(location, cell)
 		for property in ["tilled", "planted", "watered", "growth", "stage"]:
 			plot[property] = saved.get(property, plot[property])

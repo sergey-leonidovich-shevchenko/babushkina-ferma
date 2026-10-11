@@ -69,6 +69,7 @@ const ITEM_WATERMELON := preload("res://assets/game/items/watermelon.png")
 const ITEM_WATERMELON_SLICE := preload("res://assets/game/items/watermelon_slice.png")
 const WILDLIFE_ACTION_SHEETS := {"deer":preload("res://assets/game/wildlife/directional/deer_actions_8dir.png"),"fox":preload("res://assets/game/wildlife/directional/fox_actions_8dir.png"),"boar":preload("res://assets/game/wildlife/directional/boar_actions_8dir.png"),"bat":preload("res://assets/game/wildlife/directional/bat_actions_8dir.png"),"lizard":preload("res://assets/game/wildlife/directional/lizard_actions_8dir.png")}
 const WORLD_SIZE := Vector2(2400, 1200)
+const WorldBoundsSystem := preload("res://scripts/systems/world_bounds_system.gd")
 const STAGE_DURATION := 5.0
 const GROWTH_DURATION := 20.0
 const MAX_BASE_HP := 100

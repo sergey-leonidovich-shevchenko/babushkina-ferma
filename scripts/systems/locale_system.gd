@@ -7,6 +7,8 @@ const SETTINGS_PATH := "user://farm-settings.cfg"
 static var current := "ru"
 
 const UI := {
+	"context_pet":["Погладить","Pet","Acariciar","Streicheln","Caresser","抚摸"],
+	"context_water":["Обновить воду","Refresh water","Renovar agua","Wasser erneuern","Changer l’eau","补充清水"],
 	"context_awaken":["Пробудить Хранителя","Awaken guardian","Despertar al guardián","Wächter wecken","Réveiller le gardien","唤醒守护者"],
 	"hint_cave_labyrinth":["Туннели связывают шесть комнат с развилками. Название видно рядом с проходом; переход срабатывает автоматически. Выход в деревню находится во входном зале.","Tunnels connect six branching rooms. Names appear near passages; entry is automatic. The village exit is in the entrance hall.","Los túneles conectan seis salas con bifurcaciones. Los nombres aparecen junto al paso; se cruza al acercarse. La salida a la aldea está en la sala de entrada.","Tunnel verbinden sechs Räume mit Abzweigungen. Namen erscheinen am Durchgang; der Wechsel erfolgt automatisch. Der Dorfausgang liegt in der Eingangshalle.","Les tunnels relient six salles. Leur nom apparaît près du passage et le trajet est automatique. La sortie du village est dans la salle d’entrée.","隧道连接六间带岔路的洞室。靠近通道可以看到名称并自动进入；入口大厅可以返回村庄。"],
 	"choose_language":["ВЫБЕРИТЕ ЯЗЫК","CHOOSE LANGUAGE","ELIGE IDIOMA","SPRACHE WÄHLEN","CHOISIR LA LANGUE","选择语言"],
@@ -232,6 +234,20 @@ const UI := {
 }
 
 const TEXT := {
+	"livestock_watered":["Вода обновлена для всего двора", "Fresh water for the whole yard", "Agua fresca para todo el corral", "Frisches Wasser für alle Tiere", "Eau fraîche pour tous les animaux", "已为所有动物补充清水"],
+	"livestock_collected":["%s: %s ×%d", "%s: %s ×%d", "%s: %s ×%d", "%s: %s ×%d", "%s : %s ×%d", "%s：%s ×%d"],
+	"livestock_petted":["%s радуется • дружба %d/10", "%s is happy • friendship %d/10", "%s está feliz • amistad %d/10", "%s freut sich • Freundschaft %d/10", "%s est heureux • amitié %d/10", "%s很开心 • 好感%d/10"],
+	"livestock_status":["%s • %s", "%s • %s", "%s • %s", "%s • %s", "%s • %s", "%s • %s"],
+	"livestock_already_fed":["Сегодня все уже накормлены", "Everyone has been fed today", "Todos han comido hoy", "Alle wurden heute gefüttert", "Tous sont déjà nourris aujourd’hui", "今天已经喂过所有动物"],
+	"livestock_need_feed":["Нужна 1 порция корма или 3 пшеницы", "Need 1 animal feed or 3 wheat", "Necesitas 1 pienso o 3 trigo", "Benötigt 1 Tierfutter oder 3 Weizen", "Il faut 1 aliment ou 3 blés", "需要1份饲料或3份小麦"],
+	"livestock_fed":["Двор накормлен • не забудь обновить воду", "Animals fed • refresh their water", "Animales alimentados • renueva el agua", "Tiere gefüttert • Wasser erneuern", "Animaux nourris • change l’eau", "动物已喂食 • 记得补充清水"],
+	"livestock_ready":["Готово к сбору: %d", "Ready to collect: %d", "Listo para recoger: %d", "Bereit zum Sammeln: %d", "À récolter : %d", "可收取：%d"],
+	"livestock_hungry":["Нужен корм", "Needs feed", "Necesita pienso", "Braucht Futter", "Besoin de nourriture", "需要饲料"],
+	"livestock_thirsty":["Нужна свежая вода", "Needs fresh water", "Necesita agua fresca", "Braucht frisches Wasser", "Besoin d’eau fraîche", "需要清水"],
+	"livestock_waiting":["Продукт появится после следующего утра", "Produce arrives after the next morning", "Productos tras la próxima mañana", "Erzeugnisse ab dem nächsten Morgen", "Production après le prochain matin", "次日早晨会产出产品"],
+	"livestock_feed_hint":["Корм для двора", "Yard feed", "Pienso del corral", "Hoffutter", "Nourriture du parc", "动物饲料"],
+	"livestock_water_hint":["Свежая вода", "Fresh water", "Agua fresca", "Frisches Wasser", "Eau fraîche", "清水"],
+
 	"welcome":["Добро пожаловать на Бабушкину ферму!","Welcome to Grandma's Farm!","¡Bienvenido a la Granja de la Abuela!","Willkommen auf Omas Bauernhof!","Bienvenue à la Ferme de Grand-mère !","欢迎来到奶奶的农场！"],
 	"new_day":["Наступил день %d","Day %d begins","Comienza el día %d","Tag %d beginnt","Le jour %d commence","第%d天开始了"],
 	"face_plot":["Подойди к грядке и повернись к ней","Stand by a plot and face it","Acércate a una parcela y mírala","Stell dich an ein Beet und schau hin","Approche d'une parcelle et fais-lui face","靠近田地并面向它"],
@@ -380,6 +396,9 @@ const TEXT := {
 }
 
 const ITEMS := {
+	"animal_feed":["Корм для животных","Animal feed","Pienso para animales","Tierfutter","Aliment pour animaux","动物饲料"],
+	"truffle":["Лесной трюфель", "Forest truffle", "Trufa silvestre", "Waldtrüffel", "Truffe des bois", "森林松露"],
+
 	"hoe":["Мотыга","Hoe","Azada","Hacke","Houe","锄头"], "seeds":["Семена моркови","Carrot seeds","Semillas de zanahoria","Karottensamen","Graines de carotte","胡萝卜种子"],
 	"tomato_seeds":["Семена томата","Tomato seeds","Semillas de tomate","Tomatensamen","Graines de tomate","番茄种子"],
 	"cabbage_seeds":["Семена капусты","Cabbage seeds","Semillas de col","Kohlsamen","Graines de chou","卷心菜种子"],
@@ -462,6 +481,12 @@ const LOCATIONS := {
 }
 
 const TUTORIAL := {
+	"farmyard":["На южном лугу живут корова, свинка, овца и три курицы. E — уход и сбор", "Cow, pig, sheep and three hens live south of the crops. E cares and collects", "Vaca, cerdo, oveja y tres gallinas al sur. E cuida y recoge", "Kuh, Schwein, Schaf und drei Hühner südlich der Beete. E pflegt und sammelt", "Vache, cochon, mouton et trois poules au sud. E soigne et récolte", "菜地南侧有牛、猪、羊和三只鸡。E照料并收取"],
+	"animal_water":["Нажми E у поилки: свежая вода нужна каждый день и не расходует предметы", "Press E at the tub: fresh water is needed daily and costs no items", "Pulsa E en el bebedero: agua diaria sin gastar objetos", "E an der Tränke: täglich frisches Wasser ohne Materialkosten", "E près de l’abreuvoir : eau quotidienne sans objets consommés", "在水槽旁按E：每日补充清水，不消耗物品"],
+	"animal_pet":["После сбора нажми E ещё раз: ласка повышает дружбу раз в день", "After collecting press E again: petting raises friendship once a day", "Tras recoger pulsa E: acariciar mejora amistad una vez al día", "Nach dem Sammeln nochmals E: Streicheln steigert täglich die Freundschaft", "Après la récolte, E : caresser augmente l’amitié une fois par jour", "收取后再按E：每天抚摸一次可提高好感"],
+	"animal_feed":["Одна порция корма или три пшеницы кормят весь двор на день. Повторное кормление бесплатно", "One feed or three wheat feeds the yard daily. Repeated feeding costs nothing", "Un pienso o tres trigo alimentan el corral. Repetir no gasta nada", "Ein Futter oder drei Weizen versorgen den Hof täglich. Wiederholung kostet nichts", "Un aliment ou trois blés nourrissent le parc. Répéter ne coûte rien", "一份饲料或三份小麦可喂所有动物一天。重复喂食不消耗"],
+	"animal_product":["Яйца и молоко появляются наутро, шерсть раз в три дня, трюфели раз в два. Запас до трёх не пропадает", "Eggs and milk arrive next morning, wool every 3 days, truffles every 2. Up to 3 stored products remain", "Huevos y leche al amanecer; lana cada 3 días, trufas cada 2. Se guardan hasta 3", "Eier und Milch am Morgen, Wolle alle 3, Trüffel alle 2 Tage. Bis zu 3 bleiben gelagert", "Œufs et lait au matin, laine tous les 3 jours, truffes tous les 2. Jusqu’à 3 restent stockés", "次晨有蛋和奶；羊毛每3天、松露每2天产出。最多保存3份产品"],
+
 	"cave_boss_altar":["Алтарь у входа пробуждает Хранителя: подойди и нажми E. Северный выход и сундук откроются после победы; отступить можно налево.","Approach the entrance altar and press E to awaken the guardian. Victory opens the northern exit and chest; retreat to the left.","Acércate al altar y pulsa E para despertar al guardián. La victoria abre la salida norte y el cofre; puedes retirarte por la izquierda.","Gehe zum Eingangsaltar und drücke E, um den Wächter zu wecken. Der Sieg öffnet Nordausgang und Truhe; Rückzug ist links möglich.","Approche de l’autel et appuie sur E pour réveiller le gardien. La victoire ouvre la sortie nord et le coffre ; la retraite est à gauche.","靠近入口祭坛按E唤醒守护者。胜利后北侧出口和宝箱会开启；可以从左侧撤退。"],
 	"cave_boss_phases":["Стадии меняются на ⅔ и ⅓ HP. Босс и призывы отменяют замахи и ждут 2,2 секунды; уже прикреплённая муха остаётся.","Phases change at ⅔ and ⅓ HP. Boss and summons cancel windups and wait 2.2 seconds; an attached fly remains.","Las fases cambian a ⅔ y ⅓ de vida. Jefe e invocaciones cancelan ataques y esperan 2,2 s; la mosca adherida permanece.","Phasen wechseln bei ⅔ und ⅓ LP. Boss und Helfer brechen Angriffe ab und warten 2,2 s; eine angeheftete Fliege bleibt.","Les phases changent à ⅔ et ⅓ PV. Boss et invocations annulent leurs attaques et attendent 2,2 s ; la mouche attachée reste.","生命降至⅔和⅓时变换阶段。首领与召唤物取消准备中的攻击并等待2.2秒；已附着的苍蝇仍保留。"],
 	"cave_boss_attacks":["На каждой стадии четыре атаки. Выходи из отмеченных зон, уклоняйся от снарядов; у лунной волны безопасен центр.","Each phase has four attacks. Leave marked zones and dodge projectiles; the moon pulse has a safe center.","Cada fase tiene cuatro ataques. Sal de las zonas y esquiva proyectiles; el centro del pulso lunar es seguro.","Jede Phase hat vier Angriffe. Verlasse markierte Zonen und weiche Geschossen aus; das Zentrum der Mondwelle ist sicher.","Chaque phase a quatre attaques. Quitte les zones et esquive les projectiles ; le centre de l’onde lunaire est sûr.","每阶段有四种攻击。离开标记区并躲开投射物；月光冲击环的中心安全。"],
@@ -487,8 +512,6 @@ const TUTORIAL := {
 	"raid_event":["Защити деревню и победи налётчиков у баррикады","Defend the village and defeat raiders at the barricade","Defiende la aldea de los atacantes","Verteidige das Dorf an der Barrikade","Défends le village près de la barricade","在路障旁击退袭击者"],
 	"interior_furniture":["Обходи мебель и используй рабочую точку с лицевой стороны","Walk around furniture and use its service point from the front","Rodea los muebles y usa el servicio por delante","Umgehe Möbel und nutze Dienste von vorn","Contourne les meubles et utilise le service par devant","绕过家具并从正面使用设施"],
 	"debug_inspector":["F10: включай сетку проходов, хитбоксы, паузу, шаг кадра и noclip прямо на уровне","F10: toggle walkability, hitboxes, pause, frame-step, and noclip on the live level","F10: activa la cuadrícula, colisiones, pausa, avance por cuadros y noclip en el nivel","F10: Laufwege, Hitboxen, Pause, Einzelschritt und Noclip direkt im Level","F10 : affiche les passages, collisions, pause, pas à pas et noclip dans le niveau","F10：在当前关卡切换通行网格、碰撞框、暂停、逐帧和穿墙"],
-	"animal_feed":["Насыпь пшеницу в кормушку, чтобы завтра получить продукты","Put wheat in the trough to receive produce tomorrow","Pon trigo en el comedero para recibir productos mañana","Fülle Weizen in den Trog, um morgen Erzeugnisse zu erhalten","Mets du blé dans l’auge pour obtenir des produits demain","把小麦放进食槽，明天即可收获产品"],
-	"animal_product":["На следующее утро собери яйца, молоко и шерсть","Collect eggs, milk, and wool the next morning","Recoge huevos, leche y lana a la mañana siguiente","Sammle am nächsten Morgen Eier, Milch und Wolle","Récolte œufs, lait et laine le lendemain matin","第二天早晨收集鸡蛋、牛奶和羊毛"],
 	"museum":["Передай уникальную находку музейному постаменту в гильдии","Donate a unique find to the museum pedestal in the guild","Dona un hallazgo único al museo del gremio","Spende einen einzigartigen Fund an das Gildenmuseum","Donne une trouvaille unique au musée de la guilde","把独特发现捐给公会博物馆"],
 	"secret_puzzle":["Исследуй светящиеся механизмы — рядом появится тайный клад","Inspect glowing mechanisms to reveal hidden treasure","Investiga mecanismos brillantes para revelar tesoros","Untersuche leuchtende Mechanismen für verborgene Schätze","Examine les mécanismes lumineux pour révéler un trésor","调查发光机关以发现隐藏宝藏"],
 	"furniture_place":["Дома нажми Z, выбери мебель Q и установи Enter","At home press Z, choose furniture with Q, and place with Enter","En casa pulsa Z, elige con Q y coloca con Enter","Drücke zu Hause Z, wähle mit Q und platziere mit Enter","Chez toi, appuie sur Z, choisis avec Q et place avec Entrée","在家按Z，按Q选择家具，按回车放置"],

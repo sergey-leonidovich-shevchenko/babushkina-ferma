@@ -9,7 +9,7 @@ func run() -> void:
 	test_revision_two_save_migration()
 	test_custom_tree_and_local_player_repair()
 
-## Сценарий: герой проходит все восемь размеченных дорог и три полосы рядом с гильдией.
+## Сценарий: герой проходит все размеченные дороги, включая новый двор, и три полосы рядом с гильдией.
 ## Исходное состояние: все штатные деревья, основания, верстак и добыча сохранены, исключены только подвижные враги.
 ## Ожидаемый результат: реальное движение подшагами не застревает, каждый поперечный зазор не меньше 60 px.
 func test_marked_roads_and_guild_corridor() -> void:
@@ -77,7 +77,7 @@ func test_revision_two_save_migration() -> void:
 	var loot: Array = restored.world_loot_nodes.duplicate(true)
 	Migration.apply(restored,Map.REVISION)
 	expect(restored.state.world.tree_nodes==trees and restored.world_loot_nodes==loot,"repeat map migration is idempotent")
-	expect(restored.state.world.estate.map_revision==3,"successful migration records current map revision")
+	expect(restored.state.world.estate.map_revision==Map.REVISION,"successful migration records current map revision")
 	game.free(); restored.free()
 
 ## Сценарий: редакторная позиция дерева отличается от старого шаблона, а герой сохранён на новом основании.

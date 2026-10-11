@@ -1,12 +1,10 @@
 extends RefCounted
 
 const MapData:=preload("res://scripts/systems/village_map_data.gd")
-const ANIMALS := [
-	{"id":"hen","name":"Ряба","product":"egg","position":MapData.FARM_ANIMALS.hen,"cell":Vector2i(0,0)},
-	{"id":"cow","name":"Зорька","product":"milk","position":MapData.FARM_ANIMALS.cow,"cell":Vector2i(1,0)},
-	{"id":"sheep","name":"Облачко","product":"wool","position":MapData.FARM_ANIMALS.sheep,"cell":Vector2i(2,0)},
-]
-const TROUGH_POSITION:=MapData.FARM_TROUGH
+const Livestock := preload("res://scripts/systems/livestock_system.gd")
+const LivestockData := preload("res://scripts/systems/livestock_data.gd")
+const ANIMALS := LivestockData.ANIMALS
+const TROUGH_POSITION := LivestockData.TROUGH
 const FURNITURE := {"rustic_table":Vector2i(0,2),"wooden_chair":Vector2i(1,2),"woven_rug":Vector2i(2,2),"potted_fern":Vector2i(3,2),"wooden_wardrobe":Vector2i(4,2)}
 const BIRTHDAYS := {4:"miron",8:"agafya",12:"varvara",16:"gavrila",20:"dunya"}
 const MUSEUM_ITEMS := ["blue_gem","moon_relic","ancient_key","cursed_compass","eclipse_core","red_crystal","green_crystal"]
@@ -25,8 +23,8 @@ static func state(game: Node) -> Dictionary:
 static func initialize(game: Node) -> void:
 	var value := state(game)
 	if int(value.first_day) == 0: value.first_day = 1; value.cutscene = "arrival"; value.cutscene_timer = 4.5; game.message = "День 1 • Возвращение на бабушкину ферму"
-	for animal in ANIMALS:
-		if not value.animals.has(animal.id): value.animals[animal.id] = {"fed_day":0,"collected_day":0,"bond":0}
+	Livestock.initialize(game,value)
+	preload("res://scripts/systems/livestock_visual_system.gd").warmup()
 	update_discoveries(game)
 
 ## Обновляет кат-сцены, первый день, летящие снаряды, коллекции и достижения.
@@ -38,6 +36,7 @@ static func update(game: Node, delta: float) -> void:
 	for projectile in value.projectiles:
 		projectile.progress = minf(float(projectile.progress)+delta*5.0,1.0)
 	value.projectiles = value.projectiles.filter(func(projectile): return float(projectile.progress) < 1.0)
+	Livestock.update(game,value,delta)
 	update_first_day(game); update_discoveries(game); update_achievements(game); update_relationship_scenes(game)
 
 ## Возвращает нулевую дельту во время короткой остановки сильного попадания.
@@ -56,26 +55,25 @@ static func first_day_objective(game: Node) -> String:
 
 ## Возвращает ближайшее животное, кормушку, музей или секретный механизм.
 static func nearest_interaction(game: Node, distance_limit: float) -> String:
-	if game.current_location == "overworld" and game.state.world.estate.level >= 3:
-		if game.player.distance_to(TROUGH_POSITION) < distance_limit: return "life:trough"
-		for animal in ANIMALS:
-			if game.player.distance_to(animal.position) < distance_limit: return "life:animal:%s" % animal.id
+	var livestock_target := Livestock.nearest(game,distance_limit)
+	if not livestock_target.is_empty(): return livestock_target
 	if game.current_location == "guild_interior" and game.player.distance_to(Vector2(780,270)) < distance_limit: return "life:museum"
 	if SECRETS.has(game.current_location) and game.player.distance_to(SECRETS[game.current_location].position) < distance_limit: return "life:secret:%s" % game.current_location
 	return ""
 
+## Возвращает живую опору выбранной фермерской цели для общего маршрутизатора взаимодействий.
+static func interaction_position(game: Node, interaction: String) -> Vector2:
+	if interaction=="life:trough": return LivestockData.TROUGH
+	if interaction=="life:water": return LivestockData.WATER
+	if interaction=="life:museum": return Vector2(780,270)
+	if interaction.begins_with("life:secret:"): return SECRETS[interaction.get_slice(":",2)].position
+	var animal := LivestockData.animal(interaction.get_slice(":",2))
+	return Livestock.pose(game,animal).position if not animal.is_empty() else game.player
+
 ## Выполняет взаимодействие с животноводством, музейной коллекцией и тайниками.
 static func interact(game: Node, interaction: String) -> bool:
 	var value := state(game); var parts := interaction.split(":"); if parts.size() < 2: return false
-	if parts[1] == "trough":
-		if game.inventory_item_count("wheat") < 1: game.message = "Для кормушки нужна пшеница"; return true
-		game.change_inventory_count("wheat",-1)
-		for animal in ANIMALS: value.animals[animal.id].fed_day = game.day
-		game.message = "Все животные накормлены"; game.notify_tutorial("animal_feed"); return true
-	if parts[1] == "animal" and parts.size() > 2:
-		var animal: Dictionary = ANIMALS.filter(func(item): return item.id == parts[2])[0]; var memory: Dictionary = value.animals[animal.id]
-		if int(memory.fed_day) != game.day-1 or int(memory.collected_day) == game.day: game.message = "%s ждёт кормления и нового утра" % animal.name; return true
-		memory.collected_day = game.day; memory.bond = int(memory.bond)+1; game.change_inventory_count(animal.product,1); game.message = "%s: получен предмет «%s»" % [animal.name,game.inventory_item_name(animal.product)]; game.notify_tutorial("animal_product"); return true
+	if parts[1] in ["trough","water","animal"]: return Livestock.interact(game,value,interaction)
 	if parts[1] == "museum": return donate_museum_item(game)
 	if parts[1] == "secret" and parts.size() > 2: return activate_secret(game,parts[2])
 	return false
@@ -172,10 +170,7 @@ static func place_furniture(game: Node) -> bool:
 
 ## Проверяет коллизию героя с видимыми основаниями животных, мебели, музея и тайников.
 static func blocks_position(game: Node, position: Vector2, radius: float) -> bool:
-	if game.current_location=="overworld" and game.state.world.estate.level>=3:
-		for animal in ANIMALS:
-			if game.FarmLifeVisualSystem.circle_intersects_rect(position,radius,game.FarmLifeVisualSystem.collision_rect(String(animal.id),Vector2(animal.position))): return true
-		if game.FarmLifeVisualSystem.circle_intersects_rect(position,radius,game.FarmLifeVisualSystem.collision_rect("trough",TROUGH_POSITION)): return true
+	if Livestock.blocks_position(game,position,radius): return true
 	if game.current_location=="cottage_interior":
 		for furniture in state(game).furniture:
 			var collision:Rect2=game.FarmLifeVisualSystem.collision_rect(String(furniture.kind),Vector2(furniture.position))

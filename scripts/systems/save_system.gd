@@ -86,9 +86,7 @@ static func apply(game: Node, data: Dictionary) -> bool:
 	game.state.world.castle_campaign = game.CastleCampaignSystem.normalize_state(data.get("castle_campaign", {}))
 	game.state.world.estate = game.EstateSystem.normalize_state(data.get("estate", {}))
 	var farm_life: Dictionary = game.FarmLifeSystem.state(game)
-	for animal in game.FarmLifeSystem.ANIMALS:
-		if not farm_life.animals.has(animal.id):
-			farm_life.animals[animal.id] = {"fed_day":0, "collected_day":0, "bond":0}
+	game.FarmLifeSystem.Livestock.initialize(game,farm_life,false)
 	var companions: Dictionary = data.get("companions", {})
 	game.recruited_companions.assign(companions.get("recruited", []))
 	game.active_companions.assign(companions.get("active", []))
@@ -103,6 +101,7 @@ static func apply(game: Node, data: Dictionary) -> bool:
 	for companion_id in game.active_companions:
 		game.companion_positions[companion_id] = game.player + Vector2(-50, 35)
 	game.import_inventory_counts(data.counts)
+	game.FarmLifeSystem.Livestock.initialize(game,farm_life)
 	var inventory_catalog: Array = game.inventory_slots.duplicate()
 	game.inventory_slots.assign(data.slots)
 	for kind in inventory_catalog:

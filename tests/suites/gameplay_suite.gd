@@ -84,7 +84,7 @@ func test_food_healing_and_temporary_effects() -> void:
 	game.consume_selected_item()
 	game.slime_alive = false
 	# Скорость измеряется на свободном участке, а не внутри нового берега или здания.
-	game.player = Vector2(696,744)
+	game.player = Vector2(360,672)
 	game.move_right_held = true
 	var start_x: float = game.player.x
 	game.update_player_movement(1.0)
