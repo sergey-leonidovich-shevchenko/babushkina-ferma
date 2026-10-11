@@ -7,3 +7,10 @@
 Файлы в `assets/game/environment/seasons`, `assets/game/environment/moon` и `assets/game/environment/biomes` являются воспроизводимыми runtime-производными этих трёх исходных атласов. Скрипт `tools/build_environment_sprites.py` сохраняет естественные пропорции, удаляет только чужие фрагменты соседних дробных ячеек и внешний chroma-key ореол, после чего помещает рисунок в прозрачный модульный холст.
 
 Шестнадцать файлов `assets/game/effects/actions/effect_*.png` тем же скриптом воспроизводимо извлекаются из оригинального `action_effects_atlas.png`. Они не являются новым сторонним содержимым: исходные пиксели пропорционально вписаны в прозрачные холсты 72×72 и собраны в контрольный каталог.
+Модульный набор пещеры, 11 октября 2026:
+assets/game/locations/cave/modular/*_v1.png
+Стены, жилы и декор нарезаны из согласованного авторского концепта,
+созданного встроенным image_gen.imagegen. Пол создан тем же инструментом.
+Промпты и источники: docs/concepts/cave-location-2026-10/v1/prompt-set.json,
+assets/game/locations/cave/modular/floor-prompt.json и sprite-source.json.
+Сторонние ассеты в этот набор не включены.

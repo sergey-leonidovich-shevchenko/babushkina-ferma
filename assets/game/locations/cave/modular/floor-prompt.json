@@ -1,0 +1,6 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "Generate a square seamless repeating floor material for the approved cave game environment supplied as reference. Only the FLOOR surface, viewed perfectly straight down, no walls, no objects, no crystal deposits, no mushrooms, no characters, no UI, no text. Muted cool slate gray compacted dust and stone in a polished hand-painted 2D farming RPG style. Match the subdued readable gray floor of the reference. Very low contrast organic mottled grain, a few tiny pebbles and sparse short subtle cracks. No brick pattern, no regular tiles, no dramatic rocks, no large repeated motifs, no directional illumination, no vignette or border. Uniform brightness across the square, all edges match seamlessly for repeating on a large walkable floor. Simple calm textured material that keeps sprites and enemies readable. No scene composition.",
+  "reference": "docs/concepts/cave-location-2026-10/v1/after.png",
+  "transparent_background": false
+}

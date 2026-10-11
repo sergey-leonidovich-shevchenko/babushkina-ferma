@@ -1,0 +1,386 @@
+{
+  "source": "docs/concepts/cave-location-2026-10/v1/sprite-kit.png",
+  "method": "Separate approved sprites, crop alpha bounds, fit preserving aspect into double runtime size, bottom-center anchor with 8 px native padding. Preserve source alpha. No background removal.",
+  "sprites": [
+    {
+      "id": "wall_straight_a",
+      "profile": "cave_wall",
+      "crop": [
+        16,
+        32,
+        307,
+        248
+      ],
+      "runtime": [
+        144,
+        168
+      ],
+      "native": [
+        288,
+        336
+      ],
+      "file": "wall_straight_a_v1.png"
+    },
+    {
+      "id": "wall_straight_b",
+      "profile": "cave_wall",
+      "crop": [
+        320,
+        32,
+        638,
+        248
+      ],
+      "runtime": [
+        144,
+        168
+      ],
+      "native": [
+        288,
+        336
+      ],
+      "file": "wall_straight_b_v1.png"
+    },
+    {
+      "id": "wall_side_right",
+      "profile": "cave_side_wall",
+      "crop": [
+        681,
+        4,
+        870,
+        263
+      ],
+      "runtime": [
+        96,
+        168
+      ],
+      "native": [
+        192,
+        336
+      ],
+      "file": "wall_side_right_v1.png"
+    },
+    {
+      "id": "wall_side_left",
+      "profile": "cave_side_wall",
+      "crop": [
+        957,
+        4,
+        1144,
+        263
+      ],
+      "runtime": [
+        96,
+        168
+      ],
+      "native": [
+        192,
+        336
+      ],
+      "file": "wall_side_left_v1.png"
+    },
+    {
+      "id": "wall_rim",
+      "profile": "cave_rim",
+      "crop": [
+        1191,
+        103,
+        1525,
+        248
+      ],
+      "runtime": [
+        144,
+        96
+      ],
+      "native": [
+        288,
+        192
+      ],
+      "file": "wall_rim_v1.png"
+    },
+    {
+      "id": "corner_left",
+      "profile": "cave_corner",
+      "crop": [
+        16,
+        265,
+        268,
+        515
+      ],
+      "runtime": [
+        144,
+        168
+      ],
+      "native": [
+        288,
+        336
+      ],
+      "file": "corner_left_v1.png"
+    },
+    {
+      "id": "corner_right",
+      "profile": "cave_corner",
+      "crop": [
+        335,
+        267,
+        586,
+        517
+      ],
+      "runtime": [
+        144,
+        168
+      ],
+      "native": [
+        288,
+        336
+      ],
+      "file": "corner_right_v1.png"
+    },
+    {
+      "id": "corner_inner",
+      "profile": "cave_corner",
+      "crop": [
+        639,
+        256,
+        898,
+        511
+      ],
+      "runtime": [
+        144,
+        168
+      ],
+      "native": [
+        288,
+        336
+      ],
+      "file": "corner_inner_v1.png"
+    },
+    {
+      "id": "wall_end",
+      "profile": "cave_corner",
+      "crop": [
+        960,
+        280,
+        1157,
+        515
+      ],
+      "runtime": [
+        144,
+        168
+      ],
+      "native": [
+        288,
+        336
+      ],
+      "file": "wall_end_v1.png"
+    },
+    {
+      "id": "entrance",
+      "profile": "cave_door",
+      "crop": [
+        1196,
+        264,
+        1523,
+        515
+      ],
+      "runtime": [
+        192,
+        192
+      ],
+      "native": [
+        384,
+        384
+      ],
+      "file": "entrance_v1.png"
+    },
+    {
+      "id": "crystal_blue",
+      "profile": "cave_vein",
+      "crop": [
+        53,
+        521,
+        284,
+        764
+      ],
+      "runtime": [
+        120,
+        120
+      ],
+      "native": [
+        240,
+        240
+      ],
+      "file": "crystal_blue_v1.png"
+    },
+    {
+      "id": "crystal_green",
+      "profile": "cave_vein",
+      "crop": [
+        342,
+        520,
+        586,
+        763
+      ],
+      "runtime": [
+        120,
+        120
+      ],
+      "native": [
+        240,
+        240
+      ],
+      "file": "crystal_green_v1.png"
+    },
+    {
+      "id": "crystal_red",
+      "profile": "cave_vein",
+      "crop": [
+        642,
+        520,
+        895,
+        760
+      ],
+      "runtime": [
+        120,
+        120
+      ],
+      "native": [
+        240,
+        240
+      ],
+      "file": "crystal_red_v1.png"
+    },
+    {
+      "id": "ore_metal",
+      "profile": "cave_vein",
+      "crop": [
+        946,
+        525,
+        1186,
+        764
+      ],
+      "runtime": [
+        120,
+        120
+      ],
+      "native": [
+        240,
+        240
+      ],
+      "file": "ore_metal_v1.png"
+    },
+    {
+      "id": "boulder",
+      "profile": "cave_boulder",
+      "crop": [
+        1237,
+        541,
+        1494,
+        757
+      ],
+      "runtime": [
+        120,
+        96
+      ],
+      "native": [
+        240,
+        192
+      ],
+      "file": "boulder_v1.png"
+    },
+    {
+      "id": "stalagmites",
+      "profile": "cave_stalagmite",
+      "crop": [
+        55,
+        765,
+        281,
+        997
+      ],
+      "runtime": [
+        72,
+        120
+      ],
+      "native": [
+        144,
+        240
+      ],
+      "file": "stalagmites_v1.png"
+    },
+    {
+      "id": "rubble",
+      "profile": "cave_rubble",
+      "crop": [
+        343,
+        813,
+        600,
+        999
+      ],
+      "runtime": [
+        96,
+        72
+      ],
+      "native": [
+        192,
+        144
+      ],
+      "file": "rubble_v1.png"
+    },
+    {
+      "id": "mushrooms",
+      "profile": "cave_mushroom",
+      "crop": [
+        680,
+        840,
+        863,
+        992
+      ],
+      "runtime": [
+        48,
+        48
+      ],
+      "native": [
+        96,
+        96
+      ],
+      "file": "mushrooms_v1.png"
+    },
+    {
+      "id": "torch",
+      "profile": "cave_torch",
+      "crop": [
+        1003,
+        779,
+        1100,
+        994
+      ],
+      "runtime": [
+        48,
+        96
+      ],
+      "native": [
+        96,
+        192
+      ],
+      "file": "torch_v1.png"
+    },
+    {
+      "id": "crystal_fragments",
+      "profile": "cave_fragments",
+      "crop": [
+        1242,
+        851,
+        1507,
+        1000
+      ],
+      "runtime": [
+        72,
+        72
+      ],
+      "native": [
+        144,
+        144
+      ],
+      "file": "crystal_fragments_v1.png"
+    }
+  ]
+}

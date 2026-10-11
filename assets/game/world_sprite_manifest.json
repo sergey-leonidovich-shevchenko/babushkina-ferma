@@ -227,21 +227,168 @@
       "id": "WS-010",
       "family": "Камни, кристаллы и пещерный декор",
       "assets": [
-        {"path":"assets/game/resources/rock.png","width":64,"height":64},
-        {"path":"assets/game/resources/blue-crystal.png","width":64,"height":64},
-        {"path":"assets/game/environment/cave_crystal.png","width":64,"height":64},
-        {"path":"assets/game/environment/red_mushrooms.png","width":64,"height":64}
+        {
+          "path": "assets/game/resources/rock.png",
+          "width": 64,
+          "height": 64
+        },
+        {
+          "path": "assets/game/resources/blue-crystal.png",
+          "width": 64,
+          "height": 64
+        },
+        {
+          "path": "assets/game/environment/cave_crystal.png",
+          "width": 64,
+          "height": 64
+        },
+        {
+          "path": "assets/game/environment/red_mushrooms.png",
+          "width": 64,
+          "height": 64
+        },
+        {
+          "path": "assets/game/locations/cave/modular/boulder_v1.png",
+          "width": 240,
+          "height": 192
+        },
+        {
+          "path": "assets/game/locations/cave/modular/corner_inner_v1.png",
+          "width": 288,
+          "height": 336
+        },
+        {
+          "path": "assets/game/locations/cave/modular/corner_left_v1.png",
+          "width": 288,
+          "height": 336
+        },
+        {
+          "path": "assets/game/locations/cave/modular/corner_right_v1.png",
+          "width": 288,
+          "height": 336
+        },
+        {
+          "path": "assets/game/locations/cave/modular/crystal_blue_v1.png",
+          "width": 240,
+          "height": 240
+        },
+        {
+          "path": "assets/game/locations/cave/modular/crystal_fragments_v1.png",
+          "width": 144,
+          "height": 144
+        },
+        {
+          "path": "assets/game/locations/cave/modular/crystal_green_v1.png",
+          "width": 240,
+          "height": 240
+        },
+        {
+          "path": "assets/game/locations/cave/modular/crystal_red_v1.png",
+          "width": 240,
+          "height": 240
+        },
+        {
+          "path": "assets/game/locations/cave/modular/entrance_v1.png",
+          "width": 384,
+          "height": 384
+        },
+        {
+          "path": "assets/game/locations/cave/modular/floor_v1.png",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "path": "assets/game/locations/cave/modular/mushrooms_v1.png",
+          "width": 96,
+          "height": 96
+        },
+        {
+          "path": "assets/game/locations/cave/modular/ore_metal_v1.png",
+          "width": 240,
+          "height": 240
+        },
+        {
+          "path": "assets/game/locations/cave/modular/rubble_v1.png",
+          "width": 192,
+          "height": 144
+        },
+        {
+          "path": "assets/game/locations/cave/modular/stalagmites_v1.png",
+          "width": 144,
+          "height": 240
+        },
+        {
+          "path": "assets/game/locations/cave/modular/torch_v1.png",
+          "width": 96,
+          "height": 192
+        },
+        {
+          "path": "assets/game/locations/cave/modular/wall_end_v1.png",
+          "width": 288,
+          "height": 336
+        },
+        {
+          "path": "assets/game/locations/cave/modular/wall_rim_v1.png",
+          "width": 288,
+          "height": 192
+        },
+        {
+          "path": "assets/game/locations/cave/modular/wall_side_left_v1.png",
+          "width": 192,
+          "height": 336
+        },
+        {
+          "path": "assets/game/locations/cave/modular/wall_side_right_v1.png",
+          "width": 192,
+          "height": 336
+        },
+        {
+          "path": "assets/game/locations/cave/modular/wall_straight_a_v1.png",
+          "width": 288,
+          "height": 336
+        },
+        {
+          "path": "assets/game/locations/cave/modular/wall_straight_b_v1.png",
+          "width": 288,
+          "height": 336
+        }
       ],
-      "render_owner": "GameRenderer и WorldBackground",
-      "source_layout": "отдельные квадратные PNG",
-      "runtime_sizes": ["24×24", "48×48", "72×72", "120×96"],
-      "target_modules": ["24×24", "48×48", "72×72", "120×96"],
+      "render_owner": "CaveAssetSystem, GameRenderer и WorldBackground",
+      "source_layout": "Отдельные PNG согласованного набора пещеры; native-разрешение вдвое выше модульного runtime-размера; пол — повторяемый материал",
+      "runtime_sizes": [
+        "24×24",
+        "48×48",
+        "72×72",
+        "120×96",
+        "96×168",
+        "144×168",
+        "144×96",
+        "192×192",
+        "120×120",
+        "72×120",
+        "96×72",
+        "48×96"
+      ],
+      "target_modules": [
+        "24×24",
+        "48×48",
+        "72×72",
+        "120×96",
+        "96×168",
+        "144×168",
+        "144×96",
+        "192×192",
+        "120×120",
+        "72×120",
+        "96×72",
+        "48×96"
+      ],
       "anchor": "нижний центр ресурса",
-      "collision": "ресурс 48×48; пещерная группа 96×72; декоративные части принадлежат общей группе",
+      "collision": "Добываемые жилы имеют основание 72×48; стены — отдельный модульный каталог; старый ресурс 48×48 сохранён для остальных локаций",
       "status": "compliant",
       "priority": "P2",
-      "debt": "Закрыт: добываемые ресурсы, камни портала, пещерные группы и кристаллы кратны сетке; повторная заливка пола и двойная отрисовка кристаллов удалены.",
-      "done_when": "Малый камень 48×48, жила 72×72, группа 120×96; видимое основание, F10 и навигация описаны общим каталогом."
+      "debt": "Новый согласованный дизайн нарезан на двадцать самостоятельных PNG с общей нижней опорой. Реестр также сохраняет старые пещерные ресурсы для остальных биомов.",
+      "done_when": "Самостоятельные PNG, прозрачные поля и размеры кратны базовой сетке; профиль одинаков для отображения и навигации."
     },
     {
       "id": "WS-011",

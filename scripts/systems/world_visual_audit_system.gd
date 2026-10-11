@@ -8,6 +8,7 @@ const EnvironmentVisualSystem := preload("res://scripts/systems/environment_visu
 const FarmLifeVisualSystem := preload("res://scripts/systems/farm_life_visual_system.gd")
 const InteriorVisualSystem := preload("res://scripts/systems/interior_visual_system.gd")
 const WaterVisualSystem := preload("res://scripts/systems/water_visual_system.gd")
+const CaveAssets := preload("res://scripts/systems/cave_asset_system.gd")
 
 
 ## Возвращает нормализованные профили всех мигрированных мировых каталогов для отчётов и content validation.
@@ -53,6 +54,7 @@ static func validation_errors() -> Array[String]:
 	if not FarmLifeVisualSystem.profiles_are_valid(): errors.append("farm_life: атлас или профиль невалиден")
 	if not CreatureVisualProfileSystem.profiles_are_valid(): errors.append("creatures: профиль невалиден")
 	errors.append_array(WorldLootVisualSystem.validation_errors())
+	errors.append_array(CaveAssets.validation_errors())
 	return errors
 
 
