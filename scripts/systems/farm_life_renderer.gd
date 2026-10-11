@@ -17,6 +17,7 @@ static func draw_world(game: Node) -> void:
 		var secret: Dictionary = game.FarmLifeSystem.SECRETS[game.current_location]; game.FarmLifeVisualSystem.draw(game,"secret",secret.position)
 	for projectile in value.projectiles:
 		draw_combat_effect(game, projectile)
+	preload("res://scripts/systems/enemy_projectile_system.gd").draw(game)
 	for enemy in game.enemy_nodes:
 		if enemy.location==game.current_location and enemy.alive and bool(enemy.get("event_raid_boss",false)): game.FarmLifeVisualSystem.draw(game,"raid_banner",enemy.position+Vector2(0,-76)); game.draw_ui_string(game.UI_FONT,enemy.position+Vector2(-75,-184),"КАПИТАН НАЛЁТЧИКОВ",HORIZONTAL_ALIGNMENT_CENTER,150,13,Color("ffcf75"))
 

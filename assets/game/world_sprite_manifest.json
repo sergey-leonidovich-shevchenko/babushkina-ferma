@@ -598,7 +598,9 @@
         {"path":"assets/game/enemies/animated/core_enemy_walk_8dir.png","width":1536,"height":1024},
         {"path":"assets/game/enemies/animated/core_enemy_actions_8dir.png","width":1536,"height":1024},
         {"path":"assets/game/enemies/animated/pirate_enemy_walk_8dir.png","width":1536,"height":1024},
-        {"path":"assets/game/enemies/animated/pirate_enemy_actions_8dir.png","width":1536,"height":1024}
+        {"path":"assets/game/enemies/animated/pirate_enemy_actions_8dir.png","width":1536,"height":1024},
+        {"path":"assets/game/enemies/skeleton_v2/walk.png","width":384,"height":1024},
+        {"path":"assets/game/enemies/skeleton_v2/actions.png","width":384,"height":1024}
       ],
       "render_owner": "EnemyAnimationLibrary, AnimationRenderer и CreatureVisualProfileSystem",
       "source_layout": "четыре строгих боевых атласа 12×8 по 128×128 для ходьбы и действий",

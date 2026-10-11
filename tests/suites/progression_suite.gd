@@ -356,7 +356,7 @@ func test_animated_enemy_sprites_replace_primitives() -> void:
 	expect(game.CreatureVisualProfileSystem.profiles_are_valid(), "enemy ranks and hazards use modular visual profiles")
 	expect(game.EnemyAnimationLibrary.CORE_FAMILIES.has("orc") and game.EnemyAnimationLibrary.source_rect("orc",Vector2.RIGHT,0).size==Vector2(128,128), "orc uses a complete eight-direction animation library")
 	expect(game.EnemyAnimationLibrary.walk_texture("cave_guardian").get_size() == Vector2(1536,1024), "Depth Guardian uses the current eight-direction enemy sheet")
-	expect(game.EnemyAnimationLibrary.walk_texture("skeleton")==game.EnemyAnimationLibrary.walk_texture("undead"), "skeleton and undead share the registered directional combat atlas")
+	expect(game.EnemyAnimationLibrary.walk_texture("skeleton")==game.EnemyAnimationLibrary.SKELETON_WALK and game.EnemyAnimationLibrary.walk_texture("undead")==game.EnemyAnimationLibrary.CORE_WALK, "skeleton uses its repaired atlas while undead preserves the registered core atlas")
 	expect(game.EnemyAnimationLibrary.walk_texture("orc")!=null and game.EnemyAnimationLibrary.action_texture("orc")!=null and game.HAZARD_RANK_ATLAS!=null, "mobile enemies and rooted plants resolve to their current runtime atlases")
 	expect(game.enemy_direction_row(Vector2.DOWN) == 0 and game.enemy_direction_row(Vector2.UP) == 1 and game.enemy_direction_row(Vector2.LEFT) == 2 and game.enemy_direction_row(Vector2.RIGHT) == 3, "enemy idle animation faces the nearby player in all directions")
 	game.free()

@@ -653,7 +653,8 @@ func update_combat(delta: float) -> void:
 		slime_attack_impact_timer = maxf(slime_attack_impact_timer - delta, 0.0)
 		if slime_attack_impact_timer <= 0.0:
 			slime_attack_pending = false
-			CombatSystem.damage_player(self, 20, LocaleSystem.entity("slime"), slime_position)
+			if slime_alive and current_location=="overworld" and player.distance_to(slime_position)<=72.0:
+				CombatSystem.damage_player(self, 20, LocaleSystem.entity("slime"), slime_position)
 	if not slime_alive or invisibility_timer > 0.0 or player.distance_to(slime_position) > 72.0:
 		slime_attack_timer = 0.0
 		return

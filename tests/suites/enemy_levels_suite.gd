@@ -51,8 +51,10 @@ func test_mobile_and_rooted_enemy_behaviour() -> void:
 	game.CombatSystem.update(game, 0.1)
 	expect(game.enemy_nodes[0].position == plant_start and not game.enemy_nodes[0].moving, "rooted predator plant never changes position")
 	expect(game.player_hp == game.player_max_hp and game.enemy_nodes[0].visual_state == "attack", "rooted predator plant shows a ranged windup from its configured range")
-	game.CombatSystem.update(game, 0.26)
-	expect(game.player_hp < game.player_max_hp, "rooted predator plant deals damage on its contact frame")
+	game.CombatSystem.update(game, 0.43)
+	expect(game.player_hp == game.player_max_hp, "rooted predator plant releases a travelling charge without distance damage")
+	game.CombatSystem.update(game, 0.5)
+	expect(game.player_hp < game.player_max_hp, "rooted predator plant deals damage only when its charge reaches the hero")
 	game.free()
 
 
@@ -75,7 +77,9 @@ func test_environment_hazards_damage_and_block_movement() -> void:
 	game.player = bloom.position + Vector2(120, 0)
 	hp_before = game.player_hp
 	game.EnvironmentHazardSystem.update(game, 0.1)
-	expect(game.player_hp < hp_before and game.tutorial_events_completed.has("static_attacker"), "thorn bloom performs a stationary ranged attack")
+	expect(game.player_hp == hp_before and game.tutorial_events_completed.has("static_attacker"), "thorn bloom telegraphs its stationary ranged attack without immediate damage")
+	game.EnvironmentHazardSystem.update(game,0.49); game.CombatSystem.Projectiles.update(game,1.0)
+	expect(game.player_hp<hp_before,"thorn bloom charge damages the stationary hero on actual contact")
 	game.free()
 
 

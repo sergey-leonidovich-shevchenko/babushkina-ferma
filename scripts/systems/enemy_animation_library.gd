@@ -4,6 +4,8 @@ const CORE_WALK := preload("res://assets/game/enemies/animated/core_enemy_walk_8
 const CORE_ACTIONS := preload("res://assets/game/enemies/animated/core_enemy_actions_8dir.png")
 const PIRATE_WALK := preload("res://assets/game/enemies/animated/pirate_enemy_walk_8dir.png")
 const PIRATE_ACTIONS := preload("res://assets/game/enemies/animated/pirate_enemy_actions_8dir.png")
+const SKELETON_WALK := preload("res://assets/game/enemies/skeleton_v2/walk.png")
+const SKELETON_ACTIONS := preload("res://assets/game/enemies/skeleton_v2/actions.png")
 const AnimationAssetRegistry := preload("res://scripts/systems/animation_asset_registry.gd")
 const CreatureVisualProfileSystem:=preload("res://scripts/systems/creature_visual_profile_system.gd")
 
@@ -32,17 +34,20 @@ static func family_index(kind: String) -> int:
 
 ## Возвращает нужный атлас движения для обычного или пиратского противника.
 static func walk_texture(kind: String) -> Texture2D:
+	if kind=="skeleton": return SKELETON_WALK
 	return PIRATE_WALK if kind in PIRATE_FAMILIES else CORE_WALK
 
 
 ## Возвращает нужный атлас боевых действий для обычного или пиратского противника.
 static func action_texture(kind: String) -> Texture2D:
+	if kind=="skeleton": return SKELETON_ACTIONS
 	return PIRATE_ACTIONS if kind in PIRATE_FAMILIES else CORE_ACTIONS
 
 
 ## Рассчитывает прямоугольник одного кадра по семейству, направлению и локальному кадру.
 static func source_rect(kind: String, direction: Vector2, local_frame: int) -> Rect2:
 	var column := family_index(kind) * WALK_FRAMES + clampi(local_frame, 0, WALK_FRAMES - 1)
+	if kind=="skeleton": column=clampi(local_frame,0,WALK_FRAMES-1)
 	var row := AnimationAssetRegistry.direction_index(direction)
 	return Rect2(Vector2(column * 128, row * 128), TILE_SIZE)
 
@@ -59,14 +64,14 @@ static func action_frame(progress: float) -> int:
 
 ## Подменяет отделившийся снаряд на последний кадр позы, чтобы тело врага не исчезало.
 static func body_action_frame(kind: String, frame_index: int) -> int:
-	if kind in ["skeleton", "undead"] and frame_index == 2: return 1
+	if kind=="undead" and frame_index == 2: return 1
 	if kind == "cave_guardian" and frame_index == 1: return 0
 	return frame_index
 
 
 ## Возвращает исходный кадр отделившегося снаряда или магического эффекта.
 static func effect_frame(kind: String) -> int:
-	if kind in ["skeleton", "undead"]: return 2
+	if kind=="undead": return 2
 	if kind == "cave_guardian": return 1
 	return -1
 
@@ -114,6 +119,7 @@ static func draw_actor(game: Node2D, enemy: Dictionary, texture: Texture2D, fram
 
 ## Рисует отделившуюся стрелу, магический заряд или кристальный удар между врагом и целью.
 static func draw_action_effect(game: Node2D, enemy: Dictionary, progress: float) -> void:
+	if action_kind(enemy.kind) in ["shoot","cast"]: return
 	var kind: String = enemy.kind
 	var frame_index := effect_frame(kind)
 	if frame_index < 0 or progress < 0.32: return

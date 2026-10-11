@@ -11,7 +11,7 @@ const AUDIT := {
 	"companion_mila":{"directions":8,"frames":4,"asset":"directional/companion_mila_walk_8dir.png"},
 	"companion_borislav":{"directions":8,"frames":4,"asset":"directional/companion_borislav_walk_8dir.png"},
 	"companion_luna":{"directions":8,"frames":4,"asset":"directional/companion_luna_walk_8dir.png"},
-	"orc":{"directions":8,"frames":3,"asset":"animated/core_enemy_walk_8dir.png"}, "skeleton":{"directions":8,"frames":3,"asset":"animated/core_enemy_walk_8dir.png"},
+	"orc":{"directions":8,"frames":3,"asset":"animated/core_enemy_walk_8dir.png"}, "skeleton":{"directions":8,"frames":3,"asset":"skeleton_v2/walk.png"},
 	"undead":{"directions":8,"frames":3,"asset":"animated/core_enemy_walk_8dir.png"}, "cave_guardian":{"directions":8,"frames":3,"asset":"animated/core_enemy_walk_8dir.png"},
 	"pirate":{"directions":8,"frames":3,"asset":"animated/pirate_enemy_walk_8dir.png"}, "zombie_pirate":{"directions":8,"frames":3,"asset":"animated/pirate_enemy_walk_8dir.png"},
 	"sea_ghost":{"directions":8,"frames":3,"asset":"animated/pirate_enemy_walk_8dir.png"}, "drowned_captain":{"directions":8,"frames":3,"asset":"animated/pirate_enemy_walk_8dir.png"},

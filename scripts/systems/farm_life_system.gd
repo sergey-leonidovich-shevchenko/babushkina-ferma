@@ -39,9 +39,12 @@ static func update(game: Node, delta: float) -> void:
 	Livestock.update(game,value,delta)
 	update_first_day(game); update_discoveries(game); update_achievements(game); update_relationship_scenes(game)
 
-## Возвращает нулевую дельту во время короткой остановки сильного попадания.
+## Отсчитывает короткую остановку до обновления мира и возвращает остаток игрового кадра после неё.
 static func simulation_delta(game: Node, delta: float) -> float:
-	return 0.0 if float(state(game).hit_stop) > 0.0 else delta
+	var value := state(game)
+	var stopped := minf(maxf(float(value.hit_stop),0.0),maxf(delta,0.0))
+	value.hit_stop = maxf(float(value.hit_stop)-stopped,0.0)
+	return maxf(delta-stopped,0.0)
 
 ## Продвигает последовательный обучающий маршрут первого дня по реальным действиям игрока.
 static func update_first_day(game: Node) -> void:

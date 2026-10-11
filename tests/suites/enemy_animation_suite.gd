@@ -5,6 +5,7 @@ extends "res://tests/suites/suite_base.gd"
 func run() -> void:
 	test_all_mobile_enemies_have_complete_walk_sets()
 	test_atlases_follow_the_shared_grid_contract()
+	test_skeleton_frames_are_isolated_and_complete()
 	test_every_combat_animation_family_is_represented()
 	test_direction_changes_source_row_without_mirroring()
 	test_attack_frames_are_non_looping_and_keep_bodies_visible()
@@ -71,8 +72,24 @@ func test_direction_changes_source_row_without_mirroring() -> void:
 func test_attack_frames_are_non_looping_and_keep_bodies_visible() -> void:
 	var game := make_game()
 	expect(game.EnemyAnimationLibrary.action_frame(0.0) == 0 and game.EnemyAnimationLibrary.action_frame(0.5) == 1 and game.EnemyAnimationLibrary.action_frame(1.0) == 2, "attack timeline advances through three non-looping frames")
-	expect(game.EnemyAnimationLibrary.body_action_frame("skeleton", 2) == 1 and game.EnemyAnimationLibrary.effect_frame("skeleton") == 2, "skeleton body stays visible while arrow becomes a separate effect")
+	expect(game.EnemyAnimationLibrary.body_action_frame("skeleton", 2) == 2 and game.EnemyAnimationLibrary.effect_frame("skeleton") == -1, "skeleton recovery retains a full body and real arrows render independently")
 	expect(game.EnemyAnimationLibrary.body_action_frame("undead", 2) == 1 and game.EnemyAnimationLibrary.effect_frame("cave_guardian") == 1, "spell and ground slam keep actor and effect in separate layers")
+	game.free()
+
+## Сценарий: скелет меняет все направления и кадры движения или стрельбы.
+## Исходное состояние: новые листы нарезаны по измеренным целым фигурам и имеют прозрачные поля.
+## Ожидаемый результат: все 48 кадров целые, содержат тело и не захватывают соседние позы.
+func test_skeleton_frames_are_isolated_and_complete() -> void:
+	var game:=make_game(); var library=game.EnemyAnimationLibrary
+	for texture in [library.walk_texture("skeleton"),library.action_texture("skeleton")]:
+		expect(texture.get_size()==Vector2(384,1024),"skeleton uses its own three-column atlas instead of corrupted shared cells")
+		var image: Image=texture.get_image()
+		for row in 8:
+			for frame_index in 3:
+				var direction:=Vector2(-sin(row*TAU/8),cos(row*TAU/8))
+				var source: Rect2=library.source_rect("skeleton",direction,frame_index)
+				var sprite: Image=image.get_region(Rect2i(source)); var used:=sprite.get_used_rect()
+				expect(used.size.y>=85 and used.position.x>0 and used.position.y>0 and used.end.x<128 and used.end.y<128,"skeleton pose has a full body and transparent isolation margins: %d/%d"%[row,frame_index])
 	game.free()
 
 

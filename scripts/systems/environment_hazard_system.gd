@@ -27,6 +27,7 @@ static func default_hazards() -> Array:
 		var hazard: Dictionary = spawn.duplicate(true)
 		hazard.level = clampi(int(hazard.level), 1, MAX_LEVEL)
 		hazard.cooldown = 0.0
+		hazard.windup=0.0; hazard.target=hazard.position
 		hazard.pulse = float(result.size()) * 0.47
 		result.append(hazard)
 	return result
@@ -51,6 +52,13 @@ static func update(game: Node, delta: float) -> void:
 		if hazard.location == game.current_location:
 			var data: Dictionary = TYPES[hazard.kind]
 			var distance: float = hazard.position.distance_to(game.player)
+			if data.mode=="ranged":
+				if float(hazard.get("windup",0.0))>0.0:
+					var before:=float(hazard.windup); hazard.windup=maxf(0.0,before-delta)
+					if hazard.windup==0.0: preload("res://scripts/systems/enemy_projectile_system.gd").launch_at(game,hazard.position,hazard.target,damage(hazard.kind,hazard.level),"spit",240.0,320.0,hazard.kind,false,maxf(delta-before,0.0))
+				elif distance<=float(data.range) and hazard.cooldown<=0.0 and game.invisibility_timer<=0.0:
+					hazard.target=game.player; hazard.windup=0.48; hazard.cooldown=float(data.interval); game.notify_tutorial("static_attacker")
+				game.hazard_nodes[index]=hazard; continue
 			if distance <= float(data.range) and hazard.cooldown <= 0.0:
 				hazard.cooldown = float(data.interval)
 				game.CombatSystem.damage_player(game, damage(hazard.kind, hazard.level), game.LocaleSystem.entity(hazard.kind))

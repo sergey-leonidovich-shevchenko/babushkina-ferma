@@ -1,6 +1,7 @@
 extends RefCounted
 
 const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
+const Projectiles := preload("res://scripts/systems/enemy_projectile_system.gd")
 
 const MAX_ENEMY_LEVEL := 5
 const AGGRO_RADIUS := 380.0
@@ -99,7 +100,7 @@ static func visual_rank(level: int) -> int:
 ## Возвращает визуальный тип атаки, который определяет удар, стрелу или магию противника.
 static func enemy_action_kind(kind: String) -> String:
 	if kind in ["skeleton", "pirate", "drowned_captain"]: return "shoot"
-	if kind in ["undead", "sea_ghost"]: return "cast"
+	if kind in ["plant", "undead", "sea_ghost"]: return "cast"
 	if kind == "cave_guardian": return "slam"
 	return "melee"
 
@@ -131,6 +132,7 @@ static func nearest(game: Node) -> int:
 
 ## Обновляет погоню, направление и атаки всех противников активной локации.
 static func update(game: Node, delta: float) -> void:
+	Projectiles.update(game,delta)
 	game.state.player.dodge_timer = maxf(game.state.player.dodge_timer - delta, 0.0)
 	game.state.player.dodge_cooldown = maxf(game.state.player.dodge_cooldown - delta, 0.0)
 	for index in game.enemy_nodes.size():
@@ -142,12 +144,18 @@ static func update(game: Node, delta: float) -> void:
 			enemy.attack_timer = maxf(float(enemy.get("attack_timer", 0.0)) - delta, 0.0)
 			game.enemy_nodes[index] = enemy
 			continue
+		if enemy.get("visual_state","")=="hurt" and float(enemy.get("visual_time",0.0))<game.AnimationSystem.HURT_DURATION:
+			enemy.moving=false; enemy.attack_timer=maxf(float(enemy.get("attack_timer",0.0))-delta,0.0)
+			game.enemy_nodes[index]=enemy; continue
 		var data: Dictionary = TYPES[enemy.kind]
 		if bool(enemy.get("attack_pending", false)):
+			var before_impact := float(enemy.get("impact_timer",0.0))
 			enemy.impact_timer = maxf(float(enemy.get("impact_timer", 0.0)) - delta, 0.0)
 			if enemy.impact_timer <= 0.0:
 				enemy.attack_pending = false
-				if enemy.position.distance_to(game.player) <= float(data.range) * 1.35:
+				if String(enemy.action_kind) in ["shoot","cast"]:
+					Projectiles.launch(game,enemy,maxf(delta-before_impact,0.0))
+				elif (game.player.distance_to(enemy.action_target)<=43.0+game.PLAYER_RADIUS if enemy.action_kind=="slam" else enemy.position.distance_to(game.player)<=float(data.range)+game.PLAYER_RADIUS):
 					damage_player(game, boss_attack_damage(enemy), LocaleSystem.entity(enemy.kind), enemy.position)
 					apply_boss_side_effect(game, enemy)
 		enemy.boss_phase = boss_phase(enemy)
@@ -179,7 +187,7 @@ static func update(game: Node, delta: float) -> void:
 
 ## Возвращает момент контакта внутри анимации для ближней, дальней и тяжёлой атаки.
 static func attack_impact_delay(action_kind: String) -> float:
-	return {"melee":0.24, "shoot":0.38, "cast":0.42, "slam":0.46}.get(action_kind, 0.28)
+	return {"melee":0.24, "shoot":0.48, "cast":0.42, "slam":0.46}.get(action_kind, 0.28)
 
 
 ## Возвращает особую фазу уникального босса либо ноль для обычного противника.
@@ -244,6 +252,7 @@ static func apply_damage(game: Node, index: int, damage: int, attacker_name: Str
 	if enemy.level > 1:
 		game.notify_tutorial("enemy_levels")
 	enemy.hp -= damage
+	enemy.attack_pending = false; enemy.impact_timer = 0.0
 	enemy.hurt_direction = game.player.direction_to(enemy.position)
 	if enemy.hp > 0 and bool(TYPES[enemy.kind].mobile) and not enemy.get("cave_boss", false): enemy.position = game.NavigationSystem.move_enemy(game, index, game.player.direction_to(enemy.position) * 22.0)
 	enemy = game.AnimationSystem.hit_enemy(enemy, enemy.hp <= 0)
