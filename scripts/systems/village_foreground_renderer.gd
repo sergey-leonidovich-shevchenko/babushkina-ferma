@@ -1,7 +1,10 @@
 extends RefCounted
+const VillagePropRenderer:=preload("res://scripts/systems/village_prop_renderer.gd")
+const TreeOcclusion := preload("res://scripts/systems/tree_occlusion_system.gd")
 
 ## Рисует только те высокие объекты, за которыми в текущий момент проходит герой.
 static func draw(game: Node2D) -> void:
-	# Здания, кроны и перила уже находятся в мастер-атласе первой локации.
-	# Старый условный foreground менял изображение при приближении героя и больше не нужен.
+	TreeOcclusion.draw_foreground(game)
 	if game.current_location != "overworld": return
+	VillagePropRenderer.draw(game,true)
+	VillagePropRenderer.draw_building_foreground(game)

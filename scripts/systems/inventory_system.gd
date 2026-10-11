@@ -301,7 +301,6 @@ static func select_hotbar(game: Node, index: int) -> bool:
 	var kind: String = game.hotbar_slots[index]
 	var item := data(kind)
 	if item.has("tool"): game.selected_tool = item.tool
-	game.message = game.LocaleSystem.text("in_hand", [item.name])
 	return not kind.is_empty()
 
 ## Выполняет операцию «экипировки» и возвращает результат согласно контракту метода.

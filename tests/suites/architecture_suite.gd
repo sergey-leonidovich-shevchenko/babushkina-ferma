@@ -64,7 +64,7 @@ static func test_content_references_are_valid(context: SceneTree) -> void:
 	var game: Node = context.make_game()
 	var errors: Array[String] = game.ContentRegistry.validate()
 	context.expect(errors.is_empty(), "recipes loot quests spawns shops and tutorials reference valid catalog ids: %s" % [errors])
-	context.expect(game.enemy_nodes.size() == game.CombatSystem.SPAWNS.size() and game.hazard_nodes.size() == game.EnvironmentHazardSystem.SPAWNS.size() and game.food_nodes == game.ForageSystem.SPAWNS, "feature systems own their default content instead of game.gd")
+	context.expect(game.enemy_nodes.size() == game.CombatSystem.SPAWNS.size() and game.hazard_nodes.size() == game.EnvironmentHazardSystem.SPAWNS.size() and game.food_nodes == game.ForageSystem.default_nodes(), "feature systems own their default content and apply the current map placements instead of hardcoding them in game.gd")
 	game.free()
 
 
@@ -167,8 +167,8 @@ static func test_world_sprite_manifest_tracks_grid_migration(context: SceneTree)
 		context.expect(not entry.get("assets", []).is_empty() and not entry.get("runtime_sizes", []).is_empty() and not entry.get("target_modules", []).is_empty(), "%s records sources actual sizes and target modules" % entry_id)
 		context.expect(not String(entry.get("anchor", "")).is_empty() and not String(entry.get("collision", "")).is_empty() and not String(entry.get("done_when", "")).is_empty(), "%s records geometry and completion criteria" % entry_id)
 	context.expect(int(manifest.get("base_cell", 0)) == 24, "world sprite audit uses the shared 24 px base cell")
-	context.expect(entries.size() == 23 and ids.size() == entries.size(), "world sprite audit keeps all 23 ids unique")
-	context.expect(complete_count == 23 and priorities.P1 == 0 and priorities.P2 == 0 and priorities.P3 == 0, "all tracked world sprite families complete the migration queue")
+	context.expect(entries.size() >= 24 and ids.has("WS-024") and ids.size() == entries.size(), "world sprite audit keeps every id unique and registers the modular village")
+	context.expect(complete_count == entries.size() and priorities.P1 == 0 and priorities.P2 == 0 and priorities.P3 == 0, "all tracked world sprite families complete the migration queue")
 	context.expect(not FileAccess.file_exists("res://assets/game/characters/farmer_walk.png") and not FileAccess.file_exists("res://assets/game/enemies/orc_idle.png") and not FileAccess.file_exists("res://assets/game/enemies/predator_plant_idle.png") and FileAccess.file_exists("res://assets/game/enemies/slime_idle.png"), "superseded sheets stay removed while the intentional story slime fallback remains")
 
 

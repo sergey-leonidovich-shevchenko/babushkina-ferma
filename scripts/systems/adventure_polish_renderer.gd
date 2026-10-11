@@ -3,6 +3,7 @@ extends RefCounted
 const UiKitSystem:=preload("res://scripts/systems/ui_kit_system.gd")
 const HudLayoutSystem:=preload("res://scripts/systems/hud_layout_system.gd")
 const GOLD := Color("efc45f")
+const VillageMapPreviewSystem := preload("res://scripts/systems/village_map_preview_system.gd")
 
 
 ## Рисует следы, кадр действия, боевую фиксацию и предупреждение атаки в мировых координатах.
@@ -13,7 +14,11 @@ static func draw_world(game: Node2D) -> void:
 		game.draw_circle(footprint.position + Vector2(4, 4), 2.5, Color(0.20, 0.16, 0.10, float(footprint.time) * 0.16))
 	if float(feedback.get("timer", 0.0)) > 0.0:
 		var action := String(feedback.get("action", ""))
-		if game.AdventurePolishSystem.ACTIONS.has(action): draw_effect(game,int(game.AdventurePolishSystem.ACTIONS[action]),feedback.position,game.facing.x<-0.1); game.WorldPolishRenderer.draw_effect(game,{"mine":"stone","chop":"wood","fish_cast":"splash","harvest":"leaves"}.get(action,"dust"),feedback.position+Vector2(0,18),clampf(float(feedback.timer)*2.0,0.0,1.0))
+		if game.AdventurePolishSystem.ACTIONS.has(action):
+			if action not in game.HeroActionSystem.TOOLS: draw_effect(game,int(game.AdventurePolishSystem.ACTIONS[action]),feedback.position,game.facing.x<-0.1)
+			var pose: Dictionary = game.HeroActionSystem.pose(game)
+			var target: Vector2 = pose.get("target", feedback.position)
+			if game.HeroActionSystem.progress(game) >= 0.43 or pose.is_empty(): game.WorldPolishRenderer.draw_effect(game,{"mine":"stone","chop":"wood","fish_cast":"splash","water":"splash","harvest":"leaves"}.get(action,"dust"),target,clampf(float(feedback.timer)*2.0,0.0,1.0))
 	for number in feedback.get("damage_numbers", []):
 		game.draw_ui_string(game.UI_FONT, number.position, number.text, HORIZONTAL_ALIGNMENT_CENTER, 70, 21, number.color)
 	draw_target(game); draw_enemy_telegraphs(game)
@@ -49,16 +54,22 @@ static func draw_minimap(game: Node2D) -> void:
 	var farm_life:Dictionary=game.FarmLifeSystem.state(game)
 	if not HudLayoutSystem.shows_minimap(game) or game.inventory_open or game.shop_open or game.quest_log_open or game.world_map_open or game.skill_menu_open or game.crafting_open or game.storage_open or game.forge_open or game.contract_open or game.AdventurePolishSystem.has_modal(game) or bool(farm_life.compendium) or not String(farm_life.cutscene).is_empty() or game.state.fishing.phase in [game.FishingSystem.PHASE_CHARGING,game.FishingSystem.PHASE_MINIGAME,game.FishingSystem.PHASE_RESULT]: return
 	var rect := HudLayoutSystem.MINIMAP_RECT
-	UiKitSystem.draw_panel(game,rect,false)
-	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(9, 30), game.LocaleSystem.location(game.current_location), HORIZONTAL_ALIGNMENT_LEFT, 144, 10, UiKitSystem.COLORS.ink)
+	game.InterfaceRenderer.HudRenderer.draw_quiet_panel(game,rect)
 	var world_size: Vector2 = game.WORLD_SIZE
-	var map_rect := Rect2(rect.position + Vector2(8, 38), Vector2(148, 86))
-	game.draw_rect(map_rect, Color("6f9b5a"))
+	var map_rect := Rect2(rect.position + Vector2(8, 10), Vector2(rect.size.x-16, (rect.size.x-16)*0.5))
+	game.draw_rect(map_rect, Color("283a30"))
 	if game.current_location == "overworld":
-		game.draw_rect(Rect2(map_rect.position + Vector2(0, 54), Vector2(148, 18)), Color("4d91a3"))
-		game.draw_line(map_rect.position + Vector2(18, 42), map_rect.position + Vector2(98, 42), Color("d6b67b"), 5)
+		game.draw_texture_rect(VillageMapPreviewSystem.texture(),map_rect,false,Color(0.85,0.86,0.78))
+	else:
+		for node in game.resource_nodes:
+			if node.location==game.current_location: game.draw_circle(map_rect.position+Vector2(node.position)/world_size*map_rect.size,1,Color("97a389"))
+		for enemy in game.enemy_nodes:
+			if enemy.location==game.current_location and enemy.alive: game.draw_circle(map_rect.position+Vector2(enemy.position)/world_size*map_rect.size,1.5,Color("c8765e"))
+	var camera_view:=Rect2(map_rect.position+game.camera_offset/world_size*map_rect.size,game.UiScaleSystem.DESIGN_SIZE/world_size*map_rect.size).intersection(map_rect)
+	game.draw_rect(camera_view,Color(0.98,0.86,0.60,0.5),false,1)
 	var dot := map_rect.position + Vector2(clampf(game.player.x / world_size.x, 0.0, 1.0) * map_rect.size.x, clampf(game.player.y / world_size.y, 0.0, 1.0) * map_rect.size.y)
-	game.draw_circle(dot, 4, Color("ffe168")); game.draw_circle(dot, 2, Color("542f25"))
+	game.draw_circle(dot, 4, Color("36231b")); game.draw_circle(dot, 2.5, Color("ffe4a0"))
+	game.draw_ui_string(game.UI_FONT,rect.position+Vector2(9,96),game.LocaleSystem.location(game.current_location),HORIZONTAL_ALIGNMENT_CENTER,rect.size.x-18,9,Color("ead5a9"))
 
 
 ## Рисует поверх HUD активное создание персонажа или портретный диалог.

@@ -1,6 +1,7 @@
 extends RefCounted
 
 const ATLAS := preload("res://assets/game/environment/farm_plot_atlas.png")
+const FLAT_SOIL := preload("res://assets/game/tiles/editor/terrain/ground_farm_soil.png")
 const ANNUAL_A := preload("res://assets/game/farming/crops/atlases/annual_a.png")
 const ANNUAL_B := preload("res://assets/game/farming/crops/atlases/annual_b.png")
 const ANNUAL_C := preload("res://assets/game/farming/crops/atlases/annual_c.png")
@@ -27,6 +28,23 @@ const CROP_LAYOUT := {
 	"cotton":{"atlas":"annual_d","row":0},"melon":{"atlas":"annual_d","row":1},
 	"strawberry":{"atlas":"strawberry","seasonal":true},"herbs":{"atlas":"herbs","seasonal":true},
 }
+
+
+## Невскопанная клетка сохраняет живой фон локации; земля появляется только после действия игрока.
+static func is_plot_visible(plot: Dictionary) -> bool:
+	return bool(plot.get("tilled", false)) or bool(plot.get("planted", false))
+
+
+## Рисует плоскую почву из базовых тайлов без зелёных кубов и толстых боковых граней.
+static func draw_soil(canvas: CanvasItem, rect: Rect2, plot: Dictionary) -> void:
+	var tint := Color("b58b60") if not bool(plot.get("watered", false)) else Color("755841")
+	for row in ceili(rect.size.y / 24.0):
+		for column in ceili(rect.size.x / 24.0):
+			var position := rect.position + Vector2(column, row) * 24.0
+			var size := Vector2(minf(24.0, rect.end.x - position.x), minf(24.0, rect.end.y - position.y))
+			canvas.draw_texture_rect_region(FLAT_SOIL, Rect2(position, size), Rect2(Vector2.ZERO, size), tint)
+	# Тонкая кромка отделяет обработанную землю от травы, не превращая грядку в ящик.
+	canvas.draw_rect(rect.grow(-0.5), Color(0.18, 0.11, 0.055, 0.35), false, 1.0)
 
 
 ## Возвращает целочисленную ячейку земли для текущего состояния грядки.

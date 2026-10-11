@@ -70,6 +70,7 @@ static func can_start_attack(game: Node) -> bool:
 ## Запускает временную шкалу атаки выбранного класса и её индивидуальную перезарядку.
 static func begin_attack(game: Node, force: bool = false) -> bool:
 	if not force and not can_start_attack(game): return false
+	game.set_meta("attack_visual_direction", game.HeroActionSystem.cardinal(game.facing))
 	var profile := data(game.equipped_weapon)
 	game.player_attack_weapon = game.equipped_weapon
 	game.player_attack_timer = float(profile.duration)

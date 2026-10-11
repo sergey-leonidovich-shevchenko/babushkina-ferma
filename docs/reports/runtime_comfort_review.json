@@ -1,0 +1,298 @@
+{
+  "checks": [
+    {
+      "description": "Комната целиком помещается между HUD и быстрыми слотами",
+      "details": {
+        "camera": [
+          0.0,
+          14.0
+        ]
+      },
+      "passed": true
+    },
+    {
+      "description": "Выход из дома срабатывает при подходе без дополнительной кнопки",
+      "details": {},
+      "passed": true
+    },
+    {
+      "description": "После выхода из дома можно сразу пройти вправо",
+      "details": {
+        "authored_exit": [
+          360.0,
+          648.0
+        ],
+        "from": [
+          360.0,
+          648.0
+        ],
+        "to": [
+          381.0,
+          648.0
+        ]
+      },
+      "passed": true
+    },
+    {
+      "description": "Стартовая точка достижима пешком от выхода дома",
+      "details": {
+        "finish": [
+          430.25,
+          672.75
+        ],
+        "start": [
+          432.0,
+          672.0
+        ]
+      },
+      "passed": true
+    },
+    {
+      "description": "Домашняя дорога к мосту свободна, узел 2",
+      "details": {
+        "finish": [
+          643.75,
+          672.75
+        ],
+        "target": [
+          648.0,
+          672.0
+        ]
+      },
+      "passed": true
+    },
+    {
+      "description": "Домашняя дорога к мосту свободна, узел 3",
+      "details": {
+        "finish": [
+          859.34,
+          551.48
+        ],
+        "target": [
+          864.0,
+          552.0
+        ]
+      },
+      "passed": true
+    },
+    {
+      "description": "Мост 1 проходим с берега на берег непрерывным движением",
+      "details": {
+        "bridge_center": [
+          864.0,
+          456.0
+        ],
+        "finish": [
+          864.0,
+          334.5
+        ],
+        "target": [
+          864.0,
+          336.0
+        ]
+      },
+      "passed": true
+    },
+    {
+      "description": "Мост 2 проходим с берега на берег непрерывным движением",
+      "details": {
+        "bridge_center": [
+          1608.0,
+          960.0
+        ],
+        "finish": [
+          1608.0,
+          838.5
+        ],
+        "target": [
+          1608.0,
+          840.0
+        ]
+      },
+      "passed": true
+    },
+    {
+      "description": "Физические кадры не добавляют скачок к скорости героя",
+      "details": {
+        "max_step_px": 3.5
+      },
+      "passed": true
+    },
+    {
+      "description": "Камера после пересечения моста соответствует реальной позиции",
+      "details": {},
+      "passed": true
+    },
+    {
+      "description": "Видимая дорога от моста к площади свободна, узел 5",
+      "details": {
+        "finish": [
+          1005.07,
+          477.07
+        ],
+        "obstacle": "walkable",
+        "target": [
+          1008.0,
+          480.0
+        ]
+      },
+      "passed": true
+    },
+    {
+      "description": "Видимая дорога от моста к площади свободна, узел 6",
+      "details": {
+        "finish": [
+          1128.81,
+          667.31
+        ],
+        "obstacle": "walkable",
+        "target": [
+          1128.0,
+          672.0
+        ]
+      },
+      "passed": true
+    },
+    {
+      "description": "Видимая дорога от моста к площади свободна, узел 7",
+      "details": {
+        "finish": [
+          1317.53,
+          744.03
+        ],
+        "obstacle": "walkable",
+        "target": [
+          1320.0,
+          744.0
+        ]
+      },
+      "passed": true
+    },
+    {
+      "description": "Путь приводит внутрь деревенской площади",
+      "details": {},
+      "passed": true
+    },
+    {
+      "description": "TAB открывает рюкзак через игровой обработчик ввода",
+      "details": {},
+      "passed": true
+    },
+    {
+      "description": "Открытый рюкзак останавливает движение и анимацию ног",
+      "details": {},
+      "passed": true
+    },
+    {
+      "description": "Нажатие на видимый крестик закрывает рюкзак",
+      "details": {},
+      "passed": true
+    },
+    {
+      "description": "Обратный путь от площади к северной тропе свободен, узел 6",
+      "details": {
+        "finish": [
+          1130.26,
+          672.26
+        ],
+        "target": [
+          1128.0,
+          672.0
+        ]
+      },
+      "passed": true
+    },
+    {
+      "description": "Обратный путь от площади к северной тропе свободен, узел 5",
+      "details": {
+        "finish": [
+          1008.99,
+          484.49
+        ],
+        "target": [
+          1008.0,
+          480.0
+        ]
+      },
+      "passed": true
+    },
+    {
+      "description": "Обратный путь от площади к северной тропе свободен, узел 4",
+      "details": {
+        "finish": [
+          867.75,
+          360.75
+        ],
+        "target": [
+          864.0,
+          360.0
+        ]
+      },
+      "passed": true
+    },
+    {
+      "description": "Северная тропа от моста до поворота пещеры проходима",
+      "details": {
+        "finish": [
+          840.53,
+          267.03
+        ],
+        "target": [
+          840.0,
+          264.0
+        ]
+      },
+      "passed": true
+    },
+    {
+      "description": "Вход в пещеру срабатывает от обычного движения по тропе",
+      "details": {
+        "finish": [
+          270.0,
+          430.0
+        ],
+        "location": "cave"
+      },
+      "passed": true
+    },
+    {
+      "description": "При упоре в стену герой не бежит на месте",
+      "details": {},
+      "passed": true
+    },
+    {
+      "description": "При скольжении анимация смотрит по фактическому направлению",
+      "details": {},
+      "passed": true
+    },
+    {
+      "description": "Сохранение пользователя не изменено",
+      "details": {
+        "slot": "user://farm-save.json"
+      },
+      "passed": true
+    },
+    {
+      "description": "Сохранение пользователя не изменено",
+      "details": {
+        "slot": "user://farm-save-2.json"
+      },
+      "passed": true
+    },
+    {
+      "description": "Сохранение пользователя не изменено",
+      "details": {
+        "slot": "user://farm-save-3.json"
+      },
+      "passed": true
+    }
+  ],
+  "engine": "4.7.1-stable (official)",
+  "failed": 0,
+  "map_revision": 2,
+  "passed": 27,
+  "schema": 2,
+  "simulated_frames": 741,
+  "simulation_hz": 60,
+  "world_seed": 20260908
+}

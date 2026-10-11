@@ -5,17 +5,17 @@ const WorldVisualProfileSystem := preload("res://scripts/systems/world_visual_pr
 const COLUMNS := 4
 const ROWS := 3
 const CELL := Vector2(362, 362)
+const VillageMapData:=preload("res://scripts/systems/village_map_data.gd")
 const CELLS := {
 	"flowers":Vector2i(0,0), "grass":Vector2i(1,0), "reeds":Vector2i(2,0), "berry_bush":Vector2i(3,0),
 	"mossy_stone":Vector2i(0,1), "stump":Vector2i(1,1), "signpost":Vector2i(2,1), "flower_fence":Vector2i(3,1),
 	"lantern":Vector2i(0,2), "footbridge":Vector2i(1,2), "leaves":Vector2i(2,2), "water_lilies":Vector2i(3,2),
 }
 const PLACEMENTS := [
-	{"kind":"flowers","position":Vector2(535,700),"phase":0.2},{"kind":"flowers","position":Vector2(930,620),"phase":1.3},{"kind":"flowers","position":Vector2(1325,680),"phase":2.1},{"kind":"flowers","position":Vector2(1680,655),"phase":0.8},
-	{"kind":"grass","position":Vector2(610,570),"phase":2.7},{"kind":"grass","position":Vector2(1050,665),"phase":1.7},{"kind":"grass","position":Vector2(1765,795),"phase":0.4},
-	{"kind":"reeds","position":Vector2(380,360),"phase":0.1},{"kind":"reeds","position":Vector2(560,525),"phase":1.0},{"kind":"reeds","position":Vector2(790,620),"phase":2.4},{"kind":"reeds","position":Vector2(1015,700),"phase":1.8},{"kind":"reeds","position":Vector2(1285,715),"phase":0.7},{"kind":"reeds","position":Vector2(1540,785),"phase":2.9},{"kind":"reeds","position":Vector2(1820,890),"phase":1.4},
-	{"kind":"water_lilies","position":Vector2(450,430),"phase":0.4},{"kind":"water_lilies","position":Vector2(850,665),"phase":1.9},{"kind":"water_lilies","position":Vector2(1180,750),"phase":2.6},{"kind":"water_lilies","position":Vector2(1590,835),"phase":1.1},{"kind":"water_lilies","position":Vector2(1930,955),"phase":2.2},
-	{"kind":"leaves","position":Vector2(720,385),"phase":0.5},{"kind":"leaves","position":Vector2(1460,565),"phase":2.0},{"kind":"leaves","position":Vector2(2020,825),"phase":1.2},
+	{"kind":"reeds","position":Vector2(552,384),"phase":0.2},{"kind":"reeds","position":Vector2(744,456),"phase":1.3},{"kind":"reeds","position":Vector2(1032,768),"phase":2.1},{"kind":"reeds","position":Vector2(1440,984),"phase":0.8},
+	{"kind":"reeds","position":Vector2(1800,840),"phase":0.4},{"kind":"reeds","position":Vector2(1968,960),"phase":1.7},
+	{"kind":"water_lilies","position":Vector2(672,360),"phase":0.4},{"kind":"water_lilies","position":Vector2(1272,912),"phase":1.9},{"kind":"water_lilies","position":Vector2(1848,888),"phase":2.6},
+	{"kind":"grass","position":Vector2(1944,648),"phase":0.5},{"kind":"grass","position":Vector2(2160,888),"phase":2.0},{"kind":"leaves","position":Vector2(2020,825),"phase":1.2},
 ]
 
 

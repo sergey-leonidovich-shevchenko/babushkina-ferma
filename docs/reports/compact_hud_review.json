@@ -1,0 +1,1669 @@
+{
+  "captures": [
+    {
+      "case": "16x9_ru_normal_120",
+      "height": 648,
+      "locale": "ru",
+      "path": "res://assets/generated/ui/compact_hud/16x9_ru_normal_120.png",
+      "profile": "16x9",
+      "scenario": "normal",
+      "sha256": "fba3cf23de5acf72ef646dd39fa95aa82784f82ff1e9c183f71515adf23f616a",
+      "text_scale": 1.2,
+      "width": 1152
+    },
+    {
+      "case": "16x9_ru_stress_120",
+      "height": 648,
+      "locale": "ru",
+      "path": "res://assets/generated/ui/compact_hud/16x9_ru_stress_120.png",
+      "profile": "16x9",
+      "scenario": "stress",
+      "sha256": "f6e9a81dba6ac8815d6d2800fa05d14e37dc1219d83dbf613acdc529485a8abf",
+      "text_scale": 1.2,
+      "width": 1152
+    },
+    {
+      "case": "16x9_ru_inventory_120",
+      "height": 648,
+      "locale": "ru",
+      "path": "res://assets/generated/ui/compact_hud/16x9_ru_inventory_120.png",
+      "profile": "16x9",
+      "scenario": "inventory",
+      "sha256": "1c3c9a1ba7d1eead4525be82bc9ec6a4e96d787c6f68f2b52ce62201ad7c8d83",
+      "text_scale": 1.2,
+      "width": 1152
+    },
+    {
+      "case": "16x9_en_normal_120",
+      "height": 648,
+      "locale": "en",
+      "path": "res://assets/generated/ui/compact_hud/16x9_en_normal_120.png",
+      "profile": "16x9",
+      "scenario": "normal",
+      "sha256": "031cd0b387a73bfedbb5cd3d421cc21cd8f0d3ceec240a6caa00d132bea3af5c",
+      "text_scale": 1.2,
+      "width": 1152
+    },
+    {
+      "case": "16x9_en_stress_120",
+      "height": 648,
+      "locale": "en",
+      "path": "res://assets/generated/ui/compact_hud/16x9_en_stress_120.png",
+      "profile": "16x9",
+      "scenario": "stress",
+      "sha256": "c8b0daf663e4f9f0abbf458cf4490683efd49538ab27ad6abbd964478d9e91f1",
+      "text_scale": 1.2,
+      "width": 1152
+    },
+    {
+      "case": "16x9_en_inventory_120",
+      "height": 648,
+      "locale": "en",
+      "path": "res://assets/generated/ui/compact_hud/16x9_en_inventory_120.png",
+      "profile": "16x9",
+      "scenario": "inventory",
+      "sha256": "8e2d16405f6f749a8e030f3f95bfcc16bda74da4d0f7369439b89cbdb029fc85",
+      "text_scale": 1.2,
+      "width": 1152
+    },
+    {
+      "case": "16x9_es_normal_120",
+      "height": 648,
+      "locale": "es",
+      "path": "res://assets/generated/ui/compact_hud/16x9_es_normal_120.png",
+      "profile": "16x9",
+      "scenario": "normal",
+      "sha256": "eddc5aa00c80c6e4f8592da90aaee1c697937cb6bd0798ca2866633cf0acfe2d",
+      "text_scale": 1.2,
+      "width": 1152
+    },
+    {
+      "case": "16x9_es_stress_120",
+      "height": 648,
+      "locale": "es",
+      "path": "res://assets/generated/ui/compact_hud/16x9_es_stress_120.png",
+      "profile": "16x9",
+      "scenario": "stress",
+      "sha256": "14770571397952ba74a51dcfa8d3575de9868f2c3255bdd6a4f2e094949ef8bc",
+      "text_scale": 1.2,
+      "width": 1152
+    },
+    {
+      "case": "16x9_es_inventory_120",
+      "height": 648,
+      "locale": "es",
+      "path": "res://assets/generated/ui/compact_hud/16x9_es_inventory_120.png",
+      "profile": "16x9",
+      "scenario": "inventory",
+      "sha256": "68822b430e2a627459734f48133337049bc9ccbc522bd6b693f164800cecbf24",
+      "text_scale": 1.2,
+      "width": 1152
+    },
+    {
+      "case": "16x9_de_normal_120",
+      "height": 648,
+      "locale": "de",
+      "path": "res://assets/generated/ui/compact_hud/16x9_de_normal_120.png",
+      "profile": "16x9",
+      "scenario": "normal",
+      "sha256": "a5c093c0080bd4357b655bbf02740ed49625b2aed2451daea8837c03033e4fb1",
+      "text_scale": 1.2,
+      "width": 1152
+    },
+    {
+      "case": "16x9_de_stress_120",
+      "height": 648,
+      "locale": "de",
+      "path": "res://assets/generated/ui/compact_hud/16x9_de_stress_120.png",
+      "profile": "16x9",
+      "scenario": "stress",
+      "sha256": "6fcd934b00f7f72720e15697527fcd22999ee973099a446a40bb8874856f0f1e",
+      "text_scale": 1.2,
+      "width": 1152
+    },
+    {
+      "case": "16x9_de_inventory_120",
+      "height": 648,
+      "locale": "de",
+      "path": "res://assets/generated/ui/compact_hud/16x9_de_inventory_120.png",
+      "profile": "16x9",
+      "scenario": "inventory",
+      "sha256": "00841fefa4058a2b409b88f153702664c447b66c582b80ae88fd2774caf1f37e",
+      "text_scale": 1.2,
+      "width": 1152
+    },
+    {
+      "case": "16x9_fr_normal_120",
+      "height": 648,
+      "locale": "fr",
+      "path": "res://assets/generated/ui/compact_hud/16x9_fr_normal_120.png",
+      "profile": "16x9",
+      "scenario": "normal",
+      "sha256": "4ba4d2a56d278e611bd4973cba07724c7257716a2790ad5c99a1168352de6365",
+      "text_scale": 1.2,
+      "width": 1152
+    },
+    {
+      "case": "16x9_fr_stress_120",
+      "height": 648,
+      "locale": "fr",
+      "path": "res://assets/generated/ui/compact_hud/16x9_fr_stress_120.png",
+      "profile": "16x9",
+      "scenario": "stress",
+      "sha256": "720015f2a72f70f9fc49722e70dbc4180bdbfb6b7ed0ed02caa8e4a246e094d8",
+      "text_scale": 1.2,
+      "width": 1152
+    },
+    {
+      "case": "16x9_fr_inventory_120",
+      "height": 648,
+      "locale": "fr",
+      "path": "res://assets/generated/ui/compact_hud/16x9_fr_inventory_120.png",
+      "profile": "16x9",
+      "scenario": "inventory",
+      "sha256": "c5e95e82b529d247a184143ebb8d81da62707051126735c22a60ebfb7b4d4c3a",
+      "text_scale": 1.2,
+      "width": 1152
+    },
+    {
+      "case": "16x9_zh_normal_120",
+      "height": 648,
+      "locale": "zh",
+      "path": "res://assets/generated/ui/compact_hud/16x9_zh_normal_120.png",
+      "profile": "16x9",
+      "scenario": "normal",
+      "sha256": "042d6385f70acb97cbbaa472e781dd124cd337aa6b8c7de0e72a14f6343660a4",
+      "text_scale": 1.2,
+      "width": 1152
+    },
+    {
+      "case": "16x9_zh_stress_120",
+      "height": 648,
+      "locale": "zh",
+      "path": "res://assets/generated/ui/compact_hud/16x9_zh_stress_120.png",
+      "profile": "16x9",
+      "scenario": "stress",
+      "sha256": "71648703138945635c58525f5d15eb5f20759e913a695ebfe118a23a10f3e9b6",
+      "text_scale": 1.2,
+      "width": 1152
+    },
+    {
+      "case": "16x9_zh_inventory_120",
+      "height": 648,
+      "locale": "zh",
+      "path": "res://assets/generated/ui/compact_hud/16x9_zh_inventory_120.png",
+      "profile": "16x9",
+      "scenario": "inventory",
+      "sha256": "92abf4db74ed58ba5afcd346dce049bf2844c9ce4e0fefb07c9c7f023f198c75",
+      "text_scale": 1.2,
+      "width": 1152
+    },
+    {
+      "case": "16x10_ru_normal_120",
+      "height": 800,
+      "locale": "ru",
+      "path": "res://assets/generated/ui/compact_hud/16x10_ru_normal_120.png",
+      "profile": "16x10",
+      "scenario": "normal",
+      "sha256": "a2caee301f81f5d201dddef39d32995c6820c1b2c7365c21b9b2b779d2087e8a",
+      "text_scale": 1.2,
+      "width": 1280
+    },
+    {
+      "case": "16x10_ru_stress_120",
+      "height": 800,
+      "locale": "ru",
+      "path": "res://assets/generated/ui/compact_hud/16x10_ru_stress_120.png",
+      "profile": "16x10",
+      "scenario": "stress",
+      "sha256": "8de9a00efb3d8073b8d40e3459d0068ad633d6600fe9ff588fdf2ff850fe1e1f",
+      "text_scale": 1.2,
+      "width": 1280
+    },
+    {
+      "case": "16x10_ru_inventory_120",
+      "height": 800,
+      "locale": "ru",
+      "path": "res://assets/generated/ui/compact_hud/16x10_ru_inventory_120.png",
+      "profile": "16x10",
+      "scenario": "inventory",
+      "sha256": "ecdf1b665117c217d999ac9ff2cdd9e73ec117d998649a0d0806bd0094623872",
+      "text_scale": 1.2,
+      "width": 1280
+    },
+    {
+      "case": "16x10_en_normal_120",
+      "height": 800,
+      "locale": "en",
+      "path": "res://assets/generated/ui/compact_hud/16x10_en_normal_120.png",
+      "profile": "16x10",
+      "scenario": "normal",
+      "sha256": "f418a0376352e768562dbedf8ff017099481ccb4149cef4665b9b110e4756be2",
+      "text_scale": 1.2,
+      "width": 1280
+    },
+    {
+      "case": "16x10_en_stress_120",
+      "height": 800,
+      "locale": "en",
+      "path": "res://assets/generated/ui/compact_hud/16x10_en_stress_120.png",
+      "profile": "16x10",
+      "scenario": "stress",
+      "sha256": "1228385ea54f3d07f7689ee4512a8635b093db96f05e581377c70db2fbbc7b01",
+      "text_scale": 1.2,
+      "width": 1280
+    },
+    {
+      "case": "16x10_en_inventory_120",
+      "height": 800,
+      "locale": "en",
+      "path": "res://assets/generated/ui/compact_hud/16x10_en_inventory_120.png",
+      "profile": "16x10",
+      "scenario": "inventory",
+      "sha256": "d89ffb63bab51d6fcedab6685a84146a7f2db4c14caf9c406484ef05623f5fcb",
+      "text_scale": 1.2,
+      "width": 1280
+    },
+    {
+      "case": "16x10_es_normal_120",
+      "height": 800,
+      "locale": "es",
+      "path": "res://assets/generated/ui/compact_hud/16x10_es_normal_120.png",
+      "profile": "16x10",
+      "scenario": "normal",
+      "sha256": "7e72d0638b2a6996c5912ffbe263b8da6dfbf497618f0dc2bf8c7db081620641",
+      "text_scale": 1.2,
+      "width": 1280
+    },
+    {
+      "case": "16x10_es_stress_120",
+      "height": 800,
+      "locale": "es",
+      "path": "res://assets/generated/ui/compact_hud/16x10_es_stress_120.png",
+      "profile": "16x10",
+      "scenario": "stress",
+      "sha256": "9122f9f2625cef79fc6857654e90af2be88dc3ae4d0959580a3b6e0db33bc529",
+      "text_scale": 1.2,
+      "width": 1280
+    },
+    {
+      "case": "16x10_es_inventory_120",
+      "height": 800,
+      "locale": "es",
+      "path": "res://assets/generated/ui/compact_hud/16x10_es_inventory_120.png",
+      "profile": "16x10",
+      "scenario": "inventory",
+      "sha256": "64026fa4c02cb9a18761de1da9cc513a5612277a11d402e8d3c57f7f54f28663",
+      "text_scale": 1.2,
+      "width": 1280
+    },
+    {
+      "case": "16x10_de_normal_120",
+      "height": 800,
+      "locale": "de",
+      "path": "res://assets/generated/ui/compact_hud/16x10_de_normal_120.png",
+      "profile": "16x10",
+      "scenario": "normal",
+      "sha256": "2170affb4ca5a9b50da44e3b658ee864eb5bae3d61df73cfa1a68ceaf13cb7e8",
+      "text_scale": 1.2,
+      "width": 1280
+    },
+    {
+      "case": "16x10_de_stress_120",
+      "height": 800,
+      "locale": "de",
+      "path": "res://assets/generated/ui/compact_hud/16x10_de_stress_120.png",
+      "profile": "16x10",
+      "scenario": "stress",
+      "sha256": "84f2679ce00a61ddc99b7103451edf63de25568e8df105bffd679a7018cd3eaf",
+      "text_scale": 1.2,
+      "width": 1280
+    },
+    {
+      "case": "16x10_de_inventory_120",
+      "height": 800,
+      "locale": "de",
+      "path": "res://assets/generated/ui/compact_hud/16x10_de_inventory_120.png",
+      "profile": "16x10",
+      "scenario": "inventory",
+      "sha256": "d3b7a9e082cfdc4979e3dbcb6b514eb29010a14e08bbb41c955514639f336013",
+      "text_scale": 1.2,
+      "width": 1280
+    },
+    {
+      "case": "16x10_fr_normal_120",
+      "height": 800,
+      "locale": "fr",
+      "path": "res://assets/generated/ui/compact_hud/16x10_fr_normal_120.png",
+      "profile": "16x10",
+      "scenario": "normal",
+      "sha256": "4a39bfa2ffc9b439415d112a932d7a606e0122fd76e3ef4966d35766e298daae",
+      "text_scale": 1.2,
+      "width": 1280
+    },
+    {
+      "case": "16x10_fr_stress_120",
+      "height": 800,
+      "locale": "fr",
+      "path": "res://assets/generated/ui/compact_hud/16x10_fr_stress_120.png",
+      "profile": "16x10",
+      "scenario": "stress",
+      "sha256": "eb5bb88c11890acec891f0b5a7dd8b3baeb2692fb56600f953ad90ad5122de16",
+      "text_scale": 1.2,
+      "width": 1280
+    },
+    {
+      "case": "16x10_fr_inventory_120",
+      "height": 800,
+      "locale": "fr",
+      "path": "res://assets/generated/ui/compact_hud/16x10_fr_inventory_120.png",
+      "profile": "16x10",
+      "scenario": "inventory",
+      "sha256": "2cc55404baf515d41bad3e1f2e884db2caa9021638e3d0bfa1ae55d454f6d32a",
+      "text_scale": 1.2,
+      "width": 1280
+    },
+    {
+      "case": "16x10_zh_normal_120",
+      "height": 800,
+      "locale": "zh",
+      "path": "res://assets/generated/ui/compact_hud/16x10_zh_normal_120.png",
+      "profile": "16x10",
+      "scenario": "normal",
+      "sha256": "6ec61fa1110d962f5460347eec7629ef9120f2c975b95877b2c09f91dd3af862",
+      "text_scale": 1.2,
+      "width": 1280
+    },
+    {
+      "case": "16x10_zh_stress_120",
+      "height": 800,
+      "locale": "zh",
+      "path": "res://assets/generated/ui/compact_hud/16x10_zh_stress_120.png",
+      "profile": "16x10",
+      "scenario": "stress",
+      "sha256": "9e2558c332ae10fba84d838ffdbd21b5990c24cb732bb8de510b3852b253be36",
+      "text_scale": 1.2,
+      "width": 1280
+    },
+    {
+      "case": "16x10_zh_inventory_120",
+      "height": 800,
+      "locale": "zh",
+      "path": "res://assets/generated/ui/compact_hud/16x10_zh_inventory_120.png",
+      "profile": "16x10",
+      "scenario": "inventory",
+      "sha256": "a0e53eaa534c7aaff6a10eb0cb0ad5139db25f8299975e43f23cd39198336c64",
+      "text_scale": 1.2,
+      "width": 1280
+    },
+    {
+      "case": "ultrawide_ru_normal_120",
+      "height": 720,
+      "locale": "ru",
+      "path": "res://assets/generated/ui/compact_hud/ultrawide_ru_normal_120.png",
+      "profile": "ultrawide",
+      "scenario": "normal",
+      "sha256": "94f55f00148d97dbb82911d11a2721cb3c0bdf7f6ce099a440d1a95947e706ae",
+      "text_scale": 1.2,
+      "width": 1680
+    },
+    {
+      "case": "ultrawide_ru_stress_120",
+      "height": 720,
+      "locale": "ru",
+      "path": "res://assets/generated/ui/compact_hud/ultrawide_ru_stress_120.png",
+      "profile": "ultrawide",
+      "scenario": "stress",
+      "sha256": "07ea1bf0e3ce5517f52c57856c83ec7ef355644201ae69c194a83516f98c8d91",
+      "text_scale": 1.2,
+      "width": 1680
+    },
+    {
+      "case": "ultrawide_ru_inventory_120",
+      "height": 720,
+      "locale": "ru",
+      "path": "res://assets/generated/ui/compact_hud/ultrawide_ru_inventory_120.png",
+      "profile": "ultrawide",
+      "scenario": "inventory",
+      "sha256": "7500f15bdf11d4673fe3f99a78cd1903a35e78e74c6c59f1e0e639257bd5dcac",
+      "text_scale": 1.2,
+      "width": 1680
+    },
+    {
+      "case": "ultrawide_en_normal_120",
+      "height": 720,
+      "locale": "en",
+      "path": "res://assets/generated/ui/compact_hud/ultrawide_en_normal_120.png",
+      "profile": "ultrawide",
+      "scenario": "normal",
+      "sha256": "579b2bb28cf91e78d23a27f89afcbc918826f0396794538d2d183c06d0c6a2ff",
+      "text_scale": 1.2,
+      "width": 1680
+    },
+    {
+      "case": "ultrawide_en_stress_120",
+      "height": 720,
+      "locale": "en",
+      "path": "res://assets/generated/ui/compact_hud/ultrawide_en_stress_120.png",
+      "profile": "ultrawide",
+      "scenario": "stress",
+      "sha256": "e3f81cf8ebf17986e4d6979d296488e2bdef8ccdc7f888d72a74d416de410f1a",
+      "text_scale": 1.2,
+      "width": 1680
+    },
+    {
+      "case": "ultrawide_en_inventory_120",
+      "height": 720,
+      "locale": "en",
+      "path": "res://assets/generated/ui/compact_hud/ultrawide_en_inventory_120.png",
+      "profile": "ultrawide",
+      "scenario": "inventory",
+      "sha256": "cdbb6fc270af8021d3fd93859b173b467fc90250ffe00fa1153ab8a2e5ad02dc",
+      "text_scale": 1.2,
+      "width": 1680
+    },
+    {
+      "case": "ultrawide_es_normal_120",
+      "height": 720,
+      "locale": "es",
+      "path": "res://assets/generated/ui/compact_hud/ultrawide_es_normal_120.png",
+      "profile": "ultrawide",
+      "scenario": "normal",
+      "sha256": "b4838a003e8491d4cece5ef5cf37bba80265dd7c19f8e717fe2c0fae55ffdcfb",
+      "text_scale": 1.2,
+      "width": 1680
+    },
+    {
+      "case": "ultrawide_es_stress_120",
+      "height": 720,
+      "locale": "es",
+      "path": "res://assets/generated/ui/compact_hud/ultrawide_es_stress_120.png",
+      "profile": "ultrawide",
+      "scenario": "stress",
+      "sha256": "2771292cdc50001d53dc932700ee26b0edfef0fe1f357037c3bfd4485e719f5a",
+      "text_scale": 1.2,
+      "width": 1680
+    },
+    {
+      "case": "ultrawide_es_inventory_120",
+      "height": 720,
+      "locale": "es",
+      "path": "res://assets/generated/ui/compact_hud/ultrawide_es_inventory_120.png",
+      "profile": "ultrawide",
+      "scenario": "inventory",
+      "sha256": "9292fa0aa196e94a8793a64836648f3841921aea5b361e7beac6a920dbf9541b",
+      "text_scale": 1.2,
+      "width": 1680
+    },
+    {
+      "case": "ultrawide_de_normal_120",
+      "height": 720,
+      "locale": "de",
+      "path": "res://assets/generated/ui/compact_hud/ultrawide_de_normal_120.png",
+      "profile": "ultrawide",
+      "scenario": "normal",
+      "sha256": "954dc87f224549d20bc1e3c833e6b1373fe6748a071a2c2dcfa86e8c4cb459ec",
+      "text_scale": 1.2,
+      "width": 1680
+    },
+    {
+      "case": "ultrawide_de_stress_120",
+      "height": 720,
+      "locale": "de",
+      "path": "res://assets/generated/ui/compact_hud/ultrawide_de_stress_120.png",
+      "profile": "ultrawide",
+      "scenario": "stress",
+      "sha256": "f4fbe1aaddb21b843153bfa45fef4bbce7d48d82a6ad6a69f79814aab3e191b5",
+      "text_scale": 1.2,
+      "width": 1680
+    },
+    {
+      "case": "ultrawide_de_inventory_120",
+      "height": 720,
+      "locale": "de",
+      "path": "res://assets/generated/ui/compact_hud/ultrawide_de_inventory_120.png",
+      "profile": "ultrawide",
+      "scenario": "inventory",
+      "sha256": "122b8c3cb4f701ba34397c834f25016f9537d71ac8cc85a97d5888f3ba32b4b2",
+      "text_scale": 1.2,
+      "width": 1680
+    },
+    {
+      "case": "ultrawide_fr_normal_120",
+      "height": 720,
+      "locale": "fr",
+      "path": "res://assets/generated/ui/compact_hud/ultrawide_fr_normal_120.png",
+      "profile": "ultrawide",
+      "scenario": "normal",
+      "sha256": "f1b344d27dbbd672cece5bc3cdc28652124199aac31711bf3f31090a4e37375b",
+      "text_scale": 1.2,
+      "width": 1680
+    },
+    {
+      "case": "ultrawide_fr_stress_120",
+      "height": 720,
+      "locale": "fr",
+      "path": "res://assets/generated/ui/compact_hud/ultrawide_fr_stress_120.png",
+      "profile": "ultrawide",
+      "scenario": "stress",
+      "sha256": "4308cf12b8802f924112738b52ca8be58cd26ba0d23d2125e69f90bb97eaec33",
+      "text_scale": 1.2,
+      "width": 1680
+    },
+    {
+      "case": "ultrawide_fr_inventory_120",
+      "height": 720,
+      "locale": "fr",
+      "path": "res://assets/generated/ui/compact_hud/ultrawide_fr_inventory_120.png",
+      "profile": "ultrawide",
+      "scenario": "inventory",
+      "sha256": "64991151e5314420457b8d72c02e8c916e6a9d4a5f2e7d02997b3d98a25ce1b7",
+      "text_scale": 1.2,
+      "width": 1680
+    },
+    {
+      "case": "ultrawide_zh_normal_120",
+      "height": 720,
+      "locale": "zh",
+      "path": "res://assets/generated/ui/compact_hud/ultrawide_zh_normal_120.png",
+      "profile": "ultrawide",
+      "scenario": "normal",
+      "sha256": "bc4647b4e87a85ef516d55bde9e9ec554bf92d87db7dd14ba26bed34dccb34a9",
+      "text_scale": 1.2,
+      "width": 1680
+    },
+    {
+      "case": "ultrawide_zh_stress_120",
+      "height": 720,
+      "locale": "zh",
+      "path": "res://assets/generated/ui/compact_hud/ultrawide_zh_stress_120.png",
+      "profile": "ultrawide",
+      "scenario": "stress",
+      "sha256": "da848549d2a5397bab20f3c6bbee368e91a2cadcd598a0d24f26a56a5bbee0e1",
+      "text_scale": 1.2,
+      "width": 1680
+    },
+    {
+      "case": "ultrawide_zh_inventory_120",
+      "height": 720,
+      "locale": "zh",
+      "path": "res://assets/generated/ui/compact_hud/ultrawide_zh_inventory_120.png",
+      "profile": "ultrawide",
+      "scenario": "inventory",
+      "sha256": "6f5bab226e93587d6bbe1753efca9878c688d556c469715d50a8d1db7b45419b",
+      "text_scale": 1.2,
+      "width": 1680
+    }
+  ],
+  "checks": [
+    {
+      "description": "Матрица использует все шесть реально поддерживаемых языков",
+      "detail": {},
+      "ok": true
+    },
+    {
+      "description": "Клик по видимому быстрому слоту выбирает его",
+      "detail": {
+        "slot": 0
+      },
+      "ok": true
+    },
+    {
+      "description": "Тач по видимому быстрому слоту выбирает его",
+      "detail": {
+        "slot": 0
+      },
+      "ok": true
+    },
+    {
+      "description": "Клик по видимому быстрому слоту выбирает его",
+      "detail": {
+        "slot": 1
+      },
+      "ok": true
+    },
+    {
+      "description": "Тач по видимому быстрому слоту выбирает его",
+      "detail": {
+        "slot": 1
+      },
+      "ok": true
+    },
+    {
+      "description": "Соседние быстрые слоты не пересекаются",
+      "detail": {
+        "slot": 1
+      },
+      "ok": true
+    },
+    {
+      "description": "Клик по видимому быстрому слоту выбирает его",
+      "detail": {
+        "slot": 2
+      },
+      "ok": true
+    },
+    {
+      "description": "Тач по видимому быстрому слоту выбирает его",
+      "detail": {
+        "slot": 2
+      },
+      "ok": true
+    },
+    {
+      "description": "Соседние быстрые слоты не пересекаются",
+      "detail": {
+        "slot": 2
+      },
+      "ok": true
+    },
+    {
+      "description": "Клик по видимому быстрому слоту выбирает его",
+      "detail": {
+        "slot": 3
+      },
+      "ok": true
+    },
+    {
+      "description": "Тач по видимому быстрому слоту выбирает его",
+      "detail": {
+        "slot": 3
+      },
+      "ok": true
+    },
+    {
+      "description": "Соседние быстрые слоты не пересекаются",
+      "detail": {
+        "slot": 3
+      },
+      "ok": true
+    },
+    {
+      "description": "Клик по видимому быстрому слоту выбирает его",
+      "detail": {
+        "slot": 4
+      },
+      "ok": true
+    },
+    {
+      "description": "Тач по видимому быстрому слоту выбирает его",
+      "detail": {
+        "slot": 4
+      },
+      "ok": true
+    },
+    {
+      "description": "Соседние быстрые слоты не пересекаются",
+      "detail": {
+        "slot": 4
+      },
+      "ok": true
+    },
+    {
+      "description": "Клик по видимому быстрому слоту выбирает его",
+      "detail": {
+        "slot": 5
+      },
+      "ok": true
+    },
+    {
+      "description": "Тач по видимому быстрому слоту выбирает его",
+      "detail": {
+        "slot": 5
+      },
+      "ok": true
+    },
+    {
+      "description": "Соседние быстрые слоты не пересекаются",
+      "detail": {
+        "slot": 5
+      },
+      "ok": true
+    },
+    {
+      "description": "Клик по видимому быстрому слоту выбирает его",
+      "detail": {
+        "slot": 6
+      },
+      "ok": true
+    },
+    {
+      "description": "Тач по видимому быстрому слоту выбирает его",
+      "detail": {
+        "slot": 6
+      },
+      "ok": true
+    },
+    {
+      "description": "Соседние быстрые слоты не пересекаются",
+      "detail": {
+        "slot": 6
+      },
+      "ok": true
+    },
+    {
+      "description": "Клик по видимому быстрому слоту выбирает его",
+      "detail": {
+        "slot": 7
+      },
+      "ok": true
+    },
+    {
+      "description": "Тач по видимому быстрому слоту выбирает его",
+      "detail": {
+        "slot": 7
+      },
+      "ok": true
+    },
+    {
+      "description": "Соседние быстрые слоты не пересекаются",
+      "detail": {
+        "slot": 7
+      },
+      "ok": true
+    },
+    {
+      "description": "Клик по видимому быстрому слоту выбирает его",
+      "detail": {
+        "slot": 8
+      },
+      "ok": true
+    },
+    {
+      "description": "Тач по видимому быстрому слоту выбирает его",
+      "detail": {
+        "slot": 8
+      },
+      "ok": true
+    },
+    {
+      "description": "Соседние быстрые слоты не пересекаются",
+      "detail": {
+        "slot": 8
+      },
+      "ok": true
+    },
+    {
+      "description": "Клик по видимому быстрому слоту выбирает его",
+      "detail": {
+        "slot": 9
+      },
+      "ok": true
+    },
+    {
+      "description": "Тач по видимому быстрому слоту выбирает его",
+      "detail": {
+        "slot": 9
+      },
+      "ok": true
+    },
+    {
+      "description": "Соседние быстрые слоты не пересекаются",
+      "detail": {
+        "slot": 9
+      },
+      "ok": true
+    },
+    {
+      "description": "Крестик рюкзака закрывает его после выбора быстрых предметов",
+      "detail": {},
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1152,
+          648
+        ],
+        "case": "16x9_ru_normal_120",
+        "expected": [
+          1152,
+          648
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1152,
+          648
+        ],
+        "case": "16x9_ru_stress_120",
+        "expected": [
+          1152,
+          648
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1152,
+          648
+        ],
+        "case": "16x9_ru_inventory_120",
+        "expected": [
+          1152,
+          648
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1152,
+          648
+        ],
+        "case": "16x9_en_normal_120",
+        "expected": [
+          1152,
+          648
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1152,
+          648
+        ],
+        "case": "16x9_en_stress_120",
+        "expected": [
+          1152,
+          648
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1152,
+          648
+        ],
+        "case": "16x9_en_inventory_120",
+        "expected": [
+          1152,
+          648
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1152,
+          648
+        ],
+        "case": "16x9_es_normal_120",
+        "expected": [
+          1152,
+          648
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1152,
+          648
+        ],
+        "case": "16x9_es_stress_120",
+        "expected": [
+          1152,
+          648
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1152,
+          648
+        ],
+        "case": "16x9_es_inventory_120",
+        "expected": [
+          1152,
+          648
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1152,
+          648
+        ],
+        "case": "16x9_de_normal_120",
+        "expected": [
+          1152,
+          648
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1152,
+          648
+        ],
+        "case": "16x9_de_stress_120",
+        "expected": [
+          1152,
+          648
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1152,
+          648
+        ],
+        "case": "16x9_de_inventory_120",
+        "expected": [
+          1152,
+          648
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1152,
+          648
+        ],
+        "case": "16x9_fr_normal_120",
+        "expected": [
+          1152,
+          648
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1152,
+          648
+        ],
+        "case": "16x9_fr_stress_120",
+        "expected": [
+          1152,
+          648
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1152,
+          648
+        ],
+        "case": "16x9_fr_inventory_120",
+        "expected": [
+          1152,
+          648
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1152,
+          648
+        ],
+        "case": "16x9_zh_normal_120",
+        "expected": [
+          1152,
+          648
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1152,
+          648
+        ],
+        "case": "16x9_zh_stress_120",
+        "expected": [
+          1152,
+          648
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1152,
+          648
+        ],
+        "case": "16x9_zh_inventory_120",
+        "expected": [
+          1152,
+          648
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1280,
+          800
+        ],
+        "case": "16x10_ru_normal_120",
+        "expected": [
+          1280,
+          800
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1280,
+          800
+        ],
+        "case": "16x10_ru_stress_120",
+        "expected": [
+          1280,
+          800
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1280,
+          800
+        ],
+        "case": "16x10_ru_inventory_120",
+        "expected": [
+          1280,
+          800
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1280,
+          800
+        ],
+        "case": "16x10_en_normal_120",
+        "expected": [
+          1280,
+          800
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1280,
+          800
+        ],
+        "case": "16x10_en_stress_120",
+        "expected": [
+          1280,
+          800
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1280,
+          800
+        ],
+        "case": "16x10_en_inventory_120",
+        "expected": [
+          1280,
+          800
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1280,
+          800
+        ],
+        "case": "16x10_es_normal_120",
+        "expected": [
+          1280,
+          800
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1280,
+          800
+        ],
+        "case": "16x10_es_stress_120",
+        "expected": [
+          1280,
+          800
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1280,
+          800
+        ],
+        "case": "16x10_es_inventory_120",
+        "expected": [
+          1280,
+          800
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1280,
+          800
+        ],
+        "case": "16x10_de_normal_120",
+        "expected": [
+          1280,
+          800
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1280,
+          800
+        ],
+        "case": "16x10_de_stress_120",
+        "expected": [
+          1280,
+          800
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1280,
+          800
+        ],
+        "case": "16x10_de_inventory_120",
+        "expected": [
+          1280,
+          800
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1280,
+          800
+        ],
+        "case": "16x10_fr_normal_120",
+        "expected": [
+          1280,
+          800
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1280,
+          800
+        ],
+        "case": "16x10_fr_stress_120",
+        "expected": [
+          1280,
+          800
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1280,
+          800
+        ],
+        "case": "16x10_fr_inventory_120",
+        "expected": [
+          1280,
+          800
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1280,
+          800
+        ],
+        "case": "16x10_zh_normal_120",
+        "expected": [
+          1280,
+          800
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1280,
+          800
+        ],
+        "case": "16x10_zh_stress_120",
+        "expected": [
+          1280,
+          800
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1280,
+          800
+        ],
+        "case": "16x10_zh_inventory_120",
+        "expected": [
+          1280,
+          800
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1680,
+          720
+        ],
+        "case": "ultrawide_ru_normal_120",
+        "expected": [
+          1680,
+          720
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1680,
+          720
+        ],
+        "case": "ultrawide_ru_stress_120",
+        "expected": [
+          1680,
+          720
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1680,
+          720
+        ],
+        "case": "ultrawide_ru_inventory_120",
+        "expected": [
+          1680,
+          720
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1680,
+          720
+        ],
+        "case": "ultrawide_en_normal_120",
+        "expected": [
+          1680,
+          720
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1680,
+          720
+        ],
+        "case": "ultrawide_en_stress_120",
+        "expected": [
+          1680,
+          720
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1680,
+          720
+        ],
+        "case": "ultrawide_en_inventory_120",
+        "expected": [
+          1680,
+          720
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1680,
+          720
+        ],
+        "case": "ultrawide_es_normal_120",
+        "expected": [
+          1680,
+          720
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1680,
+          720
+        ],
+        "case": "ultrawide_es_stress_120",
+        "expected": [
+          1680,
+          720
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1680,
+          720
+        ],
+        "case": "ultrawide_es_inventory_120",
+        "expected": [
+          1680,
+          720
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1680,
+          720
+        ],
+        "case": "ultrawide_de_normal_120",
+        "expected": [
+          1680,
+          720
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1680,
+          720
+        ],
+        "case": "ultrawide_de_stress_120",
+        "expected": [
+          1680,
+          720
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1680,
+          720
+        ],
+        "case": "ultrawide_de_inventory_120",
+        "expected": [
+          1680,
+          720
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1680,
+          720
+        ],
+        "case": "ultrawide_fr_normal_120",
+        "expected": [
+          1680,
+          720
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1680,
+          720
+        ],
+        "case": "ultrawide_fr_stress_120",
+        "expected": [
+          1680,
+          720
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1680,
+          720
+        ],
+        "case": "ultrawide_fr_inventory_120",
+        "expected": [
+          1680,
+          720
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1680,
+          720
+        ],
+        "case": "ultrawide_zh_normal_120",
+        "expected": [
+          1680,
+          720
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1680,
+          720
+        ],
+        "case": "ultrawide_zh_stress_120",
+        "expected": [
+          1680,
+          720
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Native framebuffer сохранён в ожидаемом размере",
+      "detail": {
+        "actual": [
+          1680,
+          720
+        ],
+        "case": "ultrawide_zh_inventory_120",
+        "expected": [
+          1680,
+          720
+        ]
+      },
+      "ok": true
+    },
+    {
+      "description": "Файл пользователя не изменён",
+      "detail": {
+        "path": "user://farm-save.json"
+      },
+      "ok": true
+    },
+    {
+      "description": "Файл пользователя не изменён",
+      "detail": {
+        "path": "user://farm-save-2.json"
+      },
+      "ok": true
+    },
+    {
+      "description": "Файл пользователя не изменён",
+      "detail": {
+        "path": "user://farm-save-3.json"
+      },
+      "ok": true
+    },
+    {
+      "description": "Файл пользователя не изменён",
+      "detail": {
+        "path": "user://farm-settings.cfg"
+      },
+      "ok": true
+    }
+  ],
+  "failed": 0,
+  "image_pipeline": "Native GPU framebuffer at each physical size; UiScaleSystem keep-transform applied before drawing to preserve letterbox fields in capture; no PNG resizing",
+  "locales": [
+    "ru",
+    "en",
+    "es",
+    "de",
+    "fr",
+    "zh"
+  ],
+  "passed": 89,
+  "renderer": "gl_compatibility",
+  "schema": 1,
+  "source": "main.tscn; QA bootstrap omits settings migration and menu request consumption",
+  "text_scale": 1.2,
+  "user_files_unchanged": true,
+  "version": "0.0.91",
+  "visual_review": "Screenshots require independent visual inspection; assertions are not line coverage."
+}

@@ -2,6 +2,7 @@ extends RefCounted
 
 const TREE_ATLAS := preload("res://assets/game/environment/orchard/fruit_trees_4x4_v2.png")
 const WorldVisualProfileSystem := preload("res://scripts/systems/world_visual_profile_system.gd")
+const TreeOcclusion := preload("res://scripts/systems/tree_occlusion_system.gd")
 const SPECIES_ROWS := {"apple":0, "pear":1, "cherry":2, "plum":3}
 const STAGE_COUNT := 4
 const WINTER := "winter"
@@ -173,24 +174,24 @@ static func draw_tree(game: Node2D, node: Dictionary) -> void:
 	if current_weather in ["wind", "storm"]:
 		position.x += roundf(sin(time * 2.4 + position.y * 0.01) * (2.0 if current_weather == "storm" else 1.0))
 	var destination := destination_rect(position, current_stage)
-	game.draw_texture_rect_region(TREE_ATLAS, destination, source_rect(node.kind, visual_stage(game,node,data), current_season == WINTER), weather_tint(current_season, current_weather))
-	_draw_weather_details(game, destination, current_stage, current_season, current_weather, time)
+	var overlay := _draw_weather_details.bind(game, destination, current_stage, current_season, current_weather, time)
+	TreeOcclusion.submit(game, TreeOcclusion.key_for("orchard_%s"%node.kind,node.position), TREE_ATLAS, destination, source_rect(node.kind, visual_stage(game,node,data), current_season == WINTER), Vector2(node.position).y+18.0, weather_tint(current_season,current_weather), overlay)
 
 
 ## Добавляет погоду поверх кроны, не меняя коллизию и точку опоры дерева.
-static func _draw_weather_details(game: Node2D, rect: Rect2, current_stage: int, season: String, weather: String, time: float) -> void:
+static func _draw_weather_details(alpha: float, game: Node2D, rect: Rect2, current_stage: int, season: String, weather: String, time: float) -> void:
 	if season == WINTER:
 		var cap_count := maxi(current_stage + 1, 2)
 		for index in cap_count:
 			var x := rect.position.x + rect.size.x * (float(index + 1) / float(cap_count + 1))
 			var y := rect.position.y + rect.size.y * (0.24 + 0.08 * (index % 2))
-			game.draw_circle(Vector2(x, y), 3.0 + current_stage, Color("edf7ff"))
+			game.draw_circle(Vector2(x, y), 3.0 + current_stage, Color(Color("edf7ff"),alpha))
 		return
 	if weather in ["rain", "storm"]:
 		for index in maxi(current_stage + 1, 2):
 			var phase := fposmod(time * 48.0 + index * 17.0 + rect.position.x, rect.size.y * 0.65)
 			var drop := rect.position + Vector2(rect.size.x * (0.25 + 0.22 * index), 8.0 + phase)
-			game.draw_line(drop, drop + Vector2(-2, 6), Color(0.65, 0.88, 1.0, 0.72), 1.5)
+			game.draw_line(drop, drop + Vector2(-2, 6), Color(0.65, 0.88, 1.0, 0.72*alpha), 1.5)
 	if weather in ["wind", "storm"] and current_stage > 0:
 		var leaf := rect.position + Vector2(rect.size.x + fposmod(time * 28.0, 18.0), rect.size.y * 0.42)
-		game.draw_circle(leaf, 2.5, Color("739f42"))
+		game.draw_circle(leaf, 2.5, Color(Color("739f42"),alpha))

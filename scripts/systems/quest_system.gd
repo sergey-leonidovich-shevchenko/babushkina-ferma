@@ -1,6 +1,7 @@
 extends RefCounted
 
 const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
+const VillageMapData := preload("res://scripts/systems/village_map_data.gd")
 
 const AVAILABLE := "available"
 const ACTIVE := "active"
@@ -51,11 +52,11 @@ const MISSIONS := {
 }
 
 const NPCS := {
-	"miron":{"location":"overworld","position":Vector2(1700,470),"sprite":1,"tint":Color("fff3d8"),"missions":["story_relic","story_moon_seal"]},
-	"agafya":{"location":"overworld","position":Vector2(1300,470),"sprite":2,"tint":Color("dff2d2"),"missions":["side_seed"]},
-	"varvara":{"location":"overworld","position":Vector2(1020,900),"sprite":2,"tint":Color("d7efff"),"missions":["side_fisher"]},
-	"gavrila":{"location":"overworld","position":Vector2(920,360),"sprite":1,"tint":Color("ffd8c2"),"missions":["side_smith"]},
-	"dunya":{"location":"overworld","position":Vector2(1510,450),"sprite":0,"tint":Color("fff0c4"),"missions":["side_feast"]},
+	"miron":{"location":"overworld","position":VillageMapData.NPCS.miron,"sprite":1,"tint":Color("fff3d8"),"missions":["story_relic","story_moon_seal"]},
+	"agafya":{"location":"overworld","position":VillageMapData.NPCS.agafya,"sprite":2,"tint":Color("dff2d2"),"missions":["side_seed"]},
+	"varvara":{"location":"overworld","position":VillageMapData.NPCS.varvara,"sprite":2,"tint":Color("d7efff"),"missions":["side_fisher"]},
+	"gavrila":{"location":"overworld","position":VillageMapData.NPCS.gavrila,"sprite":1,"tint":Color("ffd8c2"),"missions":["side_smith"]},
+	"dunya":{"location":"overworld","position":VillageMapData.NPCS.dunya,"sprite":0,"tint":Color("fff0c4"),"missions":["side_feast"]},
 	"saveliy":{"location":"forest","position":Vector2(350,520),"sprite":1,"tint":Color("d5e6bd"),"missions":["side_hunter"]},
 	"zlata":{"location":"rocky","position":Vector2(410,520),"sprite":2,"tint":Color("ffe0b5"),"missions":["side_miner"]},
 	"elizar":{"location":"ruins","position":Vector2(350,440),"sprite":0,"tint":Color("e6ddff"),"missions":["story_ancient_key","side_bones"]},

@@ -1,6 +1,7 @@
 extends RefCounted
 
 const IMAGE_EXTENSIONS := [".png", ".webp"]
+const ActorSources := preload("res://scripts/editor/editor_actor_source_system.gd")
 const EXPECTED_BUILDINGS := ["chapel", "cottage", "forge", "guild_hall", "moon_castle", "prison", "shop_house", "wizard_tower"]
 const SAFE_ATLAS_SLICES := {
 	"buildable_fence_atlas_v1.png":64,
@@ -26,6 +27,7 @@ const STRICT_SHEET_SLICES := {
 static func scan(root: String) -> Array[Dictionary]:
 	var result: Array[Dictionary] = []
 	_scan_directory(root,result)
+	for path in ActorSources.template_paths(root): result.append(metadata(path))
 	result.sort_custom(func(left: Dictionary,right: Dictionary): return "%s:%s" % [left.category,left.name] < "%s:%s" % [right.category,right.name])
 	return result
 
@@ -55,7 +57,7 @@ static func metadata(path: String) -> Dictionary:
 	var bottom := category in ["buildings","vegetation","characters","enemies","decor"]
 	var slice_size := _profile_slice_size(path)
 	var display_size := _profile_display_size(path,slice_size)
-	return {
+	var entry := {
 		"path":path,
 		"name":path.get_file().get_basename().replace("_"," ").replace("-"," "),
 		"category":category,
@@ -69,6 +71,8 @@ static func metadata(path: String) -> Dictionary:
 		"surface_kind":_surface_kind(path),
 		"sliced":slice_size>0,
 	}
+	entry.merge(ActorSources.profile(path), true)
+	return entry
 
 
 ## Сводит полноту домов, безопасно нарезанные листы и уникальные сущности в диагностический отчёт каталога.
@@ -121,6 +125,7 @@ static func _scan_directory(path: String, result: Array[Dictionary]) -> void:
 ## Проверяет расширение и исключает контрольные изображения из пользовательского каталога.
 static func _is_placeable_image(filename: String) -> bool:
 	var lower := filename.to_lower()
+	if lower in ActorSources.ANIMAL_MASTERS: return false
 	if "preview" in lower or "master" in lower: return false
 	if lower == "farm_plants.png": return false
 	if "atlas" in lower and not SAFE_ATLAS_SLICES.has(lower): return false
@@ -130,6 +135,7 @@ static func _is_placeable_image(filename: String) -> bool:
 ## Возвращает размер кадра только для листов с проверенной строгой геометрией.
 static func _profile_slice_size(path: String) -> int:
 	var lower:=path.to_lower(); var filename:=lower.get_file()
+	if ActorSources.handles(path): return 0
 	if "/characters/directional/" in lower: return 222
 	if "/enemies/animated/" in lower or "/wildlife/directional/" in lower: return 128
 	if STRICT_SHEET_SLICES.has(filename): return int(STRICT_SHEET_SLICES[filename])
@@ -140,7 +146,7 @@ static func _profile_slice_size(path: String) -> int:
 static func _profile_display_size(path: String, slice_size: int) -> Vector2:
 	var lower:=path.to_lower()
 	if "/characters/directional/" in lower:
-		return Vector2(72,96) if "/hero_" in lower or "/hero" in lower else Vector2(96,96)
+		return Vector2(96,96)
 	if "/enemies/animated/" in lower or "/wildlife/directional/" in lower: return Vector2(96,96)
 	if lower.get_file().begins_with("slime_"): return Vector2(96,96)
 	return Vector2(slice_size,slice_size) if slice_size>0 else Vector2.ZERO

@@ -11,10 +11,9 @@ const PAGE_COUNT := 5
 
 ## Переключает карту мира и регистрирует знакомство с её обозначениями.
 static func toggle(game: Node) -> bool:
-	game.world_map_open = not game.world_map_open
-	if game.world_map_open:
-		game.clear_movement_keys(); game.notify_tutorial("world_map")
-	game.queue_redraw()
+	var hub = preload("res://scripts/systems/menu_hub_system.gd")
+	if game.world_map_open: hub.close(game)
+	else: hub.open(game,"world")
 	return game.world_map_open
 
 

@@ -2,8 +2,10 @@ extends RefCounted
 
 const TITLE_BUTTON_SELECTED_ART := preload("res://assets/game/ui/title/title_button_selected_v1.png")
 const UiKitSystem := preload("res://scripts/systems/ui_kit_system.gd")
+const MoonPause := preload("res://scripts/presentation/moon_pause_renderer.gd")
+const MoonStyle := preload("res://scripts/presentation/moon_theme.gd")
 const TITLE_PANEL := Rect2(746, 244, 360, 360)
-const PAUSE_PANEL := Rect2(358, 92, 436, 464)
+const PAUSE_PANEL := MoonPause.PANEL
 const SETTINGS_PANEL := Rect2(250, 18, 652, 612)
 const LANGUAGE_PANEL := Rect2(210, 108, 732, 430)
 const CONFIRM_PANEL := Rect2(326, 198, 500, 252)
@@ -13,13 +15,11 @@ const DEFEAT_PANEL := Rect2(286, 170, 580, 308)
 const DEFEAT_CONTINUE := Rect2(431, 390, 290, 54)
 const TITLE_WORDMARK_RECT := Rect2(38, 34, 694, 72)
 const TITLE_ITEM_ORIGIN := Vector2(814, 329)
-const PAUSE_ITEM_ORIGIN := Vector2(388, 144)
-const SETTINGS_ITEM_ORIGIN := Vector2(280, 92)
+const SETTINGS_ITEM_ORIGIN := Vector2(296, 102)
 const TITLE_ITEM_SIZE := Vector2(222, 43)
 const TITLE_SELECTED_ART_SIZE := Vector2(238, 56)
-const PAUSE_ITEM_SIZE := Vector2(376, 50)
-const SETTINGS_ITEM_SIZE := Vector2(284, 52)
-const SETTINGS_ITEM_PITCH := Vector2(300, 64)
+const SETTINGS_ITEM_SIZE := Vector2(272, 52)
+const SETTINGS_ITEM_PITCH := Vector2(288, 64)
 const TITLE_HIGHLIGHT_ALPHA_BASE := 0.90
 const TITLE_HIGHLIGHT_ALPHA_PULSE := 0.08
 
@@ -36,7 +36,7 @@ static func title_selected_art_rect(item_rect: Rect2) -> Rect2:
 
 ## Возвращает прямоугольник строки меню паузы для отрисовки и единой hit-зоны.
 static func pause_item_rect(index: int) -> Rect2:
-	return Rect2(PAUSE_ITEM_ORIGIN + Vector2(0, index * 60), PAUSE_ITEM_SIZE)
+	return MoonPause.item_rect(index)
 
 
 ## Возвращает прямоугольник строки настроек для отрисовки и единой hit-зоны.
@@ -85,27 +85,29 @@ static func draw_title_menu(game: Node) -> void:
 
 ## Затемняет мир и рисует меню паузы либо открытую поверх него страницу настроек.
 static func draw_pause_layer(game: Node) -> void:
-	game.draw_rect(Rect2(0, 0, 1152, 648), Color(0.01, 0.025, 0.022, 0.76))
 	if game.menu_state.defeat_open:
+		game.draw_rect(Rect2(0, 0, 1152, 648), Color(0.01, 0.025, 0.022, 0.76))
 		draw_defeat(game)
 		return
 	if game.menu_state.settings_open:
 		draw_settings(game)
 		return
-	draw_panel(game, PAUSE_PANEL)
-	game.draw_ui_string(game.MENU_FONT, Vector2(388, 126), game.LocaleSystem.ui("paused"), HORIZONTAL_ALIGNMENT_CENTER, 376, 27, Color("fff0bd"))
-	for index in game.MenuSystem.PAUSE_ITEMS.size():
-		draw_item(game, pause_item_rect(index), game.LocaleSystem.ui(game.MenuSystem.PAUSE_ITEMS[index]), index == game.menu_state.pause_selected, true)
-	game.draw_ui_string(game.UI_FONT, Vector2(388, 516), game.MenuSystem.save_summary(game), HORIZONTAL_ALIGNMENT_CENTER, 376, 10, Color("e2c68b"))
-	draw_notice(game, Vector2(388, 532), 376)
-	if not game.menu_state.confirmation.is_empty(): draw_confirmation(game)
+	if not game.menu_state.confirmation.is_empty():
+		MoonPause.draw_confirmation(game, CONFIRM_PANEL, CONFIRM_ACCEPT, CONFIRM_CANCEL)
+	else:
+		MoonPause.draw(game)
 
 
 ## Рисует страницу параметров с текущими значениями звука, экрана и языка.
 static func draw_settings(game: Node) -> void:
-	game.draw_rect(Rect2(0, 0, 1152, 648), Color(0.01, 0.025, 0.022, 0.82))
-	draw_panel(game, SETTINGS_PANEL)
-	game.draw_ui_string(game.MENU_FONT, Vector2(280, 68), game.LocaleSystem.ui("settings"), HORIZONTAL_ALIGNMENT_CENTER, 592, 26, Color("fff0bd"))
+	if game.menu_state.settings_from_title:
+		game.draw_rect(Rect2(0, 0, 1152, 648), Color(0.01, 0.025, 0.022, 0.82))
+		draw_panel(game, SETTINGS_PANEL)
+		game.draw_ui_string(game.MENU_FONT, Vector2(280, 68), game.LocaleSystem.ui("settings"), HORIZONTAL_ALIGNMENT_CENTER, 592, 26, Color("fff0bd"))
+	else:
+		MoonPause.draw_backdrop(game)
+		MoonStyle.panel(game, SETTINGS_PANEL)
+		MoonStyle.title(game, Rect2(280, 40, 592, 38), MoonStyle.sentence_case(game.LocaleSystem.ui("settings")), 28)
 	var values := [
 		"%d%%" % game.SettingsSystem.percent(game.settings_state.master_volume),
 		"%d%%" % game.SettingsSystem.percent(game.settings_state.music_volume),
@@ -143,13 +145,21 @@ static func draw_language_screen(game: Node) -> void:
 
 ## Рисует двухстрочную карточку параметра с раздельной иерархией названия и текущего значения.
 static func draw_setting_card(game: Node, rect: Rect2, label: String, value: String, selected: bool) -> void:
-	UiKitSystem.draw_button(game, rect, selected, true, game.settings_state.reduced_motion, Time.get_ticks_msec())
+	if not game.menu_state.settings_from_title:
+		MoonStyle.panel(game, rect, Color("46613d") if selected else MoonStyle.INSET, MoonStyle.ACCENT if selected else MoonStyle.EDGE)
+		if value.is_empty():
+			MoonStyle.text(game, rect.grow(-8), MoonStyle.sentence_case(label), 13, MoonStyle.TEXT, HORIZONTAL_ALIGNMENT_CENTER)
+		else:
+			MoonStyle.text(game, Rect2(rect.position + Vector2(12, 5), Vector2(rect.size.x - 24, 20)), MoonStyle.sentence_case(label), 11, MoonStyle.MUTED, HORIZONTAL_ALIGNMENT_CENTER)
+			MoonStyle.text(game, Rect2(rect.position + Vector2(12, 27), Vector2(rect.size.x - 24, 20)), "‹  %s  ›" % value, 13, MoonStyle.TEXT, HORIZONTAL_ALIGNMENT_CENTER)
+		return
+	UiKitSystem.draw_inset_card(game,rect,selected)
 	if value.is_empty():
 		game.draw_ui_string(game.UI_FONT, rect.position + Vector2(44, 33), label, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 88, 11, UiKitSystem.COLORS.ink)
 		return
 	var display: String = "‹  %s  ›" % value
-	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(44, 23), label, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 88, 8, Color("6b482d"))
-	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(44, 37), display, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 88, 9, UiKitSystem.COLORS.ink)
+	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(16, 22), label, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 32, 10, Color("6b482d"))
+	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(16, 40), display, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 32, 12, UiKitSystem.COLORS.ink)
 
 
 ## Рисует модальное подтверждение выхода или возврата, сохраняя мир видимым и недоступным позади.
@@ -206,7 +216,10 @@ static func title_highlight_modulate(milliseconds: int, reduced_motion: bool = f
 ## Показывает результат сохранения, загрузки или применения параметров внутри текущего меню.
 static func draw_notice(game: Node, position: Vector2, width: float) -> void:
 	if not game.menu_state.notice.is_empty():
-		game.draw_ui_string(game.MENU_FONT, position, game.menu_state.notice, HORIZONTAL_ALIGNMENT_CENTER, width, 13, Color("ffe3a1"))
+		if game.menu_state.settings_open and not game.menu_state.settings_from_title:
+			MoonStyle.text(game, Rect2(position - Vector2(0, 18), Vector2(width, 28)), game.menu_state.notice, 13, MoonStyle.ACCENT, HORIZONTAL_ALIGNMENT_CENTER)
+		else:
+			game.draw_ui_string(game.MENU_FONT, position, game.menu_state.notice, HORIZONTAL_ALIGNMENT_CENTER, width, 13, Color("ffe3a1"))
 
 
 ## Рисует строку с четырёхсторонней тёмной обводкой для читаемости на живом пейзаже.

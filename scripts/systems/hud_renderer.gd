@@ -2,38 +2,11 @@ extends RefCounted
 
 const UiKitSystem := preload("res://scripts/systems/ui_kit_system.gd")
 const HudLayoutSystem := preload("res://scripts/systems/hud_layout_system.gd")
+const Chrome := preload("res://scripts/presentation/hud_chrome_system.gd")
 
 ## Рисует динамический верхний HUD, сообщения, мобильные боевые кнопки и их короткие реакции.
-static func draw(game: Node, ui) -> void:
-	ui.draw_hud_background(game)
-	draw_menu_button(game, ui, ui.HUD_SKILL_BUTTON, ui.SKILL_BUTTON, game.LocaleSystem.ui("skills"), game.skill_points)
-	draw_menu_button(game, ui, ui.HUD_QUEST_BUTTON, ui.QUEST_BUTTON, game.LocaleSystem.ui("quests"), active_quest_count(game))
-	var hours := floori(game.game_minutes / 60.0); var minutes := int(game.game_minutes) % 60
-	draw_player_portrait(game, ui)
-	draw_bar(game, Rect2(187, 13, 274, 18), float(game.player_hp) / game.player_max_hp, "♥ HP", "%d/%d" % [game.player_hp, game.player_max_hp], Color("c94d47"))
-	draw_bar(game, Rect2(187, 39, 274, 18), float(game.player_mana) / game.player_max_mana, "◆ MP", "%d/%d" % [game.player_mana, game.player_max_mana], Color("5368c9"))
-	var stamina_max: int = game.SkillSystem.max_stamina(game)
-	draw_bar(game, Rect2(187, 65, 274, 18), float(game.energy) / stamina_max, "✦ EN", "%d/%d" % [game.energy, stamina_max], Color("d49a32"))
-	draw_clock(game, ui, hours, minutes)
-	var effects: Array[String] = []
-	if game.regeneration_timer > 0.0: effects.append("❤ %.0fs" % game.regeneration_timer)
-	if game.strength_timer > 0.0: effects.append("⚔ %.0fs" % game.strength_timer)
-	if game.speed_timer > 0.0: effects.append("➜ %.0fs" % game.speed_timer)
-	if game.invisibility_timer > 0.0: effects.append("◉ %.0fs" % game.invisibility_timer)
-	if game.defense_timer > 0.0: effects.append("◆ %.0fs" % game.defense_timer)
-	if not game.active_companions.is_empty(): effects.append(game.LocaleSystem.ui("companion_command", [game.LocaleSystem.ui("companion_command_%s" % game.state.player.companion_command)]))
-	game.draw_ui_string(game.UI_FONT, Vector2(695, 42), ui.location_icon(game.current_location), HORIZONTAL_ALIGNMENT_CENTER, 22, 15, Color("6f4325"))
-	game.draw_ui_string(game.UI_FONT, Vector2(718, 41), game.WorldSystem.name(game.current_location).to_upper(), HORIZONTAL_ALIGNMENT_CENTER, 184, 11, Color("51301c"))
-	var coin_pop: float = sin(clampf(game.hud_coin_pop / 0.36, 0.0, 1.0) * PI) * 3.0
-	game.draw_ui_string(game.UI_FONT, Vector2(700, 70 - coin_pop), secondary_summary(game), HORIZONTAL_ALIGNMENT_LEFT, 186, 10 + int(coin_pop), Color("7b5226"))
-	draw_effect_chips(game, effects)
-	if game.state.fishing.phase == game.FishingSystem.PHASE_WAITING: game.draw_ui_string(game.UI_FONT, Vector2(446, 115), game.LocaleSystem.text("fish_waiting_short") + " • " + game.LocaleSystem.text("fish_depth_" + game.state.fishing.depth_kind), HORIZONTAL_ALIGNMENT_CENTER, 260, 12, Color("d7f6ff"))
-	elif game.state.fishing.phase == game.FishingSystem.PHASE_BITE: game.draw_circle(Vector2(576, 105), 20 + sin(Time.get_ticks_msec() / 100.0) * 3, ui.GOLD); game.draw_ui_string(game.UI_FONT, Vector2(566, 112), "!", HORIZONTAL_ALIGNMENT_CENTER, 20, 22, Color("47351f"))
-	ui.draw_atlas_piece(game, ui.CONTROL_ATLAS, ui.pause_button_rect(game).grow(9), ui.CONTROL_PAUSE_SOURCE)
-	if game.touch_controls_visible:
-		draw_action_button(game, ui, ui.dodge_button_rect(game), game.LocaleSystem.ui("dodge_short"), game.state.player.dodge_cooldown <= 0.0 and game.energy >= 2, game.state.player.dodge_timer > 0.0, true)
-		draw_action_button(game, ui, ui.block_button_rect(game), game.LocaleSystem.ui("block_short"), game.energy > 0, game.state.player.blocking, false)
-	ui.draw_hotbar(game)
+static func draw(game: Node, _ui) -> void:
+	preload("res://scripts/presentation/moon_hud_renderer.gd").draw(game)
 
 
 ## Формирует компактную строку монет, репутации и дня рождения без второго календаря внизу экрана.
@@ -60,48 +33,63 @@ static func draw_effect_chips(game: Node, effects: Array[String]) -> void:
 
 ## Рисует портрет героя, редкое моргание, уровень и шкалу опыта.
 static func draw_player_portrait(game: Node, ui) -> void:
-	var stage: int = game.SkillSystem.hero_skin_stage(game.player_level); var texture: Texture2D = game.DirectionalCharacterSystem.HERO_TEXTURES[stage]
-	var source: Rect2 = game.DirectionalCharacterSystem.source_rect(texture, Vector2.DOWN, 0.0, false)
-	source.position += Vector2(source.size.x * 0.22, 0.0); source.size = Vector2(source.size.x * 0.56, source.size.y * 0.62)
-	game.draw_texture_rect_region(texture, Rect2(43, 8, 72, 72), source)
-	if fmod(Time.get_ticks_msec() / 1000.0, 4.8) > 4.62: game.draw_line(Vector2(65, 40), Vector2(91, 40), Color("513527"), 2.0)
-	game.draw_ui_string(game.UI_FONT, Vector2(52, 88), game.LocaleSystem.ui("level_short", [game.player_level]), HORIZONTAL_ALIGNMENT_CENTER, 56, 8, Color("ffe5a0"))
+	game.DirectionalCharacterSystem.HeroVisualSystem.draw_portrait(game, Chrome.PORTRAIT_IMAGE, true)
+	Chrome.draw_text(game, Chrome.LEVEL, game.LocaleSystem.ui("level_short", [game.player_level]), 8, Chrome.TEXT)
 	var needed: int = game.SkillSystem.xp_to_next_character_level(game.player_level)
-	game.draw_rect(Rect2(53, 91, 54 * clampf(float(game.player_xp) / needed, 0.0, 1.0), 2), ui.GOLD)
+	game.draw_rect(Chrome.EXPERIENCE, Color("34281c"))
+	game.draw_rect(Rect2(Chrome.EXPERIENCE.position, Vector2(Chrome.EXPERIENCE.size.x * clampf(float(game.player_xp) / needed, 0.0, 1.0), 2)), ui.GOLD)
 
 
 ## Рисует одну статусную шкалу и белую вспышку здоровья после полученного урона.
 static func draw_bar(game: Node, rect: Rect2, ratio: float, label: String, value: String, color: Color) -> void:
-	var flash: float = game.hud_hp_flash / 0.42 if label.begins_with("♥") else 0.0
+	var flash: float = game.hud_hp_flash / 0.42 if label=="HP" else 0.0
 	var bar_color: Color = Color(color, 0.92).lerp(Color.WHITE, clampf(flash, 0.0, 1.0) * 0.55)
-	var trough := Rect2(rect.position + Vector2(53, 5), Vector2(rect.size.x - 61, rect.size.y - 10))
-	game.draw_rect(trough, Color("4b2f20")); game.draw_rect(Rect2(trough.position + Vector2.ONE, Vector2((trough.size.x - 2) * clampf(ratio, 0.0, 1.0), trough.size.y - 2)), bar_color)
-	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(4, 14), label, HORIZONTAL_ALIGNMENT_LEFT, 46, 9, Color("5b3821")); game.draw_ui_string(game.UI_FONT, rect.position + Vector2(56, 14), value, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 65, 9, Color("fff4d0"))
+	var parts := Chrome.stat_parts(rect)
+	var trough: Rect2 = parts.track
+	var fill := Chrome.fill_rect(trough, ratio)
+	game.draw_rect(trough, Color("171d19"))
+	game.draw_rect(trough, Color("9c7b45"), false, 1)
+	if fill.has_area():
+		game.draw_rect(fill, bar_color)
+		game.draw_line(fill.position, Vector2(fill.end.x, fill.position.y), bar_color.lightened(0.22), 1)
+	Chrome.draw_text(game, parts.label, label, 8, Chrome.MUTED, HORIZONTAL_ALIGNMENT_LEFT)
+	Chrome.draw_text(game, parts.value, value, 9, Chrome.TEXT, HORIZONTAL_ALIGNMENT_RIGHT)
 
 
-## Рисует календарную карточку с плавной сменой минут и погодной иконки.
+## Рисует компактные часы с погодой и календарём в отдельных областях; размер картинки не прыгает при смене погоды.
 static func draw_clock(game: Node, ui, hours: int, minutes: int) -> void:
 	var weather: String = game.WorldEventSystem.location_weather(game.day, game.current_location)
 	var season: String = game.WorldEventSystem.season(game.day)
-	var tick: float = clampf(game.hud_clock_tick / 0.32, 0.0, 1.0); var scale: float = 1.0 + sin(clampf(game.hud_weather_transition / 0.48, 0.0, 1.0) * PI) * 0.12
-	var weather_rect: Rect2 = ui.centered_rect(ui.CLOCK_WEATHER_RECT, ui.CLOCK_WEATHER_RECT.size * scale)
-	game.draw_texture_rect(ui.weather_icon(weather), weather_rect, false)
-	game.draw_ui_string(game.UI_FONT, ui.CLOCK_TIME_RECT.position + Vector2(0, 29 - tick * 2.0), "%02d:%02d" % [hours, minutes], HORIZONTAL_ALIGNMENT_CENTER, ui.CLOCK_TIME_RECT.size.x, 20, Color("4a2c1b"))
-	var calendar := "%s  •  %s  •  %s" % [game.LocaleSystem.ui("day_short", [game.day]), game.LocaleSystem.ui("season_" + season), game.LocaleSystem.ui("weather_" + weather)]
-	game.draw_ui_string(game.UI_FONT, ui.CLOCK_CALENDAR_RECT.position + Vector2(0, 12), calendar.to_upper(), HORIZONTAL_ALIGNMENT_CENTER, ui.CLOCK_CALENDAR_RECT.size.x, 6, Color("6b4326"))
+	game.draw_texture_rect(ui.weather_icon(weather), ui.CLOCK_WEATHER_RECT, false)
+	Chrome.draw_text(game, ui.CLOCK_TIME_RECT, "%02d:%02d" % [hours, minutes], 20)
+	var calendar := "%s  •  %s" % [game.LocaleSystem.ui("day_short", [game.day]), game.LocaleSystem.ui("season_" + season)]
+	Chrome.draw_text(game, ui.CLOCK_CALENDAR_RECT, calendar, 9, Chrome.MUTED)
 
 
 ## Рисует книгу или свиток с наведением, подписью и анимированным бейджем.
-static func draw_menu_button(game: Node, ui, texture: Texture2D, rect: Rect2, label: String, badge: int) -> void:
-	var hovered := game.is_inside_tree() and rect.has_point(game.get_local_mouse_position()); game.draw_texture_rect(texture, rect.grow(3.0 if hovered else 0.0), false, Color(1.08, 1.04, 0.88) if hovered else Color.WHITE)
+static func draw_menu_button(game: Node, ui, _texture: Texture2D, rect: Rect2, label: String, badge: int) -> void:
+	var hovered := game.is_inside_tree() and rect.has_point(game.get_local_mouse_position())
+	UiKitSystem.draw_slot(game,rect,hovered)
 	var icon: Texture2D = ui.HUD_SKILL_ICON if rect == ui.SKILL_BUTTON else ui.HUD_QUEST_ICON
-	var icon_size := Vector2(50, 62) if rect == ui.SKILL_BUTTON else Vector2(58, 62)
-	game.draw_texture_rect(icon, Rect2(rect.get_center() - icon_size * 0.5, icon_size), false)
+	var icon_size := Vector2(24, 28) if rect == ui.SKILL_BUTTON else Vector2(27, 28)
+	game.draw_texture_rect(icon, Rect2(rect.get_center() - icon_size * 0.5 - Vector2(0, 2), icon_size), false)
 	if badge > 0:
-		var center := rect.position + Vector2(rect.size.x - 15 + sin(Time.get_ticks_msec() / 125.0) * 2.0, 15)
-		game.draw_circle(center, 10, Color("c64d35")); game.draw_circle(center, 10, ui.GOLD, false, 2.0); game.draw_ui_string(game.UI_FONT, center + Vector2(-7, 5), str(badge), HORIZONTAL_ALIGNMENT_CENTER, 14, 9, Color.WHITE)
+		var center := rect.position + Vector2(rect.size.x-6,6)
+		game.draw_circle(center,8,Color("8b4530")); game.draw_circle(center,8,ui.GOLD,false,1.0); game.draw_ui_string(game.UI_FONT,center+Vector2(-7,3),str(badge),HORIZONTAL_ALIGNMENT_CENTER,14,8,Color.WHITE)
+	Chrome.draw_text(game, Rect2(rect.position + Vector2(5, 32), Vector2(12, 11)), "K" if rect == ui.SKILL_BUTTON else "J", 8, Color("493320"))
 	if hovered:
-		var clean := label.get_slice(" • ", 1) if " • " in label else label; game.draw_rect(Rect2(rect.position.x - 4, 98, rect.size.x + 8, 22), Color(0.18, 0.10, 0.05, 0.92)); game.draw_ui_string(game.UI_FONT, Vector2(rect.position.x, 113), clean, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x, 9, Color("ffe4a2"))
+		var clean := label.get_slice(" • ", 1) if " • " in label else label
+		var tooltip := Rect2(rect.end.x-120, 76, 120, 25)
+		draw_quiet_panel(game, tooltip)
+		Chrome.draw_text(game, tooltip.grow(-4), clean, 10)
+
+
+## Рисует спокойную древесную плашку с тонкой латунной кромкой и мягкой тенью для вторичной информации.
+static func draw_quiet_panel(game: Node, rect: Rect2) -> void:
+	game.draw_rect(Rect2(rect.position+Vector2(0,2),rect.size),Color(0.02,0.015,0.01,0.32))
+	game.draw_rect(rect,Color(0.12,0.085,0.052,0.94))
+	game.draw_rect(rect,Color("9d7743"),false,1)
+	game.draw_line(rect.position+Vector2(2,2),Vector2(rect.end.x-2,rect.position.y+2),Color(0.83,0.66,0.36,0.23),1)
 
 
 ## Подсчитывает активные сюжетные и побочные задания для бейджа свитка.
@@ -126,29 +114,13 @@ static func draw_objective_card(game: Node) -> void:
 	if objective.is_empty(): return
 	var rect := HudLayoutSystem.objective_rect(game)
 	UiKitSystem.draw_nine_patch(game, "tooltip", rect)
-	if HudLayoutSystem.uses_compact_cards(game):
-		var compact_icon := "◆" if String(objective.kind) in ["story", "chapter", "moon"] else "●"
-		game.draw_ui_string(game.UI_FONT,rect.position+Vector2(16,22),compact_icon,HORIZONTAL_ALIGNMENT_CENTER,18,11,Color("8a542e"))
-		game.draw_ui_string(game.UI_FONT,rect.position+Vector2(40,21),String(objective.title).to_upper(),HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-150,9,Color("75472c"))
-		var compact_hidden:int=HudLayoutSystem.hidden_objective_count(game); var compact_hint:String=game.LocaleSystem.ui("hud_journal_hint")+(" +%d"%compact_hidden if compact_hidden>0 else "")
-		game.draw_ui_string(game.UI_FONT,rect.position+Vector2(rect.size.x-112,21),compact_hint,HORIZONTAL_ALIGNMENT_RIGHT,94,7,Color("876440"))
-		game.draw_ui_string(game.UI_FONT,rect.position+Vector2(18,45),String(objective.text),HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-36,9,UiKitSystem.COLORS.ink)
-		var compact_ratio:=float(objective.get("ratio",-1.0))
-		if compact_ratio>=0.0:
-			var compact_track:=Rect2(rect.position+Vector2(18,53),Vector2(rect.size.x-36,4)); game.draw_rect(compact_track,Color("493426")); game.draw_rect(Rect2(compact_track.position+Vector2.ONE,Vector2((compact_track.size.x-2)*clampf(compact_ratio,0.0,1.0),compact_track.size.y-2)),Color("719451"))
-		return
-	UiKitSystem.draw_nine_patch(game, "badge", Rect2(rect.position + Vector2(12, 12), Vector2(42, 42)))
-	var icon := "◆" if String(objective.kind) in ["story", "chapter", "moon"] else "●"
-	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(21, 41), icon, HORIZONTAL_ALIGNMENT_CENTER, 24, 15, Color("8a542e"))
-	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(64, 25), String(objective.title).to_upper(), HORIZONTAL_ALIGNMENT_LEFT, 285, 10, Color("75472c"))
-	var hidden := HudLayoutSystem.hidden_objective_count(game)
-	var journal_hint: String = game.LocaleSystem.ui("hud_journal_hint") + (" +%d" % hidden if hidden > 0 else "")
-	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(354, 25), journal_hint, HORIZONTAL_ALIGNMENT_RIGHT, 136, 8, Color("876440"))
-	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(64, 50), String(objective.text), HORIZONTAL_ALIGNMENT_LEFT, 424, 10, UiKitSystem.COLORS.ink)
+	game.draw_ui_string(game.UI_FONT,rect.position+Vector2(18,26),"◆",HORIZONTAL_ALIGNMENT_LEFT,20,11,Color("8a542e"))
+	game.draw_ui_string(game.UI_FONT,rect.position+Vector2(38,26),String(objective.title),HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-78,11,Color("75472c"))
+	game.draw_ui_string(game.UI_FONT,rect.position+Vector2(rect.size.x-32,26),"J",HORIZONTAL_ALIGNMENT_CENTER,16,10,Color("876440"))
+	game.draw_line(rect.position+Vector2(18,33),Vector2(rect.end.x-18,rect.position.y+33),Color(0.48,0.32,0.17,0.28),1)
+	game.draw_ui_multiline_string(game.UI_FONT,rect.position+Vector2(18,51),String(objective.text),HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-36,rect.size.y-61,12,3,UiKitSystem.COLORS.ink)
 	var ratio := float(objective.get("ratio", -1.0))
-	if ratio >= 0.0:
-		var track := Rect2(rect.position + Vector2(64, 62), Vector2(424, 7))
-		game.draw_rect(track, Color("493426")); game.draw_rect(Rect2(track.position + Vector2.ONE, Vector2((track.size.x - 2) * clampf(ratio, 0.0, 1.0), track.size.y - 2)), Color("719451"))
+	if ratio>0.0: UiKitSystem.draw_progress(game,Rect2(rect.position+Vector2(18,rect.size.y-11),Vector2(rect.size.x-36,4)),ratio,Color("719451"))
 
 
 ## Показывает команду взаимодействия в углу экрана, не закрывая выбранный объект.
@@ -156,5 +128,6 @@ static func draw_interaction_prompt(game: Node, ui) -> void:
 	if game.inventory_open or game.shop_open or game.quest_log_open or game.world_map_open or game.skill_menu_open or game.crafting_open or game.storage_open or game.forge_open or game.contract_open or game.AdventurePolishSystem.has_modal(game): return
 	var interaction: String = game.nearest_interaction()
 	if interaction.is_empty(): return
-	ui.draw_atlas_piece(game, ui.CONTROL_ATLAS, ui.INTERACTION_PROMPT, Rect2(940, 96, 300, 184))
-	game.draw_ui_string(game.UI_FONT, ui.INTERACTION_PROMPT.position + Vector2(42, 37), HudLayoutSystem.interaction_label(game, interaction), HORIZONTAL_ALIGNMENT_CENTER, 240, 11, Color("4b3424"))
+	var rect := HudLayoutSystem.interaction_rect(game)
+	preload("res://scripts/presentation/moon_theme.gd").panel(game,rect)
+	preload("res://scripts/presentation/moon_theme.gd").text(game,rect.grow(-6),HudLayoutSystem.interaction_label(game,interaction),12,Color("e8ecd7"),HORIZONTAL_ALIGNMENT_CENTER)

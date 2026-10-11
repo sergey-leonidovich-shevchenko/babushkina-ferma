@@ -99,6 +99,12 @@ func test_expansion_atlas_and_tutorials() -> void:
 	expect(texture.get_size()==Vector2(640,512) and image.get_pixel(0,0).a<0.05,"farm-life atlas is transparent exact 5x4 production grid")
 	expect(game.FarmLifeVisualSystem.profiles_are_valid() and game.FarmLifeVisualSystem.profile("cow").visual==Vector2(96,96) and game.FarmLifeVisualSystem.profile("trough").visual==Vector2(96,72),"farm-life world profiles use shared 72/96 px modules")
 	var wardrobe_base:Rect2=game.FarmLifeVisualSystem.collision_rect("wooden_wardrobe",Vector2(320,320)); expect(wardrobe_base==Rect2(284,272,72,48),"furniture visual and collision share one bottom-center profile")
+	for kind in game.FarmLifeVisualSystem.FURNITURE_TEXTURES:
+		var source: Rect2 = game.FarmLifeVisualSystem.furniture_source(kind)
+		var destination: Rect2 = game.FarmLifeVisualSystem.furniture_sprite_rect(kind, Vector2(320,320))
+		var bounds: Rect2 = game.FarmLifeVisualSystem.visual_rect(kind, Vector2(320,320))
+		expect(bounds.grow(0.001).encloses(destination) and is_equal_approx(destination.end.y,320.0), "isolated furniture stays within its modular bounds and foot anchor: %s" % kind)
+		expect(is_equal_approx(source.size.x / source.size.y, destination.size.x / destination.size.y), "furniture source is not squeezed to a mismatched atlas rectangle: %s" % kind)
 	game.state.world.estate.level=3; game.FarmLifeSystem.initialize(game); var farm_targets:Array=game.DebugObjectInspectorSystem.candidates(game).filter(func(candidate): return String(candidate.category)=="ФЕРМА"); expect(farm_targets.size()==4 and farm_targets.all(func(candidate): return is_equal_approx(float((candidate.bounds as Rect2).end.y),float(candidate.position.y))),"F10 inspector receives all three farm animals and trough from shared bottom anchors")
 	expect(game.FarmLifeSystem.blocks_position(game,game.FarmLifeSystem.ANIMALS[0].position,game.PLAYER_RADIUS) and not game.FarmLifeSystem.blocks_position(game,Vector2(900,900),game.PLAYER_RADIUS),"farm-life navigation blocks visible bases without creating a broad invisible wall")
 	var preview:=Image.load_from_file(ProjectSettings.globalize_path("res://assets/generated/level_drafts/farm_life_ingame_preview.png")); expect(preview!=null and preview.get_size()==Vector2i(1152,648),"farm-life migration keeps a current native gameplay preview for scale and anchor review")

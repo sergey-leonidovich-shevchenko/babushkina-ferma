@@ -64,19 +64,19 @@ func test_localized_controls_fit_real_font_contracts() -> void:
 	game.free()
 
 
-## Сценарий: контекстный HUD одновременно показывает обучение, одну цель, карту, находку, сообщение и точное действие без наложений.
+## Сценарий: компактный HUD сохраняет обучение, находку, сообщение и точное действие без мини-карты и постоянного списка целей.
 ## Исходное состояние: активна первая глава, затем бабушкино и два обычных задания; проверяются мышь, касание и шесть языков.
-## Ожидаемый результат: зоны безопасны, приоритет цели устойчив, карточка открывает журнал, а временное сообщение исчезает после чтения.
+## Ожидаемый результат: зоны безопасны, цель доступна в журнале, единое меню открывается касанием, а сообщение исчезает после чтения.
 func test_context_hud_prioritizes_information_and_explains_actions() -> void:
 	var game := make_game(); var layout = game.HudLayoutSystem
 	expect(layout.layout_is_safe(), "tutorial objective minimap discovery notification and interaction prompts own non-overlapping regions")
 	expect(not layout.EFFECTS_RECT.intersects(layout.OBJECTIVE_RECT) and not layout.EFFECTS_RECT.intersects(layout.MINIMAP_RECT), "temporary effects use their own two-row lane below the objective")
 	expect(game.InterfaceRenderer.TUTORIAL_CARD == layout.TUTORIAL_RECT and game.InterfaceRenderer.OBJECTIVE_CARD == layout.OBJECTIVE_RECT and game.discovery_card_rect() == layout.DISCOVERY_RECT, "drawing and pointer input share the coordinator's exact geometry")
 	game.current_location="cottage_interior"
-	expect(layout.tutorial_rect(game)==layout.INTERIOR_TUTORIAL_RECT and layout.objective_rect(game)==layout.INTERIOR_OBJECTIVE_RECT and layout.INTERIOR_TUTORIAL_RECT.size.y<=64.0, "small interiors replace both oversized context panels with a shared compact lane")
+	expect(layout.tutorial_rect(game)==layout.INTERIOR_TUTORIAL_RECT and layout.objective_rect(game)==Rect2() and layout.INTERIOR_TUTORIAL_RECT.get_area()<28000.0, "interior hints stay compact and the removed objective has no invisible hit zone")
 	expect(not layout.shows_minimap(game), "interior removes the redundant minimap that used to cover furniture below the location badge")
 	game.current_location="overworld"
-	expect(layout.shows_minimap(game), "outdoor locations keep the useful navigation minimap")
+	expect(not layout.shows_minimap(game), "outdoor locations also omit the minimap")
 	var objective: Dictionary = layout.primary_objective(game)
 	expect(objective.kind == "chapter" and objective.text == game.FirstChapterSystem.objective(game), "first chapter owns the primary slot instead of creating a competing panel")
 	var chapter: Dictionary = game.FirstChapterSystem.state(game); chapter.completed = true; chapter.reward_pending = false
@@ -92,9 +92,12 @@ func test_context_hud_prioritizes_information_and_explains_actions() -> void:
 		expect(talk.contains("E / A") and mine.contains("E / A") and talk != mine, "context actions remain specific and localized for %s" % locale)
 	game.LocaleSystem.set_locale("ru")
 	game.current_location="cottage_interior"
-	var touch := InputEventScreenTouch.new(); touch.position = layout.objective_rect(game).get_center(); touch.pressed = true
-	expect(game.handle_gamepad_and_touch(touch) and game.quest_log_open, "touching the visible objective opens the full journal")
-	game.quest_log_open = false; game.message = "Проверка времени чтения"; game.update_hud_feedback(0.0)
+	var hub = preload("res://scripts/systems/menu_hub_system.gd")
+	var touch := InputEventScreenTouch.new(); touch.position = hub.OPEN_BUTTON.get_center(); touch.pressed = true
+	expect(game.handle_gamepad_and_touch(touch) and game.inventory_open, "touching the visible menu button opens the full hub")
+	touch.position=hub.tab_rect(1).get_center()
+	expect(game.handle_gamepad_and_touch(touch) and game.quest_log_open,"journal lives inside the same menu")
+	hub.close(game); game.message = "Проверка времени чтения"; game.update_hud_feedback(0.0)
 	var duration: float = game.hud_message_timer
 	expect(duration >= 3.8 and duration <= 7.0, "notification lifetime adapts to message length inside readable limits")
 	game.update_hud_feedback(duration + 0.1)

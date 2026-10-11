@@ -1,6 +1,7 @@
 extends "res://scripts/game_context.gd"
 
 const FarmRenderer := preload("res://scripts/presentation/farm_renderer.gd")
+const TreeOcclusion := preload("res://scripts/systems/tree_occlusion_system.gd")
 
 ## Рисует строку с пользовательским масштабом текста и безопасным уменьшением при нехватке ширины.
 func draw_ui_string(font: Font, position: Vector2, text: String, alignment: HorizontalAlignment = HORIZONTAL_ALIGNMENT_LEFT, width: float = -1.0, font_size: int = 16, color: Color = Color.WHITE) -> void:
@@ -100,11 +101,10 @@ func draw_rpg_world() -> void:
 	var grandmother: Dictionary = NpcMovementSystem.actor(self, "grandmother", npc_position)
 	draw_npc_sprite(0, grandmother.position, grandmother.direction, grandmother.moving)
 	if player.distance_to(grandmother.position) < 150.0:
-		draw_string(UI_FONT, grandmother.position + Vector2(-50, 55), LocaleSystem.entity("grandmother"), HORIZONTAL_ALIGNMENT_CENTER, 100, 16, Color("293c2f"))
-	draw_rect(Rect2(workbench_position - Vector2(32, 20), Vector2(64, 44)), Color("865334"))
-	draw_line(workbench_position - Vector2(25, 8), workbench_position + Vector2(25, -8), Color("d09a59"), 5)
+		draw_npc_name(grandmother.position,LocaleSystem.entity("grandmother"))
+	FarmLifeVisualSystem.draw(self,"rustic_table",workbench_position+Vector2(0,24))
 	if player.distance_to(workbench_position) < 150.0:
-		draw_string(UI_FONT, workbench_position + Vector2(-55, 45), LocaleSystem.entity("workbench"), HORIZONTAL_ALIGNMENT_CENTER, 110, 16, Color("293c2f"))
+		draw_npc_name(workbench_position,LocaleSystem.entity("workbench"))
 	if AnimationRenderer.draw_slime(self):
 		if slime_alive:
 			draw_rect(Rect2(slime_position + Vector2(-28, -50), Vector2(56, 7)), Color("402d32"))
@@ -119,9 +119,7 @@ func draw_rpg_world() -> void:
 
 ## Отрисовывает внешние спрайты зданий, подписи и состояние закрытых дверей.
 func draw_buildings() -> void:
-	# В первой локации здания уже являются отдельными областями мастер-атласа;
-	# отдельные фасады используются в остальных внешних биомах и конструкторе.
-	if current_location == "overworld": return
+	# Фасады самостоятельные: их опора совпадает с дверью и фундаментом навигации.
 	for building_id in BuildingSystem.buildings_at(current_location):
 		var data: Dictionary = BuildingSystem.BUILDINGS[building_id]
 		BuildingVisualSystem.draw_building(self,building_id,Vector2(data.door))
@@ -150,7 +148,8 @@ func draw_interior_objects() -> void:
 	InteriorRenderer.draw(self)
 	if current_location == "cottage_interior" and home_chest_owned:
 		var chest_position: Vector2 = StorageSystem.CHEST_POSITION
-		InteriorRenderer.draw_prop(self,"home_chest",chest_position)
+		if not InteriorRenderer.is_foreground_prop("home_chest",chest_position,player):
+			InteriorRenderer.draw_prop(self,"home_chest",chest_position)
 	if current_location == "prison_interior":
 		for companion_id in CompanionSystem.COMPANIONS:
 			var position: Vector2 = CompanionSystem.COMPANIONS[companion_id].position
@@ -184,7 +183,7 @@ func draw_companion_sprite(companion_id: String, position: Vector2) -> void:
 	var direction: Vector2 = companion_directions.get(companion_id, Vector2.DOWN)
 	DirectionalCharacterSystem.draw_companion(self, companion_id, position, direction, moving)
 
-## Отрисовывает NPC из атласа восьми направлений по фактическому состоянию движения.
+## Отрисовывает NPC по его фактическому движению и индивидуальному профилю атласа.
 func draw_npc_sprite(sprite_index: int, position: Vector2, direction: Vector2 = Vector2.DOWN, moving: bool = false, tint: Color = Color.WHITE) -> void:
 	DirectionalCharacterSystem.draw_npc(self, sprite_index, position, direction, moving, tint)
 
@@ -194,7 +193,7 @@ func draw_living_atlas_sprite(texture: Texture2D, source: Rect2, position: Vecto
 	var sprite_scale: Vector2 = motion.scale
 	if flip_x:
 		sprite_scale.x *= -1.0
-	var world_transform := -camera_offset
+	var world_transform: Vector2 = PresentationSystem.world_offset(self)
 	draw_set_transform(world_transform + position + Vector2(motion.offset), float(motion.rotation), sprite_scale)
 	draw_texture_rect_region(texture, Rect2(Vector2(-size.x * 0.5, -size.y * 0.66), size), source, modulate)
 	draw_set_transform(world_transform, 0.0, Vector2.ONE)
@@ -203,7 +202,7 @@ func draw_living_atlas_sprite(texture: Texture2D, source: Rect2, position: Vecto
 func draw_mission_npc(position: Vector2, npc_name: String, mission_id: String, sprite_index: int) -> void:
 	draw_npc_sprite(sprite_index, position)
 	if player.distance_to(position) < 155.0:
-		draw_string(UI_FONT, position + Vector2(-62, 58), npc_name, HORIZONTAL_ALIGNMENT_CENTER, 124, 15, Color("293c2f"))
+		draw_npc_name(position,npc_name)
 	var state: String = mission_states.get(mission_id, QuestSystem.AVAILABLE)
 	var marker := "!" if state == QuestSystem.AVAILABLE else ("✓" if state == QuestSystem.COMPLETED else "?")
 	draw_quest_marker(position, marker)
@@ -217,11 +216,18 @@ func draw_quest_npcs() -> void:
 		if String(movement.get("location", data.location)) != current_location: continue
 		draw_npc_sprite(int(data.sprite), position, movement.direction, movement.moving, data.tint)
 		if player.distance_to(position) < 155.0:
-			draw_string(UI_FONT, position + Vector2(-76, 58), QuestSystem.npc_name(npc_id), HORIZONTAL_ALIGNMENT_CENTER, 152, 15, Color("293c2f") if current_location == "overworld" else Color("fff0bd"))
+			draw_npc_name(position,QuestSystem.npc_name(npc_id))
 		var marker := QuestSystem.npc_marker(self, npc_id)
 		if marker.is_empty(): continue
 		draw_quest_marker(position, marker)
 
+
+## Подкладывает под имя ближайшего персонажа тёмную плашку, чтобы светлые буквы читались на любой траве и плитке.
+func draw_npc_name(position:Vector2,label:String)->void:
+	var width:=clampf(UI_FONT.get_string_size(label,HORIZONTAL_ALIGNMENT_LEFT,-1,12).x+16,50,158)
+	var rect:=Rect2(position+Vector2(-width*0.5,34),Vector2(width,21))
+	draw_rect(rect,Color(0.09,0.065,0.04,0.82))
+	draw_ui_string(UI_FONT,rect.position+Vector2(8,15),label,HORIZONTAL_ALIGNMENT_CENTER,width-16,12,Color("f6e2b9"))
 
 ## Рисует компактный пиксельный маркер задания, не перекрывающий голову персонажа и окружение.
 func draw_quest_marker(position: Vector2, marker: String) -> void:
@@ -255,8 +261,13 @@ func draw_food_nodes() -> void:
 			"mushroom":
 				draw_texture_rect(RED_MUSHROOMS, ForageSystem.destination_rect(food), false, Color(1, 1, 1, alpha))
 			"watermelon":
-				draw_texture_rect(ITEM_WATERMELON, ForageSystem.destination_rect(food), false, Color(1, 1, 1, alpha))
-			"berries", "nut":
+				# Бахча выглядит растением; после сбора остаётся молодая листва, а не полупрозрачный плод.
+				var melon_stage := 4 if food.active else 2
+				draw_texture_rect_region(FarmVisualSystem.crop_texture("melon"), ForageSystem.destination_rect(food), FarmVisualSystem.crop_source(melon_stage,"melon"), Color(0.84,1.0,0.76,1.0))
+			"nut":
+				# Умеренная ореховая роща использует древесный силуэт местного биома вместо старой тропической пальмы.
+				TreeOcclusion.submit(self,TreeOcclusion.key_for("nut",position),FOREST_TREE_GROWTH_ATLAS,ForageSystem.destination_rect(food),TreeSystem.source_rect(3),ForageSystem.ground_anchor(position).y,Color("e3dfb3"))
+			"berries":
 				var layout := forage_sprite_layout(food.kind, position)
 				draw_texture_rect_region(PLANT_SHEET, layout.destination, layout.source, Color(1, 1, 1, alpha))
 		if not food.active:
@@ -274,7 +285,8 @@ func draw_tree_nodes() -> void:
 		var flash: float = tree.hit_flash
 		var destination:=TreeSystem.destination_rect(tree)
 		var tint := Color(1.0, 0.72, 0.62) if flash > 0.0 else Color.WHITE
-		draw_texture_rect_region(FOREST_TREE_GROWTH_ATLAS,destination,TreeSystem.source_rect(stage),tint)
+		if stage >= 2: TreeOcclusion.submit(self,TreeOcclusion.key_for("timber",tree.position),FOREST_TREE_GROWTH_ATLAS,destination,TreeSystem.source_rect(stage),TreeSystem.ground_anchor(tree.position).y,tint)
+		else: draw_texture_rect_region(FOREST_TREE_GROWTH_ATLAS,destination,TreeSystem.source_rect(stage),tint)
 		if stage < 3:
 			var progress: float = TreeSystem.regrow_progress(tree)
 			var bar := Rect2(Vector2(destination.get_center().x-36,destination.end.y+6), Vector2(72, 8))
@@ -348,24 +360,7 @@ func enemy_direction_row(direction: Vector2) -> int:
 
 ## Отрисовывает животных по текущему состоянию игры.
 func draw_wildlife() -> void:
-	for animal in wildlife_nodes:
-		if animal.location != current_location:
-			continue
-		var data: Dictionary = WildlifeSystem.TYPES[animal.kind]
-		var position: Vector2 = animal.position.round()
-		var state_name: String = animal.get("visual_state", "idle")
-		var column := 0
-		if state_name in ["run", "flee"]: column = 1 + int(animal.animation * (11.0 if state_name == "flee" else 8.0)) % 3
-		elif state_name == "attack": column = 3
-		elif state_name == "hurt": column = 4
-		elif state_name == "death": column = 5
-		var row := AnimationAssetRegistry.direction_index(animal.direction)
-		var draw_size:Vector2=CreatureVisualProfileSystem.wildlife_size()
-		draw_circle(position + Vector2(0, 12), 18.0, Color(0.08, 0.12, 0.08, 0.25))
-		draw_texture_rect_region(WILDLIFE_ACTION_SHEETS[animal.kind], Rect2(position - draw_size * Vector2(0.5, 0.72), draw_size), Rect2(column * 128, row * 128, 128, 128))
-		if animal.alive and animal.hp < data.hp:
-			draw_rect(Rect2(position - Vector2(25, 44), Vector2(50, 5)), Color("402d32"))
-			draw_rect(Rect2(position - Vector2(24, 43), Vector2(48.0 * animal.hp / float(data.hp), 3)), Color("dc554b"))
+	preload("res://scripts/systems/wildlife_visual_system.gd").draw(self)
 
 ## Отрисовывает пещеры мира по текущему состоянию игры.
 func draw_cave_world() -> void:
@@ -454,11 +449,11 @@ func draw_discovery_card() -> void:
 	if discovery_current.is_empty():
 		return
 	var card := discovery_card_rect()
-	draw_texture_rect_region(InterfaceRenderer.CARD_ATLAS, card, InterfaceRenderer.CARD_DISCOVERY_SOURCE)
-	draw_ui_string(UI_FONT, card.position + Vector2(18, 25), LocaleSystem.ui("new_nearby"), HORIZONTAL_ALIGNMENT_LEFT, 190, 10, Color("f6dda1"))
-	draw_ui_string(UI_FONT, card.position + Vector2(218, 25), LocaleSystem.ui("hide"), HORIZONTAL_ALIGNMENT_RIGHT, 76, 9, Color("f6dda1"))
-	draw_ui_string(UI_FONT, card.position + Vector2(18, 53), discovery_current.title, HORIZONTAL_ALIGNMENT_LEFT, 274, 15, Color("4c3425"))
-	draw_ui_multiline_string(UI_FONT, card.position + Vector2(18, 73), discovery_current.text, HORIZONTAL_ALIGNMENT_LEFT, 274, 31, 10, 3, Color("654930"))
+	InterfaceRenderer.UiKitSystem.draw_nine_patch(self,"tooltip",card)
+	draw_ui_string(UI_FONT,card.position+Vector2(18,24),LocaleSystem.ui("new_nearby"),HORIZONTAL_ALIGNMENT_LEFT,card.size.x-54,9,Color("876440"))
+	draw_ui_string(UI_FONT,card.position+Vector2(card.size.x-38,24),"×",HORIZONTAL_ALIGNMENT_CENTER,20,16,Color("876440"))
+	draw_ui_string(UI_FONT,card.position+Vector2(18,46),discovery_current.title,HORIZONTAL_ALIGNMENT_LEFT,card.size.x-36,13,Color("4c3425"))
+	draw_ui_multiline_string(UI_FONT,card.position+Vector2(18,66),discovery_current.text,HORIZONTAL_ALIGNMENT_LEFT,card.size.x-36,32,11,3,Color("654930"))
 	var ratio := clampf(discovery_timer / DiscoverySystem.CARD_DURATION, 0.0, 1.0)
 	draw_rect(Rect2(card.position + Vector2(8, card.size.y - 7), Vector2((card.size.x - 16) * ratio, 3)), Color("f1ca5c"))
 

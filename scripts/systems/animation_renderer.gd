@@ -14,16 +14,12 @@ static func draw_player(game: Node2D) -> void:
 	var visual_scale: float = game.DirectionalCharacterSystem.HERO_VISUAL_SCALE
 	var attack_progress: float = game.WeaponSystem.attack_progress(game)
 	var attacking: bool = attack_progress >= 0.0
-	var moving: bool = game.get_movement_direction() != Vector2.ZERO and not attacking
-	var attack_offset := Vector2.ZERO
-	if attacking:
-		if attack_progress < 0.25: attack_offset = -game.facing * sin(attack_progress / 0.25 * PI * 0.5) * 5.0 * visual_scale
-		elif attack_progress < 0.58: attack_offset = game.facing * sin((attack_progress - 0.25) / 0.33 * PI) * 15.0 * visual_scale
-		else: attack_offset = game.facing * (1.0 - attack_progress) * 7.0 * visual_scale
-	var hurt_offset := Vector2.ZERO
-	if game.player_hurt_timer > 0.0:
-		hurt_offset = game.player_hurt_direction * sin(game.player_hurt_timer / 0.30 * PI) * 10.0 * visual_scale
-	var walk_frame: int = game.PlayerSystem.animation_frame(game.walk_animation_time, moving)
+	var tool_pose: Dictionary = game.HeroActionSystem.pose(game)
+	var moving: bool = game.PlayerSystem.is_visually_moving(game) and not attacking and tool_pose.is_empty()
+	var direction: Vector2 = game.HeroActionSystem.cardinal(game.facing)
+	if attacking: direction = game.get_meta("attack_visual_direction", direction)
+	elif not tool_pose.is_empty(): direction = tool_pose.direction
+	var walk_frame: int = game.PlayerSystem.animation_frame(game.PlayerSystem.visual_animation_time(game, moving), moving)
 	if moving and walk_frame in [0, 3]:
 		var dust: Vector2 = position - game.facing * 12.0 * visual_scale + Vector2(0, 7) * visual_scale
 		game.draw_circle(dust + Vector2(-7, 1) * visual_scale, 3.0 * visual_scale, Color(0.70, 0.66, 0.55, 0.38))
@@ -32,8 +28,13 @@ static func draw_player(game: Node2D) -> void:
 	var clothes_index := clampi(int(game.state.player.profile.get("clothes", 0)), 0, clothes_palette.size() - 1)
 	var hero_modulate: Color = Color(0.72, 0.82, 1.0, 0.38) if game.invisibility_timer > 0.0 else clothes_palette[clothes_index]
 	if game.player_hurt_timer > 0.0: hero_modulate = Color(1.0, 0.42, 0.42)
-	game.DirectionalCharacterSystem.draw_hero(game, position + attack_offset + hurt_offset, game.facing, moving, hero_modulate)
-	game.WorldPolishRenderer.draw_held_weapon(game, game.player_attack_weapon if attacking else game.equipped_weapon, position + attack_offset + hurt_offset, game.facing, attack_progress, visual_scale)
+	var weapon: String = game.player_attack_weapon if attacking else game.equipped_weapon
+	var hands_origin := position + Vector2(0, -24)
+	if direction == Vector2.UP and tool_pose.is_empty():
+		game.WorldPolishRenderer.draw_held_weapon(game, weapon, hands_origin, direction, attack_progress, visual_scale)
+	game.DirectionalCharacterSystem.draw_hero(game, position, direction, moving, hero_modulate)
+	if direction != Vector2.UP and tool_pose.is_empty():
+		game.WorldPolishRenderer.draw_held_weapon(game, weapon, hands_origin, direction, attack_progress, visual_scale)
 	var cooldown: float = game.WeaponSystem.cooldown_ratio(game)
 	if cooldown > 0.0:
 		var bar := Rect2(position + Vector2(-22, 28) * visual_scale, Vector2(44, 4) * visual_scale)

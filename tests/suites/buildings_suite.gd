@@ -4,13 +4,36 @@ extends "res://tests/suites/suite_base.gd"
 func run() -> void:
 	test_building_catalog_entry_exit_and_collision()
 	test_cottage_has_distinct_zones_and_working_services()
+	test_interior_floor_scale_furniture_depth_and_service_routes()
+	test_market_road_has_no_undrawn_cart_wall()
 	test_automatic_building_transition_and_reentry_guard()
+	test_back_walls_are_solid_and_door_passages_remain_open()
 	test_automatic_cave_gate_and_portal_routes()
 	test_progress_gated_buildings()
 	test_castle_has_multiple_connected_locations()
 	test_prison_recruitment_switching_and_capacity()
 	test_companion_follow_combat_defense_and_healing()
 	test_buildings_and_companions_are_saved_and_taught()
+
+
+## Сценарий: герой подходит к задней стене каждого помещения и к лестнице в верхний этаж замка.
+## Исходное состояние: напольная область берётся из общей геометрии отрисовщика, все стандартные точки появления известны.
+## Ожидаемый результат: герой не ходит по рисунку стены, выходы достижимы с пола, а специальный проход в стене ведёт на этаж.
+func test_back_walls_are_solid_and_door_passages_remain_open() -> void:
+	var game := make_game()
+	for location in game.BuildingSystem.INTERIORS:
+		var data: Dictionary = game.BuildingSystem.INTERIORS[location]
+		var floor: Rect2 = game.InteriorRenderer.floor_rect(data.room)
+		var back_wall := Vector2(floor.get_center().x, floor.position.y - 40.0)
+		expect(not game.BuildingSystem.is_walkable_inside(location, back_wall, game.PLAYER_RADIUS), "back wall cannot be walked over: %s" % location)
+		expect(game.BuildingSystem.is_walkable_inside(location, data.spawn, game.PLAYER_RADIUS), "interior spawn remains on accessible floor: %s" % location)
+		var approach := Vector2(data.exit.x, floor.end.y - game.PLAYER_RADIUS - 2.0)
+		expect(game.BuildingSystem.is_walkable_inside(location, approach, game.PLAYER_RADIUS) and approach.distance_to(data.exit) < game.LocationTransitionSystem.TRIGGER_RADIUS, "interior exit trigger is reachable from floor: %s" % location)
+	game.current_location = "castle_hall"
+	game.player = Vector2(1490, 312)
+	game.move_player_with_collisions(Vector2(0, -80))
+	expect(game.player.y < 250.0, "castle upper-floor passage remains reachable through its authored doorway")
+	game.free()
 
 
 ## Сценарий: восемь зданий отображаются, блокируют стены и имеют отдельные входы и выходы.
@@ -65,7 +88,7 @@ func test_cottage_has_distinct_zones_and_working_services() -> void:
 	var props:Array=game.InteriorVisualSystem.props(game.current_location); var kinds:Array=props.map(func(prop): return String(prop.kind))
 	expect(props.size()>=9 and ["bed","wooden_wardrobe","potted_fern","shop","cauldron","rustic_table","wooden_chair","woven_rug"].all(func(kind): return kind in kinds), "cottage contains recognizable sleeping cooking dining and decoration zones")
 	expect(game.InteriorRenderer.COTTAGE_TILES.get_size()==Vector2(1254,1254), "cottage wall and floor sprite sheet is imported at its native generated resolution")
-	expect(game.InteriorRenderer.COTTAGE_FLOOR.get_size()==Vector2(1254,1254) and game.InteriorRenderer.COTTAGE_FLOOR_SOURCE.size.x/game.InteriorRenderer.COTTAGE_FLOOR_SOURCE.size.y>3.4, "cottage draws one continuous correctly proportioned parquet strip instead of alternating square patterns")
+	expect(game.InteriorRenderer.COTTAGE_FLOOR.get_size()==Vector2(1254,1254) and game.InteriorRenderer.FLOOR_TILE_WORLD_SIZE==288.0, "cottage floor uses fine room-scale planks instead of giant boards almost as tall as the hero")
 	var clean_atlas_path:="res://assets/game/interiors/village_interior_atlas_v2.png"; var original_atlas_path:="res://assets/game/world_polish/village_polish_atlas.png"
 	expect(game.InteriorVisualSystem.ATLAS.get_size()==Vector2(640,512) and FileAccess.get_sha256(clean_atlas_path)!=FileAccess.get_sha256(original_atlas_path), "interior uses a separate crop-compatible atlas with the magenta fringe replaced by a dark contact shadow")
 	expect(game.InteriorVisualSystem.collision_rects(game.current_location).size()==8, "only eight solid furniture pieces contribute to cottage navigation")
@@ -81,6 +104,53 @@ func test_cottage_has_distinct_zones_and_working_services() -> void:
 	var compact_preview:=Image.load_from_file(ProjectSettings.globalize_path("res://assets/generated/level_drafts/cottage_compact_hud_ingame_preview.png"))
 	expect(compact_preview!=null and compact_preview.get_size()==Vector2i(1152,648), "cottage compact HUD and continuous floor keep a dedicated gameplay reference")
 	expect(not FileAccess.get_file_as_string("res://scripts/game_renderer.gd").contains('"BED"'), "obsolete technical BED label no longer leaks into the finished room")
+	game.free()
+
+
+## Сценарий: интерьер разного размера сохраняет масштаб пола, проходимость услуг и правильное перекрытие мебели.
+## Исходное состояние: дом, магазин, гильдия и кузница загружены с собственной мебелью, герой входит через нижнюю дверь.
+## Ожидаемый результат: тайлы полностью покрывают пол без растяжения, путь к услуге свободен, герой за мебелью перекрыт ею, ковёр остаётся внизу.
+func test_interior_floor_scale_furniture_depth_and_service_routes() -> void:
+	var game := make_game()
+	for location in ["cottage_interior", "shop_interior", "guild_interior", "forge_interior"]:
+		game.current_location = location
+		var room: Dictionary = game.BuildingSystem.INTERIORS[location]
+		var floor: Rect2 = game.InteriorRenderer.floor_rect(room.room)
+		var area := 0.0
+		for tile in game.InteriorRenderer.floor_tiles(floor):
+			var destination: Rect2 = tile.destination
+			var source: Rect2 = tile.source
+			area += destination.get_area()
+			expect(floor.encloses(destination) and game.InteriorRenderer.COTTAGE_FLOOR_SOURCE.encloses(source), "floor fragments remain inside both room and source: %s" % location)
+			expect(is_equal_approx(source.size.x / destination.size.x, source.size.y / destination.size.y), "edge fragment preserves plank aspect ratio: %s" % location)
+		expect(is_equal_approx(area, floor.get_area()), "floor has complete coverage without giant stretched final tiles: %s" % location)
+		if location != "cottage_interior":
+			game.player = room.spawn
+			var target: Vector2 = room.service_position
+			for step in 40:
+				if game.player.distance_to(target) < 1.0: break
+				game.NavigationSystem.move(game, game.player.direction_to(target) * minf(8.0, game.player.distance_to(target)))
+			expect(game.player.distance_to(target) < 1.0, "decorated room keeps a physical route from door to its service: %s" % location)
+			expect(game.InteriorVisualSystem.props(location).size() >= 5, "service room contains composed furniture zones: %s" % location)
+	expect(game.InteriorRenderer.is_foreground_prop("rustic_table", Vector2(700,450), Vector2(700,375)), "table covers the hero walking behind its back edge")
+	expect(not game.InteriorRenderer.is_foreground_prop("rustic_table", Vector2(700,450), Vector2(700,475)), "hero walking in front covers the table naturally")
+	expect(not game.InteriorRenderer.is_foreground_prop("woven_rug", Vector2(700,486), Vector2(700,450)), "rug never covers the hero even above its bottom edge")
+	game.free()
+
+
+## Сценарий: герой проходит непрерывный участок видимой дороги от малого моста к рынку.
+## Исходное состояние: новая модульная деревня и реальная дорога южнее площади, не пересекающая воду.
+## Ожидаемый результат: герой проходит224пикселя без невидимого препятствия, а реальная рыночная тележка остаётся твёрдой.
+func test_market_road_has_no_undrawn_cart_wall() -> void:
+	var game := make_game()
+	game.current_location = "overworld"
+	game.player = Vector2(1320,744)
+	var target := Vector2(1544,726)
+	for step in 50:
+		if game.player.distance_to(target) < 1.0: break
+		game.NavigationSystem.move(game, game.player.direction_to(target) * minf(8.0, game.player.distance_to(target)))
+	expect(game.player.distance_to(target) < 1.0, "continuous visible market road is not blocked by an unrendered legacy cart")
+	expect(not game.NavigationSystem.is_walkable(game, game.BuildingSystem.SELL_CRATE_RECT.get_center()), "visible produce crate remains solid at the actual market stall")
 	game.free()
 
 

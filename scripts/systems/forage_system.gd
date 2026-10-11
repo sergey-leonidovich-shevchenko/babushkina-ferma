@@ -37,7 +37,10 @@ const SPAWNS := [
 
 ## Возвращает рассчитанное методом значение в безопасном для вызывающего кода виде.
 static func default_nodes() -> Array:
-	return SPAWNS.duplicate(true)
+	var nodes:=SPAWNS.duplicate(true)
+	var placements:Dictionary=preload("res://scripts/systems/village_map_data.gd").FORAGE
+	for index in placements: nodes[index].position=placements[index]
+	return nodes
 
 
 ## Выбирает модульный визуальный класс гриба, бахчи, куста или дикого дерева.

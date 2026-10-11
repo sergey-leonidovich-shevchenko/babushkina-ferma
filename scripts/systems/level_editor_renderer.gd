@@ -30,7 +30,7 @@ static var _texture_cache: Dictionary = {}
 
 ## Удерживает загруженные редакторские текстуры между кадрами, чтобы GPU не показывал белый placeholder.
 static func texture_for(path: String) -> Texture2D:
-	if not _texture_cache.has(path): _texture_cache[path]=ResourceLoader.load(path) as Texture2D
+	if not _texture_cache.has(path): _texture_cache[path]=preload("res://scripts/editor/editor_actor_source_system.gd").texture(path, ResourceLoader.load(path) as Texture2D)
 	return _texture_cache[path]
 
 
@@ -130,15 +130,21 @@ static func draw_drag_preview(game: Node2D, state: Dictionary) -> void:
 	if texture==null:return
 	var source: Rect2 = game.LevelEditorSystem.selected_source(texture,state)
 	var entry: Dictionary = game.LevelEditorSystem.AssetCatalogSystem.find(game.LevelEditorSystem.catalog(),String(state.selected_asset))
-	var size:=Vector2(entry.get("display_size",Vector2.ZERO))
-	if size==Vector2.ZERO: size=source.size if source.size!=Vector2.ZERO else texture.get_size()
-	if String(state.get("source_mode","grid"))=="custom" and source.size!=Vector2.ZERO: size=source.size
-	if String(entry.get("anchor","center"))=="tile": size=Vector2.ONE*int(state.grid)
+	var size := drag_preview_size(entry,source,texture.get_size(),state)
 	var position: Vector2 = game.LevelEditorSystem.placement_position(state,Vector2(state.mouse)+Vector2(game.camera_offset),String(entry.get("anchor","center")))
 	var destination: Rect2 = game.LevelEditorSystem.object_bounds({"position":position,"size":size,"anchor":entry.get("anchor","center"),"scale":1.0})
 	if source.size==Vector2.ZERO: game.draw_texture_rect(texture,destination,false,Color(1,1,1,0.62))
 	else: game.draw_texture_rect_region(texture,destination,source,Color(1,1,1,0.62))
 	game.draw_rect(destination,Color("8ef09d"),false,2.0)
+
+
+## Сохраняет размер штатного кадрового профиля у кисти; только вручную изменённый crop получает исходный размер.
+static func drag_preview_size(entry: Dictionary, source: Rect2, texture_size: Vector2, state: Dictionary) -> Vector2:
+	var size := Vector2(entry.get("display_size",Vector2.ZERO))
+	if size == Vector2.ZERO: size = source.size if source.size != Vector2.ZERO else texture_size
+	if String(state.get("source_mode","grid")) == "custom" and source.size != Vector2.ZERO and source != Rect2(entry.get("source_rect",Rect2())): size = source.size
+	if String(entry.get("anchor","center")) == "tile": size = Vector2.ONE * int(state.grid)
+	return size
 
 
 ## Показывает полупрозрачную область будущей прямоугольной заливки до отпускания мыши.
@@ -188,7 +194,7 @@ static func draw_assets(game: Node2D, state: Dictionary) -> void:
 		if index>=entries.size(): continue
 		var entry:Dictionary=entries[index]; var texture: Texture2D = texture_for(String(entry.path))
 		if texture!=null:
-			var slice_size:=int(entry.get("slice_size",0)); var source:Rect2=game.LevelEditorSystem.selected_source(texture,state) if selected else (Rect2(0,0,slice_size,slice_size) if slice_size>0 else Rect2()); var texture_size: Vector2 = source.size if source.size!=Vector2.ZERO else texture.get_size(); var scale: float = minf(28.0/maxf(texture_size.x,1),28.0/maxf(texture_size.y,1)); var thumb: Rect2 = Rect2(rect.position+Vector2(9,6)+(Vector2(32,28)-texture_size*scale)*0.5,texture_size*scale)
+			var slice_size:=int(entry.get("slice_size",0)); var source:Rect2=game.LevelEditorSystem.selected_source(texture,state) if selected else Rect2(entry.get("source_rect", Rect2(0,0,slice_size,slice_size) if slice_size>0 else Rect2())); var texture_size: Vector2 = source.size if source.size!=Vector2.ZERO else texture.get_size(); var scale: float = minf(28.0/maxf(texture_size.x,1),28.0/maxf(texture_size.y,1)); var thumb: Rect2 = Rect2(rect.position+Vector2(9,6)+(Vector2(32,28)-texture_size*scale)*0.5,texture_size*scale)
 			if source.size==Vector2.ZERO: game.draw_texture_rect(texture,thumb,false)
 			else: game.draw_texture_rect_region(texture,thumb,source)
 		var badge:="  ◈" if not String(entry.get("unique_key","")).is_empty() else ("  ▦%d"%int(entry.get("frame_count",1)) if bool(entry.get("sliced",false)) else "")

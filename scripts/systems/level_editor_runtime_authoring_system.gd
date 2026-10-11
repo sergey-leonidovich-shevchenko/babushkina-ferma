@@ -11,6 +11,9 @@ static func collision_rect(object:Dictionary,bounds:Rect2)->Rect2:
 ## Переключает игровую роль выбранного объекта и гарантирует единственность точки появления героя.
 static func cycle_role(editor_system,state:Dictionary)->void:
 	if not editor_system.valid_selection(state): state.status="Сначала выбери объект для игровой роли"; return
+	var object: Dictionary = state.objects[state.selected]
+	if String(object.get("unique_key", "")) == "hero:player" and "/hero_v3/" in String(object.get("asset_path", "")):
+		state.status = "Герой задаёт точку появления, а не декоративный объект"; return
 	var roles:=["","spawn","exit","interaction"]; editor_system.push_history(state)
 	var current:=String(state.objects[state.selected].get("runtime_role","")); var next:=String(roles[(roles.find(current)+1)%roles.size()])
 	if next=="spawn":

@@ -1,7 +1,7 @@
 extends RefCounted
 
-const POSITIONS := {"market":Vector2(1250,500),"festival":Vector2(1420,520),"traveler":Vector2(1690,500),"raid":Vector2(930,470)}
-const RAID_SPAWNS := [Vector2(870,690),Vector2(1050,720),Vector2(1220,690),Vector2(1110,610)]
+const POSITIONS := preload("res://scripts/systems/village_map_data.gd").EVENTS
+const RAID_SPAWNS := [Vector2(2040,624),Vector2(2160,720),Vector2(2136,864),Vector2(2244,720)]
 
 
 ## Возвращает память текущего события, совместимую со старыми сохранениями.

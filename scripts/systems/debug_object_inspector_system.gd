@@ -105,9 +105,9 @@ static func add(result: Array[Dictionary], id: String, category: String, name: S
 
 ## Добавляет героя с текущими RPG-ресурсами, направлением, движением и радиусом физики.
 static func append_player(game: Node, result: Array[Dictionary]) -> void:
-	var size: Vector2 = game.DirectionalCharacterSystem.HERO_DRAW_SIZE
-	var bounds:Rect2=game.DirectionalCharacterSystem.actor_rect(game.player,size)
-	var moving: bool = game.get_movement_direction() != Vector2.ZERO
+	var moving: bool = game.PlayerSystem.is_visually_moving(game)
+	var visual = game.DirectionalCharacterSystem.HeroVisualSystem
+	var bounds: Rect2 = visual.destination(game.player, visual.current_pose(game, game.facing, moving))
 	add(result, "player", "ГЕРОЙ", String(game.state.player.profile.get("name", "Герой")), game.player, bounds, 120, "круг r%.0f · твёрдый" % game.PLAYER_RADIUS, "жив · %s" % ("идёт" if moving else "стоит"), [
 		"HP %d/%d · MP %d/%d · EN %d/%d" % [game.player_hp,game.player_max_hp,game.player_mana,game.player_max_mana,game.energy,game.SkillSystem.max_stamina(game)],
 		"ур. %d · XP %d · очков %d" % [game.player_level,game.player_xp,game.skill_points],
@@ -249,7 +249,9 @@ static func append_npcs(game: Node, result: Array[Dictionary]) -> void:
 		if String(actor.get("location","")) != game.current_location: continue
 		var name: String = game.LocaleSystem.entity("grandmother") if actor_id == "grandmother" else game.QuestSystem.npc_name(actor_id)
 		var missions: Array = [] if actor_id == "grandmother" else game.QuestSystem.NPCS.get(actor_id,{}).get("missions",[])
-		add(result, "npc:%s" % actor_id, "NPC", name, actor.position, game.DirectionalCharacterSystem.actor_rect(actor.position,game.DirectionalCharacterSystem.NPC_DRAW_SIZE), 100, "нет · диалог", String(actor.get("schedule","без расписания")), [
+		var sprite_index := 0 if actor_id == "grandmother" else int(game.QuestSystem.NPCS.get(actor_id,{}).get("sprite",0))
+		var bounds: Rect2 = game.DirectionalCharacterSystem.npc_rect(sprite_index,actor.position,actor.direction,game.walk_animation_time,actor.moving)
+		add(result, "npc:%s" % actor_id, "NPC", name, actor.position, bounds, 100, "нет · диалог", String(actor.get("schedule","без расписания")), [
 			"home %.0f / %.0f · %s" % [actor.home.x,actor.home.y,actor.home_location],
 			"dir %.2f / %.2f · moving %s" % [actor.direction.x,actor.direction.y,str(actor.moving)],
 			"миссии %s" % (", ".join(missions) if not missions.is_empty() else "обучение"),

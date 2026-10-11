@@ -30,7 +30,7 @@ const PROFILES := {
 	"village_mill": {"visual_size": Vector2(288, 240), "anchor": "bottom_center", "collision_size": Vector2(192, 72), "collision_offset": Vector2(0, -36)},
 	"fence_section": {"visual_size": Vector2(48, 48), "anchor": "center", "collision_size": Vector2(24, 24), "collision_offset": Vector2.ZERO},
 	"fence_gate": {"visual_size": Vector2(72, 72), "anchor": "center", "collision_size": Vector2(48, 24), "collision_offset": Vector2.ZERO},
-	"hero": {"visual_size": Vector2(72, 96), "anchor": "bottom_center", "collision_size": Vector2(48, 24), "collision_offset": Vector2(0, -12)},
+	"hero": {"visual_size": Vector2(96, 96), "anchor": "bottom_center", "collision_size": Vector2(48, 24), "collision_offset": Vector2(0, -12)},
 	"resident": {"visual_size": Vector2(96, 96), "anchor": "bottom_center", "collision_size": Vector2(48, 24), "collision_offset": Vector2(0, -12)},
 	"animal": {"visual_size": Vector2(96, 96), "anchor": "bottom_center", "collision_size": Vector2(48, 24), "collision_offset": Vector2(0, -12)},
 	"enemy_common": {"visual_size": Vector2(96, 96), "anchor": "bottom_center", "collision_size": Vector2(48, 48), "collision_offset": Vector2(0, -24)},

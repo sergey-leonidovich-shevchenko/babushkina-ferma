@@ -5,6 +5,8 @@ const GamePreviewController := preload("res://scripts/core/game_preview_controll
 const GameInputRouter := preload("res://scripts/core/game_input_router.gd")
 const GameBootstrap := preload("res://scripts/core/game_bootstrap.gd")
 const GameInteractionRouter := preload("res://scripts/core/game_interaction_router.gd")
+const CameraSystem := preload("res://scripts/systems/camera_system.gd")
+const HeroActionSystem := preload("res://scripts/systems/hero_action_system.gd")
 ## Подготавливает узел к работе: создаёт зависимые данные и синхронизирует начальное состояние.
 func _ready() -> void:
 	GameBootstrap.initialize(self)
@@ -41,6 +43,7 @@ func update_hud_feedback(delta: float) -> void:
 	if message != hud_last_message:
 		hud_last_message = message
 		hud_message_timer = HudLayoutSystem.notification_duration(message) if not message.is_empty() else 0.0
+	preload("res://scripts/presentation/moon_hud_renderer.gd").update(self, delta)
 	hud_last_hp = player_hp; hud_last_coins = coins; hud_last_minute = int(game_minutes); hud_last_weather = weather
 	hud_hp_flash = maxf(0.0, hud_hp_flash - delta)
 	hud_coin_pop = maxf(0.0, hud_coin_pop - delta)
@@ -72,20 +75,26 @@ func update_benchmark_route(delta: float) -> void:
 func update_player_movement(delta: float) -> void:
 	var direction := get_movement_direction()
 	if direction.length() == 0.0:
+		PlayerSystem.record_motion(self, Vector2.ZERO)
 		return
 	facing = direction
+	var previous_position := player
 	var current_speed := speed * (1.3 if speed_timer > 0.0 else 1.0) * InventorySystem.speed_multiplier(self) * TalentSystem.movement_multiplier(self)
-	move_player_with_collisions(direction * current_speed * delta)
+	var assisted := move_player_with_collisions(direction * current_speed * delta, true)
+	clamp_player_position()
+	var actual_motion := player - previous_position
+	PlayerSystem.record_motion(self, actual_motion)
+	if not actual_motion.is_zero_approx() and not assisted:
+		facing = actual_motion.normalized()
 	notify_tutorial("move")
 	if current_location == "overworld" and BuildingSystem.VILLAGE_SQUARE.has_point(player): notify_tutorial("village_paths")
 	character_animation_directions[PlayerSystem.direction_row(direction)] = true
 	if character_animation_directions.size() >= 4:
 		notify_tutorial("character_animation")
-	clamp_player_position()
 
-## Выполняет операцию «перемещения героя с коллизий» и возвращает результат согласно контракту метода.
-func move_player_with_collisions(motion: Vector2) -> void:
-	NavigationSystem.move(self, motion)
+## Применяет коллизии; помощь краю включается явно только ходьбой, но не рывком или отбрасыванием.
+func move_player_with_collisions(motion: Vector2, corner_assist: bool = false) -> bool:
+	return NavigationSystem.move(self, motion, corner_assist)
 
 ## Проверяет заявленное методом условие без изменения игрового состояния.
 func is_position_walkable(position: Vector2) -> bool:
@@ -165,11 +174,9 @@ func clamp_player_position() -> void:
 	player.x = clampf(player.x, 40.0, WORLD_SIZE.x - 40.0)
 	player.y = clampf(player.y, 120.0, WORLD_SIZE.y - 80.0)
 
-## Обновляет относящуюся к методу часть состояния на текущем кадре.
+## Обновляет камеру с учётом размеров комнаты и сохраняет общую систему координат для фона и ввода.
 func update_camera() -> void:
-	# Камера привязана к целым пикселям: пиксельная графика не дрожит на субпикселях.
-	camera_offset.x = roundf(clampf(player.x - 576.0, 0.0, WORLD_SIZE.x - 1152.0))
-	camera_offset.y = roundf(clampf(player.y - 324.0, 0.0, WORLD_SIZE.y - 648.0))
+	camera_offset = CameraSystem.target_offset(self)
 	var background := get_node_or_null("WorldBackground")
 	if background:
 		background.position = -camera_offset
@@ -194,6 +201,9 @@ func apply_immediate_key_response(event: InputEventKey) -> void:
 
 ## Обрабатывает команды, которые не были перехвачены более приоритетными экранами.
 func _unhandled_input(event: InputEvent) -> void:
+	if preload("res://scripts/systems/menu_hub_system.gd").active(self):
+		InputSystem.handle_modal_input(self,event)
+		return
 	if language_screen:
 		handle_language_input(event)
 		return
@@ -327,6 +337,7 @@ func use_selected_tool() -> void:
 	if selected_tool != Tool.HOE:
 		WorldFarmingSystem.write_target(self, cultivation_target, plot)
 	if not action_sfx.is_empty():
+		HeroActionSystem.begin(self, action_sfx, Rect2(cultivation_target.rect).get_center())
 		play_sfx(action_sfx)
 		if not durability_kind.is_empty(): AdventurePolishSystem.consume_durability(self, durability_kind)
 
@@ -404,14 +415,10 @@ func exit_cave() -> void:
 
 ## Выполняет заявленный переход режима и обновляет связанный интерфейс.
 func open_inventory() -> void:
-	inventory_open = true
-	inventory_move_from = -1
-	InventorySystem.ensure_counted_items(self)
-	InventorySystem.keep_selection_visible(self)
-	clear_movement_keys()
-	notify_tutorial("inventory")
+	preload("res://scripts/systems/menu_hub_system.gd").open(self,"inventory")
 	message = LocaleSystem.text("inventory_open")
 	play_sfx("ui_open")
+
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func inventory_item_count(kind: String) -> int:
@@ -559,19 +566,19 @@ func talk_to_grandmother() -> void:
 
 ## Выполняет заявленный переход режима и обновляет связанный интерфейс.
 func toggle_quest_log() -> void:
-	quest_log_open = not quest_log_open
-	if quest_log_open:
-		clear_movement_keys()
-		message = LocaleSystem.text("journal_open")
-		notify_tutorial("journal")
+	var hub = preload("res://scripts/systems/menu_hub_system.gd")
+	if quest_log_open: hub.close(self)
+	else: hub.open(self,"quests")
+
 
 ## Выполняет заявленный переход режима и обновляет связанный интерфейс.
 func open_skill_menu() -> void:
-	skill_menu_open = not skill_menu_open
-	if skill_menu_open:
-		skill_menu_selected = clampi(skill_menu_selected, 0, TalentSystem.TALENTS.size() - 1)
-		clear_movement_keys()
-		message = TalentSystem.word(self, "choose", false, [skill_points])
+	var hub = preload("res://scripts/systems/menu_hub_system.gd")
+	if skill_menu_open: hub.close(self)
+	else:
+		hub.open(self,"hero")
+		skill_menu_selected = clampi(skill_menu_selected,0,TalentSystem.TALENTS.size()-1)
+
 
 ## Обрабатывает относящееся к методу событие и синхронизирует зависимое состояние.
 func handle_skill_menu_input(event: InputEvent) -> void:

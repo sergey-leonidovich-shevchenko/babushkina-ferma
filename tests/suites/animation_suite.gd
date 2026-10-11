@@ -5,6 +5,9 @@ extends "res://tests/suites/suite_base.gd"
 func run() -> void:
 	test_animation_frame_modes()
 	test_directional_character_atlas_frames()
+	test_walking_follows_actual_motion_and_stops_at_obstacles()
+	test_camera_keeps_small_rooms_visible_and_scrolls_large_halls()
+	test_held_weapons_follow_camera_in_every_direction()
 	test_hero_visual_scale_matches_world_proportions()
 	test_every_human_atlas_uses_actual_left_and_right_rows()
 	test_npc_wander_stays_near_home()
@@ -12,6 +15,78 @@ func run() -> void:
 	test_player_attack_and_slime_reaction()
 	test_enemy_hurt_and_death_lifecycle()
 	test_slime_attack_returns_to_idle()
+
+
+## Сценарий: герой ходит от верхней стены дома к выходу, затем перемещается по большому замковому залу.
+## Исходное состояние: известны границы комнаты, верхнего HUD и быстрых слотов, камера обновляется обычным методом игры.
+## Ожидаемый результат: дом неподвижен и целиком помещается между панелями, большой зал прокручивается без выхода за стены.
+func test_camera_keeps_small_rooms_visible_and_scrolls_large_halls() -> void:
+	var game := make_game()
+	game.current_location = "cottage_interior"
+	game.player = Vector2(220, 320)
+	game.update_camera()
+	var first_offset: Vector2 = game.camera_offset
+	game.player = Vector2(880, 490)
+	game.update_camera()
+	var room: Rect2 = game.BuildingSystem.INTERIORS.cottage_interior.room
+	var visible_room := Rect2(room.position - game.camera_offset, room.size)
+	expect(game.camera_offset == first_offset, "small cottage does not scroll or jump while the hero moves")
+	expect(game.CameraSystem.playfield_rect(game).encloses(visible_room), "the entire cottage stays between the top HUD and quickbar")
+	game.current_location = "castle_hall"
+	game.player = Vector2(300, 260)
+	game.update_camera()
+	var near_corner: Vector2 = game.camera_offset
+	game.player = Vector2(1550, 860)
+	game.update_camera()
+	var hall: Rect2 = game.BuildingSystem.INTERIORS.castle_hall.room
+	var visible_world := Rect2(game.camera_offset + game.CameraSystem.playfield_rect(game).position, game.CameraSystem.playfield_rect(game).size)
+	expect(game.camera_offset.x > near_corner.x and game.camera_offset.y > near_corner.y, "large castle hall continues to follow the hero on both axes")
+	expect(hall.encloses(visible_world) and game.camera_offset == game.camera_offset.round(), "large hall camera stays within its walls on whole pixels")
+	game.free()
+
+
+## Сценарий: герой упирается в стену полигона, скользит вниз вдоль неё и открывает рюкзак.
+## Исходное состояние: герой стоит в точке касания препятствия с известными координатами и удерживает вправо.
+## Ожидаемый результат: у стены ноги не бегут, скольжение смотрит вниз и двигает цикл шага, рюкзак и отпускание останавливают анимацию.
+func test_walking_follows_actual_motion_and_stops_at_obstacles() -> void:
+	var game := make_game()
+	game.current_location = game.DebugPlaygroundSystem.LOCATION
+	game.player = Vector2(690.0 - game.PLAYER_RADIUS, 320.0)
+	game.move_right_held = true
+	var start: Vector2 = game.player
+	game.update_player_movement(1.0 / 60.0)
+	expect(game.player == start and not game.PlayerSystem.is_visually_moving(game), "pressing into a solid wall does not animate walking in place")
+	game.move_down_held = true
+	game.update_player_movement(1.0 / 60.0)
+	expect(game.player.y > start.y and game.player.x == start.x and game.facing == Vector2.DOWN, "wall sliding keeps the visible facing aligned with actual travel")
+	expect(game.PlayerSystem.is_visually_moving(game) and game.PlayerSystem.visual_animation_time(game, true) > 0.0, "real travel advances the walking cycle")
+	game.inventory_open = true
+	expect(not game.PlayerSystem.is_visually_moving(game), "opening inventory freezes walking even while a direction remains held")
+	game.inventory_open = false
+	game.clear_movement_keys()
+	expect(not game.PlayerSystem.is_visually_moving(game) and game.PlayerSystem.visual_animation_time(game, true) == 0.0, "releasing movement returns to a stable idle frame")
+	game.free()
+
+
+## Сценарий: камера прокручивается во время замаха мечом, выпада копьём и выстрела во всех восьми направлениях.
+## Исходное состояние: герой находится вдали от начала мира, две камеры отличаются на известное смещение, тряска выключена.
+## Ожидаемый результат: центр оружия остаётся у руки, прокрутка переносит его ровно вместе с героем, а масштаб спрайта сохраняется.
+func test_held_weapons_follow_camera_in_every_direction() -> void:
+	var game := make_game()
+	game.settings_state.screen_shake_enabled = false
+	var position := Vector2(1480, 920)
+	var camera_delta := Vector2(286, 153)
+	for weapon_class in ["blade", "heavy", "spear", "bow", "staff"]:
+		for index in 8:
+			var direction := Vector2.RIGHT.rotated(index * TAU / 8.0)
+			game.camera_offset = Vector2(704, 476)
+			var initial: Dictionary = game.WorldPolishRenderer.held_weapon_pose(position, direction, weapon_class, 0.45, 1.0, game.PresentationSystem.world_offset(game))
+			game.camera_offset += camera_delta
+			var scrolled: Dictionary = game.WorldPolishRenderer.held_weapon_pose(position, direction, weapon_class, 0.45, 1.0, game.PresentationSystem.world_offset(game))
+			var hand_distance: float = Vector2(scrolled.transform.origin).distance_to(position - game.camera_offset)
+			expect(Vector2(initial.transform.origin - scrolled.transform.origin).is_equal_approx(camera_delta) and hand_distance < 64.0, "weapon remains attached during camera scrolling: %s direction %d" % [weapon_class, index])
+			expect(Rect2(scrolled.destination).get_center().is_zero_approx() and is_equal_approx(scrolled.transform.x.length(), 1.0) and is_equal_approx(scrolled.transform.y.length(), 1.0), "weapon rotation preserves sprite proportions: %s direction %d" % [weapon_class, index])
+	game.free()
 
 
 ## Сценарий: циклическая и одноразовая анимации выбирают правильные кадры.
@@ -25,13 +100,13 @@ func test_animation_frame_modes() -> void:
 
 
 ## Сценарий: герой, жители и напарники используют утверждённые модульные рамки с общей точкой ног.
-## Исходное состояние: все люди загружают строгие восьминаправленные атласы и не меняют физику героя.
-## Ожидаемый результат: герой занимает 72×96, остальные 96×96, предмет и тень согласованы с профилем.
+## Исходное состояние: герой использует четыре ракурса, жители сохраняют восемь; физический радиус героя прежний.
+## Ожидаемый результат: все квадратные кадры людей занимают 96×96 без сжатия по ширине, предмет и тень согласованы с профилем.
 func test_hero_visual_scale_matches_world_proportions() -> void:
 	var game := make_game()
 	var characters = game.DirectionalCharacterSystem
-	expect(characters.profiles_are_valid(), "all human profiles use strict eight-direction atlases and modular frames")
-	expect(characters.HERO_DRAW_SIZE==Vector2(72,96) and characters.NPC_DRAW_SIZE==Vector2(96,96) and characters.COMPANION_DRAW_SIZE==Vector2(96,96), "hero residents and companions use approved 72/96 px classes")
+	expect(characters.profiles_are_valid(), "hero four-direction and resident eight-direction profiles are valid")
+	expect(characters.HERO_DRAW_SIZE==Vector2(96,96) and characters.NPC_DRAW_SIZE==Vector2(96,96) and characters.COMPANION_DRAW_SIZE==Vector2(96,96), "hero residents and companions preserve square atlas proportions at the same height")
 	expect(characters.actor_rect(Vector2(200,200),characters.HERO_DRAW_SIZE).end.y==224.0 and characters.actor_rect(Vector2(200,200),characters.NPC_DRAW_SIZE).end.y==224.0, "different human frames share the exact same foot anchor")
 	expect(characters.HERO_SHADOW_RADII == Vector2(18,6), "hero shadow follows the modular visual footprint")
 	var held_item: Rect2 = game.WorldPolishRenderer.held_weapon_destination(Vector2.ZERO, Vector2.RIGHT, false, characters.HERO_VISUAL_SCALE)
@@ -42,27 +117,26 @@ func test_hero_visual_scale_matches_world_proportions() -> void:
 
 
 ## Сценарий: новый общий аниматор выбирает строку направления и четыре последовательных кадра.
-## Исходное состояние: атлас героя имеет восемь строк и четыре столбца, герой смотрит на северо-восток.
-## Ожидаемый результат: ячейки целочисленные, выбрана фактическая правая строка пять, покой держит первый кадр, а ходьба меняет его.
+## Исходное состояние: новый мастер героя имеет четыре ракурса с измеренными источниками; герой смотрит по диагонали вправо.
+## Ожидаемый результат: диагональ выбирает правый ракурс, покой держит нейтральную фазу, а ходьба меняет только столбец.
 func test_directional_character_atlas_frames() -> void:
 	var game := make_game()
 	var texture: Texture2D = game.DirectionalCharacterSystem.HERO_TEXTURES[0]
 	var idle: Rect2 = game.DirectionalCharacterSystem.source_rect(texture, Vector2(1, -1), 0.4, false)
 	var walking: Rect2 = game.DirectionalCharacterSystem.source_rect(texture, Vector2(1, -1), 0.4, true)
-	expect(texture.get_width() == 888 and texture.get_height() == 1776, "directional atlas uses exact 222-pixel cells")
-	expect(idle.position == Vector2(0, 1110) and idle.size == Vector2(222, 222), "north-east selects the actual right-facing row five and idle frame zero")
+	expect(texture.get_size() == Vector2(1254,1254), "hero uses the new four-direction production master")
+	expect(idle.position == Vector2(336,600) and idle.size == Vector2(300,300), "north-east selects the actual right-facing row and neutral phase")
 	expect(walking.position.x > idle.position.x and walking.position.y == idle.position.y, "walk time advances the frame without changing direction")
 	game.free()
 
 
-## Сценарий: герой, жители и напарники используют одинаковые реальные строки вправо и влево.
-## Исходное состояние: все человеческие атласы имеют ячейку 222×222 и общий порядок восьми направлений.
+## Сценарий: оставшиеся старые жители и напарники используют одинаковые реальные строки вправо и влево.
+## Исходное состояние: старые атласы имеют ячейку 222×222; новые герой и бабушка проходят отдельные тесты четырёх ракурсов.
 ## Ожидаемый результат: движение вправо выбирает строку шесть, правые строки зеркальны левым, а содержимое каждого кадра имеет безопасный прозрачный отступ.
 func test_every_human_atlas_uses_actual_left_and_right_rows() -> void:
 	var game := make_game()
 	var textures: Array[Texture2D] = []
-	textures.append_array(game.DirectionalCharacterSystem.HERO_TEXTURES)
-	textures.append_array(game.DirectionalCharacterSystem.NPC_TEXTURES)
+	textures.append_array(game.DirectionalCharacterSystem.NPC_TEXTURES.slice(1))
 	for companion_id in game.DirectionalCharacterSystem.COMPANION_TEXTURES:
 		textures.append(game.DirectionalCharacterSystem.COMPANION_TEXTURES[companion_id])
 	for texture in textures:

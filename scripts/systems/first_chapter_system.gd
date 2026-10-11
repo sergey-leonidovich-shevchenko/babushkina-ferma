@@ -1,7 +1,7 @@
 class_name FirstChapterSystem
 extends RefCounted
 
-const REPAIR_POSITION := Vector2(1320, 680)
+const REPAIR_POSITION := preload("res://scripts/systems/village_map_data.gd").REPAIR
 const REPAIR_WOOD := 8
 const REPAIR_STONE := 4
 const REWARD_RECTS := [Rect2(194, 292, 236, 154), Rect2(458, 292, 236, 154), Rect2(722, 292, 236, 154)]

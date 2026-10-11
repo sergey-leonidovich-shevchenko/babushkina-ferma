@@ -128,6 +128,7 @@ func test_keyboard_press_and_release() -> void:
 	expect(game.get_movement_direction() == Vector2.ZERO, "movement stops on key-up")
 	game.free()
 
+
 ## Сценарий: первый физический кадр реагирует на клавишу без задержки и скачка позиции.
 ## Исходное состояние: новый изолированный экземпляр игры; необходимые ресурсы, позиции и таймеры задаются в начале сценария.
 ## Ожидаемый результат: все перечисленные переходы и итоговые значения совпадают с контрактом сценария.
@@ -166,7 +167,7 @@ func test_joypad_stick_starts_and_stops_movement() -> void:
 ## Ожидаемый результат: профиль валиден, основные стороны различаются, а часы шага обновляются независимо от key repeat.
 func test_eight_direction_character_animation() -> void:
 	var game := make_game()
-	expect(game.DirectionalCharacterSystem.profiles_are_valid() and game.DirectionalCharacterSystem.HERO_TEXTURES[0].get_size()==Vector2(888,1776), "hero uses the validated 4x8 directional atlas")
+	expect(game.DirectionalCharacterSystem.profiles_are_valid() and game.DirectionalCharacterSystem.HERO_TEXTURES[0].get_size()==Vector2(1254,1254), "hero uses validated four-direction art with measured frame origins")
 	expect(game.PlayerSystem.direction_row(Vector2.DOWN) == 0, "down movement uses front-facing animation row")
 	expect(game.PlayerSystem.direction_row(Vector2.LEFT) == 1, "left movement uses left-facing animation row")
 	expect(game.PlayerSystem.direction_row(Vector2.RIGHT) == 2, "right movement uses right-facing animation row")

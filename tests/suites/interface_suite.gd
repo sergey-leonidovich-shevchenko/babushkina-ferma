@@ -284,8 +284,8 @@ func test_hud_layout_is_compact_and_safe() -> void:
 		game.LocaleSystem.set_locale(locale)
 		expect(not game.LocaleSystem.ui("location_label", [game.WorldSystem.name("cave")]).is_empty(), "persistent location name is localized for %s" % locale)
 	game.LocaleSystem.set_locale("ru")
-	expect(game.InterfaceRenderer.HOTBAR_SLOT_SIZE == game.InterfaceRenderer.INVENTORY_HOTBAR_SIZE, "world and inventory quick slots use the same approved dimensions")
-	expect(is_equal_approx(game.InterfaceRenderer.HOTBAR_PITCH, game.InterfaceRenderer.INVENTORY_HOTBAR_PITCH), "world and inventory quick slots use the same spacing")
+	expect(game.InterfaceRenderer.HOTBAR_SLOT_SIZE.x >= 48 and game.InterfaceRenderer.HOTBAR_SLOT_SIZE.x < game.InterfaceRenderer.INVENTORY_HOTBAR_SIZE.x, "world slots remain touchable while taking less screen space than the expanded inventory")
+	expect(game.InterfaceRenderer.HOTBAR_PITCH > game.InterfaceRenderer.HOTBAR_SLOT_SIZE.x, "world slots retain an explicit non-overlapping gap")
 	for index in 10:
 		var rect: Rect2 = game.InterfaceRenderer.hotbar_rect(index)
 		expect(game.InterfaceRenderer.VIEWPORT.encloses(rect), "world quick slot %d stays inside the viewport" % index)
@@ -355,6 +355,8 @@ func test_mouse_drag_context_and_hotbar() -> void:
 	hotbar_click.pressed = true
 	expect(game.handle_gamepad_and_touch(hotbar_click) and game.selected_hotbar == 4, "mouse selects a world quick slot")
 	game.free()
+
+
 
 
 ## Сценарий: сортировка группирует предметы по назначению и сохраняет текущий выбор.

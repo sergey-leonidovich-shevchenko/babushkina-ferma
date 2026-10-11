@@ -7,7 +7,7 @@ const MAX_HEALTH := 3
 const CHOP_RANGE := 104.0
 const REGROW_DURATION := 30.0
 const GROWTH_STAGE_DURATION := REGROW_DURATION / 3.0
-const POSITIONS := [Vector2(1740,260),Vector2(1900,235),Vector2(2160,250),Vector2(1860,470),Vector2(1940,820),Vector2(2110,900),Vector2(2280,790),Vector2(2180,520)]
+const POSITIONS := preload("res://scripts/systems/village_map_data.gd").TREES
 
 
 ## Создаёт независимые состояния взрослых деревьев из единого списка лесных позиций.

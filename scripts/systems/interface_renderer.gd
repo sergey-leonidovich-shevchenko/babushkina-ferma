@@ -14,9 +14,11 @@ const CONTROL_ATLAS := preload("res://assets/game/ui/controls/control_atlas.png"
 const CARD_ATLAS := preload("res://assets/game/ui/cards/card_atlas.png")
 const HudRenderer := preload("res://scripts/systems/hud_renderer.gd")
 const HudLayoutSystem := preload("res://scripts/systems/hud_layout_system.gd")
+const HudChrome := preload("res://scripts/presentation/hud_chrome_system.gd")
 const UiKitSystem := preload("res://scripts/systems/ui_kit_system.gd")
 const StoryUiRenderer := preload("res://scripts/systems/story_ui_renderer.gd")
 const ItemTooltipRenderer := preload("res://scripts/presentation/item_tooltip_renderer.gd")
+const QuickAccessRenderer := preload("res://scripts/presentation/quick_access_renderer.gd")
 const WEATHER_ICONS := {
 	"clear":preload("res://assets/game/ui/hud/weather_clear.tres"),
 	"rain":preload("res://assets/game/ui/hud/weather_rain.tres"),
@@ -25,48 +27,50 @@ const WEATHER_ICONS := {
 	"storm":preload("res://assets/game/ui/hud/weather_storm.tres"),
 }
 const INVENTORY_FILTERS := ["all", "tool", "food", "equipment", "resource", "quest"]
-const HUD_RECT := Rect2(0, 0, 1152, 96)
-const PLAYER_PORTRAIT_RECT := Rect2(0, 0, 165, 96)
-const PLAYER_BARS_RECT := Rect2(165, 0, 321, 96)
-const CLOCK_BADGE := Rect2(486, 0, 184, 96)
-const CLOCK_WEATHER_RECT := Rect2(510, 26, 28, 28)
-const CLOCK_TIME_RECT := Rect2(538, 25, 105, 34)
-const CLOCK_CALENDAR_RECT := Rect2(505, 63, 145, 16)
-const LOCATION_BADGE := Rect2(670, 0, 267, 96)
-const INVENTORY_WINDOW := Rect2(88, 7, 976, 634)
-const INVENTORY_GRID_ORIGIN := Vector2(149, 164)
-const INVENTORY_SLOT_SIZE := Vector2(57, 50)
-const INVENTORY_SLOT_PITCH := Vector2(65.5, 58.0)
-const INVENTORY_HOTBAR_ORIGIN := Vector2(207, 543)
-const INVENTORY_HOTBAR_SIZE := Vector2(66, 65)
-const INVENTORY_HOTBAR_PITCH := 73.4
-const INVENTORY_HOTBAR_SKIN_RECT := Rect2(190, 532, 762, 84)
-const INVENTORY_TITLE_RECT := Rect2(456, 19, 240, 43)
-const INVENTORY_CLOSE_BUTTON := Rect2(984, 49, 50, 50)
-const INVENTORY_DETAIL_RECT := Rect2(565, 145, 226, 360)
-const INVENTORY_EQUIPMENT_RECT := Rect2(797, 145, 226, 324)
-const WORLD_HOTBAR_PANEL := Rect2(190, 558, 762, 84)
-const USE_BUTTON := Rect2(580, 430, 195, 31)
-const EQUIP_BUTTON := Rect2(580, 469, 94, 29)
-const DROP_BUTTON := Rect2(680, 469, 95, 29)
-const SORT_BUTTON := Rect2(649, 90, 175, 42)
-const SKILL_BUTTON := Rect2(937, 0, 102, 96)
-const QUEST_BUTTON := Rect2(1039, 0, 113, 96)
-const PAUSE_BUTTON := Rect2(18, 584, 54, 54)
+const HUD_RECT := HudChrome.HUD_RECT
+const PLAYER_PORTRAIT_RECT := HudChrome.PORTRAIT
+const PLAYER_BARS_RECT := HudChrome.BARS
+const CLOCK_BADGE := HudChrome.CLOCK
+const CLOCK_WEATHER_RECT := HudChrome.WEATHER
+const CLOCK_TIME_RECT := HudChrome.TIME
+const CLOCK_CALENDAR_RECT := HudChrome.CALENDAR
+const LOCATION_BADGE := HudChrome.LOCATION
+const INVENTORY_WINDOW := Rect2(0, 0, 1152, 648)
+const INVENTORY_GRID_ORIGIN := Vector2(40, 148)
+const INVENTORY_SLOT_SIZE := Vector2(80, 62)
+const INVENTORY_SLOT_PITCH := Vector2(88, 68)
+const INVENTORY_HOTBAR_ORIGIN := Vector2(296, 579)
+const INVENTORY_HOTBAR_SIZE := Vector2(60, 58)
+const INVENTORY_HOTBAR_PITCH := 66.0
+const INVENTORY_HOTBAR_SKIN_RECT := Rect2(286, 571, 674, 72)
+const INVENTORY_TITLE_RECT := Rect2(26, 20, 210, 36)
+const INVENTORY_CLOSE_BUTTON := Rect2(1094, 18, 38, 38)
+const INVENTORY_DETAIL_RECT := Rect2(600, 134, 270, 423)
+const INVENTORY_TOOLTIP_RECT := Rect2(600, 134, 270, 320)
+const INVENTORY_GRID_PANEL := Rect2(24, 134, 552, 423)
+const INVENTORY_EQUIPMENT_RECT := Rect2(898, 134, 230, 423)
+const WORLD_HOTBAR_PANEL := QuickAccessRenderer.WORLD_PANEL
+const USE_BUTTON := Rect2(616, 468, 238, 31)
+const EQUIP_BUTTON := Rect2(616, 512, 113, 31)
+const DROP_BUTTON := Rect2(741, 512, 113, 31)
+const SORT_BUTTON := Rect2(920, 89, 208, 34)
+const SKILL_BUTTON := HudChrome.SKILLS
+const QUEST_BUTTON := HudChrome.QUESTS
+const PAUSE_BUTTON := Rect2(18, 590, 38, 38)
 const DODGE_BUTTON := Rect2(1004, 520, 60, 48)
 const BLOCK_BUTTON := Rect2(1072, 520, 60, 48)
 const MESSAGE_CARD := HudLayoutSystem.NOTIFICATION_RECT
 const TUTORIAL_CARD := HudLayoutSystem.TUTORIAL_RECT
 const OBJECTIVE_CARD := HudLayoutSystem.OBJECTIVE_RECT
 const INTERACTION_PROMPT := HudLayoutSystem.INTERACTION_RECT
-const HOTBAR_ORIGIN := Vector2(207, 568)
-const HOTBAR_SLOT_SIZE := INVENTORY_HOTBAR_SIZE
-const HOTBAR_PITCH := INVENTORY_HOTBAR_PITCH
+const HOTBAR_ORIGIN := QuickAccessRenderer.WORLD_ORIGIN
+const HOTBAR_SLOT_SIZE := QuickAccessRenderer.WORLD_SLOT_SIZE
+const HOTBAR_PITCH := QuickAccessRenderer.WORLD_PITCH
 const STORAGE_LEFT_ROWS := Rect2(96, 190, 430, 320)
 const STORAGE_RIGHT_ROWS := Rect2(626, 190, 430, 320)
 const STORAGE_TRANSFER_ONE := Rect2(430, 524, 140, 36)
 const STORAGE_TRANSFER_ALL := Rect2(582, 524, 140, 36)
-const FORGE_ROWS := Rect2(164, 154, 824, 396)
+const FORGE_ROWS := Rect2(164, 154, 824, 338)
 const CONTRACT_ROWS := Rect2(154, 190, 844, 300)
 const QUEST_PREV := StoryUiRenderer.QUEST_PREV
 const QUEST_NEXT := StoryUiRenderer.QUEST_NEXT
@@ -121,7 +125,7 @@ static func centered_rect(container: Rect2, size: Vector2) -> Rect2:
 
 ## Возвращает одинаково центрированную область иконки для любой из тридцати шести ячеек рюкзака.
 static func inventory_icon_rect(visible_index: int) -> Rect2:
-	return centered_rect(inventory_slot_rect(visible_index), Vector2(40, 40))
+	return centered_rect(inventory_slot_rect(visible_index), Vector2(48, 48))
 
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
@@ -144,7 +148,7 @@ static func inventory_slot_at_game(game: Node, point: Vector2) -> int:
 
 ## Возвращает прямоугольник одной вкладки категорий деревянного рюкзака.
 static func inventory_category_rect(index: int) -> Rect2:
-	return Rect2(146 + index * 79, 90, 75, 44)
+	return Rect2(24+index*106,89,100,34)
 
 
 ## Определяет выбранную указателем категорию или возвращает пустую строку.
@@ -161,7 +165,8 @@ static func inventory_hotbar_rect(index: int) -> Rect2:
 
 ## Центрирует иконку быстрого доступа в рамке тем же flex-правилом, что и основную сетку.
 static func hotbar_icon_rect(rect: Rect2) -> Rect2:
-	return centered_rect(rect, Vector2(43, 43))
+	var side:=minf(43.0,minf(rect.size.x,rect.size.y)-16.0)
+	return centered_rect(rect, Vector2(side,side))
 
 
 ## Выполняет операцию «инвентаря быстрой панели at» и возвращает результат согласно контракту метода.
@@ -185,11 +190,11 @@ static func hotbar_at(point: Vector2) -> int:
 
 ## Координирует отрисовку текущего состояния без изменения игровой логики.
 static func draw(game: Node) -> void:
-	draw_hud(game)
+	if not preload("res://scripts/systems/menu_hub_system.gd").active(game): draw_hud(game)
 	var clean_hud_preview := game.has_meta("capture_hud_clean")
 	var fishing_focus:bool=game.state.fishing.phase in [game.FishingSystem.PHASE_CHARGING,game.FishingSystem.PHASE_MINIGAME,game.FishingSystem.PHASE_RESULT]
 	var farm_life:Dictionary=game.FarmLifeSystem.state(game); var farm_modal:bool=bool(farm_life.compendium) or not String(farm_life.cutscene).is_empty()
-	if not clean_hud_preview and not fishing_focus and not farm_modal and not game.AdventurePolishSystem.has_modal(game): game.draw_mission_tracker()
+	farm_modal = farm_modal or game.inventory_open or game.shop_open or game.crafting_open or game.storage_open or game.forge_open or game.contract_open or game.quest_log_open or game.world_map_open or game.skill_menu_open or game.AdventurePolishSystem.has_modal(game)
 	if not clean_hud_preview and not fishing_focus and not farm_modal and game.tutorial_visible and game.tutorial_step < game.tutorial_steps.size():
 		game.StoryUiRenderer.draw_tutorial(game)
 	if not clean_hud_preview and not fishing_focus and not farm_modal and not game.AdventurePolishSystem.has_modal(game): game.draw_discovery_card()
@@ -209,15 +214,10 @@ static func draw_hud(game: Node) -> void:
 	HudRenderer.draw(game, game.InterfaceRenderer)
 
 
-## Рисует единый верхний фон из того же деревянного скина, что и инвентарь.
+## Собирает компактные независимые карточки с общим древесным стилем и неизменным размером резных углов.
 static func draw_hud_background(game: Node) -> void:
-	var modules := [
-		[HUD_PORTRAIT_FRAME, PLAYER_PORTRAIT_RECT], [HUD_STATUS_FRAME, PLAYER_BARS_RECT],
-		[HUD_CLOCK_FRAME, CLOCK_BADGE], [HUD_LOCATION_FRAME, LOCATION_BADGE],
-		[HUD_SKILL_BUTTON, SKILL_BUTTON], [HUD_QUEST_BUTTON, QUEST_BUTTON],
-	]
-	for module in modules:
-		game.draw_texture_rect(module[0], module[1], false)
+	for rect in [HudChrome.STATUS, CLOCK_BADGE, LOCATION_BADGE]: HudChrome.draw_panel(game, rect)
+	game.draw_line(Vector2(76, 22), Vector2(76, 62), Color(0.80, 0.64, 0.34, 0.32), 1)
 
 
 ## Возвращает компактный символ типа активной внешней зоны или интерьера.
@@ -242,44 +242,14 @@ static func active_quest_count(game: Node) -> int:
 	return count
 
 
-## Рисует игровую панель из того же участка деревянного скина и тех же слотов, что используются в рюкзаке.
+## Делегирует компактную игровую панель общему компоненту без запечённых дублирующих рамок.
 static func draw_hotbar(game: Node) -> void:
-	var skin_size: Vector2 = INVENTORY_SKIN.get_size()
-	var source_scale := Vector2(skin_size.x / VIEWPORT.size.x, skin_size.y / VIEWPORT.size.y)
-	var source_rect := Rect2(INVENTORY_HOTBAR_SKIN_RECT.position * source_scale, INVENTORY_HOTBAR_SKIN_RECT.size * source_scale)
-	game.draw_texture_rect_region(INVENTORY_SKIN, WORLD_HOTBAR_PANEL, source_rect)
-	for index in 10:
-		draw_hotbar_slot(game, hotbar_rect(index), index)
-	var kind: String = game.hotbar_slots[game.selected_hotbar]
-	if not kind.is_empty():
-		game.draw_rect(Rect2(430, 550, 292, 24), Color(0.16, 0.08, 0.035, 0.92))
-		game.draw_ui_string(game.UI_FONT, Vector2(440, 567), game.InventorySystem.data(kind).name, HORIZONTAL_ALIGNMENT_CENTER, 272, 11, Color("ffe4a2"))
+	QuickAccessRenderer.draw_world(game)
 
 
 ## Отрисовывает инвентаря по текущему состоянию игры.
 static func draw_inventory(game: Node) -> void:
-	game.draw_rect(VIEWPORT, Color(0.015, 0.025, 0.02, 0.72))
-	game.draw_texture_rect(INVENTORY_SKIN, VIEWPORT, false)
-	draw_inventory_title(game, game.LocaleSystem.ui("backpack_column"), INVENTORY_TITLE_RECT, 27)
-	var occupied: int = game.inventory_slots.filter(func(kind): return not String(kind).is_empty() and game.inventory_item_count(kind) > 0).size()
-	game.draw_ui_string(game.UI_FONT, Vector2(496, 77), "%d / ∞" % occupied, HORIZONTAL_ALIGNMENT_CENTER, 160, 12, Color("f9df91"))
-	draw_inventory_button_label(game, SORT_BUTTON, game.LocaleSystem.ui("sort_inventory"), true, Color("ffe8a8"))
-	game.draw_ui_string(game.UI_FONT, INVENTORY_CLOSE_BUTTON.position + Vector2(4, 37), "×", HORIZONTAL_ALIGNMENT_CENTER, INVENTORY_CLOSE_BUTTON.size.x - 8, 29, Color("ffe9a4"))
-	draw_category_tabs(game)
-	var filtered: Array[int] = game.InventorySystem.filtered_indices(game)
-	var first_visible: int = game.inventory_scroll_row * game.InventorySystem.COLUMNS
-	for visible_index in game.InventorySystem.VISIBLE_SLOTS:
-		var position: int = first_visible + visible_index
-		if position >= filtered.size(): break
-		draw_inventory_slot(game, filtered[position], visible_index)
-	draw_scrollbar(game)
-	draw_item_detail(game)
-	draw_equipment(game)
-	draw_inventory_title(game, game.LocaleSystem.ui("quick_access").get_slice(" • ", 0), Rect2(437, 507, 278, 32), 13)
-	for index in 10: draw_inventory_hotbar_slot(game, index)
-	draw_inventory_button_label(game, USE_BUTTON, game.LocaleSystem.ui("eat"), game.InventorySystem.can_use(selected_kind(game)), Color("fff5c8"))
-	draw_inventory_button_label(game, EQUIP_BUTTON, game.LocaleSystem.ui("equip"), game.InventorySystem.can_equip(selected_kind(game)), Color("fff5c8"))
-	draw_inventory_button_label(game, DROP_BUTTON, game.LocaleSystem.ui("drop_item"), not selected_kind(game).is_empty(), Color("fff5c8"))
+	preload("res://scripts/presentation/moon_inventory_renderer.gd").draw(game)
 
 
 ## Рисует надпись с пиксельной тенью поверх резной таблички инвентаря.
@@ -296,26 +266,29 @@ static func draw_inventory_button_label(game: Node, rect: Rect2, label: String, 
 
 ## Рисует шесть интерактивных вкладок категорий с крупным состоянием фокуса.
 static func draw_category_tabs(game: Node) -> void:
-	var symbols := ["▦", "⚒", "●", "♜", "◆", "!"]
 	for index in game.InventorySystem.FILTERS.size():
 		var filter_id: String = game.InventorySystem.FILTERS[index]; var active: bool = game.inventory_filter == filter_id; var rect: Rect2 = inventory_category_rect(index)
-		UiKitSystem.draw_nine_patch(game, "tab_selected" if active else "tab_normal", rect)
-		game.draw_ui_string(game.UI_FONT, rect.position + Vector2(4, 17), symbols[index], HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 8, 15, Color("ffe8a8"))
+		game.ItemWindowRenderer.draw_row(game, rect, active)
 		var label: String = game.LocaleSystem.ui("inventory_all") if filter_id == "all" else game.LocaleSystem.ui("category_short_" + filter_id)
-		game.draw_ui_string(game.UI_FONT, rect.position + Vector2(4, 37), label, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 8, 7, Color("fff1bd"))
+		game.draw_ui_string(game.UI_FONT, rect.position + Vector2(7, 27), label, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 14, 10, Color("3d281c"))
 
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 static func draw_inventory_slot(game: Node, index: int, visible_index: int) -> void:
 	var rect: Rect2 = inventory_slot_rect(visible_index)
-	var selected: bool = index == game.inventory_selected
-	var moving: bool = index == game.inventory_move_from
+	var selected: bool = index >= 0 and index == game.inventory_selected
+	var moving: bool = index >= 0 and index == game.inventory_move_from
 	UiKitSystem.draw_slot(game, rect, selected)
 	if moving: game.draw_rect(rect.grow(-8), Color(0.55, 0.76, 0.46, 0.30))
+	if index < 0: return
 	var kind: String = game.inventory_slots[index]
 	if kind.is_empty() or game.inventory_item_count(kind) <= 0: return
 	game.draw_item_icon(kind, inventory_icon_rect(visible_index))
-	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(31, 47), str(game.inventory_item_count(kind)), HORIZONTAL_ALIGNMENT_RIGHT, 22, 10, Color("3d281c"))
+	var amount: int = game.inventory_item_count(kind)
+	if amount > 1:
+		var count_rect := Rect2(rect.end - Vector2(27, 15), Vector2(22, 12))
+		game.draw_rect(count_rect, Color(0.93, 0.83, 0.59, 0.92))
+		game.draw_ui_string(game.UI_FONT, count_rect.position + Vector2(1, 10), str(amount), HORIZONTAL_ALIGNMENT_RIGHT, count_rect.size.x - 2, 9, Color("3d281c"))
 
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
@@ -342,7 +315,7 @@ static func draw_item_detail(game: Node) -> void:
 	if kind.is_empty():
 		game.draw_ui_string(game.UI_FONT, Vector2(580, 319), game.LocaleSystem.ui("empty_slot"), HORIZONTAL_ALIGNMENT_CENTER, 195, 14, Color("80684a"))
 		return
-	ItemTooltipRenderer.draw(game,kind,INVENTORY_DETAIL_RECT,game.inventory_item_count(kind))
+	ItemTooltipRenderer.draw(game,kind,INVENTORY_TOOLTIP_RECT,game.inventory_item_count(kind))
 
 
 ## Отрисовывает экипировки по текущему состоянию игры.
@@ -364,22 +337,9 @@ static func draw_inventory_hotbar_slot(game: Node, index: int) -> void:
 	draw_hotbar_slot(game, inventory_hotbar_rect(index), index)
 
 
-## Рисует единое динамическое содержимое быстрого слота поверх подготовленной деревянной рамки.
+## Делегирует содержимое слота, сохраняя большую геометрию инвентаря и компактную геометрию мира.
 static func draw_hotbar_slot(game: Node, rect: Rect2, index: int) -> void:
-	var selected: bool = index == game.selected_hotbar
-	var kind: String = game.hotbar_slots[index]
-	var count: int = game.inventory_item_count(kind) if not kind.is_empty() else 0
-	UiKitSystem.draw_slot(game, rect, selected)
-	if not kind.is_empty(): game.draw_item_icon(kind, hotbar_icon_rect(rect))
-	if kind.is_empty() or count <= 0:
-		game.draw_rect(rect.grow(-4), Color(0.10, 0.07, 0.05, 0.50))
-	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(4, 14), str(index + 1 if index < 9 else 0), HORIZONTAL_ALIGNMENT_LEFT, 11, 9, Color("ffe7a0"))
-	if not kind.is_empty() and count > 1:
-		game.draw_ui_string(game.UI_FONT, rect.position + Vector2(37, 59), str(count), HORIZONTAL_ALIGNMENT_RIGHT, 23, 9, Color("ffe7a0"))
-	var readiness: float = hotbar_readiness(game, kind)
-	if not kind.is_empty() and readiness < 1.0:
-		game.draw_rect(Rect2(rect.position + Vector2(7, 58), Vector2(52, 4)), Color("3d2921"))
-		game.draw_rect(Rect2(rect.position + Vector2(7, 58), Vector2(52 * readiness, 4)), Color("77ba62").lerp(Color("d75c47"), 1.0 - readiness))
+	QuickAccessRenderer.draw_slot(game, rect, index)
 
 
 ## Возвращает готовность активного инструмента: энергия выступает его видимой шкалой состояния, оружие учитывает задержку удара.

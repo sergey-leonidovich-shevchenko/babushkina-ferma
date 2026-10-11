@@ -1,18 +1,21 @@
 extends RefCounted
 
 const UiScaleSystem := preload("res://scripts/systems/ui_scale_system.gd")
+const HudChrome := preload("res://scripts/presentation/hud_chrome_system.gd")
+const QuickAccess := preload("res://scripts/presentation/quick_access_renderer.gd")
 
-const TUTORIAL_RECT := Rect2(18, 106, 414, 112)
-const OBJECTIVE_RECT := Rect2(446, 106, 510, 82)
-const INTERIOR_TUTORIAL_RECT := Rect2(18, 104, 300, 64)
-const INTERIOR_OBJECTIVE_RECT := Rect2(330, 104, 430, 64)
-const MINIMAP_RECT := Rect2(972, 104, 164, 136)
-const DISCOVERY_RECT := Rect2(18, 424, 310, 108)
-const NOTIFICATION_RECT := Rect2(340, 462, 472, 76)
-const INTERACTION_RECT := Rect2(840, 438, 294, 58)
-const EFFECTS_RECT := Rect2(446, 194, 510, 48)
-const HUD_RESERVED_RECT := Rect2(0, 0, 1152, 96)
-const HOTBAR_RESERVED_RECT := Rect2(190, 548, 762, 100)
+const TUTORIAL_RECT := Rect2(18, 108, 304, 88)
+const OBJECTIVE_RECT := Rect2(832, 108, 302, 102)
+const INTERIOR_TUTORIAL_RECT := Rect2(18, 108, 304, 88)
+const INTERIOR_OBJECTIVE_RECT := Rect2(832, 108, 302, 102)
+const MINIMAP_RECT := Rect2(982, 222, 152, 108)
+const DISCOVERY_RECT := Rect2(18, 408, 290, 106)
+const NOTIFICATION_RECT := Rect2(354, 488, 444, 50)
+const INTERACTION_RECT := Rect2(866, 470, 268, 30)
+const MOBILE_INTERACTION_RECT := Rect2(866, 398, 268, 30)
+const EFFECTS_RECT := Rect2(18, 208, 300, 44)
+const HUD_RESERVED_RECT := HudChrome.HUD_RECT
+const HOTBAR_RESERVED_RECT := Rect2(QuickAccess.WORLD_PANEL.position, Vector2(QuickAccess.WORLD_PANEL.size.x, 648 - QuickAccess.WORLD_PANEL.position.y))
 const TOUCH_ACTION_RESERVED_RECT := Rect2(996, 512, 156, 76)
 const DISPLAY_PROFILES := [
 	{"id":"16x9","label":"16:9","size":Vector2i(1152,648)},
@@ -28,7 +31,7 @@ static func context_rects() -> Dictionary:
 
 ## Сообщает, что камера находится в небольшой комнате и крупные карточки перекрыли бы интерьер.
 static func uses_compact_cards(game: Node) -> bool:
-	return String(game.current_location).ends_with("_interior") or game.current_location in ["castle_upper"]
+	return game.BuildingSystem.is_interior(game.current_location)
 
 
 ## Возвращает карточку обучения, уменьшенную только для камер внутри зданий.
@@ -37,13 +40,27 @@ static func tutorial_rect(game: Node) -> Rect2:
 
 
 ## Возвращает кликабельную карточку цели в том же режиме, в котором она нарисована.
-static func objective_rect(game: Node) -> Rect2:
-	return INTERIOR_OBJECTIVE_RECT if uses_compact_cards(game) else OBJECTIVE_RECT
+static func objective_rect(_game: Node) -> Rect2:
+	return Rect2()
 
 
 ## Скрывает избыточную мини-карту в комнатах, где название места уже постоянно видно в верхнем HUD.
-static func shows_minimap(game: Node) -> bool:
-	return not uses_compact_cards(game)
+static func shows_minimap(_game: Node) -> bool:
+	return false
+
+## Поднимает подсказку действия над сенсорной магией, сохраняя спокойную нижнюю позицию на компьютере.
+static func interaction_rect(game: Node) -> Rect2:
+	return MOBILE_INTERACTION_RECT if game.touch_controls_visible else INTERACTION_RECT
+
+
+## Закрывает подсказку явным крестиком и поглощает нажатие, чтобы оно не применяло инструмент в мире.
+static func dismiss_card_at(game: Node, point: Vector2) -> bool:
+	var tutorial:=tutorial_rect(game)
+	if game.tutorial_visible and Rect2(tutorial.position+Vector2(tutorial.size.x-45,8),Vector2(34,28)).has_point(point):
+		game.tutorial_visible=false; game.queue_redraw(); return true
+	if not game.discovery_current.is_empty() and DISCOVERY_RECT.has_point(point):
+		game.DiscoverySystem.dismiss(game); game.queue_redraw(); return true
+	return false
 
 
 ## Преобразует контекстные карточки в физические координаты выбранного экрана без растяжения пиксель-арта.
@@ -120,7 +137,7 @@ static func notification_duration(message: String) -> float:
 ## Проверяет принадлежность карточек холсту и отсутствие пересечений с постоянным HUD и панелью быстрого доступа.
 static func layout_is_safe() -> bool:
 	var viewport := Rect2(Vector2.ZERO,UiScaleSystem.DESIGN_SIZE)
-	var variants:Array[Dictionary]=[context_rects(),context_rects().merged({"tutorial":INTERIOR_TUTORIAL_RECT,"objective":INTERIOR_OBJECTIVE_RECT},true)]
+	var variants:Array[Dictionary]=[context_rects(),context_rects().merged({"tutorial":INTERIOR_TUTORIAL_RECT,"objective":INTERIOR_OBJECTIVE_RECT},true),context_rects().merged({"interaction":MOBILE_INTERACTION_RECT},true)]
 	for variant in variants:
 		var rects: Array[Rect2] = []
 		for rect in variant.values():

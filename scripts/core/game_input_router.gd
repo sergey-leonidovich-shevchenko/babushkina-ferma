@@ -4,10 +4,10 @@ extends RefCounted
 static func route(game: Node, event: InputEvent) -> void:
 	update_input_device(game, event)
 	if _handle_high_priority_layer(game, event):
-		game.get_viewport().set_input_as_handled()
+		_consume_event(game)
 		return
 	if event is InputEventJoypadMotion and _handle_joypad_motion(game, event):
-		game.get_viewport().set_input_as_handled()
+		_consume_event(game)
 		return
 	if event is InputEventKey:
 		_handle_keyboard(game, event)
@@ -15,13 +15,24 @@ static func route(game: Node, event: InputEvent) -> void:
 		var movement_result := _handle_movement_button(game, event)
 		if movement_result > 0:
 			if movement_result == 2:
-				game.get_viewport().set_input_as_handled()
+				_consume_event(game)
 			return
 		if handle_gamepad_and_touch(game, event):
-			game.get_viewport().set_input_as_handled()
+			_consume_event(game)
+	elif event is InputEventMouseButton or event is InputEventScreenTouch or event is InputEventScreenDrag:
+		if handle_gamepad_and_touch(game, event):
+			_consume_event(game)
+
+
+## Не передаёт обработанное событие дальше по дереву, сохраняя возможность изолированной проверки маршрутизатора.
+static func _consume_event(game: Node) -> void:
+	var viewport := game.get_viewport()
+	if viewport != null:
+		viewport.set_input_as_handled()
 
 ## Запоминает последнее устройство ввода и включает мобильный слой только после настоящего касания.
 static func update_input_device(game: Node, event: InputEvent) -> void:
+	game.InputSystem.remember_ui_device(game, event)
 	if event is InputEventScreenTouch or event is InputEventScreenDrag:
 		game.touch_controls_visible = true
 	elif event is InputEventKey or event is InputEventMouseButton or event is InputEventJoypadButton:
@@ -29,6 +40,7 @@ static func update_input_device(game: Node, event: InputEvent) -> void:
 
 ## Передаёт событие редактору, меню, сюжетному модальному окну или строительству оград.
 static func _handle_high_priority_layer(game: Node, event: InputEvent) -> bool:
+	if preload("res://scripts/systems/menu_hub_system.gd").handle_input(game,event): return true
 	if game.PublishedLevelSystem.handle_input(game,event):
 		return true
 	if not game.language_screen and not game.title_screen and not game.menu_state.pause_open:
@@ -60,6 +72,7 @@ static func _handle_joypad_motion(game: Node, event: InputEventJoypadMotion) -> 
 
 ## Обрабатывает клавиатурные действия мира, магию, блок, уклонение и удержание кнопок.
 static func _handle_keyboard(game: Node, event: InputEventKey) -> void:
+	if preload("res://scripts/systems/menu_hub_system.gd").active(game): return
 	var world_magic: bool = not (game.title_screen or game.menu_state.pause_open) and world_controls_visible(game)
 	if world_magic and event.pressed and not event.echo and game.InputSystem.matches(event, "cast_spell"):
 		game.SpellSystem.cast(game)
@@ -113,6 +126,7 @@ static func world_controls_visible(game: Node) -> bool:
 
 ## Обрабатывает общий слой мыши, тача и немаршрутных кнопок геймпада.
 static func handle_gamepad_and_touch(game: Node, event: InputEvent) -> bool:
+	if preload("res://scripts/systems/menu_hub_system.gd").handle_input(game,event): return true
 	var world_visible := world_controls_visible(game)
 	if _handle_world_shortcut(game, event, world_visible):
 		return true
@@ -168,22 +182,23 @@ static func _handle_world_shortcut(game: Node, event: InputEvent, world_visible:
 
 ## Обрабатывает клики мыши по паузе, инвентарю, талантам, карте и быстрому доступу.
 static func _handle_mouse(game: Node, event: InputEventMouseButton, world_visible: bool) -> bool:
+	if game.inventory_open:
+		game.InventoryInputSystem.handle_mouse(game, event)
+		return true
+	if event.pressed and event.button_index in [MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_DOWN]:
+		return game.ItemWindowRenderer.handle_list_scroll(game, -1 if event.button_index == MOUSE_BUTTON_WHEEL_UP else 1)
 	if event.button_index != MOUSE_BUTTON_LEFT:
 		return false
 	if world_visible and event.pressed and game.InterfaceRenderer.pause_button_rect(game).has_point(event.position):
 		return game.MenuSystem.open_pause(game)
-	if game.inventory_open:
-		game.InventoryInputSystem.handle_mouse(game, event)
-		return true
 	if not event.pressed:
 		return false
+	if game.shop_open: return game.ItemWindowRenderer.handle_shop_pointer(game, event.position)
+	if game.storage_open: return game.InputSystem.handle_storage_touch(game, event.position)
+	if game.forge_open: return game.InputSystem.handle_forge_touch(game, event.position)
+	if world_visible and game.HudLayoutSystem.dismiss_card_at(game,event.position): return true
 	if game.crafting_open:
-		var mouse_recipe: int = game.crafting_recipe_at(event.position)
-		if mouse_recipe >= 0:
-			game.crafting_selected = mouse_recipe
-			game.CraftingSystem.craft(game, mouse_recipe)
-			game.queue_redraw()
-		return true
+		return game.ItemWindowRenderer.handle_crafting_pointer(game, event.position)
 	if game.skill_menu_open:
 		return _handle_talent_pointer(game, event.position)
 	if world_visible and game.AdventurePolishSystem.target_at_screen(game, event.position): return true
@@ -191,11 +206,8 @@ static func _handle_mouse(game: Node, event: InputEventMouseButton, world_visibl
 		game.CombatSystem.start_dodge(game)
 		return true
 	if game.world_map_open: return game.WorldMapSystem.handle_pointer(game, event.position)
-	if game.quest_log_open and game.InputSystem.handle_quest_pointer(game, event.position): return true
-	if world_visible and game.HudLayoutSystem.objective_rect(game).has_point(event.position) and not game.HudLayoutSystem.primary_objective(game).is_empty(): game.toggle_quest_log(); return true
-	if game.InterfaceRenderer.LOCATION_BADGE.has_point(event.position): game.WorldMapSystem.toggle(game); return true
-	if game.InterfaceRenderer.QUEST_BUTTON.has_point(event.position): game.toggle_quest_log(); return true
-	if game.InterfaceRenderer.SKILL_BUTTON.has_point(event.position): game.open_skill_menu(); return true
+	if game.quest_log_open: return game.InputSystem.handle_quest_pointer(game, event.position)
+	if world_visible and preload("res://scripts/systems/menu_hub_system.gd").OPEN_BUTTON.has_point(event.position): game.open_inventory(); return true
 	var mouse_hotbar: int = game.InterfaceRenderer.hotbar_at(event.position)
 	if mouse_hotbar >= 0:
 		game.select_hotbar(mouse_hotbar)
@@ -204,6 +216,7 @@ static func _handle_mouse(game: Node, event: InputEventMouseButton, world_visibl
 
 ## Обрабатывает кнопки геймпада в модальных окнах и стандартную раскладку игрового мира.
 static func _handle_joypad_button(game: Node, event: InputEventJoypadButton) -> bool:
+	if game.shop_open: return game.ItemWindowRenderer.handle_shop_gamepad(game, event)
 	if game.world_map_open: game.InputSystem.handle_modal_input(game, event); return true
 	if game.storage_open: game.InputSystem.handle_storage_input(game, event); return true
 	if game.forge_open: game.InputSystem.handle_forge_input(game, event); return true
@@ -229,7 +242,10 @@ static func _handle_joypad_button(game: Node, event: InputEventJoypadButton) -> 
 
 ## Обрабатывает касание модальных окон, HUD, талантов и панели быстрого доступа.
 static func _handle_touch(game: Node, event: InputEventScreenTouch, world_visible: bool) -> bool:
+	if game.shop_open: return game.ItemWindowRenderer.handle_shop_pointer(game, event.position)
+	if game.quest_log_open: return game.InputSystem.handle_quest_pointer(game,event.position)
 	if game.world_map_open: return game.WorldMapSystem.handle_pointer(game, event.position)
+	if world_visible and game.HudLayoutSystem.dismiss_card_at(game,event.position): return true
 	if world_visible and game.InterfaceRenderer.pause_button_rect(game).has_point(event.position):
 		return game.MenuSystem.open_pause(game)
 	if game.discovery_card_rect().has_point(event.position) and not game.discovery_current.is_empty():
@@ -239,16 +255,9 @@ static func _handle_touch(game: Node, event: InputEventScreenTouch, world_visibl
 	if game.forge_open: return game.InputSystem.handle_forge_touch(game, event.position)
 	if game.contract_open: return game.InputSystem.handle_contract_touch(game, event.position)
 	if game.crafting_open:
-		var touch_recipe: int = game.crafting_recipe_at(event.position)
-		if touch_recipe >= 0:
-			game.crafting_selected = touch_recipe
-			game.CraftingSystem.craft(game, touch_recipe)
-			game.queue_redraw()
-		return true
+		return game.ItemWindowRenderer.handle_crafting_pointer(game, event.position)
 	if game.skill_menu_open: return _handle_talent_pointer(game, event.position)
-	if world_visible and game.HudLayoutSystem.objective_rect(game).has_point(event.position) and not game.HudLayoutSystem.primary_objective(game).is_empty(): game.toggle_quest_log(); return true
-	if game.InterfaceRenderer.QUEST_BUTTON.has_point(event.position): game.toggle_quest_log(); return true
-	if game.InterfaceRenderer.SKILL_BUTTON.has_point(event.position): game.open_skill_menu(); return true
+	if world_visible and preload("res://scripts/systems/menu_hub_system.gd").OPEN_BUTTON.has_point(event.position): game.open_inventory(); return true
 	if game.inventory_open: return game.InventoryInputSystem.handle_touch(game, event.position)
 	if world_visible and game.AdventurePolishSystem.target_at_screen(game, event.position): return true
 	var index: int = game.InterfaceRenderer.hotbar_at(event.position)

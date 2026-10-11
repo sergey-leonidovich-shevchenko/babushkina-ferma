@@ -3,21 +3,23 @@ extends RefCounted
 const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
 const BuildingVisualSystem := preload("res://scripts/systems/building_visual_system.gd")
 const InteriorVisualSystem := preload("res://scripts/systems/interior_visual_system.gd")
+const InteriorRenderer := preload("res://scripts/systems/interior_renderer.gd")
+const VillageMapData := preload("res://scripts/systems/village_map_data.gd")
 
-const SHOP_STALL_POSITION := Vector2(1500, 430)
-const SELL_CRATE_POSITION := Vector2(1580, 455)
-const SELL_CRATE_RECT := Rect2(1550, 428, 60, 54)
-const VILLAGE_SQUARE := Rect2(930, 270, 870, 340)
-const VILLAGE_MAIN_PATH := Rect2(315, 760, 720, 105)
-const FARM_YARD_RECT := Rect2(38, 830, 420, 350)
+const SHOP_STALL_POSITION := VillageMapData.SHOP_STALL
+const SELL_CRATE_POSITION := VillageMapData.SELL_CRATE
+const SELL_CRATE_RECT := Rect2(1482,549,60,54)
+const VILLAGE_SQUARE := VillageMapData.SQUARE
+const VILLAGE_MAIN_PATH := Rect2(324,624,360,96)
+const FARM_YARD_RECT := VillageMapData.FARM_YARD
 const FARM_FENCE_CELL_SIZE := 24
-const FARM_FENCE_SPANS := [Rect2i(2,34,4,1),Rect2i(9,34,10,1),Rect2i(1,34,1,16),Rect2i(18,34,1,2),Rect2i(18,42,1,8),Rect2i(2,49,16,1)]
-const FARM_GATE_SPANS := [Rect2i(6,34,3,1),Rect2i(18,36,1,6)]
+const FARM_FENCE_SPANS := VillageMapData.FENCE_SPANS
+const FARM_GATE_SPANS := VillageMapData.GATE_SPANS
 
 const BUILDINGS := {
-	"cottage":{"location":"overworld","door":Vector2(420,790),"outside_spawn":Vector2(420,888),"interior":"cottage_interior","unlock":""},
-	"shop_house":{"location":"overworld","door":Vector2(1480,390),"interior":"shop_interior","unlock":""},
-	"guild_hall":{"location":"overworld","door":Vector2(2110,250),"interior":"guild_interior","unlock":""},
+	"cottage":{"location":"overworld","door":VillageMapData.COTTAGE_DOOR,"outside_spawn":VillageMapData.COTTAGE_EXIT,"interior":"cottage_interior","unlock":""},
+	"shop_house":{"location":"overworld","door":VillageMapData.SHOP_DOOR,"interior":"shop_interior","unlock":""},
+	"guild_hall":{"location":"overworld","door":VillageMapData.GUILD_DOOR,"interior":"guild_interior","unlock":""},
 	"forge":{"location":"rocky","door":Vector2(760,470),"interior":"forge_interior","unlock":"mining"},
 	"chapel":{"location":"cursed","door":Vector2(610,470),"interior":"chapel_interior","unlock":"ancient_key"},
 	"prison":{"location":"ruins","door":Vector2(500,480),"interior":"prison_interior","unlock":""},
@@ -252,7 +254,18 @@ static func outdoor_spawn(game: Node, building_id: String) -> Vector2:
 static func is_walkable_inside(location: String, position: Vector2, radius: float) -> bool:
 	if not INTERIORS.has(location):
 		return true
-	if not INTERIORS[location].room.grow(-radius).has_point(position): return false
+	var data: Dictionary = INTERIORS[location]
+	var room: Rect2 = data.room
+	if not room.grow(-radius).has_point(position): return false
+	var floor := InteriorRenderer.floor_rect(room)
+	var on_floor := floor.grow(-radius).has_point(position)
+	var doorway := Rect2(Vector2(data.exit.x - 38.0, floor.end.y - 48.0), Vector2(76.0, room.end.y - floor.end.y + 48.0))
+	var in_doorway := doorway.grow(-radius).has_point(position)
+	for link in data.get("links", []):
+		if link.position.y >= floor.position.y: continue
+		var passage := Rect2(Vector2(link.position.x - 38.0, link.position.y - 32.0), Vector2(76.0, floor.position.y - link.position.y + 80.0))
+		in_doorway = in_doorway or passage.grow(-radius).has_point(position)
+	if not on_floor and not in_doorway: return false
 	for solid in InteriorVisualSystem.collision_rects(location):
 		if (solid as Rect2).grow(radius).has_point(position): return false
 	return true

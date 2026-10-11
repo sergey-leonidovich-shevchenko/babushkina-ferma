@@ -11,6 +11,7 @@ func run() -> void:
 	test_progress_tutorial_escape_and_success()
 	test_quality_treasure_and_collection_save()
 	test_gamepad_and_touch_hold_state()
+	test_fishing_presentation_keeps_zone_controls_and_treasure_readable()
 
 
 ## Сценарий: удержание заряжает заброс, отпускание бросает леску, а сигнал можно подсечь или пропустить.
@@ -185,6 +186,34 @@ func test_gamepad_and_touch_hold_state() -> void:
 	expect(game.action_held, "touch starts held fishing control")
 	touch.pressed = false; game.InputSystem.set_pointer_action_state(game, touch, true)
 	expect(not game.action_held, "touch release ends held control")
+	game.free()
+
+
+## Сценарий: оформление рыбалки сохраняет крайние положения зоны, ясное управление и узнаваемый сундук.
+## Исходное состояние: мини-игра показывает самую маленькую и большую зону, клавиши переключаются на леворукий пресет.
+## Ожидаемый результат: зона не вылезает из воды, инструкции не пересекают шкалы, сундук не растягивается, подсказка следует назначению клавиш.
+func test_fishing_presentation_keeps_zone_controls_and_treasure_readable() -> void:
+	var game := _fishing_game()
+	var renderer = game.RenderSystem.FishingRenderer
+	for center in [0.0, 0.5, 1.0]:
+		for size in [0.04, 0.24, 1.0]:
+			expect(renderer.WATER_TRACK.encloses(renderer.catch_zone_rect(center,size)), "catch zone stays inside water at edge %s and size %s" % [center,size])
+	for card in [renderer.HOLD_CARD, renderer.RELEASE_CARD]:
+		expect(renderer.PANEL.encloses(card) and not card.intersects(renderer.WATER_TRACK) and not card.intersects(renderer.PROGRESS_TRACK) and not card.intersects(renderer.TENSION_TRACK), "fishing control card has its own safe space below all gauges")
+	var chest: Rect2 = renderer.treasure_icon_rect(Vector2(800,300))
+	expect(chest.get_center().is_equal_approx(Vector2(800,300)) and is_equal_approx(chest.size.x / chest.size.y, renderer.TREASURE_TEXTURE.get_size().x / renderer.TREASURE_TEXTURE.get_size().y), "dedicated chest sprite remains centered with its original proportions")
+	game.InputSystem.apply_control_preset("left_handed")
+	expect(renderer.action_key_label() == "O", "fishing hint reflects the actual left-handed action binding")
+	game.InputSystem.apply_control_preset("standard")
+	expect(renderer.action_key_label().contains("E"), "fishing hint returns to default action binding")
+	game.settings_state.text_scale = 1.2
+	for locale in game.LocaleSystem.LOCALES:
+		game.LocaleSystem.current = locale
+		for fish in game.FishingSystem.FISH_CATALOG:
+			var name: String = game.LocaleSystem.text("fish_" + String(fish.id))
+			var font_size: int = game.UiScaleSystem.fitted_multiline_font_size(game,game.UI_FONT,name,132,36,13)
+			expect(font_size >= 10 and game.UI_FONT.get_multiline_string_size(name,HORIZONTAL_ALIGNMENT_LEFT,132,font_size).y <= 36, "fish name remains readable in two lines at 120 percent: %s/%s" % [locale,fish.id])
+	game.LocaleSystem.current = "ru"
 	game.free()
 
 

@@ -22,6 +22,23 @@ static func draw_held_weapon(game: Node2D, kind: String, position: Vector2, dire
 	if texture == null: return
 	var progress: float = -1.0 if attack_progress is bool and not attack_progress else (0.5 if attack_progress is bool else float(attack_progress))
 	var weapon_class: String = game.WeaponSystem.weapon_class(kind)
+	var world_offset: Vector2 = game.PresentationSystem.world_offset(game)
+	var pose := held_weapon_pose(position, direction, weapon_class, progress, visual_scale, world_offset)
+	if progress >= 0.18 and progress <= 0.72 and weapon_class in ["blade", "heavy"]:
+		game.draw_arc(position, 37.0 * visual_scale, direction.angle() - 1.0, direction.angle() + 1.0, 18, Color(1.0, 0.82, 0.38, 0.48), 4.0 * visual_scale)
+	game.draw_set_transform_matrix(pose.transform)
+	game.draw_texture_rect(texture, pose.destination, false)
+	game.draw_set_transform(world_offset, 0.0, Vector2.ONE)
+	if progress >= 0.0 and weapon_class == "bow" and progress > 0.42:
+		var arrow_start := position + direction * 28.0 * visual_scale
+		game.draw_line(arrow_start, arrow_start + direction * 34.0 * visual_scale, Color("fff1b8"), 3.0 * visual_scale)
+	if progress >= 0.0 and weapon_class == "staff":
+		var orb := position + direction * (42.0 + sin(progress * PI) * 18.0) * visual_scale
+		game.draw_circle(orb, (5.0 + sin(progress * PI) * 4.0) * visual_scale, Color(0.35, 0.88, 1.0, 0.78))
+
+
+## Рассчитывает позу оружия в том же экранном пространстве, что и герой, при любом смещении камеры.
+static func held_weapon_pose(position: Vector2, direction: Vector2, weapon_class: String, progress: float, visual_scale: float = 1.0, world_offset: Vector2 = Vector2.ZERO) -> Dictionary:
 	var base_angle: float = direction.angle() + PI * 0.25
 	var reach: float = 25.0
 	var rotation: float = base_angle
@@ -41,17 +58,7 @@ static func draw_held_weapon(game: Node2D, kind: String, position: Vector2, dire
 	var center: Vector2 = position + direction.normalized() * reach * visual_scale + Vector2(0, -4) * visual_scale
 	var size: Vector2 = Vector2(48, 48) * visual_scale
 	if weapon_class in ["spear", "staff"]: size = Vector2(56, 56) * visual_scale
-	if progress >= 0.18 and progress <= 0.72 and weapon_class in ["blade", "heavy"]:
-		game.draw_arc(position, 37.0 * visual_scale, direction.angle() - 1.0, direction.angle() + 1.0, 18, Color(1.0, 0.82, 0.38, 0.48), 4.0 * visual_scale)
-	game.draw_set_transform(center, rotation, Vector2.ONE)
-	game.draw_texture_rect(texture, Rect2(-size * 0.5, size), false)
-	game.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
-	if progress >= 0.0 and weapon_class == "bow" and progress > 0.42:
-		var arrow_start := position + direction * 28.0 * visual_scale
-		game.draw_line(arrow_start, arrow_start + direction * 34.0 * visual_scale, Color("fff1b8"), 3.0 * visual_scale)
-	if progress >= 0.0 and weapon_class == "staff":
-		var orb := position + direction * (42.0 + sin(progress * PI) * 18.0) * visual_scale
-		game.draw_circle(orb, (5.0 + sin(progress * PI) * 4.0) * visual_scale, Color(0.35, 0.88, 1.0, 0.78))
+	return {"transform": Transform2D(rotation, center + world_offset), "destination": Rect2(-size * 0.5, size)}
 
 
 ## Рассчитывает экранный прямоугольник предмета в руке с учётом общего визуального масштаба героя.

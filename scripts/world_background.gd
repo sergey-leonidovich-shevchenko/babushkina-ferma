@@ -12,7 +12,8 @@ const CAVE_FLOOR_TILE := preload("res://assets/game/tiles/cave-floor.png")
 const FOREST_TREE_GROWTH_ATLAS := preload("res://assets/game/environment/forest_tree_growth_atlas_v1.png")
 const VILLAGE_PROPS := preload("res://assets/game/environment/village_prop_atlas_v2.png")
 const RESOURCE_ROCK := preload("res://assets/game/resources/rock.png")
-const FIRST_LEVEL_MASTER := preload("res://assets/game/locations/overworld/overworld_master_24_v2.png")
+const VillageTerrainRenderer := preload("res://scripts/systems/village_terrain_renderer.gd")
+const VillageMapPreviewSystem := preload("res://scripts/systems/village_map_preview_system.gd")
 const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
 const BuildingSystem := preload("res://scripts/systems/building_system.gd")
 const VillageLayoutSystem := preload("res://scripts/systems/village_layout_system.gd")
@@ -39,6 +40,7 @@ var weather := "clear"
 func _ready() -> void:
 	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED
+	VillageMapPreviewSystem.warmup()
 
 ## Устанавливает относящееся к методу значение и синхронизирует зависимое состояние.
 func set_location(value: String) -> void:
@@ -76,18 +78,9 @@ func draw_moon_glade() -> void:
 	draw_set_transform(Vector2.ZERO)
 	draw_string(UI_FONT, Vector2(80, 100), "ЛУННАЯ ПОЛЯНА", HORIZONTAL_ALIGNMENT_LEFT, -1, 30, Color("e4dbff"))
 
-## Отрисовывает пол, стены и название отдельной интерьерной локации.
+## Рисует только темноту за стенами: само помещение целиком принадлежит интерьерному рендереру.
 func draw_interior() -> void:
-	var data: Dictionary = BuildingSystem.interior(location)
-	var room: Rect2 = data.room
-	draw_rect(Rect2(Vector2.ZERO, WORLD_SIZE), Color("16191b"))
-	draw_rect(room.grow(18), Color("302d2d"))
-	draw_rect(room, data.color)
-	for y in range(int(room.position.y), int(room.end.y), 48):
-		for x in range(int(room.position.x), int(room.end.x), 48):
-			var checker := int(x / 48 + y / 48) % 2
-			draw_rect(Rect2(x + 2, y + 2, 44, 44), Color(data.color).lightened(0.06 if checker == 0 else 0.0), false, 1)
-	draw_string(UI_FONT, room.position + Vector2(28, 46), LocaleSystem.location(location).to_upper(), HORIZONTAL_ALIGNMENT_LEFT, room.size.x - 56, 24, Color("fff0bd"))
+	draw_rect(Rect2(Vector2.ZERO, WORLD_SIZE), Color("15191d"))
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_adventure_location() -> void:
@@ -96,18 +89,12 @@ func draw_adventure_location() -> void:
 	for y in range(150, 1100, 120):
 		for x in range(70 + (y % 90), 2360, 150):
 			draw_circle(Vector2(x, y), 2.5, EnvironmentVisualSystem.background(location).lightened(0.12))
-	EnvironmentVisualSystem.draw_biome(self, location)
+	EnvironmentVisualSystem.draw_biome(self, location, false)
 	draw_string(UI_FONT, Vector2(80, 100), names.get(location, location), HORIZONTAL_ALIGNMENT_LEFT, -1, 30, Color("fff0bd"))
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_overworld() -> void:
-	# Фон запечён в нативные 100×50 клеток по 24 px. Объекты игрового состояния
-	# (урожай, персонажи, ресурсы) остаются независимыми верхними слоями.
-	var tint := Color.WHITE
-	if weather == "rain": tint = Color("d5e2dd")
-	elif season == "autumn": tint = Color("ffe0b4")
-	elif season == "winter": tint = Color("dce9ef")
-	FirstLevelArtSystem.draw_level(self, FIRST_LEVEL_MASTER, tint)
+	VillageTerrainRenderer.draw(self,season,weather)
 
 
 ## Выбирает детерминированный вариант травы для старого процедурного режима и тестов палитры.

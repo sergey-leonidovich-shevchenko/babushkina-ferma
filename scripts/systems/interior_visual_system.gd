@@ -24,9 +24,31 @@ const ROOM_PROPS := {
 		{"kind":"wooden_chair","position":Vector2(630,474),"decorative":true},
 		{"kind":"wooden_chair","position":Vector2(770,474),"decorative":true},
 	],
-	"shop_interior":[{"kind":"shop","position":Vector2(576,300)},{"kind":"home_chest","position":Vector2(840,318),"decorative":true}],
-	"guild_interior":[{"kind":"contracts","position":Vector2(576,300)},{"kind":"home_chest","position":Vector2(850,318),"decorative":true}],
-	"forge_interior":[{"kind":"forge","position":Vector2(576,310)},{"kind":"home_chest","position":Vector2(850,318),"decorative":true}],
+	"shop_interior":[
+		{"kind":"shop","position":Vector2(576,300)},
+		{"kind":"home_chest","position":Vector2(840,318),"decorative":true},
+		{"kind":"wooden_wardrobe","position":Vector2(275,320),"decorative":true},
+		{"kind":"potted_fern","position":Vector2(760,300),"decorative":true},
+		{"kind":"rustic_table","position":Vector2(315,430),"decorative":true},
+		{"kind":"woven_rug","position":Vector2(576,446),"decorative":true},
+	],
+	"guild_interior":[
+		{"kind":"contracts","position":Vector2(576,300)},
+		{"kind":"home_chest","position":Vector2(900,318),"decorative":true},
+		{"kind":"wooden_wardrobe","position":Vector2(220,315),"decorative":true},
+		{"kind":"rustic_table","position":Vector2(340,425),"decorative":true},
+		{"kind":"wooden_chair","position":Vector2(265,440),"decorative":true},
+		{"kind":"wooden_chair","position":Vector2(415,440),"decorative":true},
+		{"kind":"potted_fern","position":Vector2(900,445),"decorative":true},
+		{"kind":"woven_rug","position":Vector2(576,460),"decorative":true},
+	],
+	"forge_interior":[
+		{"kind":"forge","position":Vector2(576,310)},
+		{"kind":"home_chest","position":Vector2(850,318),"decorative":true},
+		{"kind":"wooden_wardrobe","position":Vector2(255,320),"decorative":true},
+		{"kind":"rustic_table","position":Vector2(315,430),"decorative":true},
+		{"kind":"wooden_chair","position":Vector2(400,448),"decorative":true},
+	],
 }
 
 

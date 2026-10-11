@@ -1,6 +1,6 @@
 extends RefCounted
 
-const BOARD_POSITION := Vector2(245, 1030)
+const BOARD_POSITION := Vector2(648,576)
 const UPGRADES := [
 	{"id":"house","coins":200,"cost":{"wood":10}},
 	{"id":"greenhouse","coins":450,"cost":{"wood":15,"crystal":3}},
@@ -12,7 +12,7 @@ const QUALITY_ORDER := ["normal", "silver", "gold", "iridium"]
 
 ## Создаёт состояние усадьбы, качества предметов, карты и события дня.
 static func default_state() -> Dictionary:
-	return {"level":0,"qualities":{},"discovered":["overworld"],"event_day":0,"event":"","event_state":{},"expansion":{}}
+	return {"level":0,"map_revision":2,"qualities":{},"discovered":["overworld"],"event_day":0,"event":"","event_state":{},"expansion":{}}
 
 
 ## Нормализует прогресс усадьбы и открытые области старого сохранения.

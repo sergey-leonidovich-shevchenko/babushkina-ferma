@@ -22,7 +22,7 @@ func run() -> void:
 func test_static_farm_perimeter_uses_the_same_small_grid() -> void:
 	var game:=make_game(); var rects:Array[Rect2]=game.BuildingSystem.farm_fence_rects(); var gates:Array[Rect2]=game.BuildingSystem.farm_gate_rects()
 	expect(rects.size()==6 and rects.all(func(rect:Rect2): return fmod(rect.position.x,24.0)==0.0 and fmod(rect.position.y,24.0)==0.0 and fmod(rect.size.x,24.0)==0.0 and fmod(rect.size.y,24.0)==0.0), "static farm fence uses only complete 24-pixel cells")
-	expect(gates==[Rect2(144,816,72,24),Rect2(432,864,24,144)], "top and grandmother gates are explicit grid-aligned passages")
+	expect(gates==[Rect2(192,768,96,24),Rect2(528,912,24,96)], "top and grandmother gates are explicit grid-aligned passages")
 	expect(game.NavigationSystem.walkability_reason(game,rects[0].get_center())=="fence" and game.NavigationSystem.walkability_reason(game,gates[1].get_center())=="walkable", "navigation reads the same static fence and gate geometry")
 	var inspected:Array[Dictionary]=game.DebugObjectInspectorSystem.candidates(game); expect(inspected.any(func(entry:Dictionary): return entry.id=="farm_fence:0") and inspected.any(func(entry:Dictionary): return entry.id=="farm_gate:1"), "F10 inspector exposes static sections and named open gates")
 	game.free()

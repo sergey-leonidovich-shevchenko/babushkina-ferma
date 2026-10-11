@@ -42,7 +42,8 @@ static func draw_grid(game: Node2D, state: Dictionary, texture: Texture2D) -> vo
 
 ## Находит непрозрачную часть точного кадра, чтобы визуально центрировать спрайт, не меняя область его выбора и размещения.
 static func visible_preview_source(texture: Texture2D, exact_source: Rect2) -> Rect2:
-	var key:="%s:%d:%d:%d:%d"%[texture.resource_path,int(exact_source.position.x),int(exact_source.position.y),int(exact_source.size.x),int(exact_source.size.y)]
+	# У очищенных ImageTexture нет resource_path: разные мастера различаются по настоящему RID текстуры.
+	var key:="%d:%d:%d:%d:%d"%[texture.get_rid().get_id(),int(exact_source.position.x),int(exact_source.position.y),int(exact_source.size.x),int(exact_source.size.y)]
 	if _visible_source_cache.has(key): return Rect2(_visible_source_cache[key])
 	var image:=texture.get_image(); var bounds:=Rect2i(Vector2i(exact_source.position),Vector2i(exact_source.size)); var used:=image.get_region(bounds).get_used_rect(); var result:=exact_source if used.size==Vector2i.ZERO else Rect2(Vector2i(bounds.position+used.position),used.size)
 	_visible_source_cache[key]=result

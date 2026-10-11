@@ -93,9 +93,11 @@ func test_progression_save_and_universal_skill_menu_input() -> void:
 	expect(game.talent_levels.combat_agility == 1 and game.skill_points == 1, "gamepad assigns a selected root talent point")
 	game.skill_menu_open = false
 	var touch := InputEventScreenTouch.new()
-	touch.position = game.InterfaceRenderer.SKILL_BUTTON.get_center()
+	touch.position = preload("res://scripts/systems/menu_hub_system.gd").OPEN_BUTTON.get_center()
 	touch.pressed = true
-	expect(game.handle_gamepad_and_touch(touch) and game.skill_menu_open, "touch HUD button opens character development")
+	expect(game.handle_gamepad_and_touch(touch) and game.inventory_open, "touch HUD button opens the shared menu")
+	touch.position = preload("res://scripts/systems/menu_hub_system.gd").tab_rect(2).get_center()
+	expect(game.handle_gamepad_and_touch(touch) and game.skill_menu_open, "touch hub tab opens character development")
 	var talent_mouse := InputEventMouseButton.new()
 	talent_mouse.button_index = MOUSE_BUTTON_LEFT
 	talent_mouse.position = game.TalentRenderer.node_rect(3).get_center()

@@ -1,7 +1,8 @@
 extends Node2D
 
 const TILE := 48
-const FARM_ORIGIN := Vector2i(80, 880)
+const VillageMapData := preload("res://scripts/systems/village_map_data.gd")
+const FARM_ORIGIN := VillageMapData.FARM_ORIGIN
 const FARM_SIZE := Vector2i(6, 5)
 const TITLE_ART := preload("res://assets/game/ui/title/title_background_v2.png")
 const PLANT_SHEET := preload("res://assets/game/environment/farm_plants.png")
@@ -91,7 +92,7 @@ var camera_offset := Vector2.ZERO
 var current_location: String:
 	get: return state.world.location
 	set(value): state.world.location = value
-var cave_entrance_position := Vector2(1730, 150)
+var cave_entrance_position := VillageMapData.CAVE_ENTRANCE
 var cave_exit_position := Vector2(180, 430)
 var facing: Vector2:
 	get: return state.player.facing
@@ -176,7 +177,7 @@ var contract_selected: int:
 	get: return state.contracts.selected
 	set(value): state.contracts.selected = value
 var world_gate_position: Vector2:
-	get: return Vector2(2260, 1080) if current_location == "overworld" else Vector2(2200, 760)
+	get: return VillageMapData.FOREST_GATE if current_location == "overworld" else Vector2(2200, 760)
 var enemy_nodes := CombatSystem.default_enemies()
 var hazard_nodes := EnvironmentHazardSystem.default_hazards()
 var wildlife_nodes := WildlifeSystem.default_animals()
@@ -311,12 +312,12 @@ var oranges: int:
 	get: return state.inventory.count("orange")
 	set(value): state.inventory.set_count("orange", value)
 var food_nodes := ForageSystem.default_nodes()
-var pond_position := Vector2(1560, 850)
+var pond_position := VillageMapData.POND
 var resource_nodes := ResourceSystem.default_nodes()
-var npc_position := Vector2(420, 940)
-var guild_master_position := Vector2(1700, 470)
-var herbalist_position := Vector2(1300, 470)
-var workbench_position := Vector2(500, 1035)
+var npc_position := VillageMapData.GRANDMOTHER
+var guild_master_position := Vector2(VillageMapData.NPCS.miron)
+var herbalist_position := Vector2(VillageMapData.NPCS.agafya)
+var workbench_position := VillageMapData.WORKBENCH
 var quest_active := false
 var quest_complete := false
 var mission_states := QuestSystem.default_states()

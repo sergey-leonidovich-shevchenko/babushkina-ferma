@@ -163,6 +163,7 @@ static func apply(game: Node, data: Dictionary) -> bool:
 		game.dropped_items.append({"kind":item.kind,"count":item.count,"position":Vector2(item.position[0],item.position[1])})
 	game.InventorySystem.recalculate_stats(game); game.player_hp = mini(game.player_hp, game.player_max_hp)
 	game.state.normalize()
+	preload("res://scripts/systems/village_map_migration_system.gd").apply(game,int(data.get("estate",{}).get("map_revision",0)))
 	game.sync_background_location(); game.update_camera(); return true
 
 

@@ -4,6 +4,7 @@ const DESIGN_SIZE := Vector2(1152, 648)
 const MIN_TOUCH_TARGET := Vector2(48, 48)
 const TEXT_SCALES := [0.9, 1.0, 1.1, 1.2]
 const TOUCH_SCALES := [0.9, 1.0, 1.15, 1.3]
+const TextMetrics := preload("res://scripts/systems/ui_text_metrics_cache_system.gd")
 
 
 ## Возвращает letterbox-преобразование из базовой сцены 1152×648 в реальное окно без искажения пропорций.
@@ -63,20 +64,12 @@ static func cycle_scale(value: float, direction: int, available: Array) -> float
 
 ## Подбирает размер шрифта с пользовательским увеличением, но не допускает горизонтального переполнения контейнера.
 static func fitted_font_size(game: Node, font: Font, text: String, width: float, requested_size: int) -> int:
-	var scaled := maxi(1, roundi(requested_size * game.settings_state.text_scale))
-	if width <= 0.0: return scaled
-	while scaled > 6 and font.get_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, -1, scaled).x > width:
-		scaled -= 1
-	return scaled
+	return TextMetrics.fitted_size(font, text, width, 0.0, requested_size, game.settings_state.text_scale)
 
 
 ## Подбирает размер многострочного текста по ширине и высоте, не обрезая последний смысловой ряд при масштабе 120%.
 static func fitted_multiline_font_size(game: Node, font: Font, text: String, width: float, height: float, requested_size: int) -> int:
-	var scaled := maxi(1, roundi(requested_size * game.settings_state.text_scale))
-	if width <= 0.0 or height <= 0.0: return scaled
-	while scaled > 6 and font.get_multiline_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, width, scaled).y > height:
-		scaled -= 1
-	return scaled
+	return TextMetrics.fitted_size(font, text, width, height, requested_size, game.settings_state.text_scale, true)
 
 
 ## Масштабирует сенсорную кнопку относительно её центра, сохраняя минимальную удобную область 48×48 px.

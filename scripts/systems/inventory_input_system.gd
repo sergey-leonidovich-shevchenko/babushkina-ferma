@@ -3,6 +3,10 @@ extends RefCounted
 
 ## Обрабатывает мышь, клавиатуру и геймпад открытого инвентаря в одном изолированном модуле.
 static func handle(game: Node, event: InputEvent) -> void:
+	if event is InputEventJoypadButton:
+		game.set_meta("inventory_input_device", "gamepad")
+	elif event is InputEventMouseButton or event is InputEventKey:
+		game.set_meta("inventory_input_device", "keyboard")
 	if event is InputEventMouseButton:
 		handle_mouse(game, event)
 		return
@@ -19,7 +23,7 @@ static func handle(game: Node, event: InputEvent) -> void:
 			JOY_BUTTON_RIGHT_SHOULDER: game.InventorySystem.cycle_filter(game, 1)
 			JOY_BUTTON_A: game.consume_selected_item()
 			JOY_BUTTON_X: game.equip_selected_item()
-			JOY_BUTTON_Y: game.inventory_open = false
+			JOY_BUTTON_Y, JOY_BUTTON_B: game.inventory_open = false; game.inventory_move_from = -1
 		game.InventorySystem.keep_selection_visible(game)
 		sync_feedback(game, previous_selected, previous_filter, was_open)
 		game.queue_redraw()
@@ -61,6 +65,7 @@ static func handle(game: Node, event: InputEvent) -> void:
 
 ## Обрабатывает прокрутку, вкладки, перетаскивание и контекстные действия мыши.
 static func handle_mouse(game: Node, event: InputEventMouseButton) -> void:
+	game.set_meta("inventory_input_device", "keyboard")
 	if event.pressed and event.button_index in [MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_DOWN]:
 		game.InventorySystem.scroll(game, -1 if event.button_index == MOUSE_BUTTON_WHEEL_UP else 1); game.queue_redraw(); return
 	var category: String = game.InterfaceRenderer.inventory_category_at(event.position)
@@ -82,7 +87,12 @@ static func handle_mouse(game: Node, event: InputEventMouseButton) -> void:
 				elif game.InterfaceRenderer.DROP_BUTTON.has_point(event.position): game.drop_selected_item()
 				elif game.InterfaceRenderer.SORT_BUTTON.has_point(event.position): game.InventorySystem.sort_slots(game)
 		elif game.inventory_move_from >= 0:
-			if slot_index >= 0 and game.InventorySystem.swap_slots(game, game.inventory_move_from, slot_index): game.inventory_selected = slot_index; game.message = game.LocaleSystem.text("moved")
+			var hotbar_index: int = game.InterfaceRenderer.inventory_hotbar_at(event.position)
+			if hotbar_index >= 0:
+				game.inventory_selected = game.inventory_move_from
+				game.assign_selected_to_hotbar(hotbar_index)
+			elif slot_index >= 0 and slot_index != game.inventory_move_from and game.InventorySystem.swap_slots(game, game.inventory_move_from, slot_index):
+				game.inventory_selected = slot_index; game.message = game.LocaleSystem.text("moved")
 			game.inventory_move_from = -1
 	elif event.button_index == MOUSE_BUTTON_RIGHT and event.pressed and slot_index >= 0:
 		game.inventory_selected = slot_index
@@ -95,6 +105,7 @@ static func handle_mouse(game: Node, event: InputEventMouseButton) -> void:
 
 ## Обрабатывает касание вкладки, предмета, хотбара или крупной кнопки действия.
 static func handle_touch(game: Node, position: Vector2) -> bool:
+	game.set_meta("inventory_input_device", "touch")
 	press_at(game, position)
 	var category: String = game.InterfaceRenderer.inventory_category_at(position)
 	if not category.is_empty(): return game.InventorySystem.set_filter(game, category)
@@ -105,9 +116,20 @@ static func handle_touch(game: Node, position: Vector2) -> bool:
 	elif game.InterfaceRenderer.USE_BUTTON.has_point(position): game.consume_selected_item()
 	elif game.InterfaceRenderer.EQUIP_BUTTON.has_point(position): game.equip_selected_item()
 	elif game.InterfaceRenderer.DROP_BUTTON.has_point(position): game.drop_selected_item()
+	elif game.InterfaceRenderer.SORT_BUTTON.has_point(position): game.InventorySystem.sort_slots(game)
 	game.InventorySystem.keep_selection_visible(game)
 	game.queue_redraw()
 	return true
+
+
+## Показывает реальные горячие клавиши текущего устройства, чтобы клавиша выбрасывания не выглядела как экипировка.
+static func action_label(game: Node, action: String) -> String:
+	var label: String = game.LocaleSystem.ui(action).get_slice(" • ", 0)
+	var device: String = game.get_meta("inventory_input_device", "keyboard")
+	if device == "touch": return label
+	var shortcut := "A" if action == "eat" else "X"
+	if device == "keyboard": shortcut = "E" if action == "eat" else "Q"
+	return "%s • %s" % [label, shortcut]
 
 
 ## Синхронизирует звуковой фокус рюкзака после клавиатурной или геймпадной команды.

@@ -19,7 +19,7 @@ func test_surface_rules_cover_outdoors_and_exclusions() -> void:
 	var game := make_game()
 	var forest_cell := find_tillable_cell(game, "forest")
 	expect(forest_cell.x >= 0 and game.WorldFarmingSystem.tillability_reason(game,"forest",forest_cell) == "tillable", "open forest soil is available for free farming")
-	var road_cell: Vector2i = game.WorldFarmingSystem.cell_at(game.VillageLayoutSystem.PATHS[0][4])
+	var road_cell: Vector2i = game.WorldFarmingSystem.cell_at(game.BuildingSystem.VILLAGE_SQUARE.get_center())
 	expect(game.WorldFarmingSystem.tillability_reason(game,"overworld",road_cell) == "paved_road", "visible village stone road cannot be tilled")
 	for location in ["cave","pirate_ship","cottage_interior","shop_interior"]:
 		expect(game.WorldFarmingSystem.tillability_reason(game,location,Vector2i(10,10)) == "location_blocked", "farming is disabled in excluded location: %s" % location)
@@ -33,11 +33,13 @@ func test_complete_crop_cycle_works_outside_home_field() -> void:
 	var game := make_game()
 	var cell := find_tillable_cell(game,"forest")
 	place_target(game,"forest",cell)
+	expect(not game.FarmVisualSystem.is_plot_visible(game.WorldFarmingSystem.empty_plot("forest",cell)), "untouched soil preserves world artwork without a raised grass cube overlay")
 	var initial_energy: int = game.energy
 	game.selected_tool = game.Tool.HOE
 	game.use_selected_tool()
 	var key: String = game.WorldFarmingSystem.plot_key("forest",cell)
 	expect(game.state.world.world_plots.has(key) and game.state.world.world_plots[key].tilled, "hoe creates persistent plot on free outdoor soil")
+	expect(game.FarmVisualSystem.is_plot_visible(game.state.world.world_plots[key]), "tilling reveals actual flat soil exactly when the player changes the terrain")
 	var render_source := FileAccess.get_file_as_string("res://scripts/systems/render_system.gd")
 	expect(render_source.contains("else:\n\t\tgame.draw_farm()"), "world plots are rendered outside the original overworld farm")
 	expect(game.energy == initial_energy - 1 and game.tutorial_events_completed.has("free_farming"), "free tilling consumes stamina and advances its tutorial")
@@ -53,6 +55,7 @@ func test_complete_crop_cycle_works_outside_home_field() -> void:
 	game.selected_tool = game.Tool.HAND
 	game.use_selected_tool()
 	expect(game.carrots > carrots_before and not game.state.world.world_plots[key].planted, "mature world crop is harvested through the shared farm system")
+	expect(game.FarmVisualSystem.is_plot_visible(game.state.world.world_plots[key]), "harvesting keeps cultivated soil visible for the next planting")
 	game.free()
 
 

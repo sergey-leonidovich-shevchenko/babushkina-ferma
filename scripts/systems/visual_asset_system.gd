@@ -8,6 +8,7 @@ const INVENTORY_RARE_ATLAS := preload("res://assets/game/generated/inventory_rar
 const FARM_FOOD_ATLAS := preload("res://assets/game/generated/farm_food_atlas.png")
 const FARM_LIFE_ATLAS := preload("res://assets/game/expansion_pack/expansion_atlas.png")
 const ITEM_ICON_DIRECTORY := "res://assets/game/items/catalog"
+const ITEM_ICON_OVERRIDES := {"crystal":"res://assets/game/items/catalog/crystal_clean_v2.png"}
 static var item_icon_cache: Dictionary = {}
 
 const PIRATE_ENEMY_ORDER := ["pirate", "zombie_pirate", "sea_ghost", "drowned_captain"]
@@ -97,7 +98,7 @@ static func initialize_item_icons(kinds: Array) -> void:
 	for value in kinds:
 		var kind := String(value)
 		var icon_kind := "carrot_seeds" if kind == "seeds" else kind
-		var path := "%s/%s.png" % [ITEM_ICON_DIRECTORY, icon_kind]
+		var path:String=ITEM_ICON_OVERRIDES.get(kind,"%s/%s.png" % [ITEM_ICON_DIRECTORY, icon_kind])
 		if ResourceLoader.exists(path): item_icon_cache[kind] = load(path)
 
 

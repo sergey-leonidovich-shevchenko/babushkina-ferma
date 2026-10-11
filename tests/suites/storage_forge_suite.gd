@@ -158,7 +158,7 @@ func test_upgrade_cost_scaling_maximum_and_input() -> void:
 	game.forge_selected = 0
 	game.handle_forge_input(key_event(KEY_DOWN, KEY_DOWN, true))
 	expect(game.forge_selected == 1, "keyboard moves forge selection")
-	expect(game.InputSystem.handle_forge_touch(game, game.InterfaceRenderer.FORGE_ROWS.position + Vector2(20, 3 * 44 + 20)), "forge touch row is consumed")
+	expect(game.InputSystem.handle_forge_touch(game, game.ItemWindowRenderer.forge_row_rect(3).get_center()), "forge touch row is consumed")
 	expect(game.forge_selected == 3, "touch selects the matching forge row")
 	game.free()
 

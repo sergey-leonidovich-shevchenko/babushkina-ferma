@@ -1,11 +1,12 @@
 extends RefCounted
+const TreeOcclusion := preload("res://scripts/systems/tree_occlusion_system.gd")
 
 const BASE_CELL:=24
 const SEASONS:=["spring","summer","autumn","winter"]
 const BIOME_ORDER:=["forest","rocky","ruins","cursed","glassworks"]
 const LARGE_PROP_BASES:=[Vector2(150,245),Vector2(720,230),Vector2(1260,250),Vector2(1900,225),Vector2(360,1050),Vector2(980,1030),Vector2(1600,1050),Vector2(2220,1030)]
 const SMALL_PROP_BASES:=[Vector2(330,700),Vector2(820,610),Vector2(1360,810),Vector2(1810,590),Vector2(2260,520),Vector2(1180,610)]
-const SEASONAL_TREE_BASE:=Vector2(1695,390)
+const SEASONAL_TREE_BASE:=preload("res://scripts/systems/village_map_data.gd").SEASONAL_TREE
 const MOON_SOLID_BASES:=[Vector2(1148,650),Vector2(1690,420),Vector2(2026,750)]
 const BACKGROUNDS:={"forest":Color("315c3c"),"rocky":Color("6f6a5b"),"ruins":Color("665849"),"cursed":Color("3e304b"),"glassworks":Color("6f493b")}
 
@@ -70,10 +71,11 @@ static func background(location:String)->Color:
 
 
 ## Рисует сезонное дерево и два напочвенных кластера без искажения пропорций.
-static func draw_seasonal_village(canvas:CanvasItem,season_index:int)->void:
+static func draw_seasonal_village(canvas:Node2D,season_index:int)->void:
 	var season:String=SEASONS[clampi(season_index,0,SEASONS.size()-1)]
-	draw(canvas,"tree_%s"%season,SEASONAL_TREE_BASE)
-	for position in [Vector2(920,720),Vector2(1450,785)]: draw(canvas,"ground_%s"%season,position)
+	var kind := "tree_%s"%season
+	TreeOcclusion.submit(canvas,"seasonal_village",texture(kind),visual_rect(kind,SEASONAL_TREE_BASE),Rect2(),SEASONAL_TREE_BASE.y)
+	for position in [Vector2(912,960),Vector2(1968,864)]: draw(canvas,"ground_%s"%season,position,Color.WHITE,0.75)
 
 
 ## Рисует доступный лунный портал отдельной текстурой с естественными пропорциями.
@@ -90,10 +92,19 @@ static func draw_eclipse_item(canvas:CanvasItem,kind:String,rect:Rect2)->bool:
 
 
 ## Рисует крупные ориентиры и малый декор выбранного биома из отдельных PNG.
-static func draw_biome(canvas:CanvasItem,location:String)->void:
+static func draw_biome(canvas:CanvasItem,location:String,include_trees:bool=true)->void:
 	if location not in BIOME_ORDER: return
-	for position in LARGE_PROP_BASES: draw(canvas,"%s_landmark"%location,position)
+	if include_trees or location not in ["forest","cursed"]:
+		for position in LARGE_PROP_BASES: draw(canvas,"%s_landmark"%location,position)
 	for position in SMALL_PROP_BASES: draw(canvas,"%s_detail"%location,position)
+
+
+## Переносит живые и проклятые деревья из неподвижного фона в общий слой с мягким раскрытием героя.
+static func draw_biome_trees(game:Node2D,location:String)->void:
+	if location not in ["forest","cursed"]: return
+	var kind := "%s_landmark"%location
+	for position in LARGE_PROP_BASES:
+		TreeOcclusion.submit(game,TreeOcclusion.key_for(kind,position),texture(kind),visual_rect(kind,position),Rect2(),position.y)
 
 
 ## Проверяет столкновение персонажа с основаниями крупных биомных ориентиров.

@@ -24,6 +24,14 @@ const LEFT_HANDED_BINDINGS := {"move_left":[KEY_J],"move_right":[KEY_L],"move_up
 const JOY_AXIS_DEAD_ZONE := 0.2
 
 
+## Запоминает устройство ввода для коротких подсказок возврата в игровых меню.
+static func remember_ui_device(game: Node, event: InputEvent) -> void:
+	if event is InputEventJoypadButton or event is InputEventJoypadMotion:
+		game.set_meta("last_ui_input", "gamepad")
+	elif event is InputEventKey or event is InputEventMouseButton or event is InputEventMouseMotion:
+		game.set_meta("last_ui_input", "keyboard")
+
+
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func ensure_default_actions() -> void:
 	for action in ACTION_BINDINGS:
@@ -251,14 +259,9 @@ static func handle_forge_input(game: Node, event: InputEvent) -> void:
 	game.queue_redraw()
 
 
-## Обрабатывает касание строки кузницы как выбор и подтверждение улучшения.
+## Направляет касания кузницы в общий выбор строки и явные кнопки улучшения или ремонта.
 static func handle_forge_touch(game: Node, position: Vector2) -> bool:
-	if game.InterfaceRenderer.FORGE_ROWS.has_point(position):
-		var visible_index := int((position.y - game.InterfaceRenderer.FORGE_ROWS.position.y) / 44.0)
-		game.forge_selected = clampi(game.ForgeSystem.visible_start(game.forge_selected) + visible_index, 0, game.ForgeSystem.UPGRADES.size() - 1)
-		game.ForgeSystem.upgrade(game, game.forge_selected)
-	game.queue_redraw()
-	return true
+	return game.ItemWindowRenderer.handle_forge_pointer(game, position)
 
 
 ## Обрабатывает клавиатуру и геймпад доски ежедневных контрактов гильдии.
@@ -288,14 +291,7 @@ static func handle_contract_touch(game: Node, position: Vector2) -> bool:
 
 ## Листает страницы журнала по экранным стрелкам и сообщает, было ли касание обработано.
 static func handle_quest_pointer(game: Node, position: Vector2) -> bool:
-	if game.InterfaceRenderer.QUEST_PREV.has_point(position):
-		game.quest_log_page = maxi(0, game.quest_log_page - 1)
-	elif game.InterfaceRenderer.QUEST_NEXT.has_point(position):
-		game.quest_log_page = mini(ceili(float(game.QuestSystem.MISSIONS.size()) / 3.0) - 1, game.quest_log_page + 1)
-	else:
-		return false
-	game.queue_redraw()
-	return true
+	return preload("res://scripts/systems/quest_journal_system.gd").handle_pointer(game,position)
 
 
 ## Маршрутизирует событие в единственное открытое модальное окно до мирового управления.
@@ -325,12 +321,12 @@ static func handle_modal_input(game: Node, event: InputEvent) -> bool:
 		if event is InputEventKey and event.pressed and not event.echo:
 			if event.keycode in [KEY_J, KEY_ESCAPE]: game.toggle_quest_log()
 			elif event.keycode in [KEY_LEFT, KEY_PAGEUP]: game.quest_log_page = maxi(0, game.quest_log_page - 1)
-			elif event.keycode in [KEY_RIGHT, KEY_PAGEDOWN]: game.quest_log_page = mini(ceili(float(game.QuestSystem.MISSIONS.size()) / 3.0) - 1, game.quest_log_page + 1)
+			elif event.keycode in [KEY_RIGHT, KEY_PAGEDOWN]: game.quest_log_page = mini(preload("res://scripts/systems/quest_journal_system.gd").page_count(game) - 1, game.quest_log_page + 1)
 			game.queue_redraw()
 		elif event is InputEventJoypadButton and event.pressed:
 			if event.button_index == JOY_BUTTON_B: game.toggle_quest_log()
 			elif event.button_index == JOY_BUTTON_DPAD_LEFT: game.quest_log_page = maxi(0, game.quest_log_page - 1)
-			elif event.button_index == JOY_BUTTON_DPAD_RIGHT: game.quest_log_page = mini(ceili(float(game.QuestSystem.MISSIONS.size()) / 3.0) - 1, game.quest_log_page + 1)
+			elif event.button_index == JOY_BUTTON_DPAD_RIGHT: game.quest_log_page = mini(preload("res://scripts/systems/quest_journal_system.gd").page_count(game) - 1, game.quest_log_page + 1)
 			game.queue_redraw()
 	elif game.skill_menu_open:
 		game.handle_skill_menu_input(event)

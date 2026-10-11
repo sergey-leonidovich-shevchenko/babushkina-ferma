@@ -3,6 +3,14 @@ extends RefCounted
 const BASE_CELL:=24
 const ATLAS:=preload("res://assets/game/expansion_pack/expansion_atlas.png")
 const SOURCE_CELL:=Vector2(128,128)
+const FURNITURE_TEXTURES := {
+	"rustic_table": preload("res://assets/game/items/catalog/rustic_table.png"),
+	"wooden_chair": preload("res://assets/game/items/catalog/wooden_chair.png"),
+	"woven_rug": preload("res://assets/game/items/catalog/woven_rug.png"),
+	"potted_fern": preload("res://assets/game/items/catalog/potted_fern.png"),
+	"wooden_wardrobe": preload("res://assets/game/items/catalog/wooden_wardrobe.png"),
+}
+static var _furniture_regions: Dictionary = {}
 const PROFILES:={
 	"hen":{"cell":Vector2i(0,0),"visual":Vector2(72,72),"collision":Vector2(48,24)},
 	"cow":{"cell":Vector2i(1,0),"visual":Vector2(96,96),"collision":Vector2(48,24)},
@@ -56,7 +64,27 @@ static func profiles_are_valid()->bool:
 ## Рисует одну семантическую ячейку атласа без неравномерного растяжения и случайного размера.
 static func draw(canvas:CanvasItem,kind:String,ground_position:Vector2,tint:Color=Color.WHITE)->void:
 	if not PROFILES.has(kind): return
+	if FURNITURE_TEXTURES.has(kind):
+		canvas.draw_texture_rect_region(FURNITURE_TEXTURES[kind], furniture_sprite_rect(kind, ground_position), furniture_source(kind), tint)
+		return
 	canvas.draw_texture_rect_region(ATLAS,visual_rect(kind,ground_position),source_rect(kind),tint)
+
+
+## Один раз находит содержимое уже очищенного отдельного PNG без осколков соседних ячеек атласа.
+static func furniture_source(kind: String) -> Rect2:
+	if not _furniture_regions.has(kind):
+		var texture: Texture2D = FURNITURE_TEXTURES[kind]
+		_furniture_regions[kind] = Rect2(texture.get_image().get_used_rect())
+	return _furniture_regions[kind]
+
+
+## Вписывает мебель по пропорциям рисунка, сохраняя нижнюю опору и модульную область выбора.
+static func furniture_sprite_rect(kind: String, ground_position: Vector2) -> Rect2:
+	var bounds := visual_rect(kind, ground_position)
+	var source := furniture_source(kind)
+	var scale := minf(bounds.size.x / source.size.x, bounds.size.y / source.size.y)
+	var size := source.size * scale
+	return Rect2(Vector2(bounds.get_center().x - size.x * 0.5, bounds.end.y - size.y), size)
 
 
 ## Проверяет пересечение круглого персонажа с модульным основанием объекта.

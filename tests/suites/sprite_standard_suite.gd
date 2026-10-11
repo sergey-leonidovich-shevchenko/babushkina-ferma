@@ -17,7 +17,7 @@ func test_world_visual_profiles_are_grid_safe() -> void:
 	var profiles = GameScript.WorldVisualProfileSystem
 	expect(profiles.validation_errors().is_empty(), "all shared visual profiles satisfy the 24-pixel geometry contract")
 	expect(profiles.visual_size("terrain") == Vector2(24, 24) and profiles.visual_size("farm_plot") == Vector2(48, 48), "terrain and farm plots use base grid modules")
-	expect(profiles.visual_rect("hero", Vector2(100, 200)) == Rect2(64, 104, 72, 96), "hero profile keeps the authored bottom-center foot anchor")
+	expect(profiles.visual_rect("hero", Vector2(100, 200)) == Rect2(52, 104, 96, 96), "hero profile preserves square artwork and the authored bottom-center foot anchor")
 	expect(profiles.collision_rect("bridge", Vector2(100, 200)) == Rect2(52, 104, 96, 192), "bridge collision is derived from the same four-by-eight-cell profile")
 
 
@@ -58,13 +58,13 @@ func test_all_current_mobile_catalog_entries_are_audited() -> void:
 	game.free()
 
 
-## Сценарий: после пакета животных ни один подвижный объект не остаётся с одноракурсным ассетом.
-## Исходное состояние: машинный аудит отражает фактическое число направлений и кадров всех файлов.
-## Ожидаемый результат: backlog пуст, а постоянное правило подробно записано в документации.
+## Сценарий: новые четырёхнаправленные пакеты сосуществуют со старыми восьминаправленными персонажами.
+## Исходное состояние: реестр задаёт отдельные требования направлений и кадров, в том числе исключение старого кабана.
+## Ожидаемый результат: пакеты выполняют свой машинный контракт, а документация не требует восемь ракурсов от нового героя.
 func test_known_animation_debt_is_explicit_and_documented() -> void:
 	var game := make_game(); var backlog: Array[String] = game.AnimationAssetRegistry.backlog()
 	expect(not backlog.has("hero") and not backlog.has("companion_mila") and not backlog.has("npc_official"), "finished human animation package leaves the redraw backlog")
-	expect(backlog.is_empty(), "finished wildlife package closes the complete moving actor redraw backlog")
+	expect(backlog.is_empty(), "registered actor packages satisfy their explicit direction and minimum-frame contracts")
 	var documentation := FileAccess.get_file_as_string("res://docs/SPRITE_STANDARD.md")
-	expect(documentation.contains("восьми направлений") and documentation.contains("трёх до пяти кадров"), "Russian project standard records the permanent animation rule")
+	expect(documentation.contains("четыре настоящих направления") and documentation.contains("восемь направлений") and documentation.contains("required_directions") and documentation.contains("minimum_frames"), "Russian project standard records explicit four/eight-direction animation contracts")
 	game.free()

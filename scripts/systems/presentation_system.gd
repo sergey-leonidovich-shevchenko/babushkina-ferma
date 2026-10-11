@@ -3,6 +3,11 @@ extends RefCounted
 const WorldVisualProfileSystem := preload("res://scripts/systems/world_visual_profile_system.gd")
 const HudLayoutSystem := preload("res://scripts/systems/hud_layout_system.gd")
 
+
+## Возвращает общее смещение мирового слоя, одинаковое для героя, предметов в руке и эффектов.
+static func world_offset(game: Node) -> Vector2:
+	return -Vector2(game.camera_offset) + game.AdventurePolishSystem.shake_offset(game)
+
 ## Чистые расчёты представления. Они не рисуют и не меняют игровое состояние,
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 

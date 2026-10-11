@@ -287,6 +287,7 @@ static func begin_text(state: Dictionary, mode: String, current: String) -> void
 static func activate_asset(state: Dictionary, entry: Dictionary) -> void:
 	state.selected_asset = String(entry.path); state.tool = "paint"; state.slice_index = 0
 	state.slice_size = int(entry.get("slice_size",0)); state.source_mode="grid"; state.custom_source=Rect2(); state.atlas_page=0; state.layer = String(entry.get("layer","objects")); state.collision = bool(entry.get("collision",false))
+	if Rect2(entry.get("source_rect", Rect2())).has_area(): state.custom_source = entry.source_rect; state.source_mode = "custom"
 
 
 ## Создаёт объект выбранного ресурса с текущими сеткой, срезом, слоем и коллизией.
@@ -303,13 +304,18 @@ static func place_selected_asset(game: Node, state: Dictionary, screen_point: Ve
 	var source := selected_source(texture,state)
 	var profiled_size:=Vector2(entry.get("display_size",Vector2.ZERO))
 	var size: Vector2 = profiled_size if profiled_size!=Vector2.ZERO else (source.size if source.size != Vector2.ZERO else texture.get_size())
-	if String(state.get("source_mode","grid"))=="custom" and source.size!=Vector2.ZERO: size=source.size
+	if String(state.get("source_mode","grid"))=="custom" and source.size!=Vector2.ZERO and source != Rect2(entry.get("source_rect", Rect2())): size=source.size
 	var world := screen_point + Vector2(game.camera_offset)
 	var anchor := String(entry.get("anchor","center"))
 	if anchor=="tile": size=Vector2.ONE*int(state.grid)
 	var position := placement_position(state,world,anchor)
 	if anchor == "tile": _remove_ground_at(state,position,String(state.layer))
 	var object := {"id":int(state.next_id),"asset_path":path,"name":path.get_file().get_basename(),"notes":"","position":position,"size":size,"source":source,"anchor":anchor,"layer":state.layer,"collision":state.collision,"collision_size":size,"collision_offset":Vector2.ZERO,"runtime_role":"","rotation":0.0,"flip_x":false,"flip_y":false,"reference":false,"runtime_id":"","original_position":Vector2.ZERO,"hidden":false,"unique_key":unique_key,"catalog_category":String(entry.get("category","other")),"surface_kind":String(entry.get("surface_kind","")),"autotile_diagonal_mask":0,"transition_masks":{},"transition_corner_masks":{}}
+	if bool(entry.get("entity_template", false)):
+		object.name = entry.name; object.runtime_role = entry.runtime_role
+		if object.runtime_role == "spawn":
+			for existing in state.objects:
+				if String(existing.get("runtime_role", "")) == "spawn": existing.runtime_role = ""
 	state.next_id = int(state.next_id)+1; state.objects.append(object); state.selected = state.objects.size()-1; state.selected_ids=[int(object.id)]; state.status = "Размещено: %s" % object.name
 	ValidationSystem.rebuild_autotile_masks(state); state.validation={}
 	return true

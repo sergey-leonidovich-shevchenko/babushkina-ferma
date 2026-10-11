@@ -13,7 +13,9 @@ static func draw_world(game: Node) -> void:
 			game.draw_ui_string(game.UI_FONT,Vector2(visual.position.x-8,visual.position.y-18),"%s ♥%d" % [animal.name,value.animals[animal.id].bond],HORIZONTAL_ALIGNMENT_CENTER,visual.size.x+16,13,Color("fff0bd"))
 		game.FarmLifeVisualSystem.draw(game,"trough",game.FarmLifeSystem.TROUGH_POSITION)
 	if game.current_location == "cottage_interior":
-		for furniture in value.furniture: game.FarmLifeVisualSystem.draw(game,String(furniture.kind),Vector2(furniture.position))
+		for furniture in value.furniture:
+			if not game.InteriorRenderer.is_foreground_prop(String(furniture.kind),Vector2(furniture.position),game.player):
+				game.FarmLifeVisualSystem.draw(game,String(furniture.kind),Vector2(furniture.position))
 	if game.current_location == "guild_interior": game.FarmLifeVisualSystem.draw(game,"museum",Vector2(780,270))
 	if game.FarmLifeSystem.SECRETS.has(game.current_location):
 		var secret: Dictionary = game.FarmLifeSystem.SECRETS[game.current_location]; game.FarmLifeVisualSystem.draw(game,"secret",secret.position)

@@ -2,6 +2,9 @@ extends RefCounted
 
 const WALK_FRAME_COUNT := 6
 const WALK_FPS := 10.0
+const HELD_KEYS_META := &"player_movement_keys"
+const VISUAL_MOTION_META := &"player_visual_motion"
+const WALK_TIME_META := &"player_walk_time"
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func movement_direction(game: Node) -> Vector2:
@@ -11,15 +14,23 @@ static func movement_direction(game: Node) -> Vector2:
 		float(game.move_down_held) - float(game.move_up_held)
 	).normalized()
 
-## Обновляет относящуюся к методу часть состояния на текущем кадре.
+## Учитывает каждую физическую клавишу, чтобы отпускание D не останавливало удерживаемую стрелку вправо.
 static func update_movement_key(game: Node, event: InputEventKey) -> bool:
-	var held := event.pressed
-	if game.InputSystem.matches(event,"move_left"): game.move_left_held = held
-	elif game.InputSystem.matches(event,"move_right"): game.move_right_held = held
-	elif game.InputSystem.matches(event,"move_up"): game.move_up_held = held
-	elif game.InputSystem.matches(event,"move_down"): game.move_down_held = held
-	else: return false
-	return true
+	for action in ["move_left", "move_right", "move_up", "move_down"]:
+		if not game.InputSystem.matches(event, action):
+			continue
+		var pressed_keys: Dictionary = game.get_meta(HELD_KEYS_META, {})
+		var action_keys: Dictionary = pressed_keys.get(action, {})
+		var physical_key := event.physical_keycode if event.physical_keycode != 0 else event.keycode
+		if event.pressed:
+			action_keys[physical_key] = true
+		else:
+			action_keys.erase(physical_key)
+		pressed_keys[action] = action_keys
+		game.set_meta(HELD_KEYS_META, pressed_keys)
+		game.set(action + "_held", not action_keys.is_empty())
+		return true
+	return false
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func clear_keys(game: Node) -> void:
@@ -29,6 +40,30 @@ static func clear_keys(game: Node) -> void:
 	game.move_down_held = false
 	game.action_held = false
 	game.attack_held = false
+	game.set_meta(HELD_KEYS_META, {})
+	record_motion(game, Vector2.ZERO)
+
+
+## Запоминает фактический шаг после коллизий и привязывает цикл ног к пройденному расстоянию.
+static func record_motion(game: Node, motion: Vector2) -> void:
+	game.set_meta(VISUAL_MOTION_META, motion)
+	if motion.is_zero_approx():
+		game.set_meta(WALK_TIME_META, 0.0)
+		return
+	var walk_time: float = float(game.get_meta(WALK_TIME_META, 0.0))
+	game.set_meta(WALK_TIME_META, walk_time + motion.length() / maxf(float(game.speed), 1.0))
+
+
+## Не проигрывает ходьбу у стены, при отпускании клавиш или поверх открытого игрового окна.
+static func is_visually_moving(game: Node) -> bool:
+	if game.language_screen or game.GameLoop.modal_active(game) or game.GameLoop.gameplay_window_open(game) or game.LevelEditorSystem.active(game):
+		return false
+	return movement_direction(game) != Vector2.ZERO and not Vector2(game.get_meta(VISUAL_MOTION_META, Vector2.ZERO)).is_zero_approx()
+
+
+## Возвращает часы реального шага для ходьбы и непрерывные часы дыхания для покоя.
+static func visual_animation_time(game: Node, moving: bool) -> float:
+	return float(game.get_meta(WALK_TIME_META, 0.0)) if moving else game.walk_animation_time
 
 ## Обновляет анимации на текущем кадре.
 static func update_animation(game: Node, delta: float) -> void:

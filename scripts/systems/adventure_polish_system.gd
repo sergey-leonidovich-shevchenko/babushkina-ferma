@@ -194,6 +194,7 @@ static func update(game: Node, delta: float) -> void:
 
 ## Запускает соответствующий кадр атласа и лёгкую вибрацию мира.
 static func begin_action(game: Node, action: String, position: Vector2, amount: int = 0) -> void:
+	game.HeroActionSystem.begin(game, action, position)
 	var feedback: Dictionary = game.state.player.feedback
 	feedback.action = action; feedback.position = position; feedback.timer = 0.34
 	if action in ["mine", "chop", "hit"]: feedback.camera_shake = 3.0

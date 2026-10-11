@@ -23,9 +23,9 @@ func run() -> void:
 	test_world_loot_discovery_and_save_persistence()
 
 
-## Сценарий: цельный мастер первой локации хранится в нативной игровой сетке без runtime-деформации и щелей.
-## Исходное состояние: запечённое изображение 2400×1200 и игровой мир того же размера.
-## Ожидаемый результат: сто на пятьдесят ячеек 24×24 совпадают в источнике и мире один к одному.
+## Сценарий: старый мастер остаётся доступным как архив дизайна и не теряет свою сетку при модульном редизайне.
+## Исходное состояние: сохранённый архив2400×1200 и геометрия прежнего экспорта, не подключённая к игровому фону.
+## Ожидаемый результат: архив читается и его100×50клеток сохраняют исходные координаты для сравнения версий.
 func test_first_level_master_is_sliced_into_a_seamless_world_grid() -> void:
 	var master: Texture2D = load("res://assets/game/locations/overworld/overworld_master_24_v2.png")
 	expect(master != null and master.get_size() == Vector2(2400, 1200), "fairytale first-level runtime master is imported at native world resolution")
@@ -71,15 +71,15 @@ func test_first_location_has_clear_functional_zones() -> void:
 	var square: Rect2 = game.BuildingSystem.VILLAGE_SQUARE
 	expect(game.BuildingSystem.VILLAGE_MAIN_PATH.has_point(game.player), "new character starts on the readable village road")
 	expect(square.has_point(game.BuildingSystem.SHOP_STALL_POSITION) and square.has_point(game.BuildingSystem.SELL_CRATE_POSITION), "shop stall and sale crate form one market zone")
-	expect(square.has_point(game.guild_master_position) and square.has_point(game.herbalist_position), "quest NPCs form a readable village square")
+	expect(VillageLayoutSystem.DISTRICTS.guild.has_point(game.guild_master_position) and square.has_point(game.herbalist_position), "староста встречает у гильдии, травница находится на торговой площади")
 	expect(not square.has_point(game.slime_position), "starter combat is kept outside the safe village square")
 	for tree in game.TREE_POSITIONS:
 		expect(not square.has_point(tree), "trees do not block the village square")
 	var farm_rect := Rect2(Vector2(game.FARM_ORIGIN), Vector2(game.FARM_SIZE * game.TILE))
 	expect(game.BuildingSystem.FARM_YARD_RECT.encloses(farm_rect), "all farm plots stay inside the fenced homestead yard")
 	expect(not game.BuildingSystem.destination_rect("cottage").intersects(farm_rect), "cottage sprite does not overlap the farm plots")
-	expect(not game.is_position_walkable(Vector2(38, 900)), "farm fence blocks shortcuts across the garden boundary")
-	expect(game.is_position_walkable(Vector2(190, 830)), "farm gate remains wide enough for the character")
+	expect(not game.is_position_walkable(game.BuildingSystem.farm_fence_rects()[0].get_center()), "видимая секция ограды блокирует проход")
+	expect(game.is_position_walkable(game.BuildingSystem.farm_gate_rects()[0].get_center()), "широкая калитка огорода действительно проходима")
 	var cottage_door: Vector2 = game.BuildingSystem.BUILDINGS.cottage.door
 	game.player = cottage_door
 	game.move_player_with_collisions(Vector2(150, 0))
@@ -102,12 +102,13 @@ func test_village_hybrid_layout_layers_and_navigation() -> void:
 	for building_id in ["cottage", "shop_house", "guild_hall"]:
 		var door: Vector2 = game.BuildingSystem.BUILDINGS[building_id].door
 		expect(VillageLayoutSystem.path_reaches(door), "village road reaches building door: %s" % building_id)
-	expect(VillageLayoutSystem.path_reaches(Vector2(game.FARM_ORIGIN) + Vector2(144, 144)), "village road reaches the farm yard")
+	expect(VillageLayoutSystem.path_reaches(game.BuildingSystem.farm_gate_rects()[0].get_center()), "дорога подходит к калитке, а не проходит по центру грядок")
 	expect(VillageLayoutSystem.path_reaches(game.cave_entrance_position), "village road reaches the adventure exit")
 	expect(VillageLayoutSystem.path_reaches(game.world_gate_position), "eastern road reaches the world frontier")
 	expect(VillageLayoutSystem.PROP_CELLS.size() == 8, "village atlas registers all eight prop cells")
-	expect(VillageLayoutSystem.SCENIC_PLACEMENTS.size() >= 10, "first location gains a dense secondary layer of sliced village props")
-	expect(VillageLayoutSystem.FLOWER_PATCHES.size() >= 20, "meadow decoration is dense enough to break up empty green fields")
+	var props:=preload("res://scripts/systems/village_prop_renderer.gd").Props
+	expect(VillageLayoutSystem.PROP_PLACEMENTS.all(func(prop):return props.has(prop.kind)), "каждое реальное размещение имеет отдельный рисуемый спрайт")
+	expect(VillageLayoutSystem.FLOWER_PATCHES.all(func(position):return not VillageLayoutSystem.is_water(position,0)), "цветы не рисуются посреди воды")
 	for prop in VillageLayoutSystem.SCENIC_PLACEMENTS:
 		expect(VillageLayoutSystem.PROP_CELLS.has(prop.kind), "every scenic placement references a valid atlas cell: %s" % prop.kind)
 	var prop_atlas: Texture2D = load("res://assets/game/environment/village_prop_atlas_v2.png")
@@ -126,7 +127,7 @@ func test_village_hybrid_layout_layers_and_navigation() -> void:
 	expect(not game.is_position_walkable(river_point), "player cannot walk through the river away from a bridge")
 	expect(game.is_position_walkable(VillageLayoutSystem.BRIDGES[0].get_center()), "bridge remains a usable river crossing")
 	expect(not game.is_position_walkable(VillageLayoutSystem.WELL_POSITION), "well sprite owns a matching solid footprint")
-	expect(not game.is_position_walkable(Vector2(850, 220)), "decorative forge from the master art owns a matching solid footprint")
+	expect(game.is_position_walkable(Vector2(850, 220)), "невидимая кузница старого мастер-арта больше не блокирует землю")
 	var cottage_door: Vector2 = game.BuildingSystem.BUILDINGS.cottage.door
 	var square_center: Vector2 = game.BuildingSystem.VILLAGE_SQUARE.get_center()
 	expect(cottage_door.y > VillageLayoutSystem.river_center_y(cottage_door.x) + VillageLayoutSystem.RIVER_HALF_WIDTH, "homestead is placed south of the river like the selected concept")
@@ -134,7 +135,7 @@ func test_village_hybrid_layout_layers_and_navigation() -> void:
 	expect(game.FARM_ORIGIN.y > VillageLayoutSystem.river_center_y(game.FARM_ORIGIN.x), "farm field belongs to the southern homestead zone")
 	expect(VillageLayoutSystem.BRIDGES.size() == 2, "homestead and eastern frontier have separate river bridges")
 	expect(not VillageLayoutSystem.is_water(Vector2(300, 1000), game.PLAYER_RADIUS), "river is narrow and no longer replaces the entire southern half of the map")
-	expect(game.cave_entrance_position.x > 1600.0 and game.cave_entrance_position.y < 260.0, "mine entrance matches the northern ruined gate in the selected master")
+	expect(game.cave_entrance_position==VillageLayoutSystem.MapData.CAVE_ENTRANCE and VillageLayoutSystem.path_reaches(game.cave_entrance_position), "шахта стоит на северном ответвлении новой связной дороги")
 	game.free()
 
 
@@ -145,10 +146,10 @@ func test_bridge_render_data_and_discovery_covers_both_crossings() -> void:
 	var game := make_game()
 	game.current_location = "overworld"
 	var east_bridge_center: Vector2 = VillageLayoutSystem.BRIDGES[1].get_center()
-	expect(VillageLayoutSystem.bridge_render_rect(0).size == Vector2(96, 192), "first bridge uses the four-by-eight-cell render size")
-	expect(VillageLayoutSystem.bridge_render_rect(1).size == Vector2(96, 192), "second bridge uses the four-by-eight-cell render size")
-	expect(VillageLayoutSystem.BRIDGE_RENDER_SIZES[0] == Vector2(96, 192), "first bridge follows the shared visual profile")
-	expect(VillageLayoutSystem.BRIDGE_RENDER_SIZES[1] == Vector2(96, 192), "second bridge follows the shared visual profile")
+	expect(VillageLayoutSystem.bridge_render_rect(0).size == Vector2(144,216), "первый мост имеет отдельный модуль6×9клеток вместе с перилами")
+	expect(VillageLayoutSystem.bridge_render_rect(1).size == Vector2(144,216), "второй мост использует тот же недеформированный спрайт")
+	expect(VillageLayoutSystem.bridge_render_rect(0).get_center()==VillageLayoutSystem.BRIDGES[0].get_center(), "центры первого настила и изображения совпадают")
+	expect(VillageLayoutSystem.bridge_render_rect(1).get_center()==VillageLayoutSystem.BRIDGES[1].get_center(), "центры второго настила и изображения совпадают")
 	expect(VillageLayoutSystem.bridge_navigation_rect(0) == VillageLayoutSystem.BRIDGES[0], "small bridge uses one exact rect for art and navigation")
 	expect(VillageLayoutSystem.bridge_navigation_rect(1) == VillageLayoutSystem.BRIDGES[1], "main bridge uses one exact rect for art and navigation")
 	expect(VillageLayoutSystem.nearest_bridge_center(east_bridge_center) == east_bridge_center, "nearest-bridge helper picks eastern crossing")
@@ -172,7 +173,7 @@ func test_bridge_render_data_and_discovery_covers_both_crossings() -> void:
 ## Ожидаемый результат: декор остаётся внутри мира, осенние листья появляются только осенью, а зимняя вода не цветёт.
 func test_village_ambient_layer_respects_grid_and_seasons() -> void:
 	expect(VillageAmbientRenderer.CELLS.size() == 12, "village ambient catalog exposes all twelve authored sprites")
-	expect(VillageAmbientRenderer.PLACEMENTS.size() >= 20, "first location owns a dense but bounded living decoration layer")
+	expect(VillageAmbientRenderer.PLACEMENTS.size() >= 10 and VillageAmbientRenderer.PLACEMENTS.size()<=24, "живой декор ограничен несколькими береговыми акцентами и не заполняет каждый проход")
 	for placement in VillageAmbientRenderer.PLACEMENTS:
 		expect(VillageAmbientRenderer.CELLS.has(placement.kind), "ambient placement references a valid atlas cell: %s" % placement.kind)
 		expect(FirstLevelArtSystem.WORLD_RECT.has_point(placement.position), "ambient placement stays inside first-level world: %s" % placement.kind)
@@ -227,9 +228,9 @@ func test_story_and_side_mission_chains() -> void:
 	journal_button.pressed = true
 	expect(game.handle_gamepad_and_touch(journal_button) and game.quest_log_open, "gamepad can open mission journal")
 	var journal_touch := InputEventScreenTouch.new()
-	journal_touch.position = game.InterfaceRenderer.QUEST_BUTTON.get_center()
+	journal_touch.position = preload("res://scripts/systems/menu_hub_system.gd").CLOSE.get_center()
 	journal_touch.pressed = true
-	expect(game.handle_gamepad_and_touch(journal_touch) and not game.quest_log_open, "touch HUD button closes mission journal")
+	expect(game.handle_gamepad_and_touch(journal_touch) and not game.quest_log_open, "touch hub close button closes mission journal")
 	game.free()
 
 ## Сценарий: сохранение восстанавливает этапы миссий и ещё не подобранную сюжетную добычу.
@@ -308,7 +309,11 @@ func test_wildlife_flees_and_does_not_talk() -> void:
 	deer = game.wildlife_nodes[0]
 	expect(game.player.distance_to(deer.position) > before_distance, "timid deer immediately flees from nearby player")
 	game.player = deer.position
-	expect(game.nearest_interaction().is_empty(), "decorative wildlife cannot be talked to")
+	# В новой деревне рядом может оказаться настоящая дверь или объект; сам зверь не становится собеседником.
+	var nearby: String = game.nearest_interaction()
+	var animals: Array = game.wildlife_nodes; game.wildlife_nodes = []
+	expect(game.nearest_interaction() == nearby, "decorative wildlife cannot be talked to or displace actual nearby interactions")
+	game.wildlife_nodes = animals
 	game.discovery_current.clear()
 	game.seen_discoveries.clear()
 	expect(game.DiscoverySystem.scan_nearby(game), "approaching wildlife opens its contextual hint")

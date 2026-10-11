@@ -13,7 +13,7 @@
   "entries": [
     {
       "id": "WS-001",
-      "family": "Первая локация: мастер-арт",
+      "family": "Первая локация: архивный мастер-арт прототипа",
       "assets": [{"path":"assets/game/locations/overworld/overworld_master_24_v2.png","width":2400,"height":1200}],
       "render_owner": "FirstLevelArtSystem",
       "source_layout": "нативная область 100×50 по 24×24; композиционный исходник хранится отдельно",
@@ -23,7 +23,7 @@
       "collision": "навигация и F10 используют ту же сетку 24×24",
       "status": "compliant",
       "priority": "P1",
-      "debt": "Закрыт: runtime-мастер запечён в 2400×1200 и отображается один к одному без скрытой сетки 50 px.",
+      "debt": "Сохранён как исходный концепт. Начиная с ревизии карты 2 игровая деревня собирается из отдельных материалов и объектов WS-024; старые запечённые препятствия отключены.",
       "done_when": "Локация собирается в 100×50 базовых тайлов без 50-пиксельной мировой сетки; ключевые опоры и коллизии привязаны к 24 px."
     },
     {
@@ -143,6 +143,7 @@
       "family": "Грядки и культуры",
       "assets": [
         {"path":"assets/game/environment/farm_plot_atlas.png","width":240,"height":96},
+        {"path":"assets/game/tiles/editor/terrain/ground_farm_soil.png","width":24,"height":24},
         {"path":"assets/game/farming/crops/atlases/annual_a.png","width":320,"height":256},
         {"path":"assets/game/farming/crops/atlases/annual_b.png","width":320,"height":256},
         {"path":"assets/game/farming/crops/atlases/annual_c.png","width":320,"height":256},
@@ -150,16 +151,16 @@
         {"path":"assets/game/farming/crops/atlases/strawberry_seasons.png","width":320,"height":256},
         {"path":"assets/game/farming/crops/atlases/herbs_seasons.png","width":320,"height":256}
       ],
-      "render_owner": "FarmVisualSystem и GameRenderer.draw_farm",
-      "source_layout": "земля 5×2 по 48×48; культуры 5 стадий по 64×64, сезонные многолетники 5×4",
-      "runtime_sizes": ["48×48"],
-      "target_modules": ["48×48"],
+      "render_owner": "FarmVisualSystem и FarmRenderer",
+      "source_layout": "плоская почва 24×24 по четыре тайла на грядку; прежний атлас 5×2 по 48×48 сохранён для редактора; культуры 5 стадий по 64×64, сезонные многолетники 5×4",
+      "runtime_sizes": ["24×24", "48×48"],
+      "target_modules": ["24×24", "48×48"],
       "anchor": "центр участка 2×2",
       "collision": "грядки проходимы; взаимодействие по клетке 48×48",
       "status": "compliant",
       "priority": "P1",
-      "debt": "Закрыт: шестнадцать культур получили пять изолированных стадий; клубника и травы имеют четыре сезонных ряда.",
-      "done_when": "Все культуры используют пять ячеек 64×64, единый нижний anchor и nearest-фильтрацию; сезонные многолетники содержат четыре полных ряда."
+      "debt": "Закрыт: шестнадцать культур получили пять изолированных стадий; клубника и травы имеют четыре сезонных ряда. Невскопанные клетки сохраняют фон, обработанная почва использует плоский бесшовный модуль без объёмных зелёных кубов.",
+      "done_when": "Все культуры используют пять ячеек 64×64, единый нижний anchor и nearest-фильтрацию; сезонные многолетники содержат четыре полных ряда. Почва появляется после вспашки, остаётся после сбора и состоит из тайлов 24×24 без коллизий."
     },
     {
       "id": "WS-007",
@@ -421,10 +422,9 @@
       "id": "WS-018",
       "family": "Герой, NPC и напарники",
       "assets": [
-        {"path":"assets/game/characters/directional/hero_farmer_walk_8dir.png","width":888,"height":1776},
-        {"path":"assets/game/characters/directional/hero_scout_walk_8dir.png","width":888,"height":1776},
-        {"path":"assets/game/characters/directional/hero_guardian_walk_8dir.png","width":888,"height":1776},
-        {"path":"assets/game/characters/directional/hero_moon_walk_8dir.png","width":888,"height":1776},
+        {"path":"assets/game/characters/hero_v3/walk_master.png","width":1254,"height":1254},
+        {"path":"assets/game/characters/hero_v3/hoe_master.png","width":1281,"height":1228},
+        {"path":"assets/game/characters/grandmother_v2/walk_master.png","width":1254,"height":1254},
         {"path":"assets/game/characters/directional/npc_grandmother_walk_8dir.png","width":888,"height":1776},
         {"path":"assets/game/characters/directional/npc_official_walk_8dir.png","width":888,"height":1776},
         {"path":"assets/game/characters/directional/npc_herbalist_walk_8dir.png","width":888,"height":1776},
@@ -432,16 +432,16 @@
         {"path":"assets/game/characters/directional/companion_borislav_walk_8dir.png","width":888,"height":1776},
         {"path":"assets/game/characters/directional/companion_luna_walk_8dir.png","width":888,"height":1776}
       ],
-      "render_owner": "DirectionalCharacterSystem",
-      "source_layout": "4×8 кадров по 222×222",
-      "runtime_sizes": ["72×96", "96×96"],
-      "target_modules": ["72×96", "96×96"],
-      "anchor": "общая нижняя точка ног на 24 px ниже логической позиции для героя, жителей и напарников",
+      "render_owner": "HeroVisualSystem, GrandmotherVisualSystem и DirectionalCharacterSystem",
+      "source_layout": "герой и бабушка: 4 ракурса × 4 фазы, измеренные целочисленные источники; остальные NPC: 4×8 по222×222",
+      "runtime_sizes": ["96×96"],
+      "target_modules": ["96×96"],
+      "anchor": "стопы нового героя точно в player, одинаковый масштаб0.32 всех кадров; жители/напарники сохраняют прежнюю опору+24",
       "collision": "круг героя 18 px; NPC не блокируют движение",
       "status": "compliant",
       "priority": "P2",
-      "debt": "Закрыт: дробный 79.12 и отдельный размер 100 удалены; все десять атласов используют два модульных профиля и общий actor_rect.",
-      "done_when": "Сохраняются рамки героя 72×96 и жителей/напарников 96×96, восемь строк по четыре кадра, общая точка ног и неизменный радиус героя."
+      "debt": "Герой и бабушка перерисованы с четырьмя ракурсами. У бабушки цельный подол, опора каждого кадра и одинаковый масштаб0.30; служебный фон удаляется один раз до игры, в диалогах и редакторе та же RGBA. Старый атлас бабушки оставлен для совместимости, не участвует в обычной ходьбе. Старые четыре hero-скина не загружаются.",
+      "done_when": "Ходьба и мотыга сохраняют один pixel scale и ground pivot, источники не захватывают соседей, native витрина показывает четыре направления и фазы; радиус героя18px."
     },
     {
       "id": "WS-019",
@@ -472,18 +472,21 @@
         {"path":"assets/game/wildlife/directional/fox_actions_8dir.png","width":768,"height":1024},
         {"path":"assets/game/wildlife/directional/boar_actions_8dir.png","width":768,"height":1024},
         {"path":"assets/game/wildlife/directional/bat_actions_8dir.png","width":768,"height":1024},
-        {"path":"assets/game/wildlife/directional/lizard_actions_8dir.png","width":768,"height":1024}
+        {"path":"assets/game/wildlife/directional/lizard_actions_8dir.png","width":768,"height":1024},
+        {"path":"assets/game/wildlife/directional/fox_walk_4dir_v2.png","width":1312,"height":1199},
+        {"path":"assets/game/wildlife/directional/bat_flight_4dir_v2.png","width":1254,"height":1254},
+        {"path":"assets/game/wildlife/directional/lizard_walk_4dir_v2.png","width":1285,"height":1224}
       ],
-      "render_owner": "GameRenderer.draw_wildlife и CreatureVisualProfileSystem",
-      "source_layout": "6×8 по 128×128",
+      "render_owner": "WildlifeVisualSystem и SpriteMatteSystem",
+      "source_layout": "Четыре стороны: новые лиса/мышь/ящерица 4×4 с явно измеренными source regions; выбранные согласованные позы старых deer/boar",
       "runtime_sizes": ["96×96"],
       "target_modules": ["96×96"],
       "anchor": "нижняя точка лап",
       "collision": "животные не блокируют героя",
       "status": "compliant",
       "priority": "P2",
-      "debt": "Закрыт: размеры 88 и 94 удалены, пять семейств используют одну рамку 96×96 и общую опору.",
-      "done_when": "Все животные используют 96×96, восемь направлений и шесть состояний; визуальная опора стабильна."
+      "debt": "Ходьба и hurt больше не выбирают крошечные дефектные кадры. Кабан временно использует два качественных кадра шага; расширение его анимации требует отдельного redraw.",
+      "done_when": "Четыре различимые стороны, постоянный world-pixel scale, опора лап, реальные регрессии цикла, у лисы, ящерицы и мыши новые полные 4-кадровые наборы."
     },
     {
       "id": "WS-021",
@@ -514,6 +517,33 @@
       "priority": "P2",
       "debt": "Закрыт: произвольные размеры и INTERIOR_SOLIDS удалены; мебель, сервисы, сундук, навигация и F10 используют один профиль.",
       "done_when": "Сохранять единый каталог, целые source-rect, модульные размеры и четыре игровых preview интерьеров."
+    },
+    {
+      "id": "WS-024",
+      "family": "Модульная игровая деревня: тихие материалы, мосты и отдельные объекты",
+      "assets": [
+        {"path":"assets/game/locations/overworld/modular/grass_meadow_tile_v1.png","width":384,"height":384},
+        {"path":"assets/game/locations/overworld/modular/path_material_v1.png","width":384,"height":384},
+        {"path":"assets/game/locations/overworld/modular/dirt_material_v1.png","width":192,"height":192},
+        {"path":"assets/game/locations/overworld/modular/stone_material_v1.png","width":192,"height":192},
+        {"path":"assets/game/locations/overworld/modular/water_material_v1.png","width":192,"height":192},
+        {"path":"assets/game/locations/overworld/modular/bridge_modular_v1.png","width":144,"height":216},
+        {"path":"assets/game/locations/overworld/modular/prop_well_v1.png","width":120,"height":120},
+        {"path":"assets/game/locations/overworld/modular/prop_bench_v1.png","width":96,"height":72},
+        {"path":"assets/game/locations/overworld/modular/prop_lamp_v1.png","width":48,"height":120},
+        {"path":"assets/game/locations/overworld/modular/prop_board_v1.png","width":120,"height":96},
+        {"path":"assets/game/locations/overworld/modular/prop_cart_v1.png","width":120,"height":96}
+      ],
+      "render_owner": "VillageTerrainRenderer и VillagePropRenderer",
+      "source_layout": "Отдельные материалы и прозрачные PNG; исходники и воспроизводимая нарезка сохранены рядом с проектом",
+      "runtime_sizes": ["24×24", "144×216", "120×120", "96×72", "48×120", "120×96"],
+      "target_modules": ["24×24", "144×216", "120×120", "96×72", "48×120", "120×96"],
+      "anchor": "Материалы в мировых координатах; предметы нижним центром, мост центром настила",
+      "collision": "VillageMapData задаёт общие контуры воды, дороги, мосты96×192 и размещения; NavigationSystem и миникарта используют те же данные",
+      "status": "compliant",
+      "priority": "P1",
+      "debt": "Базовый редизайн закрыт: 14 физических маршрутов и два моста проверяются в VillageMapSuite. Дальнейшие сезонные материалы — отдельное улучшение, не повод возвращать baked-коллизии.",
+      "done_when": "Сохранять шаг24, отдельный alpha, общий чертёж рендера/навигации и проходы шире диаметра героя; повторять реальные игровые снимки при изменении пропорций."
     },
     {
       "id": "WS-023",

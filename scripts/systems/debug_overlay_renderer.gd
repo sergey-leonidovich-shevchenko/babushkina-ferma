@@ -166,6 +166,8 @@ static func draw_panel(game: Node2D) -> void:
 	var panel: Rect2 = game.DebugOverlaySystem.PANEL
 	game.DebugUiKitSystem.draw_panel(game,panel)
 	game.draw_ui_string(game.UI_FONT, panel.position + Vector2(18,31), "DEBUG УРОВНЯ · F10", HORIZONTAL_ALIGNMENT_LEFT, panel.size.x - 36, 19, Color("caffdf"))
+	if not state.get("grid_build", {}).is_empty():
+		game.draw_ui_string(game.UI_FONT, panel.position + Vector2(18,207), "Сетка: расчёт %d%%" % roundi(game.DebugOverlaySystem.GridBuildSystem.progress(state) * 100.0), HORIZONTAL_ALIGNMENT_LEFT, panel.size.x - 36, 12, Color("caffdf"))
 	var pointer: Vector2 = game.get_meta("debug_inspector_cursor",game.get_local_mouse_position())
 	var target: Dictionary = game.DebugObjectInspectorSystem.hovered_object(game,pointer)
 	if not target.is_empty():

@@ -3,6 +3,7 @@ extends SceneTree
 const GameScript = preload("res://scripts/game.gd")
 const ArchitectureSuite = preload("res://tests/suites/architecture_suite.gd")
 const CoreSuite = preload("res://tests/suites/core_suite.gd")
+const ComfortSuite = preload("res://tests/suites/comfort_suite.gd")
 const GameplaySuite = preload("res://tests/suites/gameplay_suite.gd")
 const WorldSuite = preload("res://tests/suites/world_suite.gd"); const WaterVisualSuite = preload("res://tests/suites/water_visual_suite.gd")
 const BuildingsSuite = preload("res://tests/suites/buildings_suite.gd")
@@ -34,30 +35,17 @@ var failed := 0
 ## Запускает все наборы тестов и завершает процесс с кодом результата.
 func _initialize() -> void:
 	CoreSuite.new(self).run()
-	GameplaySuite.new(self).run()
-	WorldSuite.new(self).run(); WaterVisualSuite.new(self).run()
-	BuildingsSuite.new(self).run()
-	ProgressionSuite.new(self).run(); TalentSuite.new(self).run(); SpellSuite.new(self).run()
-	AnimationSuite.new(self).run()
-	AudioSuite.new(self).run()
-	InterfaceSuite.new(self).run()
-	EnemyLevelsSuite.new(self).run()
-	StorageForgeSuite.new(self).run()
-	ContractsSuite.new(self).run()
-	MenuSuite.new(self).run()
-	StorySuite.new(self).run()
-	FishingSuite.new(self).run()
-	TreeSuite.new(self).run(); CraftingPipelineSuite.new(self).run()
-	PirateShipSuite.new(self).run()
-	VisualAssetsSuite.new(self).run()
-	PotionSuite.new(self).run()
-	SpriteStandardSuite.new(self).run()
-	WorldEventsSuite.new(self).run()
-	ExpansionSuite.new(self).run()
-	AdventurePolishSuite.new(self).run()
-	EnemyAnimationSuite.new(self).run(); CombatEpicSuite.new(self).run()
-	LivingWorldSuite.new(self).run()
-	FarmLifeSuite.new(self).run(); FirstChapterSuite.new(self).run(); WorldFarmingSuite.new(self).run(); LevelEditorSuite.new(self).run(); FenceBuildingSuite.new(self).run(); UiVisualRegressionSuite.new(self).run()
+	var suites: Array = [
+		ComfortSuite, GameplaySuite, WorldSuite, WaterVisualSuite, BuildingsSuite,
+		ProgressionSuite, TalentSuite, SpellSuite, AnimationSuite, AudioSuite,
+		InterfaceSuite, EnemyLevelsSuite, StorageForgeSuite, ContractsSuite, MenuSuite,
+		StorySuite, FishingSuite, TreeSuite, CraftingPipelineSuite, PirateShipSuite,
+		VisualAssetsSuite, PotionSuite, SpriteStandardSuite, WorldEventsSuite,
+		ExpansionSuite, AdventurePolishSuite, EnemyAnimationSuite, CombatEpicSuite,
+		LivingWorldSuite, FarmLifeSuite, FirstChapterSuite, WorldFarmingSuite,
+		LevelEditorSuite, FenceBuildingSuite, UiVisualRegressionSuite,
+	]
+	for suite in suites: suite.new(self).run()
 	ArchitectureSuite.run(self)
 	print("TESTS: %d passed, %d failed" % [passed, failed])
 	quit(0 if failed == 0 else 1)

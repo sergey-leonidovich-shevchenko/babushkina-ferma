@@ -3,6 +3,7 @@ extends "res://tests/suites/suite_base.gd"
 
 ## Запускает контрактные тесты живой деревни, животных и изолированного полигона отладки.
 func run() -> void:
+	preload("res://tests/suites/wildlife_combat_comfort_suite.gd").new(context).run()
 	test_village_has_distinct_connected_districts()
 	test_village_palette_covers_every_season()
 	test_wildlife_atlases_follow_shared_contract()
@@ -31,12 +32,12 @@ func test_village_has_distinct_connected_districts() -> void:
 	var game := make_game(); var layout = game.VillageLayoutSystem
 	expect(game.SpatialGridSystem.BASE_CELL == 24 and layout.OVERWORLD_TILE_SIZE == game.SpatialGridSystem.BASE_CELL, "world renderer and layout share one 24-pixel base grid")
 	expect(game.SpatialGridSystem.BLOCK_CELL == game.SpatialGridSystem.BASE_CELL * 2 and game.SpatialGridSystem.proportion("door_passage") == Vector2i(2,1), "one major block contains four base cells and doors reserve a two-cell passage")
-	expect(layout.DISTRICTS.size() == 6 and layout.district_at(Vector2(1300,430)) == "market" and layout.district_at(Vector2(2110,250)) == "guild", "village exposes six readable functional districts")
+	expect(layout.DISTRICTS.size() == 6 and layout.district_at(game.BuildingSystem.VILLAGE_SQUARE.get_center()) == "market" and layout.district_at(game.guild_master_position) == "guild", "village exposes six readable functional districts")
 	for building_id in ["cottage","shop_house","guild_hall"]:
 		var point: Vector2 = game.BuildingSystem.BUILDINGS[building_id].door
 		expect(layout.path_reaches(point), "village road reaches service landmark: %s" % point)
 	expect(layout.is_water(Vector2(1200,layout.river_center_y(1200)),18.0) and not layout.is_water(layout.BRIDGES[0].get_center(),18.0), "river blocks movement while bridge preserves navigation")
-	expect(layout.blocks_scenic_prop(Vector2(850,220),18.0), "visible decorative forge from the master owns a matching collision shape")
+	expect(not layout.blocks_scenic_prop(Vector2(850,220),18.0), "старый мастер-фон больше не оставляет невидимую кузницу")
 	expect(not layout.blocks_scenic_prop(Vector2(1170,537),18.0), "removed procedural props no longer leave invisible collision walls")
 	game.free()
 
@@ -185,6 +186,9 @@ func test_runtime_debug_overlay_classifies_navigation_grid() -> void:
 	var game := make_game(); game.current_location = "overworld"; game.player = Vector2(1160,650); game.update_camera()
 	var location: String = game.current_location; var position: Vector2 = game.player
 	game.DebugOverlaySystem.handle_input(game,key_event(KEY_F10,KEY_F10,true))
+	for _batch in 500:
+		if game.get_meta(game.DebugOverlaySystem.META_KEY).grid_build.is_empty(): break
+		game.DebugOverlaySystem.update(game, 0.016)
 	var state: Dictionary = game.get_meta(game.DebugOverlaySystem.META_KEY)
 	expect(game.DebugOverlaySystem.active(game) and state.grid and state.cache.size() > 200, "F10 opens cached navigation overlay in the current location")
 	expect(state.grid_size == game.SpatialGridSystem.BASE_CELL and game.DebugOverlaySystem.GRID_SIZES == [12,24,48,96], "debug overlay opens on the exact art grid and exposes detail base block and overview scales")
@@ -210,6 +214,9 @@ func test_runtime_debug_overlay_classifies_navigation_grid() -> void:
 ## Ожидаемый результат: неподвижная камера переиспользует поколение и текстуру, а фермерский слой явно инвалидирует данные.
 func test_runtime_debug_overlay_reuses_batched_visible_cache() -> void:
 	var game:=make_game(); game.current_location="overworld"; game.player=Vector2(1160,650); game.update_camera(); game.DebugOverlaySystem.toggle(game)
+	for _batch in 500:
+		if game.get_meta(game.DebugOverlaySystem.META_KEY).grid_build.is_empty(): break
+		game.DebugOverlaySystem.update(game, 0.016)
 	var initial:Dictionary=game.get_meta(game.DebugOverlaySystem.META_KEY); var generation:=int(initial.cache_generation)
 	var texture:Texture2D=game.DebugOverlayRenderer.grid_texture(game,initial)
 	expect(texture!=null and texture.get_size()==Vector2(initial.cache_columns,initial.cache_rows), "F10 batches all classified cells into one compact nearest-neighbour texture")
@@ -220,6 +227,9 @@ func test_runtime_debug_overlay_reuses_batched_visible_cache() -> void:
 	game.camera_offset+=Vector2(12,0); game.DebugOverlaySystem.update(game,0.016)
 	expect(int(game.get_meta(game.DebugOverlaySystem.META_KEY).cache_generation)==generation, "small camera movement remains inside the cached safety margin without a rebuild")
 	game.DebugOverlaySystem.toggle_option(game,"farming"); game.DebugOverlaySystem.update(game,0.016)
+	for _batch in 1000:
+		if game.get_meta(game.DebugOverlaySystem.META_KEY).grid_build.is_empty(): break
+		game.DebugOverlaySystem.update(game, 0.016)
 	var farming:Dictionary=game.get_meta(game.DebugOverlaySystem.META_KEY)
 	expect(int(farming.cache_generation)==generation+1 and farming.cache.all(func(cell:Dictionary): return not String(cell.farming_reason).is_empty()), "enabling tillability performs one explicit refresh with farming reasons")
 	game.free()
@@ -283,13 +293,14 @@ func test_debug_tools_share_storybook_chrome_and_technical_colors() -> void:
 
 
 ## Сценарий: справа от бабушки существует честная калитка, совпадающая с видимым маршрутом двора.
-## Исходное состояние: герой стоит на высоте бабушки и движется горизонтально через правую сторону фермерского забора.
+## Исходное состояние: герой движется горизонтально через восточную калитку фермы из текущего чертежа карты.
 ## Ожидаемый результат: весь коридор калитки проходим, но секции забора выше и ниже по-прежнему блокируют движение.
 func test_grandmother_side_gate_stays_walkable() -> void:
 	var game := make_game(); game.current_location = "overworld"; game.slime_alive = false; game.enemy_nodes.clear(); game.resource_nodes.clear(); game.food_nodes.clear(); game.world_loot_nodes.clear()
-	for x in range(420, 501, 10):
-		expect(game.NavigationSystem.walkability_reason(game, Vector2(x, 940)) == "walkable", "grandmother side gate remains walkable at x=%d" % x)
-	expect(game.NavigationSystem.walkability_reason(game, Vector2(452, 845)) == "fence" and game.NavigationSystem.walkability_reason(game, Vector2(452, 1040)) == "fence", "solid fence sections remain blocked above and below grandmother gate")
+	var gate:Rect2=game.BuildingSystem.farm_gate_rects()[1]
+	for x in range(int(gate.position.x)-36,int(gate.end.x)+37,12):
+		expect(game.NavigationSystem.walkability_reason(game, Vector2(x, gate.get_center().y)) == "walkable", "grandmother side gate remains walkable at x=%d" % x)
+	expect(game.NavigationSystem.walkability_reason(game, game.BuildingSystem.farm_fence_rects()[3].get_center()) == "fence" and game.NavigationSystem.walkability_reason(game, game.BuildingSystem.farm_fence_rects()[4].get_center()) == "fence", "solid fence sections remain blocked above and below grandmother gate")
 	game.free()
 
 

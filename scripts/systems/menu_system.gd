@@ -42,6 +42,7 @@ static func open_pause(game: Node) -> bool:
 	game.menu_state.pause_open = true
 	game.menu_state.settings_open = false
 	game.menu_state.pause_selected = 0
+	game.set_meta("pause_column", 0)
 	game.menu_state.notice = ""
 	game.clear_movement_keys()
 	game.notify_tutorial("pause_menu")
@@ -87,6 +88,24 @@ static func move_selection(game: Node, delta: int, save_path: String = "") -> vo
 			break
 	game.menu_state.set(field, selected)
 	game.UiFeedbackSystem.focus(game, "%s:%d" % [field, selected])
+
+
+## Перемещает фокус по четырём видимым рядам паузы, сохраняя выбранную колонку между широкими кнопками.
+static func navigate_pause(game: Node, direction: int) -> void:
+	var selected: int = game.menu_state.pause_selected
+	var column: int = game.get_meta("pause_column", 0)
+	if selected in [1, 2, 4, 5]: column = 1 if selected in [2, 5] else 0
+	if direction in [KEY_LEFT, KEY_RIGHT]:
+		if selected not in [1, 2, 4, 5]: return
+		column = 1 if direction == KEY_RIGHT else 0
+		selected = (1 if selected in [1, 2] else 4) + column
+	elif direction == KEY_DOWN:
+		selected = {0:1 + column, 1:3, 2:3, 3:4 + column, 4:0, 5:0}[selected]
+	elif direction == KEY_UP:
+		selected = {0:4 + column, 1:0, 2:0, 3:1 + column, 4:3, 5:3}[selected]
+	game.menu_state.pause_selected = selected
+	game.set_meta("pause_column", column)
+	game.UiFeedbackSystem.focus(game, "pause_selected:%d" % selected)
 
 
 ## Выполняет выбранную команду главного меню и возвращает признак успешной операции.
@@ -316,8 +335,11 @@ static func handle_input(game: Node, event: InputEvent, settings_path: String = 
 			KEY_ESCAPE: close_settings(game, settings_path)
 	else:
 		match command:
-			KEY_UP: move_selection(game, -1)
-			KEY_DOWN: move_selection(game, 1)
+			KEY_UP, KEY_DOWN:
+				if game.title_screen: move_selection(game, -1 if command == KEY_UP else 1)
+				else: navigate_pause(game, command)
+			KEY_LEFT, KEY_RIGHT:
+				if not game.title_screen: navigate_pause(game, command)
 			KEY_ENTER, KEY_SPACE:
 				if game.title_screen: activate_title(game)
 				else: activate_pause(game)

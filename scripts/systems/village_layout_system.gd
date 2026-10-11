@@ -1,36 +1,19 @@
 extends RefCounted
 
-const RIVER_CENTER := [
-	Vector2(260, 80), Vector2(330, 300), Vector2(500, 500), Vector2(700, 650),
-	Vector2(980, 740), Vector2(1250, 760), Vector2(1550, 825), Vector2(1800, 920),
-	Vector2(2050, 1050), Vector2(2400, 1160),
-]
-const RIVER_HALF_WIDTH := 58.0
-const POND_CENTER := Vector2(1560, 850)
-const POND_RADII := Vector2(150, 82)
+const MapData := preload("res://scripts/systems/village_map_data.gd")
+const RIVER_CENTER := MapData.RIVER
+const RIVER_HALF_WIDTH := MapData.RIVER_HALF_WIDTH
+const POND_CENTER := MapData.POND
+const POND_RADII := MapData.POND_RADII
 const WorldVisualProfileSystem := preload("res://scripts/systems/world_visual_profile_system.gd")
 const BRIDGE_SIZE := WorldVisualProfileSystem.PROFILES.bridge.visual_size
-const BRIDGES := [Rect2(592, 444, 96, 192), Rect2(1352, 714, 96, 192)]
+const BRIDGES := MapData.BRIDGES
 const BRIDGE_RENDER_OFFSETS := [Vector2.ZERO, Vector2.ZERO]
-const BRIDGE_RENDER_SIZES := [BRIDGE_SIZE, BRIDGE_SIZE]
-const DISTRICTS := {
-	"homestead":Rect2(38, 690, 720, 490), "farm":Rect2(38, 830, 420, 350),
-	"market":Rect2(1120, 250, 560, 350), "guild":Rect2(1780, 120, 500, 430),
-	"riverwalk":Rect2(720, 610, 980, 300), "east_grove":Rect2(1760, 320, 620, 760),
-}
+const BRIDGE_RENDER_SIZES := [Vector2(144,216),Vector2(144,216)]
+const DISTRICTS := MapData.DISTRICTS
 const DISTRICT_LABELS := {"homestead":"УСАДЬБА","farm":"ФЕРМА","market":"РЫНОК","guild":"ГИЛЬДИЯ","riverwalk":"НАБЕРЕЖНАЯ","east_grove":"ВОСТОЧНАЯ РОЩА"}
-const PATHS := [
-	[Vector2(420,790),Vector2(520,710),Vector2(640,610),Vector2(650,500),Vector2(840,430),Vector2(1120,440),Vector2(1480,390),Vector2(1740,420),Vector2(2110,250)],
-	[Vector2(240,1090),Vector2(250,880),Vector2(420,790)],
-	[Vector2(1480,520),Vector2(1480,390)],
-	[Vector2(1740,420),Vector2(1920,540),Vector2(2110,250)],
-	[Vector2(1120,440),Vector2(920,300),Vector2(760,210),Vector2(620,170),Vector2(480,180)],
-	[Vector2(1120,440),Vector2(1430,270),Vector2(1730,150)],
-	[Vector2(1480,520),Vector2(1540,690),Vector2(1400,810),Vector2(1720,900),Vector2(2020,1010),Vector2(2260,1080)],
-	[Vector2(1400,810),Vector2(1560,850)],
-	[Vector2(1120,440),Vector2(1050,390)],
-]
-const WELL_POSITION := Vector2(1050, 390)
+const PATHS := MapData.PATHS
+const WELL_POSITION := MapData.WELL
 const PROP_CELLS := {
 	"well":Vector2i(0,0), "bench":Vector2i(1,0), "lamp":Vector2i(2,0), "board":Vector2i(3,0),
 	"cart":Vector2i(0,1), "fence":Vector2i(1,1), "gate":Vector2i(2,1), "mill":Vector2i(3,1),
@@ -39,37 +22,19 @@ const PROP_PROFILES := {"well":"village_well","bench":"village_bench","lamp":"vi
 const PROP_ATLAS_CELL := Vector2(512,512)
 const PROP_PLACEMENTS := [
 	{"kind":"well","position":WELL_POSITION,"solid":true},
-	{"kind":"bench","position":Vector2(1030,585)},
-	{"kind":"bench","position":Vector2(1450,585)},
-	{"kind":"lamp","position":Vector2(875,535)},
-	{"kind":"lamp","position":Vector2(1640,535)},
-	{"kind":"board","position":Vector2(1335,460)},
-	{"kind":"cart","position":Vector2(915,455),"solid":true},
-	{"kind":"mill","position":Vector2(2010,745),"solid":true},
+	{"kind":"bench","position":Vector2(1176,792),"solid":true},
+	{"kind":"bench","position":Vector2(1512,816),"solid":true},
+	{"kind":"lamp","position":Vector2(768,552),"solid":true},
+	{"kind":"lamp","position":Vector2(1728,696),"solid":true},
+	{"kind":"board","position":Vector2(1656,528),"solid":true},
+	{"kind":"board","position":Vector2(648,576),"solid":true},
+	{"kind":"cart","position":MapData.SELL_CRATE,"solid":false},
 ]
 # Небольшой неколлизионный декор уплотняет видимый кадр между ключевыми объектами, не создавая невидимых стен.
-const SCENIC_PLACEMENTS := [
-	{"kind":"bench","position":Vector2(520,430)},
-	{"kind":"lamp","position":Vector2(690,520)},
-	{"kind":"fence","position":Vector2(470,1010)},
-	{"kind":"fence","position":Vector2(545,1010)},
-	{"kind":"gate","position":Vector2(625,1010)},
-	{"kind":"cart","position":Vector2(1120,720)},
-	{"kind":"bench","position":Vector2(1515,435)},
-	{"kind":"lamp","position":Vector2(1780,475)},
-	{"kind":"board","position":Vector2(1910,860)},
-	{"kind":"fence","position":Vector2(2160,930)},
-]
-const MASTER_SOLID_RECTS := [
-	Rect2(250,120,230,260), Rect2(730,120,260,230), Rect2(1490,120,380,105),
-	Rect2(2240,120,160,780), Rect2(1760,570,250,150), Rect2(1970,890,250,190),
-]
-const FLOWER_PATCHES := [
-	Vector2(290,820),Vector2(420,780),Vector2(900,680),Vector2(1040,740),Vector2(1320,760),
-	Vector2(1600,790),Vector2(1880,420),Vector2(2140,390),Vector2(930,310),Vector2(1520,290),
-	Vector2(360,430),Vector2(560,560),Vector2(760,430),Vector2(1160,320),Vector2(1370,650),
-	Vector2(1680,430),Vector2(1960,520),Vector2(2210,560),Vector2(1850,920),Vector2(1180,980),
-]
+const SCENIC_PLACEMENTS := []
+# Сохранён только совместимый пустой контракт: у модульной карты нет невидимых стен мастер-картинки.
+const MASTER_SOLID_RECTS := []
+const FLOWER_PATCHES := MapData.FLOWERS
 const SpatialGridSystem := preload("res://scripts/systems/spatial_grid_system.gd")
 const OVERWORLD_TILE_SIZE := SpatialGridSystem.BASE_CELL
 const OVERWORLD_TILE_COUNT := Vector2i(100, 50)
@@ -107,7 +72,7 @@ static func overworld_tile(cell: Vector2i, season: String = "spring") -> int:
 	var position := tile_center(cell)
 	var seasonal_bonus := season == "winter"
 	if is_water(position, 0.0):
-		return OVERWORLD_TILE_STONE if seasonal_bonus else OVERWORLD_TILE_WATER
+		return OVERWORLD_TILE_WATER
 	if is_road_or_path(position):
 		return OVERWORLD_TILE_ROAD
 	if is_farm_zone(position):
@@ -125,9 +90,7 @@ static func is_river_park(position: Vector2) -> bool:
 
 ## Проверяет, принадлежит ли область позиции зоне внутренней фермы.
 static func is_farm_zone(position: Vector2) -> bool:
-	var farm_zone := Rect2(490, 805, 360, 315)
-	var gate := Vector2(540, 905)
-	return farm_zone.has_point(position) and not farm_zone.intersects(Rect2(gate - Vector2(40, 0), Vector2(90, 20)))
+	return Rect2(Vector2(MapData.FARM_ORIGIN),Vector2(288,240)).has_point(position)
 
 ## Возвращает, нужно ли рисовать бордюрный камень в зависимости от координаты.
 static func is_border_zone(cell: Vector2i) -> bool:
@@ -135,9 +98,11 @@ static func is_border_zone(cell: Vector2i) -> bool:
 
 ## Возвращает признак участка, который должен выглядеть как дорога/тропа.
 static func is_road_or_path(position: Vector2) -> bool:
-	for path in PATHS:
+	var square_delta:Vector2=(position-MapData.SQUARE.get_center())/(MapData.SQUARE.size*0.5)
+	if square_delta.length_squared()<=1.0: return true
+	for path in MapData.routes():
 		for index in path.size() - 1:
-			if distance_to_segment(position, path[index], path[index + 1]) <= 34.0:
+			if distance_to_segment(position, path[index], path[index + 1]) <= MapData.PATH_HALF_WIDTH:
 				return true
 	return false
 
@@ -150,14 +115,15 @@ static func is_border_rock(position: Vector2) -> bool:
 		return true
 	return false
 
-const LANTERNS := [Vector2(805,535),Vector2(1050,620),Vector2(1450,620),Vector2(1790,555),Vector2(1790,825)]
-const AMBIENT_SPOTS := [Vector2(1010,430),Vector2(1130,565),Vector2(1390,555),Vector2(1570,440),Vector2(910,760),Vector2(1650,790)]
-const BORDER_TREES := [Vector2(60,175),Vector2(190,155),Vector2(330,170),Vector2(520,145),Vector2(700,165),Vector2(1710,155),Vector2(1870,145),Vector2(2040,165),Vector2(2210,145),Vector2(2350,175),Vector2(65,390),Vector2(2335,430),Vector2(70,850),Vector2(2325,890)]
+const LANTERNS := [Vector2(768,552),Vector2(1728,696)]
+const AMBIENT_SPOTS := [Vector2(552,648),Vector2(1128,720),Vector2(1416,768),Vector2(1776,816)]
+const BORDER_TREES := MapData.BORDER_TREES
 const BORDER_ROCKS := [Vector2(70,245),Vector2(120,220),Vector2(175,205),Vector2(225,230),Vector2(95,300)]
 
 
 ## Возвращает район, содержащий мировую точку, либо пустую строку вне деревенских кварталов.
 static func district_at(position: Vector2) -> String:
+	if DISTRICTS.farm.has_point(position): return "farm"
 	for district_id in DISTRICTS:
 		if DISTRICTS[district_id].has_point(position): return district_id
 	return ""
@@ -239,6 +205,10 @@ static func is_water(position: Vector2, radius: float) -> bool:
 
 ## Проверяет столкновение с крупным декором площади, который не является частью зданий.
 static func blocks_scenic_prop(position: Vector2, radius: float) -> bool:
+	for tree_position in BORDER_TREES:
+		var foundation:=WorldVisualProfileSystem.collision_rect("tree_adult",tree_position+Vector2(0,48))
+		var closest:=Vector2(clampf(position.x,foundation.position.x,foundation.end.x),clampf(position.y,foundation.position.y,foundation.end.y))
+		if position.distance_squared_to(closest)<radius*radius: return true
 	for prop in PROP_PLACEMENTS:
 		var prop_collision:Rect2=prop_collision_rect(prop)
 		if prop_collision.has_area():
@@ -262,7 +232,7 @@ static func distance_to_segment(point: Vector2, start: Vector2, finish: Vector2)
 
 ## Проверяет, связан ли ориентир с читаемой дорожной сетью в заданном радиусе.
 static func path_reaches(point: Vector2, margin: float = 70.0) -> bool:
-	for path in PATHS:
+	for path in MapData.routes():
 		for index in path.size() - 1:
 			if distance_to_segment(point, path[index], path[index + 1]) <= margin:
 				return true

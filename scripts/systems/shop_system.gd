@@ -64,11 +64,11 @@ static func buy(game: Node, product_index: int) -> bool:
 	if product.buy <= 0:
 		game.message = game.LocaleSystem.text("shop_buy_only")
 		return false
-	var purchase_price: int = roundi(float(product.buy) * game.EstateSystem.purchase_multiplier(game))
-	if game.coins < purchase_price:
+	var price: int = purchase_price(game, product)
+	if game.coins < price:
 		game.message = game.LocaleSystem.text("no_coins")
 		return false
-	game.coins -= purchase_price
+	game.coins -= price
 	product.stock -= 1; game.shop_products[product_index] = product
 	game.change_inventory_count(product.kind, product.get("amount", 1))
 	if product.kind == "home_chest": game.StorageSystem.install(game)
@@ -77,6 +77,30 @@ static func buy(game: Node, product_index: int) -> bool:
 	game.notify_tutorial("trade")
 	if product.get("seed", false): game.notify_tutorial("seed_catalog")
 	return true
+
+
+## Возвращает фактическую цену покупки с учётом скидок и текущего уровня расширения рюкзака.
+static func purchase_price(game: Node, product: Dictionary) -> int:
+	if product.kind == "backpack_upgrade": return 120 * (int(game.state.inventory.backpack_level) + 1)
+	return roundi(float(product.buy) * game.EstateSystem.purchase_multiplier(game))
+
+
+## Проверяет покупку без изменения запасов лавки, чтобы disabled-кнопка совпадала с правилами настоящей сделки.
+static func can_buy(game: Node, product_index: int) -> bool:
+	if product_index < 0 or product_index >= game.shop_products.size(): return false
+	var product: Dictionary = game.shop_products[product_index].duplicate()
+	refresh_stock(product, game.day)
+	if int(product.stock) <= 0 or int(product.buy) <= 0: return false
+	if product.kind == "home_chest" and game.home_chest_owned: return false
+	if product.kind == "backpack_upgrade" and game.state.inventory.backpack_level >= 4: return false
+	return game.coins >= purchase_price(game, product)
+
+
+## Проверяет наличие продаваемого предмета, не расходуя его до явного подтверждения сделки.
+static func can_sell(game: Node, product_index: int) -> bool:
+	if product_index < 0 or product_index >= game.shop_products.size(): return false
+	var product: Dictionary = game.shop_products[product_index]
+	return int(product.sell) > 0 and game.inventory_item_count(String(product.kind)) > 0
 
 
 ## Восстанавливает ограниченный дневной запас товара по стабильному правилу.

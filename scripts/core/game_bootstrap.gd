@@ -20,6 +20,9 @@ static func _initialize_services(game: Node) -> void:
 	game.InputSystem.ensure_default_actions()
 	game.talent_levels = game.TalentSystem.merge_levels(game.talent_levels)
 	game.VisualAssetSystem.initialize_item_icons(game.InventorySystem.ITEM_DATA.keys())
+	game.DirectionalCharacterSystem.HeroVisualSystem.warmup()
+	game.DirectionalCharacterSystem.GrandmotherVisualSystem.warmup()
+	preload("res://scripts/systems/wildlife_visual_system.gd").warmup(game)
 	for content_error in game.ContentRegistry.validate():
 		game.push_error("Invalid game content: " + content_error)
 	game.LocaleSystem.load_locale()
@@ -80,7 +83,7 @@ static func _configure_basic_previews(game: Node, args: PackedStringArray) -> vo
 		game.coins = 500
 		game.skill_levels.leadership = 2
 	if "--animation-preview" in args or "--capture-characters" in args:
-		_configure_character_preview(game, "--capture-characters" in args)
+		game.DirectionalCharacterSystem.configure_preview(game, "--capture-characters" in args)
 	if "--enemy-levels-preview" in args or "--capture-creatures" in args:
 		game.configure_enemy_levels_preview()
 		if "--capture-creatures" in args:
@@ -88,26 +91,6 @@ static func _configure_basic_previews(game: Node, args: PackedStringArray) -> vo
 	if "--enemy-animations-preview" in args:
 		game.EnemyAnimationLibrary.configure_preview(game)
 	_configure_debug_preview(game, args)
-
-## Настраивает витрину восьми направлений героя, жителей и напарников.
-static func _configure_character_preview(game: Node, capture: bool) -> void:
-	_configure_world_view(game, Vector2(700, 850))
-	game.npc_position = Vector2(500, 810)
-	game.guild_master_position = Vector2(650, 790)
-	game.herbalist_position = Vector2(830, 810)
-	game.recruited_companions.assign(["mila", "borislav", "luna"])
-	game.active_companions.assign(["mila", "borislav", "luna"])
-	game.companion_positions = {
-		"mila": Vector2(560, 930),
-		"borislav": Vector2(700, 930),
-		"luna": Vector2(840, 930),
-	}
-	if capture:
-		game.enemy_nodes = []
-		game.hazard_nodes = []
-		game.wildlife_nodes = []
-		game.set_meta("capture_character_frames", 8)
-		game.set_meta("capture_first_level_clean", true)
 
 ## Настраивает стенд отладки, навигационную сетку, миссии и инспектор объектов.
 static func _configure_debug_preview(game: Node, args: PackedStringArray) -> void:

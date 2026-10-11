@@ -22,7 +22,9 @@ static func draw(game: Node2D) -> void:
 
 ## Рисует землю и состояние одной грядки независимо от её локации.
 static func draw_plot(game: Node2D, rect: Rect2, plot: Dictionary) -> void:
-	game.draw_texture_rect_region(game.FarmVisualSystem.ATLAS, rect, game.FarmVisualSystem.soil_source(plot))
+	if not game.FarmVisualSystem.is_plot_visible(plot):
+		return
+	game.FarmVisualSystem.draw_soil(game, rect, plot)
 	if not plot.planted:
 		return
 	draw_crop(game, rect, plot)

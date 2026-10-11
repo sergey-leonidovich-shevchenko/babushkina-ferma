@@ -1,6 +1,7 @@
 extends RefCounted
 
 const UiKitSystem := preload("res://scripts/systems/ui_kit_system.gd")
+const TextMetrics := preload("res://scripts/systems/ui_text_metrics_cache_system.gd")
 const SCREEN := Color(0.025, 0.055, 0.048, 0.94)
 const SCREEN_EDITOR := Color(0.075, 0.050, 0.030, 0.94)
 const TECH_GREEN := Color("78e2b1")
@@ -55,8 +56,4 @@ static func draw_catalog_row(game: Node2D, rect: Rect2, selected: bool, editor: 
 
 ## Уменьшает и при необходимости сокращает подпись по реальной ширине шрифта, не выпуская её за кнопку.
 static func fit_label(font: Font, label: String, max_width: float, preferred_size: int = 10, minimum_size: int = 7) -> Dictionary:
-	var size:=preferred_size; var text:=label
-	while size>minimum_size and font.get_string_size(text,HORIZONTAL_ALIGNMENT_LEFT,-1,size).x>max_width: size-=1
-	if font.get_string_size(text,HORIZONTAL_ALIGNMENT_LEFT,-1,size).x<=max_width: return {"text":text,"size":size}
-	while text.length()>1 and font.get_string_size(text+"…",HORIZONTAL_ALIGNMENT_LEFT,-1,size).x>max_width: text=text.left(text.length()-1)
-	return {"text":text+"…","size":size}
+	return TextMetrics.fitted_label(font, label, max_width, preferred_size, minimum_size)

@@ -185,6 +185,8 @@ static func finalize(game: Node) -> void:
 ## Сохраняет системный UI-экран после стабилизации нескольких кадров и завершает режим предпросмотра.
 static func update_capture(game: Node) -> bool:
 	if not game.has_meta("capture_ui_frames"): return false
+	# Снимок F10 ждёт завершения пакетной сетки, иначе эталон запечатлеет временно пустой слой.
+	if String(game.get_meta("capture_ui_output","")).ends_with("debug_overlay_ingame_preview.png") and not Dictionary(game.get_meta(game.DebugOverlaySystem.META_KEY,{})).get("grid_build",{}).is_empty(): return false
 	if game.has_meta("capture_notification_text"): game.message = String(game.get_meta("capture_notification_text")); game.queue_redraw()
 	var frames_left := int(game.get_meta("capture_ui_frames")) - 1
 	game.set_meta("capture_ui_frames", frames_left)

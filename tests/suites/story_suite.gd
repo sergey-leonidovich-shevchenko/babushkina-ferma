@@ -178,11 +178,12 @@ func test_quest_markers_reflect_progress() -> void:
 	game.free()
 
 ## Сценарий: расширенный журнал листает все задания клавиатурой и геймпадом по три строки.
-## Исходное состояние: журнал открыт на первой из пяти страниц.
+## Исходное состояние: сюжетный раздел показывает все доступные и активные задания с первой страницы.
 ## Ожидаемый результат: Right и D-pad меняют страницу, Left возвращает её, а B закрывает окно.
 func test_quest_journal_has_keyboard_and_gamepad_pages() -> void:
 	var game := make_game()
 	game.toggle_quest_log()
+	game.set_meta("journal_status","all")
 	game.InputSystem.handle_modal_input(game, key_event(KEY_RIGHT, KEY_RIGHT, true))
 	expect(game.quest_log_page == 1, "keyboard pages the expanded quest journal")
 	var right := InputEventJoypadButton.new(); right.button_index = JOY_BUTTON_DPAD_RIGHT; right.pressed = true

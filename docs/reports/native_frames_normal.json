@@ -1,0 +1,372 @@
+{
+  "clock": "Time.get_ticks_usec between rendered SceneTree frames; not smoothed delta",
+  "cursor": [
+    220,
+    220
+  ],
+  "display_server": "macOS",
+  "engine": "4.7.1-stable (official)",
+  "gpu": "AMD Radeon Pro 5300M OpenGL Engine",
+  "map_revision": 2,
+  "max_fps": 60,
+  "mode": "normal",
+  "physics_hz": 60,
+  "profile": {
+    "audio_enabled": true,
+    "high_contrast": false,
+    "locale": "ru",
+    "reduced_motion": false,
+    "screen_shake": false,
+    "text_scale": 1.0,
+    "touch_scale": 1.0
+  },
+  "render_frame": {
+    "frames_over_33ms": 12,
+    "max_ms": 1223.909,
+    "mean_ms": 18.0640241666666,
+    "p50_ms": 16.612,
+    "p95_ms": 19.15,
+    "p99_ms": 33.284
+  },
+  "render_frame_by_location": {
+    "cave": {
+      "samples": 616,
+      "statistics": {
+        "frames_over_33ms": 1,
+        "max_ms": 66.244,
+        "mean_ms": 16.7590048701299,
+        "p50_ms": 16.552,
+        "p95_ms": 19.182,
+        "p99_ms": 21.716
+      }
+    },
+    "overworld": {
+      "samples": 584,
+      "statistics": {
+        "frames_over_33ms": 11,
+        "max_ms": 1223.909,
+        "mean_ms": 19.440551369863,
+        "p50_ms": 16.626,
+        "p95_ms": 18.633,
+        "p99_ms": 46.057
+      }
+    }
+  },
+  "route": "Village.START → PATHS[0] nodes 2…7 (bridge + square) → nodes 6,5,4 → PATHS[6][1] → automatic cave entrance; physical keyboard input, no teleport",
+  "route_checkpoints": [
+    {
+      "checkpoint": 0,
+      "position": [
+        645.5,
+        672.0
+      ],
+      "seconds": 1.03333333333333,
+      "target": [
+        648.0,
+        672.0
+      ]
+    },
+    {
+      "checkpoint": 1,
+      "position": [
+        862.12,
+        553.21
+      ],
+      "seconds": 2.33333333333333,
+      "target": [
+        864.0,
+        552.0
+      ]
+    },
+    {
+      "checkpoint": 2,
+      "position": [
+        864.59,
+        361.73
+      ],
+      "seconds": 3.25,
+      "target": [
+        864.0,
+        360.0
+      ]
+    },
+    {
+      "checkpoint": 3,
+      "position": [
+        1004.38,
+        480.53
+      ],
+      "seconds": 4.15,
+      "target": [
+        1008.0,
+        480.0
+      ]
+    },
+    {
+      "checkpoint": 4,
+      "position": [
+        1128.13,
+        667.27
+      ],
+      "seconds": 5.28333333333333,
+      "target": [
+        1128.0,
+        672.0
+      ]
+    },
+    {
+      "checkpoint": 5,
+      "position": [
+        1316.85,
+        743.99
+      ],
+      "seconds": 6.33333333333333,
+      "target": [
+        1320.0,
+        744.0
+      ]
+    },
+    {
+      "checkpoint": 6,
+      "position": [
+        1129.58,
+        672.22
+      ],
+      "seconds": 7.36666666666667,
+      "target": [
+        1128.0,
+        672.0
+      ]
+    },
+    {
+      "checkpoint": 7,
+      "position": [
+        1008.31,
+        484.45
+      ],
+      "seconds": 8.5,
+      "target": [
+        1008.0,
+        480.0
+      ]
+    },
+    {
+      "checkpoint": 8,
+      "position": [
+        867.07,
+        360.71
+      ],
+      "seconds": 9.41666666666667,
+      "target": [
+        864.0,
+        360.0
+      ]
+    },
+    {
+      "checkpoint": 9,
+      "position": [
+        839.84,
+        266.98
+      ],
+      "seconds": 9.91666666666667,
+      "target": [
+        840.0,
+        264.0
+      ]
+    },
+    {
+      "checkpoint": "cave_entered",
+      "position": [
+        270.0,
+        430.0
+      ],
+      "seconds": 10.2833333333333
+    }
+  ],
+  "route_final_location": "cave",
+  "route_final_position": [
+    260.0,
+    360.0
+  ],
+  "route_finished": true,
+  "sample_frames": 1200,
+  "schema": 4,
+  "seed": 20260908,
+  "slow_frames": [
+    {
+      "duration_ms": 1223.909,
+      "frame": 248,
+      "grid_cursor": 0,
+      "grid_pending": false,
+      "location": "overworld",
+      "physics_frames": 272,
+      "position": [
+        825.24,
+        565.58
+      ],
+      "route_checkpoint": 1,
+      "route_seconds": 2.11666666666667
+    },
+    {
+      "duration_ms": 80.04,
+      "frame": 249,
+      "grid_cursor": 0,
+      "grid_pending": false,
+      "location": "overworld",
+      "physics_frames": 280,
+      "position": [
+        848.12,
+        553.21
+      ],
+      "route_checkpoint": 1,
+      "route_seconds": 2.25
+    },
+    {
+      "duration_ms": 62.653,
+      "frame": 250,
+      "grid_cursor": 0,
+      "grid_pending": false,
+      "location": "overworld",
+      "physics_frames": 286,
+      "position": [
+        862.12,
+        546.21
+      ],
+      "route_checkpoint": 2,
+      "route_seconds": 2.35
+    },
+    {
+      "duration_ms": 46.057,
+      "frame": 251,
+      "grid_cursor": 0,
+      "grid_pending": false,
+      "location": "overworld",
+      "physics_frames": 290,
+      "position": [
+        862.12,
+        532.21
+      ],
+      "route_checkpoint": 2,
+      "route_seconds": 2.41666666666667
+    },
+    {
+      "duration_ms": 46.088,
+      "frame": 252,
+      "grid_cursor": 0,
+      "grid_pending": false,
+      "location": "overworld",
+      "physics_frames": 293,
+      "position": [
+        862.12,
+        521.71
+      ],
+      "route_checkpoint": 2,
+      "route_seconds": 2.46666666666667
+    },
+    {
+      "duration_ms": 41.04,
+      "frame": 253,
+      "grid_cursor": 0,
+      "grid_pending": false,
+      "location": "overworld",
+      "physics_frames": 295,
+      "position": [
+        862.12,
+        514.71
+      ],
+      "route_checkpoint": 2,
+      "route_seconds": 2.5
+    },
+    {
+      "duration_ms": 40.067,
+      "frame": 254,
+      "grid_cursor": 0,
+      "grid_pending": false,
+      "location": "overworld",
+      "physics_frames": 298,
+      "position": [
+        862.12,
+        504.21
+      ],
+      "route_checkpoint": 2,
+      "route_seconds": 2.55
+    },
+    {
+      "duration_ms": 47.343,
+      "frame": 412,
+      "grid_cursor": 0,
+      "grid_pending": false,
+      "location": "overworld",
+      "physics_frames": 459,
+      "position": [
+        1128.13,
+        660.27
+      ],
+      "route_checkpoint": 4,
+      "route_seconds": 5.23333333333333
+    },
+    {
+      "duration_ms": 34.802,
+      "frame": 431,
+      "grid_cursor": 0,
+      "grid_pending": false,
+      "location": "overworld",
+      "physics_frames": 481,
+      "position": [
+        1185.83,
+        696.97
+      ],
+      "route_checkpoint": 5,
+      "route_seconds": 5.6
+    },
+    {
+      "duration_ms": 45.532,
+      "frame": 435,
+      "grid_cursor": 0,
+      "grid_pending": false,
+      "location": "overworld",
+      "physics_frames": 486,
+      "position": [
+        1201.28,
+        701.92
+      ],
+      "route_checkpoint": 5,
+      "route_seconds": 5.68333333333333
+    },
+    {
+      "duration_ms": 47.173,
+      "frame": 704,
+      "grid_cursor": 0,
+      "grid_pending": false,
+      "location": "overworld",
+      "physics_frames": 759,
+      "position": [
+        785.22,
+        229.86
+      ],
+      "route_checkpoint": 10,
+      "route_seconds": 10.2333333333333
+    },
+    {
+      "duration_ms": 66.244,
+      "frame": 705,
+      "grid_cursor": 0,
+      "grid_pending": false,
+      "location": "cave",
+      "physics_frames": 761,
+      "position": [
+        270.0,
+        430.0
+      ],
+      "route_checkpoint": 10,
+      "route_seconds": 10.2666666666667
+    }
+  ],
+  "user_saves_unchanged": true,
+  "vsync": 1,
+  "warmup_frames": 120,
+  "window_size": [
+    3584,
+    2240
+  ]
+}

@@ -7,8 +7,8 @@ const HudLayoutSystem := preload("res://scripts/systems/hud_layout_system.gd")
 const QUEST_WINDOW := Rect2(86, 42, 980, 552)
 const QUEST_HEADER := Rect2(326, 54, 500, 66)
 const QUEST_CARD_RECTS := [Rect2(132, 132, 888, 124), Rect2(132, 266, 888, 124), Rect2(132, 400, 888, 124)]
-const QUEST_PREV := Rect2(94, 500, 42, 42)
-const QUEST_NEXT := Rect2(1016, 500, 42, 42)
+const QUEST_PREV := preload("res://scripts/systems/quest_journal_system.gd").PREV
+const QUEST_NEXT := preload("res://scripts/systems/quest_journal_system.gd").NEXT
 const DIALOGUE_WINDOW := Rect2(68, 344, 1016, 286)
 const DIALOGUE_PORTRAIT := Rect2(96, 374, 176, 178)
 const TUTORIAL_CARD := HudLayoutSystem.TUTORIAL_RECT
@@ -19,22 +19,7 @@ const REWARD_ICONS := ["fruit_sapling", "healing_potion", "travel_boots"]
 
 ## Рисует журнал как резную книгу с тремя отдельными карточками, статусами, наградами и прогрессом.
 static func draw_quest_log(game: Node2D) -> void:
-	game.draw_rect(Rect2(0, 0, 1152, 648), Color(0.015, 0.02, 0.015, 0.72))
-	UiKitSystem.draw_modal_panel(game, QUEST_WINDOW)
-	UiKitSystem.draw_nine_patch(game, "quest_ribbon", QUEST_HEADER)
-	game.draw_ui_string(game.UI_FONT, QUEST_HEADER.position + Vector2(28, 42), game.LocaleSystem.ui("quest_log").to_upper(), HORIZONTAL_ALIGNMENT_CENTER, QUEST_HEADER.size.x - 56, 24, UiKitSystem.COLORS.text_light)
-	var mission_ids: Array[String] = game.QuestSystem.ordered_mission_ids(game)
-	var page_count := maxi(1, ceili(float(mission_ids.size()) / 3.0))
-	game.quest_log_page = clampi(game.quest_log_page, 0, page_count - 1)
-	for visible_index in QUEST_CARD_RECTS.size():
-		var mission_index: int = game.quest_log_page * 3 + visible_index
-		if mission_index < mission_ids.size(): draw_mission_card(game, QUEST_CARD_RECTS[visible_index], mission_ids[mission_index])
-	UiKitSystem.draw_button(game, QUEST_PREV, false, game.quest_log_page > 0, true)
-	UiKitSystem.draw_button(game, QUEST_NEXT, false, game.quest_log_page + 1 < page_count, true)
-	game.draw_ui_string(game.UI_FONT, QUEST_PREV.position + Vector2(1, 29), "←", HORIZONTAL_ALIGNMENT_CENTER, 40, 19, UiKitSystem.COLORS.text_light)
-	game.draw_ui_string(game.UI_FONT, QUEST_NEXT.position + Vector2(1, 29), "→", HORIZONTAL_ALIGNMENT_CENTER, 40, 19, UiKitSystem.COLORS.text_light)
-	game.draw_ui_string(game.UI_FONT, Vector2(430, 542), game.LocaleSystem.ui("quest_page", [game.quest_log_page + 1, page_count]), HORIZONTAL_ALIGNMENT_CENTER, 292, 11, UiKitSystem.COLORS.ink)
-	game.draw_ui_string(game.UI_FONT, Vector2(756, 542), game.LocaleSystem.ui("quest_close"), HORIZONTAL_ALIGNMENT_RIGHT, 190, 9, Color("77583a"))
+	preload("res://scripts/systems/quest_journal_system.gd").draw(game)
 
 
 ## Рисует одну миссию с цветовым кодом типа, предметной наградой и фактическим прогрессом героя.
@@ -108,12 +93,21 @@ static func dialogue_choice_at(point: Vector2, count: int) -> int:
 
 ## Вырезает спокойный фронтальный кадр нужного архетипа NPC и центрирует его внутри портретной рамки.
 static func draw_npc_portrait(game: Node2D, rect: Rect2, npc_id: String) -> void:
+	var portrait := npc_portrait_layout(game,rect,npc_id)
+	game.draw_texture_rect_region(portrait.texture,portrait.destination,portrait.source,portrait.tint)
+
+
+## Даёт портрету новую RGBA-текстуру бабушки и её пропорции; зелёный мастер и квадратная растяжка в диалоги не попадают.
+static func npc_portrait_layout(game: Node, rect: Rect2, npc_id: String) -> Dictionary:
 	var data: Dictionary = game.QuestSystem.NPCS.get(npc_id, {})
 	var sprite_index := clampi(int(data.get("sprite", 0)), 0, game.DirectionalCharacterSystem.NPC_TEXTURES.size() - 1)
 	var texture: Texture2D = game.DirectionalCharacterSystem.NPC_TEXTURES[sprite_index]
 	var source: Rect2 = game.DirectionalCharacterSystem.source_rect(texture, Vector2.DOWN, 0.0, false)
 	var destination := UiKitSystem.centered_content_rect(rect, Vector2(112, 132), 0)
-	game.draw_texture_rect_region(texture, destination, source, data.get("tint", Color.WHITE))
+	if sprite_index == 0:
+		texture = game.DirectionalCharacterSystem.GrandmotherVisualSystem.texture()
+		destination = UiKitSystem.centered_content_rect(destination,source.size,0)
+	return {"texture":texture, "source":source, "destination":destination, "tint":data.get("tint",Color.WHITE)}
 
 
 ## Рисует компактный шаг обучения в безопасном углу, показывая номер и общий прогресс курса.
@@ -122,29 +116,22 @@ static func draw_tutorial(game: Node2D) -> void:
 	UiKitSystem.draw_nine_patch(game, "tooltip", rect)
 	var total: int = game.tutorial_steps.size()
 	var step: int = game.tutorial_step + 1
-	if HudLayoutSystem.uses_compact_cards(game):
-		game.draw_ui_string(game.UI_FONT,rect.position+Vector2(18,20),game.LocaleSystem.ui("tutorial_progress",[step,total]),HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-58,9,Color("70452b"))
-		game.draw_ui_string(game.UI_FONT,rect.position+Vector2(rect.size.x-38,20),"T",HORIZONTAL_ALIGNMENT_CENTER,20,8,Color("876440"))
-		UiKitSystem.draw_progress(game,Rect2(rect.position+Vector2(18,25),Vector2(rect.size.x-36,6)),float(step)/maxi(1,total),Color("76934f"))
-		game.draw_ui_string(game.UI_FONT,rect.position+Vector2(18,49),game.LocaleSystem.tutorial(game.tutorial_steps[game.tutorial_step].event),HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-36,10,UiKitSystem.COLORS.ink)
-		return
-	game.draw_ui_string(game.UI_FONT, rect.position+Vector2(24,27), game.LocaleSystem.ui("tutorial_progress", [step, total]), HORIZONTAL_ALIGNMENT_LEFT, 196, 11, Color("70452b"))
-	game.draw_ui_string(game.UI_FONT, rect.position+Vector2(228,27), game.LocaleSystem.ui("tutorial_controls_short"), HORIZONTAL_ALIGNMENT_RIGHT, 158, 8, Color("876440"))
-	UiKitSystem.draw_progress(game, Rect2(rect.position+Vector2(24,35),Vector2(362,10)), float(step) / maxi(1, total), Color("76934f"))
-	game.draw_ui_multiline_string(game.UI_FONT, rect.position+Vector2(24,63), game.LocaleSystem.tutorial(game.tutorial_steps[game.tutorial_step].event), HORIZONTAL_ALIGNMENT_LEFT, 362, 39, 11, 3, UiKitSystem.COLORS.ink)
+	game.draw_ui_string(game.UI_FONT,rect.position+Vector2(18,25),game.LocaleSystem.ui("tutorial_step_compact",[step]),HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-60,11,Color("70452b"))
+	game.draw_ui_string(game.UI_FONT,rect.position+Vector2(rect.size.x-39,25),"×",HORIZONTAL_ALIGNMENT_CENTER,24,17,Color("876440"))
+	var text:String=game.LocaleSystem.tutorial(game.tutorial_steps[game.tutorial_step].event)
+	game.draw_ui_multiline_string(game.UI_FONT,rect.position+Vector2(18,44),text,HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-36,rect.size.y-50,11,3,UiKitSystem.COLORS.ink)
+	UiKitSystem.draw_progress(game,Rect2(rect.position+Vector2(18,rect.size.y-10),Vector2(rect.size.x-36,3)),float(step)/maxi(1,total),Color("76934f"))
 
 
 ## Рисует системное сообщение как спокойную пергаментную плашку с типовой иконкой награды или события.
 static func draw_notification(game: Node2D) -> void:
 	if game.message.is_empty() or game.hud_message_timer <= 0.0 or game.inventory_open or game.shop_open or game.quest_log_open or game.skill_menu_open or game.crafting_open or game.storage_open or game.forge_open or game.contract_open: return
 	if game.AdventurePolishSystem.has_modal(game) or game.FirstChapterSystem.modal_active(game) or game.menu_state.pause_open or game.menu_state.settings_open or game.menu_state.defeat_open: return
-	var bob := 0.0 if game.settings_state.reduced_motion else sin(Time.get_ticks_msec() / 260.0) * 1.5
-	var rect := Rect2(NOTIFICATION_CARD.position + Vector2(0, bob), NOTIFICATION_CARD.size)
-	UiKitSystem.draw_nine_patch(game, "quest_ribbon", rect)
+	var rect := NOTIFICATION_CARD
+	game.InterfaceRenderer.HudRenderer.draw_quiet_panel(game,rect)
 	var reward: bool = "+" in game.message or "награ" in game.message.to_lower() or "получ" in game.message.to_lower()
-	UiKitSystem.draw_nine_patch(game, "badge", Rect2(rect.position + Vector2(18, 12), Vector2(46, 46)))
-	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(28, 45), "★" if reward else "!", HORIZONTAL_ALIGNMENT_CENTER, 26, 17, Color("8c542e"))
-	game.draw_ui_multiline_string(game.UI_FONT, rect.position + Vector2(70, 30), game.message, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 90, 36, 11, 2, UiKitSystem.COLORS.ink)
+	game.draw_ui_string(game.UI_FONT,rect.position+Vector2(12,31),"★" if reward else "!",HORIZONTAL_ALIGNMENT_CENTER,24,17,Color("ecc56f"))
+	game.draw_ui_multiline_string(game.UI_FONT,rect.position+Vector2(46,23),game.message,HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-64,32,12,2,Color("fff0cf"))
 
 
 ## Рисует итог главы как три крупные коллекционные карты, сохраняя исходные зоны выбора наград.

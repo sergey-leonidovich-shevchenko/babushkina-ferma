@@ -12,7 +12,7 @@ const DEFAULT_PERCEPTUAL_THRESHOLDS := {"mean":0.020, "max_cell":0.100, "changed
 const LOCALIZED_CONTROL_CONTRACTS := {
 	"title":{"width":694.0,"size":54}, "title_subtitle":{"width":630.0,"size":24},
 	"continue_game":{"width":198.0,"size":21}, "new_game":{"width":198.0,"size":21}, "settings":{"width":240.0,"size":21}, "exit_game":{"width":198.0,"size":21},
-	"resume":{"width":340.0,"size":16}, "save_game":{"width":340.0,"size":16}, "load_game":{"width":340.0,"size":16}, "return_main_menu":{"width":340.0,"size":16},
+	"resume":{"width":200.0,"size":13}, "save_game":{"width":100.0,"size":13}, "load_game":{"width":100.0,"size":13}, "return_main_menu":{"width":120.0,"size":13},
 	"master_volume":{"width":196.0,"size":8}, "music_volume":{"width":196.0,"size":8}, "sfx_volume":{"width":196.0,"size":8}, "sound_enabled":{"width":196.0,"size":8},
 	"fullscreen":{"width":196.0,"size":8}, "vsync":{"width":196.0,"size":8}, "reduced_motion":{"width":196.0,"size":8}, "screen_shake":{"width":196.0,"size":8},
 	"high_contrast":{"width":196.0,"size":8}, "control_preset":{"width":196.0,"size":8}, "text_scale":{"width":196.0,"size":8}, "touch_scale":{"width":196.0,"size":8}, "language_option":{"width":196.0,"size":8}

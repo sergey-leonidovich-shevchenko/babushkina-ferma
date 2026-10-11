@@ -83,7 +83,8 @@ func test_food_healing_and_temporary_effects() -> void:
 	game.inventory_selected = 15
 	game.consume_selected_item()
 	game.slime_alive = false
-	game.player = Vector2(600, 400)
+	# Скорость измеряется на свободном участке, а не внутри нового берега или здания.
+	game.player = Vector2(696,744)
 	game.move_right_held = true
 	var start_x: float = game.player.x
 	game.update_player_movement(1.0)
@@ -106,16 +107,16 @@ func test_world_collisions_and_bridge_passage() -> void:
 	game.move_player_with_collisions(Vector2(120, 0))
 	expect(game.player.x <= game.slime_position.x - game.PLAYER_RADIUS - 27.0, "living enemy blocks player movement")
 	var rock: Dictionary = game.resource_nodes[0]
-	game.player = rock.position - Vector2(100, 0)
-	game.move_player_with_collisions(Vector2(140, 0))
+	game.player = rock.position - Vector2(0, 100)
+	game.move_player_with_collisions(Vector2(0, 140))
 	var rock_collision:Rect2=game.ResourceSystem.collision_rect(rock)
-	expect(game.player.x<=rock_collision.position.x-game.PLAYER_RADIUS+0.01, "active rock blocks player movement at the profiled edge")
+	expect(game.player.y<=rock_collision.position.y-game.PLAYER_RADIUS+0.01, "active rock blocks player movement at the profiled edge")
 	game.resource_nodes[0].hits = 0
-	game.move_player_with_collisions(Vector2(140, 0))
-	expect(game.player.x > rock.position.x, "depleted resource no longer blocks movement")
-	game.player = game.pond_position - Vector2(260, 0)
-	game.move_player_with_collisions(Vector2(160, 0))
-	expect(game.player.x < game.pond_position.x - 200.0, "pond shoreline blocks player movement")
+	game.move_player_with_collisions(Vector2(0,80))
+	expect(game.player.y > rock.position.y, "depleted resource no longer blocks movement")
+	game.player = game.pond_position - Vector2(0,160)
+	game.move_player_with_collisions(Vector2(0,160))
+	expect(game.player.y<=game.pond_position.y-VillageLayoutSystem.POND_RADII.y-game.PLAYER_RADIUS+1.0, "pond shoreline blocks player movement")
 	var dry_crossing_x := 1200.0
 	var dry_crossing_y := VillageLayoutSystem.river_center_y(dry_crossing_x)
 	game.player = Vector2(dry_crossing_x, dry_crossing_y - 100.0)

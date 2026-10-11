@@ -17,6 +17,7 @@ static func initialize_enemy(enemy: Dictionary) -> Dictionary:
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func update(game: Node, delta: float) -> void:
+	game.HeroActionSystem.update(game, delta)
 	game.WeaponSystem.update(game, delta)
 	game.slime_visual_time += delta
 	if game.slime_visual_state == "hurt" and game.slime_visual_time >= HURT_DURATION:

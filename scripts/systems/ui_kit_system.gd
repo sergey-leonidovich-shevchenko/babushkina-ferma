@@ -101,6 +101,18 @@ static func draw_button(canvas: CanvasItem, rect: Rect2, selected: bool, enabled
 		canvas.draw_rect(rect.grow(-5), Color(0.12, 0.11, 0.10, 0.46), true)
 
 
+## Рисует низкую пергаментную карточку без сжатых резных деталей: вся внутренняя площадь доступна тексту.
+static func draw_inset_card(canvas:CanvasItem,rect:Rect2,selected:bool=false,enabled:bool=true,learned:bool=false)->void:
+	canvas.draw_rect(Rect2(rect.position+Vector2(0,2),rect.size),Color(0.025,0.018,0.01,0.35))
+	var paper:=Color("e6c98d") if enabled else Color("b0a082")
+	if learned: paper=Color("c5cd99")
+	canvas.draw_rect(rect,paper)
+	var tint:=Color(0.90,0.97,0.76) if learned else (Color.WHITE if enabled else Color(0.78,0.79,0.75))
+	canvas.draw_texture_rect_region(texture("tooltip"),rect.grow(-1),Rect2(56,52,136,70),tint)
+	canvas.draw_rect(rect,Color("6e4c2c"),false,1)
+	canvas.draw_rect(rect.grow(-3),Color("bc924d") if selected else Color(0.45,0.30,0.15,0.3),false,2 if selected else 1)
+	canvas.draw_line(rect.position+Vector2(5,5),Vector2(rect.end.x-5,rect.position.y+5),Color(1,0.94,0.74,0.4),1)
+
 ## Возвращает прямоугольник контента, центрированный как flex-container внутри заданной safe-area.
 static func centered_content_rect(container: Rect2, content_size: Vector2, padding: float = 8.0) -> Rect2:
 	var available := container.size - Vector2.ONE * padding * 2.0
@@ -119,9 +131,17 @@ static func draw_slot(canvas: CanvasItem, rect: Rect2, selected: bool) -> Rect2:
 
 ## Рисует художественную рамку прогресса и заполнение с безопасными внутренними полями.
 static func draw_progress(canvas: CanvasItem, rect: Rect2, ratio: float, color: Color) -> Rect2:
-	draw_nine_patch(canvas, "progress_frame", rect)
-	var track := rect.grow(-10)
+	var track:=progress_content_rect(rect)
+	canvas.draw_rect(rect,Color("4f3724"))
+	canvas.draw_rect(rect,Color("a8824a"),false,1.0)
 	canvas.draw_rect(track, Color(0.12, 0.075, 0.04, 0.88), true)
 	var fill := Rect2(track.position, Vector2(track.size.x * clampf(ratio, 0.0, 1.0), track.size.y))
 	if fill.size.x > 0.0: canvas.draw_rect(fill, color, true)
 	return track
+
+
+## Подбирает внутренний отступ по высоте: тонкая шкала никогда не получает отрицательный размер.
+static func progress_content_rect(rect: Rect2) -> Rect2:
+	var inset:=minf(10.0,maxf(1.0,rect.size.y*0.18))
+	inset=minf(inset,maxf(0.0,minf(rect.size.x,rect.size.y)*0.5-0.5))
+	return rect.grow(-inset)

@@ -1,11 +1,12 @@
 extends RefCounted
 
+const MapData:=preload("res://scripts/systems/village_map_data.gd")
 const ANIMALS := [
-	{"id":"hen","name":"Ряба","product":"egg","position":Vector2(315,860),"cell":Vector2i(0,0)},
-	{"id":"cow","name":"Зорька","product":"milk","position":Vector2(405,875),"cell":Vector2i(1,0)},
-	{"id":"sheep","name":"Облачко","product":"wool","position":Vector2(510,860),"cell":Vector2i(2,0)},
+	{"id":"hen","name":"Ряба","product":"egg","position":MapData.FARM_ANIMALS.hen,"cell":Vector2i(0,0)},
+	{"id":"cow","name":"Зорька","product":"milk","position":MapData.FARM_ANIMALS.cow,"cell":Vector2i(1,0)},
+	{"id":"sheep","name":"Облачко","product":"wool","position":MapData.FARM_ANIMALS.sheep,"cell":Vector2i(2,0)},
 ]
-const TROUGH_POSITION:=Vector2(610,860)
+const TROUGH_POSITION:=MapData.FARM_TROUGH
 const FURNITURE := {"rustic_table":Vector2i(0,2),"wooden_chair":Vector2i(1,2),"woven_rug":Vector2i(2,2),"potted_fern":Vector2i(3,2),"wooden_wardrobe":Vector2i(4,2)}
 const BIRTHDAYS := {4:"miron",8:"agafya",12:"varvara",16:"gavrila",20:"dunya"}
 const MUSEUM_ITEMS := ["blue_gem","moon_relic","ancient_key","cursed_compass","eclipse_core","red_crystal","green_crystal"]
