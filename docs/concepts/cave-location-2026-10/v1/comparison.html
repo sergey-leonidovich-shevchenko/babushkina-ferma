@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ru">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Кристальные пещеры · концепт</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; color: #e8e9ed; background: #14171e; font: 16px/1.5 system-ui, sans-serif; }
+  main { max-width: 1800px; margin: auto; padding: 32px; }
+  h1 { margin: 0 0 8px; font-size: clamp(26px, 3vw, 40px); }
+  h2 { font-size: 20px; margin: 0 0 12px; }
+  p { color: #aeb7c5; margin: 0 0 28px; }
+  .comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 32px; }
+  figure { margin: 0; min-width: 0; }
+  figcaption { margin-bottom: 10px; color: #cfd7e4; }
+  img { width: 100%; display: block; border-radius: 10px; }
+  .comparison img { aspect-ratio: 16 / 9; object-fit: contain; background: #0c1016; }
+  .kit { max-width: 1280px; background: #252b35; border-radius: 10px; }
+  a { color: #8fd8ee; text-decoration: none; }
+  a:focus-visible { outline: 2px solid #8fd8ee; outline-offset: 4px; }
+  .note { margin-top: 12px; font-size: 14px; }
+  @media(max-width: 800px) { main { padding: 20px; } .comparison { grid-template-columns: 1fr; } }
+</style>
+<main>
+  <h1>Кристальные пещеры</h1>
+  <p>Вторая локация · скальные стены по краям, ресурсные жилы и свободный центр. Макет для выбора дизайна.</p>
+  <div class="comparison">
+    <figure>
+      <figcaption>Было — текущая игра</figcaption>
+      <a href="before.png"><img src="before.png" alt="Текущая пещера: повторяющийся пол без скального контура" width="1152" height="648"></a>
+    </figure>
+    <figure>
+      <figcaption>Предлагаемый дизайн</figcaption>
+      <a href="after.png"><img src="after.png" alt="Концепт пещеры со стенами, входом, проходом в глубину и цветными ресурсными жилами" width="1672" height="941"></a>
+    </figure>
+  </div>
+  <h2>Модульные элементы</h2>
+  <figure class="kit">
+    <a href="sprite-kit.png"><img src="sprite-kit.png" alt="Двадцать элементов: стены, углы, вход, жилы, камни, грибы и факел" width="1536" height="1024"></a>
+  </figure>
+  <p class="note">Концепт набора для нарезки. Стыки, масштабы и коллизии проверяются при сборке в Godot. Свечение и тени будут отдельными эффектами.</p>
+</main>
+</html>
