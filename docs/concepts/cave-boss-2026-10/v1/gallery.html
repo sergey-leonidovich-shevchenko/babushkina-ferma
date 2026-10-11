@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Пещера с боссом — выбор арены</title>
+  <style>
+    :root { color-scheme: dark; font-family: system-ui, sans-serif; color: #dbe6ee; background: #111720; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    main { max-width: 1320px; padding: 32px 24px 48px; margin: auto; }
+    h1 { font-size: clamp(24px, 3vw, 36px); font-weight: 600; margin: 8px 0 12px; }
+    p { max-width: 860px; color: #abbcc9; line-height: 1.6; }
+    .eyebrow { color: #8ec4d5; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; }
+    .controls { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0; }
+    button { cursor: pointer; font: inherit; color: #c9d8e3; border: 1px solid #344352; border-radius: 8px; padding: 11px 16px; background: #1a2531; }
+    button[aria-pressed="true"] { color: #e2f5fc; background: #234958; border-color: #77adbe; }
+    button:hover { border-color: #9dc2d0; }
+    button:focus-visible { outline: 3px solid #95daea; outline-offset: 3px; }
+    figure { margin: 0; }
+    .preview { display: block; background: #0e141c; border-radius: 12px; overflow: hidden; }
+    img { display: block; width: 100%; height: auto; aspect-ratio: 16/9; object-fit: contain; }
+    figcaption { padding: 16px 0; line-height: 1.6; color: #b5c9d6; min-height: 76px; }
+    .note { margin-top: 24px; border-top: 1px solid #2a3947; padding-top: 16px; }
+    a { color: #9dd5e9; }
+    .detail { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 16px 0; }
+    .detail div { background: #18222d; padding: 16px; border-radius: 10px; line-height: 1.6; }
+    .detail b { display: block; margin-bottom: 4px; }
+    .detail span { color: #aebfca; }
+    @media (max-width: 640px) { main { padding: 20px 14px; } .detail { grid-template-columns: 1fr; } button { padding: 10px 12px; font-size: 14px; } }
+  </style>
+</head>
+<body>
+<main>
+  <div class="eyebrow">Проектный макет · существующие спрайты</div>
+  <h1>Арена Хранителя глубин</h1>
+  <p>Два варианта конечной комнаты лабиринта. Рекомендую A: просторный каменный зал позволяет хорошо видеть предупреждения и свободно обходить босса. Бой, награды и миграция сохранений описаны как предложение для последующей реализации.</p>
+  <nav class="controls" aria-label="Вариант арены">
+    <button type="button" data-variant="a" aria-pressed="true">A · Сердце глубин</button>
+    <button type="button" data-variant="b" aria-pressed="false">B · Затопленное святилище</button>
+  </nav>
+  <nav class="controls" aria-label="Состояние арены">
+    <button type="button" data-stage="overview" aria-pressed="true">Общий план</button>
+    <button type="button" data-stage="before" aria-pressed="false">Перед боем</button>
+    <button type="button" data-stage="windup" aria-pressed="false">Каменный удар</button>
+    <button type="button" data-stage="phase2" aria-pressed="false">Кристальный обвал</button>
+    <button type="button" data-stage="victory" aria-pressed="false">После победы</button>
+  </nav>
+  <figure>
+    <a id="full-frame" class="preview" href="a-overview.png" target="_blank" rel="noopener">
+      <img id="frame" src="a-overview.png" alt="A: общий план кристального зала, прихожая слева и выход на севере">
+    </a>
+    <figcaption id="caption" aria-live="polite">A · Сердце глубин. Слева — прихожая и путь назад, в центре — свободная арена, на севере — запечатанный выход.</figcaption>
+  </figure>
+  <div class="detail">
+    <div><b>Бой по желанию</b><span>Алтарь пробуждает Хранителя. Вход в комнату даёт время подготовиться; через левый туннель можно отступить.</span></div>
+    <div><b>Две понятные фазы</b><span>Одиночный отмеченный удар сменяется двумя последовательными обвалами. После атаки предусмотрена передышка.</span></div>
+    <div><b>Победа открывает путь</b><span>Печать гаснет, появляется сундук награды. Победа и сюжетная реликвия сохраняются и не выдаются повторно.</span></div>
+  </div>
+  <p class="note">Макет создан в Godot на текущих отдельных спрайтах. Основная игра ещё использует прежнее святилище. <a href="README.md">Параметры боя и план переноса</a> · <a href="comparison.png" target="_blank" rel="noopener">Сравнить оба варианта</a></p>
+</main>
+<script>
+  const screen = document.getElementById('frame');
+  const fullFrame = document.getElementById('full-frame');
+  const caption = document.getElementById('caption');
+  let variant = 'a';
+  let stage = 'overview';
+  const names = {a: 'A · Сердце глубин', b: 'B · Затопленное святилище'};
+  const labels = {overview: 'Общий план', before: 'Перед боем', windup: 'Каменный удар', phase2: 'Кристальный обвал', victory: 'После победы'};
+  const descriptions = {
+    overview: 'Слева — прихожая и путь назад, в центре — свободная арена, на севере — запечатанный выход.',
+    before: 'Хранитель спит. Игрок готовится и пробуждает босса через алтарь; предупреждающих областей ещё нет.',
+    windup: 'Круг фиксирует место будущего удара. За время предупреждения игрок может выйти из него и ответить после замаха.',
+    phase2: 'На половине здоровья появляются две меньшие области. Они срабатывают последовательно, оставляя возможность переместиться.',
+    victory: 'Хранитель повержен. Печать погасла, у выхода появился сундук; путь в следующий биом свободен.'
+  };
+  function update() {
+    const path = variant + '-' + stage + '.png';
+    screen.src = path;
+    screen.alt = names[variant] + ': ' + labels[stage];
+    fullFrame.href = path;
+    caption.textContent = names[variant] + '. ' + descriptions[stage];
+    document.querySelectorAll('[data-variant]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.variant === variant)));
+    document.querySelectorAll('[data-stage]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.stage === stage)));
+  }
+  document.querySelectorAll('[data-variant]').forEach(button => button.addEventListener('click', () => { variant = button.dataset.variant; update(); }));
+  document.querySelectorAll('[data-stage]').forEach(button => button.addEventListener('click', () => { stage = button.dataset.stage; update(); }));
+</script>
+</body>
+</html>
