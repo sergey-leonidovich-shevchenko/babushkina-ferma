@@ -1,0 +1,315 @@
+<style>
+@font-face{font-family:FarmAlice;src:url('@@FONT@@') format('truetype');font-display:swap}
+#farm-interface{width:100%;color:var(--foreground)}
+#farm-interface .review-tools{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+#farm-interface .review-tools .viz-row{gap:6px}
+#farm-interface .review-state{font-size:12px;color:var(--muted-foreground)}
+#farm-interface .farm{--ink:#f5ead2;--muted-ink:#c3bd9f;--forest:#202d24;--forest-light:#334638;--brass:#b9a16f;--paper:#eee2c6;--paper-ink:#3c4432;position:relative;width:100%;aspect-ratio:16/9;min-height:560px;overflow:hidden;background:#607250;color:var(--ink);font-family:Arial,sans-serif;font-size:14px;line-height:1.4;isolation:isolate}
+#farm-interface .farm *{box-sizing:border-box}
+#farm-interface :where(.farm button){font:inherit;color:inherit;border:0;padding:0;background:none}
+#farm-interface .farm button:focus-visible{outline:2px solid #f7d78a;outline-offset:3px}
+#farm-interface .world{position:absolute;inset:0;background:var(--farm-world) center/cover no-repeat;z-index:-2}
+#farm-interface .world:after{content:'';position:absolute;inset:0;background:linear-gradient(#0a160b38,transparent 30%,transparent 68%,#0a160b50)}
+#farm-interface .farm .surface{background:var(--forest);border:1px solid #b9a16f80;box-shadow:0 4px 12px #09150f42,inset 0 1px #ffffff0c;border-radius:8px}
+#farm-interface .eyebrow{font-size:10px;letter-spacing:1.8px;text-transform:uppercase;color:var(--muted-ink)}
+#farm-interface .player{position:absolute;left:24px;top:24px;width:276px;padding:13px 14px;display:grid;grid-template-columns:58px 1fr;column-gap:13px}
+#farm-interface .portrait{height:64px;width:58px;background:#45513b;border:1px solid #a78f59;border-radius:6px;position:relative;align-self:center}
+#farm-interface .portrait img{position:absolute;width:61px;height:70px;object-fit:contain;bottom:0;left:-2px;image-rendering:auto}
+#farm-interface .level{position:absolute;left:50%;bottom:-8px;transform:translateX(-50%);padding:1px 7px!important;background:#d4bb78!important;color:#263424!important;border-radius:4px;border:1px solid #8a7543!important;white-space:nowrap;font-size:10px!important}
+#farm-interface .player-name{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px;font-family:FarmAlice,Georgia,serif;font-size:17px}
+#farm-interface .player-name span:last-child{font-family:Arial,sans-serif;font-size:10px;color:var(--muted-ink)}
+#farm-interface .health-line{display:flex;align-items:center;justify-content:space-between;font-size:11px;margin-bottom:4px}
+#farm-interface .health-line .hp-val{font-variant-numeric:tabular-nums;color:#e8dcc1}
+#farm-interface .health-line .hp-label{display:flex;align-items:center;gap:4px;color:#dfada1}
+#farm-interface .farm [data-lucide]{width:15px;height:15px;display:inline-block;vertical-align:middle}
+#farm-interface .hp-track{height:11px;background:#14211a;border-radius:3px;position:relative;overflow:hidden}
+#farm-interface .hp-fill,#farm-interface .hp-trail{position:absolute;inset:0 auto 0 0;width:84%;border-radius:3px}
+#farm-interface .hp-trail{background:#e6be70;transition:width .7s ease .24s}
+#farm-interface .hp-fill{background:linear-gradient(#e18e76,#bd574b);transition:width .26s ease;box-shadow:inset 0 2px #fff7da40}
+#farm-interface .hp-fill:after{content:'';position:absolute;inset:0 0 0 auto;width:3px;background:#ffdec3a6}
+#farm-interface .minor-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px;font-size:10px;color:var(--muted-ink)}
+#farm-interface .minor-stats>div{display:flex;align-items:center;gap:5px}
+#farm-interface .mini-track{height:4px;border-radius:2px;background:#13231d;flex:1}
+#farm-interface .mini-track b{display:block;height:100%;border-radius:2px;background:#82aec1;width:100%}
+#farm-interface .minor-stats>div:last-child b{background:#cdbd74}
+#farm-interface .damage .hp-fill{animation:farm-damage .32s ease}
+#farm-interface .healing .hp-track{animation:farm-heal .65s ease}
+#farm-interface .critical .hp-fill{background:linear-gradient(#ef7964,#b03e3d)}
+#farm-interface .critical .hp-track{animation:farm-critical .8s ease 2}
+#farm-interface .location{position:absolute;left:50%;top:25px;transform:translateX(-50%);text-align:center;text-shadow:0 2px 4px #14211b;padding:0 8px}
+#farm-interface .location strong{font-family:FarmAlice,Georgia,serif;font-weight:400;font-size:22px;white-space:nowrap}
+#farm-interface .location .eyebrow{display:block;margin-top:2px;color:#f0e5c9}
+#farm-interface .weather{position:absolute;right:24px;top:24px;width:176px;display:grid;grid-template-columns:33px 1fr;align-items:center;padding:11px 13px;column-gap:8px}
+#farm-interface .sun{color:#e2c987;font-size:27px;text-align:center;line-height:1}
+#farm-interface .clock{font-family:FarmAlice,Georgia,serif;font-size:25px;font-variant-numeric:tabular-nums;line-height:1.1}
+#farm-interface .season{font-size:10px;color:var(--muted-ink);margin-top:5px;white-space:nowrap}
+#farm-interface .wallet{position:absolute;left:24px;top:145px;display:flex;align-items:center;gap:13px;padding:6px 10px;font-size:11px;background:#202d24e8;border-radius:5px;color:#e5d5a2;border:1px solid #b9a16f50}
+#farm-interface .wallet span{display:flex;gap:4px;align-items:center}
+#farm-interface .menu-actions{position:absolute;right:24px;top:105px;display:flex;gap:6px}
+#farm-interface .menu-actions button{height:34px;width:39px;position:relative;display:grid;place-items:center;border-radius:5px;background:var(--forest);border:1px solid #b9a16f70;box-shadow:0 2px 6px #08150f40}
+#farm-interface .menu-actions button:hover{background:#3c4c36}
+#farm-interface .menu-actions button.active{color:#e6ca80;border-color:#dec17e}
+#farm-interface .menu-actions small{position:absolute;bottom:0;right:4px;font-size:8px;color:var(--muted-ink)}
+#farm-interface .minimap{position:absolute;right:24px;top:151px;width:176px;padding:5px}
+#farm-interface .minimap img{width:100%;height:84px;display:block;object-fit:cover;border-radius:3px}
+#farm-interface .map-caption{display:flex;justify-content:space-between;align-items:center;padding:4px 4px 0;font-size:10px;color:var(--muted-ink)}
+#farm-interface .quest{position:absolute;right:24px;top:271px;width:176px;padding:12px 13px;text-align:left!important}
+#farm-interface .quest .quest-head{font-size:10px;display:flex;gap:6px;align-items:center;color:#d7c798}
+#farm-interface .quest strong{font-family:FarmAlice,Georgia,serif;font-size:17px;font-weight:400;display:block;margin:6px 0 3px}
+#farm-interface .quest-desc{display:block;font-size:11px;color:var(--muted-ink)}
+#farm-interface .quest-line{margin-top:10px;height:3px;background:#14211a;border-radius:2px}
+#farm-interface .quest-line b{display:block;width:66.6%;height:100%;background:#b7bc7a}
+#farm-interface .quest-foot{display:flex;justify-content:space-between;color:var(--muted-ink);font-size:10px;margin-top:4px}
+#farm-interface .selected-name{position:absolute;bottom:94px;left:50%;transform:translateX(-50%);display:flex;gap:9px;align-items:center;text-shadow:0 2px 3px #122419;white-space:nowrap;font-size:11px;color:#f7e7bd;background:#202d24e6;border:1px solid #b9a16f60;padding:5px 12px;border-radius:5px}
+#farm-interface .selected-name .selected-title{font-family:FarmAlice,Georgia,serif;font-size:15px;color:#f6e5bd}
+#farm-interface .selected-name .divider{color:#b2b99c}
+#farm-interface .dock{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;gap:5px;padding:7px 9px;max-width:calc(100% - 48px);border-radius:8px}
+#farm-interface .slot{position:relative;width:46px;height:48px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:#324236!important;border:1px solid #75815b7a!important;border-radius:5px;transition:background .12s,border-color .12s,transform .12s}
+#farm-interface .slot:hover{background:#45543b!important;transform:translateY(-2px)}
+#farm-interface .slot.is-active{background:#50613c!important;border-color:#e4cb89!important;box-shadow:inset 0 0 0 1px #e4cb8930}
+#farm-interface .slot.is-active:after{content:'';position:absolute;bottom:-5px;width:13px;height:2px;background:#e4ca83;border-radius:2px}
+#farm-interface .slot img{width:34px;height:34px;object-fit:contain;filter:drop-shadow(0 2px 1px #0b170b45)}
+#farm-interface .slot .slot-key{position:absolute;top:3px;left:5px;font-size:9px;color:#d1caa9;line-height:1}
+#farm-interface .slot .qty{position:absolute;right:4px;bottom:2px;font-size:10px;color:#fff0c9;text-shadow:0 1px 2px #000}
+#farm-interface .context{position:absolute;right:24px;bottom:29px;display:flex;gap:8px;align-items:center;font-size:12px;text-shadow:0 2px 2px #183021}
+#farm-interface .key{font-family:Arial,sans-serif;display:inline-grid;place-items:center;font-size:10px;min-width:23px;height:23px;border:1px solid #bca57390;border-bottom-width:2px;border-radius:4px;background:#26372a;color:#f8e9c3;box-shadow:0 2px 4px #0002}
+#farm-interface .pause{position:absolute;left:24px;bottom:29px;display:flex;align-items:center;gap:7px;font-size:11px;color:#e4dbc0}
+#farm-interface .modal-shade{position:absolute;inset:0;background:#0d1b15a6;z-index:10;display:none;align-items:center;justify-content:center;padding:28px}
+#farm-interface .has-inv .modal-shade{display:flex}
+#farm-interface .has-inv>:not(.world):not(.modal-shade):not(.old-screen):not(.toast){visibility:hidden}
+#farm-interface .inventory{width:min(900px,100%);background:var(--paper);color:var(--paper-ink);border:1px solid #c1a46a;border-radius:11px;box-shadow:0 24px 80px #0b160c85;overflow:hidden;animation:farm-open .2s ease;position:relative}
+#farm-interface .inv-top{display:flex;align-items:center;justify-content:space-between;padding:17px 24px 14px;border-bottom:1px solid #958a6545;background:#293c2d;color:#f4e8c9;box-shadow:inset 0 3px #bda26a}
+#farm-interface .inv-brand{display:flex;gap:11px;align-items:center}
+#farm-interface .inv-brand .bag-icon{width:36px;height:40px;background:#3b5138;border:1px solid #938962;display:grid;place-items:center;border-radius:6px}
+#farm-interface .inv-brand .bag-icon [data-lucide]{width:21px;height:21px}
+#farm-interface .inv-title{font-family:FarmAlice,Georgia,serif;font-size:29px;line-height:1.1}
+#farm-interface .inv-caption{font-size:10px;color:#c1c2a3;margin-top:3px}
+#farm-interface .inv-top-right{display:flex;gap:18px;align-items:center}
+#farm-interface .inv-coins{font-size:13px;display:flex;gap:6px;align-items:center;color:#dece97}
+#farm-interface .close-inv{background:#3c5038!important;width:31px;height:31px;border-radius:5px;border:1px solid #918764!important;display:grid;place-items:center}
+#farm-interface .inv-tabs{display:flex;gap:5px;align-items:center;padding:11px 24px 0;font-size:12px;flex-wrap:wrap}
+#farm-interface .inv-tabs button{padding:6px 10px!important;border-radius:4px;color:#6b725b}
+#farm-interface .inv-tabs button.active{background:#354932!important;color:#f1e8cf}
+#farm-interface .inv-tabs .sort{margin-left:auto;display:flex;align-items:center;gap:5px;font-size:11px;color:#6a725b}
+#farm-interface .inv-content{display:grid;grid-template-columns:minmax(270px,1.6fr) minmax(180px,1fr) minmax(126px,.65fr);gap:17px;padding:17px 24px 18px;align-items:start}
+#farm-interface .grid-label{display:flex;justify-content:space-between;font-size:10px;color:#6e735e;letter-spacing:.4px;margin-bottom:9px}
+#farm-interface .item-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:7px}
+#farm-interface .item-cell{position:relative;aspect-ratio:1/1;border:1px solid #c5bb93!important;background:#e4d8b7!important;border-radius:5px;min-width:0;display:grid;place-items:center;transition:background .12s}
+#farm-interface .item-cell img{width:80%;height:80%;object-fit:contain;filter:drop-shadow(0 2px 1px #3e421b22)}
+#farm-interface .item-cell:hover{background:#d7ccaa!important}
+#farm-interface .item-cell.selected{background:#c8d0b1!important;border-color:#657948!important;box-shadow:inset 0 0 0 1px #6e80533d}
+#farm-interface .item-cell.selected:after{content:'';position:absolute;bottom:3px;left:4px;right:4px;height:2px;background:#647c45;border-radius:2px}
+#farm-interface .item-cell .qty{position:absolute;bottom:3px;right:5px;font-size:10px;color:#39472c;text-shadow:0 1px 1px #fffae8}
+#farm-interface .item-cell.rare:before{content:'';position:absolute;top:5px;right:5px;width:4px;height:4px;background:#508e92;border-radius:50%}
+#farm-interface .grid-bottom{display:flex;justify-content:space-between;font-size:10px;color:#737760;margin-top:11px}
+#farm-interface .detail{background:#f4ecd6;border:1px solid #c9c09b;border-radius:7px;padding:15px 14px;min-height:257px;display:flex;flex-direction:column}
+#farm-interface .detail-hero{display:flex;align-items:center;gap:9px;margin-bottom:13px}
+#farm-interface .detail-image{width:49px;height:49px;object-fit:contain;background:#e7ddbe;border:1px solid #c9c09b;border-radius:5px;padding:3px;flex-shrink:0}
+#farm-interface .detail-hero strong{font-family:FarmAlice,Georgia,serif;font-size:18px;font-weight:400;line-height:1.2;display:block}
+#farm-interface .rarity{font-size:9px;letter-spacing:1px;text-transform:uppercase;display:block;color:#558488;margin-top:4px}
+#farm-interface .detail-kind{font-size:10px;color:#7b806a;border-bottom:1px solid #c9c09b70;padding-bottom:10px}
+#farm-interface .detail-description{font-size:12px;line-height:1.55;margin:11px 0;color:#666f55;min-height:38px}
+#farm-interface .detail-effect{display:flex;justify-content:space-between;font-size:12px;padding:9px 0;border-top:1px solid #c9c09b70}
+#farm-interface .detail-effect b{font-weight:400;color:#4d733f}
+#farm-interface .detail-hint{font-size:10px;color:#7c836d;margin-top:5px}
+#farm-interface .detail-action{padding:8px 10px!important;background:#3c5639!important;border:1px solid #293d29!important;color:#f6efd8!important;border-radius:5px;font-size:12px!important;display:flex;align-items:center;justify-content:center;gap:7px;margin-top:auto}
+#farm-interface .detail-action:disabled{background:#dcd6be!important;color:#87907d!important;border-color:#b3b9a1!important}
+#farm-interface .detail-action .key{height:19px;min-width:19px;font-size:9px}
+#farm-interface .equipment{border-left:1px solid #c0b98c70;padding-left:16px}
+#farm-interface .equipment-title{font-size:10px;letter-spacing:.5px;color:#6d765e;margin-bottom:10px}
+#farm-interface .equip-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px 7px}
+#farm-interface .equip-row{text-align:center;font-size:9px;color:#7b806b}
+#farm-interface .equip-row .equip-icon{width:100%;aspect-ratio:1;display:grid;place-items:center;background:#e5dabc;border:1px solid #c6bd9c;border-radius:5px;margin-bottom:3px}
+#farm-interface .equip-icon img{width:81%;height:81%;object-fit:contain}
+#farm-interface .equip-icon.empty [data-lucide]{width:21px;height:21px;color:#a09e84}
+#farm-interface .inv-footer{background:#ddd2b4;border-top:1px solid #b7ad8d85;padding:10px 24px 12px;display:flex;justify-content:space-between;gap:14px;align-items:center}
+#farm-interface .footer-caption{font-family:FarmAlice,Georgia,serif;font-size:16px;white-space:nowrap}
+#farm-interface .footer-caption small{display:block;font-family:Arial,sans-serif;font-size:9px;color:#7c826c;margin-top:2px}
+#farm-interface .inv-hotbar{display:flex;gap:4px}
+#farm-interface .inv-hotbar .slot{width:41px;height:42px;background:#ebe2c6!important;border-color:#b5ae88!important;color:#48533c}
+#farm-interface .inv-hotbar .slot img{width:31px;height:31px}
+#farm-interface .inv-hotbar .slot-key{color:#7e8267}
+#farm-interface .inv-hotbar .slot.is-active{background:#c5cfa8!important;border-color:#6d8050!important}
+#farm-interface .toast{position:absolute;left:50%;bottom:129px;transform:translateX(-50%);z-index:30;background:#253d29;color:#f1e7c8;border:1px solid #a9b682;border-radius:5px;padding:8px 16px;font-size:12px;box-shadow:0 3px 10px #0003;white-space:nowrap}
+#farm-interface .toast:empty{display:none}
+#farm-interface .old-screen{display:none;position:absolute;inset:0;z-index:40;width:100%;height:100%;object-fit:contain;background:#1b241a}
+#farm-interface .is-before .old-screen{display:block}
+#farm-interface .moon{--forest:#172a28;--forest-light:#29433e;--brass:#8aada1;--paper:#20332e;--paper-ink:#e5ead7;--muted-ink:#a5b9ae}
+#farm-interface .moon .surface{border-color:#8eb29b6b;border-radius:5px}
+#farm-interface .moon .player{background:#172a28;padding:11px 13px;width:261px;grid-template-columns:48px 1fr;column-gap:12px}
+#farm-interface .moon .portrait{width:48px;height:58px;background:#365345;border-color:#789d81}
+#farm-interface .moon .portrait img{width:54px;height:62px;left:-3px}
+#farm-interface .moon .level{background:#91b78b!important;border-color:#4e7460!important}
+#farm-interface .moon .player-name{font-size:15px}
+#farm-interface .moon .location{top:27px;left:52%;text-align:left;transform:translateX(-50%)}
+#farm-interface .moon .location strong{font-size:19px}
+#farm-interface .moon .weather{top:24px;right:24px;width:148px;padding:10px}
+#farm-interface .moon .wallet{top:137px;border-color:#89ae8d5c;background:#172a28}
+#farm-interface .moon .minimap{top:100px;width:148px}
+#farm-interface .moon .minimap img{height:76px}
+#farm-interface .moon .menu-actions{top:205px;right:24px}
+#farm-interface .moon .menu-actions button{width:32px;height:34px;border-color:#8ca69a70}
+#farm-interface .moon .quest{top:190px;left:24px;right:auto;width:225px;border-width:0 0 0 2px;border-radius:0;padding:11px 14px;background:#172a28}
+#farm-interface .moon .quest-line,#farm-interface .moon .quest-foot{display:none}
+#farm-interface .moon .quest strong{font-size:18px}
+#farm-interface .moon .dock{padding:8px 10px;gap:6px;border-color:#8bad936b}
+#farm-interface .moon .slot{background:#2b4439!important;border-color:#88a88955!important}
+#farm-interface .moon .slot.is-active{background:#4a6850!important;border-color:#bed5a1!important}
+#farm-interface .moon .selected-name{bottom:99px;border:0;background:#172a28;border-radius:3px}
+#farm-interface .moon .inventory{border-color:#799780;border-radius:7px}
+#farm-interface .moon .inv-top{background:#172b25;border-color:#7390754f}
+#farm-interface .moon .inv-brand .bag-icon,#farm-interface .moon .close-inv{background:#2b4338!important;border-color:#617d65!important}
+#farm-interface .moon .inv-caption,#farm-interface .moon .grid-label,#farm-interface .moon .equipment-title,#farm-interface .moon .grid-bottom,#farm-interface .moon .sort{color:#a6ba9e}
+#farm-interface .moon .inv-coins{color:#d0d7b1}
+#farm-interface .moon .inv-tabs button{color:#a5b99d}
+#farm-interface .moon .inv-tabs button.active{background:#54764f!important;color:#eef4d9}
+#farm-interface .moon .item-cell{background:#2e4738!important;border-color:#617954!important}
+#farm-interface .moon .item-cell.selected{background:#56714a!important;border-color:#b4cf8c!important}
+#farm-interface .moon .item-cell .qty{color:#e3eed3;text-shadow:0 1px #172c1b}
+#farm-interface .moon .detail{background:#162c23;border-color:#637859;color:#e6e9ce}
+#farm-interface .moon .detail-image,#farm-interface .moon .equip-icon{background:#304735;border-color:#6b7b56}
+#farm-interface .moon .rarity{color:#90c7bb}
+#farm-interface .moon .detail-kind,#farm-interface .moon .detail-description,#farm-interface .moon .detail-hint,#farm-interface .moon .equip-row{color:#a8b99d}
+#farm-interface .moon .detail-effect b{color:#b2d78c}
+#farm-interface .moon .inv-footer{background:#172b25;border-color:#637856}
+#farm-interface .moon .inv-hotbar .slot{background:#304635!important;border-color:#6c7c55!important}
+#farm-interface .moon .inv-hotbar .slot.is-active{background:#526a3c!important}
+#farm-interface .moon .footer-caption small{color:#a3b496}
+@keyframes farm-damage{0%,35%{filter:brightness(2)}100%{filter:brightness(1)}}
+@keyframes farm-heal{0%,100%{box-shadow:none}45%{box-shadow:0 0 15px #b7dc8580}}
+@keyframes farm-critical{0%,100%{opacity:1}50%{opacity:.6}}
+@keyframes farm-open{from{opacity:.7;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){#farm-interface .farm *,#farm-interface .farm *:after{animation:none!important;transition:none!important}}
+@media(max-width:870px){#farm-interface .player{width:244px;left:16px;top:16px;grid-template-columns:46px 1fr;padding:11px;gap:9px}#farm-interface .portrait{width:46px;height:58px}#farm-interface .portrait img{width:51px;height:62px}#farm-interface .location{top:18px;left:52%}#farm-interface .location strong{font-size:17px}#farm-interface .weather{right:16px;top:16px;width:148px;padding:10px}#farm-interface .menu-actions{right:16px;top:99px}#farm-interface .menu-actions button{width:32px}#farm-interface .minimap{right:16px;top:145px;width:148px}#farm-interface .quest{right:16px;top:262px;width:148px}#farm-interface .wallet{left:16px;top:133px}#farm-interface .pause{left:16px;bottom:104px}#farm-interface .context{right:16px;bottom:106px}#farm-interface .inv-content{grid-template-columns:minmax(245px,1.5fr) minmax(174px,1fr);gap:13px;padding:14px 18px}#farm-interface .equipment{display:none}#farm-interface .modal-shade{padding:22px}#farm-interface .inv-top{padding:14px 18px}#farm-interface .inv-tabs{padding:10px 18px 0}#farm-interface .inv-footer{padding:10px 18px}#farm-interface .footer-caption{font-size:13px}#farm-interface .inv-hotbar .slot{width:34px;height:37px}#farm-interface .inv-hotbar .slot img{width:27px;height:27px}}
+@media(max-width:620px){#farm-interface .farm{min-height:730px;aspect-ratio:auto}#farm-interface .player,#farm-interface .moon .player{width:222px;left:12px;top:16px;grid-template-columns:40px 1fr;padding:10px;gap:8px}#farm-interface .portrait,#farm-interface .moon .portrait{width:40px;height:51px}#farm-interface .portrait img,#farm-interface .moon .portrait img{width:45px;height:55px;left:-3px}#farm-interface .player-name{font-size:14px}#farm-interface .health-line{font-size:11px}#farm-interface .minor-stats{font-size:11px}#farm-interface .weather,#farm-interface .moon .weather{width:80px;right:12px;top:16px;display:block;text-align:center;padding:9px 4px}#farm-interface .sun{font-size:20px;margin-bottom:5px}#farm-interface .clock{font-size:22px}#farm-interface .season{font-size:11px;white-space:normal;line-height:1.4}#farm-interface .location,#farm-interface .moon .location{left:12px;top:144px;transform:none;text-align:left}#farm-interface .location strong{font-size:19px}#farm-interface .location .eyebrow{font-size:11px}#farm-interface .wallet,#farm-interface .moon .wallet{left:12px;top:111px;font-size:11px}#farm-interface .minimap{display:none}#farm-interface .menu-actions,#farm-interface .moon .menu-actions{right:12px;top:203px;left:12px;justify-content:flex-end}#farm-interface .menu-actions button,#farm-interface .moon .menu-actions button{width:44px;height:40px}#farm-interface .menu-actions small{font-size:11px}#farm-interface .quest,#farm-interface .moon .quest{left:12px;right:12px;top:261px;width:auto;padding:12px}#farm-interface .quest .quest-head,#farm-interface .quest-desc,#farm-interface .quest-foot{font-size:11px}#farm-interface .quest strong{font-size:19px}#farm-interface .dock{bottom:17px;max-width:calc(100% - 24px);width:288px;display:grid;grid-template-columns:repeat(5,1fr);gap:5px;padding:8px}#farm-interface .slot{width:46px;height:47px}#farm-interface .slot-key,#farm-interface .slot .qty{font-size:11px!important}#farm-interface .selected-name,#farm-interface .moon .selected-name{bottom:137px;padding:5px 9px;font-size:11px}#farm-interface .pause{left:12px;bottom:183px;font-size:11px}#farm-interface .context{right:12px;bottom:183px;font-size:11px}#farm-interface .key{font-size:11px}#farm-interface .has-inv{min-height:1170px}#farm-interface .modal-shade{padding:12px;align-items:flex-start;padding-top:17px}#farm-interface .inv-content{display:flex;flex-direction:column;padding:14px;gap:15px}#farm-interface .bag-grid,#farm-interface .detail,#farm-interface .equipment{width:100%}#farm-interface .item-grid{grid-template-columns:repeat(4,1fr);gap:7px}#farm-interface .item-cell{max-height:64px}#farm-interface .item-cell .qty,#farm-interface .grid-label,#farm-interface .grid-bottom{font-size:11px}#farm-interface .detail{min-height:250px;padding:14px}#farm-interface .detail-action{margin-top:12px}#farm-interface .inv-top{padding:13px 14px}#farm-interface .inv-title{font-size:25px}#farm-interface .inv-caption{font-size:11px}#farm-interface .inv-top-right{gap:8px}#farm-interface .inv-coins{font-size:11px}#farm-interface .inv-brand .bag-icon{display:none}#farm-interface .inv-tabs{padding:9px 14px 0;gap:3px}#farm-interface .inv-tabs button{padding:5px 7px!important;font-size:11px}#farm-interface .inv-tabs .sort{margin-left:0;font-size:11px}#farm-interface .inv-footer{padding:12px 14px;align-items:stretch;flex-direction:column;gap:8px}#farm-interface .footer-caption small{font-size:11px}#farm-interface .inv-hotbar{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}#farm-interface .inv-hotbar .slot{width:100%;height:42px}#farm-interface .toast{bottom:165px;font-size:11px;max-width:94%;white-space:normal}#farm-interface .detail-kind,#farm-interface .detail-hint,#farm-interface .rarity{font-size:11px}}
+</style>
+<div id="farm-interface">
+  <div class="review-tools">
+    <div class="viz-row" aria-label="Сравнение интерфейса">
+      <button type="button" class="btn" data-review="before" aria-pressed="false">Сейчас</button>
+      <button type="button" class="btn" data-review="after" aria-pressed="true">Новый дизайн</button>
+      <button type="button" class="btn" data-review="inventory" aria-pressed="false">Рюкзак</button>
+    </div>
+    <div class="viz-row" aria-label="Проверка анимации здоровья">
+      <button type="button" class="btn btn-ghost" data-review="damage">Урон −24</button>
+      <button type="button" class="btn btn-ghost" data-review="heal">Лечение +20</button>
+    </div>
+  </div>
+  <div class="viz-carousel" aria-label="Направления дизайна фермы" data-previous-label="Предыдущий" data-next-label="Следующий">
+    <section data-variant="Лесной журнал" aria-label="Лесной журнал"><div class="farm forest" data-design="forest"></div></section>
+    <section data-variant="Лунная долина" aria-label="Лунная долина" hidden><div class="farm moon" data-design="moon"></div></section>
+  </div>
+  <div class="review-state" aria-live="polite"></div>
+</div>
+<script type="application/json" id="farm-images">@@ASSETS@@</script>
+<script>
+(() => {
+const root = document.getElementById('farm-interface');
+const images = JSON.parse(document.getElementById('farm-images').textContent);
+const saved = window.openai?.widgetState;
+const state = {hp:84,inventory:false,before:false,selected:'crystal_ring',hotbar:0,filter:'Все',...(saved?.privateContent||{})};
+const items = [
+ ['seeds','Семена моркови',8,'Семена','Для первого урожая. Посадите на вспаханной земле.','Посадка','1 грядка','Обычный','Использовать'],
+ ['carrot','Морковь',12,'Еда','Хрустящая морковь с вашей грядки. Восстанавливает энергию.','Энергия','+3','Обычный','Съесть'],
+ ['pickaxe','Кирка',1,'Инструменты','Для добычи камня и кристаллов. Назначьте на быстрый слот.','Прочность','100%','Обычный','В быстрый слот'],
+ ['fishing_rod','Удочка',1,'Инструменты','Для тихого утра у реки. Подойдите к воде и забросьте леску.','Прочность','100%','Обычный','В быстрый слот'],
+ ['log','Бревно',18,'Ресурсы','Материал для строительства и ремесла. Можно распилить на доски.','В стопке','18','Обычный','В быстрый слот'],
+ ['stone','Камень',24,'Ресурсы','Прочный материал для строительства и улучшения усадьбы.','В стопке','24','Обычный','В быстрый слот'],
+ ['crystal','Синий кристалл',8,'Ресурсы','Кристалл, найденный в глубине долины. Пригодится для редких рецептов.','В стопке','8','Редкий','В быстрый слот'],
+ ['fish','Речная рыба',5,'Еда','Свежая рыба из местной реки. Подходит для приготовления еды.','Энергия','+4','Обычный','Съесть'],
+ ['apple','Лесное яблоко',4,'Еда','Сладкое яблоко. Небольшой запас энергии для прогулки по долине.','Энергия','+2','Обычный','Съесть'],
+ ['berries','Лесные ягоды',3,'Еда','Горсть спелых ягод. Можно съесть или сохранить для рецепта.','Энергия','+2','Обычный','Съесть'],
+ ['mushroom','Красный гриб',6,'Еда','Лесной ингредиент. Пригодится для приготовления еды.','В стопке','6','Обычный','В быстрый слот'],
+ ['iron_helmet','Железный шлем',1,'Экипировка','Надет на героя. Защищает в путешествиях по долине.','Защита','+1','Обычный','Надеть'],
+ ['guardian_armor','Броня стража',1,'Экипировка','Надета на героя. Надёжная броня для опасных троп.','Защита','+2','Редкий','Надеть'],
+ ['travel_boots','Походные сапоги',1,'Экипировка','Надеты на героя. Для долгих прогулок по долине.','Защита','+1','Обычный','Надеть'],
+ ['crystal_ring','Алмазный талисман',1,'Экипировка','Свет долины, заключённый в камне. Его сила сопровождает героя.','Урон','+1','Редкий','Надето'],
+ ['healing_potion','Зелье лечения',2,'Зелья','Восстанавливает здоровье. Удобно держать под рукой в путешествии.','Здоровье','+20','Обычный','Выпить'],
+ ['mana_potion','Зелье маны',2,'Зелья','Восстанавливает магическую силу для новых заклинаний.','Мана','+15','Обычный','Выпить'],
+ ['oak_shield','Дубовый щит',1,'Экипировка','Надет на героя. Прочная древесина помогает отражать удары.','Защита','+1','Обычный','Надеть'],
+ ['axe','Топор',1,'Инструменты','Для заготовки древесины. Можно назначить на панель предметов.','Прочность','100%','Обычный','В быстрый слот'],
+ ['metal','Слиток металла',12,'Ресурсы','Материал для кузницы, улучшений и крепких инструментов.','В стопке','12','Обычный','В быстрый слот'],
+ ['bones','Кости',9,'Ресурсы','Находка из путешествия. Используется в особых рецептах.','В стопке','9','Обычный','В быстрый слот'],
+ ['rare_seeds','Редкие семена',4,'Семена','Необычные семена из долины. Сохраните для будущей посадки.','В стопке','4','Редкий','Использовать'],
+ ['hoe','Мотыга',1,'Инструменты','Разрыхляет землю перед посадкой. Выберите грядку и используйте инструмент.','Прочность','100%','Обычный','В быстрый слот']
+];
+const hotbar = ['hoe','seeds','water','hand','pickaxe','fishing_rod','axe','apple','berries','mushroom'];
+const names = ['Мотыга','Семена моркови','Лейка','Руки','Кирка','Удочка','Топор','Лесное яблоко','Лесные ягоды','Красный гриб'];
+const uses = ['Вспахать землю','Посадить семена','Полить грядку','Собрать урожай','Добыть камень','Забросить удочку','Срубить дерево','Восстановить энергию','Восстановить энергию','Выбранный предмет'];
+const slotHtml = (kind,index) => `<button class="slot cursor-interaction ${index===state.hotbar?'is-active':''}" type="button" data-slot="${index}" aria-label="Слот ${index+1}: ${names[index]}" aria-pressed="${index===state.hotbar}"><span class="slot-key">${index===9?'0':index+1}</span><img src="${images[kind]}" alt="">${[1,7,8,9].includes(index)?`<span class="qty">${[0,8,0,0,0,0,0,4,3,6][index]}</span>`:''}</button>`;
+const equip = [['iron_helmet','Голова'],['guardian_armor','Тело'],['travel_boots','Ноги'],['','Руки'],['oak_shield','Щит'],['crystal_ring','Кольцо']];
+root.style.setProperty('--farm-world',`url("${images.world}")`);
+root.querySelectorAll('.farm').forEach(farm => {
+farm.innerHTML = `
+ <div class="world"></div>
+ <div class="player surface" aria-label="Состояние героя">
+  <div class="portrait"><img src="${images.portrait}" alt="Герой фермы"><span class="level">Ур. 1</span></div>
+  <div><div class="player-name">Искатель<span>Лунная долина</span></div><div class="health-line"><span class="hp-label"><i data-lucide="heart" aria-hidden="true"></i> Здоровье</span><span class="hp-val">84 / 100</span></div>
+   <div class="hp-track" role="progressbar" aria-label="Здоровье" aria-valuemin="0" aria-valuemax="100" aria-valuenow="84"><div class="hp-trail"></div><div class="hp-fill"></div></div>
+   <div class="minor-stats"><div><i data-lucide="sparkles" aria-hidden="true"></i><span class="mini-track"><b></b></span>40</div><div><i data-lucide="zap" aria-hidden="true"></i><span class="mini-track"><b></b></span>12</div></div>
+  </div>
+ </div>
+ <div class="location"><strong>Деревня и гильдия</strong><span class="eyebrow">Лунная долина</span></div>
+ <div class="weather surface"><div class="sun">☼</div><div><div class="clock">06:00</div><div class="season">1 день · Весна</div></div></div>
+ <div class="wallet"><span><i data-lucide="coins" aria-hidden="true"></i>20</span><span><i data-lucide="star" aria-hidden="true"></i>0</span></div>
+ <div class="menu-actions" aria-label="Игровые окна">
+  <button class="cursor-interaction" data-action="inventory" type="button" aria-label="Рюкзак"><i data-lucide="backpack" aria-hidden="true"></i><small>I</small></button>
+  <button class="cursor-interaction" data-action="journal" type="button" aria-label="Журнал заданий"><i data-lucide="scroll-text" aria-hidden="true"></i><small>J</small></button>
+  <button class="cursor-interaction" data-action="skills" type="button" aria-label="Способности героя"><i data-lucide="book-open" aria-hidden="true"></i><small>K</small></button>
+  <button class="cursor-interaction" data-action="map" type="button" aria-label="Карта долины"><i data-lucide="map" aria-hidden="true"></i><small>M</small></button>
+ </div>
+ <button class="minimap surface cursor-interaction" data-action="map" type="button" aria-label="Открыть карту"><img src="${images.minimap}" alt="План деревни"><span class="map-caption"><span>Вы в деревне</span><span>M</span></span></button>
+ <button class="quest surface cursor-interaction" type="button" data-action="journal"><span class="quest-head"><i data-lucide="sprout" aria-hidden="true"></i>Поручение бабушки</span><strong>Первый урожай</strong><span class="quest-desc">Соберите 12 морковок</span><div class="quest-line"><b></b></div><span class="quest-foot"><span>8 / 12</span><span>J · Журнал</span></span></button>
+ <div class="selected-name"><span class="selected-title">Мотыга</span><span class="divider">·</span><span class="selected-use">Вспахать землю</span></div>
+ <div class="dock surface" aria-label="Быстрый доступ">${hotbar.map(slotHtml).join('')}</div>
+ <button class="pause cursor-interaction" type="button" data-action="pause"><span class="key">Esc</span>Меню</button>
+ <div class="context"><span class="key">E</span><span>Поговорить</span></div>
+ <div class="modal-shade"><div class="inventory" role="dialog" aria-label="Рюкзак">
+  <div class="inv-top"><div class="inv-brand"><div class="bag-icon"><i data-lucide="backpack" aria-hidden="true"></i></div><div><div class="inv-title">Рюкзак</div><div class="inv-caption">Всё для маленького приключения</div></div></div><div class="inv-top-right"><span class="inv-coins"><i data-lucide="coins" aria-hidden="true"></i>20</span><button type="button" class="close-inv cursor-interaction" data-action="inventory" aria-label="Закрыть рюкзак"><i data-lucide="x" aria-hidden="true"></i></button></div></div>
+  <div class="inv-tabs" aria-label="Категории предметов">${['Все','Инструменты','Еда','Экипировка','Ресурсы','Зелья'].map(t=>`<button type="button" class="cursor-interaction ${t===state.filter?'active':''}" aria-pressed="${t===state.filter}" data-filter="${t}">${t}</button>`).join('')}<button type="button" class="sort cursor-interaction" data-action="sort"><i data-lucide="arrow-down-wide-narrow" aria-hidden="true"></i>Сортировать</button></div>
+  <div class="inv-content"><div class="bag-grid"><div class="grid-label"><span>ВАШИ ПРЕДМЕТЫ</span><span>23 вида · ∞</span></div><div class="item-grid"></div><div class="grid-bottom"><span>Без ограничения вместимости</span><span class="filter-count">23 предмета</span></div></div>
+   <div class="detail" aria-live="polite"><div class="detail-hero"><img class="detail-image" alt=""><div><strong class="detail-name"></strong><span class="rarity"></span></div></div><div class="detail-kind"></div><p class="detail-description"></p><div class="detail-effect"><span></span><b></b></div><div class="detail-hint"></div><button type="button" class="detail-action cursor-interaction" data-action="use"></button></div>
+   <div class="equipment"><div class="equipment-title">ЭКИПИРОВКА</div><div class="equip-list">${equip.map(([kind,label])=>`<div class="equip-row"><div class="equip-icon ${kind?'':'empty'}">${kind?`<img src="${images[kind]}" alt="${label}">`:'<i data-lucide="hand" aria-hidden="true"></i>'}</div>${label}</div>`).join('')}</div></div>
+  </div>
+  <div class="inv-footer"><div class="footer-caption">Быстрый доступ<small>Выберите слот для предмета</small></div><div class="inv-hotbar">${hotbar.map(slotHtml).join('')}</div></div>
+ </div></div>
+ <div class="toast" role="status"></div><img class="old-screen" src="${images['before-hud']}" alt="Текущий интерфейс игры">
+`;
+});
+function save(){window.openai?.setWidgetState?.({modelContent:{hp:state.hp,inventory:state.inventory,selected:state.selected},privateContent:state})?.catch(()=>{});}
+let toastTimer, animationTimer;
+function toast(message){root.querySelectorAll('.toast').forEach(e=>e.textContent=message);clearTimeout(toastTimer);toastTimer=setTimeout(()=>root.querySelectorAll('.toast').forEach(e=>e.textContent=''),2200);}
+function renderGrid(){
+const filtered=items.filter(i=>state.filter==='Все'||i[3]===state.filter);
+root.querySelectorAll('.item-grid').forEach(grid=>{grid.innerHTML=filtered.map(i=>`<button class="item-cell cursor-interaction ${i[0]===state.selected?'selected':''} ${i[7]==='Редкий'?'rare':''}" type="button" data-item="${i[0]}" aria-label="${i[1]}, ${i[2]} шт." aria-pressed="${i[0]===state.selected}"><img src="${images[i[0]]}" alt="">${i[2]>1?`<span class="qty">${i[2]}</span>`:''}</button>`).join('');for(let j=filtered.length;j<24;j++){grid.insertAdjacentHTML('beforeend','<div class="item-cell" aria-hidden="true"></div>');}});
+root.querySelectorAll('.filter-count').forEach(e=>e.textContent=`${filtered.length} видов`);
+}
+function render(){
+root.querySelectorAll('.farm').forEach(f=>{f.classList.toggle('has-inv',state.inventory);f.classList.toggle('is-before',state.before);f.querySelector('.old-screen').src=images[state.inventory?'before-inventory':'before-hud'];f.querySelector('.hp-val').textContent=`${state.hp} / 100`;f.querySelector('.hp-track').setAttribute('aria-valuenow',state.hp);f.querySelector('.hp-fill').style.width=state.hp+'%';f.querySelector('.hp-trail').style.width=state.hp+'%';f.querySelector('.player').classList.toggle('critical',state.hp<=25);f.querySelector('.selected-title').textContent=names[state.hotbar];f.querySelector('.selected-use').textContent=uses[state.hotbar];f.querySelector('[data-action="inventory"]').classList.toggle('active',state.inventory);});
+root.querySelector('[data-review="before"]').setAttribute('aria-pressed',state.before);root.querySelector('[data-review="after"]').setAttribute('aria-pressed',!state.before);root.querySelector('[data-review="inventory"]').setAttribute('aria-pressed',state.inventory);
+root.querySelectorAll('[data-slot]').forEach(b=>{const active=Number(b.dataset.slot)===state.hotbar;b.classList.toggle('is-active',active);b.setAttribute('aria-pressed',active);});
+root.querySelectorAll('[data-filter]').forEach(b=>{b.classList.toggle('active',b.dataset.filter===state.filter);b.setAttribute('aria-pressed',b.dataset.filter===state.filter);});
+const item=items.find(i=>i[0]===state.selected)||items[14];
+root.querySelectorAll('.detail').forEach(d=>{d.querySelector('.detail-image').src=images[item[0]];d.querySelector('.detail-image').alt=item[1];d.querySelector('.detail-name').textContent=item[1];d.querySelector('.rarity').textContent=item[7];d.querySelector('.detail-kind').textContent=item[3]+' · '+item[2]+' шт.';d.querySelector('.detail-description').textContent=item[4];d.querySelector('.detail-effect span').textContent=item[5];d.querySelector('.detail-effect b').textContent=item[6];d.querySelector('.detail-hint').textContent=item[0]==='crystal_ring'?'Сейчас надето на героя':'Быстрый слот: '+(state.hotbar===9?'0':state.hotbar+1);const a=d.querySelector('.detail-action');a.disabled=item[0]==='crystal_ring';a.innerHTML=item[8]+(a.disabled?'':' <span class="key">E</span>');});
+renderGrid();
+}
+function changeHp(delta){state.before=false;state.hp=Math.max(0,Math.min(100,state.hp+delta));root.querySelectorAll('.player').forEach(e=>{e.classList.remove('damage','healing');void e.offsetWidth;e.classList.add(delta<0?'damage':'healing');});clearTimeout(animationTimer);animationTimer=setTimeout(()=>root.querySelectorAll('.player').forEach(e=>e.classList.remove('damage','healing')),800);render();save();root.querySelector('.review-state').textContent=`Здоровье: ${state.hp} из 100`;
+}
+root.addEventListener('click',event=>{
+const b=event.target.closest('button');if(!b)return;
+if(b.dataset.review){const a=b.dataset.review;if(a==='before')state.before=true;if(a==='after')state.before=false;if(a==='inventory')state.inventory=!state.inventory;if(a==='damage'){changeHp(-24);return;}if(a==='heal'){changeHp(20);return;}}
+if(b.dataset.action==='inventory')state.inventory=!state.inventory;
+if(b.dataset.filter){state.filter=b.dataset.filter;const candidate=items.find(i=>state.filter==='Все'||i[3]===state.filter);if(candidate)state.selected=candidate[0];}
+if(b.dataset.item)state.selected=b.dataset.item;
+if(b.dataset.slot)state.hotbar=Number(b.dataset.slot);
+if(b.dataset.action==='sort'){items.sort((a,c)=>a[1].localeCompare(c[1],'ru'));toast('Предметы отсортированы по названию');}
+if(b.dataset.action==='use'){const item=items.find(i=>i[0]===state.selected);if(item?.[0]==='healing_potion'){changeHp(20);toast('Здоровье восстановлено · +20');}else if(item?.[0]==='mana_potion'){toast('Мана полностью восстановлена');}else if(item?.[3]==='Еда'){toast('Энергия восстановлена');}else if(item?.[3]==='Экипировка'){toast(item[1]+' · надето на героя');}else if(item){hotbar[state.hotbar]=item[0];names[state.hotbar]=item[1];uses[state.hotbar]='Выбранный предмет';root.querySelectorAll(`[data-slot="${state.hotbar}"] img`).forEach(e=>e.src=images[item[0]]);toast(item[1]+' · слот '+(state.hotbar===9?'0':state.hotbar+1));}}
+if(['journal','skills','map','pause'].includes(b.dataset.action))toast({journal:'Первый урожай · собрано 8 из 12 морковок',skills:'Уровень 1 · ветки навыков доступны в игре',map:'Деревня и гильдия · текущая локация',pause:'Предпросмотр дизайна'}[b.dataset.action]);
+render();save();
+});
+root.addEventListener('keydown',e=>{if(e.key==='Escape'&&state.inventory){state.inventory=false;render();save();}if(/^[0-9]$/.test(e.key)){state.hotbar=e.key==='0'?9:Number(e.key)-1;render();save();}});
+render();
+if(globalThis.lucide)lucide.createIcons({attrs:{width:16,height:16}});
+if(globalThis.Tweak){root.querySelectorAll('.player').forEach(player=>{const controls={corner:8};const tweak=new Tweak({container:player,onChange:()=>{player.style.borderRadius=controls.corner+'px';}});tweak.addSlider(controls,'corner',{label:'Скругление блока героя',min:0,max:16,unit:'px'});});}
+})();
+</script>

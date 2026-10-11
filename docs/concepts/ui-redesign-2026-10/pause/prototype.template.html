@@ -1,0 +1,177 @@
+<style>
+@font-face{font-family:PauseAlice;src:url('@@FONT@@') format('truetype');font-display:swap}
+#lunar-pause-review{width:100%}
+#lunar-pause-review .review-tools{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+#lunar-pause-review .review-label{color:var(--muted-foreground);font-size:12px}
+#lunar-pause-review .stage{--pause-ink:#e8ecd7;--pause-muted:#a7b99d;--pause-panel:#20352b;--pause-inset:#192c24;--pause-edge:#526c4c;--pause-accent:#bdd495;--pause-dim:.58;--pause-radius:6px;position:relative;isolation:isolate;width:100%;aspect-ratio:16/9;min-height:520px;display:grid;place-items:center;padding:36px 16px;background:#14251f;color:var(--pause-ink);font-family:Arial,sans-serif;font-size:14px;line-height:1.4;overflow:hidden}
+#lunar-pause-review .stage *{box-sizing:border-box}
+#lunar-pause-review .stage [hidden]{display:none!important}
+#lunar-pause-review .world{position:absolute;inset:0;z-index:-3;background:var(--pause-world) center/cover no-repeat}
+#lunar-pause-review .scrim{position:absolute;inset:0;z-index:-2;background:rgba(9,22,17,var(--pause-dim));transition:opacity .2s ease}
+#lunar-pause-review .before-image{position:absolute;inset:0;z-index:4;background:var(--pause-before) center/cover no-repeat;display:none}
+#lunar-pause-review .stage.is-before .before-image{display:block}
+#lunar-pause-review .stage.is-before .card-holder,#lunar-pause-review .stage.is-before .reopen{visibility:hidden}
+#lunar-pause-review .stage{grid-template-columns:minmax(0,1fr)}
+#lunar-pause-review .card-holder{display:grid;grid-template-columns:minmax(0,1fr);place-items:center;width:100%;min-width:0}
+#lunar-pause-review .pause-card,#lunar-pause-review .sub-card{width:340px;max-width:100%;background:var(--pause-panel);border:1px solid var(--pause-edge);border-radius:var(--pause-radius);padding:23px;box-shadow:0 16px 56px #06100bb3,0 2px 4px #06100b66}
+#lunar-pause-review .pause-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px}
+#lunar-pause-review .pause-head h2,#lunar-pause-review .sub-card h2{font:400 32px/1.15 PauseAlice,Georgia,serif;margin:0 0 6px;color:var(--pause-ink)}
+#lunar-pause-review .pause-context{display:block;color:var(--pause-muted);font-size:12px}
+#lunar-pause-review .moon-mark{color:var(--pause-accent);display:grid;place-items:center;width:40px;height:40px;flex-shrink:0}
+#lunar-pause-review .moon-mark svg{width:26px;height:26px;stroke-width:1.3}
+#lunar-pause-review .stage button{font:400 14px/1.3 Arial,sans-serif;color:var(--pause-ink);background:var(--pause-inset);border:1px solid #405941;border-radius:4px;padding:0 13px;min-height:44px;display:flex;align-items:center;justify-content:center;gap:9px;transition:background .15s ease,border-color .15s ease}
+#lunar-pause-review .stage button:hover{background:#304834;border-color:#82986b}
+#lunar-pause-review .stage button:active{background:#3c533b}
+#lunar-pause-review .stage button svg{width:16px;height:16px;flex-shrink:0;stroke-width:1.6}
+#lunar-pause-review .stage .resume{width:100%;min-height:48px;background:#bdd495;border-color:#bdd495;color:#20352b;justify-content:space-between;padding:0 15px;margin-bottom:10px}
+#lunar-pause-review .stage .resume:hover{background:#d0e2af;border-color:#d0e2af}
+#lunar-pause-review .resume .button-label{display:flex;align-items:center;gap:9px}
+#lunar-pause-review kbd{font:400 10px Arial,sans-serif;letter-spacing:.3px;border:1px solid #59714580;border-radius:3px;padding:3px 4px;background:#20352b0d;color:#405336}
+#lunar-pause-review .action-pair{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
+#lunar-pause-review .settings-button{width:100%;margin-bottom:16px}
+#lunar-pause-review .exit-pair{border-top:1px solid #526c4c66;padding-top:10px;display:grid;grid-template-columns:1.4fr 1fr;gap:8px;margin-bottom:16px}
+#lunar-pause-review .stage .exit-pair button{border-color:transparent;background:transparent;color:var(--pause-muted);padding:0 8px;font-size:12px}
+#lunar-pause-review .stage .exit-pair button:hover{background:#304434;color:var(--pause-ink)}
+#lunar-pause-review .stage .exit-pair button[data-action="exit"]:hover{color:#e4b5a4}
+#lunar-pause-review .last-save{color:var(--pause-muted);font-size:11px;padding-top:12px;border-top:1px solid #526c4c66;line-height:1.6}
+#lunar-pause-review .last-save .save-value{display:block;color:var(--pause-ink);font-size:12px}
+#lunar-pause-review .save-status{display:flex;align-items:center;gap:6px}
+#lunar-pause-review .save-status svg{height:13px;width:13px;color:var(--pause-accent)}
+#lunar-pause-review .wide .pause-card{width:548px;display:grid;grid-template-columns:184px 1fr;padding:28px;gap:28px}
+#lunar-pause-review .wide .pause-head{height:100%;display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;margin:0;border-right:1px solid #526c4c66;padding-right:24px;gap:36px}
+#lunar-pause-review .wide .heading-block .moon-mark{justify-items:start;margin-bottom:12px;width:32px}
+#lunar-pause-review .wide .last-save{border:0;padding:0;line-height:1.65}
+#lunar-pause-review .wide .exit-pair{margin-bottom:0}
+#lunar-pause-review .wide .pause-context{white-space:nowrap}
+#lunar-pause-review .sub-card{width:392px;padding:24px}
+#lunar-pause-review .sub-card h2{font-size:28px;margin-bottom:10px}
+#lunar-pause-review .sub-card p{color:var(--pause-muted);font-size:13px;margin:0 0 20px;line-height:1.65}
+#lunar-pause-review .stage .back-button{min-height:36px;background:transparent;border-color:transparent;padding:0;margin:0 0 15px;color:var(--pause-muted);justify-content:flex-start;font-size:12px}
+#lunar-pause-review .save-slot{background:var(--pause-inset);border:1px solid var(--pause-edge);border-radius:4px;padding:16px;margin:14px 0 18px}
+#lunar-pause-review .save-slot strong{display:block;font-size:14px;font-weight:400;margin-bottom:4px}
+#lunar-pause-review .save-slot small{display:block;color:var(--pause-muted);font-size:12px;line-height:1.65}
+#lunar-pause-review .stage .full-button{width:100%;background:#46613d;border-color:#8ba570;margin-top:8px}
+#lunar-pause-review .setting-row{margin:16px 0}
+#lunar-pause-review .setting-row label{display:flex;justify-content:space-between;gap:10px;font-size:13px;margin-bottom:8px}
+#lunar-pause-review .setting-row output{color:var(--pause-muted);font-variant-numeric:tabular-nums}
+#lunar-pause-review .setting-row input[type="range"]{display:block;width:100%;accent-color:#bdd495;min-height:24px;margin:0}
+#lunar-pause-review .check-row{display:flex;gap:10px;align-items:center;font-size:13px;min-height:44px;color:var(--pause-ink)}
+#lunar-pause-review .check-row input{accent-color:#bdd495;width:16px;height:16px}
+#lunar-pause-review .stage .reopen{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);background:var(--pause-panel);padding:0 18px;white-space:nowrap}
+#lunar-pause-review .stage.resumed .scrim{opacity:0}
+#lunar-pause-review .confirmation-pair{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+#lunar-pause-review .stage .cancel-button{background:#46613d;border-color:#8ba570}
+#lunar-pause-review .stage .confirm-button{color:#d8ad9d}
+@media(max-width:640px){#lunar-pause-review .stage{min-height:540px;aspect-ratio:auto;padding:32px 16px}#lunar-pause-review .wide .pause-card{width:340px;display:flex;flex-direction:column;padding:23px;gap:0}#lunar-pause-review .wide .pause-head{display:contents;border-right:0;padding:0;margin-bottom:20px}#lunar-pause-review .wide .heading-block{order:0;margin-bottom:20px;display:flex;flex-direction:row-reverse;justify-content:space-between;align-items:center;gap:12px}#lunar-pause-review .wide .heading-block .moon-mark{margin:0}#lunar-pause-review .wide .pause-head .last-save{display:block;order:2;margin-top:16px;padding-top:12px;border-top:1px solid #526c4c66}#lunar-pause-review .wide .pause-actions{order:1}#lunar-pause-review .wide .exit-pair{margin-bottom:0}}
+@media(max-width:380px){#lunar-pause-review .pause-card,#lunar-pause-review .sub-card,#lunar-pause-review .wide .pause-card{padding:20px}#lunar-pause-review .stage button{padding:0 9px;font-size:13px}#lunar-pause-review .stage .exit-pair button{font-size:11px}#lunar-pause-review .pause-context{font-size:11px}}
+@media(prefers-reduced-motion:reduce){#lunar-pause-review .stage button,#lunar-pause-review .scrim{transition:none}}
+</style>
+<div id="lunar-pause-review" style="--pause-world:url('@@WORLD@@');--pause-before:url('@@BEFORE@@')">
+  <div class="review-tools">
+    <div class="viz-row"><button class="btn btn-primary" type="button" data-review="after" aria-pressed="true">Новый дизайн</button><button class="btn" type="button" data-review="before" aria-pressed="false">Было</button></div>
+    <span class="review-label">Меню паузы · Лунная долина</span>
+  </div>
+  <div class="viz-carousel" aria-label="Варианты меню паузы" data-previous-label="Предыдущий вариант" data-next-label="Следующий вариант">
+    <section data-variant="Компактная пауза" aria-label="Компактная пауза">
+      <div class="stage compact" aria-label="Игра с компактным меню паузы">
+        <div class="world" aria-hidden="true"></div><div class="scrim" aria-hidden="true"></div><div class="before-image" role="img" aria-label="Текущее деревянное меню паузы"></div>
+        <div class="card-holder">
+          <section class="pause-card" data-page="pause" aria-label="Пауза">
+            <header class="pause-head"><div><h2>Пауза</h2><span class="pause-context">Деревня и гильдия</span></div><div class="moon-mark"><i data-lucide="moon" aria-hidden="true"></i></div></header>
+            <button class="resume cursor-interaction" data-action="resume" type="button"><span class="button-label"><i data-lucide="play" aria-hidden="true"></i>Продолжить игру</span><kbd>ESC</kbd></button>
+            <div class="action-pair"><button class="cursor-interaction" data-action="save" type="button"><i data-lucide="save" aria-hidden="true"></i>Сохранить</button><button class="cursor-interaction" data-action="load" type="button"><i data-lucide="folder-open" aria-hidden="true"></i>Загрузить</button></div>
+            <button class="settings-button cursor-interaction" data-action="settings" type="button"><i data-lucide="settings-2" aria-hidden="true"></i>Настройки</button>
+            <div class="exit-pair"><button class="cursor-interaction" data-action="main" type="button">В главное меню</button><button class="cursor-interaction" data-action="exit" type="button">Выйти из игры</button></div>
+            <footer class="last-save"><span class="save-status" aria-live="polite">Последнее сохранение</span><span class="save-value">День 2 · 06:00 · Дом бабушки</span></footer>
+          </section>
+        </div>
+        <button class="reopen cursor-interaction" type="button" data-action="pause" hidden><i data-lucide="pause" aria-hidden="true"></i>Открыть паузу</button>
+      </div>
+    </section>
+    <section data-variant="Горизонтальная пауза" aria-label="Горизонтальная пауза" hidden>
+      <div class="stage wide" aria-label="Игра с горизонтальным меню паузы">
+        <div class="world" aria-hidden="true"></div><div class="scrim" aria-hidden="true"></div><div class="before-image" role="img" aria-label="Текущее деревянное меню паузы"></div>
+        <div class="card-holder">
+          <section class="pause-card" data-page="pause" aria-label="Пауза">
+            <header class="pause-head"><div class="heading-block"><div class="moon-mark"><i data-lucide="moon" aria-hidden="true"></i></div><div><h2>Пауза</h2><span class="pause-context">Деревня и гильдия</span></div></div><footer class="last-save"><span class="save-status" aria-live="polite">Последнее сохранение</span><span class="save-value">День 2 · 06:00 · Дом бабушки</span></footer></header>
+            <div class="pause-actions"><button class="resume cursor-interaction" data-action="resume" type="button"><span class="button-label"><i data-lucide="play" aria-hidden="true"></i>Продолжить игру</span><kbd>ESC</kbd></button>
+              <div class="action-pair"><button class="cursor-interaction" data-action="save" type="button"><i data-lucide="save" aria-hidden="true"></i>Сохранить</button><button class="cursor-interaction" data-action="load" type="button"><i data-lucide="folder-open" aria-hidden="true"></i>Загрузить</button></div>
+              <button class="settings-button cursor-interaction" data-action="settings" type="button"><i data-lucide="settings-2" aria-hidden="true"></i>Настройки</button>
+              <div class="exit-pair"><button class="cursor-interaction" data-action="main" type="button">В главное меню</button><button class="cursor-interaction" data-action="exit" type="button">Выйти из игры</button></div>
+            </div>
+          </section>
+        </div>
+        <button class="reopen cursor-interaction" type="button" data-action="pause" hidden><i data-lucide="pause" aria-hidden="true"></i>Открыть паузу</button>
+      </div>
+    </section>
+  </div>
+  <template data-subpages>
+    <section class="sub-card" data-page="load" aria-label="Загрузка сохранения" hidden><button class="back-button cursor-interaction" type="button" data-action="pause"><i data-lucide="arrow-left" aria-hidden="true"></i>Назад</button><h2>Загрузить игру</h2><div class="save-slot"><strong>Дом бабушки</strong><small>День 2 · Весна · 06:00</small></div><button class="full-button cursor-interaction" type="button" data-action="load-slot">Загрузить сохранение</button></section>
+    <section class="sub-card" data-page="settings" aria-label="Настройки" hidden><button class="back-button cursor-interaction" type="button" data-action="pause"><i data-lucide="arrow-left" aria-hidden="true"></i>Назад</button><h2>Настройки</h2><div class="setting-row"><label>Общая громкость<output>80%</output></label><input aria-label="Общая громкость" type="range" data-setting="volume" min="0" max="100" value="80"></div><div class="setting-row"><label>Музыка<output>60%</output></label><input aria-label="Музыка" type="range" data-setting="music" min="0" max="100" value="60"></div><label class="check-row"><input type="checkbox" data-setting="fullscreen" checked>Полный экран</label><label class="check-row"><input type="checkbox" data-setting="reduced">Уменьшить анимацию</label><button class="full-button cursor-interaction" type="button" data-action="pause">Готово</button></section>
+    <section class="sub-card" data-page="confirm" aria-label="Подтверждение выхода" hidden><h2 data-confirm-title>Выйти из игры?</h2><p>Несохранённый прогресс будет потерян.<br>Можно вернуться и сохранить игру.</p><div class="confirmation-pair"><button class="cancel-button cursor-interaction" type="button" data-action="pause">Остаться</button><button class="confirm-button cursor-interaction" type="button" data-action="confirm-exit">Выйти</button></div></section>
+    <section class="sub-card" data-page="notice" aria-label="Результат действия" hidden><h2 data-notice-title>Сохранение загружено</h2><p data-notice-text>День 2 · 06:00 · Дом бабушки</p><button class="full-button cursor-interaction" type="button" data-action="pause">Вернуться к макету</button></section>
+  </template>
+</div>
+<script>
+(()=>{
+ const root=document.getElementById('lunar-pause-review');
+ const stages=[...root.querySelectorAll('.stage')];
+ const state={review:'after',saved:false,volume:80,music:60,fullscreen:true,reduced:false};
+ const pages=['pause','pause'];
+ const targets=['exit','exit'];
+ const settings={dim:58,radius:6};
+ const template=root.querySelector('template[data-subpages]');
+ stages.forEach(stage=>stage.querySelector('.card-holder').append(template.content.cloneNode(true)));
+ const defaultSaveValues=stages.map(stage=>[...stage.querySelectorAll('.save-value')].map(el=>el.textContent));
+ function persist(){if(window.openai?.setWidgetState)window.openai.setWidgetState({modelContent:{pauseDesignPreview:true,review:state.review,saved:state.saved},privateContent:{...state,pages:[...pages],settings:{...settings}}}).catch(()=>{});}
+ function render(){
+  stages.forEach((stage,i)=>{
+   stage.classList.toggle('is-before',state.review==='before');
+   stage.classList.toggle('resumed',pages[i]==='resumed');
+   stage.style.setProperty('--pause-dim',settings.dim/100);
+   stage.style.setProperty('--pause-radius',settings.radius+'px');
+   stage.querySelectorAll('[data-page]').forEach(el=>el.hidden=el.dataset.page!==pages[i]);
+   stage.querySelector('.reopen').hidden=pages[i]!=='resumed';
+   stage.querySelectorAll('.save-status').forEach(el=>el.textContent=state.saved?'Прогресс сохранён':'Последнее сохранение');
+   stage.querySelectorAll('.save-value').forEach((el,j)=>el.textContent=state.saved?'День 2 · 06:20 · Деревня':defaultSaveValues[i][j]);
+   stage.querySelectorAll('[data-setting]').forEach(input=>{
+    if(input.type==='range'){input.value=state[input.dataset.setting];input.previousElementSibling.querySelector('output').textContent=input.value+'%';}
+    else input.checked=state[input.dataset.setting];
+   });
+  });
+  root.querySelectorAll('[data-review]').forEach(btn=>{const active=btn.dataset.review===state.review;btn.setAttribute('aria-pressed',active);btn.classList.toggle('btn-primary',active);});
+ }
+ function restore(saved){
+  const priv=saved?.privateContent;
+  if(!priv||typeof priv!=='object')return;
+  if(['after','before'].includes(priv.review))state.review=priv.review;
+  if(typeof priv.saved==='boolean')state.saved=priv.saved;
+  for(const key of ['volume','music'])if(Number.isFinite(priv[key]))state[key]=Math.max(0,Math.min(100,priv[key]));
+  for(const key of ['fullscreen','reduced'])if(typeof priv[key]==='boolean')state[key]=priv[key];
+  if(Array.isArray(priv.pages))priv.pages.forEach((page,i)=>{if(i<2&&['pause','load','settings','resumed'].includes(page))pages[i]=page;});
+  if(priv.settings){if(Number.isFinite(priv.settings.dim))settings.dim=Math.max(35,Math.min(80,priv.settings.dim));if(Number.isFinite(priv.settings.radius))settings.radius=Math.max(0,Math.min(14,priv.settings.radius));}
+  render();
+ }
+ root.addEventListener('click',event=>{
+  const button=event.target.closest('button');if(!button||!root.contains(button))return;
+  if(button.dataset.review){state.review=button.dataset.review;render();persist();return;}
+  const stage=button.closest('.stage');if(!stage)return;const i=stages.indexOf(stage),action=button.dataset.action;
+  if(['pause','load','settings'].includes(action))pages[i]=action;
+  else if(action==='resume')pages[i]='resumed';
+  else if(action==='save')state.saved=true;
+  else if(action==='main'||action==='exit'){
+   targets[i]=action;pages[i]='confirm';stage.querySelector('[data-confirm-title]').textContent=action==='main'?'В главное меню?':'Выйти из игры?';stage.querySelector('[data-action="confirm-exit"]').textContent=action==='main'?'Перейти':'Выйти';
+  }else if(action==='confirm-exit'||action==='load-slot'){
+   pages[i]='notice';stage.querySelector('[data-notice-title]').textContent=action==='load-slot'?'Сохранение загружено':targets[i]==='main'?'Главное меню':'Игра закрыта';
+   stage.querySelector('[data-notice-text]').textContent='Предпросмотр действия · игра и сохранения не меняются.';
+  }
+  render();persist();
+ });
+ root.addEventListener('input',event=>{const input=event.target;if(!input.dataset.setting)return;state[input.dataset.setting]=input.type==='range'?Number(input.value):input.checked;render();persist();});
+ root.addEventListener('keydown',event=>{if(event.key!=='Escape'||state.review==='before')return;const stage=stages.find(el=>!el.closest('[data-variant]').hidden);if(!stage)return;event.preventDefault();const i=stages.indexOf(stage);pages[i]=pages[i]==='pause'?'resumed':'pause';render();persist();});
+ restore(window.openai?.widgetState);render();
+ window.addEventListener('openai:set_globals',event=>{if(event.detail?.globals?.widgetState)restore(event.detail.globals.widgetState);});
+ if(globalThis.lucide)lucide.createIcons({attrs:{width:16,height:16}});
+ if(globalThis.Tweak){const tweak=new Tweak({container:root.querySelector('.viz-carousel'),onChange:render});tweak.addSlider(settings,'dim',{label:'Затемнение фона',min:35,max:80,unit:'%'});tweak.addSlider(settings,'radius',{label:'Скругление панели',min:0,max:14,unit:'px'});}
+})();
+</script>
