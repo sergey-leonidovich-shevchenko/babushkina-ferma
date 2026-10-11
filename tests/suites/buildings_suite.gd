@@ -86,13 +86,13 @@ func test_cottage_has_distinct_zones_and_working_services() -> void:
 
 ## Сценарий: открытая дверь и выход срабатывают от подхода без кнопки, а точка появления не отправляет героя обратно.
 ## Исходное состояние: герой стоит непосредственно у двери доступного дома, система перехода взведена.
-## Ожидаемый результат: вход и выход автоматические, звук мелодии проигрывается, повторный переход возможен только после выхода из зоны.
+## Ожидаемый результат: вход и выход автоматические, звучит мягкий скрип двери, повторный переход возможен только после выхода из зоны.
 func test_automatic_building_transition_and_reentry_guard() -> void:
 	var game := make_game()
 	var cottage: Dictionary = game.BuildingSystem.BUILDINGS.cottage
 	game.player = cottage.door
 	expect(game.LocationTransitionSystem.update(game, 0.01), "approaching an unlocked building enters without pressing the action button")
-	expect(game.current_location == "cottage_interior" and game.audio_last_sfx == "travel", "automatic building entry keeps location audio feedback")
+	expect(game.current_location == "cottage_interior" and game.audio_last_sfx == "door_open", "automatic building entry plays a soft wooden door instead of the portal cue")
 	expect(game.tutorial_events_completed.has("building_enter"), "automatic doorway still completes the building tutorial")
 	game.LocationTransitionSystem.update(game, 1.0)
 	expect(game.current_location == "cottage_interior" and game.location_transition_armed, "interior spawn stays outside the exit trigger and safely rearms")

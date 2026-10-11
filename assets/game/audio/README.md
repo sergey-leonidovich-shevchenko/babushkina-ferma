@@ -1,10 +1,22 @@
-# Original audio for Babushkina Ferma
+# Оригинальный звук «Бабушкиной фермы»
 
-All WAV files in this directory are original procedural compositions and sound effects generated specifically for this project by `tools/generate_audio_assets.py`.
+Восемь камерных тем и 25 действующих эффектов созданы специально для проекта процедурным offline-синтезом. Чужие мелодии, записи и внешние сэмплы не использованы. Старый `step.wav` оставлен как неиспользуемый исходник: шаги в игре по-прежнему выключены.
 
-- Format: mono PCM, 16-bit, 11025 Hz.
-- Music loops: a dedicated airy menu theme; a long percussion-free village theme; forest, rocky, cave, danger, workshop and pirate themes.
-- Sound effects: movement, farming, mining, combat, fishing, inventory, crafting, trade, quests and level-up. Location travel uses a softer four-note chime with no noise sweep.
-- External samples and copyrighted recordings are not used.
+- Музыка: стерео PCM16, 24 000 Гц; меню 80 секунд, деревня 96 секунд, остальные темы 42–60 секунд.
+- Палитра: синтезированные тембры мягкого фортепиано, нейлоновых струн, флейты и негромкого камерного фона. Темы связаны инструментами, но меню и деревня имеют разные партитуры.
+- Эффекты: моно PCM16, 24 000 Гц; ограниченный спектр, плавные атаки и чистые края. Вход/выход из здания используют разные деревянные скрипы, портал — двухнотный сигнал.
+- Импорт Godot не нормализует и не сжимает эти WAV с потерями: измеряется тот же PCM, который воспроизводится в игре.
+- Музыкальные переходы равноэнергетические, 2,4 секунды. Короткое приближение к врагу не обрывает домашнюю тему.
 
-Run `python3 tools/generate_audio_assets.py` from the repository root to rebuild the complete deterministic audio set.
+## Пересборка
+
+Offline-генератору нужен Python с NumPy 2.3.5. Игре Python и NumPy не требуются: она загружает готовые WAV.
+
+```sh
+python3 tools/generate_audio_assets.py
+python3 tools/audit_audio_assets.py
+```
+
+Генератор разделён на партитуру `tools/audio_composer.py`, эффекты `tools/audio_sound_effects.py` и аудит `tools/audit_audio_assets.py`. Вторая команда только измеряет файлы, не изменяя аудио. Она обновляет JSON-отчёт с SHA-256 каждого файла и завершается ошибкой при нарушении контракта.
+
+[Результаты, уровни громкости и маршрут проверки](../../../docs/AUDIO_REDESIGN.md).

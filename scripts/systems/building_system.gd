@@ -191,7 +191,7 @@ static func enter(game: Node, building_id: String) -> bool:
 	game.sync_background_location()
 	game.update_camera()
 	game.message = game.LocaleSystem.location(target)
-	game.play_sfx("travel")
+	game.play_sfx("door_open")
 	game.notify_tutorial("building_enter"); game.notify_tutorial("interior_furniture")
 	return true
 
@@ -207,7 +207,7 @@ static func travel_inside(game: Node, target: String) -> bool:
 			game.sync_background_location()
 			game.update_camera()
 			game.message = game.LocaleSystem.location(target)
-			game.play_sfx("travel")
+			game.play_sfx("door_open")
 			game.notify_tutorial("castle_floor")
 			return true
 	return false
@@ -228,7 +228,7 @@ static func leave(game: Node) -> bool:
 	game.sync_background_location()
 	game.update_camera()
 	game.message = game.LocaleSystem.location(game.current_location)
-	game.play_sfx("travel")
+	game.play_sfx("door_close")
 	return true
 
 

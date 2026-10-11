@@ -64,9 +64,9 @@ func test_adaptive_combat_music_returns_to_location_theme() -> void:
 	var game := make_game(); game.current_location = "forest"; game.player = Vector2(500, 500)
 	for enemy in game.enemy_nodes: enemy.alive = false
 	game.enemy_nodes[0].location = "forest"; game.enemy_nodes[0].position = Vector2(700, 500); game.enemy_nodes[0].alive = true
-	game.AudioSystem.update_adaptive_music(game)
+	game.AudioSystem.update_adaptive_music(game, game.AudioSystem.COMBAT_ENTER_SECONDS)
 	expect(game.audio_current_music == "danger" and game.state.player.feedback.combat_music, "nearby living enemy starts adaptive combat theme")
-	game.enemy_nodes[0].position = Vector2(1200, 500); game.AudioSystem.update_adaptive_music(game)
+	game.enemy_nodes[0].position = Vector2(1200, 500); game.AudioSystem.update_adaptive_music(game, game.AudioSystem.COMBAT_LEAVE_SECONDS)
 	expect(game.audio_current_music == "forest" and not game.state.player.feedback.combat_music, "safe distance restores the current location theme")
 	game.free()
 
