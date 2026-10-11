@@ -93,7 +93,7 @@ static func donate_museum_item(game: Node) -> bool:
 ## Открывает уникальный тайник один раз и выдаёт физический предмет добычи.
 static func activate_secret(game: Node, location: String) -> bool:
 	var value := state(game); if bool(value.secrets.get(location,false)): game.message = "Механизм уже разгадан"; return true
-	value.secrets[location] = true; var data: Dictionary = SECRETS[location]; game.dropped_items.append({"kind":data.reward,"count":1,"position":data.position+Vector2(0,45)}); value.reputation = int(value.reputation)+3; game.message = "Тайный проход открыт — рядом появился клад"; game.notify_tutorial("secret_puzzle"); return true
+	value.secrets[location] = true; var data: Dictionary = SECRETS[location]; game.dropped_items.append({"kind":data.reward,"count":1,"position":data.position+Vector2(0,45),"location":game.current_location}); value.reputation = int(value.reputation)+3; game.message = "Тайный проход открыт — рядом появился клад"; game.notify_tutorial("secret_puzzle"); return true
 
 ## Запоминает впервые найденные предметы для энциклопедии без влияния на инвентарь.
 static func update_discoveries(game: Node) -> void:

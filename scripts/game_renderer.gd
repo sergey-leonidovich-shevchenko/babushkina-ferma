@@ -300,7 +300,7 @@ func draw_resource_nodes() -> void:
 	for node in resource_nodes:
 		if node.location != current_location:
 			continue
-		if current_location == "cave":
+		if CaveRenderer.Rooms.is_cave(current_location):
 			CaveRenderer.draw_resource(self, node)
 			continue
 		if node.hits <= 0: continue
@@ -314,6 +314,7 @@ func draw_resource_nodes() -> void:
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_dropped_items() -> void:
 	for item in dropped_items:
+		if item.get("location",current_location) != current_location: continue
 		if item_texture(item.kind):
 			draw_item_icon(item.kind, Rect2(item.position - Vector2(22, 22), Vector2(44, 44)))
 		else:
@@ -325,7 +326,7 @@ func draw_world_loot() -> void:
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_enemy_nodes_and_gate() -> void:
-	if current_location == "cave":
+	if CaveRenderer.Rooms.is_cave(current_location):
 		CaveRenderer.draw_deep_gate(self)
 	elif not BuildingSystem.is_interior(current_location):
 		WorldPolishRenderer.draw_cell(self,4,1,Rect2(world_gate_position-Vector2(60,60),Vector2(120,120)),Color(1,1,1,0.88))

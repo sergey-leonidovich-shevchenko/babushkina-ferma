@@ -125,7 +125,7 @@ static func interaction_label(game: Node, interaction: String) -> String:
 	elif interaction == "estate_board": key = "context_upgrade"
 	elif interaction.begins_with("fence_gate:"): key = "context_gate"
 	elif interaction == "interior_exit" or interaction == "cave_exit": key = "context_exit"
-	elif interaction.begins_with("building:") or interaction.begins_with("interior_link:") or interaction in ["cave_entrance", "world_gate", "moon_portal"]: key = "context_enter"
+	elif interaction.begins_with("building:") or interaction.begins_with("interior_link:") or interaction.begins_with("cave_passage:") or interaction in ["cave_entrance", "world_gate", "moon_portal"]: key = "context_enter"
 	return game.LocaleSystem.ui("context_action", [game.LocaleSystem.ui(key)])
 
 

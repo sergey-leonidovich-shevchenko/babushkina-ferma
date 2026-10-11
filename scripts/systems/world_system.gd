@@ -7,6 +7,7 @@ const NAMES := {"overworld":"Деревня и гильдия","forest":"Обы�
 
 ## Выполняет операцию «следующего локации» и возвращает результат согласно контракту метода.
 static func next_location(current: String) -> String:
+	if preload("res://scripts/systems/cave_room_data.gd").is_cave(current): return "cursed"
 	return LOCATIONS[(LOCATIONS.find(current) + 1) % LOCATIONS.size()]
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.

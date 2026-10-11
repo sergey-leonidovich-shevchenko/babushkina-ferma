@@ -5,6 +5,7 @@ const Inspector := preload("res://scripts/systems/debug_object_inspector_system.
 
 class DropFixture extends Node:
 	var dropped_items: Array[Dictionary] = []
+	var current_location := "overworld"
 	var name_queries := 0
 
 	## Считает обращения к подробному каталогу предметов без зависимости от полной игры.
@@ -46,12 +47,13 @@ func test_point_query_matches_full_catalog() -> void:
 
 
 ## Сценарий: среди пятисот предметов только один находится под курсором.
-## Исходное состояние: каталог имён фиксирует каждое чтение подробностей, предметы лежат далеко друг от друга.
-## Ожидаемый результат: точечный запрос читает имя одного предмета, полный запрос по-прежнему возвращает все пятьсот.
+## Исходное состояние: каталог фиксирует чтение имён; пятьсот местных предметов разнесены, один чужой лежит под тем же курсором.
+## Ожидаемый результат: точечный запрос читает имя одного местного предмета, полный возвращает пятьсот; чужой предмет не читается.
 func test_distant_drops_do_not_request_details() -> void:
 	var fixture := DropFixture.new()
 	for index in 500:
 		fixture.dropped_items.append({"kind":"wood", "position":Vector2(index * 80, 300), "count":index + 1})
+	fixture.dropped_items.append({"kind":"stone", "position":Vector2(200 * 80, 300), "count":1, "location":"cave_fungal"})
 	var picked: Array[Dictionary] = []
 	Inspector.append_drops(fixture, picked, Vector2(200 * 80, 300))
 	expect(picked.size() == 1 and picked[0].id == "drop:200:wood" and picked[0].details.has("количество 201"), "point inspector identifies the sole drop and its actual count")

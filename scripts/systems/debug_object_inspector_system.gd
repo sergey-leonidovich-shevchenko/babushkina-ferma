@@ -220,6 +220,7 @@ static func append_containers(game: Node, result: Array[Dictionary], probe: Vect
 static func append_drops(game: Node, result: Array[Dictionary], probe: Vector2 = Vector2.INF) -> void:
 	for index in game.dropped_items.size():
 		var item: Dictionary = game.dropped_items[index]
+		if item.get("location",game.current_location) != game.current_location: continue
 		if probe == Vector2.INF or (centered_bounds(item.position,DROP_SIZE)).has_point(probe):
 			add(result, "drop:%d:%s" % [index,item.kind], "ДОБЫЧА", game.inventory_item_name(item.kind), item.position, centered_bounds(item.position,DROP_SIZE), 95, "нет · можно подобрать", "лежит в мире", ["количество %d" % item.count,"item id %s" % item.kind])
 
@@ -307,15 +308,16 @@ static func append_companions(game: Node, result: Array[Dictionary], probe: Vect
 
 
 ## Добавляет видимые модульные стены и декор пещеры вместо старых невидимых кристальных групп.
-static func append_cave_props(result: Array[Dictionary], probe: Vector2 = Vector2.INF) -> void:
-	var walls := CaveLayout.walls()
+static func append_cave_props(result: Array[Dictionary], probe: Vector2 = Vector2.INF, location: String = "cave") -> void:
+	var walls := CaveLayout.walls(location)
 	for index in walls.size():
 		var wall: Dictionary = walls[index]
 		var bounds := CaveAssets.destination_rect(wall.kind, wall.position)
 		if probe != Vector2.INF and not bounds.has_point(probe): continue
 		add(result, "cave_wall:%d" % index, "СКАЛА", "Скальная стена", wall.position, bounds, 32, "общий скальный контур · непроходимо", "стена", ["модуль %s" % wall.kind, "опора скального контура %s" % str(wall.edge)])
-	for index in CaveLayout.MapData.DECORATIONS.size():
-		var prop: Dictionary = CaveLayout.MapData.DECORATIONS[index]
+	var decorations := CaveLayout.Rooms.decorations(location)
+	for index in decorations.size():
+		var prop: Dictionary = decorations[index]
 		var bounds := CaveAssets.destination_rect(prop.kind, prop.position)
 		if probe != Vector2.INF and not bounds.has_point(probe): continue
 		var solid := CaveAssets.collision_rect(prop.kind, prop.position)
@@ -324,7 +326,7 @@ static func append_cave_props(result: Array[Dictionary], probe: Vector2 = Vector
 
 ## Добавляет верстак, торговые точки, переход мира и домашний сундук как технические объекты.
 static func append_world_props(game: Node, result: Array[Dictionary], probe: Vector2 = Vector2.INF) -> void:
-	if game.current_location == "cave": append_cave_props(result, probe)
+	if CaveLayout.Rooms.is_cave(game.current_location): append_cave_props(result,probe,game.current_location)
 	if game.current_location == "cursed":
 		for index in game.CAVE_DECORATIONS.size():
 			var position:Vector2=game.CAVE_DECORATIONS[index]; var bounds:Rect2=game.CaveVisualSystem.cluster_bounds(position); var collision:Rect2=game.CaveVisualSystem.collision_rect(position)
@@ -342,7 +344,7 @@ static func append_world_props(game: Node, result: Array[Dictionary], probe: Vec
 			add(result,"prop:shop_stall","ТОРГОВЛЯ","Лавка",game.BuildingSystem.SHOP_STALL_POSITION,centered_bounds(game.BuildingSystem.SHOP_STALL_POSITION,Vector2(76,64)),42,"нет · взаимодействие","доступна")
 		if probe == Vector2.INF or (game.BuildingSystem.SELL_CRATE_RECT).has_point(probe):
 			add(result,"prop:sell_crate","ТОРГОВЛЯ","Ящик продажи",game.BuildingSystem.SELL_CRATE_POSITION,game.BuildingSystem.SELL_CRATE_RECT,48,rect_description(game.BuildingSystem.SELL_CRATE_RECT),"доступен")
-	if probe == Vector2.INF or (centered_bounds(game.world_gate_position,Vector2(108,108))).has_point(probe):
+	if (not CaveLayout.Rooms.is_cave(game.current_location) or CaveLayout.Rooms.has_world_exit(game.current_location)) and (probe == Vector2.INF or (centered_bounds(game.world_gate_position,Vector2(108,108))).has_point(probe)):
 		add(result,"prop:world_gate","ПЕРЕХОД","Переход: %s" % game.WorldSystem.name(game.WorldSystem.next_location(game.current_location)),game.world_gate_position,centered_bounds(game.world_gate_position,Vector2(108,108)),38,"триггер","доступен")
 	if game.current_location == "cottage_interior" and game.home_chest_owned:
 		var stored_total := 0

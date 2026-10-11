@@ -11,13 +11,14 @@ func run() -> void:
 
 
 ## Сценарий: каждое семейство имеет пять уровней, возрастающие характеристики и усиленную добычу.
-## Исходное состояние: новый мир со стандартным каталогом из пяти семейств противников.
+## Исходное состояние: новый мир со стандартными пятью семействами и семью дополнительными обитателями лабиринта.
 ## Ожидаемый результат: уровни полны, здоровье с опытом растут, а элита оставляет втрое больше предметов.
 func test_enemy_catalog_scaling_and_ranked_loot() -> void:
 	var game := make_game()
-	expect(game.enemy_nodes.size() == 30, "five ranked families and five pirate encounters populate the world")
+	var original: Array = game.enemy_nodes.filter(func(enemy): return not String(enemy.location).begins_with("cave_"))
+	expect(original.size() == 30 and game.enemy_nodes.size() == 37, "original ranked families and pirates remain intact alongside seven dungeon encounters")
 	for kind in game.CombatSystem.FAMILY_ORDER:
-		var levels: Array = game.enemy_nodes.filter(func(enemy): return enemy.kind == kind).map(func(enemy): return enemy.level)
+		var levels: Array = original.filter(func(enemy): return enemy.kind == kind).map(func(enemy): return enemy.level)
 		expect(levels == [1, 2, 3, 4, 5], "%s family contains levels one through five" % kind)
 	expect(game.CombatSystem.max_hp("orc", 5) > game.CombatSystem.max_hp("orc", 1), "higher enemy levels gain health")
 	expect(game.CombatSystem.attack_damage("orc", 5) > game.CombatSystem.attack_damage("orc", 1), "higher enemy levels deal more damage")

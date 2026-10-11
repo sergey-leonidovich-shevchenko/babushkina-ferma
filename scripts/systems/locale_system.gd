@@ -7,6 +7,7 @@ const SETTINGS_PATH := "user://farm-settings.cfg"
 static var current := "ru"
 
 const UI := {
+	"hint_cave_labyrinth":["Туннели связывают шесть комнат с развилками. Название видно рядом с проходом; переход срабатывает автоматически. Выход в деревню находится во входном зале.","Tunnels connect six branching rooms. Names appear near passages; entry is automatic. The village exit is in the entrance hall.","Los túneles conectan seis salas con bifurcaciones. Los nombres aparecen junto al paso; se cruza al acercarse. La salida a la aldea está en la sala de entrada.","Tunnel verbinden sechs Räume mit Abzweigungen. Namen erscheinen am Durchgang; der Wechsel erfolgt automatisch. Der Dorfausgang liegt in der Eingangshalle.","Les tunnels relient six salles. Leur nom apparaît près du passage et le trajet est automatique. La sortie du village est dans la salle d’entrée.","隧道连接六间带岔路的洞室。靠近通道可以看到名称并自动进入；入口大厅可以返回村庄。"],
 	"choose_language":["ВЫБЕРИТЕ ЯЗЫК","CHOOSE LANGUAGE","ELIGE IDIOMA","SPRACHE WÄHLEN","CHOISIR LA LANGUE","选择语言"],
 	"confirm":["Enter / A / касание — выбрать","Enter / A / touch — select","Enter / A / toque — elegir","Enter / A / Tippen — wählen","Entrée / A / toucher — choisir","Enter / A / 触摸 — 选择"],
 	"title":["БАБУШКИНА ФЕРМА","GRANDMA'S FARM","LA GRANJA DE LA ABUELA","OMAS BAUERNHOF","LA FERME DE GRAND-MÈRE","奶奶的农场"],
@@ -442,6 +443,11 @@ const ITEMS := {
 }
 
 const LOCATIONS := {
+	"cave_fungal":["Грибной зал","Mushroom hall","Sala de hongos","Pilzhalle","Salle des champignons","蘑菇洞厅"],
+	"cave_moon":["Лунный грот","Moonlit grotto","Gruta lunar","Mondgrotte","Grotte lunaire","月光洞窟"],
+	"cave_lake":["Подземное озеро","Underground lake","Lago subterráneo","Unterirdischer See","Lac souterrain","地下湖"],
+	"cave_mine":["Старая шахта","Old mine","Mina antigua","Alte Mine","Ancienne mine","旧矿井"],
+	"cave_sanctum":["Забытое святилище","Forgotten sanctuary","Santuario olvidado","Vergessenes Heiligtum","Sanctuaire oublié","遗忘圣所"],
 	"overworld":["Деревня и гильдия","Village and guild","Aldea y gremio","Dorf und Gilde","Village et guilde","村庄与公会"], "forest":["Обычный лес","Common forest","Bosque común","Gewöhnlicher Wald","Forêt ordinaire","普通森林"],
 	"rocky":["Каменистая область","Rocky region","Región rocosa","Felsgebiet","Région rocheuse","岩石地区"], "ruins":["Орочьи руины","Orc ruins","Ruinas orcas","Orkruinen","Ruines orques","兽人遗迹"],
 	"cave":["Кристальные пещеры","Crystal caves","Cuevas de cristal","Kristallhöhlen","Grottes de cristal","水晶洞穴"], "cursed":["Проклятая земля","Cursed land","Tierra maldita","Verfluchtes Land","Terre maudite","诅咒之地"], "glassworks":["Мастерская стеклодува","Glassblower workshop","Taller de vidrio","Glasbläserwerkstatt","Atelier du verrier","玻璃工坊"],
@@ -455,6 +461,7 @@ const LOCATIONS := {
 }
 
 const TUTORIAL := {
+	"cave_labyrinth":["Пройди в соседнюю комнату через туннель. Название видно рядом с проходом; добыча сохраняется при возвращении.","Enter the next room through a tunnel. Its name appears nearby; deposits stay depleted on return.","Cruza un túnel a otra sala. Su nombre aparece cerca; las vetas conservan su estado al volver.","Gehe durch einen Tunnel in den nächsten Raum. Sein Name erscheint daneben; abgebaute Adern bleiben erschöpft.","Passe dans une autre salle par un tunnel. Son nom apparaît à proximité ; les filons gardent leur état au retour.","沿隧道进入下一间洞室。靠近通道可看到名称；返回时矿脉状态会保留。"],
 	"move":["Пройди немного стрелками или WASD","Move with arrows or WASD","Muévete con flechas o WASD","Bewege dich mit Pfeilen oder WASD","Déplace-toi avec les flèches ou WASD","用方向键或WASD移动"],
 	"village_paths":["Следуй по дороге до деревенской площади","Follow the road to the village square","Sigue el camino hasta la plaza del pueblo","Folge dem Weg zum Dorfplatz","Suis le chemin jusqu’à la place du village","沿道路前往村庄广场"],
 	"story_chain":["Возьми сюжетное задание со знаком ! и следи за цепочкой в журнале","Accept a story quest marked ! and follow its chain in the journal","Acepta una misión principal marcada con ! y sigue la cadena en el diario","Nimm eine Story-Aufgabe mit ! an und folge der Kette im Tagebuch","Accepte une quête principale marquée ! et suis sa chaîne dans le journal","接受带!的主线任务，并在日志中追踪任务链"],

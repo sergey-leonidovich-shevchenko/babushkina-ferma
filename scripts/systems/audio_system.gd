@@ -6,6 +6,7 @@ const MUSIC_BY_LOCATION := {
 	"rocky": "rocky",
 	"ruins": "danger",
 	"cave": "cave",
+	"cave_fungal":"cave", "cave_moon":"cave", "cave_lake":"cave", "cave_mine":"cave", "cave_sanctum":"cave",
 	"cursed": "danger",
 	"glassworks": "workshop",
 	"pirate_ship": "pirate",

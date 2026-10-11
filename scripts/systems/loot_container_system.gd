@@ -40,7 +40,7 @@ static func generate(seed_value: int) -> Array:
 	rng.seed = seed_value
 	var result: Array = []
 	var next_id := 0
-	for spawn in SPAWNS:
+	for spawn in SPAWNS + preload("res://scripts/systems/cave_dungeon_content.gd").LOOT:
 		var available: Array = spawn.positions.duplicate()
 		for _slot in spawn.count:
 			var point_index := rng.randi_range(0, available.size() - 1)

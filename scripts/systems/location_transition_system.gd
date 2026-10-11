@@ -2,6 +2,7 @@ extends RefCounted
 
 const TRIGGER_RADIUS := 38.0
 const REENTRY_DELAY := 0.45
+const CavePassages := preload("res://scripts/systems/cave_passage_system.gd")
 
 
 ## Обновляет автоматический переход и повторно взводит его только после выхода героя из активной зоны.
@@ -49,7 +50,9 @@ static func nearest_transition(game: Node, distance_limit: float = TRIGGER_RADIU
 		if cave_distance < distance_limit:
 			distance_limit = cave_distance
 			nearest = "cave_exit"
-	var gate_distance: float = game.player.distance_to(game.world_gate_position)
+	var cave_passage := CavePassages.nearest(game,distance_limit)
+	if not cave_passage.is_empty(): return cave_passage
+	var gate_distance: float = game.player.distance_to(game.world_gate_position) if not CavePassages.Rooms.is_cave(game.current_location) or CavePassages.Rooms.has_world_exit(game.current_location) else INF
 	if gate_distance < distance_limit:
 		distance_limit = gate_distance
 		nearest = "world_gate"
@@ -62,6 +65,7 @@ static func nearest_transition(game: Node, distance_limit: float = TRIGGER_RADIU
 
 ## Выполняет найденный переход через его профильную систему, сохраняя музыку, обучение и сообщения локации.
 static func activate(game: Node, transition: String) -> bool:
+	if transition.begins_with("cave_passage:"): return CavePassages.travel(game,transition.get_slice(":",1))
 	if transition.begins_with("building:"):
 		return game.BuildingSystem.enter(game, transition.get_slice(":", 1))
 	if transition == "interior_exit":
@@ -75,6 +79,7 @@ static func activate(game: Node, transition: String) -> bool:
 		game.exit_cave()
 		return true
 	if transition == "world_gate":
+		if CavePassages.Rooms.is_cave(game.current_location) and not CavePassages.Rooms.has_world_exit(game.current_location): return false
 		if not game.FirstChapterSystem.can_use_world_gate(game): return false
 		game.WorldSystem.travel(game)
 		game.FirstChapterSystem.on_location_changed(game)

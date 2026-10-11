@@ -50,7 +50,8 @@ static func update(game: Node, delta: float) -> void:
 static func show_location(game: Node, location: String) -> bool:
 	if not LOCATION_HINTS.has(location):
 		return false
-	return show(game, "location:%s" % location, {"title":game.LocaleSystem.location(location),"text":game.LocaleSystem.ui("hint_cave_veins" if location == "cave" else "hint_location")})
+	var hint := "hint_cave_labyrinth" if preload("res://scripts/systems/cave_room_data.gd").is_cave(location) else "hint_location"
+	return show(game,"location:%s" % location,{"title":game.LocaleSystem.location(location),"text":game.LocaleSystem.ui(hint)})
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func dismiss(game: Node) -> void:
@@ -76,7 +77,8 @@ static func scan_nearby(game: Node) -> bool:
 		if food.active and food.get("location", "overworld") == game.current_location:
 			add_candidate(candidates, "food:%s" % food.kind, food.position, food_hint(game, food.kind))
 	if not game.BuildingSystem.is_interior(game.current_location):
-		add_candidate(candidates, "world_gate", game.world_gate_position, static_hint(game, "world_gate"))
+		if not preload("res://scripts/systems/cave_room_data.gd").is_cave(game.current_location) or preload("res://scripts/systems/cave_room_data.gd").has_world_exit(game.current_location):
+			add_candidate(candidates,"world_gate",game.world_gate_position,static_hint(game,"world_gate"))
 		for building_id in game.BuildingSystem.buildings_at(game.current_location):
 			var building: Dictionary = game.BuildingSystem.BUILDINGS[building_id]
 			add_candidate(candidates, "building:%s" % building_id, building.door, {"title":game.LocaleSystem.location(building.interior),"text":game.LocaleSystem.ui("hint_building")})

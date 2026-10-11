@@ -478,7 +478,7 @@ func drop_selected_item() -> bool:
 	if kind.is_empty() or not change_inventory_count(kind, -1):
 		message = "В этом слоте нечего выбрасывать"
 		return false
-	dropped_items.append({"kind": kind, "count": 1, "position": player + facing * 50.0})
+	dropped_items.append({"kind": kind, "count": 1, "position": player + facing * 50.0, "location": current_location})
 	message = LocaleSystem.text("dropped")
 	return true
 
@@ -496,7 +496,7 @@ func collect_dropped_item(index: int) -> bool:
 	if index < 0 or index >= dropped_items.size():
 		return false
 	var item: Dictionary = dropped_items[index]
-	if player.distance_to(item.position) > 92.0:
+	if item.get("location",current_location) != current_location or player.distance_to(item.position) > 92.0:
 		return false
 	change_inventory_count(item.kind, item.count)
 	dropped_items.remove_at(index)

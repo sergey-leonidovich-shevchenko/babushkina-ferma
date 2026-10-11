@@ -55,7 +55,7 @@ const SPAWNS := [
 ## Создаёт противников с рассчитанными характеристиками и runtime-состоянием AI.
 static func default_enemies() -> Array:
 	var result: Array = []
-	for spawn in SPAWNS:
+	for spawn in SPAWNS + preload("res://scripts/systems/cave_dungeon_content.gd").ENEMIES:
 		var enemy: Dictionary = spawn.duplicate(true)
 		enemy.level = clampi(int(enemy.level), 1, MAX_ENEMY_LEVEL)
 		enemy.max_hp = max_hp(enemy.kind, enemy.level)
@@ -253,7 +253,7 @@ static func apply_damage(game: Node, index: int, damage: int, attacker_name: Str
 		for kind in TYPES[enemy.kind].loot:
 			var count: int = int(TYPES[enemy.kind].loot[kind]) * multiplier
 			if kind == "coins": game.coins += count
-			else: game.dropped_items.append({"kind":kind,"count":count,"position":enemy.position})
+			else: game.dropped_items.append({"kind":kind,"count":count,"position":enemy.position,"location":game.current_location})
 		game.message = "%s • ур. %d: +%d XP" % [LocaleSystem.entity(enemy.kind), enemy.level, reward]
 		game.FirstChapterSystem.on_enemy_defeated(game,enemy)
 		if enemy.kind in PIRATE_FAMILIES: game.notify_tutorial("pirate_loot")

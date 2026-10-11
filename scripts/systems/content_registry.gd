@@ -68,7 +68,7 @@ static func validate() -> Array[String]:
 		_validate_item(errors, items, node.kind, "forage spawn")
 		if not ForageSystem.TYPES.has(node.kind): errors.append("forage spawn has unknown type: %s" % node.kind)
 		_validate_location(errors, node.location, "forage spawn")
-	for enemy in CombatSystem.SPAWNS:
+	for enemy in CombatSystem.default_enemies():
 		if not CombatSystem.TYPES.has(enemy.kind): errors.append("enemy spawn has unknown type: %s" % enemy.kind)
 		_validate_location(errors, enemy.location, "enemy spawn")
 	for animal in WildlifeSystem.SPAWNS:
@@ -87,5 +87,5 @@ static func _validate_item(errors: Array[String], items: Dictionary, kind: Strin
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func _validate_location(errors: Array[String], location: String, owner: String) -> void:
-	if location not in WorldSystem.LOCATIONS:
+	if location not in WorldSystem.LOCATIONS and not preload("res://scripts/systems/cave_room_data.gd").is_cave(location):
 		errors.append("%s references unknown location: %s" % [owner, location])

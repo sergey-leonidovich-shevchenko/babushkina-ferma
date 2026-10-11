@@ -70,6 +70,8 @@ static func interaction_position(game: Node, interaction: String) -> Vector2:
 		return game.QuestSystem.npc_position(game, interaction.get_slice(":", 1))
 	if interaction == "home_chest":
 		return game.StorageSystem.CHEST_POSITION
+	if interaction.begins_with("cave_passage:"):
+		return preload("res://scripts/systems/cave_room_data.gd").PORTS.get(interaction.get_slice(":",1),Vector2.ZERO)
 	for prefix in ["drop", "container", "resource", "food"]:
 		if not interaction.begins_with(prefix + ":"):
 			continue

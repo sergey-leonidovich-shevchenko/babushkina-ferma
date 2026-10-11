@@ -178,7 +178,7 @@ var contract_selected: int:
 	set(value): state.contracts.selected = value
 var world_gate_position: Vector2:
 	get:
-		if current_location == "cave": return preload("res://scripts/systems/cave_map_data.gd").DEEP_GATE
+		if preload("res://scripts/systems/cave_room_data.gd").is_cave(current_location): return preload("res://scripts/systems/cave_map_data.gd").DEEP_GATE
 		return VillageMapData.FOREST_GATE if current_location == "overworld" else Vector2(2200, 760)
 var enemy_nodes := CombatSystem.default_enemies()
 var hazard_nodes := EnvironmentHazardSystem.default_hazards()

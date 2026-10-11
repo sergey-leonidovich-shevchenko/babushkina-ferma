@@ -145,7 +145,7 @@ static func attack(game: Node, index: int) -> bool:
 		game.award_xp(TYPES[animal.kind].xp)
 		game.SkillSystem.award_profession_xp(game, "combat", maxi(1, TYPES[animal.kind].xp / 2))
 		for kind in TYPES[animal.kind].loot:
-			game.dropped_items.append({"kind":kind,"count":TYPES[animal.kind].loot[kind],"position":animal.position})
+			game.dropped_items.append({"kind":kind,"count":TYPES[animal.kind].loot[kind],"position":animal.position,"location":game.current_location})
 		game.message = "%s: +%d XP" % [LocaleSystem.entity(animal.kind), TYPES[animal.kind].xp]
 	else:
 		game.message = "%s: -%d HP" % [LocaleSystem.entity(animal.kind), damage]

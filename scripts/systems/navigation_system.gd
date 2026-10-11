@@ -55,9 +55,10 @@ static func walkability_reason(game: Node, position: Vector2, ignored_enemy: int
 	if game.current_location == "pirate_ship" and not PirateShipSystem.is_walkable(position, game.PLAYER_RADIUS): return "ship"
 	if position.x < 40.0 or position.x > game.WORLD_SIZE.x - 40.0 or position.y < 120.0 or position.y > game.WORLD_SIZE.y - 80.0:
 		return "boundary"
-	if game.current_location == "cave":
-		if CaveLayout.blocks_position(position, game.PLAYER_RADIUS): return "cave_wall"
-		if CaveLayout.blocks_decoration(position, game.PLAYER_RADIUS): return "cave_prop"
+	if CaveLayout.Rooms.is_cave(game.current_location):
+		if CaveLayout.blocks_position(position,game.PLAYER_RADIUS,game.current_location): return "cave_wall"
+		if CaveLayout.blocks_water(position,game.PLAYER_RADIUS,game.current_location): return "cave_water"
+		if CaveLayout.blocks_decoration(position,game.PLAYER_RADIUS,game.current_location): return "cave_prop"
 	if use_broadphase:
 		if Broadphase.blocks(game, "building", position, game.PLAYER_RADIUS): return "building"
 	else:
@@ -165,7 +166,7 @@ static func move_enemy(game: Node, enemy_index: int, motion: Vector2) -> Vector2
 ## Проверяет путь врага без ложного столкновения с ним самим.
 static func enemy_position_walkable(game: Node, position: Vector2, enemy_index: int, previous: Vector2 = Vector2.INF) -> bool:
 	const RADIUS := 27.0
-	if game.current_location == "cave" and (CaveLayout.blocks_position(position, RADIUS) or CaveLayout.blocks_decoration(position, RADIUS)): return false
+	if CaveLayout.Rooms.is_cave(game.current_location) and (CaveLayout.blocks_position(position,RADIUS,game.current_location) or CaveLayout.blocks_water(position,RADIUS,game.current_location) or CaveLayout.blocks_decoration(position,RADIUS,game.current_location)): return false
 	# Общая карта препятствий учитывает также заборы, сундуки, события и опубликованные уровни.
 	if walkability_reason(game, position, enemy_index) != "walkable": return false
 	var player_distance: float = position.distance_to(game.player)

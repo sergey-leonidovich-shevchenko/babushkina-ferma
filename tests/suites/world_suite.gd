@@ -8,6 +8,7 @@ const RoadVisualSystem := preload("res://scripts/systems/road_visual_system.gd")
 ## Запускает все сценарии текущего набора тестов в фиксированном порядке.
 func run() -> void:
 	preload("res://tests/suites/cave_location_suite.gd").new(context).run()
+	preload("res://tests/suites/cave_labyrinth_suite.gd").new(context).run()
 	test_first_level_master_is_sliced_into_a_seamless_world_grid()
 	test_modular_road_catalog_builds_connected_first_location_routes()
 	test_first_location_has_clear_functional_zones()
@@ -364,7 +365,8 @@ func test_seeded_world_loot_generation_and_opening() -> void:
 	var different: Array = game.LootContainerSystem.generate(654321)
 	expect(first == repeated, "same world seed generates identical loot containers")
 	expect(first != different, "different world seed changes positions types or contents")
-	expect(first.size() == 22, "random loot is distributed across all eight locations")
+	var original: Array = first.filter(func(container): return not String(container.location).begins_with("cave_"))
+	expect(original.size() == 22 and first.size() == 29, "original world keeps all 22 loot containers and the cave labyrinth adds seven")
 	game.world_loot_seed = 123456
 	game.world_loot_nodes = first
 	var container: Dictionary = game.world_loot_nodes[0]

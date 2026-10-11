@@ -100,7 +100,7 @@ func test_old_cave_save_keeps_progress_and_repairs_wall_positions() -> void:
 	expect(restored.player == MapData.START and restored.NavigationSystem.is_walkable(restored, restored.player), "hero saved inside new rocks returns to the safe cave entrance")
 	expect(restored.coins == 321 and restored.player_hp == 72 and restored.inventory_item_count("metal") == 9, "cave migration preserves money, health and collected metal")
 	expect(restored.resource_nodes[2].hits == 0 and restored.resource_nodes[3].hits == 1, "legacy indexed resource depletion is preserved")
-	expect(restored.resource_nodes.size() == 9 and restored.resource_nodes.slice(5).all(func(node): return node.hits == 3), "new cave veins keep initial hits when an old save has no entries")
+	expect(restored.resource_nodes.size() == 24 and restored.resource_nodes.slice(5,9).all(func(node): return node.hits == 3), "new cave veins keep initial hits when an old save has no entries")
 	expect(not restored.enemy_nodes[enemy_index].alive and restored.enemy_nodes[enemy_index].hp == 0 and not Layout.blocks_position(restored.enemy_nodes[enemy_index].position,27), "dead enemy remains dead when its old position is repaired")
 	data.player = [960,600]
 	expect(restored.SaveSystem.apply(restored,data) and restored.player == Vector2(960,600), "valid saved cave position is kept")
@@ -109,7 +109,7 @@ func test_old_cave_save_keeps_progress_and_repairs_wall_positions() -> void:
 
 ## Сценарий: игрок входит из деревни, возвращается и затем проходит дальше через северо-восточный выход.
 ## Исходное состояние: переходы выполняются обычной системой дверей, без ручного изменения локации после активации.
-## Ожидаемый результат: начальная точка безопасна и не вызывает обратный прыжок; существующий маршрут в проклятую землю сохранён.
+## Ожидаемый результат: начальная точка безопасна, дверь возвращает в деревню, а северный туннель ведёт в грибной зал.
 func test_both_cave_routes_have_safe_spawns() -> void:
 	var game := make_game()
 	game.enter_cave()
@@ -118,8 +118,8 @@ func test_both_cave_routes_have_safe_spawns() -> void:
 	game.player = MapData.EXIT
 	expect(game.LocationTransitionSystem.activate(game,"cave_exit") and game.current_location == "overworld", "lower-left door returns to the village")
 	game.enter_cave(); game.player = MapData.DEEP_GATE
-	expect(game.nearest_interaction() == "world_gate", "upper-right cave passage retains the world transition interaction")
-	expect(game.LocationTransitionSystem.activate(game,"world_gate") and game.current_location == "cursed", "upper-right passage continues the existing world route")
+	expect(game.nearest_interaction() == "cave_passage:deep", "upper-right cave tunnel exposes its actual room transition")
+	expect(game.LocationTransitionSystem.activate(game,"cave_passage:deep") and game.current_location == "cave_fungal", "upper-right passage enters the mushroom hall")
 	game.free()
 
 

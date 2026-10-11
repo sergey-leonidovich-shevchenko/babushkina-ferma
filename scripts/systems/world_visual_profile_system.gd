@@ -26,6 +26,7 @@ const PROFILES := {
 	"cave_stalagmite": {"visual_size": Vector2(72, 120), "anchor": "bottom_center", "collision_size": Vector2(24, 24), "collision_offset": Vector2(0, -12)},
 	"cave_rubble": {"visual_size": Vector2(96, 72), "anchor": "bottom_center", "collision_size": Vector2.ZERO, "collision_offset": Vector2.ZERO},
 	"cave_mushroom": {"visual_size": Vector2(48, 48), "anchor": "bottom_center", "collision_size": Vector2.ZERO, "collision_offset": Vector2.ZERO},
+	"cave_fungal_canopy": {"visual_size": Vector2(72,72), "anchor":"bottom_center", "collision_size":Vector2.ZERO, "collision_offset":Vector2.ZERO},
 	"cave_torch": {"visual_size": Vector2(48, 96), "anchor": "bottom_center", "collision_size": Vector2.ZERO, "collision_offset": Vector2.ZERO},
 	"cave_fragments": {"visual_size": Vector2(72, 72), "anchor": "bottom_center", "collision_size": Vector2.ZERO, "collision_offset": Vector2.ZERO},
 	"forage_patch": {"visual_size": Vector2(48, 48), "anchor": "bottom_center", "collision_size": Vector2(24, 24), "collision_offset": Vector2(0, -24)},

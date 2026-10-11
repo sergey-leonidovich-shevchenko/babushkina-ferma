@@ -18,7 +18,7 @@ static func snapshot(game: Node) -> Dictionary:
 		var plot: Dictionary = game.plots[cell]
 		plot_data.append({"x":cell.x,"y":cell.y,"tilled":plot.tilled,"planted":plot.planted,"watered":plot.watered,"growth":plot.growth,"stage":plot.stage,"crop_kind":plot.get("crop_kind","carrot")})
 	for item in game.dropped_items:
-		drops.append({"kind":item.kind,"count":item.count,"position":[item.position.x,item.position.y]})
+		drops.append({"kind":item.kind,"count":item.count,"position":[item.position.x,item.position.y],"location":item.get("location",game.current_location)})
 	for animal in game.wildlife_nodes:
 		wildlife.append({"hp":animal.hp,"alive":animal.alive,"position":[animal.position.x,animal.position.y]})
 	for container in game.world_loot_nodes:
@@ -134,7 +134,10 @@ static func apply(game: Node, data: Dictionary) -> bool:
 			plot.crop_kind = String(saved_plot.get("crop_kind", "carrot"))
 			game.plots[cell] = plot
 	game.WorldFarmingSystem.restore(game, data.get("world_plots", []))
-	for index in mini(data.resource_hits.size(), game.resource_nodes.size()): game.resource_nodes[index].hits = data.resource_hits[index]
+	var initial_resources: Array = game.ResourceSystem.default_nodes()
+	for index in game.resource_nodes.size():
+		if index < data.resource_hits.size(): game.resource_nodes[index].hits = data.resource_hits[index]
+		elif index < initial_resources.size(): game.resource_nodes[index].hits = initial_resources[index].hits
 	for index in mini(data.get("trees", []).size(), game.state.world.tree_nodes.size()):
 		game.state.world.tree_nodes[index].health = data.trees[index].health; game.state.world.tree_nodes[index].stage = data.trees[index].stage; game.state.world.tree_nodes[index].regrow_timer = data.trees[index].regrow_timer
 	if data.has("forage"):
@@ -150,6 +153,9 @@ static func apply(game: Node, data: Dictionary) -> bool:
 			if int(data.forage[index].get("stage", -1)) >= 0: game.food_nodes[index].stage = clampi(int(data.forage[index].stage),0,3)
 	else:
 		for index in mini(data.get("food_active", []).size(), game.food_nodes.size()): game.food_nodes[index].active = data.food_active[index]
+	var initial_enemies: Array = game.CombatSystem.default_enemies()
+	for index in range(data.get("enemies",[]).size(),mini(game.enemy_nodes.size(),initial_enemies.size())):
+		if preload("res://scripts/systems/cave_room_data.gd").is_cave(initial_enemies[index].location) and initial_enemies[index].location != "cave": game.enemy_nodes[index] = initial_enemies[index]
 	for index in mini(data.get("enemies",[]).size(), game.enemy_nodes.size()):
 		var saved_enemy: Dictionary = data.enemies[index]
 		game.enemy_nodes[index].level = clampi(int(saved_enemy.get("level", game.enemy_nodes[index].level)), 1, game.CombatSystem.MAX_ENEMY_LEVEL)
@@ -171,9 +177,11 @@ static func apply(game: Node, data: Dictionary) -> bool:
 		for container in data.containers:
 			game.world_loot_nodes.append({"id":container.id,"kind":container.kind,"location":container.location,"position":Vector2(container.position[0],container.position[1]),"opened":container.opened,"contents":container.contents.duplicate(true)})
 		game.world_loot_nodes = game.LootContainerSystem.merge_missing_location(game.world_loot_nodes, game.world_loot_seed, "pirate_ship")
+		for room in preload("res://scripts/systems/cave_room_data.gd").IDS:
+			game.world_loot_nodes = game.LootContainerSystem.merge_missing_location(game.world_loot_nodes,game.world_loot_seed,room)
 	game.dropped_items.clear()
 	for item in data.get("drops", []):
-		game.dropped_items.append({"kind":item.kind,"count":item.count,"position":Vector2(item.position[0],item.position[1])})
+		game.dropped_items.append({"kind":item.kind,"count":item.count,"position":Vector2(item.position[0],item.position[1]),"location":item.get("location",game.current_location)})
 	game.InventorySystem.recalculate_stats(game); game.player_hp = mini(game.player_hp, game.player_max_hp)
 	game.state.normalize()
 	preload("res://scripts/systems/village_map_migration_system.gd").apply(game,int(data.get("estate",{}).get("map_revision",0)))

@@ -56,7 +56,7 @@ func set_environment(next_season: String, next_weather: String) -> void:
 func _draw() -> void:
 	if BuildingSystem.is_interior(location): draw_interior()
 	elif location == "overworld": draw_overworld()
-	elif location == "cave": draw_cave()
+	elif preload("res://scripts/systems/cave_room_data.gd").is_cave(location): draw_cave()
 	elif location == "pirate_ship": PirateShipRenderer.draw(self)
 	elif location == "moon_glade": draw_moon_glade()
 	elif location == DebugPlaygroundSystem.LOCATION: DebugPlaygroundRenderer.draw_background(self)

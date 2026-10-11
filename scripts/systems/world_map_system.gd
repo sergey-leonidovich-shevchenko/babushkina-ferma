@@ -64,6 +64,7 @@ static func bestiary_discovered(game: Node, kind: String) -> bool:
 
 ## Возвращает внешнюю область для текущего интерьера или саму открытую локацию.
 static func current_region(game: Node) -> String:
+	if preload("res://scripts/systems/cave_room_data.gd").is_cave(game.current_location): return "cave"
 	if game.BuildingSystem.is_interior(game.current_location):
 		var building_id: String = String(game.BuildingSystem.INTERIORS[game.current_location].building)
 		return String(game.BuildingSystem.BUILDINGS[building_id].location)

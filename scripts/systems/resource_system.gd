@@ -27,6 +27,7 @@ static func default_nodes() -> Array:
 	for index in placements: nodes[index].position=placements[index]
 	for index in CaveMap.RESOURCES: nodes[index].position = CaveMap.RESOURCES[index]
 	nodes.append_array(CaveMap.EXTRA_RESOURCES.duplicate(true))
+	nodes.append_array(preload("res://scripts/systems/cave_dungeon_content.gd").RESOURCES.duplicate(true))
 	return nodes
 
 
@@ -37,14 +38,14 @@ static func ground_anchor(position: Vector2) -> Vector2:
 
 ## Строит видимый прямоугольник камня или кристалла через общий модульный профиль.
 static func destination_rect(node: Dictionary) -> Rect2:
-	if node.get("location", "") == "cave":
+	if preload("res://scripts/systems/cave_room_data.gd").is_cave(String(node.get("location", ""))):
 		return CaveAssets.destination_rect(CaveAssets.resource_art(node.kind), ground_anchor(Vector2(node.position)))
 	return WorldVisualProfileSystem.visual_rect(VISUAL_PROFILE,ground_anchor(Vector2(node.position)))
 
 
 ## Строит основание ресурса для навигации и F10 по профилю его локации.
 static func collision_rect(node: Dictionary) -> Rect2:
-	if node.get("location", "") == "cave":
+	if preload("res://scripts/systems/cave_room_data.gd").is_cave(String(node.get("location", ""))):
 		return CaveAssets.collision_rect(CaveAssets.resource_art(node.kind), ground_anchor(Vector2(node.position)))
 	return WorldVisualProfileSystem.collision_rect(VISUAL_PROFILE,ground_anchor(Vector2(node.position)))
 
@@ -82,5 +83,5 @@ static func mine(game: Node, index: int) -> bool:
 	game.notify_tutorial("mine")
 	if resource.kind in ["red_crystal", "green_crystal"]:
 		game.notify_tutorial("colored_crystal")
-	if resource.kind == "metal" and resource.location == "cave": game.notify_tutorial("cave_veins")
+	if resource.kind == "metal" and preload("res://scripts/systems/cave_room_data.gd").is_cave(resource.location): game.notify_tutorial("cave_veins")
 	return true

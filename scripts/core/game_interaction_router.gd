@@ -49,7 +49,9 @@ static func _fixed_interactions(game: Node) -> Dictionary:
 			interactions["loot"] = game.slime_position
 	elif game.current_location == "cave":
 		interactions = {"cave_exit": game.cave_exit_position}
-	if not game.BuildingSystem.is_interior(game.current_location):
+	for passage in preload("res://scripts/systems/cave_room_data.gd").passages(game.current_location):
+		interactions["cave_passage:%s" % passage.port] = passage.position
+	if not game.BuildingSystem.is_interior(game.current_location) and (not preload("res://scripts/systems/cave_room_data.gd").is_cave(game.current_location) or preload("res://scripts/systems/cave_room_data.gd").has_world_exit(game.current_location)):
 		interactions["world_gate"] = game.world_gate_position
 	return interactions
 
@@ -83,6 +85,7 @@ static func _nearest_dynamic_object(game: Node, current: String, distance: float
 	var nearest := current
 	var nearest_distance := distance
 	for index in game.dropped_items.size():
+		if game.dropped_items[index].get("location",game.current_location) != game.current_location: continue
 		var candidate_distance: float = game.player.distance_to(game.dropped_items[index].position)
 		if candidate_distance < nearest_distance:
 			nearest_distance = candidate_distance
@@ -113,6 +116,7 @@ static func _nearest_dynamic_object(game: Node, current: String, distance: float
 ## Выполняет найденное контекстное действие через единственного владельца соответствующей механики.
 static func perform(game: Node) -> bool:
 	var interaction: String = nearest(game)
+	if interaction.begins_with("cave_passage:"): return game.LocationTransitionSystem.activate(game,interaction)
 	if interaction.begins_with("building:"): return game.BuildingSystem.enter(game, interaction.get_slice(":", 1))
 	if interaction == "interior_exit": return game.BuildingSystem.leave(game)
 	if interaction.begins_with("interior_link:"): return game.BuildingSystem.travel_inside(game, interaction.get_slice(":", 1))
@@ -144,6 +148,6 @@ static func _perform_fixed(game: Node, interaction: String) -> bool:
 		"loot": game.collect_loot()
 		"cave_entrance": game.enter_cave()
 		"cave_exit": game.exit_cave()
-		"world_gate": game.WorldSystem.travel(game)
+		"world_gate": return game.LocationTransitionSystem.activate(game,"world_gate")
 		_: return false
 	return true
