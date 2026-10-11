@@ -1,7 +1,10 @@
 extends RefCounted
 
 const MoonStyle := preload("res://scripts/presentation/moon_theme.gd")
+const Assets := preload("res://scripts/systems/celestial_dial_assets_system.gd")
 const CYCLE_DAYS := 28
+const DIAMETER := 96.0
+const ORBIT_RADIUS := 27.0
 
 ## Возвращает фазу двадцативосьмидневного цикла: новолуние, рост, полнолуние и убывание.
 static func moon_phase(day: int) -> float:
@@ -25,37 +28,53 @@ static func orbit_center(rect: Rect2, progress: float) -> Vector2:
 
 ## Возвращает общую область календарной подписи для рендера и проверки локализованных шрифтов.
 static func calendar_rect(rect: Rect2) -> Rect2:
-	return Rect2(rect.position+Vector2(8,50),Vector2(rect.size.x-16,18))
+	return Rect2(rect.position+Vector2(0,98),Vector2(rect.size.x,18))
 
-## Рисует небесную дугу, плавную смену солнца и фазовой луны; точное время не выводится.
+## Возвращает непрерывный угол суток, включая переход через полночь без скачка на полный оборот.
+static func rotation_angle(day: int, minutes: float) -> float:
+	return TAU*((day-1)*1440.0+minutes-720.0)/1440.0
+
+## Центрирует круг в выделенной области, оставляя календарю собственную строку.
+static func dial_rect(rect: Rect2) -> Rect2:
+	return Rect2(rect.position+Vector2((rect.size.x-DIAMETER)/2,0),Vector2.ONE*DIAMETER)
+
+## Размещает светила на противоположных сторонах одной орбиты: восход слева и закат справа.
+static func body_center(rect: Rect2, angle: float, sun: bool) -> Vector2:
+	return dial_rect(rect).get_center()+Vector2(0,-ORBIT_RADIUS if sun else ORBIT_RADIUS).rotated(fposmod(angle,TAU))
+
+## Вращает только небо; неподвижная долина закрывает заходящие светила, рамка и подпись остаются ровными.
 static func draw(game: Node, rect: Rect2) -> void:
-	MoonStyle.panel(game,rect,MoonStyle.INSET)
-	var orbit := PackedVector2Array()
-	for index in 25: orbit.append(orbit_center(rect,float(index)/24.0))
-	game.draw_polyline(orbit,Color("405442"),1.0,true)
-	var minute := fposmod(game.game_minutes,1440.0)
-	var daylight := smoothstep(354.0,366.0,minute)-smoothstep(1074.0,1086.0,minute)
-	var sun_progress := orbit_progress(game.game_minutes,true)
-	if daylight>0: draw_sun(game,orbit_center(rect,sun_progress),daylight,sun_progress)
-	if daylight<1: draw_moon(game,orbit_center(rect,orbit_progress(game.game_minutes,false)),moon_phase(game.day),1-daylight)
+	var angle := fposmod(rotation_angle(game.day,game.game_minutes),TAU)
+	var circle := dial_rect(rect)
+	var local := Rect2(-circle.size/2,circle.size)
+	game.draw_set_transform(circle.get_center(),angle)
+	game.draw_texture_rect(Assets.texture("sky"),local,false)
+	game.draw_set_transform(Vector2.ZERO)
+	draw_sun(game,body_center(rect,angle,true),1.0,fposmod(game.game_minutes,1440.0)/1440.0)
+	draw_moon(game,body_center(rect,angle,false),moon_phase(game.day))
+	var light := Color("65759c").lerp(Color.WHITE,(cos(angle)+1)/2.0)
+	game.draw_texture_rect(Assets.texture("landscape"),circle,false,light)
+	game.draw_texture_rect(Assets.texture("frame"),circle,false)
 	var calendar: String = MoonStyle.sentence_case(game.LocaleSystem.ui("day_short",[game.day]))+" · "+game.LocaleSystem.ui("season_"+game.WorldEventSystem.season(game.day))
+	MoonStyle.panel(game,calendar_rect(rect),Color(0.025,0.055,0.045,0.82))
 	MoonStyle.text(game,calendar_rect(rect),calendar,MoonStyle.LABEL_SIZE,MoonStyle.MUTED,HORIZONTAL_ALIGNMENT_CENTER)
 
-## Анимирует короткие солнечные лучи; режим уменьшенной анимации сохраняет неподвижный символ.
+## Привязывает лучи к игровому времени: при паузе останавливаются и круг, и мелкие движения.
 static func draw_sun(game: Node, center: Vector2, opacity: float = 1.0, progress: float = 0.5) -> void:
-	var rotation := 0.0 if game.settings_state.reduced_motion else sin(Time.get_ticks_msec()/2800.0)*0.12
+	var rotation := 0.0 if game.settings_state.reduced_motion else sin(progress*TAU)*0.12
 	var color := Color("f0df9a").lerp(Color("dba16c"),absf(progress-0.5)*2)
 	color.a=opacity
-	game.draw_circle(center,8,color)
-	game.draw_circle(center-Vector2(2,2),3,Color(0.97,0.91,0.67,opacity))
+	game.draw_circle(center,5,color)
+	game.draw_circle(center-Vector2(1,1),2,Color(0.97,0.91,0.67,opacity))
 	for index in 8:
 		var direction := Vector2.from_angle(index*TAU/8.0+rotation)
-		game.draw_line(center+direction*11,center+direction*15,Color(0.8,0.73,0.46,opacity),1.5)
+		game.draw_line(center+direction*7,center+direction*9,Color(0.91,0.79,0.46,opacity),1.0,true)
 
 ## Рисует освещённую часть сферы геометрически, без переключения готовых одинаковых лунных пиктограмм.
 static func draw_moon(game: Node, center: Vector2, phase: float, opacity: float = 1.0) -> void:
-	var radius := 11.0
-	game.draw_circle(center,radius,Color(0.20,0.30,0.26,opacity))
+	var radius := 6.5
+	game.draw_circle(center,radius+0.5,Color(0.48,0.61,0.70,opacity))
+	game.draw_circle(center,radius,Color(0.17,0.24,0.32,opacity))
 	var polygon := PackedVector2Array()
 	for index in 25:
 		var y := -radius+2*radius*index/24.0
@@ -66,5 +85,3 @@ static func draw_moon(game: Node, center: Vector2, phase: float, opacity: float 
 		var edge := sqrt(maxf(0,radius*radius-y*y))
 		polygon.append(center+Vector2(cos(phase*TAU)*edge*(1 if phase<=0.5 else -1),y))
 	if phase>0.001 and phase<0.999: game.draw_colored_polygon(polygon,Color(0.86,0.91,0.78,opacity))
-	game.draw_circle(center+Vector2(15,-11),1,Color(0.73,0.82,0.71,opacity))
-	game.draw_circle(center+Vector2(-16,6),1,Color(0.56,0.68,0.60,opacity))

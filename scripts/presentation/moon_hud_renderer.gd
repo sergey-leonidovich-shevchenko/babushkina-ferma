@@ -10,7 +10,7 @@ const HEALTH_LABEL := Rect2(30,20,90,18)
 const HEALTH_VALUE := Rect2(130,20,96,18)
 const MANA := Rect2(30,72,92,3)
 const STAMINA := Rect2(134,72,92,3)
-const CLOCK := Rect2(958,14,112,70)
+const CLOCK := Rect2(950,14,128,116)
 const COINS := Rect2(250,18,96,24)
 const LOCATION := Rect2(364,17,488,25)
 

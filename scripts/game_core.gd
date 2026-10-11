@@ -109,6 +109,7 @@ func update_game_clock(delta: float) -> void:
 	# Одна реальная секунда равна одной игровой минуте.
 	if state.fishing.phase == FishingSystem.PHASE_MINIGAME: return
 	game_minutes += delta
+	if not tutorial_events_completed.has("celestial_clock"): notify_tutorial("celestial_clock")
 	if game_minutes >= 24.0 * 60.0:
 		game_minutes -= 24.0 * 60.0
 		day += 1

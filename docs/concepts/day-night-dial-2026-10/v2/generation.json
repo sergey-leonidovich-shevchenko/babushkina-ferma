@@ -1,0 +1,12 @@
+{
+  "tool": "built-in imagegen",
+  "date": "2026-10-11",
+  "selection": "Wood and brass, 96 design pixels; decisions delegated by the user.",
+  "source": "../v1/generation.json",
+  "sky": {
+    "original": "/Users/sergeyshevchenko/.codex/generated_images/01a122e8-fdd8-7301-97c2-1709638e6385/exec-459727fd-636e-487d-ab22-8badd90b7a7b.png",
+    "file": "sources/sky.png",
+    "prompt": "Use case: precise-object-edit\nAsset type: modular day-night circular sky layer for an existing 2D RPG interface.\nEdit this exact circular transparent sky disk. Remove the yellow SUN including every yellow ray and warm circular glow at the upper center, replacing that area seamlessly with the surrounding blue sky and delicate clouds. Remove the CRESCENT MOON including its entire light glow at the lower center, replacing that area seamlessly with the surrounding deep blue night sky and subtle distant stars. Preserve exact circular outline, center and diameter, day sky upper half, night sky lower half, dusk transitions on left and right, existing clouds and stars everywhere else. Keep the exterior completely transparent. No new objects, no sun, no moon, no symbols, no lettering, no frame or landscape. The game will draw sun and varying moon phases in separate reusable layers. Preserve palette and painted softness exactly."
+  },
+  "pipeline": "tools/prepare_celestial_dial.gd: existing edge matte cleanup, Lanczos 512x512; originals preserved. Sun and 28-day lunar illumination drawn analytically."
+}

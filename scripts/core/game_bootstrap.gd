@@ -21,6 +21,7 @@ static func _initialize_services(game: Node) -> void:
 	game.talent_levels = game.TalentSystem.merge_levels(game.talent_levels)
 	game.VisualAssetSystem.initialize_item_icons(game.InventorySystem.ITEM_DATA.keys())
 	game.DirectionalCharacterSystem.HeroVisualSystem.warmup()
+	preload("res://scripts/systems/celestial_dial_assets_system.gd").warmup()
 	game.DirectionalCharacterSystem.GrandmotherVisualSystem.warmup()
 	preload("res://scripts/systems/wildlife_visual_system.gd").warmup(game)
 	for content_error in game.ContentRegistry.validate():
