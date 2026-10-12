@@ -29,7 +29,7 @@ static func _initialize_services(game: Node) -> void:
 	game.EnvironmentVisualSystem.texture("moon_portal")
 	preload("res://scripts/systems/wildlife_visual_system.gd").warmup(game)
 	for content_error in game.ContentRegistry.validate():
-		game.push_error("Invalid game content: " + content_error)
+		push_error("Invalid game content: " + content_error)
 	game.LocaleSystem.load_locale()
 	if game.is_inside_tree():
 		game.SettingsSystem.load(game)

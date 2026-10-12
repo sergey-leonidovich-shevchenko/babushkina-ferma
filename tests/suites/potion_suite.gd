@@ -3,6 +3,7 @@ extends "res://tests/suites/suite_base.gd"
 
 ## Запускает сценарии мгновенных зелий, бафов, невидимости, защиты, крафта и сохранения.
 func run() -> void:
+	preload("res://tests/suites/alchemy_suite.gd").new(context).run()
 	test_instant_restore_potions_respect_resource_caps()
 	test_invisibility_suppresses_aggro_and_breaks_on_attack()
 	test_timed_buffs_regenerate_accelerate_and_reduce_damage()

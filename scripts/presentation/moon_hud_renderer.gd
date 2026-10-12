@@ -65,4 +65,7 @@ static func effect_labels(game: Node) -> Array[String]:
 	var labels: Array[String] = []
 	for effect in [[game.regeneration_timer,"❤"],[game.strength_timer,"⚔"],[game.speed_timer,"➜"],[game.defense_timer,"◆"],[game.invisibility_timer,"◉"]]:
 		if float(effect[0])>0: labels.append("%s %.0fs"%[effect[1],effect[0]])
+	for effect in [["repellent","✦"],["mining","⛏"]]:
+		var remaining:float=game.CraftingSystem.Alchemy.remaining(game,effect[0])
+		if remaining>0: labels.append("%s %.0fs"%[effect[1],remaining])
 	return labels

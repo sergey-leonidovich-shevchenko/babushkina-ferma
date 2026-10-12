@@ -28,7 +28,7 @@ const BUILDINGS := {
 }
 
 const INTERIORS := {
-	"cottage_interior":{"building":"cottage","room":Rect2(132, 112, 888, 448),"spawn":Vector2(576, 500),"exit":Vector2(576, 545),"color":Color("876a45"),"service":"bed","service_position":Vector2(300, 390),"services":[{"id":"bed","position":Vector2(300,390)},{"id":"cauldron","position":Vector2(930,390)}]},
+	"cottage_interior":{"building":"cottage","room":Rect2(132, 112, 888, 448),"spawn":Vector2(576, 500),"exit":Vector2(576, 545),"color":Color("876a45"),"service":"bed","service_position":Vector2(300, 390),"services":[{"id":"bed","position":Vector2(300,390)},{"id":"cauldron","position":Vector2(930,390)},{"id":"alchemy","position":Vector2(700,490)}]},
 	"shop_interior":{"building":"shop_house","room":Rect2(170, 100, 812, 470),"spawn":Vector2(576, 510),"exit":Vector2(576, 555),"color":Color("9b7445"),"service":"shop","service_position":Vector2(576, 330)},
 	"guild_interior":{"building":"guild_hall","room":Rect2(120, 90, 912, 500),"spawn":Vector2(576, 525),"exit":Vector2(576, 575),"color":Color("79573d"),"service":"contracts","service_position":Vector2(576, 330)},
 	"forge_interior":{"building":"forge","room":Rect2(150, 100, 852, 480),"spawn":Vector2(576, 520),"exit":Vector2(576, 565),"color":Color("6b5347"),"service":"forge","service_position":Vector2(576, 340)},
@@ -172,6 +172,7 @@ static func use_service(game: Node, service: String) -> bool:
 		"bed": game.sleep_until_morning()
 		"craft": game.open_crafting()
 		"cauldron": game.open_crafting("cauldron")
+		"alchemy": game.open_crafting("alchemy"); game.notify_tutorial("alchemy_processing")
 		"forge": game.open_forge()
 		"contracts": game.ContractSystem.open(game)
 		_: return false

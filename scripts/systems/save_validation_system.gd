@@ -9,6 +9,7 @@ const CORE := {
 }
 const MEMORY := {"mission":"s", "day":"n", "state":"s", "gift_day":"n", "last_gift":"s", "personal_done":"b", "personal_day":"n"}
 const EXPANSION := {
+	"alchemy":{"xp":"n","crafted":"n","discovered":["s"],"effects":{"*":"n"}},
 	"livestock_started":"b", "first_day":"n", "animals":{"*":{"!":["fed_day", "collected_day", "bond"], "fed_day":"n", "collected_day":"n", "bond":"n", "water_day":"n", "pet_day":"n", "ready":"n", "production_day":"n", "last_yield_day":"n"}},
 	"furniture":[{"!":["kind", "position"], "kind":"s", "position":"p"}], "build_mode":"b", "build_index":"n",
 	"museum":["s"], "encyclopedia":["s"], "achievements":["s"], "secrets":{"*":"b"}, "reputation":"n", "relationship_scenes":["s"],
@@ -33,7 +34,7 @@ const OPTIONAL := {
 	"estate":{"level":"n", "map_revision":"n", "qualities":{"*":{"*":"n"}}, "discovered":["s"], "event_day":"n", "event":"s", "event_state":{"day":"n", "used":"b", "spawned":"b", "rewarded":"b"}, "expansion":EXPANSION},
 	"world_plots":[{"location":"s", "x":"n", "y":"n", "tilled":"b", "planted":"b", "watered":"b", "growth":"n", "stage":"n", "crop_kind":"s"}],
 	"trees":[{"!":["health", "stage", "regrow_timer"], "health":"n", "stage":"n", "regrow_timer":"n"}], "food_active":["b"],
-	"forage":[{"!":["active", "ready_at"], "active":"b", "ready_at":"n", "stage":"n", "kind":"s", "location":"s", "position":"p", "planted_by_player":"b"}],
+	"forage":[{"id":"s","!":["active", "ready_at"], "active":"b", "ready_at":"n", "stage":"n", "kind":"s", "location":"s", "position":"p", "planted_by_player":"b"}],
 	"enemies":[{"!":["hp", "alive"], "hp":"n", "max_hp":"n", "alive":"b", "level":"n", "position":"p", "direction":"p", "attack_timer":"n"}],
 	"hazards":[{"cooldown":"n"}], "wildlife":[{"!":["hp", "alive", "position"], "hp":"n", "alive":"b", "position":"p"}], "world_loot_seed":"n",
 	"containers":[{"!":["id", "kind", "location", "position", "opened", "contents"], "id":"n", "kind":"s", "location":"s", "position":"p", "opened":"b", "contents":{"*":"n"}}],

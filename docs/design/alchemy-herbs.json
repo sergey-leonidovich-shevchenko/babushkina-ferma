@@ -1,0 +1,506 @@
+{
+  "field_mint": {
+    "names": [
+      "Полевая мята",
+      "Field mint",
+      "Menta silvestre",
+      "Feldminze",
+      "Menthe sauvage",
+      "田野薄荷"
+    ],
+    "location": "overworld",
+    "position": [
+      504,
+      864
+    ],
+    "property": "clarity",
+    "tier": 1,
+    "growth_minutes": 360,
+    "condition": "always",
+    "shape": "leaf",
+    "tint": "79ba85"
+  },
+  "chamomile": {
+    "names": [
+      "Луговая ромашка",
+      "Meadow chamomile",
+      "Manzanilla",
+      "Wiesenkamille",
+      "Camomille",
+      "草地洋甘菊"
+    ],
+    "location": "overworld",
+    "position": [
+      528,
+      744
+    ],
+    "property": "vital",
+    "tier": 1,
+    "growth_minutes": 360,
+    "condition": "always",
+    "shape": "flower",
+    "tint": "efdfa5"
+  },
+  "nettle": {
+    "names": [
+      "Крапива",
+      "Nettle",
+      "Ortiga",
+      "Brennnessel",
+      "Ortie",
+      "荨麻"
+    ],
+    "location": "overworld",
+    "position": [
+      576,
+      936
+    ],
+    "property": "vigor",
+    "tier": 1,
+    "growth_minutes": 480,
+    "condition": "always",
+    "shape": "leaf",
+    "tint": "75a766"
+  },
+  "red_clover": {
+    "names": [
+      "Красный клевер",
+      "Red clover",
+      "Trébol rojo",
+      "Rotklee",
+      "Trèfle rouge",
+      "红三叶草"
+    ],
+    "location": "overworld",
+    "position": [
+      600,
+      816
+    ],
+    "property": "vital",
+    "tier": 1,
+    "growth_minutes": 480,
+    "condition": "always",
+    "shape": "flower",
+    "tint": "ce849e"
+  },
+  "wild_thyme": {
+    "names": [
+      "Дикий чабрец",
+      "Wild thyme",
+      "Tomillo silvestre",
+      "Wilder Thymian",
+      "Thym sauvage",
+      "野百里香"
+    ],
+    "location": "overworld",
+    "position": [
+      600,
+      744
+    ],
+    "property": "ward",
+    "tier": 1,
+    "growth_minutes": 480,
+    "condition": "always",
+    "shape": "flower",
+    "tint": "aaa7d9"
+  },
+  "yarrow": {
+    "names": [
+      "Тысячелистник",
+      "Yarrow",
+      "Milenrama",
+      "Schafgarbe",
+      "Achillée",
+      "蓍草"
+    ],
+    "location": "overworld",
+    "position": [
+      576,
+      864
+    ],
+    "property": "life",
+    "tier": 1,
+    "growth_minutes": 720,
+    "condition": "always",
+    "shape": "flower",
+    "tint": "dedab8"
+  },
+  "sage": {
+    "names": [
+      "Лесной шалфей",
+      "Woodland sage",
+      "Salvia del bosque",
+      "Waldsalbei",
+      "Sauge sylvestre",
+      "林地鼠尾草"
+    ],
+    "location": "forest",
+    "position": [
+      432,
+      600
+    ],
+    "property": "clarity",
+    "tier": 2,
+    "growth_minutes": 720,
+    "condition": "always",
+    "shape": "leaf",
+    "tint": "9eadba"
+  },
+  "lemon_balm": {
+    "names": [
+      "Мелисса",
+      "Lemon balm",
+      "Melisa",
+      "Zitronenmelisse",
+      "Mélisse",
+      "香蜂草"
+    ],
+    "location": "forest",
+    "position": [
+      696,
+      744
+    ],
+    "property": "vigor",
+    "tier": 2,
+    "growth_minutes": 720,
+    "condition": "always",
+    "shape": "leaf",
+    "tint": "a8c778"
+  },
+  "valerian": {
+    "names": [
+      "Сонный корень",
+      "Dreamroot",
+      "Raíz del sueño",
+      "Traumwurzel",
+      "Racine du rêve",
+      "梦根"
+    ],
+    "location": "forest",
+    "position": [
+      912,
+      840
+    ],
+    "property": "veil",
+    "tier": 2,
+    "growth_minutes": 1080,
+    "condition": "night",
+    "shape": "root",
+    "tint": "bda396"
+  },
+  "wormwood": {
+    "names": [
+      "Горькая полынь",
+      "Bitter wormwood",
+      "Ajenjo amargo",
+      "Bitterer Wermut",
+      "Absinthe amère",
+      "苦艾"
+    ],
+    "location": "forest",
+    "position": [
+      1200,
+      840
+    ],
+    "property": "purity",
+    "tier": 2,
+    "growth_minutes": 1080,
+    "condition": "always",
+    "shape": "leaf",
+    "tint": "b9c3b4"
+  },
+  "juniper": {
+    "names": [
+      "Лесной можжевельник",
+      "Forest juniper",
+      "Enebro del bosque",
+      "Waldwacholder",
+      "Genévrier",
+      "森林杜松"
+    ],
+    "location": "forest",
+    "position": [
+      1536,
+      744
+    ],
+    "property": "ward",
+    "tier": 2,
+    "growth_minutes": 1440,
+    "condition": "always",
+    "shape": "berry",
+    "tint": "78a5c1"
+  },
+  "rosehip": {
+    "names": [
+      "Шиповник",
+      "Rosehip",
+      "Escaramujo",
+      "Hagebutte",
+      "Cynorhodon",
+      "玫瑰果"
+    ],
+    "location": "forest",
+    "position": [
+      1800,
+      840
+    ],
+    "property": "vital",
+    "tier": 2,
+    "growth_minutes": 1440,
+    "condition": "always",
+    "shape": "berry",
+    "tint": "d7876e"
+  },
+  "ember_grass": {
+    "names": [
+      "Жар-трава",
+      "Embergrass",
+      "Hierba de brasa",
+      "Glutgras",
+      "Herbe de braise",
+      "余烬草"
+    ],
+    "location": "rocky",
+    "position": [
+      576,
+      720
+    ],
+    "property": "heat",
+    "tier": 3,
+    "growth_minutes": 1440,
+    "condition": "always",
+    "shape": "leaf",
+    "tint": "e6ae72"
+  },
+  "silver_lichen": {
+    "names": [
+      "Серебряный лишайник",
+      "Silver lichen",
+      "Liquen plateado",
+      "Silberflechte",
+      "Lichen argenté",
+      "银地衣"
+    ],
+    "location": "rocky",
+    "position": [
+      1104,
+      744
+    ],
+    "property": "ward",
+    "tier": 3,
+    "growth_minutes": 1440,
+    "condition": "always",
+    "shape": "moss",
+    "tint": "c2cfd5"
+  },
+  "bitter_root": {
+    "names": [
+      "Каменный горечник",
+      "Stone bitterroot",
+      "Raíz amarga pétrea",
+      "Steinbitterwurz",
+      "Racine amère de pierre",
+      "石苦根"
+    ],
+    "location": "ruins",
+    "position": [
+      696,
+      744
+    ],
+    "property": "vigor",
+    "tier": 3,
+    "growth_minutes": 1440,
+    "condition": "always",
+    "shape": "root",
+    "tint": "a89872"
+  },
+  "ghost_orchid": {
+    "names": [
+      "Призрачная орхидея",
+      "Ghost orchid",
+      "Orquídea fantasma",
+      "Geisterorchidee",
+      "Orchidée fantôme",
+      "幽灵兰"
+    ],
+    "location": "ruins",
+    "position": [
+      1104,
+      792
+    ],
+    "property": "veil",
+    "tier": 3,
+    "growth_minutes": 1800,
+    "condition": "night",
+    "shape": "flower",
+    "tint": "c0b2dc"
+  },
+  "nightshade": {
+    "names": [
+      "Ночная паслёнка",
+      "Nightshade",
+      "Hierba nocturna",
+      "Nachtschatten",
+      "Solanée nocturne",
+      "夜影草"
+    ],
+    "location": "cursed",
+    "position": [
+      600,
+      744
+    ],
+    "property": "veil",
+    "tier": 3,
+    "growth_minutes": 1800,
+    "condition": "night",
+    "shape": "berry",
+    "tint": "9484bf"
+  },
+  "bloodthorn": {
+    "names": [
+      "Кровоцвет",
+      "Bloodbloom",
+      "Flor carmesí",
+      "Blutblüte",
+      "Fleur de sang",
+      "血花"
+    ],
+    "location": "cursed",
+    "position": [
+      1200,
+      816
+    ],
+    "property": "life",
+    "tier": 3,
+    "growth_minutes": 1800,
+    "condition": "always",
+    "shape": "flower",
+    "tint": "bd767d"
+  },
+  "sporecap": {
+    "names": [
+      "Медовый спорник",
+      "Honey sporecap",
+      "Seta de miel",
+      "Honigsporling",
+      "Sporophore miellé",
+      "蜜孢菇"
+    ],
+    "location": "cave_fungal",
+    "position": [
+      552,
+      744
+    ],
+    "property": "life",
+    "tier": 2,
+    "growth_minutes": 1080,
+    "condition": "always",
+    "shape": "moss",
+    "tint": "d5b58a"
+  },
+  "moon_grass": {
+    "names": [
+      "Светящаяся лунная трава",
+      "Glowing moongrass",
+      "Hierba lunar luminosa",
+      "Leuchtendes Mondgras",
+      "Herbe lunaire lumineuse",
+      "发光月草"
+    ],
+    "location": "cave_moon",
+    "position": [
+      600,
+      432
+    ],
+    "property": "clarity",
+    "tier": 3,
+    "growth_minutes": 1440,
+    "condition": "always",
+    "shape": "leaf",
+    "tint": "98cbdb"
+  },
+  "moon_moss": {
+    "names": [
+      "Лунный мох",
+      "Moonmoss",
+      "Musgo lunar",
+      "Mondmoos",
+      "Mousse lunaire",
+      "月苔"
+    ],
+    "location": "cave_lake",
+    "position": [
+      456,
+      792
+    ],
+    "property": "life",
+    "tier": 3,
+    "growth_minutes": 1440,
+    "condition": "always",
+    "shape": "moss",
+    "tint": "99bbce"
+  },
+  "frost_fern": {
+    "names": [
+      "Инейный папоротник",
+      "Frost fern",
+      "Helecho de escarcha",
+      "Frostfarn",
+      "Fougère de givre",
+      "霜蕨"
+    ],
+    "location": "cave_mine",
+    "position": [
+      576,
+      552
+    ],
+    "property": "cold",
+    "tier": 3,
+    "growth_minutes": 1800,
+    "condition": "always",
+    "shape": "leaf",
+    "tint": "a5c7d8"
+  },
+  "starflower": {
+    "names": [
+      "Звездоцвет",
+      "Starflower",
+      "Flor estelar",
+      "Sternblume",
+      "Fleur étoilée",
+      "星花"
+    ],
+    "location": "moon_glade",
+    "position": [
+      1080,
+      744
+    ],
+    "property": "ether",
+    "tier": 4,
+    "growth_minutes": 2880,
+    "condition": "night",
+    "shape": "flower",
+    "tint": "b0a0df"
+  },
+  "sunpetal": {
+    "names": [
+      "Солнечный лепестник",
+      "Sunpetal",
+      "Pétalo solar",
+      "Sonnenblatt",
+      "Pétale solaire",
+      "日光花"
+    ],
+    "location": "glassworks",
+    "position": [
+      1152,
+      744
+    ],
+    "property": "heat",
+    "tier": 4,
+    "growth_minutes": 2880,
+    "condition": "day",
+    "shape": "flower",
+    "tint": "dfc879"
+  }
+}

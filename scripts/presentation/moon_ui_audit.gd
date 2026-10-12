@@ -20,7 +20,7 @@ static func check(game: Node) -> Array[Dictionary]:
 	for slot in ["head","body","legs","hands","offhand","ring"]: line(checks,game,"equipment_"+slot,game.LocaleSystem.ui("offhand_short" if slot=="offhand" else slot),Vector2(86,20),MoonStyle.LABEL_SIZE,9)
 	for kind in game.InventorySystem.ITEM_DATA:
 		multiline(checks,game,"item_"+kind,game.inventory_item_name(kind),Vector2(176,42),16,9)
-		line(checks,game,"effect_"+kind,game.ItemPresentationSystem.effect_text(game,kind),Vector2(242,38),MoonStyle.BODY_SIZE,9)
+		multiline(checks,game,"effect_"+kind,game.ItemPresentationSystem.effect_text(game,kind),Vector2(242,38),MoonStyle.BODY_SIZE,9)
 	for key in ["detail_tool","detail_food","detail_equipment","detail_quest","detail_resource"]: multiline(checks,game,key,game.LocaleSystem.ui(key),Vector2(242,52),MoonStyle.BODY_SIZE,9)
 	for mission_id in game.QuestSystem.MISSIONS:
 		var mission: Dictionary = game.QuestSystem.mission_data(mission_id)

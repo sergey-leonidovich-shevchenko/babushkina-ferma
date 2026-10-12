@@ -4,7 +4,7 @@ const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
 const OrchardSystem := preload("res://scripts/systems/orchard_system.gd")
 const WorldVisualProfileSystem := preload("res://scripts/systems/world_visual_profile_system.gd")
 
-const TYPES := {
+const BASE_TYPES := {
 	"berries": {"name":"Ягодный куст","growth_minutes":360.0,"yield":3,"sell":4,"tree":false},
 	"mushroom": {"name":"Грибная поляна","growth_minutes":720.0,"yield":2,"sell":7,"tree":false},
 	"watermelon": {"name":"Арбузная бахча","growth_minutes":1080.0,"yield":2,"sell":10,"tree":false},
@@ -35,11 +35,15 @@ const SPAWNS := [
 ]
 
 
+const Herbs := preload("res://scripts/systems/alchemy_herb_data.gd")
+static var TYPES: Dictionary = BASE_TYPES.merged(Herbs.forage_types())
+
 ## Возвращает рассчитанное методом значение в безопасном для вызывающего кода виде.
 static func default_nodes() -> Array:
 	var nodes:=SPAWNS.duplicate(true)
 	var placements:Dictionary=preload("res://scripts/systems/village_map_data.gd").FORAGE
 	for index in placements: nodes[index].position=placements[index]
+	nodes.append_array(Herbs.spawns())
 	return nodes
 
 
@@ -57,11 +61,13 @@ static func ground_anchor(position: Vector2) -> Vector2:
 
 ## Строит модульный прямоугольник гриба, бахчи, ягодного куста или дикого орешника.
 static func destination_rect(node: Dictionary) -> Rect2:
+	if Herbs.is_herb(node.kind): return Rect2(Vector2(node.position)-Vector2(24,40),Vector2(48,48))
 	return WorldVisualProfileSystem.visual_rect(profile_id(String(node.kind)),ground_anchor(Vector2(node.position)))
 
 
 ## Строит основание собираемого объекта из того же профиля, который используется renderer-ом.
 static func collision_rect(node: Dictionary) -> Rect2:
+	if Herbs.is_herb(node.kind): return Rect2()
 	return WorldVisualProfileSystem.collision_rect(profile_id(String(node.kind)),ground_anchor(Vector2(node.position)))
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
@@ -110,6 +116,7 @@ static func collect(game: Node, index: int) -> bool:
 	game.message = "%s: %s ×%d • %s" % [LocaleSystem.entity(node.kind), game.inventory_item_name(node.kind), amount, game.LocaleSystem.ui("quality_%s" % quality)]
 	game.play_sfx("harvest")
 	game.notify_tutorial("forage_harvest")
+	if Herbs.is_herb(node.kind): game.notify_tutorial("alchemy_herbs")
 	if OrchardSystem.handles(node.kind): game.notify_tutorial("orchard_trees")
 	if node.kind == "watermelon":
 		game.notify_tutorial("watermelon")
@@ -117,6 +124,12 @@ static func collect(game: Node, index: int) -> bool:
 
 ## Проверяет фактическую готовность растения с учётом зимнего покоя фруктового сада.
 static func is_collectable(game: Node, node: Dictionary) -> bool:
+	if Herbs.is_herb(node.kind) and node.get("active",false):
+		var condition:String=Herbs.HERBS[node.kind].condition
+		var minute:=fposmod(float(game.game_minutes),1440.0)
+		var night:bool=minute<360 or minute>=1080 or preload("res://scripts/systems/cave_room_data.gd").is_cave(String(node.get("location",game.current_location)))
+		if condition=="night": return night
+		if condition=="day": return not night
 	return OrchardSystem.can_harvest(game, node) if OrchardSystem.handles(String(node.get("kind", ""))) else bool(node.get("active", false))
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
@@ -129,6 +142,7 @@ static func duration_text(minutes: float) -> String:
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func remaining_text(game: Node, node: Dictionary) -> String:
 	if node.active:
+		if Herbs.is_herb(node.kind) and not is_collectable(game,node): return game.LocaleSystem.ui("alchemy_"+String(Herbs.HERBS[node.kind].condition))
 		return "до весны" if OrchardSystem.handles(node.kind) and game.WorldEventSystem.season(game.day) == "winter" else "готово"
 	var remaining := maxf(float(node.get("ready_at", 0.0)) - total_minutes(game), 0.0)
 	var hours := ceili(remaining / 60.0)

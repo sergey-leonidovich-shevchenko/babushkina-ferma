@@ -7,7 +7,7 @@ const VISIBLE_ROWS := 6
 const VISIBLE_SLOTS := COLUMNS * VISIBLE_ROWS
 const FILTERS := ["all", "tool", "food", "equipment", "resource", "quest"]
 
-const ITEM_DATA := {
+const BASE_ITEM_DATA := {
 	"mayonnaise":{"name":"Домашний майонез","short":"Майонез","color":Color("edd7a0"),"edible":true},
 	"pancakes":{"name":"Молочные блинчики","short":"Блинчики","color":Color("ce9659"),"edible":true},
 	"porridge":{"name":"Молочная каша","short":"Каша","color":Color("ded0ac"),"edible":true},
@@ -128,6 +128,8 @@ const ITEM_DATA := {
 	"woven_rug":{"name":"Тканый ковёр","short":"Ковёр","color":Color("b34f3d")}, "potted_fern":{"name":"Папоротник в горшке","short":"Цветок","color":Color("5f9d4c")},
 	"wooden_wardrobe":{"name":"Деревянный шкаф","short":"Шкаф","color":Color("80502f")}, "museum_token":{"name":"Жетон хранителя","short":"Жетон","color":Color("e3b84c")},
 }
+
+static var ITEM_DATA: Dictionary = BASE_ITEM_DATA.merged(preload("res://scripts/systems/alchemy_product_data.gd").inventory_items())
 
 ## Возвращает локализованные метаданные предмета по его идентификатору.
 static func data(kind: String) -> Dictionary:

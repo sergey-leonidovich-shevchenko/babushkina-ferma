@@ -255,6 +255,10 @@ func draw_food_nodes() -> void:
 		var position: Vector2 = food.position
 		var bounds := OrchardSystem.destination_rect(position,OrchardSystem.stage(food)) if OrchardSystem.handles(food.kind) else ForageSystem.destination_rect(food)
 		if not visible.intersects(bounds.grow(64)): continue
+		if preload("res://scripts/systems/alchemy_herb_data.gd").is_herb(food.kind):
+			preload("res://scripts/presentation/alchemy_renderer.gd").draw_herb(self,food)
+			if not ForageSystem.is_collectable(self,food): draw_ui_string(UI_FONT,position+Vector2(-55,20),ForageSystem.remaining_text(self,food),HORIZONTAL_ALIGNMENT_CENTER,110,11,Color("e7d6a3"))
+			continue
 		var alpha := 1.0 if food.active else 0.36
 		if OrchardSystem.handles(food.kind):
 			OrchardSystem.draw_tree(self, food)
@@ -425,6 +429,7 @@ func fallback_item_glyph(kind: String) -> String:
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_item_icon(kind: String, rect: Rect2) -> void:
+	if preload("res://scripts/presentation/alchemy_renderer.gd").draw_item(self,kind,rect): return
 	var texture := item_texture(kind)
 	var destination := VisualAssetSystem.fitted_icon_rect(rect)
 	if texture:

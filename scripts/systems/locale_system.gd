@@ -19,11 +19,17 @@ const CRAFT_INGREDIENT_NAMES := {
 	"fiber":["Волокно","Fiber","Fibra","Faser","Fibre","纤维"],
 }
 
-## Возвращает краткое название кухонного сырья без обрезания слова в середине.
+## Называет ингредиент, сохраняя ботанический источник и вид обработки в компактной строке.
 static func crafting_ingredient(kind: String) -> String:
+	var Herbs:=preload("res://scripts/systems/alchemy_herb_data.gd")
+	var herb:=Herbs.herb_for(kind)
+	if not herb.is_empty():
+		var label:String=Herbs.HERBS[herb].names[index()]
+		if kind!=herb: label+="/"+String(preload("res://scripts/systems/alchemy_product_data.gd").FORM_NAMES[kind.trim_prefix(herb+"_")][index()]).get_slice(":",0).get_slice("：",0).left(3)
+		return label
 	return String(CRAFT_INGREDIENT_NAMES[kind][maxi(LOCALES.find(current),0)]) if CRAFT_INGREDIENT_NAMES.has(kind) else item(kind).substr(0,9)
 
-const UI := {
+const BASE_UI := {
 	"craft_category_food":["ГОТОВКА","COOKING","COCINA","KOCHEN","CUISINE","烹饪"],
 	"craft_wrong_station":["Нужная станция: %s","Required station: %s","Estación necesaria: %s","Benötigte Station: %s","Poste requis : %s","需要制作台：%s"],
 	"craft_locked":["Изучи нужную способность в разделе героя","Learn the required talent in the hero menu","Aprende el talento necesario en el menú del héroe","Lerne das nötige Talent im Heldenmenü","Apprends le talent requis dans le menu du héros","请在角色菜单学习所需天赋"],
@@ -415,7 +421,7 @@ const TEXT := {
 	"fence_gate_closed":["Калитка закрыта","Gate closed","Puerta cerrada","Tor geschlossen","Portillon fermé","栅栏门已关闭"],
 }
 
-const ITEMS := {
+const BASE_ITEMS := {
 	"animal_feed":["Корм для животных","Animal feed","Pienso para animales","Tierfutter","Aliment pour animaux","动物饲料"],
 	"truffle":["Лесной трюфель", "Forest truffle", "Trufa silvestre", "Waldtrüffel", "Truffe des bois", "森林松露"],
 	"mayonnaise":["Домашний майонез","Homemade mayonnaise","Mayonesa casera","Hausgemachte Mayonnaise","Mayonnaise maison","自制蛋黄酱"],
@@ -505,7 +511,7 @@ const LOCATIONS := {
 	"castle_upper":["Верхний этаж замка","Castle upper floor","Piso superior del castillo","Burgobergeschoss","Étage supérieur du château","城堡上层"], "castle_dungeon":["Подземелье замка","Castle dungeon","Mazmorra del castillo","Burgverlies","Donjon du château","城堡地牢"],
 }
 
-const TUTORIAL := {
+const BASE_TUTORIAL := {
 	"farmyard":["На южном лугу живут корова, свинка, овца и три курицы. E — уход и сбор", "Cow, pig, sheep and three hens live south of the crops. E cares and collects", "Vaca, cerdo, oveja y tres gallinas al sur. E cuida y recoge", "Kuh, Schwein, Schaf und drei Hühner südlich der Beete. E pflegt und sammelt", "Vache, cochon, mouton et trois poules au sud. E soigne et récolte", "菜地南侧有牛、猪、羊和三只鸡。E照料并收取"],
 	"animal_water":["Нажми E у поилки: свежая вода нужна каждый день и не расходует предметы", "Press E at the tub: fresh water is needed daily and costs no items", "Pulsa E en el bebedero: agua diaria sin gastar objetos", "E an der Tränke: täglich frisches Wasser ohne Materialkosten", "E près de l’abreuvoir : eau quotidienne sans objets consommés", "在水槽旁按E：每日补充清水，不消耗物品"],
 	"animal_pet":["После сбора нажми E ещё раз: ласка повышает дружбу раз в день", "After collecting press E again: petting raises friendship once a day", "Tras recoger pulsa E: acariciar mejora amistad una vez al día", "Nach dem Sammeln nochmals E: Streicheln steigert täglich die Freundschaft", "Après la récolte, E : caresser augmente l’amitié une fois par jour", "收取后再按E：每天抚摸一次可提高好感"],
@@ -795,6 +801,8 @@ static func quest(mission_id: String, field: String) -> String:
 
 ## Возвращает локализованное название существа или объекта мира.
 static func entity(kind: String) -> String:
+	if kind=="alchemy": return ui("alchemy_service")
+	if preload("res://scripts/systems/alchemy_herb_data.gd").is_herb(kind): return item(kind)
 	return translated(ENTITIES, kind, kind)
 
 ## Возвращает отображаемое название языка по его индексу.
@@ -821,3 +829,9 @@ static func set_locale(code: String, persist: bool = true, path: String = SETTIN
 		config.set_value("language", "locale", code)
 		return config.save(path) == OK
 	return true
+
+static var UI: Dictionary = BASE_UI.merged(preload("res://scripts/systems/alchemy_locale.gd").UI)
+
+static var ITEMS: Dictionary = BASE_ITEMS.merged(preload("res://scripts/systems/alchemy_product_data.gd").names())
+
+static var TUTORIAL: Dictionary = BASE_TUTORIAL.merged(preload("res://scripts/systems/alchemy_locale.gd").TUTORIAL)

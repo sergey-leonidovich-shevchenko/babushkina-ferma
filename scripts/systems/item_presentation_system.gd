@@ -26,6 +26,11 @@ const FOOD_EFFECTS := {
 
 ## Возвращает визуальную редкость предмета, не вмешиваясь в баланс выпадения и продажи.
 static func rarity(kind:String)->String:
+	var herbs:=preload("res://scripts/systems/alchemy_herb_data.gd"); var source:=herbs.herb_for(kind)
+	if not source.is_empty(): return RARITY_ORDER[clampi(int(herbs.HERBS[source].tier)-1,0,3)]
+	if kind=="solar_concentrate": return "legendary"
+	if kind.ends_with("_essence") and preload("res://scripts/systems/alchemy_product_data.gd").ITEMS.has(kind): return "epic"
+	if preload("res://scripts/systems/alchemy_product_data.gd").POTIONS.has(kind): return "rare"
 	for rarity_id in ["legendary","epic","rare","uncommon"]:
 		if kind in RARITY_ITEMS[rarity_id]: return rarity_id
 	return "common"
@@ -38,6 +43,7 @@ static func rarity_color(kind:String)->Color:
 
 ## Формирует локализованное описание фактического эффекта еды или зелья.
 static func effect_text(game:Node,kind:String)->String:
+	if preload("res://scripts/systems/alchemy_product_data.gd").handles(kind): return preload("res://scripts/systems/alchemy_locale.gd").effect_text(game,kind)
 	if not FOOD_EFFECTS.has(kind): return ""
 	var effect:Array=FOOD_EFFECTS[kind]; return game.LocaleSystem.ui(String(effect[0]),effect.slice(1))
 

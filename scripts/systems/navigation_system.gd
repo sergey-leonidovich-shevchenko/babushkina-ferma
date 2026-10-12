@@ -119,6 +119,7 @@ static func walkability_reason(game: Node, position: Vector2, ignored_enemy: int
 	for food in game.food_nodes:
 		if food.get("location", "overworld") != game.current_location:
 			continue
+		if game.ForageSystem.Herbs.is_herb(String(food.kind)): continue
 		if use_broadphase and not Broadphase.near_dynamic(position, food.position, game.PLAYER_RADIUS): continue
 		var collision:Rect2=game.OrchardSystem.collision_rect(food.position,game.OrchardSystem.stage(food)) if game.OrchardSystem.handles(food.kind) else game.ForageSystem.collision_rect(food)
 		if circle_intersects_rect(position,game.PLAYER_RADIUS,collision):

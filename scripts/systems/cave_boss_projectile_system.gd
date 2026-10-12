@@ -38,6 +38,7 @@ static func hit(game: Node, damage: int, source: Vector2) -> int:
 ## Прикрепляет одну муху на случайные две–пять секунд; повторное попадание не складывает урон.
 static func attach_fly(game: Node, duration: float = -1.0) -> bool:
 	if game.state.player.dodge_timer > 0.0 or game.menu_state.defeat_open: return false
+	if preload("res://scripts/systems/alchemy_system.gd").remaining(game,"repellent")>0.0: return false
 	if game.state.player.blocking and game.energy > 0: game.energy -= 1; return false
 	var state: Dictionary = game.state.world.cave_boss
 	if float(state.fly_timer) > 0.0: return false

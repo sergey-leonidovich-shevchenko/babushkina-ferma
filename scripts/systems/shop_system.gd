@@ -1,6 +1,6 @@
 extends RefCounted
 
-const PRODUCTS := [
+const BASE_PRODUCTS := [
 	{"kind": "seeds", "amount": 4, "buy": 5, "sell": 0, "seed": true, "icon": Rect2(0, 55, 36, 45)},
 	{"kind": "carrot", "buy": 10, "sell": 8, "icon": Rect2(34, 112, 30, 28)},
 	{"kind": "berries", "buy": 0, "sell": 4, "forage": true},
@@ -38,6 +38,8 @@ const PRODUCTS := [
 	{"kind":"yarn","buy":0,"sell":6}, {"kind":"cloth","buy":0,"sell":10},
 ]
 
+
+static var PRODUCTS: Array = BASE_PRODUCTS + preload("res://scripts/systems/alchemy_trade_data.gd").products()
 
 ## Возвращает рассчитанное методом значение в безопасном для вызывающего кода виде.
 static func default_products() -> Array:
@@ -110,7 +112,7 @@ static func can_sell(game: Node, product_index: int) -> bool:
 static func refresh_stock(product: Dictionary, day: int) -> void:
 	if int(product.get("stock_day", 0)) == day: return
 	product.stock_day = day
-	product.stock = 8 if product.get("seed", false) else (1 if product.kind in ["home_chest", "backpack_upgrade"] else 4)
+	product.stock = int(product.get("daily_stock",8 if product.get("seed", false) else (1 if product.kind in ["home_chest", "backpack_upgrade"] else 4)))
 
 ## Выполняет операцию «продажи» и возвращает результат согласно контракту метода.
 static func sell(game: Node, product_index: int) -> bool:

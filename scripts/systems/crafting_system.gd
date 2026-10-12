@@ -1,6 +1,6 @@
 extends RefCounted
 
-const RECIPES := [
+const BASE_RECIPES := [
 	{"name":"Лесной меч", "inputs":{"slime":3,"wood":2}, "output":"sword", "count":1},
 	{"name":"Распилить бревно", "inputs":{"log":1}, "output":"plank", "count":4, "category":"processing"},
 	{"name":"Выковать гвозди", "inputs":{"metal":1}, "output":"nails", "count":8, "category":"processing"},
@@ -54,16 +54,20 @@ const RECIPES := [
 ]
 const MAX_BATCH := 99
 
+const Alchemy := preload("res://scripts/systems/alchemy_system.gd")
+static var RECIPES: Array = BASE_RECIPES + preload("res://scripts/systems/alchemy_recipe_data.gd").recipes()
+
 ## Разделяет точный расход кухонных продуктов и экономию сырья ремесленного таланта на верстаке.
 static func material_cost(game: Node, recipe: Dictionary, kind: String) -> int:
-	return int(recipe.inputs[kind]) if recipe.get("station","workbench")=="cauldron" else game.TalentSystem.recipe_material_cost(game,int(recipe.inputs[kind]))
+	return int(recipe.inputs[kind]) if recipe.get("station","workbench")!="workbench" else game.TalentSystem.recipe_material_cost(game,int(recipe.inputs[kind]))
 
 ## Возвращает индексы рецептов, относящихся к открытому верстаку или котелку.
 static func visible_indices(game: Node) -> Array[int]:
 	var result: Array[int] = []
 	for index in RECIPES.size():
 		if String(RECIPES[index].get("station", "workbench")) == game.crafting_station:
-			result.append(index)
+			var filter_id:=String(game.get_meta("alchemy_filter","all"))
+			if game.crafting_station!="alchemy" or filter_id=="all" or RECIPES[index].get("alchemy_group","")==filter_id: result.append(index)
 	return result
 
 ## Открывает нужную станцию и выбирает первый относящийся к ней рецепт.
@@ -84,6 +88,7 @@ static func handle_input(game: Node, event: InputEvent) -> void:
 	var move_offset := 0
 	var accept := false
 	if event is InputEventKey and event.pressed and not event.echo:
+		if event.keycode == KEY_TAB and game.crafting_station=="alchemy": Alchemy.cycle_filter(game,-1 if event.shift_pressed else 1); return
 		if event.keycode in [KEY_ESCAPE, KEY_C]: game.crafting_open = false
 		elif event.keycode == KEY_UP: move_offset = -1
 		elif event.keycode == KEY_DOWN: move_offset = 1
@@ -91,6 +96,7 @@ static func handle_input(game: Node, event: InputEvent) -> void:
 			if event.shift_pressed: craft_many(game, game.crafting_selected, max_craftable(game, RECIPES[game.crafting_selected])); game.queue_redraw(); return
 			accept = true
 	elif event is InputEventJoypadButton and event.pressed:
+		if event.button_index in [JOY_BUTTON_LEFT_SHOULDER,JOY_BUTTON_RIGHT_SHOULDER] and game.crafting_station=="alchemy": Alchemy.cycle_filter(game,-1 if event.button_index==JOY_BUTTON_LEFT_SHOULDER else 1); return
 		if event.button_index in [JOY_BUTTON_B, JOY_BUTTON_Y]: game.crafting_open = false
 		elif event.button_index == JOY_BUTTON_DPAD_UP: move_offset = -1
 		elif event.button_index == JOY_BUTTON_DPAD_DOWN: move_offset = 1
@@ -118,6 +124,7 @@ static func recipe_at(game: Node, position: Vector2) -> int:
 ## Проверяет условие «возможности крафта» без изменения состояния.
 static func can_craft(game: Node, recipe: Dictionary) -> bool:
 	if recipe.get("station","workbench")!=game.crafting_station: return false
+	if game.crafting_station=="alchemy" and (not Alchemy.at_station(game) or not Alchemy.unlocked(game,recipe)): return false
 	if not game.TalentSystem.recipe_unlocked(game, recipe):
 		return false
 	if recipe.output == "home_chest" and game.home_chest_owned:
@@ -141,7 +148,7 @@ static func craft(game: Node, index: int) -> bool:
 	if index < 0 or index >= RECIPES.size(): return false
 	var recipe: Dictionary = RECIPES[index]
 	if recipe.get("station","workbench")!=game.crafting_station:
-		game.message=game.LocaleSystem.ui("craft_wrong_station",[game.LocaleSystem.ui("cauldron_title" if recipe.get("station","workbench")=="cauldron" else "workbench")]); return false
+		game.message=game.LocaleSystem.ui("craft_wrong_station",[station_name(game,String(recipe.get("station","workbench")))]); return false
 	if not game.TalentSystem.recipe_unlocked(game, recipe):
 		game.message = game.LocaleSystem.ui("craft_locked")
 		return false
@@ -149,19 +156,21 @@ static func craft(game: Node, index: int) -> bool:
 		game.message = game.LocaleSystem.text("chest_already_owned")
 		return false
 	if not can_craft(game, recipe):
-		game.message = game.LocaleSystem.text("needs", [ingredients_text(game, recipe)])
+		game.message = production_summary(game,recipe) if game.crafting_station=="alchemy" else game.LocaleSystem.text("needs", [ingredients_text(game, recipe)])
 		return false
 	for kind in recipe.inputs: game.change_inventory_count(kind, -material_cost(game,recipe,kind))
 	if not game.state.player.profile.has("workbench_crafts"): game.state.player.profile.workbench_crafts=game.state.player.craft_count
-	if game.crafting_station!="cauldron": game.state.player.profile.workbench_crafts=int(game.state.player.profile.workbench_crafts)+1
+	if game.crafting_station=="workbench": game.state.player.profile.workbench_crafts=int(game.state.player.profile.workbench_crafts)+1
 	game.state.player.craft_count += 1
 	var crafted_count: int = int(recipe.count)
-	if game.crafting_station!="cauldron" and game.TalentSystem.has(game, "craft_master") and int(game.state.player.profile.workbench_crafts) % 5 == 0:
+	if game.crafting_station=="workbench" and game.TalentSystem.has(game, "craft_master") and int(game.state.player.profile.workbench_crafts) % 5 == 0:
 		crafted_count += int(recipe.count)
 	game.change_inventory_count(recipe.output, crafted_count)
 	if recipe.output == "home_chest": game.StorageSystem.install(game)
-	game.award_xp(4)
-	game.SkillSystem.award_profession_xp(game,"farming" if game.crafting_station=="cauldron" else "smithing",3 if game.crafting_station=="cauldron" else 6)
+	if game.crafting_station=="alchemy": Alchemy.record_craft(game,recipe)
+	else:
+		game.award_xp(4)
+		game.SkillSystem.award_profession_xp(game,"farming" if game.crafting_station=="cauldron" else "smithing",3 if game.crafting_station=="cauldron" else 6)
 	game.message = game.LocaleSystem.text("crafted", [game.inventory_item_name(recipe.output)])
 	game.play_sfx("craft")
 	game.notify_tutorial("craft_window")
@@ -185,15 +194,25 @@ static func craft_many(game: Node, index: int, requested: int) -> int:
 
 ## Возвращает понятное назначение рецепта для карточки выбранного изделия.
 static func category_name(game: Node, recipe: Dictionary) -> String:
+	if recipe.get("station","")=="alchemy": return game.LocaleSystem.ui("alchemy_"+String(recipe.alchemy_group))
 	if recipe.get("station","workbench")=="cauldron": return game.LocaleSystem.ui("craft_category_food")
 	var category: String = String(recipe.get("category", "general"))
 	return game.LocaleSystem.ui("craft_category_%s" % category)
 
 ## Описывает выход партии и возможное число повторов для подробной карточки рецепта.
 static func production_summary(game: Node, recipe: Dictionary) -> String:
+	if recipe.get("station","")=="alchemy":
+		if not Alchemy.at_station(game): return game.LocaleSystem.ui("alchemy_station_need")
+		if Alchemy.rank(game)<int(recipe.alchemy_rank): return game.LocaleSystem.ui("alchemy_rank_need",[recipe.alchemy_rank,Alchemy.rank(game)])
+		if recipe.get("laboratory",false) and game.state.world.estate.level<4: return game.LocaleSystem.ui("alchemy_lab_need")
+		for kind in recipe.inputs:
+			if game.inventory_item_count(kind)<int(recipe.inputs[kind]): return game.LocaleSystem.text("needs",[ingredients_text(game,recipe)])
 	if not game.TalentSystem.recipe_unlocked(game,recipe): return game.LocaleSystem.ui("craft_locked")
-	if recipe.get("station","workbench")!=game.crafting_station: return game.LocaleSystem.ui("craft_wrong_station",[game.LocaleSystem.ui("cauldron_title" if recipe.get("station","workbench")=="cauldron" else "workbench")])
-	return game.LocaleSystem.ui("craft_output_summary", [int(recipe.count), max_craftable(game, recipe)])
+	if recipe.get("station","workbench")!=game.crafting_station: return game.LocaleSystem.ui("craft_wrong_station",[station_name(game,String(recipe.get("station","workbench")))])
+	var summary:String=game.LocaleSystem.ui("craft_output_summary", [int(recipe.count), max_craftable(game, recipe)])
+	if not recipe.get("byproducts",{}).is_empty(): summary=game.LocaleSystem.ui("alchemy_batch_summary",[int(recipe.count),max_craftable(game,recipe)])
+	for kind in recipe.get("byproducts",{}): summary+="\n"+game.LocaleSystem.ui("alchemy_byproduct",[game.inventory_item_name(kind),recipe.byproducts[kind]])
+	return summary
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func ingredients_text(game: Node, recipe: Dictionary, compact:bool=false) -> String:
@@ -202,3 +221,12 @@ static func ingredients_text(game: Node, recipe: Dictionary, compact:bool=false)
 		var item_name:String=game.LocaleSystem.crafting_ingredient(String(kind)) if compact else game.inventory_item_name(kind)
 		parts.append("%s %d/%d" % [item_name, game.inventory_item_count(kind), material_cost(game,recipe,kind)])
 	return ", ".join(parts)
+
+## Даёт строке рецепта и аудиту одинаковое краткое описание без нечитаемой длинной смеси.
+static func row_ingredients_text(game: Node, recipe: Dictionary) -> String:
+	return game.LocaleSystem.ui("alchemy_mix_summary",[recipe.inputs.size(),recipe.alchemy_rank]) if recipe.get("station","")=="alchemy" and recipe.inputs.size()>1 else ingredients_text(game,recipe,true)
+
+
+## Называет физическую станцию для ошибки рецепта без неверного упоминания верстака.
+static func station_name(game: Node, station: String) -> String:
+	return game.LocaleSystem.ui("alchemy_service" if station=="alchemy" else ("cauldron_title" if station=="cauldron" else "workbench"))

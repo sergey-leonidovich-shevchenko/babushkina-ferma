@@ -1,0 +1,3807 @@
+{
+	"herbs": {
+		"bitter_root": {
+			"condition": "always",
+			"growth_minutes": 1440,
+			"location": "ruins",
+			"names": [
+				"Каменный горечник",
+				"Stone bitterroot",
+				"Raíz amarga pétrea",
+				"Steinbitterwurz",
+				"Racine amère de pierre",
+				"石苦根"
+			],
+			"position": [
+				696,
+				744
+			],
+			"property": "vigor",
+			"shape": "root",
+			"tier": 3,
+			"tint": "a89872"
+		},
+		"bloodthorn": {
+			"condition": "always",
+			"growth_minutes": 1800,
+			"location": "cursed",
+			"names": [
+				"Кровоцвет",
+				"Bloodbloom",
+				"Flor carmesí",
+				"Blutblüte",
+				"Fleur de sang",
+				"血花"
+			],
+			"position": [
+				1200,
+				816
+			],
+			"property": "life",
+			"shape": "flower",
+			"tier": 3,
+			"tint": "bd767d"
+		},
+		"chamomile": {
+			"condition": "always",
+			"growth_minutes": 360,
+			"location": "overworld",
+			"names": [
+				"Луговая ромашка",
+				"Meadow chamomile",
+				"Manzanilla",
+				"Wiesenkamille",
+				"Camomille",
+				"草地洋甘菊"
+			],
+			"position": [
+				528,
+				744
+			],
+			"property": "vital",
+			"shape": "flower",
+			"tier": 1,
+			"tint": "efdfa5"
+		},
+		"ember_grass": {
+			"condition": "always",
+			"growth_minutes": 1440,
+			"location": "rocky",
+			"names": [
+				"Жар-трава",
+				"Embergrass",
+				"Hierba de brasa",
+				"Glutgras",
+				"Herbe de braise",
+				"余烬草"
+			],
+			"position": [
+				576,
+				720
+			],
+			"property": "heat",
+			"shape": "leaf",
+			"tier": 3,
+			"tint": "e6ae72"
+		},
+		"field_mint": {
+			"condition": "always",
+			"growth_minutes": 360,
+			"location": "overworld",
+			"names": [
+				"Полевая мята",
+				"Field mint",
+				"Menta silvestre",
+				"Feldminze",
+				"Menthe sauvage",
+				"田野薄荷"
+			],
+			"position": [
+				504,
+				864
+			],
+			"property": "clarity",
+			"shape": "leaf",
+			"tier": 1,
+			"tint": "79ba85"
+		},
+		"frost_fern": {
+			"condition": "always",
+			"growth_minutes": 1800,
+			"location": "cave_mine",
+			"names": [
+				"Инейный папоротник",
+				"Frost fern",
+				"Helecho de escarcha",
+				"Frostfarn",
+				"Fougère de givre",
+				"霜蕨"
+			],
+			"position": [
+				576,
+				552
+			],
+			"property": "cold",
+			"shape": "leaf",
+			"tier": 3,
+			"tint": "a5c7d8"
+		},
+		"ghost_orchid": {
+			"condition": "night",
+			"growth_minutes": 1800,
+			"location": "ruins",
+			"names": [
+				"Призрачная орхидея",
+				"Ghost orchid",
+				"Orquídea fantasma",
+				"Geisterorchidee",
+				"Orchidée fantôme",
+				"幽灵兰"
+			],
+			"position": [
+				1104,
+				792
+			],
+			"property": "veil",
+			"shape": "flower",
+			"tier": 3,
+			"tint": "c0b2dc"
+		},
+		"juniper": {
+			"condition": "always",
+			"growth_minutes": 1440,
+			"location": "forest",
+			"names": [
+				"Лесной можжевельник",
+				"Forest juniper",
+				"Enebro del bosque",
+				"Waldwacholder",
+				"Genévrier",
+				"森林杜松"
+			],
+			"position": [
+				1536,
+				744
+			],
+			"property": "ward",
+			"shape": "berry",
+			"tier": 2,
+			"tint": "78a5c1"
+		},
+		"lemon_balm": {
+			"condition": "always",
+			"growth_minutes": 720,
+			"location": "forest",
+			"names": [
+				"Мелисса",
+				"Lemon balm",
+				"Melisa",
+				"Zitronenmelisse",
+				"Mélisse",
+				"香蜂草"
+			],
+			"position": [
+				696,
+				744
+			],
+			"property": "vigor",
+			"shape": "leaf",
+			"tier": 2,
+			"tint": "a8c778"
+		},
+		"moon_grass": {
+			"condition": "always",
+			"growth_minutes": 1440,
+			"location": "cave_moon",
+			"names": [
+				"Светящаяся лунная трава",
+				"Glowing moongrass",
+				"Hierba lunar luminosa",
+				"Leuchtendes Mondgras",
+				"Herbe lunaire lumineuse",
+				"发光月草"
+			],
+			"position": [
+				600,
+				432
+			],
+			"property": "clarity",
+			"shape": "leaf",
+			"tier": 3,
+			"tint": "98cbdb"
+		},
+		"moon_moss": {
+			"condition": "always",
+			"growth_minutes": 1440,
+			"location": "cave_lake",
+			"names": [
+				"Лунный мох",
+				"Moonmoss",
+				"Musgo lunar",
+				"Mondmoos",
+				"Mousse lunaire",
+				"月苔"
+			],
+			"position": [
+				456,
+				792
+			],
+			"property": "life",
+			"shape": "moss",
+			"tier": 3,
+			"tint": "99bbce"
+		},
+		"nettle": {
+			"condition": "always",
+			"growth_minutes": 480,
+			"location": "overworld",
+			"names": [
+				"Крапива",
+				"Nettle",
+				"Ortiga",
+				"Brennnessel",
+				"Ortie",
+				"荨麻"
+			],
+			"position": [
+				576,
+				936
+			],
+			"property": "vigor",
+			"shape": "leaf",
+			"tier": 1,
+			"tint": "75a766"
+		},
+		"nightshade": {
+			"condition": "night",
+			"growth_minutes": 1800,
+			"location": "cursed",
+			"names": [
+				"Ночная паслёнка",
+				"Nightshade",
+				"Hierba nocturna",
+				"Nachtschatten",
+				"Solanée nocturne",
+				"夜影草"
+			],
+			"position": [
+				600,
+				744
+			],
+			"property": "veil",
+			"shape": "berry",
+			"tier": 3,
+			"tint": "9484bf"
+		},
+		"red_clover": {
+			"condition": "always",
+			"growth_minutes": 480,
+			"location": "overworld",
+			"names": [
+				"Красный клевер",
+				"Red clover",
+				"Trébol rojo",
+				"Rotklee",
+				"Trèfle rouge",
+				"红三叶草"
+			],
+			"position": [
+				600,
+				816
+			],
+			"property": "vital",
+			"shape": "flower",
+			"tier": 1,
+			"tint": "ce849e"
+		},
+		"rosehip": {
+			"condition": "always",
+			"growth_minutes": 1440,
+			"location": "forest",
+			"names": [
+				"Шиповник",
+				"Rosehip",
+				"Escaramujo",
+				"Hagebutte",
+				"Cynorhodon",
+				"玫瑰果"
+			],
+			"position": [
+				1800,
+				840
+			],
+			"property": "vital",
+			"shape": "berry",
+			"tier": 2,
+			"tint": "d7876e"
+		},
+		"sage": {
+			"condition": "always",
+			"growth_minutes": 720,
+			"location": "forest",
+			"names": [
+				"Лесной шалфей",
+				"Woodland sage",
+				"Salvia del bosque",
+				"Waldsalbei",
+				"Sauge sylvestre",
+				"林地鼠尾草"
+			],
+			"position": [
+				432,
+				600
+			],
+			"property": "clarity",
+			"shape": "leaf",
+			"tier": 2,
+			"tint": "9eadba"
+		},
+		"silver_lichen": {
+			"condition": "always",
+			"growth_minutes": 1440,
+			"location": "rocky",
+			"names": [
+				"Серебряный лишайник",
+				"Silver lichen",
+				"Liquen plateado",
+				"Silberflechte",
+				"Lichen argenté",
+				"银地衣"
+			],
+			"position": [
+				1104,
+				744
+			],
+			"property": "ward",
+			"shape": "moss",
+			"tier": 3,
+			"tint": "c2cfd5"
+		},
+		"sporecap": {
+			"condition": "always",
+			"growth_minutes": 1080,
+			"location": "cave_fungal",
+			"names": [
+				"Медовый спорник",
+				"Honey sporecap",
+				"Seta de miel",
+				"Honigsporling",
+				"Sporophore miellé",
+				"蜜孢菇"
+			],
+			"position": [
+				552,
+				744
+			],
+			"property": "life",
+			"shape": "moss",
+			"tier": 2,
+			"tint": "d5b58a"
+		},
+		"starflower": {
+			"condition": "night",
+			"growth_minutes": 2880,
+			"location": "moon_glade",
+			"names": [
+				"Звездоцвет",
+				"Starflower",
+				"Flor estelar",
+				"Sternblume",
+				"Fleur étoilée",
+				"星花"
+			],
+			"position": [
+				1080,
+				744
+			],
+			"property": "ether",
+			"shape": "flower",
+			"tier": 4,
+			"tint": "b0a0df"
+		},
+		"sunpetal": {
+			"condition": "day",
+			"growth_minutes": 2880,
+			"location": "glassworks",
+			"names": [
+				"Солнечный лепестник",
+				"Sunpetal",
+				"Pétalo solar",
+				"Sonnenblatt",
+				"Pétale solaire",
+				"日光花"
+			],
+			"position": [
+				1152,
+				744
+			],
+			"property": "heat",
+			"shape": "flower",
+			"tier": 4,
+			"tint": "dfc879"
+		},
+		"valerian": {
+			"condition": "night",
+			"growth_minutes": 1080,
+			"location": "forest",
+			"names": [
+				"Сонный корень",
+				"Dreamroot",
+				"Raíz del sueño",
+				"Traumwurzel",
+				"Racine du rêve",
+				"梦根"
+			],
+			"position": [
+				912,
+				840
+			],
+			"property": "veil",
+			"shape": "root",
+			"tier": 2,
+			"tint": "bda396"
+		},
+		"wild_thyme": {
+			"condition": "always",
+			"growth_minutes": 480,
+			"location": "overworld",
+			"names": [
+				"Дикий чабрец",
+				"Wild thyme",
+				"Tomillo silvestre",
+				"Wilder Thymian",
+				"Thym sauvage",
+				"野百里香"
+			],
+			"position": [
+				600,
+				744
+			],
+			"property": "ward",
+			"shape": "flower",
+			"tier": 1,
+			"tint": "aaa7d9"
+		},
+		"wormwood": {
+			"condition": "always",
+			"growth_minutes": 1080,
+			"location": "forest",
+			"names": [
+				"Горькая полынь",
+				"Bitter wormwood",
+				"Ajenjo amargo",
+				"Bitterer Wermut",
+				"Absinthe amère",
+				"苦艾"
+			],
+			"position": [
+				1200,
+				840
+			],
+			"property": "purity",
+			"shape": "leaf",
+			"tier": 2,
+			"tint": "b9c3b4"
+		},
+		"yarrow": {
+			"condition": "always",
+			"growth_minutes": 720,
+			"location": "overworld",
+			"names": [
+				"Тысячелистник",
+				"Yarrow",
+				"Milenrama",
+				"Schafgarbe",
+				"Achillée",
+				"蓍草"
+			],
+			"position": [
+				576,
+				864
+			],
+			"property": "life",
+			"shape": "flower",
+			"tier": 1,
+			"tint": "dedab8"
+		}
+	},
+	"items": {
+		"balanced_elixir": [
+			"Эликсир равновесия",
+			"Balance elixir",
+			"Elixir de equilibrio",
+			"Gleichgewichtselixier",
+			"Élixir d’équilibre",
+			"平衡灵药"
+		],
+		"bitter_root": [
+			"Каменный горечник",
+			"Stone bitterroot",
+			"Raíz amarga pétrea",
+			"Steinbitterwurz",
+			"Racine amère de pierre",
+			"石苦根"
+		],
+		"bitter_root_dried": [
+			"Сушёная трава: Каменный горечник",
+			"Dried: Stone bitterroot",
+			"Seco: Raíz amarga pétrea",
+			"Getrocknet: Steinbitterwurz",
+			"Séché : Racine amère de pierre",
+			"干草：石苦根"
+		],
+		"bitter_root_juice": [
+			"Сок: Каменный горечник",
+			"Juice: Stone bitterroot",
+			"Jugo: Raíz amarga pétrea",
+			"Saft: Steinbitterwurz",
+			"Jus : Racine amère de pierre",
+			"汁液：石苦根"
+		],
+		"bitter_root_powder": [
+			"Порошок: Каменный горечник",
+			"Powder: Stone bitterroot",
+			"Polvo: Raíz amarga pétrea",
+			"Pulver: Steinbitterwurz",
+			"Poudre : Racine amère de pierre",
+			"粉末：石苦根"
+		],
+		"bitter_root_tincture": [
+			"Настойка: Каменный горечник",
+			"Tincture: Stone bitterroot",
+			"Tintura: Raíz amarga pétrea",
+			"Tinktur: Steinbitterwurz",
+			"Teinture : Racine amère de pierre",
+			"浸液：石苦根"
+		],
+		"bloodthorn": [
+			"Кровоцвет",
+			"Bloodbloom",
+			"Flor carmesí",
+			"Blutblüte",
+			"Fleur de sang",
+			"血花"
+		],
+		"bloodthorn_dried": [
+			"Сушёная трава: Кровоцвет",
+			"Dried: Bloodbloom",
+			"Seco: Flor carmesí",
+			"Getrocknet: Blutblüte",
+			"Séché : Fleur de sang",
+			"干草：血花"
+		],
+		"bloodthorn_juice": [
+			"Сок: Кровоцвет",
+			"Juice: Bloodbloom",
+			"Jugo: Flor carmesí",
+			"Saft: Blutblüte",
+			"Jus : Fleur de sang",
+			"汁液：血花"
+		],
+		"bloodthorn_powder": [
+			"Порошок: Кровоцвет",
+			"Powder: Bloodbloom",
+			"Polvo: Flor carmesí",
+			"Pulver: Blutblüte",
+			"Poudre : Fleur de sang",
+			"粉末：血花"
+		],
+		"bloodthorn_tincture": [
+			"Настойка: Кровоцвет",
+			"Tincture: Bloodbloom",
+			"Tintura: Flor carmesí",
+			"Tinktur: Blutblüte",
+			"Teinture : Fleur de sang",
+			"浸液：血花"
+		],
+		"chamomile": [
+			"Луговая ромашка",
+			"Meadow chamomile",
+			"Manzanilla",
+			"Wiesenkamille",
+			"Camomille",
+			"草地洋甘菊"
+		],
+		"chamomile_dried": [
+			"Сушёная трава: Луговая ромашка",
+			"Dried: Meadow chamomile",
+			"Seco: Manzanilla",
+			"Getrocknet: Wiesenkamille",
+			"Séché : Camomille",
+			"干草：草地洋甘菊"
+		],
+		"chamomile_juice": [
+			"Сок: Луговая ромашка",
+			"Juice: Meadow chamomile",
+			"Jugo: Manzanilla",
+			"Saft: Wiesenkamille",
+			"Jus : Camomille",
+			"汁液：草地洋甘菊"
+		],
+		"chamomile_powder": [
+			"Порошок: Луговая ромашка",
+			"Powder: Meadow chamomile",
+			"Polvo: Manzanilla",
+			"Pulver: Wiesenkamille",
+			"Poudre : Camomille",
+			"粉末：草地洋甘菊"
+		],
+		"chamomile_tincture": [
+			"Настойка: Луговая ромашка",
+			"Tincture: Meadow chamomile",
+			"Tintura: Manzanilla",
+			"Tinktur: Wiesenkamille",
+			"Teinture : Camomille",
+			"浸液：草地洋甘菊"
+		],
+		"clarity_drops": [
+			"Капли ясности",
+			"Clarity drops",
+			"Gotas de claridad",
+			"Klarheitstropfen",
+			"Gouttes de clarté",
+			"清明滴剂"
+		],
+		"clean_water": [
+			"Чистая вода",
+			"Clean water",
+			"Agua limpia",
+			"Sauberes Wasser",
+			"Eau propre",
+			"清水"
+		],
+		"distilled_water": [
+			"Дистиллированная вода",
+			"Distilled water",
+			"Agua destilada",
+			"Destilliertes Wasser",
+			"Eau distillée",
+			"蒸馏水"
+		],
+		"ember_essence": [
+			"Эссенция жара",
+			"Ember essence",
+			"Esencia de brasa",
+			"Glutessenz",
+			"Essence de braise",
+			"余烬精华"
+		],
+		"ember_grass": [
+			"Жар-трава",
+			"Embergrass",
+			"Hierba de brasa",
+			"Glutgras",
+			"Herbe de braise",
+			"余烬草"
+		],
+		"ember_grass_dried": [
+			"Сушёная трава: Жар-трава",
+			"Dried: Embergrass",
+			"Seco: Hierba de brasa",
+			"Getrocknet: Glutgras",
+			"Séché : Herbe de braise",
+			"干草：余烬草"
+		],
+		"ember_grass_juice": [
+			"Сок: Жар-трава",
+			"Juice: Embergrass",
+			"Jugo: Hierba de brasa",
+			"Saft: Glutgras",
+			"Jus : Herbe de braise",
+			"汁液：余烬草"
+		],
+		"ember_grass_powder": [
+			"Порошок: Жар-трава",
+			"Powder: Embergrass",
+			"Polvo: Hierba de brasa",
+			"Pulver: Glutgras",
+			"Poudre : Herbe de braise",
+			"粉末：余烬草"
+		],
+		"ember_grass_tincture": [
+			"Настойка: Жар-трава",
+			"Tincture: Embergrass",
+			"Tintura: Hierba de brasa",
+			"Tinktur: Glutgras",
+			"Teinture : Herbe de braise",
+			"浸液：余烬草"
+		],
+		"ether_essence": [
+			"Эфирная эссенция",
+			"Ether essence",
+			"Esencia etérea",
+			"Ätheressenz",
+			"Essence éthérée",
+			"以太精华"
+		],
+		"field_mint": [
+			"Полевая мята",
+			"Field mint",
+			"Menta silvestre",
+			"Feldminze",
+			"Menthe sauvage",
+			"田野薄荷"
+		],
+		"field_mint_dried": [
+			"Сушёная трава: Полевая мята",
+			"Dried: Field mint",
+			"Seco: Menta silvestre",
+			"Getrocknet: Feldminze",
+			"Séché : Menthe sauvage",
+			"干草：田野薄荷"
+		],
+		"field_mint_juice": [
+			"Сок: Полевая мята",
+			"Juice: Field mint",
+			"Jugo: Menta silvestre",
+			"Saft: Feldminze",
+			"Jus : Menthe sauvage",
+			"汁液：田野薄荷"
+		],
+		"field_mint_powder": [
+			"Порошок: Полевая мята",
+			"Powder: Field mint",
+			"Polvo: Menta silvestre",
+			"Pulver: Feldminze",
+			"Poudre : Menthe sauvage",
+			"粉末：田野薄荷"
+		],
+		"field_mint_tincture": [
+			"Настойка: Полевая мята",
+			"Tincture: Field mint",
+			"Tintura: Menta silvestre",
+			"Tinktur: Feldminze",
+			"Teinture : Menthe sauvage",
+			"浸液：田野薄荷"
+		],
+		"frost_essence": [
+			"Эссенция инея",
+			"Frost essence",
+			"Esencia de escarcha",
+			"Frostessenz",
+			"Essence de givre",
+			"霜冻精华"
+		],
+		"frost_fern": [
+			"Инейный папоротник",
+			"Frost fern",
+			"Helecho de escarcha",
+			"Frostfarn",
+			"Fougère de givre",
+			"霜蕨"
+		],
+		"frost_fern_dried": [
+			"Сушёная трава: Инейный папоротник",
+			"Dried: Frost fern",
+			"Seco: Helecho de escarcha",
+			"Getrocknet: Frostfarn",
+			"Séché : Fougère de givre",
+			"干草：霜蕨"
+		],
+		"frost_fern_juice": [
+			"Сок: Инейный папоротник",
+			"Juice: Frost fern",
+			"Jugo: Helecho de escarcha",
+			"Saft: Frostfarn",
+			"Jus : Fougère de givre",
+			"汁液：霜蕨"
+		],
+		"frost_fern_powder": [
+			"Порошок: Инейный папоротник",
+			"Powder: Frost fern",
+			"Polvo: Helecho de escarcha",
+			"Pulver: Frostfarn",
+			"Poudre : Fougère de givre",
+			"粉末：霜蕨"
+		],
+		"frost_fern_tincture": [
+			"Настойка: Инейный папоротник",
+			"Tincture: Frost fern",
+			"Tintura: Helecho de escarcha",
+			"Tinktur: Frostfarn",
+			"Teinture : Fougère de givre",
+			"浸液：霜蕨"
+		],
+		"ghost_orchid": [
+			"Призрачная орхидея",
+			"Ghost orchid",
+			"Orquídea fantasma",
+			"Geisterorchidee",
+			"Orchidée fantôme",
+			"幽灵兰"
+		],
+		"ghost_orchid_dried": [
+			"Сушёная трава: Призрачная орхидея",
+			"Dried: Ghost orchid",
+			"Seco: Orquídea fantasma",
+			"Getrocknet: Geisterorchidee",
+			"Séché : Orchidée fantôme",
+			"干草：幽灵兰"
+		],
+		"ghost_orchid_juice": [
+			"Сок: Призрачная орхидея",
+			"Juice: Ghost orchid",
+			"Jugo: Orquídea fantasma",
+			"Saft: Geisterorchidee",
+			"Jus : Orchidée fantôme",
+			"汁液：幽灵兰"
+		],
+		"ghost_orchid_powder": [
+			"Порошок: Призрачная орхидея",
+			"Powder: Ghost orchid",
+			"Polvo: Orquídea fantasma",
+			"Pulver: Geisterorchidee",
+			"Poudre : Orchidée fantôme",
+			"粉末：幽灵兰"
+		],
+		"ghost_orchid_tincture": [
+			"Настойка: Призрачная орхидея",
+			"Tincture: Ghost orchid",
+			"Tintura: Orquídea fantasma",
+			"Tinktur: Geisterorchidee",
+			"Teinture : Orchidée fantôme",
+			"浸液：幽灵兰"
+		],
+		"glass_vial": [
+			"Пустой флакон",
+			"Empty vial",
+			"Frasco vacío",
+			"Leeres Fläschchen",
+			"Fiole vide",
+			"空瓶"
+		],
+		"greater_healing": [
+			"Крепкое лечебное зелье",
+			"Greater healing",
+			"Curación mayor",
+			"Starker Heiltrank",
+			"Soin supérieur",
+			"强效治疗药剂"
+		],
+		"greater_mana": [
+			"Крепкое зелье маны",
+			"Greater mana",
+			"Maná mayor",
+			"Starker Manatrank",
+			"Mana supérieur",
+			"强效法力药剂"
+		],
+		"herb_oil": [
+			"Растительное масло",
+			"Herbal oil",
+			"Aceite vegetal",
+			"Pflanzenöl",
+			"Huile végétale",
+			"植物油"
+		],
+		"herb_pulp": [
+			"Травяной жмых",
+			"Herbal pulp",
+			"Pulpa vegetal",
+			"Kräutertrester",
+			"Marc végétal",
+			"草渣"
+		],
+		"herb_solvent": [
+			"Травяной растворитель",
+			"Herbal solvent",
+			"Disolvente herbal",
+			"Kräuterlösungsmittel",
+			"Solvant végétal",
+			"草本溶剂"
+		],
+		"honey_balm": [
+			"Медовый бальзам",
+			"Honey balm",
+			"Bálsamo de miel",
+			"Honigbalsam",
+			"Baume au miel",
+			"蜜制香膏"
+		],
+		"hunter_elixir": [
+			"Эликсир охотника",
+			"Hunter elixir",
+			"Elixir del cazador",
+			"Jägerelixier",
+			"Élixir du chasseur",
+			"猎人灵药"
+		],
+		"insect_repellent": [
+			"Бальзам от насекомых",
+			"Insect balm",
+			"Bálsamo repelente",
+			"Insektenschutzbalsam",
+			"Baume anti-insectes",
+			"驱虫香膏"
+		],
+		"juniper": [
+			"Лесной можжевельник",
+			"Forest juniper",
+			"Enebro del bosque",
+			"Waldwacholder",
+			"Genévrier",
+			"森林杜松"
+		],
+		"juniper_dried": [
+			"Сушёная трава: Лесной можжевельник",
+			"Dried: Forest juniper",
+			"Seco: Enebro del bosque",
+			"Getrocknet: Waldwacholder",
+			"Séché : Genévrier",
+			"干草：森林杜松"
+		],
+		"juniper_juice": [
+			"Сок: Лесной можжевельник",
+			"Juice: Forest juniper",
+			"Jugo: Enebro del bosque",
+			"Saft: Waldwacholder",
+			"Jus : Genévrier",
+			"汁液：森林杜松"
+		],
+		"juniper_powder": [
+			"Порошок: Лесной можжевельник",
+			"Powder: Forest juniper",
+			"Polvo: Enebro del bosque",
+			"Pulver: Waldwacholder",
+			"Poudre : Genévrier",
+			"粉末：森林杜松"
+		],
+		"juniper_tincture": [
+			"Настойка: Лесной можжевельник",
+			"Tincture: Forest juniper",
+			"Tintura: Enebro del bosque",
+			"Tinktur: Waldwacholder",
+			"Teinture : Genévrier",
+			"浸液：森林杜松"
+		],
+		"lemon_balm": [
+			"Мелисса",
+			"Lemon balm",
+			"Melisa",
+			"Zitronenmelisse",
+			"Mélisse",
+			"香蜂草"
+		],
+		"lemon_balm_dried": [
+			"Сушёная трава: Мелисса",
+			"Dried: Lemon balm",
+			"Seco: Melisa",
+			"Getrocknet: Zitronenmelisse",
+			"Séché : Mélisse",
+			"干草：香蜂草"
+		],
+		"lemon_balm_juice": [
+			"Сок: Мелисса",
+			"Juice: Lemon balm",
+			"Jugo: Melisa",
+			"Saft: Zitronenmelisse",
+			"Jus : Mélisse",
+			"汁液：香蜂草"
+		],
+		"lemon_balm_powder": [
+			"Порошок: Мелисса",
+			"Powder: Lemon balm",
+			"Polvo: Melisa",
+			"Pulver: Zitronenmelisse",
+			"Poudre : Mélisse",
+			"粉末：香蜂草"
+		],
+		"lemon_balm_tincture": [
+			"Настойка: Мелисса",
+			"Tincture: Lemon balm",
+			"Tintura: Melisa",
+			"Tinktur: Zitronenmelisse",
+			"Teinture : Mélisse",
+			"浸液：香蜂草"
+		],
+		"life_balsam": [
+			"Живой бальзам",
+			"Living balsam",
+			"Bálsamo viviente",
+			"Lebensbalsam",
+			"Baume vivant",
+			"生命香膏"
+		],
+		"meadow_tonic": [
+			"Луговой тоник",
+			"Meadow tonic",
+			"Tónico del prado",
+			"Wiesentonikum",
+			"Tonique des prés",
+			"草地补剂"
+		],
+		"mineral_base": [
+			"Минеральная основа",
+			"Mineral base",
+			"Base mineral",
+			"Mineralbasis",
+			"Base minérale",
+			"矿物基质"
+		],
+		"miners_oil": [
+			"Масло рудокопа",
+			"Miner's oil",
+			"Aceite del minero",
+			"Bergmannsöl",
+			"Huile du mineur",
+			"矿工油"
+		],
+		"moon_grass": [
+			"Светящаяся лунная трава",
+			"Glowing moongrass",
+			"Hierba lunar luminosa",
+			"Leuchtendes Mondgras",
+			"Herbe lunaire lumineuse",
+			"发光月草"
+		],
+		"moon_grass_dried": [
+			"Сушёная трава: Светящаяся лунная трава",
+			"Dried: Glowing moongrass",
+			"Seco: Hierba lunar luminosa",
+			"Getrocknet: Leuchtendes Mondgras",
+			"Séché : Herbe lunaire lumineuse",
+			"干草：发光月草"
+		],
+		"moon_grass_juice": [
+			"Сок: Светящаяся лунная трава",
+			"Juice: Glowing moongrass",
+			"Jugo: Hierba lunar luminosa",
+			"Saft: Leuchtendes Mondgras",
+			"Jus : Herbe lunaire lumineuse",
+			"汁液：发光月草"
+		],
+		"moon_grass_powder": [
+			"Порошок: Светящаяся лунная трава",
+			"Powder: Glowing moongrass",
+			"Polvo: Hierba lunar luminosa",
+			"Pulver: Leuchtendes Mondgras",
+			"Poudre : Herbe lunaire lumineuse",
+			"粉末：发光月草"
+		],
+		"moon_grass_tincture": [
+			"Настойка: Светящаяся лунная трава",
+			"Tincture: Glowing moongrass",
+			"Tintura: Hierba lunar luminosa",
+			"Tinktur: Leuchtendes Mondgras",
+			"Teinture : Herbe lunaire lumineuse",
+			"浸液：发光月草"
+		],
+		"moon_moss": [
+			"Лунный мох",
+			"Moonmoss",
+			"Musgo lunar",
+			"Mondmoos",
+			"Mousse lunaire",
+			"月苔"
+		],
+		"moon_moss_dried": [
+			"Сушёная трава: Лунный мох",
+			"Dried: Moonmoss",
+			"Seco: Musgo lunar",
+			"Getrocknet: Mondmoos",
+			"Séché : Mousse lunaire",
+			"干草：月苔"
+		],
+		"moon_moss_juice": [
+			"Сок: Лунный мох",
+			"Juice: Moonmoss",
+			"Jugo: Musgo lunar",
+			"Saft: Mondmoos",
+			"Jus : Mousse lunaire",
+			"汁液：月苔"
+		],
+		"moon_moss_powder": [
+			"Порошок: Лунный мох",
+			"Powder: Moonmoss",
+			"Polvo: Musgo lunar",
+			"Pulver: Mondmoos",
+			"Poudre : Mousse lunaire",
+			"粉末：月苔"
+		],
+		"moon_moss_tincture": [
+			"Настойка: Лунный мох",
+			"Tincture: Moonmoss",
+			"Tintura: Musgo lunar",
+			"Tinktur: Mondmoos",
+			"Teinture : Mousse lunaire",
+			"浸液：月苔"
+		],
+		"moon_veil_potion": [
+			"Лунная вуаль",
+			"Moon veil",
+			"Velo lunar",
+			"Mondschleier",
+			"Voile lunaire",
+			"月纱药剂"
+		],
+		"nettle": [
+			"Крапива",
+			"Nettle",
+			"Ortiga",
+			"Brennnessel",
+			"Ortie",
+			"荨麻"
+		],
+		"nettle_dried": [
+			"Сушёная трава: Крапива",
+			"Dried: Nettle",
+			"Seco: Ortiga",
+			"Getrocknet: Brennnessel",
+			"Séché : Ortie",
+			"干草：荨麻"
+		],
+		"nettle_juice": [
+			"Сок: Крапива",
+			"Juice: Nettle",
+			"Jugo: Ortiga",
+			"Saft: Brennnessel",
+			"Jus : Ortie",
+			"汁液：荨麻"
+		],
+		"nettle_powder": [
+			"Порошок: Крапива",
+			"Powder: Nettle",
+			"Polvo: Ortiga",
+			"Pulver: Brennnessel",
+			"Poudre : Ortie",
+			"粉末：荨麻"
+		],
+		"nettle_tincture": [
+			"Настойка: Крапива",
+			"Tincture: Nettle",
+			"Tintura: Ortiga",
+			"Tinktur: Brennnessel",
+			"Teinture : Ortie",
+			"浸液：荨麻"
+		],
+		"nightshade": [
+			"Ночная паслёнка",
+			"Nightshade",
+			"Hierba nocturna",
+			"Nachtschatten",
+			"Solanée nocturne",
+			"夜影草"
+		],
+		"nightshade_dried": [
+			"Сушёная трава: Ночная паслёнка",
+			"Dried: Nightshade",
+			"Seco: Hierba nocturna",
+			"Getrocknet: Nachtschatten",
+			"Séché : Solanée nocturne",
+			"干草：夜影草"
+		],
+		"nightshade_juice": [
+			"Сок: Ночная паслёнка",
+			"Juice: Nightshade",
+			"Jugo: Hierba nocturna",
+			"Saft: Nachtschatten",
+			"Jus : Solanée nocturne",
+			"汁液：夜影草"
+		],
+		"nightshade_powder": [
+			"Порошок: Ночная паслёнка",
+			"Powder: Nightshade",
+			"Polvo: Hierba nocturna",
+			"Pulver: Nachtschatten",
+			"Poudre : Solanée nocturne",
+			"粉末：夜影草"
+		],
+		"nightshade_tincture": [
+			"Настойка: Ночная паслёнка",
+			"Tincture: Nightshade",
+			"Tintura: Hierba nocturna",
+			"Tinktur: Nachtschatten",
+			"Teinture : Solanée nocturne",
+			"浸液：夜影草"
+		],
+		"purifying_decoction": [
+			"Очищающий отвар",
+			"Purifying decoction",
+			"Decocción purificante",
+			"Reinigungssud",
+			"Décoction purifiante",
+			"净化煎剂"
+		],
+		"red_clover": [
+			"Красный клевер",
+			"Red clover",
+			"Trébol rojo",
+			"Rotklee",
+			"Trèfle rouge",
+			"红三叶草"
+		],
+		"red_clover_dried": [
+			"Сушёная трава: Красный клевер",
+			"Dried: Red clover",
+			"Seco: Trébol rojo",
+			"Getrocknet: Rotklee",
+			"Séché : Trèfle rouge",
+			"干草：红三叶草"
+		],
+		"red_clover_juice": [
+			"Сок: Красный клевер",
+			"Juice: Red clover",
+			"Jugo: Trébol rojo",
+			"Saft: Rotklee",
+			"Jus : Trèfle rouge",
+			"汁液：红三叶草"
+		],
+		"red_clover_powder": [
+			"Порошок: Красный клевер",
+			"Powder: Red clover",
+			"Polvo: Trébol rojo",
+			"Pulver: Rotklee",
+			"Poudre : Trèfle rouge",
+			"粉末：红三叶草"
+		],
+		"red_clover_tincture": [
+			"Настойка: Красный клевер",
+			"Tincture: Red clover",
+			"Tintura: Trébol rojo",
+			"Tinktur: Rotklee",
+			"Teinture : Trèfle rouge",
+			"浸液：红三叶草"
+		],
+		"rosehip": [
+			"Шиповник",
+			"Rosehip",
+			"Escaramujo",
+			"Hagebutte",
+			"Cynorhodon",
+			"玫瑰果"
+		],
+		"rosehip_dried": [
+			"Сушёная трава: Шиповник",
+			"Dried: Rosehip",
+			"Seco: Escaramujo",
+			"Getrocknet: Hagebutte",
+			"Séché : Cynorhodon",
+			"干草：玫瑰果"
+		],
+		"rosehip_juice": [
+			"Сок: Шиповник",
+			"Juice: Rosehip",
+			"Jugo: Escaramujo",
+			"Saft: Hagebutte",
+			"Jus : Cynorhodon",
+			"汁液：玫瑰果"
+		],
+		"rosehip_powder": [
+			"Порошок: Шиповник",
+			"Powder: Rosehip",
+			"Polvo: Escaramujo",
+			"Pulver: Hagebutte",
+			"Poudre : Cynorhodon",
+			"粉末：玫瑰果"
+		],
+		"rosehip_tincture": [
+			"Настойка: Шиповник",
+			"Tincture: Rosehip",
+			"Tintura: Escaramujo",
+			"Tinktur: Hagebutte",
+			"Teinture : Cynorhodon",
+			"浸液：玫瑰果"
+		],
+		"sage": [
+			"Лесной шалфей",
+			"Woodland sage",
+			"Salvia del bosque",
+			"Waldsalbei",
+			"Sauge sylvestre",
+			"林地鼠尾草"
+		],
+		"sage_dried": [
+			"Сушёная трава: Лесной шалфей",
+			"Dried: Woodland sage",
+			"Seco: Salvia del bosque",
+			"Getrocknet: Waldsalbei",
+			"Séché : Sauge sylvestre",
+			"干草：林地鼠尾草"
+		],
+		"sage_juice": [
+			"Сок: Лесной шалфей",
+			"Juice: Woodland sage",
+			"Jugo: Salvia del bosque",
+			"Saft: Waldsalbei",
+			"Jus : Sauge sylvestre",
+			"汁液：林地鼠尾草"
+		],
+		"sage_powder": [
+			"Порошок: Лесной шалфей",
+			"Powder: Woodland sage",
+			"Polvo: Salvia del bosque",
+			"Pulver: Waldsalbei",
+			"Poudre : Sauge sylvestre",
+			"粉末：林地鼠尾草"
+		],
+		"sage_tincture": [
+			"Настойка: Лесной шалфей",
+			"Tincture: Woodland sage",
+			"Tintura: Salvia del bosque",
+			"Tinktur: Waldsalbei",
+			"Teinture : Sauge sylvestre",
+			"浸液：林地鼠尾草"
+		],
+		"shadow_essence": [
+			"Эссенция тени",
+			"Shadow essence",
+			"Esencia de sombra",
+			"Schattenessenz",
+			"Essence d’ombre",
+			"暗影精华"
+		],
+		"silver_lichen": [
+			"Серебряный лишайник",
+			"Silver lichen",
+			"Liquen plateado",
+			"Silberflechte",
+			"Lichen argenté",
+			"银地衣"
+		],
+		"silver_lichen_dried": [
+			"Сушёная трава: Серебряный лишайник",
+			"Dried: Silver lichen",
+			"Seco: Liquen plateado",
+			"Getrocknet: Silberflechte",
+			"Séché : Lichen argenté",
+			"干草：银地衣"
+		],
+		"silver_lichen_juice": [
+			"Сок: Серебряный лишайник",
+			"Juice: Silver lichen",
+			"Jugo: Liquen plateado",
+			"Saft: Silberflechte",
+			"Jus : Lichen argenté",
+			"汁液：银地衣"
+		],
+		"silver_lichen_powder": [
+			"Порошок: Серебряный лишайник",
+			"Powder: Silver lichen",
+			"Polvo: Liquen plateado",
+			"Pulver: Silberflechte",
+			"Poudre : Lichen argenté",
+			"粉末：银地衣"
+		],
+		"silver_lichen_tincture": [
+			"Настойка: Серебряный лишайник",
+			"Tincture: Silver lichen",
+			"Tintura: Liquen plateado",
+			"Tinktur: Silberflechte",
+			"Teinture : Lichen argenté",
+			"浸液：银地衣"
+		],
+		"solar_concentrate": [
+			"Солнечный концентрат",
+			"Solar concentrate",
+			"Concentrado solar",
+			"Sonnenkonzentrat",
+			"Concentré solaire",
+			"日光浓缩剂"
+		],
+		"sporecap": [
+			"Медовый спорник",
+			"Honey sporecap",
+			"Seta de miel",
+			"Honigsporling",
+			"Sporophore miellé",
+			"蜜孢菇"
+		],
+		"sporecap_dried": [
+			"Сушёная трава: Медовый спорник",
+			"Dried: Honey sporecap",
+			"Seco: Seta de miel",
+			"Getrocknet: Honigsporling",
+			"Séché : Sporophore miellé",
+			"干草：蜜孢菇"
+		],
+		"sporecap_juice": [
+			"Сок: Медовый спорник",
+			"Juice: Honey sporecap",
+			"Jugo: Seta de miel",
+			"Saft: Honigsporling",
+			"Jus : Sporophore miellé",
+			"汁液：蜜孢菇"
+		],
+		"sporecap_powder": [
+			"Порошок: Медовый спорник",
+			"Powder: Honey sporecap",
+			"Polvo: Seta de miel",
+			"Pulver: Honigsporling",
+			"Poudre : Sporophore miellé",
+			"粉末：蜜孢菇"
+		],
+		"sporecap_tincture": [
+			"Настойка: Медовый спорник",
+			"Tincture: Honey sporecap",
+			"Tintura: Seta de miel",
+			"Tinktur: Honigsporling",
+			"Teinture : Sporophore miellé",
+			"浸液：蜜孢菇"
+		],
+		"starflower": [
+			"Звездоцвет",
+			"Starflower",
+			"Flor estelar",
+			"Sternblume",
+			"Fleur étoilée",
+			"星花"
+		],
+		"starflower_dried": [
+			"Сушёная трава: Звездоцвет",
+			"Dried: Starflower",
+			"Seco: Flor estelar",
+			"Getrocknet: Sternblume",
+			"Séché : Fleur étoilée",
+			"干草：星花"
+		],
+		"starflower_juice": [
+			"Сок: Звездоцвет",
+			"Juice: Starflower",
+			"Jugo: Flor estelar",
+			"Saft: Sternblume",
+			"Jus : Fleur étoilée",
+			"汁液：星花"
+		],
+		"starflower_powder": [
+			"Порошок: Звездоцвет",
+			"Powder: Starflower",
+			"Polvo: Flor estelar",
+			"Pulver: Sternblume",
+			"Poudre : Fleur étoilée",
+			"粉末：星花"
+		],
+		"starflower_tincture": [
+			"Настойка: Звездоцвет",
+			"Tincture: Starflower",
+			"Tintura: Flor estelar",
+			"Tinktur: Sternblume",
+			"Teinture : Fleur étoilée",
+			"浸液：星花"
+		],
+		"stone_skin_draught": [
+			"Каменная кожа",
+			"Stone skin",
+			"Piel de piedra",
+			"Steinhaut",
+			"Peau de pierre",
+			"石肤药剂"
+		],
+		"sunpetal": [
+			"Солнечный лепестник",
+			"Sunpetal",
+			"Pétalo solar",
+			"Sonnenblatt",
+			"Pétale solaire",
+			"日光花"
+		],
+		"sunpetal_dried": [
+			"Сушёная трава: Солнечный лепестник",
+			"Dried: Sunpetal",
+			"Seco: Pétalo solar",
+			"Getrocknet: Sonnenblatt",
+			"Séché : Pétale solaire",
+			"干草：日光花"
+		],
+		"sunpetal_juice": [
+			"Сок: Солнечный лепестник",
+			"Juice: Sunpetal",
+			"Jugo: Pétalo solar",
+			"Saft: Sonnenblatt",
+			"Jus : Pétale solaire",
+			"汁液：日光花"
+		],
+		"sunpetal_powder": [
+			"Порошок: Солнечный лепестник",
+			"Powder: Sunpetal",
+			"Polvo: Pétalo solar",
+			"Pulver: Sonnenblatt",
+			"Poudre : Pétale solaire",
+			"粉末：日光花"
+		],
+		"sunpetal_tincture": [
+			"Настойка: Солнечный лепестник",
+			"Tincture: Sunpetal",
+			"Tintura: Pétalo solar",
+			"Tinktur: Sonnenblatt",
+			"Teinture : Pétale solaire",
+			"浸液：日光花"
+		],
+		"valerian": [
+			"Сонный корень",
+			"Dreamroot",
+			"Raíz del sueño",
+			"Traumwurzel",
+			"Racine du rêve",
+			"梦根"
+		],
+		"valerian_dried": [
+			"Сушёная трава: Сонный корень",
+			"Dried: Dreamroot",
+			"Seco: Raíz del sueño",
+			"Getrocknet: Traumwurzel",
+			"Séché : Racine du rêve",
+			"干草：梦根"
+		],
+		"valerian_juice": [
+			"Сок: Сонный корень",
+			"Juice: Dreamroot",
+			"Jugo: Raíz del sueño",
+			"Saft: Traumwurzel",
+			"Jus : Racine du rêve",
+			"汁液：梦根"
+		],
+		"valerian_powder": [
+			"Порошок: Сонный корень",
+			"Powder: Dreamroot",
+			"Polvo: Raíz del sueño",
+			"Pulver: Traumwurzel",
+			"Poudre : Racine du rêve",
+			"粉末：梦根"
+		],
+		"valerian_tincture": [
+			"Настойка: Сонный корень",
+			"Tincture: Dreamroot",
+			"Tintura: Raíz del sueño",
+			"Tinktur: Traumwurzel",
+			"Teinture : Racine du rêve",
+			"浸液：梦根"
+		],
+		"vigor_infusion": [
+			"Настой бодрости",
+			"Vigor infusion",
+			"Infusión de vigor",
+			"Kraftaufguss",
+			"Infusion de vigueur",
+			"活力浸剂"
+		],
+		"vital_essence": [
+			"Эссенция жизни",
+			"Vital essence",
+			"Esencia vital",
+			"Lebensessenz",
+			"Essence vitale",
+			"生命精华"
+		],
+		"wild_thyme": [
+			"Дикий чабрец",
+			"Wild thyme",
+			"Tomillo silvestre",
+			"Wilder Thymian",
+			"Thym sauvage",
+			"野百里香"
+		],
+		"wild_thyme_dried": [
+			"Сушёная трава: Дикий чабрец",
+			"Dried: Wild thyme",
+			"Seco: Tomillo silvestre",
+			"Getrocknet: Wilder Thymian",
+			"Séché : Thym sauvage",
+			"干草：野百里香"
+		],
+		"wild_thyme_juice": [
+			"Сок: Дикий чабрец",
+			"Juice: Wild thyme",
+			"Jugo: Tomillo silvestre",
+			"Saft: Wilder Thymian",
+			"Jus : Thym sauvage",
+			"汁液：野百里香"
+		],
+		"wild_thyme_powder": [
+			"Порошок: Дикий чабрец",
+			"Powder: Wild thyme",
+			"Polvo: Tomillo silvestre",
+			"Pulver: Wilder Thymian",
+			"Poudre : Thym sauvage",
+			"粉末：野百里香"
+		],
+		"wild_thyme_tincture": [
+			"Настойка: Дикий чабрец",
+			"Tincture: Wild thyme",
+			"Tintura: Tomillo silvestre",
+			"Tinktur: Wilder Thymian",
+			"Teinture : Thym sauvage",
+			"浸液：野百里香"
+		],
+		"wind_step_elixir": [
+			"Шаг ветра",
+			"Wind step",
+			"Paso del viento",
+			"Windschritt",
+			"Pas du vent",
+			"风步灵药"
+		],
+		"wormwood": [
+			"Горькая полынь",
+			"Bitter wormwood",
+			"Ajenjo amargo",
+			"Bitterer Wermut",
+			"Absinthe amère",
+			"苦艾"
+		],
+		"wormwood_dried": [
+			"Сушёная трава: Горькая полынь",
+			"Dried: Bitter wormwood",
+			"Seco: Ajenjo amargo",
+			"Getrocknet: Bitterer Wermut",
+			"Séché : Absinthe amère",
+			"干草：苦艾"
+		],
+		"wormwood_juice": [
+			"Сок: Горькая полынь",
+			"Juice: Bitter wormwood",
+			"Jugo: Ajenjo amargo",
+			"Saft: Bitterer Wermut",
+			"Jus : Absinthe amère",
+			"汁液：苦艾"
+		],
+		"wormwood_powder": [
+			"Порошок: Горькая полынь",
+			"Powder: Bitter wormwood",
+			"Polvo: Ajenjo amargo",
+			"Pulver: Bitterer Wermut",
+			"Poudre : Absinthe amère",
+			"粉末：苦艾"
+		],
+		"wormwood_tincture": [
+			"Настойка: Горькая полынь",
+			"Tincture: Bitter wormwood",
+			"Tintura: Ajenjo amargo",
+			"Tinktur: Bitterer Wermut",
+			"Teinture : Absinthe amère",
+			"浸液：苦艾"
+		],
+		"yarrow": [
+			"Тысячелистник",
+			"Yarrow",
+			"Milenrama",
+			"Schafgarbe",
+			"Achillée",
+			"蓍草"
+		],
+		"yarrow_dried": [
+			"Сушёная трава: Тысячелистник",
+			"Dried: Yarrow",
+			"Seco: Milenrama",
+			"Getrocknet: Schafgarbe",
+			"Séché : Achillée",
+			"干草：蓍草"
+		],
+		"yarrow_juice": [
+			"Сок: Тысячелистник",
+			"Juice: Yarrow",
+			"Jugo: Milenrama",
+			"Saft: Schafgarbe",
+			"Jus : Achillée",
+			"汁液：蓍草"
+		],
+		"yarrow_powder": [
+			"Порошок: Тысячелистник",
+			"Powder: Yarrow",
+			"Polvo: Milenrama",
+			"Pulver: Schafgarbe",
+			"Poudre : Achillée",
+			"粉末：蓍草"
+		],
+		"yarrow_tincture": [
+			"Настойка: Тысячелистник",
+			"Tincture: Yarrow",
+			"Tintura: Milenrama",
+			"Tinktur: Schafgarbe",
+			"Teinture : Achillée",
+			"浸液：蓍草"
+		]
+	},
+	"legacy": {
+		"animal_feed": [
+			"Корм для животных",
+			"Animal feed",
+			"Pienso para animales",
+			"Tierfutter",
+			"Aliment pour animaux",
+			"动物饲料"
+		],
+		"crystal": [
+			"Синий кристалл",
+			"Blue crystal",
+			"Cristal azul",
+			"Blauer Kristall",
+			"Cristal bleu",
+			"蓝水晶"
+		],
+		"defense_potion": [
+			"Зелье защиты",
+			"Defense potion",
+			"Poción de defensa",
+			"Verteidigungstrank",
+			"Potion de défense",
+			"防御药水"
+		],
+		"ectoplasm": [
+			"Морская эктоплазма",
+			"Sea ectoplasm",
+			"Ectoplasma marino",
+			"Meeresektoplasma",
+			"Ectoplasme marin",
+			"海洋灵质"
+		],
+		"energy_potion": [
+			"Зелье энергии",
+			"Energy potion",
+			"Poción de energía",
+			"Energietrank",
+			"Potion d’énergie",
+			"体力药水"
+		],
+		"healing_potion": [
+			"Лечебное зелье",
+			"Healing potion",
+			"Poción curativa",
+			"Heiltrank",
+			"Potion de soin",
+			"治疗药水"
+		],
+		"honey": [
+			"Цветочный мёд",
+			"Flower honey",
+			"Miel floral",
+			"Blütenhonig",
+			"Miel de fleurs",
+			"花蜜"
+		],
+		"invisibility_potion": [
+			"Зелье невидимости",
+			"Invisibility potion",
+			"Poción de invisibilidad",
+			"Unsichtbarkeitstrank",
+			"Potion d’invisibilité",
+			"隐身药水"
+		],
+		"mana_potion": [
+			"Зелье маны",
+			"Mana potion",
+			"Poción de maná",
+			"Manatrank",
+			"Potion de mana",
+			"法力药水"
+		],
+		"nut": [
+			"Крепкий орех",
+			"Hard nut",
+			"Nuez dura",
+			"Harte Nuss",
+			"Noix robuste",
+			"硬坚果"
+		],
+		"red_crystal": [
+			"Красный кристалл",
+			"Red crystal",
+			"Cristal rojo",
+			"Roter Kristall",
+			"Cristal rouge",
+			"红水晶"
+		],
+		"regeneration_potion": [
+			"Зелье регенерации",
+			"Regeneration potion",
+			"Poción de regeneración",
+			"Regenerationstrank",
+			"Potion de régénération",
+			"再生药水"
+		],
+		"speed_potion": [
+			"Зелье скорости",
+			"Speed potion",
+			"Poción de velocidad",
+			"Geschwindigkeitstrank",
+			"Potion de vitesse",
+			"速度药水"
+		],
+		"stone": [
+			"Камень",
+			"Stone",
+			"Piedra",
+			"Stein",
+			"Pierre",
+			"石头"
+		],
+		"strength_potion": [
+			"Зелье силы",
+			"Strength potion",
+			"Poción de fuerza",
+			"Stärketrank",
+			"Potion de force",
+			"力量药水"
+		],
+		"wheat": [
+			"Пшеница",
+			"Wheat",
+			"Trigo",
+			"Weizen",
+			"Blé",
+			"小麦"
+		]
+	},
+	"potions": {
+		"balanced_elixir": {
+			"energy": 4,
+			"heal": 35,
+			"mana": 15,
+			"names": [
+				"Эликсир равновесия",
+				"Balance elixir",
+				"Elixir de equilibrio",
+				"Gleichgewichtselixier",
+				"Élixir d’équilibre",
+				"平衡灵药"
+			]
+		},
+		"clarity_drops": {
+			"mana": 15,
+			"names": [
+				"Капли ясности",
+				"Clarity drops",
+				"Gotas de claridad",
+				"Klarheitstropfen",
+				"Gouttes de clarté",
+				"清明滴剂"
+			]
+		},
+		"greater_healing": {
+			"heal": 90,
+			"names": [
+				"Крепкое лечебное зелье",
+				"Greater healing",
+				"Curación mayor",
+				"Starker Heiltrank",
+				"Soin supérieur",
+				"强效治疗药剂"
+			]
+		},
+		"greater_mana": {
+			"mana": 50,
+			"names": [
+				"Крепкое зелье маны",
+				"Greater mana",
+				"Maná mayor",
+				"Starker Manatrank",
+				"Mana supérieur",
+				"强效法力药剂"
+			]
+		},
+		"honey_balm": {
+			"heal": 40,
+			"names": [
+				"Медовый бальзам",
+				"Honey balm",
+				"Bálsamo de miel",
+				"Honigbalsam",
+				"Baume au miel",
+				"蜜制香膏"
+			]
+		},
+		"hunter_elixir": {
+			"duration": 45.0,
+			"names": [
+				"Эликсир охотника",
+				"Hunter elixir",
+				"Elixir del cazador",
+				"Jägerelixier",
+				"Élixir du chasseur",
+				"猎人灵药"
+			],
+			"timer": "strength_timer"
+		},
+		"insect_repellent": {
+			"cleanse": true,
+			"duration": 60.0,
+			"effect": "repellent",
+			"names": [
+				"Бальзам от насекомых",
+				"Insect balm",
+				"Bálsamo repelente",
+				"Insektenschutzbalsam",
+				"Baume anti-insectes",
+				"驱虫香膏"
+			]
+		},
+		"life_balsam": {
+			"duration": 30.0,
+			"names": [
+				"Живой бальзам",
+				"Living balsam",
+				"Bálsamo viviente",
+				"Lebensbalsam",
+				"Baume vivant",
+				"生命香膏"
+			],
+			"timer": "regeneration_timer"
+		},
+		"meadow_tonic": {
+			"heal": 25,
+			"names": [
+				"Луговой тоник",
+				"Meadow tonic",
+				"Tónico del prado",
+				"Wiesentonikum",
+				"Tonique des prés",
+				"草地补剂"
+			]
+		},
+		"miners_oil": {
+			"duration": 60.0,
+			"effect": "mining",
+			"names": [
+				"Масло рудокопа",
+				"Miner's oil",
+				"Aceite del minero",
+				"Bergmannsöl",
+				"Huile du mineur",
+				"矿工油"
+			]
+		},
+		"moon_veil_potion": {
+			"duration": 25.0,
+			"names": [
+				"Лунная вуаль",
+				"Moon veil",
+				"Velo lunar",
+				"Mondschleier",
+				"Voile lunaire",
+				"月纱药剂"
+			],
+			"timer": "invisibility_timer"
+		},
+		"purifying_decoction": {
+			"cleanse": true,
+			"names": [
+				"Очищающий отвар",
+				"Purifying decoction",
+				"Decocción purificante",
+				"Reinigungssud",
+				"Décoction purifiante",
+				"净化煎剂"
+			]
+		},
+		"solar_concentrate": {
+			"heal": 120,
+			"mana": 30,
+			"names": [
+				"Солнечный концентрат",
+				"Solar concentrate",
+				"Concentrado solar",
+				"Sonnenkonzentrat",
+				"Concentré solaire",
+				"日光浓缩剂"
+			]
+		},
+		"stone_skin_draught": {
+			"duration": 45.0,
+			"names": [
+				"Каменная кожа",
+				"Stone skin",
+				"Piel de piedra",
+				"Steinhaut",
+				"Peau de pierre",
+				"石肤药剂"
+			],
+			"timer": "defense_timer"
+		},
+		"vigor_infusion": {
+			"energy": 4,
+			"names": [
+				"Настой бодрости",
+				"Vigor infusion",
+				"Infusión de vigor",
+				"Kraftaufguss",
+				"Infusion de vigueur",
+				"活力浸剂"
+			]
+		},
+		"wind_step_elixir": {
+			"duration": 40.0,
+			"names": [
+				"Шаг ветра",
+				"Wind step",
+				"Paso del viento",
+				"Windschritt",
+				"Pas du vent",
+				"风步灵药"
+			],
+			"timer": "speed_timer"
+		}
+	},
+	"recipes": [
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:field_mint_juice",
+			"inputs": {
+				"field_mint": 2
+			},
+			"name": "field_mint_juice",
+			"output": "field_mint_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:field_mint_dried",
+			"inputs": {
+				"field_mint": 2
+			},
+			"name": "field_mint_dried",
+			"output": "field_mint_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:field_mint_powder",
+			"inputs": {
+				"field_mint_dried": 2
+			},
+			"name": "field_mint_powder",
+			"output": "field_mint_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:field_mint_tincture",
+			"inputs": {
+				"field_mint_juice": 1,
+				"herb_solvent": 1
+			},
+			"name": "field_mint_tincture",
+			"output": "field_mint_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:chamomile_juice",
+			"inputs": {
+				"chamomile": 2
+			},
+			"name": "chamomile_juice",
+			"output": "chamomile_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:chamomile_dried",
+			"inputs": {
+				"chamomile": 2
+			},
+			"name": "chamomile_dried",
+			"output": "chamomile_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:chamomile_powder",
+			"inputs": {
+				"chamomile_dried": 2
+			},
+			"name": "chamomile_powder",
+			"output": "chamomile_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:chamomile_tincture",
+			"inputs": {
+				"chamomile_juice": 1,
+				"herb_solvent": 1
+			},
+			"name": "chamomile_tincture",
+			"output": "chamomile_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:nettle_juice",
+			"inputs": {
+				"nettle": 2
+			},
+			"name": "nettle_juice",
+			"output": "nettle_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:nettle_dried",
+			"inputs": {
+				"nettle": 2
+			},
+			"name": "nettle_dried",
+			"output": "nettle_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:nettle_powder",
+			"inputs": {
+				"nettle_dried": 2
+			},
+			"name": "nettle_powder",
+			"output": "nettle_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:nettle_tincture",
+			"inputs": {
+				"herb_solvent": 1,
+				"nettle_juice": 1
+			},
+			"name": "nettle_tincture",
+			"output": "nettle_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:red_clover_juice",
+			"inputs": {
+				"red_clover": 2
+			},
+			"name": "red_clover_juice",
+			"output": "red_clover_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:red_clover_dried",
+			"inputs": {
+				"red_clover": 2
+			},
+			"name": "red_clover_dried",
+			"output": "red_clover_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:red_clover_powder",
+			"inputs": {
+				"red_clover_dried": 2
+			},
+			"name": "red_clover_powder",
+			"output": "red_clover_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:red_clover_tincture",
+			"inputs": {
+				"herb_solvent": 1,
+				"red_clover_juice": 1
+			},
+			"name": "red_clover_tincture",
+			"output": "red_clover_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:wild_thyme_juice",
+			"inputs": {
+				"wild_thyme": 2
+			},
+			"name": "wild_thyme_juice",
+			"output": "wild_thyme_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:wild_thyme_dried",
+			"inputs": {
+				"wild_thyme": 2
+			},
+			"name": "wild_thyme_dried",
+			"output": "wild_thyme_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:wild_thyme_powder",
+			"inputs": {
+				"wild_thyme_dried": 2
+			},
+			"name": "wild_thyme_powder",
+			"output": "wild_thyme_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:wild_thyme_tincture",
+			"inputs": {
+				"herb_solvent": 1,
+				"wild_thyme_juice": 1
+			},
+			"name": "wild_thyme_tincture",
+			"output": "wild_thyme_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:yarrow_juice",
+			"inputs": {
+				"yarrow": 2
+			},
+			"name": "yarrow_juice",
+			"output": "yarrow_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:yarrow_dried",
+			"inputs": {
+				"yarrow": 2
+			},
+			"name": "yarrow_dried",
+			"output": "yarrow_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:yarrow_powder",
+			"inputs": {
+				"yarrow_dried": 2
+			},
+			"name": "yarrow_powder",
+			"output": "yarrow_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:yarrow_tincture",
+			"inputs": {
+				"herb_solvent": 1,
+				"yarrow_juice": 1
+			},
+			"name": "yarrow_tincture",
+			"output": "yarrow_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:sage_juice",
+			"inputs": {
+				"sage": 2
+			},
+			"name": "sage_juice",
+			"output": "sage_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:sage_dried",
+			"inputs": {
+				"sage": 2
+			},
+			"name": "sage_dried",
+			"output": "sage_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:sage_powder",
+			"inputs": {
+				"sage_dried": 2
+			},
+			"name": "sage_powder",
+			"output": "sage_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:sage_tincture",
+			"inputs": {
+				"herb_solvent": 1,
+				"sage_juice": 1
+			},
+			"name": "sage_tincture",
+			"output": "sage_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:lemon_balm_juice",
+			"inputs": {
+				"lemon_balm": 2
+			},
+			"name": "lemon_balm_juice",
+			"output": "lemon_balm_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:lemon_balm_dried",
+			"inputs": {
+				"lemon_balm": 2
+			},
+			"name": "lemon_balm_dried",
+			"output": "lemon_balm_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:lemon_balm_powder",
+			"inputs": {
+				"lemon_balm_dried": 2
+			},
+			"name": "lemon_balm_powder",
+			"output": "lemon_balm_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:lemon_balm_tincture",
+			"inputs": {
+				"herb_solvent": 1,
+				"lemon_balm_juice": 1
+			},
+			"name": "lemon_balm_tincture",
+			"output": "lemon_balm_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:valerian_juice",
+			"inputs": {
+				"valerian": 2
+			},
+			"name": "valerian_juice",
+			"output": "valerian_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:valerian_dried",
+			"inputs": {
+				"valerian": 2
+			},
+			"name": "valerian_dried",
+			"output": "valerian_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:valerian_powder",
+			"inputs": {
+				"valerian_dried": 2
+			},
+			"name": "valerian_powder",
+			"output": "valerian_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:valerian_tincture",
+			"inputs": {
+				"herb_solvent": 1,
+				"valerian_juice": 1
+			},
+			"name": "valerian_tincture",
+			"output": "valerian_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:wormwood_juice",
+			"inputs": {
+				"wormwood": 2
+			},
+			"name": "wormwood_juice",
+			"output": "wormwood_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:wormwood_dried",
+			"inputs": {
+				"wormwood": 2
+			},
+			"name": "wormwood_dried",
+			"output": "wormwood_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:wormwood_powder",
+			"inputs": {
+				"wormwood_dried": 2
+			},
+			"name": "wormwood_powder",
+			"output": "wormwood_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:wormwood_tincture",
+			"inputs": {
+				"herb_solvent": 1,
+				"wormwood_juice": 1
+			},
+			"name": "wormwood_tincture",
+			"output": "wormwood_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:juniper_juice",
+			"inputs": {
+				"juniper": 2
+			},
+			"name": "juniper_juice",
+			"output": "juniper_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:juniper_dried",
+			"inputs": {
+				"juniper": 2
+			},
+			"name": "juniper_dried",
+			"output": "juniper_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:juniper_powder",
+			"inputs": {
+				"juniper_dried": 2
+			},
+			"name": "juniper_powder",
+			"output": "juniper_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:juniper_tincture",
+			"inputs": {
+				"herb_solvent": 1,
+				"juniper_juice": 1
+			},
+			"name": "juniper_tincture",
+			"output": "juniper_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:rosehip_juice",
+			"inputs": {
+				"rosehip": 2
+			},
+			"name": "rosehip_juice",
+			"output": "rosehip_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:rosehip_dried",
+			"inputs": {
+				"rosehip": 2
+			},
+			"name": "rosehip_dried",
+			"output": "rosehip_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:rosehip_powder",
+			"inputs": {
+				"rosehip_dried": 2
+			},
+			"name": "rosehip_powder",
+			"output": "rosehip_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:rosehip_tincture",
+			"inputs": {
+				"herb_solvent": 1,
+				"rosehip_juice": 1
+			},
+			"name": "rosehip_tincture",
+			"output": "rosehip_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:ember_grass_juice",
+			"inputs": {
+				"ember_grass": 2
+			},
+			"name": "ember_grass_juice",
+			"output": "ember_grass_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:ember_grass_dried",
+			"inputs": {
+				"ember_grass": 2
+			},
+			"name": "ember_grass_dried",
+			"output": "ember_grass_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:ember_grass_powder",
+			"inputs": {
+				"ember_grass_dried": 2
+			},
+			"name": "ember_grass_powder",
+			"output": "ember_grass_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:ember_grass_tincture",
+			"inputs": {
+				"ember_grass_juice": 1,
+				"herb_solvent": 1
+			},
+			"name": "ember_grass_tincture",
+			"output": "ember_grass_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:silver_lichen_juice",
+			"inputs": {
+				"silver_lichen": 2
+			},
+			"name": "silver_lichen_juice",
+			"output": "silver_lichen_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:silver_lichen_dried",
+			"inputs": {
+				"silver_lichen": 2
+			},
+			"name": "silver_lichen_dried",
+			"output": "silver_lichen_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:silver_lichen_powder",
+			"inputs": {
+				"silver_lichen_dried": 2
+			},
+			"name": "silver_lichen_powder",
+			"output": "silver_lichen_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:silver_lichen_tincture",
+			"inputs": {
+				"herb_solvent": 1,
+				"silver_lichen_juice": 1
+			},
+			"name": "silver_lichen_tincture",
+			"output": "silver_lichen_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:bitter_root_juice",
+			"inputs": {
+				"bitter_root": 2
+			},
+			"name": "bitter_root_juice",
+			"output": "bitter_root_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:bitter_root_dried",
+			"inputs": {
+				"bitter_root": 2
+			},
+			"name": "bitter_root_dried",
+			"output": "bitter_root_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:bitter_root_powder",
+			"inputs": {
+				"bitter_root_dried": 2
+			},
+			"name": "bitter_root_powder",
+			"output": "bitter_root_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:bitter_root_tincture",
+			"inputs": {
+				"bitter_root_juice": 1,
+				"herb_solvent": 1
+			},
+			"name": "bitter_root_tincture",
+			"output": "bitter_root_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:ghost_orchid_juice",
+			"inputs": {
+				"ghost_orchid": 2
+			},
+			"name": "ghost_orchid_juice",
+			"output": "ghost_orchid_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:ghost_orchid_dried",
+			"inputs": {
+				"ghost_orchid": 2
+			},
+			"name": "ghost_orchid_dried",
+			"output": "ghost_orchid_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:ghost_orchid_powder",
+			"inputs": {
+				"ghost_orchid_dried": 2
+			},
+			"name": "ghost_orchid_powder",
+			"output": "ghost_orchid_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:ghost_orchid_tincture",
+			"inputs": {
+				"ghost_orchid_juice": 1,
+				"herb_solvent": 1
+			},
+			"name": "ghost_orchid_tincture",
+			"output": "ghost_orchid_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:nightshade_juice",
+			"inputs": {
+				"nightshade": 2
+			},
+			"name": "nightshade_juice",
+			"output": "nightshade_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:nightshade_dried",
+			"inputs": {
+				"nightshade": 2
+			},
+			"name": "nightshade_dried",
+			"output": "nightshade_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:nightshade_powder",
+			"inputs": {
+				"nightshade_dried": 2
+			},
+			"name": "nightshade_powder",
+			"output": "nightshade_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:nightshade_tincture",
+			"inputs": {
+				"herb_solvent": 1,
+				"nightshade_juice": 1
+			},
+			"name": "nightshade_tincture",
+			"output": "nightshade_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:bloodthorn_juice",
+			"inputs": {
+				"bloodthorn": 2
+			},
+			"name": "bloodthorn_juice",
+			"output": "bloodthorn_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:bloodthorn_dried",
+			"inputs": {
+				"bloodthorn": 2
+			},
+			"name": "bloodthorn_dried",
+			"output": "bloodthorn_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:bloodthorn_powder",
+			"inputs": {
+				"bloodthorn_dried": 2
+			},
+			"name": "bloodthorn_powder",
+			"output": "bloodthorn_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:bloodthorn_tincture",
+			"inputs": {
+				"bloodthorn_juice": 1,
+				"herb_solvent": 1
+			},
+			"name": "bloodthorn_tincture",
+			"output": "bloodthorn_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:sporecap_juice",
+			"inputs": {
+				"sporecap": 2
+			},
+			"name": "sporecap_juice",
+			"output": "sporecap_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:sporecap_dried",
+			"inputs": {
+				"sporecap": 2
+			},
+			"name": "sporecap_dried",
+			"output": "sporecap_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:sporecap_powder",
+			"inputs": {
+				"sporecap_dried": 2
+			},
+			"name": "sporecap_powder",
+			"output": "sporecap_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:sporecap_tincture",
+			"inputs": {
+				"herb_solvent": 1,
+				"sporecap_juice": 1
+			},
+			"name": "sporecap_tincture",
+			"output": "sporecap_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:moon_grass_juice",
+			"inputs": {
+				"moon_grass": 2
+			},
+			"name": "moon_grass_juice",
+			"output": "moon_grass_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:moon_grass_dried",
+			"inputs": {
+				"moon_grass": 2
+			},
+			"name": "moon_grass_dried",
+			"output": "moon_grass_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:moon_grass_powder",
+			"inputs": {
+				"moon_grass_dried": 2
+			},
+			"name": "moon_grass_powder",
+			"output": "moon_grass_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:moon_grass_tincture",
+			"inputs": {
+				"herb_solvent": 1,
+				"moon_grass_juice": 1
+			},
+			"name": "moon_grass_tincture",
+			"output": "moon_grass_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:moon_moss_juice",
+			"inputs": {
+				"moon_moss": 2
+			},
+			"name": "moon_moss_juice",
+			"output": "moon_moss_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:moon_moss_dried",
+			"inputs": {
+				"moon_moss": 2
+			},
+			"name": "moon_moss_dried",
+			"output": "moon_moss_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:moon_moss_powder",
+			"inputs": {
+				"moon_moss_dried": 2
+			},
+			"name": "moon_moss_powder",
+			"output": "moon_moss_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:moon_moss_tincture",
+			"inputs": {
+				"herb_solvent": 1,
+				"moon_moss_juice": 1
+			},
+			"name": "moon_moss_tincture",
+			"output": "moon_moss_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:frost_fern_juice",
+			"inputs": {
+				"frost_fern": 2
+			},
+			"name": "frost_fern_juice",
+			"output": "frost_fern_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:frost_fern_dried",
+			"inputs": {
+				"frost_fern": 2
+			},
+			"name": "frost_fern_dried",
+			"output": "frost_fern_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:frost_fern_powder",
+			"inputs": {
+				"frost_fern_dried": 2
+			},
+			"name": "frost_fern_powder",
+			"output": "frost_fern_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:frost_fern_tincture",
+			"inputs": {
+				"frost_fern_juice": 1,
+				"herb_solvent": 1
+			},
+			"name": "frost_fern_tincture",
+			"output": "frost_fern_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:starflower_juice",
+			"inputs": {
+				"starflower": 2
+			},
+			"name": "starflower_juice",
+			"output": "starflower_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:starflower_dried",
+			"inputs": {
+				"starflower": 2
+			},
+			"name": "starflower_dried",
+			"output": "starflower_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:starflower_powder",
+			"inputs": {
+				"starflower_dried": 2
+			},
+			"name": "starflower_powder",
+			"output": "starflower_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:starflower_tincture",
+			"inputs": {
+				"herb_solvent": 1,
+				"starflower_juice": 1
+			},
+			"name": "starflower_tincture",
+			"output": "starflower_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:sunpetal_juice",
+			"inputs": {
+				"sunpetal": 2
+			},
+			"name": "sunpetal_juice",
+			"output": "sunpetal_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:sunpetal_dried",
+			"inputs": {
+				"sunpetal": 2
+			},
+			"name": "sunpetal_dried",
+			"output": "sunpetal_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:sunpetal_powder",
+			"inputs": {
+				"sunpetal_dried": 2
+			},
+			"name": "sunpetal_powder",
+			"output": "sunpetal_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:sunpetal_tincture",
+			"inputs": {
+				"herb_solvent": 1,
+				"sunpetal_juice": 1
+			},
+			"name": "sunpetal_tincture",
+			"output": "sunpetal_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "supplies",
+			"alchemy_rank": 1,
+			"count": 3,
+			"id": "alchemy:glass_vial",
+			"inputs": {
+				"crystal": 1
+			},
+			"name": "glass_vial",
+			"output": "glass_vial",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "supplies",
+			"alchemy_rank": 2,
+			"count": 2,
+			"id": "alchemy:distilled_water",
+			"inputs": {
+				"clean_water": 2
+			},
+			"name": "distilled_water",
+			"output": "distilled_water",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "supplies",
+			"alchemy_rank": 2,
+			"count": 3,
+			"id": "alchemy:herb_solvent",
+			"inputs": {
+				"honey": 1,
+				"wheat": 2
+			},
+			"name": "herb_solvent",
+			"output": "herb_solvent",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "supplies",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:herb_oil",
+			"inputs": {
+				"nut": 2
+			},
+			"name": "herb_oil",
+			"output": "herb_oil",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "supplies",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:mineral_base",
+			"inputs": {
+				"stone": 2
+			},
+			"name": "mineral_base",
+			"output": "mineral_base",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "supplies",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:animal_feed",
+			"inputs": {
+				"herb_pulp": 2,
+				"wheat": 1
+			},
+			"name": "animal_feed",
+			"output": "animal_feed",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "essence",
+			"alchemy_rank": 3,
+			"count": 2,
+			"id": "alchemy:vital_essence",
+			"inputs": {
+				"honey": 1,
+				"nettle_powder": 1,
+				"yarrow_tincture": 1
+			},
+			"name": "vital_essence",
+			"output": "vital_essence",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "essence",
+			"alchemy_rank": 3,
+			"count": 2,
+			"id": "alchemy:ember_essence",
+			"inputs": {
+				"ember_grass_tincture": 1,
+				"red_crystal": 1,
+				"sunpetal_powder": 1
+			},
+			"name": "ember_essence",
+			"output": "ember_essence",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "essence",
+			"alchemy_rank": 3,
+			"count": 2,
+			"id": "alchemy:frost_essence",
+			"inputs": {
+				"crystal": 1,
+				"frost_fern_tincture": 1,
+				"silver_lichen_powder": 1
+			},
+			"name": "frost_essence",
+			"output": "frost_essence",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "essence",
+			"alchemy_rank": 3,
+			"count": 2,
+			"id": "alchemy:shadow_essence",
+			"inputs": {
+				"ectoplasm": 1,
+				"ghost_orchid_tincture": 1,
+				"nightshade_powder": 1
+			},
+			"name": "shadow_essence",
+			"output": "shadow_essence",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "essence",
+			"alchemy_rank": 3,
+			"count": 2,
+			"id": "alchemy:ether_essence",
+			"inputs": {
+				"crystal": 1,
+				"moon_grass_tincture": 1,
+				"starflower_powder": 1
+			},
+			"name": "ether_essence",
+			"output": "ether_essence",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:meadow_tonic",
+			"inputs": {
+				"chamomile_juice": 1,
+				"clean_water": 1,
+				"glass_vial": 1
+			},
+			"name": "meadow_tonic",
+			"output": "meadow_tonic",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:clarity_drops",
+			"inputs": {
+				"clean_water": 1,
+				"field_mint_juice": 1,
+				"glass_vial": 1
+			},
+			"name": "clarity_drops",
+			"output": "clarity_drops",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:vigor_infusion",
+			"inputs": {
+				"clean_water": 1,
+				"glass_vial": 1,
+				"nettle_powder": 1
+			},
+			"name": "vigor_infusion",
+			"output": "vigor_infusion",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:honey_balm",
+			"inputs": {
+				"glass_vial": 1,
+				"honey": 1,
+				"red_clover_juice": 1
+			},
+			"name": "honey_balm",
+			"output": "honey_balm",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:purifying_decoction",
+			"inputs": {
+				"clean_water": 1,
+				"glass_vial": 1,
+				"wild_thyme_juice": 1,
+				"wormwood_powder": 1
+			},
+			"name": "purifying_decoction",
+			"output": "purifying_decoction",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:hunter_elixir",
+			"inputs": {
+				"bitter_root_tincture": 1,
+				"distilled_water": 1,
+				"ember_grass_powder": 1,
+				"glass_vial": 1
+			},
+			"name": "hunter_elixir",
+			"output": "hunter_elixir",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:stone_skin_draught",
+			"inputs": {
+				"glass_vial": 1,
+				"juniper_tincture": 1,
+				"mineral_base": 1,
+				"silver_lichen_powder": 1
+			},
+			"name": "stone_skin_draught",
+			"output": "stone_skin_draught",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:wind_step_elixir",
+			"inputs": {
+				"distilled_water": 1,
+				"field_mint_powder": 1,
+				"glass_vial": 1,
+				"lemon_balm_tincture": 1
+			},
+			"name": "wind_step_elixir",
+			"output": "wind_step_elixir",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 3,
+			"count": 1,
+			"id": "alchemy:moon_veil_potion",
+			"inputs": {
+				"glass_vial": 1,
+				"moon_grass_juice": 1,
+				"shadow_essence": 1,
+				"valerian_tincture": 1
+			},
+			"name": "moon_veil_potion",
+			"output": "moon_veil_potion",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 3,
+			"count": 1,
+			"id": "alchemy:life_balsam",
+			"inputs": {
+				"glass_vial": 1,
+				"herb_oil": 1,
+				"moon_moss_tincture": 1,
+				"sporecap_powder": 1
+			},
+			"name": "life_balsam",
+			"output": "life_balsam",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 3,
+			"count": 1,
+			"id": "alchemy:greater_healing",
+			"inputs": {
+				"distilled_water": 1,
+				"glass_vial": 1,
+				"rosehip_tincture": 1,
+				"vital_essence": 1
+			},
+			"name": "greater_healing",
+			"output": "greater_healing",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 3,
+			"count": 1,
+			"id": "alchemy:greater_mana",
+			"inputs": {
+				"distilled_water": 1,
+				"ether_essence": 1,
+				"glass_vial": 1,
+				"sage_tincture": 1
+			},
+			"name": "greater_mana",
+			"output": "greater_mana",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 3,
+			"count": 1,
+			"id": "alchemy:balanced_elixir",
+			"inputs": {
+				"frost_essence": 1,
+				"glass_vial": 1,
+				"lemon_balm_juice": 1,
+				"red_clover_tincture": 1
+			},
+			"name": "balanced_elixir",
+			"output": "balanced_elixir",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:insect_repellent",
+			"inputs": {
+				"glass_vial": 1,
+				"herb_oil": 1,
+				"wild_thyme_powder": 1,
+				"wormwood_tincture": 1
+			},
+			"name": "insect_repellent",
+			"output": "insect_repellent",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:miners_oil",
+			"inputs": {
+				"bitter_root_powder": 1,
+				"glass_vial": 1,
+				"herb_oil": 1,
+				"silver_lichen_tincture": 1
+			},
+			"name": "miners_oil",
+			"output": "miners_oil",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 4,
+			"count": 1,
+			"id": "alchemy:solar_concentrate",
+			"inputs": {
+				"ember_essence": 1,
+				"glass_vial": 1,
+				"sunpetal_tincture": 1,
+				"vital_essence": 1
+			},
+			"laboratory": true,
+			"name": "solar_concentrate",
+			"output": "solar_concentrate",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:healing_potion",
+			"inputs": {
+				"clean_water": 1,
+				"glass_vial": 1,
+				"rosehip_powder": 1,
+				"yarrow_juice": 1
+			},
+			"name": "healing_potion",
+			"output": "healing_potion",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:mana_potion",
+			"inputs": {
+				"clean_water": 1,
+				"field_mint_powder": 1,
+				"glass_vial": 1,
+				"moon_grass_juice": 1
+			},
+			"name": "mana_potion",
+			"output": "mana_potion",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:energy_potion",
+			"inputs": {
+				"clean_water": 1,
+				"glass_vial": 1,
+				"lemon_balm_powder": 1,
+				"nettle_juice": 1
+			},
+			"name": "energy_potion",
+			"output": "energy_potion",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:invisibility_potion",
+			"inputs": {
+				"glass_vial": 1,
+				"nightshade_powder": 1,
+				"valerian_tincture": 1
+			},
+			"name": "invisibility_potion",
+			"output": "invisibility_potion",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:strength_potion",
+			"inputs": {
+				"bitter_root_powder": 1,
+				"ember_grass_juice": 1,
+				"glass_vial": 1
+			},
+			"name": "strength_potion",
+			"output": "strength_potion",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:regeneration_potion",
+			"inputs": {
+				"bloodthorn_tincture": 1,
+				"glass_vial": 1,
+				"yarrow_powder": 1
+			},
+			"name": "regeneration_potion",
+			"output": "regeneration_potion",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:speed_potion",
+			"inputs": {
+				"glass_vial": 1,
+				"lemon_balm_juice": 1,
+				"wild_thyme_tincture": 1
+			},
+			"name": "speed_potion",
+			"output": "speed_potion",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:defense_potion",
+			"inputs": {
+				"glass_vial": 1,
+				"juniper_powder": 1,
+				"mineral_base": 1,
+				"silver_lichen_juice": 1
+			},
+			"name": "defense_potion",
+			"output": "defense_potion",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		}
+	]
+}

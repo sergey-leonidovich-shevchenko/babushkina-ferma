@@ -100,6 +100,7 @@ static func initialize_item_icons(kinds: Array) -> void:
 		var icon_kind := "carrot_seeds" if kind == "seeds" else kind
 		var path:String=ITEM_ICON_OVERRIDES.get(kind,"%s/%s.png" % [ITEM_ICON_DIRECTORY, icon_kind])
 		if ResourceLoader.exists(path): item_icon_cache[kind] = load(path)
+		elif preload("res://scripts/systems/alchemy_product_data.gd").handles(kind): item_icon_cache[kind]=preload("res://scripts/presentation/alchemy_icon_system.gd").texture(kind)
 
 
 ## Возвращает заранее кэшированную отдельную текстуру предмета.

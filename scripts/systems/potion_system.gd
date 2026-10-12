@@ -14,7 +14,7 @@ const POTIONS := {
 
 ## Проверяет, относится ли предмет к зарегистрированной линейке зелий.
 static func is_potion(kind: String) -> bool:
-	return POTIONS.has(kind)
+	return POTIONS.has(kind) or preload("res://scripts/systems/alchemy_product_data.gd").POTIONS.has(kind)
 
 
 ## Употребляет еду или зелье, применяет эффект и обновляет шаг обучения.
@@ -25,7 +25,9 @@ static func consume(game: Node, kind: String) -> bool:
 	if not game.change_inventory_count(kind, -1):
 		game.message = "Предмет закончился"
 		return false
-	if is_potion(kind):
+	if preload("res://scripts/systems/alchemy_product_data.gd").POTIONS.has(kind):
+		preload("res://scripts/systems/alchemy_system.gd").apply_potion(game,kind)
+	elif is_potion(kind):
 		_apply_potion(game, kind)
 		game.notify_tutorial("potion")
 		if kind == "invisibility_potion": game.notify_tutorial("invisibility")
@@ -55,11 +57,13 @@ static func _apply_food(game: Node, kind: String) -> void:
 
 ## Обновляет длительность бафов и периодическое восстановление здоровья.
 static func update_effects(game: Node, delta: float) -> void:
+	preload("res://scripts/systems/alchemy_system.gd").update(game,delta)
 	for timer in ["strength_timer", "speed_timer", "invisibility_timer", "defense_timer"]:
 		game.set(timer, maxf(float(game.get(timer)) - delta, 0.0))
 	if game.regeneration_timer <= 0.0: return
-	game.regeneration_timer = maxf(game.regeneration_timer - delta, 0.0)
-	game.regeneration_tick_timer += delta
+	var elapsed:=minf(maxf(delta,0.0),float(game.regeneration_timer))
+	game.regeneration_timer = maxf(game.regeneration_timer - elapsed, 0.0)
+	game.regeneration_tick_timer += elapsed
 	while game.regeneration_tick_timer >= 1.0:
 		game.regeneration_tick_timer -= 1.0
 		game.heal_player(5)

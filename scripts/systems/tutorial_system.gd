@@ -20,7 +20,7 @@ const STEP_IDS := [
 	"cave_boss_altar", "cave_boss_phases", "cave_boss_attacks", "cave_boss_summons", "cave_boss_flies", "cave_boss_victory",
 	"celestial_clock",
 	"hero_tools",
-	"player_contact",
+	"player_contact", "alchemy_herbs", "alchemy_processing", "alchemy_brewing", "alchemy_effects",
 ]
 
 

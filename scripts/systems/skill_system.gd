@@ -153,7 +153,7 @@ static func harvest_count(game: Node) -> int:
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func mined_count(game: Node) -> int:
-	return 1 + skill(game, "mining") / 3
+	return 1 + skill(game, "mining") / 3 + int(preload("res://scripts/systems/alchemy_system.gd").remaining(game,"mining")>0.0)
 
 ## Выполняет операцию «рыбалки ожидания» и возвращает результат согласно контракту метода.
 static func fishing_wait(game: Node) -> float:

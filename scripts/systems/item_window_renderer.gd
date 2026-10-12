@@ -12,6 +12,7 @@ const CRAFT_SECTION := Rect2(194, 146, 764, 414)
 const CRAFT_LIST := Rect2(210, 164, 470, 382)
 const CRAFT_DETAIL := Rect2(696, 164, 246, 382)
 const CRAFT_ACTION := Rect2(714, 498, 210, 40)
+const ALCHEMY_FILTER := Rect2(210, 120, 470, 28)
 const SHOP_STOCK_SECTION := Rect2(112, 150, 266, 390)
 const SHOP_TOOLTIP := Rect2(120, 188, 250, 292)
 const SHOP_TABLE_SECTION := Rect2(390, 150, 608, 390)
@@ -89,7 +90,12 @@ static func draw_help(game: Node, text: String) -> void:
 ## Рисует верстак или котелок в едином предметном каркасе с иконками результатов и доступностью рецептов.
 static func draw_crafting(game: Node) -> void:
 	var title: String = game.LocaleSystem.ui("cauldron_title") if game.crafting_station == "cauldron" else game.LocaleSystem.ui("workbench")
+	if game.crafting_station=="alchemy": title=game.LocaleSystem.ui("alchemy_title",[game.CraftingSystem.Alchemy.rank(game)])
 	draw_shell(game, title)
+	if game.crafting_station=="alchemy":
+		draw_table_header(game,ALCHEMY_FILTER)
+		game.draw_ui_string(game.UI_FONT,ALCHEMY_FILTER.position+Vector2(8,20),"‹  "+game.LocaleSystem.ui("alchemy_"+String(game.get_meta("alchemy_filter","all")))+"  ›",HORIZONTAL_ALIGNMENT_CENTER,ALCHEMY_FILTER.size.x-16,12,Color("fff0cf"))
+		game.draw_ui_string(game.UI_FONT,Vector2(700,140),game.LocaleSystem.ui("alchemy_progress",[game.CraftingSystem.Alchemy.state(game).discovered.size(),game.CraftingSystem.Alchemy.state(game).xp]),HORIZONTAL_ALIGNMENT_CENTER,240,10,Color("efd59b"))
 	draw_section(game, CRAFT_SECTION)
 	var visible: Array[int] = game.CraftingSystem.visible_indices(game)
 	var selected_position: int = maxi(visible.find(game.crafting_selected), 0)
@@ -102,7 +108,8 @@ static func draw_crafting(game: Node) -> void:
 		draw_item_row(game, row, String(recipe.output), index == game.crafting_selected, available)
 		game.draw_item_icon(String(recipe.output), Rect2(row.position + Vector2(14, 5), Vector2(28, 28)))
 		game.draw_ui_string(game.UI_FONT, row.position + Vector2(52, 25), game.inventory_item_name(recipe.output), HORIZONTAL_ALIGNMENT_LEFT, 178, 12, UiKitSystem.COLORS.ink)
-		game.draw_ui_string(game.UI_FONT, row.position + Vector2(238, 24), game.CraftingSystem.ingredients_text(game, recipe, true), HORIZONTAL_ALIGNMENT_LEFT, 222, 10, Color("456537") if available else UiKitSystem.COLORS.danger)
+		var ingredients:String=game.CraftingSystem.row_ingredients_text(game,recipe)
+		game.draw_ui_string(game.UI_FONT, row.position + Vector2(238, 24), ingredients, HORIZONTAL_ALIGNMENT_LEFT, 222, 10, Color("456537") if available else UiKitSystem.COLORS.danger)
 	if not visible.is_empty():
 		var selected: Dictionary = game.CraftingSystem.RECIPES[game.crafting_selected]
 		var detail := CRAFT_DETAIL
@@ -117,7 +124,7 @@ static func draw_crafting(game: Node) -> void:
 		var can_create: bool = game.CraftingSystem.can_craft(game, selected)
 		UiKitSystem.draw_nine_patch(game, "editor_button_selected" if can_create else "editor_button_normal", CRAFT_ACTION)
 		game.draw_ui_string(game.UI_FONT, CRAFT_ACTION.position + Vector2(14, 26), game.LocaleSystem.ui("craft_action"), HORIZONTAL_ALIGNMENT_CENTER, CRAFT_ACTION.size.x - 28, 14, UiKitSystem.COLORS.ink if can_create else Color("846d50"))
-	draw_help(game, game.LocaleSystem.ui("craft_help"))
+	draw_help(game, game.LocaleSystem.ui("alchemy_help" if game.crafting_station=="alchemy" else "craft_help"))
 
 
 ## Рисует деревенскую лавку как две связанные секции: атмосферный прилавок и таблицу товаров.
@@ -309,6 +316,8 @@ static func handle_forge_pointer(game: Node, position: Vector2) -> bool:
 
 ## Сначала выбирает рецепт для чтения, а материалы расходует только после явного нажатия кнопки создания.
 static func handle_crafting_pointer(game: Node, position: Vector2) -> bool:
+	if game.crafting_station=="alchemy" and ALCHEMY_FILTER.has_point(position):
+		game.CraftingSystem.Alchemy.cycle_filter(game,-1 if position.x<ALCHEMY_FILTER.get_center().x else 1); return true
 	if CRAFT_ACTION.has_point(position):
 		if game.crafting_selected >= 0 and game.crafting_selected < game.CraftingSystem.RECIPES.size():
 			var recipe: Dictionary = game.CraftingSystem.RECIPES[game.crafting_selected]

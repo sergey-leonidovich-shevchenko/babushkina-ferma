@@ -292,7 +292,7 @@ static func _check_crafting_text(checks:Array[Dictionary],game:Node,locale:Strin
 	contracts.append(["create",game.LocaleSystem.ui("craft_action"),ItemWindowRenderer.CRAFT_ACTION.size.x-28,14,10])
 	for category in ["processing","construction","equipment","general","food"]: contracts.append(["category_"+category,game.LocaleSystem.ui("craft_category_"+category),226.0,12,8])
 	for recipe in game.CraftingSystem.RECIPES:
-		var recipe_id:=String(recipe.output); contracts.append([recipe_id+"_row",game.inventory_item_name(recipe_id),178.0,12,7]); contracts.append([recipe_id+"_cost",game.CraftingSystem.ingredients_text(game,recipe,true),222.0,10,7])
+		var recipe_id:=String(recipe.output); contracts.append([recipe_id+"_row",game.inventory_item_name(recipe_id),178.0,12,7]); contracts.append([recipe_id+"_cost",game.CraftingSystem.row_ingredients_text(game,recipe),222.0,10,7])
 		_record_multiline_contract(checks,game,"crafting",locale,[recipe_id+"_detail",game.inventory_item_name(recipe_id),226.0,40.0,17,10]); counts.crafting=int(counts.crafting)+1
 		_record_multiline_contract(checks,game,"crafting",locale,[recipe_id+"_ingredients",game.CraftingSystem.ingredients_text(game,recipe),210.0,42.0,12,8]); counts.crafting=int(counts.crafting)+1
 		_record_multiline_contract(checks,game,"crafting",locale,[recipe_id+"_effect",preload("res://scripts/systems/item_presentation_system.gd").effect_text(game,recipe_id),210.0,34.0,11,8]); counts.crafting=int(counts.crafting)+1

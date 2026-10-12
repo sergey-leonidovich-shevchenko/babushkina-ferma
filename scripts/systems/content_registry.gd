@@ -28,6 +28,8 @@ static func validate() -> Array[String]:
 		_validate_item(errors, items, recipe.output, "recipe[%d].output" % recipe_index)
 		for kind in recipe.inputs:
 			_validate_item(errors, items, kind, "recipe[%d].inputs" % recipe_index)
+		for kind in recipe.get("byproducts",{}):
+			_validate_item(errors, items, kind, "recipe[%d].byproducts" % recipe_index)
 	for product_index in ShopSystem.PRODUCTS.size():
 		_validate_item(errors, items, ShopSystem.PRODUCTS[product_index].kind, "shop[%d]" % product_index)
 	for crop_kind in CropCatalogSystem.CROPS:
@@ -64,7 +66,7 @@ static func validate() -> Array[String]:
 	for node in ResourceSystem.default_nodes():
 		_validate_item(errors, items, node.kind, "resource spawn")
 		_validate_location(errors, node.location, "resource spawn")
-	for node in ForageSystem.SPAWNS:
+	for node in ForageSystem.default_nodes():
 		_validate_item(errors, items, node.kind, "forage spawn")
 		if not ForageSystem.TYPES.has(node.kind): errors.append("forage spawn has unknown type: %s" % node.kind)
 		_validate_location(errors, node.location, "forage spawn")
@@ -87,5 +89,5 @@ static func _validate_item(errors: Array[String], items: Dictionary, kind: Strin
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func _validate_location(errors: Array[String], location: String, owner: String) -> void:
-	if location not in WorldSystem.LOCATIONS and not preload("res://scripts/systems/cave_room_data.gd").is_cave(location):
+	if not WorldSystem.NAMES.has(location) and not preload("res://scripts/systems/cave_room_data.gd").is_cave(location):
 		errors.append("%s references unknown location: %s" % [owner, location])

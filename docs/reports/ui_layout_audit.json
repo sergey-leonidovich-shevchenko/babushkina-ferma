@@ -1,5 +1,5 @@
 {
-  "checks": 10595,
+  "checks": 21701,
   "display_profiles": [
     {
       "height": 648,
@@ -23,7 +23,7 @@
   "failed": 0,
   "issues": [],
   "localization": {
-    "contracts": 9624,
+    "contracts": 20730,
     "locales": [
       "ru",
       "en",
@@ -33,29 +33,29 @@
       "zh"
     ],
     "surfaces": {
-      "crafting": 1338,
+      "crafting": 6570,
       "fishing": 246,
       "forge": 198,
-      "hud": 2130,
-      "inventory": 1218,
-      "moon_menu": 1920,
+      "hud": 3192,
+      "inventory": 2214,
+      "moon_menu": 3864,
       "quest_log": 474,
-      "shop": 456,
-      "storage": 804,
+      "shop": 1392,
+      "storage": 1740,
       "talent_tree": 438,
       "world_guide": 294
     },
     "text_scale": 1.2
   },
-  "passed": 10595,
+  "passed": 21701,
   "schema": 3,
   "scope": "project_ui",
   "source_metrics": {
-    "adaptive_multiline_calls": 10,
-    "adaptive_single_line_calls": 228,
+    "adaptive_multiline_calls": 11,
+    "adaptive_single_line_calls": 229,
     "explicit_fit_calls": 9,
     "raw_multiline_calls": 3,
-    "renderer_modules": 37
+    "renderer_modules": 42
   },
   "surfaces": 8
 }

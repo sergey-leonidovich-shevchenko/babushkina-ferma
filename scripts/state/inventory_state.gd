@@ -33,8 +33,8 @@ const INITIAL_COUNTS := {
 	"iron_spear":0,"war_hammer":0,"moon_staff":0,
 }
 
-var counts: Dictionary = INITIAL_COUNTS.duplicate(true)
-var slots: Array = DEFAULT_SLOTS.duplicate()
+var counts: Dictionary = initial_counts()
+var slots: Array = DEFAULT_SLOTS + preload("res://scripts/systems/alchemy_product_data.gd").names().keys()
 var hotbar: Array = DEFAULT_HOTBAR.duplicate()
 var equipment: Dictionary = DEFAULT_EQUIPMENT.duplicate(true)
 var selected_slot: int = 0
@@ -89,3 +89,10 @@ func capacity() -> int:
 func normalize_meta() -> void:
 	backpack_level = clampi(backpack_level, 0, 4)
 	for kind in durability: durability[kind] = clampi(int(durability[kind]), 0, 100)
+
+
+## Расширяет новый рюкзак нулевыми материалами алхимии, не выдавая игроку готовое сырьё.
+static func initial_counts() -> Dictionary:
+	var result:=INITIAL_COUNTS.duplicate(true)
+	for kind in preload("res://scripts/systems/alchemy_product_data.gd").names(): result[kind]=0
+	return result
