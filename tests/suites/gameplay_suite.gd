@@ -47,8 +47,11 @@ func test_experience_from_farming_combat_and_quest() -> void:
 	expect(game.player_xp == 1, "planting a crop grants experience")
 	game.player = game.slime_position
 	game.attack_slime()
+	settle_player_attack(game)
 	game.attack_slime()
+	settle_player_attack(game)
 	game.attack_slime()
+	settle_player_attack(game)
 	expect(game.player_xp == 11, "defeating an enemy grants experience")
 	game.quest_active = true
 	game.carrots = 10
@@ -78,6 +81,7 @@ func test_food_healing_and_temporary_effects() -> void:
 	game.consume_selected_item()
 	game.player = game.slime_position
 	game.attack_slime()
+	settle_player_attack(game)
 	expect(game.slime_hp == 1, "nut strength effect increases combat damage")
 	game.mushrooms = 1
 	game.inventory_selected = 15
@@ -183,6 +187,7 @@ func test_hotbar_assignment_equipment_and_universal_input() -> void:
 	game.equip_selected_item()
 	game.player = game.slime_position
 	game.attack_slime()
+	settle_player_attack(game)
 	expect(game.slime_hp == 1, "equipped ring increases combat damage")
 	var right := InputEventJoypadButton.new()
 	right.button_index = JOY_BUTTON_DPAD_RIGHT

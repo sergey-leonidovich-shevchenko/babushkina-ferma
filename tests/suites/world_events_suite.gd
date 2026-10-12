@@ -64,8 +64,10 @@ func test_eclipse_guardian_combat_and_treasure_reward() -> void:
 	system.update(game, 0.5)
 	expect(game.player_hp < hp_before, "eclipse guardian deals damage on its visible contact frame")
 	expect(not game.NavigationSystem.is_walkable(game, system.GUARDIAN_POSITION), "active guardian has solid collision")
+	settle_player_attack(game)
 	while game.state.world.moon_glade.guardian_alive:
 		expect(system.attack_guardian(game), "normal held attack damages the eclipse guardian")
+		settle_player_attack(game)
 	expect(game.state.world.moon_glade.guardian_defeated, "zero guardian health unlocks the lunar chest")
 	var coins_before: int = game.coins; game.player = system.CHEST_POSITION
 	expect(system.interact(game, "moon_chest"), "unlocked lunar chest completes the expedition")

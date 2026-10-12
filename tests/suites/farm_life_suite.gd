@@ -73,12 +73,16 @@ func test_birthdays_hearts_and_discount() -> void:
 
 
 ## Сценарий: лук попадает в уязвимое растение и создаёт отдельный видимый полёт.
-## Исходное состояние: растение первого уровня стоит рядом, герой вооружён луком, серия ударов не критическая.
-## Ожидаемый результат: урон умножается до двух, снаряд записан, а hit-stop активирован.
+## Исходное состояние: растение первого уровня стоит на свободном полу пещеры, герой владеет луком, серия не критическая.
+## Ожидаемый результат: сначала летит снаряд без урона, контакт умножает урон до двух и запускает короткий отклик.
 func test_combat_vulnerability_and_projectile() -> void:
-	var game:=make_game(); game.current_location="forest"; game.player=Vector2(400,400); game.equipped_weapon="bow"; game.enemy_nodes=game.CombatSystem.default_enemies().slice(0,1); game.enemy_nodes[0].location="forest"; game.enemy_nodes[0].position=Vector2(450,400); var hp:int=game.enemy_nodes[0].hp
-	var expected_damage:=roundi(game.CombatSystem.player_attack_damage(game)*game.FarmLifeSystem.vulnerability("plant","bow")); expect(game.CombatSystem.attack(game,0) and game.enemy_nodes[0].hp==hp-expected_damage,"weapon vulnerability multiplies combat damage")
-	var value: Dictionary=game.FarmLifeSystem.state(game); expect(value.projectiles.size()==1 and value.projectiles[0].kind=="bow" and value.hit_stop>0.0,"combat hit registers visible projectile and short hit stop")
+	var game:=make_game(); game.current_location="cave"; game.player=Vector2(880,520); game.has_bow=true; game.equipped_weapon="bow"; game.enemy_nodes=game.CombatSystem.default_enemies().slice(0,1); game.enemy_nodes[0].location="cave"; game.enemy_nodes[0].position=Vector2(1080,520); game.resource_nodes.clear(); game.wildlife_nodes.clear(); var hp:int=game.enemy_nodes[0].hp
+	var expected_damage:=roundi(game.CombatSystem.player_attack_damage(game)*game.FarmLifeSystem.vulnerability("plant","bow")); expect(game.CombatSystem.attack(game,0) and game.enemy_nodes[0].hp==hp,"bow preparation waits for contact")
+	game.WeaponSystem.update(game,0.45)
+	expect(preload("res://scripts/systems/player_projectile_system.gd").state(game).size()==1 and game.enemy_nodes[0].hp==hp,"bow release starts visible physical travel")
+	game.WeaponSystem.update(game,0.7)
+	expect(game.enemy_nodes[0].hp==hp-expected_damage,"weapon vulnerability multiplies contact damage")
+	var value: Dictionary=game.FarmLifeSystem.state(game); expect(value.projectiles.size()==1 and value.projectiles[0].kind=="impact" and value.hit_stop>0.0,"actual hit registers contact feedback and short hit stop")
 	game.free()
 
 

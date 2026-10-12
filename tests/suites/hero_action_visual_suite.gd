@@ -68,6 +68,10 @@ func test_fishing_hold_then_release() -> void:
 	expect(pose.frame==0 and game.HeroActionSystem.pose(game).direction==Vector2.LEFT,"release begins directed whole-body cast")
 	game.HeroActionSystem.update(game,1.0)
 	expect(Actions.current_pose(game).frame==3,"waiting holds rod after cast animation ends")
+	var held := Actions.pose("fishing",Vector2.LEFT,0.95)
+	var destination := Visual.destination(game.player,held)
+	var pixel: Vector2 = Actions.fishing_line_origin(game)-destination.position
+	expect(Rect2(Vector2.ZERO,held.texture.get_size()).has_point(pixel) and held.texture.get_image().get_pixelv(Vector2i(pixel.round())).a>0.01,"line begins at an actual rod pixel using the hero ground anchor")
 	game.state.fishing.reset_cast()
 	expect(Actions.current_pose(game).is_empty(),"cancel fishing returns to ordinary movement")
 	game.free()

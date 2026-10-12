@@ -213,22 +213,7 @@ static func apply_boss_side_effect(game: Node, enemy: Dictionary) -> void:
 
 ## Перемещает проверенный удар героя в общую систему урона.
 static func attack(game: Node, index: int) -> bool:
-	if index < 0 or index >= game.enemy_nodes.size(): return false
-	var enemy: Dictionary = game.enemy_nodes[index]
-	if not enemy.alive or enemy.location != game.current_location: return false
-	var attack_range: float = game.WeaponSystem.range_of(game.equipped_weapon)
-	if game.player.distance_to(enemy.position) > attack_range: return false
-	game.PotionSystem.break_invisibility(game)
-	var damage: int = roundi(player_attack_damage(game) * game.FarmLifeSystem.vulnerability(enemy.kind,game.equipped_weapon))
-	game.state.player.combat_hits += 1
-	var critical: bool = game.state.player.combat_hits % 4 == 0
-	if critical: damage *= 2; game.notify_tutorial("critical_hit")
-	game.AnimationSystem.begin_player_attack(game)
-	game.play_sfx("attack")
-	game.FarmLifeSystem.register_player_attack(game,enemy.position,critical)
-	apply_damage(game, index, damage)
-	game.notify_tutorial("combat_animation")
-	return true
+	return preload("res://scripts/systems/player_attack_system.gd").begin(game,"enemy",index)
 
 
 ## Рассчитывает единый урон героя для обычных врагов и событийных боссов.
@@ -280,6 +265,7 @@ static func apply_damage(game: Node, index: int, damage: int, attacker_name: Str
 
 ## Применяет входящий урон с учётом экипировки, напарников и спасения после поражения.
 static func damage_player(game: Node, raw_damage: int, source_name: String, source_position: Vector2 = Vector2.INF) -> int:
+	if game.menu_state.defeat_open: return 0
 	if game.state.player.dodge_timer > 0.0:
 		game.message = game.LocaleSystem.text("combat_evaded"); return 0
 	var potion_defense := 4 if game.defense_timer > 0.0 else 0
@@ -299,6 +285,7 @@ static func damage_player(game: Node, raw_damage: int, source_name: String, sour
 		game.coins -= lost_coins
 		game.message = game.LocaleSystem.ui("defeat_saved", [source_name])
 		game.MenuSystem.open_defeat(game, source_name, lost_coins)
+		reset_transients(game)
 	return incoming
 
 
@@ -321,3 +308,15 @@ static func set_blocking(game: Node, active: bool) -> bool:
 ## Передаёт атаку напарника в общий конвейер урона без анимации героя.
 static func companion_attack(game: Node, index: int, damage: int, attacker_name: String) -> bool:
 	return apply_damage(game, index, damage, attacker_name)
+
+## Сбрасывает не сохранённые замахи, угрозы и визуальный отклик после загрузки или поражения.
+static func reset_transients(game: Node) -> void:
+	preload("res://scripts/systems/player_attack_system.gd").reset(game)
+	Projectiles.reset(game)
+	game.slime_attack_pending=false; game.slime_attack_impact_timer=0.0; game.slime_attack_timer=0.0
+	for enemy in game.enemy_nodes:
+		enemy.attack_pending=false; enemy.impact_timer=0.0; enemy.visual_state="idle"; enemy.visual_time=0.0
+	for hazard in game.hazard_nodes:
+		hazard.windup=0.0
+	var life: Dictionary = game.FarmLifeSystem.state(game)
+	life.projectiles=[]; life.hit_stop=0.0

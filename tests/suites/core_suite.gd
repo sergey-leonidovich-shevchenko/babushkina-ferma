@@ -287,8 +287,11 @@ func test_combat_loot_craft_and_equip_cycle() -> void:
 	var game := make_game()
 	game.player = game.slime_position
 	expect(game.attack_slime(), "player can attack nearby slime")
+	settle_player_attack(game)
 	game.attack_slime()
+	settle_player_attack(game)
 	game.attack_slime()
+	settle_player_attack(game)
 	expect(not game.slime_alive and game.loot_available, "defeated slime drops loot")
 	expect(game.collect_loot() and game.slime_gel == 3, "loot can be collected")
 	game.player = game.workbench_position

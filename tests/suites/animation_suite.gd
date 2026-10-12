@@ -208,6 +208,7 @@ func test_player_attack_and_slime_reaction() -> void:
 	game.player = game.slime_position
 	expect(game.attack_slime(), "slime accepts a close combat hit")
 	expect(game.player_attack_timer == game.WeaponSystem.attack_duration(game), "combat starts the selected weapon timeline immediately")
+	game.WeaponSystem.update(game,game.WeaponSystem.attack_duration(game)*0.43+0.001)
 	expect(game.slime_visual_state == "hurt", "surviving slime enters hurt animation")
 	game.AnimationSystem.update(game, game.AnimationSystem.HURT_DURATION + 0.01)
 	expect(game.slime_visual_state == "idle", "slime returns to idle after hurt animation")
@@ -223,11 +224,14 @@ func test_enemy_hurt_and_death_lifecycle() -> void:
 	game.current_location = "forest"
 	game.player = game.enemy_nodes[0].position
 	expect(game.CombatSystem.attack(game, 0), "animated enemy accepts damage")
+	game.WeaponSystem.update(game,game.WeaponSystem.attack_duration(game)*0.43+0.001)
 	expect(game.enemy_nodes[0].visual_state == "hurt", "enemy enters hurt state after a non-lethal hit")
 	game.AnimationSystem.update(game, game.AnimationSystem.HURT_DURATION + 0.01)
 	expect(game.enemy_nodes[0].visual_state == "idle", "enemy hurt state expires into idle")
 	for _hit in 4:
+		settle_player_attack(game)
 		game.CombatSystem.attack(game, 0)
+		settle_player_attack(game)
 	expect(not game.enemy_nodes[0].alive and game.enemy_nodes[0].visual_state == "death", "defeated enemy enters a one-shot death animation")
 	expect(game.AnimationSystem.enemy_is_visible(game.enemy_nodes[0]), "defeated enemy stays visible while death animation plays")
 	game.AnimationSystem.update(game, game.AnimationSystem.DEATH_DURATION + 0.01)

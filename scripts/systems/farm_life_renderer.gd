@@ -18,6 +18,7 @@ static func draw_world(game: Node) -> void:
 	for projectile in value.projectiles:
 		draw_combat_effect(game, projectile)
 	preload("res://scripts/systems/enemy_projectile_system.gd").draw(game)
+	preload("res://scripts/systems/player_projectile_system.gd").draw(game)
 	for enemy in game.enemy_nodes:
 		if enemy.location==game.current_location and enemy.alive and bool(enemy.get("event_raid_boss",false)): game.FarmLifeVisualSystem.draw(game,"raid_banner",enemy.position+Vector2(0,-76)); game.draw_ui_string(game.UI_FONT,enemy.position+Vector2(-75,-184),"КАПИТАН НАЛЁТЧИКОВ",HORIZONTAL_ALIGNMENT_CENTER,150,13,Color("ffcf75"))
 
@@ -30,6 +31,10 @@ static func draw_combat_effect(game: Node2D, projectile: Dictionary) -> void:
 	var direction: Vector2 = origin.direction_to(target)
 	var position: Vector2 = origin.lerp(target, progress)
 	match String(projectile.kind):
+		"impact":
+			for ray in 5:
+				var vector := Vector2.from_angle(ray*TAU/5.0)*(6.0+progress*8.0)
+				game.draw_line(target+vector*0.5,target+vector,Color(1.0,0.85,0.52,1.0-progress),2.0)
 		"bow":
 			game.draw_line(position - direction * 18.0, position + direction * 8.0, Color("fff1c2"), 3.0)
 			game.draw_circle(position + direction * 8.0, 3.0, Color("e1a653"))

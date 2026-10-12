@@ -248,7 +248,9 @@ func test_new_pixel_items_watermelon_shield_potion_and_lizard() -> void:
 	game.current_location = game.wildlife_nodes[lizard_index].location
 	game.player = game.wildlife_nodes[lizard_index].position
 	game.wildlife_nodes[lizard_index].hp = 1
+	settle_player_attack(game)
 	expect(game.WildlifeSystem.attack(game, lizard_index), "meadow lizard can be encountered and hunted")
+	settle_player_attack(game)
 	expect(not game.wildlife_nodes[lizard_index].alive and game.dropped_items.any(func(item): return item.kind == "lizard_scale" and item.count == 2), "meadow lizard drops two crafting scales")
 	expect(game.tutorial_events_completed.has("lizard") and game.WildlifeSystem.TYPES.size() == 5, "new wildlife is documented by tutorial and registered as the fifth species")
 	var legacy_snapshot: Dictionary = game.SaveSystem.snapshot(game)

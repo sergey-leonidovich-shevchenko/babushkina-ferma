@@ -61,4 +61,4 @@ static func fishing_line_origin(game: Node) -> Vector2:
 	var direction: Vector2 = game.get_meta("fish_visual_direction",Actions.cardinal(game.facing))
 	var row := [Vector2.DOWN,Vector2.LEFT,Vector2.RIGHT,Vector2.UP].find(Actions.cardinal(direction))
 	var entry: Dictionary = catalog().fishing.frames[row*4+3]
-	return game.player+game.DirectionalCharacterSystem.GROUND_OFFSET+Vector2(entry.draw_tip[0],entry.draw_tip[1])-Vector2(entry.draw_pivot[0],entry.draw_pivot[1])
+	return game.player+Vector2(entry.draw_tip[0],entry.draw_tip[1])-Vector2(entry.draw_pivot[0],entry.draw_pivot[1])

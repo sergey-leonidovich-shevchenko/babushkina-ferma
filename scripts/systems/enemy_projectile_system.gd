@@ -27,6 +27,7 @@ static func update(game: Node, delta: float) -> void:
 	var survivors: Array=[]
 	for shot in state(game):
 		if shot.location==game.current_location and advance(game,shot,maxf(delta,0.0)): survivors.append(shot)
+		if game.menu_state.defeat_open: survivors.clear(); break
 	game.set_meta(KEY,survivors)
 
 ## Проверяет весь пройденный путь до препятствия или контакта, включая быстрые снаряды и редкие кадры.

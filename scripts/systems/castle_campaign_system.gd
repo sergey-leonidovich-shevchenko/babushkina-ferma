@@ -3,7 +3,7 @@ extends RefCounted
 const COUNCIL_POSITION := Vector2(900, 360)
 const CLUE_POSITIONS := [Vector2(315, 230), Vector2(576, 205), Vector2(835, 250)]
 const RITUAL_POSITION := Vector2(576, 375)
-const BOSS_POSITION := Vector2(576, 245)
+const BOSS_POSITION := Vector2(576, 315)
 const SEAL_ALTAR_POSITION := Vector2(420, 270)
 const POWER_ALTAR_POSITION := Vector2(730, 270)
 const BOSS_MAX_HP := 36
@@ -122,16 +122,17 @@ static func update(game: Node, delta: float) -> void:
 
 ## Перенаправляет обычную атаку героя в активного Регента теней.
 static func attack_boss(game: Node) -> bool:
+	return preload("res://scripts/systems/player_attack_system.gd").begin(game,"castle")
+
+## Наносит Регенту подтверждённый контактный урон и завершает бой с однократной наградой.
+static func apply_boss_damage(game: Node, damage: int) -> bool:
 	var state: Dictionary = game.state.world.castle_campaign
 	if not state.boss_alive or game.current_location != "castle_dungeon": return false
-	var attack_range: float = game.WeaponSystem.range_of(game.equipped_weapon)
-	if game.player.distance_to(BOSS_POSITION) > attack_range: return false
-	game.PotionSystem.break_invisibility(game)
-	var damage: int = game.CombatSystem.player_attack_damage(game)
+	if damage<=0: return false
 	state.boss_hp = maxi(0, int(state.boss_hp) - damage)
 	state.boss_hurt_timer = 0.32
 	state.boss_phase = 3 if state.boss_hp <= 12 else (2 if state.boss_hp <= 24 else 1)
-	game.AnimationSystem.begin_player_attack(game); game.FarmLifeSystem.register_player_attack(game, BOSS_POSITION, false); game.play_sfx("hit")
+	game.play_sfx("hit")
 	game.message = game.LocaleSystem.text("castle_boss_hit", [damage, state.boss_phase])
 	if state.boss_hp <= 0:
 		state.boss_alive = false; state.boss_defeated = true; state.stage = 4

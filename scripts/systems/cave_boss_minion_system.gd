@@ -122,19 +122,11 @@ static func damage(game: Node, index: int, amount: int) -> bool:
 	var minion: Dictionary = state.minions[index]
 	if not minion.alive or float(minion.emerge) > 0.0: return false
 	minion.hp = maxi(0, int(minion.hp) - amount)
+	minion.attack=0.0; minion.fly_windup=0.0; minion.cooldown=maxf(float(minion.get("cooldown",0.0)),0.32)
 	if int(minion.hp) <= 0: minion.alive = false; minion.death = 0.0
 	game.play_sfx("hit" if minion.alive else "defeat")
 	return true
 
 ## Проводит обычную атаку героя через анимацию, критический удар и износ оружия.
 static func attack(game: Node, index: int) -> bool:
-	var amount: int = game.CombatSystem.player_attack_damage(game)
-	game.state.player.combat_hits += 1
-	var critical: bool = game.state.player.combat_hits % 4 == 0
-	if critical: amount *= 2; game.notify_tutorial("critical_hit")
-	if not damage(game, index, amount): return false
-	game.PotionSystem.break_invisibility(game)
-	game.AnimationSystem.begin_player_attack(game); game.play_sfx("attack")
-	game.FarmLifeSystem.register_player_attack(game, game.state.world.cave_boss.minions[index].position, critical)
-	game.AdventurePolishSystem.consume_durability(game, "weapon")
-	return true
+	return preload("res://scripts/systems/player_attack_system.gd").begin(game,"minion",index)

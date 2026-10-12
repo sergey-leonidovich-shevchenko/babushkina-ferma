@@ -77,11 +77,13 @@ func test_wildlife_atlases_follow_shared_contract() -> void:
 ## Исходное состояние: олень расположен рядом с вооружённым героем.
 ## Ожидаемый результат: runtime содержит состояния, удар включает hurt, смертельный удар включает death.
 func test_wildlife_runtime_has_reactions_and_death() -> void:
-	var game := make_game(); game.current_location = "overworld"; game.player = Vector2(400,400); game.wildlife_nodes = game.WildlifeSystem.default_animals().slice(0,1)
-	var animal: Dictionary = game.wildlife_nodes[0]; animal.position = game.player + Vector2(30,0); animal.location = "overworld"; game.wildlife_nodes[0] = animal
+	var game := make_game(); game.current_location = "cave"; game.player = Vector2(880,520); game.wildlife_nodes = game.WildlifeSystem.default_animals().slice(0,1); game.resource_nodes.clear()
+	var animal: Dictionary = game.wildlife_nodes[0]; animal.position = game.player + Vector2(30,0); animal.location = "cave"; game.wildlife_nodes[0] = animal
 	expect(animal.visual_state == "idle" and animal.has("state_timer") and animal.has("attack_timer"), "wildlife starts with explicit animation runtime")
-	expect(game.WildlifeSystem.attack(game,0) and game.wildlife_nodes[0].visual_state == "hurt", "wildlife hit selects hurt animation")
-	game.wildlife_nodes[0].hp = 1; expect(game.WildlifeSystem.attack(game,0) and not game.wildlife_nodes[0].alive and game.wildlife_nodes[0].visual_state == "death", "wildlife defeat keeps visible death state")
+	expect(game.WildlifeSystem.attack(game,0),"wildlife begins prepared attack"); settle_player_attack(game)
+	expect(game.wildlife_nodes[0].visual_state == "hurt", "wildlife hit selects hurt animation")
+	game.wildlife_nodes[0].hp = 1; expect(game.WildlifeSystem.attack(game,0),"wildlife begins final strike"); settle_player_attack(game)
+	expect(not game.wildlife_nodes[0].alive and game.wildlife_nodes[0].visual_state == "death", "wildlife defeat keeps visible death state")
 	game.free()
 
 

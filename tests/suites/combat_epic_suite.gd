@@ -3,6 +3,7 @@ extends "res://tests/suites/suite_base.gd"
 
 ## Запускает полный набор регрессий оружия, временных шкал боя и кузнечного обслуживания.
 func run() -> void:
+	preload("res://tests/suites/player_contact_suite.gd").new(context).run()
 	preload("res://tests/suites/enemy_projectile_suite.gd").new(context).run()
 	preload("res://tests/suites/boss_balance_suite.gd").new(context).run()
 	preload("res://tests/suites/cave_geometry_cache_suite.gd").new(context).run()

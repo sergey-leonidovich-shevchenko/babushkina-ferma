@@ -19,6 +19,10 @@ func expect(condition: bool, label: String) -> void:
 func make_game() -> Node:
 	return context.make_game()
 
+## Завершает реальную временную шкалу одиночного удара и полёта для проверок последствий, сохраняя отдельные тесты контактной фазы.
+func settle_player_attack(game: Node) -> void:
+	game.WeaponSystem.update(game,2.0)
+
 
 ## Создаёт клавиатурное событие с заданными логической и физической клавишами.
 func key_event(keycode: Key, physical_keycode: Key, pressed: bool) -> InputEventKey:

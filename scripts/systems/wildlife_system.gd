@@ -123,21 +123,17 @@ static func nearest(game: Node) -> int:
 
 ## Выполняет операцию «атаки» и возвращает результат согласно контракту метода.
 static func attack(game: Node, index: int) -> bool:
+	return preload("res://scripts/systems/player_attack_system.gd").begin(game,"wildlife",index)
+
+## Меняет здоровье и награды зверя только после подтверждённого контакта оружия или снаряда.
+static func apply_damage(game: Node, index: int, damage: int) -> bool:
 	if index < 0 or index >= game.wildlife_nodes.size():
 		return false
 	var animal: Dictionary = game.wildlife_nodes[index]
 	if not animal.alive or animal.location != game.current_location:
 		return false
-	var attack_range: float = game.WeaponSystem.range_of(game.equipped_weapon)
-	if animal.position.distance_to(game.player) > attack_range:
-		return false
-	game.PotionSystem.break_invisibility(game)
-	var damage: int = 1 + (1 if game.strength_timer > 0.0 else 0) + game.InventorySystem.damage_bonus(game)
-	damage += game.WeaponSystem.damage_bonus(game.equipped_weapon)
+	if damage <= 0: return false
 	animal.hp -= damage
-	game.AnimationSystem.begin_player_attack(game)
-	game.FarmLifeSystem.register_player_attack(game, animal.position, false)
-	game.play_sfx("attack")
 	game.play_sfx("defeat" if animal.hp <= 0 else "hit")
 	animal.panic = 3.0; animal.visual_state = "hurt"; animal.state_timer = HURT_DURATION
 	if animal.hp <= 0:

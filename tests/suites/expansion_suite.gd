@@ -205,6 +205,7 @@ func test_combat_dodge_block_critical_and_knockback() -> void:
 	for hit in 4:
 		fighter.player = fighter.enemy_nodes[1].position - Vector2(45, 0)
 		expect(fighter.CombatSystem.attack(fighter, 1), "combat combo hit connects: %d" % (hit + 1))
+		settle_player_attack(fighter)
 	enemy = fighter.enemy_nodes[1]
 	expect(enemy.hp == 95, "four-hit chain deals three normal points and a double critical point")
 	expect(enemy.position.x > origin.x, "melee impact knocks mobile enemy away from hero")

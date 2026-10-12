@@ -68,7 +68,7 @@ func test_structural_corruption_falls_back_to_backup() -> void:
 
 ## Сценарий: мебель, крабовая ловушка и снаряд проходят настоящую JSON-сериализацию и старую миграцию.
 ## Исходное состояние: координаты объектов представлены игровыми векторами; старая версия записывала их строками.
-## Ожидаемый результат: новый файл содержит числовые пары, обе формы восстанавливают векторы, отсутствие новых групп допустимо.
+## Ожидаемый результат: постоянные объекты восстанавливают векторы, старые снаряды принимаются, но очищаются как временные угрозы.
 func test_legacy_and_json_vector_round_trip() -> void:
 	var game := make_game()
 	game.state.fishing.traps = [{"location":"overworld","position":Vector2(864, 512),"ready_day":3}]
@@ -80,7 +80,7 @@ func test_legacy_and_json_vector_round_trip() -> void:
 	expect(Save.apply(game, data), "complete JSON round trip loads")
 	expect(game.state.fishing.traps[0].position == Vector2(864, 512), "trap position returns to runtime vector")
 	expect(game.state.world.estate.expansion.furniture[0].position == Vector2(256, 320), "furniture position survives JSON")
-	expect(game.state.world.estate.expansion.projectiles[0].to == Vector2(50, 60), "projectile destination survives JSON")
+	expect(game.state.world.estate.expansion.projectiles.is_empty(), "transient legacy projectile is cleared after valid load")
 	data.fishing.traps[0].position = "(864, 512)"
 	data.estate.expansion.furniture[0].position = "(256, 320)"
 	data.estate.expansion.projectiles[0].from = "(3e1, 40)"

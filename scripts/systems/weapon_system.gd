@@ -1,5 +1,7 @@
 extends RefCounted
 
+const PlayerAttack := preload("res://scripts/systems/player_attack_system.gd")
+
 const ORDER := ["forest_sword", "axe", "iron_spear", "war_hammer", "bow", "moon_staff", "crystal_sword", "orc_blade", "pirate_cutlass"]
 const DATA := {
 	"none":{"item":"","class":"unarmed","damage":0,"range":78.0,"duration":0.42,"cooldown":0.50,"durability":""},
@@ -61,7 +63,7 @@ static func cycle(game: Node) -> String:
 
 ## Проверяет завершение предыдущего замаха и общей перезарядки оружия.
 static func can_start_attack(game: Node) -> bool:
-	if game.player_attack_timer > 0.0 or game.player_attack_cooldown > 0.0: return false
+	if game.player_attack_timer > 0.0 or game.player_attack_cooldown > 0.0 or game.player_hurt_timer > 0.0: return false
 	if not owns(game, game.equipped_weapon): game.equipped_weapon = "none"
 	var durability := durability_kind(game.equipped_weapon)
 	return durability.is_empty() or game.AdventurePolishSystem.can_use(game, durability)
@@ -81,6 +83,7 @@ static func begin_attack(game: Node, force: bool = false) -> bool:
 
 ## Уменьшает таймеры замаха, перезарядки и реакции героя на входящий урон.
 static func update(game: Node, delta: float) -> void:
+	PlayerAttack.update(game,delta)
 	game.player_attack_timer = maxf(game.player_attack_timer - delta, 0.0)
 	game.player_attack_cooldown = maxf(game.player_attack_cooldown - delta, 0.0)
 	game.player_hurt_timer = maxf(game.player_hurt_timer - delta, 0.0)
@@ -126,8 +129,13 @@ static func weapon_class(kind: String) -> String:
 
 ## Запускает заметную реакцию героя на попадание и частично прерывает его восстановление.
 static func hit_player(game: Node, source_position: Vector2) -> void:
+	PlayerAttack.cancel(game)
 	game.player_hurt_timer = 0.30
 	game.player_hurt_direction = source_position.direction_to(game.player)
 	game.player_attack_timer = minf(game.player_attack_timer, 0.10)
 	game.state.player.feedback.camera_shake = maxf(float(game.state.player.feedback.get("camera_shake", 0.0)), 4.0)
 	game.notify_tutorial("combat_hit_reaction")
+
+## Передаёт проверенный контакт стрелы в общий конвейер урона без циклической зависимости модулей.
+static func apply_projectile_contact(game: Node, shot: Dictionary, target: Dictionary) -> bool:
+	return PlayerAttack.contact(game,shot,target)

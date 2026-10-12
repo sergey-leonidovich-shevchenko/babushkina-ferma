@@ -127,16 +127,16 @@ static func update(game: Node, delta: float) -> void:
 
 ## Наносит Стражу урон выбранным оружием и открывает сундук после победы.
 static func attack_guardian(game: Node) -> bool:
+	return preload("res://scripts/systems/player_attack_system.gd").begin(game,"moon")
+
+## Применяет подтверждённый контакт к Стражу и выдаёт награду только при его первой смерти.
+static func apply_guardian_damage(game: Node, damage: int) -> bool:
 	if game.current_location != "moon_glade": return false
 	var state: Dictionary = game.state.world.moon_glade
 	if not state.guardian_alive: return false
-	var attack_range: float = game.WeaponSystem.range_of(game.equipped_weapon)
-	if game.player.distance_to(GUARDIAN_POSITION) > attack_range: return false
-	game.PotionSystem.break_invisibility(game)
-	var damage: int = game.CombatSystem.player_attack_damage(game)
+	if damage<=0: return false
 	state.guardian_hp = maxi(0, int(state.guardian_hp) - damage)
 	state.guardian_hurt_timer = 0.32
-	game.AnimationSystem.begin_player_attack(game); game.FarmLifeSystem.register_player_attack(game, GUARDIAN_POSITION, false); game.play_sfx("attack")
 	if state.guardian_hp <= 0:
 		state.guardian_alive = false; state.guardian_defeated = true
 		game.award_xp(70, game.LocaleSystem.entity("eclipse_guardian")); game.SkillSystem.award_profession_xp(game, "combat", 35)

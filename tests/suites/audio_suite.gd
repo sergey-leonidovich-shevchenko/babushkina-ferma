@@ -220,6 +220,7 @@ func test_farming_fishing_combat_and_quest_sounds() -> void:
 	expect(game.audio_last_sfx == "fish_bite", "fish bite has an attention sound")
 	game.player = game.slime_position
 	game.attack_slime()
+	settle_player_attack(game)
 	expect(game.audio_last_sfx == "hit", "combat layers attack and hit feedback")
 	game.quest_active = true
 	game.carrots = 10

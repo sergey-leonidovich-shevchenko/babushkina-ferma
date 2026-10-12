@@ -18,7 +18,6 @@ static func initialize_enemy(enemy: Dictionary) -> Dictionary:
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func update(game: Node, delta: float) -> void:
 	game.HeroActionSystem.update(game, delta)
-	game.WeaponSystem.update(game, delta)
 	game.slime_visual_time += delta
 	if game.slime_visual_state == "hurt" and game.slime_visual_time >= HURT_DURATION:
 		game.slime_visual_state = "idle"
@@ -36,6 +35,7 @@ static func update(game: Node, delta: float) -> void:
 			enemy.visual_state = "idle"
 			enemy.visual_time = 0.0
 		game.enemy_nodes[index] = enemy
+	game.WeaponSystem.update(game, delta)
 
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.

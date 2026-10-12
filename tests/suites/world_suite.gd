@@ -286,6 +286,7 @@ func test_wildlife_combat_loot_animation_and_save() -> void:
 	game.attack_nearest_enemy()
 	game.AnimationSystem.update(game, 1.1)
 	game.attack_nearest_enemy()
+	settle_player_attack(game)
 	expect(not game.wildlife_nodes[6].alive, "cave bat can be hunted")
 	var wing_index := -1
 	for index in game.dropped_items.size():

@@ -183,8 +183,10 @@ func update_camera() -> void:
 	if background:
 		background.position = -camera_offset
 
-## Устанавливает относящееся к методу значение и синхронизирует зависимое состояние.
+## Синхронизирует фон и музыку локации, убирая временные атаки покинутой комнаты.
 func sync_background_location() -> void:
+	if String(get_meta("combat_location",current_location))!=current_location: CombatSystem.reset_transients(self)
+	set_meta("combat_location",current_location)
 	AudioSystem.switch_music(self, current_location)
 	if not DebugPlaygroundSystem.active(self): EstateSystem.discover_location(self, current_location)
 	var background := get_node_or_null("WorldBackground")
@@ -588,17 +590,14 @@ func handle_skill_menu_input(event: InputEvent) -> void:
 
 ## Выполняет операцию «атаки слизня» и возвращает результат согласно контракту метода.
 func attack_slime() -> bool:
-	var attack_range := WeaponSystem.range_of(equipped_weapon)
-	if not slime_alive or player.distance_to(slime_position) > attack_range:
-		message = LocaleSystem.text("no_enemy")
-		return false
-	PotionSystem.break_invisibility(self)
-	var damage := 1 + (1 if strength_timer > 0.0 else 0) + InventorySystem.damage_bonus(self)
-	damage += WeaponSystem.damage_bonus(equipped_weapon)
+	return preload("res://scripts/systems/player_attack_system.gd").begin(self,"slime")
+
+## Применяет подтверждённый контакт к сюжетному слизню, сохраняя однократную добычу и опыт.
+func apply_slime_damage(damage: int) -> bool:
+	if not slime_alive or current_location!="overworld" or damage<=0: return false
 	slime_hp -= damage
-	AnimationSystem.begin_player_attack(self)
 	AnimationSystem.hit_slime(self, slime_hp <= 0)
-	play_sfx("attack")
+	slime_attack_pending=false; slime_attack_impact_timer=0.0
 	play_sfx("defeat" if slime_hp <= 0 else "hit")
 	message = "Удар по слизню: -%d HP" % damage
 	notify_tutorial("fight")
@@ -616,12 +615,9 @@ func attack_nearest_enemy() -> bool:
 	if not WeaponSystem.can_start_attack(self):
 		if player_attack_cooldown > 0.0: message = "Оружие восстанавливается: %.1f с" % player_attack_cooldown
 		return false
-	var sfx_before := audio_sfx_count
 	if MoonGladeSystem.attack_guardian(self):
-		AdventurePolishSystem.consume_durability(self, "weapon")
 		return true
 	if CastleCampaignSystem.attack_boss(self):
-		AdventurePolishSystem.consume_durability(self, "weapon")
 		return true
 	var enemy_index := CombatSystem.nearest(self)
 	var wildlife_index := WildlifeSystem.nearest(self)
@@ -634,13 +630,13 @@ func attack_nearest_enemy() -> bool:
 	var minion_index := CaveBossSystem.Minions.nearest(self, player, minf(WeaponSystem.range_of(equipped_weapon), minf(enemy_distance,wildlife_distance)))
 	if minion_index >= 0: return CaveBossSystem.Minions.attack(self,minion_index)
 	if wildlife_distance < enemy_distance:
-		var wildlife_hit := WildlifeSystem.attack(self, wildlife_index); if wildlife_hit: AdventurePolishSystem.consume_durability(self, "weapon"); return wildlife_hit
+		return WildlifeSystem.attack(self, wildlife_index)
 	if enemy_index >= 0:
-		var enemy_hit := CombatSystem.attack(self, enemy_index); if enemy_hit: AdventurePolishSystem.consume_durability(self, "weapon"); return enemy_hit
+		return CombatSystem.attack(self, enemy_index)
 	if wildlife_index >= 0:
-		var second_hit := WildlifeSystem.attack(self, wildlife_index); if second_hit: AdventurePolishSystem.consume_durability(self, "weapon"); return second_hit
+		return WildlifeSystem.attack(self, wildlife_index)
 	if current_location == "overworld":
-		var slime_hit := attack_slime(); if slime_hit and audio_sfx_count > sfx_before: AdventurePolishSystem.consume_durability(self, "weapon"); return slime_hit
+		return attack_slime()
 	message = LocaleSystem.text("no_enemy")
 	return false
 

@@ -124,11 +124,10 @@ static func hearts(game: Node, npc_id: String) -> int:
 static func birthday_npc(game: Node) -> String:
 	return String(BIRTHDAYS.get(posmod(game.day-1,28)+1,""))
 
-## Регистрирует видимый снаряд и короткий hit-stop для оружия героя.
+## Регистрирует короткий эффект и остановку только после подтверждённого попадания героя.
 static func register_player_attack(game: Node, target: Vector2, critical: bool) -> void:
 	var value := state(game)
-	var weapon_class: String = game.WeaponSystem.weapon_class(game.equipped_weapon)
-	value.projectiles.append({"from":game.player,"to":target,"progress":0.0,"kind":weapon_class})
+	value.projectiles.append({"from":game.player+Vector2(0,-24),"to":target+Vector2(0,-24),"progress":0.0,"kind":"impact"})
 	value.hit_stop = 0.07 if critical else 0.035
 
 ## Возвращает уязвимость семейства врага к выбранному типу оружия.
