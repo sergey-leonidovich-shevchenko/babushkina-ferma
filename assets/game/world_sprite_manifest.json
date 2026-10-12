@@ -724,12 +724,12 @@
       "family": "Ремесленная мастерская A: четыре семейства по три уровня",
       "assets": [
         {
-          "path": "assets/game/workshops/workshops_a.png",
+          "path": "assets/game/workshops/workshops_atlas_a.png",
           "width": 1402,
           "height": 1122
         },
         {
-          "path": "assets/game/workshops/research_a.png",
+          "path": "assets/game/workshops/research_atlas_a.png",
           "width": 2172,
           "height": 724
         }

@@ -8,7 +8,7 @@
       "kind": "sawmill",
       "level": 1,
       "resource": "sawmill_1.tres",
-      "atlas": "workshops_a.png",
+      "atlas": "workshops_atlas_a.png",
       "region": [
         43,
         67,
@@ -32,7 +32,7 @@
       "kind": "sawmill",
       "level": 2,
       "resource": "sawmill_2.tres",
-      "atlas": "workshops_a.png",
+      "atlas": "workshops_atlas_a.png",
       "region": [
         488,
         37,
@@ -56,7 +56,7 @@
       "kind": "sawmill",
       "level": 3,
       "resource": "sawmill_3.tres",
-      "atlas": "workshops_a.png",
+      "atlas": "workshops_atlas_a.png",
       "region": [
         922,
         34,
@@ -80,7 +80,7 @@
       "kind": "pottery",
       "level": 1,
       "resource": "pottery_1.tres",
-      "atlas": "workshops_a.png",
+      "atlas": "workshops_atlas_a.png",
       "region": [
         36,
         440,
@@ -104,7 +104,7 @@
       "kind": "pottery",
       "level": 2,
       "resource": "pottery_2.tres",
-      "atlas": "workshops_a.png",
+      "atlas": "workshops_atlas_a.png",
       "region": [
         481,
         392,
@@ -128,7 +128,7 @@
       "kind": "pottery",
       "level": 3,
       "resource": "pottery_3.tres",
-      "atlas": "workshops_a.png",
+      "atlas": "workshops_atlas_a.png",
       "region": [
         945,
         390,
@@ -152,7 +152,7 @@
       "kind": "glassblowing",
       "level": 1,
       "resource": "glassblowing_1.tres",
-      "atlas": "workshops_a.png",
+      "atlas": "workshops_atlas_a.png",
       "region": [
         36,
         739,
@@ -176,7 +176,7 @@
       "kind": "glassblowing",
       "level": 2,
       "resource": "glassblowing_2.tres",
-      "atlas": "workshops_a.png",
+      "atlas": "workshops_atlas_a.png",
       "region": [
         472,
         721,
@@ -200,7 +200,7 @@
       "kind": "glassblowing",
       "level": 3,
       "resource": "glassblowing_3.tres",
-      "atlas": "workshops_a.png",
+      "atlas": "workshops_atlas_a.png",
       "region": [
         938,
         720,
@@ -224,7 +224,7 @@
       "kind": "study_table",
       "level": 1,
       "resource": "study_table_1.tres",
-      "atlas": "research_a.png",
+      "atlas": "research_atlas_a.png",
       "region": [
         55,
         137,
@@ -248,7 +248,7 @@
       "kind": "study_table",
       "level": 2,
       "resource": "study_table_2.tres",
-      "atlas": "research_a.png",
+      "atlas": "research_atlas_a.png",
       "region": [
         725,
         90,
@@ -272,7 +272,7 @@
       "kind": "study_table",
       "level": 3,
       "resource": "study_table_3.tres",
-      "atlas": "research_a.png",
+      "atlas": "research_atlas_a.png",
       "region": [
         1421,
         77,
@@ -295,7 +295,7 @@
   ],
   "research_source": "docs/design/research-table/variant-a.png",
   "production_sources": {
-    "workshops_a.png": "exec-f2cdefa0-3c7f-42ac-a6e5-e0a4a86dd8d6.png",
-    "research_a.png": "exec-7374cc98-3cc5-41c3-b692-56c16363b7b4.png"
+    "workshops_atlas_a.png": "exec-f2cdefa0-3c7f-42ac-a6e5-e0a4a86dd8d6.png",
+    "research_atlas_a.png": "exec-7374cc98-3cc5-41c3-b692-56c16363b7b4.png"
   }
 }

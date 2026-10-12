@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csssslo1bbrx0"
-path="res://.godot/imported/workshops_a.png-90bccf24e7e1d758f121bb5184b494d0.ctex"
+uid="uid://cleulgrl3hsun"
+path="res://.godot/imported/research_atlas_a.png-d8b94447038ad617cf43504fcb17fcb3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/game/workshops/workshops_a.png"
-dest_files=["res://.godot/imported/workshops_a.png-90bccf24e7e1d758f121bb5184b494d0.ctex"]
+source_file="res://assets/game/workshops/research_atlas_a.png"
+dest_files=["res://.godot/imported/research_atlas_a.png-d8b94447038ad617cf43504fcb17fcb3.ctex"]
 
 [params]
 

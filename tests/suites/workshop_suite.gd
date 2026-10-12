@@ -19,6 +19,8 @@ func run() -> void:
 ## Ожидаемый результат: регионы целые, края прозрачны, пропорции и опора постоянны, герой проходит от двери к каждой услуге.
 func test_selected_sprites_depth_and_routes() -> void:
 	var Visual=preload("res://scripts/presentation/workshop_visual_system.gd"); var game:=make_game()
+	var masters:Array[String]=[Visual.texture("sawmill",1).atlas.resource_path,Visual.texture("study_table",1).atlas.resource_path]
+	expect(not game.LevelEditorSystem.catalog().any(func(entry): return String(entry.path) in masters),"constructor excludes raw multi-object masters instead of placing nine stations as one picture")
 	for kind in Visual.SPRITES:
 		var anchor:Vector2=Vector2(340,425) if kind=="study_table" else Workshop.Data.STATIONS[kind].anchor
 		var location:String="guild_interior" if kind=="study_table" else Workshop.Data.STATIONS[kind].location
