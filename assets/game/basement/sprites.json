@@ -1,0 +1,3280 @@
+{
+  "choice": "A",
+  "grid": 24,
+  "directions": [
+    "south",
+    "west",
+    "north",
+    "east"
+  ],
+  "sprites": {
+    "pottery_1_south": {
+      "atlas": "pottery_atlas_a.png",
+      "region": [
+        39,
+        57,
+        307,
+        218
+      ],
+      "pivot": [
+        153.5,
+        218
+      ],
+      "alpha_corners": [
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    "pottery_1_west": {
+      "atlas": "pottery_atlas_a.png",
+      "region": [
+        398,
+        63,
+        272,
+        234
+      ],
+      "pivot": [
+        136.0,
+        234
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "pottery_1_north": {
+      "atlas": "pottery_atlas_a.png",
+      "region": [
+        722,
+        64,
+        297,
+        209
+      ],
+      "pivot": [
+        148.5,
+        209
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "pottery_1_east": {
+      "atlas": "pottery_atlas_a.png",
+      "region": [
+        1102,
+        61,
+        256,
+        227
+      ],
+      "pivot": [
+        128.0,
+        227
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "pottery_2_south": {
+      "atlas": "pottery_atlas_a.png",
+      "region": [
+        51,
+        314,
+        304,
+        248
+      ],
+      "pivot": [
+        152.0,
+        248
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "pottery_2_west": {
+      "atlas": "pottery_atlas_a.png",
+      "region": [
+        405,
+        311,
+        255,
+        257
+      ],
+      "pivot": [
+        127.5,
+        257
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "pottery_2_north": {
+      "atlas": "pottery_atlas_a.png",
+      "region": [
+        723,
+        331,
+        282,
+        227
+      ],
+      "pivot": [
+        141.0,
+        227
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "pottery_2_east": {
+      "atlas": "pottery_atlas_a.png",
+      "region": [
+        1091,
+        325,
+        259,
+        240
+      ],
+      "pivot": [
+        129.5,
+        240
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "pottery_3_south": {
+      "atlas": "pottery_atlas_a.png",
+      "region": [
+        58,
+        592,
+        298,
+        244
+      ],
+      "pivot": [
+        149.0,
+        244
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "pottery_3_west": {
+      "atlas": "pottery_atlas_a.png",
+      "region": [
+        411,
+        593,
+        259,
+        258
+      ],
+      "pivot": [
+        129.5,
+        258
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "pottery_3_north": {
+      "atlas": "pottery_atlas_a.png",
+      "region": [
+        738,
+        607,
+        274,
+        229
+      ],
+      "pivot": [
+        137.0,
+        229
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "pottery_3_east": {
+      "atlas": "pottery_atlas_a.png",
+      "region": [
+        1098,
+        599,
+        261,
+        256
+      ],
+      "pivot": [
+        130.5,
+        256
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "pottery_4_south": {
+      "atlas": "pottery_atlas_a.png",
+      "region": [
+        40,
+        877,
+        309,
+        204
+      ],
+      "pivot": [
+        154.5,
+        204
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "pottery_4_west": {
+      "atlas": "pottery_atlas_a.png",
+      "region": [
+        400,
+        862,
+        272,
+        216
+      ],
+      "pivot": [
+        136.0,
+        216
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "pottery_4_north": {
+      "atlas": "pottery_atlas_a.png",
+      "region": [
+        723,
+        893,
+        303,
+        185
+      ],
+      "pivot": [
+        151.5,
+        185
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "pottery_4_east": {
+      "atlas": "pottery_atlas_a.png",
+      "region": [
+        1084,
+        892,
+        276,
+        189
+      ],
+      "pivot": [
+        138.0,
+        189
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "sawmill_1_south": {
+      "atlas": "sawmill_atlas_a.png",
+      "region": [
+        64,
+        63,
+        282,
+        246
+      ],
+      "pivot": [
+        141.0,
+        246
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "sawmill_1_west": {
+      "atlas": "sawmill_atlas_a.png",
+      "region": [
+        400,
+        62,
+        262,
+        247
+      ],
+      "pivot": [
+        131.0,
+        247
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "sawmill_1_north": {
+      "atlas": "sawmill_atlas_a.png",
+      "region": [
+        731,
+        76,
+        284,
+        229
+      ],
+      "pivot": [
+        142.0,
+        229
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "sawmill_1_east": {
+      "atlas": "sawmill_atlas_a.png",
+      "region": [
+        1097,
+        67,
+        246,
+        240
+      ],
+      "pivot": [
+        123.0,
+        240
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "sawmill_2_south": {
+      "atlas": "sawmill_atlas_a.png",
+      "region": [
+        52,
+        332,
+        286,
+        228
+      ],
+      "pivot": [
+        143.0,
+        228
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "sawmill_2_west": {
+      "atlas": "sawmill_atlas_a.png",
+      "region": [
+        390,
+        331,
+        273,
+        249
+      ],
+      "pivot": [
+        136.5,
+        249
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "sawmill_2_north": {
+      "atlas": "sawmill_atlas_a.png",
+      "region": [
+        724,
+        348,
+        316,
+        214
+      ],
+      "pivot": [
+        158.0,
+        214
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "sawmill_2_east": {
+      "atlas": "sawmill_atlas_a.png",
+      "region": [
+        1086,
+        331,
+        275,
+        248
+      ],
+      "pivot": [
+        137.5,
+        248
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "sawmill_3_south": {
+      "atlas": "sawmill_atlas_a.png",
+      "region": [
+        43,
+        598,
+        323,
+        239
+      ],
+      "pivot": [
+        161.5,
+        239
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "sawmill_3_west": {
+      "atlas": "sawmill_atlas_a.png",
+      "region": [
+        394,
+        603,
+        281,
+        247
+      ],
+      "pivot": [
+        140.5,
+        247
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "sawmill_3_north": {
+      "atlas": "sawmill_atlas_a.png",
+      "region": [
+        724,
+        605,
+        301,
+        226
+      ],
+      "pivot": [
+        150.5,
+        226
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "sawmill_3_east": {
+      "atlas": "sawmill_atlas_a.png",
+      "region": [
+        1078,
+        605,
+        295,
+        252
+      ],
+      "pivot": [
+        147.5,
+        252
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "sawmill_4_south": {
+      "atlas": "sawmill_atlas_a.png",
+      "region": [
+        43,
+        871,
+        305,
+        214
+      ],
+      "pivot": [
+        152.5,
+        214
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "sawmill_4_west": {
+      "atlas": "sawmill_atlas_a.png",
+      "region": [
+        395,
+        870,
+        276,
+        214
+      ],
+      "pivot": [
+        138.0,
+        214
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "sawmill_4_north": {
+      "atlas": "sawmill_atlas_a.png",
+      "region": [
+        737,
+        882,
+        280,
+        203
+      ],
+      "pivot": [
+        140.0,
+        203
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "sawmill_4_east": {
+      "atlas": "sawmill_atlas_a.png",
+      "region": [
+        1079,
+        872,
+        288,
+        215
+      ],
+      "pivot": [
+        144.0,
+        215
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "glassblowing_1_south": {
+      "atlas": "glassblowing_atlas_a.png",
+      "region": [
+        78,
+        46,
+        254,
+        258
+      ],
+      "pivot": [
+        127.0,
+        258
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "glassblowing_1_west": {
+      "atlas": "glassblowing_atlas_a.png",
+      "region": [
+        421,
+        52,
+        240,
+        254
+      ],
+      "pivot": [
+        120.0,
+        254
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "glassblowing_1_north": {
+      "atlas": "glassblowing_atlas_a.png",
+      "region": [
+        745,
+        65,
+        255,
+        236
+      ],
+      "pivot": [
+        127.5,
+        236
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "glassblowing_1_east": {
+      "atlas": "glassblowing_atlas_a.png",
+      "region": [
+        1113,
+        49,
+        237,
+        269
+      ],
+      "pivot": [
+        118.5,
+        269
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "glassblowing_2_south": {
+      "atlas": "glassblowing_atlas_a.png",
+      "region": [
+        36,
+        336,
+        303,
+        271
+      ],
+      "pivot": [
+        151.5,
+        271
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "glassblowing_2_west": {
+      "atlas": "glassblowing_atlas_a.png",
+      "region": [
+        404,
+        340,
+        266,
+        280
+      ],
+      "pivot": [
+        133.0,
+        280
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "glassblowing_2_north": {
+      "atlas": "glassblowing_atlas_a.png",
+      "region": [
+        725,
+        346,
+        296,
+        246
+      ],
+      "pivot": [
+        148.0,
+        246
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "glassblowing_2_east": {
+      "atlas": "glassblowing_atlas_a.png",
+      "region": [
+        1113,
+        343,
+        253,
+        273
+      ],
+      "pivot": [
+        126.5,
+        273
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    "glassblowing_3_south": {
+      "atlas": "glassblowing_atlas_a.png",
+      "region": [
+        39,
+        624,
+        314,
+        266
+      ],
+      "pivot": [
+        157.0,
+        266
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "glassblowing_3_west": {
+      "atlas": "glassblowing_atlas_a.png",
+      "region": [
+        428,
+        626,
+        247,
+        265
+      ],
+      "pivot": [
+        123.5,
+        265
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "glassblowing_3_north": {
+      "atlas": "glassblowing_atlas_a.png",
+      "region": [
+        732,
+        633,
+        287,
+        236
+      ],
+      "pivot": [
+        143.5,
+        236
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "glassblowing_3_east": {
+      "atlas": "glassblowing_atlas_a.png",
+      "region": [
+        1088,
+        626,
+        279,
+        264
+      ],
+      "pivot": [
+        139.5,
+        264
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "glassblowing_4_south": {
+      "atlas": "glassblowing_atlas_a.png",
+      "region": [
+        50,
+        906,
+        290,
+        176
+      ],
+      "pivot": [
+        145.0,
+        176
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "glassblowing_4_west": {
+      "atlas": "glassblowing_atlas_a.png",
+      "region": [
+        416,
+        911,
+        264,
+        168
+      ],
+      "pivot": [
+        132.0,
+        168
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "glassblowing_4_north": {
+      "atlas": "glassblowing_atlas_a.png",
+      "region": [
+        728,
+        916,
+        275,
+        174
+      ],
+      "pivot": [
+        137.5,
+        174
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "glassblowing_4_east": {
+      "atlas": "glassblowing_atlas_a.png",
+      "region": [
+        1082,
+        909,
+        277,
+        175
+      ],
+      "pivot": [
+        138.5,
+        175
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "forge_1_south": {
+      "atlas": "forge_atlas_a.png",
+      "region": [
+        109,
+        69,
+        184,
+        179
+      ],
+      "pivot": [
+        92.0,
+        179
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "forge_1_west": {
+      "atlas": "forge_atlas_a.png",
+      "region": [
+        478,
+        71,
+        170,
+        183
+      ],
+      "pivot": [
+        85.0,
+        183
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "forge_1_north": {
+      "atlas": "forge_atlas_a.png",
+      "region": [
+        830,
+        65,
+        161,
+        178
+      ],
+      "pivot": [
+        80.5,
+        178
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "forge_1_east": {
+      "atlas": "forge_atlas_a.png",
+      "region": [
+        1194,
+        73,
+        183,
+        169
+      ],
+      "pivot": [
+        91.5,
+        169
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "forge_2_south": {
+      "atlas": "forge_atlas_a.png",
+      "region": [
+        81,
+        317,
+        241,
+        192
+      ],
+      "pivot": [
+        120.5,
+        192
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "forge_2_west": {
+      "atlas": "forge_atlas_a.png",
+      "region": [
+        456,
+        310,
+        206,
+        190
+      ],
+      "pivot": [
+        103.0,
+        190
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "forge_2_north": {
+      "atlas": "forge_atlas_a.png",
+      "region": [
+        796,
+        310,
+        240,
+        193
+      ],
+      "pivot": [
+        120.0,
+        193
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "forge_2_east": {
+      "atlas": "forge_atlas_a.png",
+      "region": [
+        1175,
+        307,
+        228,
+        201
+      ],
+      "pivot": [
+        114.0,
+        201
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "forge_3_south": {
+      "atlas": "forge_atlas_a.png",
+      "region": [
+        67,
+        577,
+        280,
+        222
+      ],
+      "pivot": [
+        140.0,
+        222
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "forge_3_west": {
+      "atlas": "forge_atlas_a.png",
+      "region": [
+        454,
+        564,
+        222,
+        210
+      ],
+      "pivot": [
+        111.0,
+        210
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "forge_3_north": {
+      "atlas": "forge_atlas_a.png",
+      "region": [
+        781,
+        569,
+        269,
+        204
+      ],
+      "pivot": [
+        134.5,
+        204
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "forge_3_east": {
+      "atlas": "forge_atlas_a.png",
+      "region": [
+        1175,
+        565,
+        232,
+        216
+      ],
+      "pivot": [
+        116.0,
+        216
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "forge_4_south": {
+      "atlas": "forge_atlas_a.png",
+      "region": [
+        67,
+        844,
+        259,
+        181
+      ],
+      "pivot": [
+        129.5,
+        181
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "forge_4_west": {
+      "atlas": "forge_atlas_a.png",
+      "region": [
+        438,
+        854,
+        239,
+        175
+      ],
+      "pivot": [
+        119.5,
+        175
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "forge_4_north": {
+      "atlas": "forge_atlas_a.png",
+      "region": [
+        792,
+        854,
+        245,
+        175
+      ],
+      "pivot": [
+        122.5,
+        175
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "forge_4_east": {
+      "atlas": "forge_atlas_a.png",
+      "region": [
+        1160,
+        854,
+        246,
+        175
+      ],
+      "pivot": [
+        123.0,
+        175
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "alchemy_1_south": {
+      "atlas": "alchemy_atlas_a.png",
+      "region": [
+        97,
+        38,
+        215,
+        182
+      ],
+      "pivot": [
+        107.5,
+        182
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "alchemy_1_west": {
+      "atlas": "alchemy_atlas_a.png",
+      "region": [
+        495,
+        32,
+        109,
+        196
+      ],
+      "pivot": [
+        54.5,
+        196
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "alchemy_1_north": {
+      "atlas": "alchemy_atlas_a.png",
+      "region": [
+        788,
+        51,
+        214,
+        170
+      ],
+      "pivot": [
+        107.0,
+        170
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "alchemy_1_east": {
+      "atlas": "alchemy_atlas_a.png",
+      "region": [
+        1191,
+        48,
+        114,
+        182
+      ],
+      "pivot": [
+        57.0,
+        182
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "alchemy_2_south": {
+      "atlas": "alchemy_atlas_a.png",
+      "region": [
+        72,
+        254,
+        258,
+        245
+      ],
+      "pivot": [
+        129.0,
+        245
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "alchemy_2_west": {
+      "atlas": "alchemy_atlas_a.png",
+      "region": [
+        479,
+        258,
+        134,
+        245
+      ],
+      "pivot": [
+        67.0,
+        245
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "alchemy_2_north": {
+      "atlas": "alchemy_atlas_a.png",
+      "region": [
+        770,
+        262,
+        260,
+        235
+      ],
+      "pivot": [
+        130.0,
+        235
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "alchemy_2_east": {
+      "atlas": "alchemy_atlas_a.png",
+      "region": [
+        1194,
+        256,
+        141,
+        248
+      ],
+      "pivot": [
+        70.5,
+        248
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "alchemy_3_south": {
+      "atlas": "alchemy_atlas_a.png",
+      "region": [
+        50,
+        538,
+        306,
+        261
+      ],
+      "pivot": [
+        153.0,
+        261
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "alchemy_3_west": {
+      "atlas": "alchemy_atlas_a.png",
+      "region": [
+        475,
+        534,
+        159,
+        269
+      ],
+      "pivot": [
+        79.5,
+        269
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "alchemy_3_north": {
+      "atlas": "alchemy_atlas_a.png",
+      "region": [
+        757,
+        539,
+        282,
+        260
+      ],
+      "pivot": [
+        141.0,
+        260
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "alchemy_3_east": {
+      "atlas": "alchemy_atlas_a.png",
+      "region": [
+        1187,
+        529,
+        151,
+        274
+      ],
+      "pivot": [
+        75.5,
+        274
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "alchemy_4_south": {
+      "atlas": "alchemy_atlas_a.png",
+      "region": [
+        59,
+        845,
+        307,
+        191
+      ],
+      "pivot": [
+        153.5,
+        191
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "alchemy_4_west": {
+      "atlas": "alchemy_atlas_a.png",
+      "region": [
+        451,
+        848,
+        215,
+        187
+      ],
+      "pivot": [
+        107.5,
+        187
+      ],
+      "alpha_corners": [
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    "alchemy_4_north": {
+      "atlas": "alchemy_atlas_a.png",
+      "region": [
+        746,
+        860,
+        302,
+        184
+      ],
+      "pivot": [
+        151.0,
+        184
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "alchemy_4_east": {
+      "atlas": "alchemy_atlas_a.png",
+      "region": [
+        1144,
+        846,
+        228,
+        200
+      ],
+      "pivot": [
+        114.0,
+        200
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "workbench_1_south": {
+      "atlas": "workbench_atlas_a.png",
+      "region": [
+        34,
+        50,
+        317,
+        218
+      ],
+      "pivot": [
+        158.5,
+        218
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "workbench_1_west": {
+      "atlas": "workbench_atlas_a.png",
+      "region": [
+        419,
+        47,
+        229,
+        221
+      ],
+      "pivot": [
+        114.5,
+        221
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "workbench_1_north": {
+      "atlas": "workbench_atlas_a.png",
+      "region": [
+        732,
+        53,
+        285,
+        215
+      ],
+      "pivot": [
+        142.5,
+        215
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "workbench_1_east": {
+      "atlas": "workbench_atlas_a.png",
+      "region": [
+        1115,
+        44,
+        221,
+        224
+      ],
+      "pivot": [
+        110.5,
+        224
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "workbench_2_south": {
+      "atlas": "workbench_atlas_a.png",
+      "region": [
+        41,
+        316,
+        299,
+        244
+      ],
+      "pivot": [
+        149.5,
+        244
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "workbench_2_west": {
+      "atlas": "workbench_atlas_a.png",
+      "region": [
+        446,
+        314,
+        195,
+        246
+      ],
+      "pivot": [
+        97.5,
+        246
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "workbench_2_north": {
+      "atlas": "workbench_atlas_a.png",
+      "region": [
+        738,
+        331,
+        281,
+        229
+      ],
+      "pivot": [
+        140.5,
+        229
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "workbench_2_east": {
+      "atlas": "workbench_atlas_a.png",
+      "region": [
+        1115,
+        304,
+        202,
+        256
+      ],
+      "pivot": [
+        101.0,
+        256
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "workbench_3_south": {
+      "atlas": "workbench_atlas_a.png",
+      "region": [
+        34,
+        607,
+        339,
+        233
+      ],
+      "pivot": [
+        169.5,
+        233
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "workbench_3_west": {
+      "atlas": "workbench_atlas_a.png",
+      "region": [
+        451,
+        601,
+        222,
+        240
+      ],
+      "pivot": [
+        111.0,
+        240
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "workbench_3_north": {
+      "atlas": "workbench_atlas_a.png",
+      "region": [
+        725,
+        610,
+        304,
+        227
+      ],
+      "pivot": [
+        152.0,
+        227
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "workbench_3_east": {
+      "atlas": "workbench_atlas_a.png",
+      "region": [
+        1094,
+        604,
+        227,
+        237
+      ],
+      "pivot": [
+        113.5,
+        237
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "workbench_4_south": {
+      "atlas": "workbench_atlas_a.png",
+      "region": [
+        41,
+        870,
+        311,
+        215
+      ],
+      "pivot": [
+        155.5,
+        215
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "workbench_4_west": {
+      "atlas": "workbench_atlas_a.png",
+      "region": [
+        423,
+        869,
+        252,
+        212
+      ],
+      "pivot": [
+        126.0,
+        212
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "workbench_4_north": {
+      "atlas": "workbench_atlas_a.png",
+      "region": [
+        739,
+        872,
+        278,
+        203
+      ],
+      "pivot": [
+        139.0,
+        203
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "workbench_4_east": {
+      "atlas": "workbench_atlas_a.png",
+      "region": [
+        1082,
+        871,
+        274,
+        214
+      ],
+      "pivot": [
+        137.0,
+        214
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "furnace_1_south": {
+      "atlas": "furnace_atlas_a.png",
+      "region": [
+        57,
+        51,
+        203,
+        214
+      ],
+      "pivot": [
+        101.5,
+        214
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "furnace_1_west": {
+      "atlas": "furnace_atlas_a.png",
+      "region": [
+        372,
+        49,
+        185,
+        217
+      ],
+      "pivot": [
+        92.5,
+        217
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "furnace_1_north": {
+      "atlas": "furnace_atlas_a.png",
+      "region": [
+        705,
+        51,
+        186,
+        200
+      ],
+      "pivot": [
+        93.0,
+        200
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "furnace_1_east": {
+      "atlas": "furnace_atlas_a.png",
+      "region": [
+        1024,
+        49,
+        174,
+        217
+      ],
+      "pivot": [
+        87.0,
+        217
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "furnace_2_south": {
+      "atlas": "furnace_atlas_a.png",
+      "region": [
+        38,
+        325,
+        262,
+        252
+      ],
+      "pivot": [
+        131.0,
+        252
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "furnace_2_west": {
+      "atlas": "furnace_atlas_a.png",
+      "region": [
+        384,
+        325,
+        219,
+        247
+      ],
+      "pivot": [
+        109.5,
+        247
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "furnace_2_north": {
+      "atlas": "furnace_atlas_a.png",
+      "region": [
+        687,
+        325,
+        257,
+        244
+      ],
+      "pivot": [
+        128.5,
+        244
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "furnace_2_east": {
+      "atlas": "furnace_atlas_a.png",
+      "region": [
+        1009,
+        325,
+        220,
+        247
+      ],
+      "pivot": [
+        110.0,
+        247
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "furnace_3_south": {
+      "atlas": "furnace_atlas_a.png",
+      "region": [
+        38,
+        618,
+        281,
+        300
+      ],
+      "pivot": [
+        140.5,
+        300
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "furnace_3_west": {
+      "atlas": "furnace_atlas_a.png",
+      "region": [
+        368,
+        618,
+        232,
+        296
+      ],
+      "pivot": [
+        116.0,
+        296
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "furnace_3_north": {
+      "atlas": "furnace_atlas_a.png",
+      "region": [
+        651,
+        618,
+        273,
+        300
+      ],
+      "pivot": [
+        136.5,
+        300
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "furnace_3_east": {
+      "atlas": "furnace_atlas_a.png",
+      "region": [
+        1013,
+        618,
+        235,
+        296
+      ],
+      "pivot": [
+        117.5,
+        296
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "furnace_4_south": {
+      "atlas": "furnace_atlas_a.png",
+      "region": [
+        40,
+        977,
+        282,
+        183
+      ],
+      "pivot": [
+        141.0,
+        183
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "furnace_4_west": {
+      "atlas": "furnace_atlas_a.png",
+      "region": [
+        352,
+        989,
+        277,
+        170
+      ],
+      "pivot": [
+        138.5,
+        170
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "furnace_4_north": {
+      "atlas": "furnace_atlas_a.png",
+      "region": [
+        651,
+        978,
+        270,
+        188
+      ],
+      "pivot": [
+        135.0,
+        188
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "furnace_4_east": {
+      "atlas": "furnace_atlas_a.png",
+      "region": [
+        975,
+        990,
+        274,
+        173
+      ],
+      "pivot": [
+        137.0,
+        173
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "cauldron_1_south": {
+      "atlas": "cauldron_atlas_a.png",
+      "region": [
+        92,
+        65,
+        170,
+        169
+      ],
+      "pivot": [
+        85.0,
+        169
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "cauldron_1_west": {
+      "atlas": "cauldron_atlas_a.png",
+      "region": [
+        447,
+        64,
+        175,
+        164
+      ],
+      "pivot": [
+        87.5,
+        164
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "cauldron_1_north": {
+      "atlas": "cauldron_atlas_a.png",
+      "region": [
+        795,
+        66,
+        172,
+        160
+      ],
+      "pivot": [
+        86.0,
+        160
+      ],
+      "alpha_corners": [
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    "cauldron_1_east": {
+      "atlas": "cauldron_atlas_a.png",
+      "region": [
+        1140,
+        65,
+        174,
+        163
+      ],
+      "pivot": [
+        87.0,
+        163
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "cauldron_2_south": {
+      "atlas": "cauldron_atlas_a.png",
+      "region": [
+        88,
+        316,
+        270,
+        219
+      ],
+      "pivot": [
+        135.0,
+        219
+      ],
+      "alpha_corners": [
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    "cauldron_2_west": {
+      "atlas": "cauldron_atlas_a.png",
+      "region": [
+        476,
+        315,
+        174,
+        221
+      ],
+      "pivot": [
+        87.0,
+        221
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "cauldron_2_north": {
+      "atlas": "cauldron_atlas_a.png",
+      "region": [
+        734,
+        323,
+        257,
+        200
+      ],
+      "pivot": [
+        128.5,
+        200
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "cauldron_2_east": {
+      "atlas": "cauldron_atlas_a.png",
+      "region": [
+        1114,
+        309,
+        175,
+        228
+      ],
+      "pivot": [
+        87.5,
+        228
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "cauldron_3_south": {
+      "atlas": "cauldron_atlas_a.png",
+      "region": [
+        62,
+        598,
+        307,
+        230
+      ],
+      "pivot": [
+        153.5,
+        230
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "cauldron_3_west": {
+      "atlas": "cauldron_atlas_a.png",
+      "region": [
+        470,
+        586,
+        180,
+        240
+      ],
+      "pivot": [
+        90.0,
+        240
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "cauldron_3_north": {
+      "atlas": "cauldron_atlas_a.png",
+      "region": [
+        734,
+        607,
+        295,
+        219
+      ],
+      "pivot": [
+        147.5,
+        219
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "cauldron_3_east": {
+      "atlas": "cauldron_atlas_a.png",
+      "region": [
+        1128,
+        581,
+        181,
+        256
+      ],
+      "pivot": [
+        90.5,
+        256
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "cauldron_4_south": {
+      "atlas": "cauldron_atlas_a.png",
+      "region": [
+        53,
+        894,
+        318,
+        184
+      ],
+      "pivot": [
+        159.0,
+        184
+      ],
+      "alpha_corners": [
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    "cauldron_4_west": {
+      "atlas": "cauldron_atlas_a.png",
+      "region": [
+        426,
+        895,
+        254,
+        188
+      ],
+      "pivot": [
+        127.0,
+        188
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "cauldron_4_north": {
+      "atlas": "cauldron_atlas_a.png",
+      "region": [
+        742,
+        906,
+        286,
+        157
+      ],
+      "pivot": [
+        143.0,
+        157
+      ],
+      "alpha_corners": [
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    "cauldron_4_east": {
+      "atlas": "cauldron_atlas_a.png",
+      "region": [
+        1106,
+        895,
+        261,
+        186
+      ],
+      "pivot": [
+        130.5,
+        186
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "study_1_south": {
+      "atlas": "study_atlas_a.png",
+      "region": [
+        61,
+        27,
+        323,
+        243
+      ],
+      "pivot": [
+        161.5,
+        243
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "study_1_west": {
+      "atlas": "study_atlas_a.png",
+      "region": [
+        499,
+        28,
+        181,
+        242
+      ],
+      "pivot": [
+        90.5,
+        242
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "study_1_north": {
+      "atlas": "study_atlas_a.png",
+      "region": [
+        803,
+        53,
+        302,
+        199
+      ],
+      "pivot": [
+        151.0,
+        199
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "study_1_east": {
+      "atlas": "study_atlas_a.png",
+      "region": [
+        1246,
+        6,
+        193,
+        264
+      ],
+      "pivot": [
+        96.5,
+        264
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "study_2_south": {
+      "atlas": "study_atlas_a.png",
+      "region": [
+        46,
+        270,
+        351,
+        265
+      ],
+      "pivot": [
+        175.5,
+        265
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "study_2_west": {
+      "atlas": "study_atlas_a.png",
+      "region": [
+        493,
+        270,
+        207,
+        265
+      ],
+      "pivot": [
+        103.5,
+        265
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "study_2_north": {
+      "atlas": "study_atlas_a.png",
+      "region": [
+        799,
+        271,
+        325,
+        264
+      ],
+      "pivot": [
+        162.5,
+        264
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "study_2_east": {
+      "atlas": "study_atlas_a.png",
+      "region": [
+        1244,
+        270,
+        222,
+        265
+      ],
+      "pivot": [
+        111.0,
+        265
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "study_3_south": {
+      "atlas": "study_atlas_a.png",
+      "region": [
+        51,
+        535,
+        353,
+        271
+      ],
+      "pivot": [
+        176.5,
+        271
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "study_3_west": {
+      "atlas": "study_atlas_a.png",
+      "region": [
+        500,
+        535,
+        208,
+        269
+      ],
+      "pivot": [
+        104.0,
+        269
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "study_3_north": {
+      "atlas": "study_atlas_a.png",
+      "region": [
+        800,
+        535,
+        341,
+        253
+      ],
+      "pivot": [
+        170.5,
+        253
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "study_3_east": {
+      "atlas": "study_atlas_a.png",
+      "region": [
+        1244,
+        535,
+        225,
+        271
+      ],
+      "pivot": [
+        112.5,
+        271
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "study_4_south": {
+      "atlas": "study_atlas_a.png",
+      "region": [
+        43,
+        817,
+        344,
+        187
+      ],
+      "pivot": [
+        172.0,
+        187
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "study_4_west": {
+      "atlas": "study_atlas_a.png",
+      "region": [
+        496,
+        806,
+        233,
+        194
+      ],
+      "pivot": [
+        116.5,
+        194
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "study_4_north": {
+      "atlas": "study_atlas_a.png",
+      "region": [
+        804,
+        813,
+        314,
+        183
+      ],
+      "pivot": [
+        157.0,
+        183
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "study_4_east": {
+      "atlas": "study_atlas_a.png",
+      "region": [
+        1240,
+        806,
+        259,
+        199
+      ],
+      "pivot": [
+        129.5,
+        199
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "recycling_1_south": {
+      "atlas": "recycling_atlas_a.png",
+      "region": [
+        37,
+        32,
+        332,
+        207
+      ],
+      "pivot": [
+        166.0,
+        207
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "recycling_1_west": {
+      "atlas": "recycling_atlas_a.png",
+      "region": [
+        495,
+        31,
+        178,
+        213
+      ],
+      "pivot": [
+        89.0,
+        213
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "recycling_1_north": {
+      "atlas": "recycling_atlas_a.png",
+      "region": [
+        815,
+        28,
+        317,
+        208
+      ],
+      "pivot": [
+        158.5,
+        208
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "recycling_1_east": {
+      "atlas": "recycling_atlas_a.png",
+      "region": [
+        1256,
+        37,
+        187,
+        207
+      ],
+      "pivot": [
+        93.5,
+        207
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "recycling_2_south": {
+      "atlas": "recycling_atlas_a.png",
+      "region": [
+        35,
+        280,
+        350,
+        215
+      ],
+      "pivot": [
+        175.0,
+        215
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "recycling_2_west": {
+      "atlas": "recycling_atlas_a.png",
+      "region": [
+        496,
+        266,
+        188,
+        237
+      ],
+      "pivot": [
+        94.0,
+        237
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "recycling_2_north": {
+      "atlas": "recycling_atlas_a.png",
+      "region": [
+        815,
+        271,
+        317,
+        220
+      ],
+      "pivot": [
+        158.5,
+        220
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "recycling_2_east": {
+      "atlas": "recycling_atlas_a.png",
+      "region": [
+        1249,
+        272,
+        195,
+        231
+      ],
+      "pivot": [
+        97.5,
+        231
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "recycling_3_south": {
+      "atlas": "recycling_atlas_a.png",
+      "region": [
+        33,
+        527,
+        352,
+        256
+      ],
+      "pivot": [
+        176.0,
+        256
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "recycling_3_west": {
+      "atlas": "recycling_atlas_a.png",
+      "region": [
+        487,
+        526,
+        188,
+        263
+      ],
+      "pivot": [
+        94.0,
+        263
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "recycling_3_north": {
+      "atlas": "recycling_atlas_a.png",
+      "region": [
+        815,
+        533,
+        312,
+        251
+      ],
+      "pivot": [
+        156.0,
+        251
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "recycling_3_east": {
+      "atlas": "recycling_atlas_a.png",
+      "region": [
+        1258,
+        527,
+        194,
+        263
+      ],
+      "pivot": [
+        97.0,
+        263
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "recycling_4_south": {
+      "atlas": "recycling_atlas_a.png",
+      "region": [
+        50,
+        817,
+        310,
+        179
+      ],
+      "pivot": [
+        155.0,
+        179
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "recycling_4_west": {
+      "atlas": "recycling_atlas_a.png",
+      "region": [
+        470,
+        817,
+        250,
+        177
+      ],
+      "pivot": [
+        125.0,
+        177
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "recycling_4_north": {
+      "atlas": "recycling_atlas_a.png",
+      "region": [
+        828,
+        826,
+        296,
+        167
+      ],
+      "pivot": [
+        148.0,
+        167
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "recycling_4_east": {
+      "atlas": "recycling_atlas_a.png",
+      "region": [
+        1226,
+        808,
+        256,
+        187
+      ],
+      "pivot": [
+        128.0,
+        187
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "wall": {
+      "atlas": "shell_atlas_a.png",
+      "region": [
+        68,
+        69,
+        344,
+        270
+      ],
+      "pivot": [
+        172.0,
+        270
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "corner_left": {
+      "atlas": "shell_atlas_a.png",
+      "region": [
+        471,
+        58,
+        243,
+        292
+      ],
+      "pivot": [
+        121.5,
+        292
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "corner_right": {
+      "atlas": "shell_atlas_a.png",
+      "region": [
+        790,
+        58,
+        248,
+        297
+      ],
+      "pivot": [
+        124.0,
+        297
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "post": {
+      "atlas": "shell_atlas_a.png",
+      "region": [
+        1190,
+        54,
+        130,
+        301
+      ],
+      "pivot": [
+        65.0,
+        301
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "lantern": {
+      "atlas": "shell_atlas_a.png",
+      "region": [
+        80,
+        420,
+        227,
+        282
+      ],
+      "pivot": [
+        113.5,
+        282
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "blueprint": {
+      "atlas": "shell_atlas_a.png",
+      "region": [
+        375,
+        445,
+        310,
+        235
+      ],
+      "pivot": [
+        155.0,
+        235
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "stairs_up": {
+      "atlas": "shell_atlas_a.png",
+      "region": [
+        752,
+        355,
+        298,
+        367
+      ],
+      "pivot": [
+        149.0,
+        367
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "stairs_down": {
+      "atlas": "shell_atlas_a.png",
+      "region": [
+        1119,
+        403,
+        275,
+        305
+      ],
+      "pivot": [
+        137.5,
+        305
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "crates": {
+      "atlas": "shell_atlas_a.png",
+      "region": [
+        77,
+        741,
+        222,
+        289
+      ],
+      "pivot": [
+        111.0,
+        289
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "barrel": {
+      "atlas": "shell_atlas_a.png",
+      "region": [
+        431,
+        787,
+        171,
+        224
+      ],
+      "pivot": [
+        85.5,
+        224
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "materials": {
+      "atlas": "shell_atlas_a.png",
+      "region": [
+        698,
+        788,
+        285,
+        220
+      ],
+      "pivot": [
+        142.5,
+        220
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "beam": {
+      "atlas": "shell_atlas_a.png",
+      "region": [
+        1042,
+        836,
+        354,
+        143
+      ],
+      "pivot": [
+        177.0,
+        143
+      ],
+      "alpha_corners": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+}

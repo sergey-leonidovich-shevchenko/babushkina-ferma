@@ -2,6 +2,7 @@ extends RefCounted
 
 ## Выполняет один физический кадр и задаёт единственный порядок обновления игровых подсистем.
 static func physics_process(game: Node, delta: float) -> void:
+	preload("res://scripts/systems/basement_input_system.gd").update(game,delta)
 	game.AudioSystem.update(game, delta)
 	game.update_hud_feedback(delta)
 	game.UiFeedbackSystem.update(game, delta)
@@ -55,7 +56,7 @@ static func modal_active(game: Node) -> bool:
 
 ## Проверяет полноэкранные игровые окна, при которых мир и боевые события поставлены на паузу.
 static func gameplay_window_open(game: Node) -> bool:
-	return game.shop_open \
+	return game.BasementSystem.modal(game) or game.shop_open \
 		or game.inventory_open \
 		or game.crafting_open \
 		or game.storage_open \
@@ -82,6 +83,7 @@ static func update_world(game: Node, delta: float) -> void:
 	game.update_status_effects(delta)
 	game.FurnaceSystem.update(game,delta)
 	game.WorkshopSystem.update(game,delta)
+	preload("res://scripts/systems/basement_production_system.gd").update(game,delta)
 	game.SpellSystem.update(game, delta)
 	game.CompanionSystem.update(game, delta)
 	game.NpcMovementSystem.update(game, delta)
@@ -97,6 +99,7 @@ static func update_world(game: Node, delta: float) -> void:
 
 ## Обновляет перемещение и удерживаемые действия героя после симуляции мира.
 static func update_player(game: Node, delta: float) -> void:
+	if preload("res://scripts/systems/basement_construction_system.gd").update_hold(game,delta): game.update_camera(); return
 	game.update_player_movement(delta)
 	game.LocationTransitionSystem.update(game, delta)
 	game.update_held_action(delta)

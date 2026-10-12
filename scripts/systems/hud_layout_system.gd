@@ -109,6 +109,11 @@ static func hidden_objective_count(game: Node) -> int:
 
 ## Формирует локализованное действие для конкретного объекта вместо общей надписи «действие».
 static func interaction_label(game: Node, interaction: String) -> String:
+	if interaction=="basement_board": return game.LocaleSystem.ui("basement_context")
+	if interaction.begins_with("basement_station:"):
+		var item:Dictionary=game.BasementSystem.object(game,int(interaction.get_slice(":",1)))
+		if item.phase!="ready": return game.LocaleSystem.ui("basement_hold")
+		return game.LocaleSystem.ui("basement_station_context",[preload("res://scripts/systems/basement_locale.gd").name_for(game,item.kind)])
 	var key := "context_interact"
 	if interaction in ["npc"] or interaction.begins_with("quest_npc:") or interaction.begins_with("prisoner:"): key = "context_talk"
 	elif interaction in ["shop"] or interaction=="interior_service:shop" or interaction.begins_with("village_event:"): key = "context_shop"

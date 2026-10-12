@@ -133,7 +133,7 @@ static func update_resources(game: Node, delta: float) -> void:
 		while game.mana_regen_progress >= 1.0:
 			game.mana_regen_progress -= 1.0
 			game.player_mana = mini(game.player_mana + 1, game.player_max_mana)
-	if game.energy < max_stamina(game):
+	if game.energy < max_stamina(game) and int(game.get_meta("basement_ui",{}).get("holding",0))==0:
 		game.stamina_regen_progress += delta
 		while game.stamina_regen_progress >= 4.0:
 			game.stamina_regen_progress -= 4.0

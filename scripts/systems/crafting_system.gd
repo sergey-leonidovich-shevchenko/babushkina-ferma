@@ -58,6 +58,7 @@ const Alchemy := preload("res://scripts/systems/alchemy_system.gd")
 const Furnace := preload("res://scripts/systems/furnace_system.gd")
 const Research := preload("res://scripts/systems/research_system.gd")
 const Workshop := preload("res://scripts/systems/workshop_system.gd")
+const BasementStations := preload("res://scripts/systems/basement_station_system.gd")
 static var RECIPES: Array = BASE_RECIPES + preload("res://scripts/systems/alchemy_recipe_data.gd").recipes() + Furnace.Data.recipes() + Research.Data.RECIPES + Workshop.Data.Recipes.recipes()
 
 ## Разделяет точный расход кухонных продуктов и экономию сырья ремесленного таланта на верстаке.
@@ -138,6 +139,7 @@ static func list_start(game: Node, visible: Array[int]) -> int:
 
 ## Проверяет условие «возможности крафта» без изменения состояния.
 static func can_craft(game: Node, recipe: Dictionary) -> bool:
+	if not BasementStations.recipe_reason(game,recipe).is_empty(): return false
 	if recipe.has("study_kind") and not Research.learned(game,recipe.study_kind): return false
 	if recipe.get("station","workbench")!=game.crafting_station: return false
 	if Workshop.handles(game.crafting_station) and not Workshop.reason(game,recipe).is_empty(): return false
@@ -168,6 +170,8 @@ static func craft(game: Node, index: int) -> bool:
 	if Research.handles(game.crafting_station): return Research.execute(game,index)
 	if index < 0 or index >= RECIPES.size(): return false
 	var recipe: Dictionary = RECIPES[index]
+	var basement_reason:=BasementStations.recipe_reason(game,recipe)
+	if not basement_reason.is_empty(): game.message=BasementStations.reason_text(game,recipe); return false
 	if recipe.has("study_kind") and not Research.learned(game,recipe.study_kind): game.message=game.LocaleSystem.ui("study_blueprint_need",[game.inventory_item_name(recipe.study_kind)]); return false
 	if Workshop.handles(game.crafting_station) and recipe.get("station","")==game.crafting_station: return Workshop.enqueue(game,recipe)
 	if game.crafting_station=="furnace" and recipe.get("station","")=="furnace": return Furnace.enqueue(game,recipe)
@@ -229,6 +233,7 @@ static func category_name(game: Node, recipe: Dictionary) -> String:
 
 ## Описывает выход партии и возможное число повторов для подробной карточки рецепта.
 static func production_summary(game: Node, recipe: Dictionary) -> String:
+	if not BasementStations.recipe_reason(game,recipe).is_empty(): return BasementStations.reason_text(game,recipe)
 	if Workshop.handles(String(recipe.get("station",""))): return Workshop.summary(game,recipe)
 	if recipe.has("study_kind") and not Research.learned(game,recipe.study_kind): return game.LocaleSystem.ui("study_blueprint_need",[game.inventory_item_name(recipe.study_kind)])
 	if recipe.get("station","")=="furnace": return Furnace.summary(game,recipe)

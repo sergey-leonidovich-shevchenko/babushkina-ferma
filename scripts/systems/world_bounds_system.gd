@@ -5,4 +5,5 @@ const DEFAULT_SIZE := Vector2(2400,1200)
 
 ## Возвращает размер активной карты, не расширяя пещеры и другие локации вслед за деревней.
 static func size(location: String) -> Vector2:
+	if location=="cellar_workshop": return Vector2(2400,1560)
 	return Village.WORLD_SIZE if location=="overworld" else DEFAULT_SIZE

@@ -4,6 +4,8 @@ const DEFAULT_RADIUS := 92.0
 
 ## Находит ближайшее доступное взаимодействие среди мира, сюжетных систем и предметов.
 static func nearest(game: Node) -> String:
+	var basement:String=game.BasementSystem.nearest(game)
+	if not basement.is_empty(): return basement
 	var interactions := _fixed_interactions(game)
 	var nearest := ""
 	var nearest_distance := DEFAULT_RADIUS
@@ -119,6 +121,8 @@ static func _nearest_dynamic_object(game: Node, current: String, distance: float
 ## Выполняет найденное контекстное действие через единственного владельца соответствующей механики.
 static func perform(game: Node) -> bool:
 	var interaction: String = nearest(game)
+	if interaction=="basement_board": return game.BasementSystem.open(game)
+	if interaction.begins_with("basement_station:"): return preload("res://scripts/systems/basement_station_system.gd").interact(game,int(interaction.get_slice(":",1)))
 	if interaction == "cave_altar": return preload("res://scripts/systems/cave_boss_arena_system.gd").activate(game)
 	if interaction.begins_with("cave_passage:"): return game.LocationTransitionSystem.activate(game,interaction)
 	if interaction.begins_with("building:"): return game.BuildingSystem.enter(game, interaction.get_slice(":", 1))

@@ -281,3 +281,9 @@ CPU-запросы можно проверить отдельно инструм
 ## Проверка ремесленной мастерской
 
 Профильный стенд: `./tools/Godot.app/Contents/MacOS/Godot --headless --path . --script tools/workshops_review.gd --log-file /private/tmp/farm-workshops-review.log`. Он проверяет новые станки, исследование, горн и языковые контракты. Каталоги экспортируются `tools/workshops_catalog_export.gd` и `tools/research_catalog_export.gd`; нативные 1152×648 кадры снимает `tools/workshops_capture.gd` с `--windowed`, без `--headless`. Скрипт использует отдельную пользовательскую папку и фиксированный SubViewport. Полный gate остаётся `tools/check_architecture.sh` и `./run_tests.sh`.
+
+## Проверка подвала
+
+`tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/basement_review.gd` запускает оба basement suite вместе с прежними Workshop/Furnace/Research регрессиями. `--script res://tools/basement_capture.gd` без `--headless` снимает реальные кадры 1152×648 в отдельной пользовательской папке: вход, пустая комната, чертёж, сетка, материалы, молоток, готовые столы и четыре направления трёх уровней. Камера и renderer обычные игровые; искусственного масштабирования снимка нет.
+
+`python3 tools/extract_basement_atlases.py` воспроизводит 172 AtlasTexture из утверждённых исходных листов. До коммита запустить импорт Godot, архитектурный gate и полный `./run_tests.sh`; автоматический Git hook также проверяет результат и пушит отдельный смысловой коммит.

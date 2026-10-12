@@ -5,6 +5,7 @@ const VillageMapData := preload("res://scripts/systems/village_map_data.gd")
 const FurnaceSystem := preload("res://scripts/systems/furnace_system.gd")
 const ResearchSystem := preload("res://scripts/systems/research_system.gd")
 const WorkshopSystem := preload("res://scripts/systems/workshop_system.gd")
+const BasementSystem := preload("res://scripts/systems/basement_system.gd")
 const FARM_ORIGIN := VillageMapData.FARM_ORIGIN
 const FARM_SIZE := Vector2i(6, 5)
 const TITLE_ART := preload("res://assets/game/ui/title/title_background_v2.png")

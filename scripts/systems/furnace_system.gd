@@ -1,10 +1,16 @@
 extends RefCounted
 
 const Data := preload("res://scripts/systems/furnace_data.gd")
+const BasementStations := preload("res://scripts/systems/basement_station_system.gd")
 const STATION := Vector2(660,370)
 
 ## Возвращает единое сохраняемое состояние общего горна без фонового таймера операционной системы.
 static func state(game: Node) -> Dictionary:
+	var local:=BasementStations.production(game,"furnace")
+	return local if not local.is_empty() else legacy_state(game)
+
+## Сохраняет независимую память общедоступного деревенского горна при работе в личном подвале.
+static func legacy_state(game: Node) -> Dictionary:
 	var expansion:Dictionary=game.state.world.estate.expansion
 	if not expansion.has("furnace"): expansion.furnace={"level":1,"heat":0.0,"fuel":"wood","queue":[],"completed":0}
 	return expansion.furnace
@@ -18,11 +24,12 @@ static func restore(game: Node) -> void:
 	for job in value.get("queue",[]):
 		if Data.recipe(String(job.get("id",""))).is_empty() or queue.size()>=int(value.level): continue
 		var duration:=clampf(float(job.duration),0.01,60.0)
-		queue.append({"id":job.id,"duration":duration,"remaining":clampf(float(job.remaining),0,duration)})
+		queue.append({"id":job.id,"duration":duration,"remaining":clampf(float(job.remaining),0,duration),"paid":job.get("paid",Data.recipe(job.id).inputs).duplicate()})
 	value.queue=queue
 
 ## Ограничивает производственные и хозяйственные операции настоящей точкой у печи в кузнице.
 static func at_station(game: Node) -> bool:
+	if not BasementStations.active(game,"furnace").is_empty(): return true
 	return game.current_location=="forge_interior" and game.player.distance_to(STATION)<=80.0
 
 ## Даёт общий множитель скорости для новых и уже поставленных партий.
@@ -43,7 +50,7 @@ static func enqueue(game: Node, recipe: Dictionary) -> bool:
 	if not game.state.player.profile.has("workbench_crafts"): game.state.player.profile.workbench_crafts=game.state.player.craft_count
 	for kind in recipe.inputs: game.change_inventory_count(kind,-int(recipe.inputs[kind]))
 	var duration:=float(recipe.seconds)/speed(game)
-	state(game).queue.append({"id":recipe.id,"duration":duration,"remaining":duration})
+	state(game).queue.append({"id":recipe.id,"duration":duration,"remaining":duration,"paid":recipe.inputs.duplicate()})
 	game.message=game.LocaleSystem.ui("furnace_queued"); game.notify_tutorial("furnace_queue"); return true
 
 ## Выбирает доступный вид топлива без загрузки или потери предметов.
@@ -79,6 +86,7 @@ static func load_fuel(game: Node) -> bool:
 
 ## Улучшает печь целиком и ускоряет оставшееся время работы, сохраняя долю готовности каждой партии.
 static func upgrade(game: Node) -> bool:
+	if BasementStations.blueprint_upgrade_required(game,"furnace"): return false
 	if not at_station(game): return false
 	var value:=state(game)
 	if int(value.level)>=3: game.message=game.LocaleSystem.ui("furnace_max"); return false
@@ -94,7 +102,11 @@ static func upgrade(game: Node) -> bool:
 
 ## Расходует тепло только на активную плавку, учитывая остановку без топлива и несколько завершений в одном шаге.
 static func update(game: Node, delta: float) -> void:
-	var value:=state(game); var elapsed:=maxf(delta,0); var efficiency:float=Data.EFFICIENCY[int(value.level)-1]
+	advance(game,legacy_state(game),delta)
+
+## Продвигает выбранную независимую очередь горна без привязки результата к текущему открытому окну.
+static func advance(game: Node, value: Dictionary, delta: float) -> void:
+	var elapsed:=maxf(delta,0); var efficiency:float=Data.EFFICIENCY[int(value.level)-1]
 	while elapsed>0 and not value.queue.is_empty() and float(value.heat)>0:
 		var job:Dictionary=value.queue[0]; var step:=minf(elapsed,minf(float(job.remaining),float(value.heat)*efficiency))
 		job.remaining=maxf(0,float(job.remaining)-step); value.heat=maxf(0,float(value.heat)-step/efficiency); elapsed-=step
@@ -128,6 +140,7 @@ static func summary(game: Node, recipe: Dictionary) -> String:
 
 ## Возвращает всю цену следующего улучшения для видимой подсказки и атомарного отказа.
 static func upgrade_text(game: Node) -> String:
+	if not BasementStations.active(game,"furnace").is_empty(): return game.LocaleSystem.ui("basement_upgrade_board")
 	var value:=state(game)
 	if int(value.level)>=3: return game.LocaleSystem.ui("furnace_max")
 	var cost:Dictionary=Data.UPGRADES[int(value.level)-1]; var parts:Array[String]=[]

@@ -40,10 +40,12 @@ static func costs(game: Node, upgrade: Dictionary) -> Dictionary:
 
 ## Проверяет наличие улучшаемого предмета, материалов и свободного уровня.
 static func can_upgrade(game: Node, index: int) -> bool:
+	var station:=preload("res://scripts/systems/basement_station_system.gd")
+	if game.current_location=="cellar_workshop" and station.active(game,"forge").is_empty(): return false
 	if index < 0 or index >= UPGRADES.size():
 		return false
 	var upgrade: Dictionary = UPGRADES[index]
-	if level(game, upgrade.kind) >= MAX_UPGRADE_LEVEL:
+	if level(game, upgrade.kind) >= station.level(game,"forge",MAX_UPGRADE_LEVEL):
 		return false
 	if upgrade.kind != "arrows" and game.inventory_item_count(upgrade.kind) <= 0:
 		return false

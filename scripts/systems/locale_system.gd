@@ -497,6 +497,7 @@ const BASE_ITEMS := {
 }
 
 const LOCATIONS := {
+	"cellar_workshop":["Подвал-мастерская","Cellar workshop","Taller del sótano","Kellerwerkstatt","Atelier du sous-sol","地下工坊"],
 	"cave_fungal":["Грибной зал","Mushroom hall","Sala de hongos","Pilzhalle","Salle des champignons","蘑菇洞厅"],
 	"cave_moon":["Лунный грот","Moonlit grotto","Gruta lunar","Mondgrotte","Grotte lunaire","月光洞窟"],
 	"cave_lake":["Подземное озеро","Underground lake","Lago subterráneo","Unterirdischer See","Lac souterrain","地下湖"],
@@ -791,6 +792,7 @@ static func tutorial(event_name: String) -> String:
 
 ## Возвращает локализованное название локации.
 static func location(kind: String) -> String:
+	if kind=="cellar_workshop": return ui("basement_location")
 	return translated(LOCATIONS, kind, kind)
 
 ## Возвращает название или описание навыка на выбранном языке.
@@ -835,8 +837,8 @@ static func set_locale(code: String, persist: bool = true, path: String = SETTIN
 		return config.save(path) == OK
 	return true
 
-static var UI: Dictionary = BASE_UI.merged(preload("res://scripts/systems/alchemy_locale.gd").UI).merged(preload("res://scripts/systems/furnace_locale.gd").UI).merged(preload("res://scripts/systems/research_locale.gd").UI).merged(preload("res://scripts/systems/workshop_locale.gd").UI)
+static var UI: Dictionary = BASE_UI.merged(preload("res://scripts/systems/alchemy_locale.gd").UI).merged(preload("res://scripts/systems/furnace_locale.gd").UI).merged(preload("res://scripts/systems/research_locale.gd").UI).merged(preload("res://scripts/systems/workshop_locale.gd").UI).merged(preload("res://scripts/systems/basement_locale.gd").UI)
 
 static var ITEMS: Dictionary = BASE_ITEMS.merged(preload("res://scripts/systems/alchemy_product_data.gd").names()).merged(preload("res://scripts/systems/furnace_data.gd").names()).merged(preload("res://scripts/systems/research_data.gd").names()).merged(preload("res://scripts/systems/workshop_data.gd").names())
 
-static var TUTORIAL: Dictionary = BASE_TUTORIAL.merged(preload("res://scripts/systems/alchemy_locale.gd").TUTORIAL).merged(preload("res://scripts/systems/furnace_locale.gd").TUTORIAL).merged(preload("res://scripts/systems/research_locale.gd").TUTORIAL).merged(preload("res://scripts/systems/workshop_locale.gd").TUTORIAL)
+static var TUTORIAL: Dictionary = BASE_TUTORIAL.merged(preload("res://scripts/systems/alchemy_locale.gd").TUTORIAL).merged(preload("res://scripts/systems/furnace_locale.gd").TUTORIAL).merged(preload("res://scripts/systems/research_locale.gd").TUTORIAL).merged(preload("res://scripts/systems/workshop_locale.gd").TUTORIAL).merged(preload("res://scripts/systems/basement_locale.gd").TUTORIAL)

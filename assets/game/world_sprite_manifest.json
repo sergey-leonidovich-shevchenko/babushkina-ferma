@@ -750,6 +750,96 @@
       "priority": "P3",
       "debt": "Закрыт: выбранные A уровни имеют отдельные прозрачные ресурсы, неизменные опоры и коллизии; пути и границы проверены тестами и нативными кадрами.",
       "done_when": "Keep complete silhouettes, padded regions, constant footprints and actual room service access for all twelve sprites."
+    },
+    {
+      "id": "WS-026",
+      "family": "Тёплый кирпичный подвал A и десять строящихся личных станков",
+      "assets": [
+        {
+          "path": "assets/game/basement/alchemy_atlas_a.png",
+          "width": 1448,
+          "height": 1086
+        },
+        {
+          "path": "assets/game/basement/cauldron_atlas_a.png",
+          "width": 1408,
+          "height": 1117
+        },
+        {
+          "path": "assets/game/basement/floor_a.png",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "path": "assets/game/basement/forge_atlas_a.png",
+          "width": 1470,
+          "height": 1070
+        },
+        {
+          "path": "assets/game/basement/furnace_atlas_a.png",
+          "width": 1292,
+          "height": 1218
+        },
+        {
+          "path": "assets/game/basement/glassblowing_atlas_a.png",
+          "width": 1402,
+          "height": 1122
+        },
+        {
+          "path": "assets/game/basement/pottery_atlas_a.png",
+          "width": 1402,
+          "height": 1122
+        },
+        {
+          "path": "assets/game/basement/recycling_atlas_a.png",
+          "width": 1536,
+          "height": 1024
+        },
+        {
+          "path": "assets/game/basement/sawmill_atlas_a.png",
+          "width": 1402,
+          "height": 1122
+        },
+        {
+          "path": "assets/game/basement/shell_atlas_a.png",
+          "width": 1448,
+          "height": 1086
+        },
+        {
+          "path": "assets/game/basement/study_atlas_a.png",
+          "width": 1536,
+          "height": 1024
+        },
+        {
+          "path": "assets/game/basement/workbench_atlas_a.png",
+          "width": 1402,
+          "height": 1122
+        }
+      ],
+      "render_owner": "BasementRoomRenderer and BasementRenderer through InteriorRenderer",
+      "source_layout": "172 measured AtlasTexture regions: 10 kinds × (3 levels + material pile) × 4 true directions, plus 12 modular room pieces; unchanged original RGBA pixels; sprites.json records regions and pivots",
+      "runtime_sizes": [
+        "144×168",
+        "120×168",
+        "96×168",
+        "288×288",
+        "216×168",
+        "192×144"
+      ],
+      "target_modules": [
+        "144×168",
+        "120×168",
+        "96×168",
+        "288×288",
+        "216×168",
+        "192×144"
+      ],
+      "anchor": "fixed bottom-center on each 24px-snapped foundation; proportional silhouette fit",
+      "collision": "24px-grid rectangle unchanged across all levels and phases; orientation swaps width/depth; hero radius18, 12px route subgrid; F10 draws the same bases and one operating point",
+      "status": "compliant",
+      "priority": "P3",
+      "debt": "Закрыт: выбран A; оформление собрано из отдельных ресурсов, станции имеют четыре настоящих ракурса, независимые очереди и собственные строительные кучи.",
+      "done_when": "Keep distinct true sprite directions, intact transparent gutters, constant footprints, complete floor grid and accessible stairs/blueprint/operating points."
     }
   ]
 }

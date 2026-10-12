@@ -40,6 +40,7 @@ static func update_input_device(game: Node, event: InputEvent) -> void:
 
 ## Передаёт событие редактору, меню, сюжетному модальному окну или строительству оград.
 static func _handle_high_priority_layer(game: Node, event: InputEvent) -> bool:
+	if preload("res://scripts/systems/basement_input_system.gd").handle_input(game,event): return true
 	if preload("res://scripts/systems/menu_hub_system.gd").handle_input(game,event): return true
 	if game.PublishedLevelSystem.handle_input(game,event):
 		return true
@@ -55,8 +56,7 @@ static func _handle_high_priority_layer(game: Node, event: InputEvent) -> bool:
 	if game.AdventurePolishSystem.has_modal(game) and game.AdventurePolishSystem.handle_input(game, event):
 		return true
 	if not game.language_screen and not game.title_screen and not game.menu_state.pause_open and world_controls_visible(game):
-		if game.FenceSystem.handle_input(game, event):
-			return true
+		return game.FenceSystem.handle_input(game, event)
 	return false
 
 ## Обрабатывает аналоговое движение и сразу обновляет направление взгляда героя.

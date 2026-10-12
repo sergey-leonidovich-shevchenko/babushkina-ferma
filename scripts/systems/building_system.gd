@@ -5,6 +5,7 @@ const BuildingVisualSystem := preload("res://scripts/systems/building_visual_sys
 const InteriorVisualSystem := preload("res://scripts/systems/interior_visual_system.gd")
 const InteriorRenderer := preload("res://scripts/systems/interior_renderer.gd")
 const VillageMapData := preload("res://scripts/systems/village_map_data.gd")
+const BasementData := preload("res://scripts/systems/basement_data.gd")
 
 const SHOP_STALL_POSITION := VillageMapData.SHOP_STALL
 const SELL_CRATE_POSITION := VillageMapData.SELL_CRATE
@@ -28,7 +29,8 @@ const BUILDINGS := {
 }
 
 const INTERIORS := {
-	"cottage_interior":{"building":"cottage","room":Rect2(132, 112, 888, 448),"spawn":Vector2(576, 500),"exit":Vector2(576, 545),"color":Color("876a45"),"service":"bed","service_position":Vector2(300, 390),"services":[{"id":"bed","position":Vector2(300,390)},{"id":"cauldron","position":Vector2(930,390)},{"id":"alchemy","position":Vector2(700,490)},{"id":"pottery","position":Vector2(480,490)}]},
+	"cellar_workshop":{"building":"cottage","room":BasementData.ROOM,"spawn":BasementData.SPAWN,"exit":Vector2(240,300),"back":"cottage_interior","back_spawn":BasementData.HOUSE_ENTRY,"color":Color("8e7150")},
+	"cottage_interior":{"building":"cottage","room":Rect2(132, 112, 888, 448),"spawn":Vector2(576, 500),"exit":Vector2(576, 545),"color":Color("876a45"),"service":"bed","service_position":Vector2(300, 390),"services":[{"id":"bed","position":Vector2(300,390)},{"id":"cauldron","position":Vector2(930,390)},{"id":"alchemy","position":Vector2(700,490)},{"id":"pottery","position":Vector2(480,490)}],"links":[{"target":"cellar_workshop","position":BasementData.HOUSE_ENTRY,"spawn":BasementData.SPAWN}]},
 	"shop_interior":{"building":"shop_house","room":Rect2(170, 100, 812, 470),"spawn":Vector2(576, 510),"exit":Vector2(576, 555),"color":Color("9b7445"),"service":"shop","service_position":Vector2(576, 330)},
 	"guild_interior":{"building":"guild_hall","room":Rect2(120, 90, 912, 500),"spawn":Vector2(576, 525),"exit":Vector2(576, 575),"color":Color("79573d"),"service":"contracts","service_position":Vector2(576, 330),"services":[{"id":"contracts","position":Vector2(576,330)},{"id":"study","position":Vector2(340,470)},{"id":"sawmill","position":Vector2(885,485)}]},
 	"forge_interior":{"building":"forge","room":Rect2(150, 100, 852, 480),"spawn":Vector2(576, 520),"exit":Vector2(576, 565),"color":Color("6b5347"),"service":"forge","service_position":Vector2(576, 340),"services":[{"id":"forge","position":Vector2(576,340)},{"id":"furnace","position":Vector2(660,370)},{"id":"recycling","position":Vector2(315,480)},{"id":"glassblowing","position":Vector2(850,490)}]},
@@ -148,6 +150,7 @@ static func nearest_interaction(game: Node, distance_limit: float = 92.0) -> Str
 
 ## Возвращает мировую позицию взаимодействия со зданием или интерьером.
 static func interaction_position(game: Node, interaction: String) -> Vector2:
+	if interaction.begins_with("basement_"): return game.BasementSystem.interaction_position(game,interaction)
 	if interaction.begins_with("building:"):
 		return BUILDINGS.get(interaction.get_slice(":", 1), {}).get("door", Vector2.ZERO)
 	if interaction == "interior_exit" and is_interior(game.current_location):
@@ -214,7 +217,7 @@ static func travel_inside(game: Node, target: String) -> bool:
 			game.update_camera()
 			game.message = game.LocaleSystem.location(target)
 			game.play_sfx("door_open")
-			game.notify_tutorial("castle_floor")
+			game.notify_tutorial("basement_enter" if target=="cellar_workshop" else "castle_floor")
 			return true
 	return false
 
@@ -256,6 +259,7 @@ static func outdoor_spawn(game: Node, building_id: String) -> Vector2:
 
 ## Проверяет, остаётся ли центр героя внутри доступной площади помещения.
 static func is_walkable_inside(location: String, position: Vector2, radius: float) -> bool:
+	if location=="cellar_workshop": return preload("res://scripts/systems/basement_layout_system.gd").walkable(position,[],radius)
 	if not INTERIORS.has(location):
 		return true
 	var data: Dictionary = INTERIORS[location]

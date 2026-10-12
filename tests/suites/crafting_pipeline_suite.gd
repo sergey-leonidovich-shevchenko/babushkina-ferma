@@ -3,6 +3,8 @@ extends "res://tests/suites/suite_base.gd"
 
 ## Запускает сценарии переработки древесины, пакетного производства, изделий и представления материалов.
 func run() -> void:
+	preload("res://tests/suites/basement_suite.gd").new(context).run()
+	preload("res://tests/suites/basement_content_suite.gd").new(context).run()
 	preload("res://tests/suites/workshop_suite.gd").new(context).run()
 	preload("res://tests/suites/research_suite.gd").new(context).run()
 	preload("res://tests/suites/furnace_suite.gd").new(context).run()

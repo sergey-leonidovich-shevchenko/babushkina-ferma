@@ -2,6 +2,7 @@ extends RefCounted
 
 const Data := preload("res://scripts/systems/workshop_data.gd")
 const Fuel := preload("res://scripts/systems/furnace_data.gd")
+const BasementStations := preload("res://scripts/systems/basement_station_system.gd")
 
 ## Определяет три специализированные производственные станции.
 static func handles(station: String) -> bool:
@@ -10,6 +11,8 @@ static func handles(station: String) -> bool:
 ## Возвращает отдельный сохраняемый уровень, очередь и запас топлива выбранного ремесла.
 static func state(game: Node, station: String) -> Dictionary:
 	if not handles(station): return {}
+	var local:=BasementStations.production(game,station)
+	if not local.is_empty(): return local
 	var expansion:Dictionary=game.state.world.estate.expansion
 	if not expansion.has("workshops"): expansion.workshops={}
 	if not expansion.workshops.has(station): expansion.workshops[station]={"level":1,"queue":[],"heat":0.0,"fuel":"wood","completed":0}
@@ -26,11 +29,12 @@ static func restore(game: Node) -> void:
 			var recipe:Dictionary=Data.Recipes.recipe(String(job.id))
 			if recipe.get("station","")!=station or queue.size()>=int(value.level): continue
 			var duration:=clampf(float(job.duration),0.01,60)
-			queue.append({"id":job.id,"duration":duration,"remaining":clampf(float(job.remaining),0,duration)})
+			queue.append({"id":job.id,"duration":duration,"remaining":clampf(float(job.remaining),0,duration),"paid":job.get("paid",recipe.inputs).duplicate()})
 		value.queue=queue
 
 ## Требует физическое присутствие у выбранного станка для постановки, загрузки и улучшения.
 static func at_station(game: Node, station: String) -> bool:
+	if not BasementStations.active(game,station).is_empty(): return true
 	return handles(station) and game.current_location==Data.STATIONS[station].location and game.player.distance_to(Data.STATIONS[station].point)<=80
 
 ## Возвращает скорость текущего уровня без изменения выхода или стоимости ресурсов.
@@ -61,7 +65,7 @@ static func enqueue(game: Node, recipe: Dictionary) -> bool:
 	game.energy-=float(recipe.energy)
 	if not game.state.player.profile.has("workbench_crafts"): game.state.player.profile.workbench_crafts=game.state.player.craft_count
 	var duration:=float(recipe.seconds)/speed(game,game.crafting_station)
-	state(game,game.crafting_station).queue.append({"id":recipe.id,"duration":duration,"remaining":duration})
+	state(game,game.crafting_station).queue.append({"id":recipe.id,"duration":duration,"remaining":duration,"paid":recipe.inputs.duplicate()})
 	game.message=game.LocaleSystem.ui("furnace_queued"); game.notify_tutorial("workshop_queue"); game.queue_redraw(); return true
 
 ## Переключает топливо только у стеклодувной печи, сохраняя раздельность с кузнечным горном.
@@ -79,6 +83,7 @@ static func load_fuel(game: Node) -> bool:
 
 ## Даёт видимую полную стоимость следующего уровня из производственных данных.
 static func upgrade_text(game: Node, station: String) -> String:
+	if not BasementStations.active(game,station).is_empty(): return game.LocaleSystem.ui("basement_upgrade_board")
 	var value:=state(game,station)
 	if int(value.level)>=3: return game.LocaleSystem.ui("furnace_max")
 	var cost:Dictionary=Data.STATIONS[station].upgrades[int(value.level)-1]
@@ -86,6 +91,7 @@ static func upgrade_text(game: Node, station: String) -> String:
 
 ## Улучшает нужный станок и ускоряет уже начатые партии с сохранением доли готовности.
 static func upgrade(game: Node, station: String) -> bool:
+	if BasementStations.blueprint_upgrade_required(game,station): return false
 	if not at_station(game,station): return false
 	var value:=state(game,station)
 	if int(value.level)>=3: game.message=game.LocaleSystem.ui("furnace_max"); return false
@@ -105,11 +111,11 @@ static func update(game: Node, delta: float) -> void:
 	if not expansion.has("workshops"): return
 	for station in Data.STATIONS:
 		if not expansion.workshops.has(station) or expansion.workshops[station].queue.is_empty(): continue
-		_advance(game,station,maxf(delta,0))
+		advance(game,station,expansion.workshops[station],maxf(delta,0))
 
 ## Завершает полные партии и останавливает термическую работу точно на исчерпании жара.
-static func _advance(game: Node, station: String, elapsed: float) -> void:
-	var value:=state(game,station); var thermal:bool=Data.STATIONS[station].thermal; var efficiency:float=Data.EFFICIENCY[int(value.level)-1]
+static func advance(game: Node, station: String, value: Dictionary, elapsed: float) -> void:
+	var thermal:bool=Data.STATIONS[station].thermal; var efficiency:float=Data.EFFICIENCY[int(value.level)-1]
 	while elapsed>0 and not value.queue.is_empty():
 		if thermal and float(value.heat)<=0: break
 		var job:Dictionary=value.queue[0]; var step:=minf(elapsed,float(job.remaining))

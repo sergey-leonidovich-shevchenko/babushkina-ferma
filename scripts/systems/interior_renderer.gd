@@ -15,7 +15,8 @@ static func draw(canvas: Node2D) -> void:
 	var data: Dictionary = canvas.BuildingSystem.interior(canvas.current_location)
 	if data.is_empty(): return
 	var room: Rect2 = data.room
-	if canvas.current_location=="cottage_interior": draw_cottage_shell(canvas,room)
+	if canvas.current_location=="cellar_workshop": preload("res://scripts/presentation/basement_room_renderer.gd").draw(canvas)
+	elif canvas.current_location=="cottage_interior": draw_cottage_shell(canvas,room)
 	else: draw_legacy_shell(canvas,room,data)
 	var props:=InteriorVisualSystem.props(canvas.current_location)
 	# Напольный декор всегда лежит под мебелью и персонажами, а не перекрывает их.
@@ -28,12 +29,15 @@ static func draw(canvas: Node2D) -> void:
 				InteriorVisualSystem.draw(canvas,String(prop.kind),Vector2(prop.position))
 	preload("res://scripts/presentation/alchemy_renderer.gd").draw_station(canvas)
 	preload("res://scripts/presentation/furnace_renderer.gd").draw_station(canvas)
+	preload("res://scripts/presentation/basement_renderer.gd").fixtures(canvas)
+	preload("res://scripts/presentation/basement_renderer.gd").objects(canvas,false)
 	var exit: Vector2 = data.exit
 	if canvas.current_location=="cottage_interior":
 		canvas.draw_texture_rect_region(COTTAGE_TILES,Rect2(exit-Vector2(46,20),Vector2(92,40)),COTTAGE_STONE,Color("d8b889"))
-	else:
+	elif canvas.current_location!="cellar_workshop":
 		canvas.draw_rect(Rect2(exit-Vector2(38,18),Vector2(76,36)),Color("39291f"))
-	for link in data.get("links", []): canvas.draw_circle(link.position,34,Color("d6ad52"),false,5)
+	for link in data.get("links", []):
+		if link.target!="cellar_workshop": canvas.draw_circle(link.position,34,Color("d6ad52"),false,5)
 
 
 ## Собирает остальные помещения из общих стен и тематического пола в том же масштабе, что дом.
@@ -49,6 +53,7 @@ static func draw_cottage_shell(canvas:Node2D,room:Rect2)->void:
 
 ## Возвращает напольную область под стеной, оставляя единый 24-пиксельный периметр помещения.
 static func floor_rect(room: Rect2) -> Rect2:
+	if room==preload("res://scripts/systems/basement_data.gd").ROOM: return preload("res://scripts/systems/basement_data.gd").FLOOR
 	var inner := room.grow(-24)
 	return Rect2(inner.position + Vector2(0, 144), inner.size - Vector2(0, 144))
 
@@ -106,6 +111,7 @@ static func is_foreground_prop(kind: String, position: Vector2, player: Vector2)
 ## Завершает интерьер после отрисовки героя, сохраняя честное перекрытие мебели, сундука и поставленных предметов.
 static func draw_foreground(canvas: Node2D) -> void:
 	if not canvas.BuildingSystem.is_interior(canvas.current_location): return
+	preload("res://scripts/presentation/basement_renderer.gd").objects(canvas,true)
 	for prop in InteriorVisualSystem.props(canvas.current_location):
 		if is_foreground_prop(String(prop.kind), Vector2(prop.position), canvas.player):
 			draw_prop(canvas, String(prop.kind), Vector2(prop.position))

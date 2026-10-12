@@ -1,7 +1,7 @@
 extends RefCounted
 
 const META := &"hero_action_pose"
-const TOOLS := ["hoe", "mine", "chop", "water", "plant", "harvest", "fish_cast"]
+const TOOLS := ["hoe", "mine", "chop", "water", "plant", "harvest", "fish_cast", "build"]
 const DURATION := 0.48
 
 

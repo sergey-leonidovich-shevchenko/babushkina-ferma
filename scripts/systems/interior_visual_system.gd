@@ -88,6 +88,7 @@ static func collision_rect(kind: String, position: Vector2) -> Rect2:
 
 ## Возвращает тематический набор комнаты либо стабильную пару для дополнительного этажа.
 static func props(location: String) -> Array:
+	if location=="cellar_workshop": return []
 	if ROOM_PROPS.has(location):
 		return ROOM_PROPS[location]
 	var kinds := ["bed", "shop", "contracts", "forge"]

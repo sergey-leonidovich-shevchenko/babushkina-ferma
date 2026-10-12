@@ -8,10 +8,14 @@ const CORE := {
 	"plots":[PLOT], "resource_hits":["n"],
 }
 const MEMORY := {"mission":"s", "day":"n", "state":"s", "gift_day":"n", "last_gift":"s", "personal_done":"b", "personal_day":"n"}
+const BASEMENT_JOB := {"!":["id","duration","remaining"],"id":"s","duration":"n","remaining":"n","paid":{"*":"n"}}
+const BASEMENT_PRODUCTION := {"!":["level","queue","heat","fuel","completed"],"level":"n","queue":[BASEMENT_JOB],"heat":"n","fuel":"s","completed":"n"}
+const BASEMENT_OBJECT := {"!":["id","kind","x","y","direction","level","phase","target","work","duration","energy","paid","production"],"id":"n","kind":"s","x":"n","y":"n","direction":"n","level":"n","phase":"s","target":"n","work":"n","duration":"n","energy":"n","paid":{"*":"n"},"production":BASEMENT_PRODUCTION}
 const EXPANSION := {
-	"workshops":{"*":{"level":"n","heat":"n","fuel":"s","completed":"n","queue":[{"!":["id","duration","remaining"],"id":"s","duration":"n","remaining":"n"}]}},
+	"basement":{"!":["version","next_id","objects"],"version":"n","next_id":"n","revision":"n","objects":[BASEMENT_OBJECT]},
+	"workshops":{"*":{"level":"n","heat":"n","fuel":"s","completed":"n","queue":[BASEMENT_JOB]}},
 	"research":{"level":"n","known":["s"],"dismantled":"n"},
-	"furnace":{"level":"n","heat":"n","fuel":"s","completed":"n","queue":[{"!":["id","duration","remaining"],"id":"s","duration":"n","remaining":"n"}]},
+	"furnace":{"level":"n","heat":"n","fuel":"s","completed":"n","queue":[BASEMENT_JOB]},
 	"alchemy":{"xp":"n","crafted":"n","discovered":["s"],"effects":{"*":"n"}},
 	"livestock_started":"b", "first_day":"n", "animals":{"*":{"!":["fed_day", "collected_day", "bond"], "fed_day":"n", "collected_day":"n", "bond":"n", "water_day":"n", "pet_day":"n", "ready":"n", "production_day":"n", "last_yield_day":"n"}},
 	"furniture":[{"!":["kind", "position"], "kind":"s", "position":"p"}], "build_mode":"b", "build_index":"n",
@@ -50,6 +54,8 @@ static func valid(data: Dictionary) -> bool:
 	for key in CORE:
 		if not data.has(key) or not _matches(data[key], CORE[key]): return false
 	if not _matches(data, OPTIONAL): return false
+	var expansion:Dictionary=data.get("estate",{}).get("expansion",{})
+	if expansion.has("basement") and not preload("res://scripts/systems/basement_system.gd").valid(expansion.basement): return false
 	# Панель инструментов обращается к десяти ячейкам по фиксированным индексам.
 	return data.hotbar.size() == 10 and not data.location.is_empty()
 

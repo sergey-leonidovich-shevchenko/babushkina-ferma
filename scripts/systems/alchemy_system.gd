@@ -36,6 +36,7 @@ static func unlocked(game: Node, recipe: Dictionary) -> bool:
 
 ## Сохраняет привязку обработки к настоящему домашнему столу даже при вызове из внешнего API.
 static func at_station(game: Node) -> bool:
+	if not preload("res://scripts/systems/basement_station_system.gd").active(game,"alchemy").is_empty(): return true
 	return game.current_location=="cottage_interior" and game.player.distance_to(STATION)<=92.0
 
 ## Проводит одну точную партию с побочным жмыхом и опытом только за новое открытие.

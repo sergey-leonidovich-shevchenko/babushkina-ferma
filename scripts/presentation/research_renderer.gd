@@ -26,7 +26,7 @@ static func payload(game: Node, entry: Dictionary) -> String:
 static func draw(game: Node) -> void:
 	var Shell=game.ItemWindowRenderer
 	var study:bool=game.crafting_station=="study"; var value:=Research.state(game)
-	Shell.draw_shell(game,game.LocaleSystem.ui("study_title",[value.level]) if study else game.LocaleSystem.ui("recycling_title"))
+	Shell.draw_shell(game,game.LocaleSystem.ui("study_title",[Research.level(game)]) if study else game.LocaleSystem.ui("recycling_title"))
 	Shell.draw_section(game,Shell.CRAFT_SECTION)
 	game.draw_ui_string(game.UI_FONT,Vector2(220,140),game.LocaleSystem.ui("study_progress",[value.known.size(),Research.Data.ENTRIES.size()]),HORIZONTAL_ALIGNMENT_LEFT,450,12,Kit.COLORS.ink)
 	if study:

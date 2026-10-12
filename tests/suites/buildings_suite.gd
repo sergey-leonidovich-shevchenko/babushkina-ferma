@@ -28,6 +28,7 @@ func test_back_walls_are_solid_and_door_passages_remain_open() -> void:
 		expect(not game.BuildingSystem.is_walkable_inside(location, back_wall, game.PLAYER_RADIUS), "back wall cannot be walked over: %s" % location)
 		expect(game.BuildingSystem.is_walkable_inside(location, data.spawn, game.PLAYER_RADIUS), "interior spawn remains on accessible floor: %s" % location)
 		var approach := Vector2(data.exit.x, floor.end.y - game.PLAYER_RADIUS - 2.0)
+		if location=="cellar_workshop": approach=data.exit+Vector2(0,30)
 		expect(game.BuildingSystem.is_walkable_inside(location, approach, game.PLAYER_RADIUS) and approach.distance_to(data.exit) < game.LocationTransitionSystem.TRIGGER_RADIUS, "interior exit trigger is reachable from floor: %s" % location)
 	game.current_location = "castle_hall"
 	game.player = Vector2(1490, 312)
@@ -42,7 +43,7 @@ func test_back_walls_are_solid_and_door_passages_remain_open() -> void:
 func test_building_catalog_entry_exit_and_collision() -> void:
 	var game := make_game()
 	expect(game.BuildingSystem.BUILDINGS.size() == 8, "eight distinct exterior buildings are configured")
-	expect(game.BuildingSystem.INTERIORS.size() == 10, "buildings expose ten separate interior locations")
+	expect(game.BuildingSystem.INTERIORS.size() == 11, "buildings expose eleven separate interiors including the workshop cellar")
 	expect(game.BuildingVisualSystem.TEXTURES.size()==8 and game.BuildingVisualSystem.PROFILES.size()==8, "eight independent building sprites own eight modular geometry profiles")
 	for building_id in game.BuildingSystem.BUILDINGS:
 		var profile:Dictionary=game.BuildingVisualSystem.profile(building_id); var texture:Texture2D=game.BuildingVisualSystem.texture(building_id); var image:Image=texture.get_image(); var destination:Rect2=game.BuildingSystem.destination_rect(building_id); var door_rect:Rect2=game.BuildingSystem.door_rect(building_id); var solids:Array[Rect2]=game.BuildingSystem.collision_rects(building_id)

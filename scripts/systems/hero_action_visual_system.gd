@@ -2,7 +2,7 @@ extends RefCounted
 
 const ROOT := "res://assets/game/characters/hero_v3/actions_v2/"
 const Actions := preload("res://scripts/systems/hero_action_system.gd")
-const TOOLS := {"mine":"pickaxe","chop":"axe","water":"watering","fish_cast":"fishing"}
+const TOOLS := {"mine":"pickaxe","chop":"axe","water":"watering","fish_cast":"fishing","build":"hammer"}
 const WEAPONS := {"war_hammer":"hammer","moon_staff":"staff","axe":"axe"}
 static var _catalog: Dictionary = {}
 static var _textures: Dictionary = {}

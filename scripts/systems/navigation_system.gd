@@ -44,6 +44,7 @@ static func is_walkable(game: Node, position: Vector2) -> bool:
 ## Объясняет результат навигации кодом конкретного препятствия для игровой диагностики.
 ## Reference-режим отключает только broadphase для сравнений, не меняя правила коллизий или состояние мира.
 static func walkability_reason(game: Node, position: Vector2, ignored_enemy: int = -1, include_enemies: bool = true, use_broadphase: bool = true) -> String:
+	if game.current_location=="cellar_workshop": return "walkable" if game.BasementSystem.walkable(game,position,game.PLAYER_RADIUS) else "basement_obstacle"
 	if game.DebugPlaygroundSystem.active(game): return "walkable" if game.DebugPlaygroundSystem.is_walkable(game, position, game.PLAYER_RADIUS) else "debug_obstacle"
 	if game.PublishedLevelSystem.blocks_position(game,position,game.PLAYER_RADIUS): return "published_collision"
 	if game.MoonGladeSystem.blocks_position(game, position, game.PLAYER_RADIUS): return "guardian"

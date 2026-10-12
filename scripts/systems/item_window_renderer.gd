@@ -94,6 +94,8 @@ static func draw_crafting(game: Node) -> void:
 	if game.crafting_station=="alchemy": title=game.LocaleSystem.ui("alchemy_title",[game.CraftingSystem.Alchemy.rank(game)])
 	if game.crafting_station=="furnace": title=game.LocaleSystem.ui("furnace_title",[game.FurnaceSystem.state(game).level])
 	if game.WorkshopSystem.handles(game.crafting_station): title=game.LocaleSystem.ui(game.crafting_station+"_title",[game.WorkshopSystem.state(game,game.crafting_station).level])
+	var local:Dictionary=preload("res://scripts/systems/basement_station_system.gd").active(game,game.crafting_station)
+	if not local.is_empty(): title=game.LocaleSystem.ui("basement_level",[preload("res://scripts/systems/basement_locale.gd").name_for(game,local.kind),local.level])
 	draw_shell(game, title)
 	if game.crafting_station=="alchemy":
 		draw_table_header(game,ALCHEMY_FILTER)

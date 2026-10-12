@@ -1,6 +1,7 @@
 extends RefCounted
 
 const Data := preload("res://scripts/systems/research_data.gd")
+const BasementStations := preload("res://scripts/systems/basement_station_system.gd")
 const STUDY_POINT := Vector2(340,470)
 const BENCH_POINT := Vector2(315,480)
 
@@ -22,12 +23,17 @@ static func restore(game: Node) -> void:
 static func handles(station: String) -> bool:
 	return station in ["study","recycling"]
 
+## Возвращает сложность выбранного личного стола при общей постоянной памяти исследованных видов.
+static func level(game: Node) -> int:
+	return BasementStations.level(game,"study",int(state(game).level))
+
 ## Проверяет постоянное знание состава для разборки и дополнительных рецептов.
 static func learned(game: Node, kind: String) -> bool:
 	return kind in state(game).known
 
 ## Проверяет настоящую точку подхода к столу гильдии либо левому верстаку кузницы.
 static func at_station(game: Node, station: String) -> bool:
+	if not BasementStations.active(game,station).is_empty(): return true
 	return (station=="study" and game.current_location=="guild_interior" and game.player.distance_to(STUDY_POINT)<=80) or (station=="recycling" and game.current_location=="forge_interior" and game.player.distance_to(BENCH_POINT)<=80)
 
 ## Даёт устойчивые индексы исследуемых предметов для выбора, колеса и клавиатуры.
@@ -66,9 +72,10 @@ static func material_text(game: Node, counts: Dictionary, show_stock: bool=false
 ## Объясняет первое недоступное требование до любой мутации денег, энергии или вещей.
 static func reason(game: Node, entry: Dictionary, station: String) -> String:
 	if not at_station(game,station): return game.LocaleSystem.ui("study_station_need")
+	if station=="recycling" and BasementStations.level(game,station,3)<int(entry.tier): return game.LocaleSystem.ui("study_level_need",[entry.tier])
 	if station=="study":
 		if learned(game,entry.kind): return game.LocaleSystem.ui("study_known")
-		if int(state(game).level)<int(entry.tier): return game.LocaleSystem.ui("study_level_need",[entry.tier])
+		if level(game)<int(entry.tier): return game.LocaleSystem.ui("study_level_need",[entry.tier])
 		if game.inventory_item_count(entry.kind)<1: return game.LocaleSystem.ui("study_sample_need")
 		var cost:Dictionary=Data.COSTS[int(entry.tier)-1]
 		if game.coins<int(cost.coins): return game.LocaleSystem.ui("study_need_money",[cost.coins])
@@ -114,6 +121,7 @@ static func bulk(game: Node, index: int, requested: int) -> int:
 
 ## Возвращает полную цену следующего улучшения из того же источника, что выполняет списание.
 static func upgrade_text(game: Node) -> String:
+	if not BasementStations.active(game,"study").is_empty(): return game.LocaleSystem.ui("basement_upgrade_board")
 	var value:=state(game)
 	if int(value.level)>=3: return game.LocaleSystem.ui("furnace_max")
 	var cost:Dictionary=Data.UPGRADES[int(value.level)-1]
@@ -121,6 +129,7 @@ static func upgrade_text(game: Node) -> String:
 
 ## Атомарно улучшает исследовательский стол до третьего уровня в его настоящей точке.
 static func upgrade(game: Node) -> bool:
+	if BasementStations.blueprint_upgrade_required(game,"study"): return false
 	var value:=state(game)
 	if not at_station(game,"study") or int(value.level)>=3: return false
 	var cost:Dictionary=Data.UPGRADES[int(value.level)-1]

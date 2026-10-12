@@ -125,6 +125,7 @@ static func draw_objective_card(game: Node) -> void:
 
 ## Показывает команду взаимодействия в углу экрана, не закрывая выбранный объект.
 static func draw_interaction_prompt(game: Node, ui) -> void:
+	if game.BasementSystem.modal(game): return
 	if game.inventory_open or game.shop_open or game.quest_log_open or game.world_map_open or game.skill_menu_open or game.crafting_open or game.storage_open or game.forge_open or game.contract_open or game.AdventurePolishSystem.has_modal(game): return
 	var interaction: String = game.nearest_interaction()
 	if interaction.is_empty(): return

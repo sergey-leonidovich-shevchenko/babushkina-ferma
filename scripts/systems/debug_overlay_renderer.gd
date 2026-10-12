@@ -119,6 +119,9 @@ static func farming_reason_color(reason: String) -> Color:
 ## Показывает точные известные окружности и прямоугольники физических объектов.
 static func draw_hitboxes(game: Node2D) -> void:
 	game.draw_circle(game.player, game.PLAYER_RADIUS, WALKABLE, false, 3.0)
+	if game.current_location=="cellar_workshop":
+		for item in game.BasementSystem.state(game).objects:
+			game.draw_rect(game.BasementSystem.Layout.rect(item),STATIC_BLOCKED,false,2); game.draw_circle(game.BasementSystem.Layout.center(game.BasementSystem.Layout.approach_cell(item)),12,WALKABLE,false,2)
 	for building_id in game.BuildingSystem.buildings_at(game.current_location):
 		for solid in game.BuildingSystem.collision_rects(building_id): game.draw_rect(solid,STATIC_BLOCKED,false,3.0)
 		game.draw_rect(game.BuildingSystem.door_rect(building_id),WALKABLE if game.BuildingSystem.can_enter(game,building_id) else STATIC_BLOCKED,false,3.0)
