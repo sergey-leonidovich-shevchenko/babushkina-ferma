@@ -21,6 +21,7 @@ const CRAFT_INGREDIENT_NAMES := {
 
 ## Называет ингредиент, сохраняя ботанический источник и вид обработки в компактной строке.
 static func crafting_ingredient(kind: String) -> String:
+	if preload("res://scripts/systems/research_data.gd").ITEMS.has(kind): return item(kind)
 	if preload("res://scripts/systems/furnace_data.gd").ITEMS.has(kind): return item(kind)
 	var Herbs:=preload("res://scripts/systems/alchemy_herb_data.gd")
 	var herb:=Herbs.herb_for(kind)
@@ -833,8 +834,8 @@ static func set_locale(code: String, persist: bool = true, path: String = SETTIN
 		return config.save(path) == OK
 	return true
 
-static var UI: Dictionary = BASE_UI.merged(preload("res://scripts/systems/alchemy_locale.gd").UI).merged(preload("res://scripts/systems/furnace_locale.gd").UI)
+static var UI: Dictionary = BASE_UI.merged(preload("res://scripts/systems/alchemy_locale.gd").UI).merged(preload("res://scripts/systems/furnace_locale.gd").UI).merged(preload("res://scripts/systems/research_locale.gd").UI)
 
-static var ITEMS: Dictionary = BASE_ITEMS.merged(preload("res://scripts/systems/alchemy_product_data.gd").names()).merged(preload("res://scripts/systems/furnace_data.gd").names())
+static var ITEMS: Dictionary = BASE_ITEMS.merged(preload("res://scripts/systems/alchemy_product_data.gd").names()).merged(preload("res://scripts/systems/furnace_data.gd").names()).merged(preload("res://scripts/systems/research_data.gd").names())
 
-static var TUTORIAL: Dictionary = BASE_TUTORIAL.merged(preload("res://scripts/systems/alchemy_locale.gd").TUTORIAL).merged(preload("res://scripts/systems/furnace_locale.gd").TUTORIAL)
+static var TUTORIAL: Dictionary = BASE_TUTORIAL.merged(preload("res://scripts/systems/alchemy_locale.gd").TUTORIAL).merged(preload("res://scripts/systems/furnace_locale.gd").TUTORIAL).merged(preload("res://scripts/systems/research_locale.gd").TUTORIAL)

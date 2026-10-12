@@ -53,8 +53,8 @@ static func products() -> Array:
 
 ## Находит сохраняемый рецепт по ID, различая руду, лом и восстановление шлака.
 static func recipe(id: String) -> Dictionary:
-	for value in RECIPES:
-		if value.id==id: return value
+	for value in RECIPES+preload("res://scripts/systems/research_data.gd").RECIPES:
+		if value.id==id and value.get("station","")=="furnace": return value
 	return {}
 
 ## Дополняет производственные записи именем для общих справочников и окна крафта.

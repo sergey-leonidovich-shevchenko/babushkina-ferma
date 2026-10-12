@@ -23,6 +23,7 @@ static func validate() -> Array[String]:
 	var errors: Array[String] = []
 	errors.append_array(WorldVisualAuditSystem.validation_errors())
 	var items: Dictionary = InventorySystem.ITEM_DATA
+	errors.append_array(preload("res://scripts/systems/research_system.gd").validation_errors(items))
 	for recipe_index in CraftingSystem.RECIPES.size():
 		var recipe: Dictionary = CraftingSystem.RECIPES[recipe_index]
 		_validate_item(errors, items, recipe.output, "recipe[%d].output" % recipe_index)

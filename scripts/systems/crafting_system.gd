@@ -56,14 +56,16 @@ const MAX_BATCH := 99
 
 const Alchemy := preload("res://scripts/systems/alchemy_system.gd")
 const Furnace := preload("res://scripts/systems/furnace_system.gd")
-static var RECIPES: Array = BASE_RECIPES + preload("res://scripts/systems/alchemy_recipe_data.gd").recipes() + Furnace.Data.recipes()
+const Research := preload("res://scripts/systems/research_system.gd")
+static var RECIPES: Array = BASE_RECIPES + preload("res://scripts/systems/alchemy_recipe_data.gd").recipes() + Furnace.Data.recipes() + Research.Data.RECIPES
 
 ## Разделяет точный расход кухонных продуктов и экономию сырья ремесленного таланта на верстаке.
 static func material_cost(game: Node, recipe: Dictionary, kind: String) -> int:
-	return int(recipe.inputs[kind]) if recipe.get("station","workbench")!="workbench" else game.TalentSystem.recipe_material_cost(game,int(recipe.inputs[kind]))
+	return int(recipe.inputs[kind]) if recipe.get("station","workbench")!="workbench" or recipe.has("study_kind") or recipe.get("research_supply",false) else game.TalentSystem.recipe_material_cost(game,int(recipe.inputs[kind]))
 
 ## Возвращает индексы рецептов, относящихся к открытому верстаку или котелку.
 static func visible_indices(game: Node) -> Array[int]:
+	if Research.handles(game.crafting_station): return Research.indices(game)
 	var result: Array[int] = []
 	for index in RECIPES.size():
 		if String(RECIPES[index].get("station", "workbench")) == game.crafting_station:
@@ -73,6 +75,7 @@ static func visible_indices(game: Node) -> Array[int]:
 
 ## Открывает нужную станцию и выбирает первый относящийся к ней рецепт.
 static func open(game: Node, station: String = "workbench") -> void:
+	if Research.handles(station): Research.open(game,station); return
 	game.crafting_open = true
 	game.crafting_station = station
 	var visible := visible_indices(game)
@@ -86,6 +89,7 @@ static func open(game: Node, station: String = "workbench") -> void:
 
 ## Обрабатывает клавиатуру и геймпад общего окна верстака или котелка.
 static func handle_input(game: Node, event: InputEvent) -> void:
+	if Research.handles(game.crafting_station): Research.handle_input(game,event); return
 	if game.crafting_station=="furnace" and Furnace.handle_controls(game,event): return
 	var move_offset := 0
 	var accept := false
@@ -125,6 +129,7 @@ static func recipe_at(game: Node, position: Vector2) -> int:
 
 ## Проверяет условие «возможности крафта» без изменения состояния.
 static func can_craft(game: Node, recipe: Dictionary) -> bool:
+	if recipe.has("study_kind") and not Research.learned(game,recipe.study_kind): return false
 	if recipe.get("station","workbench")!=game.crafting_station: return false
 	if game.crafting_station=="furnace" and not Furnace.can_enqueue(game,recipe): return false
 	if game.crafting_station=="alchemy" and (not Alchemy.at_station(game) or not Alchemy.unlocked(game,recipe)): return false
@@ -149,8 +154,10 @@ static func max_craftable(game: Node, recipe: Dictionary) -> int:
 
 ## Выполняет операцию «крафта» и возвращает результат согласно контракту метода.
 static func craft(game: Node, index: int) -> bool:
+	if Research.handles(game.crafting_station): return Research.execute(game,index)
 	if index < 0 or index >= RECIPES.size(): return false
 	var recipe: Dictionary = RECIPES[index]
+	if recipe.has("study_kind") and not Research.learned(game,recipe.study_kind): game.message=game.LocaleSystem.ui("study_blueprint_need",[game.inventory_item_name(recipe.study_kind)]); return false
 	if game.crafting_station=="furnace" and recipe.get("station","")=="furnace": return Furnace.enqueue(game,recipe)
 	if recipe.get("station","workbench")!=game.crafting_station:
 		game.message=game.LocaleSystem.ui("craft_wrong_station",[station_name(game,String(recipe.get("station","workbench")))]); return false
@@ -168,7 +175,7 @@ static func craft(game: Node, index: int) -> bool:
 	if game.crafting_station=="workbench": game.state.player.profile.workbench_crafts=int(game.state.player.profile.workbench_crafts)+1
 	game.state.player.craft_count += 1
 	var crafted_count: int = int(recipe.count)
-	if game.crafting_station=="workbench" and game.TalentSystem.has(game, "craft_master") and int(game.state.player.profile.workbench_crafts) % 5 == 0:
+	if game.crafting_station=="workbench" and not recipe.has("study_kind") and not recipe.get("research_supply",false) and game.TalentSystem.has(game, "craft_master") and int(game.state.player.profile.workbench_crafts) % 5 == 0:
 		crafted_count += int(recipe.count)
 	game.change_inventory_count(recipe.output, crafted_count)
 	if recipe.output == "home_chest": game.StorageSystem.install(game)
@@ -182,11 +189,13 @@ static func craft(game: Node, index: int) -> bool:
 	if recipe.output in ["plank","nails"]: game.notify_tutorial("lumber_process")
 	if recipe.output=="animal_feed": game.notify_tutorial("animal_feed_recipe")
 	if recipe.output in ["yarn","cloth","woven_rug"]: game.notify_tutorial("textile_chain")
+	if recipe.has("study_kind"): game.notify_tutorial("study_reuse")
 	if game.crafting_station == "cauldron": game.notify_tutorial("cooking")
 	return true
 
 ## Создаёт несколько полных партий одного рецепта, останавливаясь до первого недоступного повтора.
 static func craft_many(game: Node, index: int, requested: int) -> int:
+	if Research.handles(game.crafting_station): return Research.bulk(game,index,requested)
 	if index < 0 or index >= RECIPES.size(): return 0
 	var crafted_batches := 0
 	var target: int = mini(maxi(requested, 0), max_craftable(game, RECIPES[index]))
@@ -207,6 +216,7 @@ static func category_name(game: Node, recipe: Dictionary) -> String:
 
 ## Описывает выход партии и возможное число повторов для подробной карточки рецепта.
 static func production_summary(game: Node, recipe: Dictionary) -> String:
+	if recipe.has("study_kind") and not Research.learned(game,recipe.study_kind): return game.LocaleSystem.ui("study_blueprint_need",[game.inventory_item_name(recipe.study_kind)])
 	if recipe.get("station","")=="furnace": return Furnace.summary(game,recipe)
 	if recipe.get("station","")=="alchemy":
 		if not Alchemy.at_station(game): return game.LocaleSystem.ui("alchemy_station_need")
@@ -237,5 +247,6 @@ static func row_ingredients_text(game: Node, recipe: Dictionary) -> String:
 
 ## Называет физическую станцию для ошибки рецепта без неверного упоминания верстака.
 static func station_name(game: Node, station: String) -> String:
+	if Research.handles(station): return game.LocaleSystem.ui("study_service" if station=="study" else "recycling_service")
 	if station=="furnace": return game.LocaleSystem.ui("furnace_service")
 	return game.LocaleSystem.ui("alchemy_service" if station=="alchemy" else ("cauldron_title" if station=="cauldron" else "workbench"))

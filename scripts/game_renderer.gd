@@ -430,6 +430,7 @@ func fallback_item_glyph(kind: String) -> String:
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_item_icon(kind: String, rect: Rect2) -> void:
+	if preload("res://scripts/presentation/research_icon_system.gd").draw_item(self,kind,rect): return
 	if preload("res://scripts/presentation/furnace_renderer.gd").draw_item(self,kind,rect): return
 	if preload("res://scripts/presentation/alchemy_renderer.gd").draw_item(self,kind,rect): return
 	var texture := item_texture(kind)

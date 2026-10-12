@@ -34,7 +34,7 @@ const INITIAL_COUNTS := {
 }
 
 var counts: Dictionary = initial_counts()
-var slots: Array = DEFAULT_SLOTS + preload("res://scripts/systems/alchemy_product_data.gd").names().keys() + preload("res://scripts/systems/furnace_data.gd").ITEMS.keys()
+var slots: Array = DEFAULT_SLOTS + preload("res://scripts/systems/alchemy_product_data.gd").names().keys() + preload("res://scripts/systems/furnace_data.gd").ITEMS.keys() + preload("res://scripts/systems/research_data.gd").ITEMS.keys()
 var hotbar: Array = DEFAULT_HOTBAR.duplicate()
 var equipment: Dictionary = DEFAULT_EQUIPMENT.duplicate(true)
 var selected_slot: int = 0
@@ -96,4 +96,5 @@ static func initial_counts() -> Dictionary:
 	var result:=INITIAL_COUNTS.duplicate(true)
 	for kind in preload("res://scripts/systems/alchemy_product_data.gd").names(): result[kind]=0
 	for kind in preload("res://scripts/systems/furnace_data.gd").ITEMS: result[kind]=0
+	for kind in preload("res://scripts/systems/research_data.gd").ITEMS: result[kind]=0
 	return result

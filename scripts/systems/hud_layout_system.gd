@@ -115,6 +115,8 @@ static func interaction_label(game: Node, interaction: String) -> String:
 	elif interaction=="interior_service:bed": key="context_sleep"
 	elif interaction=="interior_service:alchemy": key="alchemy_context"
 	elif interaction=="interior_service:furnace": key="furnace_context"
+	elif interaction=="interior_service:study": key="study_context"
+	elif interaction=="interior_service:recycling": key="recycling_context"
 	elif interaction in ["interior_service:craft","interior_service:cauldron"]: key="context_craft"
 	elif interaction == "cave_altar": key = "context_awaken"
 	elif interaction == "crate": key = "context_sell"

@@ -103,6 +103,7 @@ static func update(game: Node, delta: float) -> void:
 		game.change_inventory_count(recipe.output,int(recipe.count))
 		for kind in recipe.get("byproducts",{}): game.change_inventory_count(kind,int(recipe.byproducts[kind]))
 		value.completed+=1; game.state.player.craft_count+=1; game.award_xp(3); game.SkillSystem.award_profession_xp(game,"smithing",4)
+		if recipe.has("study_kind"): game.notify_tutorial("study_reuse")
 		game.message=game.LocaleSystem.ui("furnace_finished",[game.inventory_item_name(recipe.output),recipe.count]); game.notify_tutorial("furnace_done")
 
 ## Показывает запас, остановку или оставшееся время первой партии в том же меню, где выбирается рецепт.
@@ -113,6 +114,7 @@ static func status(game: Node) -> String:
 
 ## Описывает требования или реальный отложенный выход, не обещая мгновенного предмета.
 static func summary(game: Node, recipe: Dictionary) -> String:
+	if recipe.has("study_kind") and not game.ResearchSystem.learned(game,recipe.study_kind): return game.LocaleSystem.ui("study_blueprint_need",[game.inventory_item_name(recipe.study_kind)])
 	var value:=state(game)
 	if not at_station(game): return game.LocaleSystem.ui("furnace_station_need")
 	if int(value.level)<int(recipe.furnace_level): return game.LocaleSystem.ui("furnace_level_need",[recipe.furnace_level])

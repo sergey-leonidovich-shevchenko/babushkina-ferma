@@ -1,0 +1,531 @@
+{
+  "entries": [
+    {
+      "batch": 2,
+      "kind": "plank",
+      "parts": {
+        "wood_offcut": 2
+      },
+      "tier": 1
+    },
+    {
+      "batch": 8,
+      "kind": "nails",
+      "parts": {
+        "metal_scrap": 1
+      },
+      "tier": 1
+    },
+    {
+      "batch": 1,
+      "kind": "rope",
+      "parts": {
+        "fiber": 1
+      },
+      "tier": 1
+    },
+    {
+      "batch": 1,
+      "kind": "cloth",
+      "parts": {
+        "cloth_scrap": 2
+      },
+      "tier": 1
+    },
+    {
+      "batch": 2,
+      "kind": "yarn",
+      "parts": {
+        "fiber": 1
+      },
+      "tier": 1
+    },
+    {
+      "batch": 1,
+      "kind": "wooden_chair",
+      "parts": {
+        "metal_scrap": 1,
+        "wood_offcut": 3
+      },
+      "tier": 1
+    },
+    {
+      "batch": 1,
+      "kind": "rustic_table",
+      "parts": {
+        "metal_scrap": 1,
+        "wood_offcut": 6
+      },
+      "tier": 1
+    },
+    {
+      "batch": 1,
+      "kind": "wooden_wardrobe",
+      "parts": {
+        "metal_scrap": 2,
+        "wood_offcut": 8
+      },
+      "tier": 1
+    },
+    {
+      "batch": 1,
+      "kind": "woven_rug",
+      "parts": {
+        "cloth_scrap": 3,
+        "fiber": 1
+      },
+      "tier": 1
+    },
+    {
+      "batch": 1,
+      "kind": "potted_fern",
+      "parts": {
+        "fiber": 1,
+        "stone": 1
+      },
+      "tier": 1
+    },
+    {
+      "batch": 1,
+      "kind": "glass_vial",
+      "parts": {
+        "glass_shard": 1
+      },
+      "tier": 1
+    },
+    {
+      "batch": 1,
+      "kind": "glass",
+      "parts": {
+        "glass_shard": 2
+      },
+      "tier": 1
+    },
+    {
+      "batch": 1,
+      "kind": "crab_trap",
+      "parts": {
+        "fiber": 1,
+        "metal_scrap": 1,
+        "wood_offcut": 3
+      },
+      "tier": 1
+    },
+    {
+      "batch": 1,
+      "kind": "sword",
+      "parts": {
+        "slime": 1,
+        "wood_offcut": 1
+      },
+      "tier": 1
+    },
+    {
+      "batch": 1,
+      "kind": "iron_spear",
+      "parts": {
+        "metal_scrap": 4,
+        "wood_offcut": 2
+      },
+      "tier": 2
+    },
+    {
+      "batch": 1,
+      "kind": "war_hammer",
+      "parts": {
+        "metal_scrap": 6,
+        "stone": 2
+      },
+      "tier": 2
+    },
+    {
+      "batch": 1,
+      "kind": "iron_helmet",
+      "parts": {
+        "metal_scrap": 3
+      },
+      "tier": 2
+    },
+    {
+      "batch": 1,
+      "kind": "guardian_armor",
+      "parts": {
+        "arcane_dust": 1,
+        "metal_scrap": 6
+      },
+      "tier": 2
+    },
+    {
+      "batch": 1,
+      "kind": "oak_shield",
+      "parts": {
+        "metal_scrap": 1,
+        "wood_offcut": 3
+      },
+      "tier": 2
+    },
+    {
+      "batch": 1,
+      "kind": "travel_boots",
+      "parts": {
+        "cloth_scrap": 2,
+        "hide": 1
+      },
+      "tier": 2
+    },
+    {
+      "batch": 1,
+      "kind": "cauldron",
+      "parts": {
+        "metal_scrap": 4
+      },
+      "tier": 2
+    },
+    {
+      "batch": 1,
+      "kind": "bow",
+      "parts": {
+        "fiber": 1,
+        "wood_offcut": 2
+      },
+      "tier": 2
+    },
+    {
+      "batch": 1,
+      "kind": "orc_blade",
+      "parts": {
+        "metal_scrap": 3
+      },
+      "tier": 2
+    },
+    {
+      "batch": 1,
+      "kind": "pirate_cutlass",
+      "parts": {
+        "metal_scrap": 3,
+        "wood_offcut": 1
+      },
+      "tier": 2
+    },
+    {
+      "batch": 1,
+      "kind": "crystal_ring",
+      "parts": {
+        "arcane_dust": 1,
+        "metal_scrap": 2
+      },
+      "tier": 2
+    },
+    {
+      "batch": 1,
+      "kind": "advanced_fishing_rod",
+      "parts": {
+        "fiber": 1,
+        "metal_scrap": 2,
+        "wood_offcut": 2
+      },
+      "tier": 2
+    },
+    {
+      "batch": 1,
+      "kind": "crystal_sword",
+      "parts": {
+        "arcane_dust": 3,
+        "metal_scrap": 2
+      },
+      "tier": 3
+    },
+    {
+      "batch": 1,
+      "kind": "moon_staff",
+      "parts": {
+        "arcane_dust": 4,
+        "wood_offcut": 2
+      },
+      "tier": 3
+    },
+    {
+      "batch": 1,
+      "kind": "blue_gem",
+      "parts": {
+        "arcane_dust": 2
+      },
+      "tier": 3
+    },
+    {
+      "batch": 1,
+      "kind": "crystal",
+      "parts": {
+        "arcane_dust": 2
+      },
+      "tier": 3
+    }
+  ],
+  "items": {
+    "arcane_dust": {
+      "buy": 0,
+      "color": "8fbee1",
+      "icon": "blue_gem",
+      "names": [
+        "Кристальная пыль",
+        "Crystal dust",
+        "Polvo de cristal",
+        "Kristallstaub",
+        "Poudre de cristal",
+        "晶体粉末"
+      ],
+      "sell": 0
+    },
+    "cloth_scrap": {
+      "buy": 0,
+      "color": "a9bda1",
+      "icon": "cloth",
+      "names": [
+        "Лоскуты ткани",
+        "Cloth scraps",
+        "Retales de tela",
+        "Stoffreste",
+        "Chutes de tissu",
+        "布料碎片"
+      ],
+      "sell": 0
+    },
+    "glass_shard": {
+      "buy": 0,
+      "color": "b6d5d8",
+      "icon": "crystal",
+      "names": [
+        "Стеклянные осколки",
+        "Glass shards",
+        "Fragmentos de vidrio",
+        "Glasscherben",
+        "Éclats de verre",
+        "玻璃碎片"
+      ],
+      "sell": 0
+    },
+    "research_ink": {
+      "buy": 5,
+      "color": "52616f",
+      "icon": "mana_potion",
+      "names": [
+        "Исследовательские чернила",
+        "Research ink",
+        "Tinta de estudio",
+        "Forschungstinte",
+        "Encre de recherche",
+        "研究墨水"
+      ],
+      "sell": 1
+    },
+    "research_paper": {
+      "buy": 3,
+      "color": "ddcba7",
+      "icon": "cloth",
+      "names": [
+        "Исследовательская бумага",
+        "Research paper",
+        "Papel de estudio",
+        "Forschungspapier",
+        "Papier de recherche",
+        "研究纸"
+      ],
+      "sell": 1
+    },
+    "wood_offcut": {
+      "buy": 0,
+      "color": "b88b58",
+      "icon": "plank",
+      "names": [
+        "Деревянные обрезки",
+        "Wood offcuts",
+        "Recortes de madera",
+        "Holzreste",
+        "Chutes de bois",
+        "木料边角"
+      ],
+      "sell": 0
+    }
+  },
+  "recipes": [
+    {
+      "category": "processing",
+      "count": 3,
+      "id": "research:paper",
+      "inputs": {
+        "clean_water": 1,
+        "fiber": 2
+      },
+      "name": "research_paper",
+      "output": "research_paper",
+      "research_supply": true
+    },
+    {
+      "category": "processing",
+      "count": 3,
+      "id": "research:ink",
+      "inputs": {
+        "charcoal": 1,
+        "clean_water": 1
+      },
+      "name": "research_ink",
+      "output": "research_ink",
+      "research_supply": true
+    },
+    {
+      "category": "processing",
+      "count": 2,
+      "id": "recovery:plank",
+      "inputs": {
+        "nails": 1,
+        "wood_offcut": 4
+      },
+      "name": "plank",
+      "output": "plank",
+      "study_kind": "plank"
+    },
+    {
+      "category": "processing",
+      "count": 1,
+      "id": "recovery:cloth",
+      "inputs": {
+        "cloth_scrap": 4,
+        "fiber": 1
+      },
+      "name": "cloth",
+      "output": "cloth",
+      "study_kind": "cloth"
+    },
+    {
+      "category": "construction",
+      "count": 1,
+      "id": "recovery:chair",
+      "inputs": {
+        "nails": 2,
+        "wood_offcut": 5
+      },
+      "name": "wooden_chair",
+      "output": "wooden_chair",
+      "study_kind": "wooden_chair"
+    },
+    {
+      "category": "equipment",
+      "count": 1,
+      "id": "recovery:spear",
+      "inputs": {
+        "metal_scrap": 6,
+        "nails": 2,
+        "plank": 2
+      },
+      "name": "iron_spear",
+      "output": "iron_spear",
+      "study_kind": "iron_spear"
+    },
+    {
+      "category": "equipment",
+      "count": 1,
+      "id": "recovery:helmet",
+      "inputs": {
+        "metal_scrap": 5,
+        "stone": 2
+      },
+      "name": "iron_helmet",
+      "output": "iron_helmet",
+      "study_kind": "iron_helmet"
+    },
+    {
+      "category": "equipment",
+      "count": 1,
+      "id": "recovery:boots",
+      "inputs": {
+        "cloth_scrap": 4,
+        "hide": 2
+      },
+      "name": "travel_boots",
+      "output": "travel_boots",
+      "study_kind": "travel_boots"
+    },
+    {
+      "category": "equipment",
+      "count": 1,
+      "id": "recovery:cauldron",
+      "inputs": {
+        "metal_scrap": 6,
+        "stone": 3
+      },
+      "name": "cauldron",
+      "output": "cauldron",
+      "study_kind": "cauldron",
+      "talent": "farm_cooking"
+    },
+    {
+      "count": 1,
+      "furnace_level": 1,
+      "id": "recovery:glass",
+      "inputs": {
+        "glass_shard": 3
+      },
+      "name": "glass",
+      "output": "glass",
+      "seconds": 10.0,
+      "station": "furnace",
+      "study_kind": "glass"
+    },
+    {
+      "category": "processing",
+      "count": 1,
+      "id": "recovery:crystal",
+      "inputs": {
+        "arcane_dust": 3,
+        "glass": 1
+      },
+      "name": "crystal",
+      "output": "crystal",
+      "study_kind": "crystal"
+    }
+  ],
+  "study_costs": [
+    {
+      "coins": 5,
+      "energy": 3,
+      "inputs": {
+        "research_ink": 1,
+        "research_paper": 1
+      }
+    },
+    {
+      "coins": 15,
+      "energy": 5,
+      "inputs": {
+        "research_ink": 1,
+        "research_paper": 2
+      }
+    },
+    {
+      "coins": 35,
+      "energy": 8,
+      "inputs": {
+        "research_ink": 2,
+        "research_paper": 3
+      }
+    }
+  ],
+  "upgrades": [
+    {
+      "coins": 120,
+      "inputs": {
+        "glass": 3,
+        "metal": 4,
+        "plank": 8
+      }
+    },
+    {
+      "coins": 300,
+      "inputs": {
+        "arcane_dust": 2,
+        "glass": 6,
+        "steel": 3
+      }
+    }
+  ]
+}

@@ -102,6 +102,7 @@ static func initialize_item_icons(kinds: Array) -> void:
 		if ResourceLoader.exists(path): item_icon_cache[kind] = load(path)
 		elif preload("res://scripts/systems/alchemy_product_data.gd").handles(kind): item_icon_cache[kind]=preload("res://scripts/presentation/alchemy_icon_system.gd").texture(kind)
 		elif preload("res://scripts/systems/furnace_data.gd").ITEMS.has(kind): item_icon_cache[kind]=preload("res://scripts/presentation/furnace_renderer.gd").item_texture(kind)
+		elif preload("res://scripts/systems/research_data.gd").ITEMS.has(kind): item_icon_cache[kind]=preload("res://scripts/presentation/research_icon_system.gd").texture(kind)
 
 
 ## Возвращает заранее кэшированную отдельную текстуру предмета.

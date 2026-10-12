@@ -89,6 +89,7 @@ static func draw_help(game: Node, text: String) -> void:
 
 ## Рисует верстак или котелок в едином предметном каркасе с иконками результатов и доступностью рецептов.
 static func draw_crafting(game: Node) -> void:
+	if game.ResearchSystem.handles(game.crafting_station): preload("res://scripts/presentation/research_renderer.gd").draw(game); return
 	var title: String = game.LocaleSystem.ui("cauldron_title") if game.crafting_station == "cauldron" else game.LocaleSystem.ui("workbench")
 	if game.crafting_station=="alchemy": title=game.LocaleSystem.ui("alchemy_title",[game.CraftingSystem.Alchemy.rank(game)])
 	if game.crafting_station=="furnace": title=game.LocaleSystem.ui("furnace_title",[game.FurnaceSystem.state(game).level])
@@ -318,6 +319,7 @@ static func handle_forge_pointer(game: Node, position: Vector2) -> bool:
 
 ## Сначала выбирает рецепт для чтения, а материалы расходует только после явного нажатия кнопки создания.
 static func handle_crafting_pointer(game: Node, position: Vector2) -> bool:
+	if game.ResearchSystem.handles(game.crafting_station): return preload("res://scripts/presentation/research_renderer.gd").handle_pointer(game,position)
 	if game.crafting_station=="furnace" and preload("res://scripts/presentation/furnace_renderer.gd").handle_pointer(game,position): return true
 	if game.crafting_station=="alchemy" and ALCHEMY_FILTER.has_point(position):
 		game.CraftingSystem.Alchemy.cycle_filter(game,-1 if position.x<ALCHEMY_FILTER.get_center().x else 1); return true
