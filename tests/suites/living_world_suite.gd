@@ -217,7 +217,8 @@ func test_runtime_debug_overlay_classifies_navigation_grid() -> void:
 ## Ожидаемый результат: неподвижная камера переиспользует поколение и текстуру, а фермерский слой явно инвалидирует данные.
 func test_runtime_debug_overlay_reuses_batched_visible_cache() -> void:
 	var game:=make_game(); game.current_location="overworld"; game.player=Vector2(1160,650); game.update_camera(); game.DebugOverlaySystem.toggle(game)
-	for _batch in 500:
+	var pending:Dictionary=game.get_meta(game.DebugOverlaySystem.META_KEY).grid_build
+	for _batch in pending.get("pending",[]).size()+1:
 		if game.get_meta(game.DebugOverlaySystem.META_KEY).grid_build.is_empty(): break
 		game.DebugOverlaySystem.update(game, 0.016)
 	var initial:Dictionary=game.get_meta(game.DebugOverlaySystem.META_KEY); var generation:=int(initial.cache_generation)
@@ -230,10 +231,12 @@ func test_runtime_debug_overlay_reuses_batched_visible_cache() -> void:
 	game.camera_offset+=Vector2(12,0); game.DebugOverlaySystem.update(game,0.016)
 	expect(int(game.get_meta(game.DebugOverlaySystem.META_KEY).cache_generation)==generation, "small camera movement remains inside the cached safety margin without a rebuild")
 	game.DebugOverlaySystem.toggle_option(game,"farming"); game.DebugOverlaySystem.update(game,0.016)
-	for _batch in 1000:
+	pending=game.get_meta(game.DebugOverlaySystem.META_KEY).grid_build
+	for _batch in pending.get("pending",[]).size()+1:
 		if game.get_meta(game.DebugOverlaySystem.META_KEY).grid_build.is_empty(): break
 		game.DebugOverlaySystem.update(game, 0.016)
 	var farming:Dictionary=game.get_meta(game.DebugOverlaySystem.META_KEY)
+	expect(farming.grid_build.is_empty() and not farming.cache.is_empty(),"tillability cache completes even when each time-limited step processes only one cell")
 	expect(int(farming.cache_generation)==generation+1 and farming.cache.all(func(cell:Dictionary): return not String(cell.farming_reason).is_empty()), "enabling tillability performs one explicit refresh with farming reasons")
 	game.free()
 
