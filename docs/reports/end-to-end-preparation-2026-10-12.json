@@ -1,0 +1,2622 @@
+{
+  "castle_campaign": {
+    "boss_alive": false,
+    "boss_defeated": false,
+    "boss_hp": 36,
+    "boss_hurt_timer": 0.0,
+    "boss_phase": 1,
+    "boss_timer": 0.0,
+    "choice": "",
+    "clues": [
+      false,
+      false,
+      false
+    ],
+    "completed": false,
+    "stage": 0,
+    "telegraph": 0.0
+  },
+  "cave_arena": {
+    "relic_awarded": false
+  },
+  "coins": 24,
+  "companions": {
+    "active": [],
+    "bonds": {},
+    "command": "follow",
+    "recruited": []
+  },
+  "containers": [
+    {
+      "contents": {
+        "stone": 2,
+        "wood": 2
+      },
+      "id": 0,
+      "kind": "trash",
+      "location": "overworld",
+      "opened": false,
+      "position": [
+        1032.0,
+        312.0
+      ]
+    },
+    {
+      "contents": {
+        "fiber": 2,
+        "seeds": 3
+      },
+      "id": 1,
+      "kind": "sack",
+      "location": "overworld",
+      "opened": false,
+      "position": [
+        600.0,
+        576.0
+      ]
+    },
+    {
+      "contents": {
+        "carrot": 3,
+        "fiber": 3
+      },
+      "id": 2,
+      "kind": "sack",
+      "location": "overworld",
+      "opened": false,
+      "position": [
+        2064.0,
+        624.0
+      ]
+    },
+    {
+      "contents": {
+        "blue_gem": 1,
+        "metal": 2
+      },
+      "id": 3,
+      "kind": "chest",
+      "location": "forest",
+      "opened": false,
+      "position": [
+        540.0,
+        690.0
+      ]
+    },
+    {
+      "contents": {
+        "berries": 2,
+        "fiber": 2
+      },
+      "id": 4,
+      "kind": "sack",
+      "location": "forest",
+      "opened": false,
+      "position": [
+        2060.0,
+        680.0
+      ]
+    },
+    {
+      "contents": {
+        "berries": 2,
+        "carrot": 2
+      },
+      "id": 5,
+      "kind": "sack",
+      "location": "forest",
+      "opened": false,
+      "position": [
+        1800.0,
+        350.0
+      ]
+    },
+    {
+      "contents": {
+        "fiber": 3,
+        "stone": 3
+      },
+      "id": 6,
+      "kind": "trash",
+      "location": "rocky",
+      "opened": false,
+      "position": [
+        950.0,
+        720.0
+      ]
+    },
+    {
+      "contents": {
+        "coins": 37
+      },
+      "id": 7,
+      "kind": "chest",
+      "location": "rocky",
+      "opened": false,
+      "position": [
+        1980.0,
+        420.0
+      ]
+    },
+    {
+      "contents": {
+        "stone": 5
+      },
+      "id": 8,
+      "kind": "trash",
+      "location": "ruins",
+      "opened": false,
+      "position": [
+        1570.0,
+        690.0
+      ]
+    },
+    {
+      "contents": {
+        "blue_gem": 1,
+        "bones": 1
+      },
+      "id": 9,
+      "kind": "bone_pile",
+      "location": "ruins",
+      "opened": false,
+      "position": [
+        1960.0,
+        380.0
+      ]
+    },
+    {
+      "contents": {
+        "fiber": 2,
+        "metal": 2
+      },
+      "id": 10,
+      "kind": "trash",
+      "location": "ruins",
+      "opened": false,
+      "position": [
+        760.0,
+        760.0
+      ]
+    },
+    {
+      "contents": {
+        "coins": 14
+      },
+      "id": 11,
+      "kind": "bone_pile",
+      "location": "cave",
+      "opened": false,
+      "position": [
+        1880.0,
+        420.0
+      ]
+    },
+    {
+      "contents": {
+        "bones": 1,
+        "coins": 12
+      },
+      "id": 12,
+      "kind": "bone_pile",
+      "location": "cave",
+      "opened": false,
+      "position": [
+        2140.0,
+        700.0
+      ]
+    },
+    {
+      "contents": {
+        "crystal": 2,
+        "metal": 3,
+        "oak_shield": 1
+      },
+      "id": 13,
+      "kind": "chest",
+      "location": "cave",
+      "opened": false,
+      "position": [
+        1200.0,
+        650.0
+      ]
+    },
+    {
+      "contents": {
+        "coins": 29,
+        "crystal": 3
+      },
+      "id": 14,
+      "kind": "chest",
+      "location": "cursed",
+      "opened": false,
+      "position": [
+        930.0,
+        710.0
+      ]
+    },
+    {
+      "contents": {
+        "blue_gem": 1,
+        "coins": 4
+      },
+      "id": 15,
+      "kind": "bone_pile",
+      "location": "cursed",
+      "opened": false,
+      "position": [
+        1510.0,
+        650.0
+      ]
+    },
+    {
+      "contents": {
+        "bat_wing": 1,
+        "bones": 1
+      },
+      "id": 16,
+      "kind": "bone_pile",
+      "location": "cursed",
+      "opened": false,
+      "position": [
+        1930.0,
+        360.0
+      ]
+    },
+    {
+      "contents": {
+        "apple": 1,
+        "blue_gem": 1,
+        "coins": 14
+      },
+      "id": 17,
+      "kind": "chest",
+      "location": "glassworks",
+      "opened": false,
+      "position": [
+        1980.0,
+        680.0
+      ]
+    },
+    {
+      "contents": {
+        "berries": 4
+      },
+      "id": 18,
+      "kind": "sack",
+      "location": "glassworks",
+      "opened": false,
+      "position": [
+        1050.0,
+        720.0
+      ]
+    },
+    {
+      "contents": {
+        "healing_potion": 1,
+        "pirate_doubloon": 8
+      },
+      "id": 19,
+      "kind": "pirate_chest",
+      "location": "pirate_ship",
+      "opened": false,
+      "position": [
+        1870.0,
+        360.0
+      ]
+    },
+    {
+      "contents": {
+        "ectoplasm": 1,
+        "metal": 1,
+        "pirate_doubloon": 2
+      },
+      "id": 20,
+      "kind": "pirate_chest",
+      "location": "pirate_ship",
+      "opened": false,
+      "position": [
+        2050.0,
+        790.0
+      ]
+    },
+    {
+      "contents": {
+        "coins": 17,
+        "pirate_doubloon": 5
+      },
+      "id": 21,
+      "kind": "pirate_chest",
+      "location": "pirate_ship",
+      "opened": false,
+      "position": [
+        1330.0,
+        800.0
+      ]
+    },
+    {
+      "contents": {
+        "fiber": 2,
+        "watermelon": 1
+      },
+      "id": 22,
+      "kind": "sack",
+      "location": "cave_fungal",
+      "opened": false,
+      "position": [
+        1728.0,
+        816.0
+      ]
+    },
+    {
+      "contents": {
+        "coins": 16,
+        "healing_potion": 1,
+        "metal": 2
+      },
+      "id": 23,
+      "kind": "chest",
+      "location": "cave_fungal",
+      "opened": false,
+      "position": [
+        672.0,
+        816.0
+      ]
+    },
+    {
+      "contents": {
+        "coins": 36,
+        "healing_potion": 1
+      },
+      "id": 24,
+      "kind": "chest",
+      "location": "cave_moon",
+      "opened": false,
+      "position": [
+        816.0,
+        360.0
+      ]
+    },
+    {
+      "contents": {
+        "coins": 34,
+        "metal": 3
+      },
+      "id": 25,
+      "kind": "chest",
+      "location": "cave_lake",
+      "opened": false,
+      "position": [
+        1968.0,
+        864.0
+      ]
+    },
+    {
+      "contents": {
+        "crystal": 3,
+        "metal": 2,
+        "oak_shield": 1
+      },
+      "id": 26,
+      "kind": "chest",
+      "location": "cave_mine",
+      "opened": false,
+      "position": [
+        720.0,
+        864.0
+      ]
+    },
+    {
+      "contents": {
+        "coins": 33,
+        "healing_potion": 1
+      },
+      "id": 27,
+      "kind": "chest",
+      "location": "cave_mine",
+      "opened": false,
+      "position": [
+        1776.0,
+        432.0
+      ]
+    },
+    {
+      "contents": {
+        "coins": 37,
+        "metal": 2
+      },
+      "id": 28,
+      "kind": "chest",
+      "location": "cave_sanctum",
+      "opened": false,
+      "position": [
+        1728.0,
+        360.0
+      ]
+    }
+  ],
+  "contracts": {
+    "completed": 0,
+    "day": 0,
+    "statuses": {
+      "farmer": "available",
+      "hunter": "available",
+      "miner": "available"
+    }
+  },
+  "counts": {
+    "advanced_fishing_rod": 0,
+    "ancient_key": 0,
+    "animal_feed": 0,
+    "apple": 0,
+    "arrows": 0,
+    "axe": 1,
+    "bat_wing": 0,
+    "beet": 0,
+    "beet_seeds": 0,
+    "berries": 0,
+    "blue_gem": 0,
+    "bones": 0,
+    "bouquet": 0,
+    "bread": 0,
+    "butter": 0,
+    "cabbage": 0,
+    "cabbage_seeds": 0,
+    "carrot": 3,
+    "cauldron": 0,
+    "cheese": 0,
+    "cherry": 0,
+    "cloth": 0,
+    "corn": 0,
+    "corn_seeds": 0,
+    "cornbread": 0,
+    "cotton": 0,
+    "cotton_seeds": 0,
+    "crab": 0,
+    "crab_trap": 0,
+    "crystal": 0,
+    "crystal_ring": 0,
+    "cucumber": 0,
+    "cucumber_seeds": 0,
+    "cursed_compass": 0,
+    "defense_potion": 0,
+    "eclipse_core": 0,
+    "ectoplasm": 0,
+    "egg": 8,
+    "energy_potion": 0,
+    "fence_kit": 0,
+    "fiber": 0,
+    "fish": 0,
+    "flour": 0,
+    "flower": 0,
+    "fruit_sapling": 0,
+    "fur": 0,
+    "gate_kit": 0,
+    "green_crystal": 0,
+    "guardian_armor": 0,
+    "guild_badge": 0,
+    "healing_potion": 0,
+    "herb_seeds": 0,
+    "herbs": 0,
+    "hide": 0,
+    "home_chest": 0,
+    "honey": 0,
+    "invisibility_potion": 0,
+    "iron_helmet": 0,
+    "iron_spear": 1,
+    "jam": 0,
+    "lizard_scale": 0,
+    "log": 0,
+    "mana_potion": 0,
+    "mayonnaise": 0,
+    "melon": 0,
+    "melon_seeds": 0,
+    "metal": 0,
+    "milk": 0,
+    "moon_relic": 0,
+    "moon_staff": 0,
+    "museum_token": 0,
+    "mushroom": 0,
+    "nails": 6,
+    "nut": 0,
+    "oak_shield": 0,
+    "omelet": 4,
+    "onion": 0,
+    "onion_seeds": 0,
+    "orange": 0,
+    "orc_blade": 0,
+    "pancakes": 0,
+    "pear": 0,
+    "pepper": 0,
+    "pepper_seeds": 0,
+    "pie": 0,
+    "pirate_cutlass": 0,
+    "pirate_doubloon": 0,
+    "plank": 2,
+    "plum": 0,
+    "porridge": 0,
+    "potato": 0,
+    "potato_seeds": 0,
+    "potted_fern": 0,
+    "pumpkin": 0,
+    "pumpkin_seeds": 0,
+    "rare_seeds": 0,
+    "raw_meat": 0,
+    "red_crystal": 0,
+    "regeneration_potion": 0,
+    "rope": 0,
+    "rustic_table": 0,
+    "seeds": 9,
+    "slime": 0,
+    "soup": 0,
+    "speed_potion": 0,
+    "stone": 0,
+    "strawberry": 0,
+    "strawberry_seeds": 0,
+    "strength_potion": 0,
+    "sunflower": 0,
+    "sunflower_seeds": 0,
+    "tomato": 0,
+    "tomato_seeds": 0,
+    "travel_boots": 0,
+    "truffle": 0,
+    "truffle_soup": 0,
+    "tusk": 0,
+    "war_hammer": 0,
+    "watermelon": 0,
+    "wheat": 0,
+    "wheat_seeds": 0,
+    "wood": 5,
+    "wooden_chair": 0,
+    "wooden_wardrobe": 0,
+    "wool": 0,
+    "woven_rug": 0,
+    "yarn": 0
+  },
+  "day": 9,
+  "drops": [
+    {
+      "count": 3,
+      "kind": "bones",
+      "location": "cave",
+      "position": [
+        521.085083007812,
+        706.284912109375
+      ]
+    },
+    {
+      "count": 1,
+      "kind": "ancient_key",
+      "location": "cave",
+      "position": [
+        521.085083007812,
+        706.284912109375
+      ]
+    },
+    {
+      "count": 3,
+      "kind": "bones",
+      "location": "cave",
+      "position": [
+        836.70458984375,
+        548.998046875
+      ]
+    },
+    {
+      "count": 1,
+      "kind": "ancient_key",
+      "location": "cave",
+      "position": [
+        836.70458984375,
+        548.998046875
+      ]
+    },
+    {
+      "count": 2,
+      "kind": "blue_gem",
+      "location": "cave",
+      "position": [
+        690.552001953125,
+        398.895782470703
+      ]
+    },
+    {
+      "count": 6,
+      "kind": "bones",
+      "location": "cave",
+      "position": [
+        1120.0,
+        300.0
+      ]
+    },
+    {
+      "count": 2,
+      "kind": "ancient_key",
+      "location": "cave",
+      "position": [
+        1120.0,
+        300.0
+      ]
+    },
+    {
+      "count": 2,
+      "kind": "blue_gem",
+      "location": "cave",
+      "position": [
+        1383.87084960938,
+        450.669067382812
+      ]
+    },
+    {
+      "count": 4,
+      "kind": "blue_gem",
+      "location": "cave",
+      "position": [
+        1291.7373046875,
+        558.443725585938
+      ]
+    },
+    {
+      "count": 4,
+      "kind": "blue_gem",
+      "location": "cave",
+      "position": [
+        1402.81604003906,
+        440.130676269531
+      ]
+    },
+    {
+      "count": 6,
+      "kind": "bones",
+      "location": "cave",
+      "position": [
+        1686.15368652344,
+        706.86865234375
+      ]
+    },
+    {
+      "count": 2,
+      "kind": "ancient_key",
+      "location": "cave",
+      "position": [
+        1686.15368652344,
+        706.86865234375
+      ]
+    },
+    {
+      "count": 9,
+      "kind": "bones",
+      "location": "cave",
+      "position": [
+        2072.92065429688,
+        353.505493164062
+      ]
+    },
+    {
+      "count": 3,
+      "kind": "ancient_key",
+      "location": "cave",
+      "position": [
+        2072.92065429688,
+        353.505493164062
+      ]
+    },
+    {
+      "count": 3,
+      "kind": "bones",
+      "location": "cave_fungal",
+      "position": [
+        584.048645019531,
+        602.821411132812
+      ]
+    },
+    {
+      "count": 1,
+      "kind": "ancient_key",
+      "location": "cave_fungal",
+      "position": [
+        584.048645019531,
+        602.821411132812
+      ]
+    },
+    {
+      "count": 6,
+      "kind": "bones",
+      "location": "cave_mine",
+      "position": [
+        693.25048828125,
+        497.067626953125
+      ]
+    },
+    {
+      "count": 2,
+      "kind": "ancient_key",
+      "location": "cave_mine",
+      "position": [
+        693.25048828125,
+        497.067626953125
+      ]
+    },
+    {
+      "count": 6,
+      "kind": "bones",
+      "location": "cave_mine",
+      "position": [
+        1840.75402832031,
+        716.626403808594
+      ]
+    },
+    {
+      "count": 2,
+      "kind": "ancient_key",
+      "location": "cave_mine",
+      "position": [
+        1840.75402832031,
+        716.626403808594
+      ]
+    }
+  ],
+  "effects": {
+    "defense": 0.0,
+    "invisibility": 0.0,
+    "regeneration": 0.0,
+    "speed": 0.0,
+    "strength": 0.0
+  },
+  "enemies": [
+    {
+      "alive": true,
+      "attack_timer": 0.0,
+      "direction": [
+        0.0,
+        1.0
+      ],
+      "hp": 5,
+      "level": 1,
+      "max_hp": 5,
+      "position": [
+        920.0,
+        430.0
+      ]
+    },
+    {
+      "alive": true,
+      "attack_timer": 0.0,
+      "direction": [
+        0.0,
+        1.0
+      ],
+      "hp": 8,
+      "level": 1,
+      "max_hp": 8,
+      "position": [
+        1180.0,
+        500.0
+      ]
+    },
+    {
+      "alive": false,
+      "attack_timer": 0.643333333333334,
+      "direction": [
+        -0.831061959266663,
+        0.556179821491241
+      ],
+      "hp": 0,
+      "level": 1,
+      "max_hp": 6,
+      "position": [
+        836.70458984375,
+        548.998046875
+      ]
+    },
+    {
+      "alive": true,
+      "attack_timer": 0.0,
+      "direction": [
+        0.0,
+        1.0
+      ],
+      "hp": 10,
+      "level": 1,
+      "max_hp": 10,
+      "position": [
+        1320.0,
+        460.0
+      ]
+    },
+    {
+      "alive": false,
+      "attack_timer": 0.443333333333334,
+      "direction": [
+        -0.883263647556305,
+        -0.468876600265503
+      ],
+      "hp": 0,
+      "level": 1,
+      "max_hp": 12,
+      "position": [
+        1383.87084960938,
+        450.669067382812
+      ]
+    },
+    {
+      "alive": true,
+      "attack_timer": 0.0,
+      "direction": [
+        0.0,
+        1.0
+      ],
+      "hp": 8,
+      "level": 2,
+      "max_hp": 8,
+      "position": [
+        520.0,
+        420.0
+      ]
+    },
+    {
+      "alive": true,
+      "attack_timer": 0.0,
+      "direction": [
+        0.0,
+        1.0
+      ],
+      "hp": 10,
+      "level": 3,
+      "max_hp": 10,
+      "position": [
+        1260.0,
+        700.0
+      ]
+    },
+    {
+      "alive": true,
+      "attack_timer": 0.0,
+      "direction": [
+        0.0,
+        1.0
+      ],
+      "hp": 12,
+      "level": 4,
+      "max_hp": 12,
+      "position": [
+        1880.0,
+        690.0
+      ]
+    },
+    {
+      "alive": true,
+      "attack_timer": 0.0,
+      "direction": [
+        0.0,
+        1.0
+      ],
+      "hp": 14,
+      "level": 5,
+      "max_hp": 14,
+      "position": [
+        2180.0,
+        390.0
+      ]
+    },
+    {
+      "alive": true,
+      "attack_timer": 0.0,
+      "direction": [
+        0.0,
+        1.0
+      ],
+      "hp": 12,
+      "level": 2,
+      "max_hp": 12,
+      "position": [
+        720.0,
+        680.0
+      ]
+    },
+    {
+      "alive": true,
+      "attack_timer": 0.0,
+      "direction": [
+        0.0,
+        1.0
+      ],
+      "hp": 16,
+      "level": 3,
+      "max_hp": 16,
+      "position": [
+        1040.0,
+        780.0
+      ]
+    },
+    {
+      "alive": true,
+      "attack_timer": 0.0,
+      "direction": [
+        0.0,
+        1.0
+      ],
+      "hp": 19,
+      "level": 4,
+      "max_hp": 19,
+      "position": [
+        1920.0,
+        720.0
+      ]
+    },
+    {
+      "alive": true,
+      "attack_timer": 0.0,
+      "direction": [
+        0.0,
+        1.0
+      ],
+      "hp": 23,
+      "level": 5,
+      "max_hp": 23,
+      "position": [
+        2140.0,
+        340.0
+      ]
+    },
+    {
+      "alive": false,
+      "attack_timer": 1.43666666666667,
+      "direction": [
+        -0.989572882652283,
+        0.144033297896385
+      ],
+      "hp": 0,
+      "level": 2,
+      "max_hp": 9,
+      "position": [
+        521.085083007812,
+        706.284912109375
+      ]
+    },
+    {
+      "alive": false,
+      "attack_timer": 0.415,
+      "direction": [
+        -0.518200755119324,
+        -0.855259001255035
+      ],
+      "hp": 0,
+      "level": 3,
+      "max_hp": 12,
+      "position": [
+        1120.0,
+        300.0
+      ]
+    },
+    {
+      "alive": false,
+      "attack_timer": 1.14,
+      "direction": [
+        0.340211719274521,
+        -0.940348923206329
+      ],
+      "hp": 0,
+      "level": 4,
+      "max_hp": 15,
+      "position": [
+        1686.15368652344,
+        706.86865234375
+      ]
+    },
+    {
+      "alive": false,
+      "attack_timer": 0.616666666666666,
+      "direction": [
+        -0.850788950920105,
+        0.52550745010376
+      ],
+      "hp": -3,
+      "level": 5,
+      "max_hp": 17,
+      "position": [
+        2072.92065429688,
+        353.505493164062
+      ]
+    },
+    {
+      "alive": true,
+      "attack_timer": 0.0,
+      "direction": [
+        0.0,
+        1.0
+      ],
+      "hp": 15,
+      "level": 2,
+      "max_hp": 15,
+      "position": [
+        760.0,
+        720.0
+      ]
+    },
+    {
+      "alive": true,
+      "attack_timer": 0.0,
+      "direction": [
+        0.0,
+        1.0
+      ],
+      "hp": 19,
+      "level": 3,
+      "max_hp": 19,
+      "position": [
+        1080.0,
+        300.0
+      ]
+    },
+    {
+      "alive": true,
+      "attack_timer": 0.0,
+      "direction": [
+        0.0,
+        1.0
+      ],
+      "hp": 24,
+      "level": 4,
+      "max_hp": 24,
+      "position": [
+        1800.0,
+        680.0
+      ]
+    },
+    {
+      "alive": true,
+      "attack_timer": 0.0,
+      "direction": [
+        0.0,
+        1.0
+      ],
+      "hp": 28,
+      "level": 5,
+      "max_hp": 28,
+      "position": [
+        2140.0,
+        360.0
+      ]
+    },
+    {
+      "alive": false,
+      "attack_timer": 0.353333333333333,
+      "direction": [
+        0.497796624898911,
+        0.867293834686279
+      ],
+      "hp": 0,
+      "level": 2,
+      "max_hp": 18,
+      "position": [
+        690.552001953125,
+        398.895782470703
+      ]
+    },
+    {
+      "alive": false,
+      "attack_timer": 0.28,
+      "direction": [
+        0.484877049922943,
+        -0.874582350254059
+      ],
+      "hp": -5,
+      "level": 3,
+      "max_hp": 23,
+      "position": [
+        1291.7373046875,
+        558.443725585938
+      ]
+    },
+    {
+      "alive": false,
+      "attack_timer": 0.19,
+      "direction": [
+        -0.808386445045471,
+        0.58865213394165
+      ],
+      "hp": -3,
+      "level": 4,
+      "max_hp": 29,
+      "position": [
+        1402.81604003906,
+        440.130676269531
+      ]
+    },
+    {
+      "alive": true,
+      "attack_timer": 0.0,
+      "direction": [
+        0.0,
+        1.0
+      ],
+      "hp": 34,
+      "level": 5,
+      "max_hp": 34,
+      "position": [
+        2160.0,
+        680.0
+      ]
+    },
+    {
+      "alive": true,
+      "attack_timer": 0.0,
+      "direction": [
+        0.0,
+        1.0
+      ],
+      "hp": 14,
+      "level": 2,
+      "max_hp": 14,
+      "position": [
+        650.0,
+        430.0
+      ]
+    },
+    {
+      "alive": true,
+      "attack_timer": 0.0,
+      "direction": [
+        0.0,
+        1.0
+      ],
+      "hp": 18,
+      "level": 3,
+      "max_hp": 18,
+      "position": [
+        1180.0,
+        760.0
+      ]
+    },
+    {
+      "alive": true,
+      "attack_timer": 0.0,
+      "direction": [
+        0.0,
+        1.0
+      ],
+      "hp": 23,
+      "level": 3,
+      "max_hp": 23,
+      "position": [
+        1420.0,
+        450.0
+      ]
+    },
+    {
+      "alive": true,
+      "attack_timer": 0.0,
+      "direction": [
+        0.0,
+        1.0
+      ],
+      "hp": 24,
+      "level": 4,
+      "max_hp": 24,
+      "position": [
+        1740.0,
+        740.0
+      ]
+    },
+    {
+      "alive": true,
+      "attack_timer": 0.0,
+      "direction": [
+        0.0,
+        1.0
+      ],
+      "hp": 51,
+      "level": 5,
+      "max_hp": 51,
+      "position": [
+        1980.0,
+        520.0
+      ]
+    },
+    {
+      "alive": false,
+      "attack_timer": 0.886666666666668,
+      "direction": [
+        -0.995635986328125,
+        -0.0933215394616127
+      ],
+      "hp": -1,
+      "level": 2,
+      "max_hp": 9,
+      "position": [
+        584.048645019531,
+        602.821411132812
+      ]
+    },
+    {
+      "alive": true,
+      "attack_timer": 0.0,
+      "direction": [
+        0.0,
+        1.0
+      ],
+      "hp": 18,
+      "level": 2,
+      "max_hp": 18,
+      "position": [
+        1752.0,
+        600.0
+      ]
+    },
+    {
+      "alive": true,
+      "attack_timer": 0.0,
+      "direction": [
+        0.0,
+        1.0
+      ],
+      "hp": 23,
+      "level": 3,
+      "max_hp": 23,
+      "position": [
+        1728.0,
+        504.0
+      ]
+    },
+    {
+      "alive": false,
+      "attack_timer": 0.796666666666667,
+      "direction": [
+        -0.309778451919556,
+        0.950808823108673
+      ],
+      "hp": -3,
+      "level": 3,
+      "max_hp": 12,
+      "position": [
+        693.25048828125,
+        497.067626953125
+      ]
+    },
+    {
+      "alive": false,
+      "attack_timer": 1.09,
+      "direction": [
+        -0.122450791299343,
+        -0.992474675178528
+      ],
+      "hp": 0,
+      "level": 4,
+      "max_hp": 15,
+      "position": [
+        1840.75402832031,
+        716.626403808594
+      ]
+    },
+    {
+      "alive": true,
+      "attack_timer": 0.0,
+      "direction": [
+        0.0,
+        1.0
+      ],
+      "hp": 15,
+      "level": 4,
+      "max_hp": 15,
+      "position": [
+        432.0,
+        648.0
+      ]
+    },
+    {
+      "alive": true,
+      "attack_timer": 0.0,
+      "direction": [
+        0.0,
+        1.0
+      ],
+      "hp": 180,
+      "level": 5,
+      "max_hp": 180,
+      "position": [
+        1512.0,
+        672.0
+      ]
+    }
+  ],
+  "energy": 12,
+  "equipment": {
+    "body": "",
+    "hands": "iron_spear",
+    "head": "",
+    "legs": "",
+    "offhand": "",
+    "ring": ""
+  },
+  "estate": {
+    "discovered": [
+      "overworld",
+      "cottage_interior",
+      "cave",
+      "cave_fungal",
+      "cave_mine"
+    ],
+    "event": "market",
+    "event_day": 9,
+    "event_state": {
+      "day": 9,
+      "rewarded": false,
+      "spawned": false,
+      "used": false
+    },
+    "expansion": {
+      "achievements": [
+        "first_week"
+      ],
+      "active_slot": 1,
+      "animals": {
+        "cow": {
+          "bond": 0,
+          "collected_day": 9,
+          "fed_day": 8,
+          "last_yield_day": 9,
+          "pet_day": 0,
+          "production_day": 9,
+          "ready": 0,
+          "water_day": 8
+        },
+        "hen": {
+          "bond": 0,
+          "collected_day": 9,
+          "fed_day": 8,
+          "last_yield_day": 9,
+          "pet_day": 0,
+          "production_day": 9,
+          "ready": 0,
+          "water_day": 8
+        },
+        "hen_2": {
+          "bond": 0,
+          "collected_day": 9,
+          "fed_day": 8,
+          "last_yield_day": 9,
+          "pet_day": 0,
+          "production_day": 9,
+          "ready": 0,
+          "water_day": 8
+        },
+        "hen_3": {
+          "bond": 0,
+          "collected_day": 9,
+          "fed_day": 8,
+          "last_yield_day": 9,
+          "pet_day": 0,
+          "production_day": 9,
+          "ready": 0,
+          "water_day": 8
+        },
+        "pig": {
+          "bond": 0,
+          "collected_day": 0,
+          "fed_day": 8,
+          "last_yield_day": 8,
+          "pet_day": 0,
+          "production_day": 9,
+          "ready": 3,
+          "water_day": 8
+        },
+        "sheep": {
+          "bond": 0,
+          "collected_day": 0,
+          "fed_day": 8,
+          "last_yield_day": 9,
+          "pet_day": 0,
+          "production_day": 9,
+          "ready": 3,
+          "water_day": 8
+        }
+      },
+      "autosaved_day": 9,
+      "build_index": 0,
+      "build_mode": false,
+      "compendium": false,
+      "cutscene": "",
+      "cutscene_timer": 0.0,
+      "encyclopedia": [
+        "animal_feed",
+        "seeds",
+        "wood",
+        "axe",
+        "carrot",
+        "egg",
+        "milk",
+        "omelet",
+        "log",
+        "metal",
+        "plank",
+        "nails",
+        "iron_spear"
+      ],
+      "fences": [],
+      "first_chapter": {
+        "bridge_repaired": false,
+        "completed": false,
+        "events": {
+          "animal_feed": true,
+          "animal_product": true,
+          "animal_water": true,
+          "building_enter": true,
+          "cave_labyrinth": true,
+          "cave_veins": true,
+          "celestial_clock": true,
+          "character_animation": true,
+          "character_creation": true,
+          "collision": true,
+          "combat_animation": true,
+          "combat_hit_reaction": true,
+          "cooking": true,
+          "craft_window": true,
+          "critical_hit": true,
+          "day": true,
+          "eat": true,
+          "enemy_attack_styles": true,
+          "enemy_levels": true,
+          "enemy_movement": true,
+          "enemy_projectiles": true,
+          "equipment": true,
+          "farmyard": true,
+          "forage_regrow": true,
+          "free_farming": true,
+          "harvest": true,
+          "hero_skin": true,
+          "hero_tools": true,
+          "interior_furniture": true,
+          "item_quality": true,
+          "level_up": true,
+          "lumber_process": true,
+          "mine": true,
+          "move": true,
+          "npc_schedule": true,
+          "npc_wander": true,
+          "plant": true,
+          "player_contact": true,
+          "profession": true,
+          "raid_event": true,
+          "rewater": true,
+          "shop": true,
+          "trade": true,
+          "travel": true,
+          "tree_chop": true,
+          "tree_fall": true,
+          "tree_regrow": true,
+          "village_paths": true,
+          "water": true,
+          "weapon_cooldown": true,
+          "world_calendar": true
+        },
+        "reward_choice": "",
+        "reward_pending": false,
+        "stage": 0,
+        "started_day": 1
+      },
+      "first_day": 6,
+      "furniture": [],
+      "hit_stop": 0.0,
+      "livestock_started": true,
+      "museum": [],
+      "page": 0,
+      "photo_grid": false,
+      "photo_mode": false,
+      "projectiles": [],
+      "relationship_scenes": [],
+      "reputation": 0,
+      "secrets": {}
+    },
+    "level": 0,
+    "map_revision": 2,
+    "qualities": {
+      "carrot": {
+        "normal": 3
+      },
+      "metal": {}
+    }
+  },
+  "fishing": {
+    "best_control": 0.0,
+    "caught": 0,
+    "counts": {},
+    "perfect": 0,
+    "qualities": {},
+    "records": {},
+    "traps": []
+  },
+  "food_active": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "forage": [
+    {
+      "active": true,
+      "kind": "mushroom",
+      "location": "overworld",
+      "planted_by_player": false,
+      "position": [
+        2160.0,
+        600.0
+      ],
+      "ready_at": 0.0,
+      "stage": -1
+    },
+    {
+      "active": true,
+      "kind": "berries",
+      "location": "overworld",
+      "planted_by_player": false,
+      "position": [
+        2064.0,
+        840.0
+      ],
+      "ready_at": 0.0,
+      "stage": -1
+    },
+    {
+      "active": true,
+      "kind": "nut",
+      "location": "overworld",
+      "planted_by_player": false,
+      "position": [
+        1608.0,
+        1272.0
+      ],
+      "ready_at": 0.0,
+      "stage": -1
+    },
+    {
+      "active": true,
+      "kind": "apple",
+      "location": "overworld",
+      "planted_by_player": false,
+      "position": [
+        744.0,
+        744.0
+      ],
+      "ready_at": 0.0,
+      "stage": 3
+    },
+    {
+      "active": true,
+      "kind": "berries",
+      "location": "forest",
+      "planted_by_player": false,
+      "position": [
+        620.0,
+        690.0
+      ],
+      "ready_at": 0.0,
+      "stage": -1
+    },
+    {
+      "active": true,
+      "kind": "apple",
+      "location": "forest",
+      "planted_by_player": false,
+      "position": [
+        1420.0,
+        350.0
+      ],
+      "ready_at": 0.0,
+      "stage": 3
+    },
+    {
+      "active": true,
+      "kind": "nut",
+      "location": "forest",
+      "planted_by_player": false,
+      "position": [
+        1880.0,
+        680.0
+      ],
+      "ready_at": 0.0,
+      "stage": -1
+    },
+    {
+      "active": true,
+      "kind": "watermelon",
+      "location": "overworld",
+      "planted_by_player": false,
+      "position": [
+        432.0,
+        1032.0
+      ],
+      "ready_at": 0.0,
+      "stage": -1
+    },
+    {
+      "active": true,
+      "kind": "watermelon",
+      "location": "forest",
+      "planted_by_player": false,
+      "position": [
+        1760.0,
+        740.0
+      ],
+      "ready_at": 0.0,
+      "stage": -1
+    },
+    {
+      "active": true,
+      "kind": "mushroom",
+      "location": "forest",
+      "planted_by_player": false,
+      "position": [
+        980.0,
+        720.0
+      ],
+      "ready_at": 0.0,
+      "stage": -1
+    },
+    {
+      "active": true,
+      "kind": "pear",
+      "location": "overworld",
+      "planted_by_player": false,
+      "position": [
+        624.0,
+        1320.0
+      ],
+      "ready_at": 0.0,
+      "stage": 3
+    },
+    {
+      "active": true,
+      "kind": "cherry",
+      "location": "overworld",
+      "planted_by_player": false,
+      "position": [
+        1128.0,
+        1320.0
+      ],
+      "ready_at": 0.0,
+      "stage": 3
+    },
+    {
+      "active": true,
+      "kind": "plum",
+      "location": "overworld",
+      "planted_by_player": false,
+      "position": [
+        1392.0,
+        1272.0
+      ],
+      "ready_at": 0.0,
+      "stage": 3
+    },
+    {
+      "active": true,
+      "kind": "pear",
+      "location": "forest",
+      "planted_by_player": false,
+      "position": [
+        1580.0,
+        350.0
+      ],
+      "ready_at": 0.0,
+      "stage": 3
+    },
+    {
+      "active": true,
+      "kind": "cherry",
+      "location": "forest",
+      "planted_by_player": false,
+      "position": [
+        1740.0,
+        350.0
+      ],
+      "ready_at": 0.0,
+      "stage": 3
+    },
+    {
+      "active": true,
+      "kind": "plum",
+      "location": "forest",
+      "planted_by_player": false,
+      "position": [
+        1900.0,
+        350.0
+      ],
+      "ready_at": 0.0,
+      "stage": 3
+    }
+  ],
+  "forge": {
+    "arrows": 0,
+    "bow": 0,
+    "crystal_sword": 0,
+    "guardian_armor": 0,
+    "iron_helmet": 0,
+    "iron_spear": 0,
+    "moon_staff": 0,
+    "oak_shield": 0,
+    "orc_blade": 0,
+    "pirate_cutlass": 0,
+    "sword": 0,
+    "travel_boots": 0,
+    "war_hammer": 0
+  },
+  "hazards": [
+    {
+      "cooldown": 0.0
+    },
+    {
+      "cooldown": 0.0
+    },
+    {
+      "cooldown": 0.0
+    },
+    {
+      "cooldown": 0.0
+    },
+    {
+      "cooldown": 0.0
+    },
+    {
+      "cooldown": 0.0
+    },
+    {
+      "cooldown": 0.0
+    },
+    {
+      "cooldown": 0.0
+    },
+    {
+      "cooldown": 0.0
+    }
+  ],
+  "hotbar": [
+    "hoe",
+    "seeds",
+    "water",
+    "hand",
+    "pickaxe",
+    "fishing_rod",
+    "axe",
+    "apple",
+    "berries",
+    "mushroom"
+  ],
+  "hp": 82,
+  "inventory_meta": {
+    "backpack_level": 0,
+    "durability": {
+      "axe": 54,
+      "bow": 100,
+      "crystal_sword": 100,
+      "fishing_rod": 100,
+      "hoe": 97,
+      "iron_spear": 100,
+      "moon_staff": 100,
+      "orc_blade": 100,
+      "pickaxe": 91,
+      "pirate_cutlass": 100,
+      "sword": 100,
+      "war_hammer": 100,
+      "water": 94
+    }
+  },
+  "level": 6,
+  "location": "overworld",
+  "minutes": 373.899999999987,
+  "missions": {
+    "side_bones": "available",
+    "side_feast": "available",
+    "side_fisher": "available",
+    "side_glass": "available",
+    "side_hunter": "available",
+    "side_miner": "available",
+    "side_pirate_compass": "available",
+    "side_seed": "available",
+    "side_smith": "available",
+    "side_wings": "available",
+    "story_ancient_key": "available",
+    "story_cursed_gem": "available",
+    "story_dead_tide": "available",
+    "story_eclipse_heart": "available",
+    "story_first_dawn": "available",
+    "story_moon_seal": "available",
+    "story_orc_blade": "available",
+    "story_relic": "available"
+  },
+  "moon_glade": {
+    "altar_activated": false,
+    "chest_opened": false,
+    "completed_runs": 0,
+    "crystal_charged": false,
+    "echoes": [
+      false,
+      false,
+      false
+    ],
+    "event_day": 0,
+    "flower_collected": false,
+    "guardian_alive": false,
+    "guardian_attack_timer": 0.0,
+    "guardian_defeated": false,
+    "guardian_hp": 12,
+    "guardian_hurt_timer": 0.0,
+    "guardian_windup": 0.0
+  },
+  "player": [
+    360.0,
+    648.0
+  ],
+  "plots": [
+    {
+      "crop_kind": "carrot",
+      "growth": 0.0,
+      "planted": false,
+      "stage": 0,
+      "tilled": false,
+      "watered": false,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "crop_kind": "carrot",
+      "growth": 0.0,
+      "planted": false,
+      "stage": 0,
+      "tilled": false,
+      "watered": false,
+      "x": 1,
+      "y": 0
+    },
+    {
+      "crop_kind": "carrot",
+      "growth": 0.0,
+      "planted": false,
+      "stage": 0,
+      "tilled": false,
+      "watered": false,
+      "x": 2,
+      "y": 0
+    },
+    {
+      "crop_kind": "carrot",
+      "growth": 0.0,
+      "planted": false,
+      "stage": 0,
+      "tilled": false,
+      "watered": false,
+      "x": 3,
+      "y": 0
+    },
+    {
+      "crop_kind": "carrot",
+      "growth": 0.0,
+      "planted": false,
+      "stage": 0,
+      "tilled": false,
+      "watered": false,
+      "x": 4,
+      "y": 0
+    },
+    {
+      "crop_kind": "carrot",
+      "growth": 0.0,
+      "planted": false,
+      "stage": 0,
+      "tilled": false,
+      "watered": false,
+      "x": 5,
+      "y": 0
+    },
+    {
+      "crop_kind": "carrot",
+      "growth": 0.0,
+      "planted": false,
+      "stage": 0,
+      "tilled": false,
+      "watered": false,
+      "x": 0,
+      "y": 1
+    },
+    {
+      "crop_kind": "carrot",
+      "growth": 0.0,
+      "planted": false,
+      "stage": 0,
+      "tilled": false,
+      "watered": false,
+      "x": 1,
+      "y": 1
+    },
+    {
+      "crop_kind": "carrot",
+      "growth": 0.0,
+      "planted": false,
+      "stage": 0,
+      "tilled": false,
+      "watered": false,
+      "x": 2,
+      "y": 1
+    },
+    {
+      "crop_kind": "carrot",
+      "growth": 0.0,
+      "planted": false,
+      "stage": 0,
+      "tilled": false,
+      "watered": false,
+      "x": 3,
+      "y": 1
+    },
+    {
+      "crop_kind": "carrot",
+      "growth": 0.0,
+      "planted": false,
+      "stage": 0,
+      "tilled": false,
+      "watered": false,
+      "x": 4,
+      "y": 1
+    },
+    {
+      "crop_kind": "carrot",
+      "growth": 0.0,
+      "planted": false,
+      "stage": 0,
+      "tilled": false,
+      "watered": false,
+      "x": 5,
+      "y": 1
+    },
+    {
+      "crop_kind": "carrot",
+      "growth": 0.0,
+      "planted": false,
+      "stage": 0,
+      "tilled": false,
+      "watered": false,
+      "x": 0,
+      "y": 2
+    },
+    {
+      "crop_kind": "carrot",
+      "growth": 0.0,
+      "planted": false,
+      "stage": 0,
+      "tilled": true,
+      "watered": false,
+      "x": 1,
+      "y": 2
+    },
+    {
+      "crop_kind": "carrot",
+      "growth": 0.0,
+      "planted": false,
+      "stage": 0,
+      "tilled": true,
+      "watered": false,
+      "x": 2,
+      "y": 2
+    },
+    {
+      "crop_kind": "carrot",
+      "growth": 0.0,
+      "planted": false,
+      "stage": 0,
+      "tilled": true,
+      "watered": false,
+      "x": 3,
+      "y": 2
+    },
+    {
+      "crop_kind": "carrot",
+      "growth": 0.0,
+      "planted": false,
+      "stage": 0,
+      "tilled": false,
+      "watered": false,
+      "x": 4,
+      "y": 2
+    },
+    {
+      "crop_kind": "carrot",
+      "growth": 0.0,
+      "planted": false,
+      "stage": 0,
+      "tilled": false,
+      "watered": false,
+      "x": 5,
+      "y": 2
+    },
+    {
+      "crop_kind": "carrot",
+      "growth": 0.0,
+      "planted": false,
+      "stage": 0,
+      "tilled": false,
+      "watered": false,
+      "x": 0,
+      "y": 3
+    },
+    {
+      "crop_kind": "carrot",
+      "growth": 0.0,
+      "planted": false,
+      "stage": 0,
+      "tilled": false,
+      "watered": false,
+      "x": 1,
+      "y": 3
+    },
+    {
+      "crop_kind": "carrot",
+      "growth": 0.0,
+      "planted": false,
+      "stage": 0,
+      "tilled": false,
+      "watered": false,
+      "x": 2,
+      "y": 3
+    },
+    {
+      "crop_kind": "carrot",
+      "growth": 0.0,
+      "planted": false,
+      "stage": 0,
+      "tilled": false,
+      "watered": false,
+      "x": 3,
+      "y": 3
+    },
+    {
+      "crop_kind": "carrot",
+      "growth": 0.0,
+      "planted": false,
+      "stage": 0,
+      "tilled": false,
+      "watered": false,
+      "x": 4,
+      "y": 3
+    },
+    {
+      "crop_kind": "carrot",
+      "growth": 0.0,
+      "planted": false,
+      "stage": 0,
+      "tilled": false,
+      "watered": false,
+      "x": 5,
+      "y": 3
+    },
+    {
+      "crop_kind": "carrot",
+      "growth": 0.0,
+      "planted": false,
+      "stage": 0,
+      "tilled": false,
+      "watered": false,
+      "x": 0,
+      "y": 4
+    },
+    {
+      "crop_kind": "carrot",
+      "growth": 0.0,
+      "planted": false,
+      "stage": 0,
+      "tilled": false,
+      "watered": false,
+      "x": 1,
+      "y": 4
+    },
+    {
+      "crop_kind": "carrot",
+      "growth": 0.0,
+      "planted": false,
+      "stage": 0,
+      "tilled": false,
+      "watered": false,
+      "x": 2,
+      "y": 4
+    },
+    {
+      "crop_kind": "carrot",
+      "growth": 0.0,
+      "planted": false,
+      "stage": 0,
+      "tilled": false,
+      "watered": false,
+      "x": 3,
+      "y": 4
+    },
+    {
+      "crop_kind": "carrot",
+      "growth": 0.0,
+      "planted": false,
+      "stage": 0,
+      "tilled": false,
+      "watered": false,
+      "x": 4,
+      "y": 4
+    },
+    {
+      "crop_kind": "carrot",
+      "growth": 0.0,
+      "planted": false,
+      "stage": 0,
+      "tilled": false,
+      "watered": false,
+      "x": 5,
+      "y": 4
+    }
+  ],
+  "profile": {
+    "character": {
+      "appearance": 0,
+      "clothes": 0,
+      "created": true,
+      "farm_name": "Бабушкина ферма",
+      "magic": {
+        "cooldowns": {},
+        "effects": [],
+        "selected": 0
+      },
+      "name": "Гаврила",
+      "specialization": "farmer",
+      "workbench_crafts": 3
+    },
+    "quest_memory": {},
+    "relationships": {}
+  },
+  "progression": {
+    "craft_count": 11,
+    "levels": {
+      "combat": 5,
+      "farming": 3,
+      "fishing": 0,
+      "leadership": 0,
+      "mana": 0,
+      "mining": 1,
+      "smithing": 0,
+      "stamina": 0,
+      "vitality": 0
+    },
+    "mana": 40,
+    "points": 5,
+    "talents": {
+      "combat_agility": 0,
+      "combat_master": 0,
+      "combat_power_strike": 0,
+      "combat_strength": 0,
+      "combat_vitality": 0,
+      "craft_alchemy": 0,
+      "craft_apprentice": 0,
+      "craft_efficient": 0,
+      "craft_engineering": 0,
+      "craft_master": 0,
+      "farm_cooking": 0,
+      "farm_exotic_crops": 0,
+      "farm_field_master": 0,
+      "farm_orchard": 0,
+      "farm_wide_till": 0,
+      "fish_big_game": 0,
+      "fish_crab_traps": 0,
+      "fish_deep_water": 0,
+      "fish_fine_rod": 0,
+      "fish_master": 0
+    },
+    "xp": {
+      "combat": 32,
+      "farming": 42,
+      "fishing": 0,
+      "mining": 7,
+      "smithing": 18
+    }
+  },
+  "quest_active": false,
+  "quest_complete": false,
+  "resource_hits": [
+    2,
+    3,
+    3,
+    2,
+    3,
+    3,
+    0,
+    3,
+    3,
+    3,
+    3,
+    2,
+    3,
+    3,
+    3,
+    3,
+    2,
+    3,
+    0,
+    0,
+    3,
+    3,
+    3,
+    3
+  ],
+  "slots": [
+    "seeds",
+    "carrot",
+    "pickaxe",
+    "fishing_rod",
+    "slime",
+    "wood",
+    "stone",
+    "crystal",
+    "fish",
+    "sword",
+    "bow",
+    "crystal_sword",
+    "apple",
+    "berries",
+    "nut",
+    "mushroom",
+    "iron_helmet",
+    "guardian_armor",
+    "travel_boots",
+    "crystal_ring",
+    "orange",
+    "orc_blade",
+    "red_crystal",
+    "green_crystal",
+    "raw_meat",
+    "hide",
+    "fur",
+    "tusk",
+    "bat_wing",
+    "watermelon",
+    "healing_potion",
+    "mana_potion",
+    "energy_potion",
+    "invisibility_potion",
+    "strength_potion",
+    "regeneration_potion",
+    "speed_potion",
+    "defense_potion",
+    "oak_shield",
+    "lizard_scale",
+    "arrows",
+    "home_chest",
+    "guild_badge",
+    "axe",
+    "pirate_doubloon",
+    "ectoplasm",
+    "cursed_compass",
+    "pirate_cutlass",
+    "eclipse_core",
+    "fence_kit",
+    "gate_kit",
+    "tomato",
+    "cabbage",
+    "egg",
+    "milk",
+    "wheat",
+    "corn",
+    "potato",
+    "onion",
+    "cheese",
+    "rope",
+    "cotton",
+    "flower",
+    "honey",
+    "bread",
+    "pie",
+    "pumpkin",
+    "flour",
+    "butter",
+    "jam",
+    "soup",
+    "omelet",
+    "cornbread",
+    "wool",
+    "bouquet",
+    "rustic_table",
+    "wooden_chair",
+    "woven_rug",
+    "potted_fern",
+    "wooden_wardrobe",
+    "museum_token",
+    "pear",
+    "cherry",
+    "plum",
+    "tomato_seeds",
+    "cabbage_seeds",
+    "wheat_seeds",
+    "corn_seeds",
+    "potato_seeds",
+    "onion_seeds",
+    "pumpkin_seeds",
+    "strawberry_seeds",
+    "beet_seeds",
+    "pepper_seeds",
+    "cucumber_seeds",
+    "sunflower_seeds",
+    "cotton_seeds",
+    "melon_seeds",
+    "herb_seeds",
+    "strawberry",
+    "beet",
+    "pepper",
+    "cucumber",
+    "sunflower",
+    "melon",
+    "herbs",
+    "advanced_fishing_rod",
+    "crab_trap",
+    "cauldron",
+    "fruit_sapling",
+    "crab",
+    "log",
+    "plank",
+    "nails",
+    "iron_spear",
+    "war_hammer",
+    "moon_staff",
+    "animal_feed",
+    "truffle",
+    "mayonnaise",
+    "pancakes",
+    "porridge",
+    "truffle_soup",
+    "yarn",
+    "cloth",
+    "metal",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+  ],
+  "state_schema": "aggregate-v2",
+  "storage": {
+    "counts": {},
+    "owned": false
+  },
+  "trees": [
+    {
+      "health": 3,
+      "regrow_timer": 30.0,
+      "stage": 3
+    },
+    {
+      "health": 3,
+      "regrow_timer": 30.0,
+      "stage": 3
+    },
+    {
+      "health": 3,
+      "regrow_timer": 30.0,
+      "stage": 3
+    },
+    {
+      "health": 3,
+      "regrow_timer": 30.0,
+      "stage": 3
+    },
+    {
+      "health": 3,
+      "regrow_timer": 30.0,
+      "stage": 3
+    },
+    {
+      "health": 3,
+      "regrow_timer": 30.0,
+      "stage": 3
+    },
+    {
+      "health": 3,
+      "regrow_timer": 30.0,
+      "stage": 3
+    },
+    {
+      "health": 3,
+      "regrow_timer": 30.0,
+      "stage": 3
+    }
+  ],
+  "tutorial": {
+    "animation": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "events": {
+      "animal_feed": true,
+      "animal_product": true,
+      "animal_water": true,
+      "building_enter": true,
+      "cave_labyrinth": true,
+      "cave_veins": true,
+      "celestial_clock": true,
+      "character_animation": true,
+      "character_creation": true,
+      "collision": true,
+      "combat_animation": true,
+      "combat_hit_reaction": true,
+      "cooking": true,
+      "craft_window": true,
+      "critical_hit": true,
+      "day": true,
+      "eat": true,
+      "enemy_attack_styles": true,
+      "enemy_levels": true,
+      "enemy_movement": true,
+      "enemy_projectiles": true,
+      "equipment": true,
+      "farmyard": true,
+      "forage_regrow": true,
+      "free_farming": true,
+      "harvest": true,
+      "hero_skin": true,
+      "hero_tools": true,
+      "interior_furniture": true,
+      "item_quality": true,
+      "level_up": true,
+      "lumber_process": true,
+      "mine": true,
+      "move": true,
+      "npc_schedule": true,
+      "npc_wander": true,
+      "plant": true,
+      "player_contact": true,
+      "profession": true,
+      "raid_event": true,
+      "rewater": true,
+      "shop": true,
+      "trade": true,
+      "travel": true,
+      "tree_chop": true,
+      "tree_fall": true,
+      "tree_regrow": true,
+      "village_paths": true,
+      "water": true,
+      "weapon_cooldown": true,
+      "world_calendar": true
+    },
+    "seen": {
+      "bridge": true,
+      "building:cottage": true,
+      "building:shop_house": true,
+      "container:bone_pile": true,
+      "container:chest": true,
+      "container:sack": true,
+      "container:trash": true,
+      "enemy:cave_guardian:4": true,
+      "enemy:skeleton:2": true,
+      "enemy:skeleton:3": true,
+      "enemy:skeleton:4": true,
+      "food:apple": true,
+      "grandmother": true,
+      "item:ancient_key": true,
+      "item:blue_gem": true,
+      "item:bones": true,
+      "location:cave": true,
+      "location:overworld": true,
+      "resource:red_crystal": true,
+      "tree_1": true,
+      "wildlife:bat": true,
+      "workbench": true
+    },
+    "step": 2
+  },
+  "version": 2,
+  "weapons": {
+    "bow": false,
+    "crystal": false,
+    "equipped": "iron_spear",
+    "sword": false
+  },
+  "wildlife": [
+    {
+      "alive": true,
+      "hp": 3,
+      "position": [
+        2147.31909179688,
+        892.275207519531
+      ]
+    },
+    {
+      "alive": true,
+      "hp": 3,
+      "position": [
+        2256.2705078125,
+        805.514587402344
+      ]
+    },
+    {
+      "alive": true,
+      "hp": 3,
+      "position": [
+        720.0,
+        650.0
+      ]
+    },
+    {
+      "alive": true,
+      "hp": 3,
+      "position": [
+        1560.0,
+        360.0
+      ]
+    },
+    {
+      "alive": true,
+      "hp": 5,
+      "position": [
+        2040.0,
+        620.0
+      ]
+    },
+    {
+      "alive": true,
+      "hp": 5,
+      "position": [
+        1100.0,
+        530.0
+      ]
+    },
+    {
+      "alive": true,
+      "hp": 2,
+      "position": [
+        680.228454589844,
+        269.067810058594
+      ]
+    },
+    {
+      "alive": true,
+      "hp": 2,
+      "position": [
+        1530.28344726562,
+        461.37939453125
+      ]
+    },
+    {
+      "alive": true,
+      "hp": 2,
+      "position": [
+        840.0,
+        390.0
+      ]
+    },
+    {
+      "alive": true,
+      "hp": 4,
+      "position": [
+        1180.0,
+        620.0
+      ]
+    },
+    {
+      "alive": true,
+      "hp": 4,
+      "position": [
+        1986.02514648438,
+        914.231384277344
+      ]
+    }
+  ],
+  "world_loot_seed": 20260908,
+  "world_plots": [],
+  "xp": 139
+}

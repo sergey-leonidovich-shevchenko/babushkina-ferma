@@ -1,0 +1,745 @@
+{
+  "hp": 82,
+  "inventory": {
+    "advanced_fishing_rod": 0,
+    "ancient_key": 0,
+    "animal_feed": 0,
+    "apple": 0,
+    "arrows": 0,
+    "axe": 1,
+    "bat_wing": 0,
+    "beet": 0,
+    "beet_seeds": 0,
+    "berries": 0,
+    "blue_gem": 0,
+    "bones": 0,
+    "bouquet": 0,
+    "bread": 0,
+    "butter": 0,
+    "cabbage": 0,
+    "cabbage_seeds": 0,
+    "carrot": 3,
+    "cauldron": 0,
+    "cheese": 0,
+    "cherry": 0,
+    "cloth": 0,
+    "corn": 0,
+    "corn_seeds": 0,
+    "cornbread": 0,
+    "cotton": 0,
+    "cotton_seeds": 0,
+    "crab": 0,
+    "crab_trap": 0,
+    "crystal": 0,
+    "crystal_ring": 0,
+    "cucumber": 0,
+    "cucumber_seeds": 0,
+    "cursed_compass": 0,
+    "defense_potion": 0,
+    "eclipse_core": 0,
+    "ectoplasm": 0,
+    "egg": 8,
+    "energy_potion": 0,
+    "fence_kit": 0,
+    "fiber": 0,
+    "fish": 0,
+    "flour": 0,
+    "flower": 0,
+    "fruit_sapling": 0,
+    "fur": 0,
+    "gate_kit": 0,
+    "green_crystal": 0,
+    "guardian_armor": 0,
+    "guild_badge": 0,
+    "healing_potion": 0,
+    "herb_seeds": 0,
+    "herbs": 0,
+    "hide": 0,
+    "home_chest": 0,
+    "honey": 0,
+    "invisibility_potion": 0,
+    "iron_helmet": 0,
+    "iron_spear": 1,
+    "jam": 0,
+    "lizard_scale": 0,
+    "log": 0,
+    "mana_potion": 0,
+    "mayonnaise": 0,
+    "melon": 0,
+    "melon_seeds": 0,
+    "metal": 2,
+    "milk": 0,
+    "moon_relic": 1,
+    "moon_staff": 0,
+    "museum_token": 0,
+    "mushroom": 0,
+    "nails": 6,
+    "nut": 0,
+    "oak_shield": 0,
+    "omelet": 4,
+    "onion": 0,
+    "onion_seeds": 0,
+    "orange": 0,
+    "orc_blade": 0,
+    "pancakes": 0,
+    "pear": 0,
+    "pepper": 0,
+    "pepper_seeds": 0,
+    "pie": 0,
+    "pirate_cutlass": 0,
+    "pirate_doubloon": 0,
+    "plank": 2,
+    "plum": 0,
+    "porridge": 0,
+    "potato": 0,
+    "potato_seeds": 0,
+    "potted_fern": 0,
+    "pumpkin": 0,
+    "pumpkin_seeds": 0,
+    "rare_seeds": 0,
+    "raw_meat": 0,
+    "red_crystal": 0,
+    "regeneration_potion": 0,
+    "rope": 0,
+    "rustic_table": 0,
+    "seeds": 9,
+    "slime": 0,
+    "soup": 0,
+    "speed_potion": 0,
+    "stone": 0,
+    "strawberry": 0,
+    "strawberry_seeds": 0,
+    "strength_potion": 0,
+    "sunflower": 0,
+    "sunflower_seeds": 0,
+    "tomato": 0,
+    "tomato_seeds": 0,
+    "travel_boots": 0,
+    "truffle": 0,
+    "truffle_soup": 0,
+    "tusk": 0,
+    "war_hammer": 0,
+    "watermelon": 0,
+    "wheat": 0,
+    "wheat_seeds": 0,
+    "wood": 5,
+    "wooden_chair": 0,
+    "wooden_wardrobe": 0,
+    "wool": 0,
+    "woven_rug": 0,
+    "yarn": 0
+  },
+  "meals_used": 4,
+  "observations": [
+    {
+      "day": 1,
+      "detail": {
+        "profile_created": true,
+        "starter_feed": 4
+      },
+      "event": "new_game",
+      "hp": 100,
+      "location": "overworld",
+      "position": [
+        432.0,
+        672.0
+      ],
+      "ticks": 0
+    },
+    {
+      "day": 1,
+      "detail": {
+        "carrots": 3,
+        "energy": 7
+      },
+      "event": "farm_harvest",
+      "hp": 100,
+      "location": "overworld",
+      "position": [
+        298.854248046875,
+        899.8935546875
+      ],
+      "ticks": 1984
+    },
+    {
+      "day": 5,
+      "detail": {
+        "day": 5,
+        "eggs": 4,
+        "milk": 0,
+        "omelets": 4
+      },
+      "event": "kitchen",
+      "hp": 100,
+      "location": "overworld",
+      "position": [
+        360.0,
+        648.0
+      ],
+      "ticks": 7304
+    },
+    {
+      "day": 5,
+      "detail": {
+        "axe": 1,
+        "durability": 100,
+        "energy": 12,
+        "tool": 6,
+        "tree": "{ \"id\": \"tree_0\", \"position\": (2064.0, 336.0), \"health\": 3, \"stage\": 3, \"regrow_timer\": 30.0, \"hit_flash\": 0.0 }"
+      },
+      "event": "tree_approach",
+      "hp": 100,
+      "location": "overworld",
+      "position": [
+        2027.4716796875,
+        422.860046386719
+      ],
+      "ticks": 8165
+    },
+    {
+      "day": 5,
+      "detail": {
+        "message": "Удар топором: прочность дерева 2/3",
+        "success": true
+      },
+      "event": "tree_hit",
+      "hp": 100,
+      "location": "overworld",
+      "position": [
+        2027.4716796875,
+        422.860046386719
+      ],
+      "ticks": 8165
+    },
+    {
+      "day": 5,
+      "detail": {
+        "message": "Удар топором: прочность дерева 1/3",
+        "success": true
+      },
+      "event": "tree_hit",
+      "hp": 100,
+      "location": "overworld",
+      "position": [
+        2027.4716796875,
+        422.860046386719
+      ],
+      "ticks": 8225
+    },
+    {
+      "day": 5,
+      "detail": {
+        "message": "Дерево срублено: получено бревно! Новый рост займёт 30 секунд",
+        "success": true
+      },
+      "event": "tree_hit",
+      "hp": 100,
+      "location": "overworld",
+      "position": [
+        2027.4716796875,
+        422.860046386719
+      ],
+      "ticks": 8285
+    },
+    {
+      "day": 5,
+      "detail": {
+        "kind": "skeleton",
+        "meals_used": 0,
+        "ticks": 199
+      },
+      "event": "ordinary_combat",
+      "hp": 91,
+      "location": "cave",
+      "position": [
+        435.753845214844,
+        711.704956054688
+      ],
+      "ticks": 8981
+    },
+    {
+      "day": 5,
+      "detail": {
+        "kind": "skeleton",
+        "meals_used": 0,
+        "ticks": 72
+      },
+      "event": "ordinary_combat",
+      "hp": 91,
+      "location": "cave",
+      "position": [
+        757.123352050781,
+        575.835510253906
+      ],
+      "ticks": 9107
+    },
+    {
+      "day": 5,
+      "detail": {
+        "kind": "cave_guardian",
+        "meals_used": 0,
+        "ticks": 458
+      },
+      "event": "ordinary_combat",
+      "hp": 74,
+      "location": "cave",
+      "position": [
+        719.258056640625,
+        478.470550537109
+      ],
+      "ticks": 9565
+    },
+    {
+      "day": 5,
+      "detail": {
+        "kind": "skeleton",
+        "meals_used": 0,
+        "ticks": 252
+      },
+      "event": "ordinary_combat",
+      "hp": 74,
+      "location": "cave",
+      "position": [
+        1081.5693359375,
+        223.453582763672
+      ],
+      "ticks": 9870
+    },
+    {
+      "day": 5,
+      "detail": {
+        "kind": "cave_guardian",
+        "meals_used": 1,
+        "ticks": 294
+      },
+      "event": "ordinary_combat",
+      "hp": 98,
+      "location": "cave",
+      "position": [
+        1301.72155761719,
+        426.107208251953
+      ],
+      "ticks": 10221
+    },
+    {
+      "day": 5,
+      "detail": {
+        "kind": "cave_guardian",
+        "meals_used": 3,
+        "ticks": 444
+      },
+      "event": "ordinary_combat",
+      "hp": 108,
+      "location": "cave",
+      "position": [
+        1320.03527832031,
+        477.093017578125
+      ],
+      "ticks": 10665
+    },
+    {
+      "day": 5,
+      "detail": {
+        "kind": "cave_guardian",
+        "meals_used": 3,
+        "ticks": 602
+      },
+      "event": "ordinary_combat",
+      "hp": 118,
+      "location": "cave",
+      "position": [
+        1327.84838867188,
+        483.280212402344
+      ],
+      "ticks": 11267
+    },
+    {
+      "day": 5,
+      "detail": {
+        "kind": "skeleton",
+        "meals_used": 3,
+        "ticks": 185
+      },
+      "event": "ordinary_combat",
+      "hp": 93,
+      "location": "cave",
+      "position": [
+        1737.28540039062,
+        649.37841796875
+      ],
+      "ticks": 11507
+    },
+    {
+      "day": 5,
+      "detail": {
+        "kind": "skeleton",
+        "meals_used": 3,
+        "ticks": 203
+      },
+      "event": "ordinary_combat",
+      "hp": 65,
+      "location": "cave",
+      "position": [
+        2002.80212402344,
+        306.116485595703
+      ],
+      "ticks": 11755
+    },
+    {
+      "day": 5,
+      "detail": {
+        "count": 3,
+        "kind": "metal"
+      },
+      "event": "vein",
+      "hp": 65,
+      "location": "cave",
+      "position": [
+        2097.55078125,
+        323.115570068359
+      ],
+      "ticks": 11925
+    },
+    {
+      "day": 5,
+      "detail": {
+        "port": "deep"
+      },
+      "event": "room",
+      "hp": 65,
+      "location": "cave_fungal",
+      "position": [
+        288.0,
+        600.0
+      ],
+      "ticks": 11998
+    },
+    {
+      "day": 5,
+      "detail": {
+        "kind": "skeleton",
+        "meals_used": 4,
+        "ticks": 150
+      },
+      "event": "ordinary_combat",
+      "hp": 104,
+      "location": "cave_fungal",
+      "position": [
+        562.845397949219,
+        519.956604003906
+      ],
+      "ticks": 12184
+    },
+    {
+      "day": 5,
+      "detail": {
+        "port": "top"
+      },
+      "event": "room",
+      "hp": 104,
+      "location": "cave_mine",
+      "position": [
+        1200.0,
+        960.0
+      ],
+      "ticks": 12459
+    },
+    {
+      "day": 5,
+      "detail": {
+        "kind": "skeleton",
+        "meals_used": 4,
+        "ticks": 239
+      },
+      "event": "ordinary_combat",
+      "hp": 82,
+      "location": "cave_mine",
+      "position": [
+        609.929748535156,
+        500.173278808594
+      ],
+      "ticks": 12828
+    },
+    {
+      "day": 5,
+      "detail": {
+        "count": 6,
+        "kind": "metal"
+      },
+      "event": "vein",
+      "hp": 82,
+      "location": "cave_mine",
+      "position": [
+        517.865234375,
+        348.147796630859
+      ],
+      "ticks": 13022
+    },
+    {
+      "day": 5,
+      "detail": {
+        "kind": "skeleton",
+        "meals_used": 4,
+        "ticks": 188
+      },
+      "event": "ordinary_combat",
+      "hp": 82,
+      "location": "cave_mine",
+      "position": [
+        1868.31884765625,
+        642.763000488281
+      ],
+      "ticks": 13543
+    },
+    {
+      "day": 5,
+      "detail": {
+        "count": 9,
+        "kind": "metal"
+      },
+      "event": "vein",
+      "hp": 82,
+      "location": "cave_mine",
+      "position": [
+        1930.43762207031,
+        398.289459228516
+      ],
+      "ticks": 13759
+    },
+    {
+      "day": 5,
+      "detail": {
+        "port": "bottom"
+      },
+      "event": "room",
+      "hp": 82,
+      "location": "cave_fungal",
+      "position": [
+        1200.0,
+        288.0
+      ],
+      "ticks": 14216
+    },
+    {
+      "day": 5,
+      "detail": {
+        "port": "left"
+      },
+      "event": "room",
+      "hp": 82,
+      "location": "cave",
+      "position": [
+        2016.0,
+        288.0
+      ],
+      "ticks": 14603
+    },
+    {
+      "day": 9,
+      "detail": {
+        "coins": 24,
+        "day": 9,
+        "omelets": 4
+      },
+      "event": "restocked_food",
+      "hp": 82,
+      "location": "overworld",
+      "position": [
+        360.0,
+        648.0
+      ],
+      "ticks": 21823
+    },
+    {
+      "day": 9,
+      "detail": {
+        "hp": 82,
+        "level": 6,
+        "omelets": 4,
+        "ore": 0,
+        "spear": 1
+      },
+      "event": "preparation",
+      "hp": 82,
+      "location": "overworld",
+      "position": [
+        360.0,
+        648.0
+      ],
+      "ticks": 21823
+    },
+    {
+      "day": 9,
+      "detail": {
+        "port": "deep"
+      },
+      "event": "room",
+      "hp": 82,
+      "location": "cave_fungal",
+      "position": [
+        288.0,
+        600.0
+      ],
+      "ticks": 22643
+    },
+    {
+      "day": 9,
+      "detail": {
+        "kind": "cave_guardian",
+        "meals_used": 4,
+        "ticks": 135
+      },
+      "event": "ordinary_combat",
+      "hp": 92,
+      "location": "cave_fungal",
+      "position": [
+        1565.72399902344,
+        602.474853515625
+      ],
+      "ticks": 23142
+    },
+    {
+      "day": 9,
+      "detail": {
+        "port": "right"
+      },
+      "event": "room",
+      "hp": 92,
+      "location": "cave_moon",
+      "position": [
+        288.0,
+        600.0
+      ],
+      "ticks": 23322
+    },
+    {
+      "day": 9,
+      "detail": {
+        "port": "bottom"
+      },
+      "event": "room",
+      "hp": 92,
+      "location": "cave_lake",
+      "position": [
+        1200.0,
+        288.0
+      ],
+      "ticks": 23728
+    },
+    {
+      "day": 9,
+      "detail": {
+        "port": "left"
+      },
+      "event": "room",
+      "hp": 92,
+      "location": "cave_mine",
+      "position": [
+        2112.0,
+        600.0
+      ],
+      "ticks": 24082
+    },
+    {
+      "day": 9,
+      "detail": {
+        "port": "right"
+      },
+      "event": "room",
+      "hp": 92,
+      "location": "cave_lake",
+      "position": [
+        288.0,
+        600.0
+      ],
+      "ticks": 24139
+    },
+    {
+      "day": 9,
+      "detail": {
+        "kind": "cave_guardian",
+        "meals_used": 4,
+        "ticks": 176
+      },
+      "event": "ordinary_combat",
+      "hp": 92,
+      "location": "cave_lake",
+      "position": [
+        1594.74719238281,
+        591.090515136719
+      ],
+      "ticks": 24702
+    },
+    {
+      "day": 9,
+      "detail": {
+        "port": "right"
+      },
+      "event": "room",
+      "hp": 92,
+      "location": "cave_sanctum",
+      "position": [
+        288.0,
+        600.0
+      ],
+      "ticks": 24870
+    },
+    {
+      "day": 9,
+      "detail": {
+        "kind": "skeleton",
+        "meals_used": 4,
+        "ticks": 140
+      },
+      "event": "ordinary_combat",
+      "hp": 92,
+      "location": "cave_sanctum",
+      "position": [
+        468.09716796875,
+        535.406311035156
+      ],
+      "ticks": 25010
+    },
+    {
+      "day": 9,
+      "detail": {
+        "durability": 64,
+        "meals_used": 4,
+        "phases": [
+          1,
+          2,
+          3
+        ],
+        "ticks": 1302
+      },
+      "event": "boss_fight",
+      "hp": 82,
+      "location": "cave_sanctum",
+      "position": [
+        1470.34631347656,
+        491.401214599609
+      ],
+      "ticks": 26442
+    }
+  ],
+  "passed": true,
+  "phases": [
+    1,
+    2,
+    3
+  ],
+  "simulation_seconds": 442.75,
+  "ticks": 26565,
+  "user_directory": "/Users/sergeyshevchenko/Library/Application Support/Codex-MoonValley-E2E-1791782509",
+  "user_saves_unchanged": true,
+  "visited": [
+    "overworld",
+    "cottage_interior",
+    "cave",
+    "cave_fungal",
+    "cave_mine",
+    "cave_moon",
+    "cave_lake",
+    "cave_sanctum"
+  ]
+}
