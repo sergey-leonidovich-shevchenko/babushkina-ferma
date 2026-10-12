@@ -34,12 +34,26 @@ const GRASS_VARIANTS := [
 var location := "overworld"
 var season := "spring"
 var weather := "clear"
+var terrain_viewport: SubViewport
+var terrain_canvas: Node2D
+var terrain_ready := false
 
 ## Подготавливает узел к работе: создаёт зависимые данные и синхронизирует начальное состояние.
 func _ready() -> void:
 	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED
 	VillageMapPreviewSystem.warmup()
+	if DisplayServer.get_name() != "headless":
+		terrain_viewport=SubViewport.new()
+		terrain_viewport.size=Vector2i(VillageLayoutSystem.MapData.WORLD_SIZE)
+		terrain_viewport.disable_3d=true; terrain_viewport.transparent_bg=true
+		terrain_viewport.canvas_item_default_texture_filter=Viewport.DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_NEAREST
+		terrain_viewport.render_target_update_mode=SubViewport.UPDATE_DISABLED
+		add_child(terrain_viewport)
+		terrain_canvas=preload("res://scripts/presentation/village_terrain_canvas.gd").new()
+		terrain_canvas.texture_repeat=CanvasItem.TEXTURE_REPEAT_ENABLED
+		terrain_viewport.add_child(terrain_canvas)
+		refresh_terrain()
 
 ## Устанавливает относящееся к методу значение и синхронизирует зависимое состояние.
 func set_location(value: String) -> void:
@@ -51,6 +65,20 @@ func set_location(value: String) -> void:
 func set_environment(next_season: String, next_weather: String) -> void:
 	if season == next_season and weather == next_weather: return
 	season = next_season; weather = next_weather; queue_redraw()
+	refresh_terrain()
+
+## Инвалидирует только графический кеш земли, оставляя исходные спрайты и коллизии самостоятельными.
+func refresh_terrain() -> void:
+	if terrain_viewport==null: return
+	terrain_ready=false
+	terrain_canvas.season=season; terrain_canvas.weather=weather; terrain_canvas.queue_redraw()
+	terrain_viewport.render_target_update_mode=SubViewport.UPDATE_ONCE
+	if not RenderingServer.frame_post_draw.is_connected(_terrain_rendered): RenderingServer.frame_post_draw.connect(_terrain_rendered,CONNECT_ONE_SHOT)
+
+## Подменяет готовые команды грунта одним GPU-слоем после реального завершения его отрисовки.
+func _terrain_rendered() -> void:
+	terrain_ready=true
+	if location=="overworld": queue_redraw()
 
 ## Отрисовывает текущее визуальное состояние узла.
 func _draw() -> void:
@@ -93,7 +121,9 @@ func draw_adventure_location() -> void:
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_overworld() -> void:
-	VillageTerrainRenderer.draw(self,season,weather)
+	if terrain_ready and not bool(get_meta("terrain_direct",false)):
+		draw_texture_rect(terrain_viewport.get_texture(),Rect2(Vector2.ZERO,VillageLayoutSystem.MapData.WORLD_SIZE),false)
+	else: VillageTerrainRenderer.draw(self,season,weather)
 
 
 ## Выбирает детерминированный вариант травы для старого процедурного режима и тестов палитры.

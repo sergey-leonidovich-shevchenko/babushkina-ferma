@@ -63,7 +63,7 @@ static func update(game: Node, delta: float, render_frame: int = -1) -> void:
 	if not active(game): return
 	var state: Dictionary = game.get_meta(META_KEY)
 	state.refresh_left = float(state.get("refresh_left", 0.0)) - delta
-	# Физический catch-up не получает ещё 3 ms сетки за каждый тик одного медленного render-кадра.
+	# Физический catch-up не получает повторный бюджет сетки за каждый тик одного медленного render-кадра.
 	# Офлайн-расчёт допускает явный frame-clock либо последовательное завершение вне дерева.
 	var frame := render_frame
 	if frame < 0 and game.is_inside_tree(): frame = Engine.get_process_frames()

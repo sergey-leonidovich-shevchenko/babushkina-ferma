@@ -29,6 +29,10 @@ var profile_short := false
 var simulation_started := false
 var town_loops := 0
 var monitor_frames: Array[Dictionary] = []
+var drawn_start := 0
+var last_monitor_physics := -1
+var draw_intervals_ms: Array[float] = []
+var previous_draw_usec := 0
 
 
 ## Создаёт настоящую сцену для измерения кадров с графическим renderer после завершения инициализации дерева.
@@ -48,6 +52,7 @@ func _start() -> void:
 		save_fingerprints[path] = FileAccess.get_sha256(path) if FileAccess.file_exists(path) else "absent"
 	seed(WORLD_SEED)
 	game = GAME_SCENE.instantiate()
+	if "--cpu-sections" in OS.get_cmdline_user_args(): game.set_script(preload("res://tools/cpu_profile_game.gd"))
 	game.world_loot_seed = WORLD_SEED
 	root.add_child(game)
 	# Прогрев отрисовки не даёт медленному F10 лишние секунды прогулок NPC перед тем же маршрутом.
@@ -67,8 +72,14 @@ func _start() -> void:
 	game.AudioSystem.set_enabled(game, true)
 	game.LocaleSystem.set_locale("ru", false)
 	game.set_meta("debug_inspector_cursor", Vector2(220, 220))
-	Engine.max_fps = 60
-	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
+	preload("res://scripts/systems/render_pacing_system.gd").apply()
+	if "--pacing-vsync" in OS.get_cmdline_user_args(): OS.low_processor_usage_mode=false
+	if "--pacing-timer" in OS.get_cmdline_user_args() or "--pacing-legacy" in OS.get_cmdline_user_args():
+		OS.low_processor_usage_mode=false; Engine.max_fps=60
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN if "--profile-fullscreen" in OS.get_cmdline_user_args() else DisplayServer.WINDOW_MODE_WINDOWED)
+	root.size=DisplayServer.screen_get_size() if "--profile-fullscreen" in OS.get_cmdline_user_args() else Vector2i(1152,648)
+	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED if "--pacing-timer" in OS.get_cmdline_user_args() else DisplayServer.VSYNC_ENABLED)
+	DisplayServer.window_move_to_foreground()
 	game.update_camera(); game.sync_background_location()
 	if "--benchmark-debug-overlay" in OS.get_cmdline_user_args():
 		if not game.DebugOverlaySystem.active(game): game.DebugOverlaySystem.toggle(game)
@@ -81,6 +92,8 @@ func _start() -> void:
 	else:
 		route.append(Village.PATHS[6][1]); route.append(Village.CAVE_ENTRANCE)
 	physics_frame.connect(_drive_route)
+	RenderingServer.frame_post_draw.connect(_record_drawn_frame)
+	drawn_start=Engine.get_frames_drawn()
 	started = true
 
 
@@ -170,7 +183,7 @@ func _process(_delta: float) -> bool:
 		var build: Dictionary = overlay.get("grid_build", {})
 		slow_frames.append({"frame": frames, "duration_ms": elapsed_ms, "location": game.current_location, "route_seconds": game.benchmark_elapsed, "route_checkpoint":route_index, "position":_point(game.player), "grid_pending": not build.is_empty(), "grid_cursor": int(build.get("cursor", 0)), "physics_frames": Engine.get_physics_frames()})
 	var sample_limit := SHORT_PROFILE_FRAMES if profile_short else (TOWN_SAMPLE_FRAMES if profile_town else SAMPLE_FRAMES)
-	if frame_ms.size() >= sample_limit:
+	if frame_ms.size() >= sample_limit and (not profile_town or profile_short or float(game.benchmark_elapsed)>=25.0):
 		_finish()
 		return true
 	return false
@@ -178,6 +191,9 @@ func _process(_delta: float) -> bool:
 
 ## Сохраняет штатные Godot monitors и накопленные секционные таймеры root на каждом измеряемом кадре.
 func _record_monitors(elapsed_ms: float) -> void:
+	var physics_tick := Engine.get_physics_frames()
+	if physics_tick==last_monitor_physics: return
+	last_monitor_physics=physics_tick
 	var overlay: Dictionary = game.get_meta(game.DebugOverlaySystem.META_KEY, {})
 	var grid: Texture2D = overlay.get("grid_texture")
 	var lines: Texture2D = overlay.get("grid_lines_texture")
@@ -227,6 +243,17 @@ func _finish() -> void:
 	var window_size := DisplayServer.window_get_size()
 	var result := {"schema": 5, "mode": mode, "map_revision":Village.REVISION, "route": "Village.START → PATHS[0] nodes 2…7 (bridge + square) → nodes 6,5,4 → PATHS[6][1] → automatic cave entrance; physical keyboard input, no teleport", "seed":WORLD_SEED, "cursor":[220,220], "clock": "Time.get_ticks_usec between rendered SceneTree frames; not smoothed delta", "engine": Engine.get_version_info().string, "display_server": DisplayServer.get_name(), "gpu": RenderingServer.get_video_adapter_name(), "window_size": [window_size.x, window_size.y], "vsync": DisplayServer.window_get_vsync_mode(), "max_fps": Engine.max_fps, "physics_hz":Engine.physics_ticks_per_second, "warmup_frames": WARMUP_FRAMES, "sample_frames": frame_ms.size(), "render_frame": _statistics(frame_ms)}
 	result.warmup_world_frozen = true
+	result.frame_intervals_ms=frame_ms
+	result.drawn_frames_including_warmup=Engine.get_frames_drawn()-drawn_start
+	result.process_frames_including_warmup=frames
+	result.low_processor_usage=OS.low_processor_usage_mode
+	result.draw_intervals_ms=draw_intervals_ms
+	if not draw_intervals_ms.is_empty(): result.draw_frame=_statistics(draw_intervals_ms)
+	result.window_focused=DisplayServer.window_is_focused()
+	result.window_mode=DisplayServer.window_get_mode()
+	result.screen_size=[DisplayServer.screen_get_size().x,DisplayServer.screen_get_size().y]
+	result.pacing_policy=pacing_policy()
+	if game.has_meta("cpu_samples"): result.cpu_samples=game.get_meta("cpu_samples")
 	result.town_loops = town_loops
 	result.diagnostic_partial_route = profile_short
 	# Только итоговый снимок: счётчики подтверждают работу нового кеша текста без дополнительной работы на каждом кадре.
@@ -268,3 +295,16 @@ func _finish() -> void:
 	# Короткая секционная диагностика не подменяет полную проверку маршрута: её файл явно помечен partial.
 	var run_valid: bool = route_valid or (profile_short and game.current_location == "overworld" and frame_ms_by_location.size() == 1)
 	quit(0 if run_valid and unchanged else 1)
+
+## Измеряет только действительно отрисованные кадры, отдельно от проходов главного цикла без перерисовки.
+func _record_drawn_frame() -> void:
+	var now := Time.get_ticks_usec()
+	if started and frames>WARMUP_FRAMES and previous_draw_usec>0: draw_intervals_ms.append((now-previous_draw_usec)/1000.0)
+	previous_draw_usec=now
+
+## Записывает фактическую политику кадра, отличая штатную от диагностических режимов.
+func pacing_policy() -> String:
+	if "--pacing-vsync" in OS.get_cmdline_user_args(): return "vsync_only"
+	if "--pacing-timer" in OS.get_cmdline_user_args(): return "timer_only"
+	if "--pacing-legacy" in OS.get_cmdline_user_args(): return "legacy_vsync_and_timer"
+	return "demand_0.5ms"

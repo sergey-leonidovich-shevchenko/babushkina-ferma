@@ -73,6 +73,7 @@ static func apply_display_settings(game: Node) -> void:
 		return
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN if game.settings_state.fullscreen_enabled else DisplayServer.WINDOW_MODE_WINDOWED)
 	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED if game.settings_state.vsync_enabled else DisplayServer.VSYNC_DISABLED)
+	preload("res://scripts/systems/render_pacing_system.gd").apply()
 
 
 ## Возвращает громкость как округлённый процент для стабильного отображения и тестирования.

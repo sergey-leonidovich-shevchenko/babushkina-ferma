@@ -56,6 +56,18 @@ func _finish() -> void:
 	var mode := "f10" if game.DebugOverlaySystem.active(game) else "normal"
 	var result := {"schema":1,"mode":mode,"seed":WORLD_SEED,"gpu":RenderingServer.get_video_adapter_name(),"engine":Engine.get_version_info().string,"window_size":[root.size.x,root.size.y],"vsync":DisplayServer.window_get_vsync_mode(),"max_fps":Engine.max_fps,"physics_hz":Engine.physics_ticks_per_second,"warmup_frames":WARMUP_FRAMES,"sample_frames":frame_ms.size(),"render_frame":_statistics(frame_ms),"monitors":monitor_frames,"user_saves_unchanged":unchanged,"phase":game.state.world.cave_boss.phase,"peak_minions":peak_minions,"peak_projectiles":peak_shots,"attacks":attack_ids.keys(),"damage_received":damage_received,"simulation_seconds":game.benchmark_elapsed,"note":"Physical keyboard input and real collisions; no attacks on boss; benchmark-only healing each physics tick keeps the ordinary AI active."}
 	var directory := "res://docs/reports"
+	result.frame_intervals_ms=frame_ms
+	result.drawn_frames_including_warmup=Engine.get_frames_drawn()-drawn_start
+	result.process_frames_including_warmup=frames
+	result.low_processor_usage=OS.low_processor_usage_mode
+	result.draw_intervals_ms=draw_intervals_ms
+	if not draw_intervals_ms.is_empty(): result.draw_frame=_statistics(draw_intervals_ms)
+	result.window_focused=DisplayServer.window_is_focused()
+	if game.has_meta("cpu_samples"): result.cpu_samples=game.get_meta("cpu_samples")
+	result.window_mode=DisplayServer.window_get_mode()
+	result.display_window_size=[DisplayServer.window_get_size().x,DisplayServer.window_get_size().y]
+	result.screen_size=[DisplayServer.screen_get_size().x,DisplayServer.screen_get_size().y]
+	result.pacing_policy=pacing_policy()
 	for argument in OS.get_cmdline_user_args():
 		if argument.begins_with("--report-dir="): directory = argument.trim_prefix("--report-dir=")
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(directory))

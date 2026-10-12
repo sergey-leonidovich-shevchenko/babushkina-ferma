@@ -28,6 +28,7 @@ func run() -> void:
 	test_physics_catchup_cannot_multiply_the_render_budget()
 	test_overlay_update_uses_the_render_guard()
 	test_stationary_wildlife_does_not_probe_ten_escape_directions()
+	test_smaller_packets_publish_complete_real_grid()
 
 
 ## Сценарий: после медленного кадра движок исполняет восемь физических тиков до следующей отрисовки.
@@ -54,6 +55,28 @@ func test_overlay_update_uses_the_render_guard() -> void:
 	game.set_meta(Overlay.META_KEY, state)
 	for _tick in 8: Overlay.update(game, 1.0 / 60.0, 100)
 	expect(game.get_meta(Overlay.META_KEY).frame_history.size() == 1, "F10 update applies its frame-clock guard to repeated physics catch-up calls")
+	game.free()
+
+## Сценарий: F10 рассчитывает новую небольшую область реальной пещеры последовательными ограниченными пакетами.
+## Исходное состояние: чистая диагностическая очередь и ожидаемые причины каждой клетки из настоящей навигации.
+## Ожидаемый результат: сниженный бюджет не теряет клетки и публикует только полностью рассчитанное поколение.
+func test_smaller_packets_publish_complete_real_grid() -> void:
+	var game := make_game(); game.current_location="cave"
+	var state := Overlay.default_state(); state.grid_size=24
+	game.set_meta(Overlay.META_KEY,state)
+	var bounds := Rect2(744,384,192,192)
+	var expected := {}
+	for y in range(384,576,24):
+		for x in range(744,936,24): expected[Vector2i(x,y)]=Overlay.classify_cell(game,x,y,24,false).reason
+	Overlay.GridBuildSystem.begin(game,state,bounds,24,false)
+	var frames:=0
+	while Overlay.GridBuildSystem.pending_is_current(game,game.get_meta(Overlay.META_KEY)) and frames<128:
+		Overlay.GridBuildSystem.advance(game); frames+=1
+	var result: Dictionary=game.get_meta(Overlay.META_KEY)
+	var matches: bool=result.cache_cells.size()==expected.size()
+	for cell in expected: matches=matches and result.cache_cells.has(cell) and result.cache_cells[cell].reason==expected[cell]
+	expect(frames>0 and frames<128 and result.grid_build.is_empty(),"reduced grid budget finishes without starving the queue")
+	expect(matches,"incremental F10 publishes every real collision classification")
 	game.free()
 
 

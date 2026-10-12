@@ -5,10 +5,13 @@ const System := preload("res://scripts/systems/livestock_system.gd")
 const Visual := preload("res://scripts/systems/livestock_visual_system.gd")
 const Fence := preload("res://scripts/systems/fence_renderer.gd")
 const Terrain := preload("res://scripts/systems/village_terrain_renderer.gd")
+const Visibility := preload("res://scripts/systems/world_visibility_system.gd")
 
 ## Рисует животных, укрытия и ограды по глубине относительно героя, оставляя HUD свободным.
 static func draw(game: Node2D, foreground: bool = false) -> void:
 	if game.current_location!="overworld": return
+	var visible := Visibility.visible_rect(game)
+	if not visible.intersects(Data.YARD_BOUNDS.grow(96)): return
 	var records: Array[Dictionary] = []
 	for prop in Data.PROPS: records.append({"kind":prop.kind,"position":prop.position,"frame":0,"flip":false})
 	for animal in Data.ANIMALS:
@@ -19,7 +22,9 @@ static func draw(game: Node2D, foreground: bool = false) -> void:
 	for record in records:
 		if (float(record.position.y)>game.player.y)!=foreground: continue
 		if record.has("wall"):
-			draw_fence(game,record.wall); continue
+			if visible.intersects(Rect2(record.wall).grow(32)): draw_fence(game,record.wall)
+			continue
+		if not visible.intersects(Visual.destination_rect(record.kind,record.frame,record.position).grow(32)): continue
 		Visual.draw(game,record.kind,record.frame,record.position,record.flip)
 		if record.has("animal") and game.player.distance_to(record.position)<150:
 			var memory: Dictionary=game.FarmLifeSystem.state(game).animals[record.animal.id]

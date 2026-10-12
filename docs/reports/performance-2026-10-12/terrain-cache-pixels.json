@@ -1,0 +1,29 @@
+[
+  {
+    "cache_ready": true,
+    "channels": 2985984,
+    "channels_over_one": 2767,
+    "maximum_difference": 121,
+    "mean_channel_difference": 0.0509617600094307,
+    "season": "spring",
+    "weather": "clear"
+  },
+  {
+    "cache_ready": true,
+    "channels": 2985984,
+    "channels_over_one": 2908,
+    "maximum_difference": 121,
+    "mean_channel_difference": 0.126248834555041,
+    "season": "summer",
+    "weather": "rain"
+  },
+  {
+    "cache_ready": true,
+    "channels": 2985984,
+    "channels_over_one": 2635,
+    "maximum_difference": 92,
+    "mean_channel_difference": 0.110527049039781,
+    "season": "winter",
+    "weather": "snow"
+  }
+]

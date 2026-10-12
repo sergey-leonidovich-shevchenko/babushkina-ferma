@@ -248,10 +248,13 @@ func forage_sprite_layout(kind: String, position: Vector2) -> Dictionary:
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_food_nodes() -> void:
+	var visible := preload("res://scripts/systems/world_visibility_system.gd").visible_rect(self)
 	for food in food_nodes:
 		if food.get("location", "overworld") != current_location:
 			continue
 		var position: Vector2 = food.position
+		var bounds := OrchardSystem.destination_rect(position,OrchardSystem.stage(food)) if OrchardSystem.handles(food.kind) else ForageSystem.destination_rect(food)
+		if not visible.intersects(bounds.grow(64)): continue
 		var alpha := 1.0 if food.active else 0.36
 		if OrchardSystem.handles(food.kind):
 			OrchardSystem.draw_tree(self, food)
@@ -281,10 +284,12 @@ func draw_fishing_animations() -> void:
 ## Отрисовывает взрослые деревья, пни, саженцы, повреждения и прогресс повторного роста.
 func draw_tree_nodes() -> void:
 	if current_location != "overworld": return
+	var visible := preload("res://scripts/systems/world_visibility_system.gd").visible_rect(self)
 	for tree in state.world.tree_nodes:
 		var stage: int = tree.stage
 		var flash: float = tree.hit_flash
 		var destination:=TreeSystem.destination_rect(tree)
+		if not visible.intersects(destination.grow(32)): continue
 		var tint := Color(1.0, 0.72, 0.62) if flash > 0.0 else Color.WHITE
 		if stage >= 2: TreeOcclusion.submit(self,TreeOcclusion.key_for("timber",tree.position),FOREST_TREE_GROWTH_ATLAS,destination,TreeSystem.source_rect(stage),TreeSystem.ground_anchor(tree.position).y,tint)
 		else: draw_texture_rect_region(FOREST_TREE_GROWTH_ATLAS,destination,TreeSystem.source_rect(stage),tint)

@@ -1,6 +1,6 @@
 extends RefCounted
 
-const FRAME_BUDGET_USEC := 3000
+const FRAME_BUDGET_USEC := 1000
 const MAX_CELLS_PER_FRAME := 128
 
 
