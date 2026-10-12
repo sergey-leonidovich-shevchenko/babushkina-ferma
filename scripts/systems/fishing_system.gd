@@ -75,6 +75,8 @@ static func use_rod(game: Node) -> bool:
 	if not is_near_water(game): game.message = game.LocaleSystem.text("fish_need_water"); return false
 	state.reset_cast()
 	state.phase = PHASE_CHARGING
+	var to_water: Vector2 = game.player.direction_to(game.pond_position) if water_kind(game)=="pond" else Vector2(0,signf(VillageLayoutSystem.river_center_y(game.player.x)-game.player.y))
+	game.set_meta("fish_visual_direction",game.HeroActionSystem.cardinal(to_water))
 	game.message = game.LocaleSystem.text("fish_charge")
 	game.play_sfx("fish_cast")
 	game.AdventurePolishSystem.consume_durability(game, "fishing_rod")
@@ -103,6 +105,11 @@ static func _update_cast(game: Node, delta: float) -> void:
 		state.cast_grade = FishingBalanceSystem.cast_grade(state.cast_power)
 		state.depth_kind = FishingBalanceSystem.depth_for(state.cast_power)
 		state.water_kind = water_kind(game)
+		game.remove_meta(game.HeroActionSystem.META)
+		game.HeroActionSystem.begin(game,"fish_cast",bobber_position(game))
+		var cast_pose: Dictionary = game.HeroActionSystem.pose(game)
+		cast_pose.direction = game.get_meta("fish_visual_direction",game.facing)
+		game.set_meta(game.HeroActionSystem.META,cast_pose)
 		state.timer = game.SkillSystem.fishing_wait(game) * lerpf(1.12, 0.82, state.cast_power)
 		game.message = game.LocaleSystem.text("fish_cast", [roundi(state.cast_power * 100.0)])
 		return

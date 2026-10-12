@@ -19,6 +19,7 @@ func run()->void:
 	preload("res://tests/suites/village_clearance_suite.gd").new(context).run()
 	preload("res://tests/suites/celestial_dial_suite.gd").new(context).run()
 	preload("res://tests/suites/hero_combat_visual_suite.gd").new(context).run()
+	preload("res://tests/suites/hero_action_visual_suite.gd").new(context).run()
 	preload("res://tests/suites/horizontal_pause_suite.gd").new(context).run()
 	preload("res://tests/suites/lunar_menu_suite.gd").new(context).run()
 	RuntimeSuite.new(context).run()

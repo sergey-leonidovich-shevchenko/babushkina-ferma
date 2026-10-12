@@ -160,7 +160,7 @@ static func draw_first_location_animations(game: Node2D) -> void:
 ## Рисует натянутую леску, поплавок и спокойную рябь в фактической точке заброса.
 static func draw_bobber(game: Node2D, ticks: int) -> void:
 	var position:Vector2=game.FishingSystem.bobber_position(game); var pulse:=sin(ticks/180.0)*2.0
-	game.draw_line(game.player+Vector2(0,-18),position,Color(0.93,0.90,0.72,0.82),1.2)
+	game.draw_line(preload("res://scripts/systems/hero_action_visual_system.gd").fishing_line_origin(game),position,Color(0.93,0.90,0.72,0.82),1.2)
 	game.draw_arc(position,12.0+pulse,0.0,TAU,24,Color(0.72,0.91,1.0,0.48),1.2)
 	game.draw_circle(position+Vector2(0,-3),5.0,Color("f4e4b3")); game.draw_circle(position+Vector2(0,-6),3.0,Color("d9544d"))
 

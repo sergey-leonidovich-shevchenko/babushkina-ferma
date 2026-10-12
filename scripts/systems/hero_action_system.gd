@@ -18,6 +18,7 @@ static func begin(game: Node, action: String, target: Vector2) -> void:
 	var current: Dictionary = game.get_meta(META, {})
 	if String(current.get("action", "")) == action and String(current.get("location", "")) == game.current_location and float(current.get("remaining", 0.0)) > 0.0: return
 	game.set_meta(META, {"action":action, "remaining":DURATION, "direction":cardinal(game.facing), "target":target, "location":game.current_location})
+	game.notify_tutorial("hero_tools")
 
 
 ## Продвигает короткую анимацию инструмента, не двигая физическую позицию героя и не изменяя результат действия.

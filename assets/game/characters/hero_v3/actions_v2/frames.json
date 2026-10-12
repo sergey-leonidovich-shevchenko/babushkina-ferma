@@ -1,0 +1,1614 @@
+{
+	"axe": {
+		"directions": [
+			"down",
+			"left",
+			"right",
+			"up"
+		],
+		"frames": [
+			{
+				"draw_pivot": [
+					44.373664855957,
+					86.0
+				],
+				"draw_scale": 1.0,
+				"region": [
+					44,
+					19,
+					235,
+					285
+				],
+				"scale": 0.298932384341637,
+				"source": "axe.png",
+				"sprite": "frames/axe-00.png"
+			},
+			{
+				"draw_pivot": [
+					28.5302486419678,
+					88.3914566040039
+				],
+				"draw_scale": 1.0,
+				"region": [
+					404,
+					8,
+					178,
+					293
+				],
+				"scale": 0.298932384341637,
+				"source": "axe.png",
+				"sprite": "frames/axe-01.png"
+			},
+			{
+				"draw_pivot": [
+					29.9501762390137,
+					78.2277526855469
+				],
+				"draw_scale": 1.0,
+				"region": [
+					685,
+					42,
+					187,
+					286
+				],
+				"scale": 0.298932384341637,
+				"source": "axe.png",
+				"sprite": "frames/axe-02.png"
+			},
+			{
+				"draw_pivot": [
+					47.7366523742676,
+					86.0
+				],
+				"draw_scale": 1.0,
+				"region": [
+					946,
+					19,
+					246,
+					285
+				],
+				"scale": 0.298932384341637,
+				"source": "axe.png",
+				"sprite": "frames/axe-03.png"
+			},
+			{
+				"draw_pivot": [
+					48.1850509643555,
+					85.4021301269531
+				],
+				"draw_scale": 1.0,
+				"region": [
+					29,
+					331,
+					243,
+					284
+				],
+				"scale": 0.298932384341637,
+				"source": "axe.png",
+				"sprite": "frames/axe-04.png"
+			},
+			{
+				"draw_pivot": [
+					30.1743755340576,
+					90.1850509643555
+				],
+				"draw_scale": 1.0,
+				"region": [
+					387,
+					311,
+					219,
+					300
+				],
+				"scale": 0.298932384341637,
+				"source": "axe.png",
+				"sprite": "frames/axe-05.png"
+			},
+			{
+				"draw_pivot": [
+					40.711742401123,
+					80.6192169189453
+				],
+				"draw_scale": 1.0,
+				"region": [
+					675,
+					347,
+					216,
+					281
+				],
+				"scale": 0.298932384341637,
+				"source": "axe.png",
+				"sprite": "frames/axe-06.png"
+			},
+			{
+				"draw_pivot": [
+					45.569393157959,
+					85.1032028198242
+				],
+				"draw_scale": 1.0,
+				"region": [
+					951,
+					332,
+					240,
+					282
+				],
+				"scale": 0.298932384341637,
+				"source": "axe.png",
+				"sprite": "frames/axe-07.png"
+			},
+			{
+				"draw_pivot": [
+					28.1565818786621,
+					83.6085357666016
+				],
+				"draw_scale": 1.0,
+				"region": [
+					80,
+					645,
+					250,
+					277
+				],
+				"scale": 0.298932384341637,
+				"source": "axe.png",
+				"sprite": "frames/axe-08.png"
+			},
+			{
+				"draw_pivot": [
+					42.6548042297363,
+					88.6903915405273
+				],
+				"draw_scale": 1.0,
+				"region": [
+					360,
+					628,
+					229,
+					294
+				],
+				"scale": 0.298932384341637,
+				"source": "axe.png",
+				"sprite": "frames/axe-09.png"
+			},
+			{
+				"draw_pivot": [
+					24.8683261871338,
+					77.928825378418
+				],
+				"draw_scale": 1.0,
+				"region": [
+					655,
+					666,
+					250,
+					258
+				],
+				"scale": 0.298932384341637,
+				"source": "axe.png",
+				"sprite": "frames/axe-10.png"
+			},
+			{
+				"draw_pivot": [
+					27.7829170227051,
+					83.907470703125
+				],
+				"draw_scale": 1.0,
+				"region": [
+					1001,
+					645,
+					246,
+					278
+				],
+				"scale": 0.298932384341637,
+				"source": "axe.png",
+				"sprite": "frames/axe-11.png"
+			},
+			{
+				"draw_pivot": [
+					30.2491092681885,
+					79.7224197387695
+				],
+				"draw_scale": 1.0,
+				"region": [
+					87,
+					953,
+					255,
+					265
+				],
+				"scale": 0.298932384341637,
+				"source": "axe.png",
+				"sprite": "frames/axe-12.png"
+			},
+			{
+				"draw_pivot": [
+					29.4270458221436,
+					85.4021301269531
+				],
+				"draw_scale": 1.0,
+				"region": [
+					395,
+					934,
+					227,
+					284
+				],
+				"scale": 0.298932384341637,
+				"source": "axe.png",
+				"sprite": "frames/axe-13.png"
+			},
+			{
+				"draw_pivot": [
+					26.3629875183105,
+					70.4555130004883
+				],
+				"draw_scale": 1.0,
+				"region": [
+					680,
+					985,
+					219,
+					234
+				],
+				"scale": 0.298932384341637,
+				"source": "axe.png",
+				"sprite": "frames/axe-14.png"
+			},
+			{
+				"draw_pivot": [
+					29.6512451171875,
+					80.6192169189453
+				],
+				"draw_scale": 1.0,
+				"region": [
+					979,
+					950,
+					253,
+					267
+				],
+				"scale": 0.298932384341637,
+				"source": "axe.png",
+				"sprite": "frames/axe-15.png"
+			}
+		]
+	},
+	"fishing": {
+		"directions": [
+			"down",
+			"left",
+			"right",
+			"up"
+		],
+		"frames": [
+			{
+				"draw_pivot": [
+					27.2840003967285,
+					86.0
+				],
+				"draw_scale": 1.0,
+				"region": [
+					72,
+					61,
+					222,
+					253
+				],
+				"scale": 0.336,
+				"source": "fishing.png",
+				"sprite": "frames/fishing-00.png"
+			},
+			{
+				"draw_pivot": [
+					32.6599998474121,
+					98.431999206543
+				],
+				"draw_scale": 1.0,
+				"region": [
+					380,
+					24,
+					167,
+					290
+				],
+				"scale": 0.336,
+				"source": "fishing.png",
+				"sprite": "frames/fishing-01.png"
+			},
+			{
+				"draw_pivot": [
+					27.0319995880127,
+					81.6319961547852
+				],
+				"draw_scale": 1.0,
+				"region": [
+					665,
+					74,
+					297,
+					240
+				],
+				"scale": 0.336,
+				"source": "fishing.png",
+				"sprite": "frames/fishing-02.png"
+			},
+			{
+				"draw_pivot": [
+					27.5359992980957,
+					81.9680023193359
+				],
+				"draw_scale": 1.0,
+				"draw_tip": [
+					85.327995300293,
+					14.4320001602173
+				],
+				"region": [
+					975,
+					73,
+					249,
+					241
+				],
+				"scale": 0.336,
+				"source": "fishing.png",
+				"sprite": "frames/fishing-03.png"
+			},
+			{
+				"draw_pivot": [
+					50.4679985046387,
+					84.3199996948242
+				],
+				"draw_scale": 1.0,
+				"region": [
+					30,
+					366,
+					224,
+					248
+				],
+				"scale": 0.336,
+				"source": "fishing.png",
+				"sprite": "frames/fishing-04.png"
+			},
+			{
+				"draw_pivot": [
+					28.2919998168945,
+					97.0879974365234
+				],
+				"draw_scale": 1.0,
+				"region": [
+					402,
+					328,
+					174,
+					285
+				],
+				"scale": 0.336,
+				"source": "fishing.png",
+				"sprite": "frames/fishing-05.png"
+			},
+			{
+				"draw_pivot": [
+					67.5199966430664,
+					80.6240005493164
+				],
+				"draw_scale": 1.0,
+				"region": [
+					604,
+					377,
+					266,
+					237
+				],
+				"scale": 0.336,
+				"source": "fishing.png",
+				"sprite": "frames/fishing-06.png"
+			},
+			{
+				"draw_pivot": [
+					62.7319984436035,
+					80.6240005493164
+				],
+				"draw_scale": 1.0,
+				"draw_tip": [
+					2.0,
+					22.1599998474121
+				],
+				"region": [
+					906,
+					377,
+					249,
+					236
+				],
+				"scale": 0.336,
+				"source": "fishing.png",
+				"sprite": "frames/fishing-07.png"
+			},
+			{
+				"draw_pivot": [
+					27.8719997406006,
+					85.327995300293
+				],
+				"draw_scale": 1.0,
+				"region": [
+					76,
+					665,
+					227,
+					251
+				],
+				"scale": 0.336,
+				"source": "fishing.png",
+				"sprite": "frames/fishing-08.png"
+			},
+			{
+				"draw_pivot": [
+					41.060001373291,
+					97.7600021362305
+				],
+				"draw_scale": 1.0,
+				"region": [
+					359,
+					628,
+					192,
+					288
+				],
+				"scale": 0.336,
+				"source": "fishing.png",
+				"sprite": "frames/fishing-09.png"
+			},
+			{
+				"draw_pivot": [
+					27.0319995880127,
+					80.2880020141602
+				],
+				"draw_scale": 1.0,
+				"region": [
+					663,
+					680,
+					281,
+					236
+				],
+				"scale": 0.336,
+				"source": "fishing.png",
+				"sprite": "frames/fishing-10.png"
+			},
+			{
+				"draw_pivot": [
+					29.0480003356934,
+					81.9680023193359
+				],
+				"draw_scale": 1.0,
+				"draw_tip": [
+					85.327995300293,
+					23.503999710083
+				],
+				"region": [
+					979,
+					675,
+					249,
+					241
+				],
+				"scale": 0.336,
+				"source": "fishing.png",
+				"sprite": "frames/fishing-11.png"
+			},
+			{
+				"draw_pivot": [
+					25.6040000915527,
+					79.6159973144531
+				],
+				"draw_scale": 1.0,
+				"region": [
+					82,
+					982,
+					213,
+					234
+				],
+				"scale": 0.336,
+				"source": "fishing.png",
+				"sprite": "frames/fishing-12.png"
+			},
+			{
+				"draw_pivot": [
+					26.2759990692139,
+					96.0800018310547
+				],
+				"draw_scale": 1.0,
+				"region": [
+					385,
+					933,
+					155,
+					283
+				],
+				"scale": 0.336,
+				"source": "fishing.png",
+				"sprite": "frames/fishing-13.png"
+			},
+			{
+				"draw_pivot": [
+					27.2840003967285,
+					85.6640014648438
+				],
+				"draw_scale": 1.0,
+				"region": [
+					672,
+					964,
+					256,
+					253
+				],
+				"scale": 0.336,
+				"source": "fishing.png",
+				"sprite": "frames/fishing-14.png"
+			},
+			{
+				"draw_pivot": [
+					26.0240001678467,
+					78.6080017089844
+				],
+				"draw_scale": 1.0,
+				"draw_tip": [
+					77.2639999389648,
+					10.3999996185303
+				],
+				"region": [
+					1005,
+					986,
+					225,
+					231
+				],
+				"scale": 0.336,
+				"source": "fishing.png",
+				"sprite": "frames/fishing-15.png"
+			}
+		]
+	},
+	"hammer": {
+		"directions": [
+			"down",
+			"left",
+			"right",
+			"up"
+		],
+		"frames": [
+			{
+				"draw_pivot": [
+					48.7095565795898,
+					86.0
+				],
+				"draw_scale": 1.0,
+				"region": [
+					30,
+					23,
+					242,
+					276
+				],
+				"scale": 0.308823529411765,
+				"source": "hammer.png",
+				"sprite": "frames/hammer-00.png"
+			},
+			{
+				"draw_pivot": [
+					42.919116973877,
+					85.3823547363281
+				],
+				"draw_scale": 1.0,
+				"region": [
+					368,
+					25,
+					225,
+					274
+				],
+				"scale": 0.308823529411765,
+				"source": "hammer.png",
+				"sprite": "frames/hammer-01.png"
+			},
+			{
+				"draw_pivot": [
+					34.658088684082,
+					76.1176452636719
+				],
+				"draw_scale": 1.0,
+				"region": [
+					668,
+					50,
+					210,
+					265
+				],
+				"scale": 0.308823529411765,
+				"source": "hammer.png",
+				"sprite": "frames/hammer-02.png"
+			},
+			{
+				"draw_pivot": [
+					30.4889698028564,
+					85.6911773681641
+				],
+				"draw_scale": 1.0,
+				"region": [
+					996,
+					23,
+					245,
+					275
+				],
+				"scale": 0.308823529411765,
+				"source": "hammer.png",
+				"sprite": "frames/hammer-03.png"
+			},
+			{
+				"draw_pivot": [
+					48.7867660522461,
+					81.3676452636719
+				],
+				"draw_scale": 1.0,
+				"region": [
+					46,
+					661,
+					237,
+					261
+				],
+				"scale": 0.308823529411765,
+				"source": "hammer.png",
+				"sprite": "frames/hammer-04.png"
+			},
+			{
+				"draw_pivot": [
+					30.720588684082,
+					89.3970565795898
+				],
+				"draw_scale": 1.0,
+				"region": [
+					386,
+					633,
+					222,
+					287
+				],
+				"scale": 0.308823529411765,
+				"source": "hammer.png",
+				"sprite": "frames/hammer-05.png"
+			},
+			{
+				"draw_pivot": [
+					57.5110282897949,
+					72.720588684082
+				],
+				"draw_scale": 1.0,
+				"region": [
+					642,
+					693,
+					268,
+					236
+				],
+				"scale": 0.308823529411765,
+				"source": "hammer.png",
+				"sprite": "frames/hammer-06.png"
+			},
+			{
+				"draw_pivot": [
+					50.794116973877,
+					81.6764678955078
+				],
+				"draw_scale": 1.0,
+				"region": [
+					966,
+					661,
+					245,
+					261
+				],
+				"scale": 0.308823529411765,
+				"source": "hammer.png",
+				"sprite": "frames/hammer-07.png"
+			},
+			{
+				"draw_pivot": [
+					27.3235282897949,
+					81.0588226318359
+				],
+				"draw_scale": 1.0,
+				"region": [
+					80,
+					354,
+					226,
+					259
+				],
+				"scale": 0.308823529411765,
+				"source": "hammer.png",
+				"sprite": "frames/hammer-08.png"
+			},
+			{
+				"draw_pivot": [
+					40.294116973877,
+					89.3970565795898
+				],
+				"draw_scale": 1.0,
+				"region": [
+					371,
+					324,
+					219,
+					287
+				],
+				"scale": 0.308823529411765,
+				"source": "hammer.png",
+				"sprite": "frames/hammer-09.png"
+			},
+			{
+				"draw_pivot": [
+					30.0257358551025,
+					73.029411315918
+				],
+				"draw_scale": 1.0,
+				"region": [
+					667,
+					381,
+					271,
+					240
+				],
+				"scale": 0.308823529411765,
+				"source": "hammer.png",
+				"sprite": "frames/hammer-10.png"
+			},
+			{
+				"draw_pivot": [
+					30.1801471710205,
+					81.3676452636719
+				],
+				"draw_scale": 1.0,
+				"region": [
+					991,
+					352,
+					249,
+					260
+				],
+				"scale": 0.308823529411765,
+				"source": "hammer.png",
+				"sprite": "frames/hammer-11.png"
+			},
+			{
+				"draw_pivot": [
+					30.5661754608154,
+					81.3676452636719
+				],
+				"draw_scale": 1.0,
+				"region": [
+					72,
+					963,
+					222,
+					260
+				],
+				"scale": 0.308823529411765,
+				"source": "hammer.png",
+				"sprite": "frames/hammer-12.png"
+			},
+			{
+				"draw_pivot": [
+					30.797794342041,
+					85.0735321044922
+				],
+				"draw_scale": 1.0,
+				"region": [
+					368,
+					949,
+					206,
+					273
+				],
+				"scale": 0.308823529411765,
+				"source": "hammer.png",
+				"sprite": "frames/hammer-13.png"
+			},
+			{
+				"draw_pivot": [
+					28.9448528289795,
+					73.029411315918
+				],
+				"draw_scale": 1.0,
+				"region": [
+					673,
+					991,
+					262,
+					233
+				],
+				"scale": 0.308823529411765,
+				"source": "hammer.png",
+				"sprite": "frames/hammer-14.png"
+			},
+			{
+				"draw_pivot": [
+					30.875,
+					81.6764678955078
+				],
+				"draw_scale": 1.0,
+				"region": [
+					997,
+					962,
+					242,
+					262
+				],
+				"scale": 0.308823529411765,
+				"source": "hammer.png",
+				"sprite": "frames/hammer-15.png"
+			}
+		]
+	},
+	"pickaxe": {
+		"directions": [
+			"down",
+			"left",
+			"right",
+			"up"
+		],
+		"frames": [
+			{
+				"draw_pivot": [
+					43.4024391174316,
+					86.0
+				],
+				"draw_scale": 1.0,
+				"region": [
+					45,
+					43,
+					209,
+					250
+				],
+				"scale": 0.341463414634146,
+				"source": "pickaxe.png",
+				"sprite": "frames/pickaxe-00.png"
+			},
+			{
+				"draw_pivot": [
+					42.1219520568848,
+					89.4146347045898
+				],
+				"draw_scale": 1.0,
+				"region": [
+					363,
+					33,
+					204,
+					260
+				],
+				"scale": 0.341463414634146,
+				"source": "pickaxe.png",
+				"sprite": "frames/pickaxe-01.png"
+			},
+			{
+				"draw_pivot": [
+					33.1585388183594,
+					77.8048782348633
+				],
+				"draw_scale": 1.0,
+				"region": [
+					696,
+					67,
+					182,
+					257
+				],
+				"scale": 0.341463414634146,
+				"source": "pickaxe.png",
+				"sprite": "frames/pickaxe-02.png"
+			},
+			{
+				"draw_pivot": [
+					43.573169708252,
+					86.3414611816406
+				],
+				"draw_scale": 1.0,
+				"region": [
+					986,
+					42,
+					208,
+					251
+				],
+				"scale": 0.341463414634146,
+				"source": "pickaxe.png",
+				"sprite": "frames/pickaxe-03.png"
+			},
+			{
+				"draw_pivot": [
+					49.2926826477051,
+					90.7804870605469
+				],
+				"draw_scale": 1.0,
+				"region": [
+					41,
+					342,
+					216,
+					264
+				],
+				"scale": 0.341463414634146,
+				"source": "pickaxe.png",
+				"sprite": "frames/pickaxe-04.png"
+			},
+			{
+				"draw_pivot": [
+					32.2195129394531,
+					94.5365829467773
+				],
+				"draw_scale": 1.0,
+				"region": [
+					381,
+					331,
+					170,
+					274
+				],
+				"scale": 0.341463414634146,
+				"source": "pickaxe.png",
+				"sprite": "frames/pickaxe-05.png"
+			},
+			{
+				"draw_pivot": [
+					44.9390258789062,
+					81.9024429321289
+				],
+				"draw_scale": 1.0,
+				"region": [
+					687,
+					369,
+					205,
+					244
+				],
+				"scale": 0.341463414634146,
+				"source": "pickaxe.png",
+				"sprite": "frames/pickaxe-06.png"
+			},
+			{
+				"draw_pivot": [
+					49.0365867614746,
+					90.7804870605469
+				],
+				"draw_scale": 1.0,
+				"region": [
+					982,
+					342,
+					216,
+					264
+				],
+				"scale": 0.341463414634146,
+				"source": "pickaxe.png",
+				"sprite": "frames/pickaxe-07.png"
+			},
+			{
+				"draw_pivot": [
+					26.5853652954102,
+					91.4634170532227
+				],
+				"draw_scale": 1.0,
+				"region": [
+					56,
+					652,
+					228,
+					265
+				],
+				"scale": 0.341463414634146,
+				"source": "pickaxe.png",
+				"sprite": "frames/pickaxe-08.png"
+			},
+			{
+				"draw_pivot": [
+					30.426830291748,
+					95.2195129394531
+				],
+				"draw_scale": 1.0,
+				"region": [
+					388,
+					641,
+					173,
+					276
+				],
+				"scale": 0.341463414634146,
+				"source": "pickaxe.png",
+				"sprite": "frames/pickaxe-09.png"
+			},
+			{
+				"draw_pivot": [
+					29.4024391174316,
+					81.5609741210938
+				],
+				"draw_scale": 1.0,
+				"region": [
+					683,
+					681,
+					215,
+					240
+				],
+				"scale": 0.341463414634146,
+				"source": "pickaxe.png",
+				"sprite": "frames/pickaxe-10.png"
+			},
+			{
+				"draw_pivot": [
+					27.6097564697266,
+					91.4634170532227
+				],
+				"draw_scale": 1.0,
+				"region": [
+					997,
+					652,
+					227,
+					266
+				],
+				"scale": 0.341463414634146,
+				"source": "pickaxe.png",
+				"sprite": "frames/pickaxe-11.png"
+			},
+			{
+				"draw_pivot": [
+					30.3414630889893,
+					88.0487823486328
+				],
+				"draw_scale": 1.0,
+				"region": [
+					70,
+					961,
+					205,
+					256
+				],
+				"scale": 0.341463414634146,
+				"source": "pickaxe.png",
+				"sprite": "frames/pickaxe-12.png"
+			},
+			{
+				"draw_pivot": [
+					40.7560997009277,
+					92.1463394165039
+				],
+				"draw_scale": 1.0,
+				"region": [
+					370,
+					949,
+					199,
+					268
+				],
+				"scale": 0.341463414634146,
+				"source": "pickaxe.png",
+				"sprite": "frames/pickaxe-13.png"
+			},
+			{
+				"draw_pivot": [
+					30.0,
+					78.8292694091797
+				],
+				"draw_scale": 1.0,
+				"region": [
+					691,
+					988,
+					167,
+					228
+				],
+				"scale": 0.341463414634146,
+				"source": "pickaxe.png",
+				"sprite": "frames/pickaxe-14.png"
+			},
+			{
+				"draw_pivot": [
+					30.3414630889893,
+					88.0487823486328
+				],
+				"draw_scale": 1.0,
+				"region": [
+					1011,
+					961,
+					205,
+					256
+				],
+				"scale": 0.341463414634146,
+				"source": "pickaxe.png",
+				"sprite": "frames/pickaxe-15.png"
+			}
+		]
+	},
+	"staff": {
+		"directions": [
+			"down",
+			"left",
+			"right",
+			"up"
+		],
+		"frames": [
+			{
+				"draw_pivot": [
+					45.0499992370605,
+					86.0
+				],
+				"draw_scale": 1.0,
+				"region": [
+					58,
+					73,
+					184,
+					224
+				],
+				"scale": 0.381818181818182,
+				"source": "staff.png",
+				"sprite": "frames/staff-00.png"
+			},
+			{
+				"draw_pivot": [
+					32.0748825073242,
+					117.057716369629
+				],
+				"draw_scale": 1.0,
+				"region": [
+					392,
+					212,
+					444,
+					885
+				],
+				"scale": 0.131045241809672,
+				"source": "staff-charge.png",
+				"sprite": "frames/staff-01.png"
+			},
+			{
+				"draw_pivot": [
+					31.495454788208,
+					86.0
+				],
+				"draw_scale": 1.0,
+				"region": [
+					700,
+					73,
+					205,
+					224
+				],
+				"scale": 0.381818181818182,
+				"source": "staff.png",
+				"sprite": "frames/staff-02.png"
+			},
+			{
+				"draw_pivot": [
+					43.8090896606445,
+					86.0
+				],
+				"draw_scale": 1.0,
+				"region": [
+					997,
+					73,
+					182,
+					224
+				],
+				"scale": 0.381818181818182,
+				"source": "staff.png",
+				"sprite": "frames/staff-03.png"
+			},
+			{
+				"draw_pivot": [
+					38.75,
+					82.1818161010742
+				],
+				"draw_scale": 1.0,
+				"region": [
+					62,
+					387,
+					178,
+					214
+				],
+				"scale": 0.381818181818182,
+				"source": "staff.png",
+				"sprite": "frames/staff-04.png"
+			},
+			{
+				"draw_pivot": [
+					29.9681816101074,
+					107.381813049316
+				],
+				"draw_scale": 1.0,
+				"region": [
+					389,
+					319,
+					155,
+					280
+				],
+				"scale": 0.381818181818182,
+				"source": "staff.png",
+				"sprite": "frames/staff-05.png"
+			},
+			{
+				"draw_pivot": [
+					61.7545433044434,
+					82.5636367797852
+				],
+				"draw_scale": 1.0,
+				"region": [
+					626,
+					388,
+					232,
+					215
+				],
+				"scale": 0.381818181818182,
+				"source": "staff.png",
+				"sprite": "frames/staff-06.png"
+			},
+			{
+				"draw_pivot": [
+					39.1318168640137,
+					82.1818161010742
+				],
+				"draw_scale": 1.0,
+				"region": [
+					1002,
+					387,
+					178,
+					214
+				],
+				"scale": 0.381818181818182,
+				"source": "staff.png",
+				"sprite": "frames/staff-07.png"
+			},
+			{
+				"draw_pivot": [
+					30.6363639831543,
+					83.7090911865234
+				],
+				"draw_scale": 1.0,
+				"region": [
+					91,
+					687,
+					197,
+					217
+				],
+				"scale": 0.381818181818182,
+				"source": "staff.png",
+				"sprite": "frames/staff-08.png"
+			},
+			{
+				"draw_pivot": [
+					30.8272724151611,
+					111.581817626953
+				],
+				"draw_scale": 1.0,
+				"region": [
+					394,
+					614,
+					169,
+					292
+				],
+				"scale": 0.381818181818182,
+				"source": "staff.png",
+				"sprite": "frames/staff-09.png"
+			},
+			{
+				"draw_pivot": [
+					32.9272727966309,
+					82.1818161010742
+				],
+				"draw_scale": 1.0,
+				"region": [
+					691,
+					691,
+					258,
+					214
+				],
+				"scale": 0.381818181818182,
+				"source": "staff.png",
+				"sprite": "frames/staff-10.png"
+			},
+			{
+				"draw_pivot": [
+					31.6863632202148,
+					83.3272705078125
+				],
+				"draw_scale": 1.0,
+				"region": [
+					1024,
+					689,
+					192,
+					217
+				],
+				"scale": 0.381818181818182,
+				"source": "staff.png",
+				"sprite": "frames/staff-11.png"
+			},
+			{
+				"draw_pivot": [
+					32.0681838989258,
+					83.7090911865234
+				],
+				"draw_scale": 1.0,
+				"region": [
+					80,
+					983,
+					197,
+					218
+				],
+				"scale": 0.381818181818182,
+				"source": "staff.png",
+				"sprite": "frames/staff-12.png"
+			},
+			{
+				"draw_pivot": [
+					29.5863628387451,
+					108.527267456055
+				],
+				"draw_scale": 1.0,
+				"region": [
+					400,
+					918,
+					154,
+					283
+				],
+				"scale": 0.381818181818182,
+				"source": "staff.png",
+				"sprite": "frames/staff-13.png"
+			},
+			{
+				"draw_pivot": [
+					31.1136360168457,
+					84.0909042358398
+				],
+				"draw_scale": 1.0,
+				"region": [
+					689,
+					982,
+					249,
+					219
+				],
+				"scale": 0.381818181818182,
+				"source": "staff.png",
+				"sprite": "frames/staff-14.png"
+			},
+			{
+				"draw_pivot": [
+					29.8727264404297,
+					84.0909042358398
+				],
+				"draw_scale": 1.0,
+				"region": [
+					1028,
+					982,
+					194,
+					219
+				],
+				"scale": 0.381818181818182,
+				"source": "staff.png",
+				"sprite": "frames/staff-15.png"
+			}
+		]
+	},
+	"watering": {
+		"directions": [
+			"down",
+			"left",
+			"right",
+			"up"
+		],
+		"frames": [
+			{
+				"draw_pivot": [
+					26.315788269043,
+					86.0
+				],
+				"draw_scale": 1.0,
+				"region": [
+					67,
+					9,
+					163,
+					290
+				],
+				"scale": 0.294736842105263,
+				"source": "watering.png",
+				"sprite": "frames/watering-00.png"
+			},
+			{
+				"draw_pivot": [
+					44.8105239868164,
+					86.0
+				],
+				"draw_scale": 1.0,
+				"region": [
+					346,
+					9,
+					231,
+					290
+				],
+				"scale": 0.294736842105263,
+				"source": "watering.png",
+				"sprite": "frames/watering-01.png"
+			},
+			{
+				"draw_pivot": [
+					44.957893371582,
+					84.8210525512695
+				],
+				"draw_scale": 1.0,
+				"region": [
+					671,
+					13,
+					232,
+					286
+				],
+				"scale": 0.294736842105263,
+				"source": "watering.png",
+				"sprite": "frames/watering-02.png"
+			},
+			{
+				"draw_pivot": [
+					25.0631580352783,
+					86.0
+				],
+				"draw_scale": 1.0,
+				"region": [
+					1033,
+					9,
+					157,
+					290
+				],
+				"scale": 0.294736842105263,
+				"source": "watering.png",
+				"sprite": "frames/watering-03.png"
+			},
+			{
+				"draw_pivot": [
+					29.1894721984863,
+					85.4105224609375
+				],
+				"draw_scale": 1.0,
+				"region": [
+					46,
+					325,
+					169,
+					287
+				],
+				"scale": 0.294736842105263,
+				"source": "watering.png",
+				"sprite": "frames/watering-04.png"
+			},
+			{
+				"draw_pivot": [
+					52.1789474487305,
+					85.4105224609375
+				],
+				"draw_scale": 1.0,
+				"region": [
+					318,
+					325,
+					248,
+					287
+				],
+				"scale": 0.294736842105263,
+				"source": "watering.png",
+				"sprite": "frames/watering-05.png"
+			},
+			{
+				"draw_pivot": [
+					52.1789474487305,
+					83.6421051025391
+				],
+				"draw_scale": 1.0,
+				"region": [
+					667,
+					331,
+					242,
+					280
+				],
+				"scale": 0.294736842105263,
+				"source": "watering.png",
+				"sprite": "frames/watering-06.png"
+			},
+			{
+				"draw_pivot": [
+					29.4842090606689,
+					84.5263137817383
+				],
+				"draw_scale": 1.0,
+				"region": [
+					1022,
+					328,
+					174,
+					283
+				],
+				"scale": 0.294736842105263,
+				"source": "watering.png",
+				"sprite": "frames/watering-07.png"
+			},
+			{
+				"draw_pivot": [
+					25.5052623748779,
+					85.7052612304688
+				],
+				"draw_scale": 1.0,
+				"region": [
+					67,
+					636,
+					171,
+					288
+				],
+				"scale": 0.294736842105263,
+				"source": "watering.png",
+				"sprite": "frames/watering-08.png"
+			},
+			{
+				"draw_pivot": [
+					23.5894737243652,
+					85.7052612304688
+				],
+				"draw_scale": 1.0,
+				"region": [
+					378,
+					636,
+					247,
+					288
+				],
+				"scale": 0.294736842105263,
+				"source": "watering.png",
+				"sprite": "frames/watering-09.png"
+			},
+			{
+				"draw_pivot": [
+					23.810525894165,
+					85.4105224609375
+				],
+				"draw_scale": 1.0,
+				"region": [
+					671,
+					637,
+					252,
+					287
+				],
+				"scale": 0.294736842105263,
+				"source": "watering.png",
+				"sprite": "frames/watering-10.png"
+			},
+			{
+				"draw_pivot": [
+					26.2421035766602,
+					85.7052612304688
+				],
+				"draw_scale": 1.0,
+				"region": [
+					1020,
+					636,
+					174,
+					288
+				],
+				"scale": 0.294736842105263,
+				"source": "watering.png",
+				"sprite": "frames/watering-11.png"
+			},
+			{
+				"draw_pivot": [
+					24.7684211730957,
+					84.8210525512695
+				],
+				"draw_scale": 1.0,
+				"region": [
+					74,
+					948,
+					169,
+					286
+				],
+				"scale": 0.294736842105263,
+				"source": "watering.png",
+				"sprite": "frames/watering-12.png"
+			},
+			{
+				"draw_pivot": [
+					26.4631576538086,
+					85.1157836914062
+				],
+				"draw_scale": 1.0,
+				"region": [
+					375,
+					948,
+					257,
+					285
+				],
+				"scale": 0.294736842105263,
+				"source": "watering.png",
+				"sprite": "frames/watering-13.png"
+			},
+			{
+				"draw_pivot": [
+					26.6105251312256,
+					82.7578887939453
+				],
+				"draw_scale": 1.0,
+				"region": [
+					685,
+					955,
+					242,
+					279
+				],
+				"scale": 0.294736842105263,
+				"source": "watering.png",
+				"sprite": "frames/watering-14.png"
+			},
+			{
+				"draw_pivot": [
+					23.3684196472168,
+					84.8210525512695
+				],
+				"draw_scale": 1.0,
+				"region": [
+					1036,
+					948,
+					168,
+					285
+				],
+				"scale": 0.294736842105263,
+				"source": "watering.png",
+				"sprite": "frames/watering-15.png"
+			}
+		]
+	}
+}

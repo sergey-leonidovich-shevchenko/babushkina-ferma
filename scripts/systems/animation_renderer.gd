@@ -19,6 +19,8 @@ static func draw_player(game: Node2D) -> void:
 	var direction: Vector2 = game.HeroActionSystem.cardinal(game.facing)
 	if attacking: direction = game.get_meta("attack_visual_direction", direction)
 	elif not tool_pose.is_empty(): direction = tool_pose.direction
+	if not attacking and game.state.fishing.phase in ["charging","waiting","bite","minigame"]:
+		direction = game.get_meta("fish_visual_direction",direction); moving = false
 	var walk_frame: int = game.PlayerSystem.animation_frame(game.PlayerSystem.visual_animation_time(game, moving), moving)
 	if moving and walk_frame in [0, 3]:
 		var dust: Vector2 = position - game.facing * 12.0 * visual_scale + Vector2(0, 7) * visual_scale
@@ -30,7 +32,7 @@ static func draw_player(game: Node2D) -> void:
 	if game.player_hurt_timer > 0.0: hero_modulate = Color(1.0, 0.42, 0.42)
 	var weapon: String = game.player_attack_weapon if attacking else game.equipped_weapon
 	var hands_origin := position + Vector2(0, -24)
-	var body_attack := preload("res://scripts/systems/hero_combat_visual_system.gd").active(game)
+	var body_attack := preload("res://scripts/systems/hero_combat_visual_system.gd").active(game) or not preload("res://scripts/systems/hero_action_visual_system.gd").current_pose(game).is_empty()
 	if direction == Vector2.UP and tool_pose.is_empty() and not body_attack:
 		game.WorldPolishRenderer.draw_held_weapon(game, weapon, hands_origin, direction, attack_progress, visual_scale)
 	game.DirectionalCharacterSystem.draw_hero(game, position, direction, moving, hero_modulate)

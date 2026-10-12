@@ -3,6 +3,7 @@ extends RefCounted
 const HeroActionSystem := preload("res://scripts/systems/hero_action_system.gd")
 const SpriteMatteSystem := preload("res://scripts/systems/sprite_matte_system.gd")
 const Combat := preload("res://scripts/systems/hero_combat_visual_system.gd")
+const FullActions := preload("res://scripts/systems/hero_action_visual_system.gd")
 const WALK_MASTER := preload("res://assets/game/characters/hero_v3/walk_master.png")
 const HOE_MASTER := preload("res://assets/game/characters/hero_v3/hoe_master.png")
 const DRAW_SCALE := 0.32
@@ -60,7 +61,7 @@ static func destination(ground: Vector2, frame: Dictionary) -> Rect2:
 static func draw_actor(game: Node2D, ground: Vector2, direction: Vector2, moving: bool, tint: Color) -> void:
 	var pose := current_pose(game, direction, moving)
 	var action := HeroActionSystem.pose(game)
-	if Combat.active(game): action = {}
+	if Combat.active(game) or bool(pose.get("full_body_action",false)): action = {}
 	game.DirectionalCharacterSystem.draw_soft_shadow(game, ground, Vector2(15, 5))
 	if not action.is_empty() and action.action != "hoe" and direction == Vector2.UP: draw_tool(game, ground, action)
 	draw_pose(game, ground, pose, tint)
@@ -69,6 +70,8 @@ static func draw_actor(game: Node2D, ground: Vector2, direction: Vector2, moving
 
 ## Даёт отрисовке и инспектору один источник текущей позы и её фактических границ.
 static func current_pose(game: Node, direction: Vector2, moving: bool) -> Dictionary:
+	var full_pose := FullActions.current_pose(game)
+	if not full_pose.is_empty(): return full_pose
 	var combat_pose := Combat.current_pose(game)
 	if not combat_pose.is_empty(): return combat_pose
 	var action := HeroActionSystem.pose(game)
@@ -126,3 +129,4 @@ static func warmup() -> void:
 	SpriteMatteSystem.clean_texture(WALK_MASTER)
 	SpriteMatteSystem.clean_texture(HOE_MASTER)
 	Combat.warmup()
+	FullActions.warmup()
