@@ -148,11 +148,12 @@ static func _placing(game: Node, event: InputEvent) -> bool:
 		if (event is InputEventMouseButton and event.pressed and event.button_index==MOUSE_BUTTON_LEFT) or (event is InputEventScreenTouch and event.pressed):
 			for index in 4:
 				if not PLACE_BUTTONS[index].has_point(event.position): continue
+				value.pointer=Vector2.ZERO
 				if index<2: rotate(game,-1 if index==0 else 1)
 				elif index==2: Build.build(game,candidate(game))
 				else: Basement.close(game)
 				return true
-		if event.position.y<176 or event.position.y>574: return true
+		if event.position.y<176 or event.position.y>=560: value.pointer=Vector2.ZERO; return true
 		var selected_cell:=Basement.Layout.cell(event.position+game.camera_offset); value.x=selected_cell.x; value.y=selected_cell.y; value.pointer=event.position
 		if (event is InputEventMouseButton and event.pressed and event.button_index==MOUSE_BUTTON_LEFT) or (event is InputEventScreenTouch and event.pressed): Build.build(game,candidate(game))
 	if offset!=Vector2i.ZERO:
@@ -164,7 +165,7 @@ static func update(game: Node, delta: float) -> void:
 	if game.current_location!=Basement.Data.LOCATION or not bool(Basement.ui(game).placing): return
 	var value:=Basement.ui(game); var pointer:Vector2=value.get("pointer",Vector2.ZERO)
 	if pointer==Vector2.ZERO: return
-	var motion:=Vector2(-1 if pointer.x<24 else (1 if pointer.x>1128 else 0),-1 if pointer.y<192 else (1 if pointer.y>558 else 0))
+	var motion:=Vector2(-1 if pointer.x<24 else (1 if pointer.x>1128 else 0),-1 if pointer.y<192 else (1 if pointer.y>544 else 0))
 	if motion==Vector2.ZERO: return
 	game.camera_offset+=motion*300*delta
 	game.camera_offset.x=clampf(game.camera_offset.x,48,1200); game.camera_offset.y=clampf(game.camera_offset.y,-46,964)
