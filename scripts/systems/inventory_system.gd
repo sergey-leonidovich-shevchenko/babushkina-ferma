@@ -129,7 +129,7 @@ const BASE_ITEM_DATA := {
 	"wooden_wardrobe":{"name":"Деревянный шкаф","short":"Шкаф","color":Color("80502f")}, "museum_token":{"name":"Жетон хранителя","short":"Жетон","color":Color("e3b84c")},
 }
 
-static var ITEM_DATA: Dictionary = BASE_ITEM_DATA.merged(preload("res://scripts/systems/alchemy_product_data.gd").inventory_items())
+static var ITEM_DATA: Dictionary = BASE_ITEM_DATA.merged(preload("res://scripts/systems/alchemy_product_data.gd").inventory_items()).merged(preload("res://scripts/systems/furnace_data.gd").inventory_items())
 
 ## Возвращает локализованные метаданные предмета по его идентификатору.
 static func data(kind: String) -> Dictionary:

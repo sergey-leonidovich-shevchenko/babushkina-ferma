@@ -80,6 +80,7 @@ static func update_world(game: Node, delta: float) -> void:
 	game.update_combat(delta)
 	game.update_fishing(delta)
 	game.update_status_effects(delta)
+	game.FurnaceSystem.update(game,delta)
 	game.SpellSystem.update(game, delta)
 	game.CompanionSystem.update(game, delta)
 	game.NpcMovementSystem.update(game, delta)

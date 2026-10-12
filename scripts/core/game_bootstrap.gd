@@ -32,7 +32,7 @@ static func _initialize_services(game: Node) -> void:
 		push_error("Invalid game content: " + content_error)
 	game.LocaleSystem.load_locale()
 	if game.is_inside_tree():
-		game.SettingsSystem.load(game)
+		game.SettingsSystem.load(game,game.SettingsSystem.SETTINGS_PATH,not bool(game.get_meta("capture_windowed",false)))
 	game.AudioSystem.initialize(game)
 	game.message = game.LocaleSystem.text("welcome")
 	game.language_selected = maxi(game.LocaleSystem.LOCALES.find(game.LocaleSystem.current), 0)

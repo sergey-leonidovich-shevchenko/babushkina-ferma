@@ -28,6 +28,7 @@ static func default_nodes() -> Array:
 	for index in CaveMap.RESOURCES: nodes[index].position = CaveMap.RESOURCES[index]
 	nodes.append_array(CaveMap.EXTRA_RESOURCES.duplicate(true))
 	nodes.append_array(preload("res://scripts/systems/cave_dungeon_content.gd").RESOURCES.duplicate(true))
+	nodes.append_array(preload("res://scripts/systems/furnace_data.gd").SPAWNS.duplicate(true))
 	return nodes
 
 

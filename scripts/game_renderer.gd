@@ -318,6 +318,7 @@ func draw_resource_nodes() -> void:
 		var tint := Color.WHITE
 		if node.kind == "red_crystal": tint = Color("ef6872")
 		elif node.kind == "green_crystal": tint = Color("6bdc83")
+		elif FurnaceSystem.Data.ITEMS.has(node.kind): tint=Color(FurnaceSystem.Data.ITEMS[node.kind].tint).lerp(Color.WHITE,0.2)
 		draw_texture_rect(texture, ResourceSystem.destination_rect(node), false, tint)
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
@@ -429,6 +430,7 @@ func fallback_item_glyph(kind: String) -> String:
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_item_icon(kind: String, rect: Rect2) -> void:
+	if preload("res://scripts/presentation/furnace_renderer.gd").draw_item(self,kind,rect): return
 	if preload("res://scripts/presentation/alchemy_renderer.gd").draw_item(self,kind,rect): return
 	var texture := item_texture(kind)
 	var destination := VisualAssetSystem.fitted_icon_rect(rect)

@@ -108,8 +108,9 @@ static func walkability_reason(game: Node, position: Vector2, ignored_enemy: int
 		if hazard.location == game.current_location and position.distance_to(hazard.position) < game.PLAYER_RADIUS + 30.0:
 			return "hazard"
 	for node in game.resource_nodes:
+		if node.hits<=0 or node.location!=game.current_location: continue
 		if use_broadphase and not Broadphase.near_dynamic(position, node.position, game.PLAYER_RADIUS): continue
-		if node.hits > 0 and node.location == game.current_location and circle_intersects_rect(position,game.PLAYER_RADIUS,game.ResourceSystem.collision_rect(node)):
+		if circle_intersects_rect(position,game.PLAYER_RADIUS,game.ResourceSystem.collision_rect(node)):
 			return "resource"
 	for container in game.world_loot_nodes:
 		if container.location != game.current_location or not preload("res://scripts/systems/cave_boss_arena_system.gd").container_visible(game,container): continue

@@ -289,6 +289,15 @@ static func _check_shop_text(checks:Array[Dictionary],game:Node,locale:String,co
 ## Проверяет оба заголовка станций, рецепты, компактные ингредиенты и полные подробности результата.
 static func _check_crafting_text(checks:Array[Dictionary],game:Node,locale:String,counts:Dictionary)->void:
 	var contracts:Array=[["workbench",game.LocaleSystem.ui("workbench"),652.0,28,14],["cauldron",game.LocaleSystem.ui("cauldron_title"),652.0,28,14],["help",game.LocaleSystem.ui("craft_help"),820.0,11,8]]
+	contracts.append(["furnace_title",game.LocaleSystem.ui("furnace_title",[3]),652.0,28,14])
+	contracts.append(["furnace_help",game.LocaleSystem.ui("furnace_help"),820.0,12,8])
+	for pair in [["furnace_action",182.0],["furnace_load",118.0],["furnace_upgrade",142.0]]: contracts.append([pair[0],game.LocaleSystem.ui(pair[0]),pair[1],11,8])
+	for fuel in game.FurnaceSystem.Data.FUELS: contracts.append(["fuel_"+fuel,game.inventory_item_name(fuel)+" ×9999",150.0,11,8])
+	var heat:String=game.LocaleSystem.ui("furnace_status",[360.0,3,3])+"\n"+game.LocaleSystem.ui("furnace_remaining",[98.5])
+	_record_multiline_contract(checks,game,"crafting",locale,["furnace_heat",heat,210.0,34.0,11,8]); counts.crafting=int(counts.crafting)+1
+	var parts:Array[String]=[]
+	for kind in game.FurnaceSystem.Data.UPGRADES[1].inputs: parts.append(game.inventory_item_name(kind)+" ×"+str(game.FurnaceSystem.Data.UPGRADES[1].inputs[kind]))
+	_record_multiline_contract(checks,game,"crafting",locale,["furnace_upgrade_cost",game.LocaleSystem.ui("furnace_upgrade_cost",[200,", ".join(parts)]),450.0,36.0,10,8]); counts.crafting=int(counts.crafting)+1
 	contracts.append(["create",game.LocaleSystem.ui("craft_action"),ItemWindowRenderer.CRAFT_ACTION.size.x-28,14,10])
 	for category in ["processing","construction","equipment","general","food"]: contracts.append(["category_"+category,game.LocaleSystem.ui("craft_category_"+category),226.0,12,8])
 	for recipe in game.CraftingSystem.RECIPES:

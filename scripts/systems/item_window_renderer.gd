@@ -91,6 +91,7 @@ static func draw_help(game: Node, text: String) -> void:
 static func draw_crafting(game: Node) -> void:
 	var title: String = game.LocaleSystem.ui("cauldron_title") if game.crafting_station == "cauldron" else game.LocaleSystem.ui("workbench")
 	if game.crafting_station=="alchemy": title=game.LocaleSystem.ui("alchemy_title",[game.CraftingSystem.Alchemy.rank(game)])
+	if game.crafting_station=="furnace": title=game.LocaleSystem.ui("furnace_title",[game.FurnaceSystem.state(game).level])
 	draw_shell(game, title)
 	if game.crafting_station=="alchemy":
 		draw_table_header(game,ALCHEMY_FILTER)
@@ -118,13 +119,14 @@ static func draw_crafting(game: Node) -> void:
 		game.draw_ui_string(game.UI_FONT, detail.position + Vector2(10, 27), game.CraftingSystem.category_name(game, selected), HORIZONTAL_ALIGNMENT_CENTER, detail.size.x - 20, 12, Color("fff0cf"))
 		game.draw_item_icon(String(selected.output), Rect2(detail.position + Vector2(83, 58), Vector2(80, 80)))
 		game.draw_ui_multiline_string(game.UI_FONT, detail.position + Vector2(10, 159), game.inventory_item_name(selected.output), HORIZONTAL_ALIGNMENT_CENTER, detail.size.x - 20, 40, 17, 2, UiKitSystem.COLORS.ink)
-		game.draw_ui_multiline_string(game.UI_FONT, detail.position + Vector2(18, 202), ItemPresentationSystem.effect_text(game,selected.output), HORIZONTAL_ALIGNMENT_CENTER, detail.size.x - 36, 34, 11, 2, Color("456537"))
+		game.draw_ui_multiline_string(game.UI_FONT, detail.position + Vector2(18, 202), game.FurnaceSystem.status(game) if game.crafting_station=="furnace" else ItemPresentationSystem.effect_text(game,selected.output), HORIZONTAL_ALIGNMENT_CENTER, detail.size.x - 36, 34, 11, 2, Color("456537"))
 		game.draw_ui_multiline_string(game.UI_FONT, detail.position + Vector2(18, 242), game.CraftingSystem.ingredients_text(game, selected), HORIZONTAL_ALIGNMENT_CENTER, detail.size.x - 36, 42, 12, 3, UiKitSystem.COLORS.ink)
 		game.draw_ui_multiline_string(game.UI_FONT, detail.position + Vector2(18, 295), game.CraftingSystem.production_summary(game, selected), HORIZONTAL_ALIGNMENT_CENTER, detail.size.x - 36, 32, 11, 2, Color("456537") if game.CraftingSystem.can_craft(game, selected) else UiKitSystem.COLORS.danger)
 		var can_create: bool = game.CraftingSystem.can_craft(game, selected)
 		UiKitSystem.draw_nine_patch(game, "editor_button_selected" if can_create else "editor_button_normal", CRAFT_ACTION)
-		game.draw_ui_string(game.UI_FONT, CRAFT_ACTION.position + Vector2(14, 26), game.LocaleSystem.ui("craft_action"), HORIZONTAL_ALIGNMENT_CENTER, CRAFT_ACTION.size.x - 28, 14, UiKitSystem.COLORS.ink if can_create else Color("846d50"))
-	draw_help(game, game.LocaleSystem.ui("alchemy_help" if game.crafting_station=="alchemy" else "craft_help"))
+		game.draw_ui_string(game.UI_FONT, CRAFT_ACTION.position + Vector2(14, 26), game.LocaleSystem.ui("furnace_action" if game.crafting_station=="furnace" else "craft_action"), HORIZONTAL_ALIGNMENT_CENTER, CRAFT_ACTION.size.x - 28, 14, UiKitSystem.COLORS.ink if can_create else Color("846d50"))
+	if game.crafting_station=="furnace": preload("res://scripts/presentation/furnace_renderer.gd").draw_toolbar(game)
+	draw_help(game, game.LocaleSystem.ui("furnace_help" if game.crafting_station=="furnace" else ("alchemy_help" if game.crafting_station=="alchemy" else "craft_help")))
 
 
 ## Рисует деревенскую лавку как две связанные секции: атмосферный прилавок и таблицу товаров.
@@ -316,6 +318,7 @@ static func handle_forge_pointer(game: Node, position: Vector2) -> bool:
 
 ## Сначала выбирает рецепт для чтения, а материалы расходует только после явного нажатия кнопки создания.
 static func handle_crafting_pointer(game: Node, position: Vector2) -> bool:
+	if game.crafting_station=="furnace" and preload("res://scripts/presentation/furnace_renderer.gd").handle_pointer(game,position): return true
 	if game.crafting_station=="alchemy" and ALCHEMY_FILTER.has_point(position):
 		game.CraftingSystem.Alchemy.cycle_filter(game,-1 if position.x<ALCHEMY_FILTER.get_center().x else 1); return true
 	if CRAFT_ACTION.has_point(position):

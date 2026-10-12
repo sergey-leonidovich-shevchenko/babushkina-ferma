@@ -100,7 +100,7 @@ func test_old_cave_save_keeps_progress_and_repairs_wall_positions() -> void:
 	expect(restored.player == MapData.START and restored.NavigationSystem.is_walkable(restored, restored.player), "hero saved inside new rocks returns to the safe cave entrance")
 	expect(restored.coins == 321 and restored.player_hp == 72 and restored.inventory_item_count("metal") == 9, "cave migration preserves money, health and collected metal")
 	expect(restored.resource_nodes[2].hits == 0 and restored.resource_nodes[3].hits == 1, "legacy indexed resource depletion is preserved")
-	expect(restored.resource_nodes.size() == 24 and restored.resource_nodes.slice(5,9).all(func(node): return node.hits == 3), "new cave veins keep initial hits when an old save has no entries")
+	expect(restored.resource_nodes.size() >= 24 and restored.resource_nodes.slice(5,9).all(func(node): return node.hits == 3), "new cave veins keep initial hits when an old save has no entries")
 	expect(not restored.enemy_nodes[enemy_index].alive and restored.enemy_nodes[enemy_index].hp == 0 and not Layout.blocks_position(restored.enemy_nodes[enemy_index].position,27), "dead enemy remains dead when its old position is repaired")
 	data.player = [960,600]
 	expect(restored.SaveSystem.apply(restored,data) and restored.player == Vector2(960,600), "valid saved cave position is kept")

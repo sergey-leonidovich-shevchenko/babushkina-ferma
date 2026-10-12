@@ -55,7 +55,8 @@ const BASE_RECIPES := [
 const MAX_BATCH := 99
 
 const Alchemy := preload("res://scripts/systems/alchemy_system.gd")
-static var RECIPES: Array = BASE_RECIPES + preload("res://scripts/systems/alchemy_recipe_data.gd").recipes()
+const Furnace := preload("res://scripts/systems/furnace_system.gd")
+static var RECIPES: Array = BASE_RECIPES + preload("res://scripts/systems/alchemy_recipe_data.gd").recipes() + Furnace.Data.recipes()
 
 ## Разделяет точный расход кухонных продуктов и экономию сырья ремесленного таланта на верстаке.
 static func material_cost(game: Node, recipe: Dictionary, kind: String) -> int:
@@ -85,6 +86,7 @@ static func open(game: Node, station: String = "workbench") -> void:
 
 ## Обрабатывает клавиатуру и геймпад общего окна верстака или котелка.
 static func handle_input(game: Node, event: InputEvent) -> void:
+	if game.crafting_station=="furnace" and Furnace.handle_controls(game,event): return
 	var move_offset := 0
 	var accept := false
 	if event is InputEventKey and event.pressed and not event.echo:
@@ -124,6 +126,7 @@ static func recipe_at(game: Node, position: Vector2) -> int:
 ## Проверяет условие «возможности крафта» без изменения состояния.
 static func can_craft(game: Node, recipe: Dictionary) -> bool:
 	if recipe.get("station","workbench")!=game.crafting_station: return false
+	if game.crafting_station=="furnace" and not Furnace.can_enqueue(game,recipe): return false
 	if game.crafting_station=="alchemy" and (not Alchemy.at_station(game) or not Alchemy.unlocked(game,recipe)): return false
 	if not game.TalentSystem.recipe_unlocked(game, recipe):
 		return false
@@ -141,12 +144,14 @@ static func max_craftable(game: Node, recipe: Dictionary) -> int:
 	for kind in recipe.inputs:
 		var cost := material_cost(game,recipe,kind)
 		result = mini(result, floori(float(game.inventory_item_count(kind)) / float(maxi(cost, 1))))
+	if game.crafting_station=="furnace": result=mini(result,int(Furnace.state(game).level)-Furnace.state(game).queue.size())
 	return mini(result, 1) if recipe.output == "home_chest" else result
 
 ## Выполняет операцию «крафта» и возвращает результат согласно контракту метода.
 static func craft(game: Node, index: int) -> bool:
 	if index < 0 or index >= RECIPES.size(): return false
 	var recipe: Dictionary = RECIPES[index]
+	if game.crafting_station=="furnace" and recipe.get("station","")=="furnace": return Furnace.enqueue(game,recipe)
 	if recipe.get("station","workbench")!=game.crafting_station:
 		game.message=game.LocaleSystem.ui("craft_wrong_station",[station_name(game,String(recipe.get("station","workbench")))]); return false
 	if not game.TalentSystem.recipe_unlocked(game, recipe):
@@ -189,11 +194,12 @@ static func craft_many(game: Node, index: int, requested: int) -> int:
 		if not craft(game, index): break
 		crafted_batches += 1
 	if crafted_batches > 1:
-		game.message = game.LocaleSystem.text("crafted_many", [game.inventory_item_name(RECIPES[index].output), crafted_batches])
+		game.message = game.LocaleSystem.ui("furnace_queued_many",[crafted_batches]) if game.crafting_station=="furnace" else game.LocaleSystem.text("crafted_many", [game.inventory_item_name(RECIPES[index].output), crafted_batches])
 	return crafted_batches
 
 ## Возвращает понятное назначение рецепта для карточки выбранного изделия.
 static func category_name(game: Node, recipe: Dictionary) -> String:
+	if recipe.get("station","")=="furnace": return game.LocaleSystem.ui("furnace_service")
 	if recipe.get("station","")=="alchemy": return game.LocaleSystem.ui("alchemy_"+String(recipe.alchemy_group))
 	if recipe.get("station","workbench")=="cauldron": return game.LocaleSystem.ui("craft_category_food")
 	var category: String = String(recipe.get("category", "general"))
@@ -201,6 +207,7 @@ static func category_name(game: Node, recipe: Dictionary) -> String:
 
 ## Описывает выход партии и возможное число повторов для подробной карточки рецепта.
 static func production_summary(game: Node, recipe: Dictionary) -> String:
+	if recipe.get("station","")=="furnace": return Furnace.summary(game,recipe)
 	if recipe.get("station","")=="alchemy":
 		if not Alchemy.at_station(game): return game.LocaleSystem.ui("alchemy_station_need")
 		if Alchemy.rank(game)<int(recipe.alchemy_rank): return game.LocaleSystem.ui("alchemy_rank_need",[recipe.alchemy_rank,Alchemy.rank(game)])
@@ -224,9 +231,11 @@ static func ingredients_text(game: Node, recipe: Dictionary, compact:bool=false)
 
 ## Даёт строке рецепта и аудиту одинаковое краткое описание без нечитаемой длинной смеси.
 static func row_ingredients_text(game: Node, recipe: Dictionary) -> String:
+	if recipe.get("station","")=="furnace" and recipe.inputs.size()>1: return game.LocaleSystem.ui("furnace_mix",[recipe.inputs.size(),recipe.furnace_level])
 	return game.LocaleSystem.ui("alchemy_mix_summary",[recipe.inputs.size(),recipe.alchemy_rank]) if recipe.get("station","")=="alchemy" and recipe.inputs.size()>1 else ingredients_text(game,recipe,true)
 
 
 ## Называет физическую станцию для ошибки рецепта без неверного упоминания верстака.
 static func station_name(game: Node, station: String) -> String:
+	if station=="furnace": return game.LocaleSystem.ui("furnace_service")
 	return game.LocaleSystem.ui("alchemy_service" if station=="alchemy" else ("cauldron_title" if station=="cauldron" else "workbench"))

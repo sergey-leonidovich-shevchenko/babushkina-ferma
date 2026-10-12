@@ -39,7 +39,7 @@ const BASE_PRODUCTS := [
 ]
 
 
-static var PRODUCTS: Array = BASE_PRODUCTS + preload("res://scripts/systems/alchemy_trade_data.gd").products()
+static var PRODUCTS: Array = BASE_PRODUCTS + preload("res://scripts/systems/alchemy_trade_data.gd").products() + preload("res://scripts/systems/furnace_data.gd").products()
 
 ## Возвращает рассчитанное методом значение в безопасном для вызывающего кода виде.
 static func default_products() -> Array:

@@ -1,5 +1,5 @@
 {
-  "checks": 21701,
+  "checks": 22373,
   "display_profiles": [
     {
       "height": 648,
@@ -23,7 +23,7 @@
   "failed": 0,
   "issues": [],
   "localization": {
-    "contracts": 20730,
+    "contracts": 21402,
     "locales": [
       "ru",
       "en",
@@ -33,21 +33,21 @@
       "zh"
     ],
     "surfaces": {
-      "crafting": 6570,
+      "crafting": 6894,
       "fishing": 246,
       "forge": 198,
-      "hud": 3192,
-      "inventory": 2214,
-      "moon_menu": 3864,
+      "hud": 3270,
+      "inventory": 2268,
+      "moon_menu": 3972,
       "quest_log": 474,
-      "shop": 1392,
-      "storage": 1740,
+      "shop": 1446,
+      "storage": 1794,
       "talent_tree": 438,
       "world_guide": 294
     },
     "text_scale": 1.2
   },
-  "passed": 21701,
+  "passed": 22373,
   "schema": 3,
   "scope": "project_ui",
   "source_metrics": {

@@ -27,6 +27,7 @@ static func draw(canvas: Node2D) -> void:
 			if not is_foreground_prop(String(prop.kind), Vector2(prop.position), canvas.player):
 				InteriorVisualSystem.draw(canvas,String(prop.kind),Vector2(prop.position))
 	preload("res://scripts/presentation/alchemy_renderer.gd").draw_station(canvas)
+	preload("res://scripts/presentation/furnace_renderer.gd").draw_station(canvas)
 	var exit: Vector2 = data.exit
 	if canvas.current_location=="cottage_interior":
 		canvas.draw_texture_rect_region(COTTAGE_TILES,Rect2(exit-Vector2(46,20),Vector2(92,40)),COTTAGE_STONE,Color("d8b889"))

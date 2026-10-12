@@ -21,6 +21,7 @@ const STEP_IDS := [
 	"celestial_clock",
 	"hero_tools",
 	"player_contact", "alchemy_herbs", "alchemy_processing", "alchemy_brewing", "alchemy_effects",
+	"furnace_queue", "furnace_fuel", "furnace_upgrade", "furnace_done",
 ]
 
 
