@@ -107,7 +107,7 @@ func test_hero_visual_scale_matches_world_proportions() -> void:
 	var characters = game.DirectionalCharacterSystem
 	expect(characters.profiles_are_valid(), "hero four-direction and resident eight-direction profiles are valid")
 	expect(characters.HERO_DRAW_SIZE==Vector2(96,96) and characters.NPC_DRAW_SIZE==Vector2(96,96) and characters.COMPANION_DRAW_SIZE==Vector2(96,96), "hero residents and companions preserve square atlas proportions at the same height")
-	expect(characters.actor_rect(Vector2(200,200),characters.HERO_DRAW_SIZE).end.y==224.0 and characters.actor_rect(Vector2(200,200),characters.NPC_DRAW_SIZE).end.y==224.0, "different human frames share the exact same foot anchor")
+	expect(characters.actor_rect(Vector2(200,200),characters.HERO_DRAW_SIZE).end.y==200.0 and characters.actor_rect(Vector2(200,200),characters.NPC_DRAW_SIZE).end.y==200.0, "different human frames share the exact same foot anchor")
 	expect(characters.HERO_SHADOW_RADII == Vector2(18,6), "hero shadow follows the modular visual footprint")
 	var held_item: Rect2 = game.WorldPolishRenderer.held_weapon_destination(Vector2.ZERO, Vector2.RIGHT, false, characters.HERO_VISUAL_SCALE)
 	expect(held_item.size == Vector2(48,48), "held equipment uses one complete hand module without fractional scaling")
@@ -131,7 +131,7 @@ func test_directional_character_atlas_frames() -> void:
 
 
 ## Сценарий: оставшиеся старые жители и напарники используют одинаковые реальные строки вправо и влево.
-## Исходное состояние: старые атласы имеют ячейку 222×222; новые герой и бабушка проходят отдельные тесты четырёх ракурсов.
+## Исходное состояние: старые атласы имеют ячейку 128×128; новые герой и бабушка проходят отдельные тесты четырёх ракурсов.
 ## Ожидаемый результат: движение вправо выбирает строку шесть, правые строки зеркальны левым, а содержимое каждого кадра имеет безопасный прозрачный отступ.
 func test_every_human_atlas_uses_actual_left_and_right_rows() -> void:
 	var game := make_game()
@@ -144,23 +144,23 @@ func test_every_human_atlas_uses_actual_left_and_right_rows() -> void:
 		var west: Rect2 = game.DirectionalCharacterSystem.source_rect(texture, Vector2.LEFT, 0.0, false)
 		var north_east: Rect2 = game.DirectionalCharacterSystem.source_rect(texture, Vector2(1, -1), 0.0, false)
 		var south_east: Rect2 = game.DirectionalCharacterSystem.source_rect(texture, Vector2(1, 1), 0.0, false)
-		expect(east.position.y == 1332.0 and west.position.y == 444.0, "human atlas keeps right and left poses on their actual rows: %s" % texture.resource_path)
-		expect(north_east.position.y == 1110.0 and south_east.position.y == 1554.0, "human atlas keeps both right diagonals on their actual rows: %s" % texture.resource_path)
+		expect(floori(east.position.y/128.0) == 6 and floori(west.position.y/128.0) == 2, "human atlas keeps right and left poses on their actual rows: %s" % texture.resource_path)
+		expect(floori(north_east.position.y/128.0) == 5 and floori(south_east.position.y/128.0) == 7, "human atlas keeps both right diagonals on their actual rows: %s" % texture.resource_path)
 		var atlas := Image.load_from_file(ProjectSettings.globalize_path(texture.resource_path))
 		var mirrored_pairs_are_exact := true
 		for pair in [[1, 7], [2, 6], [3, 5]]:
 			for frame in 4:
-				var left_frame := atlas.get_region(Rect2i(frame * 222, pair[0] * 222, 222, 222))
-				var right_frame := atlas.get_region(Rect2i(frame * 222, pair[1] * 222, 222, 222))
+				var left_frame := atlas.get_region(Rect2i(frame * 128, pair[0] * 128, 128, 128))
+				var right_frame := atlas.get_region(Rect2i(frame * 128, pair[1] * 128, 128, 128))
 				left_frame.flip_x()
 				mirrored_pairs_are_exact = mirrored_pairs_are_exact and left_frame.get_data() == right_frame.get_data()
 		expect(mirrored_pairs_are_exact, "right-facing human rows are exact clean mirrors: %s" % texture.resource_path)
 		var frames_keep_padding := true
 		for row in 8:
 			for frame in 4:
-				var frame_image := atlas.get_region(Rect2i(frame * 222, row * 222, 222, 222))
+				var frame_image := atlas.get_region(Rect2i(frame * 128, row * 128, 128, 128))
 				var opaque_bounds := frame_image.get_used_rect()
-				frames_keep_padding = frames_keep_padding and opaque_bounds.position.y >= 8 and opaque_bounds.end.y <= 214
+				frames_keep_padding = frames_keep_padding and opaque_bounds.position.y >= 8 and opaque_bounds.end.y <= 126
 		expect(frames_keep_padding, "human frames do not leak into adjacent rows: %s" % texture.resource_path)
 	game.free()
 

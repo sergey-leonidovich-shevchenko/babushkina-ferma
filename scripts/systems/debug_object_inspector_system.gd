@@ -304,8 +304,9 @@ static func append_companions(game: Node, result: Array[Dictionary], probe: Vect
 		if not visible: continue
 		var data: Dictionary = game.CompanionSystem.COMPANIONS[companion_id]
 		var position: Vector2 = data.position if game.current_location == "prison_interior" else game.companion_positions.get(companion_id,game.player)
-		if probe == Vector2.INF or (game.DirectionalCharacterSystem.actor_rect(position,game.DirectionalCharacterSystem.COMPANION_DRAW_SIZE)).has_point(probe):
-			add(result, "companion:%s" % companion_id, "НАПАРНИК", game.CompanionSystem.name(game,companion_id), position, game.DirectionalCharacterSystem.actor_rect(position,game.DirectionalCharacterSystem.COMPANION_DRAW_SIZE), 105, "нет · союзник", "активен" if companion_id in game.active_companions else ("нанят" if companion_id in game.recruited_companions else "заключён"), [
+		var bounds: Rect2 = game.DirectionalCharacterSystem.companion_rect(companion_id,position,game.companion_directions.get(companion_id,Vector2.DOWN),game.walk_animation_time,game.companion_moving.get(companion_id,false) and game.current_location!="prison_interior")
+		if probe == Vector2.INF or bounds.has_point(probe):
+			add(result, "companion:%s" % companion_id, "НАПАРНИК", game.CompanionSystem.name(game,companion_id), position, bounds, 105, "нет · союзник", "активен" if companion_id in game.active_companions else ("нанят" if companion_id in game.recruited_companions else "заключён"), [
 				"урон %d · защита %d · лечение %d" % [data.damage,data.defense,data.heal],
 				"лидерство %d · цена %d" % [data.leadership,data.price],
 				"приказ %s" % game.state.player.companion_command,

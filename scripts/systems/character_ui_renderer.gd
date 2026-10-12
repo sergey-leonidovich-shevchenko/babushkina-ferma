@@ -116,7 +116,8 @@ static func draw_companions(game: Node2D) -> void:
 static func draw_companion_portrait(game: Node2D, companion_id: String, rect: Rect2) -> void:
 	var texture: Texture2D = game.DirectionalCharacterSystem.COMPANION_TEXTURES[companion_id]
 	var source: Rect2 = game.DirectionalCharacterSystem.source_rect(texture, Vector2.DOWN, 0.0, false)
-	game.draw_texture_rect_region(texture, UiKitSystem.centered_content_rect(rect, Vector2(38, 42), 0), source)
+	var content := UiKitSystem.centered_content_rect(rect, Vector2(38,42),0)
+	game.draw_texture_rect_region(texture,UiKitSystem.centered_content_rect(content,source.size,0),source)
 
 
 ## Возвращает короткий перевод подписи карточки персонажа для активного языка.

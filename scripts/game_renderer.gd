@@ -226,7 +226,7 @@ func draw_quest_npcs() -> void:
 ## Подкладывает под имя ближайшего персонажа тёмную плашку, чтобы светлые буквы читались на любой траве и плитке.
 func draw_npc_name(position:Vector2,label:String)->void:
 	var width:=clampf(UI_FONT.get_string_size(label,HORIZONTAL_ALIGNMENT_LEFT,-1,12).x+16,50,158)
-	var rect:=Rect2(position+Vector2(-width*0.5,34),Vector2(width,21))
+	var rect:=Rect2(position+Vector2(-width*0.5,18),Vector2(width,21))
 	draw_rect(rect,Color(0.09,0.065,0.04,0.82))
 	draw_ui_string(UI_FONT,rect.position+Vector2(8,15),label,HORIZONTAL_ALIGNMENT_CENTER,width-16,12,Color("f6e2b9"))
 

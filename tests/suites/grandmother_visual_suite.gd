@@ -37,7 +37,7 @@ func test_four_direction_mapping_and_sources() -> void:
 
 ## Сценарий: бабушка шагает во всех фазах в произвольной мировой позиции.
 ## Исходное состояние: каждый кадр хранит измеренную точку стоп, масштаб задан один раз для всего мастера.
-## Ожидаемый результат: опора равна legacy-позиции плюс 24 px, рисунок не растягивается, низ обуви близок к опоре.
+## Ожидаемый результат: опора равна физической позиции героя и NPC, рисунок не растягивается, низ обуви близок к опоре.
 func test_constant_pixel_scale_and_actual_feet() -> void:
 	var position := Vector2(1536, 816)
 	for direction in DIRECTIONS:
@@ -46,7 +46,7 @@ func test_constant_pixel_scale_and_actual_feet() -> void:
 			var destination: Rect2 = Visual.destination(position, pose)
 			var scale_value := float(pose.scale)
 			expect(is_equal_approx(scale_value, Visual.DRAW_SCALE) and scale_value > 0.0, "grandmother never rescales a single pose to its bounding box")
-			expect((destination.position + Vector2(pose.pivot) * scale_value).is_equal_approx(position + Vector2(0,24)), "grandmother foot pivot follows the existing NPC world anchor exactly")
+			expect((destination.position + Vector2(pose.pivot) * scale_value).is_equal_approx(position), "grandmother foot pivot follows the existing NPC world anchor exactly")
 			expect(destination.size.is_equal_approx(Rect2(pose.source).size * scale_value), "grandmother keeps equal horizontal and vertical pixel density")
 			var used := _frame_image(pose).get_used_rect()
 			expect(absf(float(used.end.y) - Vector2(pose.pivot).y) * scale_value <= 3.0, "grandmother visible feet stay within three world pixels of the ground: %s/%d" % [direction,frame])

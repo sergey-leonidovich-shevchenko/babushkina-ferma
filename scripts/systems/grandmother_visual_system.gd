@@ -3,7 +3,7 @@ extends RefCounted
 const MASTER := preload("res://assets/game/characters/grandmother_v2/walk_master.png")
 const DRAW_SCALE := 0.30
 const WALK_FPS := 8.0
-const GROUND_OFFSET := Vector2(0, 24)
+const GROUND_OFFSET := Vector2.ZERO
 const BOUNDS := [
 	[Rect2(121,23,131,284), Rect2(418,23,133,282), Rect2(703,23,135,284), Rect2(1001,23,133,284)],
 	[Rect2(109,330,146,283), Rect2(432,330,128,283), Rect2(710,330,134,283), Rect2(1017,330,134,283)],
@@ -31,7 +31,7 @@ static func pose(direction: Vector2, time: float, moving: bool) -> Dictionary:
 	return {"texture": MASTER, "source": source, "pivot": pivot, "scale": DRAW_SCALE}
 
 
-## Сохраняет прежнюю мировую опору NPC: ноги на 24px ниже логической позиции, масштаб одинаков в обеих осях.
+## Ставит ботинки и тень на общую с героем физическую точку, сохраняя равномерный масштаб тела.
 static func destination(position: Vector2, frame: Dictionary) -> Rect2:
 	return Rect2(position + GROUND_OFFSET - Vector2(frame.pivot) * DRAW_SCALE, Rect2(frame.source).size * DRAW_SCALE)
 

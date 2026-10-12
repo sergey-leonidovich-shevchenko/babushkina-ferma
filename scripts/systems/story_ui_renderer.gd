@@ -106,7 +106,7 @@ static func npc_portrait_layout(game: Node, rect: Rect2, npc_id: String) -> Dict
 	var destination := UiKitSystem.centered_content_rect(rect, Vector2(112, 132), 0)
 	if sprite_index == 0:
 		texture = game.DirectionalCharacterSystem.GrandmotherVisualSystem.texture()
-		destination = UiKitSystem.centered_content_rect(destination,source.size,0)
+	destination = UiKitSystem.centered_content_rect(destination,source.size,0)
 	return {"texture":texture, "source":source, "destination":destination, "tint":data.get("tint",Color.WHITE)}
 
 

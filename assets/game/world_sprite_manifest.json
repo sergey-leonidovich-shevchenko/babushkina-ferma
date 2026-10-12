@@ -577,17 +577,22 @@
         {"path":"assets/game/characters/directional/npc_herbalist_walk_8dir.png","width":888,"height":1776},
         {"path":"assets/game/characters/directional/companion_mila_walk_8dir.png","width":888,"height":1776},
         {"path":"assets/game/characters/directional/companion_borislav_walk_8dir.png","width":888,"height":1776},
-        {"path":"assets/game/characters/directional/companion_luna_walk_8dir.png","width":888,"height":1776}
+        {"path":"assets/game/characters/directional/companion_luna_walk_8dir.png","width":888,"height":1776},
+        {"path":"assets/game/characters/walk_v2/npc_official.png","width":512,"height":1024},
+        {"path":"assets/game/characters/walk_v2/npc_herbalist.png","width":512,"height":1024},
+        {"path":"assets/game/characters/walk_v2/companion_mila.png","width":512,"height":1024},
+        {"path":"assets/game/characters/walk_v2/companion_borislav.png","width":512,"height":1024},
+        {"path":"assets/game/characters/walk_v2/companion_luna.png","width":512,"height":1024}
       ],
-      "render_owner": "HeroVisualSystem, GrandmotherVisualSystem и DirectionalCharacterSystem",
-      "source_layout": "герой и бабушка: 4 ракурса × 4 фазы, измеренные целочисленные источники; остальные NPC: 4×8 по222×222",
+      "render_owner": "HeroVisualSystem, GrandmotherVisualSystem, ResidentVisualSystem и DirectionalCharacterSystem",
+      "source_layout": "Герой и бабушка: 4 ракурса × 4 фазы; жители/спутники: подготовленные 4×8 по128×128, целые фигуры и измеренные ботинки",
       "runtime_sizes": ["96×96"],
       "target_modules": ["96×96"],
-      "anchor": "стопы нового героя точно в player, одинаковый масштаб0.32 всех кадров; жители/напарники сохраняют прежнюю опору+24",
+      "anchor": "У всех людей стопы и тень совпадают с физической позицией; прежнее смещение +24 удалено. Пять человеческих наборов подготовлены к росту84px.",
       "collision": "круг героя 18 px; NPC не блокируют движение",
       "status": "compliant",
       "priority": "P2",
-      "debt": "Герой и бабушка перерисованы с четырьмя ракурсами. У бабушки цельный подол, опора каждого кадра и одинаковый масштаб0.30; служебный фон удаляется один раз до игры, в диалогах и редакторе та же RGBA. Старый атлас бабушки оставлен для совместимости, не участвует в обычной ходьбе. Старые четыре hero-скина не загружаются.",
+      "debt": "Герой и бабушка перерисованы; остальные пять наборов переиспользованы с нарезкой целых фигур, нормализованным ростом и очищенными внешними краями. Старые исходники сохранены для совместимости, runtime загружает пять атласов512×1024.",
       "done_when": "Ходьба и мотыга сохраняют один pixel scale и ground pivot, источники не захватывают соседей, native витрина показывает четыре направления и фазы; радиус героя18px."
     },
     {

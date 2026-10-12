@@ -33,6 +33,7 @@ const PROFILES:={
 
 ## Возвращает отдельную текстуру окружения без дробной выборки исходного атласа.
 static func texture(kind:String)->Texture2D:
+	if kind=="moon_portal": return preload("res://scripts/systems/sprite_matte_system.gd").clean_texture(TEXTURES[kind])
 	return TEXTURES.get(kind) as Texture2D
 
 

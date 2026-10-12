@@ -6,16 +6,23 @@ const HERO_WALK := "res://assets/game/characters/hero_v3/walk_master.png"
 const HERO_HOE := "res://assets/game/characters/hero_v3/hoe_master.png"
 const GRANDMOTHER := "res://assets/game/characters/grandmother_v2/walk_master.png"
 const GrandmotherVisual := preload("res://scripts/systems/grandmother_visual_system.gd")
+const Residents := preload("res://scripts/systems/resident_visual_system.gd")
+const RESIDENT_NAMES := {"npc_official":"Глава гильдии","npc_herbalist":"Травница","companion_mila":"Мила","companion_borislav":"Борислав","companion_luna":"Луна"}
+const RESIDENT_ROOT := "res://assets/game/characters/walk_v2/"
 const ANIMAL_MASTERS := ["fox_walk_4dir_v2.png", "bat_flight_4dir_v2.png", "lizard_walk_4dir_v2.png"]
 
 
 ## Явно отмечает неровные мастер-листы, которым запрещена автоматическая нарезка по 128 или 222 пикселя.
 static func handles(path: String) -> bool:
-	return path in [HERO_WALK, HERO_HOE, GRANDMOTHER] or path.get_file() in ANIMAL_MASTERS
+	return path in [HERO_WALK, HERO_HOE, GRANDMOTHER] or path.get_file() in ANIMAL_MASTERS or path.begins_with(RESIDENT_ROOT)
 
 
 ## Возвращает истинный первый кадр и мировой масштаб, не превращая весь лист в один декоративный объект.
 static func profile(path: String) -> Dictionary:
+	if path.begins_with(RESIDENT_ROOT) and RESIDENT_NAMES.has(path.get_file().get_basename()):
+		var texture := load(path) as Texture2D
+		var frame := Residents.pose(texture,Vector2.DOWN,0.0,false)
+		return {"source_rect":frame.source,"display_size":Rect2(frame.source).size,"slice_size":0,"frame_count":1,"sliced":true,"name":RESIDENT_NAMES[path.get_file().get_basename()],"collision":false}
 	if path == GRANDMOTHER:
 		var frame := GrandmotherVisual.pose(Vector2.DOWN, 0.0, false)
 		var source: Rect2 = frame.source
@@ -36,6 +43,9 @@ static func template_paths(root: String) -> Array[String]:
 	var result: Array[String] = []
 	for path in [HERO_WALK, GRANDMOTHER]:
 		if path.begins_with(root.trim_suffix("/") + "/") and ResourceLoader.exists(path): result.append(path)
+	for kind in RESIDENT_NAMES:
+		var path: String = RESIDENT_ROOT+kind+".png"
+		if path.begins_with(root.trim_suffix("/")+"/") and ResourceLoader.exists(path): result.append(path)
 	return result
 
 

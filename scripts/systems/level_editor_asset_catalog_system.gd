@@ -127,6 +127,7 @@ static func _scan_directory(path: String, result: Array[Dictionary]) -> void:
 ## Проверяет расширение и исключает контрольные изображения из пользовательского каталога.
 static func _is_placeable_image(filename: String) -> bool:
 	var lower := filename.to_lower()
+	if lower.get_basename() in ActorSources.RESIDENT_NAMES or lower.trim_suffix("_walk_8dir.png") in ActorSources.RESIDENT_NAMES: return false
 	if lower in ActorSources.ANIMAL_MASTERS: return false
 	if "preview" in lower or "master" in lower: return false
 	if lower == "farm_plants.png": return false

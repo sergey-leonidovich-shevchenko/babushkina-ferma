@@ -23,6 +23,10 @@ static func _initialize_services(game: Node) -> void:
 	game.DirectionalCharacterSystem.HeroVisualSystem.warmup()
 	preload("res://scripts/systems/celestial_dial_assets_system.gd").warmup()
 	game.DirectionalCharacterSystem.GrandmotherVisualSystem.warmup()
+	for texture in game.DirectionalCharacterSystem.NPC_TEXTURES.slice(1)+game.DirectionalCharacterSystem.COMPANION_TEXTURES.values():
+		game.DirectionalCharacterSystem.Residents.warmup(texture)
+	game.WorldPolishRenderer.warmup_events()
+	game.EnvironmentVisualSystem.texture("moon_portal")
 	preload("res://scripts/systems/wildlife_visual_system.gd").warmup(game)
 	for content_error in game.ContentRegistry.validate():
 		game.push_error("Invalid game content: " + content_error)

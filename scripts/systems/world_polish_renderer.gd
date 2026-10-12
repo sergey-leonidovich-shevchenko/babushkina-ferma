@@ -2,6 +2,8 @@ extends RefCounted
 
 const ATLAS := preload("res://assets/game/world_polish/village_polish_atlas.png")
 const CELL := Vector2(128, 128)
+const Matte := preload("res://scripts/systems/sprite_matte_system.gd")
+static var _event_cells: Dictionary = {}
 
 
 ## Возвращает область одной ячейки строгого атласа 5×4.
@@ -11,7 +13,20 @@ static func source(column: int, row: int) -> Rect2:
 
 ## Рисует одну прозрачную ячейку атласа в указанном мировом прямоугольнике.
 static func draw_cell(canvas: Node2D, column: int, row: int, destination: Rect2, modulate: Color = Color.WHITE) -> void:
+	if row==1 and column in [0,1,2]:
+		canvas.draw_texture_rect(event_texture(column),destination,false,modulate); return
 	canvas.draw_texture_rect_region(ATLAS, destination, source(column, row), modulate)
+
+## Очищает только внешние служебные края ярмарки, праздничного стола и телеги, сохраняя исходный атлас и эффекты.
+static func event_texture(column: int) -> Texture2D:
+	if not _event_cells.has(column):
+		var image := ATLAS.get_image().get_region(Rect2i(source(column,1)))
+		_event_cells[column]=ImageTexture.create_from_image(Matte.clean_image(image,true))
+	return _event_cells[column]
+
+## Подготавливает три малые текстуры событий до первого игрового кадра.
+static func warmup_events() -> void:
+	for column in 3: event_texture(column)
 
 
 ## Рисует оружие у ведущей руки героя в направлении текущего действия.
