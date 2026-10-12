@@ -20,7 +20,7 @@ const EXPANSION := {
 }
 const OPTIONAL := {
 	"cave_arena":{"relic_awarded":"b"},
-	"profile":{"character":{"created":"b", "name":"s", "farm_name":"s", "appearance":"n", "clothes":"n", "specialization":"s"}, "relationships":{"*":"n"}, "quest_memory":{"*":MEMORY}},
+	"profile":{"character":{"created":"b", "name":"s", "farm_name":"s", "appearance":"n", "clothes":"n", "specialization":"s","workbench_crafts":"n"}, "relationships":{"*":"n"}, "quest_memory":{"*":MEMORY}},
 	"inventory_meta":{"backpack_level":"n", "durability":{"*":"n"}},
 	"progression":{"points":"n", "levels":{"*":"n"}, "xp":{"*":"n"}, "talents":{"*":"n"}, "craft_count":"n", "mana":"n"},
 	"effects":{"strength":"n", "regeneration":"n", "speed":"n", "invisibility":"n", "defense":"n"},

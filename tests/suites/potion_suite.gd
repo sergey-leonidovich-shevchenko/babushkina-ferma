@@ -81,6 +81,7 @@ func test_household_food_chain_is_tradeable_craftable_and_edible() -> void:
 	expect(game.consume_item("tomato") and game.player_hp == 60, "new raw produce uses shared food effect pipeline")
 	game.change_inventory_count("milk", 3)
 	var cheese_recipe: int = game.CraftingSystem.RECIPES.find_custom(func(recipe): return recipe.output == "cheese")
+	game.CraftingSystem.open(game,"cauldron")
 	expect(cheese_recipe >= 0 and game.CraftingSystem.craft(game, cheese_recipe) and game.inventory_item_count("cheese") == 1, "three milk units craft one farm cheese")
 	for output in ["rope","flour","butter","bread","pie","jam","soup","omelet","cornbread","bouquet"]:
 		expect(game.CraftingSystem.RECIPES.any(func(recipe): return recipe.output == output) and game.ShopSystem.sell_price(output) > 0, "household output has recipe and sale value: %s" % output)

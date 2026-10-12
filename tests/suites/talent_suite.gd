@@ -57,6 +57,7 @@ func test_talent_unlocks_farming_fishing_cooking_and_traps() -> void:
 	game.handle_crafting_input(joypad_button_event(JOY_BUTTON_DPAD_DOWN, true))
 	expect(game.crafting_selected != first_cooking_recipe and game.crafting_recipe_at(Vector2(240, 180)) >= 0, "cauldron recipes are selectable by gamepad and share their hit rows with touch")
 	game.crafting_open = false
+	game.crafting_station="workbench"
 	expect(game.TalentSystem.unlock(game, "fish_fine_rod") and game.TalentSystem.unlock(game, "fish_deep_water"), "fine tackle is required before deep-water fishing")
 	expect(not game.TalentSystem.can_catch_fish(game, game.FishingSystem.fish_data("deep_pike")), "deep pike still requires the advanced physical rod")
 	expect(game.TalentSystem.unlock(game, "craft_apprentice"), "craft apprentice opens advanced devices")

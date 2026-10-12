@@ -6,7 +6,27 @@ const SETTINGS_PATH := "user://farm-settings.cfg"
 
 static var current := "ru"
 
+const CRAFT_INGREDIENT_NAMES := {
+	"wheat":["Пшеница","Wheat","Trigo","Weizen","Blé","小麦"], "flour":["Мука","Flour","Harina","Mehl","Farine","面粉"],
+	"milk":["Молоко","Milk","Leche","Milch","Lait","牛奶"], "egg":["Яйцо","Egg","Huevo","Ei","Œuf","鸡蛋"],
+	"butter":["Масло","Butter","Mantequilla","Butter","Beurre","黄油"], "apple":["Яблоко","Apple","Manzana","Apfel","Pomme","苹果"],
+	"berries":["Ягоды","Berries","Bayas","Beeren","Baies","浆果"], "honey":["Мёд","Honey","Miel","Honig","Miel","蜂蜜"],
+	"carrot":["Морковь","Carrot","Zanahoria","Karotte","Carotte","胡萝卜"], "potato":["Картофель","Potato","Patata","Kartoffel","Pomme de terre","土豆"],
+	"onion":["Лук","Onion","Cebolla","Zwiebel","Oignon","洋葱"], "corn":["Кукуруза","Corn","Maíz","Mais","Maïs","玉米"],
+	"truffle":["Трюфель","Truffle","Trufa","Trüffel","Truffe","松露"], "mushroom":["Гриб","Mushroom","Seta","Pilz","Champignon","蘑菇"],
+	"wool":["Шерсть","Wool","Lana","Wolle","Laine","羊毛"], "yarn":["Пряжа","Yarn","Hilo","Garn","Fil","纱线"],
+	"cotton":["Хлопок","Cotton","Algodón","Baumwolle","Coton","棉花"], "cloth":["Ткань","Cloth","Tela","Stoff","Tissu","布料"],
+	"fiber":["Волокно","Fiber","Fibra","Faser","Fibre","纤维"],
+}
+
+## Возвращает краткое название кухонного сырья без обрезания слова в середине.
+static func crafting_ingredient(kind: String) -> String:
+	return String(CRAFT_INGREDIENT_NAMES[kind][maxi(LOCALES.find(current),0)]) if CRAFT_INGREDIENT_NAMES.has(kind) else item(kind).substr(0,9)
+
 const UI := {
+	"craft_category_food":["ГОТОВКА","COOKING","COCINA","KOCHEN","CUISINE","烹饪"],
+	"craft_wrong_station":["Нужная станция: %s","Required station: %s","Estación necesaria: %s","Benötigte Station: %s","Poste requis : %s","需要制作台：%s"],
+	"craft_locked":["Изучи нужную способность в разделе героя","Learn the required talent in the hero menu","Aprende el talento necesario en el menú del héroe","Lerne das nötige Talent im Heldenmenü","Apprends le talent requis dans le menu du héros","请在角色菜单学习所需天赋"],
 	"context_pet":["Погладить","Pet","Acariciar","Streicheln","Caresser","抚摸"],
 	"context_water":["Обновить воду","Refresh water","Renovar agua","Wasser erneuern","Changer l’eau","补充清水"],
 	"context_awaken":["Пробудить Хранителя","Awaken guardian","Despertar al guardián","Wächter wecken","Réveiller le gardien","唤醒守护者"],
@@ -191,7 +211,7 @@ const UI := {
 	"grandma_stock":["Бабушкины запасы","Grandma's stock","Reservas de la abuela","Omas Vorräte","Réserves de Grand-mère","奶奶的库存"],
 	"sort_inventory":["S • СОРТИРОВАТЬ","S • SORT","S • ORDENAR","S • SORTIEREN","S • TRIER","S • 排序"],
 	"inventory_help":["ЛКМ выбрать/перетащить • ПКМ использовать • колесо прокрутить • 1–0 назначить • S сортировать","Left click select/drag • right click use • wheel scroll • 1–0 assign • S sort","Clic izq. elegir/arrastrar • clic der. usar • rueda mover • 1–0 asignar • S ordenar","Linksklick wählen/ziehen • Rechtsklick nutzen • Rad scrollen • 1–0 belegen • S sortieren","Clic gauche choisir/glisser • clic droit utiliser • molette défiler • 1–0 assigner • S trier","左键选择/拖动 • 右键使用 • 滚轮滚动 • 1–0分配 • S排序"],
-	"craft_help":["↑↓ рецепт • Enter создать • Shift+Enter всё • C/Esc закрыть","↑↓ recipe • Enter craft • Shift+Enter all • C/Esc close","↑↓ receta • Enter crear • Mayús+Enter todo • C/Esc cerrar","↑↓ Rezept • Enter herstellen • Umschalt+Enter alle • C/Esc schließen","↑↓ recette • Entrée fabriquer • Maj+Entrée tout • C/Esc fermer","↑↓配方 • Enter制作 • Shift+Enter全部 • C/Esc关闭"],
+	"craft_help":["↑↓ рецепт • Enter создать • Shift+Enter до 99 • C/Esc закрыть","↑↓ recipe • Enter craft • Shift+Enter up to 99 • C/Esc close","↑↓ receta • Enter crear • Mayús+Enter hasta 99 • C/Esc cerrar","↑↓ Rezept • Enter herstellen • Umschalt+Enter bis 99 • C/Esc schließen","↑↓ recette • Entrée fabriquer • Maj+Entrée jusqu’à 99 • C/Esc fermer","↑↓配方 • Enter制作 • Shift+Enter最多99批 • C/Esc关闭"],
 	"cauldron_title":["КОТЕЛОК • ДОМАШНЯЯ КУХНЯ","CAULDRON • HOME COOKING","CALDERO • COCINA CASERA","KESSEL • HAUSKÜCHE","CHAUDRON • CUISINE MAISON","烹饪锅 • 家庭料理"],
 	"craft_action":["СОЗДАТЬ","CRAFT","CREAR","HERSTELLEN","FABRIQUER","制作"],
 	"forge_upgrade_action":["УЛУЧШИТЬ","UPGRADE","MEJORAR","VERBESSERN","AMÉLIORER","升级"],
@@ -398,6 +418,11 @@ const TEXT := {
 const ITEMS := {
 	"animal_feed":["Корм для животных","Animal feed","Pienso para animales","Tierfutter","Aliment pour animaux","动物饲料"],
 	"truffle":["Лесной трюфель", "Forest truffle", "Trufa silvestre", "Waldtrüffel", "Truffe des bois", "森林松露"],
+	"mayonnaise":["Домашний майонез","Homemade mayonnaise","Mayonesa casera","Hausgemachte Mayonnaise","Mayonnaise maison","自制蛋黄酱"],
+	"pancakes":["Молочные блинчики","Milk pancakes","Tortitas de leche","Milchpfannkuchen","Crêpes au lait","牛奶薄饼"],
+	"porridge":["Молочная каша","Milk porridge","Gachas con leche","Milchbrei","Bouillie au lait","牛奶粥"],
+	"truffle_soup":["Трюфельная похлёбка","Truffle soup","Sopa de trufa","Trüffelsuppe","Soupe à la truffe","松露汤"],
+	"yarn":["Пряжа","Yarn","Hilo","Garn","Fil","纱线"], "cloth":["Ткань","Cloth","Tela","Stoff","Tissu","布料"],
 
 	"hoe":["Мотыга","Hoe","Azada","Hacke","Houe","锄头"], "seeds":["Семена моркови","Carrot seeds","Semillas de zanahoria","Karottensamen","Graines de carotte","胡萝卜种子"],
 	"tomato_seeds":["Семена томата","Tomato seeds","Semillas de tomate","Tomatensamen","Graines de tomate","番茄种子"],
@@ -582,7 +607,9 @@ const TUTORIAL := {
 	"crab_trap_place":["Установи крабовую ловушку у воды","Place a crab trap near water","Coloca una trampa junto al agua","Stelle eine Krabbenfalle am Wasser auf","Pose un casier près de l’eau","在水边放置捕蟹笼"],
 	"crab_trap_collect":["Вернись на следующий день и собери краба","Return the next day and collect a crab","Vuelve al día siguiente y recoge un cangrejo","Kehre am nächsten Tag zurück und hole eine Krabbe","Reviens le lendemain chercher un crabe","第二天回来收取河蟹"],
 	"craft_window":["Создай предмет на верстаке","Craft at the workbench","Fabrica en el banco","Stelle etwas an der Werkbank her","Fabrique à l'établi","在工作台制作物品"],
-	"cooking":["Открой котелок с быстрой панели и приготовь блюдо","Open the cauldron from the hotbar and cook a meal","Abre el caldero y cocina un plato","Öffne den Kessel und koche eine Mahlzeit","Ouvre le chaudron et prépare un plat","从快捷栏打开锅并烹饪食物"],
+	"cooking":["Готовь на домашней кухне: базовые рецепты доступны сразу, сложные открывает талант. Карточка показывает эффект блюда.","Cook in the home kitchen: basic recipes are available immediately; a talent unlocks advanced meals. The card shows the food effect.","Cocina en casa: los platos básicos están disponibles al inicio; un talento abre los avanzados. La tarjeta muestra el efecto.","Koche in der Hausküche: Grundrezepte sind sofort verfügbar; ein Talent öffnet besondere Gerichte. Die Karte zeigt die Wirkung.","Cuisine chez toi : les recettes de base sont disponibles dès le début ; un talent ouvre les plats avancés. La carte indique l’effet.","在家中厨房烹饪：基础食谱立即可用，天赋解锁高级菜肴。卡片会显示食物效果。"],
+	"animal_feed_recipe":["На верстаке 2 пшеницы и 1 волокно дают 2 порции корма для двора.","At the workbench, 2 wheat and 1 fiber make 2 portions of yard feed.","En el banco, 2 de trigo y 1 fibra producen 2 raciones de pienso.","An der Werkbank ergeben 2 Weizen und 1 Faser 2 Portionen Tierfutter.","À l’établi, 2 blés et 1 fibre donnent 2 portions de nourriture animale.","在工作台用2份小麦和1份纤维制作2份动物饲料。"],
+	"textile_chain":["Шерсть превращается в пряжу, пряжа с хлопком — в ткань. Ткань и пряжа нужны для ковра.","Wool becomes yarn; yarn and cotton become cloth. Cloth and yarn make a rug.","La lana da hilo; el hilo y el algodón dan tela. Usa tela e hilo para una alfombra.","Wolle wird zu Garn; Garn und Baumwolle werden zu Stoff. Stoff und Garn ergeben einen Teppich.","La laine donne du fil ; le fil et le coton donnent du tissu. Tissu et fil servent au tapis.","羊毛加工成纱线，纱线和棉花加工成布料。布料与纱线可织成地毯。"],
 	"equip":["Переключи оружие [R]","Switch weapon [R]","Cambia de arma [R]","Wechsle die Waffe [R]","Change d'arme [R]","切换武器 [R]"],
 	"collision":["Перейди реку по мосту","Cross the river by bridge","Cruza el río por el puente","Überquere den Fluss über die Brücke","Traverse la rivière par le pont","从桥上过河"],
 	"travel":["Подойди ко входу в пещеру — переход сработает автоматически","Walk up to the cave entrance — travel activates automatically","Acércate a la entrada de la cueva: el viaje se activa automáticamente","Gehe zum Höhleneingang – der Übergang erfolgt automatisch","Approche de l’entrée de la grotte : le passage est automatique","走近洞穴入口即可自动进入"],

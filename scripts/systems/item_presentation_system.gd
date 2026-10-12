@@ -14,8 +14,10 @@ const RARITY_ITEMS := {
 const FOOD_EFFECTS := {
 	"carrot":["item_effect_heal",15], "apple":["item_effect_heal",30], "pear":["item_effect_heal_energy",24,2], "plum":["item_effect_heal_mana",20,8],
 	"orange":["item_effect_heal_energy",20,2], "watermelon":["item_effect_heal_energy",25,4], "tomato":["item_effect_heal",10], "cabbage":["item_effect_heal",10], "corn":["item_effect_heal",10], "potato":["item_effect_heal",10], "onion":["item_effect_heal",10],
-	"egg":["item_effect_heal_energy",14,2], "milk":["item_effect_heal_energy",14,2], "cheese":["item_effect_heal_energy",22,3], "honey":["item_effect_heal_energy",22,3], "bread":["item_effect_heal_energy",22,3], "butter":["item_effect_heal_energy",22,3],
-	"pumpkin":["item_effect_heal_energy",28,4], "jam":["item_effect_heal_energy",28,4], "cornbread":["item_effect_heal_energy",28,4], "pie":["item_effect_heal_energy",40,6], "soup":["item_effect_heal_energy",40,6], "omelet":["item_effect_heal_energy",40,6],
+	"egg":["item_effect_heal_energy",14,2], "milk":["item_effect_heal_energy",14,2], "cheese":["item_effect_heal_energy",50,7], "honey":["item_effect_heal_energy",22,3], "bread":["item_effect_heal_energy",24,6], "butter":["item_effect_heal_energy",22,3],
+	"pumpkin":["item_effect_heal_energy",28,4], "jam":["item_effect_heal_energy",60,8], "cornbread":["item_effect_heal_energy",28,4], "pie":["item_effect_heal_energy",80,10], "soup":["item_effect_heal_energy",40,6], "omelet":["item_effect_heal_energy",48,8],
+	"mayonnaise":["item_effect_heal_energy",20,4], "pancakes":["item_effect_heal_energy",36,10], "porridge":["item_effect_heal_energy",24,8], "truffle_soup":["item_effect_heal_energy",48,8],
+	"strawberry":["item_effect_heal_energy",15,2], "beet":["item_effect_heal",12], "pepper":["item_effect_heal_energy",12,1], "cucumber":["item_effect_heal_energy",10,1], "melon":["item_effect_heal_energy",25,4], "crab":["item_effect_heal_energy",22,3],
 	"cherry":["item_effect_regeneration",5,6], "berries":["item_effect_regeneration",5,8], "nut":["item_effect_strength",1,12], "mushroom":["item_effect_speed",30,10],
 	"healing_potion":["item_effect_heal",60], "mana_potion":["item_effect_mana",30], "energy_potion":["item_effect_energy",8], "invisibility_potion":["item_effect_invisibility",18],
 	"strength_potion":["item_effect_strength",1,30], "regeneration_potion":["item_effect_regeneration",5,20], "speed_potion":["item_effect_speed",30,25], "defense_potion":["item_effect_defense",4,30]

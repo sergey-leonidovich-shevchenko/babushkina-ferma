@@ -23,19 +23,19 @@ const RECIPES := [
 	{"name":"Зелье скорости", "inputs":{"lizard_scale":1,"mushroom":1}, "output":"speed_potion", "count":1},
 	{"name":"Зелье защиты", "inputs":{"stone":2,"metal":1}, "output":"defense_potion", "count":1},
 	{"name":"Крепкая верёвка", "inputs":{"fiber":2}, "output":"rope", "count":1},
-	{"name":"Мука", "inputs":{"wheat":2}, "output":"flour", "count":1},
-	{"name":"Сливочное масло", "inputs":{"milk":2}, "output":"butter", "count":1},
-	{"name":"Домашний сыр", "inputs":{"milk":3}, "output":"cheese", "count":1},
-	{"name":"Деревенский хлеб", "inputs":{"flour":2}, "output":"bread", "count":1},
+	{"name":"Мука", "inputs":{"wheat":2}, "output":"flour", "count":1,"station":"cauldron","category":"food"},
+	{"name":"Сливочное масло", "inputs":{"milk":2}, "output":"butter", "count":1,"station":"cauldron","category":"food"},
+	{"name":"Домашний сыр", "inputs":{"milk":3}, "output":"cheese", "count":1,"station":"cauldron","category":"food"},
+	{"name":"Деревенский хлеб", "inputs":{"flour":2}, "output":"bread", "count":1,"station":"cauldron","category":"food"},
 	{"name":"Яблочный пирог", "inputs":{"apple":2,"flour":1,"butter":1}, "output":"pie", "count":1, "station":"cauldron", "talent":"farm_cooking"},
 	{"name":"Ягодное варенье", "inputs":{"berries":3,"honey":1}, "output":"jam", "count":1, "station":"cauldron", "talent":"farm_cooking"},
-	{"name":"Овощной суп", "inputs":{"carrot":1,"potato":1,"onion":1}, "output":"soup", "count":1, "station":"cauldron", "talent":"farm_cooking"},
-	{"name":"Омлет с зеленью", "inputs":{"egg":2,"milk":1}, "output":"omelet", "count":1, "station":"cauldron", "talent":"farm_cooking"},
+	{"name":"Овощной суп", "inputs":{"carrot":1,"potato":1,"onion":1}, "output":"soup", "count":1, "station":"cauldron","category":"food"},
+	{"name":"Омлет с зеленью", "inputs":{"egg":2,"milk":1}, "output":"omelet", "count":1, "station":"cauldron","category":"food"},
 	{"name":"Кукурузный хлеб", "inputs":{"corn":2,"flour":1}, "output":"cornbread", "count":1, "station":"cauldron", "talent":"farm_cooking"},
 	{"name":"Полевой букет", "inputs":{"flower":3,"fiber":1}, "output":"bouquet", "count":1},
 	{"name":"Дубовый стол", "inputs":{"plank":6,"nails":4}, "output":"rustic_table", "count":1, "category":"construction"},
 	{"name":"Резной стул", "inputs":{"plank":3,"nails":2}, "output":"wooden_chair", "count":1, "category":"construction"},
-	{"name":"Тканый ковёр", "inputs":{"fiber":5,"wool":2}, "output":"woven_rug", "count":1},
+	{"name":"Тканый ковёр", "inputs":{"cloth":2,"yarn":1}, "output":"woven_rug", "count":1},
 	{"name":"Папоротник в горшке", "inputs":{"fiber":2,"flower":2,"stone":1}, "output":"potted_fern", "count":1},
 	{"name":"Деревянный шкаф", "inputs":{"plank":10,"nails":8}, "output":"wooden_wardrobe", "count":1, "category":"construction"},
 	{"name":"Секции забора", "inputs":{"plank":2,"nails":4}, "output":"fence_kit", "count":8, "category":"construction"},
@@ -44,7 +44,19 @@ const RECIPES := [
 	{"name":"Улучшенная удочка", "inputs":{"plank":2,"metal":3,"fiber":2}, "output":"advanced_fishing_rod", "count":1, "talents":["fish_fine_rod","craft_apprentice"]},
 	{"name":"Крабовая ловушка", "inputs":{"plank":3,"rope":2,"nails":2}, "output":"crab_trap", "count":1, "talent":"fish_crab_traps", "category":"construction"},
 	{"name":"Фруктовый саженец", "inputs":{"wood":2,"rare_seeds":1}, "output":"fruit_sapling", "count":1, "talent":"farm_orchard"},
+	{"name":"Корм для двора","inputs":{"wheat":2,"fiber":1},"output":"animal_feed","count":2,"category":"processing"},
+	{"name":"Домашний майонез","inputs":{"egg":1},"output":"mayonnaise","count":1,"station":"cauldron","category":"food"},
+	{"name":"Молочные блинчики","inputs":{"flour":1,"egg":1,"milk":1},"output":"pancakes","count":1,"station":"cauldron","category":"food"},
+	{"name":"Молочная каша","inputs":{"wheat":2,"milk":1},"output":"porridge","count":1,"station":"cauldron","category":"food"},
+	{"name":"Трюфельная похлёбка","inputs":{"truffle":1,"milk":1,"mushroom":1},"output":"truffle_soup","count":1,"station":"cauldron","category":"food","talent":"farm_cooking"},
+	{"name":"Пряжа","inputs":{"wool":1},"output":"yarn","count":2,"category":"processing"},
+	{"name":"Ткань","inputs":{"yarn":2,"cotton":1},"output":"cloth","count":1,"category":"processing"},
 ]
+const MAX_BATCH := 99
+
+## Разделяет точный расход кухонных продуктов и экономию сырья ремесленного таланта на верстаке.
+static func material_cost(game: Node, recipe: Dictionary, kind: String) -> int:
+	return int(recipe.inputs[kind]) if recipe.get("station","workbench")=="cauldron" else game.TalentSystem.recipe_material_cost(game,int(recipe.inputs[kind]))
 
 ## Возвращает индексы рецептов, относящихся к открытому верстаку или котелку.
 static func visible_indices(game: Node) -> Array[int]:
@@ -60,6 +72,10 @@ static func open(game: Node, station: String = "workbench") -> void:
 	game.crafting_station = station
 	var visible := visible_indices(game)
 	game.crafting_selected = visible[0] if not visible.is_empty() else 0
+	for index in visible:
+		if game.TalentSystem.recipe_unlocked(game,RECIPES[index]): game.crafting_selected=index; break
+	for index in visible:
+		if can_craft(game,RECIPES[index]): game.crafting_selected=index; break
 	game.clear_movement_keys()
 	game.message = game.LocaleSystem.text("recipe_select")
 
@@ -101,31 +117,33 @@ static func recipe_at(game: Node, position: Vector2) -> int:
 
 ## Проверяет условие «возможности крафта» без изменения состояния.
 static func can_craft(game: Node, recipe: Dictionary) -> bool:
+	if recipe.get("station","workbench")!=game.crafting_station: return false
 	if not game.TalentSystem.recipe_unlocked(game, recipe):
 		return false
 	if recipe.output == "home_chest" and game.home_chest_owned:
 		return false
 	for kind in recipe.inputs:
-		if game.inventory_item_count(kind) < game.TalentSystem.recipe_material_cost(game, recipe.inputs[kind]): return false
+		if game.inventory_item_count(kind) < material_cost(game,recipe,kind): return false
 	return true
 
 ## Вычисляет число полных партий рецепта, доступных из текущего запаса материалов.
 static func max_craftable(game: Node, recipe: Dictionary) -> int:
-	if not game.TalentSystem.recipe_unlocked(game, recipe): return 0
+	if not can_craft(game,recipe) or recipe.inputs.is_empty(): return 0
 	if recipe.output == "home_chest" and game.home_chest_owned: return 0
-	var result := 999999
+	var result := MAX_BATCH
 	for kind in recipe.inputs:
-		var cost: int = game.TalentSystem.recipe_material_cost(game, recipe.inputs[kind])
+		var cost := material_cost(game,recipe,kind)
 		result = mini(result, floori(float(game.inventory_item_count(kind)) / float(maxi(cost, 1))))
-	if result == 999999: return 0
 	return mini(result, 1) if recipe.output == "home_chest" else result
 
 ## Выполняет операцию «крафта» и возвращает результат согласно контракту метода.
 static func craft(game: Node, index: int) -> bool:
 	if index < 0 or index >= RECIPES.size(): return false
 	var recipe: Dictionary = RECIPES[index]
+	if recipe.get("station","workbench")!=game.crafting_station:
+		game.message=game.LocaleSystem.ui("craft_wrong_station",[game.LocaleSystem.ui("cauldron_title" if recipe.get("station","workbench")=="cauldron" else "workbench")]); return false
 	if not game.TalentSystem.recipe_unlocked(game, recipe):
-		game.message = "Сначала изучи нужную способность в дереве [K]"
+		game.message = game.LocaleSystem.ui("craft_locked")
 		return false
 	if recipe.output == "home_chest" and game.home_chest_owned:
 		game.message = game.LocaleSystem.text("chest_already_owned")
@@ -133,19 +151,23 @@ static func craft(game: Node, index: int) -> bool:
 	if not can_craft(game, recipe):
 		game.message = game.LocaleSystem.text("needs", [ingredients_text(game, recipe)])
 		return false
-	for kind in recipe.inputs: game.change_inventory_count(kind, -game.TalentSystem.recipe_material_cost(game, recipe.inputs[kind]))
+	for kind in recipe.inputs: game.change_inventory_count(kind, -material_cost(game,recipe,kind))
+	if not game.state.player.profile.has("workbench_crafts"): game.state.player.profile.workbench_crafts=game.state.player.craft_count
+	if game.crafting_station!="cauldron": game.state.player.profile.workbench_crafts=int(game.state.player.profile.workbench_crafts)+1
 	game.state.player.craft_count += 1
 	var crafted_count: int = int(recipe.count)
-	if game.TalentSystem.has(game, "craft_master") and game.state.player.craft_count % 5 == 0:
+	if game.crafting_station!="cauldron" and game.TalentSystem.has(game, "craft_master") and int(game.state.player.profile.workbench_crafts) % 5 == 0:
 		crafted_count += int(recipe.count)
 	game.change_inventory_count(recipe.output, crafted_count)
 	if recipe.output == "home_chest": game.StorageSystem.install(game)
 	game.award_xp(4)
-	game.SkillSystem.award_profession_xp(game, "smithing", 6)
+	game.SkillSystem.award_profession_xp(game,"farming" if game.crafting_station=="cauldron" else "smithing",3 if game.crafting_station=="cauldron" else 6)
 	game.message = game.LocaleSystem.text("crafted", [game.inventory_item_name(recipe.output)])
 	game.play_sfx("craft")
 	game.notify_tutorial("craft_window")
-	if String(recipe.get("category", "")) == "processing": game.notify_tutorial("lumber_process")
+	if recipe.output in ["plank","nails"]: game.notify_tutorial("lumber_process")
+	if recipe.output=="animal_feed": game.notify_tutorial("animal_feed_recipe")
+	if recipe.output in ["yarn","cloth","woven_rug"]: game.notify_tutorial("textile_chain")
 	if game.crafting_station == "cauldron": game.notify_tutorial("cooking")
 	return true
 
@@ -163,17 +185,20 @@ static func craft_many(game: Node, index: int, requested: int) -> int:
 
 ## Возвращает понятное назначение рецепта для карточки выбранного изделия.
 static func category_name(game: Node, recipe: Dictionary) -> String:
+	if recipe.get("station","workbench")=="cauldron": return game.LocaleSystem.ui("craft_category_food")
 	var category: String = String(recipe.get("category", "general"))
 	return game.LocaleSystem.ui("craft_category_%s" % category)
 
 ## Описывает выход партии и возможное число повторов для подробной карточки рецепта.
 static func production_summary(game: Node, recipe: Dictionary) -> String:
+	if not game.TalentSystem.recipe_unlocked(game,recipe): return game.LocaleSystem.ui("craft_locked")
+	if recipe.get("station","workbench")!=game.crafting_station: return game.LocaleSystem.ui("craft_wrong_station",[game.LocaleSystem.ui("cauldron_title" if recipe.get("station","workbench")=="cauldron" else "workbench")])
 	return game.LocaleSystem.ui("craft_output_summary", [int(recipe.count), max_craftable(game, recipe)])
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func ingredients_text(game: Node, recipe: Dictionary, compact:bool=false) -> String:
 	var parts: Array[String] = []
 	for kind in recipe.inputs:
-		var item_name:String=game.InventorySystem.data(String(kind)).short if compact else game.inventory_item_name(kind)
-		parts.append("%s %d/%d" % [item_name, game.inventory_item_count(kind), game.TalentSystem.recipe_material_cost(game, recipe.inputs[kind])])
+		var item_name:String=game.LocaleSystem.crafting_ingredient(String(kind)) if compact else game.inventory_item_name(kind)
+		parts.append("%s %d/%d" % [item_name, game.inventory_item_count(kind), material_cost(game,recipe,kind)])
 	return ", ".join(parts)

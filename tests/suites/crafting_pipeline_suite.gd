@@ -3,6 +3,7 @@ extends "res://tests/suites/suite_base.gd"
 
 ## Запускает сценарии переработки древесины, пакетного производства, изделий и представления материалов.
 func run() -> void:
+	preload("res://tests/suites/household_cooking_suite.gd").new(context).run()
 	test_log_and_metal_become_processed_materials()
 	test_processed_materials_unlock_useful_construction()
 	test_batch_crafting_uses_every_complete_recipe_only()

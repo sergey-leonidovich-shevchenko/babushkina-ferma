@@ -50,22 +50,7 @@ static func _apply_potion(game: Node, kind: String) -> void:
 
 ## Применяет существующие пищевые эффекты через единый конвейер расходников.
 static func _apply_food(game: Node, kind: String) -> void:
-	match kind:
-		"carrot": game.heal_player(15); game.message = "Морковь: +15 здоровья"
-		"apple": game.heal_player(30); game.message = "Яблоко: +30 здоровья"
-		"pear": game.heal_player(24); game.energy = mini(game.energy + 2, game.SkillSystem.max_stamina(game)); game.message = "Груша: +24 здоровья и +2 энергии"
-		"cherry": game.regeneration_timer = 6.0; game.regeneration_tick_timer = 0.0; game.message = "Вишня: регенерация +5 HP/с на 6 секунд"
-		"plum": game.heal_player(20); game.player_mana = mini(game.player_mana + 8, game.player_max_mana); game.message = "Слива: +20 здоровья и +8 маны"
-		"berries": game.regeneration_timer = 8.0; game.regeneration_tick_timer = 0.0; game.message = "Ягоды: регенерация +5 HP/с на 8 секунд"
-		"nut": game.strength_timer = 12.0; game.message = "Орех: +1 к силе на 12 секунд"
-		"mushroom": game.speed_timer = 10.0; game.message = "Гриб: скорость +30% на 10 секунд"
-		"orange": game.heal_player(20); game.energy = mini(game.energy + 2, game.SkillSystem.max_stamina(game)); game.message = "Апельсин: +20 здоровья и +2 энергии"
-		"watermelon": game.heal_player(25); game.energy = mini(game.energy + 4, game.SkillSystem.max_stamina(game)); game.message = "Арбуз: +25 здоровья и +4 энергии"
-		"tomato", "cabbage", "corn", "potato", "onion": game.heal_player(10); game.message = "%s: +10 здоровья" % game.inventory_item_name(kind)
-		"egg", "milk": game.heal_player(14); game.energy = mini(game.energy + 2, game.SkillSystem.max_stamina(game)); game.message = "%s: +14 здоровья и +2 энергии" % game.inventory_item_name(kind)
-		"cheese", "honey", "bread", "butter": game.heal_player(22); game.energy = mini(game.energy + 3, game.SkillSystem.max_stamina(game)); game.message = "%s: +22 здоровья и +3 энергии" % game.inventory_item_name(kind)
-		"pumpkin", "jam", "cornbread": game.heal_player(28); game.energy = mini(game.energy + 4, game.SkillSystem.max_stamina(game)); game.message = "%s: +28 здоровья и +4 энергии" % game.inventory_item_name(kind)
-		"pie", "soup", "omelet": game.heal_player(40); game.energy = mini(game.energy + 6, game.SkillSystem.max_stamina(game)); game.message = "%s: +40 здоровья и +6 энергии" % game.inventory_item_name(kind)
+	preload("res://scripts/systems/food_system.gd").apply(game,kind)
 
 
 ## Обновляет длительность бафов и периодическое восстановление здоровья.

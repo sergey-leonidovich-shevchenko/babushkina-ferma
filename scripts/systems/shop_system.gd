@@ -34,6 +34,8 @@ const PRODUCTS := [
 	{"kind":"stone","buy":0,"sell":1}, {"kind":"fiber","buy":0,"sell":2}, {"kind":"bones","buy":0,"sell":3}, {"kind":"metal","buy":0,"sell":7},
 	{"kind":"crystal","buy":0,"sell":12}, {"kind":"red_crystal","buy":0,"sell":16}, {"kind":"green_crystal","buy":0,"sell":16}, {"kind":"pirate_doubloon","buy":0,"sell":22},
 	{"kind":"animal_feed","buy":12,"sell":4}, {"kind":"truffle","buy":0,"sell":24},
+	{"kind":"mayonnaise","buy":0,"sell":9}, {"kind":"pancakes","buy":0,"sell":28}, {"kind":"porridge","buy":0,"sell":24}, {"kind":"truffle_soup","buy":0,"sell":42},
+	{"kind":"yarn","buy":0,"sell":6}, {"kind":"cloth","buy":0,"sell":10},
 ]
 
 

@@ -8,6 +8,11 @@ const VISIBLE_SLOTS := COLUMNS * VISIBLE_ROWS
 const FILTERS := ["all", "tool", "food", "equipment", "resource", "quest"]
 
 const ITEM_DATA := {
+	"mayonnaise":{"name":"Домашний майонез","short":"Майонез","color":Color("edd7a0"),"edible":true},
+	"pancakes":{"name":"Молочные блинчики","short":"Блинчики","color":Color("ce9659"),"edible":true},
+	"porridge":{"name":"Молочная каша","short":"Каша","color":Color("ded0ac"),"edible":true},
+	"truffle_soup":{"name":"Трюфельная похлёбка","short":"Похлёбка","color":Color("a17f5b"),"edible":true},
+	"yarn":{"name":"Пряжа","short":"Пряжа","color":Color("ddcaa7")}, "cloth":{"name":"Ткань","short":"Ткань","color":Color("adbca7")},
 	"animal_feed":{"name":"Корм для животных","short":"Корм","color":Color("cba052")},
 	"truffle":{"name":"Лесной трюфель","short":"Трюфель","color":Color("756047")},
 	"hoe": {"name": "Мотыга", "short": "Мотыга", "color": Color("a87542"), "tool": 0},
