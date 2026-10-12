@@ -1,0 +1,1085 @@
+{
+  "fuels": {
+    "charcoal": 24.0,
+    "coal": 36.0,
+    "log": 32.0,
+    "sawdust": 3.0,
+    "trash": 4.0,
+    "wood": 12.0
+  },
+  "items": {
+    "brick": {
+      "buy": 0,
+      "color": "bc7552",
+      "group": "brick",
+      "names": [
+        "Обожжённый кирпич",
+        "Fired brick",
+        "Ladrillo cocido",
+        "Gebrannter Ziegel",
+        "Brique cuite",
+        "烧制砖"
+      ],
+      "sell": 3
+    },
+    "ceramic_bowl": {
+      "buy": 0,
+      "color": "bd855f",
+      "group": "bowl",
+      "names": [
+        "Керамическая миска",
+        "Ceramic bowl",
+        "Cuenco cerámico",
+        "Keramikschale",
+        "Bol en céramique",
+        "陶碗"
+      ],
+      "sell": 5
+    },
+    "ceramic_glaze": {
+      "buy": 0,
+      "color": "72aaa0",
+      "group": "bottle",
+      "names": [
+        "Керамическая глазурь",
+        "Ceramic glaze",
+        "Esmalte cerámico",
+        "Keramikglasur",
+        "Glaçure céramique",
+        "陶瓷釉"
+      ],
+      "sell": 2
+    },
+    "ceramic_shard": {
+      "buy": 0,
+      "color": "a87959",
+      "group": "shards",
+      "names": [
+        "Керамические черепки",
+        "Ceramic shards",
+        "Fragmentos cerámicos",
+        "Keramikscherben",
+        "Tessons de céramique",
+        "陶瓷碎片"
+      ],
+      "sell": 0
+    },
+    "ceramic_vase": {
+      "buy": 0,
+      "color": "bf825c",
+      "group": "vase",
+      "names": [
+        "Керамическая ваза",
+        "Ceramic vase",
+        "Jarrón cerámico",
+        "Keramikvase",
+        "Vase en céramique",
+        "陶瓷花瓶"
+      ],
+      "sell": 10
+    },
+    "clay": {
+      "buy": 3,
+      "color": "ad7658",
+      "group": "pile",
+      "names": [
+        "Глина",
+        "Clay",
+        "Arcilla",
+        "Ton",
+        "Argile",
+        "黏土"
+      ],
+      "sell": 1
+    },
+    "clay_pot": {
+      "buy": 0,
+      "color": "ba815a",
+      "group": "pot",
+      "names": [
+        "Глиняный горшок",
+        "Clay pot",
+        "Maceta de barro",
+        "Tontopf",
+        "Pot en terre",
+        "陶罐"
+      ],
+      "sell": 7
+    },
+    "clear_glass": {
+      "buy": 0,
+      "color": "c5e0e2",
+      "group": "pane",
+      "names": [
+        "Прозрачное стекло",
+        "Clear glass",
+        "Vidrio claro",
+        "Klarglas",
+        "Verre clair",
+        "透明玻璃"
+      ],
+      "sell": 6
+    },
+    "colored_glass": {
+      "buy": 0,
+      "color": "cf8797",
+      "group": "pane",
+      "names": [
+        "Цветное стекло",
+        "Colored glass",
+        "Vidrio de color",
+        "Buntglas",
+        "Verre coloré",
+        "彩色玻璃"
+      ],
+      "sell": 9
+    },
+    "glass_bottle": {
+      "buy": 0,
+      "color": "a0cfcb",
+      "group": "bottle",
+      "names": [
+        "Стеклянная бутылка",
+        "Glass bottle",
+        "Botella de vidrio",
+        "Glasflasche",
+        "Bouteille en verre",
+        "玻璃瓶"
+      ],
+      "sell": 5
+    },
+    "glass_jar": {
+      "buy": 0,
+      "color": "b6d8cf",
+      "group": "jar",
+      "names": [
+        "Стеклянная банка",
+        "Glass jar",
+        "Tarro de vidrio",
+        "Glasgefäß",
+        "Bocal en verre",
+        "玻璃罐"
+      ],
+      "sell": 5
+    },
+    "glazed_vase": {
+      "buy": 0,
+      "color": "619f96",
+      "group": "vase",
+      "names": [
+        "Глазурованная ваза",
+        "Glazed vase",
+        "Jarrón esmaltado",
+        "Glasierte Vase",
+        "Vase émaillé",
+        "釉陶花瓶"
+      ],
+      "sell": 15
+    },
+    "glazed_vase_form": {
+      "buy": 0,
+      "color": "7caba0",
+      "group": "vase",
+      "names": [
+        "Ваза под глазурью",
+        "Glazed vase form",
+        "Vaso esmaltado crudo",
+        "Glasierte Rohvase",
+        "Vase cru émaillé",
+        "上釉花瓶坯"
+      ],
+      "sell": 3
+    },
+    "moon_glass": {
+      "buy": 0,
+      "color": "8ac0e0",
+      "group": "pane",
+      "names": [
+        "Лунное стекло",
+        "Moon glass",
+        "Vidrio lunar",
+        "Mondglas",
+        "Verre lunaire",
+        "月光玻璃"
+      ],
+      "sell": 24
+    },
+    "optical_lens": {
+      "buy": 0,
+      "color": "b5dadd",
+      "group": "lens",
+      "names": [
+        "Оптическая линза",
+        "Optical lens",
+        "Lente óptica",
+        "Optische Linse",
+        "Lentille optique",
+        "光学镜片"
+      ],
+      "sell": 18
+    },
+    "porcelain_clay": {
+      "buy": 0,
+      "color": "ded4b9",
+      "group": "pile",
+      "names": [
+        "Фарфоровая масса",
+        "Porcelain clay",
+        "Pasta de porcelana",
+        "Porzellanmasse",
+        "Pâte de porcelaine",
+        "瓷土"
+      ],
+      "sell": 2
+    },
+    "porcelain_cup": {
+      "buy": 0,
+      "color": "e3e1cf",
+      "group": "cup",
+      "names": [
+        "Фарфоровая чашка",
+        "Porcelain cup",
+        "Taza de porcelana",
+        "Porzellantasse",
+        "Tasse en porcelaine",
+        "瓷杯"
+      ],
+      "sell": 20
+    },
+    "porcelain_form": {
+      "buy": 0,
+      "color": "d6cdb6",
+      "group": "cup",
+      "names": [
+        "Заготовка фарфора",
+        "Porcelain form",
+        "Forma de porcelana",
+        "Porzellanrohling",
+        "Forme de porcelaine",
+        "瓷器坯"
+      ],
+      "sell": 3
+    },
+    "sawdust": {
+      "buy": 0,
+      "color": "caa76b",
+      "group": "pile",
+      "names": [
+        "Опилки",
+        "Sawdust",
+        "Serrín",
+        "Sägemehl",
+        "Sciure",
+        "锯末"
+      ],
+      "sell": 0
+    },
+    "timber_frame": {
+      "buy": 0,
+      "color": "95683d",
+      "group": "frame",
+      "names": [
+        "Столярная рама",
+        "Timber frame",
+        "Marco de madera",
+        "Holzrahmen",
+        "Cadre de bois",
+        "木框架"
+      ],
+      "sell": 8
+    },
+    "unfired_bowl": {
+      "buy": 0,
+      "color": "a18a72",
+      "group": "bowl",
+      "names": [
+        "Заготовка миски",
+        "Unfired bowl",
+        "Cuenco crudo",
+        "Rohe Schale",
+        "Bol cru",
+        "未烧陶碗"
+      ],
+      "sell": 1
+    },
+    "unfired_brick": {
+      "buy": 0,
+      "color": "a98c74",
+      "group": "brick",
+      "names": [
+        "Кирпич-сырец",
+        "Unfired brick",
+        "Ladrillo crudo",
+        "Roher Ziegel",
+        "Brique crue",
+        "未烧砖"
+      ],
+      "sell": 1
+    },
+    "unfired_pot": {
+      "buy": 0,
+      "color": "a18a72",
+      "group": "pot",
+      "names": [
+        "Заготовка горшка",
+        "Unfired pot",
+        "Maceta cruda",
+        "Roher Topf",
+        "Pot cru",
+        "未烧陶罐"
+      ],
+      "sell": 2
+    },
+    "unfired_vase": {
+      "buy": 0,
+      "color": "a18a72",
+      "group": "vase",
+      "names": [
+        "Заготовка вазы",
+        "Unfired vase",
+        "Jarrón crudo",
+        "Rohe Vase",
+        "Vase cru",
+        "未烧花瓶"
+      ],
+      "sell": 2
+    },
+    "wet_clay": {
+      "buy": 0,
+      "color": "976b57",
+      "group": "pile",
+      "names": [
+        "Глиняная масса",
+        "Wet clay",
+        "Masa de arcilla",
+        "Tonmasse",
+        "Pâte d’argile",
+        "湿黏土"
+      ],
+      "sell": 1
+    },
+    "wood_beam": {
+      "buy": 0,
+      "color": "9d693c",
+      "group": "wood",
+      "names": [
+        "Деревянный брус",
+        "Timber beam",
+        "Viga de madera",
+        "Holzbalken",
+        "Poutre de bois",
+        "木梁"
+      ],
+      "sell": 3
+    },
+    "wood_dowel": {
+      "buy": 0,
+      "color": "b78750",
+      "group": "dowels",
+      "names": [
+        "Деревянные шканты",
+        "Wood dowels",
+        "Espigas de madera",
+        "Holzdübel",
+        "Chevilles de bois",
+        "木榫"
+      ],
+      "sell": 1
+    },
+    "wood_handle": {
+      "buy": 0,
+      "color": "b78b58",
+      "group": "handle",
+      "names": [
+        "Деревянная рукоять",
+        "Wood handle",
+        "Mango de madera",
+        "Holzgriff",
+        "Manche en bois",
+        "木柄"
+      ],
+      "sell": 3
+    }
+  },
+  "recipes": [
+    {
+      "byproducts": {
+        "sawdust": 2
+      },
+      "count": 4,
+      "energy": 1,
+      "id": "sawmill:planks",
+      "inputs": {
+        "log": 1
+      },
+      "output": "plank",
+      "seconds": 8.0,
+      "station": "sawmill",
+      "workshop_level": 1
+    },
+    {
+      "byproducts": {
+        "sawdust": 1
+      },
+      "count": 1,
+      "energy": 1,
+      "id": "sawmill:beam",
+      "inputs": {
+        "plank": 2
+      },
+      "output": "wood_beam",
+      "seconds": 8.0,
+      "station": "sawmill",
+      "workshop_level": 1
+    },
+    {
+      "byproducts": {
+        "sawdust": 1
+      },
+      "count": 2,
+      "energy": 1,
+      "id": "sawmill:offcuts",
+      "inputs": {
+        "wood_offcut": 4
+      },
+      "output": "wood",
+      "seconds": 6.0,
+      "station": "sawmill",
+      "workshop_level": 1
+    },
+    {
+      "byproducts": {
+        "sawdust": 1
+      },
+      "count": 4,
+      "energy": 2,
+      "id": "sawmill:dowels",
+      "inputs": {
+        "plank": 2
+      },
+      "output": "wood_dowel",
+      "seconds": 10.0,
+      "station": "sawmill",
+      "workshop_level": 2
+    },
+    {
+      "count": 2,
+      "energy": 2,
+      "id": "sawmill:handle",
+      "inputs": {
+        "wood_beam": 1,
+        "wood_dowel": 2
+      },
+      "output": "wood_handle",
+      "seconds": 10.0,
+      "station": "sawmill",
+      "workshop_level": 2
+    },
+    {
+      "count": 1,
+      "energy": 2,
+      "id": "sawmill:frame",
+      "inputs": {
+        "nails": 4,
+        "wood_beam": 2
+      },
+      "output": "timber_frame",
+      "seconds": 12.0,
+      "station": "sawmill",
+      "workshop_level": 2
+    },
+    {
+      "count": 3,
+      "energy": 1,
+      "id": "sawmill:paper",
+      "inputs": {
+        "clean_water": 1,
+        "sawdust": 3
+      },
+      "output": "research_paper",
+      "seconds": 10.0,
+      "station": "sawmill",
+      "workshop_level": 2
+    },
+    {
+      "count": 1,
+      "energy": 3,
+      "id": "sawmill:wardrobe",
+      "inputs": {
+        "cloth": 1,
+        "plank": 8,
+        "timber_frame": 1
+      },
+      "output": "wooden_wardrobe",
+      "seconds": 18.0,
+      "station": "sawmill",
+      "workshop_level": 3
+    },
+    {
+      "count": 1,
+      "energy": 3,
+      "id": "sawmill:spear",
+      "inputs": {
+        "metal": 4,
+        "nails": 1,
+        "wood_handle": 1
+      },
+      "output": "iron_spear",
+      "seconds": 16.0,
+      "station": "sawmill",
+      "study_kind": "iron_spear",
+      "workshop_level": 3
+    },
+    {
+      "count": 2,
+      "energy": 1,
+      "id": "pottery:clay",
+      "inputs": {
+        "clay": 2,
+        "clean_water": 1
+      },
+      "output": "wet_clay",
+      "seconds": 6.0,
+      "station": "pottery",
+      "workshop_level": 1
+    },
+    {
+      "count": 2,
+      "energy": 1,
+      "id": "pottery:brick",
+      "inputs": {
+        "wet_clay": 1
+      },
+      "output": "unfired_brick",
+      "seconds": 8.0,
+      "station": "pottery",
+      "workshop_level": 1
+    },
+    {
+      "count": 1,
+      "energy": 2,
+      "id": "pottery:pot",
+      "inputs": {
+        "wet_clay": 2
+      },
+      "output": "unfired_pot",
+      "seconds": 10.0,
+      "station": "pottery",
+      "workshop_level": 1
+    },
+    {
+      "count": 1,
+      "energy": 1,
+      "id": "pottery:bowl",
+      "inputs": {
+        "wet_clay": 1
+      },
+      "output": "unfired_bowl",
+      "seconds": 8.0,
+      "station": "pottery",
+      "workshop_level": 1
+    },
+    {
+      "count": 1,
+      "energy": 2,
+      "id": "pottery:vase",
+      "inputs": {
+        "sand": 1,
+        "wet_clay": 2
+      },
+      "output": "unfired_vase",
+      "seconds": 12.0,
+      "station": "pottery",
+      "workshop_level": 2
+    },
+    {
+      "count": 2,
+      "energy": 1,
+      "id": "pottery:glaze",
+      "inputs": {
+        "clean_water": 1,
+        "mineral_base": 1
+      },
+      "output": "ceramic_glaze",
+      "seconds": 8.0,
+      "station": "pottery",
+      "workshop_level": 2
+    },
+    {
+      "count": 1,
+      "energy": 2,
+      "id": "pottery:glazed",
+      "inputs": {
+        "ceramic_glaze": 1,
+        "unfired_vase": 1
+      },
+      "output": "glazed_vase_form",
+      "seconds": 12.0,
+      "station": "pottery",
+      "workshop_level": 2
+    },
+    {
+      "count": 2,
+      "energy": 2,
+      "id": "pottery:porcelain_clay",
+      "inputs": {
+        "clay": 2,
+        "distilled_water": 1,
+        "sand": 1
+      },
+      "output": "porcelain_clay",
+      "seconds": 10.0,
+      "station": "pottery",
+      "workshop_level": 3
+    },
+    {
+      "count": 1,
+      "energy": 3,
+      "id": "pottery:porcelain",
+      "inputs": {
+        "ceramic_glaze": 1,
+        "porcelain_clay": 1
+      },
+      "output": "porcelain_form",
+      "seconds": 16.0,
+      "station": "pottery",
+      "workshop_level": 3
+    },
+    {
+      "count": 1,
+      "energy": 1,
+      "id": "pottery:recycle",
+      "inputs": {
+        "ceramic_shard": 4,
+        "clean_water": 1
+      },
+      "output": "clay",
+      "seconds": 8.0,
+      "station": "pottery",
+      "workshop_level": 2
+    },
+    {
+      "count": 1,
+      "energy": 1,
+      "id": "pottery:planter",
+      "inputs": {
+        "clay_pot": 1,
+        "fiber": 2,
+        "flower": 2
+      },
+      "output": "potted_fern",
+      "seconds": 10.0,
+      "station": "pottery",
+      "workshop_level": 2
+    },
+    {
+      "count": 3,
+      "energy": 1,
+      "id": "glassblowing:vials",
+      "inputs": {
+        "glass": 1
+      },
+      "output": "glass_vial",
+      "seconds": 6.0,
+      "station": "glassblowing",
+      "workshop_level": 1
+    },
+    {
+      "count": 1,
+      "energy": 1,
+      "id": "glassblowing:bottle",
+      "inputs": {
+        "glass": 1
+      },
+      "output": "glass_bottle",
+      "seconds": 8.0,
+      "station": "glassblowing",
+      "workshop_level": 1
+    },
+    {
+      "count": 2,
+      "energy": 2,
+      "id": "glassblowing:jar",
+      "inputs": {
+        "glass": 2
+      },
+      "output": "glass_jar",
+      "seconds": 10.0,
+      "station": "glassblowing",
+      "workshop_level": 1
+    },
+    {
+      "count": 2,
+      "energy": 2,
+      "id": "glassblowing:colored",
+      "inputs": {
+        "glass": 2,
+        "red_crystal": 1
+      },
+      "output": "colored_glass",
+      "seconds": 12.0,
+      "station": "glassblowing",
+      "workshop_level": 2
+    },
+    {
+      "count": 2,
+      "energy": 2,
+      "id": "glassblowing:clear",
+      "inputs": {
+        "distilled_water": 1,
+        "glass": 2
+      },
+      "output": "clear_glass",
+      "seconds": 12.0,
+      "station": "glassblowing",
+      "workshop_level": 2
+    },
+    {
+      "count": 1,
+      "energy": 3,
+      "id": "glassblowing:lens",
+      "inputs": {
+        "arcane_dust": 1,
+        "clear_glass": 2
+      },
+      "output": "optical_lens",
+      "seconds": 16.0,
+      "station": "glassblowing",
+      "workshop_level": 2
+    },
+    {
+      "count": 1,
+      "energy": 3,
+      "id": "glassblowing:moon",
+      "inputs": {
+        "arcane_dust": 1,
+        "clear_glass": 2,
+        "moon_grass_powder": 1
+      },
+      "output": "moon_glass",
+      "seconds": 18.0,
+      "station": "glassblowing",
+      "workshop_level": 3
+    },
+    {
+      "count": 1,
+      "energy": 3,
+      "id": "glassblowing:staff",
+      "inputs": {
+        "crystal": 2,
+        "moon_glass": 2,
+        "wood_handle": 2
+      },
+      "output": "moon_staff",
+      "seconds": 20.0,
+      "station": "glassblowing",
+      "study_kind": "moon_staff",
+      "workshop_level": 3
+    },
+    {
+      "count": 2,
+      "furnace_level": 1,
+      "id": "kiln:brick",
+      "inputs": {
+        "unfired_brick": 2
+      },
+      "output": "brick",
+      "seconds": 12.0,
+      "station": "furnace"
+    },
+    {
+      "count": 1,
+      "furnace_level": 1,
+      "id": "kiln:pot",
+      "inputs": {
+        "unfired_pot": 1
+      },
+      "output": "clay_pot",
+      "seconds": 14.0,
+      "station": "furnace"
+    },
+    {
+      "count": 1,
+      "furnace_level": 1,
+      "id": "kiln:bowl",
+      "inputs": {
+        "unfired_bowl": 1
+      },
+      "output": "ceramic_bowl",
+      "seconds": 10.0,
+      "station": "furnace"
+    },
+    {
+      "count": 1,
+      "furnace_level": 2,
+      "id": "kiln:vase",
+      "inputs": {
+        "unfired_vase": 1
+      },
+      "output": "ceramic_vase",
+      "seconds": 18.0,
+      "station": "furnace"
+    },
+    {
+      "count": 1,
+      "furnace_level": 2,
+      "id": "kiln:glazed",
+      "inputs": {
+        "glazed_vase_form": 1
+      },
+      "output": "glazed_vase",
+      "seconds": 20.0,
+      "station": "furnace"
+    },
+    {
+      "count": 1,
+      "furnace_level": 3,
+      "id": "kiln:porcelain",
+      "inputs": {
+        "porcelain_form": 1
+      },
+      "output": "porcelain_cup",
+      "seconds": 22.0,
+      "station": "furnace"
+    },
+    {
+      "category": "processing",
+      "count": 6,
+      "id": "workshop:ink",
+      "inputs": {
+        "charcoal": 1,
+        "clean_water": 2,
+        "glass_bottle": 1
+      },
+      "output": "research_ink",
+      "research_supply": true
+    },
+    {
+      "category": "food",
+      "count": 2,
+      "id": "workshop:porridge",
+      "inputs": {
+        "ceramic_bowl": 1,
+        "milk": 2,
+        "wheat": 3
+      },
+      "output": "porridge",
+      "station": "cauldron"
+    },
+    {
+      "category": "food",
+      "count": 2,
+      "id": "workshop:jam",
+      "inputs": {
+        "berries": 4,
+        "glass_jar": 1,
+        "honey": 2
+      },
+      "output": "jam",
+      "station": "cauldron",
+      "talent": "farm_cooking"
+    }
+  ],
+  "research": [
+    {
+      "batch": 1,
+      "kind": "wood_beam",
+      "parts": {
+        "wood_offcut": 2
+      },
+      "tier": 1
+    },
+    {
+      "batch": 4,
+      "kind": "wood_dowel",
+      "parts": {
+        "wood_offcut": 1
+      },
+      "tier": 1
+    },
+    {
+      "batch": 1,
+      "kind": "timber_frame",
+      "parts": {
+        "metal_scrap": 1,
+        "wood_offcut": 4
+      },
+      "tier": 2
+    },
+    {
+      "batch": 1,
+      "kind": "wood_handle",
+      "parts": {
+        "wood_offcut": 1
+      },
+      "tier": 1
+    },
+    {
+      "batch": 1,
+      "kind": "clay_pot",
+      "parts": {
+        "ceramic_shard": 2
+      },
+      "tier": 1
+    },
+    {
+      "batch": 1,
+      "kind": "ceramic_bowl",
+      "parts": {
+        "ceramic_shard": 1
+      },
+      "tier": 1
+    },
+    {
+      "batch": 1,
+      "kind": "ceramic_vase",
+      "parts": {
+        "ceramic_shard": 2
+      },
+      "tier": 2
+    },
+    {
+      "batch": 1,
+      "kind": "glazed_vase",
+      "parts": {
+        "ceramic_shard": 2
+      },
+      "tier": 2
+    },
+    {
+      "batch": 1,
+      "kind": "porcelain_cup",
+      "parts": {
+        "ceramic_shard": 1
+      },
+      "tier": 3
+    },
+    {
+      "batch": 1,
+      "kind": "glass_bottle",
+      "parts": {
+        "glass_shard": 1
+      },
+      "tier": 1
+    },
+    {
+      "batch": 1,
+      "kind": "glass_jar",
+      "parts": {
+        "glass_shard": 1
+      },
+      "tier": 1
+    },
+    {
+      "batch": 1,
+      "kind": "clear_glass",
+      "parts": {
+        "glass_shard": 2
+      },
+      "tier": 2
+    },
+    {
+      "batch": 1,
+      "kind": "colored_glass",
+      "parts": {
+        "glass_shard": 2
+      },
+      "tier": 2
+    },
+    {
+      "batch": 1,
+      "kind": "optical_lens",
+      "parts": {
+        "arcane_dust": 1,
+        "glass_shard": 2
+      },
+      "tier": 2
+    },
+    {
+      "batch": 1,
+      "kind": "moon_glass",
+      "parts": {
+        "arcane_dust": 1,
+        "glass_shard": 2
+      },
+      "tier": 3
+    }
+  ],
+  "stations": {
+    "glassblowing": {
+      "anchor": "(850.0, 450.0)",
+      "icon": "glass_bottle",
+      "location": "forge_interior",
+      "point": "(850.0, 490.0)",
+      "thermal": true,
+      "upgrades": [
+        {
+          "coins": 120,
+          "inputs": {
+            "brick": 6,
+            "glass": 4,
+            "metal": 3
+          }
+        },
+        {
+          "coins": 280,
+          "inputs": {
+            "clear_glass": 4,
+            "steel": 3,
+            "timber_frame": 2
+          }
+        }
+      ]
+    },
+    "pottery": {
+      "anchor": "(480.0, 450.0)",
+      "icon": "clay_pot",
+      "location": "cottage_interior",
+      "point": "(480.0, 490.0)",
+      "thermal": false,
+      "upgrades": [
+        {
+          "coins": 100,
+          "inputs": {
+            "clay": 6,
+            "metal": 2,
+            "plank": 6
+          }
+        },
+        {
+          "coins": 220,
+          "inputs": {
+            "brick": 8,
+            "ceramic_glaze": 3,
+            "steel": 2
+          }
+        }
+      ]
+    },
+    "sawmill": {
+      "anchor": "(885.0, 440.0)",
+      "icon": "wood_beam",
+      "location": "guild_interior",
+      "point": "(885.0, 485.0)",
+      "thermal": false,
+      "upgrades": [
+        {
+          "coins": 100,
+          "inputs": {
+            "metal": 3,
+            "stone": 6,
+            "wood_beam": 4
+          }
+        },
+        {
+          "coins": 250,
+          "inputs": {
+            "steel": 3,
+            "timber_frame": 2,
+            "wood_dowel": 8
+          }
+        }
+      ]
+    }
+  }
+}

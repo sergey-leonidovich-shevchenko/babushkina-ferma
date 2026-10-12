@@ -3,6 +3,7 @@ extends RefCounted
 const ATLAS := preload("res://assets/game/interiors/village_interior_atlas_v2.png")
 const CAULDRON := preload("res://assets/game/items/catalog/cauldron.png")
 const FarmLifeVisualSystem := preload("res://scripts/systems/farm_life_visual_system.gd")
+const WorkshopVisualSystem := preload("res://scripts/presentation/workshop_visual_system.gd")
 const SOURCE_CELL := Vector2(128, 128)
 const PROFILES := {
 	"bed":{"cell":Vector2i(0,0),"visual_size":Vector2(144,120),"collision_size":Vector2(120,48)},
@@ -21,6 +22,7 @@ const ROOM_PROPS := {
 		{"kind":"shop","position":Vector2(775,350),"decorative":true},
 		{"kind":"cauldron","position":Vector2(930,350)},
 		{"kind":"rustic_table","position":Vector2(700,450),"decorative":true},
+		{"kind":"pottery","position":Vector2(480,450)},
 		{"kind":"wooden_chair","position":Vector2(630,474),"decorative":true},
 		{"kind":"wooden_chair","position":Vector2(770,474),"decorative":true},
 	],
@@ -36,10 +38,11 @@ const ROOM_PROPS := {
 		{"kind":"contracts","position":Vector2(576,300)},
 		{"kind":"home_chest","position":Vector2(900,318),"decorative":true},
 		{"kind":"wooden_wardrobe","position":Vector2(220,315),"decorative":true},
-		{"kind":"rustic_table","position":Vector2(340,425),"decorative":true},
-		{"kind":"wooden_chair","position":Vector2(265,440),"decorative":true},
-		{"kind":"wooden_chair","position":Vector2(415,440),"decorative":true},
-		{"kind":"potted_fern","position":Vector2(900,445),"decorative":true},
+		{"kind":"study_table","position":Vector2(340,425)},
+		{"kind":"wooden_chair","position":Vector2(230,460),"decorative":true},
+		{"kind":"wooden_chair","position":Vector2(450,460),"decorative":true},
+		{"kind":"potted_fern","position":Vector2(975,350),"decorative":true},
+		{"kind":"sawmill","position":Vector2(885,440)},
 		{"kind":"woven_rug","position":Vector2(576,460),"decorative":true},
 	],
 	"forge_interior":[
@@ -48,12 +51,14 @@ const ROOM_PROPS := {
 		{"kind":"wooden_wardrobe","position":Vector2(255,320),"decorative":true},
 		{"kind":"rustic_table","position":Vector2(315,430),"decorative":true},
 		{"kind":"wooden_chair","position":Vector2(400,448),"decorative":true},
+		{"kind":"glassblowing","position":Vector2(850,450)},
 	],
 }
 
 
 ## Возвращает единый визуальный и физический профиль интерьерного объекта.
 static func profile(kind: String) -> Dictionary:
+	if WorkshopVisualSystem.SPRITES.has(kind): return WorkshopVisualSystem.profile(kind)
 	if FarmLifeVisualSystem.PROFILES.has(kind):
 		var furniture:=FarmLifeVisualSystem.profile(kind)
 		return {"cell":furniture.cell,"visual_size":furniture.visual,"collision_size":furniture.collision,"farm_life":true}
@@ -62,6 +67,7 @@ static func profile(kind: String) -> Dictionary:
 
 ## Возвращает исходную ячейку строгого атласа 5×4 без захвата соседних рисунков.
 static func source_rect(kind: String) -> Rect2:
+	if WorkshopVisualSystem.SPRITES.has(kind): return WorkshopVisualSystem.texture(kind,1).region
 	if FarmLifeVisualSystem.PROFILES.has(kind): return FarmLifeVisualSystem.source_rect(kind)
 	if kind=="cauldron": return Rect2(Vector2.ZERO,CAULDRON.get_size())
 	var cell: Vector2i = PROFILES[kind].cell
@@ -99,6 +105,7 @@ static func collision_rects(location: String) -> Array[Rect2]:
 
 ## Рисует объект из строгой ячейки с общей нижней опорой и без искажения соседних спрайтов.
 static func draw(canvas: Node2D, kind: String, position: Vector2, modulate: Color = Color.WHITE) -> void:
+	if WorkshopVisualSystem.SPRITES.has(kind): WorkshopVisualSystem.draw(canvas,kind,position,modulate); return
 	if FarmLifeVisualSystem.PROFILES.has(kind): FarmLifeVisualSystem.draw(canvas,kind,position,modulate); return
 	if kind=="cauldron": canvas.draw_texture_rect(CAULDRON,destination_rect(kind,position),false,modulate); return
 	canvas.draw_texture_rect_region(ATLAS, destination_rect(kind,position), source_rect(kind), modulate)

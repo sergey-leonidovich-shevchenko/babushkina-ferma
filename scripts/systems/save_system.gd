@@ -90,6 +90,7 @@ static func apply(game: Node, data: Dictionary) -> bool:
 	preload("res://scripts/systems/alchemy_system.gd").restore(game)
 	game.FurnaceSystem.restore(game)
 	game.ResearchSystem.restore(game)
+	game.WorkshopSystem.restore(game)
 	var companions: Dictionary = data.get("companions", {})
 	game.recruited_companions.assign(companions.get("recruited", []))
 	game.active_companions.assign(companions.get("active", []))

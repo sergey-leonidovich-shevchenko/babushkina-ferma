@@ -148,7 +148,7 @@ func test_input_and_disk_roundtrip() -> void:
 ## Ожидаемый результат: загрузка сохраняет прежнее истощение и восстанавливает новые источники с начальным запасом.
 func test_old_save_resource_defaults() -> void:
 	var game:=make_game(); var data:Dictionary=game.SaveSystem.snapshot(game)
-	var legacy_count:int=game.resource_nodes.size()-Furnace.Data.SPAWNS.size()
+	var legacy_count:int=game.resource_nodes.find_custom(func(node): return node.kind==Furnace.Data.SPAWNS[0].kind and node.position==Furnace.Data.SPAWNS[0].position)
 	data.resource_hits.resize(legacy_count); data.resource_hits[2]=0
 	for index in range(legacy_count,game.resource_nodes.size()): game.resource_nodes[index].hits=0
 	expect(game.SaveSystem.apply(game,data),"pre-furnace snapshot remains loadable")

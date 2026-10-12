@@ -68,7 +68,3 @@ static func handle_pointer(game: Node, position: Vector2) -> bool:
 		for row in 8:
 			if Shell.craft_row_rect(row).has_point(position) and first+row<Research.Data.ENTRIES.size(): game.crafting_selected=first+row; break
 	game.queue_redraw(); return true
-
-## Отмечает уровень на прежнем столе до согласованного переноса новых спрайтов.
-static func draw_station(game: Node2D) -> void:
-	if game.current_location=="guild_interior": game.draw_ui_string(game.UI_FONT,Vector2(328,344),["I","II","III"][int(Research.state(game).level)-1],HORIZONTAL_ALIGNMENT_CENTER,24,12,Color("e4c784"))

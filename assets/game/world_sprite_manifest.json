@@ -718,6 +718,38 @@
       "priority": "P3",
       "debt": "Закрыт: девять перекрытых листов героя, орка и хищного растения удалены; четыре листа слизня имеют единственного подтверждённого владельца.",
       "done_when": "Сохранять сюжетного слизня в модульной рамке 72×72 и не возвращать удалённые preloads рядом с восьминаправленными пакетами."
+    },
+    {
+      "id": "WS-025",
+      "family": "Ремесленная мастерская A: четыре семейства по три уровня",
+      "assets": [
+        {
+          "path": "assets/game/workshops/workshops_a.png",
+          "width": 1402,
+          "height": 1122
+        },
+        {
+          "path": "assets/game/workshops/research_a.png",
+          "width": 2172,
+          "height": 724
+        }
+      ],
+      "render_owner": "WorkshopVisualSystem.draw through InteriorVisualSystem",
+      "source_layout": "12 separate AtlasTexture resources; measured integer silhouette regions with transparent gutters; sprites.json contains exact regions and pivots",
+      "runtime_sizes": [
+        "168×144",
+        "192×144"
+      ],
+      "target_modules": [
+        "168×144",
+        "192×144"
+      ],
+      "anchor": "fixed bottom-center ground pivot; aspect-preserving fit inside modular box; existing service coordinates documented in ART_GUIDE",
+      "collision": "120×48 for workshops, 144×48 for study desk; constant through all levels; normal interior depth pass",
+      "status": "compliant",
+      "priority": "P3",
+      "debt": "Закрыт: выбранные A уровни имеют отдельные прозрачные ресурсы, неизменные опоры и коллизии; пути и границы проверены тестами и нативными кадрами.",
+      "done_when": "Keep complete silhouettes, padded regions, constant footprints and actual room service access for all twelve sprites."
     }
   ]
 }

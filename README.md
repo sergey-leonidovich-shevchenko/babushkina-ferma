@@ -142,3 +142,5 @@ Quality gate проверяет архитектурные границы, ру�
 ## Репозиторий
 
 Публичная версия проекта: [sergey-leonidovich-shevchenko/babushkina-ferma](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma).
+
+Ремесленная мастерская включает лесопилку, гончарный круг и стеклодув с тремя уровнями, очередями, 28 материалами и связями с обжигом, кухней и исследованием. [Правила и технологии](docs/design/WORKSHOPS.md).

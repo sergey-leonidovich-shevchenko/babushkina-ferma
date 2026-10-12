@@ -34,8 +34,8 @@ static func draw_toolbar(game: Node) -> void:
 	var queued:Array[String]=[]
 	for job in value.queue:
 		var recipe:Dictionary=Furnace.Data.recipe(job.id); queued.append(game.inventory_item_name(recipe.output)+" ×"+str(recipe.count))
-	game.draw_ui_string(game.UI_FONT,Vector2(220,486),game.LocaleSystem.ui("furnace_queue_names",[" → ".join(queued) if not queued.is_empty() else "—"]),HORIZONTAL_ALIGNMENT_LEFT,450,11,Kit.COLORS.ink)
-	game.draw_ui_multiline_string(game.UI_FONT,Vector2(220,508),Furnace.upgrade_text(game),HORIZONTAL_ALIGNMENT_LEFT,450,36,10,2,Kit.COLORS.ink)
+	game.draw_ui_multiline_string(game.UI_FONT,Vector2(220,486),game.LocaleSystem.ui("furnace_queue_names",[" → ".join(queued) if not queued.is_empty() else "—"]),HORIZONTAL_ALIGNMENT_LEFT,450,28,10,2,Kit.COLORS.ink)
+	game.draw_ui_multiline_string(game.UI_FONT,Vector2(220,521),Furnace.upgrade_text(game),HORIZONTAL_ALIGNMENT_LEFT,450,28,10,2,Kit.COLORS.ink)
 
 ## Разделяет переключение топлива, загрузку и улучшение без случайной постановки рецепта в очередь.
 static func handle_pointer(game: Node, position: Vector2) -> bool:

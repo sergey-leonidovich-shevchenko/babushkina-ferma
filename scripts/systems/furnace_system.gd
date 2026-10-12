@@ -104,6 +104,7 @@ static func update(game: Node, delta: float) -> void:
 		for kind in recipe.get("byproducts",{}): game.change_inventory_count(kind,int(recipe.byproducts[kind]))
 		value.completed+=1; game.state.player.craft_count+=1; game.award_xp(3); game.SkillSystem.award_profession_xp(game,"smithing",4)
 		if recipe.has("study_kind"): game.notify_tutorial("study_reuse")
+		if job.id.begins_with("kiln:"): game.notify_tutorial("pottery_firing")
 		game.message=game.LocaleSystem.ui("furnace_finished",[game.inventory_item_name(recipe.output),recipe.count]); game.notify_tutorial("furnace_done")
 
 ## Показывает запас, остановку или оставшееся время первой партии в том же меню, где выбирается рецепт.

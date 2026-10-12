@@ -23,6 +23,7 @@ const STEP_IDS := [
 	"player_contact", "alchemy_herbs", "alchemy_processing", "alchemy_brewing", "alchemy_effects",
 	"furnace_queue", "furnace_fuel", "furnace_upgrade", "furnace_done",
 	"study_table", "study_learn", "study_upgrade", "study_dismantle", "study_reuse",
+	"sawmill", "pottery", "pottery_firing", "glassblowing", "workshop_queue", "workshop_upgrade", "workshop_recycling",
 ]
 
 

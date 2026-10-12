@@ -9,8 +9,8 @@ const ITEMS := {
 	"arcane_dust":{"names":["Кристальная пыль","Crystal dust","Polvo de cristal","Kristallstaub","Poudre de cristal","晶体粉末"],"icon":"blue_gem","color":"8fbee1","buy":0,"sell":0},
 }
 const COSTS := [{"coins":5,"energy":3,"inputs":{"research_paper":1,"research_ink":1}},{"coins":15,"energy":5,"inputs":{"research_paper":2,"research_ink":1}},{"coins":35,"energy":8,"inputs":{"research_paper":3,"research_ink":2}}]
-const UPGRADES := [{"coins":120,"inputs":{"plank":8,"glass":3,"metal":4}},{"coins":300,"inputs":{"steel":3,"glass":6,"arcane_dust":2}}]
-const ENTRIES := [
+const UPGRADES := [{"coins":120,"inputs":{"plank":8,"glass":3,"metal":4}},{"coins":300,"inputs":{"steel":3,"glass":6,"arcane_dust":2,"optical_lens":1}}]
+const BASE_ENTRIES := [
 	{"kind":"plank","tier":1,"batch":2,"parts":{"wood_offcut":2}},
 	{"kind":"nails","tier":1,"batch":8,"parts":{"metal_scrap":1}},
 	{"kind":"rope","tier":1,"batch":1,"parts":{"fiber":1}},
@@ -42,6 +42,7 @@ const ENTRIES := [
 	{"kind":"blue_gem","tier":3,"batch":1,"parts":{"arcane_dust":2}},
 	{"kind":"crystal","tier":3,"batch":1,"parts":{"arcane_dust":2}},
 ]
+static var ENTRIES: Array = BASE_ENTRIES+preload("res://scripts/systems/workshop_data.gd").RESEARCH_ENTRIES
 const RECIPES := [
 	{"id":"research:paper","name":"research_paper","output":"research_paper","inputs":{"fiber":2,"clean_water":1},"count":3,"research_supply":true,"category":"processing"},
 	{"id":"research:ink","name":"research_ink","output":"research_ink","inputs":{"charcoal":1,"clean_water":1},"count":3,"research_supply":true,"category":"processing"},

@@ -37,10 +37,10 @@ func supplies(game: Node) -> void:
 ## Ожидаемый результат: тридцать видов и шесть материалов зарегистрированы, знания не подменяют обычные рецепты.
 func test_catalog_and_station_context() -> void:
 	var game:=make_game()
-	expect(Research.Data.ENTRIES.size()==30 and Research.Data.ITEMS.size()==6,"research has thirty types and six real component or supply items")
+	expect(Research.Data.BASE_ENTRIES.size()==30 and Research.Data.ENTRIES.size()>=30 and Research.Data.ITEMS.size()==6,"research keeps thirty historical types and six real component or supply items")
 	expect(Research.validation_errors(game.InventorySystem.ITEM_DATA).is_empty(),"research outputs and blueprint gates reference valid canonical items")
 	for kind in Research.Data.ITEMS: expect(game.VisualAssetSystem.has_item_icon(kind),"research material has an actual cached texture: "+kind)
-	station(game,"study"); expect(game.CraftingSystem.visible_indices(game).size()==30,"research opens its own item catalog without fake crafting recipes")
+	station(game,"study"); expect(game.CraftingSystem.visible_indices(game).size()==Research.Data.ENTRIES.size(),"research opens its own complete item catalog without fake crafting recipes")
 	station(game,"recycling"); game.free()
 
 ## Сценарий: изучение один раз раскрывает состав вида и не уничтожает образец.
@@ -94,7 +94,7 @@ func test_all_actual_dismantling_outputs() -> void:
 		var sample:int=game.inventory_item_count(entry.kind); before=game.export_inventory_counts().duplicate()
 		expect(Research.execute(game,entry_index(entry.kind)) and game.inventory_item_count(entry.kind)==sample-int(entry.batch),"dismantling spends exact sample batch: "+entry.kind)
 		for kind in entry.parts: expect(game.inventory_item_count(kind)==int(before[kind])+int(entry.parts[kind]),"dismantling returns exact part: "+entry.kind+" -> "+kind)
-	expect(Research.state(game).dismantled==30,"all thirty kinds completed through the actual operation")
+	expect(Research.state(game).dismantled==Research.Data.ENTRIES.size(),"all canonical kinds completed through the actual operation")
 	game.free()
 
 ## Сценарий: снятие и износ экипировки меняют доступность и выход, мелкие предметы разбираются партиями.

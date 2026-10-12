@@ -86,12 +86,13 @@ func test_building_catalog_entry_exit_and_collision() -> void:
 func test_cottage_has_distinct_zones_and_working_services() -> void:
 	var game:=make_game(); game.current_location="cottage_interior"; game.home_chest_owned=true
 	var props:Array=game.InteriorVisualSystem.props(game.current_location); var kinds:Array=props.map(func(prop): return String(prop.kind))
-	expect(props.size()>=9 and ["bed","wooden_wardrobe","potted_fern","shop","cauldron","rustic_table","wooden_chair","woven_rug"].all(func(kind): return kind in kinds), "cottage contains recognizable sleeping cooking dining and decoration zones")
+	expect(props.size()>=10 and ["bed","wooden_wardrobe","potted_fern","shop","cauldron","rustic_table","wooden_chair","woven_rug","pottery"].all(func(kind): return kind in kinds), "cottage contains recognizable sleeping cooking dining pottery and decoration zones")
 	expect(game.InteriorRenderer.COTTAGE_TILES.get_size()==Vector2(1254,1254), "cottage wall and floor sprite sheet is imported at its native generated resolution")
 	expect(game.InteriorRenderer.COTTAGE_FLOOR.get_size()==Vector2(1254,1254) and game.InteriorRenderer.FLOOR_TILE_WORLD_SIZE==288.0, "cottage floor uses fine room-scale planks instead of giant boards almost as tall as the hero")
 	var clean_atlas_path:="res://assets/game/interiors/village_interior_atlas_v2.png"; var original_atlas_path:="res://assets/game/world_polish/village_polish_atlas.png"
 	expect(game.InteriorVisualSystem.ATLAS.get_size()==Vector2(640,512) and FileAccess.get_sha256(clean_atlas_path)!=FileAccess.get_sha256(original_atlas_path), "interior uses a separate crop-compatible atlas with the magenta fringe replaced by a dark contact shadow")
-	expect(game.InteriorVisualSystem.collision_rects(game.current_location).size()==8, "only eight solid furniture pieces contribute to cottage navigation")
+	expect(game.InteriorVisualSystem.collision_rects(game.current_location).size()==9, "nine solid furniture pieces including the pottery wheel contribute to cottage navigation")
+	expect(not game.BuildingSystem.is_walkable_inside(game.current_location,Vector2(480,430),game.PLAYER_RADIUS) and game.BuildingSystem.is_walkable_inside(game.current_location,Vector2(480,490),game.PLAYER_RADIUS), "pottery wheel blocks its visible base and keeps the operating point reachable")
 	expect(game.BuildingSystem.is_walkable_inside(game.current_location,Vector2(700,486),game.PLAYER_RADIUS), "woven rug remains a walkable floor decoration")
 	expect(not game.BuildingSystem.is_walkable_inside(game.current_location,Vector2(300,340),game.PLAYER_RADIUS), "bed owns a real collision footprint")
 	game.player=Vector2(930,390)

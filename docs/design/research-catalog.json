@@ -259,6 +259,129 @@
         "arcane_dust": 2
       },
       "tier": 3
+    },
+    {
+      "batch": 1,
+      "kind": "wood_beam",
+      "parts": {
+        "wood_offcut": 2
+      },
+      "tier": 1
+    },
+    {
+      "batch": 4,
+      "kind": "wood_dowel",
+      "parts": {
+        "wood_offcut": 1
+      },
+      "tier": 1
+    },
+    {
+      "batch": 1,
+      "kind": "timber_frame",
+      "parts": {
+        "metal_scrap": 1,
+        "wood_offcut": 4
+      },
+      "tier": 2
+    },
+    {
+      "batch": 1,
+      "kind": "wood_handle",
+      "parts": {
+        "wood_offcut": 1
+      },
+      "tier": 1
+    },
+    {
+      "batch": 1,
+      "kind": "clay_pot",
+      "parts": {
+        "ceramic_shard": 2
+      },
+      "tier": 1
+    },
+    {
+      "batch": 1,
+      "kind": "ceramic_bowl",
+      "parts": {
+        "ceramic_shard": 1
+      },
+      "tier": 1
+    },
+    {
+      "batch": 1,
+      "kind": "ceramic_vase",
+      "parts": {
+        "ceramic_shard": 2
+      },
+      "tier": 2
+    },
+    {
+      "batch": 1,
+      "kind": "glazed_vase",
+      "parts": {
+        "ceramic_shard": 2
+      },
+      "tier": 2
+    },
+    {
+      "batch": 1,
+      "kind": "porcelain_cup",
+      "parts": {
+        "ceramic_shard": 1
+      },
+      "tier": 3
+    },
+    {
+      "batch": 1,
+      "kind": "glass_bottle",
+      "parts": {
+        "glass_shard": 1
+      },
+      "tier": 1
+    },
+    {
+      "batch": 1,
+      "kind": "glass_jar",
+      "parts": {
+        "glass_shard": 1
+      },
+      "tier": 1
+    },
+    {
+      "batch": 1,
+      "kind": "clear_glass",
+      "parts": {
+        "glass_shard": 2
+      },
+      "tier": 2
+    },
+    {
+      "batch": 1,
+      "kind": "colored_glass",
+      "parts": {
+        "glass_shard": 2
+      },
+      "tier": 2
+    },
+    {
+      "batch": 1,
+      "kind": "optical_lens",
+      "parts": {
+        "arcane_dust": 1,
+        "glass_shard": 2
+      },
+      "tier": 2
+    },
+    {
+      "batch": 1,
+      "kind": "moon_glass",
+      "parts": {
+        "arcane_dust": 1,
+        "glass_shard": 2
+      },
+      "tier": 3
     }
   ],
   "items": {
@@ -524,6 +647,7 @@
       "inputs": {
         "arcane_dust": 2,
         "glass": 6,
+        "optical_lens": 1,
         "steel": 3
       }
     }

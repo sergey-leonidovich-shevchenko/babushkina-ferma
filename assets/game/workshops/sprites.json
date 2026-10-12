@@ -1,0 +1,301 @@
+{
+  "selected": "A",
+  "source": "docs/design/workshops/variant-a.png",
+  "cleanup_prompt": "Preserve the approved nine workshop machines; remove colored matte contamination; complete transparent silhouettes and gutters.",
+  "region_measurement": "Manual gutters followed by alpha >= 8 silhouette bounds and four source pixels of padding; no image pixel modification.",
+  "sprites": [
+    {
+      "kind": "sawmill",
+      "level": 1,
+      "resource": "sawmill_1.tres",
+      "atlas": "workshops_a.png",
+      "region": [
+        43,
+        67,
+        384,
+        302
+      ],
+      "ground_pivot": [
+        192.0,
+        302
+      ],
+      "visual_box": [
+        168,
+        144
+      ],
+      "collision": [
+        120,
+        48
+      ]
+    },
+    {
+      "kind": "sawmill",
+      "level": 2,
+      "resource": "sawmill_2.tres",
+      "atlas": "workshops_a.png",
+      "region": [
+        488,
+        37,
+        399,
+        330
+      ],
+      "ground_pivot": [
+        199.5,
+        330
+      ],
+      "visual_box": [
+        168,
+        144
+      ],
+      "collision": [
+        120,
+        48
+      ]
+    },
+    {
+      "kind": "sawmill",
+      "level": 3,
+      "resource": "sawmill_3.tres",
+      "atlas": "workshops_a.png",
+      "region": [
+        922,
+        34,
+        439,
+        339
+      ],
+      "ground_pivot": [
+        219.5,
+        339
+      ],
+      "visual_box": [
+        168,
+        144
+      ],
+      "collision": [
+        120,
+        48
+      ]
+    },
+    {
+      "kind": "pottery",
+      "level": 1,
+      "resource": "pottery_1.tres",
+      "atlas": "workshops_a.png",
+      "region": [
+        36,
+        440,
+        386,
+        268
+      ],
+      "ground_pivot": [
+        193.0,
+        268
+      ],
+      "visual_box": [
+        168,
+        144
+      ],
+      "collision": [
+        120,
+        48
+      ]
+    },
+    {
+      "kind": "pottery",
+      "level": 2,
+      "resource": "pottery_2.tres",
+      "atlas": "workshops_a.png",
+      "region": [
+        481,
+        392,
+        415,
+        321
+      ],
+      "ground_pivot": [
+        207.5,
+        321
+      ],
+      "visual_box": [
+        168,
+        144
+      ],
+      "collision": [
+        120,
+        48
+      ]
+    },
+    {
+      "kind": "pottery",
+      "level": 3,
+      "resource": "pottery_3.tres",
+      "atlas": "workshops_a.png",
+      "region": [
+        945,
+        390,
+        440,
+        321
+      ],
+      "ground_pivot": [
+        220.0,
+        321
+      ],
+      "visual_box": [
+        168,
+        144
+      ],
+      "collision": [
+        120,
+        48
+      ]
+    },
+    {
+      "kind": "glassblowing",
+      "level": 1,
+      "resource": "glassblowing_1.tres",
+      "atlas": "workshops_a.png",
+      "region": [
+        36,
+        739,
+        369,
+        343
+      ],
+      "ground_pivot": [
+        184.5,
+        343
+      ],
+      "visual_box": [
+        168,
+        144
+      ],
+      "collision": [
+        120,
+        48
+      ]
+    },
+    {
+      "kind": "glassblowing",
+      "level": 2,
+      "resource": "glassblowing_2.tres",
+      "atlas": "workshops_a.png",
+      "region": [
+        472,
+        721,
+        422,
+        370
+      ],
+      "ground_pivot": [
+        211.0,
+        370
+      ],
+      "visual_box": [
+        168,
+        144
+      ],
+      "collision": [
+        120,
+        48
+      ]
+    },
+    {
+      "kind": "glassblowing",
+      "level": 3,
+      "resource": "glassblowing_3.tres",
+      "atlas": "workshops_a.png",
+      "region": [
+        938,
+        720,
+        444,
+        373
+      ],
+      "ground_pivot": [
+        222.0,
+        373
+      ],
+      "visual_box": [
+        168,
+        144
+      ],
+      "collision": [
+        120,
+        48
+      ]
+    },
+    {
+      "kind": "study_table",
+      "level": 1,
+      "resource": "study_table_1.tres",
+      "atlas": "research_a.png",
+      "region": [
+        55,
+        137,
+        627,
+        508
+      ],
+      "ground_pivot": [
+        313.5,
+        508
+      ],
+      "visual_box": [
+        192,
+        144
+      ],
+      "collision": [
+        144,
+        48
+      ]
+    },
+    {
+      "kind": "study_table",
+      "level": 2,
+      "resource": "study_table_2.tres",
+      "atlas": "research_a.png",
+      "region": [
+        725,
+        90,
+        653,
+        556
+      ],
+      "ground_pivot": [
+        326.5,
+        556
+      ],
+      "visual_box": [
+        192,
+        144
+      ],
+      "collision": [
+        144,
+        48
+      ]
+    },
+    {
+      "kind": "study_table",
+      "level": 3,
+      "resource": "study_table_3.tres",
+      "atlas": "research_a.png",
+      "region": [
+        1421,
+        77,
+        683,
+        569
+      ],
+      "ground_pivot": [
+        341.5,
+        569
+      ],
+      "visual_box": [
+        192,
+        144
+      ],
+      "collision": [
+        144,
+        48
+      ]
+    }
+  ],
+  "research_source": "docs/design/research-table/variant-a.png",
+  "production_sources": {
+    "workshops_a.png": "exec-f2cdefa0-3c7f-42ac-a6e5-e0a4a86dd8d6.png",
+    "research_a.png": "exec-7374cc98-3cc5-41c3-b692-56c16363b7b4.png"
+  }
+}

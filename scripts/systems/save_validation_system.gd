@@ -9,6 +9,7 @@ const CORE := {
 }
 const MEMORY := {"mission":"s", "day":"n", "state":"s", "gift_day":"n", "last_gift":"s", "personal_done":"b", "personal_day":"n"}
 const EXPANSION := {
+	"workshops":{"*":{"level":"n","heat":"n","fuel":"s","completed":"n","queue":[{"!":["id","duration","remaining"],"id":"s","duration":"n","remaining":"n"}]}},
 	"research":{"level":"n","known":["s"],"dismantled":"n"},
 	"furnace":{"level":"n","heat":"n","fuel":"s","completed":"n","queue":[{"!":["id","duration","remaining"],"id":"s","duration":"n","remaining":"n"}]},
 	"alchemy":{"xp":"n","crafted":"n","discovered":["s"],"effects":{"*":"n"}},

@@ -277,3 +277,7 @@ CPU-запросы можно проверить отдельно инструм
 ### Проверка изучения и разборки
 
 `Godot --headless --path . --script tools/research_review.gd` запускает ResearchSuite и шестиязычный UI-аудит. Набор включён в общий CraftingPipelineSuite и проверяет реальные затраты, сохранение образца, уровни, тридцать выходов, защищённую экипировку, износ, пакетные действия, полный цикл повторной сборки, горн и настоящий файл сохранения. `Godot --path . --windowed --script tools/research_capture.gd` снимает шесть нативных кадров main.tscn в фиксированном SubViewport 1152×648 с демонстрационными запасами. `Godot --headless --path . --script tools/research_catalog_export.gd` обновляет каталог и таблицы из ResearchData. Спрайты A/B и точные промпты лежат в docs/design/research-table; до выбора пользователя они не подключаются к runtime.
+
+## Проверка ремесленной мастерской
+
+Профильный стенд: `./tools/Godot.app/Contents/MacOS/Godot --headless --path . --script tools/workshops_review.gd --log-file /private/tmp/farm-workshops-review.log`. Он проверяет новые станки, исследование, горн и языковые контракты. Каталоги экспортируются `tools/workshops_catalog_export.gd` и `tools/research_catalog_export.gd`; нативные 1152×648 кадры снимает `tools/workshops_capture.gd` с `--windowed`, без `--headless`. Скрипт использует отдельную пользовательскую папку и фиксированный SubViewport. Полный gate остаётся `tools/check_architecture.sh` и `./run_tests.sh`.

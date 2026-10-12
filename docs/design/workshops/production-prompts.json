@@ -1,0 +1,22 @@
+{
+  "selection": "A — ремесленная мастерская, подтверждено пользователем для трёх станков и исследовательского стола",
+  "tool": "built-in image_gen.imagegen",
+  "transparent_background": true,
+  "edits": [
+    {
+      "reference": "docs/design/workshops/variant-a.png",
+      "result": "assets/game/workshops/workshops_a.png",
+      "prompt": "Prepare this approved sprite sheet for production without redesigning any of the nine workshop machines. Keep the exact 3 by 3 arrangement, silhouettes, equipment, wood, iron and brass materials, top down three-quarter perspective, level progression, proportions and warm handcrafted style. Top row sawmills levels 1 2 3; middle row pottery wheels levels 1 2 3; bottom row glassblowers levels 1 2 3. Clean away all red, magenta and green contour contamination and stray pixels around the objects. Crisp clean neutral dark outlines. Fully transparent outside all objects, no colored matte, no labels, no background, no halos. Leave generous fully transparent gutters between the nine complete objects; every entire object must fit its own cell with transparent padding on all four sides. No clipping, no objects overlapping adjacent cells. Output only the cleaned production sprite sheet."
+    },
+    {
+      "reference": "docs/design/research-table/variant-a.png",
+      "intermediate": "exec-5dcc02bb-1382-41dc-859b-78a64192aaf6.png",
+      "prompt": "Prepare this approved three-level research desk sprite sheet for production, preserving the exact three desks and selected warm wooden workshop A design. Keep three complete desks side by side, their books, candle, herb specimen tray, lenses and progressive instruments, materials, colors, three-quarter top-down perspective and proportions. Clean all red, magenta and green matte contamination and stray colored edge pixels, especially the red outline around the candle light. Preserve a small natural warm candle glow with clean alpha. Fully transparent outside objects, no colored matte, no labels, no background, no excessive halos. Every entire desk must fit its own cell with generous fully transparent padding on all four sides; no clipping or neighboring object fragments. Do not add anything or redesign the desks. Output only the cleaned production sprite sheet."
+    },
+    {
+      "reference": "exec-5dcc02bb-1382-41dc-859b-78a64192aaf6.png",
+      "result": "assets/game/workshops/research_a.png",
+      "prompt": "Surgical production cleanup of this exact sprite sheet. The first desk has a large circular yellow glow behind its candle with an ugly red edge. REMOVE THIS ENTIRE CIRCULAR HALO completely, including its red edge, and make that area transparent. Keep only the actual candle, small flame and quill. Do not paint any glow, circle or outline around the candle. Also remove every stray red or green edge pixel surrounding the silhouettes of all three desks. The selected desks, their wood, equipment, open books, instruments and arrangement must remain unchanged. The third desk's red cloth must remain intact: remove only contaminated pixels OUTSIDE the objects, not the red cloth. Output three complete separate transparent sprites on this sheet with generous transparent space between them. Transparent background and gutters, no labels, no clipping, no other changes."
+    }
+  ]
+}

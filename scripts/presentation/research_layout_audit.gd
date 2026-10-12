@@ -11,7 +11,7 @@ static func check(game: Node, checks: Array[Dictionary], locale: String, counts:
 	contracts.append(["recycling_title",game.LocaleSystem.ui("recycling_title"),652.0,28,14])
 	contracts.append(["study_upgrade",game.LocaleSystem.ui("study_upgrade"),228.0,11,8])
 	contracts.append(["study_action",game.LocaleSystem.ui("study_action"),182.0,14,10])
-	contracts.append(["study_progress",game.LocaleSystem.ui("study_progress",[30,30]),450.0,12,8])
+	contracts.append(["study_progress",game.LocaleSystem.ui("study_progress",[Research.Data.ENTRIES.size(),Research.Data.ENTRIES.size()]),450.0,12,8])
 	contracts.append(["sample",game.LocaleSystem.ui("study_sample_kept"),210.0,11,8])
 	for tier in range(1,4):
 		var cost:Dictionary=Research.Data.COSTS[tier-1]

@@ -11,7 +11,7 @@ const ITEMS := {
 	"steel":{"names":["Стальной слиток","Steel ingot","Lingote de acero","Stahlbarren","Lingot d’acier","钢锭"],"icon":"metal","tint":"b8cbd7","buy":0,"sell":18},
 	"slag":{"names":["Металлический шлак","Metal slag","Escoria metálica","Metallschlacke","Scories métalliques","金属炉渣"],"icon":"stone","tint":"9c8d7f","buy":0,"sell":1},
 }
-const FUELS := {"wood":12.0,"log":32.0,"coal":36.0,"charcoal":24.0,"trash":4.0}
+const FUELS := {"wood":12.0,"log":32.0,"coal":36.0,"charcoal":24.0,"trash":4.0,"sawdust":3.0}
 const SPEED := [1.0,1.35,1.7]
 const EFFICIENCY := [1.0,1.25,1.5]
 const UPGRADES := [{"coins":80,"inputs":{"metal":4,"stone":12}},{"coins":200,"inputs":{"steel":3,"glass":4,"metal":4}}]
@@ -53,6 +53,8 @@ static func products() -> Array:
 
 ## Находит сохраняемый рецепт по ID, различая руду, лом и восстановление шлака.
 static func recipe(id: String) -> Dictionary:
+	var workshop:Dictionary=preload("res://scripts/systems/workshop_recipe_data.gd").recipe(id)
+	if workshop.get("station","")=="furnace": return workshop
 	for value in RECIPES+preload("res://scripts/systems/research_data.gd").RECIPES:
 		if value.id==id and value.get("station","")=="furnace": return value
 	return {}
