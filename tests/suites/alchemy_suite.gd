@@ -1,5 +1,7 @@
 extends "res://tests/suites/suite_base.gd"
 
+const ApiaryCounts := preload("res://scripts/systems/apiary_data.gd")
+
 const Herbs := preload("res://scripts/systems/alchemy_herb_data.gd")
 const Products := preload("res://scripts/systems/alchemy_product_data.gd")
 const Recipes := preload("res://scripts/systems/alchemy_recipe_data.gd")
@@ -29,7 +31,7 @@ func station(game: Node) -> void:
 ## Ожидаемый результат: позиции проходимы, сбор даёт два растения, все результаты и побочные продукты зарегистрированы.
 func test_catalog_and_harvest_positions() -> void:
 	var game:=make_game()
-	expect(Herbs.HERBS.size()==24 and Products.names().size()==148 and Recipes.recipes().size()==131,"alchemy has 24 herbs, 148 items and 131 recipes")
+	expect(Herbs.HERBS.size()==24 and Products.names().size()==148+ApiaryCounts.RAW.size()+ApiaryCounts.POTIONS.size() and Recipes.recipes().size()==131+ApiaryCounts.MIXES.size(),"alchemy retains 24 herbs and grows complete item/recipe catalogs through apiary")
 	expect(game.ContentRegistry.validate().is_empty(),"alchemy references belong to complete content registries")
 	for kind in Products.names(): expect(game.VisualAssetSystem.has_item_icon(kind),"shared visual registry provides an actual alchemy texture: "+kind)
 	for spawn in Herbs.spawns():

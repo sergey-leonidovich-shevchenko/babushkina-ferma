@@ -114,6 +114,8 @@ static func interaction_label(game: Node, interaction: String) -> String:
 		var item:Dictionary=game.BasementSystem.object(game,int(interaction.get_slice(":",1)))
 		if item.phase!="ready": return game.LocaleSystem.ui("basement_hold")
 		return game.LocaleSystem.ui("basement_station_context",[preload("res://scripts/systems/basement_locale.gd").name_for(game,item.kind,int(item.get("level",1)))])
+	if interaction.begins_with("life:apiary:"): return game.LocaleSystem.ui("context_action",[game.LocaleSystem.ui("apiary_context")])
+	if interaction.begins_with("life:wild_hive:"): return game.LocaleSystem.ui("context_action",[game.LocaleSystem.ui("apiary_wild_context")])
 	var key := "context_interact"
 	if interaction in ["npc"] or interaction.begins_with("quest_npc:") or interaction.begins_with("prisoner:"): key = "context_talk"
 	elif interaction in ["shop"] or interaction=="interior_service:shop" or interaction.begins_with("village_event:"): key = "context_shop"

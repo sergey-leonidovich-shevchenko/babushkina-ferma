@@ -89,6 +89,7 @@ static func apply(game: Node, data: Dictionary) -> bool:
 	game.FarmLifeSystem.Livestock.initialize(game,farm_life,false)
 	preload("res://scripts/systems/alchemy_system.gd").restore(game)
 	game.BasementSystem.restore(game)
+	preload("res://scripts/systems/apiary_system.gd").restore(game)
 	game.FurnaceSystem.restore(game)
 	game.ResearchSystem.restore(game)
 	game.WorkshopSystem.restore(game)

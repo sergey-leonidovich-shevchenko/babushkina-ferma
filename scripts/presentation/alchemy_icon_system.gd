@@ -10,6 +10,7 @@ static var _textures:Dictionary={}
 
 ## Предоставляет настоящую текстуру каждому материалу: прежний спрайт или заранее подготовленный векторный флакон.
 static func texture(kind: String) -> Texture2D:
+	if preload("res://scripts/presentation/apiary_visual_system.gd").TEXTURES.has(kind): return preload("res://scripts/presentation/apiary_visual_system.gd").item_texture(kind)
 	if not Products.handles(kind): return null
 	if _textures.has(kind): return _textures[kind]
 	var result:Texture2D

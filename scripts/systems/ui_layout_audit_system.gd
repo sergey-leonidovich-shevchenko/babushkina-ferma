@@ -291,6 +291,7 @@ static func _check_crafting_text(checks:Array[Dictionary],game:Node,locale:Strin
 	preload("res://scripts/presentation/basement_layout_audit.gd").check(game,checks,locale,counts)
 	preload("res://scripts/presentation/workshop_layout_audit.gd").check(game,checks,locale,counts)
 	preload("res://scripts/presentation/kitchen_layout_audit.gd").check(game,checks,locale,counts)
+	preload("res://scripts/presentation/apiary_layout_audit.gd").check(game,checks,locale,counts)
 	preload("res://scripts/presentation/research_layout_audit.gd").check(game,checks,locale,counts)
 	var contracts:Array=[["workbench",game.LocaleSystem.ui("workbench"),652.0,28,14],["cauldron",game.LocaleSystem.ui("cauldron_title"),652.0,28,14],["help",game.LocaleSystem.ui("craft_help"),820.0,11,8]]
 	contracts.append(["furnace_title",game.LocaleSystem.ui("furnace_title",[3]),652.0,28,14])

@@ -47,7 +47,7 @@ const TUTORIAL := {
 static func effect_text(game: Node, kind: String) -> String:
 	if not Products.POTIONS.has(kind):
 		var herb:=Herbs.herb_for(kind)
-		if herb.is_empty(): return ""
+		if herb.is_empty(): return preload("res://scripts/systems/apiary_locale.gd").source_text(game,kind)
 		var data:Dictionary=Herbs.HERBS[herb]
 		return game.LocaleSystem.ui("alchemy_source",[PROPERTIES[data.property][game.LocaleSystem.index()],game.LocaleSystem.location(data.location)])
 	var data:Dictionary=Products.POTIONS[kind]; var parts:Array[String]=[]

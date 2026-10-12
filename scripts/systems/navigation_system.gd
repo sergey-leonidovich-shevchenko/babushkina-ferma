@@ -48,6 +48,7 @@ static func walkability_reason(game: Node, position: Vector2, ignored_enemy: int
 	if game.DebugPlaygroundSystem.active(game): return "walkable" if game.DebugPlaygroundSystem.is_walkable(game, position, game.PLAYER_RADIUS) else "debug_obstacle"
 	if game.PublishedLevelSystem.blocks_position(game,position,game.PLAYER_RADIUS): return "published_collision"
 	if game.MoonGladeSystem.blocks_position(game, position, game.PLAYER_RADIUS): return "guardian"
+	if preload("res://scripts/systems/apiary_system.gd").blocks(game,position,game.PLAYER_RADIUS): return "apiary"
 	if game.BuildingSystem.is_interior(game.current_location):
 		if game.FarmLifeSystem.blocks_position(game,position,game.PLAYER_RADIUS): return "furniture"
 		if game.current_location == "cottage_interior" and game.home_chest_owned and circle_intersects_rect(position,game.PLAYER_RADIUS,game.InteriorVisualSystem.collision_rect("home_chest",game.StorageSystem.CHEST_POSITION)):

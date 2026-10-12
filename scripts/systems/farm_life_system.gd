@@ -1,5 +1,6 @@
 extends RefCounted
 
+const Apiary := preload("res://scripts/systems/apiary_system.gd")
 const MapData:=preload("res://scripts/systems/village_map_data.gd")
 const Livestock := preload("res://scripts/systems/livestock_system.gd")
 const LivestockData := preload("res://scripts/systems/livestock_data.gd")
@@ -23,7 +24,7 @@ static func state(game: Node) -> Dictionary:
 static func initialize(game: Node) -> void:
 	var value := state(game)
 	if int(value.first_day) == 0: value.first_day = 1; value.cutscene = "arrival"; value.cutscene_timer = 4.5; game.message = "День 1 • Возвращение на бабушкину ферму"
-	Livestock.initialize(game,value)
+	Livestock.initialize(game,value); Apiary.state(game)
 	preload("res://scripts/systems/livestock_visual_system.gd").warmup()
 	update_discoveries(game)
 
@@ -36,7 +37,7 @@ static func update(game: Node, delta: float) -> void:
 	for projectile in value.projectiles:
 		projectile.progress = minf(float(projectile.progress)+delta*5.0,1.0)
 	value.projectiles = value.projectiles.filter(func(projectile): return float(projectile.progress) < 1.0)
-	Livestock.update(game,value,delta)
+	Livestock.update(game,value,delta); Apiary.update(game)
 	update_first_day(game); update_discoveries(game); update_achievements(game); update_relationship_scenes(game)
 
 ## Отсчитывает короткую остановку до обновления мира и возвращает остаток игрового кадра после неё.
@@ -58,6 +59,8 @@ static func first_day_objective(game: Node) -> String:
 
 ## Возвращает ближайшее животное, кормушку, музей или секретный механизм.
 static func nearest_interaction(game: Node, distance_limit: float) -> String:
+	var hive_target:=Apiary.nearest(game,distance_limit)
+	if not hive_target.is_empty(): return hive_target
 	var livestock_target := Livestock.nearest(game,distance_limit)
 	if not livestock_target.is_empty(): return livestock_target
 	if game.current_location == "guild_interior" and game.player.distance_to(Vector2(780,270)) < distance_limit: return "life:museum"
@@ -66,6 +69,7 @@ static func nearest_interaction(game: Node, distance_limit: float) -> String:
 
 ## Возвращает живую опору выбранной фермерской цели для общего маршрутизатора взаимодействий.
 static func interaction_position(game: Node, interaction: String) -> Vector2:
+	if interaction.begins_with("life:apiary:") or interaction.begins_with("life:wild_hive:"): return Apiary.position(interaction)
 	if interaction=="life:trough": return LivestockData.TROUGH
 	if interaction=="life:water": return LivestockData.WATER
 	if interaction=="life:museum": return Vector2(780,270)
@@ -75,6 +79,7 @@ static func interaction_position(game: Node, interaction: String) -> Vector2:
 
 ## Выполняет взаимодействие с животноводством, музейной коллекцией и тайниками.
 static func interact(game: Node, interaction: String) -> bool:
+	if interaction.begins_with("life:apiary:") or interaction.begins_with("life:wild_hive:"): return Apiary.interact(game,interaction)
 	var value := state(game); var parts := interaction.split(":"); if parts.size() < 2: return false
 	if parts[1] in ["trough","water","animal"]: return Livestock.interact(game,value,interaction)
 	if parts[1] == "museum": return donate_museum_item(game)
@@ -172,6 +177,7 @@ static func place_furniture(game: Node) -> bool:
 
 ## Проверяет коллизию героя с видимыми основаниями животных, мебели, музея и тайников.
 static func blocks_position(game: Node, position: Vector2, radius: float) -> bool:
+	if Apiary.blocks(game,position,radius): return true
 	if Livestock.blocks_position(game,position,radius): return true
 	if game.current_location=="cottage_interior":
 		for furniture in state(game).furniture:

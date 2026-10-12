@@ -514,6 +514,38 @@
 			"Élixir d’équilibre",
 			"平衡灵药"
 		],
+		"bee_balm": [
+			"Пчелиный бальзам",
+			"Bee balm",
+			"Bálsamo apícola",
+			"Bienenbalsam",
+			"Baume apicole",
+			"蜜蜂香膏"
+		],
+		"bee_essence": [
+			"Пчелиная эссенция",
+			"Bee essence",
+			"Esencia de abeja",
+			"Bienenessenz",
+			"Essence d’abeille",
+			"蜜蜂精华"
+		],
+		"bees": [
+			"Пчёлы",
+			"Bees",
+			"Abejas",
+			"Bienen",
+			"Abeilles",
+			"蜜蜂"
+		],
+		"beeswax": [
+			"Пчелиный воск",
+			"Beeswax",
+			"Cera de abeja",
+			"Bienenwachs",
+			"Cire d’abeille",
+			"蜂蜡"
+		],
 		"bitter_root": [
 			"Каменный горечник",
 			"Stone bitterroot",
@@ -898,6 +930,22 @@
 			"Baume au miel",
 			"蜜制香膏"
 		],
+		"honey_syrup": [
+			"Медовый сироп",
+			"Honey syrup",
+			"Jarabe de miel",
+			"Honigsirup",
+			"Sirop de miel",
+			"蜂蜜糖浆"
+		],
+		"honeycomb": [
+			"Медовые соты",
+			"Honeycomb",
+			"Panal de miel",
+			"Honigwabe",
+			"Rayon de miel",
+			"蜂蜜巢脾"
+		],
 		"hunter_elixir": [
 			"Эликсир охотника",
 			"Hunter elixir",
@@ -1194,6 +1242,46 @@
 			"Teinture : Solanée nocturne",
 			"浸液：夜影草"
 		],
+		"pollen": [
+			"Цветочная пыльца",
+			"Bee pollen",
+			"Polen de abeja",
+			"Blütenpollen",
+			"Pollen d’abeille",
+			"蜂花粉"
+		],
+		"pollen_powder": [
+			"Порошок пыльцы",
+			"Pollen powder",
+			"Polvo de polen",
+			"Pollenpulver",
+			"Poudre de pollen",
+			"花粉末"
+		],
+		"propolis": [
+			"Прополис",
+			"Propolis",
+			"Propóleo",
+			"Propolis",
+			"Propolis",
+			"蜂胶"
+		],
+		"propolis_balm": [
+			"Прополисная мазь",
+			"Propolis ointment",
+			"Ungüento de propóleo",
+			"Propolissalbe",
+			"Pommade de propolis",
+			"蜂胶软膏"
+		],
+		"propolis_tincture": [
+			"Настойка прополиса",
+			"Propolis tincture",
+			"Tintura de propóleo",
+			"Propolistinktur",
+			"Teinture de propolis",
+			"蜂胶浸液"
+		],
 		"purifying_decoction": [
 			"Очищающий отвар",
 			"Purifying decoction",
@@ -1281,6 +1369,14 @@
 			"Tinktur: Hagebutte",
 			"Teinture : Cynorhodon",
 			"浸液：玫瑰果"
+		],
+		"royal_tonic": [
+			"Маточный тоник",
+			"Royal tonic",
+			"Tónico real",
+			"Königstonikum",
+			"Tonique royal",
+			"蜂王补剂"
 		],
 		"sage": [
 			"Лесной шалфей",
@@ -1562,6 +1658,14 @@
 			"Essence vitale",
 			"生命精华"
 		],
+		"wax_base": [
+			"Восковая основа",
+			"Wax base",
+			"Base de cera",
+			"Wachsgrundlage",
+			"Base de cire",
+			"蜡基质"
+		],
 		"wild_thyme": [
 			"Дикий чабрец",
 			"Wild thyme",
@@ -1835,6 +1939,18 @@
 				"平衡灵药"
 			]
 		},
+		"bee_balm": {
+			"energy": 4,
+			"heal": 50,
+			"names": [
+				"Пчелиный бальзам",
+				"Bee balm",
+				"Bálsamo apícola",
+				"Bienenbalsam",
+				"Baume apicole",
+				"蜜蜂香膏"
+			]
+		},
 		"clarity_drops": {
 			"mana": 15,
 			"names": [
@@ -1951,6 +2067,19 @@
 			],
 			"timer": "invisibility_timer"
 		},
+		"propolis_balm": {
+			"cleanse": true,
+			"duration": 30.0,
+			"names": [
+				"Прополисная мазь",
+				"Propolis ointment",
+				"Ungüento de propóleo",
+				"Propolissalbe",
+				"Pommade de propolis",
+				"蜂胶软膏"
+			],
+			"timer": "regeneration_timer"
+		},
 		"purifying_decoction": {
 			"cleanse": true,
 			"names": [
@@ -1960,6 +2089,18 @@
 				"Reinigungssud",
 				"Décoction purifiante",
 				"净化煎剂"
+			]
+		},
+		"royal_tonic": {
+			"energy": 8,
+			"mana": 25,
+			"names": [
+				"Маточный тоник",
+				"Royal tonic",
+				"Tónico real",
+				"Königstonikum",
+				"Tonique royal",
+				"蜂王补剂"
 			]
 		},
 		"solar_concentrate": {
@@ -3800,6 +3941,135 @@
 			},
 			"name": "defense_potion",
 			"output": "defense_potion",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "supplies",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"beeswax": 1
+			},
+			"count": 1,
+			"id": "alchemy:honey",
+			"inputs": {
+				"honeycomb": 1
+			},
+			"name": "honey",
+			"output": "honey",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "supplies",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:wax_base",
+			"inputs": {
+				"beeswax": 1,
+				"herb_oil": 1
+			},
+			"name": "wax_base",
+			"output": "wax_base",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "essence",
+			"alchemy_rank": 2,
+			"count": 2,
+			"id": "alchemy:bee_essence",
+			"inputs": {
+				"bees": 1,
+				"herb_solvent": 1,
+				"sage_juice": 1
+			},
+			"name": "bee_essence",
+			"output": "bee_essence",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:pollen_powder",
+			"inputs": {
+				"pollen": 2
+			},
+			"name": "pollen_powder",
+			"output": "pollen_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:propolis_tincture",
+			"inputs": {
+				"herb_solvent": 1,
+				"propolis": 1
+			},
+			"name": "propolis_tincture",
+			"output": "propolis_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "supplies",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:honey_syrup",
+			"inputs": {
+				"clean_water": 1,
+				"honey": 1
+			},
+			"name": "honey_syrup",
+			"output": "honey_syrup",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:bee_balm",
+			"inputs": {
+				"glass_vial": 1,
+				"honey": 1,
+				"pollen_powder": 1,
+				"wax_base": 1
+			},
+			"name": "bee_balm",
+			"output": "bee_balm",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:propolis_balm",
+			"inputs": {
+				"glass_vial": 1,
+				"propolis_tincture": 1,
+				"wax_base": 1
+			},
+			"name": "propolis_balm",
+			"output": "propolis_balm",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 3,
+			"count": 1,
+			"id": "alchemy:royal_tonic",
+			"inputs": {
+				"bee_essence": 1,
+				"glass_vial": 1,
+				"honey_syrup": 1,
+				"pollen_powder": 1
+			},
+			"name": "royal_tonic",
+			"output": "royal_tonic",
 			"station": "alchemy",
 			"talent": "craft_alchemy"
 		}

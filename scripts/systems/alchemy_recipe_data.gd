@@ -48,7 +48,10 @@ static func recipes() -> Array:
 			var recipe:=entry(herb+"_"+form,inputs,count,rank,form)
 			if form=="juice": recipe.byproducts={"herb_pulp":1}
 			result.append(recipe)
-	for mix in MIXES: result.append(entry(mix[0],mix[1],mix[2],mix[3],mix[4]))
+	for mix in MIXES+preload("res://scripts/systems/apiary_data.gd").MIXES:
+		var recipe:=entry(mix[0],mix[1],mix[2],mix[3],mix[4])
+		if recipe.id=="alchemy:honey": recipe.byproducts={"beeswax":1}
+		result.append(recipe)
 	return result
 
 ## Хранит требования ранга, таланта и лаборатории рядом с выходом каждой партии.

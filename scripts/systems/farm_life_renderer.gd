@@ -7,6 +7,7 @@ const ATLAS:=FarmLifeVisualSystem.ATLAS
 ## Отрисовывает животных фермы, музей, секреты, мебель и боевые снаряды.
 static func draw_world(game: Node) -> void:
 	var value: Dictionary = game.FarmLifeSystem.state(game)
+	preload("res://scripts/presentation/apiary_visual_system.gd").draw_world(game,false)
 	preload("res://scripts/systems/livestock_renderer.gd").draw(game)
 	if game.current_location == "cottage_interior":
 		for furniture in value.furniture:
@@ -50,6 +51,7 @@ static func draw_combat_effect(game: Node2D, projectile: Dictionary) -> void:
 
 ## Отрисовывает цель первого дня, кат-сцену, энциклопедию и фоторежим без дублирования календаря HUD.
 static func draw_ui(game: Node) -> void:
+	if preload("res://scripts/systems/apiary_input_system.gd").active(game): preload("res://scripts/presentation/apiary_renderer.gd").draw(game); return
 	# Полноэкранные игровые окна получают весь фокус и не смешиваются с календарём или событиями мира.
 	if game.inventory_open or game.shop_open or game.quest_log_open or game.world_map_open or game.skill_menu_open or game.crafting_open or game.storage_open or game.forge_open or game.contract_open: return
 	var value: Dictionary = game.FarmLifeSystem.state(game)

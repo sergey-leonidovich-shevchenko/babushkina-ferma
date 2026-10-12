@@ -877,6 +877,35 @@
       "priority": "P3",
       "debt": "Закрыт: пользователь выбрал A; уровни готовки, независимые очереди, чистое топливо и 4 ракурса подключены. Старый cauldron-атлас WS-026 сохранён как прежняя ревизия.",
       "done_when": "Keep fireplace cold at idle; animate only fueled thermal work using saved job progress; preserve footprint, paid ingredients and legacy public meals."
+    },
+    {
+      "id": "WS-028",
+      "family": "Деревянная пасека A: 3 уровня, дикое гнездо и пчелиное сырьё",
+      "assets": [
+        {
+          "path": "assets/game/apiary/apiary_atlas_a.png",
+          "width": 1254,
+          "height": 1254
+        }
+      ],
+      "render_owner": "ApiaryVisualSystem through FarmLifeRenderer/RenderSystem; raw icons through AlchemyIconSystem",
+      "source_layout": "9 measured AtlasTexture regions: 3 south-facing modular hive levels, hollow-stump wild nest, bees, honeycomb, wax, pollen and propolis; intact transparent original RGBA, regions in docs/design/apiary-2026-10-13/atlas-regions.json",
+      "runtime_sizes": [
+        "96×144",
+        "72×96",
+        "72×48"
+      ],
+      "target_modules": [
+        "96×144",
+        "72×96",
+        "72×48"
+      ],
+      "anchor": "bottom-center at base south edge; proportional sprite fit; flying bees use game calendar phase",
+      "collision": "same 72×48 physical base for every built hive tier and wild nest; empty plots passable; one south approach +48px; F10 uses identical bases and approaches",
+      "status": "compliant",
+      "priority": "P3",
+      "debt": "Закрыт: пользователь выбрал A, 3 отдельные пасеки и 2 диких гнезда подключены; сырьё идёт в алхимию, пчелиный полёт стоит на паузе с игровым временем.",
+      "done_when": "Keep populations and stocks independent, preserve silhouettes, accessible approaches, one harvest per stock and fixed collision footprint."
     }
   ]
 }

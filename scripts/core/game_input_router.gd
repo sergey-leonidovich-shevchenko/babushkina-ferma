@@ -40,7 +40,7 @@ static func update_input_device(game: Node, event: InputEvent) -> void:
 
 ## Передаёт событие редактору, меню, сюжетному модальному окну или строительству оград.
 static func _handle_high_priority_layer(game: Node, event: InputEvent) -> bool:
-	if preload("res://scripts/systems/basement_input_system.gd").handle_input(game,event): return true
+	if preload("res://scripts/systems/basement_input_system.gd").handle_input(game,event) or preload("res://scripts/systems/apiary_input_system.gd").handle_input(game,event): return true
 	if preload("res://scripts/systems/menu_hub_system.gd").handle_input(game,event): return true
 	if game.PublishedLevelSystem.handle_input(game,event):
 		return true
@@ -114,7 +114,7 @@ static func _handle_movement_button(game: Node, event: InputEventJoypadButton) -
 
 ## Проверяет, доступны ли непосредственные действия персонажа без открытого игрового окна.
 static func world_controls_visible(game: Node) -> bool:
-	return not (game.shop_open \
+	return not (preload("res://scripts/systems/apiary_input_system.gd").active(game) or game.shop_open \
 		or game.inventory_open \
 		or game.crafting_open \
 		or game.storage_open \

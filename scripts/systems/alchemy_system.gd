@@ -46,6 +46,7 @@ static func record_craft(game: Node, recipe: Dictionary) -> void:
 	if recipe.id not in value.discovered:
 		value.discovered.append(recipe.id); value.xp+=4; game.award_xp(2)
 	game.notify_tutorial("alchemy_processing")
+	if recipe.id=="alchemy:honey": game.notify_tutorial("apiary_alchemy")
 	if recipe.get("alchemy_group","")=="potions": game.notify_tutorial("alchemy_brewing")
 
 ## Обновляет длительности только реальным игровым временем; игровые окна приостанавливают этот вызов.

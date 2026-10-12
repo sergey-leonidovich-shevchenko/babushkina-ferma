@@ -1,6 +1,6 @@
 extends RefCounted
 
-const ITEMS := {
+const BASE_ITEMS := {
 	"glass_vial":["Пустой флакон","Empty vial","Frasco vacío","Leeres Fläschchen","Fiole vide","空瓶"],
 	"clean_water":["Чистая вода","Clean water","Agua limpia","Sauberes Wasser","Eau propre","清水"],
 	"distilled_water":["Дистиллированная вода","Distilled water","Agua destilada","Destilliertes Wasser","Eau distillée","蒸馏水"],
@@ -14,7 +14,7 @@ const ITEMS := {
 	"shadow_essence":["Эссенция тени","Shadow essence","Esencia de sombra","Schattenessenz","Essence d’ombre","暗影精华"],
 	"ether_essence":["Эфирная эссенция","Ether essence","Esencia etérea","Ätheressenz","Essence éthérée","以太精华"],
 }
-const POTIONS := {
+const BASE_POTIONS := {
 	"meadow_tonic":{"names":["Луговой тоник","Meadow tonic","Tónico del prado","Wiesentonikum","Tonique des prés","草地补剂"],"heal":25},
 	"clarity_drops":{"names":["Капли ясности","Clarity drops","Gotas de claridad","Klarheitstropfen","Gouttes de clarté","清明滴剂"],"mana":15},
 	"vigor_infusion":{"names":["Настой бодрости","Vigor infusion","Infusión de vigor","Kraftaufguss","Infusion de vigueur","活力浸剂"],"energy":4},
@@ -41,10 +41,13 @@ const FORM_NAMES := {
 const Herbs := preload("res://scripts/systems/alchemy_herb_data.gd")
 const COLORS := {"glass_vial":"c5d0b6","clean_water":"a3ced9","distilled_water":"c0deea","vital_essence":"cc8d7d","ember_essence":"d79960","frost_essence":"acd1de","shadow_essence":"9d8ab8","ether_essence":"b7aedf","meadow_tonic":"d5c283","clarity_drops":"87baa1","vigor_infusion":"a8b87c","honey_balm":"d7ae6c","hunter_elixir":"be866e","stone_skin_draught":"a6b7c2","wind_step_elixir":"96c6ba","moon_veil_potion":"ae9eca","life_balsam":"9aba84","greater_healing":"c98380","greater_mana":"97aad8","balanced_elixir":"b3c6aa","purifying_decoction":"b4b899","insect_repellent":"a8bd91","miners_oil":"bcac87","solar_concentrate":"e1c479"}
 
+static var ITEMS:Dictionary=BASE_ITEMS.merged(preload("res://scripts/systems/apiary_data.gd").RAW)
+static var POTIONS:Dictionary=BASE_POTIONS.merged(preload("res://scripts/systems/apiary_data.gd").POTIONS)
+
 ## Возвращает цвет сырья либо самостоятельный цвет готового препарата и эссенции.
 static func color_for(kind: String) -> Color:
 	var herb:=Herbs.herb_for(kind)
-	return Color(Herbs.HERBS[herb].tint) if not herb.is_empty() else Color(COLORS.get(kind,"94bdba"))
+	return Color(Herbs.HERBS[herb].tint) if not herb.is_empty() else Color(COLORS.get(kind,preload("res://scripts/systems/apiary_data.gd").COLORS.get(kind,"94bdba")))
 
 ## Собирает переводы свежих трав, каждого вида обработки, носителей и готовых препаратов.
 static func names() -> Dictionary:

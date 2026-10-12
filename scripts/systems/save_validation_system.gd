@@ -11,7 +11,9 @@ const MEMORY := {"mission":"s", "day":"n", "state":"s", "gift_day":"n", "last_gi
 const BASEMENT_JOB := {"!":["id","duration","remaining"],"id":"s","duration":"n","remaining":"n","paid":{"*":"n"}}
 const BASEMENT_PRODUCTION := {"!":["level","queue","heat","fuel","completed"],"level":"n","queue":[BASEMENT_JOB],"heat":"n","fuel":"s","completed":"n"}
 const BASEMENT_OBJECT := {"!":["id","kind","x","y","direction","level","phase","target","work","duration","energy","paid","production"],"id":"n","kind":"s","x":"n","y":"n","direction":"n","level":"n","phase":"s","target":"n","work":"n","duration":"n","energy":"n","paid":{"*":"n"},"production":BASEMENT_PRODUCTION}
+const APIARY_HIVE := {"!":["level","colonized","last_day","cycles","stock"],"level":"n","colonized":"b","last_day":"n","cycles":"n","stock":{"*":"n"}}
 const EXPANSION := {
+	"apiary":{"!":["hives","wild_days"],"hives":[APIARY_HIVE],"wild_days":{"*":"n"}},
 	"basement":{"!":["version","next_id","objects"],"version":"n","next_id":"n","revision":"n","objects":[BASEMENT_OBJECT]},
 	"workshops":{"*":{"level":"n","heat":"n","fuel":"s","completed":"n","queue":[BASEMENT_JOB]}},
 	"research":{"level":"n","known":["s"],"dismantled":"n"},
@@ -56,6 +58,7 @@ static func valid(data: Dictionary) -> bool:
 	if not _matches(data, OPTIONAL): return false
 	var expansion:Dictionary=data.get("estate",{}).get("expansion",{})
 	if expansion.has("basement") and not preload("res://scripts/systems/basement_system.gd").valid(expansion.basement): return false
+	if expansion.has("apiary") and not preload("res://scripts/systems/apiary_system.gd").valid(expansion.apiary): return false
 	# Панель инструментов обращается к десяти ячейкам по фиксированным индексам.
 	return data.hotbar.size() == 10 and not data.location.is_empty()
 

@@ -25,6 +25,7 @@ const STEP_IDS := [
 	"study_table", "study_learn", "study_upgrade", "study_dismantle", "study_reuse",
 	"sawmill", "pottery", "pottery_firing", "glassblowing", "workshop_queue", "workshop_upgrade", "workshop_recycling",
 	"kitchen_queue", "kitchen_fuel", "kitchen_done",
+	"apiary_wild", "apiary_build", "apiary_populate", "apiary_harvest", "apiary_alchemy",
 	"basement_enter", "basement_blueprint", "basement_place", "basement_build", "basement_finish", "basement_upgrade", "basement_dismantle",
 ]
 
