@@ -24,6 +24,7 @@ const STEP_IDS := [
 	"furnace_queue", "furnace_fuel", "furnace_upgrade", "furnace_done",
 	"study_table", "study_learn", "study_upgrade", "study_dismantle", "study_reuse",
 	"sawmill", "pottery", "pottery_firing", "glassblowing", "workshop_queue", "workshop_upgrade", "workshop_recycling",
+	"kitchen_queue", "kitchen_fuel", "kitchen_done",
 	"basement_enter", "basement_blueprint", "basement_place", "basement_build", "basement_finish", "basement_upgrade", "basement_dismantle",
 ]
 

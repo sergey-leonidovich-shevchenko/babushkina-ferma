@@ -50,5 +50,5 @@ static func recipe_level(recipe: Dictionary) -> int:
 	if recipe.get("station","workbench")=="workbench":
 		var entry:Dictionary=preload("res://scripts/systems/research_data.gd").entry(recipe.output)
 		return int(entry.get("tier",1))
-	if recipe.get("station","")=="cauldron" and recipe.output in ["pie","cheese","cornbread","butter"]: return 2
+	if recipe.get("station","")=="cauldron": return preload("res://scripts/systems/kitchen_data.gd").level(recipe)
 	return 1

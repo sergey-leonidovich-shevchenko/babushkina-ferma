@@ -23,15 +23,6 @@ const BASE_RECIPES := [
 	{"name":"Зелье скорости", "inputs":{"lizard_scale":1,"mushroom":1}, "output":"speed_potion", "count":1},
 	{"name":"Зелье защиты", "inputs":{"stone":2,"metal":1}, "output":"defense_potion", "count":1},
 	{"name":"Крепкая верёвка", "inputs":{"fiber":2}, "output":"rope", "count":1},
-	{"name":"Мука", "inputs":{"wheat":2}, "output":"flour", "count":1,"station":"cauldron","category":"food"},
-	{"name":"Сливочное масло", "inputs":{"milk":2}, "output":"butter", "count":1,"station":"cauldron","category":"food"},
-	{"name":"Домашний сыр", "inputs":{"milk":3}, "output":"cheese", "count":1,"station":"cauldron","category":"food"},
-	{"name":"Деревенский хлеб", "inputs":{"flour":2}, "output":"bread", "count":1,"station":"cauldron","category":"food"},
-	{"name":"Яблочный пирог", "inputs":{"apple":2,"flour":1,"butter":1}, "output":"pie", "count":1, "station":"cauldron", "talent":"farm_cooking"},
-	{"name":"Ягодное варенье", "inputs":{"berries":3,"honey":1}, "output":"jam", "count":1, "station":"cauldron", "talent":"farm_cooking"},
-	{"name":"Овощной суп", "inputs":{"carrot":1,"potato":1,"onion":1}, "output":"soup", "count":1, "station":"cauldron","category":"food"},
-	{"name":"Омлет с зеленью", "inputs":{"egg":2,"milk":1}, "output":"omelet", "count":1, "station":"cauldron","category":"food"},
-	{"name":"Кукурузный хлеб", "inputs":{"corn":2,"flour":1}, "output":"cornbread", "count":1, "station":"cauldron", "talent":"farm_cooking"},
 	{"name":"Полевой букет", "inputs":{"flower":3,"fiber":1}, "output":"bouquet", "count":1},
 	{"name":"Дубовый стол", "inputs":{"plank":6,"nails":4}, "output":"rustic_table", "count":1, "category":"construction"},
 	{"name":"Резной стул", "inputs":{"plank":3,"nails":2}, "output":"wooden_chair", "count":1, "category":"construction"},
@@ -45,21 +36,18 @@ const BASE_RECIPES := [
 	{"name":"Крабовая ловушка", "inputs":{"plank":3,"rope":2,"nails":2}, "output":"crab_trap", "count":1, "talent":"fish_crab_traps", "category":"construction"},
 	{"name":"Фруктовый саженец", "inputs":{"wood":2,"rare_seeds":1}, "output":"fruit_sapling", "count":1, "talent":"farm_orchard"},
 	{"name":"Корм для двора","inputs":{"wheat":2,"fiber":1},"output":"animal_feed","count":2,"category":"processing"},
-	{"name":"Домашний майонез","inputs":{"egg":1},"output":"mayonnaise","count":1,"station":"cauldron","category":"food"},
-	{"name":"Молочные блинчики","inputs":{"flour":1,"egg":1,"milk":1},"output":"pancakes","count":1,"station":"cauldron","category":"food"},
-	{"name":"Молочная каша","inputs":{"wheat":2,"milk":1},"output":"porridge","count":1,"station":"cauldron","category":"food"},
-	{"name":"Трюфельная похлёбка","inputs":{"truffle":1,"milk":1,"mushroom":1},"output":"truffle_soup","count":1,"station":"cauldron","category":"food","talent":"farm_cooking"},
 	{"name":"Пряжа","inputs":{"wool":1},"output":"yarn","count":2,"category":"processing"},
 	{"name":"Ткань","inputs":{"yarn":2,"cotton":1},"output":"cloth","count":1,"category":"processing"},
 ]
 const MAX_BATCH := 99
+const Kitchen := preload("res://scripts/systems/kitchen_system.gd")
 
 const Alchemy := preload("res://scripts/systems/alchemy_system.gd")
 const Furnace := preload("res://scripts/systems/furnace_system.gd")
 const Research := preload("res://scripts/systems/research_system.gd")
 const Workshop := preload("res://scripts/systems/workshop_system.gd")
 const BasementStations := preload("res://scripts/systems/basement_station_system.gd")
-static var RECIPES: Array = BASE_RECIPES + preload("res://scripts/systems/alchemy_recipe_data.gd").recipes() + Furnace.Data.recipes() + Research.Data.RECIPES + Workshop.Data.Recipes.recipes()
+static var RECIPES: Array = BASE_RECIPES + Kitchen.Data.LEGACY_RECIPES + Kitchen.Data.NEW_RECIPES + preload("res://scripts/systems/alchemy_recipe_data.gd").recipes() + Furnace.Data.recipes() + Research.Data.RECIPES + Workshop.Data.Recipes.recipes()
 
 ## Разделяет точный расход кухонных продуктов и экономию сырья ремесленного таланта на верстаке.
 static func material_cost(game: Node, recipe: Dictionary, kind: String) -> int:
@@ -69,8 +57,13 @@ static func material_cost(game: Node, recipe: Dictionary, kind: String) -> int:
 static func visible_indices(game: Node) -> Array[int]:
 	if Research.handles(game.crafting_station): return Research.indices(game)
 	var result: Array[int] = []
+	var private_kitchen:=Kitchen.active(game)
 	for index in RECIPES.size():
 		if String(RECIPES[index].get("station", "workbench")) == game.crafting_station:
+			if RECIPES[index].get("private_kitchen",false) and not private_kitchen: continue
+			if private_kitchen:
+				var group:=String(game.get_meta("kitchen_filter","all")); var cold:bool=RECIPES[index].output in Kitchen.Data.COLD
+				if (group=="cold" and not cold) or (group=="hot" and cold): continue
 			var filter_id:=String(game.get_meta("alchemy_filter","all"))
 			if game.crafting_station!="alchemy" or filter_id=="all" or RECIPES[index].get("alchemy_group","")==filter_id: result.append(index)
 	return result
@@ -91,6 +84,7 @@ static func open(game: Node, station: String = "workbench") -> void:
 
 ## Обрабатывает клавиатуру и геймпад общего окна верстака или котелка.
 static func handle_input(game: Node, event: InputEvent) -> void:
+	if Kitchen.handle_controls(game,event): return
 	if Research.handles(game.crafting_station): Research.handle_input(game,event); return
 	if Workshop.handles(game.crafting_station) and Workshop.handle_controls(game,event): return
 	if game.crafting_station=="furnace" and Furnace.handle_controls(game,event): return
@@ -131,7 +125,7 @@ static func recipe_at(game: Node, position: Vector2) -> int:
 
 ## Оставляет место очереди и цене улучшения специализированного производства.
 static func visible_rows(game: Node) -> int:
-	return 7 if game.crafting_station=="furnace" or Workshop.handles(game.crafting_station) else 9
+	return 7 if game.crafting_station=="furnace" or Workshop.handles(game.crafting_station) or Kitchen.active(game) else 9
 
 ## Даёт renderer и указателю одну границу прокрученной страницы рецептов.
 static func list_start(game: Node, visible: Array[int]) -> int:
@@ -139,6 +133,8 @@ static func list_start(game: Node, visible: Array[int]) -> int:
 
 ## Проверяет условие «возможности крафта» без изменения состояния.
 static func can_craft(game: Node, recipe: Dictionary) -> bool:
+	if recipe.get("private_kitchen",false) and not Kitchen.active(game): return false
+	if Kitchen.active(game) and recipe.get("station","")=="cauldron": return Kitchen.reason(game,recipe).is_empty()
 	if not BasementStations.recipe_reason(game,recipe).is_empty(): return false
 	if recipe.has("study_kind") and not Research.learned(game,recipe.study_kind): return false
 	if recipe.get("station","workbench")!=game.crafting_station: return false
@@ -163,6 +159,7 @@ static func max_craftable(game: Node, recipe: Dictionary) -> int:
 		result = mini(result, floori(float(game.inventory_item_count(kind)) / float(maxi(cost, 1))))
 	if game.crafting_station=="furnace": result=mini(result,int(Furnace.state(game).level)-Furnace.state(game).queue.size())
 	if Workshop.handles(game.crafting_station): result=mini(result,mini(int(Workshop.state(game,game.crafting_station).level)-Workshop.state(game,game.crafting_station).queue.size(),floori(game.energy/float(recipe.energy))))
+	if Kitchen.active(game): result=mini(result,mini(int(Kitchen.state(game).level)-Kitchen.state(game).queue.size(),floori(game.energy/float(Kitchen.Data.energy(recipe)))))
 	return mini(result, 1) if recipe.output == "home_chest" else result
 
 ## Выполняет операцию «крафта» и возвращает результат согласно контракту метода.
@@ -170,6 +167,8 @@ static func craft(game: Node, index: int) -> bool:
 	if Research.handles(game.crafting_station): return Research.execute(game,index)
 	if index < 0 or index >= RECIPES.size(): return false
 	var recipe: Dictionary = RECIPES[index]
+	if Kitchen.active(game) and recipe.get("station","")=="cauldron": return Kitchen.enqueue(game,recipe)
+	if recipe.get("private_kitchen",false): game.message=game.LocaleSystem.ui("basement_station_need"); return false
 	var basement_reason:=BasementStations.recipe_reason(game,recipe)
 	if not basement_reason.is_empty(): game.message=BasementStations.reason_text(game,recipe); return false
 	if recipe.has("study_kind") and not Research.learned(game,recipe.study_kind): game.message=game.LocaleSystem.ui("study_blueprint_need",[game.inventory_item_name(recipe.study_kind)]); return false
@@ -219,11 +218,12 @@ static func craft_many(game: Node, index: int, requested: int) -> int:
 		if not craft(game, index): break
 		crafted_batches += 1
 	if crafted_batches > 1:
-		game.message = game.LocaleSystem.ui("furnace_queued_many",[crafted_batches]) if game.crafting_station=="furnace" or Workshop.handles(game.crafting_station) else game.LocaleSystem.text("crafted_many", [game.inventory_item_name(RECIPES[index].output), crafted_batches])
+		game.message = game.LocaleSystem.ui("furnace_queued_many",[crafted_batches]) if game.crafting_station=="furnace" or Workshop.handles(game.crafting_station) or Kitchen.active(game) else game.LocaleSystem.text("crafted_many", [game.inventory_item_name(RECIPES[index].output), crafted_batches])
 	return crafted_batches
 
 ## Возвращает понятное назначение рецепта для карточки выбранного изделия.
 static func category_name(game: Node, recipe: Dictionary) -> String:
+	if Kitchen.active(game) and recipe.output in Kitchen.Data.COLD: return game.LocaleSystem.ui("kitchen_filter_cold")
 	if Workshop.handles(String(recipe.get("station",""))): return game.LocaleSystem.ui(String(recipe.station)+"_service")
 	if recipe.get("station","")=="furnace": return game.LocaleSystem.ui("furnace_service")
 	if recipe.get("station","")=="alchemy": return game.LocaleSystem.ui("alchemy_"+String(recipe.alchemy_group))
@@ -233,6 +233,7 @@ static func category_name(game: Node, recipe: Dictionary) -> String:
 
 ## Описывает выход партии и возможное число повторов для подробной карточки рецепта.
 static func production_summary(game: Node, recipe: Dictionary) -> String:
+	if Kitchen.active(game): return Kitchen.summary(game,recipe)
 	if not BasementStations.recipe_reason(game,recipe).is_empty(): return BasementStations.reason_text(game,recipe)
 	if Workshop.handles(String(recipe.get("station",""))): return Workshop.summary(game,recipe)
 	if recipe.has("study_kind") and not Research.learned(game,recipe.study_kind): return game.LocaleSystem.ui("study_blueprint_need",[game.inventory_item_name(recipe.study_kind)])

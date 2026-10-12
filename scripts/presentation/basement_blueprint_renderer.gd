@@ -24,7 +24,7 @@ static func draw(game: Node2D) -> void:
 		var rect:=Rect2(210,160+(index-first)*43,470,38)
 		game.ItemWindowRenderer.draw_item_row(game,rect,Basement.Data.STATIONS[item.kind].icon,index==int(value.selected),true)
 		game.draw_item_icon(Basement.Data.STATIONS[item.kind].icon,Rect2(rect.position+Vector2(12,5),Vector2(28,28)))
-		game.draw_ui_string(game.UI_FONT,rect.position+Vector2(52,25),Locale.name_for(game,item.kind),HORIZONTAL_ALIGNMENT_LEFT,285,13,Kit.COLORS.ink)
+		game.draw_ui_string(game.UI_FONT,rect.position+Vector2(52,25),Locale.name_for(game,item.kind,int(item.get("level",1))),HORIZONTAL_ALIGNMENT_LEFT,285,13,Kit.COLORS.ink)
 		var label:="#%d · %d"%[item.id,item.level] if int(value.tab)>0 else "1"
 		game.draw_ui_string(game.UI_FONT,rect.position+Vector2(345,24),label,HORIZONTAL_ALIGNMENT_RIGHT,108,12,Kit.COLORS.ink)
 	var item:=Controls.selected(game)
@@ -41,10 +41,10 @@ static func detail(game: Node2D, item: Dictionary) -> void:
 	var texture:=Art.texture(item.kind,int(item.level),int(item.get("direction",0)))
 	var size:=texture.get_size()*minf(112.0/texture.get_width(),84.0/texture.get_height())
 	game.draw_texture_rect(texture,Rect2(Vector2(822,254)-size/2,size),false)
-	game.draw_ui_multiline_string(game.UI_FONT,Vector2(714,311),Locale.name_for(game,item.kind),HORIZONTAL_ALIGNMENT_CENTER,216,44,17,2,Kit.COLORS.ink)
+	game.draw_ui_multiline_string(game.UI_FONT,Vector2(714,311),Locale.name_for(game,item.kind,int(item.get("level",1))),HORIZONTAL_ALIGNMENT_CENTER,216,44,17,2,Kit.COLORS.ink)
 	var cost:Dictionary={"inputs":item.inputs} if tab==0 else (Basement.Data.upgrade_cost(item.kind,item.level) if tab==1 else {"inputs":Build.salvage(item)})
 	var active:bool=tab!=1 or (item.phase=="ready" and int(item.level)<3)
-	var heading:String=game.LocaleSystem.ui("basement_new_level") if tab==0 else (game.LocaleSystem.ui("basement_return") if tab==2 else game.LocaleSystem.ui("basement_level",[Locale.name_for(game,item.kind),mini(3,int(item.level)+1)]))
+	var heading:String=game.LocaleSystem.ui("basement_new_level") if tab==0 else (game.LocaleSystem.ui("basement_return") if tab==2 else game.LocaleSystem.ui("basement_level",[Locale.name_for(game,item.kind,mini(3,int(item.level)+1)),mini(3,int(item.level)+1)]))
 	game.draw_ui_multiline_string(game.UI_FONT,Vector2(714,363),heading,HORIZONTAL_ALIGNMENT_CENTER,216,38,11,3,Kit.COLORS.ink)
 	if not cost.is_empty():
 		var text:String=game.ResearchSystem.material_text(game,cost.inputs,tab!=2)

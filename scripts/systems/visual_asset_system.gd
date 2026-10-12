@@ -104,6 +104,7 @@ static func initialize_item_icons(kinds: Array) -> void:
 		elif preload("res://scripts/systems/furnace_data.gd").ITEMS.has(kind): item_icon_cache[kind]=preload("res://scripts/presentation/furnace_renderer.gd").item_texture(kind)
 		elif preload("res://scripts/systems/research_data.gd").ITEMS.has(kind): item_icon_cache[kind]=preload("res://scripts/presentation/research_icon_system.gd").texture(kind)
 		elif preload("res://scripts/systems/workshop_data.gd").ITEMS.has(kind): item_icon_cache[kind]=preload("res://scripts/presentation/workshop_icon_system.gd").texture(kind)
+		elif preload("res://scripts/systems/kitchen_data.gd").ITEMS.has(kind): item_icon_cache[kind]=preload("res://scripts/presentation/kitchen_visual_system.gd").food_texture(kind)
 
 
 ## Возвращает заранее кэшированную отдельную текстуру предмета.

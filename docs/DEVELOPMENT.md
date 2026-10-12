@@ -287,3 +287,9 @@ CPU-запросы можно проверить отдельно инструм
 `tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/basement_review.gd` запускает оба basement suite вместе с прежними Workshop/Furnace/Research регрессиями. `--script res://tools/basement_capture.gd` без `--headless` снимает реальные кадры 1152×648 в отдельной пользовательской папке: вход, пустая комната, чертёж, сетка, материалы, молоток, готовые столы и четыре направления трёх уровней. Камера и renderer обычные игровые; искусственного масштабирования снимка нет.
 
 `python3 tools/extract_basement_atlases.py` воспроизводит 172 AtlasTexture из утверждённых исходных листов. До коммита запустить импорт Godot, архитектурный gate и полный `./run_tests.sh`; автоматический Git hook также проверяет результат и пушит отдельный смысловой коммит.
+
+## Проверка личной кухни
+
+`tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/kitchen_review.gd` проверяет KitchenSuite вместе с Household/Workshop/Furnace/Research/Building регрессиями и всем аудитом UI. Профильный suite подключён к CraftingPipelineSuite полного runner. Он проверяет оплату, отсутствие топлива, паузу, независимые кухни, 3 уровня, сохранение на диск, отказ подделанным партиям, возврат и ранний омлет.
+
+`--script res://tools/kitchen_capture.gd` без `--headless` снимает нативные 1152×648: кучи, 4 направления каждого уровня, очередь без топлива, RU/DE 120%, рабочий огонь и заготовки. Для стенда используются отдельный userdata, фиксированный SubViewport и настоящее строительство через чертёж. `python3 tools/extract_kitchen_atlases.py` воспроизводит 24 `.tres` по измеренным регионам. Запросы image_gen и измеренные AtlasTexture-регионы хранятся в `docs/design/kitchen-station-2026-10-13`; пиксели исходников не перерисовываются при нарезке. Перед публикацией обязательны `tools/check_architecture.sh` и `./run_tests.sh`.

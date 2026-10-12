@@ -98,4 +98,5 @@ static func initial_counts() -> Dictionary:
 	for kind in preload("res://scripts/systems/furnace_data.gd").ITEMS: result[kind]=0
 	for kind in preload("res://scripts/systems/research_data.gd").ITEMS: result[kind]=0
 	for kind in preload("res://scripts/systems/workshop_data.gd").ITEMS: result[kind]=0
+	for kind in preload("res://scripts/systems/kitchen_data.gd").ITEMS: result[kind]=0
 	return result

@@ -840,6 +840,43 @@
       "priority": "P3",
       "debt": "Закрыт: выбран A; оформление собрано из отдельных ресурсов, станции имеют четыре настоящих ракурса, независимые очереди и собственные строительные кучи.",
       "done_when": "Keep distinct true sprite directions, intact transparent gutters, constant footprints, complete floor grid and accessible stairs/blueprint/operating points."
+    },
+    {
+      "id": "WS-027",
+      "family": "Личная кухня A: котелок, очаг, светлая домашняя печь и блюда",
+      "assets": [
+        {
+          "path": "assets/game/kitchen/fire_atlas_a.png",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "path": "assets/game/kitchen/food_atlas_a.png",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "path": "assets/game/kitchen/station_atlas_a.png",
+          "width": 1254,
+          "height": 1254
+        }
+      ],
+      "render_owner": "KitchenVisualSystem and KitchenFxRenderer through BasementRenderer; food icons through VisualAssetSystem",
+      "source_layout": "24 measured AtlasTexture regions: 3 levels plus pile × 4 true directions, 4 food icons and 4 flame frames; unchanged transparent RGBA originals; regions in docs/design/kitchen-station-2026-10-13/atlas-regions.json",
+      "runtime_sizes": [
+        "120×168",
+        "120×120"
+      ],
+      "target_modules": [
+        "120×168",
+        "120×120"
+      ],
+      "anchor": "bottom-center on fixed 4×4-cell foundation; all silhouettes fit proportionally",
+      "collision": "same 96×96 footprint and single approach for all levels, phases and true directions; fire/steam are visual only",
+      "status": "compliant",
+      "priority": "P3",
+      "debt": "Закрыт: пользователь выбрал A; уровни готовки, независимые очереди, чистое топливо и 4 ракурса подключены. Старый cauldron-атлас WS-026 сохранён как прежняя ревизия.",
+      "done_when": "Keep fireplace cold at idle; animate only fueled thermal work using saved job progress; preserve footprint, paid ingredients and legacy public meals."
     }
   ]
 }

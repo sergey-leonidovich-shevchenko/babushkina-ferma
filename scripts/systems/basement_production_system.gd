@@ -8,4 +8,5 @@ static func update(game: Node, delta: float) -> void:
 	for item in Basement.state(game).objects:
 		if item.phase!="ready" or item.production.queue.is_empty(): continue
 		if item.kind=="furnace": game.FurnaceSystem.advance(game,item.production,delta)
+		elif item.kind=="cauldron": preload("res://scripts/systems/kitchen_system.gd").advance(game,item.production,delta)
 		elif game.WorkshopSystem.handles(item.kind): game.WorkshopSystem.advance(game,item.kind,item.production,maxf(delta,0))

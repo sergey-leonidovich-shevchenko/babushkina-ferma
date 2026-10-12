@@ -95,7 +95,7 @@ static func draw_crafting(game: Node) -> void:
 	if game.crafting_station=="furnace": title=game.LocaleSystem.ui("furnace_title",[game.FurnaceSystem.state(game).level])
 	if game.WorkshopSystem.handles(game.crafting_station): title=game.LocaleSystem.ui(game.crafting_station+"_title",[game.WorkshopSystem.state(game,game.crafting_station).level])
 	var local:Dictionary=preload("res://scripts/systems/basement_station_system.gd").active(game,game.crafting_station)
-	if not local.is_empty(): title=game.LocaleSystem.ui("basement_level",[preload("res://scripts/systems/basement_locale.gd").name_for(game,local.kind),local.level])
+	if not local.is_empty(): title=game.LocaleSystem.ui("basement_level",[preload("res://scripts/systems/basement_locale.gd").name_for(game,local.kind,int(local.level)),local.level])
 	draw_shell(game, title)
 	if game.crafting_station=="alchemy":
 		draw_table_header(game,ALCHEMY_FILTER)
@@ -128,10 +128,11 @@ static func draw_crafting(game: Node) -> void:
 		game.draw_ui_multiline_string(game.UI_FONT, detail.position + Vector2(18, 295), game.CraftingSystem.production_summary(game, selected), HORIZONTAL_ALIGNMENT_CENTER, detail.size.x - 36, 32, 11, 2, Color("456537") if game.CraftingSystem.can_craft(game, selected) else UiKitSystem.COLORS.danger)
 		var can_create: bool = game.CraftingSystem.can_craft(game, selected)
 		UiKitSystem.draw_nine_patch(game, "editor_button_selected" if can_create else "editor_button_normal", CRAFT_ACTION)
-		game.draw_ui_string(game.UI_FONT, CRAFT_ACTION.position + Vector2(14, 26), game.LocaleSystem.ui("furnace_action" if game.crafting_station=="furnace" or game.WorkshopSystem.handles(game.crafting_station) else "craft_action"), HORIZONTAL_ALIGNMENT_CENTER, CRAFT_ACTION.size.x - 28, 14, UiKitSystem.COLORS.ink if can_create else Color("846d50"))
+		game.draw_ui_string(game.UI_FONT, CRAFT_ACTION.position + Vector2(14, 26), game.LocaleSystem.ui("furnace_action" if game.crafting_station=="furnace" or game.WorkshopSystem.handles(game.crafting_station) or game.CraftingSystem.Kitchen.active(game) else "craft_action"), HORIZONTAL_ALIGNMENT_CENTER, CRAFT_ACTION.size.x - 28, 14, UiKitSystem.COLORS.ink if can_create else Color("846d50"))
 	if game.crafting_station=="furnace": preload("res://scripts/presentation/furnace_renderer.gd").draw_toolbar(game)
 	if game.WorkshopSystem.handles(game.crafting_station): preload("res://scripts/presentation/workshop_renderer.gd").draw_toolbar(game)
-	draw_help(game, game.LocaleSystem.ui("furnace_help" if game.crafting_station in ["furnace","glassblowing"] else ("workshop_help" if game.WorkshopSystem.handles(game.crafting_station) else ("alchemy_help" if game.crafting_station=="alchemy" else "craft_help"))))
+	if game.CraftingSystem.Kitchen.active(game): preload("res://scripts/presentation/kitchen_renderer.gd").draw_toolbar(game)
+	draw_help(game, game.LocaleSystem.ui("kitchen_help" if game.CraftingSystem.Kitchen.active(game) else ("furnace_help" if game.crafting_station in ["furnace","glassblowing"] else ("workshop_help" if game.WorkshopSystem.handles(game.crafting_station) else ("alchemy_help" if game.crafting_station=="alchemy" else "craft_help")))))
 
 
 ## Рисует деревенскую лавку как две связанные секции: атмосферный прилавок и таблицу товаров.
@@ -324,6 +325,7 @@ static func handle_forge_pointer(game: Node, position: Vector2) -> bool:
 ## Сначала выбирает рецепт для чтения, а материалы расходует только после явного нажатия кнопки создания.
 static func handle_crafting_pointer(game: Node, position: Vector2) -> bool:
 	if game.ResearchSystem.handles(game.crafting_station): return preload("res://scripts/presentation/research_renderer.gd").handle_pointer(game,position)
+	if game.CraftingSystem.Kitchen.active(game) and preload("res://scripts/presentation/kitchen_renderer.gd").handle_pointer(game,position): return true
 	if game.WorkshopSystem.handles(game.crafting_station) and preload("res://scripts/presentation/workshop_renderer.gd").handle_pointer(game,position): return true
 	if game.crafting_station=="furnace" and preload("res://scripts/presentation/furnace_renderer.gd").handle_pointer(game,position): return true
 	if game.crafting_station=="alchemy" and ALCHEMY_FILTER.has_point(position):

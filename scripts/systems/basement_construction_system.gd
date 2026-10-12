@@ -48,7 +48,7 @@ static func salvage(item: Dictionary) -> Dictionary:
 		var debris:=Basement.Data.debris(kind)
 		if waste>0: result[debris]=int(result.get(debris,0))+waste
 	for job in item.production.queue:
-		var recipe:Dictionary=preload("res://scripts/systems/furnace_data.gd").recipe(job.id) if item.kind=="furnace" else preload("res://scripts/systems/workshop_recipe_data.gd").recipe(job.id)
+		var recipe:Dictionary=preload("res://scripts/systems/furnace_data.gd").recipe(job.id) if item.kind=="furnace" else (preload("res://scripts/systems/kitchen_data.gd").recipe(job.id) if item.kind=="cauldron" else preload("res://scripts/systems/workshop_recipe_data.gd").recipe(job.id))
 		var inputs:Dictionary=job.get("paid",recipe.get("inputs",{}))
 		for kind in inputs: result[kind]=int(result.get(kind,0))+int(inputs[kind])
 	return result
@@ -83,6 +83,9 @@ static func update_hold(game: Node, delta: float) -> bool:
 ## Завершает сборку единожды и ускоряет прежнюю очередь пропорционально новому уровню без повторной оплаты сырья.
 static func finish(game: Node, item: Dictionary) -> void:
 	var previous:=int(item.level); item.level=int(item.target); item.phase="ready"; item.production.level=item.level
+	if item.kind=="cauldron":
+		var speeds:Array=preload("res://scripts/systems/kitchen_data.gd").SPEED; var ratio:float=speeds[previous-1]/speeds[int(item.level)-1]
+		for job in item.production.queue: job.duration*=ratio; job.remaining*=ratio
 	if item.kind in ["sawmill","pottery","glassblowing","furnace"]:
 		var speed:=[1.0,1.35,1.7]; var factor:float=speed[previous-1]/speed[int(item.level)-1]
 		for job in item.production.queue: job.duration*=factor; job.remaining*=factor

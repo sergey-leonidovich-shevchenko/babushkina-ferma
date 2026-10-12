@@ -29,6 +29,7 @@ const SHELL := {
 
 ## Выбирает отдельный ракурс нужного уровня либо собственной строительной кучи.
 static func texture(kind: String, level: int, direction: int, pile: bool=false) -> AtlasTexture:
+	if kind=="cauldron": return preload("res://scripts/presentation/kitchen_visual_system.gd").STATION[3 if pile else clampi(level,1,3)-1][posmod(direction,4)]
 	return SPRITES[kind][3 if pile else clampi(level,1,3)-1][posmod(direction,4)]
 
 ## Совмещает полный силуэт с нижней опорой основания без растяжения или растровых поворотов.

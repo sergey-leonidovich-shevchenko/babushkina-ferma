@@ -36,6 +36,7 @@ static func draw_station(game: Node2D, item: Dictionary, unfinished: bool, alpha
 		game.draw_colored_polygon(points,Color(0.09,0.06,0.035,alpha*0.055))
 	if not unfinished or item.get("phase","")=="upgrading":
 		game.draw_texture_rect(Art.texture(item.kind,int(item.get("level",1)),int(item.direction)),Art.destination(item),false,Color(1,1,1,alpha*(0.5 if unfinished else 1)))
+		if not unfinished and alpha==1: preload("res://scripts/presentation/kitchen_fx_renderer.gd").draw(game,item,Art.destination(item))
 	if unfinished:
 		game.draw_texture_rect(Art.texture(item.kind,1,int(item.direction),true),Art.destination(item,true),false,Color(1,1,1,alpha))
 	var direction:Vector2=Basement.Data.DIRECTIONS[int(item.direction)]; var center:=Basement.Layout.center(Basement.Layout.approach_cell(item))

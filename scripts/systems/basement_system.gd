@@ -65,13 +65,19 @@ static func valid(value: Dictionary) -> bool:
 		for kind in expected:
 			if not item.paid.has(kind) or float(item.paid[kind])!=int(expected[kind]): return false
 		if not preload("res://scripts/systems/furnace_data.gd").FUELS.has(item.production.fuel): return false
+		if item.kind=="cauldron" and not preload("res://scripts/systems/kitchen_data.gd").FUELS.has(item.production.fuel): return false
 		if int(item.production.level)!=int(item.level) or item.production.queue.size()>int(item.level) or float(item.production.heat)<0: return false
+		if item.kind=="cauldron" and float(item.production.heat)>120*int(item.level): return false
 		for kind in item.paid:
 			if not preload("res://scripts/systems/inventory_system.gd").ITEM_DATA.has(kind) or float(item.paid[kind])!=int(item.paid[kind]) or int(item.paid[kind])<0: return false
 		for job in item.production.queue:
-			var recipe:Dictionary=preload("res://scripts/systems/furnace_data.gd").recipe(job.id) if item.kind=="furnace" else preload("res://scripts/systems/workshop_recipe_data.gd").recipe(job.id)
+			var recipe:Dictionary=preload("res://scripts/systems/furnace_data.gd").recipe(job.id) if item.kind=="furnace" else (preload("res://scripts/systems/kitchen_data.gd").recipe(job.id) if item.kind=="cauldron" else preload("res://scripts/systems/workshop_recipe_data.gd").recipe(job.id))
 			if recipe.get("station","")!=item.kind or float(job.duration)<=0 or float(job.remaining)<0 or float(job.remaining)>float(job.duration): return false
 			if Data.recipe_level(recipe)>int(item.level): return false
+			if item.kind=="cauldron":
+				if job.get("paid",{}).size()!=recipe.inputs.size(): return false
+				var expected_seconds:float=preload("res://scripts/systems/kitchen_data.gd").seconds(recipe)/preload("res://scripts/systems/kitchen_data.gd").SPEED[int(item.level)-1]
+				if not is_equal_approx(float(job.duration),expected_seconds): return false
 			for kind in job.get("paid",{}):
 				if not recipe.inputs.has(kind) or float(job.paid[kind])!=int(recipe.inputs[kind]): return false
 		if item.phase!="ready" and (float(item.work)<0 or float(item.work)>float(item.duration) or int(item.target) not in range(1,4) or float(item.duration)<=0): return false
@@ -90,6 +96,7 @@ static func restore(game: Node) -> void:
 	value.next_id=maxi(int(value.get("next_id",1)),largest+1); value.revision=maxi(0,int(value.get("revision",0)))
 	if game.has_meta("basement_ui"): game.remove_meta("basement_ui")
 	if game.has_meta("basement_active_station"): game.remove_meta("basement_active_station")
+	if game.has_meta("kitchen_filter"): game.remove_meta("kitchen_filter")
 
 ## Находит единственный доступный рабочий подход, строительную кучу или настенный чертёж.
 static func nearest(game: Node, radius: float=60) -> String:

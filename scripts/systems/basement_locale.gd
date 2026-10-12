@@ -61,5 +61,6 @@ const TUTORIAL := {
 }
 
 ## Возвращает полное название личного станка на одном из шести поддерживаемых языков.
-static func name_for(game: Node, kind: String) -> String:
+static func name_for(game: Node, kind: String, level: int=1) -> String:
+	if kind=="cauldron": return game.LocaleSystem.ui("kitchen_stage%d"%clampi(level,1,3))
 	return NAMES[kind][game.LocaleSystem.index()]
