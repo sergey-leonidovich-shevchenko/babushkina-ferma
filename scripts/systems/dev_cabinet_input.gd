@@ -12,6 +12,18 @@ static func move(game: Node, offset: int) -> void:
 static func query(game: Node, text: String) -> void:
 	var value:=Cabinet.state(game); value.query=text.left(64); value.selected=0; value.notice=""; value.cache.clear(); game.queue_redraw()
 
+## Фокусирует существующий предмет текущей страницы без выдачи вещей и без выхода из поиска.
+static func focus_slot(game: Node, point: Vector2) -> bool:
+	var value:=Cabinet.state(game)
+	if value.searching: return false
+	var choices:=Cabinet.items(game); var first:=Render.start(game)
+	for visible in mini(Render.VISIBLE,choices.size()-first):
+		if not Render.slot_rect(visible).has_point(point): continue
+		var index:=first+visible
+		if int(value.selected)==index: return false
+		value.selected=index; value.notice=""; game.queue_redraw(); return true
+	return false
+
 ## Передаёт указатель явным вкладкам, поиску, навигации и четырём кнопкам выдачи.
 static func pointer(game: Node, point: Vector2) -> void:
 	var value:=Cabinet.state(game)
@@ -29,9 +41,7 @@ static func pointer(game: Node, point: Vector2) -> void:
 			var kind:=Cabinet.selected(game)
 			if kind not in Cabinet.UNIQUE or index==0: Cabinet.take(game,kind,Render.AMOUNTS[index])
 			return
-	var choices:=Cabinet.items(game)
-	for index in Render.VISIBLE:
-		if Render.slot_rect(index).has_point(point) and Render.start(game)+index<choices.size(): value.selected=Render.start(game)+index; value.notice=""; return
+	focus_slot(game,point)
 
 ## Принимает печать в поиске отдельно от игровых горячих клавиш и позволяет сначала снять фокус.
 static func search_key(game: Node, event: InputEventKey) -> void:
@@ -87,6 +97,7 @@ static func controller(game: Node, event: InputEvent) -> void:
 static func handle_input(game: Node, event: InputEvent) -> bool:
 	if not Cabinet.active(game): return false
 	if not Cabinet.at_cabinet(game): Cabinet.close(game); return true
+	if event is InputEventMouseMotion: focus_slot(game,event.position); return true
 	if event is InputEventKey and event.pressed and not event.echo: keyboard(game,event)
 	elif event is InputEventJoypadButton or event is InputEventJoypadMotion: controller(game,event)
 	elif event is InputEventMouseButton and event.pressed:

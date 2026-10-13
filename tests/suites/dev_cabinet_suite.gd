@@ -11,6 +11,7 @@ func run() -> void:
 	test_room_access_and_feature_switch()
 	test_all_items_transfer_without_free_side_effects()
 	test_keyboard_search_controller_and_touch()
+	test_pointer_focus_is_inspection_only()
 	test_real_world_pause_and_release()
 	test_save_load_and_old_slots()
 	test_localized_layout()
@@ -163,16 +164,47 @@ func test_save_load_and_old_slots() -> void:
 	expect(game.SaveSystem.apply(game,data) and game.inventory_item_count("hoe")==0 and game.inventory_item_count("plank")==before,"old saves without explicit base tools remain compatible")
 	game.free()
 
+## Сценарий: наведение раскрывает предмет справа, а клавиатура и геймпад продолжают управлять тем же фокусом.
+## Исходное состояние: полный открытый шкаф, вторая страница, активный поиск и пустые ячейки результата.
+## Ожидаемый результат: карточка следует фокусу, наведение не выдаёт вещи, не переключает поиск и не выбирает пустоту.
+func test_pointer_focus_is_inspection_only() -> void:
+	var game:=make_game(); prepare(game); Cabinet.open(game)
+	var choices:=Cabinet.items(game); var stock:Dictionary=Cabinet.state(game).stock.duplicate(); var bag:Dictionary=game.export_inventory_counts().duplicate()
+	var motion:=InputEventMouseMotion.new(); motion.position=Render.slot_rect(8).get_center(); game._input(motion)
+	expect(Cabinet.selected(game)==choices[8],"mouse hover changes the item used by the right-hand card")
+	game._input(key_event(KEY_PAGEDOWN,KEY_PAGEDOWN,true)); motion.position=Render.slot_rect(2).get_center(); game._input(motion)
+	expect(Cabinet.selected(game)==choices[52],"hover addresses the actual item on the second page")
+	game._input(key_event(KEY_RIGHT,KEY_RIGHT,true)); expect(Cabinet.selected(game)==choices[53],"keyboard focus replaces the hovered item without mouse movement")
+	game._input(joypad_button_event(JOY_BUTTON_DPAD_DOWN,true)); expect(Cabinet.selected(game)==choices[63],"controller focus also drives the right-hand card")
+	motion.position=Render.take_rect(0).get_center(); game._input(motion)
+	expect(Cabinet.selected(game)==choices[63] and stock==Cabinet.state(game).stock and bag==game.export_inventory_counts(),"hovering cells and take buttons never transfers stock")
+	game._input(key_event(KEY_F,KEY_F,true)); motion.position=Render.slot_rect(7).get_center(); game._input(motion)
+	expect(Cabinet.state(game).searching and Cabinet.selected(game)==choices[63],"mouse inspection preserves active search editing and its selected item")
+	Controls.query(game,"plank"); game._input(key_event(KEY_ESCAPE,KEY_ESCAPE,true)); motion.position=Render.slot_rect(1).get_center(); game._input(motion)
+	expect(Cabinet.selected(game)=="plank","hover over an empty result cell keeps the existing detail card")
+	motion.position=Render.slot_rect(0).position+Vector2(71,20); game._input(motion)
+	expect(Cabinet.selected(game)=="plank","gaps between cells cannot focus a hidden item")
+	Controls.query(game,"no_such_item_here"); motion.position=Render.slot_rect(0).get_center(); game._input(motion)
+	expect(Cabinet.selected(game)=="" and bag==game.export_inventory_counts(),"empty search remains harmless when the mouse enters its grid")
+	game.free()
+
 ## Сценарий: категории, кнопки и подсказки читаются на каждом языке при увеличенном тексте.
 ## Исходное состояние: полноэкранная панель, восемь вкладок, четыре кнопки выдачи и последний слот сетки.
 ## Ожидаемый результат: элементы не выходят за экран и не перекрывают друг друга, подписи локализованы и помещаются.
 func test_localized_layout() -> void:
 	var game:=make_game(); var viewport:=Rect2(0,0,1152,648); game.settings_state.text_scale=1.2
 	for index in Cabinet.TABS.size(): expect(viewport.encloses(Render.tab_rect(index)) and not Render.tab_rect(index).intersects(Render.SEARCH),"tab and search have separate screen bounds")
-	for index in Render.VISIBLE: expect(Rect2(40,194,756,380).encloses(Render.slot_rect(index)),"full grid cell stays inside list panel")
+	for index in Render.VISIBLE:
+		expect(Rect2(40,194,756,380).encloses(Render.slot_rect(index)),"full grid cell stays inside list panel")
+		expect(Render.slot_rect(index).encloses(Render.icon_rect(index)) and Render.slot_rect(index).encloses(Render.count_rect(index)) and not Render.icon_rect(index).intersects(Render.count_rect(index)),"icon and count have separate visible areas in every cell")
 	for index in Render.AMOUNTS.size(): expect(Rect2(816,194,296,380).encloses(Render.take_rect(index)),"take button stays inside item card")
 	for locale in game.LocaleSystem.LOCALES:
 		game.LocaleSystem.current=locale
+		for kind in game.InventorySystem.ITEM_DATA:
+			var name:String=game.inventory_item_name(kind); var area:Rect2=Render.DETAIL_TITLE
+			var fitted:int=game.UiScaleSystem.fitted_multiline_font_size(game,game.UI_FONT,name,area.size.x,area.size.y,18)
+			var measured:Vector2=game.UI_FONT.get_multiline_string_size(name,HORIZONTAL_ALIGNMENT_CENTER,area.size.x,fitted)
+			expect(measured.x<=area.size.x+0.01 and measured.y<=area.size.y+0.01,"full localized name fits the right card at 120 percent: "+locale+" "+kind)
 		expect(game.InventorySystem.data("wooden_wardrobe").short!="wooden_wardrobe","registered furniture retains a readable fallback label")
 		for key in Locale.TEXT: expect(Locale.text(game,key,[1] if key in ["found","take","stock","bag"] else (["Item",1] if key=="taken" else []))!=key,"localized cabinet label: "+locale+" "+key)
 		for index in Cabinet.TABS.size():

@@ -11,6 +11,7 @@ const CLOSE := Rect2(1070,26,42,38)
 const PREVIOUS := Rect2(700,142,44,36)
 const NEXT := Rect2(880,142,44,36)
 const AMOUNTS := [1,10,100,999]
+const DETAIL_TITLE := Rect2(836,210,256,42)
 
 ## Даёт одинаковую геометрию восьми вкладок для рисунка, мыши и касания.
 static func tab_rect(index: int) -> Rect2:
@@ -19,6 +20,14 @@ static func tab_rect(index: int) -> Rect2:
 ## Даёт область одной из пятидесяти компактных ячеек текущей страницы.
 static func slot_rect(index: int) -> Rect2:
 	return Rect2(52+(index%COLUMNS)*74,206+(index/COLUMNS)*72,68,66)
+
+## Центрирует увеличенную иконку, оставляя снизу отдельное место под количество.
+static func icon_rect(index: int) -> Rect2:
+	return Rect2(slot_rect(index).position+Vector2(12,4),Vector2(44,44))
+
+## Отделяет реальный остаток от иконки без подписи названия внутри сетки.
+static func count_rect(index: int) -> Rect2:
+	return Rect2(slot_rect(index).position+Vector2(4,50),Vector2(60,13))
 
 ## Даёт общие кнопки выдачи единицы, десяти, ста или полного стека.
 static func take_rect(index: int) -> Rect2:
@@ -55,17 +64,18 @@ static func draw(game: Node2D) -> void:
 	Style.text(game,Rect2(40,617,1072,12),"%d / %d"%[first/VISIBLE+1,maxi(1,ceili(choices.size()/float(VISIBLE)))]+(" • "+notice if not notice.is_empty() else ""),10,Style.ACCENT,HORIZONTAL_ALIGNMENT_CENTER)
 	Style.text(game,Rect2(40,632,1072,12),Locale.text(game,"help"),9,Style.MUTED,HORIZONTAL_ALIGNMENT_CENTER)
 
-## Показывает самостоятельную иконку, короткое имя и реальный остаток в шкафу.
+## Показывает только увеличенную иконку и реальный остаток; название находится в правой карточке.
 static func draw_slot(game: Node2D, kind: String, visible: int, selected: bool) -> void:
 	var rect:=slot_rect(visible); Style.slot(game,rect,selected)
-	game.draw_item_icon(kind,Rect2(rect.position+Vector2(16,3),Vector2(36,36)))
-	Style.text(game,Rect2(rect.position+Vector2(3,39),Vector2(62,12)),game.InventorySystem.data(kind).short,9,Style.TEXT,HORIZONTAL_ALIGNMENT_CENTER)
-	Style.text(game,Rect2(rect.position+Vector2(3,52),Vector2(62,12)),"×"+str(Cabinet.state(game).stock[kind]),10,Style.ACCENT,HORIZONTAL_ALIGNMENT_CENTER)
+	game.draw_item_icon(kind,icon_rect(visible))
+	Style.text(game,count_rect(visible),"×"+str(Cabinet.state(game).stock[kind]),11,Style.ACCENT,HORIZONTAL_ALIGNMENT_CENTER)
 
 ## Показывает полное имя и назначение выбранного предмета перед явной выдачей в рюкзак.
 static func draw_detail(game: Node2D, kind: String) -> void:
-	Style.text(game,Rect2(836,210,256,36),game.inventory_item_name(kind),18,Style.TEXT,HORIZONTAL_ALIGNMENT_CENTER)
-	Style.text(game,Rect2(836,250,256,22),kind,10,Style.MUTED,HORIZONTAL_ALIGNMENT_CENTER)
+	var name:String=game.inventory_item_name(kind)
+	var size:int=game.UiScaleSystem.fitted_multiline_font_size(game,game.UI_FONT,name,DETAIL_TITLE.size.x,DETAIL_TITLE.size.y,18)
+	game.draw_ui_multiline_string(game.UI_FONT,DETAIL_TITLE.position+Vector2(0,game.UI_FONT.get_ascent(size)),name,HORIZONTAL_ALIGNMENT_CENTER,DETAIL_TITLE.size.x,DETAIL_TITLE.size.y,18,-1,Style.TEXT)
+	Style.text(game,Rect2(836,256,256,18),kind,10,Style.MUTED,HORIZONTAL_ALIGNMENT_CENTER)
 	game.draw_item_icon(kind,Rect2(906,280,116,102))
 	Style.text(game,Rect2(836,386,256,24),Locale.text(game,"stock",[Cabinet.state(game).stock[kind]]),14,Style.ACCENT,HORIZONTAL_ALIGNMENT_CENTER)
 	Style.text(game,Rect2(836,412,256,24),Locale.text(game,"bag",[game.inventory_item_count(kind)]),12,Style.MUTED,HORIZONTAL_ALIGNMENT_CENTER)

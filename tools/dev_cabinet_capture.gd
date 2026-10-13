@@ -28,12 +28,20 @@ func _start() -> void:
 	await capture("house")
 	if not game.perform_context_action() or not Cabinet.active(game): failed+=1; push_error("Не удалось открыть шкаф обычным действием")
 	await capture("all")
+	var before:Dictionary=game.export_inventory_counts().duplicate(); var choices:=Cabinet.items(game)
+	var motion:=InputEventMouseMotion.new(); motion.position=Render.slot_rect(4).get_center(); game._input(motion)
+	if Cabinet.selected(game)!=choices[4] or before!=game.export_inventory_counts(): failed+=1; push_error("Наведение не обновило карточку или выдало предмет")
+	await capture("focus")
 	Cabinet.select_tab(game,1); Controls.query(game,"plank")
 	Controls.pointer(game,Render.take_rect(2).get_center())
 	if game.inventory_item_count("plank")!=100 or int(Cabinet.state(game).stock.plank)!=899: failed+=1; push_error("Неверное количество после выдачи 100 досок")
 	await capture("craft-search")
 	Controls.query(game,""); Cabinet.select_tab(game,3); await capture("alchemy")
-	game.LocaleSystem.current="de"; game.settings_state.text_scale=1.2; Cabinet.select_tab(game,2); await capture("food-de-120")
+	game.LocaleSystem.current="de"; game.settings_state.text_scale=1.2; Cabinet.select_tab(game,2)
+	var food:=Cabinet.items(game); var longest:=0
+	for index in food.size():
+		if game.inventory_item_name(food[index]).length()>game.inventory_item_name(food[longest]).length(): longest=index
+	Cabinet.state(game).selected=longest; await capture("food-de-120")
 	game.LocaleSystem.current="ru"; game.settings_state.text_scale=1; Controls.query(game,"no_such_item"); await capture("empty-search")
 	Cabinet.close(game); ProjectSettings.set_setting(Cabinet.SETTING,false); await capture("disabled")
 	ProjectSettings.set_setting(Cabinet.SETTING,true)
@@ -44,5 +52,7 @@ func capture(label: String) -> void:
 	game.tutorial_visible=false; game.discovery_current={}; game.message=""; game.hud_message_timer=0
 	for _frame in 8: game.queue_redraw(); await process_frame; RenderingServer.force_draw()
 	var image:=viewport.get_texture().get_image()
-	if image.get_size()!=Vector2i(1152,648) or image.save_png("res://docs/reports/dev-cabinet-2026-10-13-"+label+".png")!=OK: failed+=1
+	var prefix:String=OS.get_environment("FARM_CABINET_CAPTURE_PREFIX").strip_edges().validate_filename()
+	if prefix.is_empty(): prefix="dev-cabinet-2026-10-13"
+	if image.get_size()!=Vector2i(1152,648) or image.save_png("res://docs/reports/"+prefix+"-"+label+".png")!=OK: failed+=1
 	print("DEV CABINET FRAME: "+label)
