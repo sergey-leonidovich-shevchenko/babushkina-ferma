@@ -107,3 +107,9 @@ tmp/
 !/assets/generated/ui/collections_ingame_preview.png
 !/assets/generated/ui/recipe_guide_ingame_preview.png
 !/assets/generated/ui/ui_feedback_ingame_preview.png
+# Локальная wiki: исходники остаются в Git, сборка, каталоги и зависимости создаются при запуске.
+/wiki/node_modules/
+/wiki/dist/
+/wiki/.runtime/
+/wiki/.cache/
+/wiki/public/generated/

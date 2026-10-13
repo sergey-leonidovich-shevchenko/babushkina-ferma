@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="green" x2=".8" y2="1"><stop stop-color="#315b43"/><stop offset="1" stop-color="#132e26"/></linearGradient>
+    <linearGradient id="page" x2=".4" y2="1"><stop stop-color="#fff3d6"/><stop offset="1" stop-color="#daca9e"/></linearGradient>
+  </defs>
+  <rect x="12" y="12" width="488" height="488" rx="108" fill="url(#green)"/>
+  <rect x="28" y="28" width="456" height="456" rx="94" fill="none" stroke="#ba9a5f" stroke-width="3" opacity=".6"/>
+  <path d="M338 85a58 58 0 1 0 47 91 58 58 0 0 1-47-91" fill="#edcb7f"/>
+  <path d="m148 110 5 14 14 5-14 5-5 14-5-14-14-5 14-5zM243 73l4 10 10 4-10 4-4 10-4-10-10-4 10-4z" fill="#efd597"/>
+  <path d="M93 232q78-40 163 0 85-40 163 0v155q-80-29-163 5-83-34-163-5z" fill="#91683d" stroke="#cbaf77" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M105 215q75-34 151 10v153q-76-36-151-9zM407 215q-75-34-151 10v153q76-36 151-9z" fill="url(#page)"/>
+  <path d="M256 226v147M129 249q50-14 96 7m-96 30q50-14 96 7m-96 30q50-14 96 7m62-74q46-21 96-7m-96 44q46-21 96-7m-96 44q46-21 96-7" stroke="#987745" stroke-width="7" opacity=".7" fill="none" stroke-linecap="round"/>
+  <path d="m342 335 21-6v67l-11-8-10 12z" fill="#698252"/>
+</svg>

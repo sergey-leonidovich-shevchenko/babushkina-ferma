@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import re
 import sys
+import os
 from pathlib import Path
 from urllib.parse import unquote, urlparse
 
@@ -27,14 +28,16 @@ REQUIRED_DOCUMENTS = (
 LINK_PATTERN = re.compile(r"!?\[[^\]]*\]\(([^)]+)\)")
 
 
-# Возвращает Markdown-файлы проекта, исключая встроенные бинарные инструменты и импортированные данные.
+# Возвращает авторские Markdown-файлы, не обходя внешние зависимости и временные сборки wiki.
 def markdown_files(root: Path) -> list[Path]:
-    ignored_parts = {".git", ".godot", "tools"}
-    return sorted(
-        path
-        for path in root.rglob("*.md")
-        if not ignored_parts.intersection(path.relative_to(root).parts)
-    )
+    ignored_parts = {".git", ".godot", "tools", "node_modules"}
+    result: list[Path] = []
+    for current, directories, filenames in os.walk(root):
+        relative = Path(current).relative_to(root)
+        generated = {"dist", ".cache", ".runtime"} if relative == Path("wiki") else set()
+        directories[:] = [name for name in directories if name not in ignored_parts | generated]
+        result.extend(Path(current) / name for name in filenames if name.endswith(".md"))
+    return sorted(result)
 
 
 # Отделяет путь локальной ссылки от якоря, query-параметров и необязательного заголовка Markdown.

@@ -1,0 +1,53 @@
+#!/bin/zsh
+set -eu
+
+wiki_project="${0:A:h:h:h:h}"
+wiki_directory="$wiki_project/wiki"
+wiki_preferred_node="${WIKI_NODE_BIN:-}"
+wiki_node=""
+
+# Finder запускает приложение с коротким PATH; проверяем системные и локальные варианты отдельно.
+for wiki_candidate in \
+  "$wiki_preferred_node" \
+  "$(command -v node 2>/dev/null || true)" \
+  "/opt/homebrew/bin/node" \
+  "/usr/local/bin/node" \
+  "$HOME/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node" \
+  "$wiki_directory/.runtime/node/bin/node"
+do
+  if [[ -x "$wiki_candidate" ]] && "$wiki_candidate" -e 'const [major,minor]=process.versions.node.split(".").map(Number);process.exit(major>22||(major===22&&minor>=12)?0:1)' 2>/dev/null; then
+    wiki_node="$wiki_candidate"
+    break
+  fi
+done
+
+# При отсутствии Node размещаем проверенный официальный runtime только внутри папки wiki.
+if [[ ! -x "$wiki_node" ]]; then
+  wiki_version="24.19.0"
+  wiki_arch="$(/usr/bin/uname -m)"
+  [[ "$wiki_arch" == "x86_64" ]] && wiki_arch="x64"
+  wiki_archive="node-v${wiki_version}-darwin-${wiki_arch}.tar.gz"
+  wiki_runtime="$wiki_directory/.runtime"
+  /bin/mkdir -p "$wiki_runtime"
+  /usr/bin/curl --fail --location --silent --show-error --proto '=https' --tlsv1.2 "https://nodejs.org/dist/v${wiki_version}/${wiki_archive}" -o "$wiki_runtime/$wiki_archive"
+  /usr/bin/curl --fail --location --silent --show-error --proto '=https' --tlsv1.2 "https://nodejs.org/dist/v${wiki_version}/SHASUMS256.txt" -o "$wiki_runtime/checksums.txt"
+  wiki_expected="$(/usr/bin/awk -v archive="$wiki_archive" '$2==archive {print $1}' "$wiki_runtime/checksums.txt")"
+  wiki_actual="$(/usr/bin/shasum -a 256 "$wiki_runtime/$wiki_archive")"
+  [[ -n "$wiki_expected" && "${wiki_actual%% *}" == "$wiki_expected" ]] || exit 1
+  /usr/bin/tar -xzf "$wiki_runtime/$wiki_archive" -C "$wiki_runtime"
+  /bin/mv "$wiki_runtime/node-v${wiki_version}-darwin-${wiki_arch}" "$wiki_runtime/node"
+  /bin/rm -f "$wiki_runtime/$wiki_archive" "$wiki_runtime/checksums.txt"
+  wiki_node="$wiki_runtime/node/bin/node"
+fi
+
+if [[ "${WIKI_LAUNCHER_CHECK:-0}" == "1" ]]; then
+  print -r -- "$wiki_node"
+  print -r -- "$wiki_directory/scripts/launch.mjs"
+  exit 0
+fi
+
+/bin/mkdir -p "$wiki_directory/.cache"
+if ! "$wiki_node" "$wiki_directory/scripts/launch.mjs" >> "$wiki_directory/.cache/launcher.log" 2>&1; then
+  /usr/bin/osascript -e 'display alert "Wiki не открылась" message "Подробности сохранены в wiki/.cache/launcher.log. Проверьте интернет при первом запуске и наличие Godot для игры." as critical'
+  exit 1
+fi

@@ -1,0 +1,21 @@
+import { createApp } from 'vue'
+import { createRouter, createWebHashHistory } from 'vue-router'
+import App from './App.vue'
+import HomeView from './views/HomeView.vue'
+import ListView from './views/ListView.vue'
+import ArticleView from './views/ArticleView.vue'
+import './style.css'
+
+const router = createRouter({
+  history: createWebHashHistory(),
+  routes: [
+    { path: '/', component: HomeView },
+    { path: '/search', component: ListView },
+    { path: '/:category', component: ListView },
+    { path: '/:category/:id', component: ArticleView },
+  ],
+  scrollBehavior(_to, _from, saved) {
+    return saved ?? { top: 0 }
+  },
+})
+createApp(App).use(router).mount('#app')

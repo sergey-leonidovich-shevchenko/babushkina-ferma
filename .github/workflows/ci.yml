@@ -5,6 +5,33 @@ on:
   pull_request:
 
 jobs:
+  wiki:
+    name: Wiki quality gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Install wiki tooling
+        run: |
+          npm install --global pnpm@11.19.0
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y fonts-noto-cjk
+      - name: Download Godot 4.7.1
+        run: |
+          mkdir -p .ci
+          curl -fsSL -o .ci/godot.zip https://github.com/godotengine/godot/releases/download/4.7.1-stable/Godot_v4.7.1-stable_linux.x86_64.zip
+          unzip -q .ci/godot.zip -d .ci
+          chmod +x .ci/Godot_v4.7.1-stable_linux.x86_64
+      - name: Check wiki catalogs, sprites, TypeScript, production build and tests
+        env:
+          WIKI_GODOT_BIN: ${{ github.workspace }}/.ci/Godot_v4.7.1-stable_linux.x86_64
+        run: |
+          cd wiki
+          pnpm install --frozen-lockfile
+          pnpm check
   test:
     runs-on: ubuntu-latest
     timeout-minutes: 15
