@@ -47,8 +47,8 @@ static func draw_tree_header(game: Node2D) -> void:
 	for group_index in game.TalentSystem.GROUPS.size():
 		var group: Dictionary = game.TalentSystem.GROUPS[group_index]
 		var header := Rect2(332 + group_index * (COLUMN_WIDTH + COLUMN_GAP), 116, COLUMN_WIDTH, 40)
-		MoonStyle.panel(game,header,Color("46613d") if group_index == game.skill_menu_selected / 5 else MoonStyle.PANEL)
-		game.draw_ui_string(game.UI_FONT, header.position + Vector2(10, 27), "%s  %s" % [group.icon, game.TalentSystem.word(game, "group_%s" % group.id)], HORIZONTAL_ALIGNMENT_CENTER, header.size.x - 20, 10, Color("fff0cf"))
+		MoonStyle.panel(game,header,MoonStyle.SELECTED if group_index == game.skill_menu_selected / 5 else MoonStyle.PANEL)
+		game.draw_ui_string(game.UI_FONT, header.position + Vector2(10, 27), "%s  %s" % [group.icon, game.TalentSystem.word(game, "group_%s" % group.id)], HORIZONTAL_ALIGNMENT_CENTER, header.size.x - 20, 10, MoonStyle.TEXT)
 
 
 ## Рисует линии зависимостей под карточками, отличая уже выполненные связи от закрытых.
@@ -73,7 +73,7 @@ static func draw_node(game: Node2D, index: int) -> void:
 	var current_rank: int = game.TalentSystem.rank(game, talent_id)
 	var learned: bool = current_rank > 0
 	var available: bool = game.TalentSystem.can_unlock(game, talent_id)
-	MoonStyle.panel(game,rect,Color("334f36") if learned else MoonStyle.INSET,MoonStyle.ACCENT if selected else MoonStyle.EDGE)
+	MoonStyle.panel(game,rect,MoonStyle.SELECTED if learned else MoonStyle.INSET,MoonStyle.ACCENT if selected else MoonStyle.EDGE)
 	game.draw_circle(rect.position+Vector2(24,23),13,Color(0.35,0.25,0.13,0.14))
 	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(11, 30), String(talent.icon), HORIZONTAL_ALIGNMENT_CENTER, 26, 13, MoonStyle.MUTED)
 	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(46, 20), game.TalentSystem.word(game, talent_id), HORIZONTAL_ALIGNMENT_LEFT, 128, 10, MoonStyle.TEXT)

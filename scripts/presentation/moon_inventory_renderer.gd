@@ -1,6 +1,7 @@
 extends RefCounted
 
 const MoonStyle := preload("res://scripts/presentation/moon_theme.gd")
+const Paper := preload("res://scripts/presentation/paper_theme_palette.gd")
 const Items := preload("res://scripts/systems/item_presentation_system.gd")
 
 ## Рисует непрозрачный полноэкранный рюкзак с общей геометрией указателя и крупными иконками.
@@ -34,7 +35,7 @@ static func draw(game: Node) -> void:
 static func draw_slot(game: Node, index: int, visible: int) -> void:
 	var rect: Rect2 = game.InterfaceRenderer.inventory_slot_rect(visible)
 	var selected: bool = index>=0 and index==game.inventory_selected
-	MoonStyle.panel(game,rect,Color("49633d") if selected else Color("2b4435"),MoonStyle.ACCENT if selected else MoonStyle.EDGE)
+	MoonStyle.panel(game,rect,MoonStyle.SELECTED if selected else MoonStyle.INSET,MoonStyle.ACCENT if selected else MoonStyle.EDGE)
 	if index<0: return
 	var kind: String = game.inventory_slots[index]
 	if kind.is_empty() or game.inventory_item_count(kind)<=0: return
@@ -60,7 +61,7 @@ static func draw_detail(game: Node) -> void:
 	var origin := rect.position+Vector2(14,16)
 	game.draw_item_icon(kind,Rect2(origin,Vector2(54,54)))
 	game.draw_ui_multiline_string(game.UI_FONT,origin+Vector2(66,14),game.inventory_item_name(kind),HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-94,42,16,2,MoonStyle.TEXT)
-	MoonStyle.text(game,Rect2(origin+Vector2(66,45),Vector2(rect.size.x-94,20)),MoonStyle.sentence_case(game.LocaleSystem.ui("item_rarity_"+Items.rarity(kind))),MoonStyle.LABEL_SIZE,Items.rarity_color(kind))
+	MoonStyle.text(game,Rect2(origin+Vector2(66,45),Vector2(rect.size.x-94,20)),MoonStyle.sentence_case(game.LocaleSystem.ui("item_rarity_"+Items.rarity(kind))),MoonStyle.LABEL_SIZE,Paper.rarity_ink(Items.rarity(kind)))
 	MoonStyle.text(game,Rect2(origin+Vector2(0,74),Vector2(rect.size.x-28,20)),MoonStyle.sentence_case(game.LocaleSystem.ui("category_"+game.InventorySystem.category(kind)))+" · ×%d"%game.inventory_item_count(kind),MoonStyle.LABEL_SIZE,MoonStyle.MUTED)
 	game.draw_line(origin+Vector2(0,105),origin+Vector2(rect.size.x-28,105),MoonStyle.EDGE,1)
 	game.draw_ui_multiline_string(game.UI_FONT,origin+Vector2(0,129),game.LocaleSystem.ui(game.InventorySystem.detail_key(kind)),HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-28,52,MoonStyle.BODY_SIZE,3,MoonStyle.MUTED)
@@ -85,7 +86,7 @@ static func draw_equipment(game: Node) -> void:
 	var slots := ["head","body","legs","hands","offhand","ring"]
 	for index in slots.size():
 		var rect := Rect2(916+(index%2)*99,195+(index/2)*110,86,78)
-		MoonStyle.panel(game,rect,Color("2c4435"))
+		MoonStyle.panel(game,rect,MoonStyle.INSET)
 		var kind: String = game.equipment[slots[index]]
 		if not kind.is_empty(): game.draw_item_icon(kind,rect.grow(-12))
 		var label: String = game.LocaleSystem.ui("offhand_short" if slots[index]=="offhand" else slots[index])

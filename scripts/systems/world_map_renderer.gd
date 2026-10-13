@@ -31,8 +31,8 @@ static func draw(game: Node2D) -> void:
 static func draw_tabs(game: Node2D) -> void:
 	for index in TAB_RECTS.size():
 		var rect: Rect2 = TAB_RECTS[index]
-		MoonStyle.panel(game,rect,Color("46613d") if index == game.world_guide_page else MoonStyle.PANEL)
-		game.draw_ui_string(game.UI_FONT, rect.position + Vector2(10, 28), "%s  %s" % [PAGE_ICONS[index], game.LocaleSystem.ui(PAGE_LABEL_KEYS[index])], HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 20, 10, Color("fff0cf"))
+		MoonStyle.panel(game,rect,MoonStyle.SELECTED if index == game.world_guide_page else MoonStyle.PANEL)
+		game.draw_ui_string(game.UI_FONT, rect.position + Vector2(10, 28), "%s  %s" % [PAGE_ICONS[index], game.LocaleSystem.ui(PAGE_LABEL_KEYS[index])], HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 20, 10, MoonStyle.TEXT)
 
 
 ## Возвращает индекс вкладки под указателем либо минус один.
@@ -56,10 +56,10 @@ static func draw_map(game: Node2D) -> void:
 		var position := map_rect.position + Vector2((source_position.x - 118.0) / 916.0 * map_rect.size.x, (source_position.y - 112.0) / 418.0 * map_rect.size.y)
 		var discovered: bool = location in game.state.world.estate.discovered
 		var color := Color("efc766") if location == current else (Color("d4825b") if location == objective else (Color("8fcf9e") if discovered else Color("52615b")))
-		game.draw_circle(position, 12.0, Color("172822")); game.draw_circle(position, 8.0, color)
+		game.draw_circle(position, 12.0, MoonStyle.EDGE); game.draw_circle(position, 8.0, color)
 		var label: String = game.WorldSystem.name(location) if discovered else game.LocaleSystem.ui("map_unknown")
-		game.draw_rect(Rect2(position + Vector2(-58, 14), Vector2(116, 18)), Color(0.025, 0.055, 0.045, 0.82), true)
-		game.draw_ui_string(game.UI_FONT, position + Vector2(-56, 28), label, HORIZONTAL_ALIGNMENT_CENTER, 112, 8, Color("f8f1dc"))
+		game.draw_rect(Rect2(position + Vector2(-58, 14), Vector2(116, 18)), MoonStyle.INSET, true)
+		game.draw_ui_string(game.UI_FONT, position + Vector2(-56, 28), label, HORIZONTAL_ALIGNMENT_CENTER, 112, 8, MoonStyle.TEXT)
 	MoonStyle.panel(game,Rect2(838, 174, 232, 392),MoonStyle.INSET)
 	game.draw_ui_string(game.UI_FONT, Vector2(858, 207), game.LocaleSystem.location(current), HORIZONTAL_ALIGNMENT_LEFT, 192, 16, MoonStyle.TEXT)
 	var weather: String = game.WorldEventSystem.location_weather(game.day, current)
@@ -73,7 +73,7 @@ static func draw_map(game: Node2D) -> void:
 ## Рисует прогноз на семь дней и сезонную ленту из двадцати восьми календарных ячеек.
 static func draw_calendar(game: Node2D) -> void:
 	MoonStyle.panel(game,CONTENT)
-	game.draw_ui_string(game.UI_FONT, Vector2(88, 190), game.LocaleSystem.ui("guide_week_forecast"), HORIZONTAL_ALIGNMENT_LEFT, 420, 15, Color("fff0cf"))
+	game.draw_ui_string(game.UI_FONT, Vector2(88, 190), game.LocaleSystem.ui("guide_week_forecast"), HORIZONTAL_ALIGNMENT_LEFT, 420, 15, MoonStyle.TEXT)
 	for offset in 7:
 		var day: int = game.day + offset
 		var rect := Rect2(82 + offset * 141, 204, 131, 174)
@@ -87,7 +87,7 @@ static func draw_calendar(game: Node2D) -> void:
 		var event_name: String = game.LocaleSystem.ui(event_key)
 		game.draw_rect(Rect2(rect.position + Vector2(18, 143), Vector2(95, 22)), MoonStyle.INSET, true)
 		game.draw_ui_string(game.UI_FONT, rect.position + Vector2(20, 159), event_name, HORIZONTAL_ALIGNMENT_CENTER, 91, 7, MoonStyle.MUTED)
-	game.draw_ui_string(game.UI_FONT, Vector2(88, 408), game.LocaleSystem.ui("guide_valley_year"), HORIZONTAL_ALIGNMENT_LEFT, 360, 12, Color("fff0cf"))
+	game.draw_ui_string(game.UI_FONT, Vector2(88, 408), game.LocaleSystem.ui("guide_valley_year"), HORIZONTAL_ALIGNMENT_LEFT, 360, 12, MoonStyle.TEXT)
 	for index in 28:
 		var rect := Rect2(82 + (index % 14) * 70.5, 422 + (index / 14) * 58, 62, 50)
 		MoonStyle.panel(game,rect,MoonStyle.INSET)
@@ -107,7 +107,7 @@ static func draw_bestiary(game: Node2D) -> void:
 		var rect := Rect2(82 + (index % 3) * 333, 174 + (index / 3) * 132, 318, 116)
 		MoonStyle.panel(game,rect,MoonStyle.INSET)
 		var known: bool = game.WorldMapSystem.bestiary_discovered(game, kind)
-		if not known: game.draw_rect(rect.grow(-8), Color(0.12, 0.10, 0.08, 0.48))
+		if not known: game.draw_rect(rect.grow(-8), Color(MoonStyle.BACKGROUND,0.48))
 		var data: Dictionary = game.CombatSystem.TYPES[kind]
 		if known: draw_enemy_portrait(game, kind, Rect2(rect.position + Vector2(10, 19), Vector2(74, 74)))
 		game.draw_ui_string(game.UI_FONT, rect.position + Vector2(88, 28), String(data.name) if known else game.LocaleSystem.ui("guide_unknown_enemy"), HORIZONTAL_ALIGNMENT_LEFT, 210, 11, MoonStyle.TEXT if known else Color("725f4d"))
@@ -135,7 +135,7 @@ static func draw_enemy_portrait(game: Node2D, kind: String, rect: Rect2) -> void
 static func draw_collections(game: Node2D) -> void:
 	MoonStyle.panel(game,CONTENT)
 	var caught: int = game.state.fishing.best_sizes.size()
-	game.draw_ui_string(game.UI_FONT, Vector2(86, 190), "%s  •  %d/%d" % [game.LocaleSystem.ui("guide_fish_collection"), caught, game.FishingSystem.FISH_CATALOG.size()], HORIZONTAL_ALIGNMENT_LEFT, 600, 14, Color("fff0cf"))
+	game.draw_ui_string(game.UI_FONT, Vector2(86, 190), "%s  •  %d/%d" % [game.LocaleSystem.ui("guide_fish_collection"), caught, game.FishingSystem.FISH_CATALOG.size()], HORIZONTAL_ALIGNMENT_LEFT, 600, 14, MoonStyle.TEXT)
 	for index in game.FishingSystem.FISH_CATALOG.size():
 		var fish: Dictionary = game.FishingSystem.FISH_CATALOG[index]
 		var rect := Rect2(82 + (index % 4) * 249, 204 + (index / 4) * 120, 234, 104)
@@ -144,14 +144,14 @@ static func draw_collections(game: Node2D) -> void:
 		var catch_count := int(game.state.fishing.catch_counts.get(fish.id, 0)); var best_quality := String(game.state.fishing.best_qualities.get(fish.id, "normal"))
 		var icon_rect := MoonStyle.slot(game, Rect2(rect.position + Vector2(12, 18), Vector2(64, 64)), record > 0)
 		game.draw_item_icon("fish", icon_rect)
-		game.draw_ui_string(game.UI_FONT, rect.position + Vector2(84, 33), game.LocaleSystem.text(String(fish.name_key)) if record > 0 else "???", HORIZONTAL_ALIGNMENT_LEFT, 136, 11, Color("fff0cf"))
-		game.draw_ui_string(game.UI_FONT, rect.position + Vector2(84, 57), game.LocaleSystem.ui("guide_record", [record]) if record > 0 else game.LocaleSystem.ui("guide_not_caught"), HORIZONTAL_ALIGNMENT_LEFT, 136, 8, Color("d0a85f") if record > 0 else Color("9b8a70"))
+		game.draw_ui_string(game.UI_FONT, rect.position + Vector2(84, 33), game.LocaleSystem.text(String(fish.name_key)) if record > 0 else "???", HORIZONTAL_ALIGNMENT_LEFT, 136, 11, MoonStyle.TEXT)
+		game.draw_ui_string(game.UI_FONT, rect.position + Vector2(84, 57), game.LocaleSystem.ui("guide_record", [record]) if record > 0 else game.LocaleSystem.ui("guide_not_caught"), HORIZONTAL_ALIGNMENT_LEFT, 136, 8, MoonStyle.MUTED if record > 0 else MoonStyle.MUTED)
 		var seasons: Array = fish.get("seasons", [])
 		var condition_parts: Array[String] = []
 		for season in seasons: condition_parts.append(game.LocaleSystem.ui("season_" + String(season)).left(3).to_upper())
 		var condition := " • ".join(condition_parts); var habitat_text: String = condition if not condition.is_empty() else game.LocaleSystem.ui("guide_all_year")
 		var detail_text: String = game.LocaleSystem.text("fish_collection_stats", [catch_count, game.LocaleSystem.text("quality_" + best_quality)]) + " • " + habitat_text if record > 0 else habitat_text
-		game.draw_ui_string(game.UI_FONT, rect.position + Vector2(84, 79), detail_text, HORIZONTAL_ALIGNMENT_LEFT, 136, 7, Color("bca57c"))
+		game.draw_ui_string(game.UI_FONT, rect.position + Vector2(84, 79), detail_text, HORIZONTAL_ALIGNMENT_LEFT, 136, 7, MoonStyle.MUTED)
 
 
 ## Рисует прокручиваемый справочник рецептов и подробности выбранного результата без возможности крафта.

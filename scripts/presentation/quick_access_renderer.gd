@@ -6,8 +6,9 @@ const WORLD_ORIGIN := Vector2(318, 588)
 const WORLD_SLOT_SIZE := Vector2(48, 48)
 const WORLD_PITCH := 52.0
 const SLOT_COUNT := 10
-const INK := Color("fff1c8")
-const OUTLINE := Color("33271e")
+const Style := preload("res://scripts/presentation/moon_theme.gd")
+const INK := Style.TEXT
+const OUTLINE := Style.INSET
 
 
 ## Возвращает единую геометрию рисунка и зоны нажатия компактного мирового слота.
@@ -18,7 +19,7 @@ static func world_slot_rect(index: int) -> Rect2:
 ## Рисует лёгкое основание и ровно одну рамку на слот, без запечённых ячеек и плашки названия.
 static func draw_world(game: Node) -> void:
 	if bool(game.state.player.adventure_ui.get("dialogue_open",false)): return
-	preload("res://scripts/presentation/moon_theme.gd").panel(game,WORLD_PANEL,Color("1c3027"))
+	Style.panel(game,WORLD_PANEL,Style.PANEL)
 	for index in SLOT_COUNT:
 		draw_slot(game, world_slot_rect(index), index)
 
@@ -29,14 +30,14 @@ static func draw_slot(game: Node, rect: Rect2, index: int) -> void:
 	var selected: bool = index == game.selected_hotbar
 	var kind: String = game.hotbar_slots[index]
 	var count: int = game.inventory_item_count(kind) if not kind.is_empty() else 0
-	preload("res://scripts/presentation/moon_theme.gd").panel(game,rect,Color("4b663f") if selected else Color("2c4436"),Color("bdd495") if selected else Color("53694b"))
+	Style.panel(game,rect,Style.SELECTED if selected else Style.INSET,Style.ACCENT if selected else Style.EDGE)
 	if not kind.is_empty():
 		game.draw_item_icon(kind, game.InterfaceRenderer.hotbar_icon_rect(rect))
 	if kind.is_empty() or count <= 0:
-		game.draw_rect(rect.grow(-5), Color(0.10, 0.07, 0.05, 0.42))
+		game.draw_rect(rect.grow(-5), Color(Style.BACKGROUND,0.42))
 	# Выбор остаётся внутри рамки и читается даже на затемнённой пустой ячейке.
 	if selected:
-		game.draw_line(Vector2(rect.position.x + 10, rect.end.y - 3), Vector2(rect.end.x - 10, rect.end.y - 3), Color("ffe9a6"), 2.0)
+		game.draw_line(Vector2(rect.position.x + 10, rect.end.y - 3), Vector2(rect.end.x - 10, rect.end.y - 3), Style.ACCENT, 2.0)
 	_draw_small_text(game, hotkey_rect(rect), str(index + 1 if index < 9 else 0), HORIZONTAL_ALIGNMENT_LEFT, 8)
 	var quantity := quantity_text(count)
 	if not kind.is_empty() and not quantity.is_empty():
@@ -44,7 +45,7 @@ static func draw_slot(game: Node, rect: Rect2, index: int) -> void:
 	var readiness: float = game.InterfaceRenderer.hotbar_readiness(game, kind)
 	if not kind.is_empty() and readiness < 1.0:
 		var track := readiness_rect(rect)
-		game.draw_rect(track, Color("493325"))
+		game.draw_rect(track, Style.TRACK)
 		game.draw_rect(Rect2(track.position, Vector2(track.size.x * clampf(readiness, 0.0, 1.0), track.size.y)), Color("8cbd70").lerp(Color("ce6952"), 1.0 - readiness))
 
 

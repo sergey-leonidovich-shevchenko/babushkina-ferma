@@ -1,6 +1,8 @@
 class_name SpellRenderer
 extends RefCounted
 
+const Style := preload("res://scripts/presentation/moon_theme.gd")
+
 const CYCLE_BUTTON:=Rect2(1018,444,54,54)
 const CAST_BUTTON:=Rect2(1078,444,54,54)
 
@@ -25,6 +27,6 @@ static func draw_ui(game: Node) -> void:
 	if game.inventory_open or game.shop_open or game.quest_log_open or game.world_map_open or game.skill_menu_open or game.crafting_open or game.storage_open or game.forge_open or game.AdventurePolishSystem.has_modal(game) or game.FirstChapterSystem.modal_active(game) or game.state.fishing.phase != game.FishingSystem.PHASE_IDLE: return
 	var spell:Dictionary=game.SpellSystem.selected(game); var cooldown:float=game.SpellSystem.selected_cooldown(game); var rect:=Rect2(910,592,222,42)
 	game.InterfaceRenderer.HudRenderer.draw_quiet_panel(game,rect)
-	game.draw_ui_string(game.UI_FONT,rect.position+Vector2(12,17),"%s %s"%[spell.icon,game.SpellSystem.word(game,String(spell.id))],HORIZONTAL_ALIGNMENT_LEFT,198,11,Color("e8d9b2")); game.draw_ui_string(game.UI_FONT,rect.position+Vector2(12,33),"C • %d MP%s"%[spell.cost," • %.1f"%cooldown if cooldown>0.0 else ""],HORIZONTAL_ALIGNMENT_LEFT,198,10,Color("bea97e"))
+	game.draw_ui_string(game.UI_FONT,rect.position+Vector2(12,17),"%s %s"%[spell.icon,game.SpellSystem.word(game,String(spell.id))],HORIZONTAL_ALIGNMENT_LEFT,198,11,Style.TEXT); game.draw_ui_string(game.UI_FONT,rect.position+Vector2(12,33),"C • %d MP%s"%[spell.cost," • %.1f"%cooldown if cooldown>0.0 else ""],HORIZONTAL_ALIGNMENT_LEFT,198,10,Style.MUTED)
 	if game.touch_controls_visible:
-		for data in [[cycle_button_rect(game),"↻"],[cast_button_rect(game),String(spell.icon)]]: game.draw_rect(data[0],Color(0.08,0.10,0.18,0.88)); game.draw_rect(data[0],Color("7aa9d8"),false,2.0); game.draw_ui_string(game.UI_FONT,data[0].position+Vector2(5,data[0].size.y*0.65),data[1],HORIZONTAL_ALIGNMENT_CENTER,data[0].size.x-10,23,Color("d9edff"))
+		for data in [[cycle_button_rect(game),"↻"],[cast_button_rect(game),String(spell.icon)]]: Style.panel(game,data[0]); game.draw_ui_string(game.UI_FONT,data[0].position+Vector2(5,data[0].size.y*0.65),data[1],HORIZONTAL_ALIGNMENT_CENTER,data[0].size.x-10,23,Style.TEXT)

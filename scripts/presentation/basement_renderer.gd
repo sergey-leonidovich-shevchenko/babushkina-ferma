@@ -1,5 +1,7 @@
 extends RefCounted
 
+const Style := preload("res://scripts/presentation/moon_theme.gd")
+
 const Basement := preload("res://scripts/systems/basement_system.gd")
 const Controls := preload("res://scripts/systems/basement_input_system.gd")
 const Locale := preload("res://scripts/systems/basement_locale.gd")
@@ -79,15 +81,15 @@ static func ui(game: Node2D) -> void:
 	if game.current_location!=Basement.Data.LOCATION: return
 	var value:=Basement.ui(game)
 	if bool(value.placing):
-		var rect:=Rect2(190,100,772,64); game.draw_rect(rect,Color(0.12,0.16,0.13,0.94))
-		game.draw_ui_string(game.UI_FONT,Vector2(208,122),Locale.name_for(game,value.kind),HORIZONTAL_ALIGNMENT_CENTER,736,15,Color("f2ddac"))
+		var rect:=Rect2(190,100,772,64); Style.panel(game,rect)
+		game.draw_ui_string(game.UI_FONT,Vector2(208,122),Locale.name_for(game,value.kind),HORIZONTAL_ALIGNMENT_CENTER,736,15,Style.TEXT)
 		var why:String=Controls.preview(game).reason
-		game.draw_ui_string(game.UI_FONT,Vector2(208,146),game.LocaleSystem.ui(why) if not why.is_empty() else game.LocaleSystem.ui("basement_paid"),HORIZONTAL_ALIGNMENT_CENTER,736,12,Color("ee8772") if not why.is_empty() else Color("b7d790"))
-		game.draw_rect(Rect2(130,560,892,76),Color(0.12,0.16,0.13,0.94))
+		game.draw_ui_string(game.UI_FONT,Vector2(208,146),game.LocaleSystem.ui(why) if not why.is_empty() else game.LocaleSystem.ui("basement_paid"),HORIZONTAL_ALIGNMENT_CENTER,736,12,Style.DANGER if not why.is_empty() else Style.ACCENT)
+		Style.panel(game,Rect2(130,560,892,76))
 		for index in 4:
 			var label:String=["Q / LB","R / RB",game.LocaleSystem.ui("basement_place_button"),game.LocaleSystem.ui("basement_cancel_button")][index]
 			preload("res://scripts/presentation/basement_blueprint_renderer.gd").button(game,Controls.PLACE_BUTTONS[index],label,false)
-		game.draw_ui_string(game.UI_FONT,Vector2(140,622),game.LocaleSystem.ui("basement_place_help"),HORIZONTAL_ALIGNMENT_CENTER,872,11,Color("f2ddac"))
+		game.draw_ui_string(game.UI_FONT,Vector2(140,622),game.LocaleSystem.ui("basement_place_help"),HORIZONTAL_ALIGNMENT_CENTER,872,11,Style.TEXT)
 	elif not bool(value.open) and not game.crafting_open and not game.inventory_open:
 		var nearest:=Basement.nearest(game)
 		if nearest.begins_with("basement_station:"):

@@ -1,5 +1,6 @@
 extends RefCounted
 
+const Paper := preload("res://scripts/presentation/paper_theme_palette.gd")
 const UiKitSystem := preload("res://scripts/systems/ui_kit_system.gd")
 const ItemTooltipRenderer := preload("res://scripts/presentation/item_tooltip_renderer.gd")
 const ItemPresentationSystem := preload("res://scripts/systems/item_presentation_system.gd")
@@ -47,32 +48,27 @@ static func close_active(game: Node) -> bool:
 	return true
 
 
-## Рисует общий затемнённый каркас предметного окна с резным заголовком и кнопкой закрытия.
+## Рисует общий затемнённый каркас предметного окна с пергаментным заголовком и кнопкой закрытия.
 static func draw_shell(game: Node, title: String, subtitle: String = "") -> void:
 	game.draw_rect(VIEWPORT, Color(0.012, 0.020, 0.016, 0.78))
 	UiKitSystem.draw_modal_panel(game, SHELL, true)
-	game.draw_ui_string(game.MENU_FONT, Vector2(250, 103), title, HORIZONTAL_ALIGNMENT_CENTER, 652, 28, Color("fff0bd"))
+	game.draw_ui_string(game.MENU_FONT, Vector2(250, 103), preload("res://scripts/presentation/moon_theme.gd").sentence_case(title), HORIZONTAL_ALIGNMENT_CENTER, 652, 28, Paper.TEXT)
 	if not subtitle.is_empty():
-		game.draw_ui_string(game.UI_FONT, Vector2(306, 128), subtitle, HORIZONTAL_ALIGNMENT_CENTER, 540, 10, Color("efd59b"))
-	game.draw_texture_rect(UiKitSystem.texture("close_button"), CLOSE_BUTTON, false)
-	game.draw_ui_string(game.MENU_FONT, CLOSE_BUTTON.position + Vector2(4, 37), "×", HORIZONTAL_ALIGNMENT_CENTER, CLOSE_BUTTON.size.x - 8, 24, Color("fff0bd"))
+		game.draw_ui_string(game.UI_FONT, Vector2(306, 128), subtitle, HORIZONTAL_ALIGNMENT_CENTER, 540, 10, Paper.MUTED)
+	preload("res://scripts/presentation/moon_theme.gd").button(game,CLOSE_BUTTON,"×")
 
 
-## Рисует светлый пергамент внутри общей деревянной рамы, чтобы тёмный текст не попадал на древесину.
+## Рисует светлый пергамент внутри общей панели, чтобы тёмный текст не попадал на древесину.
 static func draw_section(game: Node, rect: Rect2) -> void:
 	UiKitSystem.draw_nine_patch(game, "tooltip", rect)
 
 
-## Рисует спокойную строку на фактурном пергаменте без сжатия массивной рамы в высоту текста.
+## Рисует спокойную строку на светлом пергаменте без сжатия массивной рамы в высоту текста.
 static func draw_row(game: Node, rect: Rect2, selected: bool, enabled: bool = true) -> Rect2:
 	var surface := Rect2(rect.position + Vector2(1, 1), rect.size - Vector2(2, 3))
-	game.draw_texture_rect_region(UiKitSystem.texture("tooltip"), surface, ROW_PARCHMENT_SOURCE)
-	game.draw_rect(surface, Color(0.32, 0.46, 0.23, 0.22) if selected else Color(0.48, 0.32, 0.16, 0.05))
-	game.draw_line(surface.position + Vector2(0, surface.size.y), surface.end, Color("bd9b63"), 1)
-	if selected:
-		game.draw_rect(surface, Color("7b8645"), false, 1)
+	preload("res://scripts/presentation/moon_theme.gd").panel(game,surface,Paper.SELECTED if selected else Paper.INSET,Paper.ACCENT_TEXT if selected else Paper.EDGE,2)
 	if not enabled:
-		game.draw_rect(Rect2(surface.end - Vector2(7, surface.size.y - 7), Vector2(3, surface.size.y - 14)), Color("b78967"))
+		game.draw_rect(Rect2(surface.end-Vector2(7,surface.size.y-7),Vector2(3,surface.size.y-14)),Paper.DISABLED)
 	return surface.grow(-6)
 
 
@@ -85,7 +81,7 @@ static func draw_item_row(game:Node,rect:Rect2,kind:String,selected:bool,enabled
 
 ## Рисует подсказку управления в спокойной нижней области общего каркаса.
 static func draw_help(game: Node, text: String) -> void:
-	game.draw_ui_string(game.UI_FONT, Vector2(166, 582), text, HORIZONTAL_ALIGNMENT_CENTER, 820, 12, Color("efd59b"))
+	game.draw_ui_string(game.UI_FONT, Vector2(166, 582), text, HORIZONTAL_ALIGNMENT_CENTER, 820, 12, Paper.MUTED)
 
 
 ## Рисует верстак или котелок в едином предметном каркасе с иконками результатов и доступностью рецептов.
@@ -100,8 +96,8 @@ static func draw_crafting(game: Node) -> void:
 	draw_shell(game, title)
 	if game.crafting_station=="alchemy":
 		draw_table_header(game,ALCHEMY_FILTER)
-		game.draw_ui_string(game.UI_FONT,ALCHEMY_FILTER.position+Vector2(8,20),"‹  "+game.LocaleSystem.ui("alchemy_"+String(game.get_meta("alchemy_filter","all")))+"  ›",HORIZONTAL_ALIGNMENT_CENTER,ALCHEMY_FILTER.size.x-16,12,Color("fff0cf"))
-		game.draw_ui_string(game.UI_FONT,Vector2(700,140),game.LocaleSystem.ui("alchemy_progress",[game.CraftingSystem.Alchemy.state(game).discovered.size(),game.CraftingSystem.Alchemy.state(game).xp]),HORIZONTAL_ALIGNMENT_CENTER,240,10,Color("efd59b"))
+		game.draw_ui_string(game.UI_FONT,ALCHEMY_FILTER.position+Vector2(8,20),"‹  "+game.LocaleSystem.ui("alchemy_"+String(game.get_meta("alchemy_filter","all")))+"  ›",HORIZONTAL_ALIGNMENT_CENTER,ALCHEMY_FILTER.size.x-16,12,Paper.TEXT)
+		game.draw_ui_string(game.UI_FONT,Vector2(700,140),game.LocaleSystem.ui("alchemy_progress",[game.CraftingSystem.Alchemy.state(game).discovered.size(),game.CraftingSystem.Alchemy.state(game).xp]),HORIZONTAL_ALIGNMENT_CENTER,240,10,Paper.MUTED)
 	draw_section(game, CRAFT_SECTION)
 	var visible: Array[int] = game.CraftingSystem.visible_indices(game)
 	var first_position: int = game.CraftingSystem.list_start(game,visible)
@@ -120,7 +116,7 @@ static func draw_crafting(game: Node) -> void:
 		var detail := CRAFT_DETAIL
 		game.draw_line(detail.position - Vector2(9, -10), detail.position + Vector2(-9, detail.size.y - 10), Color("bc9a64"), 1)
 		draw_table_header(game, Rect2(detail.position, Vector2(detail.size.x, 42)))
-		game.draw_ui_string(game.UI_FONT, detail.position + Vector2(10, 27), game.CraftingSystem.category_name(game, selected), HORIZONTAL_ALIGNMENT_CENTER, detail.size.x - 20, 12, Color("fff0cf"))
+		game.draw_ui_string(game.UI_FONT, detail.position + Vector2(10, 27), game.CraftingSystem.category_name(game, selected), HORIZONTAL_ALIGNMENT_CENTER, detail.size.x - 20, 12, Paper.TEXT)
 		game.draw_item_icon(String(selected.output), Rect2(detail.position + Vector2(83, 58), Vector2(80, 80)))
 		game.draw_ui_multiline_string(game.UI_FONT, detail.position + Vector2(10, 159), game.inventory_item_name(selected.output), HORIZONTAL_ALIGNMENT_CENTER, detail.size.x - 20, 40, 17, 2, UiKitSystem.COLORS.ink)
 		var status:String=game.WorkshopSystem.status(game) if game.WorkshopSystem.handles(game.crafting_station) else (game.FurnaceSystem.status(game) if game.crafting_station=="furnace" else ItemPresentationSystem.effect_text(game,selected.output))
@@ -149,9 +145,9 @@ static func draw_shop(game: Node) -> void:
 	draw_action(game, SHOP_SELL_ACTION, game.LocaleSystem.ui("sell"), game.ShopSystem.can_sell(game, game.shop_selected))
 	var table := SHOP_TABLE
 	draw_table_header(game, Rect2(table.position, Vector2(table.size.x, 42)))
-	game.draw_ui_string(game.UI_FONT, table.position + Vector2(52, 28), game.LocaleSystem.ui("product"), HORIZONTAL_ALIGNMENT_LEFT, 280, 13, Color("fff0cf"))
-	game.draw_ui_string(game.UI_FONT, table.position + Vector2(360, 28), game.LocaleSystem.ui("buy"), HORIZONTAL_ALIGNMENT_CENTER, 78, 13, Color("fff0cf"))
-	game.draw_ui_string(game.UI_FONT, table.position + Vector2(460, 28), game.LocaleSystem.ui("sell"), HORIZONTAL_ALIGNMENT_CENTER, 78, 13, Color("fff0cf"))
+	game.draw_ui_string(game.UI_FONT, table.position + Vector2(52, 28), game.LocaleSystem.ui("product"), HORIZONTAL_ALIGNMENT_LEFT, 280, 13, Paper.TEXT)
+	game.draw_ui_string(game.UI_FONT, table.position + Vector2(360, 28), game.LocaleSystem.ui("buy"), HORIZONTAL_ALIGNMENT_CENTER, 78, 13, Paper.TEXT)
+	game.draw_ui_string(game.UI_FONT, table.position + Vector2(460, 28), game.LocaleSystem.ui("sell"), HORIZONTAL_ALIGNMENT_CENTER, 78, 13, Paper.TEXT)
 	var first_product: int = clampi(game.shop_selected - 4, 0, maxi(0, game.shop_products.size() - 9))
 	for index in range(first_product, mini(first_product + 9, game.shop_products.size())):
 		var product: Dictionary = game.shop_products[index]
@@ -320,6 +316,4 @@ static func handle_crafting_pointer(game: Node, position: Vector2) -> bool:
 
 ## Выделяет заголовок таблицы тёмной полосой с тонким золотым кантом и достаточным внутренним полем.
 static func draw_table_header(game: Node, rect: Rect2) -> void:
-	game.draw_rect(rect.grow(-1), Color("694627"))
-	game.draw_line(rect.position + Vector2(2, 2), Vector2(rect.end.x - 2, rect.position.y + 2), Color("ba965a"), 1)
-	game.draw_line(Vector2(rect.position.x + 2, rect.end.y - 2), rect.end - Vector2(2, 2), Color("49301f"), 1)
+	preload("res://scripts/presentation/moon_theme.gd").panel(game,rect,Paper.SELECTED)

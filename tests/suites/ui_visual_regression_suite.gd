@@ -3,6 +3,7 @@ extends "res://tests/suites/suite_base.gd"
 
 ## Запускает контроль визуальных эталонов, различимости кадров и переполнения шести локалей.
 func run() -> void:
+	preload("res://tests/suites/paper_theme_suite.gd").new(context).run()
 	test_manifest_locks_every_ui_reference()
 	test_visual_difference_detects_changed_frame()
 	test_perceptual_gate_tolerates_noise_and_rejects_layout_damage()

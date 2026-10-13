@@ -1,5 +1,6 @@
 extends RefCounted
 
+const Paper := preload("res://scripts/presentation/paper_theme_palette.gd")
 const UiKitSystem := preload("res://scripts/systems/ui_kit_system.gd")
 const TextMetrics := preload("res://scripts/systems/ui_text_metrics_cache_system.gd")
 const SCREEN := Color(0.025, 0.055, 0.048, 0.94)
@@ -31,7 +32,7 @@ static func draw_button(game: Node2D, rect: Rect2, label: String, active: bool, 
 	elif editor: UiKitSystem.draw_nine_patch(game,"editor_button_selected" if active and enabled else "editor_button_normal",rect)
 	else: UiKitSystem.draw_button(game,rect,active,enabled,game.settings_state.reduced_motion,Time.get_ticks_msec())
 	if not enabled: game.draw_rect(rect.grow(-6.0),Color(0.12,0.10,0.08,0.34))
-	var layout:=button_text_layout(rect,editor); var fitted:=fit_label(game.UI_FONT,label,float(layout.width),int(layout.preferred_size),int(layout.minimum_size)); var color:=EDITOR_BUTTON_TEXT if editor and enabled else (EDITOR_BUTTON_DISABLED if editor else (Color("fff0c8") if enabled else Color("88928d")))
+	var layout:=button_text_layout(rect,editor); var fitted:=fit_label(game.UI_FONT,label,float(layout.width),int(layout.preferred_size),int(layout.minimum_size)); var color:=EDITOR_BUTTON_TEXT if editor and enabled else (EDITOR_BUTTON_DISABLED if editor else (Paper.TEXT if enabled else Paper.DISABLED))
 	game.draw_ui_string(game.UI_FONT,rect.position+Vector2(float(layout.inset),float(layout.baseline)),String(fitted.text),HORIZONTAL_ALIGNMENT_CENTER,float(layout.width),int(fitted.size),color)
 
 

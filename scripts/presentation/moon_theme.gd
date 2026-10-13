@@ -1,12 +1,21 @@
 extends RefCounted
 
-const BACKGROUND := Color("14251f")
-const PANEL := Color("20352b")
-const INSET := Color("192c24")
-const EDGE := Color("526c4c")
-const TEXT := Color("e8ecd7")
-const MUTED := Color("a7b99d")
-const ACCENT := Color("bdd495")
+const Palette := preload("res://scripts/presentation/paper_theme_palette.gd")
+const BACKGROUND := Palette.BACKGROUND
+const PANEL := Palette.PANEL
+const INSET := Palette.INSET
+const EDGE := Palette.EDGE
+const TEXT := Palette.TEXT
+const MUTED := Palette.MUTED
+const ACCENT := Palette.ACCENT_TEXT
+const PRIMARY := Palette.ACCENT
+const ON_ACCENT := Palette.ON_ACCENT
+const SELECTED := Palette.SELECTED
+const DISABLED := Palette.DISABLED
+const TRACK := Palette.TRACK
+const DANGER := Palette.DANGER
+const SUCCESS := Palette.SUCCESS
+const INFO := Palette.INFO
 const BODY_SIZE := 13
 const LABEL_SIZE := 11
 const HINT_SIZE := 9
@@ -17,7 +26,7 @@ static var styles: Dictionary = {}
 static func sentence_case(label: String) -> String:
 	return label.left(1).to_upper() + label.substr(1).to_lower()
 
-## Рисует непрозрачную лесную поверхность с тонкой рамкой и общими спокойными углами.
+## Рисует непрозрачную пергаментную поверхность с тонкой рамкой и общими спокойными углами.
 static func panel(canvas: CanvasItem, rect: Rect2, fill: Color = PANEL, border: Color = EDGE, radius: int = 5) -> void:
 	var key := "%s:%s:%d" % [fill.to_html(), border.to_html(), radius]
 	if not styles.has(key):
@@ -40,17 +49,18 @@ static func title(game: Node, rect: Rect2, label: String, size: int = 20) -> voi
 
 ## Рисует действие с общим состоянием выбора или недоступности без резной декоративной рамки.
 static func button(game: Node, rect: Rect2, label: String, selected: bool = false, enabled: bool = true) -> void:
-	panel(game, rect, Color("46613d") if selected else PANEL, ACCENT if selected else EDGE)
+	var focused:=selected and enabled
+	panel(game,rect,PRIMARY if focused else INSET,ACCENT if focused else EDGE)
 	var parts := label.split(" • ")
 	for index in parts.size(): parts[index]=sentence_case(parts[index])
-	text(game, rect.grow(-6), " • ".join(parts), BODY_SIZE, TEXT if enabled else Color("73826d"), HORIZONTAL_ALIGNMENT_CENTER)
+	text(game, rect.grow(-6), " • ".join(parts), BODY_SIZE, (ON_ACCENT if focused else TEXT) if enabled else DISABLED, HORIZONTAL_ALIGNMENT_CENTER)
 
 ## Рисует спокойный слот и возвращает внутреннюю область для предмета или портрета.
 static func slot(game: Node, rect: Rect2, selected: bool = false) -> Rect2:
-	panel(game,rect,Color("46613d") if selected else PANEL,ACCENT if selected else EDGE)
+	panel(game,rect,SELECTED if selected else INSET,ACCENT if selected else EDGE)
 	return rect.grow(-6)
 
-## Рисует ресурс в тёмной поверхности без декоративной рамки поверх заполнения.
+## Рисует ресурс на светлой дорожке без декоративной рамки поверх заполнения.
 static func progress(game: Node, rect: Rect2, ratio: float, color: Color) -> void:
 	panel(game,rect,INSET)
 	var inner := rect.grow(-4)

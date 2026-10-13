@@ -74,9 +74,10 @@ static func draw_title_wordmark(game: Node) -> void:
 	draw_outlined_string(game, Vector2(116, 172), game.LocaleSystem.ui("title_features"), 538, 16, Color("fff1cf"), Color(0.10, 0.06, 0.04, 0.92), 1)
 
 
-## Рисует интерактивный список прямо в четырёх плашках деревянной доски фонового арта.
+## Рисует светлое меню поверх фоновой иллюстрации, сохраняя прежние области нажатий.
 static func draw_title_menu(game: Node) -> void:
-	draw_outlined_string(game, Vector2(850, 286), game.LocaleSystem.ui("main_menu"), 152, 16, Color("ffd881"), Color("32180e"))
+	MoonStyle.panel(game,TITLE_PANEL)
+	MoonStyle.title(game,Rect2(810,272,230,36),MoonStyle.sentence_case(game.LocaleSystem.ui("main_menu")),24)
 	for index in game.MenuSystem.TITLE_ITEMS.size():
 		var enabled: bool = index != 0 or game.MenuSystem.has_save(game)
 		draw_title_item(game, title_item_rect(index), game.LocaleSystem.ui(game.MenuSystem.TITLE_ITEMS[index]), index == game.menu_state.title_selected, enabled)
@@ -103,7 +104,7 @@ static func draw_settings(game: Node) -> void:
 	if game.menu_state.settings_from_title:
 		game.draw_rect(Rect2(0, 0, 1152, 648), Color(0.01, 0.025, 0.022, 0.82))
 		draw_panel(game, SETTINGS_PANEL)
-		game.draw_ui_string(game.MENU_FONT, Vector2(280, 68), game.LocaleSystem.ui("settings"), HORIZONTAL_ALIGNMENT_CENTER, 592, 26, Color("fff0bd"))
+		game.draw_ui_string(game.MENU_FONT, Vector2(280, 68), game.LocaleSystem.ui("settings"), HORIZONTAL_ALIGNMENT_CENTER, 592, 26, MoonStyle.TEXT)
 	else:
 		MoonPause.draw_backdrop(game)
 		MoonStyle.panel(game, SETTINGS_PANEL)
@@ -134,7 +135,7 @@ static func draw_language_screen(game: Node) -> void:
 	game.draw_texture_rect(game.TITLE_ART, Rect2(0, 0, 1152, 648), false)
 	game.draw_rect(Rect2(0, 0, 1152, 648), Color(0.018, 0.035, 0.03, 0.68))
 	draw_panel(game, LANGUAGE_PANEL)
-	game.draw_ui_string(game.MENU_FONT, Vector2(256, 176), game.LocaleSystem.ui("choose_language"), HORIZONTAL_ALIGNMENT_CENTER, 640, 30, Color("fff0bd"))
+	game.draw_ui_string(game.MENU_FONT, Vector2(256, 176), game.LocaleSystem.ui("choose_language"), HORIZONTAL_ALIGNMENT_CENTER, 640, 30, MoonStyle.TEXT)
 	for index in game.LocaleSystem.LOCALES.size():
 		var rect: Rect2 = game.language_button_rect(index)
 		UiKitSystem.draw_button(game, rect, index == game.language_selected, true, game.settings_state.reduced_motion, Time.get_ticks_msec())
@@ -146,7 +147,7 @@ static func draw_language_screen(game: Node) -> void:
 ## Рисует двухстрочную карточку параметра с раздельной иерархией названия и текущего значения.
 static func draw_setting_card(game: Node, rect: Rect2, label: String, value: String, selected: bool) -> void:
 	if not game.menu_state.settings_from_title:
-		MoonStyle.panel(game, rect, Color("46613d") if selected else MoonStyle.INSET, MoonStyle.ACCENT if selected else MoonStyle.EDGE)
+		MoonStyle.panel(game, rect, MoonStyle.SELECTED if selected else MoonStyle.INSET, MoonStyle.ACCENT if selected else MoonStyle.EDGE)
 		if value.is_empty():
 			MoonStyle.text(game, rect.grow(-8), MoonStyle.sentence_case(label), 13, MoonStyle.TEXT, HORIZONTAL_ALIGNMENT_CENTER)
 		else:
@@ -166,7 +167,7 @@ static func draw_setting_card(game: Node, rect: Rect2, label: String, value: Str
 static func draw_confirmation(game: Node) -> void:
 	game.draw_rect(Rect2(0, 0, 1152, 648), Color(0.01, 0.015, 0.012, 0.58))
 	UiKitSystem.draw_panel(game, CONFIRM_PANEL, false)
-	game.draw_ui_string(game.MENU_FONT, Vector2(370, 258), game.LocaleSystem.ui("confirmation_title"), HORIZONTAL_ALIGNMENT_CENTER, 412, 24, Color("fff0bd"))
+	game.draw_ui_string(game.MENU_FONT, Vector2(370, 258), game.LocaleSystem.ui("confirmation_title"), HORIZONTAL_ALIGNMENT_CENTER, 412, 24, MoonStyle.TEXT)
 	game.draw_multiline_string(game.UI_FONT, Vector2(374, 294), game.LocaleSystem.ui("confirm_" + game.menu_state.confirmation), HORIZONTAL_ALIGNMENT_CENTER, 404, 13, 2, Color("4b3425"))
 	UiKitSystem.draw_button(game, CONFIRM_ACCEPT, game.menu_state.confirm_selected == 0, true, game.settings_state.reduced_motion, Time.get_ticks_msec())
 	UiKitSystem.draw_button(game, CONFIRM_CANCEL, game.menu_state.confirm_selected == 1, true, game.settings_state.reduced_motion, Time.get_ticks_msec())
@@ -177,7 +178,7 @@ static func draw_confirmation(game: Node) -> void:
 ## Рисует отдельный экран спасения после поражения с причиной, потерей и явным продолжением.
 static func draw_defeat(game: Node) -> void:
 	UiKitSystem.draw_panel(game, DEFEAT_PANEL, true)
-	game.draw_ui_string(game.MENU_FONT, Vector2(340, 238), game.LocaleSystem.ui("defeat_title"), HORIZONTAL_ALIGNMENT_CENTER, 472, 30, Color("fff0bd"))
+	game.draw_ui_string(game.MENU_FONT, Vector2(340, 238), game.LocaleSystem.ui("defeat_title"), HORIZONTAL_ALIGNMENT_CENTER, 472, 30, MoonStyle.TEXT)
 	game.draw_multiline_string(game.UI_FONT, Vector2(350, 286), game.LocaleSystem.ui("defeat_saved", [game.menu_state.defeat_source]), HORIZONTAL_ALIGNMENT_CENTER, 452, 15, 2, Color("4b3425"))
 	game.draw_ui_string(game.UI_FONT, Vector2(350, 346), game.LocaleSystem.ui("defeat_loss", [game.menu_state.defeat_lost_coins]), HORIZONTAL_ALIGNMENT_CENTER, 452, 13, Color("8b3f2b"))
 	UiKitSystem.draw_button(game, DEFEAT_CONTINUE, true, true, game.settings_state.reduced_motion, Time.get_ticks_msec())
@@ -196,15 +197,9 @@ static func draw_item(game: Node, rect: Rect2, label: String, selected: bool, en
 	game.draw_ui_string(game.MENU_FONT, rect.position + Vector2(12, rect.size.y * 0.63), label, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 24, 16, color)
 
 
-## Подсвечивает готовую нарисованную плашку, не закрывая её древесно-пергаментную фактуру.
+## Рисует действие главного меню общей светлой кнопкой с различимым фокусом.
 static func draw_title_item(game: Node, rect: Rect2, label: String, selected: bool, enabled: bool) -> void:
-	if selected:
-		game.draw_texture_rect(TITLE_BUTTON_SELECTED_ART, title_selected_art_rect(rect), false, title_highlight_modulate(Time.get_ticks_msec(),game.settings_state.reduced_motion))
-	elif not enabled:
-		game.draw_rect(rect, Color(0.18, 0.16, 0.13, 0.34))
-	var text_color := Color("4a2816") if enabled else Color("8f8069")
-	game.draw_ui_string(game.MENU_FONT, rect.position + Vector2(9, 29) + Vector2(1, 2), label, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 18, 21, Color(1.0, 0.92, 0.72, 0.55))
-	game.draw_ui_string(game.MENU_FONT, rect.position + Vector2(9, 29), label, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 18, 21, text_color)
+	MoonStyle.button(game,rect,label,selected,enabled)
 
 
 ## Возвращает прозрачность спокойного пульса отдельного спрайта выбранной плашки.
@@ -219,7 +214,7 @@ static func draw_notice(game: Node, position: Vector2, width: float) -> void:
 		if game.menu_state.settings_open and not game.menu_state.settings_from_title:
 			MoonStyle.text(game, Rect2(position - Vector2(0, 18), Vector2(width, 28)), game.menu_state.notice, 13, MoonStyle.ACCENT, HORIZONTAL_ALIGNMENT_CENTER)
 		else:
-			game.draw_ui_string(game.MENU_FONT, position, game.menu_state.notice, HORIZONTAL_ALIGNMENT_CENTER, width, 13, Color("ffe3a1"))
+			MoonStyle.text(game,Rect2(position-Vector2(0,18),Vector2(width,28)),game.menu_state.notice,13,MoonStyle.ACCENT,HORIZONTAL_ALIGNMENT_CENTER)
 
 
 ## Рисует строку с четырёхсторонней тёмной обводкой для читаемости на живом пейзаже.

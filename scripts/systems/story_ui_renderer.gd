@@ -1,6 +1,7 @@
 class_name StoryUiRenderer
 extends RefCounted
 
+const Paper := preload("res://scripts/presentation/paper_theme_palette.gd")
 const UiKitSystem := preload("res://scripts/systems/ui_kit_system.gd")
 const HudLayoutSystem := preload("res://scripts/systems/hud_layout_system.gd")
 
@@ -34,21 +35,21 @@ static func draw_mission_card(game: Node2D, rect: Rect2, mission_id: String) -> 
 	UiKitSystem.draw_panel(game, rect, false)
 	if state == game.QuestSystem.LOCKED: game.draw_rect(rect.grow(-8), Color(0.13, 0.11, 0.09, 0.48))
 	var story: bool = game.QuestSystem.is_story_mission(mission_id)
-	var type_color := Color("80543a") if story else Color("47714f")
+	var type_color := Paper.SELECTED if story else Paper.INSET
 	game.draw_rect(Rect2(rect.position + Vector2(16, 16), Vector2(86, 25)), type_color)
-	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(22, 34), String(mission.type), HORIZONTAL_ALIGNMENT_CENTER, 74, 10, Color("fff0cf"))
-	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(116, 36), String(mission.title), HORIZONTAL_ALIGNMENT_LEFT, 510, 18, Color("fff0cf"))
-	var state_color := Color("a9d17e") if state == game.QuestSystem.COMPLETED else (UiKitSystem.COLORS.text_disabled if state == game.QuestSystem.LOCKED else Color("f2bd63"))
+	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(22, 34), String(mission.type), HORIZONTAL_ALIGNMENT_CENTER, 74, 10, Paper.TEXT)
+	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(116, 36), String(mission.title), HORIZONTAL_ALIGNMENT_LEFT, 510, 18, Paper.TEXT)
+	var state_color := Paper.ACCENT_TEXT if state == game.QuestSystem.COMPLETED else (UiKitSystem.COLORS.text_disabled if state == game.QuestSystem.LOCKED else Paper.MUTED)
 	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(650, 34), String(state_names.get(state, state)).to_upper(), HORIZONTAL_ALIGNMENT_RIGHT, 180, 11, state_color)
-	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(20, 62), String(mission.description), HORIZONTAL_ALIGNMENT_LEFT, 676, 11, Color("ead7ae"))
+	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(20, 62), String(mission.description), HORIZONTAL_ALIGNMENT_LEFT, 676, 11, Paper.MUTED)
 	var needed := maxi(1, int(mission.get("count", 1)))
 	var owned := mini(needed, game.inventory_item_count(String(mission.get("item", ""))))
 	var ratio := 1.0 if state == game.QuestSystem.COMPLETED else float(owned) / needed
-	UiKitSystem.draw_progress(game, Rect2(rect.position + Vector2(20, 82), Vector2(492, 28)), ratio, Color("6f914f"))
-	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(34, 102), game.QuestSystem.objective_text(game, mission_id), HORIZONTAL_ALIGNMENT_LEFT, 462, 10, Color("fff0cf"))
+	UiKitSystem.draw_progress(game, Rect2(rect.position + Vector2(20, 110), Vector2(492, 4)), ratio, Color("6f914f"))
+	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(34, 102), game.QuestSystem.objective_text(game, mission_id), HORIZONTAL_ALIGNMENT_LEFT, 462, 10, Paper.TEXT)
 	var reward_icon_rect := UiKitSystem.draw_slot(game, Rect2(rect.position + Vector2(738, 50), Vector2(58, 58)), false)
 	game.draw_item_icon(String(mission.reward_item), reward_icon_rect)
-	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(570, 100), "%d XP  •  %d ●  •  ×%d" % [mission.xp, mission.coins, mission.reward_count], HORIZONTAL_ALIGNMENT_RIGHT, 158, 10, Color("f0c87c"))
+	game.draw_ui_string(game.UI_FONT, rect.position + Vector2(570, 100), "%d XP  •  %d ●  •  ×%d" % [mission.xp, mission.coins, mission.reward_count], HORIZONTAL_ALIGNMENT_RIGHT, 158, 10, Paper.MUTED)
 
 
 ## Рисует портретный диалог с настоящим спрайтом собеседника и кнопками без внешних рамок.
@@ -106,7 +107,7 @@ static func draw_notification(game: Node2D) -> void:
 	game.InterfaceRenderer.HudRenderer.draw_quiet_panel(game,rect)
 	var reward: bool = "+" in game.message or "награ" in game.message.to_lower() or "получ" in game.message.to_lower()
 	game.draw_ui_string(game.UI_FONT,rect.position+Vector2(12,31),"★" if reward else "!",HORIZONTAL_ALIGNMENT_CENTER,24,17,Color("ecc56f"))
-	game.draw_ui_multiline_string(game.UI_FONT,rect.position+Vector2(46,23),game.message,HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-64,32,12,2,Color("fff0cf"))
+	game.draw_ui_multiline_string(game.UI_FONT,rect.position+Vector2(46,23),game.message,HORIZONTAL_ALIGNMENT_LEFT,rect.size.x-64,32,12,2,Paper.TEXT)
 
 
 ## Рисует итог главы как три крупные коллекционные карты, сохраняя исходные зоны выбора наград.
@@ -121,6 +122,6 @@ static func draw_chapter_reward(game: Node2D) -> void:
 		var icon_rect := UiKitSystem.draw_slot(game, Rect2(rect.position + Vector2(78, 10), Vector2(80, 80)), false)
 		game.draw_item_icon(REWARD_ICONS[index], icon_rect)
 		var key := "reward_%s" % game.FirstChapterSystem.REWARDS[index]
-		game.draw_ui_string(game.UI_FONT, rect.position + Vector2(14, 112), game.FirstChapterSystem.word(game, key), HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 28, 15, Color("fff0cf"))
-		game.draw_ui_string(game.UI_FONT, rect.position + Vector2(16, 138), game.FirstChapterSystem.word(game, key + "_desc"), HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 32, 9, Color("e1c894"))
+		game.draw_ui_string(game.UI_FONT, rect.position + Vector2(14, 112), game.FirstChapterSystem.word(game, key), HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 28, 15, Paper.TEXT)
+		game.draw_ui_string(game.UI_FONT, rect.position + Vector2(16, 138), game.FirstChapterSystem.word(game, key + "_desc"), HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 32, 9, Paper.MUTED)
 	game.draw_ui_string(game.UI_FONT, Vector2(250, 494), game.FirstChapterSystem.word(game, "reward_hint"), HORIZONTAL_ALIGNMENT_CENTER, 652, 12, Color("6a482e"))

@@ -5,7 +5,7 @@
       "height": 648,
       "id": "16x9",
       "label": "16:9",
-      "sha256": "43cba57d8e31438f54df955c7309cd58fc67444606123f9b9585e6ef7e8e89f7",
+      "sha256": "b6155015397fea9b600a00a4f7c92d611e3eedfc1801565f59a74fe628782a2b",
       "width": 1152
     },
     {
@@ -13,7 +13,7 @@
       "height": 800,
       "id": "16x10",
       "label": "16:10",
-      "sha256": "ca134db96ff62f560f094c5e30d79c66dcd0720ae772a589ddb77b69c6699f80",
+      "sha256": "1eba5aa559efbe378aa07247cd8308c72d33e10d6e6cc93a9abce3303be77772",
       "width": 1280
     },
     {
@@ -21,7 +21,7 @@
       "height": 720,
       "id": "ultrawide",
       "label": "21:9",
-      "sha256": "077cc240232dfbe536138b588441455b3521081c09c45fb88411fa706a4cbd10",
+      "sha256": "dd8f7e0dabe44fc33eda839d901505a3518f023675989d9daa128c95dff0e045",
       "width": 1680
     }
   ],

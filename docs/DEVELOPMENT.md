@@ -369,3 +369,9 @@ CPU-запросы можно проверить отдельно инструм
 ## Компактные диалоги
 
 `CompactDialogueLayout` объединяет прямоугольники рисунка и ввода. `DialogueTextLayoutSystem` использует реальные метрики шрифта и делит текст на страницы без удаления символов и уменьшения выбранного кегля. Переносы кэшируются в текущей временной реплике. `CompactDialogueRenderer` рисует выбранный светлый Б на общей палитре `PaperThemePalette`. `StoryUiRenderer` сохраняет прежние публичные точки входа. `CompactDialogueSuite` подключён через `AdventurePolishSuite`; стенд — `tools/compact_dialogue_review.gd`. [Макеты и выбор](concepts/compact-dialogue-2026-10-14/v1/README.md), [нативная проверка](reports/compact-dialogue-2026-10-14/README.md).
+
+## Общая светлая тема B
+
+`PaperThemePalette` — единственный источник семантических цветов; `MoonTheme` и `UiKitSystem` оформляют новые и прежние окна общей палитрой. `ACCENT_TEXT` используется для текста, `ACCENT` — для заливки основного действия с `ON_ACCENT`. Цветные шкалы не служат фоном числовым подписям героя. Старые ID компонентов и их области ввода сохранены. `PaperThemeSuite` подключён через визуальный агрегатор, проверяет контраст всех активных ролей≥4,5:1. CSS wiki сверяется с этой палитрой Node-тестом.
+
+`tools/paper_theme_capture.gd` снимает32 окна в отдельном userdata; `FARM_PAPER_PHASE` выбирает каталог отчёта. Для обновления штатных визуальных эталонов используется `tools/paper_theme_reference_capture.gd -- --capture-…`; затем пересчитывается манифест. [Результаты и сравнение](reports/paper-ui-2026-10-14/README.md).

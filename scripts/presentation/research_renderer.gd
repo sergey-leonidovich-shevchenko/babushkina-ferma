@@ -44,7 +44,7 @@ static func draw(game: Node) -> void:
 	var known:=Research.learned(game,entry.kind); var why:=Research.reason(game,entry,game.crafting_station); var detail:Rect2=Shell.CRAFT_DETAIL
 	Shell.draw_table_header(game,Rect2(detail.position,Vector2(detail.size.x,42)))
 	var header:String=game.LocaleSystem.ui("study_unknown") if study and not known else game.LocaleSystem.ui("study_results",[entry.batch])
-	game.draw_ui_string(game.UI_FONT,detail.position+Vector2(10,27),header,HORIZONTAL_ALIGNMENT_CENTER,226,12,Color("fff0cf"))
+	game.draw_ui_string(game.UI_FONT,detail.position+Vector2(10,27),header,HORIZONTAL_ALIGNMENT_CENTER,226,12,Kit.COLORS.ink)
 	game.draw_item_icon(entry.kind,Rect2(detail.position+Vector2(83,58),Vector2(80,80)))
 	game.draw_ui_multiline_string(game.UI_FONT,detail.position+Vector2(10,159),game.inventory_item_name(entry.kind),HORIZONTAL_ALIGNMENT_CENTER,226,40,17,2,Kit.COLORS.ink)
 	var sample:String=game.LocaleSystem.ui("study_sample_kept") if study else "%d / %d"%[game.inventory_item_count(entry.kind),entry.batch]

@@ -44,7 +44,7 @@ static func draw(game: Node2D) -> void:
 			seen[edge]=true; game.draw_line(POINTS[source],POINTS[link.target],Style.EDGE,3,true)
 	for area in Data.IDS:
 		var rect:=Rect2(POINTS[area]-Vector2(88,34),Vector2(176,68))
-		Style.panel(game,rect,Color("46613d") if area==current else Style.PANEL,Style.ACCENT if area in game.state.world.estate.discovered else Style.EDGE)
+		Style.panel(game,rect,Style.SELECTED if area==current else Style.PANEL,Style.ACCENT if area in game.state.world.estate.discovered else Style.EDGE)
 		if area==objective: game.draw_rect(rect.grow(3),Color("dfc16d"),false,2)
 		Style.text(game,Rect2(rect.position+Vector2(8,6),Vector2(160,28)),game.LocaleSystem.location(area),12,Style.TEXT,HORIZONTAL_ALIGNMENT_CENTER)
 		Style.text(game,Rect2(rect.position+Vector2(8,38),Vector2(160,22)),residents(game,area),10,Style.MUTED,HORIZONTAL_ALIGNMENT_CENTER)

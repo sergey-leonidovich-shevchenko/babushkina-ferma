@@ -1,5 +1,7 @@
 extends RefCounted
 
+const Paper := preload("res://scripts/presentation/paper_theme_palette.gd")
+
 const UiKitSystem := preload("res://scripts/systems/ui_kit_system.gd")
 const ItemPresentationSystem := preload("res://scripts/systems/item_presentation_system.gd")
 
@@ -35,7 +37,7 @@ static func draw(game: Node, kind: String, rect: Rect2, amount: int = -1, draw_b
 	var effect := ItemPresentationSystem.effect_text(game, kind)
 	var durability := ItemPresentationSystem.durability(game, kind)
 	var layout := content_layout(rect, not effect.is_empty(), durability >= 0)
-	var rarity_color := ItemPresentationSystem.rarity_color(kind)
+	var rarity_color := Paper.rarity_ink(ItemPresentationSystem.rarity(kind))
 	game.draw_item_icon(kind, layout.icon)
 	draw_text(game, game.inventory_item_name(kind), layout.title, 14, UiKitSystem.COLORS.ink, 2)
 	draw_text(game, game.LocaleSystem.ui("item_rarity_" + ItemPresentationSystem.rarity(kind)), layout.rarity, 10, rarity_color)

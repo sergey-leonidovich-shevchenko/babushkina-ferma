@@ -56,7 +56,7 @@ static func draw(game: Node, rect: Rect2) -> void:
 	game.draw_texture_rect(Assets.texture("landscape"),circle,false,light)
 	game.draw_texture_rect(Assets.texture("frame"),circle,false)
 	var calendar: String = MoonStyle.sentence_case(game.LocaleSystem.ui("day_short",[game.day]))+" · "+game.LocaleSystem.ui("season_"+game.WorldEventSystem.season(game.day))
-	MoonStyle.panel(game,calendar_rect(rect),Color(0.025,0.055,0.045,0.82))
+	MoonStyle.panel(game,calendar_rect(rect))
 	MoonStyle.text(game,calendar_rect(rect),calendar,MoonStyle.LABEL_SIZE,MoonStyle.MUTED,HORIZONTAL_ALIGNMENT_CENTER)
 
 ## Привязывает лучи к игровому времени: при паузе останавливаются и круг, и мелкие движения.

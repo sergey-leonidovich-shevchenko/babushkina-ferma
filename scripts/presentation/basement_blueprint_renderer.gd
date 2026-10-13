@@ -37,7 +37,7 @@ static func draw(game: Node2D) -> void:
 static func detail(game: Node2D, item: Dictionary) -> void:
 	var tab:=int(Basement.ui(game).tab)
 	game.ItemWindowRenderer.draw_table_header(game,Rect2(698,152,244,42))
-	game.draw_ui_string(game.UI_FONT,Vector2(708,179),game.LocaleSystem.ui(["basement_build_tab","basement_upgrade_tab","basement_dismantle_tab"][tab]),HORIZONTAL_ALIGNMENT_CENTER,224,13,Color("fff0cf"))
+	game.draw_ui_string(game.UI_FONT,Vector2(708,179),game.LocaleSystem.ui(["basement_build_tab","basement_upgrade_tab","basement_dismantle_tab"][tab]),HORIZONTAL_ALIGNMENT_CENTER,224,13,Kit.COLORS.ink)
 	var texture:=Art.texture(item.kind,int(item.level),int(item.get("direction",0)))
 	var size:=texture.get_size()*minf(112.0/texture.get_width(),84.0/texture.get_height())
 	game.draw_texture_rect(texture,Rect2(Vector2(822,254)-size/2,size),false)

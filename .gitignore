@@ -115,3 +115,5 @@ tmp/
 /wiki/public/generated/
 # Метаданные импорта новых контрольных кадров восстанавливаются Godot из сохранённых PNG.
 /docs/reports/**/*.png.import
+
+/docs/reports/**/*.jpg.import

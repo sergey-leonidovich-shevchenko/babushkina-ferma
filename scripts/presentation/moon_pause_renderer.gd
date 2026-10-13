@@ -22,39 +22,39 @@ static func label_rect(index: int) -> Rect2:
 ## Рисует выбранную горизонтальную паузу с контекстом слева и шестью действиями справа.
 static func draw(game: Node) -> void:
 	draw_backdrop(game)
-	MoonStyle.panel(game, PANEL.grow(3), Color(0.025, 0.065, 0.045, 0.35), Color.TRANSPARENT, 8)
+	MoonStyle.panel(game, PANEL.grow(3), Color(0.06,0.045,0.025,0.22), Color.TRANSPARENT, 8)
 	MoonStyle.panel(game, PANEL)
-	game.draw_line(Vector2(514, 204), Vector2(514, 444), Color("40583f"), 1.0)
+	game.draw_line(Vector2(514, 204), Vector2(514, 444), MoonStyle.EDGE, 1.0)
 	draw_moon(game, Vector2(342, 232))
 	MoonStyle.title(game, TITLE, MoonStyle.sentence_case(game.LocaleSystem.ui("paused")), 32)
 	multiline(game, CONTEXT, game.WorldSystem.name(game.current_location), MoonStyle.LABEL_SIZE, MoonStyle.MUTED)
 	for index in ITEMS.size(): draw_action(game, index)
-	game.draw_line(Vector2(542, 382), Vector2(822, 382), Color("40583f"), 1.0)
+	game.draw_line(Vector2(542, 382), Vector2(822, 382), MoonStyle.EDGE, 1.0)
 	var status: String = game.LocaleSystem.ui("last_save") if game.menu_state.notice.is_empty() else game.menu_state.notice
 	multiline(game, SAVE_LABEL, status, MoonStyle.LABEL_SIZE, MoonStyle.MUTED if game.menu_state.notice.is_empty() else MoonStyle.ACCENT)
 	multiline(game, SAVE_DETAILS, save_details(game), MoonStyle.LABEL_SIZE)
 
 ## Затемняет мир одним спокойным слоем, оставляя узнаваемый игровой фон.
 static func draw_backdrop(game: Node) -> void:
-	game.draw_rect(Rect2(0, 0, 1152, 648), Color(0.035, 0.086, 0.067, 0.58))
+	game.draw_rect(Rect2(0, 0, 1152, 648), Color(0.035,0.028,0.018,0.48))
 
 ## Рисует постоянный акцент продолжения и различимый клавиатурный фокус любой другой команды.
 static func draw_action(game: Node, index: int) -> void:
 	var rect: Rect2 = ITEMS[index]
 	var selected: bool = game.menu_state.pause_selected == index
 	var primary := index == 0
-	var fill: Color = MoonStyle.ACCENT if primary else (Color("46613d") if selected else MoonStyle.INSET)
+	var fill: Color = MoonStyle.PRIMARY if primary else (MoonStyle.SELECTED if selected else MoonStyle.INSET)
 	var border: Color = MoonStyle.TEXT if selected and primary else (MoonStyle.ACCENT if selected else MoonStyle.EDGE)
 	if index >= 4 and not selected: fill = MoonStyle.PANEL; border = MoonStyle.PANEL
 	MoonStyle.panel(game, rect, fill, border, 4)
-	var ink: Color = MoonStyle.PANEL if primary else (MoonStyle.MUTED if index >= 4 and not selected else MoonStyle.TEXT)
+	var ink: Color = MoonStyle.ON_ACCENT if primary else (MoonStyle.MUTED if index >= 4 and not selected else MoonStyle.TEXT)
 	MoonStyle.text(game, label_rect(index), MoonStyle.sentence_case(game.LocaleSystem.ui(game.MenuSystem.PAUSE_ITEMS[index])), MoonStyle.BODY_SIZE, ink, HORIZONTAL_ALIGNMENT_LEFT if index <= 2 else HORIZONTAL_ALIGNMENT_CENTER)
 	if index <= 2: draw_icon(game, rect.position + Vector2(18, 24), index, ink)
 	if primary and not game.touch_controls_visible:
 		var hint: String = "B" if game.get_meta("last_ui_input", "keyboard") == "gamepad" else "Esc"
 		var hint_rect := Rect2(rect.position + Vector2(242, 15), Vector2(28, 18))
-		MoonStyle.panel(game, hint_rect, MoonStyle.ACCENT, Color("799361"), 3)
-		MoonStyle.text(game, hint_rect, hint, MoonStyle.HINT_SIZE, MoonStyle.PANEL, HORIZONTAL_ALIGNMENT_CENTER)
+		MoonStyle.panel(game, hint_rect, MoonStyle.PRIMARY, Color("799361"), 3)
+		MoonStyle.text(game, hint_rect, hint, MoonStyle.HINT_SIZE, MoonStyle.ON_ACCENT, HORIZONTAL_ALIGNMENT_CENTER)
 
 ## Рисует небольшие пиктограммы продолжения, сохранения и папки в цвете подписи кнопки.
 static func draw_icon(game: Node, center: Vector2, index: int, color: Color) -> void:

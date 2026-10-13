@@ -1,5 +1,7 @@
 extends RefCounted
 
+const Paper := preload("res://scripts/presentation/paper_theme_palette.gd")
+const Style := preload("res://scripts/presentation/moon_theme.gd")
 const UiFeedbackSystem := preload("res://scripts/systems/ui_feedback_system.gd")
 
 const TEXTURES := {
@@ -38,13 +40,13 @@ const NINE_PATCH_MARGINS := {
 	"quest_ribbon": Vector4(54, 30, 42, 30),
 }
 const COLORS := {
-	"ink": Color("3d281c"),
-	"text_light": Color("fff0cf"),
-	"text_disabled": Color("9b8a70"),
-	"focus": Color("ffe28b"),
-	"success": Color("66804c"),
-	"danger": Color("a83f2a"),
-	"secondary": Color("315d78"),
+	"ink": Paper.TEXT,
+	"text_light": Paper.TEXT,
+	"text_disabled": Paper.DISABLED,
+	"focus": Paper.ACCENT_TEXT,
+	"success": Paper.ACCENT_TEXT,
+	"danger": Paper.DANGER,
+	"secondary": Paper.INFO,
 }
 
 static var _styles: Dictionary = {}
@@ -71,21 +73,23 @@ static func style(component: String) -> StyleBoxTexture:
 	return box
 
 
-## Рисует масштабируемый художественный компонент без деформации его латунных углов.
+## Рисует общий светлый компонент, включая прежние псевдонимы кнопок станков.
 static func draw_nine_patch(canvas: CanvasItem, component: String, rect: Rect2, modulate: Color = Color.WHITE) -> void:
-	canvas.draw_style_box(style(component), rect)
+	var selected:=component.ends_with("selected")
+	var inset:bool=component.contains("button") or component.begins_with("tab")
+	Style.panel(canvas,rect,Paper.SELECTED if selected else (Paper.INSET if inset else Paper.PANEL),Paper.ACCENT_TEXT if selected else Paper.EDGE)
 	if modulate != Color.WHITE:
 		canvas.draw_rect(rect.grow(-4), modulate, true)
 
 
-## Рисует основную или компактную панель единой древесно-пергаментной системы.
+## Рисует основную или компактную панель единой светлой пергаментной системы.
 static func draw_panel(canvas: CanvasItem, rect: Rect2, large: bool = true) -> void:
 	draw_nine_patch(canvas, "panel_large" if large else "panel_medium", rect)
 
 
-## Рисует непрозрачное модальное полотно под резной рамой, не пропуская подписи игрового мира сквозь декоративные вырезы.
+## Рисует непрозрачное модальное полотно с тонкой рамкой, не пропуская подписи игрового мира сквозь декоративные вырезы.
 static func draw_modal_panel(canvas: CanvasItem, rect: Rect2, large: bool = true) -> void:
-	canvas.draw_rect(rect.grow(-18),Color("ead7a1"),true)
+	canvas.draw_rect(rect.grow(-4),Paper.PANEL,true)
 	draw_panel(canvas,rect,large)
 
 
@@ -98,20 +102,14 @@ static func draw_button(canvas: CanvasItem, rect: Rect2, selected: bool, enabled
 		var alpha := 0.04 + sin(milliseconds / 260.0) * 0.025
 		canvas.draw_rect(rect.grow(-9), Color(1.0, 0.76, 0.28, alpha), true)
 	if not enabled:
-		canvas.draw_rect(rect.grow(-5), Color(0.12, 0.11, 0.10, 0.46), true)
+		canvas.draw_rect(rect.grow(-5), Color(Paper.BACKGROUND,0.35), true)
 
 
 ## Рисует низкую пергаментную карточку без сжатых резных деталей: вся внутренняя площадь доступна тексту.
 static func draw_inset_card(canvas:CanvasItem,rect:Rect2,selected:bool=false,enabled:bool=true,learned:bool=false)->void:
-	canvas.draw_rect(Rect2(rect.position+Vector2(0,2),rect.size),Color(0.025,0.018,0.01,0.35))
-	var paper:=Color("e6c98d") if enabled else Color("b0a082")
-	if learned: paper=Color("c5cd99")
-	canvas.draw_rect(rect,paper)
-	var tint:=Color(0.90,0.97,0.76) if learned else (Color.WHITE if enabled else Color(0.78,0.79,0.75))
-	canvas.draw_texture_rect_region(texture("tooltip"),rect.grow(-1),Rect2(56,52,136,70),tint)
-	canvas.draw_rect(rect,Color("6e4c2c"),false,1)
-	canvas.draw_rect(rect.grow(-3),Color("bc924d") if selected else Color(0.45,0.30,0.15,0.3),false,2 if selected else 1)
-	canvas.draw_line(rect.position+Vector2(5,5),Vector2(rect.end.x-5,rect.position.y+5),Color(1,0.94,0.74,0.4),1)
+	Style.panel(canvas,rect,Paper.SELECTED if selected or learned else Paper.INSET,Paper.ACCENT_TEXT if selected else Paper.EDGE)
+	if not enabled: canvas.draw_rect(rect.grow(-3),Color(Paper.BACKGROUND,0.35))
+
 
 ## Возвращает прямоугольник контента, центрированный как flex-container внутри заданной safe-area.
 static func centered_content_rect(container: Rect2, content_size: Vector2, padding: float = 8.0) -> Rect2:
@@ -125,16 +123,16 @@ static func centered_content_rect(container: Rect2, content_size: Vector2, paddi
 static func draw_slot(canvas: CanvasItem, rect: Rect2, selected: bool) -> Rect2:
 	var square_size := minf(rect.size.x, rect.size.y)
 	var square := Rect2(rect.get_center() - Vector2.ONE * square_size * 0.5, Vector2.ONE * square_size)
-	canvas.draw_texture_rect(texture("slot_selected" if selected else "slot_normal"), square, false)
+	Style.panel(canvas,square,Paper.SELECTED if selected else Paper.INSET,Paper.ACCENT_TEXT if selected else Paper.EDGE)
 	return square.grow(-maxf(6.0, square_size * 0.14))
 
 
-## Рисует художественную рамку прогресса и заполнение с безопасными внутренними полями.
+## Рисует светлую рамку прогресса и заполнение с безопасными внутренними полями.
 static func draw_progress(canvas: CanvasItem, rect: Rect2, ratio: float, color: Color) -> Rect2:
 	var track:=progress_content_rect(rect)
-	canvas.draw_rect(rect,Color("4f3724"))
-	canvas.draw_rect(rect,Color("a8824a"),false,1.0)
-	canvas.draw_rect(track, Color(0.12, 0.075, 0.04, 0.88), true)
+	canvas.draw_rect(rect,Paper.PANEL)
+	canvas.draw_rect(rect,Paper.EDGE,false,1.0)
+	canvas.draw_rect(track, Paper.TRACK, true)
 	var fill := Rect2(track.position, Vector2(track.size.x * clampf(ratio, 0.0, 1.0), track.size.y))
 	if fill.size.x > 0.0: canvas.draw_rect(fill, color, true)
 	return track

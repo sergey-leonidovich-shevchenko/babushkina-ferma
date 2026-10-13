@@ -2,6 +2,8 @@ extends RefCounted
 
 const UiKitSystem := preload("res://scripts/systems/ui_kit_system.gd")
 const HudLayoutSystem := preload("res://scripts/systems/hud_layout_system.gd")
+const Paper := preload("res://scripts/presentation/paper_theme_palette.gd")
+const Style := preload("res://scripts/presentation/moon_theme.gd")
 const Chrome := preload("res://scripts/presentation/hud_chrome_system.gd")
 
 ## Рисует динамический верхний HUD, сообщения, мобильные боевые кнопки и их короткие реакции.
@@ -26,8 +28,8 @@ static func draw_effect_chips(game: Node, effects: Array[String]) -> void:
 		if x+width>lane.end.x: x=lane.position.x; y+=24.0
 		var rect := Rect2(x,y,width,20)
 		if rect.end.y>lane.end.y: break
-		game.draw_rect(rect, Color(0.11, 0.07, 0.04, 0.88)); game.draw_rect(rect, Color("b88b42"), false, 1.0)
-		game.draw_ui_string(game.UI_FONT, rect.position + Vector2(8, 14), effect, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 16, 8, Color("ffe7ad"))
+		Style.panel(game,rect)
+		game.draw_ui_string(game.UI_FONT, rect.position + Vector2(8, 14), effect, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 16, 8, Paper.TEXT)
 		x += width + 6.0
 
 
@@ -86,10 +88,7 @@ static func draw_menu_button(game: Node, ui, _texture: Texture2D, rect: Rect2, l
 
 ## Рисует спокойную древесную плашку с тонкой латунной кромкой и мягкой тенью для вторичной информации.
 static func draw_quiet_panel(game: Node, rect: Rect2) -> void:
-	game.draw_rect(Rect2(rect.position+Vector2(0,2),rect.size),Color(0.02,0.015,0.01,0.32))
-	game.draw_rect(rect,Color(0.12,0.085,0.052,0.94))
-	game.draw_rect(rect,Color("9d7743"),false,1)
-	game.draw_line(rect.position+Vector2(2,2),Vector2(rect.end.x-2,rect.position.y+2),Color(0.83,0.66,0.36,0.23),1)
+	Style.panel(game,rect)
 
 
 ## Подсчитывает активные сюжетные и побочные задания для бейджа свитка.
@@ -102,8 +101,8 @@ static func active_quest_count(game: Node) -> int:
 
 ## Рисует спрайтовую боевую кнопку в обычном, нажатом или недоступном состоянии.
 static func draw_action_button(game: Node, ui, rect: Rect2, label: String, enabled: bool, pressed: bool, dodge: bool) -> void:
-	var state_index: int = 2 if not enabled else (1 if pressed else 0); var sources: Array = ui.CONTROL_DODGE_SOURCES if dodge else ui.CONTROL_BLOCK_SOURCES
-	ui.draw_atlas_piece(game, ui.CONTROL_ATLAS, rect.grow(8), sources[state_index]); game.draw_ui_string(game.UI_FONT, rect.position + Vector2(2, 47), label, HORIZONTAL_ALIGNMENT_CENTER, rect.size.x - 4, 8, Color("ffe7ad") if enabled else Color("8f918b"))
+	Style.panel(game,rect,Paper.SELECTED if pressed else Paper.PANEL,Paper.ACCENT_TEXT if pressed else Paper.EDGE)
+	Style.text(game,rect.grow(-4),("↗  " if dodge else "◆  ")+label,10,Paper.TEXT if enabled else Paper.DISABLED,HORIZONTAL_ALIGNMENT_CENTER)
 	if dodge and game.state.player.dodge_cooldown > 0.0:
 		var ratio: float = clampf(game.state.player.dodge_cooldown / 1.15, 0.0, 1.0); game.draw_arc(rect.get_center(), 23, -PI / 2.0, -PI / 2.0 + TAU * ratio, 24, Color(0.12, 0.08, 0.05, 0.78), 5.0)
 
@@ -131,4 +130,4 @@ static func draw_interaction_prompt(game: Node, ui) -> void:
 	if interaction.is_empty(): return
 	var rect := HudLayoutSystem.interaction_rect(game)
 	preload("res://scripts/presentation/moon_theme.gd").panel(game,rect)
-	preload("res://scripts/presentation/moon_theme.gd").text(game,rect.grow(-6),HudLayoutSystem.interaction_label(game,interaction),12,Color("e8ecd7"),HORIZONTAL_ALIGNMENT_CENTER)
+	preload("res://scripts/presentation/moon_theme.gd").text(game,rect.grow(-6),HudLayoutSystem.interaction_label(game,interaction),12,preload("res://scripts/presentation/moon_theme.gd").TEXT,HORIZONTAL_ALIGNMENT_CENTER)

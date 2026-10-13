@@ -1,5 +1,7 @@
 extends RefCounted
 
+const Paper := preload("res://scripts/presentation/paper_theme_palette.gd")
+
 const UiKitSystem:=preload("res://scripts/systems/ui_kit_system.gd")
 const TREASURE_TEXTURE := preload("res://assets/game/world_loot/containers/chest.png")
 const WATER_SURFACE := preload("res://assets/game/tiles/editor/water/water_ripples.png")
@@ -36,7 +38,7 @@ static func draw(game: Node2D) -> void:
 ## Рисует качающуюся шкалу силы заброса с отдельной отметкой максимума.
 static func _draw_cast_meter(game: Node2D, state: RefCounted) -> void:
 	_draw_panel(game, Rect2(716, 136, 380, 168))
-	game.draw_ui_string(game.UI_FONT, Vector2(738, 177), game.LocaleSystem.text("fish_cast_title"), HORIZONTAL_ALIGNMENT_CENTER, 336, 20, Color("fff0bd"))
+	game.draw_ui_string(game.UI_FONT, Vector2(738, 177), game.LocaleSystem.text("fish_cast_title"), HORIZONTAL_ALIGNMENT_CENTER, 336, 20, Paper.TEXT)
 	game.draw_rect(CAST_TRACK, Color("172a35"), true)
 	for boundary in [0.36, 0.72]:
 		var x: float = CAST_TRACK.position.x + CAST_TRACK.size.x * boundary
@@ -47,14 +49,14 @@ static func _draw_cast_meter(game: Node2D, state: RefCounted) -> void:
 	game.draw_rect(Rect2(sweet_start, CAST_TRACK.position.y, sweet_end - sweet_start, CAST_TRACK.size.y), Color("fff4a0"), false, 2)
 	for index in 3:
 		var key: String = ["shallow", "middle", "deep"][index]
-		game.draw_ui_string(game.UI_FONT, Vector2(CAST_TRACK.position.x + index * CAST_TRACK.size.x / 3.0, 253), game.LocaleSystem.text("fish_depth_" + key), HORIZONTAL_ALIGNMENT_CENTER, CAST_TRACK.size.x / 3.0, 9, Color("b8d5dc"))
-	game.draw_ui_string(game.UI_FONT, Vector2(738, 280), game.LocaleSystem.text("fish_release"), HORIZONTAL_ALIGNMENT_CENTER, 336, 12, Color("cbe9df"))
+		game.draw_ui_string(game.UI_FONT, Vector2(CAST_TRACK.position.x + index * CAST_TRACK.size.x / 3.0, 253), game.LocaleSystem.text("fish_depth_" + key), HORIZONTAL_ALIGNMENT_CENTER, CAST_TRACK.size.x / 3.0, 9, Paper.MUTED)
+	game.draw_ui_string(game.UI_FONT, Vector2(738, 280), game.LocaleSystem.text("fish_release"), HORIZONTAL_ALIGNMENT_CENTER, 336, 12, Paper.MUTED)
 
 
 ## Рисует вертикальный водяной трек, управляемую зону, рыбу, сундук и шкалу улова.
 static func _draw_minigame(game: Node2D, state: RefCounted) -> void:
 	_draw_panel(game, PANEL)
-	game.draw_ui_string(game.UI_FONT, Vector2(706, 137), game.LocaleSystem.text("fish_minigame_title"), HORIZONTAL_ALIGNMENT_CENTER, 370, 20, Color("fff0bd"))
+	game.draw_ui_string(game.UI_FONT, Vector2(706, 137), game.LocaleSystem.text("fish_minigame_title"), HORIZONTAL_ALIGNMENT_CENTER, 370, 20, Paper.TEXT)
 	_draw_water_track(game)
 	var bar_rect := catch_zone_rect(state.bar_y, state.bar_size)
 	var fish_in_zone: bool = absf(state.fish_y - state.bar_y) <= state.bar_size * 0.5
@@ -66,31 +68,31 @@ static func _draw_minigame(game: Node2D, state: RefCounted) -> void:
 	_draw_vertical_gauge(game, PROGRESS_TRACK, state.catch_progress, Color("dfbb63").lerp(Color("75bd8b"), state.catch_progress))
 	_draw_vertical_gauge(game, TENSION_TRACK, state.line_tension, Color("d6b267").lerp(Color("cf6655"), state.line_tension))
 	var info_x := 940.0
-	game.draw_ui_multiline_string(game.UI_FONT, Vector2(info_x, 186), state.fish_name, HORIZONTAL_ALIGNMENT_LEFT, 132, 36, 13, 2, Color("fff0bd"))
+	game.draw_ui_multiline_string(game.UI_FONT, Vector2(info_x, 186), state.fish_name, HORIZONTAL_ALIGNMENT_LEFT, 132, 36, 13, 2, Paper.TEXT)
 	game.draw_ui_string(game.UI_FONT, Vector2(info_x, 222), game.LocaleSystem.text("fish_rarity_" + state.fish_rarity), HORIZONTAL_ALIGNMENT_LEFT, 132, 9, _rarity_color(state.fish_rarity))
-	game.draw_ui_string(game.UI_FONT, Vector2(info_x, 246), game.LocaleSystem.text("fish_behavior_" + state.fish_behavior), HORIZONTAL_ALIGNMENT_LEFT, 132, 9, Color("cbe9df"))
-	game.draw_ui_string(game.UI_FONT, Vector2(info_x, 270), game.LocaleSystem.text("fish_depth_" + state.depth_kind) + " • " + game.LocaleSystem.text("fish_water_" + state.water_kind), HORIZONTAL_ALIGNMENT_LEFT, 132, 8, Color("a9c9d8"))
-	game.draw_ui_string(game.UI_FONT, Vector2(info_x, 296), game.LocaleSystem.text("fish_hook_" + state.hook_grade), HORIZONTAL_ALIGNMENT_LEFT, 132, 9, Color("e7c66e"))
-	game.draw_ui_string(game.UI_FONT, Vector2(info_x, 326), game.LocaleSystem.text("fish_catch_progress", [roundi(state.catch_progress * 100.0)]), HORIZONTAL_ALIGNMENT_LEFT, 132, 10, Color("fff0bd"))
-	game.draw_ui_string(game.UI_FONT, Vector2(info_x, 352), game.LocaleSystem.text("fish_tension", [roundi(state.line_tension * 100.0)]), HORIZONTAL_ALIGNMENT_LEFT, 132, 9, Color("f2a063") if state.line_tension >= 0.65 else Color("cbe9df"))
-	game.draw_ui_string(game.UI_FONT, Vector2(info_x, 378), game.LocaleSystem.text("fish_streak", [FishingBalanceText.seconds(state.control_streak), FishingBalanceText.multiplier(state.control_streak)]), HORIZONTAL_ALIGNMENT_LEFT, 132, 9, Color("91df89"))
-	if state.perfect: game.draw_ui_string(game.UI_FONT, Vector2(info_x, 420), game.LocaleSystem.text("fish_perfect"), HORIZONTAL_ALIGNMENT_CENTER, 132, 12, Color("f6d85d"))
+	game.draw_ui_string(game.UI_FONT, Vector2(info_x, 246), game.LocaleSystem.text("fish_behavior_" + state.fish_behavior), HORIZONTAL_ALIGNMENT_LEFT, 132, 9, Paper.MUTED)
+	game.draw_ui_string(game.UI_FONT, Vector2(info_x, 270), game.LocaleSystem.text("fish_depth_" + state.depth_kind) + " • " + game.LocaleSystem.text("fish_water_" + state.water_kind), HORIZONTAL_ALIGNMENT_LEFT, 132, 8, Paper.MUTED)
+	game.draw_ui_string(game.UI_FONT, Vector2(info_x, 296), game.LocaleSystem.text("fish_hook_" + state.hook_grade), HORIZONTAL_ALIGNMENT_LEFT, 132, 9, Paper.MUTED)
+	game.draw_ui_string(game.UI_FONT, Vector2(info_x, 326), game.LocaleSystem.text("fish_catch_progress", [roundi(state.catch_progress * 100.0)]), HORIZONTAL_ALIGNMENT_LEFT, 132, 10, Paper.TEXT)
+	game.draw_ui_string(game.UI_FONT, Vector2(info_x, 352), game.LocaleSystem.text("fish_tension", [roundi(state.line_tension * 100.0)]), HORIZONTAL_ALIGNMENT_LEFT, 132, 9, Paper.DANGER if state.line_tension >= 0.65 else Paper.MUTED)
+	game.draw_ui_string(game.UI_FONT, Vector2(info_x, 378), game.LocaleSystem.text("fish_streak", [FishingBalanceText.seconds(state.control_streak), FishingBalanceText.multiplier(state.control_streak)]), HORIZONTAL_ALIGNMENT_LEFT, 132, 9, Paper.ACCENT_TEXT)
+	if state.perfect: game.draw_ui_string(game.UI_FONT, Vector2(info_x, 420), game.LocaleSystem.text("fish_perfect"), HORIZONTAL_ALIGNMENT_CENTER, 132, 12, Paper.ACCENT_TEXT)
 	_draw_control_cards(game)
 
 
 ## Рисует краткую карточку результата, чтобы качество и рекорд не терялись в общем HUD.
 static func _draw_result(game: Node2D, state: RefCounted) -> void:
 	var rect := Rect2(650, 172, 446, 220); _draw_panel(game, rect)
-	game.draw_ui_string(game.UI_FONT, Vector2(672, 211), game.LocaleSystem.text("fish_catch_title") if state.catch_progress >= 1.0 else game.LocaleSystem.text("fish_escaped"), HORIZONTAL_ALIGNMENT_CENTER, 402, 20, Color("fff0bd"))
+	game.draw_ui_string(game.UI_FONT, Vector2(672, 211), game.LocaleSystem.text("fish_catch_title") if state.catch_progress >= 1.0 else game.LocaleSystem.text("fish_escaped"), HORIZONTAL_ALIGNMENT_CENTER, 402, 20, Paper.TEXT)
 	if state.catch_progress < 1.0:
-		game.draw_ui_string(game.UI_FONT, Vector2(672, 258), game.LocaleSystem.text("fish_escape_" + state.escape_reason), HORIZONTAL_ALIGNMENT_CENTER, 402, 13, Color("f0b092"))
-		game.draw_ui_string(game.UI_FONT, Vector2(672, 322), game.LocaleSystem.text("fish_result_close"), HORIZONTAL_ALIGNMENT_CENTER, 402, 10, Color("b9cfcb")); return
+		game.draw_ui_string(game.UI_FONT, Vector2(672, 258), game.LocaleSystem.text("fish_escape_" + state.escape_reason), HORIZONTAL_ALIGNMENT_CENTER, 402, 13, Paper.DANGER)
+		game.draw_ui_string(game.UI_FONT, Vector2(672, 322), game.LocaleSystem.text("fish_result_close"), HORIZONTAL_ALIGNMENT_CENTER, 402, 10, Paper.MUTED); return
 	game.draw_item_icon("fish", Rect2(684, 232, 88, 88))
-	game.draw_ui_string(game.UI_FONT, Vector2(792, 247), state.fish_name, HORIZONTAL_ALIGNMENT_LEFT, 270, 15, Color("fff0bd"))
-	game.draw_ui_string(game.UI_FONT, Vector2(792, 274), "%d %s • %s" % [state.fish_size, game.LocaleSystem.text("fish_cm"), game.LocaleSystem.text("quality_" + state.quality)], HORIZONTAL_ALIGNMENT_LEFT, 270, 11, Color("d6eadb"))
-	game.draw_ui_string(game.UI_FONT, Vector2(792, 299), game.LocaleSystem.text("fish_result_xp", [state.experience_awarded]), HORIZONTAL_ALIGNMENT_LEFT, 270, 10, Color("91df89"))
-	if state.new_record: game.draw_ui_string(game.UI_FONT, Vector2(792, 325), game.LocaleSystem.text("fish_new_record"), HORIZONTAL_ALIGNMENT_LEFT, 270, 11, Color("f6d85d"))
-	game.draw_ui_string(game.UI_FONT, Vector2(672, 370), game.LocaleSystem.text("fish_result_close"), HORIZONTAL_ALIGNMENT_CENTER, 402, 10, Color("b9cfcb"))
+	game.draw_ui_string(game.UI_FONT, Vector2(792, 247), state.fish_name, HORIZONTAL_ALIGNMENT_LEFT, 270, 15, Paper.TEXT)
+	game.draw_ui_string(game.UI_FONT, Vector2(792, 274), "%d %s • %s" % [state.fish_size, game.LocaleSystem.text("fish_cm"), game.LocaleSystem.text("quality_" + state.quality)], HORIZONTAL_ALIGNMENT_LEFT, 270, 11, Paper.MUTED)
+	game.draw_ui_string(game.UI_FONT, Vector2(792, 299), game.LocaleSystem.text("fish_result_xp", [state.experience_awarded]), HORIZONTAL_ALIGNMENT_LEFT, 270, 10, Paper.ACCENT_TEXT)
+	if state.new_record: game.draw_ui_string(game.UI_FONT, Vector2(792, 325), game.LocaleSystem.text("fish_new_record"), HORIZONTAL_ALIGNMENT_LEFT, 270, 11, Paper.ACCENT_TEXT)
+	game.draw_ui_string(game.UI_FONT, Vector2(672, 370), game.LocaleSystem.text("fish_result_close"), HORIZONTAL_ALIGNMENT_CENTER, 402, 10, Paper.MUTED)
 
 
 ## Рисует оригинальную процедурную пиктограмму рыбы без копирования чужих игровых материалов.
@@ -109,8 +111,8 @@ static func _draw_treasure(game: Node2D, position: Vector2, progress: float) -> 
 static func _draw_panel(game: Node2D, rect: Rect2) -> void:
 	UiKitSystem.draw_modal_panel(game,rect,false)
 	var content := Rect2(rect.position + Vector2(20,54), rect.size - Vector2(40,72))
-	game.draw_rect(content, Color("1c302d"))
-	game.draw_rect(content, Color("826741"), false, 1.0)
+	game.draw_rect(content, Paper.INSET)
+	game.draw_rect(content, Paper.EDGE, false, 1.0)
 
 
 ## Строит управляемую область внутри водного трека даже на крайних положениях поплавка.
@@ -183,7 +185,7 @@ static func _draw_control_cards(game: Node2D) -> void:
 
 ## Возвращает устойчивый цвет редкости для быстрой оценки рыбы без чтения длинного текста.
 static func _rarity_color(rarity: String) -> Color:
-	return {"common":Color("c8d4c3"), "uncommon":Color("8fd89a"), "rare":Color("73b8ef"), "legendary":Color("dba5f2")}.get(rarity, Color.WHITE)
+	return {"common":Paper.MUTED, "uncommon":Paper.ACCENT_TEXT, "rare":Paper.INFO, "legendary":Color("64467d")}.get(rarity, Paper.TEXT)
 
 
 ## Внутренний форматтер сохраняет renderer компактным и не смешивает числа с правилами баланса.
