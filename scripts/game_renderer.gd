@@ -429,16 +429,13 @@ func fallback_item_glyph(kind: String) -> String:
 	var short_name: String = String(InventorySystem.data(kind).short).strip_edges()
 	return short_name.left(2).to_upper() if not short_name.is_empty() else "?"
 
-## Отрисовывает соответствующий элемент по текущим данным активной сцены.
+## Рисует общий пакет иконки в предметных окнах, сохраняя запасной знак для отсутствующего рисунка.
 func draw_item_icon(kind: String, rect: Rect2) -> void:
-	if preload("res://scripts/presentation/workshop_icon_system.gd").draw_item(self,kind,rect): return
-	if preload("res://scripts/presentation/research_icon_system.gd").draw_item(self,kind,rect): return
-	if preload("res://scripts/presentation/furnace_renderer.gd").draw_item(self,kind,rect): return
-	if preload("res://scripts/presentation/alchemy_renderer.gd").draw_item(self,kind,rect): return
-	var texture := item_texture(kind)
-	var destination := VisualAssetSystem.fitted_icon_rect(rect)
+	var visual:Dictionary=VisualAssetSystem.item_visual(kind)
+	var texture:Texture2D=visual.texture
+	var destination:Rect2=VisualAssetSystem.fitted_icon_rect(rect) if visual.square else rect
 	if texture:
-		draw_texture_rect(texture, destination, false)
+		draw_texture_rect(texture, destination, false, visual.tint)
 	else:
 		var center := rect.get_center(); var radius := minf(rect.size.x, rect.size.y) * 0.38
 		draw_circle(center, radius, inventory_item_color(kind)); draw_circle(center, radius, Color(0.95, 0.9, 0.72, 0.88), false, 2.0)

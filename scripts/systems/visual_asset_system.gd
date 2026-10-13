@@ -10,6 +10,8 @@ const FARM_LIFE_ATLAS := preload("res://assets/game/expansion_pack/expansion_atl
 const ITEM_ICON_DIRECTORY := "res://assets/game/items/catalog"
 const ITEM_ICON_OVERRIDES := {"crystal":"res://assets/game/items/catalog/crystal_clean_v2.png"}
 static var item_icon_cache: Dictionary = {}
+static var _active_icon_overrides: Dictionary = {}
+const ItemIcons := preload("res://scripts/presentation/item_icon_visual_system.gd")
 
 const PIRATE_ENEMY_ORDER := ["pirate", "zombie_pirate", "sea_ghost", "drowned_captain"]
 const PIRATE_ITEM_CELLS := {
@@ -93,13 +95,15 @@ static func draw_potion(canvas: CanvasItem, kind: String, rect: Rect2) -> bool:
 
 
 ## Загружает отдельные иконки до первого кадра, чтобы отрисовка не инициировала ресурсные операции.
-static func initialize_item_icons(kinds: Array) -> void:
+static func initialize_item_icons(kinds: Array, overrides: Dictionary = ITEM_ICON_OVERRIDES) -> void:
 	item_icon_cache.clear()
+	_active_icon_overrides.clear(); ItemIcons.clear()
 	for value in kinds:
 		var kind := String(value)
 		var icon_kind := "carrot_seeds" if kind == "seeds" else kind
-		var path:String=ITEM_ICON_OVERRIDES.get(kind,"%s/%s.png" % [ITEM_ICON_DIRECTORY, icon_kind])
-		if preload("res://scripts/presentation/artisan_visual_system.gd").ITEMS.has(kind): item_icon_cache[kind]=preload("res://scripts/presentation/artisan_visual_system.gd").ITEMS[kind]
+		var path:String=overrides.get(kind,"%s/%s.png" % [ITEM_ICON_DIRECTORY, icon_kind])
+		if overrides.has(kind) and ResourceLoader.exists(path): item_icon_cache[kind]=load(path); _active_icon_overrides[kind]=true
+		elif preload("res://scripts/presentation/artisan_visual_system.gd").ITEMS.has(kind): item_icon_cache[kind]=preload("res://scripts/presentation/artisan_visual_system.gd").ITEMS[kind]
 		elif ResourceLoader.exists(path): item_icon_cache[kind] = load(path)
 		elif preload("res://scripts/systems/alchemy_product_data.gd").handles(kind): item_icon_cache[kind]=preload("res://scripts/presentation/alchemy_icon_system.gd").texture(kind)
 		elif preload("res://scripts/systems/furnace_data.gd").ITEMS.has(kind): item_icon_cache[kind]=preload("res://scripts/presentation/furnace_renderer.gd").item_texture(kind)
@@ -111,6 +115,10 @@ static func initialize_item_icons(kinds: Array) -> void:
 ## Возвращает заранее кэшированную отдельную текстуру предмета.
 static func item_texture(kind: String) -> Texture2D:
 	return item_icon_cache.get(kind) as Texture2D
+
+## Возвращает окончательный визуальный пакет, включая цвет сырья и приоритет явно выбранного нового спрайта.
+static func item_visual(kind: String) -> Dictionary:
+	return ItemIcons.profile(kind,item_texture(kind),_active_icon_overrides.has(kind))
 
 
 ## Вписывает квадратную иконку в доступную область без растяжения по одной из осей.

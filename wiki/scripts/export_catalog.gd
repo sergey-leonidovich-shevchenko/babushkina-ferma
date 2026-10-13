@@ -81,3 +81,10 @@ func frame(pose: Dictionary) -> Dictionary:
 func still(texture: Texture2D, scale_value: float=1.0) -> Dictionary:
 	var size:=texture.get_size()
 	return frame({"texture":texture,"source":Rect2(Vector2.ZERO,size),"pivot":Vector2(size.x/2,size.y),"scale":scale_value,"preserve_alpha":true})
+
+## Передаёт статье ту же окончательную иконку и окраску, что использует игровой renderer.
+func item_icon(entry: Dictionary, kind: String) -> void:
+	var visual:Dictionary=game.VisualAssetSystem.item_visual(kind)
+	if visual.texture==null: failed=true; push_error("Нет рисунка предмета: "+kind); return
+	entry.icon=still(visual.texture)
+	if visual.tint!=Color.WHITE: entry.tint=visual.tint.to_html(false)

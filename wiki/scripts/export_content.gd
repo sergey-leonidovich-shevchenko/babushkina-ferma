@@ -14,7 +14,7 @@ static func items(ctx: Object) -> void:
 		var data:Dictionary=game.InventorySystem.data(kind); var effect:String=game.ItemPresentationSystem.effect_text(game,kind)
 		var category:String={"tool":"Инструменты","food":"Еда","equipment":"Экипировка","quest":"Квестовые предметы","resource":"Материалы"}[game.InventorySystem.category(kind)]
 		var entry:Dictionary=ctx.add("items",kind,ctx.item_name(kind),effect if not effect.is_empty() else "%s Лунной долины. Здесь собраны свойства предмета, способы получения и связанные рецепты."%category,[category],"scripts/systems/inventory_system.gd")
-		entry.icon=ctx.still(game.item_texture(kind))
+		ctx.item_icon(entry,kind)
 		ctx.fact(entry,"Редкость",game.LocaleSystem.ui("item_rarity_"+game.ItemPresentationSystem.rarity(kind)))
 		for stat in game.ItemPresentationSystem.stats(game,kind): ctx.fact(entry,{"damage":"Бонус к урону","defense":"Защита","health":"Бонус к здоровью","speed":"Бонус к скорости"}.get(stat,stat),game.ItemPresentationSystem.stats(game,kind)[stat])
 		if not String(data.get("equip","")).is_empty(): ctx.fact(entry,"Экипировка",{"hands":"Руки","head":"Голова","body":"Тело","boots":"Обувь","shield":"Щит","ring":"Кольцо"}.get(data.equip,data.equip))
@@ -41,7 +41,7 @@ static func recipes(ctx: Object) -> void:
 		var data:Dictionary=game.CraftingSystem.RECIPES[index]; var station:String=data.get("station","workbench")
 		var name:String=game.CraftingSystem.station_name(game,station)
 		var entry:Dictionary=ctx.add("craft",data.get("id","legacy-"+str(index)),ctx.item_name(data.output),"Изготовление: %s × %d. Рабочее место: %s."%[ctx.item_name(data.output),data.count,name],[name],"scripts/systems/crafting_system.gd")
-		entry.icon=ctx.still(game.item_texture(data.output)); entry.ingredients=ctx.materials(data.inputs); entry.yields=ctx.materials({data.output:data.count})
+		ctx.item_icon(entry,data.output); entry.ingredients=ctx.materials(data.inputs); entry.yields=ctx.materials({data.output:data.count})
 		entry.byproducts=ctx.materials(data.get("byproducts",{})); entry.output=data.output; entry.station=station
 		ctx.link(entry,"buildings","station-"+station,name,"Рабочее место")
 		ctx.link(entry,"items",data.output,"","Результат")
@@ -59,7 +59,7 @@ static func quests(ctx: Object) -> void:
 	for id in game.QuestSystem.MISSIONS:
 		var data:Dictionary=game.QuestSystem.MISSIONS[id]
 		var entry:Dictionary=ctx.add("missions",id,data.title,data.description,["Основной сюжет" if id.begins_with("story_") else "Побочные задания"],"scripts/systems/quest_system.gd")
-		entry.icon=ctx.still(game.item_texture(data.item)); entry.ingredients=ctx.materials({data.item:data.count}); entry.yields=ctx.materials({data.reward_item:data.reward_count})
+		ctx.item_icon(entry,data.item); entry.ingredients=ctx.materials({data.item:data.count}); entry.yields=ctx.materials({data.reward_item:data.reward_count})
 		ctx.fact(entry,"Выдаёт",data.giver); ctx.fact(entry,"Монеты",data.coins); ctx.fact(entry,"Опыт",data.xp)
 		if data.get("keep_item",false): ctx.fact(entry,"Предмет","Показывается и остаётся у героя")
 		if data.has("requires"): ctx.link(entry,"missions",data.requires,"","Предыдущее задание")
@@ -79,13 +79,13 @@ static func quests(ctx: Object) -> void:
 	for npc in game.VillageLifeSystem.PERSONAL_REQUESTS:
 		var data:Dictionary=game.VillageLifeSystem.PERSONAL_REQUESTS[npc]
 		var entry:Dictionary=ctx.add("missions","personal-"+npc,"Личное поручение · "+game.QuestSystem.npc_name(npc),data.text,["Личные поручения"],"scripts/systems/village_life_system.gd")
-		entry.ingredients=ctx.materials({data.item:data.count}); entry.icon=ctx.still(game.item_texture(data.item))
+		entry.ingredients=ctx.materials({data.item:data.count}); ctx.item_icon(entry,data.item)
 		ctx.fact(entry,"Дружба",data.friendship); ctx.fact(entry,"Монеты",data.coins); ctx.fact(entry,"Опыт",data.xp); ctx.link(entry,"characters",npc,"","Заказчик")
 	for pool in game.ContractSystem.POOLS:
 		for index in game.ContractSystem.POOLS[pool].size():
 			var data:Dictionary=game.ContractSystem.POOLS[pool][index]
 			var entry:Dictionary=ctx.add("missions","contract-"+pool+"-"+str(index),"Заказ гильдии · "+ctx.item_name(data.item),"Доставка %d × %s. Заказы меняются каждый игровой день."%[data.amount,ctx.item_name(data.item)],["Ежедневные заказы"],"scripts/systems/contract_system.gd")
-			entry.ingredients=ctx.materials({data.item:data.amount}); entry.icon=ctx.still(game.item_texture(data.item)); ctx.fact(entry,"Монеты",data.coins); ctx.fact(entry,"Опыт",data.xp)
+			entry.ingredients=ctx.materials({data.item:data.amount}); ctx.item_icon(entry,data.item); ctx.fact(entry,"Монеты",data.coins); ctx.fact(entry,"Опыт",data.xp)
 			ctx.link(entry,"buildings","guild_hall","","Доска заказов")
 
 ## Связывает каждую культуру и лекарственную траву с урожаем, семенами, обработкой и реальными местами сбора.
@@ -94,7 +94,7 @@ static func plants(ctx: Object) -> void:
 	for kind in game.CropCatalogSystem.CROPS:
 		var data:Dictionary=game.CropCatalogSystem.CROPS[kind]
 		var entry:Dictionary=ctx.add("plants",kind,ctx.item_name(data.harvest),"Огородная культура. Посадите семена в подготовленную землю, поливайте грядку и дождитесь урожая.",["Огород"],"scripts/systems/crop_catalog_system.gd")
-		entry.icon=ctx.still(game.item_texture(data.harvest)); ctx.link(entry,"items",data.seed,"","Семена"); ctx.link(entry,"items",data.harvest,"","Урожай")
+		ctx.item_icon(entry,data.harvest); ctx.link(entry,"items",data.seed,"","Семена"); ctx.link(entry,"items",data.harvest,"","Урожай")
 		for key in ["growth","yield","regrow"]:
 			if data.has(key): ctx.fact(entry,{"growth":"Рост, сек.","yield":"Урожай","regrow":"Повторный рост, сек."}[key],data[key])
 		var seasons:=[]
@@ -102,7 +102,7 @@ static func plants(ctx: Object) -> void:
 		ctx.fact(entry,"Сезоны",", ".join(seasons))
 	for kind in Herbs.HERBS:
 		var entry:Dictionary=ctx.add("plants",kind,ctx.item_name(kind),"Лекарственная трава. Из неё получают сок, сухую траву, порошок и настойку; они используются в алхимических смесях.",["Алхимические травы"],"scripts/systems/alchemy_herb_data.gd")
-		entry.icon=ctx.still(game.item_texture(kind)); ctx.fact(entry,"Сложность",Herbs.HERBS[kind].tier); ctx.link(entry,"items",kind,"","Сырьё")
+		ctx.item_icon(entry,kind); ctx.fact(entry,"Сложность",Herbs.HERBS[kind].tier); ctx.link(entry,"items",kind,"","Сырьё")
 		for form in Herbs.FORMS: ctx.link(entry,"items",kind+"_"+form,"","Обработка")
 		var seen:={}
 		for node in game.ForageSystem.default_nodes():

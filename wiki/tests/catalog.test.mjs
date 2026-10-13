@@ -8,6 +8,28 @@ import { validateCatalog, chapters } from '../scripts/prepare.mjs'
 const catalog = JSON.parse(await readFile(join(wikiRoot, 'public/generated/catalog.json'), 'utf8'))
 const version = (await readFile(join(projectRoot, 'VERSION'), 'utf8')).trim()
 
+// Сценарий: статьи предметов, рецептов и растений используют окраску настоящего игрового сырья.
+// Исходное состояние: свежий общий экспорт с травой, порошком, рудой и деталями.
+// Ожидаемый результат: цвет не теряется в Wiki и совпадает у всех перекрёстных представлений предмета.
+test('item tint is preserved in linked recipe and plant previews', () => {
+  for (const id of ['field_mint', 'moon_grass_powder', 'iron_ore', 'wood_offcut']) {
+    const item = catalog.entries.find((entry) => entry.category === 'items' && entry.id === id)
+    assert.match(item.tint, /^[0-9a-f]{6}$/)
+    assert.notEqual(item.tint, 'ffffff')
+    for (const recipe of catalog.entries.filter(
+      (entry) => entry.category === 'craft' && entry.output === id
+    )) {
+      assert.equal(recipe.tint, item.tint)
+      assert.deepEqual(recipe.icon, item.icon)
+    }
+    const plant = catalog.entries.find((entry) => entry.category === 'plants' && entry.id === id)
+    if (plant) {
+      assert.equal(plant.tint, item.tint)
+      assert.deepEqual(plant.icon, item.icon)
+    }
+  }
+})
+
 // Сценарий: все текущие каталоги доступны в браузере через самостоятельные статьи.
 // Исходное состояние: свежая выгрузка из Godot, обогащённая руководством.
 // Ожидаемый результат: количества и все перекрёстные ссылки соответствуют игре.
