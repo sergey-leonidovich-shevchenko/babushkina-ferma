@@ -16,7 +16,7 @@ static func snapshot(game: Node) -> Dictionary:
 	var forage := []
 	for cell in game.plots:
 		var plot: Dictionary = game.plots[cell]
-		plot_data.append({"x":cell.x,"y":cell.y,"tilled":plot.tilled,"planted":plot.planted,"watered":plot.watered,"growth":plot.growth,"stage":plot.stage,"crop_kind":plot.get("crop_kind","carrot")})
+		plot_data.append({"x":cell.x,"y":cell.y,"tilled":plot.tilled,"planted":plot.planted,"watered":plot.watered,"growth":plot.growth,"stage":plot.stage,"crop_kind":plot.get("crop_kind","carrot"),"fertilizer":plot.get("fertilizer","")})
 	for item in game.dropped_items:
 		drops.append({"kind":item.kind,"count":item.count,"position":[item.position.x,item.position.y],"location":item.get("location",game.current_location)})
 	for animal in game.wildlife_nodes:
@@ -137,6 +137,7 @@ static func apply(game: Node, data: Dictionary) -> bool:
 			var plot: Dictionary = game.plots[cell]
 			for key in ["tilled","planted","watered","growth","stage"]: plot[key] = saved_plot[key]
 			plot.crop_kind = String(saved_plot.get("crop_kind", "carrot"))
+			plot.fertilizer = String(saved_plot.get("fertilizer",""))
 			game.plots[cell] = plot
 	game.WorldFarmingSystem.restore(game, data.get("world_plots", []))
 	var initial_resources: Array = game.ResourceSystem.default_nodes()

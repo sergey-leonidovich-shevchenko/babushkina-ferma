@@ -31,7 +31,7 @@ func station(game: Node) -> void:
 ## Ожидаемый результат: позиции проходимы, сбор даёт два растения, все результаты и побочные продукты зарегистрированы.
 func test_catalog_and_harvest_positions() -> void:
 	var game:=make_game()
-	expect(Herbs.HERBS.size()==24 and Products.names().size()==148+ApiaryCounts.RAW.size()+ApiaryCounts.POTIONS.size() and Recipes.recipes().size()==131+ApiaryCounts.MIXES.size(),"alchemy retains 24 herbs and grows complete item/recipe catalogs through apiary")
+	expect(Herbs.HERBS.size()==24 and Products.names().size()==148+ApiaryCounts.RAW.size()+ApiaryCounts.POTIONS.size() and Recipes.recipes().size()==139+ApiaryCounts.MIXES.size(),"alchemy retains 24 herbs and grows complete item/recipe catalogs through apiary and artisan paths")
 	expect(game.ContentRegistry.validate().is_empty(),"alchemy references belong to complete content registries")
 	for kind in Products.names(): expect(game.VisualAssetSystem.has_item_icon(kind),"shared visual registry provides an actual alchemy texture: "+kind)
 	for spawn in Herbs.spawns():

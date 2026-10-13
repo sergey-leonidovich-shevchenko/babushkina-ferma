@@ -906,6 +906,87 @@
       "priority": "P3",
       "debt": "Закрыт: пользователь выбрал A, 3 отдельные пасеки и 2 диких гнезда подключены; сырьё идёт в алхимию, пчелиный полёт стоит на паузе с игровым временем.",
       "done_when": "Keep populations and stocks independent, preserve silhouettes, accessible approaches, one harvest per stock and fixed collision footprint."
+    },
+    {
+      "id": "WS-029",
+      "family": "Ремесленные мастерские A: 8 видов × 3 уровня × 4 ракурса, кучи и продукты",
+      "assets": [
+        {
+          "path": "assets/game/artisan/candlebench_atlas_a.png",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "path": "assets/game/artisan/fermenter_atlas_a.png",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "path": "assets/game/artisan/fruit_press_atlas_a.png",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "path": "assets/game/artisan/gardenbench_atlas_a.png",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "path": "assets/game/artisan/items_0_atlas_a.png",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "path": "assets/game/artisan/items_1_atlas_a.png",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "path": "assets/game/artisan/items_2_atlas_a.png",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "path": "assets/game/artisan/loom_atlas_a.png",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "path": "assets/game/artisan/preserver_atlas_a.png",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "path": "assets/game/artisan/smoker_atlas_a.png",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "path": "assets/game/artisan/tannery_atlas_a.png",
+          "width": 1254,
+          "height": 1254
+        }
+      ],
+      "render_owner": "ArtisanVisualSystem via BasementVisualSystem and BasementRenderer; inventory through VisualAssetSystem",
+      "source_layout": "169 measured AtlasTexture regions: eight stations × (three levels plus pile) × four true directions, plus 41 item icons; original unchanged transparent RGBA; measured regions in docs/design/artisan-expansion-2026-10-13/atlas-regions.json",
+      "runtime_sizes": [
+        "120×168",
+        "144×168",
+        "168×168",
+        "120×120"
+      ],
+      "target_modules": [
+        "120×168",
+        "144×168",
+        "168×168",
+        "120×120"
+      ],
+      "anchor": "fixed bottom-center on each 24px-snapped foundation; proportional fit preserves silhouette",
+      "collision": "unchanged rectangular foundation at all levels and phases; orientation swaps dimensions; exactly one operating point, shared path and placement checks",
+      "status": "compliant",
+      "priority": "P3",
+      "debt": "Закрыт: пользователь выбрал A; 8 видов построек, 128 ракурсов и 41 иконка, очереди и рецепты подключены.",
+      "done_when": "Preserve distinct true directions, whole sprites, constant foundations, paid recipe inputs and cellar-only station binding."
     }
   ]
 }

@@ -1,6 +1,6 @@
 extends RefCounted
 
-const PLOT := {"!": ["x", "y", "tilled", "planted", "watered", "growth", "stage"], "x":"n", "y":"n", "tilled":"b", "planted":"b", "watered":"b", "growth":"n", "stage":"n", "crop_kind":"s", "location":"s"}
+const PLOT := {"!": ["x", "y", "tilled", "planted", "watered", "growth", "stage"], "x":"n", "y":"n", "tilled":"b", "planted":"b", "watered":"b", "growth":"n", "stage":"n", "crop_kind":"s", "fertilizer":"s", "location":"s"}
 const CORE := {
 	"player":"p", "location":"s", "day":"n", "minutes":"n", "energy":"n", "coins":"n", "xp":"n", "level":"n", "hp":"n",
 	"counts":{"*":"n"}, "slots":["s"], "hotbar":["s"], "equipment":{"*":"s"}, "quest_active":"b", "quest_complete":"b",
@@ -41,7 +41,7 @@ const OPTIONAL := {
 	"moon_glade":{"event_day":"n", "flower_collected":"b", "crystal_charged":"b", "echoes":["b"], "altar_activated":"b", "guardian_alive":"b", "guardian_defeated":"b", "guardian_hp":"n", "guardian_attack_timer":"n", "guardian_windup":"n", "guardian_hurt_timer":"n", "chest_opened":"b", "completed_runs":"n"},
 	"castle_campaign":{"stage":"n", "clues":["b"], "boss_alive":"b", "boss_defeated":"b", "boss_hp":"n", "boss_phase":"n", "boss_timer":"n", "telegraph":"n", "boss_hurt_timer":"n", "choice":"s", "completed":"b"},
 	"estate":{"level":"n", "map_revision":"n", "qualities":{"*":{"*":"n"}}, "discovered":["s"], "event_day":"n", "event":"s", "event_state":{"day":"n", "used":"b", "spawned":"b", "rewarded":"b"}, "expansion":EXPANSION},
-	"world_plots":[{"location":"s", "x":"n", "y":"n", "tilled":"b", "planted":"b", "watered":"b", "growth":"n", "stage":"n", "crop_kind":"s"}],
+	"world_plots":[{"location":"s", "x":"n", "y":"n", "tilled":"b", "planted":"b", "watered":"b", "growth":"n", "stage":"n", "crop_kind":"s", "fertilizer":"s"}],
 	"trees":[{"!":["health", "stage", "regrow_timer"], "health":"n", "stage":"n", "regrow_timer":"n"}], "food_active":["b"],
 	"forage":[{"id":"s","!":["active", "ready_at"], "active":"b", "ready_at":"n", "stage":"n", "kind":"s", "location":"s", "position":"p", "planted_by_player":"b"}],
 	"enemies":[{"!":["hp", "alive"], "hp":"n", "max_hp":"n", "alive":"b", "level":"n", "position":"p", "direction":"p", "attack_timer":"n"}],
@@ -56,6 +56,7 @@ static func valid(data: Dictionary) -> bool:
 	for key in CORE:
 		if not data.has(key) or not _matches(data[key], CORE[key]): return false
 	if not _matches(data, OPTIONAL): return false
+	if not preload("res://scripts/systems/garden_crafting_system.gd").valid(data.plots+data.get("world_plots",[])): return false
 	var expansion:Dictionary=data.get("estate",{}).get("expansion",{})
 	if expansion.has("basement") and not preload("res://scripts/systems/basement_system.gd").valid(expansion.basement): return false
 	if expansion.has("apiary") and not preload("res://scripts/systems/apiary_system.gd").valid(expansion.apiary): return false

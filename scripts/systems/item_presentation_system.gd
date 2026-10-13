@@ -24,7 +24,7 @@ const BASE_FOOD_EFFECTS := {
 }
 
 
-static var FOOD_EFFECTS:Dictionary=BASE_FOOD_EFFECTS.merged(preload("res://scripts/systems/kitchen_data.gd").effects())
+static var FOOD_EFFECTS:Dictionary=BASE_FOOD_EFFECTS.merged(preload("res://scripts/systems/kitchen_data.gd").effects()).merged(preload("res://scripts/systems/artisan_data.gd").effects())
 
 ## Возвращает визуальную редкость предмета, не вмешиваясь в баланс выпадения и продажи.
 static func rarity(kind:String)->String:
@@ -45,6 +45,8 @@ static func rarity_color(kind:String)->Color:
 
 ## Формирует локализованное описание фактического эффекта еды или зелья.
 static func effect_text(game:Node,kind:String)->String:
+	if preload("res://scripts/systems/garden_crafting_system.gd").FERTILIZERS.has(kind): return game.LocaleSystem.ui(kind+"_effect")
+	if kind=="fishing_bait": return game.LocaleSystem.ui("bait_effect")
 	if preload("res://scripts/systems/alchemy_product_data.gd").handles(kind): return preload("res://scripts/systems/alchemy_locale.gd").effect_text(game,kind)
 	if not FOOD_EFFECTS.has(kind): return ""
 	var effect:Array=FOOD_EFFECTS[kind]; return game.LocaleSystem.ui(String(effect[0]),effect.slice(1))

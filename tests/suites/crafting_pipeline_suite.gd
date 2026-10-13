@@ -7,6 +7,8 @@ func run() -> void:
 	preload("res://tests/suites/basement_content_suite.gd").new(context).run()
 	preload("res://tests/suites/kitchen_suite.gd").new(context).run()
 	preload("res://tests/suites/workshop_suite.gd").new(context).run()
+	preload("res://tests/suites/artisan_suite.gd").new(context).run()
+	preload("res://tests/suites/garden_crafting_suite.gd").new(context).run()
 	preload("res://tests/suites/research_suite.gd").new(context).run()
 	preload("res://tests/suites/furnace_suite.gd").new(context).run()
 	preload("res://tests/suites/household_cooking_suite.gd").new(context).run()

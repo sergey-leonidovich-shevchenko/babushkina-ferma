@@ -132,7 +132,7 @@ static func draw_crafting(game: Node) -> void:
 	if game.crafting_station=="furnace": preload("res://scripts/presentation/furnace_renderer.gd").draw_toolbar(game)
 	if game.WorkshopSystem.handles(game.crafting_station): preload("res://scripts/presentation/workshop_renderer.gd").draw_toolbar(game)
 	if game.CraftingSystem.Kitchen.active(game): preload("res://scripts/presentation/kitchen_renderer.gd").draw_toolbar(game)
-	draw_help(game, game.LocaleSystem.ui("kitchen_help" if game.CraftingSystem.Kitchen.active(game) else ("furnace_help" if game.crafting_station in ["furnace","glassblowing"] else ("workshop_help" if game.WorkshopSystem.handles(game.crafting_station) else ("alchemy_help" if game.crafting_station=="alchemy" else "craft_help")))))
+	draw_help(game, game.LocaleSystem.ui("kitchen_help" if game.CraftingSystem.Kitchen.active(game) else ("smoker_help" if game.crafting_station=="smoker" else "furnace_help" if (game.crafting_station=="furnace" or game.WorkshopSystem.thermal(game.crafting_station)) else ("workshop_help" if game.WorkshopSystem.handles(game.crafting_station) else ("alchemy_help" if game.crafting_station=="alchemy" else "craft_help")))))
 
 
 ## Рисует деревенскую лавку как две связанные секции: атмосферный прилавок и таблицу товаров.

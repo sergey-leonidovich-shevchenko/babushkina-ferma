@@ -1804,6 +1804,30 @@
 			"Aliment pour animaux",
 			"动物饲料"
 		],
+		"apple_juice": [
+			"Яблочный сок",
+			"Apple juice",
+			"Zumo de manzana",
+			"Apfelsaft",
+			"Jus de pomme",
+			"苹果汁"
+		],
+		"bone_meal": [
+			"Костная мука",
+			"Bone meal",
+			"Harina de huesos",
+			"Knochenmehl",
+			"Farine d’os",
+			"骨粉"
+		],
+		"cider": [
+			"Яблочный сидр",
+			"Apple cider",
+			"Sidra de manzana",
+			"Apfelwein",
+			"Cidre de pomme",
+			"苹果酒"
+		],
 		"crystal": [
 			"Синий кристалл",
 			"Blue crystal",
@@ -1836,6 +1860,22 @@
 			"Potion d’énergie",
 			"体力药水"
 		],
+		"fruit_vinegar": [
+			"Фруктовый уксус",
+			"Fruit vinegar",
+			"Vinagre de fruta",
+			"Obstessig",
+			"Vinaigre de fruits",
+			"果醋"
+		],
+		"glass_bottle": [
+			"Стеклянная бутылка",
+			"Glass bottle",
+			"Botella de vidrio",
+			"Glasflasche",
+			"Bouteille en verre",
+			"玻璃瓶"
+		],
 		"healing_potion": [
 			"Лечебное зелье",
 			"Healing potion",
@@ -1844,6 +1884,22 @@
 			"Potion de soin",
 			"治疗药水"
 		],
+		"herbal_candle": [
+			"Травяная свеча",
+			"Herbal candle",
+			"Vela herbal",
+			"Kräuterkerze",
+			"Bougie aux herbes",
+			"香草蜡烛"
+		],
+		"herbal_soap": [
+			"Травяное мыло",
+			"Herbal soap",
+			"Jabón herbal",
+			"Kräuterseife",
+			"Savon aux herbes",
+			"香草皂"
+		],
 		"honey": [
 			"Цветочный мёд",
 			"Flower honey",
@@ -1851,6 +1907,14 @@
 			"Blütenhonig",
 			"Miel de fleurs",
 			"花蜜"
+		],
+		"incense": [
+			"Благовония",
+			"Incense",
+			"Incienso",
+			"Räucherwerk",
+			"Encens",
+			"香料"
 		],
 		"invisibility_potion": [
 			"Зелье невидимости",
@@ -1867,6 +1931,14 @@
 			"Manatrank",
 			"Potion de mana",
 			"法力药水"
+		],
+		"moon_candle": [
+			"Лунная свеча",
+			"Moon candle",
+			"Vela lunar",
+			"Mondkerze",
+			"Bougie lunaire",
+			"月光蜡烛"
 		],
 		"nut": [
 			"Крепкий орех",
@@ -1891,6 +1963,14 @@
 			"Regenerationstrank",
 			"Potion de régénération",
 			"再生药水"
+		],
+		"soap": [
+			"Домашнее мыло",
+			"Soap",
+			"Jabón",
+			"Seife",
+			"Savon",
+			"肥皂"
 		],
 		"speed_potion": [
 			"Зелье скорости",
@@ -4070,6 +4150,120 @@
 			},
 			"name": "royal_tonic",
 			"output": "royal_tonic",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "supplies",
+			"alchemy_rank": 2,
+			"count": 3,
+			"id": "artisan:alchemy:herb_solvent",
+			"inputs": {
+				"cider": 1,
+				"glass_bottle": 1
+			},
+			"name": "herb_solvent",
+			"output": "herb_solvent",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "artisan:alchemy:meadow_tonic",
+			"inputs": {
+				"apple_juice": 1,
+				"chamomile_juice": 1,
+				"glass_vial": 1
+			},
+			"name": "meadow_tonic",
+			"output": "meadow_tonic",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 2,
+			"count": 2,
+			"id": "artisan:alchemy:insect_repellent",
+			"inputs": {
+				"glass_vial": 1,
+				"herbal_soap": 1,
+				"wormwood_tincture": 1
+			},
+			"name": "insect_repellent",
+			"output": "insect_repellent",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 3,
+			"count": 2,
+			"id": "artisan:alchemy:life_balsam",
+			"inputs": {
+				"glass_vial": 1,
+				"herbal_candle": 1,
+				"yarrow_tincture": 1
+			},
+			"name": "life_balsam",
+			"output": "life_balsam",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 3,
+			"count": 2,
+			"id": "artisan:alchemy:greater_mana",
+			"inputs": {
+				"glass_vial": 1,
+				"moon_candle": 1,
+				"sage_tincture": 1
+			},
+			"name": "greater_mana",
+			"output": "greater_mana",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "artisan:alchemy:purifying_decoction",
+			"inputs": {
+				"fruit_vinegar": 1,
+				"glass_vial": 1,
+				"soap": 1
+			},
+			"name": "purifying_decoction",
+			"output": "purifying_decoction",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "supplies",
+			"alchemy_rank": 1,
+			"count": 3,
+			"id": "artisan:alchemy:mineral_base",
+			"inputs": {
+				"bone_meal": 2
+			},
+			"name": "mineral_base",
+			"output": "mineral_base",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 2,
+			"count": 2,
+			"id": "artisan:alchemy:hunter_elixir",
+			"inputs": {
+				"bitter_root_tincture": 1,
+				"glass_vial": 1,
+				"incense": 1
+			},
+			"name": "hunter_elixir",
+			"output": "hunter_elixir",
 			"station": "alchemy",
 			"talent": "craft_alchemy"
 		}

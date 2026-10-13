@@ -25,6 +25,10 @@ static func draw_plot(game: Node2D, rect: Rect2, plot: Dictionary) -> void:
 	if not game.FarmVisualSystem.is_plot_visible(plot):
 		return
 	game.FarmVisualSystem.draw_soil(game, rect, plot)
+	var fertilizer:String=String(plot.get("fertilizer",""))
+	if not fertilizer.is_empty():
+		var color:Color=Color("cbb06c") if fertilizer=="quality_fertilizer" else (Color("96ba7f") if fertilizer=="growth_fertilizer" else Color("a58b68"))
+		for offset in [Vector2(8,38),Vector2(16,40),Vector2(10,31)]: game.draw_circle(rect.position+offset,1.5,color)
 	if not plot.planted:
 		return
 	draw_crop(game, rect, plot)

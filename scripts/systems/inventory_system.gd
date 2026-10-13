@@ -159,7 +159,7 @@ static func detail_key(kind: String) -> String:
 
 ## Проверяет заявленное методом условие без изменения игрового состояния.
 static func can_use(kind: String) -> bool:
-	return not kind.is_empty() and data(kind).has("edible")
+	return not kind.is_empty() and (data(kind).has("edible") or data(kind).get("usable",false))
 
 ## Проверяет условие «возможности экипировки» без изменения состояния.
 static func can_equip(kind: String) -> bool:

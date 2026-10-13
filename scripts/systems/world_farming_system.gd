@@ -4,7 +4,7 @@ const VillageLayoutSystem := preload("res://scripts/systems/village_layout_syste
 
 const CELL_SIZE := 48
 const OUTDOOR_LOCATIONS := ["overworld", "forest", "rocky", "ruins", "cursed", "glassworks", "moon_glade"]
-const BLOCKED_NAVIGATION_REASONS := ["boundary", "building", "biome_prop", "event_prop", "cave_prop", "cave_wall", "cave_water", "scenic_prop", "tree", "fence", "player_fence", "world_prop", "water", "ship", "guardian", "hazard", "resource", "loot", "forage", "village_event", "interior", "furniture", "storage", "debug_obstacle"]
+const BLOCKED_NAVIGATION_REASONS := ["boundary", "building", "apiary", "biome_prop", "event_prop", "cave_prop", "cave_wall", "cave_water", "scenic_prop", "tree", "fence", "player_fence", "world_prop", "water", "ship", "guardian", "hazard", "resource", "loot", "forage", "village_event", "interior", "furniture", "storage", "debug_obstacle"]
 const COMMON_FINDS := [["stone", 1, 3], ["fiber", 1, 2], ["bones", 1, 2], ["metal", 1, 1]]
 const UNCOMMON_FINDS := [["crystal", 1, 2], ["red_crystal", 1, 1], ["green_crystal", 1, 1], ["pirate_doubloon", 1, 2]]
 const POTION_FINDS := [["healing_potion", 1, 1], ["mana_potion", 1, 1], ["energy_potion", 1, 1], ["regeneration_potion", 1, 1]]
@@ -178,7 +178,7 @@ static func snapshot(game: Node) -> Array:
 	for key in game.state.world.world_plots:
 		var plot: Dictionary = game.state.world.world_plots[key]
 		var cell: Vector2i = plot.cell
-		result.append({"location":plot.location, "x":cell.x, "y":cell.y, "tilled":plot.tilled, "planted":plot.planted, "watered":plot.watered, "growth":plot.growth, "stage":plot.stage, "crop_kind":plot.get("crop_kind", "carrot")})
+		result.append({"location":plot.location, "x":cell.x, "y":cell.y, "tilled":plot.tilled, "planted":plot.planted, "watered":plot.watered, "growth":plot.growth, "stage":plot.stage, "crop_kind":plot.get("crop_kind", "carrot"),"fertilizer":plot.get("fertilizer", "")})
 	return result
 
 
@@ -197,4 +197,5 @@ static func restore(game: Node, saved_plots: Array) -> void:
 			plot[property] = saved.get(property, plot[property])
 		var crop_kind := String(saved.get("crop_kind", "carrot"))
 		plot.crop_kind = crop_kind if game.CropCatalogSystem.CROPS.has(crop_kind) else "carrot"
+		plot.fertilizer = String(saved.get("fertilizer",""))
 		game.state.world.world_plots[plot_key(location, cell)] = plot

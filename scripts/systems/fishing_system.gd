@@ -110,7 +110,7 @@ static func _update_cast(game: Node, delta: float) -> void:
 		var cast_pose: Dictionary = game.HeroActionSystem.pose(game)
 		cast_pose.direction = game.get_meta("fish_visual_direction",game.facing)
 		game.set_meta(game.HeroActionSystem.META,cast_pose)
-		state.timer = game.SkillSystem.fishing_wait(game) * lerpf(1.12, 0.82, state.cast_power)
+		state.timer = game.SkillSystem.fishing_wait(game) * lerpf(1.12, 0.82, state.cast_power) * preload("res://scripts/systems/garden_crafting_system.gd").cast_multiplier(game)
 		game.message = game.LocaleSystem.text("fish_cast", [roundi(state.cast_power * 100.0)])
 		return
 	state.cast_power += delta * 0.82 * state.cast_direction

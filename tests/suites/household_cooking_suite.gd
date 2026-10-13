@@ -68,7 +68,7 @@ func test_feed_and_wool_to_rug_chain() -> void:
 func test_food_data_effects_and_localization() -> void:
 	var game:=make_game()
 	for kind in game.InventorySystem.ITEM_DATA:
-		if game.InventorySystem.can_use(kind) and not game.PotionSystem.is_potion(kind): expect(Presentation.FOOD_EFFECTS.has(kind),"every declared edible food has an actual effect: "+kind)
+		if game.InventorySystem.data(kind).has("edible") and not game.PotionSystem.is_potion(kind): expect(Presentation.FOOD_EFFECTS.has(kind),"every declared edible food has an actual effect: "+kind)
 	for locale in game.LocaleSystem.LOCALES:
 		game.LocaleSystem.current=locale
 		for kind in ["mayonnaise","pancakes","porridge","truffle_soup","yarn","cloth"]:

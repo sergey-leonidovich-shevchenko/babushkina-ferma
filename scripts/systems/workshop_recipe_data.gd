@@ -44,11 +44,11 @@ static var _recipes:Dictionary={}
 ## Находит каноническую технологию за постоянное время после первого построения общего индекса.
 static func recipe(id: String) -> Dictionary:
 	if _recipes.is_empty():
-		for entry in RECIPES: _recipes[entry.id]=entry
+		for entry in RECIPES+preload("res://scripts/systems/artisan_recipe_data.gd").RECIPES: _recipes[entry.id]=entry
 	return _recipes.get(id,{})
 
 ## Даёт обычным предметным окнам полный каталог с именами для существующих помощников.
 static func recipes() -> Array:
-	var result:=RECIPES.duplicate(true)
+	var result:=(RECIPES+preload("res://scripts/systems/artisan_recipe_data.gd").RECIPES.filter(func(value): return value.station!="alchemy")).duplicate(true)
 	for entry in result: entry.name=entry.output
 	return result

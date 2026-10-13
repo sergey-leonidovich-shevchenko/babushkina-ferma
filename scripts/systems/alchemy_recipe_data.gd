@@ -52,6 +52,7 @@ static func recipes() -> Array:
 		var recipe:=entry(mix[0],mix[1],mix[2],mix[3],mix[4])
 		if recipe.id=="alchemy:honey": recipe.byproducts={"beeswax":1}
 		result.append(recipe)
+	result.append_array(preload("res://scripts/systems/artisan_recipe_data.gd").RECIPES.filter(func(value): return value.station=="alchemy"))
 	return result
 
 ## Хранит требования ранга, таланта и лаборатории рядом с выходом каждой партии.

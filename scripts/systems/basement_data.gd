@@ -11,7 +11,7 @@ const BOARD := Vector2(528,396)
 const HOUSE_ENTRY := Vector2(816,514)
 const DIRECTIONS := [Vector2i.DOWN,Vector2i.LEFT,Vector2i.UP,Vector2i.RIGHT]
 const WORK_SECONDS := [5.0,7.0,9.0]
-const STATIONS := {
+const BASE_STATIONS := {
 	"workbench":{"icon":"wood_handle","size":Vector2i(4,3),"energy":1,"inputs":{"wood":8,"stone":6},"upgrades":[{"coins":60,"inputs":{"plank":6,"metal":3}},{"coins":150,"inputs":{"steel":2,"timber_frame":2}}]},
 	"sawmill":{"icon":"wood_beam","size":Vector2i(5,4),"energy":1,"inputs":{"plank":6,"wood":10,"nails":4}},
 	"pottery":{"icon":"clay_pot","size":Vector2i(4,4),"energy":1,"inputs":{"plank":4,"clay":4,"stone":6}},
@@ -23,6 +23,7 @@ const STATIONS := {
 	"cauldron":{"icon":"cauldron","size":Vector2i(4,4),"energy":1,"inputs":{"cauldron":1,"stone":8,"wood":4},"upgrades":[{"coins":70,"inputs":{"brick":6,"metal":3}},{"coins":160,"inputs":{"steel":2,"ceramic_bowl":3,"glass_jar":2}}]},
 	"forge":{"icon":"war_hammer","size":Vector2i(4,4),"energy":2,"inputs":{"metal":6,"stone":12,"wood":6},"upgrades":[{"coins":100,"inputs":{"metal":6,"brick":8}},{"coins":240,"inputs":{"steel":4,"timber_frame":2}}]},
 }
+static var STATIONS:Dictionary=BASE_STATIONS.merged(preload("res://scripts/systems/artisan_data.gd").STATIONS)
 const WOOD := ["wood","log","plank","wood_beam","wood_dowel","wood_handle","timber_frame","wood_offcut","fiber","cloth","research_paper"]
 const METAL := ["metal","metal_scrap","steel","nails","cauldron"]
 
@@ -36,10 +37,12 @@ static func upgrade_cost(kind: String, level: int) -> Dictionary:
 
 ## Различает деревянные, металлические, стеклянные и минеральные остатки без превращения камня в бесплатный металл.
 static func debris(kind: String) -> String:
+	if kind in ["leather","cured_fur","fine_cloth","canvas"]: return "cloth_scrap"
+	if kind=="bone_meal": return "compost"
 	if kind in WOOD: return "sawdust"
 	if kind in METAL: return "metal_scrap"
 	if kind in ["glass","glass_vial","glass_jar","clear_glass","optical_lens"]: return "glass_shard"
-	if kind in ["clay","brick","ceramic_bowl"]: return "ceramic_shard"
+	if kind in ["clay","brick","ceramic_bowl","clay_pot","porcelain_cup"]: return "ceramic_shard"
 	return "slag"
 
 ## Даёт минимальный уровень стола для существующей сложности рецепта без смены его состава.

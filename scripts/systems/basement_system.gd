@@ -66,6 +66,7 @@ static func valid(value: Dictionary) -> bool:
 			if not item.paid.has(kind) or float(item.paid[kind])!=int(expected[kind]): return false
 		if not preload("res://scripts/systems/furnace_data.gd").FUELS.has(item.production.fuel): return false
 		if item.kind=="cauldron" and not preload("res://scripts/systems/kitchen_data.gd").FUELS.has(item.production.fuel): return false
+		if item.kind=="smoker" and item.production.fuel not in preload("res://scripts/systems/artisan_data.gd").WORKSHOPS.smoker.fuels: return false
 		if int(item.production.level)!=int(item.level) or item.production.queue.size()>int(item.level) or float(item.production.heat)<0: return false
 		if item.kind=="cauldron" and float(item.production.heat)>120*int(item.level): return false
 		for kind in item.paid:
@@ -80,6 +81,7 @@ static func valid(value: Dictionary) -> bool:
 				if not is_equal_approx(float(job.duration),expected_seconds): return false
 			for kind in job.get("paid",{}):
 				if not recipe.inputs.has(kind) or float(job.paid[kind])!=int(recipe.inputs[kind]): return false
+		if not preload("res://scripts/systems/artisan_production_validation.gd").valid(item): return false
 		if item.phase!="ready" and (float(item.work)<0 or float(item.work)>float(item.duration) or int(item.target) not in range(1,4) or float(item.duration)<=0): return false
 		ids[int(item.id)]=true
 	return Layout.valid_set(objects)

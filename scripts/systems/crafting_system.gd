@@ -71,6 +71,7 @@ static func visible_indices(game: Node) -> Array[int]:
 ## Открывает нужную станцию и выбирает первый относящийся к ней рецепт.
 static func open(game: Node, station: String = "workbench") -> void:
 	if Research.handles(station): Research.open(game,station); return
+	if Workshop.handles(station) and Workshop.Data.STATIONS[station].get("private",false) and not Workshop.at_station(game,station): game.message=game.LocaleSystem.ui("workshop_station_need"); return
 	game.crafting_open = true
 	game.crafting_station = station
 	var visible := visible_indices(game)

@@ -86,7 +86,7 @@ static func finish(game: Node, item: Dictionary) -> void:
 	if item.kind=="cauldron":
 		var speeds:Array=preload("res://scripts/systems/kitchen_data.gd").SPEED; var ratio:float=speeds[previous-1]/speeds[int(item.level)-1]
 		for job in item.production.queue: job.duration*=ratio; job.remaining*=ratio
-	if item.kind in ["sawmill","pottery","glassblowing","furnace"]:
+	if item.kind=="furnace" or game.WorkshopSystem.handles(item.kind):
 		var speed:=[1.0,1.35,1.7]; var factor:float=speed[previous-1]/speed[int(item.level)-1]
 		for job in item.production.queue: job.duration*=factor; job.remaining*=factor
 	Basement.state(game).revision+=1; game.notify_tutorial("basement_finish"); game.play_sfx("craft"); game.queue_redraw()

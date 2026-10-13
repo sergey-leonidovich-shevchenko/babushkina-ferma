@@ -17,7 +17,7 @@ static func queue_text(game: Node) -> String:
 static func draw_toolbar(game: Node) -> void:
 	var value:=Workshop.state(game,game.crafting_station)
 	var buttons:Array=[[UpgradeButton,game.LocaleSystem.ui("furnace_upgrade")]]
-	if game.crafting_station=="glassblowing":
+	if Workshop.thermal(game.crafting_station):
 		buttons.append([FuelButton,game.inventory_item_name(value.fuel)+" ×"+str(game.inventory_item_count(value.fuel))]); buttons.append([LoadButton,game.LocaleSystem.ui("furnace_load")])
 	else: game.draw_ui_string(game.UI_FONT,Vector2(220,140),game.LocaleSystem.ui("workshop_energy",[game.energy]),HORIZONTAL_ALIGNMENT_LEFT,288,11,Kit.COLORS.ink)
 	for entry in buttons:
@@ -29,7 +29,7 @@ static func draw_toolbar(game: Node) -> void:
 ## Разделяет топливные и хозяйственные нажатия, не выбирая скрытые строки за ними.
 static func handle_pointer(game: Node, position: Vector2) -> bool:
 	if UpgradeButton.has_point(position): Workshop.upgrade(game,game.crafting_station)
-	elif game.crafting_station=="glassblowing" and FuelButton.has_point(position): Workshop.cycle_fuel(game)
-	elif game.crafting_station=="glassblowing" and LoadButton.has_point(position): Workshop.load_fuel(game)
+	elif Workshop.thermal(game.crafting_station) and FuelButton.has_point(position): Workshop.cycle_fuel(game)
+	elif Workshop.thermal(game.crafting_station) and LoadButton.has_point(position): Workshop.load_fuel(game)
 	else: return false
 	game.queue_redraw(); return true

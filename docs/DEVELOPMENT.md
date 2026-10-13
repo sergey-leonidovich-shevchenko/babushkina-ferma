@@ -297,3 +297,7 @@ CPU-запросы можно проверить отдельно инструм
 ## Проверка пасеки
 
 `tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/apiary_review.gd` проверяет пасеку, алхимию/эффекты, прежнее производство и весь аудит UI. `--script res://tools/apiary_capture.gd` без `--headless` снимает 1152×648: места, три уровня, RU/DE 120%, гнездо, разделение сот и мазь. Используются реальная оплата/крафт и отдельный userdata, пользовательские слоты не открываются. Источники и регионы — `docs/design/apiary-2026-10-13`, ресурсы — `assets/game/apiary`. Перед публикацией обязательны архитектурный gate и `./run_tests.sh`.
+
+## Проверка пакета ремёсел
+
+Нарезка без изменения RGBA: `python3 tools/extract_artisan_assets.py`. Профильный стенд: `Godot --headless --path . --script tools/artisan_review.gd`; нативные кадры: `Godot --path . --script tools/artisan_capture.gd`. Стенд создаёт отдельный каталог пользовательских данных и отключает процесс игровой модели; очереди продвигаются явно для воспроизводимых кадров. Общий quality gate остаётся обязательным.

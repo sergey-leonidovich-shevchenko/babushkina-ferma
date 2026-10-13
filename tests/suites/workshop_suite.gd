@@ -97,7 +97,7 @@ func test_materials_sources_and_real_stations() -> void:
 		expect(point!=Vector2.INF,"new clay deposit has a reachable mining approach")
 		game.player=point; var before:int=game.inventory_item_count("clay")
 		expect(index>=0 and game.ResourceSystem.mine(game,index) and game.inventory_item_count("clay")>before,"pickaxe actually provides workshop clay")
-	for kind in Workshop.Data.STATIONS: station(game,kind)
+	for kind in Workshop.Data.BASE_STATIONS: station(game,kind)
 	game.free()
 
 ## Сценарий: лесопилка резервирует сырьё и энергию, затем выдаёт доски и весь побочный выход.
@@ -123,7 +123,7 @@ func test_queue_atomic_energy_pause_and_outputs() -> void:
 ## Исходное состояние: частичная партия и неполные материалы, затем выданы обе цены выбранного станка.
 ## Ожидаемый результат: отказ атомарен, точные цены списаны, доля готовности сохранена и другие станки не улучшены.
 func test_all_three_upgrade_paths() -> void:
-	for kind in Workshop.Data.STATIONS:
+	for kind in Workshop.Data.BASE_STATIONS:
 		var game:=make_game(); station(game,kind); game.coins=1000; game.energy=12
 		var recipe:Dictionary=Workshop.Data.Recipes.RECIPES.filter(func(value): return value.get("station","")==kind)[0]
 		for item in recipe.inputs: game.change_inventory_count(item,int(recipe.inputs[item]))
@@ -139,7 +139,7 @@ func test_all_three_upgrade_paths() -> void:
 			job=Workshop.state(game,kind).queue[0]
 			expect(is_equal_approx(float(job.remaining)/float(job.duration),fraction),"upgrade accelerates queued work without changing its progress fraction")
 		expect(Workshop.state(game,kind).level==3 and game.coins==1000-total and not Workshop.upgrade(game,kind),"maximum level and exact upgrade coins are preserved: "+kind)
-		for other in Workshop.Data.STATIONS:
+		for other in Workshop.Data.BASE_STATIONS:
 			if other!=kind: expect(Workshop.state(game,other).level==1,"upgrading one workshop does not change another: "+other)
 		game.free()
 

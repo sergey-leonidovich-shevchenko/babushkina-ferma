@@ -22,7 +22,7 @@ static func update_plot(game: Node, plot: Dictionary, delta: float) -> void:
 	if plot.planted and plot.watered and plot.growth < growth_duration and game.CropCatalogSystem.grows_in_season(crop_kind, current_season):
 		var previous_stage: int = plot.stage
 		var previous_growth: float = float(plot.growth)
-		var next_growth := minf(previous_growth + delta * game.WorldEventSystem.crop_growth_multiplier(game) * game.EstateSystem.crop_multiplier(game), growth_duration)
+		var next_growth := minf(previous_growth + delta * game.WorldEventSystem.crop_growth_multiplier(game) * game.EstateSystem.crop_multiplier(game) * preload("res://scripts/systems/garden_crafting_system.gd").multiplier(plot), growth_duration)
 		var watering_threshold := growth_duration * 0.5
 		var crossed_watering_threshold := previous_growth < watering_threshold and next_growth >= watering_threshold
 		plot.growth = watering_threshold if crossed_watering_threshold else next_growth
@@ -85,9 +85,10 @@ static func harvest(game: Node, plot: Dictionary) -> bool:
 		return false
 	var crop_data: Dictionary = game.CropCatalogSystem.data(crop_kind)
 	var harvest_kind: String = String(crop_data.harvest)
-	var harvested: int = game.CropCatalogSystem.harvest_count(game, crop_kind)
+	var harvested: int = game.CropCatalogSystem.harvest_count(game, crop_kind)+preload("res://scripts/systems/garden_crafting_system.gd").harvest_bonus(plot)
 	game.change_inventory_count(harvest_kind, harvested)
 	var quality: String = game.EstateSystem.record_quality(game, harvest_kind, harvested)
+	plot.fertilizer=""
 	if game.CropCatalogSystem.is_perennial(crop_kind):
 		plot.planted = true
 		plot.growth = growth_duration - game.CropCatalogSystem.regrow_duration(crop_kind)

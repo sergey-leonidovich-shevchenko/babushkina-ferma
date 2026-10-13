@@ -3,11 +3,12 @@ extends RefCounted
 const Recipes := preload("res://scripts/systems/workshop_recipe_data.gd")
 const SPEED := [1.0,1.35,1.7]
 const EFFICIENCY := [1.0,1.25,1.5]
-const STATIONS := {
+const BASE_STATIONS := {
 	"sawmill":{"location":"guild_interior","point":Vector2(885,485),"anchor":Vector2(885,440),"icon":"wood_beam","thermal":false,"upgrades":[{"coins":100,"inputs":{"wood_beam":4,"metal":3,"stone":6}},{"coins":250,"inputs":{"steel":3,"timber_frame":2,"wood_dowel":8}}]},
 	"pottery":{"location":"cottage_interior","point":Vector2(480,490),"anchor":Vector2(480,450),"icon":"clay_pot","thermal":false,"upgrades":[{"coins":100,"inputs":{"plank":6,"metal":2,"clay":6}},{"coins":220,"inputs":{"brick":8,"steel":2,"ceramic_glaze":3}}]},
 	"glassblowing":{"location":"forge_interior","point":Vector2(850,490),"anchor":Vector2(850,450),"icon":"glass_bottle","thermal":true,"upgrades":[{"coins":120,"inputs":{"brick":6,"metal":3,"glass":4}},{"coins":280,"inputs":{"steel":3,"clear_glass":4,"timber_frame":2}}]},
 }
+static var STATIONS:Dictionary=BASE_STATIONS.merged(preload("res://scripts/systems/artisan_data.gd").WORKSHOPS)
 const ITEMS := {
 	"wood_beam":{"names":["Деревянный брус","Timber beam","Viga de madera","Holzbalken","Poutre de bois","木梁"],"group":"wood","color":"9d693c","buy":0,"sell":3},
 	"wood_dowel":{"names":["Деревянные шканты","Wood dowels","Espigas de madera","Holzdübel","Chevilles de bois","木榫"],"group":"dowels","color":"b78750","buy":0,"sell":1},
@@ -38,7 +39,7 @@ const ITEMS := {
 	"colored_glass":{"names":["Цветное стекло","Colored glass","Vidrio de color","Buntglas","Verre coloré","彩色玻璃"],"group":"pane","color":"cf8797","buy":0,"sell":9},
 	"moon_glass":{"names":["Лунное стекло","Moon glass","Vidrio lunar","Mondglas","Verre lunaire","月光玻璃"],"group":"pane","color":"8ac0e0","buy":0,"sell":24},
 }
-const RESEARCH_ENTRIES := [
+const BASE_RESEARCH_ENTRIES := [
 	{"kind":"wood_beam","tier":1,"batch":1,"parts":{"wood_offcut":2}},
 	{"kind":"wood_dowel","tier":1,"batch":4,"parts":{"wood_offcut":1}},
 	{"kind":"timber_frame","tier":2,"batch":1,"parts":{"wood_offcut":4,"metal_scrap":1}},
@@ -55,6 +56,7 @@ const RESEARCH_ENTRIES := [
 	{"kind":"optical_lens","tier":2,"batch":1,"parts":{"glass_shard":2,"arcane_dust":1}},
 	{"kind":"moon_glass","tier":3,"batch":1,"parts":{"glass_shard":2,"arcane_dust":1}},
 ]
+static var RESEARCH_ENTRIES:Array=BASE_RESEARCH_ENTRIES+preload("res://scripts/systems/artisan_data.gd").RESEARCH_ENTRIES
 const SPAWNS := [
 	{"position":Vector2(820,960),"location":"rocky","kind":"clay","hits":8},
 	{"position":Vector2(1700,1080),"location":"rocky","kind":"clay","hits":8},
@@ -64,16 +66,16 @@ const SPAWNS := [
 static func names() -> Dictionary:
 	var result:={}
 	for kind in ITEMS: result[kind]=ITEMS[kind].names
-	return result
+	return result.merged(preload("res://scripts/systems/artisan_data.gd").names())
 
 ## Регистрирует сырьё, заготовки и изделия как сохраняемые предметы.
 static func inventory_items() -> Dictionary:
 	var result:={}
 	for kind in ITEMS: result[kind]={"name":ITEMS[kind].names[0],"short":String(ITEMS[kind].names[0]).left(9),"color":Color(ITEMS[kind].color)}
-	return result
+	return result.merged(preload("res://scripts/systems/artisan_data.gd").inventory_items())
 
 ## Продаёт только сырой глиняный запас, позволяя торговать готовыми изделиями без покупки деталей.
 static func products() -> Array:
 	var result:=[]
 	for kind in ITEMS: result.append({"kind":kind,"buy":ITEMS[kind].buy,"sell":ITEMS[kind].sell,"daily_stock":8})
-	return result
+	return result+preload("res://scripts/systems/artisan_data.gd").products()
