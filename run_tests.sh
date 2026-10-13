@@ -46,9 +46,9 @@ set +e
 "$game_godot" --headless --path . --script res://tests/test_game.gd >"$test_log" 2>&1
 test_code=$?
 set -e
-if grep -Eq 'SCRIPT ERROR|Parse Error|Failed to load script' "$test_log"; then
+if grep -Eq '^ERROR:|SCRIPT ERROR|Parse Error|Failed to load script' "$test_log"; then
 	cat "$test_log"
-	print -u2 -- "Godot reported a script compilation/runtime error"
+	print -u2 -- "Godot reported an engine, compilation or runtime error"
 	exit 1
 fi
 if [[ $test_code -ne 0 ]] || ! grep -Eq 'TESTS: [0-9]+ passed, 0 failed' "$test_log"; then

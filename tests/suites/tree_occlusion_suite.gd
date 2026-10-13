@@ -103,6 +103,7 @@ func test_camera_culling_keeps_partial_crowns() -> void:
 	Occlusion.submit(game, "outside", Orchard.TREE_ATLAS, Rect2(-900, -900, 192, 192), Orchard.source_rect("apple", 3), 10000)
 	expect(state.queue.size() == 4, "camera culling keeps crowns intersecting all four viewport edges")
 	expect(not state.entries.has("outside") and not state.seen.has("outside"), "off-camera tree avoids both draw packet and opacity bookkeeping")
+	expect(not game.is_inside_tree(), "visibility regression really exercises a detached game node")
 	expect(view.encloses(Rect2(game.camera_offset, Vector2(1152, 648))), "detached game uses design viewport with a safe edge margin")
 	game.camera_offset += Vector2(2000, 0)
 	Occlusion.begin_frame(game, 1.0 / 60.0)
