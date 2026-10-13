@@ -194,7 +194,7 @@ static func draw(game: Node) -> void:
 	var clean_hud_preview := game.has_meta("capture_hud_clean")
 	var fishing_focus:bool=game.state.fishing.phase in [game.FishingSystem.PHASE_CHARGING,game.FishingSystem.PHASE_MINIGAME,game.FishingSystem.PHASE_RESULT]
 	var farm_life:Dictionary=game.FarmLifeSystem.state(game); var farm_modal:bool=bool(farm_life.compendium) or not String(farm_life.cutscene).is_empty()
-	farm_modal = farm_modal or game.inventory_open or game.shop_open or game.crafting_open or game.storage_open or game.forge_open or game.contract_open or game.quest_log_open or game.world_map_open or game.skill_menu_open or game.AdventurePolishSystem.has_modal(game)
+	farm_modal = farm_modal or preload("res://scripts/systems/dev_cabinet_system.gd").active(game) or game.inventory_open or game.shop_open or game.crafting_open or game.storage_open or game.forge_open or game.contract_open or game.quest_log_open or game.world_map_open or game.skill_menu_open or game.AdventurePolishSystem.has_modal(game)
 	if not clean_hud_preview and not fishing_focus and not farm_modal and game.tutorial_visible and game.tutorial_step < game.tutorial_steps.size():
 		game.StoryUiRenderer.draw_tutorial(game)
 	if not clean_hud_preview and not fishing_focus and not farm_modal and not game.AdventurePolishSystem.has_modal(game): game.draw_discovery_card()
@@ -207,6 +207,7 @@ static func draw(game: Node) -> void:
 	if game.contract_open: game.ContractRenderer.draw(game)
 	if game.quest_log_open: game.draw_quest_log()
 	if game.skill_menu_open: game.draw_skill_menu()
+	preload("res://scripts/presentation/dev_cabinet_renderer.gd").draw(game)
 
 
 ## Отрисовывает HUD по текущему состоянию игры.

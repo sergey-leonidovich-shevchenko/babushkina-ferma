@@ -52,6 +52,7 @@ static func migrate(data: Dictionary) -> Dictionary:
 static func apply(game: Node, data: Dictionary) -> bool:
 	data = migrate(data)
 	if data.is_empty() or not ValidationSystem.valid(data): return false
+	preload("res://scripts/systems/dev_cabinet_system.gd").reset(game)
 	VectorCodec.transform(data, true)
 	game.player = Vector2(data.player[0], data.player[1]); game.current_location = data.location
 	game.day = data.day; game.game_minutes = data.minutes; game.energy = data.energy; game.coins = data.coins

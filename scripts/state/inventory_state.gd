@@ -4,6 +4,7 @@ const DEFAULT_SLOTS := ["seeds", "carrot", "pickaxe", "fishing_rod", "slime", "w
 const DEFAULT_HOTBAR := ["hoe", "seeds", "water", "hand", "pickaxe", "fishing_rod", "axe", "apple", "berries", "mushroom"]
 const DEFAULT_EQUIPMENT := {"head": "", "body": "", "legs": "", "hands": "", "offhand": "", "ring": ""}
 const INITIAL_COUNTS := {
+	"hoe":0,"water":0,"hand":0,"backpack_upgrade":0,
 	"mayonnaise":0,"pancakes":0,"porridge":0,"truffle_soup":0,"yarn":0,"cloth":0,
 	"animal_feed":0,"truffle":0,
 	"seeds": 8, "carrot": 0, "slime": 0, "wood": 2, "log": 0, "plank": 0, "nails": 0, "stone": 0,

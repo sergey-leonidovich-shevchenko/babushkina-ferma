@@ -145,11 +145,13 @@ static func nearest_interaction(game: Node, distance_limit: float = 92.0) -> Str
 		var service_distance: float = game.player.distance_to(data.service_position)
 		if service_distance < distance_limit:
 			nearest = "interior_service:%s" % String(data.service)
+	if preload("res://scripts/systems/dev_cabinet_system.gd").at_cabinet(game) and game.player.distance_to(preload("res://scripts/systems/dev_cabinet_system.gd").POSITION)<distance_limit: nearest="interior_service:dev_cabinet"
 	return nearest
 
 
 ## Возвращает мировую позицию взаимодействия со зданием или интерьером.
 static func interaction_position(game: Node, interaction: String) -> Vector2:
+	if interaction=="interior_service:dev_cabinet": return preload("res://scripts/systems/dev_cabinet_system.gd").POSITION
 	if interaction.begins_with("basement_"): return game.BasementSystem.interaction_position(game,interaction)
 	if interaction.begins_with("building:"):
 		return BUILDINGS.get(interaction.get_slice(":", 1), {}).get("door", Vector2.ZERO)
@@ -170,6 +172,7 @@ static func interaction_position(game: Node, interaction: String) -> Vector2:
 
 ## Выполняет назначенную помещению услугу без дублирования правил магазина, сна или крафта.
 static func use_service(game: Node, service: String) -> bool:
+	if service=="dev_cabinet": return preload("res://scripts/systems/dev_cabinet_system.gd").open(game)
 	if game.WorkshopSystem.handles(service): game.open_crafting(service); game.notify_tutorial(service); return true
 	match service:
 		"shop": game.open_shop()
