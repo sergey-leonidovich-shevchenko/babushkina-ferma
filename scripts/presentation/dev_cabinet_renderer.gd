@@ -8,8 +8,8 @@ const VISIBLE := 50
 const SEARCH := Rect2(40,142,648,36)
 const REFILL := Rect2(934,142,178,36)
 const CLOSE := Rect2(1070,26,42,38)
-const PREVIOUS := Rect2(52,584,84,32)
-const NEXT := Rect2(700,584,84,32)
+const PREVIOUS := Rect2(700,142,44,36)
+const NEXT := Rect2(880,142,44,36)
 const AMOUNTS := [1,10,100,999]
 
 ## Даёт одинаковую геометрию восьми вкладок для рисунка, мыши и касания.
@@ -39,7 +39,7 @@ static func draw(game: Node2D) -> void:
 	for index in Cabinet.TABS.size(): Style.button(game,tab_rect(index),Locale.text(game,Cabinet.TABS[index]),int(value.tab)==index)
 	Style.panel(game,SEARCH,Style.INSET,Style.ACCENT if value.searching else Style.EDGE)
 	Style.text(game,SEARCH.grow(-8),String(value.query)+( "▏" if value.searching else "") if not String(value.query).is_empty() or value.searching else Locale.text(game,"search"),13,Style.TEXT if not String(value.query).is_empty() else Style.MUTED)
-	Style.text(game,Rect2(708,142,216,36),Locale.text(game,"found",[choices.size()]),13,Style.MUTED)
+	Style.text(game,Rect2(750,142,124,36),Locale.text(game,"found",[choices.size()]),13,Style.MUTED,HORIZONTAL_ALIGNMENT_CENTER)
 	Style.button(game,REFILL,Locale.text(game,"refill"))
 	Style.panel(game,Rect2(40,194,756,380)); Style.panel(game,Rect2(816,194,296,380),Style.INSET)
 	var first:=start(game)
@@ -51,8 +51,9 @@ static func draw(game: Node2D) -> void:
 	if not kind.is_empty(): draw_detail(game,kind)
 	Style.button(game,PREVIOUS,"‹",false,first>0); Style.button(game,NEXT,"›",false,first+VISIBLE<choices.size())
 	var notice:String=String(value.notice)
-	Style.text(game,Rect2(150,584,534,32),notice if not notice.is_empty() else "%d / %d"%[first/VISIBLE+1,maxi(1,ceili(choices.size()/float(VISIBLE)))],12,Style.ACCENT,HORIZONTAL_ALIGNMENT_CENTER)
-	Style.text(game,Rect2(40,628,1072,16),Locale.text(game,"help"),11,Style.MUTED,HORIZONTAL_ALIGNMENT_CENTER)
+	preload("res://scripts/presentation/storage_actions_renderer.gd").draw(game,true)
+	Style.text(game,Rect2(40,617,1072,12),"%d / %d"%[first/VISIBLE+1,maxi(1,ceili(choices.size()/float(VISIBLE)))]+(" • "+notice if not notice.is_empty() else ""),10,Style.ACCENT,HORIZONTAL_ALIGNMENT_CENTER)
+	Style.text(game,Rect2(40,632,1072,12),Locale.text(game,"help"),9,Style.MUTED,HORIZONTAL_ALIGNMENT_CENTER)
 
 ## Показывает самостоятельную иконку, короткое имя и реальный остаток в шкафу.
 static func draw_slot(game: Node2D, kind: String, visible: int, selected: bool) -> void:

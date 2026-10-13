@@ -40,7 +40,7 @@ static func update_input_device(game: Node, event: InputEvent) -> void:
 
 ## Передаёт событие редактору, меню, сюжетному модальному окну или строительству оград.
 static func _handle_high_priority_layer(game: Node, event: InputEvent) -> bool:
-	if preload("res://scripts/systems/dev_cabinet_input.gd").handle_input(game,event) or preload("res://scripts/systems/basement_input_system.gd").handle_input(game,event) or preload("res://scripts/systems/apiary_input_system.gd").handle_input(game,event): return true
+	if preload("res://scripts/systems/storage_actions_system.gd").handle_window_input(game,event) or preload("res://scripts/systems/dev_cabinet_input.gd").handle_input(game,event) or preload("res://scripts/systems/basement_input_system.gd").handle_input(game,event) or preload("res://scripts/systems/apiary_input_system.gd").handle_input(game,event): return true
 	if preload("res://scripts/systems/menu_hub_system.gd").handle_input(game,event): return true
 	if game.PublishedLevelSystem.handle_input(game,event):
 		return true

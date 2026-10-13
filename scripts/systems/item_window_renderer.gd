@@ -170,16 +170,17 @@ static func draw_shop(game: Node) -> void:
 
 ## Рисует домашний сундук двумя симметричными колонками общего предметного семейства.
 static func draw_storage(game: Node) -> void:
-	draw_shell(game, game.LocaleSystem.ui("home_storage"))
+	draw_shell(game, game.LocaleSystem.ui("home_storage"),game.message)
 	draw_section(game, STORAGE_LEFT_SECTION)
 	draw_section(game, STORAGE_RIGHT_SECTION)
-	game.draw_ui_string(game.UI_FONT, Vector2(96, 176), game.LocaleSystem.ui("backpack_column"), HORIZONTAL_ALIGNMENT_CENTER, 430, 16, UiKitSystem.COLORS.ink)
-	game.draw_ui_string(game.UI_FONT, Vector2(626, 176), game.LocaleSystem.ui("chest_column"), HORIZONTAL_ALIGNMENT_CENTER, 430, 16, UiKitSystem.COLORS.ink)
+	game.draw_ui_string(game.UI_FONT, Vector2(96, 176), game.LocaleSystem.ui("backpack_column"), HORIZONTAL_ALIGNMENT_CENTER, 190, 16, UiKitSystem.COLORS.ink)
+	game.draw_ui_string(game.UI_FONT, Vector2(626, 176), game.LocaleSystem.ui("chest_column"), HORIZONTAL_ALIGNMENT_CENTER, 190, 16, UiKitSystem.COLORS.ink)
 	draw_storage_column(game, game.StorageSystem.inventory_items(game), 0, game.InterfaceRenderer.STORAGE_LEFT_ROWS)
 	draw_storage_column(game, game.StorageSystem.stored_items(game), 1, game.InterfaceRenderer.STORAGE_RIGHT_ROWS)
 	var can_transfer: bool = not game.StorageSystem.selected_items(game).is_empty()
 	draw_action(game, game.InterfaceRenderer.STORAGE_TRANSFER_ONE, game.LocaleSystem.ui("transfer_one"), can_transfer)
 	draw_action(game, game.InterfaceRenderer.STORAGE_TRANSFER_ALL, game.LocaleSystem.ui("transfer_all"), can_transfer)
+	preload("res://scripts/presentation/storage_actions_renderer.gd").draw(game,false)
 	draw_help(game, game.LocaleSystem.ui("storage_help"))
 
 

@@ -5,10 +5,11 @@ const SETTING := "development/supply_cabinet_enabled"
 const POSITION := Vector2(190,398)
 const TABS := ["all","craft","food","alchemy","equipment","tools","seeds","other"]
 const STOCK := 999
-const UNIQUE := ["sword","bow","crystal_sword","pickaxe","fishing_rod"]
+const UNIQUE := preload("res://scripts/systems/inventory_system.gd").UNIQUE_ITEMS
 const DECOR := ["home_chest","backpack_upgrade","rustic_table","wooden_chair","wooden_wardrobe","woven_rug","potted_fern","museum_token","fence_kit","gate_kit","bandage"]
 const Products := preload("res://scripts/systems/alchemy_product_data.gd")
 const Locale := preload("res://scripts/systems/dev_cabinet_locale.gd")
+const Sorting := preload("res://scripts/systems/storage_sort_system.gd")
 
 ## Отделяет временное снабжение разработки от окончательного режима игры одной настройкой проекта.
 static func enabled() -> bool:
@@ -48,21 +49,21 @@ static func category(game: Node, kind: String) -> String:
 ## Кэширует локализованный поиск и категории, чтобы отрисовка не пересобирала сотни имён каждый кадр.
 static func items(game: Node) -> Array:
 	var value:=state(game); var tab:String=TABS[int(value.tab)]; var query:String=String(value.query).strip_edges().to_lower()
-	var key:String=game.LocaleSystem.current+":"+tab+":"+query
+	var key:String=game.LocaleSystem.current+":"+tab+":"+query+":"+Sorting.mode(game,"container")
 	if not value.cache.has(key):
 		var result:=[]
 		for kind in value.stock:
 			if tab!="all" and category(game,kind)!=tab: continue
 			if not query.is_empty() and not String(kind).contains(query) and not game.inventory_item_name(kind).to_lower().contains(query): continue
 			result.append(kind)
-		result.sort_custom(func(left,right): return game.inventory_item_name(left).nocasecmp_to(game.inventory_item_name(right))<0)
+		Sorting.arrange(game,result,Sorting.mode(game,"container"),func(kind): return category(game,kind),func(kind): return int(value.stock[kind]))
 		value.cache[key]=result
 	return value.cache[key]
 
 ## Открывает шкаф только обычным подходом, очищая удержанные действия до остановки мира.
 static func open(game: Node) -> bool:
 	if not at_cabinet(game) or game.inventory_open or game.crafting_open or game.storage_open or game.shop_open: return false
-	state(game).open=true; game.clear_movement_keys(); game.action_held=false; game.attack_held=false; game.state.player.blocking=false
+	state(game).open=true; state(game).notice=""; game.clear_movement_keys(); game.action_held=false; game.attack_held=false; game.state.player.blocking=false
 	game.notify_tutorial("dev_cabinet"); game.queue_redraw(); return true
 
 ## Закрывает временную панель, оставляя её запас в текущем сеансе и не сохраняя его в игровом слоте.
@@ -84,6 +85,10 @@ static func selected(game: Node) -> String:
 	value.selected=clampi(int(value.selected),0,maxi(0,choices.size()-1))
 	return String(choices[int(value.selected)]) if not choices.is_empty() else ""
 
+## Пересобирает упорядоченный каталог после изменения количества, оставляя фокус на прежнем виде.
+static func refresh_selection(game: Node, kind: String) -> void:
+	var value:=state(game); value.cache.clear(); value.selected=maxi(items(game).find(kind),0); game.queue_redraw()
+
 ## Передаёт единичное старое оружие честно, а обычные предметы выдаёт запрошенным стеком.
 static func amount(game: Node, kind: String, requested: int) -> int:
 	if not active(game) or not at_cabinet(game) or not state(game).stock.has(kind) or requested<=0: return 0
@@ -94,13 +99,16 @@ static func amount(game: Node, kind: String, requested: int) -> int:
 static func take(game: Node, kind: String, requested: int) -> bool:
 	var count:=amount(game,kind,requested)
 	if count<=0: return false
+	var focused:=selected(game)
 	if not game.change_inventory_count(kind,count): return false
 	var value:=state(game); value.stock[kind]-=count
+	refresh_selection(game,focused)
 	value.notice=Locale.text(game,"taken",[game.inventory_item_name(kind),count]); game.queue_redraw(); return true
 
-## Пополняет весь каталог до установленного запаса только через явно открытую панель разработки.
+## Пополняет каталог минимум до установленного запаса, сохраняя дополнительно внесённые вещи.
 static func refill(game: Node) -> void:
 	if not active(game) or not at_cabinet(game): return
-	var value:=state(game)
-	for kind in value.stock: value.stock[kind]=STOCK
+	var focused:=selected(game); var value:=state(game)
+	for kind in value.stock: value.stock[kind]=maxi(STOCK,int(value.stock[kind]))
+	refresh_selection(game,focused)
 	value.notice=Locale.text(game,"refilled"); game.queue_redraw()

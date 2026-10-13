@@ -135,6 +135,9 @@ static func _check_item_windows(checks:Array[Dictionary])->void:
 	for data in [["one",InterfaceRenderer.STORAGE_TRANSFER_ONE],["all",InterfaceRenderer.STORAGE_TRANSFER_ALL]]:
 		_record(checks,"items.storage.transfer.%s.contained"%data[0],ItemWindowRenderer.SHELL.encloses(data[1]),"Кнопка переноса выходит за корпус"); _record(checks,"items.storage.transfer.%s.touch"%data[0],data[1].size.x>=MIN_TOUCH_TARGET and data[1].size.y>=MIN_TOUCH_TARGET,"Кнопка переноса меньше hit-зоны"); _record(checks,"items.storage.transfer.%s.clear"%data[0],not data[1].intersects(ItemWindowRenderer.STORAGE_LEFT_SECTION) and not data[1].intersects(ItemWindowRenderer.STORAGE_RIGHT_SECTION),"Кнопка переноса лежит на рамке колонки")
 	_record(checks,"items.storage.transfer.gap",not InterfaceRenderer.STORAGE_TRANSFER_ONE.intersects(InterfaceRenderer.STORAGE_TRANSFER_ALL),"Кнопки переноса пересекаются")
+	for index in 4:
+		var rect:Rect2=preload("res://scripts/presentation/storage_actions_renderer.gd").rect(index,false)
+		_record(checks,"items.storage.quick.%d"%index,ItemWindowRenderer.SHELL.encloses(rect) and not rect.intersects(InterfaceRenderer.STORAGE_LEFT_ROWS) and not rect.intersects(InterfaceRenderer.STORAGE_RIGHT_ROWS) and not rect.intersects(InterfaceRenderer.STORAGE_TRANSFER_ONE) and not rect.intersects(InterfaceRenderer.STORAGE_TRANSFER_ALL),"Быстрое действие сундука перекрывает список или перенос стека")
 
 
 ## Проверяет постоянный HUD, контекстные зоны и их физическую раскладку на трёх форматах экрана.
@@ -316,7 +319,11 @@ static func _check_crafting_text(checks:Array[Dictionary],game:Node,locale:Strin
 
 ## Проверяет обе колонки сундука, кнопки переноса, справку и любое имя предмета в строке хранения.
 static func _check_storage_text(checks:Array[Dictionary],game:Node,locale:String,counts:Dictionary)->void:
-	var contracts:Array=[["title",game.LocaleSystem.ui("home_storage"),652.0,28,14],["backpack",game.LocaleSystem.ui("backpack_column"),430.0,16,9],["chest",game.LocaleSystem.ui("chest_column"),430.0,16,9],["one",game.LocaleSystem.ui("transfer_one"),120.0,12,9],["all",game.LocaleSystem.ui("transfer_all"),120.0,12,9],["help",game.LocaleSystem.ui("storage_help"),820.0,12,8]]
+	var contracts:Array=[["title",game.LocaleSystem.ui("home_storage"),652.0,28,14],["backpack",game.LocaleSystem.ui("backpack_column"),190.0,16,9],["chest",game.LocaleSystem.ui("chest_column"),190.0,16,9],["one",game.LocaleSystem.ui("transfer_one"),120.0,12,9],["all",game.LocaleSystem.ui("transfer_all"),120.0,12,9],["help",game.LocaleSystem.ui("storage_help"),820.0,12,8]]
+	for index in 4:
+		var actions:=preload("res://scripts/presentation/storage_actions_renderer.gd"); var key:String=actions.KEYS[index]
+		var label:String=actions.Locale.sort_label(game,key) if index>=2 else actions.Locale.text(game,key)
+		contracts.append(["quick_"+key,label,actions.rect(index,false).size.x-20,12,8])
 	for kind in game.InventorySystem.ITEM_DATA: contracts.append(["item_"+String(kind),game.inventory_item_name(String(kind)),290.0,11,8])
 	for contract in contracts: _record_text_contract(checks,game,"storage",locale,contract); counts.storage=int(counts.storage)+1
 

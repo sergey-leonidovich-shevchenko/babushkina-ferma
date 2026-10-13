@@ -18,6 +18,7 @@ static func pointer(game: Node, point: Vector2) -> void:
 	if Render.CLOSE.has_point(point): Cabinet.close(game); return
 	value.searching=Render.SEARCH.has_point(point)
 	if value.searching: return
+	if preload("res://scripts/presentation/storage_actions_renderer.gd").pointer(game,point,true): return
 	if Render.REFILL.has_point(point): Cabinet.refill(game); return
 	for index in Cabinet.TABS.size():
 		if Render.tab_rect(index).has_point(point): Cabinet.select_tab(game,index); return
@@ -44,6 +45,7 @@ static func search_key(game: Node, event: InputEventKey) -> void:
 static func keyboard(game: Node, event: InputEventKey) -> void:
 	var value:=Cabinet.state(game)
 	if value.searching: search_key(game,event); return
+	if preload("res://scripts/systems/storage_actions_system.gd").handle_input(game,event,true): return
 	match event.keycode:
 		KEY_ESCAPE: Cabinet.close(game)
 		KEY_F,KEY_SLASH: value.searching=true
@@ -61,6 +63,7 @@ static func keyboard(game: Node, event: InputEventKey) -> void:
 
 ## Держит геймпад в одном слое и переключает аналоговый выбор один раз при пересечении порога.
 static func controller(game: Node, event: InputEvent) -> void:
+	if preload("res://scripts/systems/storage_actions_system.gd").handle_input(game,event,true): return
 	var value:=Cabinet.state(game)
 	if event is InputEventJoypadButton and event.pressed:
 		match event.button_index:

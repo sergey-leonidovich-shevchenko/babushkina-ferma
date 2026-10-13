@@ -1,5 +1,7 @@
 extends RefCounted
 
+const UNIQUE_ITEMS := ["sword","bow","crystal_sword","pickaxe","fishing_rod"]
+
 const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
 
 const COLUMNS := 6

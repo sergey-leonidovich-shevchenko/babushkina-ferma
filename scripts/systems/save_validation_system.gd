@@ -4,7 +4,7 @@ const PLOT := {"!": ["x", "y", "tilled", "planted", "watered", "growth", "stage"
 const CORE := {
 	"player":"p", "location":"s", "day":"n", "minutes":"n", "energy":"n", "coins":"n", "xp":"n", "level":"n", "hp":"n",
 	"counts":{"*":"n"}, "slots":["s"], "hotbar":["s"], "equipment":{"*":"s"}, "quest_active":"b", "quest_complete":"b",
-	"weapons":{"!":["sword", "bow", "crystal", "equipped"], "sword":"b", "bow":"b", "crystal":"b", "equipped":"s"},
+	"weapons":{"!":["sword", "bow", "crystal", "equipped"], "sword":"b", "bow":"b", "crystal":"b", "equipped":"s", "pickaxe":"b", "fishing_rod":"b"},
 	"plots":[PLOT], "resource_hits":["n"],
 }
 const MEMORY := {"mission":"s", "day":"n", "state":"s", "gift_day":"n", "last_gift":"s", "personal_done":"b", "personal_day":"n"}

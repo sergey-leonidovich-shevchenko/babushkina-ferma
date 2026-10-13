@@ -15,14 +15,14 @@ const TEXT := {
 	"search":["Поиск по названию или ID · F","Search name or ID · F","Buscar nombre o ID · F","Name oder ID suchen · F","Rechercher nom ou ID · F","搜索名称或ID · F"],
 	"found":["Найдено: %d","Found: %d","Encontrados: %d","Gefunden: %d","Trouvés : %d","找到：%d"],
 	"refill":["Пополнить ×999","Refill ×999","Reponer ×999","Auffüllen ×999","Remplir ×999","补充至999"],
-	"refilled":["Все запасы пополнены до 999","Every stock refilled to 999","Todo repuesto a 999","Alle Vorräte auf 999 aufgefüllt","Tous les stocks remis à 999","所有库存补充至999"],
+	"refilled":["Запасы пополнены, минимум 999 каждого","Stocks refilled to at least 999 each","Existencias: al menos 999 de cada objeto","Vorräte auf mindestens 999 aufgefüllt","Stocks remplis à au moins 999 chacun","每种库存至少补充至999"],
 	"take":["Взять ×%d","Take ×%d","Tomar ×%d","Nehmen ×%d","Prendre ×%d","拿取%d个"],
 	"stock":["В шкафу: %d","In cabinet: %d","En armario: %d","Im Schrank: %d","Dans l’armoire : %d","柜内：%d"],
 	"bag":["В рюкзаке: %d","In bag: %d","En mochila: %d","Im Rucksack: %d","Dans le sac : %d","背包：%d"],
 	"taken":["%s ×%d — в рюкзаке","%s ×%d added to bag","%s ×%d en la mochila","%s ×%d im Rucksack","%s ×%d dans le sac","%s ×%d已放入背包"],
 	"empty":["По запросу ничего не найдено","No matching items","No hay coincidencias","Keine passenden Gegenstände","Aucun objet correspondant","未找到匹配物品"],
 	"unique":["Этот предмет используется по одному","This item is used one at a time","Este objeto se usa de uno en uno","Dieser Gegenstand wird einzeln genutzt","Cet objet s’utilise à l’unité","此物品每次使用一个"],
-	"help":["↑↓←→: выбор · Tab/Q/E/LB/RB: вкладка · Enter/A: 1 · Shift+Enter/X: 100 · Ctrl+Enter/Y: всё · R: пополнить · Esc/B: закрыть","Arrows: select · Tab/Q/E/LB/RB: tab · Enter/A: 1 · Shift+Enter/X: 100 · Ctrl+Enter/Y: all · R: refill · Esc/B: close","Flechas: elegir · Tab/Q/E/LB/RB: pestaña · Enter/A: 1 · Shift+Enter/X: 100 · Ctrl+Enter/Y: todo · R: reponer · Esc/B: cerrar","Pfeile: wählen · Tab/Q/E/LB/RB: Kategorie · Enter/A: 1 · Shift+Enter/X: 100 · Ctrl+Enter/Y: alle · R: auffüllen · Esc/B: schließen","Flèches : choisir · Tab/Q/E/LB/RB : onglet · Enter/A : 1 · Shift+Enter/X : 100 · Ctrl+Enter/Y : tout · R : remplir · Esc/B : fermer","方向键：选择 · Tab/Q/E/LB/RB：分类 · Enter/A：1 · Shift+Enter/X：100 · Ctrl+Enter/Y：全部 · R：补充 · Esc/B：关闭"],
+	"help":["Стрелки: выбор • Tab/LB/RB: вкладка • Enter/A: 1 • X: 100 • Y: 999 • D/Start: внести всё • M/View: совп. • S/T/R3: сорт. • R: запас • Esc/B: закрыть","Arrows: select • Tab/LB/RB: tab • Enter/A: 1 • X: 100 • Y: 999 • D/Start: store all • M/View: matching • S/T/R3: sort • R: refill • Esc/B: close","Flechas: elegir • Tab/LB/RB: pestaña • Enter/A: 1 • X: 100 • Y: 999 • D/Start: guardar todo • M/View: coincidentes • S/T/R3: ordenar • R: reponer • Esc/B: cerrar","Pfeile: wählen • Tab/LB/RB: Kategorie • Enter/A: 1 • X: 100 • Y: 999 • D/Start: alles lagern • M/View: passende • S/T/R3: sortieren • R: auffüllen • Esc/B: schließen","Flèches : choisir • Tab/LB/RB : onglet • Enter/A : 1 • X : 100 • Y : 999 • D/Start : tout déposer • M/View : similaires • S/T/R3 : trier • R : remplir • Esc/B : fermer","方向键：选择 • Tab/LB/RB：分类 • Enter/A：1 • X：100 • Y：999 • D/Start：全部存入 • M/View：已有 • S/T/R3：排序 • R：补充 • Esc/B：关闭"],
 }
 
 ## Даёт самостоятельные подписи временного шкафа на всех языках игры.

@@ -202,6 +202,7 @@ static func apply_immediate_key_response(game: Node, event: InputEventKey) -> vo
 
 ## Обрабатывает клавиатуру и геймпад двухколоночного домашнего сундука.
 static func handle_storage_input(game: Node, event: InputEvent) -> void:
+	if preload("res://scripts/systems/storage_actions_system.gd").handle_input(game,event,false): return
 	var command := -1
 	if event is InputEventKey and event.pressed and not event.echo:
 		command = int(event.keycode)
@@ -223,6 +224,7 @@ static func handle_storage_input(game: Node, event: InputEvent) -> void:
 
 ## Обрабатывает касания колонок и кнопок переноса домашнего сундука.
 static func handle_storage_touch(game: Node, position: Vector2) -> bool:
+	if preload("res://scripts/presentation/storage_actions_renderer.gd").pointer(game,position,false): return true
 	if game.InterfaceRenderer.STORAGE_TRANSFER_ONE.has_point(position):
 		game.StorageSystem.transfer_selected(game)
 	elif game.InterfaceRenderer.STORAGE_TRANSFER_ALL.has_point(position):

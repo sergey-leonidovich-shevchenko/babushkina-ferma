@@ -31,7 +31,8 @@ static func stored_items(game: Node) -> Array[String]:
 	for kind in game.home_chest_counts:
 		if int(game.home_chest_counts[kind]) > 0:
 			result.append(String(kind))
-	result.sort_custom(func(left: String, right: String): return game.inventory_item_name(left) < game.inventory_item_name(right))
+	var sorting:=preload("res://scripts/systems/storage_sort_system.gd")
+	sorting.arrange(game,result,sorting.mode(game,"container"),game.InventorySystem.category,game.state.storage.count)
 	return result
 
 
@@ -55,6 +56,7 @@ static func open(game: Node) -> bool:
 	game.storage_side = 0
 	game.storage_selected = 0
 	game.clear_movement_keys()
+	game.action_held=false; game.attack_held=false; game.state.player.blocking=false
 	game.message = game.LocaleSystem.text("chest_opened")
 	game.notify_tutorial("chest_open")
 	return true
@@ -68,23 +70,30 @@ static func deposit(game: Node, kind: String, amount: int = 1) -> bool:
 	if not game.change_inventory_count(kind, -amount):
 		return false
 	game.state.storage.change(kind, amount)
+	refresh_equipment(game,kind)
+	game.message = game.LocaleSystem.text("chest_deposited", [game.inventory_item_name(kind), amount])
+	game.notify_tutorial("chest_deposit")
+	return true
+
+
+## Снимает последнюю перенесённую экипированную копию и пересчитывает обычные характеристики героя.
+static func refresh_equipment(game: Node, kind: String) -> void:
 	for slot in game.equipment:
 		if game.equipment[slot] == kind and game.inventory_item_count(kind) == 0:
 			game.equipment[slot] = ""
 	if game.inventory_item_count(kind) == 0 and game.WeaponSystem.item_kind(game.equipped_weapon) == kind:
 		game.equipped_weapon = "none"; game.equipment.hands = ""; game.sword_equipped = false
 	game.InventorySystem.recalculate_stats(game)
-	game.message = game.LocaleSystem.text("chest_deposited", [game.inventory_item_name(kind), amount])
-	game.notify_tutorial("chest_deposit")
-	return true
 
 
 ## Забирает указанное количество предмета из сундука обратно в рюкзак.
 static func withdraw(game: Node, kind: String, amount: int = 1) -> bool:
 	amount = mini(maxi(amount, 0), game.state.storage.count(kind))
-	if kind.is_empty() or amount <= 0 or not game.state.storage.change(kind, -amount):
+	if not game.InventorySystem.ITEM_DATA.has(kind): return false
+	if kind in game.InventorySystem.UNIQUE_ITEMS: amount=0 if game.inventory_item_count(kind)>0 else mini(amount,1)
+	if amount <= 0 or not game.change_inventory_count(kind,amount):
 		return false
-	game.change_inventory_count(kind, amount)
+	game.state.storage.change(kind,-amount)
 	game.message = game.LocaleSystem.text("chest_withdrawn", [game.inventory_item_name(kind), amount])
 	game.notify_tutorial("chest_withdraw")
 	return true
