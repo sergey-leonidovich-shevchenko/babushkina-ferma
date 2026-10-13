@@ -24,7 +24,7 @@ static func draw(game: Node2D, cabinet: bool) -> void:
 	Style.panel(game,Layout.DETAIL,Style.INSET)
 	var kind:=Grid.selected(game,cabinet)
 	if not kind.is_empty(): draw_detail(game,cabinet,kind)
-	else: Style.text(game,Layout.TITLE,Locale.text(game,"empty"),13,Style.MUTED,HORIZONTAL_ALIGNMENT_CENTER)
+	else: Style.text(game,Layout.TITLE,empty_text(game,cabinet,int(value.side)),13,Style.MUTED,HORIZONTAL_ALIGNMENT_CENTER)
 	preload("res://scripts/presentation/storage_actions_renderer.gd").draw(game,cabinet)
 	var notice:String=String(Cabinet.state(game).notice) if cabinet else String(game.message)
 	Style.text(game,Rect2(32,618,1088,13),notice,10,Style.ACCENT,HORIZONTAL_ALIGNMENT_CENTER)
@@ -49,7 +49,7 @@ static func draw_grid(game: Node2D, cabinet: bool, side: int) -> void:
 		var kind:String=choices[index]
 		game.draw_item_icon(kind,Layout.icon(side,visible))
 		Style.text(game,Layout.count(side,visible),"×"+str(Grid.count(game,cabinet,side,kind)),11,Style.ACCENT,HORIZONTAL_ALIGNMENT_CENTER)
-	if choices.is_empty(): Style.text(game,Layout.grid(side).grow(-12),Locale.text(game,"empty"),13,Style.MUTED,HORIZONTAL_ALIGNMENT_CENTER)
+	if choices.is_empty(): Style.text(game,Layout.grid(side).grow(-12),empty_text(game,cabinet,side),13,Style.MUTED,HORIZONTAL_ALIGNMENT_CENTER)
 	Style.panel(game,Layout.track(side),Style.INSET,Style.EDGE)
 	game.draw_rect(Layout.thumb(side,value.rows[side],choices.size()),Style.ACCENT if int(value.side)==side else Style.MUTED)
 
@@ -88,3 +88,7 @@ static func description(game: Node, kind: String) -> String:
 	var stats:Dictionary=items.stats(game,kind); var rows:Array[String]=[]
 	for key in stats: rows.append(game.LocaleSystem.ui("item_stat_"+key)+" +"+str(stats[key]))
 	return " · ".join(rows) if not rows.is_empty() else game.LocaleSystem.ui(game.InventorySystem.detail_key(kind))
+
+## Отличает пустой рюкзак или сундук от отсутствующего результата текстового поиска шкафа.
+static func empty_text(game: Node, cabinet: bool, side: int) -> String:
+	return Locale.text(game,"empty") if cabinet and side==1 and not String(Cabinet.state(game).query).is_empty() else game.LocaleSystem.ui("empty")

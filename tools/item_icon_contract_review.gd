@@ -9,6 +9,7 @@ func _initialize() -> void:
 	ProjectSettings.set_setting("application/config/use_custom_user_dir",true)
 	ProjectSettings.set_setting("application/config/custom_user_dir_name","MoonValleyIconContractReview")
 	preload("res://tests/suites/item_icon_contract_suite.gd").new(self).run()
+	preload("res://tests/suites/painted_item_icon_suite.gd").new(self).run()
 	print("ICON CONTRACT REVIEW: %d passed, %d failed"%[passed,failed]); quit(0 if failed==0 else 1)
 
 ## Создаёт отделённую игровую модель с загруженным реестром и локалью проверки.

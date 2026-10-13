@@ -1,0 +1,342 @@
+{
+	"balanced_elixir": {
+		"color": "b3c6aa",
+		"master": "essence"
+	},
+	"bee_balm": {
+		"color": "ddbc81",
+		"master": "balm"
+	},
+	"bee_essence": {
+		"color": "dbae63",
+		"master": "essence"
+	},
+	"bitter_root_juice": {
+		"color": "a89872",
+		"master": "juice"
+	},
+	"bitter_root_tincture": {
+		"color": "a89872",
+		"master": "tincture"
+	},
+	"bloodthorn_juice": {
+		"color": "bd767d",
+		"master": "juice"
+	},
+	"bloodthorn_tincture": {
+		"color": "bd767d",
+		"master": "tincture"
+	},
+	"chamomile_juice": {
+		"color": "efdfa5",
+		"master": "juice"
+	},
+	"chamomile_tincture": {
+		"color": "efdfa5",
+		"master": "tincture"
+	},
+	"clarity_drops": {
+		"color": "87baa1",
+		"master": "essence"
+	},
+	"clean_water": {
+		"color": "a3ced9",
+		"master": "solvent"
+	},
+	"distilled_water": {
+		"color": "c0deea",
+		"master": "distillate"
+	},
+	"ember_essence": {
+		"color": "d79960",
+		"master": "essence"
+	},
+	"ember_grass_juice": {
+		"color": "e6ae72",
+		"master": "juice"
+	},
+	"ember_grass_tincture": {
+		"color": "e6ae72",
+		"master": "tincture"
+	},
+	"ether_essence": {
+		"color": "b7aedf",
+		"master": "essence"
+	},
+	"field_mint_juice": {
+		"color": "79ba85",
+		"master": "juice"
+	},
+	"field_mint_tincture": {
+		"color": "79ba85",
+		"master": "tincture"
+	},
+	"frost_essence": {
+		"color": "acd1de",
+		"master": "essence"
+	},
+	"frost_fern_juice": {
+		"color": "a5c7d8",
+		"master": "juice"
+	},
+	"frost_fern_tincture": {
+		"color": "a5c7d8",
+		"master": "tincture"
+	},
+	"ghost_orchid_juice": {
+		"color": "c0b2dc",
+		"master": "juice"
+	},
+	"ghost_orchid_tincture": {
+		"color": "c0b2dc",
+		"master": "tincture"
+	},
+	"glass_bottle": {
+		"color": "94bdba",
+		"master": "bottle_empty"
+	},
+	"glass_jar": {
+		"color": "94bdba",
+		"master": "jar_empty"
+	},
+	"glass_vial": {
+		"color": "c5d0b6",
+		"master": "vial"
+	},
+	"greater_healing": {
+		"color": "c98380",
+		"master": "essence"
+	},
+	"greater_mana": {
+		"color": "97aad8",
+		"master": "essence"
+	},
+	"herb_oil": {
+		"color": "94bdba",
+		"master": "oil"
+	},
+	"herb_solvent": {
+		"color": "94bdba",
+		"master": "solvent"
+	},
+	"honey_balm": {
+		"color": "d7ae6c",
+		"master": "balm"
+	},
+	"honey_syrup": {
+		"color": "d7a746",
+		"master": "oil"
+	},
+	"hunter_elixir": {
+		"color": "be866e",
+		"master": "essence"
+	},
+	"insect_repellent": {
+		"color": "a8bd91",
+		"master": "balm"
+	},
+	"juniper_juice": {
+		"color": "78a5c1",
+		"master": "juice"
+	},
+	"juniper_tincture": {
+		"color": "78a5c1",
+		"master": "tincture"
+	},
+	"lemon_balm": {
+		"color": "a8c778",
+		"master": "balm"
+	},
+	"lemon_balm_juice": {
+		"color": "a8c778",
+		"master": "juice"
+	},
+	"lemon_balm_tincture": {
+		"color": "a8c778",
+		"master": "tincture"
+	},
+	"life_balsam": {
+		"color": "9aba84",
+		"master": "balm"
+	},
+	"meadow_tonic": {
+		"color": "d5c283",
+		"master": "tincture"
+	},
+	"miners_oil": {
+		"color": "bcac87",
+		"master": "oil"
+	},
+	"moon_grass_juice": {
+		"color": "98cbdb",
+		"master": "juice"
+	},
+	"moon_grass_tincture": {
+		"color": "98cbdb",
+		"master": "tincture"
+	},
+	"moon_moss_juice": {
+		"color": "99bbce",
+		"master": "juice"
+	},
+	"moon_moss_tincture": {
+		"color": "99bbce",
+		"master": "tincture"
+	},
+	"moon_veil_potion": {
+		"color": "ae9eca",
+		"master": "essence"
+	},
+	"nettle_juice": {
+		"color": "75a766",
+		"master": "juice"
+	},
+	"nettle_tincture": {
+		"color": "75a766",
+		"master": "tincture"
+	},
+	"nightshade_juice": {
+		"color": "9484bf",
+		"master": "juice"
+	},
+	"nightshade_tincture": {
+		"color": "9484bf",
+		"master": "tincture"
+	},
+	"propolis_balm": {
+		"color": "b59673",
+		"master": "balm"
+	},
+	"propolis_tincture": {
+		"color": "b58051",
+		"master": "tincture"
+	},
+	"purifying_decoction": {
+		"color": "b4b899",
+		"master": "tincture"
+	},
+	"red_clover_juice": {
+		"color": "ce849e",
+		"master": "juice"
+	},
+	"red_clover_tincture": {
+		"color": "ce849e",
+		"master": "tincture"
+	},
+	"rosehip_juice": {
+		"color": "d7876e",
+		"master": "juice"
+	},
+	"rosehip_tincture": {
+		"color": "d7876e",
+		"master": "tincture"
+	},
+	"royal_tonic": {
+		"color": "d3a858",
+		"master": "tincture"
+	},
+	"sage_juice": {
+		"color": "9eadba",
+		"master": "juice"
+	},
+	"sage_tincture": {
+		"color": "9eadba",
+		"master": "tincture"
+	},
+	"shadow_essence": {
+		"color": "9d8ab8",
+		"master": "essence"
+	},
+	"silver_lichen_juice": {
+		"color": "c2cfd5",
+		"master": "juice"
+	},
+	"silver_lichen_tincture": {
+		"color": "c2cfd5",
+		"master": "tincture"
+	},
+	"solar_concentrate": {
+		"color": "e1c479",
+		"master": "essence"
+	},
+	"sporecap_juice": {
+		"color": "d5b58a",
+		"master": "juice"
+	},
+	"sporecap_tincture": {
+		"color": "d5b58a",
+		"master": "tincture"
+	},
+	"starflower_juice": {
+		"color": "b0a0df",
+		"master": "juice"
+	},
+	"starflower_tincture": {
+		"color": "b0a0df",
+		"master": "tincture"
+	},
+	"stone_skin_draught": {
+		"color": "a6b7c2",
+		"master": "essence"
+	},
+	"sunflower": {
+		"color": "ffffff",
+		"master": "sunflower-proposal"
+	},
+	"sunpetal_juice": {
+		"color": "dfc879",
+		"master": "juice"
+	},
+	"sunpetal_tincture": {
+		"color": "dfc879",
+		"master": "tincture"
+	},
+	"valerian_juice": {
+		"color": "bda396",
+		"master": "juice"
+	},
+	"valerian_tincture": {
+		"color": "bda396",
+		"master": "tincture"
+	},
+	"vigor_infusion": {
+		"color": "a8b87c",
+		"master": "tincture"
+	},
+	"vital_essence": {
+		"color": "cc8d7d",
+		"master": "essence"
+	},
+	"wax_base": {
+		"color": "ddc890",
+		"master": "balm"
+	},
+	"wild_thyme_juice": {
+		"color": "aaa7d9",
+		"master": "juice"
+	},
+	"wild_thyme_tincture": {
+		"color": "aaa7d9",
+		"master": "tincture"
+	},
+	"wind_step_elixir": {
+		"color": "96c6ba",
+		"master": "essence"
+	},
+	"wormwood_juice": {
+		"color": "b9c3b4",
+		"master": "juice"
+	},
+	"wormwood_tincture": {
+		"color": "b9c3b4",
+		"master": "tincture"
+	},
+	"yarrow_juice": {
+		"color": "dedab8",
+		"master": "juice"
+	},
+	"yarrow_tincture": {
+		"color": "dedab8",
+		"master": "tincture"
+	}
+}

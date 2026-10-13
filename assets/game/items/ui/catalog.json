@@ -126,9 +126,9 @@
 				768,
 				0
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "a63085b0956565b8f7fb2ee120a3a4c05709c657cc1520aef7518bcd5986249d",
+			"path": "res://assets/game/items/painted/balanced_elixir.png",
+			"provider": "override",
+			"sourceHash": "04f5bc2e28c6713294f2df2c5ecb8dd2738ffdf509eea5e15a9d449c5f190fae",
 			"tint": "ffffff"
 		},
 		"bandage": {
@@ -156,9 +156,9 @@
 				960,
 				0
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "f7b2f09d7dbce3eddfdf1d50974f60f582a44a6df6c37d14c9b197dbb6c71aa8",
+			"path": "res://assets/game/items/painted/bee_balm.png",
+			"provider": "override",
+			"sourceHash": "f3d1781e9f81aff70902a836b31fd2fb6ca6b6f94fbac67f48c93d6e4cda8b98",
 			"tint": "ffffff"
 		},
 		"bee_essence": {
@@ -166,9 +166,9 @@
 				0,
 				64
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "3643c6ff8441acb82d61bed3582e44b52cfbb10e4d04c8d64fe7ca98263eb8da",
+			"path": "res://assets/game/items/painted/bee_essence.png",
+			"provider": "override",
+			"sourceHash": "fcf907f513210cc8582f97a81040d07929225163d8ff140d3d257e9316950d2a",
 			"tint": "ffffff"
 		},
 		"bees": {
@@ -266,9 +266,9 @@
 				640,
 				64
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "d1965956dfb5a9db36d685e161eead7bbfeb6da58c356cd0488a80e2609ab1ee",
+			"path": "res://assets/game/items/painted/bitter_root_juice.png",
+			"provider": "override",
+			"sourceHash": "41267ec831b8013d653fb09731eedd1468c14f173f7d1364932c69548de79f99",
 			"tint": "ffffff"
 		},
 		"bitter_root_powder": {
@@ -286,9 +286,9 @@
 				768,
 				64
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "d1965956dfb5a9db36d685e161eead7bbfeb6da58c356cd0488a80e2609ab1ee",
+			"path": "res://assets/game/items/painted/bitter_root_tincture.png",
+			"provider": "override",
+			"sourceHash": "9f2de8df5ef00bee29685f6744d9f82bd09eb6179ec3b45ec81af7e4bb10b6cd",
 			"tint": "ffffff"
 		},
 		"bloodthorn": {
@@ -316,9 +316,9 @@
 				960,
 				64
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "7005a2e7db73baeb4f76db5008b16dfbaa4088350df39b4608207ee1be45e0e8",
+			"path": "res://assets/game/items/painted/bloodthorn_juice.png",
+			"provider": "override",
+			"sourceHash": "033c651053b3342fd66d0986e7c7de1dd8e3ff49c50c802c1d43f61e814fa7b7",
 			"tint": "ffffff"
 		},
 		"bloodthorn_powder": {
@@ -336,9 +336,9 @@
 				64,
 				128
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "7005a2e7db73baeb4f76db5008b16dfbaa4088350df39b4608207ee1be45e0e8",
+			"path": "res://assets/game/items/painted/bloodthorn_tincture.png",
+			"provider": "override",
+			"sourceHash": "c26d4c18b53ee1c7007fd38cc8e27d8b1e6ed59965cb0c955a024bf71b595b38",
 			"tint": "ffffff"
 		},
 		"blue_gem": {
@@ -546,9 +546,9 @@
 				384,
 				192
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "7d5ab5083fe8e836b544fedc2994c1446f96e8d81f70c687c91787d172aef8d2",
+			"path": "res://assets/game/items/painted/chamomile_juice.png",
+			"provider": "override",
+			"sourceHash": "57596fb4f915c69705a89922fe3354a8b1f6383d911e02cf8543f5405d9cd7b9",
 			"tint": "ffffff"
 		},
 		"chamomile_powder": {
@@ -566,9 +566,9 @@
 				512,
 				192
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "7d5ab5083fe8e836b544fedc2994c1446f96e8d81f70c687c91787d172aef8d2",
+			"path": "res://assets/game/items/painted/chamomile_tincture.png",
+			"provider": "override",
+			"sourceHash": "39b8393a5101a9bf44f77f8c52d1eb889d8c60b0f0666cd4a3080cd2f8c669a1",
 			"tint": "ffffff"
 		},
 		"charcoal": {
@@ -616,9 +616,9 @@
 				832,
 				192
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "3a5b1793ac5e561f5b9a0a32eeb0ec281ffb9c1dcfbd9e13b25641db90c2454b",
+			"path": "res://assets/game/items/painted/clarity_drops.png",
+			"provider": "override",
+			"sourceHash": "42ffd62073389fbe478c6011101cb1eacbf54f3b2e2f572fec19f4c3e383d066",
 			"tint": "ffffff"
 		},
 		"clay": {
@@ -646,9 +646,9 @@
 				0,
 				256
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "98cf23364f1a182784d86a3ab73534a30631dababa9f7b0d2377f341f7d57c0f",
+			"path": "res://assets/game/items/painted/clean_water.png",
+			"provider": "override",
+			"sourceHash": "d1b1592595e7e42240230be6fdb82c76348e6c48e0ff3668209b77a4443bc783",
 			"tint": "ffffff"
 		},
 		"clear_glass": {
@@ -866,9 +866,9 @@
 				384,
 				320
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "5b4c3d4407ae0a11189be504f8f48e1522e89cb1a2cbd5f63302838326d85741",
+			"path": "res://assets/game/items/painted/distilled_water.png",
+			"provider": "override",
+			"sourceHash": "9e2f1aec19a29c73ff2c000a5d9d13c8254f60d8a5c9c6dd28dc618f2fde604d",
 			"tint": "ffffff"
 		},
 		"dried_fruit": {
@@ -926,9 +926,9 @@
 				768,
 				320
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "cc5acf5a4a14cdc3edb29d03fafaa39e778ed516b974d1392fe19a4c51b4416a",
+			"path": "res://assets/game/items/painted/ember_essence.png",
+			"provider": "override",
+			"sourceHash": "1abb199371be1dfd60770a258c463f1c89966c90015c63d7445d5005d49927ea",
 			"tint": "ffffff"
 		},
 		"ember_grass": {
@@ -956,9 +956,9 @@
 				960,
 				320
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "3ccdcee9c964a0054022cd2514c76e9bead823d4969c1a1e122e4a8305819fc6",
+			"path": "res://assets/game/items/painted/ember_grass_juice.png",
+			"provider": "override",
+			"sourceHash": "e0b669b1c964b4cb9facbab499ccf92805cc9fa23e0a2210ce90eff3d9cd4888",
 			"tint": "ffffff"
 		},
 		"ember_grass_powder": {
@@ -976,9 +976,9 @@
 				64,
 				384
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "3ccdcee9c964a0054022cd2514c76e9bead823d4969c1a1e122e4a8305819fc6",
+			"path": "res://assets/game/items/painted/ember_grass_tincture.png",
+			"provider": "override",
+			"sourceHash": "12efb7c687650a7e3093e6c99a853f26b6e83baf8139e26c6ab57db7c056de8f",
 			"tint": "ffffff"
 		},
 		"energy_potion": {
@@ -996,9 +996,9 @@
 				192,
 				384
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "ef5be94eebad5af159e6d1ca5acca960c23d27b7b5728ccfd578865abb264959",
+			"path": "res://assets/game/items/painted/ether_essence.png",
+			"provider": "override",
+			"sourceHash": "62b8f39fb171e2a39863476d307613827cb05a6669b44186a7ef6363f0e344d3",
 			"tint": "ffffff"
 		},
 		"fence_kit": {
@@ -1046,9 +1046,9 @@
 				512,
 				384
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "f1f482c4653291fa67915927f66dcad2e3f414bfe972216705749efe3e1aeb44",
+			"path": "res://assets/game/items/painted/field_mint_juice.png",
+			"provider": "override",
+			"sourceHash": "0db2239fd05727da4288a39a18d7f61e4abcbe9e6df077af5d979ce69c6ddaf1",
 			"tint": "ffffff"
 		},
 		"field_mint_powder": {
@@ -1066,9 +1066,9 @@
 				640,
 				384
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "f1f482c4653291fa67915927f66dcad2e3f414bfe972216705749efe3e1aeb44",
+			"path": "res://assets/game/items/painted/field_mint_tincture.png",
+			"provider": "override",
+			"sourceHash": "d46113342d4d4c97a2ab4379304177edc38bb1604e41e832dc61f23e26ee1343",
 			"tint": "ffffff"
 		},
 		"fine_cloth": {
@@ -1146,9 +1146,9 @@
 				128,
 				448
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "5dc4035ae66ce06a05a9b3bc9a9c0391281bb7868c25b15d3f937ff88f42a672",
+			"path": "res://assets/game/items/painted/frost_essence.png",
+			"provider": "override",
+			"sourceHash": "a5f082e3b26d82e95d14aa6a2d6f31863cb3c7c27724f0c803ff41b1581065bb",
 			"tint": "ffffff"
 		},
 		"frost_fern": {
@@ -1176,9 +1176,9 @@
 				320,
 				448
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "d5cd92defd3242d7d7dc5856b01b34ee3f95c8ff6d83e5fecf91492c0989844a",
+			"path": "res://assets/game/items/painted/frost_fern_juice.png",
+			"provider": "override",
+			"sourceHash": "d45bd04556c1251aafc74c856d342e3840dca323ee8d66c9c113ab9168dc0b9e",
 			"tint": "ffffff"
 		},
 		"frost_fern_powder": {
@@ -1196,9 +1196,9 @@
 				448,
 				448
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "d5cd92defd3242d7d7dc5856b01b34ee3f95c8ff6d83e5fecf91492c0989844a",
+			"path": "res://assets/game/items/painted/frost_fern_tincture.png",
+			"provider": "override",
+			"sourceHash": "7661d66253d50813473eac053808a8ab058221b92881fbb9d48d4e707f6c75e5",
 			"tint": "ffffff"
 		},
 		"fruit_pulp": {
@@ -1276,9 +1276,9 @@
 				960,
 				448
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "b4b1cf984068b595751a7fb231da80feaf4f6788a312b0fdb39dfcd0760308b2",
+			"path": "res://assets/game/items/painted/ghost_orchid_juice.png",
+			"provider": "override",
+			"sourceHash": "da34dee30a5a75d78703f2af931cdc3016659cb2ba319ce27980a5a42f75b04f",
 			"tint": "ffffff"
 		},
 		"ghost_orchid_powder": {
@@ -1296,9 +1296,9 @@
 				64,
 				512
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "b4b1cf984068b595751a7fb231da80feaf4f6788a312b0fdb39dfcd0760308b2",
+			"path": "res://assets/game/items/painted/ghost_orchid_tincture.png",
+			"provider": "override",
+			"sourceHash": "dd18f28c19f7c44bea6c31c6cc2f16c50c17326c91fd98fcebe2961bf7ba4881",
 			"tint": "ffffff"
 		},
 		"glass": {
@@ -1316,9 +1316,9 @@
 				192,
 				512
 			],
-			"path": "",
-			"provider": "workshop",
-			"sourceHash": "48a2ed30f8c222fed8e5d24664afe49d89a647a48478fde76db58240ffaa1c88",
+			"path": "res://assets/game/items/painted/glass_bottle.png",
+			"provider": "override",
+			"sourceHash": "bc83b3be6d129c138d2cf24f9286d04dc4add825f1814a0c2ec6b29759aaf25c",
 			"tint": "ffffff"
 		},
 		"glass_jar": {
@@ -1326,9 +1326,9 @@
 				256,
 				512
 			],
-			"path": "",
-			"provider": "workshop",
-			"sourceHash": "7281ec950c21b58cc1465f0aee8a8220b8ee54d9f7bc8a37f7fd7864f5bba4a2",
+			"path": "res://assets/game/items/painted/glass_jar.png",
+			"provider": "override",
+			"sourceHash": "25c542e0eac2cc3be870e582c8e54e2b22fbb0dc5d3c80eb8817634ee1d022df",
 			"tint": "ffffff"
 		},
 		"glass_shard": {
@@ -1346,9 +1346,9 @@
 				384,
 				512
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "cd53b45f7fcde7cc30c23ae872a4e50487bd834f18dac00723e4453bc64a34e2",
+			"path": "res://assets/game/items/painted/glass_vial.png",
+			"provider": "override",
+			"sourceHash": "3553b484eb7432e1efab3a6d791e6fedc463413852e862ff3efebb7137e3e946",
 			"tint": "ffffff"
 		},
 		"glazed_vase": {
@@ -1376,9 +1376,9 @@
 				576,
 				512
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "7c66617a86d767b8da06a40f04a13d53cc5b8a07d36617a7565dbb4e70ba8bcb",
+			"path": "res://assets/game/items/painted/greater_healing.png",
+			"provider": "override",
+			"sourceHash": "418a2620e472b27f1c9847a786a828569fa945f6222e05d8a81a3bc8d6af0a53",
 			"tint": "ffffff"
 		},
 		"greater_mana": {
@@ -1386,9 +1386,9 @@
 				640,
 				512
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "801bbbf63e5b20fea6d062ab3a2a3304f08a659ebcb0e2444b8a0981f5c2ff5b",
+			"path": "res://assets/game/items/painted/greater_mana.png",
+			"provider": "override",
+			"sourceHash": "cf973ed1ca2374f97d56a5e99f12d8d671703df8c6f0f7ee3847a7104fe3f512",
 			"tint": "ffffff"
 		},
 		"green_crystal": {
@@ -1456,10 +1456,10 @@
 				64,
 				576
 			],
-			"path": "res://assets/game/items/catalog/herb_seeds.png",
-			"provider": "alchemy",
-			"sourceHash": "0c88d32b398bc09bf0d05b33a260a4260625e037ec1bbe47c38ef27cde2cb801",
-			"tint": "dac29b"
+			"path": "res://assets/game/items/painted/herb_oil.png",
+			"provider": "override",
+			"sourceHash": "be1bf9a141ec1caf49f1f8d9e22609adaca6f7b902c705dcc2a1ccaf1029015e",
+			"tint": "ffffff"
 		},
 		"herb_pulp": {
 			"cell": [
@@ -1486,10 +1486,10 @@
 				256,
 				576
 			],
-			"path": "res://assets/game/items/catalog/herb_seeds.png",
-			"provider": "alchemy",
-			"sourceHash": "0c88d32b398bc09bf0d05b33a260a4260625e037ec1bbe47c38ef27cde2cb801",
-			"tint": "dac29b"
+			"path": "res://assets/game/items/painted/herb_solvent.png",
+			"provider": "override",
+			"sourceHash": "d1b1592595e7e42240230be6fdb82c76348e6c48e0ff3668209b77a4443bc783",
+			"tint": "ffffff"
 		},
 		"herbal_candle": {
 			"cell": [
@@ -1576,9 +1576,9 @@
 				832,
 				576
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "0c570d4033b9403ec5a42495eb782299825a6241701d0d9eaa942628a0c65aa8",
+			"path": "res://assets/game/items/painted/honey_balm.png",
+			"provider": "override",
+			"sourceHash": "7a85313710cbfa374f9f69755bfd29c3fb3beb1b66d4ada86484e2d1893a6422",
 			"tint": "ffffff"
 		},
 		"honey_syrup": {
@@ -1586,9 +1586,9 @@
 				896,
 				576
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "99a53a4848fa3cbb0d8b063392fdec5c04b9d849f9182e6e5723837d6ab2f8df",
+			"path": "res://assets/game/items/painted/honey_syrup.png",
+			"provider": "override",
+			"sourceHash": "37e7d1e15d5d5899c1220c0084d933de1e7d1bdc64554598ee7674ad8d71bee6",
 			"tint": "ffffff"
 		},
 		"honeycomb": {
@@ -1606,9 +1606,9 @@
 				0,
 				640
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "06475023e4a3c7b8bdf7ad58fd768f9f91207d6ca60d1e060c1a0121281d549f",
+			"path": "res://assets/game/items/painted/hunter_elixir.png",
+			"provider": "override",
+			"sourceHash": "d03e698dcc6eb2faec77aea30b6c24e6211f160df84417f131ec7c6b80b2b6a0",
 			"tint": "ffffff"
 		},
 		"incense": {
@@ -1626,9 +1626,9 @@
 				128,
 				640
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "a5ee38378adf526793fd1e57fd8e52722cd17b55acf936f19f650a8f95e382f4",
+			"path": "res://assets/game/items/painted/insect_repellent.png",
+			"provider": "override",
+			"sourceHash": "5138e8684a5f748e81263249fefade394c1460cb0b88f06ca3adeb556124ab3e",
 			"tint": "ffffff"
 		},
 		"invisibility_potion": {
@@ -1706,9 +1706,9 @@
 				640,
 				640
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "afccbdc6b6fb30013dca0274f046e9551848f2342f926330be71904bd7f26fed",
+			"path": "res://assets/game/items/painted/juniper_juice.png",
+			"provider": "override",
+			"sourceHash": "20860d3de745d6879ff776170b2aa50b43416f7adf27e8d8992bcf9fc552b1fb",
 			"tint": "ffffff"
 		},
 		"juniper_powder": {
@@ -1726,9 +1726,9 @@
 				768,
 				640
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "afccbdc6b6fb30013dca0274f046e9551848f2342f926330be71904bd7f26fed",
+			"path": "res://assets/game/items/painted/juniper_tincture.png",
+			"provider": "override",
+			"sourceHash": "0c854d19dd3995b64f61731a8832cde0a480cd846591316e03d71b63e4d4136b",
 			"tint": "ffffff"
 		},
 		"leather": {
@@ -1756,10 +1756,10 @@
 				960,
 				640
 			],
-			"path": "res://assets/game/items/catalog/herbs.png",
-			"provider": "alchemy",
-			"sourceHash": "dd37c82ee620a02dfe8f2b50471fc8f88765f185c7142bd2ba05a1d1bbf07909",
-			"tint": "d8e6c2"
+			"path": "res://assets/game/items/painted/lemon_balm.png",
+			"provider": "override",
+			"sourceHash": "3f64d24b7900d22e5f2b4e520c3e7ea6f4f32b4a50534079d5297f7f5575d5e0",
+			"tint": "ffffff"
 		},
 		"lemon_balm_dried": {
 			"cell": [
@@ -1776,9 +1776,9 @@
 				64,
 				704
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "cd4febb19123a58d69112f215f8cd2260b68b265f9618e56001d1cb6ab2a770e",
+			"path": "res://assets/game/items/painted/lemon_balm_juice.png",
+			"provider": "override",
+			"sourceHash": "d25d418f2c6de174e10673b41c82665a03d1f30fd17debe30d569c03de5fda13",
 			"tint": "ffffff"
 		},
 		"lemon_balm_powder": {
@@ -1796,9 +1796,9 @@
 				192,
 				704
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "cd4febb19123a58d69112f215f8cd2260b68b265f9618e56001d1cb6ab2a770e",
+			"path": "res://assets/game/items/painted/lemon_balm_tincture.png",
+			"provider": "override",
+			"sourceHash": "b3ef84c99ba1a73b56692b58df711668af1f31c986b40da67cdca1cc9232ce4f",
 			"tint": "ffffff"
 		},
 		"life_balsam": {
@@ -1806,9 +1806,9 @@
 				256,
 				704
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "2338ace78aa1536954cca4ccb7317cb16c963e780a2c7db81d8c10e76a2227be",
+			"path": "res://assets/game/items/painted/life_balsam.png",
+			"provider": "override",
+			"sourceHash": "47e331ca2652a8757d95d520483d1e267125ceb6468d50139e06a63f2bd1117a",
 			"tint": "ffffff"
 		},
 		"lizard_scale": {
@@ -1876,9 +1876,9 @@
 				704,
 				704
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "ebd006baf62d97d88b66ebbf57da05420d1cad765ce250862f231969416a9f74",
+			"path": "res://assets/game/items/painted/meadow_tonic.png",
+			"provider": "override",
+			"sourceHash": "e29a563ca67d318ca29d04e90240ca08cd0cb98f886d9f9b8a1dc6488376484a",
 			"tint": "ffffff"
 		},
 		"melon": {
@@ -1946,9 +1946,9 @@
 				128,
 				768
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "c28d05ba52965f51e9fa9566e5807cf4c2f8df34c2d95b0e188163b2c09f0d0e",
+			"path": "res://assets/game/items/painted/miners_oil.png",
+			"provider": "override",
+			"sourceHash": "ae38eb2807652171d50b2e70b8d80d1d968aa38420d5f53ad88f87f2cc507a0b",
 			"tint": "ffffff"
 		},
 		"moon_candle": {
@@ -1996,9 +1996,9 @@
 				448,
 				768
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "bc31eac84e983ab469196079dc9ddcda3416bfc34971436d685606bc0c87d4ac",
+			"path": "res://assets/game/items/painted/moon_grass_juice.png",
+			"provider": "override",
+			"sourceHash": "5ba5bf0c0ec66dfa51e64c5e2ce435a3f9b366cdc95589534cf8d1024851872c",
 			"tint": "ffffff"
 		},
 		"moon_grass_powder": {
@@ -2016,9 +2016,9 @@
 				576,
 				768
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "bc31eac84e983ab469196079dc9ddcda3416bfc34971436d685606bc0c87d4ac",
+			"path": "res://assets/game/items/painted/moon_grass_tincture.png",
+			"provider": "override",
+			"sourceHash": "ee9d0826eba07d564c160349fe1fbb86f32cc02246716379a3a96b1398775de8",
 			"tint": "ffffff"
 		},
 		"moon_moss": {
@@ -2046,9 +2046,9 @@
 				768,
 				768
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "86a2b13376fb216018c01962bbc11c912246472d943c12b6fd0a824831e70700",
+			"path": "res://assets/game/items/painted/moon_moss_juice.png",
+			"provider": "override",
+			"sourceHash": "26b07428c88b1fb4989a9a4493f94ad6fc95f9adc9108a555b2c29d029ed0a76",
 			"tint": "ffffff"
 		},
 		"moon_moss_powder": {
@@ -2066,9 +2066,9 @@
 				896,
 				768
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "86a2b13376fb216018c01962bbc11c912246472d943c12b6fd0a824831e70700",
+			"path": "res://assets/game/items/painted/moon_moss_tincture.png",
+			"provider": "override",
+			"sourceHash": "23b462b6c4476d73a2498c426bc42bc8c69df062f840761beac310f993fcaf17",
 			"tint": "ffffff"
 		},
 		"moon_relic": {
@@ -2096,9 +2096,9 @@
 				64,
 				832
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "85ef175bc733e2973543e9ee788505b342c2a1d6b493d251e088c8492243b1d4",
+			"path": "res://assets/game/items/painted/moon_veil_potion.png",
+			"provider": "override",
+			"sourceHash": "fdc632197d6b58321bc60ce863bab5d5a0bcccb360eefbbe93b9864824bad712",
 			"tint": "ffffff"
 		},
 		"museum_token": {
@@ -2166,9 +2166,9 @@
 				512,
 				832
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "c081477963e574b38f156f711d2c18f7a935d22f364e95a0d54f88d55d208655",
+			"path": "res://assets/game/items/painted/nettle_juice.png",
+			"provider": "override",
+			"sourceHash": "d0554ae7e65152014c633cc16f5fb75f3b504a1ee58608c7cd459ca02ebb23cf",
 			"tint": "ffffff"
 		},
 		"nettle_powder": {
@@ -2186,9 +2186,9 @@
 				640,
 				832
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "c081477963e574b38f156f711d2c18f7a935d22f364e95a0d54f88d55d208655",
+			"path": "res://assets/game/items/painted/nettle_tincture.png",
+			"provider": "override",
+			"sourceHash": "a7a55254682555a5576912b12feafafe80d43704cb11248f0a3780692ca99121",
 			"tint": "ffffff"
 		},
 		"nightshade": {
@@ -2216,9 +2216,9 @@
 				832,
 				832
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "334d858de6cf0698adb3d36d4ad2a7f3fb86868394978b371572eb950b15e040",
+			"path": "res://assets/game/items/painted/nightshade_juice.png",
+			"provider": "override",
+			"sourceHash": "0bbaea86f8d00ce25497298fd4b2d28ceb47cf3d774de5cd17112dcd6a89e879",
 			"tint": "ffffff"
 		},
 		"nightshade_powder": {
@@ -2236,9 +2236,9 @@
 				960,
 				832
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "334d858de6cf0698adb3d36d4ad2a7f3fb86868394978b371572eb950b15e040",
+			"path": "res://assets/game/items/painted/nightshade_tincture.png",
+			"provider": "override",
+			"sourceHash": "1e4fec549e11f3e067cb94529e8f65717efe38787bf2533d0ce32834b11f1117",
 			"tint": "ffffff"
 		},
 		"nut": {
@@ -2556,9 +2556,9 @@
 				960,
 				960
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "0887df8bf0832d8e53abf483b6131042faab8feda7b17e4a0fadc332593b185c",
+			"path": "res://assets/game/items/painted/propolis_balm.png",
+			"provider": "override",
+			"sourceHash": "a38e0a1fe8a4a16b15bbca2e1d051af0b71fde8055fe8afce36b7b9ac0ff1c6c",
 			"tint": "ffffff"
 		},
 		"propolis_tincture": {
@@ -2566,9 +2566,9 @@
 				0,
 				1024
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "f7b33c16b4feb9c34469292d347630e650be71a17580bf470e868cd1448b2a3d",
+			"path": "res://assets/game/items/painted/propolis_tincture.png",
+			"provider": "override",
+			"sourceHash": "cd52661d05e8a4bf8b3622dbb30e803b11539331fa27a3f497021789540f2356",
 			"tint": "ffffff"
 		},
 		"pumpkin": {
@@ -2596,9 +2596,9 @@
 				192,
 				1024
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "621307af68661100bbc9488ada8fba2936967c95b633f614c2311afc4bbbd3e1",
+			"path": "res://assets/game/items/painted/purifying_decoction.png",
+			"provider": "override",
+			"sourceHash": "31845e339b4dc0707e3c59d5b3020b158dc3e0bca0e3e24a0ea40598d89a0d08",
 			"tint": "ffffff"
 		},
 		"quality_fertilizer": {
@@ -2656,9 +2656,9 @@
 				576,
 				1024
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "828d0166e377ad7af1057a8edffdd05dd3f1d611200ed3f5745402e938e6dd81",
+			"path": "res://assets/game/items/painted/red_clover_juice.png",
+			"provider": "override",
+			"sourceHash": "9abce74a1285aa84e40628730000a347971f4b97dd622e75d303b357710037a2",
 			"tint": "ffffff"
 		},
 		"red_clover_powder": {
@@ -2676,9 +2676,9 @@
 				704,
 				1024
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "828d0166e377ad7af1057a8edffdd05dd3f1d611200ed3f5745402e938e6dd81",
+			"path": "res://assets/game/items/painted/red_clover_tincture.png",
+			"provider": "override",
+			"sourceHash": "c5b72ca9c795fabe20c8d6d0e714bcf6b7d446a6fb9443e953f3e0aeaba4d12b",
 			"tint": "ffffff"
 		},
 		"red_crystal": {
@@ -2756,9 +2756,9 @@
 				192,
 				1088
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "988bbbdf7e2257083d1d4e4b831ddb4548110f45da7dccb5f5131c24f0b7f2c2",
+			"path": "res://assets/game/items/painted/rosehip_juice.png",
+			"provider": "override",
+			"sourceHash": "64fbc7873e394150ff68486443443bd67f08bfa76250518c5d79806945c5ae90",
 			"tint": "ffffff"
 		},
 		"rosehip_powder": {
@@ -2776,9 +2776,9 @@
 				320,
 				1088
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "988bbbdf7e2257083d1d4e4b831ddb4548110f45da7dccb5f5131c24f0b7f2c2",
+			"path": "res://assets/game/items/painted/rosehip_tincture.png",
+			"provider": "override",
+			"sourceHash": "42da05bbed1783f97aec07e98431836f7e741631b6ec8bffbd7cce613e1e5f3e",
 			"tint": "ffffff"
 		},
 		"royal_tonic": {
@@ -2786,9 +2786,9 @@
 				384,
 				1088
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "1ba346c1fa36a3681f5e315069461b7dfddf2fb68b40518ed4d15413af4c2481",
+			"path": "res://assets/game/items/painted/royal_tonic.png",
+			"provider": "override",
+			"sourceHash": "2f4863e32fd50b7bc28abb1784c217f513b21680a705a3f1411f55476e639f9c",
 			"tint": "ffffff"
 		},
 		"rustic_table": {
@@ -2826,9 +2826,9 @@
 				640,
 				1088
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "65e3ec6f1b9bcd0cb800bfbf6ee002189b359df406110896c43123db797c7f4e",
+			"path": "res://assets/game/items/painted/sage_juice.png",
+			"provider": "override",
+			"sourceHash": "907f6c4ed47a98c0e96c2a6e6128884b31bacd1a6b2ab6a02488586a61dc4ad8",
 			"tint": "ffffff"
 		},
 		"sage_powder": {
@@ -2846,9 +2846,9 @@
 				768,
 				1088
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "65e3ec6f1b9bcd0cb800bfbf6ee002189b359df406110896c43123db797c7f4e",
+			"path": "res://assets/game/items/painted/sage_tincture.png",
+			"provider": "override",
+			"sourceHash": "617acd0801866c87e1eba126e02f2f0f36d8922048ad201d9325cd93f4824765",
 			"tint": "ffffff"
 		},
 		"sand": {
@@ -2886,9 +2886,9 @@
 				0,
 				1152
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "b11906c02cb6a36ec744c78ed69f63c60888cdd4e2de7d8480a3ec10b69122d1",
+			"path": "res://assets/game/items/painted/shadow_essence.png",
+			"provider": "override",
+			"sourceHash": "bdc62c0c13bf493f910afd257556ea02489d6d3c048449d75a92646777e2d550",
 			"tint": "ffffff"
 		},
 		"silver_lichen": {
@@ -2916,9 +2916,9 @@
 				192,
 				1152
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "3e5ec6936bfa05e04fea236b967171f186dc06f2ddd58e4c67ee3ce60330deda",
+			"path": "res://assets/game/items/painted/silver_lichen_juice.png",
+			"provider": "override",
+			"sourceHash": "3d22f5bba1b800317da5d48a7481cfb433da6e768c8d49d1ef83fc5705a368c6",
 			"tint": "ffffff"
 		},
 		"silver_lichen_powder": {
@@ -2936,9 +2936,9 @@
 				320,
 				1152
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "3e5ec6936bfa05e04fea236b967171f186dc06f2ddd58e4c67ee3ce60330deda",
+			"path": "res://assets/game/items/painted/silver_lichen_tincture.png",
+			"provider": "override",
+			"sourceHash": "afed1a146ef3bc27fc639dbdde89a3235c1ede2c90dea431959b7a0ca1d0efd3",
 			"tint": "ffffff"
 		},
 		"slag": {
@@ -3016,9 +3016,9 @@
 				832,
 				1152
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "c48ca8451e67441a941e40c7d0fadd0e84195b878a77e52d4e55f3aa6566c2f0",
+			"path": "res://assets/game/items/painted/solar_concentrate.png",
+			"provider": "override",
+			"sourceHash": "9f51bf879b232bc90f70682e60cfc7c84ae74bce41e3c7e6e2a79392148dd0ea",
 			"tint": "ffffff"
 		},
 		"soup": {
@@ -3066,9 +3066,9 @@
 				128,
 				1216
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "5c5a0d4e1dae2a17a7770dbdc29aafeec119038191cf1d469e7bfc0be14c3203",
+			"path": "res://assets/game/items/painted/sporecap_juice.png",
+			"provider": "override",
+			"sourceHash": "b6858ce6a5d1712df9e995fd399e0d5fc429276678c8b876ed9b616bc59478fe",
 			"tint": "ffffff"
 		},
 		"sporecap_powder": {
@@ -3086,9 +3086,9 @@
 				256,
 				1216
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "5c5a0d4e1dae2a17a7770dbdc29aafeec119038191cf1d469e7bfc0be14c3203",
+			"path": "res://assets/game/items/painted/sporecap_tincture.png",
+			"provider": "override",
+			"sourceHash": "a592c6efd86ef4b9cfc68ad632c6ac8fcfae90946f1af35fde105cd59b0f8eea",
 			"tint": "ffffff"
 		},
 		"starflower": {
@@ -3116,9 +3116,9 @@
 				448,
 				1216
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "bb9a4a05f2a67d1b0bbfa1b18a44de9cfd08bcb3557b91ee5b68729994b1391b",
+			"path": "res://assets/game/items/painted/starflower_juice.png",
+			"provider": "override",
+			"sourceHash": "34ad428459e227e041855c59e5bde38cc93e141ee9e7c241055af0a93ab5e3ee",
 			"tint": "ffffff"
 		},
 		"starflower_powder": {
@@ -3136,9 +3136,9 @@
 				576,
 				1216
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "bb9a4a05f2a67d1b0bbfa1b18a44de9cfd08bcb3557b91ee5b68729994b1391b",
+			"path": "res://assets/game/items/painted/starflower_tincture.png",
+			"provider": "override",
+			"sourceHash": "81729cadc41aceb0e7a1992a3be20e947380ab9748e685122e5e731ccfdbe21f",
 			"tint": "ffffff"
 		},
 		"steel": {
@@ -3166,9 +3166,9 @@
 				768,
 				1216
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "1327915e560635d891b708eb9491251f3ac6c76b4de8272c03ad9acd34ffc490",
+			"path": "res://assets/game/items/painted/stone_skin_draught.png",
+			"provider": "override",
+			"sourceHash": "0bbab69b2cf9a5d94bfe3444acce96f2a89d11af1ce01282c1aef39fa6ac23e9",
 			"tint": "ffffff"
 		},
 		"strawberry": {
@@ -3206,9 +3206,9 @@
 				0,
 				1280
 			],
-			"path": "res://assets/game/items/catalog/sunflower.png",
-			"provider": "catalog",
-			"sourceHash": "5d943ad6603200d8cf60d230c681fe4802911f1cc4ce251787df563545d496a2",
+			"path": "res://assets/game/items/painted/sunflower.png",
+			"provider": "override",
+			"sourceHash": "bc64c5604bfd45d7096837047ca2fe06c39b4f20136ade8689eb15e08ed66333",
 			"tint": "ffffff"
 		},
 		"sunflower_seeds": {
@@ -3246,9 +3246,9 @@
 				256,
 				1280
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "0190c4081ef9705db557c90cc308d29c5525a0b89af711a8999c9a00eab623d7",
+			"path": "res://assets/game/items/painted/sunpetal_juice.png",
+			"provider": "override",
+			"sourceHash": "bc8cf3a82cbcdd744f9f05e327b7b9852dce1435700b3bc40bd56121ae4cd3bb",
 			"tint": "ffffff"
 		},
 		"sunpetal_powder": {
@@ -3266,9 +3266,9 @@
 				384,
 				1280
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "0190c4081ef9705db557c90cc308d29c5525a0b89af711a8999c9a00eab623d7",
+			"path": "res://assets/game/items/painted/sunpetal_tincture.png",
+			"provider": "override",
+			"sourceHash": "f906ef28d4aec9f357bf15e4d0eb6fa6b9ace7dfaeb0a0af2b0f82c7793b5ab1",
 			"tint": "ffffff"
 		},
 		"sword": {
@@ -3456,9 +3456,9 @@
 				576,
 				1344
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "6ce4fb38439519453538c6700507537cc37a39cde479305512d41634a839bdf0",
+			"path": "res://assets/game/items/painted/valerian_juice.png",
+			"provider": "override",
+			"sourceHash": "b7bc4d91d7201f9e182136717a658ac922789a299b5efd0f3af5a16685594461",
 			"tint": "ffffff"
 		},
 		"valerian_powder": {
@@ -3476,9 +3476,9 @@
 				704,
 				1344
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "6ce4fb38439519453538c6700507537cc37a39cde479305512d41634a839bdf0",
+			"path": "res://assets/game/items/painted/valerian_tincture.png",
+			"provider": "override",
+			"sourceHash": "14095f1444662f0da7f1a8e6e1cd339f40bf58b55e554ec3218cd9677ec29046",
 			"tint": "ffffff"
 		},
 		"vegetable_casserole": {
@@ -3496,9 +3496,9 @@
 				832,
 				1344
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "ea7fa598f25dceccd3780c01dd79fbee5373206dd37d30d33fccd83351a64ae6",
+			"path": "res://assets/game/items/painted/vigor_infusion.png",
+			"provider": "override",
+			"sourceHash": "7dfbdc18bbdd4d442a63621ec3d0e1b49822b11c2e2887308418bbee739eb89f",
 			"tint": "ffffff"
 		},
 		"vital_essence": {
@@ -3506,9 +3506,9 @@
 				896,
 				1344
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "8dc164041bf71bfb3ee86f82fd4466ee6d1fee4f109daa8063ae6f854ef00975",
+			"path": "res://assets/game/items/painted/vital_essence.png",
+			"provider": "override",
+			"sourceHash": "f0fe8fe6d21caaed179f745b013b464bc3666a1b5ccb0b2cf87e4b99a4fcf7b1",
 			"tint": "ffffff"
 		},
 		"war_hammer": {
@@ -3546,9 +3546,9 @@
 				128,
 				1408
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "2c3318eeab7b6c28f58e91f696197d63bebdedc06cddc930b58238338a69c51e",
+			"path": "res://assets/game/items/painted/wax_base.png",
+			"provider": "override",
+			"sourceHash": "8db875bae5d0ae019253eb6f157354de86fd0ad656fd6458f5bf78786d7b8080",
 			"tint": "ffffff"
 		},
 		"wax_candle": {
@@ -3616,9 +3616,9 @@
 				576,
 				1408
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "6f0c2be2636a509e0d8d63f471220b324bd8912352c5306605eae7db728281a0",
+			"path": "res://assets/game/items/painted/wild_thyme_juice.png",
+			"provider": "override",
+			"sourceHash": "46b117a9428e709b82db98d070038aec132bac9fc8d5cb1ff63caabc3acd5cc3",
 			"tint": "ffffff"
 		},
 		"wild_thyme_powder": {
@@ -3636,9 +3636,9 @@
 				704,
 				1408
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "6f0c2be2636a509e0d8d63f471220b324bd8912352c5306605eae7db728281a0",
+			"path": "res://assets/game/items/painted/wild_thyme_tincture.png",
+			"provider": "override",
+			"sourceHash": "75b12f3fb49408b13dd78dfa57e5f9c11002f0892cd1e3dc1c1c368d18c78544",
 			"tint": "ffffff"
 		},
 		"wind_step_elixir": {
@@ -3646,9 +3646,9 @@
 				768,
 				1408
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "7feb7aaa8f920dec6bd0279d01917d838687bde040c1f7bad4622809f670c722",
+			"path": "res://assets/game/items/painted/wind_step_elixir.png",
+			"provider": "override",
+			"sourceHash": "41a729af0e79d6aa98d7a3aede9ba99bd8daa0fcd135dfd2f599215f49a5665b",
 			"tint": "ffffff"
 		},
 		"wood": {
@@ -3756,9 +3756,9 @@
 				448,
 				1472
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "1712d22432afe6136f0a9d9b43296bb4a4c65d94a834e7a1813835ce14e05083",
+			"path": "res://assets/game/items/painted/wormwood_juice.png",
+			"provider": "override",
+			"sourceHash": "2a0c7a240acb21cba7aed212ad8bcdb9e7ef5bca6f5faf67c8a8da6ae73dccbd",
 			"tint": "ffffff"
 		},
 		"wormwood_powder": {
@@ -3776,9 +3776,9 @@
 				576,
 				1472
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "1712d22432afe6136f0a9d9b43296bb4a4c65d94a834e7a1813835ce14e05083",
+			"path": "res://assets/game/items/painted/wormwood_tincture.png",
+			"provider": "override",
+			"sourceHash": "06e310c10b4d01182dcd4c65ac8b5b4cae84b0c6b85a93d1a0e8f9c0e86933f6",
 			"tint": "ffffff"
 		},
 		"woven_rug": {
@@ -3826,9 +3826,9 @@
 				896,
 				1472
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "c13226c6d8a5a3abcf8d09df0c097fab351e1658e846f0474341987877cbe745",
+			"path": "res://assets/game/items/painted/yarrow_juice.png",
+			"provider": "override",
+			"sourceHash": "db3c30d0b64584c0a97927b64cc9a50903a5df77f5e75b6b4e8df10b71c31577",
 			"tint": "ffffff"
 		},
 		"yarrow_powder": {
@@ -3846,9 +3846,9 @@
 				0,
 				1536
 			],
-			"path": "",
-			"provider": "alchemy",
-			"sourceHash": "c13226c6d8a5a3abcf8d09df0c097fab351e1658e846f0474341987877cbe745",
+			"path": "res://assets/game/items/painted/yarrow_tincture.png",
+			"provider": "override",
+			"sourceHash": "21b76c8b0954f35f333c969e71867f8f5e8d181e10fddd43b2933b8552efb41c",
 			"tint": "ffffff"
 		}
 	},

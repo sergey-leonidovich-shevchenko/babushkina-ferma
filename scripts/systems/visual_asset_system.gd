@@ -13,6 +13,7 @@ static var item_icon_cache: Dictionary = {}
 static var _active_icon_overrides: Dictionary = {}
 const ItemIcons := preload("res://scripts/presentation/item_icon_visual_system.gd")
 const PreparedIcons := preload("res://scripts/presentation/prepared_item_icon_system.gd")
+const PaintedIcons := preload("res://assets/game/items/painted/catalog.gd")
 
 const PIRATE_ENEMY_ORDER := ["pirate", "zombie_pirate", "sea_ghost", "drowned_captain"]
 const PIRATE_ITEM_CELLS := {
@@ -104,6 +105,7 @@ static func initialize_item_icons(kinds: Array, overrides: Dictionary = ITEM_ICO
 		var icon_kind := "carrot_seeds" if kind == "seeds" else kind
 		var path:String=overrides.get(kind,"%s/%s.png" % [ITEM_ICON_DIRECTORY, icon_kind])
 		if overrides.has(kind) and ResourceLoader.exists(path): item_icon_cache[kind]=load(path); _active_icon_overrides[kind]=true
+		elif PaintedIcons.ITEMS.has(kind) and ResourceLoader.exists(PaintedIcons.ITEMS[kind]): item_icon_cache[kind]=load(PaintedIcons.ITEMS[kind]); _active_icon_overrides[kind]=true
 		elif preload("res://scripts/presentation/artisan_visual_system.gd").ITEMS.has(kind): item_icon_cache[kind]=preload("res://scripts/presentation/artisan_visual_system.gd").ITEMS[kind]
 		elif ResourceLoader.exists(path): item_icon_cache[kind] = load(path)
 		elif preload("res://scripts/systems/alchemy_product_data.gd").handles(kind): item_icon_cache[kind]=preload("res://scripts/presentation/alchemy_icon_system.gd").texture(kind)

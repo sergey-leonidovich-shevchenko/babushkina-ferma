@@ -44,6 +44,11 @@ func _start() -> void:
 	await capture("cabinet")
 	if phase!="before":
 		Cabinet.state(game).selected=Cabinet.items(game).find("sunflower"); await capture("sunflower")
+	if phase=="final":
+		var controls:=preload("res://scripts/systems/dev_cabinet_input.gd")
+		Cabinet.select_tab(game,3); controls.query(game,"essence"); await capture("essences")
+		controls.query(game,"_juice"); await capture("juices")
+		controls.query(game,""); Cabinet.select_tab(game,0)
 	Cabinet.close(game); game.home_chest_owned=true; game.home_chest_counts={"plank":22,"milk":4,"honey":2,"stone":120,"apple":5}; game.StorageSystem.open(game)
 	await capture("chest")
 	game.storage_open=false; game.LocaleSystem.current="de"; game.settings_state.text_scale=1.2; Cabinet.open(game); await capture("de-120")

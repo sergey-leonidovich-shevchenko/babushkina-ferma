@@ -1,0 +1,56 @@
+{
+  "tool": "image_gen.imagegen",
+  "mode": "builtin",
+  "choice": "A",
+  "approvedByUser": true,
+  "masters": [
+    {
+      "id": "vial",
+      "source": "/Users/sergeyshevchenko/.codex/generated_images/01a122e8-fdd8-7301-97c2-1709638e6385/exec-ae6d9f61-b336-4802-bf78-b4f850e2b7a4.png",
+      "prompt": "Use case: stylized-concept. Asset type: ONE isolated final game item sprite for Лунная долина. The input board is a STYLE REFERENCE, not a sheet to copy. Generate ONLY the FIRST subject in the top A section: a slender EMPTY clear glass vial with cork, no fluid. Match the chosen A section: handcrafted hand-painted raster fantasy item, clean bold silhouette, large readable highlights, warm cork, restrained dark outline and believable glass edges. Frontal view, upright, full silhouette with generous transparent margin on all four sides. The item must read at 40px as well as in a 160px preview. No parchment, scene, grid, text, labels, watermarks, extra objects or ground shadow. Native transparent RGBA background; never draw a checkerboard. Fine material texture is subordinate to the silhouette. Preserve an easily distinguishable fluid hue from unsaturated glass and the brown cork, for later native game color variants.",
+      "image": "selected/vial.png"
+    },
+    {
+      "id": "solvent",
+      "source": "/Users/sergeyshevchenko/.codex/generated_images/01a122e8-fdd8-7301-97c2-1709638e6385/exec-e33079c0-f4a2-4dc4-9517-ce89f714fb01.png",
+      "prompt": "Use case: stylized-concept. Asset type: ONE isolated final game item sprite for Лунная долина. The input board is a STYLE REFERENCE, not a sheet to copy. Generate ONLY the SECOND subject in the top A section: squat round clear glass solvent flask with cork, a little clear transparent fluid. Match the chosen A section: handcrafted hand-painted raster fantasy item, clean bold silhouette, large readable highlights, warm cork, restrained dark outline and believable glass edges. Frontal view, upright, full silhouette with generous transparent margin on all four sides. The item must read at 40px as well as in a 160px preview. No parchment, scene, grid, text, labels, watermarks, extra objects or ground shadow. Native transparent RGBA background; never draw a checkerboard. Fine material texture is subordinate to the silhouette. Preserve an easily distinguishable fluid hue from unsaturated glass and the brown cork, for later native game color variants.",
+      "image": "selected/solvent.png"
+    },
+    {
+      "id": "oil",
+      "source": "/Users/sergeyshevchenko/.codex/generated_images/01a122e8-fdd8-7301-97c2-1709638e6385/exec-8ff89eec-3a4d-4b31-8fdc-0447bdeecf8e.png",
+      "prompt": "Use case: stylized-concept. Asset type: ONE isolated final game item sprite for Лунная долина. The input board is a STYLE REFERENCE, not a sheet to copy. Generate ONLY the THIRD subject in the top A section: amber herb oil in a round glass cruet with a small handle and cork, rich amber fluid, NO leaves inside. Match the chosen A section: handcrafted hand-painted raster fantasy item, clean bold silhouette, large readable highlights, warm cork, restrained dark outline and believable glass edges. Frontal view, upright, full silhouette with generous transparent margin on all four sides. The item must read at 40px as well as in a 160px preview. No parchment, scene, grid, text, labels, watermarks, extra objects or ground shadow. Native transparent RGBA background; never draw a checkerboard. Fine material texture is subordinate to the silhouette. Preserve an easily distinguishable fluid hue from unsaturated glass and the brown cork, for later native game color variants.",
+      "image": "selected/oil.png"
+    },
+    {
+      "id": "juice",
+      "source": "/Users/sergeyshevchenko/.codex/generated_images/01a122e8-fdd8-7301-97c2-1709638e6385/exec-58adba8a-31e8-40e0-9baa-9dd7b72b5066.png",
+      "prompt": "Use case: stylized-concept. Asset type: ONE isolated final game item sprite for Лунная долина. The input board is a STYLE REFERENCE, not a sheet to copy. Generate ONLY the FOURTH subject in the top A section: pear-shaped glass bottle with cork and saturated ruby-red juice, NO berries, leaves, labels or decorations inside. Match the chosen A section: handcrafted hand-painted raster fantasy item, clean bold silhouette, large readable highlights, warm cork, restrained dark outline and believable glass edges. Frontal view, upright, full silhouette with generous transparent margin on all four sides. The item must read at 40px as well as in a 160px preview. No parchment, scene, grid, text, labels, watermarks, extra objects or ground shadow. Native transparent RGBA background; never draw a checkerboard. Fine material texture is subordinate to the silhouette. Preserve an easily distinguishable fluid hue from unsaturated glass and the brown cork, for later native game color variants.",
+      "image": "selected/juice.png"
+    },
+    {
+      "id": "tincture",
+      "source": "/Users/sergeyshevchenko/.codex/generated_images/01a122e8-fdd8-7301-97c2-1709638e6385/exec-a71f03a3-b344-4f4a-b3b9-84aaed5c4828.png",
+      "prompt": "Use case: stylized-concept. Asset type: ONE isolated final game item sprite for Лунная долина. The input board is a STYLE REFERENCE, not a sheet to copy. Generate ONLY the FIRST subject in the SECOND ROW of the top A section: tall glass purple tincture bottle with cork and a small brown ROOT charm tied outside the neck, saturated purple fluid, no drawings or roots inside the liquid. Match the chosen A section: handcrafted hand-painted raster fantasy item, clean bold silhouette, large readable highlights, warm cork, restrained dark outline and believable glass edges. Frontal view, upright, full silhouette with generous transparent margin on all four sides. The item must read at 40px as well as in a 160px preview. No parchment, scene, grid, text, labels, watermarks, extra objects or ground shadow. Native transparent RGBA background; never draw a checkerboard. Fine material texture is subordinate to the silhouette. Preserve an easily distinguishable fluid hue from unsaturated glass and the brown cork, for later native game color variants.",
+      "image": "selected/tincture.png"
+    },
+    {
+      "id": "essence",
+      "source": "/Users/sergeyshevchenko/.codex/generated_images/01a122e8-fdd8-7301-97c2-1709638e6385/exec-24e75f7c-7ba4-4700-82e1-4c8bc9687134.png",
+      "prompt": "Use case: stylized-concept. Asset type: ONE isolated final game item sprite for Лунная долина. The input board is a STYLE REFERENCE, not a sheet to copy. Generate ONLY the SECOND subject in the SECOND ROW of the top A section: small round glass essence flask with cork and saturated blue concentrated fluid, no crystals or symbols inside the liquid. Match the chosen A section: handcrafted hand-painted raster fantasy item, clean bold silhouette, large readable highlights, warm cork, restrained dark outline and believable glass edges. Frontal view, upright, full silhouette with generous transparent margin on all four sides. The item must read at 40px as well as in a 160px preview. No parchment, scene, grid, text, labels, watermarks, extra objects or ground shadow. Native transparent RGBA background; never draw a checkerboard. Fine material texture is subordinate to the silhouette. Preserve an easily distinguishable fluid hue from unsaturated glass and the brown cork, for later native game color variants.",
+      "image": "selected/essence.png"
+    },
+    {
+      "id": "balm",
+      "source": "/Users/sergeyshevchenko/.codex/generated_images/01a122e8-fdd8-7301-97c2-1709638e6385/exec-e25e109f-1af3-429b-9748-24c0d546156c.png",
+      "prompt": "Use case: stylized-concept. Asset type: ONE isolated final game item sprite for Лунная долина. The input board is a STYLE REFERENCE, not a sheet to copy. Generate ONLY the THIRD subject in the SECOND ROW of the top A section: squat cream ceramic jar of green healing balm with an open round rim, thick green balm visible at top, simple restrained leaf stamp outside. Match the chosen A section: handcrafted hand-painted raster fantasy item, clean bold silhouette, large readable highlights, warm cork, restrained dark outline and believable glass edges. Frontal view, upright, full silhouette with generous transparent margin on all four sides. The item must read at 40px as well as in a 160px preview. No parchment, scene, grid, text, labels, watermarks, extra objects or ground shadow. Native transparent RGBA background; never draw a checkerboard. Fine material texture is subordinate to the silhouette. Preserve an easily distinguishable fluid hue from unsaturated glass and the brown cork, for later native game color variants.",
+      "image": "selected/balm.png"
+    },
+    {
+      "id": "distillate",
+      "source": "/Users/sergeyshevchenko/.codex/generated_images/01a122e8-fdd8-7301-97c2-1709638e6385/exec-ac15e41b-4705-45ca-8873-7be3c1ca0c16.png",
+      "prompt": "Use case: stylized-concept. Asset type: ONE isolated final game item sprite for Лунная долина. The input board is a STYLE REFERENCE, not a sheet to copy. Generate ONLY the FOURTH subject in the SECOND ROW of the top A section: broad square-sided clear glass distillate bottle with cork and clear fluid. Match the chosen A section: handcrafted hand-painted raster fantasy item, clean bold silhouette, large readable highlights, warm cork, restrained dark outline and believable glass edges. Frontal view, upright, full silhouette with generous transparent margin on all four sides. The item must read at 40px as well as in a 160px preview. No parchment, scene, grid, text, labels, watermarks, extra objects or ground shadow. Native transparent RGBA background; never draw a checkerboard. Fine material texture is subordinate to the silhouette. Preserve an easily distinguishable fluid hue from unsaturated glass and the brown cork, for later native game color variants.",
+      "image": "selected/distillate.png"
+    }
+  ]
+}

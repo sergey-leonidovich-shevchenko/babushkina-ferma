@@ -1,0 +1,19 @@
+{
+  "approvedStyle": "A",
+  "masters": [
+    {
+      "id": "bottle_empty",
+      "source": "/Users/sergeyshevchenko/.codex/generated_images/01a122e8-fdd8-7301-97c2-1709638e6385/exec-1d18a532-b017-456f-bfa7-0d568198f7a8.png",
+      "prompt": "Use case: stylized-concept. Final individual game item sprite in the user-selected A style of the reference. ONE broad, empty, clear glass bottle with a cork, a short cylindrical neck and a wide straight-sided rounded-square body, based on the distillate bottle in reference A. It is an empty crafting container: remove any liquid surface and all contents. The inside is transparent and empty. Hand-painted farming RPG raster art with a clean bold silhouette, a few large believable glass highlights and restrained dark outline. Upright frontal view, fully visible, centered with ample transparent margin. Native RGBA alpha, NO ambient glow or colored halo outside the glass silhouette, no background, no grid, no text, no label, no ground shadow, no extra objects. Must remain readable at 40px and at 160px. Reference is only for consistent chosen style.",
+      "correction": "Use case: precise-object-edit. Edit target is this otherwise finished EMPTY glass bottle game sprite. REMOVE ONLY the false horizontal elliptical liquid-surface line floating halfway up the bottle body. The bottle contains NOTHING. Make the inside uninterrupted empty transparent glass from neck to bottom. Keep the full outer bottle silhouette, exact cork, wide straight-sided body, rim, glass highlights and bottom/base glass contour unchanged. The bottom oval/glass base is valid and must stay. No new markings or contents. Preserve native alpha transparency and no glow outside the silhouette.",
+      "image": "selected/bottle_empty.png"
+    },
+    {
+      "id": "jar_empty",
+      "source": "/Users/sergeyshevchenko/.codex/generated_images/01a122e8-fdd8-7301-97c2-1709638e6385/exec-fc0eac80-0d3f-4a65-950c-989b7a54e923.png",
+      "prompt": "Use case: stylized-concept. Final individual game item sprite in the user-selected A style of the reference. ONE empty, squat, wide-mouthed clear glass jar with a small plain warm wooden lid, thick glass rim and a round short body. It is a crafting glass jar, not ceramic and not a tall vial: no liquid, balm, leaves, food or contents. The inside is transparent and empty. Hand-painted farming RPG raster art with a clean bold silhouette, a few large believable glass highlights and restrained dark outline. Upright frontal view, fully visible, centered with ample transparent margin. Native RGBA alpha, NO ambient glow or colored halo outside the glass silhouette, no background, no grid, no text, no label, no ground shadow, no extra objects. Must remain readable at 40px and at 160px. Reference is only for consistent chosen style.",
+      "correction": null,
+      "image": "selected/jar_empty.png"
+    }
+  ]
+}
