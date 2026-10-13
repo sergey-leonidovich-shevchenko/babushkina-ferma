@@ -1,6 +1,6 @@
 extends RefCounted
 
-const CHEST_POSITION := Vector2(900, 486)
+const CHEST_POSITION := preload("res://scripts/systems/house_furniture_data.gd").CHEST_POSITION
 const MAX_VISIBLE_ROWS := 8
 
 

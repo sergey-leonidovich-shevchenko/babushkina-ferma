@@ -1559,9 +1559,9 @@ const DATA := {
 				704,
 				576
 			],
-			"path": "res://assets/game/items/catalog/home_chest.png",
-			"provider": "catalog",
-			"sourceHash": "92c3b2dd74ae234d1073f83e5506617318fd2dcc45f52195ab59ac0608dfa5fa",
+			"path": "res://assets/game/interiors/furniture_a/home_chest_south.png",
+			"provider": "override",
+			"sourceHash": "71d7951b576adbfa68715005088852f4246202bc92737cb60df141e709736b94",
 			"tint": "ffffff"
 		},
 		"honey": {
@@ -2799,9 +2799,9 @@ const DATA := {
 				448,
 				1088
 			],
-			"path": "res://assets/game/items/catalog/rustic_table.png",
-			"provider": "catalog",
-			"sourceHash": "eef068cc47b9fafeb825a4a7674411c51c58bff58b15386acd844f793a6706df",
+			"path": "res://assets/game/interiors/furniture_a/rustic_table_south.png",
+			"provider": "override",
+			"sourceHash": "6ecb0c930229c90a0b7d91d9b7f9b083f85b9263769ea6a6f6a32d0660abec1e",
 			"tint": "ffffff"
 		},
 		"sage": {
@@ -3709,9 +3709,9 @@ const DATA := {
 				128,
 				1472
 			],
-			"path": "res://assets/game/items/catalog/wooden_chair.png",
-			"provider": "catalog",
-			"sourceHash": "67780abb5b712dc4749e82c2a7c0849e13c70c49ef6d170952e879b4122879a7",
+			"path": "res://assets/game/interiors/furniture_a/wooden_chair_south.png",
+			"provider": "override",
+			"sourceHash": "c01a093870b4584ec9fd772ffad201cb74c53f684e20170675b0af5fbedb3408",
 			"tint": "ffffff"
 		},
 		"wooden_wardrobe": {
@@ -3719,9 +3719,9 @@ const DATA := {
 				192,
 				1472
 			],
-			"path": "res://assets/game/items/catalog/wooden_wardrobe.png",
-			"provider": "catalog",
-			"sourceHash": "e65783f39108e0ee368f2c1d4999e0180c29d634584e19f8906e2ac1eb4ccda8",
+			"path": "res://assets/game/interiors/furniture_a/wooden_wardrobe_south.png",
+			"provider": "override",
+			"sourceHash": "a2e800855870bc0f8d706d8e98ff33670fa06e2e6b498e57cc37403692735c44",
 			"tint": "ffffff"
 		},
 		"wool": {
@@ -3789,9 +3789,9 @@ const DATA := {
 				640,
 				1472
 			],
-			"path": "res://assets/game/items/catalog/woven_rug.png",
-			"provider": "catalog",
-			"sourceHash": "3d12e3fa83019a7e3b75ad52971f4bac21bfb4a1c60d0058ab7f7546971a329f",
+			"path": "res://assets/game/interiors/furniture_a/woven_rug_south.png",
+			"provider": "override",
+			"sourceHash": "94794f7f0885a600e0e4b2a63b09ef565160530c1e387037b4bc925dd31b491a",
 			"tint": "ffffff"
 		},
 		"yarn": {

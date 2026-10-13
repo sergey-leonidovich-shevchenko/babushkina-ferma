@@ -8,6 +8,7 @@ func run() -> void:
 	test_first_day_is_coherent_route()
 	test_animals_feed_then_produce()
 	test_museum_secrets_and_reputation()
+	preload("res://tests/suites/house_furniture_suite.gd").new(context).run()
 	test_furniture_crafting_and_collision()
 	test_birthdays_hearts_and_discount()
 	test_combat_vulnerability_and_projectile()
@@ -58,7 +59,7 @@ func test_museum_secrets_and_reputation() -> void:
 func test_furniture_crafting_and_collision() -> void:
 	var game:=make_game(); var life=game.FarmLifeSystem; game.current_location="cottage_interior"; game.player=Vector2(420,330); game.change_inventory_count("rustic_table",1)
 	expect(life.toggle_build_mode(game) and life.place_furniture(game),"home build mode places owned furniture")
-	expect(game.inventory_item_count("rustic_table")==0 and life.state(game).furniture.size()==1 and life.blocks_position(game,game.player,game.PLAYER_RADIUS),"placed furniture persists and owns collision")
+	expect(game.inventory_item_count("rustic_table")==0 and life.state(game).furniture.size()==1 and life.blocks_position(game,Vector2(life.state(game).furniture[0].position)-Vector2(0,20),game.PLAYER_RADIUS),"placed furniture persists and owns collision")
 	game.free()
 
 

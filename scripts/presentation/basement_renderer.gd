@@ -9,7 +9,9 @@ const Room := preload("res://scripts/presentation/basement_room_renderer.gd")
 
 ## Рисует самостоятельные лестницы и выбранный настенный чертёж, оставляя остальную мастерскую под свободное размещение.
 static func fixtures(game: Node2D) -> void:
-	if game.current_location=="cottage_interior": Room.sprite(game,"stairs_down",Rect2(Basement.Data.HOUSE_ENTRY-Vector2(24,80),Vector2(72,72))); return
+	if game.current_location=="cottage_interior":
+		var bounds:=preload("res://scripts/systems/house_furniture_data.gd").STAIR_RECT
+		preload("res://scripts/presentation/house_furniture_visual_system.gd").draw(game,"stairs",Vector2(bounds.get_center().x,bounds.end.y),bounds.size); return
 	if game.current_location!=Basement.Data.LOCATION: return
 	Room.sprite(game,"stairs_up",Rect2(168,168,144,216))
 	Room.sprite(game,"blueprint",Rect2(432,132,192,132))

@@ -79,7 +79,7 @@ func test_legacy_and_json_vector_round_trip() -> void:
 	expect(data.fishing.traps[0].position == [864.0, 512.0], "trap uses explicit JSON numeric coordinates")
 	expect(Save.apply(game, data), "complete JSON round trip loads")
 	expect(game.state.fishing.traps[0].position == Vector2(864, 512), "trap position returns to runtime vector")
-	expect(game.state.world.estate.expansion.furniture[0].position == Vector2(256, 320), "furniture position survives JSON")
+	expect(game.state.world.estate.expansion.furniture[0].position == preload("res://scripts/systems/house_furniture_layout_system.gd").snap("rustic_table",game.state.world.estate.expansion.furniture[0].position), "furniture survives JSON and migrates to free grid cells")
 	expect(game.state.world.estate.expansion.projectiles.is_empty(), "transient legacy projectile is cleared after valid load")
 	data.fishing.traps[0].position = "(864, 512)"
 	data.estate.expansion.furniture[0].position = "(256, 320)"

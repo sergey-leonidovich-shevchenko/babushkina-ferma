@@ -1,5 +1,6 @@
 extends RefCounted
 
+const Cardinal := preload("res://scripts/presentation/house_furniture_visual_system.gd")
 const BASE_CELL:=24
 const ATLAS:=preload("res://assets/game/expansion_pack/expansion_atlas.png")
 const SOURCE_CELL:=Vector2(128,128)
@@ -20,7 +21,7 @@ const PROFILES:={
 	"museum":{"cell":Vector2i(0,1),"visual":Vector2(96,96),"collision":Vector2(72,48)},
 	"rustic_table":{"cell":Vector2i(0,2),"visual":Vector2(96,72),"collision":Vector2(72,48)},
 	"wooden_chair":{"cell":Vector2i(1,2),"visual":Vector2(72,72),"collision":Vector2(48,24)},
-	"woven_rug":{"cell":Vector2i(2,2),"visual":Vector2(96,72),"collision":Vector2.ZERO},
+	"woven_rug":{"cell":Vector2i(2,2),"visual":Vector2(120,72),"collision":Vector2.ZERO},
 	"potted_fern":{"cell":Vector2i(3,2),"visual":Vector2(72,96),"collision":Vector2(48,24)},
 	"wooden_wardrobe":{"cell":Vector2i(4,2),"visual":Vector2(96,120),"collision":Vector2(72,48)},
 	"secret":{"cell":Vector2i(0,3),"visual":Vector2(96,72),"collision":Vector2(72,48)},
@@ -29,8 +30,13 @@ const PROFILES:={
 
 
 ## Возвращает независимый профиль ячейки, модульного размера и видимого основания объекта фермерской жизни.
-static func profile(kind:String)->Dictionary:
-	return Dictionary(PROFILES.get(kind,{})).duplicate(true)
+static func profile(kind:String, direction:int=0)->Dictionary:
+	var result:=Dictionary(PROFILES.get(kind,{})).duplicate(true)
+	if result.is_empty() or posmod(direction,2)==0: return result
+	if kind=="woven_rug": result.visual=Vector2(result.visual.y,result.visual.x)
+	elif kind in ["rustic_table","wooden_wardrobe"]: result.visual.x=72.0
+	if kind in Cardinal.KINDS and result.collision!=Vector2.ZERO: result.collision=Vector2(result.collision.y,result.collision.x)
+	return result
 
 
 ## Возвращает целую исходную ячейку строгого атласа без дробной выборки соседей.
@@ -40,14 +46,14 @@ static func source_rect(kind:String)->Rect2:
 
 
 ## Строит видимый прямоугольник относительно единой нижней точки опоры.
-static func visual_rect(kind:String,ground_position:Vector2)->Rect2:
-	var size:=Vector2(profile(kind).get("visual",Vector2.ZERO))
+static func visual_rect(kind:String,ground_position:Vector2,direction:int=0)->Rect2:
+	var size:=Vector2(profile(kind,direction).get("visual",Vector2.ZERO))
 	return Rect2(ground_position-Vector2(size.x*0.5,size.y),size)
 
 
 ## Строит прямоугольное основание из того же профиля, что используется отрисовкой.
-static func collision_rect(kind:String,ground_position:Vector2)->Rect2:
-	var size:=Vector2(profile(kind).get("collision",Vector2.ZERO))
+static func collision_rect(kind:String,ground_position:Vector2,direction:int=0)->Rect2:
+	var size:=Vector2(profile(kind,direction).get("collision",Vector2.ZERO))
 	return Rect2(ground_position-Vector2(size.x*0.5,size.y),size)
 
 
@@ -63,8 +69,10 @@ static func profiles_are_valid()->bool:
 
 
 ## Рисует одну семантическую ячейку атласа без неравномерного растяжения и случайного размера.
-static func draw(canvas:CanvasItem,kind:String,ground_position:Vector2,tint:Color=Color.WHITE)->void:
+static func draw(canvas:CanvasItem,kind:String,ground_position:Vector2,tint:Color=Color.WHITE,direction:int=0)->void:
 	if not PROFILES.has(kind): return
+	if kind in Cardinal.KINDS:
+		Cardinal.draw(canvas,kind,ground_position,profile(kind,direction).visual,direction,tint); return
 	if FURNITURE_TEXTURES.has(kind):
 		canvas.draw_texture_rect_region(FURNITURE_TEXTURES[kind], furniture_sprite_rect(kind, ground_position), furniture_source(kind), tint)
 		return
@@ -72,7 +80,8 @@ static func draw(canvas:CanvasItem,kind:String,ground_position:Vector2,tint:Colo
 
 
 ## Один раз находит содержимое уже очищенного отдельного PNG без осколков соседних ячеек атласа.
-static func furniture_source(kind: String) -> Rect2:
+static func furniture_source(kind: String, direction:int=0) -> Rect2:
+	if kind in Cardinal.KINDS: return Cardinal.source(kind,direction)
 	if not _furniture_regions.has(kind):
 		var texture: Texture2D = FURNITURE_TEXTURES[kind]
 		_furniture_regions[kind] = Rect2(texture.get_image().get_used_rect())
@@ -80,9 +89,9 @@ static func furniture_source(kind: String) -> Rect2:
 
 
 ## Вписывает мебель по пропорциям рисунка, сохраняя нижнюю опору и модульную область выбора.
-static func furniture_sprite_rect(kind: String, ground_position: Vector2) -> Rect2:
-	var bounds := visual_rect(kind, ground_position)
-	var source := furniture_source(kind)
+static func furniture_sprite_rect(kind: String, ground_position: Vector2, direction:int=0) -> Rect2:
+	var bounds := visual_rect(kind, ground_position,direction)
+	var source := furniture_source(kind,direction)
 	var scale := minf(bounds.size.x / source.size.x, bounds.size.y / source.size.y)
 	var size := source.size * scale
 	return Rect2(Vector2(bounds.get_center().x - size.x * 0.5, bounds.end.y - size.y), size)

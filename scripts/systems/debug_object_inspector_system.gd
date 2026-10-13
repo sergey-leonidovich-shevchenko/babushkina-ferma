@@ -65,8 +65,8 @@ static func append_farm_life(game:Node,result:Array[Dictionary], probe: Vector2 
 	if game.current_location=="cottage_interior":
 		for index in life.furniture.size():
 			var furniture:Dictionary=life.furniture[index]; var kind:String=String(furniture.kind); var position:Vector2=Vector2(furniture.position)
-			if probe == Vector2.INF or (game.FarmLifeVisualSystem.visual_rect(kind,position)).has_point(probe):
-				add(result,"furniture:%d:%s"%[index,kind],"МЕБЕЛЬ",game.inventory_item_name(kind),position,game.FarmLifeVisualSystem.visual_rect(kind,position),74,rect_description(game.FarmLifeVisualSystem.collision_rect(kind,position)),"установлена",["item id %s"%kind,"профиль %s"%str(game.FarmLifeVisualSystem.profile(kind).visual)])
+			if probe == Vector2.INF or (game.FarmLifeVisualSystem.visual_rect(kind,position,int(furniture.get("direction",0)))).has_point(probe):
+				add(result,"furniture:%d:%s"%[index,kind],"МЕБЕЛЬ",game.inventory_item_name(kind),position,game.FarmLifeVisualSystem.visual_rect(kind,position,int(furniture.get("direction",0))),74,rect_description(game.FarmLifeVisualSystem.collision_rect(kind,position,int(furniture.get("direction",0)))),"установлена",["item id %s"%kind,"профиль %s"%str(game.FarmLifeVisualSystem.profile(kind,int(furniture.get("direction",0))).visual)])
 	if game.current_location=="guild_interior":
 		var museum:Vector2=Vector2(780,270)
 		if probe == Vector2.INF or game.FarmLifeVisualSystem.visual_rect("museum",museum).has_point(probe):
@@ -154,7 +154,7 @@ static func append_buildings(game: Node, result: Array[Dictionary], probe: Vecto
 			])
 	if not game.BuildingSystem.is_interior(game.current_location): return
 	for index in game.InteriorVisualSystem.props(game.current_location).size():
-		var prop: Dictionary = game.InteriorVisualSystem.props(game.current_location)[index]; var kind := String(prop.kind); var position := Vector2(prop.position); var rect: Rect2 = game.InteriorVisualSystem.collision_rect(kind,position); var visual: Rect2 = game.InteriorVisualSystem.destination_rect(kind,position)
+		var prop: Dictionary = game.InteriorVisualSystem.props(game.current_location)[index]; var kind := String(prop.kind); var position := Vector2(prop.position); var rect: Rect2 = game.InteriorVisualSystem.collision_rect(kind,position,int(prop.get("direction",0))); var visual: Rect2 = game.InteriorVisualSystem.destination_rect(kind,position,int(prop.get("direction",0)))
 		var collision_label:="декор · проходимо" if rect.size==Vector2.ZERO else "мебель · непроходимо"
 		if probe == Vector2.INF or (visual).has_point(probe):
 			add(result, "interior_prop:%d:%s" % [index,kind], "ИНТЕРЬЕР", game.LocaleSystem.entity(kind), position, visual, 16, rect_description(rect) if rect.size!=Vector2.ZERO else "нет", collision_label, ["комната %s" % game.current_location,"рисунок %.0f×%.0f" % [visual.size.x,visual.size.y]])

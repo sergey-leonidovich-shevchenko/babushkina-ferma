@@ -11,8 +11,8 @@ static func draw_world(game: Node) -> void:
 	preload("res://scripts/systems/livestock_renderer.gd").draw(game)
 	if game.current_location == "cottage_interior":
 		for furniture in value.furniture:
-			if not game.InteriorRenderer.is_foreground_prop(String(furniture.kind),Vector2(furniture.position),game.player):
-				game.FarmLifeVisualSystem.draw(game,String(furniture.kind),Vector2(furniture.position))
+			if not game.InteriorRenderer.is_foreground_prop(String(furniture.kind),Vector2(furniture.position),game.player,int(furniture.get("direction",0))):
+				game.FarmLifeVisualSystem.draw(game,String(furniture.kind),Vector2(furniture.position),Color.WHITE,int(furniture.get("direction",0)))
 	if game.current_location == "guild_interior": game.FarmLifeVisualSystem.draw(game,"museum",Vector2(780,270))
 	if game.FarmLifeSystem.SECRETS.has(game.current_location):
 		var secret: Dictionary = game.FarmLifeSystem.SECRETS[game.current_location]; game.FarmLifeVisualSystem.draw(game,"secret",secret.position)

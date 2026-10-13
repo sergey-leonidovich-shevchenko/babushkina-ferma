@@ -21,12 +21,12 @@ static func draw(canvas: Node2D) -> void:
 	var props:=InteriorVisualSystem.props(canvas.current_location)
 	# Напольный декор всегда лежит под мебелью и персонажами, а не перекрывает их.
 	for prop in props:
-		if InteriorVisualSystem.collision_rect(String(prop.kind),Vector2(prop.position)).size==Vector2.ZERO:
-			InteriorVisualSystem.draw(canvas,String(prop.kind),Vector2(prop.position))
+		if InteriorVisualSystem.collision_rect(String(prop.kind),Vector2(prop.position),int(prop.get("direction",0))).size==Vector2.ZERO:
+			InteriorVisualSystem.draw(canvas,String(prop.kind),Vector2(prop.position),Color.WHITE,int(prop.get("direction",0)))
 	for prop in props:
-		if InteriorVisualSystem.collision_rect(String(prop.kind),Vector2(prop.position)).size!=Vector2.ZERO:
-			if not is_foreground_prop(String(prop.kind), Vector2(prop.position), canvas.player):
-				InteriorVisualSystem.draw(canvas,String(prop.kind),Vector2(prop.position))
+		if InteriorVisualSystem.collision_rect(String(prop.kind),Vector2(prop.position),int(prop.get("direction",0))).size!=Vector2.ZERO:
+			if not is_foreground_prop(String(prop.kind), Vector2(prop.position), canvas.player,int(prop.get("direction",0))):
+				InteriorVisualSystem.draw(canvas,String(prop.kind),Vector2(prop.position),Color.WHITE,int(prop.get("direction",0)))
 	preload("res://scripts/presentation/alchemy_renderer.gd").draw_station(canvas)
 	preload("res://scripts/presentation/furnace_renderer.gd").draw_station(canvas)
 	preload("res://scripts/presentation/basement_renderer.gd").fixtures(canvas)
@@ -99,13 +99,13 @@ static func draw_textured_shell(canvas: Node2D, room: Rect2, stone_floor: bool) 
 
 
 ## Рисует установленный объект тем же профилем, который задаёт его коллизию и F10-границы.
-static func draw_prop(canvas: Node2D, kind: String, position: Vector2) -> void:
-	InteriorVisualSystem.draw(canvas,kind,position)
+static func draw_prop(canvas: Node2D, kind: String, position: Vector2,direction:int=0) -> void:
+	InteriorVisualSystem.draw(canvas,kind,position,Color.WHITE,direction)
 
 
 ## Определяет глубину по нижней точке мебели: ковёр остаётся под ногами, высокая мебель перекрывает героя позади.
-static func is_foreground_prop(kind: String, position: Vector2, player: Vector2) -> bool:
-	return InteriorVisualSystem.collision_rect(kind, position).size != Vector2.ZERO and position.y > player.y
+static func is_foreground_prop(kind: String, position: Vector2, player: Vector2,direction:int=0) -> bool:
+	return InteriorVisualSystem.collision_rect(kind, position,direction).size != Vector2.ZERO and position.y > player.y
 
 
 ## Завершает интерьер после отрисовки героя, сохраняя честное перекрытие мебели, сундука и поставленных предметов.
@@ -113,11 +113,11 @@ static func draw_foreground(canvas: Node2D) -> void:
 	if not canvas.BuildingSystem.is_interior(canvas.current_location): return
 	preload("res://scripts/presentation/basement_renderer.gd").objects(canvas,true)
 	for prop in InteriorVisualSystem.props(canvas.current_location):
-		if is_foreground_prop(String(prop.kind), Vector2(prop.position), canvas.player):
-			draw_prop(canvas, String(prop.kind), Vector2(prop.position))
+		if is_foreground_prop(String(prop.kind), Vector2(prop.position), canvas.player,int(prop.get("direction",0))):
+			draw_prop(canvas, String(prop.kind), Vector2(prop.position),int(prop.get("direction",0)))
 	if canvas.current_location != "cottage_interior": return
 	if canvas.home_chest_owned and is_foreground_prop("home_chest", canvas.StorageSystem.CHEST_POSITION, canvas.player):
 		draw_prop(canvas, "home_chest", canvas.StorageSystem.CHEST_POSITION)
 	for furniture in canvas.FarmLifeSystem.state(canvas).furniture:
-		if is_foreground_prop(String(furniture.kind), Vector2(furniture.position), canvas.player):
-			draw_prop(canvas, String(furniture.kind), Vector2(furniture.position))
+		if is_foreground_prop(String(furniture.kind), Vector2(furniture.position), canvas.player,int(furniture.get("direction",0))):
+			draw_prop(canvas, String(furniture.kind), Vector2(furniture.position),int(furniture.get("direction",0)))

@@ -5,7 +5,7 @@ const SPEED := [1.0,1.35,1.7]
 const EFFICIENCY := [1.0,1.25,1.5]
 const BASE_STATIONS := {
 	"sawmill":{"location":"guild_interior","point":Vector2(885,485),"anchor":Vector2(885,440),"icon":"wood_beam","thermal":false,"upgrades":[{"coins":100,"inputs":{"wood_beam":4,"metal":3,"stone":6}},{"coins":250,"inputs":{"steel":3,"timber_frame":2,"wood_dowel":8}}]},
-	"pottery":{"location":"cottage_interior","point":Vector2(480,490),"anchor":Vector2(480,450),"icon":"clay_pot","thermal":false,"upgrades":[{"coins":100,"inputs":{"plank":6,"metal":2,"clay":6}},{"coins":220,"inputs":{"brick":8,"steel":2,"ceramic_glaze":3}}]},
+	"pottery":{"location":"cottage_interior","point":preload("res://scripts/systems/house_furniture_data.gd").POTTERY_POINT,"anchor":preload("res://scripts/systems/house_furniture_data.gd").POTTERY_POSITION,"icon":"clay_pot","thermal":false,"upgrades":[{"coins":100,"inputs":{"plank":6,"metal":2,"clay":6}},{"coins":220,"inputs":{"brick":8,"steel":2,"ceramic_glaze":3}}]},
 	"glassblowing":{"location":"forge_interior","point":Vector2(850,490),"anchor":Vector2(850,450),"icon":"glass_bottle","thermal":true,"upgrades":[{"coins":120,"inputs":{"brick":6,"metal":3,"glass":4}},{"coins":280,"inputs":{"steel":3,"clear_glass":4,"timber_frame":2}}]},
 }
 static var STATIONS:Dictionary=BASE_STATIONS.merged(preload("res://scripts/systems/artisan_data.gd").WORKSHOPS)

@@ -2,7 +2,7 @@ extends RefCounted
 
 const Products := preload("res://scripts/systems/alchemy_product_data.gd")
 const Recipes := preload("res://scripts/systems/alchemy_recipe_data.gd")
-const STATION := Vector2(700,490)
+const STATION := preload("res://scripts/systems/house_furniture_data.gd").ALCHEMY_POINT
 const RANK_XP := [0,40,120,240]
 const FILTERS := ["all","juice","dried","powder","tincture","essence","potions","supplies"]
 

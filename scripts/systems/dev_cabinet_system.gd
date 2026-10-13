@@ -2,7 +2,7 @@ extends RefCounted
 
 const META := "dev_supply_cabinet"
 const SETTING := "development/supply_cabinet_enabled"
-const POSITION := Vector2(190,398)
+const POSITION := preload("res://scripts/systems/house_furniture_data.gd").CABINET_POINT
 const TABS := ["all","craft","food","alchemy","equipment","tools","seeds","other"]
 const STOCK := 999
 const UNIQUE := preload("res://scripts/systems/inventory_system.gd").UNIQUE_ITEMS

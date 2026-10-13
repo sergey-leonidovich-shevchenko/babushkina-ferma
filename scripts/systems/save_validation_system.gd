@@ -20,7 +20,7 @@ const EXPANSION := {
 	"furnace":{"level":"n","heat":"n","fuel":"s","completed":"n","queue":[BASEMENT_JOB]},
 	"alchemy":{"xp":"n","crafted":"n","discovered":["s"],"effects":{"*":"n"}},
 	"livestock_started":"b", "first_day":"n", "animals":{"*":{"!":["fed_day", "collected_day", "bond"], "fed_day":"n", "collected_day":"n", "bond":"n", "water_day":"n", "pet_day":"n", "ready":"n", "production_day":"n", "last_yield_day":"n"}},
-	"furniture":[{"!":["kind", "position"], "kind":"s", "position":"p"}], "build_mode":"b", "build_index":"n",
+	"furniture":[{"!":["kind", "position"], "kind":"s", "position":"p", "direction":"n"}], "build_mode":"b", "build_index":"n", "build_direction":"n", "furniture_grid_version":"n",
 	"museum":["s"], "encyclopedia":["s"], "achievements":["s"], "secrets":{"*":"b"}, "reputation":"n", "relationship_scenes":["s"],
 	"cutscene":"s", "cutscene_timer":"n", "compendium":"b", "page":"n", "photo_mode":"b", "photo_grid":"b",
 	"projectiles":[{"!":["from", "to", "progress", "kind"], "from":"p", "to":"p", "progress":"n", "kind":"s"}],
@@ -58,6 +58,7 @@ static func valid(data: Dictionary) -> bool:
 	if not _matches(data, OPTIONAL): return false
 	if not preload("res://scripts/systems/garden_crafting_system.gd").valid(data.plots+data.get("world_plots",[])): return false
 	var expansion:Dictionary=data.get("estate",{}).get("expansion",{})
+	if not preload("res://scripts/systems/house_furniture_layout_system.gd").valid_records(expansion.get("furniture",[])): return false
 	if expansion.has("basement") and not preload("res://scripts/systems/basement_system.gd").valid(expansion.basement): return false
 	if expansion.has("apiary") and not preload("res://scripts/systems/apiary_system.gd").valid(expansion.apiary): return false
 	# Панель инструментов обращается к десяти ячейкам по фиксированным индексам.

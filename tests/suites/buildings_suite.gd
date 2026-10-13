@@ -93,13 +93,13 @@ func test_cottage_has_distinct_zones_and_working_services() -> void:
 	var clean_atlas_path:="res://assets/game/interiors/village_interior_atlas_v2.png"; var original_atlas_path:="res://assets/game/world_polish/village_polish_atlas.png"
 	expect(game.InteriorVisualSystem.ATLAS.get_size()==Vector2(640,512) and FileAccess.get_sha256(clean_atlas_path)!=FileAccess.get_sha256(original_atlas_path), "interior uses a separate crop-compatible atlas with the magenta fringe replaced by a dark contact shadow")
 	expect(game.InteriorVisualSystem.collision_rects(game.current_location).size()==9, "nine solid furniture pieces including the pottery wheel contribute to cottage navigation")
-	expect(not game.BuildingSystem.is_walkable_inside(game.current_location,Vector2(480,430),game.PLAYER_RADIUS) and game.BuildingSystem.is_walkable_inside(game.current_location,Vector2(480,490),game.PLAYER_RADIUS), "pottery wheel blocks its visible base and keeps the operating point reachable")
+	expect(not game.BuildingSystem.is_walkable_inside(game.current_location,Vector2(492,430),game.PLAYER_RADIUS) and game.BuildingSystem.is_walkable_inside(game.current_location,game.InteriorVisualSystem.House.POTTERY_POINT,game.PLAYER_RADIUS), "pottery wheel blocks its visible base and keeps the operating point reachable")
 	expect(game.BuildingSystem.is_walkable_inside(game.current_location,Vector2(700,486),game.PLAYER_RADIUS), "woven rug remains a walkable floor decoration")
 	expect(not game.BuildingSystem.is_walkable_inside(game.current_location,Vector2(300,340),game.PLAYER_RADIUS), "bed owns a real collision footprint")
-	game.player=Vector2(930,390)
+	game.player=game.InteriorVisualSystem.House.KITCHEN_POINT
 	expect(game.nearest_interaction()=="interior_service:cauldron" and game.perform_context_action(), "cauldron is a distinct reachable contextual service")
 	expect(game.crafting_open and game.crafting_station=="cauldron", "cottage cauldron opens only cooking recipes")
-	game.crafting_open=false; game.player=Vector2(300,390); var day_before:int=game.day
+	game.crafting_open=false; game.player=game.InteriorVisualSystem.House.BED_POINT; var day_before:int=game.day
 	expect(game.nearest_interaction()=="interior_service:bed" and game.perform_context_action() and game.day==day_before+1, "bed remains reachable and completes the current day")
 	var preview:=Image.load_from_file(ProjectSettings.globalize_path("res://assets/generated/level_drafts/interior_cottage_interior_ingame_preview.png"))
 	expect(preview!=null and preview.get_size()==Vector2i(1152,648), "furnished cottage keeps a current native gameplay preview")

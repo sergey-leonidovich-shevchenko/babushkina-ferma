@@ -8,7 +8,14 @@ const INVENTORY_RARE_ATLAS := preload("res://assets/game/generated/inventory_rar
 const FARM_FOOD_ATLAS := preload("res://assets/game/generated/farm_food_atlas.png")
 const FARM_LIFE_ATLAS := preload("res://assets/game/expansion_pack/expansion_atlas.png")
 const ITEM_ICON_DIRECTORY := "res://assets/game/items/catalog"
-const ITEM_ICON_OVERRIDES := {"crystal":"res://assets/game/items/catalog/crystal_clean_v2.png"}
+const ITEM_ICON_OVERRIDES := {
+	"crystal":"res://assets/game/items/catalog/crystal_clean_v2.png",
+	"rustic_table":"res://assets/game/interiors/furniture_a/rustic_table_south.png",
+	"wooden_chair":"res://assets/game/interiors/furniture_a/wooden_chair_south.png",
+	"wooden_wardrobe":"res://assets/game/interiors/furniture_a/wooden_wardrobe_south.png",
+	"woven_rug":"res://assets/game/interiors/furniture_a/woven_rug_south.png",
+	"home_chest":"res://assets/game/interiors/furniture_a/home_chest_south.png",
+}
 static var item_icon_cache: Dictionary = {}
 static var _active_icon_overrides: Dictionary = {}
 const ItemIcons := preload("res://scripts/presentation/item_icon_visual_system.gd")

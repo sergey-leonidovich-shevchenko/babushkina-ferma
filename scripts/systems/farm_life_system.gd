@@ -14,7 +14,7 @@ const SECRETS := {"forest":{"position":Vector2(1580,420),"reward":"rare_seeds"},
 ## Возвращает и при необходимости создаёт совместимое состояние большого жизненного расширения.
 static func state(game: Node) -> Dictionary:
 	var value: Dictionary = game.state.world.estate.get("expansion", {})
-	var defaults := {"first_day":0,"animals":{},"furniture":[],"build_mode":false,"build_index":0,"museum":[],"encyclopedia":[],"achievements":[],"secrets":{},"reputation":0,"relationship_scenes":[],"cutscene":"","cutscene_timer":0.0,"compendium":false,"page":0,"photo_mode":false,"photo_grid":false,"projectiles":[],"hit_stop":0.0,"active_slot":1,"autosaved_day":0}
+	var defaults := {"first_day":0,"animals":{},"furniture":[],"build_mode":false,"build_index":0,"build_direction":0,"museum":[],"encyclopedia":[],"achievements":[],"secrets":{},"reputation":0,"relationship_scenes":[],"cutscene":"","cutscene_timer":0.0,"compendium":false,"page":0,"photo_mode":false,"photo_grid":false,"projectiles":[],"hit_stop":0.0,"active_slot":1,"autosaved_day":0}
 	for key in defaults:
 		if not value.has(key): value[key] = defaults[key]
 	game.state.world.estate.expansion = value
@@ -25,6 +25,7 @@ static func initialize(game: Node) -> void:
 	var value := state(game)
 	if int(value.first_day) == 0: value.first_day = 1; value.cutscene = "arrival"; value.cutscene_timer = 4.5; game.message = "День 1 • Возвращение на бабушкину ферму"
 	Livestock.initialize(game,value); Apiary.state(game)
+	preload("res://scripts/systems/house_furniture_layout_system.gd").migrate(game)
 	preload("res://scripts/systems/livestock_visual_system.gd").warmup()
 	update_discoveries(game)
 
@@ -166,14 +167,18 @@ static func cycle_slot(game: Node) -> int:
 ## Переключает режим расстановки мебели только внутри собственного дома.
 static func toggle_build_mode(game: Node) -> bool:
 	var value := state(game); if game.current_location != "cottage_interior": game.message = "Мебель можно расставлять только дома"; return false
-	value.build_mode = not bool(value.build_mode); game.clear_movement_keys(); game.message = "Режим мебели: выбери предмет Q, поставь Enter" if value.build_mode else "Расстановка мебели завершена"; return true
+	value.build_mode = not bool(value.build_mode); game.clear_movement_keys(); game.message = "Режим мебели: Q предмет, R поворот, Enter поставить" if value.build_mode else "Расстановка мебели завершена"; return true
 
 ## Ставит выбранный предмет мебели в сетку дома после проверки инвентаря и пересечений.
 static func place_furniture(game: Node) -> bool:
-	var value := state(game); var kinds: Array = FURNITURE.keys(); var kind: String = kinds[clampi(int(value.build_index),0,kinds.size()-1)]; var position := Vector2(round(game.player.x/32.0)*32.0,round(game.player.y/32.0)*32.0)
+	var layout:=preload("res://scripts/systems/house_furniture_layout_system.gd")
+	if game.current_location!="cottage_interior" or not bool(state(game).build_mode): return false
+	var item:=layout.candidate(game); var kind:String=item.kind
 	if game.inventory_item_count(kind)<1: game.message = "В инвентаре нет предмета «%s»" % game.inventory_item_name(kind); return false
-	if value.furniture.any(func(item): return Vector2(item.position).distance_to(position)<52.0): game.message = "Здесь уже стоит мебель"; return false
-	game.change_inventory_count(kind,-1); value.furniture.append({"kind":kind,"position":position}); game.message = "Предмет установлен: %s" % game.inventory_item_name(kind); game.notify_tutorial("furniture_place"); return true
+	if not layout.can_place(game,item): game.message = "Недостаточно места: проверь клетки и проходы"; return false
+	game.change_inventory_count(kind,-1); state(game).furniture.append(item)
+	game.message="Предмет установлен: %s" % game.inventory_item_name(kind); game.notify_tutorial("furniture_place"); return true
+
 
 ## Проверяет коллизию героя с видимыми основаниями животных, мебели, музея и тайников.
 static func blocks_position(game: Node, position: Vector2, radius: float) -> bool:
@@ -181,7 +186,7 @@ static func blocks_position(game: Node, position: Vector2, radius: float) -> boo
 	if Livestock.blocks_position(game,position,radius): return true
 	if game.current_location=="cottage_interior":
 		for furniture in state(game).furniture:
-			var collision:Rect2=game.FarmLifeVisualSystem.collision_rect(String(furniture.kind),Vector2(furniture.position))
+			var collision:Rect2=game.FarmLifeVisualSystem.collision_rect(String(furniture.kind),Vector2(furniture.position),int(furniture.get("direction",0)))
 			if game.FarmLifeVisualSystem.circle_intersects_rect(position,radius,collision): return true
 	if game.current_location=="guild_interior" and game.FarmLifeVisualSystem.circle_intersects_rect(position,radius,game.FarmLifeVisualSystem.collision_rect("museum",Vector2(780,270))): return true
 	if SECRETS.has(game.current_location):
@@ -204,6 +209,8 @@ static func handle_input(game: Node, event: InputEvent) -> bool:
 		KEY_Z: return toggle_build_mode(game)
 		KEY_Q:
 			if bool(value.build_mode): value.build_index = posmod(int(value.build_index)+1,FURNITURE.size()); game.message = "Выбрано: %s" % game.inventory_item_name(FURNITURE.keys()[value.build_index]); return true
+		KEY_R:
+			if bool(value.build_mode): value.build_direction=posmod(int(value.build_direction)+1,4); return true
 		KEY_ENTER:
 			if bool(value.build_mode): place_furniture(game); return true
 			if bool(value.photo_mode): capture_photo(game); return true

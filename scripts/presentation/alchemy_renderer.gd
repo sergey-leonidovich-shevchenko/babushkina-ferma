@@ -32,5 +32,5 @@ static func draw_item(game: Node2D, kind: String, rect: Rect2) -> bool:
 ## Отмечает действующий домашний стол небольшим флаконом и пучком трав поверх его существующего рисунка.
 static func draw_station(game: Node2D) -> void:
 	if game.current_location!="cottage_interior": return
-	draw_item(game,"glass_vial",Rect2(681,392,20,26))
-	draw_item(game,"field_mint",Rect2(711,397,22,22))
+	game.draw_item_icon("glass_vial",Rect2(preload("res://scripts/systems/house_furniture_data.gd").ALCHEMY_POINT+Vector2(-19,-101),Vector2(20,26)))
+	game.draw_item_icon("field_mint",Rect2(preload("res://scripts/systems/house_furniture_data.gd").ALCHEMY_POINT+Vector2(11,-96),Vector2(22,22)))
