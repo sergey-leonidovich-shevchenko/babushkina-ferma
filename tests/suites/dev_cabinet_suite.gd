@@ -3,6 +3,7 @@ extends "res://tests/suites/suite_base.gd"
 const Cabinet := preload("res://scripts/systems/dev_cabinet_system.gd")
 const Controls := preload("res://scripts/systems/dev_cabinet_input.gd")
 const Render := preload("res://scripts/presentation/dev_cabinet_renderer.gd")
+const Layout := preload("res://scripts/presentation/storage_grid_layout.gd")
 const Locale := preload("res://scripts/systems/dev_cabinet_locale.gd")
 
 ## Проверяет полный склад, категории, физический доступ, выдачу, ввод, паузу, сохранение и выключение перед релизом.
@@ -104,9 +105,9 @@ func test_all_items_transfer_without_free_side_effects() -> void:
 ## Ожидаемый результат: ввод не попадает в мир, поиск поддерживает название и идентификатор, страницы и явные кнопки доступны.
 func test_keyboard_search_controller_and_touch() -> void:
 	var game:=make_game(); prepare(game); Cabinet.open(game)
-	game._input(key_event(KEY_PAGEDOWN,KEY_PAGEDOWN,true)); expect(int(Cabinet.state(game).selected)==50,"keyboard reaches second page of full inventory")
+	game._input(key_event(KEY_PAGEDOWN,KEY_PAGEDOWN,true)); expect(int(Cabinet.state(game).selected)==35,"keyboard reaches next grid rows of full inventory")
 	game._input(key_event(KEY_END,KEY_END,true)); expect(int(Cabinet.state(game).selected)==Cabinet.items(game).size()-1,"keyboard reaches last item of the whole registry")
-	game._input(key_event(KEY_TAB,KEY_TAB,true)); expect(int(Cabinet.state(game).tab)==1 and int(Cabinet.state(game).selected)==0,"tab switches category before regular backpack shortcut")
+	game._input(key_event(KEY_E,KEY_E,true)); expect(int(Cabinet.state(game).tab)==1 and int(Cabinet.state(game).selected)==0,"tab switches category before regular backpack shortcut")
 	game._input(key_event(KEY_F,KEY_F,true))
 	for character in "plank":
 		var event:=key_event(KEY_P,KEY_P,true); event.unicode=String(character).unicode_at(0); game._input(event)
@@ -169,20 +170,20 @@ func test_save_load_and_old_slots() -> void:
 ## Ожидаемый результат: карточка следует фокусу, наведение не выдаёт вещи, не переключает поиск и не выбирает пустоту.
 func test_pointer_focus_is_inspection_only() -> void:
 	var game:=make_game(); prepare(game); Cabinet.open(game)
-	var choices:=Cabinet.items(game); var stock:Dictionary=Cabinet.state(game).stock.duplicate(); var bag:Dictionary=game.export_inventory_counts().duplicate()
+	var choices:=Cabinet.items(game); var expected_index:=0; var stock:Dictionary=Cabinet.state(game).stock.duplicate(); var bag:Dictionary=game.export_inventory_counts().duplicate()
 	var motion:=InputEventMouseMotion.new(); motion.position=Render.slot_rect(8).get_center(); game._input(motion)
 	expect(Cabinet.selected(game)==choices[8],"mouse hover changes the item used by the right-hand card")
-	game._input(key_event(KEY_PAGEDOWN,KEY_PAGEDOWN,true)); motion.position=Render.slot_rect(2).get_center(); game._input(motion)
-	expect(Cabinet.selected(game)==choices[52],"hover addresses the actual item on the second page")
-	game._input(key_event(KEY_RIGHT,KEY_RIGHT,true)); expect(Cabinet.selected(game)==choices[53],"keyboard focus replaces the hovered item without mouse movement")
-	game._input(joypad_button_event(JOY_BUTTON_DPAD_DOWN,true)); expect(Cabinet.selected(game)==choices[63],"controller focus also drives the right-hand card")
+	game._input(key_event(KEY_PAGEDOWN,KEY_PAGEDOWN,true)); expected_index=Render.start(game)+2; motion.position=Render.slot_rect(2).get_center(); game._input(motion)
+	expect(Cabinet.selected(game)==choices[expected_index],"hover addresses the actual item on the second page")
+	game._input(key_event(KEY_RIGHT,KEY_RIGHT,true)); expect(Cabinet.selected(game)==choices[expected_index+1],"keyboard focus replaces the hovered item without mouse movement")
+	game._input(joypad_button_event(JOY_BUTTON_DPAD_DOWN,true)); expect(Cabinet.selected(game)==choices[expected_index+1+Render.COLUMNS],"controller focus also drives the right-hand card")
 	motion.position=Render.take_rect(0).get_center(); game._input(motion)
-	expect(Cabinet.selected(game)==choices[63] and stock==Cabinet.state(game).stock and bag==game.export_inventory_counts(),"hovering cells and take buttons never transfers stock")
+	expect(Cabinet.selected(game)==choices[expected_index+1+Render.COLUMNS] and stock==Cabinet.state(game).stock and bag==game.export_inventory_counts(),"hovering cells and take buttons never transfers stock")
 	game._input(key_event(KEY_F,KEY_F,true)); motion.position=Render.slot_rect(7).get_center(); game._input(motion)
-	expect(Cabinet.state(game).searching and Cabinet.selected(game)==choices[63],"mouse inspection preserves active search editing and its selected item")
+	expect(Cabinet.state(game).searching and Cabinet.selected(game)==choices[expected_index+1+Render.COLUMNS],"mouse inspection preserves active search editing and its selected item")
 	Controls.query(game,"plank"); game._input(key_event(KEY_ESCAPE,KEY_ESCAPE,true)); motion.position=Render.slot_rect(1).get_center(); game._input(motion)
 	expect(Cabinet.selected(game)=="plank","hover over an empty result cell keeps the existing detail card")
-	motion.position=Render.slot_rect(0).position+Vector2(71,20); game._input(motion)
+	motion.position=Render.slot_rect(0).position+Vector2(59,20); game._input(motion)
 	expect(Cabinet.selected(game)=="plank","gaps between cells cannot focus a hidden item")
 	Controls.query(game,"no_such_item_here"); motion.position=Render.slot_rect(0).get_center(); game._input(motion)
 	expect(Cabinet.selected(game)=="" and bag==game.export_inventory_counts(),"empty search remains harmless when the mouse enters its grid")
@@ -195,18 +196,18 @@ func test_localized_layout() -> void:
 	var game:=make_game(); var viewport:=Rect2(0,0,1152,648); game.settings_state.text_scale=1.2
 	for index in Cabinet.TABS.size(): expect(viewport.encloses(Render.tab_rect(index)) and not Render.tab_rect(index).intersects(Render.SEARCH),"tab and search have separate screen bounds")
 	for index in Render.VISIBLE:
-		expect(Rect2(40,194,756,380).encloses(Render.slot_rect(index)),"full grid cell stays inside list panel")
+		expect(Layout.PANELS[1].encloses(Render.slot_rect(index)),"full grid cell stays inside list panel")
 		expect(Render.slot_rect(index).encloses(Render.icon_rect(index)) and Render.slot_rect(index).encloses(Render.count_rect(index)) and not Render.icon_rect(index).intersects(Render.count_rect(index)),"icon and count have separate visible areas in every cell")
-	for index in Render.AMOUNTS.size(): expect(Rect2(816,194,296,380).encloses(Render.take_rect(index)),"take button stays inside item card")
+	for index in Render.AMOUNTS.size(): expect(Layout.DETAIL.encloses(Render.take_rect(index)),"take button stays inside item card")
 	for locale in game.LocaleSystem.LOCALES:
 		game.LocaleSystem.current=locale
 		for kind in game.InventorySystem.ITEM_DATA:
 			var name:String=game.inventory_item_name(kind); var area:Rect2=Render.DETAIL_TITLE
-			var fitted:int=game.UiScaleSystem.fitted_multiline_font_size(game,game.UI_FONT,name,area.size.x,area.size.y,18)
+			var fitted:int=preload("res://scripts/presentation/storage_grid_renderer.gd").title_size(game,name)
 			var measured:Vector2=game.UI_FONT.get_multiline_string_size(name,HORIZONTAL_ALIGNMENT_CENTER,area.size.x,fitted)
 			expect(measured.x<=area.size.x+0.01 and measured.y<=area.size.y+0.01,"full localized name fits the right card at 120 percent: "+locale+" "+kind)
 		expect(game.InventorySystem.data("wooden_wardrobe").short!="wooden_wardrobe","registered furniture retains a readable fallback label")
-		for key in Locale.TEXT: expect(Locale.text(game,key,[1] if key in ["found","take","stock","bag"] else (["Item",1] if key=="taken" else []))!=key,"localized cabinet label: "+locale+" "+key)
+		for key in Locale.TEXT: expect(Locale.text(game,key,[1] if key in ["found","take","put","stock","bag"] else (["Item",1] if key=="taken" else []))!=key,"localized cabinet label: "+locale+" "+key)
 		for index in Cabinet.TABS.size():
 			var rect:=Render.tab_rect(index).grow(-6); var text:=Locale.text(game,Cabinet.TABS[index])
 			var size:int=game.UiScaleSystem.fitted_singleline_font_size(game,game.UI_FONT,text,rect.size.x,rect.size.y,13)

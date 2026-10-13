@@ -27,7 +27,14 @@ static func before(game: Node, left: String, right: String, order: String, categ
 
 ## Сортирует переданный список без перестановки быстрых слотов, снаряжения или содержимого хранилища.
 static func arrange(game: Node, items: Array, order: String, category: Callable, quantity: Callable) -> void:
-	items.sort_custom(func(left,right): return before(game,String(left),String(right),order,category,quantity))
+	var keys:={}
+	for kind in items: keys[kind]={"name":game.inventory_item_name(kind),"rank":RANK.get(category.call(kind),7) if order=="category" else 0,"count":int(quantity.call(kind)) if order=="count" else 0}
+	items.sort_custom(func(left,right):
+		var a:Dictionary=keys[left]; var b:Dictionary=keys[right]
+		if order=="category" and a.rank!=b.rank: return a.rank<b.rank
+		if order=="count" and a.count!=b.count: return a.count>b.count
+		var comparison:int=String(a.name).nocasecmp_to(String(b.name))
+		return left<right if comparison==0 else comparison<0)
 
 ## Сбрасывает временные настройки сортировки при успешной загрузке другой игры.
 static func reset(game: Node) -> void:

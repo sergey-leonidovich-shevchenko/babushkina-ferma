@@ -52,6 +52,7 @@ func test_catalog_contains_grouped_game_assets() -> void:
 		all_exist = all_exist and ResourceLoader.exists(entry.path)
 	expect(entries.size() >= 200 and all_exist, "level editor scans every available raster asset lazily")
 	expect(entries.all(func(entry: Dictionary): return not "preview" in String(entry.path).to_lower()), "catalog hides technical preview sheets that are not placeable game objects")
+	expect(entries.all(func(entry: Dictionary): return not String(entry.path).begins_with("res://assets/game/items/ui/")),"prepared storage atlases and previews are not placeable world objects")
 	for category in ["terrain","buildings","vegetation","characters","items","farming","fishing","ui"]:
 		expect(int(categories.get(category,0)) > 0, "level editor catalog exposes populated group: %s" % category)
 	game.free()

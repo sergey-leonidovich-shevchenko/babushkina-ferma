@@ -200,45 +200,14 @@ static func apply_immediate_key_response(game: Node, event: InputEventKey) -> vo
 		game.facing = direction
 
 
-## Обрабатывает клавиатуру и геймпад двухколоночного домашнего сундука.
+## Делегирует полный ввод сундука общим сеткам с независимой построчной прокруткой.
 static func handle_storage_input(game: Node, event: InputEvent) -> void:
-	if preload("res://scripts/systems/storage_actions_system.gd").handle_input(game,event,false): return
-	var command := -1
-	if event is InputEventKey and event.pressed and not event.echo:
-		command = int(event.keycode)
-	elif event is InputEventJoypadButton and event.pressed:
-		command = {JOY_BUTTON_DPAD_UP:KEY_UP, JOY_BUTTON_DPAD_DOWN:KEY_DOWN, JOY_BUTTON_DPAD_LEFT:KEY_LEFT, JOY_BUTTON_DPAD_RIGHT:KEY_RIGHT, JOY_BUTTON_A:KEY_ENTER, JOY_BUTTON_X:KEY_X, JOY_BUTTON_B:KEY_ESCAPE}.get(event.button_index, -1)
-	if command < 0: return
-	match command:
-		KEY_ESCAPE, KEY_C: game.storage_open = false
-		KEY_LEFT, KEY_RIGHT, KEY_TAB:
-			game.storage_side = 1 - game.storage_side
-			game.storage_selected = 0
-		KEY_UP: game.storage_selected -= 1
-		KEY_DOWN: game.storage_selected += 1
-		KEY_ENTER, KEY_E, KEY_SPACE: game.StorageSystem.transfer_selected(game)
-		KEY_X: game.StorageSystem.transfer_selected(game, true)
-	game.StorageSystem.clamp_selection(game)
-	game.queue_redraw()
+	preload("res://scripts/systems/storage_grid_input.gd").handle(game,event,false)
 
-
-## Обрабатывает касания колонок и кнопок переноса домашнего сундука.
+## Делегирует указатель сундука тем же ячейкам и центральным командам переноса.
 static func handle_storage_touch(game: Node, position: Vector2) -> bool:
-	if preload("res://scripts/presentation/storage_actions_renderer.gd").pointer(game,position,false): return true
-	if game.InterfaceRenderer.STORAGE_TRANSFER_ONE.has_point(position):
-		game.StorageSystem.transfer_selected(game)
-	elif game.InterfaceRenderer.STORAGE_TRANSFER_ALL.has_point(position):
-		game.StorageSystem.transfer_selected(game, true)
-	else:
-		var side := 0 if game.InterfaceRenderer.STORAGE_LEFT_ROWS.has_point(position) else (1 if game.InterfaceRenderer.STORAGE_RIGHT_ROWS.has_point(position) else -1)
-		if side >= 0:
-			var previous_side: int = game.storage_side
-			game.storage_side = side
-			var items: Array[String] = game.StorageSystem.selected_items(game)
-			var start: int = game.StorageSystem.visible_start(game.storage_selected if side == previous_side else 0, items.size())
-			game.storage_selected = mini(start + int((position.y - game.InterfaceRenderer.STORAGE_LEFT_ROWS.position.y) / 40.0), maxi(items.size() - 1, 0))
-	game.queue_redraw()
-	return true
+	preload("res://scripts/systems/storage_grid_input.gd").pointer(game,position,false)
+	game.queue_redraw(); return true
 
 
 ## Обрабатывает клавиатуру и геймпад окна улучшений кузницы.

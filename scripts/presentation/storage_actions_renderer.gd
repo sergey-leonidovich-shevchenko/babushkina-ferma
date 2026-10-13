@@ -4,7 +4,7 @@ const Actions := preload("res://scripts/systems/storage_actions_system.gd")
 const Locale := preload("res://scripts/systems/storage_actions_locale.gd")
 const Style := preload("res://scripts/presentation/moon_theme.gd")
 const KEYS := ["all","matching","bag","container"]
-const CHEST := [Rect2(96,524,318,36),Rect2(738,524,318,36),Rect2(296,150,230,32),Rect2(826,150,230,32)]
+const CHEST := [Rect2(40,580,240,36),Rect2(288,580,240,36),Rect2(536,580,284,36),Rect2(828,580,284,36)]
 const CABINET := [Rect2(40,580,240,36),Rect2(288,580,240,36),Rect2(536,580,284,36),Rect2(828,580,284,36)]
 
 ## Даёт общую геометрию четырёх действий для отрисовки, указателя и проверок.
@@ -30,5 +30,4 @@ static func draw(game: Node, cabinet: bool) -> void:
 		var key:String=KEYS[index]
 		var label:String=Locale.sort_label(game,key) if index>=2 else Locale.text(game,key)
 		var enabled:bool=index>=2 or not Actions.candidates(game,cabinet,index==1).is_empty()
-		if cabinet: Style.button(game,rect(index,true),label,false,enabled)
-		else: game.ItemWindowRenderer.draw_action(game,rect(index,false),label,enabled)
+		Style.button(game,rect(index,cabinet),label,false,enabled)

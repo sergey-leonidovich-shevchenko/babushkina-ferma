@@ -431,7 +431,7 @@ func fallback_item_glyph(kind: String) -> String:
 
 ## Рисует общий пакет иконки в предметных окнах, сохраняя запасной знак для отсутствующего рисунка.
 func draw_item_icon(kind: String, rect: Rect2) -> void:
-	var visual:Dictionary=VisualAssetSystem.item_visual(kind)
+	var visual:Dictionary=VisualAssetSystem.item_draw_visual(kind,minf(rect.size.x,rect.size.y))
 	var texture:Texture2D=visual.texture
 	var destination:Rect2=VisualAssetSystem.fitted_icon_rect(rect) if visual.square else rect
 	if texture:

@@ -19,8 +19,8 @@ const SHOP_TABLE_SECTION := Rect2(390, 150, 608, 390)
 const SHOP_TABLE := Rect2(405, 174, 570, 340)
 const SHOP_BUY_ACTION := Rect2(122, 490, 118, 38)
 const SHOP_SELL_ACTION := Rect2(250, 490, 118, 38)
-const STORAGE_LEFT_SECTION := Rect2(82, 146, 458, 374)
-const STORAGE_RIGHT_SECTION := Rect2(612, 146, 458, 374)
+const STORAGE_LEFT_SECTION := preload("res://scripts/presentation/storage_grid_layout.gd").PANELS[0]
+const STORAGE_RIGHT_SECTION := preload("res://scripts/presentation/storage_grid_layout.gd").PANELS[1]
 const FORGE_SECTION := Rect2(142, 146, 868, 414)
 const FORGE_UPGRADE_ACTION := Rect2(556, 508, 206, 42)
 const FORGE_REPAIR_ACTION := Rect2(778, 508, 206, 42)
@@ -33,6 +33,7 @@ static func is_open(game: Node) -> bool:
 
 ## Возвращает hit-зону крестика активного окна, учитывая отдельную геометрию нарисованного скина рюкзака.
 static func close_button_rect(game:Node)->Rect2:
+	if game.storage_open: return preload("res://scripts/presentation/storage_grid_layout.gd").CLOSE
 	return game.InterfaceRenderer.INVENTORY_CLOSE_BUTTON if game.inventory_open else CLOSE_BUTTON
 
 
@@ -168,37 +169,9 @@ static func draw_shop(game: Node) -> void:
 	draw_help(game, game.LocaleSystem.ui("shop_help"))
 
 
-## Рисует домашний сундук двумя симметричными колонками общего предметного семейства.
+## Рисует сундук тем же трёхколоночным интерфейсом, что и шкаф снабжения.
 static func draw_storage(game: Node) -> void:
-	draw_shell(game, game.LocaleSystem.ui("home_storage"),game.message)
-	draw_section(game, STORAGE_LEFT_SECTION)
-	draw_section(game, STORAGE_RIGHT_SECTION)
-	game.draw_ui_string(game.UI_FONT, Vector2(96, 176), game.LocaleSystem.ui("backpack_column"), HORIZONTAL_ALIGNMENT_CENTER, 190, 16, UiKitSystem.COLORS.ink)
-	game.draw_ui_string(game.UI_FONT, Vector2(626, 176), game.LocaleSystem.ui("chest_column"), HORIZONTAL_ALIGNMENT_CENTER, 190, 16, UiKitSystem.COLORS.ink)
-	draw_storage_column(game, game.StorageSystem.inventory_items(game), 0, game.InterfaceRenderer.STORAGE_LEFT_ROWS)
-	draw_storage_column(game, game.StorageSystem.stored_items(game), 1, game.InterfaceRenderer.STORAGE_RIGHT_ROWS)
-	var can_transfer: bool = not game.StorageSystem.selected_items(game).is_empty()
-	draw_action(game, game.InterfaceRenderer.STORAGE_TRANSFER_ONE, game.LocaleSystem.ui("transfer_one"), can_transfer)
-	draw_action(game, game.InterfaceRenderer.STORAGE_TRANSFER_ALL, game.LocaleSystem.ui("transfer_all"), can_transfer)
-	preload("res://scripts/presentation/storage_actions_renderer.gd").draw(game,false)
-	draw_help(game, game.LocaleSystem.ui("storage_help"))
-
-
-## Рисует одну прокручиваемую колонку сундука с одинаковыми слотами, количеством и внутренним фокусом.
-static func draw_storage_column(game: Node, items: Array[String], side: int, rect: Rect2) -> void:
-	var selected: int = game.storage_selected if game.storage_side == side else 0
-	var start: int = game.StorageSystem.visible_start(selected, items.size())
-	for visible_index in game.StorageSystem.MAX_VISIBLE_ROWS:
-		var index: int = start + visible_index
-		var row := Rect2(rect.position + Vector2(0, visible_index * 40), Vector2(rect.size.x, 38))
-		draw_row(game, row, game.storage_side == side and index == game.storage_selected)
-		if index >= items.size(): continue
-		var kind: String = items[index]
-		game.draw_rect(Rect2(row.position+Vector2(9,8),Vector2(3,row.size.y-16)),ItemPresentationSystem.rarity_color(kind))
-		game.draw_item_icon(kind, Rect2(row.position + Vector2(10, 5), Vector2(28, 28)))
-		game.draw_ui_string(game.UI_FONT, row.position + Vector2(48, 25), game.inventory_item_name(kind), HORIZONTAL_ALIGNMENT_LEFT, 290, 11, UiKitSystem.COLORS.ink)
-		var amount: int = game.inventory_item_count(kind) if side == 0 else game.state.storage.count(kind)
-		game.draw_ui_string(game.UI_FONT, row.position + Vector2(350, 25), "×%d" % amount, HORIZONTAL_ALIGNMENT_RIGHT, 60, 11, UiKitSystem.COLORS.ink)
+	preload("res://scripts/presentation/storage_grid_renderer.gd").draw(game,false)
 
 
 ## Рисует кузницу как список постоянных улучшений с иконкой, рангом, стоимостью и прочностью.
@@ -289,8 +262,7 @@ static func handle_list_scroll(game: Node, direction: int) -> bool:
 		var visible: Array[int] = game.CraftingSystem.visible_indices(game)
 		if not visible.is_empty(): game.crafting_selected = visible[clampi(visible.find(game.crafting_selected) + direction, 0, visible.size() - 1)]
 	elif game.storage_open:
-		game.storage_selected += direction
-		game.StorageSystem.clamp_selection(game)
+		preload("res://scripts/systems/storage_grid_system.gd").scroll(game,false,game.storage_side,direction)
 	else: return false
 	game.queue_redraw()
 	return true

@@ -12,6 +12,7 @@ const ITEM_ICON_OVERRIDES := {"crystal":"res://assets/game/items/catalog/crystal
 static var item_icon_cache: Dictionary = {}
 static var _active_icon_overrides: Dictionary = {}
 const ItemIcons := preload("res://scripts/presentation/item_icon_visual_system.gd")
+const PreparedIcons := preload("res://scripts/presentation/prepared_item_icon_system.gd")
 
 const PIRATE_ENEMY_ORDER := ["pirate", "zombie_pirate", "sea_ghost", "drowned_captain"]
 const PIRATE_ITEM_CELLS := {
@@ -97,7 +98,7 @@ static func draw_potion(canvas: CanvasItem, kind: String, rect: Rect2) -> bool:
 ## Загружает отдельные иконки до первого кадра, чтобы отрисовка не инициировала ресурсные операции.
 static func initialize_item_icons(kinds: Array, overrides: Dictionary = ITEM_ICON_OVERRIDES) -> void:
 	item_icon_cache.clear()
-	_active_icon_overrides.clear(); ItemIcons.clear()
+	_active_icon_overrides.clear(); ItemIcons.clear(); PreparedIcons.clear()
 	for value in kinds:
 		var kind := String(value)
 		var icon_kind := "carrot_seeds" if kind == "seeds" else kind
@@ -119,6 +120,10 @@ static func item_texture(kind: String) -> Texture2D:
 ## Возвращает окончательный визуальный пакет, включая цвет сырья и приоритет явно выбранного нового спрайта.
 static func item_visual(kind: String) -> Dictionary:
 	return ItemIcons.profile(kind,item_texture(kind),_active_icon_overrides.has(kind))
+
+## Выбирает маленький экранный атлас либо ограниченный кеш превью; исходники остаются доступны Wiki и сборщику.
+static func item_draw_visual(kind: String, pixels: float) -> Dictionary:
+	return PreparedIcons.packet(kind,item_visual(kind),pixels)
 
 
 ## Вписывает квадратную иконку в доступную область без растяжения по одной из осей.

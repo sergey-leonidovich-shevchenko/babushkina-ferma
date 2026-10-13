@@ -2,6 +2,7 @@ extends "res://tests/suites/suite_base.gd"
 
 ## Запускает сценарии домашнего сундука, переноса предметов и улучшений кузницы.
 func run() -> void:
+	preload("res://tests/suites/storage_grid_suite.gd").new(context).run()
 	preload("res://tests/suites/dev_cabinet_suite.gd").new(context).run()
 	preload("res://tests/suites/storage_actions_suite.gd").new(context).run()
 	test_chest_can_be_crafted_or_bought_and_installs_at_home()
@@ -77,10 +78,10 @@ func test_storage_keyboard_gamepad_and_touch_input() -> void:
 	game.handle_storage_input(key_event(KEY_ENTER, KEY_ENTER, true))
 	expect(game.carrots == 2 and game.state.storage.count("carrot") == 1, "keyboard transfers one selected item")
 	var right := InputEventJoypadButton.new()
-	right.button_index = JOY_BUTTON_DPAD_RIGHT
+	right.button_index = JOY_BUTTON_LEFT_STICK
 	right.pressed = true
 	game.handle_storage_input(right)
-	expect(game.storage_side == 1, "gamepad D-pad switches to chest column")
+	expect(game.storage_side == 1, "gamepad stick click switches to chest grid")
 	var accept := InputEventJoypadButton.new()
 	accept.button_index = JOY_BUTTON_A
 	accept.pressed = true

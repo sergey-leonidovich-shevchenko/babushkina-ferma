@@ -63,6 +63,7 @@ static func items(game: Node) -> Array:
 ## Открывает шкаф только обычным подходом, очищая удержанные действия до остановки мира.
 static func open(game: Node) -> bool:
 	if not at_cabinet(game) or game.inventory_open or game.crafting_open or game.storage_open or game.shop_open: return false
+	if game.has_meta("storage_grid_cabinet"): game.remove_meta("storage_grid_cabinet")
 	state(game).open=true; state(game).notice=""; game.clear_movement_keys(); game.action_held=false; game.attack_held=false; game.state.player.blocking=false
 	game.notify_tutorial("dev_cabinet"); game.queue_redraw(); return true
 
@@ -77,7 +78,9 @@ static func reset(game: Node) -> void:
 
 ## Выбирает вкладку с первой строки и сохраняет введённый поиск между категориями.
 static func select_tab(game: Node, index: int) -> void:
-	var value:=state(game); value.tab=posmod(index,TABS.size()); value.selected=0; value.notice=""; game.queue_redraw()
+	var value:=state(game); value.tab=posmod(index,TABS.size()); value.selected=0;
+	if game.has_meta("storage_grid_cabinet"): game.get_meta("storage_grid_cabinet").rows[1]=0
+	value.notice=""; game.queue_redraw()
 
 ## Ограничивает выбор доступным результатом поиска и возвращает его постоянный идентификатор.
 static func selected(game: Node) -> String:

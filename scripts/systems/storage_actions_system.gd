@@ -55,6 +55,10 @@ static func sort_bag(game: Node, cabinet: bool) -> void:
 	if not available(game,cabinet): return
 	var selected:String=String(game.inventory_slots[game.inventory_selected]) if game.inventory_selected>=0 and game.inventory_selected<game.inventory_slots.size() else ""
 	var focused:String=""
+	var view:Dictionary=game.get_meta("storage_grid_cabinet",{}) if cabinet else {}
+	if cabinet and int(view.get("side",1))==0:
+		var choices:Array[String]=game.StorageSystem.inventory_items(game)
+		if int(view.selected[0])<choices.size(): focused=choices[int(view.selected[0])]
 	if not cabinet and game.storage_side==0:
 		var choices:Array[String]=game.StorageSystem.inventory_items(game)
 		if game.storage_selected>=0 and game.storage_selected<choices.size(): focused=choices[game.storage_selected]
@@ -70,6 +74,7 @@ static func sort_bag(game: Node, cabinet: bool) -> void:
 	for index in size: game.inventory_slots[index]=items[index] if index<items.size() else ""
 	game.InventorySystem.ensure_capacity(game); game.inventory_selected=maxi(items.find(selected),0); game.inventory_scroll_row=0; game.inventory_move_from=-1
 	if not cabinet and game.storage_side==0: game.storage_selected=maxi(items.find(focused),0)
+	if cabinet and int(view.get("side",1))==0: view.selected[0]=maxi(items.find(focused),0)
 	notice(game,cabinet,Locale.sort_label(game,"bag"))
 
 ## Меняет порядок хранилища с сохранением выбранного вида при перестановке строк или каталога.
@@ -86,7 +91,7 @@ static func sort_container(game: Node, cabinet: bool) -> void:
 
 ## Перехватывает клавиатуру сундука до обновления движения и удержания игровых действий.
 static func handle_window_input(game: Node, event: InputEvent) -> bool:
-	if not available(game,false) or not event is InputEventKey: return false
+	if not available(game,false): return false
 	game.InputSystem.handle_storage_input(game,event); return true
 
 ## Даёт одинаковые клавиши и команды геймпада для всех открытых хранилищ.

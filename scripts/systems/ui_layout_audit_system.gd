@@ -117,7 +117,8 @@ static func _check_inventory(checks:Array[Dictionary])->void:
 static func _check_item_windows(checks:Array[Dictionary])->void:
 	_record(checks,"items.shell.viewport",ItemWindowRenderer.VIEWPORT.encloses(ItemWindowRenderer.SHELL),"Корпус предметного окна выходит за viewport")
 	_record(checks,"items.close.contained",ItemWindowRenderer.SHELL.encloses(ItemWindowRenderer.CLOSE_BUTTON),"Кнопка закрытия выходит за корпус")
-	for data in [["craft",ItemWindowRenderer.CRAFT_SECTION],["shop_stock",ItemWindowRenderer.SHOP_STOCK_SECTION],["shop_table",ItemWindowRenderer.SHOP_TABLE_SECTION],["storage_left",ItemWindowRenderer.STORAGE_LEFT_SECTION],["storage_right",ItemWindowRenderer.STORAGE_RIGHT_SECTION],["forge",ItemWindowRenderer.FORGE_SECTION]]: _record(checks,"items.section.%s.contained"%data[0],ItemWindowRenderer.SHELL.encloses(data[1]),"Рабочая секция выходит за общий корпус")
+	for data in [["craft",ItemWindowRenderer.CRAFT_SECTION],["shop_stock",ItemWindowRenderer.SHOP_STOCK_SECTION],["shop_table",ItemWindowRenderer.SHOP_TABLE_SECTION],["forge",ItemWindowRenderer.FORGE_SECTION]]: _record(checks,"items.section.%s.contained"%data[0],ItemWindowRenderer.SHELL.encloses(data[1]),"Рабочая секция выходит за общий корпус")
+	for section in [ItemWindowRenderer.STORAGE_LEFT_SECTION,ItemWindowRenderer.STORAGE_RIGHT_SECTION,preload("res://scripts/presentation/storage_grid_layout.gd").DETAIL]: _record(checks,"items.storage.section.%d"%checks.size(),ItemWindowRenderer.VIEWPORT.encloses(section),"Секция хранилища выходит за экран")
 	_record(checks,"items.storage.gap",ItemWindowRenderer.STORAGE_LEFT_SECTION.end.x<ItemWindowRenderer.STORAGE_RIGHT_SECTION.position.x,"Половины хранилища пересекаются")
 	_record(checks,"items.craft.list",ItemWindowRenderer.CRAFT_SECTION.encloses(ItemWindowRenderer.CRAFT_LIST),"Список рецептов выходит за секцию")
 	_record(checks,"items.craft.detail",ItemWindowRenderer.CRAFT_SECTION.encloses(ItemWindowRenderer.CRAFT_DETAIL),"Подробности рецепта выходят за секцию")
@@ -137,7 +138,7 @@ static func _check_item_windows(checks:Array[Dictionary])->void:
 	_record(checks,"items.storage.transfer.gap",not InterfaceRenderer.STORAGE_TRANSFER_ONE.intersects(InterfaceRenderer.STORAGE_TRANSFER_ALL),"Кнопки переноса пересекаются")
 	for index in 4:
 		var rect:Rect2=preload("res://scripts/presentation/storage_actions_renderer.gd").rect(index,false)
-		_record(checks,"items.storage.quick.%d"%index,ItemWindowRenderer.SHELL.encloses(rect) and not rect.intersects(InterfaceRenderer.STORAGE_LEFT_ROWS) and not rect.intersects(InterfaceRenderer.STORAGE_RIGHT_ROWS) and not rect.intersects(InterfaceRenderer.STORAGE_TRANSFER_ONE) and not rect.intersects(InterfaceRenderer.STORAGE_TRANSFER_ALL),"Быстрое действие сундука перекрывает список или перенос стека")
+		_record(checks,"items.storage.quick.%d"%index,ItemWindowRenderer.VIEWPORT.encloses(rect) and not rect.intersects(InterfaceRenderer.STORAGE_LEFT_ROWS) and not rect.intersects(InterfaceRenderer.STORAGE_RIGHT_ROWS) and not rect.intersects(InterfaceRenderer.STORAGE_TRANSFER_ONE) and not rect.intersects(InterfaceRenderer.STORAGE_TRANSFER_ALL),"Быстрое действие сундука перекрывает список или перенос стека")
 
 
 ## Проверяет постоянный HUD, контекстные зоны и их физическую раскладку на трёх форматах экрана.

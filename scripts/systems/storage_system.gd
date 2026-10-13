@@ -27,13 +27,17 @@ static func inventory_items(game: Node) -> Array[String]:
 
 ## Возвращает отсортированный список предметов, находящихся в домашнем сундуке.
 static func stored_items(game: Node) -> Array[String]:
+	var sorting:=preload("res://scripts/systems/storage_sort_system.gd")
+	var signature:String=str(hash(game.home_chest_counts))+":"+game.LocaleSystem.current+":"+sorting.mode(game,"container")
+	var cache:Dictionary=game.get_meta("storage_item_list",{})
+	if cache.get("key","")==signature: return cache.items.duplicate()
 	var result: Array[String] = []
 	for kind in game.home_chest_counts:
 		if int(game.home_chest_counts[kind]) > 0:
 			result.append(String(kind))
-	var sorting:=preload("res://scripts/systems/storage_sort_system.gd")
 	sorting.arrange(game,result,sorting.mode(game,"container"),game.InventorySystem.category,game.state.storage.count)
-	return result
+	game.set_meta("storage_item_list",{"key":signature,"items":result})
+	return result.duplicate()
 
 
 ## Возвращает список активной колонки интерфейса сундука.
@@ -52,6 +56,7 @@ static func open(game: Node) -> bool:
 	if not game.home_chest_owned or game.current_location != "cottage_interior":
 		game.message = game.LocaleSystem.text("chest_missing")
 		return false
+	if game.has_meta("storage_grid_chest"): game.remove_meta("storage_grid_chest")
 	game.storage_open = true
 	game.storage_side = 0
 	game.storage_selected = 0

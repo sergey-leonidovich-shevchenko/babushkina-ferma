@@ -126,7 +126,7 @@ func test_story_windows_share_visual_language_and_input_geometry() -> void:
 func test_item_windows_share_storybook_shell_and_close_control() -> void:
 	var game := make_game()
 	var renderer = game.ItemWindowRenderer
-	for section in [renderer.CRAFT_SECTION, renderer.SHOP_STOCK_SECTION, renderer.SHOP_TABLE_SECTION, renderer.STORAGE_LEFT_SECTION, renderer.STORAGE_RIGHT_SECTION, renderer.FORGE_SECTION]:
+	for section in [renderer.CRAFT_SECTION, renderer.SHOP_STOCK_SECTION, renderer.SHOP_TABLE_SECTION, renderer.FORGE_SECTION]:
 		expect(renderer.SHELL.encloses(section), "shared storybook shell encloses every item-window section")
 	expect(not game.InterfaceRenderer.STORAGE_LEFT_ROWS.intersects(game.InterfaceRenderer.STORAGE_TRANSFER_ONE) and not game.InterfaceRenderer.STORAGE_RIGHT_ROWS.intersects(game.InterfaceRenderer.STORAGE_TRANSFER_ALL), "storage rows stay clear of transfer controls after grid alignment")
 	var interface_source := FileAccess.get_file_as_string("res://scripts/systems/interface_renderer.gd")

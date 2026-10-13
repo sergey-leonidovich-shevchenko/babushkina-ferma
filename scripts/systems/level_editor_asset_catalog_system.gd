@@ -110,6 +110,7 @@ static func category_for_path(path: String) -> String:
 
 ## Обходит одну папку и пропускает мастера, превью и служебные листы, которые нельзя ставить целиком.
 static func _scan_directory(path: String, result: Array[Dictionary]) -> void:
+	if path=="res://assets/game/items/ui" or path.begins_with("res://assets/game/items/ui/"): return
 	var directory := DirAccess.open(path)
 	if directory == null: return
 	directory.list_dir_begin()
