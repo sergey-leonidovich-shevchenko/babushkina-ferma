@@ -17,6 +17,7 @@ static func world_slot_rect(index: int) -> Rect2:
 
 ## Рисует лёгкое основание и ровно одну рамку на слот, без запечённых ячеек и плашки названия.
 static func draw_world(game: Node) -> void:
+	if bool(game.state.player.adventure_ui.get("dialogue_open",false)): return
 	preload("res://scripts/presentation/moon_theme.gd").panel(game,WORLD_PANEL,Color("1c3027"))
 	for index in SLOT_COUNT:
 		draw_slot(game, world_slot_rect(index), index)

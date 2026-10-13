@@ -9,8 +9,9 @@ const QUEST_HEADER := Rect2(326, 54, 500, 66)
 const QUEST_CARD_RECTS := [Rect2(132, 132, 888, 124), Rect2(132, 266, 888, 124), Rect2(132, 400, 888, 124)]
 const QUEST_PREV := preload("res://scripts/systems/quest_journal_system.gd").PREV
 const QUEST_NEXT := preload("res://scripts/systems/quest_journal_system.gd").NEXT
-const DIALOGUE_WINDOW := Rect2(68, 344, 1016, 286)
-const DIALOGUE_PORTRAIT := Rect2(96, 374, 176, 178)
+const DialogueLayout := preload("res://scripts/presentation/compact_dialogue_layout.gd")
+const DIALOGUE_WINDOW := DialogueLayout.WINDOW
+const DIALOGUE_PORTRAIT := DialogueLayout.PORTRAIT
 const TUTORIAL_CARD := HudLayoutSystem.TUTORIAL_RECT
 const NOTIFICATION_CARD := HudLayoutSystem.NOTIFICATION_RECT
 const REWARD_WINDOW := Rect2(122, 144, 908, 386)
@@ -52,37 +53,11 @@ static func draw_mission_card(game: Node2D, rect: Rect2, mission_id: String) -> 
 
 ## Рисует портретный диалог с настоящим спрайтом собеседника и кнопками без внешних рамок.
 static func draw_dialogue(game: Node2D) -> void:
-	var ui: Dictionary = game.state.player.adventure_ui
-	var dialogue: Dictionary = ui.get("dialogue", {})
-	game.draw_rect(Rect2(0,0,1152,648),Color(0.012,0.018,0.014,0.34))
-	UiKitSystem.draw_modal_panel(game, DIALOGUE_WINDOW)
-	game.draw_texture_rect(UiKitSystem.texture("portrait_frame"), DIALOGUE_PORTRAIT, false)
-	draw_npc_portrait(game, DIALOGUE_PORTRAIT.grow(-23), String(dialogue.get("npc_id", "")))
-	var npc_id := String(dialogue.get("npc_id", ""))
-	game.draw_ui_string(game.UI_FONT, Vector2(DIALOGUE_PORTRAIT.position.x + 10, 574), game.QuestSystem.npc_name(npc_id), HORIZONTAL_ALIGNMENT_CENTER, DIALOGUE_PORTRAIT.size.x - 20, 12, UiKitSystem.COLORS.text_light)
-	var friendship := int(game.state.player.relationships.get(npc_id, 0))
-	game.draw_ui_string(game.UI_FONT, Vector2(294, 430), "%s" % dialogue.get("title", game.AdventurePolishSystem.word(game, "continue")), HORIZONTAL_ALIGNMENT_LEFT, 540, 18, UiKitSystem.COLORS.ink)
-	UiKitSystem.draw_nine_patch(game, "badge", Rect2(850, 365, 180, 54))
-	game.draw_ui_string(game.UI_FONT, Vector2(870, 399), "♥ %d / 100" % friendship, HORIZONTAL_ALIGNMENT_CENTER, 140, 13, Color("934840"))
-	var full_text := String(dialogue.get("text", ""))
-	var visible_text := full_text.left(floori(float(dialogue.get("revealed", full_text.length()))))
-	game.draw_multiline_string(game.UI_FONT, Vector2(294, 458), visible_text, HORIZONTAL_ALIGNMENT_LEFT, 720, 13, 3, Color("4c3828"))
-	var choices: Array = dialogue.get("choices", ["leave"])
-	for index in choices.size():
-		var choice_rect := dialogue_choice_rect(index, choices.size())
-		UiKitSystem.draw_button(game, choice_rect, index == int(ui.choice), true, game.settings_state.reduced_motion, Time.get_ticks_msec())
-		game.draw_ui_string(game.UI_FONT, choice_rect.position + Vector2(14, 31), game.AdventurePolishSystem.word(game, String(choices[index])), HORIZONTAL_ALIGNMENT_CENTER, choice_rect.size.x - 28, 14, UiKitSystem.COLORS.text_light)
-	game.draw_ui_string(game.UI_FONT, Vector2(734, 610), game.AdventurePolishSystem.word(game, "gift_hint"), HORIZONTAL_ALIGNMENT_RIGHT, 286, 10, Color("765738"))
-
+	preload("res://scripts/presentation/compact_dialogue_renderer.gd").draw(game)
 
 ## Возвращает равномерно распределённую область варианта ответа для мыши, тача и отрисовки.
 static func dialogue_choice_rect(index: int, count: int) -> Rect2:
-	var safe_count := maxi(1, count)
-	var available_width := 726.0
-	var gap := 14.0
-	var width := (available_width - gap * (safe_count - 1)) / safe_count
-	return Rect2(294 + index * (width + gap), 520, width, 54)
-
+	return DialogueLayout.choice_rect(index,count)
 
 ## Находит вариант ответа под указателем либо сообщает об отсутствии попадания.
 static func dialogue_choice_at(point: Vector2, count: int) -> int:

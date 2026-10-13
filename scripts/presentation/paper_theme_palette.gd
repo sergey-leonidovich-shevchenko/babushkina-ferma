@@ -1,0 +1,16 @@
+extends RefCounted
+
+const BACKGROUND := Color("f5ecd4")
+const PANEL := Color("eee1bf")
+const INSET := Color("dfd0a7")
+const EDGE := Color("b3a077")
+const TEXT := Color("463c2b")
+const MUTED := Color("625940")
+const ACCENT := Color("647451")
+const ON_ACCENT := Color("fbf4df")
+const SELECTED := Color("d3c29a")
+const DISABLED := Color("7d7057")
+const DANGER := Color("973f35")
+const SUCCESS := Color("49633d")
+const INFO := Color("3f657b")
+const TRACK := Color("c7b995")

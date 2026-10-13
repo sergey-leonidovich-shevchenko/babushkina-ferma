@@ -5,6 +5,8 @@ const TOOL_BY_ACTION := {"hoe":"hoe","water":"water","mine":"pickaxe","chop":"ax
 const NAMES := ["Гаврила", "Василиса", "Мирослав", "Алёна", "Добрыня"]
 const FARMS := ["Бабушкина ферма", "Лунный хутор", "Медовая долина", "Тихая роща"]
 const SPECIALIZATIONS := ["farmer", "ranger", "artisan"]
+const DialogueText := preload("res://scripts/systems/dialogue_text_layout_system.gd")
+const DialogueLayout := preload("res://scripts/presentation/compact_dialogue_layout.gd")
 const WORDS := {
 	"new_story":["НОВАЯ ИСТОРИЯ","NEW STORY","NUEVA HISTORIA","NEUE GESCHICHTE","NOUVELLE HISTOIRE","新故事"],
 	"name":["Имя","Name","Nombre","Name","Nom","姓名"], "farm":["Ферма","Farm","Granja","Hof","Ferme","农场"],
@@ -48,7 +50,9 @@ static func handle_input(game: Node, event: InputEvent) -> bool:
 			cycle_target(game); return true
 		return false
 	if bool(ui.get("dialogue_open", false)) and ((event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT) or (event is InputEventScreenTouch and event.pressed)):
-		var choices: Array = ui.get("dialogue", {}).get("choices", ["leave"])
+		if DialogueLayout.CLOSE.has_point(event.position): handle_dialogue_key(game,KEY_ESCAPE); game.queue_redraw(); return true
+		if DialogueLayout.GIFT.has_point(event.position): handle_dialogue_key(game,KEY_G); game.queue_redraw(); return true
+		var choices: Array = ["next"] if DialogueText.has_next(game) else ui.get("dialogue", {}).get("choices", ["leave"])
 		var choice_index: int = game.StoryUiRenderer.dialogue_choice_at(event.position, choices.size())
 		if choice_index >= 0:
 			ui.choice = choice_index; handle_dialogue_key(game, KEY_ENTER); game.queue_redraw()
@@ -118,7 +122,9 @@ static func open_quest_dialogue(game: Node, npc_id: String) -> bool:
 static func handle_dialogue_key(game: Node, key: int) -> void:
 	var ui: Dictionary = game.state.player.adventure_ui
 	var dialogue: Dictionary = ui.get("dialogue", {})
-	var choices: Array = dialogue.get("choices", ["leave"])
+	var choices: Array = ["next"] if DialogueText.has_next(game) else dialogue.get("choices", ["leave"])
+	if key==KEY_ESCAPE: ui.dialogue_open=false; return
+	if key in [KEY_ENTER,KEY_SPACE] and DialogueText.advance(game): return
 	if key in [KEY_LEFT, KEY_UP]: ui.choice = posmod(int(ui.choice) - 1, choices.size()); return
 	if key in [KEY_RIGHT, KEY_DOWN]: ui.choice = posmod(int(ui.choice) + 1, choices.size()); return
 	if key == KEY_G:
@@ -135,7 +141,7 @@ static func handle_dialogue_key(game: Node, key: int) -> void:
 			dialogue.reward = before == game.QuestSystem.ACTIVE and game.QuestSystem.mission_state(game, mission_id) == game.QuestSystem.COMPLETED
 			remember_quest(game, String(dialogue.get("npc_id", "")), mission_id)
 			if dialogue.reward:
-				dialogue.text = game.message; dialogue.title = word(game, "reward_received"); dialogue.choices = ["thanks"]; dialogue.mission_id = ""; dialogue.revealed = 0.0; ui.dialogue = dialogue; return
+				dialogue.text = game.message; dialogue.title = word(game, "reward_received"); dialogue.choices = ["thanks"]; dialogue.mission_id = ""; dialogue.page=0; dialogue.revealed = 0.0; ui.dialogue = dialogue; return
 		ui.dialogue_open = false
 
 

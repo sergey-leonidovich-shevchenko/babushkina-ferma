@@ -2,6 +2,7 @@ extends "res://tests/suites/suite_base.gd"
 
 ## Запускает сценарии создания героя, диалогов, боевых подсказок, отклика, экономики и прочности.
 func run() -> void:
+	preload("res://tests/suites/compact_dialogue_suite.gd").new(context).run()
 	test_character_creation_and_specialization()
 	test_branching_quest_dialogue_relationship_and_memory()
 	test_target_lock_telegraph_and_action_feedback()
