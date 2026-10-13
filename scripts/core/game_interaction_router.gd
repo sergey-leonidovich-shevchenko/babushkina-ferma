@@ -54,7 +54,9 @@ static func _fixed_interactions(game: Node) -> Dictionary:
 	if preload("res://scripts/systems/cave_boss_arena_system.gd").altar_available(game): interactions["cave_altar"] = preload("res://scripts/systems/cave_boss_arena_data.gd").ALTAR
 	for passage in preload("res://scripts/systems/cave_room_data.gd").passages(game.current_location):
 		interactions["cave_passage:%s" % passage.port] = passage.position
-	if not game.BuildingSystem.is_interior(game.current_location) and (not preload("res://scripts/systems/cave_room_data.gd").is_cave(game.current_location) or preload("res://scripts/systems/cave_room_data.gd").has_world_exit(game.current_location)):
+	for passage in preload("res://scripts/systems/village_region_data.gd").passages(game.current_location): interactions["village_passage:"+String(passage.port)]=passage.position
+	for service in preload("res://scripts/systems/village_region_data.gd").SERVICES.get(game.current_location,{}): interactions["village_service:"+String(service)]=preload("res://scripts/systems/village_region_data.gd").SERVICES[game.current_location][service]
+	if not preload("res://scripts/systems/village_region_data.gd").added(game.current_location) and not game.BuildingSystem.is_interior(game.current_location) and (not preload("res://scripts/systems/cave_room_data.gd").is_cave(game.current_location) or preload("res://scripts/systems/cave_room_data.gd").has_world_exit(game.current_location)):
 		if preload("res://scripts/systems/cave_boss_arena_system.gd").can_exit(game): interactions["world_gate"] = game.world_gate_position
 	return interactions
 
@@ -121,6 +123,8 @@ static func _nearest_dynamic_object(game: Node, current: String, distance: float
 ## Выполняет найденное контекстное действие через единственного владельца соответствующей механики.
 static func perform(game: Node) -> bool:
 	var interaction: String = nearest(game)
+	if interaction.begins_with("village_passage:"): return game.LocationTransitionSystem.activate(game,interaction)
+	if interaction.begins_with("village_service:"): return preload("res://scripts/systems/village_region_system.gd").use_service(game,interaction.get_slice(":",1))
 	if interaction=="basement_board": return game.BasementSystem.open(game)
 	if interaction.begins_with("basement_station:"): return preload("res://scripts/systems/basement_station_system.gd").interact(game,int(interaction.get_slice(":",1)))
 	if interaction == "cave_altar": return preload("res://scripts/systems/cave_boss_arena_system.gd").activate(game)

@@ -9,6 +9,7 @@ const RoadVisualSystem := preload("res://scripts/systems/road_visual_system.gd")
 func run() -> void:
 	preload("res://tests/suites/cave_location_suite.gd").new(context).run()
 	preload("res://tests/suites/cave_labyrinth_suite.gd").new(context).run()
+	preload("res://tests/suites/village_regions_suite.gd").new(context).run()
 	preload("res://tests/suites/cave_boss_arena_suite.gd").new(context).run()
 	test_first_level_master_is_sliced_into_a_seamless_world_grid()
 	test_modular_road_catalog_builds_connected_first_location_routes()
@@ -74,7 +75,7 @@ func test_first_location_has_clear_functional_zones() -> void:
 	var square: Rect2 = game.BuildingSystem.VILLAGE_SQUARE
 	expect(game.BuildingSystem.VILLAGE_MAIN_PATH.has_point(game.player), "new character starts on the readable village road")
 	expect(square.has_point(game.BuildingSystem.SHOP_STALL_POSITION) and square.has_point(game.BuildingSystem.SELL_CRATE_POSITION), "shop stall and sale crate form one market zone")
-	expect(VillageLayoutSystem.DISTRICTS.guild.has_point(game.guild_master_position) and square.has_point(game.herbalist_position), "староста встречает у гильдии, травница находится на торговой площади")
+	expect(VillageLayoutSystem.DISTRICTS.guild.has_point(game.guild_master_position) and game.QuestSystem.NPCS.agafya.location=="village_garden", "староста встречает у гильдии, травница работает в отдельном саду")
 	expect(not square.has_point(game.slime_position), "starter combat is kept outside the safe village square")
 	for tree in game.TREE_POSITIONS:
 		expect(not square.has_point(tree), "trees do not block the village square")

@@ -27,7 +27,7 @@ const STEP_IDS := [
 	"kitchen_queue", "kitchen_fuel", "kitchen_done",
 	"apiary_wild", "apiary_build", "apiary_populate", "apiary_harvest", "apiary_alchemy",
 	"basement_enter", "basement_blueprint", "basement_place", "basement_build", "basement_finish", "basement_upgrade", "basement_dismantle",
-	"fruit_press", "fermenter", "preserver", "smoker", "loom", "tannery", "candlebench", "gardenbench", "fertilizer", "fishing_bait", "dev_cabinet", "storage_quick",
+	"fruit_press", "fermenter", "preserver", "smoker", "loom", "tannery", "candlebench", "gardenbench", "fertilizer", "fishing_bait", "dev_cabinet", "storage_quick", "village_regions",
 ]
 
 

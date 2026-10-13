@@ -44,6 +44,7 @@ static func page_at(point: Vector2) -> int:
 
 ## Рисует художественную карту долины, открытые регионы, цель и локальную сводку справа.
 static func draw_map(game: Node2D) -> void:
+	if preload("res://scripts/presentation/village_region_map_renderer.gd").active(game): preload("res://scripts/presentation/village_region_map_renderer.gd").draw(game); return
 	MoonStyle.panel(game,CONTENT)
 	var map_rect := Rect2(82, 174, 744, 392)
 	game.draw_texture_rect(MAP_BACKGROUND, map_rect, false)
@@ -66,6 +67,7 @@ static func draw_map(game: Node2D) -> void:
 	game.draw_ui_string(game.UI_FONT, Vector2(920, 251), game.LocaleSystem.ui("season_" + game.WorldEventSystem.season(game.day)), HORIZONTAL_ALIGNMENT_LEFT, 130, 12, MoonStyle.MUTED)
 	game.draw_ui_string(game.UI_FONT, Vector2(858, 306), game.LocaleSystem.ui("map_legend"), HORIZONTAL_ALIGNMENT_LEFT, 192, 9, MoonStyle.MUTED)
 	game.draw_ui_multiline_string(game.UI_FONT, Vector2(858, 356), game.LocaleSystem.ui("map_close"), HORIZONTAL_ALIGNMENT_LEFT, 190, 176, 10, 4, MoonStyle.MUTED)
+	preload("res://scripts/presentation/village_region_map_renderer.gd").draw_toggle(game)
 
 
 ## Рисует прогноз на семь дней и сезонную ленту из двадцати восьми календарных ячеек.

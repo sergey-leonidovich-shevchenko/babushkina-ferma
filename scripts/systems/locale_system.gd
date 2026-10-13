@@ -497,6 +497,11 @@ const BASE_ITEMS := {
 }
 
 const LOCATIONS := {
+	"village_market":["Торговая слобода","Market quarter","Barrio del mercado","Marktviertel","Quartier du marché","集市街区"],
+	"village_garden":["Сад травницы","Herbalist's garden","Jardín de la herbolaria","Kräutergarten","Jardin de l’herboriste","草药师花园"],
+	"village_river":["Речная переправа","Riverside crossing","Paso del río","Flussübergang","Passage de la rivière","河边渡口"],
+	"village_workyard":["Ремесленный двор","Craftsmen's yard","Patio artesanal","Handwerkerhof","Cour des artisans","工匠庭院"],
+	"village_orchard":["Яблоневый сад","Apple orchard","Huerto de manzanos","Apfelgarten","Verger de pommiers","苹果园"],
 	"cellar_workshop":["Подвал-мастерская","Cellar workshop","Taller del sótano","Kellerwerkstatt","Atelier du sous-sol","地下工坊"],
 	"cave_fungal":["Грибной зал","Mushroom hall","Sala de hongos","Pilzhalle","Salle des champignons","蘑菇洞厅"],
 	"cave_moon":["Лунный грот","Moonlit grotto","Gruta lunar","Mondgrotte","Grotte lunaire","月光洞窟"],
@@ -516,6 +521,7 @@ const LOCATIONS := {
 }
 
 const BASE_TUTORIAL := {
+	"village_regions":["У фермы три дороги в соседние районы. Следуй указателям или карте: есть развилки и круговые пути. Жители работают в разных местах.","Three farm roads lead to nearby districts. Follow signs or the map: junctions and loops connect them. Residents work in different places.","Tres caminos llevan a otros barrios. Sigue señales o mapa: hay cruces y rutas circulares. Los vecinos trabajan en distintos lugares.","Drei Wege führen zu Nachbarvierteln. Schilder und Karte zeigen Abzweigungen und Rundwege. Bewohner arbeiten an verschiedenen Orten.","Trois chemins mènent aux quartiers voisins. Panneaux et carte montrent branches et boucles. Les habitants travaillent en différents lieux.","农场有三条路通往相邻区域。跟随路牌或地图，可探索岔路与环路。居民在不同地方工作。"],
 	"storage_quick":["D/Start — весь рюкзак, M/View — совпадающие виды. S/T — сортировка рюкзака/хранилища: имя, тип, количество. R3 — обе стороны.","D/Start stores the whole bag; M/View stores matching types. S/T sort bag/storage by name, type or quantity. R3 sorts both sides.","D/Start guarda toda la mochila; M/View tipos presentes. S/T ordenan mochila/almacén por nombre, tipo o cantidad. R3 ambos lados.","D/Start: ganzen Rucksack lagern. M/View: passende Arten. S/T sortieren Rucksack/Lager nach Name, Typ, Menge. R3: beide Seiten.","D/Start dépose tout le sac ; M/View les types présents. S/T trient sac/stockage : nom, type, quantité. R3 : les deux côtés.","D/Start存入整个背包；M/View仅存入已有种类。S/T按名称、类型或数量排序背包/储存；R3排序两侧。"],
 	"dev_cabinet":["Шкаф слева в доме снабжает разработку: все предметы по 999, категории, поиск и пополнение. Взять можно 1, 10, 100 или 999. Мир стоит на паузе; перед релизом шкаф отключается.","The left cottage cabinet supplies development: every item ×999, categories, search and refill. Take 1, 10, 100 or 999. The world pauses; the cabinet is disabled before release.","El armario izquierdo abastece el desarrollo: objetos ×999, categorías, búsqueda y reposición. Toma 1, 10, 100 o 999. El mundo se pausa; se desactiva antes del lanzamiento.","Der linke Hausschrank liefert Entwicklungsvorräte: alle Gegenstände ×999, Kategorien, Suche, Auffüllen. Nimm 1, 10, 100 oder 999. Die Welt pausiert; vor Veröffentlichung deaktivieren.","L’armoire à gauche fournit les tests : objets ×999, catégories, recherche et remplissage. Prends 1, 10, 100 ou 999. Le monde est en pause ; désactiver avant publication.","屋内左侧物资柜用于开发：每种物品999个，支持分类、搜索与补充。可拿取1、10、100或999个。世界暂停；发布前关闭此功能。"],
 	"farmyard":["На южном лугу живут корова, свинка, овца и три курицы. E — уход и сбор", "Cow, pig, sheep and three hens live south of the crops. E cares and collects", "Vaca, cerdo, oveja y tres gallinas al sur. E cuida y recoge", "Kuh, Schwein, Schaf und drei Hühner südlich der Beete. E pflegt und sammelt", "Vache, cochon, mouton et trois poules au sud. E soigne et récolte", "菜地南侧有牛、猪、羊和三只鸡。E照料并收取"],

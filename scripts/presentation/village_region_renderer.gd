@@ -1,0 +1,40 @@
+extends RefCounted
+
+const Data := preload("res://scripts/systems/village_region_data.gd")
+const Buildings := preload("res://scripts/systems/building_visual_system.gd")
+const Props := preload("res://scripts/systems/village_prop_renderer.gd")
+const Terrain := preload("res://scripts/presentation/village_region_terrain.gd")
+const Occlusion := preload("res://scripts/systems/tree_occlusion_system.gd")
+const Visible := preload("res://scripts/systems/world_visibility_system.gd")
+const Trees := preload("res://scripts/systems/tree_system.gd")
+
+## Рисует дополнительные дороги старой фермы и указатели реальных соседних районов.
+static func draw_ground(game: Node2D) -> void:
+	if game.current_location=="overworld": Terrain.paths(game,"overworld")
+	if not Data.contains(game.current_location): return
+	for link in Data.passages(game.current_location):
+		var point:Vector2=link.position; var sign:=point+Vector2(0,-44)
+		game.draw_texture_rect(Props.Props.board,game.VillageLayoutSystem.prop_rect({"kind":"board","position":sign}),false)
+		game.draw_circle(point,18,Color(0.84,0.87,0.59,0.14))
+		if game.player.distance_to(point)<240:
+			var label:String=game.LocaleSystem.location(link.target)
+			game.draw_rect(Rect2(point+Vector2(-132,24),Vector2(264,28)),Color(0.04,0.09,0.06,0.90))
+			game.draw_ui_string(game.UI_FONT,point+Vector2(-126,44),label,HORIZONTAL_ALIGNMENT_CENTER,252,12,Color("e8ecd7"))
+
+## Рисует существующие фасады, лавочки, мастерские и деревья с отсечением вне камеры.
+static func draw_objects(game: Node2D, foreground: bool=false) -> void:
+	var location:String=game.current_location
+	if not Data.added(location): return
+	var visible:=Visible.visible_rect(game)
+	for house in Data.HOUSES.get(location,[]):
+		if foreground and game.player.y>=house.position.y-24: continue
+		Buildings.draw_building(game,house.kind,house.position)
+	for prop in Data.PROPS.get(location,[]):
+		if (game.player.y<prop.position.y+16)!=foreground: continue
+		if prop.kind=="table": game.FarmLifeVisualSystem.draw(game,"rustic_table",prop.position); continue
+		var rect:Rect2=game.VillageLayoutSystem.prop_rect(prop)
+		if visible.intersects(rect,true): game.draw_texture_rect(Props.Props[prop.kind],rect,false)
+	if foreground: return
+	for tree in Data.trees(location):
+		var rect:Rect2=Trees.destination_rect(tree)
+		if visible.intersects(rect,true): Occlusion.submit(game,Occlusion.key_for(location,tree.position),Props.TreeTexture,rect,Trees.source_rect(tree.stage),Trees.ground_anchor(tree.position).y)

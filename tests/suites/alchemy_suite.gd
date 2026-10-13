@@ -137,7 +137,8 @@ func test_save_migration_and_validation() -> void:
 	saved.forage.append({"kind":"apple","active":false,"ready_at":2500.0,"stage":1,"position":[800.0,900.0],"location":"overworld","planted_by_player":true})
 	saved.estate.expansion.erase("alchemy")
 	var restored:=make_game(); expect(game.SaveSystem.apply(restored,saved),"historical orchard slot loads into expanded herb world")
-	expect(restored.food_nodes.size()==41 and restored.food_nodes[40].kind=="apple" and restored.food_nodes[40].position==Vector2(800,900) and restored.food_nodes[40].stage==1,"player tree at historical index sixteen remains a separate planted tree")
+	var planted:Dictionary=restored.food_nodes.back()
+	expect(restored.food_nodes.size()==game.ForageSystem.default_nodes().size()+1 and planted.kind=="apple" and planted.position==Vector2(800,900) and planted.stage==1 and planted.planted_by_player,"player tree at historical index sixteen remains a separate planted tree")
 	var herb:int=restored.food_nodes.find_custom(func(node): return node.get("id","")=="herb:field_mint")
 	restored.food_nodes[herb].active=false; restored.food_nodes[herb].ready_at=999.0; restored.change_inventory_count("field_mint_powder",3)
 	var value:=Alchemy.state(restored); value.discovered=["alchemy:field_mint_juice","alchemy:field_mint_juice","unknown"]; value.xp=9999; value.effects.mining=44.0

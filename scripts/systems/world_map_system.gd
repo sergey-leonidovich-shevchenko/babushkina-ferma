@@ -36,6 +36,7 @@ static func cycle_page(game: Node, offset: int) -> int:
 ## Обрабатывает указатель на вкладках, рецептах и кнопке закрытия энциклопедии.
 static func handle_pointer(game: Node, point: Vector2) -> bool:
 	if game.WorldMapRenderer.CLOSE_BUTTON.has_point(point): return toggle(game)
+	if game.world_guide_page==0 and preload("res://scripts/presentation/village_region_map_renderer.gd").TOGGLE.has_point(point): preload("res://scripts/presentation/village_region_map_renderer.gd").toggle(game); return true
 	var page: int = game.WorldMapRenderer.page_at(point)
 	if page >= 0: game.UiFeedbackSystem.press(game, game.WorldMapRenderer.TAB_RECTS[page]); set_page(game, page); return true
 	if game.world_guide_page == 4:
@@ -64,6 +65,7 @@ static func bestiary_discovered(game: Node, kind: String) -> bool:
 
 ## Возвращает внешнюю область для текущего интерьера или саму открытую локацию.
 static func current_region(game: Node) -> String:
+	if preload("res://scripts/systems/village_region_data.gd").added(game.current_location): return "overworld"
 	if preload("res://scripts/systems/cave_room_data.gd").is_cave(game.current_location): return "cave"
 	if game.BuildingSystem.is_interior(game.current_location):
 		var building_id: String = String(game.BuildingSystem.INTERIORS[game.current_location].building)
@@ -78,5 +80,5 @@ static func objective_region(game: Node) -> String:
 	if int(campaign.stage) in [2, 3, 4]: return "ruins"
 	var quest_region: String = game.QuestSystem.objective_region(game)
 	if not quest_region.is_empty():
-		return quest_region
+		return "overworld" if preload("res://scripts/systems/village_region_data.gd").added(quest_region) else quest_region
 	return ""

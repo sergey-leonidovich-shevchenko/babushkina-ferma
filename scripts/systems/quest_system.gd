@@ -2,6 +2,7 @@ extends RefCounted
 
 const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
 const VillageMapData := preload("res://scripts/systems/village_map_data.gd")
+const Regions := preload("res://scripts/systems/village_region_data.gd")
 
 const AVAILABLE := "available"
 const ACTIVE := "active"
@@ -53,10 +54,10 @@ const MISSIONS := {
 
 const NPCS := {
 	"miron":{"location":"overworld","position":VillageMapData.NPCS.miron,"sprite":1,"tint":Color("fff3d8"),"missions":["story_relic","story_moon_seal"]},
-	"agafya":{"location":"overworld","position":VillageMapData.NPCS.agafya,"sprite":2,"tint":Color("dff2d2"),"missions":["side_seed"]},
-	"varvara":{"location":"overworld","position":VillageMapData.NPCS.varvara,"sprite":2,"tint":Color("d7efff"),"missions":["side_fisher"]},
-	"gavrila":{"location":"overworld","position":VillageMapData.NPCS.gavrila,"sprite":1,"tint":Color("ffd8c2"),"missions":["side_smith"]},
-	"dunya":{"location":"overworld","position":VillageMapData.NPCS.dunya,"sprite":0,"tint":Color("fff0c4"),"missions":["side_feast"]},
+	"agafya":{"location":"village_garden","position":Regions.NPC_POINTS.agafya,"sprite":2,"tint":Color("dff2d2"),"missions":["side_seed"]},
+	"varvara":{"location":"village_river","position":Regions.NPC_POINTS.varvara,"sprite":2,"tint":Color("d7efff"),"missions":["side_fisher"]},
+	"gavrila":{"location":"village_workyard","position":Regions.NPC_POINTS.gavrila,"sprite":1,"tint":Color("ffd8c2"),"missions":["side_smith"]},
+	"dunya":{"location":"village_market","position":Regions.NPC_POINTS.dunya,"sprite":0,"tint":Color("fff0c4"),"missions":["side_feast"]},
 	"saveliy":{"location":"forest","position":Vector2(350,520),"sprite":1,"tint":Color("d5e6bd"),"missions":["side_hunter"]},
 	"zlata":{"location":"rocky","position":Vector2(410,520),"sprite":2,"tint":Color("ffe0b5"),"missions":["side_miner"]},
 	"elizar":{"location":"ruins","position":Vector2(350,440),"sprite":0,"tint":Color("e6ddff"),"missions":["story_ancient_key","side_bones"]},
@@ -95,7 +96,7 @@ static func npc_position(game: Node, npc_id: String) -> Vector2:
 	if game.npc_movement.has(npc_id):
 		return game.npc_movement[npc_id].position
 	if npc_id == "miron": return game.guild_master_position
-	if npc_id == "agafya": return game.herbalist_position
+	if npc_id == "agafya" and NPCS[npc_id].location=="overworld": return game.herbalist_position
 	return NPCS.get(npc_id, {}).get("position", Vector2.ZERO)
 
 ## Возвращает локализованное имя жителя по первому связанному заданию.

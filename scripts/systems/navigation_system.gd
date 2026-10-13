@@ -63,6 +63,7 @@ static func walkability_reason(game: Node, position: Vector2, ignored_enemy: int
 		if CaveLayout.blocks_water(position,game.PLAYER_RADIUS,game.current_location): return "cave_water"
 		if CaveLayout.blocks_decoration(position,game.PLAYER_RADIUS,game.current_location): return "cave_prop"
 		if preload("res://scripts/systems/cave_boss_arena_system.gd").blocks_seal(game,position,game.PLAYER_RADIUS): return "cave_seal"
+	if preload("res://scripts/systems/village_region_system.gd").blocks(game,position,game.PLAYER_RADIUS): return "village_region_prop"
 	if use_broadphase:
 		if Broadphase.blocks(game, "building", position, game.PLAYER_RADIUS): return "building"
 	else:

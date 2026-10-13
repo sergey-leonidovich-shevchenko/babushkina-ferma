@@ -54,6 +54,7 @@ static func draw_chrome(game: Node) -> void:
 ## Перехватывает навигацию раньше отдельных страниц и не отдаёт мышь скрытому игровому HUD.
 static func handle_input(game: Node, event: InputEvent) -> bool:
 	if not active(game): return false
+	if preload("res://scripts/presentation/village_region_map_renderer.gd").handle_input(game,event): return true
 	if game.inventory_open and event is InputEventJoypadMotion and handle_inventory_trigger(game,event): return true
 	if game.quest_log_open and preload("res://scripts/systems/quest_journal_system.gd").handle_input(game,event): return true
 	if event is InputEventKey and event.pressed and not event.echo:

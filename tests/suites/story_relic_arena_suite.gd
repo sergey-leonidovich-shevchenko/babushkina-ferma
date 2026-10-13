@@ -39,7 +39,9 @@ func test_story_and_side_mission_chains() -> void:
 	game.AdventurePolishSystem.handle_dialogue_key(game, KEY_ENTER)
 	expect(game.mission_states.story_relic == game.QuestSystem.COMPLETED, "relic can be returned to complete story mission")
 	expect(game.coins == 140 and game.guardian_armor == 1, "story mission grants coins and equipment")
-	game.player = game.herbalist_position
+	game.current_location=game.QuestSystem.NPCS.agafya.location
+	game.player=game.QuestSystem.npc_position(game,"agafya")
+	expect(game.nearest_interaction()=="quest_npc:agafya","herbalist remains interactive in her own garden")
 	game.perform_context_action()
 	game.AdventurePolishSystem.handle_dialogue_key(game, KEY_ENTER)
 	expect(game.mission_states.side_seed == game.QuestSystem.ACTIVE, "herbalist starts side mission")

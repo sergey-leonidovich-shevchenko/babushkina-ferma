@@ -34,9 +34,10 @@ static func rank(game: Node) -> int:
 static func unlocked(game: Node, recipe: Dictionary) -> bool:
 	return rank(game)>=int(recipe.get("alchemy_rank",1)) and (not recipe.get("laboratory",false) or game.state.world.estate.level>=4)
 
-## Сохраняет привязку обработки к настоящему домашнему столу даже при вызове из внешнего API.
+## Сохраняет привязку обработки к рабочей стороне настоящего домашнего или деревенского стола.
 static func at_station(game: Node) -> bool:
 	if not preload("res://scripts/systems/basement_station_system.gd").active(game,"alchemy").is_empty(): return true
+	if game.current_location=="village_garden": return game.player.distance_to(preload("res://scripts/systems/village_region_data.gd").SERVICES.village_garden.alchemy)<=92
 	return game.current_location=="cottage_interior" and game.player.distance_to(STATION)<=92.0
 
 ## Проводит одну точную партию с побочным жмыхом и опытом только за новое открытие.

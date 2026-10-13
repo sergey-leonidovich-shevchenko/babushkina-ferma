@@ -10,7 +10,7 @@ static func restore(game: Node, records: Array) -> void:
 	for index in records.size():
 		var saved:Dictionary=records[index]; var kind:=String(saved.get("kind","")); var target:=-1
 		var id:=String(saved.get("id",""))
-		if id.begins_with("herb:"):
+		if id.begins_with("herb:") or id.begins_with("village_"):
 			target=game.food_nodes.find_custom(func(node): return node.get("id","")==id)
 		elif index<LEGACY_COUNT and (kind.is_empty() or kind==game.food_nodes[index].kind): target=index
 		if target>=0 and not used.has(target):

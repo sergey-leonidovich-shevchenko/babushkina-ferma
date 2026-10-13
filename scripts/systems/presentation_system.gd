@@ -54,6 +54,10 @@ static func enemy_direction_row(direction: Vector2) -> int:
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func interaction_position(game: Node, interaction: String) -> Vector2:
+	if interaction.begins_with("village_passage:"):
+		for link in preload("res://scripts/systems/village_region_data.gd").passages(game.current_location):
+			if link.port==interaction.get_slice(":",1): return link.position
+	if interaction.begins_with("village_service:"): return preload("res://scripts/systems/village_region_data.gd").SERVICES.get(game.current_location,{}).get(interaction.get_slice(":",1),game.player)
 	if interaction == "cave_altar": return preload("res://scripts/systems/cave_boss_arena_data.gd").ALTAR
 	if interaction.begins_with("castle_"):
 		return game.CastleCampaignSystem.interaction_position(interaction)

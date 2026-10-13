@@ -301,12 +301,14 @@ static func handle_modal_input(game: Node, event: InputEvent) -> bool:
 	if game.world_map_open:
 		if event is InputEventKey and event.pressed and not event.echo:
 			if event.keycode in [KEY_M, KEY_ESCAPE]: game.WorldMapSystem.toggle(game)
+			elif event.keycode==KEY_V and game.world_guide_page==0: preload("res://scripts/presentation/village_region_map_renderer.gd").toggle(game)
 			elif event.keycode in [KEY_LEFT, KEY_Q, KEY_PAGEUP]: game.WorldMapSystem.cycle_page(game, -1)
 			elif event.keycode in [KEY_RIGHT, KEY_E, KEY_PAGEDOWN]: game.WorldMapSystem.cycle_page(game, 1)
 			elif event.keycode == KEY_UP: game.WorldMapSystem.move_selection(game, -1)
 			elif event.keycode == KEY_DOWN: game.WorldMapSystem.move_selection(game, 1)
 		elif event is InputEventJoypadButton and event.pressed:
 			if event.button_index == JOY_BUTTON_B: game.WorldMapSystem.toggle(game)
+			elif event.button_index==JOY_BUTTON_RIGHT_STICK and game.world_guide_page==0: preload("res://scripts/presentation/village_region_map_renderer.gd").toggle(game)
 			elif event.button_index in [JOY_BUTTON_LEFT_SHOULDER, JOY_BUTTON_DPAD_LEFT]: game.WorldMapSystem.cycle_page(game, -1)
 			elif event.button_index in [JOY_BUTTON_RIGHT_SHOULDER, JOY_BUTTON_DPAD_RIGHT]: game.WorldMapSystem.cycle_page(game, 1)
 			elif event.button_index == JOY_BUTTON_DPAD_UP: game.WorldMapSystem.move_selection(game, -1)

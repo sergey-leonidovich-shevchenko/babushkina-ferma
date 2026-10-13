@@ -52,6 +52,9 @@ static func nearest_transition(game: Node, distance_limit: float = TRIGGER_RADIU
 			nearest = "cave_exit"
 	var cave_passage := CavePassages.nearest(game,distance_limit)
 	if not cave_passage.is_empty(): return cave_passage
+	var village_passage:=preload("res://scripts/systems/village_region_system.gd").nearest(game,distance_limit)
+	if not village_passage.is_empty(): return village_passage
+	if preload("res://scripts/systems/village_region_data.gd").added(game.current_location): return nearest
 	var gate_distance: float = game.player.distance_to(game.world_gate_position) if not CavePassages.Rooms.is_cave(game.current_location) or CavePassages.Rooms.has_world_exit(game.current_location) else INF
 	if gate_distance < distance_limit and preload("res://scripts/systems/cave_boss_arena_system.gd").can_exit(game):
 		distance_limit = gate_distance
@@ -65,6 +68,7 @@ static func nearest_transition(game: Node, distance_limit: float = TRIGGER_RADIU
 
 ## Выполняет найденный переход через его профильную систему, сохраняя музыку, обучение и сообщения локации.
 static func activate(game: Node, transition: String) -> bool:
+	if transition.begins_with("village_passage:"): return preload("res://scripts/systems/village_region_system.gd").travel(game,transition.get_slice(":",1))
 	if transition.begins_with("cave_passage:"): return CavePassages.travel(game,transition.get_slice(":",1))
 	if transition.begins_with("building:"):
 		return game.BuildingSystem.enter(game, transition.get_slice(":", 1))

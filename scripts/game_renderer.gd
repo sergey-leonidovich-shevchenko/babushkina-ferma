@@ -339,7 +339,7 @@ func draw_world_loot() -> void:
 func draw_enemy_nodes_and_gate() -> void:
 	if CaveRenderer.Rooms.is_cave(current_location):
 		CaveRenderer.draw_deep_gate(self)
-	elif not BuildingSystem.is_interior(current_location):
+	elif not BuildingSystem.is_interior(current_location) and not preload("res://scripts/systems/village_region_data.gd").added(current_location):
 		WorldPolishRenderer.draw_cell(self,4,1,Rect2(world_gate_position-Vector2(60,60),Vector2(120,120)),Color(1,1,1,0.88))
 		if player.distance_to(world_gate_position) < 185.0:
 			draw_circle(world_gate_position, 42 + sin(Time.get_ticks_msec() / 180.0) * 4, Color("e6b85e"), false, 6)

@@ -359,7 +359,7 @@ func sleep_until_morning() -> void:
 
 ## Выполняет заявленный переход режима и обновляет связанный интерфейс.
 func open_shop() -> void:
-	if current_location != "shop_interior" and player.distance_to(BuildingSystem.SHOP_STALL_POSITION) > 100.0:
+	if current_location!="shop_interior" and not (current_location=="overworld" and player.distance_to(BuildingSystem.SHOP_STALL_POSITION)<=100) and not (current_location=="village_market" and player.distance_to(preload("res://scripts/systems/village_region_data.gd").SERVICES.village_market.shop)<=92):
 		message = "Подойди к лавке справа"
 		return
 	shop_open = true

@@ -4,11 +4,12 @@ const WALK_SPEED := 34.0
 const WANDER_RADIUS := 58.0
 const PAUSE_MIN := 1.4
 const PAUSE_STEP := 0.37
-const VILLAGE_WORK := {"miron":"guild_interior","agafya":"overworld","varvara":"overworld","gavrila":"overworld","dunya":"shop_interior"}
+const VILLAGE_WORK := {"miron":"guild_interior","agafya":"village_garden","varvara":"village_river","gavrila":"village_workyard","dunya":"village_market"}
 const VILLAGE_HOME := {"miron":"guild_interior","agafya":"cottage_interior","varvara":"cottage_interior","gavrila":"guild_interior","dunya":"shop_interior"}
 const MapData:=preload("res://scripts/systems/village_map_data.gd")
-const WORK_ANCHORS := {"miron":Vector2(690,310),"agafya":MapData.NPCS.agafya,"varvara":MapData.NPCS.varvara,"gavrila":MapData.NPCS.gavrila,"dunya":Vector2(690,315)}
-const SOCIAL_ANCHORS := MapData.NPCS
+const WORK_ANCHORS := {"miron":Vector2(690,310),"agafya":preload("res://scripts/systems/village_region_data.gd").NPC_POINTS.agafya,"varvara":preload("res://scripts/systems/village_region_data.gd").NPC_POINTS.varvara,"gavrila":preload("res://scripts/systems/village_region_data.gd").NPC_POINTS.gavrila,"dunya":preload("res://scripts/systems/village_region_data.gd").NPC_POINTS.dunya}
+static var SOCIAL_ANCHORS:Dictionary=MapData.NPCS.merged(preload("res://scripts/systems/village_region_data.gd").NPC_POINTS)
+static var _interior_anchors:Dictionary={}
 
 
 ## Создаёт детерминированное состояние движения для бабушки и всех квестовых жителей.
@@ -70,25 +71,35 @@ static func schedule_anchor(game: Node, state: Dictionary) -> Vector2:
 	elif shelter:
 		state.location = VILLAGE_HOME[actor_id]; state.schedule = "укрывается от непогоды"
 	elif hour < 9:
-		state.location = "overworld"; state.schedule = "идёт на работу"
+		state.location = game.QuestSystem.NPCS[actor_id].location; state.schedule = "идёт на работу"
 	elif hour < 17:
 		state.location = VILLAGE_WORK[actor_id]; state.schedule = "работает"
 	elif hour < 20:
-		state.location = "overworld"; state.schedule = "общается на площади"
+		state.location = game.QuestSystem.NPCS[actor_id].location; state.schedule = "гуляет по своему району"
 	else:
 		state.location = VILLAGE_HOME[actor_id]; state.schedule = "возвращается домой"
-	var target: Vector2 = WORK_ANCHORS.get(actor_id, state.home) if state.schedule == "работает" else (SOCIAL_ANCHORS.get(actor_id, state.home) if state.location == "overworld" else interior_anchor(game, state.location, actor_id))
+	var target:Vector2=interior_anchor(game,state.location,actor_id) if game.BuildingSystem.is_interior(state.location) else (WORK_ANCHORS.get(actor_id,state.home) if state.schedule=="работает" else SOCIAL_ANCHORS.get(actor_id,state.home))
 	if state.position.distance_to(target) > WANDER_RADIUS * 4.0: state.position = target
 	game.notify_tutorial("npc_schedule")
 	return target
 
 
-## Возвращает устойчивую точку внутри здания, не перекрывающую выход и рабочую мебель.
+## Кеширует устойчивую точку на свободном полу, не повторяя поиск среди неизменной мебели каждый кадр.
 static func interior_anchor(game: Node, location: String, actor_id: String) -> Vector2:
+	var key:=location+":"+actor_id
+	if _interior_anchors.has(key): return _interior_anchors[key]
 	var data: Dictionary = game.BuildingSystem.interior(location)
 	if data.is_empty(): return Vector2(576, 330)
 	var phase := posmod(actor_id.hash(), 5)
-	return data.room.get_center() + Vector2(-110 + phase * 48, 70 if phase % 2 == 0 else -20)
+	var target:Vector2=data.room.get_center()+Vector2(-110+phase*48,70 if phase%2==0 else -20)
+	if game.BuildingSystem.is_walkable_inside(location,target,game.PLAYER_RADIUS): _interior_anchors[key]=target; return target
+	var nearest:=Vector2.INF; var distance:=INF
+	for y in range(int(data.room.position.y)+48,int(data.room.end.y)-48,48):
+		for x in range(int(data.room.position.x)+48,int(data.room.end.x)-48,48):
+			var point:=Vector2(x,y)
+			if point.distance_to(target)<distance and game.BuildingSystem.is_walkable_inside(location,point,game.PLAYER_RADIUS): nearest=point; distance=point.distance_to(target)
+	var result:Vector2=nearest if nearest!=Vector2.INF else data.spawn
+	_interior_anchors[key]=result; return result
 
 
 ## Чередует остановку и одно из восьми направлений без случайности, удобной для тестов.

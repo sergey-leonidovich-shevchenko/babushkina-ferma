@@ -44,6 +44,7 @@ static func default_nodes() -> Array:
 	var placements:Dictionary=preload("res://scripts/systems/village_map_data.gd").FORAGE
 	for index in placements: nodes[index].position=placements[index]
 	nodes.append_array(Herbs.spawns())
+	nodes.append_array(preload("res://scripts/systems/village_region_content.gd").forage())
 	return nodes
 
 
