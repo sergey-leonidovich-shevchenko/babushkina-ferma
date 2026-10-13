@@ -189,7 +189,7 @@ func test_runtime_debug_overlay_classifies_navigation_grid() -> void:
 	var game := make_game(); game.current_location = "overworld"; game.player = Vector2(1160,650); game.update_camera()
 	var location: String = game.current_location; var position: Vector2 = game.player
 	game.DebugOverlaySystem.handle_input(game,key_event(KEY_F10,KEY_F10,true))
-	for _batch in 500:
+	for _batch in game.get_meta(game.DebugOverlaySystem.META_KEY).grid_build.get("pending",[]).size()+1:
 		if game.get_meta(game.DebugOverlaySystem.META_KEY).grid_build.is_empty(): break
 		game.DebugOverlaySystem.update(game, 0.016)
 	var state: Dictionary = game.get_meta(game.DebugOverlaySystem.META_KEY)
