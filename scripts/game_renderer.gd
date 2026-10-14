@@ -103,7 +103,7 @@ func draw_rpg_world() -> void:
 	draw_npc_sprite(0, grandmother.position, grandmother.direction, grandmother.moving)
 	if player.distance_to(grandmother.position) < 150.0:
 		draw_npc_name(grandmother.position,LocaleSystem.entity("grandmother"))
-	FarmLifeVisualSystem.draw(self,"rustic_table",workbench_position+Vector2(0,24))
+	preload("res://scripts/presentation/world_workbench_visual_system.gd").draw(self,workbench_position+Vector2(0,24))
 	if player.distance_to(workbench_position) < 150.0:
 		draw_npc_name(workbench_position,LocaleSystem.entity("workbench"))
 	if AnimationRenderer.draw_slime(self):

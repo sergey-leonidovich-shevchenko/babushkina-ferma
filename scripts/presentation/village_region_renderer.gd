@@ -7,6 +7,7 @@ const Terrain := preload("res://scripts/presentation/village_region_terrain.gd")
 const Occlusion := preload("res://scripts/systems/tree_occlusion_system.gd")
 const Visible := preload("res://scripts/systems/world_visibility_system.gd")
 const Trees := preload("res://scripts/systems/tree_system.gd")
+const Workbench := preload("res://scripts/presentation/world_workbench_visual_system.gd")
 
 ## Рисует дополнительные дороги старой фермы и указатели реальных соседних районов.
 static func draw_ground(game: Node2D) -> void:
@@ -31,6 +32,9 @@ static func draw_objects(game: Node2D, foreground: bool=false) -> void:
 		Buildings.draw_building(game,house.kind,house.position)
 	for prop in Data.PROPS.get(location,[]):
 		if (game.player.y<prop.position.y+16)!=foreground: continue
+		if prop.kind=="workbench":
+			if visible.intersects(Workbench.destination(prop.position,int(prop.get("direction",0))),true): Workbench.draw(game,prop.position,int(prop.get("direction",0)))
+			continue
 		if prop.kind=="table": game.FarmLifeVisualSystem.draw(game,"rustic_table",prop.position); continue
 		var rect:Rect2=game.VillageLayoutSystem.prop_rect(prop)
 		if visible.intersects(rect,true): game.draw_texture_rect(Props.Props[prop.kind],rect,false)

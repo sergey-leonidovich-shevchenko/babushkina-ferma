@@ -7,6 +7,7 @@ const StationArt := preload("res://scripts/presentation/basement_visual_system.g
 ## Проверяет три видимых ракурса, все способы поворота и безопасную совместимость старых сохранений.
 func run() -> void:
 	test_visible_art_catalog()
+	test_world_workbench_preserves_working_sides_and_access()
 	test_rotation_inputs_and_rejected_rear_build()
 	test_old_home_furniture_faces_front()
 	test_old_station_turn_keeps_production()
@@ -32,6 +33,29 @@ func test_visible_art_catalog() -> void:
 				expect(not texture.resource_path.contains("_north"),"all production and construction art excludes rear files: %s %d"%[kind,tier])
 	for start in Facing.SELECTABLE:
 		expect(Facing.next(Facing.next(start),-1)==start,"reverse rotation restores its actual visible side")
+
+## Сценарий: уличный верстак использует согласованные рабочие ракурсы и остаётся доступным для крафта.
+## Исходное состояние: ферма и ремесленный двор с прежними точками взаимодействия, три спрайта ремесленного набора.
+## Ожидаемый результат: вместо бытового стола выбираются тиски и инструменты, стороны сохраняют общий масштаб, основания и открытие рецептов не меняются.
+func test_world_workbench_preserves_working_sides_and_access() -> void:
+	var art := preload("res://scripts/presentation/world_workbench_visual_system.gd")
+	var data := preload("res://scripts/systems/village_region_data.gd")
+	var ground := Vector2(1440,768)
+	for direction in Facing.SELECTABLE:
+		var texture: AtlasTexture = art.texture(direction)
+		var destination: Rect2 = art.destination(ground,direction)
+		expect(texture==StationArt.texture("workbench",1,direction),"outdoor workbench uses approved tools and vise: "+str(direction))
+		expect(is_equal_approx(destination.size.x/texture.get_width(),destination.size.y/texture.get_height()) and destination.end.y==ground.y,"workbench keeps proportions and ground anchor: "+str(direction))
+	expect(art.texture(2)==art.texture(0),"obsolete rear direction displays visible workbench front")
+	var game := make_game()
+	expect(art.collision_rect(ground)==game.FarmLifeVisualSystem.collision_rect("rustic_table",ground),"new workbench preserves regional footprint")
+	var props: Array = data.PROPS.village_workyard
+	expect(props.any(func(prop): return prop.kind=="workbench" and prop.position==ground and prop.direction==0),"workyard declares a real front-facing workbench")
+	game.current_location="overworld"; game.player=game.workbench_position+Vector2(0,72)
+	expect(game.nearest_interaction()=="workbench" and game.perform_context_action() and game.crafting_open,"farm workbench retains actual paused crafting interaction")
+	game.crafting_open=false; game.current_location="village_workyard"; game.player=data.SERVICES.village_workyard.workbench
+	expect(game.nearest_interaction()=="village_service:workbench" and game.perform_context_action() and game.crafting_open,"workyard workbench retains actual paused crafting interaction")
+	game.free()
 
 ## Сценарий: герой поворачивает предварительное основание клавиатурой, геймпадом и экранными кнопками.
 ## Исходное состояние: открытый режим размещения с полным запасом строительных компонентов.

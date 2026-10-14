@@ -4,6 +4,7 @@ const Data := preload("res://scripts/systems/village_region_data.gd")
 const Props := preload("res://scripts/systems/village_layout_system.gd")
 const Buildings := preload("res://scripts/systems/building_visual_system.gd")
 const Trees := preload("res://scripts/systems/tree_system.gd")
+const Workbench := preload("res://scripts/presentation/world_workbench_visual_system.gd")
 
 ## Находит ближайшую дорогу в соседний район в той же системе радиусов, что автоматические переходы.
 static func nearest(game: Node, radius: float) -> String:
@@ -41,7 +42,10 @@ static func blocks(game: Node, point: Vector2, radius: float) -> bool:
 	for house in Data.HOUSES.get(location,[]):
 		if game.NavigationSystem.circle_intersects_rect(point,radius,Buildings.collision_bounds(house.kind,house.position)): return true
 	for prop in Data.PROPS.get(location,[]):
-		var rect:Rect2=game.FarmLifeVisualSystem.collision_rect("rustic_table",prop.position) if prop.kind=="table" else Props.prop_collision_rect(prop.merged({"solid":true}))
+		var rect:Rect2
+		if prop.kind=="workbench": rect=Workbench.collision_rect(prop.position)
+		elif prop.kind=="table": rect=game.FarmLifeVisualSystem.collision_rect("rustic_table",prop.position)
+		else: rect=Props.prop_collision_rect(prop.merged({"solid":true}))
 		if game.NavigationSystem.circle_intersects_rect(point,radius,rect): return true
 	for tree in Data.trees(location):
 		if game.NavigationSystem.circle_intersects_rect(point,radius,Trees.collision_rect(tree)): return true

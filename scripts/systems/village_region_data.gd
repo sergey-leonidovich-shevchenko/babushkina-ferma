@@ -24,7 +24,7 @@ const HOUSES := {
 const PROPS := {
 	"village_market":[{"kind":"well","position":Vector2(1008,552)},{"kind":"cart","position":Vector2(1512,576)},{"kind":"bench","position":Vector2(720,768)},{"kind":"bench","position":Vector2(1320,768)},{"kind":"lamp","position":Vector2(792,432)},{"kind":"lamp","position":Vector2(1272,432)}],
 	"village_garden":[{"kind":"well","position":Vector2(576,816)},{"kind":"table","position":Vector2(1200,480)},{"kind":"bench","position":Vector2(1488,816)},{"kind":"board","position":Vector2(648,432)}],
-	"village_workyard":[{"kind":"table","position":Vector2(1440,768)},{"kind":"cart","position":Vector2(480,768)},{"kind":"board","position":Vector2(1248,480)},{"kind":"bench","position":Vector2(768,864)}],
+	"village_workyard":[{"kind":"workbench","position":Vector2(1440,768),"direction":0},{"kind":"cart","position":Vector2(480,768)},{"kind":"board","position":Vector2(1248,480)},{"kind":"bench","position":Vector2(768,864)}],
 	"village_river":[{"kind":"bench","position":Vector2(744,768)},{"kind":"bench","position":Vector2(1296,768)},{"kind":"lamp","position":Vector2(864,384)},{"kind":"lamp","position":Vector2(1152,384)}],
 	"village_orchard":[{"kind":"bench","position":Vector2(1248,672)},{"kind":"cart","position":Vector2(1752,840)},{"kind":"well","position":Vector2(480,672)}],
 }
