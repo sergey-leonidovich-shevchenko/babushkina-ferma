@@ -9,6 +9,7 @@ const FARM_FOOD_ATLAS := preload("res://assets/game/generated/farm_food_atlas.pn
 const FARM_LIFE_ATLAS := preload("res://assets/game/expansion_pack/expansion_atlas.png")
 const ITEM_ICON_DIRECTORY := "res://assets/game/items/catalog"
 const ITEM_ICON_OVERRIDES := {
+	"qa_teleport_stone":"res://assets/game/items/catalog/blue_gem.png",
 	"crystal":"res://assets/game/items/catalog/crystal_clean_v2.png",
 	"rustic_table":"res://assets/game/interiors/furniture_a/rustic_table_south.png",
 	"wooden_chair":"res://assets/game/interiors/furniture_a/wooden_chair_south.png",

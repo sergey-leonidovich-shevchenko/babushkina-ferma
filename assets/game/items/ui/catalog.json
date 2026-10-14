@@ -2601,9 +2601,19 @@
 			"sourceHash": "31845e339b4dc0707e3c59d5b3020b158dc3e0bca0e3e24a0ea40598d89a0d08",
 			"tint": "ffffff"
 		},
-		"quality_fertilizer": {
+		"qa_teleport_stone": {
 			"cell": [
 				256,
+				1024
+			],
+			"path": "res://assets/game/items/catalog/blue_gem.png",
+			"provider": "override",
+			"sourceHash": "78ce61cb9c02cd7e0d102444b89ca379a8b453384b6a313718fcc631c9686bc2",
+			"tint": "ffffff"
+		},
+		"quality_fertilizer": {
+			"cell": [
+				320,
 				1024
 			],
 			"path": "res://assets/game/artisan/quality_fertilizer.tres",
@@ -2613,7 +2623,7 @@
 		},
 		"rare_seeds": {
 			"cell": [
-				320,
+				384,
 				1024
 			],
 			"path": "res://assets/game/items/catalog/rare_seeds.png",
@@ -2623,7 +2633,7 @@
 		},
 		"raw_meat": {
 			"cell": [
-				384,
+				448,
 				1024
 			],
 			"path": "res://assets/game/items/catalog/raw_meat.png",
@@ -2633,7 +2643,7 @@
 		},
 		"red_clover": {
 			"cell": [
-				448,
+				512,
 				1024
 			],
 			"path": "res://assets/game/items/catalog/flower.png",
@@ -2643,7 +2653,7 @@
 		},
 		"red_clover_dried": {
 			"cell": [
-				512,
+				576,
 				1024
 			],
 			"path": "res://assets/game/items/catalog/herbs.png",
@@ -2653,7 +2663,7 @@
 		},
 		"red_clover_juice": {
 			"cell": [
-				576,
+				640,
 				1024
 			],
 			"path": "res://assets/game/items/painted/red_clover_juice.png",
@@ -2663,7 +2673,7 @@
 		},
 		"red_clover_powder": {
 			"cell": [
-				640,
+				704,
 				1024
 			],
 			"path": "res://assets/game/items/catalog/flour.png",
@@ -2673,7 +2683,7 @@
 		},
 		"red_clover_tincture": {
 			"cell": [
-				704,
+				768,
 				1024
 			],
 			"path": "res://assets/game/items/painted/red_clover_tincture.png",
@@ -2683,7 +2693,7 @@
 		},
 		"red_crystal": {
 			"cell": [
-				768,
+				832,
 				1024
 			],
 			"path": "res://assets/game/items/catalog/red_crystal.png",
@@ -2693,7 +2703,7 @@
 		},
 		"regeneration_potion": {
 			"cell": [
-				832,
+				896,
 				1024
 			],
 			"path": "res://assets/game/items/catalog/regeneration_potion.png",
@@ -2703,7 +2713,7 @@
 		},
 		"research_ink": {
 			"cell": [
-				896,
+				960,
 				1024
 			],
 			"path": "",
@@ -2713,8 +2723,8 @@
 		},
 		"research_paper": {
 			"cell": [
-				960,
-				1024
+				0,
+				1088
 			],
 			"path": "",
 			"provider": "research",
@@ -2723,7 +2733,7 @@
 		},
 		"rope": {
 			"cell": [
-				0,
+				64,
 				1088
 			],
 			"path": "res://assets/game/items/catalog/rope.png",
@@ -2733,7 +2743,7 @@
 		},
 		"rosehip": {
 			"cell": [
-				64,
+				128,
 				1088
 			],
 			"path": "res://assets/game/items/catalog/herbs.png",
@@ -2743,7 +2753,7 @@
 		},
 		"rosehip_dried": {
 			"cell": [
-				128,
+				192,
 				1088
 			],
 			"path": "res://assets/game/items/catalog/herbs.png",
@@ -2753,7 +2763,7 @@
 		},
 		"rosehip_juice": {
 			"cell": [
-				192,
+				256,
 				1088
 			],
 			"path": "res://assets/game/items/painted/rosehip_juice.png",
@@ -2763,7 +2773,7 @@
 		},
 		"rosehip_powder": {
 			"cell": [
-				256,
+				320,
 				1088
 			],
 			"path": "res://assets/game/items/catalog/flour.png",
@@ -2773,7 +2783,7 @@
 		},
 		"rosehip_tincture": {
 			"cell": [
-				320,
+				384,
 				1088
 			],
 			"path": "res://assets/game/items/painted/rosehip_tincture.png",
@@ -2783,7 +2793,7 @@
 		},
 		"royal_tonic": {
 			"cell": [
-				384,
+				448,
 				1088
 			],
 			"path": "res://assets/game/items/painted/royal_tonic.png",
@@ -2793,7 +2803,7 @@
 		},
 		"rustic_table": {
 			"cell": [
-				448,
+				512,
 				1088
 			],
 			"path": "res://assets/game/interiors/furniture_a/rustic_table_south.png",
@@ -2803,7 +2813,7 @@
 		},
 		"sage": {
 			"cell": [
-				512,
+				576,
 				1088
 			],
 			"path": "res://assets/game/items/catalog/herbs.png",
@@ -2813,7 +2823,7 @@
 		},
 		"sage_dried": {
 			"cell": [
-				576,
+				640,
 				1088
 			],
 			"path": "res://assets/game/items/catalog/herbs.png",
@@ -2823,7 +2833,7 @@
 		},
 		"sage_juice": {
 			"cell": [
-				640,
+				704,
 				1088
 			],
 			"path": "res://assets/game/items/painted/sage_juice.png",
@@ -2833,7 +2843,7 @@
 		},
 		"sage_powder": {
 			"cell": [
-				704,
+				768,
 				1088
 			],
 			"path": "res://assets/game/items/catalog/flour.png",
@@ -2843,7 +2853,7 @@
 		},
 		"sage_tincture": {
 			"cell": [
-				768,
+				832,
 				1088
 			],
 			"path": "res://assets/game/items/painted/sage_tincture.png",
@@ -2853,7 +2863,7 @@
 		},
 		"sand": {
 			"cell": [
-				832,
+				896,
 				1088
 			],
 			"path": "res://assets/game/items/catalog/stone.png",
@@ -2863,7 +2873,7 @@
 		},
 		"sawdust": {
 			"cell": [
-				896,
+				960,
 				1088
 			],
 			"path": "",
@@ -2873,8 +2883,8 @@
 		},
 		"seeds": {
 			"cell": [
-				960,
-				1088
+				0,
+				1152
 			],
 			"path": "res://assets/game/items/catalog/carrot_seeds.png",
 			"provider": "catalog",
@@ -2883,7 +2893,7 @@
 		},
 		"shadow_essence": {
 			"cell": [
-				0,
+				64,
 				1152
 			],
 			"path": "res://assets/game/items/painted/shadow_essence.png",
@@ -2893,7 +2903,7 @@
 		},
 		"silver_lichen": {
 			"cell": [
-				64,
+				128,
 				1152
 			],
 			"path": "res://assets/game/items/catalog/herbs.png",
@@ -2903,7 +2913,7 @@
 		},
 		"silver_lichen_dried": {
 			"cell": [
-				128,
+				192,
 				1152
 			],
 			"path": "res://assets/game/items/catalog/herbs.png",
@@ -2913,7 +2923,7 @@
 		},
 		"silver_lichen_juice": {
 			"cell": [
-				192,
+				256,
 				1152
 			],
 			"path": "res://assets/game/items/painted/silver_lichen_juice.png",
@@ -2923,7 +2933,7 @@
 		},
 		"silver_lichen_powder": {
 			"cell": [
-				256,
+				320,
 				1152
 			],
 			"path": "res://assets/game/items/catalog/flour.png",
@@ -2933,7 +2943,7 @@
 		},
 		"silver_lichen_tincture": {
 			"cell": [
-				320,
+				384,
 				1152
 			],
 			"path": "res://assets/game/items/painted/silver_lichen_tincture.png",
@@ -2943,7 +2953,7 @@
 		},
 		"slag": {
 			"cell": [
-				384,
+				448,
 				1152
 			],
 			"path": "res://assets/game/items/catalog/stone.png",
@@ -2953,7 +2963,7 @@
 		},
 		"slime": {
 			"cell": [
-				448,
+				512,
 				1152
 			],
 			"path": "res://assets/game/items/catalog/slime.png",
@@ -2963,7 +2973,7 @@
 		},
 		"smoked_cheese": {
 			"cell": [
-				512,
+				576,
 				1152
 			],
 			"path": "res://assets/game/artisan/smoked_cheese.tres",
@@ -2973,7 +2983,7 @@
 		},
 		"smoked_fish": {
 			"cell": [
-				576,
+				640,
 				1152
 			],
 			"path": "res://assets/game/artisan/smoked_fish.tres",
@@ -2983,7 +2993,7 @@
 		},
 		"smoked_meat": {
 			"cell": [
-				640,
+				704,
 				1152
 			],
 			"path": "res://assets/game/artisan/smoked_meat.tres",
@@ -2993,7 +3003,7 @@
 		},
 		"smoked_mushrooms": {
 			"cell": [
-				704,
+				768,
 				1152
 			],
 			"path": "res://assets/game/artisan/smoked_mushrooms.tres",
@@ -3003,7 +3013,7 @@
 		},
 		"soap": {
 			"cell": [
-				768,
+				832,
 				1152
 			],
 			"path": "res://assets/game/artisan/soap.tres",
@@ -3013,7 +3023,7 @@
 		},
 		"solar_concentrate": {
 			"cell": [
-				832,
+				896,
 				1152
 			],
 			"path": "res://assets/game/items/painted/solar_concentrate.png",
@@ -3023,7 +3033,7 @@
 		},
 		"soup": {
 			"cell": [
-				896,
+				960,
 				1152
 			],
 			"path": "res://assets/game/items/catalog/soup.png",
@@ -3033,8 +3043,8 @@
 		},
 		"speed_potion": {
 			"cell": [
-				960,
-				1152
+				0,
+				1216
 			],
 			"path": "res://assets/game/items/catalog/speed_potion.png",
 			"provider": "catalog",
@@ -3043,7 +3053,7 @@
 		},
 		"sporecap": {
 			"cell": [
-				0,
+				64,
 				1216
 			],
 			"path": "res://assets/game/items/catalog/herbs.png",
@@ -3053,7 +3063,7 @@
 		},
 		"sporecap_dried": {
 			"cell": [
-				64,
+				128,
 				1216
 			],
 			"path": "res://assets/game/items/catalog/herbs.png",
@@ -3063,7 +3073,7 @@
 		},
 		"sporecap_juice": {
 			"cell": [
-				128,
+				192,
 				1216
 			],
 			"path": "res://assets/game/items/painted/sporecap_juice.png",
@@ -3073,7 +3083,7 @@
 		},
 		"sporecap_powder": {
 			"cell": [
-				192,
+				256,
 				1216
 			],
 			"path": "res://assets/game/items/catalog/flour.png",
@@ -3083,7 +3093,7 @@
 		},
 		"sporecap_tincture": {
 			"cell": [
-				256,
+				320,
 				1216
 			],
 			"path": "res://assets/game/items/painted/sporecap_tincture.png",
@@ -3093,7 +3103,7 @@
 		},
 		"starflower": {
 			"cell": [
-				320,
+				384,
 				1216
 			],
 			"path": "res://assets/game/items/catalog/flower.png",
@@ -3103,7 +3113,7 @@
 		},
 		"starflower_dried": {
 			"cell": [
-				384,
+				448,
 				1216
 			],
 			"path": "res://assets/game/items/catalog/herbs.png",
@@ -3113,7 +3123,7 @@
 		},
 		"starflower_juice": {
 			"cell": [
-				448,
+				512,
 				1216
 			],
 			"path": "res://assets/game/items/painted/starflower_juice.png",
@@ -3123,7 +3133,7 @@
 		},
 		"starflower_powder": {
 			"cell": [
-				512,
+				576,
 				1216
 			],
 			"path": "res://assets/game/items/catalog/flour.png",
@@ -3133,7 +3143,7 @@
 		},
 		"starflower_tincture": {
 			"cell": [
-				576,
+				640,
 				1216
 			],
 			"path": "res://assets/game/items/painted/starflower_tincture.png",
@@ -3143,7 +3153,7 @@
 		},
 		"steel": {
 			"cell": [
-				640,
+				704,
 				1216
 			],
 			"path": "res://assets/game/items/catalog/metal.png",
@@ -3153,7 +3163,7 @@
 		},
 		"stone": {
 			"cell": [
-				704,
+				768,
 				1216
 			],
 			"path": "res://assets/game/items/catalog/stone.png",
@@ -3163,7 +3173,7 @@
 		},
 		"stone_skin_draught": {
 			"cell": [
-				768,
+				832,
 				1216
 			],
 			"path": "res://assets/game/items/painted/stone_skin_draught.png",
@@ -3173,7 +3183,7 @@
 		},
 		"strawberry": {
 			"cell": [
-				832,
+				896,
 				1216
 			],
 			"path": "res://assets/game/items/catalog/strawberry.png",
@@ -3183,7 +3193,7 @@
 		},
 		"strawberry_seeds": {
 			"cell": [
-				896,
+				960,
 				1216
 			],
 			"path": "res://assets/game/items/catalog/strawberry_seeds.png",
@@ -3193,8 +3203,8 @@
 		},
 		"strength_potion": {
 			"cell": [
-				960,
-				1216
+				0,
+				1280
 			],
 			"path": "res://assets/game/items/catalog/strength_potion.png",
 			"provider": "catalog",
@@ -3203,7 +3213,7 @@
 		},
 		"sunflower": {
 			"cell": [
-				0,
+				64,
 				1280
 			],
 			"path": "res://assets/game/items/painted/sunflower.png",
@@ -3213,7 +3223,7 @@
 		},
 		"sunflower_seeds": {
 			"cell": [
-				64,
+				128,
 				1280
 			],
 			"path": "res://assets/game/items/catalog/sunflower_seeds.png",
@@ -3223,7 +3233,7 @@
 		},
 		"sunpetal": {
 			"cell": [
-				128,
+				192,
 				1280
 			],
 			"path": "res://assets/game/items/catalog/flower.png",
@@ -3233,7 +3243,7 @@
 		},
 		"sunpetal_dried": {
 			"cell": [
-				192,
+				256,
 				1280
 			],
 			"path": "res://assets/game/items/catalog/herbs.png",
@@ -3243,7 +3253,7 @@
 		},
 		"sunpetal_juice": {
 			"cell": [
-				256,
+				320,
 				1280
 			],
 			"path": "res://assets/game/items/painted/sunpetal_juice.png",
@@ -3253,7 +3263,7 @@
 		},
 		"sunpetal_powder": {
 			"cell": [
-				320,
+				384,
 				1280
 			],
 			"path": "res://assets/game/items/catalog/flour.png",
@@ -3263,7 +3273,7 @@
 		},
 		"sunpetal_tincture": {
 			"cell": [
-				384,
+				448,
 				1280
 			],
 			"path": "res://assets/game/items/painted/sunpetal_tincture.png",
@@ -3273,7 +3283,7 @@
 		},
 		"sword": {
 			"cell": [
-				448,
+				512,
 				1280
 			],
 			"path": "res://assets/game/items/catalog/sword.png",
@@ -3283,7 +3293,7 @@
 		},
 		"tanning_agent": {
 			"cell": [
-				512,
+				576,
 				1280
 			],
 			"path": "res://assets/game/artisan/tanning_agent.tres",
@@ -3293,7 +3303,7 @@
 		},
 		"timber_frame": {
 			"cell": [
-				576,
+				640,
 				1280
 			],
 			"path": "",
@@ -3303,7 +3313,7 @@
 		},
 		"tomato": {
 			"cell": [
-				640,
+				704,
 				1280
 			],
 			"path": "res://assets/game/items/catalog/tomato.png",
@@ -3313,7 +3323,7 @@
 		},
 		"tomato_juice": {
 			"cell": [
-				704,
+				768,
 				1280
 			],
 			"path": "res://assets/game/artisan/tomato_juice.tres",
@@ -3323,7 +3333,7 @@
 		},
 		"tomato_seeds": {
 			"cell": [
-				768,
+				832,
 				1280
 			],
 			"path": "res://assets/game/items/catalog/tomato_seeds.png",
@@ -3333,7 +3343,7 @@
 		},
 		"trash": {
 			"cell": [
-				832,
+				896,
 				1280
 			],
 			"path": "res://assets/game/items/catalog/fiber.png",
@@ -3343,7 +3353,7 @@
 		},
 		"travel_boots": {
 			"cell": [
-				896,
+				960,
 				1280
 			],
 			"path": "res://assets/game/items/catalog/travel_boots.png",
@@ -3353,8 +3363,8 @@
 		},
 		"travel_ration": {
 			"cell": [
-				960,
-				1280
+				0,
+				1344
 			],
 			"path": "res://assets/game/artisan/travel_ration.tres",
 			"provider": "catalog",
@@ -3363,7 +3373,7 @@
 		},
 		"truffle": {
 			"cell": [
-				0,
+				64,
 				1344
 			],
 			"path": "res://assets/game/items/catalog/truffle.png",
@@ -3373,7 +3383,7 @@
 		},
 		"truffle_soup": {
 			"cell": [
-				64,
+				128,
 				1344
 			],
 			"path": "res://assets/game/items/catalog/truffle_soup.png",
@@ -3383,7 +3393,7 @@
 		},
 		"tusk": {
 			"cell": [
-				128,
+				192,
 				1344
 			],
 			"path": "res://assets/game/items/catalog/tusk.png",
@@ -3393,7 +3403,7 @@
 		},
 		"unfired_bowl": {
 			"cell": [
-				192,
+				256,
 				1344
 			],
 			"path": "",
@@ -3403,7 +3413,7 @@
 		},
 		"unfired_brick": {
 			"cell": [
-				256,
+				320,
 				1344
 			],
 			"path": "",
@@ -3413,7 +3423,7 @@
 		},
 		"unfired_pot": {
 			"cell": [
-				320,
+				384,
 				1344
 			],
 			"path": "",
@@ -3423,7 +3433,7 @@
 		},
 		"unfired_vase": {
 			"cell": [
-				384,
+				448,
 				1344
 			],
 			"path": "",
@@ -3433,7 +3443,7 @@
 		},
 		"valerian": {
 			"cell": [
-				448,
+				512,
 				1344
 			],
 			"path": "res://assets/game/items/catalog/herbs.png",
@@ -3443,7 +3453,7 @@
 		},
 		"valerian_dried": {
 			"cell": [
-				512,
+				576,
 				1344
 			],
 			"path": "res://assets/game/items/catalog/herbs.png",
@@ -3453,7 +3463,7 @@
 		},
 		"valerian_juice": {
 			"cell": [
-				576,
+				640,
 				1344
 			],
 			"path": "res://assets/game/items/painted/valerian_juice.png",
@@ -3463,7 +3473,7 @@
 		},
 		"valerian_powder": {
 			"cell": [
-				640,
+				704,
 				1344
 			],
 			"path": "res://assets/game/items/catalog/flour.png",
@@ -3473,7 +3483,7 @@
 		},
 		"valerian_tincture": {
 			"cell": [
-				704,
+				768,
 				1344
 			],
 			"path": "res://assets/game/items/painted/valerian_tincture.png",
@@ -3483,7 +3493,7 @@
 		},
 		"vegetable_casserole": {
 			"cell": [
-				768,
+				832,
 				1344
 			],
 			"path": "res://assets/game/kitchen/vegetable_casserole.tres",
@@ -3493,7 +3503,7 @@
 		},
 		"vigor_infusion": {
 			"cell": [
-				832,
+				896,
 				1344
 			],
 			"path": "res://assets/game/items/painted/vigor_infusion.png",
@@ -3503,7 +3513,7 @@
 		},
 		"vital_essence": {
 			"cell": [
-				896,
+				960,
 				1344
 			],
 			"path": "res://assets/game/items/painted/vital_essence.png",
@@ -3513,8 +3523,8 @@
 		},
 		"war_hammer": {
 			"cell": [
-				960,
-				1344
+				0,
+				1408
 			],
 			"path": "res://assets/game/items/catalog/war_hammer.png",
 			"provider": "catalog",
@@ -3523,7 +3533,7 @@
 		},
 		"water": {
 			"cell": [
-				0,
+				64,
 				1408
 			],
 			"path": "res://assets/game/items/catalog/water.png",
@@ -3533,7 +3543,7 @@
 		},
 		"watermelon": {
 			"cell": [
-				64,
+				128,
 				1408
 			],
 			"path": "res://assets/game/items/catalog/watermelon.png",
@@ -3543,7 +3553,7 @@
 		},
 		"wax_base": {
 			"cell": [
-				128,
+				192,
 				1408
 			],
 			"path": "res://assets/game/items/painted/wax_base.png",
@@ -3553,7 +3563,7 @@
 		},
 		"wax_candle": {
 			"cell": [
-				192,
+				256,
 				1408
 			],
 			"path": "res://assets/game/artisan/wax_candle.tres",
@@ -3563,7 +3573,7 @@
 		},
 		"wet_clay": {
 			"cell": [
-				256,
+				320,
 				1408
 			],
 			"path": "",
@@ -3573,7 +3583,7 @@
 		},
 		"wheat": {
 			"cell": [
-				320,
+				384,
 				1408
 			],
 			"path": "res://assets/game/items/catalog/wheat.png",
@@ -3583,7 +3593,7 @@
 		},
 		"wheat_seeds": {
 			"cell": [
-				384,
+				448,
 				1408
 			],
 			"path": "res://assets/game/items/catalog/wheat_seeds.png",
@@ -3593,7 +3603,7 @@
 		},
 		"wild_thyme": {
 			"cell": [
-				448,
+				512,
 				1408
 			],
 			"path": "res://assets/game/items/catalog/flower.png",
@@ -3603,7 +3613,7 @@
 		},
 		"wild_thyme_dried": {
 			"cell": [
-				512,
+				576,
 				1408
 			],
 			"path": "res://assets/game/items/catalog/herbs.png",
@@ -3613,7 +3623,7 @@
 		},
 		"wild_thyme_juice": {
 			"cell": [
-				576,
+				640,
 				1408
 			],
 			"path": "res://assets/game/items/painted/wild_thyme_juice.png",
@@ -3623,7 +3633,7 @@
 		},
 		"wild_thyme_powder": {
 			"cell": [
-				640,
+				704,
 				1408
 			],
 			"path": "res://assets/game/items/catalog/flour.png",
@@ -3633,7 +3643,7 @@
 		},
 		"wild_thyme_tincture": {
 			"cell": [
-				704,
+				768,
 				1408
 			],
 			"path": "res://assets/game/items/painted/wild_thyme_tincture.png",
@@ -3643,7 +3653,7 @@
 		},
 		"wind_step_elixir": {
 			"cell": [
-				768,
+				832,
 				1408
 			],
 			"path": "res://assets/game/items/painted/wind_step_elixir.png",
@@ -3653,7 +3663,7 @@
 		},
 		"wood": {
 			"cell": [
-				832,
+				896,
 				1408
 			],
 			"path": "res://assets/game/items/catalog/wood.png",
@@ -3663,7 +3673,7 @@
 		},
 		"wood_beam": {
 			"cell": [
-				896,
+				960,
 				1408
 			],
 			"path": "",
@@ -3673,8 +3683,8 @@
 		},
 		"wood_dowel": {
 			"cell": [
-				960,
-				1408
+				0,
+				1472
 			],
 			"path": "",
 			"provider": "workshop",
@@ -3683,7 +3693,7 @@
 		},
 		"wood_handle": {
 			"cell": [
-				0,
+				64,
 				1472
 			],
 			"path": "",
@@ -3693,7 +3703,7 @@
 		},
 		"wood_offcut": {
 			"cell": [
-				64,
+				128,
 				1472
 			],
 			"path": "res://assets/game/items/catalog/plank.png",
@@ -3703,7 +3713,7 @@
 		},
 		"wooden_chair": {
 			"cell": [
-				128,
+				192,
 				1472
 			],
 			"path": "res://assets/game/interiors/furniture_a/wooden_chair_south.png",
@@ -3713,7 +3723,7 @@
 		},
 		"wooden_wardrobe": {
 			"cell": [
-				192,
+				256,
 				1472
 			],
 			"path": "res://assets/game/interiors/furniture_a/wooden_wardrobe_south.png",
@@ -3723,7 +3733,7 @@
 		},
 		"wool": {
 			"cell": [
-				256,
+				320,
 				1472
 			],
 			"path": "res://assets/game/items/catalog/wool.png",
@@ -3733,7 +3743,7 @@
 		},
 		"wormwood": {
 			"cell": [
-				320,
+				384,
 				1472
 			],
 			"path": "res://assets/game/items/catalog/herbs.png",
@@ -3743,7 +3753,7 @@
 		},
 		"wormwood_dried": {
 			"cell": [
-				384,
+				448,
 				1472
 			],
 			"path": "res://assets/game/items/catalog/herbs.png",
@@ -3753,7 +3763,7 @@
 		},
 		"wormwood_juice": {
 			"cell": [
-				448,
+				512,
 				1472
 			],
 			"path": "res://assets/game/items/painted/wormwood_juice.png",
@@ -3763,7 +3773,7 @@
 		},
 		"wormwood_powder": {
 			"cell": [
-				512,
+				576,
 				1472
 			],
 			"path": "res://assets/game/items/catalog/flour.png",
@@ -3773,7 +3783,7 @@
 		},
 		"wormwood_tincture": {
 			"cell": [
-				576,
+				640,
 				1472
 			],
 			"path": "res://assets/game/items/painted/wormwood_tincture.png",
@@ -3783,7 +3793,7 @@
 		},
 		"woven_rug": {
 			"cell": [
-				640,
+				704,
 				1472
 			],
 			"path": "res://assets/game/interiors/furniture_a/woven_rug_south.png",
@@ -3793,7 +3803,7 @@
 		},
 		"yarn": {
 			"cell": [
-				704,
+				768,
 				1472
 			],
 			"path": "res://assets/game/items/catalog/yarn.png",
@@ -3803,7 +3813,7 @@
 		},
 		"yarrow": {
 			"cell": [
-				768,
+				832,
 				1472
 			],
 			"path": "res://assets/game/items/catalog/flower.png",
@@ -3813,7 +3823,7 @@
 		},
 		"yarrow_dried": {
 			"cell": [
-				832,
+				896,
 				1472
 			],
 			"path": "res://assets/game/items/catalog/herbs.png",
@@ -3823,7 +3833,7 @@
 		},
 		"yarrow_juice": {
 			"cell": [
-				896,
+				960,
 				1472
 			],
 			"path": "res://assets/game/items/painted/yarrow_juice.png",
@@ -3833,8 +3843,8 @@
 		},
 		"yarrow_powder": {
 			"cell": [
-				960,
-				1472
+				0,
+				1536
 			],
 			"path": "res://assets/game/items/catalog/flour.png",
 			"provider": "alchemy",
@@ -3843,7 +3853,7 @@
 		},
 		"yarrow_tincture": {
 			"cell": [
-				0,
+				64,
 				1536
 			],
 			"path": "res://assets/game/items/painted/yarrow_tincture.png",

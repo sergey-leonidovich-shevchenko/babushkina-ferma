@@ -125,6 +125,7 @@ static func handle_touch(game: Node, position: Vector2) -> bool:
 ## Показывает реальные горячие клавиши текущего устройства, чтобы клавиша выбрасывания не выглядела как экипировка.
 static func action_label(game: Node, action: String) -> String:
 	var label: String = game.LocaleSystem.ui(action).get_slice(" • ", 0)
+	if action == "eat" and game.inventory_slots[game.inventory_selected] == "qa_teleport_stone": label = preload("res://scripts/systems/qa_teleport_locale.gd").text(game,"use")
 	var device: String = game.get_meta("inventory_input_device", "keyboard")
 	if device == "touch": return label
 	var shortcut := "A" if action == "eat" else "X"

@@ -18,7 +18,7 @@ class ArtReviewTests(unittest.TestCase):
     # Исходное состояние: текущий снимок и точные партии.
     # Ожидаемый результат: все файлы, хеши, цвета, границы и количества проверены.
     def test_complete_snapshot(self):
-        self.assertEqual(validate(self.audit, self.backlog), (385, 274, 16))
+        self.assertEqual(validate(self.audit, self.backlog), (386, 300, 16))
 
     # Сценарий: одна партия потеряла предмет или повторила его.
     # Исходное состояние: независимые повреждённые копии плана.

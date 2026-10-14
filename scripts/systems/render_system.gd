@@ -54,5 +54,6 @@ static func draw_screen(game: Node2D, clean_level_capture: bool) -> void:
 	preload("res://scripts/presentation/basement_renderer.gd").ui(game)
 	if game.menu_state.pause_open or game.menu_state.settings_open or game.menu_state.defeat_open: game.MenuRenderer.draw_pause_layer(game)
 	preload("res://scripts/systems/menu_hub_system.gd").draw_chrome(game)
+	preload("res://scripts/presentation/qa_teleport_renderer.gd").draw(game)
 	game.UiFeedbackRenderer.draw(game)
 	preload("res://scripts/presentation/recovery_notice_renderer.gd").draw(game)

@@ -10,6 +10,7 @@ const VISIBLE_SLOTS := COLUMNS * VISIBLE_ROWS
 const FILTERS := ["all", "tool", "food", "equipment", "resource", "quest"]
 
 const BASE_ITEM_DATA := {
+	"qa_teleport_stone":{"name":"Камень телепортации · QA","short":"QA-камень","color":Color("75c9ef"),"usable":true},
 	"mayonnaise":{"name":"Домашний майонез","short":"Майонез","color":Color("edd7a0"),"edible":true},
 	"pancakes":{"name":"Молочные блинчики","short":"Блинчики","color":Color("ce9659"),"edible":true},
 	"porridge":{"name":"Молочная каша","short":"Каша","color":Color("ded0ac"),"edible":true},
@@ -152,6 +153,7 @@ static func category(kind: String) -> String:
 
 ## Возвращает ключ локализованного описания выбранной категории предмета.
 static func detail_key(kind: String) -> String:
+	if kind == "qa_teleport_stone": return "detail_qa_teleport"
 	match category(kind):
 		"tool": return "detail_tool"
 		"food": return "detail_food"

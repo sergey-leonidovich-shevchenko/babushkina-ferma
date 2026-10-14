@@ -2604,9 +2604,19 @@ const DATA := {
 			"sourceHash": "31845e339b4dc0707e3c59d5b3020b158dc3e0bca0e3e24a0ea40598d89a0d08",
 			"tint": "ffffff"
 		},
-		"quality_fertilizer": {
+		"qa_teleport_stone": {
 			"cell": [
 				256,
+				1024
+			],
+			"path": "res://assets/game/items/catalog/blue_gem.png",
+			"provider": "override",
+			"sourceHash": "78ce61cb9c02cd7e0d102444b89ca379a8b453384b6a313718fcc631c9686bc2",
+			"tint": "ffffff"
+		},
+		"quality_fertilizer": {
+			"cell": [
+				320,
 				1024
 			],
 			"path": "res://assets/game/artisan/quality_fertilizer.tres",
@@ -2616,7 +2626,7 @@ const DATA := {
 		},
 		"rare_seeds": {
 			"cell": [
-				320,
+				384,
 				1024
 			],
 			"path": "res://assets/game/items/catalog/rare_seeds.png",
@@ -2626,7 +2636,7 @@ const DATA := {
 		},
 		"raw_meat": {
 			"cell": [
-				384,
+				448,
 				1024
 			],
 			"path": "res://assets/game/items/catalog/raw_meat.png",
@@ -2636,7 +2646,7 @@ const DATA := {
 		},
 		"red_clover": {
 			"cell": [
-				448,
+				512,
 				1024
 			],
 			"path": "res://assets/game/items/catalog/flower.png",
@@ -2646,7 +2656,7 @@ const DATA := {
 		},
 		"red_clover_dried": {
 			"cell": [
-				512,
+				576,
 				1024
 			],
 			"path": "res://assets/game/items/catalog/herbs.png",
@@ -2656,7 +2666,7 @@ const DATA := {
 		},
 		"red_clover_juice": {
 			"cell": [
-				576,
+				640,
 				1024
 			],
 			"path": "res://assets/game/items/painted/red_clover_juice.png",
@@ -2666,7 +2676,7 @@ const DATA := {
 		},
 		"red_clover_powder": {
 			"cell": [
-				640,
+				704,
 				1024
 			],
 			"path": "res://assets/game/items/catalog/flour.png",
@@ -2676,7 +2686,7 @@ const DATA := {
 		},
 		"red_clover_tincture": {
 			"cell": [
-				704,
+				768,
 				1024
 			],
 			"path": "res://assets/game/items/painted/red_clover_tincture.png",
@@ -2686,7 +2696,7 @@ const DATA := {
 		},
 		"red_crystal": {
 			"cell": [
-				768,
+				832,
 				1024
 			],
 			"path": "res://assets/game/items/catalog/red_crystal.png",
@@ -2696,7 +2706,7 @@ const DATA := {
 		},
 		"regeneration_potion": {
 			"cell": [
-				832,
+				896,
 				1024
 			],
 			"path": "res://assets/game/items/catalog/regeneration_potion.png",
@@ -2706,7 +2716,7 @@ const DATA := {
 		},
 		"research_ink": {
 			"cell": [
-				896,
+				960,
 				1024
 			],
 			"path": "",
@@ -2716,8 +2726,8 @@ const DATA := {
 		},
 		"research_paper": {
 			"cell": [
-				960,
-				1024
+				0,
+				1088
 			],
 			"path": "",
 			"provider": "research",
@@ -2726,7 +2736,7 @@ const DATA := {
 		},
 		"rope": {
 			"cell": [
-				0,
+				64,
 				1088
 			],
 			"path": "res://assets/game/items/catalog/rope.png",
@@ -2736,7 +2746,7 @@ const DATA := {
 		},
 		"rosehip": {
 			"cell": [
-				64,
+				128,
 				1088
 			],
 			"path": "res://assets/game/items/catalog/herbs.png",
@@ -2746,7 +2756,7 @@ const DATA := {
 		},
 		"rosehip_dried": {
 			"cell": [
-				128,
+				192,
 				1088
 			],
 			"path": "res://assets/game/items/catalog/herbs.png",
@@ -2756,7 +2766,7 @@ const DATA := {
 		},
 		"rosehip_juice": {
 			"cell": [
-				192,
+				256,
 				1088
 			],
 			"path": "res://assets/game/items/painted/rosehip_juice.png",
@@ -2766,7 +2776,7 @@ const DATA := {
 		},
 		"rosehip_powder": {
 			"cell": [
-				256,
+				320,
 				1088
 			],
 			"path": "res://assets/game/items/catalog/flour.png",
@@ -2776,7 +2786,7 @@ const DATA := {
 		},
 		"rosehip_tincture": {
 			"cell": [
-				320,
+				384,
 				1088
 			],
 			"path": "res://assets/game/items/painted/rosehip_tincture.png",
@@ -2786,7 +2796,7 @@ const DATA := {
 		},
 		"royal_tonic": {
 			"cell": [
-				384,
+				448,
 				1088
 			],
 			"path": "res://assets/game/items/painted/royal_tonic.png",
@@ -2796,7 +2806,7 @@ const DATA := {
 		},
 		"rustic_table": {
 			"cell": [
-				448,
+				512,
 				1088
 			],
 			"path": "res://assets/game/interiors/furniture_a/rustic_table_south.png",
@@ -2806,7 +2816,7 @@ const DATA := {
 		},
 		"sage": {
 			"cell": [
-				512,
+				576,
 				1088
 			],
 			"path": "res://assets/game/items/catalog/herbs.png",
@@ -2816,7 +2826,7 @@ const DATA := {
 		},
 		"sage_dried": {
 			"cell": [
-				576,
+				640,
 				1088
 			],
 			"path": "res://assets/game/items/catalog/herbs.png",
@@ -2826,7 +2836,7 @@ const DATA := {
 		},
 		"sage_juice": {
 			"cell": [
-				640,
+				704,
 				1088
 			],
 			"path": "res://assets/game/items/painted/sage_juice.png",
@@ -2836,7 +2846,7 @@ const DATA := {
 		},
 		"sage_powder": {
 			"cell": [
-				704,
+				768,
 				1088
 			],
 			"path": "res://assets/game/items/catalog/flour.png",
@@ -2846,7 +2856,7 @@ const DATA := {
 		},
 		"sage_tincture": {
 			"cell": [
-				768,
+				832,
 				1088
 			],
 			"path": "res://assets/game/items/painted/sage_tincture.png",
@@ -2856,7 +2866,7 @@ const DATA := {
 		},
 		"sand": {
 			"cell": [
-				832,
+				896,
 				1088
 			],
 			"path": "res://assets/game/items/catalog/stone.png",
@@ -2866,7 +2876,7 @@ const DATA := {
 		},
 		"sawdust": {
 			"cell": [
-				896,
+				960,
 				1088
 			],
 			"path": "",
@@ -2876,8 +2886,8 @@ const DATA := {
 		},
 		"seeds": {
 			"cell": [
-				960,
-				1088
+				0,
+				1152
 			],
 			"path": "res://assets/game/items/catalog/carrot_seeds.png",
 			"provider": "catalog",
@@ -2886,7 +2896,7 @@ const DATA := {
 		},
 		"shadow_essence": {
 			"cell": [
-				0,
+				64,
 				1152
 			],
 			"path": "res://assets/game/items/painted/shadow_essence.png",
@@ -2896,7 +2906,7 @@ const DATA := {
 		},
 		"silver_lichen": {
 			"cell": [
-				64,
+				128,
 				1152
 			],
 			"path": "res://assets/game/items/catalog/herbs.png",
@@ -2906,7 +2916,7 @@ const DATA := {
 		},
 		"silver_lichen_dried": {
 			"cell": [
-				128,
+				192,
 				1152
 			],
 			"path": "res://assets/game/items/catalog/herbs.png",
@@ -2916,7 +2926,7 @@ const DATA := {
 		},
 		"silver_lichen_juice": {
 			"cell": [
-				192,
+				256,
 				1152
 			],
 			"path": "res://assets/game/items/painted/silver_lichen_juice.png",
@@ -2926,7 +2936,7 @@ const DATA := {
 		},
 		"silver_lichen_powder": {
 			"cell": [
-				256,
+				320,
 				1152
 			],
 			"path": "res://assets/game/items/catalog/flour.png",
@@ -2936,7 +2946,7 @@ const DATA := {
 		},
 		"silver_lichen_tincture": {
 			"cell": [
-				320,
+				384,
 				1152
 			],
 			"path": "res://assets/game/items/painted/silver_lichen_tincture.png",
@@ -2946,7 +2956,7 @@ const DATA := {
 		},
 		"slag": {
 			"cell": [
-				384,
+				448,
 				1152
 			],
 			"path": "res://assets/game/items/catalog/stone.png",
@@ -2956,7 +2966,7 @@ const DATA := {
 		},
 		"slime": {
 			"cell": [
-				448,
+				512,
 				1152
 			],
 			"path": "res://assets/game/items/catalog/slime.png",
@@ -2966,7 +2976,7 @@ const DATA := {
 		},
 		"smoked_cheese": {
 			"cell": [
-				512,
+				576,
 				1152
 			],
 			"path": "res://assets/game/artisan/smoked_cheese.tres",
@@ -2976,7 +2986,7 @@ const DATA := {
 		},
 		"smoked_fish": {
 			"cell": [
-				576,
+				640,
 				1152
 			],
 			"path": "res://assets/game/artisan/smoked_fish.tres",
@@ -2986,7 +2996,7 @@ const DATA := {
 		},
 		"smoked_meat": {
 			"cell": [
-				640,
+				704,
 				1152
 			],
 			"path": "res://assets/game/artisan/smoked_meat.tres",
@@ -2996,7 +3006,7 @@ const DATA := {
 		},
 		"smoked_mushrooms": {
 			"cell": [
-				704,
+				768,
 				1152
 			],
 			"path": "res://assets/game/artisan/smoked_mushrooms.tres",
@@ -3006,7 +3016,7 @@ const DATA := {
 		},
 		"soap": {
 			"cell": [
-				768,
+				832,
 				1152
 			],
 			"path": "res://assets/game/artisan/soap.tres",
@@ -3016,7 +3026,7 @@ const DATA := {
 		},
 		"solar_concentrate": {
 			"cell": [
-				832,
+				896,
 				1152
 			],
 			"path": "res://assets/game/items/painted/solar_concentrate.png",
@@ -3026,7 +3036,7 @@ const DATA := {
 		},
 		"soup": {
 			"cell": [
-				896,
+				960,
 				1152
 			],
 			"path": "res://assets/game/items/catalog/soup.png",
@@ -3036,8 +3046,8 @@ const DATA := {
 		},
 		"speed_potion": {
 			"cell": [
-				960,
-				1152
+				0,
+				1216
 			],
 			"path": "res://assets/game/items/catalog/speed_potion.png",
 			"provider": "catalog",
@@ -3046,7 +3056,7 @@ const DATA := {
 		},
 		"sporecap": {
 			"cell": [
-				0,
+				64,
 				1216
 			],
 			"path": "res://assets/game/items/catalog/herbs.png",
@@ -3056,7 +3066,7 @@ const DATA := {
 		},
 		"sporecap_dried": {
 			"cell": [
-				64,
+				128,
 				1216
 			],
 			"path": "res://assets/game/items/catalog/herbs.png",
@@ -3066,7 +3076,7 @@ const DATA := {
 		},
 		"sporecap_juice": {
 			"cell": [
-				128,
+				192,
 				1216
 			],
 			"path": "res://assets/game/items/painted/sporecap_juice.png",
@@ -3076,7 +3086,7 @@ const DATA := {
 		},
 		"sporecap_powder": {
 			"cell": [
-				192,
+				256,
 				1216
 			],
 			"path": "res://assets/game/items/catalog/flour.png",
@@ -3086,7 +3096,7 @@ const DATA := {
 		},
 		"sporecap_tincture": {
 			"cell": [
-				256,
+				320,
 				1216
 			],
 			"path": "res://assets/game/items/painted/sporecap_tincture.png",
@@ -3096,7 +3106,7 @@ const DATA := {
 		},
 		"starflower": {
 			"cell": [
-				320,
+				384,
 				1216
 			],
 			"path": "res://assets/game/items/catalog/flower.png",
@@ -3106,7 +3116,7 @@ const DATA := {
 		},
 		"starflower_dried": {
 			"cell": [
-				384,
+				448,
 				1216
 			],
 			"path": "res://assets/game/items/catalog/herbs.png",
@@ -3116,7 +3126,7 @@ const DATA := {
 		},
 		"starflower_juice": {
 			"cell": [
-				448,
+				512,
 				1216
 			],
 			"path": "res://assets/game/items/painted/starflower_juice.png",
@@ -3126,7 +3136,7 @@ const DATA := {
 		},
 		"starflower_powder": {
 			"cell": [
-				512,
+				576,
 				1216
 			],
 			"path": "res://assets/game/items/catalog/flour.png",
@@ -3136,7 +3146,7 @@ const DATA := {
 		},
 		"starflower_tincture": {
 			"cell": [
-				576,
+				640,
 				1216
 			],
 			"path": "res://assets/game/items/painted/starflower_tincture.png",
@@ -3146,7 +3156,7 @@ const DATA := {
 		},
 		"steel": {
 			"cell": [
-				640,
+				704,
 				1216
 			],
 			"path": "res://assets/game/items/catalog/metal.png",
@@ -3156,7 +3166,7 @@ const DATA := {
 		},
 		"stone": {
 			"cell": [
-				704,
+				768,
 				1216
 			],
 			"path": "res://assets/game/items/catalog/stone.png",
@@ -3166,7 +3176,7 @@ const DATA := {
 		},
 		"stone_skin_draught": {
 			"cell": [
-				768,
+				832,
 				1216
 			],
 			"path": "res://assets/game/items/painted/stone_skin_draught.png",
@@ -3176,7 +3186,7 @@ const DATA := {
 		},
 		"strawberry": {
 			"cell": [
-				832,
+				896,
 				1216
 			],
 			"path": "res://assets/game/items/catalog/strawberry.png",
@@ -3186,7 +3196,7 @@ const DATA := {
 		},
 		"strawberry_seeds": {
 			"cell": [
-				896,
+				960,
 				1216
 			],
 			"path": "res://assets/game/items/catalog/strawberry_seeds.png",
@@ -3196,8 +3206,8 @@ const DATA := {
 		},
 		"strength_potion": {
 			"cell": [
-				960,
-				1216
+				0,
+				1280
 			],
 			"path": "res://assets/game/items/catalog/strength_potion.png",
 			"provider": "catalog",
@@ -3206,7 +3216,7 @@ const DATA := {
 		},
 		"sunflower": {
 			"cell": [
-				0,
+				64,
 				1280
 			],
 			"path": "res://assets/game/items/painted/sunflower.png",
@@ -3216,7 +3226,7 @@ const DATA := {
 		},
 		"sunflower_seeds": {
 			"cell": [
-				64,
+				128,
 				1280
 			],
 			"path": "res://assets/game/items/catalog/sunflower_seeds.png",
@@ -3226,7 +3236,7 @@ const DATA := {
 		},
 		"sunpetal": {
 			"cell": [
-				128,
+				192,
 				1280
 			],
 			"path": "res://assets/game/items/catalog/flower.png",
@@ -3236,7 +3246,7 @@ const DATA := {
 		},
 		"sunpetal_dried": {
 			"cell": [
-				192,
+				256,
 				1280
 			],
 			"path": "res://assets/game/items/catalog/herbs.png",
@@ -3246,7 +3256,7 @@ const DATA := {
 		},
 		"sunpetal_juice": {
 			"cell": [
-				256,
+				320,
 				1280
 			],
 			"path": "res://assets/game/items/painted/sunpetal_juice.png",
@@ -3256,7 +3266,7 @@ const DATA := {
 		},
 		"sunpetal_powder": {
 			"cell": [
-				320,
+				384,
 				1280
 			],
 			"path": "res://assets/game/items/catalog/flour.png",
@@ -3266,7 +3276,7 @@ const DATA := {
 		},
 		"sunpetal_tincture": {
 			"cell": [
-				384,
+				448,
 				1280
 			],
 			"path": "res://assets/game/items/painted/sunpetal_tincture.png",
@@ -3276,7 +3286,7 @@ const DATA := {
 		},
 		"sword": {
 			"cell": [
-				448,
+				512,
 				1280
 			],
 			"path": "res://assets/game/items/catalog/sword.png",
@@ -3286,7 +3296,7 @@ const DATA := {
 		},
 		"tanning_agent": {
 			"cell": [
-				512,
+				576,
 				1280
 			],
 			"path": "res://assets/game/artisan/tanning_agent.tres",
@@ -3296,7 +3306,7 @@ const DATA := {
 		},
 		"timber_frame": {
 			"cell": [
-				576,
+				640,
 				1280
 			],
 			"path": "",
@@ -3306,7 +3316,7 @@ const DATA := {
 		},
 		"tomato": {
 			"cell": [
-				640,
+				704,
 				1280
 			],
 			"path": "res://assets/game/items/catalog/tomato.png",
@@ -3316,7 +3326,7 @@ const DATA := {
 		},
 		"tomato_juice": {
 			"cell": [
-				704,
+				768,
 				1280
 			],
 			"path": "res://assets/game/artisan/tomato_juice.tres",
@@ -3326,7 +3336,7 @@ const DATA := {
 		},
 		"tomato_seeds": {
 			"cell": [
-				768,
+				832,
 				1280
 			],
 			"path": "res://assets/game/items/catalog/tomato_seeds.png",
@@ -3336,7 +3346,7 @@ const DATA := {
 		},
 		"trash": {
 			"cell": [
-				832,
+				896,
 				1280
 			],
 			"path": "res://assets/game/items/catalog/fiber.png",
@@ -3346,7 +3356,7 @@ const DATA := {
 		},
 		"travel_boots": {
 			"cell": [
-				896,
+				960,
 				1280
 			],
 			"path": "res://assets/game/items/catalog/travel_boots.png",
@@ -3356,8 +3366,8 @@ const DATA := {
 		},
 		"travel_ration": {
 			"cell": [
-				960,
-				1280
+				0,
+				1344
 			],
 			"path": "res://assets/game/artisan/travel_ration.tres",
 			"provider": "catalog",
@@ -3366,7 +3376,7 @@ const DATA := {
 		},
 		"truffle": {
 			"cell": [
-				0,
+				64,
 				1344
 			],
 			"path": "res://assets/game/items/catalog/truffle.png",
@@ -3376,7 +3386,7 @@ const DATA := {
 		},
 		"truffle_soup": {
 			"cell": [
-				64,
+				128,
 				1344
 			],
 			"path": "res://assets/game/items/catalog/truffle_soup.png",
@@ -3386,7 +3396,7 @@ const DATA := {
 		},
 		"tusk": {
 			"cell": [
-				128,
+				192,
 				1344
 			],
 			"path": "res://assets/game/items/catalog/tusk.png",
@@ -3396,7 +3406,7 @@ const DATA := {
 		},
 		"unfired_bowl": {
 			"cell": [
-				192,
+				256,
 				1344
 			],
 			"path": "",
@@ -3406,7 +3416,7 @@ const DATA := {
 		},
 		"unfired_brick": {
 			"cell": [
-				256,
+				320,
 				1344
 			],
 			"path": "",
@@ -3416,7 +3426,7 @@ const DATA := {
 		},
 		"unfired_pot": {
 			"cell": [
-				320,
+				384,
 				1344
 			],
 			"path": "",
@@ -3426,7 +3436,7 @@ const DATA := {
 		},
 		"unfired_vase": {
 			"cell": [
-				384,
+				448,
 				1344
 			],
 			"path": "",
@@ -3436,7 +3446,7 @@ const DATA := {
 		},
 		"valerian": {
 			"cell": [
-				448,
+				512,
 				1344
 			],
 			"path": "res://assets/game/items/catalog/herbs.png",
@@ -3446,7 +3456,7 @@ const DATA := {
 		},
 		"valerian_dried": {
 			"cell": [
-				512,
+				576,
 				1344
 			],
 			"path": "res://assets/game/items/catalog/herbs.png",
@@ -3456,7 +3466,7 @@ const DATA := {
 		},
 		"valerian_juice": {
 			"cell": [
-				576,
+				640,
 				1344
 			],
 			"path": "res://assets/game/items/painted/valerian_juice.png",
@@ -3466,7 +3476,7 @@ const DATA := {
 		},
 		"valerian_powder": {
 			"cell": [
-				640,
+				704,
 				1344
 			],
 			"path": "res://assets/game/items/catalog/flour.png",
@@ -3476,7 +3486,7 @@ const DATA := {
 		},
 		"valerian_tincture": {
 			"cell": [
-				704,
+				768,
 				1344
 			],
 			"path": "res://assets/game/items/painted/valerian_tincture.png",
@@ -3486,7 +3496,7 @@ const DATA := {
 		},
 		"vegetable_casserole": {
 			"cell": [
-				768,
+				832,
 				1344
 			],
 			"path": "res://assets/game/kitchen/vegetable_casserole.tres",
@@ -3496,7 +3506,7 @@ const DATA := {
 		},
 		"vigor_infusion": {
 			"cell": [
-				832,
+				896,
 				1344
 			],
 			"path": "res://assets/game/items/painted/vigor_infusion.png",
@@ -3506,7 +3516,7 @@ const DATA := {
 		},
 		"vital_essence": {
 			"cell": [
-				896,
+				960,
 				1344
 			],
 			"path": "res://assets/game/items/painted/vital_essence.png",
@@ -3516,8 +3526,8 @@ const DATA := {
 		},
 		"war_hammer": {
 			"cell": [
-				960,
-				1344
+				0,
+				1408
 			],
 			"path": "res://assets/game/items/catalog/war_hammer.png",
 			"provider": "catalog",
@@ -3526,7 +3536,7 @@ const DATA := {
 		},
 		"water": {
 			"cell": [
-				0,
+				64,
 				1408
 			],
 			"path": "res://assets/game/items/catalog/water.png",
@@ -3536,7 +3546,7 @@ const DATA := {
 		},
 		"watermelon": {
 			"cell": [
-				64,
+				128,
 				1408
 			],
 			"path": "res://assets/game/items/catalog/watermelon.png",
@@ -3546,7 +3556,7 @@ const DATA := {
 		},
 		"wax_base": {
 			"cell": [
-				128,
+				192,
 				1408
 			],
 			"path": "res://assets/game/items/painted/wax_base.png",
@@ -3556,7 +3566,7 @@ const DATA := {
 		},
 		"wax_candle": {
 			"cell": [
-				192,
+				256,
 				1408
 			],
 			"path": "res://assets/game/artisan/wax_candle.tres",
@@ -3566,7 +3576,7 @@ const DATA := {
 		},
 		"wet_clay": {
 			"cell": [
-				256,
+				320,
 				1408
 			],
 			"path": "",
@@ -3576,7 +3586,7 @@ const DATA := {
 		},
 		"wheat": {
 			"cell": [
-				320,
+				384,
 				1408
 			],
 			"path": "res://assets/game/items/catalog/wheat.png",
@@ -3586,7 +3596,7 @@ const DATA := {
 		},
 		"wheat_seeds": {
 			"cell": [
-				384,
+				448,
 				1408
 			],
 			"path": "res://assets/game/items/catalog/wheat_seeds.png",
@@ -3596,7 +3606,7 @@ const DATA := {
 		},
 		"wild_thyme": {
 			"cell": [
-				448,
+				512,
 				1408
 			],
 			"path": "res://assets/game/items/catalog/flower.png",
@@ -3606,7 +3616,7 @@ const DATA := {
 		},
 		"wild_thyme_dried": {
 			"cell": [
-				512,
+				576,
 				1408
 			],
 			"path": "res://assets/game/items/catalog/herbs.png",
@@ -3616,7 +3626,7 @@ const DATA := {
 		},
 		"wild_thyme_juice": {
 			"cell": [
-				576,
+				640,
 				1408
 			],
 			"path": "res://assets/game/items/painted/wild_thyme_juice.png",
@@ -3626,7 +3636,7 @@ const DATA := {
 		},
 		"wild_thyme_powder": {
 			"cell": [
-				640,
+				704,
 				1408
 			],
 			"path": "res://assets/game/items/catalog/flour.png",
@@ -3636,7 +3646,7 @@ const DATA := {
 		},
 		"wild_thyme_tincture": {
 			"cell": [
-				704,
+				768,
 				1408
 			],
 			"path": "res://assets/game/items/painted/wild_thyme_tincture.png",
@@ -3646,7 +3656,7 @@ const DATA := {
 		},
 		"wind_step_elixir": {
 			"cell": [
-				768,
+				832,
 				1408
 			],
 			"path": "res://assets/game/items/painted/wind_step_elixir.png",
@@ -3656,7 +3666,7 @@ const DATA := {
 		},
 		"wood": {
 			"cell": [
-				832,
+				896,
 				1408
 			],
 			"path": "res://assets/game/items/catalog/wood.png",
@@ -3666,7 +3676,7 @@ const DATA := {
 		},
 		"wood_beam": {
 			"cell": [
-				896,
+				960,
 				1408
 			],
 			"path": "",
@@ -3676,8 +3686,8 @@ const DATA := {
 		},
 		"wood_dowel": {
 			"cell": [
-				960,
-				1408
+				0,
+				1472
 			],
 			"path": "",
 			"provider": "workshop",
@@ -3686,7 +3696,7 @@ const DATA := {
 		},
 		"wood_handle": {
 			"cell": [
-				0,
+				64,
 				1472
 			],
 			"path": "",
@@ -3696,7 +3706,7 @@ const DATA := {
 		},
 		"wood_offcut": {
 			"cell": [
-				64,
+				128,
 				1472
 			],
 			"path": "res://assets/game/items/catalog/plank.png",
@@ -3706,7 +3716,7 @@ const DATA := {
 		},
 		"wooden_chair": {
 			"cell": [
-				128,
+				192,
 				1472
 			],
 			"path": "res://assets/game/interiors/furniture_a/wooden_chair_south.png",
@@ -3716,7 +3726,7 @@ const DATA := {
 		},
 		"wooden_wardrobe": {
 			"cell": [
-				192,
+				256,
 				1472
 			],
 			"path": "res://assets/game/interiors/furniture_a/wooden_wardrobe_south.png",
@@ -3726,7 +3736,7 @@ const DATA := {
 		},
 		"wool": {
 			"cell": [
-				256,
+				320,
 				1472
 			],
 			"path": "res://assets/game/items/catalog/wool.png",
@@ -3736,7 +3746,7 @@ const DATA := {
 		},
 		"wormwood": {
 			"cell": [
-				320,
+				384,
 				1472
 			],
 			"path": "res://assets/game/items/catalog/herbs.png",
@@ -3746,7 +3756,7 @@ const DATA := {
 		},
 		"wormwood_dried": {
 			"cell": [
-				384,
+				448,
 				1472
 			],
 			"path": "res://assets/game/items/catalog/herbs.png",
@@ -3756,7 +3766,7 @@ const DATA := {
 		},
 		"wormwood_juice": {
 			"cell": [
-				448,
+				512,
 				1472
 			],
 			"path": "res://assets/game/items/painted/wormwood_juice.png",
@@ -3766,7 +3776,7 @@ const DATA := {
 		},
 		"wormwood_powder": {
 			"cell": [
-				512,
+				576,
 				1472
 			],
 			"path": "res://assets/game/items/catalog/flour.png",
@@ -3776,7 +3786,7 @@ const DATA := {
 		},
 		"wormwood_tincture": {
 			"cell": [
-				576,
+				640,
 				1472
 			],
 			"path": "res://assets/game/items/painted/wormwood_tincture.png",
@@ -3786,7 +3796,7 @@ const DATA := {
 		},
 		"woven_rug": {
 			"cell": [
-				640,
+				704,
 				1472
 			],
 			"path": "res://assets/game/interiors/furniture_a/woven_rug_south.png",
@@ -3796,7 +3806,7 @@ const DATA := {
 		},
 		"yarn": {
 			"cell": [
-				704,
+				768,
 				1472
 			],
 			"path": "res://assets/game/items/catalog/yarn.png",
@@ -3806,7 +3816,7 @@ const DATA := {
 		},
 		"yarrow": {
 			"cell": [
-				768,
+				832,
 				1472
 			],
 			"path": "res://assets/game/items/catalog/flower.png",
@@ -3816,7 +3826,7 @@ const DATA := {
 		},
 		"yarrow_dried": {
 			"cell": [
-				832,
+				896,
 				1472
 			],
 			"path": "res://assets/game/items/catalog/herbs.png",
@@ -3826,7 +3836,7 @@ const DATA := {
 		},
 		"yarrow_juice": {
 			"cell": [
-				896,
+				960,
 				1472
 			],
 			"path": "res://assets/game/items/painted/yarrow_juice.png",
@@ -3836,8 +3846,8 @@ const DATA := {
 		},
 		"yarrow_powder": {
 			"cell": [
-				960,
-				1472
+				0,
+				1536
 			],
 			"path": "res://assets/game/items/catalog/flour.png",
 			"provider": "alchemy",
@@ -3846,7 +3856,7 @@ const DATA := {
 		},
 		"yarrow_tincture": {
 			"cell": [
-				0,
+				64,
 				1536
 			],
 			"path": "res://assets/game/items/painted/yarrow_tincture.png",

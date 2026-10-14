@@ -16,6 +16,7 @@ const QuickAccessSuite:=preload("res://tests/suites/quick_access_visual_suite.gd
 
 ## Объединяет независимые регрессии удобства, сохраняя главный тестовый runner компактным.
 func run()->void:
+	preload("res://tests/suites/qa_teleport_suite.gd").new(context).run()
 	preload("res://tests/suites/held_weapon_visibility_suite.gd").new(context).run()
 	preload("res://tests/suites/resident_visual_suite.gd").new(context).run()
 	preload("res://tests/suites/village_clearance_suite.gd").new(context).run()

@@ -19,6 +19,7 @@ static func is_potion(kind: String) -> bool:
 
 ## Употребляет еду или зелье, применяет эффект и обновляет шаг обучения.
 static func consume(game: Node, kind: String) -> bool:
+	if kind == "qa_teleport_stone": return preload("res://scripts/systems/qa_teleport_system.gd").open(game)
 	if preload("res://scripts/systems/garden_crafting_system.gd").FERTILIZERS.has(kind): return preload("res://scripts/systems/garden_crafting_system.gd").apply(game,kind)
 	if not game.InventorySystem.can_use(kind):
 		game.message = game.LocaleSystem.text("cannot_use")

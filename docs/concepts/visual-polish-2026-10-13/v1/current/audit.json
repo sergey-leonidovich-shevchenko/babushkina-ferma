@@ -1,6 +1,50 @@
 {
 	"entries": [
 		{
+			"category": "resource",
+			"decision": "review",
+			"family": "override-qa_teleport_stone",
+			"flags": [
+				"shared-image"
+			],
+			"icon": {
+				"flip": false,
+				"image": "generated/sprites/78ce61cb9c02cd7e0d102444.png",
+				"pivot": [
+					128.0,
+					256.0
+				],
+				"rect": [
+					0.0,
+					0.0,
+					256.0,
+					256.0
+				],
+				"scale": 1.0
+			},
+			"id": "qa_teleport_stone",
+			"name": "Камень телепортации · QA",
+			"pixels": {
+				"coverage": 0.6756591796875,
+				"empty": false,
+				"height": 256,
+				"used": [
+					25,
+					20,
+					205,
+					216
+				],
+				"width": 256
+			},
+			"priority": "P2",
+			"provider": "override",
+			"source": {
+				"path": "res://assets/game/items/catalog/blue_gem.png",
+				"type": "raster"
+			},
+			"tint": "ffffff"
+		},
+		{
 			"category": "food",
 			"decision": "review",
 			"family": "catalog-mayonnaise",
@@ -1014,9 +1058,7 @@
 			"category": "tool",
 			"decision": "review",
 			"family": "catalog-herb_seeds",
-			"flags": [
-				"shared-image"
-			],
+			"flags": [],
 			"icon": {
 				"flip": false,
 				"image": "generated/sprites/0c88d32b398bc09bf0d05b33.png",
@@ -2065,41 +2107,41 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "catalog-sunflower",
+			"family": "override-sunflower",
 			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/5d943ad6603200d8cf60d230.png",
+				"image": "generated/sprites/bc64c5604bfd45d709683704.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "sunflower",
 			"name": "Головка подсолнуха",
 			"pixels": {
-				"coverage": 0.6646728515625,
+				"coverage": 0.57375,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
 					29,
-					18,
-					198,
-					220
+					8,
+					102,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
 			"priority": "P2",
-			"provider": "catalog",
+			"provider": "override",
 			"source": {
-				"path": "res://assets/game/items/catalog/sunflower.png",
+				"path": "res://assets/game/items/painted/sunflower.png",
 				"type": "raster"
 			},
 			"tint": "ffffff"
@@ -4476,7 +4518,9 @@
 			"category": "resource",
 			"decision": "review",
 			"family": "catalog-blue_gem",
-			"flags": [],
+			"flags": [
+				"shared-image"
+			],
 			"icon": {
 				"flip": false,
 				"image": "generated/sprites/78ce61cb9c02cd7e0d102444.png",
@@ -5105,41 +5149,41 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "catalog-home_chest",
+			"family": "override-home_chest",
 			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/92c3b2dd74ae234d1073f83e.png",
+				"image": "generated/sprites/71d7951b576adbfa68715005.png",
 				"pivot": [
 					128.0,
-					256.0
+					148.0
 				],
 				"rect": [
 					0.0,
 					0.0,
 					256.0,
-					256.0
+					148.0
 				],
 				"scale": 1.0
 			},
 			"id": "home_chest",
 			"name": "Домашний сундук",
 			"pixels": {
-				"coverage": 0.6427001953125,
+				"coverage": 0.836148648648649,
 				"empty": false,
-				"height": 256,
+				"height": 148,
 				"used": [
-					20,
-					30,
-					216,
-					195
+					8,
+					8,
+					240,
+					132
 				],
 				"width": 256
 			},
 			"priority": "P2",
-			"provider": "catalog",
+			"provider": "override",
 			"source": {
-				"path": "res://assets/game/items/catalog/home_chest.png",
+				"path": "res://assets/game/interiors/furniture_a/home_chest_south.png",
 				"type": "raster"
 			},
 			"tint": "ffffff"
@@ -5483,41 +5527,41 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "catalog-rustic_table",
+			"family": "override-rustic_table",
 			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/eef068cc47b9fafeb825a4a7.png",
+				"image": "generated/sprites/6ecb0c930229c90a0b7d91d9.png",
 				"pivot": [
 					128.0,
-					256.0
+					176.0
 				],
 				"rect": [
 					0.0,
 					0.0,
 					256.0,
-					256.0
+					176.0
 				],
 				"scale": 1.0
 			},
 			"id": "rustic_table",
 			"name": "Дубовый стол",
 			"pixels": {
-				"coverage": 0.573486328125,
+				"coverage": 0.852272727272727,
 				"empty": false,
-				"height": 256,
+				"height": 176,
 				"used": [
-					20,
-					41,
-					216,
-					174
+					8,
+					8,
+					240,
+					160
 				],
 				"width": 256
 			},
 			"priority": "P2",
-			"provider": "catalog",
+			"provider": "override",
 			"source": {
-				"path": "res://assets/game/items/catalog/rustic_table.png",
+				"path": "res://assets/game/interiors/furniture_a/rustic_table_south.png",
 				"type": "raster"
 			},
 			"tint": "ffffff"
@@ -5525,19 +5569,19 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "catalog-wooden_chair",
+			"family": "override-wooden_chair",
 			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/67780abb5b712dc4749e82c2.png",
+				"image": "generated/sprites/c01a093870b4584ec9fd772f.png",
 				"pivot": [
-					128.0,
+					80.5,
 					256.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
+					161.0,
 					256.0
 				],
 				"scale": 1.0
@@ -5545,21 +5589,21 @@
 			"id": "wooden_chair",
 			"name": "Резной стул",
 			"pixels": {
-				"coverage": 0.51416015625,
+				"coverage": 0.844332298136646,
 				"empty": false,
 				"height": 256,
 				"used": [
-					50,
-					20,
-					156,
-					216
+					8,
+					8,
+					145,
+					240
 				],
-				"width": 256
+				"width": 161
 			},
 			"priority": "P2",
-			"provider": "catalog",
+			"provider": "override",
 			"source": {
-				"path": "res://assets/game/items/catalog/wooden_chair.png",
+				"path": "res://assets/game/interiors/furniture_a/wooden_chair_south.png",
 				"type": "raster"
 			},
 			"tint": "ffffff"
@@ -5567,41 +5611,41 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "catalog-woven_rug",
+			"family": "override-woven_rug",
 			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/3d12e3fa83019a7e3b75ad52.png",
+				"image": "generated/sprites/94794f7f0885a600e0e4b2a6.png",
 				"pivot": [
 					128.0,
-					256.0
+					126.0
 				],
 				"rect": [
 					0.0,
 					0.0,
 					256.0,
-					256.0
+					126.0
 				],
 				"scale": 1.0
 			},
 			"id": "woven_rug",
 			"name": "Тканый ковёр",
 			"pixels": {
-				"coverage": 0.4185791015625,
+				"coverage": 0.818452380952381,
 				"empty": false,
-				"height": 256,
+				"height": 126,
 				"used": [
-					20,
-					64,
-					216,
-					127
+					8,
+					8,
+					240,
+					110
 				],
 				"width": 256
 			},
 			"priority": "P2",
-			"provider": "catalog",
+			"provider": "override",
 			"source": {
-				"path": "res://assets/game/items/catalog/woven_rug.png",
+				"path": "res://assets/game/interiors/furniture_a/woven_rug_south.png",
 				"type": "raster"
 			},
 			"tint": "ffffff"
@@ -5651,19 +5695,19 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "catalog-wooden_wardrobe",
+			"family": "override-wooden_wardrobe",
 			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/e65783f39108e0ee368f2c1d.png",
+				"image": "generated/sprites/a2e800855870bc0f8d706d8e.png",
 				"pivot": [
-					128.0,
+					98.0,
 					256.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
+					196.0,
 					256.0
 				],
 				"scale": 1.0
@@ -5671,21 +5715,21 @@
 			"id": "wooden_wardrobe",
 			"name": "Деревянный шкаф",
 			"pixels": {
-				"coverage": 0.547119140625,
+				"coverage": 0.860969387755102,
 				"empty": false,
 				"height": 256,
 				"used": [
-					45,
-					20,
-					166,
-					216
+					8,
+					8,
+					180,
+					240
 				],
-				"width": 256
+				"width": 196
 			},
 			"priority": "P2",
-			"provider": "catalog",
+			"provider": "override",
 			"source": {
-				"path": "res://assets/game/items/catalog/wooden_wardrobe.png",
+				"path": "res://assets/game/interiors/furniture_a/wooden_wardrobe_south.png",
 				"type": "raster"
 			},
 			"tint": "ffffff"
@@ -5735,229 +5779,218 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
+			"family": "override-glass_vial",
 			"flags": [
-				"procedural",
-				"shared-shape"
+				"small-silhouette"
 			],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/cd53b45f7fcde7cc30c23ae8.png",
+				"image": "generated/sprites/3553b484eb7432e1efab3a6d.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "glass_vial",
 			"name": "Пустой флакон",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.21375,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					61,
+					8,
+					38,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/glass_vial.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
+			"family": "override-clean_water",
 			"flags": [
-				"procedural",
-				"shared-shape"
+				"shared-image"
 			],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/98cf23364f1a182784d86a3a.png",
+				"image": "generated/sprites/d1b1592595e7e42240230be6.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "clean_water",
 			"name": "Чистая вода",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.72,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					16,
+					8,
+					128,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/clean_water.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-shape"
-			],
+			"family": "override-distilled_water",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/5b4c3d4407ae0a11189be504.png",
+				"image": "generated/sprites/9e2f1aec19a29c73ff2c000a.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "distilled_water",
 			"name": "Дистиллированная вода",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.675,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
 					20,
-					160,
-					213
+					8,
+					120,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/distilled_water.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-carrier",
+			"family": "override-herb_solvent",
 			"flags": [
-				"tinted",
-				"shared-image",
-				"shared-shape"
+				"shared-image"
 			],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/0c88d32b398bc09bf0d05b33.png",
+				"image": "generated/sprites/d1b1592595e7e42240230be6.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "herb_solvent",
 			"name": "Травяной растворитель",
 			"pixels": {
-				"coverage": 0.69488525390625,
+				"coverage": 0.72,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					24,
-					18,
-					207,
-					220
+					16,
+					8,
+					128,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
 			"priority": "P2",
-			"provider": "alchemy",
+			"provider": "override",
 			"source": {
-				"path": "res://assets/game/items/catalog/herb_seeds.png",
+				"path": "res://assets/game/items/painted/herb_solvent.png",
 				"type": "raster"
 			},
-			"tint": "dac29b"
+			"tint": "ffffff"
 		},
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-carrier",
-			"flags": [
-				"tinted",
-				"shared-image",
-				"shared-shape"
-			],
+			"family": "override-herb_oil",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/0c88d32b398bc09bf0d05b33.png",
+				"image": "generated/sprites/be1bf9a141ec1caf49f1f8d9.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "herb_oil",
 			"name": "Растительное масло",
 			"pixels": {
-				"coverage": 0.69488525390625,
+				"coverage": 0.680625,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					24,
-					18,
-					207,
-					220
+					19,
+					8,
+					121,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
 			"priority": "P2",
-			"provider": "alchemy",
+			"provider": "override",
 			"source": {
-				"path": "res://assets/game/items/catalog/herb_seeds.png",
+				"path": "res://assets/game/items/painted/herb_oil.png",
 				"type": "raster"
 			},
-			"tint": "dac29b"
+			"tint": "ffffff"
 		},
 		{
 			"category": "resource",
@@ -6054,225 +6087,210 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-shape"
-			],
+			"family": "override-vital_essence",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/8dc164041bf71bfb3ee86f82.png",
+				"image": "generated/sprites/f0fe8fe6d21caaed179f745b.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "vital_essence",
 			"name": "Эссенция жизни",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.675,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
 					20,
-					160,
-					213
+					8,
+					120,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/vital_essence.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-shape"
-			],
+			"family": "override-ember_essence",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/cc5acf5a4a14cdc3edb29d03.png",
+				"image": "generated/sprites/1abb199371be1dfd60770a25.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "ember_essence",
 			"name": "Эссенция жара",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.675,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
 					20,
-					160,
-					213
+					8,
+					120,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/ember_essence.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-shape"
-			],
+			"family": "override-frost_essence",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/5dc4035ae66ce06a05a9b3bc.png",
+				"image": "generated/sprites/a5f082e3b26d82e95d14aa6a.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "frost_essence",
 			"name": "Эссенция инея",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.675,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
 					20,
-					160,
-					213
+					8,
+					120,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/frost_essence.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-shape"
-			],
+			"family": "override-shadow_essence",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/b11906c02cb6a36ec744c78e.png",
+				"image": "generated/sprites/bdc62c0c13bf493f910afd25.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "shadow_essence",
 			"name": "Эссенция тени",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.675,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
 					20,
-					160,
-					213
+					8,
+					120,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/shadow_essence.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-shape"
-			],
+			"family": "override-ether_essence",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/ef5be94eebad5af159e6d1ca.png",
+				"image": "generated/sprites/62b8f39fb171e2a39863476d.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "ether_essence",
 			"name": "Эфирная эссенция",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.675,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
 					20,
-					160,
-					213
+					8,
+					120,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/ether_essence.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -6524,90 +6542,84 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-shape"
-			],
+			"family": "override-wax_base",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/2c3318eeab7b6c28f58e91f6.png",
+				"image": "generated/sprites/8db875bae5d0ae019253eb6f.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "wax_base",
 			"name": "Восковая основа",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.77625,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					8,
+					11,
+					144,
+					138
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/wax_base.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-shape"
-			],
+			"family": "override-bee_essence",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/3643c6ff8441acb82d61bed3.png",
+				"image": "generated/sprites/fcf907f513210cc8582f97a8.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "bee_essence",
 			"name": "Пчелиная эссенция",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.675,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
 					20,
-					160,
-					213
+					8,
+					120,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/bee_essence.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -6660,90 +6672,86 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
+			"family": "override-propolis_tincture",
 			"flags": [
-				"procedural",
-				"shared-shape"
+				"small-silhouette"
 			],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/f7b33c16b4feb9c34469292d.png",
+				"image": "generated/sprites/cd52661d05e8a4bf8b3622db.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "propolis_tincture",
 			"name": "Настойка прополиса",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.30375,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					53,
+					8,
+					54,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/propolis_tincture.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-shape"
-			],
+			"family": "override-honey_syrup",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/99a53a4848fa3cbb0d8b0633.png",
+				"image": "generated/sprites/37e7d1e15d5d5899c1220c00.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "honey_syrup",
 			"name": "Медовый сироп",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.680625,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					19,
+					8,
+					121,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/honey_syrup.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -6796,46 +6804,42 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
-			],
+			"family": "override-field_mint_juice",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/f1f482c4653291fa67915927.png",
+				"image": "generated/sprites/0db2239fd05727da4288a39a.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "field_mint_juice",
 			"name": "Сок: Полевая мята",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.545625,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					31,
+					8,
+					97,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/field_mint_juice.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -6934,46 +6938,44 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
+			"family": "override-field_mint_tincture",
 			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
+				"small-silhouette"
 			],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/f1f482c4653291fa67915927.png",
+				"image": "generated/sprites/d46113342d4d4c97a2ab4379.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "field_mint_tincture",
 			"name": "Настойка: Полевая мята",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.30375,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					53,
+					8,
+					54,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/field_mint_tincture.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -7026,46 +7028,42 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
-			],
+			"family": "override-chamomile_juice",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/7d5ab5083fe8e836b544fedc.png",
+				"image": "generated/sprites/57596fb4f915c69705a89922.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "chamomile_juice",
 			"name": "Сок: Луговая ромашка",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.545625,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					31,
+					8,
+					97,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/chamomile_juice.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -7164,46 +7162,44 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
+			"family": "override-chamomile_tincture",
 			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
+				"small-silhouette"
 			],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/7d5ab5083fe8e836b544fedc.png",
+				"image": "generated/sprites/39b8393a5101a9bf44f77f8c.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "chamomile_tincture",
 			"name": "Настойка: Луговая ромашка",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.30375,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					53,
+					8,
+					54,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/chamomile_tincture.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -7256,46 +7252,42 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
-			],
+			"family": "override-nettle_juice",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/c081477963e574b38f156f71.png",
+				"image": "generated/sprites/d0554ae7e65152014c633cc1.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "nettle_juice",
 			"name": "Сок: Крапива",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.545625,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					31,
+					8,
+					97,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/nettle_juice.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -7394,46 +7386,44 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
+			"family": "override-nettle_tincture",
 			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
+				"small-silhouette"
 			],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/c081477963e574b38f156f71.png",
+				"image": "generated/sprites/a7a55254682555a5576912b1.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "nettle_tincture",
 			"name": "Настойка: Крапива",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.30375,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					53,
+					8,
+					54,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/nettle_tincture.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -7486,46 +7476,42 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
-			],
+			"family": "override-red_clover_juice",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/828d0166e377ad7af1057a8e.png",
+				"image": "generated/sprites/9abce74a1285aa84e4062873.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "red_clover_juice",
 			"name": "Сок: Красный клевер",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.545625,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					31,
+					8,
+					97,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/red_clover_juice.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -7624,46 +7610,44 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
+			"family": "override-red_clover_tincture",
 			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
+				"small-silhouette"
 			],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/828d0166e377ad7af1057a8e.png",
+				"image": "generated/sprites/c5b72ca9c795fabe20c8d6d0.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "red_clover_tincture",
 			"name": "Настойка: Красный клевер",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.30375,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					53,
+					8,
+					54,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/red_clover_tincture.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -7716,46 +7700,42 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
-			],
+			"family": "override-wild_thyme_juice",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/6f0c2be2636a509e0d8d63f4.png",
+				"image": "generated/sprites/46b117a9428e709b82db98d0.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "wild_thyme_juice",
 			"name": "Сок: Дикий чабрец",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.545625,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					31,
+					8,
+					97,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/wild_thyme_juice.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -7854,46 +7834,44 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
+			"family": "override-wild_thyme_tincture",
 			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
+				"small-silhouette"
 			],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/6f0c2be2636a509e0d8d63f4.png",
+				"image": "generated/sprites/75b12f3fb49408b13dd78dfa.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "wild_thyme_tincture",
 			"name": "Настойка: Дикий чабрец",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.30375,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					53,
+					8,
+					54,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/wild_thyme_tincture.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -7946,46 +7924,42 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
-			],
+			"family": "override-yarrow_juice",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/c13226c6d8a5a3abcf8d09df.png",
+				"image": "generated/sprites/db3c30d0b64584c0a97927b6.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "yarrow_juice",
 			"name": "Сок: Тысячелистник",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.545625,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					31,
+					8,
+					97,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/yarrow_juice.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -8084,46 +8058,44 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
+			"family": "override-yarrow_tincture",
 			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
+				"small-silhouette"
 			],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/c13226c6d8a5a3abcf8d09df.png",
+				"image": "generated/sprites/21b76c8b0954f35f333c969e.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "yarrow_tincture",
 			"name": "Настойка: Тысячелистник",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.30375,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					53,
+					8,
+					54,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/yarrow_tincture.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -8176,46 +8148,42 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
-			],
+			"family": "override-sage_juice",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/65e3ec6f1b9bcd0cb800bfbf.png",
+				"image": "generated/sprites/907f6c4ed47a98c0e96c2a6e.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "sage_juice",
 			"name": "Сок: Лесной шалфей",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.545625,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					31,
+					8,
+					97,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/sage_juice.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -8314,138 +8282,128 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
+			"family": "override-sage_tincture",
 			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
+				"small-silhouette"
 			],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/65e3ec6f1b9bcd0cb800bfbf.png",
+				"image": "generated/sprites/617acd0801866c87e1eba126.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "sage_tincture",
 			"name": "Настойка: Лесной шалфей",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.30375,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					53,
+					8,
+					54,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/sage_tincture.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "herb-leaves",
-			"flags": [
-				"tinted",
-				"shared-image",
-				"shared-shape"
-			],
+			"family": "override-lemon_balm",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/dd37c82ee620a02dfe8f2b50.png",
+				"image": "generated/sprites/3f64d24b7900d22e5f2b4e52.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "lemon_balm",
 			"name": "Мелисса",
 			"pixels": {
-				"coverage": 0.711669921875,
+				"coverage": 0.77625,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					22,
-					18,
-					212,
-					220
+					8,
+					11,
+					144,
+					138
 				],
-				"width": 256
+				"width": 160
 			},
 			"priority": "P2",
-			"provider": "alchemy",
+			"provider": "override",
 			"source": {
-				"path": "res://assets/game/items/catalog/herbs.png",
+				"path": "res://assets/game/items/painted/lemon_balm.png",
 				"type": "raster"
 			},
-			"tint": "d8e6c2"
+			"tint": "ffffff"
 		},
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
-			],
+			"family": "override-lemon_balm_juice",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/cd4febb19123a58d69112f21.png",
+				"image": "generated/sprites/d25d418f2c6de174e10673b4.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "lemon_balm_juice",
 			"name": "Сок: Мелисса",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.545625,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					31,
+					8,
+					97,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/lemon_balm_juice.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -8544,46 +8502,44 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
+			"family": "override-lemon_balm_tincture",
 			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
+				"small-silhouette"
 			],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/cd4febb19123a58d69112f21.png",
+				"image": "generated/sprites/b3ef84c99ba1a73b56692b58.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "lemon_balm_tincture",
 			"name": "Настойка: Мелисса",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.30375,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					53,
+					8,
+					54,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/lemon_balm_tincture.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -8636,46 +8592,42 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
-			],
+			"family": "override-valerian_juice",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/6ce4fb38439519453538c670.png",
+				"image": "generated/sprites/b7bc4d91d7201f9e18213671.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "valerian_juice",
 			"name": "Сок: Сонный корень",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.545625,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					31,
+					8,
+					97,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/valerian_juice.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -8774,46 +8726,44 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
+			"family": "override-valerian_tincture",
 			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
+				"small-silhouette"
 			],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/6ce4fb38439519453538c670.png",
+				"image": "generated/sprites/14095f1444662f0da7f1a8e6.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "valerian_tincture",
 			"name": "Настойка: Сонный корень",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.30375,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					53,
+					8,
+					54,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/valerian_tincture.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -8866,46 +8816,42 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
-			],
+			"family": "override-wormwood_juice",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/1712d22432afe6136f0a9d9b.png",
+				"image": "generated/sprites/2a0c7a240acb21cba7aed212.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "wormwood_juice",
 			"name": "Сок: Горькая полынь",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.545625,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					31,
+					8,
+					97,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/wormwood_juice.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -9004,46 +8950,44 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
+			"family": "override-wormwood_tincture",
 			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
+				"small-silhouette"
 			],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/1712d22432afe6136f0a9d9b.png",
+				"image": "generated/sprites/06e310c10b4d01182dcd4c65.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "wormwood_tincture",
 			"name": "Настойка: Горькая полынь",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.30375,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					53,
+					8,
+					54,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/wormwood_tincture.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -9096,46 +9040,42 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
-			],
+			"family": "override-juniper_juice",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/afccbdc6b6fb30013dca0274.png",
+				"image": "generated/sprites/20860d3de745d6879ff77617.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "juniper_juice",
 			"name": "Сок: Лесной можжевельник",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.545625,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					31,
+					8,
+					97,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/juniper_juice.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -9234,46 +9174,44 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
+			"family": "override-juniper_tincture",
 			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
+				"small-silhouette"
 			],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/afccbdc6b6fb30013dca0274.png",
+				"image": "generated/sprites/0c854d19dd3995b64f61731a.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "juniper_tincture",
 			"name": "Настойка: Лесной можжевельник",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.30375,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					53,
+					8,
+					54,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/juniper_tincture.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -9326,46 +9264,42 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
-			],
+			"family": "override-rosehip_juice",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/988bbbdf7e2257083d1d4e4b.png",
+				"image": "generated/sprites/64fbc7873e394150ff684864.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "rosehip_juice",
 			"name": "Сок: Шиповник",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.545625,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					31,
+					8,
+					97,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/rosehip_juice.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -9464,46 +9398,44 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
+			"family": "override-rosehip_tincture",
 			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
+				"small-silhouette"
 			],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/988bbbdf7e2257083d1d4e4b.png",
+				"image": "generated/sprites/42da05bbed1783f97aec07e9.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "rosehip_tincture",
 			"name": "Настойка: Шиповник",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.30375,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					53,
+					8,
+					54,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/rosehip_tincture.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -9556,46 +9488,42 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
-			],
+			"family": "override-ember_grass_juice",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/3ccdcee9c964a0054022cd25.png",
+				"image": "generated/sprites/e0b669b1c964b4cb9facbab4.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "ember_grass_juice",
 			"name": "Сок: Жар-трава",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.545625,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					31,
+					8,
+					97,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/ember_grass_juice.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -9694,46 +9622,44 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
+			"family": "override-ember_grass_tincture",
 			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
+				"small-silhouette"
 			],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/3ccdcee9c964a0054022cd25.png",
+				"image": "generated/sprites/12efb7c687650a7e3093e6c9.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "ember_grass_tincture",
 			"name": "Настойка: Жар-трава",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.30375,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					53,
+					8,
+					54,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/ember_grass_tincture.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -9786,46 +9712,42 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
-			],
+			"family": "override-silver_lichen_juice",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/3e5ec6936bfa05e04fea236b.png",
+				"image": "generated/sprites/3d22f5bba1b800317da5d48a.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "silver_lichen_juice",
 			"name": "Сок: Серебряный лишайник",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.545625,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					31,
+					8,
+					97,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/silver_lichen_juice.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -9924,46 +9846,44 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
+			"family": "override-silver_lichen_tincture",
 			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
+				"small-silhouette"
 			],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/3e5ec6936bfa05e04fea236b.png",
+				"image": "generated/sprites/afed1a146ef3bc27fc639dbd.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "silver_lichen_tincture",
 			"name": "Настойка: Серебряный лишайник",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.30375,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					53,
+					8,
+					54,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/silver_lichen_tincture.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -10016,46 +9936,42 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
-			],
+			"family": "override-bitter_root_juice",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/d1965956dfb5a9db36d685e1.png",
+				"image": "generated/sprites/41267ec831b8013d653fb097.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "bitter_root_juice",
 			"name": "Сок: Каменный горечник",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.545625,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					31,
+					8,
+					97,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/bitter_root_juice.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -10154,46 +10070,44 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
+			"family": "override-bitter_root_tincture",
 			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
+				"small-silhouette"
 			],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/d1965956dfb5a9db36d685e1.png",
+				"image": "generated/sprites/9f2de8df5ef00bee29685f67.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "bitter_root_tincture",
 			"name": "Настойка: Каменный горечник",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.30375,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					53,
+					8,
+					54,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/bitter_root_tincture.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -10246,46 +10160,42 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
-			],
+			"family": "override-ghost_orchid_juice",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/b4b1cf984068b595751a7fb2.png",
+				"image": "generated/sprites/da34dee30a5a75d78703f2af.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "ghost_orchid_juice",
 			"name": "Сок: Призрачная орхидея",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.545625,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					31,
+					8,
+					97,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/ghost_orchid_juice.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -10384,46 +10294,44 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
+			"family": "override-ghost_orchid_tincture",
 			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
+				"small-silhouette"
 			],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/b4b1cf984068b595751a7fb2.png",
+				"image": "generated/sprites/dd18f28c19f7c44bea6c31c6.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "ghost_orchid_tincture",
 			"name": "Настойка: Призрачная орхидея",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.30375,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					53,
+					8,
+					54,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/ghost_orchid_tincture.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -10476,46 +10384,42 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
-			],
+			"family": "override-nightshade_juice",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/334d858de6cf0698adb3d36d.png",
+				"image": "generated/sprites/0bbaea86f8d00ce25497298f.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "nightshade_juice",
 			"name": "Сок: Ночная паслёнка",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.545625,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					31,
+					8,
+					97,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/nightshade_juice.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -10614,46 +10518,44 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
+			"family": "override-nightshade_tincture",
 			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
+				"small-silhouette"
 			],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/334d858de6cf0698adb3d36d.png",
+				"image": "generated/sprites/1e4fec549e11f3e067cb9452.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "nightshade_tincture",
 			"name": "Настойка: Ночная паслёнка",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.30375,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					53,
+					8,
+					54,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/nightshade_tincture.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -10706,46 +10608,42 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
-			],
+			"family": "override-bloodthorn_juice",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/7005a2e7db73baeb4f76db50.png",
+				"image": "generated/sprites/033c651053b3342fd66d0986.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "bloodthorn_juice",
 			"name": "Сок: Кровоцвет",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.545625,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					31,
+					8,
+					97,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/bloodthorn_juice.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -10844,46 +10742,44 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
+			"family": "override-bloodthorn_tincture",
 			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
+				"small-silhouette"
 			],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/7005a2e7db73baeb4f76db50.png",
+				"image": "generated/sprites/c26d4c18b53ee1c7007fd38c.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "bloodthorn_tincture",
 			"name": "Настойка: Кровоцвет",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.30375,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					53,
+					8,
+					54,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/bloodthorn_tincture.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -10936,46 +10832,42 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
-			],
+			"family": "override-sporecap_juice",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/5c5a0d4e1dae2a17a7770dbd.png",
+				"image": "generated/sprites/b6858ce6a5d1712df9e995fd.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "sporecap_juice",
 			"name": "Сок: Медовый спорник",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.545625,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					31,
+					8,
+					97,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/sporecap_juice.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -11074,46 +10966,44 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
+			"family": "override-sporecap_tincture",
 			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
+				"small-silhouette"
 			],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/5c5a0d4e1dae2a17a7770dbd.png",
+				"image": "generated/sprites/a592c6efd86ef4b9cfc68ad6.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "sporecap_tincture",
 			"name": "Настойка: Медовый спорник",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.30375,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					53,
+					8,
+					54,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/sporecap_tincture.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -11166,46 +11056,42 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
-			],
+			"family": "override-moon_grass_juice",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/bc31eac84e983ab469196079.png",
+				"image": "generated/sprites/5ba5bf0c0ec66dfa51e64c5e.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "moon_grass_juice",
 			"name": "Сок: Светящаяся лунная трава",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.545625,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					31,
+					8,
+					97,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/moon_grass_juice.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -11304,46 +11190,44 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
+			"family": "override-moon_grass_tincture",
 			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
+				"small-silhouette"
 			],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/bc31eac84e983ab469196079.png",
+				"image": "generated/sprites/ee9d0826eba07d564c160349.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "moon_grass_tincture",
 			"name": "Настойка: Светящаяся лунная трава",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.30375,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					53,
+					8,
+					54,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/moon_grass_tincture.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -11396,46 +11280,42 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
-			],
+			"family": "override-moon_moss_juice",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/86a2b13376fb216018c01962.png",
+				"image": "generated/sprites/26b07428c88b1fb4989a9a44.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "moon_moss_juice",
 			"name": "Сок: Лунный мох",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.545625,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					31,
+					8,
+					97,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/moon_moss_juice.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -11534,46 +11414,44 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
+			"family": "override-moon_moss_tincture",
 			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
+				"small-silhouette"
 			],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/86a2b13376fb216018c01962.png",
+				"image": "generated/sprites/23b462b6c4476d73a2498c42.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "moon_moss_tincture",
 			"name": "Настойка: Лунный мох",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.30375,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					53,
+					8,
+					54,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/moon_moss_tincture.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -11626,46 +11504,42 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
-			],
+			"family": "override-frost_fern_juice",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/d5cd92defd3242d7d7dc5856.png",
+				"image": "generated/sprites/d45bd04556c1251aafc74c85.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "frost_fern_juice",
 			"name": "Сок: Инейный папоротник",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.545625,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					31,
+					8,
+					97,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/frost_fern_juice.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -11764,46 +11638,44 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
+			"family": "override-frost_fern_tincture",
 			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
+				"small-silhouette"
 			],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/d5cd92defd3242d7d7dc5856.png",
+				"image": "generated/sprites/7661d66253d50813473eac05.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "frost_fern_tincture",
 			"name": "Настойка: Инейный папоротник",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.30375,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					53,
+					8,
+					54,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/frost_fern_tincture.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -11856,46 +11728,42 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
-			],
+			"family": "override-starflower_juice",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/bb9a4a05f2a67d1b0bbfa1b1.png",
+				"image": "generated/sprites/34ad428459e227e041855c59.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "starflower_juice",
 			"name": "Сок: Звездоцвет",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.545625,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					31,
+					8,
+					97,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/starflower_juice.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -11994,46 +11862,44 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
+			"family": "override-starflower_tincture",
 			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
+				"small-silhouette"
 			],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/bb9a4a05f2a67d1b0bbfa1b1.png",
+				"image": "generated/sprites/81729cadc41aceb0e7a1992a.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "starflower_tincture",
 			"name": "Настойка: Звездоцвет",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.30375,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					53,
+					8,
+					54,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/starflower_tincture.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -12086,46 +11952,42 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
-			],
+			"family": "override-sunpetal_juice",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/0190c4081ef9705db557c90c.png",
+				"image": "generated/sprites/bc8cf3a82cbcdd744f9f05e3.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "sunpetal_juice",
 			"name": "Сок: Солнечный лепестник",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.545625,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					31,
+					8,
+					97,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/sunpetal_juice.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -12224,901 +12086,850 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "alchemy-vial",
+			"family": "override-sunpetal_tincture",
 			"flags": [
-				"procedural",
-				"shared-image",
-				"shared-shape"
+				"small-silhouette"
 			],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/0190c4081ef9705db557c90c.png",
+				"image": "generated/sprites/f906ef28d4aec9f357bf15e4.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "sunpetal_tincture",
 			"name": "Настойка: Солнечный лепестник",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.30375,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					53,
+					8,
+					54,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/sunpetal_tincture.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
 		{
 			"category": "food",
 			"decision": "review",
-			"family": "alchemy-vial",
+			"family": "override-meadow_tonic",
 			"flags": [
-				"procedural",
-				"shared-shape"
+				"small-silhouette"
 			],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/ebd006baf62d97d88b66ebbf.png",
+				"image": "generated/sprites/e29a563ca67d318ca29d04e9.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "meadow_tonic",
 			"name": "Луговой тоник",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.30375,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					53,
+					8,
+					54,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/meadow_tonic.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
 		{
 			"category": "food",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-shape"
-			],
+			"family": "override-clarity_drops",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/3a5b1793ac5e561f5b9a0a32.png",
+				"image": "generated/sprites/42ffd62073389fbe478c6011.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "clarity_drops",
 			"name": "Капли ясности",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.675,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
 					20,
-					160,
-					213
+					8,
+					120,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/clarity_drops.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
 		{
 			"category": "food",
 			"decision": "review",
-			"family": "alchemy-vial",
+			"family": "override-vigor_infusion",
 			"flags": [
-				"procedural",
-				"shared-shape"
+				"small-silhouette"
 			],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/ea7fa598f25dceccd3780c01.png",
+				"image": "generated/sprites/7dfbdc18bbdd4d442a63621e.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "vigor_infusion",
 			"name": "Настой бодрости",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.30375,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					53,
+					8,
+					54,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/vigor_infusion.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
 		{
 			"category": "food",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-shape"
-			],
+			"family": "override-honey_balm",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/0c570d4033b9403ec5a42495.png",
+				"image": "generated/sprites/7a85313710cbfa374f9f6975.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "honey_balm",
 			"name": "Медовый бальзам",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.77625,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					8,
+					11,
+					144,
+					138
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/honey_balm.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
 		{
 			"category": "food",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-shape"
-			],
+			"family": "override-hunter_elixir",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/06475023e4a3c7b8bdf7ad58.png",
+				"image": "generated/sprites/d03e698dcc6eb2faec77aea3.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "hunter_elixir",
 			"name": "Эликсир охотника",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.675,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
 					20,
-					160,
-					213
+					8,
+					120,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/hunter_elixir.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
 		{
 			"category": "food",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-shape"
-			],
+			"family": "override-stone_skin_draught",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/1327915e560635d891b708eb.png",
+				"image": "generated/sprites/0bbab69b2cf9a5d94bfe3444.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "stone_skin_draught",
 			"name": "Каменная кожа",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.675,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
 					20,
-					160,
-					213
+					8,
+					120,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/stone_skin_draught.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
 		{
 			"category": "food",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-shape"
-			],
+			"family": "override-wind_step_elixir",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/7feb7aaa8f920dec6bd0279d.png",
+				"image": "generated/sprites/41a729af0e79d6aa98d7a3ae.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "wind_step_elixir",
 			"name": "Шаг ветра",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.675,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
 					20,
-					160,
-					213
+					8,
+					120,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/wind_step_elixir.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
 		{
 			"category": "food",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-shape"
-			],
+			"family": "override-moon_veil_potion",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/85ef175bc733e2973543e9ee.png",
+				"image": "generated/sprites/fdc632197d6b58321bc60ce8.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "moon_veil_potion",
 			"name": "Лунная вуаль",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.675,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
 					20,
-					160,
-					213
+					8,
+					120,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/moon_veil_potion.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
 		{
 			"category": "food",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-shape"
-			],
+			"family": "override-life_balsam",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/2338ace78aa1536954cca4cc.png",
+				"image": "generated/sprites/47e331ca2652a8757d95d520.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "life_balsam",
 			"name": "Живой бальзам",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.77625,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					8,
+					11,
+					144,
+					138
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/life_balsam.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
 		{
 			"category": "food",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-shape"
-			],
+			"family": "override-greater_healing",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/7c66617a86d767b8da06a40f.png",
+				"image": "generated/sprites/418a2620e472b27f1c9847a7.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "greater_healing",
 			"name": "Крепкое лечебное зелье",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.675,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
 					20,
-					160,
-					213
+					8,
+					120,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/greater_healing.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
 		{
 			"category": "food",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-shape"
-			],
+			"family": "override-greater_mana",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/801bbbf63e5b20fea6d062ab.png",
+				"image": "generated/sprites/cf973ed1ca2374f97d56a5e9.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "greater_mana",
 			"name": "Крепкое зелье маны",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.675,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
 					20,
-					160,
-					213
+					8,
+					120,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/greater_mana.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
 		{
 			"category": "food",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-shape"
-			],
+			"family": "override-balanced_elixir",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/a63085b0956565b8f7fb2ee1.png",
+				"image": "generated/sprites/04f5bc2e28c6713294f2df2c.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "balanced_elixir",
 			"name": "Эликсир равновесия",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.675,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
 					20,
-					160,
-					213
+					8,
+					120,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/balanced_elixir.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
 		{
 			"category": "food",
 			"decision": "review",
-			"family": "alchemy-vial",
+			"family": "override-purifying_decoction",
 			"flags": [
-				"procedural",
-				"shared-shape"
+				"small-silhouette"
 			],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/621307af68661100bbc9488a.png",
+				"image": "generated/sprites/31845e339b4dc0707e3c59d5.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "purifying_decoction",
 			"name": "Очищающий отвар",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.30375,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					53,
+					8,
+					54,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/purifying_decoction.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
 		{
 			"category": "food",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-shape"
-			],
+			"family": "override-insect_repellent",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/a5ee38378adf526793fd1e57.png",
+				"image": "generated/sprites/5138e8684a5f748e81263249.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "insect_repellent",
 			"name": "Бальзам от насекомых",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.77625,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					8,
+					11,
+					144,
+					138
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/insect_repellent.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
 		{
 			"category": "food",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-shape"
-			],
+			"family": "override-miners_oil",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/c28d05ba52965f51e9fa9566.png",
+				"image": "generated/sprites/ae38eb2807652171d50b2e70.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "miners_oil",
 			"name": "Масло рудокопа",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.680625,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					19,
+					8,
+					121,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/miners_oil.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
 		{
 			"category": "food",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-shape"
-			],
+			"family": "override-solar_concentrate",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/c48ca8451e67441a941e40c7.png",
+				"image": "generated/sprites/9f51bf879b232bc90f70682e.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "solar_concentrate",
 			"name": "Солнечный концентрат",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.675,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
 					20,
-					160,
-					213
+					8,
+					120,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/solar_concentrate.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
 		{
 			"category": "food",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-shape"
-			],
+			"family": "override-bee_balm",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/f7b2f09d7dbce3eddfdf1d50.png",
+				"image": "generated/sprites/f3d1781e9f81aff70902a836.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "bee_balm",
 			"name": "Пчелиный бальзам",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.77625,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					8,
+					11,
+					144,
+					138
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/bee_balm.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
 		{
 			"category": "food",
 			"decision": "review",
-			"family": "alchemy-vial",
-			"flags": [
-				"procedural",
-				"shared-shape"
-			],
+			"family": "override-propolis_balm",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/0887df8bf0832d8e53abf483.png",
+				"image": "generated/sprites/a38e0a1fe8a4a16b15bbca2e.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "propolis_balm",
 			"name": "Прополисная мазь",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.77625,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					8,
+					11,
+					144,
+					138
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/propolis_balm.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
 		{
 			"category": "food",
 			"decision": "review",
-			"family": "alchemy-vial",
+			"family": "override-royal_tonic",
 			"flags": [
-				"procedural",
-				"shared-shape"
+				"small-silhouette"
 			],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/1ba346c1fa36a3681f5e3150.png",
+				"image": "generated/sprites/2f4863e32fd50b7bc28abb17.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "royal_tonic",
 			"name": "Маточный тоник",
 			"pixels": {
-				"coverage": 0.52001953125,
+				"coverage": 0.30375,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					48,
-					20,
-					160,
-					213
+					53,
+					8,
+					54,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "alchemy",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/royal_tonic.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -14424,8 +14235,7 @@
 			"decision": "review",
 			"family": "workshop-bottle",
 			"flags": [
-				"procedural",
-				"shared-shape"
+				"procedural"
 			],
 			"icon": {
 				"flip": false,
@@ -14781,89 +14591,84 @@
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "workshop-bottle",
-			"flags": [
-				"procedural",
-				"shared-shape"
-			],
+			"family": "override-glass_bottle",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/48a2ed30f8c222fed8e5d246.png",
+				"image": "generated/sprites/bc83b3be6d129c138d2cf24f.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "glass_bottle",
 			"name": "Стеклянная бутылка",
 			"pixels": {
-				"coverage": 0.52569580078125,
+				"coverage": 0.680625,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					41,
-					38,
-					174,
-					198
+					19,
+					8,
+					121,
+					144
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "workshop",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/glass_bottle.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
 		{
 			"category": "resource",
 			"decision": "review",
-			"family": "workshop-jar",
-			"flags": [
-				"procedural"
-			],
+			"family": "override-glass_jar",
+			"flags": [],
 			"icon": {
 				"flip": false,
-				"image": "generated/sprites/7281ec950c21b58cc1465f0a.png",
+				"image": "generated/sprites/25c542e0eac2cc3be870e582.png",
 				"pivot": [
-					128.0,
-					256.0
+					80.0,
+					160.0
 				],
 				"rect": [
 					0.0,
 					0.0,
-					256.0,
-					256.0
+					160.0,
+					160.0
 				],
 				"scale": 1.0
 			},
 			"id": "glass_jar",
 			"name": "Стеклянная банка",
 			"pixels": {
-				"coverage": 0.4991455078125,
+				"coverage": 0.770625,
 				"empty": false,
-				"height": 256,
+				"height": 160,
 				"used": [
-					41,
-					48,
-					174,
-					188
+					8,
+					11,
+					144,
+					137
 				],
-				"width": 256
+				"width": 160
 			},
-			"priority": "P1",
-			"provider": "workshop",
+			"priority": "P2",
+			"provider": "override",
 			"source": {
-				"path": "",
-				"type": "generated-vector"
+				"path": "res://assets/game/items/painted/glass_jar.png",
+				"type": "raster"
 			},
 			"tint": "ffffff"
 		},
@@ -17253,10 +17058,6 @@
 		}
 	],
 	"families": {
-		"alchemy-carrier": [
-			"herb_solvent",
-			"herb_oil"
-		],
 		"alchemy-native-bees": [
 			"bees"
 		],
@@ -17271,87 +17072,6 @@
 		],
 		"alchemy-native-propolis": [
 			"propolis"
-		],
-		"alchemy-vial": [
-			"glass_vial",
-			"clean_water",
-			"distilled_water",
-			"vital_essence",
-			"ember_essence",
-			"frost_essence",
-			"shadow_essence",
-			"ether_essence",
-			"wax_base",
-			"bee_essence",
-			"propolis_tincture",
-			"honey_syrup",
-			"field_mint_juice",
-			"field_mint_tincture",
-			"chamomile_juice",
-			"chamomile_tincture",
-			"nettle_juice",
-			"nettle_tincture",
-			"red_clover_juice",
-			"red_clover_tincture",
-			"wild_thyme_juice",
-			"wild_thyme_tincture",
-			"yarrow_juice",
-			"yarrow_tincture",
-			"sage_juice",
-			"sage_tincture",
-			"lemon_balm_juice",
-			"lemon_balm_tincture",
-			"valerian_juice",
-			"valerian_tincture",
-			"wormwood_juice",
-			"wormwood_tincture",
-			"juniper_juice",
-			"juniper_tincture",
-			"rosehip_juice",
-			"rosehip_tincture",
-			"ember_grass_juice",
-			"ember_grass_tincture",
-			"silver_lichen_juice",
-			"silver_lichen_tincture",
-			"bitter_root_juice",
-			"bitter_root_tincture",
-			"ghost_orchid_juice",
-			"ghost_orchid_tincture",
-			"nightshade_juice",
-			"nightshade_tincture",
-			"bloodthorn_juice",
-			"bloodthorn_tincture",
-			"sporecap_juice",
-			"sporecap_tincture",
-			"moon_grass_juice",
-			"moon_grass_tincture",
-			"moon_moss_juice",
-			"moon_moss_tincture",
-			"frost_fern_juice",
-			"frost_fern_tincture",
-			"starflower_juice",
-			"starflower_tincture",
-			"sunpetal_juice",
-			"sunpetal_tincture",
-			"meadow_tonic",
-			"clarity_drops",
-			"vigor_infusion",
-			"honey_balm",
-			"hunter_elixir",
-			"stone_skin_draught",
-			"wind_step_elixir",
-			"moon_veil_potion",
-			"life_balsam",
-			"greater_healing",
-			"greater_mana",
-			"balanced_elixir",
-			"purifying_decoction",
-			"insect_repellent",
-			"miners_oil",
-			"solar_concentrate",
-			"bee_balm",
-			"propolis_balm",
-			"royal_tonic"
 		],
 		"catalog-advanced_fishing_rod": [
 			"advanced_fishing_rod"
@@ -17602,9 +17322,6 @@
 		"catalog-hoe": [
 			"hoe"
 		],
-		"catalog-home_chest": [
-			"home_chest"
-		],
 		"catalog-honey": [
 			"honey"
 		],
@@ -17776,9 +17493,6 @@
 		"catalog-rope": [
 			"rope"
 		],
-		"catalog-rustic_table": [
-			"rustic_table"
-		],
 		"catalog-seeds": [
 			"seeds"
 		],
@@ -17817,9 +17531,6 @@
 		],
 		"catalog-strength_potion": [
 			"strength_potion"
-		],
-		"catalog-sunflower": [
-			"sunflower"
 		],
 		"catalog-sunflower_seeds": [
 			"sunflower_seeds"
@@ -17878,17 +17589,8 @@
 		"catalog-wood": [
 			"wood"
 		],
-		"catalog-wooden_chair": [
-			"wooden_chair"
-		],
-		"catalog-wooden_wardrobe": [
-			"wooden_wardrobe"
-		],
 		"catalog-wool": [
 			"wool"
-		],
-		"catalog-woven_rug": [
-			"woven_rug"
 		],
 		"catalog-yarn": [
 			"yarn"
@@ -17961,7 +17663,6 @@
 			"field_mint",
 			"nettle",
 			"sage",
-			"lemon_balm",
 			"valerian",
 			"wormwood",
 			"juniper",
@@ -18003,8 +17704,281 @@
 			"starflower_powder",
 			"sunpetal_powder"
 		],
+		"override-balanced_elixir": [
+			"balanced_elixir"
+		],
+		"override-bee_balm": [
+			"bee_balm"
+		],
+		"override-bee_essence": [
+			"bee_essence"
+		],
+		"override-bitter_root_juice": [
+			"bitter_root_juice"
+		],
+		"override-bitter_root_tincture": [
+			"bitter_root_tincture"
+		],
+		"override-bloodthorn_juice": [
+			"bloodthorn_juice"
+		],
+		"override-bloodthorn_tincture": [
+			"bloodthorn_tincture"
+		],
+		"override-chamomile_juice": [
+			"chamomile_juice"
+		],
+		"override-chamomile_tincture": [
+			"chamomile_tincture"
+		],
+		"override-clarity_drops": [
+			"clarity_drops"
+		],
+		"override-clean_water": [
+			"clean_water"
+		],
 		"override-crystal": [
 			"crystal"
+		],
+		"override-distilled_water": [
+			"distilled_water"
+		],
+		"override-ember_essence": [
+			"ember_essence"
+		],
+		"override-ember_grass_juice": [
+			"ember_grass_juice"
+		],
+		"override-ember_grass_tincture": [
+			"ember_grass_tincture"
+		],
+		"override-ether_essence": [
+			"ether_essence"
+		],
+		"override-field_mint_juice": [
+			"field_mint_juice"
+		],
+		"override-field_mint_tincture": [
+			"field_mint_tincture"
+		],
+		"override-frost_essence": [
+			"frost_essence"
+		],
+		"override-frost_fern_juice": [
+			"frost_fern_juice"
+		],
+		"override-frost_fern_tincture": [
+			"frost_fern_tincture"
+		],
+		"override-ghost_orchid_juice": [
+			"ghost_orchid_juice"
+		],
+		"override-ghost_orchid_tincture": [
+			"ghost_orchid_tincture"
+		],
+		"override-glass_bottle": [
+			"glass_bottle"
+		],
+		"override-glass_jar": [
+			"glass_jar"
+		],
+		"override-glass_vial": [
+			"glass_vial"
+		],
+		"override-greater_healing": [
+			"greater_healing"
+		],
+		"override-greater_mana": [
+			"greater_mana"
+		],
+		"override-herb_oil": [
+			"herb_oil"
+		],
+		"override-herb_solvent": [
+			"herb_solvent"
+		],
+		"override-home_chest": [
+			"home_chest"
+		],
+		"override-honey_balm": [
+			"honey_balm"
+		],
+		"override-honey_syrup": [
+			"honey_syrup"
+		],
+		"override-hunter_elixir": [
+			"hunter_elixir"
+		],
+		"override-insect_repellent": [
+			"insect_repellent"
+		],
+		"override-juniper_juice": [
+			"juniper_juice"
+		],
+		"override-juniper_tincture": [
+			"juniper_tincture"
+		],
+		"override-lemon_balm": [
+			"lemon_balm"
+		],
+		"override-lemon_balm_juice": [
+			"lemon_balm_juice"
+		],
+		"override-lemon_balm_tincture": [
+			"lemon_balm_tincture"
+		],
+		"override-life_balsam": [
+			"life_balsam"
+		],
+		"override-meadow_tonic": [
+			"meadow_tonic"
+		],
+		"override-miners_oil": [
+			"miners_oil"
+		],
+		"override-moon_grass_juice": [
+			"moon_grass_juice"
+		],
+		"override-moon_grass_tincture": [
+			"moon_grass_tincture"
+		],
+		"override-moon_moss_juice": [
+			"moon_moss_juice"
+		],
+		"override-moon_moss_tincture": [
+			"moon_moss_tincture"
+		],
+		"override-moon_veil_potion": [
+			"moon_veil_potion"
+		],
+		"override-nettle_juice": [
+			"nettle_juice"
+		],
+		"override-nettle_tincture": [
+			"nettle_tincture"
+		],
+		"override-nightshade_juice": [
+			"nightshade_juice"
+		],
+		"override-nightshade_tincture": [
+			"nightshade_tincture"
+		],
+		"override-propolis_balm": [
+			"propolis_balm"
+		],
+		"override-propolis_tincture": [
+			"propolis_tincture"
+		],
+		"override-purifying_decoction": [
+			"purifying_decoction"
+		],
+		"override-qa_teleport_stone": [
+			"qa_teleport_stone"
+		],
+		"override-red_clover_juice": [
+			"red_clover_juice"
+		],
+		"override-red_clover_tincture": [
+			"red_clover_tincture"
+		],
+		"override-rosehip_juice": [
+			"rosehip_juice"
+		],
+		"override-rosehip_tincture": [
+			"rosehip_tincture"
+		],
+		"override-royal_tonic": [
+			"royal_tonic"
+		],
+		"override-rustic_table": [
+			"rustic_table"
+		],
+		"override-sage_juice": [
+			"sage_juice"
+		],
+		"override-sage_tincture": [
+			"sage_tincture"
+		],
+		"override-shadow_essence": [
+			"shadow_essence"
+		],
+		"override-silver_lichen_juice": [
+			"silver_lichen_juice"
+		],
+		"override-silver_lichen_tincture": [
+			"silver_lichen_tincture"
+		],
+		"override-solar_concentrate": [
+			"solar_concentrate"
+		],
+		"override-sporecap_juice": [
+			"sporecap_juice"
+		],
+		"override-sporecap_tincture": [
+			"sporecap_tincture"
+		],
+		"override-starflower_juice": [
+			"starflower_juice"
+		],
+		"override-starflower_tincture": [
+			"starflower_tincture"
+		],
+		"override-stone_skin_draught": [
+			"stone_skin_draught"
+		],
+		"override-sunflower": [
+			"sunflower"
+		],
+		"override-sunpetal_juice": [
+			"sunpetal_juice"
+		],
+		"override-sunpetal_tincture": [
+			"sunpetal_tincture"
+		],
+		"override-valerian_juice": [
+			"valerian_juice"
+		],
+		"override-valerian_tincture": [
+			"valerian_tincture"
+		],
+		"override-vigor_infusion": [
+			"vigor_infusion"
+		],
+		"override-vital_essence": [
+			"vital_essence"
+		],
+		"override-wax_base": [
+			"wax_base"
+		],
+		"override-wild_thyme_juice": [
+			"wild_thyme_juice"
+		],
+		"override-wild_thyme_tincture": [
+			"wild_thyme_tincture"
+		],
+		"override-wind_step_elixir": [
+			"wind_step_elixir"
+		],
+		"override-wooden_chair": [
+			"wooden_chair"
+		],
+		"override-wooden_wardrobe": [
+			"wooden_wardrobe"
+		],
+		"override-wormwood_juice": [
+			"wormwood_juice"
+		],
+		"override-wormwood_tincture": [
+			"wormwood_tincture"
+		],
+		"override-woven_rug": [
+			"woven_rug"
+		],
+		"override-yarrow_juice": [
+			"yarrow_juice"
+		],
+		"override-yarrow_tincture": [
+			"yarrow_tincture"
 		],
 		"research-arcane_dust": [
 			"arcane_dust"
@@ -18025,8 +17999,7 @@
 			"wood_offcut"
 		],
 		"workshop-bottle": [
-			"ceramic_glaze",
-			"glass_bottle"
+			"ceramic_glaze"
 		],
 		"workshop-bowl": [
 			"unfired_bowl",
@@ -18048,9 +18021,6 @@
 		],
 		"workshop-handle": [
 			"wood_handle"
-		],
-		"workshop-jar": [
-			"glass_jar"
 		],
 		"workshop-lens": [
 			"optical_lens"
@@ -18088,21 +18058,25 @@
 			256,
 			256
 		],
-		"generated/sprites/0190c4081ef9705db557c90c.png": [
-			256,
-			256
-		],
 		"generated/sprites/01d0ae02536d59448318e7a5.png": [
 			236,
 			296
+		],
+		"generated/sprites/033c651053b3342fd66d0986.png": [
+			160,
+			160
 		],
 		"generated/sprites/04c020b34f653d5532a9a4cd.png": [
 			256,
 			256
 		],
-		"generated/sprites/06475023e4a3c7b8bdf7ad58.png": [
-			256,
-			256
+		"generated/sprites/04f5bc2e28c6713294f2df2c.png": [
+			160,
+			160
+		],
+		"generated/sprites/06e310c10b4d01182dcd4c65.png": [
+			160,
+			160
 		],
 		"generated/sprites/073261bbe868a1903d39641e.png": [
 			256,
@@ -18112,10 +18086,6 @@
 			160,
 			160
 		],
-		"generated/sprites/0887df8bf0832d8e53abf483.png": [
-			256,
-			256
-		],
 		"generated/sprites/0a12e1653eeacb49794090cf.png": [
 			313,
 			226
@@ -18124,13 +18094,21 @@
 			256,
 			256
 		],
+		"generated/sprites/0bbab69b2cf9a5d94bfe3444.png": [
+			160,
+			160
+		],
+		"generated/sprites/0bbaea86f8d00ce25497298f.png": [
+			160,
+			160
+		],
 		"generated/sprites/0bda74438a0f7bea0904aa73.png": [
 			64,
 			64
 		],
-		"generated/sprites/0c570d4033b9403ec5a42495.png": [
-			256,
-			256
+		"generated/sprites/0c854d19dd3995b64f61731a.png": [
+			160,
+			160
 		],
 		"generated/sprites/0c88d32b398bc09bf0d05b33.png": [
 			256,
@@ -18144,6 +18122,10 @@
 			256,
 			256
 		],
+		"generated/sprites/0db2239fd05727da4288a39a.png": [
+			160,
+			160
+		],
 		"generated/sprites/0f55906d2fce46bfe5ce2c79.png": [
 			299,
 			257
@@ -18152,9 +18134,13 @@
 			256,
 			256
 		],
-		"generated/sprites/1327915e560635d891b708eb.png": [
-			256,
-			256
+		"generated/sprites/12efb7c687650a7e3093e6c9.png": [
+			160,
+			160
+		],
+		"generated/sprites/14095f1444662f0da7f1a8e6.png": [
+			160,
+			160
 		],
 		"generated/sprites/140a8a474c6a6c30e47be399.png": [
 			356,
@@ -18169,10 +18155,6 @@
 			268
 		],
 		"generated/sprites/170f18b5b51f99d7bd3105ab.png": [
-			256,
-			256
-		],
-		"generated/sprites/1712d22432afe6136f0a9d9b.png": [
 			256,
 			256
 		],
@@ -18192,9 +18174,9 @@
 			283,
 			234
 		],
-		"generated/sprites/1ba346c1fa36a3681f5e3150.png": [
-			256,
-			256
+		"generated/sprites/1abb199371be1dfd60770a25.png": [
+			160,
+			160
 		],
 		"generated/sprites/1c1ada1e2588279465111852.png": [
 			160,
@@ -18208,6 +18190,10 @@
 			256,
 			256
 		],
+		"generated/sprites/1e4fec549e11f3e067cb9452.png": [
+			160,
+			160
+		],
 		"generated/sprites/1e7bb1b42a6ad5323cd47c5d.png": [
 			256,
 			256
@@ -18216,21 +18202,33 @@
 			64,
 			64
 		],
+		"generated/sprites/20860d3de745d6879ff77617.png": [
+			160,
+			160
+		],
 		"generated/sprites/2150142571b9b7eae63d6847.png": [
 			240,
 			264
+		],
+		"generated/sprites/21b76c8b0954f35f333c969e.png": [
+			160,
+			160
 		],
 		"generated/sprites/22345f07a27b4299166f5636.png": [
 			256,
 			256
 		],
-		"generated/sprites/2338ace78aa1536954cca4cc.png": [
-			256,
-			256
+		"generated/sprites/23b462b6c4476d73a2498c42.png": [
+			160,
+			160
 		],
 		"generated/sprites/23e53f1eefb0542f451a6dd6.png": [
 			256,
 			256
+		],
+		"generated/sprites/25c542e0eac2cc3be870e582.png": [
+			160,
+			160
 		],
 		"generated/sprites/261f81eb1f14ef39f693d5b5.png": [
 			256,
@@ -18248,6 +18246,10 @@
 			256,
 			256
 		],
+		"generated/sprites/26b07428c88b1fb4989a9a44.png": [
+			160,
+			160
+		],
 		"generated/sprites/270b65d5d0e0a3df1f9c577d.png": [
 			256,
 			256
@@ -18256,13 +18258,17 @@
 			256,
 			256
 		],
-		"generated/sprites/2c3318eeab7b6c28f58e91f6.png": [
-			256,
-			256
+		"generated/sprites/2a0c7a240acb21cba7aed212.png": [
+			160,
+			160
 		],
 		"generated/sprites/2d4dee9466eaabff84ab9c90.png": [
 			256,
 			256
+		],
+		"generated/sprites/2f4863e32fd50b7bc28abb17.png": [
+			160,
+			160
 		],
 		"generated/sprites/2f4ca6b5ac1f793defa0f688.png": [
 			256,
@@ -18272,23 +18278,27 @@
 			290,
 			236
 		],
-		"generated/sprites/334d858de6cf0698adb3d36d.png": [
-			256,
-			256
+		"generated/sprites/31845e339b4dc0707e3c59d5.png": [
+			160,
+			160
 		],
 		"generated/sprites/3442248bd7962bb02bcc3521.png": [
 			256,
 			256
 		],
+		"generated/sprites/34ad428459e227e041855c59.png": [
+			160,
+			160
+		],
 		"generated/sprites/352dbd9fe3ef16f510b6ad1c.png": [
 			256,
 			256
 		],
-		"generated/sprites/35bf1aaa6278b7c3fe3eb1b5.png": [
-			256,
-			256
+		"generated/sprites/3553b484eb7432e1efab3a6d.png": [
+			160,
+			160
 		],
-		"generated/sprites/3643c6ff8441acb82d61bed3.png": [
+		"generated/sprites/35bf1aaa6278b7c3fe3eb1b5.png": [
 			256,
 			256
 		],
@@ -18296,37 +18306,49 @@
 			256,
 			256
 		],
-		"generated/sprites/3a5b1793ac5e561f5b9a0a32.png": [
-			256,
-			256
+		"generated/sprites/37e7d1e15d5d5899c1220c00.png": [
+			160,
+			160
+		],
+		"generated/sprites/39b8393a5101a9bf44f77f8c.png": [
+			160,
+			160
 		],
 		"generated/sprites/3ab934f06ced8f74b52ea80a.png": [
 			240,
 			301
 		],
-		"generated/sprites/3ccdcee9c964a0054022cd25.png": [
-			256,
-			256
-		],
-		"generated/sprites/3d12e3fa83019a7e3b75ad52.png": [
-			256,
-			256
-		],
-		"generated/sprites/3e5ec6936bfa05e04fea236b.png": [
-			256,
-			256
+		"generated/sprites/3d22f5bba1b800317da5d48a.png": [
+			160,
+			160
 		],
 		"generated/sprites/3f11ede2a9516c5daf83f5b2.png": [
 			256,
 			256
 		],
+		"generated/sprites/3f64d24b7900d22e5f2b4e52.png": [
+			160,
+			160
+		],
 		"generated/sprites/40dd50575cbb18e6c7f21e29.png": [
+			160,
+			160
+		],
+		"generated/sprites/41267ec831b8013d653fb097.png": [
 			160,
 			160
 		],
 		"generated/sprites/4155932b48c5ccb584d1055a.png": [
 			256,
 			256
+		],
+		"generated/sprites/418a2620e472b27f1c9847a7.png": [
+			160,
+			160
+		],
+		"generated/sprites/41a729af0e79d6aa98d7a3ae.png": [
+			160,
+			160
 		],
 		"generated/sprites/42700e23c52f94ef45885b8f.png": [
 			252,
@@ -18335,6 +18357,14 @@
 		"generated/sprites/42711957ca7ad308e2d64694.png": [
 			256,
 			256
+		],
+		"generated/sprites/42da05bbed1783f97aec07e9.png": [
+			160,
+			160
+		],
+		"generated/sprites/42ffd62073389fbe478c6011.png": [
+			160,
+			160
 		],
 		"generated/sprites/4332c9a66e0bfce825bcbe3a.png": [
 			371,
@@ -18360,6 +18390,10 @@
 			342,
 			277
 		],
+		"generated/sprites/46b117a9428e709b82db98d0.png": [
+			160,
+			160
+		],
 		"generated/sprites/470856dc898c284f1422938d.png": [
 			256,
 			256
@@ -18368,13 +18402,13 @@
 			256,
 			256
 		],
+		"generated/sprites/47e331ca2652a8757d95d520.png": [
+			160,
+			160
+		],
 		"generated/sprites/48046d193cbc40f3076fcd1f.png": [
 			294,
 			269
-		],
-		"generated/sprites/48a2ed30f8c222fed8e5d246.png": [
-			256,
-			256
 		],
 		"generated/sprites/4aa9694dde6b25f487fff26c.png": [
 			256,
@@ -18412,6 +18446,10 @@
 			256,
 			256
 		],
+		"generated/sprites/5138e8684a5f748e81263249.png": [
+			160,
+			160
+		],
 		"generated/sprites/51b4a5728bfe68f2a401b8c8.png": [
 			256,
 			256
@@ -18436,6 +18474,10 @@
 			256,
 			256
 		],
+		"generated/sprites/57596fb4f915c69705a89922.png": [
+			160,
+			160
+		],
 		"generated/sprites/57b7d67c52431a0511fce46c.png": [
 			256,
 			256
@@ -18444,27 +18486,15 @@
 			256,
 			256
 		],
-		"generated/sprites/5b4c3d4407ae0a11189be504.png": [
-			256,
-			256
-		],
 		"generated/sprites/5b4f71d92df6261914bbfc7c.png": [
 			343,
 			314
 		],
+		"generated/sprites/5ba5bf0c0ec66dfa51e64c5e.png": [
+			160,
+			160
+		],
 		"generated/sprites/5c05403dfe75439243185257.png": [
-			256,
-			256
-		],
-		"generated/sprites/5c5a0d4e1dae2a17a7770dbd.png": [
-			256,
-			256
-		],
-		"generated/sprites/5d943ad6603200d8cf60d230.png": [
-			256,
-			256
-		],
-		"generated/sprites/5dc4035ae66ce06a05a9b3bc.png": [
 			256,
 			256
 		],
@@ -18480,6 +18510,10 @@
 			256,
 			256
 		],
+		"generated/sprites/617acd0801866c87e1eba126.png": [
+			160,
+			160
+		],
 		"generated/sprites/619f5cf9978f4b3ffab9cd74.png": [
 			263,
 			397
@@ -18488,27 +18522,19 @@
 			296,
 			254
 		],
-		"generated/sprites/621307af68661100bbc9488a.png": [
-			256,
-			256
-		],
 		"generated/sprites/6284cb86fb81f6b52fd86f5b.png": [
 			160,
 			160
 		],
-		"generated/sprites/65e3ec6f1b9bcd0cb800bfbf.png": [
-			256,
-			256
+		"generated/sprites/62b8f39fb171e2a39863476d.png": [
+			160,
+			160
 		],
-		"generated/sprites/67780abb5b712dc4749e82c2.png": [
-			256,
-			256
+		"generated/sprites/64fbc7873e394150ff684864.png": [
+			160,
+			160
 		],
 		"generated/sprites/6c86c2774889c81eca68d18f.png": [
-			256,
-			256
-		],
-		"generated/sprites/6ce4fb38439519453538c670.png": [
 			256,
 			256
 		],
@@ -18524,27 +18550,23 @@
 			256,
 			256
 		],
-		"generated/sprites/6f0c2be2636a509e0d8d63f4.png": [
+		"generated/sprites/6ecb0c930229c90a0b7d91d9.png": [
 			256,
-			256
+			176
 		],
 		"generated/sprites/6fabba159736e464a0f2e26b.png": [
 			256,
 			256
 		],
-		"generated/sprites/7005a2e7db73baeb4f76db50.png": [
+		"generated/sprites/71d7951b576adbfa68715005.png": [
 			256,
-			256
+			148
 		],
 		"generated/sprites/71f765cdec83c396d0b81c27.png": [
 			256,
 			256
 		],
 		"generated/sprites/7229a562bfd404ffacbe253c.png": [
-			256,
-			256
-		],
-		"generated/sprites/7281ec950c21b58cc1465f0a.png": [
 			256,
 			256
 		],
@@ -18555,6 +18577,14 @@
 		"generated/sprites/744c04e439baf133253c4586.png": [
 			256,
 			256
+		],
+		"generated/sprites/75b12f3fb49408b13dd78dfa.png": [
+			160,
+			160
+		],
+		"generated/sprites/7661d66253d50813473eac05.png": [
+			160,
+			160
 		],
 		"generated/sprites/7754276d017a01c5cbb67cee.png": [
 			256,
@@ -18588,6 +18618,10 @@
 			256,
 			256
 		],
+		"generated/sprites/7a85313710cbfa374f9f6975.png": [
+			160,
+			160
+		],
 		"generated/sprites/7a9efb9e246e4c5eabdc624c.png": [
 			256,
 			256
@@ -18604,29 +18638,21 @@
 			256,
 			256
 		],
-		"generated/sprites/7c66617a86d767b8da06a40f.png": [
-			256,
-			256
-		],
-		"generated/sprites/7d5ab5083fe8e836b544fedc.png": [
-			256,
-			256
-		],
 		"generated/sprites/7d8ef09a49c09477f972b229.png": [
 			291,
 			284
+		],
+		"generated/sprites/7dfbdc18bbdd4d442a63621e.png": [
+			160,
+			160
 		],
 		"generated/sprites/7fb464398c4f29727297b8b4.png": [
 			256,
 			256
 		],
-		"generated/sprites/7feb7aaa8f920dec6bd0279d.png": [
-			256,
-			256
-		],
-		"generated/sprites/801bbbf63e5b20fea6d062ab.png": [
-			256,
-			256
+		"generated/sprites/81729cadc41aceb0e7a1992a.png": [
+			160,
+			160
 		],
 		"generated/sprites/81a367edc00a146b34d7d0cc.png": [
 			301,
@@ -18639,10 +18665,6 @@
 		"generated/sprites/827f53ef676b9fcb8e53f488.png": [
 			295,
 			272
-		],
-		"generated/sprites/828d0166e377ad7af1057a8e.png": [
-			256,
-			256
 		],
 		"generated/sprites/830e4f9a5aec98ed8f0e50ee.png": [
 			1254,
@@ -18660,17 +18682,9 @@
 			256,
 			256
 		],
-		"generated/sprites/85ef175bc733e2973543e9ee.png": [
-			256,
-			256
-		],
 		"generated/sprites/8641817a3b588360fb29b619.png": [
 			279,
 			265
-		],
-		"generated/sprites/86a2b13376fb216018c01962.png": [
-			256,
-			256
 		],
 		"generated/sprites/8b052f8c0143afd648241c7c.png": [
 			256,
@@ -18680,9 +18694,9 @@
 			128,
 			128
 		],
-		"generated/sprites/8dc164041bf71bfb3ee86f82.png": [
-			256,
-			256
+		"generated/sprites/8db875bae5d0ae019253eb6f.png": [
+			160,
+			160
 		],
 		"generated/sprites/8e308600a4bf31728ae45a84.png": [
 			256,
@@ -18692,9 +18706,9 @@
 			543,
 			386
 		],
-		"generated/sprites/92c3b2dd74ae234d1073f83e.png": [
-			256,
-			256
+		"generated/sprites/907f6c4ed47a98c0e96c2a6e.png": [
+			160,
+			160
 		],
 		"generated/sprites/92ec0466c723fa1737c48ad0.png": [
 			256,
@@ -18703,6 +18717,10 @@
 		"generated/sprites/941a152e917b5810e3a3cf8f.png": [
 			256,
 			256
+		],
+		"generated/sprites/94794f7f0885a600e0e4b2a6.png": [
+			256,
+			126
 		],
 		"generated/sprites/951f834e348920f387747cf5.png": [
 			256,
@@ -18720,21 +18738,13 @@
 			128,
 			128
 		],
-		"generated/sprites/988bbbdf7e2257083d1d4e4b.png": [
-			256,
-			256
-		],
 		"generated/sprites/98995ea731d67c92fc63f796.png": [
 			256,
 			256
 		],
-		"generated/sprites/98cf23364f1a182784d86a3a.png": [
-			256,
-			256
-		],
-		"generated/sprites/99a53a4848fa3cbb0d8b0633.png": [
-			256,
-			256
+		"generated/sprites/9abce74a1285aa84e4062873.png": [
+			160,
+			160
 		],
 		"generated/sprites/9bafc2bf542eb3878b8c51c7.png": [
 			256,
@@ -18752,29 +18762,53 @@
 			256,
 			256
 		],
+		"generated/sprites/9e2f1aec19a29c73ff2c000a.png": [
+			160,
+			160
+		],
 		"generated/sprites/9ef4e9c20861b5bc5a7fc79e.png": [
 			256,
 			256
+		],
+		"generated/sprites/9f2de8df5ef00bee29685f67.png": [
+			160,
+			160
 		],
 		"generated/sprites/9f429b09881ca355012d3363.png": [
 			64,
 			64
 		],
+		"generated/sprites/9f51bf879b232bc90f70682e.png": [
+			160,
+			160
+		],
 		"generated/sprites/a212d3c79b7a023f5771127d.png": [
 			256,
 			256
 		],
-		"generated/sprites/a5ee38378adf526793fd1e57.png": [
-			256,
+		"generated/sprites/a2e800855870bc0f8d706d8e.png": [
+			196,
 			256
 		],
-		"generated/sprites/a63085b0956565b8f7fb2ee1.png": [
-			256,
-			256
+		"generated/sprites/a38e0a1fe8a4a16b15bbca2e.png": [
+			160,
+			160
+		],
+		"generated/sprites/a592c6efd86ef4b9cfc68ad6.png": [
+			160,
+			160
+		],
+		"generated/sprites/a5f082e3b26d82e95d14aa6a.png": [
+			160,
+			160
 		],
 		"generated/sprites/a788b429bf8d11041defc836.png": [
 			200,
 			299
+		],
+		"generated/sprites/a7a55254682555a5576912b1.png": [
+			160,
+			160
 		],
 		"generated/sprites/aade98317b3f95def3e6a6b7.png": [
 			256,
@@ -18788,19 +18822,19 @@
 			160,
 			160
 		],
+		"generated/sprites/ae38eb2807652171d50b2e70.png": [
+			160,
+			160
+		],
 		"generated/sprites/afb9896cba0b5cf8d79743ff.png": [
 			214,
 			304
 		],
-		"generated/sprites/afccbdc6b6fb30013dca0274.png": [
-			256,
-			256
+		"generated/sprites/afed1a146ef3bc27fc639dbd.png": [
+			160,
+			160
 		],
 		"generated/sprites/afed60967efcccd5a9911cb7.png": [
-			256,
-			256
-		],
-		"generated/sprites/b11906c02cb6a36ec744c78e.png": [
 			256,
 			256
 		],
@@ -18816,9 +18850,9 @@
 			157,
 			248
 		],
-		"generated/sprites/b4b1cf984068b595751a7fb2.png": [
-			256,
-			256
+		"generated/sprites/b3ef84c99ba1a73b56692b58.png": [
+			160,
+			160
 		],
 		"generated/sprites/b57f58a0829e28469bf3ff71.png": [
 			256,
@@ -18828,7 +18862,15 @@
 			256,
 			256
 		],
+		"generated/sprites/b6858ce6a5d1712df9e995fd.png": [
+			160,
+			160
+		],
 		"generated/sprites/b6fa9d697cd8f1f19c573708.png": [
+			160,
+			160
+		],
+		"generated/sprites/b7bc4d91d7201f9e18213671.png": [
 			160,
 			160
 		],
@@ -18840,32 +18882,44 @@
 			281,
 			236
 		],
-		"generated/sprites/bb9a4a05f2a67d1b0bbfa1b1.png": [
-			256,
-			256
-		],
-		"generated/sprites/bc31eac84e983ab469196079.png": [
-			256,
-			256
+		"generated/sprites/bc64c5604bfd45d709683704.png": [
+			160,
+			160
 		],
 		"generated/sprites/bc79c9d909d4980a2fe2b1f3.png": [
 			281,
 			247
 		],
+		"generated/sprites/bc83b3be6d129c138d2cf24f.png": [
+			160,
+			160
+		],
+		"generated/sprites/bc8cf3a82cbcdd744f9f05e3.png": [
+			160,
+			160
+		],
 		"generated/sprites/bdc3fd7a73be9860e034d984.png": [
 			256,
 			256
+		],
+		"generated/sprites/bdc62c0c13bf493f910afd25.png": [
+			160,
+			160
 		],
 		"generated/sprites/be101ab5209d256a09c39adc.png": [
 			256,
 			256
 		],
+		"generated/sprites/be1bf9a141ec1caf49f1f8d9.png": [
+			160,
+			160
+		],
 		"generated/sprites/bf45d262af681d46d02f857c.png": [
 			217,
 			298
 		],
-		"generated/sprites/c081477963e574b38f156f71.png": [
-			256,
+		"generated/sprites/c01a093870b4584ec9fd772f.png": [
+			161,
 			256
 		],
 		"generated/sprites/c091b704e7021a59664acb9c.png": [
@@ -18880,17 +18934,13 @@
 			256,
 			256
 		],
-		"generated/sprites/c13226c6d8a5a3abcf8d09df.png": [
-			256,
-			256
-		],
 		"generated/sprites/c13a5be6f37cc0cb473d29b0.png": [
 			128,
 			128
 		],
-		"generated/sprites/c28d05ba52965f51e9fa9566.png": [
-			256,
-			256
+		"generated/sprites/c26d4c18b53ee1c7007fd38c.png": [
+			160,
+			160
 		],
 		"generated/sprites/c326420f27d1eb706d29f414.png": [
 			255,
@@ -18900,13 +18950,13 @@
 			256,
 			256
 		],
-		"generated/sprites/c48ca8451e67441a941e40c7.png": [
-			256,
-			256
-		],
 		"generated/sprites/c4f0783403f87001e8248631.png": [
 			256,
 			256
+		],
+		"generated/sprites/c5b72ca9c795fabe20c8d6d0.png": [
+			160,
+			160
 		],
 		"generated/sprites/c5d20aa6d7c10ba4eb7beea2.png": [
 			587,
@@ -18940,10 +18990,6 @@
 			256,
 			256
 		],
-		"generated/sprites/cc5acf5a4a14cdc3edb29d03.png": [
-			256,
-			256
-		],
 		"generated/sprites/ccb3481a23048da38ccbdde3.png": [
 			250,
 			195
@@ -18952,13 +18998,9 @@
 			256,
 			256
 		],
-		"generated/sprites/cd4febb19123a58d69112f21.png": [
-			256,
-			256
-		],
-		"generated/sprites/cd53b45f7fcde7cc30c23ae8.png": [
-			256,
-			256
+		"generated/sprites/cd52661d05e8a4bf8b3622db.png": [
+			160,
+			160
 		],
 		"generated/sprites/ce4b1b7408fc40f692d884b8.png": [
 			256,
@@ -18968,25 +19010,49 @@
 			256,
 			256
 		],
+		"generated/sprites/cf973ed1ca2374f97d56a5e9.png": [
+			160,
+			160
+		],
 		"generated/sprites/cfd2d79729b5dd22eef403d6.png": [
 			256,
 			256
+		],
+		"generated/sprites/d03e698dcc6eb2faec77aea3.png": [
+			160,
+			160
+		],
+		"generated/sprites/d0554ae7e65152014c633cc1.png": [
+			160,
+			160
 		],
 		"generated/sprites/d0ad495a7ee17dca96292cfe.png": [
 			299,
 			332
 		],
-		"generated/sprites/d1965956dfb5a9db36d685e1.png": [
-			256,
-			256
+		"generated/sprites/d1b1592595e7e42240230be6.png": [
+			160,
+			160
 		],
 		"generated/sprites/d24c211d03c766227a0fe1a5.png": [
 			128,
 			128
 		],
+		"generated/sprites/d25d418f2c6de174e10673b4.png": [
+			160,
+			160
+		],
 		"generated/sprites/d4487d692e62b1e1bc4867e1.png": [
 			256,
 			256
+		],
+		"generated/sprites/d45bd04556c1251aafc74c85.png": [
+			160,
+			160
+		],
+		"generated/sprites/d46113342d4d4c97a2ab4379.png": [
+			160,
+			160
 		],
 		"generated/sprites/d47fd5c8f1442d9e1182b032.png": [
 			256,
@@ -19004,10 +19070,6 @@
 			256,
 			256
 		],
-		"generated/sprites/d5cd92defd3242d7d7dc5856.png": [
-			256,
-			256
-		],
 		"generated/sprites/d69603d5d84cafa003684066.png": [
 			256,
 			256
@@ -19020,9 +19082,21 @@
 			269,
 			240
 		],
+		"generated/sprites/da34dee30a5a75d78703f2af.png": [
+			160,
+			160
+		],
 		"generated/sprites/da76bfa11becbaf2cc56695f.png": [
 			64,
 			64
+		],
+		"generated/sprites/db3c30d0b64584c0a97927b6.png": [
+			160,
+			160
+		],
+		"generated/sprites/dd18f28c19f7c44bea6c31c6.png": [
+			160,
+			160
 		],
 		"generated/sprites/dd37c82ee620a02dfe8f2b50.png": [
 			256,
@@ -19040,6 +19114,10 @@
 			256,
 			256
 		],
+		"generated/sprites/e0b669b1c964b4cb9facbab4.png": [
+			160,
+			160
+		],
 		"generated/sprites/e129bb933bad3c37fad55e3d.png": [
 			256,
 			256
@@ -19052,9 +19130,9 @@
 			256,
 			256
 		],
-		"generated/sprites/e65783f39108e0ee368f2c1d.png": [
-			256,
-			256
+		"generated/sprites/e29a563ca67d318ca29d04e9.png": [
+			160,
+			160
 		],
 		"generated/sprites/e972387c399abb12f991f253.png": [
 			256,
@@ -19064,15 +19142,7 @@
 			256,
 			256
 		],
-		"generated/sprites/ea7fa598f25dceccd3780c01.png": [
-			256,
-			256
-		],
 		"generated/sprites/eafc920635beb0428e60981d.png": [
-			256,
-			256
-		],
-		"generated/sprites/ebd006baf62d97d88b66ebbf.png": [
 			256,
 			256
 		],
@@ -19084,13 +19154,9 @@
 			256,
 			256
 		],
-		"generated/sprites/eef068cc47b9fafeb825a4a7.png": [
-			256,
-			256
-		],
-		"generated/sprites/ef5be94eebad5af159e6d1ca.png": [
-			256,
-			256
+		"generated/sprites/ee9d0826eba07d564c160349.png": [
+			160,
+			160
 		],
 		"generated/sprites/ef67a9207946e596899d0ea3.png": [
 			553,
@@ -19112,17 +19178,21 @@
 			256,
 			256
 		],
+		"generated/sprites/f0fe8fe6d21caaed179f745b.png": [
+			160,
+			160
+		],
 		"generated/sprites/f176e9cb5b10edb50fba19fd.png": [
 			536,
 			405
 		],
-		"generated/sprites/f1f482c4653291fa67915927.png": [
-			256,
-			256
-		],
 		"generated/sprites/f2e359ac042be40825b08c7c.png": [
 			280,
 			209
+		],
+		"generated/sprites/f3d1781e9f81aff70902a836.png": [
+			160,
+			160
 		],
 		"generated/sprites/f4f428e25033e16c0865c522.png": [
 			256,
@@ -19152,13 +19222,9 @@
 			256,
 			256
 		],
-		"generated/sprites/f7b2f09d7dbce3eddfdf1d50.png": [
-			256,
-			256
-		],
-		"generated/sprites/f7b33c16b4feb9c34469292d.png": [
-			256,
-			256
+		"generated/sprites/f906ef28d4aec9f357bf15e4.png": [
+			160,
+			160
 		],
 		"generated/sprites/f94a2e5b9332050712fb15c5.png": [
 			256,
@@ -19176,6 +19242,14 @@
 			256,
 			256
 		],
+		"generated/sprites/fcf907f513210cc8582f97a8.png": [
+			160,
+			160
+		],
+		"generated/sprites/fdc632197d6b58321bc60ce8.png": [
+			160,
+			160
+		],
 		"generated/sprites/fea69afd30ef6e68428f7309.png": [
 			256,
 			256
@@ -19184,22 +19258,22 @@
 	"schema": 1,
 	"stats": {
 		"flags": {
-			"procedural": 112,
-			"shared-image": 145,
-			"shared-shape": 177,
-			"small-silhouette": 1,
-			"tinted": 87
+			"procedural": 31,
+			"shared-image": 97,
+			"shared-shape": 93,
+			"small-silhouette": 31,
+			"tinted": 84
 		},
-		"images": 274,
-		"items": 385,
+		"images": 300,
+		"items": 386,
 		"providers": {
-			"alchemy": 161,
-			"catalog": 180,
+			"alchemy": 79,
+			"catalog": 174,
 			"furnace": 9,
-			"override": 1,
+			"override": 92,
 			"research": 6,
-			"workshop": 28
+			"workshop": 26
 		}
 	},
-	"version": "0.0.146"
+	"version": "0.0.172"
 }

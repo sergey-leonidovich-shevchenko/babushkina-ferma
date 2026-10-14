@@ -54,6 +54,7 @@ static func migrate(data: Dictionary) -> Dictionary:
 static func apply(game: Node, data: Dictionary) -> bool:
 	data = migrate(data)
 	if data.is_empty() or not ValidationSystem.valid(data): return false
+	preload("res://scripts/systems/qa_teleport_system.gd").close(game)
 	preload("res://scripts/systems/dev_cabinet_system.gd").reset(game)
 	preload("res://scripts/systems/storage_sort_system.gd").reset(game)
 	VectorCodec.transform(data, true)

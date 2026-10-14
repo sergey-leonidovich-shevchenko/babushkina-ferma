@@ -534,7 +534,7 @@ func use_active_item() -> bool:
 		if not TalentSystem.has(self, "farm_cooking"): message = "Сначала изучи «Домашнюю кухню»"; return false
 		open_crafting("cauldron")
 		return true
-	if item.get("edible", false):
+	if item.get("edible", false) or kind == "qa_teleport_stone":
 		return consume_item(kind)
 	if item.has("tool"):
 		selected_tool = item.tool

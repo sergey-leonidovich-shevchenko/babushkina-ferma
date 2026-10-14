@@ -58,7 +58,7 @@ static func modal_active(game: Node) -> bool:
 
 ## Проверяет полноэкранные игровые окна, при которых мир и боевые события поставлены на паузу.
 static func gameplay_window_open(game: Node) -> bool:
-	return preload("res://scripts/systems/dev_cabinet_system.gd").active(game) or preload("res://scripts/systems/apiary_input_system.gd").active(game) or game.BasementSystem.modal(game) or game.shop_open \
+	return preload("res://scripts/systems/qa_teleport_system.gd").active(game) or preload("res://scripts/systems/dev_cabinet_system.gd").active(game) or preload("res://scripts/systems/apiary_input_system.gd").active(game) or game.BasementSystem.modal(game) or game.shop_open \
 		or game.inventory_open \
 		or game.crafting_open \
 		or game.storage_open \

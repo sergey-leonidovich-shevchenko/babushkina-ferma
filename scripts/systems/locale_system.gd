@@ -33,6 +33,7 @@ static func crafting_ingredient(kind: String) -> String:
 	return String(CRAFT_INGREDIENT_NAMES[kind][maxi(LOCALES.find(current),0)]) if CRAFT_INGREDIENT_NAMES.has(kind) else item(kind).substr(0,9)
 
 const BASE_UI := {
+	"detail_qa_teleport":preload("res://scripts/systems/qa_teleport_locale.gd").TEXT.detail,
 	"craft_category_food":["ГОТОВКА","COOKING","COCINA","KOCHEN","CUISINE","烹饪"],
 	"craft_wrong_station":["Нужная станция: %s","Required station: %s","Estación necesaria: %s","Benötigte Station: %s","Poste requis : %s","需要制作台：%s"],
 	"craft_locked":["Изучи нужную способность в разделе героя","Learn the required talent in the hero menu","Aprende el talento necesario en el menú del héroe","Lerne das nötige Talent im Heldenmenü","Apprends le talent requis dans le menu du héros","请在角色菜单学习所需天赋"],
@@ -426,6 +427,7 @@ const TEXT := {
 }
 
 const BASE_ITEMS := {
+	"qa_teleport_stone":["Камень телепортации · QA","Teleport stone · QA","Piedra de teletransporte · QA","Teleportstein · QA","Pierre de téléportation · QA","传送石 · QA"],
 	"animal_feed":["Корм для животных","Animal feed","Pienso para animales","Tierfutter","Aliment pour animaux","动物饲料"],
 	"truffle":["Лесной трюфель", "Forest truffle", "Trufa silvestre", "Waldtrüffel", "Truffe des bois", "森林松露"],
 	"mayonnaise":["Домашний майонез","Homemade mayonnaise","Mayonesa casera","Hausgemachte Mayonnaise","Mayonnaise maison","自制蛋黄酱"],
@@ -522,6 +524,7 @@ const LOCATIONS := {
 }
 
 const BASE_TUTORIAL := {
+	"qa_teleport":preload("res://scripts/systems/qa_teleport_locale.gd").TEXT.detail,
 	"rescue":["После поражения ты сразу восстанавливаешься. Потеря — до пяти монет; две секунды защиты. Результат показан в углу, подтверждение не нужно.","After defeat you recover immediately. Lose up to five coins and gain two seconds of protection. The corner notice needs no confirmation.","Tras la derrota te recuperas al instante. Pierdes hasta cinco monedas y recibes dos segundos de protección. El aviso no requiere confirmación.","Nach einer Niederlage erholst du dich sofort. Bis zu fünf Münzen gehen verloren, zwei Sekunden Schutz folgen. Der Hinweis braucht keine Bestätigung.","Après une défaite, tu récupères aussitôt. Tu perds jusqu’à cinq pièces et reçois deux secondes de protection. Aucune confirmation n’est requise.","失败后立即恢复，最多损失五枚金币，并获得两秒保护。角落提示无需确认。"],
 	"village_regions":["У фермы три дороги в соседние районы. Следуй указателям или карте: есть развилки и круговые пути. Жители работают в разных местах.","Three farm roads lead to nearby districts. Follow signs or the map: junctions and loops connect them. Residents work in different places.","Tres caminos llevan a otros barrios. Sigue señales o mapa: hay cruces y rutas circulares. Los vecinos trabajan en distintos lugares.","Drei Wege führen zu Nachbarvierteln. Schilder und Karte zeigen Abzweigungen und Rundwege. Bewohner arbeiten an verschiedenen Orten.","Trois chemins mènent aux quartiers voisins. Panneaux et carte montrent branches et boucles. Les habitants travaillent en différents lieux.","农场有三条路通往相邻区域。跟随路牌或地图，可探索岔路与环路。居民在不同地方工作。"],
 	"storage_quick":["D/Start — весь рюкзак, M/View — совпадающие виды. S/T — сортировка рюкзака/хранилища: имя, тип, количество. R3 — обе стороны.","D/Start stores the whole bag; M/View stores matching types. S/T sort bag/storage by name, type or quantity. R3 sorts both sides.","D/Start guarda toda la mochila; M/View tipos presentes. S/T ordenan mochila/almacén por nombre, tipo o cantidad. R3 ambos lados.","D/Start: ganzen Rucksack lagern. M/View: passende Arten. S/T sortieren Rucksack/Lager nach Name, Typ, Menge. R3: beide Seiten.","D/Start dépose tout le sac ; M/View les types présents. S/T trient sac/stockage : nom, type, quantité. R3 : les deux côtés.","D/Start存入整个背包；M/View仅存入已有种类。S/T按名称、类型或数量排序背包/储存；R3排序两侧。"],

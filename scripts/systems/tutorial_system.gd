@@ -27,13 +27,17 @@ const STEP_IDS := [
 	"kitchen_queue", "kitchen_fuel", "kitchen_done",
 	"apiary_wild", "apiary_build", "apiary_populate", "apiary_harvest", "apiary_alchemy",
 	"basement_enter", "basement_blueprint", "basement_place", "basement_build", "basement_finish", "basement_upgrade", "basement_dismantle",
-	"fruit_press", "fermenter", "preserver", "smoker", "loom", "tannery", "candlebench", "gardenbench", "fertilizer", "fishing_bait", "dev_cabinet", "storage_quick", "village_regions", "rescue",
+	"fruit_press", "fermenter", "preserver", "smoker", "loom", "tannery", "candlebench", "gardenbench", "fertilizer", "fishing_bait", "dev_cabinet", "storage_quick", "village_regions", "rescue", "qa_teleport",
 ]
 
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func steps() -> Array:
-	return STEP_IDS.map(func(event_id: String): return {"event": event_id})
+	var result := []
+	for event_id in STEP_IDS:
+		if event_id == "qa_teleport" and not (bool(ProjectSettings.get_setting("development/qa_teleport_enabled",false)) and bool(ProjectSettings.get_setting("development/supply_cabinet_enabled",false))): continue
+		result.append({"event":event_id})
+	return result
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func notify(game: Node, event_name: String) -> bool:

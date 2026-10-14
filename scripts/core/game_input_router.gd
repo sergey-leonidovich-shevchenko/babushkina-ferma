@@ -40,7 +40,7 @@ static func update_input_device(game: Node, event: InputEvent) -> void:
 
 ## Передаёт событие редактору, меню, сюжетному модальному окну или строительству оград.
 static func _handle_high_priority_layer(game: Node, event: InputEvent) -> bool:
-	if preload("res://scripts/systems/storage_actions_system.gd").handle_window_input(game,event) or preload("res://scripts/systems/dev_cabinet_input.gd").handle_input(game,event) or preload("res://scripts/systems/basement_input_system.gd").handle_input(game,event) or preload("res://scripts/systems/apiary_input_system.gd").handle_input(game,event): return true
+	if preload("res://scripts/systems/qa_teleport_input.gd").handle(game,event) or preload("res://scripts/systems/storage_actions_system.gd").handle_window_input(game,event) or preload("res://scripts/systems/dev_cabinet_input.gd").handle_input(game,event) or preload("res://scripts/systems/basement_input_system.gd").handle_input(game,event) or preload("res://scripts/systems/apiary_input_system.gd").handle_input(game,event): return true
 	if preload("res://scripts/systems/menu_hub_system.gd").handle_input(game,event): return true
 	if game.PublishedLevelSystem.handle_input(game,event):
 		return true
@@ -76,11 +76,11 @@ static func _handle_keyboard(game: Node, event: InputEventKey) -> void:
 	var world_magic: bool = not (game.title_screen or game.menu_state.pause_open) and world_controls_visible(game)
 	if world_magic and event.pressed and not event.echo and game.InputSystem.matches(event, "cast_spell"):
 		game.SpellSystem.cast(game)
-		game.get_viewport().set_input_as_handled()
+		_consume_event(game)
 		return
 	if world_magic and event.pressed and not event.echo and game.InputSystem.matches(event, "cycle_spell"):
 		game.SpellSystem.cycle(game)
-		game.get_viewport().set_input_as_handled()
+		_consume_event(game)
 		return
 	if game.InputSystem.matches(event, "block"):
 		game.CombatSystem.set_blocking(game, event.pressed)
@@ -93,13 +93,13 @@ static func _handle_keyboard(game: Node, event: InputEventKey) -> void:
 		game.apply_immediate_key_response(event)
 	if is_action_key and not game.title_screen and not game.menu_state.pause_open and world_controls_visible(game):
 		if event.pressed and not event.echo:
-			if not game.perform_context_action() and game.current_location == "overworld":
+			if game.hotbar_slots[game.selected_hotbar] == "qa_teleport_stone" or (not game.perform_context_action() and game.current_location == "overworld"):
 				game.use_active_item()
-		game.get_viewport().set_input_as_handled()
+		_consume_event(game)
 	if is_attack_key and not game.title_screen and not game.menu_state.pause_open and world_controls_visible(game):
 		if event.pressed and not event.echo:
 			game.attack_nearest_enemy()
-		game.get_viewport().set_input_as_handled()
+		_consume_event(game)
 
 ## Обновляет цифровое движение геймпада и сообщает, что событие было обработано.
 static func _handle_movement_button(game: Node, event: InputEventJoypadButton) -> int:
@@ -114,7 +114,7 @@ static func _handle_movement_button(game: Node, event: InputEventJoypadButton) -
 
 ## Проверяет, доступны ли непосредственные действия персонажа без открытого игрового окна.
 static func world_controls_visible(game: Node) -> bool:
-	return not (preload("res://scripts/systems/dev_cabinet_system.gd").active(game) or preload("res://scripts/systems/apiary_input_system.gd").active(game) or game.shop_open \
+	return not (preload("res://scripts/systems/qa_teleport_system.gd").active(game) or preload("res://scripts/systems/dev_cabinet_system.gd").active(game) or preload("res://scripts/systems/apiary_input_system.gd").active(game) or game.shop_open \
 		or game.inventory_open \
 		or game.crafting_open \
 		or game.storage_open \
@@ -232,7 +232,7 @@ static func _handle_joypad_button(game: Node, event: InputEventJoypadButton) -> 
 		JOY_BUTTON_DPAD_LEFT: game.select_hotbar(posmod(game.selected_hotbar - 1, 10))
 		JOY_BUTTON_DPAD_RIGHT: game.select_hotbar(posmod(game.selected_hotbar + 1, 10))
 		JOY_BUTTON_A:
-			if not game.perform_context_action(): game.use_active_item()
+			if game.hotbar_slots[game.selected_hotbar] == "qa_teleport_stone" or not game.perform_context_action(): game.use_active_item()
 		JOY_BUTTON_X: game.attack_nearest_enemy()
 		JOY_BUTTON_Y: game.open_inventory()
 		JOY_BUTTON_BACK: game.toggle_quest_log()
@@ -264,7 +264,7 @@ static func _handle_touch(game: Node, event: InputEventScreenTouch, world_visibl
 	if index >= 0:
 		game.select_hotbar(index)
 	else:
-		if not game.perform_context_action(): game.use_active_item()
+		if game.hotbar_slots[game.selected_hotbar] == "qa_teleport_stone" or not game.perform_context_action(): game.use_active_item()
 	return true
 
 ## Обрабатывает общие кнопки и узлы дерева талантов для мыши и сенсорного экрана.
