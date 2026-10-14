@@ -5,6 +5,7 @@ const Build := preload("res://scripts/systems/basement_construction_system.gd")
 const Stations := preload("res://scripts/systems/basement_station_system.gd")
 const Locale := preload("res://scripts/systems/basement_locale.gd")
 const Camera := preload("res://scripts/systems/camera_system.gd")
+const Facing := preload("res://scripts/systems/furniture_facing_system.gd")
 const TABS := [Rect2(210,120,150,28),Rect2(366,120,150,28),Rect2(522,120,150,28)]
 const ACTION := Rect2(714,500,216,40)
 const HOLD := Rect2(934,506,200,48)
@@ -40,7 +41,7 @@ static func execute(game: Node) -> bool:
 ## Создаёт предварительное основание из целых координат, не списывая материалы при движении мыши.
 static func candidate(game: Node) -> Dictionary:
 	var value:=Basement.ui(game)
-	return {"kind":value.kind,"x":int(value.x),"y":int(value.y),"direction":int(value.direction)}
+	return {"kind":value.kind,"x":int(value.x),"y":int(value.y),"direction":Facing.visible(int(value.direction))}
 
 ## Кеширует геометрию и связность по клетке и ревизии, исключая полный поиск пути на каждом кадре.
 static func preview(game: Node) -> Dictionary:
@@ -60,7 +61,7 @@ static func follow_cursor(game: Node) -> void:
 
 ## Меняет направление и размер основания, не вращая готовый растровый рисунок на боку.
 static func rotate(game: Node, offset: int) -> void:
-	Basement.ui(game).direction=posmod(int(Basement.ui(game).direction)+offset,4); follow_cursor(game)
+	Basement.ui(game).direction=Facing.next(int(Basement.ui(game).direction),offset); follow_cursor(game)
 
 ## Обрабатывает чертёж, размещение и удержание с клавиатуры, геймпада, мыши и касания.
 static func handle_input(game: Node, event: InputEvent) -> bool:
@@ -120,7 +121,7 @@ static func _menu(game: Node, event: InputEvent) -> bool:
 	if accept: execute(game)
 	game.queue_redraw(); return true
 
-## Применяет свободное позиционирование и четыре поворота на всей площади, сохраняя отмену без списаний.
+## Применяет свободное позиционирование и три видимых ракурса, сохраняя отмену без списаний.
 static func _placing(game: Node, event: InputEvent) -> bool:
 	var value:=Basement.ui(game); var offset:=Vector2i.ZERO
 	if event is InputEventKey and event.pressed:

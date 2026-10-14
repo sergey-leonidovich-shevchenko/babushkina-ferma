@@ -8,7 +8,7 @@ const Production := preload("res://scripts/systems/basement_production_system.gd
 
 ## Проверяет пустой подвал, строительную оплату, удержание, геометрию, независимые очереди и настоящие слоты.
 func run() -> void:
-	test_room_entry_and_four_directions()
+	test_room_entry_and_visible_directions()
 	test_placement_collision_routes_and_atomic_payment()
 	test_hold_pause_energy_resume_and_level_one()
 	test_independent_instances_upgrade_and_salvage()
@@ -39,17 +39,17 @@ func finish(game: Node, item: Dictionary) -> void:
 	expect(Stations.interact(game,int(item.id)),"construction starts only at the designated approach")
 	Build.update_hold(game,5); expect(item.phase=="ready","five active seconds complete the paid level-one station")
 
-## Сценарий: большая мастерская доступна из дома и каждый станок имеет четыре рабочих стороны.
+## Сценарий: большая мастерская доступна из дома и каждый станок имеет три видимых рабочих ракурса.
 ## Исходное состояние: чистая модель и свободный пол без заранее построенных личных станков.
-## Ожидаемый результат: лестница туда и обратно работает, все сорок ориентированных оснований имеют единственный свободный подход.
-func test_room_entry_and_four_directions() -> void:
+## Ожидаемый результат: лестница туда и обратно работает, каждое ориентированное основание имеет единственный свободный подход.
+func test_room_entry_and_visible_directions() -> void:
 	var game:=make_game(); game.current_location="cottage_interior"; game.home_chest_owned=true; game.player=Basement.Data.HOUSE_ENTRY
 	expect(game.NavigationSystem.is_walkable(game,game.player),"stairs operating point remains walkable with the installed home chest")
 	expect(game.BuildingSystem.nearest_interaction(game)=="interior_link:cellar_workshop" and game.perform_context_action(),"cottage stairs lead to a real separate cellar location")
 	expect(game.current_location==Basement.Data.LOCATION and Basement.state(game).objects.is_empty(),"new cellar starts with no free completed machines")
 	expect(game.WorldBoundsSystem.size(game.current_location)==Vector2(2400,1560),"large cellar supports camera scrolling beyond one screen")
 	for kind in Basement.Data.STATIONS:
-		for direction in 4:
+		for direction in preload("res://scripts/systems/furniture_facing_system.gd").SELECTABLE:
 			var item:=plan(kind,40,20,direction); var point:=Basement.Layout.center(Basement.Layout.approach_cell(item))
 			expect(Basement.Layout.reason([],item).is_empty() and Basement.Layout.walkable(point,[Basement.Layout.rect(item)]),"station has a valid reachable rotated operating side: %s %d"%[kind,direction])
 	expect(game.BuildingSystem.leave(game) and game.current_location=="cottage_interior","cellar exit returns inside the cottage rather than outside the village")
@@ -135,9 +135,9 @@ func test_independent_instances_upgrade_and_salvage() -> void:
 ## Ожидаемый результат: глобальный уровень не обходит локальные ограничения, задняя сторона не открывает станок.
 func test_research_knowledge_and_local_recipe_levels() -> void:
 	var game:=make_game(); enter(game); game.ResearchSystem.state(game).level=3
-	var study:=place(game,"study",25,18,2); finish(game,study)
+	var study:=place(game,"study",25,18); finish(game,study)
 	Stations.interact(game,study.id); expect(game.ResearchSystem.level(game)==1,"research complexity is local while knowledge remains global")
-	game.crafting_open=false; game.player=Basement.Layout.rect(study).get_center()+Vector2(0,100)
+	game.crafting_open=false; game.player=Basement.Layout.rect(study).get_center()-Vector2(0,100)
 	expect(not Stations.interact(game,study.id),"opposite side cannot use the research desk")
 	var table:=place(game,"workbench",45,20); finish(game,table); Stations.interact(game,table.id)
 	var recipe:Dictionary=game.CraftingSystem.RECIPES.filter(func(value): return value.output=="iron_spear" and value.get("station","workbench")=="workbench")[0]

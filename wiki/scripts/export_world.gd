@@ -2,6 +2,7 @@ extends RefCounted
 
 const Basement := preload("res://scripts/systems/basement_data.gd")
 const StationArt := preload("res://scripts/presentation/basement_visual_system.gd")
+const Facing := preload("res://scripts/systems/furniture_facing_system.gd")
 const Region := preload("res://scripts/systems/village_region_data.gd")
 const Caves := preload("res://scripts/systems/cave_room_data.gd")
 const Apiary := preload("res://scripts/systems/apiary_data.gd")
@@ -23,7 +24,7 @@ static func buildings(ctx: Object) -> void:
 		for area in ctx.game.BuildingSystem.INTERIORS:
 			if ctx.game.BuildingSystem.INTERIORS[area].building==id and area!=data.interior: ctx.link(entry,"locations",area,"","Другие помещения")
 
-## Показывает настоящие четыре ракурса и строительную кучу каждого из трёх уровней станка.
+## Показывает три видимых ракурса и строительную кучу каждого из трёх уровней станка.
 static func stations(ctx: Object) -> void:
 	for kind in Basement.STATIONS:
 		var data:Dictionary=Basement.STATIONS[kind]
@@ -52,8 +53,8 @@ static func stations(ctx: Object) -> void:
 
 ## Передаёт подготовленную текстуру уровня и направления без повторного вращения исходного рисунка.
 static func station_clip(ctx: Object, kind: String, level: int, pile: bool) -> Dictionary:
-	var frames:={}; var dirs:=["south","west","north","east"]
-	for index in 4: frames[dirs[index]]=[ctx.still(StationArt.texture(kind,level,index,pile),0.5)]
+	var frames:={}
+	for index in Facing.SELECTABLE: frames[Facing.NAMES[index]]=[ctx.still(StationArt.texture(kind,level,index,pile),0.5)]
 	return {"id":"construction" if pile else "level-"+str(level),"title":"Материалы для стройки" if pile else "Уровень "+str(level),"fps":1,"frames":frames}
 
 ## Описывает все биомы, районы, комнаты пещер и интерьеры с обратимыми ссылками на их дороги.

@@ -58,7 +58,7 @@ func test_catalog_and_locales() -> void:
 func test_all_stations_and_production_recipes() -> void:
 	var game:=make_game(); enter(game); var index:=0
 	for station_kind in Artisan.STATIONS:
-		var item:=place(game,station_kind,25+(index%4)*14,16+(index/4)*14,index%4); finish(game,item); index+=1
+		var item:=place(game,station_kind,25+(index%4)*14,16+(index/4)*14,preload("res://scripts/systems/furniture_facing_system.gd").SELECTABLE[index%3]); finish(game,item); index+=1
 		open_station(game,item)
 		var high:Dictionary=Recipes.RECIPES.filter(func(value): return value.station==station_kind and int(value.workshop_level)==3)[0]
 		expect(not Workshop.reason(game,high).is_empty(),"tier one cannot produce advanced goods: "+station_kind)
@@ -166,7 +166,7 @@ func test_canonical_save_and_invalid_jobs() -> void:
 
 ## Сценарий: новые спрайты действительно нарезаны на уровни, ракурсы, кучи и иконки.
 ## Исходное состояние: 169 ресурсов с исходной альфой и измеренными целыми регионами.
-## Ожидаемый результат: регионы не включают соседей, основание и пропорции постоянны, перед и зад различаются.
+## Ожидаемый результат: регионы не включают соседей, основание и пропорции постоянны, старый задний слот использует передний рисунок.
 func test_original_sprite_regions() -> void:
 	for kind in Visual.SPRITES:
 		for tier in 4:
@@ -177,7 +177,7 @@ func test_original_sprite_regions() -> void:
 				var item:Dictionary={"kind":kind,"x":25,"y":18,"level":mini(tier+1,3),"direction":direction}
 				var dest:=preload("res://scripts/presentation/basement_visual_system.gd").destination(item,tier==3)
 				expect(is_equal_approx(dest.end.y,Basement.Layout.rect(item).end.y) and is_equal_approx(dest.size.x/dest.size.y,texture.region.size.x/texture.region.size.y),"fixed ground pivot and proportional silhouette")
-			if tier<3: expect(Visual.SPRITES[kind][tier][0].get_image().get_data()!=Visual.SPRITES[kind][tier][2].get_image().get_data(),"true distinct front and rear: "+kind)
+			if tier<3: expect(Visual.SPRITES[kind][tier][0]==Visual.SPRITES[kind][tier][2],"legacy rear slot uses approved front art: "+kind)
 	for kind in Visual.ITEMS: expect(transparent_edge(Visual.ITEMS[kind].get_image()),"intact standalone inventory icon: "+kind)
 
 ## Сценарий: изделия новых ремёсел участвуют в существующей алхимической прогрессии.

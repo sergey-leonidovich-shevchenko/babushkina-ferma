@@ -4,7 +4,7 @@ const Layout := preload("res://scripts/systems/house_furniture_layout_system.gd"
 const Art := preload("res://scripts/presentation/house_furniture_visual_system.gd")
 const Save := preload("res://scripts/systems/save_system.gd")
 
-## Запускает геометрию комнаты, четыре ракурса, честную установку и миграцию старой мебели.
+## Запускает геометрию комнаты, видимые ракурсы, честную установку и миграцию старой мебели.
 func run() -> void:
 	test_room_grid_and_services()
 	test_cardinal_art_and_uniform_scale()
@@ -52,11 +52,11 @@ func test_no_space_refund_and_invalid_records() -> void:
 
 ## Сценарий: мебель имеет отдельные прямые ракурсы и не растягивается по двум разным масштабам.
 ## Исходное состояние: утверждённые изображения А импортированы отдельными компактными текстурами.
-## Ожидаемый результат: все четыре ресурса существуют, силуэт целый, пропорции одинаковы у источника и игрового рисунка.
+## Ожидаемый результат: три видимых ракурса существуют, старый задний слот ссылается на передний, пропорции сохранены.
 func test_cardinal_art_and_uniform_scale() -> void:
 	var game:=make_game()
 	for kind in Art.KINDS:
-		expect(Art.SPRITES[kind].size()==4,"four separately drawn directions: "+kind)
+		expect(Art.SPRITES[kind].size()==4 and Art.SPRITES[kind][2]==Art.SPRITES[kind][0],"legacy rear slot aliases front without loading unused rear art: "+kind)
 		for direction in 4:
 			var texture:=Art.texture(kind,direction); var source:=Art.source(kind,direction)
 			var profile:Dictionary=game.InteriorVisualSystem.profile(kind,direction)
@@ -71,16 +71,16 @@ func test_cardinal_art_and_uniform_scale() -> void:
 		expect(side==Vector2(front.y,front.x),"side view rotates the occupied cells: "+kind)
 	game.free()
 
-## Сценарий: герой выбирает четыре ракурса и ставит мебель перед собой на разрешённые клетки.
+## Сценарий: герой выбирает три видимых ракурса и ставит мебель перед собой на разрешённые клетки.
 ## Исходное состояние: один стол и один стул в рюкзаке, свободная зона слева от гончарного круга.
-## Ожидаемый результат: поворот замыкается на четвёртом шаге; препятствие, стена и лестница не расходуют предмет.
+## Ожидаемый результат: поворот замыкается на третьем шаге; препятствие, стена и лестница не расходуют предмет.
 func test_placement_rotation_and_obstacles() -> void:
 	var game:=make_game(); game.current_location="cottage_interior"; game.player=Vector2(396,480); game.facing=Vector2.UP
 	var life=game.FarmLifeSystem; game.change_inventory_count("rustic_table",1); game.change_inventory_count("wooden_chair",1)
 	expect(life.toggle_build_mode(game),"home furniture mode opens")
-	for direction in 4:
+	for direction in [1,3,0]:
 		var event:=InputEventKey.new(); event.keycode=KEY_R; event.pressed=true
-		expect(life.handle_input(game,event) and int(life.state(game).build_direction)==(direction+1)%4,"R selects the next cardinal direction")
+		expect(life.handle_input(game,event) and int(life.state(game).build_direction)==direction,"R selects the next front-visible direction")
 	var item:=Layout.candidate(game)
 	expect(Layout.can_place(game,item) and life.place_furniture(game),"free whole footprint can be installed")
 	expect(game.inventory_item_count("rustic_table")==0 and life.state(game).furniture.size()==1,"successful placement spends exactly one furniture item")

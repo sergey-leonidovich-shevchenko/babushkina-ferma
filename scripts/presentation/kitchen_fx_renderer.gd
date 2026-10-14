@@ -14,12 +14,11 @@ static func working(item: Dictionary) -> bool:
 static func draw(game: Node2D, item: Dictionary, destination: Rect2) -> void:
 	if not working(item): return
 	var job:Dictionary=item.production.queue[0]
-	var phase:float=float(job.duration)-float(job.remaining); var tier:=int(item.level); var direction:=int(item.direction)
+	var phase:float=float(job.duration)-float(job.remaining); var tier:=int(item.level); var direction:=preload("res://scripts/systems/furniture_facing_system.gd").visible(int(item.direction))
 	if direction==0 or tier==1:
 		var point:=Vector2(0.5,0.79) if tier==1 else (Vector2(0.38,0.82) if tier==2 else Vector2(0.62,0.87))
 		var size:=Vector2(18,20) if tier>1 else Vector2(22,25)
 		game.draw_texture_rect(Art.FIRE[posmod(floori(phase*8),4)],Rect2(destination.position+point*destination.size-size/2,size),false)
-	if direction==2: return
 	var pot:=Vector2(0.5,0.44) if tier==1 else (Vector2(0.25,0.16) if tier==2 else Vector2(0.15,0.52))
 	if direction in [1,3] and tier>1: pot=Vector2(0.62 if direction==1 else 0.28,0.5 if tier==3 else 0.14)
 	for index in 3:

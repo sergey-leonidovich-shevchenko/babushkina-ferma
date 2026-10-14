@@ -119,7 +119,7 @@ static func _scan_directory(path: String, result: Array[Dictionary]) -> void:
 		var child := path.path_join(entry)
 		if directory.current_is_dir() and not entry.begins_with("."):
 			if entry.to_lower() not in ["source","transitions"]: _scan_directory(child,result)
-		elif _is_placeable_image(entry):
+		elif _is_placeable_image(entry) and not (child.begins_with("res://assets/game/interiors/furniture_a/") and entry.ends_with("_north.png")):
 			result.append(metadata(child))
 		entry = directory.get_next()
 	directory.list_dir_end()

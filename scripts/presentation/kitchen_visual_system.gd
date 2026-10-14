@@ -1,10 +1,10 @@
 extends RefCounted
 
 const STATION := [
-	[preload("res://assets/game/kitchen/kitchen_1_south.tres"),preload("res://assets/game/kitchen/kitchen_1_west.tres"),preload("res://assets/game/kitchen/kitchen_1_north.tres"),preload("res://assets/game/kitchen/kitchen_1_east.tres")],
-	[preload("res://assets/game/kitchen/kitchen_2_south.tres"),preload("res://assets/game/kitchen/kitchen_2_west.tres"),preload("res://assets/game/kitchen/kitchen_2_north.tres"),preload("res://assets/game/kitchen/kitchen_2_east.tres")],
-	[preload("res://assets/game/kitchen/kitchen_3_south.tres"),preload("res://assets/game/kitchen/kitchen_3_west.tres"),preload("res://assets/game/kitchen/kitchen_3_north.tres"),preload("res://assets/game/kitchen/kitchen_3_east.tres")],
-	[preload("res://assets/game/kitchen/kitchen_pile_south.tres"),preload("res://assets/game/kitchen/kitchen_pile_west.tres"),preload("res://assets/game/kitchen/kitchen_pile_north.tres"),preload("res://assets/game/kitchen/kitchen_pile_east.tres")],
+	[preload("res://assets/game/kitchen/kitchen_1_south.tres"),preload("res://assets/game/kitchen/kitchen_1_west.tres"),preload("res://assets/game/kitchen/kitchen_1_south.tres"),preload("res://assets/game/kitchen/kitchen_1_east.tres")],
+	[preload("res://assets/game/kitchen/kitchen_2_south.tres"),preload("res://assets/game/kitchen/kitchen_2_west.tres"),preload("res://assets/game/kitchen/kitchen_2_south.tres"),preload("res://assets/game/kitchen/kitchen_2_east.tres")],
+	[preload("res://assets/game/kitchen/kitchen_3_south.tres"),preload("res://assets/game/kitchen/kitchen_3_west.tres"),preload("res://assets/game/kitchen/kitchen_3_south.tres"),preload("res://assets/game/kitchen/kitchen_3_east.tres")],
+	[preload("res://assets/game/kitchen/kitchen_pile_south.tres"),preload("res://assets/game/kitchen/kitchen_pile_west.tres"),preload("res://assets/game/kitchen/kitchen_pile_south.tres"),preload("res://assets/game/kitchen/kitchen_pile_east.tres")],
 ]
 const FOOD := {
 	"fried_vegetables":preload("res://assets/game/kitchen/fried_vegetables.tres"),

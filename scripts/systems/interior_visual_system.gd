@@ -106,7 +106,7 @@ static func draw(canvas: Node2D, kind: String, position: Vector2, modulate: Colo
 	if kind in Cardinal.KINDS: Cardinal.draw(canvas,kind,position,profile(kind,direction).visual_size,direction,modulate); return
 	if kind=="pottery" or kind=="cauldron":
 		var level:int=canvas.WorkshopSystem.state(canvas,kind).level if kind=="pottery" else 1
-		var sprite:Texture2D=Cardinal.texture("pottery_"+str(level),direction) if kind=="pottery" else preload("res://scripts/presentation/kitchen_visual_system.gd").STATION[0][posmod(direction,4)]
+		var sprite:Texture2D=Cardinal.texture("pottery_"+str(level),direction) if kind=="pottery" else preload("res://scripts/presentation/kitchen_visual_system.gd").STATION[0][Cardinal.Facing.visible(direction)]
 		var bounds:Vector2=profile(kind).visual_size; var size:=sprite.get_size()
 		size*=minf(bounds.x/size.x,bounds.y/size.y)
 		canvas.draw_texture_rect(sprite,Rect2(position-Vector2(size.x/2,size.y),size),false,modulate); return

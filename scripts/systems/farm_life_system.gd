@@ -210,7 +210,7 @@ static func handle_input(game: Node, event: InputEvent) -> bool:
 		KEY_Q:
 			if bool(value.build_mode): value.build_index = posmod(int(value.build_index)+1,FURNITURE.size()); game.message = "Выбрано: %s" % game.inventory_item_name(FURNITURE.keys()[value.build_index]); return true
 		KEY_R:
-			if bool(value.build_mode): value.build_direction=posmod(int(value.build_direction)+1,4); return true
+			if bool(value.build_mode): value.build_direction=preload("res://scripts/systems/furniture_facing_system.gd").next(int(value.build_direction)); return true
 		KEY_ENTER:
 			if bool(value.build_mode): place_furniture(game); return true
 			if bool(value.photo_mode): capture_photo(game); return true

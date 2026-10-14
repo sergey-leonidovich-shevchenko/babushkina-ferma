@@ -2,6 +2,7 @@ extends RefCounted
 
 const Data := preload("res://scripts/systems/house_furniture_data.gd")
 const Visual := preload("res://scripts/systems/farm_life_visual_system.gd")
+const Facing := preload("res://scripts/systems/furniture_facing_system.gd")
 
 ## Проверяет виды мебели и конечный целый ракурс до применения сохранения к живой игре.
 static func valid_records(records: Array) -> bool:
@@ -33,7 +34,7 @@ static func candidate(game: Node) -> Dictionary:
 	var facing:Vector2=game.facing
 	facing=Vector2(signf(facing.x),0) if absf(facing.x)>absf(facing.y) else Vector2(0,signf(facing.y))
 	if facing==Vector2.ZERO: facing=Vector2.DOWN
-	var direction:=posmod(int(value.get("build_direction",0)),4)
+	var direction:=Facing.visible(int(value.get("build_direction",0)))
 	return {"kind":kind,"position":snap(kind,game.player+facing*72,direction),"direction":direction}
 
 ## Проверяет весь footprint, границы пола, мебель и подходы к постоянным услугам дома.
@@ -109,7 +110,7 @@ static func migrate(game: Node) -> void:
 	var value:Dictionary=game.FarmLifeSystem.state(game); var restored:Array=[]
 	for record in value.furniture:
 		var item:Dictionary=record.duplicate(true)
-		item.direction=posmod(int(item.get("direction",0)),4)
+		item.direction=Facing.visible(int(item.get("direction",0)))
 		var position:=nearest(game,item,restored)
 		if position==Vector2.INF: game.change_inventory_count(item.kind,1); continue
 		item.position=position; restored.append(item)

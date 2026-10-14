@@ -76,14 +76,14 @@ func test_two_furnaces_and_glassblower_are_independent() -> void:
 
 ## Сценарий: касание выбирает последние строки, поворачивает основание и отпускает только свой строительный жест.
 ## Исходное состояние: полный каталог десяти видов и недострой в мастерской.
-## Ожидаемый результат: доступен весь каталог, четыре поворота замыкаются, отмена ничего не списывает и чужой палец не прерывает работу.
+## Ожидаемый результат: доступен весь каталог, три поворота замыкаются, отмена ничего не списывает и чужой палец не прерывает работу.
 func test_touch_rotation_pagination_and_hold_release() -> void:
 	var game:=make_game(); enter(game); Basement.open(game)
 	Controls.handle_input(game,touch(1,Controls.PAGES[1].get_center(),true))
 	expect(int(Basement.ui(game).selected)==8,"touch paging reaches the ninth and tenth stations")
 	Controls.execute(game); var counts:Dictionary=game.export_inventory_counts().duplicate()
-	for direction in 4: Controls.handle_input(game,touch(1,Controls.PLACE_BUTTONS[1].get_center(),true))
-	expect(int(Basement.ui(game).direction)==0,"four touch rotations return to the same physical orientation")
+	for direction in 3: Controls.handle_input(game,touch(1,Controls.PLACE_BUTTONS[1].get_center(),true))
+	expect(int(Basement.ui(game).direction)==0,"three touch rotations return to the same physical orientation")
 	Basement.ui(game).pointer=Vector2(1150,320); var motion:=InputEventMouseMotion.new(); motion.position=Vector2(600,620)
 	Controls.handle_input(game,motion); var camera_before:Vector2=game.camera_offset; Controls.update(game,1)
 	expect(game.camera_offset==camera_before and Basement.ui(game).pointer==Vector2.ZERO,"moving from an edge onto the toolbar immediately stops camera panning")

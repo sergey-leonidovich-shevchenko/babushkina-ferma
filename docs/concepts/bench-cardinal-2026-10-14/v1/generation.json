@@ -3,6 +3,9 @@
   "useCase": "precise-object-edit",
   "approved": false,
   "selected": null,
+  "allowedDirections": ["south", "west", "east"],
+  "excludedCells": ["topRight"],
+  "directionCorrection": "User rejected rear-facing furniture views on 2026-10-14. Original masters are retained; north cell is excluded from game integration.",
   "date": "2026-10-14",
   "inputs": [
     {

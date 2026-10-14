@@ -79,6 +79,21 @@ test('every sprite is a real PNG and every character can be inspected', async ()
   assert.ok(skeleton.animation.clips.some((clip) => clip.id === 'attack'))
 })
 
+// Сценарий: страницы станков предлагают выбор направления для каждого уровня и строительной кучи.
+// Исходное состояние: все станки экспортированы с уровнями и строительными кучами.
+// Ожидаемый результат: доступны три видимых ракурса, задняя сторона не предлагается.
+test('workstations only expose front and side views', () => {
+  const stations = catalog.entries.filter(
+    (entry) => entry.category === 'buildings' && entry.id.startsWith('station-')
+  )
+  assert.equal(stations.length, catalog.coverage.stations)
+  for (const station of stations) {
+    for (const clip of station.animation.clips) {
+      assert.deepEqual(Object.keys(clip.frames).sort(), ['east', 'south', 'west'], station.id)
+    }
+  }
+})
+
 // Сценарий: каталог содержит повреждённую ссылку или выходящий за изображение кадр.
 // Исходное состояние: независимые копии корректного справочника.
 // Ожидаемый результат: ни один дефект не может попасть в опубликованную сборку.

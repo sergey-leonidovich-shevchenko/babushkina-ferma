@@ -96,6 +96,7 @@ static func restore(game: Node) -> void:
 			for kind in job.get("paid",{}): job.paid[kind]=int(job.paid[kind])
 		item.production.heat=clampf(float(item.production.heat),0,120.0*int(item.level))
 	value.next_id=maxi(int(value.get("next_id",1)),largest+1); value.revision=maxi(0,int(value.get("revision",0)))
+	if preload("res://scripts/systems/basement_facing_system.gd").restore(value.objects): value.revision+=1
 	if game.has_meta("basement_ui"): game.remove_meta("basement_ui")
 	if game.has_meta("basement_active_station"): game.remove_meta("basement_active_station")
 	if game.has_meta("kitchen_filter"): game.remove_meta("kitchen_filter")

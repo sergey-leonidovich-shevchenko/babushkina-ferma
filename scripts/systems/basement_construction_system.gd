@@ -19,6 +19,7 @@ static func pay(game: Node, cost: Dictionary, ledger: Dictionary) -> void:
 ## Подтверждает свободное размещение и резервирует материалы новой стройки всегда первого уровня.
 static func build(game: Node, candidate: Dictionary) -> bool:
 	if game.current_location!=Basement.Data.LOCATION or not Basement.ui(game).placing or not Basement.Data.STATIONS.has(candidate.get("kind","")): return false
+	if candidate.get("direction",-1) not in preload("res://scripts/systems/furniture_facing_system.gd").SELECTABLE: game.message=game.LocaleSystem.ui("basement_invalid"); return false
 	var value:=Basement.state(game); var why:=Basement.Layout.reason(value.objects,candidate,game.player)
 	var cost:={"inputs":Basement.Data.STATIONS[candidate.kind].inputs}
 	if why.is_empty(): why=cost_reason(game,cost)
