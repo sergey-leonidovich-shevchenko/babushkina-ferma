@@ -43,5 +43,6 @@ python3 tools/check_documentation.py
 python3 tools/test_documentation.py
 python3 tools/test_world_sprite_manifest.py
 python3 tools/check_world_sprite_manifest.py
+python3 tools/test_optimization_audit.py
 git diff --check
 print -- "ARCHITECTURE: boundaries and whitespace are valid"

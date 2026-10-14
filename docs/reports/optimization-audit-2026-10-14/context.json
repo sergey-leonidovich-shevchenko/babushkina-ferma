@@ -1,0 +1,11 @@
+{
+  "baseline_revision": "a5ec70ebe30bd804fd1bb28ce61e6d994a5a5e9b",
+  "game_version": "0.0.167",
+  "date": "2026-10-14",
+  "os": "macOS 15.4.1",
+  "arch": "x86_64",
+  "godot": "4.7.1.stable.official.a13da4feb",
+  "gpu": "AMD Radeon Pro 5300M OpenGL Engine",
+  "renderer": "OpenGL Compatibility 4.1",
+  "scope": "Unchanged game sources; new audit tools evolve between runs; actual window/focus and instrumentation recorded per raw file; external GPU load and OS RSS not captured."
+}

@@ -1,0 +1,18 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+OpenGL API 4.1 ATI-7.0.3 - Compatibility - Using Device: ATI Technologies Inc. - AMD Radeon Pro 5300M OpenGL Engine
+
+2026-10-14 10:36:15.833 Godot[90036:5448381] not in fullscreen state
+AUDIT CASE: inventory first=48.35 p95=123.207 ms
+AUDIT CASE: inventory first=46.44 p95=127.353 ms
+AUDIT CASE: cabinet first=185.28 p95=218.775 ms
+AUDIT CASE: cabinet first=198.92 p95=214.974 ms
+AUDIT CASE: cabinet-scroll first=156.89 p95=226.758 ms
+AUDIT CASE: cabinet-search first=185.43 p95=191.463 ms
+AUDIT CASE: chest first=147.95 p95=198.43 ms
+AUDIT CASE: workbench first=106.39 p95=67.179 ms
+AUDIT CASE: cauldron first=18.53 p95=61.11 ms
+AUDIT CASE: cauldron first=29.46 p95=64.285 ms
+AUDIT CASE: alchemy first=19.42 p95=115.202 ms
+AUDIT CASE: furnace first=40.55 p95=79.125 ms
+AUDIT CASE: quests first=42.56 p95=131.181 ms
+AUDIT CASE: hero first=184.67 p95=177.329 ms

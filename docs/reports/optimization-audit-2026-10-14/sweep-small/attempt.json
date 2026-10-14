@@ -1,0 +1,84 @@
+{
+  "status": "ABORTED",
+  "reason": "No next completed draw measurement after hero; sampled main thread active; stalled/very-slow render attribution unknown",
+  "completed_summaries": [
+    {
+      "case": "inventory",
+      "first_ms": 48.35,
+      "p95_ms": 123.207
+    },
+    {
+      "case": "inventory",
+      "first_ms": 46.44,
+      "p95_ms": 127.353
+    },
+    {
+      "case": "cabinet",
+      "first_ms": 185.28,
+      "p95_ms": 218.775
+    },
+    {
+      "case": "cabinet",
+      "first_ms": 198.92,
+      "p95_ms": 214.974
+    },
+    {
+      "case": "cabinet-scroll",
+      "first_ms": 156.89,
+      "p95_ms": 226.758
+    },
+    {
+      "case": "cabinet-search",
+      "first_ms": 185.43,
+      "p95_ms": 191.463
+    },
+    {
+      "case": "chest",
+      "first_ms": 147.95,
+      "p95_ms": 198.43
+    },
+    {
+      "case": "workbench",
+      "first_ms": 106.39,
+      "p95_ms": 67.179
+    },
+    {
+      "case": "cauldron",
+      "first_ms": 18.53,
+      "p95_ms": 61.11
+    },
+    {
+      "case": "cauldron",
+      "first_ms": 29.46,
+      "p95_ms": 64.285
+    },
+    {
+      "case": "alchemy",
+      "first_ms": 19.42,
+      "p95_ms": 115.202
+    },
+    {
+      "case": "furnace",
+      "first_ms": 40.55,
+      "p95_ms": 79.125
+    },
+    {
+      "case": "quests",
+      "first_ms": 42.56,
+      "p95_ms": 131.181
+    },
+    {
+      "case": "hero",
+      "first_ms": 184.67,
+      "p95_ms": 177.329
+    }
+  ],
+  "raw_intervals_available": false,
+  "expected_window": [
+    1152,
+    648
+  ],
+  "entry_window_guard_passed": true,
+  "per_case_focus_unknown": true,
+  "note": "Summaries from stdout only. Not an acceptable FPS baseline. Process 90036 stopped after stack capture; user processes untouched."
+}
