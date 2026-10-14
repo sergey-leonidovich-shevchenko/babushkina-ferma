@@ -95,6 +95,24 @@ test('guardian exposes its whole temporary pose without invented animation clips
   assert.equal(boss.animation.clips.length, 13)
 })
 
+// Сценарий: просмотр скелета показывает три стадии выстрела в нижнюю левую сторону.
+// Исходное состояние: общий игровой профиль исправляет авторскую ошибку отражением противоположной диагонали.
+// Ожидаемый результат: Wiki использует ту же целую позу и отражение, соседние направления сохраняют самостоятельные кадры.
+test('skeleton south-west bow matches game pose and all three shot phases', () => {
+  const skeleton = catalog.entries.find((entry) => entry.category === 'characters' && entry.id === 'skeleton')
+  const attack = skeleton.animation.clips.find((clip) => clip.id === 'attack')
+  for (let index = 0; index < 3; index++) {
+    const left = attack.frames['south-west'][index]
+    const right = attack.frames['south-east'][index]
+    assert.equal(left.flip, true)
+    assert.deepEqual(left.rect, right.rect)
+    assert.deepEqual(left.pivot, right.pivot)
+    for (const direction of Object.keys(attack.frames).filter((value) => value !== 'south-west')) {
+      assert.equal(attack.frames[direction][index].flip, false, direction)
+    }
+  }
+})
+
 // Сценарий: страницы станков предлагают выбор направления для каждого уровня и строительной кучи.
 // Исходное состояние: все станки экспортированы с уровнями и строительными кучами.
 // Ожидаемый результат: доступны три видимых ракурса, задняя сторона не предлагается.

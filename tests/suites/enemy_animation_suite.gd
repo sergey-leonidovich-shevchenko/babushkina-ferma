@@ -6,6 +6,7 @@ func run() -> void:
 	test_all_mobile_enemies_have_complete_walk_sets()
 	test_atlases_follow_the_shared_grid_contract()
 	test_skeleton_frames_are_isolated_and_complete()
+	test_skeleton_bow_faces_south_west_through_the_whole_shot()
 	test_guardian_body_is_complete_and_effect_is_separate()
 	test_every_combat_animation_family_is_represented()
 	test_direction_changes_source_row_without_mirroring()
@@ -91,6 +92,26 @@ func test_skeleton_frames_are_isolated_and_complete() -> void:
 				var source: Rect2=library.source_rect("skeleton",direction,frame_index)
 				var sprite: Image=image.get_region(Rect2i(source)); var used:=sprite.get_used_rect()
 				expect(used.size.y>=85 and used.position.x>0 and used.position.y>0 and used.end.x<128 and used.end.y<128,"skeleton pose has a full body and transparent isolation margins: %d/%d"%[row,frame_index])
+	game.free()
+
+
+## Сценарий: скелет натягивает, выпускает стрелу и возвращает лук при стрельбе влево-вниз.
+## Исходное состояние: в авторском нижнем левом ряду лук ошибочно нарисован справа, противоположная диагональ имеет правильную позу.
+## Ожидаемый результат: все три фазы обращены влево через отражение целой противоположной фигуры, остальные семь ракурсов сохраняют свои позы.
+func test_skeleton_bow_faces_south_west_through_the_whole_shot() -> void:
+	var game:=make_game(); var library=game.EnemyAnimationLibrary
+	for row in 8:
+		var direction:=Vector2(-sin(row*TAU/8),cos(row*TAU/8))
+		for frame_index in 3:
+			var pose:Dictionary=library.action_pose("skeleton",direction,frame_index)
+			var expected_row:=7 if row==1 else row
+			expect(pose.texture==library.SKELETON_ACTIONS and pose.source==Rect2(frame_index*128,expected_row*128,128,128) and pose.flip==(row==1),"skeleton bow preparation, release and recovery agree with direction %d/%d"%[row,frame_index])
+			var used:Rect2i=pose.texture.get_image().get_region(Rect2i(pose.source)).get_used_rect()
+			expect(used.position.x>0 and used.end.x<128 and used.position.y>0 and used.end.y<128,"directional bow correction retains a whole isolated figure: %d/%d"%[row,frame_index])
+	for level in range(1,6):
+		var enemy:={"kind":"skeleton","position":Vector2(600,400),"level":level}
+		var normal:Rect2=library.actor_rect(enemy); var mirrored:Rect2=library.oriented_actor_rect(enemy,true)
+		expect(mirrored.position==normal.position and mirrored.size==Vector2(-normal.size.x,normal.size.y),"mirroring cannot shift the skeleton away from its health bar or ground point at level "+str(level))
 	game.free()
 
 

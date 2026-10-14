@@ -115,7 +115,9 @@ static func enemies(ctx: Object) -> void:
 			ctx.fact(entry,"Графика","Временная цельная поза; подробный набор анимаций готовится")
 			finish(entry,[clip(ctx,"idle","Покой",["south"],1,1,func(_dir,_i): return still)]); continue
 		var pose:=func(dir,i): return {"texture":Enemy.walk_texture(kind),"source":Enemy.source_rect(kind,DIRECTIONS[dir],i),"pivot":Vector2(64,128),"scale":0.75,"preserve_alpha":true}
-		var action:=func(dir,i): return {"texture":Enemy.action_texture(kind),"source":Enemy.source_rect(kind,DIRECTIONS[dir],Enemy.body_action_frame(kind,i)),"pivot":Vector2(64,128),"scale":0.75,"preserve_alpha":true}
+		var action:=func(dir,i):
+			var value:Dictionary=Enemy.action_pose(kind,DIRECTIONS[dir],i)
+			value.merge({"pivot":Vector2(64,128),"scale":0.75,"preserve_alpha":true}); return value
 		var title:String={"melee":"Удар","shoot":"Выстрел","cast":"Заклинание","slam":"Удар по земле"}[Enemy.action_kind(kind)]
 		finish(entry,[clip(ctx,"idle","Покой",DIRECTIONS.keys(),1,1,func(dir,_i): return pose.call(dir,1)),clip(ctx,"walk","Ходьба",DIRECTIONS.keys(),3,7,pose),clip(ctx,"attack",title,DIRECTIONS.keys(),3,6,action)])
 

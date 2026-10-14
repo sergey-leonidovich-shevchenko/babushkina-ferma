@@ -48,6 +48,21 @@ static func action_texture(kind: String) -> Texture2D:
 	return PIRATE_ACTIONS if kind in PIRATE_FAMILIES else CORE_ACTIONS
 
 
+## Согласует позу лука с направлением: ошибочный нижний левый ряд скелета заменяется отражённым нижним правым.
+static func action_pose(kind:String,direction:Vector2,local_frame:int) -> Dictionary:
+	var mirrored:bool=kind=="skeleton" and AnimationAssetRegistry.direction_index(direction)==1
+	var authored_direction:=Vector2(1,1) if mirrored else direction
+	return {"texture":action_texture(kind),"source":source_rect(kind,authored_direction,body_action_frame(kind,local_frame)),"flip":mirrored}
+
+
+## Поворачивает визуальную подготовку выстрела к сохранённой цели, даже если навигация уже смотрит вслед убежавшему герою.
+static func attack_direction(enemy:Dictionary) -> Vector2:
+	var origin:Vector2=enemy.position
+	var target:Vector2=enemy.get("action_target",origin)
+	var direction:=origin.direction_to(target)
+	return Vector2(enemy.get("direction",Vector2.DOWN)) if direction.is_zero_approx() else direction
+
+
 ## Рассчитывает прямоугольник одного кадра по семейству, направлению и локальному кадру.
 static func source_rect(kind: String, direction: Vector2, local_frame: int) -> Rect2:
 	if kind=="cave_guardian": return Rect2(Vector2.ZERO,GUARDIAN_BODY.get_size())
@@ -115,10 +130,15 @@ static func configure_preview(game: Node) -> void:
 
 
 ## Рисует один кадр противника с общей привязкой ног и масштабом конкретного семейства.
-static func draw_actor(game: Node2D, enemy: Dictionary, texture: Texture2D, frame_index: int, modulate: Color) -> void:
+static func draw_actor(game: Node2D, enemy: Dictionary, texture: Texture2D, frame_index: int, modulate: Color, attacking:bool=false) -> void:
 	var kind: String = enemy.kind
 	var destination:=actor_rect(enemy)
-	game.draw_texture_rect_region(texture, destination, source_rect(kind, enemy.get("direction", Vector2.DOWN), frame_index), modulate)
+	var source:=source_rect(kind,enemy.get("direction",Vector2.DOWN),frame_index)
+	if attacking:
+		var pose:=action_pose(kind,enemy.get("direction",Vector2.DOWN),frame_index)
+		texture=pose.texture; source=pose.source
+		destination=oriented_actor_rect(enemy,bool(pose.flip))
+	game.draw_texture_rect_region(texture,destination,source,modulate)
 
 
 ## Привязывает целую фигуру хранителя к измеренной опоре стоп, сохраняя прежнюю рамку остальных семейств.
@@ -126,6 +146,13 @@ static func actor_rect(enemy:Dictionary) -> Rect2:
 	var size:=CreatureVisualProfileSystem.enemy_size(int(enemy.get("level",1)))
 	if enemy.kind=="cave_guardian": return Rect2(enemy.position-GUARDIAN_PIVOT*(size.x/256.0),size)
 	return CreatureVisualProfileSystem.actor_rect(enemy.position,size)
+
+
+## Отражает рисунок средствами области назначения, сохраняя её исходную позицию и опору ног.
+static func oriented_actor_rect(enemy:Dictionary,mirrored:bool) -> Rect2:
+	var destination:=actor_rect(enemy)
+	if mirrored: destination.size.x=-destination.size.x
+	return destination
 
 
 ## Располагает здоровье над целой головой, включая кристальную корону хранителя всех рангов.
@@ -170,7 +197,8 @@ static func draw_enemy(game: Node2D, enemy: Dictionary, state: String, attack_du
 	if state == "attack":
 		var progress := clampf(float(enemy.get("visual_time", 0.0)) / attack_duration, 0.0, 1.0)
 		var frame_index := action_frame(progress)
-		draw_actor(game, visual_enemy, action_texture(enemy.kind), body_action_frame(enemy.kind, frame_index), modulate)
+		if action_kind(enemy.kind) in ["shoot","cast"]: visual_enemy.direction=attack_direction(enemy)
+		draw_actor(game, visual_enemy, action_texture(enemy.kind), frame_index, modulate,true)
 		draw_action_effect(game, visual_enemy, progress)
 		return
 	draw_actor(game, visual_enemy, walk_texture(enemy.kind), walk_frame(float(enemy.get("visual_time", 0.0)), bool(enemy.get("moving", false))), modulate)

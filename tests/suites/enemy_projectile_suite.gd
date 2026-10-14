@@ -6,6 +6,7 @@ const Shots := preload("res://scripts/systems/enemy_projectile_system.gd")
 func run() -> void:
 	test_all_ranged_families_can_miss_and_hit_once()
 	test_windup_and_interruption()
+	test_visual_aim_keeps_the_captured_projectile_target()
 	test_stationary_ranged_plant_uses_the_same_collision()
 	test_obstacles_dodge_and_scene_change()
 	test_hit_stop_releases_world_and_menu_stays_paused()
@@ -51,6 +52,26 @@ func test_windup_and_interruption() -> void:
 	game.CombatSystem.apply_damage(game,0,1); game.CombatSystem.update(game,0.4)
 	expect(not enemy.attack_pending and Shots.state(game).is_empty(),"hurt reaction cancels an unreleased enemy shot")
 	game.free()
+
+
+## Сценарий: герой уходит вправо после начала дальнего выстрела влево-вниз.
+## Исходное состояние: шесть стрелков и магов сохраняют цель при замахе, подвижные враги затем меняют направление погони.
+## Ожидаемый результат: поза и выпущенный снаряд сохраняют нижний левый сектор, несмотря на новое положение героя, а движение по старой линии можно избежать.
+func test_visual_aim_keeps_the_captured_projectile_target() -> void:
+	for kind in ["skeleton","pirate","drowned_captain","undead","sea_ghost","plant"]:
+		var game:=fixture(kind); var enemy:Dictionary=game.enemy_nodes[0]
+		enemy.position=Vector2(600,400); enemy.home=enemy.position; game.player=Vector2(500,500); enemy.attack_timer=0
+		game.CombatSystem.update(game,0.01); var target:Vector2=enemy.action_target
+		expect(enemy.attack_pending and target==Vector2(500,500),"ranged windup captures its south-west target: "+kind)
+		game.player=Vector2(1000,400); game.CombatSystem.update(game,0.1)
+		var aim:Vector2=game.EnemyAnimationLibrary.attack_direction(enemy)
+		expect(game.AnimationAssetRegistry.direction_index(aim)==1 and enemy.action_target==target,"visual bow or spell keeps the captured sector after player evades right: "+kind)
+		game.CombatSystem.update(game,game.CombatSystem.attack_impact_delay(enemy.action_kind)-0.1+0.01)
+		var shots:Array=Shots.state(game)
+		expect(shots.size()==1 and game.AnimationAssetRegistry.direction_index(shots[0].direction)==game.AnimationAssetRegistry.direction_index(game.EnemyAnimationLibrary.attack_direction(enemy)),"rendered attack sector agrees with the actual released projectile: "+kind)
+		Shots.update(game,2)
+		expect(game.player_hp==game.player_max_hp,"unchanged fixed trajectory still misses an evading hero: "+kind)
+		game.free()
 
 ## Сценарий: герой открывает любое полноэкранное игровое окно при летящем снаряде.
 ## Исходное состояние: стрелок начал атаку, мир имеет активный стоп-кадр и текущую позицию стрелы.
