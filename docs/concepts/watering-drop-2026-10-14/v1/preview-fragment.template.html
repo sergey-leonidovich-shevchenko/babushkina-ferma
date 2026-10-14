@@ -1,0 +1,104 @@
+<div id="farm-watering-motion" aria-label="Компактная анимированная капля полива">
+  <div class="viz-row">
+    <button class="btn" type="button" data-play aria-pressed="true">Пауза</button>
+    <button class="btn" type="button" data-water aria-pressed="false">Полить</button>
+    <span class="text-small" data-size-label role="status">12 px · 6 фаз</span>
+  </div>
+  <div class="viz-carousel" aria-label="Варианты капли" data-previous-label="Предыдущий" data-next-label="Следующий">
+    <section data-variant="Коралловая" aria-label="Мягкая коралловая капля">
+      <div class="drop-labels"><span>Сейчас</span><span>Новая капля</span></div>
+      <div class="drop-stage"><canvas width="392" height="184" data-variant="coral" role="img" aria-label="Слева нынешние крупные угловатые капли, справа небольшие коралловые спрайты на соседних грядках"></canvas></div>
+    </section>
+    <section data-variant="Голубая" aria-label="Голубая капля воды" hidden>
+      <div class="drop-labels"><span>Сейчас</span><span>Новая капля</span></div>
+      <div class="drop-stage"><canvas width="392" height="184" data-variant="blue" role="img" aria-label="Слева нынешние крупные угловатые капли, справа небольшие голубые спрайты на соседних грядках"></canvas></div>
+    </section>
+  </div>
+  <script type="application/json" data-assets>__WATERING_PREVIEW_ASSETS__</script>
+</div>
+<style>
+  #farm-watering-motion .drop-labels { display:grid; grid-template-columns:1fr 1fr; text-align:center; margin:12px 0 8px; }
+  #farm-watering-motion .drop-stage { background:#5c7435; overflow:hidden; }
+  #farm-watering-motion canvas { display:block; width:100%; height:auto; aspect-ratio:392/184; }
+  #farm-watering-motion section[hidden] { display:none; }
+</style>
+<script>
+(() => {
+  const root=document.getElementById('farm-watering-motion');
+  const assets=JSON.parse(root.querySelector('[data-assets]').textContent);
+  const snapshot=globalThis.openai?.widgetState || {};
+  const saved=snapshot.modelContent || snapshot;
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+  const state={size:Number.isFinite(saved.size)?Math.max(8,Math.min(14,saved.size)):12,watered:!!saved.watered,playing:reduced.matches?false:snapshot.privateContent?.playing!==false};
+  const canvases=Array.from(root.querySelectorAll('canvas'));
+  const play=root.querySelector('[data-play]'), water=root.querySelector('[data-water]'), label=root.querySelector('[data-size-label]');
+  const layer=document.createElement('canvas'); layer.width=64; layer.height=64;
+  const lc=layer.getContext('2d');
+  const tau=Math.PI*2;
+  let images={}, loaded=false, elapsed=0, previous=0;
+  function remember(){ globalThis.openai?.setWidgetState?.({modelContent:{size:state.size,watered:state.watered},privateContent:{playing:state.playing}})?.catch?.(()=>{}); }
+  function loadImage(data){ return new Promise((resolve,reject)=>{const image=new Image();image.onload=()=>resolve(image);image.onerror=reject;image.src=data;}); }
+  function settings(){
+    play.textContent=state.playing?'Пауза':'Продолжить';play.setAttribute('aria-pressed',String(state.playing));
+    water.textContent=state.watered?'Вернуть сухие грядки':'Полить';water.setAttribute('aria-pressed',String(state.watered));
+    label.textContent=`${state.size} px · 6 фаз${state.watered?' · полито':''}`;
+    if(loaded)canvases.forEach(drawScene);
+  }
+  function oldDrop(ctx,x,y){
+    const pulse=1+Math.sin(elapsed/130)*0.08;
+    const points=[[0,-9],[7,1],[5,7],[0,10],[-5,7],[-7,1]];
+    ctx.beginPath();points.forEach(([px,py],index)=>{if(index)ctx.lineTo(x+px*pulse,y+py*pulse);else ctx.moveTo(x+px*pulse,y+py*pulse);});ctx.closePath();
+    ctx.fillStyle='#e4473f';ctx.fill();ctx.fillStyle='#ffaaa0';ctx.beginPath();ctx.arc(x-2,y+2,2,0,tau);ctx.fill();
+  }
+  function newDrop(ctx,id,x,y,delay){
+    const phase=(elapsed/(assets.duration*1000)+delay)%1;
+    const exact=phase*6,index=Math.floor(exact),fraction=exact-index,blend=fraction*fraction*(3-2*fraction);
+    const factor=state.size/assets.referenceHeight;
+    lc.clearRect(0,0,64,64);lc.globalCompositeOperation='lighter';
+    for(const [frame,alpha] of [[index,1-blend],[(index+1)%6,blend]]){
+      if(alpha===0)continue;
+      lc.globalAlpha=alpha;
+      lc.drawImage(images[id],(frame%3)*assets.cell,Math.floor(frame/3)*assets.cell,assets.cell,assets.cell,32-assets.cell/2*factor,44-(assets.cell-8)*factor,assets.cell*factor,assets.cell*factor);
+    }
+    lc.globalAlpha=1;
+    ctx.drawImage(layer,x-32,y+state.size/2-44+Math.sin(phase*tau)*assets.floatPixels);
+  }
+  function plot(ctx,x,y,index,id,isNew){
+    ctx.fillStyle=ctx.createPattern(images.soil,'repeat');ctx.fillRect(x,y,48,48);
+    ctx.save();ctx.globalCompositeOperation='multiply';ctx.fillStyle=state.watered?'#755841':'#b58b60';ctx.fillRect(x,y,48,48);ctx.restore();
+    ctx.strokeStyle='rgba(46,28,14,0.35)';ctx.lineWidth=1;ctx.strokeRect(x+0.5,y+0.5,47,47);
+    const stage=[0,1,2,1][index];ctx.drawImage(images.crops,stage*64,0,64,64,x,y,48,48);
+    const growth=[0.1,0.32,0.5,0.24][index];
+    ctx.fillStyle='#243b35';ctx.fillRect(x+3,y-10,42,7);ctx.fillStyle='#bfa64a';ctx.fillRect(x+4,y-9,40*growth,5);
+    ctx.fillStyle='#f7e4b0';for(let divider=1;divider<4;divider++)ctx.fillRect(x+3+42*divider/4,y-10,1.5,7);
+    if(!state.watered){if(isNew)newDrop(ctx,id,x+8,y+6,index*0.083);else oldDrop(ctx,x+8,y+4);}
+  }
+  function drawScene(canvas){
+    const ctx=canvas.getContext('2d');ctx.imageSmoothingEnabled=true;ctx.clearRect(0,0,392,184);
+    ctx.fillStyle=ctx.createPattern(images.grass,'repeat');ctx.fillRect(0,0,392,184);
+    for(let side=0;side<2;side++)for(let index=0;index<4;index++)plot(ctx,48+side*200+(index%2)*48,42+Math.floor(index/2)*48,index,canvas.dataset.variant,side===1);
+  }
+  function animate(now){
+    if(!root.isConnected)return;
+    if(state.playing&&previous)elapsed+=Math.min(now-previous,80);
+    previous=now;
+    if(loaded&&state.playing)canvases.forEach(canvas=>{if(!canvas.closest('section').hidden)drawScene(canvas);});
+    requestAnimationFrame(animate);
+  }
+  play.addEventListener('click',()=>{state.playing=!state.playing;settings();remember();});
+  water.addEventListener('click',()=>{state.watered=!state.watered;settings();remember();});
+  reduced.addEventListener('change',event=>{if(event.matches){state.playing=false;settings();}});
+  window.addEventListener('openai:set_globals',event=>{
+    const snapshot=event.detail?.globals?.widgetState;if(!snapshot)return;
+    const model=snapshot.modelContent||snapshot;
+    if(Number.isFinite(model.size))state.size=Math.max(8,Math.min(14,model.size));
+    if(typeof model.watered==='boolean')state.watered=model.watered;
+    if(typeof snapshot.privateContent?.playing==='boolean')state.playing=snapshot.privateContent.playing;
+    settings();
+  });
+  settings();
+  if(globalThis.Tweak){const tweak=new Tweak({container:root,onChange:()=>{settings();remember();}});tweak.addSlider(state,'size',{label:'Высота капли',min:8,max:14,step:1,unit:'px'});}
+  Promise.all(Object.entries(assets.images).map(async([key,data])=>[key,await loadImage(data)])).then(entries=>{images=Object.fromEntries(entries);loaded=true;root.dataset.ready='true';settings();}).catch(()=>{root.dataset.ready='error';label.textContent='Не удалось загрузить спрайты';});
+  requestAnimationFrame(animate);
+})();
+</script>

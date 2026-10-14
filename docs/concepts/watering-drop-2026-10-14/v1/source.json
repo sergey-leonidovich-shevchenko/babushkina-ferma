@@ -1,0 +1,117 @@
+{
+  "generator": "built-in image_gen",
+  "status": "concept_pending_selection",
+  "runtime_changed": false,
+  "native_height": 12,
+  "previous_height": 19,
+  "duration_seconds": 2.2,
+  "float_pixels": 0.55,
+  "preview_cell": 72,
+  "preview_height": 56,
+  "variants": [
+    {
+      "id": "coral",
+      "source": "coral-master.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "87ae48dcdd94887ea18855376ff51df683d15dc1281dae967538ef2bbd98e769",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "regions": [
+        [
+          97,
+          176,
+          258,
+          385
+        ],
+        [
+          501,
+          147,
+          256,
+          414
+        ],
+        [
+          906,
+          118,
+          251,
+          443
+        ],
+        [
+          99,
+          726,
+          258,
+          385
+        ],
+        [
+          495,
+          761,
+          264,
+          350
+        ],
+        [
+          899,
+          726,
+          259,
+          385
+        ]
+      ],
+      "preview_atlas": "coral-preview.png"
+    },
+    {
+      "id": "blue",
+      "source": "blue-master.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "f950e17492c01b26d452dcb04b1cab70c71c71a96540fb82a96f227fc90e343e",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "regions": [
+        [
+          115,
+          302,
+          237,
+          351
+        ],
+        [
+          514,
+          262,
+          229,
+          392
+        ],
+        [
+          910,
+          302,
+          239,
+          352
+        ],
+        [
+          115,
+          794,
+          239,
+          309
+        ],
+        [
+          506,
+          822,
+          247,
+          281
+        ],
+        [
+          913,
+          772,
+          236,
+          331
+        ]
+      ],
+      "preview_atlas": "blue-preview.png"
+    }
+  ]
+}
