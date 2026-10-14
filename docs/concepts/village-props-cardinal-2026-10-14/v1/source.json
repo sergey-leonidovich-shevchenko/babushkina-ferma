@@ -1,0 +1,58 @@
+{
+  "generator": "built-in image_gen",
+  "runtime_assets_changed": false,
+  "sheets": [
+    {
+      "variant": "A",
+      "path": "variant-a.png",
+      "sha256": "def8946812009e83541c3b5de178bbe4246b1fb8462ed6211689066919da757c",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "transparent_pixels": 870231,
+      "alpha_range": [
+        0,
+        254
+      ],
+      "directions": [
+        "south",
+        "west",
+        "east"
+      ],
+      "rows": [
+        "well",
+        "harvest_cart"
+      ],
+      "status": "concept_pending_selection",
+      "prompt": "prompt-a.txt"
+    },
+    {
+      "variant": "B",
+      "path": "variant-b.png",
+      "sha256": "13e029a466b48cc0dd60525123ccbd4fb5664b1af2f5e6e89b794948e96f4322",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "transparent_pixels": 1004525,
+      "alpha_range": [
+        0,
+        254
+      ],
+      "directions": [
+        "south",
+        "west",
+        "east"
+      ],
+      "rows": [
+        "well",
+        "harvest_cart"
+      ],
+      "status": "concept_pending_selection",
+      "prompt": "prompt-b.txt"
+    }
+  ]
+}
