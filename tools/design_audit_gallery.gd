@@ -18,7 +18,7 @@ func _start() -> void:
 	for group in ["world-","ui-"]:
 		var paths:Array=[]
 		for file in DirAccess.get_files_at(folder):
-			if file.begins_with(group) and file.ends_with(".png"): paths.append(file)
+			if file.begins_with(group) and file.ends_with(".png") and not file.begins_with(group+"sheet-"): paths.append(file)
 		paths.sort()
 		for start in range(0,paths.size(),12):
 			entries=[]

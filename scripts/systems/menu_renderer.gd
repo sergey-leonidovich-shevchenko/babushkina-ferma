@@ -11,8 +11,6 @@ const LANGUAGE_PANEL := Rect2(210, 108, 732, 430)
 const CONFIRM_PANEL := Rect2(326, 198, 500, 252)
 const CONFIRM_ACCEPT := Rect2(372, 362, 190, 52)
 const CONFIRM_CANCEL := Rect2(590, 362, 190, 52)
-const DEFEAT_PANEL := Rect2(286, 170, 580, 308)
-const DEFEAT_CONTINUE := Rect2(431, 390, 290, 54)
 const TITLE_WORDMARK_RECT := Rect2(38, 34, 694, 72)
 const TITLE_ITEM_ORIGIN := Vector2(814, 329)
 const SETTINGS_ITEM_ORIGIN := Vector2(296, 102)
@@ -87,7 +85,6 @@ static func draw_title_menu(game: Node) -> void:
 ## Затемняет мир и рисует меню паузы либо открытую поверх него страницу настроек.
 static func draw_pause_layer(game: Node) -> void:
 	if game.menu_state.defeat_open:
-		game.draw_rect(Rect2(0, 0, 1152, 648), Color(0.01, 0.025, 0.022, 0.76))
 		draw_defeat(game)
 		return
 	if game.menu_state.settings_open:
@@ -117,7 +114,6 @@ static func draw_settings(game: Node) -> void:
 		game.LocaleSystem.ui("enabled" if game.settings_state.fullscreen_enabled else "disabled"),
 		game.LocaleSystem.ui("enabled" if game.settings_state.vsync_enabled else "disabled"),
 		game.LocaleSystem.ui("enabled" if game.settings_state.reduced_motion else "disabled"),
-		game.LocaleSystem.ui("enabled" if game.settings_state.screen_shake_enabled else "disabled"),
 		game.LocaleSystem.ui("enabled" if game.settings_state.high_contrast else "disabled"),
 		game.LocaleSystem.ui("left_handed_controls" if game.settings_state.control_preset=="left_handed" else "standard_controls"),
 		"%d%%" % roundi(game.settings_state.text_scale * 100.0),
@@ -175,17 +171,12 @@ static func draw_confirmation(game: Node) -> void:
 	game.draw_ui_string(game.MENU_FONT, CONFIRM_CANCEL.position + Vector2(8, 35), game.LocaleSystem.ui("no"), HORIZONTAL_ALIGNMENT_CENTER, CONFIRM_CANCEL.size.x - 16, 16, UiKitSystem.COLORS.ink)
 
 
-## Рисует отдельный экран спасения после поражения с причиной, потерей и явным продолжением.
+## Передаёт совместимый вызов компактному уведомлению без блокирующей панели поражения.
 static func draw_defeat(game: Node) -> void:
-	UiKitSystem.draw_panel(game, DEFEAT_PANEL, true)
-	game.draw_ui_string(game.MENU_FONT, Vector2(340, 238), game.LocaleSystem.ui("defeat_title"), HORIZONTAL_ALIGNMENT_CENTER, 472, 30, MoonStyle.TEXT)
-	game.draw_multiline_string(game.UI_FONT, Vector2(350, 286), game.LocaleSystem.ui("defeat_saved", [game.menu_state.defeat_source]), HORIZONTAL_ALIGNMENT_CENTER, 452, 15, 2, Color("4b3425"))
-	game.draw_ui_string(game.UI_FONT, Vector2(350, 346), game.LocaleSystem.ui("defeat_loss", [game.menu_state.defeat_lost_coins]), HORIZONTAL_ALIGNMENT_CENTER, 452, 13, Color("8b3f2b"))
-	UiKitSystem.draw_button(game, DEFEAT_CONTINUE, true, true, game.settings_state.reduced_motion, Time.get_ticks_msec())
-	game.draw_ui_string(game.MENU_FONT, DEFEAT_CONTINUE.position + Vector2(8, 36), game.LocaleSystem.ui("continue_game"), HORIZONTAL_ALIGNMENT_CENTER, DEFEAT_CONTINUE.size.x - 16, 17, UiKitSystem.COLORS.ink)
+	preload("res://scripts/presentation/recovery_notice_renderer.gd").draw(game)
 
 
-## Рисует деревянную рамку системного окна в общей палитре интерфейса игры.
+## Рисует гладкую светлую панель системного окна в общей палитре интерфейса игры.
 static func draw_panel(game: Node, rect: Rect2) -> void:
 	UiKitSystem.draw_panel(game, rect, rect.size.x >= 420.0 or rect.size.y >= 300.0)
 

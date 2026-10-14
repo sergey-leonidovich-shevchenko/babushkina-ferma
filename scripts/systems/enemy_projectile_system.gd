@@ -27,11 +27,12 @@ static func update(game: Node, delta: float) -> void:
 	var survivors: Array=[]
 	for shot in state(game):
 		if shot.location==game.current_location and advance(game,shot,maxf(delta,0.0)): survivors.append(shot)
-		if game.menu_state.defeat_open: survivors.clear(); break
+		if game.menu_state.defeat_open or preload("res://scripts/systems/recovery_system.gd").protected(game): survivors.clear(); break
 	game.set_meta(KEY,survivors)
 
 ## Проверяет весь пройденный путь до препятствия или контакта, включая быстрые снаряды и редкие кадры.
 static func advance(game: Node, shot: Dictionary, delta: float) -> bool:
+	if preload("res://scripts/systems/recovery_system.gd").protected(game): return false
 	var distance:=minf(float(shot.remaining),float(shot.speed)*delta)
 	var steps:=maxi(1,ceili(distance/6.0))
 	for step in steps:
@@ -40,7 +41,7 @@ static func advance(game: Node, shot: Dictionary, delta: float) -> bool:
 		if game.NavigationSystem.walkability_reason(game,next,-1,false)!="walkable": return false
 		if Geometry2D.get_closest_point_to_segment(game.player,previous,next).distance_to(game.player)<=game.PLAYER_RADIUS+3.0:
 			var dealt: int=game.CombatSystem.damage_player(game,int(shot.damage),game.LocaleSystem.entity(shot.source),previous)
-			if dealt>0 and bool(shot.steal): game.coins=maxi(0,game.coins-2); game.notify_tutorial("boss_identity")
+			if dealt>0 and bool(shot.steal) and not preload("res://scripts/systems/recovery_system.gd").protected(game): game.coins=maxi(0,game.coins-2); game.notify_tutorial("boss_identity")
 			game.notify_tutorial("enemy_projectiles")
 			return false
 		shot.position=next

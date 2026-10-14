@@ -45,3 +45,4 @@ static func draw(game: Node2D) -> void:
 	if game.menu_state.pause_open or game.menu_state.settings_open or game.menu_state.defeat_open: game.MenuRenderer.draw_pause_layer(game)
 	preload("res://scripts/systems/menu_hub_system.gd").draw_chrome(game)
 	game.UiFeedbackRenderer.draw(game)
+	preload("res://scripts/presentation/recovery_notice_renderer.gd").draw(game)

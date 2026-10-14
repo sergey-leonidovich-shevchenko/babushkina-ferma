@@ -2,7 +2,7 @@ extends RefCounted
 
 const SETTINGS_PATH := "user://farm-settings.cfg"
 const VOLUME_STEP := 0.1
-const SETTINGS_SCHEMA := 4
+const SETTINGS_SCHEMA := 5
 
 class SettingsState:
 	var master_volume := 1.0
@@ -11,7 +11,7 @@ class SettingsState:
 	var fullscreen_enabled := true
 	var vsync_enabled := true
 	var reduced_motion := false
-	var screen_shake_enabled := true
+	var screen_shake_enabled := false
 	var high_contrast := false
 	var control_preset := "standard"
 	var text_scale := 1.0
@@ -29,7 +29,7 @@ static func load(game: Node, path: String = SETTINGS_PATH, apply_display: bool =
 	game.settings_state.fullscreen_enabled = bool(config.get_value("display", "fullscreen", true))
 	game.settings_state.vsync_enabled = bool(config.get_value("display", "vsync", true))
 	game.settings_state.reduced_motion = bool(config.get_value("accessibility", "reduced_motion", false))
-	game.settings_state.screen_shake_enabled = bool(config.get_value("accessibility", "screen_shake", true))
+	game.settings_state.screen_shake_enabled = false
 	game.settings_state.high_contrast = bool(config.get_value("accessibility", "high_contrast", false))
 	game.settings_state.control_preset = String(config.get_value("controls", "preset", "standard")) if String(config.get_value("controls", "preset", "standard")) in ["standard","left_handed"] else "standard"
 	game.settings_state.text_scale = game.UiScaleSystem.normalized_scale(float(config.get_value("accessibility", "text_scale", 1.0)), game.UiScaleSystem.TEXT_SCALES)
@@ -59,7 +59,7 @@ static func save(game: Node, path: String = SETTINGS_PATH) -> bool:
 	config.set_value("display", "fullscreen", game.settings_state.fullscreen_enabled)
 	config.set_value("display", "vsync", game.settings_state.vsync_enabled)
 	config.set_value("accessibility", "reduced_motion", game.settings_state.reduced_motion)
-	config.set_value("accessibility", "screen_shake", game.settings_state.screen_shake_enabled)
+	config.set_value("accessibility", "screen_shake", false)
 	config.set_value("accessibility", "high_contrast", game.settings_state.high_contrast)
 	config.set_value("accessibility", "text_scale", game.settings_state.text_scale)
 	config.set_value("controls", "preset", game.settings_state.control_preset)

@@ -157,12 +157,12 @@ func test_legacy_guardian_progress_and_playable_preview() -> void:
 
 ## Сценарий: поражение во время боя возвращает героя на доступный пол, а не за пределы пещеры.
 ## Исходное состояние: у героя один HP и прикреплённая муха, возле него действуют призванные существа.
-## Ожидаемый результат: открывается экран спасения, угрозы исчезают, из точки возрождения можно двигаться.
+## Ожидаемый результат: управление сразу возвращается, уведомление не останавливает мир, угрозы исчезают и точка возрождения доступна.
 func test_defeat_returns_to_safe_cave_entry() -> void:
 	var game := battle(); game.player_hp=1
 	Boss.Minions.summon(game,["zombie"]); Boss.Shots.attach_fly(game,2.5)
 	Boss.Shots.update_bites(game,1.05)
-	expect(game.menu_state.defeat_open and game.player_hp==game.player_max_hp,"lethal fly bite uses the normal rescue screen")
+	expect(not game.menu_state.defeat_open and game.menu_state.recovery_notice>0 and game.player_hp==game.player_max_hp,"lethal fly bite automatically restores the hero with a corner notice")
 	expect(not game.state.world.cave_boss.active and game.state.world.cave_boss.minions.is_empty(),"rescue immediately clears boss threats")
 	expect(game.NavigationSystem.walkability_reason(game,game.player,-1,false)=="walkable","rescued hero starts on accessible cave ground")
 	var before: Vector2 = game.player; game.NavigationSystem.move(game,Vector2(48,0))

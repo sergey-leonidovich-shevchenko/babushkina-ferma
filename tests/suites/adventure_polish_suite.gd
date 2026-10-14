@@ -54,7 +54,7 @@ func test_target_lock_telegraph_and_action_feedback() -> void:
 	expect(game.AdventurePolishSystem.cycle_target(game) == 0, "target lock selects a nearby living enemy")
 	expect(float(game.enemy_nodes[0].attack_timer) < 0.38 and game.player.distance_to(game.enemy_nodes[0].position) <= game.CombatSystem.TYPES.plant.range, "enemy runtime exposes the telegraph window before attack")
 	game.audio_last_sfx = "mine"; game.audio_sfx_count += 1; game.AdventurePolishSystem.update(game, 0.01)
-	expect(game.state.player.feedback.action == "mine" and game.state.player.feedback.timer > 0.0 and game.state.player.feedback.camera_shake > 0.0, "action sound starts matching atlas effect and light camera feedback")
+	expect(game.state.player.feedback.action == "mine" and game.state.player.feedback.timer > 0.0 and game.state.player.feedback.camera_shake == 0.0, "action sound starts matching atlas effect without camera shake")
 	game.free()
 
 

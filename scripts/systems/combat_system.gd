@@ -265,7 +265,7 @@ static func apply_damage(game: Node, index: int, damage: int, attacker_name: Str
 
 ## Применяет входящий урон с учётом экипировки, напарников и спасения после поражения.
 static func damage_player(game: Node, raw_damage: int, source_name: String, source_position: Vector2 = Vector2.INF) -> int:
-	if game.menu_state.defeat_open: return 0
+	if game.menu_state.defeat_open or preload("res://scripts/systems/recovery_system.gd").protected(game): return 0
 	if game.state.player.dodge_timer > 0.0:
 		game.message = game.LocaleSystem.text("combat_evaded"); return 0
 	var potion_defense := 4 if game.defense_timer > 0.0 else 0
@@ -278,14 +278,12 @@ static func damage_player(game: Node, raw_damage: int, source_name: String, sour
 	if game.player_hp <= 0:
 		var lost_coins := mini(5, game.coins)
 		game.player_hp = game.player_max_hp
-		game.player = Vector2(260, 360)
 		if preload("res://scripts/systems/cave_room_data.gd").is_cave(game.current_location):
-			game.player = preload("res://scripts/systems/cave_layout_system.gd").safe_start(game.current_location)
 			game.CaveBossSystem.reset(game)
+		game.player=preload("res://scripts/systems/recovery_system.gd").safe_spawn(game)
 		game.coins -= lost_coins
-		game.message = game.LocaleSystem.ui("defeat_saved", [source_name])
-		game.MenuSystem.open_defeat(game, source_name, lost_coins)
 		reset_transients(game)
+		game.MenuSystem.open_defeat(game, source_name, lost_coins)
 	return incoming
 
 
@@ -311,6 +309,7 @@ static func companion_attack(game: Node, index: int, damage: int, attacker_name:
 
 ## Сбрасывает не сохранённые замахи, угрозы и визуальный отклик после загрузки или поражения.
 static func reset_transients(game: Node) -> void:
+	preload("res://scripts/systems/recovery_system.gd").clear(game)
 	preload("res://scripts/systems/player_attack_system.gd").reset(game)
 	Projectiles.reset(game)
 	game.slime_attack_pending=false; game.slime_attack_impact_timer=0.0; game.slime_attack_timer=0.0

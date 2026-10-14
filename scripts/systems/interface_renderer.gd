@@ -296,10 +296,10 @@ static func draw_inventory_slot(game: Node, index: int, visible_index: int) -> v
 static func draw_scrollbar(game: Node) -> void:
 	var total_rows := ceili(float(game.InventorySystem.filtered_indices(game).size()) / game.InventorySystem.COLUMNS)
 	var track := Rect2(542, 174, 7, 292)
-	game.draw_texture_rect(UiKitSystem.texture("scrollbar"), Rect2(530, 164, 31, 312), false)
+	game.draw_style_box(UiKitSystem.style("scrollbar"),track)
 	var thumb_height := maxf(30.0, track.size.y * game.InventorySystem.VISIBLE_ROWS / float(maxi(total_rows, game.InventorySystem.VISIBLE_ROWS)))
 	var ratio := float(game.inventory_scroll_row) / float(maxi(game.InventorySystem.max_scroll_row(game), 1))
-	game.draw_rect(Rect2(track.position + Vector2(0, (track.size.y - thumb_height) * ratio), Vector2(7, thumb_height)), Color("f2c55d"))
+	game.draw_rect(Rect2(track.position + Vector2(0, (track.size.y - thumb_height) * ratio), Vector2(7, thumb_height)), UiKitSystem.Paper.ACCENT_TEXT)
 	game.draw_ui_string(game.UI_FONT, Vector2(443, 496), game.LocaleSystem.ui("row", [game.inventory_scroll_row + 1, maxi(total_rows - game.InventorySystem.VISIBLE_ROWS + 1, 1)]), HORIZONTAL_ALIGNMENT_RIGHT, 91, 8, Color("70492d"))
 
 

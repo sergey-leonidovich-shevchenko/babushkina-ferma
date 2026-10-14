@@ -17,7 +17,7 @@ const EDITOR_BUTTON_BASELINE_RATIO := 0.61
 const EDITOR_BUTTON_FONT_SIZE := 9
 
 
-## Рисует общий резной корпус и отдельную техническую поверхность для F10 или конструктора уровней.
+## Рисует общий светлый корпус и отдельную техническую поверхность для F10 или конструктора уровней.
 static func draw_panel(game: Node2D, rect: Rect2, editor: bool = false) -> Rect2:
 	UiKitSystem.draw_panel(game,rect,true)
 	var screen := rect.grow(-10.0)
@@ -28,30 +28,28 @@ static func draw_panel(game: Node2D, rect: Rect2, editor: bool = false) -> Rect2
 
 ## Рисует связанную с основным интерфейсом кнопку, оставляя активность и недоступность технически однозначными.
 static func draw_button(game: Node2D, rect: Rect2, label: String, active: bool, enabled: bool = true, editor: bool = false) -> void:
-	if editor and absf(rect.size.x-rect.size.y)<=rect.size.y*0.35: game.draw_texture_rect(UiKitSystem.texture("editor_card_selected" if active and enabled else "editor_card_normal"),rect,false)
-	elif editor: UiKitSystem.draw_nine_patch(game,"editor_button_selected" if active and enabled else "editor_button_normal",rect)
+	if editor: UiKitSystem.draw_nine_patch(game,"editor_button_selected" if active and enabled else "editor_button_normal",rect)
 	else: UiKitSystem.draw_button(game,rect,active,enabled,game.settings_state.reduced_motion,Time.get_ticks_msec())
 	if not enabled: game.draw_rect(rect.grow(-6.0),Color(0.12,0.10,0.08,0.34))
 	var layout:=button_text_layout(rect,editor); var fitted:=fit_label(game.UI_FONT,label,float(layout.width),int(layout.preferred_size),int(layout.minimum_size)); var color:=EDITOR_BUTTON_TEXT if editor and enabled else (EDITOR_BUTTON_DISABLED if editor else (Paper.TEXT if enabled else Paper.DISABLED))
 	game.draw_ui_string(game.UI_FONT,rect.position+Vector2(float(layout.inset),float(layout.baseline)),String(fitted.text),HORIZONTAL_ALIGNMENT_CENTER,float(layout.width),int(fitted.size),color)
 
 
-## Рассчитывает внутреннюю safe-area подписи как flex-контейнер, не позволяя тексту касаться резной рамки.
+## Рассчитывает внутренние поля подписи, не позволяя тексту касаться границы кнопки.
 static func button_text_layout(rect: Rect2, editor: bool = false) -> Dictionary:
 	var inset:=clampf(rect.size.x*EDITOR_BUTTON_PADDING_RATIO,EDITOR_BUTTON_MIN_PADDING,EDITOR_BUTTON_MAX_PADDING) if editor else minf(12.0,maxf(6.0,rect.size.x*0.09))
 	return {"inset":inset,"width":maxf(rect.size.x-inset*2.0,1.0),"baseline":rect.size.y*(EDITOR_BUTTON_BASELINE_RATIO if editor else 0.65),"preferred_size":EDITOR_BUTTON_FONT_SIZE if editor else 11,"minimum_size":7 if editor else 8}
 
 
-## Рисует компактный технический экран внутри деревянного корпуса для сведений, проверки или графика.
+## Рисует компактный технический экран внутри общего корпуса для сведений, проверки или графика.
 static func draw_readout(game: Node2D, rect: Rect2, editor: bool = false) -> void:
 	game.draw_rect(rect,Color(0.02,0.032,0.029,0.94) if not editor else Color(0.045,0.03,0.02,0.94))
 	game.draw_rect(rect,Color(TECH_GOLD,0.55) if editor else Color(TECH_GREEN,0.55),false,1.5)
 
 
-## Рисует строку каталога как утопленный деревянный слот без добавления подписи поверх миниатюры.
+## Рисует строку каталога как светлую карточку без добавления подписи поверх миниатюры.
 static func draw_catalog_row(game: Node2D, rect: Rect2, selected: bool, editor: bool = false) -> void:
-	if editor and absf(rect.size.x-rect.size.y)<=rect.size.y*0.25: game.draw_texture_rect(UiKitSystem.texture("editor_card_selected" if selected else "editor_card_normal"),rect,false)
-	elif editor: UiKitSystem.draw_nine_patch(game,"editor_button_selected" if selected else "editor_button_normal",rect)
+	if editor: UiKitSystem.draw_nine_patch(game,"editor_button_selected" if selected else "editor_button_normal",rect)
 	else: UiKitSystem.draw_button(game,rect,selected,true,game.settings_state.reduced_motion,Time.get_ticks_msec())
 
 

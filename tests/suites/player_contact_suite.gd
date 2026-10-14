@@ -88,11 +88,12 @@ func test_room_transition_and_defeat_cancel_threats() -> void:
 	game.current_location="cave_fungal"; game.sync_background_location(); game.current_location="cave"; game.sync_background_location()
 	game.WeaponSystem.update(game,2.0)
 	expect(game.enemy_nodes[0].hp==50 and not game.has_meta(Attack.KEY) and Shots.state(game).is_empty(),"leaving and immediately reentering cannot restore old attack")
-	game.player_hp=5
+	game.player_hp=5; game.coins=20
 	var incoming := preload("res://scripts/systems/enemy_projectile_system.gd")
-	for arrow in 3: incoming.launch_at(game,Vector2(1080,520),game.player,20,"arrow",320,320,"skeleton")
+	for arrow in 3: incoming.launch_at(game,Vector2(1080,520),game.player,20,"arrow",320,320,"skeleton",true)
 	incoming.update(game,1.0)
-	expect(game.menu_state.defeat_open and game.player_hp==game.player_max_hp and incoming.state(game).is_empty(),"defeat discards remaining volley without damaging rescued hero")
+	expect(not game.menu_state.defeat_open and game.menu_state.recovery_notice>0 and game.player_hp==game.player_max_hp and incoming.state(game).is_empty(),"automatic recovery discards remaining volley without damaging rescued hero")
+	expect(game.coins==15 and game.menu_state.defeat_lost_coins==5,"lethal stealing projectile cannot charge a hidden extra penalty after recovery")
 	game.free()
 
 ## Сценарий: стрела встречает камень, а следующий выстрел перехватывает второе живое существо.

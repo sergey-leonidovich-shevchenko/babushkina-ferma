@@ -2,7 +2,7 @@ extends RefCounted
 
 const TITLE_ITEMS := ["continue_game", "new_game", "settings", "exit_game"]
 const PAUSE_ITEMS := ["resume", "save_game", "load_game", "settings", "return_main_menu", "exit_game"]
-const SETTING_ITEMS := ["master_volume", "music_volume", "sfx_volume", "sound_enabled", "fullscreen", "vsync", "reduced_motion", "screen_shake", "high_contrast", "control_preset", "text_scale", "touch_scale", "language_option", "back"]
+const SETTING_ITEMS := ["master_volume", "music_volume", "sfx_volume", "sound_enabled", "fullscreen", "vsync", "reduced_motion", "high_contrast", "control_preset", "text_scale", "touch_scale", "language_option", "back"]
 
 static var start_after_reload := false
 
@@ -20,6 +20,8 @@ class MenuState:
 	var defeat_open := false
 	var defeat_source := ""
 	var defeat_lost_coins := 0
+	var recovery_notice := 0.0
+	var recovery_grace := 0.0
 
 
 ## Подготавливает разумный первый выбор главного меню с учётом наличия сохранения.
@@ -209,20 +211,17 @@ static func confirm_action(game: Node) -> void:
 	elif action == "exit_game": request_exit(game)
 
 
-## Открывает модальный экран спасения после поражения и фиксирует фактическую потерю монет.
+## Показывает результат спасения в углу без подтверждения и модальной паузы.
 static func open_defeat(game: Node, source: String, lost_coins: int) -> void:
-	game.menu_state.defeat_open = true
-	game.menu_state.defeat_source = source
-	game.menu_state.defeat_lost_coins = lost_coins
-	game.clear_movement_keys()
-	game.queue_redraw()
+	preload("res://scripts/systems/recovery_system.gd").begin(game,source,lost_coins)
 
 
-## Закрывает экран поражения после того, как игрок явно подтвердил продолжение.
+## Поддерживает закрытие прежнего состояния поражения, не требуя его в новом игровом потоке.
 static func acknowledge_defeat(game: Node) -> void:
 	game.menu_state.defeat_open = false
 	game.menu_state.defeat_source = ""
 	game.menu_state.defeat_lost_coins = 0
+	game.menu_state.recovery_notice = 0.0
 	game.queue_redraw()
 
 
@@ -262,7 +261,6 @@ static func adjust_setting(game: Node, direction: int, path: String = "", apply_
 		"fullscreen": game.settings_state.fullscreen_enabled = not game.settings_state.fullscreen_enabled
 		"vsync": game.settings_state.vsync_enabled = not game.settings_state.vsync_enabled
 		"reduced_motion": game.settings_state.reduced_motion = not game.settings_state.reduced_motion
-		"screen_shake": game.settings_state.screen_shake_enabled = not game.settings_state.screen_shake_enabled
 		"high_contrast": game.settings_state.high_contrast = not game.settings_state.high_contrast
 		"control_preset": game.settings_state.control_preset = "left_handed" if game.settings_state.control_preset=="standard" else "standard"; game.InputSystem.apply_control_preset(game.settings_state.control_preset)
 		"text_scale": game.settings_state.text_scale = game.UiScaleSystem.cycle_scale(game.settings_state.text_scale, direction, game.UiScaleSystem.TEXT_SCALES)
@@ -289,8 +287,7 @@ static func handle_input(game: Node, event: InputEvent, settings_path: String = 
 	elif (event is InputEventScreenTouch and event.pressed) or (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT):
 		var point: Vector2 = event.position
 		if game.menu_state.defeat_open:
-			if game.MenuRenderer.DEFEAT_CONTINUE.has_point(point): acknowledge_defeat(game); return true
-			return false
+			acknowledge_defeat(game); return true
 		if not game.menu_state.confirmation.is_empty():
 			if game.MenuRenderer.CONFIRM_ACCEPT.has_point(point): game.menu_state.confirm_selected = 0; confirm_action(game); return true
 			if game.MenuRenderer.CONFIRM_CANCEL.has_point(point): cancel_confirmation(game); return true

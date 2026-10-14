@@ -57,27 +57,22 @@ static func texture(component: String) -> Texture2D:
 	return TEXTURES.get(component, TEXTURES.tooltip)
 
 
-## Создаёт и кэширует nine-patch стиль, который сохраняет углы при любом допустимом размере панели.
-static func style(component: String) -> StyleBoxTexture:
+## Возвращает гладкую светлую поверхность также для прежнего API оформления, исключая возврат деревянных рамок.
+static func style(component: String) -> StyleBoxFlat:
 	if _styles.has(component): return _styles[component]
-	var margins: Vector4 = NINE_PATCH_MARGINS.get(component, Vector4(16, 16, 16, 16))
-	var box := StyleBoxTexture.new()
-	box.texture = texture(component)
-	box.texture_margin_left = margins.x
-	box.texture_margin_top = margins.y
-	box.texture_margin_right = margins.z
-	box.texture_margin_bottom = margins.w
-	box.axis_stretch_horizontal = StyleBoxTexture.AXIS_STRETCH_MODE_STRETCH
-	box.axis_stretch_vertical = StyleBoxTexture.AXIS_STRETCH_MODE_STRETCH
+	var selected:=component.ends_with("selected")
+	var inset:bool=component.contains("button") or component.begins_with("tab") or component.begins_with("slot")
+	var box := StyleBoxFlat.new()
+	box.bg_color=Paper.SELECTED if selected else (Paper.INSET if inset else Paper.PANEL)
+	box.border_color=Paper.ACCENT_TEXT if selected else Paper.EDGE
+	box.set_border_width_all(1); box.set_corner_radius_all(5)
 	_styles[component] = box
 	return box
 
 
 ## Рисует общий светлый компонент, включая прежние псевдонимы кнопок станков.
 static func draw_nine_patch(canvas: CanvasItem, component: String, rect: Rect2, modulate: Color = Color.WHITE) -> void:
-	var selected:=component.ends_with("selected")
-	var inset:bool=component.contains("button") or component.begins_with("tab")
-	Style.panel(canvas,rect,Paper.SELECTED if selected else (Paper.INSET if inset else Paper.PANEL),Paper.ACCENT_TEXT if selected else Paper.EDGE)
+	canvas.draw_style_box(style(component),rect)
 	if modulate != Color.WHITE:
 		canvas.draw_rect(rect.grow(-4), modulate, true)
 

@@ -188,7 +188,7 @@ static func update(game: Node, delta: float) -> void:
 		var dialogue: Dictionary = game.state.player.adventure_ui.get("dialogue", {})
 		dialogue.revealed = minf(float(String(dialogue.get("text", "")).length()), float(dialogue.get("revealed", 0.0)) + delta * 42.0)
 	feedback.timer = maxf(float(feedback.get("timer", 0.0)) - delta, 0.0)
-	feedback.camera_shake = maxf(float(feedback.get("camera_shake", 0.0)) - delta * 18.0, 0.0)
+	feedback.camera_shake = 0.0
 	update_damage_numbers(feedback, delta); update_footprints(game, feedback, delta)
 	if int(feedback.get("last_sfx_count", -1)) != game.audio_sfx_count:
 		feedback.last_sfx_count = game.audio_sfx_count
@@ -198,12 +198,12 @@ static func update(game: Node, delta: float) -> void:
 		game.state.player.adventure_ui.target_enemy = -1
 
 
-## Запускает соответствующий кадр атласа и лёгкую вибрацию мира.
+## Запускает соответствующий кадр действия без движения камеры.
 static func begin_action(game: Node, action: String, position: Vector2, amount: int = 0) -> void:
 	game.HeroActionSystem.begin(game, action, position)
 	var feedback: Dictionary = game.state.player.feedback
 	feedback.action = action; feedback.position = position; feedback.timer = 0.34
-	if action in ["mine", "chop", "hit"]: feedback.camera_shake = 3.0
+	feedback.camera_shake = 0.0
 	if amount != 0: feedback.damage_numbers.append({"text":str(amount),"position":position,"time":0.8,"color":Color("ffcf72")})
 
 
@@ -226,13 +226,9 @@ static func update_footprints(game: Node, feedback: Dictionary, delta: float) ->
 		if feedback.footprints.size() > 8: feedback.footprints.pop_front()
 
 
-## Возвращает детерминированное смещение камеры для короткого удара без размытия пикселей.
+## Сохраняет неподвижную камеру, включая старые настройки и сохранённый отклик удара.
 static func shake_offset(game: Node) -> Vector2:
-	if game.settings_state.reduced_motion or not game.settings_state.screen_shake_enabled: return Vector2.ZERO
-	var amount := float(game.state.player.feedback.get("camera_shake", 0.0))
-	if amount <= 0.0: return Vector2.ZERO
-	var phase := Time.get_ticks_msec() / 24
-	return Vector2(roundf(sin(phase) * amount), roundf(cos(phase * 1.7) * amount))
+	return Vector2.ZERO
 
 
 ## Проверяет остаток прочности выбранного инструмента или оружия.

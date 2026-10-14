@@ -11,6 +11,7 @@ static func update(game: Node, delta: float) -> void:
 	var state: Dictionary = game.state.world.cave_boss
 	var survivors: Array = []
 	for shot in state.projectiles:
+		if preload("res://scripts/systems/recovery_system.gd").protected(game): survivors.clear(); break
 		var distance := minf(float(shot.remaining), float(shot.speed) * delta)
 		var before: Vector2 = shot.position
 		var steps := maxi(1, ceili(distance / 8.0))
@@ -30,14 +31,14 @@ static func update(game: Node, delta: float) -> void:
 ## Ограничивает частоту попаданий группы существ, сохраняя действие блока и уклонения.
 static func hit(game: Node, damage: int, source: Vector2) -> int:
 	var state: Dictionary = game.state.world.cave_boss
-	if float(state.hit_cooldown) > 0.0 or game.menu_state.defeat_open: return 0
+	if float(state.hit_cooldown) > 0.0 or game.menu_state.defeat_open or preload("res://scripts/systems/recovery_system.gd").protected(game): return 0
 	var dealt: int = game.CombatSystem.damage_player(game, damage, game.LocaleSystem.entity("cave_guardian"), source)
 	if dealt > 0: state.hit_cooldown = 0.65
 	return dealt
 
 ## Прикрепляет одну муху на случайные две–пять секунд; повторное попадание не складывает урон.
 static func attach_fly(game: Node, duration: float = -1.0) -> bool:
-	if game.state.player.dodge_timer > 0.0 or game.menu_state.defeat_open: return false
+	if game.state.player.dodge_timer > 0.0 or game.menu_state.defeat_open or preload("res://scripts/systems/recovery_system.gd").protected(game): return false
 	if preload("res://scripts/systems/alchemy_system.gd").remaining(game,"repellent")>0.0: return false
 	if game.state.player.blocking and game.energy > 0: game.energy -= 1; return false
 	var state: Dictionary = game.state.world.cave_boss
@@ -56,5 +57,5 @@ static func update_bites(game: Node, delta: float) -> void:
 	while float(state.fly_tick) >= 1.0:
 		state.fly_tick -= 1.0
 		game.CombatSystem.damage_player(game, 1, Data.word(game, "flies", [float(state.fly_timer)]), game.player)
-		if game.menu_state.defeat_open: state.fly_timer = 0.0; state.fly_tick = 0.0; break
+		if game.menu_state.defeat_open or preload("res://scripts/systems/recovery_system.gd").protected(game): state.fly_timer = 0.0; state.fly_tick = 0.0; break
 	if float(state.fly_timer) <= 0.0: state.fly_tick = 0.0

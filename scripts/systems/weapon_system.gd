@@ -133,7 +133,7 @@ static func hit_player(game: Node, source_position: Vector2) -> void:
 	game.player_hurt_timer = 0.30
 	game.player_hurt_direction = source_position.direction_to(game.player)
 	game.player_attack_timer = minf(game.player_attack_timer, 0.10)
-	game.state.player.feedback.camera_shake = maxf(float(game.state.player.feedback.get("camera_shake", 0.0)), 4.0)
+	game.state.player.feedback.camera_shake = 0.0
 	game.notify_tutorial("combat_hit_reaction")
 
 ## Передаёт проверенный контакт стрелы в общий конвейер урона без циклической зависимости модулей.

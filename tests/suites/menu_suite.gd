@@ -6,6 +6,7 @@ const TEST_SETTINGS_PATH := "user://menu-suite-settings.cfg"
 
 ## Запускает все сценарии главного меню, паузы, сохранений, настроек и универсального ввода.
 func run() -> void:
+	preload("res://tests/suites/recovery_suite.gd").new(context).run()
 	test_title_continue_and_new_game_contract()
 	test_pause_stops_world_and_resumes()
 	test_pause_save_and_load_cycle()
@@ -17,7 +18,7 @@ func run() -> void:
 	test_adaptive_viewport_text_and_touch_contract()
 	test_menu_keyboard_gamepad_touch_and_layout()
 	test_settings_grid_confirmation_and_save_summary()
-	test_defeat_screen_pauses_and_resumes_safely()
+	test_defeat_recovers_without_pausing_world()
 	test_exit_is_safe_outside_scene_tree()
 
 
@@ -80,8 +81,8 @@ func test_shared_ui_kit_has_independent_scalable_components() -> void:
 		var image: Image = texture.get_image()
 		expect((texture.resource_path.contains("/kit_v1/") or texture.resource_path.contains("/editor_v1/")) and image.get_pixel(0, 0).a == 0.0 and image.get_pixel(image.get_width() - 1, image.get_height() - 1).a == 0.0, "%s is an independent transparent sprite without atlas bleed" % component)
 	for component in kit.NINE_PATCH_MARGINS:
-		var first: StyleBoxTexture = kit.style(component)
-		expect(first == kit.style(component) and first.texture == kit.texture(component), "%s reuses a cached nine-patch style with the matching authored texture" % component)
+		var first: StyleBoxFlat = kit.style(component)
+		expect(first == kit.style(component) and is_equal_approx(first.bg_color.a,1.0), "%s reuses an opaque smooth style instead of a wooden texture" % component)
 		var values: Array=manifest.components[component].margins; var declared:=Vector4(float(values[0]),float(values[1]),float(values[2]),float(values[3]))
 		expect(declared==kit.NINE_PATCH_MARGINS[component], "%s uses the same authored nine-patch margins in JSON and runtime"%component)
 	var centered: Rect2 = kit.centered_content_rect(Rect2(100, 100, 64, 64), Vector2(128, 32), 8)
@@ -193,9 +194,9 @@ func test_settings_persist_and_apply_audio_levels() -> void:
 	game.menu_state.settings_selected = 3; game.MenuSystem.adjust_setting(game, 1, TEST_SETTINGS_PATH, false)
 	game.menu_state.settings_selected = 4; game.MenuSystem.adjust_setting(game, 1, TEST_SETTINGS_PATH, false)
 	game.menu_state.settings_selected = 5; game.MenuSystem.adjust_setting(game, 1, TEST_SETTINGS_PATH, false)
-	game.menu_state.settings_selected = 10; game.MenuSystem.adjust_setting(game, 1, TEST_SETTINGS_PATH, false)
-	game.menu_state.settings_selected = 11; game.MenuSystem.adjust_setting(game, 1, TEST_SETTINGS_PATH, false)
-	game.menu_state.settings_selected = 12; game.MenuSystem.adjust_setting(game, 1, TEST_SETTINGS_PATH, false)
+	game.menu_state.settings_selected = game.MenuSystem.SETTING_ITEMS.find("text_scale"); game.MenuSystem.adjust_setting(game, 1, TEST_SETTINGS_PATH, false)
+	game.menu_state.settings_selected = game.MenuSystem.SETTING_ITEMS.find("touch_scale"); game.MenuSystem.adjust_setting(game, 1, TEST_SETTINGS_PATH, false)
+	game.menu_state.settings_selected = game.MenuSystem.SETTING_ITEMS.find("language_option"); game.MenuSystem.adjust_setting(game, 1, TEST_SETTINGS_PATH, false)
 	expect(game.SettingsSystem.percent(game.settings_state.master_volume) == 90 and game.SettingsSystem.percent(game.settings_state.music_volume) == 80 and game.SettingsSystem.percent(game.settings_state.sfx_volume) == 80, "three volume controls move independently in ten-percent steps")
 	expect(not game.audio_enabled and not game.settings_state.fullscreen_enabled and not game.settings_state.vsync_enabled, "sound fullscreen and VSync toggles change independently")
 	expect(game.AudioSystem.music_volume_db(game) == game.AudioSystem.SILENT_DB and game.AudioSystem.sfx_volume_db(game) == game.AudioSystem.SILENT_DB, "disabled sound mutes both calculated audio channels")
@@ -212,11 +213,11 @@ func test_settings_persist_and_apply_audio_levels() -> void:
 
 
 ## Сценарий: игрок включает доступность и выбирает леворукую схему управления из обычного меню.
-## Исходное состояние: анимации, дрожание и стандартные WASD включены, настройки ещё не сохранены.
+## Исходное состояние: обычные анимации и стандартные WASD включены, камера неподвижна, настройки ещё не сохранены.
 ## Ожидаемый результат: эффекты успокаиваются, контраст усиливается, IJKL управляют героем и весь выбор переживает запуск.
 func test_accessibility_and_control_preset_are_effective_and_persistent() -> void:
 	cleanup_files(); var game:=make_game(); game.MenuSystem.open_settings(game,false)
-	for setting_index in [6,7,8,9]: game.menu_state.settings_selected=setting_index; game.MenuSystem.adjust_setting(game,1,TEST_SETTINGS_PATH,false)
+	for key in ["reduced_motion","high_contrast","control_preset"]: game.menu_state.settings_selected=game.MenuSystem.SETTING_ITEMS.find(key); game.MenuSystem.adjust_setting(game,1,TEST_SETTINGS_PATH,false)
 	expect(game.settings_state.reduced_motion and not game.settings_state.screen_shake_enabled and game.settings_state.high_contrast and game.settings_state.control_preset=="left_handed","accessibility switches and left-handed preset change independently")
 	game.AdventurePolishSystem.begin_action(game,"hit",game.player); expect(game.AdventurePolishSystem.shake_offset(game)==Vector2.ZERO,"reduced motion and disabled shake suppress camera displacement")
 	expect(is_equal_approx(game.MenuRenderer.title_highlight_modulate(0,true).a,game.MenuRenderer.title_highlight_modulate(408,true).a),"reduced motion turns the title pulse into a stable highlight")
@@ -274,18 +275,19 @@ func test_settings_grid_confirmation_and_save_summary() -> void:
 	game.free(); cleanup_files()
 
 
-## Сценарий: смертельный урон открывает отдельный экран спасения и останавливает симуляцию до подтверждения.
+## Сценарий: смертельный урон немедленно восстанавливает героя и показывает немодальное сообщение о спасении.
 ## Исходное состояние: у героя одна жизнь и три монеты, источник наносит заведомо смертельный удар.
-## Ожидаемый результат: герой спасён дома, теряет только доступные монеты, мир заморожен и Enter возвращает управление.
-func test_defeat_screen_pauses_and_resumes_safely() -> void:
+## Ожидаемый результат: герой восстановлен, теряет только доступные монеты, а мир продолжает работу без подтверждения.
+func test_defeat_recovers_without_pausing_world() -> void:
 	var game := make_game(); game.player_hp = 1; game.coins = 3; game.game_minutes = 420.0
 	game.CombatSystem.damage_player(game, 20, "Тестовый противник")
-	expect(game.menu_state.defeat_open and game.menu_state.defeat_source == "Тестовый противник" and game.menu_state.defeat_lost_coins == 3, "defeat modal records source and exact affordable penalty")
-	expect(game.player_hp == game.player_max_hp and game.player == Vector2(260, 360) and game.coins == 0, "Grandma rescue restores health and moves the hero home without negative coins")
-	game._physics_process(2.0)
-	expect(game.game_minutes == 420.0, "defeat modal freezes world time")
-	game.MenuSystem.handle_input(game, key_event(KEY_ENTER, KEY_ENTER, true))
-	expect(not game.menu_state.defeat_open, "keyboard or gamepad confirmation returns control after reading the defeat result")
+	expect(not game.menu_state.defeat_open and game.menu_state.recovery_notice>0 and game.menu_state.defeat_source == "Тестовый противник" and game.menu_state.defeat_lost_coins == 3, "corner recovery notice records source and exact affordable penalty without a modal")
+	expect(game.player_hp == game.player_max_hp and game.player == game.VillageLayoutSystem.MapData.START and game.coins == 0, "Grandma rescue restores health and moves the hero to accessible home ground without negative coins")
+	var life:Dictionary=game.FarmLifeSystem.state(game); life.first_day=6; life.cutscene=""
+	game.enemy_nodes.clear(); game.hazard_nodes.clear(); game.slime_alive=false
+	game._physics_process(0.1)
+	expect(game.game_minutes > 420.0, "recovery notice allows world time to advance immediately")
+	expect(not game.GameLoop.modal_active(game), "recovery needs no keyboard or gamepad confirmation")
 	game.free()
 
 
