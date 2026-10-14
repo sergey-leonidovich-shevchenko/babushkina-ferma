@@ -190,6 +190,10 @@ static func hotbar_at(point: Vector2) -> int:
 
 ## Координирует отрисовку текущего состояния без изменения игровой логики.
 static func draw(game: Node) -> void:
+	if preload("res://scripts/systems/dev_cabinet_system.gd").active(game):
+		preload("res://scripts/presentation/dev_cabinet_renderer.gd").draw(game); return
+	if game.storage_open:
+		game.draw_storage_window(); return
 	if not preload("res://scripts/systems/menu_hub_system.gd").active(game): draw_hud(game)
 	var clean_hud_preview := game.has_meta("capture_hud_clean")
 	var fishing_focus:bool=game.state.fishing.phase in [game.FishingSystem.PHASE_CHARGING,game.FishingSystem.PHASE_MINIGAME,game.FishingSystem.PHASE_RESULT]

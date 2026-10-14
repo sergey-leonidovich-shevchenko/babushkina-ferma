@@ -12,6 +12,8 @@ static func draw(game: Node2D) -> void:
 		game.draw_language_screen(); game.UiFeedbackRenderer.draw(game); return
 	if game.title_screen:
 		game.draw_title_screen(); game.UiFeedbackRenderer.draw(game); return
+	if opaque_storage(game):
+		game.draw_set_transform(Vector2.ZERO); draw_screen(game,false); return
 	TreeOcclusion.begin_frame(game)
 	game.draw_set_transform(-game.camera_offset + game.AdventurePolishSystem.shake_offset(game))
 	if game.BuildingSystem.is_interior(game.current_location):
@@ -34,6 +36,14 @@ static func draw(game: Node2D) -> void:
 	preload("res://scripts/presentation/basement_renderer.gd").work_overlay(game)
 	game.draw_set_transform(Vector2.ZERO); game.AtmosphereRenderer.draw(game)
 	var clean_level_capture := game.has_meta("capture_first_level_clean")
+	draw_screen(game,clean_level_capture)
+
+## Отсекает только мир за полностью непрозрачным хранилищем; режимы чистого захвата и редактор сохраняют свой маршрут.
+static func opaque_storage(game: Node) -> bool:
+	return not game.has_meta("capture_first_level_clean") and not bool(game.FarmLifeSystem.state(game).photo_mode) and not game.LevelEditorSystem.active(game) and (game.storage_open or preload("res://scripts/systems/dev_cabinet_system.gd").active(game))
+
+## Сохраняет общий порядок экранов, диагностических панелей, подтверждений и уведомлений поверх мира либо непрозрачного окна.
+static func draw_screen(game: Node2D, clean_level_capture: bool) -> void:
 	if not clean_level_capture and not bool(game.FarmLifeSystem.state(game).photo_mode) and not game.LevelEditorSystem.active(game): game.draw_ui(); BossRenderer.draw_ui(game); FishingRenderer.draw(game); game.WorldMapRenderer.draw(game); game.AdventurePolishRenderer.draw_ui(game); game.FenceRenderer.draw_ui(game); game.SpellRenderer.draw_ui(game)
 	if not clean_level_capture and not game.LevelEditorSystem.active(game):
 		game.FarmLifeRenderer.draw_ui(game)

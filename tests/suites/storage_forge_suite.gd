@@ -3,6 +3,7 @@ extends "res://tests/suites/suite_base.gd"
 ## Запускает сценарии домашнего сундука, переноса предметов и улучшений кузницы.
 func run() -> void:
 	preload("res://tests/suites/storage_grid_suite.gd").new(context).run()
+	preload("res://tests/suites/storage_view_cache_suite.gd").new(context).run()
 	preload("res://tests/suites/dev_cabinet_suite.gd").new(context).run()
 	preload("res://tests/suites/storage_actions_suite.gd").new(context).run()
 	test_chest_can_be_crafted_or_bought_and_installs_at_home()

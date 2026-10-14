@@ -1,0 +1,29 @@
+[
+  {
+    "case": "cabinet",
+    "size": [
+      3584,
+      2016
+    ],
+    "difference_bbox": null,
+    "rgb_identical": true
+  },
+  {
+    "case": "cabinet-scroll",
+    "size": [
+      3584,
+      2016
+    ],
+    "difference_bbox": null,
+    "rgb_identical": true
+  },
+  {
+    "case": "chest",
+    "size": [
+      3584,
+      2016
+    ],
+    "difference_bbox": null,
+    "rgb_identical": true
+  }
+]

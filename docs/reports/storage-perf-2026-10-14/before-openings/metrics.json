@@ -1,0 +1,168 @@
+{
+	"before": {
+		"draw_calls": 159.0,
+		"focused": true,
+		"nodes": 13.0,
+		"preview_cache": {
+			"atlas": "(1024.0, 1600.0)",
+			"large": 0,
+			"limit": 16,
+			"small": 10
+		},
+		"resources": 1332.0,
+		"static_bytes": 126356842.0,
+		"text_cache": {
+			"entries": 27,
+			"fonts": 1,
+			"hits": 4074,
+			"misses": 27,
+			"slots": 27
+		},
+		"texture_bytes": 809859522.0,
+		"video_bytes": 816663958.0,
+		"window": [
+			3584,
+			2240
+		]
+	},
+	"cases": [],
+	"engine": "4.7.1-stable (official)",
+	"gpu": "AMD Radeon Pro 5300M OpenGL Engine",
+	"instantiate_ready_ms": 3569.316,
+	"instrumented": false,
+	"openings": [
+		{
+			"attempt": 0,
+			"case": "cabinet",
+			"first_present_ms": 44.236,
+			"state": {
+				"draw_calls": 304.0,
+				"focused": true,
+				"nodes": 13.0,
+				"preview_cache": {
+					"atlas": "(1024.0, 1600.0)",
+					"large": 1,
+					"limit": 16,
+					"small": 53
+				},
+				"resources": 1333.0,
+				"static_bytes": 130411758.0,
+				"text_cache": {
+					"entries": 65,
+					"fonts": 2,
+					"hits": 4140,
+					"misses": 65,
+					"slots": 65
+				},
+				"texture_bytes": 813141770.0,
+				"video_bytes": 821095922.0,
+				"window": [
+					3584,
+					2240
+				]
+			}
+		},
+		{
+			"attempt": 1,
+			"case": "cabinet",
+			"first_present_ms": 57.652,
+			"state": {
+				"draw_calls": 304.0,
+				"focused": true,
+				"nodes": 13.0,
+				"preview_cache": {
+					"atlas": "(1024.0, 1600.0)",
+					"large": 1,
+					"limit": 16,
+					"small": 53
+				},
+				"resources": 1333.0,
+				"static_bytes": 130417888.0,
+				"text_cache": {
+					"entries": 65,
+					"fonts": 2,
+					"hits": 4452,
+					"misses": 65,
+					"slots": 65
+				},
+				"texture_bytes": 813141770.0,
+				"video_bytes": 821095922.0,
+				"window": [
+					3584,
+					2240
+				]
+			}
+		},
+		{
+			"attempt": 0,
+			"case": "chest",
+			"first_present_ms": 65.208,
+			"state": {
+				"draw_calls": 286.0,
+				"focused": true,
+				"nodes": 13.0,
+				"preview_cache": {
+					"atlas": "(1024.0, 1600.0)",
+					"large": 2,
+					"limit": 16,
+					"small": 53
+				},
+				"resources": 1335.0,
+				"static_bytes": 130664934.0,
+				"text_cache": {
+					"entries": 77,
+					"fonts": 2,
+					"hits": 4812,
+					"misses": 77,
+					"slots": 77
+				},
+				"texture_bytes": 813409362.0,
+				"video_bytes": 821206962.0,
+				"window": [
+					3584,
+					2240
+				]
+			}
+		},
+		{
+			"attempt": 1,
+			"case": "chest",
+			"first_present_ms": 48.38,
+			"state": {
+				"draw_calls": 286.0,
+				"focused": true,
+				"nodes": 13.0,
+				"preview_cache": {
+					"atlas": "(1024.0, 1600.0)",
+					"large": 2,
+					"limit": 16,
+					"small": 53
+				},
+				"resources": 1335.0,
+				"static_bytes": 130668190.0,
+				"text_cache": {
+					"entries": 77,
+					"fonts": 2,
+					"hits": 5091,
+					"misses": 77,
+					"slots": 77
+				},
+				"texture_bytes": 813409362.0,
+				"video_bytes": 821206962.0,
+				"window": [
+					3584,
+					2240
+				]
+			}
+		}
+	],
+	"scene_load_ms": 5031.969,
+	"schema": 1,
+	"seed": 20261014,
+	"status": "OPENINGS_ONLY",
+	"version": "0.0.169",
+	"window": [
+		3584,
+		2240
+	]
+}

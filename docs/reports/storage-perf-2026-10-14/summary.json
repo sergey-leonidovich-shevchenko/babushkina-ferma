@@ -1,0 +1,2634 @@
+{
+  "schema": 1,
+  "scope": "Storage rendering iteration only; matrix OPT remains open.",
+  "runs": {
+    "after": {
+      "status": "COMPLETE",
+      "window": [
+        3584,
+        2240
+      ],
+      "instrumented": true,
+      "gpu": "AMD Radeon Pro 5300M OpenGL Engine",
+      "openings": [],
+      "cases": [
+        {
+          "case": "cabinet",
+          "repeat": 0,
+          "variant": "full",
+          "admission": "DIAGNOSTIC",
+          "reasons": [
+            "instrumentation_present",
+            "short_run"
+          ],
+          "budget": "FAIL",
+          "violations": [
+            "p95",
+            "p99"
+          ],
+          "draw": {
+            "count": 600,
+            "mean_ms": 12.332576666666657,
+            "p95_ms": 19.437,
+            "p99_ms": 29.113,
+            "max_ms": 32.956,
+            "over33": 0,
+            "over100": 0
+          },
+          "first_present_ms": 28.427,
+          "cpu_ms": {
+            "draw": {
+              "count": 614,
+              "max": 7.128,
+              "mean": 5.05904885993485,
+              "over100": 0,
+              "over33": 0,
+              "p50": 4.936,
+              "p95": 5.841,
+              "p99": 6.828
+            },
+            "draw_ui": {
+              "count": 614,
+              "max": 6.855,
+              "mean": 4.87910586319218,
+              "over100": 0,
+              "over33": 0,
+              "p50": 4.762,
+              "p95": 5.65,
+              "p99": 6.587
+            },
+            "physics_tick": {
+              "count": 445,
+              "max": 0.429,
+              "mean": 0.171094382022472,
+              "over100": 0,
+              "over33": 0,
+              "p50": 0.15,
+              "p95": 0.295,
+              "p99": 0.368
+            }
+          }
+        },
+        {
+          "case": "cabinet-scroll",
+          "repeat": 0,
+          "variant": "full",
+          "admission": "DIAGNOSTIC",
+          "reasons": [
+            "instrumentation_present",
+            "short_run"
+          ],
+          "budget": "FAIL",
+          "violations": [
+            "p95",
+            "p99"
+          ],
+          "draw": {
+            "count": 600,
+            "mean_ms": 12.519709999999995,
+            "p95_ms": 19.571,
+            "p99_ms": 28.604,
+            "max_ms": 29.954,
+            "over33": 0,
+            "over100": 0
+          },
+          "first_present_ms": 11.885,
+          "cpu_ms": {
+            "draw": {
+              "count": 610,
+              "max": 7.071,
+              "mean": 5.11071803278688,
+              "over100": 0,
+              "over33": 0,
+              "p50": 4.967,
+              "p95": 5.965,
+              "p99": 6.85
+            },
+            "draw_ui": {
+              "count": 610,
+              "max": 6.845,
+              "mean": 4.92773442622951,
+              "over100": 0,
+              "over33": 0,
+              "p50": 4.789,
+              "p95": 5.749,
+              "p99": 6.62
+            },
+            "physics_tick": {
+              "count": 451,
+              "max": 0.403,
+              "mean": 0.169629711751663,
+              "over100": 0,
+              "over33": 0,
+              "p50": 0.149,
+              "p95": 0.285,
+              "p99": 0.348
+            }
+          }
+        },
+        {
+          "case": "chest",
+          "repeat": 0,
+          "variant": "full",
+          "admission": "DIAGNOSTIC",
+          "reasons": [
+            "instrumentation_present",
+            "short_run"
+          ],
+          "budget": "WITHIN_BUDGET",
+          "violations": [],
+          "draw": {
+            "count": 600,
+            "mean_ms": 11.180063333333344,
+            "p95_ms": 15.432,
+            "p99_ms": 15.637,
+            "max_ms": 26.308,
+            "over33": 0,
+            "over100": 0
+          },
+          "first_present_ms": 13.603,
+          "cpu_ms": {
+            "draw": {
+              "count": 600,
+              "max": 6.338,
+              "mean": 4.524455,
+              "over100": 0,
+              "over33": 0,
+              "p50": 4.408,
+              "p95": 4.97,
+              "p99": 5.392
+            },
+            "draw_ui": {
+              "count": 600,
+              "max": 6.162,
+              "mean": 4.39717333333333,
+              "over100": 0,
+              "over33": 0,
+              "p50": 4.283,
+              "p95": 4.837,
+              "p99": 5.237
+            },
+            "physics_tick": {
+              "count": 402,
+              "max": 0.352,
+              "mean": 0.173442786069652,
+              "over100": 0,
+              "over33": 0,
+              "p50": 0.163,
+              "p95": 0.252,
+              "p99": 0.277
+            }
+          }
+        },
+        {
+          "case": "cabinet",
+          "repeat": 1,
+          "variant": "full",
+          "admission": "DIAGNOSTIC",
+          "reasons": [
+            "instrumentation_present",
+            "short_run"
+          ],
+          "budget": "FAIL",
+          "violations": [
+            "p95",
+            "p99"
+          ],
+          "draw": {
+            "count": 600,
+            "mean_ms": 13.099853333333327,
+            "p95_ms": 27.666,
+            "p99_ms": 29.914,
+            "max_ms": 31.07,
+            "over33": 0,
+            "over100": 0
+          },
+          "first_present_ms": 11.308,
+          "cpu_ms": {
+            "draw": {
+              "count": 626,
+              "max": 7.129,
+              "mean": 5.12475878594249,
+              "over100": 0,
+              "over33": 0,
+              "p50": 4.93,
+              "p95": 6.31,
+              "p99": 6.933
+            },
+            "draw_ui": {
+              "count": 626,
+              "max": 6.902,
+              "mean": 4.94281469648563,
+              "over100": 0,
+              "over33": 0,
+              "p50": 4.754,
+              "p95": 6.07,
+              "p99": 6.703
+            },
+            "physics_tick": {
+              "count": 471,
+              "max": 0.47,
+              "mean": 0.174940552016985,
+              "over100": 0,
+              "over33": 0,
+              "p50": 0.148,
+              "p95": 0.366,
+              "p99": 0.413
+            }
+          }
+        },
+        {
+          "case": "cabinet-scroll",
+          "repeat": 1,
+          "variant": "full",
+          "admission": "DIAGNOSTIC",
+          "reasons": [
+            "instrumentation_present",
+            "short_run"
+          ],
+          "budget": "FAIL",
+          "violations": [
+            "p95",
+            "p99"
+          ],
+          "draw": {
+            "count": 600,
+            "mean_ms": 12.760589999999992,
+            "p95_ms": 20.285,
+            "p99_ms": 29.21,
+            "max_ms": 31.933,
+            "over33": 0,
+            "over100": 0
+          },
+          "first_present_ms": 10.221,
+          "cpu_ms": {
+            "draw": {
+              "count": 615,
+              "max": 7.07,
+              "mean": 5.12284552845528,
+              "over100": 0,
+              "over33": 0,
+              "p50": 4.926,
+              "p95": 6.241,
+              "p99": 6.916
+            },
+            "draw_ui": {
+              "count": 615,
+              "max": 6.819,
+              "mean": 4.94026016260163,
+              "over100": 0,
+              "over33": 0,
+              "p50": 4.747,
+              "p95": 6.014,
+              "p99": 6.67
+            },
+            "physics_tick": {
+              "count": 460,
+              "max": 0.41,
+              "mean": 0.169069565217391,
+              "over100": 0,
+              "over33": 0,
+              "p50": 0.147,
+              "p95": 0.29,
+              "p99": 0.382
+            }
+          }
+        },
+        {
+          "case": "chest",
+          "repeat": 1,
+          "variant": "full",
+          "admission": "DIAGNOSTIC",
+          "reasons": [
+            "instrumentation_present",
+            "short_run"
+          ],
+          "budget": "WITHIN_BUDGET",
+          "violations": [],
+          "draw": {
+            "count": 600,
+            "mean_ms": 11.199790000000002,
+            "p95_ms": 15.176,
+            "p99_ms": 15.639,
+            "max_ms": 28.741,
+            "over33": 0,
+            "over100": 0
+          },
+          "first_present_ms": 11.355,
+          "cpu_ms": {
+            "draw": {
+              "count": 601,
+              "max": 6.23,
+              "mean": 4.52613643926789,
+              "over100": 0,
+              "over33": 0,
+              "p50": 4.396,
+              "p95": 5.014,
+              "p99": 5.602
+            },
+            "draw_ui": {
+              "count": 601,
+              "max": 6.053,
+              "mean": 4.39668885191348,
+              "over100": 0,
+              "over33": 0,
+              "p50": 4.265,
+              "p95": 4.866,
+              "p99": 5.437
+            },
+            "physics_tick": {
+              "count": 403,
+              "max": 0.472,
+              "mean": 0.172166253101737,
+              "over100": 0,
+              "over33": 0,
+              "p50": 0.16,
+              "p95": 0.233,
+              "p99": 0.282
+            }
+          }
+        },
+        {
+          "case": "cabinet",
+          "repeat": 2,
+          "variant": "full",
+          "admission": "DIAGNOSTIC",
+          "reasons": [
+            "instrumentation_present",
+            "short_run"
+          ],
+          "budget": "FAIL",
+          "violations": [
+            "p99"
+          ],
+          "draw": {
+            "count": 600,
+            "mean_ms": 12.242659999999999,
+            "p95_ms": 16.236,
+            "p99_ms": 28.151,
+            "max_ms": 28.983,
+            "over33": 0,
+            "over100": 0
+          },
+          "first_present_ms": 12.656,
+          "cpu_ms": {
+            "draw": {
+              "count": 605,
+              "max": 7.432,
+              "mean": 5.05132396694215,
+              "over100": 0,
+              "over33": 0,
+              "p50": 4.913,
+              "p95": 5.986,
+              "p99": 6.883
+            },
+            "draw_ui": {
+              "count": 605,
+              "max": 7.23,
+              "mean": 4.87033388429752,
+              "over100": 0,
+              "over33": 0,
+              "p50": 4.737,
+              "p95": 5.783,
+              "p99": 6.654
+            },
+            "physics_tick": {
+              "count": 439,
+              "max": 0.509,
+              "mean": 0.17143735763098,
+              "over100": 0,
+              "over33": 0,
+              "p50": 0.149,
+              "p95": 0.257,
+              "p99": 0.383
+            }
+          }
+        },
+        {
+          "case": "cabinet-scroll",
+          "repeat": 2,
+          "variant": "full",
+          "admission": "DIAGNOSTIC",
+          "reasons": [
+            "instrumentation_present",
+            "short_run"
+          ],
+          "budget": "FAIL",
+          "violations": [
+            "p99"
+          ],
+          "draw": {
+            "count": 600,
+            "mean_ms": 12.257743333333329,
+            "p95_ms": 16.193,
+            "p99_ms": 28.385,
+            "max_ms": 29.536,
+            "over33": 0,
+            "over100": 0
+          },
+          "first_present_ms": 16.121,
+          "cpu_ms": {
+            "draw": {
+              "count": 600,
+              "max": 7.016,
+              "mean": 5.04053,
+              "over100": 0,
+              "over33": 0,
+              "p50": 4.914,
+              "p95": 5.995,
+              "p99": 6.848
+            },
+            "draw_ui": {
+              "count": 600,
+              "max": 6.786,
+              "mean": 4.86025333333333,
+              "over100": 0,
+              "over33": 0,
+              "p50": 4.738,
+              "p95": 5.774,
+              "p99": 6.607
+            },
+            "physics_tick": {
+              "count": 443,
+              "max": 0.425,
+              "mean": 0.165194130925508,
+              "over100": 0,
+              "over33": 0,
+              "p50": 0.146,
+              "p95": 0.248,
+              "p99": 0.345
+            }
+          }
+        },
+        {
+          "case": "chest",
+          "repeat": 2,
+          "variant": "full",
+          "admission": "DIAGNOSTIC",
+          "reasons": [
+            "instrumentation_present",
+            "short_run"
+          ],
+          "budget": "WITHIN_BUDGET",
+          "violations": [],
+          "draw": {
+            "count": 600,
+            "mean_ms": 11.11114333333333,
+            "p95_ms": 15.077,
+            "p99_ms": 15.665,
+            "max_ms": 15.77,
+            "over33": 0,
+            "over100": 0
+          },
+          "first_present_ms": 15.378,
+          "cpu_ms": {
+            "draw": {
+              "count": 600,
+              "max": 5.379,
+              "mean": 4.474035,
+              "over100": 0,
+              "over33": 0,
+              "p50": 4.362,
+              "p95": 4.941,
+              "p99": 5.144
+            },
+            "draw_ui": {
+              "count": 600,
+              "max": 5.219,
+              "mean": 4.34661500000001,
+              "over100": 0,
+              "over33": 0,
+              "p50": 4.238,
+              "p95": 4.804,
+              "p99": 4.994
+            },
+            "physics_tick": {
+              "count": 400,
+              "max": 0.323,
+              "mean": 0.1668975,
+              "over100": 0,
+              "over33": 0,
+              "p50": 0.158,
+              "p95": 0.241,
+              "p99": 0.279
+            }
+          }
+        }
+      ]
+    },
+    "after-long": {
+      "status": "COMPLETE",
+      "window": [
+        3584,
+        2240
+      ],
+      "instrumented": false,
+      "gpu": "AMD Radeon Pro 5300M OpenGL Engine",
+      "openings": [
+        {
+          "attempt": 0,
+          "case": "cabinet",
+          "first_present_ms": 31.414,
+          "state": {
+            "draw_calls": 120.0,
+            "focused": true,
+            "nodes": 13.0,
+            "preview_cache": {
+              "atlas": "(1024.0, 1600.0)",
+              "large": 1,
+              "limit": 16,
+              "small": 52
+            },
+            "resources": 1334.0,
+            "static_bytes": 130652163.0,
+            "text_cache": {
+              "entries": 62,
+              "fonts": 2,
+              "hits": 4010,
+              "misses": 62,
+              "slots": 62
+            },
+            "texture_bytes": 813141770.0,
+            "video_bytes": 820819978.0,
+            "window": [
+              3584,
+              2240
+            ]
+          }
+        },
+        {
+          "attempt": 1,
+          "case": "cabinet",
+          "first_present_ms": 26.091,
+          "state": {
+            "draw_calls": 120.0,
+            "focused": true,
+            "nodes": 13.0,
+            "preview_cache": {
+              "atlas": "(1024.0, 1600.0)",
+              "large": 1,
+              "limit": 16,
+              "small": 52
+            },
+            "resources": 1334.0,
+            "static_bytes": 130655635.0,
+            "text_cache": {
+              "entries": 62,
+              "fonts": 2,
+              "hits": 4168,
+              "misses": 62,
+              "slots": 62
+            },
+            "texture_bytes": 813141770.0,
+            "video_bytes": 820819978.0,
+            "window": [
+              3584,
+              2240
+            ]
+          }
+        },
+        {
+          "attempt": 0,
+          "case": "chest",
+          "first_present_ms": 30.585,
+          "state": {
+            "draw_calls": 103.0,
+            "focused": true,
+            "nodes": 13.0,
+            "preview_cache": {
+              "atlas": "(1024.0, 1600.0)",
+              "large": 2,
+              "limit": 16,
+              "small": 52
+            },
+            "resources": 1336.0,
+            "static_bytes": 131050741.0,
+            "text_cache": {
+              "entries": 74,
+              "fonts": 2,
+              "hits": 4294,
+              "misses": 74,
+              "slots": 74
+            },
+            "texture_bytes": 813409362.0,
+            "video_bytes": 820945250.0,
+            "window": [
+              3584,
+              2240
+            ]
+          }
+        },
+        {
+          "attempt": 1,
+          "case": "chest",
+          "first_present_ms": 23.034,
+          "state": {
+            "draw_calls": 103.0,
+            "focused": true,
+            "nodes": 13.0,
+            "preview_cache": {
+              "atlas": "(1024.0, 1600.0)",
+              "large": 2,
+              "limit": 16,
+              "small": 52
+            },
+            "resources": 1336.0,
+            "static_bytes": 131053997.0,
+            "text_cache": {
+              "entries": 74,
+              "fonts": 2,
+              "hits": 4432,
+              "misses": 74,
+              "slots": 74
+            },
+            "texture_bytes": 813409362.0,
+            "video_bytes": 820945250.0,
+            "window": [
+              3584,
+              2240
+            ]
+          }
+        }
+      ],
+      "cases": [
+        {
+          "case": "cabinet",
+          "repeat": 0,
+          "variant": "full",
+          "admission": "QUALIFIED_RUN",
+          "reasons": [],
+          "budget": "FAIL",
+          "violations": [
+            "p99"
+          ],
+          "draw": {
+            "count": 3600,
+            "mean_ms": 12.244239166666654,
+            "p95_ms": 16.241,
+            "p99_ms": 28.695,
+            "max_ms": 32.262,
+            "over33": 0,
+            "over100": 0
+          },
+          "first_present_ms": 11.774,
+          "cpu_ms": {}
+        },
+        {
+          "case": "cabinet-scroll",
+          "repeat": 0,
+          "variant": "full",
+          "admission": "QUALIFIED_RUN",
+          "reasons": [],
+          "budget": "FAIL",
+          "violations": [
+            "p95",
+            "p99"
+          ],
+          "draw": {
+            "count": 3600,
+            "mean_ms": 12.710120000000002,
+            "p95_ms": 20.007,
+            "p99_ms": 28.892,
+            "max_ms": 32.493,
+            "over33": 0,
+            "over100": 0
+          },
+          "first_present_ms": 10.03,
+          "cpu_ms": {}
+        },
+        {
+          "case": "chest",
+          "repeat": 0,
+          "variant": "full",
+          "admission": "QUALIFIED_RUN",
+          "reasons": [],
+          "budget": "WITHIN_BUDGET",
+          "violations": [],
+          "draw": {
+            "count": 3600,
+            "mean_ms": 11.130198333333384,
+            "p95_ms": 15.222,
+            "p99_ms": 15.502,
+            "max_ms": 27.627,
+            "over33": 0,
+            "over100": 0
+          },
+          "first_present_ms": 9.92,
+          "cpu_ms": {}
+        },
+        {
+          "case": "cabinet",
+          "repeat": 1,
+          "variant": "full",
+          "admission": "QUALIFIED_RUN",
+          "reasons": [],
+          "budget": "FAIL",
+          "violations": [
+            "p95",
+            "p99"
+          ],
+          "draw": {
+            "count": 3600,
+            "mean_ms": 12.509035277777771,
+            "p95_ms": 19.673,
+            "p99_ms": 28.856,
+            "max_ms": 33.876,
+            "over33": 1,
+            "over100": 0
+          },
+          "first_present_ms": 10.971,
+          "cpu_ms": {}
+        },
+        {
+          "case": "cabinet-scroll",
+          "repeat": 1,
+          "variant": "full",
+          "admission": "QUALIFIED_RUN",
+          "reasons": [],
+          "budget": "FAIL",
+          "violations": [
+            "p95",
+            "p99"
+          ],
+          "draw": {
+            "count": 3600,
+            "mean_ms": 12.618391388888854,
+            "p95_ms": 19.728,
+            "p99_ms": 28.697,
+            "max_ms": 31.9,
+            "over33": 0,
+            "over100": 0
+          },
+          "first_present_ms": 12.167,
+          "cpu_ms": {}
+        },
+        {
+          "case": "chest",
+          "repeat": 1,
+          "variant": "full",
+          "admission": "QUALIFIED_RUN",
+          "reasons": [],
+          "budget": "WITHIN_BUDGET",
+          "violations": [],
+          "draw": {
+            "count": 3600,
+            "mean_ms": 11.135830833333342,
+            "p95_ms": 15.129,
+            "p99_ms": 15.506,
+            "max_ms": 27.801,
+            "over33": 0,
+            "over100": 0
+          },
+          "first_present_ms": 10.92,
+          "cpu_ms": {}
+        },
+        {
+          "case": "cabinet",
+          "repeat": 2,
+          "variant": "full",
+          "admission": "QUALIFIED_RUN",
+          "reasons": [],
+          "budget": "FAIL",
+          "violations": [
+            "p99"
+          ],
+          "draw": {
+            "count": 3600,
+            "mean_ms": 12.914580555555547,
+            "p95_ms": 15.605,
+            "p99_ms": 28.916,
+            "max_ms": 32.227,
+            "over33": 0,
+            "over100": 0
+          },
+          "first_present_ms": 10.268,
+          "cpu_ms": {}
+        },
+        {
+          "case": "cabinet-scroll",
+          "repeat": 2,
+          "variant": "full",
+          "admission": "QUALIFIED_RUN",
+          "reasons": [],
+          "budget": "FAIL",
+          "violations": [
+            "p99"
+          ],
+          "draw": {
+            "count": 3600,
+            "mean_ms": 12.832470277777821,
+            "p95_ms": 14.479,
+            "p99_ms": 28.588,
+            "max_ms": 30.114,
+            "over33": 0,
+            "over100": 0
+          },
+          "first_present_ms": 11.421,
+          "cpu_ms": {}
+        },
+        {
+          "case": "chest",
+          "repeat": 2,
+          "variant": "full",
+          "admission": "QUALIFIED_RUN",
+          "reasons": [],
+          "budget": "FAIL",
+          "violations": [
+            "p99"
+          ],
+          "draw": {
+            "count": 3600,
+            "mean_ms": 11.785278611111112,
+            "p95_ms": 15.466,
+            "p99_ms": 28.14,
+            "max_ms": 33.578,
+            "over33": 1,
+            "over100": 0
+          },
+          "first_present_ms": 11.748,
+          "cpu_ms": {}
+        }
+      ]
+    },
+    "batched-probe": {
+      "status": "COMPLETE",
+      "window": [
+        3584,
+        2240
+      ],
+      "instrumented": true,
+      "gpu": "AMD Radeon Pro 5300M OpenGL Engine",
+      "openings": [],
+      "cases": [
+        {
+          "case": "cabinet",
+          "repeat": 0,
+          "variant": "full",
+          "admission": "DIAGNOSTIC",
+          "reasons": [
+            "instrumentation_present",
+            "short_run"
+          ],
+          "budget": "FAIL",
+          "violations": [
+            "mean",
+            "p95",
+            "p99",
+            "slow_frame_ratio"
+          ],
+          "draw": {
+            "count": 180,
+            "mean_ms": 49.99915555555555,
+            "p95_ms": 53.211,
+            "p99_ms": 54.49,
+            "max_ms": 56.759,
+            "over33": 180,
+            "over100": 0
+          },
+          "first_present_ms": 51.593,
+          "cpu_ms": {
+            "draw": {
+              "count": 540,
+              "max": 13.197,
+              "mean": 10.6420814814815,
+              "over100": 0,
+              "over33": 0,
+              "p50": 10.445,
+              "p95": 12.235,
+              "p99": 12.43
+            },
+            "draw_ui": {
+              "count": 540,
+              "max": 11.127,
+              "mean": 9.30815,
+              "over100": 0,
+              "over33": 0,
+              "p50": 9.145,
+              "p95": 10.63,
+              "p99": 10.765
+            },
+            "physics_tick": {
+              "count": 540,
+              "max": 0.223,
+              "mean": 0.127007407407408,
+              "over100": 0,
+              "over33": 0,
+              "p50": 0.127,
+              "p95": 0.147,
+              "p99": 0.164
+            }
+          }
+        },
+        {
+          "case": "cabinet-scroll",
+          "repeat": 0,
+          "variant": "full",
+          "admission": "DIAGNOSTIC",
+          "reasons": [
+            "instrumentation_present",
+            "short_run"
+          ],
+          "budget": "FAIL",
+          "violations": [
+            "mean",
+            "p95",
+            "p99",
+            "slow_frame_ratio"
+          ],
+          "draw": {
+            "count": 180,
+            "mean_ms": 49.998205555555515,
+            "p95_ms": 53.516,
+            "p99_ms": 54.257,
+            "max_ms": 59.166,
+            "over33": 180,
+            "over100": 0
+          },
+          "first_present_ms": 51.822,
+          "cpu_ms": {
+            "draw": {
+              "count": 540,
+              "max": 14.286,
+              "mean": 10.6818222222222,
+              "over100": 0,
+              "over33": 0,
+              "p50": 10.392,
+              "p95": 12.274,
+              "p99": 12.758
+            },
+            "draw_ui": {
+              "count": 540,
+              "max": 12.461,
+              "mean": 9.34743703703704,
+              "over100": 0,
+              "over33": 0,
+              "p50": 9.094,
+              "p95": 10.639,
+              "p99": 10.945
+            },
+            "physics_tick": {
+              "count": 540,
+              "max": 0.202,
+              "mean": 0.126255555555556,
+              "over100": 0,
+              "over33": 0,
+              "p50": 0.126,
+              "p95": 0.145,
+              "p99": 0.16
+            }
+          }
+        },
+        {
+          "case": "chest",
+          "repeat": 0,
+          "variant": "full",
+          "admission": "DIAGNOSTIC",
+          "reasons": [
+            "instrumentation_present",
+            "short_run"
+          ],
+          "budget": "FAIL",
+          "violations": [
+            "mean",
+            "p95",
+            "p99",
+            "slow_frame_ratio"
+          ],
+          "draw": {
+            "count": 180,
+            "mean_ms": 50.00520555555558,
+            "p95_ms": 53.363,
+            "p99_ms": 54.309,
+            "max_ms": 55.126,
+            "over33": 180,
+            "over100": 0
+          },
+          "first_present_ms": 49.061,
+          "cpu_ms": {
+            "draw": {
+              "count": 540,
+              "max": 14.192,
+              "mean": 10.4686592592593,
+              "over100": 0,
+              "over33": 0,
+              "p50": 10.402,
+              "p95": 12.174,
+              "p99": 12.411
+            },
+            "draw_ui": {
+              "count": 540,
+              "max": 11.68,
+              "mean": 9.07893148148149,
+              "over100": 0,
+              "over33": 0,
+              "p50": 9.116,
+              "p95": 10.336,
+              "p99": 10.527
+            },
+            "physics_tick": {
+              "count": 540,
+              "max": 0.225,
+              "mean": 0.131164814814815,
+              "over100": 0,
+              "over33": 0,
+              "p50": 0.13,
+              "p95": 0.148,
+              "p99": 0.164
+            }
+          }
+        }
+      ]
+    },
+    "before": {
+      "status": "COMPLETE",
+      "window": [
+        3584,
+        2240
+      ],
+      "instrumented": true,
+      "gpu": "AMD Radeon Pro 5300M OpenGL Engine",
+      "openings": [],
+      "cases": [
+        {
+          "case": "cabinet",
+          "repeat": 0,
+          "variant": "full",
+          "admission": "DIAGNOSTIC",
+          "reasons": [
+            "instrumentation_present",
+            "short_run"
+          ],
+          "budget": "FAIL",
+          "violations": [
+            "mean",
+            "p95",
+            "p99",
+            "slow_frame_ratio"
+          ],
+          "draw": {
+            "count": 600,
+            "mean_ms": 50.639774999999986,
+            "p95_ms": 61.003,
+            "p99_ms": 68.357,
+            "max_ms": 74.768,
+            "over33": 590,
+            "over100": 0
+          },
+          "first_present_ms": 47.682,
+          "cpu_ms": {
+            "draw": {
+              "count": 1823,
+              "max": 14.839,
+              "mean": 10.9702084476138,
+              "over100": 0,
+              "over33": 0,
+              "p50": 10.465,
+              "p95": 12.823,
+              "p99": 13.86
+            },
+            "draw_ui": {
+              "count": 1823,
+              "max": 13.288,
+              "mean": 9.66880416895228,
+              "over100": 0,
+              "over33": 0,
+              "p50": 9.219,
+              "p95": 11.221,
+              "p99": 11.978
+            },
+            "physics_tick": {
+              "count": 1823,
+              "max": 0.273,
+              "mean": 0.126032364234777,
+              "over100": 0,
+              "over33": 0,
+              "p50": 0.125,
+              "p95": 0.149,
+              "p99": 0.196
+            }
+          }
+        },
+        {
+          "case": "cabinet-scroll",
+          "repeat": 0,
+          "variant": "full",
+          "admission": "DIAGNOSTIC",
+          "reasons": [
+            "instrumentation_present",
+            "short_run"
+          ],
+          "budget": "FAIL",
+          "violations": [
+            "mean",
+            "p95",
+            "p99",
+            "slow_frame_ratio"
+          ],
+          "draw": {
+            "count": 600,
+            "mean_ms": 50.63566666666668,
+            "p95_ms": 57.748,
+            "p99_ms": 65.747,
+            "max_ms": 78.521,
+            "over33": 600,
+            "over100": 0
+          },
+          "first_present_ms": 56.599,
+          "cpu_ms": {
+            "draw": {
+              "count": 1823,
+              "max": 14.623,
+              "mean": 11.0258848052661,
+              "over100": 0,
+              "over33": 0,
+              "p50": 10.485,
+              "p95": 12.997,
+              "p99": 13.73
+            },
+            "draw_ui": {
+              "count": 1823,
+              "max": 12.517,
+              "mean": 9.72091881513988,
+              "over100": 0,
+              "over33": 0,
+              "p50": 9.233,
+              "p95": 11.359,
+              "p99": 11.826
+            },
+            "physics_tick": {
+              "count": 1823,
+              "max": 0.255,
+              "mean": 0.124267142073505,
+              "over100": 0,
+              "over33": 0,
+              "p50": 0.124,
+              "p95": 0.145,
+              "p99": 0.169
+            }
+          }
+        },
+        {
+          "case": "chest",
+          "repeat": 0,
+          "variant": "full",
+          "admission": "DIAGNOSTIC",
+          "reasons": [
+            "instrumentation_present",
+            "short_run"
+          ],
+          "budget": "FAIL",
+          "violations": [
+            "mean",
+            "p95",
+            "p99",
+            "slow_frame_ratio"
+          ],
+          "draw": {
+            "count": 600,
+            "mean_ms": 47.65531666666666,
+            "p95_ms": 60.158,
+            "p99_ms": 62.957,
+            "max_ms": 67.958,
+            "over33": 548,
+            "over100": 0
+          },
+          "first_present_ms": 43.746,
+          "cpu_ms": {
+            "draw": {
+              "count": 1715,
+              "max": 14.527,
+              "mean": 10.72467696793,
+              "over100": 0,
+              "over33": 0,
+              "p50": 10.483,
+              "p95": 12.772,
+              "p99": 13.312
+            },
+            "draw_ui": {
+              "count": 1715,
+              "max": 12.572,
+              "mean": 9.39719591836736,
+              "over100": 0,
+              "over33": 0,
+              "p50": 9.204,
+              "p95": 10.948,
+              "p99": 11.452
+            },
+            "physics_tick": {
+              "count": 1715,
+              "max": 0.33,
+              "mean": 0.131047813411078,
+              "over100": 0,
+              "over33": 0,
+              "p50": 0.128,
+              "p95": 0.158,
+              "p99": 0.198
+            }
+          }
+        },
+        {
+          "case": "cabinet",
+          "repeat": 1,
+          "variant": "full",
+          "admission": "DIAGNOSTIC",
+          "reasons": [
+            "instrumentation_present",
+            "short_run"
+          ],
+          "budget": "FAIL",
+          "violations": [
+            "mean",
+            "p95",
+            "p99",
+            "slow_frame_ratio"
+          ],
+          "draw": {
+            "count": 600,
+            "mean_ms": 49.82136833333334,
+            "p95_ms": 63.682,
+            "p99_ms": 69.07,
+            "max_ms": 80.409,
+            "over33": 569,
+            "over100": 0
+          },
+          "first_present_ms": 61.145,
+          "cpu_ms": {
+            "draw": {
+              "count": 1794,
+              "max": 15.724,
+              "mean": 11.0543667781494,
+              "over100": 0,
+              "over33": 0,
+              "p50": 10.623,
+              "p95": 13.118,
+              "p99": 14.163
+            },
+            "draw_ui": {
+              "count": 1794,
+              "max": 13.441,
+              "mean": 9.72787458193978,
+              "over100": 0,
+              "over33": 0,
+              "p50": 9.331,
+              "p95": 11.47,
+              "p99": 12.314
+            },
+            "physics_tick": {
+              "count": 1794,
+              "max": 0.407,
+              "mean": 0.128797101449275,
+              "over100": 0,
+              "over33": 0,
+              "p50": 0.125,
+              "p95": 0.159,
+              "p99": 0.218
+            }
+          }
+        },
+        {
+          "case": "cabinet-scroll",
+          "repeat": 1,
+          "variant": "full",
+          "admission": "DIAGNOSTIC",
+          "reasons": [
+            "instrumentation_present",
+            "short_run"
+          ],
+          "budget": "FAIL",
+          "violations": [
+            "mean",
+            "p95",
+            "p99",
+            "slow_frame_ratio"
+          ],
+          "draw": {
+            "count": 600,
+            "mean_ms": 50.08255999999996,
+            "p95_ms": 57.564,
+            "p99_ms": 61.652,
+            "max_ms": 66.977,
+            "over33": 598,
+            "over100": 0
+          },
+          "first_present_ms": 53.823,
+          "cpu_ms": {
+            "draw": {
+              "count": 1803,
+              "max": 14.283,
+              "mean": 11.0183527454243,
+              "over100": 0,
+              "over33": 0,
+              "p50": 10.485,
+              "p95": 13.009,
+              "p99": 13.716
+            },
+            "draw_ui": {
+              "count": 1803,
+              "max": 12.486,
+              "mean": 9.69466611203549,
+              "over100": 0,
+              "over33": 0,
+              "p50": 9.24,
+              "p95": 11.352,
+              "p99": 11.759
+            },
+            "physics_tick": {
+              "count": 1803,
+              "max": 0.267,
+              "mean": 0.124659456461453,
+              "over100": 0,
+              "over33": 0,
+              "p50": 0.123,
+              "p95": 0.147,
+              "p99": 0.188
+            }
+          }
+        },
+        {
+          "case": "chest",
+          "repeat": 1,
+          "variant": "full",
+          "admission": "DIAGNOSTIC",
+          "reasons": [
+            "instrumentation_present",
+            "short_run"
+          ],
+          "budget": "FAIL",
+          "violations": [
+            "mean",
+            "p95",
+            "p99",
+            "slow_frame_ratio"
+          ],
+          "draw": {
+            "count": 600,
+            "mean_ms": 50.16477833333329,
+            "p95_ms": 54.106,
+            "p99_ms": 63.113,
+            "max_ms": 66.373,
+            "over33": 600,
+            "over100": 0
+          },
+          "first_present_ms": 48.642,
+          "cpu_ms": {
+            "draw": {
+              "count": 1806,
+              "max": 19.051,
+              "mean": 10.8520908084164,
+              "over100": 0,
+              "over33": 0,
+              "p50": 10.745,
+              "p95": 12.726,
+              "p99": 13.126
+            },
+            "draw_ui": {
+              "count": 1806,
+              "max": 16.577,
+              "mean": 9.50918992248063,
+              "over100": 0,
+              "over33": 0,
+              "p50": 9.457,
+              "p95": 10.945,
+              "p99": 11.286
+            },
+            "physics_tick": {
+              "count": 1806,
+              "max": 0.278,
+              "mean": 0.130553709856035,
+              "over100": 0,
+              "over33": 0,
+              "p50": 0.129,
+              "p95": 0.153,
+              "p99": 0.173
+            }
+          }
+        },
+        {
+          "case": "cabinet",
+          "repeat": 2,
+          "variant": "full",
+          "admission": "DIAGNOSTIC",
+          "reasons": [
+            "instrumentation_present",
+            "short_run"
+          ],
+          "budget": "FAIL",
+          "violations": [
+            "mean",
+            "p95",
+            "p99",
+            "slow_frame_ratio"
+          ],
+          "draw": {
+            "count": 600,
+            "mean_ms": 50.39987833333339,
+            "p95_ms": 60.209,
+            "p99_ms": 64.428,
+            "max_ms": 67.569,
+            "over33": 600,
+            "over100": 0
+          },
+          "first_present_ms": 47.326,
+          "cpu_ms": {
+            "draw": {
+              "count": 1814,
+              "max": 14.842,
+              "mean": 10.9637122381477,
+              "over100": 0,
+              "over33": 0,
+              "p50": 10.33,
+              "p95": 12.929,
+              "p99": 13.711
+            },
+            "draw_ui": {
+              "count": 1814,
+              "max": 12.853,
+              "mean": 9.64759481808159,
+              "over100": 0,
+              "over33": 0,
+              "p50": 9.113,
+              "p95": 11.288,
+              "p99": 11.775
+            },
+            "physics_tick": {
+              "count": 1814,
+              "max": 0.376,
+              "mean": 0.12452756339581,
+              "over100": 0,
+              "over33": 0,
+              "p50": 0.124,
+              "p95": 0.145,
+              "p99": 0.178
+            }
+          }
+        },
+        {
+          "case": "cabinet-scroll",
+          "repeat": 2,
+          "variant": "full",
+          "admission": "DIAGNOSTIC",
+          "reasons": [
+            "instrumentation_present",
+            "short_run"
+          ],
+          "budget": "FAIL",
+          "violations": [
+            "mean",
+            "p95",
+            "p99",
+            "slow_frame_ratio"
+          ],
+          "draw": {
+            "count": 600,
+            "mean_ms": 51.07699833333335,
+            "p95_ms": 60.82,
+            "p99_ms": 66.014,
+            "max_ms": 76.507,
+            "over33": 600,
+            "over100": 0
+          },
+          "first_present_ms": 44.182,
+          "cpu_ms": {
+            "draw": {
+              "count": 1839,
+              "max": 15.063,
+              "mean": 10.994217509516,
+              "over100": 0,
+              "over33": 0,
+              "p50": 10.421,
+              "p95": 12.939,
+              "p99": 13.609
+            },
+            "draw_ui": {
+              "count": 1839,
+              "max": 13.028,
+              "mean": 9.66958238172919,
+              "over100": 0,
+              "over33": 0,
+              "p50": 9.172,
+              "p95": 11.285,
+              "p99": 11.687
+            },
+            "physics_tick": {
+              "count": 1839,
+              "max": 0.224,
+              "mean": 0.123814029363784,
+              "over100": 0,
+              "over33": 0,
+              "p50": 0.123,
+              "p95": 0.146,
+              "p99": 0.172
+            }
+          }
+        },
+        {
+          "case": "chest",
+          "repeat": 2,
+          "variant": "full",
+          "admission": "DIAGNOSTIC",
+          "reasons": [
+            "instrumentation_present",
+            "short_run"
+          ],
+          "budget": "FAIL",
+          "violations": [
+            "mean",
+            "p95",
+            "p99",
+            "slow_frame_ratio"
+          ],
+          "draw": {
+            "count": 600,
+            "mean_ms": 50.004261666666665,
+            "p95_ms": 58.463,
+            "p99_ms": 62.145,
+            "max_ms": 64.12,
+            "over33": 600,
+            "over100": 0
+          },
+          "first_present_ms": 44.072,
+          "cpu_ms": {
+            "draw": {
+              "count": 1800,
+              "max": 14.403,
+              "mean": 10.754245,
+              "over100": 0,
+              "over33": 0,
+              "p50": 10.588,
+              "p95": 12.73,
+              "p99": 13.153
+            },
+            "draw_ui": {
+              "count": 1800,
+              "max": 12.419,
+              "mean": 9.41275833333334,
+              "over100": 0,
+              "over33": 0,
+              "p50": 9.319,
+              "p95": 10.833,
+              "p99": 11.243
+            },
+            "physics_tick": {
+              "count": 1800,
+              "max": 0.295,
+              "mean": 0.130300555555555,
+              "over100": 0,
+              "over33": 0,
+              "p50": 0.128,
+              "p95": 0.154,
+              "p99": 0.187
+            }
+          }
+        }
+      ]
+    },
+    "before-openings": {
+      "status": "OPENINGS_ONLY",
+      "window": [
+        3584,
+        2240
+      ],
+      "instrumented": false,
+      "gpu": "AMD Radeon Pro 5300M OpenGL Engine",
+      "openings": [
+        {
+          "attempt": 0,
+          "case": "cabinet",
+          "first_present_ms": 44.236,
+          "state": {
+            "draw_calls": 304.0,
+            "focused": true,
+            "nodes": 13.0,
+            "preview_cache": {
+              "atlas": "(1024.0, 1600.0)",
+              "large": 1,
+              "limit": 16,
+              "small": 53
+            },
+            "resources": 1333.0,
+            "static_bytes": 130411758.0,
+            "text_cache": {
+              "entries": 65,
+              "fonts": 2,
+              "hits": 4140,
+              "misses": 65,
+              "slots": 65
+            },
+            "texture_bytes": 813141770.0,
+            "video_bytes": 821095922.0,
+            "window": [
+              3584,
+              2240
+            ]
+          }
+        },
+        {
+          "attempt": 1,
+          "case": "cabinet",
+          "first_present_ms": 57.652,
+          "state": {
+            "draw_calls": 304.0,
+            "focused": true,
+            "nodes": 13.0,
+            "preview_cache": {
+              "atlas": "(1024.0, 1600.0)",
+              "large": 1,
+              "limit": 16,
+              "small": 53
+            },
+            "resources": 1333.0,
+            "static_bytes": 130417888.0,
+            "text_cache": {
+              "entries": 65,
+              "fonts": 2,
+              "hits": 4452,
+              "misses": 65,
+              "slots": 65
+            },
+            "texture_bytes": 813141770.0,
+            "video_bytes": 821095922.0,
+            "window": [
+              3584,
+              2240
+            ]
+          }
+        },
+        {
+          "attempt": 0,
+          "case": "chest",
+          "first_present_ms": 65.208,
+          "state": {
+            "draw_calls": 286.0,
+            "focused": true,
+            "nodes": 13.0,
+            "preview_cache": {
+              "atlas": "(1024.0, 1600.0)",
+              "large": 2,
+              "limit": 16,
+              "small": 53
+            },
+            "resources": 1335.0,
+            "static_bytes": 130664934.0,
+            "text_cache": {
+              "entries": 77,
+              "fonts": 2,
+              "hits": 4812,
+              "misses": 77,
+              "slots": 77
+            },
+            "texture_bytes": 813409362.0,
+            "video_bytes": 821206962.0,
+            "window": [
+              3584,
+              2240
+            ]
+          }
+        },
+        {
+          "attempt": 1,
+          "case": "chest",
+          "first_present_ms": 48.38,
+          "state": {
+            "draw_calls": 286.0,
+            "focused": true,
+            "nodes": 13.0,
+            "preview_cache": {
+              "atlas": "(1024.0, 1600.0)",
+              "large": 2,
+              "limit": 16,
+              "small": 53
+            },
+            "resources": 1335.0,
+            "static_bytes": 130668190.0,
+            "text_cache": {
+              "entries": 77,
+              "fonts": 2,
+              "hits": 5091,
+              "misses": 77,
+              "slots": 77
+            },
+            "texture_bytes": 813409362.0,
+            "video_bytes": 821206962.0,
+            "window": [
+              3584,
+              2240
+            ]
+          }
+        }
+      ],
+      "cases": []
+    },
+    "before-probe": {
+      "status": "COMPLETE",
+      "window": [
+        3584,
+        2240
+      ],
+      "instrumented": true,
+      "gpu": "AMD Radeon Pro 5300M OpenGL Engine",
+      "openings": [],
+      "cases": [
+        {
+          "case": "cabinet",
+          "repeat": 0,
+          "variant": "full",
+          "admission": "DIAGNOSTIC",
+          "reasons": [
+            "instrumentation_present",
+            "short_run"
+          ],
+          "budget": "FAIL",
+          "violations": [
+            "mean",
+            "p95",
+            "p99",
+            "slow_frame_ratio"
+          ],
+          "draw": {
+            "count": 180,
+            "mean_ms": 50.74655555555551,
+            "p95_ms": 56.413,
+            "p99_ms": 66.296,
+            "max_ms": 74.56,
+            "over33": 180,
+            "over100": 0
+          },
+          "first_present_ms": 48.069,
+          "cpu_ms": {
+            "draw": {
+              "count": 549,
+              "max": 14.134,
+              "mean": 10.9487777777778,
+              "over100": 0,
+              "over33": 0,
+              "p50": 10.413,
+              "p95": 12.71,
+              "p99": 13.136
+            },
+            "draw_ui": {
+              "count": 549,
+              "max": 12.13,
+              "mean": 9.66441712204007,
+              "over100": 0,
+              "over33": 0,
+              "p50": 9.189,
+              "p95": 11.126,
+              "p99": 11.474
+            },
+            "physics_tick": {
+              "count": 549,
+              "max": 0.206,
+              "mean": 0.12508378870674,
+              "over100": 0,
+              "over33": 0,
+              "p50": 0.125,
+              "p95": 0.144,
+              "p99": 0.175
+            }
+          }
+        },
+        {
+          "case": "cabinet-scroll",
+          "repeat": 0,
+          "variant": "full",
+          "admission": "DIAGNOSTIC",
+          "reasons": [
+            "instrumentation_present",
+            "short_run"
+          ],
+          "budget": "FAIL",
+          "violations": [
+            "mean",
+            "p95",
+            "p99",
+            "slow_frame_ratio"
+          ],
+          "draw": {
+            "count": 180,
+            "mean_ms": 50.13694444444446,
+            "p95_ms": 53.898,
+            "p99_ms": 54.911,
+            "max_ms": 68.77,
+            "over33": 180,
+            "over100": 0
+          },
+          "first_present_ms": 55.916,
+          "cpu_ms": {
+            "draw": {
+              "count": 543,
+              "max": 14.409,
+              "mean": 10.9154106813996,
+              "over100": 0,
+              "over33": 0,
+              "p50": 10.347,
+              "p95": 12.689,
+              "p99": 12.884
+            },
+            "draw_ui": {
+              "count": 543,
+              "max": 12.698,
+              "mean": 9.64324125230202,
+              "over100": 0,
+              "over33": 0,
+              "p50": 9.151,
+              "p95": 11.142,
+              "p99": 11.309
+            },
+            "physics_tick": {
+              "count": 543,
+              "max": 0.203,
+              "mean": 0.122795580110497,
+              "over100": 0,
+              "over33": 0,
+              "p50": 0.123,
+              "p95": 0.141,
+              "p99": 0.159
+            }
+          }
+        },
+        {
+          "case": "chest",
+          "repeat": 0,
+          "variant": "full",
+          "admission": "DIAGNOSTIC",
+          "reasons": [
+            "instrumentation_present",
+            "short_run"
+          ],
+          "budget": "FAIL",
+          "violations": [
+            "mean",
+            "p95",
+            "p99",
+            "slow_frame_ratio"
+          ],
+          "draw": {
+            "count": 180,
+            "mean_ms": 50.00436111111112,
+            "p95_ms": 53.588,
+            "p99_ms": 54.047,
+            "max_ms": 55.825,
+            "over33": 180,
+            "over100": 0
+          },
+          "first_present_ms": 50.433,
+          "cpu_ms": {
+            "draw": {
+              "count": 540,
+              "max": 13.418,
+              "mean": 10.7501814814815,
+              "over100": 0,
+              "over33": 0,
+              "p50": 10.697,
+              "p95": 12.395,
+              "p99": 12.689
+            },
+            "draw_ui": {
+              "count": 540,
+              "max": 11.754,
+              "mean": 9.44967222222223,
+              "over100": 0,
+              "over33": 0,
+              "p50": 9.448,
+              "p95": 10.7,
+              "p99": 10.938
+            },
+            "physics_tick": {
+              "count": 540,
+              "max": 0.22,
+              "mean": 0.128455555555556,
+              "over100": 0,
+              "over33": 0,
+              "p50": 0.128,
+              "p95": 0.146,
+              "p99": 0.17
+            }
+          }
+        },
+        {
+          "case": "cabinet",
+          "repeat": 0,
+          "variant": "ui-only",
+          "admission": "DIAGNOSTIC",
+          "reasons": [
+            "instrumentation_present",
+            "diagnostic_variant",
+            "short_run"
+          ],
+          "budget": "FAIL",
+          "violations": [
+            "mean",
+            "p95",
+            "p99",
+            "slow_frame_ratio"
+          ],
+          "draw": {
+            "count": 180,
+            "mean_ms": 49.828272222222225,
+            "p95_ms": 53.851,
+            "p99_ms": 57.312,
+            "max_ms": 61.509,
+            "over33": 179,
+            "over100": 0
+          },
+          "first_present_ms": 48.138,
+          "cpu_ms": {
+            "draw": {
+              "count": 538,
+              "max": 12.413,
+              "mean": 10.1678903345725,
+              "over100": 0,
+              "over33": 0,
+              "p50": 10.135,
+              "p95": 11.94,
+              "p99": 12.23
+            },
+            "draw_ui": {
+              "count": 538,
+              "max": 12.406,
+              "mean": 10.1635892193308,
+              "over100": 0,
+              "over33": 0,
+              "p50": 10.131,
+              "p95": 11.933,
+              "p99": 12.224
+            },
+            "physics_tick": {
+              "count": 538,
+              "max": 0.207,
+              "mean": 0.138992565055762,
+              "over100": 0,
+              "over33": 0,
+              "p50": 0.134,
+              "p95": 0.164,
+              "p99": 0.178
+            }
+          }
+        },
+        {
+          "case": "cabinet-scroll",
+          "repeat": 0,
+          "variant": "ui-only",
+          "admission": "DIAGNOSTIC",
+          "reasons": [
+            "instrumentation_present",
+            "diagnostic_variant",
+            "short_run"
+          ],
+          "budget": "FAIL",
+          "violations": [
+            "mean",
+            "p95",
+            "p99",
+            "slow_frame_ratio"
+          ],
+          "draw": {
+            "count": 180,
+            "mean_ms": 48.89641111111113,
+            "p95_ms": 56.94,
+            "p99_ms": 60.572,
+            "max_ms": 62.721,
+            "over33": 172,
+            "over100": 0
+          },
+          "first_present_ms": 51.737,
+          "cpu_ms": {
+            "draw": {
+              "count": 528,
+              "max": 13.699,
+              "mean": 10.1737727272727,
+              "over100": 0,
+              "over33": 0,
+              "p50": 10.124,
+              "p95": 12.08,
+              "p99": 12.349
+            },
+            "draw_ui": {
+              "count": 528,
+              "max": 13.692,
+              "mean": 10.1692935606061,
+              "over100": 0,
+              "over33": 0,
+              "p50": 10.12,
+              "p95": 12.073,
+              "p99": 12.344
+            },
+            "physics_tick": {
+              "count": 528,
+              "max": 0.253,
+              "mean": 0.139236742424243,
+              "over100": 0,
+              "over33": 0,
+              "p50": 0.135,
+              "p95": 0.163,
+              "p99": 0.182
+            }
+          }
+        },
+        {
+          "case": "chest",
+          "repeat": 0,
+          "variant": "ui-only",
+          "admission": "DIAGNOSTIC",
+          "reasons": [
+            "instrumentation_present",
+            "diagnostic_variant",
+            "short_run"
+          ],
+          "budget": "FAIL",
+          "violations": [
+            "mean",
+            "p95",
+            "p99",
+            "slow_frame_ratio"
+          ],
+          "draw": {
+            "count": 180,
+            "mean_ms": 49.993488888888876,
+            "p95_ms": 53.791,
+            "p99_ms": 55.629,
+            "max_ms": 58.617,
+            "over33": 180,
+            "over100": 0
+          },
+          "first_present_ms": 48.962,
+          "cpu_ms": {
+            "draw": {
+              "count": 540,
+              "max": 11.959,
+              "mean": 9.84829074074074,
+              "over100": 0,
+              "over33": 0,
+              "p50": 9.789,
+              "p95": 11.527,
+              "p99": 11.818
+            },
+            "draw_ui": {
+              "count": 540,
+              "max": 11.953,
+              "mean": 9.84413148148148,
+              "over100": 0,
+              "over33": 0,
+              "p50": 9.785,
+              "p95": 11.52,
+              "p99": 11.813
+            },
+            "physics_tick": {
+              "count": 540,
+              "max": 0.216,
+              "mean": 0.142912962962963,
+              "over100": 0,
+              "over33": 0,
+              "p50": 0.136,
+              "p95": 0.169,
+              "p99": 0.182
+            }
+          }
+        },
+        {
+          "case": "cabinet",
+          "repeat": 0,
+          "variant": "flat-ui",
+          "admission": "DIAGNOSTIC",
+          "reasons": [
+            "instrumentation_present",
+            "diagnostic_variant",
+            "short_run"
+          ],
+          "budget": "FAIL",
+          "violations": [
+            "mean",
+            "p95",
+            "p99",
+            "slow_frame_ratio"
+          ],
+          "draw": {
+            "count": 180,
+            "mean_ms": 33.32864444444446,
+            "p95_ms": 35.988,
+            "p99_ms": 42.1,
+            "max_ms": 45.426,
+            "over33": 86,
+            "over100": 0
+          },
+          "first_present_ms": 33.107,
+          "cpu_ms": {
+            "draw": {
+              "count": 360,
+              "max": 11.234,
+              "mean": 9.07000555555556,
+              "over100": 0,
+              "over33": 0,
+              "p50": 9.108,
+              "p95": 10.026,
+              "p99": 10.215
+            },
+            "draw_ui": {
+              "count": 360,
+              "max": 11.228,
+              "mean": 9.06594444444445,
+              "over100": 0,
+              "over33": 0,
+              "p50": 9.105,
+              "p95": 10.021,
+              "p99": 10.21
+            },
+            "physics_tick": {
+              "count": 360,
+              "max": 0.219,
+              "mean": 0.147647222222222,
+              "over100": 0,
+              "over33": 0,
+              "p50": 0.144,
+              "p95": 0.167,
+              "p99": 0.18
+            }
+          }
+        },
+        {
+          "case": "cabinet-scroll",
+          "repeat": 0,
+          "variant": "flat-ui",
+          "admission": "DIAGNOSTIC",
+          "reasons": [
+            "instrumentation_present",
+            "diagnostic_variant",
+            "short_run"
+          ],
+          "budget": "FAIL",
+          "violations": [
+            "mean",
+            "p95",
+            "p99",
+            "slow_frame_ratio"
+          ],
+          "draw": {
+            "count": 180,
+            "mean_ms": 50.01155555555555,
+            "p95_ms": 52.89,
+            "p99_ms": 53.985,
+            "max_ms": 55.439,
+            "over33": 180,
+            "over100": 0
+          },
+          "first_present_ms": 47.708,
+          "cpu_ms": {
+            "draw": {
+              "count": 540,
+              "max": 11.026,
+              "mean": 9.22322777777778,
+              "over100": 0,
+              "over33": 0,
+              "p50": 9.075,
+              "p95": 10.659,
+              "p99": 10.905
+            },
+            "draw_ui": {
+              "count": 540,
+              "max": 11.022,
+              "mean": 9.21938333333333,
+              "over100": 0,
+              "over33": 0,
+              "p50": 9.072,
+              "p95": 10.654,
+              "p99": 10.901
+            },
+            "physics_tick": {
+              "count": 540,
+              "max": 0.227,
+              "mean": 0.142244444444445,
+              "over100": 0,
+              "over33": 0,
+              "p50": 0.137,
+              "p95": 0.164,
+              "p99": 0.175
+            }
+          }
+        },
+        {
+          "case": "chest",
+          "repeat": 0,
+          "variant": "flat-ui",
+          "admission": "DIAGNOSTIC",
+          "reasons": [
+            "instrumentation_present",
+            "diagnostic_variant",
+            "short_run"
+          ],
+          "budget": "FAIL",
+          "violations": [
+            "mean",
+            "p95",
+            "p99",
+            "slow_frame_ratio"
+          ],
+          "draw": {
+            "count": 180,
+            "mean_ms": 47.68753333333334,
+            "p95_ms": 53.085,
+            "p99_ms": 57.784,
+            "max_ms": 59.822,
+            "over33": 168,
+            "over100": 0
+          },
+          "first_present_ms": 16.319,
+          "cpu_ms": {
+            "draw": {
+              "count": 513,
+              "max": 14.045,
+              "mean": 9.3530604288499,
+              "over100": 0,
+              "over33": 0,
+              "p50": 9.278,
+              "p95": 10.684,
+              "p99": 11.277
+            },
+            "draw_ui": {
+              "count": 513,
+              "max": 14.038,
+              "mean": 9.34862573099415,
+              "over100": 0,
+              "over33": 0,
+              "p50": 9.273,
+              "p95": 10.678,
+              "p99": 11.27
+            },
+            "physics_tick": {
+              "count": 513,
+              "max": 0.813,
+              "mean": 0.162941520467836,
+              "over100": 0,
+              "over33": 0,
+              "p50": 0.16,
+              "p95": 0.201,
+              "p99": 0.249
+            }
+          }
+        }
+      ]
+    },
+    "cached-probe": {
+      "status": "COMPLETE",
+      "window": [
+        3584,
+        2240
+      ],
+      "instrumented": true,
+      "gpu": "AMD Radeon Pro 5300M OpenGL Engine",
+      "openings": [],
+      "cases": [
+        {
+          "case": "cabinet",
+          "repeat": 0,
+          "variant": "full",
+          "admission": "DIAGNOSTIC",
+          "reasons": [
+            "instrumentation_present",
+            "short_run"
+          ],
+          "budget": "FAIL",
+          "violations": [
+            "mean",
+            "p95",
+            "p99",
+            "slow_frame_ratio"
+          ],
+          "draw": {
+            "count": 180,
+            "mean_ms": 23.967566666666674,
+            "p95_ms": 51.129,
+            "p99_ms": 52.66,
+            "max_ms": 53.372,
+            "over33": 39,
+            "over100": 0
+          },
+          "first_present_ms": 51.886,
+          "cpu_ms": {
+            "draw": {
+              "count": 261,
+              "max": 10.89,
+              "mean": 8.61818390804597,
+              "over100": 0,
+              "over33": 0,
+              "p50": 8.293,
+              "p95": 10.22,
+              "p99": 10.576
+            },
+            "draw_ui": {
+              "count": 261,
+              "max": 8.793,
+              "mean": 7.26104214559387,
+              "over100": 0,
+              "over33": 0,
+              "p50": 7.029,
+              "p95": 8.402,
+              "p99": 8.601
+            },
+            "physics_tick": {
+              "count": 261,
+              "max": 0.27,
+              "mean": 0.14667816091954,
+              "over100": 0,
+              "over33": 0,
+              "p50": 0.14,
+              "p95": 0.214,
+              "p99": 0.232
+            }
+          }
+        },
+        {
+          "case": "cabinet-scroll",
+          "repeat": 0,
+          "variant": "full",
+          "admission": "DIAGNOSTIC",
+          "reasons": [
+            "instrumentation_present",
+            "short_run"
+          ],
+          "budget": "FAIL",
+          "violations": [
+            "mean",
+            "p95",
+            "p99",
+            "slow_frame_ratio"
+          ],
+          "draw": {
+            "count": 180,
+            "mean_ms": 40.3656611111111,
+            "p95_ms": 52.546,
+            "p99_ms": 54.541,
+            "max_ms": 54.619,
+            "over33": 126,
+            "over100": 0
+          },
+          "first_present_ms": 52.914,
+          "cpu_ms": {
+            "draw": {
+              "count": 438,
+              "max": 11.092,
+              "mean": 9.03595890410958,
+              "over100": 0,
+              "over33": 0,
+              "p50": 8.846,
+              "p95": 10.563,
+              "p99": 10.907
+            },
+            "draw_ui": {
+              "count": 438,
+              "max": 9.045,
+              "mean": 7.60144977168949,
+              "over100": 0,
+              "over33": 0,
+              "p50": 7.525,
+              "p95": 8.66,
+              "p99": 8.93
+            },
+            "physics_tick": {
+              "count": 438,
+              "max": 0.263,
+              "mean": 0.135874429223745,
+              "over100": 0,
+              "over33": 0,
+              "p50": 0.132,
+              "p95": 0.16,
+              "p99": 0.215
+            }
+          }
+        },
+        {
+          "case": "chest",
+          "repeat": 0,
+          "variant": "full",
+          "admission": "DIAGNOSTIC",
+          "reasons": [
+            "instrumentation_present",
+            "short_run"
+          ],
+          "budget": "FAIL",
+          "violations": [
+            "p95",
+            "p99"
+          ],
+          "draw": {
+            "count": 180,
+            "mean_ms": 16.343027777777777,
+            "p95_ms": 27.41,
+            "p99_ms": 32.19,
+            "max_ms": 32.636,
+            "over33": 0,
+            "over100": 0
+          },
+          "first_present_ms": 15.13,
+          "cpu_ms": {
+            "draw": {
+              "count": 187,
+              "max": 9.567,
+              "mean": 7.38014438502674,
+              "over100": 0,
+              "over33": 0,
+              "p50": 7.105,
+              "p95": 8.87,
+              "p99": 9.318
+            },
+            "draw_ui": {
+              "count": 187,
+              "max": 7.644,
+              "mean": 6.06610160427808,
+              "over100": 0,
+              "over33": 0,
+              "p50": 5.849,
+              "p95": 7.259,
+              "p99": 7.376
+            },
+            "physics_tick": {
+              "count": 178,
+              "max": 0.45,
+              "mean": 0.179308988764045,
+              "over100": 0,
+              "over33": 0,
+              "p50": 0.152,
+              "p95": 0.317,
+              "p99": 0.409
+            }
+          }
+        }
+      ]
+    },
+    "opaque-probe": {
+      "status": "COMPLETE",
+      "window": [
+        3584,
+        2240
+      ],
+      "instrumented": true,
+      "gpu": "AMD Radeon Pro 5300M OpenGL Engine",
+      "openings": [],
+      "cases": [
+        {
+          "case": "cabinet",
+          "repeat": 0,
+          "variant": "full",
+          "admission": "DIAGNOSTIC",
+          "reasons": [
+            "instrumentation_present",
+            "short_run"
+          ],
+          "budget": "WITHIN_BUDGET",
+          "violations": [],
+          "draw": {
+            "count": 180,
+            "mean_ms": 11.5466,
+            "p95_ms": 13.515,
+            "p99_ms": 16.222,
+            "max_ms": 28.993,
+            "over33": 0,
+            "over100": 0
+          },
+          "first_present_ms": 11.48,
+          "cpu_ms": {
+            "draw": {
+              "count": 180,
+              "max": 6.962,
+              "mean": 4.91525,
+              "over100": 0,
+              "over33": 0,
+              "p50": 4.876,
+              "p95": 5.168,
+              "p99": 5.917
+            },
+            "draw_ui": {
+              "count": 180,
+              "max": 6.759,
+              "mean": 4.75732222222222,
+              "over100": 0,
+              "over33": 0,
+              "p50": 4.721,
+              "p95": 4.995,
+              "p99": 5.717
+            },
+            "physics_tick": {
+              "count": 125,
+              "max": 0.393,
+              "mean": 0.168648,
+              "over100": 0,
+              "over33": 0,
+              "p50": 0.151,
+              "p95": 0.227,
+              "p99": 0.248
+            }
+          }
+        },
+        {
+          "case": "cabinet-scroll",
+          "repeat": 0,
+          "variant": "full",
+          "admission": "DIAGNOSTIC",
+          "reasons": [
+            "instrumentation_present",
+            "short_run"
+          ],
+          "budget": "FAIL",
+          "violations": [
+            "p99"
+          ],
+          "draw": {
+            "count": 180,
+            "mean_ms": 13.00528888888889,
+            "p95_ms": 16.411,
+            "p99_ms": 27.917,
+            "max_ms": 29.141,
+            "over33": 0,
+            "over100": 0
+          },
+          "first_present_ms": 9.03,
+          "cpu_ms": {
+            "draw": {
+              "count": 181,
+              "max": 6.944,
+              "mean": 5.28982872928177,
+              "over100": 0,
+              "over33": 0,
+              "p50": 4.994,
+              "p95": 6.488,
+              "p99": 6.896
+            },
+            "draw_ui": {
+              "count": 181,
+              "max": 6.736,
+              "mean": 5.11832596685083,
+              "over100": 0,
+              "over33": 0,
+              "p50": 4.831,
+              "p95": 6.268,
+              "p99": 6.681
+            },
+            "physics_tick": {
+              "count": 141,
+              "max": 0.359,
+              "mean": 0.183482269503546,
+              "over100": 0,
+              "over33": 0,
+              "p50": 0.158,
+              "p95": 0.298,
+              "p99": 0.334
+            }
+          }
+        },
+        {
+          "case": "chest",
+          "repeat": 0,
+          "variant": "full",
+          "admission": "DIAGNOSTIC",
+          "reasons": [
+            "instrumentation_present",
+            "short_run"
+          ],
+          "budget": "WITHIN_BUDGET",
+          "violations": [],
+          "draw": {
+            "count": 180,
+            "mean_ms": 11.160499999999999,
+            "p95_ms": 15.138,
+            "p99_ms": 15.529,
+            "max_ms": 15.781,
+            "over33": 0,
+            "over100": 0
+          },
+          "first_present_ms": 14.631,
+          "cpu_ms": {
+            "draw": {
+              "count": 180,
+              "max": 5.81,
+              "mean": 4.55247777777778,
+              "over100": 0,
+              "over33": 0,
+              "p50": 4.382,
+              "p95": 5.363,
+              "p99": 5.482
+            },
+            "draw_ui": {
+              "count": 180,
+              "max": 5.622,
+              "mean": 4.43991111111111,
+              "over100": 0,
+              "over33": 0,
+              "p50": 4.278,
+              "p95": 5.214,
+              "p99": 5.338
+            },
+            "physics_tick": {
+              "count": 120,
+              "max": 0.294,
+              "mean": 0.177116666666667,
+              "over100": 0,
+              "over33": 0,
+              "p50": 0.166,
+              "p95": 0.245,
+              "p99": 0.279
+            }
+          }
+        }
+      ]
+    }
+  }
+}

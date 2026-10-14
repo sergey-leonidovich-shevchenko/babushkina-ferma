@@ -1,0 +1,12 @@
+{
+  "baseline_revision": "9ad6deea4e154c44641d977544ef7e9261028c7a",
+  "profile_version": "0.0.169 with working storage patch",
+  "runtime_sha256": {
+    "scripts/presentation/storage_grid_renderer.gd": "4f21a5624cbf020d4ddc4b89b9cdf14451832ccb058282803f225ba2c902d267",
+    "scripts/presentation/storage_actions_renderer.gd": "912790c8f0b892490f19adc2b41f95175dc2fe5728109b02051e741601d49874",
+    "scripts/presentation/storage_view_cache.gd": "bdc28bf7379a4a4e725d5f70dafb1e3002368d729249101946cb2e9e803f0672",
+    "scripts/systems/interface_renderer.gd": "5f5867ef52fff2a47fc974534c2e704e4d0ff58d279621d87fad8f19d8dfc3b9",
+    "scripts/systems/render_system.gd": "93cd60da9c598e52c781b5d9043b934c4f0e6fc0f75eec15f0222378e382e002"
+  },
+  "note": "Before checkout is baseline. Short before/after series share CPU instrumentation; after-long uses original game.gd. Profiling helper gained explicit opening captures and uninstrumented mode between short and long series; inherited measure interval logic is unchanged. User saves were never opened."
+}

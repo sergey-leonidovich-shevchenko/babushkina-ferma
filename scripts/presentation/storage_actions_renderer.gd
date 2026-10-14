@@ -25,9 +25,10 @@ static func pointer(game: Node, point: Vector2, cabinet: bool) -> bool:
 	return false
 
 ## Рисует быстрые действия в существующем стиле каждого окна и затемняет недоступный перенос.
-static func draw(game: Node, cabinet: bool) -> void:
+static func draw(game: Node, cabinet: bool, view: Dictionary = {}) -> void:
 	for index in KEYS.size():
 		var key:String=KEYS[index]
 		var label:String=Locale.sort_label(game,key) if index>=2 else Locale.text(game,key)
-		var enabled:bool=index>=2 or not Actions.candidates(game,cabinet,index==1).is_empty()
+		var enabled:=true
+		if index<2: enabled=Actions.available(game,cabinet) and bool(view.get("matching" if index==1 else "all",false)) if not view.is_empty() else not Actions.candidates(game,cabinet,index==1).is_empty()
 		Style.button(game,rect(index,cabinet),label,false,enabled)
