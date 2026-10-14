@@ -8,6 +8,7 @@ const WorldVisualAuditSystem := preload("res://scripts/systems/world_visual_audi
 
 ## Запускает проверки прозрачности, разметки, тематического покрытия и коллизий новых атласов.
 func run() -> void:
+	preload("res://tests/suites/prepared_pixel_cache_suite.gd").new(context).run()
 	preload("res://tests/suites/painted_item_icon_suite.gd").new(context).run()
 	preload("res://tests/suites/item_icon_contract_suite.gd").new(context).run()
 	preload("res://tests/suites/cave_assets_suite.gd").new(context).run()

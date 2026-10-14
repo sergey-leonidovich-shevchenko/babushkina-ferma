@@ -1,6 +1,7 @@
 extends RefCounted
 
 static var _textures: Dictionary = {}
+const Prepared := preload("res://scripts/presentation/prepared_pixel_cache.gd")
 
 
 ## Один раз очищает явно подключённый проблемный PNG, не меняя исходный файл и обычные текстуры игры.
@@ -8,6 +9,10 @@ static func clean_texture(texture: Texture2D) -> Texture2D:
 	if texture == null: return texture
 	var key := texture.get_rid().get_id()
 	if _textures.has(key): return _textures[key]
+	var prepared:=Prepared.texture(texture,"service-matte-v1")
+	if prepared!=null:
+		_textures[key]=prepared
+		return prepared
 	var image := texture.get_image()
 	if image == null: return texture
 	if image.is_compressed(): image.decompress()

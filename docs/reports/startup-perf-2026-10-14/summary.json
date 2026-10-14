@@ -1,0 +1,169 @@
+{
+  "schema": 1,
+  "baseline_revision": "4c2bdfcf45dcdf3019ee1da27f767ba105f27dca",
+  "scope": "Prepared pixels and alpha frame bounds only; real native startup, no claim of overall OPT closure.",
+  "runs_before": [
+    {
+      "engine": "4.7.1-stable (official)",
+      "entry_engine_ms": 1029.452,
+      "first_world_engine_ms": 10357.555,
+      "first_world_from_entry_ms": 9328.103,
+      "gpu": "AMD Radeon Pro 5300M OpenGL Engine",
+      "instantiate_ms": 3.462,
+      "load_scene_ms": 5468.71,
+      "mode": "startup",
+      "note": "Separate userdata, no player slot opened. Engine ticks plus scene-load/instantiate/ready/first-world timings; does not include app launcher. Service mode is an independent cold resource probe, not the full game startup.",
+      "ready_ms": 3613.99,
+      "schema": 1,
+      "status": "COMPLETE",
+      "version": "0.0.170",
+      "warmed": {
+        "resources": 1332.0,
+        "static_bytes": 126157532.0,
+        "texture_bytes": 809859522.0,
+        "video_bytes": 816663958.0
+      },
+      "window": [
+        3584,
+        2240
+      ]
+    },
+    {
+      "engine": "4.7.1-stable (official)",
+      "entry_engine_ms": 1069.433,
+      "first_world_engine_ms": 10403.056,
+      "first_world_from_entry_ms": 9333.623,
+      "gpu": "AMD Radeon Pro 5300M OpenGL Engine",
+      "instantiate_ms": 3.535,
+      "load_scene_ms": 5519.23,
+      "mode": "startup",
+      "note": "Separate userdata, no player slot opened. Engine ticks plus scene-load/instantiate/ready/first-world timings; does not include app launcher. Service mode is an independent cold resource probe, not the full game startup.",
+      "ready_ms": 3566.075,
+      "schema": 1,
+      "status": "COMPLETE",
+      "version": "0.0.170",
+      "warmed": {
+        "resources": 1332.0,
+        "static_bytes": 126157532.0,
+        "texture_bytes": 809859522.0,
+        "video_bytes": 816663958.0
+      },
+      "window": [
+        3584,
+        2240
+      ]
+    },
+    {
+      "engine": "4.7.1-stable (official)",
+      "entry_engine_ms": 1085.818,
+      "first_world_engine_ms": 10371.559,
+      "first_world_from_entry_ms": 9285.741,
+      "gpu": "AMD Radeon Pro 5300M OpenGL Engine",
+      "instantiate_ms": 3.759,
+      "load_scene_ms": 5457.212,
+      "mode": "startup",
+      "note": "Separate userdata, no player slot opened. Engine ticks plus scene-load/instantiate/ready/first-world timings; does not include app launcher. Service mode is an independent cold resource probe, not the full game startup.",
+      "ready_ms": 3581.397,
+      "schema": 1,
+      "status": "COMPLETE",
+      "version": "0.0.170",
+      "warmed": {
+        "resources": 1332.0,
+        "static_bytes": 126157532.0,
+        "texture_bytes": 809859522.0,
+        "video_bytes": 816663958.0
+      },
+      "window": [
+        3584,
+        2240
+      ]
+    }
+  ],
+  "runs_after": [
+    {
+      "engine": "4.7.1-stable (official)",
+      "entry_engine_ms": 1063.551,
+      "first_world_engine_ms": 8476.308,
+      "first_world_from_entry_ms": 7412.757,
+      "gpu": "AMD Radeon Pro 5300M OpenGL Engine",
+      "instantiate_ms": 3.572,
+      "load_scene_ms": 5706.796,
+      "mode": "startup",
+      "note": "Separate userdata, no player slot opened. Engine ticks plus scene-load/instantiate/ready/first-world timings; does not include app launcher. Service mode is an independent cold resource probe, not the full game startup.",
+      "ready_ms": 1408.267,
+      "schema": 1,
+      "status": "COMPLETE",
+      "version": "0.0.170",
+      "warmed": {
+        "resources": 1341.0,
+        "static_bytes": 126434202.0,
+        "texture_bytes": 801470922.0,
+        "video_bytes": 808275358.0
+      },
+      "window": [
+        3584,
+        2240
+      ]
+    },
+    {
+      "engine": "4.7.1-stable (official)",
+      "entry_engine_ms": 1068.112,
+      "first_world_engine_ms": 8273.695,
+      "first_world_from_entry_ms": 7205.583,
+      "gpu": "AMD Radeon Pro 5300M OpenGL Engine",
+      "instantiate_ms": 3.699,
+      "load_scene_ms": 5632.968,
+      "mode": "startup",
+      "note": "Separate userdata, no player slot opened. Engine ticks plus scene-load/instantiate/ready/first-world timings; does not include app launcher. Service mode is an independent cold resource probe, not the full game startup.",
+      "ready_ms": 1321.658,
+      "schema": 1,
+      "status": "COMPLETE",
+      "version": "0.0.170",
+      "warmed": {
+        "resources": 1341.0,
+        "static_bytes": 126434202.0,
+        "texture_bytes": 801470922.0,
+        "video_bytes": 808275358.0
+      },
+      "window": [
+        3584,
+        2240
+      ]
+    },
+    {
+      "engine": "4.7.1-stable (official)",
+      "entry_engine_ms": 1072.037,
+      "first_world_engine_ms": 8188.254,
+      "first_world_from_entry_ms": 7116.217,
+      "gpu": "AMD Radeon Pro 5300M OpenGL Engine",
+      "instantiate_ms": 3.586,
+      "load_scene_ms": 5523.215,
+      "mode": "startup",
+      "note": "Separate userdata, no player slot opened. Engine ticks plus scene-load/instantiate/ready/first-world timings; does not include app launcher. Service mode is an independent cold resource probe, not the full game startup.",
+      "ready_ms": 1336.467,
+      "schema": 1,
+      "status": "COMPLETE",
+      "version": "0.0.170",
+      "warmed": {
+        "resources": 1341.0,
+        "static_bytes": 126434202.0,
+        "texture_bytes": 801470922.0,
+        "video_bytes": 808275358.0
+      },
+      "window": [
+        3584,
+        2240
+      ]
+    }
+  ],
+  "texture_before_mib": [
+    772.3422260284424,
+    772.3422260284424,
+    772.3422260284424
+  ],
+  "texture_after_mib": [
+    764.3422336578369,
+    764.3422336578369,
+    764.3422336578369
+  ]
+}

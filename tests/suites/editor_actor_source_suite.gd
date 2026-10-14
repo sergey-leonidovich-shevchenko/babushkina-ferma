@@ -94,8 +94,9 @@ func test_profile_brush_matches_placed_size() -> void:
 ## Исходное состояние: у обеих ImageTexture пустой resource_path, но непрозрачные границы разные.
 ## Ожидаемый результат: кеш возвращает собственную область каждого мастера и сохраняет её при повторном просмотре.
 func test_cleaned_masters_do_not_share_preview_crop() -> void:
-	var hero: Texture2D = Sources.texture(Sources.HERO_WALK,ResourceLoader.load(Sources.HERO_WALK) as Texture2D)
-	var grandmother: Texture2D = Sources.texture(Sources.GRANDMOTHER,ResourceLoader.load(Sources.GRANDMOTHER) as Texture2D)
+	# Производный .res теперь имеет путь; явные временные копии сохраняют прежний сценарий коллизии безымянных текстур.
+	var hero: Texture2D = ImageTexture.create_from_image(Sources.texture(Sources.HERO_WALK,ResourceLoader.load(Sources.HERO_WALK) as Texture2D).get_image())
+	var grandmother: Texture2D = ImageTexture.create_from_image(Sources.texture(Sources.GRANDMOTHER,ResourceLoader.load(Sources.GRANDMOTHER) as Texture2D).get_image())
 	var source := Rect2(Vector2.ZERO,hero.get_size())
 	var hero_bounds := Rect2(hero.get_image().get_used_rect())
 	var grandmother_bounds := Rect2(grandmother.get_image().get_used_rect())

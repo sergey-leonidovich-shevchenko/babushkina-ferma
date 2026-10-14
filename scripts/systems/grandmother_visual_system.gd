@@ -51,7 +51,14 @@ static func draw_pose(canvas: CanvasItem, position: Vector2, frame: Dictionary, 
 ## Текстура создаётся один раз до управления; в отличие от общего matte здесь не требуется дорогой flood fill.
 static func texture() -> Texture2D:
 	if _texture != null: return _texture
-	var source := MASTER.get_image()
+	_texture=preload("res://scripts/presentation/prepared_pixel_cache.gd").texture(MASTER,"grandmother-green-v1")
+	if _texture!=null: return _texture
+	_texture=ImageTexture.create_from_image(clean_image(MASTER.get_image()))
+	return _texture
+
+## Воспроизводит прежнюю маску костюма как чистую функцию для сборщика и проверки равенства всех пикселей.
+static func clean_image(original: Image) -> Image:
+	var source:=original.duplicate() as Image
 	if source.is_compressed(): source.decompress()
 	source.convert(Image.FORMAT_RGBA8)
 	var bytes := source.get_data()
@@ -61,8 +68,7 @@ static func texture() -> Texture2D:
 		var blue := int(bytes[offset + 2])
 		if green > 32 and green > maxf(red, blue) * 1.35 + 8.0:
 			bytes[offset + 3] = 0
-	_texture = ImageTexture.create_from_image(Image.create_from_data(source.get_width(),source.get_height(),false,Image.FORMAT_RGBA8,bytes))
-	return _texture
+	return Image.create_from_data(source.get_width(),source.get_height(),false,Image.FORMAT_RGBA8,bytes)
 
 
 ## Подготавливает прозрачность до начала игрового движения; в кадре больше не читается исходный PNG.

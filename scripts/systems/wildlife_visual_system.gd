@@ -7,6 +7,7 @@ const LIZARD := preload("res://assets/game/wildlife/directional/lizard_walk_4dir
 const NEW_SHEETS := {"fox": FOX, "bat": BAT, "lizard": LIZARD}
 const ROWS := [0, 2, 4, 6]
 static var _bounds: Dictionary = {}
+const Prepared := preload("res://scripts/presentation/prepared_pixel_cache.gd")
 
 
 ## Прогревает текстуры и источники до начала игры, исключая тяжёлую обработку при первой встрече с животным.
@@ -42,27 +43,9 @@ static func frame_packet(game: Node, animal: Dictionary) -> Dictionary:
 	var column := frame_column(kind, direction, state, float(animal.animation), bool(animal.get("moving", false)))
 	var texture: Texture2D = NEW_SHEETS.get(kind, game.WILDLIFE_ACTION_SHEETS[kind])
 	texture = SpriteMatte.clean_texture(texture)
-	var area: Rect2i
-	var pixel_scale := 0.75
-	var flip := false
-	if kind == "fox":
-		var rows := [0, 350, 565, 896, 1199]
-		area = Rect2i(column * 328, rows[direction], 328, rows[direction + 1] - rows[direction])
-		pixel_scale = 0.245
-	elif kind == "bat":
-		var rows := [0, 305, 600, 900, 1254]
-		var columns := [0, 314, 628, 941, 1254]
-		area = Rect2i(columns[column], rows[direction], columns[column + 1] - columns[column], rows[direction + 1] - rows[direction])
-		pixel_scale = 0.23
-	elif kind == "lizard":
-		var rows := [0, 334, 575, 920, 1224]
-		var columns := [0, 332, 658, 976, 1285]
-		area = Rect2i(columns[column], rows[direction], columns[column + 1] - columns[column], rows[direction + 1] - rows[direction])
-		pixel_scale = 0.245
-	else:
-		var row: int = ROWS[direction]
-		if kind == "boar" and direction == 3: row = 2; flip = true
-		area = Rect2i(column * 128 + 5, row * 128 + 5, 118, 114)
+	var area:=frame_area(kind,direction,column)
+	var pixel_scale:=0.245 if kind in ["fox","lizard"] else (0.23 if kind=="bat" else 0.75)
+	var flip:bool=kind=="boar" and direction==3
 	var source := visible_bounds(texture, area)
 	var size := Vector2(source.size) * pixel_scale
 	var position: Vector2 = animal.position.round()
@@ -75,11 +58,37 @@ static func frame_packet(game: Node, animal: Dictionary) -> Dictionary:
 	return {"texture": texture, "source": Rect2(source), "destination": destination, "scale": pixel_scale, "tint": tint, "direction": direction, "column": column}
 
 
+## Даёт сборщику и игре одну прежнюю целочисленную область каждого нарисованного кадра.
+static func frame_area(kind: String, direction: int, column: int) -> Rect2i:
+	if kind == "fox":
+		var rows := [0, 350, 565, 896, 1199]
+		return Rect2i(column * 328, rows[direction], 328, rows[direction + 1] - rows[direction])
+	elif kind == "bat":
+		var rows := [0, 305, 600, 900, 1254]
+		var columns := [0, 314, 628, 941, 1254]
+		return Rect2i(columns[column], rows[direction], columns[column + 1] - columns[column], rows[direction + 1] - rows[direction])
+	elif kind == "lizard":
+		var rows := [0, 334, 575, 920, 1224]
+		var columns := [0, 332, 658, 976, 1285]
+		return Rect2i(columns[column], rows[direction], columns[column + 1] - columns[column], rows[direction + 1] - rows[direction])
+	else:
+		var row: int = ROWS[direction]
+		if kind == "boar" and direction == 3: row = 2
+		return Rect2i(column * 128 + 5, row * 128 + 5, 118, 114)
+
+
 ## Кэширует видимые границы источника только для выравнивания опоры, игнорируя почти прозрачный мусор генератора.
 static func visible_bounds(texture: Texture2D, area: Rect2i) -> Rect2i:
 	var key := "%s:%s" % [texture.get_rid().get_id(), area]
 	if _bounds.has(key): return _bounds[key]
-	var image := texture.get_image()
+	var prepared:=Prepared.bounds(texture,area)
+	var result:=prepared if prepared.has_area() else measure_visible_bounds(texture.get_image(),area)
+	_bounds[key]=result
+	return result
+
+
+## Воспроизводит прежний порог альфы и опору кадра для сборки и независимой проверки подготовленных областей.
+static func measure_visible_bounds(image: Image, area: Rect2i) -> Rect2i:
 	var minimum := area.end
 	var maximum := area.position
 	for y in range(area.position.y, area.end.y):
@@ -87,7 +96,6 @@ static func visible_bounds(texture: Texture2D, area: Rect2i) -> Rect2i:
 			if image.get_pixel(x, y).a < 0.25: continue
 			minimum = minimum.min(Vector2i(x, y)); maximum = maximum.max(Vector2i(x + 1, y + 1))
 	var result := Rect2i(minimum, maximum - minimum) if maximum.x > minimum.x and maximum.y > minimum.y else area
-	_bounds[key] = result
 	return result
 
 

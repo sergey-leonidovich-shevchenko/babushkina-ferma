@@ -1,0 +1,25 @@
+{
+	"engine": "4.7.1-stable (official)",
+	"entry_engine_ms": 1068.112,
+	"first_world_engine_ms": 8273.695,
+	"first_world_from_entry_ms": 7205.583,
+	"gpu": "AMD Radeon Pro 5300M OpenGL Engine",
+	"instantiate_ms": 3.699,
+	"load_scene_ms": 5632.968,
+	"mode": "startup",
+	"note": "Separate userdata, no player slot opened. Engine ticks plus scene-load/instantiate/ready/first-world timings; does not include app launcher. Service mode is an independent cold resource probe, not the full game startup.",
+	"ready_ms": 1321.658,
+	"schema": 1,
+	"status": "COMPLETE",
+	"version": "0.0.170",
+	"warmed": {
+		"resources": 1341.0,
+		"static_bytes": 126434202.0,
+		"texture_bytes": 801470922.0,
+		"video_bytes": 808275358.0
+	},
+	"window": [
+		3584,
+		2240
+	]
+}
