@@ -1,0 +1,201 @@
+{
+  "schema": 1,
+  "baseline_revision": "747225c286e1fc5f8e49f77b55bce6bb4ed22d3f",
+  "before": [
+    {
+      "engine": "4.7.1-stable (official)",
+      "entry_engine_ms": 1377.645,
+      "first_world_engine_ms": 8393.932,
+      "first_world_from_entry_ms": 7016.287,
+      "gpu": "AMD Radeon Pro 5300M OpenGL Engine",
+      "instantiate_ms": 3.838,
+      "load_scene_ms": 5452.695,
+      "mode": "startup",
+      "note": "Separate userdata, no player slot opened. Engine ticks plus scene-load/instantiate/ready/first-world timings; does not include app launcher. Service mode is an independent cold resource probe, not the full game startup.",
+      "ready_ms": 1306.329,
+      "schema": 1,
+      "status": "COMPLETE",
+      "version": "0.0.171",
+      "warmed": {
+        "item_previews": {
+          "atlas": "(1024.0, 1600.0)",
+          "large": 0,
+          "limit": 16,
+          "small": 10
+        },
+        "item_sources_loaded": 385,
+        "resources": 1341.0,
+        "static_bytes": 126437236.0,
+        "texture_bytes": 801470922.0,
+        "video_bytes": 808275358.0
+      },
+      "window": [
+        3584,
+        2240
+      ]
+    },
+    {
+      "engine": "4.7.1-stable (official)",
+      "entry_engine_ms": 1171.835,
+      "first_world_engine_ms": 8172.35,
+      "first_world_from_entry_ms": 7000.515,
+      "gpu": "AMD Radeon Pro 5300M OpenGL Engine",
+      "instantiate_ms": 3.717,
+      "load_scene_ms": 5420.301,
+      "mode": "startup",
+      "note": "Separate userdata, no player slot opened. Engine ticks plus scene-load/instantiate/ready/first-world timings; does not include app launcher. Service mode is an independent cold resource probe, not the full game startup.",
+      "ready_ms": 1322.684,
+      "schema": 1,
+      "status": "COMPLETE",
+      "version": "0.0.171",
+      "warmed": {
+        "item_previews": {
+          "atlas": "(1024.0, 1600.0)",
+          "large": 0,
+          "limit": 16,
+          "small": 10
+        },
+        "item_sources_loaded": 385,
+        "resources": 1341.0,
+        "static_bytes": 126434956.0,
+        "texture_bytes": 801470922.0,
+        "video_bytes": 808275358.0
+      },
+      "window": [
+        3584,
+        2240
+      ]
+    },
+    {
+      "engine": "4.7.1-stable (official)",
+      "entry_engine_ms": 1151.361,
+      "first_world_engine_ms": 8150.464,
+      "first_world_from_entry_ms": 6999.103,
+      "gpu": "AMD Radeon Pro 5300M OpenGL Engine",
+      "instantiate_ms": 3.888,
+      "load_scene_ms": 5423.917,
+      "mode": "startup",
+      "note": "Separate userdata, no player slot opened. Engine ticks plus scene-load/instantiate/ready/first-world timings; does not include app launcher. Service mode is an independent cold resource probe, not the full game startup.",
+      "ready_ms": 1322.048,
+      "schema": 1,
+      "status": "COMPLETE",
+      "version": "0.0.171",
+      "warmed": {
+        "item_previews": {
+          "atlas": "(1024.0, 1600.0)",
+          "large": 0,
+          "limit": 16,
+          "small": 10
+        },
+        "item_sources_loaded": 385,
+        "resources": 1341.0,
+        "static_bytes": 126437396.0,
+        "texture_bytes": 801470922.0,
+        "video_bytes": 808275358.0
+      },
+      "window": [
+        3584,
+        2240
+      ]
+    }
+  ],
+  "after": [
+    {
+      "engine": "4.7.1-stable (official)",
+      "entry_engine_ms": 1152.146,
+      "first_world_engine_ms": 7886.609,
+      "first_world_from_entry_ms": 6734.463,
+      "gpu": "AMD Radeon Pro 5300M OpenGL Engine",
+      "instantiate_ms": 3.721,
+      "load_scene_ms": 5362.013,
+      "mode": "startup",
+      "note": "Separate userdata, no player slot opened. Engine ticks plus scene-load/instantiate/ready/first-world timings; does not include app launcher. Service mode is an independent cold resource probe, not the full game startup.",
+      "ready_ms": 1113.398,
+      "schema": 1,
+      "status": "COMPLETE",
+      "version": "0.0.171",
+      "warmed": {
+        "item_previews": {
+          "atlas": "(1024.0, 1600.0)",
+          "large": 0,
+          "limit": 16,
+          "small": 10
+        },
+        "item_sources_loaded": 165,
+        "resources": 1138.0,
+        "static_bytes": 126151986.0,
+        "texture_bytes": 745421706.0,
+        "video_bytes": 752226142.0
+      },
+      "window": [
+        3584,
+        2240
+      ]
+    },
+    {
+      "engine": "4.7.1-stable (official)",
+      "entry_engine_ms": 1129.219,
+      "first_world_engine_ms": 7986.264,
+      "first_world_from_entry_ms": 6857.045,
+      "gpu": "AMD Radeon Pro 5300M OpenGL Engine",
+      "instantiate_ms": 3.832,
+      "load_scene_ms": 5477.719,
+      "mode": "startup",
+      "note": "Separate userdata, no player slot opened. Engine ticks plus scene-load/instantiate/ready/first-world timings; does not include app launcher. Service mode is an independent cold resource probe, not the full game startup.",
+      "ready_ms": 1125.736,
+      "schema": 1,
+      "status": "COMPLETE",
+      "version": "0.0.171",
+      "warmed": {
+        "item_previews": {
+          "atlas": "(1024.0, 1600.0)",
+          "large": 0,
+          "limit": 16,
+          "small": 10
+        },
+        "item_sources_loaded": 165,
+        "resources": 1138.0,
+        "static_bytes": 126151826.0,
+        "texture_bytes": 745421706.0,
+        "video_bytes": 752226142.0
+      },
+      "window": [
+        3584,
+        2240
+      ]
+    },
+    {
+      "engine": "4.7.1-stable (official)",
+      "entry_engine_ms": 1217.502,
+      "first_world_engine_ms": 8010.371,
+      "first_world_from_entry_ms": 6792.869,
+      "gpu": "AMD Radeon Pro 5300M OpenGL Engine",
+      "instantiate_ms": 3.799,
+      "load_scene_ms": 5391.429,
+      "mode": "startup",
+      "note": "Separate userdata, no player slot opened. Engine ticks plus scene-load/instantiate/ready/first-world timings; does not include app launcher. Service mode is an independent cold resource probe, not the full game startup.",
+      "ready_ms": 1145.581,
+      "schema": 1,
+      "status": "COMPLETE",
+      "version": "0.0.171",
+      "warmed": {
+        "item_previews": {
+          "atlas": "(1024.0, 1600.0)",
+          "large": 0,
+          "limit": 16,
+          "small": 10
+        },
+        "item_sources_loaded": 165,
+        "resources": 1138.0,
+        "static_bytes": 126151986.0,
+        "texture_bytes": 745421706.0,
+        "video_bytes": 752226142.0
+      },
+      "window": [
+        3584,
+        2240
+      ]
+    }
+  ],
+  "scope": "Lazy item source retention; prepared pixel cache and UI layout unchanged."
+}

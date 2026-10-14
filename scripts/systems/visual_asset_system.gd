@@ -18,6 +18,8 @@ const ITEM_ICON_OVERRIDES := {
 }
 static var item_icon_cache: Dictionary = {}
 static var _active_icon_overrides: Dictionary = {}
+static var _item_source_paths:Dictionary={}
+static var _draw_descriptors:Dictionary={}
 const ItemIcons := preload("res://scripts/presentation/item_icon_visual_system.gd")
 const PreparedIcons := preload("res://scripts/presentation/prepared_item_icon_system.gd")
 const PaintedIcons := preload("res://assets/game/items/painted/catalog.gd")
@@ -103,18 +105,19 @@ static func draw_potion(canvas: CanvasItem, kind: String, rect: Rect2) -> bool:
 	return true
 
 
-## Загружает отдельные иконки до первого кадра, чтобы отрисовка не инициировала ресурсные операции.
+## Регистрирует исходники без загрузки всего каталога; интерфейс использует заранее подготовленные размеры.
 static func initialize_item_icons(kinds: Array, overrides: Dictionary = ITEM_ICON_OVERRIDES) -> void:
 	item_icon_cache.clear()
+	_item_source_paths.clear(); _draw_descriptors.clear()
 	_active_icon_overrides.clear(); ItemIcons.clear(); PreparedIcons.clear()
 	for value in kinds:
 		var kind := String(value)
 		var icon_kind := "carrot_seeds" if kind == "seeds" else kind
 		var path:String=overrides.get(kind,"%s/%s.png" % [ITEM_ICON_DIRECTORY, icon_kind])
-		if overrides.has(kind) and ResourceLoader.exists(path): item_icon_cache[kind]=load(path); _active_icon_overrides[kind]=true
-		elif PaintedIcons.ITEMS.has(kind) and ResourceLoader.exists(PaintedIcons.ITEMS[kind]): item_icon_cache[kind]=load(PaintedIcons.ITEMS[kind]); _active_icon_overrides[kind]=true
+		if overrides.has(kind) and ResourceLoader.exists(path): _item_source_paths[kind]=path; _active_icon_overrides[kind]=true
+		elif PaintedIcons.ITEMS.has(kind) and ResourceLoader.exists(PaintedIcons.ITEMS[kind]): _item_source_paths[kind]=PaintedIcons.ITEMS[kind]; _active_icon_overrides[kind]=true
 		elif preload("res://scripts/presentation/artisan_visual_system.gd").ITEMS.has(kind): item_icon_cache[kind]=preload("res://scripts/presentation/artisan_visual_system.gd").ITEMS[kind]
-		elif ResourceLoader.exists(path): item_icon_cache[kind] = load(path)
+		elif ResourceLoader.exists(path): _item_source_paths[kind]=path
 		elif preload("res://scripts/systems/alchemy_product_data.gd").handles(kind): item_icon_cache[kind]=preload("res://scripts/presentation/alchemy_icon_system.gd").texture(kind)
 		elif preload("res://scripts/systems/furnace_data.gd").ITEMS.has(kind): item_icon_cache[kind]=preload("res://scripts/presentation/furnace_renderer.gd").item_texture(kind)
 		elif preload("res://scripts/systems/research_data.gd").ITEMS.has(kind): item_icon_cache[kind]=preload("res://scripts/presentation/research_icon_system.gd").texture(kind)
@@ -122,8 +125,9 @@ static func initialize_item_icons(kinds: Array, overrides: Dictionary = ITEM_ICO
 		elif preload("res://scripts/systems/kitchen_data.gd").ITEMS.has(kind): item_icon_cache[kind]=preload("res://scripts/presentation/kitchen_visual_system.gd").food_texture(kind)
 
 
-## Возвращает заранее кэшированную отдельную текстуру предмета.
+## Загружает крупный исходник только для настоящего запроса, сохраняя прежний контракт оружия, Wiki и сборщиков.
 static func item_texture(kind: String) -> Texture2D:
+	if not item_icon_cache.has(kind) and _item_source_paths.has(kind): item_icon_cache[kind]=load(_item_source_paths[kind])
 	return item_icon_cache.get(kind) as Texture2D
 
 ## Возвращает окончательный визуальный пакет, включая цвет сырья и приоритет явно выбранного нового спрайта.
@@ -132,7 +136,31 @@ static func item_visual(kind: String) -> Dictionary:
 
 ## Выбирает маленький экранный атлас либо ограниченный кеш превью; исходники остаются доступны Wiki и сборщику.
 static func item_draw_visual(kind: String, pixels: float) -> Dictionary:
+	var prepared:=PreparedIcons.from_descriptor(kind,draw_descriptor(kind),pixels)
+	if not prepared.is_empty(): return prepared
 	return PreparedIcons.packet(kind,item_visual(kind),pixels)
+
+
+## Выбирает прежний источник и окраску по метаданным, не загружая большой PNG ради маленькой ячейки.
+static func draw_descriptor(kind: String) -> Dictionary:
+	if _draw_descriptors.has(kind): return _draw_descriptors[kind]
+	var path:String=_item_source_paths.get(kind,"")
+	var descriptor:Dictionary={}
+	if _active_icon_overrides.has(kind): descriptor={"path":path,"provider":"override","tint":Color.WHITE}
+	else:
+		var profile:=ItemIcons.profile(kind,item_icon_cache.get(kind) as Texture2D,false)
+		if profile.texture!=null: path=profile.texture.resource_path
+		descriptor={"path":path,"provider":profile.provider,"tint":profile.tint}
+	if _item_source_paths.has(kind) or item_icon_cache.has(kind): _draw_descriptors[kind]=descriptor
+	return descriptor
+
+
+## Даёт контроль удерживаемых исходников отдельно от общего атласа и ограниченных превью.
+static func item_cache_info() -> Dictionary:
+	var loaded:=0
+	for kind in _item_source_paths:
+		if item_icon_cache.has(kind): loaded+=1
+	return {"registered_paths":_item_source_paths.size(),"loaded_paths":loaded,"loaded_total":item_icon_cache.size(),"descriptors":_draw_descriptors.size()}
 
 
 ## Вписывает квадратную иконку в доступную область без растяжения по одной из осей.
@@ -182,4 +210,9 @@ static func draw_farm_life_item(canvas: CanvasItem, kind: String, rect: Rect2) -
 
 ## Проверяет, что зарегистрированный предмет имеет собственную текстуру или ячейку атласа.
 static func has_item_icon(kind: String) -> bool:
-	return item_texture(kind) != null
+	if item_icon_cache.has(kind): return item_icon_cache[kind] is Texture2D
+	if not _item_source_paths.has(kind): return false
+	var path:String=_item_source_paths[kind]
+	if ResourceLoader.has_cached(path): return ResourceLoader.get_cached_ref(path) is Texture2D
+	if path.get_extension().to_lower() in ["png","webp","jpg","jpeg","svg","ctex"]: return ResourceLoader.exists(path,"Texture2D")
+	return item_texture(kind)!=null

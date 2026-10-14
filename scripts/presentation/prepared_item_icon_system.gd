@@ -16,6 +16,16 @@ static func clear() -> void:
 static func packet(kind: String, source: Dictionary, pixels: float) -> Dictionary:
 	var entry:Dictionary=_catalog.entries.get(kind,{})
 	if source.texture==null or entry.is_empty() or entry.provider!=source.provider or entry.path!=source.texture.resource_path or entry.tint!=source.tint.to_html(false): return source
+	return prepared_packet(kind,source,pixels,entry)
+
+## Сверяет прежние приоритеты и окраску по описанию, не требуя загрузить исходник для подтверждения его пути.
+static func from_descriptor(kind: String, descriptor: Dictionary, pixels: float) -> Dictionary:
+	var entry:Dictionary=_catalog.entries.get(kind,{})
+	if entry.is_empty() or entry.provider!=descriptor.provider or entry.path!=descriptor.path or entry.tint!=descriptor.tint.to_html(false): return {}
+	return prepared_packet(kind,{"texture":null,"provider":descriptor.provider,"tint":descriptor.tint,"square":true},pixels,entry)
+
+## Возвращает тот же пакет миниатюры либо превью, сохраняя общий атлас и прежний предел шестнадцати больших текстур.
+static func prepared_packet(kind: String, source: Dictionary, pixels: float, entry: Dictionary) -> Dictionary:
 	var preview:=pixels>64
 	if preview:
 		if not _large.has(kind): _large[kind]=load("res://assets/game/items/ui/preview/"+kind+".png")

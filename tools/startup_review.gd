@@ -71,4 +71,4 @@ func services() -> void:
 
 ## Записывает движковую память отдельно от оценочного RGBA-размера и памяти процесса ОС.
 func monitors() -> Dictionary:
-	return {"static_bytes":Performance.get_monitor(Performance.MEMORY_STATIC),"texture_bytes":Performance.get_monitor(Performance.RENDER_TEXTURE_MEM_USED),"video_bytes":Performance.get_monitor(Performance.RENDER_VIDEO_MEM_USED),"resources":Performance.get_monitor(Performance.OBJECT_RESOURCE_COUNT)}
+	return {"static_bytes":Performance.get_monitor(Performance.MEMORY_STATIC),"texture_bytes":Performance.get_monitor(Performance.RENDER_TEXTURE_MEM_USED),"video_bytes":Performance.get_monitor(Performance.RENDER_VIDEO_MEM_USED),"resources":Performance.get_monitor(Performance.OBJECT_RESOURCE_COUNT),"item_sources_loaded":game.VisualAssetSystem.item_icon_cache.size(),"item_previews":preload("res://scripts/presentation/prepared_item_icon_system.gd").cache_info()}
