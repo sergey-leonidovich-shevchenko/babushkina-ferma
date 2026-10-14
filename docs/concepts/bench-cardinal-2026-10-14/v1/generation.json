@@ -1,0 +1,51 @@
+{
+  "tool": "built-in image_gen",
+  "useCase": "precise-object-edit",
+  "approved": false,
+  "selected": null,
+  "date": "2026-10-14",
+  "inputs": [
+    {
+      "path": "assets/game/locations/overworld/modular/prop_bench_v1.png",
+      "role": "Bench design reference",
+      "sha256": "4ef554bda6dfa8382f49fe1c8eaef2c1e2f641469a29269ac35700b57c1bf478"
+    },
+    {
+      "path": "assets/game/interiors/furniture_a/rustic_table_north.png",
+      "role": "Approved furniture rendering style only",
+      "sha256": "dabc7c33e9ede3f170880b8a7dd741f7d642b19a0c70e68ae543b39b2b4d7123"
+    }
+  ],
+  "layout": {
+    "topLeft": "south / down / front",
+    "topRight": "north / up / rear",
+    "bottomLeft": "west / left",
+    "bottomRight": "east / right"
+  },
+  "variants": [
+    {
+      "key": "A",
+      "file": "bench-a.png",
+      "description": "Rounded dark iron armrests; faithful warm oak design",
+      "prompt": "Use case: precise-object-edit. Asset type: transparent game bench turnaround sprite sheet, original orthogonal cozy farm RPG art.\nInput image 1: edit target and design reference, existing amber wooden slat village bench with black iron supports. Input image 2: STYLE reference only, approved hand-painted oak game furniture. Do not draw the table.\nRedraw this SAME BENCH as FOUR SEPARATE complete sprites in a spacious equal 2 by 2 layout. TOP LEFT faces SOUTH/down: straight frontal view. TOP RIGHT faces NORTH/up: true rear view, show the back of the backrest, not a second front view. BOTTOM LEFT faces WEST/left: seat opens toward screen left, backrest on screen right. BOTTOM RIGHT faces EAST/right: seat opens toward screen right, backrest on screen left.\nFixed orthographic elevated top-down RPG camera at 45 degree elevation, parallel projection. North/south long bench edges exactly horizontal. West/east bench long footprint exactly along the vertical world-grid axis, NOT diagonal; show true opposite sides, not 3/4 perspective. Upright supports stay upright. These are separately drawn directional views, NOT a flat PNG rotated on the page.\nPreserve the same bench dimensions, slat counts and recognizable construction in all four views. Warm medium oak boards, dark charcoal iron legs and armrests, neutral dark outline, subtle contact darkening only. Smooth clean hand-painted surfaces with moderate restrained grain, consistent with the approved wooden table and usable at 96–144 pixels in the game; no coarse enlarged pixel blocks, no photorealistic microtexture.\nEach complete sprite in its own equal cell, generous fully transparent gutters and outer padding, no part cut off, no overlaps, consistent scale and upper-left light. Actual transparent alpha background, including between slats and under the bench. No scenery, ground, characters, items, grass, pedestal, floor tile, huge baked shadow, text, labels, numbers, arrows, grid, borders or watermark.\nVARIANT A: Keep the reference bench identity especially closely: three backrest planks, four seat planks, slender plain black iron side frames and modest rounded armrests. Restore clean straight geometry and carefully painted warm wood; remove the old diagonal/isometric alignment.",
+      "size": [
+        1448,
+        1086
+      ],
+      "sha256": "d44866a5531e95f6c2a30163ad166f2e5495308338cc227b3a27edeab158e069"
+    },
+    {
+      "key": "B",
+      "file": "bench-b.png",
+      "description": "Straight dark iron frame and wooden armrests",
+      "prompt": "Use case: precise-object-edit. Asset type: transparent game bench turnaround sprite sheet, original orthogonal cozy farm RPG art.\nInput image 1: edit target and design reference, existing amber wooden slat village bench with black iron supports. Input image 2: STYLE reference only, approved hand-painted oak game furniture. Do not draw the table.\nRedraw this SAME BENCH as FOUR SEPARATE complete sprites in a spacious equal 2 by 2 layout. TOP LEFT faces SOUTH/down: straight frontal view. TOP RIGHT faces NORTH/up: true rear view, show the back of the backrest, not a second front view. BOTTOM LEFT faces WEST/left: seat opens toward screen left, backrest on screen right. BOTTOM RIGHT faces EAST/right: seat opens toward screen right, backrest on screen left.\nFixed orthographic elevated top-down RPG camera at 45 degree elevation, parallel projection. North/south long bench edges exactly horizontal. West/east bench long footprint exactly along the vertical world-grid axis, NOT diagonal; show true opposite sides, not 3/4 perspective. Upright supports stay upright. These are separately drawn directional views, NOT a flat PNG rotated on the page.\nPreserve the same bench dimensions, slat counts and recognizable construction in all four views. Warm medium oak boards, dark charcoal iron legs and armrests, neutral dark outline, subtle contact darkening only. Smooth clean hand-painted surfaces with moderate restrained grain, consistent with the approved wooden table and usable at 96–144 pixels in the game; no coarse enlarged pixel blocks, no photorealistic microtexture.\nEach complete sprite in its own equal cell, generous fully transparent gutters and outer padding, no part cut off, no overlaps, consistent scale and upper-left light. Actual transparent alpha background, including between slats and under the bench. No scenery, ground, characters, items, grass, pedestal, floor tile, huge baked shadow, text, labels, numbers, arrows, grid, borders or watermark.\nVARIANT B: Same amber oak and charcoal iron bench identity, simplified production sprite: three broad backrest planks, three broad seat planks, clean sturdy straight iron side frames and very plain small armrests, slightly stronger clean silhouette, less grain and less visual noise. No fancy curls or ornamental additions.",
+      "size": [
+        1536,
+        1024
+      ],
+      "sha256": "187cb08d9d7051db8a8a11595294e05d47284764f98d1a068696b182a7649c66"
+    }
+  ],
+  "cleanupPrompt": "Use case: precise-object-edit / background-extraction. The supplied image is the EDIT TARGET: a 2 by 2 sheet containing FOUR directional views of one wooden-and-iron bench. Make a production-ready transparent sprite sheet by changing ONLY the alpha/background and edge contamination.\nKeep ALL FOUR benches EXACTLY the same designs, orientations, positions, proportions, material colors, lighting and detail. Do not redraw or rotate any bench. Preserve the top-left front, top-right back, bottom-left left-facing and bottom-right right-facing arrangement.\nRemove ALL brown/black background haze, glow, light pools, halos, red/yellow fringes and floating colored speckles completely. Empty background, outer margins, gutters, gaps between slats, under seats and inside leg/armrest openings must be alpha ZERO, not painted black, not a checkerboard, not warm brown. Wood and metal interior pixels must be fully opaque. Keep only the actual solid wood and iron geometry with a clean thin neutral dark-brown/charcoal outline and a very narrow natural anti-aliased alpha edge. No baked ground shadow or colored rim anywhere outside the actual object. No floor, no backdrop, no added props, no text. Real transparent alpha PNG, clean isolated four sprites.",
+  "status": "Design proposals only; no runtime assets or placements changed. Production slicing, edge cleanup and native-size review follow user selection."
+}
