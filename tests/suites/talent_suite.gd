@@ -33,18 +33,10 @@ func test_talent_unlocks_farming_fishing_cooking_and_traps() -> void:
 	game.skill_points = 10
 	expect(game.TalentSystem.unlock(game, "farm_wide_till") and game.TalentSystem.tilling_offsets(game).size() == 3, "wide furrow upgrades the hoe from one cell to three")
 	expect(game.TalentSystem.unlock(game, "farm_field_master") and game.TalentSystem.tilling_offsets(game).size() == 9, "dependent field mastery upgrades the hoe to a three by three pattern")
-	game.current_location = "forest"; game.energy = 12
-	var field_center := Vector2i(-1, -1)
-	for y in range(4, 20):
-		for x in range(4, 40):
-			var candidate := Vector2i(x, y)
-			var all_clear := true
-			for offset in game.TalentSystem.tilling_offsets(game):
-				if game.WorldFarmingSystem.tillability_reason(game, "forest", candidate + offset) != "tillable": all_clear = false; break
-			if all_clear: field_center = candidate; break
-		if field_center.x >= 0: break
-	var field_target := {"valid":true,"legacy":false,"cell":field_center,"key":game.WorldFarmingSystem.plot_key("forest",field_center),"rect":game.WorldFarmingSystem.cell_rect(field_center),"reason":"tillable"}
-	expect(field_center.x >= 0 and game.WorldFarmingSystem.till_pattern(game, field_target) == 9 and game.state.world.world_plots.size() == 9, "field mastery actually creates nine persistent plots in one action")
+	game.current_location = "overworld"; game.energy = 12; game.facing=Vector2.RIGHT
+	game.player=Vector2(game.FARM_ORIGIN)+Vector2(120,120)-Vector2.RIGHT*42
+	var field_target: Dictionary = game.WorldFarmingSystem.target(game)
+	expect(game.WorldFarmingSystem.till_pattern(game,field_target)==9 and game.plots.values().filter(func(plot): return plot.tilled).size()==9 and game.state.world.world_plots.is_empty(),"field mastery tills nine home beds in one action")
 	expect(not game.TalentSystem.can_plant_crop(game, "pumpkin"), "rare crop remains locked before orchard progression")
 	expect(game.TalentSystem.unlock(game, "farm_orchard") and game.TalentSystem.unlock(game, "farm_exotic_crops") and game.TalentSystem.can_plant_crop(game, "pumpkin"), "orchard dependency unlocks rare crops")
 	expect(game.TalentSystem.unlock(game, "farm_cooking"), "home cooking is an independent farming specialization")

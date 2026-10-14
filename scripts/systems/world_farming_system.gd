@@ -31,7 +31,7 @@ static func cell_rect(cell: Vector2i) -> Rect2:
 	return Rect2(Vector2(cell * CELL_SIZE), Vector2(CELL_SIZE, CELL_SIZE))
 
 
-## Определяет клетку перед героем и сохраняет совместимость со старым участком у дома.
+## Разрешает земледелие только на домашнем участке перед героем.
 static func target(game: Node) -> Dictionary:
 	var target_position: Vector2 = game.player + game.facing.normalized() * 42.0
 	var legacy_cell: Vector2i = game.targeted_plot()
@@ -39,21 +39,28 @@ static func target(game: Node) -> Dictionary:
 		return {"valid":true, "legacy":true, "cell":legacy_cell, "rect":game.FarmVisualSystem.plot_rect(Vector2(game.FARM_ORIGIN), legacy_cell), "reason":"legacy_plot"}
 	var cell := cell_at(target_position)
 	var reason := tillability_reason(game, game.current_location, cell)
-	return {"valid":reason == "tillable", "legacy":false, "cell":cell, "key":plot_key(game.current_location, cell), "rect":cell_rect(cell), "reason":reason}
+	return {"valid":false, "legacy":false, "cell":cell, "key":plot_key(game.current_location, cell), "rect":cell_rect(cell), "reason":reason}
 
 
 ## Создаёт соседнюю цель для пакетной обработки, не смешивая домашнюю и мировую сетки.
 static func offset_target(game: Node, origin: Dictionary, offset: Vector2i) -> Dictionary:
 	var cell: Vector2i = Vector2i(origin.cell) + offset
 	if bool(origin.get("legacy", false)):
-		var valid: bool = game.valid_plot(cell)
+		var valid: bool = game.current_location == "overworld" and game.valid_plot(cell) and bool(origin.get("valid",false))
 		return {"valid":valid, "legacy":true, "cell":cell, "rect":game.FarmVisualSystem.plot_rect(Vector2(game.FARM_ORIGIN), cell), "reason":"legacy_plot" if valid else "boundary"}
 	var reason := tillability_reason(game, game.current_location, cell)
-	return {"valid":reason == "tillable", "legacy":false, "cell":cell, "key":plot_key(game.current_location, cell), "rect":cell_rect(cell), "reason":reason}
+	return {"valid":false, "legacy":false, "cell":cell, "key":plot_key(game.current_location, cell), "rect":cell_rect(cell), "reason":reason}
 
 
 ## Объясняет, разрешено ли обрабатывать клетку, не изменяя мир и инвентарь.
 static func tillability_reason(game: Node, location: String, cell: Vector2i) -> String:
+	if location != "overworld": return "outside_farm"
+	var farm_rect := Rect2(Vector2(game.FARM_ORIGIN),Vector2(game.FARM_SIZE)*CELL_SIZE)
+	return "tillable" if farm_rect.encloses(cell_rect(cell)) else "outside_farm"
+
+
+## Проверяет свободную уличную землю для плодового сада, независимо от границ овощных грядок.
+static func outdoor_soil_reason(game: Node, location: String, cell: Vector2i) -> String:
 	if location not in OUTDOOR_LOCATIONS:
 		return "location_blocked"
 	var rect := cell_rect(cell)
@@ -82,12 +89,15 @@ static func read_target(game: Node, target_data: Dictionary) -> Dictionary:
 	return game.state.world.world_plots.get(String(target_data.key), empty_plot(game.current_location, target_data.cell))
 
 
-## Записывает изменённую грядку в старый участок или в свободный слой текущей локации.
+## Проверяет домашнюю цель повторно, защищая запись и вспашку от устаревших целей и другой локации.
+static func can_work_target(game: Node, target_data: Dictionary) -> bool:
+	return game.current_location == "overworld" and bool(target_data.get("valid",false)) and bool(target_data.get("legacy",false)) and game.valid_plot(Vector2i(target_data.get("cell",Vector2i(-1,-1))))
+
+
+## Записывает изменённую грядку исключительно в разрешённый участок у дома.
 static func write_target(game: Node, target_data: Dictionary, plot: Dictionary) -> void:
-	if bool(target_data.get("legacy", false)):
+	if can_work_target(game,target_data):
 		game.plots[target_data.cell] = plot
-	elif bool(target_data.get("valid", false)):
-		game.state.world.world_plots[String(target_data.key)] = plot
 
 
 ## Вскапывает разрешённую клетку, начисляет ремесленный опыт и один раз проверяет тайник.
@@ -97,6 +107,9 @@ static func till(game: Node, target_data: Dictionary, plot: Dictionary) -> bool:
 
 ## Обрабатывает шаблон мотыги 1, 3 или 9 клеток и оплачивает действие одним масштабируемым расходом энергии.
 static func till_pattern(game: Node, origin: Dictionary) -> int:
+	if not can_work_target(game,origin):
+		game.message = blocked_message(game,"outside_farm")
+		return 0
 	var offsets: Array[Vector2i] = game.TalentSystem.tilling_offsets(game)
 	var energy_cost := 1 if offsets.size() == 1 else (2 if offsets.size() == 3 else 3)
 	if game.energy < energy_cost:
@@ -128,8 +141,8 @@ static func till_pattern(game: Node, origin: Dictionary) -> int:
 
 ## Вскапывает одну проверенную клетку; пакетный режим отдельно оплачивает общую энергию.
 static func _till_one(game: Node, target_data: Dictionary, plot: Dictionary, consume_energy: bool) -> bool:
-	if not bool(target_data.get("valid", false)):
-		game.message = blocked_message(game, String(target_data.get("reason", "location_blocked")))
+	if not can_work_target(game,target_data):
+		game.message = blocked_message(game, "outside_farm")
 		return false
 	if bool(plot.get("tilled", false)):
 		game.message = game.LocaleSystem.text("already_tilled")
@@ -151,6 +164,7 @@ static func _till_one(game: Node, target_data: Dictionary, plot: Dictionary, con
 
 ## Возвращает локализованное объяснение запрета обработки конкретного типа поверхности.
 static func blocked_message(game: Node, reason: String) -> String:
+	if reason == "outside_farm": return game.LocaleSystem.text("farming_farm_only")
 	if reason == "location_blocked": return game.LocaleSystem.text("farming_outdoors_only")
 	if reason in ["paved_road", "bridge"]: return game.LocaleSystem.text("cannot_till_road")
 	return game.LocaleSystem.text("cannot_till_here")
@@ -182,13 +196,17 @@ static func snapshot(game: Node) -> Array:
 	return result
 
 
-## Восстанавливает только допустимые мировые грядки и безопасно пропускает старые сохранения.
+## Переносит старые мировые посадки на домашнюю ферму, освобождая дороги и остальные локации.
 static func restore(game: Node, saved_plots: Array) -> void:
 	game.state.world.world_plots.clear()
+	var seen := {}
 	for saved in saved_plots:
 		var location := String(saved.get("location", ""))
 		var cell := Vector2i(int(saved.get("x", -1)), int(saved.get("y", -1)))
 		if location not in OUTDOOR_LOCATIONS: continue
+		var key := plot_key(location,cell)
+		if seen.has(key): continue
+		seen[key] = true
 		var rect := cell_rect(cell)
 		var bounds: Vector2 = game.WorldBoundsSystem.size(location)
 		if rect.position.x < 0.0 or rect.position.y < 0.0 or rect.end.x > bounds.x or rect.end.y > bounds.y: continue
@@ -198,4 +216,4 @@ static func restore(game: Node, saved_plots: Array) -> void:
 		var crop_kind := String(saved.get("crop_kind", "carrot"))
 		plot.crop_kind = crop_kind if game.CropCatalogSystem.CROPS.has(crop_kind) else "carrot"
 		plot.fertilizer = String(saved.get("fertilizer",""))
-		game.state.world.world_plots[plot_key(location, cell)] = plot
+		preload("res://scripts/systems/farm_plot_migration.gd").relocate(game,plot)

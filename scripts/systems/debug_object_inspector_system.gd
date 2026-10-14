@@ -103,8 +103,18 @@ static func append_fences(game: Node, result: Array[Dictionary], probe: Vector2 
 			])
 
 
-## Добавляет свободные мировые грядки с координатами, культурой, влагой и стадией роста.
+## Добавляет домашние и совместимые старые грядки с культурой, влагой и стадией роста.
 static func append_world_plots(game: Node, result: Array[Dictionary], probe: Vector2 = Vector2.INF) -> void:
+	if game.current_location == "overworld":
+		for cell in game.plots:
+			var home: Dictionary = game.plots[cell]
+			if not game.FarmVisualSystem.is_plot_visible(home): continue
+			var bounds: Rect2 = game.FarmVisualSystem.plot_rect(Vector2(game.FARM_ORIGIN),cell)
+			if probe != Vector2.INF and not bounds.has_point(probe): continue
+			add(result,"home_plot:%d:%d"%[cell.x,cell.y],"ГРЯДКА","Домашний участок",bounds.get_center(),bounds,12,"тайл 48×48 · проходимый","посажено" if home.planted else "вспахано",[
+				"клетка %d/%d · культура %s"%[cell.x,cell.y,home.get("crop_kind","carrot")],
+				"рост %.1f · стадия %d/4 · полив %s"%[home.growth,home.stage,str(home.watered)],
+			])
 	for key in game.state.world.world_plots:
 		var plot: Dictionary = game.state.world.world_plots[key]
 		if String(plot.location) != game.current_location: continue

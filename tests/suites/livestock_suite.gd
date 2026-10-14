@@ -102,7 +102,7 @@ func test_walkways_and_sleeping_poses() -> void:
 	for animal in Data.ANIMALS: expect(Animals.pose(game,animal).frame==4,"night uses the independent resting pose: %s"%animal.id)
 	var clock: float=game.get_meta("livestock_clock",0.0); game.open_inventory(); game.GameLoop.physics_process(game,1)
 	expect(game.get_meta("livestock_clock",0.0)==clock,"full-screen backpack pauses livestock motion and production")
-	expect(game.WorldFarmingSystem.tillability_reason(game,"overworld",Vector2i(16,24))=="world_prop","animal pasture cannot be turned into accidental crops")
+	expect(game.WorldFarmingSystem.tillability_reason(game,"overworld",Vector2i(16,24))=="outside_farm","animal pasture cannot be turned into accidental crops")
 	for kind in ["cow","pig","hen","sheep"]:
 		for index in 6: expect(not Visual.frame(kind,index).is_empty(),"six isolated action poses exist for %s/%d"%[kind,index])
 	game.free()
@@ -126,7 +126,7 @@ func test_expanded_yard_bounds_and_gates() -> void:
 	var cell:=Vector2i(28,26); var plot: Dictionary=game.WorldFarmingSystem.empty_plot("overworld",cell)
 	plot.tilled=true; plot.planted=true; plot.crop_kind="wheat"; game.state.world.world_plots[game.WorldFarmingSystem.plot_key("overworld",cell)]=plot
 	var restored:=make_game(); expect(restored.SaveSystem.apply(restored,game.SaveSystem.snapshot(game)),"south field snapshot passes production validation")
-	expect(restored.player==game.player and restored.state.world.world_plots.has(game.WorldFarmingSystem.plot_key("overworld",cell)),"new southern player and planting cells survive save and load")
+	expect(restored.player==game.player and restored.state.world.world_plots.is_empty() and restored.plots.values().any(func(bed): return bed.planted and bed.crop_kind=="wheat"),"southern player remains in place while old crop moves home")
 	game.current_location="cave"; game.player=Vector2(948,1248); game.clamp_player_position()
 	expect(game.player.y==1120 and game.WorldBoundsSystem.size("cave")==Vector2(2400,1200),"extending the farm does not change cave boundaries")
 	game.free(); restored.free()
@@ -155,9 +155,9 @@ func test_old_planted_plot_keeps_progress() -> void:
 	game.current_location="cottage_interior"
 	var restored := make_game()
 	expect(restored.SaveSystem.apply(restored,game.SaveSystem.snapshot(game)),"old planted pasture snapshot loads safely")
-	var plots: Dictionary=restored.state.world.world_plots
-	expect(plots.size()==1 and restored.current_location=="cottage_interior","yard migration preserves crop count and player location")
-	var moved: Dictionary=plots.values()[0]
+	var plots: Array=restored.plots.values().filter(func(bed): return bed.planted)
+	expect(plots.size()==1 and restored.current_location=="cottage_interior" and restored.state.world.world_plots.is_empty(),"yard migration preserves crop count and player location")
+	var moved: Dictionary=plots[0]
 	expect(moved.cell!=cell and moved.crop_kind=="wheat" and moved.growth==23.5 and moved.stage==2 and moved.planted and moved.watered,"moving old planted cells preserves full harvest progress")
-	expect(not preload("res://scripts/systems/livestock_map_migration.gd").reserved(restored.WorldFarmingSystem.cell_rect(moved.cell)),"relocated crop sits outside animal pens and their access road")
+	expect(not preload("res://scripts/systems/livestock_map_migration.gd").reserved(restored.FarmVisualSystem.plot_rect(Vector2(restored.FARM_ORIGIN),moved.cell)),"relocated crop sits on home farm outside animal pens")
 	game.free(); restored.free()

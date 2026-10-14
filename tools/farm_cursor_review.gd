@@ -22,7 +22,7 @@ func _capture() -> void:
 	game.set_physics_process(false); game.set_process(false); game.audio_enabled=false
 	game.language_screen=false; game.title_screen=false; game.tutorial_visible=false; game.discovery_current={}; game.LocaleSystem.current="ru"
 	game.FarmLifeSystem.state(game).cutscene=""; game.selected_tool=game.Tool.HOE; game.settings_state.screen_shake_enabled=false
-	var suite:=FarmingSuite.new(self); var cell:=suite.find_tillable_cell(game,"overworld"); suite.place_target(game,"overworld",cell)
+	var suite:=FarmingSuite.new(self); suite.home_target(game,Vector2i.ZERO)
 	game.sync_background_location(); game.update_camera(); DirAccess.make_dir_recursive_absolute(FOLDER)
 	var phase:=OS.get_environment("FARM_CURSOR_PHASE"); if phase.is_empty(): phase="before"
 	await capture(phase)

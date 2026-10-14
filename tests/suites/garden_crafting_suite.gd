@@ -56,26 +56,26 @@ func test_harvest_bonus_and_one_cycle() -> void:
 	expect(game.FarmSystem.harvest(game,plot) and plot.planted and plot.fertilizer=="" and Garden.multiplier(plot)==1.0,"perennial second cycle has no permanent free fertilizer")
 	game.free()
 
-## Сценарий: удобрения на домашнем и мировом участке сохраняются независимо.
+## Сценарий: удобрения на двух домашних грядках сохраняются независимо.
 ## Исходное состояние: два оплаченных удобрения и JSON-снимок игры.
 ## Ожидаемый результат: загрузка сохраняет вид и локальный эффект, старые грядки остаются совместимыми, неизвестное удобрение отклоняется.
 func test_fertilizer_save_and_old_slots() -> void:
 	var game:=make_game(); var home:=home_bed(game); game.change_inventory_count("quality_fertilizer",1); Garden.apply(game,"quality_fertilizer")
-	var cell:=find_tillable_cell(game,"forest"); place_target(game,"forest",cell)
+	home_target(game,Vector2i(1,0))
 	var target:Dictionary=game.WorldFarmingSystem.target(game); var world:Dictionary=game.WorldFarmingSystem.read_target(game,target); world.tilled=true; game.WorldFarmingSystem.write_target(game,target,world)
-	game.change_inventory_count("compost",1); expect(Garden.apply(game,"compost") and world.fertilizer=="compost","free world plot receives its own fertilizer")
+	game.change_inventory_count("compost",1); expect(Garden.apply(game,"compost") and world.fertilizer=="compost","second home plot receives its own fertilizer")
 	var data:Dictionary=JSON.parse_string(JSON.stringify(game.SaveSystem.snapshot(game)))
 	expect(game.SaveSystem.ValidationSystem.valid(data),"fertilized home and world plots validate")
 	var restored:=make_game(); game.SaveSystem.apply(restored,data)
-	expect(restored.plots[Vector2i.ZERO].fertilizer==home.fertilizer and restored.state.world.world_plots[target.key].fertilizer=="compost","JSON preserves independent bed fertilizers")
+	expect(restored.plots[Vector2i.ZERO].fertilizer==home.fertilizer and restored.plots[Vector2i(1,0)].fertilizer=="compost","JSON preserves independent bed fertilizers")
 	var invalid:=data.duplicate(true); invalid.plots[0].fertilizer="magic_infinite_fertilizer"
 	expect(not game.SaveSystem.ValidationSystem.valid(invalid),"unknown fertilizer cannot alter live save")
-	invalid=data.duplicate(true); invalid.world_plots[0].fertilizer=42
+	invalid=data.duplicate(true); invalid.plots[1].fertilizer=42
 	expect(not game.SaveSystem.ValidationSystem.valid(invalid),"wrong fertilizer type rejected")
 	for value in data.plots+data.world_plots: value.erase("fertilizer")
 	expect(game.SaveSystem.ValidationSystem.valid(data),"old saves without fertilizer still validate")
 	game.SaveSystem.apply(restored,data)
-	expect(restored.plots[Vector2i.ZERO].fertilizer=="" and restored.state.world.world_plots[target.key].fertilizer=="","old slot clears stale fertilizer from live model")
+	expect(restored.plots[Vector2i.ZERO].fertilizer=="" and restored.plots[Vector2i(1,0)].fertilizer=="","old slot clears stale fertilizer from live model")
 	restored.free(); game.free()
 
 ## Сценарий: наживка расходуется после действительного заброса и уменьшает только ожидание поклёвки.

@@ -39,5 +39,5 @@ static func _free_cell(game: Node, origin: Vector2i) -> Vector2i:
 				var cell := origin+Vector2i(x,y)
 				if reserved(game.WorldFarmingSystem.cell_rect(cell)): continue
 				if game.state.world.world_plots.has(game.WorldFarmingSystem.plot_key("overworld",cell)): continue
-				if game.WorldFarmingSystem.tillability_reason(game,"overworld",cell)=="tillable": return cell
+				if game.WorldFarmingSystem.outdoor_soil_reason(game,"overworld",cell)=="tillable": return cell
 	return Vector2i(-1,-1)

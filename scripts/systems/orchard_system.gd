@@ -140,11 +140,11 @@ static func plant_sapling(game: Node) -> bool:
 	if game.energy < 2:
 		game.message = game.LocaleSystem.text("no_energy")
 		return false
-	var target: Dictionary = game.WorldFarmingSystem.target(game)
-	if not bool(target.get("valid", false)):
-		game.message = game.WorldFarmingSystem.blocked_message(game, String(target.get("reason", "location_blocked")))
+	var position: Vector2 = game.WorldFarmingSystem.cell_rect(game.WorldFarmingSystem.cell_at(game.player+game.facing.normalized()*42.0)).get_center()
+	var reason: String = game.WorldFarmingSystem.outdoor_soil_reason(game,game.current_location,game.WorldFarmingSystem.cell_at(position))
+	if reason != "tillable":
+		game.message = game.WorldFarmingSystem.blocked_message(game,reason)
 		return false
-	var position: Vector2 = Rect2(target.rect).get_center()
 	for node in game.food_nodes:
 		if String(node.get("location", "overworld")) == game.current_location and Vector2(node.position).distance_to(position) < 100.0:
 			game.message = "Деревьям нужно свободное место вокруг"
