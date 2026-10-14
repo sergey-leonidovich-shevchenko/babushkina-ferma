@@ -29,13 +29,14 @@ static func warmup_events() -> void:
 	for column in 3: event_texture(column)
 
 
-## Рисует оружие у ведущей руки героя в направлении текущего действия.
+## Рисует оружие у ведущей руки только во время атаки, не оставляя предмет рядом с обычной ходьбой.
 static func draw_held_weapon(game: Node2D, kind: String, position: Vector2, direction: Vector2, attack_progress, visual_scale: float = 1.0) -> void:
+	var progress: float = -1.0 if attack_progress is bool and not attack_progress else (0.5 if attack_progress is bool else float(attack_progress))
+	if progress<0.0: return
 	var item_kind: String = game.WeaponSystem.item_kind(kind)
 	if item_kind.is_empty(): return
 	var texture: Texture2D = game.item_texture(item_kind)
 	if texture == null: return
-	var progress: float = -1.0 if attack_progress is bool and not attack_progress else (0.5 if attack_progress is bool else float(attack_progress))
 	var weapon_class: String = game.WeaponSystem.weapon_class(kind)
 	var world_offset: Vector2 = game.PresentationSystem.world_offset(game)
 	var pose := held_weapon_pose(position, direction, weapon_class, progress, visual_scale, world_offset)

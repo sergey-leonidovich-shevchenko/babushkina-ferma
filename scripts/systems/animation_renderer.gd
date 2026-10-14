@@ -7,6 +7,13 @@ const SLIME_DEATH := preload("res://assets/game/enemies/slime_death.png")
 const EnemyAnimationLibrary := preload("res://scripts/systems/enemy_animation_library.gd")
 const WorldVisualProfileSystem := preload("res://scripts/systems/world_visual_profile_system.gd")
 
+## Выбирает отдельный слой оружия только для активной атаки без собственного полного рисунка героя.
+static func overlay_weapon(game: Node) -> String:
+	if game.WeaponSystem.attack_progress(game)<0.0 or not game.HeroActionSystem.pose(game).is_empty(): return ""
+	if preload("res://scripts/systems/hero_combat_visual_system.gd").active(game) or not preload("res://scripts/systems/hero_action_visual_system.gd").current_pose(game).is_empty(): return ""
+	var kind:String=game.player_attack_weapon
+	return kind if not game.WeaponSystem.item_kind(kind).is_empty() else ""
+
 
 ## Отрисовывает героя по текущему состоянию игры.
 static func draw_player(game: Node2D) -> void:
@@ -30,13 +37,12 @@ static func draw_player(game: Node2D) -> void:
 	var clothes_index := clampi(int(game.state.player.profile.get("clothes", 0)), 0, clothes_palette.size() - 1)
 	var hero_modulate: Color = Color(0.72, 0.82, 1.0, 0.38) if game.invisibility_timer > 0.0 else clothes_palette[clothes_index]
 	if game.player_hurt_timer > 0.0: hero_modulate = Color(1.0, 0.42, 0.42)
-	var weapon: String = game.player_attack_weapon if attacking else game.equipped_weapon
+	var weapon:=overlay_weapon(game)
 	var hands_origin := position + Vector2(0, -24)
-	var body_attack := preload("res://scripts/systems/hero_combat_visual_system.gd").active(game) or not preload("res://scripts/systems/hero_action_visual_system.gd").current_pose(game).is_empty()
-	if direction == Vector2.UP and tool_pose.is_empty() and not body_attack:
+	if direction == Vector2.UP and not weapon.is_empty():
 		game.WorldPolishRenderer.draw_held_weapon(game, weapon, hands_origin, direction, attack_progress, visual_scale)
 	game.DirectionalCharacterSystem.draw_hero(game, position, direction, moving, hero_modulate)
-	if direction != Vector2.UP and tool_pose.is_empty() and not body_attack:
+	if direction != Vector2.UP and not weapon.is_empty():
 		game.WorldPolishRenderer.draw_held_weapon(game, weapon, hands_origin, direction, attack_progress, visual_scale)
 	var cooldown: float = game.WeaponSystem.cooldown_ratio(game)
 	if cooldown > 0.0:
