@@ -10,7 +10,7 @@ const PREVIEW_INSET := Vector2(17,13)
 const FRAME_BADGE_OFFSET := Vector2(18,14)
 const FRAME_BADGE_SIZE := Vector2(26,16)
 const FRAME_BADGE_TEXT := Color("ffe3a0")
-static var _visible_source_cache: Dictionary = {}
+static var _visible_source_cache = preload("res://scripts/systems/weak_owner_cache.gd").new(1024)
 
 
 ## Рисует модальное окно равномерных кадров или произвольного source-rect поверх живой карты.
@@ -44,9 +44,10 @@ static func draw_grid(game: Node2D, state: Dictionary, texture: Texture2D) -> vo
 static func visible_preview_source(texture: Texture2D, exact_source: Rect2) -> Rect2:
 	# У очищенных ImageTexture нет resource_path: разные мастера различаются по настоящему RID текстуры.
 	var key:="%d:%d:%d:%d:%d"%[texture.get_rid().get_id(),int(exact_source.position.x),int(exact_source.position.y),int(exact_source.size.x),int(exact_source.size.y)]
-	if _visible_source_cache.has(key): return Rect2(_visible_source_cache[key])
+	var cached: Variant = _visible_source_cache.fetch(texture,key)
+	if cached != null: return Rect2(cached)
 	var image:=texture.get_image(); var bounds:=Rect2i(Vector2i(exact_source.position),Vector2i(exact_source.size)); var used:=image.get_region(bounds).get_used_rect(); var result:=exact_source if used.size==Vector2i.ZERO else Rect2(Vector2i(bounds.position+used.position),used.size)
-	_visible_source_cache[key]=result
+	_visible_source_cache.store(texture,key,result)
 	return result
 
 

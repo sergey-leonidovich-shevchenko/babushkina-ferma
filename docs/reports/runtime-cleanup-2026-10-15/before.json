@@ -1,0 +1,90 @@
+{
+	"cleanup_usec": [],
+	"live_temporary_textures": 2000,
+	"phase": "before",
+	"protocol": "synthetic resource churn, headless; not real-time soak or FPS measurement",
+	"samples": [
+		{
+			"bounds": 66,
+			"created": 0,
+			"matte": 8,
+			"picker": 0,
+			"queries": 0,
+			"resources": 1132.0,
+			"static_bytes": 594782457.0
+		},
+		{
+			"bounds": 316,
+			"created": 250,
+			"matte": 258,
+			"picker": 250,
+			"queries": 250,
+			"resources": 1132.0,
+			"static_bytes": 599584001.0
+		},
+		{
+			"bounds": 566,
+			"created": 500,
+			"matte": 508,
+			"picker": 500,
+			"queries": 500,
+			"resources": 1132.0,
+			"static_bytes": 604407773.0
+		},
+		{
+			"bounds": 816,
+			"created": 750,
+			"matte": 758,
+			"picker": 750,
+			"queries": 750,
+			"resources": 1132.0,
+			"static_bytes": 609188481.0
+		},
+		{
+			"bounds": 1066,
+			"created": 1000,
+			"matte": 1008,
+			"picker": 1000,
+			"queries": 1000,
+			"resources": 1132.0,
+			"static_bytes": 613925269.0
+		},
+		{
+			"bounds": 1316,
+			"created": 1250,
+			"matte": 1258,
+			"picker": 1250,
+			"queries": 1250,
+			"resources": 1132.0,
+			"static_bytes": 618750801.0
+		},
+		{
+			"bounds": 1566,
+			"created": 1500,
+			"matte": 1508,
+			"picker": 1500,
+			"queries": 1500,
+			"resources": 1132.0,
+			"static_bytes": 623489885.0
+		},
+		{
+			"bounds": 1816,
+			"created": 1750,
+			"matte": 1758,
+			"picker": 1750,
+			"queries": 1750,
+			"resources": 1132.0,
+			"static_bytes": 628379145.0
+		},
+		{
+			"bounds": 2066,
+			"created": 2000,
+			"matte": 2008,
+			"picker": 2000,
+			"queries": 2000,
+			"resources": 1132.0,
+			"static_bytes": 633118157.0
+		}
+	],
+	"temporary_textures": 2000
+}

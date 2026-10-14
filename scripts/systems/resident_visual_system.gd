@@ -3,7 +3,7 @@ extends RefCounted
 const CELL := 128
 const PIVOT := Vector2(64,120)
 const Registry := preload("res://scripts/systems/animation_asset_registry.gd")
-static var _bounds: Dictionary = {}
+static var _bounds = preload("res://scripts/systems/weak_owner_cache.gd").new(32)
 
 ## Узнаёт подготовленный набор жителей, сохраняя совместимость редактора со старыми ресурсами.
 static func handles(texture: Texture2D) -> bool:
@@ -12,13 +12,13 @@ static func handles(texture: Texture2D) -> bool:
 ## Измеряет видимое тело внутри безопасных ячеек один раз до первого шага.
 static func warmup(texture: Texture2D) -> void:
 	var key := texture.get_rid().get_id()
-	if _bounds.has(key): return
+	if _bounds.fetch(texture,key) != null: return
 	var image := texture.get_image()
 	var regions := []
 	for index in 32:
 		var cell := Rect2i((index%4)*CELL,(index/4)*CELL,CELL,CELL)
 		regions.append(image.get_region(cell).get_used_rect())
-	_bounds[key]=regions
+	_bounds.store(texture,key,regions)
 
 ## Выбирает восемь прежних направлений и целый кадр тела с общей измеренной опорой.
 static func pose(texture: Texture2D, direction: Vector2, time: float, moving: bool) -> Dictionary:
@@ -26,7 +26,7 @@ static func pose(texture: Texture2D, direction: Vector2, time: float, moving: bo
 	var row := Registry.direction_index(direction)
 	var frame := int(maxf(time,0.0)*8.0)%4 if moving else 0
 	var cell := Vector2((frame)*CELL,row*CELL)
-	var bounds: Rect2i = _bounds[texture.get_rid().get_id()][row*4+frame]
+	var bounds: Rect2i = _bounds.fetch(texture,texture.get_rid().get_id())[row*4+frame]
 	return {"texture":texture,"source":Rect2(Vector2(bounds.position)+cell,Vector2(bounds.size)),"pivot":PIVOT-Vector2(bounds.position),"scale":1.0}
 
 ## Строит рамку реально рисуемого тела от той же физической точки, что и герой.

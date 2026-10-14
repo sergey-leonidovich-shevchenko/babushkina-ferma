@@ -1,6 +1,6 @@
 extends RefCounted
 
-static var _textures: Dictionary = {}
+static var _textures = preload("res://scripts/systems/weak_owner_cache.gd").new(64)
 const Prepared := preload("res://scripts/presentation/prepared_pixel_cache.gd")
 
 
@@ -8,17 +8,18 @@ const Prepared := preload("res://scripts/presentation/prepared_pixel_cache.gd")
 static func clean_texture(texture: Texture2D) -> Texture2D:
 	if texture == null: return texture
 	var key := texture.get_rid().get_id()
-	if _textures.has(key): return _textures[key]
+	var cached: Variant = _textures.fetch(texture,key)
+	if cached != null: return cached as Texture2D
 	var prepared:=Prepared.texture(texture,"service-matte-v1")
 	if prepared!=null:
-		_textures[key]=prepared
+		_textures.store(texture,key,prepared)
 		return prepared
 	var image := texture.get_image()
 	if image == null: return texture
 	if image.is_compressed(): image.decompress()
 	var cleaned := clean_image(image)
 	var result := ImageTexture.create_from_image(cleaned)
-	_textures[key] = result
+	_textures.store(texture,key,result)
 	return result
 
 

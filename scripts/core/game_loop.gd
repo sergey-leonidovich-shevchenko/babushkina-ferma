@@ -2,6 +2,7 @@ extends RefCounted
 
 ## Выполняет один физический кадр и задаёт единственный порядок обновления игровых подсистем.
 static func physics_process(game: Node, delta: float) -> void:
+	preload("res://scripts/systems/runtime_maintenance_system.gd").update(game)
 	preload("res://scripts/systems/basement_input_system.gd").update(game,delta)
 	game.AudioSystem.update(game, delta)
 	game.update_hud_feedback(delta)

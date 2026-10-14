@@ -6,7 +6,7 @@ const BAT := preload("res://assets/game/wildlife/directional/bat_flight_4dir_v2.
 const LIZARD := preload("res://assets/game/wildlife/directional/lizard_walk_4dir_v2.png")
 const NEW_SHEETS := {"fox": FOX, "bat": BAT, "lizard": LIZARD}
 const ROWS := [0, 2, 4, 6]
-static var _bounds: Dictionary = {}
+static var _bounds = preload("res://scripts/systems/weak_owner_cache.gd").new(512)
 const Prepared := preload("res://scripts/presentation/prepared_pixel_cache.gd")
 
 
@@ -80,10 +80,11 @@ static func frame_area(kind: String, direction: int, column: int) -> Rect2i:
 ## Кэширует видимые границы источника только для выравнивания опоры, игнорируя почти прозрачный мусор генератора.
 static func visible_bounds(texture: Texture2D, area: Rect2i) -> Rect2i:
 	var key := "%s:%s" % [texture.get_rid().get_id(), area]
-	if _bounds.has(key): return _bounds[key]
+	var cached: Variant = _bounds.fetch(texture,key)
+	if cached != null: return cached as Rect2i
 	var prepared:=Prepared.bounds(texture,area)
 	var result:=prepared if prepared.has_area() else measure_visible_bounds(texture.get_image(),area)
-	_bounds[key]=result
+	_bounds.store(texture,key,result)
 	return result
 
 

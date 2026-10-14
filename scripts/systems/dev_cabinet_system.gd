@@ -5,6 +5,7 @@ const SETTING := "development/supply_cabinet_enabled"
 const POSITION := preload("res://scripts/systems/house_furniture_data.gd").CABINET_POINT
 const TABS := ["all","craft","food","alchemy","equipment","tools","seeds","other"]
 const STOCK := 999
+const QUERY_CACHE_LIMIT := 16
 const UNIQUE := preload("res://scripts/systems/inventory_system.gd").UNIQUE_ITEMS
 const DECOR := ["qa_teleport_stone","home_chest","backpack_upgrade","rustic_table","wooden_chair","wooden_wardrobe","woven_rug","potted_fern","museum_token","fence_kit","gate_kit","bandage"]
 const Products := preload("res://scripts/systems/alchemy_product_data.gd")
@@ -57,6 +58,7 @@ static func items(game: Node) -> Array:
 			if not query.is_empty() and not String(kind).contains(query) and not game.inventory_item_name(kind).to_lower().contains(query): continue
 			result.append(kind)
 		Sorting.arrange(game,result,Sorting.mode(game,"container"),func(kind): return category(game,kind),func(kind): return int(value.stock[kind]))
+		if value.cache.size() >= QUERY_CACHE_LIMIT: value.cache.erase(value.cache.keys()[0])
 		value.cache[key]=result
 	return value.cache[key]
 
