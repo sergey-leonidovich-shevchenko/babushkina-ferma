@@ -110,6 +110,10 @@ static func enemies(ctx: Object) -> void:
 			var texture:Texture2D=ctx.game.ENEMY_RANK_ATLAS; var size:=Vector2(texture.get_size())/Vector2(5,3)
 			var pose:={"texture":texture,"source":Rect2(Vector2.ZERO,size),"pivot":Vector2(size.x/2,size.y),"scale":0.6,"preserve_alpha":true}
 			finish(entry,[clip(ctx,"idle","Покой",["south"],1,1,func(_dir,_i): return pose)]); continue
+		if kind=="cave_guardian":
+			var still:={"texture":Enemy.GUARDIAN_BODY,"source":Enemy.source_rect(kind,Vector2.DOWN,0),"pivot":Enemy.GUARDIAN_PIVOT,"scale":0.375,"preserve_alpha":true}
+			ctx.fact(entry,"Графика","Временная цельная поза; подробный набор анимаций готовится")
+			finish(entry,[clip(ctx,"idle","Покой",["south"],1,1,func(_dir,_i): return still)]); continue
 		var pose:=func(dir,i): return {"texture":Enemy.walk_texture(kind),"source":Enemy.source_rect(kind,DIRECTIONS[dir],i),"pivot":Vector2(64,128),"scale":0.75,"preserve_alpha":true}
 		var action:=func(dir,i): return {"texture":Enemy.action_texture(kind),"source":Enemy.source_rect(kind,DIRECTIONS[dir],Enemy.body_action_frame(kind,i)),"pivot":Vector2(64,128),"scale":0.75,"preserve_alpha":true}
 		var title:String={"melee":"Удар","shoot":"Выстрел","cast":"Заклинание","slam":"Удар по земле"}[Enemy.action_kind(kind)]

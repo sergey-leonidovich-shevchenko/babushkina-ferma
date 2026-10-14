@@ -79,6 +79,22 @@ test('every sprite is a real PNG and every character can be inspected', async ()
   assert.ok(skeleton.animation.clips.some((clip) => clip.id === 'attack'))
 })
 
+// Сценарий: обычный хранитель временно использует целый исходник вместо повреждённого общего листа.
+// Исходное состояние: свежий экспорт отдельной позы с измеренной опорой ног.
+// Ожидаемый результат: фигура целая, фиктивные направленные циклы не показываются, отдельный босс сохраняет атаки.
+test('guardian exposes its whole temporary pose without invented animation clips', () => {
+  const guardian = catalog.entries.find((entry) => entry.category === 'characters' && entry.id === 'cave_guardian')
+  assert.equal(guardian.animation.clips.length, 1)
+  const clip = guardian.animation.clips[0]
+  assert.equal(clip.id, 'idle')
+  assert.deepEqual(Object.keys(clip.frames), ['south'])
+  assert.equal(clip.frames.south.length, 1)
+  assert.deepEqual(clip.frames.south[0].rect, [0, 0, 256, 256])
+  assert.deepEqual(clip.frames.south[0].pivot, [128, 236])
+  const boss = catalog.entries.find((entry) => entry.category === 'characters' && entry.id === 'deep_guardian')
+  assert.equal(boss.animation.clips.length, 13)
+})
+
 // Сценарий: страницы станков предлагают выбор направления для каждого уровня и строительной кучи.
 // Исходное состояние: все станки экспортированы с уровнями и строительными кучами.
 // Ожидаемый результат: доступны три видимых ракурса, задняя сторона не предлагается.

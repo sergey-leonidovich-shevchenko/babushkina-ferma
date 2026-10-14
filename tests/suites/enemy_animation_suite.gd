@@ -6,6 +6,7 @@ func run() -> void:
 	test_all_mobile_enemies_have_complete_walk_sets()
 	test_atlases_follow_the_shared_grid_contract()
 	test_skeleton_frames_are_isolated_and_complete()
+	test_guardian_body_is_complete_and_effect_is_separate()
 	test_every_combat_animation_family_is_represented()
 	test_direction_changes_source_row_without_mirroring()
 	test_attack_frames_are_non_looping_and_keep_bodies_visible()
@@ -15,12 +16,12 @@ func run() -> void:
 
 ## Сценарий: все восемь подвижных противников проверяются постоянным стандартом проекта.
 ## Исходное состояние: реестр содержит четыре обычных и четыре пиратских семейства.
-## Ожидаемый результат: каждое семейство имеет восемь направлений и три кадра ходьбы.
+## Ожидаемый результат: семь семейств сохраняют направленные кадры, временный цельный рисунок хранителя обозначен явным исключением.
 func test_all_mobile_enemies_have_complete_walk_sets() -> void:
 	var game := make_game()
 	var kinds: Array = game.EnemyAnimationLibrary.CORE_FAMILIES + game.EnemyAnimationLibrary.PIRATE_FAMILIES
 	for kind in kinds:
-		expect(game.AnimationAssetRegistry.is_compliant(kind), "enemy has eight directions and three walk frames: %s" % kind)
+		expect(game.AnimationAssetRegistry.is_compliant(kind), "enemy satisfies its explicit directional or temporary whole-pose profile: %s" % kind)
 	game.free()
 
 
@@ -90,6 +91,33 @@ func test_skeleton_frames_are_isolated_and_complete() -> void:
 				var source: Rect2=library.source_rect("skeleton",direction,frame_index)
 				var sprite: Image=image.get_region(Rect2i(source)); var used:=sprite.get_used_rect()
 				expect(used.size.y>=85 and used.position.x>0 and used.position.y>0 and used.end.x<128 and used.end.y<128,"skeleton pose has a full body and transparent isolation margins: %d/%d"%[row,frame_index])
+	game.free()
+
+
+## Сценарий: хранитель стоит, движется, атакует или получает урон при любом направлении.
+## Исходное состояние: повреждённые общие ячейки отключены, выбран прежний цельный исходник с измеренной опорой ног.
+## Ожидаемый результат: тело всегда целиком с прозрачными полями, эффект удара остаётся отдельной текстурой, временная поза не выдаётся за полный цикл.
+func test_guardian_body_is_complete_and_effect_is_separate() -> void:
+	var game:=make_game(); var library=game.EnemyAnimationLibrary
+	for texture in [library.walk_texture("cave_guardian"),library.action_texture("cave_guardian")]:
+		expect(texture==library.GUARDIAN_BODY,"guardian never reads a damaged shared body cell")
+		for row in 8:
+			for frame_index in 3:
+				var source:Rect2=library.source_rect("cave_guardian",Vector2(-sin(row*TAU/8),cos(row*TAU/8)),frame_index)
+				var used:Rect2i=texture.get_image().get_region(Rect2i(source)).get_used_rect()
+				expect(source==Rect2(0,0,256,256) and used.position.x>0 and used.position.y>0 and used.end.x<256 and used.end.y==int(library.GUARDIAN_PIVOT.y),"guardian retains its whole head, both fists and feet in every state: %d/%d"%[row,frame_index])
+	var effect:Rect2=library.action_effect_source("cave_guardian",Vector2.DOWN,1)
+	expect(library.action_effect_texture("cave_guardian")==library.CORE_ACTIONS and effect==Rect2(1280,0,128,128),"guardian crystal eruption stays separate from its full-body image")
+	var profile:Dictionary=game.AnimationAssetRegistry.AUDIT.cave_guardian
+	expect(profile.directions==1 and profile.frames==1 and profile.status=="temporary_whole_pose","registry explicitly declares the static fallback while detailed animation is under review")
+	for level in range(1,6):
+		var enemy:={"kind":"cave_guardian","position":Vector2(400,500),"level":level}
+		var rect:Rect2=library.actor_rect(enemy); var scale:float=rect.size.x/256.0
+		expect(is_equal_approx(rect.position.y+library.GUARDIAN_PIVOT.y*scale,500) and library.health_bar_y(enemy)+7<rect.position.y+19*scale,"guardian feet and health bar remain outside the full head at level "+str(level))
+	var actor:Dictionary=game.CombatSystem.default_enemies().filter(func(enemy): return enemy.kind=="cave_guardian")[0]
+	game.current_location="cave"; actor.location="cave"; game.enemy_nodes=[actor]
+	var entries:Array[Dictionary]=[]; preload("res://scripts/systems/debug_object_inspector_system.gd").append_enemies(game,entries)
+	expect(entries.size()==1 and entries[0].bounds==library.actor_rect(actor),"F10 selection and sprite share the whole guardian bounds")
 	game.free()
 
 

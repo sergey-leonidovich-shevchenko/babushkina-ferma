@@ -263,10 +263,10 @@ static func append_enemies(game: Node, result: Array[Dictionary], probe: Vector2
 	for index in game.enemy_nodes.size():
 		var enemy: Dictionary = game.enemy_nodes[index]
 		if enemy.location != game.current_location or not game.AnimationSystem.enemy_is_visible(enemy): continue
-		var size_value:Vector2=game.CreatureVisualProfileSystem.enemy_size(int(enemy.level))
+		var sprite_rect:Rect2=game.EnemyAnimationLibrary.actor_rect(enemy)
 		var data: Dictionary = game.CombatSystem.TYPES.get(enemy.kind,{})
-		if probe == Vector2.INF or (game.CreatureVisualProfileSystem.actor_rect(enemy.position,size_value)).has_point(probe):
-			add(result, "enemy:%d:%s" % [index,enemy.kind], "ВРАГ", game.LocaleSystem.entity(enemy.kind), enemy.position, game.CreatureVisualProfileSystem.actor_rect(enemy.position,size_value), 92, "круг r30 · твёрдый" if enemy.alive else "нет", String(enemy.get("visual_state","idle")), [
+		if probe == Vector2.INF or sprite_rect.has_point(probe):
+			add(result, "enemy:%d:%s" % [index,enemy.kind], "ВРАГ", game.LocaleSystem.entity(enemy.kind), enemy.position, sprite_rect, 92, "круг r30 · твёрдый" if enemy.alive else "нет", String(enemy.get("visual_state","idle")), [
 				"HP %d/%d · ур. %d" % [enemy.hp,enemy.max_hp,enemy.level],
 				"урон %d · XP %d" % [game.CombatSystem.attack_damage(enemy.kind,enemy.level),game.CombatSystem.xp_reward(enemy.kind,enemy.level)],
 				"AI %s · mobile %s" % [enemy.get("action_kind",""),str(data.get("mobile",false))],

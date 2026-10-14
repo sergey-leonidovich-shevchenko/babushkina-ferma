@@ -605,18 +605,19 @@
         {"path":"assets/game/enemies/animated/pirate_enemy_walk_8dir.png","width":1536,"height":1024},
         {"path":"assets/game/enemies/animated/pirate_enemy_actions_8dir.png","width":1536,"height":1024},
         {"path":"assets/game/enemies/skeleton_v2/walk.png","width":384,"height":1024},
-        {"path":"assets/game/enemies/skeleton_v2/actions.png","width":384,"height":1024}
+        {"path":"assets/game/enemies/skeleton_v2/actions.png","width":384,"height":1024},
+        {"path":"assets/game/enemies/cave_guardian.png","width":256,"height":256}
       ],
       "render_owner": "EnemyAnimationLibrary, AnimationRenderer и CreatureVisualProfileSystem",
-      "source_layout": "четыре строгих боевых атласа 12×8 по 128×128 для ходьбы и действий",
+      "source_layout": "общие боевые атласы 12×8; скелет — отдельные 3×8; хранитель — временная цельная поза 256×256 вместо физически обрезанного общего листа",
       "runtime_sizes": ["96×96", "120×120", "144×144"],
       "target_modules": ["96×96", "120×120", "144×144"],
-      "anchor": "общая нижняя опора 0.72 для трёх рангов",
+      "anchor": "общая нижняя опора 0.72 для трёх рангов; у цельного хранителя измеренные стопы128,236 исходника256×256",
       "collision": "радиус 30 px для обычных врагов",
-      "status": "compliant",
-      "priority": "P2",
-      "debt": "Закрыт: семь близких размеров заменены рангами 96/120/144; старый дробный пиратский лист исключён из активного семейства.",
-      "done_when": "Уровни 1–2/3–4/5 используют 96/120/144 px; ходьба и действия сохраняют восемь направлений и три кадра."
+      "status": "migration",
+      "priority": "P1",
+      "debt": "Размеры рангов96/120/144 сохранены. Хранитель временно использует прежний цельный рисунок; подробные варианты A/B хранятся отдельно до выбора. Требуется настоящий новый направленный пакет ходьбы и действий.",
+      "done_when": "После выбора облика хранитель получает четыре настоящие стороны, четыре фазы ходьбы и отдельные фазы атаки/ранения/поражения; каждая фигура целая с прозрачными полями и устойчивыми стопами, native кадры и тесты подтверждают результат."
     },
     {
       "id": "WS-020",

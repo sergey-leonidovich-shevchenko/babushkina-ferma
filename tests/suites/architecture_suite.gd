@@ -155,6 +155,7 @@ static func test_world_sprite_manifest_tracks_grid_migration(context: SceneTree)
 	var ids: Dictionary = {}
 	var priorities := {"P1": 0, "P2": 0, "P3": 0}
 	var complete_count := 0
+	var pending:Dictionary={}
 	for entry_value in entries:
 		var entry: Dictionary = entry_value
 		var entry_id := String(entry.get("id", ""))
@@ -164,11 +165,14 @@ static func test_world_sprite_manifest_tracks_grid_migration(context: SceneTree)
 			complete_count += 1
 		else:
 			priorities[priority] = int(priorities.get(priority, 0)) + 1
+			pending[entry_id]=entry
 		context.expect(not entry.get("assets", []).is_empty() and not entry.get("runtime_sizes", []).is_empty() and not entry.get("target_modules", []).is_empty(), "%s records sources actual sizes and target modules" % entry_id)
 		context.expect(not String(entry.get("anchor", "")).is_empty() and not String(entry.get("collision", "")).is_empty() and not String(entry.get("done_when", "")).is_empty(), "%s records geometry and completion criteria" % entry_id)
 	context.expect(int(manifest.get("base_cell", 0)) == 24, "world sprite audit uses the shared 24 px base cell")
 	context.expect(entries.size() >= 24 and ids.has("WS-024") and ids.size() == entries.size(), "world sprite audit keeps every id unique and registers the modular village")
-	context.expect(complete_count == entries.size() and priorities.P1 == 0 and priorities.P2 == 0 and priorities.P3 == 0, "all tracked world sprite families complete the migration queue")
+	context.expect(complete_count==entries.size()-1 and priorities.P1==1 and priorities.P2==0 and priorities.P3==0 and pending.keys()==["WS-019"], "only the explicitly documented guardian animation remains in the migration queue")
+	var guardian:Dictionary=pending.get("WS-019",{})
+	context.expect(guardian.get("status")=="migration" and String(guardian.get("debt","")).contains("цельный рисунок") and String(guardian.get("done_when","")).contains("четыре настоящие стороны"), "guardian migration records the whole-pose fallback and concrete requirements for the selected replacement")
 	context.expect(not FileAccess.file_exists("res://assets/game/characters/farmer_walk.png") and not FileAccess.file_exists("res://assets/game/enemies/orc_idle.png") and not FileAccess.file_exists("res://assets/game/enemies/predator_plant_idle.png") and FileAccess.file_exists("res://assets/game/enemies/slime_idle.png"), "superseded sheets stay removed while the intentional story slime fallback remains")
 
 

@@ -6,6 +6,8 @@ const PIRATE_WALK := preload("res://assets/game/enemies/animated/pirate_enemy_wa
 const PIRATE_ACTIONS := preload("res://assets/game/enemies/animated/pirate_enemy_actions_8dir.png")
 const SKELETON_WALK := preload("res://assets/game/enemies/skeleton_v2/walk.png")
 const SKELETON_ACTIONS := preload("res://assets/game/enemies/skeleton_v2/actions.png")
+const GUARDIAN_BODY := preload("res://assets/game/enemies/cave_guardian.png")
+const GUARDIAN_PIVOT := Vector2(128,236)
 const AnimationAssetRegistry := preload("res://scripts/systems/animation_asset_registry.gd")
 const CreatureVisualProfileSystem:=preload("res://scripts/systems/creature_visual_profile_system.gd")
 
@@ -35,17 +37,20 @@ static func family_index(kind: String) -> int:
 ## Возвращает нужный атлас движения для обычного или пиратского противника.
 static func walk_texture(kind: String) -> Texture2D:
 	if kind=="skeleton": return SKELETON_WALK
+	if kind=="cave_guardian": return GUARDIAN_BODY
 	return PIRATE_WALK if kind in PIRATE_FAMILIES else CORE_WALK
 
 
 ## Возвращает нужный атлас боевых действий для обычного или пиратского противника.
 static func action_texture(kind: String) -> Texture2D:
 	if kind=="skeleton": return SKELETON_ACTIONS
+	if kind=="cave_guardian": return GUARDIAN_BODY
 	return PIRATE_ACTIONS if kind in PIRATE_FAMILIES else CORE_ACTIONS
 
 
 ## Рассчитывает прямоугольник одного кадра по семейству, направлению и локальному кадру.
 static func source_rect(kind: String, direction: Vector2, local_frame: int) -> Rect2:
+	if kind=="cave_guardian": return Rect2(Vector2.ZERO,GUARDIAN_BODY.get_size())
 	var column := family_index(kind) * WALK_FRAMES + clampi(local_frame, 0, WALK_FRAMES - 1)
 	if kind=="skeleton": column=clampi(local_frame,0,WALK_FRAMES-1)
 	var row := AnimationAssetRegistry.direction_index(direction)
@@ -112,9 +117,31 @@ static func configure_preview(game: Node) -> void:
 ## Рисует один кадр противника с общей привязкой ног и масштабом конкретного семейства.
 static func draw_actor(game: Node2D, enemy: Dictionary, texture: Texture2D, frame_index: int, modulate: Color) -> void:
 	var kind: String = enemy.kind
-	var size:=CreatureVisualProfileSystem.enemy_size(int(enemy.get("level",1)))
-	var destination:=CreatureVisualProfileSystem.actor_rect(enemy.position,size)
+	var destination:=actor_rect(enemy)
 	game.draw_texture_rect_region(texture, destination, source_rect(kind, enemy.get("direction", Vector2.DOWN), frame_index), modulate)
+
+
+## Привязывает целую фигуру хранителя к измеренной опоре стоп, сохраняя прежнюю рамку остальных семейств.
+static func actor_rect(enemy:Dictionary) -> Rect2:
+	var size:=CreatureVisualProfileSystem.enemy_size(int(enemy.get("level",1)))
+	if enemy.kind=="cave_guardian": return Rect2(enemy.position-GUARDIAN_PIVOT*(size.x/256.0),size)
+	return CreatureVisualProfileSystem.actor_rect(enemy.position,size)
+
+
+## Располагает здоровье над целой головой, включая кристальную корону хранителя всех рангов.
+static func health_bar_y(enemy:Dictionary) -> float:
+	return actor_rect(enemy).position.y-8 if enemy.kind=="cave_guardian" else actor_rect(enemy).position.y
+
+
+## Отделяет прежний кристальный эффект от цельного временного тела хранителя, не рисуя вторую фигуру у цели.
+static func action_effect_texture(kind:String) -> Texture2D:
+	return CORE_ACTIONS if kind=="cave_guardian" else action_texture(kind)
+
+
+## Выбирает только ячейку эффекта из старого атласа; цельное тело никогда не используется как удар по земле.
+static func action_effect_source(kind:String,direction:Vector2,frame_index:int) -> Rect2:
+	if kind=="cave_guardian": return Rect2(Vector2((family_index(kind)*ACTION_FRAMES+frame_index)*128,AnimationAssetRegistry.direction_index(direction)*128),TILE_SIZE)
+	return source_rect(kind,direction,frame_index)
 
 
 ## Рисует отделившуюся стрелу, магический заряд или кристальный удар между врагом и целью.
@@ -129,7 +156,7 @@ static func draw_action_effect(game: Node2D, enemy: Dictionary, progress: float)
 	var position := target if kind == "cave_guardian" else start.lerp(target, travel)
 	var size := 86.0 if kind == "cave_guardian" else 58.0
 	var destination := Rect2(position - Vector2(size * 0.5, size * 0.62), Vector2(size, size))
-	game.draw_texture_rect_region(action_texture(kind), destination, source_rect(kind, enemy.get("direction", Vector2.DOWN), frame_index))
+	game.draw_texture_rect_region(action_effect_texture(kind), destination, action_effect_source(kind, enemy.get("direction", Vector2.DOWN), frame_index))
 
 
 ## Рисует полное состояние врага: ходьбу, боевое действие, получение урона или смерть.

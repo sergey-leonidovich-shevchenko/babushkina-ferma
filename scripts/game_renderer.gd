@@ -340,11 +340,11 @@ func draw_enemy_nodes_and_gate() -> void:
 		var position: Vector2 = enemy.position
 		AnimationRenderer.draw_enemy(self, enemy)
 		if not enemy.alive: continue
-		var sprite_size:Vector2=CreatureVisualProfileSystem.enemy_size(int(enemy.level)); var bar_y:=position.y-sprite_size.y*CreatureVisualProfileSystem.GROUND_RATIO
+		var bar_y:float=EnemyAnimationLibrary.health_bar_y(enemy)
 		draw_string(UI_FONT, Vector2(position.x - 65, bar_y - 9), LocaleSystem.ui("enemy_level", [enemy.level]), HORIZONTAL_ALIGNMENT_CENTER, 130, 13, Color("ffd46a"))
 		draw_rect(Rect2(Vector2(position.x - 31, bar_y), Vector2(62, 7)), Color("402d32"))
 		draw_rect(Rect2(Vector2(position.x - 30, bar_y + 1), Vector2(60.0 * enemy.hp / float(enemy.max_hp), 5)), Color("dc554b"))
-		draw_string(UI_FONT, position + Vector2(-65, 55), LocaleSystem.entity(enemy.kind), HORIZONTAL_ALIGNMENT_CENTER, 130, 14, Color("fff0bd"))
+		draw_string(UI_FONT, position + Vector2(-65,20 if enemy.kind=="cave_guardian" else 55), LocaleSystem.entity(enemy.kind), HORIZONTAL_ALIGNMENT_CENTER, 130, 14, Color("fff0bd"))
 
 
 ## Отрисовывает укоренённые растения-угрозы, их уровни и момент дистанционной атаки.
