@@ -1,0 +1,122 @@
+<div id="farm-marker-motion" aria-label="Анимация маркера действия">
+  <div class="viz-row">
+    <button class="btn" type="button" data-play aria-pressed="true">Пауза</button>
+    <span class="text-small" data-size-label>24 px · 6 фаз</span>
+  </div>
+  <div class="viz-carousel" aria-label="Варианты маркера" data-previous-label="Предыдущий" data-next-label="Следующий">
+    <section data-variant="Один знак" aria-label="Один плавно парящий знак">
+      <div class="farm-marker-stage" aria-label="Одиночный маркер над древесиной">
+        <canvas width="392" height="208" data-style="single" role="img" aria-label="Золотой восклицательный знак мягко парит над древесиной, без круглой подложки"></canvas>
+      </div>
+    </section>
+    <section data-variant="Три знака" aria-label="Три знака с последовательным движением" hidden>
+      <div class="farm-marker-stage" aria-label="Связка из трёх маркеров над древесиной">
+        <canvas width="392" height="208" data-style="triple" role="img" aria-label="Три золотых восклицательных знака мягко двигаются с небольшой задержкой, без круглой подложки"></canvas>
+      </div>
+    </section>
+  </div>
+  <script type="application/json" data-assets>__MARKER_PREVIEW_ASSETS__</script>
+</div>
+<style>
+  #farm-marker-motion .farm-marker-stage { margin-top:12px; overflow:hidden; background:#5c7435; }
+  #farm-marker-motion canvas { display:block; width:100%; height:auto; aspect-ratio:392/208; }
+  #farm-marker-motion section[hidden] { display:none; }
+</style>
+<script>
+(() => {
+  const root = document.getElementById('farm-marker-motion');
+  const assets = JSON.parse(root.querySelector('[data-assets]').textContent);
+  const saved = globalThis.openai?.widgetState || {};
+  const shared = saved.modelContent || saved;
+  const personal = saved.privateContent || {};
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const state = {
+    size: Number.isFinite(shared.size) ? Math.max(18,Math.min(32,shared.size)) : 24,
+    cycle: Number.isFinite(shared.cycle) ? Math.max(1.2,Math.min(3,shared.cycle)) : 1.8,
+    playing: typeof personal.playing === 'boolean' ? personal.playing : !reduced.matches
+  };
+  const canvases = Array.from(root.querySelectorAll('canvas'));
+  const button = root.querySelector('[data-play]');
+  const label = root.querySelector('[data-size-label]');
+  const layer=document.createElement('canvas'); layer.width=64; layer.height=64;
+  const layerContext=layer.getContext('2d');
+  let atlas, wood, grass, elapsed = 0, previous = 0, loaded = false;
+  const tau = Math.PI * 2;
+  function remember() {
+    const call = globalThis.openai?.setWidgetState?.({modelContent:{size:state.size,cycle:state.cycle},privateContent:{playing:state.playing}});
+    call?.catch?.(() => {});
+  }
+  function loadImage(data) {
+    return new Promise((resolve,reject) => { const img = new Image(); img.onload = () => resolve(img); img.onerror = reject; img.src = data; });
+  }
+  function settings() {
+    button.textContent = state.playing ? 'Пауза' : 'Продолжить';
+    button.setAttribute('aria-pressed',String(state.playing));
+    label.textContent = `${state.size} px · 6 фаз`;
+    if (loaded) canvases.forEach(drawScene);
+  }
+  function drawSign(ctx,x,bottom,height,delay) {
+    const phase = ((elapsed / (state.cycle*1000) + delay) % 1 + 1) % 1;
+    const exact = phase * assets.frames.length;
+    const index = Math.floor(exact);
+    const fraction = exact - index;
+    const blend = fraction*fraction*(3-2*fraction);
+    const offset = Math.sin(phase*tau)*assets.floatPixels;
+    const factor = height/assets.sourceHeight;
+    layerContext.clearRect(0,0,64,64);
+    layerContext.globalCompositeOperation='lighter';
+    for (const [frameIndex,alpha] of [[index,1-blend],[(index+1)%assets.frames.length,blend]]) {
+      if (alpha===0) continue;
+      const frame = assets.frames[frameIndex];
+      const [sx,sy,sw,sh] = frame.rect;
+      layerContext.globalAlpha = alpha;
+      layerContext.drawImage(atlas,sx,sy,sw,sh,32-frame.anchor[0]*factor,50-frame.anchor[1]*factor+offset,sw*factor,sh*factor);
+    }
+    layerContext.globalAlpha=1;
+    ctx.drawImage(layer,x-32,bottom-50);
+  }
+  function drawScene(canvas) {
+    const ctx=canvas.getContext('2d');
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.imageSmoothingEnabled=true;
+    const pattern=ctx.createPattern(grass,'repeat');
+    ctx.fillStyle=pattern; ctx.fillRect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle='rgba(27,32,13,0.18)'; ctx.beginPath(); ctx.ellipse(196,161,35,8,0,0,tau); ctx.fill();
+    ctx.drawImage(wood,148,91,96,96);
+    if (canvas.dataset.style==='single') drawSign(ctx,196,82,state.size,0);
+    else {
+      drawSign(ctx,184,86,state.size*2/3,-0.09);
+      drawSign(ctx,196,80,state.size,0);
+      drawSign(ctx,208,86,state.size*2/3,0.09);
+    }
+  }
+  function animate(now) {
+    if (!root.isConnected) return;
+    if (state.playing && previous) elapsed += Math.min(now-previous,80);
+    previous=now;
+    if (loaded) canvases.forEach(canvas => { if (!canvas.closest('section').hidden) drawScene(canvas); });
+    requestAnimationFrame(animate);
+  }
+  button.addEventListener('click',() => { state.playing=!state.playing; settings(); remember(); });
+  reduced.addEventListener('change',event => { if(event.matches) { state.playing=false; settings(); } });
+  window.addEventListener('openai:set_globals',event => {
+    const snapshot=event.detail?.globals?.widgetState;
+    if(!snapshot) return;
+    const model=snapshot.modelContent || snapshot;
+    if(Number.isFinite(model.size)) state.size=Math.max(18,Math.min(32,model.size));
+    if(Number.isFinite(model.cycle)) state.cycle=Math.max(1.2,Math.min(3,model.cycle));
+    if(typeof snapshot.privateContent?.playing==='boolean') state.playing=snapshot.privateContent.playing;
+    settings();
+  });
+  settings();
+  if(globalThis.Tweak) {
+    const tweak=new Tweak({container:root,onChange:() => {settings();remember();}});
+    tweak.addSlider(state,'size',{label:'Высота маркера',min:18,max:32,step:1,unit:'px'});
+    tweak.addSlider(state,'cycle',{label:'Цикл движения',min:1.2,max:3,step:0.1,unit:'s'});
+  }
+  Promise.all([loadImage(assets.atlas),loadImage(assets.wood),loadImage(assets.grass)]).then(images => {
+    [atlas,wood,grass]=images; loaded=true; root.dataset.ready='true'; settings();
+  }).catch(() => { root.dataset.ready='error'; label.textContent='Не удалось загрузить рисунок'; });
+  requestAnimationFrame(animate);
+})();
+</script>

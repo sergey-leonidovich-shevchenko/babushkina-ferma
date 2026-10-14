@@ -1,0 +1,101 @@
+{
+  "generator": "built-in image_gen",
+  "source": "exclamation-six-frames.png",
+  "size": [
+    1254,
+    1254
+  ],
+  "sha256": "b9fc494fc8300a62785d23297286fced4724724972f8ae04efb1f58c731e1cc4",
+  "alpha_range": [
+    0,
+    255
+  ],
+  "frames": [
+    {
+      "rect": [
+        142,
+        100,
+        142,
+        451
+      ],
+      "anchor": [
+        68.5,
+        446
+      ]
+    },
+    {
+      "rect": [
+        554,
+        87,
+        144,
+        464
+      ],
+      "anchor": [
+        70.5,
+        459
+      ]
+    },
+    {
+      "rect": [
+        970,
+        83,
+        143,
+        468
+      ],
+      "anchor": [
+        69.0,
+        463
+      ]
+    },
+    {
+      "rect": [
+        140,
+        708,
+        144,
+        448
+      ],
+      "anchor": [
+        70.0,
+        443
+      ]
+    },
+    {
+      "rect": [
+        552,
+        722,
+        147,
+        434
+      ],
+      "anchor": [
+        72.5,
+        429
+      ]
+    },
+    {
+      "rect": [
+        970,
+        709,
+        143,
+        447
+      ],
+      "anchor": [
+        69.0,
+        442
+      ]
+    }
+  ],
+  "duration_seconds": 1.8,
+  "native_height": 24,
+  "float_pixels": 2,
+  "variants": {
+    "single": {
+      "signs": 1
+    },
+    "triple": {
+      "signs": 3,
+      "side_height": 16
+    }
+  },
+  "status": "concept_pending_user_selection",
+  "runtime_changed": false
+}
