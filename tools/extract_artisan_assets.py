@@ -80,6 +80,9 @@ def main():
         for tier in range(4):
             row = []
             for index,direction in enumerate(directions):
+                if direction == 'north':
+                    row.append(row[0])
+                    continue
                 name = f'{kind}_{tier+1}_{direction}'
                 resource(name,atlas,measured[tier*4+index]); row.append(f'preload("res://assets/game/artisan/{name}.tres")')
             sprites[kind].append('['+','.join(row)+']')
@@ -96,7 +99,7 @@ def main():
     text += ''.join('\t"'+kind+'":['+','.join(rows)+'],\n' for kind,rows in sprites.items())+'}\n'
     text += 'const ITEMS := {\n'+''.join('\t"'+kind+'":'+value+',\n' for kind,value in icons.items())+'}\n'
     (ROOT/'scripts/presentation/artisan_visual_system.gd').write_text(text)
-    print('128 station regions + 41 item regions; source pixels unchanged')
+    print('96 station resources + 41 item regions; legacy north index aliases south; source pixels unchanged')
 
 
 if __name__ == '__main__':

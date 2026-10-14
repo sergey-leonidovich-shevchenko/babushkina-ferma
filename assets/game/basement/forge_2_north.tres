@@ -1,8 +1,0 @@
-[gd_resource type="AtlasTexture" load_steps=2 format=3]
-
-[ext_resource type="Texture2D" path="res://assets/game/basement/forge_atlas_a.png" id="1"]
-
-[resource]
-atlas = ExtResource("1")
-region = Rect2(796, 310, 240, 193)
-filter_clip = true

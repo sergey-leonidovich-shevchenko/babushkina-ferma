@@ -1,0 +1,855 @@
+{
+  "schema": 1,
+  "base_revision": "dd01a10cf4337606286a3d9cb5e414c0b108bbe4",
+  "removed": [
+    {
+      "path": "assets/game/artisan/candlebench_1_north.tres",
+      "bytes": 243,
+      "sha256": "a2bdfd4a65aba8d389fd132aa87d6d553bde7c0e5a9a2b415a51f2af535bad0c",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/artisan/candlebench_2_north.tres",
+      "bytes": 244,
+      "sha256": "041f7b781de8f4404aef9cc6efa03f2a42c78dc48b4bed4d3d6d57c9b946e961",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/artisan/candlebench_3_north.tres",
+      "bytes": 244,
+      "sha256": "a484c7ddfef2c001f1a245c7ad8664deab71604a4e5cb9fce98c240e9955e491",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/artisan/candlebench_4_north.tres",
+      "bytes": 244,
+      "sha256": "64ef5af33c3e52d1bc521463a61c26cf47df3743f5f9bc4ecf4ab978e3a56c9e",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/artisan/fermenter_1_north.tres",
+      "bytes": 241,
+      "sha256": "72ebd24b8ee282598f65a4b6850f7bca3a86dd169524ade4172aea6e9bde00e6",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/artisan/fermenter_2_north.tres",
+      "bytes": 242,
+      "sha256": "cb3e0d027999a588150df25e57b06f43fab005b0b024a4d8f39634bdd6246714",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/artisan/fermenter_3_north.tres",
+      "bytes": 242,
+      "sha256": "999ba895d0e3dca666ed67797da4d53e2ff7af28df4cbc1d5a615a20eb080474",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/artisan/fermenter_4_north.tres",
+      "bytes": 242,
+      "sha256": "472a320884a2fa60433420e81fc1c68f3d7e81dae34a6258ec5c06d9a5b58f0e",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/artisan/fruit_press_1_north.tres",
+      "bytes": 243,
+      "sha256": "5aa1669f00a2136df8139c76bc30b9c37b1d8135565642d021ed59f660cd838e",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/artisan/fruit_press_2_north.tres",
+      "bytes": 244,
+      "sha256": "75803da8de7c49be4381376f9cd30464efb7eea333c609cddf3293ad4470dbb3",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/artisan/fruit_press_3_north.tres",
+      "bytes": 244,
+      "sha256": "9e5a66ffabb4788a63255b590a8b68b48f8162e537982d5b48cba81eb4a2ccd8",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/artisan/fruit_press_4_north.tres",
+      "bytes": 244,
+      "sha256": "413dd6951518bc8675260563c5bbf55b583cd0fd2e824f55c7d0db45b29ea7bf",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/artisan/gardenbench_1_north.tres",
+      "bytes": 244,
+      "sha256": "6e9661d35d393706c561ce68f67b53b1d502487e19c2451a30c36e9a346c7ff0",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/artisan/gardenbench_2_north.tres",
+      "bytes": 244,
+      "sha256": "22f2b6d96db95eaa35dc3423a38cc4ca96bcf8644f4455cdcc81f9ca658613dc",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/artisan/gardenbench_3_north.tres",
+      "bytes": 244,
+      "sha256": "31575b51b2a4e6168c77b70f0f26373e869461dd7c0b2731b360a27a6fee3b81",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/artisan/gardenbench_4_north.tres",
+      "bytes": 244,
+      "sha256": "68beca16ad7e778e24a356776096e2fc130f45744b600b3dfb8de7b0a43f57ae",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/artisan/loom_1_north.tres",
+      "bytes": 236,
+      "sha256": "35f8644a5a527ee421097ba5c3a5cfbc405570ae189a4056d5260ff8241c93b3",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/artisan/loom_2_north.tres",
+      "bytes": 237,
+      "sha256": "583450cf5aafbe9ac21817e8921173a42e5a3cb5cdcae92c5c540ff1653532b9",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/artisan/loom_3_north.tres",
+      "bytes": 237,
+      "sha256": "855d0d2239506ce094298f077b27226197d1c2e6d7e4158bc4a3b1dd417eeb59",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/artisan/loom_4_north.tres",
+      "bytes": 237,
+      "sha256": "b95b22a4f88323cc7d800eeb93746ee69eecb7498d599e3026ad0f06389fc5eb",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/artisan/preserver_1_north.tres",
+      "bytes": 241,
+      "sha256": "96ebe08ab4174355b0755cc23f120f41a9c8113d21c7c5e9c28f3037352a3de3",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/artisan/preserver_2_north.tres",
+      "bytes": 242,
+      "sha256": "e583dbbc934c3b0310ee9ba40a905d1d8227150252a835cbd709d5783d8eb7e5",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/artisan/preserver_3_north.tres",
+      "bytes": 242,
+      "sha256": "25e34193a468914ccbad59c77bf2a690193dff4fa492f139b6063d423328dd93",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/artisan/preserver_4_north.tres",
+      "bytes": 242,
+      "sha256": "6b2596ced567a2426af58e2910fd06cbdc69a8ac45f1ba81ac132f9b7f2486cd",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/artisan/smoker_1_north.tres",
+      "bytes": 238,
+      "sha256": "d0b2cf07918b878778ee5c3983c2779d36b6e988f3973f0b1fc5055171a74509",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/artisan/smoker_2_north.tres",
+      "bytes": 239,
+      "sha256": "0eba0e6eeb5c6ce9a5690939b38dba8c039f0539e4ddbd4bdbb370857eee6cc6",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/artisan/smoker_3_north.tres",
+      "bytes": 239,
+      "sha256": "b78d0ed38fc916ffc4f5f6eea291299b0a980aedad6eff6b285eaf9ebf61f68b",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/artisan/smoker_4_north.tres",
+      "bytes": 240,
+      "sha256": "47220e9abd8609b188d6321d04f6f6707b850f7d33efee28ffce08db13399eb5",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/artisan/tannery_1_north.tres",
+      "bytes": 239,
+      "sha256": "8e56ec70c50dfc27ceee47f386f91e936caf3162dc6800d091e28e431bf4860e",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/artisan/tannery_2_north.tres",
+      "bytes": 240,
+      "sha256": "e06e138944696fefdd387a9d90b65e5303bb9ebd9a2d1a15b2a70bae8f234f6e",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/artisan/tannery_3_north.tres",
+      "bytes": 240,
+      "sha256": "5b156b9638d356ce29d4b719ac7adba96dfde7de9a4cd6ad19d8ba64ab1af66c",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/artisan/tannery_4_north.tres",
+      "bytes": 241,
+      "sha256": "dfea7044ac609fd92bc1bd482960cf0c9c01d4c2ae2e5b9c2fda35fbf9abfad1",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/basement/alchemy_1_north.tres",
+      "bytes": 240,
+      "sha256": "d34f8b892acd0b7c6c57e0ab483d80fb54b08e947a88efb4431c536f7ac1bb66",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/basement/alchemy_2_north.tres",
+      "bytes": 241,
+      "sha256": "83bc8efc4bfc92373c5be5812f2fe3fef71146c427664544e4c0f28918e9b881",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/basement/alchemy_3_north.tres",
+      "bytes": 241,
+      "sha256": "c151a69e45d326626e739c96d029e748a7dab435f6dc885709d1259f6c95ba02",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/basement/alchemy_4_north.tres",
+      "bytes": 241,
+      "sha256": "0ffba7c563210d56c537104a26124d8c52d772269a4a30a24c46a1fcbb081c49",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/basement/cauldron_1_north.tres",
+      "bytes": 241,
+      "sha256": "0f90cfeb66f034b7ed3891f1026b1c2271c045a7fceaa553853b67ce2d4dd6c3",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/basement/cauldron_2_north.tres",
+      "bytes": 242,
+      "sha256": "ebd1de730da527ebf04bad433ec2f6905a45b7441d807e334d655dd2130adb4d",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/basement/cauldron_3_north.tres",
+      "bytes": 242,
+      "sha256": "d09a7ac2de6525bea95bac7cf6454b84b00b4b0cbd6a6ed14f39fbc7185d128b",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/basement/cauldron_4_north.tres",
+      "bytes": 242,
+      "sha256": "8185c0ad4c6a999208d724e5be6c70534627b1245c279d6ea4acbd6eb97999f0",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/basement/forge_1_north.tres",
+      "bytes": 238,
+      "sha256": "f7b3cb1b1b7a4ca507ebe59e1056fac93442d1a80246eae9b56fbdcdd739487e",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/basement/forge_2_north.tres",
+      "bytes": 239,
+      "sha256": "72a9f3010975ff81c91989cdf2612802613a7712b1454b4f10cde137e078997b",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/basement/forge_3_north.tres",
+      "bytes": 239,
+      "sha256": "68d9f291a812d4da118455660332ce45d1e4cdad7bbabf08d82088f0b5af287b",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/basement/forge_4_north.tres",
+      "bytes": 239,
+      "sha256": "c66f09acdbf4a37122bee5945b63efd56b8e750962ff469bbff65804017c809c",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/basement/furnace_1_north.tres",
+      "bytes": 240,
+      "sha256": "a13cbed5470cefa41751b335158f1b597fcca548d96ea9a95c2434790f309459",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/basement/furnace_2_north.tres",
+      "bytes": 241,
+      "sha256": "0a79adf2c672dc7f0e8091bf7d7b9f1448dbbb75a78167339e57d18594280958",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/basement/furnace_3_north.tres",
+      "bytes": 241,
+      "sha256": "0c0e99333873333b8c21c2ae83be40ea3977f9ee124752531e43ffc3f5426efa",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/basement/furnace_4_north.tres",
+      "bytes": 241,
+      "sha256": "ddcfb656bf0f353aef498344c8d3c022c247a37f9346d499d7e679f3de96975e",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/basement/glassblowing_1_north.tres",
+      "bytes": 245,
+      "sha256": "812065f01c1ce1ce36d6c6e893202f486ff636649b21d4d73596deeb3af0f7ad",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/basement/glassblowing_2_north.tres",
+      "bytes": 246,
+      "sha256": "26c1e43eb647cae798208a1e2f3a3462f08b1ed11ca838bebc98afbad9c62642",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/basement/glassblowing_3_north.tres",
+      "bytes": 246,
+      "sha256": "e227f827b2e5bda667ba5656e35256dde4bf83348673f1e8206790a9fa9947dc",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/basement/glassblowing_4_north.tres",
+      "bytes": 246,
+      "sha256": "d8f7596e3eebf6c6cf182f594ac70fbe64675f99ae63ba4492fdc22ff5b23f1d",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/basement/pottery_1_north.tres",
+      "bytes": 240,
+      "sha256": "0e97c2841a27a8489bf20f4726a34b658af7f7e6b80c444b2263e5caee81370d",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/basement/pottery_2_north.tres",
+      "bytes": 241,
+      "sha256": "e37b5e6558fb90faba88809a2e1ba83a3d9ed6a08f6bfb21ba471d4defcc4ac3",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/basement/pottery_3_north.tres",
+      "bytes": 241,
+      "sha256": "5aba4b015a611e87088098df1c42e7373ad622f7814a43a742d22319171c7901",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/basement/pottery_4_north.tres",
+      "bytes": 241,
+      "sha256": "e111f3a9be9ad2b229e6bc5b6b0d6368795b3f5cb37711adb4e8ec45288d4e58",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/basement/recycling_1_north.tres",
+      "bytes": 242,
+      "sha256": "50f0301c7a260169cd6cfb937465ec75352dc477ffc5d9bad89dfa8c83f9d012",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/basement/recycling_2_north.tres",
+      "bytes": 243,
+      "sha256": "3090a9c783e89b6f4b6f4b81156285a53faba817dea08bc9737b8481050f29c2",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/basement/recycling_3_north.tres",
+      "bytes": 243,
+      "sha256": "a5e9e1de00815c38e9f3bdfc57e4d8c79515ebdf04ae9184cccd56c4e22b3b9e",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/basement/recycling_4_north.tres",
+      "bytes": 243,
+      "sha256": "216f9df61fcd0a1a188a5d0b5574b4b5dccd431b8e6a2cbacb66cc0c29383e8b",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/basement/sawmill_1_north.tres",
+      "bytes": 240,
+      "sha256": "970fcddc181f027d15e37a50f8217833156bdb2b3317598e831909980f1fe4d1",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/basement/sawmill_2_north.tres",
+      "bytes": 241,
+      "sha256": "d199e9189b892a49a39b3dcf431522db38a55b1cee5cf36ecad0a1829b7d166b",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/basement/sawmill_3_north.tres",
+      "bytes": 241,
+      "sha256": "596efd3a6ecc7640355bb0b94fa5947868e3372e35750769a83fa1498b2c0ff8",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/basement/sawmill_4_north.tres",
+      "bytes": 241,
+      "sha256": "fe1fb8e784083434dda53a88c10b4cf5481ffeb4ae3945e462b21f5b7a662ae6",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/basement/study_1_north.tres",
+      "bytes": 238,
+      "sha256": "0f863290aacf1fded073071ca01c771c764cfbeb62bfe80515630e613c8ff694",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/basement/study_2_north.tres",
+      "bytes": 239,
+      "sha256": "17c90ab8b5d2a96cb0d308bd3a0a4fd81bb3e1ae74e0bc28703875803382919c",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/basement/study_3_north.tres",
+      "bytes": 239,
+      "sha256": "1406d76ab1b91012a20af6e83605efe654dd3a8820cf3db836087e55e8db81c6",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/basement/study_4_north.tres",
+      "bytes": 239,
+      "sha256": "1961011cc1ef20491fc16d8e8afffe4e28ba73b6c1cea0a4191fa1ac97119362",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/basement/workbench_1_north.tres",
+      "bytes": 242,
+      "sha256": "d622b6eb1b5c64b80cebed7a44815641032cd7d5f0eb8806e432b5c7702d3710",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/basement/workbench_2_north.tres",
+      "bytes": 243,
+      "sha256": "9b652291bb8fa7f641678102d5c0d1de4b8567c4570692625ab3f1da2ab050e3",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/basement/workbench_3_north.tres",
+      "bytes": 243,
+      "sha256": "7ce411027d02ec165a26c507d0ee326ba98890ef0cc4e73cc2096f60f37f006b",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/basement/workbench_4_north.tres",
+      "bytes": 243,
+      "sha256": "48a614fffb8eae8867303b1bf52439393958e24468c046f68fd8ae1f5b573f6c",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/environment/orchard/fruit_icons_atlas.png",
+      "bytes": 924895,
+      "sha256": "c4ec93c9a4fd5de8387ae499c546a0ff31dd9ef3ca94752ed4537b4759ad64ac",
+      "reason": "unused_superseded_image",
+      "import_sidecar": {
+        "path": "assets/game/environment/orchard/fruit_icons_atlas.png.import",
+        "bytes": 987,
+        "sha256": "22bfaaf5a9a692150bfac1edda35201a62688c3a917d06a03e1fa6b723780a9d",
+        "tracked": true
+      }
+    },
+    {
+      "path": "assets/game/farming/crops/crop_catalog_preview.png",
+      "bytes": 719768,
+      "sha256": "22a3d6ffd47a39a393e038af997f888077dcd481d547d86cf45830b875a826f0",
+      "reason": "unlinked_review_output",
+      "import_sidecar": {
+        "path": "assets/game/farming/crops/crop_catalog_preview.png.import",
+        "bytes": 990,
+        "sha256": "7945b64fec12674462eefb92957fa5c56ae4df4412fd3bd6a983006b0057f634",
+        "tracked": true
+      }
+    },
+    {
+      "path": "assets/game/items/seeds/seed_bags_atlas.png",
+      "bytes": 2202466,
+      "sha256": "38308425302a6040c41ab434d56a4cbe7b5b3fc31bcada0be67ebc488d45e9cc",
+      "reason": "unused_superseded_image",
+      "import_sidecar": {
+        "path": "assets/game/items/seeds/seed_bags_atlas.png.import",
+        "bytes": 973,
+        "sha256": "fea73f49e1984984e1c0e28fefe2c4e8fe7eecc53f136d820b8e1e0def2d7168",
+        "tracked": true
+      }
+    },
+    {
+      "path": "assets/game/kitchen/kitchen_1_north.tres",
+      "bytes": 238,
+      "sha256": "b4017dbd44cae0883d79eb659be8da0f999dd537bbaebf17fbfca91c18bc4b6d",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/kitchen/kitchen_2_north.tres",
+      "bytes": 240,
+      "sha256": "9bbe6aa56c4d9a06d458aeb05a300d23736a683ec925e3301ea63f9f1f97eba4",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/kitchen/kitchen_3_north.tres",
+      "bytes": 240,
+      "sha256": "b540979cde84558cc25a45c8ddf1cae4004e0896ab4b5a68034c228d9d53eb1d",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/kitchen/kitchen_pile_north.tres",
+      "bytes": 241,
+      "sha256": "9a665c10f6cc99589dc7a68b4a155d3369f714168c56c10f3dd4fddd690f416a",
+      "reason": "unused_back_view_slice",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/ui/hud/hud_clock_frame.tres",
+      "bytes": 225,
+      "sha256": "99ffad2af4cf165aca2d22a810db51b97301350f98ee476f5506a635ec66885a",
+      "reason": "old_hud_alias",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/ui/hud/hud_location_frame.tres",
+      "bytes": 226,
+      "sha256": "9764985612a8f3f20ebe2809d536825d4c174ad1214a4d94e22c1a1dc9bda787",
+      "reason": "old_hud_alias",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/ui/hud/hud_portrait_frame.tres",
+      "bytes": 224,
+      "sha256": "a3983493d0ecd324ac7815faa158df7f5370ad25eed389d5f38e28c901b745a7",
+      "reason": "old_hud_alias",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/ui/hud/hud_quest_button.tres",
+      "bytes": 226,
+      "sha256": "45834ef0fb6f154510c251eec6b6a7158c94d94615253d18c1b3e4c6adbff9e3",
+      "reason": "old_hud_alias",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/ui/hud/hud_skill_button.tres",
+      "bytes": 226,
+      "sha256": "1a6ef29825e94508d604eceecd23d716617a00b06de844e61ccca0d08a675e7d",
+      "reason": "old_hud_alias",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/game/ui/hud/hud_status_frame.tres",
+      "bytes": 225,
+      "sha256": "31c6fa29f8ac4d636dcf9259d8557f085a08ae0c2dc96fdd68d5be4c5d062f49",
+      "reason": "old_hud_alias",
+      "import_sidecar": null
+    },
+    {
+      "path": "assets/generated/level_drafts/wildlife_four_directions_0.png",
+      "bytes": 136720,
+      "sha256": "2f714954df114f5257a5a0888002fc489a472a09327642ba5b12b2a2b843f85f",
+      "reason": "unlinked_review_output",
+      "import_sidecar": {
+        "path": "assets/generated/level_drafts/wildlife_four_directions_0.png.import",
+        "bytes": 1012,
+        "sha256": "44296f6b9b76593ba80f29c34f2c6861954760e28e5df1d34483656ac0e936e4",
+        "tracked": false
+      }
+    },
+    {
+      "path": "assets/generated/level_drafts/wildlife_four_directions_1.png",
+      "bytes": 135073,
+      "sha256": "2205da5c081970188a5759646630b02ef3f71af8d38240b90830730082cbfb2a",
+      "reason": "unlinked_review_output",
+      "import_sidecar": {
+        "path": "assets/generated/level_drafts/wildlife_four_directions_1.png.import",
+        "bytes": 1012,
+        "sha256": "b71e66b3dba10cc0a9fe7d0cad8298a6628fcb68f57173588b800c09d7ae72c6",
+        "tracked": false
+      }
+    },
+    {
+      "path": "assets/generated/level_drafts/wildlife_four_directions_2.png",
+      "bytes": 130764,
+      "sha256": "4e365a6972e42ebfe6b95e7448b9e44c6629dba85fa0a217301093bf1a1e5c4f",
+      "reason": "unlinked_review_output",
+      "import_sidecar": {
+        "path": "assets/generated/level_drafts/wildlife_four_directions_2.png.import",
+        "bytes": 1012,
+        "sha256": "b55d534a5acee38137364f0ab75c3eec3c5cc7e7fec6e2b7e77cc005516553b4",
+        "tracked": false
+      }
+    },
+    {
+      "path": "assets/generated/level_drafts/wildlife_four_directions_3.png",
+      "bytes": 135478,
+      "sha256": "e7c9142bd2ffa585a9d53224ab2f912cae60aee193ced6ed54d1eaad394d1a7f",
+      "reason": "unlinked_review_output",
+      "import_sidecar": {
+        "path": "assets/generated/level_drafts/wildlife_four_directions_3.png.import",
+        "bytes": 1010,
+        "sha256": "ed09ef0b9e5730df872e1e077aa5217c819e2a8fe7f7c8080977624a5c1601b1",
+        "tracked": false
+      }
+    },
+    {
+      "path": "assets/title_art.png",
+      "bytes": 1951632,
+      "sha256": "6bf90f8504fddda64109f01e04e64e88e5272e1fd7f1cccd68d20fe1b045c575",
+      "reason": "unused_superseded_image",
+      "import_sidecar": {
+        "path": "assets/title_art.png.import",
+        "bytes": 938,
+        "sha256": "0c6e890b99e20769bdb793054a7c4b67e485cd1bafdbfe8074af5f1ef6063691",
+        "tracked": true
+      }
+    }
+  ],
+  "reserved_legacy_png": [
+    {
+      "path": "assets/game/interiors/furniture_a/bed_north.png",
+      "reason": "Legacy custom editor documents store literal PNG paths; retain until explicit path migration."
+    },
+    {
+      "path": "assets/game/interiors/furniture_a/home_chest_north.png",
+      "reason": "Legacy custom editor documents store literal PNG paths; retain until explicit path migration."
+    },
+    {
+      "path": "assets/game/interiors/furniture_a/pottery_1_north.png",
+      "reason": "Legacy custom editor documents store literal PNG paths; retain until explicit path migration."
+    },
+    {
+      "path": "assets/game/interiors/furniture_a/pottery_2_north.png",
+      "reason": "Legacy custom editor documents store literal PNG paths; retain until explicit path migration."
+    },
+    {
+      "path": "assets/game/interiors/furniture_a/pottery_3_north.png",
+      "reason": "Legacy custom editor documents store literal PNG paths; retain until explicit path migration."
+    },
+    {
+      "path": "assets/game/interiors/furniture_a/shop_north.png",
+      "reason": "Legacy custom editor documents store literal PNG paths; retain until explicit path migration."
+    },
+    {
+      "path": "assets/game/interiors/furniture_a/wooden_chair_north.png",
+      "reason": "Legacy custom editor documents store literal PNG paths; retain until explicit path migration."
+    },
+    {
+      "path": "assets/game/interiors/furniture_a/wooden_wardrobe_north.png",
+      "reason": "Legacy custom editor documents store literal PNG paths; retain until explicit path migration."
+    },
+    {
+      "path": "assets/game/interiors/furniture_a/woven_rug_north.png",
+      "reason": "Legacy custom editor documents store literal PNG paths; retain until explicit path migration."
+    }
+  ],
+  "counts": {
+    "resources": 90,
+    "png": 8,
+    "tres": 82,
+    "bytes": 6356484,
+    "import_sidecars": 8
+  },
+  "reserved_test_previews": [
+    {
+      "path": "assets/generated/level_drafts/building_collision_ingame_preview.png",
+      "bytes": 276401,
+      "sha256": "2fd3dcfd65bd3f6f67d0f0e634296137d935c97689476fb47ff98119dc99639c",
+      "reason": "Эталон визуальной регрессии: путь собирается через %s в buildings_suite.gd либо visual_assets_suite.gd; сохранён после полного прогона.",
+      "import_sidecar": {
+        "path": "assets/generated/level_drafts/building_collision_ingame_preview.png.import",
+        "bytes": 1032,
+        "sha256": "88ad75105d6331bf734fd946d33ffbc4118cbee0953d328d1a509577e8ac16de",
+        "tracked": false
+      }
+    },
+    {
+      "path": "assets/generated/level_drafts/building_cursed_ingame_preview.png",
+      "bytes": 264196,
+      "sha256": "3ed9dd84ef1917f1fe0e5ca7dc58eb3ed49a92e299ed2db069960497b5079fb2",
+      "reason": "Эталон визуальной регрессии: путь собирается через %s в buildings_suite.gd либо visual_assets_suite.gd; сохранён после полного прогона.",
+      "import_sidecar": {
+        "path": "assets/generated/level_drafts/building_cursed_ingame_preview.png.import",
+        "bytes": 1024,
+        "sha256": "5ff909b97dde904749cb29ebf0f684d92128db4eec1f853c0c7cc8c340040384",
+        "tracked": false
+      }
+    },
+    {
+      "path": "assets/generated/level_drafts/building_forest_ingame_preview.png",
+      "bytes": 448365,
+      "sha256": "6b9b7ced546a34264e507a7a20b0adb1df39c928f4b496db73719ab2dac50d6a",
+      "reason": "Эталон визуальной регрессии: путь собирается через %s в buildings_suite.gd либо visual_assets_suite.gd; сохранён после полного прогона.",
+      "import_sidecar": {
+        "path": "assets/generated/level_drafts/building_forest_ingame_preview.png.import",
+        "bytes": 1024,
+        "sha256": "ea0a8d598b2323f3f7015f1b0dfee9e60e95774040996e680231f1e7bd8fcd91",
+        "tracked": false
+      }
+    },
+    {
+      "path": "assets/generated/level_drafts/building_rocky_ingame_preview.png",
+      "bytes": 294436,
+      "sha256": "d21ae4489d715f58041ba65847b4022507b3bce6d5ccf8375b5c1cbf5ad2994c",
+      "reason": "Эталон визуальной регрессии: путь собирается через %s в buildings_suite.gd либо visual_assets_suite.gd; сохранён после полного прогона.",
+      "import_sidecar": {
+        "path": "assets/generated/level_drafts/building_rocky_ingame_preview.png.import",
+        "bytes": 1021,
+        "sha256": "b2e1439fdffaf3a7045ac6c98dd5c461c6023a3ffb05e763d553ea92eed2cf2c",
+        "tracked": false
+      }
+    },
+    {
+      "path": "assets/generated/level_drafts/building_ruins_ingame_preview.png",
+      "bytes": 342455,
+      "sha256": "8509444fe649c8b5cbb05a76eb6b084b23f118ee35e1b62bd25d2e45f7e36ac5",
+      "reason": "Эталон визуальной регрессии: путь собирается через %s в buildings_suite.gd либо visual_assets_suite.gd; сохранён после полного прогона.",
+      "import_sidecar": {
+        "path": "assets/generated/level_drafts/building_ruins_ingame_preview.png.import",
+        "bytes": 1020,
+        "sha256": "80bc522bf6ba867ec639bed1ef20319bd26e54e0e79cb641fd5bb32274edcad4",
+        "tracked": false
+      }
+    },
+    {
+      "path": "assets/generated/level_drafts/environment_debug_ingame_preview.png",
+      "bytes": 225535,
+      "sha256": "e56adfd1422eef0fd9e46e66dc3962ac5b667451a0d33afe94eca8343974d706",
+      "reason": "Эталон визуальной регрессии: путь собирается через %s в buildings_suite.gd либо visual_assets_suite.gd; сохранён после полного прогона.",
+      "import_sidecar": {
+        "path": "assets/generated/level_drafts/environment_debug_ingame_preview.png.import",
+        "bytes": 1030,
+        "sha256": "45acba89d6dd24c583a034cd6bf73e2732a49a34c1d444db9112a9aea9e86582",
+        "tracked": false
+      }
+    },
+    {
+      "path": "assets/generated/level_drafts/environment_moon_ingame_preview.png",
+      "bytes": 376206,
+      "sha256": "f0a0f6d26bc6e33dc92ccd26a7d4ee4a65aff2b08b3e37e2dab42e79e3bf9395",
+      "reason": "Эталон визуальной регрессии: путь собирается через %s в buildings_suite.gd либо visual_assets_suite.gd; сохранён после полного прогона.",
+      "import_sidecar": {
+        "path": "assets/generated/level_drafts/environment_moon_ingame_preview.png.import",
+        "bytes": 1027,
+        "sha256": "f2367bcd3af8683b589a0c390a30885d86a1a59f40ae8e9da324dbd5cbcc8017",
+        "tracked": false
+      }
+    },
+    {
+      "path": "assets/generated/level_drafts/environment_season_ingame_preview.png",
+      "bytes": 1081073,
+      "sha256": "9bdbbdacbb07ff6796157479bddafd3e036e5cfae6d8b0f53f3d65446a2843e0",
+      "reason": "Эталон визуальной регрессии: путь собирается через %s в buildings_suite.gd либо visual_assets_suite.gd; сохранён после полного прогона.",
+      "import_sidecar": {
+        "path": "assets/generated/level_drafts/environment_season_ingame_preview.png.import",
+        "bytes": 1032,
+        "sha256": "edcb43582934896d96957681c559850af540821e26f270067eb61cfd6f617082",
+        "tracked": false
+      }
+    },
+    {
+      "path": "assets/generated/level_drafts/interior_forge_interior_ingame_preview.png",
+      "bytes": 51660,
+      "sha256": "d8d77d3022429ee28262787621be181c381042f007319f43d614e20765867369",
+      "reason": "Эталон визуальной регрессии: путь собирается через %s в buildings_suite.gd либо visual_assets_suite.gd; сохранён после полного прогона.",
+      "import_sidecar": {
+        "path": "assets/generated/level_drafts/interior_forge_interior_ingame_preview.png.import",
+        "bytes": 1048,
+        "sha256": "ac979a4fcea483e28548f79150da78fe2fa3883a934aad7d27acbb516a745168",
+        "tracked": false
+      }
+    },
+    {
+      "path": "assets/generated/level_drafts/interior_guild_interior_ingame_preview.png",
+      "bytes": 66070,
+      "sha256": "a53f716ad4c47c371750dfe6829f0bb65ed9fbb642cc37ecadd3371bb93ad504",
+      "reason": "Эталон визуальной регрессии: путь собирается через %s в buildings_suite.gd либо visual_assets_suite.gd; сохранён после полного прогона.",
+      "import_sidecar": {
+        "path": "assets/generated/level_drafts/interior_guild_interior_ingame_preview.png.import",
+        "bytes": 1048,
+        "sha256": "b608c9f488b6569727f3393e4036e51a073e409e399e2fad4704b6616e307fc5",
+        "tracked": false
+      }
+    },
+    {
+      "path": "assets/generated/level_drafts/interior_shop_interior_ingame_preview.png",
+      "bytes": 310622,
+      "sha256": "5c99ea017985ff290bbe41e6a3996af588662ad9b7a84ca609e96e7dfb59c64b",
+      "reason": "Эталон визуальной регрессии: путь собирается через %s в buildings_suite.gd либо visual_assets_suite.gd; сохранён после полного прогона.",
+      "import_sidecar": {
+        "path": "assets/generated/level_drafts/interior_shop_interior_ingame_preview.png.import",
+        "bytes": 1045,
+        "sha256": "544bef0b6441e41c840dcb2e771b00515af6c97fd61296bfad82beeaff3f0861",
+        "tracked": false
+      }
+    }
+  ]
+}
