@@ -47,5 +47,7 @@ python3 tools/test_optimization_audit.py
 python3 tools/test_storage_perf.py
 python3 tools/test_sprite_cleanup.py
 python3 tools/check_sprite_cleanup.py
+python3 tools/project_backlog.py
+python3 tools/test_project_backlog.py
 git diff --check
 print -- "ARCHITECTURE: boundaries and whitespace are valid"
