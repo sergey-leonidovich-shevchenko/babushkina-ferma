@@ -37,7 +37,7 @@ static func draw_plot(game: Node2D, rect: Rect2, plot: Dictionary) -> void:
 	if not game.CropCatalogSystem.grows_in_season(crop_kind, game.WorldEventSystem.season(game.day)) and plot.growth < growth_duration:
 		draw_season_pause_icon(game, rect.position + Vector2(rect.size.x - 7, 3))
 	elif not plot.watered and plot.growth < growth_duration:
-		draw_water_needed_icon(game, rect.position + Vector2(8, 4))
+		draw_water_needed_icon(game, rect.position + Vector2(8, 6))
 
 ## Рисует текущую стадию культуры с короткой анимацией перехода роста.
 static func draw_crop(game: Node2D, rect: Rect2, plot: Dictionary) -> void:
@@ -111,9 +111,11 @@ static func draw_season_pause_icon(game: Node2D, center: Vector2) -> void:
 	game.draw_line(center, center + Vector2(4, 2), color, 2.0)
 	game.draw_circle(center, 2.0, Color("8db9d5"))
 
-## Рисует пульсирующую красную каплю над культурой, которой требуется полив.
+## Рисует прежнюю красную каплю в компактном размере с мягким движением и доступной неподвижной опорой.
 static func draw_water_needed_icon(game: Node2D, center: Vector2) -> void:
-	var pulse := 1.0 + sin(Time.get_ticks_msec() / 130.0) * 0.08
+	var pose:=preload("res://scripts/presentation/world_marker_renderer.gd").water_pose(game,center,Time.get_ticks_msec()/1000.0)
+	center=pose.center
+	var pulse:float=pose.scale
 	var points := PackedVector2Array([
 		center + Vector2(0, -9) * pulse,
 		center + Vector2(7, 1) * pulse,
@@ -123,4 +125,4 @@ static func draw_water_needed_icon(game: Node2D, center: Vector2) -> void:
 		center + Vector2(-7, 1) * pulse,
 	])
 	game.draw_colored_polygon(points, Color("e4473f"))
-	game.draw_circle(center + Vector2(-2, 2), 2.0, Color("ffaaa0"))
+	game.draw_circle(center + Vector2(-2, 2)*pulse, 2.0*pulse, Color("ffaaa0"))

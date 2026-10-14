@@ -31,14 +31,14 @@ static func flower_patch(location: String, point: Vector2) -> bool:
 	if location=="village_market" and Rect2(648,432,768,360).grow(36).has_point(point): return false
 	if location=="village_workyard" and Rect2(672,480,768,432).grow(36).has_point(point): return false
 	if location=="village_garden" and PLOTS.any(func(plot): return plot.grow(36).has_point(point)): return false
-	for path in Data.PATHS.get(location,[]):
+	for path in Data.routes(location):
 		for index in range(1,path.size()):
 			if Geometry2D.get_closest_point_to_segment(point,path[index-1],path[index]).distance_to(point)<72: return false
 	return true
 
 ## Рисует дорожные ветви и повороты по индивидуальному чертежу района.
 static func paths(canvas: Node2D, location: String) -> void:
-	for path in Data.PATHS.get(location,[]):
+	for path in Data.routes(location):
 		for index in range(1,path.size()): Terrain.material(canvas,Terrain.capsule(path[index-1],path[index],36),Terrain.PATH,Color("ddc79e"))
 
 ## Укладывает повторяемый материал в единый прямоугольный участок без большой фоновой картинки.

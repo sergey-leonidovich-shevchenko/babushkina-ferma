@@ -50,7 +50,7 @@ static func draw(game:Node2D)->void:
 		if container.location == "cave_sanctum":
 			game.EnvironmentVisualSystem.draw(game,"moon_chest",position,tint,0.65)
 		else: game.draw_texture_rect(texture(container.kind),visual_rect(container.kind,position),false,tint)
-		if container.opened: game.draw_ui_string(game.UI_FONT,position+Vector2(-35,44),game.LocaleSystem.ui("empty"),HORIZONTAL_ALIGNMENT_CENTER,70,12,Color(0.8,0.8,0.75,0.55))
+		if container.opened: preload("res://scripts/presentation/world_label_renderer.gd").draw(game,position+Vector2(0,28),game.LocaleSystem.ui("empty"),position,110)
 
 
 ## Готовит игровую витрину восьми контейнеров без врагов и случайного расположения.

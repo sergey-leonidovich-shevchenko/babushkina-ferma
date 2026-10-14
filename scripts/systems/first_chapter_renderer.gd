@@ -7,7 +7,7 @@ static func draw_world(game: Node) -> void:
 	var value: Dictionary = game.FirstChapterSystem.state(game); var position: Vector2 = game.FirstChapterSystem.REPAIR_POSITION
 	game.WorldPolishRenderer.draw_effect(game,"wood",position,0.55 if value.bridge_repaired else 1.0)
 	if not value.bridge_repaired:
-		game.draw_circle(position+Vector2(0,-46),17.0,Color("e4b757")); game.draw_ui_string(game.UI_FONT,position+Vector2(-10,-40),"!",HORIZONTAL_ALIGNMENT_CENTER,20,20,Color("392315"))
+		preload("res://scripts/presentation/world_marker_renderer.gd").draw(game,position+Vector2(0,-46),"!",19)
 
 ## Делегирует постоянную цель общему HUD и рисует только модальный выбор итогового пути.
 static func draw_ui(game: Node) -> void:

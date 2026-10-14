@@ -3,6 +3,8 @@ extends "res://scripts/game_context.gd"
 const FarmRenderer := preload("res://scripts/presentation/farm_renderer.gd")
 const TreeOcclusion := preload("res://scripts/systems/tree_occlusion_system.gd")
 const CaveRenderer := preload("res://scripts/systems/cave_renderer.gd")
+const WorldLabel := preload("res://scripts/presentation/world_label_renderer.gd")
+const WorldMarker := preload("res://scripts/presentation/world_marker_renderer.gd")
 
 ## Рисует строку с пользовательским масштабом текста и безопасным уменьшением при нехватке ширины.
 func draw_ui_string(font: Font, position: Vector2, text: String, alignment: HorizontalAlignment = HORIZONTAL_ALIGNMENT_LEFT, width: float = -1.0, font_size: int = 16, color: Color = Color.WHITE) -> void:
@@ -116,7 +118,7 @@ func draw_rpg_world() -> void:
 		draw_circle(loot_position - Vector2(4, 4), 4, Color("baf1c8"))
 	_draw_cave_entrance()
 	if player.distance_to(cave_entrance_position) < 180.0:
-		draw_string(UI_FONT, cave_entrance_position + Vector2(-58, 78), LocaleSystem.location("cave"), HORIZONTAL_ALIGNMENT_LEFT, -1, 16, Color("d7fff4"))
+		WorldLabel.draw(self,cave_entrance_position+Vector2(0,62),LocaleSystem.location("cave"),cave_entrance_position)
 
 
 ## Отрисовывает внешние спрайты зданий, подписи и состояние закрытых дверей.
@@ -224,24 +226,13 @@ func draw_quest_npcs() -> void:
 		draw_quest_marker(position, marker)
 
 
-## Подкладывает под имя ближайшего персонажа тёмную плашку, чтобы светлые буквы читались на любой траве и плитке.
+## Подписывает ближайшего жителя или рабочее место общей компактной пергаментной плашкой.
 func draw_npc_name(position:Vector2,label:String)->void:
-	var width:=clampf(UI_FONT.get_string_size(label,HORIZONTAL_ALIGNMENT_LEFT,-1,12).x+16,50,158)
-	var rect:=Rect2(position+Vector2(-width*0.5,18),Vector2(width,21))
-	draw_rect(rect,Color(0.09,0.065,0.04,0.82))
-	draw_ui_string(UI_FONT,rect.position+Vector2(8,15),label,HORIZONTAL_ALIGNMENT_CENTER,width-16,12,Color("f6e2b9"))
+	WorldLabel.draw(self,position+Vector2(0,18),label,position,155)
 
-## Рисует компактный пиксельный маркер задания, не перекрывающий голову персонажа и окружение.
+## Показывает значение миссии небольшим знаком без геометрической подложки над головой жителя.
 func draw_quest_marker(position: Vector2, marker: String) -> void:
-	var bob := sin(Time.get_ticks_msec() / 240.0 + position.x * 0.01) * 2.0
-	var center := position + Vector2(0, -67 + bob)
-	var color := Color("75bf79") if marker == "✓" else Color("efc85c")
-	var shadow := PackedVector2Array([center+Vector2(-9,-8),center+Vector2(9,-8),center+Vector2(9,7),center+Vector2(0,13),center+Vector2(-9,7)])
-	draw_colored_polygon(shadow, Color(0.12,0.14,0.12,0.42))
-	var badge := PackedVector2Array([center+Vector2(-7,-9),center+Vector2(7,-9),center+Vector2(7,5),center+Vector2(0,10),center+Vector2(-7,5)])
-	draw_colored_polygon(badge, color)
-	draw_polyline(PackedVector2Array([badge[0],badge[1],badge[2],badge[3],badge[4],badge[0]]), Color("5a4524"), 1.5)
-	draw_string(UI_FONT, center + Vector2(-6, 3), marker, HORIZONTAL_ALIGNMENT_CENTER, 12, 12, Color("30281d"))
+	WorldMarker.draw(self,position+Vector2(0,-88),marker)
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func forage_sprite_layout(kind: String, position: Vector2) -> Dictionary:
@@ -343,8 +334,7 @@ func draw_enemy_nodes_and_gate() -> void:
 	elif not BuildingSystem.is_interior(current_location) and not preload("res://scripts/systems/village_region_data.gd").added(current_location):
 		WorldPolishRenderer.draw_cell(self,4,1,Rect2(world_gate_position-Vector2(60,60),Vector2(120,120)),Color(1,1,1,0.88))
 		if player.distance_to(world_gate_position) < 185.0:
-			draw_circle(world_gate_position, 42 + sin(Time.get_ticks_msec() / 180.0) * 4, Color("e6b85e"), false, 6)
-			draw_string(UI_FONT, world_gate_position + Vector2(-75, 68), WorldSystem.name(WorldSystem.next_location(current_location)), HORIZONTAL_ALIGNMENT_LEFT, 180, 14, Color("fff0bd"))
+			WorldLabel.draw(self,world_gate_position+Vector2(0,52),WorldSystem.name(WorldSystem.next_location(current_location)),world_gate_position,185)
 	for enemy in enemy_nodes:
 		if not AnimationSystem.enemy_is_visible(enemy) or enemy.location != current_location or enemy.get("cave_boss", false): continue
 		var position: Vector2 = enemy.position
@@ -445,21 +435,6 @@ func draw_item_icon(kind: String, rect: Rect2) -> void:
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func interaction_position(interaction: String) -> Vector2:
 	return PresentationSystem.interaction_position(self, interaction)
-
-## Отрисовывает соответствующий элемент по текущим данным активной сцены.
-func draw_interaction_highlight() -> void:
-	var interaction := nearest_interaction()
-	if interaction.is_empty():
-		return
-	var center := interaction_position(interaction)
-	var radius := 24.0 + sin(Time.get_ticks_msec() / 180.0) * 1.5
-	var color := Color(1.0, 0.85, 0.36, 0.82)
-	var corner := 8.0
-	# Четыре коротких угла читаются как выбор, но не закрывают сам предмет и окружение.
-	for signs: Vector2 in [Vector2(-1,-1), Vector2(1,-1), Vector2(-1,1), Vector2(1,1)]:
-		var point: Vector2 = center + signs * radius
-		draw_line(point, point - Vector2(signs.x * corner, 0), color, 2.0)
-		draw_line(point, point - Vector2(0, signs.y * corner), color, 2.0)
 
 ## Отрисовывает интерфейса по текущему состоянию игры.
 func draw_ui() -> void:

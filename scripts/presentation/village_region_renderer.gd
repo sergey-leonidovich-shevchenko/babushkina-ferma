@@ -11,16 +11,13 @@ const Workbench := preload("res://scripts/presentation/world_workbench_visual_sy
 
 ## Рисует дополнительные дороги старой фермы и указатели реальных соседних районов.
 static func draw_ground(game: Node2D) -> void:
-	if game.current_location=="overworld": Terrain.paths(game,"overworld")
 	if not Data.contains(game.current_location): return
 	for link in Data.passages(game.current_location):
 		var point:Vector2=link.position; var sign:=point+Vector2(0,-44)
 		game.draw_texture_rect(Props.Props.board,game.VillageLayoutSystem.prop_rect({"kind":"board","position":sign}),false)
-		game.draw_circle(point,18,Color(0.84,0.87,0.59,0.14))
 		if game.player.distance_to(point)<240:
 			var label:String=game.LocaleSystem.location(link.target)
-			game.draw_rect(Rect2(point+Vector2(-132,24),Vector2(264,28)),Color(0.04,0.09,0.06,0.90))
-			game.draw_ui_string(game.UI_FONT,point+Vector2(-126,44),label,HORIZONTAL_ALIGNMENT_CENTER,252,12,Color("e8ecd7"))
+			preload("res://scripts/presentation/world_label_renderer.gd").draw(game,point+Vector2(0,24),label,point,240)
 
 ## Рисует существующие фасады, лавочки, мастерские и деревья с отсечением вне камеры.
 static func draw_objects(game: Node2D, foreground: bool=false) -> void:

@@ -41,6 +41,12 @@ const WATER := Rect2(936,120,144,1032)
 const BRIDGES := [Rect2(912,432,192,96),Rect2(912,816,192,96)]
 const RAILS := [Rect2(912,120,24,288),Rect2(912,552,24,240),Rect2(912,936,24,216),Rect2(1080,120,24,288),Rect2(1080,552,24,240),Rect2(1080,936,24,216)]
 static var _trees:Dictionary={}
+static var _routes:Dictionary={}
+
+## Возвращает общие прямоугольные маршруты для покрытия, цветов и карты каждого деревенского района.
+static func routes(location:String) -> Array:
+	if not _routes.has(location): _routes[location]=preload("res://scripts/systems/cardinal_path_system.gd").routes(PATHS.get(location,[]))
+	return _routes[location]
 
 ## Определяет расширенную стартовую область без добавления её районов в линейную смену биомов.
 static func contains(location: String) -> bool:

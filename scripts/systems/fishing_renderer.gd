@@ -16,8 +16,7 @@ static func draw_traps(game: Node2D) -> void:
 		var position := Vector2(trap.position)
 		game.draw_item_icon("crab_trap", Rect2(position - Vector2(28, 28), Vector2(56, 56)))
 		if game.day >= int(trap.ready_day):
-			game.draw_circle(position + Vector2(20, -24), 8, Color("f3c75d"))
-			game.draw_ui_string(game.UI_FONT, position + Vector2(14, -19), "!", HORIZONTAL_ALIGNMENT_CENTER, 12, 12, Color("47301d"))
+			preload("res://scripts/presentation/world_marker_renderer.gd").draw(game,position+Vector2(20,-24),"!",15)
 
 const PANEL := Rect2(686, 96, 410, 438)
 const WATER_TRACK := Rect2(718, 166, 126, 278)

@@ -30,15 +30,15 @@ const POND_RADII := Vector2(120,72)
 const BRIDGES := [Rect2(816,360,96,192),Rect2(1560,864,96,192)]
 const PATH_HALF_WIDTH := 36.0
 const PATHS := [
-	[Vector2(360,552),Vector2(360,672),Vector2(648,672),Vector2(864,552),Vector2(864,360),Vector2(1008,480),Vector2(1128,672),Vector2(1320,744),Vector2(1608,720),Vector2(1776,600),Vector2(1776,480)],
+	[Vector2(360,552),Vector2(360,672),Vector2(648,672),Vector2(864,552),Vector2(864,360),Vector2(960,360),Vector2(960,528),Vector2(1128,528),Vector2(1128,744),Vector2(1320,744),Vector2(1608,720),Vector2(1776,600),Vector2(1776,480)],
 	[Vector2(1320,504),Vector2(1320,576),Vector2(1416,624),Vector2(1512,624),Vector2(1608,720)],
 	[Vector2(360,672),Vector2(240,768),Vector2(240,792)],
 	[Vector2(648,672),Vector2(648,864),Vector2(576,912),Vector2(576,984),Vector2(504,984)],
-	[Vector2(648,864),Vector2(888,864),Vector2(1248,1080),Vector2(1608,1080),Vector2(1608,864),Vector2(1608,720)],
+	[Vector2(648,864),Vector2(744,864),Vector2(744,1080),Vector2(1248,1080),Vector2(1608,1080),Vector2(1608,864),Vector2(1608,720)],
 	[Vector2(1608,720),Vector2(1824,744),Vector2(2016,744),Vector2(2256,816)],
 	[Vector2(864,360),Vector2(840,264),Vector2(744,216)],
 	[Vector2(1776,600),Vector2(1896,696),Vector2(1944,792)],
-	[Vector2(876,864),Vector2(948,936),Vector2(948,1248)],
+	[Vector2(888,864),Vector2(960,936),Vector2(960,1248)],
 ]
 const DISTRICTS := {"homestead":Rect2(96,360,648,744),"farm":FARM_YARD,"market":SQUARE,"guild":Rect2(1584,216,384,480),"riverwalk":Rect2(912,792,1032,288),"east_grove":Rect2(1968,432,384,528)}
 const TREES := [Vector2(2064,336),Vector2(2088,456),Vector2(2280,432),Vector2(1968,528),Vector2(2088,888),Vector2(2256,936),Vector2(2304,648),Vector2(1968,936)]
@@ -52,20 +52,10 @@ const REPAIR := Vector2(1704,864)
 const SEASONAL_TREE := Vector2(1056,456)
 static var _routes:Array=[]
 
-## Скругляет только повороты дорожного чертежа; рендер и запрос поверхности получают один и тот же готовый маршрут.
+## Возвращает прямые дорожные ветви по сетке без диагоналей и скрытого сглаживания поворотов.
 static func routes()->Array:
 	if not _routes.is_empty(): return _routes
-	for raw in PATHS:
-		var path:Array[Vector2]=[raw[0]]
-		for index in range(1,raw.size()-1):
-			var corner:Vector2=raw[index]; var before:Vector2=raw[index-1]; var after:Vector2=raw[index+1]
-			var trim:=minf(36.0,minf(corner.distance_to(before),corner.distance_to(after))*0.3)
-			var entry:=corner+corner.direction_to(before)*trim; var exit:=corner+corner.direction_to(after)*trim
-			path.append(entry)
-			for step in range(1,7):
-				var ratio:=float(step)/6.0
-				path.append(entry.lerp(corner,ratio).lerp(corner.lerp(exit,ratio),ratio))
-		path.append(raw[-1]); _routes.append(path)
+	_routes=preload("res://scripts/systems/cardinal_path_system.gd").routes(PATHS)
 	return _routes
 
 ## Возвращает точки берегового контура из той же оси и ширины, которые использует навигация.

@@ -109,8 +109,7 @@ static func draw_crafting(game: Node) -> void:
 		draw_item_row(game, row, String(recipe.output), index == game.crafting_selected, available)
 		game.draw_item_icon(String(recipe.output), Rect2(row.position + Vector2(14, 5), Vector2(28, 28)))
 		game.draw_ui_string(game.UI_FONT, row.position + Vector2(52, 25), game.inventory_item_name(recipe.output), HORIZONTAL_ALIGNMENT_LEFT, 178, 12, UiKitSystem.COLORS.ink)
-		var ingredients:String=game.CraftingSystem.row_ingredients_text(game,recipe)
-		game.draw_ui_string(game.UI_FONT, row.position + Vector2(238, 24), ingredients, HORIZONTAL_ALIGNMENT_LEFT, 222, 10, Color("456537") if available else UiKitSystem.COLORS.danger)
+		preload("res://scripts/presentation/recipe_input_renderer.gd").draw(game,row,recipe)
 	if not visible.is_empty():
 		var selected: Dictionary = game.CraftingSystem.RECIPES[game.crafting_selected]
 		var detail := CRAFT_DETAIL
