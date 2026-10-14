@@ -42,6 +42,7 @@ static func physics_process(game: Node, delta: float) -> void:
 		game.queue_redraw()
 		return
 	update_player(game, delta)
+	preload("res://scripts/systems/dropped_loot_system.gd").update(game,delta)
 	game.queue_redraw()
 
 ## Проверяет, блокирует ли текущее модальное состояние симуляцию мира.

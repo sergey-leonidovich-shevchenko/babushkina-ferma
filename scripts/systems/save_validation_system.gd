@@ -47,7 +47,7 @@ const OPTIONAL := {
 	"enemies":[{"!":["hp", "alive"], "hp":"n", "max_hp":"n", "alive":"b", "level":"n", "position":"p", "direction":"p", "attack_timer":"n"}],
 	"hazards":[{"cooldown":"n"}], "wildlife":[{"!":["hp", "alive", "position"], "hp":"n", "alive":"b", "position":"p"}], "world_loot_seed":"n",
 	"containers":[{"!":["id", "kind", "location", "position", "opened", "contents"], "id":"n", "kind":"s", "location":"s", "position":"p", "opened":"b", "contents":{"*":"n"}}],
-	"drops":[{"!":["kind", "count", "position"], "kind":"s", "count":"n", "position":"p", "location":"s"}],
+	"drops":[{"!":["kind", "count", "position"], "kind":"s", "count":"n", "position":"p", "location":"s", "pickup_blocked":"b"}],
 }
 
 

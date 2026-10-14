@@ -482,7 +482,7 @@ func drop_selected_item() -> bool:
 	if kind.is_empty() or not change_inventory_count(kind, -1):
 		message = "В этом слоте нечего выбрасывать"
 		return false
-	dropped_items.append({"kind": kind, "count": 1, "position": player + facing * 50.0, "location": current_location})
+	dropped_items.append({"kind":kind,"count":1,"position":player+facing*50.0,"location":current_location,"pickup_blocked":true})
 	message = LocaleSystem.text("dropped")
 	return true
 
@@ -497,16 +497,7 @@ func delete_selected_item() -> bool:
 
 ## Выполняет заявленное игровое действие после проверки условий, затрат и наград.
 func collect_dropped_item(index: int) -> bool:
-	if index < 0 or index >= dropped_items.size():
-		return false
-	var item: Dictionary = dropped_items[index]
-	if item.get("location",current_location) != current_location or player.distance_to(item.position) > 92.0:
-		return false
-	change_inventory_count(item.kind, item.count)
-	dropped_items.remove_at(index)
-	message = LocaleSystem.text("picked", [inventory_item_name(item.kind)])
-	play_sfx("pickup")
-	return true
+	return preload("res://scripts/systems/dropped_loot_system.gd").collect(self,index)
 
 ## Выполняет заявленное игровое действие после проверки условий, затрат и наград.
 func collect_food(index: int) -> bool:
@@ -605,9 +596,10 @@ func apply_slime_damage(damage: int) -> bool:
 	if slime_hp <= 0:
 		slime_alive = false
 		loot_available = true
+		if has_meta("slime_loot_position"): remove_meta("slime_loot_position")
 		award_xp(10)
 		SkillSystem.award_profession_xp(self, "combat", 5)
-		message = "Слизень побеждён! +10 опыта. Подбери добычу [E]"
+		message = "Слизень побеждён! +10 опыта. Подойди к добыче — она подберётся сама"
 	return true
 
 ## Выполняет операцию «атаки ближайшего врага» и возвращает результат согласно контракту метода.
@@ -663,13 +655,7 @@ func update_combat(delta: float) -> void:
 
 ## Выполняет заявленное игровое действие после проверки условий, затрат и наград.
 func collect_loot() -> bool:
-	if not loot_available or player.distance_to(slime_position) > 92.0:
-		return false
-	loot_available = false
-	slime_gel += 3
-	message = "Получено: слизь ×3"
-	notify_tutorial("loot")
-	return true
+	return preload("res://scripts/systems/dropped_loot_system.gd").collect_slime(self)
 
 ## Выполняет игровое действие «крафта меча» с проверкой условий и наград.
 func craft_sword() -> bool:

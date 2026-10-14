@@ -48,7 +48,7 @@ static func _fixed_interactions(game: Node) -> Dictionary:
 			"cave_entrance": game.cave_entrance_position,
 		}
 		if game.loot_available:
-			interactions["loot"] = game.slime_position
+			interactions["loot"] = preload("res://scripts/systems/dropped_loot_system.gd").slime_position(game)
 	elif game.current_location == "cave":
 		interactions = {"cave_exit": game.cave_exit_position}
 	if preload("res://scripts/systems/cave_boss_arena_system.gd").altar_available(game): interactions["cave_altar"] = preload("res://scripts/systems/cave_boss_arena_data.gd").ALTAR

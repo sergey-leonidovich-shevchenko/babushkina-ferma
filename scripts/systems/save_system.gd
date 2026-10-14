@@ -19,6 +19,7 @@ static func snapshot(game: Node) -> Dictionary:
 		plot_data.append({"x":cell.x,"y":cell.y,"tilled":plot.tilled,"planted":plot.planted,"watered":plot.watered,"growth":plot.growth,"stage":plot.stage,"crop_kind":plot.get("crop_kind","carrot"),"fertilizer":plot.get("fertilizer","")})
 	for item in game.dropped_items:
 		drops.append({"kind":item.kind,"count":item.count,"position":[item.position.x,item.position.y],"location":item.get("location",game.current_location)})
+		if item.has("pickup_blocked"): drops.back().pickup_blocked=bool(item.pickup_blocked)
 	for animal in game.wildlife_nodes:
 		wildlife.append({"hp":animal.hp,"alive":animal.alive,"position":[animal.position.x,animal.position.y]})
 	for container in game.world_loot_nodes:
@@ -182,9 +183,11 @@ static func apply(game: Node, data: Dictionary) -> bool:
 		game.world_loot_nodes = game.LootContainerSystem.merge_missing_location(game.world_loot_nodes, game.world_loot_seed, "pirate_ship")
 		for room in preload("res://scripts/systems/cave_room_data.gd").IDS:
 			game.world_loot_nodes = game.LootContainerSystem.merge_missing_location(game.world_loot_nodes,game.world_loot_seed,room)
+	if game.has_meta("slime_loot_position"): game.remove_meta("slime_loot_position")
 	game.dropped_items.clear()
 	for item in data.get("drops", []):
 		game.dropped_items.append({"kind":item.kind,"count":item.count,"position":Vector2(item.position[0],item.position[1]),"location":item.get("location",game.current_location)})
+		if item.has("pickup_blocked"): game.dropped_items.back().pickup_blocked=item.pickup_blocked
 	preload("res://scripts/systems/cave_boss_arena_system.gd").restore(game,data.get("cave_arena",{}))
 	game.InventorySystem.recalculate_stats(game); game.player_hp = mini(game.player_hp, game.player_max_hp)
 	game.state.normalize()

@@ -111,8 +111,9 @@ func draw_rpg_world() -> void:
 			draw_rect(Rect2(slime_position + Vector2(-28, -50), Vector2(56, 7)), Color("402d32"))
 			draw_rect(Rect2(slime_position + Vector2(-27, -49), Vector2(54.0 * slime_hp / 3.0, 5)), Color("dc554b"))
 	elif loot_available:
-		draw_circle(slime_position, 13, Color("78d6a5"))
-		draw_circle(slime_position - Vector2(4, 4), 4, Color("baf1c8"))
+		var loot_position:=preload("res://scripts/systems/dropped_loot_system.gd").slime_position(self)
+		draw_circle(loot_position, 13, Color("78d6a5"))
+		draw_circle(loot_position - Vector2(4, 4), 4, Color("baf1c8"))
 	_draw_cave_entrance()
 	if player.distance_to(cave_entrance_position) < 180.0:
 		draw_string(UI_FONT, cave_entrance_position + Vector2(-58, 78), LocaleSystem.location("cave"), HORIZONTAL_ALIGNMENT_LEFT, -1, 16, Color("d7fff4"))

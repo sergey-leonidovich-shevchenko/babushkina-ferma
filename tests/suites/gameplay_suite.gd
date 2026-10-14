@@ -4,6 +4,7 @@ const VillageLayoutSystem := preload("res://scripts/systems/village_layout_syste
 
 ## Запускает все сценарии текущего набора тестов в фиксированном порядке.
 func run() -> void:
+	preload("res://tests/suites/dropped_loot_suite.gd").new(context).run()
 	test_tutorial_reset_and_tester_kit()
 	test_experience_from_farming_combat_and_quest()
 	test_food_healing_and_temporary_effects()
