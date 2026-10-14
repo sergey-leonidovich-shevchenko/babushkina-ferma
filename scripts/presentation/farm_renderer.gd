@@ -15,7 +15,6 @@ static func draw(game: Node2D) -> void:
 			draw_plot(game, game.WorldFarmingSystem.cell_rect(plot.cell), plot)
 	var cultivation_target: Dictionary = game.WorldFarmingSystem.target(game)
 	if bool(cultivation_target.valid) or bool(cultivation_target.legacy):
-		game.draw_rect(cultivation_target.rect, Color("fff3a6"), false, 3)
 		var targeted_plot: Dictionary = game.WorldFarmingSystem.read_target(game, cultivation_target)
 		if bool(targeted_plot.get("planted", false)):
 			draw_target_status(game, cultivation_target.rect, targeted_plot)
