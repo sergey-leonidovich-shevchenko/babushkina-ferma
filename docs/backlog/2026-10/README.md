@@ -6,7 +6,7 @@
 
 ## Состояние
 
-`backlog`: 1, `ready`: 7, `blocked`: 26, `in_progress`: 0, `done`: 16. Статус `done` требует записанного результата; исходные критерии и наличие тестов не означают выполнения.
+`backlog`: 1, `ready`: 7, `blocked`: 25, `in_progress`: 0, `done`: 17. Статус `done` требует записанного результата; исходные критерии и наличие тестов не означают выполнения.
 
 ## Эпики
 
@@ -1159,7 +1159,7 @@
 
 ### WORLD-02 — Улучшить ориентиры и читаемость переходов между районами
 
-**blocked · P2 · M · implementation**. Ветка: `codex/world-02-village-wayfinding`.
+**done · P2 · M · implementation**. Ветка: `codex/world-02-village-wayfinding`.
 
 **Сейчас:** Деревня разделена на районы, миникарта по решению пользователя не нужна.
 
@@ -1185,13 +1185,11 @@
 
 **Зависимости:** [WORLD-01](#world-01).
 
-**Условия:** design. Выбор дизайна/физический доступ нельзя считать полученным без подтверждения.
-
 **Файлы:** [scripts/systems/village_region_data.gd](../../../scripts/systems/village_region_data.gd), [scripts/systems/village_region_system.gd](../../../scripts/systems/village_region_system.gd), [docs/MODULAR_VILLAGE.md](../../../docs/MODULAR_VILLAGE.md).
 
 **Основания:** [GDC-CONSTRAINTS](https://media.gdcvault.com/gdc2019/presentations/Into%20the%20Breach%20Postmortem%20Final.pdf), [STARDEW-QOL](https://www.stardewvalley.net/stardew-valley-1-6-4-full-patch-notes/).
 
-**Подтверждение результата:** пока нет; задача открыта.
+**Подтверждение результата:** Новый арт не нужен: переиспользованы существующие указатели и принятая светлая палитра. Осевые стрелки, Дом и ферма и до двух ориентиров используют настоящий граф дорог. Найден сундук на входе с рынка; ограниченный поиск свободной земли и атомарный отказ закрывают пересечение. Профиль WORLD: 409/0, из них 346 новых проверок; 16 связей, 6 локалей, 4 ориентира, перекрытый вход. Нативный home-wayfinding.png. Общий gate перед публикацией; отчёт docs/reports/world-2026-10/README.md.
 
 <a id="world-03"></a>
 

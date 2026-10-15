@@ -6,6 +6,7 @@ func _initialize() -> void:
 	ProjectSettings.set_setting("application/config/custom_user_dir_name","Codex-WORLD-Review")
 	DirAccess.make_dir_recursive_absolute(OS.get_user_data_dir())
 	var suite := preload("res://tests/suites/first_week_route_suite.gd").new(self); suite.run()
+	preload("res://tests/suites/village_wayfinding_suite.gd").new(self).run()
 	var output := "/private/tmp/world-review.json"
 	for argument in OS.get_cmdline_user_args():
 		if argument.begins_with("--output="): output = argument.trim_prefix("--output=")

@@ -18,7 +18,13 @@ static func nearest(game: Node, radius: float) -> String:
 static func travel(game: Node, port: String) -> bool:
 	for link in Data.passages(game.current_location):
 		if link.port!=port or game.player.distance_to(link.position)>92: continue
-		game.current_location=link.target; game.player=link.spawn
+		var source: String = game.current_location; var previous: Vector2 = game.player
+		game.current_location=link.target
+		var arrival := arrival_position(game,link)
+		if not arrival.is_finite():
+			game.current_location=source; game.player=previous
+			game.message=preload("res://scripts/systems/village_wayfinding_system.gd").word(game,"blocked"); return false
+		game.player=arrival
 		game.location_transition_armed=false; game.location_transition_cooldown=game.LocationTransitionSystem.REENTRY_DELAY
 		if Data.INWARD[port]==Data.INWARD[link.arrival]: game.clear_movement_keys()
 		game.facing=Data.INWARD[link.arrival]
@@ -30,6 +36,17 @@ static func travel(game: Node, port: String) -> bool:
 		game.message=game.LocaleSystem.location(game.current_location); game.DiscoverySystem.show_location(game,game.current_location); game.notify_tutorial("village_regions")
 		game.FirstChapterSystem.on_location_changed(game); return true
 	return false
+
+## Ищет свободное появление около того же входа, ограничивая обход шестью кольцами по восемь точек.
+static func arrival_position(game: Node, link: Dictionary) -> Vector2:
+	var origin: Vector2 = link.spawn
+	if game.NavigationSystem.is_walkable(game,origin): return origin
+	var inward: Vector2 = Data.INWARD[link.arrival]; var side := Vector2(-inward.y,inward.x)
+	for distance in range(24,145,24):
+		for offset in [inward,side,-side,-inward,inward+side,inward-side,-inward+side,-inward-side]:
+			var candidate: Vector2 = origin+Vector2(offset)*distance
+			if game.NavigationSystem.is_walkable(game,candidate): return candidate
+	return Vector2.INF
 
 ## Сверяет воду, фасады, декоративные основания и деревья с теми же профилями, которые рисует сцена.
 static func blocks(game: Node, point: Vector2, radius: float) -> bool:

@@ -8,6 +8,7 @@ const Occlusion := preload("res://scripts/systems/tree_occlusion_system.gd")
 const Visible := preload("res://scripts/systems/world_visibility_system.gd")
 const Trees := preload("res://scripts/systems/tree_system.gd")
 const Workbench := preload("res://scripts/presentation/world_workbench_visual_system.gd")
+const Wayfinding := preload("res://scripts/systems/village_wayfinding_system.gd")
 
 ## Рисует дополнительные дороги старой фермы и указатели реальных соседних районов.
 static func draw_ground(game: Node2D) -> void:
@@ -16,8 +17,19 @@ static func draw_ground(game: Node2D) -> void:
 		var point:Vector2=link.position; var sign:=point+Vector2(0,-44)
 		game.draw_texture_rect(Props.Props.board,game.VillageLayoutSystem.prop_rect({"kind":"board","position":sign}),false)
 		if game.player.distance_to(point)<240:
-			var label:String=game.LocaleSystem.location(link.target)
-			preload("res://scripts/presentation/world_label_renderer.gd").draw(game,point+Vector2(0,24),label,point,240)
+			draw_sign(game,link)
+
+## Размещает обе строки в общей светлой карточке, чтобы нижний край камеры не накладывал их друг на друга.
+static func draw_sign(game: Node2D, link: Dictionary) -> void:
+	var label: String = Wayfinding.title(game,link); var tags: String = Wayfinding.tags(game,link.port)
+	var rect := preload("res://scripts/presentation/world_label_renderer.gd").bounds(game,link.position+Vector2(0,24),label)
+	if not tags.is_empty(): rect.size.y += 22
+	var safe: Rect2 = preload("res://scripts/systems/camera_system.gd").playfield_rect(game).grow(-8)
+	rect.position.y = minf(rect.position.y,safe.end.y+game.camera_offset.y-rect.size.y)
+	var style := preload("res://scripts/presentation/moon_theme.gd")
+	style.panel(game,rect)
+	style.text(game,Rect2(rect.position+Vector2(4,2),Vector2(rect.size.x-8,20)),label,11,style.TEXT,HORIZONTAL_ALIGNMENT_CENTER)
+	if not tags.is_empty(): style.text(game,Rect2(rect.position+Vector2(4,24),Vector2(rect.size.x-8,20)),tags,10,style.MUTED,HORIZONTAL_ALIGNMENT_CENTER)
 
 ## Рисует существующие фасады, лавочки, мастерские и деревья с отсечением вне камеры.
 static func draw_objects(game: Node2D, foreground: bool=false) -> void:

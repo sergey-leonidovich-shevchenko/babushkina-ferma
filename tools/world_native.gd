@@ -22,4 +22,8 @@ func start_world() -> void:
 	game.update_camera(); game.UiFeedbackSystem.update(game,1); game.queue_redraw()
 	await process_frame; RenderingServer.force_draw(false)
 	root.get_texture().get_image().save_png(WORLD_FOLDER+"chapter-objective.png")
+	game.quest_log_open = false; game.current_location = "village_garden"; game.player = Vector2(1008,1008)
+	game.sync_background_location(); game.update_camera(); game.UiFeedbackSystem.update(game,1); game.queue_redraw()
+	await process_frame; RenderingServer.force_draw(false)
+	root.get_texture().get_image().save_png(WORLD_FOLDER+"home-wayfinding.png")
 	game.free(); quit()

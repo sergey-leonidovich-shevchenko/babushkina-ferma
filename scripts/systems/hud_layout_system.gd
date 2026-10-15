@@ -111,7 +111,7 @@ static func hidden_objective_count(game: Node) -> int:
 static func interaction_label(game: Node, interaction: String) -> String:
 	if interaction.begins_with("village_passage:"):
 		for link in preload("res://scripts/systems/village_region_data.gd").passages(game.current_location):
-			if link.port==interaction.get_slice(":",1): return game.LocaleSystem.ui("context_action",[game.LocaleSystem.location(link.target)])
+			if link.port==interaction.get_slice(":",1): return game.LocaleSystem.ui("context_action",[preload("res://scripts/systems/village_wayfinding_system.gd").title(game,link)])
 	if interaction.begins_with("village_service:"): return game.LocaleSystem.ui("context_action",[preload("res://scripts/systems/village_region_locale.gd").text(game,interaction.get_slice(":",1))])
 	if interaction=="interior_service:dev_cabinet": return game.LocaleSystem.ui("context_action",[preload("res://scripts/systems/dev_cabinet_locale.gd").text(game,"context")])
 	if interaction=="basement_board": return game.LocaleSystem.ui("basement_context")
