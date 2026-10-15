@@ -7,6 +7,7 @@ const PATH := "user://test-atomic-save.json"
 
 ## Запускает проверки исправного резерва и сохранности документов при отказах файловой системы.
 func run() -> void:
+	preload("res://tests/suites/atomic_fault_suite.gd").new(context).run()
 	test_corrupt_primary_never_replaces_good_backup()
 	test_failed_staging_and_backup_promotion_preserve_progress()
 	test_failed_primary_promotion_preserves_destination()

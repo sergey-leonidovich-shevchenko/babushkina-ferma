@@ -868,8 +868,8 @@
         "tools/check_architecture.sh и ./run_tests.sh без ERROR движка.",
         "Обновлённые документация и точный ручной маршрут QA_CHECKLIST.md; нативная проверка, если меняются рисунок, ввод или производительность."
       ],
-      "status": "ready",
-      "result": ""
+      "status": "done",
+      "result": "14 actual isolated child SIGKILL checkpoints passed (crash-boundaries.json); AtomicSaveSuite 82 passed/0 failed, local failure at every boundary, malformed staging and write refusal. No physical ENOSPC/power-loss claim. docs/reports/safe-2026-10/README.md; full gate before publication."
     },
     {
       "id": "SAFE-05",

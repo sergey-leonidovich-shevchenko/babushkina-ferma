@@ -6,7 +6,7 @@
 
 ## Состояние
 
-`backlog`: 1, `ready`: 7, `blocked`: 39, `in_progress`: 0, `done`: 3. Статус `done` требует записанного результата; исходные критерии и наличие тестов не означают выполнения.
+`backlog`: 1, `ready`: 6, `blocked`: 39, `in_progress`: 0, `done`: 4. Статус `done` требует записанного результата; исходные критерии и наличие тестов не означают выполнения.
 
 ## Эпики
 
@@ -24,7 +24,6 @@
 Начать с OPT-01: закрепить честный замер до следующего изменения производительности. Далее SAFE-05/SAFE-03 и QA-01; следующие пункты выбираем по дефектам и данным. Одна задача в работе. S/M/L — относительный объём, не срок; L можно разбить до начала.
 
 - [OPT-01](#opt-01) — Измерения, честный gate и быстрые профили
-- [SAFE-04](#safe-04) — Проверить аварийное сохранение и восстановление на границах записи
 - [SAFE-05](#safe-05) — Добавить управляемую паузу при потере фокуса и сворачивании
 - [SAFE-06](#safe-06) — Проверить целостность взаимных ссылок реестров контента
 - [FARM-01](#farm-01) — Построить карту экономики первых семи дней
@@ -669,7 +668,7 @@
 
 ### SAFE-04 — Проверить аварийное сохранение и восстановление на границах записи
 
-**ready · P1 · M · validation**. Ветка: `codex/safe-04-save-crash-injection`.
+**done · P1 · M · validation**. Ветка: `codex/safe-04-save-crash-injection`.
 
 **Сейчас:** AtomicJsonStore и резервное восстановление уже реализованы и протестированы; это расширение приёмки, не повторная реализация.
 
@@ -701,7 +700,7 @@
 
 **Основания:** [GODOT-SAVE](https://docs.godotengine.org/en/stable/tutorials/io/saving_games.html), [FACTORIO-TESTS](https://www.factorio.com/blog/post/fff-315).
 
-**Подтверждение результата:** пока нет; задача открыта.
+**Подтверждение результата:** 14 actual isolated child SIGKILL checkpoints passed (crash-boundaries.json); AtomicSaveSuite 82 passed/0 failed, local failure at every boundary, malformed staging and write refusal. No physical ENOSPC/power-loss claim. docs/reports/safe-2026-10/README.md; full gate before publication.
 
 <a id="safe-05"></a>
 
