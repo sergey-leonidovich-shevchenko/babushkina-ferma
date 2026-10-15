@@ -17,7 +17,7 @@ static func overlay_weapon(game: Node) -> String:
 
 ## Отрисовывает героя по текущему состоянию игры.
 static func draw_player(game: Node2D) -> void:
-	var position: Vector2 = game.player.round()
+	var position := player_ground(game)
 	var visual_scale: float = game.DirectionalCharacterSystem.HERO_VISUAL_SCALE
 	var attack_progress: float = game.WeaponSystem.attack_progress(game)
 	var attacking: bool = attack_progress >= 0.0
@@ -49,6 +49,11 @@ static func draw_player(game: Node2D) -> void:
 		var bar := Rect2(position + Vector2(-22, 28) * visual_scale, Vector2(44, 4) * visual_scale)
 		game.draw_rect(bar, Color(0.10, 0.08, 0.06, 0.68), true)
 		game.draw_rect(Rect2(bar.position, Vector2(bar.size.x * (1.0 - cooldown), bar.size.y)), Color("f5c45b"), true)
+
+
+## Использует физическую точку стоп без второго округления, общего только для рисунка героя.
+static func player_ground(game: Node) -> Vector2:
+	return game.player
 
 
 ## Отрисовывает слизня по текущему состоянию игры.

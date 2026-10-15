@@ -7,6 +7,7 @@ const TEST_SAVE_PATH := "user://farm-refactor-test.json"
 static func run(context: SceneTree) -> void:
 	preload("res://tests/suites/visual_camera_suite.gd").run(context)
 	preload("res://tests/suites/visual_static_suite.gd").run(context)
+	preload("res://tests/suites/coordinate_contract_suite.gd").run(context)
 	test_typed_state_is_the_source_of_truth(context)
 	test_inventory_state_is_data_driven(context)
 	test_input_actions_are_centralized(context)

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ru">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VCAMERA-001 · От мира до экрана</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f4f0e8;color:#302c28;font:16px/1.6 system-ui,sans-serif}main{max-width:1250px;margin:auto;padding:48px 28px}h1{font-size:clamp(28px,4vw,44px);line-height:1.15;margin:8px 0 20px}h2{font-size:23px;margin:0 0 8px}p{max-width:850px}a{color:#365f72}.tag{color:#6a645a;font-size:13px;letter-spacing:1px}.chain{display:flex;gap:12px;flex-wrap:wrap;margin:30px 0}.chain div{flex:1;min-width:160px;background:#fffdf8;padding:17px;border:1px solid #d8cdbb;border-radius:12px}.chain small{display:block;color:#736b60}.cards{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:28px 0}.card{padding:20px;background:#fffdf8;border:1px solid #d8cdbb;border-radius:14px;min-width:0}.card p{font-size:14px;margin:8px 0}.card video{display:block;width:100%;height:auto;background:#182120;border-radius:8px;margin:16px 0}.links{display:flex;gap:16px;flex-wrap:wrap;font-size:14px}.note{border-left:3px solid #b29053;padding:4px 18px;background:#ece5d8}.legend{display:flex;gap:24px;flex-wrap:wrap}.legend span::before{content:'●';margin-right:8px}.feet::before{color:#a16b00}.pointer::before{color:#00969d}.fiducial::before{color:#bf25a8}footer{font-size:14px;color:#71695e;margin-top:36px}@media(max-width:800px){.cards{grid-template-columns:1fr}main{padding:28px 18px}}
+</style>
+<main>
+<div class="tag">ЛУННАЯ ДОЛИНА / VCAMERA-001</div>
+<h1>Одна точка в мире.<br>Точное место на экране.</h1>
+<p>Камера, стопы героя и указатель. Четыре одинаковых медленных прохода при разных размерах окна. В каждом — 96 нативных кадров с проверкой пиксельных меток.</p>
+<div class="links"><a href="README.md">Контракт и выводы</a><a href="native/source.json">Исходники и хеши</a></div>
+<div class="chain"><div><b>Мир</b><small>Дробная позиция W</small></div><div><b>Логический холст</b><small>L = W − камера</small></div><div><b>Framebuffer</b><small>F = L × масштаб</small></div><div><b>Окно</b><small>P = F + поля</small></div></div>
+<div class="note"><b>Исправлено:</b> отдельное округление героя больше не сдвигает стопы относительно физической позиции. Округление камеры сохранено для следующего сравнения.</div>
+<p class="legend"><span class="feet">Стопы и направление действия</span><span class="pointer">Указатель и клетка 24×24</span><span class="fiducial">Контрольный пиксель</span></p>
+<div class="cards">
+<article class="card"><h2>Базовый кадр · 1×</h2><p>Окно и framebuffer: 1152×648. Логический холст: 1152×648.</p><video controls preload="metadata" playsinline poster="native/base/frame-0000.png" src="native/base/walk.mp4"></video><div class="links"><a href="native/base/walk.mp4">Исходный размер</a><a href="native/base/frame-0048.png">Кадр 48</a><a href="native/base/capture.json">Трасса</a></div></article>
+<article class="card"><h2>Full HD · 1⅔×</h2><p>Окно и framebuffer: 1920×1080. Логический холст: 1152×648.</p><video controls preload="metadata" playsinline poster="native/full-hd/frame-0000.png" src="native/full-hd/walk.mp4"></video><div class="links"><a href="native/full-hd/walk.mp4">Исходный размер</a><a href="native/full-hd/frame-0000.png">Нативный PNG</a><a href="native/full-hd/capture.json">Трасса</a></div></article>
+<article class="card"><h2>Retina · 2×</h2><p>Окно и framebuffer: 2304×1296. Настоящий дисплей Retina, HiDPI включён.</p><video controls preload="metadata" playsinline poster="native/retina-2x/frame-0000.png" src="native/retina-2x/walk.mp4"></video><div class="links"><a href="native/retina-2x/walk.mp4">Исходный размер</a><a href="native/retina-2x/frame-0000.png">Нативный PNG</a><a href="native/retina-2x/capture.json">Трасса</a></div></article>
+<article class="card"><h2>Окно 4:3 · поля</h2><p>Окно: 1024×768. Framebuffer: 1024×576. Сверху и снизу окна — по 96 px полей.</p><video controls preload="metadata" playsinline poster="native/letterbox/frame-0000.png" src="native/letterbox/walk.mp4"></video><div class="links"><a href="native/letterbox/walk.mp4">Содержимое без полей</a><a href="native/letterbox/frame-0000.png">Нативный PNG</a><a href="native/letterbox/capture.json">Трасса</a></div></article>
+</div>
+<h2>Одинаковый маршрут</h2>
+<p>Герой проходит от (556.25, 672.25) до (627.5, 672.25) с настоящими коллизиями. Камера пересекает границу слежения: X от 0 до 52. Измеренный pivot стоп совпадает с физической позицией; оконный ввод после преобразования Godot выбирает ожидаемую мировую клетку.</p>
+<footer>Godot 4.7.1 · AMD Radeon Pro 5300M · OpenGL compatibility. Ролики сжаты без изменения размера; браузер вписывает их в карточки. Мир остановлен, продвигается управляемый шаг героя. Указатель синтетический. 24 fps — шкала записи; это не замер производительности и не проверка физической мыши.</footer>
+</main>
+</html>

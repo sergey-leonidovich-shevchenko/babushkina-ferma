@@ -1,6 +1,11 @@
 .DS_Store
 .godot/
 tools/*
+!tools/visual_coordinates_capture.gd
+!tools/visual_coordinates_review.gd
+!tools/visual_coordinates.py
+!tools/test_visual_coordinates.py
+!tools/encode_coordinate_video.swift
 !tools/visual_static_capture.gd
 !tools/visual_static.py
 !tools/test_visual_static.py

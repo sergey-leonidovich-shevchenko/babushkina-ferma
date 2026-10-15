@@ -6,7 +6,7 @@
 
 ## VCAMERA-001 — Описать все преобразования координат
 
-Статус: `ready` · P0 · этап `foundation` · `engineering`
+Статус: `done` · P0 · этап `foundation` · `engineering`
 
 World, camera, canvas и physical framebuffer сведены в одну схему; точка ноги совпадает с точкой взаимодействия
 
@@ -20,7 +20,7 @@ World, camera, canvas и physical framebuffer сведены в одну схе�
 - [scripts/systems/animation_renderer.gd](../../../../scripts/systems/animation_renderer.gd)
 - [scripts/game_context.gd](../../../../scripts/game_context.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vcamera-001/`.
+Результаты: `docs/reports/visual-overhaul/vcamera-001/`.
 
 Критерии:
 
@@ -38,13 +38,13 @@ World, camera, canvas и physical framebuffer сведены в одну схе�
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vcamera-001/README.md, docs/reports/visual-overhaul/vcamera-001/native/source.json, docs/reports/visual-overhaul/vcamera-001/index.html.
 
 <a id="vcamera-002"></a>
 
 ## VCAMERA-002 — Сравнить округление камеры
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 Медленный диагональный проход записан с текущим округлением и дробной камерой; решение по видео, а не одному кадру
 
@@ -82,7 +82,7 @@ World, camera, canvas и physical framebuffer сведены в одну схе�
 
 ## VCAMERA-003 — Синхронизировать позу героя и окружение
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 Корни растений реагируют на ту же отображаемую позицию, что видимая нога; нет дрожания на границе кадров физики
 
@@ -120,7 +120,7 @@ World, camera, canvas и physical framebuffer сведены в одну схе�
 
 ## VCAMERA-004 — Проверить разрешения окна
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 1152×648, 1920×1080 и Retina сравниваются при одинаковом логическом кадре; фактический размер записан
 
@@ -158,7 +158,7 @@ World, camera, canvas и physical framebuffer сведены в одну схе�
 
 ## VCAMERA-005 — Проверить узкое соотношение сторон
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 HUD и поле обзора не закрывают проходы на 4:3; изменение размера не растягивает круг луны и персонажей
 
@@ -196,7 +196,7 @@ HUD и поле обзора не закрывают проходы на 4:3; и
 
 ## VCAMERA-006 — Настроить приближение эталона
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 Пределы масштаба утверждены по читаемости и времени кадра; уменьшение не превращает траву в мерцание
 
@@ -234,7 +234,7 @@ HUD и поле обзора не закрывают проходы на 4:3; и
 
 ## VCAMERA-007 — Сохранить привязку указателя к миру
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 Клик в клетку совпадает с ghost размещения при каждом разрешённом масштабе и смещении камеры
 
@@ -272,7 +272,7 @@ HUD и поле обзора не закрывают проходы на 4:3; и
 
 ## VCAMERA-008 — Согласовать маленькие интерьеры
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 Комната центрируется без рывка при входе; стены и подсказки не обрезаются зарезервированной областью HUD
 
@@ -310,7 +310,7 @@ HUD и поле обзора не закрывают проходы на 4:3; и
 
 ## VCAMERA-009 — Обработать телепорт без пролёта камеры
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 Смена карты сбрасывает интерполяцию; нет огромной скорости, шлейфа воды и воздействия на траву вдоль всего пути
 
@@ -348,7 +348,7 @@ HUD и поле обзора не закрывают проходы на 4:3; и
 
 ## VCAMERA-010 — Проверить движение у границ карты
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 Камера и culling учитывают максимальное отклонение кроны; нет внезапных исчезновений по краям viewport
 

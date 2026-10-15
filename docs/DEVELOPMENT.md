@@ -1,5 +1,11 @@
 # Разработка
 
+## Координаты VCAMERA-001
+
+Мировая физика хранит дробные опоры; `AnimationRenderer.player_ground()` передаёт точную позицию стоп в renderer. Камера применяется ручным draw-transform: `logical = world - camera_offset`; фон получает то же смещение отдельным узлом. HUD использует исходный логический холст 1152×648. `canvas_items` масштабирует его до framebuffer, затем оконные поля добавляют отступ. В `_input` координаты уже локализованы Godot: для мира достаточно `event.position + camera_offset`, без повторного деления на масштаб/Retina.
+
+Размер нативного framebuffer брать из считанного `Image`, а не `ViewportTexture.get_size()` или размера окна: при 4:3 Image не включает оконные поля. Все матрицы, отдельные сетки, маленькие комнаты, запись настоящего шага и воспроизведение описаны в [контракте координат](reports/visual-overhaul/vcamera-001/README.md). `CoordinateContractSuite` и `tools/visual_coordinates.py verify` проверяют его в общем gate; исходные ролики не являются FPS-замером.
+
 SAFE-01: `WorldRngSystem` хранит версионированные независимые потоки в `WorldState.rng_state` и поле слота `rng`.
 Для воспроизведения задавать `world_loot_seed` до `_ready`, фиксировать данные и шаги симуляции. Глобальные `rand*` не использовать для игровых последствий.
 Контракт и аудит: [отчёт SAFE](reports/safe-2026-10/README.md).
