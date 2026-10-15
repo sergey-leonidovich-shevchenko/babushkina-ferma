@@ -6748,6 +6748,440 @@
 			"workshop_level": 3
 		}
 	],
+	"research": [
+		{
+			"batch": 2,
+			"kind": "plank",
+			"parts": {
+				"wood_offcut": 2
+			},
+			"tier": 1
+		},
+		{
+			"batch": 8,
+			"kind": "nails",
+			"parts": {
+				"metal_scrap": 1
+			},
+			"tier": 1
+		},
+		{
+			"batch": 1,
+			"kind": "rope",
+			"parts": {
+				"fiber": 1
+			},
+			"tier": 1
+		},
+		{
+			"batch": 1,
+			"kind": "cloth",
+			"parts": {
+				"cloth_scrap": 2
+			},
+			"tier": 1
+		},
+		{
+			"batch": 2,
+			"kind": "yarn",
+			"parts": {
+				"fiber": 1
+			},
+			"tier": 1
+		},
+		{
+			"batch": 1,
+			"kind": "wooden_chair",
+			"parts": {
+				"metal_scrap": 1,
+				"wood_offcut": 3
+			},
+			"tier": 1
+		},
+		{
+			"batch": 1,
+			"kind": "rustic_table",
+			"parts": {
+				"metal_scrap": 1,
+				"wood_offcut": 6
+			},
+			"tier": 1
+		},
+		{
+			"batch": 1,
+			"kind": "wooden_wardrobe",
+			"parts": {
+				"metal_scrap": 2,
+				"wood_offcut": 8
+			},
+			"tier": 1
+		},
+		{
+			"batch": 1,
+			"kind": "woven_rug",
+			"parts": {
+				"cloth_scrap": 3,
+				"fiber": 1
+			},
+			"tier": 1
+		},
+		{
+			"batch": 1,
+			"kind": "potted_fern",
+			"parts": {
+				"fiber": 1,
+				"stone": 1
+			},
+			"tier": 1
+		},
+		{
+			"batch": 1,
+			"kind": "glass_vial",
+			"parts": {
+				"glass_shard": 1
+			},
+			"tier": 1
+		},
+		{
+			"batch": 1,
+			"kind": "glass",
+			"parts": {
+				"glass_shard": 2
+			},
+			"tier": 1
+		},
+		{
+			"batch": 1,
+			"kind": "crab_trap",
+			"parts": {
+				"fiber": 1,
+				"metal_scrap": 1,
+				"wood_offcut": 3
+			},
+			"tier": 1
+		},
+		{
+			"batch": 1,
+			"kind": "sword",
+			"parts": {
+				"slime": 1,
+				"wood_offcut": 1
+			},
+			"tier": 1
+		},
+		{
+			"batch": 1,
+			"kind": "iron_spear",
+			"parts": {
+				"metal_scrap": 4,
+				"wood_offcut": 2
+			},
+			"tier": 2
+		},
+		{
+			"batch": 1,
+			"kind": "war_hammer",
+			"parts": {
+				"metal_scrap": 6,
+				"stone": 2
+			},
+			"tier": 2
+		},
+		{
+			"batch": 1,
+			"kind": "iron_helmet",
+			"parts": {
+				"metal_scrap": 3
+			},
+			"tier": 2
+		},
+		{
+			"batch": 1,
+			"kind": "guardian_armor",
+			"parts": {
+				"arcane_dust": 1,
+				"metal_scrap": 6
+			},
+			"tier": 2
+		},
+		{
+			"batch": 1,
+			"kind": "oak_shield",
+			"parts": {
+				"metal_scrap": 1,
+				"wood_offcut": 3
+			},
+			"tier": 2
+		},
+		{
+			"batch": 1,
+			"kind": "travel_boots",
+			"parts": {
+				"cloth_scrap": 2,
+				"hide": 1
+			},
+			"tier": 2
+		},
+		{
+			"batch": 1,
+			"kind": "cauldron",
+			"parts": {
+				"metal_scrap": 4
+			},
+			"tier": 2
+		},
+		{
+			"batch": 1,
+			"kind": "bow",
+			"parts": {
+				"fiber": 1,
+				"wood_offcut": 2
+			},
+			"tier": 2
+		},
+		{
+			"batch": 1,
+			"kind": "orc_blade",
+			"parts": {
+				"metal_scrap": 3
+			},
+			"tier": 2
+		},
+		{
+			"batch": 1,
+			"kind": "pirate_cutlass",
+			"parts": {
+				"metal_scrap": 3,
+				"wood_offcut": 1
+			},
+			"tier": 2
+		},
+		{
+			"batch": 1,
+			"kind": "crystal_ring",
+			"parts": {
+				"arcane_dust": 1,
+				"metal_scrap": 2
+			},
+			"tier": 2
+		},
+		{
+			"batch": 1,
+			"kind": "advanced_fishing_rod",
+			"parts": {
+				"fiber": 1,
+				"metal_scrap": 2,
+				"wood_offcut": 2
+			},
+			"tier": 2
+		},
+		{
+			"batch": 1,
+			"kind": "crystal_sword",
+			"parts": {
+				"arcane_dust": 3,
+				"metal_scrap": 2
+			},
+			"tier": 3
+		},
+		{
+			"batch": 1,
+			"kind": "moon_staff",
+			"parts": {
+				"arcane_dust": 4,
+				"wood_offcut": 2
+			},
+			"tier": 3
+		},
+		{
+			"batch": 1,
+			"kind": "blue_gem",
+			"parts": {
+				"arcane_dust": 2
+			},
+			"tier": 3
+		},
+		{
+			"batch": 1,
+			"kind": "crystal",
+			"parts": {
+				"arcane_dust": 2
+			},
+			"tier": 3
+		},
+		{
+			"batch": 1,
+			"kind": "wood_beam",
+			"parts": {
+				"wood_offcut": 2
+			},
+			"tier": 1
+		},
+		{
+			"batch": 4,
+			"kind": "wood_dowel",
+			"parts": {
+				"wood_offcut": 1
+			},
+			"tier": 1
+		},
+		{
+			"batch": 1,
+			"kind": "timber_frame",
+			"parts": {
+				"metal_scrap": 1,
+				"wood_offcut": 4
+			},
+			"tier": 2
+		},
+		{
+			"batch": 1,
+			"kind": "wood_handle",
+			"parts": {
+				"wood_offcut": 1
+			},
+			"tier": 1
+		},
+		{
+			"batch": 1,
+			"kind": "clay_pot",
+			"parts": {
+				"ceramic_shard": 2
+			},
+			"tier": 1
+		},
+		{
+			"batch": 1,
+			"kind": "ceramic_bowl",
+			"parts": {
+				"ceramic_shard": 1
+			},
+			"tier": 1
+		},
+		{
+			"batch": 1,
+			"kind": "ceramic_vase",
+			"parts": {
+				"ceramic_shard": 2
+			},
+			"tier": 2
+		},
+		{
+			"batch": 1,
+			"kind": "glazed_vase",
+			"parts": {
+				"ceramic_shard": 2
+			},
+			"tier": 2
+		},
+		{
+			"batch": 1,
+			"kind": "porcelain_cup",
+			"parts": {
+				"ceramic_shard": 1
+			},
+			"tier": 3
+		},
+		{
+			"batch": 1,
+			"kind": "glass_bottle",
+			"parts": {
+				"glass_shard": 1
+			},
+			"tier": 1
+		},
+		{
+			"batch": 1,
+			"kind": "glass_jar",
+			"parts": {
+				"glass_shard": 1
+			},
+			"tier": 1
+		},
+		{
+			"batch": 1,
+			"kind": "clear_glass",
+			"parts": {
+				"glass_shard": 2
+			},
+			"tier": 2
+		},
+		{
+			"batch": 1,
+			"kind": "colored_glass",
+			"parts": {
+				"glass_shard": 2
+			},
+			"tier": 2
+		},
+		{
+			"batch": 1,
+			"kind": "optical_lens",
+			"parts": {
+				"arcane_dust": 1,
+				"glass_shard": 2
+			},
+			"tier": 2
+		},
+		{
+			"batch": 1,
+			"kind": "moon_glass",
+			"parts": {
+				"arcane_dust": 1,
+				"glass_shard": 2
+			},
+			"tier": 3
+		},
+		{
+			"batch": 1,
+			"kind": "canvas",
+			"parts": {
+				"cloth_scrap": 2
+			},
+			"tier": 1
+		},
+		{
+			"batch": 1,
+			"kind": "fine_cloth",
+			"parts": {
+				"cloth_scrap": 3
+			},
+			"tier": 2
+		},
+		{
+			"batch": 1,
+			"kind": "leather",
+			"parts": {
+				"hide": 1
+			},
+			"tier": 1
+		},
+		{
+			"batch": 1,
+			"kind": "leather_strap",
+			"parts": {
+				"leather": 1
+			},
+			"tier": 1
+		},
+		{
+			"batch": 1,
+			"kind": "cured_fur",
+			"parts": {
+				"fur": 1
+			},
+			"tier": 2
+		},
+		{
+			"batch": 1,
+			"kind": "book_binding",
+			"parts": {
+				"cloth_scrap": 1,
+				"leather": 1
+			},
+			"tier": 2
+		}
+	],
 	"schema": 1,
 	"scope": "service-operation model; no walking time or human playtest",
 	"stations": {

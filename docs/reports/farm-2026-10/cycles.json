@@ -1,0 +1,1622 @@
+{
+  "scope": "SCC candidates, not a proof of arbitrary mixtures",
+  "free_components": [],
+  "components": [
+    {
+      "materials": [
+        "advanced_fishing_rod",
+        "apple_juice",
+        "arcane_dust",
+        "book_binding",
+        "canvas",
+        "cauldron",
+        "ceramic_bowl",
+        "ceramic_glaze",
+        "ceramic_shard",
+        "ceramic_vase",
+        "clay",
+        "clay_pot",
+        "clear_glass",
+        "cloth",
+        "cloth_scrap",
+        "colored_glass",
+        "crab_trap",
+        "crystal",
+        "crystal_ring",
+        "crystal_sword",
+        "cured_fur",
+        "fiber",
+        "fine_cloth",
+        "fruit_vinegar",
+        "fur",
+        "glass",
+        "glass_bottle",
+        "glass_jar",
+        "glass_shard",
+        "glass_vial",
+        "glazed_vase",
+        "glazed_vase_form",
+        "guardian_armor",
+        "hide",
+        "iron_helmet",
+        "iron_spear",
+        "leather",
+        "leather_strap",
+        "metal",
+        "metal_scrap",
+        "mineral_base",
+        "moon_glass",
+        "moon_staff",
+        "nails",
+        "oak_shield",
+        "optical_lens",
+        "plank",
+        "porcelain_clay",
+        "porcelain_cup",
+        "porcelain_form",
+        "potted_fern",
+        "rope",
+        "rustic_table",
+        "slag",
+        "slime",
+        "stone",
+        "sword",
+        "tanning_agent",
+        "timber_frame",
+        "travel_boots",
+        "unfired_bowl",
+        "unfired_pot",
+        "unfired_vase",
+        "war_hammer",
+        "wet_clay",
+        "wood",
+        "wood_beam",
+        "wood_dowel",
+        "wood_handle",
+        "wood_offcut",
+        "wooden_chair",
+        "wooden_wardrobe",
+        "woven_rug"
+      ],
+      "transforms": [
+        {
+          "id": "sword",
+          "inputs": {
+            "slime": 3,
+            "wood": 2
+          },
+          "outputs": {
+            "sword": 1
+          },
+          "station": "workbench",
+          "seconds": 0,
+          "energy": 0
+        },
+        {
+          "id": "nails",
+          "inputs": {
+            "metal": 1
+          },
+          "outputs": {
+            "nails": 8
+          },
+          "station": "workbench",
+          "seconds": 0,
+          "energy": 0
+        },
+        {
+          "id": "iron_spear",
+          "inputs": {
+            "metal": 4,
+            "nails": 2,
+            "plank": 2
+          },
+          "outputs": {
+            "iron_spear": 1
+          },
+          "station": "workbench",
+          "seconds": 0,
+          "energy": 0
+        },
+        {
+          "id": "war_hammer",
+          "inputs": {
+            "metal": 6,
+            "plank": 2,
+            "stone": 4
+          },
+          "outputs": {
+            "war_hammer": 1
+          },
+          "station": "workbench",
+          "seconds": 0,
+          "energy": 0
+        },
+        {
+          "id": "moon_staff",
+          "inputs": {
+            "blue_gem": 1,
+            "crystal": 4,
+            "plank": 2
+          },
+          "outputs": {
+            "moon_staff": 1
+          },
+          "station": "workbench",
+          "seconds": 0,
+          "energy": 0
+        },
+        {
+          "id": "crystal_sword",
+          "inputs": {
+            "crystal": 5,
+            "sword": 1
+          },
+          "outputs": {
+            "crystal_sword": 1
+          },
+          "station": "workbench",
+          "seconds": 0,
+          "energy": 0
+        },
+        {
+          "id": "iron_helmet",
+          "inputs": {
+            "metal": 4,
+            "stone": 2
+          },
+          "outputs": {
+            "iron_helmet": 1
+          },
+          "station": "workbench",
+          "seconds": 0,
+          "energy": 0
+        },
+        {
+          "id": "guardian_armor",
+          "inputs": {
+            "crystal": 2,
+            "metal": 8
+          },
+          "outputs": {
+            "guardian_armor": 1
+          },
+          "station": "workbench",
+          "seconds": 0,
+          "energy": 0
+        },
+        {
+          "id": "crystal_ring",
+          "inputs": {
+            "blue_gem": 1,
+            "metal": 2
+          },
+          "outputs": {
+            "crystal_ring": 1
+          },
+          "station": "workbench",
+          "seconds": 0,
+          "energy": 0
+        },
+        {
+          "id": "oak_shield",
+          "inputs": {
+            "metal": 1,
+            "nails": 3,
+            "plank": 4
+          },
+          "outputs": {
+            "oak_shield": 1
+          },
+          "station": "workbench",
+          "seconds": 0,
+          "energy": 0
+        },
+        {
+          "id": "rope",
+          "inputs": {
+            "fiber": 2
+          },
+          "outputs": {
+            "rope": 1
+          },
+          "station": "workbench",
+          "seconds": 0,
+          "energy": 0
+        },
+        {
+          "id": "rustic_table",
+          "inputs": {
+            "nails": 4,
+            "plank": 6
+          },
+          "outputs": {
+            "rustic_table": 1
+          },
+          "station": "workbench",
+          "seconds": 0,
+          "energy": 0
+        },
+        {
+          "id": "wooden_chair",
+          "inputs": {
+            "nails": 2,
+            "plank": 3
+          },
+          "outputs": {
+            "wooden_chair": 1
+          },
+          "station": "workbench",
+          "seconds": 0,
+          "energy": 0
+        },
+        {
+          "id": "woven_rug",
+          "inputs": {
+            "cloth": 2,
+            "yarn": 1
+          },
+          "outputs": {
+            "woven_rug": 1
+          },
+          "station": "workbench",
+          "seconds": 0,
+          "energy": 0
+        },
+        {
+          "id": "potted_fern",
+          "inputs": {
+            "fiber": 2,
+            "flower": 2,
+            "stone": 1
+          },
+          "outputs": {
+            "potted_fern": 1
+          },
+          "station": "workbench",
+          "seconds": 0,
+          "energy": 0
+        },
+        {
+          "id": "wooden_wardrobe",
+          "inputs": {
+            "nails": 8,
+            "plank": 10
+          },
+          "outputs": {
+            "wooden_wardrobe": 1
+          },
+          "station": "workbench",
+          "seconds": 0,
+          "energy": 0
+        },
+        {
+          "id": "cauldron",
+          "inputs": {
+            "metal": 5,
+            "stone": 3
+          },
+          "outputs": {
+            "cauldron": 1
+          },
+          "station": "workbench",
+          "seconds": 0,
+          "energy": 0
+        },
+        {
+          "id": "advanced_fishing_rod",
+          "inputs": {
+            "fiber": 2,
+            "metal": 3,
+            "plank": 2
+          },
+          "outputs": {
+            "advanced_fishing_rod": 1
+          },
+          "station": "workbench",
+          "seconds": 0,
+          "energy": 0
+        },
+        {
+          "id": "crab_trap",
+          "inputs": {
+            "nails": 2,
+            "plank": 3,
+            "rope": 2
+          },
+          "outputs": {
+            "crab_trap": 1
+          },
+          "station": "workbench",
+          "seconds": 0,
+          "energy": 0
+        },
+        {
+          "id": "alchemy:glass_vial",
+          "inputs": {
+            "crystal": 1
+          },
+          "outputs": {
+            "glass_vial": 3
+          },
+          "station": "alchemy",
+          "seconds": 0,
+          "energy": 0
+        },
+        {
+          "id": "alchemy:mineral_base",
+          "inputs": {
+            "stone": 2
+          },
+          "outputs": {
+            "mineral_base": 2
+          },
+          "station": "alchemy",
+          "seconds": 0,
+          "energy": 0
+        },
+        {
+          "id": "furnace:scrap",
+          "inputs": {
+            "metal_scrap": 2
+          },
+          "outputs": {
+            "metal": 1,
+            "slag": 1
+          },
+          "station": "furnace",
+          "seconds": 10.0,
+          "energy": 0
+        },
+        {
+          "id": "furnace:vials",
+          "inputs": {
+            "glass": 1
+          },
+          "outputs": {
+            "glass_vial": 3
+          },
+          "station": "furnace",
+          "seconds": 8.0,
+          "energy": 0
+        },
+        {
+          "id": "furnace:slag",
+          "inputs": {
+            "slag": 3
+          },
+          "outputs": {
+            "metal": 1
+          },
+          "station": "furnace",
+          "seconds": 16.0,
+          "energy": 0
+        },
+        {
+          "id": "recovery:plank",
+          "inputs": {
+            "nails": 1,
+            "wood_offcut": 4
+          },
+          "outputs": {
+            "plank": 2
+          },
+          "station": "workbench",
+          "seconds": 0,
+          "energy": 0
+        },
+        {
+          "id": "recovery:cloth",
+          "inputs": {
+            "cloth_scrap": 4,
+            "fiber": 1
+          },
+          "outputs": {
+            "cloth": 1
+          },
+          "station": "workbench",
+          "seconds": 0,
+          "energy": 0
+        },
+        {
+          "id": "recovery:chair",
+          "inputs": {
+            "nails": 2,
+            "wood_offcut": 5
+          },
+          "outputs": {
+            "wooden_chair": 1
+          },
+          "station": "workbench",
+          "seconds": 0,
+          "energy": 0
+        },
+        {
+          "id": "recovery:spear",
+          "inputs": {
+            "metal_scrap": 6,
+            "nails": 2,
+            "plank": 2
+          },
+          "outputs": {
+            "iron_spear": 1
+          },
+          "station": "workbench",
+          "seconds": 0,
+          "energy": 0
+        },
+        {
+          "id": "recovery:helmet",
+          "inputs": {
+            "metal_scrap": 5,
+            "stone": 2
+          },
+          "outputs": {
+            "iron_helmet": 1
+          },
+          "station": "workbench",
+          "seconds": 0,
+          "energy": 0
+        },
+        {
+          "id": "recovery:boots",
+          "inputs": {
+            "cloth_scrap": 4,
+            "hide": 2
+          },
+          "outputs": {
+            "travel_boots": 1
+          },
+          "station": "workbench",
+          "seconds": 0,
+          "energy": 0
+        },
+        {
+          "id": "recovery:cauldron",
+          "inputs": {
+            "metal_scrap": 6,
+            "stone": 3
+          },
+          "outputs": {
+            "cauldron": 1
+          },
+          "station": "workbench",
+          "seconds": 0,
+          "energy": 0
+        },
+        {
+          "id": "recovery:glass",
+          "inputs": {
+            "glass_shard": 3
+          },
+          "outputs": {
+            "glass": 1
+          },
+          "station": "furnace",
+          "seconds": 10.0,
+          "energy": 0
+        },
+        {
+          "id": "recovery:crystal",
+          "inputs": {
+            "arcane_dust": 3,
+            "glass": 1
+          },
+          "outputs": {
+            "crystal": 1
+          },
+          "station": "workbench",
+          "seconds": 0,
+          "energy": 0
+        },
+        {
+          "id": "sawmill:beam",
+          "inputs": {
+            "plank": 2
+          },
+          "outputs": {
+            "wood_beam": 1,
+            "sawdust": 1
+          },
+          "station": "sawmill",
+          "seconds": 8.0,
+          "energy": 1
+        },
+        {
+          "id": "sawmill:offcuts",
+          "inputs": {
+            "wood_offcut": 4
+          },
+          "outputs": {
+            "wood": 2,
+            "sawdust": 1
+          },
+          "station": "sawmill",
+          "seconds": 6.0,
+          "energy": 1
+        },
+        {
+          "id": "sawmill:dowels",
+          "inputs": {
+            "plank": 2
+          },
+          "outputs": {
+            "wood_dowel": 4,
+            "sawdust": 1
+          },
+          "station": "sawmill",
+          "seconds": 10.0,
+          "energy": 2
+        },
+        {
+          "id": "sawmill:handle",
+          "inputs": {
+            "wood_beam": 1,
+            "wood_dowel": 2
+          },
+          "outputs": {
+            "wood_handle": 2
+          },
+          "station": "sawmill",
+          "seconds": 10.0,
+          "energy": 2
+        },
+        {
+          "id": "sawmill:frame",
+          "inputs": {
+            "nails": 4,
+            "wood_beam": 2
+          },
+          "outputs": {
+            "timber_frame": 1
+          },
+          "station": "sawmill",
+          "seconds": 12.0,
+          "energy": 2
+        },
+        {
+          "id": "sawmill:wardrobe",
+          "inputs": {
+            "cloth": 1,
+            "plank": 8,
+            "timber_frame": 1
+          },
+          "outputs": {
+            "wooden_wardrobe": 1
+          },
+          "station": "sawmill",
+          "seconds": 18.0,
+          "energy": 3
+        },
+        {
+          "id": "sawmill:spear",
+          "inputs": {
+            "metal": 4,
+            "nails": 1,
+            "wood_handle": 1
+          },
+          "outputs": {
+            "iron_spear": 1
+          },
+          "station": "sawmill",
+          "seconds": 16.0,
+          "energy": 3
+        },
+        {
+          "id": "pottery:clay",
+          "inputs": {
+            "clay": 2,
+            "clean_water": 1
+          },
+          "outputs": {
+            "wet_clay": 2
+          },
+          "station": "pottery",
+          "seconds": 6.0,
+          "energy": 1
+        },
+        {
+          "id": "pottery:pot",
+          "inputs": {
+            "wet_clay": 2
+          },
+          "outputs": {
+            "unfired_pot": 1
+          },
+          "station": "pottery",
+          "seconds": 10.0,
+          "energy": 2
+        },
+        {
+          "id": "pottery:bowl",
+          "inputs": {
+            "wet_clay": 1
+          },
+          "outputs": {
+            "unfired_bowl": 1
+          },
+          "station": "pottery",
+          "seconds": 8.0,
+          "energy": 1
+        },
+        {
+          "id": "pottery:vase",
+          "inputs": {
+            "sand": 1,
+            "wet_clay": 2
+          },
+          "outputs": {
+            "unfired_vase": 1
+          },
+          "station": "pottery",
+          "seconds": 12.0,
+          "energy": 2
+        },
+        {
+          "id": "pottery:glaze",
+          "inputs": {
+            "clean_water": 1,
+            "mineral_base": 1
+          },
+          "outputs": {
+            "ceramic_glaze": 2
+          },
+          "station": "pottery",
+          "seconds": 8.0,
+          "energy": 1
+        },
+        {
+          "id": "pottery:glazed",
+          "inputs": {
+            "ceramic_glaze": 1,
+            "unfired_vase": 1
+          },
+          "outputs": {
+            "glazed_vase_form": 1
+          },
+          "station": "pottery",
+          "seconds": 12.0,
+          "energy": 2
+        },
+        {
+          "id": "pottery:porcelain_clay",
+          "inputs": {
+            "clay": 2,
+            "distilled_water": 1,
+            "sand": 1
+          },
+          "outputs": {
+            "porcelain_clay": 2
+          },
+          "station": "pottery",
+          "seconds": 10.0,
+          "energy": 2
+        },
+        {
+          "id": "pottery:porcelain",
+          "inputs": {
+            "ceramic_glaze": 1,
+            "porcelain_clay": 1
+          },
+          "outputs": {
+            "porcelain_form": 1
+          },
+          "station": "pottery",
+          "seconds": 16.0,
+          "energy": 3
+        },
+        {
+          "id": "pottery:recycle",
+          "inputs": {
+            "ceramic_shard": 4,
+            "clean_water": 1
+          },
+          "outputs": {
+            "clay": 1
+          },
+          "station": "pottery",
+          "seconds": 8.0,
+          "energy": 1
+        },
+        {
+          "id": "pottery:planter",
+          "inputs": {
+            "clay_pot": 1,
+            "fiber": 2,
+            "flower": 2
+          },
+          "outputs": {
+            "potted_fern": 1
+          },
+          "station": "pottery",
+          "seconds": 10.0,
+          "energy": 1
+        },
+        {
+          "id": "glassblowing:vials",
+          "inputs": {
+            "glass": 1
+          },
+          "outputs": {
+            "glass_vial": 3
+          },
+          "station": "glassblowing",
+          "seconds": 6.0,
+          "energy": 1
+        },
+        {
+          "id": "glassblowing:bottle",
+          "inputs": {
+            "glass": 1
+          },
+          "outputs": {
+            "glass_bottle": 1
+          },
+          "station": "glassblowing",
+          "seconds": 8.0,
+          "energy": 1
+        },
+        {
+          "id": "glassblowing:jar",
+          "inputs": {
+            "glass": 2
+          },
+          "outputs": {
+            "glass_jar": 2
+          },
+          "station": "glassblowing",
+          "seconds": 10.0,
+          "energy": 2
+        },
+        {
+          "id": "glassblowing:colored",
+          "inputs": {
+            "glass": 2,
+            "red_crystal": 1
+          },
+          "outputs": {
+            "colored_glass": 2
+          },
+          "station": "glassblowing",
+          "seconds": 12.0,
+          "energy": 2
+        },
+        {
+          "id": "glassblowing:clear",
+          "inputs": {
+            "distilled_water": 1,
+            "glass": 2
+          },
+          "outputs": {
+            "clear_glass": 2
+          },
+          "station": "glassblowing",
+          "seconds": 12.0,
+          "energy": 2
+        },
+        {
+          "id": "glassblowing:lens",
+          "inputs": {
+            "arcane_dust": 1,
+            "clear_glass": 2
+          },
+          "outputs": {
+            "optical_lens": 1
+          },
+          "station": "glassblowing",
+          "seconds": 16.0,
+          "energy": 3
+        },
+        {
+          "id": "glassblowing:moon",
+          "inputs": {
+            "arcane_dust": 1,
+            "clear_glass": 2,
+            "moon_grass_powder": 1
+          },
+          "outputs": {
+            "moon_glass": 1
+          },
+          "station": "glassblowing",
+          "seconds": 18.0,
+          "energy": 3
+        },
+        {
+          "id": "glassblowing:staff",
+          "inputs": {
+            "crystal": 2,
+            "moon_glass": 2,
+            "wood_handle": 2
+          },
+          "outputs": {
+            "moon_staff": 1
+          },
+          "station": "glassblowing",
+          "seconds": 20.0,
+          "energy": 3
+        },
+        {
+          "id": "kiln:pot",
+          "inputs": {
+            "unfired_pot": 1
+          },
+          "outputs": {
+            "clay_pot": 1
+          },
+          "station": "furnace",
+          "seconds": 14.0,
+          "energy": 0
+        },
+        {
+          "id": "kiln:bowl",
+          "inputs": {
+            "unfired_bowl": 1
+          },
+          "outputs": {
+            "ceramic_bowl": 1
+          },
+          "station": "furnace",
+          "seconds": 10.0,
+          "energy": 0
+        },
+        {
+          "id": "kiln:vase",
+          "inputs": {
+            "unfired_vase": 1
+          },
+          "outputs": {
+            "ceramic_vase": 1
+          },
+          "station": "furnace",
+          "seconds": 18.0,
+          "energy": 0
+        },
+        {
+          "id": "kiln:glazed",
+          "inputs": {
+            "glazed_vase_form": 1
+          },
+          "outputs": {
+            "glazed_vase": 1
+          },
+          "station": "furnace",
+          "seconds": 20.0,
+          "energy": 0
+        },
+        {
+          "id": "kiln:porcelain",
+          "inputs": {
+            "porcelain_form": 1
+          },
+          "outputs": {
+            "porcelain_cup": 1
+          },
+          "station": "furnace",
+          "seconds": 22.0,
+          "energy": 0
+        },
+        {
+          "id": "artisan:fruit_press:apple_juice",
+          "inputs": {
+            "apple": 3,
+            "glass_bottle": 1
+          },
+          "outputs": {
+            "apple_juice": 2,
+            "fruit_pulp": 2
+          },
+          "station": "fruit_press",
+          "seconds": 10.0,
+          "energy": 1
+        },
+        {
+          "id": "artisan:fermenter:fruit_vinegar",
+          "inputs": {
+            "apple_juice": 1,
+            "clean_water": 1,
+            "glass_bottle": 1
+          },
+          "outputs": {
+            "fruit_vinegar": 2
+          },
+          "station": "fermenter",
+          "seconds": 20.0,
+          "energy": 1
+        },
+        {
+          "id": "artisan:loom:canvas",
+          "inputs": {
+            "fiber": 4,
+            "yarn": 1
+          },
+          "outputs": {
+            "canvas": 2
+          },
+          "station": "loom",
+          "seconds": 14.0,
+          "energy": 1
+        },
+        {
+          "id": "artisan:loom:fine_cloth",
+          "inputs": {
+            "cloth": 2,
+            "cotton": 1
+          },
+          "outputs": {
+            "fine_cloth": 2
+          },
+          "station": "loom",
+          "seconds": 20.0,
+          "energy": 3
+        },
+        {
+          "id": "artisan:loom:woven_rug",
+          "inputs": {
+            "fine_cloth": 2,
+            "yarn": 2
+          },
+          "outputs": {
+            "woven_rug": 1
+          },
+          "station": "loom",
+          "seconds": 24.0,
+          "energy": 3
+        },
+        {
+          "id": "artisan:tannery:tanning_agent",
+          "inputs": {
+            "clean_water": 1,
+            "fruit_vinegar": 1,
+            "herbs": 2
+          },
+          "outputs": {
+            "tanning_agent": 3
+          },
+          "station": "tannery",
+          "seconds": 10.0,
+          "energy": 1
+        },
+        {
+          "id": "artisan:tannery:leather",
+          "inputs": {
+            "hide": 2,
+            "tanning_agent": 1
+          },
+          "outputs": {
+            "leather": 2
+          },
+          "station": "tannery",
+          "seconds": 18.0,
+          "energy": 1
+        },
+        {
+          "id": "artisan:tannery:leather_strap",
+          "inputs": {
+            "leather": 1
+          },
+          "outputs": {
+            "leather_strap": 3
+          },
+          "station": "tannery",
+          "seconds": 10.0,
+          "energy": 2
+        },
+        {
+          "id": "artisan:tannery:cured_fur",
+          "inputs": {
+            "fur": 2,
+            "tanning_agent": 1
+          },
+          "outputs": {
+            "cured_fur": 2
+          },
+          "station": "tannery",
+          "seconds": 20.0,
+          "energy": 2
+        },
+        {
+          "id": "artisan:tannery:book_binding",
+          "inputs": {
+            "beeswax": 1,
+            "cloth": 1,
+            "leather": 1
+          },
+          "outputs": {
+            "book_binding": 2
+          },
+          "station": "tannery",
+          "seconds": 16.0,
+          "energy": 3
+        },
+        {
+          "id": "artisan:tannery:travel_boots",
+          "inputs": {
+            "cured_fur": 1,
+            "leather": 2,
+            "leather_strap": 2
+          },
+          "outputs": {
+            "travel_boots": 1
+          },
+          "station": "tannery",
+          "seconds": 24.0,
+          "energy": 3
+        },
+        {
+          "id": "recycle:plank",
+          "inputs": {
+            "plank": 2
+          },
+          "outputs": {
+            "wood_offcut": 2
+          },
+          "energy": 2,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:nails",
+          "inputs": {
+            "nails": 8
+          },
+          "outputs": {
+            "metal_scrap": 1
+          },
+          "energy": 2,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:rope",
+          "inputs": {
+            "rope": 1
+          },
+          "outputs": {
+            "fiber": 1
+          },
+          "energy": 2,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:cloth",
+          "inputs": {
+            "cloth": 1
+          },
+          "outputs": {
+            "cloth_scrap": 2
+          },
+          "energy": 2,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:wooden_chair",
+          "inputs": {
+            "wooden_chair": 1
+          },
+          "outputs": {
+            "metal_scrap": 1,
+            "wood_offcut": 3
+          },
+          "energy": 2,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:rustic_table",
+          "inputs": {
+            "rustic_table": 1
+          },
+          "outputs": {
+            "metal_scrap": 1,
+            "wood_offcut": 6
+          },
+          "energy": 2,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:wooden_wardrobe",
+          "inputs": {
+            "wooden_wardrobe": 1
+          },
+          "outputs": {
+            "metal_scrap": 2,
+            "wood_offcut": 8
+          },
+          "energy": 2,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:woven_rug",
+          "inputs": {
+            "woven_rug": 1
+          },
+          "outputs": {
+            "cloth_scrap": 3,
+            "fiber": 1
+          },
+          "energy": 2,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:potted_fern",
+          "inputs": {
+            "potted_fern": 1
+          },
+          "outputs": {
+            "fiber": 1,
+            "stone": 1
+          },
+          "energy": 2,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:glass_vial",
+          "inputs": {
+            "glass_vial": 1
+          },
+          "outputs": {
+            "glass_shard": 1
+          },
+          "energy": 2,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:glass",
+          "inputs": {
+            "glass": 1
+          },
+          "outputs": {
+            "glass_shard": 2
+          },
+          "energy": 2,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:crab_trap",
+          "inputs": {
+            "crab_trap": 1
+          },
+          "outputs": {
+            "fiber": 1,
+            "metal_scrap": 1,
+            "wood_offcut": 3
+          },
+          "energy": 2,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:sword",
+          "inputs": {
+            "sword": 1
+          },
+          "outputs": {
+            "slime": 1,
+            "wood_offcut": 1
+          },
+          "energy": 2,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:iron_spear",
+          "inputs": {
+            "iron_spear": 1
+          },
+          "outputs": {
+            "metal_scrap": 4,
+            "wood_offcut": 2
+          },
+          "energy": 4,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:war_hammer",
+          "inputs": {
+            "war_hammer": 1
+          },
+          "outputs": {
+            "metal_scrap": 6,
+            "stone": 2
+          },
+          "energy": 4,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:iron_helmet",
+          "inputs": {
+            "iron_helmet": 1
+          },
+          "outputs": {
+            "metal_scrap": 3
+          },
+          "energy": 4,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:guardian_armor",
+          "inputs": {
+            "guardian_armor": 1
+          },
+          "outputs": {
+            "arcane_dust": 1,
+            "metal_scrap": 6
+          },
+          "energy": 4,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:oak_shield",
+          "inputs": {
+            "oak_shield": 1
+          },
+          "outputs": {
+            "metal_scrap": 1,
+            "wood_offcut": 3
+          },
+          "energy": 4,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:travel_boots",
+          "inputs": {
+            "travel_boots": 1
+          },
+          "outputs": {
+            "cloth_scrap": 2,
+            "hide": 1
+          },
+          "energy": 4,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:cauldron",
+          "inputs": {
+            "cauldron": 1
+          },
+          "outputs": {
+            "metal_scrap": 4
+          },
+          "energy": 4,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:crystal_ring",
+          "inputs": {
+            "crystal_ring": 1
+          },
+          "outputs": {
+            "arcane_dust": 1,
+            "metal_scrap": 2
+          },
+          "energy": 4,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:advanced_fishing_rod",
+          "inputs": {
+            "advanced_fishing_rod": 1
+          },
+          "outputs": {
+            "fiber": 1,
+            "metal_scrap": 2,
+            "wood_offcut": 2
+          },
+          "energy": 4,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:crystal_sword",
+          "inputs": {
+            "crystal_sword": 1
+          },
+          "outputs": {
+            "arcane_dust": 3,
+            "metal_scrap": 2
+          },
+          "energy": 6,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:moon_staff",
+          "inputs": {
+            "moon_staff": 1
+          },
+          "outputs": {
+            "arcane_dust": 4,
+            "wood_offcut": 2
+          },
+          "energy": 6,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:crystal",
+          "inputs": {
+            "crystal": 1
+          },
+          "outputs": {
+            "arcane_dust": 2
+          },
+          "energy": 6,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:wood_beam",
+          "inputs": {
+            "wood_beam": 1
+          },
+          "outputs": {
+            "wood_offcut": 2
+          },
+          "energy": 2,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:wood_dowel",
+          "inputs": {
+            "wood_dowel": 4
+          },
+          "outputs": {
+            "wood_offcut": 1
+          },
+          "energy": 2,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:timber_frame",
+          "inputs": {
+            "timber_frame": 1
+          },
+          "outputs": {
+            "metal_scrap": 1,
+            "wood_offcut": 4
+          },
+          "energy": 4,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:wood_handle",
+          "inputs": {
+            "wood_handle": 1
+          },
+          "outputs": {
+            "wood_offcut": 1
+          },
+          "energy": 2,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:clay_pot",
+          "inputs": {
+            "clay_pot": 1
+          },
+          "outputs": {
+            "ceramic_shard": 2
+          },
+          "energy": 2,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:ceramic_bowl",
+          "inputs": {
+            "ceramic_bowl": 1
+          },
+          "outputs": {
+            "ceramic_shard": 1
+          },
+          "energy": 2,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:ceramic_vase",
+          "inputs": {
+            "ceramic_vase": 1
+          },
+          "outputs": {
+            "ceramic_shard": 2
+          },
+          "energy": 4,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:glazed_vase",
+          "inputs": {
+            "glazed_vase": 1
+          },
+          "outputs": {
+            "ceramic_shard": 2
+          },
+          "energy": 4,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:porcelain_cup",
+          "inputs": {
+            "porcelain_cup": 1
+          },
+          "outputs": {
+            "ceramic_shard": 1
+          },
+          "energy": 6,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:glass_bottle",
+          "inputs": {
+            "glass_bottle": 1
+          },
+          "outputs": {
+            "glass_shard": 1
+          },
+          "energy": 2,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:glass_jar",
+          "inputs": {
+            "glass_jar": 1
+          },
+          "outputs": {
+            "glass_shard": 1
+          },
+          "energy": 2,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:clear_glass",
+          "inputs": {
+            "clear_glass": 1
+          },
+          "outputs": {
+            "glass_shard": 2
+          },
+          "energy": 4,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:colored_glass",
+          "inputs": {
+            "colored_glass": 1
+          },
+          "outputs": {
+            "glass_shard": 2
+          },
+          "energy": 4,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:optical_lens",
+          "inputs": {
+            "optical_lens": 1
+          },
+          "outputs": {
+            "arcane_dust": 1,
+            "glass_shard": 2
+          },
+          "energy": 4,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:moon_glass",
+          "inputs": {
+            "moon_glass": 1
+          },
+          "outputs": {
+            "arcane_dust": 1,
+            "glass_shard": 2
+          },
+          "energy": 6,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:canvas",
+          "inputs": {
+            "canvas": 1
+          },
+          "outputs": {
+            "cloth_scrap": 2
+          },
+          "energy": 2,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:fine_cloth",
+          "inputs": {
+            "fine_cloth": 1
+          },
+          "outputs": {
+            "cloth_scrap": 3
+          },
+          "energy": 4,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:leather",
+          "inputs": {
+            "leather": 1
+          },
+          "outputs": {
+            "hide": 1
+          },
+          "energy": 2,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:leather_strap",
+          "inputs": {
+            "leather_strap": 1
+          },
+          "outputs": {
+            "leather": 1
+          },
+          "energy": 2,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:cured_fur",
+          "inputs": {
+            "cured_fur": 1
+          },
+          "outputs": {
+            "fur": 1
+          },
+          "energy": 4,
+          "station": "recycling",
+          "seconds": 0
+        },
+        {
+          "id": "recycle:book_binding",
+          "inputs": {
+            "book_binding": 1
+          },
+          "outputs": {
+            "cloth_scrap": 1,
+            "leather": 1
+          },
+          "energy": 4,
+          "station": "recycling",
+          "seconds": 0
+        }
+      ]
+    }
+  ]
+}
