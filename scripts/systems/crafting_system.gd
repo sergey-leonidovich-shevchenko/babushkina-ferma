@@ -82,6 +82,7 @@ static func open(game: Node, station: String = "workbench") -> void:
 		if can_craft(game,RECIPES[index]): game.crafting_selected=index; break
 	game.clear_movement_keys()
 	game.message = game.LocaleSystem.text("recipe_select")
+	if station=="alchemy": preload("res://scripts/systems/alchemy_learning_system.gd").open_hint(game,visible)
 
 ## Обрабатывает клавиатуру и геймпад общего окна верстака или котелка.
 static func handle_input(game: Node, event: InputEvent) -> void:
@@ -226,6 +227,7 @@ static func craft_many(game: Node, index: int, requested: int) -> int:
 
 ## Возвращает понятное назначение рецепта для карточки выбранного изделия.
 static func category_name(game: Node, recipe: Dictionary) -> String:
+	if recipe.get("station","")=="alchemy": return preload("res://scripts/systems/alchemy_learning_system.gd").status(game,recipe)
 	if Kitchen.active(game) and recipe.output in Kitchen.Data.COLD: return game.LocaleSystem.ui("kitchen_filter_cold")
 	if Workshop.handles(String(recipe.get("station",""))): return game.LocaleSystem.ui(String(recipe.station)+"_service")
 	if recipe.get("station","")=="furnace": return game.LocaleSystem.ui("furnace_service")
@@ -247,7 +249,9 @@ static func production_summary(game: Node, recipe: Dictionary) -> String:
 		if Alchemy.rank(game)<int(recipe.alchemy_rank): return game.LocaleSystem.ui("alchemy_rank_need",[recipe.alchemy_rank,Alchemy.rank(game)])
 		if recipe.get("laboratory",false) and game.state.world.estate.level<4: return game.LocaleSystem.ui("alchemy_lab_need")
 		for kind in recipe.inputs:
-			if game.inventory_item_count(kind)<int(recipe.inputs[kind]): return game.LocaleSystem.text("needs",[ingredients_text(game,recipe)])
+			if game.inventory_item_count(kind)<int(recipe.inputs[kind]):
+				var learning:=preload("res://scripts/systems/alchemy_learning_system.gd")
+				return learning.sources(game,recipe) if recipe.id in learning.LESSONS else game.LocaleSystem.text("needs",[ingredients_text(game,recipe)])
 	if not game.TalentSystem.recipe_unlocked(game,recipe): return game.LocaleSystem.ui("craft_locked")
 	if recipe.get("station","workbench")!=game.crafting_station: return game.LocaleSystem.ui("craft_wrong_station",[station_name(game,String(recipe.get("station","workbench")))])
 	var summary:String=game.LocaleSystem.ui("craft_output_summary", [int(recipe.count), max_craftable(game, recipe)])

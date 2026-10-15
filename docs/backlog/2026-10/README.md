@@ -6,7 +6,7 @@
 
 ## Состояние
 
-`backlog`: 1, `ready`: 9, `blocked`: 28, `in_progress`: 0, `done`: 12. Статус `done` требует записанного результата; исходные критерии и наличие тестов не означают выполнения.
+`backlog`: 1, `ready`: 8, `blocked`: 28, `in_progress`: 0, `done`: 13. Статус `done` требует записанного результата; исходные критерии и наличие тестов не означают выполнения.
 
 ## Эпики
 
@@ -24,7 +24,6 @@
 Начать с OPT-01: закрепить честный замер до следующего изменения производительности. Далее SAFE-05/SAFE-03 и QA-01; следующие пункты выбираем по дефектам и данным. Одна задача в работе. S/M/L — относительный объём, не срок; L можно разбить до начала.
 
 - [OPT-01](#opt-01) — Измерения, честный gate и быстрые профили
-- [FARM-06](#farm-06) — Спроектировать понятное освоение первых десяти алхимических опытов
 - [FARM-07](#farm-07) — Проверить раннюю рыбалку и достижимость рыбных заданий
 - [FARM-08](#farm-08) — Показать производственную цепочку выбранного предмета в игре и Wiki
 - [WORLD-01](#world-01) — Зафиксировать вертикальный срез первых семи игровых дней
@@ -1009,7 +1008,7 @@
 
 ### FARM-06 — Спроектировать понятное освоение первых десяти алхимических опытов
 
-**ready · P2 · L · design**. Ветка: `codex/farm-06-alchemy-learning-sequence`.
+**done · P2 · L · design**. Ветка: `codex/farm-06-alchemy-learning-sequence`.
 
 **Сейчас:** Растения и обработка уже зарегистрированы; игроку нужен путь обучения, а не только большой список формул.
 
@@ -1039,7 +1038,7 @@
 
 **Основания:** [LOOPS](https://lostgarden.com/2012/04/30/loops-and-arcs/).
 
-**Подтверждение результата:** пока нет; задача открыта.
+**Подтверждение результата:** docs/reports/farm-2026-10/README.md and docs/design/ALCHEMY.md: ten real starter-herb experiments, four purchases/8 coins, healing/mana results, distinct known/next/untried labels, in-game source hints and JSON continuation. FarmAlchemyLearningSuite 48 assertions; FARM 1075/0; native alchemy-learning.png inspected.
 
 <a id="farm-07"></a>
 

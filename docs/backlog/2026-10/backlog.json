@@ -1255,8 +1255,8 @@
         "tools/check_architecture.sh и ./run_tests.sh без ERROR движка.",
         "Обновлённые документация и точный ручной маршрут QA_CHECKLIST.md; нативная проверка, если меняются рисунок, ввод или производительность."
       ],
-      "status": "ready",
-      "result": ""
+      "status": "done",
+      "result": "docs/reports/farm-2026-10/README.md and docs/design/ALCHEMY.md: ten real starter-herb experiments, four purchases/8 coins, healing/mana results, distinct known/next/untried labels, in-game source hints and JSON continuation. FarmAlchemyLearningSuite 48 assertions; FARM 1075/0; native alchemy-learning.png inspected."
     },
     {
       "id": "FARM-07",

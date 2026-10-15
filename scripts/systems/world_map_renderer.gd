@@ -175,7 +175,9 @@ static func draw_recipes(game: Node2D) -> void:
 	game.draw_ui_string(game.UI_FONT, Vector2(582, 403), game.inventory_item_name(String(recipe.output)), HORIZONTAL_ALIGNMENT_CENTER, 454, 18, MoonStyle.TEXT)
 	game.draw_ui_multiline_string(game.UI_FONT, Vector2(588, 448), game.CraftingSystem.ingredients_text(game, recipe), HORIZONTAL_ALIGNMENT_CENTER, 442, 58, 11, 4, Color("694a33"))
 	var unlocked: bool = game.TalentSystem.recipe_unlocked(game, recipe)
-	game.draw_ui_string(game.UI_FONT, Vector2(588, 526), game.LocaleSystem.ui("guide_recipe_open") if unlocked else game.LocaleSystem.ui("guide_recipe_locked"), HORIZONTAL_ALIGNMENT_CENTER, 442, 11, Color("66804c") if unlocked else Color("a83f2a"))
+	var label:String=game.LocaleSystem.ui("guide_recipe_open") if unlocked else game.LocaleSystem.ui("guide_recipe_locked")
+	if recipe.get("station","")=="alchemy": label+=" • "+preload("res://scripts/systems/alchemy_learning_system.gd").status(game,recipe)
+	game.draw_ui_string(game.UI_FONT, Vector2(588, 526), label, HORIZONTAL_ALIGNMENT_CENTER, 442, 11, Color("66804c") if unlocked else Color("a83f2a"))
 
 
 ## Возвращает область видимой строки справочника рецептов.

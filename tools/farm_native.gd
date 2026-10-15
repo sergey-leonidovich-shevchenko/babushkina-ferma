@@ -33,4 +33,8 @@ func start_farm() -> void:
 	game.CraftingSystem.craft(game,game.crafting_selected); game.queue_redraw()
 	await process_frame; RenderingServer.force_draw(false)
 	root.get_texture().get_image().save_png(FOLDER_FARM+"production-queue.png")
+	game.current_location="cottage_interior"; game.player=game.CraftingSystem.Alchemy.STATION
+	game.CraftingSystem.open(game,"alchemy"); game.queue_redraw()
+	await process_frame; RenderingServer.force_draw(false)
+	root.get_texture().get_image().save_png(FOLDER_FARM+"alchemy-learning.png")
 	game.free(); quit()

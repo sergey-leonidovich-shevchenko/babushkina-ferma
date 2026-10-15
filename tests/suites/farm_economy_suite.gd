@@ -40,9 +40,11 @@ func household() -> Array:
 			expect(not plot.planted,"ordinary two-water crop harvested on day %d"%day)
 		game.current_location="cottage_interior"; game.crafting_station="cauldron"
 		while game.inventory_item_count("egg")>0:
-			craft(game,"kitchen:mayonnaise"); sell(game,"mayonnaise"); mayo+=1
+			if not craft(game,"kitchen:mayonnaise"): break
+			sell(game,"mayonnaise"); mayo+=1
 		while game.inventory_item_count("milk")>=2:
-			craft(game,"kitchen:butter"); sell(game,"butter"); butter+=1
+			if not craft(game,"kitchen:butter"): break
+			sell(game,"butter"); butter+=1
 		while game.inventory_item_count("carrot")>0: sell(game,"carrot")
 		rows.append({"day":day,"coins":game.coins,"energy_left":game.energy,"seeds":game.inventory_item_count("seeds"),"feed":game.inventory_item_count("animal_feed"),"milk":game.inventory_item_count("milk"),"mayonnaise_sold":mayo,"butter_sold":butter,"level":game.player_level})
 		expect(game.energy>=0 and game.coins>=0,"household stays within its actual energy and coin budget")
@@ -64,8 +66,10 @@ func sell(game: Node, kind: String) -> void:
 	expect(false,"missing household sale "+kind)
 
 ## Выполняет зарегистрированный доступный рецепт без обхода стоимости и талантов.
-func craft(game: Node, id: String) -> void:
+func craft(game: Node, id: String) -> bool:
 	for index in game.CraftingSystem.RECIPES.size():
 		if game.CraftingSystem.RECIPES[index].get("id","")==id:
-			expect(game.CraftingSystem.craft(game,index),"household crafts "+id); return
+			var result:bool=game.CraftingSystem.craft(game,index)
+			expect(result,"household crafts "+id); return result
 	expect(false,"missing household recipe "+id)
+	return false
