@@ -4,6 +4,7 @@ const MoonStyle := preload("res://scripts/presentation/moon_theme.gd")
 const PAGE_SIZE := 3
 const PREV := Rect2(278,582,44,36)
 const NEXT := Rect2(1074,582,44,36)
+const Availability := preload("res://scripts/systems/npc_availability_system.gd")
 
 ## Собирает журнал из сохранённых состояний миссий и глав, сохраняя завершённые поручения после сдачи ресурсов.
 static func records(game: Node) -> Array[Dictionary]:
@@ -17,6 +18,8 @@ static func records(game: Node) -> Array[Dictionary]:
 		var status: String = game.QuestSystem.mission_state(game,mission_id)
 		var count := mini(game.inventory_item_count(String(mission.item)),int(mission.count))
 		result.append({"id":mission_id,"group":"story" if game.QuestSystem.is_story_mission(mission_id) else "side","status":status,"title":mission.title,"description":mission.description,"progress":game.QuestSystem.objective_text(game,mission_id),"ratio":1.0 if status=="completed" else float(count)/maxi(1,int(mission.count)),"reward":"%d XP · %d ●"%[mission.xp,mission.coins]})
+		var npc_id: String = Availability.giver(game,mission_id)
+		if status != "completed" and not npc_id.is_empty(): result[-1].where = game.QuestSystem.npc_name(npc_id) + ": " + Availability.hint(game,npc_id)
 	var campaign: Dictionary = game.state.world.castle_campaign
 	if game.CastleCampaignSystem.available(game) or campaign.completed:
 		result.append({"id":"castle_campaign","group":"story","status":"completed" if campaign.completed else "active","title":game.LocaleSystem.ui("hud_story_objective"),"description":game.CastleCampaignSystem.objective(game),"progress":"%d / 5"%mini(5,int(campaign.stage)),"ratio":clampf(float(campaign.stage)/5,0,1)})
@@ -57,7 +60,7 @@ static func draw(game: Node) -> void:
 	game.quest_log_page = clampi(game.quest_log_page,0,page_count(game)-1)
 	for index in PAGE_SIZE:
 		var absolute: int = game.quest_log_page*PAGE_SIZE+index
-		if absolute<entries.size(): draw_record(game,Rect2(278,145+index*139,840,123),entries[absolute])
+		if absolute<entries.size(): draw_record(game,Rect2(278,145+index*139,840,133 if entries[absolute].has("where") else 123),entries[absolute])
 	if entries.is_empty(): MoonStyle.text(game,Rect2(278,240,840,100),MoonStyle.word(game,"empty"),17,MoonStyle.MUTED,HORIZONTAL_ALIGNMENT_CENTER)
 	MoonStyle.button(game,PREV,"←",false,game.quest_log_page>0)
 	MoonStyle.button(game,NEXT,"→",false,game.quest_log_page+1<page_count(game))
@@ -70,11 +73,13 @@ static func draw_record(game: Node, rect: Rect2, record: Dictionary) -> void:
 	MoonStyle.title(game,Rect2(rect.position+Vector2(18,13),Vector2(615,27)),String(record.title),18)
 	var status: String = String(record.status)
 	MoonStyle.text(game,Rect2(rect.position+Vector2(654,13),Vector2(165,25)),MoonStyle.sentence_case(game.LocaleSystem.ui(status)),MoonStyle.LABEL_SIZE,MoonStyle.ACCENT if status=="completed" else MoonStyle.MUTED,HORIZONTAL_ALIGNMENT_RIGHT)
+	var has_where: bool = record.has("where")
 	game.draw_ui_multiline_string(game.UI_FONT,rect.position+Vector2(18,57),String(record.description),HORIZONTAL_ALIGNMENT_LEFT,800,34,MoonStyle.BODY_SIZE,2,MoonStyle.MUTED)
-	var track := Rect2(rect.position+Vector2(18,93),Vector2(470,3))
+	if has_where: MoonStyle.text(game,Rect2(rect.position+Vector2(18,92),Vector2(800,16)),String(record.where),MoonStyle.LABEL_SIZE,MoonStyle.MUTED)
+	var track := Rect2(rect.position+Vector2(18,109 if has_where else 93),Vector2(470,3))
 	game.draw_rect(track,MoonStyle.INSET); game.draw_rect(Rect2(track.position,Vector2(track.size.x*float(record.ratio),3)),MoonStyle.ACCENT)
-	MoonStyle.text(game,Rect2(rect.position+Vector2(18,100),Vector2(560,17)),String(record.progress),MoonStyle.LABEL_SIZE,MoonStyle.MUTED)
-	MoonStyle.text(game,Rect2(rect.position+Vector2(602,88),Vector2(218,25)),String(record.get("reward","")),MoonStyle.LABEL_SIZE,MoonStyle.ACCENT,HORIZONTAL_ALIGNMENT_RIGHT)
+	MoonStyle.text(game,Rect2(rect.position+Vector2(18,116 if has_where else 100),Vector2(560,17)),String(record.progress),MoonStyle.LABEL_SIZE,MoonStyle.MUTED)
+	MoonStyle.text(game,Rect2(rect.position+Vector2(602,110 if has_where else 88),Vector2(218,20)),String(record.get("reward","")),MoonStyle.LABEL_SIZE,MoonStyle.ACCENT,HORIZONTAL_ALIGNMENT_RIGHT)
 
 ## Меняет группу, фильтр и страницу; выбор не принимает и не завершает задание.
 static func handle_pointer(game: Node, point: Vector2) -> bool:

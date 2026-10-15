@@ -175,7 +175,7 @@ static func objective_region(game: Node) -> String:
 	for mission_id in active_mission_ids(game):
 		for npc_id in NPCS:
 			if mission_id in NPCS[npc_id].missions:
-				return String(NPCS[npc_id].location)
+				return preload("res://scripts/systems/npc_availability_system.gd").location(game,npc_id)
 	return ""
 
 

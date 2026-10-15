@@ -100,7 +100,7 @@ func test_residents_schedules_and_quests() -> void:
 		expect(game.AdventurePolishSystem.open_quest_dialogue(game,npc),"actual dialogue opens for relocated resident: "+npc)
 		game.AdventurePolishSystem.handle_dialogue_key(game,KEY_ESCAPE)
 	expect(places.size()==4 and game.npc_movement.miron.location=="guild_interior","four villagers no longer gather around Miron")
-	game.game_minutes=23*60; game.NpcMovementSystem.update(game,0)
+	game.current_location="forest"; game.game_minutes=23*60; game.NpcMovementSystem.update(game,0)
 	for npc in Data.NPC_AREAS:
 		var resident:Dictionary=game.npc_movement[npc]
 		expect(game.BuildingSystem.is_interior(resident.location),"night schedule still leads to a real home: "+npc)

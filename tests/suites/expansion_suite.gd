@@ -175,7 +175,7 @@ func test_world_map_discovers_regions_and_marks_story_objective() -> void:
 
 
 ## Сценарий: один житель следует дневному распорядку и прячется от снегопада.
-## Исходное состояние: фиксированы дом жителя, четыре времени суток и управляемая запись погоды.
+## Исходное состояние: фиксированы дом жителя, фазы суток и настоящий календарный день снегопада.
 ## Ожидаемый результат: утро, работа, вечер и укрытие дают разные опорные точки и отмечаются обучением.
 func test_npc_schedule_reacts_to_time_and_weather() -> void:
 	var game := make_game(); var state: Dictionary = game.npc_movement.grandmother
@@ -183,7 +183,9 @@ func test_npc_schedule_reacts_to_time_and_weather() -> void:
 	game.game_minutes = 6 * 60; var morning: Vector2 = game.NpcMovementSystem.schedule_anchor(game, state)
 	game.game_minutes = 12 * 60; var work: Vector2 = game.NpcMovementSystem.schedule_anchor(game, state)
 	game.game_minutes = 20 * 60; var evening: Vector2 = game.NpcMovementSystem.schedule_anchor(game, state)
-	game.state.world.weather = "snow"; var shelter: Vector2 = game.NpcMovementSystem.schedule_anchor(game, state)
+	for day in range(85,113):
+		if game.WorldEventSystem.weather_for_day(day) == "snow": game.day=day; break
+	var shelter: Vector2 = game.NpcMovementSystem.schedule_anchor(game, state)
 	expect(morning != work and work != evening and shelter != evening, "NPC schedule owns distinct daily and bad-weather anchors")
 	expect(state.schedule == "shelter" and game.tutorial_events_completed.has("npc_schedule"), "bad weather selects shelter schedule and teaches living world")
 	game.free()

@@ -58,9 +58,11 @@ static func update(game: Node, delta: float) -> void:
 
 ## Возвращает сменяющуюся по времени и погоде точку распорядка жителя.
 static func schedule_anchor(game: Node, state: Dictionary) -> Vector2:
+	var previous_location: String = state.location; var previous_position: Vector2 = state.position
+	var previous_schedule: String = state.get("schedule","")
 	var actor_id := String(state.get("actor_id", "grandmother"))
 	var hour: int = int(game.game_minutes / 60.0)
-	var weather: String = game.WorldEventSystem.weather(game)
+	var weather: String = game.WorldEventSystem.weather_for_day(game.day)
 	if not VILLAGE_HOME.has(actor_id):
 		var shift := Vector2(-18,-24) if weather in ["rain", "storm", "snow"] else (Vector2(-34,18) if hour < 8 else (Vector2(38,22) if hour >= 18 else Vector2(22,-18)))
 		state.location = state.home_location; state.schedule = "shelter" if weather in ["rain", "storm", "snow"] else ("morning" if hour < 8 else ("evening" if hour >= 18 else "work"))
@@ -79,9 +81,18 @@ static func schedule_anchor(game: Node, state: Dictionary) -> Vector2:
 	else:
 		state.location = VILLAGE_HOME[actor_id]; state.schedule = "возвращается домой"
 	var target:Vector2=interior_anchor(game,state.location,actor_id) if game.BuildingSystem.is_interior(state.location) else (WORK_ANCHORS.get(actor_id,state.home) if state.schedule=="работает" else SOCIAL_ANCHORS.get(actor_id,state.home))
-	if state.position.distance_to(target) > WANDER_RADIUS * 4.0: state.position = target
+	var initialized: bool = state.get("schedule_initialized",false)
+	if initialized and state.location != previous_location and (visible(game,previous_location,previous_position) or visible(game,state.location,target)):
+		state.location=previous_location; state.position=previous_position; state.schedule=previous_schedule
+		state.moving=false; state.schedule_deferred=true; return previous_position
+	state.schedule_initialized=true; state.schedule_deferred=false
+	if state.location != previous_location or (state.position.distance_to(target) > WANDER_RADIUS * 4.0 and (not initialized or not visible(game,state.location,state.position))): state.position = target
 	game.notify_tutorial("npc_schedule")
 	return target
+
+## Проверяет видимость старой и новой опоры, не допуская исчезновения и появления жителя перед камерой.
+static func visible(game: Node, location: String, position: Vector2) -> bool:
+	return location == game.current_location and preload("res://scripts/systems/world_visibility_system.gd").visible_rect(game).grow(80).has_point(position)
 
 
 ## Кеширует устойчивую точку на свободном полу, не повторяя поиск среди неизменной мебели каждый кадр.

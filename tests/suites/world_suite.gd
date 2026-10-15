@@ -15,6 +15,7 @@ func run() -> void:
 	preload("res://tests/suites/cave_labyrinth_suite.gd").new(context).run()
 	preload("res://tests/suites/village_regions_suite.gd").new(context).run()
 	preload("res://tests/suites/village_wayfinding_suite.gd").new(context).run()
+	preload("res://tests/suites/npc_availability_suite.gd").new(context).run()
 	preload("res://tests/suites/cave_boss_arena_suite.gd").new(context).run()
 	test_first_level_master_is_sliced_into_a_seamless_world_grid()
 	test_modular_road_catalog_builds_connected_first_location_routes()

@@ -34,12 +34,12 @@ const OBJECTIVES := [
 	["Зайди в сельскую лавку","Visit the village shop","Visita la tienda del pueblo","Besuche den Dorfladen","Visite la boutique du village","前往村庄商店"],
 	["Полей морковь дважды и собери первый урожай","Water the carrots twice and gather the first harvest","Riega dos veces y recoge la primera cosecha","Gieße zweimal und ernte zum ersten Mal","Arrose deux fois puis récolte","浇水两次并收获第一批作物"],
 	["Принеси бабушке 10 морковок","Bring Grandmother 10 carrots","Lleva 10 zanahorias a la abuela","Bringe Großmutter 10 Karotten","Apporte 10 carottes à Grand-mère","给奶奶带回10根胡萝卜"],
-	["Возьми поручение Агафьи в саду травницы","Accept Agafya’s request in the herbalist’s garden","Acepta el encargo de Agafya en el jardín","Nimm Agafyas Auftrag im Kräutergarten an","Accepte la demande d’Agafya au jardin","在草药园接受阿加菲娅的委托"],
+	["Возьми поручение Агафьи","Accept Agafya’s request","Acepta el encargo de Agafya","Nimm Agafyas Auftrag an","Accepte la demande d’Agafya","接受阿加菲娅的委托"],
 	["Мост: 8 древесины топором, 4 камня из лавки или залежей","Bridge: chop 8 wood; buy or mine 4 stone","Puente: tala 8 maderas; compra o extrae 4 piedras","Brücke: 8 Holz hacken; 4 Stein kaufen oder abbauen","Pont : coupe 8 bois ; achète ou extrais 4 pierres","修桥：砍8份木材，购买或开采4块石头"],
 	["Перейди мост и войди в лес","Cross the bridge and enter the forest","Cruza el puente y entra en el bosque","Überquere die Brücke und betrete den Wald","Traverse le pont et entre dans la forêt","过桥进入森林"],
 	["Победи Стража чащи на востоке леса","Defeat the Grove Guardian in the eastern forest","Derrota al Guardián al este del bosque","Besiege den Hainwächter im östlichen Wald","Vaincs le Gardien à l’est de la forêt","在森林东部击败林地守卫"],
 	["Исследуй светящийся механизм в центре леса","Inspect the glowing mechanism in the central forest","Encuentra el alijo antiguo del bosque","Finde das alte Versteck im Wald","Trouve la cache ancienne dans la forêt","找到森林中的古老藏宝处"],
-	["Отдай редкое семя Агафье в саду травницы","Bring the rare seed to Agafya in the herbalist’s garden","Lleva la semilla rara a Agafya","Bringe Agafya den seltenen Samen","Apporte la graine rare à Agafya","把稀有种子交给草药师阿加菲娅"],
+	["Отдай редкое семя Агафье","Bring the rare seed to Agafya","Lleva la semilla rara a Agafya","Bringe Agafya den seltenen Samen","Apporte la graine rare à Agafya","把稀有种子交给草药师阿加菲娅"],
 	["Выбери награду и будущий путь героя","Choose the reward and the hero's future path","Elige la recompensa y el futuro camino","Wähle Belohnung und künftigen Weg","Choisis la récompense et la voie du héros","选择奖励和英雄未来的道路"],
 ]
 
@@ -90,7 +90,9 @@ static func objective(game: Node) -> String:
 	var value := state(game)
 	if value.completed: return word(game,"complete")
 	var index := mini(stage(game), OBJECTIVES.size()-1); var locale_index := maxi(game.LocaleSystem.LOCALES.find(game.LocaleSystem.current),0)
-	return String(OBJECTIVES[index][locale_index])
+	var result: String = String(OBJECTIVES[index][locale_index])
+	if index in [5,10]: result += " · " + preload("res://scripts/systems/npc_availability_system.gd").hint(game,"agafya")
+	return result
 
 ## Находит строительную точку восточного моста только на первой локации.
 static func nearest_interaction(game: Node, distance_limit: float) -> String:

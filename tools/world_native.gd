@@ -26,4 +26,10 @@ func start_world() -> void:
 	game.sync_background_location(); game.update_camera(); game.UiFeedbackSystem.update(game,1); game.queue_redraw()
 	await process_frame; RenderingServer.force_draw(false)
 	root.get_texture().get_image().save_png(WORLD_FOLDER+"home-wayfinding.png")
+	game.current_location = "cottage_interior"; game.game_minutes = 23*60
+	game.NpcMovementSystem.initialize(game); game.NpcMovementSystem.update(game,0)
+	game.mission_states.side_seed = game.QuestSystem.ACTIVE; game.FirstChapterSystem.state(game).stage = 5
+	game.quest_log_open = true; game.set_meta("journal_group","side"); game.queue_redraw()
+	await process_frame; RenderingServer.force_draw(false)
+	root.get_texture().get_image().save_png(WORLD_FOLDER+"npc-journal.png")
 	game.free(); quit()

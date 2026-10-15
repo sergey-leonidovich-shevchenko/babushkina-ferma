@@ -7,6 +7,8 @@ func _initialize() -> void:
 	DirAccess.make_dir_recursive_absolute(OS.get_user_data_dir())
 	var suite := preload("res://tests/suites/first_week_route_suite.gd").new(self); suite.run()
 	preload("res://tests/suites/village_wayfinding_suite.gd").new(self).run()
+	preload("res://tests/suites/npc_availability_suite.gd").new(self).run()
+	preload("res://tests/suites/expansion_suite.gd").new(self).test_npc_schedule_reacts_to_time_and_weather()
 	var output := "/private/tmp/world-review.json"
 	for argument in OS.get_cmdline_user_args():
 		if argument.begins_with("--output="): output = argument.trim_prefix("--output=")
