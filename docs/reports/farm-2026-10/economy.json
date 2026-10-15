@@ -1,0 +1,7035 @@
+{
+	"crops": {
+		"beet": {
+			"growth": 24.0,
+			"harvest": "beet",
+			"seasons": [
+				"spring",
+				"autumn"
+			],
+			"seed": "beet_seeds",
+			"xp": 4,
+			"yield": 2
+		},
+		"cabbage": {
+			"growth": 30.0,
+			"harvest": "cabbage",
+			"seasons": [
+				"spring",
+				"autumn"
+			],
+			"seed": "cabbage_seeds",
+			"xp": 4,
+			"yield": 1
+		},
+		"carrot": {
+			"growth": 20.0,
+			"harvest": "carrot",
+			"seasons": [
+				"spring",
+				"summer",
+				"autumn"
+			],
+			"seed": "seeds",
+			"xp": 3,
+			"yield": 1
+		},
+		"corn": {
+			"growth": 32.0,
+			"harvest": "corn",
+			"seasons": [
+				"summer"
+			],
+			"seed": "corn_seeds",
+			"xp": 4,
+			"yield": 2
+		},
+		"cotton": {
+			"growth": 40.0,
+			"harvest": "cotton",
+			"seasons": [
+				"summer",
+				"autumn"
+			],
+			"seed": "cotton_seeds",
+			"xp": 6,
+			"yield": 2
+		},
+		"cucumber": {
+			"growth": 30.0,
+			"harvest": "cucumber",
+			"seasons": [
+				"summer"
+			],
+			"seed": "cucumber_seeds",
+			"xp": 5,
+			"yield": 3
+		},
+		"herbs": {
+			"growth": 34.0,
+			"harvest": "herbs",
+			"perennial": true,
+			"regrow": 14.0,
+			"seasonal_art": true,
+			"seasons": [
+				"spring",
+				"summer",
+				"autumn"
+			],
+			"seed": "herb_seeds",
+			"xp": 6,
+			"yield": 3
+		},
+		"melon": {
+			"growth": 44.0,
+			"harvest": "melon",
+			"seasons": [
+				"summer"
+			],
+			"seed": "melon_seeds",
+			"xp": 7,
+			"yield": 1
+		},
+		"onion": {
+			"growth": 22.0,
+			"harvest": "onion",
+			"seasons": [
+				"spring",
+				"summer",
+				"autumn"
+			],
+			"seed": "onion_seeds",
+			"xp": 3,
+			"yield": 2
+		},
+		"pepper": {
+			"growth": 34.0,
+			"harvest": "pepper",
+			"seasons": [
+				"summer"
+			],
+			"seed": "pepper_seeds",
+			"xp": 5,
+			"yield": 2
+		},
+		"potato": {
+			"growth": 26.0,
+			"harvest": "potato",
+			"seasons": [
+				"spring",
+				"summer",
+				"autumn"
+			],
+			"seed": "potato_seeds",
+			"xp": 4,
+			"yield": 2
+		},
+		"pumpkin": {
+			"growth": 44.0,
+			"harvest": "pumpkin",
+			"seasons": [
+				"autumn"
+			],
+			"seed": "pumpkin_seeds",
+			"xp": 7,
+			"yield": 1
+		},
+		"strawberry": {
+			"growth": 36.0,
+			"harvest": "strawberry",
+			"perennial": true,
+			"regrow": 16.0,
+			"seasonal_art": true,
+			"seasons": [
+				"spring",
+				"summer",
+				"autumn"
+			],
+			"seed": "strawberry_seeds",
+			"xp": 6,
+			"yield": 3
+		},
+		"sunflower": {
+			"growth": 38.0,
+			"harvest": "sunflower",
+			"seasons": [
+				"summer"
+			],
+			"seed": "sunflower_seeds",
+			"xp": 6,
+			"yield": 1
+		},
+		"tomato": {
+			"growth": 28.0,
+			"harvest": "tomato",
+			"seasons": [
+				"summer"
+			],
+			"seed": "tomato_seeds",
+			"xp": 4,
+			"yield": 2
+		},
+		"wheat": {
+			"growth": 24.0,
+			"harvest": "wheat",
+			"seasons": [
+				"spring",
+				"summer",
+				"autumn"
+			],
+			"seed": "wheat_seeds",
+			"xp": 3,
+			"yield": 3
+		}
+	},
+	"days": [
+		{
+			"butter_sold": 0,
+			"coins": 36,
+			"day": 1,
+			"energy_left": 4,
+			"feed": 3,
+			"level": 1,
+			"mayonnaise_sold": 0,
+			"milk": 0,
+			"seeds": 6
+		},
+		{
+			"butter_sold": 0,
+			"coins": 81,
+			"day": 2,
+			"energy_left": 6,
+			"feed": 2,
+			"level": 1,
+			"mayonnaise_sold": 3,
+			"milk": 1,
+			"seeds": 4
+		},
+		{
+			"butter_sold": 1,
+			"coins": 148,
+			"day": 3,
+			"energy_left": 6,
+			"feed": 1,
+			"level": 2,
+			"mayonnaise_sold": 6,
+			"milk": 0,
+			"seeds": 2
+		},
+		{
+			"butter_sold": 1,
+			"coins": 211,
+			"day": 4,
+			"energy_left": 6,
+			"feed": 0,
+			"level": 2,
+			"mayonnaise_sold": 9,
+			"milk": 1,
+			"seeds": 0
+		},
+		{
+			"butter_sold": 2,
+			"coins": 285,
+			"day": 5,
+			"energy_left": 6,
+			"feed": 0,
+			"level": 2,
+			"mayonnaise_sold": 12,
+			"milk": 0,
+			"seeds": 2
+		},
+		{
+			"butter_sold": 2,
+			"coins": 340,
+			"day": 6,
+			"energy_left": 6,
+			"feed": 0,
+			"level": 2,
+			"mayonnaise_sold": 15,
+			"milk": 1,
+			"seeds": 0
+		},
+		{
+			"butter_sold": 3,
+			"coins": 420,
+			"day": 7,
+			"energy_left": 6,
+			"feed": 0,
+			"level": 3,
+			"mayonnaise_sold": 18,
+			"milk": 0,
+			"seeds": 2
+		}
+	],
+	"not_recipe_inputs": [
+		"qa_teleport_stone",
+		"mayonnaise",
+		"pancakes",
+		"porridge",
+		"truffle_soup",
+		"animal_feed",
+		"hoe",
+		"seeds",
+		"tomato_seeds",
+		"cabbage_seeds",
+		"wheat_seeds",
+		"corn_seeds",
+		"potato_seeds",
+		"onion_seeds",
+		"pumpkin_seeds",
+		"strawberry_seeds",
+		"beet_seeds",
+		"pepper_seeds",
+		"cucumber_seeds",
+		"sunflower_seeds",
+		"cotton_seeds",
+		"melon_seeds",
+		"herb_seeds",
+		"water",
+		"hand",
+		"pickaxe",
+		"fishing_rod",
+		"advanced_fishing_rod",
+		"crab_trap",
+		"cauldron",
+		"fruit_sapling",
+		"crab",
+		"axe",
+		"cherry",
+		"watermelon",
+		"pie",
+		"jam",
+		"soup",
+		"omelet",
+		"cornbread",
+		"bouquet",
+		"healing_potion",
+		"mana_potion",
+		"energy_potion",
+		"invisibility_potion",
+		"strength_potion",
+		"regeneration_potion",
+		"speed_potion",
+		"defense_potion",
+		"green_crystal",
+		"bow",
+		"arrows",
+		"crystal_sword",
+		"iron_spear",
+		"war_hammer",
+		"moon_staff",
+		"ancient_key",
+		"moon_relic",
+		"eclipse_core",
+		"tusk",
+		"bat_wing",
+		"iron_helmet",
+		"guardian_armor",
+		"travel_boots",
+		"crystal_ring",
+		"orc_blade",
+		"oak_shield",
+		"home_chest",
+		"fence_kit",
+		"gate_kit",
+		"backpack_upgrade",
+		"guild_badge",
+		"pirate_doubloon",
+		"cursed_compass",
+		"pirate_cutlass",
+		"rustic_table",
+		"wooden_chair",
+		"woven_rug",
+		"potted_fern",
+		"wooden_wardrobe",
+		"museum_token",
+		"field_mint_tincture",
+		"chamomile_powder",
+		"chamomile_tincture",
+		"nettle_tincture",
+		"red_clover_powder",
+		"sage_powder",
+		"valerian_powder",
+		"ghost_orchid_powder",
+		"nightshade_tincture",
+		"bloodthorn_powder",
+		"sporecap_tincture",
+		"moon_moss_powder",
+		"frost_fern_powder",
+		"starflower_tincture",
+		"meadow_tonic",
+		"clarity_drops",
+		"vigor_infusion",
+		"honey_balm",
+		"hunter_elixir",
+		"stone_skin_draught",
+		"wind_step_elixir",
+		"moon_veil_potion",
+		"life_balsam",
+		"greater_healing",
+		"greater_mana",
+		"balanced_elixir",
+		"purifying_decoction",
+		"insect_repellent",
+		"miners_oil",
+		"solar_concentrate",
+		"bee_balm",
+		"propolis_balm",
+		"royal_tonic",
+		"trash",
+		"steel",
+		"research_paper",
+		"research_ink",
+		"brick",
+		"ceramic_vase",
+		"glazed_vase",
+		"porcelain_cup",
+		"optical_lens",
+		"colored_glass",
+		"pear_juice",
+		"tomato_juice",
+		"mead",
+		"aged_cheese",
+		"lunar_cordial",
+		"pickled_vegetables",
+		"pickled_mushrooms",
+		"apple_preserves",
+		"travel_ration",
+		"smoked_cheese",
+		"herbed_fish",
+		"smoked_mushrooms",
+		"canvas",
+		"bandage",
+		"growth_fertilizer",
+		"quality_fertilizer",
+		"fishing_bait",
+		"fried_vegetables",
+		"baked_potato",
+		"vegetable_casserole",
+		"mushroom_pie"
+	],
+	"products": [
+		{
+			"amount": 4,
+			"buy": 5,
+			"icon": "[P: (0.0, 55.0), S: (36.0, 45.0)]",
+			"kind": "seeds",
+			"seed": true,
+			"sell": 0
+		},
+		{
+			"buy": 10,
+			"icon": "[P: (34.0, 112.0), S: (30.0, 28.0)]",
+			"kind": "carrot",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"forage": true,
+			"kind": "berries",
+			"sell": 4
+		},
+		{
+			"buy": 0,
+			"forage": true,
+			"kind": "mushroom",
+			"sell": 7
+		},
+		{
+			"buy": 0,
+			"forage": true,
+			"kind": "watermelon",
+			"sell": 10
+		},
+		{
+			"buy": 0,
+			"forage": true,
+			"kind": "apple",
+			"sell": 12
+		},
+		{
+			"buy": 0,
+			"forage": true,
+			"kind": "pear",
+			"sell": 15
+		},
+		{
+			"buy": 0,
+			"forage": true,
+			"kind": "cherry",
+			"sell": 18
+		},
+		{
+			"buy": 0,
+			"forage": true,
+			"kind": "plum",
+			"sell": 24
+		},
+		{
+			"buy": 0,
+			"forage": true,
+			"kind": "nut",
+			"sell": 22
+		},
+		{
+			"amount": 10,
+			"buy": 8,
+			"kind": "arrows",
+			"sell": 1
+		},
+		{
+			"buy": 120,
+			"kind": "home_chest",
+			"sell": 0
+		},
+		{
+			"buy": 120,
+			"kind": "backpack_upgrade",
+			"sell": 0
+		},
+		{
+			"amount": 8,
+			"buy": 24,
+			"kind": "fence_kit",
+			"sell": 1
+		},
+		{
+			"amount": 1,
+			"buy": 30,
+			"kind": "gate_kit",
+			"sell": 8
+		},
+		{
+			"buy": 10,
+			"kind": "tomato",
+			"sell": 6
+		},
+		{
+			"buy": 14,
+			"kind": "cabbage",
+			"sell": 8
+		},
+		{
+			"buy": 12,
+			"kind": "egg",
+			"sell": 7
+		},
+		{
+			"buy": 18,
+			"kind": "milk",
+			"sell": 10
+		},
+		{
+			"buy": 8,
+			"kind": "wheat",
+			"sell": 4
+		},
+		{
+			"buy": 12,
+			"kind": "corn",
+			"sell": 7
+		},
+		{
+			"buy": 9,
+			"kind": "potato",
+			"sell": 5
+		},
+		{
+			"buy": 9,
+			"kind": "onion",
+			"sell": 5
+		},
+		{
+			"buy": 14,
+			"kind": "cotton",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"kind": "flower",
+			"sell": 7
+		},
+		{
+			"buy": 22,
+			"kind": "honey",
+			"sell": 14
+		},
+		{
+			"buy": 20,
+			"kind": "pumpkin",
+			"sell": 12
+		},
+		{
+			"buy": 25,
+			"kind": "wool",
+			"sell": 15
+		},
+		{
+			"buy": 0,
+			"kind": "cheese",
+			"sell": 28
+		},
+		{
+			"buy": 0,
+			"kind": "rope",
+			"sell": 12
+		},
+		{
+			"buy": 0,
+			"kind": "bread",
+			"sell": 24
+		},
+		{
+			"buy": 0,
+			"kind": "pie",
+			"sell": 42
+		},
+		{
+			"buy": 0,
+			"kind": "flour",
+			"sell": 12
+		},
+		{
+			"buy": 0,
+			"kind": "butter",
+			"sell": 24
+		},
+		{
+			"buy": 0,
+			"kind": "jam",
+			"sell": 32
+		},
+		{
+			"buy": 0,
+			"kind": "soup",
+			"sell": 30
+		},
+		{
+			"buy": 0,
+			"kind": "omelet",
+			"sell": 34
+		},
+		{
+			"buy": 0,
+			"kind": "cornbread",
+			"sell": 28
+		},
+		{
+			"buy": 0,
+			"kind": "bouquet",
+			"sell": 36
+		},
+		{
+			"amount": 4,
+			"buy": 7,
+			"kind": "tomato_seeds",
+			"seed": true,
+			"sell": 0
+		},
+		{
+			"amount": 4,
+			"buy": 8,
+			"kind": "cabbage_seeds",
+			"seed": true,
+			"sell": 0
+		},
+		{
+			"amount": 4,
+			"buy": 6,
+			"kind": "wheat_seeds",
+			"seed": true,
+			"sell": 0
+		},
+		{
+			"amount": 4,
+			"buy": 8,
+			"kind": "corn_seeds",
+			"seed": true,
+			"sell": 0
+		},
+		{
+			"amount": 4,
+			"buy": 7,
+			"kind": "potato_seeds",
+			"seed": true,
+			"sell": 0
+		},
+		{
+			"amount": 4,
+			"buy": 7,
+			"kind": "onion_seeds",
+			"seed": true,
+			"sell": 0
+		},
+		{
+			"amount": 4,
+			"buy": 12,
+			"kind": "pumpkin_seeds",
+			"seed": true,
+			"sell": 0
+		},
+		{
+			"amount": 4,
+			"buy": 14,
+			"kind": "strawberry_seeds",
+			"seed": true,
+			"sell": 0
+		},
+		{
+			"amount": 4,
+			"buy": 8,
+			"kind": "beet_seeds",
+			"seed": true,
+			"sell": 0
+		},
+		{
+			"amount": 4,
+			"buy": 10,
+			"kind": "pepper_seeds",
+			"seed": true,
+			"sell": 0
+		},
+		{
+			"amount": 4,
+			"buy": 9,
+			"kind": "cucumber_seeds",
+			"seed": true,
+			"sell": 0
+		},
+		{
+			"amount": 4,
+			"buy": 10,
+			"kind": "sunflower_seeds",
+			"seed": true,
+			"sell": 0
+		},
+		{
+			"amount": 4,
+			"buy": 12,
+			"kind": "cotton_seeds",
+			"seed": true,
+			"sell": 0
+		},
+		{
+			"amount": 4,
+			"buy": 15,
+			"kind": "melon_seeds",
+			"seed": true,
+			"sell": 0
+		},
+		{
+			"amount": 4,
+			"buy": 18,
+			"kind": "herb_seeds",
+			"seed": true,
+			"sell": 0
+		},
+		{
+			"buy": 0,
+			"kind": "strawberry",
+			"sell": 18
+		},
+		{
+			"buy": 0,
+			"kind": "beet",
+			"sell": 7
+		},
+		{
+			"buy": 0,
+			"kind": "pepper",
+			"sell": 11
+		},
+		{
+			"buy": 0,
+			"kind": "cucumber",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"kind": "sunflower",
+			"sell": 12
+		},
+		{
+			"buy": 0,
+			"kind": "melon",
+			"sell": 16
+		},
+		{
+			"buy": 0,
+			"kind": "herbs",
+			"sell": 14
+		},
+		{
+			"buy": 0,
+			"kind": "stone",
+			"sell": 1
+		},
+		{
+			"buy": 0,
+			"kind": "fiber",
+			"sell": 2
+		},
+		{
+			"buy": 0,
+			"kind": "bones",
+			"sell": 3
+		},
+		{
+			"buy": 0,
+			"kind": "metal",
+			"sell": 7
+		},
+		{
+			"buy": 0,
+			"kind": "crystal",
+			"sell": 12
+		},
+		{
+			"buy": 0,
+			"kind": "red_crystal",
+			"sell": 16
+		},
+		{
+			"buy": 0,
+			"kind": "green_crystal",
+			"sell": 16
+		},
+		{
+			"buy": 0,
+			"kind": "pirate_doubloon",
+			"sell": 22
+		},
+		{
+			"buy": 12,
+			"kind": "animal_feed",
+			"sell": 4
+		},
+		{
+			"buy": 0,
+			"kind": "truffle",
+			"sell": 24
+		},
+		{
+			"buy": 0,
+			"kind": "mayonnaise",
+			"sell": 9
+		},
+		{
+			"buy": 0,
+			"kind": "pancakes",
+			"sell": 28
+		},
+		{
+			"buy": 0,
+			"kind": "porridge",
+			"sell": 24
+		},
+		{
+			"buy": 0,
+			"kind": "truffle_soup",
+			"sell": 42
+		},
+		{
+			"buy": 0,
+			"kind": "yarn",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"kind": "cloth",
+			"sell": 10
+		},
+		{
+			"buy": 2,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "glass_vial",
+			"sell": 0
+		},
+		{
+			"buy": 2,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "clean_water",
+			"sell": 0
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "distilled_water",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "herb_solvent",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "herb_oil",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "mineral_base",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "herb_pulp",
+			"sell": 1
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "vital_essence",
+			"sell": 14
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "ember_essence",
+			"sell": 14
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "frost_essence",
+			"sell": 14
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "shadow_essence",
+			"sell": 14
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "ether_essence",
+			"sell": 14
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "bees",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "honeycomb",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "beeswax",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "pollen",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "propolis",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "wax_base",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "bee_essence",
+			"sell": 14
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "pollen_powder",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "propolis_tincture",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "honey_syrup",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": true,
+			"kind": "field_mint",
+			"sell": 4
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "field_mint_juice",
+			"sell": 4
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "field_mint_dried",
+			"sell": 4
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "field_mint_powder",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "field_mint_tincture",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": true,
+			"kind": "chamomile",
+			"sell": 4
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "chamomile_juice",
+			"sell": 4
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "chamomile_dried",
+			"sell": 4
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "chamomile_powder",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "chamomile_tincture",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": true,
+			"kind": "nettle",
+			"sell": 4
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "nettle_juice",
+			"sell": 4
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "nettle_dried",
+			"sell": 4
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "nettle_powder",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "nettle_tincture",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": true,
+			"kind": "red_clover",
+			"sell": 4
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "red_clover_juice",
+			"sell": 4
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "red_clover_dried",
+			"sell": 4
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "red_clover_powder",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "red_clover_tincture",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": true,
+			"kind": "wild_thyme",
+			"sell": 4
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "wild_thyme_juice",
+			"sell": 4
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "wild_thyme_dried",
+			"sell": 4
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "wild_thyme_powder",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "wild_thyme_tincture",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": true,
+			"kind": "yarrow",
+			"sell": 4
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "yarrow_juice",
+			"sell": 4
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "yarrow_dried",
+			"sell": 4
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "yarrow_powder",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "yarrow_tincture",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": true,
+			"kind": "sage",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "sage_juice",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "sage_dried",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "sage_powder",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "sage_tincture",
+			"sell": 10
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": true,
+			"kind": "lemon_balm",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "lemon_balm_juice",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "lemon_balm_dried",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "lemon_balm_powder",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "lemon_balm_tincture",
+			"sell": 10
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": true,
+			"kind": "valerian",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "valerian_juice",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "valerian_dried",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "valerian_powder",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "valerian_tincture",
+			"sell": 10
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": true,
+			"kind": "wormwood",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "wormwood_juice",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "wormwood_dried",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "wormwood_powder",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "wormwood_tincture",
+			"sell": 10
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": true,
+			"kind": "juniper",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "juniper_juice",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "juniper_dried",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "juniper_powder",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "juniper_tincture",
+			"sell": 10
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": true,
+			"kind": "rosehip",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "rosehip_juice",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "rosehip_dried",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "rosehip_powder",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "rosehip_tincture",
+			"sell": 10
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": true,
+			"kind": "ember_grass",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "ember_grass_juice",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "ember_grass_dried",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "ember_grass_powder",
+			"sell": 10
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "ember_grass_tincture",
+			"sell": 12
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": true,
+			"kind": "silver_lichen",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "silver_lichen_juice",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "silver_lichen_dried",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "silver_lichen_powder",
+			"sell": 10
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "silver_lichen_tincture",
+			"sell": 12
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": true,
+			"kind": "bitter_root",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "bitter_root_juice",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "bitter_root_dried",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "bitter_root_powder",
+			"sell": 10
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "bitter_root_tincture",
+			"sell": 12
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": true,
+			"kind": "ghost_orchid",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "ghost_orchid_juice",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "ghost_orchid_dried",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "ghost_orchid_powder",
+			"sell": 10
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "ghost_orchid_tincture",
+			"sell": 12
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": true,
+			"kind": "nightshade",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "nightshade_juice",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "nightshade_dried",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "nightshade_powder",
+			"sell": 10
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "nightshade_tincture",
+			"sell": 12
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": true,
+			"kind": "bloodthorn",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "bloodthorn_juice",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "bloodthorn_dried",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "bloodthorn_powder",
+			"sell": 10
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "bloodthorn_tincture",
+			"sell": 12
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": true,
+			"kind": "sporecap",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "sporecap_juice",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "sporecap_dried",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "sporecap_powder",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "sporecap_tincture",
+			"sell": 10
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": true,
+			"kind": "moon_grass",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "moon_grass_juice",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "moon_grass_dried",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "moon_grass_powder",
+			"sell": 10
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "moon_grass_tincture",
+			"sell": 12
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": true,
+			"kind": "moon_moss",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "moon_moss_juice",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "moon_moss_dried",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "moon_moss_powder",
+			"sell": 10
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "moon_moss_tincture",
+			"sell": 12
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": true,
+			"kind": "frost_fern",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "frost_fern_juice",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "frost_fern_dried",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "frost_fern_powder",
+			"sell": 10
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "frost_fern_tincture",
+			"sell": 12
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": true,
+			"kind": "starflower",
+			"sell": 10
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "starflower_juice",
+			"sell": 10
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "starflower_dried",
+			"sell": 10
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "starflower_powder",
+			"sell": 12
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "starflower_tincture",
+			"sell": 14
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": true,
+			"kind": "sunpetal",
+			"sell": 10
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "sunpetal_juice",
+			"sell": 10
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "sunpetal_dried",
+			"sell": 10
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "sunpetal_powder",
+			"sell": 12
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "sunpetal_tincture",
+			"sell": 14
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "meadow_tonic",
+			"sell": 18
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "clarity_drops",
+			"sell": 18
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "vigor_infusion",
+			"sell": 18
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "honey_balm",
+			"sell": 18
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "hunter_elixir",
+			"sell": 18
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "stone_skin_draught",
+			"sell": 18
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "wind_step_elixir",
+			"sell": 18
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "moon_veil_potion",
+			"sell": 18
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "life_balsam",
+			"sell": 18
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "greater_healing",
+			"sell": 18
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "greater_mana",
+			"sell": 18
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "balanced_elixir",
+			"sell": 18
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "purifying_decoction",
+			"sell": 18
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "insect_repellent",
+			"sell": 18
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "miners_oil",
+			"sell": 18
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "solar_concentrate",
+			"sell": 18
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "bee_balm",
+			"sell": 18
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "propolis_balm",
+			"sell": 18
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"forage": false,
+			"kind": "royal_tonic",
+			"sell": 18
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"kind": "iron_ore",
+			"sell": 3
+		},
+		{
+			"buy": 4,
+			"daily_stock": 8,
+			"kind": "metal_scrap",
+			"sell": 2
+		},
+		{
+			"buy": 2,
+			"daily_stock": 8,
+			"kind": "sand",
+			"sell": 1
+		},
+		{
+			"buy": 5,
+			"daily_stock": 8,
+			"kind": "coal",
+			"sell": 3
+		},
+		{
+			"buy": 1,
+			"daily_stock": 8,
+			"kind": "trash",
+			"sell": 0
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"kind": "charcoal",
+			"sell": 3
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"kind": "glass",
+			"sell": 5
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"kind": "steel",
+			"sell": 18
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"kind": "slag",
+			"sell": 1
+		},
+		{
+			"buy": 3,
+			"daily_stock": 8,
+			"kind": "research_paper",
+			"sell": 1
+		},
+		{
+			"buy": 5,
+			"daily_stock": 8,
+			"kind": "research_ink",
+			"sell": 1
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"kind": "wood_offcut",
+			"sell": 0
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"kind": "cloth_scrap",
+			"sell": 0
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"kind": "glass_shard",
+			"sell": 0
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"kind": "arcane_dust",
+			"sell": 0
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"kind": "wood_beam",
+			"sell": 3
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"kind": "wood_dowel",
+			"sell": 1
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"kind": "timber_frame",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"kind": "wood_handle",
+			"sell": 3
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"kind": "sawdust",
+			"sell": 0
+		},
+		{
+			"buy": 3,
+			"daily_stock": 8,
+			"kind": "clay",
+			"sell": 1
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"kind": "wet_clay",
+			"sell": 1
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"kind": "unfired_brick",
+			"sell": 1
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"kind": "unfired_pot",
+			"sell": 2
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"kind": "unfired_bowl",
+			"sell": 1
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"kind": "unfired_vase",
+			"sell": 2
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"kind": "glazed_vase_form",
+			"sell": 3
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"kind": "porcelain_clay",
+			"sell": 2
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"kind": "porcelain_form",
+			"sell": 3
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"kind": "ceramic_glaze",
+			"sell": 2
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"kind": "brick",
+			"sell": 3
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"kind": "clay_pot",
+			"sell": 7
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"kind": "ceramic_bowl",
+			"sell": 5
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"kind": "ceramic_vase",
+			"sell": 10
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"kind": "glazed_vase",
+			"sell": 15
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"kind": "porcelain_cup",
+			"sell": 20
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"kind": "ceramic_shard",
+			"sell": 0
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"kind": "glass_bottle",
+			"sell": 5
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"kind": "glass_jar",
+			"sell": 5
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"kind": "clear_glass",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"kind": "optical_lens",
+			"sell": 18
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"kind": "colored_glass",
+			"sell": 9
+		},
+		{
+			"buy": 0,
+			"daily_stock": 8,
+			"kind": "moon_glass",
+			"sell": 24
+		},
+		{
+			"buy": 0,
+			"daily_stock": 0,
+			"kind": "apple_juice",
+			"sell": 9
+		},
+		{
+			"buy": 0,
+			"daily_stock": 0,
+			"kind": "berry_juice",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 0,
+			"kind": "pear_juice",
+			"sell": 10
+		},
+		{
+			"buy": 0,
+			"daily_stock": 0,
+			"kind": "tomato_juice",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 0,
+			"kind": "fruit_pulp",
+			"sell": 0
+		},
+		{
+			"buy": 0,
+			"daily_stock": 0,
+			"kind": "cider",
+			"sell": 22
+		},
+		{
+			"buy": 0,
+			"daily_stock": 0,
+			"kind": "berry_wine",
+			"sell": 24
+		},
+		{
+			"buy": 0,
+			"daily_stock": 0,
+			"kind": "mead",
+			"sell": 25
+		},
+		{
+			"buy": 0,
+			"daily_stock": 0,
+			"kind": "fruit_vinegar",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 0,
+			"kind": "aged_cheese",
+			"sell": 32
+		},
+		{
+			"buy": 0,
+			"daily_stock": 0,
+			"kind": "lunar_cordial",
+			"sell": 42
+		},
+		{
+			"buy": 0,
+			"daily_stock": 0,
+			"kind": "pickled_vegetables",
+			"sell": 15
+		},
+		{
+			"buy": 0,
+			"daily_stock": 0,
+			"kind": "pickled_mushrooms",
+			"sell": 18
+		},
+		{
+			"buy": 0,
+			"daily_stock": 0,
+			"kind": "apple_preserves",
+			"sell": 20
+		},
+		{
+			"buy": 0,
+			"daily_stock": 0,
+			"kind": "dried_fruit",
+			"sell": 14
+		},
+		{
+			"buy": 0,
+			"daily_stock": 0,
+			"kind": "dried_mushrooms",
+			"sell": 12
+		},
+		{
+			"buy": 0,
+			"daily_stock": 0,
+			"kind": "travel_ration",
+			"sell": 35
+		},
+		{
+			"buy": 0,
+			"daily_stock": 0,
+			"kind": "smoked_fish",
+			"sell": 16
+		},
+		{
+			"buy": 0,
+			"daily_stock": 0,
+			"kind": "smoked_meat",
+			"sell": 20
+		},
+		{
+			"buy": 0,
+			"daily_stock": 0,
+			"kind": "smoked_cheese",
+			"sell": 30
+		},
+		{
+			"buy": 0,
+			"daily_stock": 0,
+			"kind": "herbed_fish",
+			"sell": 26
+		},
+		{
+			"buy": 0,
+			"daily_stock": 0,
+			"kind": "smoked_mushrooms",
+			"sell": 16
+		},
+		{
+			"buy": 0,
+			"daily_stock": 0,
+			"kind": "canvas",
+			"sell": 8
+		},
+		{
+			"buy": 0,
+			"daily_stock": 0,
+			"kind": "fine_cloth",
+			"sell": 14
+		},
+		{
+			"buy": 0,
+			"daily_stock": 0,
+			"kind": "bandage",
+			"sell": 5
+		},
+		{
+			"buy": 0,
+			"daily_stock": 0,
+			"kind": "leather",
+			"sell": 10
+		},
+		{
+			"buy": 0,
+			"daily_stock": 0,
+			"kind": "leather_strap",
+			"sell": 5
+		},
+		{
+			"buy": 0,
+			"daily_stock": 0,
+			"kind": "cured_fur",
+			"sell": 16
+		},
+		{
+			"buy": 0,
+			"daily_stock": 0,
+			"kind": "book_binding",
+			"sell": 12
+		},
+		{
+			"buy": 0,
+			"daily_stock": 0,
+			"kind": "tanning_agent",
+			"sell": 4
+		},
+		{
+			"buy": 0,
+			"daily_stock": 0,
+			"kind": "wax_candle",
+			"sell": 6
+		},
+		{
+			"buy": 0,
+			"daily_stock": 0,
+			"kind": "herbal_candle",
+			"sell": 12
+		},
+		{
+			"buy": 0,
+			"daily_stock": 0,
+			"kind": "moon_candle",
+			"sell": 22
+		},
+		{
+			"buy": 0,
+			"daily_stock": 0,
+			"kind": "soap",
+			"sell": 5
+		},
+		{
+			"buy": 0,
+			"daily_stock": 0,
+			"kind": "herbal_soap",
+			"sell": 10
+		},
+		{
+			"buy": 0,
+			"daily_stock": 0,
+			"kind": "incense",
+			"sell": 16
+		},
+		{
+			"buy": 0,
+			"daily_stock": 0,
+			"kind": "compost",
+			"sell": 1
+		},
+		{
+			"buy": 0,
+			"daily_stock": 0,
+			"kind": "bone_meal",
+			"sell": 2
+		},
+		{
+			"buy": 0,
+			"daily_stock": 0,
+			"kind": "growth_fertilizer",
+			"sell": 4
+		},
+		{
+			"buy": 0,
+			"daily_stock": 0,
+			"kind": "quality_fertilizer",
+			"sell": 5
+		},
+		{
+			"buy": 0,
+			"daily_stock": 0,
+			"kind": "fishing_bait",
+			"sell": 1
+		},
+		{
+			"buy": 0,
+			"kind": "fried_vegetables",
+			"sell": 12
+		},
+		{
+			"buy": 0,
+			"kind": "baked_potato",
+			"sell": 14
+		},
+		{
+			"buy": 0,
+			"kind": "vegetable_casserole",
+			"sell": 20
+		},
+		{
+			"buy": 0,
+			"kind": "mushroom_pie",
+			"sell": 26
+		}
+	],
+	"recipes": [
+		{
+			"count": 1,
+			"inputs": {
+				"slime": 3,
+				"wood": 2
+			},
+			"name": "Лесной меч",
+			"output": "sword"
+		},
+		{
+			"category": "processing",
+			"count": 4,
+			"inputs": {
+				"log": 1
+			},
+			"name": "Распилить бревно",
+			"output": "plank"
+		},
+		{
+			"category": "processing",
+			"count": 8,
+			"inputs": {
+				"metal": 1
+			},
+			"name": "Выковать гвозди",
+			"output": "nails"
+		},
+		{
+			"category": "equipment",
+			"count": 1,
+			"inputs": {
+				"metal": 4,
+				"nails": 2,
+				"plank": 2
+			},
+			"name": "Железное копьё",
+			"output": "iron_spear"
+		},
+		{
+			"category": "equipment",
+			"count": 1,
+			"inputs": {
+				"metal": 6,
+				"plank": 2,
+				"stone": 4
+			},
+			"name": "Кузнечный молот",
+			"output": "war_hammer"
+		},
+		{
+			"category": "equipment",
+			"count": 1,
+			"inputs": {
+				"blue_gem": 1,
+				"crystal": 4,
+				"plank": 2
+			},
+			"name": "Лунный посох",
+			"output": "moon_staff"
+		},
+		{
+			"count": 1,
+			"inputs": {
+				"crystal": 5,
+				"sword": 1
+			},
+			"name": "Кристальный меч",
+			"output": "crystal_sword"
+		},
+		{
+			"count": 1,
+			"inputs": {
+				"metal": 4,
+				"stone": 2
+			},
+			"name": "Железный шлем",
+			"output": "iron_helmet"
+		},
+		{
+			"count": 1,
+			"inputs": {
+				"crystal": 2,
+				"metal": 8
+			},
+			"name": "Доспех хранителя",
+			"output": "guardian_armor"
+		},
+		{
+			"count": 1,
+			"inputs": {
+				"blue_gem": 1,
+				"metal": 2
+			},
+			"name": "Алмазный талисман",
+			"output": "crystal_ring"
+		},
+		{
+			"count": 1,
+			"inputs": {
+				"berries": 2,
+				"mushroom": 1
+			},
+			"name": "Лечебное зелье",
+			"output": "healing_potion"
+		},
+		{
+			"category": "equipment",
+			"count": 1,
+			"inputs": {
+				"metal": 1,
+				"nails": 3,
+				"plank": 4
+			},
+			"name": "Дубовый щит",
+			"output": "oak_shield"
+		},
+		{
+			"category": "construction",
+			"count": 1,
+			"inputs": {
+				"nails": 6,
+				"plank": 8
+			},
+			"name": "Домашний сундук",
+			"output": "home_chest"
+		},
+		{
+			"count": 10,
+			"inputs": {
+				"metal": 1,
+				"wood": 2
+			},
+			"name": "Стрелы",
+			"output": "arrows"
+		},
+		{
+			"count": 1,
+			"inputs": {
+				"berries": 1,
+				"crystal": 1
+			},
+			"name": "Зелье маны",
+			"output": "mana_potion"
+		},
+		{
+			"count": 1,
+			"inputs": {
+				"nut": 2,
+				"orange": 1
+			},
+			"name": "Зелье энергии",
+			"output": "energy_potion"
+		},
+		{
+			"count": 1,
+			"inputs": {
+				"ectoplasm": 1,
+				"mushroom": 2
+			},
+			"name": "Зелье невидимости",
+			"output": "invisibility_potion"
+		},
+		{
+			"count": 1,
+			"inputs": {
+				"nut": 2,
+				"raw_meat": 1
+			},
+			"name": "Зелье силы",
+			"output": "strength_potion"
+		},
+		{
+			"count": 1,
+			"inputs": {
+				"berries": 3,
+				"mushroom": 2
+			},
+			"name": "Зелье регенерации",
+			"output": "regeneration_potion"
+		},
+		{
+			"count": 1,
+			"inputs": {
+				"lizard_scale": 1,
+				"mushroom": 1
+			},
+			"name": "Зелье скорости",
+			"output": "speed_potion"
+		},
+		{
+			"count": 1,
+			"inputs": {
+				"metal": 1,
+				"stone": 2
+			},
+			"name": "Зелье защиты",
+			"output": "defense_potion"
+		},
+		{
+			"count": 1,
+			"inputs": {
+				"fiber": 2
+			},
+			"name": "Крепкая верёвка",
+			"output": "rope"
+		},
+		{
+			"count": 1,
+			"inputs": {
+				"fiber": 1,
+				"flower": 3
+			},
+			"name": "Полевой букет",
+			"output": "bouquet"
+		},
+		{
+			"category": "construction",
+			"count": 1,
+			"inputs": {
+				"nails": 4,
+				"plank": 6
+			},
+			"name": "Дубовый стол",
+			"output": "rustic_table"
+		},
+		{
+			"category": "construction",
+			"count": 1,
+			"inputs": {
+				"nails": 2,
+				"plank": 3
+			},
+			"name": "Резной стул",
+			"output": "wooden_chair"
+		},
+		{
+			"count": 1,
+			"inputs": {
+				"cloth": 2,
+				"yarn": 1
+			},
+			"name": "Тканый ковёр",
+			"output": "woven_rug"
+		},
+		{
+			"count": 1,
+			"inputs": {
+				"fiber": 2,
+				"flower": 2,
+				"stone": 1
+			},
+			"name": "Папоротник в горшке",
+			"output": "potted_fern"
+		},
+		{
+			"category": "construction",
+			"count": 1,
+			"inputs": {
+				"nails": 8,
+				"plank": 10
+			},
+			"name": "Деревянный шкаф",
+			"output": "wooden_wardrobe"
+		},
+		{
+			"category": "construction",
+			"count": 8,
+			"inputs": {
+				"nails": 4,
+				"plank": 2
+			},
+			"name": "Секции забора",
+			"output": "fence_kit"
+		},
+		{
+			"category": "construction",
+			"count": 1,
+			"inputs": {
+				"nails": 4,
+				"plank": 3
+			},
+			"name": "Набор калитки",
+			"output": "gate_kit"
+		},
+		{
+			"count": 1,
+			"inputs": {
+				"metal": 5,
+				"stone": 3
+			},
+			"name": "Походный котелок",
+			"output": "cauldron",
+			"talent": "farm_cooking"
+		},
+		{
+			"count": 1,
+			"inputs": {
+				"fiber": 2,
+				"metal": 3,
+				"plank": 2
+			},
+			"name": "Улучшенная удочка",
+			"output": "advanced_fishing_rod",
+			"talents": [
+				"fish_fine_rod",
+				"craft_apprentice"
+			]
+		},
+		{
+			"category": "construction",
+			"count": 1,
+			"inputs": {
+				"nails": 2,
+				"plank": 3,
+				"rope": 2
+			},
+			"name": "Крабовая ловушка",
+			"output": "crab_trap",
+			"talent": "fish_crab_traps"
+		},
+		{
+			"count": 1,
+			"inputs": {
+				"rare_seeds": 1,
+				"wood": 2
+			},
+			"name": "Фруктовый саженец",
+			"output": "fruit_sapling",
+			"talent": "farm_orchard"
+		},
+		{
+			"category": "processing",
+			"count": 2,
+			"inputs": {
+				"fiber": 1,
+				"wheat": 2
+			},
+			"name": "Корм для двора",
+			"output": "animal_feed"
+		},
+		{
+			"category": "processing",
+			"count": 2,
+			"inputs": {
+				"wool": 1
+			},
+			"name": "Пряжа",
+			"output": "yarn"
+		},
+		{
+			"category": "processing",
+			"count": 1,
+			"inputs": {
+				"cotton": 1,
+				"yarn": 2
+			},
+			"name": "Ткань",
+			"output": "cloth"
+		},
+		{
+			"category": "food",
+			"count": 1,
+			"id": "kitchen:flour",
+			"inputs": {
+				"wheat": 2
+			},
+			"name": "Мука",
+			"output": "flour",
+			"station": "cauldron"
+		},
+		{
+			"category": "food",
+			"count": 1,
+			"id": "kitchen:butter",
+			"inputs": {
+				"milk": 2
+			},
+			"name": "Сливочное масло",
+			"output": "butter",
+			"station": "cauldron"
+		},
+		{
+			"category": "food",
+			"count": 1,
+			"id": "kitchen:cheese",
+			"inputs": {
+				"milk": 3
+			},
+			"name": "Домашний сыр",
+			"output": "cheese",
+			"station": "cauldron"
+		},
+		{
+			"category": "food",
+			"count": 1,
+			"id": "kitchen:bread",
+			"inputs": {
+				"flour": 2
+			},
+			"name": "Деревенский хлеб",
+			"output": "bread",
+			"station": "cauldron"
+		},
+		{
+			"count": 1,
+			"id": "kitchen:pie",
+			"inputs": {
+				"apple": 2,
+				"butter": 1,
+				"flour": 1
+			},
+			"name": "Яблочный пирог",
+			"output": "pie",
+			"station": "cauldron",
+			"talent": "farm_cooking"
+		},
+		{
+			"count": 1,
+			"id": "kitchen:jam",
+			"inputs": {
+				"berries": 3,
+				"honey": 1
+			},
+			"name": "Ягодное варенье",
+			"output": "jam",
+			"station": "cauldron",
+			"talent": "farm_cooking"
+		},
+		{
+			"category": "food",
+			"count": 1,
+			"id": "kitchen:soup",
+			"inputs": {
+				"carrot": 1,
+				"onion": 1,
+				"potato": 1
+			},
+			"name": "Овощной суп",
+			"output": "soup",
+			"station": "cauldron"
+		},
+		{
+			"category": "food",
+			"count": 1,
+			"id": "kitchen:omelet",
+			"inputs": {
+				"egg": 2,
+				"milk": 1
+			},
+			"name": "Омлет с зеленью",
+			"output": "omelet",
+			"station": "cauldron"
+		},
+		{
+			"count": 1,
+			"id": "kitchen:cornbread",
+			"inputs": {
+				"corn": 2,
+				"flour": 1
+			},
+			"name": "Кукурузный хлеб",
+			"output": "cornbread",
+			"station": "cauldron",
+			"talent": "farm_cooking"
+		},
+		{
+			"category": "food",
+			"count": 1,
+			"id": "kitchen:mayonnaise",
+			"inputs": {
+				"egg": 1
+			},
+			"name": "Домашний майонез",
+			"output": "mayonnaise",
+			"station": "cauldron"
+		},
+		{
+			"category": "food",
+			"count": 1,
+			"id": "kitchen:pancakes",
+			"inputs": {
+				"egg": 1,
+				"flour": 1,
+				"milk": 1
+			},
+			"name": "Молочные блинчики",
+			"output": "pancakes",
+			"station": "cauldron"
+		},
+		{
+			"category": "food",
+			"count": 1,
+			"id": "kitchen:porridge",
+			"inputs": {
+				"milk": 1,
+				"wheat": 2
+			},
+			"name": "Молочная каша",
+			"output": "porridge",
+			"station": "cauldron"
+		},
+		{
+			"category": "food",
+			"count": 1,
+			"id": "kitchen:truffle_soup",
+			"inputs": {
+				"milk": 1,
+				"mushroom": 1,
+				"truffle": 1
+			},
+			"name": "Трюфельная похлёбка",
+			"output": "truffle_soup",
+			"station": "cauldron",
+			"talent": "farm_cooking"
+		},
+		{
+			"count": 2,
+			"energy": 1,
+			"id": "kitchen:fried_vegetables",
+			"inputs": {
+				"carrot": 1,
+				"onion": 1,
+				"potato": 2
+			},
+			"name": "Жареные овощи",
+			"output": "fried_vegetables",
+			"private_kitchen": true,
+			"seconds": 10.0,
+			"station": "cauldron"
+		},
+		{
+			"count": 2,
+			"energy": 1,
+			"id": "kitchen:baked_potato",
+			"inputs": {
+				"butter": 1,
+				"potato": 2
+			},
+			"name": "Печёный картофель",
+			"output": "baked_potato",
+			"private_kitchen": true,
+			"seconds": 14.0,
+			"station": "cauldron"
+		},
+		{
+			"count": 2,
+			"energy": 2,
+			"id": "kitchen:vegetable_casserole",
+			"inputs": {
+				"egg": 1,
+				"milk": 1,
+				"potato": 2
+			},
+			"name": "Овощная запеканка",
+			"output": "vegetable_casserole",
+			"private_kitchen": true,
+			"seconds": 18.0,
+			"station": "cauldron"
+		},
+		{
+			"count": 1,
+			"energy": 2,
+			"id": "kitchen:mushroom_pie",
+			"inputs": {
+				"butter": 1,
+				"flour": 1,
+				"mushroom": 2
+			},
+			"name": "Грибной пирог",
+			"output": "mushroom_pie",
+			"private_kitchen": true,
+			"seconds": 20.0,
+			"station": "cauldron"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:field_mint_juice",
+			"inputs": {
+				"field_mint": 2
+			},
+			"name": "field_mint_juice",
+			"output": "field_mint_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:field_mint_dried",
+			"inputs": {
+				"field_mint": 2
+			},
+			"name": "field_mint_dried",
+			"output": "field_mint_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:field_mint_powder",
+			"inputs": {
+				"field_mint_dried": 2
+			},
+			"name": "field_mint_powder",
+			"output": "field_mint_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:field_mint_tincture",
+			"inputs": {
+				"field_mint_juice": 1,
+				"herb_solvent": 1
+			},
+			"name": "field_mint_tincture",
+			"output": "field_mint_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:chamomile_juice",
+			"inputs": {
+				"chamomile": 2
+			},
+			"name": "chamomile_juice",
+			"output": "chamomile_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:chamomile_dried",
+			"inputs": {
+				"chamomile": 2
+			},
+			"name": "chamomile_dried",
+			"output": "chamomile_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:chamomile_powder",
+			"inputs": {
+				"chamomile_dried": 2
+			},
+			"name": "chamomile_powder",
+			"output": "chamomile_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:chamomile_tincture",
+			"inputs": {
+				"chamomile_juice": 1,
+				"herb_solvent": 1
+			},
+			"name": "chamomile_tincture",
+			"output": "chamomile_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:nettle_juice",
+			"inputs": {
+				"nettle": 2
+			},
+			"name": "nettle_juice",
+			"output": "nettle_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:nettle_dried",
+			"inputs": {
+				"nettle": 2
+			},
+			"name": "nettle_dried",
+			"output": "nettle_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:nettle_powder",
+			"inputs": {
+				"nettle_dried": 2
+			},
+			"name": "nettle_powder",
+			"output": "nettle_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:nettle_tincture",
+			"inputs": {
+				"herb_solvent": 1,
+				"nettle_juice": 1
+			},
+			"name": "nettle_tincture",
+			"output": "nettle_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:red_clover_juice",
+			"inputs": {
+				"red_clover": 2
+			},
+			"name": "red_clover_juice",
+			"output": "red_clover_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:red_clover_dried",
+			"inputs": {
+				"red_clover": 2
+			},
+			"name": "red_clover_dried",
+			"output": "red_clover_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:red_clover_powder",
+			"inputs": {
+				"red_clover_dried": 2
+			},
+			"name": "red_clover_powder",
+			"output": "red_clover_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:red_clover_tincture",
+			"inputs": {
+				"herb_solvent": 1,
+				"red_clover_juice": 1
+			},
+			"name": "red_clover_tincture",
+			"output": "red_clover_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:wild_thyme_juice",
+			"inputs": {
+				"wild_thyme": 2
+			},
+			"name": "wild_thyme_juice",
+			"output": "wild_thyme_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:wild_thyme_dried",
+			"inputs": {
+				"wild_thyme": 2
+			},
+			"name": "wild_thyme_dried",
+			"output": "wild_thyme_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:wild_thyme_powder",
+			"inputs": {
+				"wild_thyme_dried": 2
+			},
+			"name": "wild_thyme_powder",
+			"output": "wild_thyme_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:wild_thyme_tincture",
+			"inputs": {
+				"herb_solvent": 1,
+				"wild_thyme_juice": 1
+			},
+			"name": "wild_thyme_tincture",
+			"output": "wild_thyme_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:yarrow_juice",
+			"inputs": {
+				"yarrow": 2
+			},
+			"name": "yarrow_juice",
+			"output": "yarrow_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:yarrow_dried",
+			"inputs": {
+				"yarrow": 2
+			},
+			"name": "yarrow_dried",
+			"output": "yarrow_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:yarrow_powder",
+			"inputs": {
+				"yarrow_dried": 2
+			},
+			"name": "yarrow_powder",
+			"output": "yarrow_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:yarrow_tincture",
+			"inputs": {
+				"herb_solvent": 1,
+				"yarrow_juice": 1
+			},
+			"name": "yarrow_tincture",
+			"output": "yarrow_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:sage_juice",
+			"inputs": {
+				"sage": 2
+			},
+			"name": "sage_juice",
+			"output": "sage_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:sage_dried",
+			"inputs": {
+				"sage": 2
+			},
+			"name": "sage_dried",
+			"output": "sage_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:sage_powder",
+			"inputs": {
+				"sage_dried": 2
+			},
+			"name": "sage_powder",
+			"output": "sage_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:sage_tincture",
+			"inputs": {
+				"herb_solvent": 1,
+				"sage_juice": 1
+			},
+			"name": "sage_tincture",
+			"output": "sage_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:lemon_balm_juice",
+			"inputs": {
+				"lemon_balm": 2
+			},
+			"name": "lemon_balm_juice",
+			"output": "lemon_balm_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:lemon_balm_dried",
+			"inputs": {
+				"lemon_balm": 2
+			},
+			"name": "lemon_balm_dried",
+			"output": "lemon_balm_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:lemon_balm_powder",
+			"inputs": {
+				"lemon_balm_dried": 2
+			},
+			"name": "lemon_balm_powder",
+			"output": "lemon_balm_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:lemon_balm_tincture",
+			"inputs": {
+				"herb_solvent": 1,
+				"lemon_balm_juice": 1
+			},
+			"name": "lemon_balm_tincture",
+			"output": "lemon_balm_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:valerian_juice",
+			"inputs": {
+				"valerian": 2
+			},
+			"name": "valerian_juice",
+			"output": "valerian_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:valerian_dried",
+			"inputs": {
+				"valerian": 2
+			},
+			"name": "valerian_dried",
+			"output": "valerian_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:valerian_powder",
+			"inputs": {
+				"valerian_dried": 2
+			},
+			"name": "valerian_powder",
+			"output": "valerian_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:valerian_tincture",
+			"inputs": {
+				"herb_solvent": 1,
+				"valerian_juice": 1
+			},
+			"name": "valerian_tincture",
+			"output": "valerian_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:wormwood_juice",
+			"inputs": {
+				"wormwood": 2
+			},
+			"name": "wormwood_juice",
+			"output": "wormwood_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:wormwood_dried",
+			"inputs": {
+				"wormwood": 2
+			},
+			"name": "wormwood_dried",
+			"output": "wormwood_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:wormwood_powder",
+			"inputs": {
+				"wormwood_dried": 2
+			},
+			"name": "wormwood_powder",
+			"output": "wormwood_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:wormwood_tincture",
+			"inputs": {
+				"herb_solvent": 1,
+				"wormwood_juice": 1
+			},
+			"name": "wormwood_tincture",
+			"output": "wormwood_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:juniper_juice",
+			"inputs": {
+				"juniper": 2
+			},
+			"name": "juniper_juice",
+			"output": "juniper_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:juniper_dried",
+			"inputs": {
+				"juniper": 2
+			},
+			"name": "juniper_dried",
+			"output": "juniper_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:juniper_powder",
+			"inputs": {
+				"juniper_dried": 2
+			},
+			"name": "juniper_powder",
+			"output": "juniper_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:juniper_tincture",
+			"inputs": {
+				"herb_solvent": 1,
+				"juniper_juice": 1
+			},
+			"name": "juniper_tincture",
+			"output": "juniper_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:rosehip_juice",
+			"inputs": {
+				"rosehip": 2
+			},
+			"name": "rosehip_juice",
+			"output": "rosehip_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:rosehip_dried",
+			"inputs": {
+				"rosehip": 2
+			},
+			"name": "rosehip_dried",
+			"output": "rosehip_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:rosehip_powder",
+			"inputs": {
+				"rosehip_dried": 2
+			},
+			"name": "rosehip_powder",
+			"output": "rosehip_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:rosehip_tincture",
+			"inputs": {
+				"herb_solvent": 1,
+				"rosehip_juice": 1
+			},
+			"name": "rosehip_tincture",
+			"output": "rosehip_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:ember_grass_juice",
+			"inputs": {
+				"ember_grass": 2
+			},
+			"name": "ember_grass_juice",
+			"output": "ember_grass_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:ember_grass_dried",
+			"inputs": {
+				"ember_grass": 2
+			},
+			"name": "ember_grass_dried",
+			"output": "ember_grass_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:ember_grass_powder",
+			"inputs": {
+				"ember_grass_dried": 2
+			},
+			"name": "ember_grass_powder",
+			"output": "ember_grass_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:ember_grass_tincture",
+			"inputs": {
+				"ember_grass_juice": 1,
+				"herb_solvent": 1
+			},
+			"name": "ember_grass_tincture",
+			"output": "ember_grass_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:silver_lichen_juice",
+			"inputs": {
+				"silver_lichen": 2
+			},
+			"name": "silver_lichen_juice",
+			"output": "silver_lichen_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:silver_lichen_dried",
+			"inputs": {
+				"silver_lichen": 2
+			},
+			"name": "silver_lichen_dried",
+			"output": "silver_lichen_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:silver_lichen_powder",
+			"inputs": {
+				"silver_lichen_dried": 2
+			},
+			"name": "silver_lichen_powder",
+			"output": "silver_lichen_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:silver_lichen_tincture",
+			"inputs": {
+				"herb_solvent": 1,
+				"silver_lichen_juice": 1
+			},
+			"name": "silver_lichen_tincture",
+			"output": "silver_lichen_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:bitter_root_juice",
+			"inputs": {
+				"bitter_root": 2
+			},
+			"name": "bitter_root_juice",
+			"output": "bitter_root_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:bitter_root_dried",
+			"inputs": {
+				"bitter_root": 2
+			},
+			"name": "bitter_root_dried",
+			"output": "bitter_root_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:bitter_root_powder",
+			"inputs": {
+				"bitter_root_dried": 2
+			},
+			"name": "bitter_root_powder",
+			"output": "bitter_root_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:bitter_root_tincture",
+			"inputs": {
+				"bitter_root_juice": 1,
+				"herb_solvent": 1
+			},
+			"name": "bitter_root_tincture",
+			"output": "bitter_root_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:ghost_orchid_juice",
+			"inputs": {
+				"ghost_orchid": 2
+			},
+			"name": "ghost_orchid_juice",
+			"output": "ghost_orchid_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:ghost_orchid_dried",
+			"inputs": {
+				"ghost_orchid": 2
+			},
+			"name": "ghost_orchid_dried",
+			"output": "ghost_orchid_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:ghost_orchid_powder",
+			"inputs": {
+				"ghost_orchid_dried": 2
+			},
+			"name": "ghost_orchid_powder",
+			"output": "ghost_orchid_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:ghost_orchid_tincture",
+			"inputs": {
+				"ghost_orchid_juice": 1,
+				"herb_solvent": 1
+			},
+			"name": "ghost_orchid_tincture",
+			"output": "ghost_orchid_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:nightshade_juice",
+			"inputs": {
+				"nightshade": 2
+			},
+			"name": "nightshade_juice",
+			"output": "nightshade_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:nightshade_dried",
+			"inputs": {
+				"nightshade": 2
+			},
+			"name": "nightshade_dried",
+			"output": "nightshade_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:nightshade_powder",
+			"inputs": {
+				"nightshade_dried": 2
+			},
+			"name": "nightshade_powder",
+			"output": "nightshade_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:nightshade_tincture",
+			"inputs": {
+				"herb_solvent": 1,
+				"nightshade_juice": 1
+			},
+			"name": "nightshade_tincture",
+			"output": "nightshade_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:bloodthorn_juice",
+			"inputs": {
+				"bloodthorn": 2
+			},
+			"name": "bloodthorn_juice",
+			"output": "bloodthorn_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:bloodthorn_dried",
+			"inputs": {
+				"bloodthorn": 2
+			},
+			"name": "bloodthorn_dried",
+			"output": "bloodthorn_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:bloodthorn_powder",
+			"inputs": {
+				"bloodthorn_dried": 2
+			},
+			"name": "bloodthorn_powder",
+			"output": "bloodthorn_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:bloodthorn_tincture",
+			"inputs": {
+				"bloodthorn_juice": 1,
+				"herb_solvent": 1
+			},
+			"name": "bloodthorn_tincture",
+			"output": "bloodthorn_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:sporecap_juice",
+			"inputs": {
+				"sporecap": 2
+			},
+			"name": "sporecap_juice",
+			"output": "sporecap_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:sporecap_dried",
+			"inputs": {
+				"sporecap": 2
+			},
+			"name": "sporecap_dried",
+			"output": "sporecap_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:sporecap_powder",
+			"inputs": {
+				"sporecap_dried": 2
+			},
+			"name": "sporecap_powder",
+			"output": "sporecap_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:sporecap_tincture",
+			"inputs": {
+				"herb_solvent": 1,
+				"sporecap_juice": 1
+			},
+			"name": "sporecap_tincture",
+			"output": "sporecap_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:moon_grass_juice",
+			"inputs": {
+				"moon_grass": 2
+			},
+			"name": "moon_grass_juice",
+			"output": "moon_grass_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:moon_grass_dried",
+			"inputs": {
+				"moon_grass": 2
+			},
+			"name": "moon_grass_dried",
+			"output": "moon_grass_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:moon_grass_powder",
+			"inputs": {
+				"moon_grass_dried": 2
+			},
+			"name": "moon_grass_powder",
+			"output": "moon_grass_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:moon_grass_tincture",
+			"inputs": {
+				"herb_solvent": 1,
+				"moon_grass_juice": 1
+			},
+			"name": "moon_grass_tincture",
+			"output": "moon_grass_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:moon_moss_juice",
+			"inputs": {
+				"moon_moss": 2
+			},
+			"name": "moon_moss_juice",
+			"output": "moon_moss_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:moon_moss_dried",
+			"inputs": {
+				"moon_moss": 2
+			},
+			"name": "moon_moss_dried",
+			"output": "moon_moss_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:moon_moss_powder",
+			"inputs": {
+				"moon_moss_dried": 2
+			},
+			"name": "moon_moss_powder",
+			"output": "moon_moss_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:moon_moss_tincture",
+			"inputs": {
+				"herb_solvent": 1,
+				"moon_moss_juice": 1
+			},
+			"name": "moon_moss_tincture",
+			"output": "moon_moss_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:frost_fern_juice",
+			"inputs": {
+				"frost_fern": 2
+			},
+			"name": "frost_fern_juice",
+			"output": "frost_fern_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:frost_fern_dried",
+			"inputs": {
+				"frost_fern": 2
+			},
+			"name": "frost_fern_dried",
+			"output": "frost_fern_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:frost_fern_powder",
+			"inputs": {
+				"frost_fern_dried": 2
+			},
+			"name": "frost_fern_powder",
+			"output": "frost_fern_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:frost_fern_tincture",
+			"inputs": {
+				"frost_fern_juice": 1,
+				"herb_solvent": 1
+			},
+			"name": "frost_fern_tincture",
+			"output": "frost_fern_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:starflower_juice",
+			"inputs": {
+				"starflower": 2
+			},
+			"name": "starflower_juice",
+			"output": "starflower_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:starflower_dried",
+			"inputs": {
+				"starflower": 2
+			},
+			"name": "starflower_dried",
+			"output": "starflower_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:starflower_powder",
+			"inputs": {
+				"starflower_dried": 2
+			},
+			"name": "starflower_powder",
+			"output": "starflower_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:starflower_tincture",
+			"inputs": {
+				"herb_solvent": 1,
+				"starflower_juice": 1
+			},
+			"name": "starflower_tincture",
+			"output": "starflower_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "juice",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"herb_pulp": 1
+			},
+			"count": 1,
+			"id": "alchemy:sunpetal_juice",
+			"inputs": {
+				"sunpetal": 2
+			},
+			"name": "sunpetal_juice",
+			"output": "sunpetal_juice",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "dried",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:sunpetal_dried",
+			"inputs": {
+				"sunpetal": 2
+			},
+			"name": "sunpetal_dried",
+			"output": "sunpetal_dried",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:sunpetal_powder",
+			"inputs": {
+				"sunpetal_dried": 2
+			},
+			"name": "sunpetal_powder",
+			"output": "sunpetal_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:sunpetal_tincture",
+			"inputs": {
+				"herb_solvent": 1,
+				"sunpetal_juice": 1
+			},
+			"name": "sunpetal_tincture",
+			"output": "sunpetal_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "supplies",
+			"alchemy_rank": 1,
+			"count": 3,
+			"id": "alchemy:glass_vial",
+			"inputs": {
+				"crystal": 1
+			},
+			"name": "glass_vial",
+			"output": "glass_vial",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "supplies",
+			"alchemy_rank": 2,
+			"count": 2,
+			"id": "alchemy:distilled_water",
+			"inputs": {
+				"clean_water": 2
+			},
+			"name": "distilled_water",
+			"output": "distilled_water",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "supplies",
+			"alchemy_rank": 2,
+			"count": 3,
+			"id": "alchemy:herb_solvent",
+			"inputs": {
+				"honey": 1,
+				"wheat": 2
+			},
+			"name": "herb_solvent",
+			"output": "herb_solvent",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "supplies",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:herb_oil",
+			"inputs": {
+				"nut": 2
+			},
+			"name": "herb_oil",
+			"output": "herb_oil",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "supplies",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:mineral_base",
+			"inputs": {
+				"stone": 2
+			},
+			"name": "mineral_base",
+			"output": "mineral_base",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "supplies",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:animal_feed",
+			"inputs": {
+				"herb_pulp": 2,
+				"wheat": 1
+			},
+			"name": "animal_feed",
+			"output": "animal_feed",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "essence",
+			"alchemy_rank": 3,
+			"count": 2,
+			"id": "alchemy:vital_essence",
+			"inputs": {
+				"honey": 1,
+				"nettle_powder": 1,
+				"yarrow_tincture": 1
+			},
+			"name": "vital_essence",
+			"output": "vital_essence",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "essence",
+			"alchemy_rank": 3,
+			"count": 2,
+			"id": "alchemy:ember_essence",
+			"inputs": {
+				"ember_grass_tincture": 1,
+				"red_crystal": 1,
+				"sunpetal_powder": 1
+			},
+			"name": "ember_essence",
+			"output": "ember_essence",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "essence",
+			"alchemy_rank": 3,
+			"count": 2,
+			"id": "alchemy:frost_essence",
+			"inputs": {
+				"crystal": 1,
+				"frost_fern_tincture": 1,
+				"silver_lichen_powder": 1
+			},
+			"name": "frost_essence",
+			"output": "frost_essence",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "essence",
+			"alchemy_rank": 3,
+			"count": 2,
+			"id": "alchemy:shadow_essence",
+			"inputs": {
+				"ectoplasm": 1,
+				"ghost_orchid_tincture": 1,
+				"nightshade_powder": 1
+			},
+			"name": "shadow_essence",
+			"output": "shadow_essence",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "essence",
+			"alchemy_rank": 3,
+			"count": 2,
+			"id": "alchemy:ether_essence",
+			"inputs": {
+				"crystal": 1,
+				"moon_grass_tincture": 1,
+				"starflower_powder": 1
+			},
+			"name": "ether_essence",
+			"output": "ether_essence",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:meadow_tonic",
+			"inputs": {
+				"chamomile_juice": 1,
+				"clean_water": 1,
+				"glass_vial": 1
+			},
+			"name": "meadow_tonic",
+			"output": "meadow_tonic",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:clarity_drops",
+			"inputs": {
+				"clean_water": 1,
+				"field_mint_juice": 1,
+				"glass_vial": 1
+			},
+			"name": "clarity_drops",
+			"output": "clarity_drops",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:vigor_infusion",
+			"inputs": {
+				"clean_water": 1,
+				"glass_vial": 1,
+				"nettle_powder": 1
+			},
+			"name": "vigor_infusion",
+			"output": "vigor_infusion",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:honey_balm",
+			"inputs": {
+				"glass_vial": 1,
+				"honey": 1,
+				"red_clover_juice": 1
+			},
+			"name": "honey_balm",
+			"output": "honey_balm",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:purifying_decoction",
+			"inputs": {
+				"clean_water": 1,
+				"glass_vial": 1,
+				"wild_thyme_juice": 1,
+				"wormwood_powder": 1
+			},
+			"name": "purifying_decoction",
+			"output": "purifying_decoction",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:hunter_elixir",
+			"inputs": {
+				"bitter_root_tincture": 1,
+				"distilled_water": 1,
+				"ember_grass_powder": 1,
+				"glass_vial": 1
+			},
+			"name": "hunter_elixir",
+			"output": "hunter_elixir",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:stone_skin_draught",
+			"inputs": {
+				"glass_vial": 1,
+				"juniper_tincture": 1,
+				"mineral_base": 1,
+				"silver_lichen_powder": 1
+			},
+			"name": "stone_skin_draught",
+			"output": "stone_skin_draught",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:wind_step_elixir",
+			"inputs": {
+				"distilled_water": 1,
+				"field_mint_powder": 1,
+				"glass_vial": 1,
+				"lemon_balm_tincture": 1
+			},
+			"name": "wind_step_elixir",
+			"output": "wind_step_elixir",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 3,
+			"count": 1,
+			"id": "alchemy:moon_veil_potion",
+			"inputs": {
+				"glass_vial": 1,
+				"moon_grass_juice": 1,
+				"shadow_essence": 1,
+				"valerian_tincture": 1
+			},
+			"name": "moon_veil_potion",
+			"output": "moon_veil_potion",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 3,
+			"count": 1,
+			"id": "alchemy:life_balsam",
+			"inputs": {
+				"glass_vial": 1,
+				"herb_oil": 1,
+				"moon_moss_tincture": 1,
+				"sporecap_powder": 1
+			},
+			"name": "life_balsam",
+			"output": "life_balsam",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 3,
+			"count": 1,
+			"id": "alchemy:greater_healing",
+			"inputs": {
+				"distilled_water": 1,
+				"glass_vial": 1,
+				"rosehip_tincture": 1,
+				"vital_essence": 1
+			},
+			"name": "greater_healing",
+			"output": "greater_healing",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 3,
+			"count": 1,
+			"id": "alchemy:greater_mana",
+			"inputs": {
+				"distilled_water": 1,
+				"ether_essence": 1,
+				"glass_vial": 1,
+				"sage_tincture": 1
+			},
+			"name": "greater_mana",
+			"output": "greater_mana",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 3,
+			"count": 1,
+			"id": "alchemy:balanced_elixir",
+			"inputs": {
+				"frost_essence": 1,
+				"glass_vial": 1,
+				"lemon_balm_juice": 1,
+				"red_clover_tincture": 1
+			},
+			"name": "balanced_elixir",
+			"output": "balanced_elixir",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:insect_repellent",
+			"inputs": {
+				"glass_vial": 1,
+				"herb_oil": 1,
+				"wild_thyme_powder": 1,
+				"wormwood_tincture": 1
+			},
+			"name": "insect_repellent",
+			"output": "insect_repellent",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:miners_oil",
+			"inputs": {
+				"bitter_root_powder": 1,
+				"glass_vial": 1,
+				"herb_oil": 1,
+				"silver_lichen_tincture": 1
+			},
+			"name": "miners_oil",
+			"output": "miners_oil",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 4,
+			"count": 1,
+			"id": "alchemy:solar_concentrate",
+			"inputs": {
+				"ember_essence": 1,
+				"glass_vial": 1,
+				"sunpetal_tincture": 1,
+				"vital_essence": 1
+			},
+			"laboratory": true,
+			"name": "solar_concentrate",
+			"output": "solar_concentrate",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:healing_potion",
+			"inputs": {
+				"clean_water": 1,
+				"glass_vial": 1,
+				"rosehip_powder": 1,
+				"yarrow_juice": 1
+			},
+			"name": "healing_potion",
+			"output": "healing_potion",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:mana_potion",
+			"inputs": {
+				"clean_water": 1,
+				"field_mint_powder": 1,
+				"glass_vial": 1,
+				"moon_grass_juice": 1
+			},
+			"name": "mana_potion",
+			"output": "mana_potion",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:energy_potion",
+			"inputs": {
+				"clean_water": 1,
+				"glass_vial": 1,
+				"lemon_balm_powder": 1,
+				"nettle_juice": 1
+			},
+			"name": "energy_potion",
+			"output": "energy_potion",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:invisibility_potion",
+			"inputs": {
+				"glass_vial": 1,
+				"nightshade_powder": 1,
+				"valerian_tincture": 1
+			},
+			"name": "invisibility_potion",
+			"output": "invisibility_potion",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:strength_potion",
+			"inputs": {
+				"bitter_root_powder": 1,
+				"ember_grass_juice": 1,
+				"glass_vial": 1
+			},
+			"name": "strength_potion",
+			"output": "strength_potion",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:regeneration_potion",
+			"inputs": {
+				"bloodthorn_tincture": 1,
+				"glass_vial": 1,
+				"yarrow_powder": 1
+			},
+			"name": "regeneration_potion",
+			"output": "regeneration_potion",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:speed_potion",
+			"inputs": {
+				"glass_vial": 1,
+				"lemon_balm_juice": 1,
+				"wild_thyme_tincture": 1
+			},
+			"name": "speed_potion",
+			"output": "speed_potion",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:defense_potion",
+			"inputs": {
+				"glass_vial": 1,
+				"juniper_powder": 1,
+				"mineral_base": 1,
+				"silver_lichen_juice": 1
+			},
+			"name": "defense_potion",
+			"output": "defense_potion",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "supplies",
+			"alchemy_rank": 1,
+			"byproducts": {
+				"beeswax": 1
+			},
+			"count": 1,
+			"id": "alchemy:honey",
+			"inputs": {
+				"honeycomb": 1
+			},
+			"name": "honey",
+			"output": "honey",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "supplies",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:wax_base",
+			"inputs": {
+				"beeswax": 1,
+				"herb_oil": 1
+			},
+			"name": "wax_base",
+			"output": "wax_base",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "essence",
+			"alchemy_rank": 2,
+			"count": 2,
+			"id": "alchemy:bee_essence",
+			"inputs": {
+				"bees": 1,
+				"herb_solvent": 1,
+				"sage_juice": 1
+			},
+			"name": "bee_essence",
+			"output": "bee_essence",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "powder",
+			"alchemy_rank": 1,
+			"count": 1,
+			"id": "alchemy:pollen_powder",
+			"inputs": {
+				"pollen": 2
+			},
+			"name": "pollen_powder",
+			"output": "pollen_powder",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "tincture",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:propolis_tincture",
+			"inputs": {
+				"herb_solvent": 1,
+				"propolis": 1
+			},
+			"name": "propolis_tincture",
+			"output": "propolis_tincture",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "supplies",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "alchemy:honey_syrup",
+			"inputs": {
+				"clean_water": 1,
+				"honey": 1
+			},
+			"name": "honey_syrup",
+			"output": "honey_syrup",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:bee_balm",
+			"inputs": {
+				"glass_vial": 1,
+				"honey": 1,
+				"pollen_powder": 1,
+				"wax_base": 1
+			},
+			"name": "bee_balm",
+			"output": "bee_balm",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 2,
+			"count": 1,
+			"id": "alchemy:propolis_balm",
+			"inputs": {
+				"glass_vial": 1,
+				"propolis_tincture": 1,
+				"wax_base": 1
+			},
+			"name": "propolis_balm",
+			"output": "propolis_balm",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 3,
+			"count": 1,
+			"id": "alchemy:royal_tonic",
+			"inputs": {
+				"bee_essence": 1,
+				"glass_vial": 1,
+				"honey_syrup": 1,
+				"pollen_powder": 1
+			},
+			"name": "royal_tonic",
+			"output": "royal_tonic",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "supplies",
+			"alchemy_rank": 2,
+			"count": 3,
+			"id": "artisan:alchemy:herb_solvent",
+			"inputs": {
+				"cider": 1,
+				"glass_bottle": 1
+			},
+			"name": "herb_solvent",
+			"output": "herb_solvent",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "artisan:alchemy:meadow_tonic",
+			"inputs": {
+				"apple_juice": 1,
+				"chamomile_juice": 1,
+				"glass_vial": 1
+			},
+			"name": "meadow_tonic",
+			"output": "meadow_tonic",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 2,
+			"count": 2,
+			"id": "artisan:alchemy:insect_repellent",
+			"inputs": {
+				"glass_vial": 1,
+				"herbal_soap": 1,
+				"wormwood_tincture": 1
+			},
+			"name": "insect_repellent",
+			"output": "insect_repellent",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 3,
+			"count": 2,
+			"id": "artisan:alchemy:life_balsam",
+			"inputs": {
+				"glass_vial": 1,
+				"herbal_candle": 1,
+				"yarrow_tincture": 1
+			},
+			"name": "life_balsam",
+			"output": "life_balsam",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 3,
+			"count": 2,
+			"id": "artisan:alchemy:greater_mana",
+			"inputs": {
+				"glass_vial": 1,
+				"moon_candle": 1,
+				"sage_tincture": 1
+			},
+			"name": "greater_mana",
+			"output": "greater_mana",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 1,
+			"count": 2,
+			"id": "artisan:alchemy:purifying_decoction",
+			"inputs": {
+				"fruit_vinegar": 1,
+				"glass_vial": 1,
+				"soap": 1
+			},
+			"name": "purifying_decoction",
+			"output": "purifying_decoction",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "supplies",
+			"alchemy_rank": 1,
+			"count": 3,
+			"id": "artisan:alchemy:mineral_base",
+			"inputs": {
+				"bone_meal": 2
+			},
+			"name": "mineral_base",
+			"output": "mineral_base",
+			"station": "alchemy"
+		},
+		{
+			"alchemy_group": "potions",
+			"alchemy_rank": 2,
+			"count": 2,
+			"id": "artisan:alchemy:hunter_elixir",
+			"inputs": {
+				"bitter_root_tincture": 1,
+				"glass_vial": 1,
+				"incense": 1
+			},
+			"name": "hunter_elixir",
+			"output": "hunter_elixir",
+			"station": "alchemy",
+			"talent": "craft_alchemy"
+		},
+		{
+			"byproducts": {
+				"slag": 1
+			},
+			"count": 1,
+			"furnace_level": 1,
+			"id": "furnace:ore",
+			"inputs": {
+				"iron_ore": 2
+			},
+			"name": "metal",
+			"output": "metal",
+			"seconds": 12.0,
+			"station": "furnace"
+		},
+		{
+			"byproducts": {
+				"slag": 1
+			},
+			"count": 1,
+			"furnace_level": 1,
+			"id": "furnace:scrap",
+			"inputs": {
+				"metal_scrap": 2
+			},
+			"name": "metal",
+			"output": "metal",
+			"seconds": 10.0,
+			"station": "furnace"
+		},
+		{
+			"count": 2,
+			"furnace_level": 1,
+			"id": "furnace:glass",
+			"inputs": {
+				"sand": 3
+			},
+			"name": "glass",
+			"output": "glass",
+			"seconds": 14.0,
+			"station": "furnace"
+		},
+		{
+			"count": 3,
+			"furnace_level": 1,
+			"id": "furnace:vials",
+			"inputs": {
+				"glass": 1
+			},
+			"name": "glass_vial",
+			"output": "glass_vial",
+			"seconds": 8.0,
+			"station": "furnace"
+		},
+		{
+			"count": 2,
+			"furnace_level": 1,
+			"id": "furnace:charcoal",
+			"inputs": {
+				"wood": 2
+			},
+			"name": "charcoal",
+			"output": "charcoal",
+			"seconds": 18.0,
+			"station": "furnace"
+		},
+		{
+			"count": 1,
+			"furnace_level": 2,
+			"id": "furnace:steel",
+			"inputs": {
+				"coal": 1,
+				"metal": 2
+			},
+			"name": "steel",
+			"output": "steel",
+			"seconds": 20.0,
+			"station": "furnace"
+		},
+		{
+			"count": 1,
+			"furnace_level": 3,
+			"id": "furnace:slag",
+			"inputs": {
+				"slag": 3
+			},
+			"name": "metal",
+			"output": "metal",
+			"seconds": 16.0,
+			"station": "furnace"
+		},
+		{
+			"category": "processing",
+			"count": 3,
+			"id": "research:paper",
+			"inputs": {
+				"clean_water": 1,
+				"fiber": 2
+			},
+			"name": "research_paper",
+			"output": "research_paper",
+			"research_supply": true
+		},
+		{
+			"category": "processing",
+			"count": 3,
+			"id": "research:ink",
+			"inputs": {
+				"charcoal": 1,
+				"clean_water": 1
+			},
+			"name": "research_ink",
+			"output": "research_ink",
+			"research_supply": true
+		},
+		{
+			"category": "processing",
+			"count": 2,
+			"id": "recovery:plank",
+			"inputs": {
+				"nails": 1,
+				"wood_offcut": 4
+			},
+			"name": "plank",
+			"output": "plank",
+			"study_kind": "plank"
+		},
+		{
+			"category": "processing",
+			"count": 1,
+			"id": "recovery:cloth",
+			"inputs": {
+				"cloth_scrap": 4,
+				"fiber": 1
+			},
+			"name": "cloth",
+			"output": "cloth",
+			"study_kind": "cloth"
+		},
+		{
+			"category": "construction",
+			"count": 1,
+			"id": "recovery:chair",
+			"inputs": {
+				"nails": 2,
+				"wood_offcut": 5
+			},
+			"name": "wooden_chair",
+			"output": "wooden_chair",
+			"study_kind": "wooden_chair"
+		},
+		{
+			"category": "equipment",
+			"count": 1,
+			"id": "recovery:spear",
+			"inputs": {
+				"metal_scrap": 6,
+				"nails": 2,
+				"plank": 2
+			},
+			"name": "iron_spear",
+			"output": "iron_spear",
+			"study_kind": "iron_spear"
+		},
+		{
+			"category": "equipment",
+			"count": 1,
+			"id": "recovery:helmet",
+			"inputs": {
+				"metal_scrap": 5,
+				"stone": 2
+			},
+			"name": "iron_helmet",
+			"output": "iron_helmet",
+			"study_kind": "iron_helmet"
+		},
+		{
+			"category": "equipment",
+			"count": 1,
+			"id": "recovery:boots",
+			"inputs": {
+				"cloth_scrap": 4,
+				"hide": 2
+			},
+			"name": "travel_boots",
+			"output": "travel_boots",
+			"study_kind": "travel_boots"
+		},
+		{
+			"category": "equipment",
+			"count": 1,
+			"id": "recovery:cauldron",
+			"inputs": {
+				"metal_scrap": 6,
+				"stone": 3
+			},
+			"name": "cauldron",
+			"output": "cauldron",
+			"study_kind": "cauldron",
+			"talent": "farm_cooking"
+		},
+		{
+			"count": 1,
+			"furnace_level": 1,
+			"id": "recovery:glass",
+			"inputs": {
+				"glass_shard": 3
+			},
+			"name": "glass",
+			"output": "glass",
+			"seconds": 10.0,
+			"station": "furnace",
+			"study_kind": "glass"
+		},
+		{
+			"category": "processing",
+			"count": 1,
+			"id": "recovery:crystal",
+			"inputs": {
+				"arcane_dust": 3,
+				"glass": 1
+			},
+			"name": "crystal",
+			"output": "crystal",
+			"study_kind": "crystal"
+		},
+		{
+			"byproducts": {
+				"sawdust": 2
+			},
+			"count": 4,
+			"energy": 1,
+			"id": "sawmill:planks",
+			"inputs": {
+				"log": 1
+			},
+			"name": "plank",
+			"output": "plank",
+			"seconds": 8.0,
+			"station": "sawmill",
+			"workshop_level": 1
+		},
+		{
+			"byproducts": {
+				"sawdust": 1
+			},
+			"count": 1,
+			"energy": 1,
+			"id": "sawmill:beam",
+			"inputs": {
+				"plank": 2
+			},
+			"name": "wood_beam",
+			"output": "wood_beam",
+			"seconds": 8.0,
+			"station": "sawmill",
+			"workshop_level": 1
+		},
+		{
+			"byproducts": {
+				"sawdust": 1
+			},
+			"count": 2,
+			"energy": 1,
+			"id": "sawmill:offcuts",
+			"inputs": {
+				"wood_offcut": 4
+			},
+			"name": "wood",
+			"output": "wood",
+			"seconds": 6.0,
+			"station": "sawmill",
+			"workshop_level": 1
+		},
+		{
+			"byproducts": {
+				"sawdust": 1
+			},
+			"count": 4,
+			"energy": 2,
+			"id": "sawmill:dowels",
+			"inputs": {
+				"plank": 2
+			},
+			"name": "wood_dowel",
+			"output": "wood_dowel",
+			"seconds": 10.0,
+			"station": "sawmill",
+			"workshop_level": 2
+		},
+		{
+			"count": 2,
+			"energy": 2,
+			"id": "sawmill:handle",
+			"inputs": {
+				"wood_beam": 1,
+				"wood_dowel": 2
+			},
+			"name": "wood_handle",
+			"output": "wood_handle",
+			"seconds": 10.0,
+			"station": "sawmill",
+			"workshop_level": 2
+		},
+		{
+			"count": 1,
+			"energy": 2,
+			"id": "sawmill:frame",
+			"inputs": {
+				"nails": 4,
+				"wood_beam": 2
+			},
+			"name": "timber_frame",
+			"output": "timber_frame",
+			"seconds": 12.0,
+			"station": "sawmill",
+			"workshop_level": 2
+		},
+		{
+			"count": 3,
+			"energy": 1,
+			"id": "sawmill:paper",
+			"inputs": {
+				"clean_water": 1,
+				"sawdust": 3
+			},
+			"name": "research_paper",
+			"output": "research_paper",
+			"seconds": 10.0,
+			"station": "sawmill",
+			"workshop_level": 2
+		},
+		{
+			"count": 1,
+			"energy": 3,
+			"id": "sawmill:wardrobe",
+			"inputs": {
+				"cloth": 1,
+				"plank": 8,
+				"timber_frame": 1
+			},
+			"name": "wooden_wardrobe",
+			"output": "wooden_wardrobe",
+			"seconds": 18.0,
+			"station": "sawmill",
+			"workshop_level": 3
+		},
+		{
+			"count": 1,
+			"energy": 3,
+			"id": "sawmill:spear",
+			"inputs": {
+				"metal": 4,
+				"nails": 1,
+				"wood_handle": 1
+			},
+			"name": "iron_spear",
+			"output": "iron_spear",
+			"seconds": 16.0,
+			"station": "sawmill",
+			"study_kind": "iron_spear",
+			"workshop_level": 3
+		},
+		{
+			"count": 2,
+			"energy": 1,
+			"id": "pottery:clay",
+			"inputs": {
+				"clay": 2,
+				"clean_water": 1
+			},
+			"name": "wet_clay",
+			"output": "wet_clay",
+			"seconds": 6.0,
+			"station": "pottery",
+			"workshop_level": 1
+		},
+		{
+			"count": 2,
+			"energy": 1,
+			"id": "pottery:brick",
+			"inputs": {
+				"wet_clay": 1
+			},
+			"name": "unfired_brick",
+			"output": "unfired_brick",
+			"seconds": 8.0,
+			"station": "pottery",
+			"workshop_level": 1
+		},
+		{
+			"count": 1,
+			"energy": 2,
+			"id": "pottery:pot",
+			"inputs": {
+				"wet_clay": 2
+			},
+			"name": "unfired_pot",
+			"output": "unfired_pot",
+			"seconds": 10.0,
+			"station": "pottery",
+			"workshop_level": 1
+		},
+		{
+			"count": 1,
+			"energy": 1,
+			"id": "pottery:bowl",
+			"inputs": {
+				"wet_clay": 1
+			},
+			"name": "unfired_bowl",
+			"output": "unfired_bowl",
+			"seconds": 8.0,
+			"station": "pottery",
+			"workshop_level": 1
+		},
+		{
+			"count": 1,
+			"energy": 2,
+			"id": "pottery:vase",
+			"inputs": {
+				"sand": 1,
+				"wet_clay": 2
+			},
+			"name": "unfired_vase",
+			"output": "unfired_vase",
+			"seconds": 12.0,
+			"station": "pottery",
+			"workshop_level": 2
+		},
+		{
+			"count": 2,
+			"energy": 1,
+			"id": "pottery:glaze",
+			"inputs": {
+				"clean_water": 1,
+				"mineral_base": 1
+			},
+			"name": "ceramic_glaze",
+			"output": "ceramic_glaze",
+			"seconds": 8.0,
+			"station": "pottery",
+			"workshop_level": 2
+		},
+		{
+			"count": 1,
+			"energy": 2,
+			"id": "pottery:glazed",
+			"inputs": {
+				"ceramic_glaze": 1,
+				"unfired_vase": 1
+			},
+			"name": "glazed_vase_form",
+			"output": "glazed_vase_form",
+			"seconds": 12.0,
+			"station": "pottery",
+			"workshop_level": 2
+		},
+		{
+			"count": 2,
+			"energy": 2,
+			"id": "pottery:porcelain_clay",
+			"inputs": {
+				"clay": 2,
+				"distilled_water": 1,
+				"sand": 1
+			},
+			"name": "porcelain_clay",
+			"output": "porcelain_clay",
+			"seconds": 10.0,
+			"station": "pottery",
+			"workshop_level": 3
+		},
+		{
+			"count": 1,
+			"energy": 3,
+			"id": "pottery:porcelain",
+			"inputs": {
+				"ceramic_glaze": 1,
+				"porcelain_clay": 1
+			},
+			"name": "porcelain_form",
+			"output": "porcelain_form",
+			"seconds": 16.0,
+			"station": "pottery",
+			"workshop_level": 3
+		},
+		{
+			"count": 1,
+			"energy": 1,
+			"id": "pottery:recycle",
+			"inputs": {
+				"ceramic_shard": 4,
+				"clean_water": 1
+			},
+			"name": "clay",
+			"output": "clay",
+			"seconds": 8.0,
+			"station": "pottery",
+			"workshop_level": 2
+		},
+		{
+			"count": 1,
+			"energy": 1,
+			"id": "pottery:planter",
+			"inputs": {
+				"clay_pot": 1,
+				"fiber": 2,
+				"flower": 2
+			},
+			"name": "potted_fern",
+			"output": "potted_fern",
+			"seconds": 10.0,
+			"station": "pottery",
+			"workshop_level": 2
+		},
+		{
+			"count": 3,
+			"energy": 1,
+			"id": "glassblowing:vials",
+			"inputs": {
+				"glass": 1
+			},
+			"name": "glass_vial",
+			"output": "glass_vial",
+			"seconds": 6.0,
+			"station": "glassblowing",
+			"workshop_level": 1
+		},
+		{
+			"count": 1,
+			"energy": 1,
+			"id": "glassblowing:bottle",
+			"inputs": {
+				"glass": 1
+			},
+			"name": "glass_bottle",
+			"output": "glass_bottle",
+			"seconds": 8.0,
+			"station": "glassblowing",
+			"workshop_level": 1
+		},
+		{
+			"count": 2,
+			"energy": 2,
+			"id": "glassblowing:jar",
+			"inputs": {
+				"glass": 2
+			},
+			"name": "glass_jar",
+			"output": "glass_jar",
+			"seconds": 10.0,
+			"station": "glassblowing",
+			"workshop_level": 1
+		},
+		{
+			"count": 2,
+			"energy": 2,
+			"id": "glassblowing:colored",
+			"inputs": {
+				"glass": 2,
+				"red_crystal": 1
+			},
+			"name": "colored_glass",
+			"output": "colored_glass",
+			"seconds": 12.0,
+			"station": "glassblowing",
+			"workshop_level": 2
+		},
+		{
+			"count": 2,
+			"energy": 2,
+			"id": "glassblowing:clear",
+			"inputs": {
+				"distilled_water": 1,
+				"glass": 2
+			},
+			"name": "clear_glass",
+			"output": "clear_glass",
+			"seconds": 12.0,
+			"station": "glassblowing",
+			"workshop_level": 2
+		},
+		{
+			"count": 1,
+			"energy": 3,
+			"id": "glassblowing:lens",
+			"inputs": {
+				"arcane_dust": 1,
+				"clear_glass": 2
+			},
+			"name": "optical_lens",
+			"output": "optical_lens",
+			"seconds": 16.0,
+			"station": "glassblowing",
+			"workshop_level": 2
+		},
+		{
+			"count": 1,
+			"energy": 3,
+			"id": "glassblowing:moon",
+			"inputs": {
+				"arcane_dust": 1,
+				"clear_glass": 2,
+				"moon_grass_powder": 1
+			},
+			"name": "moon_glass",
+			"output": "moon_glass",
+			"seconds": 18.0,
+			"station": "glassblowing",
+			"workshop_level": 3
+		},
+		{
+			"count": 1,
+			"energy": 3,
+			"id": "glassblowing:staff",
+			"inputs": {
+				"crystal": 2,
+				"moon_glass": 2,
+				"wood_handle": 2
+			},
+			"name": "moon_staff",
+			"output": "moon_staff",
+			"seconds": 20.0,
+			"station": "glassblowing",
+			"study_kind": "moon_staff",
+			"workshop_level": 3
+		},
+		{
+			"count": 2,
+			"furnace_level": 1,
+			"id": "kiln:brick",
+			"inputs": {
+				"unfired_brick": 2
+			},
+			"name": "brick",
+			"output": "brick",
+			"seconds": 12.0,
+			"station": "furnace"
+		},
+		{
+			"count": 1,
+			"furnace_level": 1,
+			"id": "kiln:pot",
+			"inputs": {
+				"unfired_pot": 1
+			},
+			"name": "clay_pot",
+			"output": "clay_pot",
+			"seconds": 14.0,
+			"station": "furnace"
+		},
+		{
+			"count": 1,
+			"furnace_level": 1,
+			"id": "kiln:bowl",
+			"inputs": {
+				"unfired_bowl": 1
+			},
+			"name": "ceramic_bowl",
+			"output": "ceramic_bowl",
+			"seconds": 10.0,
+			"station": "furnace"
+		},
+		{
+			"count": 1,
+			"furnace_level": 2,
+			"id": "kiln:vase",
+			"inputs": {
+				"unfired_vase": 1
+			},
+			"name": "ceramic_vase",
+			"output": "ceramic_vase",
+			"seconds": 18.0,
+			"station": "furnace"
+		},
+		{
+			"count": 1,
+			"furnace_level": 2,
+			"id": "kiln:glazed",
+			"inputs": {
+				"glazed_vase_form": 1
+			},
+			"name": "glazed_vase",
+			"output": "glazed_vase",
+			"seconds": 20.0,
+			"station": "furnace"
+		},
+		{
+			"count": 1,
+			"furnace_level": 3,
+			"id": "kiln:porcelain",
+			"inputs": {
+				"porcelain_form": 1
+			},
+			"name": "porcelain_cup",
+			"output": "porcelain_cup",
+			"seconds": 22.0,
+			"station": "furnace"
+		},
+		{
+			"category": "processing",
+			"count": 6,
+			"id": "workshop:ink",
+			"inputs": {
+				"charcoal": 1,
+				"clean_water": 2,
+				"glass_bottle": 1
+			},
+			"name": "research_ink",
+			"output": "research_ink",
+			"research_supply": true
+		},
+		{
+			"category": "food",
+			"count": 2,
+			"id": "workshop:porridge",
+			"inputs": {
+				"ceramic_bowl": 1,
+				"milk": 2,
+				"wheat": 3
+			},
+			"name": "porridge",
+			"output": "porridge",
+			"station": "cauldron"
+		},
+		{
+			"category": "food",
+			"count": 2,
+			"id": "workshop:jam",
+			"inputs": {
+				"berries": 4,
+				"glass_jar": 1,
+				"honey": 2
+			},
+			"name": "jam",
+			"output": "jam",
+			"station": "cauldron",
+			"talent": "farm_cooking"
+		},
+		{
+			"byproducts": {
+				"fruit_pulp": 2
+			},
+			"count": 2,
+			"energy": 1,
+			"id": "artisan:fruit_press:apple_juice",
+			"inputs": {
+				"apple": 3,
+				"glass_bottle": 1
+			},
+			"name": "apple_juice",
+			"output": "apple_juice",
+			"seconds": 10.0,
+			"station": "fruit_press",
+			"workshop_level": 1
+		},
+		{
+			"byproducts": {
+				"fruit_pulp": 2
+			},
+			"count": 2,
+			"energy": 1,
+			"id": "artisan:fruit_press:berry_juice",
+			"inputs": {
+				"berries": 3,
+				"glass_bottle": 1
+			},
+			"name": "berry_juice",
+			"output": "berry_juice",
+			"seconds": 10.0,
+			"station": "fruit_press",
+			"workshop_level": 1
+		},
+		{
+			"byproducts": {
+				"fruit_pulp": 2
+			},
+			"count": 2,
+			"energy": 2,
+			"id": "artisan:fruit_press:pear_juice",
+			"inputs": {
+				"glass_bottle": 1,
+				"pear": 3
+			},
+			"name": "pear_juice",
+			"output": "pear_juice",
+			"seconds": 10.0,
+			"station": "fruit_press",
+			"workshop_level": 2
+		},
+		{
+			"byproducts": {
+				"fruit_pulp": 2
+			},
+			"count": 2,
+			"energy": 2,
+			"id": "artisan:fruit_press:tomato_juice",
+			"inputs": {
+				"glass_bottle": 1,
+				"tomato": 3
+			},
+			"name": "tomato_juice",
+			"output": "tomato_juice",
+			"seconds": 10.0,
+			"station": "fruit_press",
+			"workshop_level": 2
+		},
+		{
+			"byproducts": {
+				"fruit_pulp": 1
+			},
+			"count": 3,
+			"energy": 3,
+			"id": "artisan:fruit_press:sunflower_oil",
+			"inputs": {
+				"glass_bottle": 1,
+				"sunflower": 2
+			},
+			"name": "herb_oil",
+			"output": "herb_oil",
+			"seconds": 18.0,
+			"station": "fruit_press",
+			"workshop_level": 3
+		},
+		{
+			"count": 4,
+			"energy": 3,
+			"id": "artisan:fruit_press:truffle_oil",
+			"inputs": {
+				"glass_bottle": 1,
+				"nut": 2,
+				"truffle": 1
+			},
+			"name": "herb_oil",
+			"output": "herb_oil",
+			"seconds": 20.0,
+			"station": "fruit_press",
+			"workshop_level": 3
+		},
+		{
+			"count": 2,
+			"energy": 1,
+			"id": "artisan:fermenter:cider",
+			"inputs": {
+				"apple_juice": 2,
+				"glass_bottle": 1
+			},
+			"name": "cider",
+			"output": "cider",
+			"seconds": 22.0,
+			"station": "fermenter",
+			"workshop_level": 1
+		},
+		{
+			"count": 2,
+			"energy": 1,
+			"id": "artisan:fermenter:fruit_vinegar",
+			"inputs": {
+				"apple_juice": 1,
+				"clean_water": 1,
+				"glass_bottle": 1
+			},
+			"name": "fruit_vinegar",
+			"output": "fruit_vinegar",
+			"seconds": 20.0,
+			"station": "fermenter",
+			"workshop_level": 1
+		},
+		{
+			"count": 2,
+			"energy": 2,
+			"id": "artisan:fermenter:berry_wine",
+			"inputs": {
+				"berry_juice": 2,
+				"glass_bottle": 1
+			},
+			"name": "berry_wine",
+			"output": "berry_wine",
+			"seconds": 30.0,
+			"station": "fermenter",
+			"workshop_level": 2
+		},
+		{
+			"count": 2,
+			"energy": 2,
+			"id": "artisan:fermenter:mead",
+			"inputs": {
+				"clean_water": 2,
+				"glass_bottle": 1,
+				"honey": 2
+			},
+			"name": "mead",
+			"output": "mead",
+			"seconds": 28.0,
+			"station": "fermenter",
+			"workshop_level": 2
+		},
+		{
+			"count": 2,
+			"energy": 3,
+			"id": "artisan:fermenter:aged_cheese",
+			"inputs": {
+				"beeswax": 1,
+				"cheese": 2
+			},
+			"name": "aged_cheese",
+			"output": "aged_cheese",
+			"seconds": 40.0,
+			"station": "fermenter",
+			"workshop_level": 3
+		},
+		{
+			"count": 2,
+			"energy": 3,
+			"id": "artisan:fermenter:lunar_cordial",
+			"inputs": {
+				"berry_wine": 1,
+				"glass_bottle": 1,
+				"honey_syrup": 1,
+				"moon_grass_juice": 1
+			},
+			"name": "lunar_cordial",
+			"output": "lunar_cordial",
+			"seconds": 36.0,
+			"station": "fermenter",
+			"workshop_level": 3
+		},
+		{
+			"count": 2,
+			"energy": 1,
+			"id": "artisan:preserver:pickled_vegetables",
+			"inputs": {
+				"cucumber": 2,
+				"fruit_vinegar": 1,
+				"glass_jar": 1
+			},
+			"name": "pickled_vegetables",
+			"output": "pickled_vegetables",
+			"seconds": 14.0,
+			"station": "preserver",
+			"workshop_level": 1
+		},
+		{
+			"count": 2,
+			"energy": 1,
+			"id": "artisan:preserver:apple_preserves",
+			"inputs": {
+				"apple": 3,
+				"glass_jar": 1,
+				"honey": 1
+			},
+			"name": "apple_preserves",
+			"output": "apple_preserves",
+			"seconds": 16.0,
+			"station": "preserver",
+			"workshop_level": 1
+		},
+		{
+			"count": 2,
+			"energy": 2,
+			"id": "artisan:preserver:pickled_mushrooms",
+			"inputs": {
+				"fruit_vinegar": 1,
+				"glass_jar": 1,
+				"mushroom": 3
+			},
+			"name": "pickled_mushrooms",
+			"output": "pickled_mushrooms",
+			"seconds": 18.0,
+			"station": "preserver",
+			"workshop_level": 2
+		},
+		{
+			"count": 3,
+			"energy": 2,
+			"id": "artisan:preserver:dried_fruit",
+			"inputs": {
+				"apple": 2,
+				"plum": 3
+			},
+			"name": "dried_fruit",
+			"output": "dried_fruit",
+			"seconds": 18.0,
+			"station": "preserver",
+			"workshop_level": 2
+		},
+		{
+			"count": 3,
+			"energy": 3,
+			"id": "artisan:preserver:dried_mushrooms",
+			"inputs": {
+				"mushroom": 4
+			},
+			"name": "dried_mushrooms",
+			"output": "dried_mushrooms",
+			"seconds": 20.0,
+			"station": "preserver",
+			"workshop_level": 3
+		},
+		{
+			"count": 2,
+			"energy": 3,
+			"id": "artisan:preserver:travel_ration",
+			"inputs": {
+				"bread": 1,
+				"dried_fruit": 1,
+				"smoked_meat": 1
+			},
+			"name": "travel_ration",
+			"output": "travel_ration",
+			"seconds": 18.0,
+			"station": "preserver",
+			"workshop_level": 3
+		},
+		{
+			"count": 2,
+			"energy": 1,
+			"id": "artisan:smoker:smoked_fish",
+			"inputs": {
+				"fish": 2
+			},
+			"name": "smoked_fish",
+			"output": "smoked_fish",
+			"seconds": 16.0,
+			"station": "smoker",
+			"workshop_level": 1
+		},
+		{
+			"count": 2,
+			"energy": 1,
+			"id": "artisan:smoker:smoked_meat",
+			"inputs": {
+				"raw_meat": 2
+			},
+			"name": "smoked_meat",
+			"output": "smoked_meat",
+			"seconds": 18.0,
+			"station": "smoker",
+			"workshop_level": 1
+		},
+		{
+			"count": 2,
+			"energy": 2,
+			"id": "artisan:smoker:smoked_mushrooms",
+			"inputs": {
+				"mushroom": 3
+			},
+			"name": "smoked_mushrooms",
+			"output": "smoked_mushrooms",
+			"seconds": 14.0,
+			"station": "smoker",
+			"workshop_level": 2
+		},
+		{
+			"count": 2,
+			"energy": 2,
+			"id": "artisan:smoker:smoked_cheese",
+			"inputs": {
+				"cheese": 2
+			},
+			"name": "smoked_cheese",
+			"output": "smoked_cheese",
+			"seconds": 20.0,
+			"station": "smoker",
+			"workshop_level": 2
+		},
+		{
+			"count": 2,
+			"energy": 3,
+			"id": "artisan:smoker:herbed_fish",
+			"inputs": {
+				"fish": 2,
+				"herb_oil": 1,
+				"herbs": 2
+			},
+			"name": "herbed_fish",
+			"output": "herbed_fish",
+			"seconds": 20.0,
+			"station": "smoker",
+			"workshop_level": 3
+		},
+		{
+			"count": 2,
+			"energy": 3,
+			"id": "artisan:smoker:fish_ration",
+			"inputs": {
+				"bread": 1,
+				"dried_mushrooms": 1,
+				"smoked_fish": 1
+			},
+			"name": "travel_ration",
+			"output": "travel_ration",
+			"seconds": 16.0,
+			"station": "smoker",
+			"workshop_level": 3
+		},
+		{
+			"count": 5,
+			"energy": 1,
+			"id": "artisan:loom:yarn",
+			"inputs": {
+				"wool": 2
+			},
+			"name": "yarn",
+			"output": "yarn",
+			"seconds": 12.0,
+			"station": "loom",
+			"workshop_level": 1
+		},
+		{
+			"count": 2,
+			"energy": 1,
+			"id": "artisan:loom:canvas",
+			"inputs": {
+				"fiber": 4,
+				"yarn": 1
+			},
+			"name": "canvas",
+			"output": "canvas",
+			"seconds": 14.0,
+			"station": "loom",
+			"workshop_level": 1
+		},
+		{
+			"count": 3,
+			"energy": 2,
+			"id": "artisan:loom:cloth",
+			"inputs": {
+				"cotton": 2,
+				"yarn": 3
+			},
+			"name": "cloth",
+			"output": "cloth",
+			"seconds": 18.0,
+			"station": "loom",
+			"workshop_level": 2
+		},
+		{
+			"count": 3,
+			"energy": 2,
+			"id": "artisan:loom:bandage",
+			"inputs": {
+				"clean_water": 1,
+				"cloth": 1
+			},
+			"name": "bandage",
+			"output": "bandage",
+			"seconds": 10.0,
+			"station": "loom",
+			"workshop_level": 2
+		},
+		{
+			"count": 2,
+			"energy": 3,
+			"id": "artisan:loom:fine_cloth",
+			"inputs": {
+				"cloth": 2,
+				"cotton": 1
+			},
+			"name": "fine_cloth",
+			"output": "fine_cloth",
+			"seconds": 20.0,
+			"station": "loom",
+			"workshop_level": 3
+		},
+		{
+			"count": 1,
+			"energy": 3,
+			"id": "artisan:loom:woven_rug",
+			"inputs": {
+				"fine_cloth": 2,
+				"yarn": 2
+			},
+			"name": "woven_rug",
+			"output": "woven_rug",
+			"seconds": 24.0,
+			"station": "loom",
+			"workshop_level": 3
+		},
+		{
+			"count": 3,
+			"energy": 1,
+			"id": "artisan:tannery:tanning_agent",
+			"inputs": {
+				"clean_water": 1,
+				"fruit_vinegar": 1,
+				"herbs": 2
+			},
+			"name": "tanning_agent",
+			"output": "tanning_agent",
+			"seconds": 10.0,
+			"station": "tannery",
+			"workshop_level": 1
+		},
+		{
+			"count": 2,
+			"energy": 1,
+			"id": "artisan:tannery:leather",
+			"inputs": {
+				"hide": 2,
+				"tanning_agent": 1
+			},
+			"name": "leather",
+			"output": "leather",
+			"seconds": 18.0,
+			"station": "tannery",
+			"workshop_level": 1
+		},
+		{
+			"count": 3,
+			"energy": 2,
+			"id": "artisan:tannery:leather_strap",
+			"inputs": {
+				"leather": 1
+			},
+			"name": "leather_strap",
+			"output": "leather_strap",
+			"seconds": 10.0,
+			"station": "tannery",
+			"workshop_level": 2
+		},
+		{
+			"count": 2,
+			"energy": 2,
+			"id": "artisan:tannery:cured_fur",
+			"inputs": {
+				"fur": 2,
+				"tanning_agent": 1
+			},
+			"name": "cured_fur",
+			"output": "cured_fur",
+			"seconds": 20.0,
+			"station": "tannery",
+			"workshop_level": 2
+		},
+		{
+			"count": 2,
+			"energy": 3,
+			"id": "artisan:tannery:book_binding",
+			"inputs": {
+				"beeswax": 1,
+				"cloth": 1,
+				"leather": 1
+			},
+			"name": "book_binding",
+			"output": "book_binding",
+			"seconds": 16.0,
+			"station": "tannery",
+			"workshop_level": 3
+		},
+		{
+			"count": 1,
+			"energy": 3,
+			"id": "artisan:tannery:travel_boots",
+			"inputs": {
+				"cured_fur": 1,
+				"leather": 2,
+				"leather_strap": 2
+			},
+			"name": "travel_boots",
+			"output": "travel_boots",
+			"seconds": 24.0,
+			"station": "tannery",
+			"workshop_level": 3
+		},
+		{
+			"count": 3,
+			"energy": 1,
+			"id": "artisan:candlebench:wax_candle",
+			"inputs": {
+				"beeswax": 1,
+				"fiber": 1
+			},
+			"name": "wax_candle",
+			"output": "wax_candle",
+			"seconds": 10.0,
+			"station": "candlebench",
+			"workshop_level": 1
+		},
+		{
+			"count": 3,
+			"energy": 1,
+			"id": "artisan:candlebench:soap",
+			"inputs": {
+				"clean_water": 1,
+				"herb_oil": 1,
+				"mineral_base": 1
+			},
+			"name": "soap",
+			"output": "soap",
+			"seconds": 12.0,
+			"station": "candlebench",
+			"workshop_level": 1
+		},
+		{
+			"count": 2,
+			"energy": 2,
+			"id": "artisan:candlebench:herbal_candle",
+			"inputs": {
+				"wax_candle": 2,
+				"wild_thyme_powder": 1
+			},
+			"name": "herbal_candle",
+			"output": "herbal_candle",
+			"seconds": 14.0,
+			"station": "candlebench",
+			"workshop_level": 2
+		},
+		{
+			"count": 2,
+			"energy": 2,
+			"id": "artisan:candlebench:herbal_soap",
+			"inputs": {
+				"propolis_tincture": 1,
+				"soap": 2
+			},
+			"name": "herbal_soap",
+			"output": "herbal_soap",
+			"seconds": 14.0,
+			"station": "candlebench",
+			"workshop_level": 2
+		},
+		{
+			"count": 2,
+			"energy": 3,
+			"id": "artisan:candlebench:moon_candle",
+			"inputs": {
+				"ether_essence": 1,
+				"moon_grass_powder": 1,
+				"wax_candle": 2
+			},
+			"name": "moon_candle",
+			"output": "moon_candle",
+			"seconds": 18.0,
+			"station": "candlebench",
+			"workshop_level": 3
+		},
+		{
+			"count": 3,
+			"energy": 3,
+			"id": "artisan:candlebench:incense",
+			"inputs": {
+				"herb_oil": 1,
+				"juniper_powder": 1,
+				"sage_dried": 2
+			},
+			"name": "incense",
+			"output": "incense",
+			"seconds": 16.0,
+			"station": "candlebench",
+			"workshop_level": 3
+		},
+		{
+			"count": 3,
+			"energy": 1,
+			"id": "artisan:gardenbench:compost",
+			"inputs": {
+				"fiber": 2,
+				"fruit_pulp": 3
+			},
+			"name": "compost",
+			"output": "compost",
+			"seconds": 16.0,
+			"station": "gardenbench",
+			"workshop_level": 1
+		},
+		{
+			"count": 4,
+			"energy": 1,
+			"id": "artisan:gardenbench:bone_meal",
+			"inputs": {
+				"bones": 2
+			},
+			"name": "bone_meal",
+			"output": "bone_meal",
+			"seconds": 12.0,
+			"station": "gardenbench",
+			"workshop_level": 1
+		},
+		{
+			"count": 3,
+			"energy": 2,
+			"id": "artisan:gardenbench:growth_fertilizer",
+			"inputs": {
+				"compost": 2,
+				"herb_pulp": 2
+			},
+			"name": "growth_fertilizer",
+			"output": "growth_fertilizer",
+			"seconds": 14.0,
+			"station": "gardenbench",
+			"workshop_level": 2
+		},
+		{
+			"count": 6,
+			"energy": 2,
+			"id": "artisan:gardenbench:fishing_bait",
+			"inputs": {
+				"fruit_pulp": 1,
+				"raw_meat": 1
+			},
+			"name": "fishing_bait",
+			"output": "fishing_bait",
+			"seconds": 10.0,
+			"station": "gardenbench",
+			"workshop_level": 2
+		},
+		{
+			"count": 3,
+			"energy": 3,
+			"id": "artisan:gardenbench:quality_fertilizer",
+			"inputs": {
+				"bone_meal": 2,
+				"compost": 2,
+				"pollen_powder": 1
+			},
+			"name": "quality_fertilizer",
+			"output": "quality_fertilizer",
+			"seconds": 18.0,
+			"station": "gardenbench",
+			"workshop_level": 3
+		},
+		{
+			"count": 8,
+			"energy": 3,
+			"id": "artisan:gardenbench:research_paper",
+			"inputs": {
+				"book_binding": 1,
+				"clean_water": 1,
+				"sawdust": 3
+			},
+			"name": "research_paper",
+			"output": "research_paper",
+			"seconds": 20.0,
+			"station": "gardenbench",
+			"workshop_level": 3
+		},
+		{
+			"count": 3,
+			"energy": 2,
+			"id": "artisan:gardenbench:seeds_carrot",
+			"inputs": {
+				"carrot": 2
+			},
+			"name": "seeds",
+			"output": "seeds",
+			"seconds": 12.0,
+			"station": "gardenbench",
+			"workshop_level": 2
+		},
+		{
+			"count": 3,
+			"energy": 2,
+			"id": "artisan:gardenbench:seeds_tomato",
+			"inputs": {
+				"tomato": 2
+			},
+			"name": "tomato_seeds",
+			"output": "tomato_seeds",
+			"seconds": 12.0,
+			"station": "gardenbench",
+			"workshop_level": 2
+		},
+		{
+			"count": 3,
+			"energy": 2,
+			"id": "artisan:gardenbench:seeds_cabbage",
+			"inputs": {
+				"cabbage": 2
+			},
+			"name": "cabbage_seeds",
+			"output": "cabbage_seeds",
+			"seconds": 12.0,
+			"station": "gardenbench",
+			"workshop_level": 2
+		},
+		{
+			"count": 3,
+			"energy": 2,
+			"id": "artisan:gardenbench:seeds_wheat",
+			"inputs": {
+				"wheat": 2
+			},
+			"name": "wheat_seeds",
+			"output": "wheat_seeds",
+			"seconds": 12.0,
+			"station": "gardenbench",
+			"workshop_level": 2
+		},
+		{
+			"count": 3,
+			"energy": 2,
+			"id": "artisan:gardenbench:seeds_corn",
+			"inputs": {
+				"corn": 2
+			},
+			"name": "corn_seeds",
+			"output": "corn_seeds",
+			"seconds": 12.0,
+			"station": "gardenbench",
+			"workshop_level": 2
+		},
+		{
+			"count": 3,
+			"energy": 2,
+			"id": "artisan:gardenbench:seeds_potato",
+			"inputs": {
+				"potato": 2
+			},
+			"name": "potato_seeds",
+			"output": "potato_seeds",
+			"seconds": 12.0,
+			"station": "gardenbench",
+			"workshop_level": 2
+		},
+		{
+			"count": 3,
+			"energy": 2,
+			"id": "artisan:gardenbench:seeds_onion",
+			"inputs": {
+				"onion": 2
+			},
+			"name": "onion_seeds",
+			"output": "onion_seeds",
+			"seconds": 12.0,
+			"station": "gardenbench",
+			"workshop_level": 2
+		},
+		{
+			"count": 3,
+			"energy": 3,
+			"id": "artisan:gardenbench:seeds_pumpkin",
+			"inputs": {
+				"pumpkin": 2
+			},
+			"name": "pumpkin_seeds",
+			"output": "pumpkin_seeds",
+			"seconds": 12.0,
+			"station": "gardenbench",
+			"workshop_level": 3
+		},
+		{
+			"count": 3,
+			"energy": 3,
+			"id": "artisan:gardenbench:seeds_strawberry",
+			"inputs": {
+				"strawberry": 2
+			},
+			"name": "strawberry_seeds",
+			"output": "strawberry_seeds",
+			"seconds": 12.0,
+			"station": "gardenbench",
+			"workshop_level": 3
+		},
+		{
+			"count": 3,
+			"energy": 2,
+			"id": "artisan:gardenbench:seeds_beet",
+			"inputs": {
+				"beet": 2
+			},
+			"name": "beet_seeds",
+			"output": "beet_seeds",
+			"seconds": 12.0,
+			"station": "gardenbench",
+			"workshop_level": 2
+		},
+		{
+			"count": 3,
+			"energy": 3,
+			"id": "artisan:gardenbench:seeds_pepper",
+			"inputs": {
+				"pepper": 2
+			},
+			"name": "pepper_seeds",
+			"output": "pepper_seeds",
+			"seconds": 12.0,
+			"station": "gardenbench",
+			"workshop_level": 3
+		},
+		{
+			"count": 3,
+			"energy": 3,
+			"id": "artisan:gardenbench:seeds_cucumber",
+			"inputs": {
+				"cucumber": 2
+			},
+			"name": "cucumber_seeds",
+			"output": "cucumber_seeds",
+			"seconds": 12.0,
+			"station": "gardenbench",
+			"workshop_level": 3
+		},
+		{
+			"count": 3,
+			"energy": 3,
+			"id": "artisan:gardenbench:seeds_sunflower",
+			"inputs": {
+				"sunflower": 2
+			},
+			"name": "sunflower_seeds",
+			"output": "sunflower_seeds",
+			"seconds": 12.0,
+			"station": "gardenbench",
+			"workshop_level": 3
+		},
+		{
+			"count": 3,
+			"energy": 3,
+			"id": "artisan:gardenbench:seeds_cotton",
+			"inputs": {
+				"cotton": 2
+			},
+			"name": "cotton_seeds",
+			"output": "cotton_seeds",
+			"seconds": 12.0,
+			"station": "gardenbench",
+			"workshop_level": 3
+		},
+		{
+			"count": 3,
+			"energy": 3,
+			"id": "artisan:gardenbench:seeds_melon",
+			"inputs": {
+				"melon": 2
+			},
+			"name": "melon_seeds",
+			"output": "melon_seeds",
+			"seconds": 12.0,
+			"station": "gardenbench",
+			"workshop_level": 3
+		},
+		{
+			"count": 3,
+			"energy": 3,
+			"id": "artisan:gardenbench:seeds_herbs",
+			"inputs": {
+				"herbs": 2
+			},
+			"name": "herb_seeds",
+			"output": "herb_seeds",
+			"seconds": 12.0,
+			"station": "gardenbench",
+			"workshop_level": 3
+		}
+	],
+	"schema": 1,
+	"scope": "service-operation model; no walking time or human playtest",
+	"stations": {
+		"candlebench": {
+			"icon": "wax_candle",
+			"location": "cellar_workshop",
+			"private": true,
+			"profession": "smithing",
+			"thermal": false,
+			"upgrades": [
+				{
+					"coins": 75,
+					"inputs": {
+						"glass_vial": 4,
+						"metal": 2,
+						"wood_beam": 4
+					}
+				},
+				{
+					"coins": 180,
+					"inputs": {
+						"clear_glass": 2,
+						"porcelain_cup": 2,
+						"steel": 2
+					}
+				}
+			]
+		},
+		"fermenter": {
+			"icon": "cider",
+			"location": "cellar_workshop",
+			"private": true,
+			"profession": "farming",
+			"thermal": false,
+			"upgrades": [
+				{
+					"coins": 65,
+					"inputs": {
+						"glass_bottle": 3,
+						"nails": 4,
+						"wood_beam": 4
+					}
+				},
+				{
+					"coins": 160,
+					"inputs": {
+						"glass_bottle": 4,
+						"metal": 4,
+						"timber_frame": 2
+					}
+				}
+			]
+		},
+		"fruit_press": {
+			"icon": "apple_juice",
+			"location": "cellar_workshop",
+			"private": true,
+			"profession": "farming",
+			"thermal": false,
+			"upgrades": [
+				{
+					"coins": 70,
+					"inputs": {
+						"glass_bottle": 2,
+						"metal": 3,
+						"wood_beam": 4
+					}
+				},
+				{
+					"coins": 180,
+					"inputs": {
+						"clear_glass": 2,
+						"steel": 2,
+						"timber_frame": 2
+					}
+				}
+			]
+		},
+		"gardenbench": {
+			"icon": "compost",
+			"location": "cellar_workshop",
+			"private": true,
+			"profession": "farming",
+			"thermal": false,
+			"upgrades": [
+				{
+					"coins": 60,
+					"inputs": {
+						"clay_pot": 1,
+						"nails": 4,
+						"wood_beam": 4
+					}
+				},
+				{
+					"coins": 150,
+					"inputs": {
+						"bone_meal": 4,
+						"metal": 3,
+						"timber_frame": 2
+					}
+				}
+			]
+		},
+		"glassblowing": {
+			"anchor": "(850.0, 450.0)",
+			"icon": "glass_bottle",
+			"location": "forge_interior",
+			"point": "(850.0, 490.0)",
+			"thermal": true,
+			"upgrades": [
+				{
+					"coins": 120,
+					"inputs": {
+						"brick": 6,
+						"glass": 4,
+						"metal": 3
+					}
+				},
+				{
+					"coins": 280,
+					"inputs": {
+						"clear_glass": 4,
+						"steel": 3,
+						"timber_frame": 2
+					}
+				}
+			]
+		},
+		"loom": {
+			"icon": "canvas",
+			"location": "cellar_workshop",
+			"private": true,
+			"profession": "smithing",
+			"thermal": false,
+			"upgrades": [
+				{
+					"coins": 75,
+					"inputs": {
+						"nails": 4,
+						"rope": 3,
+						"wood_beam": 4
+					}
+				},
+				{
+					"coins": 180,
+					"inputs": {
+						"cloth": 4,
+						"steel": 2,
+						"timber_frame": 2
+					}
+				}
+			]
+		},
+		"pottery": {
+			"anchor": "(492.0, 456.0)",
+			"icon": "clay_pot",
+			"location": "cottage_interior",
+			"point": "(492.0, 504.0)",
+			"thermal": false,
+			"upgrades": [
+				{
+					"coins": 100,
+					"inputs": {
+						"clay": 6,
+						"metal": 2,
+						"plank": 6
+					}
+				},
+				{
+					"coins": 220,
+					"inputs": {
+						"brick": 8,
+						"ceramic_glaze": 3,
+						"steel": 2
+					}
+				}
+			]
+		},
+		"preserver": {
+			"icon": "pickled_vegetables",
+			"location": "cellar_workshop",
+			"private": true,
+			"profession": "farming",
+			"thermal": false,
+			"upgrades": [
+				{
+					"coins": 80,
+					"inputs": {
+						"brick": 4,
+						"glass_jar": 2,
+						"wood_beam": 4
+					}
+				},
+				{
+					"coins": 190,
+					"inputs": {
+						"porcelain_cup": 2,
+						"steel": 2,
+						"timber_frame": 2
+					}
+				}
+			]
+		},
+		"sawmill": {
+			"anchor": "(885.0, 440.0)",
+			"icon": "wood_beam",
+			"location": "guild_interior",
+			"point": "(885.0, 485.0)",
+			"thermal": false,
+			"upgrades": [
+				{
+					"coins": 100,
+					"inputs": {
+						"metal": 3,
+						"stone": 6,
+						"wood_beam": 4
+					}
+				},
+				{
+					"coins": 250,
+					"inputs": {
+						"steel": 3,
+						"timber_frame": 2,
+						"wood_dowel": 8
+					}
+				}
+			]
+		},
+		"smoker": {
+			"fuels": [
+				"wood",
+				"log",
+				"charcoal"
+			],
+			"icon": "smoked_fish",
+			"location": "cellar_workshop",
+			"private": true,
+			"profession": "smithing",
+			"thermal": true,
+			"upgrades": [
+				{
+					"coins": 90,
+					"inputs": {
+						"brick": 10,
+						"metal": 4,
+						"wood_beam": 2
+					}
+				},
+				{
+					"coins": 220,
+					"inputs": {
+						"brick": 12,
+						"steel": 3,
+						"timber_frame": 2
+					}
+				}
+			]
+		},
+		"tannery": {
+			"icon": "leather",
+			"location": "cellar_workshop",
+			"private": true,
+			"profession": "smithing",
+			"thermal": false,
+			"upgrades": [
+				{
+					"coins": 80,
+					"inputs": {
+						"clay_pot": 2,
+						"metal": 2,
+						"wood_beam": 4
+					}
+				},
+				{
+					"coins": 190,
+					"inputs": {
+						"leather": 4,
+						"steel": 2,
+						"timber_frame": 2
+					}
+				}
+			]
+		}
+	}
+}

@@ -13,6 +13,11 @@ class BacklogTests(unittest.TestCase):
     def setUp(self):
         """Читает независимую копию для отрицательных сценариев."""
         self.plan = backlog.load_plan()
+        # Отрицательные сценарии не должны отменять реальные завершённые
+        # блокеры у зависимых задач, уже переведённых в Ready.
+        for task in self.plan['tasks']:
+            task['status'] = 'blocked' if task['dependencies'] or task['needs'] else 'ready'
+            task['result'] = ''
 
     def test_plan_files_and_topology(self):
         """Сценарий: исходный план. Исходное состояние: текущий код. Ожидаемый результат: все ссылки и зависимости верны."""

@@ -3,6 +3,7 @@ extends "res://tests/suites/suite_base.gd"
 
 ## Запускает сценарии первого дня, фермерской жизни, коллекций, боя и интерфейса расширения.
 func run() -> void:
+	preload("res://tests/suites/farm_economy_suite.gd").new(context).run()
 	preload("res://tests/suites/livestock_suite.gd").new(context).run()
 	preload("res://tests/suites/apiary_suite.gd").new(context).run()
 	test_first_day_is_coherent_route()
