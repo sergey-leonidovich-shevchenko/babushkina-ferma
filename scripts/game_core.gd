@@ -443,6 +443,7 @@ func inventory_item_name(kind: String) -> String:
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func change_inventory_count(kind: String, amount: int) -> bool:
+	if amount == 0: return InventorySystem.ITEM_DATA.has(kind)
 	if amount < 0 and inventory_item_count(kind) < -amount:
 		return false
 	match kind:

@@ -134,6 +134,7 @@ static func list_start(game: Node, visible: Array[int]) -> int:
 
 ## Проверяет условие «возможности крафта» без изменения состояния.
 static func can_craft(game: Node, recipe: Dictionary) -> bool:
+	if recipe.output in game.InventorySystem.UNIQUE_ITEMS and game.inventory_item_count(recipe.output)>0: return false
 	if recipe.get("private_kitchen",false) and not Kitchen.active(game): return false
 	if Kitchen.active(game) and recipe.get("station","")=="cauldron": return Kitchen.reason(game,recipe).is_empty()
 	if not BasementStations.recipe_reason(game,recipe).is_empty(): return false
@@ -161,7 +162,7 @@ static func max_craftable(game: Node, recipe: Dictionary) -> int:
 	if game.crafting_station=="furnace": result=mini(result,int(Furnace.state(game).level)-Furnace.state(game).queue.size())
 	if Workshop.handles(game.crafting_station): result=mini(result,mini(int(Workshop.state(game,game.crafting_station).level)-Workshop.state(game,game.crafting_station).queue.size(),floori(game.energy/float(recipe.energy))))
 	if Kitchen.active(game): result=mini(result,mini(int(Kitchen.state(game).level)-Kitchen.state(game).queue.size(),floori(game.energy/float(Kitchen.Data.energy(recipe)))))
-	return mini(result, 1) if recipe.output == "home_chest" else result
+	return mini(result, 1) if recipe.output == "home_chest" or recipe.output in game.InventorySystem.UNIQUE_ITEMS else result
 
 ## Выполняет операцию «крафта» и возвращает результат согласно контракту метода.
 static func craft(game: Node, index: int) -> bool:
@@ -184,14 +185,14 @@ static func craft(game: Node, index: int) -> bool:
 		game.message = game.LocaleSystem.text("chest_already_owned")
 		return false
 	if not can_craft(game, recipe):
-		game.message = production_summary(game,recipe) if game.crafting_station=="alchemy" else game.LocaleSystem.text("needs", [ingredients_text(game, recipe)])
+		game.message = game.LocaleSystem.ui("craft_unique_owned") if recipe.output in game.InventorySystem.UNIQUE_ITEMS and game.inventory_item_count(recipe.output)>0 else (production_summary(game,recipe) if game.crafting_station=="alchemy" else game.LocaleSystem.text("needs", [ingredients_text(game, recipe)]))
 		return false
 	for kind in recipe.inputs: game.change_inventory_count(kind, -material_cost(game,recipe,kind))
 	if not game.state.player.profile.has("workbench_crafts"): game.state.player.profile.workbench_crafts=game.state.player.craft_count
 	if game.crafting_station=="workbench": game.state.player.profile.workbench_crafts=int(game.state.player.profile.workbench_crafts)+1
 	game.state.player.craft_count += 1
 	var crafted_count: int = int(recipe.count)
-	if game.crafting_station=="workbench" and not recipe.has("study_kind") and not recipe.get("research_supply",false) and game.TalentSystem.has(game, "craft_master") and int(game.state.player.profile.workbench_crafts) % 5 == 0:
+	if game.crafting_station=="workbench" and recipe.output not in game.InventorySystem.UNIQUE_ITEMS and recipe.output!="home_chest" and not recipe.has("study_kind") and not recipe.get("research_supply",false) and game.TalentSystem.has(game, "craft_master") and int(game.state.player.profile.workbench_crafts) % 5 == 0:
 		crafted_count += int(recipe.count)
 	game.change_inventory_count(recipe.output, crafted_count)
 	if recipe.output == "home_chest": game.StorageSystem.install(game)
@@ -234,6 +235,7 @@ static func category_name(game: Node, recipe: Dictionary) -> String:
 
 ## Описывает выход партии и возможное число повторов для подробной карточки рецепта.
 static func production_summary(game: Node, recipe: Dictionary) -> String:
+	if recipe.output in game.InventorySystem.UNIQUE_ITEMS and game.inventory_item_count(recipe.output)>0: return game.LocaleSystem.ui("craft_unique_owned")
 	if Kitchen.active(game): return Kitchen.summary(game,recipe)
 	if not BasementStations.recipe_reason(game,recipe).is_empty(): return BasementStations.reason_text(game,recipe)
 	if Workshop.handles(String(recipe.get("station",""))): return Workshop.summary(game,recipe)

@@ -787,8 +787,8 @@
         "tools/check_architecture.sh и ./run_tests.sh без ERROR движка.",
         "Обновлённые документация и точный ручной маршрут QA_CHECKLIST.md; нативная проверка, если меняются рисунок, ввод или производительность."
       ],
-      "status": "backlog",
-      "result": ""
+      "status": "done",
+      "result": "InventoryTransactionSuite: 200 transfer commands, JSON boundaries, unique craft and all foundations/salvage; fixed duplicate unique crafting and zero-delta tool removal. SAFE profile: 2265 passed/0 failed. docs/reports/safe-2026-10/README.md; full gate before publication."
     },
     {
       "id": "SAFE-03",

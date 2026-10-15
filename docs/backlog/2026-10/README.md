@@ -6,7 +6,7 @@
 
 ## Состояние
 
-`backlog`: 2, `ready`: 7, `blocked`: 40, `in_progress`: 0, `done`: 1. Статус `done` требует записанного результата; исходные критерии и наличие тестов не означают выполнения.
+`backlog`: 1, `ready`: 7, `blocked`: 40, `in_progress`: 0, `done`: 2. Статус `done` требует записанного результата; исходные критерии и наличие тестов не означают выполнения.
 
 ## Эпики
 
@@ -593,7 +593,7 @@
 
 ### SAFE-02 — Проверить инварианты списания и выдачи предметов сквозными транзакциями
 
-**backlog · P1 · M · investigation**. Ветка: `codex/safe-02-inventory-transaction-invariants`.
+**done · P1 · M · investigation**. Ветка: `codex/safe-02-inventory-transaction-invariants`.
 
 **Сейчас:** У хранилищ, крафта и стройки уже есть профильные проверки; нужен один сквозной контракт сохранения количества.
 
@@ -625,7 +625,7 @@
 
 **Основания:** [GODOT-SCENES](https://docs.godotengine.org/en/stable/tutorials/best_practices/scene_organization.html), [FACTORIO-TESTS](https://www.factorio.com/blog/post/fff-315).
 
-**Подтверждение результата:** пока нет; задача открыта.
+**Подтверждение результата:** InventoryTransactionSuite: 200 transfer commands, JSON boundaries, unique craft and all foundations/salvage; fixed duplicate unique crafting and zero-delta tool removal. SAFE profile: 2265 passed/0 failed. docs/reports/safe-2026-10/README.md; full gate before publication.
 
 <a id="safe-03"></a>
 
