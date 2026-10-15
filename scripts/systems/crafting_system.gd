@@ -85,6 +85,7 @@ static func open(game: Node, station: String = "workbench") -> void:
 
 ## Обрабатывает клавиатуру и геймпад общего окна верстака или котелка.
 static func handle_input(game: Node, event: InputEvent) -> void:
+	if preload("res://scripts/systems/production_queue_system.gd").handle_input(game,event): return
 	if Kitchen.handle_controls(game,event): return
 	if Research.handles(game.crafting_station): Research.handle_input(game,event); return
 	if Workshop.handles(game.crafting_station) and Workshop.handle_controls(game,event): return

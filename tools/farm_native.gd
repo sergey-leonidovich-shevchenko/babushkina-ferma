@@ -26,4 +26,11 @@ func start_farm() -> void:
 	game.FarmLifeSystem.Livestock.interact(game,life,"life:animal:cow"); game.update_hud_feedback(0); game.queue_redraw()
 	await process_frame; RenderingServer.force_draw(false)
 	root.get_texture().get_image().save_png(FOLDER_FARM+"livestock-hint.png")
+	game.current_location="forge_interior"; game.player=game.FurnaceSystem.STATION
+	game.CraftingSystem.open(game,"furnace")
+	game.crafting_selected=game.CraftingSystem.RECIPES.find_custom(func(recipe): return recipe.get("id","")=="furnace:ore")
+	game.change_inventory_count("iron_ore",2); game.FurnaceSystem.load_fuel(game)
+	game.CraftingSystem.craft(game,game.crafting_selected); game.queue_redraw()
+	await process_frame; RenderingServer.force_draw(false)
+	root.get_texture().get_image().save_png(FOLDER_FARM+"production-queue.png")
 	game.free(); quit()

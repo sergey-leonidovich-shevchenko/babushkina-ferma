@@ -128,6 +128,7 @@ static func draw_crafting(game: Node) -> void:
 	if game.crafting_station=="furnace": preload("res://scripts/presentation/furnace_renderer.gd").draw_toolbar(game)
 	if game.WorkshopSystem.handles(game.crafting_station): preload("res://scripts/presentation/workshop_renderer.gd").draw_toolbar(game)
 	if game.CraftingSystem.Kitchen.active(game): preload("res://scripts/presentation/kitchen_renderer.gd").draw_toolbar(game)
+	preload("res://scripts/systems/production_queue_system.gd").draw(game)
 	draw_help(game, game.LocaleSystem.ui("kitchen_help" if game.CraftingSystem.Kitchen.active(game) else ("smoker_help" if game.crafting_station=="smoker" else "furnace_help" if (game.crafting_station=="furnace" or game.WorkshopSystem.thermal(game.crafting_station)) else ("workshop_help" if game.WorkshopSystem.handles(game.crafting_station) else ("alchemy_help" if game.crafting_station=="alchemy" else "craft_help")))))
 
 
@@ -292,6 +293,7 @@ static func handle_forge_pointer(game: Node, position: Vector2) -> bool:
 
 ## Сначала выбирает рецепт для чтения, а материалы расходует только после явного нажатия кнопки создания.
 static func handle_crafting_pointer(game: Node, position: Vector2) -> bool:
+	if preload("res://scripts/systems/production_queue_system.gd").handle_pointer(game,position): return true
 	if game.ResearchSystem.handles(game.crafting_station): return preload("res://scripts/presentation/research_renderer.gd").handle_pointer(game,position)
 	if game.CraftingSystem.Kitchen.active(game) and preload("res://scripts/presentation/kitchen_renderer.gd").handle_pointer(game,position): return true
 	if game.WorkshopSystem.handles(game.crafting_station) and preload("res://scripts/presentation/workshop_renderer.gd").handle_pointer(game,position): return true

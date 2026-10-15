@@ -1212,8 +1212,8 @@
         "tools/check_architecture.sh и ./run_tests.sh без ERROR движка.",
         "Обновлённые документация и точный ручной маршрут QA_CHECKLIST.md; нативная проверка, если меняются рисунок, ввод или производительность."
       ],
-      "status": "ready",
-      "result": ""
+      "status": "done",
+      "result": "docs/reports/farm-2026-10/README.md: unified first-batch refund preserving spent heat/energy, exact heat/fuel preview at all tiers, capacity/pause/cross-room/load/dismantle contract. FarmQueueSuite 446 assertions, FARM 1026/0; native production-queue.png inspected; controls/tutorial updated."
     },
     {
       "id": "FARM-06",

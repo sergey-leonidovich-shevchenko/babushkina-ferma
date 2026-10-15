@@ -6,7 +6,7 @@
 
 ## Состояние
 
-`backlog`: 1, `ready`: 10, `blocked`: 28, `in_progress`: 0, `done`: 11. Статус `done` требует записанного результата; исходные критерии и наличие тестов не означают выполнения.
+`backlog`: 1, `ready`: 9, `blocked`: 28, `in_progress`: 0, `done`: 12. Статус `done` требует записанного результата; исходные критерии и наличие тестов не означают выполнения.
 
 ## Эпики
 
@@ -24,7 +24,6 @@
 Начать с OPT-01: закрепить честный замер до следующего изменения производительности. Далее SAFE-05/SAFE-03 и QA-01; следующие пункты выбираем по дефектам и данным. Одна задача в работе. S/M/L — относительный объём, не срок; L можно разбить до начала.
 
 - [OPT-01](#opt-01) — Измерения, честный gate и быстрые профили
-- [FARM-05](#farm-05) — Согласовать очередь производства, расход топлива и отмену
 - [FARM-06](#farm-06) — Спроектировать понятное освоение первых десяти алхимических опытов
 - [FARM-07](#farm-07) — Проверить раннюю рыбалку и достижимость рыбных заданий
 - [FARM-08](#farm-08) — Показать производственную цепочку выбранного предмета в игре и Wiki
@@ -974,7 +973,7 @@
 
 ### FARM-05 — Согласовать очередь производства, расход топлива и отмену
 
-**ready · P1 · M · implementation**. Ветка: `codex/farm-05-production-queue-contract`.
+**done · P1 · M · implementation**. Ветка: `codex/farm-05-production-queue-contract`.
 
 **Сейчас:** Горн, кухня и другие станки имеют уровни и очереди; разные интерфейсы не должны скрывать разные правила списания.
 
@@ -1004,7 +1003,7 @@
 
 **Основания:** [GODOT-SCENES](https://docs.godotengine.org/en/stable/tutorials/best_practices/scene_organization.html), [LOOPS](https://lostgarden.com/2012/04/30/loops-and-arcs/).
 
-**Подтверждение результата:** пока нет; задача открыта.
+**Подтверждение результата:** docs/reports/farm-2026-10/README.md: unified first-batch refund preserving spent heat/energy, exact heat/fuel preview at all tiers, capacity/pause/cross-room/load/dismantle contract. FarmQueueSuite 446 assertions, FARM 1026/0; native production-queue.png inspected; controls/tutorial updated.
 
 <a id="farm-06"></a>
 
