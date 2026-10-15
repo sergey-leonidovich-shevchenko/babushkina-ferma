@@ -82,12 +82,9 @@ static func travel(game: Node, target: String) -> bool:
 	var landing := safe_landing(game)
 	game.current_location = previous
 	if not landing.is_finite(): state(game).notice = Locale.text(game, "failed"); game.queue_redraw(); return false
-	game.CombatSystem.reset_transients(game); game.CaveBossSystem.reset(game)
-	game.state.fishing.reset_cast(); game.SpellSystem.state(game).effects.clear()
 	game.discovery_current.clear(); game.discovery_timer = 0.0
-	if game.has_meta(game.HeroActionSystem.META): game.remove_meta(game.HeroActionSystem.META)
-	game.player_attack_timer = 0.0; game.player_hurt_timer = 0.0
 	game.current_location = target; game.player = landing
+	preload("res://scripts/systems/action_lifecycle_system.gd").location_changed(game,true)
 	game.location_transition_armed = false; game.location_transition_cooldown = game.LocationTransitionSystem.REENTRY_DELAY
 	close(game); game.sync_background_location(); game.update_camera()
 	game.message = Locale.text(game, "title") + " · " + game.LocaleSystem.location(target)

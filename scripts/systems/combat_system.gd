@@ -278,11 +278,8 @@ static func damage_player(game: Node, raw_damage: int, source_name: String, sour
 	if game.player_hp <= 0:
 		var lost_coins := mini(5, game.coins)
 		game.player_hp = game.player_max_hp
-		if preload("res://scripts/systems/cave_room_data.gd").is_cave(game.current_location):
-			game.CaveBossSystem.reset(game)
 		game.player=preload("res://scripts/systems/recovery_system.gd").safe_spawn(game)
 		game.coins -= lost_coins
-		reset_transients(game)
 		game.MenuSystem.open_defeat(game, source_name, lost_coins)
 	return incoming
 

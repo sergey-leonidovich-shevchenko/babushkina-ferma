@@ -6,7 +6,7 @@
 
 ## Состояние
 
-`backlog`: 1, `ready`: 5, `blocked`: 38, `in_progress`: 0, `done`: 6. Статус `done` требует записанного результата; исходные критерии и наличие тестов не означают выполнения.
+`backlog`: 1, `ready`: 4, `blocked`: 38, `in_progress`: 0, `done`: 7. Статус `done` требует записанного результата; исходные критерии и наличие тестов не означают выполнения.
 
 ## Эпики
 
@@ -24,7 +24,6 @@
 Начать с OPT-01: закрепить честный замер до следующего изменения производительности. Далее SAFE-05/SAFE-03 и QA-01; следующие пункты выбираем по дефектам и данным. Одна задача в работе. S/M/L — относительный объём, не срок; L можно разбить до начала.
 
 - [OPT-01](#opt-01) — Измерения, честный gate и быстрые профили
-- [SAFE-07](#safe-07) — Закрепить матрицу отмены и сохранения действий при переходах
 - [FARM-01](#farm-01) — Построить карту экономики первых семи дней
 - [WORLD-01](#world-01) — Зафиксировать вертикальный срез первых семи игровых дней
 - [QA-01](#qa-01) — Объединить QA-пресеты состояния для повторяемых проверок
@@ -779,7 +778,7 @@
 
 ### SAFE-07 — Закрепить матрицу отмены и сохранения действий при переходах
 
-**ready · P1 · M · implementation**. Ветка: `codex/safe-07-action-lifecycle-contract`.
+**done · P1 · M · implementation**. Ветка: `codex/safe-07-action-lifecycle-contract`.
 
 **Сейчас:** Рюкзак ставит мир на паузу, QA-камень очищает боевые хвосты, отмена выбора сохраняет бой.
 
@@ -809,7 +808,7 @@
 
 **Основания:** [GODOT-SCENES](https://docs.godotengine.org/en/stable/tutorials/best_practices/scene_organization.html), [STARDEW-QOL](https://www.stardewvalley.net/stardew-valley-1-6-4-full-patch-notes/).
 
-**Подтверждение результата:** пока нет; задача открыта.
+**Подтверждение результата:** Shared lifecycle for doors, QA warp, load and recovery; paused honest attacks resume once, old threats/holds/slot drag cancel, paid work persists. SAFE profile 3356/0; native scene repeat 55/0; Wiki check 16/0. docs/reports/safe-2026-10/ACTION_LIFECYCLE.md and lifecycle/native.json.
 
 <a id="epic-farm"></a>
 

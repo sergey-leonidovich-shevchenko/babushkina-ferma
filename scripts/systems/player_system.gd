@@ -34,6 +34,7 @@ static func update_movement_key(game: Node, event: InputEventKey) -> bool:
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func clear_keys(game: Node) -> void:
+	preload("res://scripts/systems/action_lifecycle_system.gd").release_holds(game)
 	game.move_left_held = false
 	game.move_right_held = false
 	game.move_up_held = false

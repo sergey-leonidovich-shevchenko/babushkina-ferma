@@ -197,7 +197,7 @@ static func apply(game: Node, data: Dictionary) -> bool:
 	preload("res://scripts/systems/village_map_migration_system.gd").apply(game,int(data.get("estate",{}).get("map_revision",0)))
 	preload("res://scripts/systems/cave_layout_system.gd").repair_saved_positions(game)
 	preload("res://scripts/systems/house_furniture_layout_system.gd").migrate(game)
-	game.CombatSystem.reset_transients(game)
+	preload("res://scripts/systems/action_lifecycle_system.gd").location_changed(game,true)
 	game.NpcMovementSystem.initialize(game); game.NpcMovementSystem.update(game,0)
 	game.sync_background_location(); game.update_camera(); return true
 

@@ -1,0 +1,8 @@
+{
+  "display_server": "macOS",
+  "engine": "4.7.1-stable (official)",
+  "failed": 0,
+  "passed": 55,
+  "pause_on_focus_loss": false,
+  "protocol": "generated keyboard/controller/mouse/touch InputEvents in native scenes and viewport; manual simulation steps; no physical-device or FPS claim"
+}

@@ -31,6 +31,7 @@ static func protected(game:Node) -> bool:
 
 ## Запоминает результат поражения в немодальном уведомлении и немедленно возвращает управление.
 static func begin(game:Node, source:String, lost_coins:int) -> void:
+	preload("res://scripts/systems/action_lifecycle_system.gd").cancel_transients(game)
 	var menu=game.menu_state
 	menu.defeat_open=false; menu.defeat_source=source; menu.defeat_lost_coins=maxi(0,lost_coins)
 	menu.recovery_notice=NOTICE_SECONDS; menu.recovery_grace=GRACE_SECONDS

@@ -32,6 +32,7 @@ static func open(game: Node, target: String) -> void:
 
 ## Закрывает все разделы меню одновременно, исключая скрытое окно, удерживающее паузу.
 static func close(game: Node) -> void:
+	game.inventory_move_from=-1; game.inventory_touch_drag_y=0.0
 	game.inventory_open = false; game.quest_log_open = false; game.skill_menu_open = false; game.world_map_open = false
 	game.clear_movement_keys()
 	game.queue_redraw()

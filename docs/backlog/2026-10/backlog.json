@@ -996,8 +996,8 @@
         "tools/check_architecture.sh и ./run_tests.sh без ERROR движка.",
         "Обновлённые документация и точный ручной маршрут QA_CHECKLIST.md; нативная проверка, если меняются рисунок, ввод или производительность."
       ],
-      "status": "ready",
-      "result": ""
+      "status": "done",
+      "result": "Shared lifecycle for doors, QA warp, load and recovery; paused honest attacks resume once, old threats/holds/slot drag cancel, paid work persists. SAFE profile 3356/0; native scene repeat 55/0; Wiki check 16/0. docs/reports/safe-2026-10/ACTION_LIFECYCLE.md and lifecycle/native.json."
     },
     {
       "id": "FARM-01",

@@ -30,6 +30,4 @@ static func update(game: Node) -> void:
 
 ## Сбрасывает клавиши, атаку, блок и физическое удержание стройки, сохраняя начатую боевую фазу и оплаченную работу.
 static func release_inputs(game: Node) -> void:
-	game.clear_movement_keys(); game.state.player.blocking=false
-	if game.has_meta("basement_ui"):
-		var ui:Dictionary=game.get_meta("basement_ui"); ui.holding=0; ui.touch_id=-1
+	game.clear_movement_keys()
