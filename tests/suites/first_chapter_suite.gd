@@ -2,24 +2,25 @@ extends "res://tests/suites/suite_base.gd"
 
 ## Запускает сценарии последовательности главы, ремонта, наград, локализации и сохранения.
 func run() -> void:
+	preload("res://tests/suites/first_week_route_suite.gd").new(context).run()
 	test_five_day_route_uses_real_events_in_order()
 	test_bridge_repair_gates_only_first_forest_departure()
 	test_guardian_secret_and_reward_complete_chapter()
 	test_chapter_copy_and_state_survive_locale_and_save()
 
-## Сценарий: действия первых двух дней запоминаются, но не перескакивают через календарные главы.
+## Сценарий: выполненные действия продвигают главу без искусственных календарных замков.
 ## Исходное состояние: новая игра на первом дне без выполненных сюжетных событий.
-## Ожидаемый результат: последовательность останавливается на дневных воротах и продолжает маршрут следующим утром.
+## Ожидаемый результат: порядок целей сохраняется, а готовый этап не требует лишнего сна.
 func test_five_day_route_uses_real_events_in_order() -> void:
 	var game := make_game(); var chapter: Variant = game.FirstChapterSystem; var value: Dictionary = chapter.state(game)
 	expect(chapter.stage(game) == 0 and chapter.objective(game).contains("бабуш"), "first chapter begins with the grandmother objective")
 	for event_name in ["talk","plant","shop"]: chapter.observe(game,event_name)
-	expect(chapter.stage(game) == 3 and chapter.objective(game).contains("2-го дня") and is_equal_approx(chapter.progress(game),0.25), "day one forms an ordered talk plant and shop route with honest chapter progress")
+	expect(chapter.stage(game) == 3 and chapter.objective(game).contains("Полей") and is_equal_approx(chapter.progress(game),0.25), "harvest objective explains watering instead of an artificial day gate")
 	chapter.observe(game,"harvest"); chapter.observe(game,"quest_complete")
-	expect(chapter.stage(game) == 3 and value.events.harvest and value.events.quest_complete, "early real actions are remembered without bypassing the day gate")
+	expect(chapter.stage(game) == 5 and value.events.harvest and value.events.quest_complete, "real harvest and delivery advance immediately")
 	game.day = 2; chapter.update(game)
-	expect(chapter.stage(game) == 5 and chapter.objective(game).contains("3-го дня"), "second morning consumes remembered harvest and grandmother quest events")
-	chapter.observe(game,"mission_accept"); expect(chapter.stage(game) == 5,"early village request waits for the third morning")
+	expect(chapter.stage(game) == 5 and chapter.objective(game).contains("Агаф"), "next objective names the relevant villager")
+	chapter.observe(game,"mission_accept"); expect(chapter.stage(game) == 6,"a real request opens bridge repair without waiting")
 	game.day = 3; chapter.update(game); expect(chapter.stage(game) == 6,"third day opens the physical bridge repair objective")
 	game.free()
 
@@ -27,7 +28,7 @@ func test_five_day_route_uses_real_events_in_order() -> void:
 ## Исходное состояние: глава дошла до ремонта, в рюкзаке сначала нет, затем достаточно древесины и камня.
 ## Ожидаемый результат: ресурсы не списываются частично, после ремонта переход в лес становится доступен.
 func test_bridge_repair_gates_only_first_forest_departure() -> void:
-	var game := make_game(); var chapter: Variant = game.FirstChapterSystem; var value: Dictionary = chapter.state(game); value.stage = 6; game.day = 3
+	var game := make_game(); var chapter: Variant = game.FirstChapterSystem; var value: Dictionary = chapter.state(game); value.stage = 6; game.day = 1
 	game.current_location = "overworld"; expect(not chapter.can_use_world_gate(game) and game.message.contains("переправ"),"unrepaired first departure gives a clear gate reason")
 	var wood_before: int = game.inventory_item_count("wood"); var stone_before: int = game.inventory_item_count("stone")
 	chapter.repair_bridge(game); expect(not value.bridge_repaired and game.inventory_item_count("wood") == wood_before and game.inventory_item_count("stone") == stone_before,"failed repair never consumes a partial cost")
@@ -48,7 +49,7 @@ func test_guardian_secret_and_reward_complete_chapter() -> void:
 	chapter.on_enemy_defeated(game,{"location":"forest","kind":"plant","level":4}); expect(chapter.stage(game) == 8,"ordinary forest plant cannot replace the chapter guardian")
 	chapter.on_enemy_defeated(game,{"location":"forest","kind":"plant","level":5}); expect(chapter.stage(game) == 9 and game.tutorial_events_completed.has("chapter_guardian"),"level five grove guardian advances the real combat objective")
 	chapter.observe(game,"secret_puzzle"); expect(chapter.stage(game) == 10,"forest secret advances the rare seed objective")
-	game.mission_states.side_seed = game.QuestSystem.COMPLETED; chapter.update(game); expect(chapter.stage(game) == 10,"completed seed request waits for the fifth story day")
+	game.mission_states.side_seed = game.QuestSystem.COMPLETED; chapter.update(game); expect(value.reward_pending,"completed seed request opens the reward immediately")
 	game.day = 5; chapter.update(game); expect(value.reward_pending and chapter.modal_active(game),"fifth day opens a modal three-way reward choice")
 	var saplings: int = game.inventory_item_count("fruit_sapling"); var seeds: int = game.inventory_item_count("rare_seeds"); var points: int = game.skill_points
 	expect(chapter.select_reward(game,0),"farmer reward can be selected")

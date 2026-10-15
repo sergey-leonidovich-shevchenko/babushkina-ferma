@@ -32,14 +32,14 @@ const OBJECTIVES := [
 	["Поговори с бабушкой у дома","Talk to Grandmother by the house","Habla con la abuela junto a la casa","Sprich beim Haus mit Großmutter","Parle à Grand-mère près de la maison","在房子旁和奶奶交谈"],
 	["Вспаши землю и посади первые семена","Till the soil and plant the first seeds","Ara la tierra y planta las primeras semillas","Bestelle den Boden und säe die ersten Samen","Laboure la terre et plante les premières graines","耕地并种下第一批种子"],
 	["Зайди в сельскую лавку","Visit the village shop","Visita la tienda del pueblo","Besuche den Dorfladen","Visite la boutique du village","前往村庄商店"],
-	["Дождись второго дня и собери первый урожай","Wait for day two and gather the first harvest","Espera al segundo día y recoge la primera cosecha","Warte bis Tag zwei und ernte zum ersten Mal","Attends le deuxième jour et récolte","等到第二天并收获第一批作物"],
+	["Полей морковь дважды и собери первый урожай","Water the carrots twice and gather the first harvest","Riega dos veces y recoge la primera cosecha","Gieße zweimal und ernte zum ersten Mal","Arrose deux fois puis récolte","浇水两次并收获第一批作物"],
 	["Принеси бабушке 10 морковок","Bring Grandmother 10 carrots","Lleva 10 zanahorias a la abuela","Bringe Großmutter 10 Karotten","Apporte 10 carottes à Grand-mère","给奶奶带回10根胡萝卜"],
-	["На третий день возьми поручение у жителя","On day three accept a villager's request","El tercer día acepta el encargo de un aldeano","Nimm an Tag drei einen Auftrag an","Le troisième jour, accepte une demande","第三天接受一位村民的委托"],
-	["Собери 8 древесины и 4 камня, почини восточный мост","Gather 8 wood and 4 stone, repair the eastern bridge","Reúne 8 maderas y 4 piedras y repara el puente oriental","Sammle 8 Holz und 4 Stein und repariere die Ostbrücke","Réunis 8 bois et 4 pierres puis répare le pont est","收集8份木材和4块石头，修复东桥"],
+	["Возьми поручение Агафьи в саду травницы","Accept Agafya’s request in the herbalist’s garden","Acepta el encargo de Agafya en el jardín","Nimm Agafyas Auftrag im Kräutergarten an","Accepte la demande d’Agafya au jardin","在草药园接受阿加菲娅的委托"],
+	["Мост: 8 древесины топором, 4 камня из лавки или залежей","Bridge: chop 8 wood; buy or mine 4 stone","Puente: tala 8 maderas; compra o extrae 4 piedras","Brücke: 8 Holz hacken; 4 Stein kaufen oder abbauen","Pont : coupe 8 bois ; achète ou extrais 4 pierres","修桥：砍8份木材，购买或开采4块石头"],
 	["Перейди мост и войди в лес","Cross the bridge and enter the forest","Cruza el puente y entra en el bosque","Überquere die Brücke und betrete den Wald","Traverse le pont et entre dans la forêt","过桥进入森林"],
-	["На четвёртый день победи хищного Стража чащи","On day four defeat the predatory Grove Guardian","El cuarto día derrota al Guardián del Bosque","Besiege an Tag vier den Hainwächter","Le quatrième jour, vaincs le Gardien du bosquet","第四天击败凶猛的林地守卫"],
-	["Найди древний тайник в лесу","Find the ancient cache in the forest","Encuentra el alijo antiguo del bosque","Finde das alte Versteck im Wald","Trouve la cache ancienne dans la forêt","找到森林中的古老藏宝处"],
-	["На пятый день отдай редкое семя травнице Агафье","On day five bring the rare seed to herbalist Agafya","El quinto día lleva la semilla rara a Agafya","Bringe Agafya an Tag fünf den seltenen Samen","Le cinquième jour, apporte la graine rare à Agafya","第五天把稀有种子交给草药师阿加菲娅"],
+	["Победи Стража чащи на востоке леса","Defeat the Grove Guardian in the eastern forest","Derrota al Guardián al este del bosque","Besiege den Hainwächter im östlichen Wald","Vaincs le Gardien à l’est de la forêt","在森林东部击败林地守卫"],
+	["Исследуй светящийся механизм в центре леса","Inspect the glowing mechanism in the central forest","Encuentra el alijo antiguo del bosque","Finde das alte Versteck im Wald","Trouve la cache ancienne dans la forêt","找到森林中的古老藏宝处"],
+	["Отдай редкое семя Агафье в саду травницы","Bring the rare seed to Agafya in the herbalist’s garden","Lleva la semilla rara a Agafya","Bringe Agafya den seltenen Samen","Apporte la graine rare à Agafya","把稀有种子交给草药师阿加菲娅"],
 	["Выбери награду и будущий путь героя","Choose the reward and the hero's future path","Elige la recompensa y el futuro camino","Wähle Belohnung und künftigen Weg","Choisis la récompense et la voie du héros","选择奖励和英雄未来的道路"],
 ]
 
@@ -74,14 +74,14 @@ static func progress(game:Node)->float:
 static func observe(game: Node, event_name: String) -> void:
 	state(game).events[event_name] = true; update(game)
 
-## Продвигает только последовательные выполненные цели и учитывает обязательный игровой день каждой сцены.
+## Продвигает последовательные реальные события без искусственного ожидания календарного дня.
 static func update(game: Node) -> void:
 	var value := state(game)
 	if value.completed or value.reward_pending: return
 	if game.mission_states.get("side_seed", "") == game.QuestSystem.COMPLETED: value.events.seed_mission_complete = true
 	while int(value.stage) < MILESTONES.size():
 		var milestone: Dictionary = MILESTONES[int(value.stage)]
-		if game.day < int(milestone.day) or not bool(value.events.get(milestone.event, false)): break
+		if not bool(value.events.get(milestone.event, false)): break
 		value.stage = int(value.stage) + 1
 		if int(value.stage) == MILESTONES.size() - 1: value.reward_pending = true; game.clear_movement_keys(); game.play_sfx("quest_complete"); break
 
@@ -89,8 +89,7 @@ static func update(game: Node) -> void:
 static func objective(game: Node) -> String:
 	var value := state(game)
 	if value.completed: return word(game,"complete")
-	var index := mini(stage(game), OBJECTIVES.size()-1); var locale_index := maxi(game.LocaleSystem.LOCALES.find(game.LocaleSystem.current),0); var milestone: Dictionary = MILESTONES[index]
-	if game.day < int(milestone.day): return word(game,"day_lock",[milestone.day])
+	var index := mini(stage(game), OBJECTIVES.size()-1); var locale_index := maxi(game.LocaleSystem.LOCALES.find(game.LocaleSystem.current),0)
 	return String(OBJECTIVES[index][locale_index])
 
 ## Находит строительную точку восточного моста только на первой локации.
@@ -102,7 +101,7 @@ static func repair_bridge(game: Node) -> bool:
 	var value := state(game)
 	if value.bridge_repaired: game.message = word(game,"repair_done"); return true
 	var wood: int = game.inventory_item_count("wood"); var stone: int = game.inventory_item_count("stone")
-	if stage(game) < 6 or game.day < 3 or wood < REPAIR_WOOD or stone < REPAIR_STONE:
+	if stage(game) < 6 or wood < REPAIR_WOOD or stone < REPAIR_STONE:
 		game.message = word(game,"repair_need",[wood,REPAIR_WOOD,stone,REPAIR_STONE]); return true
 	game.change_inventory_count("wood",-REPAIR_WOOD); game.change_inventory_count("stone",-REPAIR_STONE); value.bridge_repaired = true
 	game.message = word(game,"repair_done"); game.play_sfx("craft"); game.notify_tutorial("chapter_bridge"); observe(game,"bridge_repaired"); return true

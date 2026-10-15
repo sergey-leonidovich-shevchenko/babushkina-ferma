@@ -1,0 +1,99 @@
+{
+	"failed": 0,
+	"passed": 63,
+	"schema": 1,
+	"week": [
+		{
+			"carrots": 3,
+			"chapter_stage": 4,
+			"coins": 15,
+			"day": 1,
+			"energy": 0,
+			"seeds": 9,
+			"step": "farm and shop",
+			"stone": 0,
+			"wood": 2
+		},
+		{
+			"carrots": 6,
+			"chapter_stage": 4,
+			"coins": 15,
+			"day": 2,
+			"energy": 0,
+			"seeds": 6,
+			"step": "second harvest and rest",
+			"stone": 0,
+			"wood": 2
+		},
+		{
+			"carrots": 9,
+			"chapter_stage": 4,
+			"coins": 15,
+			"day": 3,
+			"energy": 0,
+			"seeds": 3,
+			"step": "third harvest and rest",
+			"stone": 0,
+			"wood": 2
+		},
+		{
+			"carrots": 0,
+			"chapter_stage": 6,
+			"coins": 65,
+			"day": 4,
+			"energy": 8,
+			"seeds": 2,
+			"step": "carrots delivered; Agafya request",
+			"stone": 0,
+			"wood": 2
+		},
+		{
+			"carrots": 0,
+			"chapter_stage": 8,
+			"coins": 53,
+			"day": 4,
+			"energy": 2,
+			"seeds": 2,
+			"step": "paid bridge; forest",
+			"stone": 0,
+			"wood": 0
+		},
+		{
+			"carrots": 0,
+			"chapter_stage": 10,
+			"coins": 53,
+			"day": 5,
+			"energy": 12,
+			"seeds": 2,
+			"step": "guardian contact and cache",
+			"stone": 0,
+			"wood": 0
+		},
+		{
+			"carrots": 0,
+			"chapter_stage": 12,
+			"coins": 88,
+			"day": 6,
+			"energy": 12,
+			"seeds": 2,
+			"step": "seed delivered; farmer reward",
+			"stone": 0,
+			"wood": 0
+		},
+		{
+			"carrots": 0,
+			"chapter_stage": 12,
+			"coins": 108,
+			"day": 7,
+			"energy": 12,
+			"seeds": 2,
+			"step": "optional exploration and planning",
+			"stone": 0,
+			"wood": 0
+		},
+		{
+			"model_wall_ms": 321.988,
+			"scope": "service operations, accelerated crop growth; no human/walking/combat reaction timing"
+		}
+	]
+}
