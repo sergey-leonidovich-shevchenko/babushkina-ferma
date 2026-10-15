@@ -17,6 +17,7 @@ def inspect(report, minimum=3600):
             result.append(dict(case=case.get("case"), admission="INVALID",reasons=["no_native_frames"]))
             continue
         data=statistics(values); reasons=[]; violations=[]
+        if report.get("pause_on_focus_loss", False) is not False: reasons.append("focus_pause_not_disabled")
         if report.get("status")!="COMPLETE": reasons.append("incomplete_report")
         if not report.get("gpu"): reasons.append("native_gpu_not_recorded")
         if report.get("instrumented",True): reasons.append("instrumentation_present")

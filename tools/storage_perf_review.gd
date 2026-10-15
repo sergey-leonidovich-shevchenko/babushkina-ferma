@@ -44,12 +44,14 @@ func _start() -> void:
 	game.FarmLifeSystem.state(game).first_day=6
 	game.FarmLifeSystem.state(game).cutscene=""
 	game.settings_state.text_scale=1.0
+	game.settings_state.pause_on_focus_loss=false
 	RenderingServer.frame_post_draw.connect(_drawn)
 	for _index in 120: await next_draw()
 	for kind in ["milk","egg","apple","plank","honey","sunflower","stone","field_mint"]: game.change_inventory_count(kind,80)
 	report.version=ProjectSettings.get_setting("application/config/version")
 	report.gpu=RenderingServer.get_video_adapter_name(); report.engine=Engine.get_version_info().string
 	report.window=[DisplayServer.window_get_size().x,DisplayServer.window_get_size().y]
+	report.pause_on_focus_loss=game.settings_state.pause_on_focus_loss
 	report.before=snapshot()
 	report.instrumented=not uninstrumented; report.openings=[]
 	for label in ["cabinet","chest"]:

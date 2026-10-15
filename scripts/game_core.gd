@@ -167,8 +167,7 @@ func perform_repeatable_action() -> bool:
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func _notification(what: int) -> void:
-	if what == NOTIFICATION_APPLICATION_FOCUS_OUT:
-		clear_movement_keys()
+	preload("res://scripts/systems/focus_pause_system.gd").handle_notification(self,what)
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 func clamp_player_position() -> void:

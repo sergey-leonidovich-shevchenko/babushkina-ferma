@@ -2,7 +2,7 @@ extends RefCounted
 
 const TITLE_ITEMS := ["continue_game", "new_game", "settings", "exit_game"]
 const PAUSE_ITEMS := ["resume", "save_game", "load_game", "settings", "return_main_menu", "exit_game"]
-const SETTING_ITEMS := ["master_volume", "music_volume", "sfx_volume", "sound_enabled", "fullscreen", "vsync", "reduced_motion", "high_contrast", "control_preset", "text_scale", "touch_scale", "language_option", "back"]
+const SETTING_ITEMS := ["master_volume", "music_volume", "sfx_volume", "sound_enabled", "fullscreen", "vsync", "reduced_motion", "high_contrast", "control_preset", "text_scale", "touch_scale", "language_option", "pause_on_focus_loss", "back"]
 
 static var start_after_reload := false
 
@@ -260,6 +260,7 @@ static func adjust_setting(game: Node, direction: int, path: String = "", apply_
 		"sound_enabled": game.audio_enabled = not game.audio_enabled
 		"fullscreen": game.settings_state.fullscreen_enabled = not game.settings_state.fullscreen_enabled
 		"vsync": game.settings_state.vsync_enabled = not game.settings_state.vsync_enabled
+		"pause_on_focus_loss": game.settings_state.pause_on_focus_loss = not game.settings_state.pause_on_focus_loss
 		"reduced_motion": game.settings_state.reduced_motion = not game.settings_state.reduced_motion
 		"high_contrast": game.settings_state.high_contrast = not game.settings_state.high_contrast
 		"control_preset": game.settings_state.control_preset = "left_handed" if game.settings_state.control_preset=="standard" else "standard"; game.InputSystem.apply_control_preset(game.settings_state.control_preset)

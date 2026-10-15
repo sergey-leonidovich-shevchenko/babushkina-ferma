@@ -909,8 +909,8 @@
         "tools/check_architecture.sh и ./run_tests.sh без ERROR движка.",
         "Обновлённые документация и точный ручной маршрут QA_CHECKLIST.md; нативная проверка, если меняются рисунок, ввод или производительность."
       ],
-      "status": "ready",
-      "result": ""
+      "status": "done",
+      "result": "Saved default-on focus pause, actual native focus/minimize guard and held-input release; Focus+Menu 230/0, 4 native window cases, 19 analyzer tests. Benchmark policy recorded and enabled flag rejected. docs/reports/safe-2026-10/README.md and focus/native.json; OS focus gain limitation documented."
     },
     {
       "id": "SAFE-06",
@@ -996,7 +996,7 @@
         "tools/check_architecture.sh и ./run_tests.sh без ERROR движка.",
         "Обновлённые документация и точный ручной маршрут QA_CHECKLIST.md; нативная проверка, если меняются рисунок, ввод или производительность."
       ],
-      "status": "blocked",
+      "status": "ready",
       "result": ""
     },
     {

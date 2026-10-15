@@ -2,6 +2,8 @@ extends RefCounted
 
 ## Маршрутизирует платформенное событие в активный экран или управление игровым миром.
 static func route(game: Node, event: InputEvent) -> void:
+	if preload("res://scripts/systems/focus_pause_system.gd").blocked(game): return
+	if event is InputEventKey and event.echo: return
 	update_input_device(game, event)
 	if _handle_high_priority_layer(game, event):
 		_consume_event(game)
@@ -33,10 +35,6 @@ static func _consume_event(game: Node) -> void:
 ## Запоминает последнее устройство ввода и включает мобильный слой только после настоящего касания.
 static func update_input_device(game: Node, event: InputEvent) -> void:
 	game.InputSystem.remember_ui_device(game, event)
-	if event is InputEventScreenTouch or event is InputEventScreenDrag:
-		game.touch_controls_visible = true
-	elif event is InputEventKey or event is InputEventMouseButton or event is InputEventJoypadButton:
-		game.touch_controls_visible = false
 
 ## Передаёт событие редактору, меню, сюжетному модальному окну или строительству оград.
 static func _handle_high_priority_layer(game: Node, event: InputEvent) -> bool:

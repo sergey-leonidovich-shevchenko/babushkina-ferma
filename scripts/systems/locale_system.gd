@@ -33,6 +33,7 @@ static func crafting_ingredient(kind: String) -> String:
 	return String(CRAFT_INGREDIENT_NAMES[kind][maxi(LOCALES.find(current),0)]) if CRAFT_INGREDIENT_NAMES.has(kind) else item(kind).substr(0,9)
 
 const BASE_UI := {
+	"pause_on_focus_loss":["Пауза вне окна","Pause when unfocused","Pausa fuera de la ventana","Pause ohne Fensterfokus","Pause hors de la fenêtre","窗口失焦时暂停"],
 	"craft_unique_owned":["Этот уникальный предмет уже в рюкзаке","This unique item is already in your bag","Ya tienes este objeto único","Dieser einzigartige Gegenstand ist bereits im Rucksack","Cet objet unique est déjà dans le sac","背包中已有此唯一物品"],
 	"detail_qa_teleport":preload("res://scripts/systems/qa_teleport_locale.gd").TEXT.detail,
 	"craft_category_food":["ГОТОВКА","COOKING","COCINA","KOCHEN","CUISINE","烹饪"],
@@ -658,7 +659,7 @@ const BASE_TUTORIAL := {
 	"talent_respec":["При необходимости сбрось билд в дереве за монеты [R]","Reset your build for coins when needed [R]","Reinicia tu configuración por monedas cuando lo necesites [R]","Setze deinen Build bei Bedarf für Münzen zurück [R]","Réinitialise ton build contre des pièces si nécessaire [R]","需要时花费金币重置能力配置 [R]"],
 	"profession":["Развивай ремесло практикой","Train a profession","Entrena una profesión","Trainiere einen Beruf","Entraîne un métier","训练一种职业"],
 	"pause_menu":["Открой меню паузы [Esc/Start]","Open pause menu [Esc/Start]","Abre la pausa [Esc/Start]","Öffne das Pausenmenü [Esc/Start]","Ouvre la pause [Échap/Start]","打开暂停菜单 [Esc/Start]"],
-	"settings":["Измени параметр в меню настроек","Change an option in Settings","Cambia una opción en Ajustes","Ändere eine Einstellung","Modifie une option des paramètres","在设置中修改一项"],
+	"settings":["Настройки: проверь паузу при уходе из окна","Settings: check pause when leaving the window","Ajustes: revisa la pausa al salir de la ventana","Einstellungen: prüfe die Pause ohne Fensterfokus","Paramètres : vérifie la pause hors de la fenêtre","设置：检查窗口失焦时暂停"],
 	"save":["Сохрани игру через меню паузы","Save through the pause menu","Guarda desde el menú de pausa","Speichere über das Pausenmenü","Sauvegarde depuis le menu pause","通过暂停菜单保存"],
 	"wildlife":["Найди пугливого зверя","Find a timid animal","Encuentra un animal tímido","Finde ein scheues Tier","Trouve un animal peureux","找到胆小的动物"],
 	"wildlife_behavior":["Проверь реакцию зверя: бегство или контратака","Test an animal reaction: flee or counterattack","Prueba la reacción: huida o contraataque","Teste Flucht oder Gegenangriff","Teste la fuite ou la contre-attaque","测试动物逃跑或反击"],

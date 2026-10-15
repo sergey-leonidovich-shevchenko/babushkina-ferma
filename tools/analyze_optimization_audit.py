@@ -22,6 +22,8 @@ def statistics(values):
 def analyze_native(data, expected_size=(3584, 2240), minimum_samples=3600):
     """Разделяет нарушение бюджета и пригодность прогона для приёмки оптимизации."""
     reasons = []
+    if data.get("pause_on_focus_loss", False) is not False:
+        reasons.append("focus_pause_not_disabled")
     values = data.get("draw_intervals_ms", [])
     if not values or data.get("display_server") == "headless":
         return dict(admission="INVALID", reasons=["missing_native_draw_samples"], budget="UNMEASURED")

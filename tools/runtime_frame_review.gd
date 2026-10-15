@@ -66,6 +66,7 @@ func _start() -> void:
 	game.clear_movement_keys()
 	game.InputSystem.apply_control_preset("standard")
 	game.settings_state.screen_shake_enabled = false
+	game.settings_state.pause_on_focus_loss=false
 	game.settings_state.text_scale = 1.0; game.settings_state.touch_scale = 1.0
 	game.settings_state.reduced_motion = false; game.settings_state.high_contrast = false
 	game.settings_state.master_volume = 1.0; game.settings_state.music_volume = 0.7; game.settings_state.sfx_volume = 0.9
@@ -242,6 +243,7 @@ func _finish() -> void:
 	var mode := "f10" if debug_overlay else "normal"
 	var window_size := DisplayServer.window_get_size()
 	var result := {"schema": 5, "mode": mode, "map_revision":Village.REVISION, "route": "Village.START → PATHS[0] nodes 2…7 (bridge + square) → nodes 6,5,4 → PATHS[6][1] → automatic cave entrance; physical keyboard input, no teleport", "seed":WORLD_SEED, "cursor":[220,220], "clock": "Time.get_ticks_usec between rendered SceneTree frames; not smoothed delta", "engine": Engine.get_version_info().string, "display_server": DisplayServer.get_name(), "gpu": RenderingServer.get_video_adapter_name(), "window_size": [window_size.x, window_size.y], "vsync": DisplayServer.window_get_vsync_mode(), "max_fps": Engine.max_fps, "physics_hz":Engine.physics_ticks_per_second, "warmup_frames": WARMUP_FRAMES, "sample_frames": frame_ms.size(), "render_frame": _statistics(frame_ms)}
+	result.pause_on_focus_loss = game.settings_state.pause_on_focus_loss
 	result.warmup_world_frozen = true
 	result.frame_intervals_ms=frame_ms
 	result.drawn_frames_including_warmup=Engine.get_frames_drawn()-drawn_start

@@ -6,7 +6,7 @@
 
 ## Состояние
 
-`backlog`: 1, `ready`: 6, `blocked`: 39, `in_progress`: 0, `done`: 4. Статус `done` требует записанного результата; исходные критерии и наличие тестов не означают выполнения.
+`backlog`: 1, `ready`: 6, `blocked`: 38, `in_progress`: 0, `done`: 5. Статус `done` требует записанного результата; исходные критерии и наличие тестов не означают выполнения.
 
 ## Эпики
 
@@ -24,8 +24,8 @@
 Начать с OPT-01: закрепить честный замер до следующего изменения производительности. Далее SAFE-05/SAFE-03 и QA-01; следующие пункты выбираем по дефектам и данным. Одна задача в работе. S/M/L — относительный объём, не срок; L можно разбить до начала.
 
 - [OPT-01](#opt-01) — Измерения, честный gate и быстрые профили
-- [SAFE-05](#safe-05) — Добавить управляемую паузу при потере фокуса и сворачивании
 - [SAFE-06](#safe-06) — Проверить целостность взаимных ссылок реестров контента
+- [SAFE-07](#safe-07) — Закрепить матрицу отмены и сохранения действий при переходах
 - [FARM-01](#farm-01) — Построить карту экономики первых семи дней
 - [WORLD-01](#world-01) — Зафиксировать вертикальный срез первых семи игровых дней
 - [QA-01](#qa-01) — Объединить QA-пресеты состояния для повторяемых проверок
@@ -706,7 +706,7 @@
 
 ### SAFE-05 — Добавить управляемую паузу при потере фокуса и сворачивании
 
-**ready · P1 · S · implementation**. Ветка: `codex/safe-05-focus-loss-pause`.
+**done · P1 · S · implementation**. Ветка: `codex/safe-05-focus-loss-pause`.
 
 **Сейчас:** Потеря фокуса сбрасывает удержанные клавиши; поведение всей симуляции должно быть отдельной явной политикой.
 
@@ -736,7 +736,7 @@
 
 **Основания:** [XAG](https://learn.microsoft.com/en-us/xbox/accessibility/guidelines), [GODOT-SCENES](https://docs.godotengine.org/en/stable/tutorials/best_practices/scene_organization.html).
 
-**Подтверждение результата:** пока нет; задача открыта.
+**Подтверждение результата:** Saved default-on focus pause, actual native focus/minimize guard and held-input release; Focus+Menu 230/0, 4 native window cases, 19 analyzer tests. Benchmark policy recorded and enabled flag rejected. docs/reports/safe-2026-10/README.md and focus/native.json; OS focus gain limitation documented.
 
 <a id="safe-06"></a>
 
@@ -780,7 +780,7 @@
 
 ### SAFE-07 — Закрепить матрицу отмены и сохранения действий при переходах
 
-**blocked · P1 · M · implementation**. Ветка: `codex/safe-07-action-lifecycle-contract`.
+**ready · P1 · M · implementation**. Ветка: `codex/safe-07-action-lifecycle-contract`.
 
 **Сейчас:** Рюкзак ставит мир на паузу, QA-камень очищает боевые хвосты, отмена выбора сохраняет бой.
 

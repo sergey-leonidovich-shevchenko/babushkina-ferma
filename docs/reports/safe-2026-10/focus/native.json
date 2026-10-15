@@ -1,0 +1,31 @@
+{
+  "checks": [
+    {
+      "blocked": true,
+      "case": "native_minimized",
+      "focused": false,
+      "mode": 1,
+      "passed": true
+    },
+    {
+      "blocked": true,
+      "case": "native_restore_respects_actual_focus",
+      "focused": false,
+      "passed": true
+    },
+    {
+      "blocked": true,
+      "case": "native_restore_manual_pause",
+      "focused": false,
+      "passed": true
+    },
+    {
+      "case": "native_explicit_background_opt_out",
+      "focused": false,
+      "passed": true
+    }
+  ],
+  "display_server": "macOS",
+  "engine": "4.7.1-stable (official)",
+  "protocol": "native minimize/restore and UI capture; manual simulation steps; not FPS"
+}

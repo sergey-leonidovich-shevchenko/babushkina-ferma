@@ -29,6 +29,7 @@ func _start() -> void:
 	game=Scene.instantiate(); game.set_meta("capture_windowed",true); viewport.add_child(game); current_scene=container
 	game.set_process_input(false); game.set_process_unhandled_input(false)
 	game.audio_enabled=false; game.language_screen=false; game.title_screen=false; game.tutorial_visible=false
+	game.settings_state.pause_on_focus_loss=false
 	game.FarmLifeSystem.state(game).first_day=6; game.FarmLifeSystem.state(game).cutscene=""; game.FarmLifeSystem.state(game).cutscene_timer=0
 	game.state.player.profile.created=true; game.FirstChapterSystem.state(game).completed=true
 	game.change_inventory_count(Stone.KIND,1); locations=Stone.locations(game)
@@ -57,7 +58,7 @@ func _start() -> void:
 			samples.append(snapshot((now-started)/1_000_000.0)); next_sample=now+10_000_000
 			print("CLEANUP SOAK: ",int((now-started)/1_000_000),"s, cycles=",state.get("cycles",0))
 	samples.append(snapshot((Time.get_ticks_usec()-started)/1_000_000.0))
-	var report := {"protocol":"native fixed viewport; real-time periodic cleanup; warm route before sampling; intentional resource churn and transitions included in frame times","engine":Engine.get_version_info().string,"duration_seconds":(Time.get_ticks_usec()-started)/1_000_000.0,"window":[root.size.x,root.size.y],"viewport":[viewport.size.x,viewport.size.y],"adapter":RenderingServer.get_video_adapter_name(),"frames":rendered,"recorded_frame_limit":MAX_FRAME_SAMPLES,"frame_usec":frames,"cleanup_usec":slices,"temporary_created":created,"samples":samples,"failed":failed}
+	var report := {"pause_on_focus_loss":game.settings_state.pause_on_focus_loss,"protocol":"native fixed viewport; real-time periodic cleanup; warm route before sampling; intentional resource churn and transitions included in frame times","engine":Engine.get_version_info().string,"duration_seconds":(Time.get_ticks_usec()-started)/1_000_000.0,"window":[root.size.x,root.size.y],"viewport":[viewport.size.x,viewport.size.y],"adapter":RenderingServer.get_video_adapter_name(),"frames":rendered,"recorded_frame_limit":MAX_FRAME_SAMPLES,"frame_usec":frames,"cleanup_usec":slices,"temporary_created":created,"samples":samples,"failed":failed}
 	DirAccess.make_dir_recursive_absolute(FOLDER)
 	FileAccess.open(FOLDER+"native-soak.json",FileAccess.WRITE).store_string(JSON.stringify(report,"\t")+"\n")
 	print("CLEANUP SOAK COMPLETE: ",report.duration_seconds,"s, ",rendered," frames")

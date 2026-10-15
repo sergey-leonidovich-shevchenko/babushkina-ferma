@@ -11,6 +11,8 @@ LOCATIONS = {'overworld', 'village_river', 'cave_lake', 'moon_glade', 'pirate_sh
 
 def analyze(report, expected_pixels, locations=LOCATIONS):
     """Отклоняет подмену разрешения, потерю фокуса, усечённые и недостоверные данные."""
+    if report.get('pause_on_focus_loss', False) is not False:
+        raise ValueError('Focus pause must be disabled for a live simulation benchmark')
     if report['render_pixels'] != list(expected_pixels):
         raise ValueError('Неверный реальный framebuffer')
     if report['driver'] != 'opengl3' or 'native frame_post_draw' not in report['protocol']:

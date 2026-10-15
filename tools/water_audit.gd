@@ -41,6 +41,7 @@ func _start() -> void:
 	target=SubViewport.new(); target.size=dimensions; target.disable_3d=true; target.render_target_update_mode=SubViewport.UPDATE_ALWAYS; container.add_child(target)
 	target.canvas_transform=Transform2D().scaled(Vector2(dimensions)/Vector2(1152,648))
 	game=Scene.instantiate(); game.set_meta("capture_windowed",true); target.add_child(game); current_scene=container
+	game.settings_state.pause_on_focus_loss=false
 	game.get_node("WorldBackground").terrain_canvas.draw.connect(func(): draws+=1)
 	await process_frame
 	root.mode=Window.MODE_WINDOWED; root.size=dimensions; root.content_scale_factor=1.0
@@ -88,7 +89,7 @@ func _start() -> void:
 			print("WATER AUDIT: ",location," repeat ",repeat," p95=",percentile(frames,0.95)/1000,"ms")
 	var rendered_size := target.get_texture().get_image().get_size()
 	if rendered_size!=dimensions: push_error("Размер итогового framebuffer не соответствует протоколу"); quit(2); return
-	var report := {"label":label,"engine":Engine.get_version_info().string,"adapter":RenderingServer.get_video_adapter_name(),"driver":RenderingServer.get_current_rendering_driver_name(),"window":[root.size.x,root.size.y],"render_pixels":[rendered_size.x,rendered_size.y],"canvas":[1152,648],"vsync":DisplayServer.window_get_vsync_mode(),"warmup_frames":240,"samples_per_repeat":samples,"seed":20261015,"protocol":"native frame_post_draw; fixed render target + host window composite; live simulation; fixed camera; isolated profile; invulnerable hero; screenshot readbacks outside measured intervals; route transitions excluded; GPU time unavailable in this probe; fixed target is not a physical-device claim","measurements":measurements}
+	var report := {"pause_on_focus_loss":game.settings_state.pause_on_focus_loss,"label":label,"engine":Engine.get_version_info().string,"adapter":RenderingServer.get_video_adapter_name(),"driver":RenderingServer.get_current_rendering_driver_name(),"window":[root.size.x,root.size.y],"render_pixels":[rendered_size.x,rendered_size.y],"canvas":[1152,648],"vsync":DisplayServer.window_get_vsync_mode(),"warmup_frames":240,"samples_per_repeat":samples,"seed":20261015,"protocol":"native frame_post_draw; fixed render target + host window composite; live simulation; fixed camera; isolated profile; invulnerable hero; screenshot readbacks outside measured intervals; route transitions excluded; GPU time unavailable in this probe; fixed target is not a physical-device claim","measurements":measurements}
 	FileAccess.open(folder+"native-"+str(dimensions.x)+".json",FileAccess.WRITE).store_string(JSON.stringify(report,"\t")+"\n")
 	print("WATER AUDIT COMPLETE: ",catalog.size()," maps; ",measurements.size()," repeats")
 	quit()

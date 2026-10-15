@@ -26,6 +26,7 @@ class OptimizationAuditTest(unittest.TestCase):
 
     def test_context_rejects_false_acceptance(self):
         for field, value, reason in [("route_finished",False,"unfinished_route"),
+             ("pause_on_focus_loss",True,"focus_pause_not_disabled"),
              ("window_size",[1152,648],"wrong_window_size"),
              ("audit_focus_draws",dict(focused=2,unfocused=1),"unfocused_draws"),
              ("audit_instrumented",True,"instrumentation_present"),

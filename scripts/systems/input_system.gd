@@ -26,6 +26,10 @@ const JOY_AXIS_DEAD_ZONE := 0.2
 
 ## Запоминает устройство ввода для коротких подсказок возврата в игровых меню.
 static func remember_ui_device(game: Node, event: InputEvent) -> void:
+	if event is InputEventScreenTouch or event is InputEventScreenDrag:
+		game.touch_controls_visible = true
+	elif event is InputEventKey or event is InputEventMouseButton or event is InputEventJoypadButton:
+		game.touch_controls_visible = false
 	if event is InputEventJoypadButton or event is InputEventJoypadMotion:
 		game.set_meta("last_ui_input", "gamepad")
 	elif event is InputEventKey or event is InputEventMouseButton or event is InputEventMouseMotion:

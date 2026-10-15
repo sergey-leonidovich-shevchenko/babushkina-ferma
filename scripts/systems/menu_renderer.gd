@@ -119,6 +119,7 @@ static func draw_settings(game: Node) -> void:
 		"%d%%" % roundi(game.settings_state.text_scale * 100.0),
 		"%d%%" % roundi(game.settings_state.touch_scale * 100.0),
 		game.LocaleSystem.language_name(game.LocaleSystem.index()),
+		game.LocaleSystem.ui("enabled" if game.settings_state.pause_on_focus_loss else "disabled"),
 		"",
 	]
 	for index in game.MenuSystem.SETTING_ITEMS.size():

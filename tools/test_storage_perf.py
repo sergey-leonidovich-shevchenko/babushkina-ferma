@@ -15,7 +15,7 @@ class StoragePerfTest(unittest.TestCase):
         self.assertIn("short_run",inspect(self.report())[0]["reasons"])
 
     def test_context_errors_never_qualify(self):
-        for key,value,reason in [("status","TIMEOUT","incomplete_report"),("gpu","","native_gpu_not_recorded"),("instrumented",True,"instrumentation_present")]:
+        for key,value,reason in [("pause_on_focus_loss",True,"focus_pause_not_disabled"),("status","TIMEOUT","incomplete_report"),("gpu","","native_gpu_not_recorded"),("instrumented",True,"instrumentation_present")]:
             with self.subTest(key=key):
                 report=self.report(); report[key]=value
                 self.assertIn(reason,inspect(report,minimum=3)[0]["reasons"])

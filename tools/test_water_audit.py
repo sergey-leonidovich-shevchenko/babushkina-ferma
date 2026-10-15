@@ -25,6 +25,7 @@ class WaterAuditTest(unittest.TestCase):
     def test_wrong_pixels_focus_and_renderer_are_rejected(self):
         """Сценарий: подмена условий. Состояние: размер/фокус/renderer неверны. Результат: все варианты отклонены."""
         for change in [lambda x: x.update(render_pixels=[3584, 2016]),
+                       lambda x: x.update(pause_on_focus_loss=True),
                        lambda x: x.update(driver='headless'),
                        lambda x: x['measurements'][0].update(focused_frames=59)]:
             value = self.fixture()

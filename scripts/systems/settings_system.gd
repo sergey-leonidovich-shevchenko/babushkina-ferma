@@ -2,9 +2,10 @@ extends RefCounted
 
 const SETTINGS_PATH := "user://farm-settings.cfg"
 const VOLUME_STEP := 0.1
-const SETTINGS_SCHEMA := 5
+const SETTINGS_SCHEMA := 6
 
 class SettingsState:
+	var pause_on_focus_loss := true
 	var master_volume := 1.0
 	var music_volume := 0.7
 	var sfx_volume := 0.9
@@ -28,6 +29,7 @@ static func load(game: Node, path: String = SETTINGS_PATH, apply_display: bool =
 	game.settings_state.sfx_volume = clampf(float(config.get_value("audio", "effects", 0.9)), 0.0, 1.0)
 	game.settings_state.fullscreen_enabled = bool(config.get_value("display", "fullscreen", true))
 	game.settings_state.vsync_enabled = bool(config.get_value("display", "vsync", true))
+	game.settings_state.pause_on_focus_loss = bool(config.get_value("gameplay", "pause_on_focus_loss", true))
 	game.settings_state.reduced_motion = bool(config.get_value("accessibility", "reduced_motion", false))
 	game.settings_state.screen_shake_enabled = false
 	game.settings_state.high_contrast = bool(config.get_value("accessibility", "high_contrast", false))
@@ -36,6 +38,7 @@ static func load(game: Node, path: String = SETTINGS_PATH, apply_display: bool =
 	game.settings_state.touch_scale = game.UiScaleSystem.normalized_scale(float(config.get_value("controls", "touch_scale", 1.0)), game.UiScaleSystem.TOUCH_SCALES)
 	var previous_schema:=int(config.get_value("meta","schema_version",1))
 	if loaded and previous_schema<SETTINGS_SCHEMA:
+		config.set_value("gameplay","pause_on_focus_loss",game.settings_state.pause_on_focus_loss)
 		if previous_schema<2: game.settings_state.fullscreen_enabled=true; config.set_value("display","fullscreen",true)
 		config.set_value("accessibility","reduced_motion",game.settings_state.reduced_motion); config.set_value("accessibility","screen_shake",game.settings_state.screen_shake_enabled); config.set_value("accessibility","high_contrast",game.settings_state.high_contrast); config.set_value("accessibility","text_scale",game.settings_state.text_scale); config.set_value("controls","preset",game.settings_state.control_preset); config.set_value("controls","touch_scale",game.settings_state.touch_scale); config.set_value("meta","schema_version",SETTINGS_SCHEMA); config.save(path)
 	if apply_display and game.is_inside_tree():
@@ -58,6 +61,7 @@ static func save(game: Node, path: String = SETTINGS_PATH) -> bool:
 	config.set_value("audio", "effects", game.settings_state.sfx_volume)
 	config.set_value("display", "fullscreen", game.settings_state.fullscreen_enabled)
 	config.set_value("display", "vsync", game.settings_state.vsync_enabled)
+	config.set_value("gameplay", "pause_on_focus_loss", game.settings_state.pause_on_focus_loss)
 	config.set_value("accessibility", "reduced_motion", game.settings_state.reduced_motion)
 	config.set_value("accessibility", "screen_shake", false)
 	config.set_value("accessibility", "high_contrast", game.settings_state.high_contrast)

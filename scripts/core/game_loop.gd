@@ -3,12 +3,13 @@ extends RefCounted
 ## Выполняет один физический кадр и задаёт единственный порядок обновления игровых подсистем.
 static func physics_process(game: Node, delta: float) -> void:
 	preload("res://scripts/systems/runtime_maintenance_system.gd").update(game)
+	preload("res://scripts/systems/focus_pause_system.gd").update(game)
 	preload("res://scripts/systems/basement_input_system.gd").update(game,delta)
 	game.AudioSystem.update(game, delta)
 	game.update_hud_feedback(delta)
 	game.UiFeedbackSystem.update(game, delta)
 	preload("res://scripts/systems/recovery_system.gd").update(game,delta)
-	if gameplay_window_open(game) or game.menu_state.pause_open or game.menu_state.settings_open or game.menu_state.defeat_open or not game.menu_state.confirmation.is_empty():
+	if preload("res://scripts/systems/focus_pause_system.gd").blocked(game) or gameplay_window_open(game) or game.menu_state.pause_open or game.menu_state.settings_open or game.menu_state.defeat_open or not game.menu_state.confirmation.is_empty():
 		game.queue_redraw()
 		return
 	if game.LevelEditorSystem.active(game):
@@ -49,7 +50,7 @@ static func physics_process(game: Node, delta: float) -> void:
 
 ## Проверяет, блокирует ли текущее модальное состояние симуляцию мира.
 static func modal_active(game: Node) -> bool:
-	return game.title_screen \
+	return preload("res://scripts/systems/focus_pause_system.gd").blocked(game) or game.title_screen \
 		or game.menu_state.pause_open \
 		or game.menu_state.settings_open \
 		or game.menu_state.defeat_open \
