@@ -1299,8 +1299,8 @@
         "tools/check_architecture.sh и ./run_tests.sh без ERROR движка.",
         "Обновлённые документация и точный ручной маршрут QA_CHECKLIST.md; нативная проверка, если меняются рисунок, ввод или производительность."
       ],
-      "status": "ready",
-      "result": ""
+      "status": "done",
+      "result": "docs/reports/farm-2026-10/README.md and fishing.json: 240 conditions, repeatable cast tuples, 8 controlled catches/8 idle failures, exact bait costs and advanced access. FarmFishingAccessSuite 494 assertions; FARM 1569/0. No seasonal quest dead end; human time target distinguished from controller model."
     },
     {
       "id": "FARM-08",

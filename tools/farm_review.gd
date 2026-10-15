@@ -12,6 +12,7 @@ func _initialize() -> void:
 	preload("res://tests/suites/farm_livestock_loop_suite.gd").new(self).run()
 	preload("res://tests/suites/farm_queue_suite.gd").new(self).run()
 	preload("res://tests/suites/farm_alchemy_learning_suite.gd").new(self).run()
+	var fishing:=preload("res://tests/suites/farm_fishing_access_suite.gd").new(self); fishing.run()
 	var game:=make_game(); var consumed:={}
 	for recipe in game.CraftingSystem.RECIPES:
 		for kind in recipe.inputs: consumed[kind]=true
@@ -21,6 +22,7 @@ func _initialize() -> void:
 	var report:={"schema":1,"scope":"service-operation model; no walking time or human playtest","days":rows,"recipes":game.CraftingSystem.RECIPES,"products":game.ShopSystem.default_products(),"crops":game.CropCatalogSystem.CROPS,"not_recipe_inputs":unused,"stations":game.WorkshopSystem.Data.STATIONS}
 	var output:="/private/tmp/farm-economy.json"
 	report.research=game.ResearchSystem.Data.ENTRIES
+	report.fishing=fishing.report
 	for argument in OS.get_cmdline_user_args():
 		if argument.begins_with("--output="): output=argument.trim_prefix("--output=")
 	var file:=FileAccess.open(output,FileAccess.WRITE); file.store_string(JSON.stringify(report,"\t")); file.close()

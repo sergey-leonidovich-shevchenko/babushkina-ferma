@@ -6,7 +6,7 @@
 
 ## Состояние
 
-`backlog`: 1, `ready`: 8, `blocked`: 28, `in_progress`: 0, `done`: 13. Статус `done` требует записанного результата; исходные критерии и наличие тестов не означают выполнения.
+`backlog`: 1, `ready`: 7, `blocked`: 28, `in_progress`: 0, `done`: 14. Статус `done` требует записанного результата; исходные критерии и наличие тестов не означают выполнения.
 
 ## Эпики
 
@@ -24,7 +24,6 @@
 Начать с OPT-01: закрепить честный замер до следующего изменения производительности. Далее SAFE-05/SAFE-03 и QA-01; следующие пункты выбираем по дефектам и данным. Одна задача в работе. S/M/L — относительный объём, не срок; L можно разбить до начала.
 
 - [OPT-01](#opt-01) — Измерения, честный gate и быстрые профили
-- [FARM-07](#farm-07) — Проверить раннюю рыбалку и достижимость рыбных заданий
 - [FARM-08](#farm-08) — Показать производственную цепочку выбранного предмета в игре и Wiki
 - [WORLD-01](#world-01) — Зафиксировать вертикальный срез первых семи игровых дней
 - [WORLD-04](#world-04) — Проверить граф заданий и однократность наград
@@ -1044,7 +1043,7 @@
 
 ### FARM-07 — Проверить раннюю рыбалку и достижимость рыбных заданий
 
-**ready · P2 · M · investigation**. Ветка: `codex/farm-07-fishing-quest-access`.
+**done · P2 · M · investigation**. Ветка: `codex/farm-07-fishing-quest-access`.
 
 **Сейчас:** Снасти, наживка, погода и виды рыб уже существуют; требуется баланс реального стартового маршрута.
 
@@ -1076,7 +1075,7 @@
 
 **Основания:** [STARDEW-QOL](https://www.stardewvalley.net/stardew-valley-1-6-4-full-patch-notes/), [LOOPS](https://lostgarden.com/2012/04/30/loops-and-arcs/).
 
-**Подтверждение результата:** пока нет; задача открыта.
+**Подтверждение результата:** docs/reports/farm-2026-10/README.md and fishing.json: 240 conditions, repeatable cast tuples, 8 controlled catches/8 idle failures, exact bait costs and advanced access. FarmFishingAccessSuite 494 assertions; FARM 1569/0. No seasonal quest dead end; human time target distinguished from controller model.
 
 <a id="farm-08"></a>
 
