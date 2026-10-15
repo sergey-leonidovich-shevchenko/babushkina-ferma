@@ -140,6 +140,7 @@ static func draw_effect(canvas: Node2D, kind: String, position: Vector2, frame: 
 
 ## Добавляет над цельным мастер-артом только прозрачные живые эффекты, не повторяя непрозрачную воду и траву.
 static func draw_first_location_animations(game: Node2D) -> void:
+	if not preload("res://scripts/presentation/visual_reference_mode.gd").effects_enabled(game): return
 	if game.current_location!="overworld":
 		draw_fishing_effects(game)
 		return

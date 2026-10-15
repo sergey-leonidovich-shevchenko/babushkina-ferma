@@ -319,7 +319,7 @@
       "id": "VBASE-004",
       "epic": "VBASE",
       "title": "Снять статический эталон деревни",
-      "status": "ready",
+      "status": "done",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -355,7 +355,13 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vbase-004-visual-task",
-      "evidence": []
+      "evidence": [
+        "docs/reports/visual-overhaul/vbase-004/README.md",
+        "docs/reports/visual-overhaul/vbase-004/native/index.html",
+        "docs/reports/visual-overhaul/vbase-004/native/source.json",
+        "tests/suites/visual_static_suite.gd",
+        "tools/test_visual_static.py"
+      ]
     },
     {
       "id": "VBASE-005",
@@ -614,7 +620,7 @@
       "id": "VART-001",
       "epic": "VART",
       "title": "Выбрать степень живописности",
-      "status": "backlog",
+      "status": "ready",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",

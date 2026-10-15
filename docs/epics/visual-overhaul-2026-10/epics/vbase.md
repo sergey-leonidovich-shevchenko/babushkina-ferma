@@ -126,7 +126,7 @@
 
 ## VBASE-004 — Снять статический эталон деревни
 
-Статус: `ready` · P0 · этап `foundation` · `engineering`
+Статус: `done` · P0 · этап `foundation` · `engineering`
 
 Сохранить одинаковый кадр с выключенными эффектами, HUD и без HUD; не использовать отдельно нарисованный фон как игровой результат
 
@@ -142,7 +142,7 @@
 - [scripts/systems/qa_teleport_system.gd](../../../../scripts/systems/qa_teleport_system.gd)
 - [tools/water_audit.gd](../../../../tools/water_audit.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vbase-004/`.
+Результаты: `docs/reports/visual-overhaul/vbase-004/`.
 
 Критерии:
 
@@ -160,7 +160,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vbase-004/README.md, docs/reports/visual-overhaul/vbase-004/native/index.html, docs/reports/visual-overhaul/vbase-004/native/source.json, tests/suites/visual_static_suite.gd, tools/test_visual_static.py.
 
 <a id="vbase-005"></a>
 

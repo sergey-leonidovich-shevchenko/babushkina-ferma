@@ -40,7 +40,7 @@ jobs:
       - name: Install quality gate dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install --no-install-recommends -y zsh ripgrep fonts-noto-cjk
+          sudo apt-get install --no-install-recommends -y zsh ripgrep fonts-noto-cjk python3-pil
       - name: Download Godot 4.7.1
         run: |
           mkdir -p .ci

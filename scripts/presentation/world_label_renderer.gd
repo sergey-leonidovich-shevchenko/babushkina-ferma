@@ -18,6 +18,7 @@ static func bounds(game:Node, anchor:Vector2, label:String, maximum:float=200) -
 
 ## Рисует светлую подпись только рядом с героем, сохраняя крупную информацию в контекстной карточке HUD.
 static func draw(game:Node2D, anchor:Vector2, label:String, near:Vector2, radius:float=180) -> void:
+	if not preload("res://scripts/presentation/visual_reference_mode.gd").hud_visible(game): return
 	if label.is_empty() or game.player.distance_to(near)>radius: return
 	var rect:=bounds(game,anchor,label)
 	Style.panel(game,rect)

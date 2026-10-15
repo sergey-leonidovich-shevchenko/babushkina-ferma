@@ -45,6 +45,7 @@ static func opaque_storage(game: Node) -> bool:
 
 ## Сохраняет общий порядок экранов, диагностических панелей, подтверждений и уведомлений поверх мира либо непрозрачного окна.
 static func draw_screen(game: Node2D, clean_level_capture: bool) -> void:
+	if not preload("res://scripts/presentation/visual_reference_mode.gd").hud_visible(game): return
 	if not clean_level_capture and not bool(game.FarmLifeSystem.state(game).photo_mode) and not game.LevelEditorSystem.active(game): game.draw_ui(); BossRenderer.draw_ui(game); FishingRenderer.draw(game); game.WorldMapRenderer.draw(game); game.AdventurePolishRenderer.draw_ui(game); game.FenceRenderer.draw_ui(game); game.SpellRenderer.draw_ui(game)
 	if not clean_level_capture and not game.LevelEditorSystem.active(game):
 		game.FarmLifeRenderer.draw_ui(game)

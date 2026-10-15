@@ -1,6 +1,9 @@
 .DS_Store
 .godot/
 tools/*
+!tools/visual_static_capture.gd
+!tools/visual_static.py
+!tools/test_visual_static.py
 !tools/visual_camera_points.gd
 !tools/visual_camera_review.gd
 !tools/visual_camera_capture.gd

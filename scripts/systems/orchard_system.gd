@@ -171,10 +171,12 @@ static func draw_tree(game: Node2D, node: Dictionary) -> void:
 	var current_weather: String = game.WorldEventSystem.weather(game)
 	var position: Vector2 = node.position
 	var time := Time.get_ticks_msec() / 1000.0
-	if current_weather in ["wind", "storm"]:
+	var animated:=preload("res://scripts/presentation/visual_reference_mode.gd").effects_enabled(game)
+	if animated and current_weather in ["wind", "storm"]:
 		position.x += roundf(sin(time * 2.4 + position.y * 0.01) * (2.0 if current_weather == "storm" else 1.0))
 	var destination := destination_rect(position, current_stage)
 	var overlay := _draw_weather_details.bind(game, destination, current_stage, current_season, current_weather, time)
+	if not animated: overlay=Callable()
 	TreeOcclusion.submit(game, TreeOcclusion.key_for("orchard_%s"%node.kind,node.position), TREE_ATLAS, destination, source_rect(node.kind, visual_stage(game,node,data), current_season == WINTER), Vector2(node.position).y+18.0, weather_tint(current_season,current_weather), overlay)
 
 

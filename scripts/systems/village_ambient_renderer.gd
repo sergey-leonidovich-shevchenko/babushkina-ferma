@@ -47,12 +47,16 @@ static func draw_ground(game: Node2D) -> void:
 	if game.current_location != "overworld": return
 	var season: String = game.WorldEventSystem.season(game.day)
 	var time := Time.get_ticks_msec() / 620.0
+	var animated:=preload("res://scripts/presentation/visual_reference_mode.gd").effects_enabled(game)
 	for placement in PLACEMENTS:
 		var kind: String = placement.kind
 		if not is_visible_in_season(kind, season): continue
-		var phase: float = float(placement.phase)
-		var sway := sin(time + phase) * (0.018 if kind != "water_lilies" else 0.008)
-		var alpha := 0.82 + sin(time * 0.7 + phase) * 0.08
-		var position: Vector2 = placement.position + Vector2(sway * 30.0, sin(time * 0.55 + phase) * 1.2)
-		var tint := Color(0.88, 0.92, 1.0, alpha) if season == "winter" else Color(1.0, 1.0, 1.0, alpha)
-		draw_cell(game,kind,position,tint)
+		var pose:=ground_pose(kind,placement.position,float(placement.phase),time,animated)
+		var tint := Color(0.88, 0.92, 1.0, pose.alpha) if season == "winter" else Color(1.0, 1.0, 1.0, pose.alpha)
+		draw_cell(game,kind,pose.position,tint)
+
+## Возвращает исходную опору без колебаний для эталона и прежнюю формулу движения для обычной игры.
+static func ground_pose(kind: String, position: Vector2, phase: float, time: float, animated: bool = true) -> Dictionary:
+	if not animated: return {"position":position,"alpha":0.82}
+	var sway:=sin(time+phase)*(0.018 if kind!="water_lilies" else 0.008)
+	return {"position":position+Vector2(sway*30.0,sin(time*0.55+phase)*1.2),"alpha":0.82+sin(time*0.7+phase)*0.08}

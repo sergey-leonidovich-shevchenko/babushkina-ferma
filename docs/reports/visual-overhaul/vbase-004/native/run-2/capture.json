@@ -1,0 +1,457 @@
+{
+	"adapter": "AMD Radeon Pro 5300M OpenGL Engine",
+	"disabled_effects": [
+		"water_overlays",
+		"ambient_motion",
+		"orchard_weather",
+		"atmosphere",
+		"action_feedback"
+	],
+	"display_server": "macOS",
+	"engine": "4.7.1-stable (official)",
+	"errors": [],
+	"frames": [
+		{
+			"camera": [
+				0.0,
+				348.0
+			],
+			"conditions": {
+				"focused": true,
+				"framebuffer": [
+					1152.0,
+					648.0
+				],
+				"mode": 0,
+				"root": [
+					1152.0,
+					648.0
+				],
+				"valid": true,
+				"window": [
+					1152.0,
+					648.0
+				]
+			},
+			"day": 1,
+			"draw_frame": 616,
+			"facing": [
+				0.0,
+				1.0
+			],
+			"hud": true,
+			"id": "overworld-entry-v1",
+			"image": "effects-0.png",
+			"location": "overworld",
+			"minutes": 720.0,
+			"phase": "day",
+			"physics_processing": false,
+			"player": [
+				432.0,
+				672.0
+			],
+			"season": "spring",
+			"seed": 20261015,
+			"static_mode": false,
+			"ticks_ms": 16590,
+			"walkable": "walkable",
+			"weather": "clear"
+		},
+		{
+			"camera": [
+				0.0,
+				348.0
+			],
+			"conditions": {
+				"focused": true,
+				"framebuffer": [
+					1152.0,
+					648.0
+				],
+				"mode": 0,
+				"root": [
+					1152.0,
+					648.0
+				],
+				"valid": true,
+				"window": [
+					1152.0,
+					648.0
+				]
+			},
+			"day": 1,
+			"draw_frame": 835,
+			"facing": [
+				0.0,
+				1.0
+			],
+			"hud": true,
+			"id": "overworld-entry-v1",
+			"image": "effects-1.png",
+			"location": "overworld",
+			"minutes": 720.0,
+			"phase": "day",
+			"physics_processing": false,
+			"player": [
+				432.0,
+				672.0
+			],
+			"season": "spring",
+			"seed": 20261015,
+			"static_mode": false,
+			"ticks_ms": 19375,
+			"walkable": "walkable",
+			"weather": "clear"
+		},
+		{
+			"camera": [
+				0.0,
+				348.0
+			],
+			"conditions": {
+				"focused": true,
+				"framebuffer": [
+					1152.0,
+					648.0
+				],
+				"mode": 0,
+				"root": [
+					1152.0,
+					648.0
+				],
+				"valid": true,
+				"window": [
+					1152.0,
+					648.0
+				]
+			},
+			"day": 1,
+			"draw_frame": 847,
+			"facing": [
+				0.0,
+				1.0
+			],
+			"hud": true,
+			"id": "overworld-entry-v1",
+			"image": "hud-0.png",
+			"location": "overworld",
+			"minutes": 720.0,
+			"phase": "day",
+			"physics_processing": false,
+			"player": [
+				432.0,
+				672.0
+			],
+			"season": "spring",
+			"seed": 20261015,
+			"static_mode": true,
+			"ticks_ms": 19777,
+			"walkable": "walkable",
+			"weather": "clear"
+		},
+		{
+			"camera": [
+				0.0,
+				348.0
+			],
+			"conditions": {
+				"focused": true,
+				"framebuffer": [
+					1152.0,
+					648.0
+				],
+				"mode": 0,
+				"root": [
+					1152.0,
+					648.0
+				],
+				"valid": true,
+				"window": [
+					1152.0,
+					648.0
+				]
+			},
+			"day": 1,
+			"draw_frame": 1067,
+			"facing": [
+				0.0,
+				1.0
+			],
+			"hud": true,
+			"id": "overworld-entry-v1",
+			"image": "hud-1.png",
+			"location": "overworld",
+			"minutes": 720.0,
+			"phase": "day",
+			"physics_processing": false,
+			"player": [
+				432.0,
+				672.0
+			],
+			"season": "spring",
+			"seed": 20261015,
+			"static_mode": true,
+			"ticks_ms": 22589,
+			"walkable": "walkable",
+			"weather": "clear"
+		},
+		{
+			"camera": [
+				0.0,
+				348.0
+			],
+			"conditions": {
+				"focused": true,
+				"framebuffer": [
+					1152.0,
+					648.0
+				],
+				"mode": 0,
+				"root": [
+					1152.0,
+					648.0
+				],
+				"valid": true,
+				"window": [
+					1152.0,
+					648.0
+				]
+			},
+			"day": 1,
+			"draw_frame": 1079,
+			"facing": [
+				0.0,
+				1.0
+			],
+			"hud": false,
+			"id": "overworld-entry-v1",
+			"image": "clean-0.png",
+			"location": "overworld",
+			"minutes": 720.0,
+			"phase": "day",
+			"physics_processing": false,
+			"player": [
+				432.0,
+				672.0
+			],
+			"season": "spring",
+			"seed": 20261015,
+			"static_mode": true,
+			"ticks_ms": 22983,
+			"walkable": "walkable",
+			"weather": "clear"
+		},
+		{
+			"camera": [
+				0.0,
+				348.0
+			],
+			"conditions": {
+				"focused": true,
+				"framebuffer": [
+					1152.0,
+					648.0
+				],
+				"mode": 0,
+				"root": [
+					1152.0,
+					648.0
+				],
+				"valid": true,
+				"window": [
+					1152.0,
+					648.0
+				]
+			},
+			"day": 1,
+			"draw_frame": 1379,
+			"facing": [
+				0.0,
+				1.0
+			],
+			"hud": false,
+			"id": "overworld-entry-v1",
+			"image": "clean-1.png",
+			"location": "overworld",
+			"minutes": 720.0,
+			"phase": "day",
+			"physics_processing": false,
+			"player": [
+				432.0,
+				672.0
+			],
+			"season": "spring",
+			"seed": 20261015,
+			"static_mode": true,
+			"ticks_ms": 25782,
+			"walkable": "walkable",
+			"weather": "clear"
+		},
+		{
+			"camera": [
+				0.0,
+				348.0
+			],
+			"conditions": {
+				"focused": true,
+				"framebuffer": [
+					1152.0,
+					648.0
+				],
+				"mode": 0,
+				"root": [
+					1152.0,
+					648.0
+				],
+				"valid": true,
+				"window": [
+					1152.0,
+					648.0
+				]
+			},
+			"day": 1,
+			"draw_frame": 1391,
+			"facing": [
+				0.0,
+				1.0
+			],
+			"hud": true,
+			"id": "overworld-entry-v1",
+			"image": "hud-restored.png",
+			"location": "overworld",
+			"minutes": 720.0,
+			"phase": "day",
+			"physics_processing": false,
+			"player": [
+				432.0,
+				672.0
+			],
+			"season": "spring",
+			"seed": 20261015,
+			"static_mode": true,
+			"ticks_ms": 26211,
+			"walkable": "walkable",
+			"weather": "clear"
+		},
+		{
+			"camera": [
+				0.0,
+				348.0
+			],
+			"conditions": {
+				"focused": true,
+				"framebuffer": [
+					1152.0,
+					648.0
+				],
+				"mode": 0,
+				"root": [
+					1152.0,
+					648.0
+				],
+				"valid": true,
+				"window": [
+					1152.0,
+					648.0
+				]
+			},
+			"day": 1,
+			"draw_frame": 1403,
+			"facing": [
+				0.0,
+				1.0
+			],
+			"hud": true,
+			"id": "overworld-entry-v1",
+			"image": "restored-0.png",
+			"location": "overworld",
+			"minutes": 720.0,
+			"phase": "day",
+			"physics_processing": false,
+			"player": [
+				432.0,
+				672.0
+			],
+			"season": "spring",
+			"seed": 20261015,
+			"static_mode": false,
+			"ticks_ms": 26625,
+			"walkable": "walkable",
+			"weather": "clear"
+		},
+		{
+			"camera": [
+				0.0,
+				348.0
+			],
+			"conditions": {
+				"focused": true,
+				"framebuffer": [
+					1152.0,
+					648.0
+				],
+				"mode": 0,
+				"root": [
+					1152.0,
+					648.0
+				],
+				"valid": true,
+				"window": [
+					1152.0,
+					648.0
+				]
+			},
+			"day": 1,
+			"draw_frame": 1623,
+			"facing": [
+				0.0,
+				1.0
+			],
+			"hud": true,
+			"id": "overworld-entry-v1",
+			"image": "restored-1.png",
+			"location": "overworld",
+			"minutes": 720.0,
+			"phase": "day",
+			"physics_processing": false,
+			"player": [
+				432.0,
+				672.0
+			],
+			"season": "spring",
+			"seed": 20261015,
+			"static_mode": false,
+			"ticks_ms": 29408,
+			"walkable": "walkable",
+			"weather": "clear"
+		}
+	],
+	"hud_masks": [
+		[
+			0,
+			0,
+			1152,
+			140
+		],
+		[
+			0,
+			560,
+			1152,
+			88
+		],
+		[
+			518,
+			316,
+			69,
+			27
+		]
+	],
+	"kind": "static-village-effects-off",
+	"minimum_delay_ms": 2500,
+	"performance_eligible": false,
+	"preset": "village-static-noon-1152-v1",
+	"profile": "Codex-VBASE-004-37fc135cc9e24fd9a3e850bbd5823b64",
+	"renderer": "opengl3",
+	"schema": 1,
+	"simulation_frozen": true
+}

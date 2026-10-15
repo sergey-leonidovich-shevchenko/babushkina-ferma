@@ -8,6 +8,7 @@ const VillageMapPreviewSystem := preload("res://scripts/systems/village_map_prev
 
 ## Рисует следы, кадр действия, боевую фиксацию и предупреждение атаки в мировых координатах.
 static func draw_world(game: Node2D) -> void:
+	if not preload("res://scripts/presentation/visual_reference_mode.gd").effects_enabled(game): return
 	var feedback: Dictionary = game.state.player.feedback
 	for footprint in feedback.get("footprints", []):
 		game.draw_circle(footprint.position + Vector2(-4, 0), 2.5, Color(0.20, 0.16, 0.10, float(footprint.time) * 0.16))
