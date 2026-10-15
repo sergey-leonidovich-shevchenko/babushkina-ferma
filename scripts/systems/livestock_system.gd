@@ -75,9 +75,16 @@ static func interact(game: Node, value: Dictionary, interaction: String) -> bool
 		game.SkillSystem.award_profession_xp(game,"farming",3); game.notify_tutorial("animal_product")
 	elif int(memory.pet_day)!=game.day:
 		memory.pet_day=game.day; memory.bond=mini(10,int(memory.bond)+1)
-		game.message=game.LocaleSystem.text("livestock_petted",[animal.name,memory.bond]); game.notify_tutorial("animal_pet")
-	else: game.message=game.LocaleSystem.text("livestock_status",[animal.name,status(game,memory)])
+		game.message=game.LocaleSystem.text("livestock_petted",[animal.name,memory.bond])+" • "+product_hint(game,animal,memory); game.notify_tutorial("animal_pet")
+	else: game.message=game.LocaleSystem.text("livestock_status",[animal.name,status(game,memory)])+" • "+product_hint(game,animal,memory)
 	return true
+
+## Объясняет продукт и минимальный интервал без обещания выдачи за день без корма и воды.
+static func product_hint(game: Node, animal: Dictionary, memory: Dictionary) -> String:
+	var patterns:=["%s ×%d • интервал %d дн.","%s ×%d • interval %d days","%s ×%d • cada %d días","%s ×%d • alle %d Tage","%s ×%d • intervalle %d j","%s ×%d • 间隔%d天"]
+	var amount:=2 if int(memory.bond)>=6 or game.state.world.estate.level>=3 else 1
+	var index:int=maxi(0,game.LocaleSystem.LOCALES.find(game.LocaleSystem.current))
+	return patterns[index]%[game.inventory_item_name(animal.product),amount,animal.interval]
 
 ## Кормит двор одной готовой порцией либо тремя пшеницами, не расходуя ничего повторно в этот день.
 static func feed(game: Node, value: Dictionary) -> bool:

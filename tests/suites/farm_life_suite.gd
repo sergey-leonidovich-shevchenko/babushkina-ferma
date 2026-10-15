@@ -6,6 +6,7 @@ func run() -> void:
 	preload("res://tests/suites/farm_economy_suite.gd").new(context).run()
 	preload("res://tests/suites/farm_recycling_suite.gd").new(context).run()
 	preload("res://tests/suites/farm_seasons_suite.gd").new(context).run()
+	preload("res://tests/suites/farm_livestock_loop_suite.gd").new(context).run()
 	preload("res://tests/suites/livestock_suite.gd").new(context).run()
 	preload("res://tests/suites/apiary_suite.gd").new(context).run()
 	test_first_day_is_coherent_route()

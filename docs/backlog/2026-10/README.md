@@ -6,7 +6,7 @@
 
 ## Состояние
 
-`backlog`: 1, `ready`: 11, `blocked`: 28, `in_progress`: 0, `done`: 10. Статус `done` требует записанного результата; исходные критерии и наличие тестов не означают выполнения.
+`backlog`: 1, `ready`: 10, `blocked`: 28, `in_progress`: 0, `done`: 11. Статус `done` требует записанного результата; исходные критерии и наличие тестов не означают выполнения.
 
 ## Эпики
 
@@ -24,7 +24,6 @@
 Начать с OPT-01: закрепить честный замер до следующего изменения производительности. Далее SAFE-05/SAFE-03 и QA-01; следующие пункты выбираем по дефектам и данным. Одна задача в работе. S/M/L — относительный объём, не срок; L можно разбить до начала.
 
 - [OPT-01](#opt-01) — Измерения, честный gate и быстрые профили
-- [FARM-04](#farm-04) — Довести суточный уход за животными до понятного цикла
 - [FARM-05](#farm-05) — Согласовать очередь производства, расход топлива и отмену
 - [FARM-06](#farm-06) — Спроектировать понятное освоение первых десяти алхимических опытов
 - [FARM-07](#farm-07) — Проверить раннюю рыбалку и достижимость рыбных заданий
@@ -939,7 +938,7 @@
 
 ### FARM-04 — Довести суточный уход за животными до понятного цикла
 
-**ready · P2 · M · implementation**. Ветка: `codex/farm-04-livestock-daily-loop`.
+**done · P2 · M · implementation**. Ветка: `codex/farm-04-livestock-daily-loop`.
 
 **Сейчас:** Загоны и животные уже добавлены; важно связать уход с понятной обратной связью и продуктами.
 
@@ -969,7 +968,7 @@
 
 **Основания:** [LOOPS](https://lostgarden.com/2012/04/30/loops-and-arcs/), [XAG](https://learn.microsoft.com/en-us/xbox/accessibility/guidelines).
 
-**Подтверждение результата:** пока нет; задача открыта.
+**Подтверждение результата:** docs/reports/farm-2026-10/README.md: seven-day care/sleep/JSON equivalence, repeat costs, pause, product uses and localized compact interval hints. FarmLivestockLoopSuite 59 assertions; FARM 580/0; native livestock-hint.png inspected.
 
 <a id="farm-05"></a>
 

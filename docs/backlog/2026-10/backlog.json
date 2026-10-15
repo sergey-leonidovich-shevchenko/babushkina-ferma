@@ -1167,8 +1167,8 @@
         "tools/check_architecture.sh и ./run_tests.sh без ERROR движка.",
         "Обновлённые документация и точный ручной маршрут QA_CHECKLIST.md; нативная проверка, если меняются рисунок, ввод или производительность."
       ],
-      "status": "ready",
-      "result": ""
+      "status": "done",
+      "result": "docs/reports/farm-2026-10/README.md: seven-day care/sleep/JSON equivalence, repeat costs, pause, product uses and localized compact interval hints. FarmLivestockLoopSuite 59 assertions; FARM 580/0; native livestock-hint.png inspected."
     },
     {
       "id": "FARM-05",

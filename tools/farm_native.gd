@@ -20,4 +20,10 @@ func start_farm() -> void:
 	game.open_inventory(); game.inventory_selected=game.inventory_slots.find("seeds"); game.queue_redraw()
 	await process_frame; RenderingServer.force_draw(false)
 	root.get_texture().get_image().save_png(FOLDER_FARM+"seed-card.png")
+	game.inventory_open=false; game.current_location="overworld"
+	var animal:Dictionary=game.FarmLifeSystem.LivestockData.animal("cow")
+	game.player=Vector2(animal.position)+Vector2(48,0); game.update_camera()
+	game.FarmLifeSystem.Livestock.interact(game,life,"life:animal:cow"); game.update_hud_feedback(0); game.queue_redraw()
+	await process_frame; RenderingServer.force_draw(false)
+	root.get_texture().get_image().save_png(FOLDER_FARM+"livestock-hint.png")
 	game.free(); quit()

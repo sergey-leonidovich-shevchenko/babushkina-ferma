@@ -9,6 +9,7 @@ func _initialize() -> void:
 	var rows:=suite.household()
 	preload("res://tests/suites/farm_recycling_suite.gd").new(self).run()
 	preload("res://tests/suites/farm_seasons_suite.gd").new(self).run()
+	preload("res://tests/suites/farm_livestock_loop_suite.gd").new(self).run()
 	var game:=make_game(); var consumed:={}
 	for recipe in game.CraftingSystem.RECIPES:
 		for kind in recipe.inputs: consumed[kind]=true
