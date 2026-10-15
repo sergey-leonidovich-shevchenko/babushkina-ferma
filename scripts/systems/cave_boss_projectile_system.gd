@@ -43,7 +43,7 @@ static func attach_fly(game: Node, duration: float = -1.0) -> bool:
 	if game.state.player.blocking and game.energy > 0: game.energy -= 1; return false
 	var state: Dictionary = game.state.world.cave_boss
 	if float(state.fly_timer) > 0.0: return false
-	state.fly_timer = randf_range(2.0, 5.0) if duration < 0.0 else clampf(duration, 2.0, 5.0)
+	state.fly_timer = preload("res://scripts/systems/world_rng_system.gd").real(game,"combat",2.0,5.0) if duration < 0.0 else clampf(duration, 2.0, 5.0)
 	state.fly_tick = 0.0
 	game.notify_tutorial("cave_boss_flies")
 	return true

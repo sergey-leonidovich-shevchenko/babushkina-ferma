@@ -15,6 +15,7 @@ var plots: Dictionary = {}
 var world_plots: Dictionary = {}
 var dropped_items: Array = []
 var world_loot_seed: int = 0
+var rng_state: Dictionary = {}
 var world_loot_nodes: Array = []
 var tree_nodes: Array = TreeSystem.default_nodes()
 var moon_glade: Dictionary = MoonGladeSystem.default_state()

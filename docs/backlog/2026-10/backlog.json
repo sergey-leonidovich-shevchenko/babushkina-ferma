@@ -746,8 +746,8 @@
         "tools/check_architecture.sh и ./run_tests.sh без ERROR движка.",
         "Обновлённые документация и точный ручной маршрут QA_CHECKLIST.md; нативная проверка, если меняются рисунок, ввод или производительность."
       ],
-      "status": "ready",
-      "result": ""
+      "status": "done",
+      "result": "Раздельные потоки RNG версии 1 и JSON-продолжение; реальные призыв/мухи не зависят от UI. WorldRngSuite: 18/0. docs/reports/safe-2026-10/README.md; общий gate перед публикацией."
     },
     {
       "id": "SAFE-02",

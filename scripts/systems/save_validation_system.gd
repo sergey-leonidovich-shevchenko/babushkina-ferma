@@ -29,6 +29,7 @@ const EXPANSION := {
 	"fences":[{"!":["location", "cell"], "location":"s", "cell":"p", "style":"n", "kind":"s", "orientation":"n", "open":"b"}],
 }
 const OPTIONAL := {
+	"rng":{"!":["version","seed","streams"],"version":"n","seed":"n","streams":{"*":"n"}},
 	"cave_arena":{"relic_awarded":"b"},
 	"profile":{"character":{"created":"b", "name":"s", "farm_name":"s", "appearance":"n", "clothes":"n", "specialization":"s","workbench_crafts":"n"}, "relationships":{"*":"n"}, "quest_memory":{"*":MEMORY}},
 	"inventory_meta":{"backpack_level":"n", "durability":{"*":"n"}},
@@ -56,6 +57,7 @@ static func valid(data: Dictionary) -> bool:
 	for key in CORE:
 		if not data.has(key) or not _matches(data[key], CORE[key]): return false
 	if not _matches(data, OPTIONAL): return false
+	if data.has("rng") and not preload("res://scripts/systems/world_rng_system.gd").valid(data.rng,int(data.get("world_loot_seed",0))): return false
 	if not preload("res://scripts/systems/garden_crafting_system.gd").valid(data.plots+data.get("world_plots",[])): return false
 	var expansion:Dictionary=data.get("estate",{}).get("expansion",{})
 	if not preload("res://scripts/systems/house_furniture_layout_system.gd").valid_records(expansion.get("furniture",[])): return false

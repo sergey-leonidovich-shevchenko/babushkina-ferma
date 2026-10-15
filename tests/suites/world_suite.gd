@@ -7,6 +7,7 @@ const RoadVisualSystem := preload("res://scripts/systems/road_visual_system.gd")
 
 ## Запускает все сценарии текущего набора тестов в фиксированном порядке.
 func run() -> void:
+	preload("res://tests/suites/world_rng_suite.gd").new(context).run()
 	preload("res://tests/suites/water_topology_suite.gd").new(context).run()
 	preload("res://tests/suites/water_navigation_suite.gd").new(context).run()
 	preload("res://tests/suites/world_design_suite.gd").new(context).run()

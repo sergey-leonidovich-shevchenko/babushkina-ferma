@@ -53,6 +53,7 @@ static func _initialize_world(game: Node) -> void:
 	if game.world_loot_nodes.is_empty():
 		game.world_loot_seed = game.LootContainerSystem.random_seed() if game.world_loot_seed == 0 else game.world_loot_seed
 		game.world_loot_nodes = game.LootContainerSystem.generate(game.world_loot_seed)
+	preload("res://scripts/systems/world_rng_system.gd").restore(game)
 
 ## Настраивает preview главных экранов, персонажей и диагностических режимов.
 static func _configure_basic_previews(game: Node, args: PackedStringArray) -> void:

@@ -1,5 +1,9 @@
 # Разработка
 
+SAFE-01: `WorldRngSystem` хранит версионированные независимые потоки в `WorldState.rng_state` и поле слота `rng`.
+Для воспроизведения задавать `world_loot_seed` до `_ready`, фиксировать данные и шаги симуляции. Глобальные `rand*` не использовать для игровых последствий.
+Контракт и аудит: [отчёт SAFE](reports/safe-2026-10/README.md).
+
 Исходный аудит воды: `Godot --windowed --resolution 1152x648 --path . --script tools/water_audit.gd -- --label=before --size=1920x1080 --samples=240`.
 Изолированный профиль, фиксированный реальный render target, живой Scene, три повтора пяти сцен; `--map=overworld --f10` даёт отдельную пробу панели.
 PNG/readback вынесены за интервал измерений. [Протокол и результаты WATER-01](reports/water-2026-10/README.md).

@@ -23,7 +23,7 @@ static func summon(game: Node, kinds: Array) -> int:
 
 ## Подбирает точку вдали от героя, скал, ресурсов и уже призванных существ без бесконечного поиска.
 static func spawn_position(game: Node) -> Vector2:
-	var start := randi_range(0, 31)
+	var start := preload("res://scripts/systems/world_rng_system.gd").integer(game,"combat",0,31)
 	for index in 32:
 		var angle := (index + start) * TAU / 32.0
 		var point: Vector2 = Data.ARENA.get_center() + Vector2(cos(angle) * 235.0, sin(angle) * 215.0)
