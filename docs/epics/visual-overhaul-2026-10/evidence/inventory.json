@@ -1,0 +1,223 @@
+{
+	"authority": "QA teleport unions the runtime registries; WATER_MAPS classifies all active background draw paths inspected in WATER-01",
+	"custom_levels": [
+		{
+			"file_hash": "877732d9980a2b3031477576c025dca5e48491bf45a1f836542d7a2a18bf0865",
+			"objects": 0,
+			"source": "user",
+			"valid_json": true
+		}
+	],
+	"locations": [
+		{
+			"bridges": 2,
+			"fishing": true,
+			"group": "village",
+			"id": "overworld",
+			"water": "river+pond"
+		},
+		{
+			"bridges": 0,
+			"fishing": false,
+			"group": "world",
+			"id": "forest",
+			"water": "none"
+		},
+		{
+			"bridges": 0,
+			"fishing": false,
+			"group": "world",
+			"id": "rocky",
+			"water": "none"
+		},
+		{
+			"bridges": 0,
+			"fishing": false,
+			"group": "world",
+			"id": "ruins",
+			"water": "none"
+		},
+		{
+			"bridges": 0,
+			"fishing": false,
+			"group": "cave",
+			"id": "cave",
+			"water": "none"
+		},
+		{
+			"bridges": 0,
+			"fishing": false,
+			"group": "world",
+			"id": "cursed",
+			"water": "none"
+		},
+		{
+			"bridges": 0,
+			"fishing": false,
+			"group": "world",
+			"id": "glassworks",
+			"water": "none"
+		},
+		{
+			"bridges": 0,
+			"fishing": false,
+			"group": "world",
+			"id": "pirate_ship",
+			"water": "sea_backdrop"
+		},
+		{
+			"bridges": 0,
+			"fishing": false,
+			"group": "world",
+			"id": "moon_glade",
+			"water": "decorative_moon_pool"
+		},
+		{
+			"bridges": 0,
+			"fishing": false,
+			"group": "village",
+			"id": "village_market",
+			"water": "none"
+		},
+		{
+			"bridges": 0,
+			"fishing": false,
+			"group": "village",
+			"id": "village_garden",
+			"water": "none"
+		},
+		{
+			"bridges": 2,
+			"fishing": true,
+			"group": "village",
+			"id": "village_river",
+			"water": "river"
+		},
+		{
+			"bridges": 0,
+			"fishing": false,
+			"group": "village",
+			"id": "village_workyard",
+			"water": "none"
+		},
+		{
+			"bridges": 0,
+			"fishing": false,
+			"group": "village",
+			"id": "village_orchard",
+			"water": "none"
+		},
+		{
+			"bridges": 0,
+			"fishing": false,
+			"group": "cave",
+			"id": "cave_fungal",
+			"water": "none"
+		},
+		{
+			"bridges": 0,
+			"fishing": false,
+			"group": "cave",
+			"id": "cave_moon",
+			"water": "none"
+		},
+		{
+			"bridges": 0,
+			"fishing": false,
+			"group": "cave",
+			"id": "cave_lake",
+			"water": "cave_pools"
+		},
+		{
+			"bridges": 0,
+			"fishing": false,
+			"group": "cave",
+			"id": "cave_mine",
+			"water": "none"
+		},
+		{
+			"bridges": 0,
+			"fishing": false,
+			"group": "cave",
+			"id": "cave_sanctum",
+			"water": "none"
+		},
+		{
+			"bridges": 0,
+			"fishing": false,
+			"group": "interior",
+			"id": "cellar_workshop",
+			"water": "none"
+		},
+		{
+			"bridges": 0,
+			"fishing": false,
+			"group": "interior",
+			"id": "cottage_interior",
+			"water": "none"
+		},
+		{
+			"bridges": 0,
+			"fishing": false,
+			"group": "interior",
+			"id": "shop_interior",
+			"water": "none"
+		},
+		{
+			"bridges": 0,
+			"fishing": false,
+			"group": "interior",
+			"id": "guild_interior",
+			"water": "none"
+		},
+		{
+			"bridges": 0,
+			"fishing": false,
+			"group": "interior",
+			"id": "forge_interior",
+			"water": "none"
+		},
+		{
+			"bridges": 0,
+			"fishing": false,
+			"group": "interior",
+			"id": "chapel_interior",
+			"water": "none"
+		},
+		{
+			"bridges": 0,
+			"fishing": false,
+			"group": "interior",
+			"id": "prison_interior",
+			"water": "none"
+		},
+		{
+			"bridges": 0,
+			"fishing": false,
+			"group": "interior",
+			"id": "tower_interior",
+			"water": "none"
+		},
+		{
+			"bridges": 0,
+			"fishing": false,
+			"group": "interior",
+			"id": "castle_hall",
+			"water": "none"
+		},
+		{
+			"bridges": 0,
+			"fishing": false,
+			"group": "interior",
+			"id": "castle_upper",
+			"water": "none"
+		},
+		{
+			"bridges": 0,
+			"fishing": false,
+			"group": "interior",
+			"id": "castle_dungeon",
+			"water": "none"
+		}
+	]
+}

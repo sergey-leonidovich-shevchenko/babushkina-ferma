@@ -1,0 +1,26 @@
+extends SceneTree
+const Scene = preload("res://main.tscn")
+const Stone = preload("res://scripts/systems/qa_teleport_system.gd")
+func _initialize() -> void:
+	ProjectSettings.set_setting("application/config/use_custom_user_dir", true)
+	ProjectSettings.set_setting("application/config/custom_user_dir_name", "Codex-Visual-Audit-20261015")
+	start.call_deferred()
+func start() -> void:
+	if DisplayServer.get_name()=="headless": quit(2); return
+	var holder=SubViewportContainer.new(); root.add_child(holder)
+	var target=SubViewport.new(); target.size=Vector2i(1152,648); target.disable_3d=true
+	target.render_target_update_mode=SubViewport.UPDATE_ALWAYS; holder.add_child(target)
+	var game=Scene.instantiate();game.set_meta("capture_windowed",true); target.add_child(game)
+	game.set_physics_process(false); game.set_process_input(false);game.set_process_unhandled_input(false)
+	game.language_screen=false;game.title_screen=false;game.audio_enabled=false;game.tutorial_visible=false
+	game.settings_state.pause_on_focus_loss=false;game.LocaleSystem.current="ru"
+	game.FarmLifeSystem.state(game).first_day=6;game.FarmLifeSystem.state(game).cutscene="";game.FarmLifeSystem.state(game).cutscene_timer=0
+	game.state.player.profile.created=true;game.FirstChapterSystem.state(game).completed=true
+	game.discovery_current.clear();game.change_inventory_count(Stone.KIND,1)
+	for loc in ["cottage_interior","cellar_workshop","cave","cave_sanctum"]:
+		if not Stone.open(game) or not Stone.travel(game,loc):push_error("capture travel failed "+loc);quit(1);return
+		game.update_camera();game.message="";game.hud_message_timer=0;game.queue_redraw()
+		for frame in 30:await RenderingServer.frame_post_draw
+		target.get_texture().get_image().save_png("res://docs/epics/visual-overhaul-2026-10/evidence/"+loc+"-current.png")
+		print("VIS CAPTURE ",loc)
+	quit()

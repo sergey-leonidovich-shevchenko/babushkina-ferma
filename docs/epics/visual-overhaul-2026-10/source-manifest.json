@@ -1,0 +1,194 @@
+{
+  "package": "babushkina_ferma_all_files",
+  "scope": "Previously prepared planning artifacts; not a repository checkout or runtime patch",
+  "primary_directory": "babushkina_ferma_visual_audit_570f808",
+  "repository_audit_commit": "570f80832d9401059414f960f273051bf958c7c1",
+  "files": [
+    {
+      "path": "START_HERE.md",
+      "bytes": 4927,
+      "sha256": "c304029ce0a96ed010fc08dc4a462f7e6769f30254389b41548da1f2f5e92177",
+      "origin": "new bundle index"
+    },
+    {
+      "path": "babushkina_ferma_visual_audit_570f808/AGENT_PROMPT.md",
+      "bytes": 5956,
+      "sha256": "d996931c218bb9a93e5fc52a3dcafcb5782595d6efd80233b750796c3e15b144",
+      "origin": "babushkina_ferma_visual_audit_570f808.zip:babushkina_ferma_visual_audit_570f808/AGENT_PROMPT.md"
+    },
+    {
+      "path": "babushkina_ferma_visual_audit_570f808/README.md",
+      "bytes": 2628,
+      "sha256": "a7e2870c2940862232c2671bdefb8cde211310b2d9c3549921d55e48f9c8257b",
+      "origin": "babushkina_ferma_visual_audit_570f808.zip:babushkina_ferma_visual_audit_570f808/README.md"
+    },
+    {
+      "path": "babushkina_ferma_visual_audit_570f808/art_asset_requirements.md",
+      "bytes": 10344,
+      "sha256": "c1166888d2caa8a24a07c64960c9069f83601a4943fa6748bbc0f030d404979d",
+      "origin": "babushkina_ferma_visual_audit_570f808.zip:babushkina_ferma_visual_audit_570f808/art_asset_requirements.md"
+    },
+    {
+      "path": "babushkina_ferma_visual_audit_570f808/babushkina_ferma_visual_audit_and_epics.md",
+      "bytes": 122232,
+      "sha256": "3357637dad1b0e01e525f2e0d8c7f883f2e35931771aab161d5efd9807c76b11",
+      "origin": "babushkina_ferma_visual_audit_570f808.zip:babushkina_ferma_visual_audit_570f808/babushkina_ferma_visual_audit_and_epics.md"
+    },
+    {
+      "path": "babushkina_ferma_visual_audit_570f808/package_integrity.json",
+      "bytes": 1629,
+      "sha256": "b5e78a363a11e706494f3b2e2aad6dd0ed206c7988527cb8822162e6978f9288",
+      "origin": "babushkina_ferma_visual_audit_570f808.zip:babushkina_ferma_visual_audit_570f808/package_integrity.json"
+    },
+    {
+      "path": "babushkina_ferma_visual_audit_570f808/references/01_target_village_bank.jpg",
+      "bytes": 287411,
+      "sha256": "6057a5fcd85bf4766ed108cf8a80d3131494c43d60001023d919c948eb0d8533",
+      "origin": "babushkina_ferma_visual_audit_570f808.zip:babushkina_ferma_visual_audit_570f808/references/01_target_village_bank.jpg"
+    },
+    {
+      "path": "babushkina_ferma_visual_audit_570f808/references/02_user_interior_earlier.jpg",
+      "bytes": 125707,
+      "sha256": "c16189d6dc05a773970c85d1eccac8e23b62f793a7ad757578ea72b0ecff2ee5",
+      "origin": "babushkina_ferma_visual_audit_570f808.zip:babushkina_ferma_visual_audit_570f808/references/02_user_interior_earlier.jpg"
+    },
+    {
+      "path": "babushkina_ferma_visual_audit_570f808/references/03_user_village_earlier.jpg",
+      "bytes": 190983,
+      "sha256": "2b0de1843629150ccc3abae24ca1d66959b8d286f65b5ae39a46db69a91239d1",
+      "origin": "babushkina_ferma_visual_audit_570f808.zip:babushkina_ferma_visual_audit_570f808/references/03_user_village_earlier.jpg"
+    },
+    {
+      "path": "babushkina_ferma_visual_audit_570f808/references/04_user_cave_earlier.jpg",
+      "bytes": 158561,
+      "sha256": "49fa4360d2d5d711b8beaf73c97f5e07f1406a6e1e6da9a6221434b3c25ef7a6",
+      "origin": "babushkina_ferma_visual_audit_570f808.zip:babushkina_ferma_visual_audit_570f808/references/04_user_cave_earlier.jpg"
+    },
+    {
+      "path": "babushkina_ferma_visual_audit_570f808/references/README.md",
+      "bytes": 659,
+      "sha256": "9bd62e8967b225f3768c4860d48a1a61237da87fe38fb655a1b6ba72f54588a3",
+      "origin": "babushkina_ferma_visual_audit_570f808.zip:babushkina_ferma_visual_audit_570f808/references/README.md"
+    },
+    {
+      "path": "babushkina_ferma_visual_audit_570f808/source_manifest.json",
+      "bytes": 13989,
+      "sha256": "b74a14d276143d1f709ebc6be43ff10902b040596e50c7093373458bd35faeb5",
+      "origin": "babushkina_ferma_visual_audit_570f808.zip:babushkina_ferma_visual_audit_570f808/source_manifest.json"
+    },
+    {
+      "path": "babushkina_ferma_visual_audit_570f808/sources.md",
+      "bytes": 14354,
+      "sha256": "5ea196e7fa90869153f8171f19382873edfe1d9a503326b071d12b6dae7cbcdc",
+      "origin": "babushkina_ferma_visual_audit_570f808.zip:babushkina_ferma_visual_audit_570f808/sources.md"
+    },
+    {
+      "path": "babushkina_ferma_visual_audit_570f808/visual_audit.md",
+      "bytes": 21423,
+      "sha256": "c64211db16fe1259ac7865e8985e3d24be1a847eb041a13f4adb592eeb813de8",
+      "origin": "babushkina_ferma_visual_audit_570f808.zip:babushkina_ferma_visual_audit_570f808/visual_audit.md"
+    },
+    {
+      "path": "babushkina_ferma_visual_audit_570f808/visual_mvp.md",
+      "bytes": 11029,
+      "sha256": "fb17da0584d232598d713fc47f0555468a07425780d58ef004f22caa0f9af456",
+      "origin": "babushkina_ferma_visual_audit_570f808.zip:babushkina_ferma_visual_audit_570f808/visual_mvp.md"
+    },
+    {
+      "path": "babushkina_ferma_visual_audit_570f808/visual_upgrade_epics.md",
+      "bytes": 59319,
+      "sha256": "56fe1cfc03bb47e6cd6f0f6498b8786608b72aae2f2ffe7792efe2ecee80202f",
+      "origin": "babushkina_ferma_visual_audit_570f808.zip:babushkina_ferma_visual_audit_570f808/visual_upgrade_epics.md"
+    },
+    {
+      "path": "babushkina_ferma_visual_audit_570f808/visual_upgrade_plan.json",
+      "bytes": 52882,
+      "sha256": "b62d33bc750904d7cf89a1b161fcb18afbfac1a40b4e6a3c99114d99a2897ae8",
+      "origin": "babushkina_ferma_visual_audit_570f808.zip:babushkina_ferma_visual_audit_570f808/visual_upgrade_plan.json"
+    },
+    {
+      "path": "babushkina_ferma_visual_audit_and_epics.md",
+      "bytes": 122232,
+      "sha256": "3357637dad1b0e01e525f2e0d8c7f883f2e35931771aab161d5efd9807c76b11",
+      "origin": "babushkina_ferma_visual_audit_and_epics.md"
+    },
+    {
+      "path": "godot_visual_upgrade/README.md",
+      "bytes": 2015,
+      "sha256": "01253a7329daf1b1bfffd644d38a336f36ca08f7f221985f1239b4a1166e3b34",
+      "origin": "godot_visual_upgrade_pack.zip:godot_visual_upgrade/README.md"
+    },
+    {
+      "path": "godot_visual_upgrade/SPEC.md",
+      "bytes": 55523,
+      "sha256": "ce535cd8e51a1e599b54fdba663e0de76a5144ee879ca7108f95778a0c86dc40",
+      "origin": "godot_visual_upgrade_pack.zip:godot_visual_upgrade/SPEC.md"
+    },
+    {
+      "path": "godot_visual_upgrade/config/shader_globals.cfg.example",
+      "bytes": 465,
+      "sha256": "d8d99df37676bf066b98246d1c4b75965e497a037a2d0f2260f13e5856a12adf",
+      "origin": "godot_visual_upgrade_pack.zip:godot_visual_upgrade/config/shader_globals.cfg.example"
+    },
+    {
+      "path": "godot_visual_upgrade/references/01_target_village.jpg",
+      "bytes": 287411,
+      "sha256": "6057a5fcd85bf4766ed108cf8a80d3131494c43d60001023d919c948eb0d8533",
+      "origin": "godot_visual_upgrade_pack.zip:godot_visual_upgrade/references/01_target_village.jpg"
+    },
+    {
+      "path": "godot_visual_upgrade/references/02_current_interior.jpg",
+      "bytes": 125707,
+      "sha256": "c16189d6dc05a773970c85d1eccac8e23b62f793a7ad757578ea72b0ecff2ee5",
+      "origin": "godot_visual_upgrade_pack.zip:godot_visual_upgrade/references/02_current_interior.jpg"
+    },
+    {
+      "path": "godot_visual_upgrade/references/03_current_village.jpg",
+      "bytes": 190983,
+      "sha256": "2b0de1843629150ccc3abae24ca1d66959b8d286f65b5ae39a46db69a91239d1",
+      "origin": "godot_visual_upgrade_pack.zip:godot_visual_upgrade/references/03_current_village.jpg"
+    },
+    {
+      "path": "godot_visual_upgrade/references/04_current_cave.jpg",
+      "bytes": 158561,
+      "sha256": "49fa4360d2d5d711b8beaf73c97f5e07f1406a6e1e6da9a6221434b3c25ef7a6",
+      "origin": "godot_visual_upgrade_pack.zip:godot_visual_upgrade/references/04_current_cave.jpg"
+    },
+    {
+      "path": "godot_visual_upgrade/visuals/resources/water_noise.tres",
+      "bytes": 279,
+      "sha256": "af7c37c86ba31f6ec14604ca49bf5510102f90edd092bef8212da529c4adf51a",
+      "origin": "godot_visual_upgrade_pack.zip:godot_visual_upgrade/visuals/resources/water_noise.tres"
+    },
+    {
+      "path": "godot_visual_upgrade/visuals/scripts/grass_patch.gd",
+      "bytes": 752,
+      "sha256": "9226d1db5585c0e2eeb397738f76867069f2d7f9ce22001189aef7b006da27b2",
+      "origin": "godot_visual_upgrade_pack.zip:godot_visual_upgrade/visuals/scripts/grass_patch.gd"
+    },
+    {
+      "path": "godot_visual_upgrade/visuals/scripts/visual_environment.gd",
+      "bytes": 1678,
+      "sha256": "ec174ac4229ec6c351b7dbeae05582dc1b998954ad7e8b7a37e9fa2d09443baa",
+      "origin": "godot_visual_upgrade_pack.zip:godot_visual_upgrade/visuals/scripts/visual_environment.gd"
+    },
+    {
+      "path": "godot_visual_upgrade/visuals/shaders/grass_interactive.gdshader",
+      "bytes": 1780,
+      "sha256": "ea5104315292f8aa23249aabf3b784e703571c8996d98e5cc5abdac57f64b315",
+      "origin": "godot_visual_upgrade_pack.zip:godot_visual_upgrade/visuals/shaders/grass_interactive.gdshader"
+    },
+    {
+      "path": "godot_visual_upgrade/visuals/shaders/water_surface.gdshader",
+      "bytes": 2277,
+      "sha256": "dd58f9c5ed69410919bad32b4ed6111478ea6e4f56a6ae6fc057ae84502256bd",
+      "origin": "godot_visual_upgrade_pack.zip:godot_visual_upgrade/visuals/shaders/water_surface.gdshader"
+    },
+    {
+      "path": "godot_visual_upgrade_spec.md",
+      "bytes": 55523,
+      "sha256": "ce535cd8e51a1e599b54fdba663e0de76a5144ee879ca7108f95778a0c86dc40",
+      "origin": "godot_visual_upgrade_spec.md"
+    }
+  ]
+}

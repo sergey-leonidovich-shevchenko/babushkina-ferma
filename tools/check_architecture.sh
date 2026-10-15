@@ -50,5 +50,7 @@ python3 tools/check_sprite_cleanup.py
 python3 tools/project_backlog.py
 python3 tools/test_project_backlog.py
 python3 tools/test_water_audit.py
+python3 tools/visual_backlog.py
+python3 tools/test_visual_backlog.py
 git diff --check
 print -- "ARCHITECTURE: boundaries and whitespace are valid"

@@ -1,0 +1,694 @@
+{
+  "schema": "proposal-local-v1",
+  "repository": "sergey-leonidovich-shevchenko/babushkina-ferma",
+  "commit": "570f80832d9401059414f960f273051bf958c7c1",
+  "planning_only": true,
+  "not_importable_as_base_backlog_without_adaptation": true,
+  "epics": [
+    {
+      "id": "EPIC-VART",
+      "title": "Единый художественный стандарт и ограниченная партия ассетов",
+      "prefix": "VART"
+    },
+    {
+      "id": "EPIC-VPIPE",
+      "title": "Время, координаты и интеграция визуальных проходов",
+      "prefix": "VPIPE"
+    },
+    {
+      "id": "EPIC-VLAND",
+      "title": "Живописная земля, дорожки и композиция",
+      "prefix": "VLAND"
+    },
+    {
+      "id": "EPIC-VFLORA",
+      "title": "Растительность: ветер, контакт и восстановление",
+      "prefix": "VFLORA"
+    },
+    {
+      "id": "EPIC-VLIGHT",
+      "title": "Согласованный свет и атмосфера",
+      "prefix": "VLIGHT"
+    },
+    {
+      "id": "EPIC-VDELIV",
+      "title": "Редактор, измерения и поэтапная приёмка",
+      "prefix": "VDELIV"
+    }
+  ],
+  "task_count": 24,
+  "tasks": [
+    {
+      "id": "VART-01",
+      "title": "Зафиксировать новое художественное направление",
+      "status": "backlog",
+      "stage": "mvp",
+      "goal": "Устранить конфликт painterly-направления с обязательным pixel/nearest, не потеряв сетку, игровые размеры и три ракурса мебели.",
+      "existing_paths": [
+        "docs/ART_GUIDE.md",
+        "docs/SPRITE_STANDARD.md",
+        "docs/backlog/README.md",
+        "AGENTS.md"
+      ],
+      "proposed_paths": [],
+      "scope": "Обновить только согласованные художественные требования; добавить ссылку на отдельный визуальный план. Исторические утверждения и пользовательские выборы сохранить с контекстом. Базовые 50 задач не расширять.",
+      "acceptance": "Направление, запреты, правила исключений и процесс выбора masters однозначны; pixel-art не объявлен обязательным для нового окружения, существующие кадры не заменены.",
+      "verification": "Проверка ссылок/документов и сохранности старого бэклога; это не игровой тест.",
+      "depends_on": [],
+      "related_existing": [
+        "UX-05"
+      ],
+      "risk": "Случайное снятие ограничений ракурсов/коллизий вместе с отменой обязательного pixel-art.",
+      "rollback": "Вернуть только изменения этой задачи/выключить согласованный visual-profile; не откатывать чужие изменения состояния и воды.",
+      "branch": "codex/vart-01-visual-upgrade",
+      "evidence": "Не выполнено. Это проект задачи, не запись о реализации."
+    },
+    {
+      "id": "VART-02",
+      "title": "Подготовить одну сопоставимую художественную витрину",
+      "status": "backlog",
+      "stage": "mvp",
+      "goal": "Согласовать вид будущего экрана до массовой генерации ресурсов.",
+      "existing_paths": [
+        "scripts/core/game_preview_controller.gd",
+        "scripts/core/game_bootstrap.gd",
+        "docs/epics/water-2026-10/README.md"
+      ],
+      "proposed_paths": [],
+      "scope": "Существующий герой, одинаковый масштаб/камера, композиция у дороги и берега. Сравнить текущий материал, новый статичный вид и умеренный эффект. Варианты сохранить вне runtime; не просить заново выбрать уже описанное направление.",
+      "acceptance": "Пользователь принял конкретную витрину либо записаны точные замечания. Первый референс B учтён; все WATER-критерии не закрыты автоматически.",
+      "verification": "Нативный кадр и просмотр masters в игровом размере; отдельно отметить использованные временные ассеты.",
+      "depends_on": [
+        "VART-01",
+        "VPIPE-01"
+      ],
+      "related_existing": [
+        "WATER-02"
+      ],
+      "risk": "Красивый концепт непригоден к повторению тайлов и не соответствует масштабу игры.",
+      "rollback": "Вернуть только изменения этой задачи/выключить согласованный visual-profile; не откатывать чужие изменения состояния и воды.",
+      "branch": "codex/vart-02-visual-upgrade",
+      "evidence": "Не выполнено. Это проект задачи, не запись о реализации."
+    },
+    {
+      "id": "VART-03",
+      "title": "Описать профили растений и подготовить ограниченную партию",
+      "status": "backlog",
+      "stage": "mvp",
+      "goal": "Получить проверяемые изображения с корнями, atlas-rect и согласованным размером.",
+      "existing_paths": [
+        "scripts/systems/village_ambient_renderer.gd",
+        "scripts/systems/world_visual_profile_system.gd",
+        "assets/game/world_sprite_manifest.json"
+      ],
+      "proposed_paths": [
+        "scripts/systems/foliage_visual_profile_system.gd"
+      ],
+      "scope": "Измерить существующие пригодные клетки, оформить профиль source/anchor/root/bounds/flexibility/filter. Подготовить только недостающие выбранные пучки/переходы. Формат профиля не дублирует collision-реестр.",
+      "acceptance": "Корень задан по рисунку, source не захватывает соседей, прозрачные поля и максимальная деформация учтены. Все новые ресурсы имеют происхождение и регистрацию; без одобрения нет production-подмены.",
+      "verification": "Atlas/alpha/profile-проверки и нативная витрина. Валидатор мебельных ракурсов остаётся областью UX-05.",
+      "depends_on": [
+        "VART-02"
+      ],
+      "related_existing": [
+        "UX-05"
+      ],
+      "risk": "Прозрачное поле в 362×362 ошибочно трактуется как часть стебля.",
+      "rollback": "Вернуть только изменения этой задачи/выключить согласованный visual-profile; не откатывать чужие изменения состояния и воды.",
+      "branch": "codex/vart-03-visual-upgrade",
+      "evidence": "Не выполнено. Это проект задачи, не запись о реализации."
+    },
+    {
+      "id": "VART-04",
+      "title": "Проверить фильтрацию и импорт по семействам",
+      "status": "backlog",
+      "stage": "mvp",
+      "goal": "Сделать новые живописные материалы читаемыми без размытия всей игры.",
+      "existing_paths": [
+        "project.godot",
+        "scripts/world_background.gd",
+        "scripts/systems/world_visual_profile_system.gd",
+        "docs/ART_GUIDE.md"
+      ],
+      "proposed_paths": [],
+      "scope": "Проверить nearest/linear для выбранной партии при реальном уменьшении. Учесть overrides CanvasItem и SubViewport. Не менять старого героя и UI общим фильтром; отличать цвет и data masks.",
+      "acceptance": "Установлена явная политика для выбранных семейств; нет bleed, белого matte или разного размера пикселя в кадрах персонажа. Глобальный импорт не перетряхнут.",
+      "verification": "Сравнимые кадры 1152×648 и фактического целевого framebuffer; проверка краёв/масок.",
+      "depends_on": [
+        "VART-03"
+      ],
+      "related_existing": [],
+      "risk": "Глобальный filter скрывает проблему в одной группе и портит все остальные.",
+      "rollback": "Вернуть только изменения этой задачи/выключить согласованный visual-profile; не откатывать чужие изменения состояния и воды.",
+      "branch": "codex/vart-04-visual-upgrade",
+      "evidence": "Не выполнено. Это проект задачи, не запись о реализации."
+    },
+    {
+      "id": "VPIPE-01",
+      "title": "Закрепить нативный baseline и preset визуального пилота",
+      "status": "backlog",
+      "stage": "mvp",
+      "goal": "Получить действительную точку сравнения на текущем checkout, не использовать старые скриншоты как baseline.",
+      "existing_paths": [
+        "scripts/core/game_preview_controller.gd",
+        "scripts/core/game_bootstrap.gd",
+        "tools/water_audit.gd",
+        "docs/reports/water-2026-10/README.md",
+        "PERFORMANCE.md"
+      ],
+      "proposed_paths": [
+        "tools/visual_environment_review.gd"
+      ],
+      "scope": "Обновить SHA в отчёте; зафиксировать бинарник, renderer, framebuffer, seed и камеру. Переиспользовать QA/preset-инфраструктуру. Снять игровой кадр и маршрут в изолированном профиле.",
+      "acceptance": "Есть baseline manifest, не пустой кадр и воспроизводимый маршрут. Стоимость в нативном renderer, headless и фиксированный target не подменяют физическое устройство.",
+      "verification": "Методика OPT-01, профильные контрольные трассы; сохранения пользователя не тронуты.",
+      "depends_on": [],
+      "related_existing": [
+        "OPT-01",
+        "QA-01",
+        "WATER-01"
+      ],
+      "risk": "Повторение уже известной проблемы неверного framebuffer/потери фокуса.",
+      "rollback": "Вернуть только изменения этой задачи/выключить согласованный visual-profile; не откатывать чужие изменения состояния и воды.",
+      "branch": "codex/vpipe-01-visual-upgrade",
+      "evidence": "Не выполнено. Это проект задачи, не запись о реализации."
+    },
+    {
+      "id": "VPIPE-02",
+      "title": "Встроить transient visual clock и источник контакта",
+      "status": "backlog",
+      "stage": "mvp",
+      "goal": "Все новые эффекты соблюдают реальную игровую паузу и получают фактическое движение ног.",
+      "existing_paths": [
+        "scripts/core/game_loop.gd",
+        "scripts/game_context.gd",
+        "scripts/game_core.gd",
+        "scripts/systems/village_ambient_renderer.gd"
+      ],
+      "proposed_paths": [
+        "scripts/systems/environment_visual_runtime_system.gd"
+      ],
+      "scope": "Обновлять визуальное состояние один раз в разрешённом шаге. Учитывать ранние возвраты GameLoop, photo/editor/focus и location change. Контакт после перемещения/перехода. Периодические фазы ограничены без разрыва; на sleep/teleport нет догоняния.",
+      "acceptance": "Паузы и reduced motion различены; стояние у стены не вызывает контакт бега. Косметическое состояние не сериализуется, RNG мира не расходуется. Многоконтекстный стенд не имеет конфликтующего singleton.",
+      "verification": "Новые целевые тесты паузы/teleport плюс существующие FocusPauseSuite/ActionLifecycleSuite/WorldRngSuite, подключённые согласно TESTING.md.",
+      "depends_on": [
+        "VPIPE-01"
+      ],
+      "related_existing": [
+        "WATER-05",
+        "SAFE-06",
+        "SAFE-07"
+      ],
+      "risk": "PROCESS_MODE_PAUSABLE не повторяет early-return pause игры; системные часы продолжают анимацию.",
+      "rollback": "Вернуть только изменения этой задачи/выключить согласованный visual-profile; не откатывать чужие изменения состояния и воды.",
+      "branch": "codex/vpipe-02-visual-upgrade",
+      "evidence": "Не выполнено. Это проект задачи, не запись о реализации."
+    },
+    {
+      "id": "VPIPE-03",
+      "title": "Выбрать способ деформации и границы render-pass",
+      "status": "backlog",
+      "stage": "mvp",
+      "goal": "Не перестраивать всю игру ради одного материала и не внедрять несовместимый shader.",
+      "existing_paths": [
+        "scripts/systems/render_system.gd",
+        "scripts/game_renderer.gd",
+        "scripts/world_background.gd",
+        "scripts/systems/tree_occlusion_system.gd"
+      ],
+      "proposed_paths": [
+        "docs/architecture/visual-environment-rendering.md"
+      ],
+      "scope": "На одном atlas-пучке сравнить CPU-deformed quad в существующем _draw и GPU-кандидат с реальным отдельным CanvasItem. Описать координаты, atlas UV, корень и размещение перед/после героя. Оформить ADR с ценой нужного рефакторинга.",
+      "acceptance": "Выбор подтверждён визуально и измерениями. Нет shader на общем Game ради травы; нет предположения, что Y-sort сортирует draw-команды. При переносе canvas/game разделены явно.",
+      "verification": "Одинаковая текстура/плотность, обе стороны героя, движение камеры, собственный shader compile на проектном Godot для GPU-кандидата.",
+      "depends_on": [
+        "VPIPE-01",
+        "VART-03"
+      ],
+      "related_existing": [],
+      "risk": "Новые Sprite2D оказываются поверх HUD или не могут интерливиться с героем в одном CanvasItem.",
+      "rollback": "Вернуть только изменения этой задачи/выключить согласованный visual-profile; не откатывать чужие изменения состояния и воды.",
+      "branch": "codex/vpipe-03-visual-upgrade",
+      "evidence": "Не выполнено. Это проект задачи, не запись о реализации."
+    },
+    {
+      "id": "VPIPE-04",
+      "title": "Интегрировать выбранный ограниченный проход",
+      "status": "backlog",
+      "stage": "mvp",
+      "goal": "Рабочая точка для живых растений при сохранении прежних игровых владельцев.",
+      "existing_paths": [
+        "scripts/systems/render_system.gd",
+        "scripts/systems/tree_occlusion_system.gd",
+        "scripts/systems/camera_system.gd",
+        "scripts/systems/animation_renderer.gd",
+        "scripts/systems/interior_renderer.gd"
+      ],
+      "proposed_paths": [
+        "scripts/presentation/foliage_renderer.gd"
+      ],
+      "scope": "Добавить выбранный механизм только для пилота. Единый world→screen, stable depth tie-breaker, culling по расширенным bounds. При GPU нужны явные render targets/items; при CPU не строить лишнее дерево. Старые деревья/мебель сохраняют правила.",
+      "acceptance": "Герой рисуется один раз; растения не всегда поверх; верхушки у края экрана не исчезают. Старые foreground/UI не сломаны. Локальный порядок герой/трава не назван общей сортировкой всех NPC.",
+      "verification": "Нативные front/back/edge случаи; текущие регрессии дерева/мебели найти и сохранить; сравнение до/после.",
+      "depends_on": [
+        "VPIPE-02",
+        "VPIPE-03"
+      ],
+      "related_existing": [],
+      "risk": "Механический перенос функции на другой узел оставляет game.draw_* на старом canvas.",
+      "rollback": "Вернуть только изменения этой задачи/выключить согласованный visual-profile; не откатывать чужие изменения состояния и воды.",
+      "branch": "codex/vpipe-04-visual-upgrade",
+      "evidence": "Не выполнено. Это проект задачи, не запись о реализации."
+    },
+    {
+      "id": "VLAND-01",
+      "title": "Подготовить детерминированные данные покрытия пилота",
+      "status": "backlog",
+      "stage": "mvp",
+      "goal": "Новые детали используют текущую геометрию, не второй набор физических контуров.",
+      "existing_paths": [
+        "scripts/systems/village_terrain_renderer.gd",
+        "scripts/systems/village_map_data.gd",
+        "scripts/systems/water_map_registry.gd"
+      ],
+      "proposed_paths": [],
+      "scope": "Ограничить область пилота; описать визуальные пятна/края и исключения. Routes, реальные двери, грядки и WaterTopology остаются источниками семантики. Косметические локальные отклонения разрешены только без конфликта пространственного стандарта.",
+      "acceptance": "Сборка повторяема; изменение камеры не меняет раскладку; проходы и безопасные точки не перемещаются.",
+      "verification": "Проверка одинакового seed/revision и отсутствия изменений навигации/состояния.",
+      "depends_on": [
+        "VART-02"
+      ],
+      "related_existing": [
+        "WATER-03",
+        "WATER-07"
+      ],
+      "risk": "Декоративная кисть создаёт невидимую вторую карту проходимости.",
+      "rollback": "Вернуть только изменения этой задачи/выключить согласованный visual-profile; не откатывать чужие изменения состояния и воды.",
+      "branch": "codex/vland-01-visual-upgrade",
+      "evidence": "Не выполнено. Это проект задачи, не запись о реализации."
+    },
+    {
+      "id": "VLAND-02",
+      "title": "Добавить переходы травы и дороги в кешируемую землю",
+      "status": "backlog",
+      "stage": "mvp",
+      "goal": "Избавиться от регулярной заливки без отказа от модульности и кеша.",
+      "existing_paths": [
+        "scripts/systems/village_terrain_renderer.gd",
+        "scripts/world_background.gd"
+      ],
+      "proposed_paths": [],
+      "scope": "Применить принятые материалы/вариации и неровные визуальные края к существующим контурам. Сохранять логическую ширину дорог. Не вклеивать PNG целой иллюстрации вместо карты.",
+      "acceptance": "На пилотном экране нет грубого повторения и отдельной цветной обводки вместо перехода. Direct/cached дают одинаковую геометрию; смена фазы растений не инвалидирует землю.",
+      "verification": "Кадры direct/cached, повтор входа, смена сезона/погоды; счётчик пересборок.",
+      "depends_on": [
+        "VLAND-01",
+        "VART-04"
+      ],
+      "related_existing": [],
+      "risk": "Шум делает землю рябой или меняется каждый кадр.",
+      "rollback": "Вернуть только изменения этой задачи/выключить согласованный visual-profile; не откатывать чужие изменения состояния и воды.",
+      "branch": "codex/vland-02-visual-upgrade",
+      "evidence": "Не выполнено. Это проект задачи, не запись о реализации."
+    },
+    {
+      "id": "VLAND-03",
+      "title": "Собрать кластеры декора с исключениями и локальными ревизиями",
+      "status": "backlog",
+      "stage": "mvp",
+      "goal": "Живая растительность распределяется художественно и остаётся редактируемой.",
+      "existing_paths": [
+        "scripts/systems/village_ambient_renderer.gd",
+        "scripts/systems/world_visual_profile_system.gd",
+        "scripts/systems/level_editor_renderer.gd"
+      ],
+      "proposed_paths": [
+        "scripts/systems/foliage_placement_system.gd"
+      ],
+      "scope": "Вместо равномерного покрытия предложить кластеры/пустоты. Исключить проходы, грядки, неподходящий берег и обязательные взаимодействия. Разделить ground-detail и высокие растения. Построение на входе/редактировании, запрос ближайших ограничен пространственной областью.",
+      "acceptance": "Нет полной пересборки по движению камеры/героя, нет изменения WorldRng. Неактивная карта не удерживает бесконечные растения. У каждого элемента стабильный ID/профиль.",
+      "verification": "Детерминизм, границы карты, вода/мост, локальная правка и repeated load.",
+      "depends_on": [
+        "VLAND-01",
+        "VART-03"
+      ],
+      "related_existing": [],
+      "risk": "Все кластеры становятся отдельными всегда обновляемыми сценами.",
+      "rollback": "Вернуть только изменения этой задачи/выключить согласованный visual-profile; не откатывать чужие изменения состояния и воды.",
+      "branch": "codex/vland-03-visual-upgrade",
+      "evidence": "Не выполнено. Это проект задачи, не запись о реализации."
+    },
+    {
+      "id": "VLAND-04",
+      "title": "Принять статичный эталон и сезонные fallback",
+      "status": "backlog",
+      "stage": "mvp",
+      "goal": "Картинка без движения уже соответствует выбранному направлению.",
+      "existing_paths": [
+        "scripts/systems/village_terrain_renderer.gd",
+        "scripts/systems/village_ambient_renderer.gd",
+        "docs/ART_GUIDE.md"
+      ],
+      "proposed_paths": [],
+      "scope": "Снять один и тот же кадр с отключёнными эффектами. Проверить силуэты/масштаб/кромки и fallback прочих сезонов. Не требовать полной новой сезонной партии до MVP.",
+      "acceptance": "Статичный вид принят; не зимуют цветы из spring-профиля по ошибке; остальные карты не изменены без намерения.",
+      "verification": "Ручная художественная приёмка и snapshots режимов season/weather.",
+      "depends_on": [
+        "VLAND-02",
+        "VLAND-03"
+      ],
+      "related_existing": [],
+      "risk": "Анимацией маскируется плохая земля, а остальные сезоны остаются сломаны.",
+      "rollback": "Вернуть только изменения этой задачи/выключить согласованный visual-profile; не откатывать чужие изменения состояния и воды.",
+      "branch": "codex/vland-04-visual-upgrade",
+      "evidence": "Не выполнено. Это проект задачи, не запись о реализации."
+    },
+    {
+      "id": "VFLORA-01",
+      "title": "Сделать ветер с неподвижным корнем",
+      "status": "backlog",
+      "stage": "mvp",
+      "goal": "Пучок отклоняется верхом, а не плавает целым прямоугольником.",
+      "existing_paths": [
+        "scripts/systems/village_ambient_renderer.gd",
+        "scripts/systems/world_visual_profile_system.gd"
+      ],
+      "proposed_paths": [],
+      "scope": "Использовать выбранный проход, измеренный root и local UV. Разные фазы/жёсткость; камыш сильнее короткой травы. Корень не деформируется. Рендер получает готовое визуальное состояние, не обновляет мир.",
+      "acceptance": "Нет atlas bleed; корни сохраняют место, фаза воспроизводима; ветер не превращает все растения в синхронное желе.",
+      "verification": "Нативный крупный/игровой масштаб и неподвижная/движущаяся камера; reduced motion.",
+      "depends_on": [
+        "VPIPE-04",
+        "VLAND-03",
+        "VART-04"
+      ],
+      "related_existing": [],
+      "risk": "Общий MODEL_MATRIX батча ошибочно используется как индивидуальный root.",
+      "rollback": "Вернуть только изменения этой задачи/выключить согласованный visual-profile; не откатывать чужие изменения состояния и воды.",
+      "branch": "codex/vflora-01-visual-upgrade",
+      "evidence": "Не выполнено. Это проект задачи, не запись о реализации."
+    },
+    {
+      "id": "VFLORA-02",
+      "title": "Реакция на реальный проход героя",
+      "status": "backlog",
+      "stage": "mvp",
+      "goal": "Трава локально расходится вблизи ног и учитывает движение.",
+      "existing_paths": [
+        "scripts/core/game_loop.gd",
+        "scripts/game_core.gd",
+        "scripts/systems/village_ambient_renderer.gd"
+      ],
+      "proposed_paths": [],
+      "scope": "В ограниченном соседстве рассчитать контакт по фактическим world-координатам и перемещению. Радиус/сила живут в профиле. Обработка точного совпадения root/hero и ограничения максимального отклонения.",
+      "acceptance": "Четыре стороны/диагонали выглядят логично; стоящий герой не генерирует бесконечные ударные импульсы; через стену не имитируется ходьба. Телепорт не используется как гигантская скорость.",
+      "verification": "Точки нулевого расстояния, движение/остановка/стена, save/load, переход.",
+      "depends_on": [
+        "VFLORA-01",
+        "VPIPE-02"
+      ],
+      "related_existing": [],
+      "risk": "Источник воздействия привязан к спрайтовому центру или экранной камере вместо ног.",
+      "rollback": "Вернуть только изменения этой задачи/выключить согласованный visual-profile; не откатывать чужие изменения состояния и воды.",
+      "branch": "codex/vflora-02-visual-upgrade",
+      "evidence": "Не выполнено. Это проект задачи, не запись о реализации."
+    },
+    {
+      "id": "VFLORA-03",
+      "title": "Мягкое восстановление и ограниченное активное состояние",
+      "status": "backlog",
+      "stage": "mvp",
+      "goal": "После прохода растение возвращается с короткой инерцией, а не мгновенно исчезающим смещением.",
+      "existing_paths": [
+        "scripts/core/game_loop.gd",
+        "scripts/systems/village_ambient_renderer.gd"
+      ],
+      "proposed_paths": [],
+      "scope": "Добавить устойчивую к delta восстановительную модель только затронутым пучкам. Ограничить амплитуду, количество активных записей и срок жизни; явно сбрасывать на смене карты. Периодический ветер может оставаться аналитическим.",
+      "acceptance": "Возврат виден и не дрожит; после меню нет скачка/догоняющих импульсов. Без контактов состояние не растёт, косметика не попадает в save.",
+      "verification": "Разные delta, длинная пауза, частый вход/выход из радиуса, тест ограниченности записей.",
+      "depends_on": [
+        "VFLORA-02"
+      ],
+      "related_existing": [],
+      "risk": "Неустойчивая пружина на большом delta или бессрочная Dictionary-запись на каждое растение.",
+      "rollback": "Вернуть только изменения этой задачи/выключить согласованный visual-profile; не откатывать чужие изменения состояния и воды.",
+      "branch": "codex/vflora-03-visual-upgrade",
+      "evidence": "Не выполнено. Это проект задачи, не запись о реализации."
+    },
+    {
+      "id": "VFLORA-04",
+      "title": "Принять интерактивную растительность в нативной игре",
+      "status": "backlog",
+      "stage": "mvp",
+      "goal": "Отличить выполненный живой эффект от формальной компиляции shader.",
+      "existing_paths": [
+        "TESTING.md",
+        "scripts/systems/tree_occlusion_system.gd",
+        "scripts/systems/level_editor_renderer.gd"
+      ],
+      "proposed_paths": [],
+      "scope": "Записать короткий маршрут с проходом/остановкой/повторным проходом/паузой. Проверить матрицу V-M02…11 и связанные V-M15/17/18. Описать поддержанный состав участников; NPC-реакция не объявляется готовой без реализации.",
+      "acceptance": "Работают ветер, контакт, восстановление, корни и перекрытия; результаты и ограничения перечислены отдельно от тестов. Нет расхода gameplay-RNG/наград/лута.",
+      "verification": "Целевые unit/regression-тесты + нативное видео; одобрение интенсивности движения.",
+      "depends_on": [
+        "VFLORA-03",
+        "VLAND-04"
+      ],
+      "related_existing": [],
+      "risk": "Зелёный headless-результат выдаётся за качество игрового движения.",
+      "rollback": "Вернуть только изменения этой задачи/выключить согласованный visual-profile; не откатывать чужие изменения состояния и воды.",
+      "branch": "codex/vflora-04-visual-upgrade",
+      "evidence": "Не выполнено. Это проект задачи, не запись о реализации."
+    },
+    {
+      "id": "VLIGHT-01",
+      "title": "Согласовать контактные тени выбранных объектов",
+      "status": "backlog",
+      "stage": "mvp",
+      "goal": "Предметы стоят на земле, без добавления второго комплекта поверх существующей тени.",
+      "existing_paths": [
+        "scripts/systems/tree_occlusion_system.gd",
+        "scripts/systems/interior_renderer.gd",
+        "scripts/systems/atmosphere_renderer.gd",
+        "scripts/systems/world_visual_profile_system.gd"
+      ],
+      "proposed_paths": [],
+      "scope": "Проверить существующие тени у дерева, героя, лавки/камня и пучка. Выбрать силу/направление и место отрисовки. Разделить baked и runtime. Не добавлять эллипс буквально под всё без учёта формы.",
+      "acceptance": "В пилоте нет двойных теней, парения и переноса тени выше объекта; atlas и коллизии не меняются.",
+      "verification": "Статика/вечер/перекрытие и движения героя на скриншоте.",
+      "depends_on": [
+        "VLAND-04"
+      ],
+      "related_existing": [],
+      "risk": "Контактная тень усиливает уже нарисованную в PNG падающую тень.",
+      "rollback": "Вернуть только изменения этой задачи/выключить согласованный visual-profile; не откатывать чужие изменения состояния и воды.",
+      "branch": "codex/vlight-01-visual-upgrade",
+      "evidence": "Не выполнено. Это проект задачи, не запись о реализации."
+    },
+    {
+      "id": "VLIGHT-02",
+      "title": "Довести дневной и вечерний вид пилота",
+      "status": "backlog",
+      "stage": "mvp",
+      "goal": "Согласованный свет без полной замены системы и без окрашивания интерфейса.",
+      "existing_paths": [
+        "scripts/systems/atmosphere_renderer.gd",
+        "scripts/systems/render_system.gd",
+        "scripts/systems/interior_renderer.gd"
+      ],
+      "proposed_paths": [],
+      "scope": "Развить существующую модуляцию/огни на одном участке. Умеренный контраст, свет в согласованном месте. PointLight2D/normal maps только после отдельной проверки render-pass; не обязательное средство для всего.",
+      "acceptance": "Герой, путь и важные сигналы читаются; UI сохраняет цвет. Reduced motion не отключает смысловые сигналы. Цветокоррекция не скрывает несовместимую графику.",
+      "verification": "Нативные day/dusk/night и контроль чистого HUD.",
+      "depends_on": [
+        "VLIGHT-01",
+        "VPIPE-02"
+      ],
+      "related_existing": [],
+      "risk": "Экранный шейдер меняет весь Game, включая меню и текст.",
+      "rollback": "Вернуть только изменения этой задачи/выключить согласованный visual-profile; не откатывать чужие изменения состояния и воды.",
+      "branch": "codex/vlight-02-visual-upgrade",
+      "evidence": "Не выполнено. Это проект задачи, не запись о реализации."
+    },
+    {
+      "id": "VLIGHT-03",
+      "title": "Свести пилот с существующим WATER",
+      "status": "backlog",
+      "stage": "mvp",
+      "goal": "Один цельный кадр земли, растительности и новой воды без второго владельца геометрии.",
+      "existing_paths": [
+        "docs/epics/water-2026-10/README.md",
+        "scripts/world_background.gd",
+        "scripts/systems/village_terrain_renderer.gd",
+        "scripts/systems/water_map_registry.gd",
+        "scripts/systems/water_topology.gd"
+      ],
+      "proposed_paths": [],
+      "scope": "Согласовать accepted art и слои с WATER-владельцем. Все изменения surface/bank/flow/bridge и водных масок вести в соответствующих WATER-задачах; здесь только интеграционная приёмка итогового визуального пилота.",
+      "acceptance": "Мост/берег не накрываются поверхностью, нет старой реки под новой, фаза не инвалидирует грунт. Контакт камыша и профиль погоды согласованы; рыбалка использует существующие запросы.",
+      "verification": "Водные suites/профили из TESTING.md + единый нативный кадр/маршрут; не присваивать WATER-done из этого документа.",
+      "depends_on": [
+        "VLAND-04",
+        "VLIGHT-02"
+      ],
+      "related_existing": [
+        "WATER-02",
+        "WATER-04",
+        "WATER-05",
+        "WATER-06",
+        "WATER-07",
+        "WATER-11"
+      ],
+      "risk": "У двух эпиков появляются разные береговые маски или несовместимые методы измерений.",
+      "rollback": "Вернуть только изменения этой задачи/выключить согласованный visual-profile; не откатывать чужие изменения состояния и воды.",
+      "branch": "codex/vlight-03-visual-upgrade",
+      "evidence": "Не выполнено. Это проект задачи, не запись о реализации."
+    },
+    {
+      "id": "VLIGHT-04",
+      "title": "Добавить ограниченные атмосферные и звуковые детали",
+      "status": "backlog",
+      "stage": "post_mvp",
+      "goal": "Дополнить отзывчивость мира без визуального/звукового спама.",
+      "existing_paths": [
+        "scripts/systems/atmosphere_renderer.gd",
+        "scripts/systems/village_ambient_renderer.gd",
+        "scripts/systems/audio_system.gd"
+      ],
+      "proposed_paths": [],
+      "scope": "После базового одобрения выбрать максимум несколько эффектов: редкие листья/пыльца, мягкий шелест при фактическом контакте, небольшая реакция куста. Использовать общий clock, лимиты, расстояние и reduced motion.",
+      "acceptance": "Эффект не перекрывает телеграфы/лут, не звучит непрерывно на каждом кадре и выключается на невидимой карте. Микшер/доступность сохраняются.",
+      "verification": "Нативный и слуховой просмотр; лимит активных эффектов, паузы/смена локации.",
+      "depends_on": [
+        "VFLORA-04",
+        "VLIGHT-02"
+      ],
+      "related_existing": [
+        "UX-04"
+      ],
+      "risk": "Декоративный шум вместо улучшения базовой сцены.",
+      "rollback": "Вернуть только изменения этой задачи/выключить согласованный visual-profile; не откатывать чужие изменения состояния и воды.",
+      "branch": "codex/vlight-04-visual-upgrade",
+      "evidence": "Не выполнено. Это проект задачи, не запись о реализации."
+    },
+    {
+      "id": "VDELIV-01",
+      "title": "Подключить те же профили к F12 и published-уровням",
+      "status": "backlog",
+      "stage": "mvp",
+      "goal": "Растение из конструктора выглядит и реагирует так же, как встроенное.",
+      "existing_paths": [
+        "scripts/systems/level_editor_renderer.gd",
+        "scripts/systems/published_level_renderer.gd",
+        "scripts/systems/level_editor_system.gd",
+        "scripts/systems/world_visual_profile_system.gd"
+      ],
+      "proposed_paths": [],
+      "scope": "Сохранить общий источник профиля/source/root/layer. Перед добавлением полей прочитать serialization/validation-конструктор. Добавлять только стабильные authoring-поля с default/migration, не текущую фазу ветра.",
+      "acceptance": "Размещение, экспорт, повторное открытие и run дают одинаковый вид. Hidden/reference не дублируются. Unknown profile обрабатывается безопасно; старый документ читается.",
+      "verification": "Round-trip JSON и нативное F12/published сравнение; найти и дополнить действующие suites редактора.",
+      "depends_on": [
+        "VFLORA-04"
+      ],
+      "related_existing": [
+        "QA-01"
+      ],
+      "risk": "Пилот существует только в ручных константах и не воспроизводится редактором.",
+      "rollback": "Вернуть только изменения этой задачи/выключить согласованный visual-profile; не откатывать чужие изменения состояния и воды.",
+      "branch": "codex/vdeliv-01-visual-upgrade",
+      "evidence": "Не выполнено. Это проект задачи, не запись о реализации."
+    },
+    {
+      "id": "VDELIV-02",
+      "title": "Подтвердить стоимость и пределы растительности",
+      "status": "backlog",
+      "stage": "mvp",
+      "goal": "Масштабировать только после измерения при принятом изображении.",
+      "existing_paths": [
+        "PERFORMANCE.md",
+        "tools/water_audit.gd",
+        "scripts/core/game_loop.gd",
+        "scripts/world_background.gd"
+      ],
+      "proposed_paths": [],
+      "scope": "Сравнить включение/выключение новых фаз, фиксировать culling, активные растения, обновления, материалы и ресурсы. Размеры чанков/плотность выбирать по данным. Общий gate не дублировать: методика остаётся OPT-01.",
+      "acceptance": "Есть согласованный бюджет/устройство, p95/p99/max и сырые данные. Невозможная метрика помечена N/A. Пауза/скрытый мир не требуют лишних обновлений. Никаких обещаний всех устройств.",
+      "verification": "Парные нативные пробы, повторные переходы и ограниченность кешей; негативный контроль измерительного протокола.",
+      "depends_on": [
+        "VFLORA-04",
+        "VLIGHT-02"
+      ],
+      "related_existing": [
+        "OPT-01",
+        "WATER-01"
+      ],
+      "risk": "Средний FPS/VSync скрывает рост времени или длинные кадры.",
+      "rollback": "Вернуть только изменения этой задачи/выключить согласованный visual-profile; не откатывать чужие изменения состояния и воды.",
+      "branch": "codex/vdeliv-02-visual-upgrade",
+      "evidence": "Не выполнено. Это проект задачи, не запись о реализации."
+    },
+    {
+      "id": "VDELIV-03",
+      "title": "Перенести стандарт на ограниченную партию интерьера и пещеры",
+      "status": "backlog",
+      "stage": "post_mvp",
+      "goal": "После MVP проверить переносимость, не начинать тотальную переделку всех локаций.",
+      "existing_paths": [
+        "scripts/systems/interior_renderer.gd",
+        "scripts/systems/cave_renderer.gd",
+        "scripts/systems/atmosphere_renderer.gd",
+        "scripts/world_background.gd"
+      ],
+      "proposed_paths": [],
+      "scope": "Выбрать один интерьер и один участок пещеры отдельными согласованными подзадачами. Дочитать все их renderer-пути. Сохранить существующую цель комнаты/награды/выходы; новую анимацию врагов не включать.",
+      "acceptance": "У каждой партии отдельные before/after, освещение и коллизии согласованы, старые системы не дублируются. WORLD-05 сохраняет владельца игрового дизайна комнаты.",
+      "verification": "Интерьерные и пещерные текущие тесты + нативная приёмка каждой партии.",
+      "depends_on": [
+        "VDELIV-04"
+      ],
+      "related_existing": [
+        "WORLD-05"
+      ],
+      "risk": "Большая переделка комнат блокирует готовый сухопутный пилот.",
+      "rollback": "Вернуть только изменения этой задачи/выключить согласованный visual-profile; не откатывать чужие изменения состояния и воды.",
+      "branch": "codex/vdeliv-03-visual-upgrade",
+      "evidence": "Не выполнено. Это проект задачи, не запись о реализации."
+    },
+    {
+      "id": "VDELIV-04",
+      "title": "Принять MVP и включить его без потери прогресса",
+      "status": "backlog",
+      "stage": "mvp",
+      "goal": "Пилот доступен в игре, результаты проверены, расширение на остальные карты явно запланировано.",
+      "existing_paths": [
+        "docs/backlog/README.md",
+        "docs/BACKLOG_WORKFLOW.md",
+        "TESTING.md",
+        "QA_CHECKLIST.md",
+        "TECH_DEBT.md"
+      ],
+      "proposed_paths": [],
+      "scope": "Пройти матрицу MVP, записать commit/скриншоты/видео/сырые метрики, разделить art/runtime/tests. Включить только принятый участок, сохранить fallback. Отдельно назначить будущие карты и этапы, не помечать всю игру обновлённой.",
+      "acceptance": "Все обязательные MVP-условия выполнены, блокеры и непроверенные устройства перечислены. Формат сохранений/экономика/механики не изменены ради визуала; одна принятая задача на публикацию.",
+      "verification": "tools/check_architecture.sh, ./run_tests.sh и нативная матрица на фактическом checkout. Wiki pnpm check только при изменениях её данных/представления.",
+      "depends_on": [
+        "VDELIV-01",
+        "VDELIV-02",
+        "VLIGHT-03"
+      ],
+      "related_existing": [
+        "QA-01",
+        "WATER-06"
+      ],
+      "risk": "План или отправка ветки ошибочно считается законченной приёмкой всей игры.",
+      "rollback": "Вернуть только изменения этой задачи/выключить согласованный visual-profile; не откатывать чужие изменения состояния и воды.",
+      "branch": "codex/vdeliv-04-visual-upgrade",
+      "evidence": "Не выполнено. Это проект задачи, не запись о реализации."
+    }
+  ],
+  "existing_water_owner": "docs/epics/water-2026-10/README.md",
+  "external_dependencies_note": "related_existing — ссылки/координация, не автоматическое признание готовности. Для VLIGHT-03 перед стартом проверить художественную и runtime-готовность WATER-02/04/05/06; интеграция блокируется до их принятия.",
+  "statuses_note": "Все backlog: план ещё не внесён в репозиторий и не принят. После сверки HEAD/дизайна агент назначает ready/blocked по текущему workflow, не по этому файлу автоматически."
+}
