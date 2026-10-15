@@ -34,12 +34,14 @@ class VisualBacklogTests(unittest.TestCase):
 
     def test_pending_ready(self):
         """Сценарий: Ready запрещён, пока зависимость не завершена."""
+        self.data['tasks'][0]['status'] = 'ready'
         self.data['tasks'][0]['depends_on'] = ['VBASE-002']
         self.assertIn('unfinished dependency', self.errors())
 
     def test_unproven_done(self):
         """Сценарий: текст карточки не заменяет доказательство результата."""
         self.data['tasks'][0]['status'] = 'done'
+        self.data['tasks'][0]['evidence'] = []
         self.assertIn('unproven done', self.errors())
 
     def test_duplicate_id(self):

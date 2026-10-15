@@ -52,5 +52,7 @@ python3 tools/test_project_backlog.py
 python3 tools/test_water_audit.py
 python3 tools/visual_backlog.py
 python3 tools/test_visual_backlog.py
+python3 tools/test_visual_baseline.py
+python3 tools/analyze_visual_baseline.py docs/reports/visual-overhaul/vbase-001/native >/dev/null
 git diff --check
 print -- "ARCHITECTURE: boundaries and whitespace are valid"

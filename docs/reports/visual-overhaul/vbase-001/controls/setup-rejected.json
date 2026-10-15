@@ -1,0 +1,24 @@
+{
+	"conditions": {
+		"focused": true,
+		"framebuffer": [
+			3584.0,
+			2240.0
+		],
+		"mode": 3,
+		"root_size": [
+			3584.0,
+			2240.0
+		],
+		"valid": false,
+		"vsync": 1,
+		"window": [
+			3584.0,
+			2240.0
+		]
+	},
+	"readback": [
+		3584.0,
+		2240.0
+	]
+}

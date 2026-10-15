@@ -1,6 +1,10 @@
 .DS_Store
 .godot/
 tools/*
+!tools/visual_baseline.gd
+!tools/run_visual_baseline.py
+!tools/analyze_visual_baseline.py
+!tools/test_visual_baseline.py
 !tools/build_forest_tree_atlas.py
 !tools/build_village_prop_atlas.py
 !tools/build_ui_kit.py
