@@ -827,8 +827,8 @@
         "tools/check_architecture.sh и ./run_tests.sh без ERROR движка.",
         "Обновлённые документация и точный ручной маршрут QA_CHECKLIST.md; нативная проверка, если меняются рисунок, ввод или производительность."
       ],
-      "status": "ready",
-      "result": ""
+      "status": "done",
+      "result": "Fixed schema-1/2 fixtures preserve balances, knowledge, paid queues and partial foundation; unknown catalog references reject before mutation with exact paths, source and backup preserved. SAFE profile 2304/0 plus placed-object negative cases; docs/reports/safe-2026-10/README.md."
     },
     {
       "id": "SAFE-04",
@@ -952,7 +952,7 @@
         "tools/check_architecture.sh и ./run_tests.sh без ERROR движка.",
         "Обновлённые документация и точный ручной маршрут QA_CHECKLIST.md; нативная проверка, если меняются рисунок, ввод или производительность."
       ],
-      "status": "blocked",
+      "status": "ready",
       "result": ""
     },
     {

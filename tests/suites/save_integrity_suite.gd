@@ -6,6 +6,7 @@ const PATH := "user://test-save-integrity.json"
 
 ## Запускает проверки целостности загрузки и совместимости координат постоянных объектов.
 func run() -> void:
+	preload("res://tests/suites/save_catalog_suite.gd").new(context).run()
 	test_rejects_malformed_state_without_mutation()
 	test_structural_corruption_falls_back_to_backup()
 	test_legacy_and_json_vector_round_trip()

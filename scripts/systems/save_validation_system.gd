@@ -57,6 +57,7 @@ static func valid(data: Dictionary) -> bool:
 	for key in CORE:
 		if not data.has(key) or not _matches(data[key], CORE[key]): return false
 	if not _matches(data, OPTIONAL): return false
+	if not preload("res://scripts/systems/save_catalog_reference_system.gd").first_error(data).is_empty(): return false
 	if data.has("rng") and not preload("res://scripts/systems/world_rng_system.gd").valid(data.rng,int(data.get("world_loot_seed",0))): return false
 	if not preload("res://scripts/systems/garden_crafting_system.gd").valid(data.plots+data.get("world_plots",[])): return false
 	var expansion:Dictionary=data.get("estate",{}).get("expansion",{})

@@ -1,0 +1,125 @@
+{
+  "version": 2,
+  "player": [
+    500,
+    500
+  ],
+  "location": "cottage_interior",
+  "day": 3,
+  "minutes": 620,
+  "energy": 9,
+  "coins": 41,
+  "xp": 4,
+  "level": 1,
+  "hp": 90,
+  "counts": {
+    "wood": 14,
+    "apple": 2
+  },
+  "slots": [
+    "wood",
+    "apple"
+  ],
+  "hotbar": [
+    "hoe",
+    "water",
+    "hand",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+  ],
+  "equipment": {
+    "head": ""
+  },
+  "quest_active": false,
+  "quest_complete": false,
+  "weapons": {
+    "sword": false,
+    "bow": false,
+    "crystal": false,
+    "equipped": "none"
+  },
+  "plots": [],
+  "resource_hits": [],
+  "state_schema": "aggregate-v2",
+  "estate": {
+    "level": 1,
+    "map_revision": 2,
+    "expansion": {
+      "research": {
+        "level": 1,
+        "known": [
+          "plank"
+        ],
+        "dismantled": 0
+      },
+      "furnace": {
+        "level": 1,
+        "heat": 8,
+        "fuel": "wood",
+        "completed": 2,
+        "queue": [
+          {
+            "id": "furnace:ore",
+            "duration": 12,
+            "remaining": 5,
+            "paid": {
+              "iron_ore": 2
+            }
+          }
+        ]
+      },
+      "workshops": {
+        "sawmill": {
+          "level": 1,
+          "queue": [
+            {
+              "id": "sawmill:planks",
+              "duration": 8,
+              "remaining": 3,
+              "paid": {
+                "log": 1
+              }
+            }
+          ]
+        }
+      },
+      "basement": {
+        "version": 1,
+        "next_id": 2,
+        "revision": 1,
+        "objects": [
+          {
+            "id": 1,
+            "kind": "pottery",
+            "x": 25,
+            "y": 18,
+            "direction": 0,
+            "level": 1,
+            "phase": "building",
+            "target": 1,
+            "work": 2,
+            "duration": 5,
+            "energy": 1,
+            "paid": {
+              "plank": 4,
+              "clay": 4,
+              "stone": 6
+            },
+            "production": {
+              "level": 1,
+              "queue": [],
+              "heat": 0,
+              "fuel": "wood",
+              "completed": 0
+            }
+          }
+        ]
+      }
+    }
+  }
+}
