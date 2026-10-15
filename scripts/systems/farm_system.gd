@@ -56,7 +56,7 @@ static func plant(game: Node, plot: Dictionary) -> bool:
 		game.message = "Эта культура откроется в ветке «Редкие культуры»"
 		return false
 	if not game.CropCatalogSystem.grows_in_season(crop_kind, game.WorldEventSystem.season(game.day)):
-		game.message = game.LocaleSystem.text("crop_out_of_season")
+		game.message = preload("res://scripts/systems/crop_learning_system.gd").word(game,"wait",[game.CropCatalogSystem.days_until_growth(crop_kind,game.day)])
 		return false
 	plot.planted = true
 	plot.crop_kind = crop_kind
@@ -68,6 +68,8 @@ static func plant(game: Node, plot: Dictionary) -> bool:
 	game.award_xp(1, "Посадка: %s" % game.inventory_item_name(seed_kind))
 	game.SkillSystem.award_profession_xp(game, "farming", 2)
 	game.message = game.LocaleSystem.text("crop_planted", [game.inventory_item_name(seed_kind)])
+	var warning:=preload("res://scripts/systems/crop_learning_system.gd").last_day_warning(game,crop_kind)
+	if not warning.is_empty(): game.message+=" • "+warning
 	game.notify_tutorial("plant")
 	if crop_kind != "carrot": game.notify_tutorial("crop_variety")
 	return true

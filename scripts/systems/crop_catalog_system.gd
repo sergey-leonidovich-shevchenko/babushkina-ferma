@@ -71,3 +71,10 @@ static func seed_kinds() -> Array[String]:
 	var result: Array[String] = []
 	for crop_kind in CROPS: result.append(String(CROPS[crop_kind].seed))
 	return result
+
+## Считает календарные дни до разрешённого сезона, не обещая рост в зимнем покое.
+static func days_until_growth(crop_kind: String, day: int) -> int:
+	var events:=preload("res://scripts/systems/world_event_system.gd")
+	for offset in range(events.DAYS_PER_SEASON*events.SEASONS.size()+1):
+		if grows_in_season(crop_kind,events.season(day+offset)): return offset
+	return -1

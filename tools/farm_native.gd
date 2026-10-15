@@ -1,0 +1,23 @@
+extends "res://tools/action_lifecycle_native.gd"
+
+const FOLDER_FARM := "res://docs/reports/farm-2026-10/native/"
+
+## Снимает хозяйственные интерфейсы в настоящей сцене, не читая игровые слоты пользователя.
+func _initialize() -> void:
+	ProjectSettings.set_setting("application/config/use_custom_user_dir",true)
+	ProjectSettings.set_setting("application/config/custom_user_dir_name","Codex-FARM-Native")
+	start_farm.call_deferred()
+
+## Создаёт нативный кадр карточки семян с реальной локализацией и действующим шрифтом.
+func start_farm() -> void:
+	if DisplayServer.get_name()=="headless": quit(2); return
+	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(FOLDER_FARM))
+	root.size=Vector2i(1152,648); DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+	OS.low_processor_usage_mode=false
+	var game:=make_game(); game.tutorial_visible=false; game.state.player.profile.created=true
+	game.FirstChapterSystem.state(game).completed=true
+	var life:Dictionary=game.FarmLifeSystem.state(game); life.first_day=6; life.cutscene=""; life.cutscene_timer=0
+	game.open_inventory(); game.inventory_selected=game.inventory_slots.find("seeds"); game.queue_redraw()
+	await process_frame; RenderingServer.force_draw(false)
+	root.get_texture().get_image().save_png(FOLDER_FARM+"seed-card.png")
+	game.free(); quit()

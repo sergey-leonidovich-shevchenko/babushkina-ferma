@@ -45,6 +45,8 @@ static func rarity_color(kind:String)->Color:
 
 ## Формирует локализованное описание фактического эффекта еды или зелья.
 static func effect_text(game:Node,kind:String)->String:
+	var seed_info:=preload("res://scripts/systems/crop_learning_system.gd").seed_info(game,kind)
+	if not seed_info.is_empty(): return seed_info
 	if preload("res://scripts/systems/garden_crafting_system.gd").FERTILIZERS.has(kind): return game.LocaleSystem.ui(kind+"_effect")
 	if kind=="fishing_bait": return game.LocaleSystem.ui("bait_effect")
 	if preload("res://scripts/systems/alchemy_product_data.gd").handles(kind): return preload("res://scripts/systems/alchemy_locale.gd").effect_text(game,kind)

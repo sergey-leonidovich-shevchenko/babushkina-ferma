@@ -6,7 +6,7 @@
 
 ## Состояние
 
-`backlog`: 1, `ready`: 12, `blocked`: 28, `in_progress`: 0, `done`: 9. Статус `done` требует записанного результата; исходные критерии и наличие тестов не означают выполнения.
+`backlog`: 1, `ready`: 11, `blocked`: 28, `in_progress`: 0, `done`: 10. Статус `done` требует записанного результата; исходные критерии и наличие тестов не означают выполнения.
 
 ## Эпики
 
@@ -24,7 +24,6 @@
 Начать с OPT-01: закрепить честный замер до следующего изменения производительности. Далее SAFE-05/SAFE-03 и QA-01; следующие пункты выбираем по дефектам и данным. Одна задача в работе. S/M/L — относительный объём, не срок; L можно разбить до начала.
 
 - [OPT-01](#opt-01) — Измерения, честный gate и быстрые профили
-- [FARM-03](#farm-03) — Проверить сезонную доступность культур и стартовых семян
 - [FARM-04](#farm-04) — Довести суточный уход за животными до понятного цикла
 - [FARM-05](#farm-05) — Согласовать очередь производства, расход топлива и отмену
 - [FARM-06](#farm-06) — Спроектировать понятное освоение первых десяти алхимических опытов
@@ -904,7 +903,7 @@
 
 ### FARM-03 — Проверить сезонную доступность культур и стартовых семян
 
-**ready · P2 · M · implementation**. Ветка: `codex/farm-03-seasonal-crop-access`.
+**done · P2 · M · implementation**. Ветка: `codex/farm-03-seasonal-crop-access`.
 
 **Сейчас:** Уже есть16 культур и сезонность; доступность ранних целей требует сквозного маршрута.
 
@@ -934,7 +933,7 @@
 
 **Основания:** [STARDEW-QOL](https://www.stardewvalley.net/stardew-valley-1-6-4-full-patch-notes/), [LOOPS](https://lostgarden.com/2012/04/30/loops-and-arcs/).
 
-**Подтверждение результата:** пока нет; задача открыта.
+**Подтверждение результата:** docs/reports/farm-2026-10/README.md: all 16 crops/four seasons, seed sources, winter JSON and perennials; compact localized timing/wait warnings, tutorial, native seed-card.png inspected. FarmSeasonsSuite 208 assertions; FARM profile 521/0.
 
 <a id="farm-04"></a>
 

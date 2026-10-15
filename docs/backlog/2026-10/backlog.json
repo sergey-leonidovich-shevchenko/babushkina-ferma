@@ -1123,8 +1123,8 @@
         "tools/check_architecture.sh и ./run_tests.sh без ERROR движка.",
         "Обновлённые документация и точный ручной маршрут QA_CHECKLIST.md; нативная проверка, если меняются рисунок, ввод или производительность."
       ],
-      "status": "ready",
-      "result": ""
+      "status": "done",
+      "result": "docs/reports/farm-2026-10/README.md: all 16 crops/four seasons, seed sources, winter JSON and perennials; compact localized timing/wait warnings, tutorial, native seed-card.png inspected. FarmSeasonsSuite 208 assertions; FARM profile 521/0."
     },
     {
       "id": "FARM-04",
