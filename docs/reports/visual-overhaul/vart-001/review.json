@@ -1,0 +1,80 @@
+{
+  "schema": 1,
+  "task": "VART-001",
+  "date": "2026-10-16",
+  "base_commit": "e562ce2774945090ca49dfecf445a2879ca2c3d7",
+  "kind": "design-concepts",
+  "runtime_imported": false,
+  "performance_eligible": false,
+  "selected_variant": "A",
+  "selection_source": "direct user reply in chat",
+  "selection_quote": "A мне понравился больше, помягче",
+  "selection_scope": "degree of painterliness, soft forms and restrained texture",
+  "generator": "built-in image_gen",
+  "source_images": {
+    "docs/reports/visual-overhaul/vbase-004/native/run-1/clean-0.png": "00bd69d585398356fe4fa1bd8602382a52765a83f50740305e5d20daf18e61f7",
+    "docs/epics/visual-overhaul-2026-10/references/01_target_village_bank.jpg": "6057a5fcd85bf4766ed108cf8a80d3131494c43d60001023d919c948eb0d8533"
+  },
+  "files": {
+    "modules-a.png": {
+      "sha256": "2afb68cd0e08844f161a6aebb0f8f7522e06da00011b75157ba271a5be1908fc",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "transparent_pixels": 905068
+    },
+    "modules-b.png": {
+      "sha256": "49083bb1b88a29d806fb4072cbcfb5f1aec342c46086e08ed1ff47b6208bdd7b",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "transparent_pixels": 830935
+    },
+    "scene-a.png": {
+      "sha256": "79e0797fd154c079fda867c1c5b52c4ffeb76c755a2cd9f78f7f974c6c00b799",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    },
+    "scene-b.png": {
+      "sha256": "f4741d135051c5fbd3ad7ab042bca9ff0452e95725379a48442c3f0e59e5ee7a",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB"
+    }
+  },
+  "prompts": {
+    "prompt-modules-a.txt": "1c8d97b09c4b72ddf0de784698f5260f9ded367ac8c6030b71cd713d9646ba55",
+    "prompt-modules-b.txt": "c1ace3e90dd122b62acbb55a15a7719fdfc5aadcedf0786a86e7f4b2a55b40fa",
+    "prompt-scene-a.txt": "ce534481943f754d348e5c4f32acc494e56c4bc98d3596a58f27e6d3be9813b5",
+    "prompt-scene-b.txt": "35ea87835bef75de7d5ff1d083d038043acbedaec3136b9eb4689414016be380"
+  },
+  "camera_reference": "overworld-entry-v1 / VBASE-004",
+  "geometric_fidelity": "composition reference, not pixel-locked; production keeps native coordinates",
+  "viewbox_regions": "sample-regions.json",
+  "production_ready": false,
+  "browser_review": {
+    "screenshot": "review-browser.jpg",
+    "native_box": [
+      1152,
+      648
+    ],
+    "checked": [
+      "A/B/current switches",
+      "comparison slider keyboard end",
+      "native viewport box size",
+      "light and dark alpha",
+      "24px grid",
+      "explicit crop clipping"
+    ],
+    "user_selection": "A"
+  }
+}

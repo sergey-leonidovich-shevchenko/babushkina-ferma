@@ -6,7 +6,7 @@
 
 ## VART-001 — Выбрать степень живописности
 
-Статус: `ready` · P0 · этап `foundation` · `engineering`
+Статус: `done` · P0 · этап `foundation` · `engineering`
 
 Показать два модульных варианта одного участка с одинаковой камерой; выбор оформлен до изменения runtime
 
@@ -20,7 +20,7 @@
 - [docs/SPRITE_STANDARD.md](../../../../docs/SPRITE_STANDARD.md)
 - [assets/game/world_sprite_manifest.json](../../../../assets/game/world_sprite_manifest.json)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vart-001/`.
+Результаты: `docs/reports/visual-overhaul/vart-001/`.
 
 Критерии:
 
@@ -38,7 +38,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vart-001/README.md, docs/reports/visual-overhaul/vart-001/index.html, docs/reports/visual-overhaul/vart-001/review.json, docs/reports/visual-overhaul/vart-001/scene-a.png, docs/reports/visual-overhaul/vart-001/scene-b.png, docs/reports/visual-overhaul/vart-001/modules-a.png, docs/reports/visual-overhaul/vart-001/modules-b.png.
 
 <a id="vart-002"></a>
 
@@ -82,7 +82,7 @@
 
 ## VART-003 — Задать палитру материалов
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 Трава, дерево, камень, земля, вода и металл имеют дневные и вечерние образцы; цвет не единственный признак ресурса
 
@@ -160,7 +160,7 @@
 
 ## VART-005 — Согласовать мягкость контура
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 Проверить мастера на светлом, тёмном и травяном фоне при реальном масштабе; нет белой каймы и размытого силуэта
 
@@ -198,7 +198,7 @@
 
 ## VART-006 — Задать плотность деталей
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 Один лист сравнивает героя, дверь, дерево, стол и траву; мелкие детали не соревнуются с интерактивными объектами
 
@@ -236,7 +236,7 @@
 
 ## VART-007 — Утвердить направление света
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 Показать раздельно локальную форму, контакт и падающую тень; в рисунке нет второй конфликтующей солнечной тени
 
@@ -312,7 +312,7 @@
 
 ## VART-009 — Подготовить таблицу сохранить или заменить
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 Каждое из 29 семейств манифеста получает решение reuse, adapt или redraw с причиной; количество задач не означает обязательную перерисовку всего
 

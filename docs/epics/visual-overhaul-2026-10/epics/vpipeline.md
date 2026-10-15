@@ -6,7 +6,7 @@
 
 ## VPIPELINE-001 — Разделить мастер и runtime
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 Концепты, послойные исходники, превью и игровые файлы имеют отдельные пути и .gdignore там, где импорт не нужен
 
