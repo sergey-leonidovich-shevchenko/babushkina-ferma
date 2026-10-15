@@ -13,6 +13,7 @@ var dimensions := Vector2i(1152,648)
 var draws := 0
 var f10 := false
 var only_map := ""
+var only_overview := false
 
 ## Запускает изолированный нативный аудит после подготовки окна.
 func _initialize() -> void:
@@ -24,6 +25,7 @@ func _start() -> void:
 	for arg in OS.get_cmdline_user_args():
 		if arg.begins_with("--label="): label=arg.get_slice("=",1)
 		elif arg=="--f10": f10=true
+		elif arg=="--overview-only": only_overview=true
 		elif arg.begins_with("--map="): only_map=arg.get_slice("=",1)
 		elif arg.begins_with("--samples="): samples=clampi(int(arg.get_slice("=",1)),60,3600)
 		elif arg.begins_with("--size="): dimensions=Vector2i(int(arg.get_slice("=",1).get_slice("x",0)),int(arg.get_slice("=",1).get_slice("x",1)))
@@ -50,6 +52,8 @@ func _start() -> void:
 	game.FarmLifeSystem.state(game).first_day=6; game.FarmLifeSystem.state(game).cutscene=""; game.FarmLifeSystem.state(game).cutscene_timer=0
 	game.state.player.profile.created=true; game.FirstChapterSystem.state(game).completed=true; game.LocaleSystem.current="ru"
 	game.discovery_current.clear(); game.change_inventory_count(Stone.KIND,1)
+	if only_overview:
+		await capture_overview(); quit(); return
 	var catalog := []
 	for location in Stone.locations(game):
 		catalog.append({"id":location,"group":Stone.group(game,location),"water":WATER_MAPS.get(location,"none"),"fishing":location in ["overworld","village_river"],"bridges":2 if location in ["overworld","village_river"] else 0})
@@ -70,10 +74,7 @@ func _start() -> void:
 			if not game.get_meta(game.DebugOverlaySystem.META_KEY,{}).get("grid_build",{}).is_empty(): push_error("Не завершена навигационная сетка F10"); quit(2); return
 		target.get_texture().get_image().save_png(folder+location+"-"+str(dimensions.x)+"-gameplay.png")
 		if location=="overworld":
-			var overview := SubViewport.new(); overview.size=Vector2i(1200,684); overview.disable_3d=true; root.add_child(overview)
-			var background := preload("res://scripts/world_background.gd").new(); background.scale=Vector2(0.5,0.5); overview.add_child(background)
-			for frame in 8: await RenderingServer.frame_post_draw
-			overview.get_texture().get_image().save_png(folder+"overworld-overview.png"); overview.queue_free()
+			await capture_overview()
 		for frame in 120: await RenderingServer.frame_post_draw
 		for repeat in 3:
 			if target.size!=dimensions: push_error("Framebuffer изменился во время трассы"); quit(2); return
@@ -91,6 +92,19 @@ func _start() -> void:
 	FileAccess.open(folder+"native-"+str(dimensions.x)+".json",FileAccess.WRITE).store_string(JSON.stringify(report,"\t")+"\n")
 	print("WATER AUDIT COMPLETE: ",catalog.size()," maps; ",measurements.size()," repeats")
 	quit()
+
+## Принудительно рисует обзор земли и отклоняет пустой кадр невидимого вспомогательного viewport.
+func capture_overview() -> void:
+	var overview := SubViewport.new(); overview.size=Vector2i(1200,684); overview.disable_3d=true
+	overview.render_target_update_mode=SubViewport.UPDATE_ALWAYS; root.add_child(overview)
+	var background := preload("res://scripts/world_background.gd").new(); background.scale=Vector2(0.5,0.5); overview.add_child(background)
+	for frame in 8: await RenderingServer.frame_post_draw
+	var image := overview.get_texture().get_image(); var colors := {}
+	for y in range(0,image.get_height(),24):
+		for x in range(0,image.get_width(),24): colors[image.get_pixel(x,y)]=true
+	if colors.size()<16: push_error("Обзорный кадр пуст или не отрисован"); quit(1); return
+	image.save_png(folder+"overworld-overview.png"); overview.queue_free()
+	print("WATER OVERVIEW: ",colors.size()," sampled colors")
 
 ## Описывает только документы конструктора, не читая игровые слоты и не изменяя исходники пользователя.
 func user_level_inventory() -> Array:
