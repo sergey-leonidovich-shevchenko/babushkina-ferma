@@ -1,5 +1,6 @@
 extends RefCounted
 
+const Water := preload("res://scripts/systems/water_map_registry.gd")
 const MapData := preload("res://scripts/systems/village_map_data.gd")
 const RIVER_CENTER := MapData.RIVER
 const RIVER_HALF_WIDTH := MapData.RIVER_HALF_WIDTH
@@ -85,8 +86,7 @@ static func overworld_tile(cell: Vector2i, season: String = "spring") -> int:
 
 ## Проверяет, попала ли точка в воду или пруд, но игнорирует мосты как ходовые точки.
 static func is_river_park(position: Vector2) -> bool:
-	var has_bridge := is_on_bridge(position, OVERWORLD_TILE_SIZE * 0.2)
-	return ((absf(position.y - river_center_y(position.x)) < RIVER_HALF_WIDTH + 5.0) and not has_bridge)
+	return Water.has_surface("overworld",position) and not is_on_bridge(position)
 
 ## Проверяет, принадлежит ли область позиции зоне внутренней фермы.
 static func is_farm_zone(position: Vector2) -> bool:
@@ -194,14 +194,7 @@ static func bridge_render_rect(bridge_index: int) -> Rect2:
 
 ## Проверяет попадание круглого объекта в реку или фермерский пруд с учётом мостов.
 static func is_water(position: Vector2, radius: float) -> bool:
-	# Мост перекрывает и русло, и расширение пруда: раньше пруд повторно
-	# блокировал вторую половину большого моста даже внутри разрешённой полосы.
-	if is_on_bridge(position): return false
-	if absf(position.y - river_center_y(position.x)) < RIVER_HALF_WIDTH + radius:
-		return true
-	var pond_delta := position - POND_CENTER
-	return pow(pond_delta.x / (POND_RADII.x + radius), 2.0) + pow(pond_delta.y / (POND_RADII.y + radius), 2.0) < 1.0
-
+	return Water.blocks("overworld",position,radius)
 
 ## Проверяет столкновение с крупным декором площади, который не является частью зданий.
 static func blocks_scenic_prop(position: Vector2, radius: float) -> bool:

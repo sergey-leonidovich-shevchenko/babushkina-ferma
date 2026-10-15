@@ -1,5 +1,7 @@
 extends RefCounted
 
+const WaterData := preload("res://scripts/systems/water_layout_data.gd")
+const Water := preload("res://scripts/systems/water_map_registry.gd")
 const IDS := ["overworld","village_market","village_garden","village_river","village_workyard","village_orchard"]
 const SIZE := Vector2(2040,1200)
 const PORTS := {"left":Vector2(120,624),"right":Vector2(1920,624),"top":Vector2(1008,168),"bottom":Vector2(1008,1080)}
@@ -37,8 +39,8 @@ const PATHS := {
 	"village_river":[[Vector2(624,168),Vector2(624,480),Vector2(1152,480),Vector2(1440,576),Vector2(1920,624)],[Vector2(120,624),Vector2(624,624),Vector2(624,480)],[Vector2(624,624),Vector2(624,864),Vector2(1392,864),Vector2(1632,624),Vector2(1920,624)]],
 	"village_orchard":[[Vector2(1008,168),Vector2(1008,480),Vector2(624,480),Vector2(624,816),Vector2(1392,816),Vector2(1560,720),Vector2(1920,624)]],
 }
-const WATER := Rect2(936,120,144,1032)
-const BRIDGES := [Rect2(912,432,192,96),Rect2(912,816,192,96)]
+const WATER := WaterData.VILLAGE_WATER
+const BRIDGES := WaterData.VILLAGE_BRIDGES
 const RAILS := [Rect2(912,120,24,288),Rect2(912,552,24,240),Rect2(912,936,24,216),Rect2(1080,120,24,288),Rect2(1080,552,24,240),Rect2(1080,936,24,216)]
 static var _trees:Dictionary={}
 static var _routes:Dictionary={}
@@ -72,11 +74,7 @@ static func passages(location: String) -> Array[Dictionary]:
 
 ## Проверяет единую видимую воду и два настоящих мостовых настила с учётом радиуса тела.
 static func water_blocks(location: String, point: Vector2, radius: float=0) -> bool:
-	if location!="village_river" or not WATER.grow(radius).has_point(point): return false
-	for bridge in BRIDGES:
-		var deck:=Rect2(bridge.position+Vector2(-radius,radius),bridge.size+Vector2(radius*2,-radius*2))
-		if deck.has_point(point): return false
-	return true
+	return Water.blocks(location,point,radius) if location=="village_river" else false
 
 ## Размещает рамку деревьев за пределами проходов, реки и её мостов; результат кешируется для каждой карты.
 static func trees(location: String) -> Array:

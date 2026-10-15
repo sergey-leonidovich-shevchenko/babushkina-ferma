@@ -22,6 +22,8 @@ static func apply(game:Node,old_revision:int)->void:
 		for index in old_positions:
 			if index<game.food_nodes.size() and not bool(game.food_nodes[index].get("planted_by_player",false)) and Vector2(game.food_nodes[index].position).is_equal_approx(old_positions[index]):
 				game.food_nodes[index].position=MapData.FORAGE[index]
+	if old_revision<2 and game.current_location=="overworld" and game.VillageLayoutSystem.is_water(game.player,game.PLAYER_RADIUS): game.player=MapData.START
+	if old_revision<5: preload("res://scripts/systems/water_save_migration.gd").apply(game)
 	if game.current_location=="overworld" and game.NavigationSystem.walkability_reason(game,game.player,-1,false)!="walkable":
 		game.player=MapData.START if old_revision<2 else nearest_free_position(game,game.player)
 	game.state.world.estate.map_revision=MapData.REVISION

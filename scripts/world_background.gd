@@ -240,30 +240,7 @@ func draw_village_border() -> void:
 
 ## Рисует извилистый берег реки, пруд и спокойные блики отдельным водным слоем.
 func draw_village_water() -> void:
-	var upper_bank := PackedVector2Array()
-	var lower_bank := PackedVector2Array()
-	for point in VillageLayoutSystem.RIVER_CENTER:
-		upper_bank.append(point - Vector2(0, VillageLayoutSystem.RIVER_HALF_WIDTH))
-		lower_bank.append(point + Vector2(0, VillageLayoutSystem.RIVER_HALF_WIDTH))
-	var water_polygon := PackedVector2Array(upper_bank)
-	for index in range(lower_bank.size() - 1, -1, -1):
-		water_polygon.append(lower_bank[index])
-	draw_colored_polygon(water_polygon, Color("3f91aa"))
-	draw_polyline(upper_bank, Color("d0bd79"), 12.0, true)
-	draw_polyline(lower_bank, Color("d0bd79"), 12.0, true)
-	draw_polyline(upper_bank, Color("547f43"), 4.0, true)
-	draw_polyline(lower_bank, Color("547f43"), 4.0, true)
-	for x in range(40, int(WORLD_SIZE.x), 92):
-		var y := VillageLayoutSystem.river_center_y(x) + (x % 3 - 1) * 12
-		draw_line(Vector2(x, y), Vector2(x + 34, y), Color(0.56, 0.84, 0.86, 0.55), 3)
-	draw_set_transform(VillageLayoutSystem.POND_CENTER, 0.0, Vector2(1.8, 1.0))
-	draw_circle(Vector2.ZERO, 111, Color("b6a86d"))
-	draw_circle(Vector2.ZERO, 105, Color("397f98"))
-	draw_circle(Vector2.ZERO, 92, Color("54a3b2"))
-	for ripple in [Vector2(-42,-15),Vector2(36,18),Vector2(2,-48)]:
-		draw_arc(ripple, 13, 0.2, 2.8, 8, Color(0.70,0.91,0.89,0.62), 2.0)
-	draw_set_transform(Vector2.ZERO)
-
+	preload("res://scripts/systems/village_terrain_renderer.gd").draw_water(self,season)
 
 ## Рисует криволинейную дорогу с мягким краем и неброскими каменными деталями.
 func draw_village_route(points: Array) -> void:

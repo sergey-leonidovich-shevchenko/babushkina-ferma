@@ -71,7 +71,7 @@ func test_revision_two_save_migration() -> void:
 	expect(restored.SaveSystem.apply(restored,snapshot),"revision two snapshot applies through production save loader")
 	var tree: Dictionary = restored.state.world.tree_nodes[0]
 	expect(tree.position==Map.TREES[0] and tree.health==0 and tree.stage==1 and tree.regrow_timer==13.75,"moving old tree preserves felling and growth progress")
-	expect(restored.world_loot_nodes[0].opened and restored.world_loot_nodes[0].position==Vector2(920,400),"revision three does not remigrate revision two loot")
+	expect(restored.world_loot_nodes[0].opened and not game.VillageLayoutSystem.is_water(restored.world_loot_nodes[0].position,27),"revision five repairs newly flooded loot without resetting opened state")
 	expect(restored.coins==137 and restored.plots[Vector2i(0,0)].tilled and restored.player==Map.START,"map update preserves rewards crops and free player position")
 	var trees: Array = restored.state.world.tree_nodes.duplicate(true)
 	var loot: Array = restored.world_loot_nodes.duplicate(true)

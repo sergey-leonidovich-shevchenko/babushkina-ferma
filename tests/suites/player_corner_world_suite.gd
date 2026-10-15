@@ -98,12 +98,12 @@ func test_enemy_and_hazard_do_not_request_a_detour() -> void:
 	game.free()
 
 
-## Сценарий: игрок упирается в настоящий наклонный берег, затем проходит по центру северного моста.
+## Сценарий: игрок упирается в настоящий осевой берег, затем проходит по центру северного моста.
 ## Исходное состояние: геометрия реки и обоих мостов взята из новой деревни без подмены тестовыми препятствиями.
 ## Ожидаемый результат: помощник не превращает берег в обходную дорожку, а пересечение реки по существующему мосту остаётся свободным.
 func test_real_river_bank_stays_solid_and_bridge_stays_open() -> void:
 	var game := village_fixture()
-	var shore := Vector2(744, 470)
+	var shore := Vector2(744, 522)
 	game.player = shore
 	expect(game.NavigationSystem.walkability_reason(game, shore) == "walkable" and game.NavigationSystem.walkability_reason(game, shore + Vector2(0, -3.5)) == "water", "real river bank fixture separates dry land from the radius-expanded water edge")
 	var shore_assist: bool = game.NavigationSystem.move(game, Vector2(0, -3.5), true)

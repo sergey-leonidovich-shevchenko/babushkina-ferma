@@ -1,6 +1,6 @@
 extends RefCounted
 
-const VillageLayoutSystem := preload("res://scripts/systems/village_layout_system.gd")
+const WaterQuery := preload("res://scripts/systems/water_fishing_query.gd")
 const FishingBalanceSystem := preload("res://scripts/systems/fishing_balance_system.gd")
 const FishingCatalogSystem := preload("res://scripts/systems/fishing_catalog_system.gd")
 
@@ -32,28 +32,17 @@ static func configure_preview(game: Node) -> void:
 
 ## Проверяет, находится ли герой достаточно близко к пригодному для заброса участку воды.
 static func is_near_water(game: Node) -> bool:
-	if game.current_location=="village_river": return absf(game.player.x-1008)<180 and game.player.y>=144 and game.player.y<=1080
-	if game.current_location != "overworld":
-		return false
-	if game.player.distance_to(game.pond_position) < 235.0:
-		return true
-	return absf(game.player.y - VillageLayoutSystem.river_center_y(game.player.x)) < 105.0
-
+	return WaterQuery.nearest(game).is_finite()
 
 ## Определяет тип ближайшего водоёма для честного разделения прудовой и речной экосистемы.
 static func water_kind(game: Node) -> String:
-	if game.current_location=="village_river": return "river"
-	return "pond" if game.player.distance_to(game.pond_position) < 235.0 else "river"
-
+	var point:=WaterQuery.bobber(game)
+	if not point.is_finite(): return ""
+	return WaterQuery.Water.geometry(game.current_location).kind_at(point)
 
 ## Возвращает положение поплавка в воде для лески, всплеска и сигнала поклёвки.
 static func bobber_position(game: Node) -> Vector2:
-	var distance: float = 68.0 + float(game.state.fishing.cast_power) * 126.0
-	if game.current_location=="village_river": return Vector2(clampf(game.player.x+signf(1008-game.player.x)*distance,954,1062),clampf(game.player.y,144,1080))
-	if game.state.fishing.water_kind == "pond": return game.player + game.player.direction_to(game.pond_position) * distance
-	var river_y := VillageLayoutSystem.river_center_y(game.player.x)
-	return game.player + Vector2(0.0, signf(river_y - game.player.y)) * distance
-
+	return WaterQuery.bobber(game)
 
 ## Обрабатывает нажатие удочки в зависимости от текущей стадии заброса или мини-игры.
 static func use_rod(game: Node) -> bool:
@@ -78,7 +67,7 @@ static func use_rod(game: Node) -> bool:
 	if not is_near_water(game): game.message = game.LocaleSystem.text("fish_need_water"); return false
 	state.reset_cast()
 	state.phase = PHASE_CHARGING
-	var to_water:Vector2=Vector2(signf(1008-game.player.x),0) if game.current_location=="village_river" else (game.player.direction_to(game.pond_position) if water_kind(game)=="pond" else Vector2(0,signf(VillageLayoutSystem.river_center_y(game.player.x)-game.player.y)))
+	var to_water:Vector2=game.player.direction_to(WaterQuery.nearest(game))
 	game.set_meta("fish_visual_direction",game.HeroActionSystem.cardinal(to_water))
 	game.message = game.LocaleSystem.text("fish_charge")
 	game.play_sfx("fish_cast")
@@ -104,6 +93,9 @@ static func update(game: Node, delta: float) -> void:
 static func _update_cast(game: Node, delta: float) -> void:
 	var state = game.state.fishing
 	if not game.action_held:
+		state.cast_target=WaterQuery.target(game)
+		state.cast_location=game.current_location
+		if not state.cast_target.is_finite(): state.reset_cast(); return
 		state.phase = PHASE_WAITING
 		state.cast_grade = FishingBalanceSystem.cast_grade(state.cast_power)
 		state.depth_kind = FishingBalanceSystem.depth_for(state.cast_power)

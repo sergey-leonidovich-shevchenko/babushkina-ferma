@@ -1,5 +1,7 @@
 extends RefCounted
 
+var cast_target := Vector2.INF
+var cast_location := ""
 var phase := "idle"
 var timer := 0.0
 var cast_power := 0.0
@@ -49,6 +51,8 @@ var traps: Array = []
 
 ## Возвращает мини-игру в безопасное исходное состояние, сохраняя рыбную коллекцию героя.
 func reset_cast() -> void:
+	cast_target=Vector2.INF
+	cast_location=""
 	phase = "idle"
 	timer = 0.0
 	cast_power = 0.0

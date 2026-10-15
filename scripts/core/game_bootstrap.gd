@@ -228,6 +228,7 @@ static func _prepare_menu(game: Node, args: PackedStringArray) -> void:
 static func _initialize_runtime_systems(game: Node) -> void:
 	game.NpcMovementSystem.initialize(game)
 	game.FarmLifeSystem.initialize(game)
+	preload("res://scripts/systems/water_save_migration.gd").apply(game)
 	game.FirstChapterSystem.initialize(game)
 	game.UiPreviewSystem.finalize(game)
 	game.sync_background_location()

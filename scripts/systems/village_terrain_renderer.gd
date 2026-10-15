@@ -22,7 +22,7 @@ static func draw(canvas:Node2D,season:String,weather:String)->void:
 	_draw_paths(canvas)
 	_draw_plaza(canvas)
 	_draw_garden(canvas)
-	_draw_water(canvas,season)
+	draw_water(canvas,season)
 	_draw_fences(canvas,tint)
 	for flower in MapData.FLOWERS:
 		if season!="winter": Ambient.draw_cell(canvas,"flowers",flower,Color(0.92,0.95,0.84,0.88))
@@ -71,7 +71,7 @@ static func _draw_garden(canvas:Node2D)->void:
 		canvas.draw_line(start,start+Vector2(272,0),Color(0.36,0.26,0.13,0.30),3)
 
 ## Рисует берега и прозрачный рисунок воды по навигационным полигонам, а не по независимой картинке.
-static func _draw_water(canvas:Node2D,season:String)->void:
+static func draw_water(canvas:Node2D,season:String)->void:
 	for points in [MapData.river_polygon(10.0),MapData.pond_polygon(10.0)]: canvas.draw_colored_polygon(points,Color("626934"))
 	for points in [MapData.river_polygon(5.0),MapData.pond_polygon(5.0)]: canvas.draw_colored_polygon(points,Color("bead71"))
 	var tint:=Color("b3d6da") if season=="winter" else Color("d2e7eb")

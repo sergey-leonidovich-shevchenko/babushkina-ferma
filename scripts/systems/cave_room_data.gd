@@ -1,5 +1,7 @@
 extends RefCounted
 
+const WaterData := preload("res://scripts/systems/water_layout_data.gd")
+const Contours := preload("res://scripts/systems/water_contour_system.gd")
 const Arena := preload("res://scripts/systems/cave_boss_arena_data.gd")
 const Entrance := preload("res://scripts/systems/cave_map_data.gd")
 const IDS := ["cave", "cave_fungal", "cave_moon", "cave_lake", "cave_mine", "cave_sanctum"]
@@ -20,7 +22,7 @@ const PATHS := {
 	"cave_mine": [Rect2(288,288,624,384), Rect2(864,528,696,168), Rect2(1512,288,600,672), Rect2(528,624,528,336), Rect2(1008,816,288,144), Rect2(1104,888,192,360), Rect2(2064,504,456,192)],
 }
 const ROCKS := {}
-const POOLS := {"cave_lake": [Rect2(648,432,768,240), Rect2(1656,720,264,144)]}
+const POOLS := WaterData.CAVE_POOLS
 const COLORS := {"cave": Color.WHITE, "cave_fungal": Color("abbda3"), "cave_moon": Color("a6b2d5"), "cave_lake": Color("a6c0c7"), "cave_mine": Color("c1ad94"), "cave_sanctum": Color("a7b1cb")}
 static var _floors: Dictionary = {}
 static var _decor: Dictionary = {}
@@ -70,9 +72,7 @@ static func rectangle_polygon(rectangle: Rect2) -> PackedVector2Array:
 ## Срезает углы подземного водоёма; его изображение и навигация используют один контур берега.
 static func pool_polygon(rectangle: Rect2, organic: bool = false) -> PackedVector2Array:
 	if organic:
-		var outline := PackedVector2Array()
-		for point in [Vector2(0.06,0.36),Vector2(0.13,0.12),Vector2(0.34,0.04),Vector2(0.5,0.14),Vector2(0.68,0.05),Vector2(0.89,0.16),Vector2(1,0.44),Vector2(0.95,0.72),Vector2(0.8,0.95),Vector2(0.58,1),Vector2(0.36,0.88),Vector2(0.15,0.96),Vector2(0,0.72)]: outline.append(rectangle.position+point*rectangle.size)
-		return outline
+		return Contours.merge_rects(WaterData.stepped_pool(rectangle))[0]
 	var p := rectangle.position; var e := rectangle.end; var bevel := 48.0
 	return PackedVector2Array([p + Vector2(bevel,0), Vector2(e.x-bevel,p.y), Vector2(e.x,p.y+bevel), e-Vector2(0,bevel), e-Vector2(bevel,0), Vector2(p.x+bevel,e.y), Vector2(p.x,e.y-bevel), p+Vector2(0,bevel)])
 

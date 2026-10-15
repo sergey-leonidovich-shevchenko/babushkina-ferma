@@ -12,7 +12,7 @@ const QUALITY_ORDER := ["normal", "silver", "gold", "iridium"]
 
 ## Создаёт состояние усадьбы, качества предметов, карты и события дня.
 static func default_state() -> Dictionary:
-	return {"level":0,"map_revision":2,"qualities":{},"discovered":["overworld"],"event_day":0,"event":"","event_state":{},"expansion":{}}
+	return {"level":0,"map_revision":preload("res://scripts/systems/village_map_data.gd").REVISION,"qualities":{},"discovered":["overworld"],"event_day":0,"event":"","event_state":{},"expansion":{}}
 
 
 ## Нормализует прогресс усадьбы и открытые области старого сохранения.

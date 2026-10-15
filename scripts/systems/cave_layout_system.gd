@@ -31,11 +31,7 @@ static func blocks_position(position: Vector2, radius: float, location: String =
 
 ## Не позволяет герою или существу наступить в подземную воду; берег совпадает с изображением.
 static func blocks_water(position: Vector2, radius: float, location: String) -> bool:
-	for pool in _prepare(location).pools:
-		if not Rect2(pool.bounds).grow(radius).has_point(position): continue
-		if _blocks_polygon(position,radius,pool.polygon,pool.segments,true): return true
-	return false
-
+	return preload("res://scripts/systems/water_map_registry.gd").blocks(location,position,radius)
 
 ## Проверяет основания крупного декора активной комнаты; маленькие грибы и осыпь проходимы.
 static func blocks_decoration(position: Vector2, radius: float, location: String = "cave") -> bool:

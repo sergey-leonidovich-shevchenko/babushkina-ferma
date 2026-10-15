@@ -57,6 +57,9 @@ func test_water_and_bridge_are_different_surfaces() -> void:
 	expect(not plan.on_bridge(Vector2(36,36),13) and plan.blocks_movement(Vector2(36,36),13),"circle wider than deck cannot use point-only bridge override")
 	plan.remove_bridge(Rect2(24,0,24,72))
 	expect(plan.has_surface(Vector2(36,36)) and plan.blocks_movement(Vector2(36,36),6),"removing deck restores water blocking without filling it again")
+	var crossing:=Water.new(); crossing.add_rect(Rect2(24,0,48,96),crossing.add_body("river")); crossing.add_bridge(Rect2(0,24,96,48))
+	expect(not crossing.blocks_movement(Vector2(12,48),18),"dry half of body at deck entrance does not create an invisible threshold")
+	expect(crossing.blocks_movement(Vector2(36,28),18),"the same entrance rule still blocks the unprotected side")
 
 ## Сценарий: круг касается края и проходит рядом с углом одного тайла.
 ## Исходное состояние: единственная водная клетка.

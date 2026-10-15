@@ -105,7 +105,7 @@ func test_legacy_surface_api_is_smooth_and_scalable() -> void:
 
 ## Сценарий: герой погибает в любом биоме, деревенском районе, пещерной комнате или помещении.
 ## Исходное состояние: штатные карты, мебель, вода и стены без подвижных врагов.
-## Ожидаемый результат: точка восстановления физически доступна; на первой карте старая точка в воде больше не используется.
+## Ожидаемый результат: точка восстановления физически доступна; на первой карте используется штатный старт текущего чертежа.
 func test_every_location_has_an_accessible_recovery_point() -> void:
 	var game:=prepared_game(); var areas:Array=game.WorldSystem.LOCATIONS.duplicate(); var seen:={}
 	areas.append("moon_glade"); areas.append_array(preload("res://scripts/systems/village_region_data.gd").IDS)
@@ -116,5 +116,5 @@ func test_every_location_has_an_accessible_recovery_point() -> void:
 		var point:=Recovery.safe_spawn(game)
 		expect(game.NavigationSystem.walkability_reason(game,point,-1,false,false)=="walkable","recovery point is accessible in "+area)
 	game.current_location="overworld"
-	expect(game.NavigationSystem.walkability_reason(game,Vector2(260,360),-1,false,false)=="water" and Recovery.safe_spawn(game)!=Vector2(260,360),"legacy river recovery point is never reused")
+	expect(Recovery.safe_spawn(game)==game.VillageLayoutSystem.MapData.START and Recovery.safe_spawn(game)!=Vector2(260,360),"recovery uses the current map start instead of a legacy coordinate")
 	game.free()

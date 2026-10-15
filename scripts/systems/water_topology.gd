@@ -20,6 +20,7 @@ var _chunks: Dictionary = {}
 var _dirty_chunks: Dictionary = {}
 var cache_builds := 0
 var last_error := ""
+var _sealed := false
 
 ## Назначает необязательные границы плана, не создавая изображений и узлов сцены.
 func _init(bounds: Rect2 = Rect2()) -> void:
@@ -28,7 +29,7 @@ func _init(bounds: Rect2 = Rect2()) -> void:
 
 ## Регистрирует смысл водоёма независимо от цвета, направления и выбранного renderer.
 func add_body(kind: String, bank: String="earth", blocking: bool=true, depth: float=0.6) -> int:
-	if _bodies.size()>=MAX_BODIES or kind not in ["river","pond","lake","sea","decorative"] or bank not in ["earth","stone","cave"] or not is_finite(depth): last_error="invalid_body"; return -1
+	if _sealed or _bodies.size()>=MAX_BODIES or kind not in ["river","pond","lake","sea","decorative"] or bank not in ["earth","stone","cave"] or not is_finite(depth): last_error="invalid_body"; return -1
 	_bodies.append({"kind":kind,"bank":bank,"blocking":blocking,"depth":clampf(depth,0,1)})
 	return _bodies.size()-1
 
@@ -38,14 +39,14 @@ func body(index: int) -> Dictionary:
 
 ## Добавляет прямоугольный участок транзакционно, сохраняя только кардинальное течение.
 func add_rect(rect: Rect2, body_id: int, flow: Vector2i=Vector2i.ZERO) -> bool:
-	if not _valid_rect(rect) or not _valid_flow(flow) or not _valid_body(body_id): last_error="invalid_rect"; return false
+	if _sealed or not _valid_rect(rect) or not _valid_flow(flow) or not _valid_body(body_id): last_error="invalid_rect"; return false
 	var pending := {}
 	if not _collect(rect,flow,pending): return false
 	return _commit(pending,body_id)
 
 ## Проверяет всю ось до изменения плана; наклонный или вырожденный отрезок не оставляет половину реки.
 func add_path(points: Array, width: int, body_id: int) -> bool:
-	if points.size()<2 or width<=0 or width%CELL!=0 or not _valid_body(body_id): last_error="invalid_path"; return false
+	if _sealed or points.size()<2 or width<=0 or width%CELL!=0 or not _valid_body(body_id): last_error="invalid_path"; return false
 	var half := width*0.5
 	for value in points:
 		if not (value is Vector2 or value is Vector2i): last_error="invalid_point"; return false
@@ -64,14 +65,14 @@ func add_path(points: Array, width: int, body_id: int) -> bool:
 
 ## Добавляет только согласованный с сеткой настил, не стирая находящуюся под ним воду.
 func add_bridge(rect: Rect2) -> bool:
-	if not _valid_rect(rect) or not _bounds_valid or rect.get_area()/float(CELL*CELL)>MAX_CELLS or (_bridges.size()>=MAX_BRIDGES and rect not in _bridges): last_error="invalid_bridge"; return false
+	if _sealed or not _valid_rect(rect) or not _bounds_valid or rect.get_area()/float(CELL*CELL)>MAX_CELLS or (_bridges.size()>=MAX_BRIDGES and rect not in _bridges): last_error="invalid_bridge"; return false
 	if rect not in _bridges:
 		_bridges.append(rect); _revision+=1; _mark_bridge(rect)
 	return true
 
 ## Удаляет участок воды одной ревизией, сохраняя прочие водоёмы и исходное значение при ошибке.
 func erase_rect(rect: Rect2) -> bool:
-	if not _valid_rect(rect) or not _bounds_valid: last_error="invalid_erase"; return false
+	if _sealed or not _valid_rect(rect) or not _bounds_valid: last_error="invalid_erase"; return false
 	var pending := {}
 	if not _collect(rect,Vector2i.ZERO,pending): return false
 	var changed := false
@@ -87,10 +88,15 @@ func erase_rect(rect: Rect2) -> bool:
 
 ## Убирает настил без изменения водного плана под ним и инвалидирует производные состояния.
 func remove_bridge(rect: Rect2) -> bool:
+	if _sealed: return false
 	var index := _bridges.find(rect)
 	if index<0: return false
 	_bridges.remove_at(index); _revision+=1; _mark_bridge(rect)
 	return true
+
+## Запрещает изменение общих встроенных планов; редактор оставляет собственные планы изменяемыми.
+func seal() -> void:
+	_sealed=true; _dirty_chunks.clear()
 
 ## Возвращает актуальную ревизию без сравнения содержимого всей карты на каждом кадре.
 func revision() -> int:
@@ -146,8 +152,13 @@ func blocks_movement(point: Vector2, radius: float=0.0) -> bool:
 		for x in range(low.x,high.x+1):
 			var cell := Vector2i(x,y)
 			if not _cells.has(cell) or not bool(_bodies[int(_cells[cell])].blocking): continue
-			if radius==0: return true
 			var rect := Rect2(Vector2(cell)*CELL,Vector2.ONE*CELL)
+			# Настил и клетки кратны CELL: исключается вода под телом, а не сухая часть круга у торца.
+			var covered:=false
+			for bridge in _bridges:
+				if Rect2(bridge).encloses(rect): covered=true; break
+			if covered: continue
+			if radius==0: return true
 			var closest := Vector2(clampf(point.x,rect.position.x,rect.end.x),clampf(point.y,rect.position.y,rect.end.y))
 			if point.distance_squared_to(closest)<radius*radius: return true
 	return false
