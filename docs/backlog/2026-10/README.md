@@ -660,7 +660,7 @@
 
 **Основания:** [GODOT-SAVE](https://docs.godotengine.org/en/stable/tutorials/io/saving_games.html).
 
-**Подтверждение результата:** Fixed schema-1/2 fixtures preserve balances, knowledge, paid queues and partial foundation; unknown catalog references reject before mutation with exact paths, source and backup preserved. SAFE profile 2304/0 plus placed-object negative cases; docs/reports/safe-2026-10/README.md.
+**Подтверждение результата:** Fixed schema-1/2 fixtures preserve balances, knowledge, paid queues and partial foundation; unknown catalog references reject before mutation with exact paths, source and backup preserved. SAFE profile 2304/0 plus placed-object negative cases; docs/reports/safe-2026-10/README.md. Final cross-check fixed silent normalization loss of unknown alchemy discoveries and planted forage; third fixture preserves known orchard/alchemy, catalog profile 55/0, final SAFE profile 5274/0.
 
 <a id="safe-04"></a>
 

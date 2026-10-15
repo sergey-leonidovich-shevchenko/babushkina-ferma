@@ -1,0 +1,76 @@
+{
+  "version": 2,
+  "player": [
+    500,
+    500
+  ],
+  "location": "cottage_interior",
+  "day": 3,
+  "minutes": 620,
+  "energy": 9,
+  "coins": 41,
+  "xp": 4,
+  "level": 1,
+  "hp": 90,
+  "counts": {
+    "wood": 14,
+    "apple": 2
+  },
+  "slots": [
+    "wood",
+    "apple"
+  ],
+  "hotbar": [
+    "hoe",
+    "water",
+    "hand",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+  ],
+  "equipment": {
+    "head": ""
+  },
+  "quest_active": false,
+  "quest_complete": false,
+  "weapons": {
+    "sword": false,
+    "bow": false,
+    "crystal": false,
+    "equipped": "none"
+  },
+  "plots": [],
+  "resource_hits": [],
+  "state_schema": "aggregate-v2",
+  "estate": {
+    "map_revision": 5,
+    "expansion": {
+      "alchemy": {
+        "discovered": [
+          "alchemy:field_mint_juice"
+        ],
+        "crafted": 1,
+        "xp": 4
+      }
+    }
+  },
+  "forage": [
+    {
+      "id": "player-pear-1",
+      "kind": "pear",
+      "location": "overworld",
+      "position": [
+        600,
+        600
+      ],
+      "stage": 2,
+      "ready_at": 725,
+      "active": false,
+      "planted_by_player": true
+    }
+  ]
+}

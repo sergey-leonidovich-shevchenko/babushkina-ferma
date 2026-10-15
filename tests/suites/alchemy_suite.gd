@@ -130,7 +130,7 @@ func test_filters_and_localization() -> void:
 
 ## Сценарий: старый слот содержит посаженное дерево на месте будущего первого нового растения.
 ## Исходное состояние: исторические шестнадцать узлов, одно дерево игрока, затем новый слот со срезанной травой.
-## Ожидаемый результат: дерево и трава сохраняются отдельно, открытия нормализуются, повреждённые записи не меняют игру.
+## Ожидаемый результат: дерево и трава сохраняются отдельно, известные открытия нормализуются, неизвестные отклоняются без изменения мира.
 func test_save_migration_and_validation() -> void:
 	var game:=make_game(); var saved:Dictionary=game.SaveSystem.snapshot(game)
 	saved.forage=saved.forage.slice(0,16)
@@ -142,7 +142,10 @@ func test_save_migration_and_validation() -> void:
 	var herb:int=restored.food_nodes.find_custom(func(node): return node.get("id","")=="herb:field_mint")
 	restored.food_nodes[herb].active=false; restored.food_nodes[herb].ready_at=999.0; restored.change_inventory_count("field_mint_powder",3)
 	var value:=Alchemy.state(restored); value.discovered=["alchemy:field_mint_juice","alchemy:field_mint_juice","unknown"]; value.xp=9999; value.effects.mining=44.0
-	saved=restored.SaveSystem.snapshot(restored); expect(game.SaveSystem.apply(game,saved),"new herb state and materials roundtrip")
+	saved=restored.SaveSystem.snapshot(restored); var before_unknown:Dictionary=game.SaveSystem.snapshot(game)
+	expect(not game.SaveSystem.apply(game,saved) and game.SaveSystem.snapshot(game)==before_unknown,"unsupported alchemy discovery refuses the whole slot without silently deleting knowledge")
+	saved.estate.expansion.alchemy.discovered.erase("unknown")
+	expect(game.SaveSystem.apply(game,saved),"known new herb state and materials roundtrip")
 	expect(not game.food_nodes[herb].active and game.food_nodes[herb].ready_at==999.0 and game.inventory_item_count("field_mint_powder")==3,"stable herb identity preserves regrowth and inventory")
 	expect(Alchemy.state(game).xp==4 and Alchemy.state(game).discovered.size()==1 and Alchemy.remaining(game,"mining")==44.0,"save normalizes duplicate discoveries and retains real buff duration")
 	var snapshot:Dictionary=game.SaveSystem.snapshot(game); saved.estate.expansion.alchemy.effects.mining="broken"

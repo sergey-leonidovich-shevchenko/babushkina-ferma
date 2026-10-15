@@ -13,7 +13,7 @@ func run() -> void:
 ## Исходное состояние: фиксированные монеты, материалы, знания и частично выполненные очереди.
 ## Ожидаемый результат: признанный прогресс сохранён, повтор миграции и загрузки не выдаёт предметы заново.
 func test_historical_fixtures_and_idempotence() -> void:
-	for name in ["v1-core","v2-production"]:
+	for name in ["v1-core","v2-production","v2-orchard-alchemy"]:
 		var path:="res://tests/fixtures/saves/%s.json"%name
 		var source:=FileAccess.get_file_as_string(path); var fixture:Dictionary=JSON.parse_string(source)
 		var migrated:=Save.migrate(fixture)
@@ -26,6 +26,9 @@ func test_historical_fixtures_and_idempotence() -> void:
 			var foundation:Dictionary=game.BasementSystem.state(game).objects[0]; var paid:=true
 			for kind in foundation.paid: paid=paid and int(foundation.paid[kind])==int(fixture.estate.expansion.basement.objects[0].paid[kind])
 			expect(foundation.work==2 and paid,"placed foundation preserves its paid ledger and partial assembly")
+		if name=="v2-orchard-alchemy":
+			expect(game.state.world.estate.expansion.alchemy.discovered==["alchemy:field_mint_juice"],"known historical alchemy discovery remains learned")
+			expect(game.food_nodes.any(func(node): return node.kind=="pear" and node.get("planted_by_player",false) and node.stage==2 and node.ready_at==725),"known historical planted tree preserves its growth and timer")
 		var snapshot:=Save.snapshot(game)
 		var normalized:Dictionary=JSON.parse_string(JSON.stringify(snapshot))
 		expect(Save.apply(game,normalized) and JSON.parse_string(JSON.stringify(Save.snapshot(game)))==normalized,"normalized historical snapshot reloads without additional grants: "+name)
@@ -40,7 +43,7 @@ func test_unknown_catalog_paths_are_atomic() -> void:
 	var before:=Save.snapshot(game)
 	var debug:=before.duplicate(true); debug.location=game.DebugPlaygroundSystem.LOCATION
 	expect(Save.ValidationSystem.valid(debug),"registered QA playground remains a supported save location")
-	for issue in ["counts","storage","slots","hotbar","equipment","mission","queue","station","known","drop","container","placed_station","placed_queue"]:
+	for issue in ["counts","storage","slots","hotbar","equipment","mission","queue","station","known","drop","container","placed_station","placed_queue","alchemy","forage"]:
 		var data:=before.duplicate(true); var expected:=""
 		match issue:
 			"counts": data.counts.retired_ore=4; expected="counts.retired_ore"
@@ -54,6 +57,8 @@ func test_unknown_catalog_paths_are_atomic() -> void:
 			"known": data.estate.expansion.research.known=["retired_ore"]; expected="research.known"
 			"drop": data.drops=[{"kind":"retired_ore","count":1,"position":[300,400]}]; expected="drops[0].kind"
 			"container": data.containers[0].contents.retired_ore=2; expected="containers[0].contents.retired_ore"
+			"alchemy": data.estate.expansion.alchemy={"discovered":["future:brew"]}; expected="alchemy.discovered"
+			"forage": data.forage.append({"kind":"future_fruit","active":true,"ready_at":0}); expected="forage[%d].kind"%[data.forage.size()-1]
 			"placed_station","placed_queue":
 				data.estate.expansion.basement=JSON.parse_string(FileAccess.get_file_as_string("res://tests/fixtures/saves/v2-production.json")).estate.expansion.basement
 				var placed:Dictionary=data.estate.expansion.basement.objects[0]

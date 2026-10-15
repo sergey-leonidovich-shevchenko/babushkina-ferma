@@ -7,6 +7,7 @@ const Furnace := preload("res://scripts/systems/furnace_data.gd")
 const Workshops := preload("res://scripts/systems/workshop_data.gd")
 const Kitchen := preload("res://scripts/systems/kitchen_data.gd")
 const Research := preload("res://scripts/systems/research_data.gd")
+static var ALCHEMY_IDS:Array=preload("res://scripts/systems/alchemy_recipe_data.gd").recipes().map(func(recipe): return recipe.id)
 
 ## Находит первую неподдерживаемую ссылку после структурной проверки, не удаляя записи из слота.
 static func first_error(data: Dictionary) -> String:
@@ -24,9 +25,14 @@ static func first_error(data: Dictionary) -> String:
 			if error.is_empty() and field=="containers": error=item_keys(entry.contents,owner+".contents",true)
 	for id in data.get("missions",{}):
 		if error.is_empty() and not Missions.MISSIONS.has(id): error="missions."+id
+	for index in data.get("forage",[]).size():
+		var kind:String=String(data.forage[index].get("kind",""))
+		if error.is_empty() and not kind.is_empty() and not preload("res://scripts/systems/forage_system.gd").TYPES.has(kind): error="forage[%d].kind: %s"%[index,kind]
 	if error.is_empty() and not location(data.location): error="location: "+data.location
 	if error.is_empty() and not preload("res://scripts/systems/weapon_system.gd").DATA.has(data.weapons.equipped): error="weapons.equipped: "+data.weapons.equipped
 	var expansion:Dictionary=data.get("estate",{}).get("expansion",{})
+	for id in expansion.get("alchemy",{}).get("discovered",[]):
+		if error.is_empty() and id not in ALCHEMY_IDS: error="estate.expansion.alchemy.discovered: "+id
 	for id in expansion.get("research",{}).get("known",[]):
 		if error.is_empty() and Research.entry(id).is_empty(): error="estate.expansion.research.known: "+id
 	if error.is_empty(): error=queue(expansion.get("furnace",{}).get("queue",[]),"furnace","estate.expansion.furnace.queue")
