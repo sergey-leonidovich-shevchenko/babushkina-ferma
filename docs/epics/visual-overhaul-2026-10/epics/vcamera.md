@@ -6,7 +6,7 @@
 
 ## VCAMERA-001 — Описать все преобразования координат
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 World, camera, canvas и physical framebuffer сведены в одну схему; точка ноги совпадает с точкой взаимодействия
 

@@ -1,0 +1,7069 @@
+{
+	"adapter": "AMD Radeon Pro 5300M OpenGL Engine",
+	"display_server": "macOS",
+	"effects": "existing; wall-clock water/glow remain animated",
+	"engine": "4.7.1-stable (official)",
+	"errors": [],
+	"hud": true,
+	"kind": "static-camera-reference",
+	"performance_eligible": false,
+	"points": [
+		{
+			"camera": [
+				0.0,
+				348.0
+			],
+			"conditions": [
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				}
+			],
+			"day": 1,
+			"facing": [
+				0.0,
+				1.0
+			],
+			"id": "overworld-entry-v1",
+			"image": "overworld-entry-v1.png",
+			"location": "overworld",
+			"minutes": 720.0,
+			"phase": "day",
+			"physics_processing": false,
+			"player": [
+				432.0,
+				672.0
+			],
+			"readback": [
+				1152.0,
+				648.0
+			],
+			"season": "spring",
+			"seed": 20261015,
+			"walkable": "walkable",
+			"weather": "clear"
+		},
+		{
+			"camera": [
+				0.0,
+				36.0
+			],
+			"conditions": [
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				}
+			],
+			"day": 1,
+			"facing": [
+				0.0,
+				1.0
+			],
+			"id": "forest-entry-v1",
+			"image": "forest-entry-v1.png",
+			"location": "forest",
+			"minutes": 720.0,
+			"phase": "day",
+			"physics_processing": false,
+			"player": [
+				260.0,
+				360.0
+			],
+			"readback": [
+				1152.0,
+				648.0
+			],
+			"season": "spring",
+			"seed": 20261015,
+			"walkable": "walkable",
+			"weather": "clear"
+		},
+		{
+			"camera": [
+				0.0,
+				36.0
+			],
+			"conditions": [
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				}
+			],
+			"day": 1,
+			"facing": [
+				0.0,
+				1.0
+			],
+			"id": "rocky-entry-v1",
+			"image": "rocky-entry-v1.png",
+			"location": "rocky",
+			"minutes": 720.0,
+			"phase": "day",
+			"physics_processing": false,
+			"player": [
+				260.0,
+				360.0
+			],
+			"readback": [
+				1152.0,
+				648.0
+			],
+			"season": "spring",
+			"seed": 20261015,
+			"walkable": "walkable",
+			"weather": "clear"
+		},
+		{
+			"camera": [
+				0.0,
+				36.0
+			],
+			"conditions": [
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				}
+			],
+			"day": 1,
+			"facing": [
+				0.0,
+				1.0
+			],
+			"id": "ruins-entry-v1",
+			"image": "ruins-entry-v1.png",
+			"location": "ruins",
+			"minutes": 720.0,
+			"phase": "day",
+			"physics_processing": false,
+			"player": [
+				260.0,
+				360.0
+			],
+			"readback": [
+				1152.0,
+				648.0
+			],
+			"season": "spring",
+			"seed": 20261015,
+			"walkable": "walkable",
+			"weather": "clear"
+		},
+		{
+			"camera": [
+				0.0,
+				552.0
+			],
+			"conditions": [
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				}
+			],
+			"day": 1,
+			"facing": [
+				0.0,
+				1.0
+			],
+			"id": "cave-entry-v1",
+			"image": "cave-entry-v1.png",
+			"location": "cave",
+			"minutes": 720.0,
+			"phase": "day",
+			"physics_processing": false,
+			"player": [
+				408.0,
+				960.0
+			],
+			"readback": [
+				1152.0,
+				648.0
+			],
+			"season": "spring",
+			"seed": 20261015,
+			"walkable": "walkable",
+			"weather": "clear"
+		},
+		{
+			"camera": [
+				0.0,
+				36.0
+			],
+			"conditions": [
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				}
+			],
+			"day": 1,
+			"facing": [
+				0.0,
+				1.0
+			],
+			"id": "cursed-entry-v1",
+			"image": "cursed-entry-v1.png",
+			"location": "cursed",
+			"minutes": 720.0,
+			"phase": "day",
+			"physics_processing": false,
+			"player": [
+				260.0,
+				360.0
+			],
+			"readback": [
+				1152.0,
+				648.0
+			],
+			"season": "spring",
+			"seed": 20261015,
+			"walkable": "walkable",
+			"weather": "wind"
+		},
+		{
+			"camera": [
+				0.0,
+				36.0
+			],
+			"conditions": [
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				}
+			],
+			"day": 1,
+			"facing": [
+				0.0,
+				1.0
+			],
+			"id": "glassworks-entry-v1",
+			"image": "glassworks-entry-v1.png",
+			"location": "glassworks",
+			"minutes": 720.0,
+			"phase": "day",
+			"physics_processing": false,
+			"player": [
+				260.0,
+				360.0
+			],
+			"readback": [
+				1152.0,
+				648.0
+			],
+			"season": "spring",
+			"seed": 20261015,
+			"walkable": "walkable",
+			"weather": "clear"
+		},
+		{
+			"camera": [
+				0.0,
+				36.0
+			],
+			"conditions": [
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				}
+			],
+			"day": 1,
+			"facing": [
+				0.0,
+				1.0
+			],
+			"id": "pirate_ship-entry-v1",
+			"image": "pirate_ship-entry-v1.png",
+			"location": "pirate_ship",
+			"minutes": 720.0,
+			"phase": "day",
+			"physics_processing": false,
+			"player": [
+				260.0,
+				360.0
+			],
+			"readback": [
+				1152.0,
+				648.0
+			],
+			"season": "spring",
+			"seed": 20261015,
+			"walkable": "walkable",
+			"weather": "wind"
+		},
+		{
+			"camera": [
+				0.0,
+				36.0
+			],
+			"conditions": [
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				}
+			],
+			"day": 1,
+			"facing": [
+				0.0,
+				1.0
+			],
+			"id": "moon_glade-entry-v1",
+			"image": "moon_glade-entry-v1.png",
+			"location": "moon_glade",
+			"minutes": 720.0,
+			"phase": "day",
+			"physics_processing": false,
+			"player": [
+				260.0,
+				360.0
+			],
+			"readback": [
+				1152.0,
+				648.0
+			],
+			"season": "spring",
+			"seed": 20261015,
+			"walkable": "walkable",
+			"weather": "clear"
+		},
+		{
+			"camera": [
+				0.0,
+				300.0
+			],
+			"conditions": [
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				}
+			],
+			"day": 1,
+			"facing": [
+				0.0,
+				1.0
+			],
+			"id": "village_market-entry-v1",
+			"image": "village_market-entry-v1.png",
+			"location": "village_market",
+			"minutes": 720.0,
+			"phase": "day",
+			"physics_processing": false,
+			"player": [
+				216.0,
+				624.0
+			],
+			"readback": [
+				1152.0,
+				648.0
+			],
+			"season": "spring",
+			"seed": 20261015,
+			"walkable": "walkable",
+			"weather": "clear"
+		},
+		{
+			"camera": [
+				432.0,
+				552.0
+			],
+			"conditions": [
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				}
+			],
+			"day": 1,
+			"facing": [
+				0.0,
+				1.0
+			],
+			"id": "village_garden-entry-v1",
+			"image": "village_garden-entry-v1.png",
+			"location": "village_garden",
+			"minutes": 720.0,
+			"phase": "day",
+			"physics_processing": false,
+			"player": [
+				1008.0,
+				984.0
+			],
+			"readback": [
+				1152.0,
+				648.0
+			],
+			"season": "spring",
+			"seed": 20261015,
+			"walkable": "walkable",
+			"weather": "clear"
+		},
+		{
+			"camera": [
+				48.0,
+				0.0
+			],
+			"conditions": [
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				}
+			],
+			"day": 1,
+			"facing": [
+				0.0,
+				1.0
+			],
+			"id": "village_river-entry-v1",
+			"image": "village_river-entry-v1.png",
+			"location": "village_river",
+			"minutes": 720.0,
+			"phase": "day",
+			"physics_processing": false,
+			"player": [
+				624.0,
+				264.0
+			],
+			"readback": [
+				1152.0,
+				648.0
+			],
+			"season": "spring",
+			"seed": 20261015,
+			"walkable": "walkable",
+			"weather": "clear"
+		},
+		{
+			"camera": [
+				0.0,
+				300.0
+			],
+			"conditions": [
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				}
+			],
+			"day": 1,
+			"facing": [
+				0.0,
+				1.0
+			],
+			"id": "village_workyard-entry-v1",
+			"image": "village_workyard-entry-v1.png",
+			"location": "village_workyard",
+			"minutes": 720.0,
+			"phase": "day",
+			"physics_processing": false,
+			"player": [
+				216.0,
+				624.0
+			],
+			"readback": [
+				1152.0,
+				648.0
+			],
+			"season": "spring",
+			"seed": 20261015,
+			"walkable": "walkable",
+			"weather": "clear"
+		},
+		{
+			"camera": [
+				432.0,
+				0.0
+			],
+			"conditions": [
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				}
+			],
+			"day": 1,
+			"facing": [
+				0.0,
+				1.0
+			],
+			"id": "village_orchard-entry-v1",
+			"image": "village_orchard-entry-v1.png",
+			"location": "village_orchard",
+			"minutes": 720.0,
+			"phase": "day",
+			"physics_processing": false,
+			"player": [
+				1008.0,
+				264.0
+			],
+			"readback": [
+				1152.0,
+				648.0
+			],
+			"season": "spring",
+			"seed": 20261015,
+			"walkable": "walkable",
+			"weather": "clear"
+		},
+		{
+			"camera": [
+				0.0,
+				276.0
+			],
+			"conditions": [
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				}
+			],
+			"day": 1,
+			"facing": [
+				0.0,
+				1.0
+			],
+			"id": "cave_fungal-entry-v1",
+			"image": "cave_fungal-entry-v1.png",
+			"location": "cave_fungal",
+			"minutes": 720.0,
+			"phase": "day",
+			"physics_processing": false,
+			"player": [
+				288.0,
+				600.0
+			],
+			"readback": [
+				1152.0,
+				648.0
+			],
+			"season": "spring",
+			"seed": 20261015,
+			"walkable": "walkable",
+			"weather": "clear"
+		},
+		{
+			"camera": [
+				0.0,
+				276.0
+			],
+			"conditions": [
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				}
+			],
+			"day": 1,
+			"facing": [
+				0.0,
+				1.0
+			],
+			"id": "cave_moon-entry-v1",
+			"image": "cave_moon-entry-v1.png",
+			"location": "cave_moon",
+			"minutes": 720.0,
+			"phase": "day",
+			"physics_processing": false,
+			"player": [
+				288.0,
+				600.0
+			],
+			"readback": [
+				1152.0,
+				648.0
+			],
+			"season": "spring",
+			"seed": 20261015,
+			"walkable": "walkable",
+			"weather": "clear"
+		},
+		{
+			"camera": [
+				624.0,
+				0.0
+			],
+			"conditions": [
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				}
+			],
+			"day": 1,
+			"facing": [
+				0.0,
+				1.0
+			],
+			"id": "cave_lake-entry-v1",
+			"image": "cave_lake-entry-v1.png",
+			"location": "cave_lake",
+			"minutes": 720.0,
+			"phase": "day",
+			"physics_processing": false,
+			"player": [
+				1200.0,
+				288.0
+			],
+			"readback": [
+				1152.0,
+				648.0
+			],
+			"season": "spring",
+			"seed": 20261015,
+			"walkable": "walkable",
+			"weather": "clear"
+		},
+		{
+			"camera": [
+				624.0,
+				552.0
+			],
+			"conditions": [
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				}
+			],
+			"day": 1,
+			"facing": [
+				0.0,
+				1.0
+			],
+			"id": "cave_mine-entry-v1",
+			"image": "cave_mine-entry-v1.png",
+			"location": "cave_mine",
+			"minutes": 720.0,
+			"phase": "day",
+			"physics_processing": false,
+			"player": [
+				1200.0,
+				960.0
+			],
+			"readback": [
+				1152.0,
+				648.0
+			],
+			"season": "spring",
+			"seed": 20261015,
+			"walkable": "walkable",
+			"weather": "clear"
+		},
+		{
+			"camera": [
+				0.0,
+				276.0
+			],
+			"conditions": [
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				}
+			],
+			"day": 1,
+			"facing": [
+				0.0,
+				1.0
+			],
+			"id": "cave_sanctum-entry-v1",
+			"image": "cave_sanctum-entry-v1.png",
+			"location": "cave_sanctum",
+			"minutes": 720.0,
+			"phase": "day",
+			"physics_processing": false,
+			"player": [
+				288.0,
+				600.0
+			],
+			"readback": [
+				1152.0,
+				648.0
+			],
+			"season": "spring",
+			"seed": 20261015,
+			"walkable": "walkable",
+			"weather": "clear"
+		},
+		{
+			"camera": [
+				48.0,
+				78.0
+			],
+			"conditions": [
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				}
+			],
+			"day": 1,
+			"facing": [
+				0.0,
+				1.0
+			],
+			"id": "cellar_workshop-entry-v1",
+			"image": "cellar_workshop-entry-v1.png",
+			"location": "cellar_workshop",
+			"minutes": 720.0,
+			"phase": "day",
+			"physics_processing": false,
+			"player": [
+				240.0,
+				408.0
+			],
+			"readback": [
+				1152.0,
+				648.0
+			],
+			"season": "spring",
+			"seed": 20261015,
+			"walkable": "walkable",
+			"weather": "clear"
+		},
+		{
+			"camera": [
+				0.0,
+				6.0
+			],
+			"conditions": [
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				}
+			],
+			"day": 1,
+			"facing": [
+				0.0,
+				1.0
+			],
+			"id": "cottage_interior-entry-v1",
+			"image": "cottage_interior-entry-v1.png",
+			"location": "cottage_interior",
+			"minutes": 720.0,
+			"phase": "day",
+			"physics_processing": false,
+			"player": [
+				576.0,
+				500.0
+			],
+			"readback": [
+				1152.0,
+				648.0
+			],
+			"season": "spring",
+			"seed": 20261015,
+			"walkable": "walkable",
+			"weather": "clear"
+		},
+		{
+			"camera": [
+				0.0,
+				5.0
+			],
+			"conditions": [
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				}
+			],
+			"day": 1,
+			"facing": [
+				0.0,
+				1.0
+			],
+			"id": "shop_interior-entry-v1",
+			"image": "shop_interior-entry-v1.png",
+			"location": "shop_interior",
+			"minutes": 720.0,
+			"phase": "day",
+			"physics_processing": false,
+			"player": [
+				576.0,
+				510.0
+			],
+			"readback": [
+				1152.0,
+				648.0
+			],
+			"season": "spring",
+			"seed": 20261015,
+			"walkable": "walkable",
+			"weather": "clear"
+		},
+		{
+			"camera": [
+				0.0,
+				10.0
+			],
+			"conditions": [
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				}
+			],
+			"day": 1,
+			"facing": [
+				0.0,
+				1.0
+			],
+			"id": "guild_interior-entry-v1",
+			"image": "guild_interior-entry-v1.png",
+			"location": "guild_interior",
+			"minutes": 720.0,
+			"phase": "day",
+			"physics_processing": false,
+			"player": [
+				576.0,
+				525.0
+			],
+			"readback": [
+				1152.0,
+				648.0
+			],
+			"season": "spring",
+			"seed": 20261015,
+			"walkable": "walkable",
+			"weather": "clear"
+		},
+		{
+			"camera": [
+				0.0,
+				10.0
+			],
+			"conditions": [
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				}
+			],
+			"day": 1,
+			"facing": [
+				0.0,
+				1.0
+			],
+			"id": "forge_interior-entry-v1",
+			"image": "forge_interior-entry-v1.png",
+			"location": "forge_interior",
+			"minutes": 720.0,
+			"phase": "day",
+			"physics_processing": false,
+			"player": [
+				576.0,
+				520.0
+			],
+			"readback": [
+				1152.0,
+				648.0
+			],
+			"season": "spring",
+			"seed": 20261015,
+			"walkable": "walkable",
+			"weather": "clear"
+		},
+		{
+			"camera": [
+				0.0,
+				0.0
+			],
+			"conditions": [
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				}
+			],
+			"day": 1,
+			"facing": [
+				0.0,
+				1.0
+			],
+			"id": "chapel_interior-entry-v1",
+			"image": "chapel_interior-entry-v1.png",
+			"location": "chapel_interior",
+			"minutes": 720.0,
+			"phase": "day",
+			"physics_processing": false,
+			"player": [
+				576.0,
+				520.0
+			],
+			"readback": [
+				1152.0,
+				648.0
+			],
+			"season": "spring",
+			"seed": 20261015,
+			"walkable": "walkable",
+			"weather": "clear"
+		},
+		{
+			"camera": [
+				0.0,
+				5.0
+			],
+			"conditions": [
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				}
+			],
+			"day": 1,
+			"facing": [
+				0.0,
+				1.0
+			],
+			"id": "prison_interior-entry-v1",
+			"image": "prison_interior-entry-v1.png",
+			"location": "prison_interior",
+			"minutes": 720.0,
+			"phase": "day",
+			"physics_processing": false,
+			"player": [
+				576.0,
+				525.0
+			],
+			"readback": [
+				1152.0,
+				648.0
+			],
+			"season": "spring",
+			"seed": 20261015,
+			"walkable": "walkable",
+			"weather": "clear"
+		},
+		{
+			"camera": [
+				0.0,
+				0.0
+			],
+			"conditions": [
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				}
+			],
+			"day": 1,
+			"facing": [
+				0.0,
+				1.0
+			],
+			"id": "tower_interior-entry-v1",
+			"image": "tower_interior-entry-v1.png",
+			"location": "tower_interior",
+			"minutes": 720.0,
+			"phase": "day",
+			"physics_processing": false,
+			"player": [
+				576.0,
+				525.0
+			],
+			"readback": [
+				1152.0,
+				648.0
+			],
+			"season": "spring",
+			"seed": 20261015,
+			"walkable": "walkable",
+			"weather": "clear"
+		},
+		{
+			"camera": [
+				324.0,
+				420.0
+			],
+			"conditions": [
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				}
+			],
+			"day": 1,
+			"facing": [
+				0.0,
+				1.0
+			],
+			"id": "castle_hall-entry-v1",
+			"image": "castle_hall-entry-v1.png",
+			"location": "castle_hall",
+			"minutes": 720.0,
+			"phase": "day",
+			"physics_processing": false,
+			"player": [
+				900.0,
+				910.0
+			],
+			"readback": [
+				1152.0,
+				648.0
+			],
+			"season": "spring",
+			"seed": 20261015,
+			"walkable": "walkable",
+			"weather": "clear"
+		},
+		{
+			"camera": [
+				0.0,
+				0.0
+			],
+			"conditions": [
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				}
+			],
+			"day": 1,
+			"facing": [
+				0.0,
+				1.0
+			],
+			"id": "castle_upper-entry-v1",
+			"image": "castle_upper-entry-v1.png",
+			"location": "castle_upper",
+			"minutes": 720.0,
+			"phase": "day",
+			"physics_processing": false,
+			"player": [
+				576.0,
+				520.0
+			],
+			"readback": [
+				1152.0,
+				648.0
+			],
+			"season": "spring",
+			"seed": 20261015,
+			"walkable": "walkable",
+			"weather": "clear"
+		},
+		{
+			"camera": [
+				0.0,
+				5.0
+			],
+			"conditions": [
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				},
+				{
+					"focused": true,
+					"framebuffer": [
+						1152.0,
+						648.0
+					],
+					"mode": 0,
+					"root": [
+						1152.0,
+						648.0
+					],
+					"valid": true,
+					"window": [
+						1152.0,
+						648.0
+					]
+				}
+			],
+			"day": 1,
+			"facing": [
+				0.0,
+				1.0
+			],
+			"id": "castle_dungeon-entry-v1",
+			"image": "castle_dungeon-entry-v1.png",
+			"location": "castle_dungeon",
+			"minutes": 720.0,
+			"phase": "day",
+			"physics_processing": false,
+			"player": [
+				576.0,
+				520.0
+			],
+			"readback": [
+				1152.0,
+				648.0
+			],
+			"season": "spring",
+			"seed": 20261015,
+			"walkable": "walkable",
+			"weather": "clear"
+		}
+	],
+	"preset": "camera-entry-noon-1152-v1",
+	"profile": "Codex-VBASE-003-67109b2ac5cd4eabb0a7162cdaae0e42",
+	"reduced_motion": true,
+	"renderer": "opengl3",
+	"schema": 1,
+	"simulation_frozen": true,
+	"warmup_redraws": 12
+}

@@ -1,0 +1,33 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+OpenGL API 4.1 ATI-7.0.3 - Compatibility - Using Device: ATI Technologies Inc. - AMD Radeon Pro 5300M OpenGL Engine
+
+CAMERA CAPTURE: overworld-entry-v1
+CAMERA CAPTURE: forest-entry-v1
+CAMERA CAPTURE: rocky-entry-v1
+CAMERA CAPTURE: ruins-entry-v1
+CAMERA CAPTURE: cave-entry-v1
+CAMERA CAPTURE: cursed-entry-v1
+CAMERA CAPTURE: glassworks-entry-v1
+CAMERA CAPTURE: pirate_ship-entry-v1
+CAMERA CAPTURE: moon_glade-entry-v1
+CAMERA CAPTURE: village_market-entry-v1
+CAMERA CAPTURE: village_garden-entry-v1
+CAMERA CAPTURE: village_river-entry-v1
+CAMERA CAPTURE: village_workyard-entry-v1
+CAMERA CAPTURE: village_orchard-entry-v1
+CAMERA CAPTURE: cave_fungal-entry-v1
+CAMERA CAPTURE: cave_moon-entry-v1
+CAMERA CAPTURE: cave_lake-entry-v1
+CAMERA CAPTURE: cave_mine-entry-v1
+CAMERA CAPTURE: cave_sanctum-entry-v1
+CAMERA CAPTURE: cellar_workshop-entry-v1
+CAMERA CAPTURE: cottage_interior-entry-v1
+CAMERA CAPTURE: shop_interior-entry-v1
+CAMERA CAPTURE: guild_interior-entry-v1
+CAMERA CAPTURE: forge_interior-entry-v1
+CAMERA CAPTURE: chapel_interior-entry-v1
+CAMERA CAPTURE: prison_interior-entry-v1
+CAMERA CAPTURE: tower_interior-entry-v1
+CAMERA CAPTURE: castle_hall-entry-v1
+CAMERA CAPTURE: castle_upper-entry-v1
+CAMERA CAPTURE: castle_dungeon-entry-v1

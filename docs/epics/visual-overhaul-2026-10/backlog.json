@@ -272,7 +272,7 @@
       "id": "VBASE-003",
       "epic": "VBASE",
       "title": "Составить эталонные точки камеры",
-      "status": "ready",
+      "status": "done",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -306,13 +306,20 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vbase-003-visual-task",
-      "evidence": []
+      "evidence": [
+        "docs/reports/visual-overhaul/vbase-003/README.md",
+        "docs/reports/visual-overhaul/vbase-003/camera-points.json",
+        "docs/reports/visual-overhaul/vbase-003/native/source.json",
+        "docs/reports/visual-overhaul/vbase-003/native/index.html",
+        "tests/suites/visual_camera_suite.gd",
+        "tools/test_visual_camera.py"
+      ]
     },
     {
       "id": "VBASE-004",
       "epic": "VBASE",
       "title": "Снять статический эталон деревни",
-      "status": "backlog",
+      "status": "ready",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -354,7 +361,7 @@
       "id": "VBASE-005",
       "epic": "VBASE",
       "title": "Записать маршруты оценки движения",
-      "status": "backlog",
+      "status": "ready",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -1454,7 +1461,7 @@
       "id": "VCAMERA-001",
       "epic": "VCAMERA",
       "title": "Описать все преобразования координат",
-      "status": "backlog",
+      "status": "ready",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -7358,7 +7365,7 @@
       "id": "VANIM-001",
       "epic": "VANIM",
       "title": "Инвентаризировать реальные клипы",
-      "status": "backlog",
+      "status": "ready",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
