@@ -23,14 +23,8 @@ static func validate() -> Array[String]:
 	var errors: Array[String] = []
 	errors.append_array(WorldVisualAuditSystem.validation_errors())
 	var items: Dictionary = InventorySystem.ITEM_DATA
+	errors.append_array(preload("res://scripts/systems/content_reference_graph.gd").errors(preload("res://scripts/systems/content_reference_graph.gd").snapshot()))
 	errors.append_array(preload("res://scripts/systems/research_system.gd").validation_errors(items))
-	for recipe_index in CraftingSystem.RECIPES.size():
-		var recipe: Dictionary = CraftingSystem.RECIPES[recipe_index]
-		_validate_item(errors, items, recipe.output, "recipe[%d].output" % recipe_index)
-		for kind in recipe.inputs:
-			_validate_item(errors, items, kind, "recipe[%d].inputs" % recipe_index)
-		for kind in recipe.get("byproducts",{}):
-			_validate_item(errors, items, kind, "recipe[%d].byproducts" % recipe_index)
 	for product_index in ShopSystem.PRODUCTS.size():
 		_validate_item(errors, items, ShopSystem.PRODUCTS[product_index].kind, "shop[%d]" % product_index)
 	for crop_kind in CropCatalogSystem.CROPS:
@@ -51,12 +45,6 @@ static func validate() -> Array[String]:
 	for animal_kind in WildlifeSystem.TYPES:
 		for kind in WildlifeSystem.TYPES[animal_kind].loot:
 			_validate_item(errors, items, kind, "wildlife.%s.loot" % animal_kind)
-	for mission_id in QuestSystem.MISSIONS:
-		var mission: Dictionary = QuestSystem.MISSIONS[mission_id]
-		_validate_item(errors, items, mission.item, "mission.%s.item" % mission_id)
-		_validate_item(errors, items, mission.reward_item, "mission.%s.reward" % mission_id)
-		var requirement: String = mission.get("requires", "")
-		if not requirement.is_empty() and not QuestSystem.MISSIONS.has(requirement): errors.append("mission.%s requires unknown mission: %s" % [mission_id, requirement])
 	for npc_id in QuestSystem.NPCS:
 		_validate_location(errors, QuestSystem.NPCS[npc_id].location, "quest npc.%s" % npc_id)
 		for mission_id in QuestSystem.NPCS[npc_id].missions:

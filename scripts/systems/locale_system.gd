@@ -429,6 +429,13 @@ const TEXT := {
 }
 
 const BASE_ITEMS := {
+	"backpack_upgrade":["Расширение рюкзака","Backpack upgrade","Ampliación de mochila","Rucksack-Erweiterung","Extension de sac","背包扩展"],
+	"rustic_table":["Дубовый стол","Oak table","Mesa de roble","Eichentisch","Table en chêne","橡木桌"],
+	"wooden_chair":["Дубовый стул","Oak chair","Silla de roble","Eichenstuhl","Chaise en chêne","橡木椅"],
+	"woven_rug":["Тканый ковёр","Woven rug","Alfombra tejida","Webteppich","Tapis tissé","编织地毯"],
+	"potted_fern":["Папоротник в горшке","Potted fern","Helecho en maceta","Topffarn","Fougère en pot","盆栽蕨类"],
+	"wooden_wardrobe":["Деревянный шкаф","Wooden wardrobe","Armario de madera","Holzschrank","Armoire en bois","木衣柜"],
+	"museum_token":["Жетон хранителя","Curator token","Ficha del conservador","Hütermarke","Jeton du conservateur","馆长代币"],
 	"qa_teleport_stone":["Камень телепортации · QA","Teleport stone · QA","Piedra de teletransporte · QA","Teleportstein · QA","Pierre de téléportation · QA","传送石 · QA"],
 	"animal_feed":["Корм для животных","Animal feed","Pienso para animales","Tierfutter","Aliment pour animaux","动物饲料"],
 	"truffle":["Лесной трюфель", "Forest truffle", "Trufa silvestre", "Waldtrüffel", "Truffe des bois", "森林松露"],

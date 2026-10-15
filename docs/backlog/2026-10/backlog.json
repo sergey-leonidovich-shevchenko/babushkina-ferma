@@ -952,8 +952,8 @@
         "tools/check_architecture.sh и ./run_tests.sh без ERROR движка.",
         "Обновлённые документация и точный ручной маршрут QA_CHECKLIST.md; нативная проверка, если меняются рисунок, ввод или производительность."
       ],
-      "status": "ready",
-      "result": ""
+      "status": "done",
+      "result": "Pure graph: 386 items, 321 recipes, 18 missions, 18 stations, six languages; 403 assertions passed, negative references/levels/cycles/locales and immutable copies. Fixed seven missing localized item names. Wiki export/typecheck/build/16 tests passed. docs/reports/safe-2026-10/README.md."
     },
     {
       "id": "SAFE-07",

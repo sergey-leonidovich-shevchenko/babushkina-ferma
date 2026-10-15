@@ -61,6 +61,7 @@ static func test_input_actions_are_centralized(context: SceneTree) -> void:
 ## Исходное состояние: новая игра со всеми встроенными таблицами данных и стандартными объектами мира.
 ## Ожидаемый результат: реестр не сообщает ошибок, а враги и растения принадлежат профильным системам.
 static func test_content_references_are_valid(context: SceneTree) -> void:
+	preload("res://tests/suites/content_reference_suite.gd").new(context).run()
 	var game: Node = context.make_game()
 	var errors: Array[String] = game.ContentRegistry.validate()
 	context.expect(errors.is_empty(), "recipes loot quests spawns shops and tutorials reference valid catalog ids: %s" % [errors])

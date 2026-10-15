@@ -6,7 +6,7 @@
 
 ## Состояние
 
-`backlog`: 1, `ready`: 6, `blocked`: 38, `in_progress`: 0, `done`: 5. Статус `done` требует записанного результата; исходные критерии и наличие тестов не означают выполнения.
+`backlog`: 1, `ready`: 5, `blocked`: 38, `in_progress`: 0, `done`: 6. Статус `done` требует записанного результата; исходные критерии и наличие тестов не означают выполнения.
 
 ## Эпики
 
@@ -24,7 +24,6 @@
 Начать с OPT-01: закрепить честный замер до следующего изменения производительности. Далее SAFE-05/SAFE-03 и QA-01; следующие пункты выбираем по дефектам и данным. Одна задача в работе. S/M/L — относительный объём, не срок; L можно разбить до начала.
 
 - [OPT-01](#opt-01) — Измерения, честный gate и быстрые профили
-- [SAFE-06](#safe-06) — Проверить целостность взаимных ссылок реестров контента
 - [SAFE-07](#safe-07) — Закрепить матрицу отмены и сохранения действий при переходах
 - [FARM-01](#farm-01) — Построить карту экономики первых семи дней
 - [WORLD-01](#world-01) — Зафиксировать вертикальный срез первых семи игровых дней
@@ -742,7 +741,7 @@
 
 ### SAFE-06 — Проверить целостность взаимных ссылок реестров контента
 
-**ready · P2 · M · validation**. Ветка: `codex/safe-06-content-reference-contracts`.
+**done · P2 · M · validation**. Ветка: `codex/safe-06-content-reference-contracts`.
 
 **Сейчас:** Реестры предметов, крафта, миссий, локализации и Wiki проверяются несколькими разными наборами.
 
@@ -774,7 +773,7 @@
 
 **Основания:** [GODOT-SCENES](https://docs.godotengine.org/en/stable/tutorials/best_practices/scene_organization.html), [GODOT-SAVE](https://docs.godotengine.org/en/stable/tutorials/io/saving_games.html).
 
-**Подтверждение результата:** пока нет; задача открыта.
+**Подтверждение результата:** Pure graph: 386 items, 321 recipes, 18 missions, 18 stations, six languages; 403 assertions passed, negative references/levels/cycles/locales and immutable copies. Fixed seven missing localized item names. Wiki export/typecheck/build/16 tests passed. docs/reports/safe-2026-10/README.md.
 
 <a id="safe-07"></a>
 
