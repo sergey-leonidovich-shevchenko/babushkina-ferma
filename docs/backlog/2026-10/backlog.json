@@ -1343,8 +1343,8 @@
         "tools/check_architecture.sh и ./run_tests.sh без ERROR движка.",
         "Обновлённые документация и точный ручной маршрут QA_CHECKLIST.md; нативная проверка, если меняются рисунок, ввод или производительность."
       ],
-      "status": "ready",
-      "result": ""
+      "status": "done",
+      "result": "docs/reports/farm-2026-10/README.md: shared 321-recipe graph and source records, exact nested batches/byproducts/current talent costs, bounded read-only game guide and Vue planner; ProductionPlanSuite 1179 assertions, FARM profile 2748/0; 333 Godot/browser parity fixtures and pnpm check 20/0. Native frame and browser controls inspected; flower source and shared-menu keyboard routing fixed."
     },
     {
       "id": "WORLD-01",

@@ -99,10 +99,14 @@ static func draw_tutorial(game: Node2D) -> void:
 	UiKitSystem.draw_progress(game,Rect2(rect.position+Vector2(18,rect.size.y-10),Vector2(rect.size.x-36,3)),float(step)/maxi(1,total),Color("76934f"))
 
 
+## Не выводит старое мировое уведомление поверх полноэкранного справочника и других игровых окон.
+static func notification_visible(game: Node) -> bool:
+	if game.message.is_empty() or game.hud_message_timer <= 0.0 or game.inventory_open or game.world_map_open or game.shop_open or game.quest_log_open or game.skill_menu_open or game.crafting_open or game.storage_open or game.forge_open or game.contract_open: return false
+	return not (game.AdventurePolishSystem.has_modal(game) or game.FirstChapterSystem.modal_active(game) or game.menu_state.pause_open or game.menu_state.settings_open or game.menu_state.defeat_open)
+
 ## Рисует системное сообщение как спокойную пергаментную плашку с типовой иконкой награды или события.
 static func draw_notification(game: Node2D) -> void:
-	if game.message.is_empty() or game.hud_message_timer <= 0.0 or game.inventory_open or game.shop_open or game.quest_log_open or game.skill_menu_open or game.crafting_open or game.storage_open or game.forge_open or game.contract_open: return
-	if game.AdventurePolishSystem.has_modal(game) or game.FirstChapterSystem.modal_active(game) or game.menu_state.pause_open or game.menu_state.settings_open or game.menu_state.defeat_open: return
+	if not notification_visible(game): return
 	var rect := NOTIFICATION_CARD
 	game.InterfaceRenderer.HudRenderer.draw_quiet_panel(game,rect)
 	var reward: bool = "+" in game.message or "награ" in game.message.to_lower() or "получ" in game.message.to_lower()

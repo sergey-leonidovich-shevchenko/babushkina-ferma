@@ -43,11 +43,14 @@ static func recipes(ctx: Object) -> void:
 		var entry:Dictionary=ctx.add("craft",data.get("id","legacy-"+str(index)),ctx.item_name(data.output),"Изготовление: %s × %d. Рабочее место: %s."%[ctx.item_name(data.output),data.count,name],[name],"scripts/systems/crafting_system.gd")
 		ctx.item_icon(entry,data.output); entry.ingredients=ctx.materials(data.inputs); entry.yields=ctx.materials({data.output:data.count})
 		entry.byproducts=ctx.materials(data.get("byproducts",{})); entry.output=data.output; entry.station=station
+		entry.recipe_index=index
 		ctx.link(entry,"buildings","station-"+station,name,"Рабочее место")
 		ctx.link(entry,"items",data.output,"","Результат")
 		for key in ["seconds","energy","alchemy_rank","workshop_level","furnace_level"]:
 			if data.has(key): ctx.fact(entry,{"seconds":"Время, сек.","energy":"Энергия","alchemy_rank":"Ранг алхимии","workshop_level":"Уровень станка","furnace_level":"Уровень горна"}[key],data[key])
-		if data.get("station","")=="cauldron": ctx.fact(entry,"Уровень кухни",preload("res://scripts/systems/kitchen_data.gd").level(data))
+		if data.get("station","")=="cauldron":
+			ctx.fact(entry,"Уровень личной кухни",preload("res://scripts/systems/kitchen_data.gd").level(data))
+			if not data.get("private_kitchen",false): ctx.fact(entry,"Общая кухня","Мгновенно, без топлива; уровень личной печи здесь не требуется")
 		if data.has("talent"): ctx.fact(entry,"Требуется талант",game.TalentSystem.word(game,String(data.talent)))
 		if data.has("study_kind"): ctx.fact(entry,"Нужно изучить",ctx.item_name(data.study_kind))
 		if data.get("private_kitchen",false): ctx.fact(entry,"Размещение","Личная кухня подвала")

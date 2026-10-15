@@ -272,6 +272,7 @@ static func handle_quest_pointer(game: Node, position: Vector2) -> bool:
 ## Маршрутизирует событие в единственное открытое модальное окно до мирового управления.
 static func handle_modal_input(game: Node, event: InputEvent) -> bool:
 	if game.world_map_open:
+		if preload("res://scripts/systems/production_guide_system.gd").handle_input(game,event): return true
 		if event is InputEventKey and event.pressed and not event.echo:
 			if event.keycode in [KEY_M, KEY_ESCAPE]: game.WorldMapSystem.toggle(game)
 			elif event.keycode==KEY_V and game.world_guide_page==0: preload("res://scripts/presentation/village_region_map_renderer.gd").toggle(game)

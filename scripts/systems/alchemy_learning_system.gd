@@ -20,13 +20,13 @@ static func word(game: Node, id: String, values: Array=[]) -> String:
 ## Находит первый ещё не выполненный опыт по постоянным открытиям, позволяя свободный порядок крафта.
 static func next_id(game: Node) -> String:
 	for id in LESSONS:
-		if id not in game.CraftingSystem.Alchemy.state(game).discovered: return id
+		if id not in game.state.world.estate.expansion.get("alchemy",{}).get("discovered",[]): return id
 	return ""
 
 ## Разделяет уже сделанный препарат, ближайший учебный шаг и пока не опробованный рецепт.
 static func status(game: Node, recipe: Dictionary) -> String:
 	var id:=String(recipe.get("id",""))
-	if id in game.CraftingSystem.Alchemy.state(game).discovered: return word(game,"known")
+	if id in game.state.world.estate.expansion.get("alchemy",{}).get("discovered",[]): return word(game,"known")
 	return word(game,"next",[LESSONS.find(id)+1]) if id==next_id(game) else word(game,"untried")
 
 ## Находит реальные источники ближайших ингредиентов, не выдавая сырьё и не открывая всю ветку.

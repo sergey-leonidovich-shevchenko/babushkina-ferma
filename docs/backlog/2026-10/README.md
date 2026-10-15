@@ -1,12 +1,12 @@
 # План разработки: 6 эпиков и 50 задач
 
-План от 15 октября 2026. Ведём в файлах репозитория. Это очередь без сроков и автоматического запуска; новые механики пока не реализуются. Исходный commit: `f6366526a9a9e56d07211d4ae305e0ce23d3e3f6`.
+План от 15 октября 2026. Ведём в файлах репозитория. Это очередь без сроков и автоматического запуска; реализация и подтверждения отмечены в карточках. Исходный commit: `f6366526a9a9e56d07211d4ae305e0ce23d3e3f6`.
 
 [Исследование и первичные источники](RESEARCH.md) · [Рабочий процесс](../../BACKLOG_WORKFLOW.md) · [Редактируемый источник](backlog.json) · [Дополнительные эпики](../README.md). Этот Markdown создаётся командой `python3 tools/project_backlog.py --write`.
 
 ## Состояние
 
-`backlog`: 1, `ready`: 7, `blocked`: 28, `in_progress`: 0, `done`: 14. Статус `done` требует записанного результата; исходные критерии и наличие тестов не означают выполнения.
+`backlog`: 1, `ready`: 6, `blocked`: 28, `in_progress`: 0, `done`: 15. Статус `done` требует записанного результата; исходные критерии и наличие тестов не означают выполнения.
 
 ## Эпики
 
@@ -24,7 +24,6 @@
 Начать с OPT-01: закрепить честный замер до следующего изменения производительности. Далее SAFE-05/SAFE-03 и QA-01; следующие пункты выбираем по дефектам и данным. Одна задача в работе. S/M/L — относительный объём, не срок; L можно разбить до начала.
 
 - [OPT-01](#opt-01) — Измерения, честный gate и быстрые профили
-- [FARM-08](#farm-08) — Показать производственную цепочку выбранного предмета в игре и Wiki
 - [WORLD-01](#world-01) — Зафиксировать вертикальный срез первых семи игровых дней
 - [WORLD-04](#world-04) — Проверить граф заданий и однократность наград
 - [WORLD-06](#world-06) — Настроить читаемые окна реакции дистанционных врагов
@@ -1081,7 +1080,7 @@
 
 ### FARM-08 — Показать производственную цепочку выбранного предмета в игре и Wiki
 
-**ready · P2 · L · implementation**. Ветка: `codex/farm-08-production-chain-guide`.
+**done · P2 · L · implementation**. Ветка: `codex/farm-08-production-chain-guide`.
 
 **Сейчас:** Wiki и перечень рецептов уже есть; связь вложенных ингредиентов и мест их получения разрозненна.
 
@@ -1111,7 +1110,7 @@
 
 **Основания:** [LOOPS](https://lostgarden.com/2012/04/30/loops-and-arcs/), [GODOT-SCENES](https://docs.godotengine.org/en/stable/tutorials/best_practices/scene_organization.html).
 
-**Подтверждение результата:** пока нет; задача открыта.
+**Подтверждение результата:** docs/reports/farm-2026-10/README.md: shared 321-recipe graph and source records, exact nested batches/byproducts/current talent costs, bounded read-only game guide and Vue planner; ProductionPlanSuite 1179 assertions, FARM profile 2748/0; 333 Godot/browser parity fixtures and pnpm check 20/0. Native frame and browser controls inspected; flower source and shared-menu keyboard routing fixed.
 
 <a id="epic-world"></a>
 

@@ -20,6 +20,7 @@ static func toggle(game: Node) -> bool:
 ## Выбирает вкладку энциклопедии по безопасно ограниченному индексу.
 static func set_page(game: Node, page: int) -> int:
 	game.world_guide_page = clampi(page, 0, PAGE_COUNT - 1)
+	if game.world_guide_page==4: game.notify_tutorial("production_plan")
 	game.UiFeedbackSystem.focus(game, "world_guide:%d" % game.world_guide_page)
 	game.queue_redraw()
 	return game.world_guide_page
@@ -27,14 +28,12 @@ static func set_page(game: Node, page: int) -> int:
 
 ## Переключает вкладку по кругу для клавиатуры и плечевых кнопок геймпада.
 static func cycle_page(game: Node, offset: int) -> int:
-	game.world_guide_page = posmod(game.world_guide_page + offset, PAGE_COUNT)
-	game.UiFeedbackSystem.focus(game, "world_guide:%d" % game.world_guide_page)
-	game.queue_redraw()
-	return game.world_guide_page
+	return set_page(game,posmod(game.world_guide_page+offset,PAGE_COUNT))
 
 
 ## Обрабатывает указатель на вкладках, рецептах и кнопке закрытия энциклопедии.
 static func handle_pointer(game: Node, point: Vector2) -> bool:
+	if game.world_guide_page==4 and preload("res://scripts/systems/production_guide_system.gd").handle_pointer(game,point): return true
 	if game.WorldMapRenderer.CLOSE_BUTTON.has_point(point): return toggle(game)
 	if game.world_guide_page==0 and preload("res://scripts/presentation/village_region_map_renderer.gd").TOGGLE.has_point(point): preload("res://scripts/presentation/village_region_map_renderer.gd").toggle(game); return true
 	var page: int = game.WorldMapRenderer.page_at(point)

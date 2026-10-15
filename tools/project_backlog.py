@@ -113,7 +113,7 @@ def render(plan):
     counts = Counter(t['status'] for t in plan['tasks'])
     sections = ['# План разработки: 6 эпиков и 50 задач',
         'План от 15 октября 2026. Ведём в файлах репозитория. Это очередь без сроков и автоматического запуска; ' +
-        'новые механики пока не реализуются. Исходный commit: `' + plan['baseline_commit'] + '`.',
+        'реализация и подтверждения отмечены в карточках. Исходный commit: `' + plan['baseline_commit'] + '`.',
         '[Исследование и первичные источники](RESEARCH.md) · [Рабочий процесс](../../BACKLOG_WORKFLOW.md) · ' +
         '[Редактируемый источник](backlog.json) · [Дополнительные эпики](../README.md). ' +
         'Этот Markdown создаётся командой `python3 tools/project_backlog.py --write`.',

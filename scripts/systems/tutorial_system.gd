@@ -30,6 +30,7 @@ const STEP_IDS := [
 	"fruit_press", "fermenter", "preserver", "smoker", "loom", "tannery", "candlebench", "gardenbench", "fertilizer", "fishing_bait", "dev_cabinet", "storage_quick", "village_regions", "rescue", "qa_teleport",
 	"production_cancel",
 	"alchemy_learning",
+	"production_plan",
 ]
 
 

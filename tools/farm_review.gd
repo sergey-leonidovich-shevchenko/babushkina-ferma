@@ -13,6 +13,7 @@ func _initialize() -> void:
 	preload("res://tests/suites/farm_queue_suite.gd").new(self).run()
 	preload("res://tests/suites/farm_alchemy_learning_suite.gd").new(self).run()
 	var fishing:=preload("res://tests/suites/farm_fishing_access_suite.gd").new(self); fishing.run()
+	preload("res://tests/suites/production_plan_suite.gd").new(self).run()
 	var game:=make_game(); var consumed:={}
 	for recipe in game.CraftingSystem.RECIPES:
 		for kind in recipe.inputs: consumed[kind]=true

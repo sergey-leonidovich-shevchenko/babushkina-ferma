@@ -27,9 +27,10 @@ func _export() -> void:
 	var errors:Array=game.ContentRegistry.validate()
 	if not errors.is_empty(): push_error(str(errors)); game.free(); quit(1); return
 	Actors.export_all(self); Content.export_all(self); World.export_all(self)
+	var production:=preload("res://wiki/scripts/export_production.gd").build(self)
 	var file:=FileAccess.open(output+"catalog.json",FileAccess.WRITE)
 	if file==null: push_error("Не удалось записать каталог wiki"); game.free(); quit(1); return
-	file.store_string(JSON.stringify({"schema":1,"entries":entries,"images":images,"coverage":{"items":game.InventorySystem.ITEM_DATA.size(),"craft":game.CraftingSystem.RECIPES.size(),"npcs":game.QuestSystem.NPCS.size(),"quests":game.QuestSystem.MISSIONS.size(),"stations":preload("res://scripts/systems/basement_data.gd").STATIONS.size()}},"\t")); file.close()
+	file.store_string(JSON.stringify({"schema":1,"entries":entries,"images":images,"production":production,"coverage":{"items":game.InventorySystem.ITEM_DATA.size(),"craft":game.CraftingSystem.RECIPES.size(),"npcs":game.QuestSystem.NPCS.size(),"quests":game.QuestSystem.MISSIONS.size(),"stations":preload("res://scripts/systems/basement_data.gd").STATIONS.size()}},"\t")); file.close()
 	game.free(); print("WIKI EXPORT: %d articles, %d sprite resources"%[entries.size(),images.size()]); quit(1 if failed else 0)
 
 ## Создаёт статью с единым контрактом для поиска, карточек, чисел и перекрёстных ссылок.

@@ -168,16 +168,7 @@ static func draw_recipes(game: Node2D) -> void:
 		UiKitSystem.draw_button(game, rect, recipe_index == selected, true, game.settings_state.reduced_motion, Time.get_ticks_msec())
 		game.draw_item_icon(String(recipe.output), Rect2(rect.position + Vector2(12, 5), Vector2(34, 34)))
 		game.draw_ui_string(game.UI_FONT, rect.position + Vector2(54, 28), game.inventory_item_name(String(recipe.output)), HORIZONTAL_ALIGNMENT_LEFT, 310, 11, MoonStyle.TEXT)
-	var recipe: Dictionary = game.CraftingSystem.RECIPES[selected]
-	MoonStyle.panel(game,Rect2(548, 174, 522, 392),MoonStyle.INSET)
-	var icon_rect := MoonStyle.slot(game, Rect2(718, 194, 180, 180), false)
-	game.draw_item_icon(String(recipe.output), icon_rect)
-	game.draw_ui_string(game.UI_FONT, Vector2(582, 403), game.inventory_item_name(String(recipe.output)), HORIZONTAL_ALIGNMENT_CENTER, 454, 18, MoonStyle.TEXT)
-	game.draw_ui_multiline_string(game.UI_FONT, Vector2(588, 448), game.CraftingSystem.ingredients_text(game, recipe), HORIZONTAL_ALIGNMENT_CENTER, 442, 58, 11, 4, Color("694a33"))
-	var unlocked: bool = game.TalentSystem.recipe_unlocked(game, recipe)
-	var label:String=game.LocaleSystem.ui("guide_recipe_open") if unlocked else game.LocaleSystem.ui("guide_recipe_locked")
-	if recipe.get("station","")=="alchemy": label+=" • "+preload("res://scripts/systems/alchemy_learning_system.gd").status(game,recipe)
-	game.draw_ui_string(game.UI_FONT, Vector2(588, 526), label, HORIZONTAL_ALIGNMENT_CENTER, 442, 11, Color("66804c") if unlocked else Color("a83f2a"))
+	preload("res://scripts/systems/production_guide_system.gd").draw(game)
 
 
 ## Возвращает область видимой строки справочника рецептов.

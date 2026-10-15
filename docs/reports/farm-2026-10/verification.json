@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-15",
+  "engine": "Godot 4.7.1 Compatibility",
+  "profile": {
+    "passed": 2748,
+    "failed": 0,
+    "engine_errors": 0
+  },
+  "wiki": {
+    "node_tests": 20,
+    "failed": 0,
+    "godot_parity_fixtures": 333,
+    "recipes": 321,
+    "articles": 999,
+    "typescript_vite_build": "passed"
+  },
+  "browser": {
+    "method": "real in-app browser, local production preview",
+    "checks": [
+      "search and open bread recipe",
+      "2 batches require 8 wheat",
+      "one owned flour reduces wheat to 6",
+      "ordered production steps and links",
+      "season source labels",
+      "no browser console errors",
+      "glass route switches sand to three shards with actual recycling sources"
+    ]
+  },
+  "limits": [
+    "no human seven-day playtest",
+    "no physical-controller or FPS claim",
+    "recipe raw inputs at current skill costs; fuel and station construction separate"
+  ]
+}

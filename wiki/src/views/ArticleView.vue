@@ -8,6 +8,7 @@ import MaterialList from '../components/MaterialList.vue'
 import SpriteCanvas from '../components/SpriteCanvas.vue'
 import AnimationPlayer from '../components/AnimationPlayer.vue'
 import WikiIcon from '../components/WikiIcon.vue'
+import ProductionPlan from '../components/ProductionPlan.vue'
 
 const route = useRoute()
 const entry = computed(() =>
@@ -105,6 +106,14 @@ async function copy() {
     </div>
     <div class="article-layout" :class="{ 'no-portrait': !entry.icon }">
       <main class="article-content">
+        <ProductionPlan
+          v-if="
+            entry.category === 'craft' && entry.recipe_index !== undefined && catalog?.production
+          "
+          :graph="catalog.production"
+          :index="entry.recipe_index"
+          :batches="batches"
+        />
         <section v-if="entry.facts.length" class="info-panel">
           <h2>Что нужно знать</h2>
           <dl class="facts">

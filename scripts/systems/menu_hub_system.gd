@@ -72,6 +72,8 @@ static func handle_input(game: Node, event: InputEvent) -> bool:
 		if event.button_index==JOY_BUTTON_Y and game.skill_menu_open: game.CompanionSystem.cycle_command(game); return true
 		if event.button_index in [JOY_BUTTON_LEFT_SHOULDER,JOY_BUTTON_RIGHT_SHOULDER]:
 			open(game,PAGES[posmod(PAGES.find(page(game)) + (-1 if event.button_index==JOY_BUTTON_LEFT_SHOULDER else 1),PAGES.size())]); return true
+	if game.world_map_open and event is InputEventKey and event.pressed and not event.echo:
+		return game.InputSystem.handle_modal_input(game,event)
 	var pointer: bool = (event is InputEventMouseButton and event.pressed and event.button_index==MOUSE_BUTTON_LEFT) or (event is InputEventScreenTouch and event.pressed)
 	if pointer:
 		if CLOSE.has_point(event.position): close(game); return true

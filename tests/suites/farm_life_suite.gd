@@ -10,6 +10,7 @@ func run() -> void:
 	preload("res://tests/suites/farm_queue_suite.gd").new(context).run()
 	preload("res://tests/suites/farm_alchemy_learning_suite.gd").new(context).run()
 	preload("res://tests/suites/farm_fishing_access_suite.gd").new(context).run()
+	preload("res://tests/suites/production_plan_suite.gd").new(context).run()
 	preload("res://tests/suites/livestock_suite.gd").new(context).run()
 	preload("res://tests/suites/apiary_suite.gd").new(context).run()
 	test_first_day_is_coherent_route()

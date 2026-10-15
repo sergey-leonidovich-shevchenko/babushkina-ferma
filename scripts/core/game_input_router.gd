@@ -184,6 +184,7 @@ static func _handle_mouse(game: Node, event: InputEventMouseButton, world_visibl
 		game.InventoryInputSystem.handle_mouse(game, event)
 		return true
 	if event.pressed and event.button_index in [MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_DOWN]:
+		if preload("res://scripts/systems/production_guide_system.gd").handle_wheel(game,event): return true
 		return game.ItemWindowRenderer.handle_list_scroll(game, -1 if event.button_index == MOUSE_BUTTON_WHEEL_UP else 1)
 	if event.button_index != MOUSE_BUTTON_LEFT:
 		return false

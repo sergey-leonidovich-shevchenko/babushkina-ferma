@@ -28,6 +28,7 @@ export interface AnimationClip {
   frames: Record<string, SpriteFrame[]>
 }
 export interface Entry {
+  recipe_index?: number
   id: string
   category: Category
   title: string
@@ -50,6 +51,7 @@ export interface Entry {
   source: string
 }
 export interface Catalog {
+  production: import('./lib/production-plan.ts').ProductionGraph
   schema: number
   entries: Entry[]
   images: Record<string, [number, number]>
