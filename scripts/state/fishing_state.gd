@@ -2,6 +2,7 @@ extends RefCounted
 
 var cast_target := Vector2.INF
 var cast_location := ""
+var visual_time := 0.0
 var phase := "idle"
 var timer := 0.0
 var cast_power := 0.0
@@ -53,6 +54,7 @@ var traps: Array = []
 func reset_cast() -> void:
 	cast_target=Vector2.INF
 	cast_location=""
+	visual_time=0.0
 	phase = "idle"
 	timer = 0.0
 	cast_power = 0.0

@@ -19,11 +19,12 @@ static func draw(game: Node2D) -> void:
 	if game.BuildingSystem.is_interior(game.current_location):
 		game.draw_interior_objects(); game.draw_quest_npcs()
 	elif game.current_location == "overworld":
-		game.VillageAmbientRenderer.draw_ground(game); game.draw_farm(); VillagePropRenderer.draw(game,false); game.draw_rpg_world(); game.draw_fishing_animations()
+		game.VillageAmbientRenderer.draw_ground(game); game.draw_farm(); VillagePropRenderer.draw(game,false); game.draw_rpg_world()
 	else:
 		game.draw_farm()
 	preload("res://scripts/presentation/village_region_renderer.gd").draw_ground(game)
 	preload("res://scripts/presentation/village_region_renderer.gd").draw_objects(game)
+	if game.current_location in ["overworld","village_river"]: game.draw_fishing_animations()
 	game.EnvironmentVisualSystem.draw_biome_trees(game, game.current_location)
 	CaveRenderer.draw_lights(game); BossRenderer.draw_ground(game)
 	game.PublishedLevelRenderer.draw_layer(game,"background"); game.PublishedLevelRenderer.draw_layer(game,"ground"); game.LevelEditorRenderer.draw_layer(game,"background"); game.LevelEditorRenderer.draw_layer(game,"ground")

@@ -140,7 +140,9 @@ static func draw_effect(canvas: Node2D, kind: String, position: Vector2, frame: 
 
 ## Добавляет над цельным мастер-артом только прозрачные живые эффекты, не повторяя непрозрачную воду и траву.
 static func draw_first_location_animations(game: Node2D) -> void:
-	if game.current_location!="overworld": return
+	if game.current_location!="overworld":
+		draw_fishing_effects(game)
+		return
 	var ticks: int=Time.get_ticks_msec(); var season: String=game.WorldEventSystem.season(game.day)
 	if season!="winter":
 		for index in AMBIENT_WATER_POINTS.size():
@@ -150,16 +152,26 @@ static func draw_first_location_animations(game: Node2D) -> void:
 			draw_effect(game,"bubbles",point,bubble_frame,Color(0.88,0.98,1.0,0.72))
 	var fish_frame: int=posmod(int(ticks/int(EFFECT_PROFILES.fish.frame_ms)),int(EFFECT_PROFILES.fish.frames))
 	draw_effect(game,"fish",game.pond_position,fish_frame,Color(1,1,1,0.86))
-	if game.state.fishing.phase in [game.FishingSystem.PHASE_WAITING,game.FishingSystem.PHASE_BITE]:
-		draw_bobber(game,ticks)
-	if game.state.fishing.phase==game.FishingSystem.PHASE_BITE:
-		var splash_frame: int=posmod(int(ticks/int(EFFECT_PROFILES.splash.frame_ms)),int(EFFECT_PROFILES.splash.frames))
-		draw_effect(game,"splash",game.FishingSystem.bobber_position(game),splash_frame)
+	draw_fishing_effects(game)
+
+## Показывает леску и поклёвку обеих рыбацких карт по времени симуляции, исключая покинутый водоём.
+static func draw_fishing_effects(game: Node2D) -> void:
+	var state=game.state.fishing
+	if game.current_location not in ["overworld","village_river"] or state.cast_location!=game.current_location or not state.cast_target.is_finite(): return
+	var ticks:=int(state.visual_time*1000.0)
+	if state.phase in [game.FishingSystem.PHASE_WAITING,game.FishingSystem.PHASE_BITE]: draw_bobber(game,ticks)
+	if state.phase==game.FishingSystem.PHASE_BITE:
+		var splash_frame:=posmod(int(ticks/int(EFFECT_PROFILES.splash.frame_ms)),int(EFFECT_PROFILES.splash.frames))
+		if game.settings_state.reduced_motion: splash_frame=0
+		draw_effect(game,"splash",state.cast_target,splash_frame)
+		game.draw_string_outline(game.UI_FONT,state.cast_target+Vector2(-10,-22),"!",HORIZONTAL_ALIGNMENT_CENTER,20,14,2,Color("493927"))
+		game.draw_string(game.UI_FONT,state.cast_target+Vector2(-10,-22),"!",HORIZONTAL_ALIGNMENT_CENTER,20,14,Color("f4ce75"))
 
 
 ## Рисует натянутую леску, поплавок и спокойную рябь в фактической точке заброса.
 static func draw_bobber(game: Node2D, ticks: int) -> void:
 	var position:Vector2=game.FishingSystem.bobber_position(game); var pulse:=sin(ticks/180.0)*2.0
+	if game.settings_state.reduced_motion: pulse=0
 	game.draw_line(preload("res://scripts/systems/hero_action_visual_system.gd").fishing_line_origin(game),position,Color(0.93,0.90,0.72,0.82),1.2)
 	game.draw_arc(position,12.0+pulse,0.0,TAU,24,Color(0.72,0.91,1.0,0.48),1.2)
 	game.draw_circle(position+Vector2(0,-3),5.0,Color("f4e4b3")); game.draw_circle(position+Vector2(0,-6),3.0,Color("d9544d"))

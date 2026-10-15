@@ -3,6 +3,7 @@ extends "res://tests/suites/suite_base.gd"
 
 ## Запускает сценарии полного цикла, физики, наград, сохранения и устройств управления рыбалкой.
 func run() -> void:
+	preload("res://tests/suites/water_fishing_suite.gd").new(context).run()
 	test_cast_release_hook_and_miss()
 	test_cast_depth_hook_grade_and_weighted_ecology()
 	test_bar_inertia_and_fish_behaviors()

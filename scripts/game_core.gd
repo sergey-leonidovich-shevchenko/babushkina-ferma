@@ -185,6 +185,7 @@ func update_camera() -> void:
 
 ## Синхронизирует фон и музыку локации, убирая временные атаки покинутой комнаты.
 func sync_background_location() -> void:
+	FishingSystem.on_location_changed(self)
 	if String(get_meta("combat_location",current_location))!=current_location: CombatSystem.reset_transients(self)
 	set_meta("combat_location",current_location)
 	AudioSystem.switch_music(self, current_location)

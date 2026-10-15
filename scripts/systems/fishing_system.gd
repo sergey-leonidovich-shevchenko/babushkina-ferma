@@ -32,7 +32,7 @@ static func configure_preview(game: Node) -> void:
 
 ## Проверяет, находится ли герой достаточно близко к пригодному для заброса участку воды.
 static func is_near_water(game: Node) -> bool:
-	return WaterQuery.nearest(game).is_finite()
+	return WaterQuery.target(game).is_finite()
 
 ## Определяет тип ближайшего водоёма для честного разделения прудовой и речной экосистемы.
 static func water_kind(game: Node) -> String:
@@ -54,9 +54,9 @@ static func use_rod(game: Node) -> bool:
 		_start_minigame(game)
 		return true
 	if state.phase == PHASE_WAITING:
-		state.reset_cast(); game.message = game.LocaleSystem.text("fish_reeled_in"); return true
+		cancel(game); game.message = game.LocaleSystem.text("fish_reeled_in"); return true
 	if state.phase == PHASE_RESULT:
-		state.reset_cast(); return true
+		cancel(game); return true
 	if state.phase == PHASE_CHARGING: return false
 	var held_kind: String = String(game.hotbar_slots[game.selected_hotbar]) if game.selected_hotbar >= 0 and game.selected_hotbar < game.hotbar_slots.size() else ""
 	if not game.has_fishing_rod and game.inventory_item_count("advanced_fishing_rod") <= 0: game.message = game.LocaleSystem.text("fish_no_rod"); return false
@@ -67,18 +67,31 @@ static func use_rod(game: Node) -> bool:
 	if not is_near_water(game): game.message = game.LocaleSystem.text("fish_need_water"); return false
 	state.reset_cast()
 	state.phase = PHASE_CHARGING
+	state.cast_location=game.current_location
 	var to_water:Vector2=game.player.direction_to(WaterQuery.nearest(game))
 	game.set_meta("fish_visual_direction",game.HeroActionSystem.cardinal(to_water))
 	game.message = game.LocaleSystem.text("fish_charge")
 	game.play_sfx("fish_cast")
-	game.AdventurePolishSystem.consume_durability(game, "fishing_rod")
 	game.notify_tutorial("fish_cast")
 	return true
+
+## Снимает только рыбацкое действие и его временные данные, не затрагивая независимый удар или коллекцию рыб.
+static func cancel(game: Node) -> void:
+	game.state.fishing.reset_cast()
+	var action: Dictionary=game.get_meta(game.HeroActionSystem.META,{})
+	if action.get("action","")=="fish_cast": game.remove_meta(game.HeroActionSystem.META)
+	if game.has_meta("fish_visual_direction"): game.remove_meta("fish_visual_direction")
+
+## Сбрасывает заброс сразу при переходе; повторный вызов на прежней карте оставляет ожидание поклёвки.
+static func on_location_changed(game: Node) -> void:
+	if not game.state.fishing.cast_location.is_empty() and game.state.fishing.cast_location!=game.current_location: cancel(game)
 
 
 ## Продвигает активную стадию рыбалки с физикой, не зависящей от частоты кадров.
 static func update(game: Node, delta: float) -> void:
+	on_location_changed(game)
 	var state = game.state.fishing
+	if state.phase!=PHASE_IDLE: state.visual_time=fposmod(state.visual_time+minf(maxf(delta,0),0.1),60.0)
 	match state.phase:
 		PHASE_CHARGING: _update_cast(game, delta)
 		PHASE_WAITING: _update_wait(game, delta)
@@ -95,7 +108,9 @@ static func _update_cast(game: Node, delta: float) -> void:
 	if not game.action_held:
 		state.cast_target=WaterQuery.target(game)
 		state.cast_location=game.current_location
-		if not state.cast_target.is_finite(): state.reset_cast(); return
+		if not state.cast_target.is_finite() or not game.AdventurePolishSystem.can_use(game,"fishing_rod"):
+			cancel(game); game.message=game.LocaleSystem.text("fish_need_water"); return
+		game.AdventurePolishSystem.consume_durability(game,"fishing_rod")
 		state.phase = PHASE_WAITING
 		state.cast_grade = FishingBalanceSystem.cast_grade(state.cast_power)
 		state.depth_kind = FishingBalanceSystem.depth_for(state.cast_power)

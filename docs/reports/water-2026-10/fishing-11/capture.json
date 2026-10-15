@@ -1,0 +1,93 @@
+{
+	"cases": [
+		{
+			"bobber": [
+				139.388458251953,
+				253.042114257812
+			],
+			"case": "home-horizontal",
+			"direction": "(0.0, -1.0)",
+			"hero": [
+				144.0,
+				396.0
+			],
+			"location": "overworld",
+			"water": "river"
+		},
+		{
+			"bobber": [
+				1042.98461914062,
+				716.6748046875
+			],
+			"case": "home-vertical",
+			"direction": "(1.0, 0.0)",
+			"hero": [
+				900.0,
+				720.0
+			],
+			"location": "overworld",
+			"water": "river"
+		},
+		{
+			"bobber": [
+				1849.34460449219,
+				877.026489257812
+			],
+			"case": "home-pond",
+			"direction": "(-1.0, 0.0)",
+			"hero": [
+				1992.0,
+				888.0
+			],
+			"location": "overworld",
+			"water": "pond"
+		},
+		{
+			"bobber": [
+				721.074340820312,
+				450.282958984375
+			],
+			"case": "home-bridge",
+			"direction": "(-1.0, 0.0)",
+			"hero": [
+				864.0,
+				456.0
+			],
+			"location": "overworld",
+			"water": "river"
+		},
+		{
+			"bobber": [
+				1006.97479248047,
+				692.135803222656
+			],
+			"case": "district-west",
+			"direction": "(1.0, 0.0)",
+			"hero": [
+				864.0,
+				696.0
+			],
+			"location": "village_river",
+			"water": "river"
+		},
+		{
+			"bobber": [
+				1009.02520751953,
+				692.135803222656
+			],
+			"case": "district-east",
+			"direction": "(-1.0, 0.0)",
+			"hero": [
+				1152.0,
+				696.0
+			],
+			"location": "village_river",
+			"water": "river"
+		}
+	],
+	"render_pixels": [
+		1152,
+		648
+	],
+	"simulation": "stopped for deterministic native visual capture; not a performance measurement"
+}
