@@ -1,6 +1,8 @@
 .DS_Store
 .godot/
 tools/*
+!tools/visual_palette.py
+!tools/test_visual_palette.py
 !tools/visual_scale_capture.gd
 !tools/visual_scale.py
 !tools/test_visual_scale.py

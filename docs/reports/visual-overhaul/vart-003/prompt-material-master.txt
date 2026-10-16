@@ -1,0 +1,12 @@
+Use case: stylized-concept
+Asset type: neutral material motif master for a painterly 2D farm game's palette exploration, not pixel art.
+Input image: style reference only — the approved soft painterly game modules. Create NEW isolated material studies with similarly soft rounded shading and restrained surface detail.
+Primary request: a clean transparent RGBA sheet with SIX separate neutral grayscale material motifs, laid out in two rows of three, with generous transparent gutters, each entire silhouette within its own space.
+Top row left: square patch of short grass with a few clearly shaped blades at its perimeter and broad quiet center.
+Top row middle: four parallel horizontal oak planks making a short rectangular platform, front edge visible facing straight DOWN toward the player, subtle grain and joints; ALL edges parallel to image axes, no diagonal perspective.
+Top row right: small cluster of rounded quarry stones with broad facets and soft clear separation.
+Bottom row left: square patch of worn dirt with broad packed center, irregular soft rim, a few tiny pebbles.
+Bottom row middle: square patch of calm shallow water, broad depth gradients, a few thin horizontal ripples, no rocks, no shore, no foam explosion.
+Bottom row right: a squat wrought iron anvil facing straight DOWN, horizontal feet and front face visible, rounded highlights that identify forged metal. No diagonal rotation or rear-facing view.
+Style: soft painted gouache-like 2D game art, clean silhouettes, broad light and shadow masses, no hard black outlines, no large pixel steps. Same gently elevated top-down game camera for ALL six motifs. The neutral grayscale shading will drive color ramps in a live palette preview: useful tonal range roughly 35 through 225, no colored pigments.
+Composition: landscape 3:2 sheet, top row centered roughly x=1/6,1/2,5/6 and y=1/4, bottom y=3/4. Each motif about 350 px wide on a 1536x1024 sheet, transparent padding at least 45 px around all motifs. Similar visual weight. No text, labels, grid lines, sheet border, cast shadow beyond silhouette, scenery, hero, furniture, decals or decorative frame. Actual transparent background, not a painted checkerboard. Do not copy the tree or bench from the reference.

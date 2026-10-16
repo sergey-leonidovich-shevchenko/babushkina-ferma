@@ -721,7 +721,7 @@
       "id": "VART-003",
       "epic": "VART",
       "title": "Задать палитру материалов",
-      "status": "ready",
+      "status": "done",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -757,7 +757,16 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vart-003-visual-task",
-      "evidence": []
+      "evidence": [
+        "docs/reports/visual-overhaul/vart-003/README.md",
+        "docs/reports/visual-overhaul/vart-003/index.html",
+        "docs/reports/visual-overhaul/vart-003/palette.json",
+        "docs/reports/visual-overhaul/vart-003/source.json",
+        "docs/reports/visual-overhaul/vart-003/measurements.json",
+        "docs/reports/visual-overhaul/vart-003/browser-check.json",
+        "docs/reports/visual-overhaul/vart-003/browser-artifacts.json"
+      ],
+      "result": "2026-10-16: пользователь выбрал A — Тёплая долина. Приняты отдельные дневные и вечерние шкалы шести материалов, по пять тонов. Один нейтральный мастер и общая проекция 1.2 обеспечивают одинаковые формы, альфу и позиции во всех четырёх браузерных просмотрах A/B × день/вечер. Прозрачные края и узнаваемость без цвета проверены вручную; JSON, фильтры, источники и измерения проверены положительными и отрицательными сценариями architecture gate. Палитра записана в ART_GUIDE; альтернативный B сохранён отдельно. Это выбор художественного стандарта, не импорт новых ресурсов или шейдера в игру. Доказательства входят в отдельный commit VART-003."
     },
     {
       "id": "VART-004",
@@ -6971,7 +6980,7 @@
       "id": "VUI-001",
       "epic": "VUI",
       "title": "Инвентаризировать оставшиеся деревянные панели",
-      "status": "backlog",
+      "status": "ready",
       "priority": "P1",
       "phase": "pilot",
       "kind": "engineering",

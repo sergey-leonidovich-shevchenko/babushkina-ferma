@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "task": "VART-003",
+  "base_commit": "d09c3b21bd2f3b85d5b496f5badb86f0418ef3ac",
+  "tool": "built-in image_gen; original PNG unchanged",
+  "master": {
+    "file": "material-master.png",
+    "sha256": "354808f0c142c8e267e69aef25441f464a0a10886e32dba382ee264827557342",
+    "size": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA"
+  },
+  "prompt_sha256": "f1f9ac038fd19e29a32e5dce14132330c3e349c63f78745485ec79dda3d55373",
+  "style_reference": {
+    "path": "../vart-001/modules-a.png",
+    "sha256": "2afb68cd0e08844f161a6aebb0f8f7522e06da00011b75157ba271a5be1908fc"
+  },
+  "hero_reference": {
+    "path": "../vart-002/native/hero-current.png",
+    "sha256": "eb25d98486e859efa2208acdbad772c4251b97bfe8857e880c2ac79ef0631080",
+    "world_sheet_size": [
+      576,
+      192
+    ],
+    "source_clip": [
+      0,
+      0,
+      192,
+      192
+    ],
+    "feet_in_clip": [
+      96,
+      160
+    ]
+  },
+  "scale_profile_sha256": "4bed99c250c9522a07c6c600f426cfd970ab25929aa1796f89e67a7e61b5fca8",
+  "geometry": "one master and one layout for every palette/time; no regenerated silhouettes",
+  "runtime_patch": "",
+  "limitations": [
+    "browser SVG material preview, not a native game frame or production shader",
+    "material motifs are neither seamless tiles nor a ready game atlas",
+    "fixed neutral lighting relief; evening changes pigment ramps, not shadow direction",
+    "hero reference and static alpha remain from current game; new painted actor is a separate task"
+  ]
+}

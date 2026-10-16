@@ -82,7 +82,7 @@
 
 ## VART-003 — Задать палитру материалов
 
-Статус: `ready` · P0 · этап `foundation` · `engineering`
+Статус: `done` · P0 · этап `foundation` · `engineering`
 
 Трава, дерево, камень, земля, вода и металл имеют дневные и вечерние образцы; цвет не единственный признак ресурса
 
@@ -96,7 +96,7 @@
 - [docs/SPRITE_STANDARD.md](../../../../docs/SPRITE_STANDARD.md)
 - [assets/game/world_sprite_manifest.json](../../../../assets/game/world_sprite_manifest.json)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vart-003/`.
+Результаты: `docs/reports/visual-overhaul/vart-003/`.
 
 Критерии:
 
@@ -114,7 +114,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vart-003/README.md, docs/reports/visual-overhaul/vart-003/index.html, docs/reports/visual-overhaul/vart-003/palette.json, docs/reports/visual-overhaul/vart-003/source.json, docs/reports/visual-overhaul/vart-003/measurements.json, docs/reports/visual-overhaul/vart-003/browser-check.json, docs/reports/visual-overhaul/vart-003/browser-artifacts.json.
 
 <a id="vart-004"></a>
 
