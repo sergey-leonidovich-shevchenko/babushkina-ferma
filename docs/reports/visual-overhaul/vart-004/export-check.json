@@ -1,0 +1,9 @@
+{
+  "kind": "metadata-export-check",
+  "native_game_frame": false,
+  "first_sha256": "e56b821086c936a1ad4e13afd9d14ca61bb6520b3acb907e111bd23aac8d2b0e",
+  "repeat_sha256": "e56b821086c936a1ad4e13afd9d14ca61bb6520b3acb907e111bd23aac8d2b0e",
+  "overwrite_exit_code": 2,
+  "after_refusal_sha256": "e56b821086c936a1ad4e13afd9d14ca61bb6520b3acb907e111bd23aac8d2b0e",
+  "refusal_log_sha256": "ef80da4db31a8826546b41d97025d394a2f579c0af95411eef9f2ee73d0f21b5"
+}

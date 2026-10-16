@@ -2,6 +2,8 @@
 
 ## VIS: план визуальной переделки
 
+VART-004: `tools/visual_perspective_export.gd -- --output=/private/tmp/farm-perspective-new.json` запускается headless через Godot, читает настоящие владельцы девяти ресурсов и отказывается перезаписывать существующий файл. Это экспорт метаданных, не нативная визуальная съёмка. `python3 tools/visual_perspective.py` сверяет экспорт, три направления, единый коэффициент эталона, границы сетки 24 и полуклеточную опору, 18 браузерных сочетаний, кадры и хеши. `tools/test_visual_perspective.py` входит в architecture gate. [Принятый стандарт, найденные отклонения и ограничения](docs/reports/visual-overhaul/vart-004/README.md).
+
 VART-003: `python3 tools/visual_palette.py` проверяет шесть измеренных областей мастера, 24 монотонные шкалы sRGB, точный источник/промпт/героя, принятую проекцию VART-002 и синхронность автономного просмотра с JSON. `--write` обновляет только встроенные данные страницы и числовые измерения. Отрицательные сценарии `tools/test_visual_palette.py` входят в architecture gate. Это браузерный художественный стенд, не нативный игровой кадр, не готовый атлас и не замер FPS. [Протокол](docs/reports/visual-overhaul/vart-003/README.md).
 
 VART-002: `python3 tools/visual_scale.py capture --output /private/tmp/farm-scale-new` снимает два фиксированных центра × три поля обзора в отдельном нативном профиле. `verify` проверяет физический target 1152×648, мировой frustum, совпадение полных снимков сохранения до/после, одинаковый непрозрачный HUD и прозрачные позы. `tools/test_visual_scale.py` входит в architecture gate. Это изолированные макеты с остановленной симуляцией; живой бой, управление зумом и FPS не заявляются. [Методика и выбор](docs/reports/visual-overhaul/vart-002/README.md).

@@ -120,7 +120,7 @@
 
 ## VART-004 — Закрепить перспективу предметов
 
-Статус: `ready` · P0 · этап `foundation` · `engineering`
+Статус: `done` · P0 · этап `foundation` · `engineering`
 
 Лево, право и вниз; опора на сетке 24; показаны запрещённые диагональные и задние виды без подключения в игру
 
@@ -136,7 +136,7 @@
 - [docs/SPRITE_STANDARD.md](../../../../docs/SPRITE_STANDARD.md)
 - [assets/game/world_sprite_manifest.json](../../../../assets/game/world_sprite_manifest.json)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vart-004/`.
+Результаты: `docs/reports/visual-overhaul/vart-004/`.
 
 Критерии:
 
@@ -154,7 +154,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vart-004/README.md, docs/reports/visual-overhaul/vart-004/index.html, docs/reports/visual-overhaul/vart-004/standard.json, docs/reports/visual-overhaul/vart-004/runtime-export.json, docs/reports/visual-overhaul/vart-004/source.json, docs/reports/visual-overhaul/vart-004/export-check.json, docs/reports/visual-overhaul/vart-004/browser-check.json, docs/reports/visual-overhaul/vart-004/browser-artifacts.json.
 
 <a id="vart-005"></a>
 
@@ -211,6 +211,7 @@
 - [docs/ART_GUIDE.md](../../../../docs/ART_GUIDE.md)
 - [docs/SPRITE_STANDARD.md](../../../../docs/SPRITE_STANDARD.md)
 - [assets/game/world_sprite_manifest.json](../../../../assets/game/world_sprite_manifest.json)
+- [docs/reports/visual-overhaul/vart-004/README.md](../../../../docs/reports/visual-overhaul/vart-004/README.md)
 
 Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vart-006/`.
 

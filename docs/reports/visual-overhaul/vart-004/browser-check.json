@@ -1,0 +1,1864 @@
+{
+  "kind": "browser-svg-reference",
+  "native_game_frame": false,
+  "cases": [
+    {
+      "arrows": [
+        [
+          120,
+          288,
+          84,
+          288
+        ],
+        [
+          480,
+          336,
+          480,
+          372
+        ],
+        [
+          816,
+          288,
+          852,
+          288
+        ]
+      ],
+      "background": "light",
+      "bases": [
+        [
+          120,
+          240,
+          72,
+          96
+        ],
+        [
+          432,
+          264,
+          96,
+          72
+        ],
+        [
+          744,
+          240,
+          72,
+          96
+        ]
+      ],
+      "family": "workbench",
+      "hero": [
+        384,
+        320,
+        192,
+        192
+      ],
+      "mode": "reference",
+      "pivots": [
+        "M 151 336 H 161 M 156 331 V 341",
+        "M 475 336 H 485 M 480 331 V 341",
+        "M 775 336 H 785 M 780 331 V 341"
+      ],
+      "size": [
+        1152,
+        648
+      ],
+      "viewBox": "0 0 960 540",
+      "views": [
+        {
+          "clip": "419 47 229 221",
+          "css_transform": "none",
+          "file": "masters/workbench_atlas_a.png",
+          "rect": [
+            112.65615141955836,
+            252.34069400630915,
+            86.68769716088327,
+            83.65930599369085
+          ],
+          "side": "west",
+          "transform": null
+        },
+        {
+          "clip": "34 50 317 218",
+          "css_transform": "none",
+          "file": "masters/workbench_atlas_a.png",
+          "rect": [
+            420,
+            253.4763406940063,
+            120,
+            82.52365930599369
+          ],
+          "side": "south",
+          "transform": null
+        },
+        {
+          "clip": "1115 44 221 224",
+          "css_transform": "none",
+          "file": "masters/workbench_atlas_a.png",
+          "rect": [
+            738.1703470031546,
+            251.205047318612,
+            83.65930599369085,
+            84.79495268138801
+          ],
+          "side": "east",
+          "transform": null
+        }
+      ]
+    },
+    {
+      "arrows": [
+        [
+          120,
+          288,
+          84,
+          288
+        ],
+        [
+          480,
+          336,
+          480,
+          372
+        ],
+        [
+          816,
+          288,
+          852,
+          288
+        ]
+      ],
+      "background": "dark",
+      "bases": [
+        [
+          120,
+          240,
+          72,
+          96
+        ],
+        [
+          432,
+          264,
+          96,
+          72
+        ],
+        [
+          744,
+          240,
+          72,
+          96
+        ]
+      ],
+      "family": "workbench",
+      "hero": [
+        384,
+        320,
+        192,
+        192
+      ],
+      "mode": "reference",
+      "pivots": [
+        "M 151 336 H 161 M 156 331 V 341",
+        "M 475 336 H 485 M 480 331 V 341",
+        "M 775 336 H 785 M 780 331 V 341"
+      ],
+      "size": [
+        1152,
+        648
+      ],
+      "viewBox": "0 0 960 540",
+      "views": [
+        {
+          "clip": "419 47 229 221",
+          "css_transform": "none",
+          "file": "masters/workbench_atlas_a.png",
+          "rect": [
+            112.65615141955836,
+            252.34069400630915,
+            86.68769716088327,
+            83.65930599369085
+          ],
+          "side": "west",
+          "transform": null
+        },
+        {
+          "clip": "34 50 317 218",
+          "css_transform": "none",
+          "file": "masters/workbench_atlas_a.png",
+          "rect": [
+            420,
+            253.4763406940063,
+            120,
+            82.52365930599369
+          ],
+          "side": "south",
+          "transform": null
+        },
+        {
+          "clip": "1115 44 221 224",
+          "css_transform": "none",
+          "file": "masters/workbench_atlas_a.png",
+          "rect": [
+            738.1703470031546,
+            251.205047318612,
+            83.65930599369085,
+            84.79495268138801
+          ],
+          "side": "east",
+          "transform": null
+        }
+      ]
+    },
+    {
+      "arrows": [
+        [
+          120,
+          288,
+          84,
+          288
+        ],
+        [
+          480,
+          336,
+          480,
+          372
+        ],
+        [
+          816,
+          288,
+          852,
+          288
+        ]
+      ],
+      "background": "grass",
+      "bases": [
+        [
+          120,
+          240,
+          72,
+          96
+        ],
+        [
+          432,
+          264,
+          96,
+          72
+        ],
+        [
+          744,
+          240,
+          72,
+          96
+        ]
+      ],
+      "family": "workbench",
+      "hero": [
+        384,
+        320,
+        192,
+        192
+      ],
+      "mode": "reference",
+      "pivots": [
+        "M 151 336 H 161 M 156 331 V 341",
+        "M 475 336 H 485 M 480 331 V 341",
+        "M 775 336 H 785 M 780 331 V 341"
+      ],
+      "size": [
+        1152,
+        648
+      ],
+      "viewBox": "0 0 960 540",
+      "views": [
+        {
+          "clip": "419 47 229 221",
+          "css_transform": "none",
+          "file": "masters/workbench_atlas_a.png",
+          "rect": [
+            112.65615141955836,
+            252.34069400630915,
+            86.68769716088327,
+            83.65930599369085
+          ],
+          "side": "west",
+          "transform": null
+        },
+        {
+          "clip": "34 50 317 218",
+          "css_transform": "none",
+          "file": "masters/workbench_atlas_a.png",
+          "rect": [
+            420,
+            253.4763406940063,
+            120,
+            82.52365930599369
+          ],
+          "side": "south",
+          "transform": null
+        },
+        {
+          "clip": "1115 44 221 224",
+          "css_transform": "none",
+          "file": "masters/workbench_atlas_a.png",
+          "rect": [
+            738.1703470031546,
+            251.205047318612,
+            83.65930599369085,
+            84.79495268138801
+          ],
+          "side": "east",
+          "transform": null
+        }
+      ]
+    },
+    {
+      "arrows": [
+        [
+          120,
+          288,
+          84,
+          288
+        ],
+        [
+          480,
+          336,
+          480,
+          372
+        ],
+        [
+          816,
+          288,
+          852,
+          288
+        ]
+      ],
+      "background": "light",
+      "bases": [
+        [
+          120,
+          240,
+          72,
+          96
+        ],
+        [
+          432,
+          264,
+          96,
+          72
+        ],
+        [
+          744,
+          240,
+          72,
+          96
+        ]
+      ],
+      "family": "workbench",
+      "hero": [
+        384,
+        320,
+        192,
+        192
+      ],
+      "mode": "runtime",
+      "pivots": [
+        "M 151 336 H 161 M 156 331 V 341",
+        "M 475 336 H 485 M 480 331 V 341",
+        "M 775 336 H 785 M 780 331 V 341"
+      ],
+      "size": [
+        1152,
+        648
+      ],
+      "viewBox": "0 0 960 540",
+      "views": [
+        {
+          "clip": "419 47 229 221",
+          "css_transform": "none",
+          "file": "masters/workbench_atlas_a.png",
+          "rect": [
+            108,
+            243.3537139892578,
+            96,
+            92.6462860107422
+          ],
+          "side": "west",
+          "transform": null
+        },
+        {
+          "clip": "34 50 317 218",
+          "css_transform": "none",
+          "file": "masters/workbench_atlas_a.png",
+          "rect": [
+            420,
+            253.4763412475586,
+            120,
+            82.5236587524414
+          ],
+          "side": "south",
+          "transform": null
+        },
+        {
+          "clip": "1115 44 221 224",
+          "css_transform": "none",
+          "file": "masters/workbench_atlas_a.png",
+          "rect": [
+            732,
+            238.69683074951172,
+            96,
+            97.3031692504883
+          ],
+          "side": "east",
+          "transform": null
+        }
+      ]
+    },
+    {
+      "arrows": [
+        [
+          120,
+          288,
+          84,
+          288
+        ],
+        [
+          480,
+          336,
+          480,
+          372
+        ],
+        [
+          816,
+          288,
+          852,
+          288
+        ]
+      ],
+      "background": "dark",
+      "bases": [
+        [
+          120,
+          240,
+          72,
+          96
+        ],
+        [
+          432,
+          264,
+          96,
+          72
+        ],
+        [
+          744,
+          240,
+          72,
+          96
+        ]
+      ],
+      "family": "workbench",
+      "hero": [
+        384,
+        320,
+        192,
+        192
+      ],
+      "mode": "runtime",
+      "pivots": [
+        "M 151 336 H 161 M 156 331 V 341",
+        "M 475 336 H 485 M 480 331 V 341",
+        "M 775 336 H 785 M 780 331 V 341"
+      ],
+      "size": [
+        1152,
+        648
+      ],
+      "viewBox": "0 0 960 540",
+      "views": [
+        {
+          "clip": "419 47 229 221",
+          "css_transform": "none",
+          "file": "masters/workbench_atlas_a.png",
+          "rect": [
+            108,
+            243.3537139892578,
+            96,
+            92.6462860107422
+          ],
+          "side": "west",
+          "transform": null
+        },
+        {
+          "clip": "34 50 317 218",
+          "css_transform": "none",
+          "file": "masters/workbench_atlas_a.png",
+          "rect": [
+            420,
+            253.4763412475586,
+            120,
+            82.5236587524414
+          ],
+          "side": "south",
+          "transform": null
+        },
+        {
+          "clip": "1115 44 221 224",
+          "css_transform": "none",
+          "file": "masters/workbench_atlas_a.png",
+          "rect": [
+            732,
+            238.69683074951172,
+            96,
+            97.3031692504883
+          ],
+          "side": "east",
+          "transform": null
+        }
+      ]
+    },
+    {
+      "arrows": [
+        [
+          120,
+          288,
+          84,
+          288
+        ],
+        [
+          480,
+          336,
+          480,
+          372
+        ],
+        [
+          816,
+          288,
+          852,
+          288
+        ]
+      ],
+      "background": "grass",
+      "bases": [
+        [
+          120,
+          240,
+          72,
+          96
+        ],
+        [
+          432,
+          264,
+          96,
+          72
+        ],
+        [
+          744,
+          240,
+          72,
+          96
+        ]
+      ],
+      "family": "workbench",
+      "hero": [
+        384,
+        320,
+        192,
+        192
+      ],
+      "mode": "runtime",
+      "pivots": [
+        "M 151 336 H 161 M 156 331 V 341",
+        "M 475 336 H 485 M 480 331 V 341",
+        "M 775 336 H 785 M 780 331 V 341"
+      ],
+      "size": [
+        1152,
+        648
+      ],
+      "viewBox": "0 0 960 540",
+      "views": [
+        {
+          "clip": "419 47 229 221",
+          "css_transform": "none",
+          "file": "masters/workbench_atlas_a.png",
+          "rect": [
+            108,
+            243.3537139892578,
+            96,
+            92.6462860107422
+          ],
+          "side": "west",
+          "transform": null
+        },
+        {
+          "clip": "34 50 317 218",
+          "css_transform": "none",
+          "file": "masters/workbench_atlas_a.png",
+          "rect": [
+            420,
+            253.4763412475586,
+            120,
+            82.5236587524414
+          ],
+          "side": "south",
+          "transform": null
+        },
+        {
+          "clip": "1115 44 221 224",
+          "css_transform": "none",
+          "file": "masters/workbench_atlas_a.png",
+          "rect": [
+            732,
+            238.69683074951172,
+            96,
+            97.3031692504883
+          ],
+          "side": "east",
+          "transform": null
+        }
+      ]
+    },
+    {
+      "arrows": [
+        [
+          120,
+          300,
+          84,
+          300
+        ],
+        [
+          468,
+          336,
+          468,
+          372
+        ],
+        [
+          792,
+          300,
+          828,
+          300
+        ]
+      ],
+      "background": "light",
+      "bases": [
+        [
+          120,
+          264,
+          48,
+          72
+        ],
+        [
+          432,
+          288,
+          72,
+          48
+        ],
+        [
+          744,
+          264,
+          48,
+          72
+        ]
+      ],
+      "family": "rustic_table",
+      "hero": [
+        384,
+        320,
+        192,
+        192
+      ],
+      "mode": "reference",
+      "pivots": [
+        "M 139 336 H 149 M 144 331 V 341",
+        "M 463 336 H 473 M 468 331 V 341",
+        "M 763 336 H 773 M 768 331 V 341"
+      ],
+      "size": [
+        1152,
+        648
+      ],
+      "viewBox": "0 0 960 540",
+      "views": [
+        {
+          "clip": "8 8 179 240",
+          "css_transform": "none",
+          "file": "masters/rustic_table_west.png",
+          "rect": [
+            108.2,
+            240,
+            71.60000000000001,
+            96
+          ],
+          "side": "west",
+          "transform": null
+        },
+        {
+          "clip": "8 8 240 160",
+          "css_transform": "none",
+          "file": "masters/rustic_table_south.png",
+          "rect": [
+            420,
+            272,
+            96,
+            64
+          ],
+          "side": "south",
+          "transform": null
+        },
+        {
+          "clip": "8 8 177 240",
+          "css_transform": "none",
+          "file": "masters/rustic_table_east.png",
+          "rect": [
+            732.6,
+            240,
+            70.8,
+            96
+          ],
+          "side": "east",
+          "transform": null
+        }
+      ]
+    },
+    {
+      "arrows": [
+        [
+          120,
+          300,
+          84,
+          300
+        ],
+        [
+          468,
+          336,
+          468,
+          372
+        ],
+        [
+          792,
+          300,
+          828,
+          300
+        ]
+      ],
+      "background": "dark",
+      "bases": [
+        [
+          120,
+          264,
+          48,
+          72
+        ],
+        [
+          432,
+          288,
+          72,
+          48
+        ],
+        [
+          744,
+          264,
+          48,
+          72
+        ]
+      ],
+      "family": "rustic_table",
+      "hero": [
+        384,
+        320,
+        192,
+        192
+      ],
+      "mode": "reference",
+      "pivots": [
+        "M 139 336 H 149 M 144 331 V 341",
+        "M 463 336 H 473 M 468 331 V 341",
+        "M 763 336 H 773 M 768 331 V 341"
+      ],
+      "size": [
+        1152,
+        648
+      ],
+      "viewBox": "0 0 960 540",
+      "views": [
+        {
+          "clip": "8 8 179 240",
+          "css_transform": "none",
+          "file": "masters/rustic_table_west.png",
+          "rect": [
+            108.2,
+            240,
+            71.60000000000001,
+            96
+          ],
+          "side": "west",
+          "transform": null
+        },
+        {
+          "clip": "8 8 240 160",
+          "css_transform": "none",
+          "file": "masters/rustic_table_south.png",
+          "rect": [
+            420,
+            272,
+            96,
+            64
+          ],
+          "side": "south",
+          "transform": null
+        },
+        {
+          "clip": "8 8 177 240",
+          "css_transform": "none",
+          "file": "masters/rustic_table_east.png",
+          "rect": [
+            732.6,
+            240,
+            70.8,
+            96
+          ],
+          "side": "east",
+          "transform": null
+        }
+      ]
+    },
+    {
+      "arrows": [
+        [
+          120,
+          300,
+          84,
+          300
+        ],
+        [
+          468,
+          336,
+          468,
+          372
+        ],
+        [
+          792,
+          300,
+          828,
+          300
+        ]
+      ],
+      "background": "grass",
+      "bases": [
+        [
+          120,
+          264,
+          48,
+          72
+        ],
+        [
+          432,
+          288,
+          72,
+          48
+        ],
+        [
+          744,
+          264,
+          48,
+          72
+        ]
+      ],
+      "family": "rustic_table",
+      "hero": [
+        384,
+        320,
+        192,
+        192
+      ],
+      "mode": "reference",
+      "pivots": [
+        "M 139 336 H 149 M 144 331 V 341",
+        "M 463 336 H 473 M 468 331 V 341",
+        "M 763 336 H 773 M 768 331 V 341"
+      ],
+      "size": [
+        1152,
+        648
+      ],
+      "viewBox": "0 0 960 540",
+      "views": [
+        {
+          "clip": "8 8 179 240",
+          "css_transform": "none",
+          "file": "masters/rustic_table_west.png",
+          "rect": [
+            108.2,
+            240,
+            71.60000000000001,
+            96
+          ],
+          "side": "west",
+          "transform": null
+        },
+        {
+          "clip": "8 8 240 160",
+          "css_transform": "none",
+          "file": "masters/rustic_table_south.png",
+          "rect": [
+            420,
+            272,
+            96,
+            64
+          ],
+          "side": "south",
+          "transform": null
+        },
+        {
+          "clip": "8 8 177 240",
+          "css_transform": "none",
+          "file": "masters/rustic_table_east.png",
+          "rect": [
+            732.6,
+            240,
+            70.8,
+            96
+          ],
+          "side": "east",
+          "transform": null
+        }
+      ]
+    },
+    {
+      "arrows": [
+        [
+          120,
+          300,
+          84,
+          300
+        ],
+        [
+          468,
+          336,
+          468,
+          372
+        ],
+        [
+          792,
+          300,
+          828,
+          300
+        ]
+      ],
+      "background": "light",
+      "bases": [
+        [
+          120,
+          264,
+          48,
+          72
+        ],
+        [
+          432,
+          288,
+          72,
+          48
+        ],
+        [
+          744,
+          264,
+          48,
+          72
+        ]
+      ],
+      "family": "rustic_table",
+      "hero": [
+        384,
+        320,
+        192,
+        192
+      ],
+      "mode": "runtime",
+      "pivots": [
+        "M 139 336 H 149 M 144 331 V 341",
+        "M 463 336 H 473 M 468 331 V 341",
+        "M 763 336 H 773 M 768 331 V 341"
+      ],
+      "size": [
+        1152,
+        648
+      ],
+      "viewBox": "0 0 960 540",
+      "views": [
+        {
+          "clip": "8 8 179 240",
+          "css_transform": "none",
+          "file": "masters/rustic_table_west.png",
+          "rect": [
+            117.14999961853025,
+            264,
+            53.7000007629395,
+            72
+          ],
+          "side": "west",
+          "transform": null
+        },
+        {
+          "clip": "8 8 240 160",
+          "css_transform": "none",
+          "file": "masters/rustic_table_south.png",
+          "rect": [
+            420,
+            272,
+            96,
+            64
+          ],
+          "side": "south",
+          "transform": null
+        },
+        {
+          "clip": "8 8 177 240",
+          "css_transform": "none",
+          "file": "masters/rustic_table_east.png",
+          "rect": [
+            741.4499988555908,
+            264,
+            53.1000022888184,
+            72
+          ],
+          "side": "east",
+          "transform": null
+        }
+      ]
+    },
+    {
+      "arrows": [
+        [
+          120,
+          300,
+          84,
+          300
+        ],
+        [
+          468,
+          336,
+          468,
+          372
+        ],
+        [
+          792,
+          300,
+          828,
+          300
+        ]
+      ],
+      "background": "dark",
+      "bases": [
+        [
+          120,
+          264,
+          48,
+          72
+        ],
+        [
+          432,
+          288,
+          72,
+          48
+        ],
+        [
+          744,
+          264,
+          48,
+          72
+        ]
+      ],
+      "family": "rustic_table",
+      "hero": [
+        384,
+        320,
+        192,
+        192
+      ],
+      "mode": "runtime",
+      "pivots": [
+        "M 139 336 H 149 M 144 331 V 341",
+        "M 463 336 H 473 M 468 331 V 341",
+        "M 763 336 H 773 M 768 331 V 341"
+      ],
+      "size": [
+        1152,
+        648
+      ],
+      "viewBox": "0 0 960 540",
+      "views": [
+        {
+          "clip": "8 8 179 240",
+          "css_transform": "none",
+          "file": "masters/rustic_table_west.png",
+          "rect": [
+            117.14999961853025,
+            264,
+            53.7000007629395,
+            72
+          ],
+          "side": "west",
+          "transform": null
+        },
+        {
+          "clip": "8 8 240 160",
+          "css_transform": "none",
+          "file": "masters/rustic_table_south.png",
+          "rect": [
+            420,
+            272,
+            96,
+            64
+          ],
+          "side": "south",
+          "transform": null
+        },
+        {
+          "clip": "8 8 177 240",
+          "css_transform": "none",
+          "file": "masters/rustic_table_east.png",
+          "rect": [
+            741.4499988555908,
+            264,
+            53.1000022888184,
+            72
+          ],
+          "side": "east",
+          "transform": null
+        }
+      ]
+    },
+    {
+      "arrows": [
+        [
+          120,
+          300,
+          84,
+          300
+        ],
+        [
+          468,
+          336,
+          468,
+          372
+        ],
+        [
+          792,
+          300,
+          828,
+          300
+        ]
+      ],
+      "background": "grass",
+      "bases": [
+        [
+          120,
+          264,
+          48,
+          72
+        ],
+        [
+          432,
+          288,
+          72,
+          48
+        ],
+        [
+          744,
+          264,
+          48,
+          72
+        ]
+      ],
+      "family": "rustic_table",
+      "hero": [
+        384,
+        320,
+        192,
+        192
+      ],
+      "mode": "runtime",
+      "pivots": [
+        "M 139 336 H 149 M 144 331 V 341",
+        "M 463 336 H 473 M 468 331 V 341",
+        "M 763 336 H 773 M 768 331 V 341"
+      ],
+      "size": [
+        1152,
+        648
+      ],
+      "viewBox": "0 0 960 540",
+      "views": [
+        {
+          "clip": "8 8 179 240",
+          "css_transform": "none",
+          "file": "masters/rustic_table_west.png",
+          "rect": [
+            117.14999961853025,
+            264,
+            53.7000007629395,
+            72
+          ],
+          "side": "west",
+          "transform": null
+        },
+        {
+          "clip": "8 8 240 160",
+          "css_transform": "none",
+          "file": "masters/rustic_table_south.png",
+          "rect": [
+            420,
+            272,
+            96,
+            64
+          ],
+          "side": "south",
+          "transform": null
+        },
+        {
+          "clip": "8 8 177 240",
+          "css_transform": "none",
+          "file": "masters/rustic_table_east.png",
+          "rect": [
+            741.4499988555908,
+            264,
+            53.1000022888184,
+            72
+          ],
+          "side": "east",
+          "transform": null
+        }
+      ]
+    },
+    {
+      "arrows": [
+        [
+          120,
+          300,
+          84,
+          300
+        ],
+        [
+          468,
+          336,
+          468,
+          372
+        ],
+        [
+          792,
+          300,
+          828,
+          300
+        ]
+      ],
+      "background": "light",
+      "bases": [
+        [
+          120,
+          264,
+          48,
+          72
+        ],
+        [
+          432,
+          288,
+          72,
+          48
+        ],
+        [
+          744,
+          264,
+          48,
+          72
+        ]
+      ],
+      "family": "wooden_wardrobe",
+      "hero": [
+        384,
+        320,
+        192,
+        192
+      ],
+      "mode": "reference",
+      "pivots": [
+        "M 139 336 H 149 M 144 331 V 341",
+        "M 463 336 H 473 M 468 331 V 341",
+        "M 763 336 H 773 M 768 331 V 341"
+      ],
+      "size": [
+        1152,
+        648
+      ],
+      "viewBox": "0 0 960 540",
+      "views": [
+        {
+          "clip": "8 8 100 240",
+          "css_transform": "none",
+          "file": "masters/wooden_wardrobe_west.png",
+          "rect": [
+            119,
+            216,
+            50,
+            120
+          ],
+          "side": "west",
+          "transform": null
+        },
+        {
+          "clip": "8 8 180 240",
+          "css_transform": "none",
+          "file": "masters/wooden_wardrobe_south.png",
+          "rect": [
+            423,
+            216,
+            90,
+            120
+          ],
+          "side": "south",
+          "transform": null
+        },
+        {
+          "clip": "8 8 100 240",
+          "css_transform": "none",
+          "file": "masters/wooden_wardrobe_east.png",
+          "rect": [
+            743,
+            216,
+            50,
+            120
+          ],
+          "side": "east",
+          "transform": null
+        }
+      ]
+    },
+    {
+      "arrows": [
+        [
+          120,
+          300,
+          84,
+          300
+        ],
+        [
+          468,
+          336,
+          468,
+          372
+        ],
+        [
+          792,
+          300,
+          828,
+          300
+        ]
+      ],
+      "background": "dark",
+      "bases": [
+        [
+          120,
+          264,
+          48,
+          72
+        ],
+        [
+          432,
+          288,
+          72,
+          48
+        ],
+        [
+          744,
+          264,
+          48,
+          72
+        ]
+      ],
+      "family": "wooden_wardrobe",
+      "hero": [
+        384,
+        320,
+        192,
+        192
+      ],
+      "mode": "reference",
+      "pivots": [
+        "M 139 336 H 149 M 144 331 V 341",
+        "M 463 336 H 473 M 468 331 V 341",
+        "M 763 336 H 773 M 768 331 V 341"
+      ],
+      "size": [
+        1152,
+        648
+      ],
+      "viewBox": "0 0 960 540",
+      "views": [
+        {
+          "clip": "8 8 100 240",
+          "css_transform": "none",
+          "file": "masters/wooden_wardrobe_west.png",
+          "rect": [
+            119,
+            216,
+            50,
+            120
+          ],
+          "side": "west",
+          "transform": null
+        },
+        {
+          "clip": "8 8 180 240",
+          "css_transform": "none",
+          "file": "masters/wooden_wardrobe_south.png",
+          "rect": [
+            423,
+            216,
+            90,
+            120
+          ],
+          "side": "south",
+          "transform": null
+        },
+        {
+          "clip": "8 8 100 240",
+          "css_transform": "none",
+          "file": "masters/wooden_wardrobe_east.png",
+          "rect": [
+            743,
+            216,
+            50,
+            120
+          ],
+          "side": "east",
+          "transform": null
+        }
+      ]
+    },
+    {
+      "arrows": [
+        [
+          120,
+          300,
+          84,
+          300
+        ],
+        [
+          468,
+          336,
+          468,
+          372
+        ],
+        [
+          792,
+          300,
+          828,
+          300
+        ]
+      ],
+      "background": "grass",
+      "bases": [
+        [
+          120,
+          264,
+          48,
+          72
+        ],
+        [
+          432,
+          288,
+          72,
+          48
+        ],
+        [
+          744,
+          264,
+          48,
+          72
+        ]
+      ],
+      "family": "wooden_wardrobe",
+      "hero": [
+        384,
+        320,
+        192,
+        192
+      ],
+      "mode": "reference",
+      "pivots": [
+        "M 139 336 H 149 M 144 331 V 341",
+        "M 463 336 H 473 M 468 331 V 341",
+        "M 763 336 H 773 M 768 331 V 341"
+      ],
+      "size": [
+        1152,
+        648
+      ],
+      "viewBox": "0 0 960 540",
+      "views": [
+        {
+          "clip": "8 8 100 240",
+          "css_transform": "none",
+          "file": "masters/wooden_wardrobe_west.png",
+          "rect": [
+            119,
+            216,
+            50,
+            120
+          ],
+          "side": "west",
+          "transform": null
+        },
+        {
+          "clip": "8 8 180 240",
+          "css_transform": "none",
+          "file": "masters/wooden_wardrobe_south.png",
+          "rect": [
+            423,
+            216,
+            90,
+            120
+          ],
+          "side": "south",
+          "transform": null
+        },
+        {
+          "clip": "8 8 100 240",
+          "css_transform": "none",
+          "file": "masters/wooden_wardrobe_east.png",
+          "rect": [
+            743,
+            216,
+            50,
+            120
+          ],
+          "side": "east",
+          "transform": null
+        }
+      ]
+    },
+    {
+      "arrows": [
+        [
+          120,
+          300,
+          84,
+          300
+        ],
+        [
+          468,
+          336,
+          468,
+          372
+        ],
+        [
+          792,
+          300,
+          828,
+          300
+        ]
+      ],
+      "background": "light",
+      "bases": [
+        [
+          120,
+          264,
+          48,
+          72
+        ],
+        [
+          432,
+          288,
+          72,
+          48
+        ],
+        [
+          744,
+          264,
+          48,
+          72
+        ]
+      ],
+      "family": "wooden_wardrobe",
+      "hero": [
+        384,
+        320,
+        192,
+        192
+      ],
+      "mode": "runtime",
+      "pivots": [
+        "M 139 336 H 149 M 144 331 V 341",
+        "M 463 336 H 473 M 468 331 V 341",
+        "M 763 336 H 773 M 768 331 V 341"
+      ],
+      "size": [
+        1152,
+        648
+      ],
+      "viewBox": "0 0 960 540",
+      "views": [
+        {
+          "clip": "8 8 100 240",
+          "css_transform": "none",
+          "file": "masters/wooden_wardrobe_west.png",
+          "rect": [
+            119,
+            216,
+            50,
+            120
+          ],
+          "side": "west",
+          "transform": null
+        },
+        {
+          "clip": "8 8 180 240",
+          "css_transform": "none",
+          "file": "masters/wooden_wardrobe_south.png",
+          "rect": [
+            423,
+            216,
+            90,
+            120
+          ],
+          "side": "south",
+          "transform": null
+        },
+        {
+          "clip": "8 8 100 240",
+          "css_transform": "none",
+          "file": "masters/wooden_wardrobe_east.png",
+          "rect": [
+            743,
+            216,
+            50,
+            120
+          ],
+          "side": "east",
+          "transform": null
+        }
+      ]
+    },
+    {
+      "arrows": [
+        [
+          120,
+          300,
+          84,
+          300
+        ],
+        [
+          468,
+          336,
+          468,
+          372
+        ],
+        [
+          792,
+          300,
+          828,
+          300
+        ]
+      ],
+      "background": "dark",
+      "bases": [
+        [
+          120,
+          264,
+          48,
+          72
+        ],
+        [
+          432,
+          288,
+          72,
+          48
+        ],
+        [
+          744,
+          264,
+          48,
+          72
+        ]
+      ],
+      "family": "wooden_wardrobe",
+      "hero": [
+        384,
+        320,
+        192,
+        192
+      ],
+      "mode": "runtime",
+      "pivots": [
+        "M 139 336 H 149 M 144 331 V 341",
+        "M 463 336 H 473 M 468 331 V 341",
+        "M 763 336 H 773 M 768 331 V 341"
+      ],
+      "size": [
+        1152,
+        648
+      ],
+      "viewBox": "0 0 960 540",
+      "views": [
+        {
+          "clip": "8 8 100 240",
+          "css_transform": "none",
+          "file": "masters/wooden_wardrobe_west.png",
+          "rect": [
+            119,
+            216,
+            50,
+            120
+          ],
+          "side": "west",
+          "transform": null
+        },
+        {
+          "clip": "8 8 180 240",
+          "css_transform": "none",
+          "file": "masters/wooden_wardrobe_south.png",
+          "rect": [
+            423,
+            216,
+            90,
+            120
+          ],
+          "side": "south",
+          "transform": null
+        },
+        {
+          "clip": "8 8 100 240",
+          "css_transform": "none",
+          "file": "masters/wooden_wardrobe_east.png",
+          "rect": [
+            743,
+            216,
+            50,
+            120
+          ],
+          "side": "east",
+          "transform": null
+        }
+      ]
+    },
+    {
+      "arrows": [
+        [
+          120,
+          300,
+          84,
+          300
+        ],
+        [
+          468,
+          336,
+          468,
+          372
+        ],
+        [
+          792,
+          300,
+          828,
+          300
+        ]
+      ],
+      "background": "grass",
+      "bases": [
+        [
+          120,
+          264,
+          48,
+          72
+        ],
+        [
+          432,
+          288,
+          72,
+          48
+        ],
+        [
+          744,
+          264,
+          48,
+          72
+        ]
+      ],
+      "family": "wooden_wardrobe",
+      "hero": [
+        384,
+        320,
+        192,
+        192
+      ],
+      "mode": "runtime",
+      "pivots": [
+        "M 139 336 H 149 M 144 331 V 341",
+        "M 463 336 H 473 M 468 331 V 341",
+        "M 763 336 H 773 M 768 331 V 341"
+      ],
+      "size": [
+        1152,
+        648
+      ],
+      "viewBox": "0 0 960 540",
+      "views": [
+        {
+          "clip": "8 8 100 240",
+          "css_transform": "none",
+          "file": "masters/wooden_wardrobe_west.png",
+          "rect": [
+            119,
+            216,
+            50,
+            120
+          ],
+          "side": "west",
+          "transform": null
+        },
+        {
+          "clip": "8 8 180 240",
+          "css_transform": "none",
+          "file": "masters/wooden_wardrobe_south.png",
+          "rect": [
+            423,
+            216,
+            90,
+            120
+          ],
+          "side": "south",
+          "transform": null
+        },
+        {
+          "clip": "8 8 100 240",
+          "css_transform": "none",
+          "file": "masters/wooden_wardrobe_east.png",
+          "rect": [
+            743,
+            216,
+            50,
+            120
+          ],
+          "side": "east",
+          "transform": null
+        }
+      ]
+    }
+  ],
+  "extra_controls": {
+    "bases": 0,
+    "gridRectPresent": false,
+    "pivots": 0,
+    "rejected": [
+      {
+        "height": 72,
+        "loaded": true,
+        "width": 96
+      },
+      {
+        "height": 256,
+        "loaded": true,
+        "width": 191
+      }
+    ],
+    "views": 3
+  },
+  "fit_size": [
+    1198,
+    673.875
+  ]
+}

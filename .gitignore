@@ -1,6 +1,9 @@
 .DS_Store
 .godot/
 tools/*
+!tools/visual_perspective_export.gd
+!tools/visual_perspective.py
+!tools/test_visual_perspective.py
 !tools/visual_palette.py
 !tools/test_visual_palette.py
 !tools/visual_scale_capture.gd

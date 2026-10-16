@@ -1,0 +1,264 @@
+{
+	"base_grid": 24,
+	"engine": "4.7.1-stable (official)",
+	"families": [
+		{
+			"kind": "workbench",
+			"poses": [
+				{
+					"direction": 0,
+					"file": "assets/game/basement/workbench_atlas_a.png",
+					"footprint": [
+						96.0,
+						72.0
+					],
+					"legacy_up_alias": 0,
+					"master_size": [
+						1402.0,
+						1122.0
+					],
+					"name": "south",
+					"next": 1,
+					"previous": 3,
+					"runtime_visual_size": [
+						120.0,
+						82.5236587524414
+					],
+					"source_rect": [
+						34.0,
+						50.0,
+						317.0,
+						218.0
+					]
+				},
+				{
+					"direction": 1,
+					"file": "assets/game/basement/workbench_atlas_a.png",
+					"footprint": [
+						72.0,
+						96.0
+					],
+					"legacy_up_alias": 0,
+					"master_size": [
+						1402.0,
+						1122.0
+					],
+					"name": "west",
+					"next": 3,
+					"previous": 0,
+					"runtime_visual_size": [
+						96.0,
+						92.6462860107422
+					],
+					"source_rect": [
+						419.0,
+						47.0,
+						229.0,
+						221.0
+					]
+				},
+				{
+					"direction": 3,
+					"file": "assets/game/basement/workbench_atlas_a.png",
+					"footprint": [
+						72.0,
+						96.0
+					],
+					"legacy_up_alias": 0,
+					"master_size": [
+						1402.0,
+						1122.0
+					],
+					"name": "east",
+					"next": 0,
+					"previous": 1,
+					"runtime_visual_size": [
+						96.0,
+						97.3031692504883
+					],
+					"source_rect": [
+						1115.0,
+						44.0,
+						221.0,
+						224.0
+					]
+				}
+			]
+		},
+		{
+			"kind": "rustic_table",
+			"poses": [
+				{
+					"direction": 0,
+					"file": "assets/game/interiors/furniture_a/rustic_table_south.png",
+					"footprint": [
+						72.0,
+						48.0
+					],
+					"legacy_up_alias": 0,
+					"master_size": [
+						256.0,
+						176.0
+					],
+					"name": "south",
+					"next": 1,
+					"previous": 3,
+					"runtime_visual_size": [
+						96.0,
+						64.0
+					],
+					"source_rect": [
+						8.0,
+						8.0,
+						240.0,
+						160.0
+					]
+				},
+				{
+					"direction": 1,
+					"file": "assets/game/interiors/furniture_a/rustic_table_west.png",
+					"footprint": [
+						48.0,
+						72.0
+					],
+					"legacy_up_alias": 0,
+					"master_size": [
+						195.0,
+						256.0
+					],
+					"name": "west",
+					"next": 3,
+					"previous": 0,
+					"runtime_visual_size": [
+						53.7000007629395,
+						72.0
+					],
+					"source_rect": [
+						8.0,
+						8.0,
+						179.0,
+						240.0
+					]
+				},
+				{
+					"direction": 3,
+					"file": "assets/game/interiors/furniture_a/rustic_table_east.png",
+					"footprint": [
+						48.0,
+						72.0
+					],
+					"legacy_up_alias": 0,
+					"master_size": [
+						193.0,
+						256.0
+					],
+					"name": "east",
+					"next": 0,
+					"previous": 1,
+					"runtime_visual_size": [
+						53.1000022888184,
+						72.0
+					],
+					"source_rect": [
+						8.0,
+						8.0,
+						177.0,
+						240.0
+					]
+				}
+			]
+		},
+		{
+			"kind": "wooden_wardrobe",
+			"poses": [
+				{
+					"direction": 0,
+					"file": "assets/game/interiors/furniture_a/wooden_wardrobe_south.png",
+					"footprint": [
+						72.0,
+						48.0
+					],
+					"legacy_up_alias": 0,
+					"master_size": [
+						196.0,
+						256.0
+					],
+					"name": "south",
+					"next": 1,
+					"previous": 3,
+					"runtime_visual_size": [
+						90.0,
+						120.0
+					],
+					"source_rect": [
+						8.0,
+						8.0,
+						180.0,
+						240.0
+					]
+				},
+				{
+					"direction": 1,
+					"file": "assets/game/interiors/furniture_a/wooden_wardrobe_west.png",
+					"footprint": [
+						48.0,
+						72.0
+					],
+					"legacy_up_alias": 0,
+					"master_size": [
+						116.0,
+						256.0
+					],
+					"name": "west",
+					"next": 3,
+					"previous": 0,
+					"runtime_visual_size": [
+						50.0,
+						120.0
+					],
+					"source_rect": [
+						8.0,
+						8.0,
+						100.0,
+						240.0
+					]
+				},
+				{
+					"direction": 3,
+					"file": "assets/game/interiors/furniture_a/wooden_wardrobe_east.png",
+					"footprint": [
+						48.0,
+						72.0
+					],
+					"legacy_up_alias": 0,
+					"master_size": [
+						116.0,
+						256.0
+					],
+					"name": "east",
+					"next": 0,
+					"previous": 1,
+					"runtime_visual_size": [
+						50.0,
+						120.0
+					],
+					"source_rect": [
+						8.0,
+						8.0,
+						100.0,
+						240.0
+					]
+				}
+			]
+		}
+	],
+	"kind": "headless-resource-metadata",
+	"native_game_frame": false,
+	"profile_unchanged": true,
+	"selectable": [
+		0,
+		1,
+		3
+	],
+	"world_workbench_common_scale": 0.302839116719243
+}

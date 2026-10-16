@@ -1,0 +1,97 @@
+{
+  "schema": 1,
+  "task": "VART-004",
+  "base_commit": "e0d919c52e14c8995d26f7087ab1d24b52beb1c4",
+  "kind": "existing approved sources + reference geometry; no image generation",
+  "runtime_patch": "",
+  "files": {
+    "masters/workbench_atlas_a.png": {
+      "original": "assets/game/basement/workbench_atlas_a.png",
+      "sha256": "d55801364f0a23c04843e2dc6ea12bfee26a90094cd9494b2162c2e09623b841",
+      "size": [
+        1402,
+        1122
+      ]
+    },
+    "masters/rustic_table_west.png": {
+      "original": "assets/game/interiors/furniture_a/rustic_table_west.png",
+      "sha256": "07852b30af6c743e8939dcddef6e2c8f50ee80a14afe877a68298addb594ea53",
+      "size": [
+        195,
+        256
+      ]
+    },
+    "masters/rustic_table_south.png": {
+      "original": "assets/game/interiors/furniture_a/rustic_table_south.png",
+      "sha256": "5a49c3222aeb1e3bc2e8ca97b2efe2173184ba18662de7fb1de070c884b15238",
+      "size": [
+        256,
+        176
+      ]
+    },
+    "masters/rustic_table_east.png": {
+      "original": "assets/game/interiors/furniture_a/rustic_table_east.png",
+      "sha256": "d04458db38f0f6ba6f9877b69840299a3e664e117bfd5356a450727c045be618",
+      "size": [
+        193,
+        256
+      ]
+    },
+    "masters/wooden_wardrobe_west.png": {
+      "original": "assets/game/interiors/furniture_a/wooden_wardrobe_west.png",
+      "sha256": "923c1d77d561e3e2f8e135bb7831949c5ea03322eb860315f2a0f7dd5725772f",
+      "size": [
+        116,
+        256
+      ]
+    },
+    "masters/wooden_wardrobe_south.png": {
+      "original": "assets/game/interiors/furniture_a/wooden_wardrobe_south.png",
+      "sha256": "5250da8a9df573602c9bfa9b355611c48db2d4a1e6a81000b6daa77bf4c47ff7",
+      "size": [
+        196,
+        256
+      ]
+    },
+    "masters/wooden_wardrobe_east.png": {
+      "original": "assets/game/interiors/furniture_a/wooden_wardrobe_east.png",
+      "sha256": "ed9342628f23bc32174917db220643a83b437bc2168d6af3b5ffc7923c485061",
+      "size": [
+        116,
+        256
+      ]
+    },
+    "masters/rejected-diagonal.png": {
+      "original": "assets/game/locations/overworld/modular/prop_bench_v1.png",
+      "sha256": "4ef554bda6dfa8382f49fe1c8eaef2c1e2f641469a29269ac35700b57c1bf478",
+      "size": [
+        96,
+        72
+      ]
+    },
+    "masters/rejected-rear.png": {
+      "original": "assets/game/interiors/furniture_a/wooden_wardrobe_north.png",
+      "sha256": "519e90b32d2e64e9f5c1855129ff77e93e123c5e3badcbed91d1e8dd7d5756e3",
+      "size": [
+        191,
+        256
+      ]
+    }
+  },
+  "sources": {
+    "AGENTS.md": "35e519e1e9235ce0a00e843063e6d47d7e2f5e92ec7c96b61e28eef92aa2447b",
+    "scripts/systems/furniture_facing_system.gd": "ffc70308e83b933e454839f374209b9d894336e871d315f3a868a57f9db8edf8",
+    "scripts/presentation/basement_visual_system.gd": "5b5d0b427014ac02c97fbf368bf6b8156866f76422373aa489ab0d63fe2d137f",
+    "scripts/presentation/house_furniture_visual_system.gd": "db478450edffc514d488f7d8fb3178783c475ca42a3d3563f6bc8f4c0e07c530",
+    "scripts/presentation/world_workbench_visual_system.gd": "bf9a22478713b2286558383dbbb51b9f7ad41c269735ed75371e07be0961d7dc",
+    "scripts/systems/farm_life_visual_system.gd": "5ab829f09021b0802fa9b0e293246e6e4207570e972a1b5ba69711c9aff368af",
+    "scripts/systems/house_furniture_layout_system.gd": "2eeb59b9c3dab8a514429ab0a7fa5b1d6e9cc4dbe568e4f57d2096b6e645a6b9",
+    "scripts/systems/basement_layout_system.gd": "0bc24bf6ba10a7f2ac9be65582081e00d3c00290288d8fda0f6af2c6412e985d",
+    "scripts/systems/basement_data.gd": "48e3c8f2861512910594c8e4f8eeedca51fcc7e8c92985757ed91aebd682f609",
+    "tools/visual_perspective_export.gd": "ce822e22fba3eb9429774a8d8cffc6edd9246f016595d915a8c79364851c87f9",
+    "docs/reports/visual-overhaul/vart-002/scale-profile.json": "4bed99c250c9522a07c6c600f426cfd970ab25929aa1796f89e67a7e61b5fca8",
+    "docs/reports/visual-overhaul/vart-002/native/hero-current.png": "eb25d98486e859efa2208acdbad772c4251b97bfe8857e880c2ac79ef0631080",
+    "docs/reports/visual-overhaul/vart-003/palette.json": "1a7e5fdcf9995c215f3ccd910f0d704d723c77d6621196db4701de80a3b1a7e4"
+  },
+  "runtime_export_sha256": "e56b821086c936a1ad4e13afd9d14ca61bb6520b3acb907e111bd23aac8d2b0e"
+}

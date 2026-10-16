@@ -6,7 +6,7 @@
 
 ## VPROP-001 — Подготовить простой дубовый набор
 
-Статус: `backlog` · P1 · этап `pilot` · `engineering`
+Статус: `ready` · P1 · этап `pilot` · `engineering`
 
 Стол, стул, шкаф и сундук представлены отдельными мастерами в трёх сторонах без растяжения
 
@@ -21,6 +21,7 @@
 - [scripts/systems/village_layout_system.gd](../../../../scripts/systems/village_layout_system.gd)
 - [scripts/presentation/house_furniture_visual_system.gd](../../../../scripts/presentation/house_furniture_visual_system.gd)
 - [scripts/systems/furniture_facing_system.gd](../../../../scripts/systems/furniture_facing_system.gd)
+- [docs/reports/visual-overhaul/vart-004/README.md](../../../../docs/reports/visual-overhaul/vart-004/README.md)
 
 Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vprop-001/`.
 
@@ -28,6 +29,7 @@
 
 - Стол, стул, шкаф и сундук представлены отдельными мастерами в трёх сторонах без растяжения
 - Сравнение выполнено при одинаковой камере; подтверждение связано с commit и конфигурацией, не только с зелёным автотестом.
+- У сторон согласованы исходная плотность, высота ножек/корпуса и видимая рабочая грань; учтены отклонения VART-004.
 
 Проверка:
 

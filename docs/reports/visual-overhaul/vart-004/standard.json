@@ -1,0 +1,480 @@
+{
+  "schema": 1,
+  "task": "VART-004",
+  "status": "accepted_existing_user_rule",
+  "approval": {
+    "date": "2026-10-14",
+    "source": "AGENTS.md и прямое повторное указание пользователя: только влево, вправо и вниз; без диагонали и глухой задней стороны.",
+    "scope": "Стандарт ракурсов; не приёмка старой графики как финальной новой партии."
+  },
+  "art_direction": "VART-001 A",
+  "palette": "VART-003 A",
+  "scale_profile": "../vart-002/scale-profile.json",
+  "world_field": [
+    960,
+    540
+  ],
+  "output_size": [
+    1152,
+    648
+  ],
+  "world_zoom": 1.2,
+  "grid": 24,
+  "directions": [
+    0,
+    1,
+    3
+  ],
+  "legacy_up_alias": 0,
+  "camera_center": [
+    480,
+    270
+  ],
+  "hero_feet": [
+    480,
+    480
+  ],
+  "runtime_integration": false,
+  "working_side_marker": "Направление подхода в эталоне, не обещание реальной клетки взаимодействия/навигации.",
+  "families": [
+    {
+      "id": "workbench",
+      "label": "Верстак",
+      "source_scale": 0.3785488958990536,
+      "warning": "В подвале боковые рисунки сейчас увеличиваются сильнее переднего. Здесь показан единый масштаб нового стандарта; runtime не изменён.",
+      "views": [
+        {
+          "direction": 1,
+          "side": "west",
+          "file": "masters/workbench_atlas_a.png",
+          "master_size": [
+            1402.0,
+            1122.0
+          ],
+          "source_rect": [
+            419,
+            47,
+            229,
+            221
+          ],
+          "visual_size": [
+            86.68769716088327,
+            83.65930599369085
+          ],
+          "origin": [
+            120,
+            240.0
+          ],
+          "footprint": [
+            72.0,
+            96.0
+          ],
+          "anchor": [
+            156.0,
+            336
+          ],
+          "edge": [
+            120.0,
+            288.0
+          ],
+          "work_tip": [
+            84.0,
+            288.0
+          ],
+          "runtime_visual_size": [
+            96.0,
+            92.6462860107422
+          ],
+          "runtime_scale_ratio": 1.1074235807860262
+        },
+        {
+          "direction": 0,
+          "side": "south",
+          "file": "masters/workbench_atlas_a.png",
+          "master_size": [
+            1402.0,
+            1122.0
+          ],
+          "source_rect": [
+            34,
+            50,
+            317,
+            218
+          ],
+          "visual_size": [
+            120.0,
+            82.52365930599369
+          ],
+          "origin": [
+            432,
+            264.0
+          ],
+          "footprint": [
+            96.0,
+            72.0
+          ],
+          "anchor": [
+            480.0,
+            336
+          ],
+          "edge": [
+            480.0,
+            336.0
+          ],
+          "work_tip": [
+            480.0,
+            372.0
+          ],
+          "runtime_visual_size": [
+            120.0,
+            82.5236587524414
+          ],
+          "runtime_scale_ratio": 1.0
+        },
+        {
+          "direction": 3,
+          "side": "east",
+          "file": "masters/workbench_atlas_a.png",
+          "master_size": [
+            1402.0,
+            1122.0
+          ],
+          "source_rect": [
+            1115,
+            44,
+            221,
+            224
+          ],
+          "visual_size": [
+            83.65930599369085,
+            84.79495268138801
+          ],
+          "origin": [
+            744,
+            240.0
+          ],
+          "footprint": [
+            72.0,
+            96.0
+          ],
+          "anchor": [
+            780.0,
+            336
+          ],
+          "edge": [
+            816.0,
+            288.0
+          ],
+          "work_tip": [
+            852.0,
+            288.0
+          ],
+          "runtime_visual_size": [
+            96.0,
+            97.3031692504883
+          ],
+          "runtime_scale_ratio": 1.1475113122171945
+        }
+      ]
+    },
+    {
+      "id": "rustic_table",
+      "label": "Дубовый стол",
+      "source_scale": 0.4,
+      "warning": "В старых рисунках стола различаются пропорции. Единый коэффициент это проявляет; новая партия должна согласовать высоту ножек и столешницы. Автоподгонка размера не заменяет перерисовку.",
+      "views": [
+        {
+          "direction": 1,
+          "side": "west",
+          "file": "masters/rustic_table_west.png",
+          "master_size": [
+            195.0,
+            256.0
+          ],
+          "source_rect": [
+            8,
+            8,
+            179,
+            240
+          ],
+          "visual_size": [
+            71.60000000000001,
+            96.0
+          ],
+          "origin": [
+            120,
+            264.0
+          ],
+          "footprint": [
+            48.0,
+            72.0
+          ],
+          "anchor": [
+            144.0,
+            336
+          ],
+          "edge": [
+            120.0,
+            300.0
+          ],
+          "work_tip": [
+            84.0,
+            300.0
+          ],
+          "runtime_visual_size": [
+            53.7000007629395,
+            72.0
+          ],
+          "runtime_scale_ratio": 0.7500000106555795
+        },
+        {
+          "direction": 0,
+          "side": "south",
+          "file": "masters/rustic_table_south.png",
+          "master_size": [
+            256.0,
+            176.0
+          ],
+          "source_rect": [
+            8,
+            8,
+            240,
+            160
+          ],
+          "visual_size": [
+            96.0,
+            64.0
+          ],
+          "origin": [
+            432,
+            288.0
+          ],
+          "footprint": [
+            72.0,
+            48.0
+          ],
+          "anchor": [
+            468.0,
+            336
+          ],
+          "edge": [
+            468.0,
+            336.0
+          ],
+          "work_tip": [
+            468.0,
+            372.0
+          ],
+          "runtime_visual_size": [
+            96.0,
+            64.0
+          ],
+          "runtime_scale_ratio": 1.0
+        },
+        {
+          "direction": 3,
+          "side": "east",
+          "file": "masters/rustic_table_east.png",
+          "master_size": [
+            193.0,
+            256.0
+          ],
+          "source_rect": [
+            8,
+            8,
+            177,
+            240
+          ],
+          "visual_size": [
+            70.8,
+            96.0
+          ],
+          "origin": [
+            744,
+            264.0
+          ],
+          "footprint": [
+            48.0,
+            72.0
+          ],
+          "anchor": [
+            768.0,
+            336
+          ],
+          "edge": [
+            792.0,
+            300.0
+          ],
+          "work_tip": [
+            828.0,
+            300.0
+          ],
+          "runtime_visual_size": [
+            53.1000022888184,
+            72.0
+          ],
+          "runtime_scale_ratio": 0.7500000323279435
+        }
+      ]
+    },
+    {
+      "id": "wooden_wardrobe",
+      "label": "Шкаф",
+      "source_scale": 0.5,
+      "warning": "Масштаб сторон согласован, но на боковых рисунках двери читаются слабее. В новой партии нужно подчеркнуть рабочую грань; это не окончательный художественный эталон шкафа.",
+      "views": [
+        {
+          "direction": 1,
+          "side": "west",
+          "file": "masters/wooden_wardrobe_west.png",
+          "master_size": [
+            116.0,
+            256.0
+          ],
+          "source_rect": [
+            8,
+            8,
+            100,
+            240
+          ],
+          "visual_size": [
+            50.0,
+            120.0
+          ],
+          "origin": [
+            120,
+            264.0
+          ],
+          "footprint": [
+            48.0,
+            72.0
+          ],
+          "anchor": [
+            144.0,
+            336
+          ],
+          "edge": [
+            120.0,
+            300.0
+          ],
+          "work_tip": [
+            84.0,
+            300.0
+          ],
+          "runtime_visual_size": [
+            50.0,
+            120.0
+          ],
+          "runtime_scale_ratio": 1.0
+        },
+        {
+          "direction": 0,
+          "side": "south",
+          "file": "masters/wooden_wardrobe_south.png",
+          "master_size": [
+            196.0,
+            256.0
+          ],
+          "source_rect": [
+            8,
+            8,
+            180,
+            240
+          ],
+          "visual_size": [
+            90.0,
+            120.0
+          ],
+          "origin": [
+            432,
+            288.0
+          ],
+          "footprint": [
+            72.0,
+            48.0
+          ],
+          "anchor": [
+            468.0,
+            336
+          ],
+          "edge": [
+            468.0,
+            336.0
+          ],
+          "work_tip": [
+            468.0,
+            372.0
+          ],
+          "runtime_visual_size": [
+            90.0,
+            120.0
+          ],
+          "runtime_scale_ratio": 1.0
+        },
+        {
+          "direction": 3,
+          "side": "east",
+          "file": "masters/wooden_wardrobe_east.png",
+          "master_size": [
+            116.0,
+            256.0
+          ],
+          "source_rect": [
+            8,
+            8,
+            100,
+            240
+          ],
+          "visual_size": [
+            50.0,
+            120.0
+          ],
+          "origin": [
+            744,
+            264.0
+          ],
+          "footprint": [
+            48.0,
+            72.0
+          ],
+          "anchor": [
+            768.0,
+            336
+          ],
+          "edge": [
+            792.0,
+            300.0
+          ],
+          "work_tip": [
+            828.0,
+            300.0
+          ],
+          "runtime_visual_size": [
+            50.0,
+            120.0
+          ],
+          "runtime_scale_ratio": 1.0
+        }
+      ]
+    }
+  ],
+  "rejected": [
+    {
+      "id": "diagonal",
+      "label": "Диагональная лавка",
+      "file": "masters/rejected-diagonal.png",
+      "reason": "Продольные края уходят по диагонали относительно карты. Это исторический рисунок, не вариант нового стандарта."
+    },
+    {
+      "id": "rear",
+      "label": "Глухая задняя стенка",
+      "file": "masters/rejected-rear.png",
+      "reason": "Не видны дверцы и рабочая сторона. Старый PNG используется только как пример брака; runtime-слот 2 уже является алиасом переднего вида."
+    }
+  ],
+  "landmark_acceptance": [
+    "Общая физическая высота рабочей плоскости или сиденья во всех сторонах",
+    "Согласованные ножки и нижняя линия контакта без послойного растягивания",
+    "Видимый фасад, рабочая грань или её отчётливые признаки"
+  ]
+}

@@ -62,6 +62,8 @@ python3 tools/visual_scale.py verify
 python3 tools/test_visual_scale.py
 python3 tools/visual_palette.py
 python3 tools/test_visual_palette.py
+python3 tools/visual_perspective.py
+python3 tools/test_visual_perspective.py
 python3 tools/analyze_visual_baseline.py docs/reports/visual-overhaul/vbase-001/native >/dev/null
 git diff --check
 print -- "ARCHITECTURE: boundaries and whitespace are valid"
