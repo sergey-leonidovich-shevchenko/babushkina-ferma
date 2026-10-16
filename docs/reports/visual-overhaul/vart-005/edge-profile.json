@@ -1,0 +1,204 @@
+{
+  "schema": 1,
+  "task": "VART-005",
+  "status": "approved",
+  "selection": "a",
+  "recommended": "a",
+  "date": "2026-10-17",
+  "art_direction": "VART-001 A",
+  "palette": "VART-003 A",
+  "scale_profile": "../vart-002/scale-profile.json",
+  "output_size": [
+    1152,
+    648
+  ],
+  "world_field": [
+    960,
+    540
+  ],
+  "camera_center": [
+    480,
+    270
+  ],
+  "world_zoom": 1.2,
+  "master": "edge-master.png",
+  "master_size": [
+    1536,
+    1024
+  ],
+  "hero": "../vart-002/native/hero-current.png",
+  "hero_feet": [
+    480,
+    430
+  ],
+  "runtime_integration": false,
+  "variants": {
+    "a": "Естественный край",
+    "b": "Тонкий цветной контур"
+  },
+  "outline": {
+    "radius_world": 0.75,
+    "opacity": 0.65,
+    "mask_exponent": 4,
+    "source_graphic": "unchanged",
+    "blur": false
+  },
+  "backgrounds": {
+    "light": {
+      "label": "Светлый",
+      "color": "#f4efdf",
+      "ink": "#374333"
+    },
+    "dark": {
+      "label": "Тёмный",
+      "color": "#252e36",
+      "ink": "#e5e7da"
+    },
+    "grass": {
+      "label": "Трава · день",
+      "color": "#6f8651",
+      "ink": "#f5f0dc"
+    },
+    "evening": {
+      "label": "Трава · вечер",
+      "color": "#53694b",
+      "ink": "#f5f0dc"
+    }
+  },
+  "parts": [
+    {
+      "id": "tree",
+      "name": "Дерево",
+      "source_rect": [
+        28,
+        14,
+        500,
+        508
+      ],
+      "world_scale": 0.3779527559055118,
+      "feet": [
+        170,
+        275
+      ],
+      "contour": "#283d2e"
+    },
+    {
+      "id": "bench",
+      "name": "Лавка",
+      "source_rect": [
+        562,
+        163,
+        451,
+        292
+      ],
+      "world_scale": 0.2660753880266075,
+      "feet": [
+        480,
+        235
+      ],
+      "contour": "#59412e"
+    },
+    {
+      "id": "reeds",
+      "name": "Камыш",
+      "source_rect": [
+        1126,
+        137,
+        337,
+        381
+      ],
+      "world_scale": 0.142433234421365,
+      "feet": [
+        790,
+        220
+      ],
+      "contour": "#3f512d"
+    },
+    {
+      "id": "grass",
+      "name": "Трава",
+      "source_rect": [
+        40,
+        516,
+        465,
+        466
+      ],
+      "world_scale": 0.15450643776824036,
+      "feet": [
+        170,
+        435
+      ],
+      "contour": "#40593a"
+    },
+    {
+      "id": "path",
+      "name": "Тропа",
+      "source_rect": [
+        553,
+        516,
+        464,
+        466
+      ],
+      "world_scale": 0.15450643776824036,
+      "feet": [
+        790,
+        435
+      ],
+      "contour": "#79603e"
+    },
+    {
+      "id": "shore",
+      "name": "Берег",
+      "source_rect": [
+        1041,
+        655,
+        481,
+        177
+      ],
+      "world_scale": 0.2993762993762994,
+      "feet": [
+        790,
+        295
+      ],
+      "contour": "#4f5148"
+    }
+  ],
+  "details": [
+    {
+      "part": "tree",
+      "label": "Листва",
+      "world_viewbox": [
+        8,
+        0,
+        100,
+        39.583333333333336
+      ],
+      "note": "Листья сохраняют форму; нет белой линии вокруг кроны."
+    },
+    {
+      "part": "bench",
+      "label": "Дерево и металл",
+      "world_viewbox": [
+        0,
+        0,
+        100,
+        39.583333333333336
+      ],
+      "note": "Проверяем отделение дерева и железа от фона, не закрывая исходный рисунок."
+    },
+    {
+      "part": "reeds",
+      "label": "Тонкие кончики",
+      "world_viewbox": [
+        0,
+        0,
+        100,
+        39.583333333333336
+      ],
+      "note": "Кончики не должны исчезать или склеиваться в тёмную массу."
+    }
+  ],
+  "decision_date": "2026-10-17",
+  "decision_source": "direct user reply in chat",
+  "decision_quote": "A — естественный край (рекомендую)"
+}

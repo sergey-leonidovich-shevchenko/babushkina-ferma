@@ -160,7 +160,7 @@
 
 ## VART-005 — Согласовать мягкость контура
 
-Статус: `ready` · P0 · этап `foundation` · `engineering`
+Статус: `done` · P0 · этап `foundation` · `engineering`
 
 Проверить мастера на светлом, тёмном и травяном фоне при реальном масштабе; нет белой каймы и размытого силуэта
 
@@ -174,7 +174,7 @@
 - [docs/SPRITE_STANDARD.md](../../../../docs/SPRITE_STANDARD.md)
 - [assets/game/world_sprite_manifest.json](../../../../assets/game/world_sprite_manifest.json)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vart-005/`.
+Результаты: `docs/reports/visual-overhaul/vart-005/`.
 
 Критерии:
 
@@ -192,7 +192,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vart-005/README.md, docs/reports/visual-overhaul/vart-005/edge-profile.json, docs/reports/visual-overhaul/vart-005/source.json, docs/reports/visual-overhaul/vart-005/browser-check.json, docs/reports/visual-overhaul/vart-005/browser-artifacts.json, tools/visual_edges.py, tools/test_visual_edges.py, 17 октября 2026: прямой ответ пользователя «A — естественный край (рекомендую)»; принят стандарт без общей дополнительной обводки. Шесть модулей одного RGBA-мастера, A/B × четыре фона, неизменные область 1152×648, поле 960×540 и проекция 1.2. Это браузерная художественная приёмка; runtime и assets/game не менялись..
 
 <a id="vart-006"></a>
 
@@ -212,6 +212,7 @@
 - [docs/SPRITE_STANDARD.md](../../../../docs/SPRITE_STANDARD.md)
 - [assets/game/world_sprite_manifest.json](../../../../assets/game/world_sprite_manifest.json)
 - [docs/reports/visual-overhaul/vart-004/README.md](../../../../docs/reports/visual-overhaul/vart-004/README.md)
+- [docs/reports/visual-overhaul/vart-005/README.md](../../../../docs/reports/visual-overhaul/vart-005/README.md)
 
 Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vart-006/`.
 
@@ -288,6 +289,7 @@
 - [docs/ART_GUIDE.md](../../../../docs/ART_GUIDE.md)
 - [docs/SPRITE_STANDARD.md](../../../../docs/SPRITE_STANDARD.md)
 - [assets/game/world_sprite_manifest.json](../../../../assets/game/world_sprite_manifest.json)
+- [docs/reports/visual-overhaul/vart-005/README.md](../../../../docs/reports/visual-overhaul/vart-005/README.md)
 
 Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vart-008/`.
 
@@ -351,7 +353,7 @@
 
 ## VART-010 — Утвердить предметный эталон иконок
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 По одному примеру еды, руды, травы, колбы, инструмента и одежды проверено в 64 и 160 пикселях до массовой партии
 

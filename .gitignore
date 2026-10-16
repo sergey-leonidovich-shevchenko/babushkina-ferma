@@ -1,6 +1,8 @@
 .DS_Store
 .godot/
 tools/*
+!tools/visual_edges.py
+!tools/test_visual_edges.py
 !tools/visual_perspective_export.gd
 !tools/visual_perspective.py
 !tools/test_visual_perspective.py

@@ -824,7 +824,7 @@
       "id": "VART-005",
       "epic": "VART",
       "title": "Согласовать мягкость контура",
-      "status": "ready",
+      "status": "done",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -860,7 +860,16 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vart-005-visual-task",
-      "evidence": []
+      "evidence": [
+        "docs/reports/visual-overhaul/vart-005/README.md",
+        "docs/reports/visual-overhaul/vart-005/edge-profile.json",
+        "docs/reports/visual-overhaul/vart-005/source.json",
+        "docs/reports/visual-overhaul/vart-005/browser-check.json",
+        "docs/reports/visual-overhaul/vart-005/browser-artifacts.json",
+        "tools/visual_edges.py",
+        "tools/test_visual_edges.py",
+        "17 октября 2026: прямой ответ пользователя «A — естественный край (рекомендую)»; принят стандарт без общей дополнительной обводки. Шесть модулей одного RGBA-мастера, A/B × четыре фона, неизменные область 1152×648, поле 960×540 и проекция 1.2. Это браузерная художественная приёмка; runtime и assets/game не менялись."
+      ]
     },
     {
       "id": "VART-006",
@@ -875,7 +884,8 @@
         "docs/ART_GUIDE.md",
         "docs/SPRITE_STANDARD.md",
         "assets/game/world_sprite_manifest.json",
-        "docs/reports/visual-overhaul/vart-004/README.md"
+        "docs/reports/visual-overhaul/vart-004/README.md",
+        "docs/reports/visual-overhaul/vart-005/README.md"
       ],
       "proposed_outputs": [
         "docs/reports/visual-overhaul/vart-006/"
@@ -959,7 +969,8 @@
       "existing_paths": [
         "docs/ART_GUIDE.md",
         "docs/SPRITE_STANDARD.md",
-        "assets/game/world_sprite_manifest.json"
+        "assets/game/world_sprite_manifest.json",
+        "docs/reports/visual-overhaul/vart-005/README.md"
       ],
       "proposed_outputs": [
         "docs/reports/visual-overhaul/vart-008/"
@@ -1039,7 +1050,7 @@
       "id": "VART-010",
       "epic": "VART",
       "title": "Утвердить предметный эталон иконок",
-      "status": "backlog",
+      "status": "ready",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",

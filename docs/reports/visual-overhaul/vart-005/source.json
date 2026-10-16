@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "base_commit": "ff260be6c750b8326e03e97a042d33606d0bb057",
+  "generator": "built-in image_gen",
+  "use_case": "background-extraction",
+  "runtime_patch": "",
+  "master": {
+    "path": "edge-master.png",
+    "sha256": "4a699d94b7923f8ae40755096ba9718c314a7368351868a834bbf95e42c18467",
+    "size": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA"
+  },
+  "prompt": {
+    "path": "prompt-edge-master.txt",
+    "sha256": "267928219d0b867a62bcac970bfdbdb6c7444d67198de3720dde95a5fde971af"
+  },
+  "references": {
+    "../vart-001/modules-a.png": "2afb68cd0e08844f161a6aebb0f8f7522e06da00011b75157ba271a5be1908fc",
+    "../vart-002/scale-profile.json": "4bed99c250c9522a07c6c600f426cfd970ab25929aa1796f89e67a7e61b5fca8",
+    "../vart-002/native/hero-current.png": "eb25d98486e859efa2208acdbad772c4251b97bfe8857e880c2ac79ef0631080",
+    "../vart-003/palette.json": "1a7e5fdcf9995c215f3ccd910f0d704d723c77d6621196db4701de80a3b1a7e4"
+  },
+  "fidelity": "Generative edit retains layout, but changes internal details. A/B use this identical new master, not two independent generations.",
+  "alpha_note": "RGB in fully transparent pixels is visible in some raw previews; alpha compositing is authoritative. No raster editing or alpha cleanup was applied."
+}

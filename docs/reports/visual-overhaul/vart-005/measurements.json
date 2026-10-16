@@ -1,0 +1,99 @@
+{
+  "schema": 1,
+  "profile_sha256": "bf7b837d7eaf8291366af49f3f075e68f70578f9ed49a0b8549bac302e6b9e3c",
+  "visible_threshold": 26,
+  "core_threshold": 240,
+  "parts": {
+    "tree": {
+      "visible_bbox": [
+        21,
+        20,
+        478,
+        494
+      ],
+      "alpha_zero": 104175,
+      "alpha_1_25": 11733,
+      "alpha_26_239": 5376,
+      "alpha_240_255": 132716,
+      "edge_distance_p95_source_px": 2,
+      "edge_distance_p95_output_px": 0.9071,
+      "soft_pixels_farther_than_12_source_px": 0
+    },
+    "bench": {
+      "visible_bbox": [
+        20,
+        20,
+        431,
+        272
+      ],
+      "alpha_zero": 51368,
+      "alpha_1_25": 4744,
+      "alpha_26_239": 2105,
+      "alpha_240_255": 73475,
+      "edge_distance_p95_source_px": 2,
+      "edge_distance_p95_output_px": 0.6386,
+      "soft_pixels_farther_than_12_source_px": 0
+    },
+    "reeds": {
+      "visible_bbox": [
+        20,
+        20,
+        317,
+        361
+      ],
+      "alpha_zero": 81189,
+      "alpha_1_25": 12740,
+      "alpha_26_239": 4715,
+      "alpha_240_255": 29753,
+      "edge_distance_p95_source_px": 3,
+      "edge_distance_p95_output_px": 0.5128,
+      "soft_pixels_farther_than_12_source_px": 9
+    },
+    "grass": {
+      "visible_bbox": [
+        20,
+        20,
+        445,
+        446
+      ],
+      "alpha_zero": 35767,
+      "alpha_1_25": 8935,
+      "alpha_26_239": 5573,
+      "alpha_240_255": 166415,
+      "edge_distance_p95_source_px": 3,
+      "edge_distance_p95_output_px": 0.5562,
+      "soft_pixels_farther_than_12_source_px": 0
+    },
+    "path": {
+      "visible_bbox": [
+        20,
+        20,
+        444,
+        446
+      ],
+      "alpha_zero": 36524,
+      "alpha_1_25": 8197,
+      "alpha_26_239": 4875,
+      "alpha_240_255": 166628,
+      "edge_distance_p95_source_px": 3,
+      "edge_distance_p95_output_px": 0.5562,
+      "soft_pixels_farther_than_12_source_px": 0
+    },
+    "shore": {
+      "visible_bbox": [
+        20,
+        20,
+        461,
+        157
+      ],
+      "alpha_zero": 21756,
+      "alpha_1_25": 4809,
+      "alpha_26_239": 1812,
+      "alpha_240_255": 56760,
+      "edge_distance_p95_source_px": 2,
+      "edge_distance_p95_output_px": 0.7185,
+      "soft_pixels_farther_than_12_source_px": 0
+    }
+  },
+  "interpretation": "RGB при alpha=0 не виден при композиции. Расстояние не доказывает отсутствие matte; кайма и читаемость проверены вручную на четырёх фонах. Почти непрозрачное тело 252–253/255 не считается размытой кромкой."
+}

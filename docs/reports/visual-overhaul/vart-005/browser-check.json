@@ -1,0 +1,2646 @@
+{
+  "kind": "browser-svg-preview",
+  "native_game_frame": false,
+  "cases": [
+    {
+      "background": "light",
+      "background_color": "rgb(244, 239, 223)",
+      "hero": {
+        "data-hero": "true",
+        "height": "192",
+        "overflow": "hidden",
+        "viewBox": "0 0 192 192",
+        "width": "192",
+        "x": "384",
+        "y": "270"
+      },
+      "hero_image": "../vart-002/native/hero-current.png",
+      "magnifiers": [
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "8 0 100 39.583333333333336"
+        },
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "8 0 100 39.583333333333336"
+        },
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "0 0 100 39.583333333333336"
+        },
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "0 0 100 39.583333333333336"
+        },
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "0 0 100 39.583333333333336"
+        },
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "0 0 100 39.583333333333336"
+        }
+      ],
+      "parts": [
+        {
+          "clip": "28 14 500 508",
+          "feet": "170 275",
+          "filter": null,
+          "filter_nodes": [],
+          "href": "edge-master.png",
+          "id": "tree",
+          "size": "188.9763779527559 192",
+          "source": "28 14 500 508",
+          "transform": "translate(75.51181102362204 83)"
+        },
+        {
+          "clip": "562 163 451 292",
+          "feet": "480 235",
+          "filter": null,
+          "filter_nodes": [],
+          "href": "edge-master.png",
+          "id": "bench",
+          "size": "119.99999999999999 77.6940133037694",
+          "source": "562 163 451 292",
+          "transform": "translate(420 157.3059866962306)"
+        },
+        {
+          "clip": "1126 137 337 381",
+          "feet": "790 220",
+          "filter": null,
+          "filter_nodes": [],
+          "href": "edge-master.png",
+          "id": "reeds",
+          "size": "48 54.26706231454006",
+          "source": "1126 137 337 381",
+          "transform": "translate(766 165.73293768545994)"
+        },
+        {
+          "clip": "40 516 465 466",
+          "feet": "170 435",
+          "filter": null,
+          "filter_nodes": [],
+          "href": "edge-master.png",
+          "id": "grass",
+          "size": "71.84549356223177 72",
+          "source": "40 516 465 466",
+          "transform": "translate(134.07725321888412 363)"
+        },
+        {
+          "clip": "553 516 464 466",
+          "feet": "790 435",
+          "filter": null,
+          "filter_nodes": [],
+          "href": "edge-master.png",
+          "id": "path",
+          "size": "71.69098712446353 72",
+          "source": "553 516 464 466",
+          "transform": "translate(754.1545064377682 363)"
+        },
+        {
+          "clip": "1041 655 481 177",
+          "feet": "790 295",
+          "filter": null,
+          "filter_nodes": [],
+          "href": "edge-master.png",
+          "id": "shore",
+          "size": "144 52.98960498960499",
+          "source": "1041 655 481 177",
+          "transform": "translate(718 242.010395010395)"
+        }
+      ],
+      "size": [
+        1152,
+        648
+      ],
+      "variant": "a",
+      "viewBox": "0 0 960 540"
+    },
+    {
+      "background": "dark",
+      "background_color": "rgb(37, 46, 54)",
+      "hero": {
+        "data-hero": "true",
+        "height": "192",
+        "overflow": "hidden",
+        "viewBox": "0 0 192 192",
+        "width": "192",
+        "x": "384",
+        "y": "270"
+      },
+      "hero_image": "../vart-002/native/hero-current.png",
+      "magnifiers": [
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "8 0 100 39.583333333333336"
+        },
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "8 0 100 39.583333333333336"
+        },
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "0 0 100 39.583333333333336"
+        },
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "0 0 100 39.583333333333336"
+        },
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "0 0 100 39.583333333333336"
+        },
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "0 0 100 39.583333333333336"
+        }
+      ],
+      "parts": [
+        {
+          "clip": "28 14 500 508",
+          "feet": "170 275",
+          "filter": null,
+          "filter_nodes": [],
+          "href": "edge-master.png",
+          "id": "tree",
+          "size": "188.9763779527559 192",
+          "source": "28 14 500 508",
+          "transform": "translate(75.51181102362204 83)"
+        },
+        {
+          "clip": "562 163 451 292",
+          "feet": "480 235",
+          "filter": null,
+          "filter_nodes": [],
+          "href": "edge-master.png",
+          "id": "bench",
+          "size": "119.99999999999999 77.6940133037694",
+          "source": "562 163 451 292",
+          "transform": "translate(420 157.3059866962306)"
+        },
+        {
+          "clip": "1126 137 337 381",
+          "feet": "790 220",
+          "filter": null,
+          "filter_nodes": [],
+          "href": "edge-master.png",
+          "id": "reeds",
+          "size": "48 54.26706231454006",
+          "source": "1126 137 337 381",
+          "transform": "translate(766 165.73293768545994)"
+        },
+        {
+          "clip": "40 516 465 466",
+          "feet": "170 435",
+          "filter": null,
+          "filter_nodes": [],
+          "href": "edge-master.png",
+          "id": "grass",
+          "size": "71.84549356223177 72",
+          "source": "40 516 465 466",
+          "transform": "translate(134.07725321888412 363)"
+        },
+        {
+          "clip": "553 516 464 466",
+          "feet": "790 435",
+          "filter": null,
+          "filter_nodes": [],
+          "href": "edge-master.png",
+          "id": "path",
+          "size": "71.69098712446353 72",
+          "source": "553 516 464 466",
+          "transform": "translate(754.1545064377682 363)"
+        },
+        {
+          "clip": "1041 655 481 177",
+          "feet": "790 295",
+          "filter": null,
+          "filter_nodes": [],
+          "href": "edge-master.png",
+          "id": "shore",
+          "size": "144 52.98960498960499",
+          "source": "1041 655 481 177",
+          "transform": "translate(718 242.010395010395)"
+        }
+      ],
+      "size": [
+        1152,
+        648
+      ],
+      "variant": "a",
+      "viewBox": "0 0 960 540"
+    },
+    {
+      "background": "grass",
+      "background_color": "rgb(111, 134, 81)",
+      "hero": {
+        "data-hero": "true",
+        "height": "192",
+        "overflow": "hidden",
+        "viewBox": "0 0 192 192",
+        "width": "192",
+        "x": "384",
+        "y": "270"
+      },
+      "hero_image": "../vart-002/native/hero-current.png",
+      "magnifiers": [
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "8 0 100 39.583333333333336"
+        },
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "8 0 100 39.583333333333336"
+        },
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "0 0 100 39.583333333333336"
+        },
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "0 0 100 39.583333333333336"
+        },
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "0 0 100 39.583333333333336"
+        },
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "0 0 100 39.583333333333336"
+        }
+      ],
+      "parts": [
+        {
+          "clip": "28 14 500 508",
+          "feet": "170 275",
+          "filter": null,
+          "filter_nodes": [],
+          "href": "edge-master.png",
+          "id": "tree",
+          "size": "188.9763779527559 192",
+          "source": "28 14 500 508",
+          "transform": "translate(75.51181102362204 83)"
+        },
+        {
+          "clip": "562 163 451 292",
+          "feet": "480 235",
+          "filter": null,
+          "filter_nodes": [],
+          "href": "edge-master.png",
+          "id": "bench",
+          "size": "119.99999999999999 77.6940133037694",
+          "source": "562 163 451 292",
+          "transform": "translate(420 157.3059866962306)"
+        },
+        {
+          "clip": "1126 137 337 381",
+          "feet": "790 220",
+          "filter": null,
+          "filter_nodes": [],
+          "href": "edge-master.png",
+          "id": "reeds",
+          "size": "48 54.26706231454006",
+          "source": "1126 137 337 381",
+          "transform": "translate(766 165.73293768545994)"
+        },
+        {
+          "clip": "40 516 465 466",
+          "feet": "170 435",
+          "filter": null,
+          "filter_nodes": [],
+          "href": "edge-master.png",
+          "id": "grass",
+          "size": "71.84549356223177 72",
+          "source": "40 516 465 466",
+          "transform": "translate(134.07725321888412 363)"
+        },
+        {
+          "clip": "553 516 464 466",
+          "feet": "790 435",
+          "filter": null,
+          "filter_nodes": [],
+          "href": "edge-master.png",
+          "id": "path",
+          "size": "71.69098712446353 72",
+          "source": "553 516 464 466",
+          "transform": "translate(754.1545064377682 363)"
+        },
+        {
+          "clip": "1041 655 481 177",
+          "feet": "790 295",
+          "filter": null,
+          "filter_nodes": [],
+          "href": "edge-master.png",
+          "id": "shore",
+          "size": "144 52.98960498960499",
+          "source": "1041 655 481 177",
+          "transform": "translate(718 242.010395010395)"
+        }
+      ],
+      "size": [
+        1152,
+        648
+      ],
+      "variant": "a",
+      "viewBox": "0 0 960 540"
+    },
+    {
+      "background": "evening",
+      "background_color": "rgb(83, 105, 75)",
+      "hero": {
+        "data-hero": "true",
+        "height": "192",
+        "overflow": "hidden",
+        "viewBox": "0 0 192 192",
+        "width": "192",
+        "x": "384",
+        "y": "270"
+      },
+      "hero_image": "../vart-002/native/hero-current.png",
+      "magnifiers": [
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "8 0 100 39.583333333333336"
+        },
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "8 0 100 39.583333333333336"
+        },
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "0 0 100 39.583333333333336"
+        },
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "0 0 100 39.583333333333336"
+        },
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "0 0 100 39.583333333333336"
+        },
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "0 0 100 39.583333333333336"
+        }
+      ],
+      "parts": [
+        {
+          "clip": "28 14 500 508",
+          "feet": "170 275",
+          "filter": null,
+          "filter_nodes": [],
+          "href": "edge-master.png",
+          "id": "tree",
+          "size": "188.9763779527559 192",
+          "source": "28 14 500 508",
+          "transform": "translate(75.51181102362204 83)"
+        },
+        {
+          "clip": "562 163 451 292",
+          "feet": "480 235",
+          "filter": null,
+          "filter_nodes": [],
+          "href": "edge-master.png",
+          "id": "bench",
+          "size": "119.99999999999999 77.6940133037694",
+          "source": "562 163 451 292",
+          "transform": "translate(420 157.3059866962306)"
+        },
+        {
+          "clip": "1126 137 337 381",
+          "feet": "790 220",
+          "filter": null,
+          "filter_nodes": [],
+          "href": "edge-master.png",
+          "id": "reeds",
+          "size": "48 54.26706231454006",
+          "source": "1126 137 337 381",
+          "transform": "translate(766 165.73293768545994)"
+        },
+        {
+          "clip": "40 516 465 466",
+          "feet": "170 435",
+          "filter": null,
+          "filter_nodes": [],
+          "href": "edge-master.png",
+          "id": "grass",
+          "size": "71.84549356223177 72",
+          "source": "40 516 465 466",
+          "transform": "translate(134.07725321888412 363)"
+        },
+        {
+          "clip": "553 516 464 466",
+          "feet": "790 435",
+          "filter": null,
+          "filter_nodes": [],
+          "href": "edge-master.png",
+          "id": "path",
+          "size": "71.69098712446353 72",
+          "source": "553 516 464 466",
+          "transform": "translate(754.1545064377682 363)"
+        },
+        {
+          "clip": "1041 655 481 177",
+          "feet": "790 295",
+          "filter": null,
+          "filter_nodes": [],
+          "href": "edge-master.png",
+          "id": "shore",
+          "size": "144 52.98960498960499",
+          "source": "1041 655 481 177",
+          "transform": "translate(718 242.010395010395)"
+        }
+      ],
+      "size": [
+        1152,
+        648
+      ],
+      "variant": "a",
+      "viewBox": "0 0 960 540"
+    },
+    {
+      "background": "light",
+      "background_color": "rgb(244, 239, 223)",
+      "hero": {
+        "data-hero": "true",
+        "height": "192",
+        "overflow": "hidden",
+        "viewBox": "0 0 192 192",
+        "width": "192",
+        "x": "384",
+        "y": "270"
+      },
+      "hero_image": "../vart-002/native/hero-current.png",
+      "magnifiers": [
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "8 0 100 39.583333333333336"
+        },
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "8 0 100 39.583333333333336"
+        },
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "0 0 100 39.583333333333336"
+        },
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "0 0 100 39.583333333333336"
+        },
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "0 0 100 39.583333333333336"
+        },
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "0 0 100 39.583333333333336"
+        }
+      ],
+      "parts": [
+        {
+          "clip": "28 14 500 508",
+          "feet": "170 275",
+          "filter": "url(#stage-tree-b)",
+          "filter_nodes": [
+            {
+              "attrs": {
+                "in": "SourceAlpha",
+                "result": "mask"
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "amplitude": "1",
+                    "exponent": "4",
+                    "offset": "0",
+                    "type": "gamma"
+                  },
+                  "tag": "feFuncA"
+                }
+              ],
+              "tag": "feComponentTransfer"
+            },
+            {
+              "attrs": {
+                "in": "mask",
+                "operator": "dilate",
+                "radius": "0.75",
+                "result": "expanded"
+              },
+              "children": [],
+              "tag": "feMorphology"
+            },
+            {
+              "attrs": {
+                "flood-color": "#283d2e",
+                "flood-opacity": "0.65",
+                "result": "ink"
+              },
+              "children": [],
+              "tag": "feFlood"
+            },
+            {
+              "attrs": {
+                "in": "ink",
+                "in2": "expanded",
+                "operator": "in",
+                "result": "line"
+              },
+              "children": [],
+              "tag": "feComposite"
+            },
+            {
+              "attrs": {},
+              "children": [
+                {
+                  "attrs": {
+                    "in": "line"
+                  },
+                  "tag": "feMergeNode"
+                },
+                {
+                  "attrs": {
+                    "in": "SourceGraphic"
+                  },
+                  "tag": "feMergeNode"
+                }
+              ],
+              "tag": "feMerge"
+            }
+          ],
+          "href": "edge-master.png",
+          "id": "tree",
+          "size": "188.9763779527559 192",
+          "source": "28 14 500 508",
+          "transform": "translate(75.51181102362204 83)"
+        },
+        {
+          "clip": "562 163 451 292",
+          "feet": "480 235",
+          "filter": "url(#stage-bench-b)",
+          "filter_nodes": [
+            {
+              "attrs": {
+                "in": "SourceAlpha",
+                "result": "mask"
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "amplitude": "1",
+                    "exponent": "4",
+                    "offset": "0",
+                    "type": "gamma"
+                  },
+                  "tag": "feFuncA"
+                }
+              ],
+              "tag": "feComponentTransfer"
+            },
+            {
+              "attrs": {
+                "in": "mask",
+                "operator": "dilate",
+                "radius": "0.75",
+                "result": "expanded"
+              },
+              "children": [],
+              "tag": "feMorphology"
+            },
+            {
+              "attrs": {
+                "flood-color": "#59412e",
+                "flood-opacity": "0.65",
+                "result": "ink"
+              },
+              "children": [],
+              "tag": "feFlood"
+            },
+            {
+              "attrs": {
+                "in": "ink",
+                "in2": "expanded",
+                "operator": "in",
+                "result": "line"
+              },
+              "children": [],
+              "tag": "feComposite"
+            },
+            {
+              "attrs": {},
+              "children": [
+                {
+                  "attrs": {
+                    "in": "line"
+                  },
+                  "tag": "feMergeNode"
+                },
+                {
+                  "attrs": {
+                    "in": "SourceGraphic"
+                  },
+                  "tag": "feMergeNode"
+                }
+              ],
+              "tag": "feMerge"
+            }
+          ],
+          "href": "edge-master.png",
+          "id": "bench",
+          "size": "119.99999999999999 77.6940133037694",
+          "source": "562 163 451 292",
+          "transform": "translate(420 157.3059866962306)"
+        },
+        {
+          "clip": "1126 137 337 381",
+          "feet": "790 220",
+          "filter": "url(#stage-reeds-b)",
+          "filter_nodes": [
+            {
+              "attrs": {
+                "in": "SourceAlpha",
+                "result": "mask"
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "amplitude": "1",
+                    "exponent": "4",
+                    "offset": "0",
+                    "type": "gamma"
+                  },
+                  "tag": "feFuncA"
+                }
+              ],
+              "tag": "feComponentTransfer"
+            },
+            {
+              "attrs": {
+                "in": "mask",
+                "operator": "dilate",
+                "radius": "0.75",
+                "result": "expanded"
+              },
+              "children": [],
+              "tag": "feMorphology"
+            },
+            {
+              "attrs": {
+                "flood-color": "#3f512d",
+                "flood-opacity": "0.65",
+                "result": "ink"
+              },
+              "children": [],
+              "tag": "feFlood"
+            },
+            {
+              "attrs": {
+                "in": "ink",
+                "in2": "expanded",
+                "operator": "in",
+                "result": "line"
+              },
+              "children": [],
+              "tag": "feComposite"
+            },
+            {
+              "attrs": {},
+              "children": [
+                {
+                  "attrs": {
+                    "in": "line"
+                  },
+                  "tag": "feMergeNode"
+                },
+                {
+                  "attrs": {
+                    "in": "SourceGraphic"
+                  },
+                  "tag": "feMergeNode"
+                }
+              ],
+              "tag": "feMerge"
+            }
+          ],
+          "href": "edge-master.png",
+          "id": "reeds",
+          "size": "48 54.26706231454006",
+          "source": "1126 137 337 381",
+          "transform": "translate(766 165.73293768545994)"
+        },
+        {
+          "clip": "40 516 465 466",
+          "feet": "170 435",
+          "filter": "url(#stage-grass-b)",
+          "filter_nodes": [
+            {
+              "attrs": {
+                "in": "SourceAlpha",
+                "result": "mask"
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "amplitude": "1",
+                    "exponent": "4",
+                    "offset": "0",
+                    "type": "gamma"
+                  },
+                  "tag": "feFuncA"
+                }
+              ],
+              "tag": "feComponentTransfer"
+            },
+            {
+              "attrs": {
+                "in": "mask",
+                "operator": "dilate",
+                "radius": "0.75",
+                "result": "expanded"
+              },
+              "children": [],
+              "tag": "feMorphology"
+            },
+            {
+              "attrs": {
+                "flood-color": "#40593a",
+                "flood-opacity": "0.65",
+                "result": "ink"
+              },
+              "children": [],
+              "tag": "feFlood"
+            },
+            {
+              "attrs": {
+                "in": "ink",
+                "in2": "expanded",
+                "operator": "in",
+                "result": "line"
+              },
+              "children": [],
+              "tag": "feComposite"
+            },
+            {
+              "attrs": {},
+              "children": [
+                {
+                  "attrs": {
+                    "in": "line"
+                  },
+                  "tag": "feMergeNode"
+                },
+                {
+                  "attrs": {
+                    "in": "SourceGraphic"
+                  },
+                  "tag": "feMergeNode"
+                }
+              ],
+              "tag": "feMerge"
+            }
+          ],
+          "href": "edge-master.png",
+          "id": "grass",
+          "size": "71.84549356223177 72",
+          "source": "40 516 465 466",
+          "transform": "translate(134.07725321888412 363)"
+        },
+        {
+          "clip": "553 516 464 466",
+          "feet": "790 435",
+          "filter": "url(#stage-path-b)",
+          "filter_nodes": [
+            {
+              "attrs": {
+                "in": "SourceAlpha",
+                "result": "mask"
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "amplitude": "1",
+                    "exponent": "4",
+                    "offset": "0",
+                    "type": "gamma"
+                  },
+                  "tag": "feFuncA"
+                }
+              ],
+              "tag": "feComponentTransfer"
+            },
+            {
+              "attrs": {
+                "in": "mask",
+                "operator": "dilate",
+                "radius": "0.75",
+                "result": "expanded"
+              },
+              "children": [],
+              "tag": "feMorphology"
+            },
+            {
+              "attrs": {
+                "flood-color": "#79603e",
+                "flood-opacity": "0.65",
+                "result": "ink"
+              },
+              "children": [],
+              "tag": "feFlood"
+            },
+            {
+              "attrs": {
+                "in": "ink",
+                "in2": "expanded",
+                "operator": "in",
+                "result": "line"
+              },
+              "children": [],
+              "tag": "feComposite"
+            },
+            {
+              "attrs": {},
+              "children": [
+                {
+                  "attrs": {
+                    "in": "line"
+                  },
+                  "tag": "feMergeNode"
+                },
+                {
+                  "attrs": {
+                    "in": "SourceGraphic"
+                  },
+                  "tag": "feMergeNode"
+                }
+              ],
+              "tag": "feMerge"
+            }
+          ],
+          "href": "edge-master.png",
+          "id": "path",
+          "size": "71.69098712446353 72",
+          "source": "553 516 464 466",
+          "transform": "translate(754.1545064377682 363)"
+        },
+        {
+          "clip": "1041 655 481 177",
+          "feet": "790 295",
+          "filter": "url(#stage-shore-b)",
+          "filter_nodes": [
+            {
+              "attrs": {
+                "in": "SourceAlpha",
+                "result": "mask"
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "amplitude": "1",
+                    "exponent": "4",
+                    "offset": "0",
+                    "type": "gamma"
+                  },
+                  "tag": "feFuncA"
+                }
+              ],
+              "tag": "feComponentTransfer"
+            },
+            {
+              "attrs": {
+                "in": "mask",
+                "operator": "dilate",
+                "radius": "0.75",
+                "result": "expanded"
+              },
+              "children": [],
+              "tag": "feMorphology"
+            },
+            {
+              "attrs": {
+                "flood-color": "#4f5148",
+                "flood-opacity": "0.65",
+                "result": "ink"
+              },
+              "children": [],
+              "tag": "feFlood"
+            },
+            {
+              "attrs": {
+                "in": "ink",
+                "in2": "expanded",
+                "operator": "in",
+                "result": "line"
+              },
+              "children": [],
+              "tag": "feComposite"
+            },
+            {
+              "attrs": {},
+              "children": [
+                {
+                  "attrs": {
+                    "in": "line"
+                  },
+                  "tag": "feMergeNode"
+                },
+                {
+                  "attrs": {
+                    "in": "SourceGraphic"
+                  },
+                  "tag": "feMergeNode"
+                }
+              ],
+              "tag": "feMerge"
+            }
+          ],
+          "href": "edge-master.png",
+          "id": "shore",
+          "size": "144 52.98960498960499",
+          "source": "1041 655 481 177",
+          "transform": "translate(718 242.010395010395)"
+        }
+      ],
+      "size": [
+        1152,
+        648
+      ],
+      "variant": "b",
+      "viewBox": "0 0 960 540"
+    },
+    {
+      "background": "dark",
+      "background_color": "rgb(37, 46, 54)",
+      "hero": {
+        "data-hero": "true",
+        "height": "192",
+        "overflow": "hidden",
+        "viewBox": "0 0 192 192",
+        "width": "192",
+        "x": "384",
+        "y": "270"
+      },
+      "hero_image": "../vart-002/native/hero-current.png",
+      "magnifiers": [
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "8 0 100 39.583333333333336"
+        },
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "8 0 100 39.583333333333336"
+        },
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "0 0 100 39.583333333333336"
+        },
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "0 0 100 39.583333333333336"
+        },
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "0 0 100 39.583333333333336"
+        },
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "0 0 100 39.583333333333336"
+        }
+      ],
+      "parts": [
+        {
+          "clip": "28 14 500 508",
+          "feet": "170 275",
+          "filter": "url(#stage-tree-b)",
+          "filter_nodes": [
+            {
+              "attrs": {
+                "in": "SourceAlpha",
+                "result": "mask"
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "amplitude": "1",
+                    "exponent": "4",
+                    "offset": "0",
+                    "type": "gamma"
+                  },
+                  "tag": "feFuncA"
+                }
+              ],
+              "tag": "feComponentTransfer"
+            },
+            {
+              "attrs": {
+                "in": "mask",
+                "operator": "dilate",
+                "radius": "0.75",
+                "result": "expanded"
+              },
+              "children": [],
+              "tag": "feMorphology"
+            },
+            {
+              "attrs": {
+                "flood-color": "#283d2e",
+                "flood-opacity": "0.65",
+                "result": "ink"
+              },
+              "children": [],
+              "tag": "feFlood"
+            },
+            {
+              "attrs": {
+                "in": "ink",
+                "in2": "expanded",
+                "operator": "in",
+                "result": "line"
+              },
+              "children": [],
+              "tag": "feComposite"
+            },
+            {
+              "attrs": {},
+              "children": [
+                {
+                  "attrs": {
+                    "in": "line"
+                  },
+                  "tag": "feMergeNode"
+                },
+                {
+                  "attrs": {
+                    "in": "SourceGraphic"
+                  },
+                  "tag": "feMergeNode"
+                }
+              ],
+              "tag": "feMerge"
+            }
+          ],
+          "href": "edge-master.png",
+          "id": "tree",
+          "size": "188.9763779527559 192",
+          "source": "28 14 500 508",
+          "transform": "translate(75.51181102362204 83)"
+        },
+        {
+          "clip": "562 163 451 292",
+          "feet": "480 235",
+          "filter": "url(#stage-bench-b)",
+          "filter_nodes": [
+            {
+              "attrs": {
+                "in": "SourceAlpha",
+                "result": "mask"
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "amplitude": "1",
+                    "exponent": "4",
+                    "offset": "0",
+                    "type": "gamma"
+                  },
+                  "tag": "feFuncA"
+                }
+              ],
+              "tag": "feComponentTransfer"
+            },
+            {
+              "attrs": {
+                "in": "mask",
+                "operator": "dilate",
+                "radius": "0.75",
+                "result": "expanded"
+              },
+              "children": [],
+              "tag": "feMorphology"
+            },
+            {
+              "attrs": {
+                "flood-color": "#59412e",
+                "flood-opacity": "0.65",
+                "result": "ink"
+              },
+              "children": [],
+              "tag": "feFlood"
+            },
+            {
+              "attrs": {
+                "in": "ink",
+                "in2": "expanded",
+                "operator": "in",
+                "result": "line"
+              },
+              "children": [],
+              "tag": "feComposite"
+            },
+            {
+              "attrs": {},
+              "children": [
+                {
+                  "attrs": {
+                    "in": "line"
+                  },
+                  "tag": "feMergeNode"
+                },
+                {
+                  "attrs": {
+                    "in": "SourceGraphic"
+                  },
+                  "tag": "feMergeNode"
+                }
+              ],
+              "tag": "feMerge"
+            }
+          ],
+          "href": "edge-master.png",
+          "id": "bench",
+          "size": "119.99999999999999 77.6940133037694",
+          "source": "562 163 451 292",
+          "transform": "translate(420 157.3059866962306)"
+        },
+        {
+          "clip": "1126 137 337 381",
+          "feet": "790 220",
+          "filter": "url(#stage-reeds-b)",
+          "filter_nodes": [
+            {
+              "attrs": {
+                "in": "SourceAlpha",
+                "result": "mask"
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "amplitude": "1",
+                    "exponent": "4",
+                    "offset": "0",
+                    "type": "gamma"
+                  },
+                  "tag": "feFuncA"
+                }
+              ],
+              "tag": "feComponentTransfer"
+            },
+            {
+              "attrs": {
+                "in": "mask",
+                "operator": "dilate",
+                "radius": "0.75",
+                "result": "expanded"
+              },
+              "children": [],
+              "tag": "feMorphology"
+            },
+            {
+              "attrs": {
+                "flood-color": "#3f512d",
+                "flood-opacity": "0.65",
+                "result": "ink"
+              },
+              "children": [],
+              "tag": "feFlood"
+            },
+            {
+              "attrs": {
+                "in": "ink",
+                "in2": "expanded",
+                "operator": "in",
+                "result": "line"
+              },
+              "children": [],
+              "tag": "feComposite"
+            },
+            {
+              "attrs": {},
+              "children": [
+                {
+                  "attrs": {
+                    "in": "line"
+                  },
+                  "tag": "feMergeNode"
+                },
+                {
+                  "attrs": {
+                    "in": "SourceGraphic"
+                  },
+                  "tag": "feMergeNode"
+                }
+              ],
+              "tag": "feMerge"
+            }
+          ],
+          "href": "edge-master.png",
+          "id": "reeds",
+          "size": "48 54.26706231454006",
+          "source": "1126 137 337 381",
+          "transform": "translate(766 165.73293768545994)"
+        },
+        {
+          "clip": "40 516 465 466",
+          "feet": "170 435",
+          "filter": "url(#stage-grass-b)",
+          "filter_nodes": [
+            {
+              "attrs": {
+                "in": "SourceAlpha",
+                "result": "mask"
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "amplitude": "1",
+                    "exponent": "4",
+                    "offset": "0",
+                    "type": "gamma"
+                  },
+                  "tag": "feFuncA"
+                }
+              ],
+              "tag": "feComponentTransfer"
+            },
+            {
+              "attrs": {
+                "in": "mask",
+                "operator": "dilate",
+                "radius": "0.75",
+                "result": "expanded"
+              },
+              "children": [],
+              "tag": "feMorphology"
+            },
+            {
+              "attrs": {
+                "flood-color": "#40593a",
+                "flood-opacity": "0.65",
+                "result": "ink"
+              },
+              "children": [],
+              "tag": "feFlood"
+            },
+            {
+              "attrs": {
+                "in": "ink",
+                "in2": "expanded",
+                "operator": "in",
+                "result": "line"
+              },
+              "children": [],
+              "tag": "feComposite"
+            },
+            {
+              "attrs": {},
+              "children": [
+                {
+                  "attrs": {
+                    "in": "line"
+                  },
+                  "tag": "feMergeNode"
+                },
+                {
+                  "attrs": {
+                    "in": "SourceGraphic"
+                  },
+                  "tag": "feMergeNode"
+                }
+              ],
+              "tag": "feMerge"
+            }
+          ],
+          "href": "edge-master.png",
+          "id": "grass",
+          "size": "71.84549356223177 72",
+          "source": "40 516 465 466",
+          "transform": "translate(134.07725321888412 363)"
+        },
+        {
+          "clip": "553 516 464 466",
+          "feet": "790 435",
+          "filter": "url(#stage-path-b)",
+          "filter_nodes": [
+            {
+              "attrs": {
+                "in": "SourceAlpha",
+                "result": "mask"
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "amplitude": "1",
+                    "exponent": "4",
+                    "offset": "0",
+                    "type": "gamma"
+                  },
+                  "tag": "feFuncA"
+                }
+              ],
+              "tag": "feComponentTransfer"
+            },
+            {
+              "attrs": {
+                "in": "mask",
+                "operator": "dilate",
+                "radius": "0.75",
+                "result": "expanded"
+              },
+              "children": [],
+              "tag": "feMorphology"
+            },
+            {
+              "attrs": {
+                "flood-color": "#79603e",
+                "flood-opacity": "0.65",
+                "result": "ink"
+              },
+              "children": [],
+              "tag": "feFlood"
+            },
+            {
+              "attrs": {
+                "in": "ink",
+                "in2": "expanded",
+                "operator": "in",
+                "result": "line"
+              },
+              "children": [],
+              "tag": "feComposite"
+            },
+            {
+              "attrs": {},
+              "children": [
+                {
+                  "attrs": {
+                    "in": "line"
+                  },
+                  "tag": "feMergeNode"
+                },
+                {
+                  "attrs": {
+                    "in": "SourceGraphic"
+                  },
+                  "tag": "feMergeNode"
+                }
+              ],
+              "tag": "feMerge"
+            }
+          ],
+          "href": "edge-master.png",
+          "id": "path",
+          "size": "71.69098712446353 72",
+          "source": "553 516 464 466",
+          "transform": "translate(754.1545064377682 363)"
+        },
+        {
+          "clip": "1041 655 481 177",
+          "feet": "790 295",
+          "filter": "url(#stage-shore-b)",
+          "filter_nodes": [
+            {
+              "attrs": {
+                "in": "SourceAlpha",
+                "result": "mask"
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "amplitude": "1",
+                    "exponent": "4",
+                    "offset": "0",
+                    "type": "gamma"
+                  },
+                  "tag": "feFuncA"
+                }
+              ],
+              "tag": "feComponentTransfer"
+            },
+            {
+              "attrs": {
+                "in": "mask",
+                "operator": "dilate",
+                "radius": "0.75",
+                "result": "expanded"
+              },
+              "children": [],
+              "tag": "feMorphology"
+            },
+            {
+              "attrs": {
+                "flood-color": "#4f5148",
+                "flood-opacity": "0.65",
+                "result": "ink"
+              },
+              "children": [],
+              "tag": "feFlood"
+            },
+            {
+              "attrs": {
+                "in": "ink",
+                "in2": "expanded",
+                "operator": "in",
+                "result": "line"
+              },
+              "children": [],
+              "tag": "feComposite"
+            },
+            {
+              "attrs": {},
+              "children": [
+                {
+                  "attrs": {
+                    "in": "line"
+                  },
+                  "tag": "feMergeNode"
+                },
+                {
+                  "attrs": {
+                    "in": "SourceGraphic"
+                  },
+                  "tag": "feMergeNode"
+                }
+              ],
+              "tag": "feMerge"
+            }
+          ],
+          "href": "edge-master.png",
+          "id": "shore",
+          "size": "144 52.98960498960499",
+          "source": "1041 655 481 177",
+          "transform": "translate(718 242.010395010395)"
+        }
+      ],
+      "size": [
+        1152,
+        648
+      ],
+      "variant": "b",
+      "viewBox": "0 0 960 540"
+    },
+    {
+      "background": "grass",
+      "background_color": "rgb(111, 134, 81)",
+      "hero": {
+        "data-hero": "true",
+        "height": "192",
+        "overflow": "hidden",
+        "viewBox": "0 0 192 192",
+        "width": "192",
+        "x": "384",
+        "y": "270"
+      },
+      "hero_image": "../vart-002/native/hero-current.png",
+      "magnifiers": [
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "8 0 100 39.583333333333336"
+        },
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "8 0 100 39.583333333333336"
+        },
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "0 0 100 39.583333333333336"
+        },
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "0 0 100 39.583333333333336"
+        },
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "0 0 100 39.583333333333336"
+        },
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "0 0 100 39.583333333333336"
+        }
+      ],
+      "parts": [
+        {
+          "clip": "28 14 500 508",
+          "feet": "170 275",
+          "filter": "url(#stage-tree-b)",
+          "filter_nodes": [
+            {
+              "attrs": {
+                "in": "SourceAlpha",
+                "result": "mask"
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "amplitude": "1",
+                    "exponent": "4",
+                    "offset": "0",
+                    "type": "gamma"
+                  },
+                  "tag": "feFuncA"
+                }
+              ],
+              "tag": "feComponentTransfer"
+            },
+            {
+              "attrs": {
+                "in": "mask",
+                "operator": "dilate",
+                "radius": "0.75",
+                "result": "expanded"
+              },
+              "children": [],
+              "tag": "feMorphology"
+            },
+            {
+              "attrs": {
+                "flood-color": "#283d2e",
+                "flood-opacity": "0.65",
+                "result": "ink"
+              },
+              "children": [],
+              "tag": "feFlood"
+            },
+            {
+              "attrs": {
+                "in": "ink",
+                "in2": "expanded",
+                "operator": "in",
+                "result": "line"
+              },
+              "children": [],
+              "tag": "feComposite"
+            },
+            {
+              "attrs": {},
+              "children": [
+                {
+                  "attrs": {
+                    "in": "line"
+                  },
+                  "tag": "feMergeNode"
+                },
+                {
+                  "attrs": {
+                    "in": "SourceGraphic"
+                  },
+                  "tag": "feMergeNode"
+                }
+              ],
+              "tag": "feMerge"
+            }
+          ],
+          "href": "edge-master.png",
+          "id": "tree",
+          "size": "188.9763779527559 192",
+          "source": "28 14 500 508",
+          "transform": "translate(75.51181102362204 83)"
+        },
+        {
+          "clip": "562 163 451 292",
+          "feet": "480 235",
+          "filter": "url(#stage-bench-b)",
+          "filter_nodes": [
+            {
+              "attrs": {
+                "in": "SourceAlpha",
+                "result": "mask"
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "amplitude": "1",
+                    "exponent": "4",
+                    "offset": "0",
+                    "type": "gamma"
+                  },
+                  "tag": "feFuncA"
+                }
+              ],
+              "tag": "feComponentTransfer"
+            },
+            {
+              "attrs": {
+                "in": "mask",
+                "operator": "dilate",
+                "radius": "0.75",
+                "result": "expanded"
+              },
+              "children": [],
+              "tag": "feMorphology"
+            },
+            {
+              "attrs": {
+                "flood-color": "#59412e",
+                "flood-opacity": "0.65",
+                "result": "ink"
+              },
+              "children": [],
+              "tag": "feFlood"
+            },
+            {
+              "attrs": {
+                "in": "ink",
+                "in2": "expanded",
+                "operator": "in",
+                "result": "line"
+              },
+              "children": [],
+              "tag": "feComposite"
+            },
+            {
+              "attrs": {},
+              "children": [
+                {
+                  "attrs": {
+                    "in": "line"
+                  },
+                  "tag": "feMergeNode"
+                },
+                {
+                  "attrs": {
+                    "in": "SourceGraphic"
+                  },
+                  "tag": "feMergeNode"
+                }
+              ],
+              "tag": "feMerge"
+            }
+          ],
+          "href": "edge-master.png",
+          "id": "bench",
+          "size": "119.99999999999999 77.6940133037694",
+          "source": "562 163 451 292",
+          "transform": "translate(420 157.3059866962306)"
+        },
+        {
+          "clip": "1126 137 337 381",
+          "feet": "790 220",
+          "filter": "url(#stage-reeds-b)",
+          "filter_nodes": [
+            {
+              "attrs": {
+                "in": "SourceAlpha",
+                "result": "mask"
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "amplitude": "1",
+                    "exponent": "4",
+                    "offset": "0",
+                    "type": "gamma"
+                  },
+                  "tag": "feFuncA"
+                }
+              ],
+              "tag": "feComponentTransfer"
+            },
+            {
+              "attrs": {
+                "in": "mask",
+                "operator": "dilate",
+                "radius": "0.75",
+                "result": "expanded"
+              },
+              "children": [],
+              "tag": "feMorphology"
+            },
+            {
+              "attrs": {
+                "flood-color": "#3f512d",
+                "flood-opacity": "0.65",
+                "result": "ink"
+              },
+              "children": [],
+              "tag": "feFlood"
+            },
+            {
+              "attrs": {
+                "in": "ink",
+                "in2": "expanded",
+                "operator": "in",
+                "result": "line"
+              },
+              "children": [],
+              "tag": "feComposite"
+            },
+            {
+              "attrs": {},
+              "children": [
+                {
+                  "attrs": {
+                    "in": "line"
+                  },
+                  "tag": "feMergeNode"
+                },
+                {
+                  "attrs": {
+                    "in": "SourceGraphic"
+                  },
+                  "tag": "feMergeNode"
+                }
+              ],
+              "tag": "feMerge"
+            }
+          ],
+          "href": "edge-master.png",
+          "id": "reeds",
+          "size": "48 54.26706231454006",
+          "source": "1126 137 337 381",
+          "transform": "translate(766 165.73293768545994)"
+        },
+        {
+          "clip": "40 516 465 466",
+          "feet": "170 435",
+          "filter": "url(#stage-grass-b)",
+          "filter_nodes": [
+            {
+              "attrs": {
+                "in": "SourceAlpha",
+                "result": "mask"
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "amplitude": "1",
+                    "exponent": "4",
+                    "offset": "0",
+                    "type": "gamma"
+                  },
+                  "tag": "feFuncA"
+                }
+              ],
+              "tag": "feComponentTransfer"
+            },
+            {
+              "attrs": {
+                "in": "mask",
+                "operator": "dilate",
+                "radius": "0.75",
+                "result": "expanded"
+              },
+              "children": [],
+              "tag": "feMorphology"
+            },
+            {
+              "attrs": {
+                "flood-color": "#40593a",
+                "flood-opacity": "0.65",
+                "result": "ink"
+              },
+              "children": [],
+              "tag": "feFlood"
+            },
+            {
+              "attrs": {
+                "in": "ink",
+                "in2": "expanded",
+                "operator": "in",
+                "result": "line"
+              },
+              "children": [],
+              "tag": "feComposite"
+            },
+            {
+              "attrs": {},
+              "children": [
+                {
+                  "attrs": {
+                    "in": "line"
+                  },
+                  "tag": "feMergeNode"
+                },
+                {
+                  "attrs": {
+                    "in": "SourceGraphic"
+                  },
+                  "tag": "feMergeNode"
+                }
+              ],
+              "tag": "feMerge"
+            }
+          ],
+          "href": "edge-master.png",
+          "id": "grass",
+          "size": "71.84549356223177 72",
+          "source": "40 516 465 466",
+          "transform": "translate(134.07725321888412 363)"
+        },
+        {
+          "clip": "553 516 464 466",
+          "feet": "790 435",
+          "filter": "url(#stage-path-b)",
+          "filter_nodes": [
+            {
+              "attrs": {
+                "in": "SourceAlpha",
+                "result": "mask"
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "amplitude": "1",
+                    "exponent": "4",
+                    "offset": "0",
+                    "type": "gamma"
+                  },
+                  "tag": "feFuncA"
+                }
+              ],
+              "tag": "feComponentTransfer"
+            },
+            {
+              "attrs": {
+                "in": "mask",
+                "operator": "dilate",
+                "radius": "0.75",
+                "result": "expanded"
+              },
+              "children": [],
+              "tag": "feMorphology"
+            },
+            {
+              "attrs": {
+                "flood-color": "#79603e",
+                "flood-opacity": "0.65",
+                "result": "ink"
+              },
+              "children": [],
+              "tag": "feFlood"
+            },
+            {
+              "attrs": {
+                "in": "ink",
+                "in2": "expanded",
+                "operator": "in",
+                "result": "line"
+              },
+              "children": [],
+              "tag": "feComposite"
+            },
+            {
+              "attrs": {},
+              "children": [
+                {
+                  "attrs": {
+                    "in": "line"
+                  },
+                  "tag": "feMergeNode"
+                },
+                {
+                  "attrs": {
+                    "in": "SourceGraphic"
+                  },
+                  "tag": "feMergeNode"
+                }
+              ],
+              "tag": "feMerge"
+            }
+          ],
+          "href": "edge-master.png",
+          "id": "path",
+          "size": "71.69098712446353 72",
+          "source": "553 516 464 466",
+          "transform": "translate(754.1545064377682 363)"
+        },
+        {
+          "clip": "1041 655 481 177",
+          "feet": "790 295",
+          "filter": "url(#stage-shore-b)",
+          "filter_nodes": [
+            {
+              "attrs": {
+                "in": "SourceAlpha",
+                "result": "mask"
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "amplitude": "1",
+                    "exponent": "4",
+                    "offset": "0",
+                    "type": "gamma"
+                  },
+                  "tag": "feFuncA"
+                }
+              ],
+              "tag": "feComponentTransfer"
+            },
+            {
+              "attrs": {
+                "in": "mask",
+                "operator": "dilate",
+                "radius": "0.75",
+                "result": "expanded"
+              },
+              "children": [],
+              "tag": "feMorphology"
+            },
+            {
+              "attrs": {
+                "flood-color": "#4f5148",
+                "flood-opacity": "0.65",
+                "result": "ink"
+              },
+              "children": [],
+              "tag": "feFlood"
+            },
+            {
+              "attrs": {
+                "in": "ink",
+                "in2": "expanded",
+                "operator": "in",
+                "result": "line"
+              },
+              "children": [],
+              "tag": "feComposite"
+            },
+            {
+              "attrs": {},
+              "children": [
+                {
+                  "attrs": {
+                    "in": "line"
+                  },
+                  "tag": "feMergeNode"
+                },
+                {
+                  "attrs": {
+                    "in": "SourceGraphic"
+                  },
+                  "tag": "feMergeNode"
+                }
+              ],
+              "tag": "feMerge"
+            }
+          ],
+          "href": "edge-master.png",
+          "id": "shore",
+          "size": "144 52.98960498960499",
+          "source": "1041 655 481 177",
+          "transform": "translate(718 242.010395010395)"
+        }
+      ],
+      "size": [
+        1152,
+        648
+      ],
+      "variant": "b",
+      "viewBox": "0 0 960 540"
+    },
+    {
+      "background": "evening",
+      "background_color": "rgb(83, 105, 75)",
+      "hero": {
+        "data-hero": "true",
+        "height": "192",
+        "overflow": "hidden",
+        "viewBox": "0 0 192 192",
+        "width": "192",
+        "x": "384",
+        "y": "270"
+      },
+      "hero_image": "../vart-002/native/hero-current.png",
+      "magnifiers": [
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "8 0 100 39.583333333333336"
+        },
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "8 0 100 39.583333333333336"
+        },
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "0 0 100 39.583333333333336"
+        },
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "0 0 100 39.583333333333336"
+        },
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "0 0 100 39.583333333333336"
+        },
+        {
+          "size": [
+            480,
+            190
+          ],
+          "viewBox": "0 0 100 39.583333333333336"
+        }
+      ],
+      "parts": [
+        {
+          "clip": "28 14 500 508",
+          "feet": "170 275",
+          "filter": "url(#stage-tree-b)",
+          "filter_nodes": [
+            {
+              "attrs": {
+                "in": "SourceAlpha",
+                "result": "mask"
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "amplitude": "1",
+                    "exponent": "4",
+                    "offset": "0",
+                    "type": "gamma"
+                  },
+                  "tag": "feFuncA"
+                }
+              ],
+              "tag": "feComponentTransfer"
+            },
+            {
+              "attrs": {
+                "in": "mask",
+                "operator": "dilate",
+                "radius": "0.75",
+                "result": "expanded"
+              },
+              "children": [],
+              "tag": "feMorphology"
+            },
+            {
+              "attrs": {
+                "flood-color": "#283d2e",
+                "flood-opacity": "0.65",
+                "result": "ink"
+              },
+              "children": [],
+              "tag": "feFlood"
+            },
+            {
+              "attrs": {
+                "in": "ink",
+                "in2": "expanded",
+                "operator": "in",
+                "result": "line"
+              },
+              "children": [],
+              "tag": "feComposite"
+            },
+            {
+              "attrs": {},
+              "children": [
+                {
+                  "attrs": {
+                    "in": "line"
+                  },
+                  "tag": "feMergeNode"
+                },
+                {
+                  "attrs": {
+                    "in": "SourceGraphic"
+                  },
+                  "tag": "feMergeNode"
+                }
+              ],
+              "tag": "feMerge"
+            }
+          ],
+          "href": "edge-master.png",
+          "id": "tree",
+          "size": "188.9763779527559 192",
+          "source": "28 14 500 508",
+          "transform": "translate(75.51181102362204 83)"
+        },
+        {
+          "clip": "562 163 451 292",
+          "feet": "480 235",
+          "filter": "url(#stage-bench-b)",
+          "filter_nodes": [
+            {
+              "attrs": {
+                "in": "SourceAlpha",
+                "result": "mask"
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "amplitude": "1",
+                    "exponent": "4",
+                    "offset": "0",
+                    "type": "gamma"
+                  },
+                  "tag": "feFuncA"
+                }
+              ],
+              "tag": "feComponentTransfer"
+            },
+            {
+              "attrs": {
+                "in": "mask",
+                "operator": "dilate",
+                "radius": "0.75",
+                "result": "expanded"
+              },
+              "children": [],
+              "tag": "feMorphology"
+            },
+            {
+              "attrs": {
+                "flood-color": "#59412e",
+                "flood-opacity": "0.65",
+                "result": "ink"
+              },
+              "children": [],
+              "tag": "feFlood"
+            },
+            {
+              "attrs": {
+                "in": "ink",
+                "in2": "expanded",
+                "operator": "in",
+                "result": "line"
+              },
+              "children": [],
+              "tag": "feComposite"
+            },
+            {
+              "attrs": {},
+              "children": [
+                {
+                  "attrs": {
+                    "in": "line"
+                  },
+                  "tag": "feMergeNode"
+                },
+                {
+                  "attrs": {
+                    "in": "SourceGraphic"
+                  },
+                  "tag": "feMergeNode"
+                }
+              ],
+              "tag": "feMerge"
+            }
+          ],
+          "href": "edge-master.png",
+          "id": "bench",
+          "size": "119.99999999999999 77.6940133037694",
+          "source": "562 163 451 292",
+          "transform": "translate(420 157.3059866962306)"
+        },
+        {
+          "clip": "1126 137 337 381",
+          "feet": "790 220",
+          "filter": "url(#stage-reeds-b)",
+          "filter_nodes": [
+            {
+              "attrs": {
+                "in": "SourceAlpha",
+                "result": "mask"
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "amplitude": "1",
+                    "exponent": "4",
+                    "offset": "0",
+                    "type": "gamma"
+                  },
+                  "tag": "feFuncA"
+                }
+              ],
+              "tag": "feComponentTransfer"
+            },
+            {
+              "attrs": {
+                "in": "mask",
+                "operator": "dilate",
+                "radius": "0.75",
+                "result": "expanded"
+              },
+              "children": [],
+              "tag": "feMorphology"
+            },
+            {
+              "attrs": {
+                "flood-color": "#3f512d",
+                "flood-opacity": "0.65",
+                "result": "ink"
+              },
+              "children": [],
+              "tag": "feFlood"
+            },
+            {
+              "attrs": {
+                "in": "ink",
+                "in2": "expanded",
+                "operator": "in",
+                "result": "line"
+              },
+              "children": [],
+              "tag": "feComposite"
+            },
+            {
+              "attrs": {},
+              "children": [
+                {
+                  "attrs": {
+                    "in": "line"
+                  },
+                  "tag": "feMergeNode"
+                },
+                {
+                  "attrs": {
+                    "in": "SourceGraphic"
+                  },
+                  "tag": "feMergeNode"
+                }
+              ],
+              "tag": "feMerge"
+            }
+          ],
+          "href": "edge-master.png",
+          "id": "reeds",
+          "size": "48 54.26706231454006",
+          "source": "1126 137 337 381",
+          "transform": "translate(766 165.73293768545994)"
+        },
+        {
+          "clip": "40 516 465 466",
+          "feet": "170 435",
+          "filter": "url(#stage-grass-b)",
+          "filter_nodes": [
+            {
+              "attrs": {
+                "in": "SourceAlpha",
+                "result": "mask"
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "amplitude": "1",
+                    "exponent": "4",
+                    "offset": "0",
+                    "type": "gamma"
+                  },
+                  "tag": "feFuncA"
+                }
+              ],
+              "tag": "feComponentTransfer"
+            },
+            {
+              "attrs": {
+                "in": "mask",
+                "operator": "dilate",
+                "radius": "0.75",
+                "result": "expanded"
+              },
+              "children": [],
+              "tag": "feMorphology"
+            },
+            {
+              "attrs": {
+                "flood-color": "#40593a",
+                "flood-opacity": "0.65",
+                "result": "ink"
+              },
+              "children": [],
+              "tag": "feFlood"
+            },
+            {
+              "attrs": {
+                "in": "ink",
+                "in2": "expanded",
+                "operator": "in",
+                "result": "line"
+              },
+              "children": [],
+              "tag": "feComposite"
+            },
+            {
+              "attrs": {},
+              "children": [
+                {
+                  "attrs": {
+                    "in": "line"
+                  },
+                  "tag": "feMergeNode"
+                },
+                {
+                  "attrs": {
+                    "in": "SourceGraphic"
+                  },
+                  "tag": "feMergeNode"
+                }
+              ],
+              "tag": "feMerge"
+            }
+          ],
+          "href": "edge-master.png",
+          "id": "grass",
+          "size": "71.84549356223177 72",
+          "source": "40 516 465 466",
+          "transform": "translate(134.07725321888412 363)"
+        },
+        {
+          "clip": "553 516 464 466",
+          "feet": "790 435",
+          "filter": "url(#stage-path-b)",
+          "filter_nodes": [
+            {
+              "attrs": {
+                "in": "SourceAlpha",
+                "result": "mask"
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "amplitude": "1",
+                    "exponent": "4",
+                    "offset": "0",
+                    "type": "gamma"
+                  },
+                  "tag": "feFuncA"
+                }
+              ],
+              "tag": "feComponentTransfer"
+            },
+            {
+              "attrs": {
+                "in": "mask",
+                "operator": "dilate",
+                "radius": "0.75",
+                "result": "expanded"
+              },
+              "children": [],
+              "tag": "feMorphology"
+            },
+            {
+              "attrs": {
+                "flood-color": "#79603e",
+                "flood-opacity": "0.65",
+                "result": "ink"
+              },
+              "children": [],
+              "tag": "feFlood"
+            },
+            {
+              "attrs": {
+                "in": "ink",
+                "in2": "expanded",
+                "operator": "in",
+                "result": "line"
+              },
+              "children": [],
+              "tag": "feComposite"
+            },
+            {
+              "attrs": {},
+              "children": [
+                {
+                  "attrs": {
+                    "in": "line"
+                  },
+                  "tag": "feMergeNode"
+                },
+                {
+                  "attrs": {
+                    "in": "SourceGraphic"
+                  },
+                  "tag": "feMergeNode"
+                }
+              ],
+              "tag": "feMerge"
+            }
+          ],
+          "href": "edge-master.png",
+          "id": "path",
+          "size": "71.69098712446353 72",
+          "source": "553 516 464 466",
+          "transform": "translate(754.1545064377682 363)"
+        },
+        {
+          "clip": "1041 655 481 177",
+          "feet": "790 295",
+          "filter": "url(#stage-shore-b)",
+          "filter_nodes": [
+            {
+              "attrs": {
+                "in": "SourceAlpha",
+                "result": "mask"
+              },
+              "children": [
+                {
+                  "attrs": {
+                    "amplitude": "1",
+                    "exponent": "4",
+                    "offset": "0",
+                    "type": "gamma"
+                  },
+                  "tag": "feFuncA"
+                }
+              ],
+              "tag": "feComponentTransfer"
+            },
+            {
+              "attrs": {
+                "in": "mask",
+                "operator": "dilate",
+                "radius": "0.75",
+                "result": "expanded"
+              },
+              "children": [],
+              "tag": "feMorphology"
+            },
+            {
+              "attrs": {
+                "flood-color": "#4f5148",
+                "flood-opacity": "0.65",
+                "result": "ink"
+              },
+              "children": [],
+              "tag": "feFlood"
+            },
+            {
+              "attrs": {
+                "in": "ink",
+                "in2": "expanded",
+                "operator": "in",
+                "result": "line"
+              },
+              "children": [],
+              "tag": "feComposite"
+            },
+            {
+              "attrs": {},
+              "children": [
+                {
+                  "attrs": {
+                    "in": "line"
+                  },
+                  "tag": "feMergeNode"
+                },
+                {
+                  "attrs": {
+                    "in": "SourceGraphic"
+                  },
+                  "tag": "feMergeNode"
+                }
+              ],
+              "tag": "feMerge"
+            }
+          ],
+          "href": "edge-master.png",
+          "id": "shore",
+          "size": "144 52.98960498960499",
+          "source": "1041 655 481 177",
+          "transform": "translate(718 242.010395010395)"
+        }
+      ],
+      "size": [
+        1152,
+        648
+      ],
+      "variant": "b",
+      "viewBox": "0 0 960 540"
+    }
+  ]
+}
