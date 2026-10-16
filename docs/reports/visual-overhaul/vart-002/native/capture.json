@@ -1,0 +1,699 @@
+{
+	"adapter": "AMD Radeon Pro 5300M OpenGL Engine",
+	"compositing": "native SubViewport world projection + independent native HUD; no image resizing/cropping",
+	"disabled_effects": [
+		"water_overlays",
+		"ambient_motion",
+		"orchard_weather",
+		"atmosphere",
+		"action_feedback"
+	],
+	"display_server": "macOS",
+	"engine": "4.7.1-stable (official)",
+	"errors": [],
+	"hud_size": [
+		1152,
+		648
+	],
+	"input_enabled": false,
+	"kind": "native-fov-study",
+	"performance_eligible": false,
+	"points": [
+		{
+			"camera_center": [
+				1248.0,
+				744.0
+			],
+			"camera_origin": [
+				672.0,
+				420.0
+			],
+			"conditions": {
+				"focused": true,
+				"mode": 0,
+				"readback": [
+					1152.0,
+					648.0
+				],
+				"window": [
+					1152.0,
+					648.0
+				]
+			},
+			"field": [
+				1152.0,
+				648.0
+			],
+			"hero_canvas_feet": [
+				576.0,
+				324.0
+			],
+			"hero_pivot": [
+				150.0,
+				289.0
+			],
+			"hero_projected_frame_size": [
+				96.0,
+				96.0
+			],
+			"hero_source": [
+				336.0,
+				0.0,
+				300.0,
+				300.0
+			],
+			"hero_world_rect": [
+				1200.0,
+				651.52001953125,
+				96.0,
+				96.0
+			],
+			"id": "plaza-current",
+			"image": "plaza-current.png",
+			"logical_viewport": [
+				1152.0,
+				648.0
+			],
+			"physical_after": {
+				"energy": 12,
+				"hp": 100,
+				"physics_processing": false,
+				"player": [
+					1248.0,
+					744.0
+				],
+				"radius": 18.0,
+				"save_sha256": "611de657a307e07e4fe6fb9e077798f799db4dc5e84b5739d086702ca2bcd484",
+				"speed": 210.0
+			},
+			"physical_before": {
+				"energy": 12,
+				"hp": 100,
+				"physics_processing": false,
+				"player": [
+					1248.0,
+					744.0
+				],
+				"radius": 18.0,
+				"save_sha256": "611de657a307e07e4fe6fb9e077798f799db4dc5e84b5739d086702ca2bcd484",
+				"speed": 210.0
+			},
+			"player": [
+				1248.0,
+				744.0
+			],
+			"projection": [
+				[
+					1.0,
+					0.0
+				],
+				[
+					0.0,
+					1.0
+				],
+				[
+					0.0,
+					0.0
+				]
+			],
+			"scene": "plaza",
+			"variant": "current",
+			"visible_world": [
+				672.0,
+				420.0,
+				1152.0,
+				648.0
+			],
+			"world_image": "plaza-current-world.png",
+			"world_readback": [
+				1152.0,
+				648.0
+			],
+			"zoom": 1.0
+		},
+		{
+			"camera_center": [
+				1248.0,
+				744.0
+			],
+			"camera_origin": [
+				528.0,
+				339.0
+			],
+			"conditions": {
+				"focused": true,
+				"mode": 0,
+				"readback": [
+					1152.0,
+					648.0
+				],
+				"window": [
+					1152.0,
+					648.0
+				]
+			},
+			"field": [
+				1440.0,
+				810.0
+			],
+			"hero_canvas_feet": [
+				576.0,
+				324.0
+			],
+			"hero_pivot": [
+				150.0,
+				289.0
+			],
+			"hero_projected_frame_size": [
+				76.8000030517578,
+				76.8000030517578
+			],
+			"hero_source": [
+				336.0,
+				0.0,
+				300.0,
+				300.0
+			],
+			"hero_world_rect": [
+				1200.0,
+				651.52001953125,
+				96.0,
+				96.0
+			],
+			"id": "plaza-wide",
+			"image": "plaza-wide.png",
+			"logical_viewport": [
+				1440.0,
+				810.0
+			],
+			"physical_after": {
+				"energy": 12,
+				"hp": 100,
+				"physics_processing": false,
+				"player": [
+					1248.0,
+					744.0
+				],
+				"radius": 18.0,
+				"save_sha256": "611de657a307e07e4fe6fb9e077798f799db4dc5e84b5739d086702ca2bcd484",
+				"speed": 210.0
+			},
+			"physical_before": {
+				"energy": 12,
+				"hp": 100,
+				"physics_processing": false,
+				"player": [
+					1248.0,
+					744.0
+				],
+				"radius": 18.0,
+				"save_sha256": "611de657a307e07e4fe6fb9e077798f799db4dc5e84b5739d086702ca2bcd484",
+				"speed": 210.0
+			},
+			"player": [
+				1248.0,
+				744.0
+			],
+			"projection": [
+				[
+					0.800000011920929,
+					0.0
+				],
+				[
+					0.0,
+					0.800000011920929
+				],
+				[
+					0.0,
+					0.0
+				]
+			],
+			"scene": "plaza",
+			"variant": "wide",
+			"visible_world": [
+				528.0,
+				339.0,
+				1440.0,
+				810.0
+			],
+			"world_image": "plaza-wide-world.png",
+			"world_readback": [
+				1152.0,
+				648.0
+			],
+			"zoom": 0.8
+		},
+		{
+			"camera_center": [
+				1248.0,
+				744.0
+			],
+			"camera_origin": [
+				768.0,
+				474.0
+			],
+			"conditions": {
+				"focused": true,
+				"mode": 0,
+				"readback": [
+					1152.0,
+					648.0
+				],
+				"window": [
+					1152.0,
+					648.0
+				]
+			},
+			"field": [
+				960.0,
+				540.0
+			],
+			"hero_canvas_feet": [
+				576.0,
+				324.0
+			],
+			"hero_pivot": [
+				150.0,
+				289.0
+			],
+			"hero_projected_frame_size": [
+				115.200004577637,
+				115.200004577637
+			],
+			"hero_source": [
+				336.0,
+				0.0,
+				300.0,
+				300.0
+			],
+			"hero_world_rect": [
+				1200.0,
+				651.52001953125,
+				96.0,
+				96.0
+			],
+			"id": "plaza-close",
+			"image": "plaza-close.png",
+			"logical_viewport": [
+				960.0,
+				540.0
+			],
+			"physical_after": {
+				"energy": 12,
+				"hp": 100,
+				"physics_processing": false,
+				"player": [
+					1248.0,
+					744.0
+				],
+				"radius": 18.0,
+				"save_sha256": "611de657a307e07e4fe6fb9e077798f799db4dc5e84b5739d086702ca2bcd484",
+				"speed": 210.0
+			},
+			"physical_before": {
+				"energy": 12,
+				"hp": 100,
+				"physics_processing": false,
+				"player": [
+					1248.0,
+					744.0
+				],
+				"radius": 18.0,
+				"save_sha256": "611de657a307e07e4fe6fb9e077798f799db4dc5e84b5739d086702ca2bcd484",
+				"speed": 210.0
+			},
+			"player": [
+				1248.0,
+				744.0
+			],
+			"projection": [
+				[
+					1.20000004768372,
+					0.0
+				],
+				[
+					0.0,
+					1.20000004768372
+				],
+				[
+					0.0,
+					0.0
+				]
+			],
+			"scene": "plaza",
+			"variant": "close",
+			"visible_world": [
+				768.0,
+				474.0,
+				960.0,
+				540.0
+			],
+			"world_image": "plaza-close-world.png",
+			"world_readback": [
+				1152.0,
+				648.0
+			],
+			"zoom": 1.2
+		},
+		{
+			"camera_center": [
+				744.0,
+				936.0
+			],
+			"camera_origin": [
+				168.0,
+				612.0
+			],
+			"conditions": {
+				"focused": true,
+				"mode": 0,
+				"readback": [
+					1152.0,
+					648.0
+				],
+				"window": [
+					1152.0,
+					648.0
+				]
+			},
+			"field": [
+				1152.0,
+				648.0
+			],
+			"hero_canvas_feet": [
+				576.0,
+				324.0
+			],
+			"hero_pivot": [
+				150.0,
+				289.0
+			],
+			"hero_projected_frame_size": [
+				96.0,
+				96.0
+			],
+			"hero_source": [
+				336.0,
+				0.0,
+				300.0,
+				300.0
+			],
+			"hero_world_rect": [
+				696.0,
+				843.52001953125,
+				96.0,
+				96.0
+			],
+			"id": "farm-current",
+			"image": "farm-current.png",
+			"logical_viewport": [
+				1152.0,
+				648.0
+			],
+			"physical_after": {
+				"energy": 12,
+				"hp": 100,
+				"physics_processing": false,
+				"player": [
+					744.0,
+					936.0
+				],
+				"radius": 18.0,
+				"save_sha256": "9a37d5295003b0f8c49290fda5060a62f4618b78c137d5c2cd55cf16ab41122f",
+				"speed": 210.0
+			},
+			"physical_before": {
+				"energy": 12,
+				"hp": 100,
+				"physics_processing": false,
+				"player": [
+					744.0,
+					936.0
+				],
+				"radius": 18.0,
+				"save_sha256": "9a37d5295003b0f8c49290fda5060a62f4618b78c137d5c2cd55cf16ab41122f",
+				"speed": 210.0
+			},
+			"player": [
+				744.0,
+				936.0
+			],
+			"projection": [
+				[
+					1.0,
+					0.0
+				],
+				[
+					0.0,
+					1.0
+				],
+				[
+					0.0,
+					0.0
+				]
+			],
+			"scene": "farm",
+			"variant": "current",
+			"visible_world": [
+				168.0,
+				612.0,
+				1152.0,
+				648.0
+			],
+			"world_image": "farm-current-world.png",
+			"world_readback": [
+				1152.0,
+				648.0
+			],
+			"zoom": 1.0
+		},
+		{
+			"camera_center": [
+				744.0,
+				936.0
+			],
+			"camera_origin": [
+				24.0,
+				531.0
+			],
+			"conditions": {
+				"focused": true,
+				"mode": 0,
+				"readback": [
+					1152.0,
+					648.0
+				],
+				"window": [
+					1152.0,
+					648.0
+				]
+			},
+			"field": [
+				1440.0,
+				810.0
+			],
+			"hero_canvas_feet": [
+				576.0,
+				324.0
+			],
+			"hero_pivot": [
+				150.0,
+				289.0
+			],
+			"hero_projected_frame_size": [
+				76.8000030517578,
+				76.8000030517578
+			],
+			"hero_source": [
+				336.0,
+				0.0,
+				300.0,
+				300.0
+			],
+			"hero_world_rect": [
+				696.0,
+				843.52001953125,
+				96.0,
+				96.0
+			],
+			"id": "farm-wide",
+			"image": "farm-wide.png",
+			"logical_viewport": [
+				1440.0,
+				810.0
+			],
+			"physical_after": {
+				"energy": 12,
+				"hp": 100,
+				"physics_processing": false,
+				"player": [
+					744.0,
+					936.0
+				],
+				"radius": 18.0,
+				"save_sha256": "9a37d5295003b0f8c49290fda5060a62f4618b78c137d5c2cd55cf16ab41122f",
+				"speed": 210.0
+			},
+			"physical_before": {
+				"energy": 12,
+				"hp": 100,
+				"physics_processing": false,
+				"player": [
+					744.0,
+					936.0
+				],
+				"radius": 18.0,
+				"save_sha256": "9a37d5295003b0f8c49290fda5060a62f4618b78c137d5c2cd55cf16ab41122f",
+				"speed": 210.0
+			},
+			"player": [
+				744.0,
+				936.0
+			],
+			"projection": [
+				[
+					0.800000011920929,
+					0.0
+				],
+				[
+					0.0,
+					0.800000011920929
+				],
+				[
+					0.0,
+					0.0
+				]
+			],
+			"scene": "farm",
+			"variant": "wide",
+			"visible_world": [
+				24.0,
+				531.0,
+				1440.0,
+				810.0
+			],
+			"world_image": "farm-wide-world.png",
+			"world_readback": [
+				1152.0,
+				648.0
+			],
+			"zoom": 0.8
+		},
+		{
+			"camera_center": [
+				744.0,
+				936.0
+			],
+			"camera_origin": [
+				264.0,
+				666.0
+			],
+			"conditions": {
+				"focused": true,
+				"mode": 0,
+				"readback": [
+					1152.0,
+					648.0
+				],
+				"window": [
+					1152.0,
+					648.0
+				]
+			},
+			"field": [
+				960.0,
+				540.0
+			],
+			"hero_canvas_feet": [
+				576.0,
+				324.0
+			],
+			"hero_pivot": [
+				150.0,
+				289.0
+			],
+			"hero_projected_frame_size": [
+				115.200004577637,
+				115.200004577637
+			],
+			"hero_source": [
+				336.0,
+				0.0,
+				300.0,
+				300.0
+			],
+			"hero_world_rect": [
+				696.0,
+				843.52001953125,
+				96.0,
+				96.0
+			],
+			"id": "farm-close",
+			"image": "farm-close.png",
+			"logical_viewport": [
+				960.0,
+				540.0
+			],
+			"physical_after": {
+				"energy": 12,
+				"hp": 100,
+				"physics_processing": false,
+				"player": [
+					744.0,
+					936.0
+				],
+				"radius": 18.0,
+				"save_sha256": "9a37d5295003b0f8c49290fda5060a62f4618b78c137d5c2cd55cf16ab41122f",
+				"speed": 210.0
+			},
+			"physical_before": {
+				"energy": 12,
+				"hp": 100,
+				"physics_processing": false,
+				"player": [
+					744.0,
+					936.0
+				],
+				"radius": 18.0,
+				"save_sha256": "9a37d5295003b0f8c49290fda5060a62f4618b78c137d5c2cd55cf16ab41122f",
+				"speed": 210.0
+			},
+			"player": [
+				744.0,
+				936.0
+			],
+			"projection": [
+				[
+					1.20000004768372,
+					0.0
+				],
+				[
+					0.0,
+					1.20000004768372
+				],
+				[
+					0.0,
+					0.0
+				]
+			],
+			"scene": "farm",
+			"variant": "close",
+			"visible_world": [
+				264.0,
+				666.0,
+				960.0,
+				540.0
+			],
+			"world_image": "farm-close-world.png",
+			"world_readback": [
+				1152.0,
+				648.0
+			],
+			"zoom": 1.2
+		}
+	],
+	"profile": "Codex-VART-002-395296e9638e4e65a3fa3588c97b3c9d",
+	"renderer": "opengl3",
+	"schema": 1,
+	"simulation_frozen": true
+}

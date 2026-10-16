@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "task": "VART-002",
+  "status": "approved",
+  "selection": "close",
+  "art_direction": "VART-001 A — мягкий живописный стиль",
+  "runtime_integration": false,
+  "options": {
+    "current": {
+      "label": "1 — как сейчас",
+      "zoom": 1.0,
+      "field": [
+        1152,
+        648
+      ]
+    },
+    "wide": {
+      "label": "2 — просторнее",
+      "zoom": 0.8,
+      "field": [
+        1440,
+        810
+      ]
+    },
+    "close": {
+      "label": "3 — ближе",
+      "zoom": 1.2,
+      "field": [
+        960,
+        540
+      ]
+    }
+  },
+  "native_evidence": "native/source.json",
+  "decision_date": "2026-10-16",
+  "decision_source": "Ответ пользователя в этом чате: «3 — ближе»",
+  "scale_profile": "scale-profile.json",
+  "initial_recommendation": "wide"
+}

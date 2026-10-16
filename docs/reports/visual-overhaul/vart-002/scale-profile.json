@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "task": "VART-002",
+  "status": "approved",
+  "selection": "close",
+  "art_direction": "VART-001 A",
+  "output_size": [
+    1152,
+    648
+  ],
+  "world_field": [
+    960,
+    540
+  ],
+  "world_zoom": 1.2,
+  "scope": "whole_world",
+  "hud_zoom": 1.0,
+  "hero_world_frame": [
+    96,
+    96
+  ],
+  "reference_silhouette_down_px": 97,
+  "reference_silhouette_alpha_threshold": 26,
+  "hero_physical_radius": 18,
+  "hero_speed": 210,
+  "grid_world_size": 24,
+  "runtime_integration": false,
+  "integration_owner": "VCAMERA",
+  "notes": "Согласованный ориентир новой графики, не runtime-конфигурация. Для нового мастера повторить alpha/pivot-проверку; 97 px — измерение существующей позы, а не обязательная высота любого силуэта."
+}

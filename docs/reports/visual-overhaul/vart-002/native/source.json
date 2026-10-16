@@ -1,0 +1,149 @@
+{
+  "schema": 1,
+  "task": "VART-002",
+  "base_commit": "97ef1902263ee850fe5806b6ccbcc68dd540b225",
+  "runtime_patch": "",
+  "sources": {
+    "project.godot": "15cd73f0f44a93ab1ece5e1ee3bec602ee70b28f5cf1b9e1c859a7dd784bc884",
+    "main.tscn": "850e050bc3df4971ec130b5b0a39dba6aa71082ce2fc20607dd504a3d55c98a9",
+    "scripts/systems/camera_system.gd": "13d9801b97595901238bd818c0e734a107491839e605f598b1f87ba6ae6fbcc4",
+    "scripts/systems/hero_visual_system.gd": "f086e92a8b88dfa8dfc5850fde4ba392bc145890a379dbb706fb22b587ae3dd7",
+    "scripts/systems/animation_renderer.gd": "523ff7504130928e8b714aa0244a6c6443f718d8162c38b6c0726a2fecf6093e",
+    "scripts/systems/render_system.gd": "732ce4ffc24ed286486cbeb80e9b021f0698b10dbfe56488f1230b52fe934acf",
+    "scripts/systems/world_visibility_system.gd": "a9ac185960492a8384ec8c1e5c634db55952a3e2b24c853c019333ef24408509",
+    "scripts/presentation/visual_reference_mode.gd": "95919eb8ca14b9893a78220dcecf1479ad5691895646595d4482fde8e3904c8e",
+    "scripts/systems/navigation_system.gd": "7964b6e5de2a86ee484f0fcd31f8e5ad0f40133bb0a694394a90be7e6be4ed08",
+    "scripts/game_context.gd": "4dd5e9bc4d6c05c644dec8fef4bd5bfcd4e1fb605697b04db14c81a726a0be6c",
+    "assets/game/characters/hero_v3/walk_master.png": "7f6f70fbfd80683402b51caa47d9d76299906cda129e27b289d73cee7ae3a3da",
+    "tools/visual_scale_capture.gd": "cad09a8e41cb51d9e6719c99dced3a6566c7377312758c87d0ed138894f3c01e"
+  },
+  "artifacts": {
+    "plaza-close-world.png": "bcd1c6df30201c78b815f2b1aaa1ac109223810f9950c228aebbdb673fab4eaa",
+    "stdout.txt": "9c0f1770a81f842f0d6e42aaaa42bc22bb87b87da860fe631efdfe656ed2c6f9",
+    "farm-close-world.png": "fb6c2a7749c0950b38e9eca61b99bd35f7030f46412adc2800bd22107a1f6c6f",
+    "plaza-hud.png": "9ac9ef1736f0de7f55fad95576670581c30a61e15df58e29593405e5289ebe67",
+    "plaza-close.png": "18ff89f2b56ac5aa9c480957aa33f51948ba657532f24dd90f6bb79d84e9acb4",
+    "farm-wide.png": "f293c4dd243a3a3cea4287d28ff16c11c3e47983d7056417865d9a7fb7aa93e7",
+    "hero-current.png": "eb25d98486e859efa2208acdbad772c4251b97bfe8857e880c2ac79ef0631080",
+    "farm-close.png": "8077a1b066fc05f5104939dc2bc29833b0ecadb4b3533422f680fc01074b56d7",
+    "engine.txt": "9c0f1770a81f842f0d6e42aaaa42bc22bb87b87da860fe631efdfe656ed2c6f9",
+    "plaza-wide-world.png": "c93ae30ab6aecb4c561cb370718d9f40ee08303d42dea415da4964237e955e01",
+    "capture.json": "b77406fb40969fdfce16d9f40fe28079cec727847bc64d9c8c5a636d651eca5a",
+    "plaza-current-world.png": "a91d90032feb1253eea860bce75791638b6486fccf30a2649c3d0cea418299ab",
+    "plaza-wide.png": "18a4781577464fbd671297267784203861be7f83b8f4e75251635dc76bd2af6d",
+    "plaza-current.png": "8a1fc4513757f65244f98f2da39681c0add4e62598aa1ac5f58d2e3141b08de0",
+    "farm-wide-world.png": "9c4304112b939b675b34403fe6ee52e5c96b1742c2084ad1676ea67f974c7b62",
+    "farm-hud.png": "9ac9ef1736f0de7f55fad95576670581c30a61e15df58e29593405e5289ebe67",
+    "farm-current.png": "fbff7df3cf32e56548251f9fa1957ffc6abcfe335ea695ea022abd1be7dfd37b",
+    "hero-close.png": "7d8615ff8f07ab5ec5621206c956fd804bc52d3aa60deb632ad2cbd47500e903",
+    "hero-wide.png": "9429c87c6ae6a325126b24f27c353de3df390ec474c25de3219e790b3c4434f7",
+    "farm-current-world.png": "7c7ba64e7ff708defaa96b52939254e27cc465dc294bcae2316911e2370414ff"
+  },
+  "silhouettes": {
+    "current": [
+      {
+        "direction": "down",
+        "bbox": [
+          76,
+          78,
+          117,
+          159
+        ],
+        "height": 81,
+        "width": 41
+      },
+      {
+        "direction": "left",
+        "bbox": [
+          72,
+          81,
+          113,
+          160
+        ],
+        "height": 79,
+        "width": 41
+      },
+      {
+        "direction": "right",
+        "bbox": [
+          73,
+          80,
+          114,
+          159
+        ],
+        "height": 79,
+        "width": 41
+      }
+    ],
+    "wide": [
+      {
+        "direction": "down",
+        "bbox": [
+          80,
+          94,
+          113,
+          159
+        ],
+        "height": 65,
+        "width": 33
+      },
+      {
+        "direction": "left",
+        "bbox": [
+          77,
+          97,
+          109,
+          160
+        ],
+        "height": 63,
+        "width": 32
+      },
+      {
+        "direction": "right",
+        "bbox": [
+          78,
+          96,
+          111,
+          160
+        ],
+        "height": 64,
+        "width": 33
+      }
+    ],
+    "close": [
+      {
+        "direction": "down",
+        "bbox": [
+          73,
+          62,
+          121,
+          159
+        ],
+        "height": 97,
+        "width": 48
+      },
+      {
+        "direction": "left",
+        "bbox": [
+          68,
+          65,
+          116,
+          160
+        ],
+        "height": 95,
+        "width": 48
+      },
+      {
+        "direction": "right",
+        "bbox": [
+          69,
+          64,
+          118,
+          159
+        ],
+        "height": 95,
+        "width": 49
+      }
+    ]
+  }
+}

@@ -670,7 +670,7 @@
       "id": "VART-002",
       "epic": "VART",
       "title": "Согласовать размер героя в кадре",
-      "status": "ready",
+      "status": "done",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -707,7 +707,15 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vart-002-visual-task",
-      "evidence": []
+      "evidence": [
+        "docs/reports/visual-overhaul/vart-002/README.md",
+        "docs/reports/visual-overhaul/vart-002/index.html",
+        "docs/reports/visual-overhaul/vart-002/review.json",
+        "docs/reports/visual-overhaul/vart-002/scale-profile.json",
+        "docs/reports/visual-overhaul/vart-002/native/source.json",
+        "docs/reports/visual-overhaul/vart-002/native/capture.json"
+      ],
+      "result": "2026-10-16: пользователь выбрал 3 — ближе, мир 120%, поле 960×540 при выходе 1152×648, текущая фигура вниз 97 px. Два центра × три нативные проекции; физика, полные снимки сохранения и размер HUD сохранены. Источники и PNG имеют хеши; положительные и отрицательные проверки в architecture gate. Это принятый масштаб будущего мягкого стиля A, без переключения production-камеры; подключение относится к VCAMERA. Отчёт и профиль входят в отдельный commit этой карточки."
     },
     {
       "id": "VART-003",
@@ -755,7 +763,7 @@
       "id": "VART-004",
       "epic": "VART",
       "title": "Закрепить перспективу предметов",
-      "status": "backlog",
+      "status": "ready",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",

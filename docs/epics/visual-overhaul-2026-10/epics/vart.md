@@ -44,7 +44,7 @@
 
 ## VART-002 — Согласовать размер героя в кадре
 
-Статус: `ready` · P0 · этап `foundation` · `engineering`
+Статус: `done` · P0 · этап `foundation` · `engineering`
 
 Сравнить текущий размер с двумя полями обзора; не менять коллизию героя ради уменьшения рисунка
 
@@ -58,7 +58,7 @@
 - [docs/SPRITE_STANDARD.md](../../../../docs/SPRITE_STANDARD.md)
 - [assets/game/world_sprite_manifest.json](../../../../assets/game/world_sprite_manifest.json)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vart-002/`.
+Результаты: `docs/reports/visual-overhaul/vart-002/`.
 
 Критерии:
 
@@ -76,7 +76,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vart-002/README.md, docs/reports/visual-overhaul/vart-002/index.html, docs/reports/visual-overhaul/vart-002/review.json, docs/reports/visual-overhaul/vart-002/scale-profile.json, docs/reports/visual-overhaul/vart-002/native/source.json, docs/reports/visual-overhaul/vart-002/native/capture.json.
 
 <a id="vart-003"></a>
 
@@ -120,7 +120,7 @@
 
 ## VART-004 — Закрепить перспективу предметов
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 Лево, право и вниз; опора на сетке 24; показаны запрещённые диагональные и задние виды без подключения в игру
 

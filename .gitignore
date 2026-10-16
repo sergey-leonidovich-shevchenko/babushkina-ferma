@@ -1,6 +1,9 @@
 .DS_Store
 .godot/
 tools/*
+!tools/visual_scale_capture.gd
+!tools/visual_scale.py
+!tools/test_visual_scale.py
 !tools/visual_coordinates_capture.gd
 !tools/visual_coordinates_review.gd
 !tools/visual_coordinates.py
