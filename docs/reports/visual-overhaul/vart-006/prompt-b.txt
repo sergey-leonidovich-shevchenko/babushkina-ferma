@@ -1,0 +1,11 @@
+Use case: precise-object-edit
+Asset type: variant B of the SAME transparent 2D game-art detail-density study.
+Input image is the EDIT TARGET: the new variant A study with heroine upper left, closed framed door upper middle, oak upper right, table lower left, grass patch lower middle, empty lower right.
+Primary request: change ONLY the AMOUNT OF PAINTED INTERIOR SURFACE DETAIL in the environment: create a tasteful moderately richer CRAFT TEXTURE variant B. Preserve the same soft painterly medium, warm sage/honey/beige palette and natural material-colored antialiasing, no additional outline.
+Exact invariants: keep 1536x1024 transparent canvas, current actual object positions, dimensions, outer silhouettes and alpha boundaries, camera perspective, door handle position, threshold, tree trunk/roots, table boards/legs, grass patch extent, overall big light/dark masses. Do NOT move objects into a different grid. Keep heroine pixel-for-pixel unchanged if possible; she is the visual anchor, not being redesigned in this pass. Keep bottom right empty and transparent.
+Change environment details only:
+- Door: about twice as many fine but subdued long wood fibers, a few subtle joinery nicks, slight stone-face texture. Keep the dark handle and threshold stronger than the surface texture.
+- Table: more short directional grain marks and a few worn patches, at most 3 small scratches; keep the front edge and joints dominant.
+- Oak: more individually articulated small leaves and restrained veins WITHIN the existing broad foliage masses; retain the same crown edge and silhouette and trunk design.
+- Grass: add evenly distributed smaller blades across the calm center, in addition to the existing edge tufts. Make the density difference visible at game scale without making it a noisy carpet or changing the average palette.
+Do NOT sharpen or blur the image globally; redraw actual detail. No extra decorations, no flowers, no sparkles, no new leaf silhouette outside crown, no cast/contact shadows, no matte, no glow, no painted background or checkerboard, no text, no watermark, no pixel art, no isometric/diagonal rotation or rear views.

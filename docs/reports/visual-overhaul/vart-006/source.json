@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "base_commit": "640839592f5fbcc81182563fd49ebf8ff7ede2cb",
+  "generator": "built-in image_gen",
+  "runtime_patch": "",
+  "masters": {
+    "a": {
+      "path": "density-a.png",
+      "sha256": "6323d29818c3492c773078ff651e4968b1fef0959c2e6b153c2d98d83041124a"
+    },
+    "b": {
+      "path": "density-b.png",
+      "sha256": "793bb81574addd197259e2db26a3805d9e15af7ed3fc932963b6d92f84c7469a"
+    }
+  },
+  "prompts": {
+    "prompt-a.txt": "698971f7f6d50a5fffeb30bec4705babf2ebea2c002beb917a4b50a8c8f8b350",
+    "prompt-b.txt": "efcf6bc9fded4fc82a1353566d1c470ea9304acc234794a55bdeef0e284215f8"
+  },
+  "references": {
+    "../vart-005/edge-master.png": "4a699d94b7923f8ae40755096ba9718c314a7368351868a834bbf95e42c18467",
+    "../vart-005/edge-profile.json": "bf7b837d7eaf8291366af49f3f075e68f70578f9ed49a0b8549bac302e6b9e3c",
+    "../vart-002/native/hero-current.png": "eb25d98486e859efa2208acdbad772c4251b97bfe8857e880c2ac79ef0631080",
+    "../vart-002/scale-profile.json": "4bed99c250c9522a07c6c600f426cfd970ab25929aa1796f89e67a7e61b5fca8",
+    "../vart-003/palette.json": "1a7e5fdcf9995c215f3ccd910f0d704d723c77d6621196db4701de80a3b1a7e4",
+    "../../../../assets/game/interiors/furniture_a/rustic_table_south.png": "5a49c3222aeb1e3bc2e8ca97b2efe2173184ba18662de7fb1de070c884b15238"
+  },
+  "edit_chain": {
+    "a": "style/hero/table references",
+    "b": "density-a.png"
+  },
+  "hero_policy": "A is used for hero in BOTH views; B-generated heroine is unused."
+}

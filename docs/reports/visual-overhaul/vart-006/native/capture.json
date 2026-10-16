@@ -1,0 +1,194 @@
+{
+	"adapter": "AMD Radeon Pro 5300M OpenGL Engine",
+	"capture_script_sha256": "0699ede725cd4d4c4087cdc868eef1835bf1c885bdeed62b9862659b6620e558",
+	"comparison_board": {
+		"field": [
+			960,
+			800
+		],
+		"file": "pairs.png",
+		"repeat_equal": true,
+		"sha256": "c7ccd8caabb75227b83b7ca45de539c945d32db17be19c6f8b8eca94b0d6ef95",
+		"size": [
+			1152,
+			960
+		]
+	},
+	"display_server": "macOS",
+	"engine": "4.7.1-stable (official)",
+	"field": [
+		960,
+		540
+	],
+	"frames": [
+		{
+			"background": "light",
+			"file": "a-light.png",
+			"projection": [
+				[
+					1.20000004768372,
+					0.0
+				],
+				[
+					0.0,
+					1.20000004768372
+				],
+				[
+					0.0,
+					0.0
+				]
+			],
+			"repeat_equal": true,
+			"sha256": "5b0daa24223202a5f5bf1823c7719d3f2d5a0c5778182f3aea173c80f7488168",
+			"size": [
+				1152,
+				648
+			],
+			"variant": "a"
+		},
+		{
+			"background": "dark",
+			"file": "a-dark.png",
+			"projection": [
+				[
+					1.20000004768372,
+					0.0
+				],
+				[
+					0.0,
+					1.20000004768372
+				],
+				[
+					0.0,
+					0.0
+				]
+			],
+			"repeat_equal": true,
+			"sha256": "8eda8a12845925f476e64f6c597bf3d423b62cd234e33af454d3e4e75c9ab3d8",
+			"size": [
+				1152,
+				648
+			],
+			"variant": "a"
+		},
+		{
+			"background": "grass",
+			"file": "a-grass.png",
+			"projection": [
+				[
+					1.20000004768372,
+					0.0
+				],
+				[
+					0.0,
+					1.20000004768372
+				],
+				[
+					0.0,
+					0.0
+				]
+			],
+			"repeat_equal": true,
+			"sha256": "f7e435a3777eabe33cc8de8b8aeef1f3b8a17655c9d4bfa947a60ac437b17909",
+			"size": [
+				1152,
+				648
+			],
+			"variant": "a"
+		},
+		{
+			"background": "light",
+			"file": "b-light.png",
+			"projection": [
+				[
+					1.20000004768372,
+					0.0
+				],
+				[
+					0.0,
+					1.20000004768372
+				],
+				[
+					0.0,
+					0.0
+				]
+			],
+			"repeat_equal": true,
+			"sha256": "dab5bac89a9eb754f6c0dcc65a89ef8b382ae7fcd11948095f8c10740e256088",
+			"size": [
+				1152,
+				648
+			],
+			"variant": "b"
+		},
+		{
+			"background": "dark",
+			"file": "b-dark.png",
+			"projection": [
+				[
+					1.20000004768372,
+					0.0
+				],
+				[
+					0.0,
+					1.20000004768372
+				],
+				[
+					0.0,
+					0.0
+				]
+			],
+			"repeat_equal": true,
+			"sha256": "c8d0a10e0e004aae342a400e34a2ab0d200d4e81e6a9806cbafff9353e5d2ec9",
+			"size": [
+				1152,
+				648
+			],
+			"variant": "b"
+		},
+		{
+			"background": "grass",
+			"file": "b-grass.png",
+			"projection": [
+				[
+					1.20000004768372,
+					0.0
+				],
+				[
+					0.0,
+					1.20000004768372
+				],
+				[
+					0.0,
+					0.0
+				]
+			],
+			"repeat_equal": true,
+			"sha256": "38a83b257d60c45a9e405ecef635c445eec27536e79f99e0bcfb02dfc82b4c69",
+			"size": [
+				1152,
+				648
+			],
+			"variant": "b"
+		}
+	],
+	"hero_source": "a",
+	"kind": "native-density-study",
+	"mipmaps": "generated_once_in_memory; original PNG unchanged",
+	"native_gameplay": false,
+	"performance_eligible": false,
+	"profile": "Codex-VART-006-20261017-04",
+	"profile_sha256": "ca8db546c37709f419387d0bcd30db8dd8a3e95344ccbad3f0a229241151bc20",
+	"renderer": "opengl3",
+	"schema": 1,
+	"source_sha256": {
+		"a": "6323d29818c3492c773078ff651e4968b1fef0959c2e6b153c2d98d83041124a",
+		"b": "793bb81574addd197259e2db26a3805d9e15af7ed3fc932963b6d92f84c7469a"
+	},
+	"target": [
+		1152,
+		648
+	],
+	"task": "VART-006",
+	"texture_filter": "linear_with_mipmaps"
+}

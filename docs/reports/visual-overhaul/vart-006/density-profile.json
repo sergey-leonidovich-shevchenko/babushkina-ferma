@@ -1,0 +1,180 @@
+{
+  "schema": 1,
+  "task": "VART-006",
+  "status": "approved",
+  "selection": "b",
+  "recommended": "a",
+  "date": "2026-10-17",
+  "art_direction": "VART-001 A",
+  "palette": "VART-003 A",
+  "edge": "VART-005 A",
+  "runtime_integration": false,
+  "output_size": [
+    1152,
+    648
+  ],
+  "world_field": [
+    960,
+    540
+  ],
+  "camera_center": [
+    480,
+    270
+  ],
+  "world_zoom": 1.2,
+  "scale_profile": "../vart-002/scale-profile.json",
+  "master_size": [
+    1536,
+    1024
+  ],
+  "variants": {
+    "a": {
+      "name": "Крупные формы",
+      "master": "density-a.png",
+      "description": "Спокойные поверхности, редкие акценты."
+    },
+    "b": {
+      "name": "Ремесленная фактура",
+      "master": "density-b.png",
+      "description": "Больше волокон, листьев и следов обработки."
+    }
+  },
+  "backgrounds": {
+    "light": {
+      "label": "Светлый",
+      "color": "#f4efdf",
+      "ink": "#374333"
+    },
+    "dark": {
+      "label": "Тёмный",
+      "color": "#252e36",
+      "ink": "#e7e9dd"
+    },
+    "grass": {
+      "label": "Трава",
+      "color": "#6f8651",
+      "ink": "#f5f0dc"
+    }
+  },
+  "parts": [
+    {
+      "id": "hero",
+      "name": "Герой",
+      "source_rect": [
+        139,
+        78,
+        232,
+        496
+      ],
+      "world_scale": 0.175704989154013,
+      "feet": [
+        480,
+        390
+      ],
+      "source_policy": "a_only",
+      "roi": [
+        185,
+        175,
+        135,
+        180
+      ],
+      "priority": "Лицо, руки и шарф. Остальные швы и мелкая фактура подчинены им."
+    },
+    {
+      "id": "door",
+      "name": "Дверь",
+      "source_rect": [
+        530,
+        47,
+        467,
+        514
+      ],
+      "world_scale": 0.25,
+      "feet": [
+        270,
+        360
+      ],
+      "source_policy": "variant",
+      "roi": [
+        690,
+        260,
+        120,
+        150
+      ],
+      "priority": "Ручка, проём и порог сильнее волокон дерева и рисунка камня."
+    },
+    {
+      "id": "tree",
+      "name": "Дерево",
+      "source_rect": [
+        991,
+        15,
+        545,
+        570
+      ],
+      "world_scale": 0.3602251407129456,
+      "feet": [
+        740,
+        365
+      ],
+      "source_policy": "variant",
+      "roi": [
+        1130,
+        100,
+        280,
+        230
+      ],
+      "priority": "Крупные группы листвы и ствол; отдельные листья — локальные акценты."
+    },
+    {
+      "id": "table",
+      "name": "Стол",
+      "source_rect": [
+        18,
+        618,
+        503,
+        348
+      ],
+      "world_scale": 0.20600858369098712,
+      "feet": [
+        270,
+        475
+      ],
+      "source_policy": "variant",
+      "roi": [
+        120,
+        700,
+        280,
+        65
+      ],
+      "priority": "Передний край и соединения ножек; волокна не покрывают всю поверхность одинаково."
+    },
+    {
+      "id": "grass",
+      "name": "Трава",
+      "source_rect": [
+        532,
+        585,
+        492,
+        396
+      ],
+      "world_scale": 0.2096069868995633,
+      "feet": [
+        740,
+        475
+      ],
+      "source_policy": "variant",
+      "roi": [
+        670,
+        700,
+        180,
+        125
+      ],
+      "priority": "Спокойная середина, редкие пучки по краям. Под героем нет равномерного ковра штрихов."
+    }
+  ],
+  "fidelity": "B is a generative edit of A; minor silhouette drift is measured, not normalized. Hero always uses A in both variants. These are static density studies, not production character/props.",
+  "decision_date": "2026-10-17",
+  "decision_source": "direct user reply in chat",
+  "decision_quote": "B — ремесленная фактура"
+}

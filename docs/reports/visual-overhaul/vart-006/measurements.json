@@ -1,0 +1,188 @@
+{
+  "schema": 1,
+  "profile_sha256": "ca8db546c37709f419387d0bcd30db8dd8a3e95344ccbad3f0a229241151bc20",
+  "visible_threshold": 26,
+  "parts": {
+    "hero": {
+      "variants": {
+        "a": {
+          "source": "density-a.png",
+          "visible_bbox": [
+            17,
+            18,
+            215,
+            479
+          ],
+          "visible_size_output_px": [
+            41.7475,
+            97.2
+          ],
+          "roi_srgb_adjacent_luma_step": 10.82397,
+          "roi_pairs": 42888
+        },
+        "b": {
+          "source": "density-a.png",
+          "visible_bbox": [
+            17,
+            18,
+            215,
+            479
+          ],
+          "visible_size_output_px": [
+            41.7475,
+            97.2
+          ],
+          "roi_srgb_adjacent_luma_step": 10.82397,
+          "roi_pairs": 42888
+        }
+      },
+      "bbox_max_edge_drift_output_px": 0.0,
+      "alpha26_intersection_over_union": 1.0
+    },
+    "door": {
+      "variants": {
+        "a": {
+          "source": "density-a.png",
+          "visible_bbox": [
+            16,
+            16,
+            451,
+            496
+          ],
+          "visible_size_output_px": [
+            130.5,
+            144.0
+          ],
+          "roi_srgb_adjacent_luma_step": 6.32825,
+          "roi_pairs": 35462
+        },
+        "b": {
+          "source": "density-b.png",
+          "visible_bbox": [
+            16,
+            16,
+            452,
+            497
+          ],
+          "visible_size_output_px": [
+            130.8,
+            144.3
+          ],
+          "roi_srgb_adjacent_luma_step": 8.37433,
+          "roi_pairs": 35462
+        }
+      },
+      "bbox_max_edge_drift_output_px": 0.3,
+      "alpha26_intersection_over_union": 0.992814
+    },
+    "tree": {
+      "variants": {
+        "a": {
+          "source": "density-a.png",
+          "visible_bbox": [
+            17,
+            17,
+            528,
+            550
+          ],
+          "visible_size_output_px": [
+            220.8901,
+            230.4
+          ],
+          "roi_srgb_adjacent_luma_step": 7.04809,
+          "roi_pairs": 127058
+        },
+        "b": {
+          "source": "density-b.png",
+          "visible_bbox": [
+            16,
+            17,
+            528,
+            552
+          ],
+          "visible_size_output_px": [
+            221.3223,
+            231.2645
+          ],
+          "roi_srgb_adjacent_luma_step": 10.12272,
+          "roi_pairs": 127467
+        }
+      },
+      "bbox_max_edge_drift_output_px": 0.8645,
+      "alpha26_intersection_over_union": 0.987694
+    },
+    "table": {
+      "variants": {
+        "a": {
+          "source": "density-a.png",
+          "visible_bbox": [
+            18,
+            17,
+            484,
+            330
+          ],
+          "visible_size_output_px": [
+            115.2,
+            77.3768
+          ],
+          "roi_srgb_adjacent_luma_step": 4.29797,
+          "roi_pairs": 35712
+        },
+        "b": {
+          "source": "density-b.png",
+          "visible_bbox": [
+            16,
+            17,
+            487,
+            331
+          ],
+          "visible_size_output_px": [
+            116.4361,
+            77.624
+          ],
+          "roi_srgb_adjacent_luma_step": 7.28034,
+          "roi_pairs": 35712
+        }
+      },
+      "bbox_max_edge_drift_output_px": 0.7416,
+      "alpha26_intersection_over_union": 0.98184
+    },
+    "grass": {
+      "variants": {
+        "a": {
+          "source": "density-a.png",
+          "visible_bbox": [
+            17,
+            17,
+            475,
+            378
+          ],
+          "visible_size_output_px": [
+            115.2,
+            90.8017
+          ],
+          "roi_srgb_adjacent_luma_step": 3.25099,
+          "roi_pairs": 44392
+        },
+        "b": {
+          "source": "density-b.png",
+          "visible_bbox": [
+            18,
+            16,
+            474,
+            378
+          ],
+          "visible_size_output_px": [
+            114.6969,
+            91.0533
+          ],
+          "roi_srgb_adjacent_luma_step": 6.7483,
+          "roi_pairs": 44392
+        }
+      },
+      "bbox_max_edge_drift_output_px": 0.2515,
+      "alpha26_intersection_over_union": 0.976382
+    }
+  },
+  "interpretation": "Соседние sRGB-пиксели измерены в одинаковых внутренних ROI исходников при alpha>=240. Это не экранная плотность, не линейная яркость, не стоимость рендера и не доказательство внимания человека. Незначительный дрейф генерации не нормализуется подгонкой. Герой в обоих вариантах из A."
+}

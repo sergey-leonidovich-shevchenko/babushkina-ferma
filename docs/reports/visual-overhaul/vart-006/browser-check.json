@@ -1,0 +1,3080 @@
+{
+  "kind": "browser-svg-preview",
+  "native_game_frame": false,
+  "projection_method": "root DOM box / viewBox times nested viewport attributes; not content bbox",
+  "snapshot_note": "JPEG normalized by browser host zoom; exact pixel-size evidence is native/*.png",
+  "cases": [
+    {
+      "background": "light",
+      "labels": false,
+      "mono": false,
+      "parts": [
+        {
+          "attribute_filter": null,
+          "clip": "139 78 232 496",
+          "feet": "480 390",
+          "filter": "none",
+          "id": "hero",
+          "overflow": "hidden",
+          "projected_size": [
+            48.91617568009846,
+            104.5790677747085
+          ],
+          "sample_filter": "none",
+          "scale": "0.175704989154013",
+          "source": "density-a.png",
+          "transform": "translate(459.6182212581345 302.85032537960956)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "530 47 467 514",
+          "feet": "270 360",
+          "filter": "none",
+          "id": "door",
+          "overflow": "hidden",
+          "projected_size": [
+            140.09973278045655,
+            154.19920117413557
+          ],
+          "sample_filter": "none",
+          "scale": "0.25",
+          "source": "density-a.png",
+          "transform": "translate(211.625 231.5)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "991 15 545 570",
+          "feet": "740 365",
+          "filter": "none",
+          "id": "tree",
+          "overflow": "hidden",
+          "projected_size": [
+            235.5867926792625,
+            246.3927198151188
+          ],
+          "sample_filter": "none",
+          "scale": "0.3602251407129456",
+          "source": "density-a.png",
+          "transform": "translate(641.8386491557224 159.67166979362102)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "18 618 503 348",
+          "feet": "270 475",
+          "filter": "none",
+          "id": "table",
+          "overflow": "hidden",
+          "projected_size": [
+            124.34654394321686,
+            86.02873887920244
+          ],
+          "sample_filter": "none",
+          "scale": "0.20600858369098712",
+          "source": "density-a.png",
+          "transform": "translate(218.18884120171674 403.3090128755365)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "532 585 492 396",
+          "feet": "740 475",
+          "filter": "none",
+          "id": "grass",
+          "overflow": "hidden",
+          "projected_size": [
+            123.7517290273608,
+            99.60472417439958
+          ],
+          "sample_filter": "none",
+          "scale": "0.2096069868995633",
+          "source": "density-a.png",
+          "transform": "translate(688.4366812227074 391.9956331877729)"
+        }
+      ],
+      "samples": [
+        {
+          "attribute_filter": null,
+          "clip": "139 78 232 496",
+          "feet": "141.66666666666669 99.16666666666667",
+          "filter": "none",
+          "id": "hero",
+          "overflow": "hidden",
+          "projected_size": [
+            48.91626898047722,
+            104.57698194261664
+          ],
+          "sample_filter": "none",
+          "scale": "0.175704989154013",
+          "source": "density-a.png",
+          "transform": "translate(121.28488792480118 12.01699204627623)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "139 78 232 496",
+          "feet": "141.66666666666669 99.16666666666667",
+          "filter": "none",
+          "id": "hero",
+          "overflow": "hidden",
+          "projected_size": [
+            48.91626898047722,
+            104.57698194261664
+          ],
+          "sample_filter": "none",
+          "scale": "0.175704989154013",
+          "source": "density-a.png",
+          "transform": "translate(121.28488792480118 12.01699204627623)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "530 47 467 514",
+          "feet": "141.66666666666669 140.83333333333334",
+          "filter": "none",
+          "id": "door",
+          "overflow": "hidden",
+          "projected_size": [
+            140.1,
+            154.1971842281154
+          ],
+          "sample_filter": "none",
+          "scale": "0.25",
+          "source": "density-a.png",
+          "transform": "translate(83.29166666666669 12.333333333333343)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "530 47 467 514",
+          "feet": "141.66666666666669 140.83333333333334",
+          "filter": "none",
+          "id": "door",
+          "overflow": "hidden",
+          "projected_size": [
+            140.1,
+            154.1971842281154
+          ],
+          "sample_filter": "none",
+          "scale": "0.25",
+          "source": "density-b.png",
+          "transform": "translate(83.29166666666669 12.333333333333343)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "991 15 545 570",
+          "feet": "141.66666666666669 217.5",
+          "filter": "none",
+          "id": "tree",
+          "overflow": "hidden",
+          "projected_size": [
+            235.5872420262664,
+            246.3939962476547
+          ],
+          "sample_filter": "none",
+          "scale": "0.3602251407129456",
+          "source": "density-a.png",
+          "transform": "translate(43.50531582238901 12.171669793621021)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "991 15 545 570",
+          "feet": "141.66666666666669 217.5",
+          "filter": "none",
+          "id": "tree",
+          "overflow": "hidden",
+          "projected_size": [
+            235.5872420262664,
+            246.3939962476547
+          ],
+          "sample_filter": "none",
+          "scale": "0.3602251407129456",
+          "source": "density-b.png",
+          "transform": "translate(43.50531582238901 12.171669793621021)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "18 618 503 348",
+          "feet": "141.66666666666669 84.16666666666667",
+          "filter": "none",
+          "id": "table",
+          "overflow": "hidden",
+          "projected_size": [
+            124.3467811158798,
+            86.02918454935622
+          ],
+          "sample_filter": "none",
+          "scale": "0.20600858369098712",
+          "source": "density-a.png",
+          "transform": "translate(89.85550786838343 12.475679542203153)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "18 618 503 348",
+          "feet": "141.66666666666669 84.16666666666667",
+          "filter": "none",
+          "id": "table",
+          "overflow": "hidden",
+          "projected_size": [
+            124.3467811158798,
+            86.02918454935622
+          ],
+          "sample_filter": "none",
+          "scale": "0.20600858369098712",
+          "source": "density-b.png",
+          "transform": "translate(89.85550786838343 12.475679542203153)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "532 585 492 396",
+          "feet": "141.66666666666669 95",
+          "filter": "none",
+          "id": "grass",
+          "overflow": "hidden",
+          "projected_size": [
+            123.75196506550216,
+            99.60263979716072
+          ],
+          "sample_filter": "none",
+          "scale": "0.2096069868995633",
+          "source": "density-a.png",
+          "transform": "translate(90.1033478893741 11.995633187772924)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "532 585 492 396",
+          "feet": "141.66666666666669 95",
+          "filter": "none",
+          "id": "grass",
+          "overflow": "hidden",
+          "projected_size": [
+            123.75196506550216,
+            99.60263979716072
+          ],
+          "sample_filter": "none",
+          "scale": "0.2096069868995633",
+          "source": "density-b.png",
+          "transform": "translate(90.1033478893741 11.995633187772924)"
+        }
+      ],
+      "size": [
+        1151.997802734375,
+        647.9966430664062
+      ],
+      "stage_filter": "none",
+      "variant": "a",
+      "viewBox": "0 0 960 540"
+    },
+    {
+      "background": "light",
+      "labels": false,
+      "mono": true,
+      "parts": [
+        {
+          "attribute_filter": null,
+          "clip": "139 78 232 496",
+          "feet": "480 390",
+          "filter": "none",
+          "id": "hero",
+          "overflow": "hidden",
+          "projected_size": [
+            48.91617568009846,
+            104.5790677747085
+          ],
+          "sample_filter": "none",
+          "scale": "0.175704989154013",
+          "source": "density-a.png",
+          "transform": "translate(459.6182212581345 302.85032537960956)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "530 47 467 514",
+          "feet": "270 360",
+          "filter": "none",
+          "id": "door",
+          "overflow": "hidden",
+          "projected_size": [
+            140.09973278045655,
+            154.19920117413557
+          ],
+          "sample_filter": "none",
+          "scale": "0.25",
+          "source": "density-a.png",
+          "transform": "translate(211.625 231.5)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "991 15 545 570",
+          "feet": "740 365",
+          "filter": "none",
+          "id": "tree",
+          "overflow": "hidden",
+          "projected_size": [
+            235.5867926792625,
+            246.3927198151188
+          ],
+          "sample_filter": "none",
+          "scale": "0.3602251407129456",
+          "source": "density-a.png",
+          "transform": "translate(641.8386491557224 159.67166979362102)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "18 618 503 348",
+          "feet": "270 475",
+          "filter": "none",
+          "id": "table",
+          "overflow": "hidden",
+          "projected_size": [
+            124.34654394321686,
+            86.02873887920244
+          ],
+          "sample_filter": "none",
+          "scale": "0.20600858369098712",
+          "source": "density-a.png",
+          "transform": "translate(218.18884120171674 403.3090128755365)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "532 585 492 396",
+          "feet": "740 475",
+          "filter": "none",
+          "id": "grass",
+          "overflow": "hidden",
+          "projected_size": [
+            123.7517290273608,
+            99.60472417439958
+          ],
+          "sample_filter": "none",
+          "scale": "0.2096069868995633",
+          "source": "density-a.png",
+          "transform": "translate(688.4366812227074 391.9956331877729)"
+        }
+      ],
+      "samples": [
+        {
+          "attribute_filter": null,
+          "clip": "139 78 232 496",
+          "feet": "141.66666666666669 99.16666666666667",
+          "filter": "none",
+          "id": "hero",
+          "overflow": "hidden",
+          "projected_size": [
+            48.91626898047722,
+            104.57698194261664
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.175704989154013",
+          "source": "density-a.png",
+          "transform": "translate(121.28488792480118 12.01699204627623)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "139 78 232 496",
+          "feet": "141.66666666666669 99.16666666666667",
+          "filter": "none",
+          "id": "hero",
+          "overflow": "hidden",
+          "projected_size": [
+            48.91626898047722,
+            104.57698194261664
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.175704989154013",
+          "source": "density-a.png",
+          "transform": "translate(121.28488792480118 12.01699204627623)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "530 47 467 514",
+          "feet": "141.66666666666669 140.83333333333334",
+          "filter": "none",
+          "id": "door",
+          "overflow": "hidden",
+          "projected_size": [
+            140.1,
+            154.1971842281154
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.25",
+          "source": "density-a.png",
+          "transform": "translate(83.29166666666669 12.333333333333343)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "530 47 467 514",
+          "feet": "141.66666666666669 140.83333333333334",
+          "filter": "none",
+          "id": "door",
+          "overflow": "hidden",
+          "projected_size": [
+            140.1,
+            154.1971842281154
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.25",
+          "source": "density-b.png",
+          "transform": "translate(83.29166666666669 12.333333333333343)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "991 15 545 570",
+          "feet": "141.66666666666669 217.5",
+          "filter": "none",
+          "id": "tree",
+          "overflow": "hidden",
+          "projected_size": [
+            235.5872420262664,
+            246.3939962476547
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.3602251407129456",
+          "source": "density-a.png",
+          "transform": "translate(43.50531582238901 12.171669793621021)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "991 15 545 570",
+          "feet": "141.66666666666669 217.5",
+          "filter": "none",
+          "id": "tree",
+          "overflow": "hidden",
+          "projected_size": [
+            235.5872420262664,
+            246.3939962476547
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.3602251407129456",
+          "source": "density-b.png",
+          "transform": "translate(43.50531582238901 12.171669793621021)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "18 618 503 348",
+          "feet": "141.66666666666669 84.16666666666667",
+          "filter": "none",
+          "id": "table",
+          "overflow": "hidden",
+          "projected_size": [
+            124.3467811158798,
+            86.02918454935622
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.20600858369098712",
+          "source": "density-a.png",
+          "transform": "translate(89.85550786838343 12.475679542203153)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "18 618 503 348",
+          "feet": "141.66666666666669 84.16666666666667",
+          "filter": "none",
+          "id": "table",
+          "overflow": "hidden",
+          "projected_size": [
+            124.3467811158798,
+            86.02918454935622
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.20600858369098712",
+          "source": "density-b.png",
+          "transform": "translate(89.85550786838343 12.475679542203153)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "532 585 492 396",
+          "feet": "141.66666666666669 95",
+          "filter": "none",
+          "id": "grass",
+          "overflow": "hidden",
+          "projected_size": [
+            123.75196506550216,
+            99.60263979716072
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.2096069868995633",
+          "source": "density-a.png",
+          "transform": "translate(90.1033478893741 11.995633187772924)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "532 585 492 396",
+          "feet": "141.66666666666669 95",
+          "filter": "none",
+          "id": "grass",
+          "overflow": "hidden",
+          "projected_size": [
+            123.75196506550216,
+            99.60263979716072
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.2096069868995633",
+          "source": "density-b.png",
+          "transform": "translate(90.1033478893741 11.995633187772924)"
+        }
+      ],
+      "size": [
+        1151.997802734375,
+        647.9966430664062
+      ],
+      "stage_filter": "grayscale(1)",
+      "variant": "a",
+      "viewBox": "0 0 960 540"
+    },
+    {
+      "background": "dark",
+      "labels": false,
+      "mono": false,
+      "parts": [
+        {
+          "attribute_filter": null,
+          "clip": "139 78 232 496",
+          "feet": "480 390",
+          "filter": "none",
+          "id": "hero",
+          "overflow": "hidden",
+          "projected_size": [
+            48.91617568009846,
+            104.5790677747085
+          ],
+          "sample_filter": "none",
+          "scale": "0.175704989154013",
+          "source": "density-a.png",
+          "transform": "translate(459.6182212581345 302.85032537960956)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "530 47 467 514",
+          "feet": "270 360",
+          "filter": "none",
+          "id": "door",
+          "overflow": "hidden",
+          "projected_size": [
+            140.09973278045655,
+            154.19920117413557
+          ],
+          "sample_filter": "none",
+          "scale": "0.25",
+          "source": "density-a.png",
+          "transform": "translate(211.625 231.5)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "991 15 545 570",
+          "feet": "740 365",
+          "filter": "none",
+          "id": "tree",
+          "overflow": "hidden",
+          "projected_size": [
+            235.5867926792625,
+            246.3927198151188
+          ],
+          "sample_filter": "none",
+          "scale": "0.3602251407129456",
+          "source": "density-a.png",
+          "transform": "translate(641.8386491557224 159.67166979362102)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "18 618 503 348",
+          "feet": "270 475",
+          "filter": "none",
+          "id": "table",
+          "overflow": "hidden",
+          "projected_size": [
+            124.34654394321686,
+            86.02873887920244
+          ],
+          "sample_filter": "none",
+          "scale": "0.20600858369098712",
+          "source": "density-a.png",
+          "transform": "translate(218.18884120171674 403.3090128755365)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "532 585 492 396",
+          "feet": "740 475",
+          "filter": "none",
+          "id": "grass",
+          "overflow": "hidden",
+          "projected_size": [
+            123.7517290273608,
+            99.60472417439958
+          ],
+          "sample_filter": "none",
+          "scale": "0.2096069868995633",
+          "source": "density-a.png",
+          "transform": "translate(688.4366812227074 391.9956331877729)"
+        }
+      ],
+      "samples": [
+        {
+          "attribute_filter": null,
+          "clip": "139 78 232 496",
+          "feet": "141.66666666666669 99.16666666666667",
+          "filter": "none",
+          "id": "hero",
+          "overflow": "hidden",
+          "projected_size": [
+            48.91626898047722,
+            104.57698194261664
+          ],
+          "sample_filter": "none",
+          "scale": "0.175704989154013",
+          "source": "density-a.png",
+          "transform": "translate(121.28488792480118 12.01699204627623)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "139 78 232 496",
+          "feet": "141.66666666666669 99.16666666666667",
+          "filter": "none",
+          "id": "hero",
+          "overflow": "hidden",
+          "projected_size": [
+            48.91626898047722,
+            104.57698194261664
+          ],
+          "sample_filter": "none",
+          "scale": "0.175704989154013",
+          "source": "density-a.png",
+          "transform": "translate(121.28488792480118 12.01699204627623)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "530 47 467 514",
+          "feet": "141.66666666666669 140.83333333333334",
+          "filter": "none",
+          "id": "door",
+          "overflow": "hidden",
+          "projected_size": [
+            140.1,
+            154.1971842281154
+          ],
+          "sample_filter": "none",
+          "scale": "0.25",
+          "source": "density-a.png",
+          "transform": "translate(83.29166666666669 12.333333333333343)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "530 47 467 514",
+          "feet": "141.66666666666669 140.83333333333334",
+          "filter": "none",
+          "id": "door",
+          "overflow": "hidden",
+          "projected_size": [
+            140.1,
+            154.1971842281154
+          ],
+          "sample_filter": "none",
+          "scale": "0.25",
+          "source": "density-b.png",
+          "transform": "translate(83.29166666666669 12.333333333333343)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "991 15 545 570",
+          "feet": "141.66666666666669 217.5",
+          "filter": "none",
+          "id": "tree",
+          "overflow": "hidden",
+          "projected_size": [
+            235.5872420262664,
+            246.3939962476547
+          ],
+          "sample_filter": "none",
+          "scale": "0.3602251407129456",
+          "source": "density-a.png",
+          "transform": "translate(43.50531582238901 12.171669793621021)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "991 15 545 570",
+          "feet": "141.66666666666669 217.5",
+          "filter": "none",
+          "id": "tree",
+          "overflow": "hidden",
+          "projected_size": [
+            235.5872420262664,
+            246.3939962476547
+          ],
+          "sample_filter": "none",
+          "scale": "0.3602251407129456",
+          "source": "density-b.png",
+          "transform": "translate(43.50531582238901 12.171669793621021)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "18 618 503 348",
+          "feet": "141.66666666666669 84.16666666666667",
+          "filter": "none",
+          "id": "table",
+          "overflow": "hidden",
+          "projected_size": [
+            124.3467811158798,
+            86.02918454935622
+          ],
+          "sample_filter": "none",
+          "scale": "0.20600858369098712",
+          "source": "density-a.png",
+          "transform": "translate(89.85550786838343 12.475679542203153)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "18 618 503 348",
+          "feet": "141.66666666666669 84.16666666666667",
+          "filter": "none",
+          "id": "table",
+          "overflow": "hidden",
+          "projected_size": [
+            124.3467811158798,
+            86.02918454935622
+          ],
+          "sample_filter": "none",
+          "scale": "0.20600858369098712",
+          "source": "density-b.png",
+          "transform": "translate(89.85550786838343 12.475679542203153)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "532 585 492 396",
+          "feet": "141.66666666666669 95",
+          "filter": "none",
+          "id": "grass",
+          "overflow": "hidden",
+          "projected_size": [
+            123.75196506550216,
+            99.60263979716072
+          ],
+          "sample_filter": "none",
+          "scale": "0.2096069868995633",
+          "source": "density-a.png",
+          "transform": "translate(90.1033478893741 11.995633187772924)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "532 585 492 396",
+          "feet": "141.66666666666669 95",
+          "filter": "none",
+          "id": "grass",
+          "overflow": "hidden",
+          "projected_size": [
+            123.75196506550216,
+            99.60263979716072
+          ],
+          "sample_filter": "none",
+          "scale": "0.2096069868995633",
+          "source": "density-b.png",
+          "transform": "translate(90.1033478893741 11.995633187772924)"
+        }
+      ],
+      "size": [
+        1151.997802734375,
+        647.9966430664062
+      ],
+      "stage_filter": "none",
+      "variant": "a",
+      "viewBox": "0 0 960 540"
+    },
+    {
+      "background": "dark",
+      "labels": false,
+      "mono": true,
+      "parts": [
+        {
+          "attribute_filter": null,
+          "clip": "139 78 232 496",
+          "feet": "480 390",
+          "filter": "none",
+          "id": "hero",
+          "overflow": "hidden",
+          "projected_size": [
+            48.91617568009846,
+            104.5790677747085
+          ],
+          "sample_filter": "none",
+          "scale": "0.175704989154013",
+          "source": "density-a.png",
+          "transform": "translate(459.6182212581345 302.85032537960956)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "530 47 467 514",
+          "feet": "270 360",
+          "filter": "none",
+          "id": "door",
+          "overflow": "hidden",
+          "projected_size": [
+            140.09973278045655,
+            154.19920117413557
+          ],
+          "sample_filter": "none",
+          "scale": "0.25",
+          "source": "density-a.png",
+          "transform": "translate(211.625 231.5)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "991 15 545 570",
+          "feet": "740 365",
+          "filter": "none",
+          "id": "tree",
+          "overflow": "hidden",
+          "projected_size": [
+            235.5867926792625,
+            246.3927198151188
+          ],
+          "sample_filter": "none",
+          "scale": "0.3602251407129456",
+          "source": "density-a.png",
+          "transform": "translate(641.8386491557224 159.67166979362102)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "18 618 503 348",
+          "feet": "270 475",
+          "filter": "none",
+          "id": "table",
+          "overflow": "hidden",
+          "projected_size": [
+            124.34654394321686,
+            86.02873887920244
+          ],
+          "sample_filter": "none",
+          "scale": "0.20600858369098712",
+          "source": "density-a.png",
+          "transform": "translate(218.18884120171674 403.3090128755365)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "532 585 492 396",
+          "feet": "740 475",
+          "filter": "none",
+          "id": "grass",
+          "overflow": "hidden",
+          "projected_size": [
+            123.7517290273608,
+            99.60472417439958
+          ],
+          "sample_filter": "none",
+          "scale": "0.2096069868995633",
+          "source": "density-a.png",
+          "transform": "translate(688.4366812227074 391.9956331877729)"
+        }
+      ],
+      "samples": [
+        {
+          "attribute_filter": null,
+          "clip": "139 78 232 496",
+          "feet": "141.66666666666669 99.16666666666667",
+          "filter": "none",
+          "id": "hero",
+          "overflow": "hidden",
+          "projected_size": [
+            48.91626898047722,
+            104.57698194261664
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.175704989154013",
+          "source": "density-a.png",
+          "transform": "translate(121.28488792480118 12.01699204627623)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "139 78 232 496",
+          "feet": "141.66666666666669 99.16666666666667",
+          "filter": "none",
+          "id": "hero",
+          "overflow": "hidden",
+          "projected_size": [
+            48.91626898047722,
+            104.57698194261664
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.175704989154013",
+          "source": "density-a.png",
+          "transform": "translate(121.28488792480118 12.01699204627623)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "530 47 467 514",
+          "feet": "141.66666666666669 140.83333333333334",
+          "filter": "none",
+          "id": "door",
+          "overflow": "hidden",
+          "projected_size": [
+            140.1,
+            154.1971842281154
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.25",
+          "source": "density-a.png",
+          "transform": "translate(83.29166666666669 12.333333333333343)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "530 47 467 514",
+          "feet": "141.66666666666669 140.83333333333334",
+          "filter": "none",
+          "id": "door",
+          "overflow": "hidden",
+          "projected_size": [
+            140.1,
+            154.1971842281154
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.25",
+          "source": "density-b.png",
+          "transform": "translate(83.29166666666669 12.333333333333343)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "991 15 545 570",
+          "feet": "141.66666666666669 217.5",
+          "filter": "none",
+          "id": "tree",
+          "overflow": "hidden",
+          "projected_size": [
+            235.5872420262664,
+            246.3939962476547
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.3602251407129456",
+          "source": "density-a.png",
+          "transform": "translate(43.50531582238901 12.171669793621021)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "991 15 545 570",
+          "feet": "141.66666666666669 217.5",
+          "filter": "none",
+          "id": "tree",
+          "overflow": "hidden",
+          "projected_size": [
+            235.5872420262664,
+            246.3939962476547
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.3602251407129456",
+          "source": "density-b.png",
+          "transform": "translate(43.50531582238901 12.171669793621021)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "18 618 503 348",
+          "feet": "141.66666666666669 84.16666666666667",
+          "filter": "none",
+          "id": "table",
+          "overflow": "hidden",
+          "projected_size": [
+            124.3467811158798,
+            86.02918454935622
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.20600858369098712",
+          "source": "density-a.png",
+          "transform": "translate(89.85550786838343 12.475679542203153)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "18 618 503 348",
+          "feet": "141.66666666666669 84.16666666666667",
+          "filter": "none",
+          "id": "table",
+          "overflow": "hidden",
+          "projected_size": [
+            124.3467811158798,
+            86.02918454935622
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.20600858369098712",
+          "source": "density-b.png",
+          "transform": "translate(89.85550786838343 12.475679542203153)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "532 585 492 396",
+          "feet": "141.66666666666669 95",
+          "filter": "none",
+          "id": "grass",
+          "overflow": "hidden",
+          "projected_size": [
+            123.75196506550216,
+            99.60263979716072
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.2096069868995633",
+          "source": "density-a.png",
+          "transform": "translate(90.1033478893741 11.995633187772924)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "532 585 492 396",
+          "feet": "141.66666666666669 95",
+          "filter": "none",
+          "id": "grass",
+          "overflow": "hidden",
+          "projected_size": [
+            123.75196506550216,
+            99.60263979716072
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.2096069868995633",
+          "source": "density-b.png",
+          "transform": "translate(90.1033478893741 11.995633187772924)"
+        }
+      ],
+      "size": [
+        1151.997802734375,
+        647.9966430664062
+      ],
+      "stage_filter": "grayscale(1)",
+      "variant": "a",
+      "viewBox": "0 0 960 540"
+    },
+    {
+      "background": "grass",
+      "labels": false,
+      "mono": false,
+      "parts": [
+        {
+          "attribute_filter": null,
+          "clip": "139 78 232 496",
+          "feet": "480 390",
+          "filter": "none",
+          "id": "hero",
+          "overflow": "hidden",
+          "projected_size": [
+            48.91617568009846,
+            104.5790677747085
+          ],
+          "sample_filter": "none",
+          "scale": "0.175704989154013",
+          "source": "density-a.png",
+          "transform": "translate(459.6182212581345 302.85032537960956)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "530 47 467 514",
+          "feet": "270 360",
+          "filter": "none",
+          "id": "door",
+          "overflow": "hidden",
+          "projected_size": [
+            140.09973278045655,
+            154.19920117413557
+          ],
+          "sample_filter": "none",
+          "scale": "0.25",
+          "source": "density-a.png",
+          "transform": "translate(211.625 231.5)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "991 15 545 570",
+          "feet": "740 365",
+          "filter": "none",
+          "id": "tree",
+          "overflow": "hidden",
+          "projected_size": [
+            235.5867926792625,
+            246.3927198151188
+          ],
+          "sample_filter": "none",
+          "scale": "0.3602251407129456",
+          "source": "density-a.png",
+          "transform": "translate(641.8386491557224 159.67166979362102)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "18 618 503 348",
+          "feet": "270 475",
+          "filter": "none",
+          "id": "table",
+          "overflow": "hidden",
+          "projected_size": [
+            124.34654394321686,
+            86.02873887920244
+          ],
+          "sample_filter": "none",
+          "scale": "0.20600858369098712",
+          "source": "density-a.png",
+          "transform": "translate(218.18884120171674 403.3090128755365)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "532 585 492 396",
+          "feet": "740 475",
+          "filter": "none",
+          "id": "grass",
+          "overflow": "hidden",
+          "projected_size": [
+            123.7517290273608,
+            99.60472417439958
+          ],
+          "sample_filter": "none",
+          "scale": "0.2096069868995633",
+          "source": "density-a.png",
+          "transform": "translate(688.4366812227074 391.9956331877729)"
+        }
+      ],
+      "samples": [
+        {
+          "attribute_filter": null,
+          "clip": "139 78 232 496",
+          "feet": "141.66666666666669 99.16666666666667",
+          "filter": "none",
+          "id": "hero",
+          "overflow": "hidden",
+          "projected_size": [
+            48.91626898047722,
+            104.57698194261664
+          ],
+          "sample_filter": "none",
+          "scale": "0.175704989154013",
+          "source": "density-a.png",
+          "transform": "translate(121.28488792480118 12.01699204627623)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "139 78 232 496",
+          "feet": "141.66666666666669 99.16666666666667",
+          "filter": "none",
+          "id": "hero",
+          "overflow": "hidden",
+          "projected_size": [
+            48.91626898047722,
+            104.57698194261664
+          ],
+          "sample_filter": "none",
+          "scale": "0.175704989154013",
+          "source": "density-a.png",
+          "transform": "translate(121.28488792480118 12.01699204627623)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "530 47 467 514",
+          "feet": "141.66666666666669 140.83333333333334",
+          "filter": "none",
+          "id": "door",
+          "overflow": "hidden",
+          "projected_size": [
+            140.1,
+            154.1971842281154
+          ],
+          "sample_filter": "none",
+          "scale": "0.25",
+          "source": "density-a.png",
+          "transform": "translate(83.29166666666669 12.333333333333343)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "530 47 467 514",
+          "feet": "141.66666666666669 140.83333333333334",
+          "filter": "none",
+          "id": "door",
+          "overflow": "hidden",
+          "projected_size": [
+            140.1,
+            154.1971842281154
+          ],
+          "sample_filter": "none",
+          "scale": "0.25",
+          "source": "density-b.png",
+          "transform": "translate(83.29166666666669 12.333333333333343)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "991 15 545 570",
+          "feet": "141.66666666666669 217.5",
+          "filter": "none",
+          "id": "tree",
+          "overflow": "hidden",
+          "projected_size": [
+            235.5872420262664,
+            246.3939962476547
+          ],
+          "sample_filter": "none",
+          "scale": "0.3602251407129456",
+          "source": "density-a.png",
+          "transform": "translate(43.50531582238901 12.171669793621021)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "991 15 545 570",
+          "feet": "141.66666666666669 217.5",
+          "filter": "none",
+          "id": "tree",
+          "overflow": "hidden",
+          "projected_size": [
+            235.5872420262664,
+            246.3939962476547
+          ],
+          "sample_filter": "none",
+          "scale": "0.3602251407129456",
+          "source": "density-b.png",
+          "transform": "translate(43.50531582238901 12.171669793621021)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "18 618 503 348",
+          "feet": "141.66666666666669 84.16666666666667",
+          "filter": "none",
+          "id": "table",
+          "overflow": "hidden",
+          "projected_size": [
+            124.3467811158798,
+            86.02918454935622
+          ],
+          "sample_filter": "none",
+          "scale": "0.20600858369098712",
+          "source": "density-a.png",
+          "transform": "translate(89.85550786838343 12.475679542203153)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "18 618 503 348",
+          "feet": "141.66666666666669 84.16666666666667",
+          "filter": "none",
+          "id": "table",
+          "overflow": "hidden",
+          "projected_size": [
+            124.3467811158798,
+            86.02918454935622
+          ],
+          "sample_filter": "none",
+          "scale": "0.20600858369098712",
+          "source": "density-b.png",
+          "transform": "translate(89.85550786838343 12.475679542203153)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "532 585 492 396",
+          "feet": "141.66666666666669 95",
+          "filter": "none",
+          "id": "grass",
+          "overflow": "hidden",
+          "projected_size": [
+            123.75196506550216,
+            99.60263979716072
+          ],
+          "sample_filter": "none",
+          "scale": "0.2096069868995633",
+          "source": "density-a.png",
+          "transform": "translate(90.1033478893741 11.995633187772924)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "532 585 492 396",
+          "feet": "141.66666666666669 95",
+          "filter": "none",
+          "id": "grass",
+          "overflow": "hidden",
+          "projected_size": [
+            123.75196506550216,
+            99.60263979716072
+          ],
+          "sample_filter": "none",
+          "scale": "0.2096069868995633",
+          "source": "density-b.png",
+          "transform": "translate(90.1033478893741 11.995633187772924)"
+        }
+      ],
+      "size": [
+        1151.997802734375,
+        647.9966430664062
+      ],
+      "stage_filter": "none",
+      "variant": "a",
+      "viewBox": "0 0 960 540"
+    },
+    {
+      "background": "grass",
+      "labels": false,
+      "mono": true,
+      "parts": [
+        {
+          "attribute_filter": null,
+          "clip": "139 78 232 496",
+          "feet": "480 390",
+          "filter": "none",
+          "id": "hero",
+          "overflow": "hidden",
+          "projected_size": [
+            48.91617568009846,
+            104.5790677747085
+          ],
+          "sample_filter": "none",
+          "scale": "0.175704989154013",
+          "source": "density-a.png",
+          "transform": "translate(459.6182212581345 302.85032537960956)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "530 47 467 514",
+          "feet": "270 360",
+          "filter": "none",
+          "id": "door",
+          "overflow": "hidden",
+          "projected_size": [
+            140.09973278045655,
+            154.19920117413557
+          ],
+          "sample_filter": "none",
+          "scale": "0.25",
+          "source": "density-a.png",
+          "transform": "translate(211.625 231.5)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "991 15 545 570",
+          "feet": "740 365",
+          "filter": "none",
+          "id": "tree",
+          "overflow": "hidden",
+          "projected_size": [
+            235.5867926792625,
+            246.3927198151188
+          ],
+          "sample_filter": "none",
+          "scale": "0.3602251407129456",
+          "source": "density-a.png",
+          "transform": "translate(641.8386491557224 159.67166979362102)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "18 618 503 348",
+          "feet": "270 475",
+          "filter": "none",
+          "id": "table",
+          "overflow": "hidden",
+          "projected_size": [
+            124.34654394321686,
+            86.02873887920244
+          ],
+          "sample_filter": "none",
+          "scale": "0.20600858369098712",
+          "source": "density-a.png",
+          "transform": "translate(218.18884120171674 403.3090128755365)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "532 585 492 396",
+          "feet": "740 475",
+          "filter": "none",
+          "id": "grass",
+          "overflow": "hidden",
+          "projected_size": [
+            123.7517290273608,
+            99.60472417439958
+          ],
+          "sample_filter": "none",
+          "scale": "0.2096069868995633",
+          "source": "density-a.png",
+          "transform": "translate(688.4366812227074 391.9956331877729)"
+        }
+      ],
+      "samples": [
+        {
+          "attribute_filter": null,
+          "clip": "139 78 232 496",
+          "feet": "141.66666666666669 99.16666666666667",
+          "filter": "none",
+          "id": "hero",
+          "overflow": "hidden",
+          "projected_size": [
+            48.91626898047722,
+            104.57698194261664
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.175704989154013",
+          "source": "density-a.png",
+          "transform": "translate(121.28488792480118 12.01699204627623)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "139 78 232 496",
+          "feet": "141.66666666666669 99.16666666666667",
+          "filter": "none",
+          "id": "hero",
+          "overflow": "hidden",
+          "projected_size": [
+            48.91626898047722,
+            104.57698194261664
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.175704989154013",
+          "source": "density-a.png",
+          "transform": "translate(121.28488792480118 12.01699204627623)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "530 47 467 514",
+          "feet": "141.66666666666669 140.83333333333334",
+          "filter": "none",
+          "id": "door",
+          "overflow": "hidden",
+          "projected_size": [
+            140.1,
+            154.1971842281154
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.25",
+          "source": "density-a.png",
+          "transform": "translate(83.29166666666669 12.333333333333343)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "530 47 467 514",
+          "feet": "141.66666666666669 140.83333333333334",
+          "filter": "none",
+          "id": "door",
+          "overflow": "hidden",
+          "projected_size": [
+            140.1,
+            154.1971842281154
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.25",
+          "source": "density-b.png",
+          "transform": "translate(83.29166666666669 12.333333333333343)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "991 15 545 570",
+          "feet": "141.66666666666669 217.5",
+          "filter": "none",
+          "id": "tree",
+          "overflow": "hidden",
+          "projected_size": [
+            235.5872420262664,
+            246.3939962476547
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.3602251407129456",
+          "source": "density-a.png",
+          "transform": "translate(43.50531582238901 12.171669793621021)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "991 15 545 570",
+          "feet": "141.66666666666669 217.5",
+          "filter": "none",
+          "id": "tree",
+          "overflow": "hidden",
+          "projected_size": [
+            235.5872420262664,
+            246.3939962476547
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.3602251407129456",
+          "source": "density-b.png",
+          "transform": "translate(43.50531582238901 12.171669793621021)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "18 618 503 348",
+          "feet": "141.66666666666669 84.16666666666667",
+          "filter": "none",
+          "id": "table",
+          "overflow": "hidden",
+          "projected_size": [
+            124.3467811158798,
+            86.02918454935622
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.20600858369098712",
+          "source": "density-a.png",
+          "transform": "translate(89.85550786838343 12.475679542203153)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "18 618 503 348",
+          "feet": "141.66666666666669 84.16666666666667",
+          "filter": "none",
+          "id": "table",
+          "overflow": "hidden",
+          "projected_size": [
+            124.3467811158798,
+            86.02918454935622
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.20600858369098712",
+          "source": "density-b.png",
+          "transform": "translate(89.85550786838343 12.475679542203153)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "532 585 492 396",
+          "feet": "141.66666666666669 95",
+          "filter": "none",
+          "id": "grass",
+          "overflow": "hidden",
+          "projected_size": [
+            123.75196506550216,
+            99.60263979716072
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.2096069868995633",
+          "source": "density-a.png",
+          "transform": "translate(90.1033478893741 11.995633187772924)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "532 585 492 396",
+          "feet": "141.66666666666669 95",
+          "filter": "none",
+          "id": "grass",
+          "overflow": "hidden",
+          "projected_size": [
+            123.75196506550216,
+            99.60263979716072
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.2096069868995633",
+          "source": "density-b.png",
+          "transform": "translate(90.1033478893741 11.995633187772924)"
+        }
+      ],
+      "size": [
+        1151.997802734375,
+        647.9966430664062
+      ],
+      "stage_filter": "grayscale(1)",
+      "variant": "a",
+      "viewBox": "0 0 960 540"
+    },
+    {
+      "background": "light",
+      "labels": false,
+      "mono": false,
+      "parts": [
+        {
+          "attribute_filter": null,
+          "clip": "139 78 232 496",
+          "feet": "480 390",
+          "filter": "none",
+          "id": "hero",
+          "overflow": "hidden",
+          "projected_size": [
+            48.91617568009846,
+            104.5790677747085
+          ],
+          "sample_filter": "none",
+          "scale": "0.175704989154013",
+          "source": "density-a.png",
+          "transform": "translate(459.6182212581345 302.85032537960956)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "530 47 467 514",
+          "feet": "270 360",
+          "filter": "none",
+          "id": "door",
+          "overflow": "hidden",
+          "projected_size": [
+            140.09973278045655,
+            154.19920117413557
+          ],
+          "sample_filter": "none",
+          "scale": "0.25",
+          "source": "density-b.png",
+          "transform": "translate(211.625 231.5)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "991 15 545 570",
+          "feet": "740 365",
+          "filter": "none",
+          "id": "tree",
+          "overflow": "hidden",
+          "projected_size": [
+            235.5867926792625,
+            246.3927198151188
+          ],
+          "sample_filter": "none",
+          "scale": "0.3602251407129456",
+          "source": "density-b.png",
+          "transform": "translate(641.8386491557224 159.67166979362102)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "18 618 503 348",
+          "feet": "270 475",
+          "filter": "none",
+          "id": "table",
+          "overflow": "hidden",
+          "projected_size": [
+            124.34654394321686,
+            86.02873887920244
+          ],
+          "sample_filter": "none",
+          "scale": "0.20600858369098712",
+          "source": "density-b.png",
+          "transform": "translate(218.18884120171674 403.3090128755365)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "532 585 492 396",
+          "feet": "740 475",
+          "filter": "none",
+          "id": "grass",
+          "overflow": "hidden",
+          "projected_size": [
+            123.7517290273608,
+            99.60472417439958
+          ],
+          "sample_filter": "none",
+          "scale": "0.2096069868995633",
+          "source": "density-b.png",
+          "transform": "translate(688.4366812227074 391.9956331877729)"
+        }
+      ],
+      "samples": [
+        {
+          "attribute_filter": null,
+          "clip": "139 78 232 496",
+          "feet": "141.66666666666669 99.16666666666667",
+          "filter": "none",
+          "id": "hero",
+          "overflow": "hidden",
+          "projected_size": [
+            48.91626898047722,
+            104.57698194261664
+          ],
+          "sample_filter": "none",
+          "scale": "0.175704989154013",
+          "source": "density-a.png",
+          "transform": "translate(121.28488792480118 12.01699204627623)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "139 78 232 496",
+          "feet": "141.66666666666669 99.16666666666667",
+          "filter": "none",
+          "id": "hero",
+          "overflow": "hidden",
+          "projected_size": [
+            48.91626898047722,
+            104.57698194261664
+          ],
+          "sample_filter": "none",
+          "scale": "0.175704989154013",
+          "source": "density-a.png",
+          "transform": "translate(121.28488792480118 12.01699204627623)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "530 47 467 514",
+          "feet": "141.66666666666669 140.83333333333334",
+          "filter": "none",
+          "id": "door",
+          "overflow": "hidden",
+          "projected_size": [
+            140.1,
+            154.1971842281154
+          ],
+          "sample_filter": "none",
+          "scale": "0.25",
+          "source": "density-a.png",
+          "transform": "translate(83.29166666666669 12.333333333333343)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "530 47 467 514",
+          "feet": "141.66666666666669 140.83333333333334",
+          "filter": "none",
+          "id": "door",
+          "overflow": "hidden",
+          "projected_size": [
+            140.1,
+            154.1971842281154
+          ],
+          "sample_filter": "none",
+          "scale": "0.25",
+          "source": "density-b.png",
+          "transform": "translate(83.29166666666669 12.333333333333343)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "991 15 545 570",
+          "feet": "141.66666666666669 217.5",
+          "filter": "none",
+          "id": "tree",
+          "overflow": "hidden",
+          "projected_size": [
+            235.5872420262664,
+            246.3939962476547
+          ],
+          "sample_filter": "none",
+          "scale": "0.3602251407129456",
+          "source": "density-a.png",
+          "transform": "translate(43.50531582238901 12.171669793621021)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "991 15 545 570",
+          "feet": "141.66666666666669 217.5",
+          "filter": "none",
+          "id": "tree",
+          "overflow": "hidden",
+          "projected_size": [
+            235.5872420262664,
+            246.3939962476547
+          ],
+          "sample_filter": "none",
+          "scale": "0.3602251407129456",
+          "source": "density-b.png",
+          "transform": "translate(43.50531582238901 12.171669793621021)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "18 618 503 348",
+          "feet": "141.66666666666669 84.16666666666667",
+          "filter": "none",
+          "id": "table",
+          "overflow": "hidden",
+          "projected_size": [
+            124.3467811158798,
+            86.02918454935622
+          ],
+          "sample_filter": "none",
+          "scale": "0.20600858369098712",
+          "source": "density-a.png",
+          "transform": "translate(89.85550786838343 12.475679542203153)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "18 618 503 348",
+          "feet": "141.66666666666669 84.16666666666667",
+          "filter": "none",
+          "id": "table",
+          "overflow": "hidden",
+          "projected_size": [
+            124.3467811158798,
+            86.02918454935622
+          ],
+          "sample_filter": "none",
+          "scale": "0.20600858369098712",
+          "source": "density-b.png",
+          "transform": "translate(89.85550786838343 12.475679542203153)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "532 585 492 396",
+          "feet": "141.66666666666669 95",
+          "filter": "none",
+          "id": "grass",
+          "overflow": "hidden",
+          "projected_size": [
+            123.75196506550216,
+            99.60263979716072
+          ],
+          "sample_filter": "none",
+          "scale": "0.2096069868995633",
+          "source": "density-a.png",
+          "transform": "translate(90.1033478893741 11.995633187772924)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "532 585 492 396",
+          "feet": "141.66666666666669 95",
+          "filter": "none",
+          "id": "grass",
+          "overflow": "hidden",
+          "projected_size": [
+            123.75196506550216,
+            99.60263979716072
+          ],
+          "sample_filter": "none",
+          "scale": "0.2096069868995633",
+          "source": "density-b.png",
+          "transform": "translate(90.1033478893741 11.995633187772924)"
+        }
+      ],
+      "size": [
+        1151.997802734375,
+        647.9966430664062
+      ],
+      "stage_filter": "none",
+      "variant": "b",
+      "viewBox": "0 0 960 540"
+    },
+    {
+      "background": "light",
+      "labels": false,
+      "mono": true,
+      "parts": [
+        {
+          "attribute_filter": null,
+          "clip": "139 78 232 496",
+          "feet": "480 390",
+          "filter": "none",
+          "id": "hero",
+          "overflow": "hidden",
+          "projected_size": [
+            48.91617568009846,
+            104.5790677747085
+          ],
+          "sample_filter": "none",
+          "scale": "0.175704989154013",
+          "source": "density-a.png",
+          "transform": "translate(459.6182212581345 302.85032537960956)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "530 47 467 514",
+          "feet": "270 360",
+          "filter": "none",
+          "id": "door",
+          "overflow": "hidden",
+          "projected_size": [
+            140.09973278045655,
+            154.19920117413557
+          ],
+          "sample_filter": "none",
+          "scale": "0.25",
+          "source": "density-b.png",
+          "transform": "translate(211.625 231.5)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "991 15 545 570",
+          "feet": "740 365",
+          "filter": "none",
+          "id": "tree",
+          "overflow": "hidden",
+          "projected_size": [
+            235.5867926792625,
+            246.3927198151188
+          ],
+          "sample_filter": "none",
+          "scale": "0.3602251407129456",
+          "source": "density-b.png",
+          "transform": "translate(641.8386491557224 159.67166979362102)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "18 618 503 348",
+          "feet": "270 475",
+          "filter": "none",
+          "id": "table",
+          "overflow": "hidden",
+          "projected_size": [
+            124.34654394321686,
+            86.02873887920244
+          ],
+          "sample_filter": "none",
+          "scale": "0.20600858369098712",
+          "source": "density-b.png",
+          "transform": "translate(218.18884120171674 403.3090128755365)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "532 585 492 396",
+          "feet": "740 475",
+          "filter": "none",
+          "id": "grass",
+          "overflow": "hidden",
+          "projected_size": [
+            123.7517290273608,
+            99.60472417439958
+          ],
+          "sample_filter": "none",
+          "scale": "0.2096069868995633",
+          "source": "density-b.png",
+          "transform": "translate(688.4366812227074 391.9956331877729)"
+        }
+      ],
+      "samples": [
+        {
+          "attribute_filter": null,
+          "clip": "139 78 232 496",
+          "feet": "141.66666666666669 99.16666666666667",
+          "filter": "none",
+          "id": "hero",
+          "overflow": "hidden",
+          "projected_size": [
+            48.91626898047722,
+            104.57698194261664
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.175704989154013",
+          "source": "density-a.png",
+          "transform": "translate(121.28488792480118 12.01699204627623)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "139 78 232 496",
+          "feet": "141.66666666666669 99.16666666666667",
+          "filter": "none",
+          "id": "hero",
+          "overflow": "hidden",
+          "projected_size": [
+            48.91626898047722,
+            104.57698194261664
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.175704989154013",
+          "source": "density-a.png",
+          "transform": "translate(121.28488792480118 12.01699204627623)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "530 47 467 514",
+          "feet": "141.66666666666669 140.83333333333334",
+          "filter": "none",
+          "id": "door",
+          "overflow": "hidden",
+          "projected_size": [
+            140.1,
+            154.1971842281154
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.25",
+          "source": "density-a.png",
+          "transform": "translate(83.29166666666669 12.333333333333343)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "530 47 467 514",
+          "feet": "141.66666666666669 140.83333333333334",
+          "filter": "none",
+          "id": "door",
+          "overflow": "hidden",
+          "projected_size": [
+            140.1,
+            154.1971842281154
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.25",
+          "source": "density-b.png",
+          "transform": "translate(83.29166666666669 12.333333333333343)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "991 15 545 570",
+          "feet": "141.66666666666669 217.5",
+          "filter": "none",
+          "id": "tree",
+          "overflow": "hidden",
+          "projected_size": [
+            235.5872420262664,
+            246.3939962476547
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.3602251407129456",
+          "source": "density-a.png",
+          "transform": "translate(43.50531582238901 12.171669793621021)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "991 15 545 570",
+          "feet": "141.66666666666669 217.5",
+          "filter": "none",
+          "id": "tree",
+          "overflow": "hidden",
+          "projected_size": [
+            235.5872420262664,
+            246.3939962476547
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.3602251407129456",
+          "source": "density-b.png",
+          "transform": "translate(43.50531582238901 12.171669793621021)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "18 618 503 348",
+          "feet": "141.66666666666669 84.16666666666667",
+          "filter": "none",
+          "id": "table",
+          "overflow": "hidden",
+          "projected_size": [
+            124.3467811158798,
+            86.02918454935622
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.20600858369098712",
+          "source": "density-a.png",
+          "transform": "translate(89.85550786838343 12.475679542203153)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "18 618 503 348",
+          "feet": "141.66666666666669 84.16666666666667",
+          "filter": "none",
+          "id": "table",
+          "overflow": "hidden",
+          "projected_size": [
+            124.3467811158798,
+            86.02918454935622
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.20600858369098712",
+          "source": "density-b.png",
+          "transform": "translate(89.85550786838343 12.475679542203153)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "532 585 492 396",
+          "feet": "141.66666666666669 95",
+          "filter": "none",
+          "id": "grass",
+          "overflow": "hidden",
+          "projected_size": [
+            123.75196506550216,
+            99.60263979716072
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.2096069868995633",
+          "source": "density-a.png",
+          "transform": "translate(90.1033478893741 11.995633187772924)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "532 585 492 396",
+          "feet": "141.66666666666669 95",
+          "filter": "none",
+          "id": "grass",
+          "overflow": "hidden",
+          "projected_size": [
+            123.75196506550216,
+            99.60263979716072
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.2096069868995633",
+          "source": "density-b.png",
+          "transform": "translate(90.1033478893741 11.995633187772924)"
+        }
+      ],
+      "size": [
+        1151.997802734375,
+        647.9966430664062
+      ],
+      "stage_filter": "grayscale(1)",
+      "variant": "b",
+      "viewBox": "0 0 960 540"
+    },
+    {
+      "background": "dark",
+      "labels": false,
+      "mono": false,
+      "parts": [
+        {
+          "attribute_filter": null,
+          "clip": "139 78 232 496",
+          "feet": "480 390",
+          "filter": "none",
+          "id": "hero",
+          "overflow": "hidden",
+          "projected_size": [
+            48.91617568009846,
+            104.5790677747085
+          ],
+          "sample_filter": "none",
+          "scale": "0.175704989154013",
+          "source": "density-a.png",
+          "transform": "translate(459.6182212581345 302.85032537960956)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "530 47 467 514",
+          "feet": "270 360",
+          "filter": "none",
+          "id": "door",
+          "overflow": "hidden",
+          "projected_size": [
+            140.09973278045655,
+            154.19920117413557
+          ],
+          "sample_filter": "none",
+          "scale": "0.25",
+          "source": "density-b.png",
+          "transform": "translate(211.625 231.5)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "991 15 545 570",
+          "feet": "740 365",
+          "filter": "none",
+          "id": "tree",
+          "overflow": "hidden",
+          "projected_size": [
+            235.5867926792625,
+            246.3927198151188
+          ],
+          "sample_filter": "none",
+          "scale": "0.3602251407129456",
+          "source": "density-b.png",
+          "transform": "translate(641.8386491557224 159.67166979362102)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "18 618 503 348",
+          "feet": "270 475",
+          "filter": "none",
+          "id": "table",
+          "overflow": "hidden",
+          "projected_size": [
+            124.34654394321686,
+            86.02873887920244
+          ],
+          "sample_filter": "none",
+          "scale": "0.20600858369098712",
+          "source": "density-b.png",
+          "transform": "translate(218.18884120171674 403.3090128755365)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "532 585 492 396",
+          "feet": "740 475",
+          "filter": "none",
+          "id": "grass",
+          "overflow": "hidden",
+          "projected_size": [
+            123.7517290273608,
+            99.60472417439958
+          ],
+          "sample_filter": "none",
+          "scale": "0.2096069868995633",
+          "source": "density-b.png",
+          "transform": "translate(688.4366812227074 391.9956331877729)"
+        }
+      ],
+      "samples": [
+        {
+          "attribute_filter": null,
+          "clip": "139 78 232 496",
+          "feet": "141.66666666666669 99.16666666666667",
+          "filter": "none",
+          "id": "hero",
+          "overflow": "hidden",
+          "projected_size": [
+            48.91626898047722,
+            104.57698194261664
+          ],
+          "sample_filter": "none",
+          "scale": "0.175704989154013",
+          "source": "density-a.png",
+          "transform": "translate(121.28488792480118 12.01699204627623)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "139 78 232 496",
+          "feet": "141.66666666666669 99.16666666666667",
+          "filter": "none",
+          "id": "hero",
+          "overflow": "hidden",
+          "projected_size": [
+            48.91626898047722,
+            104.57698194261664
+          ],
+          "sample_filter": "none",
+          "scale": "0.175704989154013",
+          "source": "density-a.png",
+          "transform": "translate(121.28488792480118 12.01699204627623)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "530 47 467 514",
+          "feet": "141.66666666666669 140.83333333333334",
+          "filter": "none",
+          "id": "door",
+          "overflow": "hidden",
+          "projected_size": [
+            140.1,
+            154.1971842281154
+          ],
+          "sample_filter": "none",
+          "scale": "0.25",
+          "source": "density-a.png",
+          "transform": "translate(83.29166666666669 12.333333333333343)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "530 47 467 514",
+          "feet": "141.66666666666669 140.83333333333334",
+          "filter": "none",
+          "id": "door",
+          "overflow": "hidden",
+          "projected_size": [
+            140.1,
+            154.1971842281154
+          ],
+          "sample_filter": "none",
+          "scale": "0.25",
+          "source": "density-b.png",
+          "transform": "translate(83.29166666666669 12.333333333333343)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "991 15 545 570",
+          "feet": "141.66666666666669 217.5",
+          "filter": "none",
+          "id": "tree",
+          "overflow": "hidden",
+          "projected_size": [
+            235.5872420262664,
+            246.3939962476547
+          ],
+          "sample_filter": "none",
+          "scale": "0.3602251407129456",
+          "source": "density-a.png",
+          "transform": "translate(43.50531582238901 12.171669793621021)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "991 15 545 570",
+          "feet": "141.66666666666669 217.5",
+          "filter": "none",
+          "id": "tree",
+          "overflow": "hidden",
+          "projected_size": [
+            235.5872420262664,
+            246.3939962476547
+          ],
+          "sample_filter": "none",
+          "scale": "0.3602251407129456",
+          "source": "density-b.png",
+          "transform": "translate(43.50531582238901 12.171669793621021)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "18 618 503 348",
+          "feet": "141.66666666666669 84.16666666666667",
+          "filter": "none",
+          "id": "table",
+          "overflow": "hidden",
+          "projected_size": [
+            124.3467811158798,
+            86.02918454935622
+          ],
+          "sample_filter": "none",
+          "scale": "0.20600858369098712",
+          "source": "density-a.png",
+          "transform": "translate(89.85550786838343 12.475679542203153)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "18 618 503 348",
+          "feet": "141.66666666666669 84.16666666666667",
+          "filter": "none",
+          "id": "table",
+          "overflow": "hidden",
+          "projected_size": [
+            124.3467811158798,
+            86.02918454935622
+          ],
+          "sample_filter": "none",
+          "scale": "0.20600858369098712",
+          "source": "density-b.png",
+          "transform": "translate(89.85550786838343 12.475679542203153)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "532 585 492 396",
+          "feet": "141.66666666666669 95",
+          "filter": "none",
+          "id": "grass",
+          "overflow": "hidden",
+          "projected_size": [
+            123.75196506550216,
+            99.60263979716072
+          ],
+          "sample_filter": "none",
+          "scale": "0.2096069868995633",
+          "source": "density-a.png",
+          "transform": "translate(90.1033478893741 11.995633187772924)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "532 585 492 396",
+          "feet": "141.66666666666669 95",
+          "filter": "none",
+          "id": "grass",
+          "overflow": "hidden",
+          "projected_size": [
+            123.75196506550216,
+            99.60263979716072
+          ],
+          "sample_filter": "none",
+          "scale": "0.2096069868995633",
+          "source": "density-b.png",
+          "transform": "translate(90.1033478893741 11.995633187772924)"
+        }
+      ],
+      "size": [
+        1151.997802734375,
+        647.9966430664062
+      ],
+      "stage_filter": "none",
+      "variant": "b",
+      "viewBox": "0 0 960 540"
+    },
+    {
+      "background": "dark",
+      "labels": false,
+      "mono": true,
+      "parts": [
+        {
+          "attribute_filter": null,
+          "clip": "139 78 232 496",
+          "feet": "480 390",
+          "filter": "none",
+          "id": "hero",
+          "overflow": "hidden",
+          "projected_size": [
+            48.91617568009846,
+            104.5790677747085
+          ],
+          "sample_filter": "none",
+          "scale": "0.175704989154013",
+          "source": "density-a.png",
+          "transform": "translate(459.6182212581345 302.85032537960956)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "530 47 467 514",
+          "feet": "270 360",
+          "filter": "none",
+          "id": "door",
+          "overflow": "hidden",
+          "projected_size": [
+            140.09973278045655,
+            154.19920117413557
+          ],
+          "sample_filter": "none",
+          "scale": "0.25",
+          "source": "density-b.png",
+          "transform": "translate(211.625 231.5)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "991 15 545 570",
+          "feet": "740 365",
+          "filter": "none",
+          "id": "tree",
+          "overflow": "hidden",
+          "projected_size": [
+            235.5867926792625,
+            246.3927198151188
+          ],
+          "sample_filter": "none",
+          "scale": "0.3602251407129456",
+          "source": "density-b.png",
+          "transform": "translate(641.8386491557224 159.67166979362102)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "18 618 503 348",
+          "feet": "270 475",
+          "filter": "none",
+          "id": "table",
+          "overflow": "hidden",
+          "projected_size": [
+            124.34654394321686,
+            86.02873887920244
+          ],
+          "sample_filter": "none",
+          "scale": "0.20600858369098712",
+          "source": "density-b.png",
+          "transform": "translate(218.18884120171674 403.3090128755365)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "532 585 492 396",
+          "feet": "740 475",
+          "filter": "none",
+          "id": "grass",
+          "overflow": "hidden",
+          "projected_size": [
+            123.7517290273608,
+            99.60472417439958
+          ],
+          "sample_filter": "none",
+          "scale": "0.2096069868995633",
+          "source": "density-b.png",
+          "transform": "translate(688.4366812227074 391.9956331877729)"
+        }
+      ],
+      "samples": [
+        {
+          "attribute_filter": null,
+          "clip": "139 78 232 496",
+          "feet": "141.66666666666669 99.16666666666667",
+          "filter": "none",
+          "id": "hero",
+          "overflow": "hidden",
+          "projected_size": [
+            48.91626898047722,
+            104.57698194261664
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.175704989154013",
+          "source": "density-a.png",
+          "transform": "translate(121.28488792480118 12.01699204627623)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "139 78 232 496",
+          "feet": "141.66666666666669 99.16666666666667",
+          "filter": "none",
+          "id": "hero",
+          "overflow": "hidden",
+          "projected_size": [
+            48.91626898047722,
+            104.57698194261664
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.175704989154013",
+          "source": "density-a.png",
+          "transform": "translate(121.28488792480118 12.01699204627623)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "530 47 467 514",
+          "feet": "141.66666666666669 140.83333333333334",
+          "filter": "none",
+          "id": "door",
+          "overflow": "hidden",
+          "projected_size": [
+            140.1,
+            154.1971842281154
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.25",
+          "source": "density-a.png",
+          "transform": "translate(83.29166666666669 12.333333333333343)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "530 47 467 514",
+          "feet": "141.66666666666669 140.83333333333334",
+          "filter": "none",
+          "id": "door",
+          "overflow": "hidden",
+          "projected_size": [
+            140.1,
+            154.1971842281154
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.25",
+          "source": "density-b.png",
+          "transform": "translate(83.29166666666669 12.333333333333343)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "991 15 545 570",
+          "feet": "141.66666666666669 217.5",
+          "filter": "none",
+          "id": "tree",
+          "overflow": "hidden",
+          "projected_size": [
+            235.5872420262664,
+            246.3939962476547
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.3602251407129456",
+          "source": "density-a.png",
+          "transform": "translate(43.50531582238901 12.171669793621021)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "991 15 545 570",
+          "feet": "141.66666666666669 217.5",
+          "filter": "none",
+          "id": "tree",
+          "overflow": "hidden",
+          "projected_size": [
+            235.5872420262664,
+            246.3939962476547
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.3602251407129456",
+          "source": "density-b.png",
+          "transform": "translate(43.50531582238901 12.171669793621021)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "18 618 503 348",
+          "feet": "141.66666666666669 84.16666666666667",
+          "filter": "none",
+          "id": "table",
+          "overflow": "hidden",
+          "projected_size": [
+            124.3467811158798,
+            86.02918454935622
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.20600858369098712",
+          "source": "density-a.png",
+          "transform": "translate(89.85550786838343 12.475679542203153)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "18 618 503 348",
+          "feet": "141.66666666666669 84.16666666666667",
+          "filter": "none",
+          "id": "table",
+          "overflow": "hidden",
+          "projected_size": [
+            124.3467811158798,
+            86.02918454935622
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.20600858369098712",
+          "source": "density-b.png",
+          "transform": "translate(89.85550786838343 12.475679542203153)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "532 585 492 396",
+          "feet": "141.66666666666669 95",
+          "filter": "none",
+          "id": "grass",
+          "overflow": "hidden",
+          "projected_size": [
+            123.75196506550216,
+            99.60263979716072
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.2096069868995633",
+          "source": "density-a.png",
+          "transform": "translate(90.1033478893741 11.995633187772924)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "532 585 492 396",
+          "feet": "141.66666666666669 95",
+          "filter": "none",
+          "id": "grass",
+          "overflow": "hidden",
+          "projected_size": [
+            123.75196506550216,
+            99.60263979716072
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.2096069868995633",
+          "source": "density-b.png",
+          "transform": "translate(90.1033478893741 11.995633187772924)"
+        }
+      ],
+      "size": [
+        1151.997802734375,
+        647.9966430664062
+      ],
+      "stage_filter": "grayscale(1)",
+      "variant": "b",
+      "viewBox": "0 0 960 540"
+    },
+    {
+      "background": "grass",
+      "labels": false,
+      "mono": false,
+      "parts": [
+        {
+          "attribute_filter": null,
+          "clip": "139 78 232 496",
+          "feet": "480 390",
+          "filter": "none",
+          "id": "hero",
+          "overflow": "hidden",
+          "projected_size": [
+            48.91617568009846,
+            104.5790677747085
+          ],
+          "sample_filter": "none",
+          "scale": "0.175704989154013",
+          "source": "density-a.png",
+          "transform": "translate(459.6182212581345 302.85032537960956)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "530 47 467 514",
+          "feet": "270 360",
+          "filter": "none",
+          "id": "door",
+          "overflow": "hidden",
+          "projected_size": [
+            140.09973278045655,
+            154.19920117413557
+          ],
+          "sample_filter": "none",
+          "scale": "0.25",
+          "source": "density-b.png",
+          "transform": "translate(211.625 231.5)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "991 15 545 570",
+          "feet": "740 365",
+          "filter": "none",
+          "id": "tree",
+          "overflow": "hidden",
+          "projected_size": [
+            235.5867926792625,
+            246.3927198151188
+          ],
+          "sample_filter": "none",
+          "scale": "0.3602251407129456",
+          "source": "density-b.png",
+          "transform": "translate(641.8386491557224 159.67166979362102)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "18 618 503 348",
+          "feet": "270 475",
+          "filter": "none",
+          "id": "table",
+          "overflow": "hidden",
+          "projected_size": [
+            124.34654394321686,
+            86.02873887920244
+          ],
+          "sample_filter": "none",
+          "scale": "0.20600858369098712",
+          "source": "density-b.png",
+          "transform": "translate(218.18884120171674 403.3090128755365)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "532 585 492 396",
+          "feet": "740 475",
+          "filter": "none",
+          "id": "grass",
+          "overflow": "hidden",
+          "projected_size": [
+            123.7517290273608,
+            99.60472417439958
+          ],
+          "sample_filter": "none",
+          "scale": "0.2096069868995633",
+          "source": "density-b.png",
+          "transform": "translate(688.4366812227074 391.9956331877729)"
+        }
+      ],
+      "samples": [
+        {
+          "attribute_filter": null,
+          "clip": "139 78 232 496",
+          "feet": "141.66666666666669 99.16666666666667",
+          "filter": "none",
+          "id": "hero",
+          "overflow": "hidden",
+          "projected_size": [
+            48.91626898047722,
+            104.57698194261664
+          ],
+          "sample_filter": "none",
+          "scale": "0.175704989154013",
+          "source": "density-a.png",
+          "transform": "translate(121.28488792480118 12.01699204627623)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "139 78 232 496",
+          "feet": "141.66666666666669 99.16666666666667",
+          "filter": "none",
+          "id": "hero",
+          "overflow": "hidden",
+          "projected_size": [
+            48.91626898047722,
+            104.57698194261664
+          ],
+          "sample_filter": "none",
+          "scale": "0.175704989154013",
+          "source": "density-a.png",
+          "transform": "translate(121.28488792480118 12.01699204627623)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "530 47 467 514",
+          "feet": "141.66666666666669 140.83333333333334",
+          "filter": "none",
+          "id": "door",
+          "overflow": "hidden",
+          "projected_size": [
+            140.1,
+            154.1971842281154
+          ],
+          "sample_filter": "none",
+          "scale": "0.25",
+          "source": "density-a.png",
+          "transform": "translate(83.29166666666669 12.333333333333343)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "530 47 467 514",
+          "feet": "141.66666666666669 140.83333333333334",
+          "filter": "none",
+          "id": "door",
+          "overflow": "hidden",
+          "projected_size": [
+            140.1,
+            154.1971842281154
+          ],
+          "sample_filter": "none",
+          "scale": "0.25",
+          "source": "density-b.png",
+          "transform": "translate(83.29166666666669 12.333333333333343)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "991 15 545 570",
+          "feet": "141.66666666666669 217.5",
+          "filter": "none",
+          "id": "tree",
+          "overflow": "hidden",
+          "projected_size": [
+            235.5872420262664,
+            246.3939962476547
+          ],
+          "sample_filter": "none",
+          "scale": "0.3602251407129456",
+          "source": "density-a.png",
+          "transform": "translate(43.50531582238901 12.171669793621021)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "991 15 545 570",
+          "feet": "141.66666666666669 217.5",
+          "filter": "none",
+          "id": "tree",
+          "overflow": "hidden",
+          "projected_size": [
+            235.5872420262664,
+            246.3939962476547
+          ],
+          "sample_filter": "none",
+          "scale": "0.3602251407129456",
+          "source": "density-b.png",
+          "transform": "translate(43.50531582238901 12.171669793621021)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "18 618 503 348",
+          "feet": "141.66666666666669 84.16666666666667",
+          "filter": "none",
+          "id": "table",
+          "overflow": "hidden",
+          "projected_size": [
+            124.3467811158798,
+            86.02918454935622
+          ],
+          "sample_filter": "none",
+          "scale": "0.20600858369098712",
+          "source": "density-a.png",
+          "transform": "translate(89.85550786838343 12.475679542203153)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "18 618 503 348",
+          "feet": "141.66666666666669 84.16666666666667",
+          "filter": "none",
+          "id": "table",
+          "overflow": "hidden",
+          "projected_size": [
+            124.3467811158798,
+            86.02918454935622
+          ],
+          "sample_filter": "none",
+          "scale": "0.20600858369098712",
+          "source": "density-b.png",
+          "transform": "translate(89.85550786838343 12.475679542203153)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "532 585 492 396",
+          "feet": "141.66666666666669 95",
+          "filter": "none",
+          "id": "grass",
+          "overflow": "hidden",
+          "projected_size": [
+            123.75196506550216,
+            99.60263979716072
+          ],
+          "sample_filter": "none",
+          "scale": "0.2096069868995633",
+          "source": "density-a.png",
+          "transform": "translate(90.1033478893741 11.995633187772924)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "532 585 492 396",
+          "feet": "141.66666666666669 95",
+          "filter": "none",
+          "id": "grass",
+          "overflow": "hidden",
+          "projected_size": [
+            123.75196506550216,
+            99.60263979716072
+          ],
+          "sample_filter": "none",
+          "scale": "0.2096069868995633",
+          "source": "density-b.png",
+          "transform": "translate(90.1033478893741 11.995633187772924)"
+        }
+      ],
+      "size": [
+        1151.997802734375,
+        647.9966430664062
+      ],
+      "stage_filter": "none",
+      "variant": "b",
+      "viewBox": "0 0 960 540"
+    },
+    {
+      "background": "grass",
+      "labels": false,
+      "mono": true,
+      "parts": [
+        {
+          "attribute_filter": null,
+          "clip": "139 78 232 496",
+          "feet": "480 390",
+          "filter": "none",
+          "id": "hero",
+          "overflow": "hidden",
+          "projected_size": [
+            48.91617568009846,
+            104.5790677747085
+          ],
+          "sample_filter": "none",
+          "scale": "0.175704989154013",
+          "source": "density-a.png",
+          "transform": "translate(459.6182212581345 302.85032537960956)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "530 47 467 514",
+          "feet": "270 360",
+          "filter": "none",
+          "id": "door",
+          "overflow": "hidden",
+          "projected_size": [
+            140.09973278045655,
+            154.19920117413557
+          ],
+          "sample_filter": "none",
+          "scale": "0.25",
+          "source": "density-b.png",
+          "transform": "translate(211.625 231.5)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "991 15 545 570",
+          "feet": "740 365",
+          "filter": "none",
+          "id": "tree",
+          "overflow": "hidden",
+          "projected_size": [
+            235.5867926792625,
+            246.3927198151188
+          ],
+          "sample_filter": "none",
+          "scale": "0.3602251407129456",
+          "source": "density-b.png",
+          "transform": "translate(641.8386491557224 159.67166979362102)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "18 618 503 348",
+          "feet": "270 475",
+          "filter": "none",
+          "id": "table",
+          "overflow": "hidden",
+          "projected_size": [
+            124.34654394321686,
+            86.02873887920244
+          ],
+          "sample_filter": "none",
+          "scale": "0.20600858369098712",
+          "source": "density-b.png",
+          "transform": "translate(218.18884120171674 403.3090128755365)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "532 585 492 396",
+          "feet": "740 475",
+          "filter": "none",
+          "id": "grass",
+          "overflow": "hidden",
+          "projected_size": [
+            123.7517290273608,
+            99.60472417439958
+          ],
+          "sample_filter": "none",
+          "scale": "0.2096069868995633",
+          "source": "density-b.png",
+          "transform": "translate(688.4366812227074 391.9956331877729)"
+        }
+      ],
+      "samples": [
+        {
+          "attribute_filter": null,
+          "clip": "139 78 232 496",
+          "feet": "141.66666666666669 99.16666666666667",
+          "filter": "none",
+          "id": "hero",
+          "overflow": "hidden",
+          "projected_size": [
+            48.91626898047722,
+            104.57698194261664
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.175704989154013",
+          "source": "density-a.png",
+          "transform": "translate(121.28488792480118 12.01699204627623)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "139 78 232 496",
+          "feet": "141.66666666666669 99.16666666666667",
+          "filter": "none",
+          "id": "hero",
+          "overflow": "hidden",
+          "projected_size": [
+            48.91626898047722,
+            104.57698194261664
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.175704989154013",
+          "source": "density-a.png",
+          "transform": "translate(121.28488792480118 12.01699204627623)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "530 47 467 514",
+          "feet": "141.66666666666669 140.83333333333334",
+          "filter": "none",
+          "id": "door",
+          "overflow": "hidden",
+          "projected_size": [
+            140.1,
+            154.1971842281154
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.25",
+          "source": "density-a.png",
+          "transform": "translate(83.29166666666669 12.333333333333343)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "530 47 467 514",
+          "feet": "141.66666666666669 140.83333333333334",
+          "filter": "none",
+          "id": "door",
+          "overflow": "hidden",
+          "projected_size": [
+            140.1,
+            154.1971842281154
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.25",
+          "source": "density-b.png",
+          "transform": "translate(83.29166666666669 12.333333333333343)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "991 15 545 570",
+          "feet": "141.66666666666669 217.5",
+          "filter": "none",
+          "id": "tree",
+          "overflow": "hidden",
+          "projected_size": [
+            235.5872420262664,
+            246.3939962476547
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.3602251407129456",
+          "source": "density-a.png",
+          "transform": "translate(43.50531582238901 12.171669793621021)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "991 15 545 570",
+          "feet": "141.66666666666669 217.5",
+          "filter": "none",
+          "id": "tree",
+          "overflow": "hidden",
+          "projected_size": [
+            235.5872420262664,
+            246.3939962476547
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.3602251407129456",
+          "source": "density-b.png",
+          "transform": "translate(43.50531582238901 12.171669793621021)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "18 618 503 348",
+          "feet": "141.66666666666669 84.16666666666667",
+          "filter": "none",
+          "id": "table",
+          "overflow": "hidden",
+          "projected_size": [
+            124.3467811158798,
+            86.02918454935622
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.20600858369098712",
+          "source": "density-a.png",
+          "transform": "translate(89.85550786838343 12.475679542203153)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "18 618 503 348",
+          "feet": "141.66666666666669 84.16666666666667",
+          "filter": "none",
+          "id": "table",
+          "overflow": "hidden",
+          "projected_size": [
+            124.3467811158798,
+            86.02918454935622
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.20600858369098712",
+          "source": "density-b.png",
+          "transform": "translate(89.85550786838343 12.475679542203153)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "532 585 492 396",
+          "feet": "141.66666666666669 95",
+          "filter": "none",
+          "id": "grass",
+          "overflow": "hidden",
+          "projected_size": [
+            123.75196506550216,
+            99.60263979716072
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.2096069868995633",
+          "source": "density-a.png",
+          "transform": "translate(90.1033478893741 11.995633187772924)"
+        },
+        {
+          "attribute_filter": null,
+          "clip": "532 585 492 396",
+          "feet": "141.66666666666669 95",
+          "filter": "none",
+          "id": "grass",
+          "overflow": "hidden",
+          "projected_size": [
+            123.75196506550216,
+            99.60263979716072
+          ],
+          "sample_filter": "grayscale(1)",
+          "scale": "0.2096069868995633",
+          "source": "density-b.png",
+          "transform": "translate(90.1033478893741 11.995633187772924)"
+        }
+      ],
+      "size": [
+        1151.997802734375,
+        647.9966430664062
+      ],
+      "stage_filter": "grayscale(1)",
+      "variant": "b",
+      "viewBox": "0 0 960 540"
+    }
+  ]
+}

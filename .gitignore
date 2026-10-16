@@ -2,6 +2,9 @@
 .godot/
 tools/*
 !tools/visual_edges.py
+!tools/visual_density.py
+!tools/visual_density_capture.gd
+!tools/test_visual_density.py
 !tools/test_visual_edges.py
 !tools/visual_perspective_export.gd
 !tools/visual_perspective.py

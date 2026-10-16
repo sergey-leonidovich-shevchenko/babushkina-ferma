@@ -22,6 +22,7 @@
 - [scripts/presentation/house_furniture_visual_system.gd](../../../../scripts/presentation/house_furniture_visual_system.gd)
 - [scripts/systems/furniture_facing_system.gd](../../../../scripts/systems/furniture_facing_system.gd)
 - [docs/reports/visual-overhaul/vart-004/README.md](../../../../docs/reports/visual-overhaul/vart-004/README.md)
+- [docs/reports/visual-overhaul/vart-006/README.md](../../../../docs/reports/visual-overhaul/vart-006/README.md)
 
 Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vprop-001/`.
 

@@ -198,7 +198,7 @@
 
 ## VART-006 — Задать плотность деталей
 
-Статус: `ready` · P0 · этап `foundation` · `engineering`
+Статус: `done` · P0 · этап `foundation` · `engineering`
 
 Один лист сравнивает героя, дверь, дерево, стол и траву; мелкие детали не соревнуются с интерактивными объектами
 
@@ -214,7 +214,7 @@
 - [docs/reports/visual-overhaul/vart-004/README.md](../../../../docs/reports/visual-overhaul/vart-004/README.md)
 - [docs/reports/visual-overhaul/vart-005/README.md](../../../../docs/reports/visual-overhaul/vart-005/README.md)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vart-006/`.
+Результаты: `docs/reports/visual-overhaul/vart-006/`.
 
 Критерии:
 
@@ -232,7 +232,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vart-006/README.md, docs/reports/visual-overhaul/vart-006/density-profile.json, docs/reports/visual-overhaul/vart-006/source.json, docs/reports/visual-overhaul/vart-006/browser-check.json, docs/reports/visual-overhaul/vart-006/native/capture.json, docs/reports/visual-overhaul/vart-006/native/pairs.png, tools/visual_density.py, tools/test_visual_density.py, tools/visual_density_capture.gd, 17 октября 2026: пользователь выбрал «B — ремесленная фактура». Сохранены мягкий стиль VART-001 A, палитра A и край A. Пять образцов с общим героем, одинаковыми source rect/опорами и проекцией 1.2; 12 DOM-состояний, шесть настоящих GPU Image 1152×648 и парный лист 1152×960 с равными повторами. Этюды не импортированы в игру; FPS и игровые локации не принимаются..
 
 <a id="vart-007"></a>
 
@@ -290,6 +290,7 @@
 - [docs/SPRITE_STANDARD.md](../../../../docs/SPRITE_STANDARD.md)
 - [assets/game/world_sprite_manifest.json](../../../../assets/game/world_sprite_manifest.json)
 - [docs/reports/visual-overhaul/vart-005/README.md](../../../../docs/reports/visual-overhaul/vart-005/README.md)
+- [docs/reports/visual-overhaul/vart-006/README.md](../../../../docs/reports/visual-overhaul/vart-006/README.md)
 
 Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vart-008/`.
 

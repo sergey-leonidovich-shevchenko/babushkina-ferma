@@ -875,7 +875,7 @@
       "id": "VART-006",
       "epic": "VART",
       "title": "Задать плотность деталей",
-      "status": "ready",
+      "status": "done",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -913,7 +913,18 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vart-006-visual-task",
-      "evidence": []
+      "evidence": [
+        "docs/reports/visual-overhaul/vart-006/README.md",
+        "docs/reports/visual-overhaul/vart-006/density-profile.json",
+        "docs/reports/visual-overhaul/vart-006/source.json",
+        "docs/reports/visual-overhaul/vart-006/browser-check.json",
+        "docs/reports/visual-overhaul/vart-006/native/capture.json",
+        "docs/reports/visual-overhaul/vart-006/native/pairs.png",
+        "tools/visual_density.py",
+        "tools/test_visual_density.py",
+        "tools/visual_density_capture.gd",
+        "17 октября 2026: пользователь выбрал «B — ремесленная фактура». Сохранены мягкий стиль VART-001 A, палитра A и край A. Пять образцов с общим героем, одинаковыми source rect/опорами и проекцией 1.2; 12 DOM-состояний, шесть настоящих GPU Image 1152×648 и парный лист 1152×960 с равными повторами. Этюды не импортированы в игру; FPS и игровые локации не принимаются."
+      ]
     },
     {
       "id": "VART-007",
@@ -970,7 +981,8 @@
         "docs/ART_GUIDE.md",
         "docs/SPRITE_STANDARD.md",
         "assets/game/world_sprite_manifest.json",
-        "docs/reports/visual-overhaul/vart-005/README.md"
+        "docs/reports/visual-overhaul/vart-005/README.md",
+        "docs/reports/visual-overhaul/vart-006/README.md"
       ],
       "proposed_outputs": [
         "docs/reports/visual-overhaul/vart-008/"
@@ -7853,7 +7865,8 @@
         "scripts/systems/village_layout_system.gd",
         "scripts/presentation/house_furniture_visual_system.gd",
         "scripts/systems/furniture_facing_system.gd",
-        "docs/reports/visual-overhaul/vart-004/README.md"
+        "docs/reports/visual-overhaul/vart-004/README.md",
+        "docs/reports/visual-overhaul/vart-006/README.md"
       ],
       "proposed_outputs": [
         "docs/reports/visual-overhaul/vprop-001/"
