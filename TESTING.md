@@ -1,5 +1,7 @@
 # Правила тестирования
 
+VART-007: `python3 tools/visual_light.py` сверяет прямой выбор A, три слоя света, направление, два контакта стола, 24 настоящих readback PNG 1152×648, повтор, источники и HTML. Пять сценариев `tools/test_visual_light.py` входят в architecture gate. [Ограничения художественной alpha-проекции](docs/reports/visual-overhaul/vart-007/README.md); FPS и runtime не заявляются.
+
 ## VIS: план визуальной переделки
 
 VART-006: `python3 tools/visual_density.py` проверяет пять образцов, общего героя A в обоих вариантах, неизменные области/опоры, 12 браузерных состояний, шесть настоящих PNG Godot 1152×648 и парный лист. `tools/visual_density_capture.gd` требует новый output и профиль `Codex-VART-006-*`, графику вместо headless; каждый повтор readback совпадает. Восемь отрицательных/положительных сценариев `tools/test_visual_density.py` включены в architecture gate. Измерения частоты исходника не заменяют художественный выбор B. [Методика, sampling и границы нативной витрины](docs/reports/visual-overhaul/vart-006/README.md).

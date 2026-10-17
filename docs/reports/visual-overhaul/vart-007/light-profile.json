@@ -1,0 +1,150 @@
+{
+  "schema": 1,
+  "task": "VART-007",
+  "status": "approved",
+  "selection": "a",
+  "date": "2026-10-17",
+  "art_direction": "VART-001 A",
+  "palette": "VART-003 A",
+  "density": "VART-006 B",
+  "edge": "VART-005 A",
+  "runtime_integration": false,
+  "target": [
+    1152,
+    648
+  ],
+  "field": [
+    960,
+    540
+  ],
+  "zoom": 1.2,
+  "recommended": "a",
+  "variants": {
+    "a": {
+      "name": "Солнце сверху-слева",
+      "master": "../vart-006/density-b.png",
+      "cast": [
+        0.55,
+        0.25
+      ]
+    },
+    "b": {
+      "name": "Солнце сверху-справа",
+      "master": "local-ne.png",
+      "cast": [
+        -0.55,
+        0.25
+      ]
+    }
+  },
+  "backgrounds": {
+    "light": "#f4efdf",
+    "dark": "#252e36",
+    "grass": "#6f8651"
+  },
+  "layers": [
+    "combined",
+    "form",
+    "contact",
+    "cast"
+  ],
+  "cast_opacity": 0.22,
+  "penumbra_world": 1.2,
+  "parts": [
+    {
+      "id": "hero",
+      "rect": [
+        139,
+        78,
+        232,
+        496
+      ],
+      "scale": 0.175704989154013,
+      "pivot": [
+        113,
+        478
+      ],
+      "feet": [
+        180,
+        420
+      ],
+      "source": "../vart-006/density-a.png",
+      "contact": [
+        [
+          0,
+          0,
+          10,
+          2.5
+        ]
+      ],
+      "cast": false,
+      "role": "Общая масштабная линейка; локальное освещение героя здесь не принимается."
+    },
+    {
+      "id": "tree",
+      "rect": [
+        991,
+        15,
+        545,
+        570
+      ],
+      "scale": 0.3602251407129456,
+      "pivot": [
+        273,
+        525
+      ],
+      "feet": [
+        680,
+        340
+      ],
+      "source": "variant",
+      "contact": [
+        [
+          0,
+          1,
+          48,
+          8
+        ]
+      ],
+      "cast": true,
+      "role": "Точка земли у основания ствола; передние корни выступают за неё."
+    },
+    {
+      "id": "table",
+      "rect": [
+        18,
+        618,
+        503,
+        348
+      ],
+      "scale": 0.20600858369098712,
+      "pivot": [
+        251,
+        330
+      ],
+      "feet": [
+        350,
+        420
+      ],
+      "source": "variant",
+      "contact": [
+        [
+          -39.8,
+          -0.8,
+          6,
+          2
+        ],
+        [
+          39.1,
+          -0.8,
+          6,
+          2
+        ]
+      ],
+      "cast": true,
+      "role": "Два отдельных контакта под передними ножками, не пятно посередине."
+    }
+  ],
+  "decision_quote": "A — сверху-слева (рекомендую)",
+  "decision_source": "direct user reply in chat"
+}

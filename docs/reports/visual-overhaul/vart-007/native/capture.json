@@ -1,0 +1,332 @@
+{
+	"adapter": "AMD Radeon Pro 5300M OpenGL Engine",
+	"display_server": "macOS",
+	"engine": "4.7.1-stable (official)",
+	"field": [
+		960,
+		540
+	],
+	"frames": [
+		{
+			"background": "light",
+			"file": "a-light-combined.png",
+			"layer": "combined",
+			"repeat_equal": true,
+			"sha256": "731585025f4c4b0bf783caa07b013634e8b00da79008a5b09c4c3d4c9df916b8",
+			"size": [
+				1152,
+				648
+			],
+			"variant": "a"
+		},
+		{
+			"background": "light",
+			"file": "a-light-form.png",
+			"layer": "form",
+			"repeat_equal": true,
+			"sha256": "2faf3edb6923c41abc22673b5f6bc444a24de06253455943729738feb4a0ec80",
+			"size": [
+				1152,
+				648
+			],
+			"variant": "a"
+		},
+		{
+			"background": "light",
+			"file": "a-light-contact.png",
+			"layer": "contact",
+			"repeat_equal": true,
+			"sha256": "4852aee7926042daf4a9d876fb2cafe6a684082c3744168cf229c0f64a8442a2",
+			"size": [
+				1152,
+				648
+			],
+			"variant": "a"
+		},
+		{
+			"background": "light",
+			"file": "a-light-cast.png",
+			"layer": "cast",
+			"repeat_equal": true,
+			"sha256": "b02452e1b9ddda2bd525b75cce1ffd9dfd5dfec5b62355b8b66b0114dd2d8fc2",
+			"size": [
+				1152,
+				648
+			],
+			"variant": "a"
+		},
+		{
+			"background": "dark",
+			"file": "a-dark-combined.png",
+			"layer": "combined",
+			"repeat_equal": true,
+			"sha256": "ff4146b20e22bdab070e3bf2edd1b4a935295327bfb031b38a3037607b1d69b6",
+			"size": [
+				1152,
+				648
+			],
+			"variant": "a"
+		},
+		{
+			"background": "dark",
+			"file": "a-dark-form.png",
+			"layer": "form",
+			"repeat_equal": true,
+			"sha256": "17a6f1b78b16c5780753b43960afc0699cd307dce1402a77710226c70703adfa",
+			"size": [
+				1152,
+				648
+			],
+			"variant": "a"
+		},
+		{
+			"background": "dark",
+			"file": "a-dark-contact.png",
+			"layer": "contact",
+			"repeat_equal": true,
+			"sha256": "25908d93bf6b0977c39168630768cc54ee69541944f5efc2e4a96202b238969a",
+			"size": [
+				1152,
+				648
+			],
+			"variant": "a"
+		},
+		{
+			"background": "dark",
+			"file": "a-dark-cast.png",
+			"layer": "cast",
+			"repeat_equal": true,
+			"sha256": "fd8e2d5a1f31b6c373ffb63c0a900095754f92dddd057658ce765bf8ace5b605",
+			"size": [
+				1152,
+				648
+			],
+			"variant": "a"
+		},
+		{
+			"background": "grass",
+			"file": "a-grass-combined.png",
+			"layer": "combined",
+			"repeat_equal": true,
+			"sha256": "3293aabfb117b6c83c37fd710d62c1a18acb027c880a9fcf520890cbf0e4edf2",
+			"size": [
+				1152,
+				648
+			],
+			"variant": "a"
+		},
+		{
+			"background": "grass",
+			"file": "a-grass-form.png",
+			"layer": "form",
+			"repeat_equal": true,
+			"sha256": "9a622f4d01cd450e7a4598fae0ab92e7d68284ece8cac3e323f7638a3b65dfa3",
+			"size": [
+				1152,
+				648
+			],
+			"variant": "a"
+		},
+		{
+			"background": "grass",
+			"file": "a-grass-contact.png",
+			"layer": "contact",
+			"repeat_equal": true,
+			"sha256": "fc303f87cdcc1c5a1f0a620759765b7aa96a15d79e6068905917c49cce466da4",
+			"size": [
+				1152,
+				648
+			],
+			"variant": "a"
+		},
+		{
+			"background": "grass",
+			"file": "a-grass-cast.png",
+			"layer": "cast",
+			"repeat_equal": true,
+			"sha256": "f88e41c6f37739e8486948695f284582e89b6cf174eed4dc2fb295c26f5fb6f3",
+			"size": [
+				1152,
+				648
+			],
+			"variant": "a"
+		},
+		{
+			"background": "light",
+			"file": "b-light-combined.png",
+			"layer": "combined",
+			"repeat_equal": true,
+			"sha256": "3fa425f6fd7f30fa800abebbefc7b3c24f1a244b5dad8f6960bd317cde26f6ae",
+			"size": [
+				1152,
+				648
+			],
+			"variant": "b"
+		},
+		{
+			"background": "light",
+			"file": "b-light-form.png",
+			"layer": "form",
+			"repeat_equal": true,
+			"sha256": "e8bc8d91bb707e8246efd4450fd5a78c04227ff252d2f7a288b4b493f9be4d92",
+			"size": [
+				1152,
+				648
+			],
+			"variant": "b"
+		},
+		{
+			"background": "light",
+			"file": "b-light-contact.png",
+			"layer": "contact",
+			"repeat_equal": true,
+			"sha256": "4852aee7926042daf4a9d876fb2cafe6a684082c3744168cf229c0f64a8442a2",
+			"size": [
+				1152,
+				648
+			],
+			"variant": "b"
+		},
+		{
+			"background": "light",
+			"file": "b-light-cast.png",
+			"layer": "cast",
+			"repeat_equal": true,
+			"sha256": "5a7f0a11ffc3c5d05e4dd4d2966a61c7e0ee3059ece1f4ad64055692d1f3056a",
+			"size": [
+				1152,
+				648
+			],
+			"variant": "b"
+		},
+		{
+			"background": "dark",
+			"file": "b-dark-combined.png",
+			"layer": "combined",
+			"repeat_equal": true,
+			"sha256": "2d2964b7b18506c2dc1e6bfe5feda5a690a2883da0e7906a99c66c3592d29c85",
+			"size": [
+				1152,
+				648
+			],
+			"variant": "b"
+		},
+		{
+			"background": "dark",
+			"file": "b-dark-form.png",
+			"layer": "form",
+			"repeat_equal": true,
+			"sha256": "175736cd3351e99bedc978f6e7f2b9092a9b27b97d03db5d483ad47460d11a38",
+			"size": [
+				1152,
+				648
+			],
+			"variant": "b"
+		},
+		{
+			"background": "dark",
+			"file": "b-dark-contact.png",
+			"layer": "contact",
+			"repeat_equal": true,
+			"sha256": "25908d93bf6b0977c39168630768cc54ee69541944f5efc2e4a96202b238969a",
+			"size": [
+				1152,
+				648
+			],
+			"variant": "b"
+		},
+		{
+			"background": "dark",
+			"file": "b-dark-cast.png",
+			"layer": "cast",
+			"repeat_equal": true,
+			"sha256": "79dd39656022369f06cb33537d88e8e6bcfcbd7eee6eba91999ad21a0c42248c",
+			"size": [
+				1152,
+				648
+			],
+			"variant": "b"
+		},
+		{
+			"background": "grass",
+			"file": "b-grass-combined.png",
+			"layer": "combined",
+			"repeat_equal": true,
+			"sha256": "bd7d79ca45617e2838dd6b79999862cdab636bf41545d9b8566ba45fc1e5a569",
+			"size": [
+				1152,
+				648
+			],
+			"variant": "b"
+		},
+		{
+			"background": "grass",
+			"file": "b-grass-form.png",
+			"layer": "form",
+			"repeat_equal": true,
+			"sha256": "12e36c75b6694d8043576e0b14abe2e0373ae313238b2dcb9eac054aef4355ce",
+			"size": [
+				1152,
+				648
+			],
+			"variant": "b"
+		},
+		{
+			"background": "grass",
+			"file": "b-grass-contact.png",
+			"layer": "contact",
+			"repeat_equal": true,
+			"sha256": "fc303f87cdcc1c5a1f0a620759765b7aa96a15d79e6068905917c49cce466da4",
+			"size": [
+				1152,
+				648
+			],
+			"variant": "b"
+		},
+		{
+			"background": "grass",
+			"file": "b-grass-cast.png",
+			"layer": "cast",
+			"repeat_equal": true,
+			"sha256": "d40577daaf31c7cdea01be970d8992de0f298bbaf23248475a217a4dbeb77cca",
+			"size": [
+				1152,
+				648
+			],
+			"variant": "b"
+		}
+	],
+	"kind": "native-light-study",
+	"native_gameplay": false,
+	"performance_eligible": false,
+	"profile": "Codex-VART-007-20261017-02",
+	"profile_sha256": "472364e2f1a6317e39ce7d94d880be7737dc91dfec75e44170cfe3b37a1d9053",
+	"projection": [
+		[
+			1.20000004768372,
+			0.0
+		],
+		[
+			0.0,
+			1.20000004768372
+		],
+		[
+			0.0,
+			0.0
+		]
+	],
+	"renderer": "opengl3",
+	"schema": 1,
+	"script_sha256": "53eb8f29a2b66d7896c9e87de8f1a872dfd48f02c12c2d6e3ab0800f8064c53e",
+	"shadow_model": "separate soft affine alpha projection; not 3D or runtime cost",
+	"sources": {
+		"../vart-006/density-a.png": "6323d29818c3492c773078ff651e4968b1fef0959c2e6b153c2d98d83041124a",
+		"../vart-006/density-b.png": "793bb81574addd197259e2db26a3805d9e15af7ed3fc932963b6d92f84c7469a",
+		"local-ne.png": "d6e56b618d84ea3421beef86e936589152830b6c0c38cf228bdf5f0ddcd1e724"
+	},
+	"target": [
+		1152,
+		648
+	],
+	"texture_filter": "linear_with_mipmaps"
+}

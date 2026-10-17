@@ -930,7 +930,7 @@
       "id": "VART-007",
       "epic": "VART",
       "title": "Утвердить направление света",
-      "status": "ready",
+      "status": "done",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -966,13 +966,21 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vart-007-visual-task",
-      "evidence": []
+      "evidence": [
+        "docs/reports/visual-overhaul/vart-007/README.md",
+        "docs/reports/visual-overhaul/vart-007/light-profile.json",
+        "docs/reports/visual-overhaul/vart-007/native/capture.json",
+        "tools/visual_light.py",
+        "tools/test_visual_light.py",
+        "tools/visual_light_capture.gd"
+      ],
+      "result": "2026-10-17: пользователь напрямую выбрал A — свет сверху-слева. Отдельные форма/контакт/падающая тень показаны в 24 нативных PNG Godot 1152×648 с одинаковой проекцией 1.2 и совпадающими повторными readback. Контакты стола под ножками. Хеши, прямой выбор, направления и отрицательные сценарии входят в gate; B остаётся макетом. Это художественная alpha-проекция, не production-шейдер, не FPS и не runtime-импорт. Изменения и протокол в отдельном commit VART-007."
     },
     {
       "id": "VART-008",
       "epic": "VART",
       "title": "Нарисовать набор эталонного участка",
-      "status": "backlog",
+      "status": "ready",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",

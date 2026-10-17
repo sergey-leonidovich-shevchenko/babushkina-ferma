@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "base_commit": "4507586115ffc378c7fecf89ad28ae0b6ae74201",
+  "generator": "built-in image_gen",
+  "runtime_patch": "",
+  "references": {
+    "../vart-006/density-b.png": "793bb81574addd197259e2db26a3805d9e15af7ed3fc932963b6d92f84c7469a",
+    "../vart-006/density-a.png": "6323d29818c3492c773078ff651e4968b1fef0959c2e6b153c2d98d83041124a",
+    "../vart-006/density-profile.json": "ca8db546c37709f419387d0bcd30db8dd8a3e95344ccbad3f0a229241151bc20",
+    "../vart-002/scale-profile.json": "4bed99c250c9522a07c6c600f426cfd970ab25929aa1796f89e67a7e61b5fca8"
+  },
+  "master": {
+    "path": "local-ne.png",
+    "sha256": "d6e56b618d84ea3421beef86e936589152830b6c0c38cf228bdf5f0ddcd1e724"
+  },
+  "prompt_sha256": "1f79aed57954f8d8a1343d06ca75c485b96bf94a06e4aec783ff312f8a81452a",
+  "fidelity": "Generative relighting, not pixel-identical. Same measured regions, pivots and scale; no flipping of furniture. Hero remains common unmodified A control."
+}

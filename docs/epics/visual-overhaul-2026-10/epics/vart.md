@@ -238,7 +238,7 @@
 
 ## VART-007 — Утвердить направление света
 
-Статус: `ready` · P0 · этап `foundation` · `engineering`
+Статус: `done` · P0 · этап `foundation` · `engineering`
 
 Показать раздельно локальную форму, контакт и падающую тень; в рисунке нет второй конфликтующей солнечной тени
 
@@ -252,7 +252,7 @@
 - [docs/SPRITE_STANDARD.md](../../../../docs/SPRITE_STANDARD.md)
 - [assets/game/world_sprite_manifest.json](../../../../assets/game/world_sprite_manifest.json)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vart-007/`.
+Результаты: `docs/reports/visual-overhaul/vart-007/`.
 
 Критерии:
 
@@ -270,13 +270,13 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vart-007/README.md, docs/reports/visual-overhaul/vart-007/light-profile.json, docs/reports/visual-overhaul/vart-007/native/capture.json, tools/visual_light.py, tools/test_visual_light.py, tools/visual_light_capture.gd.
 
 <a id="vart-008"></a>
 
 ## VART-008 — Нарисовать набор эталонного участка
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 6–10 пучков, два куста, дерево, земля, края дороги, берег, мост и фасад представлены отдельными мастерами
 
