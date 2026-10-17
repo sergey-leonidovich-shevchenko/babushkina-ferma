@@ -1,0 +1,2219 @@
+{
+	"adapter": "AMD Radeon Pro 5300M OpenGL Engine",
+	"adapter_sha256": "868c354fef37aa46f0678c32f7e99607c8e8cee0e03cf50596bf157f08d3f4ab",
+	"display_server": "macOS",
+	"engine": "4.7.1-stable (official)",
+	"field": [
+		960,
+		540
+	],
+	"frames": [
+		{
+			"file": "WS-001-light.png",
+			"id": "WS-001-light",
+			"kind": "archive-overview",
+			"repeat_equal": true,
+			"sha256": "ad74fcaade4320f27b273b85bb57bc2984cf5aa5f4cebc0736d956ec1d403d74",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-001-dark.png",
+			"id": "WS-001-dark",
+			"kind": "archive-overview",
+			"repeat_equal": true,
+			"sha256": "cf2ddf70307692abf17e8ef5d6742e72d4c2db0f61d1f1e3e5b0675b00b13837",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-002-light.png",
+			"id": "WS-002-light",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "e9c39110f2e005438e331fa7c2ff139738ae64f7ce9cf6580a397bff81e4e024",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-002-dark.png",
+			"id": "WS-002-dark",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "53c29e4757706fa6cff4961eccf38ff74c0950921305d307b5412a1d05a9c29e",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-003-light.png",
+			"id": "WS-003-light",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "b7daf325eb13deb36922aefde5a15c3bd67a009886f8d5d507fe16c89f2706e8",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-003-dark.png",
+			"id": "WS-003-dark",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "d527dbc97308f6924990fdc5fe3a27a2371407769b797cdf8860ac2569aab8cb",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-004-light.png",
+			"id": "WS-004-light",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "f74c8bc3753c5d7e29a179f7ae0bfa66578e56cacfa5cc1a09ff43fdd556c09b",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-004-dark.png",
+			"id": "WS-004-dark",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "95c89350bc9bea98b0a56e1f1a9edcc7a50e096259dc5fe65adbe870e8a311e8",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-005-light.png",
+			"id": "WS-005-light",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "32c19099f8b7c9325bbf48c0a348bce029fbe2736273bd6c827c659049829dde",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-005-dark.png",
+			"id": "WS-005-dark",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "6996317f65d11b840d7bc85103dd532bab0a833a8ac2558257175c3eff589981",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-006-light.png",
+			"id": "WS-006-light",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "097b4ae9aac12dc48277be8d8b26ef40c6e047b01af35c1743ff75c2e39361b8",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-006-dark.png",
+			"id": "WS-006-dark",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "1dd19f96f1f7e8f57830fe1e3ed9e80678e06b4adcaf4a9c8f84a7e18ac14b96",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-007-light.png",
+			"id": "WS-007-light",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "2629147669e4a1f00f7c85b309729338e83e90a37b285a5831c5172c5aeffb52",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-007-dark.png",
+			"id": "WS-007-dark",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "87d89aed1fb8088e84e37e5c6f5c9208c8e7dfcb4fd86a21d572697c4a43e555",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-008-light.png",
+			"id": "WS-008-light",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "a6efe528849ca270230c7ccdd134b9cdc585b72ee203c3dde6699914f6f91d98",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-008-dark.png",
+			"id": "WS-008-dark",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "765e89bbd44f9f7128e4fbf409211ae910c15ded24cb4755c68614258d3d0593",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-009-light.png",
+			"id": "WS-009-light",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "9b035f018344f6c939bb7a5be9b89b3ed631c61a3ccbf684c858c5860c85e3da",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-009-dark.png",
+			"id": "WS-009-dark",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "153e3e2dbc5b4cc02f8565127acee27b8f400bfe637b2fe39e45d0477d71341a",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-010-light.png",
+			"id": "WS-010-light",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "4373a393fcc86575a52f1dd17e30bb0cb0b96b073645b759f7d408cce99fb0d5",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-010-dark.png",
+			"id": "WS-010-dark",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "7fc53d8fe31bbef472db4664115d9f32841f4ea3717c6276bb5146eb2542fc17",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-011-light.png",
+			"id": "WS-011-light",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "24600a4e74f3aff50663bee12347058acb58242173723950f0f80621b8dc9a15",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-011-dark.png",
+			"id": "WS-011-dark",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "7bf89fa556cf8de8d350dbe34efaf2e5bcfd6c132bee9a043e1104e7991a9169",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-012-light.png",
+			"id": "WS-012-light",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "bd8e530736f442d268724a6a076edbbe9ba5d1ff07d5a38a6b8ba95789aea164",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-012-dark.png",
+			"id": "WS-012-dark",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "bfcb82b7c2456bf02c78819635865f50c0317c52506d02c4e6a377828cd0d242",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-013-light.png",
+			"id": "WS-013-light",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "3b299a6af12e75e56ff62063b2edf628f02575ac0fb18070c3d5c5673c701f34",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-013-dark.png",
+			"id": "WS-013-dark",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "ba65ebaa1bfc56c963634c220e34d928727181cddd00f32f5645a61376e6e223",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-014-light.png",
+			"id": "WS-014-light",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "981acbfbe15b89df381a61b91d9d85b0dc9430b9db5abc382b7f4fcfae3c153f",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-014-dark.png",
+			"id": "WS-014-dark",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "6a36eca45819dcb49d76188134ecb8c0414f8944d3ee580e0c0e2e694ac35bf5",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-015-light.png",
+			"id": "WS-015-light",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "7cef3722923c4bb0a035dafa14bc0c6bb3a76916b95bb407fdb5f0ea2c16fff0",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-015-dark.png",
+			"id": "WS-015-dark",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "f623dd5884bfd5459d0d76800abd698877fdfb723342e9e7df1e6fcf01e6adde",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-016-light.png",
+			"id": "WS-016-light",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "a7f1a6d2f46128eb43ae60a5d2d2093c813d7806ff714e0e5ae6df15c97fa283",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-016-dark.png",
+			"id": "WS-016-dark",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "749539388d1792d6a04542205e0a9b1883cc1bb010ee2287ad9abf8d203ff5d7",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-017-light.png",
+			"id": "WS-017-light",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "7873855f1ff30f2d87183222f07553cbbfbd913e77cc954a317a9b4fd739d34e",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-017-dark.png",
+			"id": "WS-017-dark",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "14c0b97ec5c05e9cbfe404827527e7850550aa65ad5cb7a7933ec422dc439d86",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-018-light.png",
+			"id": "WS-018-light",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "9743037b09fcc8ab894d6ab455d1111154203d4b7135fae6c925ec723fdd23e3",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-018-dark.png",
+			"id": "WS-018-dark",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "9344a70ab87993c71e178a28e249a3f3eee0fc0614849daf9af150f759caaaf0",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-019-light.png",
+			"id": "WS-019-light",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "a6771fbe1550c633558b7a4d91920979720172777ea7e4b93fc0e4b79d016757",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-019-dark.png",
+			"id": "WS-019-dark",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "46d13dc4fb0c9398285187d6ecf33813f006518e42cbe76a5749c15a9dd23953",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-020-light.png",
+			"id": "WS-020-light",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "ff186b3ad490424c0bdadc6b4bfb22957f3b8a757c75ceab7a38350df38f1b48",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-020-dark.png",
+			"id": "WS-020-dark",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "b13b396c3f3a1d1696034237b898b238295aeaefa0b7e152531dc068ea5e9200",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-021-light.png",
+			"id": "WS-021-light",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "99fed4929e5e9c06781cc4a7ea63c2ca343ce62f17101bd36f578512df853b00",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-021-dark.png",
+			"id": "WS-021-dark",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "f2e1bf0665db84033da233195f91f1b9591ca9c2c41f8a3eabe2d3ec04b37433",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-022-light.png",
+			"id": "WS-022-light",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "ded971938b1181272070482d9f73bee63dae614ebc7cb87a9f2ada813642ebcd",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-022-dark.png",
+			"id": "WS-022-dark",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "31a4cd65cc60b282f66c01084b34c728af61e659407b1840be957a5f8ad05b2d",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-024-light.png",
+			"id": "WS-024-light",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "b0766d68d0ed289e1a0a59c7a5c7b20b21e4e81cddf9abc37c45135ac8e4e70d",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-024-dark.png",
+			"id": "WS-024-dark",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "9f88f3c81e98af75307cd2fbd4c6c4eb34172982d9b97b8ab1f0cef929c39b61",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-023-light.png",
+			"id": "WS-023-light",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "b4cb1b1f8d6354f61ca038cbfe1c5e86ab82ce3d7adb47bd04a5aad87ff8d7a7",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-023-dark.png",
+			"id": "WS-023-dark",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "c9d9fdff8306c8825ef6f8f8c6d1120cc13d5bc8e2957aa0aad43a749d70ba73",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-025-light.png",
+			"id": "WS-025-light",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "a6ed95026a6cb16dee644c5cb4672678ff3b459ed047a10a0006e64457971eb7",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-025-dark.png",
+			"id": "WS-025-dark",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "7dd0ce14bef7bdacb8399a7b7c1306c4a70c94c1e721a0fcc99a9c6f300d7898",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-026-light.png",
+			"id": "WS-026-light",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "3edcc7876f3f8325baee86fb219cbd6b6822641e1c8e11c6a7d016dc69ad36d6",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-026-dark.png",
+			"id": "WS-026-dark",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "82fe03949968b466c1f25f4207a7343a019718854687cc7589697c69eb0dd19c",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-027-light.png",
+			"id": "WS-027-light",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "d27959dea05990045eed4bd9b507c07c0470e67b1be587c8522f39e4264efa7a",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-027-dark.png",
+			"id": "WS-027-dark",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "79e7227dbc53e3fb8d2e64b13518435b581ed06721a10ab3db7a7c11a9833b76",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-028-light.png",
+			"id": "WS-028-light",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "2d7a5bc7c4cde2f17ddf1afb111bcbaa161ddbcdf6c4a80df3f25b3b4c17855d",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-028-dark.png",
+			"id": "WS-028-dark",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "8f27f7eb47bc8195a7cb0f52aa7f855bdac0c878aed42692ad4bd7c6b98f1e91",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-029-light.png",
+			"id": "WS-029-light",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "28de6755311c1fa8b45e14ba4af09a2f78fe374c166b73c9c1c37f053d029fbc",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "WS-029-dark.png",
+			"id": "WS-029-dark",
+			"kind": "world-comparison",
+			"repeat_equal": true,
+			"sha256": "a9c91288677665fa2ef88198b44d5da22f7ec10e78b9b7bb9b3d3526c02c4579",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "sources-01.png",
+			"id": "sources-01",
+			"kind": "source-overview",
+			"repeat_equal": true,
+			"sha256": "688f0cd3bfa981cd6106d3989a4e41e8f256d0b56aeca9fac720478b22a45e91",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "sources-02.png",
+			"id": "sources-02",
+			"kind": "source-overview",
+			"repeat_equal": true,
+			"sha256": "71e1bd9f337393c143dc35d20e3714e6ccab94b76b802220838e016562aec9b6",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "sources-03.png",
+			"id": "sources-03",
+			"kind": "source-overview",
+			"repeat_equal": true,
+			"sha256": "62657a574ba5acfc024783b671b08169a72396c7c304be0a5628dde1ce5df0ea",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "sources-04.png",
+			"id": "sources-04",
+			"kind": "source-overview",
+			"repeat_equal": true,
+			"sha256": "59f985c70e8920eab8df17e4735072900ad38fa0cdd337c46c86186dd220774a",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "sources-05.png",
+			"id": "sources-05",
+			"kind": "source-overview",
+			"repeat_equal": true,
+			"sha256": "b211deb3aed2e83f38041d4c05ad37b691b5bccd9c4afe356c1f478205c046b8",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "sources-06.png",
+			"id": "sources-06",
+			"kind": "source-overview",
+			"repeat_equal": true,
+			"sha256": "dffc467808b8e21e378d33ba1a70436492d031a44674fb47e7d22f1bef92175a",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "sources-07.png",
+			"id": "sources-07",
+			"kind": "source-overview",
+			"repeat_equal": true,
+			"sha256": "6bcdb1aa4b4dfd9729c908dbf722bf3ac01685a3105201e0f841a7f238c08083",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "sources-08.png",
+			"id": "sources-08",
+			"kind": "source-overview",
+			"repeat_equal": true,
+			"sha256": "8fa8b1bc2bc2818e078e7c9be0da9b9a0aa56fc64a6600af147e31a6017a3217",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "sources-09.png",
+			"id": "sources-09",
+			"kind": "source-overview",
+			"repeat_equal": true,
+			"sha256": "0af5ccaf226bb1f60e0a09b1b53d0213b0f5f9649d88696df118a3d444831a8e",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "sources-10.png",
+			"id": "sources-10",
+			"kind": "source-overview",
+			"repeat_equal": true,
+			"sha256": "0b45a9b8e06b63d0d958d2b83db972051f99740f8926962276745caf02c5b5d2",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "sources-11.png",
+			"id": "sources-11",
+			"kind": "source-overview",
+			"repeat_equal": true,
+			"sha256": "b9632fa8b23d5a10cc87658cc8faf12f8a254d359c549b263ffb1539ffe9772b",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "sources-12.png",
+			"id": "sources-12",
+			"kind": "source-overview",
+			"repeat_equal": true,
+			"sha256": "8ee7ca51d7d7593a0d600405f8c4d847835362251d7c3e9e69731e6682c80f53",
+			"size": [
+				1152,
+				648
+			]
+		}
+	],
+	"kind": "native-reuse-audit",
+	"legacy_filter": "nearest",
+	"manifest_sha256": "6346151babc2fe38260eb2067c306cc409088e6d01b4baa209a9952d651897f0",
+	"native_gameplay": false,
+	"overview_paths": [
+		"assets/game/apiary/apiary_atlas_a.png",
+		"assets/game/artisan/candlebench_atlas_a.png",
+		"assets/game/artisan/fermenter_atlas_a.png",
+		"assets/game/artisan/fruit_press_atlas_a.png",
+		"assets/game/artisan/gardenbench_atlas_a.png",
+		"assets/game/artisan/items_0_atlas_a.png",
+		"assets/game/artisan/items_1_atlas_a.png",
+		"assets/game/artisan/items_2_atlas_a.png",
+		"assets/game/artisan/loom_atlas_a.png",
+		"assets/game/artisan/preserver_atlas_a.png",
+		"assets/game/artisan/smoker_atlas_a.png",
+		"assets/game/artisan/tannery_atlas_a.png",
+		"assets/game/basement/alchemy_atlas_a.png",
+		"assets/game/basement/cauldron_atlas_a.png",
+		"assets/game/basement/floor_a.png",
+		"assets/game/basement/forge_atlas_a.png",
+		"assets/game/basement/furnace_atlas_a.png",
+		"assets/game/basement/glassblowing_atlas_a.png",
+		"assets/game/basement/pottery_atlas_a.png",
+		"assets/game/basement/recycling_atlas_a.png",
+		"assets/game/basement/sawmill_atlas_a.png",
+		"assets/game/basement/shell_atlas_a.png",
+		"assets/game/basement/study_atlas_a.png",
+		"assets/game/basement/workbench_atlas_a.png",
+		"assets/game/buildings/exteriors/chapel.png",
+		"assets/game/buildings/exteriors/cottage.png",
+		"assets/game/buildings/exteriors/forge.png",
+		"assets/game/buildings/exteriors/guild_hall.png",
+		"assets/game/buildings/exteriors/moon_castle.png",
+		"assets/game/buildings/exteriors/prison.png",
+		"assets/game/buildings/exteriors/shop_house.png",
+		"assets/game/buildings/exteriors/wizard_tower.png",
+		"assets/game/characters/directional/companion_borislav_walk_8dir.png",
+		"assets/game/characters/directional/companion_luna_walk_8dir.png",
+		"assets/game/characters/directional/companion_mila_walk_8dir.png",
+		"assets/game/characters/directional/npc_grandmother_walk_8dir.png",
+		"assets/game/characters/directional/npc_herbalist_walk_8dir.png",
+		"assets/game/characters/directional/npc_official_walk_8dir.png",
+		"assets/game/characters/grandmother_v2/walk_master.png",
+		"assets/game/characters/hero_v3/hoe_master.png",
+		"assets/game/characters/hero_v3/walk_master.png",
+		"assets/game/characters/walk_v2/companion_borislav.png",
+		"assets/game/characters/walk_v2/companion_luna.png",
+		"assets/game/characters/walk_v2/companion_mila.png",
+		"assets/game/characters/walk_v2/npc_herbalist.png",
+		"assets/game/characters/walk_v2/npc_official.png",
+		"assets/game/effects/actions/effect_00.png",
+		"assets/game/effects/actions/effect_01.png",
+		"assets/game/effects/actions/effect_02.png",
+		"assets/game/effects/actions/effect_03.png",
+		"assets/game/effects/actions/effect_04.png",
+		"assets/game/effects/actions/effect_05.png",
+		"assets/game/effects/actions/effect_06.png",
+		"assets/game/effects/actions/effect_07.png",
+		"assets/game/effects/actions/effect_08.png",
+		"assets/game/effects/actions/effect_09.png",
+		"assets/game/effects/actions/effect_10.png",
+		"assets/game/effects/actions/effect_11.png",
+		"assets/game/effects/actions/effect_12.png",
+		"assets/game/effects/actions/effect_13.png",
+		"assets/game/effects/actions/effect_14.png",
+		"assets/game/effects/actions/effect_15.png",
+		"assets/game/enemies/animated/core_enemy_actions_8dir.png",
+		"assets/game/enemies/animated/core_enemy_walk_8dir.png",
+		"assets/game/enemies/animated/pirate_enemy_actions_8dir.png",
+		"assets/game/enemies/animated/pirate_enemy_walk_8dir.png",
+		"assets/game/enemies/cave_guardian.png",
+		"assets/game/enemies/enemy_rank_atlas.png",
+		"assets/game/enemies/skeleton_v2/actions.png",
+		"assets/game/enemies/skeleton_v2/walk.png",
+		"assets/game/enemies/slime_attack.png",
+		"assets/game/enemies/slime_death.png",
+		"assets/game/enemies/slime_hurt.png",
+		"assets/game/enemies/slime_idle.png",
+		"assets/game/environment/biomes/cursed_detail.png",
+		"assets/game/environment/biomes/cursed_landmark.png",
+		"assets/game/environment/biomes/forest_detail.png",
+		"assets/game/environment/biomes/forest_landmark.png",
+		"assets/game/environment/biomes/glassworks_detail.png",
+		"assets/game/environment/biomes/glassworks_landmark.png",
+		"assets/game/environment/biomes/rocky_detail.png",
+		"assets/game/environment/biomes/rocky_landmark.png",
+		"assets/game/environment/biomes/ruins_detail.png",
+		"assets/game/environment/biomes/ruins_landmark.png",
+		"assets/game/environment/bridges/bridge_copper_arch.png",
+		"assets/game/environment/bridges/bridge_copper_arch_rail.png",
+		"assets/game/environment/bridges/bridge_copper_vertical.png",
+		"assets/game/environment/bridges/bridge_stone_arch.png",
+		"assets/game/environment/bridges/bridge_stone_vertical.png",
+		"assets/game/environment/bridges/bridge_stone_wood_horizontal.png",
+		"assets/game/environment/bridges/bridge_stone_wood_vertical.png",
+		"assets/game/environment/bridges/bridge_wood_horizontal.png",
+		"assets/game/environment/bridges/bridge_wood_vertical.png",
+		"assets/game/environment/buildable_fence_atlas_v1.png",
+		"assets/game/environment/cave_crystal.png",
+		"assets/game/environment/farm_plants.png",
+		"assets/game/environment/farm_plants_objects_atlas_v1.png",
+		"assets/game/environment/farm_plot_atlas.png",
+		"assets/game/environment/forest_tree_growth_atlas_v1.png",
+		"assets/game/environment/hazard_rank_atlas.png",
+		"assets/game/environment/moon/altar.png",
+		"assets/game/environment/moon/chest.png",
+		"assets/game/environment/moon/crystal.png",
+		"assets/game/environment/moon/echo.png",
+		"assets/game/environment/moon/flower.png",
+		"assets/game/environment/moon/guardian.png",
+		"assets/game/environment/moon/portal.png",
+		"assets/game/environment/moon/stag.png",
+		"assets/game/environment/orchard/fruit_trees_4x4_v2.png",
+		"assets/game/environment/red_mushrooms.png",
+		"assets/game/environment/seasons/ground_autumn.png",
+		"assets/game/environment/seasons/ground_spring.png",
+		"assets/game/environment/seasons/ground_summer.png",
+		"assets/game/environment/seasons/ground_winter.png",
+		"assets/game/environment/seasons/tree_autumn.png",
+		"assets/game/environment/seasons/tree_spring.png",
+		"assets/game/environment/seasons/tree_summer.png",
+		"assets/game/environment/seasons/tree_winter.png",
+		"assets/game/environment/village_ambient_atlas_v1.png",
+		"assets/game/environment/village_prop_atlas_v2.png",
+		"assets/game/expansion_pack/expansion_atlas.png",
+		"assets/game/farming/crops/atlases/annual_a.png",
+		"assets/game/farming/crops/atlases/annual_b.png",
+		"assets/game/farming/crops/atlases/annual_c.png",
+		"assets/game/farming/crops/atlases/annual_d.png",
+		"assets/game/farming/crops/atlases/herbs_seasons.png",
+		"assets/game/farming/crops/atlases/strawberry_seasons.png",
+		"assets/game/fishing/Bubbles Rising.png",
+		"assets/game/fishing/Fish Swimming.png",
+		"assets/game/fishing/Splash Effect.png",
+		"assets/game/items/watermelon.png",
+		"assets/game/kitchen/fire_atlas_a.png",
+		"assets/game/kitchen/food_atlas_a.png",
+		"assets/game/kitchen/station_atlas_a.png",
+		"assets/game/locations/cave/modular/boulder_v1.png",
+		"assets/game/locations/cave/modular/corner_inner_v1.png",
+		"assets/game/locations/cave/modular/corner_left_v1.png",
+		"assets/game/locations/cave/modular/corner_right_v1.png",
+		"assets/game/locations/cave/modular/crystal_blue_v1.png",
+		"assets/game/locations/cave/modular/crystal_fragments_v1.png",
+		"assets/game/locations/cave/modular/crystal_green_v1.png",
+		"assets/game/locations/cave/modular/crystal_red_v1.png",
+		"assets/game/locations/cave/modular/entrance_v1.png",
+		"assets/game/locations/cave/modular/floor_v1.png",
+		"assets/game/locations/cave/modular/mushrooms_v1.png",
+		"assets/game/locations/cave/modular/ore_metal_v1.png",
+		"assets/game/locations/cave/modular/rubble_v1.png",
+		"assets/game/locations/cave/modular/stalagmites_v1.png",
+		"assets/game/locations/cave/modular/torch_v1.png",
+		"assets/game/locations/cave/modular/wall_end_v1.png",
+		"assets/game/locations/cave/modular/wall_rim_v1.png",
+		"assets/game/locations/cave/modular/wall_side_left_v1.png",
+		"assets/game/locations/cave/modular/wall_side_right_v1.png",
+		"assets/game/locations/cave/modular/wall_straight_a_v1.png",
+		"assets/game/locations/cave/modular/wall_straight_b_v1.png",
+		"assets/game/locations/overworld/modular/bridge_modular_v1.png",
+		"assets/game/locations/overworld/modular/dirt_material_v1.png",
+		"assets/game/locations/overworld/modular/grass_meadow_tile_v1.png",
+		"assets/game/locations/overworld/modular/path_material_v1.png",
+		"assets/game/locations/overworld/modular/prop_bench_v1.png",
+		"assets/game/locations/overworld/modular/prop_board_v1.png",
+		"assets/game/locations/overworld/modular/prop_cart_v1.png",
+		"assets/game/locations/overworld/modular/prop_lamp_v1.png",
+		"assets/game/locations/overworld/modular/prop_well_v1.png",
+		"assets/game/locations/overworld/modular/stone_material_v1.png",
+		"assets/game/locations/overworld/modular/water_material_v1.png",
+		"assets/game/locations/overworld/overworld_master_24_v2.png",
+		"assets/game/resources/blue-crystal.png",
+		"assets/game/resources/rock.png",
+		"assets/game/tiles/cave-floor.png",
+		"assets/game/tiles/editor/terrain/dirt_path_corner.png",
+		"assets/game/tiles/editor/terrain/dirt_path_cross.png",
+		"assets/game/tiles/editor/terrain/dirt_path_end.png",
+		"assets/game/tiles/editor/terrain/dirt_path_horizontal.png",
+		"assets/game/tiles/editor/terrain/dirt_path_t_junction.png",
+		"assets/game/tiles/editor/terrain/dirt_path_vertical.png",
+		"assets/game/tiles/editor/terrain/grass_autumn.png",
+		"assets/game/tiles/editor/terrain/grass_flowers.png",
+		"assets/game/tiles/editor/terrain/grass_lush.png",
+		"assets/game/tiles/editor/terrain/grass_spring.png",
+		"assets/game/tiles/editor/terrain/ground_farm_soil.png",
+		"assets/game/tiles/editor/terrain/ground_gravel.png",
+		"assets/game/tiles/editor/terrain/ground_snow_grass.png",
+		"assets/game/tiles/editor/terrain/stone_road_corner.png",
+		"assets/game/tiles/editor/terrain/stone_road_cross.png",
+		"assets/game/tiles/editor/terrain/stone_road_end.png",
+		"assets/game/tiles/editor/terrain/stone_road_horizontal.png",
+		"assets/game/tiles/editor/terrain/stone_road_t_junction.png",
+		"assets/game/tiles/editor/terrain/stone_road_vertical.png",
+		"assets/game/tiles/editor/transitions/dirt_edge.png",
+		"assets/game/tiles/editor/transitions/dirt_inner_corner.png",
+		"assets/game/tiles/editor/transitions/gravel_edge.png",
+		"assets/game/tiles/editor/transitions/gravel_inner_corner.png",
+		"assets/game/tiles/editor/transitions/sand_edge.png",
+		"assets/game/tiles/editor/transitions/sand_inner_corner.png",
+		"assets/game/tiles/editor/water/pond_rocky.png",
+		"assets/game/tiles/editor/water/river_corner.png",
+		"assets/game/tiles/editor/water/river_cross.png",
+		"assets/game/tiles/editor/water/river_end.png",
+		"assets/game/tiles/editor/water/river_horizontal.png",
+		"assets/game/tiles/editor/water/river_t_junction.png",
+		"assets/game/tiles/editor/water/river_vertical.png",
+		"assets/game/tiles/editor/water/shore_east.png",
+		"assets/game/tiles/editor/water/shore_inner_corner.png",
+		"assets/game/tiles/editor/water/shore_north.png",
+		"assets/game/tiles/editor/water/shore_outer_corner.png",
+		"assets/game/tiles/editor/water/shore_south.png",
+		"assets/game/tiles/editor/water/shore_west.png",
+		"assets/game/tiles/editor/water/water_clear.png",
+		"assets/game/tiles/editor/water/water_deep.png",
+		"assets/game/tiles/editor/water/water_lilies.png",
+		"assets/game/tiles/editor/water/water_ripples.png",
+		"assets/game/tiles/editor/water/water_shallow.png",
+		"assets/game/tiles/editor/water/water_sparkles.png",
+		"assets/game/tiles/grass.png",
+		"assets/game/tiles/grass_var_1.png",
+		"assets/game/tiles/grass_var_2.png",
+		"assets/game/wildlife/directional/bat_actions_8dir.png",
+		"assets/game/wildlife/directional/bat_flight_4dir_v2.png",
+		"assets/game/wildlife/directional/boar_actions_8dir.png",
+		"assets/game/wildlife/directional/deer_actions_8dir.png",
+		"assets/game/wildlife/directional/fox_actions_8dir.png",
+		"assets/game/wildlife/directional/fox_walk_4dir_v2.png",
+		"assets/game/wildlife/directional/lizard_actions_8dir.png",
+		"assets/game/wildlife/directional/lizard_walk_4dir_v2.png",
+		"assets/game/workshops/research_atlas_a.png",
+		"assets/game/workshops/workshops_atlas_a.png",
+		"assets/game/world_loot/containers/barrel.png",
+		"assets/game/world_loot/containers/bone_pile.png",
+		"assets/game/world_loot/containers/chest.png",
+		"assets/game/world_loot/containers/fairy_cache.png",
+		"assets/game/world_loot/containers/hollow_log.png",
+		"assets/game/world_loot/containers/sack.png",
+		"assets/game/world_loot/containers/supply_crate.png",
+		"assets/game/world_loot/containers/trash.png",
+		"assets/game/world_polish/village_polish_atlas.png"
+	],
+	"owners": {
+		"res://scripts/game_renderer.gd": "6a329d47eb155b9d2f123d5c058c94d5abf530a99f92cf28f41a0af58e9bf94a",
+		"res://scripts/presentation/apiary_visual_system.gd": "25121fda1a91a475f5bbc8d07c34fca831fe6b4152ef3e4ad86045f8bbf5c5a2",
+		"res://scripts/presentation/basement_visual_system.gd": "5b5d0b427014ac02c97fbf368bf6b8156866f76422373aa489ab0d63fe2d137f",
+		"res://scripts/presentation/workshop_visual_system.gd": "3389df90a3b0ce82958818fd036b79ea8ecc30af714c12d03ac2ab70774bfc79",
+		"res://scripts/systems/action_effect_visual_system.gd": "55589a75b34edb5f69419faf9483ee1ba86d5b57172ed5498d93f78248f38b3c",
+		"res://scripts/systems/animation_renderer.gd": "523ff7504130928e8b714aa0244a6c6443f718d8162c38b6c0726a2fecf6093e",
+		"res://scripts/systems/building_visual_system.gd": "2275426dea13ad46b579d08dceee178290f0c88def78c698f9585f08e93732ae",
+		"res://scripts/systems/cave_asset_system.gd": "2b37009441607797c470210c22d1e972f0363dc6751d68cbad0cd386f9acd307",
+		"res://scripts/systems/enemy_animation_library.gd": "510134e669e8d0ad4c4a9fcbad564e11a3553a8daede41cc78a30a7a1c66db01",
+		"res://scripts/systems/environment_visual_system.gd": "ce9caedf61ca6f81e5ee77a7c8490683108b5ef241f85b397ec315432c9aefa8",
+		"res://scripts/systems/farm_visual_system.gd": "105f1c93bc30bb4fbc4c4194c486955358f124963337b7f7c64bb8c68d184d2c",
+		"res://scripts/systems/fence_renderer.gd": "f3b364aca49217323bbfacdec0c226e5c0c212d1034642aa1d4b08fa7557d227",
+		"res://scripts/systems/first_level_art_system.gd": "1f21467d40a7afd73b93011ee90b583e58679a52f8ddf3770ed59f3565f23dfd",
+		"res://scripts/systems/hero_visual_system.gd": "f086e92a8b88dfa8dfc5850fde4ba392bc145890a379dbb706fb22b587ae3dd7",
+		"res://scripts/systems/interior_visual_system.gd": "3347fa762119657c26941f7cbfd1a4b4cf6c8ad0392b331396ee10a7c4549e5c",
+		"res://scripts/systems/level_editor_asset_catalog_system.gd": "2d4f55fc3d64e56735b4d03728036d1f25e4af110669f5935aa206b79591a0b8",
+		"res://scripts/systems/livestock_visual_system.gd": "38823a7cc2921eab52ad877be59dc86144cf23541c77bc62422f46f356730bce",
+		"res://scripts/systems/road_visual_system.gd": "9c42d2c091936370c81b6624d0dce9cc3ec21b98b756c195f77db3808f4d4cc6",
+		"res://scripts/systems/tree_system.gd": "af2211deb1761af2956c6a0b17f92dd6e2933746bf2b61fd803a2d26016ea465",
+		"res://scripts/systems/village_prop_renderer.gd": "a92516d94843573c99e6467ac72bd5e62a28aa8e135b692ae0c9038c9b270c31",
+		"res://scripts/systems/water_visual_system.gd": "58252d092fbeb736f98be7f5a860d05803358ddd683fe94cdf9c10489dba5e39",
+		"res://scripts/systems/wildlife_visual_system.gd": "f457e8950bbf054a77fe1f73176743683ce56e9c0e125eb966722a50869bd9e6",
+		"res://scripts/systems/world_loot_visual_system.gd": "8fcbd41e81514a548003ce7b2a58b1bbb828896d0adcd7cc852d5c4e02ad9c79",
+		"res://scripts/world_background.gd": "54f8c950b6675993f75021b75b31756c9c868d27c8ec21e1e9a7e3661ebf024f"
+	},
+	"performance_eligible": false,
+	"profile": "Codex-VART-009-20261017-03",
+	"projection": [
+		[
+			1.20000004768372,
+			0.0
+		],
+		[
+			0.0,
+			1.20000004768372
+		],
+		[
+			0.0,
+			0.0
+		]
+	],
+	"reference_filter": "linear_with_mipmaps",
+	"renderer": "opengl3",
+	"samples": [
+		{
+			"destination": [
+				-192.0,
+				-192.0,
+				384.0,
+				192.0
+			],
+			"file": "samples/WS-001.png",
+			"id": "WS-001",
+			"master": "res://assets/game/locations/overworld/overworld_master_24_v2.png",
+			"master_sha256": "03f8ba7dc22afdf0b8b6f993e5f61a8dcb09a6c17a10e35ba882a584da847379",
+			"note": "Архив целиком; обзор, не мировой размер",
+			"owner": "res://scripts/systems/first_level_art_system.gd",
+			"prepared_by_runtime": false,
+			"reference": "facade-a",
+			"reference_destination": [
+				597.119995117188,
+				155.52001953125,
+				245.759994506836,
+				288.0
+			],
+			"reference_region": [
+				0.0,
+				20.0,
+				768.0,
+				900.0
+			],
+			"reference_source": "res://docs/reports/visual-overhaul/vart-009/../vart-008/masters/facades.png",
+			"region": [
+				0.0,
+				0.0,
+				2400.0,
+				1200.0
+			],
+			"repeat": 1,
+			"sha256": "18d88dc291c0b463361f86205dcec9d6df5cb3278609e6e4b21acdb8d88e8f07",
+			"world_size": false
+		},
+		{
+			"destination": [
+				-48.0,
+				-96.0,
+				24.0,
+				24.0
+			],
+			"file": "samples/WS-002.png",
+			"id": "WS-002",
+			"master": "res://assets/game/tiles/grass.png",
+			"master_sha256": "abed4f557af96d910f075f90e3d41777dae7c7bffd3734adea67b67b089202e4",
+			"note": "Фрагмент 4×4 тайла по 24 мировых единицы",
+			"owner": "res://scripts/world_background.gd",
+			"prepared_by_runtime": false,
+			"reference": "meadow",
+			"reference_destination": [
+				672.0,
+				336.0,
+				96.0,
+				96.0
+			],
+			"reference_region": [
+				0.0,
+				0.0,
+				256.0,
+				256.0
+			],
+			"reference_source": "res://docs/reports/visual-overhaul/vart-009/../vart-008/masters/meadow.png",
+			"region": [
+				0.0,
+				0.0,
+				24.0,
+				24.0
+			],
+			"repeat": 4,
+			"sha256": "61ceeb337ad48ad7c16f633303f337cb4178644d68da17e6c0d393dfb22b2cd8",
+			"world_size": true
+		},
+		{
+			"destination": [
+				-48.0,
+				-96.0,
+				24.0,
+				24.0
+			],
+			"file": "samples/WS-003.png",
+			"id": "WS-003",
+			"master": "res://assets/game/tiles/editor/terrain/dirt_path_horizontal.png",
+			"master_sha256": "40aff2579051583408e2d4c04328562cec2d7d3a983cf84bdcb76f73c4adb82c",
+			"note": "Фрагмент 4×4 тайла по 24 мировых единицы",
+			"owner": "res://scripts/systems/road_visual_system.gd",
+			"prepared_by_runtime": false,
+			"reference": "road-h",
+			"reference_destination": [
+				646.200012207031,
+				412.200012207031,
+				147.600006103516,
+				39.6000022888184
+			],
+			"reference_region": [
+				0.0,
+				170.0,
+				820.0,
+				220.0
+			],
+			"reference_source": "res://docs/reports/visual-overhaul/vart-009/../vart-008/masters/road.png",
+			"region": [
+				0.0,
+				0.0,
+				24.0,
+				24.0
+			],
+			"repeat": 4,
+			"sha256": "7dfe7943ed5cca9d951fcf63fd44a39d3c5f9d26ff7d1b01d3fa34d253bf686a",
+			"world_size": true
+		},
+		{
+			"destination": [
+				-48.0,
+				-96.0,
+				24.0,
+				24.0
+			],
+			"file": "samples/WS-004.png",
+			"id": "WS-004",
+			"master": "res://assets/game/tiles/cave-floor.png",
+			"master_sha256": "99d5ba86743f234aa3a21ddfbe0ce3c88a0b1f9f3f8bd2f8d678b833e3a1e29c",
+			"note": "Фрагмент 4×4 тайла по 24 мировых единицы",
+			"owner": "res://scripts/world_background.gd",
+			"prepared_by_runtime": false,
+			"reference": "earth",
+			"reference_destination": [
+				672.0,
+				336.0,
+				96.0,
+				96.0
+			],
+			"reference_region": [
+				512.0,
+				0.0,
+				256.0,
+				256.0
+			],
+			"reference_source": "res://docs/reports/visual-overhaul/vart-009/../vart-008/masters/ground.png",
+			"region": [
+				0.0,
+				0.0,
+				24.0,
+				24.0
+			],
+			"repeat": 4,
+			"sha256": "025438c3116a433c3f2a2cb7c06bee5c06a55e1d4f1d9fb3a8e7d109c548da7d",
+			"world_size": true
+		},
+		{
+			"destination": [
+				-48.0,
+				-96.0,
+				24.0,
+				24.0
+			],
+			"file": "samples/WS-005.png",
+			"id": "WS-005",
+			"master": "res://assets/game/tiles/editor/water/water_clear.png",
+			"master_sha256": "7035f1d2d14eb295a911e8ae2534685eeae3f694d401402b8688fa89d2f83df7",
+			"note": "Фрагмент 4×4 тайла по 24 мировых единицы",
+			"owner": "res://scripts/systems/water_visual_system.gd",
+			"prepared_by_runtime": false,
+			"reference": "water",
+			"reference_destination": [
+				672.0,
+				336.0,
+				96.0,
+				96.0
+			],
+			"reference_region": [
+				1024.0,
+				0.0,
+				256.0,
+				256.0
+			],
+			"reference_source": "res://docs/reports/visual-overhaul/vart-009/../vart-008/masters/ground.png",
+			"region": [
+				0.0,
+				0.0,
+				24.0,
+				24.0
+			],
+			"repeat": 4,
+			"sha256": "bcbcbaaf2287499331b844afdc96b1b02ee792f91e1f11b47f4df5b22a878973",
+			"world_size": true
+		},
+		{
+			"destination": [
+				-24.0,
+				-24.0,
+				48.0,
+				48.0
+			],
+			"file": "samples/WS-006.png",
+			"id": "WS-006",
+			"master": "res://assets/game/farming/crops/atlases/annual_a.png",
+			"master_sha256": "6828fa8d2cceb9a5aa66df5c2970a6086dee0f5c7dc22fcb22418fbf0dbe44c0",
+			"note": "Морковь, зрелая стадия; без почвы",
+			"owner": "res://scripts/systems/farm_visual_system.gd",
+			"prepared_by_runtime": false,
+			"reference": "grass-low",
+			"reference_destination": [
+				700.289978027344,
+				387.899993896484,
+				39.4200019836426,
+				46.0800018310547
+			],
+			"reference_region": [
+				0.0,
+				0.0,
+				438.0,
+				512.0
+			],
+			"reference_source": "res://docs/reports/visual-overhaul/vart-009/../vart-008/masters/grass.png",
+			"region": [
+				256.0,
+				0.0,
+				64.0,
+				64.0
+			],
+			"repeat": 1,
+			"sha256": "b571842872513f3fa912a0d20ed9ade4fdda957f4cb834694fc8c227134de505",
+			"world_size": true
+		},
+		{
+			"destination": [
+				-48.0,
+				-192.0,
+				96.0,
+				192.0
+			],
+			"file": "samples/WS-007.png",
+			"id": "WS-007",
+			"master": "res://assets/game/environment/bridges/bridge_stone_vertical.png",
+			"master_sha256": "3eb3e99931cbf3013c7520711189c3af113417d6bdf13baaccb04cd050a0d6e5",
+			"note": "Мост редактора; не топология игрового прохода",
+			"owner": "res://scripts/systems/level_editor_asset_catalog_system.gd",
+			"prepared_by_runtime": false,
+			"reference": "bridge-deck",
+			"reference_destination": [
+				617.417114257812,
+				405.94287109375,
+				204.342849731445,
+				50.7428550720215
+			],
+			"reference_region": [
+				20.0,
+				60.0,
+				1490.0,
+				370.0
+			],
+			"reference_source": "res://docs/reports/visual-overhaul/vart-009/../vart-008/masters/bridge.png",
+			"region": [
+				0.0,
+				0.0,
+				96.0,
+				192.0
+			],
+			"repeat": 1,
+			"sha256": "faa06919e002fedce48a0327998db39c67e5fcbc1d4bc5fb6b94a7decf4e0306",
+			"world_size": true
+		},
+		{
+			"destination": [
+				-96.0,
+				-144.0,
+				192.0,
+				192.0
+			],
+			"file": "samples/WS-008.png",
+			"id": "WS-008",
+			"master": "res://assets/game/environment/forest_tree_growth_atlas_v1.png",
+			"master_sha256": "cbaf0170734b3e0a4f29d9a3daccc57c4348019934b4f26c8fe6c79a9ce5cf14",
+			"note": "Взрослая стадия; логическая позиция выше земли на 48",
+			"owner": "res://scripts/systems/tree_system.gd",
+			"prepared_by_runtime": false,
+			"reference": "tree",
+			"reference_destination": [
+				621.658569335938,
+				242.881805419922,
+				196.322708129883,
+				205.328323364258
+			],
+			"reference_region": [
+				991.0,
+				15.0,
+				545.0,
+				570.0
+			],
+			"reference_source": "res://docs/reports/visual-overhaul/vart-009/../vart-008/../vart-006/density-b.png",
+			"region": [
+				768.0,
+				0.0,
+				256.0,
+				256.0
+			],
+			"repeat": 1,
+			"sha256": "7e837ad3f82f795cc1dd4788bda302a3f48f570ae88ca8d432b6eaca48ee5d19",
+			"world_size": true
+		},
+		{
+			"destination": [
+				-24.0,
+				-24.0,
+				48.0,
+				48.0
+			],
+			"file": "samples/WS-009.png",
+			"id": "WS-009",
+			"master": "res://assets/game/environment/buildable_fence_atlas_v1.png",
+			"master_sha256": "d53f1028c2d3606596608a6f7c1bcca513c81fc37ef2ed193f800cb1d00312aa",
+			"note": "Прямая секция, один материал",
+			"owner": "res://scripts/systems/fence_renderer.gd",
+			"prepared_by_runtime": false,
+			"reference": "bridge-rail",
+			"reference_destination": [
+				618.78857421875,
+				403.200012207031,
+				202.971420288086,
+				32.9142837524414
+			],
+			"reference_region": [
+				30.0,
+				470.0,
+				1480.0,
+				240.0
+			],
+			"reference_source": "res://docs/reports/visual-overhaul/vart-009/../vart-008/masters/bridge.png",
+			"region": [
+				64.0,
+				0.0,
+				64.0,
+				64.0
+			],
+			"repeat": 1,
+			"sha256": "c6e1b2c2f88da7322dd9c9f910b3521ea45537d43e4bd08471fe9a71c4c1de15",
+			"world_size": true
+		},
+		{
+			"destination": [
+				-60.0,
+				-120.0,
+				120.0,
+				120.0
+			],
+			"file": "samples/WS-010.png",
+			"id": "WS-010",
+			"master": "res://assets/game/locations/cave/modular/ore_metal_v1.png",
+			"master_sha256": "5716630bc2eee141640772da6b112aa9bbaaa3ca97234be59cd908ed7a34c71a",
+			"note": "Добываемая металлическая жила",
+			"owner": "res://scripts/systems/cave_asset_system.gd",
+			"prepared_by_runtime": false,
+			"reference": "footing-a",
+			"reference_destination": [
+				700.1142578125,
+				416.228576660156,
+				41.1428565979004,
+				31.5428562164307
+			],
+			"reference_region": [
+				330.0,
+				740.0,
+				300.0,
+				230.0
+			],
+			"reference_source": "res://docs/reports/visual-overhaul/vart-009/../vart-008/masters/bridge.png",
+			"region": [
+				0.0,
+				0.0,
+				240.0,
+				240.0
+			],
+			"repeat": 1,
+			"sha256": "1ea20e53747b549ebb92558ac1d05d7a4c05a9654c2ca70afc5d1a63ef30189a",
+			"world_size": true
+		},
+		{
+			"destination": [
+				-24.0,
+				-24.0,
+				48.0,
+				48.0
+			],
+			"file": "samples/WS-011.png",
+			"id": "WS-011",
+			"master": "res://assets/game/environment/red_mushrooms.png",
+			"master_sha256": "9011db2da7d9fe3845d5ae0f1e8174987706c9c2440b1c900976d83b28731443",
+			"note": "Грибы; плодовые деревья проверяются отдельными исходниками",
+			"owner": "res://scripts/game_renderer.gd",
+			"prepared_by_runtime": false,
+			"reference": "bush-berry",
+			"reference_destination": [
+				674.159973144531,
+				368.399993896484,
+				91.3199996948242,
+				70.7999954223633
+			],
+			"reference_region": [
+				775.0,
+				270.0,
+				761.0,
+				590.0
+			],
+			"reference_source": "res://docs/reports/visual-overhaul/vart-009/../vart-008/masters/bush.png",
+			"region": [
+				0.0,
+				0.0,
+				64.0,
+				64.0
+			],
+			"repeat": 1,
+			"sha256": "ad9bf1a89354833abb62759c40a9bca695fb964f9b1fecc23c76babf22661f9c",
+			"world_size": true
+		},
+		{
+			"destination": [
+				-168.0,
+				-384.0,
+				336.0,
+				408.0
+			],
+			"file": "samples/WS-012.png",
+			"id": "WS-012",
+			"master": "res://assets/game/buildings/exteriors/cottage.png",
+			"master_sha256": "c125cd3d713e38de8ea8e2c8b2632f22b397272d1eeef8fdc73325f9b665b2cb",
+			"note": "Фасад cottage; привязка по двери",
+			"owner": "res://scripts/systems/building_visual_system.gd",
+			"prepared_by_runtime": false,
+			"reference": "facade-a",
+			"reference_destination": [
+				597.119995117188,
+				155.52001953125,
+				245.759994506836,
+				288.0
+			],
+			"reference_region": [
+				0.0,
+				20.0,
+				768.0,
+				900.0
+			],
+			"reference_source": "res://docs/reports/visual-overhaul/vart-009/../vart-008/masters/facades.png",
+			"region": [
+				0.0,
+				0.0,
+				336.0,
+				408.0
+			],
+			"repeat": 1,
+			"sha256": "5babc3a8329e7f67ca5eff1d34739a4faa90faa8e4c63ce70ba8cc949aedc16b",
+			"world_size": true
+		},
+		{
+			"destination": [
+				-132.0,
+				-349.200012207031,
+				264.0,
+				360.0
+			],
+			"file": "samples/WS-013.png",
+			"id": "WS-013",
+			"master": "res://assets/game/environment/seasons/tree_spring.png",
+			"master_sha256": "ff7a09d0fa78aeaf09435fbc9b63dcee9b3dbb68aba61413e9f151358058db0e",
+			"note": "Весеннее дерево; не вся сезонная серия",
+			"owner": "res://scripts/systems/environment_visual_system.gd",
+			"prepared_by_runtime": false,
+			"reference": "tree",
+			"reference_destination": [
+				621.658569335938,
+				242.881805419922,
+				196.322708129883,
+				205.328323364258
+			],
+			"reference_region": [
+				991.0,
+				15.0,
+				545.0,
+				570.0
+			],
+			"reference_source": "res://docs/reports/visual-overhaul/vart-009/../vart-008/../vart-006/density-b.png",
+			"region": [
+				0.0,
+				0.0,
+				264.0,
+				360.0
+			],
+			"repeat": 1,
+			"sha256": "9efc43e90124e19293488cb703c41f9323f0ba065a488057350957bb5ce17e91",
+			"world_size": true
+		},
+		{
+			"destination": [
+				-96.0,
+				-196.800003051758,
+				192.0,
+				240.0
+			],
+			"file": "samples/WS-014.png",
+			"id": "WS-014",
+			"master": "res://assets/game/environment/biomes/rocky_landmark.png",
+			"master_sha256": "e86e0e142e26e887fed404029d51612fdeb5050b37be6ed789b8350160e24e32",
+			"note": "Скальный ориентир одного биома",
+			"owner": "res://scripts/systems/environment_visual_system.gd",
+			"prepared_by_runtime": false,
+			"reference": "tree",
+			"reference_destination": [
+				621.658569335938,
+				242.881805419922,
+				196.322708129883,
+				205.328323364258
+			],
+			"reference_region": [
+				991.0,
+				15.0,
+				545.0,
+				570.0
+			],
+			"reference_source": "res://docs/reports/visual-overhaul/vart-009/../vart-008/../vart-006/density-b.png",
+			"region": [
+				0.0,
+				0.0,
+				192.0,
+				240.0
+			],
+			"repeat": 1,
+			"sha256": "1a27bc44301f9f0ba5c93f03553164746223ec2999648c34be501d7e8fdc1b49",
+			"world_size": true
+		},
+		{
+			"destination": [
+				-48.0,
+				-36.0,
+				96.0,
+				72.0
+			],
+			"file": "samples/WS-015.png",
+			"id": "WS-015",
+			"master": "res://assets/game/world_loot/containers/chest.png",
+			"master_sha256": "32802eae88e29626d1c97422b80bd693b510736649e2d268277a1f92a07de6b8",
+			"note": "Случайный сундук, не домашний",
+			"owner": "res://scripts/systems/world_loot_visual_system.gd",
+			"prepared_by_runtime": false,
+			"reference": "bridge-deck",
+			"reference_destination": [
+				617.417114257812,
+				405.94287109375,
+				204.342849731445,
+				50.7428550720215
+			],
+			"reference_region": [
+				20.0,
+				60.0,
+				1490.0,
+				370.0
+			],
+			"reference_source": "res://docs/reports/visual-overhaul/vart-009/../vart-008/masters/bridge.png",
+			"region": [
+				0.0,
+				0.0,
+				96.0,
+				72.0
+			],
+			"repeat": 1,
+			"sha256": "d9edda0022714be3e7ee58e368b1031269fcc5021085fe37ee32066b216e76c5",
+			"world_size": true
+		},
+		{
+			"destination": [
+				-36.0,
+				-36.0,
+				72.0,
+				72.0
+			],
+			"file": "samples/WS-016.png",
+			"id": "WS-016",
+			"master": "res://assets/game/effects/actions/effect_00.png",
+			"master_sha256": "16e7ad86db2cbfbdf033f533bc0b7dfdbf18648894022750218eff279a6aa40d",
+			"note": "Один статичный эффект; движение не проверяется",
+			"owner": "res://scripts/systems/action_effect_visual_system.gd",
+			"prepared_by_runtime": false,
+			"reference": "yellow-flower",
+			"reference_destination": [
+				703.440002441406,
+				393.839996337891,
+				33.120002746582,
+				46.0800018310547
+			],
+			"reference_region": [
+				770.0,
+				512.0,
+				368.0,
+				512.0
+			],
+			"reference_source": "res://docs/reports/visual-overhaul/vart-009/../vart-008/masters/grass.png",
+			"region": [
+				0.0,
+				0.0,
+				72.0,
+				72.0
+			],
+			"repeat": 1,
+			"sha256": "772474e1d9b4127d9682954c114a9579068b76cddcd7095d3e62fd46e0e2524d",
+			"world_size": true
+		},
+		{
+			"destination": [
+				-25.0,
+				-37.0,
+				50.0,
+				37.0
+			],
+			"file": "samples/WS-017.png",
+			"id": "WS-017",
+			"master": "res://assets/game/farmyard/v1/frames/pig-0.png",
+			"master_sha256": "c21bb4f44c5181a3ad023248d2a7a9dce07aa188a4dfec0e396d481eaf891df5",
+			"note": "Действительная свинья; не старый общий expansion atlas",
+			"owner": "res://scripts/systems/livestock_visual_system.gd",
+			"prepared_by_runtime": false,
+			"reference": "hero-study",
+			"reference_destination": [
+				700.145324707031,
+				348.013000488281,
+				40.763557434082,
+				87.1496734619141
+			],
+			"reference_region": [
+				139.0,
+				78.0,
+				232.0,
+				496.0
+			],
+			"reference_source": "res://docs/reports/visual-overhaul/vart-009/../vart-006/density-a.png",
+			"region": [
+				0.0,
+				0.0,
+				50.0,
+				37.0
+			],
+			"repeat": 1,
+			"sha256": "616c3caf877f077703438e28f830cb1bdccdba6b97af4c4e568cdbbe6e647a03",
+			"world_size": true
+		},
+		{
+			"destination": [
+				-48.0,
+				-92.4799957275391,
+				96.0,
+				96.0
+			],
+			"file": "samples/WS-018.png",
+			"id": "WS-018",
+			"master": "res://assets/game/characters/hero_v3/walk_master.png",
+			"master_sha256": "7f6f70fbfd80683402b51caa47d9d76299906cda129e27b289d73cee7ae3a3da",
+			"note": "Текущий герой, вниз, покой; применяется runtime-очистка",
+			"owner": "res://scripts/systems/hero_visual_system.gd",
+			"prepared_by_runtime": true,
+			"reference": "hero-study",
+			"reference_destination": [
+				700.145324707031,
+				348.013000488281,
+				40.763557434082,
+				87.1496734619141
+			],
+			"reference_region": [
+				139.0,
+				78.0,
+				232.0,
+				496.0
+			],
+			"reference_source": "res://docs/reports/visual-overhaul/vart-009/../vart-006/density-a.png",
+			"region": [
+				336.0,
+				0.0,
+				300.0,
+				300.0
+			],
+			"repeat": 1,
+			"sha256": "8de07c88da8523ac0a4097d4a046c0355c0cf305d28bb6a6004b52dab4e015bf",
+			"world_size": true
+		},
+		{
+			"destination": [
+				-48.0,
+				-88.5,
+				96.0,
+				96.0
+			],
+			"file": "samples/WS-019.png",
+			"id": "WS-019",
+			"master": "res://assets/game/enemies/cave_guardian.png",
+			"master_sha256": "9f7c04bd97cfe1bae0243c44a452d50222e23cf9a874cd6e6793656391d6faa0",
+			"note": "Обычный кристальный хранитель; не босс deep_guardian",
+			"owner": "res://scripts/systems/enemy_animation_library.gd",
+			"prepared_by_runtime": false,
+			"reference": "hero-study",
+			"reference_destination": [
+				700.145324707031,
+				348.013000488281,
+				40.763557434082,
+				87.1496734619141
+			],
+			"reference_region": [
+				139.0,
+				78.0,
+				232.0,
+				496.0
+			],
+			"reference_source": "res://docs/reports/visual-overhaul/vart-009/../vart-006/density-a.png",
+			"region": [
+				0.0,
+				0.0,
+				256.0,
+				256.0
+			],
+			"repeat": 1,
+			"sha256": "050b50cc207d03c8e71c68687815a3d26b6dfa319dab621b9432415b2f6f3299",
+			"world_size": true
+		},
+		{
+			"destination": [
+				-12.1275005340576,
+				-78.6450042724609,
+				24.2550010681152,
+				78.6450042724609
+			],
+			"file": "samples/WS-020.png",
+			"id": "WS-020",
+			"master": "res://assets/game/wildlife/directional/fox_walk_4dir_v2.png",
+			"master_sha256": "8f54875355697247b4da1dbae9ecc2d07ccf04d27bacc193341e317c441baffd",
+			"note": "Лиса, первая фаза вниз; runtime-очистка и измеренная область",
+			"owner": "res://scripts/systems/wildlife_visual_system.gd",
+			"prepared_by_runtime": true,
+			"reference": "hero-study",
+			"reference_destination": [
+				700.145324707031,
+				348.013000488281,
+				40.763557434082,
+				87.1496734619141
+			],
+			"reference_region": [
+				139.0,
+				78.0,
+				232.0,
+				496.0
+			],
+			"reference_source": "res://docs/reports/visual-overhaul/vart-009/../vart-006/density-a.png",
+			"region": [
+				114.0,
+				7.0,
+				99.0,
+				321.0
+			],
+			"repeat": 1,
+			"sha256": "beab27aee0ec0d7bd3142463ebdd58215f2a851f7e57f6a57bb41ca2cff72df4",
+			"world_size": true
+		},
+		{
+			"destination": [
+				-48.0,
+				-69.120002746582,
+				96.0,
+				96.0
+			],
+			"file": "samples/WS-021.png",
+			"id": "WS-021",
+			"master": "res://assets/game/environment/hazard_rank_atlas.png",
+			"master_sha256": "574d68a9e62e3547523f62f1c5bbcd0c8b0b87b7223282953189436dba292193",
+			"note": "Первое опасное растение, первый ранг; без процедурного дыхания",
+			"owner": "res://scripts/game_renderer.gd",
+			"prepared_by_runtime": false,
+			"reference": "bush-hazel",
+			"reference_destination": [
+				673.200012207031,
+				354.0,
+				93.0,
+				85.1999969482422
+			],
+			"reference_region": [
+				0.0,
+				150.0,
+				775.0,
+				710.0
+			],
+			"reference_source": "res://docs/reports/visual-overhaul/vart-009/../vart-008/masters/bush.png",
+			"region": [
+				0.0,
+				0.0,
+				418.0,
+				418.0
+			],
+			"repeat": 1,
+			"sha256": "ccf028f328f0abcd3a35d9bc083f0a7a65d4ca62e665b4aaf73cf46657cb98ba",
+			"world_size": true
+		},
+		{
+			"destination": [
+				-48.0,
+				-52.7999992370605,
+				96.0,
+				52.7999992370605
+			],
+			"file": "samples/WS-022.png",
+			"id": "WS-022",
+			"master": "res://assets/game/interiors/village_interior_atlas_v2.png",
+			"master_sha256": "a4db4a0ac1bb62bca7dbfa988b08bea1f8fa62cdf7062f883c73d8d11d39465b",
+			"note": "Настоящий домашний сундук; источник отличается от старого манифеста",
+			"owner": "res://scripts/systems/interior_visual_system.gd",
+			"prepared_by_runtime": false,
+			"reference": "bridge-deck",
+			"reference_destination": [
+				617.417114257812,
+				405.94287109375,
+				204.342849731445,
+				50.7428550720215
+			],
+			"reference_region": [
+				20.0,
+				60.0,
+				1490.0,
+				370.0
+			],
+			"reference_source": "res://docs/reports/visual-overhaul/vart-009/../vart-008/masters/bridge.png",
+			"region": [
+				8.0,
+				8.0,
+				240.0,
+				132.0
+			],
+			"repeat": 1,
+			"sha256": "1215366068958d588f225ed48897160c317e4e3319be96b1bc4054f694effd98",
+			"world_size": true
+		},
+		{
+			"destination": [
+				-60.0,
+				-96.0,
+				120.0,
+				120.0
+			],
+			"file": "samples/WS-024.png",
+			"id": "WS-024",
+			"master": "res://assets/game/locations/overworld/modular/prop_well_v1.png",
+			"master_sha256": "1f54767eb6e626f417d8651cb56320acd965e3d3e362b0e9c8eefb721da19bb8",
+			"note": "Действительный колодец основной деревни",
+			"owner": "res://scripts/systems/village_prop_renderer.gd",
+			"prepared_by_runtime": false,
+			"reference": "facade-a",
+			"reference_destination": [
+				597.119995117188,
+				155.52001953125,
+				245.759994506836,
+				288.0
+			],
+			"reference_region": [
+				0.0,
+				20.0,
+				768.0,
+				900.0
+			],
+			"reference_source": "res://docs/reports/visual-overhaul/vart-009/../vart-008/masters/facades.png",
+			"region": [
+				0.0,
+				0.0,
+				120.0,
+				120.0
+			],
+			"repeat": 1,
+			"sha256": "c46602a6f808c929743680463e0330841e8d14fd71d9381354c3958bd5c65e6c",
+			"world_size": true
+		},
+		{
+			"destination": [
+				-36.0,
+				-51.8400039672852,
+				72.0,
+				72.0
+			],
+			"file": "samples/WS-023.png",
+			"id": "WS-023",
+			"master": "res://assets/game/enemies/slime_idle.png",
+			"master_sha256": "b306ece3c24e6a9da157651c7f5d68800c5f76cb63cdf504533401e7c258456d",
+			"note": "Один кадр сюжетного слизня; не вся анимация",
+			"owner": "res://scripts/systems/animation_renderer.gd",
+			"prepared_by_runtime": false,
+			"reference": "hero-study",
+			"reference_destination": [
+				700.145324707031,
+				348.013000488281,
+				40.763557434082,
+				87.1496734619141
+			],
+			"reference_region": [
+				139.0,
+				78.0,
+				232.0,
+				496.0
+			],
+			"reference_source": "res://docs/reports/visual-overhaul/vart-009/../vart-006/density-a.png",
+			"region": [
+				0.0,
+				0.0,
+				64.0,
+				64.0
+			],
+			"repeat": 1,
+			"sha256": "28e631095b0944888728a349c331d9ba749492b6bab62b1d49fa1a9344a1e24f",
+			"world_size": true
+		},
+		{
+			"destination": [
+				-82.5365829467773,
+				-144.0,
+				165.073165893555,
+				144.0
+			],
+			"file": "samples/WS-025.png",
+			"id": "WS-025",
+			"master": "res://assets/game/basement/sawmill_atlas_a.png",
+			"master_sha256": "e64e87af2fddb01ea35d0c0cc9bc3e9bfa1390079fed1107e9c12f05dcd5b107",
+			"note": "Лесопилка сервиса; уже делегирует в Basement, старый atlas не выбран",
+			"owner": "res://scripts/presentation/workshop_visual_system.gd",
+			"prepared_by_runtime": false,
+			"reference": "bridge-deck",
+			"reference_destination": [
+				617.417114257812,
+				405.94287109375,
+				204.342849731445,
+				50.7428550720215
+			],
+			"reference_region": [
+				20.0,
+				60.0,
+				1490.0,
+				370.0
+			],
+			"reference_source": "res://docs/reports/visual-overhaul/vart-009/../vart-008/masters/bridge.png",
+			"region": [
+				64.0,
+				63.0,
+				282.0,
+				246.0
+			],
+			"repeat": 1,
+			"sha256": "89b0144b6e1a904f55886a871a3c27ecfc9c2dec73a9522c8e078d48f01eeafd",
+			"world_size": true
+		},
+		{
+			"destination": [
+				-60.0,
+				-82.5236511230469,
+				120.0,
+				82.5236587524414
+			],
+			"file": "samples/WS-026.png",
+			"id": "WS-026",
+			"master": "res://assets/game/basement/workbench_atlas_a.png",
+			"master_sha256": "d55801364f0a23c04843e2dc6ea12bfee26a90094cd9494b2162c2e09623b841",
+			"note": "workbench, уровень 1, вниз; без кучи и огня",
+			"owner": "res://scripts/presentation/basement_visual_system.gd",
+			"prepared_by_runtime": false,
+			"reference": "bridge-deck",
+			"reference_destination": [
+				617.417114257812,
+				405.94287109375,
+				204.342849731445,
+				50.7428550720215
+			],
+			"reference_region": [
+				20.0,
+				60.0,
+				1490.0,
+				370.0
+			],
+			"reference_source": "res://docs/reports/visual-overhaul/vart-009/../vart-008/masters/bridge.png",
+			"region": [
+				34.0,
+				50.0,
+				317.0,
+				218.0
+			],
+			"repeat": 1,
+			"sha256": "1ca066c68dedd749637e3b973f2db81b152cfe61aa75f8694610c54ba3d72e9d",
+			"world_size": true
+		},
+		{
+			"destination": [
+				-60.0,
+				-142.978729248047,
+				120.0,
+				142.978729248047
+			],
+			"file": "samples/WS-027.png",
+			"id": "WS-027",
+			"master": "res://assets/game/kitchen/station_atlas_a.png",
+			"master_sha256": "97694dc39982711be919d3406066ffa0b07d60b5b5a49dcfb58a665831a318cb",
+			"note": "cauldron, уровень 1, вниз; без кучи и огня",
+			"owner": "res://scripts/presentation/basement_visual_system.gd",
+			"prepared_by_runtime": false,
+			"reference": "bridge-deck",
+			"reference_destination": [
+				617.417114257812,
+				405.94287109375,
+				204.342849731445,
+				50.7428550720215
+			],
+			"reference_region": [
+				20.0,
+				60.0,
+				1490.0,
+				370.0
+			],
+			"reference_source": "res://docs/reports/visual-overhaul/vart-009/../vart-008/masters/bridge.png",
+			"region": [
+				38.0,
+				5.0,
+				235.0,
+				280.0
+			],
+			"repeat": 1,
+			"sha256": "89fb931fe110c6037bc7f29d10bdf93b12de2b0e01a9afc555925e29f5f66c14",
+			"world_size": true
+		},
+		{
+			"destination": [
+				-48.0,
+				-78.3999938964844,
+				96.0,
+				102.399993896484
+			],
+			"file": "samples/WS-028.png",
+			"id": "WS-028",
+			"master": "res://assets/game/apiary/apiary_atlas_a.png",
+			"master_sha256": "2dda0950c056685258c23edb5037bf9f43637f9b80816e5634516842930cb989",
+			"note": "Улей уровня 1, вниз; без процедурных пчёл",
+			"owner": "res://scripts/presentation/apiary_visual_system.gd",
+			"prepared_by_runtime": false,
+			"reference": "bridge-deck",
+			"reference_destination": [
+				617.417114257812,
+				405.94287109375,
+				204.342849731445,
+				50.7428550720215
+			],
+			"reference_region": [
+				20.0,
+				60.0,
+				1490.0,
+				370.0
+			],
+			"reference_source": "res://docs/reports/visual-overhaul/vart-009/../vart-008/masters/bridge.png",
+			"region": [
+				65.0,
+				130.0,
+				330.0,
+				352.0
+			],
+			"repeat": 1,
+			"sha256": "b75bc88596fa02e2fec2babaf64993fa3685f0fd53b18f6293973bbbf23246a4",
+			"world_size": true
+		},
+		{
+			"destination": [
+				-84.0,
+				-147.735397338867,
+				168.0,
+				147.735397338867
+			],
+			"file": "samples/WS-029.png",
+			"id": "WS-029",
+			"master": "res://assets/game/artisan/loom_atlas_a.png",
+			"master_sha256": "a5de3c34765b437e2fed78c4cb1c642792a7e173e67ad0f959a846e6300e0ab2",
+			"note": "loom, уровень 1, вниз; без кучи и огня",
+			"owner": "res://scripts/presentation/basement_visual_system.gd",
+			"prepared_by_runtime": false,
+			"reference": "bridge-deck",
+			"reference_destination": [
+				617.417114257812,
+				405.94287109375,
+				204.342849731445,
+				50.7428550720215
+			],
+			"reference_region": [
+				20.0,
+				60.0,
+				1490.0,
+				370.0
+			],
+			"reference_source": "res://docs/reports/visual-overhaul/vart-009/../vart-008/masters/bridge.png",
+			"region": [
+				34.0,
+				49.0,
+				257.0,
+				226.0
+			],
+			"repeat": 1,
+			"sha256": "0f89b4dc5d72fa30a7cb0311ba5560498602104dc0c9daa646342045dac142fa",
+			"world_size": true
+		}
+	],
+	"schema": 1,
+	"script_sha256": "7f40d05788c223c92f30b299c5cb10e5dac16290035b2df3ddfc8a01ded511ba",
+	"sources": {
+		"res://assets/game/apiary/apiary_atlas_a.png": "2dda0950c056685258c23edb5037bf9f43637f9b80816e5634516842930cb989",
+		"res://assets/game/artisan/loom_atlas_a.png": "a5de3c34765b437e2fed78c4cb1c642792a7e173e67ad0f959a846e6300e0ab2",
+		"res://assets/game/basement/sawmill_atlas_a.png": "e64e87af2fddb01ea35d0c0cc9bc3e9bfa1390079fed1107e9c12f05dcd5b107",
+		"res://assets/game/basement/workbench_atlas_a.png": "d55801364f0a23c04843e2dc6ea12bfee26a90094cd9494b2162c2e09623b841",
+		"res://assets/game/buildings/exteriors/cottage.png": "c125cd3d713e38de8ea8e2c8b2632f22b397272d1eeef8fdc73325f9b665b2cb",
+		"res://assets/game/characters/hero_v3/walk_master.png": "7f6f70fbfd80683402b51caa47d9d76299906cda129e27b289d73cee7ae3a3da",
+		"res://assets/game/effects/actions/effect_00.png": "16e7ad86db2cbfbdf033f533bc0b7dfdbf18648894022750218eff279a6aa40d",
+		"res://assets/game/enemies/cave_guardian.png": "9f7c04bd97cfe1bae0243c44a452d50222e23cf9a874cd6e6793656391d6faa0",
+		"res://assets/game/enemies/slime_idle.png": "b306ece3c24e6a9da157651c7f5d68800c5f76cb63cdf504533401e7c258456d",
+		"res://assets/game/environment/biomes/rocky_landmark.png": "e86e0e142e26e887fed404029d51612fdeb5050b37be6ed789b8350160e24e32",
+		"res://assets/game/environment/bridges/bridge_stone_vertical.png": "3eb3e99931cbf3013c7520711189c3af113417d6bdf13baaccb04cd050a0d6e5",
+		"res://assets/game/environment/buildable_fence_atlas_v1.png": "d53f1028c2d3606596608a6f7c1bcca513c81fc37ef2ed193f800cb1d00312aa",
+		"res://assets/game/environment/forest_tree_growth_atlas_v1.png": "cbaf0170734b3e0a4f29d9a3daccc57c4348019934b4f26c8fe6c79a9ce5cf14",
+		"res://assets/game/environment/hazard_rank_atlas.png": "574d68a9e62e3547523f62f1c5bbcd0c8b0b87b7223282953189436dba292193",
+		"res://assets/game/environment/red_mushrooms.png": "9011db2da7d9fe3845d5ae0f1e8174987706c9c2440b1c900976d83b28731443",
+		"res://assets/game/environment/seasons/tree_spring.png": "ff7a09d0fa78aeaf09435fbc9b63dcee9b3dbb68aba61413e9f151358058db0e",
+		"res://assets/game/farming/crops/atlases/annual_a.png": "6828fa8d2cceb9a5aa66df5c2970a6086dee0f5c7dc22fcb22418fbf0dbe44c0",
+		"res://assets/game/farmyard/v1/frames/pig-0.png": "c21bb4f44c5181a3ad023248d2a7a9dce07aa188a4dfec0e396d481eaf891df5",
+		"res://assets/game/interiors/village_interior_atlas_v2.png": "a4db4a0ac1bb62bca7dbfa988b08bea1f8fa62cdf7062f883c73d8d11d39465b",
+		"res://assets/game/kitchen/station_atlas_a.png": "97694dc39982711be919d3406066ffa0b07d60b5b5a49dcfb58a665831a318cb",
+		"res://assets/game/locations/cave/modular/ore_metal_v1.png": "5716630bc2eee141640772da6b112aa9bbaaa3ca97234be59cd908ed7a34c71a",
+		"res://assets/game/locations/overworld/modular/prop_well_v1.png": "1f54767eb6e626f417d8651cb56320acd965e3d3e362b0e9c8eefb721da19bb8",
+		"res://assets/game/locations/overworld/overworld_master_24_v2.png": "03f8ba7dc22afdf0b8b6f993e5f61a8dcb09a6c17a10e35ba882a584da847379",
+		"res://assets/game/tiles/cave-floor.png": "99d5ba86743f234aa3a21ddfbe0ce3c88a0b1f9f3f8bd2f8d678b833e3a1e29c",
+		"res://assets/game/tiles/editor/terrain/dirt_path_horizontal.png": "40aff2579051583408e2d4c04328562cec2d7d3a983cf84bdcb76f73c4adb82c",
+		"res://assets/game/tiles/editor/water/water_clear.png": "7035f1d2d14eb295a911e8ae2534685eeae3f694d401402b8688fa89d2f83df7",
+		"res://assets/game/tiles/grass.png": "abed4f557af96d910f075f90e3d41777dae7c7bffd3734adea67b67b089202e4",
+		"res://assets/game/wildlife/directional/fox_walk_4dir_v2.png": "8f54875355697247b4da1dbae9ecc2d07ccf04d27bacc193341e317c441baffd",
+		"res://assets/game/world_loot/containers/chest.png": "32802eae88e29626d1c97422b80bd693b510736649e2d268277a1f92a07de6b8",
+		"res://docs/reports/visual-overhaul/vart-009/../vart-006/density-a.png": "6323d29818c3492c773078ff651e4968b1fef0959c2e6b153c2d98d83041124a",
+		"res://docs/reports/visual-overhaul/vart-009/../vart-008/../vart-006/density-b.png": "793bb81574addd197259e2db26a3805d9e15af7ed3fc932963b6d92f84c7469a",
+		"res://docs/reports/visual-overhaul/vart-009/../vart-008/masters/bridge.png": "5ce015d9af6d692997e9200930d015a36bf71337c76d331274eaea97b0fbd2f7",
+		"res://docs/reports/visual-overhaul/vart-009/../vart-008/masters/bush.png": "10911b7006a38cf49bdd47c8587c079cabe0a2703f3ff3a7984e8d6e3e3bc12f",
+		"res://docs/reports/visual-overhaul/vart-009/../vart-008/masters/facades.png": "1df5263ec8b2d7eff11c5acac88c5caaa4f3888e677696d29a2a38911d334982",
+		"res://docs/reports/visual-overhaul/vart-009/../vart-008/masters/grass.png": "cebf704390ad280cf941b5a1e2372800c35305a144c295a33c674ae967afa2da",
+		"res://docs/reports/visual-overhaul/vart-009/../vart-008/masters/ground.png": "6034a6983ddba48f093caddcaf9cdcecc85ae41c8eb01f47be082ff7504ecb82",
+		"res://docs/reports/visual-overhaul/vart-009/../vart-008/masters/meadow.png": "c7c36f6d5c83b791fcf42bf6338ff6d862a26fea15c55103268e278fc868efe1",
+		"res://docs/reports/visual-overhaul/vart-009/../vart-008/masters/road.png": "8c7b14ab97580ef1c29357abc7897b3cf30400c15852bae67c1c022b74b65f73"
+	},
+	"target": [
+		1152,
+		648
+	],
+	"view_profile_sha256": "5881d3e3db4c2c15a7713ae1c83c1fd7015cdc633b01d10f95ae12297e36b160"
+}

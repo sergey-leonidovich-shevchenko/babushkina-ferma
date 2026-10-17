@@ -316,7 +316,7 @@
 
 ## VART-009 — Подготовить таблицу сохранить или заменить
 
-Статус: `ready` · P0 · этап `foundation` · `engineering`
+Статус: `done` · P0 · этап `foundation` · `engineering`
 
 Каждое из 29 семейств манифеста получает решение reuse, adapt или redraw с причиной; количество задач не означает обязательную перерисовку всего
 
@@ -330,7 +330,7 @@
 - [docs/SPRITE_STANDARD.md](../../../../docs/SPRITE_STANDARD.md)
 - [assets/game/world_sprite_manifest.json](../../../../assets/game/world_sprite_manifest.json)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vart-009/`.
+Результаты: `docs/reports/visual-overhaul/vart-009/`.
 
 Критерии:
 
@@ -348,7 +348,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vart-009/README.md, docs/reports/visual-overhaul/vart-009/decisions.json, docs/reports/visual-overhaul/vart-009/inventory.json, docs/reports/visual-overhaul/vart-009/native/capture.json, docs/reports/visual-overhaul/vart-009/browser.json, tools/visual_reuse.py, tools/test_visual_reuse.py, tools/visual_reuse_capture.gd, tools/visual_reuse_sources.gd.
 
 <a id="vart-010"></a>
 

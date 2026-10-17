@@ -1039,7 +1039,7 @@
       "id": "VART-009",
       "epic": "VART",
       "title": "Подготовить таблицу сохранить или заменить",
-      "status": "ready",
+      "status": "done",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -1075,7 +1075,18 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vart-009-visual-task",
-      "evidence": []
+      "evidence": [
+        "docs/reports/visual-overhaul/vart-009/README.md",
+        "docs/reports/visual-overhaul/vart-009/decisions.json",
+        "docs/reports/visual-overhaul/vart-009/inventory.json",
+        "docs/reports/visual-overhaul/vart-009/native/capture.json",
+        "docs/reports/visual-overhaul/vart-009/browser.json",
+        "tools/visual_reuse.py",
+        "tools/test_visual_reuse.py",
+        "tools/visual_reuse_capture.gd",
+        "tools/visual_reuse_sources.gd"
+      ],
+      "result": "2026-10-17: аудит всех 29 семейств на базе commit 1b1c39af20b48559904b4a775135305690d0bd10: 1 архивное reuse / 16 adapt / 12 redraw, с причиной, сохраняемыми частями, исключениями и владельцами эпиков. Инвентарь 238 деклараций / 236 уникальных PNG, 12 полных обзоров и 58 нативных кадров при общей проекции 1.2 на двух фонах; архив и обзор имеют отдельную классификацию. Все 58 кадров, поиск и фильтры проверены в браузере. Найдены расхождения фактических источников свиньи/сундука/лесопилки и дефекты края/запечённой тени. Восемь профильных сценариев и полная сверка включены в gate; исторический Git baseline допускает будущую миграцию. Это техническая оценка в рамках ранее выбранных стандартов, не новое принятие production-артов, не удаление и не runtime-импорт. Отдельный commit VART-009."
     },
     {
       "id": "VART-010",

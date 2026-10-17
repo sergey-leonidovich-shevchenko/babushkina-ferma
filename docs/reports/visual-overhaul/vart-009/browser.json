@@ -1,0 +1,509 @@
+{
+  "schema": 1,
+  "task": "VART-009",
+  "date": "2026-10-17",
+  "url": "http://127.0.0.1:8768/vart-009/index.html",
+  "method": "CUA browser controls and read-only DOM image properties; not FPS or full animation review",
+  "frames": [
+    {
+      "src": "native/WS-001-light.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-001-dark.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-002-light.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-002-dark.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-003-light.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-003-dark.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-004-light.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-004-dark.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-005-light.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-005-dark.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-006-light.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-006-dark.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-007-light.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-007-dark.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-008-light.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-008-dark.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-009-light.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-009-dark.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-010-light.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-010-dark.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-011-light.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-011-dark.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-012-light.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-012-dark.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-013-light.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-013-dark.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-014-light.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-014-dark.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-015-light.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-015-dark.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-016-light.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-016-dark.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-017-light.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-017-dark.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-018-light.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-018-dark.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-019-light.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-019-dark.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-020-light.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-020-dark.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-021-light.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-021-dark.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-022-light.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-022-dark.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-023-light.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-023-dark.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-024-light.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-024-dark.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-025-light.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-025-dark.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-026-light.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-026-dark.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-027-light.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-027-dark.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-028-light.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-028-dark.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-029-light.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/WS-029-dark.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    }
+  ],
+  "filters": [
+    {
+      "filter": "reuse",
+      "count": 1
+    },
+    {
+      "filter": "adapt",
+      "count": 16
+    },
+    {
+      "filter": "redraw",
+      "count": 12
+    },
+    {
+      "filter": "all",
+      "count": 29
+    }
+  ],
+  "search": {
+    "query": "свинья",
+    "rows": [
+      "WS-017Фермерская жизнь, мебель и музейАдаптироватьP1"
+    ]
+  },
+  "noResult": true,
+  "fixed": {
+    "cssSize": [
+      1152,
+      648
+    ],
+    "naturalSize": [
+      1152,
+      648
+    ]
+  },
+  "overviewLinks": 12
+}

@@ -1,0 +1,913 @@
+{
+  "schema": 1,
+  "task": "VART-009",
+  "date": "2026-10-17",
+  "status": "audit_complete",
+  "decision_source": "agent assessment within user-selected VART-001…008 standards; not approval of new production art",
+  "runtime_integration": false,
+  "deletion_authorized": false,
+  "base_commit": "1b1c39af20b48559904b4a775135305690d0bd10",
+  "manifest_sha256": "6346151babc2fe38260eb2067c306cc409088e6d01b4baa209a9952d651897f0",
+  "evidence_hashes": {
+    "assets/game/farming/crops/source/crops_carrot_tomato_cabbage_wheat_master.png": "c71e73fab98787cc1ac6b32b97a9b9ee3323119c5fdd700cb8ba13357cda7e73",
+    "docs/concepts/farmyard-2026-10/v1/sources/animals.png": "df4a5f5642d3bc663a4ea90c1ce215aea2e70bc4e99446b17214fd57d0f0d529",
+    "assets/generated/sprite_sources/forest_tree_growth_source_v1.png": "0e9d2637849af9cb98e408c97c127f479b0fd7691c22c73eb504eace1ed4e228",
+    "assets/game/locations/cave/modular/sprite-source.json": "b48caa6e69767f3231e6f33607f33760263dc34c3397a40fe77cc794933f0116",
+    "assets/game/farmyard/v1/frames.json": "d943c9f936598f99bf1587566ad53cc2cf64472a26be1cb3f9785ac6f4e93646",
+    "scripts/systems/furniture_facing_system.gd": "ffc70308e83b933e454839f374209b9d894336e871d315f3a868a57f9db8edf8",
+    "scripts/systems/animation_asset_registry.gd": "a6090db3ee4e43b42a0479ce0a136d9f5dee2e456318239b4c6de8ae50d7e519",
+    "docs/reports/visual-overhaul/vart-002/scale-profile.json": "4bed99c250c9522a07c6c600f426cfd970ab25929aa1796f89e67a7e61b5fca8",
+    "docs/reports/visual-overhaul/vart-003/palette.json": "1a7e5fdcf9995c215f3ccd910f0d704d723c77d6621196db4701de80a3b1a7e4",
+    "docs/reports/visual-overhaul/vart-005/edge-profile.json": "bf7b837d7eaf8291366af49f3f075e68f70578f9ed49a0b8549bac302e6b9e3c",
+    "docs/reports/visual-overhaul/vart-006/density-profile.json": "ca8db546c37709f419387d0bcd30db8dd8a3e95344ccbad3f0a229241151bc20",
+    "docs/reports/visual-overhaul/vart-007/light-profile.json": "472364e2f1a6317e39ce7d94d880be7737dc91dfec75e44170cfe3b37a1d9053",
+    "docs/reports/visual-overhaul/vart-008/modules.json": "ebb7ab17aee83fd7a56ae6d6a6722b0afbfb164cfa0716c07eca8ee4fc4d9f07"
+  },
+  "definitions": {
+    "reuse": "Оставить исходные рисунки в указанной роли без художественной переделки.",
+    "adapt": "Сохранить пригодную основу, изменить конкретные части/свет/нарезку; исключения описаны в строке.",
+    "redraw": "Нужен новый мастер основной мировой графики; данные и механика сохраняются."
+  },
+  "families": [
+    {
+      "id": "WS-001",
+      "family": "Первая локация: архивный мастер-арт прототипа",
+      "decision": "reuse",
+      "reason": "Архив прототипа полезен как исторический референс, но запечённая сцена не годится как новая игровая карта.",
+      "preserve": "Сохранить файл и происхождение в архиве.",
+      "work": "Не подключать мастер целиком и не восстанавливать его препятствия.",
+      "owner_epics": [
+        "VPIPELINE"
+      ],
+      "priority": "P3",
+      "caveat": "Только архив; reuse не означает разрешение использовать baked-карту в runtime.",
+      "asset_paths": [
+        "assets/game/locations/overworld/overworld_master_24_v2.png"
+      ],
+      "runtime_state": "unchanged",
+      "new_art_approved": false,
+      "evidence": [
+        "native/WS-001-light.png",
+        "native/WS-001-dark.png"
+      ]
+    },
+    {
+      "id": "WS-002",
+      "family": "Трава и вариации земли",
+      "decision": "redraw",
+      "reason": "Тайлы 24×24 содержат явные крупные пиксельные пятна; фильтрация не создаст мягкую живопись.",
+      "preserve": "Сезонные ID, шаг 24 и правила поверхности.",
+      "work": "Новые материалы и маски из языка VART-008, включая мягкий переход без яркой полосы.",
+      "owner_epics": [
+        "VGROUND"
+      ],
+      "priority": "P0",
+      "caveat": "Не растягивать старый тайл и не объявлять зеркальный повтор пилота бесшовным production-материалом.",
+      "asset_paths": [
+        "assets/game/tiles/grass.png",
+        "assets/game/tiles/grass_var_1.png",
+        "assets/game/tiles/grass_var_2.png",
+        "assets/game/tiles/editor/terrain/grass_flowers.png",
+        "assets/game/tiles/editor/terrain/grass_lush.png",
+        "assets/game/tiles/editor/terrain/grass_spring.png",
+        "assets/game/tiles/editor/terrain/grass_autumn.png",
+        "assets/game/tiles/editor/terrain/ground_snow_grass.png",
+        "assets/game/tiles/editor/terrain/ground_gravel.png",
+        "assets/game/tiles/editor/transitions/dirt_edge.png",
+        "assets/game/tiles/editor/transitions/gravel_edge.png",
+        "assets/game/tiles/editor/transitions/sand_edge.png",
+        "assets/game/tiles/editor/transitions/dirt_inner_corner.png",
+        "assets/game/tiles/editor/transitions/gravel_inner_corner.png",
+        "assets/game/tiles/editor/transitions/sand_inner_corner.png"
+      ],
+      "runtime_state": "unchanged",
+      "new_art_approved": false,
+      "evidence": [
+        "native/WS-002-light.png",
+        "native/WS-002-dark.png"
+      ]
+    },
+    {
+      "id": "WS-003",
+      "family": "Дороги и тропы",
+      "decision": "redraw",
+      "reason": "Дорога и трава запечены в крошечный тайл с резкой границей.",
+      "preserve": "Четырёхсвязный граф, N/E/S/W-маски, ширину и навигацию.",
+      "work": "Перенести рисунок на раздельные материалы/кромки, дорисовать T/X/концы и все стыки.",
+      "owner_epics": [
+        "VGROUND"
+      ],
+      "priority": "P0",
+      "caveat": "Нарисованные диагональные стороны угла не разрешают диагональные маршруты.",
+      "asset_paths": [
+        "assets/game/tiles/editor/terrain/dirt_path_horizontal.png",
+        "assets/game/tiles/editor/terrain/dirt_path_vertical.png",
+        "assets/game/tiles/editor/terrain/dirt_path_corner.png",
+        "assets/game/tiles/editor/terrain/dirt_path_t_junction.png",
+        "assets/game/tiles/editor/terrain/dirt_path_cross.png",
+        "assets/game/tiles/editor/terrain/dirt_path_end.png",
+        "assets/game/tiles/editor/terrain/stone_road_horizontal.png",
+        "assets/game/tiles/editor/terrain/stone_road_vertical.png",
+        "assets/game/tiles/editor/terrain/stone_road_corner.png",
+        "assets/game/tiles/editor/terrain/stone_road_t_junction.png",
+        "assets/game/tiles/editor/terrain/stone_road_cross.png",
+        "assets/game/tiles/editor/terrain/stone_road_end.png"
+      ],
+      "runtime_state": "unchanged",
+      "new_art_approved": false,
+      "evidence": [
+        "native/WS-003-light.png",
+        "native/WS-003-dark.png"
+      ]
+    },
+    {
+      "id": "WS-004",
+      "family": "Пол пещеры",
+      "decision": "redraw",
+      "reason": "Один низкодетальный 24px пол имеет крупную пиксельную структуру и заметный повтор.",
+      "preserve": "Проходимость, карту комнат и категории грунта.",
+      "work": "Живописный спокойный пещерный материал с несколькими вариациями и отдельным мусором.",
+      "owner_epics": [
+        "VGROUND",
+        "VMAP"
+      ],
+      "priority": "P1",
+      "caveat": "Земля VART-008 справа — ориентир материала, не принятый новый пол пещеры.",
+      "asset_paths": [
+        "assets/game/tiles/cave-floor.png"
+      ],
+      "runtime_state": "unchanged",
+      "new_art_approved": false,
+      "evidence": [
+        "native/WS-004-light.png",
+        "native/WS-004-dark.png"
+      ]
+    },
+    {
+      "id": "WS-005",
+      "family": "Вода, рыба и всплески",
+      "decision": "redraw",
+      "reason": "Вода и берег запечены в маленькие пиксельные модули; эффекты рыбы/всплеска имеют 16px кадры.",
+      "preserve": "Единый is_water, маски, рыбалку, паузу и право прохода по мосту.",
+      "work": "Раздельные берег, дно и поверхность; живые ряби и эффекты после прототипа бюджета.",
+      "owner_epics": [
+        "VSHORE",
+        "VFX"
+      ],
+      "priority": "P0",
+      "caveat": "Старое описание об исключении моста из воды не является новым контрактом: вода должна оставаться под настилом.",
+      "asset_paths": [
+        "assets/game/tiles/editor/water/water_clear.png",
+        "assets/game/tiles/editor/water/water_ripples.png",
+        "assets/game/tiles/editor/water/water_deep.png",
+        "assets/game/tiles/editor/water/water_shallow.png",
+        "assets/game/tiles/editor/water/water_lilies.png",
+        "assets/game/tiles/editor/water/water_sparkles.png",
+        "assets/game/tiles/editor/water/shore_north.png",
+        "assets/game/tiles/editor/water/shore_south.png",
+        "assets/game/tiles/editor/water/shore_west.png",
+        "assets/game/tiles/editor/water/shore_east.png",
+        "assets/game/tiles/editor/water/shore_outer_corner.png",
+        "assets/game/tiles/editor/water/shore_inner_corner.png",
+        "assets/game/tiles/editor/water/river_horizontal.png",
+        "assets/game/tiles/editor/water/river_vertical.png",
+        "assets/game/tiles/editor/water/river_corner.png",
+        "assets/game/tiles/editor/water/river_t_junction.png",
+        "assets/game/tiles/editor/water/river_cross.png",
+        "assets/game/tiles/editor/water/river_end.png",
+        "assets/game/tiles/editor/water/pond_rocky.png",
+        "assets/game/fishing/Fish Swimming.png",
+        "assets/game/fishing/Splash Effect.png",
+        "assets/game/fishing/Bubbles Rising.png"
+      ],
+      "runtime_state": "unchanged",
+      "new_art_approved": false,
+      "evidence": [
+        "native/WS-005-light.png",
+        "native/WS-005-dark.png"
+      ]
+    },
+    {
+      "id": "WS-006",
+      "family": "Грядки и культуры",
+      "decision": "redraw",
+      "reason": "Просмотрены также большие crop masters: в них уже нарисована пиксельная фактура, проблема не только в экспорте 64px.",
+      "preserve": "16 видов, пять стадий, сезонные ряды, плодородие и времена роста.",
+      "work": "Перерисовать силуэты стадий и листья, отделить растение от почвы и состояния влажности.",
+      "owner_epics": [
+        "VPLANT",
+        "VGROUND"
+      ],
+      "priority": "P1",
+      "caveat": "Большое разрешение мастера само по себе не означает живописное качество.",
+      "asset_paths": [
+        "assets/game/environment/farm_plot_atlas.png",
+        "assets/game/tiles/editor/terrain/ground_farm_soil.png",
+        "assets/game/farming/crops/atlases/annual_a.png",
+        "assets/game/farming/crops/atlases/annual_b.png",
+        "assets/game/farming/crops/atlases/annual_c.png",
+        "assets/game/farming/crops/atlases/annual_d.png",
+        "assets/game/farming/crops/atlases/strawberry_seasons.png",
+        "assets/game/farming/crops/atlases/herbs_seasons.png"
+      ],
+      "runtime_state": "unchanged",
+      "new_art_approved": false,
+      "evidence": [
+        "native/WS-006-light.png",
+        "native/WS-006-dark.png"
+      ]
+    },
+    {
+      "id": "WS-007",
+      "family": "Мосты",
+      "decision": "redraw",
+      "reason": "Монтажные мосты имеют другую плоскую пиксельную фактуру, настил и перила слиты.",
+      "preserve": "Проходы, длины, берега и назначение вариантов в редакторе.",
+      "work": "Построить каменное/деревянное семейство с отдельными слоями, начиная с принятого настила VART-008.",
+      "owner_epics": [
+        "VPROP",
+        "VSHORE"
+      ],
+      "priority": "P1",
+      "caveat": "Представитель — ресурс редактора; он не доказывает правильность всех живых мостов.",
+      "asset_paths": [
+        "assets/game/environment/bridges/bridge_stone_vertical.png",
+        "assets/game/environment/bridges/bridge_stone_arch.png",
+        "assets/game/environment/bridges/bridge_stone_wood_vertical.png",
+        "assets/game/environment/bridges/bridge_stone_wood_horizontal.png",
+        "assets/game/environment/bridges/bridge_wood_vertical.png",
+        "assets/game/environment/bridges/bridge_wood_horizontal.png",
+        "assets/game/environment/bridges/bridge_copper_vertical.png",
+        "assets/game/environment/bridges/bridge_copper_arch.png",
+        "assets/game/environment/bridges/bridge_copper_arch_rail.png"
+      ],
+      "runtime_state": "unchanged",
+      "new_art_approved": false,
+      "evidence": [
+        "native/WS-007-light.png",
+        "native/WS-007-dark.png"
+      ]
+    },
+    {
+      "id": "WS-008",
+      "family": "Деревья, саженцы и пни",
+      "decision": "redraw",
+      "reason": "Пиксельный рисунок присутствует в большом исходнике дерева, а не появился только при уменьшении.",
+      "preserve": "Стадии, таймеры, loot, основание и очередность перекрытия.",
+      "work": "Использовать принятый взрослый этюд B как основу нового дерева; нарисовать пень, саженец и молодое дерево в том же языке.",
+      "owner_epics": [
+        "VTREE",
+        "VFOLIAGE"
+      ],
+      "priority": "P0",
+      "caveat": "При смене рисунка не двигать коллизию вслед за формой кроны.",
+      "asset_paths": [
+        "assets/game/environment/forest_tree_growth_atlas_v1.png"
+      ],
+      "runtime_state": "unchanged",
+      "new_art_approved": false,
+      "evidence": [
+        "native/WS-008-light.png",
+        "native/WS-008-dark.png"
+      ]
+    },
+    {
+      "id": "WS-009",
+      "family": "Заборы, калитки и деревенский декор",
+      "decision": "adapt",
+      "reason": "Семейство смешивает крупные рисунки декора и маленькие секции ограды; единая массовая перерисовка лишняя.",
+      "preserve": "Материалы, функциональные виды, сетку и автостыки секций.",
+      "work": "Крупные masters адаптировать к свету/краю; маленькие ограды перерисовать, разделить высокие и низкие части.",
+      "owner_epics": [
+        "VPROP",
+        "VFOLIAGE"
+      ],
+      "priority": "P1",
+      "caveat": "Калитки/секции не получают диагональный поворот; проверять допустимую сторону отдельно от геометрии сети.",
+      "asset_paths": [
+        "assets/game/environment/village_prop_atlas_v2.png",
+        "assets/game/environment/village_ambient_atlas_v1.png",
+        "assets/game/environment/buildable_fence_atlas_v1.png"
+      ],
+      "runtime_state": "unchanged",
+      "new_art_approved": false,
+      "evidence": [
+        "native/WS-009-light.png",
+        "native/WS-009-dark.png"
+      ]
+    },
+    {
+      "id": "WS-010",
+      "family": "Камни, кристаллы и пещерный декор",
+      "decision": "adapt",
+      "reason": "Модульная пещера уже имеет цельные самостоятельные силуэты с подходящими пропорциями; старые rock/crystal и новые модули различаются.",
+      "preserve": "Каталог стен/жил, физические основания и читаемые типы ресурсов.",
+      "work": "Сохранить основу новых камней, смягчить локальную огранку/контраст; старые 64px ресурсы перерисовать; сияние отделить.",
+      "owner_epics": [
+        "VPROP",
+        "VMAP",
+        "VLIGHT"
+      ],
+      "priority": "P1",
+      "caveat": "Новый рисунок камня/жилы ещё не принят, маленькая опора VART-008 показывает только язык материала.",
+      "asset_paths": [
+        "assets/game/resources/rock.png",
+        "assets/game/resources/blue-crystal.png",
+        "assets/game/environment/cave_crystal.png",
+        "assets/game/environment/red_mushrooms.png",
+        "assets/game/locations/cave/modular/boulder_v1.png",
+        "assets/game/locations/cave/modular/corner_inner_v1.png",
+        "assets/game/locations/cave/modular/corner_left_v1.png",
+        "assets/game/locations/cave/modular/corner_right_v1.png",
+        "assets/game/locations/cave/modular/crystal_blue_v1.png",
+        "assets/game/locations/cave/modular/crystal_fragments_v1.png",
+        "assets/game/locations/cave/modular/crystal_green_v1.png",
+        "assets/game/locations/cave/modular/crystal_red_v1.png",
+        "assets/game/locations/cave/modular/entrance_v1.png",
+        "assets/game/locations/cave/modular/floor_v1.png",
+        "assets/game/locations/cave/modular/mushrooms_v1.png",
+        "assets/game/locations/cave/modular/ore_metal_v1.png",
+        "assets/game/locations/cave/modular/rubble_v1.png",
+        "assets/game/locations/cave/modular/stalagmites_v1.png",
+        "assets/game/locations/cave/modular/torch_v1.png",
+        "assets/game/locations/cave/modular/wall_end_v1.png",
+        "assets/game/locations/cave/modular/wall_rim_v1.png",
+        "assets/game/locations/cave/modular/wall_side_left_v1.png",
+        "assets/game/locations/cave/modular/wall_side_right_v1.png",
+        "assets/game/locations/cave/modular/wall_straight_a_v1.png",
+        "assets/game/locations/cave/modular/wall_straight_b_v1.png"
+      ],
+      "runtime_state": "unchanged",
+      "new_art_approved": false,
+      "evidence": [
+        "native/WS-010-light.png",
+        "native/WS-010-dark.png"
+      ]
+    },
+    {
+      "id": "WS-011",
+      "family": "Ягоды, грибы, арбузы и плодовые деревья",
+      "decision": "adapt",
+      "reason": "Это смешанный каталог: ягоды, старые грибы, садовые деревья и культуры идут разными владельцами.",
+      "preserve": "Forage/orchard ID, стадии и интервалы сбора.",
+      "work": "Взять геометрию и крупные masters сада за основу; низкие 64px грибы и пиксельные листья перерисовать по поднаборам.",
+      "owner_epics": [
+        "VPLANT",
+        "VTREE"
+      ],
+      "priority": "P1",
+      "caveat": "Пример грибов не означает приёмку всех 84 редакторских ячеек.",
+      "asset_paths": [
+        "assets/game/environment/farm_plants.png",
+        "assets/game/environment/farm_plants_objects_atlas_v1.png",
+        "assets/game/environment/orchard/fruit_trees_4x4_v2.png",
+        "assets/game/environment/red_mushrooms.png",
+        "assets/game/items/watermelon.png"
+      ],
+      "runtime_state": "unchanged",
+      "new_art_approved": false,
+      "evidence": [
+        "native/WS-011-light.png",
+        "native/WS-011-dark.png"
+      ]
+    },
+    {
+      "id": "WS-012",
+      "family": "Здания внешних локаций",
+      "decision": "adapt",
+      "reason": "Силуэты и конструктивные роли восьми зданий полезны, но мелкая фактура, дым и масштаб отличаются от эталона.",
+      "preserve": "Назначение каждого здания, двери 48×24, фундаменты и сценарии входа.",
+      "work": "Адаптировать фасады и материалы, отделить дым/свет; новые A/B из VART-008 использовать как жилые варианты, не подменять ими гильдию/кузню.",
+      "owner_epics": [
+        "VBUILD",
+        "VLIGHT",
+        "VFX"
+      ],
+      "priority": "P1",
+      "caveat": "Изменение визуального размера требует повторной проверки двери; общий зум не решает отношения размеров отдельных фасадов.",
+      "asset_paths": [
+        "assets/game/buildings/exteriors/cottage.png",
+        "assets/game/buildings/exteriors/shop_house.png",
+        "assets/game/buildings/exteriors/guild_hall.png",
+        "assets/game/buildings/exteriors/forge.png",
+        "assets/game/buildings/exteriors/chapel.png",
+        "assets/game/buildings/exteriors/prison.png",
+        "assets/game/buildings/exteriors/wizard_tower.png",
+        "assets/game/buildings/exteriors/moon_castle.png"
+      ],
+      "runtime_state": "unchanged",
+      "new_art_approved": false,
+      "evidence": [
+        "native/WS-012-light.png",
+        "native/WS-012-dark.png"
+      ]
+    },
+    {
+      "id": "WS-013",
+      "family": "Сезонные объекты и Лунная поляна",
+      "decision": "adapt",
+      "reason": "У сезонных деревьев хорошие отдельные силуэты, но цветы и листья имеют резкий блочный рисунок и иное отношение к герою.",
+      "preserve": "Четыре сезона, силуэты и функции лунных объектов.",
+      "work": "Согласовать масштаб и палитру, перерисовать кромку листвы/цветов, отделить свечение и контакт.",
+      "owner_epics": [
+        "VTREE",
+        "VMAP",
+        "VLIGHT"
+      ],
+      "priority": "P2",
+      "caveat": "Принятие формы сезона не означает, что весь большой PNG можно оставить без художественного изменения.",
+      "asset_paths": [
+        "assets/game/environment/seasons/tree_spring.png",
+        "assets/game/environment/seasons/tree_summer.png",
+        "assets/game/environment/seasons/tree_autumn.png",
+        "assets/game/environment/seasons/tree_winter.png",
+        "assets/game/environment/seasons/ground_spring.png",
+        "assets/game/environment/seasons/ground_summer.png",
+        "assets/game/environment/seasons/ground_autumn.png",
+        "assets/game/environment/seasons/ground_winter.png",
+        "assets/game/environment/moon/portal.png",
+        "assets/game/environment/moon/flower.png",
+        "assets/game/environment/moon/crystal.png",
+        "assets/game/environment/moon/altar.png",
+        "assets/game/environment/moon/echo.png",
+        "assets/game/environment/moon/guardian.png",
+        "assets/game/environment/moon/stag.png",
+        "assets/game/environment/moon/chest.png"
+      ],
+      "runtime_state": "unchanged",
+      "new_art_approved": false,
+      "evidence": [
+        "native/WS-013-light.png",
+        "native/WS-013-dark.png"
+      ]
+    },
+    {
+      "id": "WS-014",
+      "family": "Объекты приключенческих биомов",
+      "decision": "adapt",
+      "reason": "Большая часть геометрии ориентиров подходит; у rocky_landmark в нативном кадре видны посторонние фрагменты слева.",
+      "preserve": "Идентичность пяти биомов, расположения и основания ориентиров.",
+      "work": "Восстановить чистые силуэты, согласовать края/масштаб; повреждённые области локально перерисовать, не размывать мусор.",
+      "owner_epics": [
+        "VPROP",
+        "VMAP"
+      ],
+      "priority": "P1",
+      "caveat": "Критичный факт: посторонние части входят в PNG, несмотря на старую отметку crop-safe.",
+      "asset_paths": [
+        "assets/game/environment/biomes/forest_landmark.png",
+        "assets/game/environment/biomes/forest_detail.png",
+        "assets/game/environment/biomes/rocky_landmark.png",
+        "assets/game/environment/biomes/rocky_detail.png",
+        "assets/game/environment/biomes/ruins_landmark.png",
+        "assets/game/environment/biomes/ruins_detail.png",
+        "assets/game/environment/biomes/cursed_landmark.png",
+        "assets/game/environment/biomes/cursed_detail.png",
+        "assets/game/environment/biomes/glassworks_landmark.png",
+        "assets/game/environment/biomes/glassworks_detail.png"
+      ],
+      "runtime_state": "unchanged",
+      "new_art_approved": false,
+      "evidence": [
+        "native/WS-014-light.png",
+        "native/WS-014-dark.png"
+      ]
+    },
+    {
+      "id": "WS-015",
+      "family": "Случайные контейнеры мира",
+      "decision": "redraw",
+      "reason": "Сундуки, мешки и бочки сведены в маленькие растры 72/96px с прежней пиксельной фактурой.",
+      "preserve": "Loot tables, тип контейнера, ID, anchor и footprint.",
+      "work": "Новые чистые кардинальные masters, состояния целый/открытый/пустой; отдельный маленький runtime-экспорт.",
+      "owner_epics": [
+        "VPROP"
+      ],
+      "priority": "P1",
+      "caveat": "Отсутствие прямой ссылки в скрипте не разрешает удаление: редактор и динамические каталоги также используют пути.",
+      "asset_paths": [
+        "assets/game/world_loot/containers/sack.png",
+        "assets/game/world_loot/containers/trash.png",
+        "assets/game/world_loot/containers/chest.png",
+        "assets/game/world_loot/containers/bone_pile.png",
+        "assets/game/world_loot/containers/supply_crate.png",
+        "assets/game/world_loot/containers/barrel.png",
+        "assets/game/world_loot/containers/hollow_log.png",
+        "assets/game/world_loot/containers/fairy_cache.png"
+      ],
+      "runtime_state": "unchanged",
+      "new_art_approved": false,
+      "evidence": [
+        "native/WS-015-light.png",
+        "native/WS-015-dark.png"
+      ]
+    },
+    {
+      "id": "WS-016",
+      "family": "Полировка мира, события и предметы в руке",
+      "decision": "redraw",
+      "reason": "Эффекты нарисованы как пиксельные картинки действия целиком; общий shader не исправит их художественный язык.",
+      "preserve": "События контакта, направления снаряда, hit timing и длительности.",
+      "work": "Новые маленькие маски/частицы/спрайты по типам эффекта, с ограничениями overdraw и корректной паузой.",
+      "owner_epics": [
+        "VFX"
+      ],
+      "priority": "P1",
+      "caveat": "Не смешивать декоративный след оружия с физическим попаданием и не менять баланс.",
+      "asset_paths": [
+        "assets/game/world_polish/village_polish_atlas.png",
+        "assets/game/effects/actions/effect_00.png",
+        "assets/game/effects/actions/effect_01.png",
+        "assets/game/effects/actions/effect_02.png",
+        "assets/game/effects/actions/effect_03.png",
+        "assets/game/effects/actions/effect_04.png",
+        "assets/game/effects/actions/effect_05.png",
+        "assets/game/effects/actions/effect_06.png",
+        "assets/game/effects/actions/effect_07.png",
+        "assets/game/effects/actions/effect_08.png",
+        "assets/game/effects/actions/effect_09.png",
+        "assets/game/effects/actions/effect_10.png",
+        "assets/game/effects/actions/effect_11.png",
+        "assets/game/effects/actions/effect_12.png",
+        "assets/game/effects/actions/effect_13.png",
+        "assets/game/effects/actions/effect_14.png",
+        "assets/game/effects/actions/effect_15.png"
+      ],
+      "runtime_state": "unchanged",
+      "new_art_approved": false,
+      "evidence": [
+        "native/WS-016-light.png",
+        "native/WS-016-dark.png"
+      ]
+    },
+    {
+      "id": "WS-017",
+      "family": "Фермерская жизнь, мебель и музей",
+      "decision": "adapt",
+      "reason": "Реальная свинья уже берётся из farmyard, а не из старого expansion atlas; большой исходник животных живописный.",
+      "preserve": "Новые анатомию/масштаб животных, шесть фаз, источники animals.png; мебель и музейные данные.",
+      "work": "Собрать более качественные runtime-кадры из сохранённого мастера, согласовать край; мебель адаптировать отдельно в трёх видах.",
+      "owner_epics": [
+        "VACTOR",
+        "VPROP"
+      ],
+      "priority": "P1",
+      "caveat": "Не исправлять маленькую свинью повторной перерисовкой старого неиспользуемого большого pig в expansion atlas.",
+      "asset_paths": [
+        "assets/game/expansion_pack/expansion_atlas.png"
+      ],
+      "runtime_state": "unchanged",
+      "new_art_approved": false,
+      "evidence": [
+        "native/WS-017-light.png",
+        "native/WS-017-dark.png"
+      ]
+    },
+    {
+      "id": "WS-018",
+      "family": "Герой, NPC и напарники",
+      "decision": "adapt",
+      "reason": "Герой и бабушка уже имеют измеренные крупные masters; пять NPC/спутников заметно отличаются по плотности и анатомии.",
+      "preserve": "Дизайн героя, опоры стоп, каталоги действий и текущие четыре стороны героя.",
+      "work": "Героя/бабушку адаптировать к естественному краю и свету; NPC/спутников переработать по отдельным паспортам.",
+      "owner_epics": [
+        "VACTOR",
+        "VANIM"
+      ],
+      "priority": "P1",
+      "caveat": "Этюд VART-006 справа — пример мягкости, не утверждённый новый герой. Проверить все действия, не только walk.",
+      "asset_paths": [
+        "assets/game/characters/hero_v3/walk_master.png",
+        "assets/game/characters/hero_v3/hoe_master.png",
+        "assets/game/characters/grandmother_v2/walk_master.png",
+        "assets/game/characters/directional/npc_grandmother_walk_8dir.png",
+        "assets/game/characters/directional/npc_official_walk_8dir.png",
+        "assets/game/characters/directional/npc_herbalist_walk_8dir.png",
+        "assets/game/characters/directional/companion_mila_walk_8dir.png",
+        "assets/game/characters/directional/companion_borislav_walk_8dir.png",
+        "assets/game/characters/directional/companion_luna_walk_8dir.png",
+        "assets/game/characters/walk_v2/npc_official.png",
+        "assets/game/characters/walk_v2/npc_herbalist.png",
+        "assets/game/characters/walk_v2/companion_mila.png",
+        "assets/game/characters/walk_v2/companion_borislav.png",
+        "assets/game/characters/walk_v2/companion_luna.png"
+      ],
+      "runtime_state": "unchanged",
+      "new_art_approved": false,
+      "evidence": [
+        "native/WS-018-light.png",
+        "native/WS-018-dark.png"
+      ]
+    },
+    {
+      "id": "WS-019",
+      "family": "Мобильные враги и пираты",
+      "decision": "redraw",
+      "reason": "Обычный хранитель имеет одну временную цельную позу; общий пакет врагов смешивает размерности и пиксельную фактуру.",
+      "preserve": "Ранги, radii, HP/агро, фазы атак, projectile collision и контракты анимации.",
+      "work": "Новые направленные тела/действия по существам; скелета и его лук проверить отдельно; различать cave_guardian и deep_guardian.",
+      "owner_epics": [
+        "VACTOR",
+        "VANIM",
+        "VFX"
+      ],
+      "priority": "P0",
+      "caveat": "Статичная целая поза не является готовой ходьбой и не закрывает прежний долг UX-07.",
+      "asset_paths": [
+        "assets/game/enemies/enemy_rank_atlas.png",
+        "assets/game/enemies/animated/core_enemy_walk_8dir.png",
+        "assets/game/enemies/animated/core_enemy_actions_8dir.png",
+        "assets/game/enemies/animated/pirate_enemy_walk_8dir.png",
+        "assets/game/enemies/animated/pirate_enemy_actions_8dir.png",
+        "assets/game/enemies/skeleton_v2/walk.png",
+        "assets/game/enemies/skeleton_v2/actions.png",
+        "assets/game/enemies/cave_guardian.png"
+      ],
+      "runtime_state": "unchanged",
+      "new_art_approved": false,
+      "evidence": [
+        "native/WS-019-light.png",
+        "native/WS-019-dark.png"
+      ]
+    },
+    {
+      "id": "WS-020",
+      "family": "Дикие животные",
+      "decision": "adapt",
+      "reason": "Новые лиса/летучая мышь/ящерица имеют пригодные большие masters; кабан использует лишь две хорошие фазы из старого пакета.",
+      "preserve": "Новые силуэты, четыре стороны, существующую скорость и точки лап.",
+      "work": "Переиспользовать основу трёх новых видов, согласовать sampling; кабану/оленю отдельно дорисовать недостающие фазы и реакции.",
+      "owner_epics": [
+        "VACTOR",
+        "VANIM"
+      ],
+      "priority": "P2",
+      "caveat": "Кадр лисы не подтверждает полную анимацию всех пяти видов.",
+      "asset_paths": [
+        "assets/game/wildlife/directional/deer_actions_8dir.png",
+        "assets/game/wildlife/directional/fox_actions_8dir.png",
+        "assets/game/wildlife/directional/boar_actions_8dir.png",
+        "assets/game/wildlife/directional/bat_actions_8dir.png",
+        "assets/game/wildlife/directional/lizard_actions_8dir.png",
+        "assets/game/wildlife/directional/fox_walk_4dir_v2.png",
+        "assets/game/wildlife/directional/bat_flight_4dir_v2.png",
+        "assets/game/wildlife/directional/lizard_walk_4dir_v2.png"
+      ],
+      "runtime_state": "unchanged",
+      "new_art_approved": false,
+      "evidence": [
+        "native/WS-020-light.png",
+        "native/WS-020-dark.png"
+      ]
+    },
+    {
+      "id": "WS-021",
+      "family": "Неподвижные опасные растения",
+      "decision": "adapt",
+      "reason": "Крупные 418px ячейки дают достаточную основу трём семействам растений, но фактура и ранговый цвет требуют согласования.",
+      "preserve": "Ранги, опасность, якорь и hit radius.",
+      "work": "Сохранить основные силуэты, очистить край, изменить локальную фактуру/свет; атаки и яд отдельными VFX.",
+      "owner_epics": [
+        "VACTOR",
+        "VFX"
+      ],
+      "priority": "P2",
+      "caveat": "Статика не проверяет динамическое дыхание, телеграфы и попадание.",
+      "asset_paths": [
+        "assets/game/environment/hazard_rank_atlas.png"
+      ],
+      "runtime_state": "unchanged",
+      "new_art_approved": false,
+      "evidence": [
+        "native/WS-021-light.png",
+        "native/WS-021-dark.png"
+      ]
+    },
+    {
+      "id": "WS-022",
+      "family": "Интерьеры, сервисы и домашний сундук",
+      "decision": "adapt",
+      "reason": "Действительный домашний сундук читается из village_interior_atlas_v2; прежний манифест перечисляет другой общий лист.",
+      "preserve": "Функции сервисов, размеры оснований, содержимое сундука и размещения.",
+      "work": "Зафиксировать действительные владельцы; адаптировать бытовые предметы с видимой рабочей гранью, не менять UI хранилища.",
+      "owner_epics": [
+        "VPROP",
+        "VBUILD"
+      ],
+      "priority": "P1",
+      "caveat": "Манифест пока остаётся историческим источником; его статус compliant не равен готовности новой графики.",
+      "asset_paths": [
+        "assets/game/world_polish/village_polish_atlas.png"
+      ],
+      "runtime_state": "unchanged",
+      "new_art_approved": false,
+      "evidence": [
+        "native/WS-022-light.png",
+        "native/WS-022-dark.png"
+      ]
+    },
+    {
+      "id": "WS-023",
+      "family": "Намеренный fallback сюжетного слизня",
+      "decision": "redraw",
+      "reason": "Сюжетный слизень — намеренный 64px fallback; его тело заметно меньше рамки и имеет выраженные пиксели.",
+      "preserve": "Сюжетный ID, r28, логику появления и состояния боя.",
+      "work": "Новый цельный пакет idle/attack/hurt/death в выбранной стилистике с единым ростом и опорой.",
+      "owner_epics": [
+        "VACTOR",
+        "VANIM"
+      ],
+      "priority": "P2",
+      "caveat": "Старые листы содержат несколько рядов; renderer использует конкретную область 64×64, а не весь монтаж.",
+      "asset_paths": [
+        "assets/game/enemies/slime_idle.png",
+        "assets/game/enemies/slime_attack.png",
+        "assets/game/enemies/slime_hurt.png",
+        "assets/game/enemies/slime_death.png"
+      ],
+      "runtime_state": "unchanged",
+      "new_art_approved": false,
+      "evidence": [
+        "native/WS-023-light.png",
+        "native/WS-023-dark.png"
+      ]
+    },
+    {
+      "id": "WS-024",
+      "family": "Модульная игровая деревня: тихие материалы, мосты и отдельные объекты",
+      "decision": "redraw",
+      "reason": "Действительный старый колодец, лавка и телега малы и детализированы иначе; телега/лавка сохраняют диагональный вид.",
+      "preserve": "VillageMapData, русла/дороги, мостовые проходы и физические размещения.",
+      "work": "Использовать материалы VART-008, перерисовать реквизит вниз/влево/вправо; лампу/доску сохранить как конструктивный референс.",
+      "owner_epics": [
+        "VGROUND",
+        "VPROP",
+        "VSHORE"
+      ],
+      "priority": "P0",
+      "caveat": "Не восстанавливать старую монолитную карту и не записывать визуальный берег в навигацию независимо от воды.",
+      "asset_paths": [
+        "assets/game/locations/overworld/modular/grass_meadow_tile_v1.png",
+        "assets/game/locations/overworld/modular/path_material_v1.png",
+        "assets/game/locations/overworld/modular/dirt_material_v1.png",
+        "assets/game/locations/overworld/modular/stone_material_v1.png",
+        "assets/game/locations/overworld/modular/water_material_v1.png",
+        "assets/game/locations/overworld/modular/bridge_modular_v1.png",
+        "assets/game/locations/overworld/modular/prop_well_v1.png",
+        "assets/game/locations/overworld/modular/prop_bench_v1.png",
+        "assets/game/locations/overworld/modular/prop_lamp_v1.png",
+        "assets/game/locations/overworld/modular/prop_board_v1.png",
+        "assets/game/locations/overworld/modular/prop_cart_v1.png"
+      ],
+      "runtime_state": "unchanged",
+      "new_art_approved": false,
+      "evidence": [
+        "native/WS-024-light.png",
+        "native/WS-024-dark.png"
+      ]
+    },
+    {
+      "id": "WS-025",
+      "family": "Ремесленная мастерская A: четыре семейства по три уровня",
+      "decision": "adapt",
+      "reason": "Сервисная лесопилка уже использует Basement.texture; старые workshops/research atlases не показывают действующий рисунок.",
+      "preserve": "Принятый ремесленный A, три уровня и рабочие функции.",
+      "work": "Сохранить фронтальные конструкции, согласовать плотность мастеров/свет и контур; обновить владельца в последующей миграции.",
+      "owner_epics": [
+        "VBUILD",
+        "VPROP"
+      ],
+      "priority": "P1",
+      "caveat": "Не создавать второй комплект тех же станков для сервисов и личного подвала.",
+      "asset_paths": [
+        "assets/game/workshops/workshops_atlas_a.png",
+        "assets/game/workshops/research_atlas_a.png"
+      ],
+      "runtime_state": "unchanged",
+      "new_art_approved": false,
+      "evidence": [
+        "native/WS-025-light.png",
+        "native/WS-025-dark.png"
+      ]
+    },
+    {
+      "id": "WS-026",
+      "family": "Тёплый кирпичный подвал A и десять строящихся личных станков",
+      "decision": "adapt",
+      "reason": "Действующие станки уже используют три видимые стороны с alias старого up в south; содержимое старых листов шире runtime.",
+      "preserve": "Кирпичный подвал A, каталоги, уровни, кучи, одну рабочую точку и сетку.",
+      "work": "Согласовать коэффициенты уровней/ракурсов, убрать запечённые внешние тени, исправить оставшиеся диагональные формы по поднабору.",
+      "owner_epics": [
+        "VBUILD",
+        "VPROP",
+        "VSHADOW"
+      ],
+      "priority": "P1",
+      "caveat": "Не генерировать задние виды. Старое описание 4 направлений не соответствует текущему выбору [0,1,3].",
+      "asset_paths": [
+        "assets/game/basement/alchemy_atlas_a.png",
+        "assets/game/basement/cauldron_atlas_a.png",
+        "assets/game/basement/floor_a.png",
+        "assets/game/basement/forge_atlas_a.png",
+        "assets/game/basement/furnace_atlas_a.png",
+        "assets/game/basement/glassblowing_atlas_a.png",
+        "assets/game/basement/pottery_atlas_a.png",
+        "assets/game/basement/recycling_atlas_a.png",
+        "assets/game/basement/sawmill_atlas_a.png",
+        "assets/game/basement/shell_atlas_a.png",
+        "assets/game/basement/study_atlas_a.png",
+        "assets/game/basement/workbench_atlas_a.png"
+      ],
+      "runtime_state": "unchanged",
+      "new_art_approved": false,
+      "evidence": [
+        "native/WS-026-light.png",
+        "native/WS-026-dark.png"
+      ]
+    },
+    {
+      "id": "WS-027",
+      "family": "Личная кухня A: котелок, очаг, светлая домашняя печь и блюда",
+      "decision": "adapt",
+      "reason": "Станция, пища и огонь имеют разных владельцев и требования; объём котелка/печи уже близок к ремесленной живописи.",
+      "preserve": "Принятый путь котелок→очаг→светлая печь, рецепты и очереди.",
+      "work": "Сохранить конструкцию уровней; унифицировать scale/свет/тени; огонь и пар отдельно, иконки проверять в 64/160.",
+      "owner_epics": [
+        "VBUILD",
+        "VICON",
+        "VFX"
+      ],
+      "priority": "P1",
+      "caveat": "Наличие трёх уровней не подтверждает одинаковую физическую ширину или готовность всех эффектов.",
+      "asset_paths": [
+        "assets/game/kitchen/fire_atlas_a.png",
+        "assets/game/kitchen/food_atlas_a.png",
+        "assets/game/kitchen/station_atlas_a.png"
+      ],
+      "runtime_state": "unchanged",
+      "new_art_approved": false,
+      "evidence": [
+        "native/WS-027-light.png",
+        "native/WS-027-dark.png"
+      ]
+    },
+    {
+      "id": "WS-028",
+      "family": "Деревянная пасека A: 3 уровня, дикое гнездо и пчелиное сырьё",
+      "decision": "adapt",
+      "reason": "Деревянный улей имеет пригодную форму и материал, но верх/бок корпуса читаются диагонально и нужна сверка края.",
+      "preserve": "Выбранный деревянный A, уровни, пчелиные продукты, 72×48 основу.",
+      "work": "Адаптировать корпус к основному виду вниз; отделить пчёл/контакт/солнце и сделать выводы иконок отдельно.",
+      "owner_epics": [
+        "VBUILD",
+        "VICON",
+        "VFOLIAGE"
+      ],
+      "priority": "P2",
+      "caveat": "Повторный выбор плетёного B не требуется: он уже отклонён. Не копировать один тёмный baked shadow во все времена суток.",
+      "asset_paths": [
+        "assets/game/apiary/apiary_atlas_a.png"
+      ],
+      "runtime_state": "unchanged",
+      "new_art_approved": false,
+      "evidence": [
+        "native/WS-028-light.png",
+        "native/WS-028-dark.png"
+      ]
+    },
+    {
+      "id": "WS-029",
+      "family": "Ремесленные мастерские A: 8 видов × 3 уровня × 4 ракурса, кучи и продукты",
+      "decision": "adapt",
+      "reason": "Крупные ремесленные masters уже дают пригодные фронтальные формы; у ткацкого станка видна запечённая тень на полу.",
+      "preserve": "Восемь выбранных конструкций A, три уровня, материал-пиле и предметные ID.",
+      "work": "Сохранить формы; унифицировать локальный свет и texel density, выделить внешние тени; боковые виды и иконки принимать по поднаборам.",
+      "owner_epics": [
+        "VBUILD",
+        "VICON",
+        "VSHADOW"
+      ],
+      "priority": "P1",
+      "caveat": "128 исторических видов не означают 128 обязательных новых рисунков: доступны только три основные стороны.",
+      "asset_paths": [
+        "assets/game/artisan/candlebench_atlas_a.png",
+        "assets/game/artisan/fermenter_atlas_a.png",
+        "assets/game/artisan/fruit_press_atlas_a.png",
+        "assets/game/artisan/gardenbench_atlas_a.png",
+        "assets/game/artisan/items_0_atlas_a.png",
+        "assets/game/artisan/items_1_atlas_a.png",
+        "assets/game/artisan/items_2_atlas_a.png",
+        "assets/game/artisan/loom_atlas_a.png",
+        "assets/game/artisan/preserver_atlas_a.png",
+        "assets/game/artisan/smoker_atlas_a.png",
+        "assets/game/artisan/tannery_atlas_a.png"
+      ],
+      "runtime_state": "unchanged",
+      "new_art_approved": false,
+      "evidence": [
+        "native/WS-029-light.png",
+        "native/WS-029-dark.png"
+      ]
+    }
+  ]
+}

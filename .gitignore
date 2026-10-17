@@ -1,6 +1,10 @@
 .DS_Store
 .godot/
 tools/*
+!tools/visual_reuse.py
+!tools/test_visual_reuse.py
+!tools/visual_reuse_sources.gd
+!tools/visual_reuse_capture.gd
 !tools/visual_modules.py
 !tools/test_visual_modules.py
 !tools/visual_modules_capture.gd

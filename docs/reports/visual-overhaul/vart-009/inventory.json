@@ -1,0 +1,6065 @@
+{
+  "schema": 1,
+  "manifest_sha256": "6346151babc2fe38260eb2067c306cc409088e6d01b4baa209a9952d651897f0",
+  "manifest_entries": 29,
+  "declared_assets": 238,
+  "unique_assets": 236,
+  "files": [
+    {
+      "path": "assets/game/locations/overworld/overworld_master_24_v2.png",
+      "size": [
+        2400,
+        1200
+      ],
+      "declared_size": [
+        2400,
+        1200
+      ],
+      "mode": "RGBA",
+      "bytes": 3704099,
+      "sha256": "03f8ba7dc22afdf0b8b6f993e5f61a8dcb09a6c17a10e35ba882a584da847379",
+      "alpha_bbox": [
+        0,
+        0,
+        2400,
+        1200
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-001"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/grass.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 1510,
+      "sha256": "abed4f557af96d910f075f90e3d41777dae7c7bffd3734adea67b67b089202e4",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [
+        "scripts/world_background.gd"
+      ],
+      "families": [
+        "WS-002"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/grass_var_1.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 1550,
+      "sha256": "c155563627ff8be8c7039fbade1b4dd39be2b59a0dbd40a352382d73acb9a191",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [
+        "scripts/world_background.gd"
+      ],
+      "families": [
+        "WS-002"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/grass_var_2.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 1569,
+      "sha256": "9ed431e7174ede760766c12a997fb5dd4a354a6a96b0e9c98f417bcd13101d1c",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [
+        "scripts/world_background.gd"
+      ],
+      "families": [
+        "WS-002"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/terrain/grass_flowers.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 1543,
+      "sha256": "651b3f1c9fef634c7d31a7ea655bfedbe1cbd5f0db13abcc7090c9d4da9cf5c4",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [
+        "scripts/systems/level_editor_preview_system.gd"
+      ],
+      "families": [
+        "WS-002"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/terrain/grass_lush.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 1386,
+      "sha256": "7411ece2d1a3ce257c9fbb970eb0987bf476e4c08f68f82a965c742d6d81e207",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [
+        "scripts/systems/level_editor_preview_system.gd"
+      ],
+      "families": [
+        "WS-002"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/terrain/grass_spring.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 1470,
+      "sha256": "5330c4646463359d1286e3bfc230e354390e12e9f4cb3bc87a866a79d07c2893",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-002"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/terrain/grass_autumn.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 1418,
+      "sha256": "2f443fd58dc0eff9f41867fba0cd13cfc0437d073c6fd82a2871d95d083e1eb4",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-002"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/terrain/ground_snow_grass.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 1861,
+      "sha256": "14cf30e47a0d1940ff5c58da9818539bfa1aaeef826537352307f280806f8917",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-002"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/terrain/ground_gravel.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGB",
+      "bytes": 1871,
+      "sha256": "3f325086c4dbc1103ae102ab8e5b5d9d125826c4bb61a948ccdb7373e6a257a7",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-002"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/transitions/dirt_edge.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 736,
+      "sha256": "7c70f4f08f00e6f94deaf47ab4c6d9f3089907f093c8dee98abc58e2c3076feb",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        8
+      ],
+      "literal_reference_files": [
+        "scripts/systems/level_editor_renderer.gd"
+      ],
+      "families": [
+        "WS-002"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/transitions/gravel_edge.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 786,
+      "sha256": "74e9f37900383ca52659f27db1eb34460b4c5222296de171e9134f0287e18fab",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [
+        "scripts/systems/level_editor_renderer.gd"
+      ],
+      "families": [
+        "WS-002"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/transitions/sand_edge.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 771,
+      "sha256": "8d19f860863ad7d0d60c4725afdb1f373feaa260699f7adc44577049831b7704",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [
+        "scripts/systems/level_editor_renderer.gd"
+      ],
+      "families": [
+        "WS-002"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/transitions/dirt_inner_corner.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 392,
+      "sha256": "f32bc4c412f55cedf034fc1769b186979f0c8b96d3e876b08645bebfe597885b",
+      "alpha_bbox": [
+        13,
+        0,
+        24,
+        11
+      ],
+      "literal_reference_files": [
+        "scripts/systems/level_editor_renderer.gd"
+      ],
+      "families": [
+        "WS-002"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/transitions/gravel_inner_corner.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 367,
+      "sha256": "5c510f05e6e7f9f75efad1fb434b147b413243d518e157f816b408ed8cf521be",
+      "alpha_bbox": [
+        13,
+        0,
+        24,
+        11
+      ],
+      "literal_reference_files": [
+        "scripts/systems/level_editor_renderer.gd"
+      ],
+      "families": [
+        "WS-002"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/transitions/sand_inner_corner.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 366,
+      "sha256": "8c09846a7f42dea0a1fd7c6d368c5f39affae0c5e935f6fc5d324c4cc91e53a5",
+      "alpha_bbox": [
+        13,
+        0,
+        24,
+        11
+      ],
+      "literal_reference_files": [
+        "scripts/systems/level_editor_renderer.gd"
+      ],
+      "families": [
+        "WS-002"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/terrain/dirt_path_horizontal.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 1435,
+      "sha256": "40aff2579051583408e2d4c04328562cec2d7d3a983cf84bdcb76f73c4adb82c",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [
+        "scripts/systems/level_editor_preview_system.gd",
+        "scripts/systems/road_visual_system.gd"
+      ],
+      "families": [
+        "WS-003"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/terrain/dirt_path_vertical.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 1402,
+      "sha256": "fa98c6c535dcdb8ed5c8616a5db9e0347c324724b3bf5e68d790f70decd57159",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [
+        "scripts/systems/level_editor_preview_system.gd",
+        "scripts/systems/road_visual_system.gd"
+      ],
+      "families": [
+        "WS-003"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/terrain/dirt_path_corner.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 1439,
+      "sha256": "a0439651cedda6b96e1ed9a8d0fefccc3214441f836a07e94d716626a08d9fde",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [
+        "scripts/systems/road_visual_system.gd"
+      ],
+      "families": [
+        "WS-003"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/terrain/dirt_path_t_junction.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 1432,
+      "sha256": "c83d923651fd97d1c166c24507b7f1ada38ec282a8b67a7fafad88b7d3336315",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [
+        "scripts/systems/road_visual_system.gd"
+      ],
+      "families": [
+        "WS-003"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/terrain/dirt_path_cross.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 1424,
+      "sha256": "f94a185f0f3c8716c221feb1621190ae83678c41ae3037db9cb2c050be80a8d7",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [
+        "scripts/systems/level_editor_preview_system.gd",
+        "scripts/systems/road_visual_system.gd"
+      ],
+      "families": [
+        "WS-003"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/terrain/dirt_path_end.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 1435,
+      "sha256": "86e167d9b91ca97113629d6d450d87b9a66d0d640e82dc18aecbabcc5dbfea73",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [
+        "scripts/systems/road_visual_system.gd"
+      ],
+      "families": [
+        "WS-003"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/terrain/stone_road_horizontal.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 1508,
+      "sha256": "3ef8f42a5d31ef002557f2671b724b2b06b3ebbdee2a075ac20280b5bad8224f",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [
+        "scripts/systems/road_visual_system.gd"
+      ],
+      "families": [
+        "WS-003"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/terrain/stone_road_vertical.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 1475,
+      "sha256": "90f9684d8ffee206552c5254c8b93043992548e8196a49a79ff4adacc84a099f",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [
+        "scripts/systems/road_visual_system.gd"
+      ],
+      "families": [
+        "WS-003"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/terrain/stone_road_corner.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 1515,
+      "sha256": "9e76f40c276524c2c5288aa0c0e0138962c51288d8d116c5d6d49efd669b241c",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [
+        "scripts/systems/road_visual_system.gd"
+      ],
+      "families": [
+        "WS-003"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/terrain/stone_road_t_junction.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 1541,
+      "sha256": "29099946712bb9fe08b24f60f803c86b7111284b382455d9a71d01a931a5f53c",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [
+        "scripts/systems/road_visual_system.gd"
+      ],
+      "families": [
+        "WS-003"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/terrain/stone_road_cross.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 1543,
+      "sha256": "35641a888677244c37328ecb574e5f941392ee6ced8babcc6919341a641edf98",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [
+        "scripts/systems/road_visual_system.gd"
+      ],
+      "families": [
+        "WS-003"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/terrain/stone_road_end.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 1480,
+      "sha256": "040a7f981085e5666ef9afd5c2c422178f831c90699668af63e6a605f866349d",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [
+        "scripts/systems/road_visual_system.gd"
+      ],
+      "families": [
+        "WS-003"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/cave-floor.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 337,
+      "sha256": "99d5ba86743f234aa3a21ddfbe0ce3c88a0b1f9f3f8bd2f8d678b833e3a1e29c",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [
+        "scripts/world_background.gd"
+      ],
+      "families": [
+        "WS-004"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/water/water_clear.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 1292,
+      "sha256": "7035f1d2d14eb295a911e8ae2534685eeae3f694d401402b8688fa89d2f83df7",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [
+        "scripts/systems/level_editor_preview_system.gd",
+        "scripts/systems/water_visual_system.gd"
+      ],
+      "families": [
+        "WS-005"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/water/water_ripples.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 1590,
+      "sha256": "a734203282cdc6b5811eddf5e50bc717c5f4b6197118cb8b7772ecee0093c5b4",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [
+        "scripts/systems/water_visual_system.gd",
+        "scripts/systems/fishing_renderer.gd"
+      ],
+      "families": [
+        "WS-005"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/water/water_deep.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 1231,
+      "sha256": "c88cc94ddb3722019623431a5221951a408a1054bc2ddcbe198d6ce39a0ff34e",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [
+        "scripts/systems/water_visual_system.gd"
+      ],
+      "families": [
+        "WS-005"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/water/water_shallow.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 1469,
+      "sha256": "48b7ee8760aa37d89773ab97b9cca974ce3cd176ce54b345a385606e42840c65",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [
+        "scripts/systems/water_visual_system.gd"
+      ],
+      "families": [
+        "WS-005"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/water/water_lilies.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 1470,
+      "sha256": "c4b15e90754267fae384dbe04eddee0455b05de3c90d42c6472a480d77c431d9",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [
+        "scripts/systems/water_visual_system.gd"
+      ],
+      "families": [
+        "WS-005"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/water/water_sparkles.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 1493,
+      "sha256": "b8fbc2bbe2b29877dc424d01e995f436fd51ee94b57d7026012eddbd14c91665",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [
+        "scripts/systems/water_visual_system.gd"
+      ],
+      "families": [
+        "WS-005"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/water/shore_north.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 1495,
+      "sha256": "5a310c41dd094d2057b122c769ce76dcf9daed984319de35882ab83b1a511265",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [
+        "scripts/systems/water_visual_system.gd"
+      ],
+      "families": [
+        "WS-005"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/water/shore_south.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 1584,
+      "sha256": "b93801ba774633c6bb6952c63f7d90279062ef30c3dc0444d63448ac95a8bd5b",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [
+        "scripts/systems/water_visual_system.gd"
+      ],
+      "families": [
+        "WS-005"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/water/shore_west.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 1507,
+      "sha256": "67fadbfb5c26ecb3e1ffe5181f3ed66a94e05a10f51d2fbc1e614b48bd0a2adb",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [
+        "scripts/systems/water_visual_system.gd"
+      ],
+      "families": [
+        "WS-005"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/water/shore_east.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 1524,
+      "sha256": "fae49ac10b60f976610ffbe76fa6d6772581fb634f0ee4a1a198cd391e905d9e",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [
+        "scripts/systems/water_visual_system.gd"
+      ],
+      "families": [
+        "WS-005"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/water/shore_outer_corner.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 1499,
+      "sha256": "afe7a86cb197ab572d2836795f1c87df6d15afb8107ff0a1839f224813cd9a42",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [
+        "scripts/systems/water_visual_system.gd"
+      ],
+      "families": [
+        "WS-005"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/water/shore_inner_corner.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 1567,
+      "sha256": "1a8d1a73bf2b1ac6ef4e1d61d958fd929ed64805aafb1fb62402fd3e6c1c6499",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [
+        "scripts/systems/water_visual_system.gd"
+      ],
+      "families": [
+        "WS-005"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/water/river_horizontal.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 1589,
+      "sha256": "28250536f22810bc5b6f11fc1a3dbc38334453f7cde88daefb511b1da446338e",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [
+        "scripts/systems/water_visual_system.gd"
+      ],
+      "families": [
+        "WS-005"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/water/river_vertical.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 1563,
+      "sha256": "79f72aa48c526d12084dd57a66410533d8137e2e53aac6e152b46e4ffc272b3a",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [
+        "scripts/systems/water_visual_system.gd"
+      ],
+      "families": [
+        "WS-005"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/water/river_corner.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 1601,
+      "sha256": "55d3a2a5b4b6d7653b47510fd2628410610e9397b1283a26cc638d055b31d320",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [
+        "scripts/systems/water_visual_system.gd"
+      ],
+      "families": [
+        "WS-005"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/water/river_t_junction.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 1624,
+      "sha256": "e080659e449197cc0e97e5379c29300929b3bb2bae84af4ebcc5c552d8eeacdd",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [
+        "scripts/systems/water_visual_system.gd"
+      ],
+      "families": [
+        "WS-005"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/water/river_cross.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 1637,
+      "sha256": "f610121647e8859e205c1dccb56baa959fd0787acf022a680e392ca643cf97e2",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [
+        "scripts/systems/water_visual_system.gd"
+      ],
+      "families": [
+        "WS-005"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/water/river_end.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 1567,
+      "sha256": "eb76bfab02c951ce578137ce4f399f34bfcb5a6b2d0734dcc27894410ce18e76",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [
+        "scripts/systems/water_visual_system.gd"
+      ],
+      "families": [
+        "WS-005"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/water/pond_rocky.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 1611,
+      "sha256": "75e5656d06b11d68cc41eeb335d43647766a613a7a13e92056f16d3ecd81ea08",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [
+        "scripts/systems/water_visual_system.gd"
+      ],
+      "families": [
+        "WS-005"
+      ]
+    },
+    {
+      "path": "assets/game/fishing/Fish Swimming.png",
+      "size": [
+        160,
+        16
+      ],
+      "declared_size": [
+        160,
+        16
+      ],
+      "mode": "RGBA",
+      "bytes": 359,
+      "sha256": "b79d298193e55259429b4c74c7e936758aeea5d5cb16044a749d55630838c626",
+      "alpha_bbox": [
+        2,
+        5,
+        158,
+        12
+      ],
+      "literal_reference_files": [
+        "scripts/systems/water_visual_system.gd"
+      ],
+      "families": [
+        "WS-005"
+      ]
+    },
+    {
+      "path": "assets/game/fishing/Splash Effect.png",
+      "size": [
+        288,
+        16
+      ],
+      "declared_size": [
+        288,
+        16
+      ],
+      "mode": "RGBA",
+      "bytes": 471,
+      "sha256": "ef0010895017722fb0e499046488a97671f9e5ea22758d56daaea165e3d2860a",
+      "alpha_bbox": [
+        67,
+        2,
+        284,
+        11
+      ],
+      "literal_reference_files": [
+        "scripts/systems/water_visual_system.gd"
+      ],
+      "families": [
+        "WS-005"
+      ]
+    },
+    {
+      "path": "assets/game/fishing/Bubbles Rising.png",
+      "size": [
+        128,
+        16
+      ],
+      "declared_size": [
+        128,
+        16
+      ],
+      "mode": "RGBA",
+      "bytes": 355,
+      "sha256": "907dc51b21603c80432480c8cb0bb9c074045003d0152e9df5da5f6d70b4a4f4",
+      "alpha_bbox": [
+        5,
+        0,
+        124,
+        16
+      ],
+      "literal_reference_files": [
+        "scripts/systems/water_visual_system.gd"
+      ],
+      "families": [
+        "WS-005"
+      ]
+    },
+    {
+      "path": "assets/game/environment/farm_plot_atlas.png",
+      "size": [
+        240,
+        96
+      ],
+      "declared_size": [
+        240,
+        96
+      ],
+      "mode": "RGBA",
+      "bytes": 28591,
+      "sha256": "011b8a5267dead1417e5701c8d6b378cee1a60be4cf7e95ed314a8ea4556a6b0",
+      "alpha_bbox": [
+        1,
+        1,
+        236,
+        91
+      ],
+      "literal_reference_files": [
+        "scripts/systems/farm_visual_system.gd"
+      ],
+      "families": [
+        "WS-006"
+      ]
+    },
+    {
+      "path": "assets/game/tiles/editor/terrain/ground_farm_soil.png",
+      "size": [
+        24,
+        24
+      ],
+      "declared_size": [
+        24,
+        24
+      ],
+      "mode": "RGBA",
+      "bytes": 1306,
+      "sha256": "8cb23c53309b36998403900246509c9a33076541b986f68045855710f542a480",
+      "alpha_bbox": [
+        0,
+        0,
+        24,
+        24
+      ],
+      "literal_reference_files": [
+        "scripts/systems/farm_visual_system.gd"
+      ],
+      "families": [
+        "WS-006"
+      ]
+    },
+    {
+      "path": "assets/game/farming/crops/atlases/annual_a.png",
+      "size": [
+        320,
+        256
+      ],
+      "declared_size": [
+        320,
+        256
+      ],
+      "mode": "RGBA",
+      "bytes": 116079,
+      "sha256": "6828fa8d2cceb9a5aa66df5c2970a6086dee0f5c7dc22fcb22418fbf0dbe44c0",
+      "alpha_bbox": [
+        11,
+        2,
+        318,
+        254
+      ],
+      "literal_reference_files": [
+        "scripts/systems/farm_visual_system.gd"
+      ],
+      "families": [
+        "WS-006"
+      ]
+    },
+    {
+      "path": "assets/game/farming/crops/atlases/annual_b.png",
+      "size": [
+        320,
+        256
+      ],
+      "declared_size": [
+        320,
+        256
+      ],
+      "mode": "RGBA",
+      "bytes": 102444,
+      "sha256": "1bd643d5a73d2f303220bc20428132a2e8b11a5161fb5425dfcbe55a9d46804b",
+      "alpha_bbox": [
+        8,
+        2,
+        318,
+        254
+      ],
+      "literal_reference_files": [
+        "scripts/systems/farm_visual_system.gd"
+      ],
+      "families": [
+        "WS-006"
+      ]
+    },
+    {
+      "path": "assets/game/farming/crops/atlases/annual_c.png",
+      "size": [
+        320,
+        256
+      ],
+      "declared_size": [
+        320,
+        256
+      ],
+      "mode": "RGBA",
+      "bytes": 108281,
+      "sha256": "2b3ecf60233feed6d270fc5755ab72e1731102d669e258159bc4290610bb59c5",
+      "alpha_bbox": [
+        11,
+        4,
+        318,
+        254
+      ],
+      "literal_reference_files": [
+        "scripts/systems/farm_visual_system.gd"
+      ],
+      "families": [
+        "WS-006"
+      ]
+    },
+    {
+      "path": "assets/game/farming/crops/atlases/annual_d.png",
+      "size": [
+        320,
+        128
+      ],
+      "declared_size": [
+        320,
+        128
+      ],
+      "mode": "RGBA",
+      "bytes": 55276,
+      "sha256": "8b2bc1e8a2c7b8f045f94fee41ccf3889a3a282c6e1b96999a9853f8656012b1",
+      "alpha_bbox": [
+        11,
+        4,
+        318,
+        126
+      ],
+      "literal_reference_files": [
+        "scripts/systems/farm_visual_system.gd"
+      ],
+      "families": [
+        "WS-006"
+      ]
+    },
+    {
+      "path": "assets/game/farming/crops/atlases/strawberry_seasons.png",
+      "size": [
+        320,
+        256
+      ],
+      "declared_size": [
+        320,
+        256
+      ],
+      "mode": "RGBA",
+      "bytes": 112102,
+      "sha256": "6b6be34cc6b4a91623a98ba2dbccd1908ab7f07bbc6950010b2766865d638cb3",
+      "alpha_bbox": [
+        12,
+        14,
+        317,
+        254
+      ],
+      "literal_reference_files": [
+        "scripts/systems/farm_visual_system.gd"
+      ],
+      "families": [
+        "WS-006"
+      ]
+    },
+    {
+      "path": "assets/game/farming/crops/atlases/herbs_seasons.png",
+      "size": [
+        320,
+        256
+      ],
+      "declared_size": [
+        320,
+        256
+      ],
+      "mode": "RGBA",
+      "bytes": 121922,
+      "sha256": "f9d2bc1697e349c015089e67f246c98406cbef8e0c17a0a10fd29187f595be83",
+      "alpha_bbox": [
+        8,
+        6,
+        316,
+        254
+      ],
+      "literal_reference_files": [
+        "scripts/systems/farm_visual_system.gd"
+      ],
+      "families": [
+        "WS-006"
+      ]
+    },
+    {
+      "path": "assets/game/environment/bridges/bridge_stone_vertical.png",
+      "size": [
+        96,
+        192
+      ],
+      "declared_size": [
+        96,
+        192
+      ],
+      "mode": "RGBA",
+      "bytes": 2723,
+      "sha256": "3eb3e99931cbf3013c7520711189c3af113417d6bdf13baaccb04cd050a0d6e5",
+      "alpha_bbox": [
+        27,
+        42,
+        68,
+        192
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-007"
+      ]
+    },
+    {
+      "path": "assets/game/environment/bridges/bridge_stone_arch.png",
+      "size": [
+        168,
+        96
+      ],
+      "declared_size": [
+        168,
+        96
+      ],
+      "mode": "RGBA",
+      "bytes": 4343,
+      "sha256": "60a9120679deecacb8d1a15cbe86df4e7b541f039629621a961d20b34c76897a",
+      "alpha_bbox": [
+        12,
+        30,
+        156,
+        96
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-007"
+      ]
+    },
+    {
+      "path": "assets/game/environment/bridges/bridge_stone_wood_vertical.png",
+      "size": [
+        96,
+        192
+      ],
+      "declared_size": [
+        96,
+        192
+      ],
+      "mode": "RGBA",
+      "bytes": 2018,
+      "sha256": "4bc51107f7291511d0fa81ce73549455fcc4cd5c8a3178ce0e422706046ac2c3",
+      "alpha_bbox": [
+        29,
+        38,
+        67,
+        192
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-007"
+      ]
+    },
+    {
+      "path": "assets/game/environment/bridges/bridge_stone_wood_horizontal.png",
+      "size": [
+        168,
+        96
+      ],
+      "declared_size": [
+        168,
+        96
+      ],
+      "mode": "RGBA",
+      "bytes": 2826,
+      "sha256": "bb6ae77b014c85db2e5a0f6589301333a9393c69a9a9f12b0a9c87bd5dbde8d3",
+      "alpha_bbox": [
+        12,
+        30,
+        156,
+        96
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-007"
+      ]
+    },
+    {
+      "path": "assets/game/environment/bridges/bridge_wood_vertical.png",
+      "size": [
+        72,
+        168
+      ],
+      "declared_size": [
+        72,
+        168
+      ],
+      "mode": "RGBA",
+      "bytes": 2108,
+      "sha256": "63e104fd6d70791f161b8409ba885c711255dd2d347487c9563abcb9c836eb2c",
+      "alpha_bbox": [
+        21,
+        35,
+        50,
+        168
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-007"
+      ]
+    },
+    {
+      "path": "assets/game/environment/bridges/bridge_wood_horizontal.png",
+      "size": [
+        168,
+        96
+      ],
+      "declared_size": [
+        168,
+        96
+      ],
+      "mode": "RGBA",
+      "bytes": 2363,
+      "sha256": "81010087cc60d93b0e1cfe4da0f0cb63711a4ef21123abf457a861eb375f7990",
+      "alpha_bbox": [
+        12,
+        60,
+        156,
+        96
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-007"
+      ]
+    },
+    {
+      "path": "assets/game/environment/bridges/bridge_copper_vertical.png",
+      "size": [
+        72,
+        240
+      ],
+      "declared_size": [
+        72,
+        240
+      ],
+      "mode": "RGBA",
+      "bytes": 3978,
+      "sha256": "c003dbb42ff44629b3776d80396fe2147b7be56b00ab2755a5bc9f693ce40845",
+      "alpha_bbox": [
+        14,
+        35,
+        57,
+        240
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-007"
+      ]
+    },
+    {
+      "path": "assets/game/environment/bridges/bridge_copper_arch.png",
+      "size": [
+        192,
+        96
+      ],
+      "declared_size": [
+        192,
+        96
+      ],
+      "mode": "RGBA",
+      "bytes": 4212,
+      "sha256": "125bd73b3669df24c5d5f572a6a3ccbe0f6a755fc4fb6001286e29eef956f6cc",
+      "alpha_bbox": [
+        8,
+        19,
+        183,
+        96
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-007"
+      ]
+    },
+    {
+      "path": "assets/game/environment/bridges/bridge_copper_arch_rail.png",
+      "size": [
+        192,
+        120
+      ],
+      "declared_size": [
+        192,
+        120
+      ],
+      "mode": "RGBA",
+      "bytes": 4928,
+      "sha256": "c00557422d27ef822367ce1ac376a75522945f8e61e4820e1690cb98a8d74761",
+      "alpha_bbox": [
+        8,
+        25,
+        183,
+        120
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-007"
+      ]
+    },
+    {
+      "path": "assets/game/environment/forest_tree_growth_atlas_v1.png",
+      "size": [
+        1024,
+        256
+      ],
+      "declared_size": [
+        1024,
+        256
+      ],
+      "mode": "RGBA",
+      "bytes": 264487,
+      "sha256": "cbaf0170734b3e0a4f29d9a3daccc57c4348019934b4f26c8fe6c79a9ce5cf14",
+      "alpha_bbox": [
+        16,
+        20,
+        990,
+        244
+      ],
+      "literal_reference_files": [
+        "scripts/world_background.gd",
+        "scripts/game_context.gd",
+        "scripts/systems/village_prop_renderer.gd"
+      ],
+      "families": [
+        "WS-008"
+      ]
+    },
+    {
+      "path": "assets/game/environment/village_prop_atlas_v2.png",
+      "size": [
+        2048,
+        1024
+      ],
+      "declared_size": [
+        2048,
+        1024
+      ],
+      "mode": "RGBA",
+      "bytes": 1452974,
+      "sha256": "6679ddcf447e419f1f87b15cd1c945f3bb320a6236ab09819110b18938037921",
+      "alpha_bbox": [
+        0,
+        65,
+        2048,
+        1024
+      ],
+      "literal_reference_files": [
+        "scripts/world_background.gd"
+      ],
+      "families": [
+        "WS-009"
+      ]
+    },
+    {
+      "path": "assets/game/environment/village_ambient_atlas_v1.png",
+      "size": [
+        1448,
+        1086
+      ],
+      "declared_size": [
+        1448,
+        1086
+      ],
+      "mode": "RGBA",
+      "bytes": 1029698,
+      "sha256": "f2ae3f426d44813f805aaef364895982c74ab26ad08cd7ad4e17092fe8c0b4a5",
+      "alpha_bbox": [
+        60,
+        61,
+        1364,
+        992
+      ],
+      "literal_reference_files": [
+        "scripts/systems/village_ambient_renderer.gd"
+      ],
+      "families": [
+        "WS-009"
+      ]
+    },
+    {
+      "path": "assets/game/environment/buildable_fence_atlas_v1.png",
+      "size": [
+        512,
+        320
+      ],
+      "declared_size": [
+        512,
+        320
+      ],
+      "mode": "RGBA",
+      "bytes": 248787,
+      "sha256": "d53f1028c2d3606596608a6f7c1bcca513c81fc37ef2ed193f800cb1d00312aa",
+      "alpha_bbox": [
+        16,
+        4,
+        512,
+        316
+      ],
+      "literal_reference_files": [
+        "scripts/systems/fence_renderer.gd"
+      ],
+      "families": [
+        "WS-009"
+      ]
+    },
+    {
+      "path": "assets/game/resources/rock.png",
+      "size": [
+        64,
+        64
+      ],
+      "declared_size": [
+        64,
+        64
+      ],
+      "mode": "RGBA",
+      "bytes": 3008,
+      "sha256": "f1490be104ba6dd010832adf10922b4d9095001708290a6d45702f6efc806cb2",
+      "alpha_bbox": [
+        10,
+        2,
+        56,
+        60
+      ],
+      "literal_reference_files": [
+        "scripts/world_background.gd",
+        "scripts/game_context.gd"
+      ],
+      "families": [
+        "WS-010"
+      ]
+    },
+    {
+      "path": "assets/game/resources/blue-crystal.png",
+      "size": [
+        64,
+        64
+      ],
+      "declared_size": [
+        64,
+        64
+      ],
+      "mode": "RGBA",
+      "bytes": 2824,
+      "sha256": "734a7cda1247a5a6075a3df21a3290a95d15465534c2c4d6f6eee83e56810c2d",
+      "alpha_bbox": [
+        9,
+        11,
+        55,
+        54
+      ],
+      "literal_reference_files": [
+        "scripts/game_context.gd"
+      ],
+      "families": [
+        "WS-010"
+      ]
+    },
+    {
+      "path": "assets/game/environment/cave_crystal.png",
+      "size": [
+        64,
+        64
+      ],
+      "declared_size": [
+        64,
+        64
+      ],
+      "mode": "RGBA",
+      "bytes": 2887,
+      "sha256": "473b79aae446c8a78ac2a005ba45038afb10209372dc3b8d9f4cdcb88c26b800",
+      "alpha_bbox": [
+        5,
+        7,
+        59,
+        56
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-010"
+      ]
+    },
+    {
+      "path": "assets/game/environment/red_mushrooms.png",
+      "size": [
+        64,
+        64
+      ],
+      "declared_size": [
+        64,
+        64
+      ],
+      "mode": "RGBA",
+      "bytes": 2492,
+      "sha256": "9011db2da7d9fe3845d5ae0f1e8174987706c9c2440b1c900976d83b28731443",
+      "alpha_bbox": [
+        19,
+        17,
+        44,
+        47
+      ],
+      "literal_reference_files": [
+        "scripts/world_background.gd",
+        "scripts/game_context.gd"
+      ],
+      "families": [
+        "WS-010",
+        "WS-011"
+      ]
+    },
+    {
+      "path": "assets/game/locations/cave/modular/boulder_v1.png",
+      "size": [
+        240,
+        192
+      ],
+      "declared_size": [
+        240,
+        192
+      ],
+      "mode": "RGBA",
+      "bytes": 62866,
+      "sha256": "f1ccc459a939e41250dd718da6c43dbf2e1ae2077204f42468129bf1782d501c",
+      "alpha_bbox": [
+        17,
+        8,
+        223,
+        184
+      ],
+      "literal_reference_files": [
+        "scripts/systems/cave_asset_system.gd"
+      ],
+      "families": [
+        "WS-010"
+      ]
+    },
+    {
+      "path": "assets/game/locations/cave/modular/corner_inner_v1.png",
+      "size": [
+        288,
+        336
+      ],
+      "declared_size": [
+        288,
+        336
+      ],
+      "mode": "RGBA",
+      "bytes": 110119,
+      "sha256": "595d799ab93042df07a7b513e045fe8f5f04696371d91954ac3c3df14691f7f6",
+      "alpha_bbox": [
+        8,
+        59,
+        280,
+        328
+      ],
+      "literal_reference_files": [
+        "scripts/systems/cave_asset_system.gd"
+      ],
+      "families": [
+        "WS-010"
+      ]
+    },
+    {
+      "path": "assets/game/locations/cave/modular/corner_left_v1.png",
+      "size": [
+        288,
+        336
+      ],
+      "declared_size": [
+        288,
+        336
+      ],
+      "mode": "RGBA",
+      "bytes": 107494,
+      "sha256": "aa8fc79dcccd540033d17e34938c542b18e640f16f7f92cb6f3718ef9313a513",
+      "alpha_bbox": [
+        8,
+        66,
+        280,
+        328
+      ],
+      "literal_reference_files": [
+        "scripts/systems/cave_asset_system.gd"
+      ],
+      "families": [
+        "WS-010"
+      ]
+    },
+    {
+      "path": "assets/game/locations/cave/modular/corner_right_v1.png",
+      "size": [
+        288,
+        336
+      ],
+      "declared_size": [
+        288,
+        336
+      ],
+      "mode": "RGBA",
+      "bytes": 112300,
+      "sha256": "f76c4ac9388bd835b3e91e359b1d5c265d7ea2705ce26adb6b46d81c80eb5642",
+      "alpha_bbox": [
+        8,
+        56,
+        280,
+        328
+      ],
+      "literal_reference_files": [
+        "scripts/systems/cave_asset_system.gd"
+      ],
+      "families": [
+        "WS-010"
+      ]
+    },
+    {
+      "path": "assets/game/locations/cave/modular/crystal_blue_v1.png",
+      "size": [
+        240,
+        240
+      ],
+      "declared_size": [
+        240,
+        240
+      ],
+      "mode": "RGBA",
+      "bytes": 74391,
+      "sha256": "96d26fa82205dedc45a350b1b257b51f84929ca3d5a9462b79cb116b0567fdac",
+      "alpha_bbox": [
+        17,
+        8,
+        223,
+        232
+      ],
+      "literal_reference_files": [
+        "scripts/systems/cave_asset_system.gd"
+      ],
+      "families": [
+        "WS-010"
+      ]
+    },
+    {
+      "path": "assets/game/locations/cave/modular/crystal_fragments_v1.png",
+      "size": [
+        144,
+        144
+      ],
+      "declared_size": [
+        144,
+        144
+      ],
+      "mode": "RGBA",
+      "bytes": 16918,
+      "sha256": "84764d54bb383ba467288127c959949a337cdd6aef766df990b89a29f0425702",
+      "alpha_bbox": [
+        8,
+        64,
+        136,
+        136
+      ],
+      "literal_reference_files": [
+        "scripts/systems/cave_asset_system.gd"
+      ],
+      "families": [
+        "WS-010"
+      ]
+    },
+    {
+      "path": "assets/game/locations/cave/modular/crystal_green_v1.png",
+      "size": [
+        240,
+        240
+      ],
+      "declared_size": [
+        240,
+        240
+      ],
+      "mode": "RGBA",
+      "bytes": 76833,
+      "sha256": "6f5c01644d824b945dc5ba4ae3c5caa936e4484081fa6f2b9226aeac067ecef3",
+      "alpha_bbox": [
+        12,
+        8,
+        228,
+        232
+      ],
+      "literal_reference_files": [
+        "scripts/systems/cave_asset_system.gd"
+      ],
+      "families": [
+        "WS-010"
+      ]
+    },
+    {
+      "path": "assets/game/locations/cave/modular/crystal_red_v1.png",
+      "size": [
+        240,
+        240
+      ],
+      "declared_size": [
+        240,
+        240
+      ],
+      "mode": "RGBA",
+      "bytes": 79285,
+      "sha256": "185a746b8942aeff48707cd24a5bc5736349c5b15c8f207c13dd8c96041e6904",
+      "alpha_bbox": [
+        8,
+        25,
+        232,
+        232
+      ],
+      "literal_reference_files": [
+        "scripts/systems/cave_asset_system.gd"
+      ],
+      "families": [
+        "WS-010"
+      ]
+    },
+    {
+      "path": "assets/game/locations/cave/modular/entrance_v1.png",
+      "size": [
+        384,
+        384
+      ],
+      "declared_size": [
+        384,
+        384
+      ],
+      "mode": "RGBA",
+      "bytes": 160965,
+      "sha256": "a33dbe731ca81e8af3e9997ca3bdbc7497ef5052fe1336ffb0b2e850d8814040",
+      "alpha_bbox": [
+        8,
+        97,
+        376,
+        376
+      ],
+      "literal_reference_files": [
+        "scripts/systems/cave_asset_system.gd"
+      ],
+      "families": [
+        "WS-010"
+      ]
+    },
+    {
+      "path": "assets/game/locations/cave/modular/floor_v1.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "declared_size": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "bytes": 2416504,
+      "sha256": "ab6ef04a6fb45919ac90e2d4b8987704577321c8cec33baf74eb4d91735ad09b",
+      "alpha_bbox": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "literal_reference_files": [
+        "scripts/systems/cave_asset_system.gd"
+      ],
+      "families": [
+        "WS-010"
+      ]
+    },
+    {
+      "path": "assets/game/locations/cave/modular/mushrooms_v1.png",
+      "size": [
+        96,
+        96
+      ],
+      "declared_size": [
+        96,
+        96
+      ],
+      "mode": "RGBA",
+      "bytes": 11420,
+      "sha256": "432dbca9c3625ddc0ba52df4eb4c36ac2198cd4ad08e9283eba8023585247702",
+      "alpha_bbox": [
+        8,
+        20,
+        88,
+        88
+      ],
+      "literal_reference_files": [
+        "scripts/systems/cave_asset_system.gd"
+      ],
+      "families": [
+        "WS-010"
+      ]
+    },
+    {
+      "path": "assets/game/locations/cave/modular/ore_metal_v1.png",
+      "size": [
+        240,
+        240
+      ],
+      "declared_size": [
+        240,
+        240
+      ],
+      "mode": "RGBA",
+      "bytes": 81359,
+      "sha256": "5716630bc2eee141640772da6b112aa9bbaaa3ca97234be59cd908ed7a34c71a",
+      "alpha_bbox": [
+        8,
+        14,
+        232,
+        232
+      ],
+      "literal_reference_files": [
+        "scripts/systems/cave_asset_system.gd"
+      ],
+      "families": [
+        "WS-010"
+      ]
+    },
+    {
+      "path": "assets/game/locations/cave/modular/rubble_v1.png",
+      "size": [
+        192,
+        144
+      ],
+      "declared_size": [
+        192,
+        144
+      ],
+      "mode": "RGBA",
+      "bytes": 34843,
+      "sha256": "2c21e9879aa34154e3ca2bfeb91e913f31216232b3656b95bad44a376f610afc",
+      "alpha_bbox": [
+        8,
+        9,
+        183,
+        136
+      ],
+      "literal_reference_files": [
+        "scripts/systems/cave_asset_system.gd"
+      ],
+      "families": [
+        "WS-010"
+      ]
+    },
+    {
+      "path": "assets/game/locations/cave/modular/stalagmites_v1.png",
+      "size": [
+        144,
+        240
+      ],
+      "declared_size": [
+        144,
+        240
+      ],
+      "mode": "RGBA",
+      "bytes": 26207,
+      "sha256": "bbb66ff50ab261a2f0916eeb199f7fa75c6c301c89cc558075e52df8f6fa466b",
+      "alpha_bbox": [
+        8,
+        96,
+        136,
+        232
+      ],
+      "literal_reference_files": [
+        "scripts/systems/cave_asset_system.gd"
+      ],
+      "families": [
+        "WS-010"
+      ]
+    },
+    {
+      "path": "assets/game/locations/cave/modular/torch_v1.png",
+      "size": [
+        96,
+        192
+      ],
+      "declared_size": [
+        96,
+        192
+      ],
+      "mode": "RGBA",
+      "bytes": 20936,
+      "sha256": "dea449b5264600fa2d9c6af47fe1aa70cdec2351eefd786fb82e8f98dd611f7a",
+      "alpha_bbox": [
+        14,
+        8,
+        82,
+        184
+      ],
+      "literal_reference_files": [
+        "scripts/systems/cave_asset_system.gd"
+      ],
+      "families": [
+        "WS-010"
+      ]
+    },
+    {
+      "path": "assets/game/locations/cave/modular/wall_end_v1.png",
+      "size": [
+        288,
+        336
+      ],
+      "declared_size": [
+        288,
+        336
+      ],
+      "mode": "RGBA",
+      "bytes": 114603,
+      "sha256": "8661613121cbd2979b740369c4feb85017f9de0527341df8002a13607ba8e5fa",
+      "alpha_bbox": [
+        9,
+        8,
+        278,
+        328
+      ],
+      "literal_reference_files": [
+        "scripts/systems/cave_asset_system.gd"
+      ],
+      "families": [
+        "WS-010"
+      ]
+    },
+    {
+      "path": "assets/game/locations/cave/modular/wall_rim_v1.png",
+      "size": [
+        288,
+        192
+      ],
+      "declared_size": [
+        288,
+        192
+      ],
+      "mode": "RGBA",
+      "bytes": 55827,
+      "sha256": "84c5ea3658ec291035e9eae5ce5f139dbcd81bced905acdde1fd235802b61154",
+      "alpha_bbox": [
+        8,
+        75,
+        280,
+        184
+      ],
+      "literal_reference_files": [
+        "scripts/systems/cave_asset_system.gd"
+      ],
+      "families": [
+        "WS-010"
+      ]
+    },
+    {
+      "path": "assets/game/locations/cave/modular/wall_side_left_v1.png",
+      "size": [
+        192,
+        336
+      ],
+      "declared_size": [
+        192,
+        336
+      ],
+      "mode": "RGBA",
+      "bytes": 70961,
+      "sha256": "c2615d4b6f945483b078b0a7ad83656844d73f119fe01fc3011f7e55d5ada091",
+      "alpha_bbox": [
+        8,
+        76,
+        184,
+        328
+      ],
+      "literal_reference_files": [
+        "scripts/systems/cave_asset_system.gd"
+      ],
+      "families": [
+        "WS-010"
+      ]
+    },
+    {
+      "path": "assets/game/locations/cave/modular/wall_side_right_v1.png",
+      "size": [
+        192,
+        336
+      ],
+      "declared_size": [
+        192,
+        336
+      ],
+      "mode": "RGBA",
+      "bytes": 70697,
+      "sha256": "4e0e1adb13788218c760a0d6ef752dc38c941de38d21eba73883d0f2f70de35f",
+      "alpha_bbox": [
+        8,
+        81,
+        184,
+        328
+      ],
+      "literal_reference_files": [
+        "scripts/systems/cave_asset_system.gd"
+      ],
+      "families": [
+        "WS-010"
+      ]
+    },
+    {
+      "path": "assets/game/locations/cave/modular/wall_straight_a_v1.png",
+      "size": [
+        288,
+        336
+      ],
+      "declared_size": [
+        288,
+        336
+      ],
+      "mode": "RGBA",
+      "bytes": 93779,
+      "sha256": "e134b16ec3402c3b88dcec8846218a7f6a4210f5e7f7b21c2fe0350a16a37f8e",
+      "alpha_bbox": [
+        8,
+        138,
+        280,
+        328
+      ],
+      "literal_reference_files": [
+        "scripts/systems/cave_asset_system.gd"
+      ],
+      "families": [
+        "WS-010"
+      ]
+    },
+    {
+      "path": "assets/game/locations/cave/modular/wall_straight_b_v1.png",
+      "size": [
+        288,
+        336
+      ],
+      "declared_size": [
+        288,
+        336
+      ],
+      "mode": "RGBA",
+      "bytes": 87350,
+      "sha256": "3b7c250cfef533adfea84c30e640ed362a9660720d7a7957e03a115318cbb535",
+      "alpha_bbox": [
+        8,
+        153,
+        280,
+        328
+      ],
+      "literal_reference_files": [
+        "scripts/systems/cave_asset_system.gd"
+      ],
+      "families": [
+        "WS-010"
+      ]
+    },
+    {
+      "path": "assets/game/environment/farm_plants.png",
+      "size": [
+        768,
+        432
+      ],
+      "declared_size": [
+        768,
+        432
+      ],
+      "mode": "RGBA",
+      "bytes": 64381,
+      "sha256": "642b1d1446b379c154cc48aec79b4ea581d702dae802be5aed5ad10e489eb828",
+      "alpha_bbox": [
+        7,
+        9,
+        761,
+        430
+      ],
+      "literal_reference_files": [
+        "scripts/game_context.gd"
+      ],
+      "families": [
+        "WS-011"
+      ]
+    },
+    {
+      "path": "assets/game/environment/farm_plants_objects_atlas_v1.png",
+      "size": [
+        1152,
+        672
+      ],
+      "declared_size": [
+        1152,
+        672
+      ],
+      "mode": "RGBA",
+      "bytes": 57150,
+      "sha256": "4e68c1dee5a897709104aa48e70bf078af0c54f4cc35e4ee8f3c110053924a9b",
+      "alpha_bbox": [
+        33,
+        22,
+        1115,
+        664
+      ],
+      "literal_reference_files": [
+        "scripts/core/game_bootstrap.gd"
+      ],
+      "families": [
+        "WS-011"
+      ]
+    },
+    {
+      "path": "assets/game/environment/orchard/fruit_trees_4x4_v2.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "declared_size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "bytes": 1180239,
+      "sha256": "9271f83d420c6bbb55f445ccbb8ad0940b2fe1549bbb9dff84f20bd7d7b80153",
+      "alpha_bbox": [
+        0,
+        10,
+        1011,
+        1024
+      ],
+      "literal_reference_files": [
+        "scripts/systems/orchard_system.gd"
+      ],
+      "families": [
+        "WS-011"
+      ]
+    },
+    {
+      "path": "assets/game/items/watermelon.png",
+      "size": [
+        64,
+        64
+      ],
+      "declared_size": [
+        64,
+        64
+      ],
+      "mode": "RGBA",
+      "bytes": 958,
+      "sha256": "0d53d4373dd9e1b0473c4d275161db125de41000eec179a0ef2a14dcbb4d7c1f",
+      "alpha_bbox": [
+        6,
+        10,
+        58,
+        54
+      ],
+      "literal_reference_files": [
+        "scripts/game_context.gd"
+      ],
+      "families": [
+        "WS-011"
+      ]
+    },
+    {
+      "path": "assets/game/buildings/exteriors/cottage.png",
+      "size": [
+        336,
+        408
+      ],
+      "declared_size": [
+        336,
+        408
+      ],
+      "mode": "RGBA",
+      "bytes": 178042,
+      "sha256": "c125cd3d713e38de8ea8e2c8b2632f22b397272d1eeef8fdc73325f9b665b2cb",
+      "alpha_bbox": [
+        15,
+        4,
+        320,
+        384
+      ],
+      "literal_reference_files": [
+        "scripts/systems/building_visual_system.gd"
+      ],
+      "families": [
+        "WS-012"
+      ]
+    },
+    {
+      "path": "assets/game/buildings/exteriors/shop_house.png",
+      "size": [
+        384,
+        360
+      ],
+      "declared_size": [
+        384,
+        360
+      ],
+      "mode": "RGBA",
+      "bytes": 185862,
+      "sha256": "3337ae11456e463f3ade072011ca3c4c7370c74769319b348324fc3691a0c25e",
+      "alpha_bbox": [
+        21,
+        11,
+        363,
+        336
+      ],
+      "literal_reference_files": [
+        "scripts/systems/building_visual_system.gd"
+      ],
+      "families": [
+        "WS-012"
+      ]
+    },
+    {
+      "path": "assets/game/buildings/exteriors/guild_hall.png",
+      "size": [
+        408,
+        408
+      ],
+      "declared_size": [
+        408,
+        408
+      ],
+      "mode": "RGBA",
+      "bytes": 239766,
+      "sha256": "16e91786f12c072ff5b5e2fb0a6d80f67acf8e8c2bd937b73495e7aa61fd63be",
+      "alpha_bbox": [
+        17,
+        15,
+        390,
+        384
+      ],
+      "literal_reference_files": [
+        "scripts/systems/building_visual_system.gd"
+      ],
+      "families": [
+        "WS-012"
+      ]
+    },
+    {
+      "path": "assets/game/buildings/exteriors/forge.png",
+      "size": [
+        360,
+        384
+      ],
+      "declared_size": [
+        360,
+        384
+      ],
+      "mode": "RGBA",
+      "bytes": 162672,
+      "sha256": "860a9ca6f39af0d6c85601a254f55f1ee3d81d85a15804db60c722a9c7b3b6d9",
+      "alpha_bbox": [
+        20,
+        0,
+        339,
+        360
+      ],
+      "literal_reference_files": [
+        "scripts/systems/building_visual_system.gd"
+      ],
+      "families": [
+        "WS-012"
+      ]
+    },
+    {
+      "path": "assets/game/buildings/exteriors/chapel.png",
+      "size": [
+        288,
+        408
+      ],
+      "declared_size": [
+        288,
+        408
+      ],
+      "mode": "RGBA",
+      "bytes": 140924,
+      "sha256": "b17e89f6d6ad634e66543eb1c9c776d7bda38c4690e93f807b69d097d576360b",
+      "alpha_bbox": [
+        18,
+        23,
+        269,
+        384
+      ],
+      "literal_reference_files": [
+        "scripts/systems/building_visual_system.gd"
+      ],
+      "families": [
+        "WS-012"
+      ]
+    },
+    {
+      "path": "assets/game/buildings/exteriors/prison.png",
+      "size": [
+        384,
+        336
+      ],
+      "declared_size": [
+        384,
+        336
+      ],
+      "mode": "RGBA",
+      "bytes": 199999,
+      "sha256": "8028b35d871e66112731b421775336be4b06b2655438a3f3db61f3f4a139641e",
+      "alpha_bbox": [
+        15,
+        16,
+        369,
+        312
+      ],
+      "literal_reference_files": [
+        "scripts/systems/building_visual_system.gd"
+      ],
+      "families": [
+        "WS-012"
+      ]
+    },
+    {
+      "path": "assets/game/buildings/exteriors/wizard_tower.png",
+      "size": [
+        312,
+        432
+      ],
+      "declared_size": [
+        312,
+        432
+      ],
+      "mode": "RGBA",
+      "bytes": 153137,
+      "sha256": "2f648c44d8838217f2310569d9a4645400dbd87b070ef9aacbb94080cb9b4ac4",
+      "alpha_bbox": [
+        22,
+        13,
+        290,
+        408
+      ],
+      "literal_reference_files": [
+        "scripts/systems/building_visual_system.gd"
+      ],
+      "families": [
+        "WS-012"
+      ]
+    },
+    {
+      "path": "assets/game/buildings/exteriors/moon_castle.png",
+      "size": [
+        432,
+        384
+      ],
+      "declared_size": [
+        432,
+        384
+      ],
+      "mode": "RGBA",
+      "bytes": 231605,
+      "sha256": "3c775858a6ec0b0437ab09df9723c0098de920b84b6e0bee006dddc822aaef23",
+      "alpha_bbox": [
+        18,
+        6,
+        413,
+        360
+      ],
+      "literal_reference_files": [
+        "scripts/systems/building_visual_system.gd"
+      ],
+      "families": [
+        "WS-012"
+      ]
+    },
+    {
+      "path": "assets/game/environment/seasons/tree_spring.png",
+      "size": [
+        264,
+        360
+      ],
+      "declared_size": [
+        264,
+        360
+      ],
+      "mode": "RGBA",
+      "bytes": 140251,
+      "sha256": "ff7a09d0fa78aeaf09435fbc9b63dcee9b3dbb68aba61413e9f151358058db0e",
+      "alpha_bbox": [
+        12,
+        16,
+        252,
+        336
+      ],
+      "literal_reference_files": [
+        "scripts/systems/environment_visual_system.gd"
+      ],
+      "families": [
+        "WS-013"
+      ]
+    },
+    {
+      "path": "assets/game/environment/seasons/tree_summer.png",
+      "size": [
+        264,
+        360
+      ],
+      "declared_size": [
+        264,
+        360
+      ],
+      "mode": "RGBA",
+      "bytes": 132634,
+      "sha256": "61e2c445433f55103aa723c9bd337ae707f7d534f08c680bcacabce5980a5b35",
+      "alpha_bbox": [
+        12,
+        13,
+        252,
+        336
+      ],
+      "literal_reference_files": [
+        "scripts/systems/environment_visual_system.gd"
+      ],
+      "families": [
+        "WS-013"
+      ]
+    },
+    {
+      "path": "assets/game/environment/seasons/tree_autumn.png",
+      "size": [
+        264,
+        360
+      ],
+      "declared_size": [
+        264,
+        360
+      ],
+      "mode": "RGBA",
+      "bytes": 135840,
+      "sha256": "6d1509f918d3a79292882de4e0f414d3b6db05e5359c897f849ddd56d6618210",
+      "alpha_bbox": [
+        12,
+        10,
+        252,
+        336
+      ],
+      "literal_reference_files": [
+        "scripts/systems/environment_visual_system.gd"
+      ],
+      "families": [
+        "WS-013"
+      ]
+    },
+    {
+      "path": "assets/game/environment/seasons/tree_winter.png",
+      "size": [
+        264,
+        360
+      ],
+      "declared_size": [
+        264,
+        360
+      ],
+      "mode": "RGBA",
+      "bytes": 90765,
+      "sha256": "c58a8e9b25a9b27fe71dbe40f9e0a30f9140387d6884f90cdbfb006e38d0ff25",
+      "alpha_bbox": [
+        12,
+        0,
+        251,
+        336
+      ],
+      "literal_reference_files": [
+        "scripts/systems/environment_visual_system.gd"
+      ],
+      "families": [
+        "WS-013"
+      ]
+    },
+    {
+      "path": "assets/game/environment/seasons/ground_spring.png",
+      "size": [
+        144,
+        144
+      ],
+      "declared_size": [
+        144,
+        144
+      ],
+      "mode": "RGBA",
+      "bytes": 32026,
+      "sha256": "92b4fd844bd3ba943598133b2e26b0b0adc2a28a6828c415b4d767a6c1a6d468",
+      "alpha_bbox": [
+        12,
+        16,
+        132,
+        132
+      ],
+      "literal_reference_files": [
+        "scripts/systems/environment_visual_system.gd"
+      ],
+      "families": [
+        "WS-013"
+      ]
+    },
+    {
+      "path": "assets/game/environment/seasons/ground_summer.png",
+      "size": [
+        144,
+        144
+      ],
+      "declared_size": [
+        144,
+        144
+      ],
+      "mode": "RGBA",
+      "bytes": 32175,
+      "sha256": "fbc15c9f47aac172b29a157f332142ff469e16c88354c72a20d691cd19336c0e",
+      "alpha_bbox": [
+        12,
+        25,
+        132,
+        132
+      ],
+      "literal_reference_files": [
+        "scripts/systems/environment_visual_system.gd"
+      ],
+      "families": [
+        "WS-013"
+      ]
+    },
+    {
+      "path": "assets/game/environment/seasons/ground_autumn.png",
+      "size": [
+        144,
+        144
+      ],
+      "declared_size": [
+        144,
+        144
+      ],
+      "mode": "RGBA",
+      "bytes": 23678,
+      "sha256": "de23521572ac38a1a6b2e02f9b7f36c23cf17b28de91cef110af7c9098af2e44",
+      "alpha_bbox": [
+        12,
+        27,
+        132,
+        132
+      ],
+      "literal_reference_files": [
+        "scripts/systems/environment_visual_system.gd"
+      ],
+      "families": [
+        "WS-013"
+      ]
+    },
+    {
+      "path": "assets/game/environment/seasons/ground_winter.png",
+      "size": [
+        144,
+        144
+      ],
+      "declared_size": [
+        144,
+        144
+      ],
+      "mode": "RGBA",
+      "bytes": 26009,
+      "sha256": "edb4c1f3e88fb38fedf7af9f14a157b434fe366b13f86224c95ba34a7ffb5547",
+      "alpha_bbox": [
+        12,
+        18,
+        132,
+        132
+      ],
+      "literal_reference_files": [
+        "scripts/systems/environment_visual_system.gd"
+      ],
+      "families": [
+        "WS-013"
+      ]
+    },
+    {
+      "path": "assets/game/environment/moon/portal.png",
+      "size": [
+        168,
+        240
+      ],
+      "declared_size": [
+        168,
+        240
+      ],
+      "mode": "RGBA",
+      "bytes": 78357,
+      "sha256": "ef3c1f75316c9933630ca13d86ba2e31e3c156c585b7e7327590d67027364bb4",
+      "alpha_bbox": [
+        12,
+        3,
+        156,
+        216
+      ],
+      "literal_reference_files": [
+        "scripts/systems/environment_visual_system.gd"
+      ],
+      "families": [
+        "WS-013"
+      ]
+    },
+    {
+      "path": "assets/game/environment/moon/flower.png",
+      "size": [
+        144,
+        216
+      ],
+      "declared_size": [
+        144,
+        216
+      ],
+      "mode": "RGBA",
+      "bytes": 48399,
+      "sha256": "af575d5e68eada0a33b54c0a05cae91658c6d655457a66105e03cb1ce585a544",
+      "alpha_bbox": [
+        12,
+        15,
+        132,
+        192
+      ],
+      "literal_reference_files": [
+        "scripts/systems/environment_visual_system.gd"
+      ],
+      "families": [
+        "WS-013"
+      ]
+    },
+    {
+      "path": "assets/game/environment/moon/crystal.png",
+      "size": [
+        192,
+        240
+      ],
+      "declared_size": [
+        192,
+        240
+      ],
+      "mode": "RGBA",
+      "bytes": 62595,
+      "sha256": "27081390affabb291e8d7bf71f6b9d2a72941e00541e8d229fea62ca0786fda1",
+      "alpha_bbox": [
+        24,
+        0,
+        168,
+        216
+      ],
+      "literal_reference_files": [
+        "scripts/systems/environment_visual_system.gd"
+      ],
+      "families": [
+        "WS-013"
+      ]
+    },
+    {
+      "path": "assets/game/environment/moon/altar.png",
+      "size": [
+        288,
+        384
+      ],
+      "declared_size": [
+        288,
+        384
+      ],
+      "mode": "RGBA",
+      "bytes": 173792,
+      "sha256": "e72c4c6835e7f4091db4c0632a7fb2eebc1c609a1d66c16893c1562d40ba1308",
+      "alpha_bbox": [
+        12,
+        48,
+        276,
+        360
+      ],
+      "literal_reference_files": [
+        "scripts/systems/environment_visual_system.gd"
+      ],
+      "families": [
+        "WS-013"
+      ]
+    },
+    {
+      "path": "assets/game/environment/moon/echo.png",
+      "size": [
+        144,
+        216
+      ],
+      "declared_size": [
+        144,
+        216
+      ],
+      "mode": "RGBA",
+      "bytes": 43374,
+      "sha256": "1d975115ea204d9ef7de587639bbcc30f936e2cb440cb37f6a0a3aca56a04cdb",
+      "alpha_bbox": [
+        12,
+        0,
+        132,
+        192
+      ],
+      "literal_reference_files": [
+        "scripts/systems/environment_visual_system.gd"
+      ],
+      "families": [
+        "WS-013"
+      ]
+    },
+    {
+      "path": "assets/game/environment/moon/guardian.png",
+      "size": [
+        168,
+        240
+      ],
+      "declared_size": [
+        168,
+        240
+      ],
+      "mode": "RGBA",
+      "bytes": 69174,
+      "sha256": "04de9b3390de213b2095b4d8b10dfcaa2e34cb6e3d0a658a6a3e70032ec3bd54",
+      "alpha_bbox": [
+        12,
+        6,
+        156,
+        216
+      ],
+      "literal_reference_files": [
+        "scripts/systems/environment_visual_system.gd"
+      ],
+      "families": [
+        "WS-013"
+      ]
+    },
+    {
+      "path": "assets/game/environment/moon/stag.png",
+      "size": [
+        168,
+        240
+      ],
+      "declared_size": [
+        168,
+        240
+      ],
+      "mode": "RGBA",
+      "bytes": 48201,
+      "sha256": "825900315ee06721065de902a36df3b2cfbbcad994b3857939b5bd7c755b85ab",
+      "alpha_bbox": [
+        16,
+        0,
+        151,
+        216
+      ],
+      "literal_reference_files": [
+        "scripts/systems/environment_visual_system.gd"
+      ],
+      "families": [
+        "WS-013"
+      ]
+    },
+    {
+      "path": "assets/game/environment/moon/chest.png",
+      "size": [
+        168,
+        168
+      ],
+      "declared_size": [
+        168,
+        168
+      ],
+      "mode": "RGBA",
+      "bytes": 52987,
+      "sha256": "1a59b57ddd37844cb60314434302c203e6886d7cda2e4d8c070e591eaecc9bd4",
+      "alpha_bbox": [
+        12,
+        11,
+        156,
+        144
+      ],
+      "literal_reference_files": [
+        "scripts/systems/environment_visual_system.gd"
+      ],
+      "families": [
+        "WS-013"
+      ]
+    },
+    {
+      "path": "assets/game/environment/biomes/forest_landmark.png",
+      "size": [
+        168,
+        240
+      ],
+      "declared_size": [
+        168,
+        240
+      ],
+      "mode": "RGBA",
+      "bytes": 67004,
+      "sha256": "ba59e7c52e5bf94c9df31c4877d49c0db483a5e454e104e324f507cec6d91103",
+      "alpha_bbox": [
+        22,
+        0,
+        146,
+        216
+      ],
+      "literal_reference_files": [
+        "scripts/systems/environment_visual_system.gd"
+      ],
+      "families": [
+        "WS-014"
+      ]
+    },
+    {
+      "path": "assets/game/environment/biomes/forest_detail.png",
+      "size": [
+        144,
+        168
+      ],
+      "declared_size": [
+        144,
+        168
+      ],
+      "mode": "RGBA",
+      "bytes": 43212,
+      "sha256": "6ea9b4f5c4cba0efdfec42b7e3998ef141be2017ecf3869bf2b6745788da2aae",
+      "alpha_bbox": [
+        13,
+        0,
+        131,
+        156
+      ],
+      "literal_reference_files": [
+        "scripts/systems/environment_visual_system.gd"
+      ],
+      "families": [
+        "WS-014"
+      ]
+    },
+    {
+      "path": "assets/game/environment/biomes/rocky_landmark.png",
+      "size": [
+        192,
+        240
+      ],
+      "declared_size": [
+        192,
+        240
+      ],
+      "mode": "RGBA",
+      "bytes": 72990,
+      "sha256": "e86e0e142e26e887fed404029d51612fdeb5050b37be6ed789b8350160e24e32",
+      "alpha_bbox": [
+        14,
+        0,
+        177,
+        216
+      ],
+      "literal_reference_files": [
+        "scripts/systems/environment_visual_system.gd"
+      ],
+      "families": [
+        "WS-014"
+      ]
+    },
+    {
+      "path": "assets/game/environment/biomes/rocky_detail.png",
+      "size": [
+        144,
+        168
+      ],
+      "declared_size": [
+        144,
+        168
+      ],
+      "mode": "RGBA",
+      "bytes": 39472,
+      "sha256": "42a8eb7087616f91ed84ae40f5c48b0181d3343b05de8e60f04ba7660c8bbfac",
+      "alpha_bbox": [
+        12,
+        1,
+        132,
+        156
+      ],
+      "literal_reference_files": [
+        "scripts/systems/environment_visual_system.gd"
+      ],
+      "families": [
+        "WS-014"
+      ]
+    },
+    {
+      "path": "assets/game/environment/biomes/ruins_landmark.png",
+      "size": [
+        192,
+        240
+      ],
+      "declared_size": [
+        192,
+        240
+      ],
+      "mode": "RGBA",
+      "bytes": 65499,
+      "sha256": "27b58df265cb74eb33dd91a7d0480c6d281b8d78ecd59335926bfd585f927a82",
+      "alpha_bbox": [
+        15,
+        0,
+        177,
+        216
+      ],
+      "literal_reference_files": [
+        "scripts/systems/environment_visual_system.gd"
+      ],
+      "families": [
+        "WS-014"
+      ]
+    },
+    {
+      "path": "assets/game/environment/biomes/ruins_detail.png",
+      "size": [
+        144,
+        168
+      ],
+      "declared_size": [
+        144,
+        168
+      ],
+      "mode": "RGBA",
+      "bytes": 27584,
+      "sha256": "dc9da9f1c492ae813bf9549875b557c5e6dceb407a93c5843ac3574144dfd2a4",
+      "alpha_bbox": [
+        23,
+        0,
+        121,
+        156
+      ],
+      "literal_reference_files": [
+        "scripts/systems/environment_visual_system.gd"
+      ],
+      "families": [
+        "WS-014"
+      ]
+    },
+    {
+      "path": "assets/game/environment/biomes/cursed_landmark.png",
+      "size": [
+        168,
+        240
+      ],
+      "declared_size": [
+        168,
+        240
+      ],
+      "mode": "RGBA",
+      "bytes": 48386,
+      "sha256": "eb8c59ac7d700751788e2ea7d792b2eefdefabc008954ce73e15b5d015da6f60",
+      "alpha_bbox": [
+        17,
+        0,
+        150,
+        216
+      ],
+      "literal_reference_files": [
+        "scripts/systems/environment_visual_system.gd"
+      ],
+      "families": [
+        "WS-014"
+      ]
+    },
+    {
+      "path": "assets/game/environment/biomes/cursed_detail.png",
+      "size": [
+        144,
+        168
+      ],
+      "declared_size": [
+        144,
+        168
+      ],
+      "mode": "RGBA",
+      "bytes": 29336,
+      "sha256": "73d8970e13529ab8c8cb2efc3f0e3c4a7aa03326739f21209e729608660fea55",
+      "alpha_bbox": [
+        20,
+        0,
+        124,
+        156
+      ],
+      "literal_reference_files": [
+        "scripts/systems/environment_visual_system.gd"
+      ],
+      "families": [
+        "WS-014"
+      ]
+    },
+    {
+      "path": "assets/game/environment/biomes/glassworks_landmark.png",
+      "size": [
+        168,
+        240
+      ],
+      "declared_size": [
+        168,
+        240
+      ],
+      "mode": "RGBA",
+      "bytes": 51566,
+      "sha256": "df42cfc58333ebc3d719065ce464514283c7ae1b090c9ff51124a79824945139",
+      "alpha_bbox": [
+        22,
+        0,
+        146,
+        216
+      ],
+      "literal_reference_files": [
+        "scripts/systems/environment_visual_system.gd"
+      ],
+      "families": [
+        "WS-014"
+      ]
+    },
+    {
+      "path": "assets/game/environment/biomes/glassworks_detail.png",
+      "size": [
+        144,
+        168
+      ],
+      "declared_size": [
+        144,
+        168
+      ],
+      "mode": "RGBA",
+      "bytes": 38292,
+      "sha256": "85cdd5b7a7dd7963ee9a6574615f3e652f7024356dec5b72a85dabf39c08fe51",
+      "alpha_bbox": [
+        12,
+        3,
+        132,
+        156
+      ],
+      "literal_reference_files": [
+        "scripts/systems/environment_visual_system.gd"
+      ],
+      "families": [
+        "WS-014"
+      ]
+    },
+    {
+      "path": "assets/game/world_loot/containers/sack.png",
+      "size": [
+        72,
+        72
+      ],
+      "declared_size": [
+        72,
+        72
+      ],
+      "mode": "RGBA",
+      "bytes": 6703,
+      "sha256": "358318e83e8445ceb6582d4824c6b1e58ef79822df3bb0a59ab3e93114b75c9b",
+      "alpha_bbox": [
+        12,
+        15,
+        60,
+        68
+      ],
+      "literal_reference_files": [
+        "scripts/systems/world_loot_visual_system.gd"
+      ],
+      "families": [
+        "WS-015"
+      ]
+    },
+    {
+      "path": "assets/game/world_loot/containers/trash.png",
+      "size": [
+        96,
+        72
+      ],
+      "declared_size": [
+        96,
+        72
+      ],
+      "mode": "RGBA",
+      "bytes": 11087,
+      "sha256": "6ad863c701001bb7bb188eef08a6dc9ad2cd3e5271d38d27caeb215a88f8d91e",
+      "alpha_bbox": [
+        12,
+        6,
+        84,
+        68
+      ],
+      "literal_reference_files": [
+        "scripts/systems/world_loot_visual_system.gd"
+      ],
+      "families": [
+        "WS-015"
+      ]
+    },
+    {
+      "path": "assets/game/world_loot/containers/chest.png",
+      "size": [
+        96,
+        72
+      ],
+      "declared_size": [
+        96,
+        72
+      ],
+      "mode": "RGBA",
+      "bytes": 12088,
+      "sha256": "32802eae88e29626d1c97422b80bd693b510736649e2d268277a1f92a07de6b8",
+      "alpha_bbox": [
+        12,
+        1,
+        84,
+        68
+      ],
+      "literal_reference_files": [
+        "scripts/systems/world_loot_visual_system.gd",
+        "scripts/systems/fishing_renderer.gd"
+      ],
+      "families": [
+        "WS-015"
+      ]
+    },
+    {
+      "path": "assets/game/world_loot/containers/bone_pile.png",
+      "size": [
+        96,
+        72
+      ],
+      "declared_size": [
+        96,
+        72
+      ],
+      "mode": "RGBA",
+      "bytes": 9272,
+      "sha256": "b15fbf77a04018c152026c2b6129cb0b74eafa8f90600c219cab89a79f4f1010",
+      "alpha_bbox": [
+        12,
+        14,
+        84,
+        68
+      ],
+      "literal_reference_files": [
+        "scripts/systems/world_loot_visual_system.gd"
+      ],
+      "families": [
+        "WS-015"
+      ]
+    },
+    {
+      "path": "assets/game/world_loot/containers/supply_crate.png",
+      "size": [
+        72,
+        72
+      ],
+      "declared_size": [
+        72,
+        72
+      ],
+      "mode": "RGBA",
+      "bytes": 5991,
+      "sha256": "6daa9fb7cd8fd60ec6c1c0baf7e338fd2bc7d7cc9bec8d8e9fae697708420346",
+      "alpha_bbox": [
+        12,
+        21,
+        60,
+        68
+      ],
+      "literal_reference_files": [
+        "scripts/systems/world_loot_visual_system.gd"
+      ],
+      "families": [
+        "WS-015"
+      ]
+    },
+    {
+      "path": "assets/game/world_loot/containers/barrel.png",
+      "size": [
+        72,
+        72
+      ],
+      "declared_size": [
+        72,
+        72
+      ],
+      "mode": "RGBA",
+      "bytes": 6825,
+      "sha256": "4b0fe65fc6d2f14f4c05e9ee9d6eebdba367ef4a9cf096755f021a2a2ce18290",
+      "alpha_bbox": [
+        12,
+        14,
+        60,
+        68
+      ],
+      "literal_reference_files": [
+        "scripts/systems/world_loot_visual_system.gd"
+      ],
+      "families": [
+        "WS-015"
+      ]
+    },
+    {
+      "path": "assets/game/world_loot/containers/hollow_log.png",
+      "size": [
+        96,
+        72
+      ],
+      "declared_size": [
+        96,
+        72
+      ],
+      "mode": "RGBA",
+      "bytes": 10230,
+      "sha256": "78f8106471a664084ba915a90bbe16dba2a11fc697b855e40541b44920fc4374",
+      "alpha_bbox": [
+        12,
+        9,
+        84,
+        68
+      ],
+      "literal_reference_files": [
+        "scripts/systems/world_loot_visual_system.gd"
+      ],
+      "families": [
+        "WS-015"
+      ]
+    },
+    {
+      "path": "assets/game/world_loot/containers/fairy_cache.png",
+      "size": [
+        72,
+        72
+      ],
+      "declared_size": [
+        72,
+        72
+      ],
+      "mode": "RGBA",
+      "bytes": 5861,
+      "sha256": "de125c53d32699c542bcc2109c4268419a0153181c2f7070258a0fa84b04c1d3",
+      "alpha_bbox": [
+        12,
+        25,
+        60,
+        68
+      ],
+      "literal_reference_files": [
+        "scripts/systems/world_loot_visual_system.gd"
+      ],
+      "families": [
+        "WS-015"
+      ]
+    },
+    {
+      "path": "assets/game/world_polish/village_polish_atlas.png",
+      "size": [
+        640,
+        512
+      ],
+      "declared_size": [
+        640,
+        512
+      ],
+      "mode": "RGBA",
+      "bytes": 380938,
+      "sha256": "85ad55283360f705c65ee1a447d7ea77e1768474e53f76900da95c329d8ae429",
+      "alpha_bbox": [
+        6,
+        6,
+        634,
+        502
+      ],
+      "literal_reference_files": [
+        "scripts/systems/world_polish_renderer.gd"
+      ],
+      "families": [
+        "WS-016",
+        "WS-022"
+      ]
+    },
+    {
+      "path": "assets/game/effects/actions/effect_00.png",
+      "size": [
+        72,
+        72
+      ],
+      "declared_size": [
+        72,
+        72
+      ],
+      "mode": "RGBA",
+      "bytes": 6075,
+      "sha256": "16e7ad86db2cbfbdf033f533bc0b7dfdbf18648894022750218eff279a6aa40d",
+      "alpha_bbox": [
+        12,
+        20,
+        60,
+        68
+      ],
+      "literal_reference_files": [
+        "scripts/systems/action_effect_visual_system.gd"
+      ],
+      "families": [
+        "WS-016"
+      ]
+    },
+    {
+      "path": "assets/game/effects/actions/effect_01.png",
+      "size": [
+        72,
+        72
+      ],
+      "declared_size": [
+        72,
+        72
+      ],
+      "mode": "RGBA",
+      "bytes": 4728,
+      "sha256": "03745fbaec85233b68231d48212d44a8b7c1014fa1f7251439b3d4112bdfb94a",
+      "alpha_bbox": [
+        12,
+        22,
+        60,
+        68
+      ],
+      "literal_reference_files": [
+        "scripts/systems/action_effect_visual_system.gd"
+      ],
+      "families": [
+        "WS-016"
+      ]
+    },
+    {
+      "path": "assets/game/effects/actions/effect_02.png",
+      "size": [
+        72,
+        72
+      ],
+      "declared_size": [
+        72,
+        72
+      ],
+      "mode": "RGBA",
+      "bytes": 5052,
+      "sha256": "f80cc3569619732d6899ea755f70d5c3e9e704dcd5e6307fd7b5b5a862fd9a88",
+      "alpha_bbox": [
+        12,
+        25,
+        60,
+        68
+      ],
+      "literal_reference_files": [
+        "scripts/systems/action_effect_visual_system.gd"
+      ],
+      "families": [
+        "WS-016"
+      ]
+    },
+    {
+      "path": "assets/game/effects/actions/effect_03.png",
+      "size": [
+        72,
+        72
+      ],
+      "declared_size": [
+        72,
+        72
+      ],
+      "mode": "RGBA",
+      "bytes": 6554,
+      "sha256": "be6937f6d078f89d8d993e12eb5f78ca0b13adfd581a1d72499e55d3d3209666",
+      "alpha_bbox": [
+        12,
+        21,
+        60,
+        68
+      ],
+      "literal_reference_files": [
+        "scripts/systems/action_effect_visual_system.gd"
+      ],
+      "families": [
+        "WS-016"
+      ]
+    },
+    {
+      "path": "assets/game/effects/actions/effect_04.png",
+      "size": [
+        72,
+        72
+      ],
+      "declared_size": [
+        72,
+        72
+      ],
+      "mode": "RGBA",
+      "bytes": 6244,
+      "sha256": "99156bcfbdf01e312cef8a4a20b4b1ad95ec5467dc4f54baff8a86ecddb7221e",
+      "alpha_bbox": [
+        12,
+        19,
+        60,
+        68
+      ],
+      "literal_reference_files": [
+        "scripts/systems/action_effect_visual_system.gd"
+      ],
+      "families": [
+        "WS-016"
+      ]
+    },
+    {
+      "path": "assets/game/effects/actions/effect_05.png",
+      "size": [
+        72,
+        72
+      ],
+      "declared_size": [
+        72,
+        72
+      ],
+      "mode": "RGBA",
+      "bytes": 6157,
+      "sha256": "cf3108591f1bc66558fde8b7637d37bc8d9c04f7105abda09f6d471c493e6eee",
+      "alpha_bbox": [
+        12,
+        23,
+        60,
+        68
+      ],
+      "literal_reference_files": [
+        "scripts/systems/action_effect_visual_system.gd"
+      ],
+      "families": [
+        "WS-016"
+      ]
+    },
+    {
+      "path": "assets/game/effects/actions/effect_06.png",
+      "size": [
+        72,
+        72
+      ],
+      "declared_size": [
+        72,
+        72
+      ],
+      "mode": "RGBA",
+      "bytes": 4405,
+      "sha256": "b3e73be9abe11870d1bcce62769941ad7e8a26b48bf8370ae4b5ab49fb1526d1",
+      "alpha_bbox": [
+        12,
+        29,
+        60,
+        68
+      ],
+      "literal_reference_files": [
+        "scripts/systems/action_effect_visual_system.gd"
+      ],
+      "families": [
+        "WS-016"
+      ]
+    },
+    {
+      "path": "assets/game/effects/actions/effect_07.png",
+      "size": [
+        72,
+        72
+      ],
+      "declared_size": [
+        72,
+        72
+      ],
+      "mode": "RGBA",
+      "bytes": 3937,
+      "sha256": "65c300798c83841e93323665f9cc66e4356b9d007887c3c41db7f9bd5ef2f80c",
+      "alpha_bbox": [
+        12,
+        23,
+        60,
+        68
+      ],
+      "literal_reference_files": [
+        "scripts/systems/action_effect_visual_system.gd"
+      ],
+      "families": [
+        "WS-016"
+      ]
+    },
+    {
+      "path": "assets/game/effects/actions/effect_08.png",
+      "size": [
+        72,
+        72
+      ],
+      "declared_size": [
+        72,
+        72
+      ],
+      "mode": "RGBA",
+      "bytes": 5970,
+      "sha256": "8a6f9c1f035ffef2df2916002f93ae2ee7b693c66275bb40c5c925c859077945",
+      "alpha_bbox": [
+        12,
+        22,
+        60,
+        68
+      ],
+      "literal_reference_files": [
+        "scripts/systems/action_effect_visual_system.gd"
+      ],
+      "families": [
+        "WS-016"
+      ]
+    },
+    {
+      "path": "assets/game/effects/actions/effect_09.png",
+      "size": [
+        72,
+        72
+      ],
+      "declared_size": [
+        72,
+        72
+      ],
+      "mode": "RGBA",
+      "bytes": 4908,
+      "sha256": "79b4ac84e1e74664d922a1a41a8310074e758d05a9c8cfa950cef8669b21e4be",
+      "alpha_bbox": [
+        12,
+        22,
+        60,
+        68
+      ],
+      "literal_reference_files": [
+        "scripts/systems/action_effect_visual_system.gd"
+      ],
+      "families": [
+        "WS-016"
+      ]
+    },
+    {
+      "path": "assets/game/effects/actions/effect_10.png",
+      "size": [
+        72,
+        72
+      ],
+      "declared_size": [
+        72,
+        72
+      ],
+      "mode": "RGBA",
+      "bytes": 5438,
+      "sha256": "50abeca39acbd5cdecc90fefc89eb35c12aeac118aefde5f5680cd6a59ee5953",
+      "alpha_bbox": [
+        12,
+        24,
+        60,
+        68
+      ],
+      "literal_reference_files": [
+        "scripts/systems/action_effect_visual_system.gd"
+      ],
+      "families": [
+        "WS-016"
+      ]
+    },
+    {
+      "path": "assets/game/effects/actions/effect_11.png",
+      "size": [
+        72,
+        72
+      ],
+      "declared_size": [
+        72,
+        72
+      ],
+      "mode": "RGBA",
+      "bytes": 5364,
+      "sha256": "daad8f88babd85bf23654c9c0d8f0920b71ad114d7f0a2e73846fc6f67411386",
+      "alpha_bbox": [
+        12,
+        21,
+        60,
+        68
+      ],
+      "literal_reference_files": [
+        "scripts/systems/action_effect_visual_system.gd"
+      ],
+      "families": [
+        "WS-016"
+      ]
+    },
+    {
+      "path": "assets/game/effects/actions/effect_12.png",
+      "size": [
+        72,
+        72
+      ],
+      "declared_size": [
+        72,
+        72
+      ],
+      "mode": "RGBA",
+      "bytes": 3115,
+      "sha256": "f0428d7e6ba744dd6ab2791b2b8c04d2fe0b6dfb5598f0941e7d4904524de8cd",
+      "alpha_bbox": [
+        22,
+        23,
+        60,
+        53
+      ],
+      "literal_reference_files": [
+        "scripts/systems/action_effect_visual_system.gd"
+      ],
+      "families": [
+        "WS-016"
+      ]
+    },
+    {
+      "path": "assets/game/effects/actions/effect_13.png",
+      "size": [
+        72,
+        72
+      ],
+      "declared_size": [
+        72,
+        72
+      ],
+      "mode": "RGBA",
+      "bytes": 6054,
+      "sha256": "b7aa9029dfcc1dc687ec1dffefad4f672ce4f42d385e907484982b861532fe27",
+      "alpha_bbox": [
+        12,
+        27,
+        60,
+        68
+      ],
+      "literal_reference_files": [
+        "scripts/systems/action_effect_visual_system.gd"
+      ],
+      "families": [
+        "WS-016"
+      ]
+    },
+    {
+      "path": "assets/game/effects/actions/effect_14.png",
+      "size": [
+        72,
+        72
+      ],
+      "declared_size": [
+        72,
+        72
+      ],
+      "mode": "RGBA",
+      "bytes": 6498,
+      "sha256": "e57d49e2e42098ef7f89543c89b0b268fca527cf5f66f751224543a2aa9474bd",
+      "alpha_bbox": [
+        12,
+        20,
+        60,
+        68
+      ],
+      "literal_reference_files": [
+        "scripts/systems/action_effect_visual_system.gd"
+      ],
+      "families": [
+        "WS-016"
+      ]
+    },
+    {
+      "path": "assets/game/effects/actions/effect_15.png",
+      "size": [
+        72,
+        72
+      ],
+      "declared_size": [
+        72,
+        72
+      ],
+      "mode": "RGBA",
+      "bytes": 3863,
+      "sha256": "277fe68a81524641b08ee227ff4e976efbb568eb090b73085ec2c55a5484a62d",
+      "alpha_bbox": [
+        12,
+        21,
+        51,
+        59
+      ],
+      "literal_reference_files": [
+        "scripts/systems/action_effect_visual_system.gd"
+      ],
+      "families": [
+        "WS-016"
+      ]
+    },
+    {
+      "path": "assets/game/expansion_pack/expansion_atlas.png",
+      "size": [
+        640,
+        512
+      ],
+      "declared_size": [
+        640,
+        512
+      ],
+      "mode": "RGBA",
+      "bytes": 380020,
+      "sha256": "8a8a7147f75a2ae4b440c99fbd922b1a5a78138ad6d5b379f1810c3ab83d0934",
+      "alpha_bbox": [
+        12,
+        19,
+        619,
+        487
+      ],
+      "literal_reference_files": [
+        "scripts/systems/visual_asset_system.gd",
+        "scripts/systems/farm_life_visual_system.gd"
+      ],
+      "families": [
+        "WS-017"
+      ]
+    },
+    {
+      "path": "assets/game/characters/hero_v3/walk_master.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "declared_size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 949747,
+      "sha256": "7f6f70fbfd80683402b51caa47d9d76299906cda129e27b289d73cee7ae3a3da",
+      "alpha_bbox": [
+        0,
+        0,
+        1236,
+        1254
+      ],
+      "literal_reference_files": [
+        "scripts/systems/hero_visual_system.gd",
+        "scripts/editor/editor_actor_source_system.gd"
+      ],
+      "families": [
+        "WS-018"
+      ]
+    },
+    {
+      "path": "assets/game/characters/hero_v3/hoe_master.png",
+      "size": [
+        1281,
+        1228
+      ],
+      "declared_size": [
+        1281,
+        1228
+      ],
+      "mode": "RGBA",
+      "bytes": 950198,
+      "sha256": "f824e276165f26d2b421046a4715f755dd250404ed861244fa2c03f73cd83fd7",
+      "alpha_bbox": [
+        23,
+        15,
+        1281,
+        1228
+      ],
+      "literal_reference_files": [
+        "scripts/systems/hero_visual_system.gd",
+        "scripts/editor/editor_actor_source_system.gd"
+      ],
+      "families": [
+        "WS-018"
+      ]
+    },
+    {
+      "path": "assets/game/characters/grandmother_v2/walk_master.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "declared_size": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "bytes": 1689028,
+      "sha256": "6306b82428a82bceaace8d2e87e289396050db459e393a23387d27290414bcad",
+      "alpha_bbox": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "literal_reference_files": [
+        "scripts/systems/grandmother_visual_system.gd",
+        "scripts/editor/editor_actor_source_system.gd"
+      ],
+      "families": [
+        "WS-018"
+      ]
+    },
+    {
+      "path": "assets/game/characters/directional/npc_grandmother_walk_8dir.png",
+      "size": [
+        888,
+        1776
+      ],
+      "declared_size": [
+        888,
+        1776
+      ],
+      "mode": "RGBA",
+      "bytes": 1097571,
+      "sha256": "d3e98b2a5c2e750679a04b22389917479637062da4f76dd3d4178651434cdf6a",
+      "alpha_bbox": [
+        53,
+        9,
+        845,
+        1767
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-018"
+      ]
+    },
+    {
+      "path": "assets/game/characters/directional/npc_official_walk_8dir.png",
+      "size": [
+        888,
+        1776
+      ],
+      "declared_size": [
+        888,
+        1776
+      ],
+      "mode": "RGBA",
+      "bytes": 1144207,
+      "sha256": "7a7cdcfefa17e6a0948db7fa3fbfc8ef7f638bbc23ba1f46ae6fbf0a020368c6",
+      "alpha_bbox": [
+        52,
+        9,
+        837,
+        1767
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-018"
+      ]
+    },
+    {
+      "path": "assets/game/characters/directional/npc_herbalist_walk_8dir.png",
+      "size": [
+        888,
+        1776
+      ],
+      "declared_size": [
+        888,
+        1776
+      ],
+      "mode": "RGBA",
+      "bytes": 1114623,
+      "sha256": "b729b3c710a70dc07e884cdb02be03bc81ce7d9cafb1049368a93022a0881b3f",
+      "alpha_bbox": [
+        59,
+        19,
+        828,
+        1767
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-018"
+      ]
+    },
+    {
+      "path": "assets/game/characters/directional/companion_mila_walk_8dir.png",
+      "size": [
+        888,
+        1776
+      ],
+      "declared_size": [
+        888,
+        1776
+      ],
+      "mode": "RGBA",
+      "bytes": 1069264,
+      "sha256": "247e4b844a1de3a455ea472a60c3ddbeb2f503680019301e7ad85ec092a0fe9b",
+      "alpha_bbox": [
+        60,
+        23,
+        827,
+        1767
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-018"
+      ]
+    },
+    {
+      "path": "assets/game/characters/directional/companion_borislav_walk_8dir.png",
+      "size": [
+        888,
+        1776
+      ],
+      "declared_size": [
+        888,
+        1776
+      ],
+      "mode": "RGBA",
+      "bytes": 1464720,
+      "sha256": "03a72c619c75ac65a8ee6badd17b08d93f3f64f5ba635418bc9e49b0402cfa14",
+      "alpha_bbox": [
+        24,
+        16,
+        861,
+        1767
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-018"
+      ]
+    },
+    {
+      "path": "assets/game/characters/directional/companion_luna_walk_8dir.png",
+      "size": [
+        888,
+        1776
+      ],
+      "declared_size": [
+        888,
+        1776
+      ],
+      "mode": "RGBA",
+      "bytes": 1298277,
+      "sha256": "b21629ed36ba9334c5e5a2d8fc4491b1a550e300b39daa67fdb3337f9c0c4287",
+      "alpha_bbox": [
+        44,
+        30,
+        843,
+        1767
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-018"
+      ]
+    },
+    {
+      "path": "assets/game/characters/walk_v2/npc_official.png",
+      "size": [
+        512,
+        1024
+      ],
+      "declared_size": [
+        512,
+        1024
+      ],
+      "mode": "RGBA",
+      "bytes": 279870,
+      "sha256": "013f50eac2f73817ecb3ba3b60a84070f0c71769b1a25a1328063516499a3001",
+      "alpha_bbox": [
+        38,
+        36,
+        474,
+        1016
+      ],
+      "literal_reference_files": [
+        "scripts/systems/directional_character_system.gd"
+      ],
+      "families": [
+        "WS-018"
+      ]
+    },
+    {
+      "path": "assets/game/characters/walk_v2/npc_herbalist.png",
+      "size": [
+        512,
+        1024
+      ],
+      "declared_size": [
+        512,
+        1024
+      ],
+      "mode": "RGBA",
+      "bytes": 283793,
+      "sha256": "27e26c9e9841f4df881b86fa0234712ea55d017cb2769f33f6a26cfd77d5d1a3",
+      "alpha_bbox": [
+        41,
+        36,
+        472,
+        1016
+      ],
+      "literal_reference_files": [
+        "scripts/systems/directional_character_system.gd"
+      ],
+      "families": [
+        "WS-018"
+      ]
+    },
+    {
+      "path": "assets/game/characters/walk_v2/companion_mila.png",
+      "size": [
+        512,
+        1024
+      ],
+      "declared_size": [
+        512,
+        1024
+      ],
+      "mode": "RGBA",
+      "bytes": 270874,
+      "sha256": "bbc562982d6789c2c00bebf250f5169a3b978c15ece8c8af2e2ddff40b5d687c",
+      "alpha_bbox": [
+        41,
+        36,
+        471,
+        1016
+      ],
+      "literal_reference_files": [
+        "scripts/systems/directional_character_system.gd"
+      ],
+      "families": [
+        "WS-018"
+      ]
+    },
+    {
+      "path": "assets/game/characters/walk_v2/companion_borislav.png",
+      "size": [
+        512,
+        1024
+      ],
+      "declared_size": [
+        512,
+        1024
+      ],
+      "mode": "RGBA",
+      "bytes": 347523,
+      "sha256": "a417c9d88d0090d82bfacbc070b385a09b823cfa0e94d95d502c13c8ad0af64a",
+      "alpha_bbox": [
+        23,
+        36,
+        490,
+        1016
+      ],
+      "literal_reference_files": [
+        "scripts/systems/directional_character_system.gd"
+      ],
+      "families": [
+        "WS-018"
+      ]
+    },
+    {
+      "path": "assets/game/characters/walk_v2/companion_luna.png",
+      "size": [
+        512,
+        1024
+      ],
+      "declared_size": [
+        512,
+        1024
+      ],
+      "mode": "RGBA",
+      "bytes": 382856,
+      "sha256": "7ca8e1be3062ebdd482f87e120c69688eb02dd0436029aafc929d2790863fa65",
+      "alpha_bbox": [
+        25,
+        31,
+        483,
+        1016
+      ],
+      "literal_reference_files": [
+        "scripts/systems/directional_character_system.gd"
+      ],
+      "families": [
+        "WS-018"
+      ]
+    },
+    {
+      "path": "assets/game/enemies/enemy_rank_atlas.png",
+      "size": [
+        1620,
+        972
+      ],
+      "declared_size": [
+        1620,
+        972
+      ],
+      "mode": "RGBA",
+      "bytes": 1946367,
+      "sha256": "1fe136417afc2c9e5e7221cf35c6e5c8bc7e084f24362837a20e4e9bca7cdd31",
+      "alpha_bbox": [
+        48,
+        40,
+        1565,
+        922
+      ],
+      "literal_reference_files": [
+        "scripts/game_context.gd"
+      ],
+      "families": [
+        "WS-019"
+      ]
+    },
+    {
+      "path": "assets/game/enemies/animated/core_enemy_walk_8dir.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "declared_size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "bytes": 1588467,
+      "sha256": "f3a23160919156c87c4d5da838adaea8a03a3e650d3823420d6777205c5fa5b6",
+      "alpha_bbox": [
+        17,
+        24,
+        1492,
+        1024
+      ],
+      "literal_reference_files": [
+        "scripts/systems/enemy_animation_library.gd"
+      ],
+      "families": [
+        "WS-019"
+      ]
+    },
+    {
+      "path": "assets/game/enemies/animated/core_enemy_actions_8dir.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "declared_size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "bytes": 1360354,
+      "sha256": "d8f1806b43540f7cac0cd261f53b8d8da8cf97719146a9d8938b1efd34a116e8",
+      "alpha_bbox": [
+        13,
+        7,
+        1508,
+        1010
+      ],
+      "literal_reference_files": [
+        "scripts/systems/enemy_animation_library.gd"
+      ],
+      "families": [
+        "WS-019"
+      ]
+    },
+    {
+      "path": "assets/game/enemies/animated/pirate_enemy_walk_8dir.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "declared_size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "bytes": 927004,
+      "sha256": "4139cff562f17d3c5e2cb59d1850374b0c99f120617f332c0d77c033aa88d00e",
+      "alpha_bbox": [
+        23,
+        24,
+        1495,
+        1024
+      ],
+      "literal_reference_files": [
+        "scripts/systems/enemy_animation_library.gd"
+      ],
+      "families": [
+        "WS-019"
+      ]
+    },
+    {
+      "path": "assets/game/enemies/animated/pirate_enemy_actions_8dir.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "declared_size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "bytes": 1343135,
+      "sha256": "65c4b91a29cb620416c1538d642e7dd751fa40c2b6c96c283aff3c339056eded",
+      "alpha_bbox": [
+        25,
+        8,
+        1494,
+        1024
+      ],
+      "literal_reference_files": [
+        "scripts/systems/enemy_animation_library.gd"
+      ],
+      "families": [
+        "WS-019"
+      ]
+    },
+    {
+      "path": "assets/game/enemies/skeleton_v2/walk.png",
+      "size": [
+        384,
+        1024
+      ],
+      "declared_size": [
+        384,
+        1024
+      ],
+      "mode": "RGBA",
+      "bytes": 586835,
+      "sha256": "b4c8efba4dff6df7863fa954cf05cc11e8ab52b246a0786b27bdda66b29905e4",
+      "alpha_bbox": [
+        8,
+        8,
+        373,
+        1016
+      ],
+      "literal_reference_files": [
+        "scripts/systems/enemy_animation_library.gd"
+      ],
+      "families": [
+        "WS-019"
+      ]
+    },
+    {
+      "path": "assets/game/enemies/skeleton_v2/actions.png",
+      "size": [
+        384,
+        1024
+      ],
+      "declared_size": [
+        384,
+        1024
+      ],
+      "mode": "RGBA",
+      "bytes": 544537,
+      "sha256": "5423014ec71c93e7484032c3d64146ea8dae14ecb437ffad3d951a03a9ce5615",
+      "alpha_bbox": [
+        21,
+        17,
+        370,
+        1016
+      ],
+      "literal_reference_files": [
+        "scripts/systems/enemy_animation_library.gd"
+      ],
+      "families": [
+        "WS-019"
+      ]
+    },
+    {
+      "path": "assets/game/enemies/cave_guardian.png",
+      "size": [
+        256,
+        256
+      ],
+      "declared_size": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "bytes": 91800,
+      "sha256": "9f7c04bd97cfe1bae0243c44a452d50222e23cf9a874cd6e6793656391d6faa0",
+      "alpha_bbox": [
+        16,
+        19,
+        240,
+        236
+      ],
+      "literal_reference_files": [
+        "scripts/systems/enemy_animation_library.gd"
+      ],
+      "families": [
+        "WS-019"
+      ]
+    },
+    {
+      "path": "assets/game/wildlife/directional/deer_actions_8dir.png",
+      "size": [
+        768,
+        1024
+      ],
+      "declared_size": [
+        768,
+        1024
+      ],
+      "mode": "RGBA",
+      "bytes": 457825,
+      "sha256": "8a3f704fc153daac86ad9db046c0dcf6efd3a598da9f5d7ba28bf0d3b656b504",
+      "alpha_bbox": [
+        12,
+        8,
+        762,
+        1012
+      ],
+      "literal_reference_files": [
+        "scripts/game_context.gd"
+      ],
+      "families": [
+        "WS-020"
+      ]
+    },
+    {
+      "path": "assets/game/wildlife/directional/fox_actions_8dir.png",
+      "size": [
+        768,
+        1024
+      ],
+      "declared_size": [
+        768,
+        1024
+      ],
+      "mode": "RGBA",
+      "bytes": 549146,
+      "sha256": "380166a29548d14c55e9a3828949f73f05ad27a79132f6394dcf07d1d1034a4c",
+      "alpha_bbox": [
+        12,
+        9,
+        762,
+        1012
+      ],
+      "literal_reference_files": [
+        "scripts/game_context.gd"
+      ],
+      "families": [
+        "WS-020"
+      ]
+    },
+    {
+      "path": "assets/game/wildlife/directional/boar_actions_8dir.png",
+      "size": [
+        768,
+        1024
+      ],
+      "declared_size": [
+        768,
+        1024
+      ],
+      "mode": "RGBA",
+      "bytes": 597046,
+      "sha256": "abbc7e1b94ddf6a236a6970a63ef185c22b3457e5e6a54685b23a67d68af8b2c",
+      "alpha_bbox": [
+        13,
+        8,
+        762,
+        1012
+      ],
+      "literal_reference_files": [
+        "scripts/game_context.gd"
+      ],
+      "families": [
+        "WS-020"
+      ]
+    },
+    {
+      "path": "assets/game/wildlife/directional/bat_actions_8dir.png",
+      "size": [
+        768,
+        1024
+      ],
+      "declared_size": [
+        768,
+        1024
+      ],
+      "mode": "RGBA",
+      "bytes": 362726,
+      "sha256": "d71d875a8328de7b04c35f900d1e268bde203861b2eabf0e7128567b15d5d7e4",
+      "alpha_bbox": [
+        13,
+        58,
+        762,
+        1012
+      ],
+      "literal_reference_files": [
+        "scripts/game_context.gd"
+      ],
+      "families": [
+        "WS-020"
+      ]
+    },
+    {
+      "path": "assets/game/wildlife/directional/lizard_actions_8dir.png",
+      "size": [
+        768,
+        1024
+      ],
+      "declared_size": [
+        768,
+        1024
+      ],
+      "mode": "RGBA",
+      "bytes": 690894,
+      "sha256": "67c9bf955332fefdfefbe1c797110c8c48797cf76377b62d40267a925f14697e",
+      "alpha_bbox": [
+        12,
+        8,
+        762,
+        1012
+      ],
+      "literal_reference_files": [
+        "scripts/game_context.gd"
+      ],
+      "families": [
+        "WS-020"
+      ]
+    },
+    {
+      "path": "assets/game/wildlife/directional/fox_walk_4dir_v2.png",
+      "size": [
+        1312,
+        1199
+      ],
+      "declared_size": [
+        1312,
+        1199
+      ],
+      "mode": "RGBA",
+      "bytes": 1088275,
+      "sha256": "8f54875355697247b4da1dbae9ecc2d07ccf04d27bacc193341e317c441baffd",
+      "alpha_bbox": [
+        0,
+        0,
+        1312,
+        1199
+      ],
+      "literal_reference_files": [
+        "scripts/systems/wildlife_visual_system.gd"
+      ],
+      "families": [
+        "WS-020"
+      ]
+    },
+    {
+      "path": "assets/game/wildlife/directional/bat_flight_4dir_v2.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "declared_size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1108635,
+      "sha256": "24ca6e85e4c7d4f380c8a5276c5790b04f82b835b0c3e2a92dbd917db6d54350",
+      "alpha_bbox": [
+        0,
+        19,
+        1254,
+        1254
+      ],
+      "literal_reference_files": [
+        "scripts/systems/wildlife_visual_system.gd"
+      ],
+      "families": [
+        "WS-020"
+      ]
+    },
+    {
+      "path": "assets/game/wildlife/directional/lizard_walk_4dir_v2.png",
+      "size": [
+        1285,
+        1224
+      ],
+      "declared_size": [
+        1285,
+        1224
+      ],
+      "mode": "RGBA",
+      "bytes": 1320337,
+      "sha256": "b3779aa80fa6ab65d91ef384571dc623e8602941303a3517cb20f68f9bbb03a4",
+      "alpha_bbox": [
+        0,
+        0,
+        1285,
+        1224
+      ],
+      "literal_reference_files": [
+        "scripts/systems/wildlife_visual_system.gd"
+      ],
+      "families": [
+        "WS-020"
+      ]
+    },
+    {
+      "path": "assets/game/environment/hazard_rank_atlas.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "declared_size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1617603,
+      "sha256": "574d68a9e62e3547523f62f1c5bbcd0c8b0b87b7223282953189436dba292193",
+      "alpha_bbox": [
+        48,
+        93,
+        1192,
+        1170
+      ],
+      "literal_reference_files": [
+        "scripts/game_context.gd"
+      ],
+      "families": [
+        "WS-021"
+      ]
+    },
+    {
+      "path": "assets/game/locations/overworld/modular/grass_meadow_tile_v1.png",
+      "size": [
+        384,
+        384
+      ],
+      "declared_size": [
+        384,
+        384
+      ],
+      "mode": "RGB",
+      "bytes": 206362,
+      "sha256": "8321076a7b31c59d274c8b85eeb98e12211b9ff52b06e1aaffa911692fc7f241",
+      "alpha_bbox": [
+        0,
+        0,
+        384,
+        384
+      ],
+      "literal_reference_files": [
+        "scripts/systems/village_terrain_renderer.gd"
+      ],
+      "families": [
+        "WS-024"
+      ]
+    },
+    {
+      "path": "assets/game/locations/overworld/modular/path_material_v1.png",
+      "size": [
+        384,
+        384
+      ],
+      "declared_size": [
+        384,
+        384
+      ],
+      "mode": "RGB",
+      "bytes": 251279,
+      "sha256": "083fe37fc8380d1f476f6355319f51b20c1b6edfc9372d6c7ea8e8b6b3ca2407",
+      "alpha_bbox": [
+        0,
+        0,
+        384,
+        384
+      ],
+      "literal_reference_files": [
+        "scripts/systems/village_terrain_renderer.gd"
+      ],
+      "families": [
+        "WS-024"
+      ]
+    },
+    {
+      "path": "assets/game/locations/overworld/modular/dirt_material_v1.png",
+      "size": [
+        192,
+        192
+      ],
+      "declared_size": [
+        192,
+        192
+      ],
+      "mode": "RGB",
+      "bytes": 69947,
+      "sha256": "4d8f49a41114fea6846dd7ba3275e3766d0b42aece68e0b8a296cf19e4d286ba",
+      "alpha_bbox": [
+        0,
+        0,
+        192,
+        192
+      ],
+      "literal_reference_files": [
+        "scripts/systems/village_terrain_renderer.gd"
+      ],
+      "families": [
+        "WS-024"
+      ]
+    },
+    {
+      "path": "assets/game/locations/overworld/modular/stone_material_v1.png",
+      "size": [
+        192,
+        192
+      ],
+      "declared_size": [
+        192,
+        192
+      ],
+      "mode": "RGB",
+      "bytes": 77840,
+      "sha256": "a5a450ef49ba560fb3ec0f3ba3fd11f03d8514b21db662eadd750824924abfee",
+      "alpha_bbox": [
+        0,
+        0,
+        192,
+        192
+      ],
+      "literal_reference_files": [
+        "scripts/systems/village_terrain_renderer.gd"
+      ],
+      "families": [
+        "WS-024"
+      ]
+    },
+    {
+      "path": "assets/game/locations/overworld/modular/water_material_v1.png",
+      "size": [
+        192,
+        192
+      ],
+      "declared_size": [
+        192,
+        192
+      ],
+      "mode": "RGB",
+      "bytes": 54137,
+      "sha256": "e6f548fab26b73b21fef1d11a546e7cbb851685539d3341e430f62c6d0dfa2b7",
+      "alpha_bbox": [
+        0,
+        0,
+        192,
+        192
+      ],
+      "literal_reference_files": [
+        "scripts/systems/village_terrain_renderer.gd",
+        "scripts/systems/cave_theme_renderer.gd"
+      ],
+      "families": [
+        "WS-024"
+      ]
+    },
+    {
+      "path": "assets/game/locations/overworld/modular/bridge_modular_v1.png",
+      "size": [
+        144,
+        216
+      ],
+      "declared_size": [
+        144,
+        216
+      ],
+      "mode": "RGBA",
+      "bytes": 47248,
+      "sha256": "fc3845f00c81e7e30591e2212b8d1f53f963e636731838587c50112f94d9a1d0",
+      "alpha_bbox": [
+        8,
+        0,
+        136,
+        216
+      ],
+      "literal_reference_files": [
+        "scripts/systems/village_terrain_renderer.gd"
+      ],
+      "families": [
+        "WS-024"
+      ]
+    },
+    {
+      "path": "assets/game/locations/overworld/modular/prop_well_v1.png",
+      "size": [
+        120,
+        120
+      ],
+      "declared_size": [
+        120,
+        120
+      ],
+      "mode": "RGBA",
+      "bytes": 23451,
+      "sha256": "1f54767eb6e626f417d8651cb56320acd965e3d3e362b0e9c8eefb721da19bb8",
+      "alpha_bbox": [
+        9,
+        0,
+        110,
+        120
+      ],
+      "literal_reference_files": [
+        "scripts/systems/village_prop_renderer.gd"
+      ],
+      "families": [
+        "WS-024"
+      ]
+    },
+    {
+      "path": "assets/game/locations/overworld/modular/prop_bench_v1.png",
+      "size": [
+        96,
+        72
+      ],
+      "declared_size": [
+        96,
+        72
+      ],
+      "mode": "RGBA",
+      "bytes": 11696,
+      "sha256": "4ef554bda6dfa8382f49fe1c8eaef2c1e2f641469a29269ac35700b57c1bf478",
+      "alpha_bbox": [
+        0,
+        5,
+        96,
+        72
+      ],
+      "literal_reference_files": [
+        "scripts/systems/village_prop_renderer.gd"
+      ],
+      "families": [
+        "WS-024"
+      ]
+    },
+    {
+      "path": "assets/game/locations/overworld/modular/prop_lamp_v1.png",
+      "size": [
+        48,
+        120
+      ],
+      "declared_size": [
+        48,
+        120
+      ],
+      "mode": "RGBA",
+      "bytes": 7010,
+      "sha256": "6504320b1ae0ecc5bc259533d673d789fe5d2d364d4b4143df39c1d8cbf50cbd",
+      "alpha_bbox": [
+        0,
+        25,
+        48,
+        120
+      ],
+      "literal_reference_files": [
+        "scripts/systems/village_prop_renderer.gd"
+      ],
+      "families": [
+        "WS-024"
+      ]
+    },
+    {
+      "path": "assets/game/locations/overworld/modular/prop_board_v1.png",
+      "size": [
+        120,
+        96
+      ],
+      "declared_size": [
+        120,
+        96
+      ],
+      "mode": "RGBA",
+      "bytes": 16807,
+      "sha256": "e98ae15e39a259d40316868a5b54b349cf01739f78aa14c532ee7487d3685915",
+      "alpha_bbox": [
+        12,
+        0,
+        107,
+        96
+      ],
+      "literal_reference_files": [
+        "scripts/systems/village_prop_renderer.gd"
+      ],
+      "families": [
+        "WS-024"
+      ]
+    },
+    {
+      "path": "assets/game/locations/overworld/modular/prop_cart_v1.png",
+      "size": [
+        120,
+        96
+      ],
+      "declared_size": [
+        120,
+        96
+      ],
+      "mode": "RGBA",
+      "bytes": 23312,
+      "sha256": "29582a46b66108f2b31e734fc721ee519d253eead45e793f32833993982c8a62",
+      "alpha_bbox": [
+        0,
+        6,
+        120,
+        96
+      ],
+      "literal_reference_files": [
+        "scripts/systems/village_prop_renderer.gd"
+      ],
+      "families": [
+        "WS-024"
+      ]
+    },
+    {
+      "path": "assets/game/enemies/slime_idle.png",
+      "size": [
+        384,
+        256
+      ],
+      "declared_size": [
+        384,
+        256
+      ],
+      "mode": "RGBA",
+      "bytes": 5146,
+      "sha256": "b306ece3c24e6a9da157651c7f5d68800c5f76cb63cdf504533401e7c258456d",
+      "alpha_bbox": [
+        22,
+        18,
+        362,
+        234
+      ],
+      "literal_reference_files": [
+        "scripts/systems/animation_renderer.gd"
+      ],
+      "families": [
+        "WS-023"
+      ]
+    },
+    {
+      "path": "assets/game/enemies/slime_attack.png",
+      "size": [
+        640,
+        256
+      ],
+      "declared_size": [
+        640,
+        256
+      ],
+      "mode": "RGBA",
+      "bytes": 11719,
+      "sha256": "9109a9768a51b62bcd037a24ab49b3f8c8da5ec8d211ddd783f7c8621dc01f31",
+      "alpha_bbox": [
+        24,
+        7,
+        640,
+        232
+      ],
+      "literal_reference_files": [
+        "scripts/systems/animation_renderer.gd"
+      ],
+      "families": [
+        "WS-023"
+      ]
+    },
+    {
+      "path": "assets/game/enemies/slime_hurt.png",
+      "size": [
+        320,
+        256
+      ],
+      "declared_size": [
+        320,
+        256
+      ],
+      "mode": "RGBA",
+      "bytes": 6490,
+      "sha256": "268327dc54fabb3df7ea4de5abcaf5b947f05998a4c58d53275c9ca3fb20717c",
+      "alpha_bbox": [
+        24,
+        22,
+        302,
+        232
+      ],
+      "literal_reference_files": [
+        "scripts/systems/animation_renderer.gd"
+      ],
+      "families": [
+        "WS-023"
+      ]
+    },
+    {
+      "path": "assets/game/enemies/slime_death.png",
+      "size": [
+        640,
+        256
+      ],
+      "declared_size": [
+        640,
+        256
+      ],
+      "mode": "RGBA",
+      "bytes": 11812,
+      "sha256": "ee927bf23ea78a7438cc66a23b91f433a5282b07d8da35a159cee555b8cd24c8",
+      "alpha_bbox": [
+        24,
+        18,
+        626,
+        234
+      ],
+      "literal_reference_files": [
+        "scripts/systems/animation_renderer.gd"
+      ],
+      "families": [
+        "WS-023"
+      ]
+    },
+    {
+      "path": "assets/game/workshops/workshops_atlas_a.png",
+      "size": [
+        1402,
+        1122
+      ],
+      "declared_size": [
+        1402,
+        1122
+      ],
+      "mode": "RGBA",
+      "bytes": 1985157,
+      "sha256": "d753c398e788409255141f8c06b9759f7435cd78f9e34fd55e34b3f93a908451",
+      "alpha_bbox": [
+        0,
+        2,
+        1384,
+        1091
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-025"
+      ]
+    },
+    {
+      "path": "assets/game/workshops/research_atlas_a.png",
+      "size": [
+        2172,
+        724
+      ],
+      "declared_size": [
+        2172,
+        724
+      ],
+      "mode": "RGBA",
+      "bytes": 1491683,
+      "sha256": "f8a12f1efff2e63babc3b841d66fa88e6fc3f475c5b10dd70d7bfd6e271d29d0",
+      "alpha_bbox": [
+        0,
+        78,
+        2105,
+        724
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-025"
+      ]
+    },
+    {
+      "path": "assets/game/basement/alchemy_atlas_a.png",
+      "size": [
+        1448,
+        1086
+      ],
+      "declared_size": [
+        1448,
+        1086
+      ],
+      "mode": "RGBA",
+      "bytes": 1485694,
+      "sha256": "d87b4412b28685f2b7b5bd7197a3de3ad1db733921ff66e328a438a29316f265",
+      "alpha_bbox": [
+        0,
+        2,
+        1447,
+        1086
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-026"
+      ]
+    },
+    {
+      "path": "assets/game/basement/cauldron_atlas_a.png",
+      "size": [
+        1408,
+        1117
+      ],
+      "declared_size": [
+        1408,
+        1117
+      ],
+      "mode": "RGBA",
+      "bytes": 1432847,
+      "sha256": "9416c10dd4631ea5f986c2261e808c212b78f153502d0a10f12856d034f8ab22",
+      "alpha_bbox": [
+        0,
+        9,
+        1408,
+        1117
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-026"
+      ]
+    },
+    {
+      "path": "assets/game/basement/floor_a.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "declared_size": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "bytes": 2428337,
+      "sha256": "1a191ac004d51a5d1e62f22fccbf3c3fee3ff652f57dc41cae383e45e0b65817",
+      "alpha_bbox": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "literal_reference_files": [
+        "scripts/presentation/basement_room_renderer.gd"
+      ],
+      "families": [
+        "WS-026"
+      ]
+    },
+    {
+      "path": "assets/game/basement/forge_atlas_a.png",
+      "size": [
+        1470,
+        1070
+      ],
+      "declared_size": [
+        1470,
+        1070
+      ],
+      "mode": "RGBA",
+      "bytes": 1225274,
+      "sha256": "1acb89633a548e87c7d2000f7f58ae9afb74e714fcc22a4394166f92e3fab86d",
+      "alpha_bbox": [
+        0,
+        15,
+        1454,
+        1070
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-026"
+      ]
+    },
+    {
+      "path": "assets/game/basement/furnace_atlas_a.png",
+      "size": [
+        1292,
+        1218
+      ],
+      "declared_size": [
+        1292,
+        1218
+      ],
+      "mode": "RGBA",
+      "bytes": 1645182,
+      "sha256": "09ba7dd2a9408c83ba15461cc2dba7cfa6c9957f1f960cc4a5569ee7dfbdc40c",
+      "alpha_bbox": [
+        0,
+        0,
+        1272,
+        1218
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-026"
+      ]
+    },
+    {
+      "path": "assets/game/basement/glassblowing_atlas_a.png",
+      "size": [
+        1402,
+        1122
+      ],
+      "declared_size": [
+        1402,
+        1122
+      ],
+      "mode": "RGBA",
+      "bytes": 1851555,
+      "sha256": "f4963a2d039143830124ad758b306ecbfa45ad7ffebd53c55078752e4c88d4b6",
+      "alpha_bbox": [
+        0,
+        19,
+        1386,
+        1122
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-026"
+      ]
+    },
+    {
+      "path": "assets/game/basement/pottery_atlas_a.png",
+      "size": [
+        1402,
+        1122
+      ],
+      "declared_size": [
+        1402,
+        1122
+      ],
+      "mode": "RGBA",
+      "bytes": 1811838,
+      "sha256": "0bb0b9964617fcb0ac60cab7f63ec684f0a953bf99494a315351c224fef23ba4",
+      "alpha_bbox": [
+        0,
+        15,
+        1390,
+        1122
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-026"
+      ]
+    },
+    {
+      "path": "assets/game/basement/recycling_atlas_a.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "declared_size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "bytes": 2226520,
+      "sha256": "b5c9e0c191295a43ec5d62ea58b5a53a79fd708405d8fcc752d7205a21aab794",
+      "alpha_bbox": [
+        25,
+        19,
+        1514,
+        996
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-026"
+      ]
+    },
+    {
+      "path": "assets/game/basement/sawmill_atlas_a.png",
+      "size": [
+        1402,
+        1122
+      ],
+      "declared_size": [
+        1402,
+        1122
+      ],
+      "mode": "RGBA",
+      "bytes": 1845189,
+      "sha256": "e64e87af2fddb01ea35d0c0cc9bc3e9bfa1390079fed1107e9c12f05dcd5b107",
+      "alpha_bbox": [
+        0,
+        9,
+        1386,
+        1122
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-026"
+      ]
+    },
+    {
+      "path": "assets/game/basement/shell_atlas_a.png",
+      "size": [
+        1448,
+        1086
+      ],
+      "declared_size": [
+        1448,
+        1086
+      ],
+      "mode": "RGBA",
+      "bytes": 1407783,
+      "sha256": "86b69f1460de18b137073126aa92003945713f106cf247d9fbc707509983376c",
+      "alpha_bbox": [
+        9,
+        9,
+        1432,
+        1086
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-026"
+      ]
+    },
+    {
+      "path": "assets/game/basement/study_atlas_a.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "declared_size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "bytes": 2428955,
+      "sha256": "8ac25d90ab2bba2acb2a2a42e44d4df17e00d38acc320c9981de95a0f816d64f",
+      "alpha_bbox": [
+        0,
+        1,
+        1504,
+        1024
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-026"
+      ]
+    },
+    {
+      "path": "assets/game/basement/workbench_atlas_a.png",
+      "size": [
+        1402,
+        1122
+      ],
+      "declared_size": [
+        1402,
+        1122
+      ],
+      "mode": "RGBA",
+      "bytes": 1639146,
+      "sha256": "d55801364f0a23c04843e2dc6ea12bfee26a90094cd9494b2162c2e09623b841",
+      "alpha_bbox": [
+        0,
+        17,
+        1401,
+        1122
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-026"
+      ]
+    },
+    {
+      "path": "assets/game/kitchen/fire_atlas_a.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "declared_size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 681873,
+      "sha256": "44e95d2b9c9810e7930a76a27ee60c6a3ae312cfc3d7ae4764c361382bd32f3a",
+      "alpha_bbox": [
+        0,
+        17,
+        1248,
+        1254
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-027"
+      ]
+    },
+    {
+      "path": "assets/game/kitchen/food_atlas_a.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "declared_size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1652121,
+      "sha256": "79f928f52f4b11d772e2265449ac420081204181a96a7ef14aeeae4805ca2641",
+      "alpha_bbox": [
+        0,
+        21,
+        1251,
+        1254
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-027"
+      ]
+    },
+    {
+      "path": "assets/game/kitchen/station_atlas_a.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "declared_size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1933054,
+      "sha256": "97694dc39982711be919d3406066ffa0b07d60b5b5a49dcfb58a665831a318cb",
+      "alpha_bbox": [
+        0,
+        0,
+        1246,
+        1234
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-027"
+      ]
+    },
+    {
+      "path": "assets/game/apiary/apiary_atlas_a.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "declared_size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1469547,
+      "sha256": "2dda0950c056685258c23edb5037bf9f43637f9b80816e5634516842930cb989",
+      "alpha_bbox": [
+        0,
+        4,
+        1240,
+        1254
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-028"
+      ]
+    },
+    {
+      "path": "assets/game/artisan/candlebench_atlas_a.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "declared_size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 2325468,
+      "sha256": "14be01a35926004383b214bb8bfef628ca74d0c50a577c3e3497a662d30093af",
+      "alpha_bbox": [
+        0,
+        3,
+        1240,
+        1254
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-029"
+      ]
+    },
+    {
+      "path": "assets/game/artisan/fermenter_atlas_a.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "declared_size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1865612,
+      "sha256": "ed72e953ba348e520fbcf2887e362c5650d2b2cefdc5b718942f2f37dd624811",
+      "alpha_bbox": [
+        0,
+        13,
+        1240,
+        1254
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-029"
+      ]
+    },
+    {
+      "path": "assets/game/artisan/fruit_press_atlas_a.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "declared_size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1998927,
+      "sha256": "096bf0506e5cf0c47c3043063919ce1836eea344137300001d4f975f5060158e",
+      "alpha_bbox": [
+        0,
+        29,
+        1238,
+        1254
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-029"
+      ]
+    },
+    {
+      "path": "assets/game/artisan/gardenbench_atlas_a.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "declared_size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 2138349,
+      "sha256": "b764ac3a4e833bbaa3193907c7bf4afd4e98d650a99d584147ef8b8989c23b78",
+      "alpha_bbox": [
+        0,
+        19,
+        1254,
+        1254
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-029"
+      ]
+    },
+    {
+      "path": "assets/game/artisan/items_0_atlas_a.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "declared_size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1970664,
+      "sha256": "a0d81254340af1844de4a6cfb8535511b55f815762d0f09cfaa44d67ef5936b6",
+      "alpha_bbox": [
+        0,
+        9,
+        1242,
+        1254
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-029"
+      ]
+    },
+    {
+      "path": "assets/game/artisan/items_1_atlas_a.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "declared_size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 2358590,
+      "sha256": "c51a2acb19d63c753fb86afc04a5a138cc8c9c2258985c95a5375605e77f2725",
+      "alpha_bbox": [
+        0,
+        15,
+        1242,
+        1254
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-029"
+      ]
+    },
+    {
+      "path": "assets/game/artisan/items_2_atlas_a.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "declared_size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1812415,
+      "sha256": "cf95b132384d1041328b4de818104f2fe5fced34be34ff9470a8a7056998504b",
+      "alpha_bbox": [
+        43,
+        21,
+        1234,
+        1220
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-029"
+      ]
+    },
+    {
+      "path": "assets/game/artisan/loom_atlas_a.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "declared_size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 2125417,
+      "sha256": "a5de3c34765b437e2fed78c4cb1c642792a7e173e67ad0f959a846e6300e0ab2",
+      "alpha_bbox": [
+        0,
+        0,
+        1248,
+        1254
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-029"
+      ]
+    },
+    {
+      "path": "assets/game/artisan/preserver_atlas_a.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "declared_size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1980912,
+      "sha256": "ae9eb7341e0aeb9a96a0ef0caa339ea3f13413a14fcc372cd75395a9b6550f02",
+      "alpha_bbox": [
+        0,
+        19,
+        1254,
+        1254
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-029"
+      ]
+    },
+    {
+      "path": "assets/game/artisan/smoker_atlas_a.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "declared_size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1969687,
+      "sha256": "bb980721723debab734667482dd4bd95a013303ae2521741ec3338204fc908f7",
+      "alpha_bbox": [
+        0,
+        5,
+        1238,
+        1254
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-029"
+      ]
+    },
+    {
+      "path": "assets/game/artisan/tannery_atlas_a.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "declared_size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1978533,
+      "sha256": "0e70cdfd428afff8d21e770940a3516323de56565b34047d72067c6d5a511e76",
+      "alpha_bbox": [
+        0,
+        17,
+        1240,
+        1254
+      ],
+      "literal_reference_files": [],
+      "families": [
+        "WS-029"
+      ]
+    }
+  ],
+  "limits": "Literal source matches do not prove execution or non-use. Runtime representatives are exported by owner API. This manifest is not the complete game art catalogue."
+}
