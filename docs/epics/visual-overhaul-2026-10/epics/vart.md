@@ -354,7 +354,7 @@
 
 ## VART-010 — Утвердить предметный эталон иконок
 
-Статус: `ready` · P0 · этап `foundation` · `engineering`
+Статус: `in_progress` · P0 · этап `foundation` · `engineering`
 
 По одному примеру еды, руды, травы, колбы, инструмента и одежды проверено в 64 и 160 пикселях до массовой партии
 
@@ -368,7 +368,7 @@
 - [docs/SPRITE_STANDARD.md](../../../../docs/SPRITE_STANDARD.md)
 - [assets/game/world_sprite_manifest.json](../../../../assets/game/world_sprite_manifest.json)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vart-010/`.
+Результаты: `docs/reports/visual-overhaul/vart-010/`.
 
 Критерии:
 
@@ -386,4 +386,4 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vart-010/README.md, docs/reports/visual-overhaul/vart-010/icons.json, docs/reports/visual-overhaul/vart-010/review.json, docs/reports/visual-overhaul/vart-010/source.json, docs/reports/visual-overhaul/vart-010/native/capture.json, docs/reports/visual-overhaul/vart-010/browser.json, tools/visual_icons.py, tools/test_visual_icons.py, tools/visual_icons_capture.gd.

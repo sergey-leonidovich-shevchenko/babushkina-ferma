@@ -1,0 +1,697 @@
+{
+	"adapter": "AMD Radeon Pro 5300M OpenGL Engine",
+	"display_server": "macOS",
+	"engine": "4.7.1-stable (official)",
+	"exports": [
+		{
+			"file": "icons/a-bread-64.png",
+			"id": "a-bread",
+			"sha256": "8ad38e880b2e17236cc0746f7db5e31596def158461889b67195ceb524617d74",
+			"size": 64,
+			"used_rect": [
+				3,
+				14,
+				58,
+				36
+			]
+		},
+		{
+			"file": "icons/a-bread-160.png",
+			"id": "a-bread",
+			"sha256": "fe7e67a62465e98e08106a03ec355f62f4ed171ca946ffc9b56e165a969b89dc",
+			"size": 160,
+			"used_rect": [
+				8,
+				35,
+				144,
+				90
+			]
+		},
+		{
+			"file": "icons/a-iron_ore-64.png",
+			"id": "a-iron_ore",
+			"sha256": "9f76869a51df239f6b2776f26008429295aa1f044ae6c68d6404355c6c2a583c",
+			"size": 64,
+			"used_rect": [
+				3,
+				5,
+				58,
+				54
+			]
+		},
+		{
+			"file": "icons/a-iron_ore-160.png",
+			"id": "a-iron_ore",
+			"sha256": "d6718a6a327087a4dbccd85216abb7e305c04b20a46ea4ee926fdd720c49b8c7",
+			"size": 160,
+			"used_rect": [
+				8,
+				13,
+				144,
+				134
+			]
+		},
+		{
+			"file": "icons/a-herbs-64.png",
+			"id": "a-herbs",
+			"sha256": "5067112fd06a970e1d75457129a514bd1c7399309a5a75f2740a4c1d0f907968",
+			"size": 64,
+			"used_rect": [
+				7,
+				3,
+				50,
+				58
+			]
+		},
+		{
+			"file": "icons/a-herbs-160.png",
+			"id": "a-herbs",
+			"sha256": "2242415d98cd7e0eac7f460b16f59a0de0491530abfc0aedec3ca86d18054bf7",
+			"size": 160,
+			"used_rect": [
+				18,
+				8,
+				123,
+				144
+			]
+		},
+		{
+			"file": "icons/a-healing_potion-64.png",
+			"id": "a-healing_potion",
+			"sha256": "2b9fc21dbcbac50f640576f7b3f89c3aa29cbbef1b1f022b27a12883564f30aa",
+			"size": 64,
+			"used_rect": [
+				10,
+				3,
+				44,
+				58
+			]
+		},
+		{
+			"file": "icons/a-healing_potion-160.png",
+			"id": "a-healing_potion",
+			"sha256": "39dd214d0b759dd96c7e32c40909c13d56b2229720c6be5f4679092173224328",
+			"size": 160,
+			"used_rect": [
+				25,
+				8,
+				109,
+				144
+			]
+		},
+		{
+			"file": "icons/a-axe-64.png",
+			"id": "a-axe",
+			"sha256": "5bad72be518123dd86a95ef922c94247d039de213cad784883cca534f884d70c",
+			"size": 64,
+			"used_rect": [
+				16,
+				3,
+				32,
+				58
+			]
+		},
+		{
+			"file": "icons/a-axe-160.png",
+			"id": "a-axe",
+			"sha256": "0e9232214c86649a90a0a8671e31e772892b895442e8b4da0f3e85e6b2636913",
+			"size": 160,
+			"used_rect": [
+				40,
+				8,
+				80,
+				144
+			]
+		},
+		{
+			"file": "icons/a-travel_boots-64.png",
+			"id": "a-travel_boots",
+			"sha256": "5925315b9ee1edbb920f4b17739bd9ff9e561b06c2b82737cc6c67a96c218bce",
+			"size": 64,
+			"used_rect": [
+				3,
+				8,
+				58,
+				48
+			]
+		},
+		{
+			"file": "icons/a-travel_boots-160.png",
+			"id": "a-travel_boots",
+			"sha256": "beeb7444f80bb9f3fa627f78a471e8dffaf554fd5133f3e90396fe8fef95ad93",
+			"size": 160,
+			"used_rect": [
+				8,
+				20,
+				144,
+				119
+			]
+		},
+		{
+			"file": "icons/b-bread-64.png",
+			"id": "b-bread",
+			"sha256": "a8ef261f116b203a78801273957360d6f65e105b49e17b3ce658dd18a2c89b5a",
+			"size": 64,
+			"used_rect": [
+				3,
+				14,
+				58,
+				36
+			]
+		},
+		{
+			"file": "icons/b-bread-160.png",
+			"id": "b-bread",
+			"sha256": "2c428b1fcb328bd8df6ce104f83a014fbb2cef978cf77f5402b623ab7881f7cb",
+			"size": 160,
+			"used_rect": [
+				8,
+				35,
+				144,
+				90
+			]
+		},
+		{
+			"file": "icons/b-iron_ore-64.png",
+			"id": "b-iron_ore",
+			"sha256": "d5084d1f5ca53850f339b7340f6fea1abe2c1efb93d5c4b569bd3a309c8029d0",
+			"size": 64,
+			"used_rect": [
+				3,
+				5,
+				58,
+				54
+			]
+		},
+		{
+			"file": "icons/b-iron_ore-160.png",
+			"id": "b-iron_ore",
+			"sha256": "6877f6149faa49bf67ebb9ba3a844946eb1de8ee302e9b92f99ddb4d6f1f50fc",
+			"size": 160,
+			"used_rect": [
+				8,
+				13,
+				144,
+				134
+			]
+		},
+		{
+			"file": "icons/b-herbs-64.png",
+			"id": "b-herbs",
+			"sha256": "d23284310d3451ea381bc0121ebfabefb96602917366f4dd4f50c3e0af71da57",
+			"size": 64,
+			"used_rect": [
+				7,
+				3,
+				50,
+				58
+			]
+		},
+		{
+			"file": "icons/b-herbs-160.png",
+			"id": "b-herbs",
+			"sha256": "0d613740f7794d67441d4641de23402f46d44958e45eff25c85b95b4cf03ba25",
+			"size": 160,
+			"used_rect": [
+				18,
+				8,
+				124,
+				144
+			]
+		},
+		{
+			"file": "icons/b-healing_potion-64.png",
+			"id": "b-healing_potion",
+			"sha256": "1bcbf47ac3a5176206cab07ce27921915b188075aa3a8a0b2f1449368daf400e",
+			"size": 64,
+			"used_rect": [
+				10,
+				3,
+				44,
+				58
+			]
+		},
+		{
+			"file": "icons/b-healing_potion-160.png",
+			"id": "b-healing_potion",
+			"sha256": "3a48c6ffd7c6d0e0d796b780a8724ca7a63208cc1ddbb45244a64bfbc795f6af",
+			"size": 160,
+			"used_rect": [
+				25,
+				8,
+				110,
+				144
+			]
+		},
+		{
+			"file": "icons/b-axe-64.png",
+			"id": "b-axe",
+			"sha256": "446bd640b8db3f28dcd55346d7e1e4db6d734007aa7ec6076f03be41942aaa76",
+			"size": 64,
+			"used_rect": [
+				15,
+				3,
+				33,
+				58
+			]
+		},
+		{
+			"file": "icons/b-axe-160.png",
+			"id": "b-axe",
+			"sha256": "fb71addee2f0d2a539d015a775d96223fc2e94b92b0851ac62c96d5217f6cc2b",
+			"size": 160,
+			"used_rect": [
+				38,
+				8,
+				83,
+				144
+			]
+		},
+		{
+			"file": "icons/b-travel_boots-64.png",
+			"id": "b-travel_boots",
+			"sha256": "cb4235cfaefb0f6f1fe908c9ab11f30aee48b3cde3e094cf3074e9a596e19b09",
+			"size": 64,
+			"used_rect": [
+				3,
+				8,
+				58,
+				48
+			]
+		},
+		{
+			"file": "icons/b-travel_boots-160.png",
+			"id": "b-travel_boots",
+			"sha256": "bafd72484e85b1d11e10226fa4b2f5f1db89d8350e0b7c75dc0ff36c67263134",
+			"size": 160,
+			"used_rect": [
+				8,
+				20,
+				144,
+				119
+			]
+		}
+	],
+	"frames": [
+		{
+			"file": "catalog-a-light.png",
+			"id": "catalog-a-light",
+			"repeat_equal": true,
+			"sha256": "cdb7db854e0b778280e10b6537a048ab814fd99ccdce00d23e523eaf647bc03d",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "catalog-b-light.png",
+			"id": "catalog-b-light",
+			"repeat_equal": true,
+			"sha256": "7cd01e6f778e6e09cafd0ee726cc90fc5fb7a7eb8de339f1fa652eddadfa86b8",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "focus-bread-light.png",
+			"id": "focus-bread-light",
+			"repeat_equal": true,
+			"sha256": "29e48281dde1db4bb55024e1ffb96a8a8efb623ecb1b4d83a1d45ec8c0369478",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "focus-iron_ore-light.png",
+			"id": "focus-iron_ore-light",
+			"repeat_equal": true,
+			"sha256": "4a1ecc2cb3d7e4ac70e1954558664d3c74760939e27a5f0c26450950d4d2f2f6",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "focus-herbs-light.png",
+			"id": "focus-herbs-light",
+			"repeat_equal": true,
+			"sha256": "b230ec06ca8818c766e223cf7758046fac3dea060c23d1f8e1a8eb20e66b561b",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "focus-healing_potion-light.png",
+			"id": "focus-healing_potion-light",
+			"repeat_equal": true,
+			"sha256": "b261835dd184f0eddcef903abb8e46cb0cde218baff2987da0dd08fc1ed69efd",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "focus-axe-light.png",
+			"id": "focus-axe-light",
+			"repeat_equal": true,
+			"sha256": "facc439c22c5c044a4d5014fab0c3339785d6d9574859cdbe94d6db285dc6c08",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "focus-travel_boots-light.png",
+			"id": "focus-travel_boots-light",
+			"repeat_equal": true,
+			"sha256": "070b1572df052ef28439d50419e60a1aaaf4bacc0a8b5becfcf5d3a3dc98c94c",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "catalog-a-dark.png",
+			"id": "catalog-a-dark",
+			"repeat_equal": true,
+			"sha256": "a54c3f21af25bd22df959eeaeaaadc6de4c152912cdccec01b4dfe50d9a268f3",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "catalog-b-dark.png",
+			"id": "catalog-b-dark",
+			"repeat_equal": true,
+			"sha256": "a0ac5a430ffdca288379f63e98b44f7a72f29e72a9b140a64f321dbc1e34e1cb",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "focus-bread-dark.png",
+			"id": "focus-bread-dark",
+			"repeat_equal": true,
+			"sha256": "016cfb935cc085ead9c25778d2b78d2d3a600c9b61065a2997b4de3e1b8f1fbe",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "focus-iron_ore-dark.png",
+			"id": "focus-iron_ore-dark",
+			"repeat_equal": true,
+			"sha256": "f59bf0249961265581fe25d0e539d263e50f39a65be3f63385ec6c75d6cb94c8",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "focus-herbs-dark.png",
+			"id": "focus-herbs-dark",
+			"repeat_equal": true,
+			"sha256": "0a7811ccfd8bcc8105eeff4f95fd4d34e20291f07a54f57be2e411f47a96fe08",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "focus-healing_potion-dark.png",
+			"id": "focus-healing_potion-dark",
+			"repeat_equal": true,
+			"sha256": "c59abc5bc5257cb4c2ff708a49f9f1c4edd2322a3383a0cae69f89337f9b46b0",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "focus-axe-dark.png",
+			"id": "focus-axe-dark",
+			"repeat_equal": true,
+			"sha256": "e1faebc390c391e743b33f380cbb3d6fb788c38c0d8461096e51115c21894738",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "focus-travel_boots-dark.png",
+			"id": "focus-travel_boots-dark",
+			"repeat_equal": true,
+			"sha256": "61df015387c3c6c0ad34a080b944ced62284cfc19a1abc017527fad28d3cc7bc",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "catalog-a-game.png",
+			"id": "catalog-a-game",
+			"repeat_equal": true,
+			"sha256": "d65663e681276f4e6ca2dcba47eb4bf7c18ea8c97c3a7b58db97c5fe507a52fe",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "catalog-b-game.png",
+			"id": "catalog-b-game",
+			"repeat_equal": true,
+			"sha256": "1ff5a30ffaf9aaca692133abb2295d598fc5dc0ad3fb3dd81c4adf6134189df2",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "focus-bread-game.png",
+			"id": "focus-bread-game",
+			"repeat_equal": true,
+			"sha256": "c649ea800b3f1f86ceea331387624fbc63f3f46355b31a87a7af6e26d015e9cd",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "focus-iron_ore-game.png",
+			"id": "focus-iron_ore-game",
+			"repeat_equal": true,
+			"sha256": "3b53782433cd010c22f07706e5c05abccb5939ded33bb397f4b008bbb3e1cc5b",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "focus-herbs-game.png",
+			"id": "focus-herbs-game",
+			"repeat_equal": true,
+			"sha256": "0dbf88877bb503daaa87aff7c49f0c90d704b9559ab1a1e48719491b25bf9a54",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "focus-healing_potion-game.png",
+			"id": "focus-healing_potion-game",
+			"repeat_equal": true,
+			"sha256": "c510aa48947d1279e0c5ef298a557faaf26e7362888abcb18293c99573a7f7fd",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "focus-axe-game.png",
+			"id": "focus-axe-game",
+			"repeat_equal": true,
+			"sha256": "2cf752f4cd706fe680fe015c4de7db0fd2970ae6434f81ced87d3d8158aa8068",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "focus-travel_boots-game.png",
+			"id": "focus-travel_boots-game",
+			"repeat_equal": true,
+			"sha256": "68818a00da18bf84bfc6030dd7477b6a040c4b51da01934517a61eb936349086",
+			"size": [
+				1152,
+				648
+			]
+		}
+	],
+	"kind": "native-icon-study",
+	"loads_inside_draw": 0,
+	"masters_used_for_ui": false,
+	"native_gameplay": false,
+	"old": [
+		{
+			"file": "icons/old-bread-64.png",
+			"id": "bread",
+			"provider": "catalog",
+			"sha256": "13b31bfd0301c46eb6b689096c67509c5f44b1e0512715505e680659ec380e03",
+			"size": 64,
+			"tint": "ffffffff"
+		},
+		{
+			"file": "icons/old-bread-160.png",
+			"id": "bread",
+			"provider": "catalog",
+			"sha256": "815bc3241373ba8ace6d6d0b11af20b6669f88c490457a3543aef87e93cecd41",
+			"size": 160,
+			"tint": "ffffffff"
+		},
+		{
+			"file": "icons/old-iron_ore-64.png",
+			"id": "iron_ore",
+			"provider": "furnace",
+			"sha256": "6a4bb8686efb020698b26039a86981a5c7efc86710a7503ae87c661705e5e539",
+			"size": 64,
+			"tint": "c9c4b9ff"
+		},
+		{
+			"file": "icons/old-iron_ore-160.png",
+			"id": "iron_ore",
+			"provider": "furnace",
+			"sha256": "653a8a8fc89e1b3723ca9d8a83c0a2326c5be993479d6edd824ea2e201d085a9",
+			"size": 160,
+			"tint": "c9c4b9ff"
+		},
+		{
+			"file": "icons/old-herbs-64.png",
+			"id": "herbs",
+			"provider": "catalog",
+			"sha256": "3d987cc4d6eade6100039dc15a7a4ea266e6202f31ed458ff1c022c731d222d0",
+			"size": 64,
+			"tint": "ffffffff"
+		},
+		{
+			"file": "icons/old-herbs-160.png",
+			"id": "herbs",
+			"provider": "catalog",
+			"sha256": "82ed239b5a3d939972c70549ca0242605242da79177ae9ddd861372c2d7439ec",
+			"size": 160,
+			"tint": "ffffffff"
+		},
+		{
+			"file": "icons/old-healing_potion-64.png",
+			"id": "healing_potion",
+			"provider": "catalog",
+			"sha256": "6a4a6088d863bdb101180c4cac40e83d313f85c1994dded5639aaea947ee5dd5",
+			"size": 64,
+			"tint": "ffffffff"
+		},
+		{
+			"file": "icons/old-healing_potion-160.png",
+			"id": "healing_potion",
+			"provider": "catalog",
+			"sha256": "001e59e97840ae0e13cc4f8dc523eb6e765c9bd07d5090b0cab2c61b79bd8c49",
+			"size": 160,
+			"tint": "ffffffff"
+		},
+		{
+			"file": "icons/old-axe-64.png",
+			"id": "axe",
+			"provider": "catalog",
+			"sha256": "cf15e0db6bdcb3f61d171902c9e6d9ee9e874e18d036c47ddd4f54cc689ddc0e",
+			"size": 64,
+			"tint": "ffffffff"
+		},
+		{
+			"file": "icons/old-axe-160.png",
+			"id": "axe",
+			"provider": "catalog",
+			"sha256": "b9beb2841963b080046382bd8404e7480db15db2da374f12a7da0df5e65aa4ac",
+			"size": 160,
+			"tint": "ffffffff"
+		},
+		{
+			"file": "icons/old-travel_boots-64.png",
+			"id": "travel_boots",
+			"provider": "catalog",
+			"sha256": "28ffa03ba60c98b2d91ccd471a93e956466cb151dd5ea0bfa6fa346d2f33dd34",
+			"size": 64,
+			"tint": "ffffffff"
+		},
+		{
+			"file": "icons/old-travel_boots-160.png",
+			"id": "travel_boots",
+			"provider": "catalog",
+			"sha256": "1cd7e61d158f09a042e9af5e14d4c0a93f77d302033632d9d8d8ae5f26dc2c0c",
+			"size": 160,
+			"tint": "ffffffff"
+		}
+	],
+	"owners": {
+		"res://scripts/presentation/item_icon_visual_system.gd": "9ececafd16ca442dd6d4976fee3ee5cb5c8b9a48e166ea5bf9a89376b4858cd6",
+		"res://scripts/presentation/prepared_item_icon_system.gd": "a95c6cef57976f0c37c9086bf4a751340d2fb759dd239fb31c6cf6d141c829cf",
+		"res://scripts/systems/visual_asset_system.gd": "d4193cffa5a370b569a1122b306cc347c47d817157bda943506f215d75df7b86"
+	},
+	"performance_eligible": false,
+	"profile": "Codex-VART-010-20261018-03",
+	"profile_sha256": "f4f8549534ba313e7d3e1b4368ebfc8540cd6cc8640e6baebc96d0796772e0d9",
+	"projection": [
+		[
+			1.0,
+			0.0
+		],
+		[
+			0.0,
+			1.0
+		],
+		[
+			0.0,
+			0.0
+		]
+	],
+	"renderer": "opengl3",
+	"schema": 1,
+	"script_sha256": "bd0449587db04950b8dae2713cab832ac7a8dc9c16d7c3e41b16ac488c5359f2",
+	"sources": {
+		"res://assets/game/items/catalog/axe.png": "a1f979796a0539bf05c1bc071df0b02ea888323d652eb3a0718273087af552df",
+		"res://assets/game/items/catalog/bread.png": "ae8b08e502616ef9774572b5e00fbbcb54bbe73f8ce934fba519e153317eada0",
+		"res://assets/game/items/catalog/healing_potion.png": "88d9b9b1e8cc1fa35bad098b7953634b2be322fe1d5bae64389000374d598b76",
+		"res://assets/game/items/catalog/herbs.png": "7ac14ad7703ee7311bf68191b1674301316a8b6936549f952d78b72c2f8a4edd",
+		"res://assets/game/items/catalog/stone.png": "97426b8be45e7961f59328d75ca4342ba86169b68de7feb6e33e4cd93a08bb7d",
+		"res://assets/game/items/catalog/travel_boots.png": "bdef24ab9df4544d728cca18efad9c8dba51706347b370445f7c3086ee6f2af1",
+		"res://assets/game/items/ui/preview/axe.png": "10544d4556d1efa9db0f3cf103430e1dc32d54577bb3478e5d2f665c967f89e3",
+		"res://assets/game/items/ui/preview/bread.png": "0b9f1f88df335a7c86bd13248b0efdd554393e4775715ae9252de74708daa241",
+		"res://assets/game/items/ui/preview/healing_potion.png": "a37c7bbe8e5e325559516433b05dcd2587b0099ddf60fe3fb873432ced8f746a",
+		"res://assets/game/items/ui/preview/herbs.png": "639b3ddcf80bdf608f83a5ea02744e29780ba33cbc1d38b3e18471a19634e4b8",
+		"res://assets/game/items/ui/preview/iron_ore.png": "e607fba71afc7887c4ac8fc268d91863f83e342e9f077dd38e625c2902538b77",
+		"res://assets/game/items/ui/preview/travel_boots.png": "b60e0263c83d5aeede61df54063e6a36d0378259ec895f8376b97a68939c5c51",
+		"res://assets/game/items/ui/thumbnails.png": "8c9bb210fb7b187ff68bc540d958bc67aa5309d683e661576c6f6855aa358cc8",
+		"res://docs/reports/visual-overhaul/vart-010/../vart-008/native/pilot-a-front.png": "2a005ff4328c53305bf58d45fcc815f8e1d754a45c64585c946f6951147e91a2",
+		"res://docs/reports/visual-overhaul/vart-010/masters/a-axe.png": "4e883d5b574ff7db925a464f0a63c85a1eb91168187362ce9d84c924c12a8226",
+		"res://docs/reports/visual-overhaul/vart-010/masters/a-bread.png": "5a38c02ff35cda2eec96f95604307bbb911c225d320597d30af5d98b5d6d3cce",
+		"res://docs/reports/visual-overhaul/vart-010/masters/a-healing_potion.png": "ce22112eb1fe8ad9e0b9a4a9da60a20c558b21e90225266f8fc723970b9e62e2",
+		"res://docs/reports/visual-overhaul/vart-010/masters/a-herbs.png": "90e357ea5d6445cb65d265a68dab9e1266aef9a318d6a76f5b89829dd121b3d8",
+		"res://docs/reports/visual-overhaul/vart-010/masters/a-iron_ore.png": "c370b36a3a043cb44787473b477f75c9b8c8a7e16f233ea4a0d5bd2118a38a0b",
+		"res://docs/reports/visual-overhaul/vart-010/masters/a-travel_boots.png": "ad14d1e02ec2d515341920184a7748c74f8525135727c152ffd8d85b34828896",
+		"res://docs/reports/visual-overhaul/vart-010/masters/b-axe.png": "cfa77619011e8dc5d1f74d5e13523d2c9ed2b4dbe91e4136a9e30c9639781bd1",
+		"res://docs/reports/visual-overhaul/vart-010/masters/b-bread.png": "e603629d2a0ced2eeb0da9f629734ab946219b51b41b5d867a6306920b9e7824",
+		"res://docs/reports/visual-overhaul/vart-010/masters/b-healing_potion.png": "a1c0861ec2305a4969ad3f1dc3b733fd001d5a7dccbb6875559750da8d8beed4",
+		"res://docs/reports/visual-overhaul/vart-010/masters/b-herbs.png": "d24d461fb4f6fb21724d563178d5f31e6fb2e0bd864be049d27ff6b27e61f783",
+		"res://docs/reports/visual-overhaul/vart-010/masters/b-iron_ore.png": "2776ace364c6a51b12b68266dfb7907bb0d8c568f59eb42c89c8a29ec25a51aa",
+		"res://docs/reports/visual-overhaul/vart-010/masters/b-travel_boots.png": "d6dc317508a9895506d2a0a649daf9986f4d06f96dd06e1d9e2f680403be2212"
+	},
+	"target": [
+		1152,
+		648
+	],
+	"ui_scale": 1.0
+}

@@ -37,8 +37,8 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
-      - name: Load VART-009 audit baseline
-        run: git fetch --no-tags --depth=1 origin 1b1c39af20b48559904b4a775135305690d0bd10
+      - name: Load visual audit baselines
+        run: git fetch --no-tags --depth=1 origin 1b1c39af20b48559904b4a775135305690d0bd10 6b9cc2927374e345553ddb8d9ba7e2e66e6392ec
       - name: Install quality gate dependencies
         run: |
           sudo apt-get update

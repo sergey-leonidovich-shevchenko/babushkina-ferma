@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "task": "VART-010",
+  "status": "awaiting_selection",
+  "selection": null,
+  "recommended": "a",
+  "source": null,
+  "quote": null,
+  "runtime_integration": false
+}

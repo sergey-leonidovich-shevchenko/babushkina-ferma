@@ -1,0 +1,38 @@
+[
+  {
+    "id": "bread",
+    "category": "food",
+    "name": "Деревенский хлеб",
+    "subject": "ONE plump oval rustic wheat loaf, three broad scored cuts in a honey-golden baked crust, subtle creamy flour dust. No plate, slice, basket, cutlery or wheat stalks. Broadside silhouette, loaf's long axis horizontal."
+  },
+  {
+    "id": "iron_ore",
+    "category": "ore",
+    "name": "Железная руда",
+    "subject": "ONE compact irregular chunk of iron-bearing grey stone, a few large cool metallic iron seams inside warm grey rough rock. Dull raw ore, not a polished gem, not a metal bar. A small number of broad angular planes, not a heap of stones."
+  },
+  {
+    "id": "herbs",
+    "category": "herb",
+    "name": "Лечебные травы",
+    "subject": "ONE compact tied bundle of medicinal herbs, 5 broad sage green leaves and 3 short muted lavender flower spikes. All stems gathered into one little beige twine tie at bottom. Entire leaves and flower tips visible. No pot, roots, dirt, bouquet wrapper or floating petals. Upright silhouette."
+  },
+  {
+    "id": "healing_potion",
+    "category": "flask",
+    "name": "Лечебное зелье",
+    "subject": "ONE squat round clear glass medicine bottle with short neck and plain cork, filled two-thirds with muted coral red liquid. A wide clear horizontal meniscus, controlled upper-left glass glint, visible transparent empty neck. Plain modest bottle; no heart shape, heart decal, label, metal neck collar, pendant or magical glow. Upright silhouette."
+  },
+  {
+    "id": "axe",
+    "category": "tool",
+    "name": "Топор",
+    "subject": "ONE practical small farm axe, honey-brown wooden handle and cool blue-grey iron single-bit head, broad sharpened blade clearly attached to handle. Handle vertical; blade points LEFT. Front orthogonal readable silhouette, no diagonal tilt, no perspective rotated handle. Whole head and pommel visible. No rune, blood or ornament."
+  },
+  {
+    "id": "travel_boots",
+    "category": "clothing",
+    "name": "Походные сапоги",
+    "subject": "ONE compact matching PAIR of ankle-high brown leather travel boots as one inventory item, upright, soles on same horizontal baseline, rounded toes facing viewer, simple cuffs and two plain eyelets each. Warm leather, cool shadow. No legs, person, pedestal, logo or spare laces outside the silhouette. Both whole boots visible."
+  }
+]

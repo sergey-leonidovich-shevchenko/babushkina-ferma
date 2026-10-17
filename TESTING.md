@@ -1,5 +1,7 @@
 # Правила тестирования
 
+VART-010: `python3 tools/visual_icons.py` проверяет 12 мастеров, 24 независимых PNG 64/160, измеренные области, безопасные края, пропорции, SHA256, 24 настоящих кадра и 24 браузерных состояния. Семь сценариев `tools/test_visual_icons.py` входят в architecture gate. Выбор хранится отдельно; зелёный тест не принимает A/B. [Методика](docs/reports/visual-overhaul/vart-010/README.md): UI 1.0, отдельный профиль, без runtime-импорта и FPS.
+
 VART-009: `python3 tools/visual_reuse.py` сверяет решения всех 29 семейств, 238 деклараций / 236 PNG, реальных владельцев, 58 сравнений и 12 обзоров с базовым commit и SHA256. Восемь сценариев `tools/test_visual_reuse.py` входят в architecture gate. Историческая сверка через read-only Git не блокирует будущую согласованную замену ассетов. [Методика и пределы](docs/reports/visual-overhaul/vart-009/README.md): без runtime-импорта, удаления и заявления FPS.
 
 VART-008: `python3 tools/visual_modules.py` сравнивает каждый из 28 PNG с точным регионом мастера, альфу, масштабы семейств, оба принятых фасада, сетку/опоры, 19 нативных кадров и 19 браузерных просмотров. Семь сценариев `tools/test_visual_modules.py` входят в architecture gate. [Методика и границы](docs/reports/visual-overhaul/vart-008/README.md): отдельный нативный профиль, не игровой импорт, не FPS и не полный autotile.

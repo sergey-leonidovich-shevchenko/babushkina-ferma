@@ -1,0 +1,444 @@
+{
+  "schema": 1,
+  "task": "VART-010",
+  "date": "2026-10-18",
+  "status": "study_ready",
+  "recommended": "a",
+  "runtime_integration": false,
+  "base_commit": "6b9cc2927374e345553ddb8d9ba7e2e66e6392ec",
+  "generator": "built-in image_gen",
+  "variants": {
+    "a": "Спокойные материалы",
+    "b": "Выразительная фактура"
+  },
+  "sizes": [
+    64,
+    160
+  ],
+  "padding": {
+    "64": 3,
+    "160": 8
+  },
+  "target": [
+    1152,
+    648
+  ],
+  "ui_scale": 1.0,
+  "world_background": "../vart-008/native/pilot-a-front.png",
+  "items": [
+    {
+      "id": "bread",
+      "category": "food",
+      "name": "Деревенский хлеб",
+      "subject": "ONE plump oval rustic wheat loaf, three broad scored cuts in a honey-golden baked crust, subtle creamy flour dust. No plate, slice, basket, cutlery or wheat stalks. Broadside silhouette, loaf's long axis horizontal."
+    },
+    {
+      "id": "iron_ore",
+      "category": "ore",
+      "name": "Железная руда",
+      "subject": "ONE compact irregular chunk of iron-bearing grey stone, a few large cool metallic iron seams inside warm grey rough rock. Dull raw ore, not a polished gem, not a metal bar. A small number of broad angular planes, not a heap of stones."
+    },
+    {
+      "id": "herbs",
+      "category": "herb",
+      "name": "Лечебные травы",
+      "subject": "ONE compact tied bundle of medicinal herbs, 5 broad sage green leaves and 3 short muted lavender flower spikes. All stems gathered into one little beige twine tie at bottom. Entire leaves and flower tips visible. No pot, roots, dirt, bouquet wrapper or floating petals. Upright silhouette."
+    },
+    {
+      "id": "healing_potion",
+      "category": "flask",
+      "name": "Лечебное зелье",
+      "subject": "ONE squat round clear glass medicine bottle with short neck and plain cork, filled two-thirds with muted coral red liquid. A wide clear horizontal meniscus, controlled upper-left glass glint, visible transparent empty neck. Plain modest bottle; no heart shape, heart decal, label, metal neck collar, pendant or magical glow. Upright silhouette."
+    },
+    {
+      "id": "axe",
+      "category": "tool",
+      "name": "Топор",
+      "subject": "ONE practical small farm axe, honey-brown wooden handle and cool blue-grey iron single-bit head, broad sharpened blade clearly attached to handle. Handle vertical; blade points LEFT. Front orthogonal readable silhouette, no diagonal tilt, no perspective rotated handle. Whole head and pommel visible. No rune, blood or ornament."
+    },
+    {
+      "id": "travel_boots",
+      "category": "clothing",
+      "name": "Походные сапоги",
+      "subject": "ONE compact matching PAIR of ankle-high brown leather travel boots as one inventory item, upright, soles on same horizontal baseline, rounded toes facing viewer, simple cuffs and two plain eyelets each. Warm leather, cool shadow. No legs, person, pedestal, logo or spare laces outside the silhouette. Both whole boots visible."
+    }
+  ],
+  "entries": [
+    {
+      "id": "a-bread",
+      "item": "bread",
+      "variant": "a",
+      "master": "masters/a-bread.png",
+      "sha256": "5a38c02ff35cda2eec96f95604307bbb911c225d320597d30af5d98b5d6d3cce",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "source_rect": [
+        26,
+        264,
+        1206,
+        755
+      ],
+      "strong_bbox": [
+        34,
+        272,
+        1224,
+        1011
+      ],
+      "prompt": "prompts/a-bread.txt",
+      "prompt_sha256": "744169c5a7f59732126b7c66f9cf53633d977abeebd63e203a30b848003c7752",
+      "references": {
+        "../vart-006/density-b.png": "793bb81574addd197259e2db26a3805d9e15af7ed3fc932963b6d92f84c7469a"
+      }
+    },
+    {
+      "id": "a-iron_ore",
+      "item": "iron_ore",
+      "variant": "a",
+      "master": "masters/a-iron_ore.png",
+      "sha256": "c370b36a3a043cb44787473b477f75c9b8c8a7e16f233ea4a0d5bd2118a38a0b",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "source_rect": [
+        98,
+        150,
+        1067,
+        993
+      ],
+      "strong_bbox": [
+        106,
+        158,
+        1157,
+        1135
+      ],
+      "prompt": "prompts/a-iron_ore.txt",
+      "prompt_sha256": "7a99cbffbfd2b6caa582d9f7247aae7e389ed05261b4320c8c1d8ea06e2c041e",
+      "references": {
+        "../vart-006/density-b.png": "793bb81574addd197259e2db26a3805d9e15af7ed3fc932963b6d92f84c7469a"
+      }
+    },
+    {
+      "id": "a-herbs",
+      "item": "herbs",
+      "variant": "a",
+      "master": "masters/a-herbs.png",
+      "sha256": "90e357ea5d6445cb65d265a68dab9e1266aef9a318d6a76f5b89829dd121b3d8",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "source_rect": [
+        136,
+        57,
+        983,
+        1147
+      ],
+      "strong_bbox": [
+        144,
+        65,
+        1111,
+        1196
+      ],
+      "prompt": "prompts/a-herbs.txt",
+      "prompt_sha256": "cc53be4c6bf67a1d671130565cae7f1e8654929c7d15eeee40088a7a8c591e63",
+      "references": {
+        "../vart-006/density-b.png": "793bb81574addd197259e2db26a3805d9e15af7ed3fc932963b6d92f84c7469a"
+      }
+    },
+    {
+      "id": "a-healing_potion",
+      "item": "healing_potion",
+      "variant": "a",
+      "master": "masters/a-healing_potion.png",
+      "sha256": "ce22112eb1fe8ad9e0b9a4a9da60a20c558b21e90225266f8fc723970b9e62e2",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "source_rect": [
+        216,
+        82,
+        823,
+        1090
+      ],
+      "strong_bbox": [
+        224,
+        90,
+        1031,
+        1164
+      ],
+      "prompt": "prompts/a-healing_potion.txt",
+      "prompt_sha256": "cca3f6106357c2a11ff0502fc6db1accfa2806cf283fde1e1c45ce1c011b4c1b",
+      "references": {
+        "../vart-006/density-b.png": "793bb81574addd197259e2db26a3805d9e15af7ed3fc932963b6d92f84c7469a"
+      }
+    },
+    {
+      "id": "a-axe",
+      "item": "axe",
+      "variant": "a",
+      "master": "masters/a-axe.png",
+      "sha256": "4e883d5b574ff7db925a464f0a63c85a1eb91168187362ce9d84c924c12a8226",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "source_rect": [
+        275,
+        54,
+        640,
+        1147
+      ],
+      "strong_bbox": [
+        283,
+        62,
+        907,
+        1193
+      ],
+      "prompt": "prompts/a-axe.txt",
+      "prompt_sha256": "de1dccf416ae1ba37fd0fae7d64b6522c35193d2854b926cb136a7fa94069643",
+      "references": {
+        "../vart-006/density-b.png": "793bb81574addd197259e2db26a3805d9e15af7ed3fc932963b6d92f84c7469a"
+      }
+    },
+    {
+      "id": "a-travel_boots",
+      "item": "travel_boots",
+      "variant": "a",
+      "master": "masters/a-travel_boots.png",
+      "sha256": "ad14d1e02ec2d515341920184a7748c74f8525135727c152ffd8d85b34828896",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "source_rect": [
+        90,
+        203,
+        1061,
+        877
+      ],
+      "strong_bbox": [
+        98,
+        211,
+        1143,
+        1072
+      ],
+      "prompt": "prompts/a-travel_boots.txt",
+      "prompt_sha256": "6907de40ba58f7e8b4844607dfcc5cffdcffe2d7a022f3edfef6503d94609258",
+      "references": {
+        "../vart-006/density-b.png": "793bb81574addd197259e2db26a3805d9e15af7ed3fc932963b6d92f84c7469a"
+      }
+    },
+    {
+      "id": "b-bread",
+      "item": "bread",
+      "variant": "b",
+      "master": "masters/b-bread.png",
+      "sha256": "e603629d2a0ced2eeb0da9f629734ab946219b51b41b5d867a6306920b9e7824",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "source_rect": [
+        24,
+        264,
+        1212,
+        759
+      ],
+      "strong_bbox": [
+        32,
+        272,
+        1228,
+        1015
+      ],
+      "prompt": "prompts/b-bread.txt",
+      "prompt_sha256": "d28ed31c5a477e7321bc49642e55c6e911a612d18ec4920d279bfd8a47ee80bc",
+      "references": {
+        "../vart-006/density-b.png": "793bb81574addd197259e2db26a3805d9e15af7ed3fc932963b6d92f84c7469a",
+        "masters/a-bread.png": "5a38c02ff35cda2eec96f95604307bbb911c225d320597d30af5d98b5d6d3cce"
+      }
+    },
+    {
+      "id": "b-iron_ore",
+      "item": "iron_ore",
+      "variant": "b",
+      "master": "masters/b-iron_ore.png",
+      "sha256": "2776ace364c6a51b12b68266dfb7907bb0d8c568f59eb42c89c8a29ec25a51aa",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "source_rect": [
+        72,
+        116,
+        1128,
+        1051
+      ],
+      "strong_bbox": [
+        80,
+        124,
+        1192,
+        1159
+      ],
+      "prompt": "prompts/b-iron_ore.txt",
+      "prompt_sha256": "7132546b74f0e7543315787a728578f184a6f9e837b8f535e9c855747ba11f80",
+      "references": {
+        "../vart-006/density-b.png": "793bb81574addd197259e2db26a3805d9e15af7ed3fc932963b6d92f84c7469a",
+        "masters/a-iron_ore.png": "c370b36a3a043cb44787473b477f75c9b8c8a7e16f233ea4a0d5bd2118a38a0b"
+      }
+    },
+    {
+      "id": "b-herbs",
+      "item": "herbs",
+      "variant": "b",
+      "master": "masters/b-herbs.png",
+      "sha256": "d24d461fb4f6fb21724d563178d5f31e6fb2e0bd864be049d27ff6b27e61f783",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "source_rect": [
+        136,
+        47,
+        1010,
+        1176
+      ],
+      "strong_bbox": [
+        144,
+        55,
+        1138,
+        1215
+      ],
+      "prompt": "prompts/b-herbs.txt",
+      "prompt_sha256": "55c2c029f36b0016b4df40f941261b5c5121799322975fb858618b08d3f32d48",
+      "references": {
+        "../vart-006/density-b.png": "793bb81574addd197259e2db26a3805d9e15af7ed3fc932963b6d92f84c7469a",
+        "masters/a-herbs.png": "90e357ea5d6445cb65d265a68dab9e1266aef9a318d6a76f5b89829dd121b3d8"
+      }
+    },
+    {
+      "id": "b-healing_potion",
+      "item": "healing_potion",
+      "variant": "b",
+      "master": "masters/b-healing_potion.png",
+      "sha256": "a1c0861ec2305a4969ad3f1dc3b733fd001d5a7dccbb6875559750da8d8beed4",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "source_rect": [
+        207,
+        75,
+        841,
+        1104
+      ],
+      "strong_bbox": [
+        215,
+        83,
+        1040,
+        1171
+      ],
+      "prompt": "prompts/b-healing_potion.txt",
+      "prompt_sha256": "baced64ec27e1d26ea02041efe60e6230278736030b23e7c80498ebfbabd108f",
+      "references": {
+        "../vart-006/density-b.png": "793bb81574addd197259e2db26a3805d9e15af7ed3fc932963b6d92f84c7469a",
+        "masters/a-healing_potion.png": "ce22112eb1fe8ad9e0b9a4a9da60a20c558b21e90225266f8fc723970b9e62e2"
+      }
+    },
+    {
+      "id": "b-axe",
+      "item": "axe",
+      "variant": "b",
+      "master": "masters/b-axe.png",
+      "sha256": "cfa77619011e8dc5d1f74d5e13523d2c9ed2b4dbe91e4136a9e30c9639781bd1",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "source_rect": [
+        267,
+        51,
+        668,
+        1157
+      ],
+      "strong_bbox": [
+        275,
+        59,
+        927,
+        1200
+      ],
+      "prompt": "prompts/b-axe.txt",
+      "prompt_sha256": "cf925ae56fba510a795154e892ace497b57dcf26e33c133883201e238dd9c66b",
+      "references": {
+        "../vart-006/density-b.png": "793bb81574addd197259e2db26a3805d9e15af7ed3fc932963b6d92f84c7469a",
+        "masters/a-axe.png": "4e883d5b574ff7db925a464f0a63c85a1eb91168187362ce9d84c924c12a8226"
+      }
+    },
+    {
+      "id": "b-travel_boots",
+      "item": "travel_boots",
+      "variant": "b",
+      "master": "masters/b-travel_boots.png",
+      "sha256": "d6dc317508a9895506d2a0a649daf9986f4d06f96dd06e1d9e2f680403be2212",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "source_rect": [
+        43,
+        168,
+        1197,
+        986
+      ],
+      "strong_bbox": [
+        51,
+        176,
+        1232,
+        1146
+      ],
+      "prompt": "prompts/b-travel_boots.txt",
+      "prompt_sha256": "127f8e0b27771b226eeeeaa5f8710fa996ba90c28ba72ca76c552a1aa300d23e",
+      "references": {
+        "../vart-006/density-b.png": "793bb81574addd197259e2db26a3805d9e15af7ed3fc932963b6d92f84c7469a",
+        "masters/a-travel_boots.png": "ad14d1e02ec2d515341920184a7748c74f8525135727c152ffd8d85b34828896"
+      }
+    }
+  ],
+  "contracts": {
+    "../vart-003/palette.json": "1a7e5fdcf9995c215f3ccd910f0d704d723c77d6621196db4701de80a3b1a7e4",
+    "../vart-005/edge-profile.json": "bf7b837d7eaf8291366af49f3f075e68f70578f9ed49a0b8549bac302e6b9e3c",
+    "../vart-006/density-profile.json": "ca8db546c37709f419387d0bcd30db8dd8a3e95344ccbad3f0a229241151bc20",
+    "../vart-007/light-profile.json": "472364e2f1a6317e39ce7d94d880be7737dc91dfec75e44170cfe3b37a1d9053"
+  },
+  "old_catalog": {
+    "path": "assets/game/items/ui/catalog.json",
+    "sha256": "a8897d9d542e98f364fa0d0f74e90feac544eb2fa5bd47e7523d5e8fe73396ac"
+  },
+  "claims": {
+    "performance_eligible": false,
+    "native_gameplay": false,
+    "all_icons_migrated": false,
+    "cache_benchmark": false
+  },
+  "crop_policy": {
+    "alpha_measurement_threshold": 26,
+    "master_margin": 8,
+    "alpha_repainted": false,
+    "note": "Crop uses visible silhouette plus 8 source pixels; near-transparent generated backdrop outside crop is excluded without repainting RGBA inside."
+  }
+}

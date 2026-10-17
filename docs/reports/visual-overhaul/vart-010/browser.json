@@ -1,0 +1,210 @@
+{
+  "schema": 1,
+  "date": "2026-10-18",
+  "url": "http://127.0.0.1:8768/vart-010/index.html",
+  "method": "CUA controls and read-only DOM; all 24 images loaded; not a game playtest",
+  "cases": [
+    {
+      "src": "native/catalog-a-light.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/catalog-b-light.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/catalog-a-dark.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/catalog-b-dark.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/catalog-a-game.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/catalog-b-game.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/focus-bread-light.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/focus-iron_ore-light.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/focus-herbs-light.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/focus-healing_potion-light.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/focus-axe-light.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/focus-travel_boots-light.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/focus-bread-dark.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/focus-iron_ore-dark.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/focus-herbs-dark.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/focus-healing_potion-dark.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/focus-axe-dark.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/focus-travel_boots-dark.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/focus-bread-game.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/focus-iron_ore-game.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/focus-herbs-game.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/focus-healing_potion-game.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/focus-axe-game.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    },
+    {
+      "src": "native/focus-travel_boots-game.png",
+      "size": [
+        1152,
+        648
+      ],
+      "complete": true
+    }
+  ],
+  "fixed": [
+    1152,
+    648
+  ],
+  "catalog_links": 24,
+  "asset_sizes": [
+    64,
+    160
+  ],
+  "card_click": "bread"
+}

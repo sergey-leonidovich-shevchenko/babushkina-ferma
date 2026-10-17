@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "task": "VART-010",
+  "generator": "built-in image_gen",
+  "master_catalog": "icons.json",
+  "prompt_directory": "prompts",
+  "native_exporter": "tools/visual_icons_capture.gd",
+  "discarded": [
+    {
+      "file": "revisions/bread-too-real.png",
+      "sha256": "3f7bdac791e251fa7985dbbccfd4f77d62efc861c1fd44ba2504490e81826298",
+      "prompt": "revisions/bread-too-real-prompt.txt",
+      "prompt_sha256": "ab939be25cdb940b121b6ec5c428e20d979375930bc881a2265dd45536c06ac4",
+      "reason": "Первый рисунок слишком фотореалистичен; не входит в 12 мастеров, размерные экспорты или runtime."
+    }
+  ],
+  "notes": [
+    "Мастера сохранены без перерисовки альфы; источники, промпты и референсы имеют SHA256 в icons.json.",
+    "Нативные PNG получены из измеренной области видимого силуэта плюс 8 исходных px; почти прозрачный фон вне области не влияет на масштаб.",
+    "Начальный нативный прогон завис при перекрытии окна. Для статичной съёмки используется force_draw; все 24 итоговых readback повторены без расхождений."
+  ]
+}
