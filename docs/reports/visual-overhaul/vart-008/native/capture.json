@@ -1,0 +1,695 @@
+{
+	"adapter": "AMD Radeon Pro 5300M OpenGL Engine",
+	"decoded_module_bytes_with_mips": 48830716,
+	"display_server": "macOS",
+	"engine": "4.7.1-stable (official)",
+	"exports": [
+		{
+			"file": "sprites/grass-low.png",
+			"id": "grass-low",
+			"rect": [
+				0.0,
+				0.0,
+				438.0,
+				512.0
+			],
+			"sha256": "5670e3db898b3b864a98b7ac934618ec00642f97057956986ff1c0ef76c269fc",
+			"size": [
+				438,
+				512
+			],
+			"source": "masters/grass.png"
+		},
+		{
+			"file": "sprites/grass-tall.png",
+			"id": "grass-tall",
+			"rect": [
+				438.0,
+				0.0,
+				332.0,
+				512.0
+			],
+			"sha256": "49ccbb02e160389c4ec91839bd0eea7ca2701f1814886bdc556af7ec9e0f25a5",
+			"size": [
+				332,
+				512
+			],
+			"source": "masters/grass.png"
+		},
+		{
+			"file": "sprites/clover.png",
+			"id": "clover",
+			"rect": [
+				770.0,
+				0.0,
+				364.0,
+				512.0
+			],
+			"sha256": "5ba11d5a6e9f7364aeaca42b3e1cb65e863bb653c90350a6cf9dedf343f7b406",
+			"size": [
+				364,
+				512
+			],
+			"source": "masters/grass.png"
+		},
+		{
+			"file": "sprites/grass-seed.png",
+			"id": "grass-seed",
+			"rect": [
+				1134.0,
+				0.0,
+				402.0,
+				512.0
+			],
+			"sha256": "9dec47b003ceaf02d8a5a101ab0b566b0b0681518073e636a00f5453b750287e",
+			"size": [
+				402,
+				512
+			],
+			"source": "masters/grass.png"
+		},
+		{
+			"file": "sprites/daisy.png",
+			"id": "daisy",
+			"rect": [
+				0.0,
+				512.0,
+				404.0,
+				512.0
+			],
+			"sha256": "d2550540da1907d033e5a81252502e5f3b4c02df9a5ab73bfe1da12d17a9f742",
+			"size": [
+				404,
+				512
+			],
+			"source": "masters/grass.png"
+		},
+		{
+			"file": "sprites/blue-flower.png",
+			"id": "blue-flower",
+			"rect": [
+				404.0,
+				512.0,
+				366.0,
+				512.0
+			],
+			"sha256": "dce4d677d082f26a8baa2be797a454c12b61003ec078d7ccb11e3f1d46d02b9e",
+			"size": [
+				366,
+				512
+			],
+			"source": "masters/grass.png"
+		},
+		{
+			"file": "sprites/yellow-flower.png",
+			"id": "yellow-flower",
+			"rect": [
+				770.0,
+				512.0,
+				368.0,
+				512.0
+			],
+			"sha256": "b790d2c1050a5cc77084cf7346ed33d45a45d30670087a2bfc16e1bd7b07c430",
+			"size": [
+				368,
+				512
+			],
+			"source": "masters/grass.png"
+		},
+		{
+			"file": "sprites/grass-dry.png",
+			"id": "grass-dry",
+			"rect": [
+				1138.0,
+				512.0,
+				398.0,
+				512.0
+			],
+			"sha256": "447a94c487a6224d92ee93fb4d0aa753328bb69fec387f5831f11c1a332be62a",
+			"size": [
+				398,
+				512
+			],
+			"source": "masters/grass.png"
+		},
+		{
+			"file": "sprites/bush-hazel.png",
+			"id": "bush-hazel",
+			"rect": [
+				0.0,
+				150.0,
+				775.0,
+				710.0
+			],
+			"sha256": "c2c948c6d66c3ca6b4e4b22f2fdaabb728ed4da9b490bfac0bd0b30395dc9061",
+			"size": [
+				775,
+				710
+			],
+			"source": "masters/bush.png"
+		},
+		{
+			"file": "sprites/bush-berry.png",
+			"id": "bush-berry",
+			"rect": [
+				775.0,
+				270.0,
+				761.0,
+				590.0
+			],
+			"sha256": "534692a2875b7ae88a1874385ca721671dc5774b01d377c18dd72d7e4a5ca42d",
+			"size": [
+				761,
+				590
+			],
+			"source": "masters/bush.png"
+		},
+		{
+			"file": "sprites/tree.png",
+			"id": "tree",
+			"rect": [
+				991.0,
+				15.0,
+				545.0,
+				570.0
+			],
+			"sha256": "dffb5e19ac0b8bd578007e5c4e22d8488f9d459115bf65b23b0349510e628d94",
+			"size": [
+				545,
+				570
+			],
+			"source": "../vart-006/density-b.png"
+		},
+		{
+			"file": "sprites/meadow.png",
+			"id": "meadow",
+			"rect": [
+				0.0,
+				0.0,
+				1254.0,
+				1254.0
+			],
+			"sha256": "32778c99211df1982106d6e9e68f8421a145a143afc48f47707bf06c51a1fa57",
+			"size": [
+				1254,
+				1254
+			],
+			"source": "masters/meadow.png"
+		},
+		{
+			"file": "sprites/earth.png",
+			"id": "earth",
+			"rect": [
+				512.0,
+				0.0,
+				512.0,
+				1024.0
+			],
+			"sha256": "2582dcef30596ca7d5530f1be1748ddd2270872fd2db45305847ca5af9885a4d",
+			"size": [
+				512,
+				1024
+			],
+			"source": "masters/ground.png"
+		},
+		{
+			"file": "sprites/water.png",
+			"id": "water",
+			"rect": [
+				1024.0,
+				0.0,
+				512.0,
+				1024.0
+			],
+			"sha256": "2fae7d68e4ee53cc8e54fe1709f1848a60dccc560e3c49c4b59e4897e4cf8428",
+			"size": [
+				512,
+				1024
+			],
+			"source": "masters/ground.png"
+		},
+		{
+			"file": "sprites/road-h.png",
+			"id": "road-h",
+			"rect": [
+				0.0,
+				170.0,
+				820.0,
+				220.0
+			],
+			"sha256": "0f89aabc3726e00bce6a809c6e49113e14fb284303c3f5cbad6f92a516fa98ee",
+			"size": [
+				820,
+				220
+			],
+			"source": "masters/road.png"
+		},
+		{
+			"file": "sprites/road-v.png",
+			"id": "road-v",
+			"rect": [
+				1000.0,
+				0.0,
+				450.0,
+				530.0
+			],
+			"sha256": "afc1fa19c25250102c5015932065348494c89484c14e8ffea76f484f233787d7",
+			"size": [
+				450,
+				530
+			],
+			"source": "masters/road.png"
+		},
+		{
+			"file": "sprites/road-outer.png",
+			"id": "road-outer",
+			"rect": [
+				80.0,
+				510.0,
+				660.0,
+				490.0
+			],
+			"sha256": "7e5c95dca7d41e78afb6dcef0fa3b4e4dd72200cbd7003f71fc2e38f49b1ecf0",
+			"size": [
+				660,
+				490
+			],
+			"source": "masters/road.png"
+		},
+		{
+			"file": "sprites/road-inner.png",
+			"id": "road-inner",
+			"rect": [
+				900.0,
+				540.0,
+				530.0,
+				420.0
+			],
+			"sha256": "6289359f75e3788b4420c824819bc61bdc5de7033197137dd86deff429f01cef",
+			"size": [
+				530,
+				420
+			],
+			"source": "masters/road.png"
+		},
+		{
+			"file": "sprites/bank-h.png",
+			"id": "bank-h",
+			"rect": [
+				30.0,
+				170.0,
+				1020.0,
+				240.0
+			],
+			"sha256": "d392138fb33ae334caaf55d41e0a2aff371953a5cd58d1a704f53a05d869a216",
+			"size": [
+				1020,
+				240
+			],
+			"source": "masters/bank.png"
+		},
+		{
+			"file": "sprites/bank-v.png",
+			"id": "bank-v",
+			"rect": [
+				1090.0,
+				0.0,
+				260.0,
+				510.0
+			],
+			"sha256": "ff9894f4b7a461689f67a04d6d8fb6fa95caa534011ca2051f74f51d275b6afe",
+			"size": [
+				260,
+				510
+			],
+			"source": "masters/bank.png"
+		},
+		{
+			"file": "sprites/bank-outer.png",
+			"id": "bank-outer",
+			"rect": [
+				180.0,
+				510.0,
+				550.0,
+				450.0
+			],
+			"sha256": "a1f649775a2344283bb13844b7d0f2e71a81c1bb97b210cb804825d36ed97179",
+			"size": [
+				550,
+				450
+			],
+			"source": "masters/bank.png"
+		},
+		{
+			"file": "sprites/bank-inner.png",
+			"id": "bank-inner",
+			"rect": [
+				890.0,
+				510.0,
+				600.0,
+				490.0
+			],
+			"sha256": "987d52ca7ffe3777ed49557a36596a099090724c98d17483fc00699b3d69b848",
+			"size": [
+				600,
+				490
+			],
+			"source": "masters/bank.png"
+		},
+		{
+			"file": "sprites/bridge-deck.png",
+			"id": "bridge-deck",
+			"rect": [
+				20.0,
+				60.0,
+				1490.0,
+				370.0
+			],
+			"sha256": "dd29d635856b207aa53763a2c345954cba0d1088a0efc70114cdebbbedb14fb0",
+			"size": [
+				1490,
+				370
+			],
+			"source": "masters/bridge.png"
+		},
+		{
+			"file": "sprites/bridge-rail.png",
+			"id": "bridge-rail",
+			"rect": [
+				30.0,
+				470.0,
+				1480.0,
+				240.0
+			],
+			"sha256": "2fcddc75855a5bdef9d708a63ec40fad1dc177736b00fa91fae2940a91e5c0da",
+			"size": [
+				1480,
+				240
+			],
+			"source": "masters/bridge.png"
+		},
+		{
+			"file": "sprites/footing-a.png",
+			"id": "footing-a",
+			"rect": [
+				330.0,
+				740.0,
+				300.0,
+				230.0
+			],
+			"sha256": "20c8a788b71770ea9ffaaddc3183968db668521c4d3591b835837c2c101d5792",
+			"size": [
+				300,
+				230
+			],
+			"source": "masters/bridge.png"
+		},
+		{
+			"file": "sprites/footing-b.png",
+			"id": "footing-b",
+			"rect": [
+				920.0,
+				740.0,
+				300.0,
+				230.0
+			],
+			"sha256": "2fe38bc4021f40abe5e600822bbbbd929f02500c61785c7b5fd20959037ae62c",
+			"size": [
+				300,
+				230
+			],
+			"source": "masters/bridge.png"
+		},
+		{
+			"file": "sprites/facade-a.png",
+			"id": "facade-a",
+			"rect": [
+				0.0,
+				20.0,
+				768.0,
+				900.0
+			],
+			"sha256": "62a91443982f97ee9bc0249f19bae8474b6003dc99bc662c59d8080360bec80b",
+			"size": [
+				768,
+				900
+			],
+			"source": "masters/facades.png"
+		},
+		{
+			"file": "sprites/facade-b.png",
+			"id": "facade-b",
+			"rect": [
+				768.0,
+				20.0,
+				768.0,
+				900.0
+			],
+			"sha256": "3058b26449b8c850fc57ae2ac9666e75122b1eb9b23121d22b28fe6791c4bbd9",
+			"size": [
+				768,
+				900
+			],
+			"source": "masters/facades.png"
+		}
+	],
+	"field": [
+		960,
+		540
+	],
+	"frames": [
+		{
+			"file": "foliage-light.png",
+			"id": "foliage-light",
+			"repeat_equal": true,
+			"sha256": "df32f02687469e3df85240e8e84575ff1f107bd7214fbae7f47edfb96a9e8726",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "foliage-dark.png",
+			"id": "foliage-dark",
+			"repeat_equal": true,
+			"sha256": "6c7eb388a8c5196f4be617707524057958f4dbdac409b965b5b6ed06d40695f1",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "foliage-grass.png",
+			"id": "foliage-grass",
+			"repeat_equal": true,
+			"sha256": "72c981da884c848807d6ab4b5988a93c64976431dea097f8cddda1362ccb1ae3",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "terrain-light.png",
+			"id": "terrain-light",
+			"repeat_equal": true,
+			"sha256": "e0b3004a5c5d2c731d456504ded9947ee57e531ad0c7ce4fbfb1c31c138abe14",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "terrain-dark.png",
+			"id": "terrain-dark",
+			"repeat_equal": true,
+			"sha256": "2a951e40b9a16be9a03ebdfa0c9bb314f6b73389dba12377d795b30e9f52fed4",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "terrain-grass.png",
+			"id": "terrain-grass",
+			"repeat_equal": true,
+			"sha256": "6096fca9e6348e501fde69d4642d0dd0ca5538f1dc35872249fa684617ef64a9",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "structures-light.png",
+			"id": "structures-light",
+			"repeat_equal": true,
+			"sha256": "68c2a62f9f55186d1b6bd14b38b34489aaf09d38ab4fc7bd77997f224a77f91a",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "structures-dark.png",
+			"id": "structures-dark",
+			"repeat_equal": true,
+			"sha256": "315518dd19771f0e4b6c716c09083546801d9a3f261bbc5931425f3e69427a99",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "structures-grass.png",
+			"id": "structures-grass",
+			"repeat_equal": true,
+			"sha256": "be0acb0dbd7475731573a91bfb555fa99230f5bb5406387693a0dd5b47f54809",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "pilot-a-front.png",
+			"id": "pilot-a-front",
+			"repeat_equal": true,
+			"sha256": "2a005ff4328c53305bf58d45fcc815f8e1d754a45c64585c946f6951147e91a2",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "pilot-a-back.png",
+			"id": "pilot-a-back",
+			"repeat_equal": true,
+			"sha256": "9c16b650227cd15bd2c25b49de601f74cd211226230ebd06d90d04fa8bc3e126",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "pilot-a-bridge.png",
+			"id": "pilot-a-bridge",
+			"repeat_equal": true,
+			"sha256": "a385d253f3f6c50381f149a22ea18fec06a30ac33aa922987a6ba95e120afac1",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "pilot-a-grid.png",
+			"id": "pilot-a-grid",
+			"repeat_equal": true,
+			"sha256": "af5630ad14133020806f9e3fa0272a1121062faf7d9d1629fc773411cca12296",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "pilot-a-hud.png",
+			"id": "pilot-a-hud",
+			"repeat_equal": true,
+			"sha256": "4c3378de98b3c53787c1477246d925b3f7c4508169c659cbde4c8f529c31c716",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "pilot-b-front.png",
+			"id": "pilot-b-front",
+			"repeat_equal": true,
+			"sha256": "4c28e9e55c75e4e1202edc884763f5f8f188b9ee9ccc7200f88e8e8ed1ac9988",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "pilot-b-back.png",
+			"id": "pilot-b-back",
+			"repeat_equal": true,
+			"sha256": "cefc85491906ac527051a0f87dc3feb91be109d692a9c4db823e124ca38c81ba",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "pilot-b-bridge.png",
+			"id": "pilot-b-bridge",
+			"repeat_equal": true,
+			"sha256": "de9e593733f88bb457e0ef7e7f29927ae9f66ff0a73c62dfe1907871f0e0f43b",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "pilot-b-grid.png",
+			"id": "pilot-b-grid",
+			"repeat_equal": true,
+			"sha256": "8ff1768b9683fe870443925f8c8ec73b67b4f45cf87190d0b8f476d202ebc895",
+			"size": [
+				1152,
+				648
+			]
+		},
+		{
+			"file": "pilot-b-hud.png",
+			"id": "pilot-b-hud",
+			"repeat_equal": true,
+			"sha256": "4a0a74e35311561b0f8c7adb088b44923cef51cd0cbf324c8346f4cb2eefc5ef",
+			"size": [
+				1152,
+				648
+			]
+		}
+	],
+	"hud_source": "VART-002 baseline snapshot, not current live HUD",
+	"kind": "native-module-study",
+	"material_repeat": "mirrored study cells, not production seamless autotile",
+	"native_gameplay": false,
+	"performance_eligible": false,
+	"profile": "Codex-VART-008-20261017-07",
+	"profile_sha256": "ebb7ab17aee83fd7a56ae6d6a6722b0afbfb164cfa0716c07eca8ee4fc4d9f07",
+	"projection": [
+		[
+			1.20000004768372,
+			0.0
+		],
+		[
+			0.0,
+			1.20000004768372
+		],
+		[
+			0.0,
+			0.0
+		]
+	],
+	"renderer": "opengl3",
+	"schema": 1,
+	"script_sha256": "f2bc0bf2af0f96c78e15101ca23685600d1752c5bda15e0fbd383ca22e6d5b5b",
+	"sources": {
+		"../vart-002/native/hero-current.png": "eb25d98486e859efa2208acdbad772c4251b97bfe8857e880c2ac79ef0631080",
+		"../vart-002/native/plaza-hud.png": "9ac9ef1736f0de7f55fad95576670581c30a61e15df58e29593405e5289ebe67",
+		"../vart-006/density-b.png": "793bb81574addd197259e2db26a3805d9e15af7ed3fc932963b6d92f84c7469a",
+		"masters/bank.png": "70ceeda1cb9952fe0294c3e5d8daa4f961f5e588e63e6cca0bd735414ae84489",
+		"masters/bridge.png": "5ce015d9af6d692997e9200930d015a36bf71337c76d331274eaea97b0fbd2f7",
+		"masters/bush.png": "10911b7006a38cf49bdd47c8587c079cabe0a2703f3ff3a7984e8d6e3e3bc12f",
+		"masters/facades.png": "1df5263ec8b2d7eff11c5acac88c5caaa4f3888e677696d29a2a38911d334982",
+		"masters/grass.png": "cebf704390ad280cf941b5a1e2372800c35305a144c295a33c674ae967afa2da",
+		"masters/ground.png": "6034a6983ddba48f093caddcaf9cdcecc85ae41c8eb01f47be082ff7504ecb82",
+		"masters/meadow.png": "c7c36f6d5c83b791fcf42bf6338ff6d862a26fea15c55103268e278fc868efe1",
+		"masters/road.png": "8c7b14ab97580ef1c29357abc7897b3cf30400c15852bae67c1c022b74b65f73"
+	},
+	"target": [
+		1152,
+		648
+	],
+	"texture_filter": "linear_with_mipmaps",
+	"texture_loads_inside_draw": 0
+}

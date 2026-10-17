@@ -1,6 +1,9 @@
 .DS_Store
 .godot/
 tools/*
+!tools/visual_modules.py
+!tools/test_visual_modules.py
+!tools/visual_modules_capture.gd
 !tools/visual_light.py
 !tools/test_visual_light.py
 !tools/visual_light_capture.gd

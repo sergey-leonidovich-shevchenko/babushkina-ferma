@@ -1,0 +1,772 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Эталонный участок · Лунная долина</title>
+<style>
+:root{font:16px/1.5 system-ui,sans-serif;color:#43392e;background:#f3efdf;font-synthesis:none}*{box-sizing:border-box}body{margin:0}main{max-width:1256px;margin:auto;padding:48px 32px 64px}a{color:#6c7646;text-underline-offset:4px}.eyebrow{font-size:12px;letter-spacing:.16em;color:#77785e;font-weight:700}h1{font:clamp(34px,5vw,58px)/1.1 Georgia,serif;letter-spacing:-.03em;margin:14px 0 18px}h2{font:28px Georgia,serif}p{max-width:900px}.intro{color:#756b59;font-size:18px}.tag{display:inline-block;border:1px solid #d1c7ae;border-radius:30px;padding:5px 12px;font-size:12px;margin:0 4px 8px 0}.variants{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:28px 0 18px}button,select{font:inherit;color:inherit}button{cursor:pointer}.variant{text-align:left;border:1px solid #cfc5aa;background:#fbf8ed;border-radius:14px;padding:18px 20px}.variant[aria-pressed=true]{background:#e6e8d4;border-color:#78845d;box-shadow:inset 0 0 0 1px #78845d}.variant strong{display:block;font-size:18px}.variant span{color:#756b59;font-size:14px}.toolbar{display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:14px 0}select{background:#fffcf4;border:1px solid #cfc5aa;padding:7px 10px;border-radius:8px}label{font-size:14px}input{accent-color:#78845d}.stage-scroll{overflow:auto;border:1px solid #c9bea2;border-radius:14px;background:#e7dfca}.stage{aspect-ratio:16/9;width:100%;position:relative}.stage.fixed{width:1152px;height:648px}.stage img{width:100%;height:100%;display:block;object-fit:contain}.caption{font-size:13px;color:#796e5a}#status{border-left:3px solid #a99464;padding:6px 15px;margin-top:24px}details{border-top:1px solid #d4c9b0;margin-top:32px;padding-top:20px}summary{cursor:pointer;font-weight:600;font-size:20px}.catalog{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:12px;margin:20px 0}.asset{border:1px solid #d7cdb5;border-radius:10px;padding:12px;background:#faf7ee;text-decoration:none;color:inherit}.asset img{height:126px;width:100%;object-fit:contain;background:#e7e8d5;border-radius:5px}.asset strong{display:block;font-size:14px}.asset small{font-size:11px;color:#817762}.notes{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:32px}.notes p{font-size:14px;color:#756b59}.links{display:flex;gap:24px;flex-wrap:wrap;margin-top:30px;font-size:14px}#error{color:#913e31}footer{margin-top:32px;font-size:12px;color:#8a7c63}@media(max-width:640px){main{padding:28px 16px}.variants,.notes{grid-template-columns:1fr}.toolbar{gap:10px}.variant{padding:14px}}
+</style></head><body><main>
+<div class="eyebrow">ЛУННАЯ ДОЛИНА / VART-008 / МАСТЕРСКАЯ ГРАФИКИ</div>
+<h1>Долина начинается<br>с деталей.</h1><p class="intro">Восемь пучков травы и цветов, два куста, дерево, покрытия, края тропы и берега, мост и дом. Каждый элемент существует отдельно — участок собран из этих же модулей.</p>
+<div><span class="tag">Мягкая живопись A</span><span class="tag">Тёплая долина A</span><span class="tag">Фактура B</span><span class="tag">Свет сверху-слева</span><span class="tag">Масштаб 120%</span></div>
+<div id="status"></div>
+<div class="variants"><button class="variant" data-variant="a" aria-pressed="true"><strong>A · Сланцевая крыша</strong><span>Прохладный синий акцент среди тёплого дерева и зелени.</span></button><button class="variant" data-variant="b" aria-pressed="false"><strong>B · Тёплая черепица</strong><span>Больше охры и глины; окружение, камера и опоры те же.</span></button></div>
+<div class="toolbar"><label>Просмотр <select id="view"><option value="front">Участок</option><option value="back">За деревом</option><option value="bridge">На мосту</option><option value="grid">Сетка и основания</option><option value="hud">С текущим HUD</option><option value="foliage">Листва отдельно</option><option value="terrain">Покрытия и края</option><option value="structures">Дом и части моста</option></select></label><label>Фон <select id="background"><option value="light">Светлый</option><option value="dark">Тёмный</option><option value="grass">Трава</option></select></label><label><input type="checkbox" id="size"> 1152 × 648</label><a id="png" href="native/pilot-a-front.png">Открыть PNG</a></div>
+<div class="stage-scroll"><div class="stage" id="stage"><img id="frame" src="native/pilot-a-front.png" width="1152" height="648" alt="Эталонный участок — вариант A"></div></div><p class="caption" id="caption"></p><p id="error" hidden>Кадр не загрузился. Откройте страницу с сохранённой папкой native.</p>
+<div class="notes"><div><h2>Один набор, разные места</h2><p>В листах можно проверить целые силуэты на трёх фонах. В участке — масштаб двери, прямую реку, берег перед водой, настил над рекой и перекрытие героя деревом. Сетка 24 задаёт основания; крона и крыша могут выступать за них.</p></div><div><h2>Границы этого этапа</h2><p>Это настоящие PNG отдельной витрины Godot, а не живая карта. Старый герой и снимок HUD из VART-002 служат линейкой. Здесь ещё нет анимации воды, коллизий, production-атласа или замера FPS. Повторы материала зеркальные; полный набор бесшовных переходов готовится отдельно.</p></div></div>
+<details id="assets"><summary>28 отдельных модулей и нарезка</summary><p class="caption">PNG нарезаны Godot по измеренным областям без художественной обработки. Большие исходники и промпты сохранены отдельно; эти PNG пока не подключены к игре.</p><div class="catalog" id="catalog"></div></details>
+<div class="links"><a href="README.md">Результат и ограничения</a><a href="modules.json">Размеры и точки опоры</a><a href="native/capture.json">Нативный протокол</a><a href="measurements.json">Измерения силуэтов</a></div><footer>VART-008 · дизайн для выбора · 960 × 540 мировых единиц → 1152 × 648 px</footer>
+<script type="application/json" id="module-data">{
+  "schema": 1,
+  "task": "VART-008",
+  "status": "approved",
+  "selection": "both",
+  "date": "2026-10-17",
+  "runtime_integration": false,
+  "direction": "VART-001 A",
+  "palette": "VART-003 A",
+  "edge": "VART-005 A",
+  "density": "VART-006 B",
+  "light": "VART-007 A",
+  "target": [
+    1152,
+    648
+  ],
+  "field": [
+    960,
+    540
+  ],
+  "zoom": 1.2,
+  "grid": 24,
+  "parts": [
+    {
+      "id": "grass-low",
+      "source": "masters/grass.png",
+      "rect": [
+        0,
+        0,
+        438,
+        512
+      ],
+      "scale": 0.09,
+      "pivot": [
+        219.0,
+        490
+      ],
+      "kind": "clump",
+      "footprint": [
+        24,
+        24
+      ],
+      "rotation": 0,
+      "facing": "neutral"
+    },
+    {
+      "id": "grass-tall",
+      "source": "masters/grass.png",
+      "rect": [
+        438,
+        0,
+        332,
+        512
+      ],
+      "scale": 0.09,
+      "pivot": [
+        166.0,
+        490
+      ],
+      "kind": "clump",
+      "footprint": [
+        24,
+        24
+      ],
+      "rotation": 0,
+      "facing": "neutral"
+    },
+    {
+      "id": "clover",
+      "source": "masters/grass.png",
+      "rect": [
+        770,
+        0,
+        364,
+        512
+      ],
+      "scale": 0.09,
+      "pivot": [
+        182.0,
+        490
+      ],
+      "kind": "clump",
+      "footprint": [
+        24,
+        24
+      ],
+      "rotation": 0,
+      "facing": "neutral"
+    },
+    {
+      "id": "grass-seed",
+      "source": "masters/grass.png",
+      "rect": [
+        1134,
+        0,
+        402,
+        512
+      ],
+      "scale": 0.09,
+      "pivot": [
+        201.0,
+        490
+      ],
+      "kind": "clump",
+      "footprint": [
+        24,
+        24
+      ],
+      "rotation": 0,
+      "facing": "neutral"
+    },
+    {
+      "id": "daisy",
+      "source": "masters/grass.png",
+      "rect": [
+        0,
+        512,
+        404,
+        512
+      ],
+      "scale": 0.09,
+      "pivot": [
+        202.0,
+        424
+      ],
+      "kind": "clump",
+      "footprint": [
+        24,
+        24
+      ],
+      "rotation": 0,
+      "facing": "neutral"
+    },
+    {
+      "id": "blue-flower",
+      "source": "masters/grass.png",
+      "rect": [
+        404,
+        512,
+        366,
+        512
+      ],
+      "scale": 0.09,
+      "pivot": [
+        183.0,
+        424
+      ],
+      "kind": "clump",
+      "footprint": [
+        24,
+        24
+      ],
+      "rotation": 0,
+      "facing": "neutral"
+    },
+    {
+      "id": "yellow-flower",
+      "source": "masters/grass.png",
+      "rect": [
+        770,
+        512,
+        368,
+        512
+      ],
+      "scale": 0.09,
+      "pivot": [
+        184.0,
+        424
+      ],
+      "kind": "clump",
+      "footprint": [
+        24,
+        24
+      ],
+      "rotation": 0,
+      "facing": "neutral"
+    },
+    {
+      "id": "grass-dry",
+      "source": "masters/grass.png",
+      "rect": [
+        1138,
+        512,
+        398,
+        512
+      ],
+      "scale": 0.09,
+      "pivot": [
+        199.0,
+        424
+      ],
+      "kind": "clump",
+      "footprint": [
+        24,
+        24
+      ],
+      "rotation": 0,
+      "facing": "neutral"
+    },
+    {
+      "id": "bush-hazel",
+      "source": "masters/bush.png",
+      "rect": [
+        0,
+        150,
+        775,
+        710
+      ],
+      "scale": 0.12,
+      "pivot": [
+        390,
+        650
+      ],
+      "kind": "bush",
+      "footprint": [
+        72,
+        48
+      ],
+      "rotation": 0,
+      "facing": "neutral"
+    },
+    {
+      "id": "bush-berry",
+      "source": "masters/bush.png",
+      "rect": [
+        775,
+        270,
+        761,
+        590
+      ],
+      "scale": 0.12,
+      "pivot": [
+        382,
+        530
+      ],
+      "kind": "bush",
+      "footprint": [
+        72,
+        48
+      ],
+      "rotation": 0,
+      "facing": "neutral"
+    },
+    {
+      "id": "tree",
+      "source": "../vart-006/density-b.png",
+      "rect": [
+        991,
+        15,
+        545,
+        570
+      ],
+      "scale": 0.3602251407129456,
+      "pivot": [
+        273,
+        525
+      ],
+      "kind": "tree",
+      "footprint": [
+        96,
+        48
+      ],
+      "rotation": 0,
+      "facing": "neutral"
+    },
+    {
+      "id": "meadow",
+      "source": "masters/meadow.png",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "scale": 0.375,
+      "pivot": [
+        0,
+        0
+      ],
+      "kind": "material",
+      "footprint": null,
+      "rotation": 0,
+      "facing": "neutral"
+    },
+    {
+      "id": "earth",
+      "source": "masters/ground.png",
+      "rect": [
+        512,
+        0,
+        512,
+        1024
+      ],
+      "scale": 0.375,
+      "pivot": [
+        0,
+        0
+      ],
+      "kind": "material",
+      "footprint": null,
+      "rotation": 0,
+      "facing": "neutral"
+    },
+    {
+      "id": "water",
+      "source": "masters/ground.png",
+      "rect": [
+        1024,
+        0,
+        512,
+        1024
+      ],
+      "scale": 0.375,
+      "pivot": [
+        0,
+        0
+      ],
+      "kind": "material",
+      "footprint": null,
+      "rotation": 0,
+      "facing": "neutral"
+    },
+    {
+      "id": "road-h",
+      "source": "masters/road.png",
+      "rect": [
+        0,
+        170,
+        820,
+        220
+      ],
+      "scale": 0.18,
+      "pivot": [
+        410.0,
+        110.0
+      ],
+      "kind": "road",
+      "footprint": null,
+      "rotation": 0,
+      "facing": "neutral",
+      "join_source": 160
+    },
+    {
+      "id": "road-v",
+      "source": "masters/road.png",
+      "rect": [
+        1000,
+        0,
+        450,
+        530
+      ],
+      "scale": 0.18,
+      "pivot": [
+        225.0,
+        265.0
+      ],
+      "kind": "road",
+      "footprint": null,
+      "rotation": 0,
+      "facing": "neutral",
+      "join_source": 190
+    },
+    {
+      "id": "road-outer",
+      "source": "masters/road.png",
+      "rect": [
+        80,
+        510,
+        660,
+        490
+      ],
+      "scale": 0.18,
+      "pivot": [
+        330.0,
+        245.0
+      ],
+      "kind": "road",
+      "footprint": null,
+      "rotation": 0,
+      "facing": "neutral"
+    },
+    {
+      "id": "road-inner",
+      "source": "masters/road.png",
+      "rect": [
+        900,
+        540,
+        530,
+        420
+      ],
+      "scale": 0.18,
+      "pivot": [
+        265.0,
+        210.0
+      ],
+      "kind": "road",
+      "footprint": null,
+      "rotation": 0,
+      "facing": "neutral"
+    },
+    {
+      "id": "bank-h",
+      "source": "masters/bank.png",
+      "rect": [
+        30,
+        170,
+        1020,
+        240
+      ],
+      "scale": 0.18,
+      "pivot": [
+        510,
+        120
+      ],
+      "kind": "bank",
+      "footprint": null,
+      "rotation": 0,
+      "facing": "neutral"
+    },
+    {
+      "id": "bank-v",
+      "source": "masters/bank.png",
+      "rect": [
+        1090,
+        0,
+        260,
+        510
+      ],
+      "scale": 0.18,
+      "pivot": [
+        100,
+        255
+      ],
+      "kind": "bank",
+      "footprint": null,
+      "rotation": 0,
+      "facing": "neutral"
+    },
+    {
+      "id": "bank-outer",
+      "source": "masters/bank.png",
+      "rect": [
+        180,
+        510,
+        550,
+        450
+      ],
+      "scale": 0.18,
+      "pivot": [
+        275,
+        225
+      ],
+      "kind": "bank",
+      "footprint": null,
+      "rotation": 0,
+      "facing": "neutral"
+    },
+    {
+      "id": "bank-inner",
+      "source": "masters/bank.png",
+      "rect": [
+        890,
+        510,
+        600,
+        490
+      ],
+      "scale": 0.18,
+      "pivot": [
+        300,
+        245
+      ],
+      "kind": "bank",
+      "footprint": null,
+      "rotation": 0,
+      "facing": "neutral"
+    },
+    {
+      "id": "bridge-deck",
+      "source": "masters/bridge.png",
+      "rect": [
+        20,
+        60,
+        1490,
+        370
+      ],
+      "scale": 0.13714285714285715,
+      "pivot": [
+        748,
+        190
+      ],
+      "kind": "bridge",
+      "footprint": [
+        192,
+        48
+      ],
+      "rotation": 0,
+      "facing": "down"
+    },
+    {
+      "id": "bridge-rail",
+      "source": "masters/bridge.png",
+      "rect": [
+        30,
+        470,
+        1480,
+        240
+      ],
+      "scale": 0.13714285714285715,
+      "pivot": [
+        738,
+        210
+      ],
+      "kind": "bridge",
+      "footprint": null,
+      "rotation": 0,
+      "facing": "down"
+    },
+    {
+      "id": "footing-a",
+      "source": "masters/bridge.png",
+      "rect": [
+        330,
+        740,
+        300,
+        230
+      ],
+      "scale": 0.13714285714285715,
+      "pivot": [
+        145,
+        115
+      ],
+      "kind": "bridge",
+      "footprint": null,
+      "rotation": 0,
+      "facing": "down"
+    },
+    {
+      "id": "footing-b",
+      "source": "masters/bridge.png",
+      "rect": [
+        920,
+        740,
+        300,
+        230
+      ],
+      "scale": 0.13714285714285715,
+      "pivot": [
+        140,
+        115
+      ],
+      "kind": "bridge",
+      "footprint": null,
+      "rotation": 0,
+      "facing": "down"
+    },
+    {
+      "id": "facade-a",
+      "source": "masters/facades.png",
+      "rect": [
+        0,
+        20,
+        768,
+        900
+      ],
+      "scale": 0.32,
+      "pivot": [
+        384,
+        864
+      ],
+      "kind": "facade",
+      "footprint": [
+        240,
+        96
+      ],
+      "rotation": 0,
+      "facing": "down"
+    },
+    {
+      "id": "facade-b",
+      "source": "masters/facades.png",
+      "rect": [
+        768,
+        20,
+        768,
+        900
+      ],
+      "scale": 0.32,
+      "pivot": [
+        384,
+        864
+      ],
+      "kind": "facade",
+      "footprint": [
+        240,
+        96
+      ],
+      "rotation": 0,
+      "facing": "down"
+    }
+  ],
+  "variants": {
+    "a": {
+      "name": "Сланцевая крыша",
+      "facade": "facade-a"
+    },
+    "b": {
+      "name": "Тёплая черепица",
+      "facade": "facade-b"
+    }
+  },
+  "light_profile": "../vart-007/light-profile.json",
+  "constraints": {
+    "no_diagonal_props": true,
+    "no_baked_floor_shadow": true,
+    "seamless_autotile_approved": false,
+    "water_animation_approved": false
+  },
+  "source_hashes": {
+    "masters/grass.png": "cebf704390ad280cf941b5a1e2372800c35305a144c295a33c674ae967afa2da",
+    "masters/bush.png": "10911b7006a38cf49bdd47c8587c079cabe0a2703f3ff3a7984e8d6e3e3bc12f",
+    "../vart-006/density-b.png": "793bb81574addd197259e2db26a3805d9e15af7ed3fc932963b6d92f84c7469a",
+    "masters/meadow.png": "c7c36f6d5c83b791fcf42bf6338ff6d862a26fea15c55103268e278fc868efe1",
+    "masters/ground.png": "6034a6983ddba48f093caddcaf9cdcecc85ae41c8eb01f47be082ff7504ecb82",
+    "masters/road.png": "8c7b14ab97580ef1c29357abc7897b3cf30400c15852bae67c1c022b74b65f73",
+    "masters/bank.png": "70ceeda1cb9952fe0294c3e5d8daa4f961f5e588e63e6cca0bd735414ae84489",
+    "masters/bridge.png": "5ce015d9af6d692997e9200930d015a36bf71337c76d331274eaea97b0fbd2f7",
+    "masters/facades.png": "1df5263ec8b2d7eff11c5acac88c5caaa4f3888e677696d29a2a38911d334982"
+  },
+  "prompt_hashes": {
+    "prompts/bank-transition.txt": "e136fe2d49dd08e2e089ffd2ff0c9a74d533366ce8a6180668044f3ff963388a",
+    "prompts/bank.txt": "758a4a8c66a9eae070a8e30f6b55554be616e863f960781f28a7bf3e39915aa8",
+    "prompts/bridge.txt": "88b5dd659d150c7a07a5e390c3753ba819433e4e82f5a2c12743313ee230caab",
+    "prompts/bush.txt": "8419153acd3a260cc764458bf8795b66dcd3105f763df48e0c2aaadd772d1f4d",
+    "prompts/facades.txt": "30bdb2de0bc75128346e98fc8d5bcd1e340f9c658cdeb793ee6354cbc003a085",
+    "prompts/grass.txt": "9bc7a11d2a9e134adb0ccf110efb9d06bc944b3a09598d2954ab575b863b3fb9",
+    "prompts/ground.txt": "f82d22ea78bb689e8c5b9e1bb82ec9fa0d8a8c9d2c93e2a748b6bc7db140f1e0",
+    "prompts/meadow.txt": "539185fdba95ae2b79ab25bee1e4ecc617b88db9514701cf359d0a3f6962173a",
+    "prompts/road-transition.txt": "850322b9215cce0bfe50853cfa341c4dfb286ae4bf6eaf325624a81f9a7c762a",
+    "prompts/road.txt": "3af25442a8c546c632ebc0022187ca5f130f44c671fc9e1aae0a8ff76f58db8c"
+  },
+  "pilot": {
+    "house_feet": [
+      240,
+      288
+    ],
+    "tree_feet": [
+      576,
+      240
+    ],
+    "river": [
+      744,
+      0,
+      120,
+      540
+    ],
+    "path_y": [
+      312,
+      360
+    ],
+    "bridge_feet": [
+      804,
+      336
+    ],
+    "bushes": [
+      [
+        420,
+        456
+      ],
+      [
+        636,
+        456
+      ]
+    ],
+    "hero_front": [
+      576,
+      264
+    ],
+    "hero_back": [
+      576,
+      216
+    ],
+    "clump_feet": [
+      [
+        84,
+        408
+      ],
+      [
+        228,
+        408
+      ],
+      [
+        372,
+        408
+      ],
+      [
+        516,
+        408
+      ],
+      [
+        84,
+        504
+      ],
+      [
+        228,
+        504
+      ],
+      [
+        372,
+        504
+      ],
+      [
+        516,
+        504
+      ]
+    ]
+  },
+  "hero_reference": {
+    "source": "../vart-002/native/hero-current.png",
+    "rect": [
+      0,
+      0,
+      192,
+      192
+    ],
+    "pivot": [
+      96,
+      160
+    ],
+    "scale": 1.0,
+    "visible_source_bbox": [
+      76,
+      78,
+      117,
+      159
+    ],
+    "visible_height_world": 81,
+    "visible_height_output": 97.2,
+    "role": "Existing pose, scale ruler only"
+  },
+  "display_default": "a",
+  "decision_quote": "да можно оба оставить, будут много домов в дальнейшем (несколько деревень)",
+  "decision_source": "direct user reply in chat",
+  "revision_request": "Убрать разрыв цвета между травой и берегом и край как под линейку; прямое замечание пользователя 17 октября 2026.",
+  "revision_reference_hashes": {
+    "revisions/bank-before.png": "b5097b42e65aa6889924a12233ace319ab627432aa05ea7c54dc7b3f02b07b37",
+    "revisions/pilot-bank-before.png": "47e96d92f862eeff7acb55cb145a4431f15017b91a3cc6e6b0df6d0fda686ca6",
+    "revisions/road-before.png": "d7890f90d91f1ef29e3185cc3a92c2790c557b4598eecfc1dd0e23b3c37ca554"
+  }
+}</script>
+<script>
+const data=JSON.parse(document.querySelector('#module-data').textContent);let variant=data.display_default||'a';const view=document.querySelector('#view'),background=document.querySelector('#background'),frame=document.querySelector('#frame');
+function render(){const catalog=['foliage','terrain','structures'].includes(view.value);const name=catalog?view.value+'-'+background.value:'pilot-'+variant+'-'+view.value;frame.src='native/'+name+'.png';frame.alt=(catalog?'Каталог модулей':'Эталонный участок '+variant.toUpperCase())+' · '+view.selectedOptions[0].textContent;background.disabled=!catalog;document.querySelector('#png').href=frame.src;document.querySelector('#caption').textContent='Нативный PNG 1152 × 648 · поле 960 × 540 · проекция 1.2 · '+view.selectedOptions[0].textContent;document.querySelectorAll('[data-variant]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.variant===variant)));}
+document.querySelectorAll('[data-variant]').forEach(b=>b.onclick=()=>{variant=b.dataset.variant;render()});view.onchange=render;background.onchange=render;document.querySelector('#size').onchange=e=>document.querySelector('#stage').classList.toggle('fixed',e.target.checked);frame.onerror=()=>document.querySelector('#error').hidden=false;frame.onload=()=>document.querySelector('#error').hidden=true;
+document.querySelector('#status').textContent=data.status==='approved'?'Приняты оба фасада: A и B. Переход берега исправлен по замечанию пользователя.':'Набор подготовлен для выбора. A/B отличаются фасадом; остальные модули общие.';
+const labels={'grass-low':'Низкая трава','grass-tall':'Высокая трава',clover:'Клевер','grass-seed':'Колоски',daisy:'Ромашки','blue-flower':'Синие цветы','yellow-flower':'Жёлтые цветы','grass-dry':'Сухие стебли','bush-hazel':'Орешник','bush-berry':'Ягодный куст',tree:'Дерево',meadow:'Травяной грунт',earth:'Земля',water:'Вода','road-h':'Край тропы →','road-v':'Край тропы ↓','road-outer':'Внешний угол тропы','road-inner':'Внутренний угол тропы','bank-h':'Берег →','bank-v':'Берег ↓','bank-outer':'Внешний угол берега','bank-inner':'Внутренний угол берега','bridge-deck':'Настил','bridge-rail':'Перила','footing-a':'Опора A','footing-b':'Опора B','facade-a':'Фасад A','facade-b':'Фасад B'};
+for(const p of data.parts){const a=document.createElement('a');a.className='asset';a.href='native/sprites/'+p.id+'.png';const img=document.createElement('img');img.loading='lazy';img.src=a.href;img.alt=labels[p.id]||p.id;const name=document.createElement('strong');name.textContent=img.alt;const small=document.createElement('small');small.textContent=p.rect[2]+'×'+p.rect[3]+' · масштаб '+p.scale.toFixed(3);a.append(img,name,small);document.querySelector('#catalog').append(a)}render();
+</script></main></body></html>

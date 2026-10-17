@@ -1,0 +1,343 @@
+{
+  "schema": 1,
+  "threshold": 26,
+  "profile_sha256": "ebb7ab17aee83fd7a56ae6d6a6722b0afbfb164cfa0716c07eca8ee4fc4d9f07",
+  "parts": {
+    "grass-low": {
+      "visible_bbox": [
+        16,
+        209,
+        429,
+        494
+      ],
+      "output_size": [
+        44.604,
+        30.78
+      ]
+    },
+    "grass-tall": {
+      "visible_bbox": [
+        8,
+        88,
+        317,
+        497
+      ],
+      "output_size": [
+        33.372,
+        44.172
+      ]
+    },
+    "clover": {
+      "visible_bbox": [
+        10,
+        235,
+        349,
+        500
+      ],
+      "output_size": [
+        36.612,
+        28.62
+      ]
+    },
+    "grass-seed": {
+      "visible_bbox": [
+        14,
+        93,
+        378,
+        498
+      ],
+      "output_size": [
+        39.312,
+        43.74
+      ]
+    },
+    "daisy": {
+      "visible_bbox": [
+        29,
+        156,
+        393,
+        418
+      ],
+      "output_size": [
+        39.312,
+        28.296
+      ]
+    },
+    "blue-flower": {
+      "visible_bbox": [
+        9,
+        118,
+        354,
+        425
+      ],
+      "output_size": [
+        37.26,
+        33.156
+      ]
+    },
+    "yellow-flower": {
+      "visible_bbox": [
+        8,
+        126,
+        354,
+        424
+      ],
+      "output_size": [
+        37.368,
+        32.184
+      ]
+    },
+    "grass-dry": {
+      "visible_bbox": [
+        9,
+        60,
+        364,
+        426
+      ],
+      "output_size": [
+        38.34,
+        39.528
+      ]
+    },
+    "bush-hazel": {
+      "visible_bbox": [
+        23,
+        30,
+        759,
+        666
+      ],
+      "output_size": [
+        105.984,
+        91.584
+      ]
+    },
+    "bush-berry": {
+      "visible_bbox": [
+        8,
+        32,
+        744,
+        550
+      ],
+      "output_size": [
+        105.984,
+        74.592
+      ]
+    },
+    "tree": {
+      "visible_bbox": [
+        16,
+        17,
+        528,
+        552
+      ],
+      "output_size": [
+        221.322,
+        231.265
+      ]
+    },
+    "meadow": {
+      "visible_bbox": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "output_size": [
+        564.3,
+        564.3
+      ]
+    },
+    "earth": {
+      "visible_bbox": [
+        0,
+        0,
+        512,
+        1024
+      ],
+      "output_size": [
+        230.4,
+        460.8
+      ]
+    },
+    "water": {
+      "visible_bbox": [
+        0,
+        0,
+        512,
+        1024
+      ],
+      "output_size": [
+        230.4,
+        460.8
+      ]
+    },
+    "road-h": {
+      "visible_bbox": [
+        64,
+        67,
+        783,
+        202
+      ],
+      "output_size": [
+        155.304,
+        29.16
+      ]
+    },
+    "road-v": {
+      "visible_bbox": [
+        117,
+        25,
+        243,
+        512
+      ],
+      "output_size": [
+        27.216,
+        105.192
+      ]
+    },
+    "road-outer": {
+      "visible_bbox": [
+        27,
+        36,
+        625,
+        470
+      ],
+      "output_size": [
+        129.168,
+        93.744
+      ]
+    },
+    "road-inner": {
+      "visible_bbox": [
+        37,
+        18,
+        485,
+        388
+      ],
+      "output_size": [
+        96.768,
+        79.92
+      ]
+    },
+    "bank-h": {
+      "visible_bbox": [
+        39,
+        38,
+        987,
+        212
+      ],
+      "output_size": [
+        204.768,
+        37.584
+      ]
+    },
+    "bank-v": {
+      "visible_bbox": [
+        44,
+        25,
+        221,
+        492
+      ],
+      "output_size": [
+        38.232,
+        100.872
+      ]
+    },
+    "bank-outer": {
+      "visible_bbox": [
+        42,
+        17,
+        519,
+        400
+      ],
+      "output_size": [
+        103.032,
+        82.728
+      ]
+    },
+    "bank-inner": {
+      "visible_bbox": [
+        43,
+        13,
+        560,
+        453
+      ],
+      "output_size": [
+        111.672,
+        95.04
+      ]
+    },
+    "bridge-deck": {
+      "visible_bbox": [
+        29,
+        32,
+        1467,
+        343
+      ],
+      "output_size": [
+        236.654,
+        51.182
+      ]
+    },
+    "bridge-rail": {
+      "visible_bbox": [
+        33,
+        12,
+        1443,
+        221
+      ],
+      "output_size": [
+        232.046,
+        34.395
+      ]
+    },
+    "footing-a": {
+      "visible_bbox": [
+        27,
+        24,
+        260,
+        208
+      ],
+      "output_size": [
+        38.345,
+        30.281
+      ]
+    },
+    "footing-b": {
+      "visible_bbox": [
+        23,
+        24,
+        255,
+        208
+      ],
+      "output_size": [
+        38.181,
+        30.281
+      ]
+    },
+    "facade-a": {
+      "visible_bbox": [
+        7,
+        52,
+        762,
+        869
+      ],
+      "output_size": [
+        289.92,
+        313.728
+      ]
+    },
+    "facade-b": {
+      "visible_bbox": [
+        7,
+        52,
+        761,
+        869
+      ],
+      "output_size": [
+        289.536,
+        313.728
+      ]
+    }
+  }
+}

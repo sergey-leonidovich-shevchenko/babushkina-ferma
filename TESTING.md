@@ -1,5 +1,7 @@
 # Правила тестирования
 
+VART-008: `python3 tools/visual_modules.py` сравнивает каждый из 28 PNG с точным регионом мастера, альфу, масштабы семейств, оба принятых фасада, сетку/опоры, 19 нативных кадров и 19 браузерных просмотров. Семь сценариев `tools/test_visual_modules.py` входят в architecture gate. [Методика и границы](docs/reports/visual-overhaul/vart-008/README.md): отдельный нативный профиль, не игровой импорт, не FPS и не полный autotile.
+
 VART-007: `python3 tools/visual_light.py` сверяет прямой выбор A, три слоя света, направление, два контакта стола, 24 настоящих readback PNG 1152×648, повтор, источники и HTML. Пять сценариев `tools/test_visual_light.py` входят в architecture gate. [Ограничения художественной alpha-проекции](docs/reports/visual-overhaul/vart-007/README.md); FPS и runtime не заявляются.
 
 ## VIS: план визуальной переделки

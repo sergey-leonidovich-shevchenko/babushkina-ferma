@@ -1,0 +1,80 @@
+{
+  "schema": 1,
+  "generator": "built-in image_gen",
+  "base_commit": "1aea107",
+  "runtime_patch": "",
+  "masters": {
+    "grass": {
+      "prompt": "prompts/grass.txt",
+      "references": [
+        "../vart-006/density-b.png"
+      ],
+      "master": "masters/grass.png",
+      "sha256": "cebf704390ad280cf941b5a1e2372800c35305a144c295a33c674ae967afa2da"
+    },
+    "bush": {
+      "prompt": "prompts/bush.txt",
+      "references": [
+        "../vart-006/density-b.png"
+      ],
+      "master": "masters/bush.png",
+      "sha256": "10911b7006a38cf49bdd47c8587c079cabe0a2703f3ff3a7984e8d6e3e3bc12f"
+    },
+    "ground": {
+      "prompt": "prompts/ground.txt",
+      "references": [],
+      "master": "masters/ground.png",
+      "sha256": "6034a6983ddba48f093caddcaf9cdcecc85ae41c8eb01f47be082ff7504ecb82"
+    },
+    "meadow": {
+      "prompt": "prompts/meadow.txt",
+      "references": [],
+      "master": "masters/meadow.png",
+      "sha256": "c7c36f6d5c83b791fcf42bf6338ff6d862a26fea15c55103268e278fc868efe1"
+    },
+    "road": {
+      "prompt": "prompts/road-transition.txt",
+      "references": [
+        "revisions/road-before.png",
+        "masters/meadow.png"
+      ],
+      "initial_prompt": "prompts/road.txt",
+      "master": "masters/road.png",
+      "sha256": "8c7b14ab97580ef1c29357abc7897b3cf30400c15852bae67c1c022b74b65f73"
+    },
+    "bank": {
+      "prompt": "prompts/bank-transition.txt",
+      "references": [
+        "revisions/bank-before.png",
+        "masters/meadow.png"
+      ],
+      "initial_prompt": "prompts/bank.txt",
+      "master": "masters/bank.png",
+      "sha256": "70ceeda1cb9952fe0294c3e5d8daa4f961f5e588e63e6cca0bd735414ae84489"
+    },
+    "bridge": {
+      "prompt": "prompts/bridge.txt",
+      "references": [
+        "../vart-006/density-b.png"
+      ],
+      "master": "masters/bridge.png",
+      "sha256": "5ce015d9af6d692997e9200930d015a36bf71337c76d331274eaea97b0fbd2f7"
+    },
+    "facades": {
+      "prompt": "prompts/facades.txt",
+      "references": [
+        "../vart-006/density-b.png"
+      ],
+      "master": "masters/facades.png",
+      "sha256": "1df5263ec8b2d7eff11c5acac88c5caaa4f3888e677696d29a2a38911d334982"
+    }
+  },
+  "contracts": {
+    "../vart-007/light-profile.json": "472364e2f1a6317e39ce7d94d880be7737dc91dfec75e44170cfe3b37a1d9053",
+    "../vart-006/density-profile.json": "ca8db546c37709f419387d0bcd30db8dd8a3e95344ccbad3f0a229241151bc20",
+    "../vart-002/scale-profile.json": "4bed99c250c9522a07c6c600f426cfd970ab25929aa1796f89e67a7e61b5fca8"
+  },
+  "crop_tool": "tools/visual_modules_capture.gd",
+  "crop_policy": "Godot Image.get_region only; no artistic raster processing",
+  "revision_policy": "Before sources are retained only as edit references; original unused drafts remain outside game resources."
+}

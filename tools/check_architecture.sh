@@ -70,6 +70,8 @@ python3 tools/visual_density.py
 python3 tools/test_visual_density.py
 python3 tools/visual_light.py
 python3 tools/test_visual_light.py
+python3 tools/visual_modules.py
+python3 tools/test_visual_modules.py
 python3 tools/analyze_visual_baseline.py docs/reports/visual-overhaul/vbase-001/native >/dev/null
 git diff --check
 print -- "ARCHITECTURE: boundaries and whitespace are valid"

@@ -276,7 +276,7 @@
 
 ## VART-008 — Нарисовать набор эталонного участка
 
-Статус: `ready` · P0 · этап `foundation` · `engineering`
+Статус: `done` · P0 · этап `foundation` · `engineering`
 
 6–10 пучков, два куста, дерево, земля, края дороги, берег, мост и фасад представлены отдельными мастерами
 
@@ -292,7 +292,7 @@
 - [docs/reports/visual-overhaul/vart-005/README.md](../../../../docs/reports/visual-overhaul/vart-005/README.md)
 - [docs/reports/visual-overhaul/vart-006/README.md](../../../../docs/reports/visual-overhaul/vart-006/README.md)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vart-008/`.
+Результаты: `docs/reports/visual-overhaul/vart-008/`.
 
 Критерии:
 
@@ -310,7 +310,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vart-008/README.md, docs/reports/visual-overhaul/vart-008/modules.json, docs/reports/visual-overhaul/vart-008/measurements.json, docs/reports/visual-overhaul/vart-008/source.json, docs/reports/visual-overhaul/vart-008/native/capture.json, docs/reports/visual-overhaul/vart-008/browser.json, tools/visual_modules.py, tools/test_visual_modules.py, tools/visual_modules_capture.gd.
 
 <a id="vart-009"></a>
 

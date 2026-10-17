@@ -1,0 +1,8 @@
+Use case: stylized-concept
+Asset type: modular foliage master sheet for a high-resolution softly hand-painted 2D farming game, NOT pixel art.
+Input image is a STYLE reference only: preserve its detailed craft texture and warm sage palette, not its layout or any existing object.
+Draw EIGHT different isolated SMALL decorative grass/flower clumps, 4 columns x 2 rows on transparent RGBA 1536x1024. Each silhouette contained within its 384x512 cell with at least 36px clear space and a visible stable root point near the bottom of the clump. No ground squares.
+Top row: 1 low broad blade tuft; 2 tall narrow curved blade tuft; 3 short three-leaf clover patch; 4 loose wild grass tuft with two seed heads.
+Bottom row: 5 low tuft with a few tiny cream daisies; 6 tuft with two muted blue field flowers; 7 tuft with sparse warm yellow flowers; 8 mixed meadow tuft with fine dry straw accents.
+About 240-280px wide each, between 220 and 330px tall, individual modest variations in shape, keep every tip intact. Root should be a compact cluster, no sprawling opaque floor or dirt mound. Draw actual detailed leaf shapes with broad readable masses, consistent brush density B. Color sage greens, honey highlights, cool subdued green shadows. Tiny flowers are accents, not large bright loot markers.
+Soft diffuse ambient illumination, no directional cast shadows or contact shadow blobs baked outside plants. Narrow natural material-colored antialiasing at silhouette, no fuzzy halo. Keep RGB interiors solidly opaque and true alpha outside. No text, labels, tiles, pots, props, insects, water, background, drop shadow, checkerboard, outline, glow, pixel texture or artificial sharpening.

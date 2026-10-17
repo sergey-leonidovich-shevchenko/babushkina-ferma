@@ -980,7 +980,7 @@
       "id": "VART-008",
       "epic": "VART",
       "title": "Нарисовать набор эталонного участка",
-      "status": "ready",
+      "status": "done",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -1022,7 +1022,18 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vart-008-visual-task",
-      "evidence": []
+      "evidence": [
+        "docs/reports/visual-overhaul/vart-008/README.md",
+        "docs/reports/visual-overhaul/vart-008/modules.json",
+        "docs/reports/visual-overhaul/vart-008/measurements.json",
+        "docs/reports/visual-overhaul/vart-008/source.json",
+        "docs/reports/visual-overhaul/vart-008/native/capture.json",
+        "docs/reports/visual-overhaul/vart-008/browser.json",
+        "tools/visual_modules.py",
+        "tools/test_visual_modules.py",
+        "tools/visual_modules_capture.gd"
+      ],
+      "result": "2026-10-17: пользователь прямо принял оба фасада для будущих деревень. Подготовлены 28 отдельных PNG: 8 пучков, 2 куста, принятый этюд дерева B, 3 покрытия, 4 дорожные и 4 береговые кромки, настил/перила/2 опоры и 2 фасада. По замечанию перерисованы резкие зелёные полосы у берега и тропы. 19 нативных PNG 1152×648 с одинаковой проекцией 1.2 и повторным readback показывают три фона, масштаб, перекрытие, мост, сетку и HUD-базу; проверены все 19 браузерных состояний. Пиксельно точная нарезка, хеши, опоры и 7 отрицательных/положительных сценариев включены в gate. Это отдельный художественный пилот, не runtime-импорт, не FPS, не полный autotile. Отдельный commit VART-008."
     },
     {
       "id": "VART-009",
