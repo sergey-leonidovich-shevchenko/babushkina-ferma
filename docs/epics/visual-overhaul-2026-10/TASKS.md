@@ -11,7 +11,7 @@
 | [VGROUND](epics/vground.md) | 10 | Земля и дороги |
 | [VSHORE](epics/vshore.md) | 10 | Художественная вода в рамках WATER |
 | [VFOLIAGE](epics/vfoliage.md) | 10 | Ветер и отклик растительности |
-| [VTREE](epics/vtree.md) | 10 | Деревья, кусты и лесной силуэт |
+| [VTREE](epics/vtree.md) | 13 | Живые деревья: ветер, рубка, падение и пни |
 | [VSHADOW](epics/vshadow.md) | 10 | Опора и падающие тени |
 | [VLIGHT](epics/vlight.md) | 10 | Освещение мира |
 | [VWEATHER](epics/vweather.md) | 10 | Погода и сезонная атмосфера |
