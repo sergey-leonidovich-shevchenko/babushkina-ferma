@@ -2,10 +2,13 @@
 """Проверяет публикацию задач на изолированных репозиториях без сети."""
 
 from pathlib import Path
+import os
 import shutil
 import subprocess
+import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 import task_batch
 
@@ -15,6 +18,13 @@ class TaskBatchTests(unittest.TestCase):
 
     def setUp(self):
         """Создаёт main и локальный bare origin с одним опубликованным коммитом."""
+        # Git hook экспортирует GIT_DIR/GIT_INDEX_FILE: cwd сам по себе не изолирует Git.
+        environment = patch.dict(
+            os.environ, {key: value for key, value in os.environ.items() if not key.startswith("GIT_")},
+            clear=True,
+        )
+        environment.start()
+        self.addCleanup(environment.stop)
         self.temp = tempfile.TemporaryDirectory(prefix="farm-task-batch-")
         self.addCleanup(self.temp.cleanup)
         self.base = Path(self.temp.name)
@@ -59,6 +69,18 @@ class TaskBatchTests(unittest.TestCase):
         self.assertEqual((), batch.task_ids)
         self.assertEqual(0, batch.commits)
         self.assertTrue(batch.remote_is_ancestor)
+
+    def test_inherited_hook_environment_cannot_modify_parent_repository(self):
+        """Вложенный прогон с GIT_DIR/GIT_INDEX_FILE не меняет родительский fixture."""
+        before = (self.root / ".git" / "config").read_bytes()
+        subprocess.run(
+            [sys.executable, __file__, "TaskBatchTests.test_empty_batch"],
+            cwd=self.root, capture_output=True, text=True, check=True,
+            env={**os.environ, "GIT_DIR": str(self.root / ".git"),
+                 "GIT_INDEX_FILE": str(self.root / ".git" / "index"), "GIT_WORK_TREE": str(self.root)},
+        )
+        self.assertEqual(before, (self.root / ".git" / "config").read_bytes())
+        self.assertEqual(self.published, self.run_git(self.root, "rev-parse", "HEAD"))
 
     def test_intermediate_commits_and_duplicate_task_count_once(self):
         """Три коммита одной задачи и повтор trailer дают только одну задачу."""
