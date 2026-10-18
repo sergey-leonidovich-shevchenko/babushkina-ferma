@@ -57,7 +57,7 @@
         "kind": "legacy_runtime",
         "commit": "7c7facd2b882b063953158b342bbd9a7e69e25b0"
       },
-      "filter": "nearest",
+      "filter": "linear",
       "default_quality": "standard",
       "views": {
         "south": {
@@ -135,7 +135,8 @@
             }
           }
         }
-      }
+      },
+      "sampling_family": "painted_world"
     }
   }
 }

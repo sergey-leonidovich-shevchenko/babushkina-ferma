@@ -5486,7 +5486,7 @@
       "id": "VPIPELINE-003",
       "epic": "VPIPELINE",
       "title": "Настроить фильтрацию по семействам",
-      "status": "ready",
+      "status": "done",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -5500,7 +5500,8 @@
         "docs/reports/visual-overhaul/vpipeline-003/"
       ],
       "depends_on": [
-        "VPIPELINE-001"
+        "VPIPELINE-001",
+        "VPIPELINE-002"
       ],
       "parent_owner": "OPT-03",
       "acceptance": [
@@ -5522,13 +5523,26 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vpipeline-003-visual-task",
-      "evidence": []
+      "evidence": [
+        "docs/reports/visual-overhaul/vpipeline-003/README.md",
+        "docs/reports/visual-overhaul/vpipeline-003/native-comparison.json",
+        "docs/reports/visual-overhaul/vpipeline-003/native/after/capture.json",
+        "docs/reports/visual-overhaul/vpipeline-003/browser.json",
+        "docs/reports/visual-overhaul/vpipeline-003/verification.json",
+        "assets/game/visual_sampling.json",
+        "scripts/presentation/visual_sampling_system.gd",
+        "tools/visual_sampling.py",
+        "tools/test_visual_sampling.py",
+        "tests/suites/visual_sampling_suite.gd",
+        "wiki/articles/visual-sampling.md"
+      ],
+      "result": "18 октября 2026: VPIPELINE-003 выполнена. Четыре явных семейства nearest/linear, адресные CanvasTexture без копирования пикселей и отдельный доступ к исходнику. Для трёх видов дубового стола самостоятельно принят painted_world/linear; лунные часы используют painted_ui/linear. Bootstrap защищает старое полотно мира/UI, F12 и опубликованный renderer используют тот же кешированный ресурс. PNG, размеры, опоры, коллизии, сохранения и общая настройка проекта сохранены. Линейные атласы запрещены до VPIPELINE-004. 11 Python-сценариев на настоящих копиях PNG/импортов и испорченных доказательствах; 30 профильных утверждений Godot. Нативные 14 итоговых кадров 1152×648: три масштаба, два общих фильтра и два адресных режима; защищённый интерфейс совпадает. В комнате до/после разница ограничена прежним прямоугольником стола 96×64. Записаны SHA256 реализации и реальные параметры. Wiki: 22 проверки, TypeScript/build, поиск и две иллюстрации проверены в браузере без горизонтального переполнения. FPS, полный ручной редактор, массовая графика, padding/mips и PCK остаются отдельными задачами; публикация допускается только после обязательного полного gate."
     },
     {
       "id": "VPIPELINE-004",
       "epic": "VPIPELINE",
       "title": "Подготовить padding атласов",
-      "status": "backlog",
+      "status": "ready",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -5542,7 +5556,8 @@
         "docs/reports/visual-overhaul/vpipeline-004/"
       ],
       "depends_on": [
-        "VPIPELINE-001"
+        "VPIPELINE-001",
+        "VPIPELINE-003"
       ],
       "parent_owner": "OPT-03",
       "acceptance": [

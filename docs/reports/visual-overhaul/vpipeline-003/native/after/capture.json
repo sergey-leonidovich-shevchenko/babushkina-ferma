@@ -1,0 +1,151 @@
+{
+	"application_version": "0.0.224",
+	"camera": [
+		0.0,
+		6.0
+	],
+	"changed_region": [
+		660.0,
+		386.0,
+		756.0,
+		450.0
+	],
+	"day": 1,
+	"engine": "4.7.1-stable (official)",
+	"errors": [],
+	"facing": [
+		0.0,
+		1.0
+	],
+	"framebuffer": [
+		1152,
+		648
+	],
+	"frames": [
+		{
+			"default_filter": 0,
+			"file": "room-default-0.png",
+			"kind": "room"
+		},
+		{
+			"default_filter": 1,
+			"file": "room-default-1.png",
+			"kind": "room"
+		},
+		{
+			"default_filter": 0,
+			"family": "legacy_world",
+			"file": "samples-0-0_75-legacy_world.png",
+			"kind": "samples",
+			"scale": 0.75
+		},
+		{
+			"default_filter": 0,
+			"family": "painted_world",
+			"file": "samples-0-0_75-painted_world.png",
+			"kind": "samples",
+			"scale": 0.75
+		},
+		{
+			"default_filter": 0,
+			"family": "legacy_world",
+			"file": "samples-0-1_0-legacy_world.png",
+			"kind": "samples",
+			"scale": 1.0
+		},
+		{
+			"default_filter": 0,
+			"family": "painted_world",
+			"file": "samples-0-1_0-painted_world.png",
+			"kind": "samples",
+			"scale": 1.0
+		},
+		{
+			"default_filter": 0,
+			"family": "legacy_world",
+			"file": "samples-0-1_2-legacy_world.png",
+			"kind": "samples",
+			"scale": 1.2
+		},
+		{
+			"default_filter": 0,
+			"family": "painted_world",
+			"file": "samples-0-1_2-painted_world.png",
+			"kind": "samples",
+			"scale": 1.2
+		},
+		{
+			"default_filter": 1,
+			"family": "legacy_world",
+			"file": "samples-1-0_75-legacy_world.png",
+			"kind": "samples",
+			"scale": 0.75
+		},
+		{
+			"default_filter": 1,
+			"family": "painted_world",
+			"file": "samples-1-0_75-painted_world.png",
+			"kind": "samples",
+			"scale": 0.75
+		},
+		{
+			"default_filter": 1,
+			"family": "legacy_world",
+			"file": "samples-1-1_0-legacy_world.png",
+			"kind": "samples",
+			"scale": 1.0
+		},
+		{
+			"default_filter": 1,
+			"family": "painted_world",
+			"file": "samples-1-1_0-painted_world.png",
+			"kind": "samples",
+			"scale": 1.0
+		},
+		{
+			"default_filter": 1,
+			"family": "legacy_world",
+			"file": "samples-1-1_2-legacy_world.png",
+			"kind": "samples",
+			"scale": 1.2
+		},
+		{
+			"default_filter": 1,
+			"family": "painted_world",
+			"file": "samples-1-1_2-painted_world.png",
+			"kind": "samples",
+			"scale": 1.2
+		}
+	],
+	"id": "cottage_interior-entry-v1",
+	"implementation_sha256": {
+		"assets/game/visual_resources.json": "8fba8487d7e0d38d4f71bd7f306f8e3c4f2e008391b466974932ab6aee402c8f",
+		"assets/game/visual_sampling.json": "3659dd29bc4efa92d5691ab5f0d30b43b366fd6d3c12e9ac83cb6ef98ef35b60",
+		"scripts/core/game_bootstrap.gd": "2abbeca90b10fd0d005c23850e5caa154beee02a44eb043f7491a2f6f352a065",
+		"scripts/presentation/house_furniture_visual_system.gd": "3cbb2bf3df08dd1aa31625b7d495453287266066bcdd91eb8c821f1302ce3698",
+		"scripts/presentation/visual_sampling_system.gd": "12f34ba66c69c9f5e02d513300bf396536c5334517e53764ab08d6c6f078b3fd",
+		"scripts/systems/celestial_dial_assets_system.gd": "1763e57c6b9d3fcc77f2973e8b2b04884422374f839b24918f0ea6321e73de29",
+		"scripts/systems/level_editor_renderer.gd": "f560953844d0163a444404bca907d88f2ed9e3229c6f2314ff52558c429ad2af",
+		"scripts/systems/visual_resource_catalog.gd": "1dbce7c0a85a6dd4262be900fa9266d17bff036c50b563fc8975594c36d35564",
+		"tools/visual_sampling_capture.gd": "cee70f4730707c95ff964c69a4ba01eb66b2c3ef9ee6b02e80a662b09cf5b8eb"
+	},
+	"location": "cottage_interior",
+	"minutes": 720.0,
+	"performance_eligible": false,
+	"phase": "day",
+	"physics_processing": false,
+	"player": [
+		576.0,
+		500.0
+	],
+	"profile": "Codex-VPIPELINE-003-final-20261018",
+	"scene_policy": {
+		"clock": 2,
+		"legacy_canvas": 1,
+		"table": 2
+	},
+	"season": "spring",
+	"seed": 20261015,
+	"walkable": "walkable",
+	"weather": "clear"
+}

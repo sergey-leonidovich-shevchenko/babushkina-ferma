@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "base_commit": "1cac1d36810a4f0d6bcd20aea11e6ba6ac67ca76",
+  "images": {
+    "native/after/samples-0-1_2-legacy_world.png": "6923b63e628e458de99bd2af48b3f762ace454b3f71975215acc8504a4da8e72",
+    "native/after/samples-1-1_2-painted_world.png": "bbcbabc10f029a60a38b52228a8e18f0faab91c3a27e70b5d11d59ce530fbf1f",
+    "native/after/samples-1-1_2-legacy_world.png": "6923b63e628e458de99bd2af48b3f762ace454b3f71975215acc8504a4da8e72",
+    "native/after/room-default-1.png": "a36f9b0e326c5e960757a98956427da3d7f14f0c47209747b7b65bdb83ef52a4",
+    "native/after/samples-1-1_0-painted_world.png": "f9a96c7c6f19032d30af32c55ef77d77d55f2e76cce8a1ef9b5490f317392483",
+    "native/after/room-default-0.png": "a36f9b0e326c5e960757a98956427da3d7f14f0c47209747b7b65bdb83ef52a4",
+    "native/after/samples-0-0_75-legacy_world.png": "32b7ed2dc3966bbf49721a49570d006880d82e6933d67b538dfbff1eb21c43bd",
+    "native/after/samples-0-1_0-legacy_world.png": "e87647156e86716d9c0c2b28337291ec56a290142afa864a9b2ce505654eb9d0",
+    "native/after/samples-0-1_2-painted_world.png": "bbcbabc10f029a60a38b52228a8e18f0faab91c3a27e70b5d11d59ce530fbf1f",
+    "native/after/samples-1-0_75-painted_world.png": "99a5c696eb820299550562704f54320cc59e2aab19d1299c680168ed8b90e282",
+    "native/after/samples-0-0_75-painted_world.png": "99a5c696eb820299550562704f54320cc59e2aab19d1299c680168ed8b90e282",
+    "native/after/samples-1-1_0-legacy_world.png": "e87647156e86716d9c0c2b28337291ec56a290142afa864a9b2ce505654eb9d0",
+    "native/after/samples-1-0_75-legacy_world.png": "32b7ed2dc3966bbf49721a49570d006880d82e6933d67b538dfbff1eb21c43bd",
+    "native/after/samples-0-1_0-painted_world.png": "f9a96c7c6f19032d30af32c55ef77d77d55f2e76cce8a1ef9b5490f317392483",
+    "native/before/room.png": "71a7271a9d67315850354c9d020182d0269bde1ae5f1d90d2b5352df361ab1e1"
+  }
+}

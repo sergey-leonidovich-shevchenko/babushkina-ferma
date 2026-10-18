@@ -30,7 +30,9 @@ static var _texture_cache: Dictionary = {}
 
 ## Удерживает загруженные редакторские текстуры между кадрами, чтобы GPU не показывал белый placeholder.
 static func texture_for(path: String) -> Texture2D:
-	if not _texture_cache.has(path): _texture_cache[path]=preload("res://scripts/editor/editor_actor_source_system.gd").texture(path, ResourceLoader.load(path) as Texture2D)
+	if not _texture_cache.has(path):
+		var original := preload("res://scripts/editor/editor_actor_source_system.gd").texture(path, ResourceLoader.load(path) as Texture2D)
+		_texture_cache[path]=preload("res://scripts/systems/visual_resource_catalog.gd").sampled_for_path(path,original)
 	return _texture_cache[path]
 
 

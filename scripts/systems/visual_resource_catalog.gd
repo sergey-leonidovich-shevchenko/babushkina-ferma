@@ -2,10 +2,12 @@ extends RefCounted
 
 const PATH := "res://assets/game/visual_resources.json"
 const DATA := preload(PATH)
+const Sampling := preload("res://scripts/presentation/visual_sampling_system.gd")
 static var _catalog: Dictionary = DATA.data.duplicate(true)
 static var _textures: Dictionary = {}
 static var _path_views: Dictionary = {}
 static var _descriptors: Dictionary = {}
+static var _sampled_textures: Dictionary = {}
 
 
 ## Возвращает независимую копию проверенного при сборке паспорта без загрузки изображений.
@@ -34,6 +36,7 @@ static func resolve(data: Dictionary, id: String, side: String="south", quality:
 	if texture.is_empty(): return {}
 	var source: Array = variant.source_rect
 	return {"id":id,"kind":record.kind,"space":record.space,"side":side,"quality":selected,"path":texture.file,"filter":record.filter,
+		"sampling_family":record.get("sampling_family","legacy_world"),"layout":texture.get("layout","standalone"),
 		"source":Rect2(source[0],source[1],source[2],source[3]),"pivot":Vector2(view.pivot[0],view.pivot[1]),
 		"logical_size":Vector2(view.logical_size[0],view.logical_size[1]),"footprint_size":Vector2(view.footprint_size[0],view.footprint_size[1])}
 
@@ -45,6 +48,21 @@ static func texture(id: String, side: String="south", quality: String="") -> Tex
 	var path := String(view.path)
 	if not _textures.has(path): _textures[path]=load(path)
 	return _textures[path] as Texture2D
+
+
+## Удерживает адресный фильтр рядом с ресурсом, не меняя полотно и не создавая обёртку на каждом кадре.
+static func sampled_texture(id: String, side: String="south", quality: String="") -> Texture2D:
+	var view := describe(id,side,quality)
+	if view.is_empty(): return null
+	var key: String = id+"/"+side+"/"+view.quality
+	if not _sampled_textures.has(key): _sampled_textures[key]=Sampling.create(texture(id,side,quality),view.sampling_family,view.layout)
+	return _sampled_textures[key]
+
+
+## Подключает тот же фильтр в палитре, призраке и опубликованном уровне; незнакомые файлы сохраняют прежний путь.
+static func sampled_for_path(path: String, fallback: Texture2D) -> Texture2D:
+	var entry := editor_profile(path)
+	return fallback if entry.is_empty() else sampled_texture(entry.visual_resource_id,entry.visual_resource_side)
 
 
 ## Сохраняет пропорции исходной области и нормализованную опору независимо от плотности PNG.

@@ -45,4 +45,5 @@ static func destination(kind: String, position: Vector2, bounds: Vector2, direct
 
 ## Рисует утверждённую мебель А с видимой лицевой стороной и неизменными пропорциями.
 static func draw(canvas: CanvasItem, kind: String, position: Vector2, bounds: Vector2, direction: int=0, tint: Color=Color.WHITE) -> void:
-	canvas.draw_texture_rect_region(texture(kind,direction),destination(kind,position,bounds,direction),source(kind,direction),tint)
+	var selected := Resources.sampled_texture("prop.rustic_table",Facing.NAMES[Facing.visible(direction)]) if kind=="rustic_table" else texture(kind,direction)
+	canvas.draw_texture_rect_region(selected,destination(kind,position,bounds,direction),source(kind,direction),tint)

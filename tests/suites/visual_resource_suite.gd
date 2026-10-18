@@ -28,7 +28,7 @@ func test_three_sides_share_game_editor_and_footprint() -> void:
 		expect(profile.visual==view.logical_size and profile.collision==view.footprint_size,"world dimensions and footprint share one passport: "+side)
 		expect(editor.visual_resource_id==view.id and editor.source_rect==view.source and editor.collision_size==profile.collision,"F12 uses the same source and physical footprint: "+side)
 		expect(editor.display_size==Art.destination("rustic_table",position,profile.visual,direction).size,"F12 preserves the exact uniformly fitted world size: "+side)
-		expect(is_equal_approx(Resources.destination(view,position).end.y,position.y) and view.filter=="nearest" and view.space=="world","pivot, coordinate space and existing filter policy remain explicit: "+side)
+		expect(is_equal_approx(Resources.destination(view,position).end.y,position.y) and view.filter=="linear" and view.space=="world","pivot, coordinate space and selected filter policy remain explicit: "+side)
 		for grid in [6,12,24]:
 			var state: Dictionary = game.LevelEditorSystem.default_state(game); state.grid=grid
 			game.LevelEditorSystem.activate_asset(state,editor)

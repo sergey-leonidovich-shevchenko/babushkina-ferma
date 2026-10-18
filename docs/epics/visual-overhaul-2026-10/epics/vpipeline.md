@@ -86,13 +86,13 @@ ID, source rect, pivot, физический размер, ракурсы, фи�
 
 ## VPIPELINE-003 — Настроить фильтрацию по семействам
 
-Статус: `ready` · P0 · этап `foundation` · `engineering`
+Статус: `done` · P0 · этап `foundation` · `engineering`
 
 Linear и nearest сравниваются адресно; изменение общего флага не размывает старые шрифты и атласы
 
 Ветка: `codex/vpipeline-003-visual-task`.
 
-Зависимости: VPIPELINE-001.
+Зависимости: VPIPELINE-001, VPIPELINE-002.
 
 Единый владелец пересечения: **OPT-03**. Эта карточка уточняет работу владельца, не закрывает его автоматически.
 
@@ -102,7 +102,7 @@ Linear и nearest сравниваются адресно; изменение о
 - [scripts/presentation/prepared_item_icon_system.gd](../../../../scripts/presentation/prepared_item_icon_system.gd)
 - [assets/game/world_sprite_manifest.json](../../../../assets/game/world_sprite_manifest.json)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vpipeline-003/`.
+Результаты: `docs/reports/visual-overhaul/vpipeline-003/`.
 
 Критерии:
 
@@ -120,19 +120,19 @@ Linear и nearest сравниваются адресно; изменение о
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vpipeline-003/README.md, docs/reports/visual-overhaul/vpipeline-003/native-comparison.json, docs/reports/visual-overhaul/vpipeline-003/native/after/capture.json, docs/reports/visual-overhaul/vpipeline-003/browser.json, docs/reports/visual-overhaul/vpipeline-003/verification.json, assets/game/visual_sampling.json, scripts/presentation/visual_sampling_system.gd, tools/visual_sampling.py, tools/test_visual_sampling.py, tests/suites/visual_sampling_suite.gd, wiki/articles/visual-sampling.md.
 
 <a id="vpipeline-004"></a>
 
 ## VPIPELINE-004 — Подготовить padding атласов
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 Экструзия края и запас учитывают фильтр и mip; на уменьшении не видны соседние кадры
 
 Ветка: `codex/vpipeline-004-visual-task`.
 
-Зависимости: VPIPELINE-001.
+Зависимости: VPIPELINE-001, VPIPELINE-003.
 
 Единый владелец пересечения: **OPT-03**. Эта карточка уточняет работу владельца, не закрывает его автоматически.
 

@@ -2,6 +2,7 @@ extends RefCounted
 
 ## Выполняет последовательную инициализацию сервисов, данных, preview-режимов и сцены.
 static func initialize(game: Node) -> void:
+	preload("res://scripts/presentation/visual_sampling_system.gd").preserve_legacy(game)
 	_initialize_services(game)
 	_initialize_world(game)
 	var args := OS.get_cmdline_user_args()

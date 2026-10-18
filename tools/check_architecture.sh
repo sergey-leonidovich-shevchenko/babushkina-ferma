@@ -80,6 +80,8 @@ python3 tools/visual_pipeline.py
 python3 tools/test_visual_pipeline.py
 python3 tools/visual_resources.py
 python3 tools/test_visual_resources.py
+python3 tools/visual_sampling.py
+python3 tools/test_visual_sampling.py
 python3 tools/analyze_visual_baseline.py docs/reports/visual-overhaul/vbase-001/native >/dev/null
 git diff --check
 print -- "ARCHITECTURE: boundaries and whitespace are valid"

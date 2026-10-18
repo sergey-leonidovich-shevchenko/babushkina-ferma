@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "families": {
+    "legacy_world": {"filter": "nearest", "repeat": "disabled", "layouts": ["standalone", "atlas"]},
+    "legacy_ui": {"filter": "nearest", "repeat": "disabled", "layouts": ["standalone", "atlas"]},
+    "painted_world": {"filter": "linear", "repeat": "disabled", "layouts": ["standalone"]},
+    "painted_ui": {"filter": "linear", "repeat": "disabled", "layouts": ["standalone"]}
+  }
+}

@@ -1,6 +1,10 @@
 .DS_Store
 .godot/
 tools/*
+!tools/visual_sampling.py
+!tools/test_visual_sampling.py
+!tools/visual_sampling_capture.gd
+!tools/visual_sampling_review.gd
 !tools/visual_resource_capture.gd
 !tools/visual_resources.py
 !tools/test_visual_resources.py
