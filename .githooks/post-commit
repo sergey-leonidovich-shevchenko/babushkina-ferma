@@ -1,6 +1,4 @@
 #!/bin/zsh
 set -e
-if git remote get-url origin >/dev/null 2>&1; then
-	git push origin HEAD
-fi
-
+repo_root="$(git rev-parse --show-toplevel)"
+python3 "$repo_root/tools/task_batch.py" status

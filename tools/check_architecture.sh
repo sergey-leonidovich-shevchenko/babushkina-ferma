@@ -33,6 +33,7 @@ for suite in tests/suites/*_suite.gd; do
 done
 
 python3 tools/bump_version.py --check
+python3 tools/test_task_batch.py
 
 if rg -n '^func draw_' scripts/game.gd >/dev/null; then
 	print -u2 -- "Rendering leaked back into scripts/game.gd"

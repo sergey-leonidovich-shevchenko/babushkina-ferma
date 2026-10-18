@@ -1,6 +1,8 @@
 .DS_Store
 .godot/
 tools/*
+!tools/task_batch.py
+!tools/test_task_batch.py
 !tools/padded_atlases.py
 !tools/test_padded_atlases.py
 !tools/padded_atlas_review.gd
