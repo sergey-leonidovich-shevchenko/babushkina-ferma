@@ -1,0 +1,80 @@
+{
+  "schema": 1,
+  "task": "VRELEASE-001",
+  "date": "2026-10-19",
+  "base_commit": "12e6e2c7ac30f87af839cdb8cd0e2a4d1e558ee5",
+  "planning_accepted": true,
+  "runtime_changed": false,
+  "new_art_accepted": false,
+  "performance_eligible": false,
+  "queue": {
+    "selected": 55,
+    "done_at_acceptance": 24,
+    "open_at_acceptance": 31,
+    "stages": [
+      30,
+      25
+    ],
+    "next_at_acceptance": "VBASE-002"
+  },
+  "tests": {
+    "profile": 14,
+    "wiki": 51,
+    "architecture": "passed",
+    "game": {
+      "passed": 44082,
+      "failed": 0
+    }
+  },
+  "browser": {
+    "status": "passed",
+    "desktop": {
+      "queue": 55,
+      "foundation": 30,
+      "static_preview": 25,
+      "next": "VBASE-002",
+      "row_and_recommendation_return_preserve_stage": true,
+      "props_extra_conditions": 8,
+      "orthogonal_path_condition_visible": true,
+      "unknown_queue_rows": 0,
+      "unknown_queue_error_visible": true,
+      "orphan_stage_rows": 0,
+      "pagination_expands_to": 55
+    },
+    "mobile": {
+      "method": "same-origin fixture iframe",
+      "viewport_css_px": 390,
+      "scroll_width_css_px": 390,
+      "static_preview": 25
+    },
+    "workspace_mutated_by_task": false,
+    "screenshots": [
+      "wiki-queue.jpg",
+      "wiki-mobile.jpg"
+    ]
+  },
+  "catalog": {
+    "game_articles": 921,
+    "unchanged_sha256": "9fc18acd7c30bf693afd1427780e8d24828ae3a5dbcc2278c1711727c04ef50b"
+  },
+  "compatibility": {
+    "old_slot": "open: VCOMPAT-002",
+    "normal_entry": "open: VRELEASE-003",
+    "rollback": "open: VCOMPAT-010"
+  },
+  "files": {
+    "plan.json": "31f9bbf48ba2add5e7cebd490d2d38655c508433baad5e7f160ef5da6c9eafe4",
+    "queue.json": "537c3ab8a418245872e468e1e626832b8ac68466e51f96e3752ee4a4e1856b62",
+    "scope.svg": "ca6c23a80bacf7f05616b65218f6bc916864c05b289fac0ac3a48c03a7da79df",
+    "wiki-queue.jpg": "0b2c904bbcfc905521a19c8ccd68470e800d6cc063611feda04fa18a69edd824",
+    "wiki-mobile.jpg": "b80632cf3dbc225e8476ee831ebab5216668272d07c5932a1445842b827905fd"
+  },
+  "integration": {
+    "task_commit": "1338b128",
+    "main_parent": "a1696499",
+    "version": "0.0.252",
+    "merge_kind": "ordinary merge; version metadata conflicts only",
+    "workspace_equals_main_parent": true,
+    "wiki_tests_after_merge": 51
+  }
+}

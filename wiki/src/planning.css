@@ -807,3 +807,14 @@
     grid-template-columns: 85px minmax(0, 1fr) 15px;
   }
 }
+.rollout-summary {
+  margin-bottom: 20px;
+  display: grid;
+  gap: 12px;
+}
+.rollout-summary h2 {
+  margin: 4px 0 0;
+}
+.rollout-summary p {
+  margin: 0;
+}

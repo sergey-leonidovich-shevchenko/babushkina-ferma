@@ -107,5 +107,11 @@
         }
       ]
     }
+  ],
+  "queues": [
+    {
+      "id": "village-pilot",
+      "file": "docs/reports/visual-overhaul/vrelease-001/queue.json"
+    }
   ]
 }

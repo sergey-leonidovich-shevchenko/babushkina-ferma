@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "package_commit": "12e6e2c7ac30f87af839cdb8cd0e2a4d1e558ee5",
+  "capture_base_commit": "6ade4a2c8a2fac640109d3365c69bd4b6ccadfc4",
+  "new_art_accepted": false,
+  "performance_eligible": false,
+  "files": {
+    "docs/reports/visual-overhaul/vpipeline-010/native/game-source/capture.json": "6b76ac11fb5d87097d88bfc556ebc59a0ce98e8f739ce5bd308f60299fc0cc9c",
+    "docs/reports/visual-overhaul/vpipeline-010/native/game-source/overworld.png": "cf0cd91bca10a7f8e97ca314348f04a51d30725116d6419091de49a25068358c",
+    "docs/reports/visual-overhaul/vpipeline-010/native/game-pack/overworld.png": "cf0cd91bca10a7f8e97ca314348f04a51d30725116d6419091de49a25068358c",
+    "scripts/systems/village_map_data.gd": "4de609191cc11867c79aefee48a2695042dde4e7d703e34aa112ea0adedf3138",
+    "scripts/systems/water_layout_data.gd": "83a678f0fc3dd8d12e9cf2ff3ecef82a0419a35267a4779af095664256164a1e"
+  }
+}
