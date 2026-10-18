@@ -110,9 +110,19 @@ export function run(
 
 /** Подбирает закреплённый pnpm из runtime, PATH или стандартного npm без глобальной установки. */
 export async function packageManager() {
+  const configured = await executable([process.env.WIKI_PNPM_BIN], constants.R_OK)
+  if (configured)
+    return /\.[cm]?js$/.test(configured)
+      ? { command: process.execPath, prefix: [configured] }
+      : { command: configured, prefix: [] }
+  // Штатная обёртка runtime сохраняет собственные правила запуска менеджера.
+  const cli = await executable([
+    ...onPath(process.platform === 'win32' ? 'pnpm.cmd' : 'pnpm'),
+    join(homedir(), '.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback/pnpm'),
+  ])
+  if (cli) return { command: cli, prefix: [] }
   const script = await executable(
     [
-      process.env.WIKI_PNPM_BIN,
       join(dirname(process.execPath), '../node_modules/pnpm/bin/pnpm.mjs'),
       join(
         homedir(),
@@ -125,8 +135,6 @@ export async function packageManager() {
     return /\.[cm]?js$/.test(script)
       ? { command: process.execPath, prefix: [script] }
       : { command: script, prefix: [] }
-  const pnpm = await executable(onPath(process.platform === 'win32' ? 'pnpm.cmd' : 'pnpm'))
-  if (pnpm) return { command: pnpm, prefix: [] }
   const npmScript = await executable(
     [
       join(dirname(process.execPath), 'node_modules/npm/bin/npm-cli.js'),

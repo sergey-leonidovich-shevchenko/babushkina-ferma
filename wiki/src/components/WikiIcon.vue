@@ -25,6 +25,12 @@ const paths: Record<string, string> = {
   copy: 'M8 8h13v13H8V8ZM16 4V2H2v14h2',
   chevron: 'm9 5 7 7-7 7',
   grid: 'M3 3h7v7H3V3Zm11 0h7v7h-7V3ZM3 14h7v7H3v-7Zm11 0h7v7h-7v-7Z',
+  layers: 'm12 3 10 5-10 5L2 8l10-5Zm-9 9 9 5 9-5M3 17l9 5 9-5',
+  bulb: 'M9 18h6m-6 3h6M8 14a7 7 0 1 1 8 0c-1 1-1 2-1 4H9c0-2 0-3-1-4Z',
+  checklist: 'M9 5h12M9 12h12M9 19h12M2 5l2 2 3-4M2 12l2 2 3-4M2 19l2 2 3-4',
+  check: 'm4 12 5 5L21 5',
+  plus: 'M12 4v16M4 12h16',
+  refresh: 'M20 8a9 9 0 1 0 1 8M20 3v6h-6',
 }
 </script>
 <template>

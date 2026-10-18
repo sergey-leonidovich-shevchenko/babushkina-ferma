@@ -4,6 +4,7 @@ import { resolve, join, sep, extname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { createHash } from 'node:crypto'
 import { projectRoot, wikiRoot } from './runtime.mjs'
+import { createPlanningApi } from './planning-api.mjs'
 
 export const identity = createHash('sha256').update(projectRoot).digest('hex')
 const mime = {
@@ -42,17 +43,25 @@ export async function resolveAsset(root, pathname) {
   }
 }
 
-/** Создаёт сервер статичной wiki без доступа к игровым слотам и без прослушивания внешней сети. */
-export function createWikiServer(root, { project = identity, token = '' } = {}) {
+/** Создаёт локальную wiki с отдельным редакционным API без доступа к игровым слотам. */
+export function createWikiServer(root, { project = identity, token = '', planning, allowSameOriginFrames = false } = {}) {
+  const planningApi = planning === false ? undefined : createPlanningApi(planning)
   const server = createServer(async (request, response) => {
     response.setHeader('X-Content-Type-Options', 'nosniff')
-    response.setHeader('X-Frame-Options', 'DENY')
+    response.setHeader('X-Frame-Options', allowSameOriginFrames ? 'SAMEORIGIN' : 'DENY')
     response.setHeader('Referrer-Policy', 'no-referrer')
     const pathname = new URL(request.url ?? '/', 'http://127.0.0.1').pathname
     if (pathname === '/__wiki/status' && request.method === 'GET') {
       response.setHeader('Content-Type', mime['.json'])
       response.setHeader('Cache-Control', 'no-store')
-      response.end(JSON.stringify({ app: 'moon-valley-wiki', project, pid: process.pid }))
+      response.end(
+        JSON.stringify({
+          app: 'moon-valley-wiki',
+          project,
+          pid: process.pid,
+          planning: planningApi ? 1 : 0,
+        })
+      )
       return
     }
     if (pathname === '/__wiki/stop') {
@@ -67,6 +76,7 @@ export function createWikiServer(root, { project = identity, token = '' } = {}) 
       server.closeIdleConnections()
       return
     }
+    if (planningApi && (await planningApi(request, response, pathname))) return
     if (!['GET', 'HEAD'].includes(request.method ?? '')) {
       response.writeHead(405)
       response.end()

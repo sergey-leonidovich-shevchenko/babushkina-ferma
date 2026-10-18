@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { catalog, categories, loadCatalog, assetUrl } from './lib/catalog.ts'
 import WikiIcon from './components/WikiIcon.vue'
+import { planning, refinementIdeas, loadPlanning } from './lib/planning.ts'
 const route = useRoute()
 const router = useRouter()
 const query = ref('')
@@ -10,6 +11,13 @@ const searchField = ref<HTMLInputElement>()
 const drawer = ref(false)
 const error = ref(false)
 let debounce: ReturnType<typeof setTimeout> | undefined
+const development = computed(() => route.path.startsWith('/development'))
+const planningSections = computed(() => [
+  { id: 'epics', title: 'Эпики', icon: 'layers', count: planning.value?.catalog.epics.length },
+  { id: 'ideas', title: 'Идеи', icon: 'bulb', count: planning.value?.workspace.ideas.length },
+  { id: 'refinement', title: 'На проработку', icon: 'spark', count: refinementIdeas.value.length },
+  { id: 'tasks', title: 'Задачи', icon: 'checklist', count: planning.value?.catalog.tasks.length },
+])
 
 /** Открывает готовый справочник, оставляя понятную возможность повтора при ошибке чтения. */
 async function load() {
@@ -24,6 +32,13 @@ async function load() {
 function search() {
   clearTimeout(debounce)
   debounce = setTimeout(() => {
+    if (development.value) {
+      router.replace({
+        path: '/development/search',
+        query: { q: query.value.trim() || undefined },
+      })
+      return
+    }
     router.replace(
       query.value.trim() ? { path: '/search', query: { q: query.value.trim() } } : '/search'
     )
@@ -32,6 +47,10 @@ function search() {
 /** Открывает результаты немедленно по Enter, не дожидаясь задержки быстрого набора. */
 function submit() {
   clearTimeout(debounce)
+  if (development.value) {
+    router.push({ path: '/development/search', query: { q: query.value.trim() || undefined } })
+    return
+  }
   router.push({ path: '/search', query: { q: query.value.trim() } })
 }
 /** Переводит клавиатурный фокус к содержимому без изменения адреса страницы в маршрутизаторе. */
@@ -63,6 +82,7 @@ watch(
 )
 onMounted(() => {
   load()
+  loadPlanning()
   query.value = String(route.query.q ?? '')
   document.addEventListener('keydown', shortcut)
 })
@@ -91,6 +111,18 @@ onBeforeUnmount(() => {
       <RouterLink to="/" class="nav-item" :class="{ active: route.path === '/' }">
         <WikiIcon name="home" />
         <span>Главная</span>
+      </RouterLink>
+      <p class="nav-caption">РАЗРАБОТКА</p>
+      <RouterLink
+        v-for="section in planningSections"
+        :key="section.id"
+        :to="`/development/${section.id}`"
+        class="nav-item"
+        :class="{ active: development && route.params.section === section.id }"
+      >
+        <WikiIcon :name="section.icon" />
+        <span>{{ section.title }}</span>
+        <small v-if="section.count !== undefined">{{ section.count }}</small>
       </RouterLink>
       <p class="nav-caption">О ДОЛИНЕ</p>
       <RouterLink
@@ -130,7 +162,7 @@ onBeforeUnmount(() => {
         <input
           ref="searchField"
           v-model="query"
-          placeholder="Найти героя, предмет, рецепт…"
+          :placeholder="development ? 'Найти эпик, идею, задачу…' : 'Найти героя, предмет, рецепт…'"
           aria-label="Поиск по wiki"
           type="search"
           autocomplete="off"
@@ -141,7 +173,7 @@ onBeforeUnmount(() => {
       </div>
       <span class="topbar-label">
         <span class="status-dot" />
-        Энциклопедия игры
+        {{ development ? 'Центр разработки' : 'Энциклопедия игры' }}
       </span>
     </header>
     <div id="wiki-content" tabindex="-1">

@@ -25,12 +25,14 @@ test('static server serves assets and denies escape or unauthenticated control',
   try {
     const response = await fetch(url)
     assert.equal(response.status, 200)
+    assert.equal(response.headers.get('x-frame-options'), 'DENY')
     assert.match(response.headers.get('content-type'), /text\/html/)
     assert.match(await response.text(), /Wiki/)
     assert.deepEqual(await (await fetch(`${url}/__wiki/status`)).json(), {
       app: 'moon-valley-wiki',
       project: 'fixture-project',
       pid: process.pid,
+      planning: 1,
     })
     assert.equal((await resolveAsset(dist, '/%2e%2e%2fprivate.txt')).error, 403)
     assert.equal((await fetch(`${url}/outside.txt`)).status, 403)

@@ -5,6 +5,8 @@ import { fileURLToPath } from 'node:url'
 import MarkdownIt from 'markdown-it'
 import { wikiRoot, projectRoot, godotBinary, run } from './runtime.mjs'
 import { articles } from './articles.mjs'
+import { readPlanningCatalog } from './planning-catalog.mjs'
+import { createPlanningStore } from './planning-store.mjs'
 
 /** Создаёт устойчивый адрес статьи по русскому заголовку. */
 export function slug(text) {
@@ -94,10 +96,17 @@ async function renderGuides(entries, destination) {
             continue
           }
           const target = basename(href.split('#')[0])
-          const resolved = relative(projectRoot, resolve(projectRoot, dirname(entry.source), href.split('#')[0])).split(sep).join('/')
-          const found = entries.find(
-            (value) => value.category === 'guides' && value.source === resolved
-          ) ?? entries.find((value) => value.category === 'guides' && basename(value.source) === target)
+          const resolved = relative(
+            projectRoot,
+            resolve(projectRoot, dirname(entry.source), href.split('#')[0])
+          )
+            .split(sep)
+            .join('/')
+          const found =
+            entries.find((value) => value.category === 'guides' && value.source === resolved) ??
+            entries.find(
+              (value) => value.category === 'guides' && basename(value.source) === target
+            )
           token.attrSet(
             'href',
             found
@@ -214,11 +223,12 @@ export async function prepare() {
       ['docs/GAME_GUIDE.md', 'game'],
       ['docs/CONTROLS.md', 'controls'],
       ['wiki/README.md', 'wiki'],
+      ['docs/WIKI_DEVELOPMENT.md', 'development'],
     ])
       catalog.entries.push(
         ...chapters(await readFile(join(projectRoot, path), 'utf8'), prefix, path)
       )
-    catalog.entries.push(...await articles())
+    catalog.entries.push(...(await articles()))
     await renderGuides(catalog.entries, destination)
     const counts = validateCatalog(catalog)
     catalog.meta = {
@@ -239,6 +249,17 @@ export async function prepare() {
       join(destination, 'fonts/Alice-OFL.txt')
     )
     await writeFile(join(destination, 'catalog.json'), JSON.stringify(catalog))
+    const planning = await readPlanningCatalog()
+    const workspace = await createPlanningStore().read(planning)
+    await writeFile(
+      join(destination, 'planning.json'),
+      JSON.stringify({
+        schema: 1,
+        catalog: planning,
+        workspace,
+        readOnly: true,
+      })
+    )
     try {
       await rename(published, backup)
     } catch (error) {
