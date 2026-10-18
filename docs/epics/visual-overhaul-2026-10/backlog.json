@@ -5373,7 +5373,7 @@
       "id": "VPIPELINE-001",
       "epic": "VPIPELINE",
       "title": "Разделить мастер и runtime",
-      "status": "ready",
+      "status": "done",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -5409,13 +5409,29 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vpipeline-001-visual-task",
-      "evidence": []
+      "evidence": [
+        "docs/reports/visual-overhaul/vpipeline-001/README.md",
+        "docs/reports/visual-overhaul/vpipeline-001/baseline.json",
+        "docs/reports/visual-overhaul/vpipeline-001/import-comparison.json",
+        "docs/reports/visual-overhaul/vpipeline-001/native-comparison.json",
+        "docs/reports/visual-overhaul/vpipeline-001/browser.json",
+        "docs/reports/visual-overhaul/vpipeline-001/verification.json",
+        "tools/visual_pipeline.py",
+        "tools/test_visual_pipeline.py",
+        "tests/suites/asset_boundary_suite.gd",
+        "wiki/articles/visual-pipeline.md",
+        "wiki/articles/IDEA-001.md",
+        "docs/reports/visual-overhaul/vpipeline-001/additional-local-preview-audit.json",
+        "docs/reports/visual-overhaul/vpipeline-001/local-tile-preview-relocation.json",
+        "docs/reports/visual-overhaul/vpipeline-001/editor-textures-after.json"
+      ],
+      "result": "2026-10-18: исходники, концепты, превью и runtime разделены отслеживаемыми .gdignore; новый путь assets/source, исторические генераторы сохраняют входы. F12 учитывает вложенные барьеры и сохраняет действующие master-листы актёров. Индекс Godot 4.7: 1784 → 1179 текстур; 2398 игровых растров и профилей совпадают по SHA256. 27 локальных превью перенесены обратимо с квитанцией. Два нативных кадра 1152×648 при одной камере совпадают полностью. 11 Python-сценариев, 10 профильных утверждений Godot, полный набор 37674/0; Wiki pnpm check 22/0, поиск и ссылки проверены браузером. Wiki получила самостоятельные статьи и IDEA-001 как предложение. Подтверждения связаны с базой 10dde42542d3e9a3238c346dbce87995b647e20b и конфигурацией в отчёте; публикация коммитом VPIPELINE-001. FPS, размер релиза и будущая миграция графики не заявляются."
     },
     {
       "id": "VPIPELINE-002",
       "epic": "VPIPELINE",
       "title": "Описать метаданные нового ресурса",
-      "status": "backlog",
+      "status": "ready",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",

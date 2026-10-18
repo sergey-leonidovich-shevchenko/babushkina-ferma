@@ -1,0 +1,36 @@
+{
+	"camera": [
+		0.0,
+		348.0
+	],
+	"day": 1,
+	"engine": "4.7.1-stable (official)",
+	"errors": [],
+	"facing": [
+		0.0,
+		1.0
+	],
+	"framebuffer": [
+		1152,
+		648
+	],
+	"id": "overworld-entry-v1",
+	"location": "overworld",
+	"minutes": 720.0,
+	"performance_eligible": false,
+	"phase": "day",
+	"physics_processing": false,
+	"player": [
+		432.0,
+		672.0
+	],
+	"profile": "Codex-VPIPELINE-001-final-20261018",
+	"season": "spring",
+	"seed": 20261015,
+	"walkable": "walkable",
+	"weather": "clear",
+	"window": [
+		1152,
+		648
+	]
+}

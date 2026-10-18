@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "base_commit": "10dde42542d3e9a3238c346dbce87995b647e20b",
+  "same_camera": true,
+  "same_state": {
+    "camera": true,
+    "day": true,
+    "engine": true,
+    "errors": true,
+    "facing": true,
+    "framebuffer": true,
+    "id": true,
+    "location": true,
+    "minutes": true,
+    "performance_eligible": true,
+    "phase": true,
+    "physics_processing": true,
+    "player": true,
+    "season": true,
+    "seed": true,
+    "walkable": true,
+    "weather": true,
+    "window": true
+  },
+  "dimensions": [
+    1152,
+    648
+  ],
+  "decoded_pixel_equal": true,
+  "difference_bbox": null,
+  "performance_eligible": false,
+  "sha256": {
+    "before": "0dd71f0544609e9502c56345e2107489cfbbc44b72098970ac398b48bf308279",
+    "after": "0dd71f0544609e9502c56345e2107489cfbbc44b72098970ac398b48bf308279"
+  }
+}

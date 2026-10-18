@@ -1,0 +1,12 @@
+{
+  "engine": "4.7.1.stable.official.a13da4feb",
+  "base_commit": "10dde42542d3e9a3238c346dbce87995b647e20b",
+  "runtime_files_unchanged": 2398,
+  "editor_textures_before": 1784,
+  "editor_textures_after": 1179,
+  "classified_non_runtime_imports_before": 484,
+  "non_runtime_imports_after": 0,
+  "untracked_indexed_textures": [],
+  "cache_format": "filesystem_cache10 (Godot 4.7 diagnostic only)",
+  "performance_eligible": false
+}

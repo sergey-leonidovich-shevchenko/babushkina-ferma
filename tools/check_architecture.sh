@@ -76,6 +76,8 @@ python3 tools/visual_reuse.py
 python3 tools/test_visual_reuse.py
 python3 tools/visual_icons.py
 python3 tools/test_visual_icons.py
+python3 tools/visual_pipeline.py
+python3 tools/test_visual_pipeline.py
 python3 tools/analyze_visual_baseline.py docs/reports/visual-overhaul/vbase-001/native >/dev/null
 git diff --check
 print -- "ARCHITECTURE: boundaries and whitespace are valid"

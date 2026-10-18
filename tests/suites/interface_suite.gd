@@ -270,8 +270,8 @@ func test_hud_layout_is_compact_and_safe() -> void:
 	expect(game.InterfaceRenderer.HudRenderer.secondary_summary(game).contains("20") and game.InterfaceRenderer.HudRenderer.secondary_summary(game).contains("17"), "location module combines coins and reputation without a duplicate bottom calendar")
 	var farm_life_source := FileAccess.get_file_as_string("res://scripts/systems/farm_life_renderer.gd")
 	expect(not farm_life_source.contains("Rect2(14,610,330,26)"), "legacy bottom calendar strip no longer competes with the clock and hotbar")
-	var hud_preview: Texture2D = load("res://assets/generated/ui/hud_ingame_preview.png")
-	var preview_size := hud_preview.get_size() if hud_preview != null else Vector2.ZERO
+	var hud_preview := Image.load_from_file(ProjectSettings.globalize_path("res://assets/generated/ui/hud_ingame_preview.png"))
+	var preview_size := Vector2(hud_preview.get_size()) if hud_preview != null else Vector2.ZERO
 	expect(hud_preview != null and preview_size.x >= 1152.0 and is_equal_approx(preview_size.x / preview_size.y, 16.0 / 9.0), "clean HUD reference preserves the native sixteen-by-nine visual-test canvas at fullscreen resolution")
 	game.quest_active = true
 	game.mission_states["hud_test"] = "active"

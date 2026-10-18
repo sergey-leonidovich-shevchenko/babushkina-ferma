@@ -1,0 +1,180 @@
+{
+  "schema": 1,
+  "task": "VPIPELINE-001",
+  "non_runtime_roots": [
+    "docs",
+    "wiki",
+    "assets/source",
+    "assets/generated",
+    "assets/inbox",
+    "assets/game/farming/crops/source",
+    "assets/game/tiles/editor/source",
+    "assets/game/environment/source",
+    "tmp"
+  ],
+  "runtime_roots": [
+    "assets/game"
+  ],
+  "development_io": [
+    {
+      "owner": "scripts/core/game_preview_controller.gd",
+      "path": "res://assets/generated/level_drafts/fence_building_ingame_preview.png",
+      "purpose": "development capture output"
+    },
+    {
+      "owner": "scripts/core/game_preview_controller.gd",
+      "path": "res://assets/generated/level_drafts/first_level_ingame_preview.png",
+      "purpose": "development capture output"
+    },
+    {
+      "owner": "scripts/core/game_preview_controller.gd",
+      "path": "res://assets/generated/level_drafts/level_editor_atlas_picker_preview.png",
+      "purpose": "development capture output"
+    },
+    {
+      "owner": "scripts/core/game_preview_controller.gd",
+      "path": "res://assets/generated/level_drafts/level_editor_ingame_preview.png",
+      "purpose": "development capture output"
+    },
+    {
+      "owner": "scripts/systems/cave_visual_system.gd",
+      "path": "res://assets/generated/level_drafts/cave_ingame_preview.png",
+      "purpose": "development capture output"
+    },
+    {
+      "owner": "scripts/systems/tree_system.gd",
+      "path": "res://assets/generated/level_drafts/tree_stages_ingame_preview.png",
+      "purpose": "development capture output"
+    },
+    {
+      "owner": "scripts/systems/environment_visual_system.gd",
+      "path": "res://assets/generated/level_drafts/environment_%s_ingame_preview.png",
+      "purpose": "development capture output"
+    },
+    {
+      "owner": "scripts/systems/ui_preview_system.gd",
+      "path": "res://assets/generated/level_drafts/cottage_compact_hud_ingame_preview.png",
+      "purpose": "development capture output"
+    },
+    {
+      "owner": "scripts/systems/ui_preview_system.gd",
+      "path": "res://assets/generated/ui/%s",
+      "purpose": "development capture output"
+    },
+    {
+      "owner": "scripts/systems/ui_preview_system.gd",
+      "path": "res://assets/generated/ui/%s_ingame_preview.png",
+      "purpose": "development capture output"
+    },
+    {
+      "owner": "scripts/systems/ui_preview_system.gd",
+      "path": "res://assets/generated/ui/adaptive_ui_ingame_preview.png",
+      "purpose": "development capture output"
+    },
+    {
+      "owner": "scripts/systems/ui_preview_system.gd",
+      "path": "res://assets/generated/ui/compendium_ingame_preview.png",
+      "purpose": "development capture output"
+    },
+    {
+      "owner": "scripts/systems/ui_preview_system.gd",
+      "path": "res://assets/generated/ui/context_hud_ingame_preview.png",
+      "purpose": "development capture output"
+    },
+    {
+      "owner": "scripts/systems/ui_preview_system.gd",
+      "path": "res://assets/generated/ui/creation_ingame_preview.png",
+      "purpose": "development capture output"
+    },
+    {
+      "owner": "scripts/systems/ui_preview_system.gd",
+      "path": "res://assets/generated/ui/debug_overlay_ingame_preview.png",
+      "purpose": "development capture output"
+    },
+    {
+      "owner": "scripts/systems/ui_preview_system.gd",
+      "path": "res://assets/generated/ui/defeat_ingame_preview.png",
+      "purpose": "development capture output"
+    },
+    {
+      "owner": "scripts/systems/ui_preview_system.gd",
+      "path": "res://assets/generated/ui/farm_plots_ingame_preview.png",
+      "purpose": "development capture output"
+    },
+    {
+      "owner": "scripts/systems/ui_preview_system.gd",
+      "path": "res://assets/generated/ui/fishing_ingame_preview.png",
+      "purpose": "development capture output"
+    },
+    {
+      "owner": "scripts/systems/ui_preview_system.gd",
+      "path": "res://assets/generated/ui/hud_ingame_preview.png",
+      "purpose": "development capture output"
+    },
+    {
+      "owner": "scripts/systems/ui_preview_system.gd",
+      "path": "res://assets/generated/ui/language_ingame_preview.png",
+      "purpose": "development capture output"
+    },
+    {
+      "owner": "scripts/systems/ui_preview_system.gd",
+      "path": "res://assets/generated/ui/system_settings_ingame_preview.png",
+      "purpose": "development capture output"
+    },
+    {
+      "owner": "scripts/systems/ui_preview_system.gd",
+      "path": "res://assets/generated/ui/talent_tree_ingame_preview.png",
+      "purpose": "development capture output"
+    },
+    {
+      "owner": "scripts/systems/ui_preview_system.gd",
+      "path": "res://assets/generated/ui/ui_feedback_ingame_preview.png",
+      "purpose": "development capture output"
+    },
+    {
+      "owner": "scripts/systems/ui_visual_regression_system.gd",
+      "path": "res://assets/generated/ui/",
+      "purpose": "raw regression input"
+    },
+    {
+      "owner": "scripts/systems/ui_visual_regression_system.gd",
+      "path": "res://assets/generated/ui/visual_regression_manifest.json",
+      "purpose": "raw regression input"
+    },
+    {
+      "owner": "scripts/systems/world_loot_renderer.gd",
+      "path": "res://assets/generated/level_drafts/world_loot_ingame_preview.png",
+      "purpose": "development capture output"
+    },
+    {
+      "owner": "scripts/systems/water_visual_system.gd",
+      "path": "res://assets/generated/level_drafts/water_navigation_ingame_preview.png",
+      "purpose": "development capture output"
+    },
+    {
+      "owner": "scripts/systems/creature_visual_profile_system.gd",
+      "path": "res://assets/generated/level_drafts/creatures_ingame_preview.png",
+      "purpose": "development capture output"
+    },
+    {
+      "owner": "scripts/systems/building_visual_system.gd",
+      "path": "res://assets/generated/level_drafts/building_%s_ingame_preview.png",
+      "purpose": "development capture output"
+    },
+    {
+      "owner": "scripts/systems/interior_visual_system.gd",
+      "path": "res://assets/generated/level_drafts/interior_%s_ingame_preview.png",
+      "purpose": "development capture output"
+    },
+    {
+      "owner": "scripts/systems/directional_character_system.gd",
+      "path": "res://assets/generated/level_drafts/characters_ingame_preview.png",
+      "purpose": "development capture output"
+    },
+    {
+      "owner": "scripts/systems/farm_life_visual_system.gd",
+      "path": "res://assets/generated/level_drafts/farm_life_ingame_preview.png",
+      "purpose": "development capture output"
+    }
+  ]
+}

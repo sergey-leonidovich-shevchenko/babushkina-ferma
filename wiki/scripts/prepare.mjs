@@ -1,9 +1,10 @@
 import { readFile, writeFile, mkdir, rm, rename, copyFile } from 'node:fs/promises'
 import { createHash } from 'node:crypto'
-import { basename, extname, join, relative, resolve, sep } from 'node:path'
+import { basename, dirname, extname, join, relative, resolve, sep } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import MarkdownIt from 'markdown-it'
 import { wikiRoot, projectRoot, godotBinary, run } from './runtime.mjs'
+import { articles } from './articles.mjs'
 
 /** Создаёт устойчивый адрес статьи по русскому заголовку. */
 export function slug(text) {
@@ -77,7 +78,7 @@ async function renderGuides(entries, destination) {
           }
           token.attrSet(
             'src',
-            await illustration(resolve(projectRoot, 'docs', source), destination)
+            await illustration(resolve(projectRoot, dirname(entry.source), source), destination)
           )
           token.attrSet('loading', 'lazy')
         }
@@ -93,9 +94,10 @@ async function renderGuides(entries, destination) {
             continue
           }
           const target = basename(href.split('#')[0])
+          const resolved = relative(projectRoot, resolve(projectRoot, dirname(entry.source), href.split('#')[0])).split(sep).join('/')
           const found = entries.find(
-            (value) => value.category === 'guides' && basename(value.source) === target
-          )
+            (value) => value.category === 'guides' && value.source === resolved
+          ) ?? entries.find((value) => value.category === 'guides' && basename(value.source) === target)
           token.attrSet(
             'href',
             found
@@ -216,6 +218,7 @@ export async function prepare() {
       catalog.entries.push(
         ...chapters(await readFile(join(projectRoot, path), 'utf8'), prefix, path)
       )
+    catalog.entries.push(...await articles())
     await renderGuides(catalog.entries, destination)
     const counts = validateCatalog(catalog)
     catalog.meta = {

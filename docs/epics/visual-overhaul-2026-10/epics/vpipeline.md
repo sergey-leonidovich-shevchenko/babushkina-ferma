@@ -6,7 +6,7 @@
 
 ## VPIPELINE-001 — Разделить мастер и runtime
 
-Статус: `ready` · P0 · этап `foundation` · `engineering`
+Статус: `done` · P0 · этап `foundation` · `engineering`
 
 Концепты, послойные исходники, превью и игровые файлы имеют отдельные пути и .gdignore там, где импорт не нужен
 
@@ -22,7 +22,7 @@
 - [scripts/presentation/prepared_item_icon_system.gd](../../../../scripts/presentation/prepared_item_icon_system.gd)
 - [assets/game/world_sprite_manifest.json](../../../../assets/game/world_sprite_manifest.json)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vpipeline-001/`.
+Результаты: `docs/reports/visual-overhaul/vpipeline-001/`.
 
 Критерии:
 
@@ -40,13 +40,13 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vpipeline-001/README.md, docs/reports/visual-overhaul/vpipeline-001/baseline.json, docs/reports/visual-overhaul/vpipeline-001/import-comparison.json, docs/reports/visual-overhaul/vpipeline-001/native-comparison.json, docs/reports/visual-overhaul/vpipeline-001/browser.json, docs/reports/visual-overhaul/vpipeline-001/verification.json, tools/visual_pipeline.py, tools/test_visual_pipeline.py, tests/suites/asset_boundary_suite.gd, wiki/articles/visual-pipeline.md, wiki/articles/IDEA-001.md, docs/reports/visual-overhaul/vpipeline-001/additional-local-preview-audit.json, docs/reports/visual-overhaul/vpipeline-001/local-tile-preview-relocation.json, docs/reports/visual-overhaul/vpipeline-001/editor-textures-after.json.
 
 <a id="vpipeline-002"></a>
 
 ## VPIPELINE-002 — Описать метаданные нового ресурса
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 ID, source rect, pivot, физический размер, ракурсы, фильтр и варианты качества сохраняются независимо от имени PNG
 

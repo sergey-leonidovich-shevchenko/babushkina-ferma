@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "kind": "manual browser review through CUA",
+  "url": "http://127.0.0.1:4174/#/guides/visual-pipeline",
+  "wiki_version": "0.0.222",
+  "checks": {
+    "search_VPIPELINE_001_found_both_articles": true,
+    "pipeline_to_IDEA_001_link": true,
+    "idea_has_explicit_proposal_status": true,
+    "idea_to_pipeline_link": true,
+    "article_h1_count": 1,
+    "local_illustration_loaded": true,
+    "horizontal_overflow": false
+  },
+  "scope": "New editorial articles only; existing actor animation and crafting checks run in pnpm check."
+}

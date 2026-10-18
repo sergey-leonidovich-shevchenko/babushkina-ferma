@@ -40,5 +40,5 @@ func test_water_catalog_animation_and_navigation_share_the_24px_grid() -> void:
 	var renderer_source:=FileAccess.get_file_as_string("res://scripts/game_renderer.gd"); var editor_source:=FileAccess.get_file_as_string("res://scripts/systems/level_editor_validation_system.gd")
 	expect(renderer_source.contains("WaterVisualSystem.draw_first_location_animations") and not renderer_source.contains("FISH_ANIMATION"), "world animation delegates water effects instead of owning sprite dimensions")
 	expect(editor_source.contains("WaterVisualSystem.variant_for_mask") and editor_source.contains("WaterVisualSystem.module_path"), "level editor consumes the same water topology and module catalog as runtime")
-	var preview:Texture2D=load("res://assets/generated/level_drafts/water_navigation_ingame_preview.png")
-	expect(preview!=null and preview.get_size()==Vector2(1152,648), "water migration keeps a current F10 gameplay preview for visible contour and bridge review")
+	var preview:=Image.load_from_file(ProjectSettings.globalize_path("res://assets/generated/level_drafts/water_navigation_ingame_preview.png"))
+	expect(preview!=null and preview.get_size()==Vector2i(1152,648), "water migration keeps a current F10 gameplay preview for visible contour and bridge review")

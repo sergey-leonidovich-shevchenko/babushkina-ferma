@@ -1,0 +1,252 @@
+[
+  {
+    "from": "level_beauty_v1_full.png",
+    "to": "assets/generated/legacy_root/level_beauty_v1_full.png",
+    "sha256": "9602e85bd6151b4b28e347456b7294f05bc06088524a5c2bc1f49523eefabce9"
+  },
+  {
+    "from": "level_beauty_v1_full.png.import",
+    "to": "assets/generated/legacy_root/level_beauty_v1_full.png.import",
+    "sha256": "240bce7264feb65010b7591113abc7aac434cc065a17834df8fd008960500ebf"
+  },
+  {
+    "from": "level_beauty_v1_preview.png",
+    "to": "assets/generated/legacy_root/level_beauty_v1_preview.png",
+    "sha256": "da88dc5d782be09c5dd7f82db4519eab555e9049beb88d027264ad4c6e15a98e"
+  },
+  {
+    "from": "level_beauty_v1_preview.png.import",
+    "to": "assets/generated/legacy_root/level_beauty_v1_preview.png.import",
+    "sha256": "23ed443d088a44250dbec575b0e1b99ddd9315d930ac7dbf8b3e588e5306bd41"
+  },
+  {
+    "from": "level_beauty_v2_full.png",
+    "to": "assets/generated/legacy_root/level_beauty_v2_full.png",
+    "sha256": "9feebc5d35f0cec2fe3d2517baeb328712eb0f3ea23c41d6e44c6f62fcb48ef5"
+  },
+  {
+    "from": "level_beauty_v2_full.png.import",
+    "to": "assets/generated/legacy_root/level_beauty_v2_full.png.import",
+    "sha256": "223c637ec6f06cb473563ed3c68052ffd39850ca355c61dce00d396a3871aebb"
+  },
+  {
+    "from": "level_beauty_v2_preview.png",
+    "to": "assets/generated/legacy_root/level_beauty_v2_preview.png",
+    "sha256": "b89f29607ded671076d4424d9b5aa802e71f1a566bb7e23972b6ceca2a1e932e"
+  },
+  {
+    "from": "level_beauty_v2_preview.png.import",
+    "to": "assets/generated/legacy_root/level_beauty_v2_preview.png.import",
+    "sha256": "995504469f0fd4af7f95e43a5c21ba49edd343ecc044f23b10fd4f96cabb16d3"
+  },
+  {
+    "from": "level_beauty_v3_full.png",
+    "to": "assets/generated/legacy_root/level_beauty_v3_full.png",
+    "sha256": "4923b22c1e31c7e122eb8026bd65a309c08493b64843b9460334bd0f4061cde4"
+  },
+  {
+    "from": "level_beauty_v3_full.png.import",
+    "to": "assets/generated/legacy_root/level_beauty_v3_full.png.import",
+    "sha256": "ffc375a8ec1dcd2ad73729ce9630b0ceb2aacc79311bd5b908731b6168850d54"
+  },
+  {
+    "from": "level_beauty_v3_preview.png",
+    "to": "assets/generated/legacy_root/level_beauty_v3_preview.png",
+    "sha256": "4940178e2a90a4b850d8a59be40704938f4cf71ba4fa3edf584f42b792d46179"
+  },
+  {
+    "from": "level_beauty_v3_preview.png.import",
+    "to": "assets/generated/legacy_root/level_beauty_v3_preview.png.import",
+    "sha256": "8b19e73c4fbfedd058f264d1d2912336100e3019bb8caab6e6c5789a8118bef2"
+  },
+  {
+    "from": "level_design_option_A.png",
+    "to": "assets/generated/legacy_root/level_design_option_A.png",
+    "sha256": "c6e86e15b52f6ec7563cb93105d744c6aabde6f9feeed62456b2b865b7e3ae2b"
+  },
+  {
+    "from": "level_design_option_A.png.import",
+    "to": "assets/generated/legacy_root/level_design_option_A.png.import",
+    "sha256": "b279bfcc247c658a2946106d07e957da8ed887bebf056c52fbe744884a6eea8e"
+  },
+  {
+    "from": "level_design_option_B.png",
+    "to": "assets/generated/legacy_root/level_design_option_B.png",
+    "sha256": "4f231fb9859b1e0b0b46c28e65703046b406f9c555d954e31df7cdda99624f0c"
+  },
+  {
+    "from": "level_design_option_B.png.import",
+    "to": "assets/generated/legacy_root/level_design_option_B.png.import",
+    "sha256": "aa00002d617550729e8bb79323d98e2772832d06bca8989f0075550af8ef6cd9"
+  },
+  {
+    "from": "level_design_option_C.png",
+    "to": "assets/generated/legacy_root/level_design_option_C.png",
+    "sha256": "333b0d340d2d346cba5b7ae63afa9f5077a5e45e361e4fe1ebac124d8d4811d7"
+  },
+  {
+    "from": "level_design_option_C.png.import",
+    "to": "assets/generated/legacy_root/level_design_option_C.png.import",
+    "sha256": "4c24e1cb278afa52dafa44f8ff81e1387654cbf4f51300ece68406dde2abc699"
+  },
+  {
+    "from": "level_design_pick_1_preview.png",
+    "to": "assets/generated/legacy_root/level_design_pick_1_preview.png",
+    "sha256": "1b5120a6cdac47d4a89bc64e6f2eebeca983d1b8809792bd3ed029f9ef7b799e"
+  },
+  {
+    "from": "level_design_pick_1_preview.png.import",
+    "to": "assets/generated/legacy_root/level_design_pick_1_preview.png.import",
+    "sha256": "71e941287016c4f79ca6c282d542487349865f222beffd37ca059f38696f7b0a"
+  },
+  {
+    "from": "level_design_pick_2_preview.png",
+    "to": "assets/generated/legacy_root/level_design_pick_2_preview.png",
+    "sha256": "70ea9f0fd6db04c4edf25b566fc76007393e5b1b195b77494690c913d9e4047b"
+  },
+  {
+    "from": "level_design_pick_2_preview.png.import",
+    "to": "assets/generated/legacy_root/level_design_pick_2_preview.png.import",
+    "sha256": "9d0dbc665f0d9f5222a7ce99cbc820d487ee20117b5b214528017aead3c40c6a"
+  },
+  {
+    "from": "level_design_pick_3_preview.png",
+    "to": "assets/generated/legacy_root/level_design_pick_3_preview.png",
+    "sha256": "e5b0b8f422615f30807e2f7f8c23beea39513483691608f8420b95303d3d0df3"
+  },
+  {
+    "from": "level_design_pick_3_preview.png.import",
+    "to": "assets/generated/legacy_root/level_design_pick_3_preview.png.import",
+    "sha256": "96140fa4f14891129828463335eda84ebd50bc7d12e0704e8faccda9f96af2c2"
+  },
+  {
+    "from": "level_live_full_v1.png",
+    "to": "assets/generated/legacy_root/level_live_full_v1.png",
+    "sha256": "ff089ddf33590f2271a92537b88001fe3e148f06033e458e57b5f4e6ba69c536"
+  },
+  {
+    "from": "level_live_full_v1.png.import",
+    "to": "assets/generated/legacy_root/level_live_full_v1.png.import",
+    "sha256": "982d0d997c7436ead3a3f0be3dc514017bc64d6078ab76cccaedf2983695bb9f"
+  },
+  {
+    "from": "level_live_full_v2.png",
+    "to": "assets/generated/legacy_root/level_live_full_v2.png",
+    "sha256": "ef505af34a5eeff53569ee1efceb42a02da78d7c9da9d7a145dd069fb86bb6d8"
+  },
+  {
+    "from": "level_live_full_v2.png.import",
+    "to": "assets/generated/legacy_root/level_live_full_v2.png.import",
+    "sha256": "608e57c8717379762c0633c191361c4e8ccc4de0903bc20196ec257c6366494e"
+  },
+  {
+    "from": "level_live_full_v3.png",
+    "to": "assets/generated/legacy_root/level_live_full_v3.png",
+    "sha256": "611d30b21c413f9a829bb9e4b8241a2303b30dc178e8b4889757b44299adbd25"
+  },
+  {
+    "from": "level_live_full_v3.png.import",
+    "to": "assets/generated/legacy_root/level_live_full_v3.png.import",
+    "sha256": "4bb1d3b981a5d73ac1f9aed3fd87ea471f2ee89d22d72717c4ced82690476a99"
+  },
+  {
+    "from": "level_live_v1_preview.png",
+    "to": "assets/generated/legacy_root/level_live_v1_preview.png",
+    "sha256": "daf2f004f5749e4d89db6d2a6132ffa5b4afe8a3ea88aeeed081b7f907d00991"
+  },
+  {
+    "from": "level_live_v1_preview.png.import",
+    "to": "assets/generated/legacy_root/level_live_v1_preview.png.import",
+    "sha256": "e6511674c8348912f150eacb310ecafd7af0b972b3fa5feeed0956ced166ab0a"
+  },
+  {
+    "from": "level_live_v2_preview.png",
+    "to": "assets/generated/legacy_root/level_live_v2_preview.png",
+    "sha256": "f29a7de3daa72744c234cca35e54e0d6e49b0f6d5d921f5a9b4178aaa5d647d0"
+  },
+  {
+    "from": "level_live_v2_preview.png.import",
+    "to": "assets/generated/legacy_root/level_live_v2_preview.png.import",
+    "sha256": "24c8f4f27bd66cb9baf7e819e27c04a6256e6c6cb2e50321d178817dd174ec81"
+  },
+  {
+    "from": "level_live_v3_preview.png",
+    "to": "assets/generated/legacy_root/level_live_v3_preview.png",
+    "sha256": "ead76f9861d4be219bf9b58a0c0a896ad0d99d54243b26e457ac6f1f4ffc6677"
+  },
+  {
+    "from": "level_live_v3_preview.png.import",
+    "to": "assets/generated/legacy_root/level_live_v3_preview.png.import",
+    "sha256": "38a7df3bb342a3edc2bf9d552a5dbb0f84dda7ef78f3ac545b4fd0974e0aa2a7"
+  },
+  {
+    "from": "level_redesign_option_1.png",
+    "to": "assets/generated/legacy_root/level_redesign_option_1.png",
+    "sha256": "028250a16c9d434203acac5707ae169292c7bb06a89e565740fc74c7227ed121"
+  },
+  {
+    "from": "level_redesign_option_1.png.import",
+    "to": "assets/generated/legacy_root/level_redesign_option_1.png.import",
+    "sha256": "d3323390b33920dc7ebf05096dfae0e6194fec6d8955ce005c20e9cc80453122"
+  },
+  {
+    "from": "level_redesign_option_1_preview.png",
+    "to": "assets/generated/legacy_root/level_redesign_option_1_preview.png",
+    "sha256": "7fcdea0f4318a89b7e9bdf8da5dc2d3a304117841820ff2dfa629aa655db6ffa"
+  },
+  {
+    "from": "level_redesign_option_1_preview.png.import",
+    "to": "assets/generated/legacy_root/level_redesign_option_1_preview.png.import",
+    "sha256": "dcf9d4c59710863281c8594aaf394f6c4ef708342fb97b9b96367455e22a741e"
+  },
+  {
+    "from": "level_redesign_option_2.png",
+    "to": "assets/generated/legacy_root/level_redesign_option_2.png",
+    "sha256": "6cac4fbd67682aad21420594b12c5cfbab8e97910921280fbb110e9f64c97642"
+  },
+  {
+    "from": "level_redesign_option_2.png.import",
+    "to": "assets/generated/legacy_root/level_redesign_option_2.png.import",
+    "sha256": "ebe606f4c227e19175cede896f7d1ad892e4aa2f01f9c78381cc775d5ef02e52"
+  },
+  {
+    "from": "level_redesign_option_2_preview.png",
+    "to": "assets/generated/legacy_root/level_redesign_option_2_preview.png",
+    "sha256": "433643a62dfc8c3c7e27d9e0d11bfcc17a90bbd36accf069e798efda022770b6"
+  },
+  {
+    "from": "level_redesign_option_2_preview.png.import",
+    "to": "assets/generated/legacy_root/level_redesign_option_2_preview.png.import",
+    "sha256": "ab7afa951c693ef6cca388110aa57106a4839f9b945cb6f2f8d02f9bc749132f"
+  },
+  {
+    "from": "level_redesign_option_3.png",
+    "to": "assets/generated/legacy_root/level_redesign_option_3.png",
+    "sha256": "312eb1f41a014e465c21e59e5860094951861a1182bd09e91c38b09cf583a3b9"
+  },
+  {
+    "from": "level_redesign_option_3.png.import",
+    "to": "assets/generated/legacy_root/level_redesign_option_3.png.import",
+    "sha256": "ad6b336c1b40819f417cfc1233feb0ef09bf8940524528a00ee1881a9d7168ff"
+  },
+  {
+    "from": "level_redesign_option_3_preview.png",
+    "to": "assets/generated/legacy_root/level_redesign_option_3_preview.png",
+    "sha256": "734879d7736e4ec5a7fab8494f7dff3ab0fa135732b15746edba2bea5405f26a"
+  },
+  {
+    "from": "level_redesign_option_3_preview.png.import",
+    "to": "assets/generated/legacy_root/level_redesign_option_3_preview.png.import",
+    "sha256": "5ae735da5b40423c33e728d3f0808b0fe410293162e2913df671abdeda569f90"
+  },
+  {
+    "from": "showcase_overworld_0_5s.png",
+    "to": "assets/generated/legacy_root/showcase_overworld_0_5s.png",
+    "sha256": "54aba9e941976a034e259806e092bba15cc145f4f0e78d72e1b8fed84ed7c970"
+  },
+  {
+    "from": "showcase_overworld_0_5s.png.import",
+    "to": "assets/generated/legacy_root/showcase_overworld_0_5s.png.import",
+    "sha256": "aea3b7305ff84afeb8798592f36fae987d984b3233617002629c12c11aefda21"
+  }
+]

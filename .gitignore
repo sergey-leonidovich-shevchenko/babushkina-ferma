@@ -1,6 +1,11 @@
 .DS_Store
 .godot/
 tools/*
+!tools/visual_pipeline.py
+!tools/test_visual_pipeline.py
+!tools/visual_asset_policy.json
+!tools/visual_pipeline_capture.gd
+!/tools/visual_pipeline_review.gd
 !tools/visual_icons.py
 !tools/test_visual_icons.py
 !tools/visual_icons_capture.gd
@@ -65,8 +70,10 @@ tools/*
 !tools/village_map_review.gd
 !tools/tree_occlusion_review.gd
 !tools/grandmother_animation_review.gd
-assets/inbox/
-tmp/
+assets/inbox/*
+!/assets/inbox/.gdignore
+/tmp/*
+!/tmp/.gdignore
 *.log
 
 # Локальные концепты и воспроизводимые результаты нарезки уровня не входят в релиз.
@@ -76,7 +83,9 @@ tmp/
 /showcase_*.png.import
 /assets/game/tiles/*_preview.png
 /assets/game/tiles/*_preview.png.import
-/assets/game/environment/source/
+/assets/game/environment/source/*
+!/assets/game/environment/source/.gdignore
+/assets/generated/legacy_root/
 /assets/generated/ui_sources/*_chroma.png
 /assets/generated/ui_sources/*_chroma.png.import
 /assets/generated/level_drafts/*

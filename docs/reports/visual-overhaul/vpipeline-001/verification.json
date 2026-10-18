@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "base_commit": "10dde42542d3e9a3238c346dbce87995b647e20b",
+  "version": "0.0.222",
+  "architecture": "passed; repeated by mandatory pre-commit hook",
+  "python_negative_scenarios": {
+    "passed": 11,
+    "failed": 0
+  },
+  "godot_boundary_assertions": {
+    "passed": 10,
+    "failed": 0
+  },
+  "full_game_assertions": {
+    "passed": 37674,
+    "failed": 0,
+    "engine_errors": 0
+  },
+  "wiki_check": {
+    "passed": 22,
+    "failed": 0,
+    "build": true,
+    "typescript": true
+  },
+  "browser_review": "browser.json",
+  "native_review": "native-comparison.json",
+  "performance_eligible": false,
+  "result": "2026-10-18: исходники, концепты, превью и runtime разделены отслеживаемыми .gdignore; новый путь assets/source, исторические генераторы сохраняют входы. F12 учитывает вложенные барьеры и сохраняет действующие master-листы актёров. Индекс Godot 4.7: 1784 → 1179 текстур; 2398 игровых растров и профилей совпадают по SHA256. 27 локальных превью перенесены обратимо с квитанцией. Два нативных кадра 1152×648 при одной камере совпадают полностью. 11 Python-сценариев, 10 профильных утверждений Godot, полный набор 37674/0; Wiki pnpm check 22/0, поиск и ссылки проверены браузером. Wiki получила самостоятельные статьи и IDEA-001 как предложение. Подтверждения связаны с базой 10dde42542d3e9a3238c346dbce87995b647e20b и конфигурацией в отчёте; публикация коммитом VPIPELINE-001. FPS, размер релиза и будущая миграция графики не заявляются."
+}

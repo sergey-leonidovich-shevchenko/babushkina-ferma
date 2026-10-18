@@ -27,8 +27,10 @@ const STRICT_SHEET_SLICES := {
 ## Рекурсивно собирает только пригодные для размещения игровые растры и добавляет правила привязки.
 static func scan(root: String) -> Array[Dictionary]:
 	var result: Array[Dictionary] = []
+	if _ignored_directory(root): return result
 	_scan_directory(root,result)
-	for path in ActorSources.template_paths(root): result.append(metadata(path))
+	for path in ActorSources.template_paths(root):
+		if not _ignored_directory(path.get_base_dir()): result.append(metadata(path))
 	result.sort_custom(func(left: Dictionary,right: Dictionary): return "%s:%s" % [left.category,left.name] < "%s:%s" % [right.category,right.name])
 	return result
 
@@ -110,6 +112,7 @@ static func category_for_path(path: String) -> String:
 
 ## Обходит одну папку и пропускает мастера, превью и служебные листы, которые нельзя ставить целиком.
 static func _scan_directory(path: String, result: Array[Dictionary]) -> void:
+	if FileAccess.file_exists(path.path_join(".gdignore")): return
 	if path=="res://assets/game/items/ui" or path.begins_with("res://assets/game/items/ui/"): return
 	var directory := DirAccess.open(path)
 	if directory == null: return
@@ -123,6 +126,17 @@ static func _scan_directory(path: String, result: Array[Dictionary]) -> void:
 			result.append(metadata(child))
 		entry = directory.get_next()
 	directory.list_dir_end()
+
+
+## Учитывает запрет импорта также при прямом запросе вложенной папки или шаблона актёра.
+static func _ignored_directory(path: String) -> bool:
+	var current := path.simplify_path().trim_suffix("/")
+	while current not in ["", "res:", "user:"]:
+		if FileAccess.file_exists(current.path_join(".gdignore")): return true
+		var parent := current.get_base_dir().trim_suffix("/")
+		if parent == current: break
+		current = parent
+	return false
 
 
 ## Проверяет расширение и исключает контрольные изображения из пользовательского каталога.

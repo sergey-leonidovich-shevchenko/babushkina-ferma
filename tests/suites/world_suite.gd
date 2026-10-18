@@ -70,8 +70,8 @@ func test_modular_road_catalog_builds_connected_first_location_routes() -> void:
 	expect(RoadVisualSystem.profile().visual_size==Vector2(24,24) and float(RoadVisualSystem.profile().navigation_half_width)*2.0>=48.0, "road profile shares the base grid while navigation keeps a two-cell-wide readable corridor")
 	var background_source:=FileAccess.get_file_as_string("res://scripts/world_background.gd")
 	expect(background_source.contains("RoadVisualSystem.draw_module") and background_source.contains("RoadVisualSystem.neighbor_mask") and not background_source.contains("road-brick.png"), "runtime procedural locations consume connected modular roads while the painted first-location master avoids a duplicated tile overlay")
-	var preview: Texture2D=load("res://assets/generated/level_drafts/first_level_ingame_preview.png")
-	expect(preview!=null and preview.get_size()==Vector2(1152,648), "road migration keeps a current native gameplay preview for visual seam review")
+	var preview:=Image.load_from_file(ProjectSettings.globalize_path("res://assets/generated/level_drafts/first_level_ingame_preview.png"))
+	expect(preview!=null and preview.get_size()==Vector2i(1152,648), "road migration keeps a current native gameplay preview for visual seam review")
 
 ## Сценарий: первая локация разделена на двор, площадь и дикую окраину без перекрытий ключевых объектов.
 ## Исходное состояние: новая игра с исходными координатами зданий, персонажей, растений и ресурсов.

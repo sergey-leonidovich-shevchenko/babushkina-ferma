@@ -1,0 +1,22 @@
+[
+  {
+    "from": "assets/game/tiles/grass_redraw_preview.png",
+    "to": "assets/generated/legacy_root/grass_redraw_preview.png",
+    "sha256": "dc7be8667e9aa98646d06d1c85e0cf852ee4dd3fec5a8a4357458427a3fec572"
+  },
+  {
+    "from": "assets/game/tiles/grass_redraw_preview.png.import",
+    "to": "assets/generated/legacy_root/grass_redraw_preview.png.import",
+    "sha256": "ac9043c7b9480144217cb89df4b25d47494c89fd26573233aa82cf6283ffb4c0"
+  },
+  {
+    "from": "assets/game/tiles/grass_variants_preview.png",
+    "to": "assets/generated/legacy_root/grass_variants_preview.png",
+    "sha256": "f4a73cb61cde2d806ee9b5d98ff56c5746fc61fa91f5cb334e48394d56760213"
+  },
+  {
+    "from": "assets/game/tiles/grass_variants_preview.png.import",
+    "to": "assets/generated/legacy_root/grass_variants_preview.png.import",
+    "sha256": "24d72b9418672ef49bec78bb4a51836e004d40b233bad0efac7e3f468a7ee2ee"
+  }
+]
