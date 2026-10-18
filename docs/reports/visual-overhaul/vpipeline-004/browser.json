@@ -1,8 +1,11 @@
 {
   "schema": 1,
   "url": "http://127.0.0.1:4174/#/guides/padded-atlases",
-  "version": "0.0.227",
-  "viewport": [441, 704],
+  "version": "0.0.228",
+  "viewport": [
+    441,
+    704
+  ],
   "search_query": "VPIPELINE-004",
   "search_results": 4,
   "search_opens_article": true,
@@ -10,7 +13,10 @@
   "sampling_return_link_keyboard": true,
   "title_count": 1,
   "loaded_native_images": 2,
-  "native_image_size": [1152, 648],
+  "native_image_size": [
+    1152,
+    648
+  ],
   "horizontal_overflow": false,
   "temporary_viewport_override": false,
   "performance_eligible": false
