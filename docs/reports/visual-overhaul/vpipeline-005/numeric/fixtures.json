@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "textures": [
+    {
+      "name": "depth",
+      "intent": "data_rgba8",
+      "file": "depth.png",
+      "sha256": "47ed04a3fc20921ba49e4e85fbb17ea810c68e87a651bd26a537f291a824711c",
+      "pixels": [
+        16,
+        8
+      ]
+    },
+    {
+      "name": "flex",
+      "intent": "data_rgba8",
+      "file": "flex.png",
+      "sha256": "01c4d23cc7363e585b24942ff1a306a0b6d6b699221449b0c022bdb72813adcd",
+      "pixels": [
+        16,
+        8
+      ]
+    },
+    {
+      "name": "color",
+      "intent": "color_srgb",
+      "file": "color.png",
+      "sha256": "ef79efaa206e54f991a1b0b746db56236451c2be1976e925736e048df34101c4",
+      "pixels": [
+        16,
+        8
+      ]
+    },
+    {
+      "name": "negative-alpha",
+      "intent": "negative_alpha",
+      "file": "negative-alpha.png",
+      "sha256": "47ed04a3fc20921ba49e4e85fbb17ea810c68e87a651bd26a537f291a824711c",
+      "pixels": [
+        16,
+        8
+      ]
+    }
+  ],
+  "production": {
+    "assets/game/visual_texture_intents.json": "be4e4d8d1d5cf0d88e4084ab523d08b2df678bf06df22d02ebf0541449425e0e",
+    "scripts/presentation/texture_intent_system.gd": "4e29b86028aa64cf1b581a78b0a7684fb2a23770cefe20f595949737ef56d6c7",
+    "tools/texture_data_probe.gd": "1c02118fbcc9ca9f55e7ac8f469110692b5f060c68b26ce223618fed58f5ed54"
+  }
+}

@@ -3,6 +3,11 @@
 wiki/planning/*.lock
 wiki/planning/*.tmp
 tools/*
+!tools/texture_intents.py
+!tools/test_texture_intents.py
+!tools/texture_intent_review.gd
+!tools/texture_data_probe.gd
+!tools/texture_data_room_capture.gd
 !tools/task_batch.py
 !tools/test_task_batch.py
 !tools/padded_atlases.py

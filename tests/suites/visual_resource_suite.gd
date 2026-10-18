@@ -51,7 +51,7 @@ func test_filename_and_quality_do_not_define_identity_or_size() -> void:
 	data.textures[key].file="res://assets/game/neutral-name.png"
 	var renamed := Resources.resolve(data,"prop.rustic_table","south")
 	expect(renamed.id==before.id and renamed.path!=before.path and renamed.source==before.source,"stable identity and crop do not depend on PNG basename")
-	data.textures["dense"]={"file":"res://assets/game/density-fixture.png"}
+	data.textures["dense"]={"file":"res://assets/game/density-fixture.png","intent":"color_srgb"}
 	data.resources["prop.rustic_table"].views.south.variants["dense"]={"texture":"dense","source_rect":[16,16,480,320]}
 	var dense := Resources.resolve(data,"prop.rustic_table","south","dense")
 	expect(dense.quality=="dense" and dense.source.size==before.source.size*2,"quality selects an explicit density fixture, not a filename suffix")

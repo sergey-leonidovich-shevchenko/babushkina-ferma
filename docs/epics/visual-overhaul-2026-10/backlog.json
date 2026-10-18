@@ -5598,7 +5598,7 @@
       "id": "VPIPELINE-005",
       "epic": "VPIPELINE",
       "title": "Проверить цветовые и data текстуры",
-      "status": "ready",
+      "status": "done",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -5634,13 +5634,26 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vpipeline-005-visual-task",
-      "evidence": []
+      "evidence": [
+        "docs/reports/visual-overhaul/vpipeline-005/README.md",
+        "docs/reports/visual-overhaul/vpipeline-005/numeric-proof.json",
+        "docs/reports/visual-overhaul/vpipeline-005/room-comparison.json",
+        "docs/reports/visual-overhaul/vpipeline-005/browser.json",
+        "docs/reports/visual-overhaul/vpipeline-005/verification.json",
+        "assets/game/visual_texture_intents.json",
+        "scripts/presentation/texture_intent_system.gd",
+        "tools/texture_intents.py",
+        "tools/test_texture_intents.py",
+        "tests/suites/texture_intent_suite.gd",
+        "wiki/articles/data-textures.md"
+      ],
+      "result": "18 октября 2026: введены явные color_srgb/data_rgba8 и проверка shader sampler; source_color обязателен только для рисунка. Три ракурса стола делят прежние текстуры и геометрию. Маски глубины и гибкости остаются в отдельном диагностическом проекте под барьером docs/.gdignore. Настоящий импорт Godot сохранил каждый RGBA8-байт. Все texel измерены в Compatibility/OpenGL и Mobile/Vulkan LDR/HDR на AMD Radeon Pro 5300M. В HDR ошибка правильных чисел меньше 0,0005; ошибочная цветовая подсказка искажает маску до 0,287109375. Включение alpha-border в отрицательном контроле изменило 30 скрытых RGB-байт. 40 профильных утверждений, 12 Python-сценариев с порчей копий, полный игровой набор 42438/0. Кадр комнаты 1152x648 и полное состояние совпали при одной камере; историческая пара не блокирует будущую согласованную графику. Wiki обновлена: 38 тестов, TypeScript/build, поиск, иллюстрации и команды повторения проверены. Фабрика отказывает конфликтам ролей, неподдержанным sampler, препроцессору, пропускам и лишним привязкам. Игровые эффекты воды/травы, FPS и массовый перенос графики остаются своими карточками. Следующая VPIPELINE-006 подготовлена; все ее зависимости завершены."
     },
     {
       "id": "VPIPELINE-006",
       "epic": "VPIPELINE",
       "title": "Закрепить два размера иконок",
-      "status": "backlog",
+      "status": "ready",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",

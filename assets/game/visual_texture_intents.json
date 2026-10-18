@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "profiles": {
+    "color_srgb": {
+      "role": "color",
+      "transfer": "srgb",
+      "source_color": true,
+      "import": { "compress/mode": 0, "mipmaps/generate": false, "process/fix_alpha_border": true, "process/premult_alpha": false }
+    },
+    "data_rgba8": {
+      "role": "data",
+      "transfer": "linear",
+      "source_color": false,
+      "import": {
+        "compress/mode": 0,
+        "compress/normal_map": 2,
+        "compress/channel_pack": 0,
+        "mipmaps/generate": false,
+        "process/channel_remap/red": 0,
+        "process/channel_remap/green": 1,
+        "process/channel_remap/blue": 2,
+        "process/channel_remap/alpha": 3,
+        "process/fix_alpha_border": false,
+        "process/premult_alpha": false,
+        "process/normal_map_invert_y": false,
+        "process/hdr_as_srgb": false,
+        "process/size_limit": 0,
+        "detect_3d/compress_to": 0
+      }
+    }
+  }
+}

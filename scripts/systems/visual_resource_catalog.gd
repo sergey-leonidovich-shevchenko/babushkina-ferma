@@ -3,6 +3,7 @@ extends RefCounted
 const PATH := "res://assets/game/visual_resources.json"
 const DATA := preload(PATH)
 const Sampling := preload("res://scripts/presentation/visual_sampling_system.gd")
+const Intents := preload("res://scripts/presentation/texture_intent_system.gd")
 static var _catalog: Dictionary = DATA.data.duplicate(true)
 static var _textures: Dictionary = {}
 static var _path_views: Dictionary = {}
@@ -33,10 +34,10 @@ static func resolve(data: Dictionary, id: String, side: String="south", quality:
 	var variant: Dictionary = view.get("variants",{}).get(selected,{})
 	if record.is_empty() or view.is_empty() or variant.is_empty(): return {}
 	var texture: Dictionary = data.get("textures",{}).get(variant.get("texture",""),{})
-	if texture.is_empty(): return {}
+	if texture.is_empty() or Intents.profile(String(texture.get("intent",""))).get("role","")!="color": return {}
 	var source: Array = variant.source_rect
 	return {"id":id,"kind":record.kind,"space":record.space,"side":side,"quality":selected,"path":texture.file,"filter":record.filter,
-		"sampling_family":record.get("sampling_family","legacy_world"),"layout":texture.get("layout","standalone"),
+		"sampling_family":record.get("sampling_family","legacy_world"),"layout":texture.get("layout","standalone"),"texture_intent":texture.intent,
 		"source":Rect2(source[0],source[1],source[2],source[3]),"pivot":Vector2(view.pivot[0],view.pivot[1]),
 		"logical_size":Vector2(view.logical_size[0],view.logical_size[1]),"footprint_size":Vector2(view.footprint_size[0],view.footprint_size[1])}
 
@@ -57,6 +58,12 @@ static func sampled_texture(id: String, side: String="south", quality: String=""
 	var key: String = id+"/"+side+"/"+view.quality
 	if not _sampled_textures.has(key): _sampled_textures[key]=Sampling.create(texture(id,side,quality),view.sampling_family,view.layout)
 	return _sampled_textures[key]
+
+
+## Передаёт исходник и его назначение будущему шейдеру, не переобъявляя цветовой рисунок числовой маской.
+static func shader_binding(id: String, side: String="south", quality: String="") -> Dictionary:
+	var view := describe(id,side,quality)
+	return {} if view.is_empty() else Intents.binding(texture(id,side,quality),view.texture_intent)
 
 
 ## Подключает тот же фильтр в палитре, призраке и опубликованном уровне; незнакомые файлы сохраняют прежний путь.

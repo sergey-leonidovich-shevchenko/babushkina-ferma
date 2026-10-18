@@ -1,0 +1,33 @@
+{
+  "url": "http://127.0.0.1:4175/#/guides/data-textures",
+  "version": "0.0.237",
+  "viewport": [
+    1280,
+    720
+  ],
+  "screenshot": "wiki.png",
+  "sha256": "7975e7ba656e3fe738401491b4eceff038ef95d46dc4d1de4bbd2616ea90c8dc",
+  "images": [
+    {
+      "alt": "Правильная GPU-выборка числовой маски в HDR",
+      "size": [
+        128,
+        64
+      ],
+      "loaded": true
+    },
+    {
+      "alt": "Намеренно ошибочное цветовое преобразование той же маски",
+      "size": [
+        128,
+        64
+      ],
+      "loaded": true
+    }
+  ],
+  "search": "VPIPELINE-005",
+  "own_article_found": true,
+  "console_errors": [],
+  "native_browser": true,
+  "task_status_after_refresh": "done"
+}

@@ -1,0 +1,36 @@
+{
+  "task": "VPIPELINE-005",
+  "state": "validated",
+  "baseline": "214a3d3ba7187fe569aec800d88a3daef0cea9ec",
+  "native_game_version": "0.0.237",
+  "profile_assertions": 40,
+  "resource_regression_assertions": 37,
+  "python_scenarios": 12,
+  "game_suite": {
+    "command": "./run_tests.sh",
+    "passed": 42438,
+    "failed": 0,
+    "engine_errors": 0
+  },
+  "wiki": {
+    "command": "pnpm --dir wiki check",
+    "tests_passed": 38,
+    "failed": 0,
+    "typescript": "passed",
+    "build": "passed"
+  },
+  "architecture": {
+    "command": "tools/check_architecture.sh",
+    "required_before_commit": true,
+    "result": "passed"
+  },
+  "native_modes": [
+    "gl_compatibility OpenGL LDR",
+    "mobile Vulkan LDR",
+    "mobile Vulkan HDR"
+  ],
+  "room_pixels_changed": 0,
+  "serialized_state_changed": false,
+  "performance_eligible": false,
+  "publication": "local main; batch threshold 10 tasks"
+}

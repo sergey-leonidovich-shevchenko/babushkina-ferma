@@ -1,0 +1,28 @@
+{
+  "baseline": "214a3d3ba7187fe569aec800d88a3daef0cea9ec",
+  "size": [
+    1152,
+    648
+  ],
+  "camera": [
+    0,
+    6
+  ],
+  "player": [
+    576,
+    500
+  ],
+  "seed": 20261015,
+  "performance_eligible": false,
+  "before_sha256": "cf60c92f39086d0b19cd2d8781862f2bf5e9ea236a60f81dc5bae3528bb4fa9e",
+  "after_sha256": "cf60c92f39086d0b19cd2d8781862f2bf5e9ea236a60f81dc5bae3528bb4fa9e",
+  "before_state_sha256": "a409b1c4eef2f5a6340f93fd0a97cde132a5985d3d4598e6ce6b013ee5ac9f0f",
+  "after_state_sha256": "20b555a389c7696bfb182463a4e024dc414f7d8439a762aea2d7cac4070cccc0",
+  "production": {
+    "tools/texture_data_room_capture.gd": "cfbd87738a65c8e1a761cfdc9809d1f08130f1e4d9bc461fcb415092fc607665",
+    "scripts/systems/visual_resource_catalog.gd": "886db3ce32c40cc205ea0a44f0e485b12fdb7b0355dd82f788739d2195fa3213",
+    "scripts/presentation/texture_intent_system.gd": "4e29b86028aa64cf1b581a78b0a7684fb2a23770cefe20f595949737ef56d6c7",
+    "assets/game/visual_resources.json": "348c387f1e4ddee4cbec6e4bc93ed8f24993ac42e8df21ca669259765791c947",
+    "assets/game/visual_texture_intents.json": "be4e4d8d1d5cf0d88e4084ab523d08b2df678bf06df22d02ebf0541449425e0e"
+  }
+}
