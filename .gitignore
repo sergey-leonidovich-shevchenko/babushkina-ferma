@@ -1,5 +1,7 @@
 .DS_Store
 .godot/
+wiki/planning/*.lock
+wiki/planning/*.tmp
 tools/*
 !tools/task_batch.py
 !tools/test_task_batch.py

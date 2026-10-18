@@ -4,13 +4,20 @@ import App from './App.vue'
 import HomeView from './views/HomeView.vue'
 import ListView from './views/ListView.vue'
 import ArticleView from './views/ArticleView.vue'
+import DevelopmentView from './views/DevelopmentView.vue'
 import './style.css'
+import './planning.css'
 
 const router = createRouter({
   history: createWebHashHistory(),
   routes: [
     { path: '/', component: HomeView },
     { path: '/search', component: ListView },
+    {
+      path: '/development/:section(epics|ideas|refinement|tasks|search)/:id?',
+      component: DevelopmentView,
+    },
+    { path: '/development', redirect: '/development/epics' },
     { path: '/:category', component: ListView },
     { path: '/:category/:id', component: ArticleView },
   ],

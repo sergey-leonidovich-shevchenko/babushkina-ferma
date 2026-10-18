@@ -1,0 +1,111 @@
+{
+  "schema": 1,
+  "discoverPlans": true,
+  "plans": [
+    {
+      "id": "base",
+      "title": "Базовый план октября",
+      "format": "json",
+      "file": "docs/backlog/2026-10/backlog.json",
+      "group": "technology",
+      "expected": 50
+    },
+    {
+      "id": "visual",
+      "title": "Живописная графика",
+      "format": "json",
+      "file": "docs/epics/visual-overhaul-2026-10/backlog.json",
+      "group": "visual",
+      "expected": 1037
+    },
+    {
+      "id": "water",
+      "title": "Реки и берега",
+      "format": "markdown",
+      "group": "world",
+      "expected": 15,
+      "epics": [
+        {
+          "id": "WATER",
+          "title": "Реки, берега и анимация воды",
+          "file": "docs/epics/water-2026-10/README.md"
+        }
+      ]
+    },
+    {
+      "id": "living-world",
+      "title": "Малая фауна и экосистемы",
+      "format": "markdown-directory",
+      "directory": "docs/epics/idea-2026-10/living-world/chapters",
+      "epicPrefix": "IDEA-002",
+      "group": "world",
+      "expected": 200
+    },
+    {
+      "id": "stories",
+      "title": "Живые истории долины",
+      "format": "markdown",
+      "group": "stories",
+      "expected": 50,
+      "epics": [
+        {
+          "id": "FAUNA",
+          "title": "Повадки и благодарность",
+          "file": "docs/epics/living-stories-2026-10/epics/fauna.md"
+        },
+        {
+          "id": "ATMOS",
+          "title": "Атмосфера и открытия",
+          "file": "docs/epics/living-stories-2026-10/epics/atmos.md"
+        },
+        {
+          "id": "VILLAGE",
+          "title": "Жители и дом",
+          "file": "docs/epics/living-stories-2026-10/epics/village.md"
+        }
+      ]
+    },
+    {
+      "id": "echo",
+      "title": "Головоломки с эхом",
+      "format": "markdown",
+      "group": "gameplay",
+      "expected": 24,
+      "epics": [
+        {
+          "id": "ECHO",
+          "title": "Головоломки с эхом героя",
+          "file": "docs/epics/echo-puzzles-2026-10/TASKS.md"
+        }
+      ]
+    },
+    {
+      "id": "fair",
+      "title": "Лавка на ярмарке",
+      "format": "markdown",
+      "group": "gameplay",
+      "expected": 18,
+      "epics": [
+        {
+          "id": "FAIR",
+          "title": "Своя лавка на ярмарке",
+          "file": "docs/epics/fair-2026-10/TASKS.md"
+        }
+      ]
+    },
+    {
+      "id": "wiki",
+      "title": "Wiki и управление разработкой",
+      "format": "markdown",
+      "group": "technology",
+      "expected": 1,
+      "epics": [
+        {
+          "id": "WIKI",
+          "title": "Центр разработки в Wiki",
+          "file": "docs/backlog/wiki-workspace-2026-10/README.md"
+        }
+      ]
+    }
+  ]
+}

@@ -34,7 +34,9 @@ export async function runningServer() {
       signal: AbortSignal.timeout(1000),
     })
     const status = await response.json()
-    return status.app === 'moon-valley-wiki' && status.project === identity ? info : undefined
+    return status.app === 'moon-valley-wiki' && status.project === identity
+      ? { ...info, planning: status.planning ?? 0 }
+      : undefined
   } catch {
     return undefined
   }
@@ -97,7 +99,18 @@ export async function publishBuild(next, target = join(wikiRoot, 'dist')) {
 /** Запускает сервер отдельным процессом, который продолжает работать после закрытия лаунчера. */
 async function ensureServer() {
   const existing = await runningServer()
-  if (existing) return existing
+  if (existing?.planning === 1) return existing
+  if (existing) {
+    const response = await fetch(`http://127.0.0.1:${existing.port}/__wiki/stop`, {
+      method: 'POST',
+      headers: { 'x-wiki-token': existing.token },
+    })
+    if (!response.ok) throw new Error('Не удалось обновить локальный сервер Wiki')
+    for (let attempt = 0; attempt < 30; attempt++) {
+      if (!(await runningServer())) break
+      await delay(100)
+    }
+  }
   const log = await open(join(cache, 'server.log'), 'a')
   const child = spawn(process.execPath, [join(wikiRoot, 'scripts/server.mjs')], {
     cwd: wikiRoot,
