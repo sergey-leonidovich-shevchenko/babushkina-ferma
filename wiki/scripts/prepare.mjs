@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url'
 import MarkdownIt from 'markdown-it'
 import { wikiRoot, projectRoot, godotBinary, run } from './runtime.mjs'
 import { articles } from './articles.mjs'
+import { reportAttachment } from './report-attachment.mjs'
 import { readPlanningCatalog } from './planning-catalog.mjs'
 import { createPlanningStore } from './planning-store.mjs'
 
@@ -96,6 +97,23 @@ async function renderGuides(entries, destination) {
             continue
           }
           const target = basename(href.split('#')[0])
+          if (
+            /\.(csv|json)$/i.test(target) &&
+            resolve(projectRoot, dirname(entry.source), href.split('#')[0]).startsWith(
+              `${resolve(projectRoot, 'docs/reports')}${sep}`
+            )
+          ) {
+            token.attrSet(
+              'href',
+              await reportAttachment(
+                resolve(projectRoot, dirname(entry.source), href.split('#')[0]),
+                destination,
+                projectRoot
+              )
+            )
+            token.attrSet('download', target)
+            continue
+          }
           const resolved = relative(
             projectRoot,
             resolve(projectRoot, dirname(entry.source), href.split('#')[0])

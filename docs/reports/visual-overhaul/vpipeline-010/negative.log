@@ -1,0 +1,15 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+ERROR: Unable to open file: res://.godot/imported/rustic_table_south.png-ae1d3a5fc67714ef5ccd8b67eac3d436.ctex.
+   at: _load_data (scene/resources/compressed_texture.cpp:45)
+   GDScript backtrace (most recent call first):
+       [0] _start (/Users/sergeyshevchenko/my farm/tools/asset_pack_probe.gd:24)
+ERROR: Failed loading resource: res://.godot/imported/rustic_table_south.png-ae1d3a5fc67714ef5ccd8b67eac3d436.ctex.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _start (/Users/sergeyshevchenko/my farm/tools/asset_pack_probe.gd:24)
+ERROR: Failed loading resource: res://assets/game/interiors/furniture_a/rustic_table_south.png.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] _start (/Users/sergeyshevchenko/my farm/tools/asset_pack_probe.gd:24)
+ASSET PACK PROBE: 1189 textures; errors=["missing texture: assets/game/interiors/furniture_a/rustic_table_south.png"]

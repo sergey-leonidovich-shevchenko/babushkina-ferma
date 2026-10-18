@@ -1,0 +1,31 @@
+{
+  "game_entries_unchanged": true,
+  "game_entry_count": 921,
+  "game_entries_sha256": "9fc18acd7c30bf693afd1427780e8d24828ae3a5dbcc2278c1711727c04ef50b",
+  "csv_download_sha256": "b262345395913f6f4e707c9d6588c123b70a7d8bc667b50af48027c5df72d2fd",
+  "csv_rows": 2839,
+  "wiki_version": "0.0.247",
+  "node_tests": 41,
+  "source_and_pack_frames_equal": true,
+  "dom": {
+    "downloads": [
+      {
+        "download": "inventory.csv",
+        "href": "generated/attachments/b262345395913f6f4e707c9d6588c123b70a7d8bc667b50af48027c5df72d2fd.csv",
+        "label": "Все файлы: CSV"
+      },
+      {
+        "download": "inventory.json",
+        "href": "generated/attachments/2d9b1d5a4be12cba0036edc745cc8a7544a9d4ec7193a194e081b84bc2b3002a.json",
+        "label": "Полный реестр: JSON"
+      },
+      {
+        "download": "pack.json",
+        "href": "generated/attachments/74070ba5507301c41c0171c828084a006e3a2e16bc78c7053589510adecf2a57.json",
+        "label": "Состав настоящего экспорта: JSON"
+      }
+    ],
+    "scrollWidth": 1280,
+    "width": 1280
+  }
+}

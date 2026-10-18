@@ -232,3 +232,15 @@ assets/inbox/*
 !docs/reports/visual-overhaul/vpipeline-008/after/*.log
 !docs/reports/visual-overhaul/vpipeline-009/*.log
 !docs/reports/visual-overhaul/vpipeline-009/native/*.log
+
+# VPIPELINE-010 audit tools and text-only export configuration.
+!tools/asset_costs.py
+!tools/asset_report.py
+!tools/asset_pack.py
+!tools/asset_pack_probe.gd
+!tools/asset_game_probe.gd
+!tools/asset_provenance.json
+!tools/test_asset_report.py
+!tools/test_asset_pack_proof.py
+!/export_presets.cfg
+!docs/reports/visual-overhaul/vpipeline-010/*.log
