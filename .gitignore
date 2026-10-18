@@ -3,6 +3,17 @@
 wiki/planning/*.lock
 wiki/planning/*.tmp
 tools/*
+!tools/slice_export.gd
+!tools/slice_catalogs.gd
+!tools/slice_capture.gd
+!tools/slice_legacy_capture.gd
+!tools/slice_review.gd
+!tools/slice_metrics.py
+!tools/slice_audit.py
+!tools/slice_policy.json
+!tools/slice_proof.py
+!tools/test_slice_audit.py
+!tools/test_slice_proof.py
 !tools/alpha_metrics.py
 !tools/alpha_audit.py
 !tools/alpha_fixtures.py
@@ -210,3 +221,5 @@ assets/inbox/*
 !docs/reports/visual-overhaul/vpipeline-005/numeric/*.png.import
 !docs/reports/visual-overhaul/vpipeline-006/*.log
 !docs/reports/visual-overhaul/vpipeline-007/*.log
+!docs/reports/visual-overhaul/vpipeline-008/*.log
+!docs/reports/visual-overhaul/vpipeline-008/after/*.log

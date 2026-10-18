@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-18T16:00:02.478159+00:00",
+  "base_commit": "96cedb2f48939ff5b38fbe06fa5667cc88b803da",
+  "version": "0.0.245",
+  "runtime_changed": true,
+  "runtime_change": "integer source-grid boundaries; no PNG edits",
+  "frames": 5570,
+  "atlas_resources": 321,
+  "fractional_regions_fixed": 20,
+  "python_tests": 19,
+  "profile_assertions": 440,
+  "checks": [
+    {
+      "check": "architecture",
+      "exit_code": 0,
+      "success_marker": "ARCHITECTURE: boundaries and whitespace are valid",
+      "log": "architecture.log",
+      "sha256": "fcaea4ae90a6698aacdde4091629b14e2d29ee67c45b050a6aa391ec6e86d337"
+    },
+    {
+      "check": "game",
+      "exit_code": 0,
+      "success_marker": "TESTS: 44082 passed, 0 failed",
+      "log": "game.log",
+      "sha256": "60d053abd2f87c5037f0d3b8779272aa5c9b8383e65db5451acf8c36ed6f3c9b"
+    },
+    {
+      "check": "wiki",
+      "exit_code": 0,
+      "success_marker": "pass 38",
+      "log": "wiki.log",
+      "sha256": "bb88ef23d48d3dbd9f4b0388faf86c8914be3caa58cb688e82a283379f4fd62c"
+    }
+  ],
+  "native": "proof.json",
+  "browser": "browser.json",
+  "performance_eligible": false
+}

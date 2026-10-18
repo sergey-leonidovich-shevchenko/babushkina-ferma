@@ -1,0 +1,72 @@
+{
+  "page": "sprite-slices",
+  "url": "http://127.0.0.1:4175/#/guides/sprite-slices",
+  "result": {
+    "images": [
+      {
+        "alt": "Целые текущие кадры на тёмном фоне",
+        "loaded": true,
+        "width": 1152
+      },
+      {
+        "alt": "Отрицательный контроль: намеренно урезанные регионы",
+        "loaded": true,
+        "width": 1152
+      },
+      {
+        "alt": "Целые кадры на светлом фоне",
+        "loaded": true,
+        "width": 1152
+      },
+      {
+        "alt": "Старые пиратские fallback-области до и после разбиения",
+        "loaded": true,
+        "width": 1152
+      },
+      {
+        "alt": "Старые области зелий до и после разбиения",
+        "loaded": true,
+        "width": 1152
+      }
+    ],
+    "links": [
+      {
+        "href": "#/",
+        "text": "Wiki"
+      },
+      {
+        "href": "#/guides",
+        "text": "Руководство"
+      },
+      {
+        "href": "#/guides/slice-risks",
+        "text": "Полный список и повторные использования"
+      },
+      {
+        "href": "#/guides/padded-atlases",
+        "text": "VPIPELINE-004"
+      },
+      {
+        "href": "#/guides/visual-resources",
+        "text": "паспорт рисунка"
+      },
+      {
+        "href": "#/guides/alpha-edges",
+        "text": "альфа-края"
+      },
+      {
+        "href": "#/guides/item-icon-sizes",
+        "text": "два размера иконок"
+      }
+    ],
+    "scrollWidth": 441,
+    "title": "Нарезка: целые кадры и точки опоры",
+    "width": 441
+  },
+  "risks": {
+    "rows": 824,
+    "scrollWidth": 441,
+    "title": "Нарезка: список кадров для просмотра",
+    "width": 441
+  }
+}

@@ -59,8 +59,16 @@ const FARM_LIFE_CELLS := {"rustic_table":Vector2i(0,2),"wooden_chair":Vector2i(1
 
 ## Возвращает область семейства пирата в горизонтальном атласе врагов.
 static func pirate_enemy_source(kind: String) -> Rect2:
-	var cell := Vector2(PIRATE_ENEMY_ATLAS.get_width() / 4.0, PIRATE_ENEMY_ATLAS.get_height())
-	return Rect2(Vector2(PIRATE_ENEMY_ORDER.find(kind), 0) * cell, cell)
+	return grid_source(PIRATE_ENEMY_ATLAS,4,1,Vector2i(PIRATE_ENEMY_ORDER.find(kind),0))
+
+
+## Делит PNG по целым границам без щелей и потери последнего пикселя при нечётной ширине.
+static func grid_source(texture: Texture2D, columns: int, rows: int, cell: Vector2i) -> Rect2:
+	if texture==null or columns<=0 or rows<=0 or columns>texture.get_width() or rows>texture.get_height() or cell.x<0 or cell.y<0 or cell.x>=columns or cell.y>=rows:return Rect2()
+	var size:=Vector2i(texture.get_width(),texture.get_height())
+	var start:=Vector2i(cell.x*size.x/columns,cell.y*size.y/rows)
+	var end:=Vector2i((cell.x+1)*size.x/columns,(cell.y+1)*size.y/rows)
+	return Rect2(Vector2(start),Vector2(end-start))
 
 
 ## Рисует пиратского врага с общей анимацией движения, урона и исчезновения.
@@ -80,8 +88,7 @@ static func draw_pirate_enemy(game: Node2D, enemy: Dictionary, state: String) ->
 static func pirate_item_source(kind: String) -> Rect2:
 	if not PIRATE_ITEM_CELLS.has(kind):
 		return Rect2()
-	var cell := Vector2(PIRATE_ITEM_ATLAS.get_width() / 4.0, PIRATE_ITEM_ATLAS.get_height() / 2.0)
-	return Rect2(Vector2(PIRATE_ITEM_CELLS[kind]) * cell, cell)
+	return grid_source(PIRATE_ITEM_ATLAS,4,2,PIRATE_ITEM_CELLS[kind])
 
 
 ## Рисует предмет из тематического пиратского атласа и сообщает об успешной отрисовке.
@@ -95,8 +102,7 @@ static func draw_pirate_item(canvas: CanvasItem, kind: String, rect: Rect2) -> b
 ## Возвращает область зелья в тематической сетке четыре на два.
 static func potion_source(kind: String) -> Rect2:
 	if not POTION_CELLS.has(kind): return Rect2()
-	var cell := Vector2(POTION_ATLAS.get_width() / 4.0, POTION_ATLAS.get_height() / 2.0)
-	return Rect2(Vector2(POTION_CELLS[kind]) * cell, cell)
+	return grid_source(POTION_ATLAS,4,2,POTION_CELLS[kind])
 
 
 ## Рисует зелье из общего атласа и сообщает, был ли вид предмета распознан.
@@ -184,9 +190,8 @@ static func inventory_item_atlas(kind: String) -> Texture2D:
 static func inventory_item_source(kind: String) -> Rect2:
 	var atlas := inventory_item_atlas(kind)
 	if atlas == null: return Rect2()
-	var cell := Vector2(atlas.get_width() / 6.0, atlas.get_height() / 4.0)
 	var coordinates: Vector2i = INVENTORY_CORE_CELLS.get(kind, INVENTORY_RARE_CELLS.get(kind, FARM_FOOD_CELLS.get(kind, Vector2i(-1, -1))))
-	return Rect2(Vector2(coordinates) * cell, cell) if coordinates.x >= 0 else Rect2()
+	return grid_source(atlas,6,4,coordinates)
 
 
 ## Убирает служебные пиксели с границ сгенерированной ячейки, не захватывая соседний спрайт.

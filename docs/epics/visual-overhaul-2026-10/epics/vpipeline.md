@@ -286,7 +286,7 @@ Linear и nearest сравниваются адресно; изменение о
 
 ## VPIPELINE-008 — Проверить целостность нарезки
 
-Статус: `ready` · P0 · этап `foundation` · `engineering`
+Статус: `done` · P0 · этап `foundation` · `engineering`
 
 Каждый source rect в пределах изображения, имеет запас и pivot; край подсолнуха и оружия не обрезан
 
@@ -302,7 +302,7 @@ Linear и nearest сравниваются адресно; изменение о
 - [scripts/presentation/prepared_item_icon_system.gd](../../../../scripts/presentation/prepared_item_icon_system.gd)
 - [assets/game/world_sprite_manifest.json](../../../../assets/game/world_sprite_manifest.json)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vpipeline-008/`.
+Результаты: `docs/reports/visual-overhaul/vpipeline-008/`.
 
 Критерии:
 
@@ -320,13 +320,13 @@ Linear и nearest сравниваются адресно; изменение о
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vpipeline-008/README.md, docs/reports/visual-overhaul/vpipeline-008/proof.json, docs/reports/visual-overhaul/vpipeline-008/legacy-slices.json, docs/reports/visual-overhaul/vpipeline-008/after/inventory.json, docs/reports/visual-overhaul/vpipeline-008/after/measurements.json, docs/reports/visual-overhaul/vpipeline-008/before-native/capture.json, docs/reports/visual-overhaul/vpipeline-008/after-native/capture.json, docs/reports/visual-overhaul/vpipeline-008/legacy-native/capture.json, docs/reports/visual-overhaul/vpipeline-008/browser.json, docs/reports/visual-overhaul/vpipeline-008/verification.json, tools/slice_audit.py, tools/slice_metrics.py, tools/slice_export.gd, tools/slice_catalogs.gd, tools/slice_policy.json, tools/slice_proof.py, tools/test_slice_audit.py, tools/test_slice_proof.py, tests/suites/atlas_source_geometry_suite.gd, wiki/articles/sprite-slices.md, wiki/articles/slice-risks.md.
 
 <a id="vpipeline-009"></a>
 
 ## VPIPELINE-009 — Составить безопасную миграцию файлов
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 Замена сохраняет стабильные ID и ссылки Wiki/F12; удаление старого ассета только после проверки всех потребителей
 

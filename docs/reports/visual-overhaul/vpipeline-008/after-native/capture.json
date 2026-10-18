@@ -1,0 +1,185 @@
+{
+  "driver": "opengl3",
+  "engine": "4.7.1-stable (official)",
+  "framebuffer": [
+    1152,
+    648
+  ],
+  "frames": {
+    "clipped-dark": "9d17d8a57a9861c9a18012868ad025d20c24fd49758ac8b41f1720f0b40d620c",
+    "clipped-light": "447301ffc5fbb99bd204a21a5b20acdaad6fbd397b97210f84b3e8472add74a5",
+    "game-dark": "cd18f2d4d3ed0816919332412cb8d831e827aa126e2804dc34ee756d7ab5b3cf",
+    "game-light": "cd63f494c76ab847d3d0080386c93dd4bd5b79e49788dbed2621098ccf435392",
+    "reference-dark": "0e4d42cc375e7df58c2beda92b5d93e7a60d9c1fad39824f1ff4019f24bce969",
+    "reference-light": "56355f9cd272278e3c6dbdc0a28b6c7de4fa98f47f94037c32dddcff67214af6"
+  },
+  "method": "gl_compatibility",
+  "performance_eligible": false,
+  "profile": "Codex-VPIPELINE-008-native-after",
+  "source_sha256": "a5784861a412f0842c9513ed751d3e99cf3fd0ea1f4d5a56ba3ab07f0b78611d",
+  "target": "fixed_gpu_subviewport",
+  "targets": [
+    {
+      "cut": [
+        0.0,
+        36.0,
+        160.0,
+        124.0
+      ],
+      "id": "ui/sunflower/160",
+      "pivot": [
+        80.0,
+        80.0
+      ],
+      "rgba_sha256": "0a9e574e268b6ea6f8949e36c385951c2d922609f12b73bc88aa0e029ea92ef0",
+      "roi": [
+        0,
+        65,
+        384,
+        270
+      ],
+      "scale": 1.0,
+      "source": [
+        0.0,
+        0.0,
+        160.0,
+        160.0
+      ]
+    },
+    {
+      "cut": [
+        0.0,
+        28.0,
+        160.0,
+        132.0
+      ],
+      "id": "ui/sword/160",
+      "pivot": [
+        80.0,
+        80.0
+      ],
+      "rgba_sha256": "acaeab1b580ec806b5ff00523e75a8f8190b62e26315ca6f3e032255ef458e16",
+      "roi": [
+        384,
+        65,
+        384,
+        270
+      ],
+      "scale": 1.0,
+      "source": [
+        0.0,
+        0.0,
+        160.0,
+        160.0
+      ]
+    },
+    {
+      "cut": [
+        0.0,
+        0.0,
+        65.0,
+        93.0
+      ],
+      "id": "characters/hero/bow/east/2",
+      "pivot": [
+        30.8474998474121,
+        91.9349975585938
+      ],
+      "rgba_sha256": "397a0a6baed2f5adb71b16018cd7b20af0803b0756529fd6cdade466845d636c",
+      "roi": [
+        768,
+        65,
+        384,
+        270
+      ],
+      "scale": 2.0,
+      "source": [
+        0.0,
+        0.0,
+        79.0,
+        93.0
+      ]
+    },
+    {
+      "cut": [
+        0.0,
+        0.0,
+        238.0,
+        253.0
+      ],
+      "id": "characters/hero/blade/east/2",
+      "pivot": [
+        97.0,
+        247.0
+      ],
+      "rgba_sha256": "ba395fb976e907befb799d94503f1894b14ebd858ebc9a85251cac9b91ffa294",
+      "roi": [
+        0,
+        365,
+        384,
+        270
+      ],
+      "scale": 0.64,
+      "source": [
+        0.0,
+        0.0,
+        283.0,
+        253.0
+      ]
+    },
+    {
+      "cut": [
+        0.0,
+        0.0,
+        305.0,
+        228.0
+      ],
+      "id": "characters/hero/spear/east/2",
+      "pivot": [
+        91.5,
+        222.0
+      ],
+      "rgba_sha256": "80581cbc9fb0023b25c6baa9485fecc603d200c4a62d9925919269ea3d2de3ca",
+      "roi": [
+        384,
+        365,
+        384,
+        270
+      ],
+      "scale": 0.64,
+      "source": [
+        0.0,
+        0.0,
+        350.0,
+        228.0
+      ]
+    },
+    {
+      "cut": [
+        256.0,
+        210.0,
+        64.0,
+        46.0
+      ],
+      "id": "crops/sunflower/spring/4",
+      "pivot": [
+        32.0,
+        64.0
+      ],
+      "rgba_sha256": "36e3ebe5e435d3eb663d9f21e639a86bf12b73c1e9853610289f19edb7fda781",
+      "roi": [
+        768,
+        365,
+        384,
+        270
+      ],
+      "scale": 1.5,
+      "source": [
+        256.0,
+        192.0,
+        64.0,
+        64.0
+      ]
+    }
+  ]
+}

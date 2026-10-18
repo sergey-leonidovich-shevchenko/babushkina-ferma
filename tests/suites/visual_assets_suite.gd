@@ -105,11 +105,11 @@ func test_pirate_enemies_and_items_cover_their_catalogs() -> void:
 	for kind in game.CombatSystem.PIRATE_FAMILIES:
 		var source: Rect2 = game.VisualAssetSystem.pirate_enemy_source(kind)
 		enemy_origins[str(source.position)] = true
-		expect(source.size == Vector2(313.5, 1254.0), "pirate family maps to generated enemy atlas: %s" % kind)
+		expect(source.size.x in [313.0,314.0] and source.size.y==1254.0 and source.position==source.position.round(), "pirate family maps to integer generated enemy region: %s" % kind)
 	expect(enemy_origins.size() == 4, "pirate enemy families use distinct atlas cells")
 	for kind in ["pirate_doubloon", "ectoplasm", "cursed_compass", "pirate_cutlass"]:
 		var source: Rect2 = game.VisualAssetSystem.pirate_item_source(kind)
-		expect(source.size == Vector2(313.5, 627.0), "active pirate item maps to generated icon atlas: %s" % kind)
+		expect(source.size.x in [313.0,314.0] and source.size.y==627.0 and source.position==source.position.round(), "active pirate item maps to integer generated icon region: %s" % kind)
 	expect(game.VisualAssetSystem.PIRATE_ITEM_CELLS.size() == 8, "item atlas reserves four future thematic treasures without procedural placeholders")
 	game.free()
 

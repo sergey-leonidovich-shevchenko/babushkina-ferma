@@ -63,7 +63,8 @@ func test_potion_catalog_crafting_visuals_and_save_roundtrip() -> void:
 	expect(potion_ids.size() == 8 and game.VisualAssetSystem.POTION_CELLS.size() == 8, "eight potion mechanics map one-to-one to generated icons")
 	for kind in potion_ids:
 		expect(game.InventorySystem.ITEM_DATA.has(kind) and game.LocaleSystem.ITEMS.has(kind), "potion is inventory-ready and translated: %s" % kind)
-		expect(game.VisualAssetSystem.potion_source(kind).size == Vector2(313.5,627.0), "potion owns a valid atlas cell: %s" % kind)
+		var source:Rect2=game.VisualAssetSystem.potion_source(kind)
+		expect(source.size.x in [313.0,314.0] and source.size.y==627.0 and source.position==source.position.round(), "potion owns an integer atlas cell: %s" % kind)
 	for kind in potion_ids.filter(func(id): return id != "healing_potion"):
 		expect(game.CraftingSystem.RECIPES.any(func(recipe): return recipe.output == kind), "advanced potion has a workbench recipe: %s" % kind)
 	game.invisibility_timer = 12.0; game.defense_timer = 21.0

@@ -1,0 +1,382 @@
+{
+  "driver": "opengl3",
+  "engine": "4.7.1-stable (official)",
+  "framebuffer": [
+    1152,
+    648
+  ],
+  "frames": {
+    "pirate-dark": "592ae91ea731e9322486654b2b6f8f8aa5c006e893f13f220f8ea3e29b10fcf6",
+    "pirate-light": "19ec861906a8cee21f0145f1fa950ce25b9a82d6f06c801140a815942b9cd151",
+    "potion-dark": "53f1c3f0d1232bd0ba16b1e52c0be4411bfdaa0171a54aea21e138376847f9db",
+    "potion-light": "dab2b9bf424dab288dc50d56f9237db75542e3cdd17e0d9ff15f483b9c46d4f8"
+  },
+  "method": "gl_compatibility",
+  "pairs": [
+    {
+      "after": [
+        0.0,
+        0.0,
+        313.0,
+        1254.0
+      ],
+      "before": [
+        0.0,
+        0.0,
+        313.5,
+        1254.0
+      ],
+      "group": "pirate",
+      "id": "legacy/pirate_enemy/pirate",
+      "path": "res://assets/game/generated/pirate_enemy_atlas.png",
+      "sha256": "774f1579a7f99205cc6910f2b604af308af8bc51a42b6da50af544c8c83daa07"
+    },
+    {
+      "after": [
+        313.0,
+        0.0,
+        314.0,
+        1254.0
+      ],
+      "before": [
+        313.5,
+        0.0,
+        313.5,
+        1254.0
+      ],
+      "group": "pirate",
+      "id": "legacy/pirate_enemy/zombie_pirate",
+      "path": "res://assets/game/generated/pirate_enemy_atlas.png",
+      "sha256": "774f1579a7f99205cc6910f2b604af308af8bc51a42b6da50af544c8c83daa07"
+    },
+    {
+      "after": [
+        627.0,
+        0.0,
+        313.0,
+        1254.0
+      ],
+      "before": [
+        627.0,
+        0.0,
+        313.5,
+        1254.0
+      ],
+      "group": "pirate",
+      "id": "legacy/pirate_enemy/sea_ghost",
+      "path": "res://assets/game/generated/pirate_enemy_atlas.png",
+      "sha256": "774f1579a7f99205cc6910f2b604af308af8bc51a42b6da50af544c8c83daa07"
+    },
+    {
+      "after": [
+        940.0,
+        0.0,
+        314.0,
+        1254.0
+      ],
+      "before": [
+        940.5,
+        0.0,
+        313.5,
+        1254.0
+      ],
+      "group": "pirate",
+      "id": "legacy/pirate_enemy/drowned_captain",
+      "path": "res://assets/game/generated/pirate_enemy_atlas.png",
+      "sha256": "774f1579a7f99205cc6910f2b604af308af8bc51a42b6da50af544c8c83daa07"
+    },
+    {
+      "after": [
+        12.0,
+        12.0,
+        289.0,
+        603.0
+      ],
+      "before": [
+        12.0,
+        12.0,
+        289.5,
+        603.0
+      ],
+      "group": "pirate",
+      "id": "legacy/icon/pirate/pirate_doubloon",
+      "path": "res://assets/game/generated/pirate_item_atlas.png",
+      "sha256": "e90aff8e036b910a43c6117e9453f2a3babc202be4ca05d2b0692d9464a38002"
+    },
+    {
+      "after": [
+        325.0,
+        12.0,
+        290.0,
+        603.0
+      ],
+      "before": [
+        325.5,
+        12.0,
+        289.5,
+        603.0
+      ],
+      "group": "pirate",
+      "id": "legacy/icon/pirate/ectoplasm",
+      "path": "res://assets/game/generated/pirate_item_atlas.png",
+      "sha256": "e90aff8e036b910a43c6117e9453f2a3babc202be4ca05d2b0692d9464a38002"
+    },
+    {
+      "after": [
+        639.0,
+        12.0,
+        289.0,
+        603.0
+      ],
+      "before": [
+        639.0,
+        12.0,
+        289.5,
+        603.0
+      ],
+      "group": "pirate",
+      "id": "legacy/icon/pirate/cursed_compass",
+      "path": "res://assets/game/generated/pirate_item_atlas.png",
+      "sha256": "e90aff8e036b910a43c6117e9453f2a3babc202be4ca05d2b0692d9464a38002"
+    },
+    {
+      "after": [
+        952.0,
+        12.0,
+        290.0,
+        603.0
+      ],
+      "before": [
+        952.5,
+        12.0,
+        289.5,
+        603.0
+      ],
+      "group": "pirate",
+      "id": "legacy/icon/pirate/pirate_cutlass",
+      "path": "res://assets/game/generated/pirate_item_atlas.png",
+      "sha256": "e90aff8e036b910a43c6117e9453f2a3babc202be4ca05d2b0692d9464a38002"
+    },
+    {
+      "after": [
+        12.0,
+        639.0,
+        289.0,
+        603.0
+      ],
+      "before": [
+        12.0,
+        639.0,
+        289.5,
+        603.0
+      ],
+      "group": "pirate",
+      "id": "legacy/icon/pirate/powder_keg",
+      "path": "res://assets/game/generated/pirate_item_atlas.png",
+      "sha256": "e90aff8e036b910a43c6117e9453f2a3babc202be4ca05d2b0692d9464a38002"
+    },
+    {
+      "after": [
+        325.0,
+        639.0,
+        290.0,
+        603.0
+      ],
+      "before": [
+        325.5,
+        639.0,
+        289.5,
+        603.0
+      ],
+      "group": "pirate",
+      "id": "legacy/icon/pirate/ship_key",
+      "path": "res://assets/game/generated/pirate_item_atlas.png",
+      "sha256": "e90aff8e036b910a43c6117e9453f2a3babc202be4ca05d2b0692d9464a38002"
+    },
+    {
+      "after": [
+        639.0,
+        639.0,
+        289.0,
+        603.0
+      ],
+      "before": [
+        639.0,
+        639.0,
+        289.5,
+        603.0
+      ],
+      "group": "pirate",
+      "id": "legacy/icon/pirate/treasure_map",
+      "path": "res://assets/game/generated/pirate_item_atlas.png",
+      "sha256": "e90aff8e036b910a43c6117e9453f2a3babc202be4ca05d2b0692d9464a38002"
+    },
+    {
+      "after": [
+        952.0,
+        639.0,
+        290.0,
+        603.0
+      ],
+      "before": [
+        952.5,
+        639.0,
+        289.5,
+        603.0
+      ],
+      "group": "pirate",
+      "id": "legacy/icon/pirate/captain_medallion",
+      "path": "res://assets/game/generated/pirate_item_atlas.png",
+      "sha256": "e90aff8e036b910a43c6117e9453f2a3babc202be4ca05d2b0692d9464a38002"
+    },
+    {
+      "after": [
+        12.0,
+        12.0,
+        289.0,
+        603.0
+      ],
+      "before": [
+        12.0,
+        12.0,
+        289.5,
+        603.0
+      ],
+      "group": "potion",
+      "id": "legacy/icon/potion/healing_potion",
+      "path": "res://assets/game/generated/potion_atlas.png",
+      "sha256": "b54cd7005a763e9219c7f4b6330877a641286673ebe31b9967938492eef3827f"
+    },
+    {
+      "after": [
+        325.0,
+        12.0,
+        290.0,
+        603.0
+      ],
+      "before": [
+        325.5,
+        12.0,
+        289.5,
+        603.0
+      ],
+      "group": "potion",
+      "id": "legacy/icon/potion/mana_potion",
+      "path": "res://assets/game/generated/potion_atlas.png",
+      "sha256": "b54cd7005a763e9219c7f4b6330877a641286673ebe31b9967938492eef3827f"
+    },
+    {
+      "after": [
+        639.0,
+        12.0,
+        289.0,
+        603.0
+      ],
+      "before": [
+        639.0,
+        12.0,
+        289.5,
+        603.0
+      ],
+      "group": "potion",
+      "id": "legacy/icon/potion/energy_potion",
+      "path": "res://assets/game/generated/potion_atlas.png",
+      "sha256": "b54cd7005a763e9219c7f4b6330877a641286673ebe31b9967938492eef3827f"
+    },
+    {
+      "after": [
+        952.0,
+        12.0,
+        290.0,
+        603.0
+      ],
+      "before": [
+        952.5,
+        12.0,
+        289.5,
+        603.0
+      ],
+      "group": "potion",
+      "id": "legacy/icon/potion/invisibility_potion",
+      "path": "res://assets/game/generated/potion_atlas.png",
+      "sha256": "b54cd7005a763e9219c7f4b6330877a641286673ebe31b9967938492eef3827f"
+    },
+    {
+      "after": [
+        12.0,
+        639.0,
+        289.0,
+        603.0
+      ],
+      "before": [
+        12.0,
+        639.0,
+        289.5,
+        603.0
+      ],
+      "group": "potion",
+      "id": "legacy/icon/potion/strength_potion",
+      "path": "res://assets/game/generated/potion_atlas.png",
+      "sha256": "b54cd7005a763e9219c7f4b6330877a641286673ebe31b9967938492eef3827f"
+    },
+    {
+      "after": [
+        325.0,
+        639.0,
+        290.0,
+        603.0
+      ],
+      "before": [
+        325.5,
+        639.0,
+        289.5,
+        603.0
+      ],
+      "group": "potion",
+      "id": "legacy/icon/potion/regeneration_potion",
+      "path": "res://assets/game/generated/potion_atlas.png",
+      "sha256": "b54cd7005a763e9219c7f4b6330877a641286673ebe31b9967938492eef3827f"
+    },
+    {
+      "after": [
+        639.0,
+        639.0,
+        289.0,
+        603.0
+      ],
+      "before": [
+        639.0,
+        639.0,
+        289.5,
+        603.0
+      ],
+      "group": "potion",
+      "id": "legacy/icon/potion/speed_potion",
+      "path": "res://assets/game/generated/potion_atlas.png",
+      "sha256": "b54cd7005a763e9219c7f4b6330877a641286673ebe31b9967938492eef3827f"
+    },
+    {
+      "after": [
+        952.0,
+        639.0,
+        290.0,
+        603.0
+      ],
+      "before": [
+        952.5,
+        639.0,
+        289.5,
+        603.0
+      ],
+      "group": "potion",
+      "id": "legacy/icon/potion/defense_potion",
+      "path": "res://assets/game/generated/potion_atlas.png",
+      "sha256": "b54cd7005a763e9219c7f4b6330877a641286673ebe31b9967938492eef3827f"
+    }
+  ],
+  "performance_eligible": false,
+  "profile": "Codex-VPIPELINE-008-legacy-final",
+  "replay": "Recorded pre-change regions versus current API; not a previous game executable",
+  "source_sha256": "2e3df3edd52107d8a1d477109d4bec572f7d49e3a02db6c0933bd5e8c636d6ff",
+  "target": "fixed_gpu_subviewport"
+}

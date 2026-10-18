@@ -1,0 +1,483 @@
+{
+  "schema_version": 1,
+  "baseline_commit": "96cedb2f48939ff5b38fbe06fa5667cc88b803da",
+  "reviews": {
+    "legacy/icon/pirate/captain_medallion": {
+      "signature": "fb608dfb867cf494ef0ced7fde462a31526baa17f3ab236bd84d42cc04933fdf",
+      "reason": "Same tightly cropped legacy PNG, now with integer boundaries. Recorded old and current regions reviewed on dark/light native sheets; modern selected icons and combat poses remain identical. These raw compatibility atlases are not approved as new art. Retirement/redraw remains VPIPELINE-009, VICON and VACTOR.",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/capture.json",
+          "sha256": "f8627c1c4fde3e099f4304ca57b12c90f6e3bab9f98aff3fe51b1193503fb584"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/pirate-dark.png",
+          "sha256": "592ae91ea731e9322486654b2b6f8f8aa5c006e893f13f220f8ea3e29b10fcf6"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/pirate-light.png",
+          "sha256": "19ec861906a8cee21f0145f1fa950ce25b9a82d6f06c801140a815942b9cd151"
+        }
+      ]
+    },
+    "legacy/icon/pirate/cursed_compass": {
+      "signature": "8097f4a4b15a96a087c6c1bd403a8f1a148cdea6cc3c3da2845a6c7ee5c3b1e4",
+      "reason": "Same tightly cropped legacy PNG, now with integer boundaries. Recorded old and current regions reviewed on dark/light native sheets; modern selected icons and combat poses remain identical. These raw compatibility atlases are not approved as new art. Retirement/redraw remains VPIPELINE-009, VICON and VACTOR.",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/capture.json",
+          "sha256": "f8627c1c4fde3e099f4304ca57b12c90f6e3bab9f98aff3fe51b1193503fb584"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/pirate-dark.png",
+          "sha256": "592ae91ea731e9322486654b2b6f8f8aa5c006e893f13f220f8ea3e29b10fcf6"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/pirate-light.png",
+          "sha256": "19ec861906a8cee21f0145f1fa950ce25b9a82d6f06c801140a815942b9cd151"
+        }
+      ]
+    },
+    "legacy/icon/pirate/pirate_cutlass": {
+      "signature": "0959e3a129f89427755b590d09f854c1f27583aa1b0b66ddabd24e1684a41056",
+      "reason": "Same tightly cropped legacy PNG, now with integer boundaries. Recorded old and current regions reviewed on dark/light native sheets; modern selected icons and combat poses remain identical. These raw compatibility atlases are not approved as new art. Retirement/redraw remains VPIPELINE-009, VICON and VACTOR.",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/capture.json",
+          "sha256": "f8627c1c4fde3e099f4304ca57b12c90f6e3bab9f98aff3fe51b1193503fb584"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/pirate-dark.png",
+          "sha256": "592ae91ea731e9322486654b2b6f8f8aa5c006e893f13f220f8ea3e29b10fcf6"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/pirate-light.png",
+          "sha256": "19ec861906a8cee21f0145f1fa950ce25b9a82d6f06c801140a815942b9cd151"
+        }
+      ]
+    },
+    "legacy/icon/pirate/pirate_doubloon": {
+      "signature": "5cd75d25e00001bd89b9f416f6bf676f2693b5c39ac62e7489171863d3eeb6d3",
+      "reason": "Same tightly cropped legacy PNG, now with integer boundaries. Recorded old and current regions reviewed on dark/light native sheets; modern selected icons and combat poses remain identical. These raw compatibility atlases are not approved as new art. Retirement/redraw remains VPIPELINE-009, VICON and VACTOR.",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/capture.json",
+          "sha256": "f8627c1c4fde3e099f4304ca57b12c90f6e3bab9f98aff3fe51b1193503fb584"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/pirate-dark.png",
+          "sha256": "592ae91ea731e9322486654b2b6f8f8aa5c006e893f13f220f8ea3e29b10fcf6"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/pirate-light.png",
+          "sha256": "19ec861906a8cee21f0145f1fa950ce25b9a82d6f06c801140a815942b9cd151"
+        }
+      ]
+    },
+    "legacy/icon/pirate/powder_keg": {
+      "signature": "735ec38c947a449f9ff9ee714bdf15cbda4d75ed88ee1cd5c66a61b58135d0ee",
+      "reason": "Same tightly cropped legacy PNG, now with integer boundaries. Recorded old and current regions reviewed on dark/light native sheets; modern selected icons and combat poses remain identical. These raw compatibility atlases are not approved as new art. Retirement/redraw remains VPIPELINE-009, VICON and VACTOR.",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/capture.json",
+          "sha256": "f8627c1c4fde3e099f4304ca57b12c90f6e3bab9f98aff3fe51b1193503fb584"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/pirate-dark.png",
+          "sha256": "592ae91ea731e9322486654b2b6f8f8aa5c006e893f13f220f8ea3e29b10fcf6"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/pirate-light.png",
+          "sha256": "19ec861906a8cee21f0145f1fa950ce25b9a82d6f06c801140a815942b9cd151"
+        }
+      ]
+    },
+    "legacy/icon/pirate/ship_key": {
+      "signature": "ce7f5edf753b2f42ad78e5328059a01b4477f0f43b035027b6aaca5911947b14",
+      "reason": "Same tightly cropped legacy PNG, now with integer boundaries. Recorded old and current regions reviewed on dark/light native sheets; modern selected icons and combat poses remain identical. These raw compatibility atlases are not approved as new art. Retirement/redraw remains VPIPELINE-009, VICON and VACTOR.",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/capture.json",
+          "sha256": "f8627c1c4fde3e099f4304ca57b12c90f6e3bab9f98aff3fe51b1193503fb584"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/pirate-dark.png",
+          "sha256": "592ae91ea731e9322486654b2b6f8f8aa5c006e893f13f220f8ea3e29b10fcf6"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/pirate-light.png",
+          "sha256": "19ec861906a8cee21f0145f1fa950ce25b9a82d6f06c801140a815942b9cd151"
+        }
+      ]
+    },
+    "legacy/icon/pirate/treasure_map": {
+      "signature": "66c1a791284f7eec77d678437558389d602e97f7dae65becd3e81f3a2ce22f27",
+      "reason": "Same tightly cropped legacy PNG, now with integer boundaries. Recorded old and current regions reviewed on dark/light native sheets; modern selected icons and combat poses remain identical. These raw compatibility atlases are not approved as new art. Retirement/redraw remains VPIPELINE-009, VICON and VACTOR.",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/capture.json",
+          "sha256": "f8627c1c4fde3e099f4304ca57b12c90f6e3bab9f98aff3fe51b1193503fb584"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/pirate-dark.png",
+          "sha256": "592ae91ea731e9322486654b2b6f8f8aa5c006e893f13f220f8ea3e29b10fcf6"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/pirate-light.png",
+          "sha256": "19ec861906a8cee21f0145f1fa950ce25b9a82d6f06c801140a815942b9cd151"
+        }
+      ]
+    },
+    "legacy/icon/potion/defense_potion": {
+      "signature": "a892dd089d28511b870e68f09fe13e3e76fb97ea07bd5f6b575a752b0c92522f",
+      "reason": "Same tightly cropped legacy PNG, now with integer boundaries. Recorded old and current regions reviewed on dark/light native sheets; modern selected icons and combat poses remain identical. These raw compatibility atlases are not approved as new art. Retirement/redraw remains VPIPELINE-009, VICON and VACTOR.",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/capture.json",
+          "sha256": "f8627c1c4fde3e099f4304ca57b12c90f6e3bab9f98aff3fe51b1193503fb584"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/potion-dark.png",
+          "sha256": "53f1c3f0d1232bd0ba16b1e52c0be4411bfdaa0171a54aea21e138376847f9db"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/potion-light.png",
+          "sha256": "dab2b9bf424dab288dc50d56f9237db75542e3cdd17e0d9ff15f483b9c46d4f8"
+        }
+      ]
+    },
+    "legacy/icon/potion/healing_potion": {
+      "signature": "a5ac4efd4be5322887f48f2db8fddea1b949729e430fab3b00278908f1c396fa",
+      "reason": "Same tightly cropped legacy PNG, now with integer boundaries. Recorded old and current regions reviewed on dark/light native sheets; modern selected icons and combat poses remain identical. These raw compatibility atlases are not approved as new art. Retirement/redraw remains VPIPELINE-009, VICON and VACTOR.",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/capture.json",
+          "sha256": "f8627c1c4fde3e099f4304ca57b12c90f6e3bab9f98aff3fe51b1193503fb584"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/potion-dark.png",
+          "sha256": "53f1c3f0d1232bd0ba16b1e52c0be4411bfdaa0171a54aea21e138376847f9db"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/potion-light.png",
+          "sha256": "dab2b9bf424dab288dc50d56f9237db75542e3cdd17e0d9ff15f483b9c46d4f8"
+        }
+      ]
+    },
+    "legacy/icon/potion/invisibility_potion": {
+      "signature": "d16b9e613e88e1ad890038a4ce78a71da7d19812a0e9ee6099eeb179b851710a",
+      "reason": "Same tightly cropped legacy PNG, now with integer boundaries. Recorded old and current regions reviewed on dark/light native sheets; modern selected icons and combat poses remain identical. These raw compatibility atlases are not approved as new art. Retirement/redraw remains VPIPELINE-009, VICON and VACTOR.",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/capture.json",
+          "sha256": "f8627c1c4fde3e099f4304ca57b12c90f6e3bab9f98aff3fe51b1193503fb584"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/potion-dark.png",
+          "sha256": "53f1c3f0d1232bd0ba16b1e52c0be4411bfdaa0171a54aea21e138376847f9db"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/potion-light.png",
+          "sha256": "dab2b9bf424dab288dc50d56f9237db75542e3cdd17e0d9ff15f483b9c46d4f8"
+        }
+      ]
+    },
+    "legacy/icon/potion/speed_potion": {
+      "signature": "dc57aaffa07b7cfd407bc4923451d018491f8363d343e4f026bee2c7230a1cc3",
+      "reason": "Same tightly cropped legacy PNG, now with integer boundaries. Recorded old and current regions reviewed on dark/light native sheets; modern selected icons and combat poses remain identical. These raw compatibility atlases are not approved as new art. Retirement/redraw remains VPIPELINE-009, VICON and VACTOR.",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/capture.json",
+          "sha256": "f8627c1c4fde3e099f4304ca57b12c90f6e3bab9f98aff3fe51b1193503fb584"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/potion-dark.png",
+          "sha256": "53f1c3f0d1232bd0ba16b1e52c0be4411bfdaa0171a54aea21e138376847f9db"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/potion-light.png",
+          "sha256": "dab2b9bf424dab288dc50d56f9237db75542e3cdd17e0d9ff15f483b9c46d4f8"
+        }
+      ]
+    },
+    "legacy/icon/potion/strength_potion": {
+      "signature": "b4f2c8f7b7e7e5b668b84b16b841f1525d44eeb554349f6756051094bf5ca2a2",
+      "reason": "Same tightly cropped legacy PNG, now with integer boundaries. Recorded old and current regions reviewed on dark/light native sheets; modern selected icons and combat poses remain identical. These raw compatibility atlases are not approved as new art. Retirement/redraw remains VPIPELINE-009, VICON and VACTOR.",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/capture.json",
+          "sha256": "f8627c1c4fde3e099f4304ca57b12c90f6e3bab9f98aff3fe51b1193503fb584"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/potion-dark.png",
+          "sha256": "53f1c3f0d1232bd0ba16b1e52c0be4411bfdaa0171a54aea21e138376847f9db"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/potion-light.png",
+          "sha256": "dab2b9bf424dab288dc50d56f9237db75542e3cdd17e0d9ff15f483b9c46d4f8"
+        }
+      ]
+    },
+    "legacy/pirate_enemy/drowned_captain": {
+      "signature": "4034d8d75a34f870268e711cf87624d3db77e18162ec5fa561fed296b63f0eed",
+      "reason": "Same tightly cropped legacy PNG, now with integer boundaries. Recorded old and current regions reviewed on dark/light native sheets; modern selected icons and combat poses remain identical. These raw compatibility atlases are not approved as new art. Retirement/redraw remains VPIPELINE-009, VICON and VACTOR.",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/capture.json",
+          "sha256": "f8627c1c4fde3e099f4304ca57b12c90f6e3bab9f98aff3fe51b1193503fb584"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/pirate-dark.png",
+          "sha256": "592ae91ea731e9322486654b2b6f8f8aa5c006e893f13f220f8ea3e29b10fcf6"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/pirate-light.png",
+          "sha256": "19ec861906a8cee21f0145f1fa950ce25b9a82d6f06c801140a815942b9cd151"
+        }
+      ]
+    },
+    "legacy/pirate_enemy/pirate": {
+      "signature": "97083a03f293b767100e1703aa9a2c5c3a59c4b3921807449f5b3846285c7beb",
+      "reason": "Same tightly cropped legacy PNG, now with integer boundaries. Recorded old and current regions reviewed on dark/light native sheets; modern selected icons and combat poses remain identical. These raw compatibility atlases are not approved as new art. Retirement/redraw remains VPIPELINE-009, VICON and VACTOR.",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/capture.json",
+          "sha256": "f8627c1c4fde3e099f4304ca57b12c90f6e3bab9f98aff3fe51b1193503fb584"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/pirate-dark.png",
+          "sha256": "592ae91ea731e9322486654b2b6f8f8aa5c006e893f13f220f8ea3e29b10fcf6"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/pirate-light.png",
+          "sha256": "19ec861906a8cee21f0145f1fa950ce25b9a82d6f06c801140a815942b9cd151"
+        }
+      ]
+    },
+    "legacy/pirate_enemy/sea_ghost": {
+      "signature": "68ca28978a7bcc0370ea82991bc079651f02c8f8bf7f08c80b42e3c75cdc229e",
+      "reason": "Same tightly cropped legacy PNG, now with integer boundaries. Recorded old and current regions reviewed on dark/light native sheets; modern selected icons and combat poses remain identical. These raw compatibility atlases are not approved as new art. Retirement/redraw remains VPIPELINE-009, VICON and VACTOR.",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/capture.json",
+          "sha256": "f8627c1c4fde3e099f4304ca57b12c90f6e3bab9f98aff3fe51b1193503fb584"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/pirate-dark.png",
+          "sha256": "592ae91ea731e9322486654b2b6f8f8aa5c006e893f13f220f8ea3e29b10fcf6"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/pirate-light.png",
+          "sha256": "19ec861906a8cee21f0145f1fa950ce25b9a82d6f06c801140a815942b9cd151"
+        }
+      ]
+    },
+    "legacy/pirate_enemy/zombie_pirate": {
+      "signature": "b5acc39887e47cbea5a3666f2a9331db0457ed38f04432ef252446bbdeee0cab",
+      "reason": "Same tightly cropped legacy PNG, now with integer boundaries. Recorded old and current regions reviewed on dark/light native sheets; modern selected icons and combat poses remain identical. These raw compatibility atlases are not approved as new art. Retirement/redraw remains VPIPELINE-009, VICON and VACTOR.",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/capture.json",
+          "sha256": "f8627c1c4fde3e099f4304ca57b12c90f6e3bab9f98aff3fe51b1193503fb584"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/pirate-dark.png",
+          "sha256": "592ae91ea731e9322486654b2b6f8f8aa5c006e893f13f220f8ea3e29b10fcf6"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/pirate-light.png",
+          "sha256": "19ec861906a8cee21f0145f1fa950ce25b9a82d6f06c801140a815942b9cd151"
+        }
+      ]
+    }
+  },
+  "call_sites": {
+    "scripts/world_background.gd": {
+      "calls": 2,
+      "scope": "bounded-procedural-or-resource",
+      "reason": "Existing renderer; exported family API or declared AtlasTexture, with procedural UI and user editor input checked by their existing suites."
+    },
+    "scripts/game_renderer.gd": {
+      "calls": 5,
+      "scope": "bounded-procedural-or-resource",
+      "reason": "Existing renderer; exported family API or declared AtlasTexture, with procedural UI and user editor input checked by their existing suites."
+    },
+    "scripts/systems/resident_visual_system.gd": {
+      "calls": 1,
+      "scope": "runtime-provider",
+      "reason": "Existing renderer; exported family API or declared AtlasTexture, with procedural UI and user editor input checked by their existing suites."
+    },
+    "scripts/systems/wildlife_visual_system.gd": {
+      "calls": 1,
+      "scope": "runtime-provider",
+      "reason": "Existing renderer; exported family API or declared AtlasTexture, with procedural UI and user editor input checked by their existing suites."
+    },
+    "scripts/systems/village_terrain_renderer.gd": {
+      "calls": 1,
+      "scope": "bounded-procedural-or-resource",
+      "reason": "Existing renderer; exported family API or declared AtlasTexture, with procedural UI and user editor input checked by their existing suites."
+    },
+    "scripts/systems/livestock_renderer.gd": {
+      "calls": 1,
+      "scope": "bounded-procedural-or-resource",
+      "reason": "Existing renderer; exported family API or declared AtlasTexture, with procedural UI and user editor input checked by their existing suites."
+    },
+    "scripts/systems/village_ambient_renderer.gd": {
+      "calls": 1,
+      "scope": "bounded-procedural-or-resource",
+      "reason": "Existing renderer; exported family API or declared AtlasTexture, with procedural UI and user editor input checked by their existing suites."
+    },
+    "scripts/systems/water_visual_system.gd": {
+      "calls": 1,
+      "scope": "bounded-procedural-or-resource",
+      "reason": "Existing renderer; exported family API or declared AtlasTexture, with procedural UI and user editor input checked by their existing suites."
+    },
+    "scripts/systems/interior_renderer.gd": {
+      "calls": 4,
+      "scope": "bounded-procedural-or-resource",
+      "reason": "Existing renderer; exported family API or declared AtlasTexture, with procedural UI and user editor input checked by their existing suites."
+    },
+    "scripts/systems/interface_renderer.gd": {
+      "calls": 1,
+      "scope": "bounded-procedural-or-resource",
+      "reason": "Existing renderer; exported family API or declared AtlasTexture, with procedural UI and user editor input checked by their existing suites."
+    },
+    "scripts/systems/hero_visual_system.gd": {
+      "calls": 2,
+      "scope": "runtime-provider",
+      "reason": "Existing renderer; exported family API or declared AtlasTexture, with procedural UI and user editor input checked by their existing suites."
+    },
+    "scripts/systems/character_ui_renderer.gd": {
+      "calls": 1,
+      "scope": "bounded-procedural-or-resource",
+      "reason": "Existing renderer; exported family API or declared AtlasTexture, with procedural UI and user editor input checked by their existing suites."
+    },
+    "scripts/systems/level_editor_atlas_picker_renderer.gd": {
+      "calls": 1,
+      "scope": "bounded-procedural-or-resource",
+      "reason": "Existing renderer; exported family API or declared AtlasTexture, with procedural UI and user editor input checked by their existing suites."
+    },
+    "scripts/systems/interior_visual_system.gd": {
+      "calls": 1,
+      "scope": "bounded-procedural-or-resource",
+      "reason": "Existing renderer; exported family API or declared AtlasTexture, with procedural UI and user editor input checked by their existing suites."
+    },
+    "scripts/systems/world_map_renderer.gd": {
+      "calls": 2,
+      "scope": "bounded-procedural-or-resource",
+      "reason": "Existing renderer; exported family API or declared AtlasTexture, with procedural UI and user editor input checked by their existing suites."
+    },
+    "scripts/systems/visual_asset_system.gd": {
+      "calls": 4,
+      "scope": "bounded-procedural-or-resource",
+      "reason": "Existing renderer; exported family API or declared AtlasTexture, with procedural UI and user editor input checked by their existing suites."
+    },
+    "scripts/systems/level_editor_renderer.gd": {
+      "calls": 4,
+      "scope": "bounded-procedural-or-resource",
+      "reason": "Existing renderer; exported family API or declared AtlasTexture, with procedural UI and user editor input checked by their existing suites."
+    },
+    "scripts/systems/story_ui_renderer.gd": {
+      "calls": 1,
+      "scope": "bounded-procedural-or-resource",
+      "reason": "Existing renderer; exported family API or declared AtlasTexture, with procedural UI and user editor input checked by their existing suites."
+    },
+    "scripts/systems/grandmother_visual_system.gd": {
+      "calls": 1,
+      "scope": "runtime-provider",
+      "reason": "Existing renderer; exported family API or declared AtlasTexture, with procedural UI and user editor input checked by their existing suites."
+    },
+    "scripts/systems/enemy_animation_library.gd": {
+      "calls": 2,
+      "scope": "runtime-provider",
+      "reason": "Existing renderer; exported family API or declared AtlasTexture, with procedural UI and user editor input checked by their existing suites."
+    },
+    "scripts/systems/farm_visual_system.gd": {
+      "calls": 1,
+      "scope": "runtime-provider",
+      "reason": "Existing renderer; exported family API or declared AtlasTexture, with procedural UI and user editor input checked by their existing suites."
+    },
+    "scripts/systems/animation_renderer.gd": {
+      "calls": 1,
+      "scope": "bounded-procedural-or-resource",
+      "reason": "Existing renderer; exported family API or declared AtlasTexture, with procedural UI and user editor input checked by their existing suites."
+    },
+    "scripts/systems/cave_boss_art_system.gd": {
+      "calls": 1,
+      "scope": "runtime-provider",
+      "reason": "Existing renderer; exported family API or declared AtlasTexture, with procedural UI and user editor input checked by their existing suites."
+    },
+    "scripts/systems/world_polish_renderer.gd": {
+      "calls": 1,
+      "scope": "bounded-procedural-or-resource",
+      "reason": "Existing renderer; exported family API or declared AtlasTexture, with procedural UI and user editor input checked by their existing suites."
+    },
+    "scripts/systems/directional_character_system.gd": {
+      "calls": 2,
+      "scope": "bounded-procedural-or-resource",
+      "reason": "Existing renderer; exported family API or declared AtlasTexture, with procedural UI and user editor input checked by their existing suites."
+    },
+    "scripts/systems/tree_occlusion_system.gd": {
+      "calls": 1,
+      "scope": "bounded-procedural-or-resource",
+      "reason": "Existing renderer; exported family API or declared AtlasTexture, with procedural UI and user editor input checked by their existing suites."
+    },
+    "scripts/systems/farm_life_visual_system.gd": {
+      "calls": 2,
+      "scope": "bounded-procedural-or-resource",
+      "reason": "Existing renderer; exported family API or declared AtlasTexture, with procedural UI and user editor input checked by their existing suites."
+    },
+    "scripts/systems/fence_renderer.gd": {
+      "calls": 1,
+      "scope": "bounded-procedural-or-resource",
+      "reason": "Existing renderer; exported family API or declared AtlasTexture, with procedural UI and user editor input checked by their existing suites."
+    },
+    "scripts/presentation/farm_renderer.gd": {
+      "calls": 1,
+      "scope": "bounded-procedural-or-resource",
+      "reason": "Existing renderer; exported family API or declared AtlasTexture, with procedural UI and user editor input checked by their existing suites."
+    },
+    "scripts/presentation/house_furniture_visual_system.gd": {
+      "calls": 1,
+      "scope": "bounded-procedural-or-resource",
+      "reason": "Existing renderer; exported family API or declared AtlasTexture, with procedural UI and user editor input checked by their existing suites."
+    },
+    "scripts/presentation/village_region_terrain.gd": {
+      "calls": 1,
+      "scope": "bounded-procedural-or-resource",
+      "reason": "Existing renderer; exported family API or declared AtlasTexture, with procedural UI and user editor input checked by their existing suites."
+    },
+    "scripts/presentation/basement_room_renderer.gd": {
+      "calls": 3,
+      "scope": "bounded-procedural-or-resource",
+      "reason": "Existing renderer; exported family API or declared AtlasTexture, with procedural UI and user editor input checked by their existing suites."
+    },
+    "scripts/presentation/alchemy_renderer.gd": {
+      "calls": 1,
+      "scope": "bounded-procedural-or-resource",
+      "reason": "Existing renderer; exported family API or declared AtlasTexture, with procedural UI and user editor input checked by their existing suites."
+    }
+  },
+  "initial_geometry_issues": [
+    "legacy/icon/pirate/captain_medallion: invalid integer source rect",
+    "legacy/icon/pirate/cursed_compass: invalid integer source rect",
+    "legacy/icon/pirate/ectoplasm: invalid integer source rect",
+    "legacy/icon/pirate/pirate_cutlass: invalid integer source rect",
+    "legacy/icon/pirate/pirate_doubloon: invalid integer source rect",
+    "legacy/icon/pirate/powder_keg: invalid integer source rect",
+    "legacy/icon/pirate/ship_key: invalid integer source rect",
+    "legacy/icon/pirate/treasure_map: invalid integer source rect",
+    "legacy/icon/potion/defense_potion: invalid integer source rect",
+    "legacy/icon/potion/energy_potion: invalid integer source rect",
+    "legacy/icon/potion/healing_potion: invalid integer source rect",
+    "legacy/icon/potion/invisibility_potion: invalid integer source rect",
+    "legacy/icon/potion/mana_potion: invalid integer source rect",
+    "legacy/icon/potion/regeneration_potion: invalid integer source rect",
+    "legacy/icon/potion/speed_potion: invalid integer source rect",
+    "legacy/icon/potion/strength_potion: invalid integer source rect",
+    "legacy/pirate_enemy/drowned_captain: invalid integer source rect",
+    "legacy/pirate_enemy/pirate: invalid integer source rect",
+    "legacy/pirate_enemy/sea_ghost: invalid integer source rect",
+    "legacy/pirate_enemy/zombie_pirate: invalid integer source rect"
+  ]
+}

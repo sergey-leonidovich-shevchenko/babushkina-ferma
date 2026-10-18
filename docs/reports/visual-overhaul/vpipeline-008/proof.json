@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "baseline_commit": "96cedb2f48939ff5b38fbe06fa5667cc88b803da",
+  "changed_regions": [
+    "legacy/icon/pirate/captain_medallion",
+    "legacy/icon/pirate/cursed_compass",
+    "legacy/icon/pirate/ectoplasm",
+    "legacy/icon/pirate/pirate_cutlass",
+    "legacy/icon/pirate/pirate_doubloon",
+    "legacy/icon/pirate/powder_keg",
+    "legacy/icon/pirate/ship_key",
+    "legacy/icon/pirate/treasure_map",
+    "legacy/icon/potion/defense_potion",
+    "legacy/icon/potion/energy_potion",
+    "legacy/icon/potion/healing_potion",
+    "legacy/icon/potion/invisibility_potion",
+    "legacy/icon/potion/mana_potion",
+    "legacy/icon/potion/regeneration_potion",
+    "legacy/icon/potion/speed_potion",
+    "legacy/icon/potion/strength_potion",
+    "legacy/pirate_enemy/drowned_captain",
+    "legacy/pirate_enemy/pirate",
+    "legacy/pirate_enemy/sea_ghost",
+    "legacy/pirate_enemy/zombie_pirate"
+  ],
+  "files": {
+    "legacy-native.log": "25f5a2271295e0198670b38436b344eb336f8014cce84de47a21484304dc9a0a",
+    "measurements.json": "3aa89c7ce024c4b9f2da2c65fa9df0cf46dbb349ed54fcc7022f5acc509c5972",
+    "legacy-slices.json": "f35de0c8ded673a5dbf824bc9200ff7195420216517da9dff005f8dc19676bc8",
+    "profile.log": "870fcc294bfa9aa840d73e74093d166c77c882101d8c8f235998b3432e2af58d",
+    "after-native.log": "da7668e274eb4f56cbc80d91ea53a1ea624207140536b41516f499c92ace0163",
+    "before-native.log": "f726656d30891036a5457d75062a6486d94c9f6ae3883dc5714ddf928694db2f",
+    "export.log": "a409bf10e7e8feaa1daba6a8c1cae7aece81cdf5f44e9c83887b53c18d7c9cca",
+    "inventory.json": "44138d9f8343b09e128ab3cc120912ccc28566823c428378533e96587bf9dae8",
+    "after-native/clipped-dark.png": "9d17d8a57a9861c9a18012868ad025d20c24fd49758ac8b41f1720f0b40d620c",
+    "after-native/reference-light.png": "56355f9cd272278e3c6dbdc0a28b6c7de4fa98f47f94037c32dddcff67214af6",
+    "after-native/clipped-light.png": "447301ffc5fbb99bd204a21a5b20acdaad6fbd397b97210f84b3e8472add74a5",
+    "after-native/game-dark.png": "cd18f2d4d3ed0816919332412cb8d831e827aa126e2804dc34ee756d7ab5b3cf",
+    "after-native/game-light.png": "cd63f494c76ab847d3d0080386c93dd4bd5b79e49788dbed2621098ccf435392",
+    "after-native/capture.json": "ed777e75fec42a4284aee0d2208500051bfcd1a5a9a3f8b91de8d76d857d37d0",
+    "after-native/reference-dark.png": "0e4d42cc375e7df58c2beda92b5d93e7a60d9c1fad39824f1ff4019f24bce969",
+    "legacy-native/potion-light.png": "dab2b9bf424dab288dc50d56f9237db75542e3cdd17e0d9ff15f483b9c46d4f8",
+    "legacy-native/pirate-dark.png": "592ae91ea731e9322486654b2b6f8f8aa5c006e893f13f220f8ea3e29b10fcf6",
+    "legacy-native/capture.json": "f8627c1c4fde3e099f4304ca57b12c90f6e3bab9f98aff3fe51b1193503fb584",
+    "legacy-native/pirate-light.png": "19ec861906a8cee21f0145f1fa950ce25b9a82d6f06c801140a815942b9cd151",
+    "legacy-native/potion-dark.png": "53f1c3f0d1232bd0ba16b1e52c0be4411bfdaa0171a54aea21e138376847f9db",
+    "before-native/clipped-dark.png": "9d17d8a57a9861c9a18012868ad025d20c24fd49758ac8b41f1720f0b40d620c",
+    "before-native/reference-light.png": "56355f9cd272278e3c6dbdc0a28b6c7de4fa98f47f94037c32dddcff67214af6",
+    "before-native/clipped-light.png": "447301ffc5fbb99bd204a21a5b20acdaad6fbd397b97210f84b3e8472add74a5",
+    "before-native/game-dark.png": "cd18f2d4d3ed0816919332412cb8d831e827aa126e2804dc34ee756d7ab5b3cf",
+    "before-native/game-light.png": "cd63f494c76ab847d3d0080386c93dd4bd5b79e49788dbed2621098ccf435392",
+    "before-native/capture.json": "dc548075d14d1d7844a2049fbd750ff36a97abfa21de8c25f092fc35b0bcaee8",
+    "before-native/reference-dark.png": "0e4d42cc375e7df58c2beda92b5d93e7a60d9c1fad39824f1ff4019f24bce969",
+    "after/measurements.json": "3c6d017e0a08ae5030b797adff6555287971cfc40d6adc7c00fee628461167c1",
+    "after/export.log": "a409bf10e7e8feaa1daba6a8c1cae7aece81cdf5f44e9c83887b53c18d7c9cca",
+    "after/inventory.json": "6807a6844df55d0824d758536f905a78d942e2d2edf08ab34b8ea915b61a6b6a"
+  },
+  "comparisons": {
+    "before-native": {
+      "dark": {
+        "ui/sunflower/160": {
+          "game": 0,
+          "clipped": 1776
+        },
+        "ui/sword/160": {
+          "game": 0,
+          "clipped": 714
+        },
+        "characters/hero/bow/east/2": {
+          "game": 0,
+          "clipped": 484
+        },
+        "characters/hero/blade/east/2": {
+          "game": 0,
+          "clipped": 324
+        },
+        "characters/hero/spear/east/2": {
+          "game": 0,
+          "clipped": 258
+        },
+        "crops/sunflower/spring/4": {
+          "game": 0,
+          "clipped": 1624
+        }
+      },
+      "light": {
+        "ui/sunflower/160": {
+          "game": 0,
+          "clipped": 1790
+        },
+        "ui/sword/160": {
+          "game": 0,
+          "clipped": 744
+        },
+        "characters/hero/bow/east/2": {
+          "game": 0,
+          "clipped": 516
+        },
+        "characters/hero/blade/east/2": {
+          "game": 0,
+          "clipped": 324
+        },
+        "characters/hero/spear/east/2": {
+          "game": 0,
+          "clipped": 258
+        },
+        "crops/sunflower/spring/4": {
+          "game": 0,
+          "clipped": 1632
+        }
+      }
+    },
+    "after-native": {
+      "dark": {
+        "ui/sunflower/160": {
+          "game": 0,
+          "clipped": 1776
+        },
+        "ui/sword/160": {
+          "game": 0,
+          "clipped": 714
+        },
+        "characters/hero/bow/east/2": {
+          "game": 0,
+          "clipped": 484
+        },
+        "characters/hero/blade/east/2": {
+          "game": 0,
+          "clipped": 324
+        },
+        "characters/hero/spear/east/2": {
+          "game": 0,
+          "clipped": 258
+        },
+        "crops/sunflower/spring/4": {
+          "game": 0,
+          "clipped": 1624
+        }
+      },
+      "light": {
+        "ui/sunflower/160": {
+          "game": 0,
+          "clipped": 1790
+        },
+        "ui/sword/160": {
+          "game": 0,
+          "clipped": 744
+        },
+        "characters/hero/bow/east/2": {
+          "game": 0,
+          "clipped": 516
+        },
+        "characters/hero/blade/east/2": {
+          "game": 0,
+          "clipped": 324
+        },
+        "characters/hero/spear/east/2": {
+          "game": 0,
+          "clipped": 258
+        },
+        "crops/sunflower/spring/4": {
+          "game": 0,
+          "clipped": 1632
+        }
+      }
+    }
+  },
+  "performance_eligible": false
+}
