@@ -3,6 +3,11 @@
 wiki/planning/*.lock
 wiki/planning/*.tmp
 tools/*
+!tools/item_sizes.py
+!tools/test_item_sizes.py
+!tools/item_sizes_review.gd
+!tools/item_sizes_capture.gd
+!tools/item_ui_fitter.gd
 !tools/texture_intents.py
 !tools/test_texture_intents.py
 !tools/texture_intent_review.gd
@@ -195,3 +200,4 @@ assets/inbox/*
 !docs/reports/visual-overhaul/vpipeline-005/*.log
 !docs/reports/visual-overhaul/vpipeline-005/numeric/*.log
 !docs/reports/visual-overhaul/vpipeline-005/numeric/*.png.import
+!docs/reports/visual-overhaul/vpipeline-006/*.log

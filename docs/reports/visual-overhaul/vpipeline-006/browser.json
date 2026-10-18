@@ -1,0 +1,26 @@
+{
+  "url": "http://127.0.0.1:4175/#/guides/item-icon-sizes",
+  "viewport": [
+    441,
+    704
+  ],
+  "page_width": 441,
+  "images_loaded": [
+    [
+      1152,
+      648
+    ],
+    [
+      1152,
+      648
+    ]
+  ],
+  "internal_links": [
+    "padded-atlases",
+    "visual-sampling",
+    "data-textures"
+  ],
+  "console_errors": [],
+  "screenshot": "wiki.png",
+  "sha256": "b9d2bc440bf08b5b29af756312cc06329944172ace0f1c62b9e3eb6b5f59d68b"
+}

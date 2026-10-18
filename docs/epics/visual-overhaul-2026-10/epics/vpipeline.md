@@ -206,7 +206,7 @@ Linear и nearest сравниваются адресно; изменение о
 
 ## VPIPELINE-006 — Закрепить два размера иконок
 
-Статус: `ready` · P0 · этап `foundation` · `engineering`
+Статус: `done` · P0 · этап `foundation` · `engineering`
 
 64 для сетки и 160 для выбранного превью; opening шкафа не декодирует все крупные мастера
 
@@ -222,7 +222,7 @@ Linear и nearest сравниваются адресно; изменение о
 - [scripts/presentation/prepared_item_icon_system.gd](../../../../scripts/presentation/prepared_item_icon_system.gd)
 - [assets/game/world_sprite_manifest.json](../../../../assets/game/world_sprite_manifest.json)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vpipeline-006/`.
+Результаты: `docs/reports/visual-overhaul/vpipeline-006/`.
 
 Критерии:
 
@@ -240,13 +240,13 @@ Linear и nearest сравниваются адресно; изменение о
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vpipeline-006/README.md, docs/reports/visual-overhaul/vpipeline-006/proof.json, docs/reports/visual-overhaul/vpipeline-006/after/capture.json, docs/reports/visual-overhaul/vpipeline-006/browser.json, docs/reports/visual-overhaul/vpipeline-006/verification.json, scripts/presentation/prepared_item_icon_system.gd, tools/item_ui_fitter.gd, tools/item_sizes.py, tools/test_item_sizes.py, tests/suites/item_sizes_suite.gd, wiki/articles/item-icon-sizes.md.
 
 <a id="vpipeline-007"></a>
 
 ## VPIPELINE-007 — Сделать проверку альфа-краёв
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 Белый и пурпурный matte обнаруживается отчётом и контрольным фоном; инструмент не удаляет белые детали предмета
 

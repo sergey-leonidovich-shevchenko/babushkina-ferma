@@ -1,0 +1,31 @@
+{
+  "task": "VPIPELINE-006",
+  "state": "validated",
+  "profile_assertions": 1204,
+  "python_scenarios": 9,
+  "native_errors": 0,
+  "native_preview_load_requests": 1,
+  "native_original_png_loads_for_cabinet": 0,
+  "game_suite": {
+    "command": "./run_tests.sh",
+    "passed": 43642,
+    "failed": 0,
+    "engine_errors": 0
+  },
+  "wiki": {
+    "tests": 38,
+    "failed": 0,
+    "typescript": "passed",
+    "build": "passed"
+  },
+  "architecture": "passed",
+  "canonical_previews_verified": 386,
+  "source_rasters_changed": 0,
+  "room_changed_pixels": 0,
+  "cabinet_changed_pixels": 2016,
+  "native_only_old_cabinet_events": true,
+  "index_export": {
+    "validated_without_working_tree_inputs": true
+  },
+  "integration_version": "0.0.243"
+}
