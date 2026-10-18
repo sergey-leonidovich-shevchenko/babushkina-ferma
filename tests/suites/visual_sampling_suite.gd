@@ -27,7 +27,7 @@ func test_filters_share_pixels_without_mutating_source_or_canvas() -> void:
 	expect(a.texture_repeat==CanvasItem.TEXTURE_REPEAT_DISABLED and b.texture_repeat==CanvasItem.TEXTURE_REPEAT_DISABLED,"standalone sampling never wraps the opposite edge")
 	expect(source.resource_path==Resources.describe("prop.rustic_table").path,"source path remains available to icons and exporters")
 	var policy := Sampling.policy(); policy.families.clear()
-	expect(Sampling.policy().families.size()==4,"external policy copies cannot change the runtime family contract")
+	expect(Sampling.policy().families.size()==5,"external policy copies cannot change the runtime family contract")
 
 
 ## Сценарий: запрашивается неизвестное семейство, пустой источник или линейный атлас без подготовленных полей.

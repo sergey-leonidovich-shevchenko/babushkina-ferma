@@ -1,0 +1,88 @@
+{
+	"cabinet_page_cache": {
+		"levels": [
+			1,
+			0
+		],
+		"limit": 4,
+		"pages": 2
+	},
+	"camera": [
+		0.0,
+		6.0
+	],
+	"day": 1,
+	"engine": "4.7.1-stable (official)",
+	"errors": [],
+	"facing": [
+		0.0,
+		1.0
+	],
+	"framebuffer": [
+		1152,
+		648
+	],
+	"id": "cottage_interior-entry-v1",
+	"location": "cottage_interior",
+	"minutes": 720.0,
+	"performance_eligible": false,
+	"phase": "day",
+	"physics_processing": false,
+	"player": [
+		204.0,
+		408.0
+	],
+	"profile": "Codex-VPIPELINE-004-final-20261018",
+	"room_configuration": {
+		"camera": [
+			0.0,
+			6.0
+		],
+		"day": 1,
+		"facing": [
+			0.0,
+			1.0
+		],
+		"id": "cottage_interior-entry-v1",
+		"location": "cottage_interior",
+		"minutes": 720.0,
+		"phase": "day",
+		"physics_processing": false,
+		"player": [
+			576.0,
+			500.0
+		],
+		"season": "spring",
+		"seed": 20261015,
+		"walkable": "walkable",
+		"weather": "clear"
+	},
+	"room_page_cache": {
+		"levels": [
+			1
+		],
+		"limit": 4,
+		"pages": 1
+	},
+	"season": "spring",
+	"seed": 20261015,
+	"sizes": [
+		64,
+		40,
+		32,
+		16,
+		8,
+		4
+	],
+	"source_sha256": {
+		"assets/game/items/ui/padded/catalog.json": "9f9143c55597e62108afcee1f7086a7ee0165f38dc2d81923b1666f8e90121e8",
+		"assets/game/visual_sampling.json": "6dcb752185303546f2f867bf73f3bd2adfcf1585be4e22121b41bdcf979003a7",
+		"scripts/presentation/padded_atlas_system.gd": "97f2d88cd1fbf2d4e77cb7ec0680e67029d9c863da2da66a959e25b3954411f7",
+		"scripts/presentation/prepared_item_icon_system.gd": "211b44d7e49193e378af91b63e776caecd9835bb5fd4b44333012bc2c636fc6a",
+		"scripts/presentation/visual_sampling_system.gd": "7c69b5cc49d387a58a21d214b00b382c1b91fc69747d3d2e953369e3debd929d",
+		"tools/padded_atlas_capture.gd": "449080fdf33eca691fe462b03a46ada34488089b128da9db8f75a97c9e5e3ce5"
+	},
+	"version": "0.0.226",
+	"walkable": "walkable",
+	"weather": "clear"
+}

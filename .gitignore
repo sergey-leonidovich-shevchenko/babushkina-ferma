@@ -1,6 +1,10 @@
 .DS_Store
 .godot/
 tools/*
+!tools/padded_atlases.py
+!tools/test_padded_atlases.py
+!tools/padded_atlas_review.gd
+!tools/padded_atlas_capture.gd
 !tools/visual_sampling.py
 !tools/test_visual_sampling.py
 !tools/visual_sampling_capture.gd

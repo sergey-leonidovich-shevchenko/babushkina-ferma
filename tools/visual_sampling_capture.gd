@@ -77,11 +77,13 @@ class Gallery extends Node2D:
 	var zoom := 1.0
 	var selected: Array = []
 	var candidate_clock: Texture2D
+	var protected_bread: Texture2D
 	var wrappers: Dictionary = {}
 	const FONT := preload("res://assets/game/fonts/ui_font.tres")
 
 	## Готовит шесть адресных обёрток один раз, а не во время рисования каждого кадра.
 	func select(family: String) -> void:
+		if protected_bread==null: protected_bread=Prepared.Padded.frame("bread",64)
 		if not wrappers.has(family):
 			var row: Array = []
 			for side in ["south","west","east"]: row.append(Sampling.create(Resources.texture("prop.rustic_table",side),family))
@@ -104,7 +106,6 @@ class Gallery extends Node2D:
 		draw_rect(Rect2(24,480,700,144),Color("253b32"))
 		draw_string(FONT,Vector2(175,525),"Шрифт и атлас: без размытия",HORIZONTAL_ALIGNMENT_LEFT,-1,22,Color("f6ecd3"))
 		draw_string(FONT,Vector2(175,563),"Аа 012345 · размер 16",HORIZONTAL_ALIGNMENT_LEFT,-1,16,Color("f6ecd3"))
-		var cell: Array = Prepared.Catalog.DATA.entries.bread.cell
-		draw_texture_rect_region(Prepared.ATLAS,Rect2(60,520,64,64),Rect2(cell[0],cell[1],64,64))
+		draw_texture_rect(protected_bread,Rect2(60,520,64,64),false)
 		draw_texture_rect(candidate_clock,Rect2(795.25,495.5,128,128),false)
 		draw_texture_rect(Dial.texture("frame"),Rect2(1030.25,520.5,64,64),false)

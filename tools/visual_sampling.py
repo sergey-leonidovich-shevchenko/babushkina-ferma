@@ -25,11 +25,12 @@ def validate(root: Path, policy: dict, resources: dict) -> list[str]:
         if row['filter'] not in ['nearest','linear']: errors.append(name+': filter must be explicit nearest/linear')
         if row['repeat']!='disabled': errors.append(name+': standalone repeat must be disabled')
         layouts=row['layouts']
-        if not isinstance(layouts,list) or not layouts or any(not isinstance(x,str) for x in layouts) or len(set(layouts))!=len(layouts) or set(layouts)-{'standalone','atlas'}:
+        if not isinstance(layouts,list) or not layouts or any(not isinstance(x,str) for x in layouts) or len(set(layouts))!=len(layouts) or set(layouts)-{'standalone','atlas','padded_atlas'}:
             errors.append(name+': invalid layouts'); continue
         if row['filter']=='linear' and 'atlas' in layouts: errors.append(name+': linear atlas requires VPIPELINE-004 padding')
-    for name, mode in [('legacy_world','nearest'),('legacy_ui','nearest'),('painted_world','linear'),('painted_ui','linear')]:
+    for name, mode in [('legacy_world','nearest'),('legacy_ui','nearest'),('painted_world','linear'),('painted_ui','linear'),('painted_atlas','linear')]:
         if families.get(name,{}).get('filter')!=mode: errors.append(name+': missing or unsafe family mode')
+    if families.get('painted_atlas',{}).get('layouts')!=['padded_atlas']: errors.append('painted_atlas: requires validated padded pages')
     for id, row in resources.get('resources',{}).items():
         family=row.get('sampling_family')
         profile=families.get(family,{}) if isinstance(family,str) else {}

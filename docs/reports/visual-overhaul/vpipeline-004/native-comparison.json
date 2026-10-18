@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "base_commit": "4c930d1266bed5083f2b24b376f5df82f002d65d",
+  "before_room_sha256": "a36f9b0e326c5e960757a98956427da3d7f14f0c47209747b7b65bdb83ef52a4",
+  "frames": {
+    "light-padded": "87c48f091bd643d294cf3e5be28a70da06edd25c1e803803debdbc5c6ec55c1c",
+    "cabinet": "7b156f55a052906f0703efcbbee620cdeb69d8e93c448bc46a12b284c7e8669c",
+    "room": "cf60c92f39086d0b19cd2d8781862f2bf5e9ea236a60f81dc5bae3528bb4fa9e",
+    "light-unsafe": "53d028c462e4e83bb9839f335c903cfb2174a1661cf71c44b28605221be4c45f",
+    "dark-isolated": "d895b8b2479fe8242b974866c0ae2f2c3b50845abb9eb8036e062775b42090c3",
+    "dark-unsafe": "648e918b0ad55389d405aeeffb7288ff51202a2a19e63f528f579e4a2e478d47",
+    "light-isolated": "87c48f091bd643d294cf3e5be28a70da06edd25c1e803803debdbc5c6ec55c1c",
+    "dark-padded": "d895b8b2479fe8242b974866c0ae2f2c3b50845abb9eb8036e062775b42090c3"
+  }
+}

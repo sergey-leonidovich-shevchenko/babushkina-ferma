@@ -5542,7 +5542,7 @@
       "id": "VPIPELINE-004",
       "epic": "VPIPELINE",
       "title": "Подготовить padding атласов",
-      "status": "ready",
+      "status": "done",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -5579,13 +5579,26 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vpipeline-004-visual-task",
-      "evidence": []
+      "evidence": [
+        "docs/reports/visual-overhaul/vpipeline-004/README.md",
+        "docs/reports/visual-overhaul/vpipeline-004/native-comparison.json",
+        "docs/reports/visual-overhaul/vpipeline-004/native/capture.json",
+        "docs/reports/visual-overhaul/vpipeline-004/browser.json",
+        "docs/reports/visual-overhaul/vpipeline-004/verification.json",
+        "assets/game/items/ui/padded/catalog.json",
+        "scripts/presentation/padded_atlas_system.gd",
+        "tools/padded_atlases.py",
+        "tools/test_padded_atlases.py",
+        "tests/suites/padded_atlas_suite.gd",
+        "wiki/articles/padded-atlases.md"
+      ],
+      "result": "18 октября 2026: VPIPELINE-004 выполнена на полном пакете миниатюр 386 предметов. Четыре отдельные страницы 64/32/16/8, поля полного RGBA по 2px и filter_clip. Каждый кадр уменьшается независимо; аппаратные mipmaps, повтор и повторная обработка альфы запрещены. Пятое семейство painted_atlas допускается по опубликованному пути/уровню/размеру, ложный флаг готовности не принимается. Все страницы ленивые, включая базовую; в нативной комнате затребован только 32, в шкафу — 32 и 64. Сохранены роли 64/160, provider/tint/sourceHash и предел 16 больших превью. Собственный кеш не превышает четыре страницы и четыре региона на предмет. 12 Python-сценариев на настоящих копиях PNG/импорта и нативных доказательств; валидатор сверяет кадры и поля независимо от упаковщика. 4658 профильных утверждений Godot. Восемь нативных кадров 1152×648: новый атлас целиком совпадает с изолированными кадрами на двух фонах и шести размерах; негативный контроль действительно подмешивает соседний цвет при аппаратном mip. В комнате изменились только используемые миниатюры; остальной кадр совпал с базой. Wiki обновлена, 22 проверки, TypeScript/build, поиск и ссылки/картинки проверены в браузере. Глобальная фильтрация, механики, сохранения и геометрия не менялись. Прочие атласы, PCK, FPS и длительная память остаются отдельными задачами; публикация допускается только после обязательного полного gate."
     },
     {
       "id": "VPIPELINE-005",
       "epic": "VPIPELINE",
       "title": "Проверить цветовые и data текстуры",
-      "status": "backlog",
+      "status": "ready",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",

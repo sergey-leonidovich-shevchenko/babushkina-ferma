@@ -126,7 +126,7 @@ Linear и nearest сравниваются адресно; изменение о
 
 ## VPIPELINE-004 — Подготовить padding атласов
 
-Статус: `ready` · P0 · этап `foundation` · `engineering`
+Статус: `done` · P0 · этап `foundation` · `engineering`
 
 Экструзия края и запас учитывают фильтр и mip; на уменьшении не видны соседние кадры
 
@@ -142,7 +142,7 @@ Linear и nearest сравниваются адресно; изменение о
 - [scripts/presentation/prepared_item_icon_system.gd](../../../../scripts/presentation/prepared_item_icon_system.gd)
 - [assets/game/world_sprite_manifest.json](../../../../assets/game/world_sprite_manifest.json)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vpipeline-004/`.
+Результаты: `docs/reports/visual-overhaul/vpipeline-004/`.
 
 Критерии:
 
@@ -160,13 +160,13 @@ Linear и nearest сравниваются адресно; изменение о
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vpipeline-004/README.md, docs/reports/visual-overhaul/vpipeline-004/native-comparison.json, docs/reports/visual-overhaul/vpipeline-004/native/capture.json, docs/reports/visual-overhaul/vpipeline-004/browser.json, docs/reports/visual-overhaul/vpipeline-004/verification.json, assets/game/items/ui/padded/catalog.json, scripts/presentation/padded_atlas_system.gd, tools/padded_atlases.py, tools/test_padded_atlases.py, tests/suites/padded_atlas_suite.gd, wiki/articles/padded-atlases.md.
 
 <a id="vpipeline-005"></a>
 
 ## VPIPELINE-005 — Проверить цветовые и data текстуры
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 Маски глубины и гибкости не проходят цветовую коррекцию; RGBA значения после импорта проверены численно
 

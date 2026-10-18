@@ -32,7 +32,7 @@ class SamplingTests(unittest.TestCase):
         self.assertEqual(self.check(),[])
         self.assertEqual(self.resources['resources']['prop.rustic_table']['sampling_family'],'painted_world')
         cloned=copy.deepcopy(self.policy); cloned['families'].clear()
-        self.assertEqual(len(self.policy['families']),4)
+        self.assertEqual(len(self.policy['families']),5)
 
     def test_duplicate_family_is_rejected(self):
         """Повторный ID нельзя незаметно перезаписать последним профилем JSON."""

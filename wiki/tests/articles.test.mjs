@@ -34,6 +34,12 @@ test('visual pipeline and numbered idea are published and linked', async () => {
   assert.match(resource.html, /#\/guides\/visual-sampling/)
   assert.match(sampling.html, /painted_world/)
   assert.match(sampling.html, /VPIPELINE-004/)
+  const padded = catalog.entries.find((entry) => entry.id === 'padded-atlases')
+  assert.ok(padded.tags.includes('VPIPELINE-004'))
+  assert.equal((padded.html.match(/<img /g) ?? []).length, 2)
+  assert.match(padded.html, /#\/guides\/visual-sampling/)
+  assert.match(sampling.html, /#\/guides\/padded-atlases/)
+  assert.match(padded.html, /386/)
 })
 
 // Сценарий: неправильная статья должна прервать подготовку до публикации.
