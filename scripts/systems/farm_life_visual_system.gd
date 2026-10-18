@@ -12,14 +12,14 @@ const FURNITURE_TEXTURES := {
 	"wooden_wardrobe": preload("res://assets/game/items/catalog/wooden_wardrobe.png"),
 }
 static var _furniture_regions: Dictionary = {}
-const PROFILES:={
+static var PROFILES:={
 	"pig":{"cell":Vector2i(4,0),"visual":Vector2(96,72),"collision":Vector2(48,24)},
 	"hen":{"cell":Vector2i(0,0),"visual":Vector2(72,72),"collision":Vector2(48,24)},
 	"cow":{"cell":Vector2i(1,0),"visual":Vector2(96,96),"collision":Vector2(48,24)},
 	"sheep":{"cell":Vector2i(2,0),"visual":Vector2(96,96),"collision":Vector2(48,24)},
 	"trough":{"cell":Vector2i(3,0),"visual":Vector2(96,72),"collision":Vector2(72,24)},
 	"museum":{"cell":Vector2i(0,1),"visual":Vector2(96,96),"collision":Vector2(72,48)},
-	"rustic_table":{"cell":Vector2i(0,2),"visual":Vector2(96,72),"collision":Vector2(72,48)},
+	"rustic_table":{"cell":Vector2i(0,2),"visual":Cardinal.Resources.describe("prop.rustic_table").logical_size,"collision":Cardinal.Resources.describe("prop.rustic_table").footprint_size},
 	"wooden_chair":{"cell":Vector2i(1,2),"visual":Vector2(72,72),"collision":Vector2(48,24)},
 	"woven_rug":{"cell":Vector2i(2,2),"visual":Vector2(120,72),"collision":Vector2.ZERO},
 	"potted_fern":{"cell":Vector2i(3,2),"visual":Vector2(72,96),"collision":Vector2(48,24)},
@@ -29,9 +29,19 @@ const PROFILES:={
 }
 
 
+## Сохраняет неизменяемый совместимый каталог, получая размеры пилота из единственного паспорта.
+static func _static_init() -> void:
+	for entry in PROFILES.values(): entry.make_read_only()
+	PROFILES.make_read_only()
+
+
 ## Возвращает независимый профиль ячейки, модульного размера и видимого основания объекта фермерской жизни.
 static func profile(kind:String, direction:int=0)->Dictionary:
 	var result:=Dictionary(PROFILES.get(kind,{})).duplicate(true)
+	if kind=="rustic_table":
+		var view := Cardinal.Resources.describe("prop.rustic_table",Cardinal.Facing.NAMES[Cardinal.Facing.visible(direction)])
+		result.visual=view.logical_size; result.collision=view.footprint_size
+		return result
 	if result.is_empty() or posmod(direction,2)==0: return result
 	if kind=="woven_rug": result.visual=Vector2(result.visual.y,result.visual.x)
 	elif kind in ["rustic_table","wooden_wardrobe"]: result.visual.x=72.0
@@ -43,6 +53,13 @@ static func profile(kind:String, direction:int=0)->Dictionary:
 static func source_rect(kind:String)->Rect2:
 	var cell:=Vector2(profile(kind).get("cell",Vector2i.ZERO))
 	return Rect2(cell*SOURCE_CELL,SOURCE_CELL)
+
+
+## Предоставляет аудиту разрешённые профили, включая размеры из паспортов вместо старых дубликатов.
+static func profiles() -> Dictionary:
+	var result := {}
+	for kind in PROFILES: result[kind]=profile(kind)
+	return result
 
 
 ## Строит видимый прямоугольник относительно единой нижней точки опоры.

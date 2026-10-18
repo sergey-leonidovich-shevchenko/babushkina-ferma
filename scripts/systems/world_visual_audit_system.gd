@@ -18,7 +18,7 @@ static func profiles() -> Dictionary:
 	_append_catalog(result,"loot",WorldLootVisualSystem.PROFILES)
 	_append_catalog(result,"buildings",BuildingVisualSystem.PROFILES,"visual_size","foundation_size","bottom_center")
 	_append_catalog(result,"environment",EnvironmentVisualSystem.PROFILES,"size","collision","ground_center")
-	_append_catalog(result,"farm_life",FarmLifeVisualSystem.PROFILES,"visual","collision","bottom_center")
+	_append_catalog(result,"farm_life",FarmLifeVisualSystem.profiles(),"visual","collision","bottom_center")
 	_append_catalog(result,"interiors",InteriorVisualSystem.PROFILES,"visual_size","collision_size","bottom_center")
 	for rank in CreatureVisualProfileSystem.ENEMY_RANK_SIZES.size():
 		result["creatures.enemy_rank_%d"%rank]={"visual_size":CreatureVisualProfileSystem.ENEMY_RANK_SIZES[rank],"anchor":"ground_center","anchor_ratio":CreatureVisualProfileSystem.GROUND_RATIO,"collision_size":Vector2.ZERO,"collision_offset":Vector2.ZERO}

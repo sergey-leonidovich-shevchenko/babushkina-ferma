@@ -22,6 +22,11 @@ test('visual pipeline and numbered idea are published and linked', async () => {
   assert.match(idea.html, /#\/guides\/visual-pipeline/)
   assert.match(idea.html, /Статус: предложение/)
   assert.ok(pipeline.tags.includes('VPIPELINE-001'))
+  const resource = catalog.entries.find((entry) => entry.id === 'visual-resources')
+  assert.match(resource.html, /generated\/illustrations\//)
+  assert.match(resource.html, /prop\.rustic_table/)
+  assert.match(resource.html, /#\/guides\/IDEA-001/)
+  assert.match(idea.html, /#\/guides\/visual-resources/)
 })
 
 // Сценарий: неправильная статья должна прервать подготовку до публикации.

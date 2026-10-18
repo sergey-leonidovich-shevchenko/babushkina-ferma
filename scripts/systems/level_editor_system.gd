@@ -308,7 +308,7 @@ static func place_selected_asset(game: Node, state: Dictionary, screen_point: Ve
 	var world := screen_point + Vector2(game.camera_offset)
 	var anchor := String(entry.get("anchor","center"))
 	if anchor=="tile": size=Vector2.ONE*int(state.grid)
-	var position := placement_position(state,world,anchor)
+	var position := AssetCatalogSystem.Resources.editor_position(placement_position(state,world,anchor),world,state,entry)
 	if anchor == "tile": _remove_ground_at(state,position,String(state.layer))
 	var object := {"id":int(state.next_id),"asset_path":path,"name":path.get_file().get_basename(),"notes":"","position":position,"size":size,"source":source,"anchor":anchor,"layer":state.layer,"collision":state.collision,"collision_size":size,"collision_offset":Vector2.ZERO,"runtime_role":"","rotation":0.0,"flip_x":false,"flip_y":false,"reference":false,"runtime_id":"","original_position":Vector2.ZERO,"hidden":false,"unique_key":unique_key,"catalog_category":String(entry.get("category","other")),"surface_kind":String(entry.get("surface_kind","")),"autotile_diagonal_mask":0,"transition_masks":{},"transition_corner_masks":{}}
 	if bool(entry.get("entity_template", false)):

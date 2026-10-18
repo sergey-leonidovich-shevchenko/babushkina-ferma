@@ -1,0 +1,113 @@
+{
+	"camera": [
+		0.0,
+		6.0
+	],
+	"day": 1,
+	"engine": "4.7.1-stable (official)",
+	"errors": [],
+	"facing": [
+		0.0,
+		1.0
+	],
+	"filter": 0,
+	"framebuffer": [
+		1152,
+		648
+	],
+	"id": "cottage_interior-entry-v1",
+	"location": "cottage_interior",
+	"minutes": 720.0,
+	"performance_eligible": false,
+	"phase": "day",
+	"physics_processing": false,
+	"player": [
+		576.0,
+		500.0
+	],
+	"profile": "Codex-VPIPELINE-002-delivery-20261018",
+	"rows": [
+		{
+			"direction": 0,
+			"draw_size": [
+				96.0,
+				64.0
+			],
+			"footprint": [
+				72.0,
+				48.0
+			],
+			"logical_size": [
+				96.0,
+				72.0
+			],
+			"path": "res://assets/game/interiors/furniture_a/rustic_table_south.png",
+			"pixels": [
+				256,
+				176
+			],
+			"source": [
+				8.0,
+				8.0,
+				240.0,
+				160.0
+			]
+		},
+		{
+			"direction": 1,
+			"draw_size": [
+				53.7000007629395,
+				72.0
+			],
+			"footprint": [
+				48.0,
+				72.0
+			],
+			"logical_size": [
+				72.0,
+				72.0
+			],
+			"path": "res://assets/game/interiors/furniture_a/rustic_table_west.png",
+			"pixels": [
+				195,
+				256
+			],
+			"source": [
+				8.0,
+				8.0,
+				179.0,
+				240.0
+			]
+		},
+		{
+			"direction": 3,
+			"draw_size": [
+				53.1000022888184,
+				72.0
+			],
+			"footprint": [
+				48.0,
+				72.0
+			],
+			"logical_size": [
+				72.0,
+				72.0
+			],
+			"path": "res://assets/game/interiors/furniture_a/rustic_table_east.png",
+			"pixels": [
+				193,
+				256
+			],
+			"source": [
+				8.0,
+				8.0,
+				177.0,
+				240.0
+			]
+		}
+	],
+	"season": "spring",
+	"seed": 20261015,
+	"walkable": "walkable",
+	"weather": "clear"
+}

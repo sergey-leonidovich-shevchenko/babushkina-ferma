@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "method": "manual CUA browser review",
+  "wiki_version": "0.0.223",
+  "url": "http://127.0.0.1:4174/#/guides/visual-resources",
+  "search": "VPIPELINE-002",
+  "checks": {
+    "search_finds_resource_article": true,
+    "native_illustration_loaded": true,
+    "single_title": true,
+    "idea_status_distinguishes_proposal_from_passport": true,
+    "internal_links": true
+  },
+  "scope": "New article and its links; existing game catalogs and controls covered by pnpm check."
+}

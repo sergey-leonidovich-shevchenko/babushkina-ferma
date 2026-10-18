@@ -11,7 +11,6 @@ const ITEM_ICON_DIRECTORY := "res://assets/game/items/catalog"
 const ITEM_ICON_OVERRIDES := {
 	"qa_teleport_stone":"res://assets/game/items/catalog/blue_gem.png",
 	"crystal":"res://assets/game/items/catalog/crystal_clean_v2.png",
-	"rustic_table":"res://assets/game/interiors/furniture_a/rustic_table_south.png",
 	"wooden_chair":"res://assets/game/interiors/furniture_a/wooden_chair_south.png",
 	"wooden_wardrobe":"res://assets/game/interiors/furniture_a/wooden_wardrobe_south.png",
 	"woven_rug":"res://assets/game/interiors/furniture_a/woven_rug_south.png",
@@ -24,6 +23,7 @@ static var _draw_descriptors:Dictionary={}
 const ItemIcons := preload("res://scripts/presentation/item_icon_visual_system.gd")
 const PreparedIcons := preload("res://scripts/presentation/prepared_item_icon_system.gd")
 const PaintedIcons := preload("res://assets/game/items/painted/catalog.gd")
+const Resources := preload("res://scripts/systems/visual_resource_catalog.gd")
 
 const PIRATE_ENEMY_ORDER := ["pirate", "zombie_pirate", "sea_ghost", "drowned_captain"]
 const PIRATE_ITEM_CELLS := {
@@ -115,7 +115,8 @@ static func initialize_item_icons(kinds: Array, overrides: Dictionary = ITEM_ICO
 		var kind := String(value)
 		var icon_kind := "carrot_seeds" if kind == "seeds" else kind
 		var path:String=overrides.get(kind,"%s/%s.png" % [ITEM_ICON_DIRECTORY, icon_kind])
-		if overrides.has(kind) and ResourceLoader.exists(path): _item_source_paths[kind]=path; _active_icon_overrides[kind]=true
+		if kind=="rustic_table" and not overrides.has(kind): path=Resources.describe("prop.rustic_table").path
+		if (overrides.has(kind) or kind=="rustic_table") and ResourceLoader.exists(path): _item_source_paths[kind]=path; _active_icon_overrides[kind]=true
 		elif PaintedIcons.ITEMS.has(kind) and ResourceLoader.exists(PaintedIcons.ITEMS[kind]): _item_source_paths[kind]=PaintedIcons.ITEMS[kind]; _active_icon_overrides[kind]=true
 		elif preload("res://scripts/presentation/artisan_visual_system.gd").ITEMS.has(kind): item_icon_cache[kind]=preload("res://scripts/presentation/artisan_visual_system.gd").ITEMS[kind]
 		elif ResourceLoader.exists(path): _item_source_paths[kind]=path

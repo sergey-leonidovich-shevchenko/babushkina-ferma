@@ -5431,7 +5431,7 @@
       "id": "VPIPELINE-002",
       "epic": "VPIPELINE",
       "title": "Описать метаданные нового ресурса",
-      "status": "ready",
+      "status": "done",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -5467,13 +5467,26 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vpipeline-002-visual-task",
-      "evidence": []
+      "evidence": [
+        "docs/reports/visual-overhaul/vpipeline-002/README.md",
+        "docs/reports/visual-overhaul/vpipeline-002/native-comparison.json",
+        "docs/reports/visual-overhaul/vpipeline-002/verification.json",
+        "docs/reports/visual-overhaul/vpipeline-002/browser.json",
+        "assets/game/visual_resources.json",
+        "scripts/systems/visual_resource_catalog.gd",
+        "tools/visual_resources.py",
+        "tools/test_visual_resources.py",
+        "tests/suites/visual_resource_suite.gd",
+        "docs/VISUAL_RESOURCE_FORMAT.md",
+        "wiki/articles/visual-resources.md"
+      ],
+      "result": "2026-10-18: добавлен паспорт v1 с независимыми ID ресурсов/текстур, нарезкой, нормализованной опорой, мировым размером, отдельным основанием, ракурсами, фильтром и качествами. Реальный пилот prop.rustic_table подключён к отрисовке, предметной иконке, проверке контента и F12; исходные PNG и геометрия игры сохранены. Каталоги и кешированные дескрипторы неизменяемы. F12 использует фактический размер и отдельное основание, выравнивает его на сетках 6/12/24. Новый мастер поддерживает путь вне импорта и SHA256; старый пилот имеет честное происхождение legacy_runtime. 13 Python-сценариев с настоящими копиями PNG, 37 профильных утверждений Godot, 22 проверки Wiki и нативные пары комнаты/трёх ракурсов 1152×648; обе пары совпадают целиком. Компактная иллюстрация снята отдельным viewport и совпадает с регионом полного кадра. Wiki и IDEA-001 обновлены, новый номер идеи не занят повтором существующей. Публикация коммитом VPIPELINE-002 после обязательного полного gate; фильтрация семейств, массовая миграция, PCK и FPS не объявлены готовыми."
     },
     {
       "id": "VPIPELINE-003",
       "epic": "VPIPELINE",
       "title": "Настроить фильтрацию по семействам",
-      "status": "backlog",
+      "status": "ready",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",

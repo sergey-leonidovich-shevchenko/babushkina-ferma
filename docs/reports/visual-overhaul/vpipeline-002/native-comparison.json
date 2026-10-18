@@ -1,0 +1,43 @@
+{
+  "base_commit": "7c7facd2b882b063953158b342bbd9a7e69e25b0",
+  "performance_eligible": false,
+  "matching_configuration": true,
+  "frames": {
+    "room": {
+      "decoded_pixel_equal": true,
+      "size": [
+        1152,
+        648
+      ],
+      "sha256": {
+        "before": "71a7271a9d67315850354c9d020182d0269bde1ae5f1d90d2b5352df361ab1e1",
+        "after": "71a7271a9d67315850354c9d020182d0269bde1ae5f1d90d2b5352df361ab1e1"
+      }
+    },
+    "gallery": {
+      "decoded_pixel_equal": true,
+      "size": [
+        1152,
+        648
+      ],
+      "sha256": {
+        "before": "eda3c7cb3fc4b7954d023f54056ef975695c12bf6aa3ed0f2719b011f019b939",
+        "after": "eda3c7cb3fc4b7954d023f54056ef975695c12bf6aa3ed0f2719b011f019b939"
+      }
+    }
+  },
+  "preview": {
+    "method": "native SubViewport",
+    "size": [
+      1152,
+      220
+    ],
+    "matches_full_frame_region": [
+      0,
+      260,
+      1152,
+      220
+    ],
+    "sha256": "19d52b62a0a791b9201ac8f2cfeeaaf850f85c3426fbb91ede11dc79438bfe8c"
+  }
+}

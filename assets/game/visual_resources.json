@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "textures": {
+    "oak_table_south": {
+      "file": "res://assets/game/interiors/furniture_a/rustic_table_south.png",
+      "pixels": [
+        256,
+        176
+      ],
+      "sha256": "5a49c3222aeb1e3bc2e8ca97b2efe2173184ba18662de7fb1de070c884b15238",
+      "layout": "standalone",
+      "import": {
+        "compress/mode": 0,
+        "mipmaps/generate": false,
+        "process/fix_alpha_border": true,
+        "process/premult_alpha": false
+      }
+    },
+    "oak_table_west": {
+      "file": "res://assets/game/interiors/furniture_a/rustic_table_west.png",
+      "pixels": [
+        195,
+        256
+      ],
+      "sha256": "07852b30af6c743e8939dcddef6e2c8f50ee80a14afe877a68298addb594ea53",
+      "layout": "standalone",
+      "import": {
+        "compress/mode": 0,
+        "mipmaps/generate": false,
+        "process/fix_alpha_border": true,
+        "process/premult_alpha": false
+      }
+    },
+    "oak_table_east": {
+      "file": "res://assets/game/interiors/furniture_a/rustic_table_east.png",
+      "pixels": [
+        193,
+        256
+      ],
+      "sha256": "d04458db38f0f6ba6f9877b69840299a3e664e117bfd5356a450727c045be618",
+      "layout": "standalone",
+      "import": {
+        "compress/mode": 0,
+        "mipmaps/generate": false,
+        "process/fix_alpha_border": true,
+        "process/premult_alpha": false
+      }
+    }
+  },
+  "resources": {
+    "prop.rustic_table": {
+      "kind": "prop",
+      "space": "world",
+      "owner": "FarmLifeVisualSystem + HouseFurnitureVisualSystem",
+      "task": "VPIPELINE-002",
+      "source": {
+        "kind": "legacy_runtime",
+        "commit": "7c7facd2b882b063953158b342bbd9a7e69e25b0"
+      },
+      "filter": "nearest",
+      "default_quality": "standard",
+      "views": {
+        "south": {
+          "logical_size": [
+            96.0,
+            72.0
+          ],
+          "footprint_size": [
+            72.0,
+            48.0
+          ],
+          "pivot": [
+            0.5,
+            1.0
+          ],
+          "variants": {
+            "standard": {
+              "texture": "oak_table_south",
+              "source_rect": [
+                8.0,
+                8.0,
+                240.0,
+                160.0
+              ]
+            }
+          }
+        },
+        "west": {
+          "logical_size": [
+            72.0,
+            72.0
+          ],
+          "footprint_size": [
+            48.0,
+            72.0
+          ],
+          "pivot": [
+            0.5,
+            1.0
+          ],
+          "variants": {
+            "standard": {
+              "texture": "oak_table_west",
+              "source_rect": [
+                8.0,
+                8.0,
+                179.0,
+                240.0
+              ]
+            }
+          }
+        },
+        "east": {
+          "logical_size": [
+            72.0,
+            72.0
+          ],
+          "footprint_size": [
+            48.0,
+            72.0
+          ],
+          "pivot": [
+            0.5,
+            1.0
+          ],
+          "variants": {
+            "standard": {
+              "texture": "oak_table_east",
+              "source_rect": [
+                8.0,
+                8.0,
+                177.0,
+                240.0
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

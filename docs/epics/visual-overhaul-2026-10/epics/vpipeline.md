@@ -46,7 +46,7 @@
 
 ## VPIPELINE-002 — Описать метаданные нового ресурса
 
-Статус: `ready` · P0 · этап `foundation` · `engineering`
+Статус: `done` · P0 · этап `foundation` · `engineering`
 
 ID, source rect, pivot, физический размер, ракурсы, фильтр и варианты качества сохраняются независимо от имени PNG
 
@@ -62,7 +62,7 @@ ID, source rect, pivot, физический размер, ракурсы, фи�
 - [scripts/presentation/prepared_item_icon_system.gd](../../../../scripts/presentation/prepared_item_icon_system.gd)
 - [assets/game/world_sprite_manifest.json](../../../../assets/game/world_sprite_manifest.json)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vpipeline-002/`.
+Результаты: `docs/reports/visual-overhaul/vpipeline-002/`.
 
 Критерии:
 
@@ -80,13 +80,13 @@ ID, source rect, pivot, физический размер, ракурсы, фи�
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vpipeline-002/README.md, docs/reports/visual-overhaul/vpipeline-002/native-comparison.json, docs/reports/visual-overhaul/vpipeline-002/verification.json, docs/reports/visual-overhaul/vpipeline-002/browser.json, assets/game/visual_resources.json, scripts/systems/visual_resource_catalog.gd, tools/visual_resources.py, tools/test_visual_resources.py, tests/suites/visual_resource_suite.gd, docs/VISUAL_RESOURCE_FORMAT.md, wiki/articles/visual-resources.md.
 
 <a id="vpipeline-003"></a>
 
 ## VPIPELINE-003 — Настроить фильтрацию по семействам
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 Linear и nearest сравниваются адресно; изменение общего флага не размывает старые шрифты и атласы
 
