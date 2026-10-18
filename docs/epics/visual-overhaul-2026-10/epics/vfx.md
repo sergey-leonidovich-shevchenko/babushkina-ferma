@@ -252,7 +252,7 @@
 
 Ветка: `codex/vfx-007-visual-task`.
 
-Зависимости: VFX-001.
+Зависимости: VFX-001, VTREE-018, VTREE-019.
 
 Единый владелец пересечения: **OPT-05**. Эта карточка уточняет работу владельца, не закрывает его автоматически.
 
@@ -261,6 +261,9 @@
 - [scripts/systems/action_effect_visual_system.gd](../../../../scripts/systems/action_effect_visual_system.gd)
 - [scripts/systems/enemy_projectile_system.gd](../../../../scripts/systems/enemy_projectile_system.gd)
 - [scripts/systems/cave_boss_renderer.gd](../../../../scripts/systems/cave_boss_renderer.gd)
+- [docs/epics/visual-overhaul-2026-10/TREE_INTERACTIONS.md](../../../../docs/epics/visual-overhaul-2026-10/TREE_INTERACTIONS.md)
+- [scripts/systems/dropped_loot_system.gd](../../../../scripts/systems/dropped_loot_system.gd)
+- [tests/suites/dropped_loot_suite.gd](../../../../tests/suites/dropped_loot_suite.gd)
 
 Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vfx-007/`.
 
@@ -268,6 +271,7 @@
 
 - Предмет сохраняет вид и количество; эффект контакта не приводит к повторной выдаче в инвентарь
 - Сравнение выполнено при одинаковой камере; подтверждение связано с commit и конфигурацией, не только с зелёным автотестом.
+- Общие правила магнита и события принятого количества принадлежат VTREE-018, боковая карточка — VTREE-019. Эта карточка интегрирует их визуальные эффекты без второго обновления DroppedLootSystem, второго начисления или конкурирующей очереди уведомлений.
 
 Проверка:
 
