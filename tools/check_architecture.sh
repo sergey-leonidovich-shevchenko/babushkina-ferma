@@ -95,6 +95,9 @@ python3 tools/test_alpha_proof.py
 python3 tools/slice_audit.py
 python3 tools/test_slice_audit.py
 python3 tools/test_slice_proof.py
+python3 tools/asset_migration.py
+python3 tools/test_asset_migration.py
+python3 tools/test_migration_proof.py
 python3 tools/analyze_visual_baseline.py docs/reports/visual-overhaul/vbase-001/native >/dev/null
 git diff --check
 print -- "ARCHITECTURE: boundaries and whitespace are valid"

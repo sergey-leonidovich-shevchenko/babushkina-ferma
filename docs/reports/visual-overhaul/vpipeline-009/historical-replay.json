@@ -1,0 +1,297 @@
+{
+	"display_server": "headless",
+	"document": {
+		"base_location": "migration_fixture",
+		"format": "babushkina-ferma-level-draft",
+		"grid": 24,
+		"level_name": "Migration fixture",
+		"level_notes": "No player drafts are read",
+		"objects": [
+			{
+				"anchor": "bottom",
+				"asset_path": "res://assets/game/interiors/furniture_a/rustic_table_south.png",
+				"autotile_diagonal_mask": 0,
+				"autotile_family": "",
+				"autotile_mask": 0,
+				"catalog_category": "other",
+				"collision": true,
+				"collision_offset": [
+					0.0,
+					0.0
+				],
+				"collision_size": [
+					72.0,
+					48.0
+				],
+				"flip_x": false,
+				"flip_y": false,
+				"hidden": false,
+				"id": 1,
+				"layer": "objects",
+				"name": "Oak table south",
+				"notes": "Preserve this note",
+				"original_position": [
+					192.0,
+					530.0
+				],
+				"position": [
+					192.0,
+					530.0
+				],
+				"reference": false,
+				"rotation": 0.0,
+				"runtime_id": "table-south",
+				"runtime_role": "",
+				"scale": 1.0,
+				"size": [
+					96.0,
+					64.0
+				],
+				"source": [
+					8.0,
+					8.0,
+					240.0,
+					160.0
+				],
+				"surface_kind": "",
+				"transition_corner_masks": {},
+				"transition_masks": {},
+				"unique_key": ""
+			},
+			{
+				"anchor": "bottom",
+				"asset_path": "res://assets/game/interiors/furniture_a/rustic_table_west.png",
+				"autotile_diagonal_mask": 0,
+				"autotile_family": "",
+				"autotile_mask": 0,
+				"catalog_category": "other",
+				"collision": true,
+				"collision_offset": [
+					0.0,
+					0.0
+				],
+				"collision_size": [
+					48.0,
+					72.0
+				],
+				"flip_x": false,
+				"flip_y": false,
+				"hidden": false,
+				"id": 2,
+				"layer": "objects",
+				"name": "Oak table west",
+				"notes": "Preserve this note",
+				"original_position": [
+					576.0,
+					530.0
+				],
+				"position": [
+					576.0,
+					530.0
+				],
+				"reference": false,
+				"rotation": 0.0,
+				"runtime_id": "table-west",
+				"runtime_role": "",
+				"scale": 1.0,
+				"size": [
+					53.7000007629395,
+					72.0
+				],
+				"source": [
+					8.0,
+					8.0,
+					179.0,
+					240.0
+				],
+				"surface_kind": "",
+				"transition_corner_masks": {},
+				"transition_masks": {},
+				"unique_key": ""
+			},
+			{
+				"anchor": "bottom",
+				"asset_path": "res://assets/game/interiors/furniture_a/rustic_table_east.png",
+				"autotile_diagonal_mask": 0,
+				"autotile_family": "",
+				"autotile_mask": 0,
+				"catalog_category": "other",
+				"collision": true,
+				"collision_offset": [
+					0.0,
+					0.0
+				],
+				"collision_size": [
+					48.0,
+					72.0
+				],
+				"flip_x": false,
+				"flip_y": false,
+				"hidden": false,
+				"id": 3,
+				"layer": "objects",
+				"name": "Oak table east",
+				"notes": "Preserve this note",
+				"original_position": [
+					960.0,
+					530.0
+				],
+				"position": [
+					960.0,
+					530.0
+				],
+				"reference": false,
+				"rotation": 0.0,
+				"runtime_id": "table-east",
+				"runtime_role": "",
+				"scale": 1.0,
+				"size": [
+					53.0999984741211,
+					72.0
+				],
+				"source": [
+					8.0,
+					8.0,
+					177.0,
+					240.0
+				],
+				"surface_kind": "",
+				"transition_corner_masks": {},
+				"transition_masks": {},
+				"unique_key": ""
+			}
+		],
+		"validation": {
+			"checked": 3,
+			"errors": [],
+			"valid": true,
+			"warnings": []
+		},
+		"version": 6
+	},
+	"draft_sha256": "6e92f0c143ea0385dc993a86310c0036ddaca31b5e0a28cadc0a27e10d28ab75",
+	"driver": "opengl3",
+	"engine": "4.7.1-stable (official)",
+	"errors": [],
+	"framebuffer": [
+		1152,
+		648
+	],
+	"frames": {},
+	"method": "gl_compatibility",
+	"missing_old_paths": 0,
+	"performance_eligible": false,
+	"phase": "baseline",
+	"profile": "Codex-VPIPELINE-009-historical-replay",
+	"prototype_adapter": false,
+	"rows": [
+		{
+			"footprint": [
+				72.0,
+				48.0
+			],
+			"id": "prop.rustic_table",
+			"logical_size": [
+				96.0,
+				72.0
+			],
+			"new_profile_id": "prop.rustic_table",
+			"old_exists": true,
+			"old_path": "res://assets/game/interiors/furniture_a/rustic_table_south.png",
+			"old_profile_id": "prop.rustic_table",
+			"old_uid": "uid://cp16uen6n3c4d",
+			"path": "res://assets/game/interiors/furniture_a/rustic_table_south.png",
+			"pivot": [
+				0.5,
+				1.0
+			],
+			"pixels": [
+				256.0,
+				176.0
+			],
+			"png_sha256": "5a49c3222aeb1e3bc2e8ca97b2efe2173184ba18662de7fb1de070c884b15238",
+			"rgba_sha256": "b23c53d5e1d2b79582c1678cdd7303e73c2760ec0f1cb21255e91c340da2415d",
+			"side": "south",
+			"source": [
+				8.0,
+				8.0,
+				240.0,
+				160.0
+			],
+			"uid": "uid://cp16uen6n3c4d"
+		},
+		{
+			"footprint": [
+				48.0,
+				72.0
+			],
+			"id": "prop.rustic_table",
+			"logical_size": [
+				72.0,
+				72.0
+			],
+			"new_profile_id": "prop.rustic_table",
+			"old_exists": true,
+			"old_path": "res://assets/game/interiors/furniture_a/rustic_table_west.png",
+			"old_profile_id": "prop.rustic_table",
+			"old_uid": "uid://b8rm1ww7t5s6",
+			"path": "res://assets/game/interiors/furniture_a/rustic_table_west.png",
+			"pivot": [
+				0.5,
+				1.0
+			],
+			"pixels": [
+				195.0,
+				256.0
+			],
+			"png_sha256": "07852b30af6c743e8939dcddef6e2c8f50ee80a14afe877a68298addb594ea53",
+			"rgba_sha256": "3980523fa2c19f45c5123d1a6003c45704f4babdef6725dbd64ba6b565621bce",
+			"side": "west",
+			"source": [
+				8.0,
+				8.0,
+				179.0,
+				240.0
+			],
+			"uid": "uid://b8rm1ww7t5s6"
+		},
+		{
+			"footprint": [
+				48.0,
+				72.0
+			],
+			"id": "prop.rustic_table",
+			"logical_size": [
+				72.0,
+				72.0
+			],
+			"new_profile_id": "prop.rustic_table",
+			"old_exists": true,
+			"old_path": "res://assets/game/interiors/furniture_a/rustic_table_east.png",
+			"old_profile_id": "prop.rustic_table",
+			"old_uid": "uid://dsjm4w2veq25",
+			"path": "res://assets/game/interiors/furniture_a/rustic_table_east.png",
+			"pivot": [
+				0.5,
+				1.0
+			],
+			"pixels": [
+				193.0,
+				256.0
+			],
+			"png_sha256": "d04458db38f0f6ba6f9877b69840299a3e664e117bfd5356a450727c045be618",
+			"rgba_sha256": "3afdefa3983d15bad9770898b55582aa0b314c49406234ca5cf2855e140fd53a",
+			"side": "east",
+			"source": [
+				8.0,
+				8.0,
+				177.0,
+				240.0
+			],
+			"uid": "uid://dsjm4w2veq25"
+		}
+	],
+	"source_sha256": "69ed4b0872c57161d9ff56d742a3db0bfe89eeddb1dae85aa240af54bb68f7f6",
+	"target": "fixed_gpu_subviewport",
+	"unadapted_old_paths": 0
+}

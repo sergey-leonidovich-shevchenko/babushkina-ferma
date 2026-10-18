@@ -1,0 +1,2471 @@
+{
+  "schema_version": 1,
+  "task": "VPIPELINE-009",
+  "base_commit": "1621d49502cd244c1036168f9d235561b708b33a",
+  "kind": "migration-plan-with-isolated-rename-only-proof",
+  "production_operations": [],
+  "deletion_authorized": false,
+  "inventory_sha256": "2908b8caba0c85dcb5e6309d86af02e951add130f663e63b021dea5714a414d8",
+  "steps": [
+    {
+      "id": "snapshot",
+      "after": []
+    },
+    {
+      "id": "stage",
+      "after": [
+        "snapshot"
+      ]
+    },
+    {
+      "id": "register",
+      "after": [
+        "stage"
+      ]
+    },
+    {
+      "id": "rebuild",
+      "after": [
+        "register"
+      ]
+    },
+    {
+      "id": "compatibility",
+      "after": [
+        "rebuild"
+      ]
+    },
+    {
+      "id": "wiki",
+      "after": [
+        "compatibility"
+      ]
+    },
+    {
+      "id": "compare",
+      "after": [
+        "wiki"
+      ]
+    },
+    {
+      "id": "rollback",
+      "after": [
+        "compare"
+      ]
+    },
+    {
+      "id": "retire",
+      "after": [
+        "rollback"
+      ]
+    }
+  ],
+  "families": [
+    {
+      "id": "WS-001",
+      "title": "Первая локация: архивный мастер-арт прототипа",
+      "stage": "archive",
+      "decision": "reuse",
+      "owner_epics": [
+        "VPIPELINE"
+      ],
+      "assets": [
+        "assets/game/locations/overworld/overworld_master_24_v2.png"
+      ],
+      "status": "requires_owner_task",
+      "stable_id_rule": "Preserve content/resource IDs; a file path is not a stable ID",
+      "required_steps": [
+        "snapshot",
+        "stage",
+        "register",
+        "rebuild",
+        "compatibility",
+        "wiki",
+        "compare",
+        "rollback",
+        "retire"
+      ]
+    },
+    {
+      "id": "WS-002",
+      "title": "Трава и вариации земли",
+      "stage": "static",
+      "decision": "redraw",
+      "owner_epics": [
+        "VGROUND"
+      ],
+      "assets": [
+        "assets/game/tiles/grass.png",
+        "assets/game/tiles/grass_var_1.png",
+        "assets/game/tiles/grass_var_2.png",
+        "assets/game/tiles/editor/terrain/grass_flowers.png",
+        "assets/game/tiles/editor/terrain/grass_lush.png",
+        "assets/game/tiles/editor/terrain/grass_spring.png",
+        "assets/game/tiles/editor/terrain/grass_autumn.png",
+        "assets/game/tiles/editor/terrain/ground_snow_grass.png",
+        "assets/game/tiles/editor/terrain/ground_gravel.png",
+        "assets/game/tiles/editor/transitions/dirt_edge.png",
+        "assets/game/tiles/editor/transitions/gravel_edge.png",
+        "assets/game/tiles/editor/transitions/sand_edge.png",
+        "assets/game/tiles/editor/transitions/dirt_inner_corner.png",
+        "assets/game/tiles/editor/transitions/gravel_inner_corner.png",
+        "assets/game/tiles/editor/transitions/sand_inner_corner.png"
+      ],
+      "status": "requires_owner_task",
+      "stable_id_rule": "Preserve content/resource IDs; a file path is not a stable ID",
+      "required_steps": [
+        "snapshot",
+        "stage",
+        "register",
+        "rebuild",
+        "compatibility",
+        "wiki",
+        "compare",
+        "rollback",
+        "retire"
+      ]
+    },
+    {
+      "id": "WS-003",
+      "title": "Дороги и тропы",
+      "stage": "static",
+      "decision": "redraw",
+      "owner_epics": [
+        "VGROUND"
+      ],
+      "assets": [
+        "assets/game/tiles/editor/terrain/dirt_path_horizontal.png",
+        "assets/game/tiles/editor/terrain/dirt_path_vertical.png",
+        "assets/game/tiles/editor/terrain/dirt_path_corner.png",
+        "assets/game/tiles/editor/terrain/dirt_path_t_junction.png",
+        "assets/game/tiles/editor/terrain/dirt_path_cross.png",
+        "assets/game/tiles/editor/terrain/dirt_path_end.png",
+        "assets/game/tiles/editor/terrain/stone_road_horizontal.png",
+        "assets/game/tiles/editor/terrain/stone_road_vertical.png",
+        "assets/game/tiles/editor/terrain/stone_road_corner.png",
+        "assets/game/tiles/editor/terrain/stone_road_t_junction.png",
+        "assets/game/tiles/editor/terrain/stone_road_cross.png",
+        "assets/game/tiles/editor/terrain/stone_road_end.png"
+      ],
+      "status": "requires_owner_task",
+      "stable_id_rule": "Preserve content/resource IDs; a file path is not a stable ID",
+      "required_steps": [
+        "snapshot",
+        "stage",
+        "register",
+        "rebuild",
+        "compatibility",
+        "wiki",
+        "compare",
+        "rollback",
+        "retire"
+      ]
+    },
+    {
+      "id": "WS-004",
+      "title": "Пол пещеры",
+      "stage": "static",
+      "decision": "redraw",
+      "owner_epics": [
+        "VGROUND",
+        "VMAP"
+      ],
+      "assets": [
+        "assets/game/tiles/cave-floor.png"
+      ],
+      "status": "requires_owner_task",
+      "stable_id_rule": "Preserve content/resource IDs; a file path is not a stable ID",
+      "required_steps": [
+        "snapshot",
+        "stage",
+        "register",
+        "rebuild",
+        "compatibility",
+        "wiki",
+        "compare",
+        "rollback",
+        "retire"
+      ]
+    },
+    {
+      "id": "WS-005",
+      "title": "Вода, рыба и всплески",
+      "stage": "water",
+      "decision": "redraw",
+      "owner_epics": [
+        "VSHORE",
+        "VFX"
+      ],
+      "assets": [
+        "assets/game/tiles/editor/water/water_clear.png",
+        "assets/game/tiles/editor/water/water_ripples.png",
+        "assets/game/tiles/editor/water/water_deep.png",
+        "assets/game/tiles/editor/water/water_shallow.png",
+        "assets/game/tiles/editor/water/water_lilies.png",
+        "assets/game/tiles/editor/water/water_sparkles.png",
+        "assets/game/tiles/editor/water/shore_north.png",
+        "assets/game/tiles/editor/water/shore_south.png",
+        "assets/game/tiles/editor/water/shore_west.png",
+        "assets/game/tiles/editor/water/shore_east.png",
+        "assets/game/tiles/editor/water/shore_outer_corner.png",
+        "assets/game/tiles/editor/water/shore_inner_corner.png",
+        "assets/game/tiles/editor/water/river_horizontal.png",
+        "assets/game/tiles/editor/water/river_vertical.png",
+        "assets/game/tiles/editor/water/river_corner.png",
+        "assets/game/tiles/editor/water/river_t_junction.png",
+        "assets/game/tiles/editor/water/river_cross.png",
+        "assets/game/tiles/editor/water/river_end.png",
+        "assets/game/tiles/editor/water/pond_rocky.png",
+        "assets/game/fishing/Fish Swimming.png",
+        "assets/game/fishing/Splash Effect.png",
+        "assets/game/fishing/Bubbles Rising.png"
+      ],
+      "status": "requires_owner_task",
+      "stable_id_rule": "Preserve content/resource IDs; a file path is not a stable ID",
+      "required_steps": [
+        "snapshot",
+        "stage",
+        "register",
+        "rebuild",
+        "compatibility",
+        "wiki",
+        "compare",
+        "rollback",
+        "retire"
+      ]
+    },
+    {
+      "id": "WS-006",
+      "title": "Грядки и культуры",
+      "stage": "plants",
+      "decision": "redraw",
+      "owner_epics": [
+        "VPLANT",
+        "VGROUND"
+      ],
+      "assets": [
+        "assets/game/environment/farm_plot_atlas.png",
+        "assets/game/tiles/editor/terrain/ground_farm_soil.png",
+        "assets/game/farming/crops/atlases/annual_a.png",
+        "assets/game/farming/crops/atlases/annual_b.png",
+        "assets/game/farming/crops/atlases/annual_c.png",
+        "assets/game/farming/crops/atlases/annual_d.png",
+        "assets/game/farming/crops/atlases/strawberry_seasons.png",
+        "assets/game/farming/crops/atlases/herbs_seasons.png"
+      ],
+      "status": "requires_owner_task",
+      "stable_id_rule": "Preserve content/resource IDs; a file path is not a stable ID",
+      "required_steps": [
+        "snapshot",
+        "stage",
+        "register",
+        "rebuild",
+        "compatibility",
+        "wiki",
+        "compare",
+        "rollback",
+        "retire"
+      ]
+    },
+    {
+      "id": "WS-007",
+      "title": "Мосты",
+      "stage": "water",
+      "decision": "redraw",
+      "owner_epics": [
+        "VPROP",
+        "VSHORE"
+      ],
+      "assets": [
+        "assets/game/environment/bridges/bridge_stone_vertical.png",
+        "assets/game/environment/bridges/bridge_stone_arch.png",
+        "assets/game/environment/bridges/bridge_stone_wood_vertical.png",
+        "assets/game/environment/bridges/bridge_stone_wood_horizontal.png",
+        "assets/game/environment/bridges/bridge_wood_vertical.png",
+        "assets/game/environment/bridges/bridge_wood_horizontal.png",
+        "assets/game/environment/bridges/bridge_copper_vertical.png",
+        "assets/game/environment/bridges/bridge_copper_arch.png",
+        "assets/game/environment/bridges/bridge_copper_arch_rail.png"
+      ],
+      "status": "requires_owner_task",
+      "stable_id_rule": "Preserve content/resource IDs; a file path is not a stable ID",
+      "required_steps": [
+        "snapshot",
+        "stage",
+        "register",
+        "rebuild",
+        "compatibility",
+        "wiki",
+        "compare",
+        "rollback",
+        "retire"
+      ]
+    },
+    {
+      "id": "WS-008",
+      "title": "Деревья, саженцы и пни",
+      "stage": "plants",
+      "decision": "redraw",
+      "owner_epics": [
+        "VTREE",
+        "VFOLIAGE"
+      ],
+      "assets": [
+        "assets/game/environment/forest_tree_growth_atlas_v1.png"
+      ],
+      "status": "requires_owner_task",
+      "stable_id_rule": "Preserve content/resource IDs; a file path is not a stable ID",
+      "required_steps": [
+        "snapshot",
+        "stage",
+        "register",
+        "rebuild",
+        "compatibility",
+        "wiki",
+        "compare",
+        "rollback",
+        "retire"
+      ]
+    },
+    {
+      "id": "WS-009",
+      "title": "Заборы, калитки и деревенский декор",
+      "stage": "props",
+      "decision": "adapt",
+      "owner_epics": [
+        "VPROP",
+        "VFOLIAGE"
+      ],
+      "assets": [
+        "assets/game/environment/village_prop_atlas_v2.png",
+        "assets/game/environment/village_ambient_atlas_v1.png",
+        "assets/game/environment/buildable_fence_atlas_v1.png"
+      ],
+      "status": "requires_owner_task",
+      "stable_id_rule": "Preserve content/resource IDs; a file path is not a stable ID",
+      "required_steps": [
+        "snapshot",
+        "stage",
+        "register",
+        "rebuild",
+        "compatibility",
+        "wiki",
+        "compare",
+        "rollback",
+        "retire"
+      ]
+    },
+    {
+      "id": "WS-010",
+      "title": "Камни, кристаллы и пещерный декор",
+      "stage": "props",
+      "decision": "adapt",
+      "owner_epics": [
+        "VPROP",
+        "VMAP",
+        "VLIGHT"
+      ],
+      "assets": [
+        "assets/game/resources/rock.png",
+        "assets/game/resources/blue-crystal.png",
+        "assets/game/environment/cave_crystal.png",
+        "assets/game/environment/red_mushrooms.png",
+        "assets/game/locations/cave/modular/boulder_v1.png",
+        "assets/game/locations/cave/modular/corner_inner_v1.png",
+        "assets/game/locations/cave/modular/corner_left_v1.png",
+        "assets/game/locations/cave/modular/corner_right_v1.png",
+        "assets/game/locations/cave/modular/crystal_blue_v1.png",
+        "assets/game/locations/cave/modular/crystal_fragments_v1.png",
+        "assets/game/locations/cave/modular/crystal_green_v1.png",
+        "assets/game/locations/cave/modular/crystal_red_v1.png",
+        "assets/game/locations/cave/modular/entrance_v1.png",
+        "assets/game/locations/cave/modular/floor_v1.png",
+        "assets/game/locations/cave/modular/mushrooms_v1.png",
+        "assets/game/locations/cave/modular/ore_metal_v1.png",
+        "assets/game/locations/cave/modular/rubble_v1.png",
+        "assets/game/locations/cave/modular/stalagmites_v1.png",
+        "assets/game/locations/cave/modular/torch_v1.png",
+        "assets/game/locations/cave/modular/wall_end_v1.png",
+        "assets/game/locations/cave/modular/wall_rim_v1.png",
+        "assets/game/locations/cave/modular/wall_side_left_v1.png",
+        "assets/game/locations/cave/modular/wall_side_right_v1.png",
+        "assets/game/locations/cave/modular/wall_straight_a_v1.png",
+        "assets/game/locations/cave/modular/wall_straight_b_v1.png"
+      ],
+      "status": "requires_owner_task",
+      "stable_id_rule": "Preserve content/resource IDs; a file path is not a stable ID",
+      "required_steps": [
+        "snapshot",
+        "stage",
+        "register",
+        "rebuild",
+        "compatibility",
+        "wiki",
+        "compare",
+        "rollback",
+        "retire"
+      ]
+    },
+    {
+      "id": "WS-011",
+      "title": "Ягоды, грибы, арбузы и плодовые деревья",
+      "stage": "plants",
+      "decision": "adapt",
+      "owner_epics": [
+        "VPLANT",
+        "VTREE"
+      ],
+      "assets": [
+        "assets/game/environment/farm_plants.png",
+        "assets/game/environment/farm_plants_objects_atlas_v1.png",
+        "assets/game/environment/orchard/fruit_trees_4x4_v2.png",
+        "assets/game/environment/red_mushrooms.png",
+        "assets/game/items/watermelon.png"
+      ],
+      "status": "requires_owner_task",
+      "stable_id_rule": "Preserve content/resource IDs; a file path is not a stable ID",
+      "required_steps": [
+        "snapshot",
+        "stage",
+        "register",
+        "rebuild",
+        "compatibility",
+        "wiki",
+        "compare",
+        "rollback",
+        "retire"
+      ]
+    },
+    {
+      "id": "WS-012",
+      "title": "Здания внешних локаций",
+      "stage": "props",
+      "decision": "adapt",
+      "owner_epics": [
+        "VBUILD",
+        "VLIGHT",
+        "VFX"
+      ],
+      "assets": [
+        "assets/game/buildings/exteriors/cottage.png",
+        "assets/game/buildings/exteriors/shop_house.png",
+        "assets/game/buildings/exteriors/guild_hall.png",
+        "assets/game/buildings/exteriors/forge.png",
+        "assets/game/buildings/exteriors/chapel.png",
+        "assets/game/buildings/exteriors/prison.png",
+        "assets/game/buildings/exteriors/wizard_tower.png",
+        "assets/game/buildings/exteriors/moon_castle.png"
+      ],
+      "status": "requires_owner_task",
+      "stable_id_rule": "Preserve content/resource IDs; a file path is not a stable ID",
+      "required_steps": [
+        "snapshot",
+        "stage",
+        "register",
+        "rebuild",
+        "compatibility",
+        "wiki",
+        "compare",
+        "rollback",
+        "retire"
+      ]
+    },
+    {
+      "id": "WS-013",
+      "title": "Сезонные объекты и Лунная поляна",
+      "stage": "plants",
+      "decision": "adapt",
+      "owner_epics": [
+        "VTREE",
+        "VMAP",
+        "VLIGHT"
+      ],
+      "assets": [
+        "assets/game/environment/seasons/tree_spring.png",
+        "assets/game/environment/seasons/tree_summer.png",
+        "assets/game/environment/seasons/tree_autumn.png",
+        "assets/game/environment/seasons/tree_winter.png",
+        "assets/game/environment/seasons/ground_spring.png",
+        "assets/game/environment/seasons/ground_summer.png",
+        "assets/game/environment/seasons/ground_autumn.png",
+        "assets/game/environment/seasons/ground_winter.png",
+        "assets/game/environment/moon/portal.png",
+        "assets/game/environment/moon/flower.png",
+        "assets/game/environment/moon/crystal.png",
+        "assets/game/environment/moon/altar.png",
+        "assets/game/environment/moon/echo.png",
+        "assets/game/environment/moon/guardian.png",
+        "assets/game/environment/moon/stag.png",
+        "assets/game/environment/moon/chest.png"
+      ],
+      "status": "requires_owner_task",
+      "stable_id_rule": "Preserve content/resource IDs; a file path is not a stable ID",
+      "required_steps": [
+        "snapshot",
+        "stage",
+        "register",
+        "rebuild",
+        "compatibility",
+        "wiki",
+        "compare",
+        "rollback",
+        "retire"
+      ]
+    },
+    {
+      "id": "WS-014",
+      "title": "Объекты приключенческих биомов",
+      "stage": "props",
+      "decision": "adapt",
+      "owner_epics": [
+        "VPROP",
+        "VMAP"
+      ],
+      "assets": [
+        "assets/game/environment/biomes/forest_landmark.png",
+        "assets/game/environment/biomes/forest_detail.png",
+        "assets/game/environment/biomes/rocky_landmark.png",
+        "assets/game/environment/biomes/rocky_detail.png",
+        "assets/game/environment/biomes/ruins_landmark.png",
+        "assets/game/environment/biomes/ruins_detail.png",
+        "assets/game/environment/biomes/cursed_landmark.png",
+        "assets/game/environment/biomes/cursed_detail.png",
+        "assets/game/environment/biomes/glassworks_landmark.png",
+        "assets/game/environment/biomes/glassworks_detail.png"
+      ],
+      "status": "requires_owner_task",
+      "stable_id_rule": "Preserve content/resource IDs; a file path is not a stable ID",
+      "required_steps": [
+        "snapshot",
+        "stage",
+        "register",
+        "rebuild",
+        "compatibility",
+        "wiki",
+        "compare",
+        "rollback",
+        "retire"
+      ]
+    },
+    {
+      "id": "WS-015",
+      "title": "Случайные контейнеры мира",
+      "stage": "props",
+      "decision": "redraw",
+      "owner_epics": [
+        "VPROP"
+      ],
+      "assets": [
+        "assets/game/world_loot/containers/sack.png",
+        "assets/game/world_loot/containers/trash.png",
+        "assets/game/world_loot/containers/chest.png",
+        "assets/game/world_loot/containers/bone_pile.png",
+        "assets/game/world_loot/containers/supply_crate.png",
+        "assets/game/world_loot/containers/barrel.png",
+        "assets/game/world_loot/containers/hollow_log.png",
+        "assets/game/world_loot/containers/fairy_cache.png"
+      ],
+      "status": "requires_owner_task",
+      "stable_id_rule": "Preserve content/resource IDs; a file path is not a stable ID",
+      "required_steps": [
+        "snapshot",
+        "stage",
+        "register",
+        "rebuild",
+        "compatibility",
+        "wiki",
+        "compare",
+        "rollback",
+        "retire"
+      ]
+    },
+    {
+      "id": "WS-016",
+      "title": "Полировка мира, события и предметы в руке",
+      "stage": "effects",
+      "decision": "redraw",
+      "owner_epics": [
+        "VFX"
+      ],
+      "assets": [
+        "assets/game/world_polish/village_polish_atlas.png",
+        "assets/game/effects/actions/effect_00.png",
+        "assets/game/effects/actions/effect_01.png",
+        "assets/game/effects/actions/effect_02.png",
+        "assets/game/effects/actions/effect_03.png",
+        "assets/game/effects/actions/effect_04.png",
+        "assets/game/effects/actions/effect_05.png",
+        "assets/game/effects/actions/effect_06.png",
+        "assets/game/effects/actions/effect_07.png",
+        "assets/game/effects/actions/effect_08.png",
+        "assets/game/effects/actions/effect_09.png",
+        "assets/game/effects/actions/effect_10.png",
+        "assets/game/effects/actions/effect_11.png",
+        "assets/game/effects/actions/effect_12.png",
+        "assets/game/effects/actions/effect_13.png",
+        "assets/game/effects/actions/effect_14.png",
+        "assets/game/effects/actions/effect_15.png"
+      ],
+      "status": "requires_owner_task",
+      "stable_id_rule": "Preserve content/resource IDs; a file path is not a stable ID",
+      "required_steps": [
+        "snapshot",
+        "stage",
+        "register",
+        "rebuild",
+        "compatibility",
+        "wiki",
+        "compare",
+        "rollback",
+        "retire"
+      ]
+    },
+    {
+      "id": "WS-017",
+      "title": "Фермерская жизнь, мебель и музей",
+      "stage": "props",
+      "decision": "adapt",
+      "owner_epics": [
+        "VACTOR",
+        "VPROP"
+      ],
+      "assets": [
+        "assets/game/expansion_pack/expansion_atlas.png"
+      ],
+      "status": "requires_owner_task",
+      "stable_id_rule": "Preserve content/resource IDs; a file path is not a stable ID",
+      "required_steps": [
+        "snapshot",
+        "stage",
+        "register",
+        "rebuild",
+        "compatibility",
+        "wiki",
+        "compare",
+        "rollback",
+        "retire"
+      ]
+    },
+    {
+      "id": "WS-018",
+      "title": "Герой, NPC и напарники",
+      "stage": "actors",
+      "decision": "adapt",
+      "owner_epics": [
+        "VACTOR",
+        "VANIM"
+      ],
+      "assets": [
+        "assets/game/characters/hero_v3/walk_master.png",
+        "assets/game/characters/hero_v3/hoe_master.png",
+        "assets/game/characters/grandmother_v2/walk_master.png",
+        "assets/game/characters/directional/npc_grandmother_walk_8dir.png",
+        "assets/game/characters/directional/npc_official_walk_8dir.png",
+        "assets/game/characters/directional/npc_herbalist_walk_8dir.png",
+        "assets/game/characters/directional/companion_mila_walk_8dir.png",
+        "assets/game/characters/directional/companion_borislav_walk_8dir.png",
+        "assets/game/characters/directional/companion_luna_walk_8dir.png",
+        "assets/game/characters/walk_v2/npc_official.png",
+        "assets/game/characters/walk_v2/npc_herbalist.png",
+        "assets/game/characters/walk_v2/companion_mila.png",
+        "assets/game/characters/walk_v2/companion_borislav.png",
+        "assets/game/characters/walk_v2/companion_luna.png"
+      ],
+      "status": "requires_owner_task",
+      "stable_id_rule": "Preserve content/resource IDs; a file path is not a stable ID",
+      "required_steps": [
+        "snapshot",
+        "stage",
+        "register",
+        "rebuild",
+        "compatibility",
+        "wiki",
+        "compare",
+        "rollback",
+        "retire"
+      ]
+    },
+    {
+      "id": "WS-019",
+      "title": "Мобильные враги и пираты",
+      "stage": "actors",
+      "decision": "redraw",
+      "owner_epics": [
+        "VACTOR",
+        "VANIM",
+        "VFX"
+      ],
+      "assets": [
+        "assets/game/enemies/enemy_rank_atlas.png",
+        "assets/game/enemies/animated/core_enemy_walk_8dir.png",
+        "assets/game/enemies/animated/core_enemy_actions_8dir.png",
+        "assets/game/enemies/animated/pirate_enemy_walk_8dir.png",
+        "assets/game/enemies/animated/pirate_enemy_actions_8dir.png",
+        "assets/game/enemies/skeleton_v2/walk.png",
+        "assets/game/enemies/skeleton_v2/actions.png",
+        "assets/game/enemies/cave_guardian.png"
+      ],
+      "status": "requires_owner_task",
+      "stable_id_rule": "Preserve content/resource IDs; a file path is not a stable ID",
+      "required_steps": [
+        "snapshot",
+        "stage",
+        "register",
+        "rebuild",
+        "compatibility",
+        "wiki",
+        "compare",
+        "rollback",
+        "retire"
+      ]
+    },
+    {
+      "id": "WS-020",
+      "title": "Дикие животные",
+      "stage": "actors",
+      "decision": "adapt",
+      "owner_epics": [
+        "VACTOR",
+        "VANIM"
+      ],
+      "assets": [
+        "assets/game/wildlife/directional/deer_actions_8dir.png",
+        "assets/game/wildlife/directional/fox_actions_8dir.png",
+        "assets/game/wildlife/directional/boar_actions_8dir.png",
+        "assets/game/wildlife/directional/bat_actions_8dir.png",
+        "assets/game/wildlife/directional/lizard_actions_8dir.png",
+        "assets/game/wildlife/directional/fox_walk_4dir_v2.png",
+        "assets/game/wildlife/directional/bat_flight_4dir_v2.png",
+        "assets/game/wildlife/directional/lizard_walk_4dir_v2.png"
+      ],
+      "status": "requires_owner_task",
+      "stable_id_rule": "Preserve content/resource IDs; a file path is not a stable ID",
+      "required_steps": [
+        "snapshot",
+        "stage",
+        "register",
+        "rebuild",
+        "compatibility",
+        "wiki",
+        "compare",
+        "rollback",
+        "retire"
+      ]
+    },
+    {
+      "id": "WS-021",
+      "title": "Неподвижные опасные растения",
+      "stage": "actors",
+      "decision": "adapt",
+      "owner_epics": [
+        "VACTOR",
+        "VFX"
+      ],
+      "assets": [
+        "assets/game/environment/hazard_rank_atlas.png"
+      ],
+      "status": "requires_owner_task",
+      "stable_id_rule": "Preserve content/resource IDs; a file path is not a stable ID",
+      "required_steps": [
+        "snapshot",
+        "stage",
+        "register",
+        "rebuild",
+        "compatibility",
+        "wiki",
+        "compare",
+        "rollback",
+        "retire"
+      ]
+    },
+    {
+      "id": "WS-022",
+      "title": "Интерьеры, сервисы и домашний сундук",
+      "stage": "props",
+      "decision": "adapt",
+      "owner_epics": [
+        "VPROP",
+        "VBUILD"
+      ],
+      "assets": [
+        "assets/game/world_polish/village_polish_atlas.png"
+      ],
+      "status": "requires_owner_task",
+      "stable_id_rule": "Preserve content/resource IDs; a file path is not a stable ID",
+      "required_steps": [
+        "snapshot",
+        "stage",
+        "register",
+        "rebuild",
+        "compatibility",
+        "wiki",
+        "compare",
+        "rollback",
+        "retire"
+      ]
+    },
+    {
+      "id": "WS-023",
+      "title": "Намеренный fallback сюжетного слизня",
+      "stage": "actors",
+      "decision": "redraw",
+      "owner_epics": [
+        "VACTOR",
+        "VANIM"
+      ],
+      "assets": [
+        "assets/game/enemies/slime_idle.png",
+        "assets/game/enemies/slime_attack.png",
+        "assets/game/enemies/slime_hurt.png",
+        "assets/game/enemies/slime_death.png"
+      ],
+      "status": "requires_owner_task",
+      "stable_id_rule": "Preserve content/resource IDs; a file path is not a stable ID",
+      "required_steps": [
+        "snapshot",
+        "stage",
+        "register",
+        "rebuild",
+        "compatibility",
+        "wiki",
+        "compare",
+        "rollback",
+        "retire"
+      ]
+    },
+    {
+      "id": "WS-024",
+      "title": "Модульная игровая деревня: тихие материалы, мосты и отдельные объекты",
+      "stage": "static",
+      "decision": "redraw",
+      "owner_epics": [
+        "VGROUND",
+        "VPROP",
+        "VSHORE"
+      ],
+      "assets": [
+        "assets/game/locations/overworld/modular/grass_meadow_tile_v1.png",
+        "assets/game/locations/overworld/modular/path_material_v1.png",
+        "assets/game/locations/overworld/modular/dirt_material_v1.png",
+        "assets/game/locations/overworld/modular/stone_material_v1.png",
+        "assets/game/locations/overworld/modular/water_material_v1.png",
+        "assets/game/locations/overworld/modular/bridge_modular_v1.png",
+        "assets/game/locations/overworld/modular/prop_well_v1.png",
+        "assets/game/locations/overworld/modular/prop_bench_v1.png",
+        "assets/game/locations/overworld/modular/prop_lamp_v1.png",
+        "assets/game/locations/overworld/modular/prop_board_v1.png",
+        "assets/game/locations/overworld/modular/prop_cart_v1.png"
+      ],
+      "status": "requires_owner_task",
+      "stable_id_rule": "Preserve content/resource IDs; a file path is not a stable ID",
+      "required_steps": [
+        "snapshot",
+        "stage",
+        "register",
+        "rebuild",
+        "compatibility",
+        "wiki",
+        "compare",
+        "rollback",
+        "retire"
+      ]
+    },
+    {
+      "id": "WS-025",
+      "title": "Ремесленная мастерская A: четыре семейства по три уровня",
+      "stage": "props",
+      "decision": "adapt",
+      "owner_epics": [
+        "VBUILD",
+        "VPROP"
+      ],
+      "assets": [
+        "assets/game/workshops/workshops_atlas_a.png",
+        "assets/game/workshops/research_atlas_a.png"
+      ],
+      "status": "requires_owner_task",
+      "stable_id_rule": "Preserve content/resource IDs; a file path is not a stable ID",
+      "required_steps": [
+        "snapshot",
+        "stage",
+        "register",
+        "rebuild",
+        "compatibility",
+        "wiki",
+        "compare",
+        "rollback",
+        "retire"
+      ]
+    },
+    {
+      "id": "WS-026",
+      "title": "Тёплый кирпичный подвал A и десять строящихся личных станков",
+      "stage": "props",
+      "decision": "adapt",
+      "owner_epics": [
+        "VBUILD",
+        "VPROP",
+        "VSHADOW"
+      ],
+      "assets": [
+        "assets/game/basement/alchemy_atlas_a.png",
+        "assets/game/basement/cauldron_atlas_a.png",
+        "assets/game/basement/floor_a.png",
+        "assets/game/basement/forge_atlas_a.png",
+        "assets/game/basement/furnace_atlas_a.png",
+        "assets/game/basement/glassblowing_atlas_a.png",
+        "assets/game/basement/pottery_atlas_a.png",
+        "assets/game/basement/recycling_atlas_a.png",
+        "assets/game/basement/sawmill_atlas_a.png",
+        "assets/game/basement/shell_atlas_a.png",
+        "assets/game/basement/study_atlas_a.png",
+        "assets/game/basement/workbench_atlas_a.png"
+      ],
+      "status": "requires_owner_task",
+      "stable_id_rule": "Preserve content/resource IDs; a file path is not a stable ID",
+      "required_steps": [
+        "snapshot",
+        "stage",
+        "register",
+        "rebuild",
+        "compatibility",
+        "wiki",
+        "compare",
+        "rollback",
+        "retire"
+      ]
+    },
+    {
+      "id": "WS-027",
+      "title": "Личная кухня A: котелок, очаг, светлая домашняя печь и блюда",
+      "stage": "props",
+      "decision": "adapt",
+      "owner_epics": [
+        "VBUILD",
+        "VICON",
+        "VFX"
+      ],
+      "assets": [
+        "assets/game/kitchen/fire_atlas_a.png",
+        "assets/game/kitchen/food_atlas_a.png",
+        "assets/game/kitchen/station_atlas_a.png"
+      ],
+      "status": "requires_owner_task",
+      "stable_id_rule": "Preserve content/resource IDs; a file path is not a stable ID",
+      "required_steps": [
+        "snapshot",
+        "stage",
+        "register",
+        "rebuild",
+        "compatibility",
+        "wiki",
+        "compare",
+        "rollback",
+        "retire"
+      ]
+    },
+    {
+      "id": "WS-028",
+      "title": "Деревянная пасека A: 3 уровня, дикое гнездо и пчелиное сырьё",
+      "stage": "props",
+      "decision": "adapt",
+      "owner_epics": [
+        "VBUILD",
+        "VICON",
+        "VFOLIAGE"
+      ],
+      "assets": [
+        "assets/game/apiary/apiary_atlas_a.png"
+      ],
+      "status": "requires_owner_task",
+      "stable_id_rule": "Preserve content/resource IDs; a file path is not a stable ID",
+      "required_steps": [
+        "snapshot",
+        "stage",
+        "register",
+        "rebuild",
+        "compatibility",
+        "wiki",
+        "compare",
+        "rollback",
+        "retire"
+      ]
+    },
+    {
+      "id": "WS-029",
+      "title": "Ремесленные мастерские A: 8 видов × 3 уровня × 4 ракурса, кучи и продукты",
+      "stage": "props",
+      "decision": "adapt",
+      "owner_epics": [
+        "VBUILD",
+        "VICON",
+        "VSHADOW"
+      ],
+      "assets": [
+        "assets/game/artisan/candlebench_atlas_a.png",
+        "assets/game/artisan/fermenter_atlas_a.png",
+        "assets/game/artisan/fruit_press_atlas_a.png",
+        "assets/game/artisan/gardenbench_atlas_a.png",
+        "assets/game/artisan/items_0_atlas_a.png",
+        "assets/game/artisan/items_1_atlas_a.png",
+        "assets/game/artisan/items_2_atlas_a.png",
+        "assets/game/artisan/loom_atlas_a.png",
+        "assets/game/artisan/preserver_atlas_a.png",
+        "assets/game/artisan/smoker_atlas_a.png",
+        "assets/game/artisan/tannery_atlas_a.png"
+      ],
+      "status": "requires_owner_task",
+      "stable_id_rule": "Preserve content/resource IDs; a file path is not a stable ID",
+      "required_steps": [
+        "snapshot",
+        "stage",
+        "register",
+        "rebuild",
+        "compatibility",
+        "wiki",
+        "compare",
+        "rollback",
+        "retire"
+      ]
+    }
+  ],
+  "file_owners": {
+    "assets/game/locations/overworld/overworld_master_24_v2.png": {
+      "primary_epic": "VPIPELINE",
+      "families": [
+        "WS-001"
+      ]
+    },
+    "assets/game/tiles/grass.png": {
+      "primary_epic": "VGROUND",
+      "families": [
+        "WS-002"
+      ]
+    },
+    "assets/game/tiles/grass_var_1.png": {
+      "primary_epic": "VGROUND",
+      "families": [
+        "WS-002"
+      ]
+    },
+    "assets/game/tiles/grass_var_2.png": {
+      "primary_epic": "VGROUND",
+      "families": [
+        "WS-002"
+      ]
+    },
+    "assets/game/tiles/editor/terrain/grass_flowers.png": {
+      "primary_epic": "VGROUND",
+      "families": [
+        "WS-002"
+      ]
+    },
+    "assets/game/tiles/editor/terrain/grass_lush.png": {
+      "primary_epic": "VGROUND",
+      "families": [
+        "WS-002"
+      ]
+    },
+    "assets/game/tiles/editor/terrain/grass_spring.png": {
+      "primary_epic": "VGROUND",
+      "families": [
+        "WS-002"
+      ]
+    },
+    "assets/game/tiles/editor/terrain/grass_autumn.png": {
+      "primary_epic": "VGROUND",
+      "families": [
+        "WS-002"
+      ]
+    },
+    "assets/game/tiles/editor/terrain/ground_snow_grass.png": {
+      "primary_epic": "VGROUND",
+      "families": [
+        "WS-002"
+      ]
+    },
+    "assets/game/tiles/editor/terrain/ground_gravel.png": {
+      "primary_epic": "VGROUND",
+      "families": [
+        "WS-002"
+      ]
+    },
+    "assets/game/tiles/editor/transitions/dirt_edge.png": {
+      "primary_epic": "VGROUND",
+      "families": [
+        "WS-002"
+      ]
+    },
+    "assets/game/tiles/editor/transitions/gravel_edge.png": {
+      "primary_epic": "VGROUND",
+      "families": [
+        "WS-002"
+      ]
+    },
+    "assets/game/tiles/editor/transitions/sand_edge.png": {
+      "primary_epic": "VGROUND",
+      "families": [
+        "WS-002"
+      ]
+    },
+    "assets/game/tiles/editor/transitions/dirt_inner_corner.png": {
+      "primary_epic": "VGROUND",
+      "families": [
+        "WS-002"
+      ]
+    },
+    "assets/game/tiles/editor/transitions/gravel_inner_corner.png": {
+      "primary_epic": "VGROUND",
+      "families": [
+        "WS-002"
+      ]
+    },
+    "assets/game/tiles/editor/transitions/sand_inner_corner.png": {
+      "primary_epic": "VGROUND",
+      "families": [
+        "WS-002"
+      ]
+    },
+    "assets/game/tiles/editor/terrain/dirt_path_horizontal.png": {
+      "primary_epic": "VGROUND",
+      "families": [
+        "WS-003"
+      ]
+    },
+    "assets/game/tiles/editor/terrain/dirt_path_vertical.png": {
+      "primary_epic": "VGROUND",
+      "families": [
+        "WS-003"
+      ]
+    },
+    "assets/game/tiles/editor/terrain/dirt_path_corner.png": {
+      "primary_epic": "VGROUND",
+      "families": [
+        "WS-003"
+      ]
+    },
+    "assets/game/tiles/editor/terrain/dirt_path_t_junction.png": {
+      "primary_epic": "VGROUND",
+      "families": [
+        "WS-003"
+      ]
+    },
+    "assets/game/tiles/editor/terrain/dirt_path_cross.png": {
+      "primary_epic": "VGROUND",
+      "families": [
+        "WS-003"
+      ]
+    },
+    "assets/game/tiles/editor/terrain/dirt_path_end.png": {
+      "primary_epic": "VGROUND",
+      "families": [
+        "WS-003"
+      ]
+    },
+    "assets/game/tiles/editor/terrain/stone_road_horizontal.png": {
+      "primary_epic": "VGROUND",
+      "families": [
+        "WS-003"
+      ]
+    },
+    "assets/game/tiles/editor/terrain/stone_road_vertical.png": {
+      "primary_epic": "VGROUND",
+      "families": [
+        "WS-003"
+      ]
+    },
+    "assets/game/tiles/editor/terrain/stone_road_corner.png": {
+      "primary_epic": "VGROUND",
+      "families": [
+        "WS-003"
+      ]
+    },
+    "assets/game/tiles/editor/terrain/stone_road_t_junction.png": {
+      "primary_epic": "VGROUND",
+      "families": [
+        "WS-003"
+      ]
+    },
+    "assets/game/tiles/editor/terrain/stone_road_cross.png": {
+      "primary_epic": "VGROUND",
+      "families": [
+        "WS-003"
+      ]
+    },
+    "assets/game/tiles/editor/terrain/stone_road_end.png": {
+      "primary_epic": "VGROUND",
+      "families": [
+        "WS-003"
+      ]
+    },
+    "assets/game/tiles/cave-floor.png": {
+      "primary_epic": "VGROUND",
+      "families": [
+        "WS-004"
+      ]
+    },
+    "assets/game/tiles/editor/water/water_clear.png": {
+      "primary_epic": "VSHORE",
+      "families": [
+        "WS-005"
+      ]
+    },
+    "assets/game/tiles/editor/water/water_ripples.png": {
+      "primary_epic": "VSHORE",
+      "families": [
+        "WS-005"
+      ]
+    },
+    "assets/game/tiles/editor/water/water_deep.png": {
+      "primary_epic": "VSHORE",
+      "families": [
+        "WS-005"
+      ]
+    },
+    "assets/game/tiles/editor/water/water_shallow.png": {
+      "primary_epic": "VSHORE",
+      "families": [
+        "WS-005"
+      ]
+    },
+    "assets/game/tiles/editor/water/water_lilies.png": {
+      "primary_epic": "VSHORE",
+      "families": [
+        "WS-005"
+      ]
+    },
+    "assets/game/tiles/editor/water/water_sparkles.png": {
+      "primary_epic": "VSHORE",
+      "families": [
+        "WS-005"
+      ]
+    },
+    "assets/game/tiles/editor/water/shore_north.png": {
+      "primary_epic": "VSHORE",
+      "families": [
+        "WS-005"
+      ]
+    },
+    "assets/game/tiles/editor/water/shore_south.png": {
+      "primary_epic": "VSHORE",
+      "families": [
+        "WS-005"
+      ]
+    },
+    "assets/game/tiles/editor/water/shore_west.png": {
+      "primary_epic": "VSHORE",
+      "families": [
+        "WS-005"
+      ]
+    },
+    "assets/game/tiles/editor/water/shore_east.png": {
+      "primary_epic": "VSHORE",
+      "families": [
+        "WS-005"
+      ]
+    },
+    "assets/game/tiles/editor/water/shore_outer_corner.png": {
+      "primary_epic": "VSHORE",
+      "families": [
+        "WS-005"
+      ]
+    },
+    "assets/game/tiles/editor/water/shore_inner_corner.png": {
+      "primary_epic": "VSHORE",
+      "families": [
+        "WS-005"
+      ]
+    },
+    "assets/game/tiles/editor/water/river_horizontal.png": {
+      "primary_epic": "VSHORE",
+      "families": [
+        "WS-005"
+      ]
+    },
+    "assets/game/tiles/editor/water/river_vertical.png": {
+      "primary_epic": "VSHORE",
+      "families": [
+        "WS-005"
+      ]
+    },
+    "assets/game/tiles/editor/water/river_corner.png": {
+      "primary_epic": "VSHORE",
+      "families": [
+        "WS-005"
+      ]
+    },
+    "assets/game/tiles/editor/water/river_t_junction.png": {
+      "primary_epic": "VSHORE",
+      "families": [
+        "WS-005"
+      ]
+    },
+    "assets/game/tiles/editor/water/river_cross.png": {
+      "primary_epic": "VSHORE",
+      "families": [
+        "WS-005"
+      ]
+    },
+    "assets/game/tiles/editor/water/river_end.png": {
+      "primary_epic": "VSHORE",
+      "families": [
+        "WS-005"
+      ]
+    },
+    "assets/game/tiles/editor/water/pond_rocky.png": {
+      "primary_epic": "VSHORE",
+      "families": [
+        "WS-005"
+      ]
+    },
+    "assets/game/fishing/Fish Swimming.png": {
+      "primary_epic": "VSHORE",
+      "families": [
+        "WS-005"
+      ]
+    },
+    "assets/game/fishing/Splash Effect.png": {
+      "primary_epic": "VSHORE",
+      "families": [
+        "WS-005"
+      ]
+    },
+    "assets/game/fishing/Bubbles Rising.png": {
+      "primary_epic": "VSHORE",
+      "families": [
+        "WS-005"
+      ]
+    },
+    "assets/game/environment/farm_plot_atlas.png": {
+      "primary_epic": "VPLANT",
+      "families": [
+        "WS-006"
+      ]
+    },
+    "assets/game/tiles/editor/terrain/ground_farm_soil.png": {
+      "primary_epic": "VPLANT",
+      "families": [
+        "WS-006"
+      ]
+    },
+    "assets/game/farming/crops/atlases/annual_a.png": {
+      "primary_epic": "VPLANT",
+      "families": [
+        "WS-006"
+      ]
+    },
+    "assets/game/farming/crops/atlases/annual_b.png": {
+      "primary_epic": "VPLANT",
+      "families": [
+        "WS-006"
+      ]
+    },
+    "assets/game/farming/crops/atlases/annual_c.png": {
+      "primary_epic": "VPLANT",
+      "families": [
+        "WS-006"
+      ]
+    },
+    "assets/game/farming/crops/atlases/annual_d.png": {
+      "primary_epic": "VPLANT",
+      "families": [
+        "WS-006"
+      ]
+    },
+    "assets/game/farming/crops/atlases/strawberry_seasons.png": {
+      "primary_epic": "VPLANT",
+      "families": [
+        "WS-006"
+      ]
+    },
+    "assets/game/farming/crops/atlases/herbs_seasons.png": {
+      "primary_epic": "VPLANT",
+      "families": [
+        "WS-006"
+      ]
+    },
+    "assets/game/environment/bridges/bridge_stone_vertical.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-007"
+      ]
+    },
+    "assets/game/environment/bridges/bridge_stone_arch.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-007"
+      ]
+    },
+    "assets/game/environment/bridges/bridge_stone_wood_vertical.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-007"
+      ]
+    },
+    "assets/game/environment/bridges/bridge_stone_wood_horizontal.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-007"
+      ]
+    },
+    "assets/game/environment/bridges/bridge_wood_vertical.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-007"
+      ]
+    },
+    "assets/game/environment/bridges/bridge_wood_horizontal.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-007"
+      ]
+    },
+    "assets/game/environment/bridges/bridge_copper_vertical.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-007"
+      ]
+    },
+    "assets/game/environment/bridges/bridge_copper_arch.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-007"
+      ]
+    },
+    "assets/game/environment/bridges/bridge_copper_arch_rail.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-007"
+      ]
+    },
+    "assets/game/environment/forest_tree_growth_atlas_v1.png": {
+      "primary_epic": "VTREE",
+      "families": [
+        "WS-008"
+      ]
+    },
+    "assets/game/environment/village_prop_atlas_v2.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-009"
+      ]
+    },
+    "assets/game/environment/village_ambient_atlas_v1.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-009"
+      ]
+    },
+    "assets/game/environment/buildable_fence_atlas_v1.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-009"
+      ]
+    },
+    "assets/game/resources/rock.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-010"
+      ]
+    },
+    "assets/game/resources/blue-crystal.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-010"
+      ]
+    },
+    "assets/game/environment/cave_crystal.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-010"
+      ]
+    },
+    "assets/game/environment/red_mushrooms.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-010",
+        "WS-011"
+      ]
+    },
+    "assets/game/locations/cave/modular/boulder_v1.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-010"
+      ]
+    },
+    "assets/game/locations/cave/modular/corner_inner_v1.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-010"
+      ]
+    },
+    "assets/game/locations/cave/modular/corner_left_v1.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-010"
+      ]
+    },
+    "assets/game/locations/cave/modular/corner_right_v1.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-010"
+      ]
+    },
+    "assets/game/locations/cave/modular/crystal_blue_v1.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-010"
+      ]
+    },
+    "assets/game/locations/cave/modular/crystal_fragments_v1.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-010"
+      ]
+    },
+    "assets/game/locations/cave/modular/crystal_green_v1.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-010"
+      ]
+    },
+    "assets/game/locations/cave/modular/crystal_red_v1.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-010"
+      ]
+    },
+    "assets/game/locations/cave/modular/entrance_v1.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-010"
+      ]
+    },
+    "assets/game/locations/cave/modular/floor_v1.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-010"
+      ]
+    },
+    "assets/game/locations/cave/modular/mushrooms_v1.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-010"
+      ]
+    },
+    "assets/game/locations/cave/modular/ore_metal_v1.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-010"
+      ]
+    },
+    "assets/game/locations/cave/modular/rubble_v1.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-010"
+      ]
+    },
+    "assets/game/locations/cave/modular/stalagmites_v1.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-010"
+      ]
+    },
+    "assets/game/locations/cave/modular/torch_v1.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-010"
+      ]
+    },
+    "assets/game/locations/cave/modular/wall_end_v1.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-010"
+      ]
+    },
+    "assets/game/locations/cave/modular/wall_rim_v1.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-010"
+      ]
+    },
+    "assets/game/locations/cave/modular/wall_side_left_v1.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-010"
+      ]
+    },
+    "assets/game/locations/cave/modular/wall_side_right_v1.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-010"
+      ]
+    },
+    "assets/game/locations/cave/modular/wall_straight_a_v1.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-010"
+      ]
+    },
+    "assets/game/locations/cave/modular/wall_straight_b_v1.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-010"
+      ]
+    },
+    "assets/game/environment/farm_plants.png": {
+      "primary_epic": "VPLANT",
+      "families": [
+        "WS-011"
+      ]
+    },
+    "assets/game/environment/farm_plants_objects_atlas_v1.png": {
+      "primary_epic": "VPLANT",
+      "families": [
+        "WS-011"
+      ]
+    },
+    "assets/game/environment/orchard/fruit_trees_4x4_v2.png": {
+      "primary_epic": "VPLANT",
+      "families": [
+        "WS-011"
+      ]
+    },
+    "assets/game/items/watermelon.png": {
+      "primary_epic": "VPLANT",
+      "families": [
+        "WS-011"
+      ]
+    },
+    "assets/game/buildings/exteriors/cottage.png": {
+      "primary_epic": "VBUILD",
+      "families": [
+        "WS-012"
+      ]
+    },
+    "assets/game/buildings/exteriors/shop_house.png": {
+      "primary_epic": "VBUILD",
+      "families": [
+        "WS-012"
+      ]
+    },
+    "assets/game/buildings/exteriors/guild_hall.png": {
+      "primary_epic": "VBUILD",
+      "families": [
+        "WS-012"
+      ]
+    },
+    "assets/game/buildings/exteriors/forge.png": {
+      "primary_epic": "VBUILD",
+      "families": [
+        "WS-012"
+      ]
+    },
+    "assets/game/buildings/exteriors/chapel.png": {
+      "primary_epic": "VBUILD",
+      "families": [
+        "WS-012"
+      ]
+    },
+    "assets/game/buildings/exteriors/prison.png": {
+      "primary_epic": "VBUILD",
+      "families": [
+        "WS-012"
+      ]
+    },
+    "assets/game/buildings/exteriors/wizard_tower.png": {
+      "primary_epic": "VBUILD",
+      "families": [
+        "WS-012"
+      ]
+    },
+    "assets/game/buildings/exteriors/moon_castle.png": {
+      "primary_epic": "VBUILD",
+      "families": [
+        "WS-012"
+      ]
+    },
+    "assets/game/environment/seasons/tree_spring.png": {
+      "primary_epic": "VTREE",
+      "families": [
+        "WS-013"
+      ]
+    },
+    "assets/game/environment/seasons/tree_summer.png": {
+      "primary_epic": "VTREE",
+      "families": [
+        "WS-013"
+      ]
+    },
+    "assets/game/environment/seasons/tree_autumn.png": {
+      "primary_epic": "VTREE",
+      "families": [
+        "WS-013"
+      ]
+    },
+    "assets/game/environment/seasons/tree_winter.png": {
+      "primary_epic": "VTREE",
+      "families": [
+        "WS-013"
+      ]
+    },
+    "assets/game/environment/seasons/ground_spring.png": {
+      "primary_epic": "VTREE",
+      "families": [
+        "WS-013"
+      ]
+    },
+    "assets/game/environment/seasons/ground_summer.png": {
+      "primary_epic": "VTREE",
+      "families": [
+        "WS-013"
+      ]
+    },
+    "assets/game/environment/seasons/ground_autumn.png": {
+      "primary_epic": "VTREE",
+      "families": [
+        "WS-013"
+      ]
+    },
+    "assets/game/environment/seasons/ground_winter.png": {
+      "primary_epic": "VTREE",
+      "families": [
+        "WS-013"
+      ]
+    },
+    "assets/game/environment/moon/portal.png": {
+      "primary_epic": "VTREE",
+      "families": [
+        "WS-013"
+      ]
+    },
+    "assets/game/environment/moon/flower.png": {
+      "primary_epic": "VTREE",
+      "families": [
+        "WS-013"
+      ]
+    },
+    "assets/game/environment/moon/crystal.png": {
+      "primary_epic": "VTREE",
+      "families": [
+        "WS-013"
+      ]
+    },
+    "assets/game/environment/moon/altar.png": {
+      "primary_epic": "VTREE",
+      "families": [
+        "WS-013"
+      ]
+    },
+    "assets/game/environment/moon/echo.png": {
+      "primary_epic": "VTREE",
+      "families": [
+        "WS-013"
+      ]
+    },
+    "assets/game/environment/moon/guardian.png": {
+      "primary_epic": "VTREE",
+      "families": [
+        "WS-013"
+      ]
+    },
+    "assets/game/environment/moon/stag.png": {
+      "primary_epic": "VTREE",
+      "families": [
+        "WS-013"
+      ]
+    },
+    "assets/game/environment/moon/chest.png": {
+      "primary_epic": "VTREE",
+      "families": [
+        "WS-013"
+      ]
+    },
+    "assets/game/environment/biomes/forest_landmark.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-014"
+      ]
+    },
+    "assets/game/environment/biomes/forest_detail.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-014"
+      ]
+    },
+    "assets/game/environment/biomes/rocky_landmark.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-014"
+      ]
+    },
+    "assets/game/environment/biomes/rocky_detail.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-014"
+      ]
+    },
+    "assets/game/environment/biomes/ruins_landmark.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-014"
+      ]
+    },
+    "assets/game/environment/biomes/ruins_detail.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-014"
+      ]
+    },
+    "assets/game/environment/biomes/cursed_landmark.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-014"
+      ]
+    },
+    "assets/game/environment/biomes/cursed_detail.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-014"
+      ]
+    },
+    "assets/game/environment/biomes/glassworks_landmark.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-014"
+      ]
+    },
+    "assets/game/environment/biomes/glassworks_detail.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-014"
+      ]
+    },
+    "assets/game/world_loot/containers/sack.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-015"
+      ]
+    },
+    "assets/game/world_loot/containers/trash.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-015"
+      ]
+    },
+    "assets/game/world_loot/containers/chest.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-015"
+      ]
+    },
+    "assets/game/world_loot/containers/bone_pile.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-015"
+      ]
+    },
+    "assets/game/world_loot/containers/supply_crate.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-015"
+      ]
+    },
+    "assets/game/world_loot/containers/barrel.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-015"
+      ]
+    },
+    "assets/game/world_loot/containers/hollow_log.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-015"
+      ]
+    },
+    "assets/game/world_loot/containers/fairy_cache.png": {
+      "primary_epic": "VPROP",
+      "families": [
+        "WS-015"
+      ]
+    },
+    "assets/game/world_polish/village_polish_atlas.png": {
+      "primary_epic": "VFX",
+      "families": [
+        "WS-016",
+        "WS-022"
+      ]
+    },
+    "assets/game/effects/actions/effect_00.png": {
+      "primary_epic": "VFX",
+      "families": [
+        "WS-016"
+      ]
+    },
+    "assets/game/effects/actions/effect_01.png": {
+      "primary_epic": "VFX",
+      "families": [
+        "WS-016"
+      ]
+    },
+    "assets/game/effects/actions/effect_02.png": {
+      "primary_epic": "VFX",
+      "families": [
+        "WS-016"
+      ]
+    },
+    "assets/game/effects/actions/effect_03.png": {
+      "primary_epic": "VFX",
+      "families": [
+        "WS-016"
+      ]
+    },
+    "assets/game/effects/actions/effect_04.png": {
+      "primary_epic": "VFX",
+      "families": [
+        "WS-016"
+      ]
+    },
+    "assets/game/effects/actions/effect_05.png": {
+      "primary_epic": "VFX",
+      "families": [
+        "WS-016"
+      ]
+    },
+    "assets/game/effects/actions/effect_06.png": {
+      "primary_epic": "VFX",
+      "families": [
+        "WS-016"
+      ]
+    },
+    "assets/game/effects/actions/effect_07.png": {
+      "primary_epic": "VFX",
+      "families": [
+        "WS-016"
+      ]
+    },
+    "assets/game/effects/actions/effect_08.png": {
+      "primary_epic": "VFX",
+      "families": [
+        "WS-016"
+      ]
+    },
+    "assets/game/effects/actions/effect_09.png": {
+      "primary_epic": "VFX",
+      "families": [
+        "WS-016"
+      ]
+    },
+    "assets/game/effects/actions/effect_10.png": {
+      "primary_epic": "VFX",
+      "families": [
+        "WS-016"
+      ]
+    },
+    "assets/game/effects/actions/effect_11.png": {
+      "primary_epic": "VFX",
+      "families": [
+        "WS-016"
+      ]
+    },
+    "assets/game/effects/actions/effect_12.png": {
+      "primary_epic": "VFX",
+      "families": [
+        "WS-016"
+      ]
+    },
+    "assets/game/effects/actions/effect_13.png": {
+      "primary_epic": "VFX",
+      "families": [
+        "WS-016"
+      ]
+    },
+    "assets/game/effects/actions/effect_14.png": {
+      "primary_epic": "VFX",
+      "families": [
+        "WS-016"
+      ]
+    },
+    "assets/game/effects/actions/effect_15.png": {
+      "primary_epic": "VFX",
+      "families": [
+        "WS-016"
+      ]
+    },
+    "assets/game/expansion_pack/expansion_atlas.png": {
+      "primary_epic": "VACTOR",
+      "families": [
+        "WS-017"
+      ]
+    },
+    "assets/game/characters/hero_v3/walk_master.png": {
+      "primary_epic": "VACTOR",
+      "families": [
+        "WS-018"
+      ]
+    },
+    "assets/game/characters/hero_v3/hoe_master.png": {
+      "primary_epic": "VACTOR",
+      "families": [
+        "WS-018"
+      ]
+    },
+    "assets/game/characters/grandmother_v2/walk_master.png": {
+      "primary_epic": "VACTOR",
+      "families": [
+        "WS-018"
+      ]
+    },
+    "assets/game/characters/directional/npc_grandmother_walk_8dir.png": {
+      "primary_epic": "VACTOR",
+      "families": [
+        "WS-018"
+      ]
+    },
+    "assets/game/characters/directional/npc_official_walk_8dir.png": {
+      "primary_epic": "VACTOR",
+      "families": [
+        "WS-018"
+      ]
+    },
+    "assets/game/characters/directional/npc_herbalist_walk_8dir.png": {
+      "primary_epic": "VACTOR",
+      "families": [
+        "WS-018"
+      ]
+    },
+    "assets/game/characters/directional/companion_mila_walk_8dir.png": {
+      "primary_epic": "VACTOR",
+      "families": [
+        "WS-018"
+      ]
+    },
+    "assets/game/characters/directional/companion_borislav_walk_8dir.png": {
+      "primary_epic": "VACTOR",
+      "families": [
+        "WS-018"
+      ]
+    },
+    "assets/game/characters/directional/companion_luna_walk_8dir.png": {
+      "primary_epic": "VACTOR",
+      "families": [
+        "WS-018"
+      ]
+    },
+    "assets/game/characters/walk_v2/npc_official.png": {
+      "primary_epic": "VACTOR",
+      "families": [
+        "WS-018"
+      ]
+    },
+    "assets/game/characters/walk_v2/npc_herbalist.png": {
+      "primary_epic": "VACTOR",
+      "families": [
+        "WS-018"
+      ]
+    },
+    "assets/game/characters/walk_v2/companion_mila.png": {
+      "primary_epic": "VACTOR",
+      "families": [
+        "WS-018"
+      ]
+    },
+    "assets/game/characters/walk_v2/companion_borislav.png": {
+      "primary_epic": "VACTOR",
+      "families": [
+        "WS-018"
+      ]
+    },
+    "assets/game/characters/walk_v2/companion_luna.png": {
+      "primary_epic": "VACTOR",
+      "families": [
+        "WS-018"
+      ]
+    },
+    "assets/game/enemies/enemy_rank_atlas.png": {
+      "primary_epic": "VACTOR",
+      "families": [
+        "WS-019"
+      ]
+    },
+    "assets/game/enemies/animated/core_enemy_walk_8dir.png": {
+      "primary_epic": "VACTOR",
+      "families": [
+        "WS-019"
+      ]
+    },
+    "assets/game/enemies/animated/core_enemy_actions_8dir.png": {
+      "primary_epic": "VACTOR",
+      "families": [
+        "WS-019"
+      ]
+    },
+    "assets/game/enemies/animated/pirate_enemy_walk_8dir.png": {
+      "primary_epic": "VACTOR",
+      "families": [
+        "WS-019"
+      ]
+    },
+    "assets/game/enemies/animated/pirate_enemy_actions_8dir.png": {
+      "primary_epic": "VACTOR",
+      "families": [
+        "WS-019"
+      ]
+    },
+    "assets/game/enemies/skeleton_v2/walk.png": {
+      "primary_epic": "VACTOR",
+      "families": [
+        "WS-019"
+      ]
+    },
+    "assets/game/enemies/skeleton_v2/actions.png": {
+      "primary_epic": "VACTOR",
+      "families": [
+        "WS-019"
+      ]
+    },
+    "assets/game/enemies/cave_guardian.png": {
+      "primary_epic": "VACTOR",
+      "families": [
+        "WS-019"
+      ]
+    },
+    "assets/game/wildlife/directional/deer_actions_8dir.png": {
+      "primary_epic": "VACTOR",
+      "families": [
+        "WS-020"
+      ]
+    },
+    "assets/game/wildlife/directional/fox_actions_8dir.png": {
+      "primary_epic": "VACTOR",
+      "families": [
+        "WS-020"
+      ]
+    },
+    "assets/game/wildlife/directional/boar_actions_8dir.png": {
+      "primary_epic": "VACTOR",
+      "families": [
+        "WS-020"
+      ]
+    },
+    "assets/game/wildlife/directional/bat_actions_8dir.png": {
+      "primary_epic": "VACTOR",
+      "families": [
+        "WS-020"
+      ]
+    },
+    "assets/game/wildlife/directional/lizard_actions_8dir.png": {
+      "primary_epic": "VACTOR",
+      "families": [
+        "WS-020"
+      ]
+    },
+    "assets/game/wildlife/directional/fox_walk_4dir_v2.png": {
+      "primary_epic": "VACTOR",
+      "families": [
+        "WS-020"
+      ]
+    },
+    "assets/game/wildlife/directional/bat_flight_4dir_v2.png": {
+      "primary_epic": "VACTOR",
+      "families": [
+        "WS-020"
+      ]
+    },
+    "assets/game/wildlife/directional/lizard_walk_4dir_v2.png": {
+      "primary_epic": "VACTOR",
+      "families": [
+        "WS-020"
+      ]
+    },
+    "assets/game/environment/hazard_rank_atlas.png": {
+      "primary_epic": "VACTOR",
+      "families": [
+        "WS-021"
+      ]
+    },
+    "assets/game/enemies/slime_idle.png": {
+      "primary_epic": "VACTOR",
+      "families": [
+        "WS-023"
+      ]
+    },
+    "assets/game/enemies/slime_attack.png": {
+      "primary_epic": "VACTOR",
+      "families": [
+        "WS-023"
+      ]
+    },
+    "assets/game/enemies/slime_hurt.png": {
+      "primary_epic": "VACTOR",
+      "families": [
+        "WS-023"
+      ]
+    },
+    "assets/game/enemies/slime_death.png": {
+      "primary_epic": "VACTOR",
+      "families": [
+        "WS-023"
+      ]
+    },
+    "assets/game/locations/overworld/modular/grass_meadow_tile_v1.png": {
+      "primary_epic": "VGROUND",
+      "families": [
+        "WS-024"
+      ]
+    },
+    "assets/game/locations/overworld/modular/path_material_v1.png": {
+      "primary_epic": "VGROUND",
+      "families": [
+        "WS-024"
+      ]
+    },
+    "assets/game/locations/overworld/modular/dirt_material_v1.png": {
+      "primary_epic": "VGROUND",
+      "families": [
+        "WS-024"
+      ]
+    },
+    "assets/game/locations/overworld/modular/stone_material_v1.png": {
+      "primary_epic": "VGROUND",
+      "families": [
+        "WS-024"
+      ]
+    },
+    "assets/game/locations/overworld/modular/water_material_v1.png": {
+      "primary_epic": "VGROUND",
+      "families": [
+        "WS-024"
+      ]
+    },
+    "assets/game/locations/overworld/modular/bridge_modular_v1.png": {
+      "primary_epic": "VGROUND",
+      "families": [
+        "WS-024"
+      ]
+    },
+    "assets/game/locations/overworld/modular/prop_well_v1.png": {
+      "primary_epic": "VGROUND",
+      "families": [
+        "WS-024"
+      ]
+    },
+    "assets/game/locations/overworld/modular/prop_bench_v1.png": {
+      "primary_epic": "VGROUND",
+      "families": [
+        "WS-024"
+      ]
+    },
+    "assets/game/locations/overworld/modular/prop_lamp_v1.png": {
+      "primary_epic": "VGROUND",
+      "families": [
+        "WS-024"
+      ]
+    },
+    "assets/game/locations/overworld/modular/prop_board_v1.png": {
+      "primary_epic": "VGROUND",
+      "families": [
+        "WS-024"
+      ]
+    },
+    "assets/game/locations/overworld/modular/prop_cart_v1.png": {
+      "primary_epic": "VGROUND",
+      "families": [
+        "WS-024"
+      ]
+    },
+    "assets/game/workshops/workshops_atlas_a.png": {
+      "primary_epic": "VBUILD",
+      "families": [
+        "WS-025"
+      ]
+    },
+    "assets/game/workshops/research_atlas_a.png": {
+      "primary_epic": "VBUILD",
+      "families": [
+        "WS-025"
+      ]
+    },
+    "assets/game/basement/alchemy_atlas_a.png": {
+      "primary_epic": "VBUILD",
+      "families": [
+        "WS-026"
+      ]
+    },
+    "assets/game/basement/cauldron_atlas_a.png": {
+      "primary_epic": "VBUILD",
+      "families": [
+        "WS-026"
+      ]
+    },
+    "assets/game/basement/floor_a.png": {
+      "primary_epic": "VBUILD",
+      "families": [
+        "WS-026"
+      ]
+    },
+    "assets/game/basement/forge_atlas_a.png": {
+      "primary_epic": "VBUILD",
+      "families": [
+        "WS-026"
+      ]
+    },
+    "assets/game/basement/furnace_atlas_a.png": {
+      "primary_epic": "VBUILD",
+      "families": [
+        "WS-026"
+      ]
+    },
+    "assets/game/basement/glassblowing_atlas_a.png": {
+      "primary_epic": "VBUILD",
+      "families": [
+        "WS-026"
+      ]
+    },
+    "assets/game/basement/pottery_atlas_a.png": {
+      "primary_epic": "VBUILD",
+      "families": [
+        "WS-026"
+      ]
+    },
+    "assets/game/basement/recycling_atlas_a.png": {
+      "primary_epic": "VBUILD",
+      "families": [
+        "WS-026"
+      ]
+    },
+    "assets/game/basement/sawmill_atlas_a.png": {
+      "primary_epic": "VBUILD",
+      "families": [
+        "WS-026"
+      ]
+    },
+    "assets/game/basement/shell_atlas_a.png": {
+      "primary_epic": "VBUILD",
+      "families": [
+        "WS-026"
+      ]
+    },
+    "assets/game/basement/study_atlas_a.png": {
+      "primary_epic": "VBUILD",
+      "families": [
+        "WS-026"
+      ]
+    },
+    "assets/game/basement/workbench_atlas_a.png": {
+      "primary_epic": "VBUILD",
+      "families": [
+        "WS-026"
+      ]
+    },
+    "assets/game/kitchen/fire_atlas_a.png": {
+      "primary_epic": "VBUILD",
+      "families": [
+        "WS-027"
+      ]
+    },
+    "assets/game/kitchen/food_atlas_a.png": {
+      "primary_epic": "VBUILD",
+      "families": [
+        "WS-027"
+      ]
+    },
+    "assets/game/kitchen/station_atlas_a.png": {
+      "primary_epic": "VBUILD",
+      "families": [
+        "WS-027"
+      ]
+    },
+    "assets/game/apiary/apiary_atlas_a.png": {
+      "primary_epic": "VBUILD",
+      "families": [
+        "WS-028"
+      ]
+    },
+    "assets/game/artisan/candlebench_atlas_a.png": {
+      "primary_epic": "VBUILD",
+      "families": [
+        "WS-029"
+      ]
+    },
+    "assets/game/artisan/fermenter_atlas_a.png": {
+      "primary_epic": "VBUILD",
+      "families": [
+        "WS-029"
+      ]
+    },
+    "assets/game/artisan/fruit_press_atlas_a.png": {
+      "primary_epic": "VBUILD",
+      "families": [
+        "WS-029"
+      ]
+    },
+    "assets/game/artisan/gardenbench_atlas_a.png": {
+      "primary_epic": "VBUILD",
+      "families": [
+        "WS-029"
+      ]
+    },
+    "assets/game/artisan/items_0_atlas_a.png": {
+      "primary_epic": "VBUILD",
+      "families": [
+        "WS-029"
+      ]
+    },
+    "assets/game/artisan/items_1_atlas_a.png": {
+      "primary_epic": "VBUILD",
+      "families": [
+        "WS-029"
+      ]
+    },
+    "assets/game/artisan/items_2_atlas_a.png": {
+      "primary_epic": "VBUILD",
+      "families": [
+        "WS-029"
+      ]
+    },
+    "assets/game/artisan/loom_atlas_a.png": {
+      "primary_epic": "VBUILD",
+      "families": [
+        "WS-029"
+      ]
+    },
+    "assets/game/artisan/preserver_atlas_a.png": {
+      "primary_epic": "VBUILD",
+      "families": [
+        "WS-029"
+      ]
+    },
+    "assets/game/artisan/smoker_atlas_a.png": {
+      "primary_epic": "VBUILD",
+      "families": [
+        "WS-029"
+      ]
+    },
+    "assets/game/artisan/tannery_atlas_a.png": {
+      "primary_epic": "VBUILD",
+      "families": [
+        "WS-029"
+      ]
+    }
+  },
+  "retirement_gates": [
+    "VEDITOR-001",
+    "VEDITOR-002",
+    "VEDITOR-004",
+    "VEDITOR-008",
+    "VCOMPAT-002",
+    "VCOMPAT-010",
+    "VPIPELINE-010"
+  ],
+  "pilot": {
+    "resource_id": "prop.rustic_table",
+    "sides": [
+      "south",
+      "west",
+      "east"
+    ],
+    "production_adapter_implemented": false,
+    "policy": "Keep old PNG paths and their UIDs; a fixture-only path adapter preserves F12 profiles. New art/geometry needs separate migration acceptance."
+  }
+}

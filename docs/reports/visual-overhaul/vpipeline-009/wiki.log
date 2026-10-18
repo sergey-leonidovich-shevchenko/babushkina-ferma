@@ -1,0 +1,63 @@
+$ pnpm run build && pnpm run test
+$ node scripts/prepare.mjs && vue-tsc --noEmit && vite build
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+WIKI EXPORT: 921 articles, 704 sprite resources
+WIKI CONTENT: 1024 articles; characters=42, items=386, craft=321, missions=44, plants=40, buildings=27, locations=30, skills=20, fishing=11, guides=103
+vite v8.3.4 building client environment for production...
+transforming...
+✓ 65 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.73 kB │ gzip:  0.48 kB
+dist/assets/index-Sh3-YR25.css   33.26 kB │ gzip:  7.30 kB
+dist/assets/index-BDuj5vqM.js   165.66 kB │ gzip: 58.40 kB
+
+✓ built in 791ms
+$ node --experimental-strip-types --test tests/*.test.mjs
+✔ visual pipeline and numbered idea are published and linked (111.560484ms)
+✔ article manifest rejects duplicates, empty content and escaped paths (12.239882ms)
+✔ item tint is preserved in linked recipe and plant previews (3.206244ms)
+✔ complete live catalogs and all cross-links validate (7.990059ms)
+✔ every sprite is a real PNG and every character can be inspected (249.203921ms)
+✔ guardian exposes its whole temporary pose without invented animation clips (0.35964ms)
+✔ skeleton south-west bow matches game pose and all three shot phases (0.282642ms)
+✔ workstations only expose front and side views (0.468225ms)
+✔ broken references and sprite bounds stop publication (58.624377ms)
+✔ guide chapters have stable unique addresses and complete text (2.327313ms)
+✔ desktop bundle contains a real ICNS and a portable executable launcher (202.260928ms)
+✔ refresh after conflict preserves local edits and accepts independent remote fields (1.682679ms)
+✔ planning imports every registered plan and preserves source statuses and acceptance (14.790662ms)
+✔ new standard plans are discovered with live task counts (12.51914ms)
+✔ markdown adapter ignores index entries and refuses an unstated status (0.991865ms)
+✔ planning sources cannot escape the repository through paths or symlinks (3.596446ms)
+✔ approval survives a new store instance and leaves implementation untouched (100.75337ms)
+✔ stale and simultaneous edits cannot overwrite a newer decision (26.069014ms)
+✔ refinement needs approval and actual epics and can be reopened (98.838784ms)
+✔ new ideas and article ideas share one collision-free sequence (47.647133ms)
+✔ group creation renaming and moving do not duplicate or mutate tasks (134.376959ms)
+✔ invalid mutations are atomic and release the write lock (30.048336ms)
+✔ corrupt saved state is never replaced with a blank workspace (4.449763ms)
+✔ HTTP approval queue and server restart preserve decisions (200.590122ms)
+✔ static review exposes no planning mutation API (12.902989ms)
+✔ HTTP writes reject cross-origin malformed oversized and non-JSON requests (20.45016ms)
+✔ browser plans match every Godot recipe and batch fixture (54.302102ms)
+✔ recipe articles and external sources remain connected (1.667645ms)
+✔ byproducts rounding and cycles keep material conservation (0.39892ms)
+✔ hard depth and operation limits reject misleading full plans (4.492743ms)
+✔ launcher prefers the available pnpm wrapper and respects an explicit override (62.05125ms)
+✔ Russian aliases, actor names, ingredient combinations and internal IDs are searchable (19.182729ms)
+✔ category filtering and blank requests preserve catalog completeness (2.478535ms)
+✔ batch calculator handles exact quantities and invalid input without changing the recipe (1.16734ms)
+✔ static server serves assets and denies escape or unauthenticated control (106.42942ms)
+✔ occupied ports are skipped without stopping another application (8.047594ms)
+✔ build publication is complete and failed replacement restores the working version (16.241849ms)
+✔ wiki shares readable parchment roles with the game (43.301374ms)
+ℹ tests 38
+ℹ suites 0
+ℹ pass 38
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1147.869128

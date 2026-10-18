@@ -326,7 +326,7 @@ Linear и nearest сравниваются адресно; изменение о
 
 ## VPIPELINE-009 — Составить безопасную миграцию файлов
 
-Статус: `ready` · P0 · этап `foundation` · `engineering`
+Статус: `done` · P0 · этап `foundation` · `engineering`
 
 Замена сохраняет стабильные ID и ссылки Wiki/F12; удаление старого ассета только после проверки всех потребителей
 
@@ -342,7 +342,7 @@ Linear и nearest сравниваются адресно; изменение о
 - [scripts/presentation/prepared_item_icon_system.gd](../../../../scripts/presentation/prepared_item_icon_system.gd)
 - [assets/game/world_sprite_manifest.json](../../../../assets/game/world_sprite_manifest.json)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vpipeline-009/`.
+Результаты: `docs/reports/visual-overhaul/vpipeline-009/`.
 
 Критерии:
 
@@ -360,13 +360,13 @@ Linear и nearest сравниваются адресно; изменение о
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vpipeline-009/README.md, docs/reports/visual-overhaul/vpipeline-009/plan.json, docs/reports/visual-overhaul/vpipeline-009/inventory.json, docs/reports/visual-overhaul/vpipeline-009/proof.json, docs/reports/visual-overhaul/vpipeline-009/fixture-sources.json, docs/reports/visual-overhaul/vpipeline-009/production-unchanged.json, docs/reports/visual-overhaul/vpipeline-009/wiki-contract.json, docs/reports/visual-overhaul/vpipeline-009/browser.json, docs/reports/visual-overhaul/vpipeline-009/verification.json, docs/reports/visual-overhaul/vpipeline-009/historical-replay.json, tools/asset_migration.py, tools/migration_inventory.py, tools/migration_fixture.py, tools/migration_capture.gd, tools/migration_proof.py, tools/test_asset_migration.py, tools/test_migration_proof.py, wiki/articles/asset-migration.md.
 
 <a id="vpipeline-010"></a>
 
 ## VPIPELINE-010 — Собрать лицензионный и размерный отчёт
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 Каждый production файл имеет происхождение, размеры и оценку памяти; архивы макетов исключены из игрового экспорта
 

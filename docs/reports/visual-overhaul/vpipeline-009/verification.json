@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-18T17:02:45.086146+00:00",
+  "version": "0.0.246",
+  "base_commit": "1621d49502cd244c1036168f9d235561b708b33a",
+  "scope": "migration plan and isolated prototype; no production asset migration",
+  "runtime_changed": false,
+  "python_scenarios": 22,
+  "native_frames": 10,
+  "checks": [
+    {
+      "check": "architecture",
+      "exit_code": 0,
+      "success_marker": "ARCHITECTURE: boundaries and whitespace are valid",
+      "log": "architecture.log",
+      "sha256": "d49b01cb84526f29f88c2c1f8c7b91bf05d9488141f657fcd34b33ff99a69ddc"
+    },
+    {
+      "check": "game",
+      "exit_code": 0,
+      "success_marker": "TESTS: 44082 passed, 0 failed",
+      "log": "game.log",
+      "sha256": "60d053abd2f87c5037f0d3b8779272aa5c9b8383e65db5451acf8c36ed6f3c9b"
+    },
+    {
+      "check": "wiki",
+      "exit_code": 0,
+      "success_marker": "pass 38",
+      "log": "wiki.log",
+      "sha256": "29b95b8059c898ae514b224b9e488f7278e9ef0095b018f056c56fa26f23a11b"
+    }
+  ],
+  "browser": "browser.json",
+  "native": "proof.json",
+  "performance_eligible": false
+}

@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "base_commit": "1621d49502cd244c1036168f9d235561b708b33a",
+  "files": {
+    "fixture-sources.json": "dfd5c6179184d640ed1e4ef5dd2a8f630739cef76f68286fa766a26832b5f873",
+    "inventory.json": "2908b8caba0c85dcb5e6309d86af02e951add130f663e63b021dea5714a414d8",
+    "native/baseline-import.log": "c6df4361e92adcd6e6a92e52fe6f565a59b2f87c1266cf58aa6321e3f6936ceb",
+    "native/baseline.log": "e1faaae91058e6ad79847f3a945702c86cef0a8c1afa4848ff9b90d0ccd8258f",
+    "native/baseline/capture.json": "ac92dd1c02fcde74c83ec8d0e07fd3d231932600ee13a89cf5e80312943f428f",
+    "native/baseline/dark.png": "73ff4bd122b113e899529d87dd22afd28b318a0015bb147b24311d8f8c5cbf8a",
+    "native/baseline/light.png": "a9875504beab3d4e3f951283dfeb463d98200ff7db2280f3eb085b91dec26fe5",
+    "native/dual-import.log": "9c04e14ca644139081ac45aae16794b49089058cad885761ca2ad974e686300d",
+    "native/dual.log": "beaf6ee0b72a93ff79e679dd9fb11e304d51ea9d13a3f1cfee401ed1a801fd7f",
+    "native/dual/capture.json": "b9020f5d39188705133b7a4e8233d5a157d77c91538ab70682914deb9b3a06a7",
+    "native/dual/dark.png": "73ff4bd122b113e899529d87dd22afd28b318a0015bb147b24311d8f8c5cbf8a",
+    "native/dual/light.png": "a9875504beab3d4e3f951283dfeb463d98200ff7db2280f3eb085b91dec26fe5",
+    "native/retired-import.log": "181dc7a640fcce6223f88e9654f3a765136ea0f8f4c6b8148155c35a6166a3ec",
+    "native/retired.log": "aeda76c2d2f738f5fefac2b3ab76beca8ae3963e50b28f0c7ba849985a6c0902",
+    "native/retired/capture.json": "60686bb86c3b1cde1773fdb6720897885c017c3b17197ae6b89e85e0378a3e9d",
+    "native/retired/dark.png": "6162b9a0e165e9be013eb5570c92873de4f758b21dce9eee556336fc8aa185c6",
+    "native/retired/light.png": "445e3b44176d322e1b3271621510948da5d9013c85749780f7790e0d0950a830",
+    "native/rollback-import.log": "181dc7a640fcce6223f88e9654f3a765136ea0f8f4c6b8148155c35a6166a3ec",
+    "native/rollback.log": "cb4e6c95c2b87cc17fd9191432c64beb55c7ec9fe57c3fe3d7f86d2a231f3155",
+    "native/rollback/capture.json": "00d4a1e08d4cdf6ce8de860be6365ebe488a05784661ba30ab91bb6b332ef48c",
+    "native/rollback/dark.png": "73ff4bd122b113e899529d87dd22afd28b318a0015bb147b24311d8f8c5cbf8a",
+    "native/rollback/light.png": "a9875504beab3d4e3f951283dfeb463d98200ff7db2280f3eb085b91dec26fe5",
+    "native/unadapted-import.log": "181dc7a640fcce6223f88e9654f3a765136ea0f8f4c6b8148155c35a6166a3ec",
+    "native/unadapted.log": "366998d40afdcdbea77e22f81e0f66b885e78f4028f783acc2cfa2af99df9ac9",
+    "native/unadapted/capture.json": "56bda94101d30afcf89c0aaad24acbf257f489ff4b3e387b9fd967f88e7373fd",
+    "native/unadapted/dark.png": "526e576d9075398487641c5b724e0e3a22b37a2679097ffe1ede8337411c3914",
+    "native/unadapted/light.png": "13796c08a1b09c8e57f206fd4d43c81f78cb972cd522408a967efdb91a03cb5f",
+    "plan.json": "8e79696c99bbeb1a359a840d93150cc2060ea4a1f1eceec82c71b7d10089144c",
+    "production-unchanged.json": "e786b9b5a0d22355988f2e44e7ae72ead8aecad9eaa3371126e2ac3a397759f2",
+    "wiki-contract.json": "c8cfb92873e66a89e6130c6676a4488bfa51005fce59382ddcf8fa2b903bcdd6",
+    "catalog-before.json": "348c387f1e4ddee4cbec6e4bc93ed8f24993ac42e8df21ca669259765791c947"
+  },
+  "comparisons": {
+    "baseline": {
+      "dark": {
+        "catalog": 0,
+        "saved_draft": 0
+      },
+      "light": {
+        "catalog": 0,
+        "saved_draft": 0
+      }
+    },
+    "dual": {
+      "dark": {
+        "catalog": 0,
+        "saved_draft": 0
+      },
+      "light": {
+        "catalog": 0,
+        "saved_draft": 0
+      }
+    },
+    "unadapted": {
+      "dark": {
+        "catalog": 0,
+        "saved_draft": 36257
+      },
+      "light": {
+        "catalog": 0,
+        "saved_draft": 34649
+      }
+    },
+    "retired": {
+      "dark": {
+        "catalog": 0,
+        "saved_draft": 43360
+      },
+      "light": {
+        "catalog": 0,
+        "saved_draft": 43364
+      }
+    },
+    "rollback": {
+      "dark": {
+        "catalog": 0,
+        "saved_draft": 0
+      },
+      "light": {
+        "catalog": 0,
+        "saved_draft": 0
+      }
+    }
+  },
+  "performance_eligible": false
+}

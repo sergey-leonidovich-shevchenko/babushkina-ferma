@@ -3,6 +3,13 @@
 wiki/planning/*.lock
 wiki/planning/*.tmp
 tools/*
+!tools/asset_migration.py
+!tools/migration_inventory.py
+!tools/migration_fixture.py
+!tools/migration_capture.gd
+!tools/migration_proof.py
+!tools/test_asset_migration.py
+!tools/test_migration_proof.py
 !tools/slice_export.gd
 !tools/slice_catalogs.gd
 !tools/slice_capture.gd
@@ -223,3 +230,5 @@ assets/inbox/*
 !docs/reports/visual-overhaul/vpipeline-007/*.log
 !docs/reports/visual-overhaul/vpipeline-008/*.log
 !docs/reports/visual-overhaul/vpipeline-008/after/*.log
+!docs/reports/visual-overhaul/vpipeline-009/*.log
+!docs/reports/visual-overhaul/vpipeline-009/native/*.log
