@@ -14,7 +14,8 @@
         "mipmaps/generate": false,
         "process/fix_alpha_border": true,
         "process/premult_alpha": false
-      }
+      },
+      "intent": "color_srgb"
     },
     "oak_table_west": {
       "file": "res://assets/game/interiors/furniture_a/rustic_table_west.png",
@@ -29,7 +30,8 @@
         "mipmaps/generate": false,
         "process/fix_alpha_border": true,
         "process/premult_alpha": false
-      }
+      },
+      "intent": "color_srgb"
     },
     "oak_table_east": {
       "file": "res://assets/game/interiors/furniture_a/rustic_table_east.png",
@@ -44,7 +46,8 @@
         "mipmaps/generate": false,
         "process/fix_alpha_border": true,
         "process/premult_alpha": false
-      }
+      },
+      "intent": "color_srgb"
     }
   },
   "resources": {

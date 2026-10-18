@@ -166,7 +166,7 @@ Linear и nearest сравниваются адресно; изменение о
 
 ## VPIPELINE-005 — Проверить цветовые и data текстуры
 
-Статус: `ready` · P0 · этап `foundation` · `engineering`
+Статус: `done` · P0 · этап `foundation` · `engineering`
 
 Маски глубины и гибкости не проходят цветовую коррекцию; RGBA значения после импорта проверены численно
 
@@ -182,7 +182,7 @@ Linear и nearest сравниваются адресно; изменение о
 - [scripts/presentation/prepared_item_icon_system.gd](../../../../scripts/presentation/prepared_item_icon_system.gd)
 - [assets/game/world_sprite_manifest.json](../../../../assets/game/world_sprite_manifest.json)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vpipeline-005/`.
+Результаты: `docs/reports/visual-overhaul/vpipeline-005/`.
 
 Критерии:
 
@@ -200,13 +200,13 @@ Linear и nearest сравниваются адресно; изменение о
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vpipeline-005/README.md, docs/reports/visual-overhaul/vpipeline-005/numeric-proof.json, docs/reports/visual-overhaul/vpipeline-005/room-comparison.json, docs/reports/visual-overhaul/vpipeline-005/browser.json, docs/reports/visual-overhaul/vpipeline-005/verification.json, assets/game/visual_texture_intents.json, scripts/presentation/texture_intent_system.gd, tools/texture_intents.py, tools/test_texture_intents.py, tests/suites/texture_intent_suite.gd, wiki/articles/data-textures.md.
 
 <a id="vpipeline-006"></a>
 
 ## VPIPELINE-006 — Закрепить два размера иконок
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 64 для сетки и 160 для выбранного превью; opening шкафа не декодирует все крупные мастера
 

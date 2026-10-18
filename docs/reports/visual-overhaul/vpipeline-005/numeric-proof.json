@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "production": {
+    "assets/game/visual_texture_intents.json": "be4e4d8d1d5cf0d88e4084ab523d08b2df678bf06df22d02ebf0541449425e0e",
+    "scripts/presentation/texture_intent_system.gd": "4e29b86028aa64cf1b581a78b0a7684fb2a23770cefe20f595949737ef56d6c7",
+    "tools/texture_data_probe.gd": "1c02118fbcc9ca9f55e7ac8f469110692b5f060c68b26ce223618fed58f5ed54"
+  },
+  "files": {
+    "color.png": "ef79efaa206e54f991a1b0b746db56236451c2be1976e925736e048df34101c4",
+    "color.png.import": "2ac71365e97f5807d7ce9eee8a07566d8be9323eafef62e3531db9988ef98040",
+    "compatibility/color-correct.png": "5273bb6f882539a65deba4f5b36bae5910f7deb3264207d365c3387e755be238",
+    "compatibility/color-wrong.png": "5273bb6f882539a65deba4f5b36bae5910f7deb3264207d365c3387e755be238",
+    "compatibility/depth-correct.png": "6c2de683a03a8cac7f577e81101bd590de4309fa3004e36b8be301e69264d84d",
+    "compatibility/depth-wrong.png": "6c2de683a03a8cac7f577e81101bd590de4309fa3004e36b8be301e69264d84d",
+    "compatibility/flex-correct.png": "6bbe0fc6e0c2359cd45e44d36d23b96e4bbd0547fc54e8a7788b907be7d9542e",
+    "compatibility/flex-wrong.png": "6bbe0fc6e0c2359cd45e44d36d23b96e4bbd0547fc54e8a7788b907be7d9542e",
+    "compatibility/readback.json": "411523526da9897028614340ca74bf5be24468ed21edf17ff5e74089f7e160b6",
+    "compatibility.log": "a02df2337d1da70a04edb190df64695eef5a38f0af06875af9fdbbd9dc7f6e0d",
+    "depth.png": "47ed04a3fc20921ba49e4e85fbb17ea810c68e87a651bd26a537f291a824711c",
+    "depth.png.import": "404ffdcd17580d5d292dcc02f6f3f31eb3cb41ff970045ccea1ad2582a385bd3",
+    "fixtures.json": "42d4bdc430b98e07a1ca98666d467dbefff7db59228c42de8a63e9b2796d9c4e",
+    "flex.png": "01c4d23cc7363e585b24942ff1a306a0b6d6b699221449b0c022bdb72813adcd",
+    "flex.png.import": "8e33b45b4d8d07d7f57691fd5dc010db2d4fe6e0fac95c7937bc927a3832c33d",
+    "mobile-hdr/color-correct.png": "c68b1f3f4616c78d11b9dda773c089dde8ac058d0994f54562b96c203ffbf72f",
+    "mobile-hdr/color-wrong.png": "cd75764f8d92466e9b00ff7ee3b0f005e1edba3a8c3c0659607b62117890c0ee",
+    "mobile-hdr/depth-correct.png": "4421fb4698d16d36b71c112573aa51281c54e4aa635b5498b5c36a279182f443",
+    "mobile-hdr/depth-wrong.png": "3d2dc4322eecce30addffa6ab2de44136a3122205cebc976e98db45ed8417146",
+    "mobile-hdr/flex-correct.png": "744337e3d65ef52af837bea65763f4ff75c944b0504e1cbcc36aa30c7b521aa1",
+    "mobile-hdr/flex-wrong.png": "c58a732e8888b0ff020f5998669463e53d27d931ee3dfab1b79592364e38849f",
+    "mobile-hdr/readback.json": "63b663b99137144a975ae34d6a01600caea24b3232d45248a0290709a22cec66",
+    "mobile-hdr.log": "0be9c83d0410ea267c164ec69b9d7b011da4b33223d76e7deca55e8f24ad6c4d",
+    "mobile-ldr/color-correct.png": "5273bb6f882539a65deba4f5b36bae5910f7deb3264207d365c3387e755be238",
+    "mobile-ldr/color-wrong.png": "5273bb6f882539a65deba4f5b36bae5910f7deb3264207d365c3387e755be238",
+    "mobile-ldr/depth-correct.png": "6c2de683a03a8cac7f577e81101bd590de4309fa3004e36b8be301e69264d84d",
+    "mobile-ldr/depth-wrong.png": "6c2de683a03a8cac7f577e81101bd590de4309fa3004e36b8be301e69264d84d",
+    "mobile-ldr/flex-correct.png": "6bbe0fc6e0c2359cd45e44d36d23b96e4bbd0547fc54e8a7788b907be7d9542e",
+    "mobile-ldr/flex-wrong.png": "6bbe0fc6e0c2359cd45e44d36d23b96e4bbd0547fc54e8a7788b907be7d9542e",
+    "mobile-ldr/readback.json": "f7aeced14b0bd7763c1c668a52a8bc7b28254c6e5f34f9d28e668d380914c3ad",
+    "mobile-ldr.log": "9018d2d559e6489a7e7e5c55360759dc1c81004be2f1b0741ce71252099c7f24",
+    "negative-alpha.png": "47ed04a3fc20921ba49e4e85fbb17ea810c68e87a651bd26a537f291a824711c",
+    "negative-alpha.png.import": "2fd0d2fa5d163443867957f911072d29f783ca05f4e2a4a927da1df981f16bfa"
+  },
+  "measurements": {
+    "compatibility": {
+      "alpha_border_changed_bytes": 30,
+      "depth-correct": {
+        "max_error": 2.9685450542160652e-08,
+        "alpha_error": 2.9451706518024423e-08
+      },
+      "depth-wrong": {
+        "max_error": 2.9685450542160652e-08,
+        "alpha_error": 2.9451706518024423e-08
+      },
+      "flex-correct": {
+        "max_error": 2.9685450542160652e-08,
+        "alpha_error": 2.9685450542160652e-08
+      },
+      "flex-wrong": {
+        "max_error": 2.9685450542160652e-08,
+        "alpha_error": 2.9685450542160652e-08
+      },
+      "color-correct": {
+        "max_error": 2.9685450542160652e-08,
+        "alpha_error": 0.0
+      },
+      "color-wrong": {
+        "max_error": 2.9685450542160652e-08,
+        "alpha_error": 0.0
+      }
+    },
+    "mobile-ldr": {
+      "alpha_border_changed_bytes": 30,
+      "depth-correct": {
+        "max_error": 2.9685450542160652e-08,
+        "alpha_error": 2.9451706518024423e-08
+      },
+      "depth-wrong": {
+        "max_error": 2.9685450542160652e-08,
+        "alpha_error": 2.9451706518024423e-08
+      },
+      "flex-correct": {
+        "max_error": 2.9685450542160652e-08,
+        "alpha_error": 2.9685450542160652e-08
+      },
+      "flex-wrong": {
+        "max_error": 2.9685450542160652e-08,
+        "alpha_error": 2.9685450542160652e-08
+      },
+      "color-correct": {
+        "max_error": 2.9685450542160652e-08,
+        "alpha_error": 0.0
+      },
+      "color-wrong": {
+        "max_error": 2.9685450542160652e-08,
+        "alpha_error": 0.0
+      }
+    },
+    "mobile-hdr": {
+      "alpha_border_changed_bytes": 30,
+      "depth-correct": {
+        "max_error": 0.0004863664215686292,
+        "alpha_error": 0.00047296262254903354
+      },
+      "depth-wrong": {
+        "max_error": 0.0019122132668001335,
+        "alpha_error": 0.00047296262254903354
+      },
+      "flex-correct": {
+        "max_error": 0.0004863664215686292,
+        "alpha_error": 0.0004825367647058876
+      },
+      "flex-wrong": {
+        "max_error": 0.0019122132668001335,
+        "alpha_error": 0.0004825367647058876
+      },
+      "color-correct": {
+        "max_error": 0.0019122132668001335,
+        "alpha_error": 0.0
+      },
+      "color-wrong": {
+        "max_error": 0.0004863664215686292,
+        "alpha_error": 0.0
+      },
+      "wrong_hint_max_change": 0.287109375
+    }
+  },
+  "baseline": "214a3d3ba7187fe569aec800d88a3daef0cea9ec",
+  "performance_eligible": false
+}

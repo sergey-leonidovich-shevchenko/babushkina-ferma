@@ -35,6 +35,13 @@
     "tags": ["Разработка", "Графика", "VPIPELINE-004", "Атласы", "Mipmap", "Миниатюры"]
   },
   {
+    "id": "data-textures",
+    "file": "data-textures.md",
+    "title": "Цвет рисунка и числа для шейдеров",
+    "summary": "VPIPELINE-005: lossless RGBA8, роли color/data, маски глубины и гибкости, настоящая GPU-проверка LDR/HDR и защита от source_color.",
+    "tags": ["Разработка", "Графика", "VPIPELINE-005", "Шейдеры", "Маски", "Вода", "Трава"]
+  },
+  {
     "id": "IDEA-001",
     "file": "IDEA-001.md",
     "title": "IDEA-001 — публикация проверенного набора графики",

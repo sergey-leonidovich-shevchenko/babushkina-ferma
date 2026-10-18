@@ -16,6 +16,10 @@ VART-004: [стандарт ракурсов](reports/visual-overhaul/vart-004/R
 
 VART-002: [стенд поля обзора](reports/visual-overhaul/vart-002/README.md) меняет `SubViewport.size_2d_override` только внутри `tools/visual_scale_capture.gd`. Production-мир рендерится в target 1152×648, HUD — отдельным нативным слоем в том же размере. `WorldVisibilitySystem` получает настоящий размер логического поля, а физический снимок сохраняется между вариантами. Инструмент предназначен для выбора масштаба; штатный runtime не получает новый зум или новое управление автоматически.
 
+## Числовые маски и цветовые текстуры
+
+VPIPELINE-005: перед shader sampler задаётся явная роль из `visual_texture_intents.json`. Цветовой пилот в общем паспорте — `color_srgb`; данные глубины/гибкости — `data_rgba8`. Использовать `TextureIntentSystem.binding/material`, создавать материал один раз у владельца. Нельзя передавать CanvasTexture/AtlasTexture как сырой sampler, угадывать роль по имени или включать `source_color` у числовой маски. Поддержан ограниченный явный синтаксис `canvas_item`; другие объявления требуют собственного проверяемого контракта. [Паспорт](VISUAL_RESOURCE_FORMAT.md), [нужные импорты и повтор GPU-стенда](reports/visual-overhaul/vpipeline-005/README.md). Глобальный renderer/HDR и игровые сохранения не переключаются.
+
 ## Координаты VCAMERA-001
 
 Мировая физика хранит дробные опоры; `AnimationRenderer.player_ground()` передаёт точную позицию стоп в renderer. Камера применяется ручным draw-transform: `logical = world - camera_offset`; фон получает то же смещение отдельным узлом. HUD использует исходный логический холст 1152×648. `canvas_items` масштабирует его до framebuffer, затем оконные поля добавляют отступ. В `_input` координаты уже локализованы Godot: для мира достаточно `event.position + camera_offset`, без повторного деления на масштаб/Retina.
