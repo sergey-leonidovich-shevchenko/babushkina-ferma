@@ -7,7 +7,7 @@ import tempfile
 import unittest
 from pathlib import Path
 from PIL import Image
-from texture_intents import ROOT, POLICY, HELPER, REPORT, DATA_IMPORT, MODES, digest, fixtures, import_errors, numeric_errors, pixels, proof_errors, read, validate, write
+from texture_intents import ROOT, POLICY, HELPER, REPORT, DATA_IMPORT, MODES, bundle_errors, digest, fixtures, import_errors, numeric_errors, pixels, proof_errors, read, validate, write
 
 
 class TextureIntentTests(unittest.TestCase):
@@ -26,6 +26,10 @@ class TextureIntentTests(unittest.TestCase):
     def test_valid_policy_and_all_native_proof(self):
         """Действующий паспорт, полный импорт и три настоящих режима GPU проходят вместе."""
         self.assertEqual(validate(self.root),[]); self.assertEqual(proof_errors(self.root),[])
+        tracked={str(p.relative_to(self.root)) for p in (self.root/REPORT).rglob("*") if p.is_file()}
+        self.assertEqual(bundle_errors(self.root,tracked),[])
+        for missing in ["numeric/depth.png.import","numeric/mobile-hdr.log","after/capture.json"]:
+            self.assertTrue(bundle_errors(self.root,tracked-{REPORT+"/"+missing}),missing)
 
     def test_missing_or_numerical_role_on_visual_drawing(self):
         """Рисунок не получает роль по имени файла и не может стать числовой маской."""

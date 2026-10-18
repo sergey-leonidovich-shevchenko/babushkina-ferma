@@ -8,6 +8,7 @@ import json
 import math
 import re
 import shutil
+import subprocess
 from pathlib import Path
 from PIL import Image, ImageChops
 
@@ -216,12 +217,20 @@ def proof_errors(root: Path) -> list[str]:
     return errors
 
 
+def bundle_errors(root: Path, tracked: set[str]) -> list[str]:
+    """Не позволяет принять локальное доказательство, чьи обязательные файлы исчезнут после клонирования."""
+    required={REPORT+"/numeric/"+name for name in read(root/REPORT/"numeric-proof.json")["files"]}
+    required.update(REPORT+"/"+name for name in ["README.md","numeric-proof.json","room-comparison.json","verification.json","browser.json","wiki.png","before.log","after.log","contract.log","before/room.png","before/capture.json","after/room.png","after/capture.json"])
+    return ["proof input is not in Git index: "+name for name in sorted(required-tracked)]
+
+
 def main() -> None:
     """Выбирает создание изолированного стенда, архивацию либо обязательную проверку проекта."""
     parser=argparse.ArgumentParser(); parser.add_argument("--fixtures",type=Path); parser.add_argument("--record",type=Path); args=parser.parse_args()
     if args.fixtures: fixtures(args.fixtures); print("TEXTURE FIXTURES: "+str(args.fixtures)); return
     if args.record: record(args.record); print("TEXTURE NUMERIC PROOF: recorded"); return
-    errors=validate(ROOT)+proof_errors(ROOT)
+    tracked=set(subprocess.check_output(["git","-C",str(ROOT),"ls-files","-z"]).decode().split("\0"))
+    errors=validate(ROOT)+proof_errors(ROOT)+bundle_errors(ROOT,tracked)
     if errors: raise SystemExit("\n".join(errors))
     print("TEXTURE INTENTS: color/data imports, full RGBA and native GPU matrix are valid")
 
