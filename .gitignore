@@ -244,3 +244,7 @@ assets/inbox/*
 !tools/test_asset_pack_proof.py
 !/export_presets.cfg
 !docs/reports/visual-overhaul/vpipeline-010/*.log
+
+# VRELEASE-001: bounded rollout projection and negative scenarios.
+!tools/pilot_rollout.py
+!tools/test_pilot_rollout.py

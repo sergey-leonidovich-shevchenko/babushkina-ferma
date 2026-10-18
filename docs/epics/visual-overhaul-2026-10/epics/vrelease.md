@@ -6,7 +6,7 @@
 
 ## VRELEASE-001 — Составить первую очередь внедрения
 
-Статус: `ready` · P0 · этап `rollout` · `engineering`
+Статус: `done` · P0 · этап `rollout` · `engineering`
 
 Есть ограниченный набор задач пилота с зависимостями; 1000 карточек не объявляются одним обязательным релизом
 
@@ -22,7 +22,7 @@
 - [QA_CHECKLIST.md](../../../../QA_CHECKLIST.md)
 - [docs/BACKLOG_WORKFLOW.md](../../../../docs/BACKLOG_WORKFLOW.md)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vrelease-001/`.
+Результаты: `docs/reports/visual-overhaul/vrelease-001/`.
 
 Критерии:
 
@@ -40,7 +40,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vrelease-001/README.md, docs/reports/visual-overhaul/vrelease-001/plan.json, docs/reports/visual-overhaul/vrelease-001/queue.json, docs/reports/visual-overhaul/vrelease-001/acceptance.json.
 
 <a id="vrelease-002"></a>
 
@@ -166,7 +166,7 @@
 
 ## VRELEASE-005 — Зафиксировать пакет для художника
 
-Статус: `backlog` · P0 · этап `rollout` · `engineering`
+Статус: `ready` · P0 · этап `rollout` · `engineering`
 
 Палитра, ракурсы, размеры, экспорт, примеры брака и паспорт ассета доступны без чтения исходников
 

@@ -51,6 +51,7 @@ export interface Entry {
   source: string
 }
 export interface Catalog {
+  rolloutQueues?: import('./lib/task-queue.ts').RolloutQueue[]
   production: import('./lib/production-plan.ts').ProductionGraph
   schema: number
   entries: Entry[]

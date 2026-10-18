@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="660" viewBox="0 0 1000 660" role="img" aria-labelledby="title desc">
+  <title id="title">Границы первого статичного показа</title>
+  <desc id="desc">Схема физической карты 2400 на 1368. Область пилота 960 на 576 включает целый первый мост; текущая камера эталона шире и смещена влево.</desc>
+  <rect width="1000" height="660" fill="#f4ecd8"/>
+  <g font-family="sans-serif" fill="#3b342b">
+    <text x="50" y="41" font-size="24" font-weight="bold">Первый участок · схема области, не новый арт</text>
+    <text x="50" y="68" font-size="16">Физический мир 2400×1368 · клетка 24 · координаты из village_map_data / water_layout_data</text>
+    <g transform="translate(50 90) scale(.34)">
+      <rect width="2400" height="1368" fill="#dddab6" stroke="#736e52" stroke-width="4"/>
+      <path d="M0 288H576V456H1032V960H2400" fill="none" stroke="#8db2b7" stroke-width="96" stroke-linejoin="miter"/>
+      <rect x="1752" y="816" width="192" height="144" fill="#8db2b7"/>
+      <rect x="1728" y="840" width="240" height="96" fill="#8db2b7"/>
+      <rect x="240" y="312" width="960" height="576" fill="#738c5b" fill-opacity=".25" stroke="#506a3f" stroke-width="9"/>
+      <rect x="0" y="348" width="1152" height="648" fill="none" stroke="#446f97" stroke-width="7" stroke-dasharray="25 18"/>
+      <rect x="816" y="360" width="96" height="192" fill="#ad794b" stroke="#634c35" stroke-width="6"/>
+      <rect x="1560" y="864" width="96" height="192" fill="#ad794b"/>
+      <circle cx="360" cy="552" r="15" fill="#775b41"/>
+      <circle cx="432" cy="672" r="18" fill="#b65e43"/>
+      <g font-size="43">
+        <text x="280" y="820" fill="#384c2d">Пилот 40×24 клетки</text>
+        <text x="970" y="395">Целый мост</text>
+        <text x="1400" y="1250">Остальной мир — прежняя графика</text>
+      </g>
+      <path d="M950 403H912" stroke="#634c35" stroke-width="4"/>
+    </g>
+    <rect x="50" y="583" width="25" height="15" fill="#c0c9a0" stroke="#506a3f" stroke-width="2"/>
+    <text x="87" y="597" font-size="16">Область: x=240, y=312, 960×576; 960 клеток</text>
+    <path d="M50 621H75" stroke="#446f97" stroke-width="3" stroke-dasharray="6 4"/>
+    <text x="87" y="626" font-size="16">Историческая камера 1×: x=0, y=348, 1152×648. Целевая 120% ещё не внедрена.</text>
+  </g>
+</svg>

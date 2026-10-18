@@ -8462,7 +8462,7 @@
       "id": "VRELEASE-001",
       "epic": "VRELEASE",
       "title": "Составить первую очередь внедрения",
-      "status": "ready",
+      "status": "done",
       "priority": "P0",
       "phase": "rollout",
       "kind": "engineering",
@@ -8496,7 +8496,13 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vrelease-001-visual-task",
-      "evidence": []
+      "evidence": [
+        "docs/reports/visual-overhaul/vrelease-001/README.md",
+        "docs/reports/visual-overhaul/vrelease-001/plan.json",
+        "docs/reports/visual-overhaul/vrelease-001/queue.json",
+        "docs/reports/visual-overhaul/vrelease-001/acceptance.json"
+      ],
+      "result": "Подготовлена очередь статичного пилота: 55 существующих ID, выполнено 24 / открыта 31 при приёмке, этапы 30+25, учтены все 25 графических эпиков. В Wiki — текущий прогресс, блокеры и этапы; полные критерии карточек сохранены. Пройдены 14 профильных сценариев, 51 Wiki-тест, architecture gate и полный игровой набор 44082/0; браузер 390 px без переполнения. Runtime и новый арт не принимаются. Историческая нативная пара и открытые ворота совместимости — в отчёте."
     },
     {
       "id": "VRELEASE-002",
@@ -8637,7 +8643,7 @@
       "id": "VRELEASE-005",
       "epic": "VRELEASE",
       "title": "Зафиксировать пакет для художника",
-      "status": "backlog",
+      "status": "ready",
       "priority": "P0",
       "phase": "rollout",
       "kind": "engineering",
