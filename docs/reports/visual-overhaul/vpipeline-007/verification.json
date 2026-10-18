@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "runtime_changed": false,
+  "python_alpha_tests": 17,
+  "checks": [
+    {
+      "check": "architecture",
+      "exit_code": 0,
+      "success_marker": "ARCHITECTURE: boundaries and whitespace are valid",
+      "log": "architecture.log",
+      "sha256": "c8faf58372e4fe96064a1edcf58e0c070229fdd4c175a4a8ced9c0fd1b68289b"
+    },
+    {
+      "check": "game",
+      "exit_code": 0,
+      "success_marker": "TESTS: 43642 passed, 0 failed",
+      "log": "game.log",
+      "sha256": "cfd5a9edb4fdf13fe706863cf47ba461e0ff92572ecd0e617db85cbe996b8dca"
+    },
+    {
+      "check": "wiki",
+      "exit_code": 0,
+      "success_marker": "pass 38",
+      "log": "wiki.log",
+      "sha256": "5328916faa3e67de9abf33d614922344f2205f90e0de8c7465d150d76cc92da3"
+    }
+  ],
+  "native": "native/capture.json",
+  "browser": "browser.json",
+  "performance_eligible": false
+}

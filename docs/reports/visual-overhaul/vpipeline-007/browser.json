@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "article": {
+    "images": [
+      {
+        "alt": "Настоящие источники на тёмном фоне",
+        "loaded": true
+      },
+      {
+        "alt": "Те же источники на светлом фоне",
+        "loaded": true
+      },
+      {
+        "alt": "Источники на зелёном фоне",
+        "loaded": true
+      },
+      {
+        "alt": "Источники на пурпурном фоне",
+        "loaded": true
+      },
+      {
+        "alt": "Контроли на тёмном фоне",
+        "loaded": true
+      },
+      {
+        "alt": "Контроли на светлом фоне",
+        "loaded": true
+      },
+      {
+        "alt": "Контроли на зелёном фоне",
+        "loaded": true
+      },
+      {
+        "alt": "Контроли на пурпурном фоне",
+        "loaded": true
+      }
+    ],
+    "links": [
+      {
+        "href": "#/guides/alpha-candidates",
+        "text": "Полный список кандидатов"
+      },
+      {
+        "href": "#/guides/data-textures",
+        "text": "цветовых и data-текстурах"
+      }
+    ],
+    "scrollWidth": 441,
+    "title": "Альфа-края: кайма и настоящие белые детали",
+    "width": 441
+  },
+  "candidates": {
+    "backLink": [
+      {
+        "href": "#/guides/alpha-edges",
+        "text": "Методика, нативные примеры и ограничения"
+      }
+    ],
+    "scrollWidth": 441,
+    "tableRows": 312,
+    "title": "Альфа-края: список кандидатов",
+    "width": 441
+  },
+  "performance_eligible": false,
+  "scope": "Actual browser viewport; CSS width check, not a physical device."
+}

@@ -3,6 +3,14 @@
 wiki/planning/*.lock
 wiki/planning/*.tmp
 tools/*
+!tools/alpha_metrics.py
+!tools/alpha_audit.py
+!tools/alpha_fixtures.py
+!tools/alpha_capture.gd
+!tools/alpha_proof.py
+!tools/alpha_policy.json
+!tools/test_alpha_audit.py
+!tools/test_alpha_proof.py
 !tools/item_sizes.py
 !tools/test_item_sizes.py
 !tools/item_sizes_review.gd
@@ -201,3 +209,4 @@ assets/inbox/*
 !docs/reports/visual-overhaul/vpipeline-005/numeric/*.log
 !docs/reports/visual-overhaul/vpipeline-005/numeric/*.png.import
 !docs/reports/visual-overhaul/vpipeline-006/*.log
+!docs/reports/visual-overhaul/vpipeline-007/*.log

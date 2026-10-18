@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "baseline_commit": "a55ebc1ae580b1f09d21b63fb699a84cb8e7fb54",
+  "runtime_before_sha256": "3a34cd8e0b2431469edc765e4181555390a4950d9515ec681a8ff3e5c8e18030",
+  "runtime_after_sha256": "3a34cd8e0b2431469edc765e4181555390a4950d9515ec681a8ff3e5c8e18030",
+  "files": {
+    "fixtures/clean-white-details.png": "8e78653f39b1ba42bd2f7b28df5508c0cc52da27510435ca4a3b57a92aba04d8",
+    "fixtures/fixtures.json": "5c5917a22dcd1f4149c313fd94800a6a92a875adb21ff3893d0cdedf91873232",
+    "fixtures/invisible-rgb.png": "fbafbee10a6050a106ebc2d3f3c41726b38aa980f920e444e5fbf8893333c1fb",
+    "fixtures/magenta-material.png": "65f3f317fb2d0066d06051c19f2dcd77d921c75a80162e099db26577a45259d3",
+    "fixtures/magenta-opaque-rim.png": "00d9bbd359875164bb5f37d66bd6cf082c106b0f10b9cad24959f45c57347c00",
+    "fixtures/magenta-soft-matte.png": "7eb9b20400b5ed8222b07d4f7010d3cc3144b6a269bc5d8fb438f111126961e7",
+    "fixtures/white-material.png": "402e1a15571f5b685309f32e2888ce875227caad9281c73dc774d5dd8244271f",
+    "fixtures/white-opaque-rim.png": "fbffe0c51514ce2ee72788dc8f44b994caca40e341c59bebad30ea4ce9ee260d",
+    "fixtures/white-soft-matte.png": "a636eaa690aa0be12fc36eee9e3c6bbe7454e7d548a4acc430bdf973f28c5c66",
+    "legacy-baseline.json": "d66f4d35f6450186c0c9093bc82b83df7f3fb6cf521a150de02b0a3694857123",
+    "native/capture.json": "149fcf7372d97f8ffd5a17f3b65d61d23597a0c8fc4cc385858f430f7593c8a1",
+    "native/controls-dark.png": "931325390e9e8fb9a991cec6f9820dcc47785fc0aecc304afe35d98e9496a972",
+    "native/controls-green.png": "f0189ab27178e54eacc65478e5749a9db826bb5d2a2cd7ab1f0ad155e64f79b6",
+    "native/controls-light.png": "bb875bbf7270598d16157c2025b64af31c64c65af2f40b4bfc72512db92bddc1",
+    "native/controls-purple.png": "7b8d74f6a380e9b5398b3263dac591e9e8f38d5eee1a405f5a9da3e0adeb1b6f",
+    "native/sources-dark.png": "6db8506b90dd2238011473c691c6fffeb551343eb45b75b20bab87ebd90b87f8",
+    "native/sources-green.png": "ef8390943f02436f6c9b003d14379d528a085be301891e799f937401e4d03551",
+    "native/sources-light.png": "1652a530b8dab88c5cab0c0e84e592473f1e0301198157d9c4b297b869a5a51a",
+    "native/sources-purple.png": "0c4ee292eca1a0790a1c24694ebe75338adfb5e81a85dfed1cd4101a6ac6b60d",
+    "native.log": "299ba1546c8a4321805fbdf67d4c2a855ed05dd532bf4348b5fe3a470dd6908c",
+    "scan.log": "9e36a27b8bc49b8cf9077cd74c7d0a62f74838cec4e4050f05bc36c82f0ccbd6"
+  },
+  "measurements": {
+    "light": {
+      "background": [
+        241,
+        234,
+        216,
+        255
+      ],
+      "white_detail": [
+        250,
+        245,
+        230,
+        255
+      ],
+      "white_material": [
+        244,
+        240,
+        231,
+        255
+      ],
+      "magenta_material": [
+        220,
+        35,
+        200,
+        255
+      ],
+      "changed_pixels": {
+        "white_soft": 3217,
+        "magenta_soft": 3223,
+        "invisible_rgb": 2021
+      }
+    },
+    "dark": {
+      "background": [
+        25,
+        35,
+        43,
+        255
+      ],
+      "white_detail": [
+        250,
+        245,
+        230,
+        255
+      ],
+      "white_material": [
+        244,
+        240,
+        231,
+        255
+      ],
+      "magenta_material": [
+        220,
+        35,
+        200,
+        255
+      ],
+      "changed_pixels": {
+        "white_soft": 2581,
+        "magenta_soft": 2592,
+        "invisible_rgb": 1409
+      }
+    },
+    "green": {
+      "background": [
+        97,
+        118,
+        75,
+        255
+      ],
+      "white_detail": [
+        250,
+        245,
+        230,
+        255
+      ],
+      "white_material": [
+        244,
+        240,
+        231,
+        255
+      ],
+      "magenta_material": [
+        220,
+        35,
+        200,
+        255
+      ],
+      "changed_pixels": {
+        "white_soft": 2533,
+        "magenta_soft": 2566,
+        "invisible_rgb": 1358
+      }
+    },
+    "purple": {
+      "background": [
+        116,
+        85,
+        118,
+        255
+      ],
+      "white_detail": [
+        250,
+        245,
+        230,
+        255
+      ],
+      "white_material": [
+        244,
+        240,
+        231,
+        255
+      ],
+      "magenta_material": [
+        220,
+        35,
+        200,
+        255
+      ],
+      "changed_pixels": {
+        "white_soft": 2587,
+        "magenta_soft": 2585,
+        "invisible_rgb": 1406
+      }
+    }
+  },
+  "performance_eligible": false
+}

@@ -5709,7 +5709,7 @@
       "id": "VPIPELINE-007",
       "epic": "VPIPELINE",
       "title": "Сделать проверку альфа-краёв",
-      "status": "ready",
+      "status": "done",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -5745,13 +5745,25 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vpipeline-007-visual-task",
-      "evidence": []
+      "evidence": [
+        "docs/reports/visual-overhaul/vpipeline-007/README.md",
+        "docs/reports/visual-overhaul/vpipeline-007/legacy-baseline.json",
+        "docs/reports/visual-overhaul/vpipeline-007/proof.json",
+        "docs/reports/visual-overhaul/vpipeline-007/native/capture.json",
+        "tools/alpha_audit.py",
+        "tools/alpha_metrics.py",
+        "tools/test_alpha_audit.py",
+        "tools/test_alpha_proof.py",
+        "wiki/articles/alpha-edges.md",
+        "wiki/articles/alpha-candidates.md"
+      ],
+      "result": "18 октября 2026: read-only аудит 1181 runtime PNG с барьерами VPIPELINE-001; 311 файлов и 189310 пикселей-кандидатов сохранены как старый долг, не как подтверждённые дефекты. Полный проход 34,517 с офлайн; gate сверяет SHA256 неизменных и анализирует новые/изменённые, не добавляя проходы в игровой кадр. Новый сигнал требует точного review с причиной и хешами доказательств. Восемь числовых контролей, четыре фона и 8 нативных кадров Godot 4.7.1 Compatibility/opengl3 1152x648: мягкая и непрозрачная белая/пурпурная кайма обнаружены, белые детали и честные материалы сохранены с точными RGB. Скрытый RGB нулевой альфы отмечен отдельно; raw linear показывает риск каймы, числовые data-маски требуют строгого data-import. Все 1181 исходных PNG неизменны. У превью молока визуально подтверждена пурпурная кайма, исправление остаётся VICON-193; старый сырой атлас не выдаётся за live-кадр. 12 тестов аудитора + 5 тестов доказательств, architecture gate, 43642 игровых проверки без ошибок, Wiki build/TypeScript/38 тестов. В Wiki добавлены методика, все контрольные фоны и полный список кандидатов. FPS, массовая перерисовка и закрытие OPT-03 не заявляются. VPIPELINE-008 подготовлена следующей."
     },
     {
       "id": "VPIPELINE-008",
       "epic": "VPIPELINE",
       "title": "Проверить целостность нарезки",
-      "status": "backlog",
+      "status": "ready",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",

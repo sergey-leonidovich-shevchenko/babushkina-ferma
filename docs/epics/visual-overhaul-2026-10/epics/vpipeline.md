@@ -246,7 +246,7 @@ Linear и nearest сравниваются адресно; изменение о
 
 ## VPIPELINE-007 — Сделать проверку альфа-краёв
 
-Статус: `ready` · P0 · этап `foundation` · `engineering`
+Статус: `done` · P0 · этап `foundation` · `engineering`
 
 Белый и пурпурный matte обнаруживается отчётом и контрольным фоном; инструмент не удаляет белые детали предмета
 
@@ -262,7 +262,7 @@ Linear и nearest сравниваются адресно; изменение о
 - [scripts/presentation/prepared_item_icon_system.gd](../../../../scripts/presentation/prepared_item_icon_system.gd)
 - [assets/game/world_sprite_manifest.json](../../../../assets/game/world_sprite_manifest.json)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vpipeline-007/`.
+Результаты: `docs/reports/visual-overhaul/vpipeline-007/`.
 
 Критерии:
 
@@ -280,13 +280,13 @@ Linear и nearest сравниваются адресно; изменение о
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vpipeline-007/README.md, docs/reports/visual-overhaul/vpipeline-007/legacy-baseline.json, docs/reports/visual-overhaul/vpipeline-007/proof.json, docs/reports/visual-overhaul/vpipeline-007/native/capture.json, tools/alpha_audit.py, tools/alpha_metrics.py, tools/test_alpha_audit.py, tools/test_alpha_proof.py, wiki/articles/alpha-edges.md, wiki/articles/alpha-candidates.md.
 
 <a id="vpipeline-008"></a>
 
 ## VPIPELINE-008 — Проверить целостность нарезки
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 Каждый source rect в пределах изображения, имеет запас и pivot; край подсолнуха и оружия не обрезан
 

@@ -1,0 +1,94 @@
+{
+  "backgrounds": {
+    "dark": "19232b",
+    "green": "61764b",
+    "light": "f1ead8",
+    "purple": "745576"
+  },
+  "driver": "opengl3",
+  "engine": "4.7.1-stable (official)",
+  "framebuffer": [
+    1152,
+    648
+  ],
+  "frames": {
+    "controls-dark": "931325390e9e8fb9a991cec6f9820dcc47785fc0aecc304afe35d98e9496a972",
+    "controls-green": "f0189ab27178e54eacc65478e5749a9db826bb5d2a2cd7ab1f0ad155e64f79b6",
+    "controls-light": "bb875bbf7270598d16157c2025b64af31c64c65af2f40b4bfc72512db92bddc1",
+    "controls-purple": "7b8d74f6a380e9b5398b3263dac591e9e8f38d5eee1a405f5a9da3e0adeb1b6f",
+    "sources-dark": "6db8506b90dd2238011473c691c6fffeb551343eb45b75b20bab87ebd90b87f8",
+    "sources-green": "ef8390943f02436f6c9b003d14379d528a085be301891e799f937401e4d03551",
+    "sources-light": "1652a530b8dab88c5cab0c0e84e592473f1e0301198157d9c4b297b869a5a51a",
+    "sources-purple": "0c4ee292eca1a0790a1c24694ebe75338adfb5e81a85dfed1cd4101a6ac6b60d"
+  },
+  "method": "gl_compatibility",
+  "performance_eligible": false,
+  "profile": "Codex-VPIPELINE-007-final",
+  "source_sha256": "0a5dce5a6f558f21cb03bcdf47a0189d2639d3ebf7ed5ee0a7c6e8aba57fc81a",
+  "sources": [
+    {
+      "id": "milk-preview",
+      "note": "Live prepared preview",
+      "path": "res://assets/game/items/ui/preview/milk.png",
+      "pixels": [
+        160,
+        160
+      ],
+      "sha256": "fc363f9dc0d012358cb8181f3488f599adf7d14426748a4e06bfeadf97a3acc3",
+      "source_rect": [
+        0,
+        0,
+        160,
+        160
+      ]
+    },
+    {
+      "id": "clean-well",
+      "note": "Current standalone source",
+      "path": "res://assets/game/locations/overworld/modular/prop_well_v1.png",
+      "pixels": [
+        120,
+        120
+      ],
+      "sha256": "1f54767eb6e626f417d8651cb56320acd965e3d3e362b0e9c8eefb721da19bb8",
+      "source_rect": [
+        0,
+        0,
+        120,
+        120
+      ]
+    },
+    {
+      "id": "clean-cart",
+      "note": "Current standalone source",
+      "path": "res://assets/game/locations/overworld/modular/prop_cart_v1.png",
+      "pixels": [
+        120,
+        96
+      ],
+      "sha256": "29582a46b66108f2b31e734fc721ee519d253eead45e793f32833993982c8a62",
+      "source_rect": [
+        0,
+        0,
+        120,
+        96
+      ]
+    },
+    {
+      "id": "legacy-props",
+      "note": "Raw atlas; runtime may preprocess",
+      "path": "res://assets/game/environment/village_prop_atlas_v2.png",
+      "pixels": [
+        2048,
+        1024
+      ],
+      "sha256": "6679ddcf447e419f1f87b15cd1c945f3bb320a6236ab09819110b18938037921",
+      "source_rect": [
+        0,
+        0,
+        2048,
+        512
+      ]
+    }
+  ]
+}

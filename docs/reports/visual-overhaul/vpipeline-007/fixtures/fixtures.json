@@ -1,0 +1,628 @@
+[
+  {
+    "id": "clean-white-details",
+    "file": "clean-white-details.png",
+    "metrics": {
+      "classification": "transparent_sprite",
+      "pixels": [
+        96,
+        96
+      ],
+      "alpha_zero": 5876,
+      "alpha_soft": 505,
+      "alpha_dense": 2835,
+      "findings": [],
+      "invisible_rgb": {
+        "white": 0,
+        "magenta": 0
+      }
+    }
+  },
+  {
+    "id": "white-soft-matte",
+    "file": "white-soft-matte.png",
+    "metrics": {
+      "classification": "transparent_sprite",
+      "pixels": [
+        96,
+        96
+      ],
+      "alpha_zero": 5876,
+      "alpha_soft": 505,
+      "alpha_dense": 2835,
+      "findings": [
+        {
+          "colour": "white",
+          "candidate_pixels": 80,
+          "components": 4,
+          "regions": [
+            {
+              "pixels": 46,
+              "bbox": [
+                24,
+                25,
+                25,
+                71
+              ],
+              "sample": [
+                [
+                  24,
+                  25
+                ],
+                [
+                  24,
+                  26
+                ],
+                [
+                  24,
+                  27
+                ],
+                [
+                  24,
+                  28
+                ]
+              ],
+              "kinds": [
+                "soft_matte"
+              ]
+            },
+            {
+              "pixels": 26,
+              "bbox": [
+                35,
+                14,
+                61,
+                15
+              ],
+              "sample": [
+                [
+                  35,
+                  14
+                ],
+                [
+                  36,
+                  14
+                ],
+                [
+                  37,
+                  14
+                ],
+                [
+                  38,
+                  14
+                ]
+              ],
+              "kinds": [
+                "soft_matte"
+              ]
+            },
+            {
+              "pixels": 4,
+              "bbox": [
+                26,
+                76,
+                30,
+                80
+              ],
+              "sample": [
+                [
+                  26,
+                  76
+                ],
+                [
+                  27,
+                  77
+                ],
+                [
+                  28,
+                  78
+                ],
+                [
+                  29,
+                  79
+                ]
+              ],
+              "kinds": [
+                "soft_matte"
+              ]
+            },
+            {
+              "pixels": 4,
+              "bbox": [
+                66,
+                16,
+                70,
+                20
+              ],
+              "sample": [
+                [
+                  66,
+                  16
+                ],
+                [
+                  67,
+                  17
+                ],
+                [
+                  68,
+                  18
+                ],
+                [
+                  69,
+                  19
+                ]
+              ],
+              "kinds": [
+                "soft_matte"
+              ]
+            }
+          ]
+        }
+      ],
+      "invisible_rgb": {
+        "white": 0,
+        "magenta": 0
+      }
+    }
+  },
+  {
+    "id": "white-opaque-rim",
+    "file": "white-opaque-rim.png",
+    "metrics": {
+      "classification": "transparent_sprite",
+      "pixels": [
+        96,
+        96
+      ],
+      "alpha_zero": 5835,
+      "alpha_soft": 0,
+      "alpha_dense": 3381,
+      "findings": [
+        {
+          "colour": "white",
+          "candidate_pixels": 232,
+          "components": 1,
+          "regions": [
+            {
+              "pixels": 232,
+              "bbox": [
+                24,
+                14,
+                73,
+                83
+              ],
+              "sample": [
+                [
+                  24,
+                  14
+                ],
+                [
+                  25,
+                  14
+                ],
+                [
+                  26,
+                  14
+                ],
+                [
+                  27,
+                  14
+                ]
+              ],
+              "kinds": [
+                "opaque_colour_rim"
+              ]
+            }
+          ]
+        }
+      ],
+      "invisible_rgb": {
+        "white": 0,
+        "magenta": 0
+      }
+    }
+  },
+  {
+    "id": "magenta-soft-matte",
+    "file": "magenta-soft-matte.png",
+    "metrics": {
+      "classification": "transparent_sprite",
+      "pixels": [
+        96,
+        96
+      ],
+      "alpha_zero": 5876,
+      "alpha_soft": 505,
+      "alpha_dense": 2835,
+      "findings": [
+        {
+          "colour": "magenta",
+          "candidate_pixels": 166,
+          "components": 9,
+          "regions": [
+            {
+              "pixels": 48,
+              "bbox": [
+                71,
+                24,
+                72,
+                72
+              ],
+              "sample": [
+                [
+                  71,
+                  24
+                ],
+                [
+                  71,
+                  25
+                ],
+                [
+                  71,
+                  26
+                ],
+                [
+                  71,
+                  27
+                ]
+              ],
+              "kinds": [
+                "soft_matte"
+              ]
+            },
+            {
+              "pixels": 46,
+              "bbox": [
+                24,
+                25,
+                25,
+                71
+              ],
+              "sample": [
+                [
+                  24,
+                  25
+                ],
+                [
+                  24,
+                  26
+                ],
+                [
+                  24,
+                  27
+                ],
+                [
+                  24,
+                  28
+                ]
+              ],
+              "kinds": [
+                "soft_matte"
+              ]
+            },
+            {
+              "pixels": 28,
+              "bbox": [
+                34,
+                81,
+                62,
+                82
+              ],
+              "sample": [
+                [
+                  34,
+                  81
+                ],
+                [
+                  35,
+                  81
+                ],
+                [
+                  36,
+                  81
+                ],
+                [
+                  37,
+                  81
+                ]
+              ],
+              "kinds": [
+                "soft_matte"
+              ]
+            },
+            {
+              "pixels": 26,
+              "bbox": [
+                35,
+                14,
+                61,
+                15
+              ],
+              "sample": [
+                [
+                  35,
+                  14
+                ],
+                [
+                  36,
+                  14
+                ],
+                [
+                  37,
+                  14
+                ],
+                [
+                  38,
+                  14
+                ]
+              ],
+              "kinds": [
+                "soft_matte"
+              ]
+            },
+            {
+              "pixels": 4,
+              "bbox": [
+                26,
+                76,
+                30,
+                80
+              ],
+              "sample": [
+                [
+                  26,
+                  76
+                ],
+                [
+                  27,
+                  77
+                ],
+                [
+                  28,
+                  78
+                ],
+                [
+                  29,
+                  79
+                ]
+              ],
+              "kinds": [
+                "soft_matte"
+              ]
+            },
+            {
+              "pixels": 4,
+              "bbox": [
+                66,
+                16,
+                70,
+                20
+              ],
+              "sample": [
+                [
+                  66,
+                  16
+                ],
+                [
+                  67,
+                  17
+                ],
+                [
+                  68,
+                  18
+                ],
+                [
+                  69,
+                  19
+                ]
+              ],
+              "kinds": [
+                "soft_matte"
+              ]
+            },
+            {
+              "pixels": 4,
+              "bbox": [
+                66,
+                76,
+                70,
+                80
+              ],
+              "sample": [
+                [
+                  69,
+                  76
+                ],
+                [
+                  68,
+                  77
+                ],
+                [
+                  67,
+                  78
+                ],
+                [
+                  66,
+                  79
+                ]
+              ],
+              "kinds": [
+                "soft_matte"
+              ]
+            },
+            {
+              "pixels": 3,
+              "bbox": [
+                25,
+                20,
+                27,
+                23
+              ],
+              "sample": [
+                [
+                  26,
+                  20
+                ],
+                [
+                  25,
+                  21
+                ],
+                [
+                  25,
+                  22
+                ]
+              ],
+              "kinds": [
+                "soft_matte"
+              ]
+            },
+            {
+              "pixels": 3,
+              "bbox": [
+                30,
+                15,
+                33,
+                17
+              ],
+              "sample": [
+                [
+                  31,
+                  15
+                ],
+                [
+                  32,
+                  15
+                ],
+                [
+                  30,
+                  16
+                ]
+              ],
+              "kinds": [
+                "soft_matte"
+              ]
+            }
+          ]
+        }
+      ],
+      "invisible_rgb": {
+        "white": 0,
+        "magenta": 0
+      }
+    }
+  },
+  {
+    "id": "magenta-opaque-rim",
+    "file": "magenta-opaque-rim.png",
+    "metrics": {
+      "classification": "transparent_sprite",
+      "pixels": [
+        96,
+        96
+      ],
+      "alpha_zero": 5835,
+      "alpha_soft": 0,
+      "alpha_dense": 3381,
+      "findings": [
+        {
+          "colour": "magenta",
+          "candidate_pixels": 232,
+          "components": 1,
+          "regions": [
+            {
+              "pixels": 232,
+              "bbox": [
+                24,
+                14,
+                73,
+                83
+              ],
+              "sample": [
+                [
+                  24,
+                  14
+                ],
+                [
+                  25,
+                  14
+                ],
+                [
+                  26,
+                  14
+                ],
+                [
+                  27,
+                  14
+                ]
+              ],
+              "kinds": [
+                "opaque_colour_rim"
+              ]
+            }
+          ]
+        }
+      ],
+      "invisible_rgb": {
+        "white": 0,
+        "magenta": 0
+      }
+    }
+  },
+  {
+    "id": "white-material",
+    "file": "white-material.png",
+    "metrics": {
+      "classification": "transparent_sprite",
+      "pixels": [
+        96,
+        96
+      ],
+      "alpha_zero": 5876,
+      "alpha_soft": 505,
+      "alpha_dense": 2835,
+      "findings": [],
+      "invisible_rgb": {
+        "white": 5876,
+        "magenta": 0
+      }
+    }
+  },
+  {
+    "id": "magenta-material",
+    "file": "magenta-material.png",
+    "metrics": {
+      "classification": "transparent_sprite",
+      "pixels": [
+        96,
+        96
+      ],
+      "alpha_zero": 5876,
+      "alpha_soft": 505,
+      "alpha_dense": 2835,
+      "findings": [],
+      "invisible_rgb": {
+        "white": 0,
+        "magenta": 5876
+      }
+    }
+  },
+  {
+    "id": "invisible-rgb",
+    "file": "invisible-rgb.png",
+    "metrics": {
+      "classification": "transparent_sprite",
+      "pixels": [
+        96,
+        96
+      ],
+      "alpha_zero": 5876,
+      "alpha_soft": 505,
+      "alpha_dense": 2835,
+      "findings": [],
+      "invisible_rgb": {
+        "white": 2940,
+        "magenta": 2936
+      }
+    }
+  }
+]
