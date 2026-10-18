@@ -206,5 +206,12 @@
     64,
     160
   ],
-  "card_click": "bread"
+  "card_click": "bread",
+  "accepted_state": {
+    "date": "2026-10-18",
+    "src": "native/catalog-b-light.png",
+    "b_pressed": "true",
+    "status": "Выбран B — Выразительная фактура. Эталон принят; игровые ресурсы не заменены.",
+    "status_unchanged_after_viewing_a": true
+  }
 }

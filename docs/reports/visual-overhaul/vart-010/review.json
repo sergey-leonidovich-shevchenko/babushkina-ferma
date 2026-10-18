@@ -1,10 +1,11 @@
 {
   "schema": 1,
   "task": "VART-010",
-  "status": "awaiting_selection",
-  "selection": null,
+  "status": "approved",
+  "selection": "b",
   "recommended": "a",
-  "source": null,
-  "quote": null,
+  "source": "direct user reply in chat",
+  "quote": "B",
+  "date": "2026-10-18",
   "runtime_integration": false
 }
