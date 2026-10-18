@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "baseline": "8706887e3647d4c0ef9b47bf18d4a3433cbd64c3",
+  "files": {
+    "after/cabinet-first.png": "cefb7f22a481ef106c29ab288d2c81f8b1636caf5b36d372bd5522a9746efc62",
+    "after/cabinet-reopen.png": "cefb7f22a481ef106c29ab288d2c81f8b1636caf5b36d372bd5522a9746efc62",
+    "after/cabinet-stable.png": "cefb7f22a481ef106c29ab288d2c81f8b1636caf5b36d372bd5522a9746efc62",
+    "after/capture.json": "dff1ffa6b872c8b8df3c47414ebeaf5cef63315253fff871c0ccc55be2ee8812",
+    "after/room.png": "cf60c92f39086d0b19cd2d8781862f2bf5e9ea236a60f81dc5bae3528bb4fa9e",
+    "after.log": "e7dfc28ecc946b2e4ad23ce61c8eed8ac5ae04ae7c4addfb7a49e70a96ab06b0",
+    "before/cabinet-first.png": "7b156f55a052906f0703efcbbee620cdeb69d8e93c448bc46a12b284c7e8669c",
+    "before/cabinet-reopen.png": "7b156f55a052906f0703efcbbee620cdeb69d8e93c448bc46a12b284c7e8669c",
+    "before/cabinet-stable.png": "7b156f55a052906f0703efcbbee620cdeb69d8e93c448bc46a12b284c7e8669c",
+    "before/capture.json": "d0a291ecc58927a6938cde69b5947bd86e3036f0831d81b6422e571d5f140da4",
+    "before/room.png": "cf60c92f39086d0b19cd2d8781862f2bf5e9ea236a60f81dc5bae3528bb4fa9e",
+    "before.log": "1623585634e98e811522a7f4bb05a58120851b662d2849cbf560904146f96b95",
+    "profile.log": "1416d5cffcd0f7dd10a3f38011f5ec5ee0404222c210de5312cdb9c19c8c7a9b"
+  },
+  "changed_pixels": {
+    "room": 0,
+    "cabinet-first": 2016,
+    "cabinet-stable": 2016,
+    "cabinet-reopen": 2016
+  },
+  "profile_assertions": 1204,
+  "performance_eligible": false
+}

@@ -138,6 +138,7 @@ static func item_visual(kind: String) -> Dictionary:
 
 ## Выбирает маленький экранный атлас либо ограниченный кеш превью; исходники остаются доступны Wiki и сборщику.
 static func item_draw_visual(kind: String, pixels: float) -> Dictionary:
+	if PreparedIcons.role(pixels).is_empty(): return {"texture":null,"provider":"invalid","tint":Color.WHITE,"square":true}
 	var prepared:=PreparedIcons.from_descriptor(kind,draw_descriptor(kind),pixels)
 	if not prepared.is_empty(): return prepared
 	return PreparedIcons.packet(kind,item_visual(kind),pixels)

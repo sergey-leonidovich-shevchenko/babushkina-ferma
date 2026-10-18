@@ -5653,7 +5653,7 @@
       "id": "VPIPELINE-006",
       "epic": "VPIPELINE",
       "title": "Закрепить два размера иконок",
-      "status": "ready",
+      "status": "done",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -5690,13 +5690,26 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vpipeline-006-visual-task",
-      "evidence": []
+      "evidence": [
+        "docs/reports/visual-overhaul/vpipeline-006/README.md",
+        "docs/reports/visual-overhaul/vpipeline-006/proof.json",
+        "docs/reports/visual-overhaul/vpipeline-006/after/capture.json",
+        "docs/reports/visual-overhaul/vpipeline-006/browser.json",
+        "docs/reports/visual-overhaul/vpipeline-006/verification.json",
+        "scripts/presentation/prepared_item_icon_system.gd",
+        "tools/item_ui_fitter.gd",
+        "tools/item_sizes.py",
+        "tools/test_item_sizes.py",
+        "tests/suites/item_sizes_suite.gd",
+        "wiki/articles/item-icon-sizes.md"
+      ],
+      "result": "18 октября 2026: закреплены роли из существующего каталога: до 64 включительно миниатюра с уровнями 64/32/16/8, выше 64 отдельный 160px PNG. Все 386 больших файлов совпали с прямым экспортом канонических исходников; offline-fitter общий для сборщика и проверки, resize отсутствует в живой отрисовке. Крупные превью получили адресный painted_ui/linear без повторения; tint/provider, выбранные замены и канонические оригиналы сохранены. LRU16 проверен попаданиями, вытеснением и освобождением слабых ссылок на обертку/исходник. Добавлены счетчики load-запросов, попаданий и вытеснений. Невалидный размер не грузит оригинал. В двух свежих нативных процессах до окна превью0, первый кадр загружает одно выбранное, повторные кадры и повторное открытие используют его. Дополнительных оригинальных PNG ради окна0; этот отложенный путь работал и до задачи. Полная комната совпала; в окне изменились только2016 пикселей выбранного рисунка. Полные снимки модели совпали между вариантами; допускаются только два прежних флага посещения шкафа. 1204 профильных утверждения,9 Python-сценариев,43642 игровых проверок без ошибок, Wiki build/TypeScript/38 тестов; браузер441px без горизонтального переполнения, изображения и ссылки работают. FPS/VRAM и массовая перерисовка VICON не заявляются. VPIPELINE-007 подготовлена к следующей работе."
     },
     {
       "id": "VPIPELINE-007",
       "epic": "VPIPELINE",
       "title": "Сделать проверку альфа-краёв",
-      "status": "backlog",
+      "status": "ready",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",

@@ -9,6 +9,7 @@ const VisualResourceSuite := preload("res://tests/suites/visual_resource_suite.g
 const VisualSamplingSuite := preload("res://tests/suites/visual_sampling_suite.gd")
 const PaddedAtlasSuite := preload("res://tests/suites/padded_atlas_suite.gd")
 const TextureIntentSuite := preload("res://tests/suites/texture_intent_suite.gd")
+const ItemSizesSuite := preload("res://tests/suites/item_sizes_suite.gd")
 
 
 ## Запускает сценарии каталога, рисования, редактирования, импорта и обменного формата конструктора.
@@ -46,6 +47,7 @@ func run() -> void:
 	VisualSamplingSuite.new(context).run()
 	PaddedAtlasSuite.new(context).run()
 	TextureIntentSuite.new(context).run()
+	ItemSizesSuite.new(context).run()
 
 
 ## Сценарий: каталог автоматически сканирует растровые ресурсы проекта и группирует их по назначению.
