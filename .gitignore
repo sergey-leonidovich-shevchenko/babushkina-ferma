@@ -190,3 +190,8 @@ assets/inbox/*
 /docs/reports/**/*.png.import
 
 /docs/reports/**/*.jpg.import
+
+# VPIPELINE-005: reproducible diagnostic inputs remain outside runtime import.
+!docs/reports/visual-overhaul/vpipeline-005/*.log
+!docs/reports/visual-overhaul/vpipeline-005/numeric/*.log
+!docs/reports/visual-overhaul/vpipeline-005/numeric/*.png.import

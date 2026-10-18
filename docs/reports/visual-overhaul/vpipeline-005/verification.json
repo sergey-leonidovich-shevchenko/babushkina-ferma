@@ -32,5 +32,10 @@
   "room_pixels_changed": 0,
   "serialized_state_changed": false,
   "performance_eligible": false,
-  "publication": "local main; batch threshold 10 tasks"
+  "publication": "local main; batch threshold 10 tasks",
+  "git_bundle": {
+    "index_export_validated": true,
+    "required_import_receipts_and_logs_tracked": true,
+    "working_tree_inputs_used": false
+  }
 }
