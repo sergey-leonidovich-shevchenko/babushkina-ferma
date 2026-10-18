@@ -79,9 +79,14 @@ def validate(plan,program):
         if any(len(s['roots'])!=len(set(s['roots'])) for s in plan['stages']):errors.append('duplicate stage roots')
         extra=plan['extra_dependencies']
         if 'VGROUND-004' not in extra.get('VGROUND-005',[]):errors.append('path joins need the orthogonal road silhouette')
-        if not set('VPROP-%03d'%i for i in range(2,10))<=set(extra.get('VPROP-010',[])):errors.append('prop acceptance omits its full common catalogue')
-        if not {'VBASE-002','VBASE-005','VCAMERA-002','VCAMERA-003','VPERF-001','VRELEASE-005'}<=set(extra.get('VRELEASE-002',[])):errors.append('static acceptance omits explicit foundation gates')
+        if not set('VPROP-%03d'%i for i in range(2,8))<=set(by['VRELEASE-002']['depends_on']):errors.append('first-location props are missing from static acceptance')
+        if not {'VBASE-002','VBASE-005','VCAMERA-002','VCAMERA-003','VCAMERA-006','VPERF-001','VRELEASE-005'}<=set(extra.get('VRELEASE-002',[])):errors.append('static acceptance omits explicit foundation gates')
         queue=project(plan,program);keys={k.split('--',1)[1] for k in queue['taskKeys']}
+        if keys & {'VPROP-001','VPROP-008','VPROP-009','VPROP-010'}:errors.append('interior/cave/global props cannot block the first location')
+        focus=plan['focus']
+        if focus['location']!='overworld' or focus['final_gate']!='VMAP-003' or focus['allow_new_mechanics'] is not False or focus['other_locations_after_final_gate'] is not True:errors.append('first-location focus has drifted')
+        if focus['course'][-3:]!=['selective-first-location-assets','VMAP-002','VMAP-003']:errors.append('whole-location acceptance is missing')
+        if len(focus['references'])!=3 or any(not (ROOT/p).is_file() for p in focus['references']):errors.append('art reference is missing')
         if {by[k]['epic'] for k in keys}!={e for e,r in plan['epic_roles'].items() if r['role'] in ['foundation','core']}:errors.append('epic roles differ from actual first queue')
         if len(keys)>plan['limits']['max_tasks'] or plan['limits']['max_tasks']>64:errors.append('first queue exceeds its task cap')
         if any(by[k]['epic'] in ['VICON','VACTOR','VPLANT','VBUILD','VMAP'] for k in keys):errors.append('mass production cannot enter the first queue')
@@ -90,7 +95,10 @@ def validate(plan,program):
         for tid in keys:
             if by[tid]['status']=='done' and any(by[d]['status']!='done' for d in by[tid]['depends_on']+extra.get(tid,[])):errors.append('completed task still has an open gate: '+tid)
         if plan['compatibility']['old_slot']['accepted'] or plan['compatibility']['new_pilot_normal_entry']['accepted'] or plan['compatibility']['new_pilot_rollback']['accepted']:errors.append('unimplemented pilot compatibility cannot be accepted')
-        if set(plan['follow_up'])!={'motion','performance','interior','cave','mass-production'}:errors.append('missing explicit hand-off boundary')
+        if set(plan['follow_up'])!={'motion','performance','first-location','interior','cave','mass-production'}:errors.append('missing explicit hand-off boundary')
+        if plan['follow_up']['first-location']['gate']!='VMAP-003':errors.append('whole first location is not the delivery gate')
+        for tid in ['VRELEASE-006','VRELEASE-007']+['VMAP-%03d'%i for i in range(4,91,3)]:
+            if 'VMAP-003' not in by[tid]['depends_on']:errors.append('another location can start before the first: '+tid)
     except (KeyError,ValueError,TypeError) as exc:errors.append('invalid rollout plan: '+str(exc))
     return errors
 

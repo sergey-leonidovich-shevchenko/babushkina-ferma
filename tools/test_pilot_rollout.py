@@ -13,9 +13,9 @@ class PilotRolloutTests(unittest.TestCase):
         self.plan=load(ROOT/FOLDER/'plan.json');self.program=load(ROOT/PROGRAM)
 
     def test_live_plan_and_recorded_same_camera(self):
-        """План ограничен 55 карточками и ссылается на настоящую неподвижную пару, не новый дизайн."""
+        """План ограничен 52 карточками и ссылается на настоящую неподвижную пару, не новый дизайн."""
         self.assertEqual(validate(self.plan,self.program),[]);self.assertEqual(reference(ROOT),[])
-        queue=project(self.plan,self.program);self.assertEqual(len(queue['taskKeys']),55)
+        queue=project(self.plan,self.program);self.assertEqual(len(queue['taskKeys']),52)
         self.assertNotIn('visual--VRELEASE-001',queue['taskKeys'])
         result=frontier(queue,self.program)
         if result['next']:
@@ -66,13 +66,14 @@ class PilotRolloutTests(unittest.TestCase):
 
     def test_fake_done_acceptance_with_open_extra_gates_rejected(self):
         """Глобальный status done не перекрывает непроверенные условия пилота."""
-        next(t for t in self.program['tasks'] if t['id']=='VPROP-010')['status']='done'
+        for task in self.program['tasks']:task['status']='done'
+        next(t for t in self.program['tasks'] if t['id']=='VRELEASE-002')['status']='done'
         next(t for t in self.program['tasks'] if t['id']=='VPROP-003')['status']='backlog'
         self.assertTrue(any('open gate' in e for e in validate(self.plan,self.program)))
 
     def test_props_and_hardware_cannot_be_silently_omitted(self):
         """Витрина сохраняет все общие предметы, а статичный допуск — оборудование и маршруты."""
-        self.plan['extra_dependencies']['VPROP-010'].remove('VPROP-003');self.assertTrue(validate(self.plan,self.program))
+        next(t for t in self.program['tasks'] if t['id']=='VRELEASE-002')['depends_on'].remove('VPROP-003');self.assertTrue(validate(self.plan,self.program))
         self.plan=load(ROOT/FOLDER/'plan.json');self.plan['extra_dependencies']['VRELEASE-002'].remove('VBASE-002');self.assertTrue(validate(self.plan,self.program))
         self.plan=load(ROOT/FOLDER/'plan.json');self.plan['extra_dependencies']['VGROUND-005']=[];self.assertTrue(validate(self.plan,self.program))
 
@@ -96,6 +97,17 @@ class PilotRolloutTests(unittest.TestCase):
     def test_queue_cannot_recommend_its_own_planning_task(self):
         """Владелец плана — явное внешнее условие, а не самоблокирующаяся строка его очереди."""
         self.plan['stages'][0]['roots'].append('VRELEASE-001');self.assertTrue(validate(self.plan,self.program))
+
+    def test_first_location_cannot_be_replaced_by_mechanics_or_cave_props(self):
+        """Пилот ведёт к полной overworld; новые механики и общая партия не подменяют курс."""
+        for tid in ['VPROP-001','VPROP-008','VPROP-009','VPROP-010']:
+            bad=copy.deepcopy(self.plan);bad['stages'][1]['roots'].append(tid);self.assertTrue(validate(bad,self.program))
+        self.plan['focus']['allow_new_mechanics']=True;self.assertTrue(validate(self.plan,self.program))
+        self.plan=load(ROOT/FOLDER/'plan.json');self.plan['focus']['final_gate']='VMAP-006';self.assertTrue(validate(self.plan,self.program))
+        self.plan=load(ROOT/FOLDER/'plan.json')
+        for tid in ['VMAP-004','VRELEASE-006']:
+            program=copy.deepcopy(self.program);next(t for t in program['tasks'] if t['id']==tid)['depends_on'].remove('VMAP-003')
+            self.assertTrue(any('another location' in e for e in validate(self.plan,program)))
 
     def test_blocked_status_remains_blocked(self):
         """Внешнее условие карточки не исчезает из-за пустого списка внутренних зависимостей."""

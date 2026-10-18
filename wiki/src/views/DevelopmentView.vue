@@ -18,6 +18,11 @@ import DevelopmentSearch from '../components/DevelopmentSearch.vue'
 
 const route = useRoute()
 const section = computed(() => String(route.params.section ?? 'epics'))
+const firstLocationAccepted = computed(() =>
+  planning.value?.catalog.tasks.some(
+    (task) => task.plan === 'visual' && task.id === 'VMAP-003' && task.status === 'done'
+  )
+)
 const titles: Record<string, string> = {
   search: 'Поиск по разработке',
   epics: 'Эпики',
@@ -50,6 +55,11 @@ onMounted(() => {
         Обновить
       </button>
     </div>
+    <p v-if="!firstLocationAccepted" class="planning-notice">
+      <strong>Текущий курс: первая локация целиком до VMAP-003.</strong>
+      Новые механики и другие карты — после её приёмки.
+      <RouterLink to="/guides/visual-pilot">Эталон и порядок эпиков</RouterLink>
+    </p>
     <nav class="planning-flow" aria-label="Путь от идеи к реализации">
       <RouterLink to="/development/ideas" :class="{ current: section === 'ideas' }">
         <WikiIcon name="bulb" :size="18" />

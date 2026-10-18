@@ -8,44 +8,48 @@
   "new_art_accepted": false,
   "performance_eligible": false,
   "queue": {
-    "selected": 55,
+    "selected": 52,
     "done_at_acceptance": 24,
-    "open_at_acceptance": 31,
+    "open_at_acceptance": 28,
     "stages": [
-      30,
-      25
+      31,
+      21
     ],
     "next_at_acceptance": "VBASE-002"
   },
   "tests": {
-    "profile": 14,
+    "profile": 15,
     "wiki": 51,
-    "architecture": "passed",
-    "game": {
-      "passed": 44082,
-      "failed": 0
-    }
+    "integration_baseline": {
+      "commit": "a3b3c6c2",
+      "game_passed": 44083,
+      "game_failed": 0
+    },
+    "commit_hook_required": [
+      "architecture",
+      "full game suite"
+    ]
   },
   "browser": {
     "status": "passed",
+    "capture_version": "0.0.255",
     "desktop": {
-      "queue": 55,
-      "foundation": 30,
-      "static_preview": 25,
+      "queue": 52,
+      "foundation": 31,
+      "static_preview": 21,
       "next": "VBASE-002",
-      "row_and_recommendation_return_preserve_stage": true,
-      "props_extra_conditions": 8,
-      "orthogonal_path_condition_visible": true,
-      "unknown_queue_rows": 0,
-      "unknown_queue_error_visible": true,
-      "orphan_stage_rows": 0,
-      "pagination_expands_to": 55
+      "course_notice_visible": true,
+      "reference_image": {
+        "width": 1280,
+        "height": 853,
+        "complete": true
+      }
     },
     "mobile": {
-      "method": "same-origin fixture iframe",
+      "method": "same-origin isolated fixture iframe",
       "viewport_css_px": 390,
       "scroll_width_css_px": 390,
-      "static_preview": 25
+      "static_preview": 21
     },
     "workspace_mutated_by_task": false,
     "screenshots": [
@@ -63,18 +67,18 @@
     "rollback": "open: VCOMPAT-010"
   },
   "files": {
-    "plan.json": "31f9bbf48ba2add5e7cebd490d2d38655c508433baad5e7f160ef5da6c9eafe4",
-    "queue.json": "537c3ab8a418245872e468e1e626832b8ac68466e51f96e3752ee4a4e1856b62",
+    "plan.json": "344c6f554ae08a0ebc18edc2b134fae4d398a38dc9279f54fb9c4ef821fcb9fb",
+    "queue.json": "6b20f54f86a8c2b1e83bc14bd3a4792b173980a4c3929fb1886178da53de85c4",
     "scope.svg": "ca6c23a80bacf7f05616b65218f6bc916864c05b289fac0ac3a48c03a7da79df",
-    "wiki-queue.jpg": "0b2c904bbcfc905521a19c8ccd68470e800d6cc063611feda04fa18a69edd824",
-    "wiki-mobile.jpg": "b80632cf3dbc225e8476ee831ebab5216668272d07c5932a1445842b827905fd"
+    "wiki-queue.jpg": "788b996b35c448f44af7ccd9b8fca0579a60722714454fac6459032160ceae7c",
+    "wiki-mobile.jpg": "43a0de83b6090b5b5329e1f58ea84824581912392051acf38943252313a655c4"
   },
   "integration": {
-    "task_commit": "1338b128",
-    "main_parent": "a1696499",
-    "version": "0.0.252",
-    "merge_kind": "ordinary merge; version metadata conflicts only",
-    "workspace_equals_main_parent": true,
-    "wiki_tests_after_merge": 51
-  }
+    "baseline_commit": "a3b3c6c2",
+    "updated_from_main": "52fe68fa",
+    "integration_checks": "standard commit hooks required"
+  },
+  "revision": "По прямому указанию пользователя: первая локация целиком по сохранённому художественному эталону; новые механики и другие локации откладываются.",
+  "first_location_accepted": false,
+  "course_note": "Курс пользователя: первая overworld целиком до VMAP-003. Проверенная очередь включает только начальный статичный шаг; вся локация и новые ресурсы ещё не реализованы."
 }

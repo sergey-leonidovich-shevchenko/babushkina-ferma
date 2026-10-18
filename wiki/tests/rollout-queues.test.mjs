@@ -23,12 +23,15 @@ function readyFixture() {
 
 test('registered pilot contains the full bounded graph without copied statuses', () => {
   assert.equal(queue.id, 'village-pilot')
-  assert.equal(queue.taskKeys.length, 55)
+  assert.equal(queue.taskKeys.length, 52)
   assert.deepEqual(
     queue.stages.map((stage) => stage.taskKeys.length),
-    [30, 25]
+    [31, 21]
   )
   assert.equal(queue.taskKeys.includes(queue.ownerKey), false)
+  for (const id of ['VPROP-001', 'VPROP-008', 'VPROP-009', 'VPROP-010'])
+    assert.equal(queue.taskKeys.includes(`visual--${id}`), false)
+  assert.ok(queue.taskKeys.includes('visual--VCAMERA-006'))
   assert.equal(/"status"/.test(JSON.stringify(queue)), false)
   assert.equal(queue.implementationAccepted, false)
   assert.deepEqual(validateQueue(queue, catalog), queue)
@@ -75,6 +78,7 @@ test('changed canonical dependencies require a refreshed build even with a still
 
 test('a completed acceptance cannot hide an open extra condition', () => {
   const changed = { ...catalog, tasks: readyFixture() }
+  for (const task of changed.tasks) task.status = 'done'
   changed.tasks.find((task) => task.id === 'VPROP-003').status = 'backlog'
   assert.throws(() => validateQueue(queue, changed), /Завершённая задача.*блокер/)
 })
@@ -131,7 +135,7 @@ test('live status changes update progress without mutating tasks or queue', () =
   const first = queueProgress(queue, tasks)
   assert.equal(first.next.id, 'VBASE-002')
   assert.equal(first.preparable.id, 'VBASE-005')
-  assert.equal(first.total, 55)
+  assert.equal(first.total, 52)
   assert.equal(JSON.stringify({ queue, tasks }), snapshot)
   tasks.find((task) => task.id === 'VBASE-002').status = 'done'
   const second = queueProgress(queue, tasks)
@@ -153,8 +157,8 @@ test('stage filters preserve dependency order and unknown routes return no globa
     queueTasks(catalog.tasks, queue).map((task) => task.key),
     queue.taskKeys
   )
-  assert.equal(queueTasks(catalog.tasks, queue, 'foundation').length, 30)
-  assert.equal(queueTasks(catalog.tasks, queue, 'static-preview').length, 25)
+  assert.equal(queueTasks(catalog.tasks, queue, 'foundation').length, 31)
+  assert.equal(queueTasks(catalog.tasks, queue, 'static-preview').length, 21)
   assert.deepEqual(queueTasks(catalog.tasks, queue, 'unknown'), [])
   assert.deepEqual(queueTasks(catalog.tasks), [])
 })
@@ -172,7 +176,7 @@ test('live refresh exposes missing or later dependencies and false done cards', 
   assert.match(queueIssue(queue, tasks), /Зависимости изменились/)
   const other = readyFixture()
   assert.match(queueIssue(queue, other), /открыты|условия/)
-  const prop = other.find((task) => task.id === 'VPROP-010')
+  const prop = other.find((task) => task.id === 'VRELEASE-002')
   other.find((task) => task.id === 'VPROP-003').status = 'backlog'
   assert.ok(queueBlockers(prop, queue, other).includes('visual--VPROP-003'))
 })

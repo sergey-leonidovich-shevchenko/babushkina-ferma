@@ -8098,7 +8098,8 @@
         "docs/reports/visual-overhaul/vprop-002/"
       ],
       "depends_on": [
-        "VPROP-001"
+        "VART-004",
+        "VART-008"
       ],
       "parent_owner": "UX-05",
       "acceptance": [
@@ -8140,7 +8141,8 @@
         "docs/reports/visual-overhaul/vprop-003/"
       ],
       "depends_on": [
-        "VPROP-001"
+        "VART-004",
+        "VART-008"
       ],
       "parent_owner": "UX-05",
       "acceptance": [
@@ -8182,7 +8184,8 @@
         "docs/reports/visual-overhaul/vprop-004/"
       ],
       "depends_on": [
-        "VPROP-001"
+        "VART-004",
+        "VART-008"
       ],
       "parent_owner": "UX-05",
       "acceptance": [
@@ -8224,7 +8227,8 @@
         "docs/reports/visual-overhaul/vprop-005/"
       ],
       "depends_on": [
-        "VPROP-001"
+        "VART-004",
+        "VART-008"
       ],
       "parent_owner": "UX-05",
       "acceptance": [
@@ -8266,7 +8270,8 @@
         "docs/reports/visual-overhaul/vprop-006/"
       ],
       "depends_on": [
-        "VPROP-001"
+        "VART-004",
+        "VART-008"
       ],
       "parent_owner": "UX-05",
       "acceptance": [
@@ -8308,7 +8313,8 @@
         "docs/reports/visual-overhaul/vprop-007/"
       ],
       "depends_on": [
-        "VPROP-001"
+        "VART-004",
+        "VART-008"
       ],
       "parent_owner": "UX-05",
       "acceptance": [
@@ -8434,7 +8440,15 @@
         "docs/reports/visual-overhaul/vprop-010/"
       ],
       "depends_on": [
-        "VPROP-001"
+        "VPROP-001",
+        "VPROP-002",
+        "VPROP-003",
+        "VPROP-004",
+        "VPROP-005",
+        "VPROP-006",
+        "VPROP-007",
+        "VPROP-008",
+        "VPROP-009"
       ],
       "parent_owner": "UX-05",
       "acceptance": [
@@ -8502,17 +8516,17 @@
         "docs/reports/visual-overhaul/vrelease-001/queue.json",
         "docs/reports/visual-overhaul/vrelease-001/acceptance.json"
       ],
-      "result": "Подготовлена очередь статичного пилота: 55 существующих ID, выполнено 24 / открыта 31 при приёмке, этапы 30+25, учтены все 25 графических эпиков. В Wiki — текущий прогресс, блокеры и этапы; полные критерии карточек сохранены. Пройдены 14 профильных сценариев, 51 Wiki-тест, architecture gate и полный игровой набор 44082/0; браузер 390 px без переполнения. Runtime и новый арт не принимаются. Историческая нативная пара и открытые ворота совместимости — в отчёте."
+      "result": "Уточнён главный курс: вся первая overworld до VMAP-003, без новых механик и других карт. Ближайшая очередь 52 ID: выполнено 24, открыто 28; этапы 31+21. Убраны интерьерная мебель, пещерные опоры и общая приёмка из пути наружных предметов; целевая камера включена. Остальные 29 карт и интерьер/пещера ждут VMAP-003. Эталоны и восемь шагов — в Wiki, приоритет — в AGENTS.md. 15 профильных сценариев и 51 Wiki-тест; обязательные общие проверки выполняет штатный commit hook."
     },
     {
       "id": "VRELEASE-002",
       "epic": "VRELEASE",
-      "title": "Принять статичный пилот",
+      "title": "Принять статичный пилот первой локации",
       "status": "backlog",
       "priority": "P0",
       "phase": "rollout",
       "kind": "engineering",
-      "goal": "Владелец одобрил модульную сцену без эффектов; ссылки на выбранные мастера сохранены",
+      "goal": "Одобрена модульная статичная сцена overworld: земля, осевые тропы, берег, мост, дерево, фасад и наружные предметы VPROP-002…007. Общий набор интерьера/пещер не является условием пилота.",
       "existing_paths": [
         "TESTING.md",
         "QA_CHECKLIST.md",
@@ -8525,11 +8539,16 @@
         "VART-008",
         "VGROUND-010",
         "VSHORE-001",
-        "VPROP-010"
+        "VPROP-002",
+        "VPROP-003",
+        "VPROP-004",
+        "VPROP-005",
+        "VPROP-006",
+        "VPROP-007"
       ],
       "parent_owner": "QA-05",
       "acceptance": [
-        "Владелец одобрил модульную сцену без эффектов; ссылки на выбранные мастера сохранены",
+        "Одобрена модульная статичная сцена overworld: земля, осевые тропы, берег, мост, дерево, фасад и наружные предметы VPROP-002…007. Общий набор интерьера/пещер не является условием пилота.",
         "Сравнение выполнено при одинаковой камере; подтверждение связано с commit и конфигурацией, не только с зелёным автотестом."
       ],
       "verification": [
@@ -8699,7 +8718,8 @@
         "docs/reports/visual-overhaul/vrelease-006/"
       ],
       "depends_on": [
-        "VRELEASE-004"
+        "VRELEASE-004",
+        "VMAP-003"
       ],
       "parent_owner": "QA-05",
       "acceptance": [
@@ -8741,7 +8761,8 @@
         "docs/reports/visual-overhaul/vrelease-007/"
       ],
       "depends_on": [
-        "VRELEASE-004"
+        "VRELEASE-004",
+        "VMAP-003"
       ],
       "parent_owner": "QA-05",
       "acceptance": [
@@ -78631,7 +78652,8 @@
         "docs/reports/visual-overhaul/vmap-004/"
       ],
       "depends_on": [
-        "VRELEASE-004"
+        "VRELEASE-004",
+        "VMAP-003"
       ],
       "parent_owner": "",
       "acceptance": [
@@ -78798,7 +78820,8 @@
         "docs/reports/visual-overhaul/vmap-007/"
       ],
       "depends_on": [
-        "VRELEASE-004"
+        "VRELEASE-004",
+        "VMAP-003"
       ],
       "parent_owner": "",
       "acceptance": [
@@ -78965,7 +78988,8 @@
         "docs/reports/visual-overhaul/vmap-010/"
       ],
       "depends_on": [
-        "VRELEASE-004"
+        "VRELEASE-004",
+        "VMAP-003"
       ],
       "parent_owner": "",
       "acceptance": [
@@ -79132,7 +79156,8 @@
         "docs/reports/visual-overhaul/vmap-013/"
       ],
       "depends_on": [
-        "VRELEASE-004"
+        "VRELEASE-004",
+        "VMAP-003"
       ],
       "parent_owner": "WORLD-05",
       "acceptance": [
@@ -79299,7 +79324,8 @@
         "docs/reports/visual-overhaul/vmap-016/"
       ],
       "depends_on": [
-        "VRELEASE-004"
+        "VRELEASE-004",
+        "VMAP-003"
       ],
       "parent_owner": "",
       "acceptance": [
@@ -79466,7 +79492,8 @@
         "docs/reports/visual-overhaul/vmap-019/"
       ],
       "depends_on": [
-        "VRELEASE-004"
+        "VRELEASE-004",
+        "VMAP-003"
       ],
       "parent_owner": "",
       "acceptance": [
@@ -79633,7 +79660,8 @@
         "docs/reports/visual-overhaul/vmap-022/"
       ],
       "depends_on": [
-        "VRELEASE-004"
+        "VRELEASE-004",
+        "VMAP-003"
       ],
       "parent_owner": "",
       "acceptance": [
@@ -79800,7 +79828,8 @@
         "docs/reports/visual-overhaul/vmap-025/"
       ],
       "depends_on": [
-        "VRELEASE-004"
+        "VRELEASE-004",
+        "VMAP-003"
       ],
       "parent_owner": "",
       "acceptance": [
@@ -79967,7 +79996,8 @@
         "docs/reports/visual-overhaul/vmap-028/"
       ],
       "depends_on": [
-        "VRELEASE-004"
+        "VRELEASE-004",
+        "VMAP-003"
       ],
       "parent_owner": "",
       "acceptance": [
@@ -80134,7 +80164,8 @@
         "docs/reports/visual-overhaul/vmap-031/"
       ],
       "depends_on": [
-        "VRELEASE-004"
+        "VRELEASE-004",
+        "VMAP-003"
       ],
       "parent_owner": "",
       "acceptance": [
@@ -80301,7 +80332,8 @@
         "docs/reports/visual-overhaul/vmap-034/"
       ],
       "depends_on": [
-        "VRELEASE-004"
+        "VRELEASE-004",
+        "VMAP-003"
       ],
       "parent_owner": "",
       "acceptance": [
@@ -80468,7 +80500,8 @@
         "docs/reports/visual-overhaul/vmap-037/"
       ],
       "depends_on": [
-        "VRELEASE-004"
+        "VRELEASE-004",
+        "VMAP-003"
       ],
       "parent_owner": "",
       "acceptance": [
@@ -80635,7 +80668,8 @@
         "docs/reports/visual-overhaul/vmap-040/"
       ],
       "depends_on": [
-        "VRELEASE-004"
+        "VRELEASE-004",
+        "VMAP-003"
       ],
       "parent_owner": "",
       "acceptance": [
@@ -80802,7 +80836,8 @@
         "docs/reports/visual-overhaul/vmap-043/"
       ],
       "depends_on": [
-        "VRELEASE-004"
+        "VRELEASE-004",
+        "VMAP-003"
       ],
       "parent_owner": "WORLD-05",
       "acceptance": [
@@ -80969,7 +81004,8 @@
         "docs/reports/visual-overhaul/vmap-046/"
       ],
       "depends_on": [
-        "VRELEASE-004"
+        "VRELEASE-004",
+        "VMAP-003"
       ],
       "parent_owner": "WORLD-05",
       "acceptance": [
@@ -81136,7 +81172,8 @@
         "docs/reports/visual-overhaul/vmap-049/"
       ],
       "depends_on": [
-        "VRELEASE-004"
+        "VRELEASE-004",
+        "VMAP-003"
       ],
       "parent_owner": "WORLD-05",
       "acceptance": [
@@ -81303,7 +81340,8 @@
         "docs/reports/visual-overhaul/vmap-052/"
       ],
       "depends_on": [
-        "VRELEASE-004"
+        "VRELEASE-004",
+        "VMAP-003"
       ],
       "parent_owner": "WORLD-05",
       "acceptance": [
@@ -81470,7 +81508,8 @@
         "docs/reports/visual-overhaul/vmap-055/"
       ],
       "depends_on": [
-        "VRELEASE-004"
+        "VRELEASE-004",
+        "VMAP-003"
       ],
       "parent_owner": "WORLD-05",
       "acceptance": [
@@ -81637,7 +81676,8 @@
         "docs/reports/visual-overhaul/vmap-058/"
       ],
       "depends_on": [
-        "VRELEASE-004"
+        "VRELEASE-004",
+        "VMAP-003"
       ],
       "parent_owner": "",
       "acceptance": [
@@ -81804,7 +81844,8 @@
         "docs/reports/visual-overhaul/vmap-061/"
       ],
       "depends_on": [
-        "VRELEASE-004"
+        "VRELEASE-004",
+        "VMAP-003"
       ],
       "parent_owner": "",
       "acceptance": [
@@ -81971,7 +82012,8 @@
         "docs/reports/visual-overhaul/vmap-064/"
       ],
       "depends_on": [
-        "VRELEASE-004"
+        "VRELEASE-004",
+        "VMAP-003"
       ],
       "parent_owner": "",
       "acceptance": [
@@ -82138,7 +82180,8 @@
         "docs/reports/visual-overhaul/vmap-067/"
       ],
       "depends_on": [
-        "VRELEASE-004"
+        "VRELEASE-004",
+        "VMAP-003"
       ],
       "parent_owner": "",
       "acceptance": [
@@ -82305,7 +82348,8 @@
         "docs/reports/visual-overhaul/vmap-070/"
       ],
       "depends_on": [
-        "VRELEASE-004"
+        "VRELEASE-004",
+        "VMAP-003"
       ],
       "parent_owner": "",
       "acceptance": [
@@ -82472,7 +82516,8 @@
         "docs/reports/visual-overhaul/vmap-073/"
       ],
       "depends_on": [
-        "VRELEASE-004"
+        "VRELEASE-004",
+        "VMAP-003"
       ],
       "parent_owner": "",
       "acceptance": [
@@ -82639,7 +82684,8 @@
         "docs/reports/visual-overhaul/vmap-076/"
       ],
       "depends_on": [
-        "VRELEASE-004"
+        "VRELEASE-004",
+        "VMAP-003"
       ],
       "parent_owner": "",
       "acceptance": [
@@ -82806,7 +82852,8 @@
         "docs/reports/visual-overhaul/vmap-079/"
       ],
       "depends_on": [
-        "VRELEASE-004"
+        "VRELEASE-004",
+        "VMAP-003"
       ],
       "parent_owner": "",
       "acceptance": [
@@ -82973,7 +83020,8 @@
         "docs/reports/visual-overhaul/vmap-082/"
       ],
       "depends_on": [
-        "VRELEASE-004"
+        "VRELEASE-004",
+        "VMAP-003"
       ],
       "parent_owner": "",
       "acceptance": [
@@ -83140,7 +83188,8 @@
         "docs/reports/visual-overhaul/vmap-085/"
       ],
       "depends_on": [
-        "VRELEASE-004"
+        "VRELEASE-004",
+        "VMAP-003"
       ],
       "parent_owner": "",
       "acceptance": [
@@ -83307,7 +83356,8 @@
         "docs/reports/visual-overhaul/vmap-088/"
       ],
       "depends_on": [
-        "VRELEASE-004"
+        "VRELEASE-004",
+        "VMAP-003"
       ],
       "parent_owner": "",
       "acceptance": [

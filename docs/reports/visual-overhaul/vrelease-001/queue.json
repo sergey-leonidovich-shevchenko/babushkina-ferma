@@ -1,15 +1,15 @@
 {
   "schema": 1,
   "id": "village-pilot",
-  "title": "Первый участок · статичный показ",
-  "description": "Ограниченная очередь до отдельного статичного стенда. Движение, штатный вход и выпуск требуют последующих приёмок.",
+  "title": "Первая локация · статичный пилот",
+  "description": "Первый шаг к полной локации overworld. До приёмки VMAP-003 новые механики и другие карты вне очереди.",
   "guide": "visual-pilot",
   "plan": "visual",
   "source": "docs/reports/visual-overhaul/vrelease-001/plan.json",
   "planningOnly": true,
   "implementationAccepted": false,
   "ownerKey": "visual--VRELEASE-001",
-  "graphSignature": "b2df483824b4987ceba0db7e4bfcec2c82c49152e6f08908f5bd61f058d19c8a",
+  "graphSignature": "b44305b9684a6a01d52f698ab3206b94a9701fa43f6e99aff2a88cbbd6bbe211",
   "taskKeys": [
     "visual--VBASE-001",
     "visual--VBASE-002",
@@ -39,6 +39,7 @@
     "visual--VPIPELINE-010",
     "visual--VCAMERA-002",
     "visual--VCAMERA-003",
+    "visual--VCAMERA-006",
     "visual--VPERF-001",
     "visual--VRELEASE-005",
     "visual--VRENDER-001",
@@ -54,16 +55,12 @@
     "visual--VGROUND-009",
     "visual--VGROUND-010",
     "visual--VSHORE-001",
-    "visual--VPROP-001",
     "visual--VPROP-002",
     "visual--VPROP-003",
     "visual--VPROP-004",
     "visual--VPROP-005",
     "visual--VPROP-006",
     "visual--VPROP-007",
-    "visual--VPROP-008",
-    "visual--VPROP-009",
-    "visual--VPROP-010",
     "visual--VRELEASE-002",
     "visual--VRENDER-004"
   ],
@@ -71,23 +68,14 @@
     "visual--VGROUND-005": [
       "visual--VGROUND-004"
     ],
-    "visual--VPROP-010": [
-      "visual--VPROP-002",
-      "visual--VPROP-003",
-      "visual--VPROP-004",
-      "visual--VPROP-005",
-      "visual--VPROP-006",
-      "visual--VPROP-007",
-      "visual--VPROP-008",
-      "visual--VPROP-009"
-    ],
     "visual--VRELEASE-002": [
       "visual--VBASE-002",
       "visual--VBASE-005",
       "visual--VCAMERA-002",
       "visual--VCAMERA-003",
       "visual--VPERF-001",
-      "visual--VRELEASE-005"
+      "visual--VRELEASE-005",
+      "visual--VCAMERA-006"
     ]
   },
   "stages": [
@@ -124,6 +112,7 @@
         "visual--VPIPELINE-010",
         "visual--VCAMERA-002",
         "visual--VCAMERA-003",
+        "visual--VCAMERA-006",
         "visual--VPERF-001",
         "visual--VRELEASE-005"
       ]
@@ -146,16 +135,12 @@
         "visual--VGROUND-009",
         "visual--VGROUND-010",
         "visual--VSHORE-001",
-        "visual--VPROP-001",
         "visual--VPROP-002",
         "visual--VPROP-003",
         "visual--VPROP-004",
         "visual--VPROP-005",
         "visual--VPROP-006",
         "visual--VPROP-007",
-        "visual--VPROP-008",
-        "visual--VPROP-009",
-        "visual--VPROP-010",
         "visual--VRELEASE-002",
         "visual--VRENDER-004"
       ]
