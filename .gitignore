@@ -1,6 +1,8 @@
 .DS_Store
 .godot/
 tools/*
+!tools/camp_backlog.py
+!tools/test_camp_backlog.py
 !tools/visual_reuse.py
 !tools/test_visual_reuse.py
 !tools/visual_reuse_sources.gd

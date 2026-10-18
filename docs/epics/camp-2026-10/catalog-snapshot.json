@@ -1,0 +1,734 @@
+{
+  "schema": 1,
+  "date": "2026-10-18",
+  "base_commit": "5c3dbdc06d500fe24b73fad4131d0d9cf9210ea5",
+  "reader": "InventorySystem.ITEM_DATA / ItemPresentationSystem.FOOD_EFFECTS; headless read-only export, no Game instance or save access",
+  "item_count": 386,
+  "items": {
+    "advanced_fishing_rod": "Улучшенная удочка",
+    "aged_cheese": "Выдержанный сыр",
+    "ancient_key": "Древний ключ",
+    "animal_feed": "Корм для животных",
+    "apple": "Лесное яблоко",
+    "apple_juice": "Яблочный сок",
+    "apple_preserves": "Яблочное повидло",
+    "arcane_dust": "Кристальная пыль",
+    "arrows": "Стрелы",
+    "axe": "Топор",
+    "backpack_upgrade": "Расширение рюкзака",
+    "baked_potato": "Печёный картофель",
+    "balanced_elixir": "Эликсир равновесия",
+    "bandage": "Чистая повязка",
+    "bat_wing": "Крыло летучей мыши",
+    "bee_balm": "Пчелиный бальзам",
+    "bee_essence": "Пчелиная эссенция",
+    "bees": "Пчёлы",
+    "beeswax": "Пчелиный воск",
+    "beet": "Сладкая свёкла",
+    "beet_seeds": "Семена свёклы",
+    "berries": "Лесные ягоды",
+    "berry_juice": "Ягодный сок",
+    "berry_wine": "Ягодное вино",
+    "bitter_root": "Каменный горечник",
+    "bitter_root_dried": "Сушёная трава: Каменный горечник",
+    "bitter_root_juice": "Сок: Каменный горечник",
+    "bitter_root_powder": "Порошок: Каменный горечник",
+    "bitter_root_tincture": "Настойка: Каменный горечник",
+    "bloodthorn": "Кровоцвет",
+    "bloodthorn_dried": "Сушёная трава: Кровоцвет",
+    "bloodthorn_juice": "Сок: Кровоцвет",
+    "bloodthorn_powder": "Порошок: Кровоцвет",
+    "bloodthorn_tincture": "Настойка: Кровоцвет",
+    "blue_gem": "Синий алмаз",
+    "bone_meal": "Костная мука",
+    "bones": "Кости",
+    "book_binding": "Книжный переплёт",
+    "bouquet": "Полевой букет",
+    "bow": "Охотничий лук",
+    "bread": "Деревенский хлеб",
+    "brick": "Обожжённый кирпич",
+    "butter": "Сливочное масло",
+    "cabbage": "Капуста",
+    "cabbage_seeds": "Семена капусты",
+    "canvas": "Плотный холст",
+    "carrot": "Морковь",
+    "cauldron": "Походный котелок",
+    "ceramic_bowl": "Керамическая миска",
+    "ceramic_glaze": "Керамическая глазурь",
+    "ceramic_shard": "Керамические черепки",
+    "ceramic_vase": "Керамическая ваза",
+    "chamomile": "Луговая ромашка",
+    "chamomile_dried": "Сушёная трава: Луговая ромашка",
+    "chamomile_juice": "Сок: Луговая ромашка",
+    "chamomile_powder": "Порошок: Луговая ромашка",
+    "chamomile_tincture": "Настойка: Луговая ромашка",
+    "charcoal": "Древесный уголь",
+    "cheese": "Домашний сыр",
+    "cherry": "Садовая вишня",
+    "cider": "Яблочный сидр",
+    "clarity_drops": "Капли ясности",
+    "clay": "Глина",
+    "clay_pot": "Глиняный горшок",
+    "clean_water": "Чистая вода",
+    "clear_glass": "Прозрачное стекло",
+    "cloth": "Ткань",
+    "cloth_scrap": "Лоскуты ткани",
+    "coal": "Каменный уголь",
+    "colored_glass": "Цветное стекло",
+    "compost": "Компост",
+    "corn": "Кукуруза",
+    "corn_seeds": "Семена кукурузы",
+    "cornbread": "Кукурузный хлеб",
+    "cotton": "Хлопок",
+    "cotton_seeds": "Семена хлопка",
+    "crab": "Речной краб",
+    "crab_trap": "Крабовая ловушка",
+    "crystal": "Синий кристалл",
+    "crystal_ring": "Алмазный талисман",
+    "crystal_sword": "Кристальный меч",
+    "cucumber": "Хрустящий огурец",
+    "cucumber_seeds": "Семена огурца",
+    "cured_fur": "Выделанный мех",
+    "cursed_compass": "Проклятый компас",
+    "defense_potion": "Зелье защиты",
+    "distilled_water": "Дистиллированная вода",
+    "dried_fruit": "Сухофрукты",
+    "dried_mushrooms": "Сушёные грибы",
+    "eclipse_core": "Сердце затмения",
+    "ectoplasm": "Морская эктоплазма",
+    "egg": "Куриное яйцо",
+    "ember_essence": "Эссенция жара",
+    "ember_grass": "Жар-трава",
+    "ember_grass_dried": "Сушёная трава: Жар-трава",
+    "ember_grass_juice": "Сок: Жар-трава",
+    "ember_grass_powder": "Порошок: Жар-трава",
+    "ember_grass_tincture": "Настойка: Жар-трава",
+    "energy_potion": "Зелье энергии",
+    "ether_essence": "Эфирная эссенция",
+    "fence_kit": "Секция забора",
+    "fiber": "Лесное волокно",
+    "field_mint": "Полевая мята",
+    "field_mint_dried": "Сушёная трава: Полевая мята",
+    "field_mint_juice": "Сок: Полевая мята",
+    "field_mint_powder": "Порошок: Полевая мята",
+    "field_mint_tincture": "Настойка: Полевая мята",
+    "fine_cloth": "Тонкая ткань",
+    "fish": "Речная рыба",
+    "fishing_bait": "Рыболовная наживка",
+    "fishing_rod": "Удочка",
+    "flour": "Мешочек муки",
+    "flower": "Луговой цветок",
+    "fried_vegetables": "Жареные овощи",
+    "frost_essence": "Эссенция инея",
+    "frost_fern": "Инейный папоротник",
+    "frost_fern_dried": "Сушёная трава: Инейный папоротник",
+    "frost_fern_juice": "Сок: Инейный папоротник",
+    "frost_fern_powder": "Порошок: Инейный папоротник",
+    "frost_fern_tincture": "Настойка: Инейный папоротник",
+    "fruit_pulp": "Фруктовый жмых",
+    "fruit_sapling": "Фруктовый саженец",
+    "fruit_vinegar": "Фруктовый уксус",
+    "fur": "Лисий мех",
+    "gate_kit": "Набор калитки",
+    "ghost_orchid": "Призрачная орхидея",
+    "ghost_orchid_dried": "Сушёная трава: Призрачная орхидея",
+    "ghost_orchid_juice": "Сок: Призрачная орхидея",
+    "ghost_orchid_powder": "Порошок: Призрачная орхидея",
+    "ghost_orchid_tincture": "Настойка: Призрачная орхидея",
+    "glass": "Стекло",
+    "glass_bottle": "Стеклянная бутылка",
+    "glass_jar": "Стеклянная банка",
+    "glass_shard": "Стеклянные осколки",
+    "glass_vial": "Пустой флакон",
+    "glazed_vase": "Глазурованная ваза",
+    "glazed_vase_form": "Ваза под глазурью",
+    "greater_healing": "Крепкое лечебное зелье",
+    "greater_mana": "Крепкое зелье маны",
+    "green_crystal": "Зелёный кристалл",
+    "growth_fertilizer": "Удобрение роста",
+    "guardian_armor": "Доспех хранителя",
+    "guild_badge": "Знак гильдии",
+    "hand": "Руки",
+    "healing_potion": "Лечебное зелье",
+    "herb_oil": "Растительное масло",
+    "herb_pulp": "Травяной жмых",
+    "herb_seeds": "Семена лечебных трав",
+    "herb_solvent": "Травяной растворитель",
+    "herbal_candle": "Травяная свеча",
+    "herbal_soap": "Травяное мыло",
+    "herbed_fish": "Рыба с травами",
+    "herbs": "Лечебные травы",
+    "hide": "Оленья шкура",
+    "hoe": "Мотыга",
+    "home_chest": "Домашний сундук",
+    "honey": "Цветочный мёд",
+    "honey_balm": "Медовый бальзам",
+    "honey_syrup": "Медовый сироп",
+    "honeycomb": "Медовые соты",
+    "hunter_elixir": "Эликсир охотника",
+    "incense": "Благовония",
+    "insect_repellent": "Бальзам от насекомых",
+    "invisibility_potion": "Зелье невидимости",
+    "iron_helmet": "Железный шлем",
+    "iron_ore": "Железная руда",
+    "iron_spear": "Железное копьё",
+    "jam": "Ягодное варенье",
+    "juniper": "Лесной можжевельник",
+    "juniper_dried": "Сушёная трава: Лесной можжевельник",
+    "juniper_juice": "Сок: Лесной можжевельник",
+    "juniper_powder": "Порошок: Лесной можжевельник",
+    "juniper_tincture": "Настойка: Лесной можжевельник",
+    "leather": "Выделанная кожа",
+    "leather_strap": "Кожаные ремни",
+    "lemon_balm": "Мелисса",
+    "lemon_balm_dried": "Сушёная трава: Мелисса",
+    "lemon_balm_juice": "Сок: Мелисса",
+    "lemon_balm_powder": "Порошок: Мелисса",
+    "lemon_balm_tincture": "Настойка: Мелисса",
+    "life_balsam": "Живой бальзам",
+    "lizard_scale": "Чешуя лугового ящера",
+    "log": "Дубовое бревно",
+    "lunar_cordial": "Лунный кордиал",
+    "mana_potion": "Зелье маны",
+    "mayonnaise": "Домашний майонез",
+    "mead": "Медовый напиток",
+    "meadow_tonic": "Луговой тоник",
+    "melon": "Золотая дыня",
+    "melon_seeds": "Семена дыни",
+    "metal": "Металл",
+    "metal_scrap": "Металлолом",
+    "milk": "Парное молоко",
+    "mineral_base": "Минеральная основа",
+    "miners_oil": "Масло рудокопа",
+    "moon_candle": "Лунная свеча",
+    "moon_glass": "Лунное стекло",
+    "moon_grass": "Светящаяся лунная трава",
+    "moon_grass_dried": "Сушёная трава: Светящаяся лунная трава",
+    "moon_grass_juice": "Сок: Светящаяся лунная трава",
+    "moon_grass_powder": "Порошок: Светящаяся лунная трава",
+    "moon_grass_tincture": "Настойка: Светящаяся лунная трава",
+    "moon_moss": "Лунный мох",
+    "moon_moss_dried": "Сушёная трава: Лунный мох",
+    "moon_moss_juice": "Сок: Лунный мох",
+    "moon_moss_powder": "Порошок: Лунный мох",
+    "moon_moss_tincture": "Настойка: Лунный мох",
+    "moon_relic": "Лунная реликвия",
+    "moon_staff": "Лунный посох",
+    "moon_veil_potion": "Лунная вуаль",
+    "museum_token": "Жетон хранителя",
+    "mushroom": "Красный гриб",
+    "mushroom_pie": "Грибной пирог",
+    "nails": "Кованые гвозди",
+    "nettle": "Крапива",
+    "nettle_dried": "Сушёная трава: Крапива",
+    "nettle_juice": "Сок: Крапива",
+    "nettle_powder": "Порошок: Крапива",
+    "nettle_tincture": "Настойка: Крапива",
+    "nightshade": "Ночная паслёнка",
+    "nightshade_dried": "Сушёная трава: Ночная паслёнка",
+    "nightshade_juice": "Сок: Ночная паслёнка",
+    "nightshade_powder": "Порошок: Ночная паслёнка",
+    "nightshade_tincture": "Настойка: Ночная паслёнка",
+    "nut": "Крепкий орех",
+    "oak_shield": "Дубовый щит",
+    "omelet": "Омлет с зеленью",
+    "onion": "Репчатый лук",
+    "onion_seeds": "Семена лука",
+    "optical_lens": "Оптическая линза",
+    "orange": "Сочный апельсин",
+    "orc_blade": "Клинок орка",
+    "pancakes": "Молочные блинчики",
+    "pear": "Золотая груша",
+    "pear_juice": "Грушевый сок",
+    "pepper": "Сладкий перец",
+    "pepper_seeds": "Семена перца",
+    "pickaxe": "Кирка",
+    "pickled_mushrooms": "Маринованные грибы",
+    "pickled_vegetables": "Маринованные овощи",
+    "pie": "Яблочный пирог",
+    "pirate_cutlass": "Абордажная сабля",
+    "pirate_doubloon": "Пиратский дублон",
+    "plank": "Дубовые доски",
+    "plum": "Спелая слива",
+    "pollen": "Цветочная пыльца",
+    "pollen_powder": "Порошок пыльцы",
+    "porcelain_clay": "Фарфоровая масса",
+    "porcelain_cup": "Фарфоровая чашка",
+    "porcelain_form": "Заготовка фарфора",
+    "porridge": "Молочная каша",
+    "potato": "Картофель",
+    "potato_seeds": "Семенной картофель",
+    "potted_fern": "Папоротник в горшке",
+    "propolis": "Прополис",
+    "propolis_balm": "Прополисная мазь",
+    "propolis_tincture": "Настойка прополиса",
+    "pumpkin": "Тыква",
+    "pumpkin_seeds": "Семена тыквы",
+    "purifying_decoction": "Очищающий отвар",
+    "qa_teleport_stone": "Камень телепортации · QA",
+    "quality_fertilizer": "Удобрение урожая",
+    "rare_seeds": "Редкие семена",
+    "raw_meat": "Сырое мясо",
+    "red_clover": "Красный клевер",
+    "red_clover_dried": "Сушёная трава: Красный клевер",
+    "red_clover_juice": "Сок: Красный клевер",
+    "red_clover_powder": "Порошок: Красный клевер",
+    "red_clover_tincture": "Настойка: Красный клевер",
+    "red_crystal": "Красный кристалл",
+    "regeneration_potion": "Зелье регенерации",
+    "research_ink": "Исследовательские чернила",
+    "research_paper": "Исследовательская бумага",
+    "rope": "Крепкая верёвка",
+    "rosehip": "Шиповник",
+    "rosehip_dried": "Сушёная трава: Шиповник",
+    "rosehip_juice": "Сок: Шиповник",
+    "rosehip_powder": "Порошок: Шиповник",
+    "rosehip_tincture": "Настойка: Шиповник",
+    "royal_tonic": "Маточный тоник",
+    "rustic_table": "Дубовый стол",
+    "sage": "Лесной шалфей",
+    "sage_dried": "Сушёная трава: Лесной шалфей",
+    "sage_juice": "Сок: Лесной шалфей",
+    "sage_powder": "Порошок: Лесной шалфей",
+    "sage_tincture": "Настойка: Лесной шалфей",
+    "sand": "Песок",
+    "sawdust": "Опилки",
+    "seeds": "Семена моркови",
+    "shadow_essence": "Эссенция тени",
+    "silver_lichen": "Серебряный лишайник",
+    "silver_lichen_dried": "Сушёная трава: Серебряный лишайник",
+    "silver_lichen_juice": "Сок: Серебряный лишайник",
+    "silver_lichen_powder": "Порошок: Серебряный лишайник",
+    "silver_lichen_tincture": "Настойка: Серебряный лишайник",
+    "slag": "Металлический шлак",
+    "slime": "Слизь",
+    "smoked_cheese": "Копчёный сыр",
+    "smoked_fish": "Копчёная рыба",
+    "smoked_meat": "Копчёное мясо",
+    "smoked_mushrooms": "Копчёные грибы",
+    "soap": "Домашнее мыло",
+    "solar_concentrate": "Солнечный концентрат",
+    "soup": "Овощной суп",
+    "speed_potion": "Зелье скорости",
+    "sporecap": "Медовый спорник",
+    "sporecap_dried": "Сушёная трава: Медовый спорник",
+    "sporecap_juice": "Сок: Медовый спорник",
+    "sporecap_powder": "Порошок: Медовый спорник",
+    "sporecap_tincture": "Настойка: Медовый спорник",
+    "starflower": "Звездоцвет",
+    "starflower_dried": "Сушёная трава: Звездоцвет",
+    "starflower_juice": "Сок: Звездоцвет",
+    "starflower_powder": "Порошок: Звездоцвет",
+    "starflower_tincture": "Настойка: Звездоцвет",
+    "steel": "Стальной слиток",
+    "stone": "Камень",
+    "stone_skin_draught": "Каменная кожа",
+    "strawberry": "Садовая клубника",
+    "strawberry_seeds": "Семена клубники",
+    "strength_potion": "Зелье силы",
+    "sunflower": "Головка подсолнуха",
+    "sunflower_seeds": "Семена подсолнуха",
+    "sunpetal": "Солнечный лепестник",
+    "sunpetal_dried": "Сушёная трава: Солнечный лепестник",
+    "sunpetal_juice": "Сок: Солнечный лепестник",
+    "sunpetal_powder": "Порошок: Солнечный лепестник",
+    "sunpetal_tincture": "Настойка: Солнечный лепестник",
+    "sword": "Лесной меч",
+    "tanning_agent": "Дубильный раствор",
+    "timber_frame": "Столярная рама",
+    "tomato": "Помидор",
+    "tomato_juice": "Томатный сок",
+    "tomato_seeds": "Семена томата",
+    "trash": "Горючий мусор",
+    "travel_boots": "Походные сапоги",
+    "travel_ration": "Походный паёк",
+    "truffle": "Лесной трюфель",
+    "truffle_soup": "Трюфельная похлёбка",
+    "tusk": "Кабаний клык",
+    "unfired_bowl": "Заготовка миски",
+    "unfired_brick": "Кирпич-сырец",
+    "unfired_pot": "Заготовка горшка",
+    "unfired_vase": "Заготовка вазы",
+    "valerian": "Сонный корень",
+    "valerian_dried": "Сушёная трава: Сонный корень",
+    "valerian_juice": "Сок: Сонный корень",
+    "valerian_powder": "Порошок: Сонный корень",
+    "valerian_tincture": "Настойка: Сонный корень",
+    "vegetable_casserole": "Овощная запеканка",
+    "vigor_infusion": "Настой бодрости",
+    "vital_essence": "Эссенция жизни",
+    "war_hammer": "Кузнечный молот",
+    "water": "Лейка",
+    "watermelon": "Сочный арбуз",
+    "wax_base": "Восковая основа",
+    "wax_candle": "Восковые свечи",
+    "wet_clay": "Глиняная масса",
+    "wheat": "Пшеница",
+    "wheat_seeds": "Семена пшеницы",
+    "wild_thyme": "Дикий чабрец",
+    "wild_thyme_dried": "Сушёная трава: Дикий чабрец",
+    "wild_thyme_juice": "Сок: Дикий чабрец",
+    "wild_thyme_powder": "Порошок: Дикий чабрец",
+    "wild_thyme_tincture": "Настойка: Дикий чабрец",
+    "wind_step_elixir": "Шаг ветра",
+    "wood": "Древесина",
+    "wood_beam": "Деревянный брус",
+    "wood_dowel": "Деревянные шканты",
+    "wood_handle": "Деревянная рукоять",
+    "wood_offcut": "Деревянные обрезки",
+    "wooden_chair": "Резной стул",
+    "wooden_wardrobe": "Деревянный шкаф",
+    "wool": "Овечья шерсть",
+    "wormwood": "Горькая полынь",
+    "wormwood_dried": "Сушёная трава: Горькая полынь",
+    "wormwood_juice": "Сок: Горькая полынь",
+    "wormwood_powder": "Порошок: Горькая полынь",
+    "wormwood_tincture": "Настойка: Горькая полынь",
+    "woven_rug": "Тканый ковёр",
+    "yarn": "Пряжа",
+    "yarrow": "Тысячелистник",
+    "yarrow_dried": "Сушёная трава: Тысячелистник",
+    "yarrow_juice": "Сок: Тысячелистник",
+    "yarrow_powder": "Порошок: Тысячелистник",
+    "yarrow_tincture": "Настойка: Тысячелистник"
+  },
+  "food_effects": {
+    "aged_cheese": [
+      "item_effect_heal_energy",
+      70,
+      10
+    ],
+    "apple": [
+      "item_effect_heal",
+      30
+    ],
+    "apple_juice": [
+      "item_effect_heal_energy",
+      18,
+      3
+    ],
+    "apple_preserves": [
+      "item_effect_heal_energy",
+      35,
+      5
+    ],
+    "baked_potato": [
+      "item_effect_heal_energy",
+      32,
+      7
+    ],
+    "bandage": [
+      "item_effect_heal",
+      30
+    ],
+    "beet": [
+      "item_effect_heal",
+      12
+    ],
+    "berries": [
+      "item_effect_regeneration",
+      5,
+      8
+    ],
+    "berry_juice": [
+      "item_effect_heal_mana",
+      18,
+      8
+    ],
+    "berry_wine": [
+      "item_effect_heal_mana",
+      25,
+      16
+    ],
+    "bread": [
+      "item_effect_heal_energy",
+      24,
+      6
+    ],
+    "butter": [
+      "item_effect_heal_energy",
+      22,
+      3
+    ],
+    "cabbage": [
+      "item_effect_heal",
+      10
+    ],
+    "carrot": [
+      "item_effect_heal",
+      15
+    ],
+    "cheese": [
+      "item_effect_heal_energy",
+      50,
+      7
+    ],
+    "cherry": [
+      "item_effect_regeneration",
+      5,
+      6
+    ],
+    "cider": [
+      "item_effect_heal_energy",
+      26,
+      5
+    ],
+    "corn": [
+      "item_effect_heal",
+      10
+    ],
+    "cornbread": [
+      "item_effect_heal_energy",
+      28,
+      4
+    ],
+    "crab": [
+      "item_effect_heal_energy",
+      22,
+      3
+    ],
+    "cucumber": [
+      "item_effect_heal_energy",
+      10,
+      1
+    ],
+    "defense_potion": [
+      "item_effect_defense",
+      4,
+      30
+    ],
+    "dried_fruit": [
+      "item_effect_heal_energy",
+      20,
+      4
+    ],
+    "dried_mushrooms": [
+      "item_effect_heal_energy",
+      15,
+      3
+    ],
+    "egg": [
+      "item_effect_heal_energy",
+      14,
+      2
+    ],
+    "energy_potion": [
+      "item_effect_energy",
+      8
+    ],
+    "fried_vegetables": [
+      "item_effect_heal_energy",
+      28,
+      5
+    ],
+    "healing_potion": [
+      "item_effect_heal",
+      60
+    ],
+    "herbed_fish": [
+      "item_effect_heal_energy",
+      55,
+      8
+    ],
+    "honey": [
+      "item_effect_heal_energy",
+      22,
+      3
+    ],
+    "invisibility_potion": [
+      "item_effect_invisibility",
+      18
+    ],
+    "jam": [
+      "item_effect_heal_energy",
+      60,
+      8
+    ],
+    "lunar_cordial": [
+      "item_effect_heal_mana",
+      45,
+      30
+    ],
+    "mana_potion": [
+      "item_effect_mana",
+      30
+    ],
+    "mayonnaise": [
+      "item_effect_heal_energy",
+      20,
+      4
+    ],
+    "mead": [
+      "item_effect_heal_energy",
+      28,
+      6
+    ],
+    "melon": [
+      "item_effect_heal_energy",
+      25,
+      4
+    ],
+    "milk": [
+      "item_effect_heal_energy",
+      14,
+      2
+    ],
+    "mushroom": [
+      "item_effect_speed",
+      30,
+      10
+    ],
+    "mushroom_pie": [
+      "item_effect_heal_energy",
+      64,
+      10
+    ],
+    "nut": [
+      "item_effect_strength",
+      1,
+      12
+    ],
+    "omelet": [
+      "item_effect_heal_energy",
+      48,
+      8
+    ],
+    "onion": [
+      "item_effect_heal",
+      10
+    ],
+    "orange": [
+      "item_effect_heal_energy",
+      20,
+      2
+    ],
+    "pancakes": [
+      "item_effect_heal_energy",
+      36,
+      10
+    ],
+    "pear": [
+      "item_effect_heal_energy",
+      24,
+      2
+    ],
+    "pear_juice": [
+      "item_effect_heal_energy",
+      20,
+      3
+    ],
+    "pepper": [
+      "item_effect_heal_energy",
+      12,
+      1
+    ],
+    "pickled_mushrooms": [
+      "item_effect_heal_energy",
+      30,
+      5
+    ],
+    "pickled_vegetables": [
+      "item_effect_heal_energy",
+      28,
+      4
+    ],
+    "pie": [
+      "item_effect_heal_energy",
+      80,
+      10
+    ],
+    "plum": [
+      "item_effect_heal_mana",
+      20,
+      8
+    ],
+    "porridge": [
+      "item_effect_heal_energy",
+      24,
+      8
+    ],
+    "potato": [
+      "item_effect_heal",
+      10
+    ],
+    "pumpkin": [
+      "item_effect_heal_energy",
+      28,
+      4
+    ],
+    "regeneration_potion": [
+      "item_effect_regeneration",
+      5,
+      20
+    ],
+    "smoked_cheese": [
+      "item_effect_heal_energy",
+      60,
+      9
+    ],
+    "smoked_fish": [
+      "item_effect_heal_energy",
+      38,
+      6
+    ],
+    "smoked_meat": [
+      "item_effect_heal_energy",
+      45,
+      7
+    ],
+    "smoked_mushrooms": [
+      "item_effect_heal_energy",
+      25,
+      4
+    ],
+    "soup": [
+      "item_effect_heal_energy",
+      40,
+      6
+    ],
+    "speed_potion": [
+      "item_effect_speed",
+      30,
+      25
+    ],
+    "strawberry": [
+      "item_effect_heal_energy",
+      15,
+      2
+    ],
+    "strength_potion": [
+      "item_effect_strength",
+      1,
+      30
+    ],
+    "tomato": [
+      "item_effect_heal",
+      10
+    ],
+    "tomato_juice": [
+      "item_effect_heal_energy",
+      15,
+      2
+    ],
+    "travel_ration": [
+      "item_effect_heal_energy",
+      65,
+      10
+    ],
+    "truffle_soup": [
+      "item_effect_heal_energy",
+      48,
+      8
+    ],
+    "vegetable_casserole": [
+      "item_effect_heal_energy",
+      42,
+      9
+    ],
+    "watermelon": [
+      "item_effect_heal_energy",
+      25,
+      4
+    ]
+  }
+}
