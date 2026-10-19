@@ -64,7 +64,7 @@ static func is_visually_moving(game: Node) -> bool:
 
 ## Возвращает часы реального шага для ходьбы и непрерывные часы дыхания для покоя.
 static func visual_animation_time(game: Node, moving: bool) -> float:
-	return float(game.get_meta(WALK_TIME_META, 0.0)) if moving else game.walk_animation_time
+	return preload("res://scripts/systems/presentation_pose_system.gd").walk_clock(game) if moving else game.walk_animation_time
 
 ## Обновляет анимации на текущем кадре.
 static func update_animation(game: Node, delta: float) -> void:

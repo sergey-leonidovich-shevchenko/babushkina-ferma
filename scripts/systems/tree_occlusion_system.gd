@@ -1,6 +1,7 @@
 extends RefCounted
 
 const HeroVisual := preload("res://scripts/systems/hero_visual_system.gd")
+const Pose := preload("res://scripts/systems/presentation_pose_system.gd")
 const WorldVisibility := preload("res://scripts/systems/world_visibility_system.gd")
 const META_KEY := "tree_occlusion_frame"
 const HIDDEN_ALPHA := 0.34
@@ -30,9 +31,10 @@ static func begin_frame(game: Node, delta: float = -1.0) -> void:
 static func hero_bounds(game: Node) -> Rect2:
 	var moving: bool = game.PlayerSystem.is_visually_moving(game)
 	var pose := HeroVisual.current_pose(game, game.facing, moving)
-	var frame := HeroVisual.destination(game.player, pose)
+	var ground := Pose.ground(game)
+	var frame := HeroVisual.destination(ground, pose)
 	# Прозрачные поля мастер-листа и поднятый инструмент не считаются телом героя.
-	var body := Rect2(game.player - Vector2(25, 84), Vector2(50, 83))
+	var body := Rect2(ground - Vector2(25, 84), Vector2(50, 83))
 	return frame.intersection(body)
 
 
@@ -59,7 +61,7 @@ static func next_alpha(current: float, hidden: bool, delta: float, reduced_motio
 static func opacity(game: Node, key: String, rect: Rect2, ground_y: float) -> float:
 	if not game.has_meta(META_KEY): begin_frame(game)
 	var state: Dictionary = game.get_meta(META_KEY)
-	var hidden := overlaps_hero(game.player, state.hero_bounds, rect, ground_y)
+	var hidden := overlaps_hero(Pose.ground(game), state.hero_bounds, rect, ground_y)
 	var entry: Dictionary = state.entries.get(key, {"alpha":1.0, "seen_at":state.time})
 	entry.alpha = next_alpha(float(entry.alpha), hidden, float(state.delta), game.settings_state.reduced_motion)
 	entry.seen_at = state.time
@@ -77,7 +79,7 @@ static func submit(game: Node2D, key: String, texture: Texture2D, rect: Rect2, s
 	state.seen[key] = true
 	var alpha := opacity(game, key, rect, ground_y)
 	var packet := {"key":key,"texture":texture,"rect":rect,"source":source,"ground_y":ground_y,"tint":Color(tint,tint.a*alpha),"alpha":alpha,"overlay":overlay}
-	if is_foreground(game.player, ground_y): state.queue.append(packet)
+	if is_foreground(Pose.ground(game), ground_y): state.queue.append(packet)
 	else: draw_packet(game, packet)
 
 

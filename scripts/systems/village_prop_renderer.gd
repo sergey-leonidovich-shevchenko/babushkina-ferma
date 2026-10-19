@@ -20,7 +20,7 @@ static func draw(game:Node2D,foreground:bool)->void:
 	if game.current_location!="overworld": return
 	var visible := WorldVisibility.visible_rect(game)
 	for prop in Layout.PROP_PLACEMENTS:
-		if _in_front(Vector2(prop.position),game.player)!=foreground: continue
+		if _in_front(Vector2(prop.position),game.AnimationRenderer.player_ground(game))!=foreground: continue
 		var rect: Rect2 = Layout.prop_rect(prop)
 		if visible.intersects(rect, true): game.draw_texture_rect(Props[prop.kind],rect,false)
 	if not foreground:
@@ -39,5 +39,5 @@ static func draw_building_foreground(game:Node2D)->void:
 	if game.current_location!="overworld": return
 	for id in BuildingSystem.buildings_at("overworld"):
 		var door:Vector2=BuildingSystem.BUILDINGS[id].door
-		if game.player.y<door.y-24:
+		if game.AnimationRenderer.player_ground(game).y<door.y-24:
 			BuildingVisualSystem.draw_building(game,id,door)

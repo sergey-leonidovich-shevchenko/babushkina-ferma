@@ -1,0 +1,148 @@
+{
+  "task": "VCAMERA-003",
+  "kind": "decoded-video-contact-sheet",
+  "native_crop": [
+    530,
+    220,
+    660,
+    365
+  ],
+  "rescaled": false,
+  "frames": [
+    {
+      "file": "physical-0090.png",
+      "frame": 90,
+      "height": 648,
+      "mode": "physical",
+      "seconds": 1.5,
+      "width": 1152
+    },
+    {
+      "file": "physical-0091.png",
+      "frame": 91,
+      "height": 648,
+      "mode": "physical",
+      "seconds": 1.5166666666666666,
+      "width": 1152
+    },
+    {
+      "file": "physical-0092.png",
+      "frame": 92,
+      "height": 648,
+      "mode": "physical",
+      "seconds": 1.5333333333333334,
+      "width": 1152
+    },
+    {
+      "file": "physical-0093.png",
+      "frame": 93,
+      "height": 648,
+      "mode": "physical",
+      "seconds": 1.55,
+      "width": 1152
+    },
+    {
+      "file": "physical-0094.png",
+      "frame": 94,
+      "height": 648,
+      "mode": "physical",
+      "seconds": 1.5666666666666667,
+      "width": 1152
+    },
+    {
+      "file": "physical-0095.png",
+      "frame": 95,
+      "height": 648,
+      "mode": "physical",
+      "seconds": 1.5833333333333333,
+      "width": 1152
+    },
+    {
+      "file": "physical-0096.png",
+      "frame": 96,
+      "height": 648,
+      "mode": "physical",
+      "seconds": 1.6,
+      "width": 1152
+    },
+    {
+      "file": "physical-0097.png",
+      "frame": 97,
+      "height": 648,
+      "mode": "physical",
+      "seconds": 1.6166666666666667,
+      "width": 1152
+    },
+    {
+      "file": "shared-0090.png",
+      "frame": 90,
+      "height": 648,
+      "mode": "shared",
+      "seconds": 1.5,
+      "width": 1152
+    },
+    {
+      "file": "shared-0091.png",
+      "frame": 91,
+      "height": 648,
+      "mode": "shared",
+      "seconds": 1.5166666666666666,
+      "width": 1152
+    },
+    {
+      "file": "shared-0092.png",
+      "frame": 92,
+      "height": 648,
+      "mode": "shared",
+      "seconds": 1.5333333333333334,
+      "width": 1152
+    },
+    {
+      "file": "shared-0093.png",
+      "frame": 93,
+      "height": 648,
+      "mode": "shared",
+      "seconds": 1.55,
+      "width": 1152
+    },
+    {
+      "file": "shared-0094.png",
+      "frame": 94,
+      "height": 648,
+      "mode": "shared",
+      "seconds": 1.5666666666666667,
+      "width": 1152
+    },
+    {
+      "file": "shared-0095.png",
+      "frame": 95,
+      "height": 648,
+      "mode": "shared",
+      "seconds": 1.5833333333333333,
+      "width": 1152
+    },
+    {
+      "file": "shared-0096.png",
+      "frame": 96,
+      "height": 648,
+      "mode": "shared",
+      "seconds": 1.6,
+      "width": 1152
+    },
+    {
+      "file": "shared-0097.png",
+      "frame": 97,
+      "height": 648,
+      "mode": "shared",
+      "seconds": 1.6166666666666667,
+      "width": 1152
+    }
+  ],
+  "mp4_sha256": {
+    "physical": "ec7d1d4e1ada228555cd40216b24dc636a85d3ef188714921e5aae922f39098d",
+    "shared": "c591a6d6df832c9e48df4a18864641f841aa77467f662b067886362506a4a69f"
+  },
+  "sheet_sha256": "260451149ccb294723212626dbe17691fa665d4c8e3ba58a20875f1d7fe86400",
+  "decoder_sha256": "6bce8ca5dac0f455dfdf3142eda4a5f87b0966b336fbd70523ebe6714b1f0ef4",
+  "plot_sha256": "89d6198c307c16d79e4517973c1c47fc95079cdabb4056925465204ad4a03943"
+}

@@ -1,0 +1,26 @@
+{
+  "command": [
+    "open",
+    "-n",
+    "-W",
+    "-a",
+    "/Users/sergeyshevchenko/my farm/tools/Godot.app",
+    "--args",
+    "--path",
+    "/Users/sergeyshevchenko/my farm",
+    "--windowed",
+    "--audio-driver",
+    "Dummy",
+    "--log-file",
+    "/Users/sergeyshevchenko/my farm/docs/reports/visual-overhaul/vcamera-003/native/base-physical/engine.txt",
+    "--script",
+    "res://tools/presentation_pose_capture.gd",
+    "--",
+    "--output=/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm-pose-8dhfp345/base-physical",
+    "--profile=Codex-VCAMERA-003-2d8bfa09917f49f3a000e11cb447a391",
+    "--size=1152x648",
+    "--legacy"
+  ],
+  "exit_code": 0,
+  "exit_code_scope": "LaunchServices; engine completion checked in capture.json"
+}
