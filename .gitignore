@@ -3,6 +3,10 @@
 wiki/planning/*.lock
 wiki/planning/*.tmp
 tools/*
+!tools/camera_quantization.py
+!tools/camera_quantization_capture.gd
+!tools/camera_quantization_review.gd
+!tools/test_camera_quantization.py
 !tools/asset_migration.py
 !tools/migration_inventory.py
 !tools/migration_fixture.py

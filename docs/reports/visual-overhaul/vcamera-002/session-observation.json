@@ -1,0 +1,15 @@
+{
+  "task": "VCAMERA-002",
+  "observation": "macOS graphical session availability only",
+  "CGSSessionScreenIsLocked": true,
+  "kCGSessionLoginDoneKey": true,
+  "native_accepted": false,
+  "native_frames_accepted": 0,
+  "control": "controls/unfocused-start/capture.json",
+  "actual_initial_window": [
+    1152,
+    648
+  ],
+  "actual_initial_focus": false,
+  "command": "swift -module-cache-path /private/tmp/farm-quantization-session-cache -e <session-probe.swift>"
+}

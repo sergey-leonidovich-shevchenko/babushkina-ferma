@@ -77,7 +77,7 @@ static func test_camera_clamps_and_centers_rooms(context: SceneTree) -> void:
 	var game:=Points.create_game(); game._ready(); Points.configure(game,Points.registry().points[0])
 	for x in [40.25,575.75,576.25,1200.25,2360.25]:
 		game.player=Vector2(x,672.25); game.update_camera()
-		context.expect(game.camera_offset.x==roundf(clampf(x-576,0,1248)),"outdoor clamp and rounding contract")
+		context.expect(game.camera_offset.x==clampf(x-576,0,1248),"outdoor clamp preserves fractional projection")
 	game.current_location="cottage_interior"; game.player=Vector2(576,470); game.update_camera()
 	var room:Rect2=game.BuildingSystem.interior(game.current_location).room
 	var field:Rect2=game.CameraSystem.playfield_rect(game)

@@ -41,7 +41,10 @@ func test_camera_keeps_small_rooms_visible_and_scrolls_large_halls() -> void:
 	var hall: Rect2 = game.BuildingSystem.INTERIORS.castle_hall.room
 	var visible_world := Rect2(game.camera_offset + game.CameraSystem.playfield_rect(game).position, game.CameraSystem.playfield_rect(game).size)
 	expect(game.camera_offset.x > near_corner.x and game.camera_offset.y > near_corner.y, "large castle hall continues to follow the hero on both axes")
-	expect(hall.encloses(visible_world) and game.camera_offset == game.camera_offset.round(), "large hall camera stays within its walls on whole pixels")
+	expect(hall.encloses(visible_world), "large hall camera stays within its walls")
+	game.player = Vector2(1000.25, 600.375)
+	game.update_camera()
+	expect(game.camera_offset != game.camera_offset.round(), "large hall keeps fractional tracking between the clamps")
 	game.free()
 
 
