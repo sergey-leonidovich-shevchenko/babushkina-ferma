@@ -1,0 +1,10 @@
+{
+  "bitrate" : 4000000,
+  "decoded_first_frame" : "walk.decoded.png",
+  "duration" : 6,
+  "encoder" : "AVFoundation H.264",
+  "fps" : 60,
+  "frames" : 360,
+  "height" : 1080,
+  "width" : 1920
+}

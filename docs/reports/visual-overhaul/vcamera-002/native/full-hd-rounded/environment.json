@@ -1,0 +1,26 @@
+{
+  "command": [
+    "open",
+    "-n",
+    "-W",
+    "-a",
+    "/Users/sergeyshevchenko/my farm/tools/Godot.app",
+    "--args",
+    "--path",
+    "/Users/sergeyshevchenko/my farm",
+    "--windowed",
+    "--audio-driver",
+    "Dummy",
+    "--log-file",
+    "/Users/sergeyshevchenko/my farm/docs/reports/visual-overhaul/vcamera-002/native/full-hd-rounded/engine.log",
+    "--script",
+    "res://tools/camera_quantization_capture.gd",
+    "--",
+    "--output=/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm-quantization-4wj7tkeo/full-hd-rounded",
+    "--profile=Codex-VCAMERA-002-6c968d31a2c74d8a988822e7c8f6ad2c",
+    "--size=1920x1080",
+    "--snap"
+  ],
+  "exit_code": 0,
+  "exit_code_scope": "LaunchServices launcher; engine completion checked in capture.json"
+}
