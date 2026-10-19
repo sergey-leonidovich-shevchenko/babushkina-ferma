@@ -64,6 +64,7 @@ python3 tools/test_visual_camera.py
 python3 tools/test_visual_static.py
 python3 tools/visual_coordinates.py verify
 python3 tools/test_visual_coordinates.py
+python3 tools/camera_quantization.py verify >/dev/null
 python3 tools/test_camera_quantization.py
 python3 tools/visual_scale.py verify
 python3 tools/test_visual_scale.py

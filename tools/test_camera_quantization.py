@@ -1,9 +1,15 @@
 #!/usr/bin/env python3
 """Offline unit envelopes of the camera validator; synthetic metadata never proves native acceptance."""
 import copy
+import json
+from pathlib import Path
+import shutil
+import tempfile
 import unittest
 
-from camera_quantization import REPORT, read, validate_run, verify
+from PIL import Image, ImageOps
+
+from camera_quantization import REPORT, manifest, read, validate_run, verify
 
 
 def envelope():
@@ -85,10 +91,70 @@ class CameraQuantization(unittest.TestCase):
 
     def test_absent_native_packet_cannot_pass(self):
         """A missing packet must fail; these unit envelopes are not a substitute."""
-        import tempfile
-        from pathlib import Path
         with tempfile.TemporaryDirectory() as directory:
             with self.assertRaisesRegex(ValueError,'packet missing'): verify(Path(directory))
+
+
+class NativePacket(unittest.TestCase):
+    """Checks the real frozen packet and tampers only with independent temporary copies."""
+
+    def reject_packet(self, edit, resign=False):
+        """Keeps originals immutable; re-signing distinguishes content validation from hash checks."""
+        with tempfile.TemporaryDirectory(prefix='farm-camera-negative-') as directory:
+            target = Path(directory)/'native'
+            shutil.copytree(REPORT/'native', target)
+            edit(target)
+            if resign: manifest(target, read(target/'source.json'))
+            with self.assertRaises(ValueError): verify(target)
+
+    def test_real_six_case_packet(self):
+        metrics = verify(REPORT/'native')
+        self.assertEqual(len(metrics), 6)
+        for name, values in metrics.items():
+            if name.endswith('fractional'):
+                self.assertEqual(values['center_peak_to_peak_logical'], [0,0])
+                self.assertEqual(values['stalled_camera_y_steps'], 0)
+            else:
+                self.assertGreater(min(values['center_peak_to_peak_logical']), 0.9)
+
+    def test_source_bytes_cannot_change(self):
+        def edit(folder):
+            path = folder/'instrumentation/scripts/systems/camera_system.gd'
+            path.write_bytes(path.read_bytes()+b'\n# changed\n')
+        self.reject_packet(edit)
+
+    def test_media_bitrot_is_rejected(self):
+        self.reject_packet(lambda p: (p/'base-rounded/walk.mp4').write_bytes(b'broken'))
+
+    def test_missing_artifact_is_rejected(self):
+        self.reject_packet(lambda p: (p/'retina-2x-fractional/frame-0359.png').unlink())
+
+    def test_wrong_png_size_even_after_resigning(self):
+        self.reject_packet(lambda p: Image.new('RGB',(100,100)).save(p/'full-hd-rounded/frame-0180.png'), True)
+
+    def test_flipped_video_content_even_after_resigning(self):
+        def edit(folder):
+            path = folder/'base-fractional/walk.decoded.png'
+            with Image.open(path) as image: flipped = ImageOps.flip(image)
+            flipped.save(path)
+        self.reject_packet(edit, True)
+
+    def test_independent_process_and_profile_even_after_resigning(self):
+        for key in ['pid', 'profile']:
+            with self.subTest(key=key):
+                def edit(folder):
+                    first = read(folder/'base-rounded/capture.json')
+                    path = folder/'base-fractional/capture.json'
+                    value = read(path); value[key] = first[key]
+                    path.write_text(json.dumps(value)+'\n')
+                self.reject_packet(edit, True)
+
+    def test_failed_launcher_even_after_resigning(self):
+        def edit(folder):
+            path = folder/'retina-2x-rounded/environment.json'
+            value = read(path); value['exit_code'] = 1
+            path.write_text(json.dumps(value)+'\n')
+        self.reject_packet(edit, True)
 
 
 if __name__ == '__main__': unittest.main()

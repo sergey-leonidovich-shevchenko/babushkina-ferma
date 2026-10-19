@@ -182,16 +182,18 @@ def capture(folder):
                        '--log-file',str(target/'engine.log'),'--script','res://tools/camera_quantization_capture.gd','--',
                        '--output='+str(native),'--profile=Codex-VCAMERA-002-'+uuid.uuid4().hex,'--size=%dx%d'%tuple(size)]
                 if snap: cmd.append('--snap')
+                launch = ['open','-n','-W','-a',str(ROOT/'tools/Godot.app'),'--args',*cmd[1:]]
                 with (target/'stdout.txt').open('w') as log:
-                    result = subprocess.run(cmd,cwd=ROOT,stdout=log,stderr=subprocess.STDOUT,timeout=600)
-                env = {'command':cmd,'exit_code':result.returncode}
+                    result = subprocess.run(launch,cwd=ROOT,stdout=log,stderr=subprocess.STDOUT,timeout=600)
+                env = {'command':launch,'exit_code':result.returncode,'exit_code_scope':'LaunchServices launcher; engine completion checked in capture.json'}
                 (target/'environment.json').write_text(json.dumps(env,indent=2)+'\n')
                 if (native/'capture.json').exists(): shutil.copy2(native/'capture.json',target/'capture.json')
                 for frame in [0, 180, 359]:
                     image = native/('frames/%04d.png'%frame)
                     if image.exists(): shutil.copy2(image,target/('frame-%04d.png'%frame))
                 manifest(folder,source)
-                require(result.returncode == 0 and 'ERROR:' not in (target/'stdout.txt').read_text(), 'native error: '+name)
+                engine = (target/'engine.log').read_text() if (target/'engine.log').exists() else ''
+                require(result.returncode == 0 and engine and 'ERROR:' not in engine and 'ERROR:' not in (target/'stdout.txt').read_text(), 'native error: '+name)
                 validate_run(read(target/'capture.json'),size,snap,case=='retina-2x')
                 environment = dict(os.environ,CLANG_MODULE_CACHE_PATH=str(temporary/'clang-cache'),SWIFT_MODULECACHE_PATH=str(temporary/'swift-cache'))
                 with (target/'encoder.txt').open('w') as log:

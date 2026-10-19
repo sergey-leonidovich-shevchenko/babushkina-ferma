@@ -1,0 +1,59 @@
+{
+  "task": "VCAMERA-002",
+  "accepted": true,
+  "date": "2026-10-19",
+  "decision": "B",
+  "accepted_scope": "fractional camera projection at the current 100% world scale",
+  "runtime_commit": "2bfabb4eca77a3801956c3295f82a3977866af3b",
+  "capture_application_version": "0.0.262",
+  "native_packet": "native/source.json",
+  "exact_instrumentation": "native/instrumentation/",
+  "source_files": 17,
+  "independent_native_processes": 6,
+  "physical_formats": [
+    [1152, 648],
+    [1920, 1080],
+    [2304, 1296]
+  ],
+  "video_seconds_each": 6,
+  "video_fps": 60,
+  "native_video_frames_each": 360,
+  "physics_steps_each": 358,
+  "performance_eligible": false,
+  "performance_accepted": false,
+  "target_scale_120_accepted": false,
+  "physics_render_sync_accepted": false,
+  "new_art_accepted": false,
+  "first_location_accepted": false,
+  "verified": {
+    "native_packet": "passed",
+    "python_cases": 22,
+    "gdscript_assertions": 1077,
+    "architecture": "passed",
+    "game_assertions": 44710,
+    "game_failures": 0,
+    "wiki_tests": 58,
+    "browser": {
+      "guide": "visual-camera-motion",
+      "players": 6,
+      "played_to_end": 6,
+      "decoder_errors": 0,
+      "viewport_reset": true
+    }
+  },
+  "observations": {
+    "rounded_center_peak_to_peak_logical": [0.971435546875, 0.971435546875],
+    "fractional_center_peak_to_peak_logical": [0, 0],
+    "rounded_stalled_camera_y_steps": 141,
+    "fractional_stalled_camera_y_steps": 0,
+    "rounded_max_camera_y_step_logical": 1,
+    "fractional_max_camera_y_step_logical": 0.212158203125
+  },
+  "outstanding_owners": [
+    "VCAMERA-003",
+    "VCAMERA-006",
+    "VPERF-001",
+    "VMAP-003"
+  ],
+  "next_task": "VCAMERA-003"
+}
