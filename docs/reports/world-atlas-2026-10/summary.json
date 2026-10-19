@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "captured_at_utc": "2026-10-19T06:38:21.806207+00:00",
+  "baseline_main": "eba548b7ad6ed60535a1ac78d9fa245a67d0a362",
+  "live_root_head": "eba548b7ad6ed60535a1ac78d9fa245a67d0a362",
+  "planning_revision": 227,
+  "idea_count": 169,
+  "live_task_count_at_start": 1512,
+  "branch_only_task_count": 109,
+  "editorial_task_count": 1,
+  "total_task_count": 1622,
+  "record_count": 1791,
+  "location_count": 30,
+  "camp_branch": "codex/camp-00-travel-crafting-plan",
+  "camp_commit": "afb458f156be2986ddce000bd383918cca172d83",
+  "branch_status": "100 CAMP и 9 VTREE — планы отдельной ветки; не реализация",
+  "method": "Все 169 описаний/заметок и 1512 карточек загружены из локального каталога; полные записи прочитаны для контрольных сумм. 109 неповторяющихся карточек извлечены из отдельной ветки. У каждой строки явная область применения. География и новые дороги — редакционное предложение, не импорт в игровой мир. Не пространственные системы помечены global. Номера и статусы исходных записей сохранены.",
+  "map_order": [
+    "surface",
+    "underground",
+    "special"
+  ],
+  "selected_images": {
+    "surface": "surface-v1.png",
+    "underground": "underground-v2.png",
+    "special": "special-v1.png"
+  },
+  "runtime_world_cycle": [
+    "overworld",
+    "forest",
+    "rocky",
+    "ruins",
+    "cave",
+    "cursed",
+    "glassworks",
+    "pirate_ship",
+    "overworld"
+  ],
+  "runtime_notes": [
+    "Текущие макропереходы используют WorldSystem.next_location, а не географический дорожный граф WorldMapSystem.CONNECTIONS.",
+    "В первой главе есть отдельный обратный путь forest→overworld.",
+    "Вход overworld↔cave отдельный; шесть залов связаны CaveRoomData.LINKS.",
+    "Лунная поляна доступна через портал; это не пешеходная соседняя карта.",
+    "Шесть домашних районов — одно поселение.",
+    "Все новые подземные срезки независимы от сюжетного святилища и подземелья Регента.",
+    "Переход из пещер в следующий макрорегион доступен только у выхода cave_sanctum; cave остаётся входным ID макропоследовательности."
+  ],
+  "integrated_source_main": "55cde6cca444d3cd9bef757c017e0834331087da",
+  "status_changes_after_first_snapshot": [],
+  "integration_note": "Перед интеграцией с актуальной main статусы исходных задач сверены заново. Карты и ID сохранены; редакционная задача не блокируется игровым VMAP."
+}
