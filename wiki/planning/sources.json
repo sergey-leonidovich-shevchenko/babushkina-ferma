@@ -168,6 +168,20 @@
           "file": "docs/backlog/world-atlas-2026-10/TASKS.md"
         }
       ]
+    },
+    {
+      "id": "daily-20261020",
+      "title": "Творческие предложения 20 октября 2026",
+      "format": "markdown",
+      "group": "gameplay",
+      "expected": 31,
+      "epics": [
+        {
+          "id": "IDEA-DAILY-20261020",
+          "title": "Ежедневные идеи 20 октября 2026",
+          "file": "docs/epics/idea-2026-10/daily/2026-10-20/TASKS.md"
+        }
+      ]
     }
   ],
   "queues": [
