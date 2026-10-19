@@ -1,0 +1,71 @@
+{
+  "task": "VBASE-002",
+  "accepted": true,
+  "accepted_scope": "one available development reference and reproducible baseline conditions",
+  "runtime_commit": "d2820e0619ba6e59e4f085b2f7e6fb4c71de6bc8",
+  "capture_application_version": "0.0.256",
+  "policy": "development-mac-5300m-battery-v1",
+  "release_minimum_approved": false,
+  "performance_accepted": false,
+  "target_scale_accepted": false,
+  "first_location_accepted": false,
+  "gameplay_or_graphics_changed": false,
+  "measurement": "measurement/capture.json",
+  "exact_instrumentation": "measurement/instrumentation/",
+  "real_control": "controls/ac-profile-rejected/rejection.json",
+  "draw_p95_ms": [
+    44.197,
+    36.526,
+    37.124
+  ],
+  "draw_p99_ms": [
+    51.007,
+    47.255,
+    46.504
+  ],
+  "draw_max_ms": [
+    53.201,
+    51.415,
+    59.232
+  ],
+  "diagnostic_budget": [
+    "FAIL",
+    "FAIL",
+    "FAIL"
+  ],
+  "verified": {
+    "profile_tests": 17,
+    "profile_python_versions": [
+      "3.9.6",
+      "3.12.14"
+    ],
+    "wiki_tests": 56,
+    "game_assertions": 44082,
+    "game_failures": 0,
+    "architecture": "passed; final staged gate repeats in commit hook",
+    "wiki_integrated_with": "WIKI-002 first-location progress and IDEA-DAILY-20261019-00"
+  },
+  "outstanding_owners": [
+    "OPT-01",
+    "VBASE-005",
+    "VCAMERA-006",
+    "VPERF-001",
+    "VPERF-002",
+    "VRELEASE-004",
+    "VMAP-003"
+  ],
+  "wiki_guide": "visual-hardware",
+  "next_task": "VBASE-005",
+  "background_isolation_verified": false,
+  "integration_bootstrap": {
+    "fresh_godot_import": true,
+    "legacy_fixture": [
+      {
+        "path": "assets/generated/level_drafts/water_navigation_ingame_preview.png.import",
+        "sha256": "fd5557669eaa3a93d0630eadc770588b89ea0975d265870e986fba6ae9e01a15"
+      }
+    ],
+    "legacy_fixture_owner": "VPIPELINE-009",
+    "legacy_fixture_portability_fixed": false
+  }
+}

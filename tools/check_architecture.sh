@@ -54,6 +54,8 @@ python3 tools/test_water_audit.py
 python3 tools/visual_backlog.py
 python3 tools/test_visual_backlog.py
 python3 tools/test_visual_baseline.py
+python3 tools/visual_hardware.py verify >/dev/null
+python3 tools/test_visual_hardware.py
 python3 tools/visual_camera.py check
 python3 tools/test_visual_camera.py
 python3 tools/test_visual_static.py

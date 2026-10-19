@@ -1,0 +1,690 @@
+{
+  "schema": 1,
+  "source": {
+    "commit": "d2820e0619ba6e59e4f085b2f7e6fb4c71de6bc8",
+    "dirty_paths": "M .gitignore\n M docs/epics/visual-overhaul-2026-10/backlog.json\n M docs/epics/visual-overhaul-2026-10/epics/vbase.md\n M docs/epics/visual-overhaul-2026-10/index.html\n?? docs/reports/visual-overhaul/vbase-002/\n?? tools/test_visual_hardware.py\n?? tools/visual_hardware.py",
+    "sha256": {
+      "tools/visual_baseline.gd": "90832cc9dc35c0a7639c7ad3990a2c91fef6f7e58188fb18ef7e0cfe4618caae",
+      "tools/run_visual_baseline.py": "8471a62d3fe8251c3372f618c807b1850aff7b3c8136d67ece9005749ff239df",
+      "tools/analyze_visual_baseline.py": "b1b852c37a933f3104509bcd53a70a2979d16dcee34c40e8a4e42f4aaa4d9499",
+      "project.godot": "6d7d69bc476404301ab3acc47ab2476b8bfae440e43dc47720b77a9fb89f38b7",
+      "main.tscn": "850e050bc3df4971ec130b5b0a39dba6aa71082ce2fc20607dd504a3d55c98a9"
+    }
+  },
+  "requested_repeats": 3,
+  "runs": [
+    {
+      "repeat": 0,
+      "folder": "run-1",
+      "profile": "Codex-VBASE-001-27a1f4a08f23481b980f87552314434c",
+      "exit_code": 0,
+      "before": {
+        "utc": "2026-10-18T23:29:32.972954+00:00",
+        "system": "Darwin",
+        "os_version": "15.4.1",
+        "architecture": "x86_64",
+        "machine": {
+          "hw.model": "MacBookPro16,1",
+          "machdep.cpu.brand_string": "Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz",
+          "hw.memsize": "17179869184",
+          "hw.ncpu": "12"
+        },
+        "power": "Now drawing from 'Battery Power'\n -InternalBattery-0 (id=6750307)\t69%; discharging; 1:21 remaining present: true",
+        "power_settings": "Battery Power:\n lidwake              1\n lowpowermode         0\n standbydelayhigh     86400\n proximitywake        0\n standby              1\n standbydelaylow      10800\n ttyskeepawake        1\n hibernatemode        3\n powernap             0\n gpuswitch            2\n hibernatefile        /var/vm/sleepimage\n highstandbythreshold 50\n displaysleep         10\n womp                 0\n networkoversleep     0\n sleep                1\n lessbright           1\n halfdim              1\n acwake               0\n tcpkeepalive         1\n disksleep            10\nAC Power:\n lidwake              1\n lowpowermode         0\n standbydelayhigh     86400\n proximitywake        1\n standby              1\n standbydelaylow      10800\n ttyskeepawake        1\n hibernatemode        3\n powernap             1\n gpuswitch            2\n hibernatefile        /var/vm/sleepimage\n highstandbythreshold 50\n displaysleep         60\n womp                 1\n networkoversleep     0\n sleep                1\n acwake               0\n halfdim              1\n tcpkeepalive         1\n disksleep            10",
+        "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\n2026-10-19 04:29:33 +0500 CPU Power notify\n\tCPU_Scheduler_Limit \t= 100\n\tCPU_Available_CPUs \t= 12\n\tCPU_Speed_Limit \t= 100",
+        "background": [
+          {
+            "pid": 513,
+            "cpu_percent": 57.3,
+            "rss_kib": 89136,
+            "executable": "Codex (Service)"
+          },
+          {
+            "pid": 160,
+            "cpu_percent": 35.3,
+            "rss_kib": 53340,
+            "executable": "WindowServer"
+          },
+          {
+            "pid": 58342,
+            "cpu_percent": 23.0,
+            "rss_kib": 10760,
+            "executable": "Python"
+          },
+          {
+            "pid": 588,
+            "cpu_percent": 19.7,
+            "rss_kib": 385784,
+            "executable": "codex"
+          },
+          {
+            "pid": 575,
+            "cpu_percent": 16.2,
+            "rss_kib": 2521232,
+            "executable": "Codex (Renderer)"
+          },
+          {
+            "pid": 636,
+            "cpu_percent": 13.1,
+            "rss_kib": 198732,
+            "executable": "AppleSpell"
+          },
+          {
+            "pid": 382,
+            "cpu_percent": 11.3,
+            "rss_kib": 759472,
+            "executable": "ChatGPT"
+          },
+          {
+            "pid": 660,
+            "cpu_percent": 8.5,
+            "rss_kib": 21952,
+            "executable": "PuntoSwitcher"
+          },
+          {
+            "pid": 58313,
+            "cpu_percent": 5.2,
+            "rss_kib": 15328,
+            "executable": "Python"
+          },
+          {
+            "pid": 326,
+            "cpu_percent": 4.8,
+            "rss_kib": 11532,
+            "executable": "TouchBarServer"
+          },
+          {
+            "pid": 154,
+            "cpu_percent": 1.9,
+            "rss_kib": 3128,
+            "executable": "notifyd"
+          },
+          {
+            "pid": 309,
+            "cpu_percent": 1.8,
+            "rss_kib": 852,
+            "executable": "com.apple.AppleUserHIDDrivers"
+          },
+          {
+            "pid": 50487,
+            "cpu_percent": 1.8,
+            "rss_kib": 53752,
+            "executable": "Godot"
+          },
+          {
+            "pid": 1,
+            "cpu_percent": 1.0,
+            "rss_kib": 18220,
+            "executable": "launchd"
+          },
+          {
+            "pid": 89,
+            "cpu_percent": 0.6,
+            "rss_kib": 30572,
+            "executable": "logd"
+          }
+        ],
+        "background_available": true,
+        "background_note": "Two boundary snapshots; CPU percentages are ps estimates, not a continuous profiler."
+      },
+      "after": {
+        "utc": "2026-10-18T23:31:09.856557+00:00",
+        "system": "Darwin",
+        "os_version": "15.4.1",
+        "architecture": "x86_64",
+        "machine": {
+          "hw.model": "MacBookPro16,1",
+          "machdep.cpu.brand_string": "Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz",
+          "hw.memsize": "17179869184",
+          "hw.ncpu": "12"
+        },
+        "power": "Now drawing from 'Battery Power'\n -InternalBattery-0 (id=6750307)\t67%; discharging; 1:06 remaining present: true",
+        "power_settings": "Battery Power:\n lidwake              1\n lowpowermode         0\n standbydelayhigh     86400\n proximitywake        0\n standby              1\n standbydelaylow      10800\n ttyskeepawake        1\n hibernatemode        3\n powernap             0\n gpuswitch            2\n hibernatefile        /var/vm/sleepimage\n highstandbythreshold 50\n displaysleep         10\n womp                 0\n networkoversleep     0\n sleep                1\n lessbright           1\n halfdim              1\n acwake               0\n tcpkeepalive         1\n disksleep            10\nAC Power:\n lidwake              1\n lowpowermode         0\n standbydelayhigh     86400\n proximitywake        1\n standby              1\n standbydelaylow      10800\n ttyskeepawake        1\n hibernatemode        3\n powernap             1\n gpuswitch            2\n hibernatefile        /var/vm/sleepimage\n highstandbythreshold 50\n displaysleep         60\n womp                 1\n networkoversleep     0\n sleep                1\n acwake               0\n halfdim              1\n tcpkeepalive         1\n disksleep            10",
+        "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\n2026-10-19 04:31:09 +0500 CPU Power notify\n\tCPU_Scheduler_Limit \t= 100\n\tCPU_Available_CPUs \t= 12\n\tCPU_Speed_Limit \t= 100",
+        "background": [
+          {
+            "pid": 186,
+            "cpu_percent": 30.8,
+            "rss_kib": 14848,
+            "executable": "coreaudiod"
+          },
+          {
+            "pid": 382,
+            "cpu_percent": 25.1,
+            "rss_kib": 973852,
+            "executable": "ChatGPT"
+          },
+          {
+            "pid": 160,
+            "cpu_percent": 25.0,
+            "rss_kib": 53700,
+            "executable": "WindowServer"
+          },
+          {
+            "pid": 513,
+            "cpu_percent": 24.6,
+            "rss_kib": 93716,
+            "executable": "Codex (Service)"
+          },
+          {
+            "pid": 95,
+            "cpu_percent": 15.3,
+            "rss_kib": 6008,
+            "executable": "mediaremoted"
+          },
+          {
+            "pid": 588,
+            "cpu_percent": 14.2,
+            "rss_kib": 358812,
+            "executable": "codex"
+          },
+          {
+            "pid": 575,
+            "cpu_percent": 9.4,
+            "rss_kib": 2535720,
+            "executable": "Codex (Renderer)"
+          },
+          {
+            "pid": 384,
+            "cpu_percent": 7.3,
+            "rss_kib": 15256,
+            "executable": "WindowManager"
+          },
+          {
+            "pid": 132,
+            "cpu_percent": 6.4,
+            "rss_kib": 8072,
+            "executable": "launchservicesd"
+          },
+          {
+            "pid": 172,
+            "cpu_percent": 5.7,
+            "rss_kib": 14208,
+            "executable": "runningboardd"
+          },
+          {
+            "pid": 673,
+            "cpu_percent": 4.9,
+            "rss_kib": 12892,
+            "executable": "CursorUIViewService"
+          },
+          {
+            "pid": 166,
+            "cpu_percent": 3.1,
+            "rss_kib": 28896,
+            "executable": "loginwindow"
+          },
+          {
+            "pid": 356,
+            "cpu_percent": 2.7,
+            "rss_kib": 8744,
+            "executable": "audioaccessoryd"
+          },
+          {
+            "pid": 326,
+            "cpu_percent": 2.6,
+            "rss_kib": 11540,
+            "executable": "TouchBarServer"
+          },
+          {
+            "pid": 1876,
+            "cpu_percent": 2.5,
+            "rss_kib": 21828,
+            "executable": "duetexpertd"
+          }
+        ],
+        "background_available": true,
+        "background_note": "Two boundary snapshots; CPU percentages are ps estimates, not a continuous profiler."
+      }
+    },
+    {
+      "repeat": 1,
+      "folder": "run-2",
+      "profile": "Codex-VBASE-001-4adb5b5695d84349989de70a9538d4b5",
+      "exit_code": 0,
+      "before": {
+        "utc": "2026-10-18T23:31:10.060618+00:00",
+        "system": "Darwin",
+        "os_version": "15.4.1",
+        "architecture": "x86_64",
+        "machine": {
+          "hw.model": "MacBookPro16,1",
+          "machdep.cpu.brand_string": "Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz",
+          "hw.memsize": "17179869184",
+          "hw.ncpu": "12"
+        },
+        "power": "Now drawing from 'Battery Power'\n -InternalBattery-0 (id=6750307)\t67%; discharging; 1:06 remaining present: true",
+        "power_settings": "Battery Power:\n lidwake              1\n lowpowermode         0\n standbydelayhigh     86400\n proximitywake        0\n standby              1\n standbydelaylow      10800\n ttyskeepawake        1\n hibernatemode        3\n powernap             0\n gpuswitch            2\n hibernatefile        /var/vm/sleepimage\n highstandbythreshold 50\n displaysleep         10\n womp                 0\n networkoversleep     0\n sleep                1\n lessbright           1\n halfdim              1\n acwake               0\n tcpkeepalive         1\n disksleep            10\nAC Power:\n lidwake              1\n lowpowermode         0\n standbydelayhigh     86400\n proximitywake        1\n standby              1\n standbydelaylow      10800\n ttyskeepawake        1\n hibernatemode        3\n powernap             1\n gpuswitch            2\n hibernatefile        /var/vm/sleepimage\n highstandbythreshold 50\n displaysleep         60\n womp                 1\n networkoversleep     0\n sleep                1\n acwake               0\n halfdim              1\n tcpkeepalive         1\n disksleep            10",
+        "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\n2026-10-19 04:31:10 +0500 CPU Power notify\n\tCPU_Scheduler_Limit \t= 100\n\tCPU_Available_CPUs \t= 12\n\tCPU_Speed_Limit \t= 100",
+        "background": [
+          {
+            "pid": 160,
+            "cpu_percent": 37.5,
+            "rss_kib": 53836,
+            "executable": "WindowServer"
+          },
+          {
+            "pid": 513,
+            "cpu_percent": 23.0,
+            "rss_kib": 93716,
+            "executable": "Codex (Service)"
+          },
+          {
+            "pid": 382,
+            "cpu_percent": 19.0,
+            "rss_kib": 974820,
+            "executable": "ChatGPT"
+          },
+          {
+            "pid": 186,
+            "cpu_percent": 15.1,
+            "rss_kib": 14848,
+            "executable": "coreaudiod"
+          },
+          {
+            "pid": 575,
+            "cpu_percent": 14.1,
+            "rss_kib": 2535732,
+            "executable": "Codex (Renderer)"
+          },
+          {
+            "pid": 58542,
+            "cpu_percent": 10.2,
+            "rss_kib": 6820,
+            "executable": "(git)"
+          },
+          {
+            "pid": 588,
+            "cpu_percent": 9.6,
+            "rss_kib": 356500,
+            "executable": "codex"
+          },
+          {
+            "pid": 411,
+            "cpu_percent": 8.7,
+            "rss_kib": 14132,
+            "executable": "ContextStoreAgent"
+          },
+          {
+            "pid": 95,
+            "cpu_percent": 7.8,
+            "rss_kib": 6008,
+            "executable": "mediaremoted"
+          },
+          {
+            "pid": 384,
+            "cpu_percent": 7.2,
+            "rss_kib": 15256,
+            "executable": "WindowManager"
+          },
+          {
+            "pid": 58342,
+            "cpu_percent": 7.1,
+            "rss_kib": 12452,
+            "executable": "Python"
+          },
+          {
+            "pid": 673,
+            "cpu_percent": 5.0,
+            "rss_kib": 12888,
+            "executable": "CursorUIViewService"
+          },
+          {
+            "pid": 326,
+            "cpu_percent": 4.1,
+            "rss_kib": 11540,
+            "executable": "TouchBarServer"
+          },
+          {
+            "pid": 558,
+            "cpu_percent": 3.6,
+            "rss_kib": 12044,
+            "executable": "searchpartyuseragent"
+          },
+          {
+            "pid": 515,
+            "cpu_percent": 2.7,
+            "rss_kib": 44312,
+            "executable": "Codex (Service)"
+          }
+        ],
+        "background_available": true,
+        "background_note": "Two boundary snapshots; CPU percentages are ps estimates, not a continuous profiler."
+      },
+      "after": {
+        "utc": "2026-10-18T23:31:45.065883+00:00",
+        "system": "Darwin",
+        "os_version": "15.4.1",
+        "architecture": "x86_64",
+        "machine": {
+          "hw.model": "MacBookPro16,1",
+          "machdep.cpu.brand_string": "Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz",
+          "hw.memsize": "17179869184",
+          "hw.ncpu": "12"
+        },
+        "power": "Now drawing from 'Battery Power'\n -InternalBattery-0 (id=6750307)\t67%; discharging; 1:06 remaining present: true",
+        "power_settings": "Battery Power:\n lidwake              1\n lowpowermode         0\n standbydelayhigh     86400\n proximitywake        0\n standby              1\n standbydelaylow      10800\n ttyskeepawake        1\n hibernatemode        3\n powernap             0\n gpuswitch            2\n hibernatefile        /var/vm/sleepimage\n highstandbythreshold 50\n displaysleep         10\n womp                 0\n networkoversleep     0\n sleep                1\n lessbright           1\n halfdim              1\n acwake               0\n tcpkeepalive         1\n disksleep            10\nAC Power:\n lidwake              1\n lowpowermode         0\n standbydelayhigh     86400\n proximitywake        1\n standby              1\n standbydelaylow      10800\n ttyskeepawake        1\n hibernatemode        3\n powernap             1\n gpuswitch            2\n hibernatefile        /var/vm/sleepimage\n highstandbythreshold 50\n displaysleep         60\n womp                 1\n networkoversleep     0\n sleep                1\n acwake               0\n halfdim              1\n tcpkeepalive         1\n disksleep            10",
+        "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\n2026-10-19 04:31:45 +0500 CPU Power notify\n\tCPU_Scheduler_Limit \t= 100\n\tCPU_Available_CPUs \t= 12\n\tCPU_Speed_Limit \t= 100",
+        "background": [
+          {
+            "pid": 513,
+            "cpu_percent": 10.5,
+            "rss_kib": 93356,
+            "executable": "Codex (Service)"
+          },
+          {
+            "pid": 186,
+            "cpu_percent": 9.4,
+            "rss_kib": 14864,
+            "executable": "coreaudiod"
+          },
+          {
+            "pid": 160,
+            "cpu_percent": 8.7,
+            "rss_kib": 54396,
+            "executable": "WindowServer"
+          },
+          {
+            "pid": 87154,
+            "cpu_percent": 7.6,
+            "rss_kib": 327328,
+            "executable": "Google Chrome"
+          },
+          {
+            "pid": 575,
+            "cpu_percent": 3.6,
+            "rss_kib": 2566148,
+            "executable": "Codex (Renderer)"
+          },
+          {
+            "pid": 58570,
+            "cpu_percent": 3.5,
+            "rss_kib": 77468,
+            "executable": "Google Chrome Helper (Aperitif Renderer)"
+          },
+          {
+            "pid": 322,
+            "cpu_percent": 3.1,
+            "rss_kib": 4440,
+            "executable": "audioanalyticsd"
+          },
+          {
+            "pid": 384,
+            "cpu_percent": 2.6,
+            "rss_kib": 15316,
+            "executable": "WindowManager"
+          },
+          {
+            "pid": 411,
+            "cpu_percent": 2.5,
+            "rss_kib": 14280,
+            "executable": "ContextStoreAgent"
+          },
+          {
+            "pid": 356,
+            "cpu_percent": 2.2,
+            "rss_kib": 8776,
+            "executable": "audioaccessoryd"
+          },
+          {
+            "pid": 95,
+            "cpu_percent": 2.0,
+            "rss_kib": 6020,
+            "executable": "mediaremoted"
+          },
+          {
+            "pid": 132,
+            "cpu_percent": 2.0,
+            "rss_kib": 8084,
+            "executable": "launchservicesd"
+          },
+          {
+            "pid": 172,
+            "cpu_percent": 2.0,
+            "rss_kib": 14652,
+            "executable": "runningboardd"
+          },
+          {
+            "pid": 326,
+            "cpu_percent": 1.6,
+            "rss_kib": 11544,
+            "executable": "TouchBarServer"
+          },
+          {
+            "pid": 323,
+            "cpu_percent": 1.2,
+            "rss_kib": 6912,
+            "executable": "audiomxd"
+          }
+        ],
+        "background_available": true,
+        "background_note": "Two boundary snapshots; CPU percentages are ps estimates, not a continuous profiler."
+      }
+    },
+    {
+      "repeat": 2,
+      "folder": "run-3",
+      "profile": "Codex-VBASE-001-5ef851bc9d374a6ea5e280ba20670dcf",
+      "exit_code": 0,
+      "before": {
+        "utc": "2026-10-18T23:31:45.258258+00:00",
+        "system": "Darwin",
+        "os_version": "15.4.1",
+        "architecture": "x86_64",
+        "machine": {
+          "hw.model": "MacBookPro16,1",
+          "machdep.cpu.brand_string": "Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz",
+          "hw.memsize": "17179869184",
+          "hw.ncpu": "12"
+        },
+        "power": "Now drawing from 'Battery Power'\n -InternalBattery-0 (id=6750307)\t67%; discharging; 1:06 remaining present: true",
+        "power_settings": "Battery Power:\n lidwake              1\n lowpowermode         0\n standbydelayhigh     86400\n proximitywake        0\n standby              1\n standbydelaylow      10800\n ttyskeepawake        1\n hibernatemode        3\n powernap             0\n gpuswitch            2\n hibernatefile        /var/vm/sleepimage\n highstandbythreshold 50\n displaysleep         10\n womp                 0\n networkoversleep     0\n sleep                1\n lessbright           1\n halfdim              1\n acwake               0\n tcpkeepalive         1\n disksleep            10\nAC Power:\n lidwake              1\n lowpowermode         0\n standbydelayhigh     86400\n proximitywake        1\n standby              1\n standbydelaylow      10800\n ttyskeepawake        1\n hibernatemode        3\n powernap             1\n gpuswitch            2\n hibernatefile        /var/vm/sleepimage\n highstandbythreshold 50\n displaysleep         60\n womp                 1\n networkoversleep     0\n sleep                1\n acwake               0\n halfdim              1\n tcpkeepalive         1\n disksleep            10",
+        "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\n2026-10-19 04:31:45 +0500 CPU Power notify\n\tCPU_Scheduler_Limit \t= 100\n\tCPU_Available_CPUs \t= 12\n\tCPU_Speed_Limit \t= 100",
+        "background": [
+          {
+            "pid": 160,
+            "cpu_percent": 31.8,
+            "rss_kib": 54512,
+            "executable": "WindowServer"
+          },
+          {
+            "pid": 513,
+            "cpu_percent": 26.4,
+            "rss_kib": 93356,
+            "executable": "Codex (Service)"
+          },
+          {
+            "pid": 382,
+            "cpu_percent": 20.5,
+            "rss_kib": 979572,
+            "executable": "ChatGPT"
+          },
+          {
+            "pid": 575,
+            "cpu_percent": 17.3,
+            "rss_kib": 2566136,
+            "executable": "Codex (Renderer)"
+          },
+          {
+            "pid": 186,
+            "cpu_percent": 15.5,
+            "rss_kib": 14864,
+            "executable": "coreaudiod"
+          },
+          {
+            "pid": 411,
+            "cpu_percent": 10.8,
+            "rss_kib": 14324,
+            "executable": "ContextStoreAgent"
+          },
+          {
+            "pid": 58342,
+            "cpu_percent": 10.7,
+            "rss_kib": 12580,
+            "executable": "Python"
+          },
+          {
+            "pid": 95,
+            "cpu_percent": 8.8,
+            "rss_kib": 6020,
+            "executable": "mediaremoted"
+          },
+          {
+            "pid": 326,
+            "cpu_percent": 5.6,
+            "rss_kib": 11544,
+            "executable": "TouchBarServer"
+          },
+          {
+            "pid": 384,
+            "cpu_percent": 4.4,
+            "rss_kib": 15316,
+            "executable": "WindowManager"
+          },
+          {
+            "pid": 673,
+            "cpu_percent": 3.5,
+            "rss_kib": 12932,
+            "executable": "CursorUIViewService"
+          },
+          {
+            "pid": 515,
+            "cpu_percent": 3.3,
+            "rss_kib": 44320,
+            "executable": "Codex (Service)"
+          },
+          {
+            "pid": 87154,
+            "cpu_percent": 3.2,
+            "rss_kib": 327328,
+            "executable": "Google Chrome"
+          },
+          {
+            "pid": 416,
+            "cpu_percent": 2.9,
+            "rss_kib": 25368,
+            "executable": "Dock"
+          },
+          {
+            "pid": 132,
+            "cpu_percent": 2.7,
+            "rss_kib": 8084,
+            "executable": "launchservicesd"
+          }
+        ],
+        "background_available": true,
+        "background_note": "Two boundary snapshots; CPU percentages are ps estimates, not a continuous profiler."
+      },
+      "after": {
+        "utc": "2026-10-18T23:32:20.067420+00:00",
+        "system": "Darwin",
+        "os_version": "15.4.1",
+        "architecture": "x86_64",
+        "machine": {
+          "hw.model": "MacBookPro16,1",
+          "machdep.cpu.brand_string": "Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz",
+          "hw.memsize": "17179869184",
+          "hw.ncpu": "12"
+        },
+        "power": "Now drawing from 'Battery Power'\n -InternalBattery-0 (id=6750307)\t66%; discharging; 1:08 remaining present: true",
+        "power_settings": "Battery Power:\n lidwake              1\n lowpowermode         0\n standbydelayhigh     86400\n proximitywake        0\n standby              1\n standbydelaylow      10800\n ttyskeepawake        1\n hibernatemode        3\n powernap             0\n gpuswitch            2\n hibernatefile        /var/vm/sleepimage\n highstandbythreshold 50\n displaysleep         10\n womp                 0\n networkoversleep     0\n sleep                1\n lessbright           1\n halfdim              1\n acwake               0\n tcpkeepalive         1\n disksleep            10\nAC Power:\n lidwake              1\n lowpowermode         0\n standbydelayhigh     86400\n proximitywake        1\n standby              1\n standbydelaylow      10800\n ttyskeepawake        1\n hibernatemode        3\n powernap             1\n gpuswitch            2\n hibernatefile        /var/vm/sleepimage\n highstandbythreshold 50\n displaysleep         60\n womp                 1\n networkoversleep     0\n sleep                1\n acwake               0\n halfdim              1\n tcpkeepalive         1\n disksleep            10",
+        "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\n2026-10-19 04:32:20 +0500 CPU Power notify\n\tCPU_Scheduler_Limit \t= 100\n\tCPU_Available_CPUs \t= 12\n\tCPU_Speed_Limit \t= 100",
+        "background": [
+          {
+            "pid": 186,
+            "cpu_percent": 29.4,
+            "rss_kib": 14980,
+            "executable": "coreaudiod"
+          },
+          {
+            "pid": 160,
+            "cpu_percent": 24.5,
+            "rss_kib": 54824,
+            "executable": "WindowServer"
+          },
+          {
+            "pid": 95,
+            "cpu_percent": 15.2,
+            "rss_kib": 6112,
+            "executable": "mediaremoted"
+          },
+          {
+            "pid": 513,
+            "cpu_percent": 11.8,
+            "rss_kib": 93744,
+            "executable": "Codex (Service)"
+          },
+          {
+            "pid": 382,
+            "cpu_percent": 9.2,
+            "rss_kib": 977392,
+            "executable": "ChatGPT"
+          },
+          {
+            "pid": 575,
+            "cpu_percent": 6.3,
+            "rss_kib": 2567104,
+            "executable": "Codex (Renderer)"
+          },
+          {
+            "pid": 384,
+            "cpu_percent": 4.8,
+            "rss_kib": 15356,
+            "executable": "WindowManager"
+          },
+          {
+            "pid": 58605,
+            "cpu_percent": 4.8,
+            "rss_kib": 227444,
+            "executable": "Google Chrome Helper (Aperitif Renderer)"
+          },
+          {
+            "pid": 87154,
+            "cpu_percent": 4.3,
+            "rss_kib": 327604,
+            "executable": "Google Chrome"
+          },
+          {
+            "pid": 132,
+            "cpu_percent": 4.0,
+            "rss_kib": 8120,
+            "executable": "launchservicesd"
+          },
+          {
+            "pid": 172,
+            "cpu_percent": 3.3,
+            "rss_kib": 14756,
+            "executable": "runningboardd"
+          },
+          {
+            "pid": 411,
+            "cpu_percent": 2.6,
+            "rss_kib": 14752,
+            "executable": "ContextStoreAgent"
+          },
+          {
+            "pid": 322,
+            "cpu_percent": 2.1,
+            "rss_kib": 4560,
+            "executable": "audioanalyticsd"
+          },
+          {
+            "pid": 356,
+            "cpu_percent": 2.0,
+            "rss_kib": 8860,
+            "executable": "audioaccessoryd"
+          },
+          {
+            "pid": 166,
+            "cpu_percent": 1.6,
+            "rss_kib": 29020,
+            "executable": "loginwindow"
+          }
+        ],
+        "background_available": true,
+        "background_note": "Two boundary snapshots; CPU percentages are ps estimates, not a continuous profiler."
+      }
+    }
+  ],
+  "fault": ""
+}
