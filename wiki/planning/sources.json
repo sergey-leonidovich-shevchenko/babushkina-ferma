@@ -106,6 +106,20 @@
           "file": "docs/backlog/wiki-workspace-2026-10/README.md"
         }
       ]
+    },
+    {
+      "id": "daily-20261019",
+      "title": "Творческие предложения 19 октября 2026",
+      "format": "markdown",
+      "group": "gameplay",
+      "expected": 30,
+      "epics": [
+        {
+          "id": "IDEA-DAILY-20261019",
+          "title": "Ежедневные идеи 19 октября 2026",
+          "file": "docs/epics/idea-2026-10/daily/2026-10-19/TASKS.md"
+        }
+      ]
     }
   ],
   "queues": [
