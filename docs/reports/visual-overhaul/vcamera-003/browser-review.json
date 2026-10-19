@@ -1,0 +1,20 @@
+{
+  "task": "VCAMERA-003",
+  "date": "2026-10-19",
+  "guide": "http://127.0.0.1:4175/#/guides/visual-pose",
+  "browser": "Codex In-app Browser",
+  "native_controls": true,
+  "autoplay": false,
+  "temporary_viewport_override": false,
+  "console_errors": [],
+  "players": [
+    {"case":"base-physical","width":1152,"height":648,"duration":6,"current_time":6,"ended":true,"decoder_error":null},
+    {"case":"base-shared","width":1152,"height":648,"duration":6,"current_time":6,"ended":true,"decoder_error":null},
+    {"case":"full-hd-physical","width":1920,"height":1080,"duration":6,"current_time":6,"ended":true,"decoder_error":null},
+    {"case":"full-hd-shared","width":1920,"height":1080,"duration":6,"current_time":6,"ended":true,"decoder_error":null},
+    {"case":"retina-2x-physical","width":2304,"height":1296,"duration":6,"current_time":6,"ended":true,"decoder_error":null},
+    {"case":"retina-2x-shared","width":2304,"height":1296,"duration":6,"current_time":6,"ended":true,"decoder_error":null}
+  ],
+  "visual_review": "Native video images are visible in the browser; the decoded frames 90–97 contact sheet was also inspected at original pixel scale. Hero foot, root anchor and interaction cell agree; no cut sprite or sliding root observed in this fixture.",
+  "initial_control_issue": "The first locator Space press timed out. The visible native play control and subsequent video clicks worked; completed playback was read from the actual six media elements."
+}

@@ -7,6 +7,13 @@ tools/*
 !tools/camera_quantization_capture.gd
 !tools/camera_quantization_review.gd
 !tools/test_camera_quantization.py
+!tools/presentation_pose.py
+!tools/presentation_pose_capture.gd
+!tools/presentation_pose_review.gd
+!tools/presentation_pose_live.gd
+!tools/test_presentation_pose.py
+!tools/pose_video_frames.swift
+!tools/pose_video_strip.py
 !tools/asset_migration.py
 !tools/migration_inventory.py
 !tools/migration_fixture.py

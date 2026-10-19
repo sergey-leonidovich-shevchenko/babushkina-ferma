@@ -1,0 +1,14 @@
+{
+  "task": "VCAMERA-003",
+  "kind": "automatic-headless-callbacks",
+  "native": false,
+  "performance_eligible": false,
+  "base_commit": "6f8ca8a2a591db97c10e7dede77c9441c20e4e51",
+  "artifacts": {
+    "live-callbacks.json": "2581ea4ffdda0b08a27d73b5fb46ef81cf92882f8bd070a6b8cc68de13b3a89f",
+    "live-instrumentation.gd": "19f85beef3deb7de12289c2b6dbf8b0c3ec27deac74d863fff1255b3d18db72f"
+  },
+  "runtime_source_archive": "native/instrumentation/",
+  "observed_frames": 240,
+  "observed_sub_tick_frames": 119
+}
