@@ -1,0 +1,64 @@
+{
+  "admission": "VALID_BASELINE",
+  "source_commit": "d2820e0619ba6e59e4f085b2f7e6fb4c71de6bc8",
+  "repeats": [
+    {
+      "admission": "VALID_BASELINE",
+      "budget_60fps_candidate": "FAIL",
+      "draw": {
+        "count": 475,
+        "mean_ms": 31.74442736842106,
+        "p95_ms": 44.197,
+        "p99_ms": 51.007,
+        "max_ms": 53.201,
+        "over33": 206,
+        "over100": 0
+      },
+      "wall_seconds": 15.078603,
+      "simulation_seconds": 15.049999999986028,
+      "max_draw_calls": 171.0,
+      "max_texture_bytes": 683510472.0,
+      "max_static_bytes": 133111470.0,
+      "terrain_rebuilds": 0
+    },
+    {
+      "admission": "VALID_BASELINE",
+      "budget_60fps_candidate": "FAIL",
+      "draw": {
+        "count": 466,
+        "mean_ms": 32.36438412017167,
+        "p95_ms": 36.526,
+        "p99_ms": 47.255,
+        "max_ms": 51.415,
+        "over33": 206,
+        "over100": 0
+      },
+      "wall_seconds": 15.081803,
+      "simulation_seconds": 15.049999999986028,
+      "max_draw_calls": 171.0,
+      "max_texture_bytes": 683510472.0,
+      "max_static_bytes": 133093462.0,
+      "terrain_rebuilds": 0
+    },
+    {
+      "admission": "VALID_BASELINE",
+      "budget_60fps_candidate": "FAIL",
+      "draw": {
+        "count": 563,
+        "mean_ms": 26.77404618117231,
+        "p95_ms": 37.124,
+        "p99_ms": 46.504,
+        "max_ms": 59.232,
+        "over33": 160,
+        "over100": 0
+      },
+      "wall_seconds": 15.073788,
+      "simulation_seconds": 15.049999999986028,
+      "max_draw_calls": 171.0,
+      "max_texture_bytes": 683510472.0,
+      "max_static_bytes": 133141054.0,
+      "terrain_rebuilds": 0
+    }
+  ],
+  "note": "Native draw intervals include CPU, GPU, display wait and monitoring overhead; not isolated GPU time, physical input or all-map acceptance."
+}

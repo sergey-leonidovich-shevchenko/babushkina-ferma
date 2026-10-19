@@ -101,6 +101,8 @@ tools/*
 !tools/run_visual_baseline.py
 !tools/analyze_visual_baseline.py
 !tools/test_visual_baseline.py
+!tools/visual_hardware.py
+!tools/test_visual_hardware.py
 !tools/build_forest_tree_atlas.py
 !tools/build_village_prop_atlas.py
 !tools/build_ui_kit.py

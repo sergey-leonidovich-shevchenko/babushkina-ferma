@@ -1,0 +1,5 @@
+{
+  "admission": "REJECTED",
+  "reason": "AC required; actual Battery Power in all six boundary snapshots",
+  "scope": "The raw baseline itself is valid; it is ineligible for the requested AC profile. Retained without selecting best repeats."
+}

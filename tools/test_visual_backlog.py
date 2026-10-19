@@ -34,6 +34,8 @@ class VisualBacklogTests(unittest.TestCase):
 
     def test_pending_ready(self):
         """Сценарий: Ready запрещён, пока зависимость не завершена."""
+        dependency = next(task for task in self.data['tasks'] if task['id'] == 'VBASE-002')
+        dependency['status'] = 'backlog'
         self.data['tasks'][0]['status'] = 'ready'
         self.data['tasks'][0]['depends_on'] = ['VBASE-002']
         self.assertIn('unfinished dependency', self.errors())

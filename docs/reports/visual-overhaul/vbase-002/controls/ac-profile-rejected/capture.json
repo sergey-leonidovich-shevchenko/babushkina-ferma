@@ -1,0 +1,165 @@
+{
+  "schema": 1,
+  "policy": {
+    "schema": 1,
+    "id": "development-mac-5300m-v1",
+    "scope": "overworld-through-VMAP-003",
+    "release_minimum_approved": false,
+    "selected_device": "mac-amd-5300m",
+    "decision": "Available development reference and provisional lower tested configuration; no equivalence or release minimum inferred for other machines.",
+    "devices": [
+      {
+        "id": "mac-amd-5300m",
+        "status": "reference",
+        "system": "Darwin",
+        "os_version": "15.4.1",
+        "architecture": "x86_64",
+        "machine": {
+          "hw.model": "MacBookPro16,1",
+          "machdep.cpu.brand_string": "Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz",
+          "hw.memsize": "17179869184",
+          "hw.ncpu": "12"
+        },
+        "gpu_model": "AMD Radeon Pro 5300M",
+        "dedicated_vram": "4 GB",
+        "adapter": "AMD Radeon Pro 5300M OpenGL Engine",
+        "engine": "4.7.1-stable (official)",
+        "driver": "opengl3",
+        "display_server": "macOS",
+        "screen": [
+          3584,
+          2240
+        ],
+        "screen_scale": 2
+      },
+      {
+        "id": "mac-integrated",
+        "status": "unverified",
+        "reason": "Intel UHD Graphics 630 is present; this session selects the AMD renderer. Shared memory is not dedicated VRAM."
+      },
+      {
+        "id": "mac-apple-silicon",
+        "status": "unverified",
+        "reason": "No native device or run available."
+      },
+      {
+        "id": "windows",
+        "status": "unverified",
+        "reason": "No native device, driver or power adapter verified."
+      },
+      {
+        "id": "linux",
+        "status": "unverified",
+        "reason": "No native device, driver or power adapter verified."
+      }
+    ],
+    "measurement": {
+      "preset": "village-cardinal-1152-v1",
+      "repeats": 3,
+      "window": [
+        1152,
+        648
+      ],
+      "framebuffer": [
+        1152,
+        648
+      ],
+      "start_camera": [
+        0,
+        348
+      ],
+      "world_scale": 1,
+      "target_world_scale": 1.2,
+      "target_scale_owner": "VCAMERA-006",
+      "budget_owner": "VPERF-002",
+      "runtime_quality_preset": null,
+      "build": "Godot source/debug launch, not exported release",
+      "power": "AC, lowpowermode 0, gpuswitch 2; record both boundaries without changing system settings",
+      "quality": "Existing production graphics and effects, Russian HUD, audio on, UI 1.0, reduced motion off, screen shake off; not a new low/medium/high setting",
+      "simulation": "Live world, seed 20261015, day 1, 06:00, 16 physical checkpoints; no screenshots or disk writes inside the measured interval",
+      "target": "60 FPS is a design goal; VBASE diagnostic thresholds are retained, not promoted to a release guarantee"
+    },
+    "deferred": [
+      "1920x1080 framebuffer",
+      "native Retina framebuffer",
+      "target 120% camera",
+      "exported release build",
+      "low quality fallback",
+      "full overworld route",
+      "long-session memory",
+      "other physical devices"
+    ]
+  },
+  "before": {
+    "system": "Darwin",
+    "os_version": "15.4.1",
+    "architecture": "x86_64",
+    "gpus": [
+      {
+        "model": "AMD Radeon Pro 5300M",
+        "dedicated_vram": "4 GB",
+        "shared_vram": null
+      },
+      {
+        "model": "Intel UHD Graphics 630",
+        "dedicated_vram": null,
+        "shared_vram": "1536 MB"
+      }
+    ]
+  },
+  "after": {
+    "system": "Darwin",
+    "os_version": "15.4.1",
+    "architecture": "x86_64",
+    "gpus": [
+      {
+        "model": "AMD Radeon Pro 5300M",
+        "dedicated_vram": "4 GB",
+        "shared_vram": null
+      },
+      {
+        "model": "Intel UHD Graphics 630",
+        "dedicated_vram": null,
+        "shared_vram": "1536 MB"
+      }
+    ]
+  },
+  "exit_code": 0,
+  "source": {
+    "commit": "d2820e0619ba6e59e4f085b2f7e6fb4c71de6bc8",
+    "dirty_paths": "M .gitignore\n M docs/epics/visual-overhaul-2026-10/backlog.json\n M docs/epics/visual-overhaul-2026-10/epics/vbase.md\n M docs/epics/visual-overhaul-2026-10/index.html\n?? docs/reports/visual-overhaul/vbase-002/\n?? tools/visual_hardware.py",
+    "sha256": {
+      "tools/visual_baseline.gd": "90832cc9dc35c0a7639c7ad3990a2c91fef6f7e58188fb18ef7e0cfe4618caae",
+      "tools/run_visual_baseline.py": "8471a62d3fe8251c3372f618c807b1850aff7b3c8136d67ece9005749ff239df",
+      "tools/analyze_visual_baseline.py": "b1b852c37a933f3104509bcd53a70a2979d16dcee34c40e8a4e42f4aaa4d9499",
+      "project.godot": "6d7d69bc476404301ab3acc47ab2476b8bfae440e43dc47720b77a9fb89f38b7",
+      "main.tscn": "850e050bc3df4971ec130b5b0a39dba6aa71082ce2fc20607dd504a3d55c98a9"
+    }
+  },
+  "tool_sha256": {
+    "tools/visual_hardware.py": "af9fa5d17f4f34539adfcdcff5b6ee31304a6e13e5adc4e222a55df3eba816a8",
+    "tools/visual_baseline.gd": "90832cc9dc35c0a7639c7ad3990a2c91fef6f7e58188fb18ef7e0cfe4618caae",
+    "tools/run_visual_baseline.py": "8471a62d3fe8251c3372f618c807b1850aff7b3c8136d67ece9005749ff239df",
+    "tools/analyze_visual_baseline.py": "b1b852c37a933f3104509bcd53a70a2979d16dcee34c40e8a4e42f4aaa4d9499",
+    "scripts/systems/camera_system.gd": "13d9801b97595901238bd818c0e734a107491839e605f598b1f87ba6ae6fbcc4"
+  },
+  "files": {
+    "native/run-1/end.png": "8378102f446894969096a9a7c78dd487c83e7df1325fdd86e81659adb6011152",
+    "native/run-1/engine.txt": "78d9c09e3082e861539545d17eef9f91ab0d7e088e8866ee51f33cc1758ddfa5",
+    "native/run-1/native.json": "16a3f155897e5d7ed43ebf458cb8121153217d0442f0691ac44c62a535719d9e",
+    "native/run-1/start.png": "59f21008fdbce4ec290067ac6323a1d8004f99bd8173048473ae03255fc3f40e",
+    "native/run-1/stdout.txt": "78d9c09e3082e861539545d17eef9f91ab0d7e088e8866ee51f33cc1758ddfa5",
+    "native/run-2/end.png": "a3821046ac741445fc816d7066ab500d17635745cab075dc27e83704f73dc857",
+    "native/run-2/engine.txt": "c9d26ef8ab1fc3e661e8a3052de3d34097f4c16feabbdf1f8e2c4cb2fb4b7bd6",
+    "native/run-2/native.json": "4913edc36aecddad4b0559a387fd78c616b5155cb52a4180299c66daffbbc3fc",
+    "native/run-2/start.png": "ad00d624130e5577358634d6cc4b73841da12d9d4a34ef3143893d0ece0cfd00",
+    "native/run-2/stdout.txt": "c9d26ef8ab1fc3e661e8a3052de3d34097f4c16feabbdf1f8e2c4cb2fb4b7bd6",
+    "native/run-3/end.png": "7729734aec6ee16b9a151ce36b73e7ebc2497192cf3b1cefb0b8f1f0f2242191",
+    "native/run-3/engine.txt": "1a0e53e121020ae490a1d531220fad7cb6a26f76630a1d27b87647a448e68ab2",
+    "native/run-3/native.json": "517aa0996661f97804e99889978de2c2cad5eff830d69bc31b3053f76ab0b7be",
+    "native/run-3/start.png": "4dd5d0c661f2bb5b3c71c58330f4843f925714973b14cabd1f2de2c57cc741d7",
+    "native/run-3/stdout.txt": "1a0e53e121020ae490a1d531220fad7cb6a26f76630a1d27b87647a448e68ab2",
+    "native/session.json": "37c40831f919f400449936b804e396598f0018af43604e63f40348a68e03013e",
+    "native/summary.json": "edbe9fbf0e0ffde4c903baad04ca062f88936e1a5fe34c585c1e145ff9bb97a0"
+  }
+}
