@@ -1,0 +1,39 @@
+{
+  "controls": [
+    "resize",
+    "pause",
+    "focus",
+    "teleport"
+  ],
+  "performance_eligible": false,
+  "collector_sha256": "6fd7c4312cd84b614b7b3051f2f3f53315f21e6304c0ef74b8cf3c8b3b790694",
+  "base_commit": "0b00534cdeed61f23763f7494e888d8727134bc0",
+  "native_sources": {
+    "tools/visual_motion_route.gd": "236ae36f5d685c38c285010345801661c966e75a211b22cf4c8ef8494da20546",
+    "tools/visual_motion_capture.gd": "a18122e5e5781c5505435f896f07b8320042431927032585929f36f33c3337d2",
+    "docs/reports/visual-overhaul/vbase-005/routes.json": "99cea06f8361aaa4f80fa27ad89fa9c341a0a4af7f0fffd30ebc173a6d9183a3"
+  },
+  "artifacts": {
+    "collector.py": "6fd7c4312cd84b614b7b3051f2f3f53315f21e6304c0ef74b8cf3c8b3b790694",
+    "focus/capture.json": "63403151f7f52d251d70a79cf5e0ca08dc4f3af7fe4f8970d9d677095e0fcb5c",
+    "focus/engine.txt": "064f2ef05617367c5729bb1147e80af718151ba1558be0ae6c78e90e66194c52",
+    "focus/environment.json": "8dad8c4b64b74c9ae504298c8fda14531174451cdc38252f2ec2471215ccb8de",
+    "focus/last.png": "edb3f003a2bd06773073bc115aa5a775cf86708eb42795efb950372258470201",
+    "focus/stdout.txt": "064f2ef05617367c5729bb1147e80af718151ba1558be0ae6c78e90e66194c52",
+    "pause/capture.json": "de98af6767f267953d4f4fc717cadbaa80bf9427acbdfab56daa877bac7082ca",
+    "pause/engine.txt": "702dab6825e540067509df0d226dc5e759fc2b01beb3bd23ff63ab63e55c6ed2",
+    "pause/environment.json": "a4932941732c2217ffa196944236546e9ff14f9d6a9723f7cef47b343b995cf6",
+    "pause/last.png": "a8a153d92be539687b2f41a51106a6edf278e03b1974be5d1885924a2e003bf9",
+    "pause/stdout.txt": "702dab6825e540067509df0d226dc5e759fc2b01beb3bd23ff63ab63e55c6ed2",
+    "resize/capture.json": "066281f4e9328c48548ec73eebb1d76cb50a086d9461a1aa0d0ac308bf368f38",
+    "resize/engine.txt": "cd554520bc2470589feafdc8f911c6b586b4d2eec9945ec177b4afd95858e6a4",
+    "resize/environment.json": "c5b1ec4cd4605d6a2a09e834ed5f2953f79af59ee4f01c053ae1813ace9bf0ae",
+    "resize/last.png": "2641f154ca5536cf700292a7266f1ef8008bd8cabac23528dc169496f56ffc1c",
+    "resize/stdout.txt": "cd554520bc2470589feafdc8f911c6b586b4d2eec9945ec177b4afd95858e6a4",
+    "teleport/capture.json": "b3a3f92b69638d4c45b900e45ecd8dbe01ae56ae4f475dd43808fdf9739b1bb3",
+    "teleport/engine.txt": "1b3abdb268c2284288aee165eec0db0bf710aea65b435122706b0ceebc026c95",
+    "teleport/environment.json": "8bc9e936d4ecb1062b68fb4d944246e544f19b258a27d8c7eb904dcb8777520d",
+    "teleport/last.png": "ae32a1159f1d76925dd22b5282bc58a89fb920e99e64465a6c9eb250c949d3b6",
+    "teleport/stdout.txt": "1b3abdb268c2284288aee165eec0db0bf710aea65b435122706b0ceebc026c95"
+  }
+}

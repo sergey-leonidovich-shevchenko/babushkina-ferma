@@ -5,9 +5,11 @@ import CoreGraphics
 import ImageIO
 
 let args = CommandLine.arguments
-guard args.count == 4, let fps = Int32(args[3]), fps > 0 else {
-    fatalError("Нужны каталог PNG, новый файл mp4 и FPS")
+guard (args.count == 4 || args.count == 5), let fps = Int32(args[3]), fps > 0 else {
+    fatalError("Нужны каталог PNG, новый файл mp4, FPS и необязательный bitrate")
 }
+let bitrate = args.count == 5 ? (Int(args[4]) ?? 0) : 8_000_000
+guard bitrate >= 100_000 && bitrate <= 32_000_000 else { fatalError("Неверный bitrate") }
 let source = URL(fileURLWithPath: args[1], isDirectory: true)
 let output = URL(fileURLWithPath: args[2])
 guard !FileManager.default.fileExists(atPath: output.path) else { fatalError("Файл уже существует") }
@@ -20,7 +22,7 @@ let width = firstImage.width, height = firstImage.height
 let writer = try AVAssetWriter(outputURL: output, fileType: .mp4)
 let input = AVAssetWriterInput(mediaType: .video, outputSettings: [
     AVVideoCodecKey: AVVideoCodecType.h264, AVVideoWidthKey: width, AVVideoHeightKey: height,
-    AVVideoCompressionPropertiesKey: [AVVideoAverageBitRateKey: 8_000_000, AVVideoMaxKeyFrameIntervalKey: Int(fps)]
+    AVVideoCompressionPropertiesKey: [AVVideoAverageBitRateKey: bitrate, AVVideoMaxKeyFrameIntervalKey: Int(fps)]
 ])
 input.expectsMediaDataInRealTime = false
 let adapter = AVAssetWriterInputPixelBufferAdaptor(assetWriterInput: input, sourcePixelBufferAttributes: [
@@ -72,7 +74,7 @@ CGImageDestinationAddImage(destination, decoded, nil)
 guard CGImageDestinationFinalize(destination) else { fatalError("Ошибка декодированного PNG") }
 let report: [String: Any] = ["encoder": "AVFoundation H.264", "width": Int(track.naturalSize.width),
     "height": Int(track.naturalSize.height), "frames": files.count, "fps": fps,
-    "duration": CMTimeGetSeconds(asset.duration), "decoded_first_frame": check.lastPathComponent]
+    "duration": CMTimeGetSeconds(asset.duration), "decoded_first_frame": check.lastPathComponent, "bitrate": bitrate]
 let data = try JSONSerialization.data(withJSONObject: report, options: [.prettyPrinted, .sortedKeys])
 try data.write(to: output.deletingPathExtension().appendingPathExtension("json"))
 print("VIDEO: \(files.count) frames, \(width)x\(height), \(fps) fps")

@@ -1,0 +1,142 @@
+[
+  {
+    "frame": {
+      "camera": [
+        552.0,
+        420.0
+      ],
+      "file": "0000.png",
+      "location": "overworld",
+      "player": [
+        1128.0,
+        744.0
+      ],
+      "readback": [
+        1152.0,
+        648.0
+      ],
+      "tick": 0
+    },
+    "file": "run-1/start.png"
+  },
+  {
+    "frame": {
+      "camera": [
+        0.0,
+        370.0
+      ],
+      "file": "0210.png",
+      "location": "overworld",
+      "player": [
+        430.0,
+        693.5
+      ],
+      "readback": [
+        1152.0,
+        648.0
+      ],
+      "tick": 630
+    },
+    "file": "run-1/finish.png"
+  },
+  {
+    "frame": {
+      "camera": [
+        657.0,
+        420.0
+      ],
+      "file": "0010.png",
+      "location": "overworld",
+      "player": [
+        1233.0,
+        744.0
+      ],
+      "readback": [
+        1152.0,
+        648.0
+      ],
+      "tick": 30
+    },
+    "file": "run-1/crowd.png"
+  },
+  {
+    "frame": {
+      "camera": [
+        290.0,
+        144.0
+      ],
+      "file": "0112.png",
+      "location": "overworld",
+      "player": [
+        865.5,
+        467.5
+      ],
+      "readback": [
+        1152.0,
+        648.0
+      ],
+      "tick": 336
+    },
+    "file": "run-1/bridge.png"
+  },
+  {
+    "frame": {
+      "camera": [
+        171.0,
+        298.0
+      ],
+      "file": "0138.png",
+      "location": "overworld",
+      "player": [
+        746.5,
+        621.5
+      ],
+      "readback": [
+        1152.0,
+        648.0
+      ],
+      "tick": 414
+    },
+    "file": "run-1/grass.png"
+  },
+  {
+    "frame": {
+      "camera": [
+        0.0,
+        6.0
+      ],
+      "file": "0188.png",
+      "location": "cottage_interior",
+      "player": [
+        576.0,
+        493.0
+      ],
+      "readback": [
+        1152.0,
+        648.0
+      ],
+      "tick": 564
+    },
+    "file": "run-1/door-inside.png"
+  },
+  {
+    "frame": {
+      "camera": [
+        0.0,
+        324.0
+      ],
+      "file": "0199.png",
+      "location": "overworld",
+      "player": [
+        360.0,
+        648.0
+      ],
+      "readback": [
+        1152.0,
+        648.0
+      ],
+      "tick": 597
+    },
+    "file": "run-1/door-outside.png"
+  }
+]

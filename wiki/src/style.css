@@ -989,8 +989,16 @@ button {
   overflow: auto;
   border-radius: 5px;
 }
-.guide-content img {
+.guide-content img,
+.guide-content video {
   border-radius: 7px;
+}
+.guide-content video {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 12px 0;
 }
 .site-footer {
   display: flex;

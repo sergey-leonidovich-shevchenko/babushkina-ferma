@@ -1,0 +1,238 @@
+{
+  "before": {
+    "utc": "2026-10-19T01:51:15.504270+00:00",
+    "system": "Darwin",
+    "os_version": "15.4.1",
+    "architecture": "x86_64",
+    "machine": {
+      "hw.model": "MacBookPro16,1",
+      "machdep.cpu.brand_string": "Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz",
+      "hw.memsize": "17179869184",
+      "hw.ncpu": "12"
+    },
+    "power": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=6750307)\t83%; charging; 0:55 remaining present: true",
+    "power_settings": "Battery Power:\n lidwake              1\n lowpowermode         0\n standbydelayhigh     86400\n proximitywake        0\n standby              1\n standbydelaylow      10800\n ttyskeepawake        1\n hibernatemode        3\n powernap             0\n gpuswitch            2\n hibernatefile        /var/vm/sleepimage\n highstandbythreshold 50\n displaysleep         10\n womp                 0\n networkoversleep     0\n sleep                1\n lessbright           1\n halfdim              1\n acwake               0\n tcpkeepalive         1\n disksleep            10\nAC Power:\n lidwake              1\n lowpowermode         0\n standbydelayhigh     86400\n proximitywake        1\n standby              1\n standbydelaylow      10800\n ttyskeepawake        1\n hibernatemode        3\n powernap             1\n gpuswitch            2\n hibernatefile        /var/vm/sleepimage\n highstandbythreshold 50\n displaysleep         60\n womp                 1\n networkoversleep     0\n sleep                1\n acwake               0\n halfdim              1\n tcpkeepalive         1\n disksleep            10",
+    "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\n2026-10-19 06:51:15 +0500 CPU Power notify\n\tCPU_Scheduler_Limit \t= 100\n\tCPU_Available_CPUs \t= 12\n\tCPU_Speed_Limit \t= 100",
+    "background": [
+      {
+        "pid": 84545,
+        "cpu_percent": 40.2,
+        "rss_kib": 14376,
+        "executable": "Python"
+      },
+      {
+        "pid": 575,
+        "cpu_percent": 9.5,
+        "rss_kib": 2152348,
+        "executable": "Codex (Renderer)"
+      },
+      {
+        "pid": 588,
+        "cpu_percent": 6.2,
+        "rss_kib": 366628,
+        "executable": "codex"
+      },
+      {
+        "pid": 513,
+        "cpu_percent": 6.1,
+        "rss_kib": 103512,
+        "executable": "Codex (Service)"
+      },
+      {
+        "pid": 160,
+        "cpu_percent": 5.9,
+        "rss_kib": 47620,
+        "executable": "WindowServer"
+      },
+      {
+        "pid": 334,
+        "cpu_percent": 4.7,
+        "rss_kib": 1068,
+        "executable": "sysmond"
+      },
+      {
+        "pid": 1,
+        "cpu_percent": 4.0,
+        "rss_kib": 18280,
+        "executable": "launchd"
+      },
+      {
+        "pid": 98,
+        "cpu_percent": 2.7,
+        "rss_kib": 5564,
+        "executable": "systemstats"
+      },
+      {
+        "pid": 118,
+        "cpu_percent": 2.5,
+        "rss_kib": 22008,
+        "executable": "mds"
+      },
+      {
+        "pid": 50487,
+        "cpu_percent": 1.3,
+        "rss_kib": 53300,
+        "executable": "Godot"
+      },
+      {
+        "pid": 290,
+        "cpu_percent": 1.2,
+        "rss_kib": 61696,
+        "executable": "mds_stores"
+      },
+      {
+        "pid": 377,
+        "cpu_percent": 1.2,
+        "rss_kib": 7780,
+        "executable": "trustd"
+      },
+      {
+        "pid": 94,
+        "cpu_percent": 0.8,
+        "rss_kib": 6232,
+        "executable": "fseventsd"
+      },
+      {
+        "pid": 382,
+        "cpu_percent": 0.8,
+        "rss_kib": 979272,
+        "executable": "ChatGPT"
+      },
+      {
+        "pid": 129,
+        "cpu_percent": 0.4,
+        "rss_kib": 9748,
+        "executable": "opendirectoryd"
+      }
+    ],
+    "background_available": true,
+    "background_note": "Two boundary snapshots; CPU percentages are ps estimates, not a continuous profiler."
+  },
+  "after": {
+    "utc": "2026-10-19T01:52:36.662978+00:00",
+    "system": "Darwin",
+    "os_version": "15.4.1",
+    "architecture": "x86_64",
+    "machine": {
+      "hw.model": "MacBookPro16,1",
+      "machdep.cpu.brand_string": "Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz",
+      "hw.memsize": "17179869184",
+      "hw.ncpu": "12"
+    },
+    "power": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=6750307)\t84%; charging; 0:53 remaining present: true",
+    "power_settings": "Battery Power:\n lidwake              1\n lowpowermode         0\n standbydelayhigh     86400\n proximitywake        0\n standby              1\n standbydelaylow      10800\n ttyskeepawake        1\n hibernatemode        3\n powernap             0\n gpuswitch            2\n hibernatefile        /var/vm/sleepimage\n highstandbythreshold 50\n displaysleep         10\n womp                 0\n networkoversleep     0\n sleep                1\n lessbright           1\n halfdim              1\n acwake               0\n tcpkeepalive         1\n disksleep            10\nAC Power:\n lidwake              1\n lowpowermode         0\n standbydelayhigh     86400\n proximitywake        1\n standby              1\n standbydelaylow      10800\n ttyskeepawake        1\n hibernatemode        3\n powernap             1\n gpuswitch            2\n hibernatefile        /var/vm/sleepimage\n highstandbythreshold 50\n displaysleep         60\n womp                 1\n networkoversleep     0\n sleep                1\n acwake               0\n halfdim              1\n tcpkeepalive         1\n disksleep            10",
+    "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\n2026-10-19 06:52:36 +0500 CPU Power notify\n\tCPU_Scheduler_Limit \t= 100\n\tCPU_Available_CPUs \t= 12\n\tCPU_Speed_Limit \t= 100",
+    "background": [
+      {
+        "pid": 160,
+        "cpu_percent": 10.9,
+        "rss_kib": 48416,
+        "executable": "WindowServer"
+      },
+      {
+        "pid": 411,
+        "cpu_percent": 8.5,
+        "rss_kib": 11768,
+        "executable": "ContextStoreAgent"
+      },
+      {
+        "pid": 382,
+        "cpu_percent": 5.4,
+        "rss_kib": 975940,
+        "executable": "ChatGPT"
+      },
+      {
+        "pid": 384,
+        "cpu_percent": 4.6,
+        "rss_kib": 14276,
+        "executable": "WindowManager"
+      },
+      {
+        "pid": 132,
+        "cpu_percent": 4.4,
+        "rss_kib": 7780,
+        "executable": "launchservicesd"
+      },
+      {
+        "pid": 172,
+        "cpu_percent": 4.4,
+        "rss_kib": 12880,
+        "executable": "runningboardd"
+      },
+      {
+        "pid": 87154,
+        "cpu_percent": 3.5,
+        "rss_kib": 307828,
+        "executable": "Google Chrome"
+      },
+      {
+        "pid": 178,
+        "cpu_percent": 2.6,
+        "rss_kib": 7640,
+        "executable": "contextstored"
+      },
+      {
+        "pid": 166,
+        "cpu_percent": 2.4,
+        "rss_kib": 28304,
+        "executable": "loginwindow"
+      },
+      {
+        "pid": 673,
+        "cpu_percent": 1.0,
+        "rss_kib": 12088,
+        "executable": "CursorUIViewService"
+      },
+      {
+        "pid": 42530,
+        "cpu_percent": 1.0,
+        "rss_kib": 166260,
+        "executable": "Google Chrome Helper (Aperitif Renderer)"
+      },
+      {
+        "pid": 84545,
+        "cpu_percent": 1.0,
+        "rss_kib": 16144,
+        "executable": "Python"
+      },
+      {
+        "pid": 660,
+        "cpu_percent": 0.9,
+        "rss_kib": 18040,
+        "executable": "PuntoSwitcher"
+      },
+      {
+        "pid": 50487,
+        "cpu_percent": 0.9,
+        "rss_kib": 53300,
+        "executable": "Godot"
+      },
+      {
+        "pid": 84584,
+        "cpu_percent": 0.9,
+        "rss_kib": 85012,
+        "executable": "Google Chrome Helper (Aperitif Renderer)"
+      }
+    ],
+    "background_available": true,
+    "background_note": "Two boundary snapshots; CPU percentages are ps estimates, not a continuous profiler."
+  },
+  "command": [
+    "/Users/sergeyshevchenko/my farm/tools/Godot.app/Contents/MacOS/Godot",
+    "--path",
+    "/Users/sergeyshevchenko/my farm",
+    "--windowed",
+    "--fixed-fps",
+    "60",
+    "--audio-driver",
+    "Dummy",
+    "--log-file",
+    "/Users/sergeyshevchenko/my farm/docs/reports/visual-overhaul/vbase-005/native/run-1/engine.txt",
+    "--script",
+    "tools/visual_motion_capture.gd",
+    "--",
+    "--output=/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm-motion-6ngme7z4/run-1",
+    "--profile=Codex-VBASE-005-b0c346cfebaf40c7afd4c30d79410e06"
+  ],
+  "exit_code": 0
+}

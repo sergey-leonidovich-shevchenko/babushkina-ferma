@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url'
 import MarkdownIt from 'markdown-it'
 import { wikiRoot, projectRoot, godotBinary, run } from './runtime.mjs'
 import { articles } from './articles.mjs'
-import { reportAttachment } from './report-attachment.mjs'
+import { reportAttachment, reportVideo } from './report-attachment.mjs'
 import { readRolloutQueues, developmentLink } from './rollout-queues.mjs'
 import { readPlanningCatalog } from './planning-catalog.mjs'
 import { createPlanningStore } from './planning-store.mjs'
@@ -78,6 +78,15 @@ async function renderGuides(entries, destination, planning, queues) {
           const source = token.attrGet('src') ?? ''
           if (/^https?:/i.test(source)) {
             token.attrSet('src', 'wiki-icon.svg')
+            continue
+          }
+          if (/\.mp4$/i.test(source)) {
+            const media = await reportAttachment(
+              resolve(projectRoot, dirname(entry.source), source), destination, projectRoot
+            )
+            token.type = 'html_inline'
+            token.content = reportVideo(media, token.content || 'Диагностическое видео')
+            token.children = null
             continue
           }
           token.attrSet(

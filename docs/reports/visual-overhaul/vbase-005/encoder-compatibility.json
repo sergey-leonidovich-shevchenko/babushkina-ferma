@@ -1,0 +1,17 @@
+{
+  "kind": "legacy-four-argument-encoder-call",
+  "exit_code": 0,
+  "encoder_sha256": "a450da5cb35c57cc5846c435b4b04657c6d6fc8ac4e75dba70872991c8cf5d83",
+  "video": {
+    "bitrate": 8000000,
+    "decoded_first_frame": "legacy.decoded.png",
+    "duration": 0.08333333333333333,
+    "encoder": "AVFoundation H.264",
+    "fps": 24,
+    "frames": 2,
+    "height": 648,
+    "width": 1152
+  },
+  "mean_rgb_error": 2.863665266346594,
+  "performance_eligible": false
+}

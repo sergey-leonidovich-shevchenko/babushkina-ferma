@@ -1,0 +1,241 @@
+{
+  "schema": 1,
+  "id": "overworld-motion-route-v1",
+  "location": "overworld",
+  "seed": 20261015,
+  "day": 1,
+  "minutes": 360,
+  "start": [
+    1128,
+    744
+  ],
+  "start_camera": [
+    552,
+    420
+  ],
+  "world_scale": 1,
+  "target_scale_owner": "VCAMERA-006",
+  "speed": 210,
+  "physics_hz": 60,
+  "capture_fps": 20,
+  "window": [
+    1152,
+    648
+  ],
+  "max_ticks": 2400,
+  "stuck_ticks": 120,
+  "tolerance": 4,
+  "crowd_fixture": {
+    "kind": "QA-only standing overlap fixture, existing four residents; not a production gathering",
+    "actors": {
+      "miron": [
+        1200,
+        720
+      ],
+      "agafya": [
+        1248,
+        768
+      ],
+      "gavrila": [
+        1296,
+        720
+      ],
+      "dunya": [
+        1320,
+        768
+      ]
+    }
+  },
+  "steps": [
+    {
+      "id": "crowd-through",
+      "kind": "move",
+      "location": "overworld",
+      "target": [
+        1344,
+        744
+      ],
+      "tag": "crowd"
+    },
+    {
+      "id": "square-return",
+      "kind": "move",
+      "location": "overworld",
+      "target": [
+        1128,
+        744
+      ],
+      "tag": "square"
+    },
+    {
+      "id": "bank-north",
+      "kind": "move",
+      "location": "overworld",
+      "target": [
+        1128,
+        528
+      ],
+      "tag": "road"
+    },
+    {
+      "id": "bridge-approach",
+      "kind": "move",
+      "location": "overworld",
+      "target": [
+        1128,
+        360
+      ],
+      "tag": "road"
+    },
+    {
+      "id": "bridge-turn",
+      "kind": "move",
+      "location": "overworld",
+      "target": [
+        864,
+        360
+      ],
+      "tag": "bridge"
+    },
+    {
+      "id": "bridge-cross",
+      "kind": "move",
+      "location": "overworld",
+      "target": [
+        864,
+        576
+      ],
+      "tag": "bridge"
+    },
+    {
+      "id": "bridge-bank-clearance",
+      "kind": "move",
+      "location": "overworld",
+      "target": [
+        864,
+        624
+      ],
+      "tag": "grass"
+    },
+    {
+      "id": "grass-west",
+      "kind": "move",
+      "location": "overworld",
+      "target": [
+        744,
+        624
+      ],
+      "tag": "grass"
+    },
+    {
+      "id": "grass-to-road",
+      "kind": "move",
+      "location": "overworld",
+      "target": [
+        648,
+        624
+      ],
+      "tag": "grass"
+    },
+    {
+      "id": "home-road",
+      "kind": "move",
+      "location": "overworld",
+      "target": [
+        648,
+        672
+      ],
+      "tag": "road"
+    },
+    {
+      "id": "home-start",
+      "kind": "move",
+      "location": "overworld",
+      "target": [
+        432,
+        672
+      ],
+      "tag": "road"
+    },
+    {
+      "id": "door-approach",
+      "kind": "move",
+      "location": "overworld",
+      "target": [
+        360,
+        672
+      ],
+      "tag": "door"
+    },
+    {
+      "id": "door-enter",
+      "kind": "travel",
+      "from": "overworld",
+      "location": "cottage_interior",
+      "direction": [
+        0,
+        -1
+      ],
+      "tag": "door"
+    },
+    {
+      "id": "interior-clear-trigger",
+      "kind": "move",
+      "location": "cottage_interior",
+      "target": [
+        576,
+        440
+      ],
+      "tag": "door"
+    },
+    {
+      "id": "interior-return",
+      "kind": "move",
+      "location": "cottage_interior",
+      "target": [
+        576,
+        500
+      ],
+      "tag": "door"
+    },
+    {
+      "id": "door-leave",
+      "kind": "travel",
+      "from": "cottage_interior",
+      "location": "overworld",
+      "direction": [
+        0,
+        1
+      ],
+      "tag": "door"
+    },
+    {
+      "id": "exit-clear-trigger",
+      "kind": "move",
+      "location": "overworld",
+      "target": [
+        360,
+        696
+      ],
+      "tag": "door"
+    },
+    {
+      "id": "finish",
+      "kind": "move",
+      "location": "overworld",
+      "target": [
+        432,
+        696
+      ],
+      "tag": "road"
+    }
+  ],
+  "world_bounds": [
+    2400,
+    1368
+  ],
+  "interior_camera": [
+    0,
+    6
+  ]
+}

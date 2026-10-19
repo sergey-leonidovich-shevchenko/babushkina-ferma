@@ -103,6 +103,11 @@ tools/*
 !tools/test_visual_baseline.py
 !tools/visual_hardware.py
 !tools/test_visual_hardware.py
+!tools/visual_motion_route.gd
+!tools/visual_motion_capture.gd
+!tools/visual_motion.py
+!tools/test_visual_motion.py
+!tools/visual_motion_review.gd
 !tools/build_forest_tree_atlas.py
 !tools/build_village_prop_atlas.py
 !tools/build_ui_kit.py

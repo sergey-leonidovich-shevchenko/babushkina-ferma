@@ -1,0 +1,16 @@
+{
+  "kind": "headless-not-a-native-control",
+  "command": [
+    "tools/Godot.app/Contents/MacOS/Godot",
+    "--headless",
+    "--path",
+    ".",
+    "--script",
+    "tools/visual_motion_capture.gd",
+    "--",
+    "--output=/private/tmp/farm-motion-headless-rejected",
+    "--profile=Codex-VBASE-005-662ef6f937ff489887f6eb8a28aefe6f"
+  ],
+  "exit_code": 2,
+  "performance_eligible": false
+}

@@ -16,6 +16,7 @@ test('static server serves assets and denies escape or unauthenticated control',
   const dist = join(root, 'dist')
   await mkdir(dist)
   await writeFile(join(dist, 'index.html'), '<h1>Wiki</h1>')
+  await writeFile(join(dist, 'walk.mp4'), 'video fixture')
   await writeFile(join(root, 'private.txt'), 'private')
   await symlink(join(root, 'private.txt'), join(dist, 'outside.txt'))
   const server = createWikiServer(dist, { project: 'fixture-project', token: 'fixture-token' })
@@ -28,6 +29,9 @@ test('static server serves assets and denies escape or unauthenticated control',
     assert.equal(response.headers.get('x-frame-options'), 'DENY')
     assert.match(response.headers.get('content-type'), /text\/html/)
     assert.match(await response.text(), /Wiki/)
+    const movie = await fetch(`${url}/walk.mp4`)
+    assert.equal(movie.headers.get('content-type'), 'video/mp4')
+    assert.equal(await movie.text(), 'video fixture')
     assert.deepEqual(await (await fetch(`${url}/__wiki/status`)).json(), {
       app: 'moon-valley-wiki',
       project: 'fixture-project',

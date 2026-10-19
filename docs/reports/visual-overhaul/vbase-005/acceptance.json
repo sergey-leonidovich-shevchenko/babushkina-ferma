@@ -1,0 +1,73 @@
+{
+  "task": "VBASE-005",
+  "accepted": true,
+  "date": "2026-10-19",
+  "accepted_scope": "reproducible input-driven motion baseline of the existing first location",
+  "runtime_commit": "0b00534cdeed61f23763f7494e888d8727134bc0",
+  "capture_application_version": "0.0.260",
+  "preset": "overworld-motion-route-v1",
+  "native_pair": "native/source.json",
+  "real_native_rejections": "controls/source.json",
+  "exact_instrumentation": "native/instrumentation/",
+  "source_files": 14,
+  "independent_native_processes": 2,
+  "framebuffer": [
+    1152,
+    648
+  ],
+  "world_scale": 1,
+  "physics_hz": 60,
+  "simulation_seconds": 10.5,
+  "checkpoints": 18,
+  "physics_steps": 630,
+  "native_video_frames": 211,
+  "video_fps": 20,
+  "video_seconds": 10.55,
+  "real_controls": [
+    "resize",
+    "pause",
+    "focus",
+    "teleport"
+  ],
+  "all_steps_inputs_camera_actors_equal": true,
+  "performance_eligible": false,
+  "performance_accepted": false,
+  "target_scale_120_accepted": false,
+  "new_art_accepted": false,
+  "first_location_accepted": false,
+  "production_gameplay_or_assets_changed": false,
+  "verified": {
+    "python_cases": 17,
+    "gdscript_assertions": 13,
+    "wiki_tests": 58,
+    "game_assertions": 44095,
+    "game_failures": 0,
+    "architecture": "passed; final staged gate repeats in commit hook",
+    "native_pair": "VALID_MOTION_PAIR",
+    "native_rejections": "VALID_NATIVE_REJECTIONS",
+    "headless_rejected_exit": 2,
+    "legacy_encoder_invocation": "encoder-compatibility.json",
+    "browser": {
+      "guide": "visual-motion",
+      "players": 2,
+      "play_and_pause": true,
+      "decoder_errors": 0,
+      "horizontal_overflow": false
+    }
+  },
+  "observations": [
+    "Dense QA resident labels overlap; final readability remains with VUI/VMAP-003.",
+    "Current baseline keeps legacy artwork and 100% camera; accepted 120% belongs to VCAMERA-006.",
+    "Door round trip checks the existing cottage only; no interior redesign."
+  ],
+  "outstanding_owners": [
+    "QA-01",
+    "VCAMERA-002",
+    "VCAMERA-003",
+    "VCAMERA-006",
+    "VRELEASE-003",
+    "VPERF-001",
+    "VMAP-003"
+  ],
+  "next_task": "VCAMERA-002"
+}

@@ -1,0 +1,40 @@
+/Users/sergeyshevchenko/my farm/tools/encode_coordinate_video.swift:66:19: warning: 'tracks(withMediaType:)' was deprecated in macOS 13.0: Use loadTracks(withMediaType:) instead
+64 | // Декодирует готовый ролик для независимой проверки размера и ориентации первого кадра.
+65 | let asset = AVURLAsset(url: output)
+66 | let track = asset.tracks(withMediaType: .video).first!
+   |                   `- warning: 'tracks(withMediaType:)' was deprecated in macOS 13.0: Use loadTracks(withMediaType:) instead
+67 | let generator = AVAssetImageGenerator(asset: asset)
+68 | generator.requestedTimeToleranceBefore = .zero
+
+/Users/sergeyshevchenko/my farm/tools/encode_coordinate_video.swift:70:29: warning: 'copyCGImage(at:actualTime:)' was deprecated in macOS 15.0: Use generateCGImageAsynchronouslyForTime:completionHandler: instead
+68 | generator.requestedTimeToleranceBefore = .zero
+69 | generator.requestedTimeToleranceAfter = .zero
+70 | let decoded = try generator.copyCGImage(at: .zero, actualTime: nil)
+   |                             `- warning: 'copyCGImage(at:actualTime:)' was deprecated in macOS 15.0: Use generateCGImageAsynchronouslyForTime:completionHandler: instead
+71 | let check = output.deletingPathExtension().appendingPathExtension("decoded.png")
+72 | let destination = CGImageDestinationCreateWithURL(check as CFURL, "public.png" as CFString, 1, nil)!
+
+/Users/sergeyshevchenko/my farm/tools/encode_coordinate_video.swift:75:82: warning: 'naturalSize' was deprecated in macOS 13.0: Use load(.naturalSize) instead
+73 | CGImageDestinationAddImage(destination, decoded, nil)
+74 | guard CGImageDestinationFinalize(destination) else { fatalError("Ошибка декодированного PNG") }
+75 | let report: [String: Any] = ["encoder": "AVFoundation H.264", "width": Int(track.naturalSize.width),
+   |                                                                                  `- warning: 'naturalSize' was deprecated in macOS 13.0: Use load(.naturalSize) instead
+76 |     "height": Int(track.naturalSize.height), "frames": files.count, "fps": fps,
+77 |     "duration": CMTimeGetSeconds(asset.duration), "decoded_first_frame": check.lastPathComponent, "bitrate": bitrate]
+
+/Users/sergeyshevchenko/my farm/tools/encode_coordinate_video.swift:76:25: warning: 'naturalSize' was deprecated in macOS 13.0: Use load(.naturalSize) instead
+74 | guard CGImageDestinationFinalize(destination) else { fatalError("Ошибка декодированного PNG") }
+75 | let report: [String: Any] = ["encoder": "AVFoundation H.264", "width": Int(track.naturalSize.width),
+76 |     "height": Int(track.naturalSize.height), "frames": files.count, "fps": fps,
+   |                         `- warning: 'naturalSize' was deprecated in macOS 13.0: Use load(.naturalSize) instead
+77 |     "duration": CMTimeGetSeconds(asset.duration), "decoded_first_frame": check.lastPathComponent, "bitrate": bitrate]
+78 | let data = try JSONSerialization.data(withJSONObject: report, options: [.prettyPrinted, .sortedKeys])
+
+/Users/sergeyshevchenko/my farm/tools/encode_coordinate_video.swift:77:40: warning: 'duration' was deprecated in macOS 13.0: Use load(.duration) instead
+75 | let report: [String: Any] = ["encoder": "AVFoundation H.264", "width": Int(track.naturalSize.width),
+76 |     "height": Int(track.naturalSize.height), "frames": files.count, "fps": fps,
+77 |     "duration": CMTimeGetSeconds(asset.duration), "decoded_first_frame": check.lastPathComponent, "bitrate": bitrate]
+   |                                        `- warning: 'duration' was deprecated in macOS 13.0: Use load(.duration) instead
+78 | let data = try JSONSerialization.data(withJSONObject: report, options: [.prettyPrinted, .sortedKeys])
+79 | try data.write(to: output.deletingPathExtension().appendingPathExtension("json"))
+VIDEO: 2 frames, 1152x648, 24 fps
