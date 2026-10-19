@@ -7,6 +7,7 @@ import ArticleView from './views/ArticleView.vue'
 import DevelopmentView from './views/DevelopmentView.vue'
 import './style.css'
 import './planning.css'
+import './first-location.css'
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -14,7 +15,7 @@ const router = createRouter({
     { path: '/', component: HomeView },
     { path: '/search', component: ListView },
     {
-      path: '/development/:section(epics|ideas|refinement|tasks|search)/:id?',
+      path: '/development/:section(first-location|epics|ideas|refinement|tasks|search)/:id?',
       component: DevelopmentView,
     },
     { path: '/development', redirect: '/development/epics' },
