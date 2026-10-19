@@ -108,6 +108,15 @@ onBeforeUnmount(() => {
       </span>
     </RouterLink>
     <nav aria-label="Разделы wiki">
+      <RouterLink
+        to="/development/first-location"
+        class="nav-item location-pin"
+        @click="drawer = false"
+        :class="{ active: route.params.section === 'first-location' }"
+      >
+        <WikiIcon name="map" />
+        <span>Первая локация · прогресс</span>
+      </RouterLink>
       <RouterLink to="/" class="nav-item" :class="{ active: route.path === '/' }">
         <WikiIcon name="home" />
         <span>Главная</span>
