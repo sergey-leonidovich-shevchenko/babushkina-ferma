@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 820" role="img" aria-labelledby="title desc">
+<title id="title">Бабушкина ферма в центре шести направлений</title>
+<desc id="desc">Предложенная дорожная сеть: в центре ферма и домашняя деревня. Вокруг лес и Подкоренье, Медный Уступ, руины и замок, Ивовые Мостки, Соляная Пристань и старый тракт со стоянкой Бродячего Двора. Пунктиром показаны внешние обходы.</desc>
+<rect width="1280" height="820" rx="20" fill="#f3ecd6"/>
+<g font-family="Georgia, serif" fill="#383e30" text-anchor="middle">
+<text x="640" y="48" font-size="30" font-weight="bold">ФЕРМА НА ПЕРЕКРЁСТКЕ</text>
+<text x="640" y="80" font-family="Arial, sans-serif" font-size="18">Предложение IDEA-170 · топология будущих дорог · без масштаба</text>
+<path d="M310 250 L640 175 L970 250 L970 555 L640 655 L310 555 Z" fill="none" stroke="#7d956c" stroke-width="5" stroke-dasharray="12 10"/>
+<g stroke="#ac8547" stroke-width="8" stroke-linecap="round">
+<path d="M530 350 L310 250"/><path d="M640 350 L640 175"/><path d="M750 350 L970 250"/>
+<path d="M750 430 L970 555"/><path d="M640 430 L640 655"/><path d="M530 430 L310 555"/>
+</g>
+<g stroke="#89936f" stroke-width="2" fill="#e7eddb">
+<rect x="165" y="200" width="290" height="100" rx="16"/>
+<rect x="495" y="125" width="290" height="100" rx="16"/>
+<rect x="825" y="200" width="290" height="100" rx="16"/>
+<rect x="825" y="505" width="290" height="100" rx="16"/>
+<rect x="495" y="605" width="290" height="100" rx="16"/>
+<rect x="165" y="505" width="290" height="100" rx="16"/>
+</g>
+<g font-size="24" font-weight="bold">
+<text x="310" y="238">Лес → Подкоренье</text>
+<text x="640" y="163">Медный Уступ</text>
+<text x="970" y="238">Руины и замок</text>
+<text x="970" y="543">Ивовые Мостки</text>
+<text x="640" y="643">Соляная Пристань</text>
+<text x="310" y="543">Старый тракт</text>
+</g>
+<g font-family="Arial, sans-serif" font-size="17">
+<text x="310" y="272">СЗ · травы, дерево, лесные истории</text>
+<text x="640" y="197">С · через каменистый край</text>
+<text x="970" y="272">СВ · дальше по условиям сюжета</text>
+<text x="970" y="577">ЮВ · переправа и речные огни</text>
+<text x="640" y="677">Ю · мельница, соль и берег</text>
+<text x="310" y="577">ЮЗ · стоянка Бродячего Двора</text>
+</g>
+<rect x="485" y="330" width="310" height="125" rx="24" fill="#fff6d9" stroke="#a47c35" stroke-width="3"/>
+<text x="640" y="369" font-size="28" font-weight="bold">Бабушкина ферма</text>
+<text x="640" y="400" font-family="Arial, sans-serif" font-size="19">и домашняя деревня</text>
+<text x="640" y="431" font-family="Arial, sans-serif" font-size="16">Тракт идёт вдоль общественного края</text>
+<text x="640" y="490" font-family="Arial, sans-serif" font-size="16">Пещерный вход и портал — отдельно у фермы</text>
+<path d="M210 752 H280" stroke="#ac8547" stroke-width="7"/>
+<text x="430" y="758" font-family="Arial, sans-serif" font-size="18">шесть направлений</text>
+<path d="M620 752 H690" stroke="#7d956c" stroke-width="5" stroke-dasharray="12 10"/>
+<text x="895" y="758" font-family="Arial, sans-serif" font-size="18">внешние дороги между соседями</text>
+<text x="640" y="796" font-family="Arial, sans-serif" font-size="16">Все линии предложены. Реальные выходы, сюжетные заслоны и время пути требуют отдельной приёмки.</text>
+</g></svg>

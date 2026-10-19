@@ -160,7 +160,7 @@
       "title": "Прототип всего мира",
       "format": "markdown",
       "group": "gameplay",
-      "expected": 3,
+      "expected": 4,
       "epics": [
         {
           "id": "ATLAS",
