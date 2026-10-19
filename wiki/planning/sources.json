@@ -120,6 +120,40 @@
           "file": "docs/epics/idea-2026-10/daily/2026-10-19/TASKS.md"
         }
       ]
+    },
+    {
+      "id": "roaming",
+      "title": "Зачарования и путешествия долины",
+      "format": "markdown",
+      "group": "gameplay",
+      "expected": 30,
+      "epics": [
+        {
+          "id": "ENCHANT",
+          "title": "Зачарования оружия с выбором поведения",
+          "file": "docs/epics/roaming-wonders-2026-10/ENCHANT.md"
+        },
+        {
+          "id": "CARAVAN",
+          "title": "Собственный торговый караван между деревнями",
+          "file": "docs/epics/roaming-wonders-2026-10/CARAVAN.md"
+        },
+        {
+          "id": "GIANT",
+          "title": "Мирные великаны с привычками и историями",
+          "file": "docs/epics/roaming-wonders-2026-10/GIANT.md"
+        },
+        {
+          "id": "PASSAGE",
+          "title": "Проход древнего камнехода и осыпающиеся находки",
+          "file": "docs/epics/roaming-wonders-2026-10/PASSAGE.md"
+        },
+        {
+          "id": "UNDERWAY",
+          "title": "Подземные короткие пути между деревнями",
+          "file": "docs/epics/roaming-wonders-2026-10/UNDERWAY.md"
+        }
+      ]
     }
   ],
   "queues": [
