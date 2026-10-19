@@ -1,0 +1,2 @@
+# Preserve the failed native engine log byte-for-byte, including Godot's final blank line.
+docs/reports/visual-overhaul/vcamera-003/controls/no-frame-01/base-physical/engine.txt -whitespace

@@ -1,0 +1,38 @@
+{
+  "base-physical": {
+    "stalled_steps": 45,
+    "max_step_logical": 0.4242553710940342,
+    "step_range_logical": 0.4242553710940342,
+    "max_physical_visual_distance": 0.0
+  },
+  "base-shared": {
+    "stalled_steps": 0,
+    "max_step_logical": 0.21215820312602318,
+    "step_range_logical": 6.103515801214598e-05,
+    "max_physical_visual_distance": 0.5999930945314503
+  },
+  "full-hd-physical": {
+    "stalled_steps": 45,
+    "max_step_logical": 0.4242553710940342,
+    "step_range_logical": 0.4242553710940342,
+    "max_physical_visual_distance": 0.0
+  },
+  "full-hd-shared": {
+    "stalled_steps": 0,
+    "max_step_logical": 0.21215820312602318,
+    "step_range_logical": 6.103515801214598e-05,
+    "max_physical_visual_distance": 0.5999930945314503
+  },
+  "retina-2x-physical": {
+    "stalled_steps": 45,
+    "max_step_logical": 0.4242553710940342,
+    "step_range_logical": 0.4242553710940342,
+    "max_physical_visual_distance": 0.0
+  },
+  "retina-2x-shared": {
+    "stalled_steps": 0,
+    "max_step_logical": 0.21215820312602318,
+    "step_range_logical": 6.103515801214598e-05,
+    "max_physical_visual_distance": 0.5999930945314503
+  }
+}

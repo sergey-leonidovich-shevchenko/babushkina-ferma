@@ -12,19 +12,24 @@ static func playfield_rect(game: Node) -> Rect2:
 
 ## Удерживает маленькую комнату в центре свободного экрана, а по большим залам и улицам следует за героем.
 static func target_offset(game: Node) -> Vector2:
+	return offset_for_position(game, game.player)
+
+
+## Применяет прежние границы камеры к общей отображаемой опоре, не изменяя физическую позицию.
+static func offset_for_position(game: Node, ground: Vector2) -> Vector2:
 	var offset: Vector2
 	if game.BuildingSystem.is_interior(game.current_location):
 		var room: Rect2 = game.BuildingSystem.interior(game.current_location).room
 		var playfield := playfield_rect(game)
 		offset = Vector2(
-			_room_axis(game.player.x, room.position.x, room.end.x, playfield.position.x, playfield.end.x, VIEWPORT_SIZE.x),
-			_room_axis(game.player.y, room.position.y, room.end.y, playfield.position.y, playfield.end.y, VIEWPORT_SIZE.y)
+			_room_axis(ground.x, room.position.x, room.end.x, playfield.position.x, playfield.end.x, VIEWPORT_SIZE.x),
+			_room_axis(ground.y, room.position.y, room.end.y, playfield.position.y, playfield.end.y, VIEWPORT_SIZE.y)
 		)
 	else:
 		var bounds: Vector2 = game.WorldBoundsSystem.size(game.current_location)
 		offset = Vector2(
-			clampf(game.player.x - VIEWPORT_SIZE.x * 0.5, 0.0, bounds.x - VIEWPORT_SIZE.x),
-			clampf(game.player.y - VIEWPORT_SIZE.y * 0.5, 0.0, bounds.y - VIEWPORT_SIZE.y)
+			clampf(ground.x - VIEWPORT_SIZE.x * 0.5, 0.0, bounds.x - VIEWPORT_SIZE.x),
+			clampf(ground.y - VIEWPORT_SIZE.y * 0.5, 0.0, bounds.y - VIEWPORT_SIZE.y)
 		)
 	# Опора героя и смещение фона используют ту же дробную проекцию.
 	return offset

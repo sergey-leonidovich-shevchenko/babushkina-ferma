@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "task": "VCAMERA-003",
+  "complete": false,
+  "performance_eligible": false,
+  "base_commit": "6f8ca8a2a591db97c10e7dede77c9441c20e4e51",
+  "sources": {
+    "project.godot": "c806917a25b3cff09fdb4f16cd4a130673037b5257862c5ed5c3859ddff5bfc8",
+    "scripts/systems/camera_system.gd": "96b5729f43da5383142e63872ef6c52e42a1918aa987aa82e56778fe348845a2",
+    "scripts/game_core.gd": "6df94bdbd7a65f9ec2c90f9630f8caef7e32c1932e5c419c807b3bd156e289e9",
+    "scripts/core/game_loop.gd": "66f94bd39b23e6a23af97165dc5cf0f4c99a5a3f0d2a346fa0d28cba715cc511",
+    "scripts/core/game_input_router.gd": "41002b2bac25744b4152110a137de1da5e7e39ccdbf5660ca26b9b3aa3949964",
+    "scripts/systems/animation_renderer.gd": "3cf74910ee3288a00e2d05c5ccf03c38891de3899488f7d480770c8e3923e96a",
+    "scripts/systems/hero_visual_system.gd": "f086e92a8b88dfa8dfc5850fde4ba392bc145890a379dbb706fb22b587ae3dd7",
+    "scripts/systems/presentation_system.gd": "c155cc79a212e087d82097c6a2d45aac3a9c7c1d40f72e7349c5c1d97e3cfebb",
+    "scripts/systems/navigation_system.gd": "7964b6e5de2a86ee484f0fcd31f8e5ad0f40133bb0a694394a90be7e6be4ed08",
+    "scripts/systems/player_system.gd": "277c0150b5d5485f2c072e3d37255e4000eb7f9fd124df814540d631353f79d9",
+    "scripts/systems/ui_scale_system.gd": "fcc820cbdd6fa6af824dabf41e9275f25aa0a30030a3c7212e9e3668522b6e35",
+    "scripts/systems/fence_system.gd": "fe9a2a9c4bc98daab3ff03212930ee8f939bda7dabcacd9790901d8e5c4bd836",
+    "tools/visual_camera_points.gd": "a3d1d3b77b4acfe43d07e214415d7124ff4a36f422a027b591a7d94a7de0c8f2",
+    "tools/camera_quantization_capture.gd": "f5338cb7428b13e2f2ef1456a77939188e802de65944477d217050b85076b2be",
+    "tools/camera_quantization.py": "291c310db460deb10279635287e055a24937588054170085fbac6c93cfe30c1d",
+    "tools/encode_coordinate_video.swift": "a450da5cb35c57cc5846c435b4b04657c6d6fc8ac4e75dba70872991c8cf5d83",
+    "docs/reports/visual-overhaul/vcamera-002/legacy_camera_system.gd": "13d9801b97595901238bd818c0e734a107491839e605f598b1f87ba6ae6fbcc4",
+    "scripts/systems/presentation_pose_system.gd": "502cae4697038b29c01a6877a6889668be03cf03d98cee34ef5a606d2fcaec8f",
+    "scripts/systems/tree_occlusion_system.gd": "23ab0f9acf423baa1b725c160a6290fccb566e8bb97e27a798fed776f8ade342",
+    "scripts/systems/village_prop_renderer.gd": "a74e4336d9fa139d898480b6f2ab8a450799928261f7128cea7bce2ac9d54088",
+    "tools/presentation_pose_capture.gd": "faaf5138cb77f9d5e98308e19973b621d8bbfa62227c50d29c61eff0028e8415",
+    "tools/presentation_pose.py": "148d14517853fddff133cdbdee1d5895877fce092eaaee384e4e856cb145b9a5"
+  },
+  "artifacts": {
+    "base-physical/capture.json": "51ec231bfae7caf67bd9f541584272be61d3deb7a926790dec70f78415657851",
+    "base-physical/engine.txt": "0c61257022c58fcf0e2af7de762d976d5177aa32675f7ad1d7a52e4a2ea58800",
+    "base-physical/environment.json": "c1dcef9cf0a20c623245d2daa435dac68b8762a45b5aaf40bcec3f7048e5ede1",
+    "base-physical/frame-0000.png": "5a0e0d58b36309039c6128e78d77d4536530c507ed36979510e4ed153d7f082f",
+    "base-physical/frame-0180.png": "42064a2088822ce458097fb444f5d9601834c21a1a03165aaf8c87c37f569500",
+    "base-physical/frame-0359.png": "5be00b98362030752c0119b351b4c69fabc3b6f91b6be15b16019863e9fdf1fd",
+    "base-physical/stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

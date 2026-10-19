@@ -51,9 +51,9 @@ static func draw_player(game: Node2D) -> void:
 		game.draw_rect(Rect2(bar.position, Vector2(bar.size.x * (1.0 - cooldown), bar.size.y)), Color("f5c45b"), true)
 
 
-## Использует физическую точку стоп без второго округления, общего только для рисунка героя.
+## Использует общую отображаемую опору; вне активного кадра сохраняет физическую точку без округления.
 static func player_ground(game: Node) -> Vector2:
-	return game.player
+	return preload("res://scripts/systems/presentation_pose_system.gd").ground(game)
 
 
 ## Отрисовывает слизня по текущему состоянию игры.

@@ -7,6 +7,7 @@ const GameBootstrap := preload("res://scripts/core/game_bootstrap.gd")
 const GameInteractionRouter := preload("res://scripts/core/game_interaction_router.gd")
 const CameraSystem := preload("res://scripts/systems/camera_system.gd")
 const HeroActionSystem := preload("res://scripts/systems/hero_action_system.gd")
+const PresentationPose := preload("res://scripts/systems/presentation_pose_system.gd")
 ## Подготавливает узел к работе: создаёт зависимые данные и синхронизирует начальное состояние.
 func _ready() -> void:
 	GameBootstrap.initialize(self)
@@ -14,6 +15,7 @@ func _ready() -> void:
 
 ## Сохраняет автоматические игровые скриншоты после нескольких отрисованных кадров в режимах визуальной проверки.
 func _process(_delta: float) -> void:
+	if is_physics_processing() and PresentationPose.present(self,Engine.get_physics_interpolation_fraction()): queue_redraw()
 	GamePreviewController.process(self)
 ## Готовит безопасную витрину пяти рангов врагов, трёх угроз и максимального облика героя.
 func configure_enemy_levels_preview() -> void:
@@ -26,7 +28,9 @@ func configure_moon_glade_preview() -> void:
 
 ## Выполняет один физический кадр и обновляет активные игровые системы в заданном порядке.
 func _physics_process(delta: float) -> void:
+	PresentationPose.begin_tick(self)
 	GameLoop.physics_process(self, delta)
+	PresentationPose.end_tick(self,delta)
 
 
 ## Обновляет короткие реакции HUD и автоматически убирает прочитанное системное сообщение.
