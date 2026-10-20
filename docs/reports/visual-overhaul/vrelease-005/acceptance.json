@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "task": "VRELEASE-005",
+  "date": "2026-10-20",
+  "source_commit": "ed38d94c01490c4e39b8be949887220f2c810d75",
+  "packet_accepted": true,
+  "runtime_changed": false,
+  "new_art_integrated": false,
+  "performance_accepted": false,
+  "dependency": "VRELEASE-001: queue/artifacts verified by pilot_rollout.py in architecture gate",
+  "open_runtime_gates": {
+    "old_slot": "VCOMPAT-002",
+    "normal_entry": "VRELEASE-003",
+    "rollback": "VCOMPAT-010",
+    "static_pilot": "VRELEASE-002",
+    "performance": "VRELEASE-004",
+    "whole_first_map": "VMAP-003"
+  },
+  "verification": {
+    "packet": "pass: 66 Git-pinned references, 28 module rows, SVG and example",
+    "python_tests": "8 passed",
+    "wiki": "build, TypeScript, 60 tests passed",
+    "browser": {
+      "status": "passed",
+      "version": "0.0.273",
+      "illustrations_loaded": 12,
+      "downloads_exact_bytes": 5,
+      "search_and_route": "passed",
+      "mobile_css_width": 390,
+      "mobile_scroll_width": 390,
+      "mobile_sidebar_right": 0,
+      "desktop_css_width": 1280,
+      "desktop_scroll_width": 1280,
+      "viewport_reset": true,
+      "console_errors": 0
+    },
+    "architecture": "required commit hook",
+    "full_game": "required commit hook"
+  },
+  "artifacts": {
+    "wiki-reviewed.jpg": "1e0d23d76c961b51abd9a36844fe523a0f77e795fa6eb99dbd950151e1678c17",
+    "wiki-mobile.jpg": "bef77f427b08409da3479d21422d00ff84cb94aac252e238e6ed4146bf0b6859",
+    "references.json": "31a1b36152f03d7ed3577abd155db208cf7c87be92a2e3e5ad3a88d35408862b",
+    "palette.svg": "b7bb5726bd77a1b163e3f83b361cb5cdb6486566c92b8cb28e408aecf7dc8f34",
+    "modules.csv": "202d96a7a36eddebf211f271be593ddf4c2225ec85da6a5a87690a082dc4f7cf",
+    "handoff-template.json": "5d72840e390f1a388d790957e4f3e93545cdcdb74989f3d92aff2006eb03d391",
+    "handoff-example.json": "7877b0c0d9313a4d6fc0813038871abea4f6155c4d1bb4ea7bdf4a36026226d4"
+  }
+}

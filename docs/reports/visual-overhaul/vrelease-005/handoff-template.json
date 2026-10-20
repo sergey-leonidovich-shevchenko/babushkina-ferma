@@ -1,0 +1,21 @@
+{
+  "schema": "artist-handoff-1",
+  "id": null,
+  "task": null,
+  "owner": null,
+  "kind": "prop",
+  "status": "draft",
+  "runtime_integration": false,
+  "source": {"file": null, "sha256": null, "author_or_tool": null, "origin": null, "rights_review": null},
+  "decisions": {"style": "VART-001 A", "palette": "VART-003 A", "edge": "VART-005 A", "density": "VART-006 B", "light": "VART-007 A"},
+  "views": {
+    "west": {"file": null, "source_rect_px": null, "pivot_source_px": null, "world_per_source_px": null, "draw_size_world": null, "footprint_world": null},
+    "south": {"file": null, "source_rect_px": null, "pivot_source_px": null, "world_per_source_px": null, "draw_size_world": null, "footprint_world": null},
+    "east": {"file": null, "source_rect_px": null, "pivot_source_px": null, "world_per_source_px": null, "draw_size_world": null, "footprint_world": null}
+  },
+  "layers": {"color": null, "contact": null, "cast_shadow": null, "data_masks_and_channels": null},
+  "export": {"format": "RGBA8 sRGB PNG, straight alpha", "sampling_family": "painted_world", "filter": "linear", "repeat": "disabled", "mipmaps": false, "padding_px_and_reason": null, "quality_variants": null},
+  "consumers": {"Game": "не подключено", "F12": "не подключено", "Wiki": "не подключено"},
+  "review": {"commit": null, "frame_or_video": null, "sha256": null, "camera": null, "hero_pose": null, "seed": null, "time_weather": null, "framebuffer": null, "backgrounds": ["light", "dark", "grass"], "defects": [], "memory_budget": null, "rollback": null},
+  "instructions": "Заполнить null; неизменяемый образец в handoff-example.json. Это художественная передача, не runtime-каталог. Для дерева/здания/покрытия задать только настоящие виды. Слои без заказа явно отметить как отсутствующие. Отдельно приложить экспорт и происхождение всех файлов."
+}

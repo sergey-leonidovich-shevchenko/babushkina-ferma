@@ -1,0 +1,72 @@
+{
+  "schema": "artist-handoff-1",
+  "id": "reference.vart008.tree",
+  "task": "VART-008",
+  "owner": "Художественный эталон VART-008",
+  "kind": "tree",
+  "status": "accepted_mockup",
+  "runtime_integration": false,
+  "source": {
+    "file": "docs/reports/visual-overhaul/vart-006/density-b.png",
+    "sha256": "793bb81574addd197259e2db26a3805d9e15af7ed3fc932963b6d92f84c7469a",
+    "origin": "Генерация imagegen по сохранённому промпту VART-006 B",
+    "rights_review": "Открыто: юридическую приёмку выпуска этот пример не выполняет"
+  },
+  "decisions": {
+    "style": "VART-001 A",
+    "palette": "VART-003 A",
+    "edge": "VART-005 A",
+    "density": "VART-006 B",
+    "light": "VART-007 A"
+  },
+  "views": {
+    "neutral": {
+      "source_rect_px": [
+        991,
+        15,
+        545,
+        570
+      ],
+      "pivot_source_px": [
+        273,
+        525
+      ],
+      "world_per_source_px": 0.3602251407129456,
+      "draw_size_world": [
+        196.32270168855536,
+        205.32833020637898
+      ],
+      "footprint_world": [
+        96,
+        48
+      ]
+    }
+  },
+  "layers": {
+    "color": "Мастер; контакт и солнечная тень отдельны в стенде",
+    "data_masks": "Не заказаны и не подключены этим примером"
+  },
+  "export": {
+    "illustration": "RGBA8 sRGB PNG, straight alpha",
+    "sampling": "linear, repeat disabled в отдельном стенде",
+    "mipmaps": "Стенд VART-008 создаёт собственную цепочку; runtime-импорт отдельно",
+    "padding": "Поля исходного региона; не разрешение на общий linear-атлас"
+  },
+  "consumers": {
+    "Game": "не подключено",
+    "F12": "не подключено",
+    "Wiki": "эталон VART-008"
+  },
+  "review": {
+    "package_source_commit": "ed38d94c01490c4e39b8be949887220f2c810d75",
+    "configuration": "VART-008/native/capture.json; 1152x648, поле 960x540, zoom 1.2",
+    "frame": "docs/reports/visual-overhaul/vart-008/native/pilot-a-front.png",
+    "frame_sha256": "2a005ff4328c53305bf58d45fcc815f8e1d754a45c64585c946f6951147e91a2",
+    "rollback": "Игровая ссылка не менялась; предыдущие мастера сохранены",
+    "open": [
+      "Production-слои и маски",
+      "Навигация и коллизии",
+      "Бюджет памяти/FPS"
+    ]
+  }
+}

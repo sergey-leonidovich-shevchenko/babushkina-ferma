@@ -8693,7 +8693,7 @@
       "id": "VRELEASE-005",
       "epic": "VRELEASE",
       "title": "Зафиксировать пакет для художника",
-      "status": "ready",
+      "status": "done",
       "priority": "P0",
       "phase": "rollout",
       "kind": "engineering",
@@ -8728,8 +8728,14 @@
         "confidence": "low",
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
-      "branch": "codex/vrelease-005-visual-task",
-      "evidence": []
+      "branch": "codex/vrelease-005-artist-packet",
+      "evidence": [
+        "docs/reports/visual-overhaul/vrelease-005/README.md",
+        "wiki/articles/artist-packet.md",
+        "docs/reports/visual-overhaul/vrelease-005/references.json",
+        "docs/reports/visual-overhaul/vrelease-005/acceptance.json"
+      ],
+      "result": "Единый пакет художника в Wiki: принятые VART-решения, дневная/вечерняя палитра, размеры и три стороны, 28 модулей CSV, экспорт цвета/масок/атласов, настоящие примеры брака и шаблон/пример паспорта. 66 источников закреплены Git-байтами; восемь отрицательных/положительных проверок, Wiki build/TypeScript/60 тестов и браузер (12 иллюстраций, 5 точных скачиваний, поиск, маршрут, 390 px). Старый слот, обычное внедрение и откат остаются открыты у VCOMPAT-002/VRELEASE-003/VCOMPAT-010. Runtime и новый арт не менялись; обязательные architecture и полный игровой набор выполняет штатный commit hook."
     },
     {
       "id": "VRELEASE-006",

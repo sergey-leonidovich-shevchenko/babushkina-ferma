@@ -166,11 +166,11 @@
 
 ## VRELEASE-005 — Зафиксировать пакет для художника
 
-Статус: `ready` · P0 · этап `rollout` · `engineering`
+Статус: `done` · P0 · этап `rollout` · `engineering`
 
 Палитра, ракурсы, размеры, экспорт, примеры брака и паспорт ассета доступны без чтения исходников
 
-Ветка: `codex/vrelease-005-visual-task`.
+Ветка: `codex/vrelease-005-artist-packet`.
 
 Зависимости: VRELEASE-001.
 
@@ -182,7 +182,7 @@
 - [QA_CHECKLIST.md](../../../../QA_CHECKLIST.md)
 - [docs/BACKLOG_WORKFLOW.md](../../../../docs/BACKLOG_WORKFLOW.md)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vrelease-005/`.
+Результаты: `docs/reports/visual-overhaul/vrelease-005/`.
 
 Критерии:
 
@@ -200,7 +200,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vrelease-005/README.md, wiki/articles/artist-packet.md, docs/reports/visual-overhaul/vrelease-005/references.json, docs/reports/visual-overhaul/vrelease-005/acceptance.json.
 
 <a id="vrelease-006"></a>
 

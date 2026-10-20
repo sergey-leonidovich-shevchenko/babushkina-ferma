@@ -1,0 +1,273 @@
+{
+  "schema": 1,
+  "task": "VRELEASE-005",
+  "source_commit": "ed38d94c01490c4e39b8be949887220f2c810d75",
+  "runtime_changed": false,
+  "performance_accepted": false,
+  "references": [
+    {
+      "file": "assets/game/visual_sampling.json",
+      "sha256": "6dcb752185303546f2f867bf73f3bd2adfcf1585be4e22121b41bdcf979003a7"
+    },
+    {
+      "file": "assets/game/visual_texture_intents.json",
+      "sha256": "be4e4d8d1d5cf0d88e4084ab523d08b2df678bf06df22d02ebf0541449425e0e"
+    },
+    {
+      "file": "docs/SPRITE_STANDARD.md",
+      "sha256": "d25d35a8e4afa0adbd623206f9d3b2df5cc4a57ebe54bd54221bff11b3d34797"
+    },
+    {
+      "file": "docs/VISUAL_RESOURCE_FORMAT.md",
+      "sha256": "7e2d74958404d19f35c6c3f38269f7ad1e97aa4ec56fc3e7e5eb12342f5c2d82"
+    },
+    {
+      "file": "docs/epics/visual-overhaul-2026-10/ART_REQUIREMENTS.md",
+      "sha256": "59c23e92cc12f16b4aa370634baf107385e28844e46fe783035f2ae47ce0ea12"
+    },
+    {
+      "file": "docs/epics/visual-overhaul-2026-10/references/01_target_village_bank.jpg",
+      "sha256": "6057a5fcd85bf4766ed108cf8a80d3131494c43d60001023d919c948eb0d8533"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-001/README.md",
+      "sha256": "8ab817a6833264d106575ef099fcee8a2f6913f0e5983a80cc9a6f0d3c7baa65"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-001/scene-a.png",
+      "sha256": "79e0797fd154c079fda867c1c5b52c4ffeb76c755a2cd9f78f7f974c6c00b799"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-002/scale-profile.json",
+      "sha256": "4bed99c250c9522a07c6c600f426cfd970ab25929aa1796f89e67a7e61b5fca8"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-003/palette.json",
+      "sha256": "1a7e5fdcf9995c215f3ccd910f0d704d723c77d6621196db4701de80a3b1a7e4"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-004/masters/rejected-diagonal.png",
+      "sha256": "4ef554bda6dfa8382f49fe1c8eaef2c1e2f641469a29269ac35700b57c1bf478"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-004/masters/rejected-rear.png",
+      "sha256": "519e90b32d2e64e9f5c1855129ff77e93e123c5e3badcbed91d1e8dd7d5756e3"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-004/standard.json",
+      "sha256": "631596721dcef9f54f3339c2ca9e4902d074543d4d13cfcb4b1afffca24a481e"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-005/edge-profile.json",
+      "sha256": "bf7b837d7eaf8291366af49f3f075e68f70578f9ed49a0b8549bac302e6b9e3c"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-006/density-b.png",
+      "sha256": "793bb81574addd197259e2db26a3805d9e15af7ed3fc932963b6d92f84c7469a"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-006/density-profile.json",
+      "sha256": "ca8db546c37709f419387d0bcd30db8dd8a3e95344ccbad3f0a229241151bc20"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-007/light-profile.json",
+      "sha256": "472364e2f1a6317e39ce7d94d880be7737dc91dfec75e44170cfe3b37a1d9053"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-007/native/a-grass-combined.png",
+      "sha256": "3293aabfb117b6c83c37fd710d62c1a18acb027c880a9fcf520890cbf0e4edf2"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/masters/bank.png",
+      "sha256": "70ceeda1cb9952fe0294c3e5d8daa4f961f5e588e63e6cca0bd735414ae84489"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/masters/bridge.png",
+      "sha256": "5ce015d9af6d692997e9200930d015a36bf71337c76d331274eaea97b0fbd2f7"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/masters/bush.png",
+      "sha256": "10911b7006a38cf49bdd47c8587c079cabe0a2703f3ff3a7984e8d6e3e3bc12f"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/masters/facades.png",
+      "sha256": "1df5263ec8b2d7eff11c5acac88c5caaa4f3888e677696d29a2a38911d334982"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/masters/grass.png",
+      "sha256": "cebf704390ad280cf941b5a1e2372800c35305a144c295a33c674ae967afa2da"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/masters/ground.png",
+      "sha256": "6034a6983ddba48f093caddcaf9cdcecc85ae41c8eb01f47be082ff7504ecb82"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/masters/meadow.png",
+      "sha256": "c7c36f6d5c83b791fcf42bf6338ff6d862a26fea15c55103268e278fc868efe1"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/masters/road.png",
+      "sha256": "8c7b14ab97580ef1c29357abc7897b3cf30400c15852bae67c1c022b74b65f73"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/modules.json",
+      "sha256": "ebb7ab17aee83fd7a56ae6d6a6722b0afbfb164cfa0716c07eca8ee4fc4d9f07"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/native/capture.json",
+      "sha256": "806463d016cc5734c646bcc7f8e154f478e323c566951c3f06911a12ce437720"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/native/foliage-light.png",
+      "sha256": "df32f02687469e3df85240e8e84575ff1f107bd7214fbae7f47edfb96a9e8726"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/native/pilot-a-front.png",
+      "sha256": "2a005ff4328c53305bf58d45fcc815f8e1d754a45c64585c946f6951147e91a2"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/native/pilot-a-grid.png",
+      "sha256": "af5630ad14133020806f9e3fa0272a1121062faf7d9d1629fc773411cca12296"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/native/sprites/bank-h.png",
+      "sha256": "d392138fb33ae334caaf55d41e0a2aff371953a5cd58d1a704f53a05d869a216"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/native/sprites/bank-inner.png",
+      "sha256": "987d52ca7ffe3777ed49557a36596a099090724c98d17483fc00699b3d69b848"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/native/sprites/bank-outer.png",
+      "sha256": "a1f649775a2344283bb13844b7d0f2e71a81c1bb97b210cb804825d36ed97179"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/native/sprites/bank-v.png",
+      "sha256": "ff9894f4b7a461689f67a04d6d8fb6fa95caa534011ca2051f74f51d275b6afe"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/native/sprites/blue-flower.png",
+      "sha256": "dce4d677d082f26a8baa2be797a454c12b61003ec078d7ccb11e3f1d46d02b9e"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/native/sprites/bridge-deck.png",
+      "sha256": "dd29d635856b207aa53763a2c345954cba0d1088a0efc70114cdebbbedb14fb0"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/native/sprites/bridge-rail.png",
+      "sha256": "2fcddc75855a5bdef9d708a63ec40fad1dc177736b00fa91fae2940a91e5c0da"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/native/sprites/bush-berry.png",
+      "sha256": "534692a2875b7ae88a1874385ca721671dc5774b01d377c18dd72d7e4a5ca42d"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/native/sprites/bush-hazel.png",
+      "sha256": "c2c948c6d66c3ca6b4e4b22f2fdaabb728ed4da9b490bfac0bd0b30395dc9061"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/native/sprites/clover.png",
+      "sha256": "5ba11d5a6e9f7364aeaca42b3e1cb65e863bb653c90350a6cf9dedf343f7b406"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/native/sprites/daisy.png",
+      "sha256": "d2550540da1907d033e5a81252502e5f3b4c02df9a5ab73bfe1da12d17a9f742"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/native/sprites/earth.png",
+      "sha256": "2582dcef30596ca7d5530f1be1748ddd2270872fd2db45305847ca5af9885a4d"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/native/sprites/facade-a.png",
+      "sha256": "62a91443982f97ee9bc0249f19bae8474b6003dc99bc662c59d8080360bec80b"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/native/sprites/facade-b.png",
+      "sha256": "3058b26449b8c850fc57ae2ac9666e75122b1eb9b23121d22b28fe6791c4bbd9"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/native/sprites/footing-a.png",
+      "sha256": "20c8a788b71770ea9ffaaddc3183968db668521c4d3591b835837c2c101d5792"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/native/sprites/footing-b.png",
+      "sha256": "2fe38bc4021f40abe5e600822bbbbd929f02500c61785c7b5fd20959037ae62c"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/native/sprites/grass-dry.png",
+      "sha256": "447a94c487a6224d92ee93fb4d0aa753328bb69fec387f5831f11c1a332be62a"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/native/sprites/grass-low.png",
+      "sha256": "5670e3db898b3b864a98b7ac934618ec00642f97057956986ff1c0ef76c269fc"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/native/sprites/grass-seed.png",
+      "sha256": "9dec47b003ceaf02d8a5a101ab0b566b0b0681518073e636a00f5453b750287e"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/native/sprites/grass-tall.png",
+      "sha256": "49ccbb02e160389c4ec91839bd0eea7ca2701f1814886bdc556af7ec9e0f25a5"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/native/sprites/meadow.png",
+      "sha256": "32778c99211df1982106d6e9e68f8421a145a143afc48f47707bf06c51a1fa57"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/native/sprites/road-h.png",
+      "sha256": "0f89aabc3726e00bce6a809c6e49113e14fb284303c3f5cbad6f92a516fa98ee"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/native/sprites/road-inner.png",
+      "sha256": "6289359f75e3788b4420c824819bc61bdc5de7033197137dd86deff429f01cef"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/native/sprites/road-outer.png",
+      "sha256": "7e5c95dca7d41e78afb6dcef0fa3b4e4dd72200cbd7003f71fc2e38f49b1ecf0"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/native/sprites/road-v.png",
+      "sha256": "afc1fa19c25250102c5015932065348494c89484c14e8ffea76f484f233787d7"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/native/sprites/tree.png",
+      "sha256": "dffb5e19ac0b8bd578007e5c4e22d8488f9d459115bf65b23b0349510e628d94"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/native/sprites/water.png",
+      "sha256": "2fae7d68e4ee53cc8e54fe1709f1848a60dccc560e3c49c4b59e4897e4cf8428"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/native/sprites/yellow-flower.png",
+      "sha256": "b790d2c1050a5cc77084cf7346ed33d45a45d30670087a2bfc16e1bd7b07c430"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-008/revisions/pilot-bank-before.png",
+      "sha256": "47e96d92f862eeff7acb55cb145a4431f15017b91a3cc6e6b0df6d0fda686ca6"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vart-010/review.json",
+      "sha256": "33cac765e6495d517297bce42c5d6a914162969409433e8b2d7ce879222da3d5"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vcamera-006/camera-profile.json",
+      "sha256": "9b96c01a4ddb95049083bef1c8f39829c2c556749c526397515c3fc7341339f1"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vpipeline-008/after-native/capture.json",
+      "sha256": "ed777e75fec42a4284aee0d2208500051bfcd1a5a9a3f8b91de8d76d857d37d0"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vpipeline-008/after-native/clipped-light.png",
+      "sha256": "447301ffc5fbb99bd204a21a5b20acdaad6fbd397b97210f84b3e8472add74a5"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vpipeline-008/after-native/reference-light.png",
+      "sha256": "56355f9cd272278e3c6dbdc0a28b6c7de4fa98f47f94037c32dddcff67214af6"
+    },
+    {
+      "file": "docs/reports/visual-overhaul/vrelease-001/acceptance.json",
+      "sha256": "42c7bc0fae0d63b5f58ef2b719dfe82cee7bbf6fa8b7144061eb7dbe41e04502"
+    }
+  ]
+}

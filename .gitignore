@@ -3,6 +3,8 @@
 wiki/planning/*.lock
 wiki/planning/*.tmp
 tools/*
+!tools/artist_packet.py
+!tools/test_artist_packet.py
 !tools/camera_quantization.py
 !tools/camera_quantization_capture.gd
 !tools/camera_quantization_review.gd
