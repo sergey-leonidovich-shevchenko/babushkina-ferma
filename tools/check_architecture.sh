@@ -117,6 +117,8 @@ python3 tools/pilot_rollout.py
 python3 tools/test_pilot_rollout.py
 python3 tools/artist_packet.py
 python3 tools/test_artist_packet.py
+python3 tools/shore_kit.py
+python3 tools/test_shore_kit.py
 python3 tools/analyze_visual_baseline.py docs/reports/visual-overhaul/vbase-001/native >/dev/null
 git diff --check
 print -- "ARCHITECTURE: boundaries and whitespace are valid"

@@ -2448,7 +2448,7 @@
       "id": "VSHORE-001",
       "epic": "VSHORE",
       "title": "Утвердить комплект низкого берега",
-      "status": "ready",
+      "status": "done",
       "priority": "P0",
       "phase": "pilot",
       "kind": "engineering",
@@ -2483,8 +2483,17 @@
         "confidence": "low",
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
-      "branch": "codex/vshore-001-visual-task",
-      "evidence": []
+      "branch": "codex/vshore-001-low-bank-kit",
+      "evidence": [
+        "docs/reports/visual-overhaul/vshore-001/README.md",
+        "docs/reports/visual-overhaul/vshore-001/profile.json",
+        "docs/reports/visual-overhaul/vshore-001/source.json",
+        "docs/reports/visual-overhaul/vshore-001/native/capture.json",
+        "docs/reports/visual-overhaul/vshore-001/water-review.json",
+        "docs/reports/visual-overhaul/vshore-001/acceptance.json",
+        "wiki/articles/shore-kit.md"
+      ],
+      "result": "Принят отдельный художественный комплект: 16 каменных частей и два модуля широкого настила, 11 ресурсов VART-008 переиспользованы. По просьбе пользователя проход образца расширен с 48 до 72 мира (192×72), без растяжения досок; перила отдельно. 29 точных регионов, 11 нативных кадров на трёх фонах и одной камере 120%, 120 кадров/4 с движения камеры; это не FPS и не игровое управление. Прежние WATER сценарии: 845/0, девять Python-сценариев. В Wiki кадры до/после, мастера, паспорт и видео. Production-соседства, вертикальный мост первой карты, физическое внедрение, поверхность и стоимость остаются открытыми. Общие проверки выполняет штатный commit hook."
     },
     {
       "id": "VSHORE-002",
@@ -6388,7 +6397,7 @@
       "id": "VPERF-001",
       "epic": "VPERF",
       "title": "Уточнить измерительный контракт",
-      "status": "backlog",
+      "status": "ready",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -6424,7 +6433,8 @@
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
       "branch": "codex/vperf-001-visual-task",
-      "evidence": []
+      "evidence": [],
+      "result": "Подготовлена как следующий оставшийся пункт основания первой локации после VRELEASE-005 и VSHORE-001. VBASE-001 выполнена; VCAMERA-006 предоставляет сравнительные повторы и абсолютный FAIL 60 FPS. Полный измерительный контракт, три повтора и длинный цикл этой карточки ещё не реализованы и не приняты."
     },
     {
       "id": "VPERF-002",

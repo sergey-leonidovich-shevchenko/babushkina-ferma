@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "base_commit": "333037d769dfe6fed8cc13c3e3c46ac9e3dda888",
+  "command": "tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/shore_kit_review.gd",
+  "profile": "Codex-VSHORE-001-Tests",
+  "passed": 845,
+  "failed": 0,
+  "native_graphics": false,
+  "new_art_integrated": false,
+  "log_sha256": "0c5ec13491c4e5c1d75c25d9cd05b04cb465be28c87eb031ec2b8266e5886c44",
+  "runner_sha256": "32d0a6e9b739d9a884e27104662035f51bee139c6d1a34d3726ea9c0638a3065",
+  "sources": {
+    "tests/test_game.gd": "d0ba510177a86dbe9cd47ac9fcb011cfa3e965ab0b41ba200de7f27842bf61e1",
+    "tests/suites/water_topology_suite.gd": "01a07c639825a9b2202f60f4ea7b6dcc8c64d671f0425bd0383d3e503a12cb6a",
+    "tests/suites/water_navigation_suite.gd": "4803c8fd327af4b92e61c8b829c7bb242c86148968f2887aca5e394fe059243b",
+    "tests/suites/water_fishing_suite.gd": "9a8a2b40b455b5b178ab07be2a5422ce434c15582374460cc89b5914163d0a20",
+    "tests/suites/water_visual_suite.gd": "933fe89893b1662d59b672479721d314102a0b4f8e3c53b706cf721445b3fa4d",
+    "scripts/systems/water_topology.gd": "7de3f78d9a214ec496035c168aeca34c503d96ed8e99f4dafbe584185e890487",
+    "scripts/systems/water_layout_data.gd": "83a678f0fc3dd8d12e9cf2ff3ecef82a0419a35267a4779af095664256164a1e",
+    "scripts/systems/water_map_registry.gd": "f2f72af8f1b06a27d96e5c4ebae7c33c08a48e4f4b677e9be134063b9fa6e817",
+    "scripts/systems/water_fishing_query.gd": "b38e6d07908e8f72ce59bcd22695bb6383f12f2bea6571e9fc560aa174402829",
+    "scripts/systems/fishing_system.gd": "6ed60ba0b26aaf774eeb05b7a8396f4ec2369811e1a0c736593d3a9af5ddf4f4",
+    "scripts/game.gd": "d2a66148cc13e0e3b43f2b07e1719bfc18b19f8daf316f4067fcea24d43134d0"
+  }
+}

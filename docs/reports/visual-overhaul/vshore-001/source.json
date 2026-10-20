@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "tool": "built-in image_gen",
+  "selected": "masters/stone-bank-v3.png",
+  "decision": "Autonomous selection under AGENTS.md; no pending user choice",
+  "history": [
+    "v1: repeated straight sides, rejected",
+    "v2: south/west corrected; east side still incorrect, rejected",
+    "v3: east soil strip corrected; selected master"
+  ],
+  "files": {
+    "masters/stone-bank-v1.png": "9d656f7733339145e58e1f0bc786430c494eddb165adec888b2d29baba3c63fc",
+    "masters/stone-bank-v2.png": "57914dfb4e5b1a112af95652fb945527da05769f32148f551ee964f4d005f083",
+    "masters/stone-bank-v3.png": "568616a82dff3481a5f3e105bcab59fe45261c3c0a5a56f25da1d957eb3205f1",
+    "masters/prompt-stone-bank.txt": "c3d5e2be53809a1bd1b2081a39b9c37f02ccc8047f8c1dd2721fbd21d5a5fd8f",
+    "masters/prompt-correction.txt": "df1d890606cfc89026e1ff2a52ff5edb4071d8080276a5bfed6c6db70f4a96bd",
+    "masters/prompt-correction-2.txt": "22502c1d62d9b7d7353da4ca33b90f4f4e028156054e2255d0de371ca52792c4",
+    "../vart-008/modules.json": "ebb7ab17aee83fd7a56ae6d6a6722b0afbfb164cfa0716c07eca8ee4fc4d9f07",
+    "../vart-008/masters/bank.png": "70ceeda1cb9952fe0294c3e5d8daa4f961f5e588e63e6cca0bd735414ae84489",
+    "../../../epics/visual-overhaul-2026-10/references/01_target_village_bank.jpg": "6057a5fcd85bf4766ed108cf8a80d3131494c43d60001023d919c948eb0d8533",
+    "masters/bridge-deck-wide-v1.png": "b3ab06c4c25ca47f3f82e935b3f81f65917c109f87fe9b8e22b7f10408de64a6",
+    "masters/bridge-deck-wide-v2.png": "0f382a21254597b16b9a709eb061c17a15530cf689e5d4522fff93baa8dea24f",
+    "masters/prompt-wide-bridge-v1.txt": "d8d150cb6229eaae9d42978109e969080fbdbeab9dbce35656b8861aedc56a7f",
+    "masters/prompt-wide-bridge-v2.txt": "2b9d2642a92d7152eb736b1116bbed3bae1728b2521707bef73233c773a9860f",
+    "../vart-008/masters/bridge.png": "5ce015d9af6d692997e9200930d015a36bf71337c76d331274eaea97b0fbd2f7"
+  },
+  "image_editing": "Imagegen only; Godot exports exact source regions without repainting or alpha processing.",
+  "bridge_selection": "masters/bridge-deck-wide-v2.png; modular two-part deck, footprint 192x72",
+  "bridge_note": "Generated wide floor is assembled from exact source regions at plank seams; preserved density, posts and rails are separate. v1 rejected as too narrow."
+}

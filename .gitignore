@@ -5,6 +5,11 @@ wiki/planning/*.tmp
 tools/*
 !tools/artist_packet.py
 !tools/test_artist_packet.py
+!tools/shore_kit.py
+!tools/test_shore_kit.py
+!tools/shore_kit_canvas.gd
+!tools/shore_kit_capture.gd
+!tools/shore_kit_review.gd
 !tools/camera_quantization.py
 !tools/camera_quantization_capture.gd
 !tools/camera_quantization_review.gd

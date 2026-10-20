@@ -6,7 +6,7 @@
 
 ## VPERF-001 — Уточнить измерительный контракт
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 CPU, frame interval и GPU не смешиваются; mismatched host window отдельно отмечен; VSync и фокус записаны
 

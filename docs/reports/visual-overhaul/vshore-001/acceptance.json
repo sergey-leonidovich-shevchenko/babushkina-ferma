@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "task": "VSHORE-001",
+  "date": "2026-10-20",
+  "base_commit": "333037d769dfe6fed8cc13c3e3c46ac9e3dda888",
+  "art_accepted": true,
+  "selection": "low stone village bank + existing earth bank",
+  "user_bridge_request": "48 -> 72 world units, 192x72 footprint; new modular deck, separate rails",
+  "runtime_integrated": false,
+  "autotile_complete": false,
+  "performance_accepted": false,
+  "native": {
+    "exports": 29,
+    "static_frames": 11,
+    "motion_frames": 120,
+    "video_seconds": 4,
+    "field": [
+      960,
+      540
+    ],
+    "framebuffer": [
+      1152,
+      648
+    ],
+    "zoom": 1.2,
+    "decoded_image_bytes_with_mips": 35065920
+  },
+  "tests": {
+    "water": {
+      "passed": 845,
+      "failed": 0
+    },
+    "python": {
+      "passed": 9,
+      "failed": 0
+    },
+    "architecture": "required commit hook",
+    "full_game": "required commit hook",
+    "wiki": "build, TypeScript, 62 tests passed",
+    "browser": "passed: 9 images, video ended, exact download, search, keyboard route, 390px"
+  },
+  "open_owners": {
+    "production_neighbors": "VSHORE-003 / WATER-04",
+    "underwater_floor": "VSHORE-002",
+    "animated_surface": "VSHORE-005",
+    "first_map_vertical_bridge": "first-map static integration, VRELEASE-002 gate",
+    "performance": "VPERF / VRELEASE-004",
+    "whole_first_map": "VMAP-003"
+  },
+  "artifacts": {
+    "profile.json": "a9c2706945b266ff25c12b49530316fa59453c595a9be2b1dd36813496ff7a1c",
+    "source.json": "22a2c64a7d0ab4039e9d509371d6fccd96001463741f17b99aabbbd6123197e2",
+    "native/capture.json": "8ae70fce7e1ec8e9b6afd48704f75cb9df223bbf29f65c2c00866eaabe136e43",
+    "native/video-proof.json": "890b2f5e3be6d03852ee96274b5d72cdbb91bd3cebef3d72dde4becc7999df0e",
+    "browser-review.json": "2b4c834c18186dc448799c35a437321a11b9a859e243d3e481f11b3308e1dbf9",
+    "wiki-reviewed.jpg": "fb0be69485916c25024a4431e2f121644b5023502ae9b9548f0c4c2783e33f4b",
+    "wiki-mobile.jpg": "c55a9d61456e31bd993e17418502c87f28035e1c64b027f7b47bfcccf65955e4"
+  }
+}

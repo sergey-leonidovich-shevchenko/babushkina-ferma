@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "kind": "fixed-clock-native-art-camera",
+  "performance_eligible": false,
+  "raw_png_storage": "temporary output; three witnesses and full H264 video committed",
+  "raw_frames": 120,
+  "capture_sha256": "8ae70fce7e1ec8e9b6afd48704f75cb9df223bbf29f65c2c00866eaabe136e43",
+  "frame_chain_sha256": "018d3c387068753204ea35f971963c6d44574001dcf71c6f0f4b44177ec6ef71",
+  "files": {
+    "camera-pan.mp4": "f2115689d700f1f63d8776f155fbe03252b4aba0b28d4c9d22c664e5be4a2459",
+    "camera-pan.json": "7ce5a29a3330caa01ce999bdd54f9c2a23d9d60272a65430b17b25238960f055",
+    "camera-pan.decoded.png": "a8a22a00e550f124fbe80a2a333bd1d810e115d5e33b0eb67fe4994215c8dd13",
+    "encoder-source.swift.txt": "a450da5cb35c57cc5846c435b4b04657c6d6fc8ac4e75dba70872991c8cf5d83"
+  }
+}

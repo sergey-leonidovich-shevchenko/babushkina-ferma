@@ -6,11 +6,11 @@
 
 ## VSHORE-001 — Утвердить комплект низкого берега
 
-Статус: `ready` · P0 · этап `pilot` · `engineering`
+Статус: `done` · P0 · этап `pilot` · `engineering`
 
 Прямой камень, поворот, земляной край и стык моста показаны как нарезаемые мастера; референс B задаёт направление, не готовый атлас
 
-Ветка: `codex/vshore-001-visual-task`.
+Ветка: `codex/vshore-001-low-bank-kit`.
 
 Зависимости: VART-001.
 
@@ -22,7 +22,7 @@
 - [scripts/systems/water_map_registry.gd](../../../../scripts/systems/water_map_registry.gd)
 - [scripts/systems/water_visual_system.gd](../../../../scripts/systems/water_visual_system.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vshore-001/`.
+Результаты: `docs/reports/visual-overhaul/vshore-001/`.
 
 Критерии:
 
@@ -40,7 +40,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vshore-001/README.md, docs/reports/visual-overhaul/vshore-001/profile.json, docs/reports/visual-overhaul/vshore-001/source.json, docs/reports/visual-overhaul/vshore-001/native/capture.json, docs/reports/visual-overhaul/vshore-001/water-review.json, docs/reports/visual-overhaul/vshore-001/acceptance.json, wiki/articles/shore-kit.md.
 
 <a id="vshore-002"></a>
 

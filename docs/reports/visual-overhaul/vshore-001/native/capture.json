@@ -1,0 +1,2116 @@
+{
+	"adapter": "AMD Radeon Pro 5300M OpenGL Engine",
+	"base_commit": "333037d769dfe6fed8cc13c3e3c46ac9e3dda888",
+	"camera_static": [
+		0,
+		0
+	],
+	"decoded_image_bytes_with_mips": 35065920,
+	"display_server": "macOS",
+	"engine": "4.7.1-stable (official)",
+	"exports": [
+		{
+			"file": "sprites/stone-n.png",
+			"id": "stone-n",
+			"rect": [
+				0.0,
+				0.0,
+				314.0,
+				314.0
+			],
+			"sha256": "89466701c55c7b25413b1d5bbb7a47480e96ec4a1ab5a4595b999cbd3bf464ff",
+			"size": [
+				314,
+				314
+			]
+		},
+		{
+			"file": "sprites/stone-e.png",
+			"id": "stone-e",
+			"rect": [
+				314.0,
+				0.0,
+				313.0,
+				314.0
+			],
+			"sha256": "4050d1feeef8b35bc8f8ac585294b7cf63e9215c7ed1c10db31e36596b2986ac",
+			"size": [
+				313,
+				314
+			]
+		},
+		{
+			"file": "sprites/stone-s.png",
+			"id": "stone-s",
+			"rect": [
+				627.0,
+				0.0,
+				313.0,
+				314.0
+			],
+			"sha256": "e20fe9a8d709107d9e9c092eeb2cd5b7be0ed0f156959cc00fe3b718dc3f5f8e",
+			"size": [
+				313,
+				314
+			]
+		},
+		{
+			"file": "sprites/stone-w.png",
+			"id": "stone-w",
+			"rect": [
+				940.0,
+				0.0,
+				314.0,
+				314.0
+			],
+			"sha256": "a577901356707a144504e7bf2056bb2183081b58a09fea86159d0b86e08ab82d",
+			"size": [
+				314,
+				314
+			]
+		},
+		{
+			"file": "sprites/turn-a-0.png",
+			"id": "turn-a-0",
+			"rect": [
+				0.0,
+				314.0,
+				314.0,
+				313.0
+			],
+			"sha256": "e377aa4e1093bac3f409a9bb083a3a7aef5983b15aa86e79082bbd91e5ec50fa",
+			"size": [
+				314,
+				313
+			]
+		},
+		{
+			"file": "sprites/turn-a-1.png",
+			"id": "turn-a-1",
+			"rect": [
+				314.0,
+				314.0,
+				313.0,
+				313.0
+			],
+			"sha256": "481377bdd63128d71f378f500ceaea378c32a65ae0173da23c3a401fcb2bef42",
+			"size": [
+				313,
+				313
+			]
+		},
+		{
+			"file": "sprites/turn-a-2.png",
+			"id": "turn-a-2",
+			"rect": [
+				627.0,
+				314.0,
+				313.0,
+				313.0
+			],
+			"sha256": "0962d7787a2402e0f76707febaebe609135627d04431ed8219baf7a431897a7b",
+			"size": [
+				313,
+				313
+			]
+		},
+		{
+			"file": "sprites/turn-a-3.png",
+			"id": "turn-a-3",
+			"rect": [
+				940.0,
+				314.0,
+				314.0,
+				313.0
+			],
+			"sha256": "01e584fac3fc0cf10aedbefa20db2df37385ab3c2c9bad57988d7b1f1a6c5e90",
+			"size": [
+				314,
+				313
+			]
+		},
+		{
+			"file": "sprites/turn-b-0.png",
+			"id": "turn-b-0",
+			"rect": [
+				0.0,
+				627.0,
+				314.0,
+				313.0
+			],
+			"sha256": "723945f53968030d77e08acc0f6bbf6079c66f388614301bdd7c27f207745010",
+			"size": [
+				314,
+				313
+			]
+		},
+		{
+			"file": "sprites/turn-b-1.png",
+			"id": "turn-b-1",
+			"rect": [
+				314.0,
+				627.0,
+				313.0,
+				313.0
+			],
+			"sha256": "a8df03108d96c5dfd84a87de3db515997146c255900f844e0e72ccc8fcd527dc",
+			"size": [
+				313,
+				313
+			]
+		},
+		{
+			"file": "sprites/turn-b-2.png",
+			"id": "turn-b-2",
+			"rect": [
+				627.0,
+				627.0,
+				313.0,
+				313.0
+			],
+			"sha256": "a3a06b4e920f7e3c879919d4e8e96c24e20a70b82ffe5201164548bc8764f0be",
+			"size": [
+				313,
+				313
+			]
+		},
+		{
+			"file": "sprites/turn-b-3.png",
+			"id": "turn-b-3",
+			"rect": [
+				940.0,
+				627.0,
+				314.0,
+				313.0
+			],
+			"sha256": "64b72ea5561e5a302366dc8ec22f4c13784217687438024e667a8a3329eba764",
+			"size": [
+				314,
+				313
+			]
+		},
+		{
+			"file": "sprites/bridge-end-w.png",
+			"id": "bridge-end-w",
+			"rect": [
+				0.0,
+				940.0,
+				314.0,
+				314.0
+			],
+			"sha256": "ecc002aaa2f8d000c6dd96c10bdc4952a25318f82684924b46bbbdd4d19d6d7a",
+			"size": [
+				314,
+				314
+			]
+		},
+		{
+			"file": "sprites/bridge-end-e.png",
+			"id": "bridge-end-e",
+			"rect": [
+				314.0,
+				940.0,
+				313.0,
+				314.0
+			],
+			"sha256": "4807b8f524780efe46becd9d7a64e23c9b944ec6fcb5a4e557efce7503928de0",
+			"size": [
+				313,
+				314
+			]
+		},
+		{
+			"file": "sprites/stone-earth-e.png",
+			"id": "stone-earth-e",
+			"rect": [
+				627.0,
+				940.0,
+				313.0,
+				314.0
+			],
+			"sha256": "b26049e30604f7693fc9f074da563c289fbb1361c2e0b950c7d7aa6ef06fdab0",
+			"size": [
+				313,
+				314
+			]
+		},
+		{
+			"file": "sprites/stone-earth-w.png",
+			"id": "stone-earth-w",
+			"rect": [
+				940.0,
+				940.0,
+				314.0,
+				314.0
+			],
+			"sha256": "bc78764129f7ffd26f58b8e8ee0a218f531c680625ed4bd0608a7551b2ed3265",
+			"size": [
+				314,
+				314
+			]
+		},
+		{
+			"file": "sprites/meadow.png",
+			"id": "meadow",
+			"rect": [
+				0.0,
+				0.0,
+				1254.0,
+				1254.0
+			],
+			"sha256": "32778c99211df1982106d6e9e68f8421a145a143afc48f47707bf06c51a1fa57",
+			"size": [
+				1254,
+				1254
+			]
+		},
+		{
+			"file": "sprites/earth.png",
+			"id": "earth",
+			"rect": [
+				512.0,
+				0.0,
+				512.0,
+				1024.0
+			],
+			"sha256": "2582dcef30596ca7d5530f1be1748ddd2270872fd2db45305847ca5af9885a4d",
+			"size": [
+				512,
+				1024
+			]
+		},
+		{
+			"file": "sprites/water.png",
+			"id": "water",
+			"rect": [
+				1024.0,
+				0.0,
+				512.0,
+				1024.0
+			],
+			"sha256": "2fae7d68e4ee53cc8e54fe1709f1848a60dccc560e3c49c4b59e4897e4cf8428",
+			"size": [
+				512,
+				1024
+			]
+		},
+		{
+			"file": "sprites/bank-h.png",
+			"id": "bank-h",
+			"rect": [
+				30.0,
+				170.0,
+				1020.0,
+				240.0
+			],
+			"sha256": "d392138fb33ae334caaf55d41e0a2aff371953a5cd58d1a704f53a05d869a216",
+			"size": [
+				1020,
+				240
+			]
+		},
+		{
+			"file": "sprites/bank-v.png",
+			"id": "bank-v",
+			"rect": [
+				1090.0,
+				0.0,
+				260.0,
+				510.0
+			],
+			"sha256": "ff9894f4b7a461689f67a04d6d8fb6fa95caa534011ca2051f74f51d275b6afe",
+			"size": [
+				260,
+				510
+			]
+		},
+		{
+			"file": "sprites/bank-outer.png",
+			"id": "bank-outer",
+			"rect": [
+				180.0,
+				510.0,
+				550.0,
+				450.0
+			],
+			"sha256": "a1f649775a2344283bb13844b7d0f2e71a81c1bb97b210cb804825d36ed97179",
+			"size": [
+				550,
+				450
+			]
+		},
+		{
+			"file": "sprites/bank-inner.png",
+			"id": "bank-inner",
+			"rect": [
+				890.0,
+				510.0,
+				600.0,
+				490.0
+			],
+			"sha256": "987d52ca7ffe3777ed49557a36596a099090724c98d17483fc00699b3d69b848",
+			"size": [
+				600,
+				490
+			]
+		},
+		{
+			"file": "sprites/bridge-deck.png",
+			"id": "bridge-deck",
+			"rect": [
+				20.0,
+				60.0,
+				1490.0,
+				370.0
+			],
+			"sha256": "dd29d635856b207aa53763a2c345954cba0d1088a0efc70114cdebbbedb14fb0",
+			"size": [
+				1490,
+				370
+			]
+		},
+		{
+			"file": "sprites/bridge-rail.png",
+			"id": "bridge-rail",
+			"rect": [
+				30.0,
+				470.0,
+				1480.0,
+				240.0
+			],
+			"sha256": "2fcddc75855a5bdef9d708a63ec40fad1dc177736b00fa91fae2940a91e5c0da",
+			"size": [
+				1480,
+				240
+			]
+		},
+		{
+			"file": "sprites/footing-a.png",
+			"id": "footing-a",
+			"rect": [
+				330.0,
+				740.0,
+				300.0,
+				230.0
+			],
+			"sha256": "20c8a788b71770ea9ffaaddc3183968db668521c4d3591b835837c2c101d5792",
+			"size": [
+				300,
+				230
+			]
+		},
+		{
+			"file": "sprites/footing-b.png",
+			"id": "footing-b",
+			"rect": [
+				920.0,
+				740.0,
+				300.0,
+				230.0
+			],
+			"sha256": "2fe38bc4021f40abe5e600822bbbbd929f02500c61785c7b5fd20959037ae62c",
+			"size": [
+				300,
+				230
+			]
+		},
+		{
+			"file": "sprites/bridge-deck-left.png",
+			"id": "bridge-deck-left",
+			"rect": [
+				40.0,
+				64.0,
+				968.0,
+				640.0
+			],
+			"sha256": "07fc332ff3815f42e473ab4bd8f06fa84e4ff76fd5f7c65f75c1f7d6154c0767",
+			"size": [
+				968,
+				640
+			]
+		},
+		{
+			"file": "sprites/bridge-deck-right.png",
+			"id": "bridge-deck-right",
+			"rect": [
+				1269.0,
+				64.0,
+				715.0,
+				640.0
+			],
+			"sha256": "bc73ab9ea1a11d5f2419472cb3c39ddbcf62856e8c9a26c5d8c7506f9bec40ea",
+			"size": [
+				715,
+				640
+			]
+		}
+	],
+	"field": [
+		960,
+		540
+	],
+	"fixed_clock_video": true,
+	"fps": 30,
+	"frames": [
+		{
+			"file": "stone-light.png",
+			"id": "stone-light",
+			"repeat_equal": true,
+			"sha256": "8def3d658e1de518550b60a1f8ed810b0e3eacd5d73f65179fa1523c45d686b4"
+		},
+		{
+			"file": "stone-dark.png",
+			"id": "stone-dark",
+			"repeat_equal": true,
+			"sha256": "d04291245272444a9b537974e1d487485ce15371e1c4c775f30cec6f382b3213"
+		},
+		{
+			"file": "stone-grass.png",
+			"id": "stone-grass",
+			"repeat_equal": true,
+			"sha256": "e0308bf760837c3ec1a74f0978c106a1302da1470219748614c42f9cab565f8d"
+		},
+		{
+			"file": "reuse-light.png",
+			"id": "reuse-light",
+			"repeat_equal": true,
+			"sha256": "6d9ca23c9c5af8695ae0fdb78c47efef2f6c635a529f6b684b53719df6745901"
+		},
+		{
+			"file": "reuse-dark.png",
+			"id": "reuse-dark",
+			"repeat_equal": true,
+			"sha256": "2467009d7958cdcf2a6afeaa4de729ccaf05a7eb08da3c70ac10ae4d96520fa3"
+		},
+		{
+			"file": "reuse-grass.png",
+			"id": "reuse-grass",
+			"repeat_equal": true,
+			"sha256": "4a451754719e238ed0b1cb9d747f785d01bd38298e623a7ff1bd43fe7b655277"
+		},
+		{
+			"file": "scene-narrow.png",
+			"id": "scene-narrow",
+			"repeat_equal": true,
+			"sha256": "851efe2fb5d62a46a5f92bec34b1a5fc5467b56ee91af859a67cbe51842ec824"
+		},
+		{
+			"file": "scene-earth.png",
+			"id": "scene-earth",
+			"repeat_equal": true,
+			"sha256": "05ede15c2f10dcd38f3fdd64a0a99ca9b44ed9c89d5110cdffd14fcce813da3a"
+		},
+		{
+			"file": "scene-stone.png",
+			"id": "scene-stone",
+			"repeat_equal": true,
+			"sha256": "d4b7fd33681e5d8363497079ccd1dea3cae78a48874cb18c0764f00afa3e0178"
+		},
+		{
+			"file": "scene-bridge.png",
+			"id": "scene-bridge",
+			"repeat_equal": true,
+			"sha256": "98a0442f751e4ff186f66cb5c4bb42ce81d6a4094f0cdd8825dff42dc916fb0f"
+		},
+		{
+			"file": "scene-grid.png",
+			"id": "scene-grid",
+			"repeat_equal": true,
+			"sha256": "c72ae102605008be9619a6f4ab707a4a1faf010028c10f48e2616878c4164c3c"
+		}
+	],
+	"grid": 24,
+	"kind": "native-shore-art-study",
+	"material_repeat": "reference mirrored study material; seamless production joins remain open",
+	"motion": [
+		{
+			"camera": [
+				0.0,
+				0.0
+			],
+			"file": "frames/0000.png",
+			"foot_pixel": [
+				504.000030517578,
+				403.200012207031
+			],
+			"frame": 0,
+			"sha256": "d4b7fd33681e5d8363497079ccd1dea3cae78a48874cb18c0764f00afa3e0178"
+		},
+		{
+			"camera": [
+				0.5,
+				0.125
+			],
+			"file": "frames/0001.png",
+			"foot_pixel": [
+				503.400024414062,
+				403.050018310547
+			],
+			"frame": 1,
+			"sha256": "10a35a61818821cce047ac85808639c76770ffae381f622e04ae0a6c6d8694bc"
+		},
+		{
+			"camera": [
+				1.0,
+				0.25
+			],
+			"file": "frames/0002.png",
+			"foot_pixel": [
+				502.800018310547,
+				402.900024414062
+			],
+			"frame": 2,
+			"sha256": "fb24e8526effe5f37938227163e451a657fb0836e2c2a17c2005116dd30f4dba"
+		},
+		{
+			"camera": [
+				1.5,
+				0.375
+			],
+			"file": "frames/0003.png",
+			"foot_pixel": [
+				502.200042724609,
+				402.75
+			],
+			"frame": 3,
+			"sha256": "55b7277c8220d35dcd2214ab1ec229aa5a4630537b0e4b0baa88ee35665ee57f"
+		},
+		{
+			"camera": [
+				2.0,
+				0.5
+			],
+			"file": "frames/0004.png",
+			"foot_pixel": [
+				501.600036621094,
+				402.600006103516
+			],
+			"frame": 4,
+			"sha256": "f3f7ffd6f495a3e43ccd0743ce94acb5993a44ef50eb3e1f4111fc0d6ee28971"
+		},
+		{
+			"camera": [
+				2.5,
+				0.625
+			],
+			"file": "frames/0005.png",
+			"foot_pixel": [
+				501.000030517578,
+				402.450012207031
+			],
+			"frame": 5,
+			"sha256": "c5b5eb2305f097471636a77735f7f288ce97dfdf222c9de08177e3c0159c2fbf"
+		},
+		{
+			"camera": [
+				3.0,
+				0.75
+			],
+			"file": "frames/0006.png",
+			"foot_pixel": [
+				500.400024414062,
+				402.300018310547
+			],
+			"frame": 6,
+			"sha256": "7a1de5b51893ec6667b669ec2362a27ee075b2cc1d90789232f9ab99410e7c97"
+		},
+		{
+			"camera": [
+				3.5,
+				0.875
+			],
+			"file": "frames/0007.png",
+			"foot_pixel": [
+				499.800018310547,
+				402.150024414062
+			],
+			"frame": 7,
+			"sha256": "a6df7cc5abd480e648c7f510a1e4f767091e223862b8ffb64b2afb50a2210715"
+		},
+		{
+			"camera": [
+				4.0,
+				1.0
+			],
+			"file": "frames/0008.png",
+			"foot_pixel": [
+				499.200042724609,
+				402.0
+			],
+			"frame": 8,
+			"sha256": "292f255785a488f76d7d4bf78eed4e0ef0adc61215b310fb57923388fd304720"
+		},
+		{
+			"camera": [
+				4.5,
+				1.125
+			],
+			"file": "frames/0009.png",
+			"foot_pixel": [
+				498.600036621094,
+				401.850006103516
+			],
+			"frame": 9,
+			"sha256": "e6f2757d27c0bd092e06d4620b629e090bf37bc014482d2bfa6cf9d5ab651ab2"
+		},
+		{
+			"camera": [
+				5.0,
+				1.25
+			],
+			"file": "frames/0010.png",
+			"foot_pixel": [
+				498.000030517578,
+				401.700012207031
+			],
+			"frame": 10,
+			"sha256": "d041a0a75b302424ebffa465ecca22087e9903e47c8f49576d3c55f482040ecd"
+		},
+		{
+			"camera": [
+				5.5,
+				1.375
+			],
+			"file": "frames/0011.png",
+			"foot_pixel": [
+				497.400024414062,
+				401.550018310547
+			],
+			"frame": 11,
+			"sha256": "6ffd13414b7fae6feb917600aea2a9c58e3d68f395e214168ce6e5e488d8d899"
+		},
+		{
+			"camera": [
+				6.0,
+				1.5
+			],
+			"file": "frames/0012.png",
+			"foot_pixel": [
+				496.800018310547,
+				401.400024414062
+			],
+			"frame": 12,
+			"sha256": "6762d713d098ba160be346450fb7abe3addb74faa4dc5eb5766e3490448db88e"
+		},
+		{
+			"camera": [
+				6.5,
+				1.625
+			],
+			"file": "frames/0013.png",
+			"foot_pixel": [
+				496.200042724609,
+				401.25
+			],
+			"frame": 13,
+			"sha256": "152c246c1dccdcf9b5f7e83078dd16bec798ab2d463777ad21653edf83e18628"
+		},
+		{
+			"camera": [
+				7.0,
+				1.75
+			],
+			"file": "frames/0014.png",
+			"foot_pixel": [
+				495.600036621094,
+				401.100006103516
+			],
+			"frame": 14,
+			"sha256": "d51c2cb2d2d6a27c4a52cbcee0b13623e49915a1e3bed53e1665ed97ed08c966"
+		},
+		{
+			"camera": [
+				7.5,
+				1.875
+			],
+			"file": "frames/0015.png",
+			"foot_pixel": [
+				495.000030517578,
+				400.950012207031
+			],
+			"frame": 15,
+			"sha256": "23416bca0e21635a867b22fdf0e136fc9f3366dafa501e272a28b7d1d4190ce1"
+		},
+		{
+			"camera": [
+				8.0,
+				2.0
+			],
+			"file": "frames/0016.png",
+			"foot_pixel": [
+				494.400024414062,
+				400.800018310547
+			],
+			"frame": 16,
+			"sha256": "46c4cce45e5ea56c9956d2c251206db8feabb46442f91eef9ff5f01505607e27"
+		},
+		{
+			"camera": [
+				8.5,
+				2.125
+			],
+			"file": "frames/0017.png",
+			"foot_pixel": [
+				493.800018310547,
+				400.650024414062
+			],
+			"frame": 17,
+			"sha256": "28610318711062b6f82617385865b3affbcce4448f7915e42c821b89e2c2b4f1"
+		},
+		{
+			"camera": [
+				9.0,
+				2.25
+			],
+			"file": "frames/0018.png",
+			"foot_pixel": [
+				493.200042724609,
+				400.5
+			],
+			"frame": 18,
+			"sha256": "eb86d58682b8a723816d4ee104b717b4b21bc9a9e8c269c9f90e78fb4658cb66"
+		},
+		{
+			"camera": [
+				9.5,
+				2.375
+			],
+			"file": "frames/0019.png",
+			"foot_pixel": [
+				492.600036621094,
+				400.350006103516
+			],
+			"frame": 19,
+			"sha256": "e9c883e2f7ec18521c01ef004f9930506037808b0d268a9bc04f202a3594e5d7"
+		},
+		{
+			"camera": [
+				10.0,
+				2.5
+			],
+			"file": "frames/0020.png",
+			"foot_pixel": [
+				492.000030517578,
+				400.200012207031
+			],
+			"frame": 20,
+			"sha256": "856eb1d1a5d9e406ad3988e526feb8dd286106eb7af7527584a324c3b3a1f61f"
+		},
+		{
+			"camera": [
+				10.5,
+				2.625
+			],
+			"file": "frames/0021.png",
+			"foot_pixel": [
+				491.400024414062,
+				400.050018310547
+			],
+			"frame": 21,
+			"sha256": "af497b0bd7665191d09361c95ac2db4b0b5d9b75586d27768a7d14aa71e1a9ba"
+		},
+		{
+			"camera": [
+				11.0,
+				2.75
+			],
+			"file": "frames/0022.png",
+			"foot_pixel": [
+				490.800018310547,
+				399.900024414062
+			],
+			"frame": 22,
+			"sha256": "9a333406017553d977e0120e1cdb9a0019e8200e269c9592a4f64c5f77488d3b"
+		},
+		{
+			"camera": [
+				11.5,
+				2.875
+			],
+			"file": "frames/0023.png",
+			"foot_pixel": [
+				490.200042724609,
+				399.75
+			],
+			"frame": 23,
+			"sha256": "78db1aa08edcfed210a58c54b8d04835514218d7a0d1a56cad6df6836309bdfe"
+		},
+		{
+			"camera": [
+				12.0,
+				3.0
+			],
+			"file": "frames/0024.png",
+			"foot_pixel": [
+				489.600036621094,
+				399.600006103516
+			],
+			"frame": 24,
+			"sha256": "19d76ab2d5548dd5e01f5b5852ca44044af2fd51bbebee5efff527df1b7cba55"
+		},
+		{
+			"camera": [
+				12.5,
+				3.125
+			],
+			"file": "frames/0025.png",
+			"foot_pixel": [
+				489.000030517578,
+				399.450012207031
+			],
+			"frame": 25,
+			"sha256": "830c3321f1667aa5ced407a8e5b946d34227a9f0f7e485fbecb44ece1edf7ddc"
+		},
+		{
+			"camera": [
+				13.0,
+				3.25
+			],
+			"file": "frames/0026.png",
+			"foot_pixel": [
+				488.400024414062,
+				399.300018310547
+			],
+			"frame": 26,
+			"sha256": "4707f56d015cc4e1af2a2759f0080fe18f515bccb902837a68a11fe3d43c46fa"
+		},
+		{
+			"camera": [
+				13.5,
+				3.375
+			],
+			"file": "frames/0027.png",
+			"foot_pixel": [
+				487.800018310547,
+				399.150024414062
+			],
+			"frame": 27,
+			"sha256": "34cb435f3b3cee56cb9e7f52e83e9b95bda6f46d3db8c344b2a9fe3904a8f048"
+		},
+		{
+			"camera": [
+				14.0,
+				3.5
+			],
+			"file": "frames/0028.png",
+			"foot_pixel": [
+				487.200042724609,
+				399.0
+			],
+			"frame": 28,
+			"sha256": "14e71006cf73818d7da6494da69148c22ef77baa74da5eb21d44d0ee55e2e062"
+		},
+		{
+			"camera": [
+				14.5,
+				3.625
+			],
+			"file": "frames/0029.png",
+			"foot_pixel": [
+				486.600036621094,
+				398.850006103516
+			],
+			"frame": 29,
+			"sha256": "5bfb3555efab5c85b17717810715a4f7bdf506f64df9f287c4a47ba2354fa683"
+		},
+		{
+			"camera": [
+				15.0,
+				3.75
+			],
+			"file": "frames/0030.png",
+			"foot_pixel": [
+				486.000030517578,
+				398.700012207031
+			],
+			"frame": 30,
+			"sha256": "24f3b4f03f21d73d99224f63e416f93bcffd1009987d69f8edbf74de09c02731"
+		},
+		{
+			"camera": [
+				15.5,
+				3.875
+			],
+			"file": "frames/0031.png",
+			"foot_pixel": [
+				485.400024414062,
+				398.550018310547
+			],
+			"frame": 31,
+			"sha256": "7f4ab34461a2aedcdb95da174a179a75b3b0372e20d21de6c6bd8e646320b228"
+		},
+		{
+			"camera": [
+				16.0,
+				4.0
+			],
+			"file": "frames/0032.png",
+			"foot_pixel": [
+				484.800018310547,
+				398.400024414062
+			],
+			"frame": 32,
+			"sha256": "9b5a78797cae7607478dc1620faea26057b8642cab07b427fbb78fb76948b85e"
+		},
+		{
+			"camera": [
+				16.5,
+				4.125
+			],
+			"file": "frames/0033.png",
+			"foot_pixel": [
+				484.200042724609,
+				398.25
+			],
+			"frame": 33,
+			"sha256": "a2115c5dfafa84a0d7a2b2c95351ff93345bc3a260de24676bccd80d675cd0c9"
+		},
+		{
+			"camera": [
+				17.0,
+				4.25
+			],
+			"file": "frames/0034.png",
+			"foot_pixel": [
+				483.600036621094,
+				398.100006103516
+			],
+			"frame": 34,
+			"sha256": "a942d5fa1e095465ccc12880bdebd58f3d65463b3f62ed487d317e4378917e10"
+		},
+		{
+			"camera": [
+				17.5,
+				4.375
+			],
+			"file": "frames/0035.png",
+			"foot_pixel": [
+				483.000030517578,
+				397.950012207031
+			],
+			"frame": 35,
+			"sha256": "e24925d61add4b620d02eed6d3172550249cc83581f533a9c7e29bdd96816420"
+		},
+		{
+			"camera": [
+				18.0,
+				4.5
+			],
+			"file": "frames/0036.png",
+			"foot_pixel": [
+				482.400024414062,
+				397.800018310547
+			],
+			"frame": 36,
+			"sha256": "751c7729957b1c783128c268ae49c12c8499eb1ee8d4ee776702c4f94d8b6a85"
+		},
+		{
+			"camera": [
+				18.5,
+				4.625
+			],
+			"file": "frames/0037.png",
+			"foot_pixel": [
+				481.800018310547,
+				397.650024414062
+			],
+			"frame": 37,
+			"sha256": "41a428826160302fa836cdc2c26ca210a74a57af09f107071fc3535b01c8bb92"
+		},
+		{
+			"camera": [
+				19.0,
+				4.75
+			],
+			"file": "frames/0038.png",
+			"foot_pixel": [
+				481.200042724609,
+				397.5
+			],
+			"frame": 38,
+			"sha256": "a084a530247e1a16eb986ba7980ddb01a495366877118cc5b6f7a5862598edec"
+		},
+		{
+			"camera": [
+				19.5,
+				4.875
+			],
+			"file": "frames/0039.png",
+			"foot_pixel": [
+				480.600036621094,
+				397.350006103516
+			],
+			"frame": 39,
+			"sha256": "76a3711b6a1406585af4073b5c500b590bdcb322e49d933d9d5af8a97b420deb"
+		},
+		{
+			"camera": [
+				20.0,
+				5.0
+			],
+			"file": "frames/0040.png",
+			"foot_pixel": [
+				480.000030517578,
+				397.200012207031
+			],
+			"frame": 40,
+			"sha256": "21a5dcb3445518789a75df68d6754cbae9cf15d47083224979de1c14ff255335"
+		},
+		{
+			"camera": [
+				20.5,
+				5.125
+			],
+			"file": "frames/0041.png",
+			"foot_pixel": [
+				479.400024414062,
+				397.050018310547
+			],
+			"frame": 41,
+			"sha256": "6cb64a0d6d0545301f6b35256b0d5e9ae407a813610e43ef9502586b64b7b835"
+		},
+		{
+			"camera": [
+				21.0,
+				5.25
+			],
+			"file": "frames/0042.png",
+			"foot_pixel": [
+				478.800018310547,
+				396.900024414062
+			],
+			"frame": 42,
+			"sha256": "21a32fe56ef09d70a245efc8a6b682ec2a5962893a9202b39b5061dc840c0ada"
+		},
+		{
+			"camera": [
+				21.5,
+				5.375
+			],
+			"file": "frames/0043.png",
+			"foot_pixel": [
+				478.200042724609,
+				396.75
+			],
+			"frame": 43,
+			"sha256": "343f05fa93d71274298c9ad79eb57afa3f519784bb6f79af223a4c4a95376a20"
+		},
+		{
+			"camera": [
+				22.0,
+				5.5
+			],
+			"file": "frames/0044.png",
+			"foot_pixel": [
+				477.600036621094,
+				396.600006103516
+			],
+			"frame": 44,
+			"sha256": "313a353df691533fddd7165c72b49fbe7d6e6274d9b1c4fbf11ae2b0065f66d1"
+		},
+		{
+			"camera": [
+				22.5,
+				5.625
+			],
+			"file": "frames/0045.png",
+			"foot_pixel": [
+				477.000030517578,
+				396.450012207031
+			],
+			"frame": 45,
+			"sha256": "fc6cdda9578e56fc2ef02595e714d184f47f6695aab3de69b2d6b581a563d8dd"
+		},
+		{
+			"camera": [
+				23.0,
+				5.75
+			],
+			"file": "frames/0046.png",
+			"foot_pixel": [
+				476.400024414062,
+				396.300018310547
+			],
+			"frame": 46,
+			"sha256": "b3e82948adca8cd847302bc46f5c6eff82cf570e549d8ab6cf6e40410b5644fc"
+		},
+		{
+			"camera": [
+				23.5,
+				5.875
+			],
+			"file": "frames/0047.png",
+			"foot_pixel": [
+				475.800018310547,
+				396.150024414062
+			],
+			"frame": 47,
+			"sha256": "1d7e35ff23b05c291079d8c29d60421e92526017e2b3881240f3fd2b2bdf9f82"
+		},
+		{
+			"camera": [
+				24.0,
+				6.0
+			],
+			"file": "frames/0048.png",
+			"foot_pixel": [
+				475.200042724609,
+				396.0
+			],
+			"frame": 48,
+			"sha256": "1578d245595dbab568e24d0fc0d6d1bd9ac01c4d23b9f044c84af4b60f92b0ef"
+		},
+		{
+			"camera": [
+				24.5,
+				6.125
+			],
+			"file": "frames/0049.png",
+			"foot_pixel": [
+				474.600036621094,
+				395.850006103516
+			],
+			"frame": 49,
+			"sha256": "df799e5088c2986592d77bee9bb105679b3c7cbc6043d2977c471582c08715e5"
+		},
+		{
+			"camera": [
+				25.0,
+				6.25
+			],
+			"file": "frames/0050.png",
+			"foot_pixel": [
+				474.000030517578,
+				395.700012207031
+			],
+			"frame": 50,
+			"sha256": "16a9c087b40e5cfbe6f8b577c5d1d45fe64f85f874202a17426dab677c230fe6"
+		},
+		{
+			"camera": [
+				25.5,
+				6.375
+			],
+			"file": "frames/0051.png",
+			"foot_pixel": [
+				473.400024414062,
+				395.550018310547
+			],
+			"frame": 51,
+			"sha256": "13410cf384923af835f73fa5cdd915fb4d5760f62f6db1c4293250130cd001b5"
+		},
+		{
+			"camera": [
+				26.0,
+				6.5
+			],
+			"file": "frames/0052.png",
+			"foot_pixel": [
+				472.800018310547,
+				395.400024414062
+			],
+			"frame": 52,
+			"sha256": "0bc236be177021bda59aca52609803316dd4151fcea5a0fcf1f1679124e3b790"
+		},
+		{
+			"camera": [
+				26.5,
+				6.625
+			],
+			"file": "frames/0053.png",
+			"foot_pixel": [
+				472.200042724609,
+				395.25
+			],
+			"frame": 53,
+			"sha256": "041fd928f333d36fa4a0ae10e31cd211d71e6a5c6baa1bdb32aa90a34fcc06fa"
+		},
+		{
+			"camera": [
+				27.0,
+				6.75
+			],
+			"file": "frames/0054.png",
+			"foot_pixel": [
+				471.600036621094,
+				395.100006103516
+			],
+			"frame": 54,
+			"sha256": "fd3654ececcbb496e303e7a7a228c1090ea90b069a572160c243d8331dd31730"
+		},
+		{
+			"camera": [
+				27.5,
+				6.875
+			],
+			"file": "frames/0055.png",
+			"foot_pixel": [
+				471.000030517578,
+				394.950012207031
+			],
+			"frame": 55,
+			"sha256": "6a46c63131800caf9101d52884565e40ca6eb9b48c3de2694721b8cfc9ca189a"
+		},
+		{
+			"camera": [
+				28.0,
+				7.0
+			],
+			"file": "frames/0056.png",
+			"foot_pixel": [
+				470.400024414062,
+				394.800018310547
+			],
+			"frame": 56,
+			"sha256": "5d2bb292482954ea57ae98ce109e8bc7bf4b46814db565107620b0d90e47b8bd"
+		},
+		{
+			"camera": [
+				28.5,
+				7.125
+			],
+			"file": "frames/0057.png",
+			"foot_pixel": [
+				469.800018310547,
+				394.650024414062
+			],
+			"frame": 57,
+			"sha256": "9b0da51145f56b77deac349884df57b60ea9ca0656da1b225a512bc2fd451238"
+		},
+		{
+			"camera": [
+				29.0,
+				7.25
+			],
+			"file": "frames/0058.png",
+			"foot_pixel": [
+				469.200012207031,
+				394.5
+			],
+			"frame": 58,
+			"sha256": "2e6083e44f75caa4526a8274fda5dee184259c8f50c00a4c6e5611a7b07dfc4f"
+		},
+		{
+			"camera": [
+				29.5,
+				7.375
+			],
+			"file": "frames/0059.png",
+			"foot_pixel": [
+				468.600036621094,
+				394.350006103516
+			],
+			"frame": 59,
+			"sha256": "e0a0dbf4ca6bb0a6e9944957afb95aa77c299feed6e7511f560cc0d6383cce66"
+		},
+		{
+			"camera": [
+				30.0,
+				7.5
+			],
+			"file": "frames/0060.png",
+			"foot_pixel": [
+				468.000030517578,
+				394.200012207031
+			],
+			"frame": 60,
+			"sha256": "a947abcc15b98fdf77beecd69bbfa4fe2e6cd753a409ee0682a17aea4c38b106"
+		},
+		{
+			"camera": [
+				30.5,
+				7.625
+			],
+			"file": "frames/0061.png",
+			"foot_pixel": [
+				467.400024414062,
+				394.050018310547
+			],
+			"frame": 61,
+			"sha256": "3d4e7522cd134098b88fafdbe11bc094692c218559e4c28caa48e10b2f5eedb2"
+		},
+		{
+			"camera": [
+				31.0,
+				7.75
+			],
+			"file": "frames/0062.png",
+			"foot_pixel": [
+				466.800018310547,
+				393.900024414062
+			],
+			"frame": 62,
+			"sha256": "3b81e9a923fa26757098b6ed82bd1cff858f3587d7108fc6f78ee3444f075eac"
+		},
+		{
+			"camera": [
+				31.5,
+				7.875
+			],
+			"file": "frames/0063.png",
+			"foot_pixel": [
+				466.200012207031,
+				393.75
+			],
+			"frame": 63,
+			"sha256": "cd62a166a430759415810f150269e1341d4bb87282c071a2c200b1ac3d87a95a"
+		},
+		{
+			"camera": [
+				32.0,
+				8.0
+			],
+			"file": "frames/0064.png",
+			"foot_pixel": [
+				465.600036621094,
+				393.600006103516
+			],
+			"frame": 64,
+			"sha256": "d684eb8f677ac471dd06901cc3ebdc4b8ed5b5ff21b4820d3b3732454ec563e9"
+		},
+		{
+			"camera": [
+				32.5,
+				8.125
+			],
+			"file": "frames/0065.png",
+			"foot_pixel": [
+				465.000030517578,
+				393.450012207031
+			],
+			"frame": 65,
+			"sha256": "7758fac343172a2b811851791e79ecbbf6f8e806ec3a7cb20268084f9dee5593"
+		},
+		{
+			"camera": [
+				33.0,
+				8.25
+			],
+			"file": "frames/0066.png",
+			"foot_pixel": [
+				464.400024414062,
+				393.300018310547
+			],
+			"frame": 66,
+			"sha256": "ab6b38ef88c63210d734d18b2d22ac0c0bc6aaf0897a5b9d20fe5e6108862ad2"
+		},
+		{
+			"camera": [
+				33.5,
+				8.375
+			],
+			"file": "frames/0067.png",
+			"foot_pixel": [
+				463.800018310547,
+				393.150024414062
+			],
+			"frame": 67,
+			"sha256": "d108510dfac4de7264a3ac0393580884528e2aec7e9b4e7a3e2d5ca3cca6be9f"
+		},
+		{
+			"camera": [
+				34.0,
+				8.5
+			],
+			"file": "frames/0068.png",
+			"foot_pixel": [
+				463.200012207031,
+				393.0
+			],
+			"frame": 68,
+			"sha256": "963ff86bfa772e78003d87e26d669a38a15ab33e7b4edc75533baa5366c436ec"
+		},
+		{
+			"camera": [
+				34.5,
+				8.625
+			],
+			"file": "frames/0069.png",
+			"foot_pixel": [
+				462.600036621094,
+				392.850006103516
+			],
+			"frame": 69,
+			"sha256": "d866c8402b3f9b6f15d546d4edc910f2e7c7638a07f43570b6805533e0043f4e"
+		},
+		{
+			"camera": [
+				35.0,
+				8.75
+			],
+			"file": "frames/0070.png",
+			"foot_pixel": [
+				462.000030517578,
+				392.700012207031
+			],
+			"frame": 70,
+			"sha256": "13e10a119b1a180d19f8b449294b9a321348660c619c29159fd1be11319fbd06"
+		},
+		{
+			"camera": [
+				35.5,
+				8.875
+			],
+			"file": "frames/0071.png",
+			"foot_pixel": [
+				461.400024414062,
+				392.550018310547
+			],
+			"frame": 71,
+			"sha256": "74507263b8bb041214165fbf6f44b126025414a5e0b2fd473ccb05398062f21a"
+		},
+		{
+			"camera": [
+				36.0,
+				9.0
+			],
+			"file": "frames/0072.png",
+			"foot_pixel": [
+				460.800018310547,
+				392.400024414062
+			],
+			"frame": 72,
+			"sha256": "8ad3cdd4865cee4a7c743dc509077d56a721f43ab148a3687dfac7e132e304f9"
+		},
+		{
+			"camera": [
+				36.5,
+				9.125
+			],
+			"file": "frames/0073.png",
+			"foot_pixel": [
+				460.200012207031,
+				392.25
+			],
+			"frame": 73,
+			"sha256": "e8d1068ff754c149aafaf445e591d04f07825b9f0859d4f5165d663262d1ab9e"
+		},
+		{
+			"camera": [
+				37.0,
+				9.25
+			],
+			"file": "frames/0074.png",
+			"foot_pixel": [
+				459.600036621094,
+				392.100006103516
+			],
+			"frame": 74,
+			"sha256": "af2b87e078f3d290a1ad7741519a1a1ea9855bc144ee20b58346e5785d4e0a3c"
+		},
+		{
+			"camera": [
+				37.5,
+				9.375
+			],
+			"file": "frames/0075.png",
+			"foot_pixel": [
+				459.000030517578,
+				391.950012207031
+			],
+			"frame": 75,
+			"sha256": "39b3a859bb442be367cfd7891fadf924fc2c2b99b4e46451eeef450c6a6774a1"
+		},
+		{
+			"camera": [
+				38.0,
+				9.5
+			],
+			"file": "frames/0076.png",
+			"foot_pixel": [
+				458.400024414062,
+				391.800018310547
+			],
+			"frame": 76,
+			"sha256": "fd2033bcb3919d846ecc18bc3db59b8a52a59376739a50ba4b65cf616b4ab665"
+		},
+		{
+			"camera": [
+				38.5,
+				9.625
+			],
+			"file": "frames/0077.png",
+			"foot_pixel": [
+				457.800018310547,
+				391.650024414062
+			],
+			"frame": 77,
+			"sha256": "72dc6b7881c7026db2d2a8355c189160c5b8ad86ae74ee7cf4bb05781a16cf54"
+		},
+		{
+			"camera": [
+				39.0,
+				9.75
+			],
+			"file": "frames/0078.png",
+			"foot_pixel": [
+				457.200012207031,
+				391.5
+			],
+			"frame": 78,
+			"sha256": "7ea5516b2a32892b3bdf8d9b32ba34125de3af193ad6112e98a772cd432d931f"
+		},
+		{
+			"camera": [
+				39.5,
+				9.875
+			],
+			"file": "frames/0079.png",
+			"foot_pixel": [
+				456.600036621094,
+				391.350006103516
+			],
+			"frame": 79,
+			"sha256": "519c7409a4334aa9a07657d6bed50cb5427c52d32af851d125c9062596318ba2"
+		},
+		{
+			"camera": [
+				40.0,
+				10.0
+			],
+			"file": "frames/0080.png",
+			"foot_pixel": [
+				456.000030517578,
+				391.200012207031
+			],
+			"frame": 80,
+			"sha256": "19902d13ccc108b812796c9554877e6fed4f0033e0054039fa4338e7b17a33ba"
+		},
+		{
+			"camera": [
+				40.5,
+				10.125
+			],
+			"file": "frames/0081.png",
+			"foot_pixel": [
+				455.400024414062,
+				391.050018310547
+			],
+			"frame": 81,
+			"sha256": "24015bf79afc5851f7a6e1be842f9dedeaf56ad2c73e073fef1a48675cfb2f00"
+		},
+		{
+			"camera": [
+				41.0,
+				10.25
+			],
+			"file": "frames/0082.png",
+			"foot_pixel": [
+				454.800018310547,
+				390.900024414062
+			],
+			"frame": 82,
+			"sha256": "7210f5ca56161b4f91de90589d40cd9d24b2bdcd8356bb8e277892ce93aa6d76"
+		},
+		{
+			"camera": [
+				41.5,
+				10.375
+			],
+			"file": "frames/0083.png",
+			"foot_pixel": [
+				454.200012207031,
+				390.75
+			],
+			"frame": 83,
+			"sha256": "839bf4a285b53758cf58940f4ac6d5a05bf4e6f62d918f0f3e071feee6ca80ab"
+		},
+		{
+			"camera": [
+				42.0,
+				10.5
+			],
+			"file": "frames/0084.png",
+			"foot_pixel": [
+				453.600036621094,
+				390.600006103516
+			],
+			"frame": 84,
+			"sha256": "03ca21b7bc1e44ebb1b268eb0b87d8298fa34d29eb833cfac96be76266407596"
+		},
+		{
+			"camera": [
+				42.5,
+				10.625
+			],
+			"file": "frames/0085.png",
+			"foot_pixel": [
+				453.000030517578,
+				390.450012207031
+			],
+			"frame": 85,
+			"sha256": "6850162e10e1300ff610bdff61f8978fcbf9bd1fa15699bbaaa62d1eca33c992"
+		},
+		{
+			"camera": [
+				43.0,
+				10.75
+			],
+			"file": "frames/0086.png",
+			"foot_pixel": [
+				452.400024414062,
+				390.300018310547
+			],
+			"frame": 86,
+			"sha256": "cdfc13215b3590be7040c8e92264ac1a7cfdba03733c8e90e163418cc3fb5f3b"
+		},
+		{
+			"camera": [
+				43.5,
+				10.875
+			],
+			"file": "frames/0087.png",
+			"foot_pixel": [
+				451.800018310547,
+				390.150024414062
+			],
+			"frame": 87,
+			"sha256": "894f21ff977725cd46d4b580986376d8e26c755eb44ce87e14012eb948f38bcf"
+		},
+		{
+			"camera": [
+				44.0,
+				11.0
+			],
+			"file": "frames/0088.png",
+			"foot_pixel": [
+				451.200012207031,
+				390.0
+			],
+			"frame": 88,
+			"sha256": "a9687a62a3c783c1501529a736b88fc4c9a82339929e5e6352814f8aec388345"
+		},
+		{
+			"camera": [
+				44.5,
+				11.125
+			],
+			"file": "frames/0089.png",
+			"foot_pixel": [
+				450.600036621094,
+				389.850006103516
+			],
+			"frame": 89,
+			"sha256": "7139340592c7ece86edd02f28c6e581a1c53932d14478d68edd0cf2910e1aa22"
+		},
+		{
+			"camera": [
+				45.0,
+				11.25
+			],
+			"file": "frames/0090.png",
+			"foot_pixel": [
+				450.000030517578,
+				389.700012207031
+			],
+			"frame": 90,
+			"sha256": "7b95cf01c2fadfca9a4971217be1abd4819764431c6e05ab0be19a64bdc19017"
+		},
+		{
+			"camera": [
+				45.5,
+				11.375
+			],
+			"file": "frames/0091.png",
+			"foot_pixel": [
+				449.400024414062,
+				389.550018310547
+			],
+			"frame": 91,
+			"sha256": "eb5e2af7a906d30c409a173a479a4d43350f6201ed6af3d1d499efe454b0c707"
+		},
+		{
+			"camera": [
+				46.0,
+				11.5
+			],
+			"file": "frames/0092.png",
+			"foot_pixel": [
+				448.800018310547,
+				389.400024414062
+			],
+			"frame": 92,
+			"sha256": "3f0de2a07fd0ec15dd61771255166584b6a86060032edc0db7e6c42935212867"
+		},
+		{
+			"camera": [
+				46.5,
+				11.625
+			],
+			"file": "frames/0093.png",
+			"foot_pixel": [
+				448.200012207031,
+				389.25
+			],
+			"frame": 93,
+			"sha256": "05a8de0a73cbbe5de6adadeb799bf561cc92ab4c368ca6f16f2c1d2674ce8671"
+		},
+		{
+			"camera": [
+				47.0,
+				11.75
+			],
+			"file": "frames/0094.png",
+			"foot_pixel": [
+				447.600036621094,
+				389.100006103516
+			],
+			"frame": 94,
+			"sha256": "78de59528bf71ebb4fc28d83a59d8de036790df0d63c652acd415e29129662a7"
+		},
+		{
+			"camera": [
+				47.5,
+				11.875
+			],
+			"file": "frames/0095.png",
+			"foot_pixel": [
+				447.000030517578,
+				388.950012207031
+			],
+			"frame": 95,
+			"sha256": "60af3b901cf7b712f5856de1e1bbd06c52a753a73943a87e81beb6ca347eaf57"
+		},
+		{
+			"camera": [
+				48.0,
+				12.0
+			],
+			"file": "frames/0096.png",
+			"foot_pixel": [
+				446.400024414062,
+				388.800018310547
+			],
+			"frame": 96,
+			"sha256": "e7ffb53ef43aa8b06b5b55b9aaea1c78612996056d7a7229a33a0a01561284e9"
+		},
+		{
+			"camera": [
+				48.5,
+				12.125
+			],
+			"file": "frames/0097.png",
+			"foot_pixel": [
+				445.800018310547,
+				388.650024414062
+			],
+			"frame": 97,
+			"sha256": "a867055ac8de059e07a773188d94a44d5e37b85e68a0eda43040b7b35bc772f3"
+		},
+		{
+			"camera": [
+				49.0,
+				12.25
+			],
+			"file": "frames/0098.png",
+			"foot_pixel": [
+				445.200012207031,
+				388.5
+			],
+			"frame": 98,
+			"sha256": "4f2a73f4330f229ddaa6c106079b7e572a7395dd4903be99bd48f2da79a7db60"
+		},
+		{
+			"camera": [
+				49.5,
+				12.375
+			],
+			"file": "frames/0099.png",
+			"foot_pixel": [
+				444.600036621094,
+				388.350006103516
+			],
+			"frame": 99,
+			"sha256": "26a3e4cd7c48dfca6010f3886e635a2cb334d9fc1402b7dd9b9a0a317d45d1a5"
+		},
+		{
+			"camera": [
+				50.0,
+				12.5
+			],
+			"file": "frames/0100.png",
+			"foot_pixel": [
+				444.000030517578,
+				388.200012207031
+			],
+			"frame": 100,
+			"sha256": "5bffcf9514aa3fb9915f751d4195328f410216c42b49692d42d472358e1e816b"
+		},
+		{
+			"camera": [
+				50.5,
+				12.625
+			],
+			"file": "frames/0101.png",
+			"foot_pixel": [
+				443.400024414062,
+				388.050018310547
+			],
+			"frame": 101,
+			"sha256": "5f42c52aede843ea45c1892c9377254a3f9fa8615af2a005c5544ea0fd23b60f"
+		},
+		{
+			"camera": [
+				51.0,
+				12.75
+			],
+			"file": "frames/0102.png",
+			"foot_pixel": [
+				442.800018310547,
+				387.900024414062
+			],
+			"frame": 102,
+			"sha256": "215931bbec9f392d94028c0ae427c1b9e09097b837c13b54d50ccd495c8ae280"
+		},
+		{
+			"camera": [
+				51.5,
+				12.875
+			],
+			"file": "frames/0103.png",
+			"foot_pixel": [
+				442.200012207031,
+				387.75
+			],
+			"frame": 103,
+			"sha256": "b6ee00cfc01957e7d1fc77f783c1347ef2bd83974bc06ccb067ca53aa6473729"
+		},
+		{
+			"camera": [
+				52.0,
+				13.0
+			],
+			"file": "frames/0104.png",
+			"foot_pixel": [
+				441.600036621094,
+				387.600006103516
+			],
+			"frame": 104,
+			"sha256": "57047530d268cbf677d4916287e0a7e180951a80e55f7f4037ee14cc6c493650"
+		},
+		{
+			"camera": [
+				52.5,
+				13.125
+			],
+			"file": "frames/0105.png",
+			"foot_pixel": [
+				441.000030517578,
+				387.450012207031
+			],
+			"frame": 105,
+			"sha256": "0cf22d36c01a6954158874bac4775b67fe3a5b45f0492a2a02cc66cd35ee9f1d"
+		},
+		{
+			"camera": [
+				53.0,
+				13.25
+			],
+			"file": "frames/0106.png",
+			"foot_pixel": [
+				440.400024414062,
+				387.300018310547
+			],
+			"frame": 106,
+			"sha256": "346215b7a7a56ee203e31d3a8f4b847c0ab848b078fe077c1a86fe2114992617"
+		},
+		{
+			"camera": [
+				53.5,
+				13.375
+			],
+			"file": "frames/0107.png",
+			"foot_pixel": [
+				439.800018310547,
+				387.150024414062
+			],
+			"frame": 107,
+			"sha256": "1c6508c585a0f9ff3cf258bae3a5ca6fc4b6f4f04f241b4e64396c9c1b362405"
+		},
+		{
+			"camera": [
+				54.0,
+				13.5
+			],
+			"file": "frames/0108.png",
+			"foot_pixel": [
+				439.200012207031,
+				387.0
+			],
+			"frame": 108,
+			"sha256": "b973425a18610d88e5b826d54368a3c13994df464413236b44aac09dcf127550"
+		},
+		{
+			"camera": [
+				54.5,
+				13.625
+			],
+			"file": "frames/0109.png",
+			"foot_pixel": [
+				438.600036621094,
+				386.850006103516
+			],
+			"frame": 109,
+			"sha256": "671c378d263ec207182e7cb51e79ad67d9267d598c752fa0c161428654c277e1"
+		},
+		{
+			"camera": [
+				55.0,
+				13.75
+			],
+			"file": "frames/0110.png",
+			"foot_pixel": [
+				438.000030517578,
+				386.700012207031
+			],
+			"frame": 110,
+			"sha256": "38f35c4d6e16e642199b2348a8526db25dd93404c9d92e8c2ea53ae433676f8a"
+		},
+		{
+			"camera": [
+				55.5,
+				13.875
+			],
+			"file": "frames/0111.png",
+			"foot_pixel": [
+				437.400024414062,
+				386.550018310547
+			],
+			"frame": 111,
+			"sha256": "33b5e5a48a35422ee215cf92c82147476b83dfd876e81d508ecadd6602bdfff2"
+		},
+		{
+			"camera": [
+				56.0,
+				14.0
+			],
+			"file": "frames/0112.png",
+			"foot_pixel": [
+				436.800018310547,
+				386.400024414062
+			],
+			"frame": 112,
+			"sha256": "0b708d6a0b2727d53e440a71ec03e19e0f64e64b1023a82ea52adf23e6032b87"
+		},
+		{
+			"camera": [
+				56.5,
+				14.125
+			],
+			"file": "frames/0113.png",
+			"foot_pixel": [
+				436.200012207031,
+				386.25
+			],
+			"frame": 113,
+			"sha256": "1a46f285397d0271b75ec472cac32b79242e1e0048e148be4ec5d39abd8947c6"
+		},
+		{
+			"camera": [
+				57.0,
+				14.25
+			],
+			"file": "frames/0114.png",
+			"foot_pixel": [
+				435.600036621094,
+				386.100006103516
+			],
+			"frame": 114,
+			"sha256": "8c4821813eb95941809c89be9ef617d3cd35042996f7c5716867bb6de39bab5d"
+		},
+		{
+			"camera": [
+				57.5,
+				14.375
+			],
+			"file": "frames/0115.png",
+			"foot_pixel": [
+				435.000030517578,
+				385.950012207031
+			],
+			"frame": 115,
+			"sha256": "42d57c42da497e19273d7301257e69893698c90308d1fbf201b3256b8af92c40"
+		},
+		{
+			"camera": [
+				58.0,
+				14.5
+			],
+			"file": "frames/0116.png",
+			"foot_pixel": [
+				434.400024414062,
+				385.800018310547
+			],
+			"frame": 116,
+			"sha256": "7caa202afeee0a402dbf92da8a152cd06acffb805c45077600ec3f471bc6f4ae"
+		},
+		{
+			"camera": [
+				58.5,
+				14.625
+			],
+			"file": "frames/0117.png",
+			"foot_pixel": [
+				433.800018310547,
+				385.650024414062
+			],
+			"frame": 117,
+			"sha256": "4b33f54d44bb9c5b7a0a2a0c4f018b4c3d74130b2286cc6078b7a9bdfd3b5ff8"
+		},
+		{
+			"camera": [
+				59.0,
+				14.75
+			],
+			"file": "frames/0118.png",
+			"foot_pixel": [
+				433.200012207031,
+				385.5
+			],
+			"frame": 118,
+			"sha256": "1b9b83387c6adffd96bae11f4d06e8101f955bf1cd415508a7a66d7e172bb11d"
+		},
+		{
+			"camera": [
+				59.5,
+				14.875
+			],
+			"file": "frames/0119.png",
+			"foot_pixel": [
+				432.600036621094,
+				385.350006103516
+			],
+			"frame": 119,
+			"sha256": "4b610061e08bb29a0a6b33db5352b5f8f4fc04863fac09038c313f0d6b57d8c2"
+		}
+	],
+	"native_gameplay": false,
+	"performance_eligible": false,
+	"profile": "Codex-VSHORE-001-Art-d",
+	"renderer": "opengl3",
+	"runtime_integration": false,
+	"schema": 1,
+	"sources": {
+		"res://docs/reports/visual-overhaul/vshore-001/../vart-002/native/hero-current.png": "eb25d98486e859efa2208acdbad772c4251b97bfe8857e880c2ac79ef0631080",
+		"res://docs/reports/visual-overhaul/vshore-001/../vart-008/masters/bank.png": "70ceeda1cb9952fe0294c3e5d8daa4f961f5e588e63e6cca0bd735414ae84489",
+		"res://docs/reports/visual-overhaul/vshore-001/../vart-008/masters/bridge.png": "5ce015d9af6d692997e9200930d015a36bf71337c76d331274eaea97b0fbd2f7",
+		"res://docs/reports/visual-overhaul/vshore-001/../vart-008/masters/ground.png": "6034a6983ddba48f093caddcaf9cdcecc85ae41c8eb01f47be082ff7504ecb82",
+		"res://docs/reports/visual-overhaul/vshore-001/../vart-008/masters/meadow.png": "c7c36f6d5c83b791fcf42bf6338ff6d862a26fea15c55103268e278fc868efe1",
+		"res://docs/reports/visual-overhaul/vshore-001/masters/bridge-deck-wide-v2.png": "0f382a21254597b16b9a709eb061c17a15530cf689e5d4522fff93baa8dea24f",
+		"res://docs/reports/visual-overhaul/vshore-001/masters/stone-bank-v3.png": "568616a82dff3481a5f3e105bcab59fe45261c3c0a5a56f25da1d957eb3205f1",
+		"res://docs/reports/visual-overhaul/vshore-001/profile.json": "a9c2706945b266ff25c12b49530316fa59453c595a9be2b1dd36813496ff7a1c",
+		"res://docs/reports/visual-overhaul/vshore-001/source.json": "22a2c64a7d0ab4039e9d509371d6fccd96001463741f17b99aabbbd6123197e2",
+		"res://scripts/systems/water_layout_data.gd": "83a678f0fc3dd8d12e9cf2ff3ecef82a0419a35267a4779af095664256164a1e",
+		"res://scripts/systems/water_map_registry.gd": "f2f72af8f1b06a27d96e5c4ebae7c33c08a48e4f4b677e9be134063b9fa6e817",
+		"res://scripts/systems/water_topology.gd": "7de3f78d9a214ec496035c168aeca34c503d96ed8e99f4dafbe584185e890487",
+		"res://tools/shore_kit_canvas.gd": "0d0555359b58fc4cb5652b1b68fc89d40091d0147cfc6aae09f657a0900086f9",
+		"res://tools/shore_kit_capture.gd": "e4fdce42684be4183aae47cf790b5acd8bc741817321037c78a2f59395f655ec"
+	},
+	"target": [
+		1152,
+		648
+	],
+	"texture_filter": "linear_with_mipmaps",
+	"texture_loads_inside_draw": 0,
+	"zoom": 1.2
+}

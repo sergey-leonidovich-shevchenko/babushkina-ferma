@@ -1,0 +1,741 @@
+{
+  "schema": 1,
+  "task": "VSHORE-001",
+  "status": "accepted_art_study",
+  "base_commit": "333037d769dfe6fed8cc13c3e3c46ac9e3dda888",
+  "scope": "isolated-overworld-shore-art-study",
+  "runtime_integration": false,
+  "autotile_complete": false,
+  "performance_eligible": false,
+  "art_direction": {
+    "style": "VART-001 A",
+    "palette": "VART-003 A",
+    "edge": "VART-005 A",
+    "density": "VART-006 B",
+    "light": "VART-007 A"
+  },
+  "target": [
+    1152,
+    648
+  ],
+  "field": [
+    960,
+    540
+  ],
+  "zoom": 1.2,
+  "grid": 24,
+  "parts": [
+    {
+      "id": "stone-n",
+      "label": "Суша сверху",
+      "source": "masters/stone-bank-v3.png",
+      "rect": [
+        0,
+        0,
+        314,
+        314
+      ],
+      "pivot": [
+        156,
+        214
+      ],
+      "scale": 0.32,
+      "rotation": 0,
+      "flip": [
+        1,
+        1
+      ],
+      "family": "stone",
+      "kind": "straight",
+      "footprint": null
+    },
+    {
+      "id": "stone-e",
+      "label": "Суша справа",
+      "source": "masters/stone-bank-v3.png",
+      "rect": [
+        314,
+        0,
+        313,
+        314
+      ],
+      "pivot": [
+        129,
+        156
+      ],
+      "scale": 0.32,
+      "rotation": 0,
+      "flip": [
+        1,
+        1
+      ],
+      "family": "stone",
+      "kind": "straight",
+      "footprint": null
+    },
+    {
+      "id": "stone-s",
+      "label": "Суша снизу",
+      "source": "masters/stone-bank-v3.png",
+      "rect": [
+        627,
+        0,
+        313,
+        314
+      ],
+      "pivot": [
+        156,
+        142
+      ],
+      "scale": 0.32,
+      "rotation": 0,
+      "flip": [
+        1,
+        1
+      ],
+      "family": "stone",
+      "kind": "straight",
+      "footprint": null
+    },
+    {
+      "id": "stone-w",
+      "label": "Суша слева",
+      "source": "masters/stone-bank-v3.png",
+      "rect": [
+        940,
+        0,
+        314,
+        314
+      ],
+      "pivot": [
+        223,
+        156
+      ],
+      "scale": 0.32,
+      "rotation": 0,
+      "flip": [
+        1,
+        1
+      ],
+      "family": "stone",
+      "kind": "straight",
+      "footprint": null
+    },
+    {
+      "id": "turn-a-0",
+      "label": "Поворот A1",
+      "source": "masters/stone-bank-v3.png",
+      "rect": [
+        0,
+        314,
+        314,
+        313
+      ],
+      "pivot": [
+        157.0,
+        156.5
+      ],
+      "scale": 0.32,
+      "rotation": 0,
+      "flip": [
+        1,
+        1
+      ],
+      "family": "stone",
+      "kind": "turn-study",
+      "footprint": null
+    },
+    {
+      "id": "turn-a-1",
+      "label": "Поворот A2",
+      "source": "masters/stone-bank-v3.png",
+      "rect": [
+        314,
+        314,
+        313,
+        313
+      ],
+      "pivot": [
+        156.5,
+        156.5
+      ],
+      "scale": 0.32,
+      "rotation": 0,
+      "flip": [
+        1,
+        1
+      ],
+      "family": "stone",
+      "kind": "turn-study",
+      "footprint": null
+    },
+    {
+      "id": "turn-a-2",
+      "label": "Поворот A3",
+      "source": "masters/stone-bank-v3.png",
+      "rect": [
+        627,
+        314,
+        313,
+        313
+      ],
+      "pivot": [
+        156.5,
+        156.5
+      ],
+      "scale": 0.32,
+      "rotation": 0,
+      "flip": [
+        1,
+        1
+      ],
+      "family": "stone",
+      "kind": "turn-study",
+      "footprint": null
+    },
+    {
+      "id": "turn-a-3",
+      "label": "Поворот A4",
+      "source": "masters/stone-bank-v3.png",
+      "rect": [
+        940,
+        314,
+        314,
+        313
+      ],
+      "pivot": [
+        157.0,
+        156.5
+      ],
+      "scale": 0.32,
+      "rotation": 0,
+      "flip": [
+        1,
+        1
+      ],
+      "family": "stone",
+      "kind": "turn-study",
+      "footprint": null
+    },
+    {
+      "id": "turn-b-0",
+      "label": "Поворот B1",
+      "source": "masters/stone-bank-v3.png",
+      "rect": [
+        0,
+        627,
+        314,
+        313
+      ],
+      "pivot": [
+        157.0,
+        156.5
+      ],
+      "scale": 0.32,
+      "rotation": 0,
+      "flip": [
+        1,
+        1
+      ],
+      "family": "stone",
+      "kind": "turn-study",
+      "footprint": null
+    },
+    {
+      "id": "turn-b-1",
+      "label": "Поворот B2",
+      "source": "masters/stone-bank-v3.png",
+      "rect": [
+        314,
+        627,
+        313,
+        313
+      ],
+      "pivot": [
+        156.5,
+        156.5
+      ],
+      "scale": 0.32,
+      "rotation": 0,
+      "flip": [
+        1,
+        1
+      ],
+      "family": "stone",
+      "kind": "turn-study",
+      "footprint": null
+    },
+    {
+      "id": "turn-b-2",
+      "label": "Поворот B3",
+      "source": "masters/stone-bank-v3.png",
+      "rect": [
+        627,
+        627,
+        313,
+        313
+      ],
+      "pivot": [
+        156.5,
+        156.5
+      ],
+      "scale": 0.32,
+      "rotation": 0,
+      "flip": [
+        1,
+        1
+      ],
+      "family": "stone",
+      "kind": "turn-study",
+      "footprint": null
+    },
+    {
+      "id": "turn-b-3",
+      "label": "Поворот B4",
+      "source": "masters/stone-bank-v3.png",
+      "rect": [
+        940,
+        627,
+        314,
+        313
+      ],
+      "pivot": [
+        157.0,
+        156.5
+      ],
+      "scale": 0.32,
+      "rotation": 0,
+      "flip": [
+        1,
+        1
+      ],
+      "family": "stone",
+      "kind": "turn-study",
+      "footprint": null
+    },
+    {
+      "id": "bridge-end-w",
+      "label": "Торец слева",
+      "source": "masters/stone-bank-v3.png",
+      "rect": [
+        0,
+        940,
+        314,
+        314
+      ],
+      "pivot": [
+        157.0,
+        157.0
+      ],
+      "scale": 0.32,
+      "rotation": 0,
+      "flip": [
+        1,
+        1
+      ],
+      "family": "stone",
+      "kind": "bridge-end",
+      "footprint": null
+    },
+    {
+      "id": "bridge-end-e",
+      "label": "Торец справа",
+      "source": "masters/stone-bank-v3.png",
+      "rect": [
+        314,
+        940,
+        313,
+        314
+      ],
+      "pivot": [
+        156.5,
+        157.0
+      ],
+      "scale": 0.32,
+      "rotation": 0,
+      "flip": [
+        1,
+        1
+      ],
+      "family": "stone",
+      "kind": "bridge-end",
+      "footprint": null
+    },
+    {
+      "id": "stone-earth-e",
+      "label": "К земле справа",
+      "source": "masters/stone-bank-v3.png",
+      "rect": [
+        627,
+        940,
+        313,
+        314
+      ],
+      "pivot": [
+        156.5,
+        157.0
+      ],
+      "scale": 0.32,
+      "rotation": 0,
+      "flip": [
+        1,
+        1
+      ],
+      "family": "stone",
+      "kind": "transition",
+      "footprint": null
+    },
+    {
+      "id": "stone-earth-w",
+      "label": "К земле слева",
+      "source": "masters/stone-bank-v3.png",
+      "rect": [
+        940,
+        940,
+        314,
+        314
+      ],
+      "pivot": [
+        157.0,
+        157.0
+      ],
+      "scale": 0.32,
+      "rotation": 0,
+      "flip": [
+        1,
+        1
+      ],
+      "family": "stone",
+      "kind": "transition",
+      "footprint": null
+    },
+    {
+      "id": "meadow",
+      "source": "../vart-008/masters/meadow.png",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "scale": 0.375,
+      "pivot": [
+        0,
+        0
+      ],
+      "kind": "material",
+      "footprint": null,
+      "rotation": 0,
+      "facing": "neutral",
+      "family": "reference",
+      "label": "meadow",
+      "flip": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "earth",
+      "source": "../vart-008/masters/ground.png",
+      "rect": [
+        512,
+        0,
+        512,
+        1024
+      ],
+      "scale": 0.375,
+      "pivot": [
+        0,
+        0
+      ],
+      "kind": "material",
+      "footprint": null,
+      "rotation": 0,
+      "facing": "neutral",
+      "family": "reference",
+      "label": "earth",
+      "flip": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "water",
+      "source": "../vart-008/masters/ground.png",
+      "rect": [
+        1024,
+        0,
+        512,
+        1024
+      ],
+      "scale": 0.375,
+      "pivot": [
+        0,
+        0
+      ],
+      "kind": "material",
+      "footprint": null,
+      "rotation": 0,
+      "facing": "neutral",
+      "family": "reference",
+      "label": "water",
+      "flip": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "bank-h",
+      "source": "../vart-008/masters/bank.png",
+      "rect": [
+        30,
+        170,
+        1020,
+        240
+      ],
+      "scale": 0.18,
+      "pivot": [
+        510,
+        120
+      ],
+      "kind": "bank",
+      "footprint": null,
+      "rotation": 0,
+      "facing": "neutral",
+      "family": "reference",
+      "label": "bank-h",
+      "flip": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "bank-v",
+      "source": "../vart-008/masters/bank.png",
+      "rect": [
+        1090,
+        0,
+        260,
+        510
+      ],
+      "scale": 0.18,
+      "pivot": [
+        100,
+        255
+      ],
+      "kind": "bank",
+      "footprint": null,
+      "rotation": 0,
+      "facing": "neutral",
+      "family": "reference",
+      "label": "bank-v",
+      "flip": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "bank-outer",
+      "source": "../vart-008/masters/bank.png",
+      "rect": [
+        180,
+        510,
+        550,
+        450
+      ],
+      "scale": 0.18,
+      "pivot": [
+        275,
+        225
+      ],
+      "kind": "bank",
+      "footprint": null,
+      "rotation": 0,
+      "facing": "neutral",
+      "family": "reference",
+      "label": "bank-outer",
+      "flip": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "bank-inner",
+      "source": "../vart-008/masters/bank.png",
+      "rect": [
+        890,
+        510,
+        600,
+        490
+      ],
+      "scale": 0.18,
+      "pivot": [
+        300,
+        245
+      ],
+      "kind": "bank",
+      "footprint": null,
+      "rotation": 0,
+      "facing": "neutral",
+      "family": "reference",
+      "label": "bank-inner",
+      "flip": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "bridge-deck",
+      "source": "../vart-008/masters/bridge.png",
+      "rect": [
+        20,
+        60,
+        1490,
+        370
+      ],
+      "scale": 0.13714285714285715,
+      "pivot": [
+        748,
+        190
+      ],
+      "kind": "bridge",
+      "footprint": [
+        192,
+        48
+      ],
+      "rotation": 0,
+      "facing": "down",
+      "family": "reference",
+      "label": "bridge-deck",
+      "flip": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "bridge-rail",
+      "source": "../vart-008/masters/bridge.png",
+      "rect": [
+        30,
+        470,
+        1480,
+        240
+      ],
+      "scale": 0.13714285714285715,
+      "pivot": [
+        738,
+        210
+      ],
+      "kind": "bridge",
+      "footprint": null,
+      "rotation": 0,
+      "facing": "down",
+      "family": "reference",
+      "label": "bridge-rail",
+      "flip": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "footing-a",
+      "source": "../vart-008/masters/bridge.png",
+      "rect": [
+        330,
+        740,
+        300,
+        230
+      ],
+      "scale": 0.13714285714285715,
+      "pivot": [
+        145,
+        115
+      ],
+      "kind": "bridge",
+      "footprint": null,
+      "rotation": 0,
+      "facing": "down",
+      "family": "reference",
+      "label": "footing-a",
+      "flip": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "footing-b",
+      "source": "../vart-008/masters/bridge.png",
+      "rect": [
+        920,
+        740,
+        300,
+        230
+      ],
+      "scale": 0.13714285714285715,
+      "pivot": [
+        140,
+        115
+      ],
+      "kind": "bridge",
+      "footprint": null,
+      "rotation": 0,
+      "facing": "down",
+      "family": "reference",
+      "label": "footing-b",
+      "flip": [
+        1,
+        1
+      ]
+    }
+  ],
+  "hero": {
+    "source": "../vart-002/native/hero-current.png",
+    "pivot": [
+      96,
+      160
+    ],
+    "scale": 1.0
+  },
+  "scene": {
+    "river": [
+      456,
+      -144,
+      144,
+      864
+    ],
+    "bridge": [
+      432,
+      312,
+      192,
+      48
+    ],
+    "hero_feet": [
+      420,
+      336
+    ],
+    "camera": [
+      0,
+      0
+    ],
+    "time": "frozen, day, clear",
+    "seed": 20261020
+  },
+  "motion": {
+    "frames": 120,
+    "fps": 30,
+    "camera_delta_per_frame": [
+      0.5,
+      0.125
+    ],
+    "fixed_capture_clock": true,
+    "native_gameplay": false
+  },
+  "remaining": [
+    "Full WaterTopology neighbor mapping and seamless joins: VSHORE-003 / WATER-04",
+    "Underwater floor and animated surface: VSHORE-002 / VSHORE-005",
+    "Runtime bridge orientation and navigation: VGROUND / VCOMPAT",
+    "Release performance: VPERF / VRELEASE-004"
+  ],
+  "decision_date": "2026-10-20",
+  "decision": "Самостоятельный выбор по AGENTS.md: низкий камень у деревни, земляной край для природных участков; без ожидания A/B."
+}
