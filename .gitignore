@@ -290,3 +290,11 @@ assets/inbox/*
 !tools/perf_contract_collect.py
 !tools/perf_contract.py
 !tools/test_perf_contract.py
+
+# VRENDER-001: command inventory and native preservation observers.
+!tools/render_order.py
+!tools/render_order_game.gd
+!tools/render_order_game.gd.uid
+!tools/render_order_capture.gd
+!tools/render_order_capture.gd.uid
+!tools/test_render_order.py

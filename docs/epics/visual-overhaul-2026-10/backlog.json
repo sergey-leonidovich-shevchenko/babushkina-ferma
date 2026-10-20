@@ -1160,7 +1160,7 @@
       "id": "VRENDER-001",
       "epic": "VRENDER",
       "title": "Описать порядок команд кадра",
-      "status": "backlog",
+      "status": "done",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -1195,14 +1195,21 @@
         "confidence": "low",
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
-      "branch": "codex/vrender-001-visual-task",
-      "evidence": []
+      "branch": "codex/vrender-001-render-order",
+      "evidence": [
+        "docs/reports/visual-overhaul/vrender-001/README.md",
+        "docs/reports/visual-overhaul/vrender-001/contract.json",
+        "docs/reports/visual-overhaul/vrender-001/summary.json",
+        "docs/reports/visual-overhaul/vrender-001/native/source.json",
+        "docs/reports/visual-overhaul/vrender-001/browser-review.json"
+      ],
+      "result": "Зафиксирован production-порядок от WorldBackground до recovery notice: 94 методных упоминания с guards, координаты и фактически null-материалы. В двух нативных процессах/окнах 1152x648 и 1280x720 проверены 18 baseline/observed пар и 72 draw callbacks: сохранённые данные, геометрия и пиксели совпали полностью. Настоящая яблоня найдена по данным, альфа за/перед ней 0,34/1; старые перила явно остаются в грунте. 15 профильных сценариев и 66 Wiki-тестов, браузер: три изображения, три точных JSON, узкая ширина. История привязана к Git-базе и архиву, не текущей версии. Новые shader/batching, FPS, другие карты и VMAP-003 не закрыты."
     },
     {
       "id": "VRENDER-002",
       "epic": "VRENDER",
       "title": "Сравнить три способа эффекта травы",
-      "status": "backlog",
+      "status": "ready",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",

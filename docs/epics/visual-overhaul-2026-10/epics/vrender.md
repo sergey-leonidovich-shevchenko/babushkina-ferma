@@ -6,11 +6,11 @@
 
 ## VRENDER-001 — Описать порядок команд кадра
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `done` · P0 · этап `foundation` · `engineering`
 
 От земли до HUD перечислены реальные вызовы, материал и система координат; зависимости переднего плана сохранены
 
-Ветка: `codex/vrender-001-visual-task`.
+Ветка: `codex/vrender-001-render-order`.
 
 Зависимости: VBASE-001.
 
@@ -22,7 +22,7 @@
 - [scripts/world_background.gd](../../../../scripts/world_background.gd)
 - [scripts/presentation/village_terrain_canvas.gd](../../../../scripts/presentation/village_terrain_canvas.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vrender-001/`.
+Результаты: `docs/reports/visual-overhaul/vrender-001/`.
 
 Критерии:
 
@@ -40,13 +40,13 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vrender-001/README.md, docs/reports/visual-overhaul/vrender-001/contract.json, docs/reports/visual-overhaul/vrender-001/summary.json, docs/reports/visual-overhaul/vrender-001/native/source.json, docs/reports/visual-overhaul/vrender-001/browser-review.json.
 
 <a id="vrender-002"></a>
 
 ## VRENDER-002 — Сравнить три способа эффекта травы
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 Один участок сравнивает CPU mesh, отдельный CanvasItem и пакетную геометрию; ADR содержит стоимость и отклонённые варианты
 

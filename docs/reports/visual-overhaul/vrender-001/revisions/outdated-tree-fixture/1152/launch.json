@@ -1,0 +1,24 @@
+{
+  "command": [
+    "open",
+    "-n",
+    "-W",
+    "-a",
+    "/Users/sergeyshevchenko/my farm/tools/Godot.app",
+    "--args",
+    "--path",
+    "/Users/sergeyshevchenko/my farm",
+    "--windowed",
+    "--audio-driver",
+    "Dummy",
+    "--log-file",
+    "/private/tmp/vrender-001-native-b/1152/engine.txt",
+    "--script",
+    "res://tools/render_order_capture.gd",
+    "--",
+    "--output=/private/tmp/vrender-001-native-b/1152/frames",
+    "--profile=Codex-VRENDER-001-367d9a42d2844b36b7c8baaf125f20c4"
+  ],
+  "exit_code": 0,
+  "profile": "Codex-VRENDER-001-367d9a42d2844b36b7c8baaf125f20c4"
+}

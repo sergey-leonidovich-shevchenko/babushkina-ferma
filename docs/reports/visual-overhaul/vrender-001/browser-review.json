@@ -1,0 +1,12 @@
+{
+  "task": "VRENDER-001",
+  "download_sha256": {
+    "contract.json": "0aacc0d5a3f8815f6a3729e8c804d86f90d5f29db2e93b3b436ff0ccd53aa7c6",
+    "summary.json": "a8b33fe1ea335b55d13195c79cc2097cdeeca2dc6f68525603d9d238e24c19e3",
+    "native/source.json": "821ec9377164eddcc9a11b83a39609cab7d5cf4194d31106d4a094afaa984a46"
+  },
+  "images_loaded": 3,
+  "narrow_width": 390,
+  "narrow_body_width": 390,
+  "viewport_restored": true
+}

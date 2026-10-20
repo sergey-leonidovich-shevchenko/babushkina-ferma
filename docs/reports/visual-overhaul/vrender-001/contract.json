@@ -1,0 +1,787 @@
+{
+  "task": "VRENDER-001",
+  "base_commit": "79070100ede18dfa91f815180f9d18ae911bcab7",
+  "sources": {
+    "main.tscn": "850e050bc3df4971ec130b5b0a39dba6aa71082ce2fc20607dd504a3d55c98a9",
+    "project.godot": "31f01801638a168930224dedcbba5c6edbe30fbd236e273bd8939085b99aae8f",
+    "scripts/systems/render_system.gd": "cd71f96cd3d23d8a2d114ba9b1a8c7fa2ac367e981aace123264644dca8ba62b",
+    "scripts/game_renderer.gd": "7bcc4356ed928984a7d4d272dc6c43d5272929b621f39a97b76e9f45b6e8dd7e",
+    "scripts/world_background.gd": "54f8c950b6675993f75021b75b31756c9c868d27c8ec21e1e9a7e3661ebf024f",
+    "scripts/presentation/village_terrain_canvas.gd": "d61bf943bd941640fa3fe489788545faac353e9decfec167ee754fcb2de9302d",
+    "scripts/systems/world_projection_system.gd": "ef0a09d213489832ceceb79310114ad9e80d9ee5666ff31b34d75f26b510923a",
+    "scripts/systems/tree_occlusion_system.gd": "23ab0f9acf423baa1b725c160a6290fccb566e8bb97e27a798fed776f8ade342",
+    "scripts/systems/orchard_system.gd": "cf2ae7b8e5d584aaab2fa79ddf4adb62a16f099512c900552f9f07b233d18d63",
+    "scripts/systems/village_foreground_renderer.gd": "3d19888fa74318aff35dddcab0fc4531ce5e1ee691d15f2b4a675e678e3bf70c",
+    "scripts/systems/village_prop_renderer.gd": "a74e4336d9fa139d898480b6f2ab8a450799928261f7128cea7bce2ac9d54088",
+    "scripts/systems/village_terrain_renderer.gd": "ba235a7e9e9fe4f7169b1716f496468e5f76a83ddf99d9c4279a17fc7fa8ffb4",
+    "scripts/presentation/village_region_renderer.gd": "6d013866d17447b2518059f24b88b8d0dcaff28b0cf36437c2404fa11c8a34a1",
+    "scripts/presentation/visual_reference_mode.gd": "95919eb8ca14b9893a78220dcecf1479ad5691895646595d4482fde8e3904c8e",
+    "scripts/systems/save_system.gd": "1fa54fd78cbfcba2188d22b78f05c0270808069b2223237145a116e061d86e10",
+    "tools/visual_camera_points.gd": "2c3e44fd91c7a3ed1ce93f448d0447127955db5380b9f86c5325b8e2894220b7",
+    "tools/render_order_game.gd": "662ad6e5af52bc95eb8d2804a7390ee5007caa88325aca2f7835873243a0000b",
+    "tools/render_order_capture.gd": "ed8c1e21a42df0222639b3f1ab08a9ea1d89b29359f780c20efaf903bcdbc7da",
+    "tools/render_order.py": "0381b18ec877eacfc4f76ba74952897cbcf20a832d144dd92bd2154065c722a3"
+  },
+  "calls": [
+    {
+      "function": "draw",
+      "line": 13,
+      "receiver": "game",
+      "method": "draw_language_screen",
+      "source": "game.draw_language_screen(); game.UiFeedbackRenderer.draw(game); return",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 13,
+      "receiver": "game.UiFeedbackRenderer",
+      "method": "draw",
+      "source": "game.draw_language_screen(); game.UiFeedbackRenderer.draw(game); return",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 15,
+      "receiver": "game",
+      "method": "draw_title_screen",
+      "source": "game.draw_title_screen(); game.UiFeedbackRenderer.draw(game); return",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 15,
+      "receiver": "game.UiFeedbackRenderer",
+      "method": "draw",
+      "source": "game.draw_title_screen(); game.UiFeedbackRenderer.draw(game); return",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 17,
+      "receiver": "game",
+      "method": "draw_set_transform",
+      "source": "game.draw_set_transform(Vector2.ZERO); draw_screen(game,false); return",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 18,
+      "receiver": "TreeOcclusion",
+      "method": "begin_frame",
+      "source": "TreeOcclusion.begin_frame(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 19,
+      "receiver": "WorldProjection",
+      "method": "apply",
+      "source": "WorldProjection.apply(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 20,
+      "receiver": "game.BuildingSystem",
+      "method": "is_interior",
+      "source": "if game.BuildingSystem.is_interior(game.current_location):",
+      "drawing_or_transform": false
+    },
+    {
+      "function": "draw",
+      "line": 21,
+      "receiver": "game",
+      "method": "draw_interior_objects",
+      "source": "game.draw_interior_objects(); game.draw_quest_npcs()",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 21,
+      "receiver": "game",
+      "method": "draw_quest_npcs",
+      "source": "game.draw_interior_objects(); game.draw_quest_npcs()",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 23,
+      "receiver": "game.VillageAmbientRenderer",
+      "method": "draw_ground",
+      "source": "game.VillageAmbientRenderer.draw_ground(game); game.draw_farm(); VillagePropRenderer.draw(game,false); game.draw_rpg_world()",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 23,
+      "receiver": "game",
+      "method": "draw_farm",
+      "source": "game.VillageAmbientRenderer.draw_ground(game); game.draw_farm(); VillagePropRenderer.draw(game,false); game.draw_rpg_world()",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 23,
+      "receiver": "VillagePropRenderer",
+      "method": "draw",
+      "source": "game.VillageAmbientRenderer.draw_ground(game); game.draw_farm(); VillagePropRenderer.draw(game,false); game.draw_rpg_world()",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 23,
+      "receiver": "game",
+      "method": "draw_rpg_world",
+      "source": "game.VillageAmbientRenderer.draw_ground(game); game.draw_farm(); VillagePropRenderer.draw(game,false); game.draw_rpg_world()",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 25,
+      "receiver": "game",
+      "method": "draw_farm",
+      "source": "game.draw_farm()",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 26,
+      "receiver": "preload(\"res://scripts/presentation/village_region_renderer.gd\")",
+      "method": "draw_ground",
+      "source": "preload(\"res://scripts/presentation/village_region_renderer.gd\").draw_ground(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 27,
+      "receiver": "preload(\"res://scripts/presentation/village_region_renderer.gd\")",
+      "method": "draw_objects",
+      "source": "preload(\"res://scripts/presentation/village_region_renderer.gd\").draw_objects(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 28,
+      "receiver": "game",
+      "method": "draw_fishing_animations",
+      "source": "if game.current_location in [\"overworld\",\"village_river\"]: game.draw_fishing_animations()",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 29,
+      "receiver": "game.EnvironmentVisualSystem",
+      "method": "draw_biome_trees",
+      "source": "game.EnvironmentVisualSystem.draw_biome_trees(game, game.current_location)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 30,
+      "receiver": "CaveRenderer",
+      "method": "draw_lights",
+      "source": "CaveRenderer.draw_lights(game); BossRenderer.draw_ground(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 30,
+      "receiver": "BossRenderer",
+      "method": "draw_ground",
+      "source": "CaveRenderer.draw_lights(game); BossRenderer.draw_ground(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 31,
+      "receiver": "game.PublishedLevelRenderer",
+      "method": "draw_layer",
+      "source": "game.PublishedLevelRenderer.draw_layer(game,\"background\"); game.PublishedLevelRenderer.draw_layer(game,\"ground\"); game.LevelEditorRenderer.draw_layer(game,\"background\"); game.LevelEditorRenderer.draw_layer(game,\"ground\")",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 31,
+      "receiver": "game.PublishedLevelRenderer",
+      "method": "draw_layer",
+      "source": "game.PublishedLevelRenderer.draw_layer(game,\"background\"); game.PublishedLevelRenderer.draw_layer(game,\"ground\"); game.LevelEditorRenderer.draw_layer(game,\"background\"); game.LevelEditorRenderer.draw_layer(game,\"ground\")",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 31,
+      "receiver": "game.LevelEditorRenderer",
+      "method": "draw_layer",
+      "source": "game.PublishedLevelRenderer.draw_layer(game,\"background\"); game.PublishedLevelRenderer.draw_layer(game,\"ground\"); game.LevelEditorRenderer.draw_layer(game,\"background\"); game.LevelEditorRenderer.draw_layer(game,\"ground\")",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 31,
+      "receiver": "game.LevelEditorRenderer",
+      "method": "draw_layer",
+      "source": "game.PublishedLevelRenderer.draw_layer(game,\"background\"); game.PublishedLevelRenderer.draw_layer(game,\"ground\"); game.LevelEditorRenderer.draw_layer(game,\"background\"); game.LevelEditorRenderer.draw_layer(game,\"ground\")",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 32,
+      "receiver": "game.BuildingSystem",
+      "method": "is_interior",
+      "source": "if not game.BuildingSystem.is_interior(game.current_location):",
+      "drawing_or_transform": false
+    },
+    {
+      "function": "draw",
+      "line": 33,
+      "receiver": "game",
+      "method": "draw_buildings",
+      "source": "game.draw_buildings(); game.draw_world_events(); game.VillageEventRenderer.draw(game); game.draw_quest_npcs()",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 33,
+      "receiver": "game",
+      "method": "draw_world_events",
+      "source": "game.draw_buildings(); game.draw_world_events(); game.VillageEventRenderer.draw(game); game.draw_quest_npcs()",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 33,
+      "receiver": "game.VillageEventRenderer",
+      "method": "draw",
+      "source": "game.draw_buildings(); game.draw_world_events(); game.VillageEventRenderer.draw(game); game.draw_quest_npcs()",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 33,
+      "receiver": "game",
+      "method": "draw_quest_npcs",
+      "source": "game.draw_buildings(); game.draw_world_events(); game.VillageEventRenderer.draw(game); game.draw_quest_npcs()",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 34,
+      "receiver": "game.CastleCampaignRenderer",
+      "method": "draw",
+      "source": "game.CastleCampaignRenderer.draw(game); game.draw_hazards(); game.draw_enemy_nodes_and_gate(); BossRenderer.draw_actors(game); game.draw_tree_nodes(); game.draw_resource_nodes(); game.draw_food_nodes(); game.draw_world_loot(); game.draw_wildlife(); game.draw_dropped_items(); FishingRenderer.draw_traps(game); game.draw_companions(); game.FarmLifeRenderer.draw_world(game); game.FirstChapterRenderer.draw_world(game); game.FenceRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"objects\"); game.LevelEditorRenderer.draw_layer(game,\"objects\"); game.draw_player(); preload(\"res://scripts/systems/livestock_renderer.gd\").draw(game,true); BossRenderer.draw_front(game); CaveRenderer.draw_foreground(game); game.SpellRenderer.draw_world(game); game.InteriorRenderer.draw_foreground(game); game.VillageForegroundRenderer.draw(game); game.AdventurePolishRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"foreground\"); game.LevelEditorRenderer.draw_layer(game,\"foreground\"); game.DebugPlaygroundRenderer.draw_world_overlay(game); game.DebugOverlayRenderer.draw_world(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 34,
+      "receiver": "game",
+      "method": "draw_hazards",
+      "source": "game.CastleCampaignRenderer.draw(game); game.draw_hazards(); game.draw_enemy_nodes_and_gate(); BossRenderer.draw_actors(game); game.draw_tree_nodes(); game.draw_resource_nodes(); game.draw_food_nodes(); game.draw_world_loot(); game.draw_wildlife(); game.draw_dropped_items(); FishingRenderer.draw_traps(game); game.draw_companions(); game.FarmLifeRenderer.draw_world(game); game.FirstChapterRenderer.draw_world(game); game.FenceRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"objects\"); game.LevelEditorRenderer.draw_layer(game,\"objects\"); game.draw_player(); preload(\"res://scripts/systems/livestock_renderer.gd\").draw(game,true); BossRenderer.draw_front(game); CaveRenderer.draw_foreground(game); game.SpellRenderer.draw_world(game); game.InteriorRenderer.draw_foreground(game); game.VillageForegroundRenderer.draw(game); game.AdventurePolishRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"foreground\"); game.LevelEditorRenderer.draw_layer(game,\"foreground\"); game.DebugPlaygroundRenderer.draw_world_overlay(game); game.DebugOverlayRenderer.draw_world(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 34,
+      "receiver": "game",
+      "method": "draw_enemy_nodes_and_gate",
+      "source": "game.CastleCampaignRenderer.draw(game); game.draw_hazards(); game.draw_enemy_nodes_and_gate(); BossRenderer.draw_actors(game); game.draw_tree_nodes(); game.draw_resource_nodes(); game.draw_food_nodes(); game.draw_world_loot(); game.draw_wildlife(); game.draw_dropped_items(); FishingRenderer.draw_traps(game); game.draw_companions(); game.FarmLifeRenderer.draw_world(game); game.FirstChapterRenderer.draw_world(game); game.FenceRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"objects\"); game.LevelEditorRenderer.draw_layer(game,\"objects\"); game.draw_player(); preload(\"res://scripts/systems/livestock_renderer.gd\").draw(game,true); BossRenderer.draw_front(game); CaveRenderer.draw_foreground(game); game.SpellRenderer.draw_world(game); game.InteriorRenderer.draw_foreground(game); game.VillageForegroundRenderer.draw(game); game.AdventurePolishRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"foreground\"); game.LevelEditorRenderer.draw_layer(game,\"foreground\"); game.DebugPlaygroundRenderer.draw_world_overlay(game); game.DebugOverlayRenderer.draw_world(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 34,
+      "receiver": "BossRenderer",
+      "method": "draw_actors",
+      "source": "game.CastleCampaignRenderer.draw(game); game.draw_hazards(); game.draw_enemy_nodes_and_gate(); BossRenderer.draw_actors(game); game.draw_tree_nodes(); game.draw_resource_nodes(); game.draw_food_nodes(); game.draw_world_loot(); game.draw_wildlife(); game.draw_dropped_items(); FishingRenderer.draw_traps(game); game.draw_companions(); game.FarmLifeRenderer.draw_world(game); game.FirstChapterRenderer.draw_world(game); game.FenceRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"objects\"); game.LevelEditorRenderer.draw_layer(game,\"objects\"); game.draw_player(); preload(\"res://scripts/systems/livestock_renderer.gd\").draw(game,true); BossRenderer.draw_front(game); CaveRenderer.draw_foreground(game); game.SpellRenderer.draw_world(game); game.InteriorRenderer.draw_foreground(game); game.VillageForegroundRenderer.draw(game); game.AdventurePolishRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"foreground\"); game.LevelEditorRenderer.draw_layer(game,\"foreground\"); game.DebugPlaygroundRenderer.draw_world_overlay(game); game.DebugOverlayRenderer.draw_world(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 34,
+      "receiver": "game",
+      "method": "draw_tree_nodes",
+      "source": "game.CastleCampaignRenderer.draw(game); game.draw_hazards(); game.draw_enemy_nodes_and_gate(); BossRenderer.draw_actors(game); game.draw_tree_nodes(); game.draw_resource_nodes(); game.draw_food_nodes(); game.draw_world_loot(); game.draw_wildlife(); game.draw_dropped_items(); FishingRenderer.draw_traps(game); game.draw_companions(); game.FarmLifeRenderer.draw_world(game); game.FirstChapterRenderer.draw_world(game); game.FenceRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"objects\"); game.LevelEditorRenderer.draw_layer(game,\"objects\"); game.draw_player(); preload(\"res://scripts/systems/livestock_renderer.gd\").draw(game,true); BossRenderer.draw_front(game); CaveRenderer.draw_foreground(game); game.SpellRenderer.draw_world(game); game.InteriorRenderer.draw_foreground(game); game.VillageForegroundRenderer.draw(game); game.AdventurePolishRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"foreground\"); game.LevelEditorRenderer.draw_layer(game,\"foreground\"); game.DebugPlaygroundRenderer.draw_world_overlay(game); game.DebugOverlayRenderer.draw_world(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 34,
+      "receiver": "game",
+      "method": "draw_resource_nodes",
+      "source": "game.CastleCampaignRenderer.draw(game); game.draw_hazards(); game.draw_enemy_nodes_and_gate(); BossRenderer.draw_actors(game); game.draw_tree_nodes(); game.draw_resource_nodes(); game.draw_food_nodes(); game.draw_world_loot(); game.draw_wildlife(); game.draw_dropped_items(); FishingRenderer.draw_traps(game); game.draw_companions(); game.FarmLifeRenderer.draw_world(game); game.FirstChapterRenderer.draw_world(game); game.FenceRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"objects\"); game.LevelEditorRenderer.draw_layer(game,\"objects\"); game.draw_player(); preload(\"res://scripts/systems/livestock_renderer.gd\").draw(game,true); BossRenderer.draw_front(game); CaveRenderer.draw_foreground(game); game.SpellRenderer.draw_world(game); game.InteriorRenderer.draw_foreground(game); game.VillageForegroundRenderer.draw(game); game.AdventurePolishRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"foreground\"); game.LevelEditorRenderer.draw_layer(game,\"foreground\"); game.DebugPlaygroundRenderer.draw_world_overlay(game); game.DebugOverlayRenderer.draw_world(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 34,
+      "receiver": "game",
+      "method": "draw_food_nodes",
+      "source": "game.CastleCampaignRenderer.draw(game); game.draw_hazards(); game.draw_enemy_nodes_and_gate(); BossRenderer.draw_actors(game); game.draw_tree_nodes(); game.draw_resource_nodes(); game.draw_food_nodes(); game.draw_world_loot(); game.draw_wildlife(); game.draw_dropped_items(); FishingRenderer.draw_traps(game); game.draw_companions(); game.FarmLifeRenderer.draw_world(game); game.FirstChapterRenderer.draw_world(game); game.FenceRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"objects\"); game.LevelEditorRenderer.draw_layer(game,\"objects\"); game.draw_player(); preload(\"res://scripts/systems/livestock_renderer.gd\").draw(game,true); BossRenderer.draw_front(game); CaveRenderer.draw_foreground(game); game.SpellRenderer.draw_world(game); game.InteriorRenderer.draw_foreground(game); game.VillageForegroundRenderer.draw(game); game.AdventurePolishRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"foreground\"); game.LevelEditorRenderer.draw_layer(game,\"foreground\"); game.DebugPlaygroundRenderer.draw_world_overlay(game); game.DebugOverlayRenderer.draw_world(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 34,
+      "receiver": "game",
+      "method": "draw_world_loot",
+      "source": "game.CastleCampaignRenderer.draw(game); game.draw_hazards(); game.draw_enemy_nodes_and_gate(); BossRenderer.draw_actors(game); game.draw_tree_nodes(); game.draw_resource_nodes(); game.draw_food_nodes(); game.draw_world_loot(); game.draw_wildlife(); game.draw_dropped_items(); FishingRenderer.draw_traps(game); game.draw_companions(); game.FarmLifeRenderer.draw_world(game); game.FirstChapterRenderer.draw_world(game); game.FenceRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"objects\"); game.LevelEditorRenderer.draw_layer(game,\"objects\"); game.draw_player(); preload(\"res://scripts/systems/livestock_renderer.gd\").draw(game,true); BossRenderer.draw_front(game); CaveRenderer.draw_foreground(game); game.SpellRenderer.draw_world(game); game.InteriorRenderer.draw_foreground(game); game.VillageForegroundRenderer.draw(game); game.AdventurePolishRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"foreground\"); game.LevelEditorRenderer.draw_layer(game,\"foreground\"); game.DebugPlaygroundRenderer.draw_world_overlay(game); game.DebugOverlayRenderer.draw_world(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 34,
+      "receiver": "game",
+      "method": "draw_wildlife",
+      "source": "game.CastleCampaignRenderer.draw(game); game.draw_hazards(); game.draw_enemy_nodes_and_gate(); BossRenderer.draw_actors(game); game.draw_tree_nodes(); game.draw_resource_nodes(); game.draw_food_nodes(); game.draw_world_loot(); game.draw_wildlife(); game.draw_dropped_items(); FishingRenderer.draw_traps(game); game.draw_companions(); game.FarmLifeRenderer.draw_world(game); game.FirstChapterRenderer.draw_world(game); game.FenceRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"objects\"); game.LevelEditorRenderer.draw_layer(game,\"objects\"); game.draw_player(); preload(\"res://scripts/systems/livestock_renderer.gd\").draw(game,true); BossRenderer.draw_front(game); CaveRenderer.draw_foreground(game); game.SpellRenderer.draw_world(game); game.InteriorRenderer.draw_foreground(game); game.VillageForegroundRenderer.draw(game); game.AdventurePolishRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"foreground\"); game.LevelEditorRenderer.draw_layer(game,\"foreground\"); game.DebugPlaygroundRenderer.draw_world_overlay(game); game.DebugOverlayRenderer.draw_world(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 34,
+      "receiver": "game",
+      "method": "draw_dropped_items",
+      "source": "game.CastleCampaignRenderer.draw(game); game.draw_hazards(); game.draw_enemy_nodes_and_gate(); BossRenderer.draw_actors(game); game.draw_tree_nodes(); game.draw_resource_nodes(); game.draw_food_nodes(); game.draw_world_loot(); game.draw_wildlife(); game.draw_dropped_items(); FishingRenderer.draw_traps(game); game.draw_companions(); game.FarmLifeRenderer.draw_world(game); game.FirstChapterRenderer.draw_world(game); game.FenceRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"objects\"); game.LevelEditorRenderer.draw_layer(game,\"objects\"); game.draw_player(); preload(\"res://scripts/systems/livestock_renderer.gd\").draw(game,true); BossRenderer.draw_front(game); CaveRenderer.draw_foreground(game); game.SpellRenderer.draw_world(game); game.InteriorRenderer.draw_foreground(game); game.VillageForegroundRenderer.draw(game); game.AdventurePolishRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"foreground\"); game.LevelEditorRenderer.draw_layer(game,\"foreground\"); game.DebugPlaygroundRenderer.draw_world_overlay(game); game.DebugOverlayRenderer.draw_world(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 34,
+      "receiver": "FishingRenderer",
+      "method": "draw_traps",
+      "source": "game.CastleCampaignRenderer.draw(game); game.draw_hazards(); game.draw_enemy_nodes_and_gate(); BossRenderer.draw_actors(game); game.draw_tree_nodes(); game.draw_resource_nodes(); game.draw_food_nodes(); game.draw_world_loot(); game.draw_wildlife(); game.draw_dropped_items(); FishingRenderer.draw_traps(game); game.draw_companions(); game.FarmLifeRenderer.draw_world(game); game.FirstChapterRenderer.draw_world(game); game.FenceRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"objects\"); game.LevelEditorRenderer.draw_layer(game,\"objects\"); game.draw_player(); preload(\"res://scripts/systems/livestock_renderer.gd\").draw(game,true); BossRenderer.draw_front(game); CaveRenderer.draw_foreground(game); game.SpellRenderer.draw_world(game); game.InteriorRenderer.draw_foreground(game); game.VillageForegroundRenderer.draw(game); game.AdventurePolishRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"foreground\"); game.LevelEditorRenderer.draw_layer(game,\"foreground\"); game.DebugPlaygroundRenderer.draw_world_overlay(game); game.DebugOverlayRenderer.draw_world(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 34,
+      "receiver": "game",
+      "method": "draw_companions",
+      "source": "game.CastleCampaignRenderer.draw(game); game.draw_hazards(); game.draw_enemy_nodes_and_gate(); BossRenderer.draw_actors(game); game.draw_tree_nodes(); game.draw_resource_nodes(); game.draw_food_nodes(); game.draw_world_loot(); game.draw_wildlife(); game.draw_dropped_items(); FishingRenderer.draw_traps(game); game.draw_companions(); game.FarmLifeRenderer.draw_world(game); game.FirstChapterRenderer.draw_world(game); game.FenceRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"objects\"); game.LevelEditorRenderer.draw_layer(game,\"objects\"); game.draw_player(); preload(\"res://scripts/systems/livestock_renderer.gd\").draw(game,true); BossRenderer.draw_front(game); CaveRenderer.draw_foreground(game); game.SpellRenderer.draw_world(game); game.InteriorRenderer.draw_foreground(game); game.VillageForegroundRenderer.draw(game); game.AdventurePolishRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"foreground\"); game.LevelEditorRenderer.draw_layer(game,\"foreground\"); game.DebugPlaygroundRenderer.draw_world_overlay(game); game.DebugOverlayRenderer.draw_world(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 34,
+      "receiver": "game.FarmLifeRenderer",
+      "method": "draw_world",
+      "source": "game.CastleCampaignRenderer.draw(game); game.draw_hazards(); game.draw_enemy_nodes_and_gate(); BossRenderer.draw_actors(game); game.draw_tree_nodes(); game.draw_resource_nodes(); game.draw_food_nodes(); game.draw_world_loot(); game.draw_wildlife(); game.draw_dropped_items(); FishingRenderer.draw_traps(game); game.draw_companions(); game.FarmLifeRenderer.draw_world(game); game.FirstChapterRenderer.draw_world(game); game.FenceRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"objects\"); game.LevelEditorRenderer.draw_layer(game,\"objects\"); game.draw_player(); preload(\"res://scripts/systems/livestock_renderer.gd\").draw(game,true); BossRenderer.draw_front(game); CaveRenderer.draw_foreground(game); game.SpellRenderer.draw_world(game); game.InteriorRenderer.draw_foreground(game); game.VillageForegroundRenderer.draw(game); game.AdventurePolishRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"foreground\"); game.LevelEditorRenderer.draw_layer(game,\"foreground\"); game.DebugPlaygroundRenderer.draw_world_overlay(game); game.DebugOverlayRenderer.draw_world(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 34,
+      "receiver": "game.FirstChapterRenderer",
+      "method": "draw_world",
+      "source": "game.CastleCampaignRenderer.draw(game); game.draw_hazards(); game.draw_enemy_nodes_and_gate(); BossRenderer.draw_actors(game); game.draw_tree_nodes(); game.draw_resource_nodes(); game.draw_food_nodes(); game.draw_world_loot(); game.draw_wildlife(); game.draw_dropped_items(); FishingRenderer.draw_traps(game); game.draw_companions(); game.FarmLifeRenderer.draw_world(game); game.FirstChapterRenderer.draw_world(game); game.FenceRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"objects\"); game.LevelEditorRenderer.draw_layer(game,\"objects\"); game.draw_player(); preload(\"res://scripts/systems/livestock_renderer.gd\").draw(game,true); BossRenderer.draw_front(game); CaveRenderer.draw_foreground(game); game.SpellRenderer.draw_world(game); game.InteriorRenderer.draw_foreground(game); game.VillageForegroundRenderer.draw(game); game.AdventurePolishRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"foreground\"); game.LevelEditorRenderer.draw_layer(game,\"foreground\"); game.DebugPlaygroundRenderer.draw_world_overlay(game); game.DebugOverlayRenderer.draw_world(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 34,
+      "receiver": "game.FenceRenderer",
+      "method": "draw_world",
+      "source": "game.CastleCampaignRenderer.draw(game); game.draw_hazards(); game.draw_enemy_nodes_and_gate(); BossRenderer.draw_actors(game); game.draw_tree_nodes(); game.draw_resource_nodes(); game.draw_food_nodes(); game.draw_world_loot(); game.draw_wildlife(); game.draw_dropped_items(); FishingRenderer.draw_traps(game); game.draw_companions(); game.FarmLifeRenderer.draw_world(game); game.FirstChapterRenderer.draw_world(game); game.FenceRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"objects\"); game.LevelEditorRenderer.draw_layer(game,\"objects\"); game.draw_player(); preload(\"res://scripts/systems/livestock_renderer.gd\").draw(game,true); BossRenderer.draw_front(game); CaveRenderer.draw_foreground(game); game.SpellRenderer.draw_world(game); game.InteriorRenderer.draw_foreground(game); game.VillageForegroundRenderer.draw(game); game.AdventurePolishRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"foreground\"); game.LevelEditorRenderer.draw_layer(game,\"foreground\"); game.DebugPlaygroundRenderer.draw_world_overlay(game); game.DebugOverlayRenderer.draw_world(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 34,
+      "receiver": "game.PublishedLevelRenderer",
+      "method": "draw_layer",
+      "source": "game.CastleCampaignRenderer.draw(game); game.draw_hazards(); game.draw_enemy_nodes_and_gate(); BossRenderer.draw_actors(game); game.draw_tree_nodes(); game.draw_resource_nodes(); game.draw_food_nodes(); game.draw_world_loot(); game.draw_wildlife(); game.draw_dropped_items(); FishingRenderer.draw_traps(game); game.draw_companions(); game.FarmLifeRenderer.draw_world(game); game.FirstChapterRenderer.draw_world(game); game.FenceRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"objects\"); game.LevelEditorRenderer.draw_layer(game,\"objects\"); game.draw_player(); preload(\"res://scripts/systems/livestock_renderer.gd\").draw(game,true); BossRenderer.draw_front(game); CaveRenderer.draw_foreground(game); game.SpellRenderer.draw_world(game); game.InteriorRenderer.draw_foreground(game); game.VillageForegroundRenderer.draw(game); game.AdventurePolishRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"foreground\"); game.LevelEditorRenderer.draw_layer(game,\"foreground\"); game.DebugPlaygroundRenderer.draw_world_overlay(game); game.DebugOverlayRenderer.draw_world(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 34,
+      "receiver": "game.LevelEditorRenderer",
+      "method": "draw_layer",
+      "source": "game.CastleCampaignRenderer.draw(game); game.draw_hazards(); game.draw_enemy_nodes_and_gate(); BossRenderer.draw_actors(game); game.draw_tree_nodes(); game.draw_resource_nodes(); game.draw_food_nodes(); game.draw_world_loot(); game.draw_wildlife(); game.draw_dropped_items(); FishingRenderer.draw_traps(game); game.draw_companions(); game.FarmLifeRenderer.draw_world(game); game.FirstChapterRenderer.draw_world(game); game.FenceRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"objects\"); game.LevelEditorRenderer.draw_layer(game,\"objects\"); game.draw_player(); preload(\"res://scripts/systems/livestock_renderer.gd\").draw(game,true); BossRenderer.draw_front(game); CaveRenderer.draw_foreground(game); game.SpellRenderer.draw_world(game); game.InteriorRenderer.draw_foreground(game); game.VillageForegroundRenderer.draw(game); game.AdventurePolishRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"foreground\"); game.LevelEditorRenderer.draw_layer(game,\"foreground\"); game.DebugPlaygroundRenderer.draw_world_overlay(game); game.DebugOverlayRenderer.draw_world(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 34,
+      "receiver": "game",
+      "method": "draw_player",
+      "source": "game.CastleCampaignRenderer.draw(game); game.draw_hazards(); game.draw_enemy_nodes_and_gate(); BossRenderer.draw_actors(game); game.draw_tree_nodes(); game.draw_resource_nodes(); game.draw_food_nodes(); game.draw_world_loot(); game.draw_wildlife(); game.draw_dropped_items(); FishingRenderer.draw_traps(game); game.draw_companions(); game.FarmLifeRenderer.draw_world(game); game.FirstChapterRenderer.draw_world(game); game.FenceRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"objects\"); game.LevelEditorRenderer.draw_layer(game,\"objects\"); game.draw_player(); preload(\"res://scripts/systems/livestock_renderer.gd\").draw(game,true); BossRenderer.draw_front(game); CaveRenderer.draw_foreground(game); game.SpellRenderer.draw_world(game); game.InteriorRenderer.draw_foreground(game); game.VillageForegroundRenderer.draw(game); game.AdventurePolishRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"foreground\"); game.LevelEditorRenderer.draw_layer(game,\"foreground\"); game.DebugPlaygroundRenderer.draw_world_overlay(game); game.DebugOverlayRenderer.draw_world(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 34,
+      "receiver": "preload(\"res://scripts/systems/livestock_renderer.gd\")",
+      "method": "draw",
+      "source": "game.CastleCampaignRenderer.draw(game); game.draw_hazards(); game.draw_enemy_nodes_and_gate(); BossRenderer.draw_actors(game); game.draw_tree_nodes(); game.draw_resource_nodes(); game.draw_food_nodes(); game.draw_world_loot(); game.draw_wildlife(); game.draw_dropped_items(); FishingRenderer.draw_traps(game); game.draw_companions(); game.FarmLifeRenderer.draw_world(game); game.FirstChapterRenderer.draw_world(game); game.FenceRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"objects\"); game.LevelEditorRenderer.draw_layer(game,\"objects\"); game.draw_player(); preload(\"res://scripts/systems/livestock_renderer.gd\").draw(game,true); BossRenderer.draw_front(game); CaveRenderer.draw_foreground(game); game.SpellRenderer.draw_world(game); game.InteriorRenderer.draw_foreground(game); game.VillageForegroundRenderer.draw(game); game.AdventurePolishRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"foreground\"); game.LevelEditorRenderer.draw_layer(game,\"foreground\"); game.DebugPlaygroundRenderer.draw_world_overlay(game); game.DebugOverlayRenderer.draw_world(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 34,
+      "receiver": "BossRenderer",
+      "method": "draw_front",
+      "source": "game.CastleCampaignRenderer.draw(game); game.draw_hazards(); game.draw_enemy_nodes_and_gate(); BossRenderer.draw_actors(game); game.draw_tree_nodes(); game.draw_resource_nodes(); game.draw_food_nodes(); game.draw_world_loot(); game.draw_wildlife(); game.draw_dropped_items(); FishingRenderer.draw_traps(game); game.draw_companions(); game.FarmLifeRenderer.draw_world(game); game.FirstChapterRenderer.draw_world(game); game.FenceRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"objects\"); game.LevelEditorRenderer.draw_layer(game,\"objects\"); game.draw_player(); preload(\"res://scripts/systems/livestock_renderer.gd\").draw(game,true); BossRenderer.draw_front(game); CaveRenderer.draw_foreground(game); game.SpellRenderer.draw_world(game); game.InteriorRenderer.draw_foreground(game); game.VillageForegroundRenderer.draw(game); game.AdventurePolishRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"foreground\"); game.LevelEditorRenderer.draw_layer(game,\"foreground\"); game.DebugPlaygroundRenderer.draw_world_overlay(game); game.DebugOverlayRenderer.draw_world(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 34,
+      "receiver": "CaveRenderer",
+      "method": "draw_foreground",
+      "source": "game.CastleCampaignRenderer.draw(game); game.draw_hazards(); game.draw_enemy_nodes_and_gate(); BossRenderer.draw_actors(game); game.draw_tree_nodes(); game.draw_resource_nodes(); game.draw_food_nodes(); game.draw_world_loot(); game.draw_wildlife(); game.draw_dropped_items(); FishingRenderer.draw_traps(game); game.draw_companions(); game.FarmLifeRenderer.draw_world(game); game.FirstChapterRenderer.draw_world(game); game.FenceRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"objects\"); game.LevelEditorRenderer.draw_layer(game,\"objects\"); game.draw_player(); preload(\"res://scripts/systems/livestock_renderer.gd\").draw(game,true); BossRenderer.draw_front(game); CaveRenderer.draw_foreground(game); game.SpellRenderer.draw_world(game); game.InteriorRenderer.draw_foreground(game); game.VillageForegroundRenderer.draw(game); game.AdventurePolishRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"foreground\"); game.LevelEditorRenderer.draw_layer(game,\"foreground\"); game.DebugPlaygroundRenderer.draw_world_overlay(game); game.DebugOverlayRenderer.draw_world(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 34,
+      "receiver": "game.SpellRenderer",
+      "method": "draw_world",
+      "source": "game.CastleCampaignRenderer.draw(game); game.draw_hazards(); game.draw_enemy_nodes_and_gate(); BossRenderer.draw_actors(game); game.draw_tree_nodes(); game.draw_resource_nodes(); game.draw_food_nodes(); game.draw_world_loot(); game.draw_wildlife(); game.draw_dropped_items(); FishingRenderer.draw_traps(game); game.draw_companions(); game.FarmLifeRenderer.draw_world(game); game.FirstChapterRenderer.draw_world(game); game.FenceRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"objects\"); game.LevelEditorRenderer.draw_layer(game,\"objects\"); game.draw_player(); preload(\"res://scripts/systems/livestock_renderer.gd\").draw(game,true); BossRenderer.draw_front(game); CaveRenderer.draw_foreground(game); game.SpellRenderer.draw_world(game); game.InteriorRenderer.draw_foreground(game); game.VillageForegroundRenderer.draw(game); game.AdventurePolishRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"foreground\"); game.LevelEditorRenderer.draw_layer(game,\"foreground\"); game.DebugPlaygroundRenderer.draw_world_overlay(game); game.DebugOverlayRenderer.draw_world(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 34,
+      "receiver": "game.InteriorRenderer",
+      "method": "draw_foreground",
+      "source": "game.CastleCampaignRenderer.draw(game); game.draw_hazards(); game.draw_enemy_nodes_and_gate(); BossRenderer.draw_actors(game); game.draw_tree_nodes(); game.draw_resource_nodes(); game.draw_food_nodes(); game.draw_world_loot(); game.draw_wildlife(); game.draw_dropped_items(); FishingRenderer.draw_traps(game); game.draw_companions(); game.FarmLifeRenderer.draw_world(game); game.FirstChapterRenderer.draw_world(game); game.FenceRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"objects\"); game.LevelEditorRenderer.draw_layer(game,\"objects\"); game.draw_player(); preload(\"res://scripts/systems/livestock_renderer.gd\").draw(game,true); BossRenderer.draw_front(game); CaveRenderer.draw_foreground(game); game.SpellRenderer.draw_world(game); game.InteriorRenderer.draw_foreground(game); game.VillageForegroundRenderer.draw(game); game.AdventurePolishRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"foreground\"); game.LevelEditorRenderer.draw_layer(game,\"foreground\"); game.DebugPlaygroundRenderer.draw_world_overlay(game); game.DebugOverlayRenderer.draw_world(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 34,
+      "receiver": "game.VillageForegroundRenderer",
+      "method": "draw",
+      "source": "game.CastleCampaignRenderer.draw(game); game.draw_hazards(); game.draw_enemy_nodes_and_gate(); BossRenderer.draw_actors(game); game.draw_tree_nodes(); game.draw_resource_nodes(); game.draw_food_nodes(); game.draw_world_loot(); game.draw_wildlife(); game.draw_dropped_items(); FishingRenderer.draw_traps(game); game.draw_companions(); game.FarmLifeRenderer.draw_world(game); game.FirstChapterRenderer.draw_world(game); game.FenceRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"objects\"); game.LevelEditorRenderer.draw_layer(game,\"objects\"); game.draw_player(); preload(\"res://scripts/systems/livestock_renderer.gd\").draw(game,true); BossRenderer.draw_front(game); CaveRenderer.draw_foreground(game); game.SpellRenderer.draw_world(game); game.InteriorRenderer.draw_foreground(game); game.VillageForegroundRenderer.draw(game); game.AdventurePolishRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"foreground\"); game.LevelEditorRenderer.draw_layer(game,\"foreground\"); game.DebugPlaygroundRenderer.draw_world_overlay(game); game.DebugOverlayRenderer.draw_world(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 34,
+      "receiver": "game.AdventurePolishRenderer",
+      "method": "draw_world",
+      "source": "game.CastleCampaignRenderer.draw(game); game.draw_hazards(); game.draw_enemy_nodes_and_gate(); BossRenderer.draw_actors(game); game.draw_tree_nodes(); game.draw_resource_nodes(); game.draw_food_nodes(); game.draw_world_loot(); game.draw_wildlife(); game.draw_dropped_items(); FishingRenderer.draw_traps(game); game.draw_companions(); game.FarmLifeRenderer.draw_world(game); game.FirstChapterRenderer.draw_world(game); game.FenceRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"objects\"); game.LevelEditorRenderer.draw_layer(game,\"objects\"); game.draw_player(); preload(\"res://scripts/systems/livestock_renderer.gd\").draw(game,true); BossRenderer.draw_front(game); CaveRenderer.draw_foreground(game); game.SpellRenderer.draw_world(game); game.InteriorRenderer.draw_foreground(game); game.VillageForegroundRenderer.draw(game); game.AdventurePolishRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"foreground\"); game.LevelEditorRenderer.draw_layer(game,\"foreground\"); game.DebugPlaygroundRenderer.draw_world_overlay(game); game.DebugOverlayRenderer.draw_world(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 34,
+      "receiver": "game.PublishedLevelRenderer",
+      "method": "draw_layer",
+      "source": "game.CastleCampaignRenderer.draw(game); game.draw_hazards(); game.draw_enemy_nodes_and_gate(); BossRenderer.draw_actors(game); game.draw_tree_nodes(); game.draw_resource_nodes(); game.draw_food_nodes(); game.draw_world_loot(); game.draw_wildlife(); game.draw_dropped_items(); FishingRenderer.draw_traps(game); game.draw_companions(); game.FarmLifeRenderer.draw_world(game); game.FirstChapterRenderer.draw_world(game); game.FenceRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"objects\"); game.LevelEditorRenderer.draw_layer(game,\"objects\"); game.draw_player(); preload(\"res://scripts/systems/livestock_renderer.gd\").draw(game,true); BossRenderer.draw_front(game); CaveRenderer.draw_foreground(game); game.SpellRenderer.draw_world(game); game.InteriorRenderer.draw_foreground(game); game.VillageForegroundRenderer.draw(game); game.AdventurePolishRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"foreground\"); game.LevelEditorRenderer.draw_layer(game,\"foreground\"); game.DebugPlaygroundRenderer.draw_world_overlay(game); game.DebugOverlayRenderer.draw_world(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 34,
+      "receiver": "game.LevelEditorRenderer",
+      "method": "draw_layer",
+      "source": "game.CastleCampaignRenderer.draw(game); game.draw_hazards(); game.draw_enemy_nodes_and_gate(); BossRenderer.draw_actors(game); game.draw_tree_nodes(); game.draw_resource_nodes(); game.draw_food_nodes(); game.draw_world_loot(); game.draw_wildlife(); game.draw_dropped_items(); FishingRenderer.draw_traps(game); game.draw_companions(); game.FarmLifeRenderer.draw_world(game); game.FirstChapterRenderer.draw_world(game); game.FenceRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"objects\"); game.LevelEditorRenderer.draw_layer(game,\"objects\"); game.draw_player(); preload(\"res://scripts/systems/livestock_renderer.gd\").draw(game,true); BossRenderer.draw_front(game); CaveRenderer.draw_foreground(game); game.SpellRenderer.draw_world(game); game.InteriorRenderer.draw_foreground(game); game.VillageForegroundRenderer.draw(game); game.AdventurePolishRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"foreground\"); game.LevelEditorRenderer.draw_layer(game,\"foreground\"); game.DebugPlaygroundRenderer.draw_world_overlay(game); game.DebugOverlayRenderer.draw_world(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 34,
+      "receiver": "game.DebugPlaygroundRenderer",
+      "method": "draw_world_overlay",
+      "source": "game.CastleCampaignRenderer.draw(game); game.draw_hazards(); game.draw_enemy_nodes_and_gate(); BossRenderer.draw_actors(game); game.draw_tree_nodes(); game.draw_resource_nodes(); game.draw_food_nodes(); game.draw_world_loot(); game.draw_wildlife(); game.draw_dropped_items(); FishingRenderer.draw_traps(game); game.draw_companions(); game.FarmLifeRenderer.draw_world(game); game.FirstChapterRenderer.draw_world(game); game.FenceRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"objects\"); game.LevelEditorRenderer.draw_layer(game,\"objects\"); game.draw_player(); preload(\"res://scripts/systems/livestock_renderer.gd\").draw(game,true); BossRenderer.draw_front(game); CaveRenderer.draw_foreground(game); game.SpellRenderer.draw_world(game); game.InteriorRenderer.draw_foreground(game); game.VillageForegroundRenderer.draw(game); game.AdventurePolishRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"foreground\"); game.LevelEditorRenderer.draw_layer(game,\"foreground\"); game.DebugPlaygroundRenderer.draw_world_overlay(game); game.DebugOverlayRenderer.draw_world(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 34,
+      "receiver": "game.DebugOverlayRenderer",
+      "method": "draw_world",
+      "source": "game.CastleCampaignRenderer.draw(game); game.draw_hazards(); game.draw_enemy_nodes_and_gate(); BossRenderer.draw_actors(game); game.draw_tree_nodes(); game.draw_resource_nodes(); game.draw_food_nodes(); game.draw_world_loot(); game.draw_wildlife(); game.draw_dropped_items(); FishingRenderer.draw_traps(game); game.draw_companions(); game.FarmLifeRenderer.draw_world(game); game.FirstChapterRenderer.draw_world(game); game.FenceRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"objects\"); game.LevelEditorRenderer.draw_layer(game,\"objects\"); game.draw_player(); preload(\"res://scripts/systems/livestock_renderer.gd\").draw(game,true); BossRenderer.draw_front(game); CaveRenderer.draw_foreground(game); game.SpellRenderer.draw_world(game); game.InteriorRenderer.draw_foreground(game); game.VillageForegroundRenderer.draw(game); game.AdventurePolishRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,\"foreground\"); game.LevelEditorRenderer.draw_layer(game,\"foreground\"); game.DebugPlaygroundRenderer.draw_world_overlay(game); game.DebugOverlayRenderer.draw_world(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 35,
+      "receiver": "preload(\"res://scripts/presentation/apiary_visual_system.gd\")",
+      "method": "draw_world",
+      "source": "preload(\"res://scripts/presentation/apiary_visual_system.gd\").draw_world(game,true)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 36,
+      "receiver": "preload(\"res://scripts/presentation/house_furniture_placement_renderer.gd\")",
+      "method": "draw",
+      "source": "preload(\"res://scripts/presentation/house_furniture_placement_renderer.gd\").draw(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 37,
+      "receiver": "preload(\"res://scripts/presentation/basement_renderer.gd\")",
+      "method": "placement",
+      "source": "preload(\"res://scripts/presentation/basement_renderer.gd\").placement(game)",
+      "drawing_or_transform": false
+    },
+    {
+      "function": "draw",
+      "line": 38,
+      "receiver": "preload(\"res://scripts/presentation/basement_renderer.gd\")",
+      "method": "work_overlay",
+      "source": "preload(\"res://scripts/presentation/basement_renderer.gd\").work_overlay(game)",
+      "drawing_or_transform": false
+    },
+    {
+      "function": "draw",
+      "line": 39,
+      "receiver": "game",
+      "method": "draw_set_transform",
+      "source": "game.draw_set_transform(Vector2.ZERO); game.AtmosphereRenderer.draw(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 39,
+      "receiver": "game.AtmosphereRenderer",
+      "method": "draw",
+      "source": "game.draw_set_transform(Vector2.ZERO); game.AtmosphereRenderer.draw(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw",
+      "line": 40,
+      "receiver": "game",
+      "method": "has_meta",
+      "source": "var clean_level_capture := game.has_meta(\"capture_first_level_clean\")",
+      "drawing_or_transform": false
+    },
+    {
+      "function": "opaque_storage",
+      "line": 45,
+      "receiver": "game",
+      "method": "has_meta",
+      "source": "return not game.has_meta(\"capture_first_level_clean\") and not bool(game.FarmLifeSystem.state(game).photo_mode) and not game.LevelEditorSystem.active(game) and (game.storage_open or preload(\"res://scripts/systems/dev_cabinet_system.gd\").active(game))",
+      "drawing_or_transform": false
+    },
+    {
+      "function": "opaque_storage",
+      "line": 45,
+      "receiver": "game.FarmLifeSystem",
+      "method": "state",
+      "source": "return not game.has_meta(\"capture_first_level_clean\") and not bool(game.FarmLifeSystem.state(game).photo_mode) and not game.LevelEditorSystem.active(game) and (game.storage_open or preload(\"res://scripts/systems/dev_cabinet_system.gd\").active(game))",
+      "drawing_or_transform": false
+    },
+    {
+      "function": "opaque_storage",
+      "line": 45,
+      "receiver": "game.LevelEditorSystem",
+      "method": "active",
+      "source": "return not game.has_meta(\"capture_first_level_clean\") and not bool(game.FarmLifeSystem.state(game).photo_mode) and not game.LevelEditorSystem.active(game) and (game.storage_open or preload(\"res://scripts/systems/dev_cabinet_system.gd\").active(game))",
+      "drawing_or_transform": false
+    },
+    {
+      "function": "opaque_storage",
+      "line": 45,
+      "receiver": "preload(\"res://scripts/systems/dev_cabinet_system.gd\")",
+      "method": "active",
+      "source": "return not game.has_meta(\"capture_first_level_clean\") and not bool(game.FarmLifeSystem.state(game).photo_mode) and not game.LevelEditorSystem.active(game) and (game.storage_open or preload(\"res://scripts/systems/dev_cabinet_system.gd\").active(game))",
+      "drawing_or_transform": false
+    },
+    {
+      "function": "draw_screen",
+      "line": 49,
+      "receiver": "preload(\"res://scripts/presentation/visual_reference_mode.gd\")",
+      "method": "hud_visible",
+      "source": "if not preload(\"res://scripts/presentation/visual_reference_mode.gd\").hud_visible(game): return",
+      "drawing_or_transform": false
+    },
+    {
+      "function": "draw_screen",
+      "line": 50,
+      "receiver": "game.FarmLifeSystem",
+      "method": "state",
+      "source": "if not clean_level_capture and not bool(game.FarmLifeSystem.state(game).photo_mode) and not game.LevelEditorSystem.active(game): game.draw_ui(); BossRenderer.draw_ui(game); FishingRenderer.draw(game); game.WorldMapRenderer.draw(game); game.AdventurePolishRenderer.draw_ui(game); game.FenceRenderer.draw_ui(game); game.SpellRenderer.draw_ui(game)",
+      "drawing_or_transform": false
+    },
+    {
+      "function": "draw_screen",
+      "line": 50,
+      "receiver": "game.LevelEditorSystem",
+      "method": "active",
+      "source": "if not clean_level_capture and not bool(game.FarmLifeSystem.state(game).photo_mode) and not game.LevelEditorSystem.active(game): game.draw_ui(); BossRenderer.draw_ui(game); FishingRenderer.draw(game); game.WorldMapRenderer.draw(game); game.AdventurePolishRenderer.draw_ui(game); game.FenceRenderer.draw_ui(game); game.SpellRenderer.draw_ui(game)",
+      "drawing_or_transform": false
+    },
+    {
+      "function": "draw_screen",
+      "line": 50,
+      "receiver": "game",
+      "method": "draw_ui",
+      "source": "if not clean_level_capture and not bool(game.FarmLifeSystem.state(game).photo_mode) and not game.LevelEditorSystem.active(game): game.draw_ui(); BossRenderer.draw_ui(game); FishingRenderer.draw(game); game.WorldMapRenderer.draw(game); game.AdventurePolishRenderer.draw_ui(game); game.FenceRenderer.draw_ui(game); game.SpellRenderer.draw_ui(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw_screen",
+      "line": 50,
+      "receiver": "BossRenderer",
+      "method": "draw_ui",
+      "source": "if not clean_level_capture and not bool(game.FarmLifeSystem.state(game).photo_mode) and not game.LevelEditorSystem.active(game): game.draw_ui(); BossRenderer.draw_ui(game); FishingRenderer.draw(game); game.WorldMapRenderer.draw(game); game.AdventurePolishRenderer.draw_ui(game); game.FenceRenderer.draw_ui(game); game.SpellRenderer.draw_ui(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw_screen",
+      "line": 50,
+      "receiver": "FishingRenderer",
+      "method": "draw",
+      "source": "if not clean_level_capture and not bool(game.FarmLifeSystem.state(game).photo_mode) and not game.LevelEditorSystem.active(game): game.draw_ui(); BossRenderer.draw_ui(game); FishingRenderer.draw(game); game.WorldMapRenderer.draw(game); game.AdventurePolishRenderer.draw_ui(game); game.FenceRenderer.draw_ui(game); game.SpellRenderer.draw_ui(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw_screen",
+      "line": 50,
+      "receiver": "game.WorldMapRenderer",
+      "method": "draw",
+      "source": "if not clean_level_capture and not bool(game.FarmLifeSystem.state(game).photo_mode) and not game.LevelEditorSystem.active(game): game.draw_ui(); BossRenderer.draw_ui(game); FishingRenderer.draw(game); game.WorldMapRenderer.draw(game); game.AdventurePolishRenderer.draw_ui(game); game.FenceRenderer.draw_ui(game); game.SpellRenderer.draw_ui(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw_screen",
+      "line": 50,
+      "receiver": "game.AdventurePolishRenderer",
+      "method": "draw_ui",
+      "source": "if not clean_level_capture and not bool(game.FarmLifeSystem.state(game).photo_mode) and not game.LevelEditorSystem.active(game): game.draw_ui(); BossRenderer.draw_ui(game); FishingRenderer.draw(game); game.WorldMapRenderer.draw(game); game.AdventurePolishRenderer.draw_ui(game); game.FenceRenderer.draw_ui(game); game.SpellRenderer.draw_ui(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw_screen",
+      "line": 50,
+      "receiver": "game.FenceRenderer",
+      "method": "draw_ui",
+      "source": "if not clean_level_capture and not bool(game.FarmLifeSystem.state(game).photo_mode) and not game.LevelEditorSystem.active(game): game.draw_ui(); BossRenderer.draw_ui(game); FishingRenderer.draw(game); game.WorldMapRenderer.draw(game); game.AdventurePolishRenderer.draw_ui(game); game.FenceRenderer.draw_ui(game); game.SpellRenderer.draw_ui(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw_screen",
+      "line": 50,
+      "receiver": "game.SpellRenderer",
+      "method": "draw_ui",
+      "source": "if not clean_level_capture and not bool(game.FarmLifeSystem.state(game).photo_mode) and not game.LevelEditorSystem.active(game): game.draw_ui(); BossRenderer.draw_ui(game); FishingRenderer.draw(game); game.WorldMapRenderer.draw(game); game.AdventurePolishRenderer.draw_ui(game); game.FenceRenderer.draw_ui(game); game.SpellRenderer.draw_ui(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw_screen",
+      "line": 51,
+      "receiver": "game.LevelEditorSystem",
+      "method": "active",
+      "source": "if not clean_level_capture and not game.LevelEditorSystem.active(game):",
+      "drawing_or_transform": false
+    },
+    {
+      "function": "draw_screen",
+      "line": 52,
+      "receiver": "game.FarmLifeRenderer",
+      "method": "draw_ui",
+      "source": "game.FarmLifeRenderer.draw_ui(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw_screen",
+      "line": 53,
+      "receiver": "game",
+      "method": "has_meta",
+      "source": "if not game.has_meta(\"capture_hud_clean\"): game.FirstChapterRenderer.draw_ui(game)",
+      "drawing_or_transform": false
+    },
+    {
+      "function": "draw_screen",
+      "line": 53,
+      "receiver": "game.FirstChapterRenderer",
+      "method": "draw_ui",
+      "source": "if not game.has_meta(\"capture_hud_clean\"): game.FirstChapterRenderer.draw_ui(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw_screen",
+      "line": 54,
+      "receiver": "game.StoryUiRenderer",
+      "method": "draw_notification",
+      "source": "game.StoryUiRenderer.draw_notification(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw_screen",
+      "line": 55,
+      "receiver": "game.DebugPlaygroundRenderer",
+      "method": "draw_overlay",
+      "source": "game.DebugPlaygroundRenderer.draw_overlay(game); game.DebugOverlayRenderer.draw_panel(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw_screen",
+      "line": 55,
+      "receiver": "game.DebugOverlayRenderer",
+      "method": "draw_panel",
+      "source": "game.DebugPlaygroundRenderer.draw_overlay(game); game.DebugOverlayRenderer.draw_panel(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw_screen",
+      "line": 56,
+      "receiver": "game.LevelEditorRenderer",
+      "method": "draw_panel",
+      "source": "if not clean_level_capture: game.LevelEditorRenderer.draw_panel(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw_screen",
+      "line": 57,
+      "receiver": "preload(\"res://scripts/presentation/basement_renderer.gd\")",
+      "method": "ui",
+      "source": "preload(\"res://scripts/presentation/basement_renderer.gd\").ui(game)",
+      "drawing_or_transform": false
+    },
+    {
+      "function": "draw_screen",
+      "line": 58,
+      "receiver": "game.MenuRenderer",
+      "method": "draw_pause_layer",
+      "source": "if game.menu_state.pause_open or game.menu_state.settings_open or game.menu_state.defeat_open: game.MenuRenderer.draw_pause_layer(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw_screen",
+      "line": 59,
+      "receiver": "preload(\"res://scripts/systems/menu_hub_system.gd\")",
+      "method": "draw_chrome",
+      "source": "preload(\"res://scripts/systems/menu_hub_system.gd\").draw_chrome(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw_screen",
+      "line": 60,
+      "receiver": "preload(\"res://scripts/presentation/qa_teleport_renderer.gd\")",
+      "method": "draw",
+      "source": "preload(\"res://scripts/presentation/qa_teleport_renderer.gd\").draw(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw_screen",
+      "line": 61,
+      "receiver": "game.UiFeedbackRenderer",
+      "method": "draw",
+      "source": "game.UiFeedbackRenderer.draw(game)",
+      "drawing_or_transform": true
+    },
+    {
+      "function": "draw_screen",
+      "line": 62,
+      "receiver": "preload(\"res://scripts/presentation/recovery_notice_renderer.gd\")",
+      "method": "draw",
+      "source": "preload(\"res://scripts/presentation/recovery_notice_renderer.gd\").draw(game)",
+      "drawing_or_transform": true
+    }
+  ],
+  "coordinates": {
+    "world": "WorldProjection: zoom * (world - camera); first overworld 1.2, HUD 1.0",
+    "background": "separate Node2D, show_behind_parent; matching position/scale",
+    "terrain_cache": "world-space offscreen SubViewport, UPDATE_ONCE; not a second camera",
+    "screen": "identity draw transform, then atmosphere/HUD/modals/feedback"
+  },
+  "material": "default CanvasItem material (null) on game/background/terrain; tinted texture/primitive commands; no new shader",
+  "scope": "inventory and preservation; batching/material implementation belongs to VRENDER-002 onward"
+}
