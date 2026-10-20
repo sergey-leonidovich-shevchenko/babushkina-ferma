@@ -79,7 +79,7 @@ static func update(game: Node, delta: float, render_frame: int = -1) -> void:
 		GridBuildSystem.advance(game)
 		return
 	var cached_rect := Rect2(state.get("cache_rect", Rect2()))
-	var visible_rect := Rect2(Vector2(game.camera_offset), VIEWPORT_SIZE)
+	var visible_rect := preload("res://scripts/systems/world_projection_system.gd").view_rect(game)
 	var camera_changed := not cached_rect.has_area() or not cached_rect.grow(-int(state.grid_size)*2).encloses(visible_rect)
 	if bool(state.grid) and (bool(state.get("cache_invalidated",false)) or state.cache_location != game.current_location or camera_changed):
 		game.set_meta(META_KEY, state)
@@ -107,8 +107,9 @@ static func refresh_grid(game: Node) -> void:
 	var margin := size * CACHE_MARGIN_CELLS
 	var start_x := floori(game.camera_offset.x / size) * size - margin
 	var start_y := floori(game.camera_offset.y / size) * size - margin
-	var end_x := ceili((game.camera_offset.x + VIEWPORT_SIZE.x) / size) * size + margin
-	var end_y := ceili((game.camera_offset.y + VIEWPORT_SIZE.y) / size) * size + margin
+	var field:=preload("res://scripts/systems/world_projection_system.gd").field_size(game)
+	var end_x := ceili((game.camera_offset.x + field.x) / size) * size + margin
+	var end_y := ceili((game.camera_offset.y + field.y) / size) * size + margin
 	var include_farming := bool(state.get("farming", false))
 	GridBuildSystem.begin(game, state, Rect2(start_x,start_y,end_x-start_x,end_y-start_y), size, include_farming)
 	GridBuildSystem.advance(game)
@@ -244,7 +245,7 @@ static func noclip(game: Node) -> bool:
 static func inspect_screen_point(game: Node, screen_point: Vector2) -> Dictionary:
 	var state: Dictionary = game.get_meta(META_KEY, default_state())
 	var size := int(state.get("grid_size", 50))
-	var world: Vector2 = screen_point + Vector2(game.camera_offset)
+	var world: Vector2 = preload("res://scripts/systems/world_projection_system.gd").screen_to_world(game,screen_point)
 	var origin: Vector2 = Vector2(floori(world.x / size) * size, floori(world.y / size) * size)
 	var center: Vector2 = origin + Vector2.ONE * size * 0.5
 	var now := Time.get_ticks_msec()

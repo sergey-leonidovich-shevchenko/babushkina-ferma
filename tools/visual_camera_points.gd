@@ -19,6 +19,8 @@ static func create_game() -> Node:
 
 ## Фиксирует положение, календарь и позу без движения симуляции и без доступа к сохранению пользователя.
 static func configure(game: Node, point: Dictionary) -> void:
+	# Historical camera/coordinate fixtures explicitly keep their accepted 100% reference.
+	game.set_meta(&"camera_reference_zoom",1.0)
 	game.set_physics_process(false); game.set_process(false)
 	game.set_process_input(false); game.set_process_unhandled_input(false)
 	game.settings_state.pause_on_focus_loss=false; game.settings_state.fullscreen_enabled=false

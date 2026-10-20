@@ -1,0 +1,31 @@
+test_changed_source_and_video_hash (__main__.ZoomPacketTests) ... ok
+test_complete_native_packet (__main__.ZoomPacketTests) ... ok
+test_completed_packet_cannot_resume (__main__.ZoomPacketTests) ... ok
+test_field_background_and_matrix (__main__.ZoomPacketTests) ... ok
+test_foot_animation_and_root_phase (__main__.ZoomPacketTests) ... ok
+test_hud_geometry (__main__.ZoomPacketTests) ... ok
+test_native_conditions (__main__.ZoomPacketTests) ... ok
+test_phase_order_and_physical_clock (__main__.ZoomPacketTests) ... ok
+test_pointer_cell_and_extra_retina_scale (__main__.ZoomPacketTests) ... ok
+test_real_headless_control_is_rejected (__main__.ZoomPacketTests) ... ok
+test_resume_cannot_resign_damaged_video (__main__.ZoomPacketTests) ... ok
+test_signed_hud_trace_must_match_actual_pixels (__main__.ZoomPacketTests) ... ok
+test_signed_launch_metadata_still_rejected (__main__.ZoomPacketTests) ... ok
+test_versioned_sources_keep_original_packet_immutable (__main__.ZoomPacketTests) ... ok
+test_actual_power_switch_cannot_be_resigned_as_valid (__main__.LiveTimingTests) ... ok
+test_hitch_is_retained_and_fails_absolute_budget (__main__.LiveTimingTests) ... ok
+test_incomplete_or_retimed_samples (__main__.LiveTimingTests) ... ok
+test_individually_stable_power_modes_cannot_be_compared (__main__.LiveTimingTests) ... ok
+test_interrupted_power_packet_cannot_pass_acceptance (__main__.LiveTimingTests) ... ok
+test_launch_must_match_observed_format_profile_and_script (__main__.LiveTimingTests) ... ok
+test_legacy_packet_cannot_claim_new_source_coverage (__main__.LiveTimingTests) ... ok
+test_no_headless_manual_readback_or_pause (__main__.LiveTimingTests) ... ok
+test_parallel_test_job_is_rejected (__main__.LiveTimingTests) ... ok
+test_partial_audit_checks_hashes (__main__.LiveTimingTests) ... ok
+test_partial_audit_rejects_actual_focus_loss (__main__.LiveTimingTests) ... ok
+
+----------------------------------------------------------------------
+Ran 25 tests in 5.271s
+
+OK
+NOT RUN: test_complete_live_packet (requires the complete 18-run native packet)

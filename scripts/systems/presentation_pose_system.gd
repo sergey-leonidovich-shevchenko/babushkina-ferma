@@ -58,8 +58,7 @@ static func present(game: Node, fraction: float) -> bool:
 	var camera := Camera.offset_for_position(game,value.ground)
 	var changed: bool = before!=value.ground or before_clock!=float(value.clock) or game.camera_offset!=camera
 	game.camera_offset=camera
-	var background := game.get_node_or_null("WorldBackground")
-	if background: background.position=-camera
+	Camera.WorldProjection.sync_background(game)
 	return changed
 
 ## Даёт телу, тени и окружению одну отображаемую точку без записи в PlayerState.

@@ -27,9 +27,10 @@ static func draw(game: Node2D, kind: String, index: int, position: Vector2, flip
 	var entry := frame(kind,index)
 	if entry.is_empty(): return
 	var width := float(entry.size[0])
-	game.draw_set_transform(position-game.camera_offset,0,Vector2(1,0.30))
+	var projection:=preload("res://scripts/systems/world_projection_system.gd")
+	projection.apply(game,position,0,Vector2(1,0.30))
 	game.draw_circle(Vector2.ZERO,width*0.38,Color(0.13,0.18,0.09,0.13))
 	game.draw_circle(Vector2.ZERO,width*0.25,Color(0.10,0.14,0.07,0.12))
-	game.draw_set_transform(position-game.camera_offset,0,Vector2(-1 if flip else 1,1))
+	projection.apply(game,position,0,Vector2(-1 if flip else 1,1))
 	game.draw_texture(_textures[entry.sprite],-Vector2(entry.pivot[0],entry.pivot[1]))
-	game.draw_set_transform(-game.camera_offset)
+	projection.apply(game)

@@ -22,10 +22,7 @@ static func draw_ground(game: Node2D) -> void:
 ## Размещает обе строки в общей светлой карточке, чтобы нижний край камеры не накладывал их друг на друга.
 static func draw_sign(game: Node2D, link: Dictionary) -> void:
 	var label: String = Wayfinding.title(game,link); var tags: String = Wayfinding.tags(game,link.port)
-	var rect := preload("res://scripts/presentation/world_label_renderer.gd").bounds(game,link.position+Vector2(0,24),label)
-	if not tags.is_empty(): rect.size.y += 22
-	var safe: Rect2 = preload("res://scripts/systems/camera_system.gd").playfield_rect(game).grow(-8)
-	rect.position.y = minf(rect.position.y,safe.end.y+game.camera_offset.y-rect.size.y)
+	var rect := preload("res://scripts/presentation/world_label_renderer.gd").bounds(game,link.position+Vector2(0,24),label,200,0 if tags.is_empty() else 22)
 	var style := preload("res://scripts/presentation/moon_theme.gd")
 	style.panel(game,rect)
 	style.text(game,Rect2(rect.position+Vector2(4,2),Vector2(rect.size.x-8,20)),label,11,style.TEXT,HORIZONTAL_ALIGNMENT_CENTER)

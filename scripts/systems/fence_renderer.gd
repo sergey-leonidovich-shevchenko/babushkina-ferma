@@ -51,7 +51,8 @@ static func draw_structure(game: Node2D, structure: Dictionary) -> void:
 	else:
 		var visual:=visual_for_mask(game.FenceSystem.connection_mask(game,structure)); column=visual.column; rotation=visual.rotation
 	var size:Vector2=WorldVisualProfileSystem.visual_size(profile_id)
-	game.draw_set_transform(center-game.camera_offset,rotation); game.draw_texture_rect_region(ATLAS,Rect2(-size*0.5,size),source(int(structure.style),column),climate_color(game)); game.draw_set_transform(-game.camera_offset)
+	var projection:=preload("res://scripts/systems/world_projection_system.gd")
+	projection.apply(game,center,rotation); game.draw_texture_rect_region(ATLAS,Rect2(-size*0.5,size),source(int(structure.style),column),climate_color(game)); projection.apply(game)
 	draw_weather_detail(game,center,size)
 
 

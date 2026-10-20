@@ -66,6 +66,7 @@ static func toggle(game: Node) -> void:
 	state.status = "Каталог %d · дома %d/%d · листы %d · к нарезке %d" % [audit.placeable,audit.buildings,audit.expected_buildings,audit.sliced,audit.excluded_composites.size()] if state.active else "Конструктор закрыт"
 	state.panel_hidden = false
 	game.set_meta(META_KEY,state)
+	preload("res://scripts/systems/world_projection_system.gd").sync_background(game)
 	game.clear_movement_keys()
 	if game.DebugOverlaySystem.active(game):
 		var debug: Dictionary = game.get_meta(game.DebugOverlaySystem.META_KEY); debug.open = false; game.set_meta(game.DebugOverlaySystem.META_KEY,debug)
@@ -491,9 +492,7 @@ static func move_layer(state: Dictionary, step: int) -> void:
 
 ## Сдвигает камеру редактора внутри безопасных границ текущего мира.
 static func pan_camera(game: Node, motion: Vector2) -> void:
-	var bounds: Vector2=game.WorldBoundsSystem.size(game.current_location)
-	game.camera_offset.x=clampf(game.camera_offset.x+motion.x,0.0,bounds.x-1152.0); game.camera_offset.y=clampf(game.camera_offset.y+motion.y,0.0,bounds.y-648.0)
-	var background:=game.get_node_or_null("WorldBackground"); if background: background.position=-game.camera_offset
+	game.CameraSystem.pan_editor(game,motion)
 
 
 ## Сохраняет снимок объектов в стеке отмены и очищает повтор операций.

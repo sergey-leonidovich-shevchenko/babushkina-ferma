@@ -10,6 +10,7 @@ static func run(context: SceneTree) -> void:
 	preload("res://tests/suites/coordinate_contract_suite.gd").run(context)
 	preload("res://tests/suites/camera_quantization_suite.gd").run(context)
 	preload("res://tests/suites/presentation_pose_suite.gd").run(context)
+	preload("res://tests/suites/reference_zoom_suite.gd").run(context)
 	preload("res://tests/suites/visual_motion_suite.gd").run(context)
 	test_typed_state_is_the_source_of_truth(context)
 	test_inventory_state_is_data_driven(context)

@@ -68,11 +68,11 @@ static func draw_object(game: Node2D, object: Dictionary, selected: bool, show_c
 				if source.size==Vector2.ZERO: game.draw_texture_rect(texture,bounds,false)
 				else: game.draw_texture_rect_region(texture,bounds,source)
 			else:
-				var scale_vector: Vector2 = Vector2(-1.0 if object.flip_x else 1.0,-1.0 if object.flip_y else 1.0); game.draw_set_transform(center-game.camera_offset,float(object.rotation),scale_vector)
+				var scale_vector: Vector2 = Vector2(-1.0 if object.flip_x else 1.0,-1.0 if object.flip_y else 1.0); preload("res://scripts/systems/world_projection_system.gd").apply(game,center,float(object.rotation),scale_vector)
 				var destination: Rect2 = Rect2(-size*0.5,size)
 				if source.size==Vector2.ZERO: game.draw_texture_rect(texture,destination,false)
 				else: game.draw_texture_rect_region(texture,destination,source)
-				game.draw_set_transform(-game.camera_offset)
+				preload("res://scripts/systems/world_projection_system.gd").apply(game)
 		draw_surface_transitions(game,object,bounds)
 	if show_collision and bool(object.collision):
 		var collision_rect:Rect2=game.LevelEditorSystem.RuntimeAuthoringSystem.collision_rect(object,bounds); game.draw_rect(collision_rect,Color(0.95,0.24,0.22,0.72),false,2.0)
@@ -104,18 +104,18 @@ static func draw_surface_transitions(game: Node2D, object: Dictionary, bounds: R
 		var mask:=int(masks[surface])
 		for direction_index in TRANSITION_BITS.size():
 			if mask&TRANSITION_BITS[direction_index]==0: continue
-			game.draw_set_transform(bounds.get_center()-game.camera_offset,float(TRANSITION_ROTATIONS[direction_index]))
+			preload("res://scripts/systems/world_projection_system.gd").apply(game,bounds.get_center(),float(TRANSITION_ROTATIONS[direction_index]))
 			game.draw_texture_rect(texture,Rect2(-bounds.size*0.5,bounds.size),false)
-			game.draw_set_transform(-game.camera_offset)
+			preload("res://scripts/systems/world_projection_system.gd").apply(game)
 	for surface in corner_masks:
 		var path:=String(TRANSITION_CORNER_TEXTURES.get(String(surface),"")); var texture:=texture_for(path) if not path.is_empty() else null
 		if texture==null: continue
 		var mask:=int(corner_masks[surface])
 		for direction_index in TRANSITION_BITS.size():
 			if mask&TRANSITION_BITS[direction_index]==0: continue
-			game.draw_set_transform(bounds.get_center()-game.camera_offset,float(TRANSITION_ROTATIONS[direction_index]))
+			preload("res://scripts/systems/world_projection_system.gd").apply(game,bounds.get_center(),float(TRANSITION_ROTATIONS[direction_index]))
 			game.draw_texture_rect(texture,Rect2(-bounds.size*0.5,bounds.size),false)
-			game.draw_set_transform(-game.camera_offset)
+			preload("res://scripts/systems/world_projection_system.gd").apply(game)
 
 
 ## Накладывает лёгкую модульную сетку только на видимую область рабочего холста.

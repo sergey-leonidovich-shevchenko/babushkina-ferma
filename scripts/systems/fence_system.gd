@@ -89,9 +89,9 @@ static func handle_input(game: Node, event: InputEvent) -> bool:
 			_: return false
 		game.queue_redraw(); return true
 	if event is InputEventMouseButton and event.pressed:
-		if event.button_index==MOUSE_BUTTON_LEFT: return place(game,event.position+game.camera_offset)
-		if event.button_index==MOUSE_BUTTON_RIGHT: return remove_target(game,event.position+game.camera_offset)
-	if event is InputEventScreenTouch and event.pressed: return place(game,event.position+game.camera_offset)
+		if event.button_index==MOUSE_BUTTON_LEFT: return place(game,preload("res://scripts/systems/world_projection_system.gd").screen_to_world(game,event.position))
+		if event.button_index==MOUSE_BUTTON_RIGHT: return remove_target(game,preload("res://scripts/systems/world_projection_system.gd").screen_to_world(game,event.position))
+	if event is InputEventScreenTouch and event.pressed: return place(game,preload("res://scripts/systems/world_projection_system.gd").screen_to_world(game,event.position))
 	return false
 
 

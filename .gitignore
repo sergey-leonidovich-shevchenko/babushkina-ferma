@@ -14,6 +14,12 @@ tools/*
 !tools/test_presentation_pose.py
 !tools/pose_video_frames.swift
 !tools/pose_video_strip.py
+!tools/reference_zoom_review.gd
+!tools/reference_zoom_capture.gd
+!tools/reference_zoom.py
+!tools/reference_zoom_live.gd
+!tools/reference_zoom_perf.py
+!tools/test_reference_zoom.py
 !tools/asset_migration.py
 !tools/migration_inventory.py
 !tools/migration_fixture.py

@@ -14,18 +14,19 @@ static func hovered_object(game: Node, screen_point: Vector2) -> Dictionary:
 	var frame := Engine.get_process_frames()
 	var now:int=Time.get_ticks_msec()
 	var cached: Dictionary = game.get_meta(HOVER_CACHE_META,{})
-	var same_pointer:bool=String(cached.get("location",""))==game.current_location and Vector2(cached.get("point",Vector2.INF))==screen_point
+	var projection:=preload("res://scripts/systems/world_projection_system.gd")
+	var same_pointer:bool=String(cached.get("location",""))==game.current_location and Vector2(cached.get("point",Vector2.INF))==screen_point and float(cached.get("zoom",0.0))==projection.zoom(game)
 	var fresh_enough:bool=now-int(cached.get("time",0))<80 and Vector2(cached.get("camera",Vector2.INF)).distance_to(game.camera_offset)<24.0
 	if same_pointer and (int(cached.get("frame",-1))==frame or fresh_enough):
 		return cached.get("target",{})
-	var world_point := screen_point + Vector2(game.camera_offset)
+	var world_point := projection.screen_to_world(game,screen_point)
 	var best: Dictionary = {}
 	for candidate in candidates(game,world_point):
 		var bounds: Rect2 = candidate.bounds
 		if not bounds.has_point(world_point): continue
 		if best.is_empty() or int(candidate.priority) > int(best.priority) or (int(candidate.priority) == int(best.priority) and bounds.get_area() < (best.bounds as Rect2).get_area()):
 			best = candidate
-	game.set_meta(HOVER_CACHE_META,{"frame":frame,"time":now,"location":game.current_location,"camera":game.camera_offset,"point":screen_point,"target":best})
+	game.set_meta(HOVER_CACHE_META,{"frame":frame,"time":now,"location":game.current_location,"camera":game.camera_offset,"zoom":projection.zoom(game),"point":screen_point,"target":best})
 	return best
 
 

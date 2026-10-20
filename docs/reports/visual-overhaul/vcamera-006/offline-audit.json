@@ -1,0 +1,188 @@
+{
+  "task": "VCAMERA-006",
+  "source_complete": false,
+  "acceptance_granted": false,
+  "classification": "offline audit; not a completed timing acceptance",
+  "counts": {
+    "valid": 10,
+    "rejected": 1,
+    "missing": 7
+  },
+  "runs": {
+    "base-100-1": {
+      "status": "valid",
+      "metrics": {
+        "median_ms": 33.474000000000004,
+        "p95_ms": 44.71279999999999,
+        "p99_ms": 50.106269999999995,
+        "max_ms": 52.342,
+        "sample_seconds": 8.270586,
+        "draw_calls_median": 176.0,
+        "static_bytes_max": 131816293.0,
+        "texture_bytes_max": 683335708.0,
+        "budget_60fps_candidate": "FAIL"
+      },
+      "power_source": "Now drawing from 'Battery Power'"
+    },
+    "base-100-2": {
+      "status": "valid",
+      "metrics": {
+        "median_ms": 32.912499999999994,
+        "p95_ms": 43.31674999999998,
+        "p99_ms": 48.35584999999997,
+        "max_ms": 54.764,
+        "sample_seconds": 7.950997000000003,
+        "draw_calls_median": 171.0,
+        "static_bytes_max": 131810239.0,
+        "texture_bytes_max": 683335708.0,
+        "budget_60fps_candidate": "FAIL"
+      },
+      "power_source": "Now drawing from 'Battery Power'"
+    },
+    "base-100-3": {
+      "status": "valid",
+      "metrics": {
+        "median_ms": 33.387,
+        "p95_ms": 40.379999999999995,
+        "p99_ms": 53.113279999999996,
+        "max_ms": 55.121,
+        "sample_seconds": 8.200558000000003,
+        "draw_calls_median": 171.0,
+        "static_bytes_max": 131810239.0,
+        "texture_bytes_max": 683335708.0,
+        "budget_60fps_candidate": "FAIL"
+      },
+      "power_source": "Now drawing from 'Battery Power'"
+    },
+    "base-120-1": {
+      "status": "valid",
+      "metrics": {
+        "median_ms": 34.167,
+        "p95_ms": 53.13044999999999,
+        "p99_ms": 66.12548999999993,
+        "max_ms": 68.712,
+        "sample_seconds": 8.876071000000001,
+        "draw_calls_median": 153.0,
+        "static_bytes_max": 131807253.0,
+        "texture_bytes_max": 683335708.0,
+        "budget_60fps_candidate": "FAIL"
+      },
+      "power_source": "Now drawing from 'Battery Power'"
+    },
+    "base-120-2": {
+      "status": "valid",
+      "metrics": {
+        "median_ms": 33.221999999999994,
+        "p95_ms": 36.50449999999999,
+        "p99_ms": 42.23365999999999,
+        "max_ms": 47.439,
+        "sample_seconds": 8.034798000000007,
+        "draw_calls_median": 152.0,
+        "static_bytes_max": 131804097.0,
+        "texture_bytes_max": 683335708.0,
+        "budget_60fps_candidate": "FAIL"
+      },
+      "power_source": "Now drawing from 'Battery Power'"
+    },
+    "base-120-3": {
+      "status": "valid",
+      "metrics": {
+        "median_ms": 33.2955,
+        "p95_ms": 36.068000000000005,
+        "p99_ms": 38.72904999999998,
+        "max_ms": 52.715,
+        "sample_seconds": 8.034887000000001,
+        "draw_calls_median": 151.5,
+        "static_bytes_max": 131804097.0,
+        "texture_bytes_max": 683335708.0,
+        "budget_60fps_candidate": "FAIL"
+      },
+      "power_source": "Now drawing from 'Battery Power'"
+    },
+    "full-hd-100-1": {
+      "status": "valid",
+      "metrics": {
+        "median_ms": 33.3445,
+        "p95_ms": 35.19515,
+        "p99_ms": 37.95016999999998,
+        "max_ms": 40.891,
+        "sample_seconds": 8.001287999999999,
+        "draw_calls_median": 173.0,
+        "static_bytes_max": 133350487.0,
+        "texture_bytes_max": 695394328.0,
+        "budget_60fps_candidate": "FAIL"
+      },
+      "power_source": "Now drawing from 'Battery Power'"
+    },
+    "full-hd-100-2": {
+      "status": "valid",
+      "metrics": {
+        "median_ms": 33.2575,
+        "p95_ms": 35.5773,
+        "p99_ms": 40.55193999999997,
+        "max_ms": 42.549,
+        "sample_seconds": 7.999776999999995,
+        "draw_calls_median": 173.0,
+        "static_bytes_max": 133350487.0,
+        "texture_bytes_max": 695394328.0,
+        "budget_60fps_candidate": "FAIL"
+      },
+      "power_source": "Now drawing from 'Battery Power'"
+    },
+    "full-hd-100-3": {
+      "status": "rejected",
+      "reason": "native driver/errors"
+    },
+    "full-hd-120-1": {
+      "status": "valid",
+      "metrics": {
+        "median_ms": 33.283500000000004,
+        "p95_ms": 36.21735,
+        "p99_ms": 41.22926999999999,
+        "max_ms": 49.162,
+        "sample_seconds": 8.017479000000003,
+        "draw_calls_median": 153.0,
+        "static_bytes_max": 133341125.0,
+        "texture_bytes_max": 695394328.0,
+        "budget_60fps_candidate": "FAIL"
+      },
+      "power_source": "Now drawing from 'Battery Power'"
+    },
+    "full-hd-120-2": {
+      "status": "valid",
+      "metrics": {
+        "median_ms": 33.249,
+        "p95_ms": 36.046499999999995,
+        "p99_ms": 37.68662,
+        "max_ms": 45.209,
+        "sample_seconds": 8.017433,
+        "draw_calls_median": 152.0,
+        "static_bytes_max": 133341349.0,
+        "texture_bytes_max": 695394328.0,
+        "budget_60fps_candidate": "FAIL"
+      },
+      "power_source": "Now drawing from 'Battery Power'"
+    },
+    "full-hd-120-3": {
+      "status": "missing"
+    },
+    "retina-2x-100-1": {
+      "status": "missing"
+    },
+    "retina-2x-100-2": {
+      "status": "missing"
+    },
+    "retina-2x-100-3": {
+      "status": "missing"
+    },
+    "retina-2x-120-1": {
+      "status": "missing"
+    },
+    "retina-2x-120-2": {
+      "status": "missing"
+    },
+    "retina-2x-120-3": {
+      "status": "missing"
+    }
+  }
+}

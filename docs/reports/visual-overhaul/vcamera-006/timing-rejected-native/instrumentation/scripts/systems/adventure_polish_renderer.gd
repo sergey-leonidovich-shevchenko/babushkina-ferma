@@ -1,0 +1,107 @@
+extends RefCounted
+
+const UiKitSystem:=preload("res://scripts/systems/ui_kit_system.gd")
+const HudLayoutSystem:=preload("res://scripts/systems/hud_layout_system.gd")
+const GOLD := Color("efc45f")
+const VillageMapPreviewSystem := preload("res://scripts/systems/village_map_preview_system.gd")
+
+
+## Рисует следы, кадр действия, боевую фиксацию и предупреждение атаки в мировых координатах.
+static func draw_world(game: Node2D) -> void:
+	if not preload("res://scripts/presentation/visual_reference_mode.gd").effects_enabled(game): return
+	var feedback: Dictionary = game.state.player.feedback
+	for footprint in feedback.get("footprints", []):
+		game.draw_circle(footprint.position + Vector2(-4, 0), 2.5, Color(0.20, 0.16, 0.10, float(footprint.time) * 0.16))
+		game.draw_circle(footprint.position + Vector2(4, 4), 2.5, Color(0.20, 0.16, 0.10, float(footprint.time) * 0.16))
+	if float(feedback.get("timer", 0.0)) > 0.0:
+		var action := String(feedback.get("action", ""))
+		if game.AdventurePolishSystem.ACTIONS.has(action):
+			if action not in game.HeroActionSystem.TOOLS: draw_effect(game,int(game.AdventurePolishSystem.ACTIONS[action]),feedback.position,game.facing.x<-0.1)
+			var pose: Dictionary = game.HeroActionSystem.pose(game)
+			var target: Vector2 = pose.get("target", feedback.position)
+			if game.HeroActionSystem.progress(game) >= 0.43 or pose.is_empty(): game.WorldPolishRenderer.draw_effect(game,{"mine":"stone","chop":"wood","fish_cast":"splash","water":"splash","harvest":"leaves"}.get(action,"dust"),target,clampf(float(feedback.timer)*2.0,0.0,1.0))
+	for number in feedback.get("damage_numbers", []):
+		game.draw_ui_string(game.UI_FONT, number.position, number.text, HORIZONTAL_ALIGNMENT_CENTER, 70, 21, number.color)
+	draw_target(game); draw_enemy_telegraphs(game)
+
+
+## Рисует независимый модульный эффект действия через единый визуальный каталог.
+static func draw_effect(game:Node2D,index:int,position:Vector2,flip_x:bool=false)->void:
+	game.ActionEffectVisualSystem.draw(game,index,position,flip_x)
+
+
+## Рисует кольцо, направление и имя зафиксированной цели.
+static func draw_target(game: Node2D) -> void:
+	var index := int(game.state.player.adventure_ui.get("target_enemy", -1))
+	if index < 0 or index >= game.enemy_nodes.size(): return
+	var enemy: Dictionary = game.enemy_nodes[index]
+	game.draw_arc(enemy.position + Vector2(0, 18), 29, 0, TAU, 24, GOLD, 3)
+	game.draw_line(game.player + game.facing * 22.0, enemy.position, Color(1.0, 0.78, 0.28, 0.32), 2)
+
+
+## Показывает красный сектор незадолго до удара каждого врага.
+static func draw_enemy_telegraphs(game: Node2D) -> void:
+	for enemy in game.enemy_nodes:
+		if not enemy.alive or enemy.location != game.current_location: continue
+		var timer := float(enemy.get("attack_timer", 0.0))
+		var distance: float = enemy.position.distance_to(game.player)
+		var reach: float = float(game.CombatSystem.TYPES[enemy.kind].range)
+		if distance <= reach + 12.0 and timer > 0.0 and timer < 0.38:
+			game.draw_arc(enemy.position, reach, -0.65 + enemy.position.angle_to_point(game.player), 0.65 + enemy.position.angle_to_point(game.player), 16, Color(1.0, 0.20, 0.12, 0.72), 4)
+
+
+## Рисует постоянную мини-карту активной локации в свободном правом углу HUD.
+static func draw_minimap(game: Node2D) -> void:
+	var farm_life:Dictionary=game.FarmLifeSystem.state(game)
+	if not HudLayoutSystem.shows_minimap(game) or game.inventory_open or game.shop_open or game.quest_log_open or game.world_map_open or game.skill_menu_open or game.crafting_open or game.storage_open or game.forge_open or game.contract_open or game.AdventurePolishSystem.has_modal(game) or bool(farm_life.compendium) or not String(farm_life.cutscene).is_empty() or game.state.fishing.phase in [game.FishingSystem.PHASE_CHARGING,game.FishingSystem.PHASE_MINIGAME,game.FishingSystem.PHASE_RESULT]: return
+	var rect := HudLayoutSystem.MINIMAP_RECT
+	game.InterfaceRenderer.HudRenderer.draw_quiet_panel(game,rect)
+	var world_size: Vector2 = game.WorldBoundsSystem.size(game.current_location)
+	var map_rect := Rect2(rect.position + Vector2(8, 10), Vector2(rect.size.x-16, (rect.size.x-16)*0.5))
+	game.draw_rect(map_rect, Color("283a30"))
+	if game.current_location == "overworld":
+		game.draw_texture_rect(VillageMapPreviewSystem.texture(),map_rect,false,Color(0.85,0.86,0.78))
+	else:
+		for node in game.resource_nodes:
+			if node.location==game.current_location: game.draw_circle(map_rect.position+Vector2(node.position)/world_size*map_rect.size,1,Color("97a389"))
+		for enemy in game.enemy_nodes:
+			if enemy.location==game.current_location and enemy.alive: game.draw_circle(map_rect.position+Vector2(enemy.position)/world_size*map_rect.size,1.5,Color("c8765e"))
+	var field:=preload("res://scripts/systems/world_projection_system.gd").field_size(game)
+	var camera_view:=Rect2(map_rect.position+game.camera_offset/world_size*map_rect.size,field/world_size*map_rect.size).intersection(map_rect)
+	game.draw_rect(camera_view,Color(0.98,0.86,0.60,0.5),false,1)
+	var dot := map_rect.position + Vector2(clampf(game.player.x / world_size.x, 0.0, 1.0) * map_rect.size.x, clampf(game.player.y / world_size.y, 0.0, 1.0) * map_rect.size.y)
+	game.draw_circle(dot, 4, Color("36231b")); game.draw_circle(dot, 2.5, Color("ffe4a0"))
+	game.draw_ui_string(game.UI_FONT,rect.position+Vector2(9,96),game.LocaleSystem.location(game.current_location),HORIZONTAL_ALIGNMENT_CENTER,rect.size.x-18,9,Color("ead5a9"))
+
+
+## Рисует поверх HUD активное создание персонажа или портретный диалог.
+static func draw_ui(game: Node2D) -> void:
+	draw_minimap(game)
+	if bool(game.state.player.adventure_ui.get("creation_open", false)): draw_creation(game)
+	elif bool(game.state.player.adventure_ui.get("dialogue_open", false)): draw_dialogue(game)
+
+
+## Рисует деревянно-пергаментное окно выбора имени, фермы, внешности и специализации.
+static func draw_creation(game: Node2D) -> void:
+	game.draw_rect(Rect2(0, 0, 1152, 648), Color(0.02, 0.035, 0.03, 0.82))
+	var outer := Rect2(215, 62, 722, 530); UiKitSystem.draw_modal_panel(game,outer)
+	var title:=Rect2(326,74,500,58); UiKitSystem.draw_nine_patch(game,"quest_ribbon",title); game.draw_ui_string(game.UI_FONT,title.position+Vector2(28,39),game.AdventurePolishSystem.word(game,"new_story"),HORIZONTAL_ALIGNMENT_CENTER,title.size.x-56,22,UiKitSystem.COLORS.text_light)
+	var profile: Dictionary = game.state.player.profile
+	var fields := [[game.AdventurePolishSystem.word(game,"name"),profile.name],[game.AdventurePolishSystem.word(game,"farm"),profile.farm_name],[game.AdventurePolishSystem.word(game,"appearance"),game.AdventurePolishSystem.word(game,"variant",[int(profile.appearance)+1])],[game.AdventurePolishSystem.word(game,"clothes"),game.AdventurePolishSystem.word(game,"set",[int(profile.clothes)+1])],[game.AdventurePolishSystem.word(game,"calling"),specialization_name(game, String(profile.specialization))]]
+	var selected := int(game.state.player.adventure_ui.get("creation_field", 0))
+	for index in fields.size():
+		var row := Rect2(288, 150 + index * 67, 576, 52)
+		UiKitSystem.draw_button(game,row,index==selected,true,game.settings_state.reduced_motion,Time.get_ticks_msec())
+		game.draw_ui_string(game.UI_FONT, row.position + Vector2(15, 32), fields[index][0], HORIZONTAL_ALIGNMENT_LEFT, 160, 15, UiKitSystem.COLORS.text_light)
+		game.draw_ui_string(game.UI_FONT, row.position + Vector2(180, 33), "‹  %s  ›" % fields[index][1], HORIZONTAL_ALIGNMENT_CENTER, 370, 16, UiKitSystem.COLORS.text_light)
+	game.draw_ui_string(game.UI_FONT, Vector2(315, 536), game.AdventurePolishSystem.word(game, "creation_help"), HORIZONTAL_ALIGNMENT_CENTER, 522, 17, Color("573c27"))
+
+
+## Возвращает читаемое название стартовой специализации.
+static func specialization_name(game: Node, kind: String) -> String:
+	return game.AdventurePolishSystem.word(game, kind)
+
+
+## Рисует портретную сцену разговора, отношения, описание задания и варианты ответа.
+static func draw_dialogue(game: Node2D) -> void:
+	game.StoryUiRenderer.draw_dialogue(game)

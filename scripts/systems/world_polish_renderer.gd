@@ -38,13 +38,13 @@ static func draw_held_weapon(game: Node2D, kind: String, position: Vector2, dire
 	var texture: Texture2D = game.item_texture(item_kind)
 	if texture == null: return
 	var weapon_class: String = game.WeaponSystem.weapon_class(kind)
-	var world_offset: Vector2 = game.PresentationSystem.world_offset(game)
-	var pose := held_weapon_pose(position, direction, weapon_class, progress, visual_scale, world_offset)
+	var projection:=preload("res://scripts/systems/world_projection_system.gd")
+	var pose := held_weapon_pose(position, direction, weapon_class, progress, visual_scale)
 	if progress >= 0.18 and progress <= 0.72 and weapon_class in ["blade", "heavy"]:
 		game.draw_arc(position, 37.0 * visual_scale, direction.angle() - 1.0, direction.angle() + 1.0, 18, Color(1.0, 0.82, 0.38, 0.48), 4.0 * visual_scale)
-	game.draw_set_transform_matrix(pose.transform)
+	game.draw_set_transform_matrix(projection.transform(game,pose.transform))
 	game.draw_texture_rect(texture, pose.destination, false)
-	game.draw_set_transform(world_offset, 0.0, Vector2.ONE)
+	projection.apply(game)
 	if progress >= 0.0 and weapon_class == "bow" and progress > 0.42:
 		var arrow_start := position + direction * 28.0 * visual_scale
 		game.draw_line(arrow_start, arrow_start + direction * 34.0 * visual_scale, Color("fff1b8"), 3.0 * visual_scale)

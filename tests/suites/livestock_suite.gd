@@ -121,7 +121,7 @@ func test_expanded_yard_bounds_and_gates() -> void:
 	for index in 6:
 		expect(int(Visual.frame("pig",index).size[0])<=52,"pig frame fits the corrected smaller scale: "+str(index))
 	game.player=Vector2(948,1248); game.clamp_player_position()
-	expect(game.player.y==1248 and game.CameraSystem.target_offset(game).y==720,"new south field is reachable and the camera follows it")
+	expect(game.player.y==1248 and game.CameraSystem.target_offset(game).y==828,"new south field is reachable and the 120% camera follows it")
 	expect(game.VillageLayoutSystem.OVERWORLD_TILE_COUNT==Vector2i(100,57),"terrain grid derives its southern extension from the map dimensions")
 	var cell:=Vector2i(28,26); var plot: Dictionary=game.WorldFarmingSystem.empty_plot("overworld",cell)
 	plot.tilled=true; plot.planted=true; plot.crop_kind="wheat"; game.state.world.world_plots[game.WorldFarmingSystem.plot_key("overworld",cell)]=plot

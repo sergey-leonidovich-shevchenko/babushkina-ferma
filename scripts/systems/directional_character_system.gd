@@ -128,18 +128,18 @@ static func draw_actor(game: Node2D, texture: Texture2D, position: Vector2, size
 	draw_soft_shadow(game,position+GROUND_OFFSET,shadow_radii)
 	if moving:
 		var destination:=actor_rect(position,size)
-		var world_transform: Vector2 = game.PresentationSystem.world_offset(game)
-		game.draw_set_transform(world_transform + position, 0.0, Vector2.ONE)
+		var projection:=preload("res://scripts/systems/world_projection_system.gd")
+		projection.apply(game,position)
 		var local_destination := Rect2(destination.position - position, destination.size)
 		game.draw_texture_rect_region(texture, local_destination, source_rect(texture, direction, animation_time, true), modulate)
-		game.draw_set_transform(world_transform, 0.0, Vector2.ONE)
+		projection.apply(game)
 		return
 	var phase: float = fposmod((position.x + position.y) * 0.013, TAU)
 	var motion: Dictionary = game.PresentationSystem.living_motion(animation_time, false, phase)
-	var world_transform: Vector2 = game.PresentationSystem.world_offset(game)
-	game.draw_set_transform(world_transform + position + Vector2(motion.offset), float(motion.rotation), motion.scale)
+	var projection:=preload("res://scripts/systems/world_projection_system.gd")
+	projection.apply(game,position+Vector2(motion.offset),float(motion.rotation),motion.scale)
 	game.draw_texture_rect_region(texture, actor_rect(Vector2.ZERO,size), source_rect(texture, direction, animation_time, false), modulate)
-	game.draw_set_transform(world_transform, 0.0, Vector2.ONE)
+	projection.apply(game)
 
 
 ## Рисует компактную эллиптическую тень, согласованную с точкой опоры персонажа.

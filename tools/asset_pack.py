@@ -127,12 +127,14 @@ def proof_errors(root,data):
         if set(negative['entries'])!=(set(pack['entries'])-{lost})|{'docs/DO_NOT_SHIP.zip'} or negative['resources']!=pack['resources']:errors.append('negative archive mutation differs')
         if any(negative['entries'][p]!=v for p,v in pack['entries'].items() if p!=lost and p in negative['entries']):errors.append('negative archive changed unrelated payload')
         game_source=json.loads((folder/'native/game-source/capture.json').read_text());game_pack=json.loads((folder/'native/game-pack/capture.json').read_text())
+        points_digest=sha(git_bytes(root,data['base_commit'],'tools/visual_camera_points.gd'))
+        registry_digest=sha(git_bytes(root,data['base_commit'],'docs/reports/visual-overhaul/vbase-003/camera-points.json'))
         if sha((root/'tools/asset_game_probe.gd').read_bytes())!=proof['game_probe_sha256']:errors.append('game probe changed')
         for game,label in [(game_source,'source'),(game_pack,'pack')]:
             if game['errors'] or game['framebuffer']!=[1152,648] or game['display_server']=='headless' or game['performance_eligible'] is not False or game['probe_sha256']!=proof['game_probe_sha256']:errors.append('invalid native game stage: '+label)
             if bool(game['physical_project_present'])!=(label=='source') or not game['profile'].startswith('Codex-VPIPELINE-010-'):errors.append('native game isolation differs')
             if set(game['scenes'])!={'overworld','cottage_interior'}:errors.append('incomplete native game scenes')
-            if game['points_sha256']!=sha((root/'tools/visual_camera_points.gd').read_bytes()) or game['registry_sha256']!=sha((root/'docs/reports/visual-overhaul/vbase-003/camera-points.json').read_bytes()):errors.append('camera instrument/registry differs')
+            if game['points_sha256']!=points_digest or game['registry_sha256']!=registry_digest:errors.append('historical camera instrument/registry differs')
         if game_source['scenes']!=game_pack['scenes']:errors.append('exported game camera or serialized state differs')
         for location in ['overworld','cottage_interior']:
             if not game_source['scenes'][location]['state_unchanged']:errors.append('native draw changed state')

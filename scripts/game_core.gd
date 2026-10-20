@@ -182,9 +182,7 @@ func clamp_player_position() -> void:
 ## Обновляет камеру с учётом размеров комнаты и сохраняет общую систему координат для фона и ввода.
 func update_camera() -> void:
 	camera_offset = CameraSystem.target_offset(self)
-	var background := get_node_or_null("WorldBackground")
-	if background:
-		background.position = -camera_offset
+	CameraSystem.WorldProjection.sync_background(self)
 
 ## Синхронизирует фон и музыку локации, убирая временные атаки покинутой комнаты.
 func sync_background_location() -> void:

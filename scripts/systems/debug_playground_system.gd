@@ -120,7 +120,7 @@ static func handle_pointer(game: Node, point: Vector2) -> bool:
 			"hitboxes": toggle_overlay(game,"hitboxes")
 			"routes": toggle_overlay(game,"routes")
 		game.queue_redraw(); return true
-	var world: Vector2 = point + game.camera_offset; var nearest_distance := 72.0; var selected := "герой"
+	var world: Vector2 = preload("res://scripts/systems/world_projection_system.gd").screen_to_world(game,point); var nearest_distance := 72.0; var selected := "герой"
 	for enemy in game.enemy_nodes:
 		var distance: float = world.distance_to(enemy.position)
 		if distance < nearest_distance: nearest_distance = distance; selected = "%s ур.%d HP %d/%d" % [enemy.kind,enemy.level,enemy.hp,enemy.max_hp]

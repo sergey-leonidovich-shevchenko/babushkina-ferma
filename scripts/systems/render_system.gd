@@ -5,6 +5,7 @@ const VillagePropRenderer:=preload("res://scripts/systems/village_prop_renderer.
 const TreeOcclusion := preload("res://scripts/systems/tree_occlusion_system.gd")
 const CaveRenderer := preload("res://scripts/systems/cave_renderer.gd")
 const BossRenderer := preload("res://scripts/systems/cave_boss_renderer.gd")
+const WorldProjection := preload("res://scripts/systems/world_projection_system.gd")
 
 ## Координирует отрисовку текущего состояния без изменения игровой логики.
 static func draw(game: Node2D) -> void:
@@ -15,7 +16,7 @@ static func draw(game: Node2D) -> void:
 	if opaque_storage(game):
 		game.draw_set_transform(Vector2.ZERO); draw_screen(game,false); return
 	TreeOcclusion.begin_frame(game)
-	game.draw_set_transform(-game.camera_offset + game.AdventurePolishSystem.shake_offset(game))
+	WorldProjection.apply(game)
 	if game.BuildingSystem.is_interior(game.current_location):
 		game.draw_interior_objects(); game.draw_quest_npcs()
 	elif game.current_location == "overworld":

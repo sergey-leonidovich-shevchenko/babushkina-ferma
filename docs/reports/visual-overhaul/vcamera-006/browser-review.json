@@ -1,0 +1,74 @@
+{
+  "task": "VCAMERA-006",
+  "url": "http://127.0.0.1:4175/#/guides/visual-reference-zoom",
+  "videos": [
+    {
+      "duration": 4,
+      "ended": true,
+      "error": null,
+      "height": 648,
+      "label": "A · контроль 100% · 1152×648",
+      "paused": true,
+      "src": "http://127.0.0.1:4175/generated/attachments/9e0aa8639946228b152ddcab8daab70b332819c4e557955f92a341649d53825b.mp4",
+      "time": 4,
+      "width": 1152
+    },
+    {
+      "duration": 4,
+      "ended": true,
+      "error": null,
+      "height": 648,
+      "label": "B · приближение 120% · 1152×648",
+      "paused": true,
+      "src": "http://127.0.0.1:4175/generated/attachments/f5d9093f1fd7811a6c779c962ee659217643ec322a6c7a30a610e3d23523eed9.mp4",
+      "time": 4,
+      "width": 1152
+    },
+    {
+      "duration": 4,
+      "ended": true,
+      "error": null,
+      "height": 1080,
+      "label": "A · контроль 100% · 1920×1080",
+      "paused": true,
+      "src": "http://127.0.0.1:4175/generated/attachments/4b448928f4b70494d3bcfb2d99a0c8dd391ce35ef3c4e204f371831be2fb9154.mp4",
+      "time": 4,
+      "width": 1920
+    },
+    {
+      "duration": 4,
+      "ended": true,
+      "error": null,
+      "height": 1080,
+      "label": "B · приближение 120% · 1920×1080",
+      "paused": true,
+      "src": "http://127.0.0.1:4175/generated/attachments/fc2f44465b71804a2ef877e98c361e2540a02d82edf00cc349b97e3920007b57.mp4",
+      "time": 4,
+      "width": 1920
+    },
+    {
+      "duration": 4,
+      "ended": true,
+      "error": null,
+      "height": 1296,
+      "label": "A · контроль 100% · Retina 2×",
+      "paused": true,
+      "src": "http://127.0.0.1:4175/generated/attachments/2162a18d1044a9b9a742289b7ecfa9dad18177094e7931211bbd039b531bbf5c.mp4",
+      "time": 4,
+      "width": 2304
+    },
+    {
+      "duration": 4,
+      "ended": true,
+      "error": null,
+      "height": 1296,
+      "label": "B · приближение 120% · Retina 2×",
+      "paused": true,
+      "src": "http://127.0.0.1:4175/generated/attachments/e06ed8251fdf1edc83e3c9847bdaf21c06bd39f71b1457dcd41f2b091c910f3d.mp4",
+      "time": 4,
+      "width": 2304
+    }
+  ],
+  "consoleErrors": [],
+  "viewportOverride": false
+}

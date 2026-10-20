@@ -41,6 +41,7 @@ static func finish_playtest(game:Node,completed:bool)->bool:
 	var runtime:Dictionary=game.get_meta(META_KEY); runtime.active=false; game.set_meta(META_KEY,runtime)
 	game.current_location=String(runtime.return_location); game.player=Vector2(runtime.return_player); game.camera_offset=Vector2(runtime.return_camera); game.sync_background_location()
 	var editor:Dictionary=game.get_meta(game.LevelEditorSystem.META_KEY,game.LevelEditorSystem.default_state(game)); editor.active=true; editor.panel_hidden=false; editor.status="ТЕСТ ПРОЙДЕН · выход достижим" if completed else "Тест остановлен · карта сохранена"; game.set_meta(game.LevelEditorSystem.META_KEY,editor)
+	preload("res://scripts/systems/world_projection_system.gd").sync_background(game)
 	game.clear_movement_keys(); game.message=String(editor.status); game.queue_redraw(); return true
 
 

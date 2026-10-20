@@ -1,0 +1,55 @@
+{
+  "task": "VCAMERA-006",
+  "status": "done",
+  "accepted_world_zoom": 1.2,
+  "accepted_locations": [
+    "overworld"
+  ],
+  "ui_zoom": 1.0,
+  "reference_base_commit": "6b866c3b7538d6d7bdf486cf3be55b45ad757c06",
+  "native_source_sha256": "47a312f7e76645f2b1b9aa44cf34f3096abeead4c767fec0e7a12a189b7f17a5",
+  "timing_source_sha256": "24d53658b456c2955b38a6330dc8e2fe3fa33d69120c5d7f9bdb984be2021ea4",
+  "browser_review_sha256": "85ab2c11f13ebefe1c631851e769b578a1dee42b2a50c7b2247bbabda809fe42",
+  "current_sources_match_frozen_packets": true,
+  "native_clips": 6,
+  "native_frames_per_clip": 240,
+  "live_runs": 18,
+  "live_samples_per_run": 240,
+  "relative_guards": {
+    "base": {
+      "control_p95_median_ms": 37.809649999999976,
+      "close_p95_median_ms": 36.4221,
+      "p95_ratio": 0.9633016967890479,
+      "relative_guard": "PASS",
+      "rule": "median of 3 native p95; candidate <= control * 1.15 + 0.3 ms; independent from the unchanged absolute FPS budget"
+    },
+    "full-hd": {
+      "control_p95_median_ms": 35.57505,
+      "close_p95_median_ms": 39.089749999999995,
+      "p95_ratio": 1.0987967690839506,
+      "relative_guard": "PASS",
+      "rule": "median of 3 native p95; candidate <= control * 1.15 + 0.3 ms; independent from the unchanged absolute FPS budget"
+    },
+    "retina-2x": {
+      "control_p95_median_ms": 38.450199999999995,
+      "close_p95_median_ms": 39.79579999999999,
+      "p95_ratio": 1.0349959167962715,
+      "relative_guard": "PASS",
+      "rule": "median of 3 native p95; candidate <= control * 1.15 + 0.3 ms; independent from the unchanged absolute FPS budget"
+    }
+  },
+  "absolute_budget_failures": 18,
+  "release_performance_accepted": false,
+  "targeted_assertions_passed": 2225,
+  "full_game_assertions_passed": 45636,
+  "python_tests_passed": 26,
+  "wiki_tests_passed": 58,
+  "browser_videos_ended_without_errors": 6,
+  "pre_commit_policy": "Architecture and full game checks are mandatory; successful final commit confirms the hook passed",
+  "scope_limits": [
+    "No new art accepted",
+    "No minimum release hardware confirmed",
+    "100/120 comparison is inside the new projection pipeline",
+    "Legacy packets and rejected attempts retained separately"
+  ]
+}

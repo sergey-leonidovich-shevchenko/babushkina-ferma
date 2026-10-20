@@ -1,0 +1,29 @@
+{
+  "command": [
+    "open",
+    "-n",
+    "-W",
+    "-a",
+    "/Users/sergeyshevchenko/my farm/tools/Godot.app",
+    "--args",
+    "--path",
+    "/Users/sergeyshevchenko/my farm",
+    "--windowed",
+    "--audio-driver",
+    "Dummy",
+    "--log-file",
+    "/Users/sergeyshevchenko/my farm/docs/reports/visual-overhaul/vcamera-006/timing/base-120-1/engine.txt",
+    "--script",
+    "res://tools/reference_zoom_live.gd",
+    "--",
+    "--output=/Users/sergeyshevchenko/my farm/docs/reports/visual-overhaul/vcamera-006/timing/base-120-1/raw",
+    "--profile=Codex-VCAMERA-006-Live-0a4fc7db197d4df987366922b5074779",
+    "--size=1152x648",
+    "--zoom=1.2"
+  ],
+  "exit_code": 0,
+  "jobs_before": [],
+  "jobs_after": [],
+  "power_before": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=6750307)\t100%; charged; 0:00 remaining present: true",
+  "power_after": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=6750307)\t100%; charged; 0:00 remaining present: true"
+}

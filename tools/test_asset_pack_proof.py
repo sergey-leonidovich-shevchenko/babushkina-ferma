@@ -6,10 +6,12 @@ from pathlib import Path
 import shutil
 import tempfile
 import unittest
+from unittest.mock import patch
 from PIL import Image
 from asset_costs import sha
 from asset_pack import proof_errors
 from asset_report import ROOT,REPORT
+from migration_inventory import git_bytes
 
 
 @contextlib.contextmanager
@@ -19,7 +21,9 @@ def packet():
         root=Path(directory);shutil.copytree(ROOT/REPORT,root/REPORT)
         for name in ['export_presets.cfg','tools/visual_asset_policy.json','tools/asset_pack_probe.gd','tools/asset_game_probe.gd','tools/visual_camera_points.gd','docs/reports/visual-overhaul/vbase-003/camera-points.json']:
             target=root/name;target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(ROOT/name,target)
-        yield root,json.loads((root/REPORT/'inventory.json').read_text())
+        # У временного пакета нет своего Git: читаем настоящую неизменную историю проекта.
+        with patch('asset_pack.git_bytes',side_effect=lambda _root,commit,name:git_bytes(ROOT,commit,name)):
+            yield root,json.loads((root/REPORT/'inventory.json').read_text())
 
 
 def change(root,name,transform):
@@ -80,6 +84,26 @@ class ExportProofTests(unittest.TestCase):
             image.putpixel((10,10),(255,0,0,255));image.save(path)
             proof_path=root/REPORT/'proof.json';proof=json.loads(proof_path.read_text());proof['artifacts']['native/game-pack/overworld.png']=sha(path.read_bytes());proof_path.write_text(json.dumps(proof))
             self.assertTrue(any('game image differs' in e for e in proof_errors(root,data)))
+
+    def test_historical_camera_does_not_lock_current_instrument(self):
+        """Новая рабочая камера не переписывает экспортный снимок прежнего commit."""
+        with packet() as (root,data):
+            path=root/'tools/visual_camera_points.gd';path.write_bytes(path.read_bytes()+b'\n# later instrument\n')
+            registry=root/'docs/reports/visual-overhaul/vbase-003/camera-points.json';registry.write_bytes(b'{}\n')
+            self.assertEqual(proof_errors(root,data),[])
+
+    def test_historical_camera_hash_cannot_be_resigned(self):
+        """Подмена хеша в обеих нативных сторонах отвергается даже после обновления внешней подписи."""
+        for key in ['points_sha256','registry_sha256']:
+            with self.subTest(key=key), packet() as (root,data):
+                for stage in ['source','pack']:
+                    change(root,'native/game-'+stage+'/capture.json',lambda row:row.update({key:'0'*64}))
+                self.assertTrue(any('historical camera instrument/registry differs' in e for e in proof_errors(root,data)))
+
+    def test_missing_history_is_not_current_source_fallback(self):
+        """При недоступной истории проверка отказывает, а не использует похожий текущий скрипт."""
+        with packet() as (root,data), patch('asset_pack.git_bytes',side_effect=OSError('historical source unavailable')):
+            self.assertTrue(any('historical source unavailable' in e for e in proof_errors(root,data)))
 
 
 if __name__=='__main__':unittest.main()

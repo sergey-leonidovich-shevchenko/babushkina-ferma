@@ -4,13 +4,12 @@ const Style := preload("res://scripts/presentation/moon_theme.gd")
 const Camera := preload("res://scripts/systems/camera_system.gd")
 
 ## Вписывает короткую мировую подпись в доступное поле камеры с учётом реальных метрик и масштаба текста.
-static func bounds(game:Node, anchor:Vector2, label:String, maximum:float=200) -> Rect2:
+static func bounds(game:Node, anchor:Vector2, label:String, maximum:float=200, extra_height:float=0) -> Rect2:
 	var scale:float=game.settings_state.text_scale
 	var size:=roundi(11*scale)
 	var width:=clampf(game.UI_FONT.get_string_size(label,HORIZONTAL_ALIGNMENT_LEFT,-1,size).x+16,48,maximum)
-	var height:=maxf(22,game.UI_FONT.get_height(size)+8)
-	var safe:Rect2=Camera.playfield_rect(game).grow(-8)
-	safe.position+=game.camera_offset
+	var height:=maxf(22,game.UI_FONT.get_height(size)+8)+maxf(0,extra_height)
+	var safe:=Camera.WorldProjection.screen_rect_to_world(game,Camera.playfield_rect(game).grow(-8))
 	var origin:=anchor-Vector2(width/2,0)
 	origin.x=clampf(origin.x,safe.position.x,safe.end.x-width)
 	origin.y=clampf(origin.y,safe.position.y,safe.end.y-height)

@@ -1,0 +1,405 @@
+extends RefCounted
+
+const DROP_SIZE := Vector2(44, 44)
+const HOVER_CACHE_META := "debug_hover_cache"
+const CaveAssets := preload("res://scripts/systems/cave_asset_system.gd")
+const CaveLayout := preload("res://scripts/systems/cave_layout_system.gd")
+const LivestockVisual := preload("res://scripts/systems/livestock_visual_system.gd")
+const LivestockData := preload("res://scripts/systems/livestock_data.gd")
+
+
+## Возвращает верхний видимый объект под экранным курсором или пустой словарь над интерфейсом.
+static func hovered_object(game: Node, screen_point: Vector2) -> Dictionary:
+	if pointer_over_debug_ui(game, screen_point): return {}
+	var frame := Engine.get_process_frames()
+	var now:int=Time.get_ticks_msec()
+	var cached: Dictionary = game.get_meta(HOVER_CACHE_META,{})
+	var projection:=preload("res://scripts/systems/world_projection_system.gd")
+	var same_pointer:bool=String(cached.get("location",""))==game.current_location and Vector2(cached.get("point",Vector2.INF))==screen_point and float(cached.get("zoom",0.0))==projection.zoom(game)
+	var fresh_enough:bool=now-int(cached.get("time",0))<80 and Vector2(cached.get("camera",Vector2.INF)).distance_to(game.camera_offset)<24.0
+	if same_pointer and (int(cached.get("frame",-1))==frame or fresh_enough):
+		return cached.get("target",{})
+	var world_point := projection.screen_to_world(game,screen_point)
+	var best: Dictionary = {}
+	for candidate in candidates(game,world_point):
+		var bounds: Rect2 = candidate.bounds
+		if not bounds.has_point(world_point): continue
+		if best.is_empty() or int(candidate.priority) > int(best.priority) or (int(candidate.priority) == int(best.priority) and bounds.get_area() < (best.bounds as Rect2).get_area()):
+			best = candidate
+	game.set_meta(HOVER_CACHE_META,{"frame":frame,"time":now,"location":game.current_location,"camera":game.camera_offset,"zoom":projection.zoom(game),"point":screen_point,"target":best})
+	return best
+
+
+## Не позволяет инспектору выбирать мир сквозь основную, миссионную или модальную debug-панель.
+static func pointer_over_debug_ui(game: Node, screen_point: Vector2) -> bool:
+	if game.DebugOverlaySystem.PANEL.has_point(screen_point): return true
+	var state: Dictionary = game.get_meta(game.DebugOverlaySystem.META_KEY, {})
+	if not String(state.get("mission_details", "")).is_empty() or bool(state.get("mission_completion", {}).get("open", false)): return true
+	if game.DebugMissionSystem.HEADER.has_point(screen_point): return true
+	return bool(state.get("missions_expanded", false)) and game.DebugMissionSystem.PANEL.has_point(screen_point)
+
+
+## Собирает каталог runtime-объектов, вычисляя подробности только под probe либо для всех при Vector2.INF.
+static func candidates(game: Node, probe: Vector2 = Vector2.INF) -> Array[Dictionary]:
+	var result: Array[Dictionary] = []
+	append_buildings(game,result,probe); append_world_props(game,result,probe); append_trees(game,result,probe); append_forage(game,result,probe)
+	append_resources(game,result,probe); append_containers(game,result,probe); append_drops(game,result,probe); append_hazards(game,result,probe)
+	append_enemies(game,result,probe); append_wildlife(game,result,probe); append_npcs(game,result,probe); append_companions(game,result,probe); append_farm_life(game,result,probe); append_world_plots(game,result,probe); append_fences(game,result,probe)
+	append_player(game,result,probe)
+	return result
+
+
+## Добавляет животных, кормушку, музей, тайники и установленную мебель из общего визуального профиля.
+static func append_farm_life(game:Node,result:Array[Dictionary], probe: Vector2 = Vector2.INF)->void:
+	var life:Dictionary=game.FarmLifeSystem.state(game)
+	if game.current_location=="overworld":
+		for animal in game.FarmLifeSystem.ANIMALS:
+			var pose:Dictionary=game.FarmLifeSystem.Livestock.pose(game,animal); var position:Vector2=pose.position; var memory:Dictionary=life.animals.get(animal.id,{})
+			var bounds:=LivestockVisual.destination_rect(animal.kind,pose.frame,position)
+			if probe == Vector2.INF or bounds.has_point(probe):
+				add(result,"farm_animal:%s"%animal.id,"ФЕРМА",String(animal.name),position,bounds,86,rect_description(LivestockData.animal_base(animal,position)),game.FarmLifeSystem.Livestock.status(game,memory),["продукт %s"%animal.product,"привязанность %d"%int(memory.get("bond",0)),"кадр %s"%str(bounds.size)])
+		for index in LivestockData.PROPS.size():
+			var prop:Dictionary=LivestockData.PROPS[index]; var bounds:=LivestockVisual.destination_rect(prop.kind,0,prop.position)
+			if probe!=Vector2.INF and not bounds.has_point(probe): continue
+			var names:={"coop":"Курятник","barn":"Укрытие","trough":"Кормушка","water_tub":"Поилка","hay":"Сено","compost":"Компост"}
+			add(result,"farm:trough" if prop.kind=="trough" else "farm_prop:%s:%d"%[prop.kind,index],"ФЕРМА",names[prop.kind],prop.position,bounds,76,rect_description(LivestockData.prop_base(prop)),"стоит",["кадр %s"%str(bounds.size)])
+	if game.current_location=="cottage_interior":
+		for index in life.furniture.size():
+			var furniture:Dictionary=life.furniture[index]; var kind:String=String(furniture.kind); var position:Vector2=Vector2(furniture.position)
+			if probe == Vector2.INF or (game.FarmLifeVisualSystem.visual_rect(kind,position,int(furniture.get("direction",0)))).has_point(probe):
+				add(result,"furniture:%d:%s"%[index,kind],"МЕБЕЛЬ",game.inventory_item_name(kind),position,game.FarmLifeVisualSystem.visual_rect(kind,position,int(furniture.get("direction",0))),74,rect_description(game.FarmLifeVisualSystem.collision_rect(kind,position,int(furniture.get("direction",0)))),"установлена",["item id %s"%kind,"профиль %s"%str(game.FarmLifeVisualSystem.profile(kind,int(furniture.get("direction",0))).visual)])
+	if game.current_location=="guild_interior":
+		var museum:Vector2=Vector2(780,270)
+		if probe == Vector2.INF or game.FarmLifeVisualSystem.visual_rect("museum",museum).has_point(probe):
+			add(result,"farm:museum","МУЗЕЙ","Витрина музея",museum,game.FarmLifeVisualSystem.visual_rect("museum",museum),73,rect_description(game.FarmLifeVisualSystem.collision_rect("museum",museum)),"доступна",["экспонатов %d/%d"%[life.museum.size(),game.FarmLifeSystem.MUSEUM_ITEMS.size()]])
+	if game.FarmLifeSystem.SECRETS.has(game.current_location):
+		var secret:Dictionary=game.FarmLifeSystem.SECRETS[game.current_location]; var position:Vector2=Vector2(secret.position)
+		if probe == Vector2.INF or (game.FarmLifeVisualSystem.visual_rect("secret",position)).has_point(probe):
+			add(result,"farm:secret:%s"%game.current_location,"ТАЙНА","Скрытый механизм",position,game.FarmLifeVisualSystem.visual_rect("secret",position),72,rect_description(game.FarmLifeVisualSystem.collision_rect("secret",position)),"разгадан" if bool(life.secrets.get(game.current_location,false)) else "не разгадан",["награда %s"%secret.reward])
+
+
+## Добавляет построенные игроком секции и калитки с материалом, клетками и фактической коллизией.
+static func append_fences(game: Node, result: Array[Dictionary], probe: Vector2 = Vector2.INF) -> void:
+	if game.current_location=="overworld":
+		var static_rects:Array[Rect2]=game.BuildingSystem.farm_fence_rects()
+		for index in static_rects.size():
+			var rect:=static_rects[index]
+			if probe == Vector2.INF or rect.has_point(probe):
+				add(result,"farm_fence:%d"%index,"ОГРАДА","Фермерский забор",rect.get_center(),rect,57,"сетка 24×24 · твёрдая","постоянная",["span %s"%str(game.BuildingSystem.FARM_FENCE_SPANS[index]),"профиль старой усадьбы"])
+		var gates:Array[Rect2]=game.BuildingSystem.farm_gate_rects()
+		for index in gates.size():
+			var rect:=gates[index]
+			if probe == Vector2.INF or rect.has_point(probe):
+				add(result,"farm_gate:%d"%index,"ОГРАДА","Открытая калитка фермы",rect.get_center(),rect,56,"нет · проход","открыта",["span %s"%str(game.BuildingSystem.FARM_GATE_SPANS[index]),"верхняя" if index==0 else "рядом с бабушкой"])
+	var values: Array=game.FenceSystem.structures(game)
+	for index in values.size():
+		var structure: Dictionary=values[index]
+		if String(structure.get("location",""))!=game.current_location: continue
+		var center: Vector2=game.FenceSystem.structure_center(structure); var size:Vector2=game.WorldVisualProfileSystem.visual_size("fence_gate" if structure.kind=="gate" else "fence_section"); var cells: Array[Vector2i]=game.FenceSystem.occupied_cells(structure)
+		if probe == Vector2.INF or (centered_bounds(center,size)).has_point(probe):
+			add(result,"player_fence:%d"%index,"ОГРАДА","Калитка" if structure.kind=="gate" else "Секция забора",center,centered_bounds(center,size),58,"нет · открыта" if structure.kind=="gate" and structure.open else "клетки 24×24 · твёрдая","открыта" if structure.get("open",false) else "закрыта",[
+				"материал %s · style %d"%[game.FenceSystem.style_name(game,int(structure.style)),int(structure.style)],
+				"клетки %s · ориентация %d"%[str(cells),int(structure.orientation)],
+				"соединение mask %d"%game.FenceSystem.connection_mask(game,structure),
+			])
+
+
+## Добавляет домашние и совместимые старые грядки с культурой, влагой и стадией роста.
+static func append_world_plots(game: Node, result: Array[Dictionary], probe: Vector2 = Vector2.INF) -> void:
+	if game.current_location == "overworld":
+		for cell in game.plots:
+			var home: Dictionary = game.plots[cell]
+			if not game.FarmVisualSystem.is_plot_visible(home): continue
+			var bounds: Rect2 = game.FarmVisualSystem.plot_rect(Vector2(game.FARM_ORIGIN),cell)
+			if probe != Vector2.INF and not bounds.has_point(probe): continue
+			add(result,"home_plot:%d:%d"%[cell.x,cell.y],"ГРЯДКА","Домашний участок",bounds.get_center(),bounds,12,"тайл 48×48 · проходимый","посажено" if home.planted else "вспахано",[
+				"клетка %d/%d · культура %s"%[cell.x,cell.y,home.get("crop_kind","carrot")],
+				"рост %.1f · стадия %d/4 · полив %s"%[home.growth,home.stage,str(home.watered)],
+			])
+	for key in game.state.world.world_plots:
+		var plot: Dictionary = game.state.world.world_plots[key]
+		if String(plot.location) != game.current_location: continue
+		var rect: Rect2 = game.WorldFarmingSystem.cell_rect(plot.cell)
+		if probe == Vector2.INF or (rect).has_point(probe):
+			add(result, "world_plot:%s" % key, "ГРЯДКА", "Свободный участок", rect.get_center(), rect, 12, "тайл 48×48 · проходимый", "посажено" if plot.planted else "вспахано", [
+				"локация %s · клетка %d/%d" % [plot.location,plot.cell.x,plot.cell.y],
+				"культура %s · стадия %d/4" % [plot.crop_kind,plot.stage],
+				"рост %.1f/%.1f · полив %s" % [plot.growth,game.GROWTH_DURATION,str(plot.watered)],
+			])
+
+
+## Добавляет один нормализованный объект с общей геометрией, состоянием и техническими строками.
+static func add(result: Array[Dictionary], id: String, category: String, name: String, position: Vector2, bounds: Rect2, priority: int, collision: String, state: String, details: Array[String] = []) -> void:
+	result.append({"id":id,"category":category,"name":name,"position":position,"bounds":bounds,"priority":priority,"collision":collision,"state":state,"details":details})
+
+
+## Добавляет героя с текущими RPG-ресурсами, направлением, движением и радиусом физики.
+static func append_player(game: Node, result: Array[Dictionary], probe: Vector2 = Vector2.INF) -> void:
+	var moving: bool = game.PlayerSystem.is_visually_moving(game)
+	var visual = game.DirectionalCharacterSystem.HeroVisualSystem
+	var bounds: Rect2 = visual.destination(game.player, visual.current_pose(game, game.facing, moving))
+	if probe == Vector2.INF or bounds.has_point(probe):
+		add(result, "player", "ГЕРОЙ", String(game.state.player.profile.get("name", "Герой")), game.player, bounds, 120, "круг r%.0f · твёрдый" % game.PLAYER_RADIUS, "жив · %s" % ("идёт" if moving else "стоит"), [
+			"HP %d/%d · MP %d/%d · EN %d/%d" % [game.player_hp,game.player_max_hp,game.player_mana,game.player_max_mana,game.energy,game.SkillSystem.max_stamina(game)],
+			"ур. %d · XP %d · очков %d" % [game.player_level,game.player_xp,game.skill_points],
+			"направление %.2f / %.2f" % [game.facing.x,game.facing.y],
+			"оружие %s · инструмент %s" % [game.equipped_weapon,str(game.selected_tool)],
+		])
+
+
+## Добавляет внешние здания по полному рисунку и показывает отдельный прямоугольник коллизии.
+static func append_buildings(game: Node, result: Array[Dictionary], probe: Vector2 = Vector2.INF) -> void:
+	for building_id in game.BuildingSystem.buildings_at(game.current_location):
+		var data: Dictionary = game.BuildingSystem.BUILDINGS[building_id]
+		var bounds: Rect2 = game.BuildingSystem.destination_rect(building_id)
+		if probe != Vector2.INF and not bounds.has_point(probe): continue
+		var collision: Rect2=game.BuildingSystem.collision_rect(building_id); var profile:Dictionary=game.BuildingVisualSystem.profile(building_id)
+		var names := {"cottage":"Дом бабушки","shop_house":"Сельская лавка","guild_hall":"Гильдия","forge":"Кузница","chapel":"Часовня","prison":"Тюрьма","wizard_tower":"Башня волшебника","moon_castle":"Лунный замок"}
+		var unlocked: bool = game.BuildingSystem.can_enter(game, building_id)
+		if probe == Vector2.INF or (game.BuildingSystem.destination_rect(building_id)).has_point(probe):
+			add(result, "building:%s" % building_id, "ЗДАНИЕ", names.get(building_id, building_id), data.door, game.BuildingSystem.destination_rect(building_id), 20, rect_description(collision), "открыто" if unlocked else "закрыто", [
+				"дверь %.0f / %.0f · проём %.0f×%.0f" % [data.door.x,data.door.y,Vector2(profile.door_size).x,Vector2(profile.door_size).y],
+				"фасад %.0f×%.0f · фундамент %.0f×%.0f" % [Vector2(profile.visual_size).x,Vector2(profile.visual_size).y,Vector2(profile.foundation_size).x,Vector2(profile.foundation_size).y],
+				"интерьер %s" % data.interior,
+				"условие %s" % ("нет" if String(data.unlock).is_empty() else String(data.unlock)),
+			])
+	if not game.BuildingSystem.is_interior(game.current_location): return
+	for index in game.InteriorVisualSystem.props(game.current_location).size():
+		var prop: Dictionary = game.InteriorVisualSystem.props(game.current_location)[index]; var kind := String(prop.kind); var position := Vector2(prop.position); var rect: Rect2 = game.InteriorVisualSystem.collision_rect(kind,position,int(prop.get("direction",0))); var visual: Rect2 = game.InteriorVisualSystem.destination_rect(kind,position,int(prop.get("direction",0)))
+		var collision_label:="декор · проходимо" if rect.size==Vector2.ZERO else "мебель · непроходимо"
+		if probe == Vector2.INF or (visual).has_point(probe):
+			add(result, "interior_prop:%d:%s" % [index,kind], "ИНТЕРЬЕР", game.LocaleSystem.entity(kind), position, visual, 16, rect_description(rect) if rect.size!=Vector2.ZERO else "нет", collision_label, ["комната %s" % game.current_location,"рисунок %.0f×%.0f" % [visual.size.x,visual.size.y]])
+
+
+## Добавляет деревья всех стадий по фактической кроне, включая здоровье и таймер отрастания.
+static func append_trees(game: Node, result: Array[Dictionary], probe: Vector2 = Vector2.INF) -> void:
+	if game.current_location != "overworld": return
+	for index in game.state.world.tree_nodes.size():
+		var tree: Dictionary = game.state.world.tree_nodes[index]; var stage := int(tree.stage)
+		var bounds:Rect2=game.TreeSystem.destination_rect(tree)
+		if probe == Vector2.INF or bounds.has_point(probe):
+			var collision:Rect2=game.TreeSystem.collision_rect(tree)
+			add(result, String(tree.get("id", "tree_%d" % index)), "ДЕРЕВО", "Лесное дерево", tree.position, bounds, 34, rect_description(collision) if game.TreeSystem.is_solid(tree) else "нет", "стадия %d/3" % stage, [
+				"здоровье %d/%d" % [tree.health,game.TreeSystem.MAX_HEALTH],
+				"отрастание %.1f/%.1f сек" % [tree.regrow_timer,game.TreeSystem.REGROW_DURATION],
+				"прогресс %d%%" % roundi(game.TreeSystem.regrow_progress(tree) * 100.0),
+			])
+
+
+## Добавляет собираемые растения и показывает готовность, урожай и время повторного роста.
+static func append_forage(game: Node, result: Array[Dictionary], probe: Vector2 = Vector2.INF) -> void:
+	for index in game.food_nodes.size():
+		var node: Dictionary = game.food_nodes[index]
+		if String(node.get("location", "overworld")) != game.current_location: continue
+		var bounds := forage_bounds(game, node)
+		if probe == Vector2.INF or bounds.has_point(probe):
+			var data: Dictionary = game.ForageSystem.TYPES[node.kind]
+			var orchard_stage: int = game.OrchardSystem.stage(node) if game.OrchardSystem.handles(node.kind) else -1
+			var collision:Rect2=game.OrchardSystem.collision_rect(node.position,orchard_stage) if orchard_stage>=0 else game.ForageSystem.collision_rect(node)
+			add(result, "forage:%d:%s" % [index,node.kind], "СБОР", game.LocaleSystem.entity(node.kind), node.position, bounds, 55, rect_description(collision), "готово" if game.ForageSystem.is_collectable(game,node) else ("зимний покой" if node.active else "растёт"), [
+				"урожай %d · продажа %d" % [data.yield,data.sell],
+				"цикл %s · осталось %s" % [game.ForageSystem.duration_text(data.growth_minutes),game.ForageSystem.remaining_text(game,node)],
+				"стадия %s" % ("%d/3 · %d%%" % [orchard_stage,roundi(game.OrchardSystem.growth_progress(game,node,data)*100.0)] if orchard_stage >= 0 else "нет"),
+				"плодоношение %s" % ("%d%%" % roundi(game.OrchardSystem.fruit_progress(game,node,data)*100.0) if orchard_stage == 3 else "после взросления"),
+				"ready_at %.1f · active %s" % [node.ready_at,str(node.active)],
+			])
+
+
+## Добавляет жилы и камни с оставшимися ударами и выдаваемым предметом.
+static func append_resources(game: Node, result: Array[Dictionary], probe: Vector2 = Vector2.INF) -> void:
+	for index in game.resource_nodes.size():
+		var node: Dictionary = game.resource_nodes[index]
+		if node.location != game.current_location or int(node.hits) <= 0: continue
+		var name: String = game.ResourceSystem.RESOURCE_NAMES.get(node.kind, node.kind)
+		var bounds:Rect2=game.ResourceSystem.destination_rect(node)
+		if probe == Vector2.INF or bounds.has_point(probe):
+			var collision:Rect2=game.ResourceSystem.collision_rect(node)
+			add(result, "resource:%d:%s" % [index,node.kind], "РЕСУРС", name, node.position, bounds, 70, rect_description(collision), "доступен", ["ударов осталось %d" % node.hits,"добыча %s" % game.inventory_item_name(node.kind)])
+
+
+## Добавляет закрытые и уже опустошённые мировые контейнеры с точным содержимым.
+static func append_containers(game: Node, result: Array[Dictionary], probe: Vector2 = Vector2.INF) -> void:
+	for index in game.world_loot_nodes.size():
+		var node: Dictionary = game.world_loot_nodes[index]
+		if node.location != game.current_location: continue
+		var bounds:Rect2=game.WorldLootRenderer.visual_rect(node.kind,node.position)
+		if probe == Vector2.INF or bounds.has_point(probe):
+			var collision:Rect2=game.WorldLootRenderer.collision_rect(node.kind,node.position)
+			add(result, "container:%s" % node.get("id",index), "КОНТЕЙНЕР", game.LocaleSystem.entity(node.kind), node.position, bounds, 75, rect_description(collision), "открыт и пуст" if node.opened else "закрыт", [
+				"runtime index %d" % index,
+				"содержимое %s" % dictionary_text(node.contents),
+				"seed мира %d" % game.world_loot_seed,
+			])
+
+
+## Добавляет лежащие предметы, их количество и читаемое имя инвентарного каталога.
+static func append_drops(game: Node, result: Array[Dictionary], probe: Vector2 = Vector2.INF) -> void:
+	for index in game.dropped_items.size():
+		var item: Dictionary = game.dropped_items[index]
+		if item.get("location",game.current_location) != game.current_location: continue
+		if probe == Vector2.INF or (centered_bounds(item.position,DROP_SIZE)).has_point(probe):
+			add(result, "drop:%d:%s" % [index,item.kind], "ДОБЫЧА", game.inventory_item_name(item.kind), item.position, centered_bounds(item.position,DROP_SIZE), 95, "нет · можно подобрать", "лежит в мире", ["количество %d" % item.count,"item id %s" % item.kind])
+
+
+## Добавляет статичные опасные растения с уровнем, уроном, режимом и cooldown.
+static func append_hazards(game: Node, result: Array[Dictionary], probe: Vector2 = Vector2.INF) -> void:
+	for index in game.hazard_nodes.size():
+		var node: Dictionary = game.hazard_nodes[index]
+		if node.location != game.current_location: continue
+		var data: Dictionary = game.EnvironmentHazardSystem.TYPES[node.kind]
+		var size:Vector2=game.CreatureVisualProfileSystem.hazard_size(node.kind)
+		if probe == Vector2.INF or (game.CreatureVisualProfileSystem.actor_rect(node.position,size)).has_point(probe):
+			add(result, "hazard:%d:%s" % [index,node.kind], "ОПАСНОСТЬ", game.LocaleSystem.entity(node.kind), node.position, game.CreatureVisualProfileSystem.actor_rect(node.position,size), 82, "круг r30 · твёрдый", "активна", [
+				"ур. %d · урон %d" % [node.level,game.EnvironmentHazardSystem.damage(node.kind,node.level)],
+				"режим %s · радиус %.0f" % [data.mode,data.range],
+				"cooldown %.2f · interval %.2f" % [node.cooldown,data.interval],
+			])
+
+
+## Добавляет обычного слизня и всех data-driven противников с полным состоянием боя и AI.
+static func append_enemies(game: Node, result: Array[Dictionary], probe: Vector2 = Vector2.INF) -> void:
+	if game.current_location == "overworld" and (game.slime_alive or game.AnimationSystem.slime_is_visible(game)):
+		if probe == Vector2.INF or (game.WorldVisualProfileSystem.visual_rect("story_slime",game.slime_position)).has_point(probe):
+			add(result, "enemy:legacy_slime", "ВРАГ", game.LocaleSystem.entity("slime"), game.slime_position, game.WorldVisualProfileSystem.visual_rect("story_slime",game.slime_position), 90, "круг r28 · твёрдый", game.slime_visual_state, ["HP %d/3" % game.slime_hp,"loot ready %s" % str(game.loot_available)])
+	for index in game.enemy_nodes.size():
+		var enemy: Dictionary = game.enemy_nodes[index]
+		if enemy.location != game.current_location or not game.AnimationSystem.enemy_is_visible(enemy): continue
+		var sprite_rect:Rect2=game.EnemyAnimationLibrary.actor_rect(enemy)
+		var data: Dictionary = game.CombatSystem.TYPES.get(enemy.kind,{})
+		if probe == Vector2.INF or sprite_rect.has_point(probe):
+			add(result, "enemy:%d:%s" % [index,enemy.kind], "ВРАГ", game.LocaleSystem.entity(enemy.kind), enemy.position, sprite_rect, 92, "круг r30 · твёрдый" if enemy.alive else "нет", String(enemy.get("visual_state","idle")), [
+				"HP %d/%d · ур. %d" % [enemy.hp,enemy.max_hp,enemy.level],
+				"урон %d · XP %d" % [game.CombatSystem.attack_damage(enemy.kind,enemy.level),game.CombatSystem.xp_reward(enemy.kind,enemy.level)],
+				"AI %s · mobile %s" % [enemy.get("action_kind",""),str(data.get("mobile",false))],
+				"dir %.2f / %.2f · moving %s" % [enemy.direction.x,enemy.direction.y,str(enemy.get("moving",false))],
+				"home %.0f / %.0f" % [enemy.home.x,enemy.home.y],
+			])
+
+
+## Добавляет декоративных и охотничьих животных, включая поведение, здоровье и добычу.
+static func append_wildlife(game: Node, result: Array[Dictionary], probe: Vector2 = Vector2.INF) -> void:
+	for index in game.wildlife_nodes.size():
+		var animal: Dictionary = game.wildlife_nodes[index]
+		if animal.location != game.current_location: continue
+		var data:Dictionary=game.WildlifeSystem.TYPES[animal.kind]; var size:Vector2=game.CreatureVisualProfileSystem.wildlife_size()
+		if probe == Vector2.INF or (game.CreatureVisualProfileSystem.actor_rect(animal.position,size)).has_point(probe):
+			add(result, "wildlife:%d:%s" % [index,animal.kind], "ЖИВОТНОЕ", game.LocaleSystem.entity(animal.kind), animal.position, game.CreatureVisualProfileSystem.actor_rect(animal.position,size), 85, "нет" if data.get("flying",false) else "круг r24", String(animal.get("visual_state","idle")), [
+				"HP %d/%d · alive %s" % [animal.hp,data.hp,str(animal.alive)],
+				"speed %.0f · panic %.2f" % [data.speed,animal.panic],
+				"home %.0f / %.0f · moving %s" % [animal.home.x,animal.home.y,str(animal.get("moving",false))],
+				"loot %s" % dictionary_text(data.loot),
+			])
+
+
+## Добавляет бабушку и всех квестовых NPC в их фактических местах дневного расписания.
+static func append_npcs(game: Node, result: Array[Dictionary], probe: Vector2 = Vector2.INF) -> void:
+	for actor_id in game.npc_movement:
+		var actor: Dictionary = game.npc_movement[actor_id]
+		if String(actor.get("location","")) != game.current_location: continue
+		var sprite_index := 0 if actor_id == "grandmother" else int(game.QuestSystem.NPCS.get(actor_id,{}).get("sprite",0))
+		var bounds: Rect2 = game.DirectionalCharacterSystem.npc_rect(sprite_index,actor.position,actor.direction,game.walk_animation_time,actor.moving)
+		if probe == Vector2.INF or bounds.has_point(probe):
+			var name: String = game.LocaleSystem.entity("grandmother") if actor_id == "grandmother" else game.QuestSystem.npc_name(actor_id)
+			var missions: Array = [] if actor_id == "grandmother" else game.QuestSystem.NPCS.get(actor_id,{}).get("missions",[])
+			add(result, "npc:%s" % actor_id, "NPC", name, actor.position, bounds, 100, "нет · диалог", String(actor.get("schedule","без расписания")), [
+				"home %.0f / %.0f · %s" % [actor.home.x,actor.home.y,actor.home_location],
+				"dir %.2f / %.2f · moving %s" % [actor.direction.x,actor.direction.y,str(actor.moving)],
+				"миссии %s" % (", ".join(missions) if not missions.is_empty() else "обучение"),
+			])
+
+
+## Добавляет кандидатов тюрьмы или активных напарников с боевыми параметрами и приказом группы.
+static func append_companions(game: Node, result: Array[Dictionary], probe: Vector2 = Vector2.INF) -> void:
+	for companion_id in game.CompanionSystem.COMPANIONS:
+		var visible: bool = game.current_location == "prison_interior" or companion_id in game.active_companions
+		if not visible: continue
+		var data: Dictionary = game.CompanionSystem.COMPANIONS[companion_id]
+		var position: Vector2 = data.position if game.current_location == "prison_interior" else game.companion_positions.get(companion_id,game.player)
+		var bounds: Rect2 = game.DirectionalCharacterSystem.companion_rect(companion_id,position,game.companion_directions.get(companion_id,Vector2.DOWN),game.walk_animation_time,game.companion_moving.get(companion_id,false) and game.current_location!="prison_interior")
+		if probe == Vector2.INF or bounds.has_point(probe):
+			add(result, "companion:%s" % companion_id, "НАПАРНИК", game.CompanionSystem.name(game,companion_id), position, bounds, 105, "нет · союзник", "активен" if companion_id in game.active_companions else ("нанят" if companion_id in game.recruited_companions else "заключён"), [
+				"урон %d · защита %d · лечение %d" % [data.damage,data.defense,data.heal],
+				"лидерство %d · цена %d" % [data.leadership,data.price],
+				"приказ %s" % game.state.player.companion_command,
+			])
+
+
+## Добавляет видимые модульные стены и декор пещеры вместо старых невидимых кристальных групп.
+static func append_cave_props(result: Array[Dictionary], probe: Vector2 = Vector2.INF, location: String = "cave") -> void:
+	var walls := CaveLayout.walls(location)
+	for index in walls.size():
+		var wall: Dictionary = walls[index]
+		var bounds := CaveAssets.destination_rect(wall.kind, wall.position)
+		if probe != Vector2.INF and not bounds.has_point(probe): continue
+		add(result, "cave_wall:%d" % index, "СКАЛА", "Скальная стена", wall.position, bounds, 32, "общий скальный контур · непроходимо", "стена", ["модуль %s" % wall.kind, "опора скального контура %s" % str(wall.edge)])
+	var decorations := CaveLayout.Rooms.decorations(location)
+	for index in decorations.size():
+		var prop: Dictionary = decorations[index]
+		var bounds := CaveAssets.destination_rect(prop.kind, prop.position)
+		if probe != Vector2.INF and not bounds.has_point(probe): continue
+		var solid := CaveAssets.collision_rect(prop.kind, prop.position)
+		add(result, "cave_prop:%d" % index, "ПЕЩЕРА", "Пещерный декор: %s" % prop.kind, prop.position, bounds, 31, rect_description(solid) if solid.has_area() else "нет · декор", "твёрдый" if solid.has_area() else "проходимый")
+
+
+## Добавляет верстак, торговые точки, переход мира и домашний сундук как технические объекты.
+static func append_world_props(game: Node, result: Array[Dictionary], probe: Vector2 = Vector2.INF) -> void:
+	if CaveLayout.Rooms.is_cave(game.current_location): append_cave_props(result,probe,game.current_location)
+	if game.current_location == "cursed":
+		for index in game.CAVE_DECORATIONS.size():
+			var position:Vector2=game.CAVE_DECORATIONS[index]; var bounds:Rect2=game.CaveVisualSystem.cluster_bounds(position); var collision:Rect2=game.CaveVisualSystem.collision_rect(position)
+			if probe == Vector2.INF or bounds.has_point(probe):
+				add(result,"cave_decor:%d"%index,"ПЕЩЕРА","Валунная кристальная группа",position,bounds,32,rect_description(collision),"декорация",["профиль 120×96","камни 48×48 · кристалл 72×72"])
+	if game.current_location == "overworld":
+		var village_props:Array=game.VillageLayoutSystem.PROP_PLACEMENTS+game.VillageLayoutSystem.SCENIC_PLACEMENTS
+		for index in village_props.size():
+			var prop:Dictionary=village_props[index]; var bounds:Rect2=game.VillageLayoutSystem.prop_rect(prop); var collision:Rect2=game.VillageLayoutSystem.prop_collision_rect(prop)
+			if probe == Vector2.INF or bounds.has_point(probe):
+				add(result,"village_prop:%d:%s"%[index,prop.kind],"ДЕКОР","Деревенский объект: %s"%prop.kind,prop.position,bounds,31,rect_description(collision) if collision.has_area() else "нет · декор", "твёрдый" if collision.has_area() else "проходимый",["профиль %s"%game.VillageLayoutSystem.PROP_PROFILES[prop.kind],"ячейка %s"%str(game.VillageLayoutSystem.PROP_CELLS[prop.kind])])
+		if probe == Vector2.INF or (centered_bounds(game.workbench_position,Vector2(64,44))).has_point(probe):
+			add(result,"prop:workbench","ОБЪЕКТ","Верстак",game.workbench_position,centered_bounds(game.workbench_position,Vector2(64,44)),45,"прямоугольник 64×44 · твёрдый","доступен")
+		if probe == Vector2.INF or (centered_bounds(game.BuildingSystem.SHOP_STALL_POSITION,Vector2(76,64))).has_point(probe):
+			add(result,"prop:shop_stall","ТОРГОВЛЯ","Лавка",game.BuildingSystem.SHOP_STALL_POSITION,centered_bounds(game.BuildingSystem.SHOP_STALL_POSITION,Vector2(76,64)),42,"нет · взаимодействие","доступна")
+		if probe == Vector2.INF or (game.BuildingSystem.SELL_CRATE_RECT).has_point(probe):
+			add(result,"prop:sell_crate","ТОРГОВЛЯ","Ящик продажи",game.BuildingSystem.SELL_CRATE_POSITION,game.BuildingSystem.SELL_CRATE_RECT,48,rect_description(game.BuildingSystem.SELL_CRATE_RECT),"доступен")
+	if (not CaveLayout.Rooms.is_cave(game.current_location) or CaveLayout.Rooms.has_world_exit(game.current_location)) and (probe == Vector2.INF or (centered_bounds(game.world_gate_position,Vector2(108,108))).has_point(probe)):
+		add(result,"prop:world_gate","ПЕРЕХОД","Переход: %s" % game.WorldSystem.name(game.WorldSystem.next_location(game.current_location)),game.world_gate_position,centered_bounds(game.world_gate_position,Vector2(108,108)),38,"триггер","доступен")
+	if game.current_location == "cottage_interior" and game.home_chest_owned:
+		var stored_total := 0
+		for count in game.home_chest_counts.values(): stored_total += int(count)
+		var bounds: Rect2 = game.InteriorVisualSystem.destination_rect("home_chest",game.StorageSystem.CHEST_POSITION); var collision: Rect2 = game.InteriorVisualSystem.collision_rect("home_chest",game.StorageSystem.CHEST_POSITION)
+		if probe == Vector2.INF or bounds.has_point(probe):
+			add(result,"prop:home_chest","ХРАНИЛИЩЕ",game.LocaleSystem.entity("home_chest"),game.StorageSystem.CHEST_POSITION,bounds,80,rect_description(collision),"установлен",["предметов %d" % stored_total])
+
+
+## Возвращает визуальный прямоугольник персонажа с общей точкой опоры у ног.
+static func actor_bounds(position: Vector2, size: Vector2) -> Rect2:
+	return Rect2(position - Vector2(size.x * 0.5,size.y * 0.68),size)
+
+
+## Возвращает визуальный прямоугольник объекта, центрированного по мировой позиции.
+static func centered_bounds(position: Vector2, size: Vector2) -> Rect2:
+	return Rect2(position - size * 0.5,size)
+
+
+## Возвращает фактическую область дерева или куста из атласа с безопасным размером для отдельных иконок.
+static func forage_bounds(game: Node, node: Dictionary) -> Rect2:
+	if game.OrchardSystem.handles(node.kind):
+		var data:Dictionary=game.ForageSystem.TYPES[node.kind]
+		return game.OrchardSystem.destination_rect(node.position,game.OrchardSystem.visual_stage(game,node,data))
+	if node.kind in game.FORAGE_SPRITES:
+		var layout: Dictionary = game.forage_sprite_layout(node.kind,node.position)
+		return layout.destination
+	return game.ForageSystem.destination_rect(node)
+
+
+## Форматирует прямоугольную коллизию без потери координат и размеров.
+static func rect_description(rect: Rect2) -> String:
+	return "rect %.0f/%.0f %.0f×%.0f" % [rect.position.x,rect.position.y,rect.size.x,rect.size.y]
+
+
+## Форматирует небольшой словарь добычи или содержимого в одну техническую строку.
+static func dictionary_text(value: Dictionary) -> String:
+	if value.is_empty(): return "пусто"
+	var parts: Array[String] = []
+	for key in value: parts.append("%s×%s" % [key,value[key]])
+	return ", ".join(parts)

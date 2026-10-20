@@ -64,7 +64,9 @@ func test_station_tiers_share_approved_front_art() -> void:
 ## Ожидаемый результат: плашка находится внутри игрового поля и строка помещается с внутренними отступами.
 func test_labels_stay_in_camera_at_all_font_scales() -> void:
 	var game:=make_game(); game.camera_offset=Vector2(768,360)
-	var safe:Rect2=preload("res://scripts/systems/camera_system.gd").playfield_rect(game).grow(-8); safe.position+=game.camera_offset
+	var projection:=preload("res://scripts/systems/world_projection_system.gd")
+	var screen_safe:Rect2=preload("res://scripts/systems/camera_system.gd").playfield_rect(game).grow(-8)
+	var safe:=projection.screen_rect_to_world(game,screen_safe)
 	for locale in game.LocaleSystem.LOCALES:
 		game.LocaleSystem.set_locale(locale)
 		for scale in [0.8,1.0,1.2]:
@@ -73,7 +75,8 @@ func test_labels_stay_in_camera_at_all_font_scales() -> void:
 			for anchor in [safe.position,safe.end]:
 				var rect:=Labels.bounds(game,anchor,text)
 				var size:int=game.UiScaleSystem.fitted_singleline_font_size(game,game.UI_FONT,text,rect.size.x-8,rect.size.y-8,11)
-				expect(safe.encloses(rect),"world label stays clear of HUD and hotbar in "+locale)
+				var projected:=Rect2(projection.world_to_screen(game,rect.position),rect.size*projection.zoom(game))
+				expect(screen_safe.grow(0.001).encloses(projected),"world label stays clear of HUD and hotbar in "+locale)
 				expect(game.UI_FONT.get_string_size(text,HORIZONTAL_ALIGNMENT_LEFT,-1,size).x<=rect.size.x-8+0.1 and game.UI_FONT.get_height(size)<=rect.size.y-8+0.1,"world label fits at chosen text scale in "+locale)
 	game.free()
 

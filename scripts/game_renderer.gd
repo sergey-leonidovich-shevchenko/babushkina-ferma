@@ -197,10 +197,10 @@ func draw_living_atlas_sprite(texture: Texture2D, source: Rect2, position: Vecto
 	var sprite_scale: Vector2 = motion.scale
 	if flip_x:
 		sprite_scale.x *= -1.0
-	var world_transform: Vector2 = PresentationSystem.world_offset(self)
-	draw_set_transform(world_transform + position + Vector2(motion.offset), float(motion.rotation), sprite_scale)
+	var projection:=preload("res://scripts/systems/world_projection_system.gd")
+	projection.apply(self,position+Vector2(motion.offset),float(motion.rotation),sprite_scale)
 	draw_texture_rect_region(texture, Rect2(Vector2(-size.x * 0.5, -size.y * 0.66), size), source, modulate)
-	draw_set_transform(world_transform, 0.0, Vector2.ONE)
+	projection.apply(self)
 
 ## Отрисовывает сюжетного NPC, его имя и маркер состояния миссии.
 func draw_mission_npc(position: Vector2, npc_name: String, mission_id: String, sprite_index: int) -> void:

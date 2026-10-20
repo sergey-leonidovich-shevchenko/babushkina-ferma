@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "task": "VCAMERA-006",
+  "status": "done",
+  "accepted": true,
+  "selection": {
+    "source": "VART-002: closer, 120%",
+    "location": "overworld",
+    "world_zoom": 1.2,
+    "logical_canvas": [1152, 648],
+    "world_field": [960, 540],
+    "hud_zoom": 1.0,
+    "world_grid": 24,
+    "projected_grid": 28.8,
+    "player_collision_radius": 18,
+    "other_locations_zoom": 1.0,
+    "editor_and_published_preview_zoom": 1.0,
+    "allowed_service_profiles": [1.0, 1.2],
+    "serialized": false
+  },
+  "timing_rule_declared_before_collection": {
+    "repeats_per_profile_and_format": 3,
+    "formats": [[1152, 648], [1920, 1080], [2304, 1296]],
+    "warmup_frames": 120,
+    "measured_frames": 240,
+    "relative_rule": "median of three p95 at 120% <= median of three p95 at 100% * 1.15 + 0.3 ms",
+    "absolute_budget_ms": {"p95": 18.5, "p99": 33.333, "max": 100},
+    "comparison_scope": "both profiles within the new projection, not old executable versus new executable",
+    "result": "relative guard PASS in all three formats; absolute 60 FPS budget FAIL in all 18 runs",
+    "release_performance_accepted": false
+  },
+  "restriction": null,
+  "permission_note": "User explicitly allowed Godot again on 2026-10-20",
+  "verification": {
+    "native_clips": 6,
+    "independent_live_runs": 18,
+    "targeted_assertions_passed": 2225,
+    "reference_assertions_in_targeted_run": 382,
+    "full_game_assertions_passed": 45636,
+    "python_tests_passed": 26,
+    "wiki_tests_passed": 58,
+    "browser_videos_ended_without_errors": 6,
+    "frozen_sources_match_final_runtime": true,
+    "commit_gate": ".githooks/pre-commit requires architecture and full game tests; rejection prevents commit"
+  },
+  "remaining": []
+}

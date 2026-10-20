@@ -8,5 +8,4 @@ const EDGE_MARGIN := 24.0
 static func visible_rect(game: Node2D) -> Rect2:
 	var viewport := game.get_viewport_rect() if game.is_inside_tree() else Rect2(Vector2.ZERO, UiScale.DESIGN_SIZE)
 	if viewport.size == Vector2.ZERO: viewport = Rect2(Vector2.ZERO, UiScale.DESIGN_SIZE)
-	var shake: Vector2 = game.AdventurePolishSystem.shake_offset(game)
-	return Rect2(viewport.position + game.camera_offset - shake, viewport.size).grow(EDGE_MARGIN)
+	return preload("res://scripts/systems/world_projection_system.gd").screen_rect_to_world(game,viewport).grow(EDGE_MARGIN)

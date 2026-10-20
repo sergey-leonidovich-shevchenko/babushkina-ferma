@@ -66,7 +66,8 @@ static func draw_minimap(game: Node2D) -> void:
 			if node.location==game.current_location: game.draw_circle(map_rect.position+Vector2(node.position)/world_size*map_rect.size,1,Color("97a389"))
 		for enemy in game.enemy_nodes:
 			if enemy.location==game.current_location and enemy.alive: game.draw_circle(map_rect.position+Vector2(enemy.position)/world_size*map_rect.size,1.5,Color("c8765e"))
-	var camera_view:=Rect2(map_rect.position+game.camera_offset/world_size*map_rect.size,game.UiScaleSystem.DESIGN_SIZE/world_size*map_rect.size).intersection(map_rect)
+	var field:=preload("res://scripts/systems/world_projection_system.gd").field_size(game)
+	var camera_view:=Rect2(map_rect.position+game.camera_offset/world_size*map_rect.size,field/world_size*map_rect.size).intersection(map_rect)
 	game.draw_rect(camera_view,Color(0.98,0.86,0.60,0.5),false,1)
 	var dot := map_rect.position + Vector2(clampf(game.player.x / world_size.x, 0.0, 1.0) * map_rect.size.x, clampf(game.player.y / world_size.y, 0.0, 1.0) * map_rect.size.y)
 	game.draw_circle(dot, 4, Color("36231b")); game.draw_circle(dot, 2.5, Color("ffe4a0"))

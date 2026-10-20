@@ -39,7 +39,7 @@ static func draw_world(game: Node2D, foreground: bool) -> void:
 		if wild.location==game.current_location: entries.append({"position":wild.position,"kind":"wild_hive","empty":false,"bees":true})
 	for item in entries:
 		var position:Vector2=item.position
-		if (position.y+24>game.player.y)!=foreground or not Rect2(game.camera_offset,Vector2(1152,648)).grow(144).has_point(position): continue
+		if (position.y+24>game.player.y)!=foreground or not preload("res://scripts/systems/world_projection_system.gd").view_rect(game).grow(144).has_point(position): continue
 		if item.empty:
 			game.draw_rect(Apiary.Data.base(position),Color(0.7,0.64,0.39,0.16)); game.draw_rect(Apiary.Data.base(position),Color(0.7,0.64,0.39,0.35),false,1); continue
 		var bounds:=destination(item.kind,position)

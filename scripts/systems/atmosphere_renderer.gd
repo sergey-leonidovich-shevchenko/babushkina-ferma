@@ -23,21 +23,23 @@ static func draw(game: Node2D) -> void:
 ## Рисует тёплые ориентиры у домов, чтобы ночная деревня оставалась читаемой.
 static func draw_lights(game: Node2D, darkness: float) -> void:
 	if game.current_location == "moon_glade":
-		var return_screen: Vector2 = game.WorldEventSystem.RETURN_PORTAL_POSITION - game.camera_offset
+		var return_screen: Vector2 = preload("res://scripts/systems/world_projection_system.gd").world_to_screen(game,game.WorldEventSystem.RETURN_PORTAL_POSITION)
 		game.draw_circle(return_screen, 72.0, Color(0.32, 0.66, 1.0, 0.14))
 		return
 	if game.current_location != "overworld": return
 	# Свет привязан к настоящим фонарям атласа, а несколько колец дают мягкий край без висящих в воздухе дисков.
 	for prop in VillageLayoutSystem.PROP_PLACEMENTS + VillageLayoutSystem.SCENIC_PLACEMENTS:
 		if prop.kind != "lamp": continue
-		var screen: Vector2 = Vector2(prop.position) - game.camera_offset - Vector2(0, 38)
+		var projection:=preload("res://scripts/systems/world_projection_system.gd")
+		var screen: Vector2 = projection.world_to_screen(game,Vector2(prop.position)-Vector2(0,38))
 		for ring in 4:
-			var radius := 42.0 - ring * 8.0
+			var radius := (42.0 - ring * 8.0)*projection.zoom(game)
 			game.draw_circle(screen, radius, Color(1.0, 0.72 + ring * 0.025, 0.28, darkness * (0.035 + ring * 0.025)))
-		game.draw_circle(screen, 5.0, Color(1.0, 0.88, 0.56, darkness * 0.58))
+		game.draw_circle(screen, 5.0*projection.zoom(game), Color(1.0, 0.88, 0.56, darkness * 0.58))
 	if game.WorldEventSystem.eclipse_active(game.day, game.game_minutes):
-		var portal_screen: Vector2 = game.WorldEventSystem.PORTAL_POSITION - game.camera_offset
-		game.draw_circle(portal_screen, 76.0, Color(0.28, 0.62, 1.0, 0.16))
+		var projection:=preload("res://scripts/systems/world_projection_system.gd")
+		var portal_screen: Vector2 = projection.world_to_screen(game,game.WorldEventSystem.PORTAL_POSITION)
+		game.draw_circle(portal_screen, 76.0*projection.zoom(game), Color(0.28, 0.62, 1.0, 0.16))
 
 
 ## Рисует детерминированные диагональные дождевые полосы без создания узлов на каждом кадре.

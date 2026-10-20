@@ -1,0 +1,27 @@
+{
+  "command": [
+    "open",
+    "-n",
+    "-W",
+    "-a",
+    "/Users/sergeyshevchenko/my farm/tools/Godot.app",
+    "--args",
+    "--path",
+    "/Users/sergeyshevchenko/my farm",
+    "--windowed",
+    "--audio-driver",
+    "Dummy",
+    "--log-file",
+    "/Users/sergeyshevchenko/my farm/docs/reports/visual-overhaul/vcamera-006/native/full-hd-100/engine.txt",
+    "--script",
+    "res://tools/reference_zoom_capture.gd",
+    "--",
+    "--output=/var/folders/ky/t3jq24z91jdgvtstvkrkz20h0000gn/T/farm-pose-ekozsr7a/full-hd-100",
+    "--profile=Codex-VCAMERA-006-6a8c438647bb4da1943faf81dded5d42",
+    "--size=1920x1080",
+    "--zoom=1.0"
+  ],
+  "exit_code": 0,
+  "collector_sha256": "c2336f71b01345660b622638971183d753c15da0e447c497be73eb17aaa9b69b",
+  "exit_code_scope": "LaunchServices; actual engine completion in capture.json"
+}

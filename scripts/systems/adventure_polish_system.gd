@@ -174,9 +174,10 @@ static func cycle_target(game: Node) -> int:
 
 ## Фиксирует врага, по которому игрок коснулся или щёлкнул в экранных координатах.
 static func target_at_screen(game: Node, point: Vector2) -> bool:
+	var world:=preload("res://scripts/systems/world_projection_system.gd").screen_to_world(game,point)
 	for index in game.enemy_nodes.size():
 		var enemy: Dictionary = game.enemy_nodes[index]
-		if enemy.alive and enemy.location == game.current_location and point.distance_to(enemy.position - game.camera_offset) <= 48.0:
+		if enemy.alive and enemy.location == game.current_location and world.distance_to(enemy.position) <= 48.0:
 			game.state.player.adventure_ui.target_enemy = index; game.notify_tutorial("target_lock"); return true
 	return false
 

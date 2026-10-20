@@ -1,0 +1,94 @@
+$ node --experimental-strip-types --test tests/*.test.mjs
+✔ visual pipeline and numbered idea are published and linked (173.047391ms)
+✔ article manifest rejects duplicates, empty content and escaped paths (10.732164ms)
+✔ item tint is preserved in linked recipe and plant previews (6.303883ms)
+✖ complete live catalogs and all cross-links validate (16.515875ms)
+✔ every sprite is a real PNG and every character can be inspected (452.425594ms)
+✔ guardian exposes its whole temporary pose without invented animation clips (0.445549ms)
+✔ skeleton south-west bow matches game pose and all three shot phases (0.356867ms)
+✔ workstations only expose front and side views (0.823553ms)
+✔ broken references and sprite bounds stop publication (75.057564ms)
+✔ guide chapters have stable unique addresses and complete text (3.925355ms)
+✔ first location resolves all selected epics without changing the catalog (101.950586ms)
+✔ map and release progress exclude other locations and later releases (29.334967ms)
+✔ live changes update active cards and per-epic counts (35.946263ms)
+✔ only the canonical final acceptance completes the first location (40.30021ms)
+✔ catalog-wide scopes and missing epic data remain explicit (3.052759ms)
+✔ desktop bundle contains a real ICNS and a portable executable launcher (189.098097ms)
+✔ refresh after conflict preserves local edits and accepts independent remote fields (1.890963ms)
+✔ planning imports every registered plan and preserves source statuses and acceptance (65.97791ms)
+✔ new standard plans are discovered with live task counts (22.878523ms)
+✔ markdown adapter ignores index entries and refuses an unstated status (1.283819ms)
+✔ planning sources cannot escape the repository through paths or symlinks (6.252973ms)
+✔ approval survives a new store instance and leaves implementation untouched (121.732689ms)
+✔ stale and simultaneous edits cannot overwrite a newer decision (32.985849ms)
+✔ refinement needs approval and actual epics and can be reopened (109.259331ms)
+✔ new ideas and article ideas share one collision-free sequence (64.206356ms)
+✔ group creation renaming and moving do not duplicate or mutate tasks (161.489087ms)
+✔ invalid mutations are atomic and release the write lock (30.049246ms)
+✔ corrupt saved state is never replaced with a blank workspace (3.638512ms)
+✔ HTTP approval queue and server restart preserve decisions (244.631717ms)
+✔ static review exposes no planning mutation API (19.715481ms)
+✔ HTTP writes reject cross-origin malformed oversized and non-JSON requests (22.560782ms)
+✔ browser plans match every Godot recipe and batch fixture (142.702872ms)
+✔ recipe articles and external sources remain connected (3.11879ms)
+✔ byproducts rounding and cycles keep material conservation (0.807853ms)
+✔ hard depth and operation limits reject misleading full plans (4.840487ms)
+✔ report download preserves bytes and has a content-bound address (35.245638ms)
+✔ report attachments reject traversal, siblings, symlinks and executable formats (9.280419ms)
+✔ oversized report attachments fail explicitly (14.006373ms)
+✔ diagnostic video is bounded, content-addressed and cannot be renamed HTML (27.433717ms)
+✔ report video escapes labels and rejects arbitrary URLs without autoplay (0.800483ms)
+✔ registered pilot contains the full bounded graph without copied statuses (3.228243ms)
+✔ queue rejects unknown cards, missing closure, cycles and invalid stage order (4.13242ms)
+✔ changed canonical dependencies require a refreshed build even with a still valid order (61.546195ms)
+✔ a completed acceptance cannot hide an open extra condition (39.151162ms)
+✔ registered queues reject traversal, escaping symlinks, duplicate IDs and mismatched names (21.800732ms)
+✔ editorial links resolve only real tasks and known queue stages (2.726487ms)
+✔ live status changes update progress without mutating tasks or queue (410.972404ms)
+✔ backlog and externally blocked tasks are never recommended as ready (26.185476ms)
+✔ stage filters preserve dependency order and unknown routes return no global fallback (1.52106ms)
+✔ live refresh exposes missing or later dependencies and false done cards (57.055875ms)
+✔ launcher prefers the available pnpm wrapper and respects an explicit override (51.230072ms)
+✔ Russian aliases, actor names, ingredient combinations and internal IDs are searchable (25.662197ms)
+✔ category filtering and blank requests preserve catalog completeness (3.916594ms)
+✔ batch calculator handles exact quantities and invalid input without changing the recipe (3.147304ms)
+✔ static server serves assets and denies escape or unauthenticated control (218.732265ms)
+✔ occupied ports are skipped without stopping another application (6.284703ms)
+✔ build publication is complete and failed replacement restores the working version (11.12855ms)
+✔ wiki shares readable parchment roles with the game (12.38344ms)
+ℹ tests 58
+ℹ suites 0
+ℹ pass 57
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1686.852656
+
+✖ failing tests:
+
+test at tests/catalog.test.mjs:36:1
+✖ complete live catalogs and all cross-links validate (16.515875ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + '0.0.269'
+  - '0.0.270'
+          ^
+  
+      at TestContext.<anonymous> (file:///Users/sergeyshevchenko/my%20farm/wiki/tests/catalog.test.mjs:52:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '0.0.269',
+    expected: '0.0.270',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+[ELIFECYCLE] Test failed. See above for more details.

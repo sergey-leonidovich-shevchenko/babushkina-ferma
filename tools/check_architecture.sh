@@ -68,6 +68,9 @@ python3 tools/camera_quantization.py verify >/dev/null
 python3 tools/test_camera_quantization.py
 python3 tools/presentation_pose.py verify >/dev/null
 python3 tools/test_presentation_pose.py
+python3 tools/reference_zoom.py verify >/dev/null
+python3 tools/reference_zoom_perf.py verify >/dev/null
+python3 tools/test_reference_zoom.py
 python3 tools/visual_scale.py verify
 python3 tools/test_visual_scale.py
 python3 tools/visual_palette.py

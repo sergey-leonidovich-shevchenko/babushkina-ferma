@@ -91,10 +91,10 @@ static func draw_tool(game: Node2D, ground: Vector2, action: Dictionary) -> void
 	var rotation := direction.angle() + PI * 0.25
 	if item in ["pickaxe", "axe"]: rotation += lerpf(-1.6, 0.45, smoothstep(0.18, 0.66, progress_value))
 	elif item in ["water", "seeds", "hand"]: rotation = -0.3 if direction.x < 0.0 else 0.3
-	var world: Vector2 = game.PresentationSystem.world_offset(game)
-	game.draw_set_transform(world + hand, rotation, Vector2.ONE)
+	var projection:=preload("res://scripts/systems/world_projection_system.gd")
+	projection.apply(game,hand,rotation)
 	game.draw_texture_rect(texture, Rect2(-10, -30, 36, 36), false)
-	game.draw_set_transform(world, 0.0, Vector2.ONE)
+	projection.apply(game)
 
 
 ## Выводит один production-кадр с локальной очисткой служебного края и общей геометрией preview/runtime.
