@@ -182,6 +182,20 @@
           "file": "docs/epics/idea-2026-10/daily/2026-10-20/TASKS.md"
         }
       ]
+    },
+    {
+      "id": "daily-20261020b",
+      "title": "Вечерние предложения 20 октября 2026",
+      "format": "markdown",
+      "group": "gameplay",
+      "expected": 31,
+      "epics": [
+        {
+          "id": "IDEA-DAILY-20261020B",
+          "title": "Вечерние идеи 20 октября 2026",
+          "file": "docs/epics/idea-2026-10/daily/2026-10-20-evening/TASKS.md"
+        }
+      ]
     }
   ],
   "queues": [
