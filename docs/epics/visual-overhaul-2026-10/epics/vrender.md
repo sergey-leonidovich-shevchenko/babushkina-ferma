@@ -86,11 +86,11 @@
 
 ## VRENDER-003 — Разделить статичное и живое покрытие
 
-Статус: `ready` · P0 · этап `foundation` · `engineering`
+Статус: `done` · P0 · этап `foundation` · `engineering`
 
 Вода и движущаяся растительность не запекаются в UPDATE_ONCE; неподвижная земля не пересобирается каждый кадр
 
-Ветка: `codex/vrender-003-visual-task`.
+Ветка: `codex/vrender-003-static-live-ground`.
 
 Зависимости: VRENDER-002.
 
@@ -102,7 +102,7 @@
 - [scripts/world_background.gd](../../../../scripts/world_background.gd)
 - [scripts/presentation/village_terrain_canvas.gd](../../../../scripts/presentation/village_terrain_canvas.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vrender-003/`.
+Результаты: `docs/reports/visual-overhaul/vrender-003/`.
 
 Критерии:
 
@@ -120,7 +120,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vrender-003/README.md, docs/reports/visual-overhaul/vrender-003/summary.json, docs/reports/visual-overhaul/vrender-003/native/source.json, docs/reports/visual-overhaul/vrender-003/native/1152/hot-loop.json, docs/reports/visual-overhaul/vrender-003/native/1152/cold.json, docs/reports/visual-overhaul/vrender-003/review.txt, docs/reports/visual-overhaul/vrender-003/browser-review.json.
 
 <a id="vrender-004"></a>
 

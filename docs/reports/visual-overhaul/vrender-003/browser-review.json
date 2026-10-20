@@ -1,0 +1,54 @@
+{
+  "task": "VRENDER-003",
+  "url": "http://127.0.0.1:4175/#/guides/ground-layers",
+  "canonical_status": "done",
+  "images_loaded": 2,
+  "image_dimensions": [
+    1152,
+    648
+  ],
+  "downloads": [
+    {
+      "source": "summary.json",
+      "download": "dadbf243b5c025d7a9413f4a9cb5b7f2df16449917aa77a826aca6265c64c347.json",
+      "bytes": 4598,
+      "sha256": "dadbf243b5c025d7a9413f4a9cb5b7f2df16449917aa77a826aca6265c64c347",
+      "exact": true
+    },
+    {
+      "source": "native/source.json",
+      "download": "2985be9771c8222e6e0c8989cebd60edc9d42360f5182f0b9aa6df61873dce84.json",
+      "bytes": 18372,
+      "sha256": "2985be9771c8222e6e0c8989cebd60edc9d42360f5182f0b9aa6df61873dce84",
+      "exact": true
+    },
+    {
+      "source": "native/1152/hot-loop.json",
+      "download": "8b358421917c5d6627afac21b041b53843cbc55283d4949c3e2357317a66a24b.json",
+      "bytes": 1272,
+      "sha256": "8b358421917c5d6627afac21b041b53843cbc55283d4949c3e2357317a66a24b",
+      "exact": true
+    },
+    {
+      "source": "native/1152/cold.json",
+      "download": "2f58e883034c5fe06addccda6104cdc63a949b70b831b5110282b2eaf413eaab.json",
+      "bytes": 1111,
+      "sha256": "2f58e883034c5fe06addccda6104cdc63a949b70b831b5110282b2eaf413eaab",
+      "exact": true
+    }
+  ],
+  "search_query": "VRENDER-003",
+  "guide_found": true,
+  "narrow_viewport": [
+    390,
+    844
+  ],
+  "body_width": 390,
+  "document_width": 390,
+  "viewport_reset": true,
+  "screenshots": [
+    "wiki-desktop.png",
+    "wiki-mobile.png"
+  ],
+  "scope": "article, canonical card and exact native downloads; not FPS acceptance"
+}

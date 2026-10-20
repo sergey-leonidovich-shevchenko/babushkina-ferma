@@ -144,7 +144,7 @@ static func draw_first_location_animations(game: Node2D) -> void:
 	if game.current_location!="overworld":
 		draw_fishing_effects(game)
 		return
-	var ticks: int=Time.get_ticks_msec(); var season: String=game.WorldEventSystem.season(game.day)
+	var ticks: int=int(preload("res://scripts/presentation/village_ground_clock.gd").seconds(game)*1000.0); var season: String=game.WorldEventSystem.season(game.day)
 	if season!="winter":
 		for index in AMBIENT_WATER_POINTS.size():
 			var point:Vector2=AMBIENT_WATER_POINTS[index]

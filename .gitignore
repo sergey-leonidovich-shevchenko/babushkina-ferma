@@ -305,3 +305,11 @@ assets/inbox/*
 !tools/grass_compare_collect.py
 !tools/grass_methods.py
 !tools/test_grass_methods.py
+
+# VRENDER-003: native static/live layer preservation and controls.
+!tools/ground_layers.py
+!tools/test_ground_layers.py
+!tools/ground_layers_capture.gd
+!tools/ground_layers_capture.gd.uid
+!tools/ground_layers_review.gd
+!tools/ground_layers_review.gd.uid

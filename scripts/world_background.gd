@@ -37,12 +37,26 @@ var weather := "clear"
 var terrain_viewport: SubViewport
 var terrain_canvas: Node2D
 var terrain_ready := false
+var ground_split := true
+var water_layer: Node2D
+var cover_layer: Node2D
+var cutout_layer: Node2D
+var terrain_requests := 0
 
 ## Подготавливает узел к работе: создаёт зависимые данные и синхронизирует начальное состояние.
 func _ready() -> void:
 	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED
 	VillageMapPreviewSystem.warmup()
+	terrain_canvas=preload("res://scripts/presentation/village_terrain_canvas.gd").new()
+	terrain_canvas.texture_repeat=CanvasItem.TEXTURE_REPEAT_ENABLED
+	cutout_layer=preload("res://scripts/presentation/village_ground_layer.gd").new()
+	cutout_layer.name="WaterCutouts"
+	var cutout_material:=ShaderMaterial.new(); cutout_material.shader=preload("res://scripts/presentation/terrain_cutout.gdshader")
+	cutout_layer.material=cutout_material; terrain_canvas.add_child(cutout_layer)
+	cover_layer=preload("res://scripts/presentation/village_ground_layer.gd").new()
+	cover_layer.name="StaticCover"; cover_layer.texture_repeat=CanvasItem.TEXTURE_REPEAT_ENABLED
+	cover_layer.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST; terrain_canvas.add_child(cover_layer)
 	if DisplayServer.get_name() != "headless":
 		terrain_viewport=SubViewport.new()
 		terrain_viewport.size=Vector2i(VillageLayoutSystem.MapData.WORLD_SIZE)
@@ -50,15 +64,34 @@ func _ready() -> void:
 		terrain_viewport.canvas_item_default_texture_filter=Viewport.DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_NEAREST
 		terrain_viewport.render_target_update_mode=SubViewport.UPDATE_DISABLED
 		add_child(terrain_viewport)
-		terrain_canvas=preload("res://scripts/presentation/village_terrain_canvas.gd").new()
-		terrain_canvas.texture_repeat=CanvasItem.TEXTURE_REPEAT_ENABLED
 		terrain_viewport.add_child(terrain_canvas)
 		refresh_terrain()
+	else:
+		terrain_canvas.visible=false; add_child(terrain_canvas)
+	water_layer=preload("res://scripts/presentation/village_ground_layer.gd").new()
+	water_layer.name="WaterSurface"; water_layer.show_behind_parent=true; water_layer.texture_repeat=CanvasItem.TEXTURE_REPEAT_ENABLED; add_child(water_layer)
+	_sync_ground_layers()
+
+## Включает разделённый проход либо прежний кеш целиком, не изменяя карту или сохранение.
+func set_ground_split(enabled: bool) -> void:
+	if ground_split==enabled: return
+	ground_split=enabled; _sync_ground_layers()
+	if location=="overworld": refresh_terrain()
+	queue_redraw()
+
+## Оставляет дополнительные проходы только первой карте и скрывает их при прямом fallback.
+func _sync_ground_layers() -> void:
+	if water_layer==null or cover_layer==null: return
+	var enabled:=location=="overworld" and ground_split
+	water_layer.visible=enabled and terrain_ready and not bool(get_meta("terrain_direct",false)); cover_layer.visible=enabled
+	cutout_layer.visible=enabled
+	water_layer.configure(season,weather,false); cover_layer.configure(season,weather,true); cutout_layer.configure(season,weather,false,true)
 
 ## Устанавливает относящееся к методу значение и синхронизирует зависимое состояние.
 func set_location(value: String) -> void:
 	if location != value:
 		location = value
+		_sync_ground_layers()
 		if preload("res://scripts/systems/village_region_data.gd").contains(location): refresh_terrain()
 		queue_redraw()
 
@@ -66,25 +99,33 @@ func set_location(value: String) -> void:
 func set_environment(next_season: String, next_weather: String) -> void:
 	if season == next_season and weather == next_weather: return
 	season = next_season; weather = next_weather; queue_redraw()
+	_sync_ground_layers()
 	refresh_terrain()
 
 ## Инвалидирует только графический кеш земли, оставляя исходные спрайты и коллизии самостоятельными.
 func refresh_terrain() -> void:
-	if terrain_viewport==null: return
+	if terrain_viewport==null or not preload("res://scripts/systems/village_region_data.gd").contains(location): return
+	terrain_requests+=1
 	terrain_ready=false
+	_sync_ground_layers()
+	queue_redraw()
 	terrain_viewport.size=Vector2i(preload("res://scripts/systems/world_bounds_system.gd").size(location))
 	terrain_canvas.location=location
+	terrain_canvas.base_only=location=="overworld" and ground_split
 	terrain_canvas.season=season; terrain_canvas.weather=weather; terrain_canvas.queue_redraw()
 	terrain_viewport.render_target_update_mode=SubViewport.UPDATE_ONCE
 	if not RenderingServer.frame_post_draw.is_connected(_terrain_rendered): RenderingServer.frame_post_draw.connect(_terrain_rendered,CONNECT_ONE_SHOT)
 
 ## Подменяет готовые команды грунта одним GPU-слоем после реального завершения его отрисовки.
 func _terrain_rendered() -> void:
+	terrain_viewport.render_target_update_mode=SubViewport.UPDATE_DISABLED
 	terrain_ready=true
+	_sync_ground_layers()
 	if preload("res://scripts/systems/village_region_data.gd").contains(location): queue_redraw()
 
 ## Отрисовывает текущее визуальное состояние узла.
 func _draw() -> void:
+	_sync_ground_layers()
 	if BuildingSystem.is_interior(location): draw_interior()
 	elif location == "overworld": draw_overworld()
 	elif preload("res://scripts/systems/village_region_data.gd").added(location): draw_village_region()
@@ -127,7 +168,9 @@ func draw_adventure_location() -> void:
 func draw_overworld() -> void:
 	if terrain_ready and not bool(get_meta("terrain_direct",false)):
 		draw_texture_rect(terrain_viewport.get_texture(),Rect2(Vector2.ZERO,VillageLayoutSystem.MapData.WORLD_SIZE),false)
-	else: VillageTerrainRenderer.draw(self,season,weather)
+	else:
+		VillageTerrainRenderer.draw(self,season,weather)
+		preload("res://scripts/presentation/village_region_terrain.gd").paths(self,location)
 
 ## Рисует новую карту деревни из её собственного графического кеша или того же модульного чертежа.
 func draw_village_region() -> void:

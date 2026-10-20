@@ -1,0 +1,34 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+OpenGL API 4.1 ATI-7.0.3 - Compatibility - Using Device: ATI Technologies Inc. - AMD Radeon Pro 5300M OpenGL Engine
+
+GROUND SHOT village-legacy
+GROUND SHOT village-split
+GROUND SHOT tree-behind-legacy
+GROUND SHOT tree-behind-split
+GROUND SHOT tree-front-legacy
+GROUND SHOT tree-front-split
+GROUND SHOT bush-legacy
+GROUND SHOT bush-split
+GROUND SHOT bridge-west-legacy
+GROUND SHOT bridge-west-split
+GROUND SHOT bridge-east-legacy
+GROUND SHOT bridge-east-split
+GROUND SHOT winter-legacy
+GROUND SHOT winter-split
+GROUND SHOT rain-legacy
+GROUND SHOT rain-split
+GROUND SHOT manual-pause-legacy
+GROUND SHOT manual-pause-split
+GROUND SHOT interior-legacy
+GROUND SHOT interior-split
+GROUND SHOT returned-legacy
+GROUND SHOT returned-split
+GROUND SHOT cold-reference
+GROUND SHOT direct-fallback
+GROUND SHOT direct-return
+GROUND SHOT water-white
+GROUND SHOT water-tinted
+GROUND SHOT live-zero
+GROUND SHOT live-five
+GROUND SHOT live-paused
+GROUND SHOT live-resumed

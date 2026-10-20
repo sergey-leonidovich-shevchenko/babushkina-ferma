@@ -1261,7 +1261,7 @@
       "id": "VRENDER-003",
       "epic": "VRENDER",
       "title": "Разделить статичное и живое покрытие",
-      "status": "ready",
+      "status": "done",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -1296,8 +1296,17 @@
         "confidence": "low",
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
-      "branch": "codex/vrender-003-visual-task",
-      "evidence": []
+      "branch": "codex/vrender-003-static-live-ground",
+      "evidence": [
+        "docs/reports/visual-overhaul/vrender-003/README.md",
+        "docs/reports/visual-overhaul/vrender-003/summary.json",
+        "docs/reports/visual-overhaul/vrender-003/native/source.json",
+        "docs/reports/visual-overhaul/vrender-003/native/1152/hot-loop.json",
+        "docs/reports/visual-overhaul/vrender-003/native/1152/cold.json",
+        "docs/reports/visual-overhaul/vrender-003/review.txt",
+        "docs/reports/visual-overhaul/vrender-003/browser-review.json"
+      ],
+      "result": "В штатной overworld вода вынесена позади одного прозрачного кеша 2400x1368; cutout и static cover сохраняют выборку мостов/оград и исходный порядок выходных дорожек. Разрешённый такт мира двигает временную фазу растений и водного декора; пауза/окна/фокус/редактор/reference/reduced motion её останавливают без изменения сохранений. Финальная серия E: 64 PNG / 250 настоящих draw, два окна, оба моста, дерево/куст, сезон/погода, дом и возврат; RGB пар максимум 1/255, HUD точен, snapshots/геометрия/очередь сохранены. 300 callbacks меняют фазу, но не requests/base/surface/cover/cutout или RGBA кеш. Первый холодный кадр точно равен полному прямому эталону; устранены чёрная вода и локальная перестановка цветка/дороги. 21 профильное игровое утверждение и 20 отрицательных/положительных Python-сценариев; 70 Wiki-тестов, браузерные картинки/JSON/поиск/390 px. Общий игровой набор обязателен в настоящем pre-commit. Draw calls 140→142, target один; FPS, GPU timer, новая водная живопись, отдельные перила и VMAP-003 не приняты."
     },
     {
       "id": "VRENDER-004",
@@ -2039,7 +2048,7 @@
       "id": "VGROUND-001",
       "epic": "VGROUND",
       "title": "Собрать бесшовную базу травы",
-      "status": "backlog",
+      "status": "ready",
       "priority": "P0",
       "phase": "pilot",
       "kind": "engineering",

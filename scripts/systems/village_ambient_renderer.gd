@@ -46,7 +46,7 @@ static func destination_rect(position: Vector2) -> Rect2:
 static func draw_ground(game: Node2D) -> void:
 	if game.current_location != "overworld": return
 	var season: String = game.WorldEventSystem.season(game.day)
-	var time := Time.get_ticks_msec() / 620.0
+	var time := preload("res://scripts/presentation/village_ground_clock.gd").seconds(game)/0.62
 	var animated:=preload("res://scripts/presentation/visual_reference_mode.gd").effects_enabled(game)
 	for placement in PLACEMENTS:
 		var kind: String = placement.kind

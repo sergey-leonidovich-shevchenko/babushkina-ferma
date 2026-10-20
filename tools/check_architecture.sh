@@ -78,6 +78,8 @@ python3 tools/render_order.py >/dev/null
 python3 tools/test_render_order.py
 python3 tools/grass_methods.py all >/dev/null
 python3 tools/test_grass_methods.py
+python3 tools/ground_layers.py verify >/dev/null
+python3 tools/test_ground_layers.py
 python3 tools/visual_scale.py verify
 python3 tools/test_visual_scale.py
 python3 tools/visual_palette.py

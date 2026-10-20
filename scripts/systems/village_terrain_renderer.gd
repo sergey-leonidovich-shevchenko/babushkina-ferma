@@ -11,18 +11,33 @@ const FenceRenderer:=preload("res://scripts/systems/fence_renderer.gd")
 const Ambient:=preload("res://scripts/systems/village_ambient_renderer.gd")
 static var _fence_sources:Dictionary={}
 
-## Собирает тихий тайловый ландшафт; CanvasItem кеширует эти команды до смены сезона или карты.
+## Сохраняет прежний полный проход для прямого рендера и обратимого контроля разделённых слоёв.
 static func draw(canvas:Node2D,season:String,weather:String)->void:
+	draw_base(canvas,season,weather)
+	draw_surface(canvas,season)
+	draw_cover(canvas,season,weather)
+
+## Вычисляет прежний сезонный тон неподвижных материалов без изменения состояния игры.
+static func ground_tint(season:String,weather:String)->Color:
 	var tint:=Color.WHITE
 	if season=="autumn": tint=Color("e9c99d")
 	elif season=="winter": tint=Color("b9cec9")
 	elif season=="summer": tint=Color("dce2bd")
 	if weather in ["rain","storm"]: tint*=Color("c3d6dc")
+	return tint
+
+## Собирает только неподвижную землю и берега; вода и движущиеся растения сюда не входят.
+static func draw_base(canvas:Node2D,season:String,weather:String)->void:
+	var tint:=ground_tint(season,weather)
 	canvas.draw_texture_rect(GRASS,Rect2(Vector2.ZERO,MapData.WORLD_SIZE),true,tint)
 	_draw_paths(canvas)
 	_draw_plaza(canvas)
 	_draw_garden(canvas)
-	draw_water(canvas,season)
+	draw_banks(canvas)
+
+## Оставляет ограды, неподвижные цветы и мосты над водой в прежнем порядке команд.
+static func draw_cover(canvas:Node2D,season:String,weather:String)->void:
+	var tint:=ground_tint(season,weather)
 	_draw_fences(canvas,tint)
 	for flower in MapData.FLOWERS:
 		if season!="winter": Ambient.draw_cell(canvas,"flowers",flower,Color(0.92,0.95,0.84,0.88))
@@ -72,10 +87,31 @@ static func _draw_garden(canvas:Node2D)->void:
 
 ## Рисует берега и прозрачный рисунок воды по навигационным полигонам, а не по независимой картинке.
 static func draw_water(canvas:Node2D,season:String)->void:
+	draw_banks(canvas)
+	draw_surface(canvas,season)
+
+## Оформляет неподвижную кромку отдельно от поверхности и будущих водных материалов.
+static func draw_banks(canvas:Node2D)->void:
 	for points in [MapData.river_polygon(10.0),MapData.pond_polygon(10.0)]: canvas.draw_colored_polygon(points,Color("626934"))
 	for points in [MapData.river_polygon(5.0),MapData.pond_polygon(5.0)]: canvas.draw_colored_polygon(points,Color("bead71"))
+
+## Рисует поверхность воды самостоятельным CanvasItem без запекания в UPDATE_ONCE.
+static func draw_surface(canvas:Node2D,season:String,clipped:bool=false)->void:
 	var tint:=Color("b3d6da") if season=="winter" else Color("d2e7eb")
-	for points in [MapData.river_polygon(),MapData.pond_polygon()]: material(canvas,points,WATER,tint)
+	for points in surface_polygons(clipped): material(canvas,points,WATER,tint)
+
+## Ограничивает самостоятельную поверхность теми же границами, которыми раньше отсекал её viewport.
+static func surface_polygons(clipped:bool=false)->Array:
+	var polygons:=[MapData.river_polygon(),MapData.pond_polygon()]
+	if not clipped: return polygons
+	var frame:=PackedVector2Array([Vector2.ZERO,Vector2(MapData.WORLD_SIZE.x,0),MapData.WORLD_SIZE,Vector2(0,MapData.WORLD_SIZE.y)])
+	var result:=[]
+	for points in polygons: result.append_array(Geometry2D.intersect_polygons(points,frame))
+	return result
+
+## Вырезает только геометрию водоёма в прозрачность специальным blend-disabled материалом.
+static func draw_cutouts(canvas:Node2D)->void:
+	for points in [MapData.river_polygon(),MapData.pond_polygon()]: canvas.draw_colored_polygon(points,Color.WHITE)
 
 ## Ставит каждую секцию ограды строго в ту же клетку, которая блокирует движение, оставляя широкие проёмы.
 static func _draw_fences(canvas:Node2D,tint:Color)->void:
