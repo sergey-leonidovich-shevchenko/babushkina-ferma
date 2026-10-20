@@ -2,7 +2,7 @@
   "schema": 1,
   "task": "VSHORE-001",
   "status": "passed",
-  "version": "0.0.274",
+  "version": "0.0.275",
   "url": "http://127.0.0.1:4175/#/guides/shore-kit",
   "images_loaded": 9,
   "video": {
@@ -21,16 +21,24 @@
   "mobile": {
     "width": 390,
     "scroll_width": 390,
-    "sidebar_right": 0
+    "sidebar_right": 0,
+    "version": "0.0.274"
   },
   "desktop": {
     "width": 1280,
-    "scroll_width": 1280
+    "scroll_width": 1280,
+    "version": "0.0.275"
   },
   "viewport_reset": true,
   "console_errors": 0,
   "screenshots": {
     "wiki-reviewed.jpg": "fb0be69485916c25024a4431e2f121644b5023502ae9b9548f0c4c2783e33f4b",
     "wiki-mobile.jpg": "c55a9d61456e31bd993e17418502c87f28035e1c64b027f7b47bfcccf65955e4"
+  },
+  "evidence_fix_recheck": {
+    "images_loaded": 9,
+    "video_ended": true,
+    "video_seconds": 4,
+    "desktop_screenshot": true
   }
 }

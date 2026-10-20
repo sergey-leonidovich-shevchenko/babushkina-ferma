@@ -279,3 +279,7 @@ assets/inbox/*
 # VRELEASE-001: bounded rollout projection and negative scenarios.
 !tools/pilot_rollout.py
 !tools/test_pilot_rollout.py
+
+# VSHORE-001: journals are mandatory evidence, after the generic log exclusion.
+!docs/reports/visual-overhaul/vshore-001/water-review.log
+!docs/reports/visual-overhaul/vshore-001/native/engine.log

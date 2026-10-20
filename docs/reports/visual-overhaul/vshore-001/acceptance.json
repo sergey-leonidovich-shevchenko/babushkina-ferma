@@ -31,7 +31,7 @@
       "failed": 0
     },
     "python": {
-      "passed": 9,
+      "passed": 10,
       "failed": 0
     },
     "architecture": "required commit hook",
@@ -52,8 +52,11 @@
     "source.json": "22a2c64a7d0ab4039e9d509371d6fccd96001463741f17b99aabbbd6123197e2",
     "native/capture.json": "8ae70fce7e1ec8e9b6afd48704f75cb9df223bbf29f65c2c00866eaabe136e43",
     "native/video-proof.json": "890b2f5e3be6d03852ee96274b5d72cdbb91bd3cebef3d72dde4becc7999df0e",
-    "browser-review.json": "2b4c834c18186dc448799c35a437321a11b9a859e243d3e481f11b3308e1dbf9",
+    "browser-review.json": "43db198475410b72404e3065c86576d63843cdf96a56d75f00aa7237f2da5b5d",
     "wiki-reviewed.jpg": "fb0be69485916c25024a4431e2f121644b5023502ae9b9548f0c4c2783e33f4b",
-    "wiki-mobile.jpg": "c55a9d61456e31bd993e17418502c87f28035e1c64b027f7b47bfcccf65955e4"
-  }
+    "wiki-mobile.jpg": "c55a9d61456e31bd993e17418502c87f28035e1c64b027f7b47bfcccf65955e4",
+    "water-review.log": "0c5ec13491c4e5c1d75c25d9cd05b04cb465be28c87eb031ec2b8266e5886c44",
+    "native/engine.log": "905d5327cd6a4fafc3b2bd6c7bb5ea0eb5ea294ff9d29b488e9ee3aa243ffdcc"
+  },
+  "evidence_index_required": true
 }

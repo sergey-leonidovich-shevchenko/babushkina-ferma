@@ -34,6 +34,12 @@ def historical(root: Path, commit: str, name: str, sha: str) -> bool:
     return result.returncode == 0 and hashlib.sha256(result.stdout).hexdigest() == sha
 
 
+def tracked(root: Path, paths: list[str]) -> bool:
+    """Отличает существующие локальные доказательства от действительно включённых в Git файлов."""
+    result = subprocess.run(['git','-C',str(root),'ls-files','--error-unmatch','--',*paths],capture_output=True,check=False)
+    return result.returncode == 0
+
+
 def local(root: Path, folder: Path, value: str) -> Path:
     """Разрешает ссылки между отчётами, запрещая выход и симлинк за пределы проекта."""
     if not isinstance(value, str) or Path(value).is_absolute(): raise ValueError('invalid relative path')
@@ -51,6 +57,9 @@ def verify(root: Path = ROOT) -> list[str]:
     """Проверяет геометрию, источники, нарезку, кадры, движение, видео и WATER-регрессию."""
     folder = root/REPORT
     errors = []
+    required = ['water-review.log','water-review.json','profile.json','source.json',
+                'native/engine.log','native/capture.json','native/video-proof.json','native/camera-pan.mp4']
+    if not tracked(root,[(REPORT/p).as_posix() for p in required]): errors.append('critical evidence is not in Git index')
     try:
         data, source = read(folder/'profile.json'), read(folder/'source.json')
         proof = read(folder/'native/capture.json')
@@ -112,6 +121,8 @@ def verify(root: Path = ROOT) -> list[str]:
         if digest(log) != review['log_sha256'] or 'SHORE WATER TESTS: 845 passed, 0 failed' not in log.read_text():
             errors.append('WATER regression evidence')
         if any(marker in log.read_text() for marker in ['ERROR:', 'SCRIPT ERROR', 'FAIL:']): errors.append('WATER engine error')
+        if any(marker in (folder/'native/engine.log').read_text() for marker in ['ERROR:', 'SCRIPT ERROR']):
+            errors.append('native engine error')
         for name, sha in review['sources'].items():
             if not historical(root,review['base_commit'],name,sha): errors.append('WATER historical source: '+name)
         if digest(root/'tools/shore_kit_review.gd') != review['runner_sha256']: errors.append('WATER runner changed')

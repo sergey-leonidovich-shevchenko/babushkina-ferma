@@ -2,6 +2,7 @@
 """Негативные проверки берегового комплекта не меняют игровые ресурсы и исходные доказательства."""
 import json
 import shutil
+import subprocess
 import tempfile
 import unittest
 from pathlib import Path
@@ -51,6 +52,17 @@ class ShoreKitTests(unittest.TestCase):
     def test_complete(self):
         """Сценарий: полная копия. Исходное состояние: все настоящие артефакты. Результат: комплект принят как художественная витрина."""
         self.assertEqual(kit.verify(self.root),[])
+
+    def test_required_log_must_be_indexed(self):
+        """Сценарий: журнал существует, но игнорируется Git. Исходное состояние: отдельный репозиторий. Результат: только добавленный в индекс файл проходит."""
+        with tempfile.TemporaryDirectory(prefix='shore-log-index-') as value:
+            root = Path(value)
+            subprocess.run(['git','init','-q',str(root)],check=True,capture_output=True)
+            (root/'.gitignore').write_text('*.log\n')
+            (root/'review.log').write_text('passed')
+            self.assertFalse(kit.tracked(root,['review.log']))
+            subprocess.run(['git','-C',str(root),'add','-f','review.log'],check=True,capture_output=True)
+            self.assertTrue(kit.tracked(root,['review.log']))
 
     def test_missing_part(self):
         """Сценарий: потерян торец. Исходное состояние: неполный паспорт. Результат: неполный комплект отклонён."""

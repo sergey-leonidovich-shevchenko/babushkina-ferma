@@ -1,0 +1,848 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+PASS: orthogonal path is accepted
+PASS: both arms share the same water plane
+PASS: flow follows both cardinal arms
+PASS: diagonal tail rejects the whole operation
+PASS: failed path does not publish its valid prefix
+PASS: zero length path fails
+PASS: invalid point type fails without an engine error
+PASS: all cardinal masks stay independent: 0/0
+PASS: all concave masks stay independent: 0/0
+PASS: all cardinal masks stay independent: 0/1
+PASS: all concave masks stay independent: 0/1
+PASS: all cardinal masks stay independent: 0/2
+PASS: all concave masks stay independent: 0/2
+PASS: all cardinal masks stay independent: 0/3
+PASS: all concave masks stay independent: 0/3
+PASS: all cardinal masks stay independent: 0/4
+PASS: all concave masks stay independent: 0/4
+PASS: all cardinal masks stay independent: 0/5
+PASS: all concave masks stay independent: 0/5
+PASS: all cardinal masks stay independent: 0/6
+PASS: all concave masks stay independent: 0/6
+PASS: all cardinal masks stay independent: 0/7
+PASS: all concave masks stay independent: 0/7
+PASS: all cardinal masks stay independent: 0/8
+PASS: all concave masks stay independent: 0/8
+PASS: all cardinal masks stay independent: 0/9
+PASS: all concave masks stay independent: 0/9
+PASS: all cardinal masks stay independent: 0/10
+PASS: all concave masks stay independent: 0/10
+PASS: all cardinal masks stay independent: 0/11
+PASS: all concave masks stay independent: 0/11
+PASS: all cardinal masks stay independent: 0/12
+PASS: all concave masks stay independent: 0/12
+PASS: all cardinal masks stay independent: 0/13
+PASS: all concave masks stay independent: 0/13
+PASS: all cardinal masks stay independent: 0/14
+PASS: all concave masks stay independent: 0/14
+PASS: all cardinal masks stay independent: 0/15
+PASS: all concave masks stay independent: 0/15
+PASS: all cardinal masks stay independent: 1/0
+PASS: all concave masks stay independent: 1/0
+PASS: all cardinal masks stay independent: 1/1
+PASS: all concave masks stay independent: 1/1
+PASS: all cardinal masks stay independent: 1/2
+PASS: all concave masks stay independent: 1/2
+PASS: all cardinal masks stay independent: 1/3
+PASS: all concave masks stay independent: 1/3
+PASS: all cardinal masks stay independent: 1/4
+PASS: all concave masks stay independent: 1/4
+PASS: all cardinal masks stay independent: 1/5
+PASS: all concave masks stay independent: 1/5
+PASS: all cardinal masks stay independent: 1/6
+PASS: all concave masks stay independent: 1/6
+PASS: all cardinal masks stay independent: 1/7
+PASS: all concave masks stay independent: 1/7
+PASS: all cardinal masks stay independent: 1/8
+PASS: all concave masks stay independent: 1/8
+PASS: all cardinal masks stay independent: 1/9
+PASS: all concave masks stay independent: 1/9
+PASS: all cardinal masks stay independent: 1/10
+PASS: all concave masks stay independent: 1/10
+PASS: all cardinal masks stay independent: 1/11
+PASS: all concave masks stay independent: 1/11
+PASS: all cardinal masks stay independent: 1/12
+PASS: all concave masks stay independent: 1/12
+PASS: all cardinal masks stay independent: 1/13
+PASS: all concave masks stay independent: 1/13
+PASS: all cardinal masks stay independent: 1/14
+PASS: all concave masks stay independent: 1/14
+PASS: all cardinal masks stay independent: 1/15
+PASS: all concave masks stay independent: 1/15
+PASS: all cardinal masks stay independent: 2/0
+PASS: all concave masks stay independent: 2/0
+PASS: all cardinal masks stay independent: 2/1
+PASS: all concave masks stay independent: 2/1
+PASS: all cardinal masks stay independent: 2/2
+PASS: all concave masks stay independent: 2/2
+PASS: all cardinal masks stay independent: 2/3
+PASS: all concave masks stay independent: 2/3
+PASS: all cardinal masks stay independent: 2/4
+PASS: all concave masks stay independent: 2/4
+PASS: all cardinal masks stay independent: 2/5
+PASS: all concave masks stay independent: 2/5
+PASS: all cardinal masks stay independent: 2/6
+PASS: all concave masks stay independent: 2/6
+PASS: all cardinal masks stay independent: 2/7
+PASS: all concave masks stay independent: 2/7
+PASS: all cardinal masks stay independent: 2/8
+PASS: all concave masks stay independent: 2/8
+PASS: all cardinal masks stay independent: 2/9
+PASS: all concave masks stay independent: 2/9
+PASS: all cardinal masks stay independent: 2/10
+PASS: all concave masks stay independent: 2/10
+PASS: all cardinal masks stay independent: 2/11
+PASS: all concave masks stay independent: 2/11
+PASS: all cardinal masks stay independent: 2/12
+PASS: all concave masks stay independent: 2/12
+PASS: all cardinal masks stay independent: 2/13
+PASS: all concave masks stay independent: 2/13
+PASS: all cardinal masks stay independent: 2/14
+PASS: all concave masks stay independent: 2/14
+PASS: all cardinal masks stay independent: 2/15
+PASS: all concave masks stay independent: 2/15
+PASS: all cardinal masks stay independent: 3/0
+PASS: all concave masks stay independent: 3/0
+PASS: all cardinal masks stay independent: 3/1
+PASS: all concave masks stay independent: 3/1
+PASS: all cardinal masks stay independent: 3/2
+PASS: all concave masks stay independent: 3/2
+PASS: all cardinal masks stay independent: 3/3
+PASS: all concave masks stay independent: 3/3
+PASS: all cardinal masks stay independent: 3/4
+PASS: all concave masks stay independent: 3/4
+PASS: all cardinal masks stay independent: 3/5
+PASS: all concave masks stay independent: 3/5
+PASS: all cardinal masks stay independent: 3/6
+PASS: all concave masks stay independent: 3/6
+PASS: all cardinal masks stay independent: 3/7
+PASS: all concave masks stay independent: 3/7
+PASS: all cardinal masks stay independent: 3/8
+PASS: all concave masks stay independent: 3/8
+PASS: all cardinal masks stay independent: 3/9
+PASS: all concave masks stay independent: 3/9
+PASS: all cardinal masks stay independent: 3/10
+PASS: all concave masks stay independent: 3/10
+PASS: all cardinal masks stay independent: 3/11
+PASS: all concave masks stay independent: 3/11
+PASS: all cardinal masks stay independent: 3/12
+PASS: all concave masks stay independent: 3/12
+PASS: all cardinal masks stay independent: 3/13
+PASS: all concave masks stay independent: 3/13
+PASS: all cardinal masks stay independent: 3/14
+PASS: all concave masks stay independent: 3/14
+PASS: all cardinal masks stay independent: 3/15
+PASS: all concave masks stay independent: 3/15
+PASS: all cardinal masks stay independent: 4/0
+PASS: all concave masks stay independent: 4/0
+PASS: all cardinal masks stay independent: 4/1
+PASS: all concave masks stay independent: 4/1
+PASS: all cardinal masks stay independent: 4/2
+PASS: all concave masks stay independent: 4/2
+PASS: all cardinal masks stay independent: 4/3
+PASS: all concave masks stay independent: 4/3
+PASS: all cardinal masks stay independent: 4/4
+PASS: all concave masks stay independent: 4/4
+PASS: all cardinal masks stay independent: 4/5
+PASS: all concave masks stay independent: 4/5
+PASS: all cardinal masks stay independent: 4/6
+PASS: all concave masks stay independent: 4/6
+PASS: all cardinal masks stay independent: 4/7
+PASS: all concave masks stay independent: 4/7
+PASS: all cardinal masks stay independent: 4/8
+PASS: all concave masks stay independent: 4/8
+PASS: all cardinal masks stay independent: 4/9
+PASS: all concave masks stay independent: 4/9
+PASS: all cardinal masks stay independent: 4/10
+PASS: all concave masks stay independent: 4/10
+PASS: all cardinal masks stay independent: 4/11
+PASS: all concave masks stay independent: 4/11
+PASS: all cardinal masks stay independent: 4/12
+PASS: all concave masks stay independent: 4/12
+PASS: all cardinal masks stay independent: 4/13
+PASS: all concave masks stay independent: 4/13
+PASS: all cardinal masks stay independent: 4/14
+PASS: all concave masks stay independent: 4/14
+PASS: all cardinal masks stay independent: 4/15
+PASS: all concave masks stay independent: 4/15
+PASS: all cardinal masks stay independent: 5/0
+PASS: all concave masks stay independent: 5/0
+PASS: all cardinal masks stay independent: 5/1
+PASS: all concave masks stay independent: 5/1
+PASS: all cardinal masks stay independent: 5/2
+PASS: all concave masks stay independent: 5/2
+PASS: all cardinal masks stay independent: 5/3
+PASS: all concave masks stay independent: 5/3
+PASS: all cardinal masks stay independent: 5/4
+PASS: all concave masks stay independent: 5/4
+PASS: all cardinal masks stay independent: 5/5
+PASS: all concave masks stay independent: 5/5
+PASS: all cardinal masks stay independent: 5/6
+PASS: all concave masks stay independent: 5/6
+PASS: all cardinal masks stay independent: 5/7
+PASS: all concave masks stay independent: 5/7
+PASS: all cardinal masks stay independent: 5/8
+PASS: all concave masks stay independent: 5/8
+PASS: all cardinal masks stay independent: 5/9
+PASS: all concave masks stay independent: 5/9
+PASS: all cardinal masks stay independent: 5/10
+PASS: all concave masks stay independent: 5/10
+PASS: all cardinal masks stay independent: 5/11
+PASS: all concave masks stay independent: 5/11
+PASS: all cardinal masks stay independent: 5/12
+PASS: all concave masks stay independent: 5/12
+PASS: all cardinal masks stay independent: 5/13
+PASS: all concave masks stay independent: 5/13
+PASS: all cardinal masks stay independent: 5/14
+PASS: all concave masks stay independent: 5/14
+PASS: all cardinal masks stay independent: 5/15
+PASS: all concave masks stay independent: 5/15
+PASS: all cardinal masks stay independent: 6/0
+PASS: all concave masks stay independent: 6/0
+PASS: all cardinal masks stay independent: 6/1
+PASS: all concave masks stay independent: 6/1
+PASS: all cardinal masks stay independent: 6/2
+PASS: all concave masks stay independent: 6/2
+PASS: all cardinal masks stay independent: 6/3
+PASS: all concave masks stay independent: 6/3
+PASS: all cardinal masks stay independent: 6/4
+PASS: all concave masks stay independent: 6/4
+PASS: all cardinal masks stay independent: 6/5
+PASS: all concave masks stay independent: 6/5
+PASS: all cardinal masks stay independent: 6/6
+PASS: all concave masks stay independent: 6/6
+PASS: all cardinal masks stay independent: 6/7
+PASS: all concave masks stay independent: 6/7
+PASS: all cardinal masks stay independent: 6/8
+PASS: all concave masks stay independent: 6/8
+PASS: all cardinal masks stay independent: 6/9
+PASS: all concave masks stay independent: 6/9
+PASS: all cardinal masks stay independent: 6/10
+PASS: all concave masks stay independent: 6/10
+PASS: all cardinal masks stay independent: 6/11
+PASS: all concave masks stay independent: 6/11
+PASS: all cardinal masks stay independent: 6/12
+PASS: all concave masks stay independent: 6/12
+PASS: all cardinal masks stay independent: 6/13
+PASS: all concave masks stay independent: 6/13
+PASS: all cardinal masks stay independent: 6/14
+PASS: all concave masks stay independent: 6/14
+PASS: all cardinal masks stay independent: 6/15
+PASS: all concave masks stay independent: 6/15
+PASS: all cardinal masks stay independent: 7/0
+PASS: all concave masks stay independent: 7/0
+PASS: all cardinal masks stay independent: 7/1
+PASS: all concave masks stay independent: 7/1
+PASS: all cardinal masks stay independent: 7/2
+PASS: all concave masks stay independent: 7/2
+PASS: all cardinal masks stay independent: 7/3
+PASS: all concave masks stay independent: 7/3
+PASS: all cardinal masks stay independent: 7/4
+PASS: all concave masks stay independent: 7/4
+PASS: all cardinal masks stay independent: 7/5
+PASS: all concave masks stay independent: 7/5
+PASS: all cardinal masks stay independent: 7/6
+PASS: all concave masks stay independent: 7/6
+PASS: all cardinal masks stay independent: 7/7
+PASS: all concave masks stay independent: 7/7
+PASS: all cardinal masks stay independent: 7/8
+PASS: all concave masks stay independent: 7/8
+PASS: all cardinal masks stay independent: 7/9
+PASS: all concave masks stay independent: 7/9
+PASS: all cardinal masks stay independent: 7/10
+PASS: all concave masks stay independent: 7/10
+PASS: all cardinal masks stay independent: 7/11
+PASS: all concave masks stay independent: 7/11
+PASS: all cardinal masks stay independent: 7/12
+PASS: all concave masks stay independent: 7/12
+PASS: all cardinal masks stay independent: 7/13
+PASS: all concave masks stay independent: 7/13
+PASS: all cardinal masks stay independent: 7/14
+PASS: all concave masks stay independent: 7/14
+PASS: all cardinal masks stay independent: 7/15
+PASS: all concave masks stay independent: 7/15
+PASS: all cardinal masks stay independent: 8/0
+PASS: all concave masks stay independent: 8/0
+PASS: all cardinal masks stay independent: 8/1
+PASS: all concave masks stay independent: 8/1
+PASS: all cardinal masks stay independent: 8/2
+PASS: all concave masks stay independent: 8/2
+PASS: all cardinal masks stay independent: 8/3
+PASS: all concave masks stay independent: 8/3
+PASS: all cardinal masks stay independent: 8/4
+PASS: all concave masks stay independent: 8/4
+PASS: all cardinal masks stay independent: 8/5
+PASS: all concave masks stay independent: 8/5
+PASS: all cardinal masks stay independent: 8/6
+PASS: all concave masks stay independent: 8/6
+PASS: all cardinal masks stay independent: 8/7
+PASS: all concave masks stay independent: 8/7
+PASS: all cardinal masks stay independent: 8/8
+PASS: all concave masks stay independent: 8/8
+PASS: all cardinal masks stay independent: 8/9
+PASS: all concave masks stay independent: 8/9
+PASS: all cardinal masks stay independent: 8/10
+PASS: all concave masks stay independent: 8/10
+PASS: all cardinal masks stay independent: 8/11
+PASS: all concave masks stay independent: 8/11
+PASS: all cardinal masks stay independent: 8/12
+PASS: all concave masks stay independent: 8/12
+PASS: all cardinal masks stay independent: 8/13
+PASS: all concave masks stay independent: 8/13
+PASS: all cardinal masks stay independent: 8/14
+PASS: all concave masks stay independent: 8/14
+PASS: all cardinal masks stay independent: 8/15
+PASS: all concave masks stay independent: 8/15
+PASS: all cardinal masks stay independent: 9/0
+PASS: all concave masks stay independent: 9/0
+PASS: all cardinal masks stay independent: 9/1
+PASS: all concave masks stay independent: 9/1
+PASS: all cardinal masks stay independent: 9/2
+PASS: all concave masks stay independent: 9/2
+PASS: all cardinal masks stay independent: 9/3
+PASS: all concave masks stay independent: 9/3
+PASS: all cardinal masks stay independent: 9/4
+PASS: all concave masks stay independent: 9/4
+PASS: all cardinal masks stay independent: 9/5
+PASS: all concave masks stay independent: 9/5
+PASS: all cardinal masks stay independent: 9/6
+PASS: all concave masks stay independent: 9/6
+PASS: all cardinal masks stay independent: 9/7
+PASS: all concave masks stay independent: 9/7
+PASS: all cardinal masks stay independent: 9/8
+PASS: all concave masks stay independent: 9/8
+PASS: all cardinal masks stay independent: 9/9
+PASS: all concave masks stay independent: 9/9
+PASS: all cardinal masks stay independent: 9/10
+PASS: all concave masks stay independent: 9/10
+PASS: all cardinal masks stay independent: 9/11
+PASS: all concave masks stay independent: 9/11
+PASS: all cardinal masks stay independent: 9/12
+PASS: all concave masks stay independent: 9/12
+PASS: all cardinal masks stay independent: 9/13
+PASS: all concave masks stay independent: 9/13
+PASS: all cardinal masks stay independent: 9/14
+PASS: all concave masks stay independent: 9/14
+PASS: all cardinal masks stay independent: 9/15
+PASS: all concave masks stay independent: 9/15
+PASS: all cardinal masks stay independent: 10/0
+PASS: all concave masks stay independent: 10/0
+PASS: all cardinal masks stay independent: 10/1
+PASS: all concave masks stay independent: 10/1
+PASS: all cardinal masks stay independent: 10/2
+PASS: all concave masks stay independent: 10/2
+PASS: all cardinal masks stay independent: 10/3
+PASS: all concave masks stay independent: 10/3
+PASS: all cardinal masks stay independent: 10/4
+PASS: all concave masks stay independent: 10/4
+PASS: all cardinal masks stay independent: 10/5
+PASS: all concave masks stay independent: 10/5
+PASS: all cardinal masks stay independent: 10/6
+PASS: all concave masks stay independent: 10/6
+PASS: all cardinal masks stay independent: 10/7
+PASS: all concave masks stay independent: 10/7
+PASS: all cardinal masks stay independent: 10/8
+PASS: all concave masks stay independent: 10/8
+PASS: all cardinal masks stay independent: 10/9
+PASS: all concave masks stay independent: 10/9
+PASS: all cardinal masks stay independent: 10/10
+PASS: all concave masks stay independent: 10/10
+PASS: all cardinal masks stay independent: 10/11
+PASS: all concave masks stay independent: 10/11
+PASS: all cardinal masks stay independent: 10/12
+PASS: all concave masks stay independent: 10/12
+PASS: all cardinal masks stay independent: 10/13
+PASS: all concave masks stay independent: 10/13
+PASS: all cardinal masks stay independent: 10/14
+PASS: all concave masks stay independent: 10/14
+PASS: all cardinal masks stay independent: 10/15
+PASS: all concave masks stay independent: 10/15
+PASS: all cardinal masks stay independent: 11/0
+PASS: all concave masks stay independent: 11/0
+PASS: all cardinal masks stay independent: 11/1
+PASS: all concave masks stay independent: 11/1
+PASS: all cardinal masks stay independent: 11/2
+PASS: all concave masks stay independent: 11/2
+PASS: all cardinal masks stay independent: 11/3
+PASS: all concave masks stay independent: 11/3
+PASS: all cardinal masks stay independent: 11/4
+PASS: all concave masks stay independent: 11/4
+PASS: all cardinal masks stay independent: 11/5
+PASS: all concave masks stay independent: 11/5
+PASS: all cardinal masks stay independent: 11/6
+PASS: all concave masks stay independent: 11/6
+PASS: all cardinal masks stay independent: 11/7
+PASS: all concave masks stay independent: 11/7
+PASS: all cardinal masks stay independent: 11/8
+PASS: all concave masks stay independent: 11/8
+PASS: all cardinal masks stay independent: 11/9
+PASS: all concave masks stay independent: 11/9
+PASS: all cardinal masks stay independent: 11/10
+PASS: all concave masks stay independent: 11/10
+PASS: all cardinal masks stay independent: 11/11
+PASS: all concave masks stay independent: 11/11
+PASS: all cardinal masks stay independent: 11/12
+PASS: all concave masks stay independent: 11/12
+PASS: all cardinal masks stay independent: 11/13
+PASS: all concave masks stay independent: 11/13
+PASS: all cardinal masks stay independent: 11/14
+PASS: all concave masks stay independent: 11/14
+PASS: all cardinal masks stay independent: 11/15
+PASS: all concave masks stay independent: 11/15
+PASS: all cardinal masks stay independent: 12/0
+PASS: all concave masks stay independent: 12/0
+PASS: all cardinal masks stay independent: 12/1
+PASS: all concave masks stay independent: 12/1
+PASS: all cardinal masks stay independent: 12/2
+PASS: all concave masks stay independent: 12/2
+PASS: all cardinal masks stay independent: 12/3
+PASS: all concave masks stay independent: 12/3
+PASS: all cardinal masks stay independent: 12/4
+PASS: all concave masks stay independent: 12/4
+PASS: all cardinal masks stay independent: 12/5
+PASS: all concave masks stay independent: 12/5
+PASS: all cardinal masks stay independent: 12/6
+PASS: all concave masks stay independent: 12/6
+PASS: all cardinal masks stay independent: 12/7
+PASS: all concave masks stay independent: 12/7
+PASS: all cardinal masks stay independent: 12/8
+PASS: all concave masks stay independent: 12/8
+PASS: all cardinal masks stay independent: 12/9
+PASS: all concave masks stay independent: 12/9
+PASS: all cardinal masks stay independent: 12/10
+PASS: all concave masks stay independent: 12/10
+PASS: all cardinal masks stay independent: 12/11
+PASS: all concave masks stay independent: 12/11
+PASS: all cardinal masks stay independent: 12/12
+PASS: all concave masks stay independent: 12/12
+PASS: all cardinal masks stay independent: 12/13
+PASS: all concave masks stay independent: 12/13
+PASS: all cardinal masks stay independent: 12/14
+PASS: all concave masks stay independent: 12/14
+PASS: all cardinal masks stay independent: 12/15
+PASS: all concave masks stay independent: 12/15
+PASS: all cardinal masks stay independent: 13/0
+PASS: all concave masks stay independent: 13/0
+PASS: all cardinal masks stay independent: 13/1
+PASS: all concave masks stay independent: 13/1
+PASS: all cardinal masks stay independent: 13/2
+PASS: all concave masks stay independent: 13/2
+PASS: all cardinal masks stay independent: 13/3
+PASS: all concave masks stay independent: 13/3
+PASS: all cardinal masks stay independent: 13/4
+PASS: all concave masks stay independent: 13/4
+PASS: all cardinal masks stay independent: 13/5
+PASS: all concave masks stay independent: 13/5
+PASS: all cardinal masks stay independent: 13/6
+PASS: all concave masks stay independent: 13/6
+PASS: all cardinal masks stay independent: 13/7
+PASS: all concave masks stay independent: 13/7
+PASS: all cardinal masks stay independent: 13/8
+PASS: all concave masks stay independent: 13/8
+PASS: all cardinal masks stay independent: 13/9
+PASS: all concave masks stay independent: 13/9
+PASS: all cardinal masks stay independent: 13/10
+PASS: all concave masks stay independent: 13/10
+PASS: all cardinal masks stay independent: 13/11
+PASS: all concave masks stay independent: 13/11
+PASS: all cardinal masks stay independent: 13/12
+PASS: all concave masks stay independent: 13/12
+PASS: all cardinal masks stay independent: 13/13
+PASS: all concave masks stay independent: 13/13
+PASS: all cardinal masks stay independent: 13/14
+PASS: all concave masks stay independent: 13/14
+PASS: all cardinal masks stay independent: 13/15
+PASS: all concave masks stay independent: 13/15
+PASS: all cardinal masks stay independent: 14/0
+PASS: all concave masks stay independent: 14/0
+PASS: all cardinal masks stay independent: 14/1
+PASS: all concave masks stay independent: 14/1
+PASS: all cardinal masks stay independent: 14/2
+PASS: all concave masks stay independent: 14/2
+PASS: all cardinal masks stay independent: 14/3
+PASS: all concave masks stay independent: 14/3
+PASS: all cardinal masks stay independent: 14/4
+PASS: all concave masks stay independent: 14/4
+PASS: all cardinal masks stay independent: 14/5
+PASS: all concave masks stay independent: 14/5
+PASS: all cardinal masks stay independent: 14/6
+PASS: all concave masks stay independent: 14/6
+PASS: all cardinal masks stay independent: 14/7
+PASS: all concave masks stay independent: 14/7
+PASS: all cardinal masks stay independent: 14/8
+PASS: all concave masks stay independent: 14/8
+PASS: all cardinal masks stay independent: 14/9
+PASS: all concave masks stay independent: 14/9
+PASS: all cardinal masks stay independent: 14/10
+PASS: all concave masks stay independent: 14/10
+PASS: all cardinal masks stay independent: 14/11
+PASS: all concave masks stay independent: 14/11
+PASS: all cardinal masks stay independent: 14/12
+PASS: all concave masks stay independent: 14/12
+PASS: all cardinal masks stay independent: 14/13
+PASS: all concave masks stay independent: 14/13
+PASS: all cardinal masks stay independent: 14/14
+PASS: all concave masks stay independent: 14/14
+PASS: all cardinal masks stay independent: 14/15
+PASS: all concave masks stay independent: 14/15
+PASS: all cardinal masks stay independent: 15/0
+PASS: all concave masks stay independent: 15/0
+PASS: all cardinal masks stay independent: 15/1
+PASS: all concave masks stay independent: 15/1
+PASS: all cardinal masks stay independent: 15/2
+PASS: all concave masks stay independent: 15/2
+PASS: all cardinal masks stay independent: 15/3
+PASS: all concave masks stay independent: 15/3
+PASS: all cardinal masks stay independent: 15/4
+PASS: all concave masks stay independent: 15/4
+PASS: all cardinal masks stay independent: 15/5
+PASS: all concave masks stay independent: 15/5
+PASS: all cardinal masks stay independent: 15/6
+PASS: all concave masks stay independent: 15/6
+PASS: all cardinal masks stay independent: 15/7
+PASS: all concave masks stay independent: 15/7
+PASS: all cardinal masks stay independent: 15/8
+PASS: all concave masks stay independent: 15/8
+PASS: all cardinal masks stay independent: 15/9
+PASS: all concave masks stay independent: 15/9
+PASS: all cardinal masks stay independent: 15/10
+PASS: all concave masks stay independent: 15/10
+PASS: all cardinal masks stay independent: 15/11
+PASS: all concave masks stay independent: 15/11
+PASS: all cardinal masks stay independent: 15/12
+PASS: all concave masks stay independent: 15/12
+PASS: all cardinal masks stay independent: 15/13
+PASS: all concave masks stay independent: 15/13
+PASS: all cardinal masks stay independent: 15/14
+PASS: all concave masks stay independent: 15/14
+PASS: all cardinal masks stay independent: 15/15
+PASS: all concave masks stay independent: 15/15
+PASS: diagonal contact keeps two separate water shores
+PASS: water stays beneath a bridge
+PASS: fitting circle walks on the deck
+PASS: circle wider than deck cannot use point-only bridge override
+PASS: removing deck restores water blocking without filling it again
+PASS: dry half of body at deck entrance does not create an invisible threshold
+PASS: the same entrance rule still blocks the unprotected side
+PASS: circle outside corner remains dry despite overlapping expanded AABB
+PASS: slightly larger circle intersects the real corner
+PASS: radius blocks crossing the side
+PASS: exact tangency does not become a penetration
+PASS: nearest cast skips hidden water under the deck
+PASS: query uses semantic water kind
+PASS: out-of-range cast has no invented target
+PASS: unknown requested kind has no target
+PASS: external metadata copy cannot alter water semantics
+PASS: negative cells use floor division for chunk coordinates
+PASS: readers cannot invalidate cached source or mutate snapshots
+PASS: identical paint does not invalidate geometry
+PASS: erase invalidates exactly the changed revision
+PASS: interior edit invalidates just its own chunk
+PASS: dirty queue is drained without touching source cells
+PASS: boundary edit refreshes both sides of the shoreline seam
+PASS: distant chunk retains its exact membership
+PASS: removing the last cell clears the obsolete group
+PASS: bounds clip whole aligned cells
+PASS: off-grid geometry and unknown body are rejected
+PASS: diagonal flow is rejected
+PASS: oversized paint fails before allocation or partial publish
+PASS: large coordinates do not enlarge the accepted grid error
+PASS: invalid initial bounds remain invalid after multiple attempts
+PASS: negative-size bounds are not mistaken for an unrestricted map
+PASS: invalid physical query fails closed
+PASS: unbounded nearest query is rejected
+PASS: decorative pool keeps its existing nonblocking semantics
+PASS: four tiles expose eight outer segments
+PASS: shore edge is one cardinal tile
+PASS: shore normal points toward a cardinal dry neighbor
+PASS: shore edge is one cardinal tile
+PASS: shore normal points toward a cardinal dry neighbor
+PASS: shore edge is one cardinal tile
+PASS: shore normal points toward a cardinal dry neighbor
+PASS: shore edge is one cardinal tile
+PASS: shore normal points toward a cardinal dry neighbor
+PASS: shore edge is one cardinal tile
+PASS: shore normal points toward a cardinal dry neighbor
+PASS: shore edge is one cardinal tile
+PASS: shore normal points toward a cardinal dry neighbor
+PASS: shore edge is one cardinal tile
+PASS: shore normal points toward a cardinal dry neighbor
+PASS: shore edge is one cardinal tile
+PASS: shore normal points toward a cardinal dry neighbor
+PASS: every water contour edge is cardinal
+PASS: every water contour edge is cardinal
+PASS: every water contour edge is cardinal
+PASS: every water contour edge is cardinal
+PASS: all home water centers match painted contour
+PASS: water remains beneath each deck
+PASS: water remains beneath each deck
+PASS: bridge center fits real body: overworld
+PASS: point-only deck exemption cannot leak sideways: overworld
+PASS: bridge center fits real body: overworld
+PASS: point-only deck exemption cannot leak sideways: overworld
+PASS: blocking water is represented by actual cells
+PASS: bridge center fits real body: village_river
+PASS: point-only deck exemption cannot leak sideways: village_river
+PASS: bridge center fits real body: village_river
+PASS: point-only deck exemption cannot leak sideways: village_river
+PASS: blocking water is represented by actual cells
+PASS: cave lake shares blocking registry
+PASS: decorative pool and sea backdrop preserve existing navigation
+PASS: dry locations do not acquire water
+PASS: shared static plans reject mutation
+PASS: bounded registry prepares water: overworld
+PASS: bounded registry prepares water: village_river
+PASS: bounded registry prepares water: cave_lake
+PASS: bounded registry prepares water: moon_glade
+PASS: bounded registry prepares water: pirate_ship
+PASS: eviction cannot invalidate active plan
+PASS: all built-in water plans pass validation
+PASS: production loader accepts old water layout fixture
+PASS: old hero lands on dry ground
+PASS: opened state and chest contents survive relocation
+PASS: off-screen drop preserves quantity and its own map
+PASS: off-screen enemy keeps health and reaches dry cave floor
+PASS: coins crops and quest progress remain intact
+PASS: current revision migration is an exact no-op
+PASS: migration exposes an explicit relocation report
+PASS: fresh object collection stays outside blocking water
+PASS: fresh object collection stays outside blocking water
+PASS: fresh object collection stays outside blocking water
+PASS: fresh object collection stays outside blocking water
+PASS: tree ground anchor stays dry: (2064.0, 336.0)
+PASS: tree ground anchor stays dry: (2088.0, 456.0)
+PASS: tree ground anchor stays dry: (2280.0, 432.0)
+PASS: tree ground anchor stays dry: (1968.0, 528.0)
+PASS: tree ground anchor stays dry: (2088.0, 1056.0)
+PASS: tree ground anchor stays dry: (2256.0, 1104.0)
+PASS: tree ground anchor stays dry: (2304.0, 648.0)
+PASS: tree ground anchor stays dry: (1968.0, 1104.0)
+PASS: tree ground anchor stays dry: (72.0, 168.0)
+PASS: tree ground anchor stays dry: (240.0, 144.0)
+PASS: tree ground anchor stays dry: (480.0, 144.0)
+PASS: tree ground anchor stays dry: (1032.0, 192.0)
+PASS: tree ground anchor stays dry: (1152.0, 168.0)
+PASS: tree ground anchor stays dry: (1488.0, 144.0)
+PASS: tree ground anchor stays dry: (2016.0, 216.0)
+PASS: tree ground anchor stays dry: (2184.0, 216.0)
+PASS: tree ground anchor stays dry: (2352.0, 240.0)
+PASS: tree ground anchor stays dry: (72.0, 576.0)
+PASS: tree ground anchor stays dry: (72.0, 720.0)
+PASS: tree ground anchor stays dry: (2352.0, 552.0)
+PASS: tree ground anchor stays dry: (2352.0, 1104.0)
+PASS: cast starts at real bank: (396.0, 180.0)
+PASS: pose faces the actual water independently of flow
+PASS: released bobber is visible water rather than a deck or shore
+PASS: cast keeps its bounded unobstructed line
+PASS: habitat comes from the released water point
+PASS: cast starts at real bank: (396.0, 180.0)
+PASS: pose faces the actual water independently of flow
+PASS: released bobber is visible water rather than a deck or shore
+PASS: cast keeps its bounded unobstructed line
+PASS: habitat comes from the released water point
+PASS: cast starts at real bank: (396.0, 180.0)
+PASS: pose faces the actual water independently of flow
+PASS: released bobber is visible water rather than a deck or shore
+PASS: cast keeps its bounded unobstructed line
+PASS: habitat comes from the released water point
+PASS: cast starts at real bank: (144.0, 396.0)
+PASS: pose faces the actual water independently of flow
+PASS: released bobber is visible water rather than a deck or shore
+PASS: cast keeps its bounded unobstructed line
+PASS: habitat comes from the released water point
+PASS: cast starts at real bank: (144.0, 396.0)
+PASS: pose faces the actual water independently of flow
+PASS: released bobber is visible water rather than a deck or shore
+PASS: cast keeps its bounded unobstructed line
+PASS: habitat comes from the released water point
+PASS: cast starts at real bank: (144.0, 396.0)
+PASS: pose faces the actual water independently of flow
+PASS: released bobber is visible water rather than a deck or shore
+PASS: cast keeps its bounded unobstructed line
+PASS: habitat comes from the released water point
+PASS: cast starts at real bank: (900.0, 720.0)
+PASS: pose faces the actual water independently of flow
+PASS: released bobber is visible water rather than a deck or shore
+PASS: cast keeps its bounded unobstructed line
+PASS: habitat comes from the released water point
+PASS: cast starts at real bank: (900.0, 720.0)
+PASS: pose faces the actual water independently of flow
+PASS: released bobber is visible water rather than a deck or shore
+PASS: cast keeps its bounded unobstructed line
+PASS: habitat comes from the released water point
+PASS: cast starts at real bank: (900.0, 720.0)
+PASS: pose faces the actual water independently of flow
+PASS: released bobber is visible water rather than a deck or shore
+PASS: cast keeps its bounded unobstructed line
+PASS: habitat comes from the released water point
+PASS: cast starts at real bank: (1176.0, 720.0)
+PASS: pose faces the actual water independently of flow
+PASS: released bobber is visible water rather than a deck or shore
+PASS: cast keeps its bounded unobstructed line
+PASS: habitat comes from the released water point
+PASS: cast starts at real bank: (1176.0, 720.0)
+PASS: pose faces the actual water independently of flow
+PASS: released bobber is visible water rather than a deck or shore
+PASS: cast keeps its bounded unobstructed line
+PASS: habitat comes from the released water point
+PASS: cast starts at real bank: (1176.0, 720.0)
+PASS: pose faces the actual water independently of flow
+PASS: released bobber is visible water rather than a deck or shore
+PASS: cast keeps its bounded unobstructed line
+PASS: habitat comes from the released water point
+PASS: cast starts at real bank: (576.0, 180.0)
+PASS: pose faces the actual water independently of flow
+PASS: released bobber is visible water rather than a deck or shore
+PASS: cast keeps its bounded unobstructed line
+PASS: habitat comes from the released water point
+PASS: cast starts at real bank: (576.0, 180.0)
+PASS: pose faces the actual water independently of flow
+PASS: released bobber is visible water rather than a deck or shore
+PASS: cast keeps its bounded unobstructed line
+PASS: habitat comes from the released water point
+PASS: cast starts at real bank: (576.0, 180.0)
+PASS: pose faces the actual water independently of flow
+PASS: released bobber is visible water rather than a deck or shore
+PASS: cast keeps its bounded unobstructed line
+PASS: habitat comes from the released water point
+PASS: cast starts at real bank: (696.0, 564.0)
+PASS: pose faces the actual water independently of flow
+PASS: released bobber is visible water rather than a deck or shore
+PASS: cast keeps its bounded unobstructed line
+PASS: habitat comes from the released water point
+PASS: cast starts at real bank: (696.0, 564.0)
+PASS: pose faces the actual water independently of flow
+PASS: released bobber is visible water rather than a deck or shore
+PASS: cast keeps its bounded unobstructed line
+PASS: habitat comes from the released water point
+PASS: cast starts at real bank: (696.0, 564.0)
+PASS: pose faces the actual water independently of flow
+PASS: released bobber is visible water rather than a deck or shore
+PASS: cast keeps its bounded unobstructed line
+PASS: habitat comes from the released water point
+PASS: cast starts at real bank: (1032.0, 348.0)
+PASS: pose faces the actual water independently of flow
+PASS: released bobber is visible water rather than a deck or shore
+PASS: cast keeps its bounded unobstructed line
+PASS: habitat comes from the released water point
+PASS: cast starts at real bank: (1032.0, 348.0)
+PASS: pose faces the actual water independently of flow
+PASS: released bobber is visible water rather than a deck or shore
+PASS: cast keeps its bounded unobstructed line
+PASS: habitat comes from the released water point
+PASS: cast starts at real bank: (1032.0, 348.0)
+PASS: pose faces the actual water independently of flow
+PASS: released bobber is visible water rather than a deck or shore
+PASS: cast keeps its bounded unobstructed line
+PASS: habitat comes from the released water point
+PASS: cast starts at real bank: (1032.0, 1080.0)
+PASS: pose faces the actual water independently of flow
+PASS: released bobber is visible water rather than a deck or shore
+PASS: cast keeps its bounded unobstructed line
+PASS: habitat comes from the released water point
+PASS: cast starts at real bank: (1032.0, 1080.0)
+PASS: pose faces the actual water independently of flow
+PASS: released bobber is visible water rather than a deck or shore
+PASS: cast keeps its bounded unobstructed line
+PASS: habitat comes from the released water point
+PASS: cast starts at real bank: (1032.0, 1080.0)
+PASS: pose faces the actual water independently of flow
+PASS: released bobber is visible water rather than a deck or shore
+PASS: cast keeps its bounded unobstructed line
+PASS: habitat comes from the released water point
+PASS: cast starts at real bank: (1992.0, 888.0)
+PASS: pose faces the actual water independently of flow
+PASS: released bobber is visible water rather than a deck or shore
+PASS: cast keeps its bounded unobstructed line
+PASS: habitat comes from the released water point
+PASS: cast starts at real bank: (1992.0, 888.0)
+PASS: pose faces the actual water independently of flow
+PASS: released bobber is visible water rather than a deck or shore
+PASS: cast keeps its bounded unobstructed line
+PASS: habitat comes from the released water point
+PASS: cast starts at real bank: (1992.0, 888.0)
+PASS: pose faces the actual water independently of flow
+PASS: released bobber is visible water rather than a deck or shore
+PASS: cast keeps its bounded unobstructed line
+PASS: habitat comes from the released water point
+PASS: out-of-range cast has no phantom waiting stage
+PASS: the protected deck is an explicit legal casting position
+PASS: bobber exits the bridge footprint
+PASS: the protected deck is an explicit legal casting position
+PASS: bobber exits the bridge footprint
+PASS: low river railing allows a cast from either bank
+PASS: district bobber belongs to actual district water
+PASS: low river railing allows a cast from either bank
+PASS: district bobber belongs to actual district water
+PASS: casting over low rails does not grant walking through them
+PASS: solid fence rejects the cast before charge
+PASS: charging alone never wears the rod
+PASS: obstacle introduced during charging cancels without a stuck pose
+PASS: failed release preserves all consumables and rewards
+PASS: published wall is not ignored by the fishing ray
+PASS: one actual release spends exactly one bait and durability
+PASS: stationary bobber rendering performs no new spatial searches
+PASS: line origin uses the held rod and the cast direction
+PASS: a small forced displacement cannot drag the bobber onto land
+PASS: backpack freezes the bite and its visual clock
+PASS: manual reel-in clears the fixed target
+PASS: ordinary transition immediately clears the old rod and bobber
+PASS: recovery removes an unfinished cast
+PASS: load retains collection but never restores an obsolete fishing action
+PASS: water catalog owns six surfaces six shores six river modules and an isolated pond
+PASS: water_clear is an opaque crop-safe 24 px water module
+PASS: water_ripples is an opaque crop-safe 24 px water module
+PASS: water_deep is an opaque crop-safe 24 px water module
+PASS: water_shallow is an opaque crop-safe 24 px water module
+PASS: water_lilies is an opaque crop-safe 24 px water module
+PASS: water_sparkles is an opaque crop-safe 24 px water module
+PASS: shore_north is an opaque crop-safe 24 px water module
+PASS: shore_south is an opaque crop-safe 24 px water module
+PASS: shore_west is an opaque crop-safe 24 px water module
+PASS: shore_east is an opaque crop-safe 24 px water module
+PASS: shore_outer_corner is an opaque crop-safe 24 px water module
+PASS: shore_inner_corner is an opaque crop-safe 24 px water module
+PASS: river_horizontal is an opaque crop-safe 24 px water module
+PASS: river_vertical is an opaque crop-safe 24 px water module
+PASS: river_corner is an opaque crop-safe 24 px water module
+PASS: river_t_junction is an opaque crop-safe 24 px water module
+PASS: river_cross is an opaque crop-safe 24 px water module
+PASS: river_end is an opaque crop-safe 24 px water module
+PASS: pond_rocky is an opaque crop-safe 24 px water module
+PASS: water neighbor mask 0 resolves to a registered quarter-turn module
+PASS: water neighbor mask 1 resolves to a registered quarter-turn module
+PASS: water neighbor mask 2 resolves to a registered quarter-turn module
+PASS: water neighbor mask 3 resolves to a registered quarter-turn module
+PASS: water neighbor mask 4 resolves to a registered quarter-turn module
+PASS: water neighbor mask 5 resolves to a registered quarter-turn module
+PASS: water neighbor mask 6 resolves to a registered quarter-turn module
+PASS: water neighbor mask 7 resolves to a registered quarter-turn module
+PASS: water neighbor mask 8 resolves to a registered quarter-turn module
+PASS: water neighbor mask 9 resolves to a registered quarter-turn module
+PASS: water neighbor mask 10 resolves to a registered quarter-turn module
+PASS: water neighbor mask 11 resolves to a registered quarter-turn module
+PASS: water neighbor mask 12 resolves to a registered quarter-turn module
+PASS: water neighbor mask 13 resolves to a registered quarter-turn module
+PASS: water neighbor mask 14 resolves to a registered quarter-turn module
+PASS: water neighbor mask 15 resolves to a registered quarter-turn module
+PASS: missing diagonal 0 resolves to the matching concave shoreline
+PASS: missing diagonal 1 resolves to the matching concave shoreline
+PASS: missing diagonal 2 resolves to the matching concave shoreline
+PASS: missing diagonal 3 resolves to the matching concave shoreline
+PASS: animated surface frame 0 stays inside the native water catalog
+PASS: animated surface frame 1 stays inside the native water catalog
+PASS: animated surface frame 2 stays inside the native water catalog
+PASS: animated surface frame 3 stays inside the native water catalog
+PASS: visible modular water cells and zero-radius navigation contour share one 24 px authority
+PASS: bridge center is removed from water topology and remains walkable
+PASS: bridge center is removed from water topology and remains walkable
+PASS: fish keeps integer pixel scale and crop-safe final frame
+PASS: splash keeps integer pixel scale and crop-safe final frame
+PASS: bubbles keeps integer pixel scale and crop-safe final frame
+PASS: fish uses 48 px and splash uses the agreed 72 px modular frame
+PASS: world animation delegates water effects instead of owning sprite dimensions
+PASS: level editor consumes the same water topology and module catalog as runtime
+PASS: water migration keeps a current F10 gameplay preview for visible contour and bridge review
+SHORE WATER TESTS: 845 passed, 0 failed
