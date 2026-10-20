@@ -1,0 +1,213 @@
+{
+  "task": "VPERF-001",
+  "source_complete": false,
+  "acceptance_granted": false,
+  "release_fps_accepted": false,
+  "classification": "offline audit, not full contract acceptance",
+  "counts": {
+    "valid": 3,
+    "rejected": 1,
+    "missing": 0
+  },
+  "runs": {
+    "repeat-1": {
+      "classification": "valid individual run",
+      "power_source": "Now drawing from 'AC Power'",
+      "metrics": {
+        "interval_ms": {
+          "p50": 30.116,
+          "p95": 34.846199999999996,
+          "p99": 37.39215999999999,
+          "max": 47.853
+        },
+        "engine_frame_ms": {
+          "p50": 14.349,
+          "p95": 19.268,
+          "p99": 19.358,
+          "max": 19.358
+        },
+        "engine_physics_ms": {
+          "p50": 20.809,
+          "p95": 25.738,
+          "p99": 26.437,
+          "max": 26.437
+        },
+        "callback_span_ms": {
+          "p50": 0.114,
+          "p95": 0.134,
+          "p99": 0.1823299999999999,
+          "max": 0.245
+        },
+        "draw_calls": {
+          "p50": 140.0,
+          "p95": 140.0,
+          "p99": 140.0,
+          "max": 140.0
+        },
+        "seconds": 30.020405999999998,
+        "frames": 1268,
+        "static_bytes": {
+          "first": 142584214.0,
+          "last": 142584270.0,
+          "max": 142584422.0
+        },
+        "texture_bytes_max": 683335708.0,
+        "maintenance_cycles": 1.0,
+        "gpu_time_ms": null,
+        "process": {
+          "samples": 6,
+          "rss_first": 1025323008,
+          "rss_last": 1025851392,
+          "rss_max": 1025974272,
+          "cpu_seconds_delta": 21.810000000000002,
+          "wall_seconds": 25.729273080825806,
+          "cpu_percent_of_one_core": 84.76726074415775
+        },
+        "render": {
+          "frames": 1267,
+          "seconds": 29.975814999999994,
+          "interval_ms": {
+            "p50": 27.611,
+            "p95": 34.8153,
+            "p99": 36.20623999999997,
+            "max": 40.887
+          }
+        }
+      }
+    },
+    "repeat-2": {
+      "classification": "valid individual run",
+      "power_source": "Now drawing from 'AC Power'",
+      "metrics": {
+        "interval_ms": {
+          "p50": 13.315,
+          "p95": 27.92195,
+          "p99": 34.46262999999998,
+          "max": 58.623
+        },
+        "engine_frame_ms": {
+          "p50": 14.84,
+          "p95": 19.271,
+          "p99": 19.296,
+          "max": 19.296
+        },
+        "engine_physics_ms": {
+          "p50": 15.658,
+          "p95": 24.981,
+          "p99": 39.925,
+          "max": 39.925
+        },
+        "callback_span_ms": {
+          "p50": 0.108,
+          "p95": 0.16594999999999982,
+          "p99": 0.22716999999999962,
+          "max": 0.384
+        },
+        "draw_calls": {
+          "p50": 140.0,
+          "p95": 140.0,
+          "p99": 140.0,
+          "max": 140.0
+        },
+        "seconds": 30.022435999999974,
+        "frames": 2262,
+        "static_bytes": {
+          "first": 142584214.0,
+          "last": 142584270.0,
+          "max": 142584422.0
+        },
+        "texture_bytes_max": 683335708.0,
+        "maintenance_cycles": 1.0,
+        "gpu_time_ms": null,
+        "process": {
+          "samples": 6,
+          "rss_first": 1024053248,
+          "rss_last": 1024372736,
+          "rss_max": 1024372736,
+          "cpu_seconds_delta": 21.699999999999996,
+          "wall_seconds": 25.727492094039917,
+          "cpu_percent_of_one_core": 84.34557056972942
+        },
+        "render": {
+          "frames": 2261,
+          "seconds": 30.00525600000001,
+          "interval_ms": {
+            "p50": 13.016,
+            "p95": 18.134,
+            "p99": 31.799400000000002,
+            "max": 45.751
+          }
+        }
+      }
+    },
+    "repeat-3": {
+      "classification": "valid individual run",
+      "power_source": "Now drawing from 'AC Power'",
+      "metrics": {
+        "interval_ms": {
+          "p50": 13.653,
+          "p95": 31.959600000000002,
+          "p99": 34.722120000000004,
+          "max": 47.202
+        },
+        "engine_frame_ms": {
+          "p50": 4.926,
+          "p95": 18.96,
+          "p99": 19.034,
+          "max": 19.034
+        },
+        "engine_physics_ms": {
+          "p50": 13.005,
+          "p95": 22.702,
+          "p99": 23.227,
+          "max": 23.227
+        },
+        "callback_span_ms": {
+          "p50": 0.11,
+          "p95": 0.186,
+          "p99": 0.2265999999999999,
+          "max": 0.336
+        },
+        "draw_calls": {
+          "p50": 140.0,
+          "p95": 140.0,
+          "p99": 140.0,
+          "max": 140.0
+        },
+        "seconds": 30.008282,
+        "frames": 2749,
+        "static_bytes": {
+          "first": 142584270.0,
+          "last": 142584046.0,
+          "max": 142584422.0
+        },
+        "texture_bytes_max": 683335708.0,
+        "maintenance_cycles": 1.0,
+        "gpu_time_ms": null,
+        "process": {
+          "samples": 6,
+          "rss_first": 1039843328,
+          "rss_last": 1040310272,
+          "rss_max": 1040310272,
+          "cpu_seconds_delta": 21.469999999999995,
+          "wall_seconds": 25.728999137878418,
+          "cpu_percent_of_one_core": 83.44669718765589
+        },
+        "render": {
+          "frames": 2748,
+          "seconds": 29.99312,
+          "interval_ms": {
+            "p50": 12.1405,
+            "p95": 31.08045000000001,
+            "p99": 34.429580000000016,
+            "max": 39.682
+          }
+        }
+      }
+    },
+    "long-cycle": {
+      "classification": "rejected",
+      "reason": "incomplete or rejected sample"
+    }
+  }
+}

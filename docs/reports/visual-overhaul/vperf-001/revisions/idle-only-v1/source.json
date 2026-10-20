@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "task": "VPERF-001",
+  "base_commit": "7056f24d949477d01aefd2c42b7640acf7794f09",
+  "complete": true,
+  "schedule": [
+    [
+      "repeat-1",
+      30,
+      ""
+    ],
+    [
+      "repeat-2",
+      30,
+      ""
+    ],
+    [
+      "repeat-3",
+      30,
+      ""
+    ],
+    [
+      "long-cycle",
+      600,
+      ""
+    ]
+  ],
+  "sources": {
+    "tools/perf_contract_capture.gd": "954117f2ecd9a85263c13876b6e869c89708d13ea640dd144f23ed559943d889",
+    "tools/perf_contract_collect.py": "7dccd25725709e7669e9fec09c02b46a9f34ffc2b9b21c5a9889379aa0a1917d",
+    "tools/visual_camera_points.gd": "2c3e44fd91c7a3ed1ce93f448d0447127955db5380b9f86c5325b8e2894220b7",
+    "project.godot": "98798f95ed194ba2bdcf65760eeb6c2e867f97cd51e7bdf42f6d3aa895575884",
+    "main.tscn": "850e050bc3df4971ec130b5b0a39dba6aa71082ce2fc20607dd504a3d55c98a9",
+    "docs/reports/visual-overhaul/vbase-003/camera-points.json": "3848320b5130ce3b29baf65a0a6ca1705e0675f2186d28934cc9d8ff9f2df7b8",
+    "docs/reports/visual-overhaul/vbase-002/profile.json": "cf33d1c6cd335210d5ca97f0a7a4af41e397d58df1604555e7de063b1e4e1bba"
+  },
+  "artifacts": {
+    "long-cycle/stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "long-cycle/before.png": "fe7ee462bb347b9d45039bb922265d96194e854da902dc67717b5dc5c72996af",
+    "long-cycle/rows.csv.gz": "c7ba0a4e39b35eb550e34fbaa039f85bb8e11959d242fa7ca0e79e32fe641201",
+    "long-cycle/after.png": "afa84dd996c2836cbcc105648c4cd01f2f400db8c0ace7bad574e648277a44ac",
+    "long-cycle/engine.txt": "eb86906d25091d00238d57edcb92e6d992248c0cfe57a762f955b8cffc8d978a",
+    "long-cycle/run.json": "85cddab5913e2852cd3b304da4ca6815d3147d978782a6daa7a7b61779a98084",
+    "long-cycle/environment.json": "96ab476194b838cbe4cdfd6ed7ca59740c9699db0a5e5b10083b589fdacd82f1",
+    "repeat-1/stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "repeat-1/before.png": "b237ca5c1d9a8b9d2a51bcb84af5b431f5500c234088003098d665fa5668caf3",
+    "repeat-1/rows.csv.gz": "9d4edc7b10f2d345610f2bb3c9299d21cee92be890b78f5629de707e98a6d5fe",
+    "repeat-1/after.png": "8b6e7daaf8e8ae8b1153db532d4a740b9dcbeb7b1de0102adf3df7b81b81b5b5",
+    "repeat-1/engine.txt": "8164f92d7b9e239ef78270abbb940d09a24ff842c07dbf141bd7833cc17a4ca4",
+    "repeat-1/run.json": "b0fe71989a335384939594890a6e0a591f34932fd30f888f2775d35e27ade817",
+    "repeat-1/environment.json": "d907df53272678a1fecba93fb0e75313cb1b72df9d24171e93593652c256db22",
+    "repeat-3/stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "repeat-3/before.png": "209b272deb47e097deac374f6ca5792afd00c4eec7084ef7d1c1020379771ff0",
+    "repeat-3/rows.csv.gz": "af64c6da866ab290a5c54de3dd1b337bdafb70b478e373b8761634bc25aa1102",
+    "repeat-3/after.png": "a0987d323449227aa56d4b750a551c4967dad1a9179e7a37dcc4406f49773292",
+    "repeat-3/engine.txt": "8f20191aaf89f3392d828f3b47e25f706924d0302831e52a8fc81f16b7049bde",
+    "repeat-3/run.json": "208821d9c1ad9a9d6676c80c74f3b75e3babd8c1a3d21f6fe7fa3a7217511938",
+    "repeat-3/environment.json": "c4e92c6736aac7accf3c20cdecc944c3c7e844395b4d5ff14bf77005369986f6",
+    "repeat-2/stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "repeat-2/before.png": "4b04b64080638be359ed709b0b24031932896aed20536ccfeb5ca10499498ece",
+    "repeat-2/rows.csv.gz": "10be632444b0d70b8f0cee18ee921a9b10752065c11e31efb61541d4c34dbb9b",
+    "repeat-2/after.png": "2723432d62779166a79f54fc1768cdf7c7b10c59afd259e75dd656f880815e16",
+    "repeat-2/engine.txt": "de5d42a26b7cfab60f1e5978a44f65809dc7d707c4d6acffbb43c0ebc3bcdba8",
+    "repeat-2/run.json": "7c3f3629e672c157c50bbf57d42e25f9c98ea725ae942799da97c11cc7b2652d",
+    "repeat-2/environment.json": "87c55fb8c9baf5ad46acb5ef753c061061aca718b8d96f914c85af3d464836ad"
+  }
+}

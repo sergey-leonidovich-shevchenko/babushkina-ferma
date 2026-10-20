@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "task": "VPERF-001",
+  "base_commit": "7056f24d949477d01aefd2c42b7640acf7794f09",
+  "complete": false,
+  "schedule": [
+    [
+      "repeat-1",
+      30,
+      ""
+    ],
+    [
+      "repeat-2",
+      30,
+      ""
+    ],
+    [
+      "repeat-3",
+      30,
+      ""
+    ],
+    [
+      "long-cycle",
+      600,
+      ""
+    ]
+  ],
+  "sources": {
+    "tools/perf_contract_capture.gd": "954117f2ecd9a85263c13876b6e869c89708d13ea640dd144f23ed559943d889",
+    "tools/perf_contract_collect.py": "78f38365673d70cd7796de90f71d02887b81df63cdc034343ad9117a03f79fc2",
+    "tools/visual_camera_points.gd": "2c3e44fd91c7a3ed1ce93f448d0447127955db5380b9f86c5325b8e2894220b7",
+    "project.godot": "98798f95ed194ba2bdcf65760eeb6c2e867f97cd51e7bdf42f6d3aa895575884",
+    "main.tscn": "850e050bc3df4971ec130b5b0a39dba6aa71082ce2fc20607dd504a3d55c98a9",
+    "docs/reports/visual-overhaul/vbase-003/camera-points.json": "3848320b5130ce3b29baf65a0a6ca1705e0675f2186d28934cc9d8ff9f2df7b8"
+  },
+  "artifacts": {
+    "repeat-1/stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "repeat-1/before.png": "4249952144b38322701119dbece1205518f4ef31cf60532bb52387ef2f5e4430",
+    "repeat-1/rows.csv.gz": "138510dec1093e9da2733b4ee05e480d1506ffa9fd49f147e9eb99f760eb2282",
+    "repeat-1/after.png": "f95dc15c75e0697b1747a017bf6dc9663d572874bc8e4c47644e1a8d2ea6a02e",
+    "repeat-1/engine.txt": "a820840d1999e7dc61dd5b2035cc89d686d4b1f2edbf08e1832283db01dd2a26",
+    "repeat-1/run.json": "c76e17e62dd804dc4754f07c4847a62aac136a850bfbf658ac0cbd0d24680806",
+    "repeat-1/environment.json": "10403d478c51ec9cbb327b27b316cf42b4e3fd3f38d23077028c2d4948f2d7ab",
+    "repeat-2/stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "repeat-2/engine.txt": "196d74fc802c7db0145fdde976806aad4066a273539ec57a5febff299744774b",
+    "repeat-2/environment.json": "762bb57d1b94a6a2fefeffeb138c34ea0fb5b50d604952074b392d733b9f0fbc"
+  }
+}

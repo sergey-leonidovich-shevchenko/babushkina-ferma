@@ -283,3 +283,10 @@ assets/inbox/*
 # VSHORE-001: journals are mandatory evidence, after the generic log exclusion.
 !docs/reports/visual-overhaul/vshore-001/water-review.log
 !docs/reports/visual-overhaul/vshore-001/native/engine.log
+
+# VPERF-001: native measurement contract and offline admission.
+!tools/perf_contract_capture.gd
+!tools/perf_contract_capture.gd.uid
+!tools/perf_contract_collect.py
+!tools/perf_contract.py
+!tools/test_perf_contract.py

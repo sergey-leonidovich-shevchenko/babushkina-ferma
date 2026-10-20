@@ -1,0 +1,127 @@
+{
+  "command": [
+    "open",
+    "-n",
+    "-W",
+    "-a",
+    "/Users/sergeyshevchenko/my farm/tools/Godot.app",
+    "--args",
+    "--path",
+    "/Users/sergeyshevchenko/my farm",
+    "--windowed",
+    "--audio-driver",
+    "Dummy",
+    "--log-file",
+    "/private/tmp/vperf-001-resumed-v1/repeat-1/engine.txt",
+    "--script",
+    "res://tools/perf_contract_capture.gd",
+    "--",
+    "--output=/private/tmp/vperf-001-resumed-v1/repeat-1/native",
+    "--profile=Codex-VPERF-001-44eadd1a88ef429aa8e71a1f709b80ca",
+    "--seconds=30"
+  ],
+  "exit_code": 0,
+  "profile": "Codex-VPERF-001-44eadd1a88ef429aa8e71a1f709b80ca",
+  "pid": 12568,
+  "before": {
+    "utc": 1792503318.055802,
+    "power": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=6750307)\t100%; charged; 0:00 remaining present: true",
+    "power_settings": "Battery Power:\n lidwake              1\n lowpowermode         0\n standbydelayhigh     86400\n proximitywake        0\n standby              1\n standbydelaylow      10800\n ttyskeepawake        1\n hibernatemode        3\n powernap             0\n gpuswitch            2\n hibernatefile        /var/vm/sleepimage\n highstandbythreshold 50\n displaysleep         10\n womp                 0\n networkoversleep     0\n sleep                1\n lessbright           1\n halfdim              1\n acwake               0\n tcpkeepalive         1\n disksleep            10\nAC Power:\n lidwake              1\n lowpowermode         0\n standbydelayhigh     86400\n proximitywake        1\n standby              1\n standbydelaylow      10800\n ttyskeepawake        1\n hibernatemode        3\n powernap             1\n gpuswitch            2\n hibernatefile        /var/vm/sleepimage\n highstandbythreshold 50\n displaysleep         60\n womp                 1\n networkoversleep     0\n sleep                1\n acwake               0\n halfdim              1\n tcpkeepalive         1\n disksleep            10",
+    "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\n2026-10-20 18:35:18 +0500 CPU Power notify\n\tCPU_Scheduler_Limit \t= 100\n\tCPU_Available_CPUs \t= 12\n\tCPU_Speed_Limit \t= 100",
+    "hardware": {
+      "system": "Darwin",
+      "os_version": "15.4.1",
+      "architecture": "x86_64",
+      "machine": {
+        "hw.model": "MacBookPro16,1",
+        "machdep.cpu.brand_string": "Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz",
+        "hw.memsize": "17179869184",
+        "hw.ncpu": "12"
+      }
+    }
+  },
+  "after": {
+    "utc": 1792503368.398871,
+    "power": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=6750307)\t100%; charged; 0:00 remaining present: true",
+    "power_settings": "Battery Power:\n lidwake              1\n lowpowermode         0\n standbydelayhigh     86400\n proximitywake        0\n standby              1\n standbydelaylow      10800\n ttyskeepawake        1\n hibernatemode        3\n powernap             0\n gpuswitch            2\n hibernatefile        /var/vm/sleepimage\n highstandbythreshold 50\n displaysleep         10\n womp                 0\n networkoversleep     0\n sleep                1\n lessbright           1\n halfdim              1\n acwake               0\n tcpkeepalive         1\n disksleep            10\nAC Power:\n lidwake              1\n lowpowermode         0\n standbydelayhigh     86400\n proximitywake        1\n standby              1\n standbydelaylow      10800\n ttyskeepawake        1\n hibernatemode        3\n powernap             1\n gpuswitch            2\n hibernatefile        /var/vm/sleepimage\n highstandbythreshold 50\n displaysleep         60\n womp                 1\n networkoversleep     0\n sleep                1\n acwake               0\n halfdim              1\n tcpkeepalive         1\n disksleep            10",
+    "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\n2026-10-20 18:36:08 +0500 CPU Power notify\n\tCPU_Scheduler_Limit \t= 100\n\tCPU_Available_CPUs \t= 12\n\tCPU_Speed_Limit \t= 100",
+    "hardware": {
+      "system": "Darwin",
+      "os_version": "15.4.1",
+      "architecture": "x86_64",
+      "machine": {
+        "hw.model": "MacBookPro16,1",
+        "machdep.cpu.brand_string": "Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz",
+        "hw.memsize": "17179869184",
+        "hw.ncpu": "12"
+      }
+    }
+  },
+  "jobs_after": [],
+  "rss_cpu_samples": [
+    {
+      "utc": 1792503323.572269,
+      "raw": "12568 566568   0:03.99  91.7",
+      "pid": 12568,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792503328.756945,
+      "raw": "12568 800840   0:08.62  95.0",
+      "pid": 12568,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792503333.976897,
+      "raw": "12568 977240   0:12.44  85.4",
+      "pid": 12568,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792503339.173337,
+      "raw": "12568 998192   0:16.75  84.9",
+      "pid": 12568,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792503344.409628,
+      "raw": "12568 998212   0:21.21  81.5",
+      "pid": 12568,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792503349.6105442,
+      "raw": "12568 998488   0:25.65  86.4",
+      "pid": 12568,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792503354.834647,
+      "raw": "12568 998712   0:30.09  84.6",
+      "pid": 12568,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792503360.0840168,
+      "raw": "12568 998568   0:34.55  86.5",
+      "pid": 12568,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792503365.325253,
+      "raw": "12568 998620   0:39.02  87.9",
+      "pid": 12568,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    }
+  ],
+  "sampling_note": "external ps every 5s; RSS bytes from KiB; cumulative CPU time is separate from frame/engine/GPU timers"
+}

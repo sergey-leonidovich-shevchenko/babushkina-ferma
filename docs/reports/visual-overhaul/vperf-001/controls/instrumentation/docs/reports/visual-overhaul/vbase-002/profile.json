@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "id": "development-mac-5300m-battery-v1",
+  "scope": "overworld-through-VMAP-003",
+  "release_minimum_approved": false,
+  "selected_device": "mac-amd-5300m",
+  "decision": "Available development reference and provisional lower tested configuration; no equivalence or release minimum inferred for other machines.",
+  "devices": [
+    {
+      "id": "mac-amd-5300m",
+      "status": "reference",
+      "system": "Darwin",
+      "os_version": "15.4.1",
+      "architecture": "x86_64",
+      "machine": {
+        "hw.model": "MacBookPro16,1",
+        "machdep.cpu.brand_string": "Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz",
+        "hw.memsize": "17179869184",
+        "hw.ncpu": "12"
+      },
+      "gpu_model": "AMD Radeon Pro 5300M",
+      "dedicated_vram": "4 GB",
+      "adapter": "AMD Radeon Pro 5300M OpenGL Engine",
+      "engine": "4.7.1-stable (official)",
+      "driver": "opengl3",
+      "display_server": "macOS",
+      "screen": [
+        3584,
+        2240
+      ],
+      "screen_scale": 2
+    },
+    {
+      "id": "mac-integrated",
+      "status": "unverified",
+      "reason": "Intel UHD Graphics 630 is present; this session selects the AMD renderer. Shared memory is not dedicated VRAM."
+    },
+    {
+      "id": "mac-apple-silicon",
+      "status": "unverified",
+      "reason": "No native device or run available."
+    },
+    {
+      "id": "windows",
+      "status": "unverified",
+      "reason": "No native device, driver or power adapter verified."
+    },
+    {
+      "id": "linux",
+      "status": "unverified",
+      "reason": "No native device, driver or power adapter verified."
+    }
+  ],
+  "measurement": {
+    "preset": "village-cardinal-1152-v1",
+    "repeats": 3,
+    "window": [
+      1152,
+      648
+    ],
+    "framebuffer": [
+      1152,
+      648
+    ],
+    "start_camera": [
+      0,
+      348
+    ],
+    "world_scale": 1,
+    "target_world_scale": 1.2,
+    "target_scale_owner": "VCAMERA-006",
+    "budget_owner": "VPERF-002",
+    "runtime_quality_preset": null,
+    "build": "Godot source/debug launch, not exported release",
+    "power": "Battery Power, lowpowermode 0, gpuswitch 2; at least 50% charge at every boundary. AC requires a separate series. No power settings are changed.",
+    "quality": "Existing production graphics and effects, Russian HUD, audio on, UI 1.0, reduced motion off, screen shake off; not a new low/medium/high setting",
+    "simulation": "Live world, seed 20261015, day 1, 06:00, 16 physical checkpoints; no screenshots or disk writes inside the measured interval",
+    "target": "60 FPS is a design goal; VBASE diagnostic thresholds are retained, not promoted to a release guarantee",
+    "power_mode": "Battery Power",
+    "minimum_battery_percent": 50
+  },
+  "deferred": [
+    "1920x1080 framebuffer",
+    "native Retina framebuffer",
+    "target 120% camera",
+    "exported release build",
+    "low quality fallback",
+    "full overworld route",
+    "long-session memory",
+    "other physical devices"
+  ]
+}

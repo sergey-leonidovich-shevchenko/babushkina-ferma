@@ -6397,7 +6397,7 @@
       "id": "VPERF-001",
       "epic": "VPERF",
       "title": "Уточнить измерительный контракт",
-      "status": "ready",
+      "status": "done",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -6432,9 +6432,15 @@
         "confidence": "low",
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
-      "branch": "codex/vperf-001-visual-task",
-      "evidence": [],
-      "result": "Подготовлена как следующий оставшийся пункт основания первой локации после VRELEASE-005 и VSHORE-001. VBASE-001 выполнена; VCAMERA-006 предоставляет сравнительные повторы и абсолютный FAIL 60 FPS. Полный измерительный контракт, три повтора и длинный цикл этой карточки ещё не реализованы и не приняты."
+      "branch": "codex/vperf-001-measurement-contract",
+      "evidence": [
+        "docs/reports/visual-overhaul/vperf-001/README.md",
+        "docs/reports/visual-overhaul/vperf-001/summary.json",
+        "docs/reports/visual-overhaul/vperf-001/native/source.json",
+        "docs/reports/visual-overhaul/vperf-001/controls/source.json",
+        "docs/reports/visual-overhaul/vperf-001/browser-review.json"
+      ],
+      "result": "Принят измерительный контракт: новая нативная серия 3x30 с + 600 с, четыре независимых профиля/процесса, отдельные idle/render raw, CPU/RSS, VSync, фокус, одинаковые окно/камера и AC. Реальные resize/pause-контроли отклонены. 37 сценариев, Wiki TypeScript и 64 теста; браузер: два кадра, три точных скачивания и узкая ширина. Медиана p95 56,306 мс: FPS не исправлен, GPU timer неизвестен; VPERF-002/009 и VRELEASE-004 остаются открытыми. Прежние отказы сохранены отдельно."
     },
     {
       "id": "VPERF-002",

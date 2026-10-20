@@ -1,0 +1,700 @@
+{
+  "points": [
+    {
+      "camera": [
+        0.0,
+        348.0
+      ],
+      "day": 1,
+      "facing": [
+        0,
+        1
+      ],
+      "id": "overworld-entry-v1",
+      "label": "Деревня и гильдия",
+      "location": "overworld",
+      "minutes": 720,
+      "phase": "day",
+      "player": [
+        432.0,
+        672.0
+      ],
+      "season": "spring",
+      "seed": 20261015,
+      "weather": "clear"
+    },
+    {
+      "camera": [
+        0.0,
+        36.0
+      ],
+      "day": 1,
+      "facing": [
+        0,
+        1
+      ],
+      "id": "forest-entry-v1",
+      "label": "Обычный лес",
+      "location": "forest",
+      "minutes": 720,
+      "phase": "day",
+      "player": [
+        260.0,
+        360.0
+      ],
+      "season": "spring",
+      "seed": 20261015,
+      "weather": "clear"
+    },
+    {
+      "camera": [
+        0.0,
+        36.0
+      ],
+      "day": 1,
+      "facing": [
+        0,
+        1
+      ],
+      "id": "rocky-entry-v1",
+      "label": "Каменистая область",
+      "location": "rocky",
+      "minutes": 720,
+      "phase": "day",
+      "player": [
+        260.0,
+        360.0
+      ],
+      "season": "spring",
+      "seed": 20261015,
+      "weather": "clear"
+    },
+    {
+      "camera": [
+        0.0,
+        36.0
+      ],
+      "day": 1,
+      "facing": [
+        0,
+        1
+      ],
+      "id": "ruins-entry-v1",
+      "label": "Орочьи руины",
+      "location": "ruins",
+      "minutes": 720,
+      "phase": "day",
+      "player": [
+        260.0,
+        360.0
+      ],
+      "season": "spring",
+      "seed": 20261015,
+      "weather": "clear"
+    },
+    {
+      "camera": [
+        0.0,
+        552.0
+      ],
+      "day": 1,
+      "facing": [
+        0,
+        1
+      ],
+      "id": "cave-entry-v1",
+      "label": "Кристальные пещеры",
+      "location": "cave",
+      "minutes": 720,
+      "phase": "day",
+      "player": [
+        408.0,
+        960.0
+      ],
+      "season": "spring",
+      "seed": 20261015,
+      "weather": "clear"
+    },
+    {
+      "camera": [
+        0.0,
+        36.0
+      ],
+      "day": 1,
+      "facing": [
+        0,
+        1
+      ],
+      "id": "cursed-entry-v1",
+      "label": "Проклятая земля",
+      "location": "cursed",
+      "minutes": 720,
+      "phase": "day",
+      "player": [
+        260.0,
+        360.0
+      ],
+      "season": "spring",
+      "seed": 20261015,
+      "weather": "wind"
+    },
+    {
+      "camera": [
+        0.0,
+        36.0
+      ],
+      "day": 1,
+      "facing": [
+        0,
+        1
+      ],
+      "id": "glassworks-entry-v1",
+      "label": "Мастерская стеклодува",
+      "location": "glassworks",
+      "minutes": 720,
+      "phase": "day",
+      "player": [
+        260.0,
+        360.0
+      ],
+      "season": "spring",
+      "seed": 20261015,
+      "weather": "clear"
+    },
+    {
+      "camera": [
+        0.0,
+        36.0
+      ],
+      "day": 1,
+      "facing": [
+        0,
+        1
+      ],
+      "id": "pirate_ship-entry-v1",
+      "label": "Корабль «Чёрная сельдь»",
+      "location": "pirate_ship",
+      "minutes": 720,
+      "phase": "day",
+      "player": [
+        260.0,
+        360.0
+      ],
+      "season": "spring",
+      "seed": 20261015,
+      "weather": "wind"
+    },
+    {
+      "camera": [
+        0.0,
+        36.0
+      ],
+      "day": 1,
+      "facing": [
+        0,
+        1
+      ],
+      "id": "moon_glade-entry-v1",
+      "label": "Лунная поляна",
+      "location": "moon_glade",
+      "minutes": 720,
+      "phase": "day",
+      "player": [
+        260.0,
+        360.0
+      ],
+      "season": "spring",
+      "seed": 20261015,
+      "weather": "clear"
+    },
+    {
+      "camera": [
+        0.0,
+        300.0
+      ],
+      "day": 1,
+      "facing": [
+        0,
+        1
+      ],
+      "id": "village_market-entry-v1",
+      "label": "Торговая слобода",
+      "location": "village_market",
+      "minutes": 720,
+      "phase": "day",
+      "player": [
+        216.0,
+        624.0
+      ],
+      "season": "spring",
+      "seed": 20261015,
+      "weather": "clear"
+    },
+    {
+      "camera": [
+        432.0,
+        552.0
+      ],
+      "day": 1,
+      "facing": [
+        0,
+        1
+      ],
+      "id": "village_garden-entry-v1",
+      "label": "Сад травницы",
+      "location": "village_garden",
+      "minutes": 720,
+      "phase": "day",
+      "player": [
+        1008.0,
+        984.0
+      ],
+      "season": "spring",
+      "seed": 20261015,
+      "weather": "clear"
+    },
+    {
+      "camera": [
+        48.0,
+        0.0
+      ],
+      "day": 1,
+      "facing": [
+        0,
+        1
+      ],
+      "id": "village_river-entry-v1",
+      "label": "Речная переправа",
+      "location": "village_river",
+      "minutes": 720,
+      "phase": "day",
+      "player": [
+        624.0,
+        264.0
+      ],
+      "season": "spring",
+      "seed": 20261015,
+      "weather": "clear"
+    },
+    {
+      "camera": [
+        0.0,
+        300.0
+      ],
+      "day": 1,
+      "facing": [
+        0,
+        1
+      ],
+      "id": "village_workyard-entry-v1",
+      "label": "Ремесленный двор",
+      "location": "village_workyard",
+      "minutes": 720,
+      "phase": "day",
+      "player": [
+        216.0,
+        624.0
+      ],
+      "season": "spring",
+      "seed": 20261015,
+      "weather": "clear"
+    },
+    {
+      "camera": [
+        432.0,
+        0.0
+      ],
+      "day": 1,
+      "facing": [
+        0,
+        1
+      ],
+      "id": "village_orchard-entry-v1",
+      "label": "Яблоневый сад",
+      "location": "village_orchard",
+      "minutes": 720,
+      "phase": "day",
+      "player": [
+        1008.0,
+        264.0
+      ],
+      "season": "spring",
+      "seed": 20261015,
+      "weather": "clear"
+    },
+    {
+      "camera": [
+        0.0,
+        276.0
+      ],
+      "day": 1,
+      "facing": [
+        0,
+        1
+      ],
+      "id": "cave_fungal-entry-v1",
+      "label": "Грибной зал",
+      "location": "cave_fungal",
+      "minutes": 720,
+      "phase": "day",
+      "player": [
+        288.0,
+        600.0
+      ],
+      "season": "spring",
+      "seed": 20261015,
+      "weather": "clear"
+    },
+    {
+      "camera": [
+        0.0,
+        276.0
+      ],
+      "day": 1,
+      "facing": [
+        0,
+        1
+      ],
+      "id": "cave_moon-entry-v1",
+      "label": "Лунный грот",
+      "location": "cave_moon",
+      "minutes": 720,
+      "phase": "day",
+      "player": [
+        288.0,
+        600.0
+      ],
+      "season": "spring",
+      "seed": 20261015,
+      "weather": "clear"
+    },
+    {
+      "camera": [
+        624.0,
+        0.0
+      ],
+      "day": 1,
+      "facing": [
+        0,
+        1
+      ],
+      "id": "cave_lake-entry-v1",
+      "label": "Подземное озеро",
+      "location": "cave_lake",
+      "minutes": 720,
+      "phase": "day",
+      "player": [
+        1200.0,
+        288.0
+      ],
+      "season": "spring",
+      "seed": 20261015,
+      "weather": "clear"
+    },
+    {
+      "camera": [
+        624.0,
+        552.0
+      ],
+      "day": 1,
+      "facing": [
+        0,
+        1
+      ],
+      "id": "cave_mine-entry-v1",
+      "label": "Старая шахта",
+      "location": "cave_mine",
+      "minutes": 720,
+      "phase": "day",
+      "player": [
+        1200.0,
+        960.0
+      ],
+      "season": "spring",
+      "seed": 20261015,
+      "weather": "clear"
+    },
+    {
+      "camera": [
+        0.0,
+        276.0
+      ],
+      "day": 1,
+      "facing": [
+        0,
+        1
+      ],
+      "id": "cave_sanctum-entry-v1",
+      "label": "Забытое святилище",
+      "location": "cave_sanctum",
+      "minutes": 720,
+      "phase": "day",
+      "player": [
+        288.0,
+        600.0
+      ],
+      "season": "spring",
+      "seed": 20261015,
+      "weather": "clear"
+    },
+    {
+      "camera": [
+        48.0,
+        78.0
+      ],
+      "day": 1,
+      "facing": [
+        0,
+        1
+      ],
+      "id": "cellar_workshop-entry-v1",
+      "label": "Подвал-мастерская",
+      "location": "cellar_workshop",
+      "minutes": 720,
+      "phase": "day",
+      "player": [
+        240.0,
+        408.0
+      ],
+      "season": "spring",
+      "seed": 20261015,
+      "weather": "clear"
+    },
+    {
+      "camera": [
+        0.0,
+        6.0
+      ],
+      "day": 1,
+      "facing": [
+        0,
+        1
+      ],
+      "id": "cottage_interior-entry-v1",
+      "label": "Дом бабушки",
+      "location": "cottage_interior",
+      "minutes": 720,
+      "phase": "day",
+      "player": [
+        576.0,
+        500.0
+      ],
+      "season": "spring",
+      "seed": 20261015,
+      "weather": "clear"
+    },
+    {
+      "camera": [
+        0.0,
+        5.0
+      ],
+      "day": 1,
+      "facing": [
+        0,
+        1
+      ],
+      "id": "shop_interior-entry-v1",
+      "label": "Сельская лавка",
+      "location": "shop_interior",
+      "minutes": 720,
+      "phase": "day",
+      "player": [
+        576.0,
+        510.0
+      ],
+      "season": "spring",
+      "seed": 20261015,
+      "weather": "clear"
+    },
+    {
+      "camera": [
+        0.0,
+        10.0
+      ],
+      "day": 1,
+      "facing": [
+        0,
+        1
+      ],
+      "id": "guild_interior-entry-v1",
+      "label": "Зал гильдии",
+      "location": "guild_interior",
+      "minutes": 720,
+      "phase": "day",
+      "player": [
+        576.0,
+        525.0
+      ],
+      "season": "spring",
+      "seed": 20261015,
+      "weather": "clear"
+    },
+    {
+      "camera": [
+        0.0,
+        10.0
+      ],
+      "day": 1,
+      "facing": [
+        0,
+        1
+      ],
+      "id": "forge_interior-entry-v1",
+      "label": "Кузница",
+      "location": "forge_interior",
+      "minutes": 720,
+      "phase": "day",
+      "player": [
+        576.0,
+        520.0
+      ],
+      "season": "spring",
+      "seed": 20261015,
+      "weather": "clear"
+    },
+    {
+      "camera": [
+        0.0,
+        0.0
+      ],
+      "day": 1,
+      "facing": [
+        0,
+        1
+      ],
+      "id": "chapel_interior-entry-v1",
+      "label": "Лунная часовня",
+      "location": "chapel_interior",
+      "minutes": 720,
+      "phase": "day",
+      "player": [
+        576.0,
+        520.0
+      ],
+      "season": "spring",
+      "seed": 20261015,
+      "weather": "clear"
+    },
+    {
+      "camera": [
+        0.0,
+        5.0
+      ],
+      "day": 1,
+      "facing": [
+        0,
+        1
+      ],
+      "id": "prison_interior-entry-v1",
+      "label": "Тюрьма руин",
+      "location": "prison_interior",
+      "minutes": 720,
+      "phase": "day",
+      "player": [
+        576.0,
+        525.0
+      ],
+      "season": "spring",
+      "seed": 20261015,
+      "weather": "clear"
+    },
+    {
+      "camera": [
+        0.0,
+        0.0
+      ],
+      "day": 1,
+      "facing": [
+        0,
+        1
+      ],
+      "id": "tower_interior-entry-v1",
+      "label": "Башня мага",
+      "location": "tower_interior",
+      "minutes": 720,
+      "phase": "day",
+      "player": [
+        576.0,
+        525.0
+      ],
+      "season": "spring",
+      "seed": 20261015,
+      "weather": "clear"
+    },
+    {
+      "camera": [
+        324.0,
+        420.0
+      ],
+      "day": 1,
+      "facing": [
+        0,
+        1
+      ],
+      "id": "castle_hall-entry-v1",
+      "label": "Большой зал замка",
+      "location": "castle_hall",
+      "minutes": 720,
+      "phase": "day",
+      "player": [
+        900.0,
+        910.0
+      ],
+      "season": "spring",
+      "seed": 20261015,
+      "weather": "clear"
+    },
+    {
+      "camera": [
+        0.0,
+        0.0
+      ],
+      "day": 1,
+      "facing": [
+        0,
+        1
+      ],
+      "id": "castle_upper-entry-v1",
+      "label": "Верхний этаж замка",
+      "location": "castle_upper",
+      "minutes": 720,
+      "phase": "day",
+      "player": [
+        576.0,
+        520.0
+      ],
+      "season": "spring",
+      "seed": 20261015,
+      "weather": "clear"
+    },
+    {
+      "camera": [
+        0.0,
+        5.0
+      ],
+      "day": 1,
+      "facing": [
+        0,
+        1
+      ],
+      "id": "castle_dungeon-entry-v1",
+      "label": "Подземелье замка",
+      "location": "castle_dungeon",
+      "minutes": 720,
+      "phase": "day",
+      "player": [
+        576.0,
+        520.0
+      ],
+      "season": "spring",
+      "seed": 20261015,
+      "weather": "clear"
+    }
+  ],
+  "preset": "camera-entry-noon-1152-v1",
+  "schema": 1,
+  "viewport": [
+    1152,
+    648
+  ]
+}

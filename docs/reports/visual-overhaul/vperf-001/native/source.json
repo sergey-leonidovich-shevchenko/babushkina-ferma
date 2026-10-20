@@ -1,0 +1,71 @@
+{
+  "schema": 1,
+  "task": "VPERF-001",
+  "base_commit": "7056f24d949477d01aefd2c42b7640acf7794f09",
+  "complete": true,
+  "schedule": [
+    [
+      "repeat-1",
+      30,
+      ""
+    ],
+    [
+      "repeat-2",
+      30,
+      ""
+    ],
+    [
+      "repeat-3",
+      30,
+      ""
+    ],
+    [
+      "long-cycle",
+      600,
+      ""
+    ]
+  ],
+  "sources": {
+    "tools/perf_contract_capture.gd": "858c174ae4185a3f968dad701f4000e3a00834e9d49e86a5bb123932516db80c",
+    "tools/perf_contract_collect.py": "29895694b7229a26228b4e031e446b0fc32129e0a5535a738ecca717c0fd8b63",
+    "tools/visual_camera_points.gd": "2c3e44fd91c7a3ed1ce93f448d0447127955db5380b9f86c5325b8e2894220b7",
+    "project.godot": "98798f95ed194ba2bdcf65760eeb6c2e867f97cd51e7bdf42f6d3aa895575884",
+    "main.tscn": "850e050bc3df4971ec130b5b0a39dba6aa71082ce2fc20607dd504a3d55c98a9",
+    "docs/reports/visual-overhaul/vbase-003/camera-points.json": "3848320b5130ce3b29baf65a0a6ca1705e0675f2186d28934cc9d8ff9f2df7b8",
+    "docs/reports/visual-overhaul/vbase-002/profile.json": "cf33d1c6cd335210d5ca97f0a7a4af41e397d58df1604555e7de063b1e4e1bba"
+  },
+  "artifacts": {
+    "long-cycle/stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "long-cycle/before.png": "be1da08c511478516a1a6a29e767f9251e9b759523b6864fd93497c7d6c780e7",
+    "long-cycle/rows.csv.gz": "6ae5ed80f1ea20f06c3b173aa9e9280a3ccc91c6b019f891d6ddaf173ef1b613",
+    "long-cycle/after.png": "d33a28eea74c0b47ac1a456d0fc5e699d5c183c952a5d4a366f55c9204893ee8",
+    "long-cycle/engine.txt": "7a8f88228d7d31e166192fd59790730e9ba1728086d652a60853ada1ed577bdc",
+    "long-cycle/render-rows.csv.gz": "3b66519b002d29bfae2b0fe7556e84074e4c0fa3060abc887caddcab568f37ef",
+    "long-cycle/run.json": "231e65556c2e1bf81b252276af454f6ab8f09f03d868a9e6c4ecd16b5d6087cc",
+    "long-cycle/environment.json": "8cd0ecb8482687484b04cde4cc154363da345b663564185122b7cfdcc9eeb215",
+    "repeat-1/stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "repeat-1/before.png": "050f4a095885974d9664cdd9f8d254ab7b73c22ef2f050f5eae08adfaf51017e",
+    "repeat-1/rows.csv.gz": "acde1611f346168ef7c212b14894e5f1d058e400ac1b186239053a68959f751a",
+    "repeat-1/after.png": "0f3b246c8dc562492f0f7f712634a16901ccef5b8d8d7c7808d82ed36ff4922d",
+    "repeat-1/engine.txt": "6cf29c2e5febbe08dd7063605aacafa8d29d1ca398d5cf106b1d928f28ed7c5c",
+    "repeat-1/render-rows.csv.gz": "9fb93bd20275a71f081df634b205955275c57ce86a61c3a99449dabc601dbbcd",
+    "repeat-1/run.json": "876bc99c50451f5fd52212e30dcdeb1cb2bef2d2ad901ababcdcc7e9b3890f42",
+    "repeat-1/environment.json": "8935d59b04da5bd67729b911372921323689ac39f42d4a21f1fa199dc5125539",
+    "repeat-3/stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "repeat-3/before.png": "4979a41371d5a0ef26e5657c8fd080a5deecfa79f2e1fb355ec763e1a28881bb",
+    "repeat-3/rows.csv.gz": "0269fd21e470c9154b5ddc753861316d89691bef793138868ee1d3d5dc36b54c",
+    "repeat-3/after.png": "5c4779304a13c52cbb55e298f7d945fae6692c9ad89d909a2ef18652dd87beb1",
+    "repeat-3/engine.txt": "b8e556641fb7c2ffc766a55914c15577a31d882845277e1340f975fad8ec1570",
+    "repeat-3/render-rows.csv.gz": "e79da9b57d24c2709bbc3d24dc0b1fc5ca62d67497995fee4d45f297161f60d1",
+    "repeat-3/run.json": "a9352fba5e24848c947458f43fdec248f53765311541f6fbba3cb4d6ed8424f5",
+    "repeat-3/environment.json": "24976af6b98ba949ea2dc51657b72c4c1ea929b46e9ba39d2e5d037a991c12da",
+    "repeat-2/stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "repeat-2/before.png": "128ad264dc3a1d78bf8919608f9eee70bea6d681c319dd9cd27d3282805c66eb",
+    "repeat-2/rows.csv.gz": "8df98d5479c978a6ec249083ad61d3f02fd622b3ac8a3aae5f5184d4e77261c4",
+    "repeat-2/after.png": "82dc389841b1a99ff72370e0edf0c428816c594711ab1ba24dbe0d3b704fb8c6",
+    "repeat-2/engine.txt": "cd478af865bde4b242656ea4b1397f80bb64fd5a4ea8e0ec8f57f50472e2fc98",
+    "repeat-2/render-rows.csv.gz": "0984d6fca47810a07518509f7f7a0130fb2b375e9e26d2e454d5b02dec67015b",
+    "repeat-2/run.json": "9f42da8c1f72540761f59d7ef19991efb1b5815176ab31f32508b7f7d0109b9f",
+    "repeat-2/environment.json": "02febedce532b06338c88aa1b2bcbcd65fc2b44c527935bce658523e9c280f5c"
+  }
+}
