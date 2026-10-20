@@ -1209,7 +1209,7 @@
       "id": "VRENDER-002",
       "epic": "VRENDER",
       "title": "Сравнить три способа эффекта травы",
-      "status": "ready",
+      "status": "done",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -1244,14 +1244,24 @@
         "confidence": "low",
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
-      "branch": "codex/vrender-002-visual-task",
-      "evidence": []
+      "branch": "codex/vrender-002-grass-methods",
+      "evidence": [
+        "docs/reports/visual-overhaul/vrender-002/README.md",
+        "docs/reports/visual-overhaul/vrender-002/ADR.md",
+        "docs/reports/visual-overhaul/vrender-002/summary.json",
+        "docs/reports/visual-overhaul/vrender-002/bench/source.json",
+        "docs/reports/visual-overhaul/vrender-002/cpu-only/source.json",
+        "docs/reports/visual-overhaul/vrender-002/quality/source.json",
+        "docs/reports/visual-overhaul/vrender-002/browser-review.json",
+        "docs/reports/visual-overhaul/vrender-002/checks.json"
+      ],
+      "result": "Сравнены CPU mesh, отдельные CanvasItem и статические ArrayMesh по 64 куста: общий VART-008 PNG, корни, формула, UV, камера 120%. 24 исходных и 6 повторных CPU-запусков по 20 с сохранены раздельно с 17 точными входами и Git-базой. Выбраны группы: при 1024 кустах CPU всего процесса 25,52% одного ядра против 56,90% оптимизированного CPU и 87,61% отдельных узлов; update p95 0,286 мс. У отдельных узлов render p95 лучше — улучшение FPS не заявлено, GPU timer null. Финальные 54 PNG и 216 draw callbacks при двух окнах сохранили snapshots/геометрию/HUD, пауза останавливает часы/upload, дом скрывает слой и возвращает без перестройки. CPU/группы RGB равны, отдельные узлы максимум 3/255. Headless 1437/0, Python 18, Wiki 68 и общий набор 45636/0; браузер проверил две иллюстрации, четыре точных JSON, поиск и 390 px. Прототип отдельно от штатной игры; высокая трава, контакт, culling всей карты, подключение и живой бюджет остаются открытыми."
     },
     {
       "id": "VRENDER-003",
       "epic": "VRENDER",
       "title": "Разделить статичное и живое покрытие",
-      "status": "backlog",
+      "status": "ready",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -1293,7 +1303,7 @@
       "id": "VRENDER-004",
       "epic": "VRENDER",
       "title": "Определить контракт команды объекта",
-      "status": "backlog",
+      "status": "ready",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",

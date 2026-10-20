@@ -1,0 +1,74 @@
+{
+  "task": "VRENDER-002",
+  "url": "http://127.0.0.1:4175/#/guides/grass-methods",
+  "browser": "Codex In-app Browser",
+  "images": [
+    {
+      "file": "quality/1152/batch-phase-1.png",
+      "natural_size": [
+        1152,
+        648
+      ],
+      "loaded": true
+    },
+    {
+      "file": "quality/1152/batch-phase-2.png",
+      "natural_size": [
+        1152,
+        648
+      ],
+      "loaded": true
+    }
+  ],
+  "downloads": [
+    {
+      "source": "summary.json",
+      "download": "30fa13c74c07112dd04448bb975d5352608308b8675ed0bdd89eb486bf8bebdf.json",
+      "bytes": 59128,
+      "sha256": "30fa13c74c07112dd04448bb975d5352608308b8675ed0bdd89eb486bf8bebdf",
+      "exact": true
+    },
+    {
+      "source": "bench/source.json",
+      "download": "1f4458c353c9ef63b7ace8f43e40f3a2f19bd4159237ebf5b9c965954c9d33a1.json",
+      "bytes": 29224,
+      "sha256": "1f4458c353c9ef63b7ace8f43e40f3a2f19bd4159237ebf5b9c965954c9d33a1",
+      "exact": true
+    },
+    {
+      "source": "cpu-only/source.json",
+      "download": "7f115e0bb6512a0f48a39c35695c5d9894ce4ff4fd83406e91a50ae8467b7a5a.json",
+      "bytes": 8761,
+      "sha256": "7f115e0bb6512a0f48a39c35695c5d9894ce4ff4fd83406e91a50ae8467b7a5a",
+      "exact": true
+    },
+    {
+      "source": "quality/source.json",
+      "download": "8ab26eb8a640f7614188cea8a63f16fa4139ff8c65746977f6c7073601d2bde8.json",
+      "bytes": 14019,
+      "sha256": "8ab26eb8a640f7614188cea8a63f16fa4139ff8c65746977f6c7073601d2bde8",
+      "exact": true
+    }
+  ],
+  "canonical_task_link_verified": true,
+  "search": {
+    "query": "VRENDER-002",
+    "guide_found": true,
+    "task_found_in_development": true
+  },
+  "responsive": {
+    "viewport": [
+      390,
+      844
+    ],
+    "document_width": 390,
+    "body_width": 390,
+    "override_reset": true
+  },
+  "screenshots": [
+    "wiki-desktop.png",
+    "wiki-mobile.png"
+  ],
+  "scope": "browser article and downloads; no live FPS or new map acceptance",
+  "canonical_status": "done"
+}

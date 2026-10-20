@@ -46,11 +46,11 @@
 
 ## VRENDER-002 — Сравнить три способа эффекта травы
 
-Статус: `ready` · P0 · этап `foundation` · `engineering`
+Статус: `done` · P0 · этап `foundation` · `engineering`
 
 Один участок сравнивает CPU mesh, отдельный CanvasItem и пакетную геометрию; ADR содержит стоимость и отклонённые варианты
 
-Ветка: `codex/vrender-002-visual-task`.
+Ветка: `codex/vrender-002-grass-methods`.
 
 Зависимости: VRENDER-001.
 
@@ -62,7 +62,7 @@
 - [scripts/world_background.gd](../../../../scripts/world_background.gd)
 - [scripts/presentation/village_terrain_canvas.gd](../../../../scripts/presentation/village_terrain_canvas.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vrender-002/`.
+Результаты: `docs/reports/visual-overhaul/vrender-002/`.
 
 Критерии:
 
@@ -80,13 +80,13 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vrender-002/README.md, docs/reports/visual-overhaul/vrender-002/ADR.md, docs/reports/visual-overhaul/vrender-002/summary.json, docs/reports/visual-overhaul/vrender-002/bench/source.json, docs/reports/visual-overhaul/vrender-002/cpu-only/source.json, docs/reports/visual-overhaul/vrender-002/quality/source.json, docs/reports/visual-overhaul/vrender-002/browser-review.json, docs/reports/visual-overhaul/vrender-002/checks.json.
 
 <a id="vrender-003"></a>
 
 ## VRENDER-003 — Разделить статичное и живое покрытие
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 Вода и движущаяся растительность не запекаются в UPDATE_ONCE; неподвижная земля не пересобирается каждый кадр
 
@@ -126,7 +126,7 @@
 
 ## VRENDER-004 — Определить контракт команды объекта
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 Пакет содержит опору, bounds, материал, локальный UV и слой; прежний draw путь остаётся рабочим fallback
 

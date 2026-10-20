@@ -298,3 +298,10 @@ assets/inbox/*
 !tools/render_order_capture.gd
 !tools/render_order_capture.gd.uid
 !tools/test_render_order.py
+
+# VRENDER-002: isolated grass method comparison, never packaged as game art.
+!tools/grass_compare/
+!tools/grass_compare/**
+!tools/grass_compare_collect.py
+!tools/grass_methods.py
+!tools/test_grass_methods.py

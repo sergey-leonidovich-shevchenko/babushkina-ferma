@@ -1,0 +1,30 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+OpenGL API 4.1 ATI-7.0.3 - Compatibility - Using Device: ATI Technologies Inc. - AMD Radeon Pro 5300M OpenGL Engine
+
+GRASS SHOT cpu-phase-0
+GRASS SHOT cpu-phase-1
+GRASS SHOT cpu-phase-2
+GRASS SHOT cpu-tree
+GRASS SHOT cpu-bush
+GRASS SHOT cpu-bridge
+GRASS SHOT cpu-pause
+GRASS SHOT cpu-interior
+GRASS SHOT cpu-returned
+GRASS SHOT items-phase-0
+GRASS SHOT items-phase-1
+GRASS SHOT items-phase-2
+GRASS SHOT items-tree
+GRASS SHOT items-bush
+GRASS SHOT items-bridge
+GRASS SHOT items-pause
+GRASS SHOT items-interior
+GRASS SHOT items-returned
+GRASS SHOT batch-phase-0
+GRASS SHOT batch-phase-1
+GRASS SHOT batch-phase-2
+GRASS SHOT batch-tree
+GRASS SHOT batch-bush
+GRASS SHOT batch-bridge
+GRASS SHOT batch-pause
+GRASS SHOT batch-interior
+GRASS SHOT batch-returned
