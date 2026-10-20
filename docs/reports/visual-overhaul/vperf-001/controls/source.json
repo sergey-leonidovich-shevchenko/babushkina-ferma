@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "task": "VPERF-001",
+  "base_commit": "7056f24d949477d01aefd2c42b7640acf7794f09",
+  "complete": true,
+  "schedule": [
+    [
+      "resize",
+      30,
+      "resize"
+    ],
+    [
+      "pause",
+      30,
+      "pause"
+    ]
+  ],
+  "sources": {
+    "tools/perf_contract_capture.gd": "858c174ae4185a3f968dad701f4000e3a00834e9d49e86a5bb123932516db80c",
+    "tools/perf_contract_collect.py": "29895694b7229a26228b4e031e446b0fc32129e0a5535a738ecca717c0fd8b63",
+    "tools/visual_camera_points.gd": "2c3e44fd91c7a3ed1ce93f448d0447127955db5380b9f86c5325b8e2894220b7",
+    "project.godot": "98798f95ed194ba2bdcf65760eeb6c2e867f97cd51e7bdf42f6d3aa895575884",
+    "main.tscn": "850e050bc3df4971ec130b5b0a39dba6aa71082ce2fc20607dd504a3d55c98a9",
+    "docs/reports/visual-overhaul/vbase-003/camera-points.json": "3848320b5130ce3b29baf65a0a6ca1705e0675f2186d28934cc9d8ff9f2df7b8",
+    "docs/reports/visual-overhaul/vbase-002/profile.json": "cf33d1c6cd335210d5ca97f0a7a4af41e397d58df1604555e7de063b1e4e1bba"
+  },
+  "artifacts": {
+    "pause/stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "pause/before.png": "54282e053630dba09e85a0965f2ab9065e350e487d79887ed035368b8ede481f",
+    "pause/rows.csv.gz": "e06df08f9269419c56bb1b0bc1cbc13fb868d367cee9b3294ca072a6a49fa971",
+    "pause/after.png": "c749080b8975993e7f1dbf9b59f13686958a5e4926509956aef5e483b526daf1",
+    "pause/engine.txt": "d9641e009027c69972936ba72ded8d2a62e26cca21161a106c2761eb484198d0",
+    "pause/render-rows.csv.gz": "6b0220e55314a3569094011336e19cc8f68a0eed428febefd237a07d9008708b",
+    "pause/run.json": "64123c7588bf53479de8ebaa2ef066543283c88eb3f67a3b155b31050c18c22e",
+    "pause/environment.json": "2541623b5a86d8879c25c2b392d99420f0bc81dc06e452a71f35e28e9f936b70",
+    "resize/stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "resize/before.png": "67b4ca6b6989d9133c396ffde2a8c859b2c78b05c936cc3bbb6d13250201645c",
+    "resize/engine.txt": "dfa9e333f1d24465ddd2761d42dca20b8142b0167c925450bfdc428ffc575d8b",
+    "resize/environment.json": "e581b2db7f9f8cd00858df7a711032b042326ddf715c4b283e1cb9c07f1c3f6e",
+    "resize/rejected.json": "e86c29b1074a204d955661d0fdefc04643944218913a786d278fb1b25e5f7db8"
+  }
+}

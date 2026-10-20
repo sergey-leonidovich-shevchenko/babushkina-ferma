@@ -1,0 +1,84 @@
+{
+  "command": [
+    "open",
+    "-n",
+    "-W",
+    "-a",
+    "/Users/sergeyshevchenko/my farm/tools/Godot.app",
+    "--args",
+    "--path",
+    "/Users/sergeyshevchenko/my farm",
+    "--windowed",
+    "--audio-driver",
+    "Dummy",
+    "--log-file",
+    "/private/tmp/vperf-001-final/repeat-2/engine.txt",
+    "--script",
+    "res://tools/perf_contract_capture.gd",
+    "--",
+    "--output=/private/tmp/vperf-001-final/repeat-2/native",
+    "--profile=Codex-VPERF-001-f6fd7793045749dd852b55616f290611",
+    "--seconds=30"
+  ],
+  "exit_code": 0,
+  "profile": "Codex-VPERF-001-f6fd7793045749dd852b55616f290611",
+  "pid": 6267,
+  "before": {
+    "utc": 1792487487.998271,
+    "power": "Now drawing from 'Battery Power'\n -InternalBattery-0 (id=6750307)\t51%; discharging; 0:55 remaining present: true",
+    "power_settings": "Battery Power:\n lidwake              1\n lowpowermode         0\n standbydelayhigh     86400\n proximitywake        0\n standby              1\n standbydelaylow      10800\n ttyskeepawake        1\n hibernatemode        3\n powernap             0\n gpuswitch            2\n hibernatefile        /var/vm/sleepimage\n highstandbythreshold 50\n displaysleep         10\n womp                 0\n networkoversleep     0\n sleep                1\n lessbright           1\n halfdim              1\n acwake               0\n tcpkeepalive         1\n disksleep            10\nAC Power:\n lidwake              1\n lowpowermode         0\n standbydelayhigh     86400\n proximitywake        1\n standby              1\n standbydelaylow      10800\n ttyskeepawake        1\n hibernatemode        3\n powernap             1\n gpuswitch            2\n hibernatefile        /var/vm/sleepimage\n highstandbythreshold 50\n displaysleep         60\n womp                 1\n networkoversleep     0\n sleep                1\n acwake               0\n halfdim              1\n tcpkeepalive         1\n disksleep            10",
+    "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\n2026-10-20 14:11:28 +0500 CPU Power notify\n\tCPU_Scheduler_Limit \t= 100\n\tCPU_Available_CPUs \t= 12\n\tCPU_Speed_Limit \t= 100"
+  },
+  "after": {
+    "utc": 1792487526.7305331,
+    "power": "Now drawing from 'Battery Power'\n -InternalBattery-0 (id=6750307)\t50%; discharging; 0:50 remaining present: true",
+    "power_settings": "Battery Power:\n lidwake              1\n lowpowermode         0\n standbydelayhigh     86400\n proximitywake        0\n standby              1\n standbydelaylow      10800\n ttyskeepawake        1\n hibernatemode        3\n powernap             0\n gpuswitch            2\n hibernatefile        /var/vm/sleepimage\n highstandbythreshold 50\n displaysleep         10\n womp                 0\n networkoversleep     0\n sleep                1\n lessbright           1\n halfdim              1\n acwake               0\n tcpkeepalive         1\n disksleep            10\nAC Power:\n lidwake              1\n lowpowermode         0\n standbydelayhigh     86400\n proximitywake        1\n standby              1\n standbydelaylow      10800\n ttyskeepawake        1\n hibernatemode        3\n powernap             1\n gpuswitch            2\n hibernatefile        /var/vm/sleepimage\n highstandbythreshold 50\n displaysleep         60\n womp                 1\n networkoversleep     0\n sleep                1\n acwake               0\n halfdim              1\n tcpkeepalive         1\n disksleep            10",
+    "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\n2026-10-20 14:12:06 +0500 CPU Power notify\n\tCPU_Scheduler_Limit \t= 100\n\tCPU_Available_CPUs \t= 12\n\tCPU_Speed_Limit \t= 100"
+  },
+  "jobs_after": [],
+  "rss_cpu_samples": [
+    {
+      "utc": 1792487493.478258,
+      "raw": "6267 534884   0:04.05  91.2",
+      "pid": 6267,
+      "other_godot_pids": []
+    },
+    {
+      "utc": 1792487498.633217,
+      "raw": "6267 798364   0:08.88  98.1",
+      "pid": 6267,
+      "other_godot_pids": []
+    },
+    {
+      "utc": 1792487503.835435,
+      "raw": "6267 997544   0:11.73   4.5",
+      "pid": 6267,
+      "other_godot_pids": []
+    },
+    {
+      "utc": 1792487509.110494,
+      "raw": "6267 997412   0:11.90   2.7",
+      "pid": 6267,
+      "other_godot_pids": []
+    },
+    {
+      "utc": 1792487514.285393,
+      "raw": "6267 997328   0:12.05   2.4",
+      "pid": 6267,
+      "other_godot_pids": []
+    },
+    {
+      "utc": 1792487519.510972,
+      "raw": "6267 997360   0:12.27   4.0",
+      "pid": 6267,
+      "other_godot_pids": []
+    },
+    {
+      "utc": 1792487524.7164211,
+      "raw": "6267 976900   0:12.90  69.4",
+      "pid": 6267,
+      "other_godot_pids": []
+    }
+  ],
+  "sampling_note": "external ps every 5s; RSS bytes from KiB; cumulative CPU time is separate from frame/engine/GPU timers"
+}

@@ -6,11 +6,11 @@
 
 ## VPERF-001 — Уточнить измерительный контракт
 
-Статус: `ready` · P0 · этап `foundation` · `engineering`
+Статус: `done` · P0 · этап `foundation` · `engineering`
 
 CPU, frame interval и GPU не смешиваются; mismatched host window отдельно отмечен; VSync и фокус записаны
 
-Ветка: `codex/vperf-001-visual-task`.
+Ветка: `codex/vperf-001-measurement-contract`.
 
 Зависимости: VBASE-001.
 
@@ -22,7 +22,7 @@ CPU, frame interval и GPU не смешиваются; mismatched host window �
 - [scripts/systems/render_pacing_system.gd](../../../../scripts/systems/render_pacing_system.gd)
 - [tools/water_audit.gd](../../../../tools/water_audit.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vperf-001/`.
+Результаты: `docs/reports/visual-overhaul/vperf-001/`.
 
 Критерии:
 
@@ -40,7 +40,7 @@ CPU, frame interval и GPU не смешиваются; mismatched host window �
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vperf-001/README.md, docs/reports/visual-overhaul/vperf-001/summary.json, docs/reports/visual-overhaul/vperf-001/native/source.json, docs/reports/visual-overhaul/vperf-001/controls/source.json, docs/reports/visual-overhaul/vperf-001/browser-review.json.
 
 <a id="vperf-002"></a>
 

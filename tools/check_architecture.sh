@@ -71,6 +71,9 @@ python3 tools/test_presentation_pose.py
 python3 tools/reference_zoom.py verify >/dev/null
 python3 tools/reference_zoom_perf.py verify >/dev/null
 python3 tools/test_reference_zoom.py
+python3 tools/test_perf_contract.py
+python3 tools/perf_contract.py >/dev/null
+python3 tools/perf_contract.py --controls --output docs/reports/visual-overhaul/vperf-001/controls >/dev/null
 python3 tools/visual_scale.py verify
 python3 tools/test_visual_scale.py
 python3 tools/visual_palette.py

@@ -1,0 +1,12 @@
+{
+  "task": "VPERF-001",
+  "download_sha256": {
+    "summary.json": "ab8aa78a9a68029028d15b16e567694df64a64af10f3f1058b9e991d18bf021b",
+    "native/source.json": "93351e05072d66a4e785435e69bf7f55e22eeb8b6ad4f1813c37255c66974728",
+    "controls/source.json": "da48768aa8da6fcecb56a47dc47e343bcb204c4fdbf73fbfc7a90ed2a3882de9"
+  },
+  "images_loaded": 2,
+  "narrow_width": 390,
+  "narrow_body_width": 390,
+  "viewport_restored": true
+}

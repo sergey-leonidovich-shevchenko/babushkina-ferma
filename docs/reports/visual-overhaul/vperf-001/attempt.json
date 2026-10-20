@@ -1,0 +1,82 @@
+{
+  "schema": 1,
+  "task": "VPERF-001",
+  "status": "blocked",
+  "contract_accepted": false,
+  "native_series_complete": false,
+  "release_fps_accepted": false,
+  "blocker": "User prohibited game/native window launches on 2026-10-20. No further native or headless game launches until explicit permission.",
+  "completed_runs": [
+    "repeat-1"
+  ],
+  "unfinished_runs": [
+    "repeat-2",
+    "repeat-3",
+    "long-cycle"
+  ],
+  "native_controls_complete": false,
+  "partial_repeat_1_metrics": {
+    "interval_ms": {
+      "p50": 33.588,
+      "p95": 51.44839999999999,
+      "p99": 65.22706,
+      "max": 76.933
+    },
+    "engine_frame_ms": {
+      "p50": 3.534,
+      "p95": 18.876,
+      "p99": 19.016,
+      "max": 19.016
+    },
+    "engine_physics_ms": {
+      "p50": 21.332,
+      "p95": 27.678,
+      "p99": 28.594,
+      "max": 28.594
+    },
+    "callback_span_ms": {
+      "p50": 0.139,
+      "p95": 0.19929999999999998,
+      "p99": 0.24781999999999993,
+      "max": 0.425
+    },
+    "draw_calls": {
+      "p50": 140.0,
+      "p95": 140.0,
+      "p99": 140.0,
+      "max": 140.0
+    },
+    "seconds": 30.05343900000004,
+    "frames": 875,
+    "static_bytes": {
+      "first": 139690505.0,
+      "last": 139690505.0,
+      "max": 139690657.0
+    },
+    "texture_bytes_max": 683335708.0,
+    "maintenance_cycles": 1.0,
+    "gpu_time_ms": null,
+    "process": {
+      "samples": 6,
+      "rss_first": 1029341184,
+      "rss_last": 1029763072,
+      "rss_max": 1029763072,
+      "cpu_seconds_delta": 24.11,
+      "wall_seconds": 25.736451148986816,
+      "cpu_percent_of_one_core": 93.68035965964621
+    }
+  },
+  "offline_tests": {
+    "passed": 22,
+    "failed": 0
+  },
+  "general_game_gate": "not run after changes: launch prohibited",
+  "wiki_build": "not run: normal check requires Godot export",
+  "merge": "unfinished task remains on its own branch; no Task-Complete trailer",
+  "wiki_source_tests": {
+    "passed": 2,
+    "failed": 0
+  },
+  "wiki_typescript": "passed without Godot export",
+  "working_version": "0.0.275; candidate version bump reverted, archived measurement overlay retains 0.0.276"
+}

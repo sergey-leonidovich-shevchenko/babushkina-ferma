@@ -1,0 +1,897 @@
+{
+  "command": [
+    "open",
+    "-n",
+    "-W",
+    "-a",
+    "/Users/sergeyshevchenko/my farm/tools/Godot.app",
+    "--args",
+    "--path",
+    "/Users/sergeyshevchenko/my farm",
+    "--windowed",
+    "--audio-driver",
+    "Dummy",
+    "--log-file",
+    "/private/tmp/vperf-001-render-v5/long-cycle/engine.txt",
+    "--script",
+    "res://tools/perf_contract_capture.gd",
+    "--",
+    "--output=/private/tmp/vperf-001-render-v5/long-cycle/native",
+    "--profile=Codex-VPERF-001-0fa3e33985d54550b542683ea8b476ac",
+    "--seconds=600"
+  ],
+  "exit_code": 0,
+  "profile": "Codex-VPERF-001-0fa3e33985d54550b542683ea8b476ac",
+  "pid": 23555,
+  "before": {
+    "utc": 1792513928.580509,
+    "power": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=6750307)\t78%; charging; 1:07 remaining present: true",
+    "power_settings": "Battery Power:\n lidwake              1\n lowpowermode         0\n standbydelayhigh     86400\n proximitywake        0\n standby              1\n standbydelaylow      10800\n ttyskeepawake        1\n hibernatemode        3\n powernap             0\n gpuswitch            2\n hibernatefile        /var/vm/sleepimage\n highstandbythreshold 50\n displaysleep         10\n womp                 0\n networkoversleep     0\n sleep                1\n lessbright           1\n halfdim              1\n acwake               0\n tcpkeepalive         1\n disksleep            10\nAC Power:\n lidwake              1\n lowpowermode         0\n standbydelayhigh     86400\n proximitywake        1\n standby              1\n standbydelaylow      10800\n ttyskeepawake        1\n hibernatemode        3\n powernap             1\n gpuswitch            2\n hibernatefile        /var/vm/sleepimage\n highstandbythreshold 50\n displaysleep         60\n womp                 1\n networkoversleep     0\n sleep                1\n acwake               0\n halfdim              1\n tcpkeepalive         1\n disksleep            10",
+    "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\n2026-10-20 21:32:08 +0500 CPU Power notify\n\tCPU_Scheduler_Limit \t= 100\n\tCPU_Available_CPUs \t= 12\n\tCPU_Speed_Limit \t= 100",
+    "hardware": {
+      "system": "Darwin",
+      "os_version": "15.4.1",
+      "architecture": "x86_64",
+      "machine": {
+        "hw.model": "MacBookPro16,1",
+        "machdep.cpu.brand_string": "Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz",
+        "hw.memsize": "17179869184",
+        "hw.ncpu": "12"
+      }
+    }
+  },
+  "after": {
+    "utc": 1792514554.348577,
+    "power": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=6750307)\t86%; charging; 0:48 remaining present: true",
+    "power_settings": "Battery Power:\n lidwake              1\n lowpowermode         0\n standbydelayhigh     86400\n proximitywake        0\n standby              1\n standbydelaylow      10800\n ttyskeepawake        1\n hibernatemode        3\n powernap             0\n gpuswitch            2\n hibernatefile        /var/vm/sleepimage\n highstandbythreshold 50\n displaysleep         10\n womp                 0\n networkoversleep     0\n sleep                1\n lessbright           1\n halfdim              1\n acwake               0\n tcpkeepalive         1\n disksleep            10\nAC Power:\n lidwake              1\n lowpowermode         0\n standbydelayhigh     86400\n proximitywake        1\n standby              1\n standbydelaylow      10800\n ttyskeepawake        1\n hibernatemode        3\n powernap             1\n gpuswitch            2\n hibernatefile        /var/vm/sleepimage\n highstandbythreshold 50\n displaysleep         60\n womp                 1\n networkoversleep     0\n sleep                1\n acwake               0\n halfdim              1\n tcpkeepalive         1\n disksleep            10",
+    "thermal": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\n2026-10-20 21:42:34 +0500 CPU Power notify\n\tCPU_Scheduler_Limit \t= 100\n\tCPU_Available_CPUs \t= 12\n\tCPU_Speed_Limit \t= 100",
+    "hardware": {
+      "system": "Darwin",
+      "os_version": "15.4.1",
+      "architecture": "x86_64",
+      "machine": {
+        "hw.model": "MacBookPro16,1",
+        "machdep.cpu.brand_string": "Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz",
+        "hw.memsize": "17179869184",
+        "hw.ncpu": "12"
+      }
+    }
+  },
+  "jobs_after": [],
+  "rss_cpu_samples": [
+    {
+      "utc": 1792513934.297332,
+      "raw": "23555 558356   0:04.28 100.0",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792513939.547544,
+      "raw": "23555 816620   0:09.50  98.7",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792513944.83936,
+      "raw": "23555 985448   0:13.83  85.6",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792513950.071064,
+      "raw": "23555 1007608   0:18.81  99.7",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792513955.354959,
+      "raw": "23555 1007752   0:23.99  98.0",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792513960.591369,
+      "raw": "23555 1007968   0:29.15  99.2",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792513965.828346,
+      "raw": "23555 1008140   0:34.27  95.2",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792513971.092278,
+      "raw": "23555 1008224   0:39.43  95.4",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792513976.35108,
+      "raw": "23555 1008536   0:44.59 100.0",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792513981.524408,
+      "raw": "23555 1009084   0:49.71  95.1",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792513986.7140439,
+      "raw": "23555 1008896   0:54.77  95.2",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792513991.895891,
+      "raw": "23555 1009016   0:59.88 100.0",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792513997.087308,
+      "raw": "23555 1009016   1:04.99  99.2",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514002.273725,
+      "raw": "23555 1008872   1:10.06  99.0",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514007.45965,
+      "raw": "23555 1008932   1:15.10  99.3",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514012.649997,
+      "raw": "23555 1009032   1:20.15  94.2",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514017.845105,
+      "raw": "23555 1009020   1:25.24  96.4",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514023.012461,
+      "raw": "23555 1009056   1:30.33 100.0",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514028.1989288,
+      "raw": "23555 1009000   1:35.35  99.0",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514033.386369,
+      "raw": "23555 1009116   1:40.42  95.2",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514038.581828,
+      "raw": "23555 1009008   1:45.47  98.4",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514043.792167,
+      "raw": "23555 1009132   1:50.59  96.4",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514048.9636219,
+      "raw": "23555 1009108   1:55.67  96.6",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514054.1432152,
+      "raw": "23555 1009212   2:00.74  98.1",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514059.314338,
+      "raw": "23555 1009200   2:05.81  99.4",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514064.4843252,
+      "raw": "23555 1009032   2:10.84  95.7",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514069.683058,
+      "raw": "23555 1009204   2:15.85  98.4",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514074.853576,
+      "raw": "23555 1009208   2:20.91  99.1",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514080.019077,
+      "raw": "23555 1009260   2:25.94  96.9",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514085.19055,
+      "raw": "23555 1009236   2:30.98 100.0",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514090.378986,
+      "raw": "23555 1009100   2:35.98  99.2",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514095.551518,
+      "raw": "23555 1009264   2:41.05  99.1",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514100.727454,
+      "raw": "23555 1009196   2:46.08  93.9",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514105.926408,
+      "raw": "23555 1009272   2:51.13  96.7",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514111.1098151,
+      "raw": "23555 1009188   2:56.20 100.0",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514116.2832909,
+      "raw": "23555 1009272   3:01.30 100.0",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514121.439477,
+      "raw": "23555 1009264   3:06.33  96.7",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514126.6240482,
+      "raw": "23555 1009272   3:11.35  98.6",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514131.811859,
+      "raw": "23555 1009128   3:16.42  95.6",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514136.9860091,
+      "raw": "23555 1009264   3:21.46  95.3",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514142.184729,
+      "raw": "23555 1009272   3:26.53  97.3",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514147.3591092,
+      "raw": "23555 1009148   3:31.63  99.8",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514152.520283,
+      "raw": "23555 1009280   3:36.68  99.7",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514157.692294,
+      "raw": "23555 1009188   3:41.65  97.1",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514162.874809,
+      "raw": "23555 1009272   3:46.78  98.8",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514168.053843,
+      "raw": "23555 1009268   3:51.81  98.2",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514173.219659,
+      "raw": "23555 1009140   3:56.85  98.0",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514178.412608,
+      "raw": "23555 1009288   4:01.93 100.0",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514183.581153,
+      "raw": "23555 1009304   4:06.97  95.5",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514188.7536142,
+      "raw": "23555 1009316   4:12.01  93.1",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514193.944184,
+      "raw": "23555 1009316   4:17.09  94.7",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514199.1143832,
+      "raw": "23555 1009308   4:22.19  98.0",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514204.293195,
+      "raw": "23555 1009316   4:27.23  96.4",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514209.450005,
+      "raw": "23555 1009220   4:32.30  97.9",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514214.6488929,
+      "raw": "23555 1009268   4:37.33  96.7",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514219.835266,
+      "raw": "23555 1009316   4:42.39  96.1",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514225.017526,
+      "raw": "23555 1009320   4:47.42  97.6",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514230.2080379,
+      "raw": "23555 1009384   4:52.48  99.7",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514235.376697,
+      "raw": "23555 1009384   4:57.54 100.0",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514240.542631,
+      "raw": "23555 1009220   5:02.54  98.7",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514245.733102,
+      "raw": "23555 1009340   5:07.55  93.0",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514250.912496,
+      "raw": "23555 1009352   5:12.62 100.0",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514256.085925,
+      "raw": "23555 1009352   5:17.72  98.1",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514261.26386,
+      "raw": "23555 1009348   5:22.81  98.0",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514266.442293,
+      "raw": "23555 1009296   5:27.89  99.3",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514271.6119108,
+      "raw": "23555 1009376   5:32.96  92.4",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514276.794313,
+      "raw": "23555 1009344   5:38.04  94.9",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514282.0133362,
+      "raw": "23555 1009372   5:43.08  94.1",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514287.278044,
+      "raw": "23555 1009308   5:48.16  99.9",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514292.4862878,
+      "raw": "23555 1009308   5:53.26 100.0",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514297.734526,
+      "raw": "23555 1009372   5:58.35  99.1",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514302.972738,
+      "raw": "23555 1009336   6:03.41  98.5",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514308.224753,
+      "raw": "23555 1009236   6:08.53  98.7",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514313.447309,
+      "raw": "23555 1009420   6:13.63  98.7",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514318.71297,
+      "raw": "23555 1009452   6:18.72  94.1",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514323.988657,
+      "raw": "23555 1009456   6:23.89 100.0",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514329.206648,
+      "raw": "23555 1009456   6:29.06 100.0",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514334.438642,
+      "raw": "23555 1009456   6:34.20  99.7",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514339.6791968,
+      "raw": "23555 1009432   6:39.32  99.4",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514344.944849,
+      "raw": "23555 1009288   6:44.48  97.3",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514350.200614,
+      "raw": "23555 1009476   6:49.64  99.1",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514355.408285,
+      "raw": "23555 1009488   6:54.77  98.9",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514360.664861,
+      "raw": "23555 1009352   6:59.92  96.7",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514365.929952,
+      "raw": "23555 1009280   7:05.08  99.7",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514371.192319,
+      "raw": "23555 1009492   7:10.24 100.0",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514376.4285738,
+      "raw": "23555 1009280   7:15.39  97.9",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514381.663263,
+      "raw": "23555 1009544   7:20.43  96.7",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514386.876748,
+      "raw": "23555 1009548   7:25.54  97.0",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514392.108665,
+      "raw": "23555 1009556   7:30.65  97.6",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514397.351419,
+      "raw": "23555 1009356   7:35.75  98.9",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514402.5670788,
+      "raw": "23555 1009568   7:40.87  99.3",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514407.803707,
+      "raw": "23555 1009552   7:45.77  98.6",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514413.026328,
+      "raw": "23555 1009708   7:50.80  98.1",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514418.2688682,
+      "raw": "23555 1009680   7:55.90  97.9",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514423.483537,
+      "raw": "23555 1009708   8:01.03  99.9",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514428.738661,
+      "raw": "23555 1009572   8:06.10  92.7",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514433.986445,
+      "raw": "23555 1009692   8:11.18  98.2",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514439.22489,
+      "raw": "23555 1009528   8:16.30  98.7",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514444.450706,
+      "raw": "23555 1009696   8:21.39  99.3",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514449.7008052,
+      "raw": "23555 1009696   8:26.54  93.3",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514454.9610329,
+      "raw": "23555 1009564   8:31.58  96.6",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514460.2109492,
+      "raw": "23555 1009520   8:36.67  98.2",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514465.4457228,
+      "raw": "23555 1009656   8:41.72 100.0",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514470.674755,
+      "raw": "23555 1009544   8:46.74  95.8",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514475.913706,
+      "raw": "23555 1009528   8:51.74  90.4",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514481.1466382,
+      "raw": "23555 1009696   8:56.48  93.9",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514486.375488,
+      "raw": "23555 1009548   9:01.24  94.4",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514491.599297,
+      "raw": "23555 1009696   9:06.06  89.2",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514496.840373,
+      "raw": "23555 1009540   9:10.79  94.1",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514502.075767,
+      "raw": "23555 1009696   9:15.88  98.2",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514507.29314,
+      "raw": "23555 1009548   9:20.96  99.5",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514512.525951,
+      "raw": "23555 1009612   9:26.04  96.8",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514517.774718,
+      "raw": "23555 1009572   9:31.08  94.3",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514523.0280051,
+      "raw": "23555 1009680   9:36.25  99.2",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514528.277375,
+      "raw": "23555 1009572   9:41.32  95.4",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514533.5067039,
+      "raw": "23555 1009592   9:46.38  96.8",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514538.740903,
+      "raw": "23555 1009524   9:51.40  92.7",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514543.982233,
+      "raw": "23555 1009692   9:56.49  95.8",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    },
+    {
+      "utc": 1792514549.2062159,
+      "raw": "23555 1009692  10:01.55  97.1",
+      "pid": 23555,
+      "other_godot_pids": [],
+      "power_source": "Now drawing from 'AC Power'"
+    }
+  ],
+  "sampling_note": "external ps every 5s; RSS bytes from KiB; cumulative CPU time is separate from frame/engine/GPU timers"
+}
