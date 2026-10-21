@@ -1,0 +1,27 @@
+{
+  "task": "VGROUND-010",
+  "integration_version": "0.0.290",
+  "article_count": 1108,
+  "card_status": "done",
+  "dependencies_done": 6,
+  "images": [
+    {
+      "alt": "Одна камера огорода: весна, лето, осень и зима",
+      "complete": true,
+      "height": 848,
+      "width": 1320
+    },
+    {
+      "alt": "Обычный дождливый профиль огорода с включёнными эффектами",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    }
+  ],
+  "viewport": {
+    "scrollWidth": 1280,
+    "width": 1280
+  },
+  "parallel_articles_preserved": 11,
+  "scope": "article and completed card checked in merged Wiki; no narrow viewport claim"
+}

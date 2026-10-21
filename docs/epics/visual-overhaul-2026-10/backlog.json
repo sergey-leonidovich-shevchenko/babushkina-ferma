@@ -2500,7 +2500,7 @@
       "id": "VGROUND-010",
       "epic": "VGROUND",
       "title": "Принять сезонные переходы земли",
-      "status": "ready",
+      "status": "done",
       "priority": "P0",
       "phase": "pilot",
       "kind": "engineering",
@@ -2540,8 +2540,17 @@
         "confidence": "low",
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
-      "branch": "codex/vground-010-visual-task",
-      "evidence": []
+      "branch": "codex/vground-010-ground-seasons",
+      "evidence": [
+        "docs/reports/visual-overhaul/vground-010/README.md",
+        "docs/reports/visual-overhaul/vground-010/completion.json",
+        "docs/reports/visual-overhaul/vground-010/summary.json",
+        "docs/reports/visual-overhaul/vground-010/review.txt",
+        "docs/reports/visual-overhaul/vground-010/native/source.json",
+        "docs/reports/visual-overhaul/vground-010/browser-review.json",
+        "docs/reports/visual-overhaul/vground-010/quality-check.txt"
+      ],
+      "result": "Приняты существующие сезонные переходы земли первой overworld: весна/лето/осень/зима и естественный дождь по календарю, игровой renderer и ресурсы не менялись. 41 настоящий меш/UV/альфа/ID и layout, 1200 правил прохода/вспашки и8 физических движений у мостов одинаковы;34 профильных утверждения,11 Python-сценариев отказов. Нативно88 PNG/304 draw, два окна/120%,6 камер каждого климата, обычные эффекты, возврат весны, действительный вход/выход дома. Полные save/геометрия до/после каждого draw равны, между климатами меняется только календарный день при одной камере. Полная альфа пяти кешей точна,5 тонов луга/площади различны, дождь темнее в сером; возврат весны побайтно точен. Один target/texture удерживается, смена климата даёт1 обновление,10 повторов не пересобирают;120 callbacks и пауза сохраняют кеш/геометрию/счётчики. Пауза законно пишет ровно два прежних pause_menu события, остальные поля полного save равны. Нативная влага фиксирована QA, настоящий дождевой полив и зимняя пауза проверены моделью. A/B неполные запуски отклонены, принята полная C; обычные процессы и пользовательские сохранения сохранены. Обычный дождь движется по системным часам, не пиксельный контроль; reference подавляет5 эффектов, кеш земли с обычными эффектами точен. Wiki88/0, браузер2 изображения/поиск/карточка/3 точных JSON/1280px без overflow. Architecture и полный игровой gate прошли реальным pre-commit. Нового снега/климатических дорог/берегов/механик/интерьеров нет; FPS/GPU-time/RSS/VRAM/VPERF/VMAP-003 не принимаются. Full game: 45929/0."
     },
     {
       "id": "VSHORE-001",

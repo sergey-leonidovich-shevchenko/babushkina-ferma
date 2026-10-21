@@ -1,0 +1,77 @@
+{
+  "task": "VGROUND-010",
+  "mesh_arrays_equal": true,
+  "layout_equal": true,
+  "bridge_motions_equal": true,
+  "cross_window_rules_equal": false,
+  "differences": [
+    {
+      "index": 212,
+      "window1152": [
+        "walkable",
+        "outside_farm"
+      ],
+      "window1280": [
+        "loot",
+        "outside_farm"
+      ]
+    },
+    {
+      "index": 213,
+      "window1152": [
+        "walkable",
+        "outside_farm"
+      ],
+      "window1280": [
+        "loot",
+        "outside_farm"
+      ]
+    },
+    {
+      "index": 522,
+      "window1152": [
+        "walkable",
+        "outside_farm"
+      ],
+      "window1280": [
+        "loot",
+        "outside_farm"
+      ]
+    },
+    {
+      "index": 570,
+      "window1152": [
+        "walkable",
+        "outside_farm"
+      ],
+      "window1280": [
+        "loot",
+        "outside_farm"
+      ]
+    },
+    {
+      "index": 572,
+      "window1152": [
+        "loot",
+        "outside_farm"
+      ],
+      "window1280": [
+        "walkable",
+        "outside_farm"
+      ]
+    },
+    {
+      "index": 620,
+      "window1152": [
+        "loot",
+        "outside_farm"
+      ],
+      "window1280": [
+        "walkable",
+        "outside_farm"
+      ]
+    }
+  ],
+  "reason": "separate fresh loot/RNG states; no claim of identical navigation between different worlds",
+  "within_each_window_seasons_identical": true
+}

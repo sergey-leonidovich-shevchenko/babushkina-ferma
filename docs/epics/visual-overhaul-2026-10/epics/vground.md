@@ -348,11 +348,11 @@
 
 ## VGROUND-010 — Принять сезонные переходы земли
 
-Статус: `ready` · P0 · этап `pilot` · `engineering`
+Статус: `done` · P0 · этап `pilot` · `engineering`
 
 Весна, лето, осень, зима и мокрый вариант проверены на одной геометрии; коллизии и маршруты идентичны
 
-Ветка: `codex/vground-010-visual-task`.
+Ветка: `codex/vground-010-ground-seasons`.
 
 Зависимости: VGROUND-003, VGROUND-005, VGROUND-006, VGROUND-007, VGROUND-008, VGROUND-009.
 
@@ -362,7 +362,7 @@
 - [scripts/presentation/village_region_terrain.gd](../../../../scripts/presentation/village_region_terrain.gd)
 - [scripts/systems/village_map_data.gd](../../../../scripts/systems/village_map_data.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vground-010/`.
+Результаты: `docs/reports/visual-overhaul/vground-010/`.
 
 Критерии:
 
@@ -380,4 +380,4 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vground-010/README.md, docs/reports/visual-overhaul/vground-010/completion.json, docs/reports/visual-overhaul/vground-010/summary.json, docs/reports/visual-overhaul/vground-010/review.txt, docs/reports/visual-overhaul/vground-010/native/source.json, docs/reports/visual-overhaul/vground-010/browser-review.json, docs/reports/visual-overhaul/vground-010/quality-check.txt.

@@ -1,0 +1,47 @@
+{
+  "task": "VGROUND-010",
+  "url": "http://127.0.0.1:4175/#/guides/ground-seasons",
+  "viewport": {
+    "scrollWidth": 1280,
+    "width": 1280
+  },
+  "images_complete": true,
+  "images": [
+    {
+      "alt": "Одна камера огорода: весна, лето, осень и зима",
+      "complete": true,
+      "height": 848,
+      "width": 1320
+    },
+    {
+      "alt": "Обычный дождливый профиль огорода с включёнными эффектами",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    }
+  ],
+  "search_verified": true,
+  "card_verified": "in_progress; six dependencies done",
+  "downloads": [
+    {
+      "label": "Результаты",
+      "file": "summary.json",
+      "exact": true,
+      "sha256": "1b85d2254949f3f0619152a0b4531572d17c775d5069a88a9f79a5cab2b37d10"
+    },
+    {
+      "label": "Точные источники",
+      "file": "native/source.json",
+      "exact": true,
+      "sha256": "74f58a505da4f226adcbb0261623b17f80c4270e3cc80fa0c0184f15a7444907"
+    },
+    {
+      "label": "Нативная серия",
+      "file": "native/1152/capture.json",
+      "exact": true,
+      "sha256": "70464e49fcc5a390128650e6221457c7b69a8519f72a6640bde9984cd48873e6"
+    }
+  ],
+  "protocol_link": "removed misleading README alias; detailed protocol retained in repository",
+  "narrow_viewport_tested": false
+}

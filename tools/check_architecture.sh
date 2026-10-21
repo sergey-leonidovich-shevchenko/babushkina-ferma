@@ -96,6 +96,8 @@ python3 tools/decoration_verify.py >/dev/null
 python3 tools/test_decoration_rules.py
 python3 tools/terrain_revision_verify.py >/dev/null
 python3 tools/test_terrain_revision.py
+python3 tools/ground_seasons_verify.py >/dev/null
+python3 tools/test_ground_seasons.py
 python3 tools/visual_scale.py verify
 python3 tools/test_visual_scale.py
 python3 tools/visual_palette.py
