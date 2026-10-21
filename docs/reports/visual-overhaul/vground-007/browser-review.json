@@ -1,0 +1,62 @@
+{
+  "task": "VGROUND-007",
+  "reviewer": "agent browser",
+  "url": "http://127.0.0.1:4175/#/guides/garden-soil",
+  "version": "0.0.286",
+  "permission": "User explicitly authorized another read-only browser check of this article after auto-review denial. Subsequent access succeeded.",
+  "initial_access": "auto-review rejected; no workaround used",
+  "page_loaded": true,
+  "images": [
+    {
+      "width": 1152,
+      "height": 648
+    },
+    {
+      "width": 1152,
+      "height": 648
+    },
+    {
+      "width": 1152,
+      "height": 432
+    },
+    {
+      "width": 1280,
+      "height": 720
+    }
+  ],
+  "images_complete": true,
+  "search": "VGROUND-007 returned this guide; opened from results",
+  "task_link": "visual--VGROUND-007, title/dependency/acceptance verified; status in progress at review",
+  "viewport": {
+    "width": 657,
+    "height": 704,
+    "scrollWidth": 657,
+    "clientWidth": 657
+  },
+  "separate_390px_check": null,
+  "downloads": [
+    {
+      "artifact": "docs/reports/visual-overhaul/vground-007/summary.json",
+      "download": "ad22229134e20f8554710d167b99fd85194dcb2d5b7b85609dd7d76ab123f20e.json",
+      "sha256": "ad22229134e20f8554710d167b99fd85194dcb2d5b7b85609dd7d76ab123f20e",
+      "exact": true
+    },
+    {
+      "artifact": "docs/reports/visual-overhaul/vground-007/art-source.json",
+      "download": "d2b9fea3e565fbb982d6dcf9aee2e40d63e1b4c2193a813320c6466db461b85e.json",
+      "sha256": "d2b9fea3e565fbb982d6dcf9aee2e40d63e1b4c2193a813320c6466db461b85e",
+      "exact": true
+    },
+    {
+      "artifact": "docs/reports/visual-overhaul/vground-007/native/source.json",
+      "download": "eb160a74226c35c657749ee045f4f56ee2c65ce700207af7575908d4e0dc8ac4.json",
+      "sha256": "eb160a74226c35c657749ee045f4f56ee2c65ce700207af7575908d4e0dc8ac4",
+      "exact": true
+    }
+  ],
+  "screenshot": "docs/reports/visual-overhaul/vground-007/browser.jpg",
+  "wiki_tests": {
+    "passed": 82,
+    "failed": 0
+  }
+}

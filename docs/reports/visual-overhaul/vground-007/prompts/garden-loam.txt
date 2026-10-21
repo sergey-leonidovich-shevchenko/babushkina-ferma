@@ -1,0 +1,6 @@
+Use case: stylized-concept
+Asset type: original seamless soil material for a top-down 2D painted farming game.
+Primary request: a square repeatable hand-cultivated garden loam texture, matching the soft hand-painted warm valley scene reference. This is a flat material, not a scene or raised tile. Four shallow, subtly irregular horizontal hoe furrows run all the way from left to right and tile continuously; their rhythm is loose and quiet, never diagonal. Small broken soil clods and a few tiny embedded dull pebbles, restrained earthy brown tones and gentle diffuse top-left light. Moderate craft detail, large readable forms, soft anti-aliased natural transitions, no pixel art. Mid-brown dry loam, not orange clay, not black mud; the game will darken the same material when watered.
+Input image: accepted scene A is a style and palette reference only; do not copy its buildings, foliage or composition.
+Composition: orthographic overhead, entire square filled edge to edge by consistent earth; no visible border, no vignette, no macro gradients, no isolated focal object. Seamless on all edges. Equal detail density throughout.
+Avoid: grass, plants, leaves, roots, insects, UI, symbols, text, water droplets, grids, raised sides, cubes, frames, strong shadows, glossy puddles, large stones, diagonal rows, photography, pixelated edges.

@@ -2345,7 +2345,7 @@
       "id": "VGROUND-007",
       "epic": "VGROUND",
       "title": "Отделить огород от декоративной земли",
-      "status": "ready",
+      "status": "done",
       "priority": "P0",
       "phase": "pilot",
       "kind": "engineering",
@@ -2380,8 +2380,18 @@
         "confidence": "low",
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
-      "branch": "codex/vground-007-visual-task",
-      "evidence": []
+      "branch": "codex/vground-007-garden-soil",
+      "evidence": [
+        "docs/reports/visual-overhaul/vground-007/README.md",
+        "docs/reports/visual-overhaul/vground-007/completion.json",
+        "docs/reports/visual-overhaul/vground-007/summary.json",
+        "docs/reports/visual-overhaul/vground-007/review.txt",
+        "docs/reports/visual-overhaul/vground-007/art-source.json",
+        "docs/reports/visual-overhaul/vground-007/native/source.json",
+        "docs/reports/visual-overhaul/vground-007/browser-review.json",
+        "docs/reports/visual-overhaul/vground-007/quality-check.txt"
+      ],
+      "result": "Первая overworld получила новый материал почвы 512² с mipmaps, зеркальными UV 384 мира и горизонтальными бороздами. Сухая/влажная земля различимы без красных капель; нетронутая без борозд, одинаково политые соседи без светлой сетки. Сохранены прежние 30 клеток, полив/рост/урожай/энергия, 1200 правил земли, восемь движений у мостов и полный save; откат soft_garden без миграции и изменения других карт. 32 профильных утверждения и 12 Python-тестов; финальная серия C:70 PNG/242 draw, два окна/120%, четыре календарных сезона/дождь, оба края, три стыка дорог, оба моста, дом/возврат, герой/растения/лут. Альфа точна при смене цвета,11 уровней/шаг48; яркость сухой88.0694/влажной50.8830, максимальная дельта внутреннего шва1.4434. Холодный кадр равен direct; кеш и ресурсы неизменны120 callbacks. Варианты геометрии принадлежат CanvasItem, не освобождают ресурс другой сцены и ограничены30 на владельца; неизменный кадр не пересобирает их. Диагональные генерации/светлая сетка A отклонены; B с ошибкой владения мешами не принята, C без ERROR. Встроенный image_gen, мастер/промпты/SHA отдельно от runtime. Wiki82/0, браузер после явного разрешения:4 изображения, поиск, карточка,3 точных JSON,657px без overflow. Architecture и полный игровой набор 45788/0 прошли реальным pre-commit. Это статичный рисунок с явно записанным сосуществованием, не FPS/RSS/VRAM. Снег, берег, VPERF и VMAP-003 открыты."
     },
     {
       "id": "VGROUND-008",

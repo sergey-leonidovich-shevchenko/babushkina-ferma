@@ -23,7 +23,9 @@ static func draw(game: Node2D) -> void:
 static func draw_plot(game: Node2D, rect: Rect2, plot: Dictionary) -> void:
 	if not game.FarmVisualSystem.is_plot_visible(plot):
 		return
-	game.FarmVisualSystem.draw_soil(game, rect, plot)
+	var painted:=preload("res://scripts/presentation/garden_soil.gd").enabled(game)
+	if painted: preload("res://scripts/presentation/garden_soil.gd").draw_plot(game,rect,plot,game.plots)
+	else: game.FarmVisualSystem.draw_soil(game, rect, plot)
 	var fertilizer:String=String(plot.get("fertilizer",""))
 	if not fertilizer.is_empty():
 		var color:Color=Color("cbb06c") if fertilizer=="quality_fertilizer" else (Color("96ba7f") if fertilizer=="growth_fertilizer" else Color("a58b68"))
@@ -36,7 +38,7 @@ static func draw_plot(game: Node2D, rect: Rect2, plot: Dictionary) -> void:
 	var growth_duration: float = game.CropCatalogSystem.growth_duration(crop_kind)
 	if not game.CropCatalogSystem.grows_in_season(crop_kind, game.WorldEventSystem.season(game.day)) and plot.growth < growth_duration:
 		draw_season_pause_icon(game, rect.position + Vector2(rect.size.x - 7, 3))
-	elif not plot.watered and plot.growth < growth_duration:
+	elif not painted and not plot.watered and plot.growth < growth_duration:
 		draw_water_needed_icon(game, rect.position + Vector2(8, 6))
 
 ## Рисует текущую стадию культуры с короткой анимацией перехода роста.

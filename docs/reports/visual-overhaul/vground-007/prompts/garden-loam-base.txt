@@ -1,0 +1,5 @@
+Use case: stylized-concept
+Asset type: seamless flat garden soil base material for an original hand-painted top-down 2D game.
+Primary request: uniform finely crumbled earth, a calm mixture of medium warm brown soil and tiny soft clods. No rows and NO furrows of any kind: the game draws its own horizontal furrows separately. Completely non-directional granular surface; no diagonal streaks. Quiet medium contrast and small organic softly painted forms, a few tiny dull embedded pebbles, warm soft diffuse lighting, gentle craft detail. Full square filled with soil at consistent density and color, continuous seamless repeat on all four sides.
+Composition: flat orthographic overhead, no perspective, no raised edges, no isolated tile, no border or vignette.
+Avoid: pixel art, photography, stripes, ploughed rows, grooves, ridges, diagonal directions, grass, plants, roots, large rocks, wet patches, glossy highlights, strong shadows, UI, symbols, text.

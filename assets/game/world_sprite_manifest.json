@@ -683,6 +683,7 @@
         {"path":"assets/game/locations/overworld/modular/dirt_material_v1.png","width":192,"height":192},
         {"path":"assets/game/locations/overworld/modular/stone_material_v1.png","width":192,"height":192},
         {"path":"assets/game/locations/overworld/modular/plaza_limestone_v1.png","width":512,"height":512},
+        {"path":"assets/game/locations/overworld/modular/garden_loam_v1.png","width":512,"height":512},
         {"path":"assets/game/locations/overworld/modular/water_material_v1.png","width":192,"height":192},
         {"path":"assets/game/locations/overworld/modular/bridge_modular_v1.png","width":144,"height":216},
         {"path":"assets/game/locations/overworld/modular/prop_well_v1.png","width":120,"height":120},
@@ -691,7 +692,7 @@
         {"path":"assets/game/locations/overworld/modular/prop_board_v1.png","width":120,"height":96},
         {"path":"assets/game/locations/overworld/modular/prop_cart_v1.png","width":120,"height":96}
       ],
-      "render_owner": "VillageTerrainRenderer, MeadowGround, PlazaGround и VillagePropRenderer",
+      "render_owner": "VillageTerrainRenderer, MeadowGround, PlazaGround, GardenSoil и VillagePropRenderer",
       "source_layout": "Отдельные материалы и прозрачные PNG; исходники и воспроизводимая нарезка сохранены рядом с проектом",
       "runtime_sizes": ["24×24", "144×216", "120×120", "96×72", "48×120", "120×96"],
       "target_modules": ["24×24", "144×216", "120×120", "96×72", "48×120", "120×96"],

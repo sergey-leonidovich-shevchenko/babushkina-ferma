@@ -1,0 +1,194 @@
+{
+  "task": "VGROUND-007",
+  "base_commit": "06cb4aa218c521d41d36ee98932d131bef4e6d2c",
+  "windows": {
+    "1152": {
+      "mask": {
+        "alpha_exact_after_recolor": true,
+        "edge_alpha": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          43,
+          90,
+          138,
+          185,
+          228,
+          234,
+          240,
+          245,
+          251,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255
+        ],
+        "levels": 11,
+        "max_step": 48
+      },
+      "png_count": 35,
+      "draw_callbacks": 121,
+      "wetness": {
+        "dry_mean": 88.06944444444444,
+        "wet_mean": 50.88301524313429,
+        "dry_std": 14.803940273209319,
+        "wet_std": 8.5972402366305,
+        "ratio": 0.5777601478482367,
+        "join_deltas": [
+          1.443359375,
+          0.24609375,
+          0.064453125,
+          0.62109375,
+          0.107421875
+        ]
+      },
+      "spring": {
+        "mean": 4.9678609575045725,
+        "max": 176
+      },
+      "junctions": {
+        "junction-north": {
+          "mean": 0.0,
+          "max": 0
+        },
+        "junction-east": {
+          "mean": 0.0,
+          "max": 0
+        },
+        "junction-south": {
+          "mean": 0.0,
+          "max": 0
+        },
+        "farm-nw": {
+          "mean": 4.8822181677240515,
+          "max": 175
+        },
+        "farm-se": {
+          "mean": 4.881037540723594,
+          "max": 176
+        }
+      },
+      "board_change": {
+        "mean": 25.618637608239027,
+        "max": 170
+      },
+      "fallback": {
+        "mean": 1.5067461848422496,
+        "max": 200
+      },
+      "draw_calls_before": 268.0,
+      "draw_calls_after": 232.0
+    },
+    "1280": {
+      "mask": {
+        "alpha_exact_after_recolor": true,
+        "edge_alpha": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          43,
+          90,
+          138,
+          185,
+          228,
+          234,
+          240,
+          245,
+          251,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255
+        ],
+        "levels": 11,
+        "max_step": 48
+      },
+      "png_count": 35,
+      "draw_callbacks": 121,
+      "wetness": {
+        "dry_mean": 88.06944444444444,
+        "wet_mean": 50.88301524313429,
+        "dry_std": 14.803940273209319,
+        "wet_std": 8.5972402366305,
+        "ratio": 0.5777601478482367,
+        "join_deltas": [
+          1.443359375,
+          0.24609375,
+          0.064453125,
+          0.62109375,
+          0.107421875
+        ]
+      },
+      "spring": {
+        "mean": 4.966480034722222,
+        "max": 176
+      },
+      "junctions": {
+        "junction-north": {
+          "mean": 0.0,
+          "max": 0
+        },
+        "junction-east": {
+          "mean": 0.0,
+          "max": 0
+        },
+        "junction-south": {
+          "mean": 0.0,
+          "max": 0
+        },
+        "farm-nw": {
+          "mean": 4.8649291087962965,
+          "max": 176
+        },
+        "farm-se": {
+          "mean": 4.814605758101853,
+          "max": 176
+        }
+      },
+      "board_change": {
+        "mean": 25.618637608239027,
+        "max": 170
+      },
+      "fallback": {
+        "mean": 1.8148574942129627,
+        "max": 204
+      },
+      "draw_calls_before": 269.0,
+      "draw_calls_after": 233.0
+    }
+  },
+  "performance_eligible": false,
+  "gpu_time_ms": null
+}

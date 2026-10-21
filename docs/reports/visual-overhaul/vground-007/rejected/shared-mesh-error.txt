@@ -1,0 +1,129 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+OpenGL API 4.1 ATI-7.0.3 - Compatibility - Using Device: ATI Technologies Inc. - AMD Radeon Pro 5300M OpenGL Engine
+
+GARDEN SHOT spring-before
+GARDEN SHOT spring-after
+GARDEN SHOT summer-before
+GARDEN SHOT summer-after
+GARDEN SHOT autumn-before
+GARDEN SHOT autumn-after
+GARDEN SHOT winter-before
+GARDEN SHOT winter-after
+GARDEN SHOT rain-before
+GARDEN SHOT rain-after
+GARDEN SHOT bridge-west-before
+GARDEN SHOT bridge-west-after
+GARDEN SHOT bridge-east-before
+GARDEN SHOT bridge-east-after
+GARDEN SHOT junction-north-before
+GARDEN SHOT junction-north-after
+GARDEN SHOT junction-east-before
+GARDEN SHOT junction-east-after
+GARDEN SHOT junction-south-before
+GARDEN SHOT junction-south-after
+GARDEN SHOT farm-nw-before
+GARDEN SHOT farm-nw-after
+GARDEN SHOT farm-se-before
+GARDEN SHOT farm-se-after
+GARDEN SHOT interior-before
+GARDEN SHOT interior-after
+GARDEN SHOT returned-before
+GARDEN SHOT returned-after
+GARDEN SHOT direct
+GARDEN SHOT cached
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)
+ERROR: Parameter "mesh" is null.
+   at: mesh_get_surface_count (drivers/gles3/storage/mesh_storage.cpp:676)

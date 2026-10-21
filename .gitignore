@@ -365,6 +365,12 @@ assets/inbox/*
 !tools/test_road_network.py
 
 # VGROUND-006 quiet plaza
+!tools/garden*.gd
+!tools/garden*.gd.uid
+!tools/garden*.py
+!tools/test_garden_soil.py
+!docs/reports/visual-overhaul/vground-007/native/inputs/assets/game/locations/overworld/modular/plaza_limestone_v1.png.import
+!docs/reports/visual-overhaul/vground-007/native/inputs/assets/game/locations/overworld/modular/garden_loam_v1.png.import
 !tools/plaza*.gd
 !tools/plaza*.gd.uid
 !tools/plaza*.py

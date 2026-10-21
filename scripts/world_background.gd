@@ -43,6 +43,7 @@ var soft_ground_edges := true
 var rectangular_roads := true
 var joined_roads := true
 var soft_plaza := true
+var soft_garden := true
 var water_layer: Node2D
 var cover_layer: Node2D
 var cutout_layer: Node2D
@@ -119,6 +120,13 @@ func set_soft_plaza(enabled: bool) -> void:
 	if location=="overworld": refresh_terrain()
 	queue_redraw()
 
+## Переключает оформление огорода без смены игровых клеток, влажности и сохранений.
+func set_soft_garden(enabled: bool) -> void:
+	if soft_garden==enabled: return
+	soft_garden=enabled
+	if location=="overworld": refresh_terrain()
+	queue_redraw()
+
 ## Оставляет дополнительные проходы только первой карте и скрывает их при прямом fallback.
 func _sync_ground_layers() -> void:
 	if water_layer==null or cover_layer==null: return
@@ -157,6 +165,7 @@ func refresh_terrain() -> void:
 	terrain_canvas.rectangular_roads=rectangular_roads
 	terrain_canvas.joined_roads=joined_roads
 	terrain_canvas.soft_plaza=soft_plaza
+	terrain_canvas.soft_garden=soft_garden
 	terrain_canvas.season=season; terrain_canvas.weather=weather; terrain_canvas.queue_redraw()
 	terrain_viewport.render_target_update_mode=SubViewport.UPDATE_ONCE
 	if not RenderingServer.frame_post_draw.is_connected(_terrain_rendered): RenderingServer.frame_post_draw.connect(_terrain_rendered,CONNECT_ONE_SHOT)
@@ -214,7 +223,7 @@ func draw_overworld() -> void:
 	if terrain_ready and not bool(get_meta("terrain_direct",false)):
 		draw_texture_rect(terrain_viewport.get_texture(),Rect2(Vector2.ZERO,VillageLayoutSystem.MapData.WORLD_SIZE),false)
 	else:
-		VillageTerrainRenderer.draw(self,season,weather,painted_grass,soft_ground_edges,rectangular_roads,joined_roads,soft_plaza)
+		VillageTerrainRenderer.draw(self,season,weather,painted_grass,soft_ground_edges,rectangular_roads,joined_roads,soft_plaza,soft_garden)
 		preload("res://scripts/presentation/village_region_terrain.gd").paths(self,location,soft_ground_edges,rectangular_roads,joined_roads)
 
 ## Рисует новую карту деревни из её собственного графического кеша или того же модульного чертежа.

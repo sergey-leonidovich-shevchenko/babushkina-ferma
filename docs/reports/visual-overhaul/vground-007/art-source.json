@@ -1,0 +1,21 @@
+{
+  "task": "VGROUND-007",
+  "mode": "built-in image_gen",
+  "master": "docs/reports/visual-overhaul/vground-007/masters/garden-loam-v1.png",
+  "master_sha256": "fcbef54c49d2465f19b2f5ae35302e9fb0a1857c429adaddb4cee75700e8bf64",
+  "master_size": [
+    1254,
+    1254
+  ],
+  "runtime": "assets/game/locations/overworld/modular/garden_loam_v1.png",
+  "runtime_sha256": "42f230f52c17055faa3301ae0f78b342b7ec88ee3189cd2e0f4bae4597345e92",
+  "runtime_size": [
+    512,
+    512
+  ],
+  "prompt": "docs/reports/visual-overhaul/vground-007/prompts/garden-loam-base.txt",
+  "prompt_sha256": "51147b4795ad61d1e319d1d2b386888f62886460d37a9af2e95786100e93d002",
+  "import": "tools/garden_import.gd",
+  "processing": "Godot RGBA8 / Lanczos 512x512 only; furrows, edges and wet tint are code-native geometry, not bitmap repainting",
+  "rejected": "First two directional generations retained diagonal furrows; final base is non-directional. Runtime furrows are explicitly horizontal."
+}

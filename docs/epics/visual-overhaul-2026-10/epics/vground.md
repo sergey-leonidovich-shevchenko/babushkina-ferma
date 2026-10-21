@@ -234,11 +234,11 @@
 
 ## VGROUND-007 — Отделить огород от декоративной земли
 
-Статус: `ready` · P0 · этап `pilot` · `engineering`
+Статус: `done` · P0 · этап `pilot` · `engineering`
 
 Новая текстура не меняет разрешённые клетки вспашки; влажное и сухое состояние различимы без большой капли
 
-Ветка: `codex/vground-007-visual-task`.
+Ветка: `codex/vground-007-garden-soil`.
 
 Зависимости: VGROUND-001.
 
@@ -248,7 +248,7 @@
 - [scripts/presentation/village_region_terrain.gd](../../../../scripts/presentation/village_region_terrain.gd)
 - [scripts/systems/village_map_data.gd](../../../../scripts/systems/village_map_data.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vground-007/`.
+Результаты: `docs/reports/visual-overhaul/vground-007/`.
 
 Критерии:
 
@@ -266,7 +266,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vground-007/README.md, docs/reports/visual-overhaul/vground-007/completion.json, docs/reports/visual-overhaul/vground-007/summary.json, docs/reports/visual-overhaul/vground-007/review.txt, docs/reports/visual-overhaul/vground-007/art-source.json, docs/reports/visual-overhaul/vground-007/native/source.json, docs/reports/visual-overhaul/vground-007/browser-review.json, docs/reports/visual-overhaul/vground-007/quality-check.txt.
 
 <a id="vground-008"></a>
 

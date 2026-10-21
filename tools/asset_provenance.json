@@ -693,6 +693,24 @@
       "asset_sha256": {
         "assets/game/locations/overworld/modular/plaza_limestone_v1.png": "92bbe2c697e8a674d883c4d8be8772c26d821f3d03c69f22e4c4123e32cfbb7f"
       }
+    },
+    {
+      "id": "vground-007-soil",
+      "paths": [
+        "assets/game/locations/overworld/modular/garden_loam_v1.png"
+      ],
+      "kind": "project-generation-documented",
+      "claim": "Original built-in image_gen soil master. Godot Lanczos import only; explicit prompt/master/byte signatures retained. No release clearance inferred.",
+      "license_status": "project-record-not-legal-opinion",
+      "evidence": [
+        "docs/reports/visual-overhaul/vground-007/art-source.json",
+        "docs/reports/visual-overhaul/vground-007/prompts/garden-loam-base.txt",
+        "docs/reports/visual-overhaul/vground-007/masters/garden-loam-v1.png",
+        "tools/garden_import.gd"
+      ],
+      "asset_sha256": {
+        "assets/game/locations/overworld/modular/garden_loam_v1.png": "42f230f52c17055faa3301ae0f78b342b7ec88ee3189cd2e0f4bae4597345e92"
+      }
     }
   ],
   "local_matches": {
