@@ -92,6 +92,8 @@ python3 tools/plaza_verify.py >/dev/null
 python3 tools/test_plaza_ground.py
 python3 tools/garden_verify.py >/dev/null
 python3 tools/test_garden_soil.py
+python3 tools/decoration_verify.py >/dev/null
+python3 tools/test_decoration_rules.py
 python3 tools/visual_scale.py verify
 python3 tools/test_visual_scale.py
 python3 tools/visual_palette.py

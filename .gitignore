@@ -365,6 +365,10 @@ assets/inbox/*
 !tools/test_road_network.py
 
 # VGROUND-006 quiet plaza
+!tools/decoration*.gd
+!tools/decoration*.gd.uid
+!tools/decoration*.py
+!tools/test_decoration_rules.py
 !tools/garden*.gd
 !tools/garden*.gd.uid
 !tools/garden*.py

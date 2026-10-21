@@ -2397,7 +2397,7 @@
       "id": "VGROUND-008",
       "epic": "VGROUND",
       "title": "Ограничить процедурный декор",
-      "status": "ready",
+      "status": "done",
       "priority": "P0",
       "phase": "pilot",
       "kind": "engineering",
@@ -2432,8 +2432,18 @@
         "confidence": "low",
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
-      "branch": "codex/vground-008-visual-task",
-      "evidence": []
+      "branch": "codex/vground-008-decoration-exclusions",
+      "evidence": [
+        "docs/reports/visual-overhaul/vground-008/README.md",
+        "docs/reports/visual-overhaul/vground-008/completion.json",
+        "docs/reports/visual-overhaul/vground-008/summary.json",
+        "docs/reports/visual-overhaul/vground-008/review.txt",
+        "docs/reports/visual-overhaul/vground-008/native/source.json",
+        "docs/reports/visual-overhaul/vground-008/sampling-notes.json",
+        "docs/reports/visual-overhaul/vground-008/browser-review.json",
+        "docs/reports/visual-overhaul/vground-008/quality-check.txt"
+      ],
+      "result": "Ограничитель запасного процедурного посева первой overworld: полный след +4, двери/службы/огород/вода/мосты/ручной приоритет. 161 зона и точные полигоны воды; 286 кандидатов,86 приняты/200 отклонены. Один удержанный план, предел512, независимые копии и отказ испорченных входов, без RNG/узлов/таймеров. Аудит: штатная модульная сцена уже ручная, старый посев не вызывается; новые травинки в обычную игру не добавлены. Для будущих ручных документов нужны явные reservations, автоматическая F12-интеграция не заявлена. 47 профильных утверждений/10 Python-сценариев; сохранены full save,1200 правил земли и8 движений мостов. Полная нативная A:108 PNG/416 draw, два окна/120%, четыре сезона/дождь, службы/огород/поворот/тупик/мосты/дом. 10 ясных контролей каждого окна точны, прозрачный лист точно сохраняет разрешённый посев. Дождь/дом/возврат принимают только save/геометрию: wall-clock капли не заморожены; критерий пиксельного равенства дождя исправлен явно, сырые A не менялись. Два незавершённых повторных процесса не приняты. Точные архивы/SHA/Git-база, Wiki84/0; браузер3 изображения/поиск/3 точных JSON/657px без overflow. Architecture и полный игровой набор 45835/0 прошли реальным pre-commit. Статическое сосуществование записано; не FPS/RSS/VRAM/VMAP-003. Откат запасного вызова без save-миграции, другие карты не менялись."
     },
     {
       "id": "VGROUND-009",

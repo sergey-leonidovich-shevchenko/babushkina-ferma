@@ -315,11 +315,7 @@ func draw_village_ambient_life() -> void:
 
 ## Заполняет луг редкими детерминированными травинками и цветами без заметной сетки.
 func draw_meadow_texture() -> void:
-	for y in range(130, 1140, 84):
-		for x in range(48 + (y * 7) % 73, int(WORLD_SIZE.x), 108):
-			var tuft := Vector2(x, y)
-			draw_line(tuft + Vector2(-4, 5), tuft, Color("4f7e3d"), 2)
-			draw_line(tuft + Vector2(4, 5), tuft, Color("4f7e3d"), 2)
+	preload("res://scripts/presentation/village_decoration_rules.gd").draw_legacy(self)
 	for patch in VillageLayoutSystem.FLOWER_PATCHES:
 		for petal in 5:
 			var offset := Vector2((petal % 3 - 1) * 9, (petal / 3) * 9 - 4)

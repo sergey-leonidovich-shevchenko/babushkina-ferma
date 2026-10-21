@@ -1,0 +1,48 @@
+{
+  "task": "VGROUND-008",
+  "reviewer": "agent browser",
+  "url": "http://127.0.0.1:4175/#/guides/decoration-exclusions",
+  "version": "0.0.287",
+  "page_loaded": true,
+  "images_complete": true,
+  "images": [
+    {
+      "width": 1152,
+      "height": 648
+    },
+    {
+      "width": 1152,
+      "height": 648
+    },
+    {
+      "width": 1152,
+      "height": 648
+    }
+  ],
+  "search": "VGROUND-008 returned guide; opened from results",
+  "viewport": {
+    "width": 657,
+    "height": 704,
+    "scrollWidth": 657,
+    "clientWidth": 657
+  },
+  "downloads": [
+    {
+      "artifact": "docs/reports/visual-overhaul/vground-008/summary.json",
+      "sha256": "d412a89735cd5fb28ac551d88493240be0e53580ff0fdc4fae2db4341c1377a6",
+      "exact": true
+    },
+    {
+      "artifact": "docs/reports/visual-overhaul/vground-008/native/source.json",
+      "sha256": "382912ee8ec4f3008371e906137165ac4e4efaf91bb7defeb916d41a34f148b3",
+      "exact": true
+    },
+    {
+      "artifact": "docs/reports/visual-overhaul/vground-008/native/1152/policy.json",
+      "sha256": "4ba14f1d366e1beef35f2d699a784b9ec7ad991a23fe75fb5e66926d3010730b",
+      "exact": true
+    }
+  ],
+  "task_card": "VGROUND-008 dependency and acceptance read; status before final build was ready, canonical task is in_progress",
+  "scope": "Diagnostic dormant seed explicitly distinguished from ordinary manually placed scene. Rain pixel equality excluded."
+}

@@ -1,0 +1,18 @@
+{
+  "accepted_series": "A",
+  "protocol_correction": "The original exact-pixel criterion was invalid for wall-clock rain. Complete A is retained with exact pixel acceptance restricted to ten clear cases per window, full save/geometry checks on all thirteen, and exact filtering on independent transparent boards. Rain/interior/returned retain moving rain; no pixel equivalence is claimed for these three. Raw A metadata/PNGs/source hashes remain unmodified.",
+  "rejected_attempts": [
+    {
+      "series": "B",
+      "complete": false,
+      "exit_code": 0,
+      "observed": "Process ended after two shots; cause unknown."
+    },
+    {
+      "series": "C",
+      "complete": false,
+      "observed": "No callbacks after services control; own process terminated by collector after 180-second timeout; cause unknown."
+    }
+  ],
+  "performance_eligible": false
+}
