@@ -1508,7 +1508,7 @@
       "id": "VRENDER-008",
       "epic": "VRENDER",
       "title": "Передавать время после движения",
-      "status": "ready",
+      "status": "done",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -1543,14 +1543,27 @@
         "confidence": "low",
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
-      "branch": "codex/vrender-008-visual-task",
-      "evidence": []
+      "branch": "codex/vrender-008-post-motion-frame",
+      "evidence": [
+        "docs/reports/visual-overhaul/vrender-008/README.md",
+        "docs/reports/visual-overhaul/vrender-008/dependency-audit.json",
+        "docs/reports/visual-overhaul/vrender-008/summary.json",
+        "docs/reports/visual-overhaul/vrender-008/native/before/source.json",
+        "docs/reports/visual-overhaul/vrender-008/native/after/source.json",
+        "docs/reports/visual-overhaul/vrender-008/review.txt",
+        "docs/reports/visual-overhaul/vrender-008/python-check.txt",
+        "docs/reports/visual-overhaul/vrender-008/completion.json",
+        "docs/reports/visual-overhaul/vrender-008/quality-check.txt",
+        "docs/reports/visual-overhaul/vrender-008/wiki-check.txt",
+        "docs/reports/visual-overhaul/vrender-008/browser-review.json"
+      ],
+      "result": "GameLoop публикует один read-only кадр мира/конечной опоры/времени после коллизий, переходов, действий и сбора лута. Контакт следует отображаемой стопе, а не удерживаемому вводу; ограда не продавливается, пауза не копит долг, F12/перенос/неподходящая metadata дают нейтральный fallback. 160 нативных PNG/320 production callbacks,80 полных save-пар и80 точных RGBA-пар,четыре ролика по4с. 48 профильных условий,20 отрицательных Python-сценариев,108 Wiki-тестов; браузер проверяет4 изображения,4 ролика до конца и3 точных JSON. Прежняя ленивая инициализация pottery подготовлена только в одинаковых QA-фабриках и не объявляется исправленной. Новая трава/ветер/вода, сортировка, FPS и вся VMAP-003 ещё открыты. Настоящие architecture и полный игровой набор: 46489/0."
     },
     {
       "id": "VRENDER-009",
       "epic": "VRENDER",
       "title": "Изолировать параметры нескольких viewport",
-      "status": "backlog",
+      "status": "ready",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -4708,7 +4721,7 @@
       "id": "VWEATHER-001",
       "epic": "VWEATHER",
       "title": "Определить согласованный visual clock погоды",
-      "status": "backlog",
+      "status": "ready",
       "priority": "P2",
       "phase": "pilot",
       "kind": "engineering",

@@ -46,6 +46,7 @@ static func physics_process(game: Node, delta: float) -> void:
 		return
 	update_player(game, delta)
 	preload("res://scripts/systems/dropped_loot_system.gd").update(game,delta)
+	preload("res://scripts/presentation/post_motion_frame.gd").publish(game,delta)
 	game.queue_redraw()
 
 ## Проверяет, блокирует ли текущее модальное состояние симуляцию мира.
@@ -72,7 +73,6 @@ static func gameplay_window_open(game: Node) -> bool:
 
 ## Обновляет мир, существ и прогресс в детерминированном порядке одного кадра.
 static func update_world(game: Node, delta: float) -> void:
-	preload("res://scripts/presentation/village_ground_clock.gd").advance(game,delta)
 	game.update_game_clock(delta)
 	game.WorldEventSystem.update(game)
 	game.sync_background_environment()

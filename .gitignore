@@ -449,3 +449,10 @@ assets/inbox/*
 !tools/pilot_pass*.py
 !tools/test_pilot_pass.py
 !docs/reports/visual-overhaul/vrender-005/native/**/*.png.import
+
+# VRENDER-008: post-collision visual input and exact native series.
+!tools/post_motion*.gd
+!tools/post_motion*.gd.uid
+!tools/post_motion*.py
+!tools/test_post_motion.py
+!docs/reports/visual-overhaul/vrender-008/native/**/*.png.import

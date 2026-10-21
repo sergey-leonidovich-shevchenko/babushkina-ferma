@@ -1,0 +1,97 @@
+{
+  "task": "VRENDER-008",
+  "url": "http://127.0.0.1:4175/#/guides/post-motion-frame",
+  "search_verified": true,
+  "images_complete": true,
+  "images": [
+    {
+      "alt": "Исходная сцена: начало разрешённого движения",
+      "complete": true,
+      "height": 648,
+      "src": "http://127.0.0.1:4175/generated/illustrations/2676a224a727f39e6b811a1f.png",
+      "width": 1152
+    },
+    {
+      "alt": "Новый кадр: герой и QA-контакт после движения",
+      "complete": true,
+      "height": 648,
+      "src": "http://127.0.0.1:4175/generated/illustrations/a42c93e83a6df384513b8c9d.png",
+      "width": 1152
+    },
+    {
+      "alt": "Непроходимая ограда: удалённый корень не получает контакт",
+      "complete": true,
+      "height": 648,
+      "src": "http://127.0.0.1:4175/generated/illustrations/4b0083f2569bf33bcb1c0473.png",
+      "width": 1152
+    },
+    {
+      "alt": "Второе физическое окно: прежний проход моста и HUD",
+      "complete": true,
+      "height": 720,
+      "src": "http://127.0.0.1:4175/generated/illustrations/cf24ec53c604037435c9db1f.png",
+      "width": 1280
+    }
+  ],
+  "videos": [
+    {
+      "currentTime": 4,
+      "duration": 4,
+      "ended": true,
+      "height": 648,
+      "paused": true,
+      "src": "http://127.0.0.1:4175/generated/attachments/f76dc8322530e29131cf5c36f38ae5a98510aca5a2ff27d31613da805e303a13.mp4",
+      "width": 1152
+    },
+    {
+      "currentTime": 4,
+      "duration": 4,
+      "ended": true,
+      "height": 648,
+      "paused": true,
+      "src": "http://127.0.0.1:4175/generated/attachments/b059ea1440789bc9e3502df8622f44a4b24c6c850a62176fc5dc6d0ff259fab3.mp4",
+      "width": 1152
+    },
+    {
+      "currentTime": 4,
+      "duration": 4,
+      "ended": true,
+      "height": 720,
+      "paused": true,
+      "src": "http://127.0.0.1:4175/generated/attachments/8686a7cd24fa7fba97b0db9608e1681609fd2a3057863f2dc8c08c13a957cabe.mp4",
+      "width": 1280
+    },
+    {
+      "currentTime": 4,
+      "duration": 4,
+      "ended": true,
+      "height": 720,
+      "paused": true,
+      "src": "http://127.0.0.1:4175/generated/attachments/904b9aca0d695a3d11a7421c310652e12523c642ea6a56386a827c61a1c3ce19.mp4",
+      "width": 1280
+    }
+  ],
+  "downloads": [
+    {
+      "name": "Нативная сводка",
+      "path": "/Users/sergeyshevchenko/Downloads/1dc63f59899b335798519165a55796ab9e34e34e4aae2fbfa46afb61a0907808.json",
+      "source": "summary.json",
+      "exact": true,
+      "sha256": "1dc63f59899b335798519165a55796ab9e34e34e4aae2fbfa46afb61a0907808"
+    },
+    {
+      "name": "Исходный callback и конфигурация",
+      "path": "/Users/sergeyshevchenko/Downloads/bd6521e54a7c9e6ec95171b4aab5fd7d8551833ab32645b04c6ff7f3ef6bff08.json",
+      "source": "native/before/source.json",
+      "exact": true,
+      "sha256": "bd6521e54a7c9e6ec95171b4aab5fd7d8551833ab32645b04c6ff7f3ef6bff08"
+    },
+    {
+      "name": "Новый publisher и конфигурация",
+      "path": "/Users/sergeyshevchenko/Downloads/431553e04db06b5831ff70274e6d9cc42065e2ec103c6f42fbcf009233c7c644.json",
+      "source": "native/after/source.json",
+      "exact": true,
+      "sha256": "431553e04db06b5831ff70274e6d9cc42065e2ec103c6f42fbcf009233c7c644"
+    }
+  ]
+}

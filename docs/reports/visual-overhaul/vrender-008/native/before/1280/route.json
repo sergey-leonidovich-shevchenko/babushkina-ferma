@@ -1,0 +1,10 @@
+{
+  "bitrate" : 4000000,
+  "decoded_first_frame" : "route.decoded.png",
+  "duration" : 4,
+  "encoder" : "AVFoundation H.264",
+  "fps" : 10,
+  "frames" : 40,
+  "height" : 720,
+  "width" : 1280
+}

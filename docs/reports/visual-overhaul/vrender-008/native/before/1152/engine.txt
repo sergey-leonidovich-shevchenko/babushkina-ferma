@@ -1,0 +1,17 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+OpenGL API 4.1 ATI-7.0.3 - Compatibility - Using Device: ATI Technologies Inc. - AMD Radeon Pro 5300M OpenGL Engine
+
+POST MOTION CASE walk
+POST MOTION CASE wall
+POST MOTION CASE tree
+POST MOTION CASE bush
+POST MOTION CASE bridge-west
+POST MOTION CASE bridge-east
+POST MOTION CASE returned
+POST MOTION CASE pause
+POST MOTION CASE inventory
+POST MOTION CASE editor
+POST MOTION CASE interior
+POST MOTION CASE other-map
+POST MOTION CASE returned
+POST MOTION CAPTURE: before 40 frames; []

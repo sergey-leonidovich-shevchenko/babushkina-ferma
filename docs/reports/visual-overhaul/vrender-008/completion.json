@@ -1,0 +1,26 @@
+{
+  "task": "VRENDER-008",
+  "native_acceptance": true,
+  "production_publisher": true,
+  "runtime_changed": true,
+  "performance_eligible": false,
+  "full_map_accepted": false,
+  "game_version": "0.0.301",
+  "native_base_commit": "2f844d14e4ea6ab6c56503c694135dc29e0eb4a2",
+  "checks": {
+    "native_png": 160,
+    "draw_callbacks": 320,
+    "full_save_pairs": 80,
+    "rgba_pairs": 80,
+    "profile_passed": 48,
+    "python_tests": 20,
+    "architecture": "passed",
+    "game_passed": 46489,
+    "game_failed": 0,
+    "wiki_passed": 108,
+    "wiki_failed": 0,
+    "browser": "four images, four videos played to end, search and three exact JSON attachments"
+  },
+  "checked_git_tree": "d6409c5b9ef563ca2e599188537709e35b4732d8",
+  "finalization": "The real pre-commit completed architecture and 46489/0 game checks, then the final Wiki completed 108/0. Backlog finalization also promoted VWEATHER-001 to ready. Its generated Markdown was not included in the initial index list. Only that generated status and this completion note are added to the unpublished commit. A strict guard preserves the exact checked game/test inputs and validates the completed documents; no game checks were skipped."
+}

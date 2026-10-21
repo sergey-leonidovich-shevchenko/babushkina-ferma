@@ -286,11 +286,11 @@ Feature flag переключает только эталонный участо
 
 ## VRENDER-008 — Передавать время после движения
 
-Статус: `ready` · P0 · этап `foundation` · `engineering`
+Статус: `done` · P0 · этап `foundation` · `engineering`
 
 Сервис получает фактическую позицию после столкновений и перехода карты; уткнувшийся в стену герой не продавливает дальнюю траву
 
-Ветка: `codex/vrender-008-visual-task`.
+Ветка: `codex/vrender-008-post-motion-frame`.
 
 Зависимости: VRENDER-004.
 
@@ -302,7 +302,7 @@ Feature flag переключает только эталонный участо
 - [scripts/world_background.gd](../../../../scripts/world_background.gd)
 - [scripts/presentation/village_terrain_canvas.gd](../../../../scripts/presentation/village_terrain_canvas.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vrender-008/`.
+Результаты: `docs/reports/visual-overhaul/vrender-008/`.
 
 Критерии:
 
@@ -320,13 +320,13 @@ Feature flag переключает только эталонный участо
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vrender-008/README.md, docs/reports/visual-overhaul/vrender-008/dependency-audit.json, docs/reports/visual-overhaul/vrender-008/summary.json, docs/reports/visual-overhaul/vrender-008/native/before/source.json, docs/reports/visual-overhaul/vrender-008/native/after/source.json, docs/reports/visual-overhaul/vrender-008/review.txt, docs/reports/visual-overhaul/vrender-008/python-check.txt, docs/reports/visual-overhaul/vrender-008/completion.json, docs/reports/visual-overhaul/vrender-008/quality-check.txt, docs/reports/visual-overhaul/vrender-008/wiki-check.txt, docs/reports/visual-overhaul/vrender-008/browser-review.json.
 
 <a id="vrender-009"></a>
 
 ## VRENDER-009 — Изолировать параметры нескольких viewport
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 Редактор, мини-превью и игра не перезаписывают позиции и время друг друга; выбран один владелец на мир
 

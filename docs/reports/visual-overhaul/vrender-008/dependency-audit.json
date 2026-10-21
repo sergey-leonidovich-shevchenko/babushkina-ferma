@@ -1,0 +1,26 @@
+{
+  "task": "VRENDER-008",
+  "base_commit": "2f844d14e4ea6ab6c56503c694135dc29e0eb4a2",
+  "route": "VRELEASE-002 → VRELEASE-003 → VPERF → VMAP-001…003",
+  "static_pilot_done": true,
+  "in_live_closure": true,
+  "dependencies": [
+    {
+      "id": "VBASE-001",
+      "status": "done"
+    },
+    {
+      "id": "VRENDER-001",
+      "status": "done"
+    },
+    {
+      "id": "VRENDER-002",
+      "status": "done"
+    },
+    {
+      "id": "VRENDER-004",
+      "status": "done"
+    }
+  ],
+  "full_map_accepted": false
+}
