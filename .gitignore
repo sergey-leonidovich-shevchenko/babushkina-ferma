@@ -373,6 +373,10 @@ assets/inbox/*
 !tools/terrain_revision*.gd.uid
 !tools/terrain_revision*.py
 !tools/test_terrain_revision.py
+!tools/ground_seasons*.gd
+!tools/ground_seasons*.gd.uid
+!tools/ground_seasons*.py
+!tools/test_ground_seasons.py
 !tools/garden*.gd
 !tools/garden*.gd.uid
 !tools/garden*.py

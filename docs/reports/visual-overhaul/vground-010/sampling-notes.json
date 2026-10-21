@@ -1,0 +1,28 @@
+{
+  "attempt_a": {
+    "complete": false,
+    "accepted": false,
+    "exit_code": 0,
+    "observed": "Process ended after summer-homestead without final capture.json and without engine error; cause unknown. Ordinary Godot processes preserved. Zero launcher exit does not prove completion."
+  },
+  "attempt_b": {
+    "complete": false,
+    "accepted": false,
+    "reason": "180-second own-process timeout before first shot; no engine error recorded",
+    "cause": "unknown; display draw callbacks not observed",
+    "ordinary_processes_preserved": true
+  },
+  "attempt_c": {
+    "complete": true,
+    "accepted": true,
+    "windows": [
+      1152,
+      1280
+    ],
+    "png_count": 88,
+    "draw_snapshots": 304,
+    "errors": 0,
+    "startup_change": "QA window is shown before the first post-draw wait; setup phases logged",
+    "cause_of_prior_failures": "not proven; do not infer a runtime crash or performance result"
+  }
+}
