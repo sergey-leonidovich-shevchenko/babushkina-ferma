@@ -1,0 +1,102 @@
+{
+  "task": "VGROUND-003",
+  "base_commit": "e680a87744bf639d2d127ada050fa97092655841",
+  "windows": {
+    "1152": {
+      "mask": {
+        "alpha": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          11,
+          21,
+          42,
+          84,
+          125,
+          164,
+          206,
+          230,
+          243,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255
+        ],
+        "max_step": 42,
+        "levels": 11,
+        "alpha_exact_after_recolor": true
+      },
+      "png_count": 26,
+      "draw_callbacks": 81,
+      "spring": {
+        "mean": 0.35266185842478276,
+        "max": 60
+      },
+      "fallback": {
+        "mean": 1.0546955375514404,
+        "max": 204
+      },
+      "draw_calls_before": 145.0,
+      "draw_calls_after": 145.0
+    },
+    "1280": {
+      "mask": {
+        "alpha": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          11,
+          21,
+          42,
+          84,
+          125,
+          164,
+          206,
+          230,
+          243,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255
+        ],
+        "max_step": 42,
+        "levels": 11,
+        "alpha_exact_after_recolor": true
+      },
+      "png_count": 26,
+      "draw_callbacks": 81,
+      "spring": {
+        "mean": 0.3466558159722222,
+        "max": 60
+      },
+      "fallback": {
+        "mean": 0.9574898726851852,
+        "max": 191
+      },
+      "draw_calls_before": 144.0,
+      "draw_calls_after": 144.0
+    }
+  },
+  "performance_eligible": false,
+  "gpu_time_ms": null
+}

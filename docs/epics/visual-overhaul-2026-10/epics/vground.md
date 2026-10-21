@@ -82,11 +82,11 @@
 
 ## VGROUND-003 — Нарисовать края травы и земли
 
-Статус: `ready` · P0 · этап `pilot` · `engineering`
+Статус: `done` · P0 · этап `pilot` · `engineering`
 
 Прямые, выпуклые и вогнутые углы соединяются без ступеней альфа-канала; маски отделены от цвета
 
-Ветка: `codex/vground-003-visual-task`.
+Ветка: `codex/vground-003-soft-ground-edges`.
 
 Зависимости: VGROUND-001.
 
@@ -96,7 +96,7 @@
 - [scripts/presentation/village_region_terrain.gd](../../../../scripts/presentation/village_region_terrain.gd)
 - [scripts/systems/village_map_data.gd](../../../../scripts/systems/village_map_data.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vground-003/`.
+Результаты: `docs/reports/visual-overhaul/vground-003/`.
 
 Критерии:
 
@@ -114,7 +114,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vground-003/README.md, docs/reports/visual-overhaul/vground-003/completion.json, docs/reports/visual-overhaul/vground-003/summary.json, docs/reports/visual-overhaul/vground-003/native/source.json, docs/reports/visual-overhaul/vground-003/review.txt, docs/reports/visual-overhaul/vground-003/compile.txt, docs/reports/visual-overhaul/vground-003/browser-review.json.
 
 <a id="vground-004"></a>
 

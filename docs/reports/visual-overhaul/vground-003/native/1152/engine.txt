@@ -1,0 +1,23 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+OpenGL API 4.1 ATI-7.0.3 - Compatibility - Using Device: ATI Technologies Inc. - AMD Radeon Pro 5300M OpenGL Engine
+
+EDGE SHOT spring-before
+EDGE SHOT spring-after
+EDGE SHOT summer-before
+EDGE SHOT summer-after
+EDGE SHOT autumn-before
+EDGE SHOT autumn-after
+EDGE SHOT winter-before
+EDGE SHOT winter-after
+EDGE SHOT rain-before
+EDGE SHOT rain-after
+EDGE SHOT bridge-west-before
+EDGE SHOT bridge-west-after
+EDGE SHOT bridge-east-before
+EDGE SHOT bridge-east-after
+EDGE SHOT interior-before
+EDGE SHOT interior-after
+EDGE SHOT returned-before
+EDGE SHOT returned-after
+EDGE SHOT direct
+EDGE SHOT cached

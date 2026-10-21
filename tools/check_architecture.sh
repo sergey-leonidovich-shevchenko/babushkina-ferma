@@ -82,6 +82,8 @@ python3 tools/ground_layers.py verify >/dev/null
 python3 tools/test_ground_layers.py
 python3 tools/meadow_verify.py >/dev/null
 python3 tools/test_meadow_ground.py
+python3 tools/ground_edge_verify.py >/dev/null
+python3 tools/test_ground_edge.py
 python3 tools/visual_scale.py verify
 python3 tools/test_visual_scale.py
 python3 tools/visual_palette.py
