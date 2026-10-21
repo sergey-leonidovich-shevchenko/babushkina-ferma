@@ -12,8 +12,8 @@ const Ambient:=preload("res://scripts/systems/village_ambient_renderer.gd")
 static var _fence_sources:Dictionary={}
 
 ## Сохраняет прежний полный проход для прямого рендера и обратимого контроля разделённых слоёв.
-static func draw(canvas:Node2D,season:String,weather:String,painted_grass:bool=false,soft_edges:bool=false,rectangular:bool=false,joined:bool=false)->void:
-	draw_base(canvas,season,weather,painted_grass,soft_edges,rectangular,joined)
+static func draw(canvas:Node2D,season:String,weather:String,painted_grass:bool=false,soft_edges:bool=false,rectangular:bool=false,joined:bool=false,plaza:bool=false)->void:
+	draw_base(canvas,season,weather,painted_grass,soft_edges,rectangular,joined,plaza)
 	draw_surface(canvas,season)
 	draw_cover(canvas,season,weather)
 
@@ -27,12 +27,13 @@ static func ground_tint(season:String,weather:String)->Color:
 	return tint
 
 ## Собирает только неподвижную землю и берега; вода и движущиеся растения сюда не входят.
-static func draw_base(canvas:Node2D,season:String,weather:String,painted_grass:bool=false,soft_edges:bool=false,rectangular:bool=false,joined:bool=false)->void:
+static func draw_base(canvas:Node2D,season:String,weather:String,painted_grass:bool=false,soft_edges:bool=false,rectangular:bool=false,joined:bool=false,plaza:bool=false)->void:
 	var tint:=ground_tint(season,weather)
 	if painted_grass: preload("res://scripts/presentation/meadow_ground.gd").draw(canvas,MapData.WORLD_SIZE,tint)
 	else: canvas.draw_texture_rect(GRASS,Rect2(Vector2.ZERO,MapData.WORLD_SIZE),true,tint)
 	_draw_paths(canvas,soft_edges,rectangular,joined)
-	_draw_plaza(canvas)
+	if plaza: preload("res://scripts/presentation/plaza_ground.gd").draw(canvas,season,weather)
+	else: _draw_plaza(canvas)
 	_draw_garden(canvas)
 	draw_banks(canvas)
 

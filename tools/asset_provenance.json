@@ -675,6 +675,24 @@
       "asset_sha256": {
         "assets/game/locations/overworld/modular/grass_painted_v2.png": "8644a4ac4be5e912f38da87baa2afe23f0896e2ae29da2485804b7026de5231e"
       }
+    },
+    {
+      "id": "vground-006-plaza",
+      "paths": [
+        "assets/game/locations/overworld/modular/plaza_limestone_v1.png"
+      ],
+      "kind": "project-generation-documented",
+      "claim": "VGROUND-006 original built-in image_gen limestone master; Godot Lanczos 512x512 import. Exact prompt, master and byte signatures retained. No release clearance inferred.",
+      "license_status": "project-record-not-legal-opinion",
+      "evidence": [
+        "docs/reports/visual-overhaul/vground-006/art-source.json",
+        "docs/reports/visual-overhaul/vground-006/prompts/quiet-limestone.txt",
+        "docs/reports/visual-overhaul/vground-006/masters/quiet-limestone-v1.png",
+        "tools/plaza_import.gd"
+      ],
+      "asset_sha256": {
+        "assets/game/locations/overworld/modular/plaza_limestone_v1.png": "92bbe2c697e8a674d883c4d8be8772c26d821f3d03c69f22e4c4123e32cfbb7f"
+      }
     }
   ],
   "local_matches": {

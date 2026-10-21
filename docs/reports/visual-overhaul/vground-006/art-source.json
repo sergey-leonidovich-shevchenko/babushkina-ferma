@@ -1,0 +1,23 @@
+{
+  "task": "VGROUND-006",
+  "mode": "built-in image_gen",
+  "master": "docs/reports/visual-overhaul/vground-006/masters/quiet-limestone-v1.png",
+  "master_sha256": "04601dede5e6c0ff54aaeb050b8ecbf2183c05ca74f57e36ab4a3bb999aaed39",
+  "master_size": [
+    1254,
+    1254
+  ],
+  "prompt": "docs/reports/visual-overhaul/vground-006/prompts/quiet-limestone.txt",
+  "prompt_sha256": "64ce63dc48698b6966cfb9c025a24047dd7dd35c1fc079768cb80e1d4acf7e23",
+  "reference": "docs/reports/visual-overhaul/vart-001/scene-a.png",
+  "reference_sha256": "79e0797fd154c079fda867c1c5b52c4ffeb76c755a2cd9f78f7f974c6c00b799",
+  "runtime": "assets/game/locations/overworld/modular/plaza_limestone_v1.png",
+  "runtime_sha256": "92bbe2c697e8a674d883c4d8be8772c26d821f3d03c69f22e4c4123e32cfbb7f",
+  "runtime_size": [
+    512,
+    512
+  ],
+  "import": "tools/plaza_import.gd",
+  "processing": "Godot RGBA8 / Lanczos 512x512 only; no repainting or recoloring",
+  "selection": "agent: accepted in final native C at 120%; restrained limestone, no dark apron, hero and actual apple/stone/honey loot remain readable"
+}

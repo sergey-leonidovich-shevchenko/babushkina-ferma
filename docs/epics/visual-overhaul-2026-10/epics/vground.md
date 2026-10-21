@@ -196,11 +196,11 @@
 
 ## VGROUND-006 — Согласовать площадь и грунт
 
-Статус: `ready` · P0 · этап `pilot` · `engineering`
+Статус: `done` · P0 · этап `pilot` · `engineering`
 
 Переход камня в землю имеет обломки и контакт; узор площади не доминирует над героями и лутом
 
-Ветка: `codex/vground-006-visual-task`.
+Ветка: `codex/vground-006-plaza-ground`.
 
 Зависимости: VGROUND-001.
 
@@ -210,7 +210,7 @@
 - [scripts/presentation/village_region_terrain.gd](../../../../scripts/presentation/village_region_terrain.gd)
 - [scripts/systems/village_map_data.gd](../../../../scripts/systems/village_map_data.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vground-006/`.
+Результаты: `docs/reports/visual-overhaul/vground-006/`.
 
 Критерии:
 
@@ -228,7 +228,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vground-006/README.md, docs/reports/visual-overhaul/vground-006/completion.json, docs/reports/visual-overhaul/vground-006/summary.json, docs/reports/visual-overhaul/vground-006/review.txt, docs/reports/visual-overhaul/vground-006/art-source.json, docs/reports/visual-overhaul/vground-006/native/source.json, docs/reports/visual-overhaul/vground-006/browser-review.json.
 
 <a id="vground-007"></a>
 

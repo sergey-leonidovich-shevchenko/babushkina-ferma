@@ -363,3 +363,12 @@ assets/inbox/*
 !tools/road_network*.gd.uid
 !tools/road_network*.py
 !tools/test_road_network.py
+
+# VGROUND-006 quiet plaza
+!tools/plaza*.gd
+!tools/plaza*.gd.uid
+!tools/plaza*.py
+!tools/test_plaza_ground.py
+
+# VGROUND-006 exact archived import settings
+!docs/reports/visual-overhaul/vground-006/native/inputs/assets/game/locations/overworld/modular/plaza_limestone_v1.png.import

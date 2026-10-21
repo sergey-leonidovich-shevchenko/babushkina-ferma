@@ -1,0 +1,15 @@
+{
+  "task": "VGROUND-006",
+  "url": "http://127.0.0.1:4175/#/guides/plaza-ground",
+  "reviewer": "user",
+  "user_confirmation": "открыл урл, все загружается",
+  "manual_page_load_confirmed": true,
+  "agent_access": "URL policy rejected tab attachment twice; no workaround attempted",
+  "agent_verified_search": null,
+  "agent_verified_narrow_viewport": null,
+  "agent_verified_download": null,
+  "wiki_tests": {
+    "passed": 80,
+    "failed": 0
+  }
+}
