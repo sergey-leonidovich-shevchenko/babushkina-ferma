@@ -1,0 +1,66 @@
+{
+  "task": "VPROP-003",
+  "url": "http://127.0.0.1:4175/#/guides/village-street-props",
+  "images": [
+    {
+      "alt": "До: прежние колодец и диагональная телега",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    },
+    {
+      "alt": "После: живописный колодец и передняя телега на тех же местах",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    },
+    {
+      "alt": "Колодец: вниз, влево и вправо на светлом фоне",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    },
+    {
+      "alt": "Колодец: проверка края и объёма на тёмном фоне",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    },
+    {
+      "alt": "Телега: два колеса, передние ручки и горизонтальные боковые виды",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    },
+    {
+      "alt": "Телега: чистая альфа на вечернем травяном фоне",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    }
+  ],
+  "images_complete": true,
+  "downloads": [
+    {
+      "file": "summary.json",
+      "exact": true,
+      "sha256": "c99fd26715f0014f71870517b5ee5e764d34962c507e573b5be927942cc3238f"
+    },
+    {
+      "file": "source.json",
+      "exact": true,
+      "sha256": "573d1bad103ad716836e6e1acdf83390e8e3fdd94076c6e609a291e3de18d3e4"
+    },
+    {
+      "file": "prompts.json",
+      "exact": true,
+      "sha256": "14c61fa1ba3f065751148f5546bc00bf6d5a58b9ef78bfd16cd86045b6eb35c7"
+    }
+  ],
+  "search_verified": true,
+  "viewport": {
+    "scrollWidth": 1280,
+    "width": 1280
+  },
+  "narrow_viewport_tested": false
+}

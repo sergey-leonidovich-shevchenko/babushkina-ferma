@@ -1,0 +1,299 @@
+{
+  "schema": 1,
+  "task": "VPROP-003",
+  "tool": "built-in image_gen",
+  "render_scale": 0.25,
+  "views": {
+    "well-south": {
+      "master": "masters/well-south.png",
+      "master_sha256": "9caefc72fcd25681cb58a34b223ec62063ac87185684a523be8c640e8d1353f6",
+      "crop": [
+        174,
+        43,
+        1069,
+        1230
+      ],
+      "pixels": [
+        378,
+        496
+      ],
+      "anchor": [
+        186.37094972067038,
+        483.9561920808762
+      ],
+      "contacts": [
+        {
+          "point": [
+            186.37094972067038,
+            483.9561920808762
+          ],
+          "visible": true
+        }
+      ],
+      "source_contacts": [
+        [
+          615,
+          1220,
+          true
+        ]
+      ],
+      "source_anchor": [
+        615,
+        1220
+      ],
+      "authoring_major": 480,
+      "render_scale": 0.25,
+      "runtime": "assets/game/locations/overworld/street_props/well_south_v1.png",
+      "sha256": "cacfd472689c2a904e573e46cf493e446c9ad6179be09e2cd1aa852ec6014228"
+    },
+    "well-west": {
+      "master": "masters/well-west.png",
+      "master_sha256": "11e09d50e8905a9bd485a27b9431113402e968b12cec9750deda3b1e2db5e7ce",
+      "crop": [
+        274,
+        22,
+        944,
+        1236
+      ],
+      "pixels": [
+        281,
+        496
+      ],
+      "anchor": [
+        156.71641791044777,
+        484.0461285008237
+      ],
+      "contacts": [
+        {
+          "point": [
+            156.71641791044777,
+            484.0461285008237
+          ],
+          "visible": true
+        }
+      ],
+      "source_contacts": [
+        [
+          650,
+          1226,
+          true
+        ]
+      ],
+      "source_anchor": [
+        650,
+        1226
+      ],
+      "authoring_major": 480,
+      "render_scale": 0.25,
+      "runtime": "assets/game/locations/overworld/street_props/well_west_v1.png",
+      "sha256": "cd2c231826382e2c583167a1a5d719f3d2cf669ae6ff6afeb42bcd5b95131951"
+    },
+    "well-east": {
+      "master": "masters/well-east.png",
+      "master_sha256": "57250f8c32d523d2375d286ca5a6aaa3eb2c9c163d9abf5825e2401588ecff00",
+      "crop": [
+        303,
+        19,
+        1033,
+        1238
+      ],
+      "pixels": [
+        303,
+        496
+      ],
+      "anchor": [
+        124.76575342465753,
+        483.66858080393763
+      ],
+      "contacts": [
+        {
+          "point": [
+            124.76575342465753,
+            483.66858080393763
+          ],
+          "visible": true
+        }
+      ],
+      "source_contacts": [
+        [
+          600,
+          1227,
+          true
+        ]
+      ],
+      "source_anchor": [
+        600,
+        1227
+      ],
+      "authoring_major": 480,
+      "render_scale": 0.25,
+      "runtime": "assets/game/locations/overworld/street_props/well_east_v1.png",
+      "sha256": "c24e241277808a1e5a24a0a9ff486ebbdc1e2bf49c7fe03170e9f13d2d07336a"
+    },
+    "cart-south": {
+      "master": "masters/cart-south.png",
+      "master_sha256": "1efea7135d856169b1ca246ff3a044a21977788e4fa766dd450dd0e3f8319fa1",
+      "crop": [
+        153,
+        115,
+        1066,
+        1180
+      ],
+      "pixels": [
+        345,
+        400
+      ],
+      "anchor": [
+        170.51807228915663,
+        245.9718309859155
+      ],
+      "contacts": [
+        {
+          "point": [
+            44.755750273822564,
+            245.9718309859155
+          ],
+          "visible": true
+        },
+        {
+          "point": [
+            296.2803943044907,
+            245.9718309859155
+          ],
+          "visible": true
+        }
+      ],
+      "source_contacts": [
+        [
+          255,
+          775,
+          true
+        ],
+        [
+          953,
+          775,
+          true
+        ]
+      ],
+      "source_anchor": [
+        604,
+        775
+      ],
+      "authoring_major": 384,
+      "render_scale": 0.25,
+      "runtime": "assets/game/locations/overworld/street_props/cart_south_v1.png",
+      "sha256": "7107b8d991d1449e5b5cc36a9c59775fcfdbbef283e45463ca618e4da95968f9"
+    },
+    "cart-west": {
+      "master": "masters/cart-west.png",
+      "master_sha256": "554f6d32bc5447bcd18ff9639df46d385f9c67ae75e9a59421207a9883fb0554",
+      "crop": [
+        23,
+        143,
+        1501,
+        884
+      ],
+      "pixels": [
+        592,
+        305
+      ],
+      "anchor": [
+        437.46684709066307,
+        293.0998650472335
+      ],
+      "contacts": [
+        {
+          "point": [
+            437.46684709066307,
+            293.0998650472335
+          ],
+          "visible": true
+        },
+        {
+          "point": [
+            437.46684709066307,
+            229.13765182186233
+          ],
+          "visible": false
+        }
+      ],
+      "source_contacts": [
+        [
+          1125,
+          874,
+          true
+        ],
+        [
+          1125,
+          710,
+          false
+        ]
+      ],
+      "source_anchor": [
+        1125,
+        874
+      ],
+      "authoring_major": 576,
+      "render_scale": 0.25,
+      "runtime": "assets/game/locations/overworld/street_props/cart_west_v1.png",
+      "sha256": "15642063de51553e4b6746bb541fb0704c034820bc900b36af20d6f1f131b744"
+    },
+    "cart-east": {
+      "master": "masters/cart-east.png",
+      "master_sha256": "0282864d151c37d91f7d11e773e13490816f99b0de9519dfeaa37d91d6023474",
+      "crop": [
+        17,
+        127,
+        1521,
+        887
+      ],
+      "pixels": [
+        592,
+        307
+      ],
+      "anchor": [
+        147.0212765957447,
+        294.78815789473686
+      ],
+      "contacts": [
+        {
+          "point": [
+            147.0212765957447,
+            294.78815789473686
+          ],
+          "visible": true
+        },
+        {
+          "point": [
+            147.0212765957447,
+            231.22763157894738
+          ],
+          "visible": false
+        }
+      ],
+      "source_contacts": [
+        [
+          380,
+          876,
+          true
+        ],
+        [
+          380,
+          710,
+          false
+        ]
+      ],
+      "source_anchor": [
+        380,
+        876
+      ],
+      "authoring_major": 576,
+      "render_scale": 0.25,
+      "runtime": "assets/game/locations/overworld/street_props/cart_east_v1.png",
+      "sha256": "0b33065aec59997d4d2a25df82195f984014946fc58b5835f2ef4ff5c10ea3ad"
+    }
+  },
+  "calibration": "Uniform authoring reduction only: well height 480px, cart front height 384px, cart side length 576px. Runtime uses 0.25 world units per pixel with measured wheel/base ground pivots. No runtime fit or axis stretching.",
+  "alpha": "Opaque-prop ROI alpha>=8 plus 8 source pixels, preserving RGBA. Brown RGB at alpha=0 is retained and never made opaque. No background keying or painted edits.",
+  "contacts": "Well contact marks lowest stone-base point; cart has two wheel-ground projections. Side far-wheel contact is occluded/inferred, explicitly visible=false; it is not claimed as a visible pixel."
+}

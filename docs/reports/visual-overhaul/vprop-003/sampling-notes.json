@@ -1,0 +1,11 @@
+{
+  "task": "VPROP-003",
+  "superseded": [
+    {
+      "phase": "after",
+      "accepted": false,
+      "reason": "Preliminary three-background series superseded to add required evening grass contrast. Canonical after series will be recollected in full; no old frames reused.",
+      "preserved": "tmp/vprop-003-after-three-backgrounds"
+    }
+  ]
+}

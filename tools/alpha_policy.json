@@ -1,6 +1,83 @@
 {
   "schema_version": 1,
   "baseline_commit": "a55ebc1ae580b1f09d21b63fb699a84cb8e7fb54",
-  "reviews": {},
+  "reviews": {
+    "assets/game/locations/overworld/street_props/well_west_v1.png": {
+      "sha256": "cd2c231826382e2c583167a1a5d719f3d2cf669ae6ff6afeb42bcd5b95131951",
+      "reason": "Manual review of both exact runtime PNGs, retained masters and real native 120% light/dark/day-grass/evening-grass views. Four isolated 3-4px components (west6/east7 pixels), opaque_colour_rim only, occur at bright irregular limestone edges under upper-left light. Retained as local stone highlights; no continuous external matte band is visible. This is a bounded art judgement, not an automated semantic matte detector. No pixel edits, threshold/baseline changes or blanket exception.",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vprop-003/alpha-review.json",
+          "sha256": "af84216a1486587166e3c54cf7857e780fc677ebca1ccbaccd881920c2273543"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-003/masters/well-west.png",
+          "sha256": "11e09d50e8905a9bd485a27b9431113402e968b12cec9750deda3b1e2db5e7ce"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-003/source.json",
+          "sha256": "573d1bad103ad716836e6e1acdf83390e8e3fdd94076c6e609a291e3de18d3e4"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-003/native/after/1152/gallery-well-light.png",
+          "sha256": "9ca3950e47a6078fcfa5afbb0f1e0a44de2ec2b4e3dccb319ebcab13448d768e"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-003/native/after/1152/gallery-well-dark.png",
+          "sha256": "1e4dfbfbea40c336b38ac874b6158f1883573413d53d6a971b9a3282a86f3f70"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-003/native/after/1152/gallery-well-grass.png",
+          "sha256": "fadb13d91448d599fe7a9c9a35bf2d2639af0aac79b5f186b7cad23910783330"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-003/native/after/1152/gallery-well-evening.png",
+          "sha256": "54e03ce53c64822891a75e3b22a3d3c80939d9155588288ef0be83c848f8b17b"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-003/masters/well-east.png",
+          "sha256": "57250f8c32d523d2375d286ca5a6aaa3eb2c9c163d9abf5825e2401588ecff00"
+        }
+      ]
+    },
+    "assets/game/locations/overworld/street_props/well_east_v1.png": {
+      "sha256": "c24e241277808a1e5a24a0a9ff486ebbdc1e2bf49c7fe03170e9f13d2d07336a",
+      "reason": "Manual review of both exact runtime PNGs, retained masters and real native 120% light/dark/day-grass/evening-grass views. Four isolated 3-4px components (west6/east7 pixels), opaque_colour_rim only, occur at bright irregular limestone edges under upper-left light. Retained as local stone highlights; no continuous external matte band is visible. This is a bounded art judgement, not an automated semantic matte detector. No pixel edits, threshold/baseline changes or blanket exception.",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vprop-003/alpha-review.json",
+          "sha256": "af84216a1486587166e3c54cf7857e780fc677ebca1ccbaccd881920c2273543"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-003/masters/well-west.png",
+          "sha256": "11e09d50e8905a9bd485a27b9431113402e968b12cec9750deda3b1e2db5e7ce"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-003/source.json",
+          "sha256": "573d1bad103ad716836e6e1acdf83390e8e3fdd94076c6e609a291e3de18d3e4"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-003/native/after/1152/gallery-well-light.png",
+          "sha256": "9ca3950e47a6078fcfa5afbb0f1e0a44de2ec2b4e3dccb319ebcab13448d768e"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-003/native/after/1152/gallery-well-dark.png",
+          "sha256": "1e4dfbfbea40c336b38ac874b6158f1883573413d53d6a971b9a3282a86f3f70"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-003/native/after/1152/gallery-well-grass.png",
+          "sha256": "fadb13d91448d599fe7a9c9a35bf2d2639af0aac79b5f186b7cad23910783330"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-003/native/after/1152/gallery-well-evening.png",
+          "sha256": "54e03ce53c64822891a75e3b22a3d3c80939d9155588288ef0be83c848f8b17b"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-003/masters/well-east.png",
+          "sha256": "57250f8c32d523d2375d286ca5a6aaa3eb2c9c163d9abf5825e2401588ecff00"
+        }
+      ]
+    }
+  },
   "data_masks": {}
 }

@@ -1,0 +1,242 @@
+extends RefCounted
+
+const SAVE_PATH := "user://farm-save.json"
+const VERSION := 2
+const STATE_SCHEMA := "aggregate-v2"
+const ValidationSystem := preload("res://scripts/systems/save_validation_system.gd")
+const JsonStore := preload("res://scripts/systems/atomic_json_store.gd")
+const VectorCodec := preload("res://scripts/systems/save_vector_codec.gd")
+
+## Собирает полную сериализуемую копию текущего состояния игры.
+static func snapshot(game: Node) -> Dictionary:
+	var plot_data := []
+	var drops := []
+	var wildlife := []
+	var containers := []
+	var forage := []
+	for cell in game.plots:
+		var plot: Dictionary = game.plots[cell]
+		plot_data.append({"x":cell.x,"y":cell.y,"tilled":plot.tilled,"planted":plot.planted,"watered":plot.watered,"growth":plot.growth,"stage":plot.stage,"crop_kind":plot.get("crop_kind","carrot"),"fertilizer":plot.get("fertilizer","")})
+	for item in game.dropped_items:
+		drops.append({"kind":item.kind,"count":item.count,"position":[item.position.x,item.position.y],"location":item.get("location",game.current_location)})
+		if item.has("pickup_blocked"): drops.back().pickup_blocked=bool(item.pickup_blocked)
+	for animal in game.wildlife_nodes:
+		wildlife.append({"hp":animal.hp,"alive":animal.alive,"position":[animal.position.x,animal.position.y]})
+	for container in game.world_loot_nodes:
+		containers.append({"id":container.id,"kind":container.kind,"location":container.location,"position":[container.position.x,container.position.y],"opened":container.opened,"contents":container.contents.duplicate(true)})
+	for node in game.food_nodes:
+		forage.append({"id":String(node.get("id","")),"active":node.active,"ready_at":node.get("ready_at", 0.0),"stage":node.get("stage", -1),"kind":node.kind,"location":node.get("location", "overworld"),"position":[node.position.x,node.position.y],"planted_by_player":node.get("planted_by_player", false)})
+	var data := {"version":VERSION,"state_schema":STATE_SCHEMA,"player":[game.player.x,game.player.y],"location":game.current_location,"day":game.day,"minutes":game.game_minutes,"energy":game.energy,"coins":game.coins,"xp":game.player_xp,"level":game.player_level,"hp":game.player_hp,"profile":{"character":game.state.player.profile.duplicate(true),"relationships":game.state.player.relationships.duplicate(true),"quest_memory":game.state.player.quest_memory.duplicate(true)},"inventory_meta":{"backpack_level":game.state.inventory.backpack_level,"durability":game.state.inventory.durability.duplicate(true)},"progression":{"points":game.skill_points,"levels":game.skill_levels.duplicate(true),"xp":game.skill_xp.duplicate(true),"talents":game.talent_levels.duplicate(true),"craft_count":game.state.player.craft_count,"mana":game.player_mana},"effects":{"strength":game.strength_timer,"regeneration":game.regeneration_timer,"speed":game.speed_timer,"invisibility":game.invisibility_timer,"defense":game.defense_timer},"fishing":{"caught":game.state.fishing.total_caught,"records":game.state.fishing.best_sizes.duplicate(true),"counts":game.state.fishing.catch_counts.duplicate(true),"qualities":game.state.fishing.best_qualities.duplicate(true),"perfect":game.state.fishing.perfect_catches,"best_control":game.state.fishing.best_control_streak,"traps":game.state.fishing.traps.duplicate(true)},"companions":{"recruited":game.recruited_companions.duplicate(),"active":game.active_companions.duplicate(),"command":game.state.player.companion_command,"bonds":game.state.player.companion_bonds.duplicate(true)},"storage":{"owned":game.home_chest_owned,"counts":game.home_chest_counts.duplicate(true)},"forge":game.forge_upgrades.duplicate(true),"contracts":{"day":game.state.contracts.offer_day,"statuses":game.state.contracts.statuses.duplicate(true),"completed":game.state.contracts.completed_total},"cave_arena":game.state.world.cave_arena.duplicate(true),"moon_glade":game.state.world.moon_glade.duplicate(true),"castle_campaign":game.state.world.castle_campaign.duplicate(true),"estate":game.state.world.estate.duplicate(true),"counts":game.export_inventory_counts().duplicate(true),"slots":game.inventory_slots.duplicate(true),"hotbar":game.hotbar_slots.duplicate(true),"equipment":game.equipment.duplicate(true),"quest_active":game.quest_active,"quest_complete":game.quest_complete,"missions":game.mission_states.duplicate(true),"tutorial":{"step":game.tutorial_step,"events":game.tutorial_events_completed.duplicate(true),"seen":game.seen_discoveries.duplicate(true),"animation":game.character_animation_directions.keys()},"weapons":{"sword":game.sword_crafted,"bow":game.has_bow,"crystal":game.has_crystal_sword,"equipped":game.equipped_weapon},"plots":plot_data,"world_plots":game.WorldFarmingSystem.snapshot(game),"resource_hits":game.resource_nodes.map(func(node): return node.hits),"trees":game.state.world.tree_nodes.map(func(tree): return {"health":tree.health,"stage":tree.stage,"regrow_timer":tree.regrow_timer}),"food_active":game.food_nodes.map(func(node): return node.active),"forage":forage,"enemies":game.enemy_nodes.map(func(enemy): return {"hp":enemy.hp,"max_hp":enemy.max_hp,"alive":enemy.alive,"level":enemy.level,"position":[enemy.position.x,enemy.position.y],"direction":[enemy.direction.x,enemy.direction.y],"attack_timer":enemy.attack_timer}),"hazards":game.hazard_nodes.map(func(hazard): return {"cooldown":hazard.cooldown}),"wildlife":wildlife,"world_loot_seed":game.world_loot_seed,"containers":containers,"drops":drops}
+	data.weapons.pickaxe=game.has_pickaxe; data.weapons.fishing_rod=game.has_fishing_rod
+	data.rng=preload("res://scripts/systems/world_rng_system.gd").snapshot(game)
+	VectorCodec.transform(data)
+	return data
+
+
+## Обновляет сохранение старой версии до актуальной схемы данных.
+static func migrate(data: Dictionary) -> Dictionary:
+	var version: Variant = data.get("version", 0)
+	if not ValidationSystem.number(version): return {}
+	if float(version) != 1.0 and float(version) != float(VERSION): return {}
+	var migrated := data.duplicate(true)
+	match int(version):
+		1:
+			migrated.version = VERSION
+			migrated.state_schema = STATE_SCHEMA
+		VERSION:
+			if migrated.get("state_schema", "") != STATE_SCHEMA:
+				return {}
+		_:
+			return {}
+	VectorCodec.transform(migrated)
+	return migrated
+
+## Применяет проверенные данные сохранения к активной игре.
+static func apply(game: Node, data: Dictionary) -> bool:
+	data = migrate(data)
+	if data.is_empty() or not ValidationSystem.valid(data): return false
+	preload("res://scripts/systems/qa_teleport_system.gd").close(game)
+	preload("res://scripts/systems/dev_cabinet_system.gd").reset(game)
+	preload("res://scripts/systems/storage_sort_system.gd").reset(game)
+	VectorCodec.transform(data, true)
+	game.player = Vector2(data.player[0], data.player[1]); game.current_location = data.location
+	game.day = data.day; game.game_minutes = data.minutes; game.energy = data.energy; game.coins = data.coins
+	game.player_xp = data.xp; game.player_level = clampi(int(data.level), 1, game.SkillSystem.MAX_CHARACTER_LEVEL); game.player_hp = data.hp
+	var profile: Dictionary = data.get("profile", {})
+	game.state.player.profile = profile.get("character", game.state.player.profile).duplicate(true); game.state.player.relationships = profile.get("relationships", {}).duplicate(true); game.state.player.quest_memory = profile.get("quest_memory", {}).duplicate(true)
+	var inventory_meta: Dictionary = data.get("inventory_meta", {})
+	game.state.inventory.backpack_level = int(inventory_meta.get("backpack_level", 0)); game.state.inventory.durability.merge(inventory_meta.get("durability", {}), true); game.state.inventory.normalize_meta()
+	var progression: Dictionary = data.get("progression", {})
+	game.skill_points = progression.get("points", 0)
+	for skill_id in game.skill_levels:
+		game.skill_levels[skill_id] = progression.get("levels", {}).get(skill_id, 0)
+	for skill_id in game.skill_xp:
+		game.skill_xp[skill_id] = progression.get("xp", {}).get(skill_id, 0)
+	game.talent_levels = game.TalentSystem.merge_levels(progression.get("talents", {}))
+	game.state.player.craft_count = maxi(int(progression.get("craft_count", 0)), 0)
+	game.player_mana = progression.get("mana", game.player_mana)
+	var effects: Dictionary = data.get("effects", {})
+	game.strength_timer = effects.get("strength", 0.0); game.regeneration_timer = effects.get("regeneration", 0.0); game.speed_timer = effects.get("speed", 0.0)
+	game.invisibility_timer = effects.get("invisibility", 0.0); game.defense_timer = effects.get("defense", 0.0)
+	var fishing: Dictionary = data.get("fishing", {})
+	game.state.fishing.total_caught = int(fishing.get("caught", 0)); game.state.fishing.best_sizes = fishing.get("records", {}).duplicate(true); game.state.fishing.catch_counts = fishing.get("counts", {}).duplicate(true); game.state.fishing.best_qualities = fishing.get("qualities", {}).duplicate(true); game.state.fishing.perfect_catches = int(fishing.get("perfect", 0)); game.state.fishing.best_control_streak = float(fishing.get("best_control", 0.0)); game.state.fishing.traps = fishing.get("traps", []).duplicate(true)
+	var storage: Dictionary = data.get("storage", {})
+	game.home_chest_owned = bool(storage.get("owned", false))
+	game.home_chest_counts = storage.get("counts", {}).duplicate(true)
+	game.forge_upgrades = data.get("forge", {}).duplicate(true)
+	var contracts: Dictionary = data.get("contracts", {})
+	game.state.contracts.offer_day = int(contracts.get("day", 0))
+	game.state.contracts.statuses = contracts.get("statuses", {}).duplicate(true)
+	game.state.contracts.completed_total = int(contracts.get("completed", 0))
+	game.state.world.moon_glade = game.MoonGladeSystem.normalize_state(data.get("moon_glade", {}))
+	game.state.world.castle_campaign = game.CastleCampaignSystem.normalize_state(data.get("castle_campaign", {}))
+	game.state.world.estate = game.EstateSystem.normalize_state(data.get("estate", {}))
+	var farm_life: Dictionary = game.FarmLifeSystem.state(game)
+	game.FarmLifeSystem.Livestock.initialize(game,farm_life,false)
+	preload("res://scripts/systems/alchemy_system.gd").restore(game)
+	game.BasementSystem.restore(game)
+	preload("res://scripts/systems/apiary_system.gd").restore(game)
+	game.FurnaceSystem.restore(game)
+	game.ResearchSystem.restore(game)
+	game.WorkshopSystem.restore(game)
+	var companions: Dictionary = data.get("companions", {})
+	game.recruited_companions.assign(companions.get("recruited", []))
+	game.active_companions.assign(companions.get("active", []))
+	game.state.player.companion_command = String(companions.get("command", "follow")); game.state.player.companion_bonds = companions.get("bonds", {}).duplicate(true)
+	game.state.player.normalize()
+	for companion_id in game.active_companions.duplicate():
+		if companion_id not in game.recruited_companions or not game.CompanionSystem.COMPANIONS.has(companion_id):
+			game.active_companions.erase(companion_id)
+	while game.active_companions.size() > game.CompanionSystem.capacity(game):
+		game.active_companions.pop_back()
+	game.companion_positions.clear()
+	for companion_id in game.active_companions:
+		game.companion_positions[companion_id] = game.player + Vector2(-50, 35)
+	game.import_inventory_counts(data.counts)
+	game.FarmLifeSystem.Livestock.initialize(game,farm_life)
+	var inventory_catalog: Array = game.inventory_slots.duplicate()
+	game.inventory_slots.assign(data.slots)
+	for kind in inventory_catalog:
+		if not kind.is_empty() and not game.inventory_slots.has(kind):
+			game.inventory_slots.append(kind)
+	while game.inventory_slots.size() < inventory_catalog.size():
+		game.inventory_slots.append("")
+	for kind in game.export_inventory_counts():
+		if game.inventory_item_count(kind) > 0:
+			game.InventorySystem.ensure_item_slot(game, kind)
+	game.InventorySystem.ensure_capacity(game)
+	game.hotbar_slots.assign(data.hotbar)
+	game.equipment = game.state.inventory.DEFAULT_EQUIPMENT.merged(data.equipment, true)
+	game.quest_active = data.quest_active; game.quest_complete = data.quest_complete
+	game.mission_states = game.QuestSystem.merge_states(data.get("missions", {}))
+	var tutorial: Dictionary = data.get("tutorial", {})
+	game.tutorial_step = tutorial.get("step", game.tutorial_step)
+	game.tutorial_events_completed = tutorial.get("events", {}).duplicate(true)
+	game.seen_discoveries = tutorial.get("seen", {}).duplicate(true)
+	game.character_animation_directions.clear()
+	for direction in tutorial.get("animation", []):
+		game.character_animation_directions[int(direction)] = true
+	game.sword_crafted = data.weapons.sword; game.has_bow = data.weapons.bow; game.has_crystal_sword = data.weapons.crystal; game.equipped_weapon = data.weapons.equipped
+	game.has_pickaxe=bool(data.weapons.get("pickaxe",int(game.home_chest_counts.get("pickaxe",0))==0)); game.has_fishing_rod=bool(data.weapons.get("fishing_rod",int(game.home_chest_counts.get("fishing_rod",0))==0))
+	for saved_plot in data.plots:
+		var cell := Vector2i(saved_plot.x, saved_plot.y)
+		if game.plots.has(cell):
+			var plot: Dictionary = game.plots[cell]
+			for key in ["tilled","planted","watered","growth","stage"]: plot[key] = saved_plot[key]
+			plot.crop_kind = String(saved_plot.get("crop_kind", "carrot"))
+			plot.fertilizer = String(saved_plot.get("fertilizer",""))
+			game.plots[cell] = plot
+	game.WorldFarmingSystem.restore(game, data.get("world_plots", []))
+	var initial_resources: Array = game.ResourceSystem.default_nodes()
+	for index in game.resource_nodes.size():
+		if index < data.resource_hits.size(): game.resource_nodes[index].hits = data.resource_hits[index]
+		elif index < initial_resources.size(): game.resource_nodes[index].hits = initial_resources[index].hits
+	for index in mini(data.get("trees", []).size(), game.state.world.tree_nodes.size()):
+		game.state.world.tree_nodes[index].health = data.trees[index].health; game.state.world.tree_nodes[index].stage = data.trees[index].stage; game.state.world.tree_nodes[index].regrow_timer = data.trees[index].regrow_timer
+	if data.has("forage"):
+		preload("res://scripts/systems/forage_save_system.gd").restore(game,data.forage)
+	else:
+		for index in mini(data.get("food_active", []).size(), game.food_nodes.size()): game.food_nodes[index].active = data.food_active[index]
+	var initial_enemies: Array = game.CombatSystem.default_enemies()
+	for index in range(data.get("enemies",[]).size(),mini(game.enemy_nodes.size(),initial_enemies.size())):
+		if preload("res://scripts/systems/cave_room_data.gd").is_cave(initial_enemies[index].location) and initial_enemies[index].location != "cave": game.enemy_nodes[index] = initial_enemies[index]
+	for index in mini(data.get("enemies",[]).size(), game.enemy_nodes.size()):
+		var saved_enemy: Dictionary = data.enemies[index]
+		game.enemy_nodes[index].level = clampi(int(saved_enemy.get("level", game.enemy_nodes[index].level)), 1, game.CombatSystem.MAX_ENEMY_LEVEL)
+		game.enemy_nodes[index].max_hp = game.CaveBossSystem.Data.MAX_HP if game.enemy_nodes[index].get("cave_boss", false) else game.CombatSystem.max_hp(game.enemy_nodes[index].kind, game.enemy_nodes[index].level)
+		game.enemy_nodes[index].hp = saved_enemy.hp
+		if game.enemy_nodes[index].get("cave_boss",false): game.enemy_nodes[index].hp = game.CaveBossSystem.Data.restored_hp(saved_enemy,game.CombatSystem.max_hp(game.enemy_nodes[index].kind,game.enemy_nodes[index].level))
+		game.enemy_nodes[index].alive = saved_enemy.alive
+		if saved_enemy.has("position"): game.enemy_nodes[index].position = Vector2(saved_enemy.position[0], saved_enemy.position[1])
+		if saved_enemy.has("direction"): game.enemy_nodes[index].direction = Vector2(saved_enemy.direction[0], saved_enemy.direction[1])
+		game.enemy_nodes[index].attack_timer = saved_enemy.get("attack_timer", 0.0)
+	game.CaveBossSystem.reset(game)
+	for index in mini(data.get("hazards", []).size(), game.hazard_nodes.size()):
+		game.hazard_nodes[index].cooldown = data.hazards[index].get("cooldown", 0.0)
+	for index in mini(data.get("wildlife",[]).size(), game.wildlife_nodes.size()):
+		game.wildlife_nodes[index].hp = data.wildlife[index].hp
+		game.wildlife_nodes[index].alive = data.wildlife[index].alive
+		game.wildlife_nodes[index].position = Vector2(data.wildlife[index].position[0], data.wildlife[index].position[1])
+	game.world_loot_seed = data.get("world_loot_seed", game.world_loot_seed)
+	if data.has("containers"):
+		game.world_loot_nodes.clear()
+		for container in data.containers:
+			game.world_loot_nodes.append({"id":container.id,"kind":container.kind,"location":container.location,"position":Vector2(container.position[0],container.position[1]),"opened":container.opened,"contents":container.contents.duplicate(true)})
+		game.world_loot_nodes = game.LootContainerSystem.merge_missing_location(game.world_loot_nodes, game.world_loot_seed, "pirate_ship")
+		for room in preload("res://scripts/systems/cave_room_data.gd").IDS:
+			game.world_loot_nodes = game.LootContainerSystem.merge_missing_location(game.world_loot_nodes,game.world_loot_seed,room)
+	if game.has_meta("slime_loot_position"): game.remove_meta("slime_loot_position")
+	game.dropped_items.clear()
+	for item in data.get("drops", []):
+		game.dropped_items.append({"kind":item.kind,"count":item.count,"position":Vector2(item.position[0],item.position[1]),"location":item.get("location",game.current_location)})
+		if item.has("pickup_blocked"): game.dropped_items.back().pickup_blocked=item.pickup_blocked
+	preload("res://scripts/systems/world_rng_system.gd").restore(game,data.get("rng",{}))
+	preload("res://scripts/systems/cave_boss_arena_system.gd").restore(game,data.get("cave_arena",{}))
+	game.InventorySystem.recalculate_stats(game); game.player_hp = mini(game.player_hp, game.player_max_hp)
+	game.state.normalize()
+	preload("res://scripts/systems/village_map_migration_system.gd").apply(game,int(data.get("estate",{}).get("map_revision",0)))
+	preload("res://scripts/systems/cave_layout_system.gd").repair_saved_positions(game)
+	preload("res://scripts/systems/house_furniture_layout_system.gd").migrate(game)
+	preload("res://scripts/systems/action_lifecycle_system.gd").location_changed(game,true)
+	game.NpcMovementSystem.initialize(game); game.NpcMovementSystem.update(game,0)
+	game.sync_background_location(); game.update_camera(); return true
+
+
+## Проверяет миграцию и всю используемую структуру без изменения игры.
+static func _valid_document(data: Dictionary) -> bool:
+	var migrated := migrate(data)
+	return not migrated.is_empty() and ValidationSystem.valid(migrated)
+
+
+## Сохраняет прогресс проверенной заменой файла и ротирует только исправную резервную копию.
+static func save_at(game: Node, path: String) -> bool:
+	return JsonStore.write(path, snapshot(game), _valid_document, true)
+
+
+## Выполняет операцию «сохранения» и возвращает результат согласно контракту метода.
+static func save(game: Node) -> bool:
+	return save_at(game, SAVE_PATH)
+
+
+## Проверяет наличие основного или резервного файла сохранения по переданному пути.
+static func has_save_at(path: String) -> bool:
+	return FileAccess.file_exists(path) or FileAccess.file_exists(path + ".bak")
+
+
+## Проверяет, доступно ли продолжение игры из стандартного пользовательского сохранения.
+static func has_save() -> bool:
+	return has_save_at(SAVE_PATH)
+
+
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
+static func load_at(game: Node, path: String) -> bool:
+	var data := JsonStore.read(path)
+	if not data.is_empty() and apply(game, data):
+		return true
+	var backup := JsonStore.read(path + ".bak")
+	return not backup.is_empty() and apply(game, backup)
+
+
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
+static func load(game: Node) -> bool:
+	return load_at(game, SAVE_PATH)

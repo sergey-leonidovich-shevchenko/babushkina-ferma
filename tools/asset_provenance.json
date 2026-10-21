@@ -736,6 +736,40 @@
         "assets/game/locations/overworld/benches/bench_west_v1.png": "48d872bdd7c924604d6942ae8d88ee5df5f8e1c82ec23de3ed5b42e4f5ba317a",
         "assets/game/locations/overworld/benches/bench_east_v1.png": "ea0a9de4274ae98d79d2467b0551bf257e5dc9462f49058f1ee12d55c095850c"
       }
+    },
+    {
+      "id": "vprop-003-street",
+      "paths": [
+        "assets/game/locations/overworld/street_props/well_south_v1.png",
+        "assets/game/locations/overworld/street_props/well_west_v1.png",
+        "assets/game/locations/overworld/street_props/well_east_v1.png",
+        "assets/game/locations/overworld/street_props/cart_south_v1.png",
+        "assets/game/locations/overworld/street_props/cart_west_v1.png",
+        "assets/game/locations/overworld/street_props/cart_east_v1.png"
+      ],
+      "kind": "project-generation-documented",
+      "claim": "Original built-in image_gen cardinal well/cart masters. Mechanical alpha-bounded crop and uniform Lanczos reduction only; measured ground pivots and explicit visible/occluded wheel contacts. Full prompts and masters retained.",
+      "license_status": "project-record-not-legal-opinion",
+      "evidence": [
+        "docs/reports/visual-overhaul/vprop-003/README.md",
+        "docs/reports/visual-overhaul/vprop-003/prompts.json",
+        "docs/reports/visual-overhaul/vprop-003/source.json",
+        "docs/reports/visual-overhaul/vprop-003/masters/well-south.png",
+        "docs/reports/visual-overhaul/vprop-003/masters/well-west.png",
+        "docs/reports/visual-overhaul/vprop-003/masters/well-east.png",
+        "docs/reports/visual-overhaul/vprop-003/masters/cart-south.png",
+        "docs/reports/visual-overhaul/vprop-003/masters/cart-west.png",
+        "docs/reports/visual-overhaul/vprop-003/masters/cart-east.png",
+        "tools/village_street_assets.py"
+      ],
+      "asset_sha256": {
+        "assets/game/locations/overworld/street_props/well_south_v1.png": "cacfd472689c2a904e573e46cf493e446c9ad6179be09e2cd1aa852ec6014228",
+        "assets/game/locations/overworld/street_props/well_west_v1.png": "cd2c231826382e2c583167a1a5d719f3d2cf669ae6ff6afeb42bcd5b95131951",
+        "assets/game/locations/overworld/street_props/well_east_v1.png": "c24e241277808a1e5a24a0a9ff486ebbdc1e2bf49c7fe03170e9f13d2d07336a",
+        "assets/game/locations/overworld/street_props/cart_south_v1.png": "7107b8d991d1449e5b5cc36a9c59775fcfdbbef283e45463ca618e4da95968f9",
+        "assets/game/locations/overworld/street_props/cart_west_v1.png": "15642063de51553e4b6746bb541fb0704c034820bc900b36af20d6f1f131b744",
+        "assets/game/locations/overworld/street_props/cart_east_v1.png": "0b33065aec59997d4d2a25df82195f984014946fc58b5835f2ef4ff5c10ea3ad"
+      }
     }
   ],
   "local_matches": {

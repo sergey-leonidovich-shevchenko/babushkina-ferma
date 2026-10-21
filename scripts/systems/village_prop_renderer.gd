@@ -15,6 +15,7 @@ const BuildingVisualSystem:=preload("res://scripts/systems/building_visual_syste
 const TreeOcclusion := preload("res://scripts/systems/tree_occlusion_system.gd")
 const WorldVisibility := preload("res://scripts/systems/world_visibility_system.gd")
 const Bench := preload("res://scripts/presentation/village_bench_visual.gd")
+const Street := preload("res://scripts/presentation/village_street_visual.gd")
 
 ## Рисует самостоятельные деревенские объекты на заднем либо переднем плане без замены рисунка при приближении.
 static func draw(game:Node2D,foreground:bool)->void:
@@ -23,8 +24,13 @@ static func draw(game:Node2D,foreground:bool)->void:
 	if not foreground:
 		for prop in Layout.PROP_PLACEMENTS:
 			if prop.kind=="bench" and visible.intersects(Bench.destination(prop.position+Vector2(0,24)).grow(12),true):Bench.draw_shadow(game,prop.position+Vector2(0,24))
+			elif prop.kind in ["well","cart"] and visible.intersects(Street.destination(prop.kind,prop.position+Vector2(0,24)).grow(12),true):Street.draw_shadow(game,prop.kind,prop.position+Vector2(0,24))
 	for prop in Layout.PROP_PLACEMENTS:
 		if _in_front(Vector2(prop.position),game.AnimationRenderer.player_ground(game))!=foreground: continue
+		if prop.kind in ["well","cart"]:
+			var destination:Rect2=Street.destination(prop.kind,prop.position+Vector2(0,24))
+			if visible.intersects(destination,true):Street.draw(game,prop.kind,prop.position+Vector2(0,24))
+			continue
 		if prop.kind=="bench":
 			var destination:Rect2=Bench.destination(prop.position+Vector2(0,24))
 			if visible.intersects(destination,true):Bench.draw(game,prop.position+Vector2(0,24))

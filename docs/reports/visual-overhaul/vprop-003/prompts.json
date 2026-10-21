@@ -1,0 +1,55 @@
+{
+  "task": "VPROP-003",
+  "mode": "built-in image_gen",
+  "selected": [
+    {
+      "id": "well-south",
+      "prompt": "Create ONE production-quality isolated 2D game prop sprite: a small village draw-well, FRONT facing straight DOWN toward the player, orthographic elevated camera 35 degrees above ground, for a cozy hand-painted farming RPG. Soft painterly rendering, warm honey oak, gently textured pale warm limestone, muted blue-grey slate pitched roof with the ridge EXACTLY horizontal across the picture, two upright oak posts, clearly visible deep dark open well mouth and a small oak bucket on the FRONT rim, rope and wooden winding drum. Clear functional front approach. The well is about 1.5 times the height of an adult game character. Precisely straight-on alignment, no three-quarter/isometric/diagonal turn; base and roof symmetrical in plan, visible top planes because of camera elevation. Fine handmade material texture within calm large shapes, softly antialiased natural edges, no black outline, no white fringe. Light consistently from upper left; model volume using local shading, but NO cast shadow, no ground plane or contact shadow baked into the image. Entire complete silhouette centered with generous transparent padding. Genuine transparent alpha background, no checkerboard, no text, no labels, no scenery, no people. NOT pixel art, not photographic, no tiny decorative flowers or clutter. One well, one view only.",
+      "output": "exec-03be0352-5104-4671-a923-64da863723de.png",
+      "reference": null,
+      "master": "masters/well-south.png"
+    },
+    {
+      "id": "well-west",
+      "prompt": "Edit the attached well sprite into a NEW WEST-facing side-view sprite of exactly the same village well, not a mirrored copy. Camera remains orthographic elevated 35 degrees, fixed upper-left lighting. Rotate the physical well 90 degrees about its upright axis, so the winding crank and FRONT bucket approach point straight LEFT on screen. The roof ridge now runs exactly vertical in plan, roof gable centered in the side profile; horizontal beams remain horizontal where physically across the screen. No three-quarter view, no diagonal plan axes. Preserve the same warm limestone round base, honey oak two-post support, blue-grey slate roof, rope drum, bucket on the working rim and hand-painted craft textures. Keep roof, bucket and well mouth complete and readable, with open dark mouth visibly recessed. No additional accessories or foliage. SAME relative proportions and object size; generous clear alpha padding. One complete well, one left-facing view on genuine transparent alpha. Smooth natural edge with no matte fringe, no ground, no cast or contact shadow baked into image, no text or people. This is a turn-around asset for the same prop; light continues to come from upper LEFT of the picture.",
+      "output": "exec-f3ef2b74-637a-481c-a82a-b20309bf96dc.png",
+      "reference": "exec-03be0352-5104-4671-a923-64da863723de.png",
+      "master": "masters/well-west.png"
+    },
+    {
+      "id": "well-east",
+      "prompt": "Make the corresponding RIGHT-facing EAST side sprite of this same village well. Attached reference is the LEFT-facing well. Repaint the physical orientation so bucket and winding crank approach extend straight RIGHT, not diagonal. Keep the centered triangular roof gable and ridge vertical in plan, circular pale limestone base, two timber supports (one naturally partly hidden by the other in exact side view), rope, honey oak and blue-grey slate. Match camera elevation 35 degrees and relative proportions. CRITICAL: keep lighting from the upper LEFT of the picture, so repaint lit and shaded surfaces rather than merely mirror the pixels. Hand-painted soft natural antialiased edge, detailed calm craft texture, no white matte halo. Full complete well with generous transparent padding, isolated genuine transparent alpha background. No ground or external cast/contact shadow, no scenery or extra objects, no text or people. Only ONE right-facing sprite.",
+      "output": "exec-4c90228b-8046-42ba-bbd0-5a66f4ad00e5.png",
+      "reference": "exec-f3ef2b74-637a-481c-a82a-b20309bf96dc.png",
+      "master": "masters/well-east.png"
+    },
+    {
+      "id": "cart-south",
+      "prompt": "ONE isolated hand-painted 2D game prop sprite: a rustic TWO-wheeled wooden produce handcart facing straight DOWN toward player. Exact front elevation in plan with an orthographic camera 35 degrees above ground. Left and right visible wooden spoked wheels are same size, axle EXACTLY horizontal, front lip horizontal and centered, two long pulling shafts extend straight toward bottom of image, symmetrical in plan. No diagonal/isometric/three-quarter turn. Modest load of 2 pumpkins, 3 cabbages, corn and a folded beige sack inside low oak plank bed, recognizable at small game size. Cozy warm honey oak with forged dark iron hardware, calm warm painterly palette, clear craft wood grain and soft edges, not pixel art and not photorealistic. Light from UPPER LEFT, local object shading only. NO ground, external cast shadow or contact shadow. Genuine transparent alpha everywhere around the complete silhouette and through gaps between shafts/spokes. Generous transparent margins. Entire wheels and shaft tips fully inside canvas, no cropped parts. No white halo, no outline, no background plate, no scene, no labels/text, no people or horse. One cart, one FRONT view only. It is a small human-pulled village cart about 1.3 character widths wide, not a huge wagon.",
+      "output": "exec-058153ed-2c94-4771-ae7f-e5145450ef0e.png",
+      "reference": null,
+      "master": "masters/cart-south.png"
+    },
+    {
+      "id": "cart-west",
+      "prompt": "Turn the attached front-facing produce handcart into a separate EXACT LEFT-facing WEST side-view sprite, same cart, fixed camera elevated 35 degrees, orthographic in plan. The box long side and side plank courses are EXACTLY HORIZONTAL across the image; both long pulling shafts extend straight LEFT and their grips have the same ground-plane y, no diagonal or three-quarter plan angle. Show the large near wooden spoked wheel as a clean round wheel beneath the bed, with the far wheel partially occluded naturally. It remains a TWO-wheeled small handcart, no additional axle. Same modest contents: two pumpkins, cabbages, corn and folded beige sack, oak plank box and dark iron hardware. Preserve warm painterly craft textures, camera height, calm large shapes and smooth natural edges. Light always from upper LEFT of image, not tied to cart direction. One whole left-facing cart, all shaft tips and wheels fully visible, generous transparent alpha margins. Genuine alpha through openings, no background, no ground or external cast/contact shadow, no white matte, no people/horse, no labels/text. Not pixel art, not photorealistic. Do NOT keep the diagonal pose of a typical isometric game cart.",
+      "output": "exec-b56e6ce2-319b-4dd2-85b2-57c86320fc58.png",
+      "reference": "exec-058153ed-2c94-4771-ae7f-e5145450ef0e.png",
+      "master": "masters/cart-west.png"
+    },
+    {
+      "id": "cart-east",
+      "prompt": "Create the matching RIGHT-facing EAST sprite of this same LEFT-facing rustic two-wheeled produce handcart. Repaint the physical orientation: two long horizontal pulling shafts extend exactly RIGHT, rectangular bed planks run exactly horizontally in screen, no diagonal/isometric/three-quarter plan rotation. Same small oak box, two wooden spoked wheels on a SINGLE axle (near wheel fully visible below box; far wheel naturally partly hidden), two pumpkins, cabbages, corn and folded beige sack. Keep orthographic camera elevated 35 degrees, same proportions and hand-painted soft craft style. Repaint lighting to keep UPPER LEFT illumination in the picture, not a pixel mirror. Genuine transparent alpha outside all physical object parts and through all openings; no ground or cast/contact shadow or brown ambient glow. Complete all shaft tips and wheels with generous alpha margin. Natural smooth edges, no matte halo, no labels/text, no scene/people/horse. One right-facing sprite only.",
+      "output": "exec-f260a4ba-51d5-4147-9418-ebe5d8952fed.png",
+      "reference": "exec-b56e6ce2-319b-4dd2-85b2-57c86320fc58.png",
+      "master": "masters/cart-east.png"
+    }
+  ],
+  "discarded": [
+    {
+      "id": "cart-west-background-correction",
+      "prompt": "EDIT ONLY transparency/background of this exact left-facing cart. Remove the ENTIRE brown blurry halo/cloud/background and any exterior floor/cast shadow. Preserve cart geometry, warm material colors, produce, two horizontal shafts, near wheel, far wheel and its existing handmade detail. Output a proper game cutout: outside the actual solid wooden/metal/vegetable object silhouette must be fully transparent alpha=0, including around every shaft tip, under the axle and all openings between wheel spokes where no object is behind. Keep naturally anti-aliased edge just 1-2 pixels. Absolutely NO ambient brown glow, no haze, no vignette, no ground, no backdrop, no checkerboard or solid-color fill. Complete cart intact, generous clean TRANSPARENT margin. One left-facing sprite, same geometry, no added objects.",
+      "reason": "Original transparent RGB looked like brown haze in tool preview; sampled alpha=0 and later composite QA determines visible result. Correction not selected."
+    }
+  ]
+}

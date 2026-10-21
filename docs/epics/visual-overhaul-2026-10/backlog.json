@@ -8311,7 +8311,7 @@
       "id": "VPROP-003",
       "epic": "VPROP",
       "title": "Перерисовать колодец и телегу",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "phase": "pilot",
       "kind": "engineering",
@@ -8347,14 +8347,30 @@
         "confidence": "low",
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
-      "branch": "codex/vprop-003-visual-task",
-      "evidence": []
+      "branch": "codex/vprop-003-well-cart",
+      "evidence": [
+        "docs/reports/visual-overhaul/vprop-003/README.md",
+        "docs/reports/visual-overhaul/vprop-003/alpha-review.json",
+        "docs/reports/visual-overhaul/vprop-003/source.json",
+        "docs/reports/visual-overhaul/vprop-003/prompts.json",
+        "docs/reports/visual-overhaul/vprop-003/summary.json",
+        "docs/reports/visual-overhaul/vprop-003/native/before/source.json",
+        "docs/reports/visual-overhaul/vprop-003/native/after/source.json",
+        "docs/reports/visual-overhaul/vprop-003/review.txt",
+        "docs/reports/visual-overhaul/vprop-003/python-check.txt",
+        "docs/reports/visual-overhaul/vprop-003/sampling-notes.json",
+        "docs/reports/visual-overhaul/vprop-003/completion.json",
+        "docs/reports/visual-overhaul/vprop-003/quality-check.txt",
+        "docs/reports/visual-overhaul/vprop-003/wiki-check.txt",
+        "docs/reports/visual-overhaul/vprop-003/browser-review.json"
+      ],
+      "result": "Встроенным image_gen нарисованы шесть самостоятельных видов колодца и телеги: вниз, влево, вправо, без диагонали и зеркалирования. Сохранены мастера, промпты и точное происхождение производных PNG. Колодец имеет открытую шахту и читаемый объём; телега — прямую ось и ручки, направленные по сторонам сетки. Измеренные опоры у нижнего камня и колёс, равномерные 0.25 мировых единицы на пиксель, addressable linear и до шести общих мягких теневых mesh без runtime-readback. Заменены только два прежних передних размещения overworld; колодец72×48, реальная торговая коллизия60×54, соседние лавки, 1200 правил и восемь движений мостов сохранены. Настоящая продажа моркови даёт прежние восемь монет. Нативные before/after привязаны к a59ed998: 64 PNG/320 реальных callbacks в двух окнах, все стороны на четырёх фонах, четыре положения героя у объектов, соседняя лавка, пауза и дом. RGBA вне двух предметов/теней и полный интерьер совпадают точно. Прозрачный RGB не создаёт облака, видимые контакты отделены от проекции скрытого дальнего колеса. Предварительная трёхфоновая серия заменена целой новой с вечерним фоном. Профиль50/0, Python11/0, Wiki94/0, браузер: шесть изображений, поиск и три точных JSON. Новая добыча воды, изменение торговли, боковые размещения, другие карты, FPS и вся VMAP-003 не заявлены. Общий architecture gate пройден; полный игровой набор: 46044/0."
     },
     {
       "id": "VPROP-004",
       "epic": "VPROP",
       "title": "Разделить светильник и свечение",
-      "status": "backlog",
+      "status": "ready",
       "priority": "P1",
       "phase": "pilot",
       "kind": "engineering",

@@ -1,0 +1,178 @@
+{
+  "task": "VPROP-003",
+  "decision": "retain natural limestone highlights",
+  "manual_review": true,
+  "algorithm_unchanged": true,
+  "assets": {
+    "assets/game/locations/overworld/street_props/well_west_v1.png": {
+      "sha256": "cd2c231826382e2c583167a1a5d719f3d2cf669ae6ff6afeb42bcd5b95131951",
+      "metrics": {
+        "classification": "transparent_sprite",
+        "pixels": [
+          281,
+          496
+        ],
+        "alpha_zero": 55130,
+        "alpha_soft": 4710,
+        "alpha_dense": 79536,
+        "findings": [
+          {
+            "colour": "white",
+            "candidate_pixels": 6,
+            "components": 2,
+            "regions": [
+              {
+                "pixels": 3,
+                "bbox": [
+                  43,
+                  372,
+                  45,
+                  375
+                ],
+                "sample": [
+                  [
+                    44,
+                    372
+                  ],
+                  [
+                    44,
+                    373
+                  ],
+                  [
+                    43,
+                    374
+                  ]
+                ],
+                "kinds": [
+                  "opaque_colour_rim"
+                ]
+              },
+              {
+                "pixels": 3,
+                "bbox": [
+                  52,
+                  290,
+                  55,
+                  293
+                ],
+                "sample": [
+                  [
+                    54,
+                    290
+                  ],
+                  [
+                    53,
+                    291
+                  ],
+                  [
+                    52,
+                    292
+                  ]
+                ],
+                "kinds": [
+                  "opaque_colour_rim"
+                ]
+              }
+            ]
+          }
+        ],
+        "invisible_rgb": {
+          "white": 0,
+          "magenta": 0
+        }
+      }
+    },
+    "assets/game/locations/overworld/street_props/well_east_v1.png": {
+      "sha256": "c24e241277808a1e5a24a0a9ff486ebbdc1e2bf49c7fe03170e9f13d2d07336a",
+      "metrics": {
+        "classification": "transparent_sprite",
+        "pixels": [
+          303,
+          496
+        ],
+        "alpha_zero": 66334,
+        "alpha_soft": 4434,
+        "alpha_dense": 79520,
+        "findings": [
+          {
+            "colour": "white",
+            "candidate_pixels": 7,
+            "components": 2,
+            "regions": [
+              {
+                "pixels": 4,
+                "bbox": [
+                  15,
+                  398,
+                  16,
+                  402
+                ],
+                "sample": [
+                  [
+                    15,
+                    398
+                  ],
+                  [
+                    15,
+                    399
+                  ],
+                  [
+                    15,
+                    400
+                  ],
+                  [
+                    15,
+                    401
+                  ]
+                ],
+                "kinds": [
+                  "opaque_colour_rim"
+                ]
+              },
+              {
+                "pixels": 3,
+                "bbox": [
+                  17,
+                  373,
+                  19,
+                  376
+                ],
+                "sample": [
+                  [
+                    18,
+                    373
+                  ],
+                  [
+                    18,
+                    374
+                  ],
+                  [
+                    17,
+                    375
+                  ]
+                ],
+                "kinds": [
+                  "opaque_colour_rim"
+                ]
+              }
+            ]
+          }
+        ],
+        "invisible_rgb": {
+          "white": 0,
+          "magenta": 0
+        }
+      }
+    }
+  },
+  "evidence": {
+    "docs/reports/visual-overhaul/vprop-003/masters/well-west.png": "11e09d50e8905a9bd485a27b9431113402e968b12cec9750deda3b1e2db5e7ce",
+    "docs/reports/visual-overhaul/vprop-003/source.json": "573d1bad103ad716836e6e1acdf83390e8e3fdd94076c6e609a291e3de18d3e4",
+    "docs/reports/visual-overhaul/vprop-003/native/after/1152/gallery-well-light.png": "9ca3950e47a6078fcfa5afbb0f1e0a44de2ec2b4e3dccb319ebcab13448d768e",
+    "docs/reports/visual-overhaul/vprop-003/native/after/1152/gallery-well-dark.png": "1e4dfbfbea40c336b38ac874b6158f1883573413d53d6a971b9a3282a86f3f70",
+    "docs/reports/visual-overhaul/vprop-003/native/after/1152/gallery-well-grass.png": "fadb13d91448d599fe7a9c9a35bf2d2639af0aac79b5f186b7cad23910783330",
+    "docs/reports/visual-overhaul/vprop-003/native/after/1152/gallery-well-evening.png": "54e03ce53c64822891a75e3b22a3d3c80939d9155588288ef0be83c848f8b17b",
+    "docs/reports/visual-overhaul/vprop-003/masters/well-east.png": "57250f8c32d523d2375d286ca5a6aaa3eb2c9c163d9abf5825e2401588ecff00"
+  },
+  "reason": "Manual review of both exact runtime PNGs, retained masters and real native 120% light/dark/day-grass/evening-grass views. Four isolated 3-4px components (west6/east7 pixels), opaque_colour_rim only, occur at bright irregular limestone edges under upper-left light. Retained as local stone highlights; no continuous external matte band is visible. This is a bounded art judgement, not an automated semantic matte detector. No pixel edits, threshold/baseline changes or blanket exception."
+}

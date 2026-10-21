@@ -102,6 +102,8 @@ python3 tools/object_command_verify.py >/dev/null
 python3 tools/test_object_command.py
 python3 tools/village_bench_verify.py >/dev/null
 python3 tools/test_village_bench.py
+python3 tools/village_street_verify.py >/dev/null
+python3 tools/test_village_street.py
 python3 tools/visual_scale.py verify
 python3 tools/test_visual_scale.py
 python3 tools/visual_palette.py

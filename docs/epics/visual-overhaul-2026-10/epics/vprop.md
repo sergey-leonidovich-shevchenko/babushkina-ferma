@@ -89,11 +89,11 @@
 
 ## VPROP-003 — Перерисовать колодец и телегу
 
-Статус: `ready` · P1 · этап `pilot` · `engineering`
+Статус: `done` · P1 · этап `pilot` · `engineering`
 
 Убраны белые края и диагональная телега; колодец имеет видимый объём и понятный подход
 
-Ветка: `codex/vprop-003-visual-task`.
+Ветка: `codex/vprop-003-well-cart`.
 
 Зависимости: VART-004, VART-008.
 
@@ -105,7 +105,7 @@
 - [scripts/presentation/house_furniture_visual_system.gd](../../../../scripts/presentation/house_furniture_visual_system.gd)
 - [scripts/systems/furniture_facing_system.gd](../../../../scripts/systems/furniture_facing_system.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vprop-003/`.
+Результаты: `docs/reports/visual-overhaul/vprop-003/`.
 
 Критерии:
 
@@ -123,13 +123,13 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vprop-003/README.md, docs/reports/visual-overhaul/vprop-003/alpha-review.json, docs/reports/visual-overhaul/vprop-003/source.json, docs/reports/visual-overhaul/vprop-003/prompts.json, docs/reports/visual-overhaul/vprop-003/summary.json, docs/reports/visual-overhaul/vprop-003/native/before/source.json, docs/reports/visual-overhaul/vprop-003/native/after/source.json, docs/reports/visual-overhaul/vprop-003/review.txt, docs/reports/visual-overhaul/vprop-003/python-check.txt, docs/reports/visual-overhaul/vprop-003/sampling-notes.json, docs/reports/visual-overhaul/vprop-003/completion.json, docs/reports/visual-overhaul/vprop-003/quality-check.txt, docs/reports/visual-overhaul/vprop-003/wiki-check.txt, docs/reports/visual-overhaul/vprop-003/browser-review.json.
 
 <a id="vprop-004"></a>
 
 ## VPROP-004 — Разделить светильник и свечение
 
-Статус: `backlog` · P1 · этап `pilot` · `engineering`
+Статус: `ready` · P1 · этап `pilot` · `engineering`
 
 Сухой рисунок фонаря пригоден днём; свет подключается отдельным профилем вечером
 

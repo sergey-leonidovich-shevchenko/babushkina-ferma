@@ -1,0 +1,20 @@
+{
+  "task": "VPROP-003",
+  "native_acceptance": true,
+  "performance_eligible": false,
+  "game_version": "0.0.294",
+  "native_base_commit": "a59ed998fa926fc2ce667d03b8a200bfe20d83ef",
+  "checks": {
+    "profile_passed": 50,
+    "python_tests": 11,
+    "native_png": 64,
+    "draw_callbacks": 320,
+    "architecture": "passed",
+    "game_passed": 46044,
+    "game_failed": 0,
+    "wiki_passed": 94,
+    "wiki_failed": 0,
+    "browser": "six images, search, three exact JSON downloads"
+  },
+  "scope": "two existing overworld props; six cardinal views; unchanged well/trade solids and existing carrot sale; no new water/trade mechanics or FPS acceptance"
+}
