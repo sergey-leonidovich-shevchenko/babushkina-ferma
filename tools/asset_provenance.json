@@ -854,6 +854,46 @@
         "assets/game/locations/overworld/boards/sign_west_v1.png": "216959c28a886bcb4f804e615c38b9e5eb8bf813418774153b63a6e797c24af0",
         "assets/game/locations/overworld/boards/sign_east_v1.png": "7864602946b28ad055e0344e2ca020848105828e210b673f1b6dbf03e7d7cf83"
       }
+    },
+    {
+      "id": "vprop-007-trade-decor",
+      "paths": [
+        "assets/game/locations/overworld/trade/stall_south_v1.png",
+        "assets/game/locations/overworld/trade/stall_west_v1.png",
+        "assets/game/locations/overworld/trade/stall_east_v1.png",
+        "assets/game/locations/overworld/trade/crate_south_v1.png",
+        "assets/game/locations/overworld/trade/crate_west_v1.png",
+        "assets/game/locations/overworld/trade/crate_east_v1.png",
+        "assets/game/locations/overworld/trade/barrel_south_v1.png",
+        "assets/game/locations/overworld/trade/sack_south_v1.png"
+      ],
+      "kind": "project-generation-documented",
+      "claim": "Original built-in image_gen cardinal oak market stall/crates and direction-neutral barrel/sack. Painterly sack and axis correction included. Uniform mechanical RGBA crop/downsample only.",
+      "license_status": "project-record-not-legal-opinion",
+      "evidence": [
+        "docs/reports/visual-overhaul/vprop-007/README.md",
+        "docs/reports/visual-overhaul/vprop-007/source.json",
+        "docs/reports/visual-overhaul/vprop-007/prompts.json",
+        "docs/reports/visual-overhaul/vprop-007/masters/stall-south.png",
+        "docs/reports/visual-overhaul/vprop-007/masters/stall-west.png",
+        "docs/reports/visual-overhaul/vprop-007/masters/stall-east.png",
+        "docs/reports/visual-overhaul/vprop-007/masters/crate-south.png",
+        "docs/reports/visual-overhaul/vprop-007/masters/crate-west.png",
+        "docs/reports/visual-overhaul/vprop-007/masters/crate-east.png",
+        "docs/reports/visual-overhaul/vprop-007/masters/barrel-south.png",
+        "docs/reports/visual-overhaul/vprop-007/masters/sack-south.png",
+        "tools/village_trade_assets.py"
+      ],
+      "asset_sha256": {
+        "assets/game/locations/overworld/trade/stall_south_v1.png": "3fe49da9e1e79746c7e4e2f13db29b10eda3a761ef111f9b9534387bd74b574d",
+        "assets/game/locations/overworld/trade/stall_west_v1.png": "c27594fbe4cb66e8de24de4b5eef375ec451384210bd3c60d0ff23dad99da37b",
+        "assets/game/locations/overworld/trade/stall_east_v1.png": "66e84295ed2f85b0aae12c4b70075eb54fb61ea5397cda74e9d80cfc0eef39f6",
+        "assets/game/locations/overworld/trade/crate_south_v1.png": "bf388e3c713de26f6b68f081ee4968c26e2189b424c339f11104b952a153510e",
+        "assets/game/locations/overworld/trade/crate_west_v1.png": "ffe300eee58b4b1e2588cc60b471501e8d7a42e56f9c26b30178c077bcce70ae",
+        "assets/game/locations/overworld/trade/crate_east_v1.png": "fa4775a8f0e9bcb071bc8b5ea2f1f85a6778f27aab79f74a6df5b64b34d74308",
+        "assets/game/locations/overworld/trade/barrel_south_v1.png": "75871cf3dfad65e7ab32adc9e77f4ac381fd59b23b5489ffc77726826235cad8",
+        "assets/game/locations/overworld/trade/sack_south_v1.png": "bf507f20bc18c6792ad9a76752924b63aab139564715e8b476179770cc5615c1"
+      }
     }
   ],
   "local_matches": {

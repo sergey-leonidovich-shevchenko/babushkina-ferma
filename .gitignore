@@ -428,3 +428,10 @@ assets/inbox/*
 !tools/village_board*.py
 !tools/test_village_board.py
 !docs/reports/visual-overhaul/vprop-006/native/**/*.png.import
+
+# VPROP-007: trading kit and exact native sources.
+!tools/village_trade*.gd
+!tools/village_trade*.gd.uid
+!tools/village_trade*.py
+!tools/test_village_trade.py
+!docs/reports/visual-overhaul/vprop-007/native/**/*.png.import

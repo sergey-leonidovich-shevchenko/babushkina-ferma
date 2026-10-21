@@ -1,0 +1,1150 @@
+{
+  "schema_version": 1,
+  "textures": {
+    "oak_table_south": {
+      "file": "res://assets/game/interiors/furniture_a/rustic_table_south.png",
+      "pixels": [
+        256,
+        176
+      ],
+      "sha256": "5a49c3222aeb1e3bc2e8ca97b2efe2173184ba18662de7fb1de070c884b15238",
+      "layout": "standalone",
+      "import": {
+        "compress/mode": 0,
+        "mipmaps/generate": false,
+        "process/fix_alpha_border": true,
+        "process/premult_alpha": false
+      },
+      "intent": "color_srgb"
+    },
+    "oak_table_west": {
+      "file": "res://assets/game/interiors/furniture_a/rustic_table_west.png",
+      "pixels": [
+        195,
+        256
+      ],
+      "sha256": "07852b30af6c743e8939dcddef6e2c8f50ee80a14afe877a68298addb594ea53",
+      "layout": "standalone",
+      "import": {
+        "compress/mode": 0,
+        "mipmaps/generate": false,
+        "process/fix_alpha_border": true,
+        "process/premult_alpha": false
+      },
+      "intent": "color_srgb"
+    },
+    "oak_table_east": {
+      "file": "res://assets/game/interiors/furniture_a/rustic_table_east.png",
+      "pixels": [
+        193,
+        256
+      ],
+      "sha256": "d04458db38f0f6ba6f9877b69840299a3e664e117bfd5356a450727c045be618",
+      "layout": "standalone",
+      "import": {
+        "compress/mode": 0,
+        "mipmaps/generate": false,
+        "process/fix_alpha_border": true,
+        "process/premult_alpha": false
+      },
+      "intent": "color_srgb"
+    },
+    "village_bench_south_v1": {
+      "file": "res://assets/game/locations/overworld/benches/bench_south_v1.png",
+      "pixels": [
+        336,
+        174
+      ],
+      "sha256": "7cb670ffecd1605d503e9b4edef4bab398aa1c188ae0ec1e2518542b8c8d096f",
+      "layout": "standalone",
+      "import": {
+        "compress/mode": 0,
+        "mipmaps/generate": false,
+        "process/fix_alpha_border": true,
+        "process/premult_alpha": false
+      },
+      "intent": "color_srgb"
+    },
+    "village_bench_west_v1": {
+      "file": "res://assets/game/locations/overworld/benches/bench_west_v1.png",
+      "pixels": [
+        177,
+        336
+      ],
+      "sha256": "48d872bdd7c924604d6942ae8d88ee5df5f8e1c82ec23de3ed5b42e4f5ba317a",
+      "layout": "standalone",
+      "import": {
+        "compress/mode": 0,
+        "mipmaps/generate": false,
+        "process/fix_alpha_border": true,
+        "process/premult_alpha": false
+      },
+      "intent": "color_srgb"
+    },
+    "village_bench_east_v1": {
+      "file": "res://assets/game/locations/overworld/benches/bench_east_v1.png",
+      "pixels": [
+        183,
+        336
+      ],
+      "sha256": "ea0a9de4274ae98d79d2467b0551bf257e5dc9462f49058f1ee12d55c095850c",
+      "layout": "standalone",
+      "import": {
+        "compress/mode": 0,
+        "mipmaps/generate": false,
+        "process/fix_alpha_border": true,
+        "process/premult_alpha": false
+      },
+      "intent": "color_srgb"
+    },
+    "village_well_south_v1": {
+      "file": "res://assets/game/locations/overworld/street_props/well_south_v1.png",
+      "pixels": [
+        378,
+        496
+      ],
+      "sha256": "cacfd472689c2a904e573e46cf493e446c9ad6179be09e2cd1aa852ec6014228",
+      "layout": "standalone",
+      "import": {
+        "compress/mode": 0,
+        "mipmaps/generate": false,
+        "process/fix_alpha_border": true,
+        "process/premult_alpha": false
+      },
+      "intent": "color_srgb"
+    },
+    "village_well_west_v1": {
+      "file": "res://assets/game/locations/overworld/street_props/well_west_v1.png",
+      "pixels": [
+        281,
+        496
+      ],
+      "sha256": "cd2c231826382e2c583167a1a5d719f3d2cf669ae6ff6afeb42bcd5b95131951",
+      "layout": "standalone",
+      "import": {
+        "compress/mode": 0,
+        "mipmaps/generate": false,
+        "process/fix_alpha_border": true,
+        "process/premult_alpha": false
+      },
+      "intent": "color_srgb"
+    },
+    "village_well_east_v1": {
+      "file": "res://assets/game/locations/overworld/street_props/well_east_v1.png",
+      "pixels": [
+        303,
+        496
+      ],
+      "sha256": "c24e241277808a1e5a24a0a9ff486ebbdc1e2bf49c7fe03170e9f13d2d07336a",
+      "layout": "standalone",
+      "import": {
+        "compress/mode": 0,
+        "mipmaps/generate": false,
+        "process/fix_alpha_border": true,
+        "process/premult_alpha": false
+      },
+      "intent": "color_srgb"
+    },
+    "village_cart_south_v1": {
+      "file": "res://assets/game/locations/overworld/street_props/cart_south_v1.png",
+      "pixels": [
+        345,
+        400
+      ],
+      "sha256": "7107b8d991d1449e5b5cc36a9c59775fcfdbbef283e45463ca618e4da95968f9",
+      "layout": "standalone",
+      "import": {
+        "compress/mode": 0,
+        "mipmaps/generate": false,
+        "process/fix_alpha_border": true,
+        "process/premult_alpha": false
+      },
+      "intent": "color_srgb"
+    },
+    "village_cart_west_v1": {
+      "file": "res://assets/game/locations/overworld/street_props/cart_west_v1.png",
+      "pixels": [
+        592,
+        305
+      ],
+      "sha256": "15642063de51553e4b6746bb541fb0704c034820bc900b36af20d6f1f131b744",
+      "layout": "standalone",
+      "import": {
+        "compress/mode": 0,
+        "mipmaps/generate": false,
+        "process/fix_alpha_border": true,
+        "process/premult_alpha": false
+      },
+      "intent": "color_srgb"
+    },
+    "village_cart_east_v1": {
+      "file": "res://assets/game/locations/overworld/street_props/cart_east_v1.png",
+      "pixels": [
+        592,
+        307
+      ],
+      "sha256": "0b33065aec59997d4d2a25df82195f984014946fc58b5835f2ef4ff5c10ea3ad",
+      "layout": "standalone",
+      "import": {
+        "compress/mode": 0,
+        "mipmaps/generate": false,
+        "process/fix_alpha_border": true,
+        "process/premult_alpha": false
+      },
+      "intent": "color_srgb"
+    },
+    "village_lamp_south_v1": {
+      "file": "res://assets/game/locations/overworld/lamps/lamp_south_v1.png",
+      "pixels": [
+        115,
+        496
+      ],
+      "sha256": "756c8636dbc0dcbd6d3d9c2a787637e235c6d913469907386d8a3cb61944dd1e",
+      "layout": "standalone",
+      "import": {
+        "compress/mode": 0,
+        "mipmaps/generate": false,
+        "process/fix_alpha_border": true,
+        "process/premult_alpha": false
+      },
+      "intent": "color_srgb"
+    },
+    "village_lamp_west_v1": {
+      "file": "res://assets/game/locations/overworld/lamps/lamp_west_v1.png",
+      "pixels": [
+        211,
+        496
+      ],
+      "sha256": "18f0e0dc0004a666d9673c1203f942172ba96b28a5edb8ccd255c0e85a0d09af",
+      "layout": "standalone",
+      "import": {
+        "compress/mode": 0,
+        "mipmaps/generate": false,
+        "process/fix_alpha_border": true,
+        "process/premult_alpha": false
+      },
+      "intent": "color_srgb"
+    },
+    "village_lamp_east_v1": {
+      "file": "res://assets/game/locations/overworld/lamps/lamp_east_v1.png",
+      "pixels": [
+        217,
+        496
+      ],
+      "sha256": "b53cad46f1e3b1315908fca4daacdca1b1191029e7d10b3fa30b800732a4146b",
+      "layout": "standalone",
+      "import": {
+        "compress/mode": 0,
+        "mipmaps/generate": false,
+        "process/fix_alpha_border": true,
+        "process/premult_alpha": false
+      },
+      "intent": "color_srgb"
+    },
+    "village_fence_post_v1": {
+      "file": "res://assets/game/locations/overworld/fences/post_v1.png",
+      "pixels": [
+        37,
+        144
+      ],
+      "sha256": "e1230e4289195f723f80f6b9d277c5dca1cf03593885afaf8f1919e69e893f1f",
+      "layout": "standalone",
+      "import": {
+        "compress/mode": 0,
+        "mipmaps/generate": false,
+        "process/fix_alpha_border": true,
+        "process/premult_alpha": false
+      },
+      "intent": "color_srgb"
+    },
+    "village_fence_rail_v1": {
+      "file": "res://assets/game/locations/overworld/fences/rail_v1.png",
+      "pixels": [
+        350,
+        80
+      ],
+      "sha256": "c021acf8a6bb3e132ead8aeb5585261d0aedcdf63f453eb63184140b1b374ec1",
+      "layout": "standalone",
+      "import": {
+        "compress/mode": 0,
+        "mipmaps/generate": false,
+        "process/fix_alpha_border": true,
+        "process/premult_alpha": false
+      },
+      "intent": "color_srgb"
+    },
+    "village_fence_depth_v1": {
+      "file": "res://assets/game/locations/overworld/fences/depth_v1.png",
+      "pixels": [
+        44,
+        144
+      ],
+      "sha256": "1541063b17592624d663be5f586fbe9e57951b8d56b3885b8017ff4dbd6bc959",
+      "layout": "standalone",
+      "import": {
+        "compress/mode": 0,
+        "mipmaps/generate": false,
+        "process/fix_alpha_border": true,
+        "process/premult_alpha": false
+      },
+      "intent": "color_srgb"
+    },
+    "village_board_south_v1": {
+      "file": "res://assets/game/locations/overworld/boards/board_south_v1.png",
+      "pixels": [
+        453,
+        304
+      ],
+      "sha256": "e9201e136fa7b7122cb4af17a5ce0caa79e3e4e96d23fcc4264d1579f5814a9d",
+      "layout": "standalone",
+      "import": {
+        "compress/mode": 0,
+        "mipmaps/generate": false,
+        "process/fix_alpha_border": true,
+        "process/premult_alpha": false
+      },
+      "intent": "color_srgb"
+    },
+    "village_board_west_v1": {
+      "file": "res://assets/game/locations/overworld/boards/board_west_v1.png",
+      "pixels": [
+        62,
+        304
+      ],
+      "sha256": "03cff9800a0ec86260ea92bf98034743f858cd69dd815a11228432603fc16ee6",
+      "layout": "standalone",
+      "import": {
+        "compress/mode": 0,
+        "mipmaps/generate": false,
+        "process/fix_alpha_border": true,
+        "process/premult_alpha": false
+      },
+      "intent": "color_srgb"
+    },
+    "village_board_east_v1": {
+      "file": "res://assets/game/locations/overworld/boards/board_east_v1.png",
+      "pixels": [
+        67,
+        304
+      ],
+      "sha256": "bb7ce3695f744f2b449eb8d915867d625670364a2689320ee9ebdd76caffa8a2",
+      "layout": "standalone",
+      "import": {
+        "compress/mode": 0,
+        "mipmaps/generate": false,
+        "process/fix_alpha_border": true,
+        "process/premult_alpha": false
+      },
+      "intent": "color_srgb"
+    },
+    "village_sign_south_v1": {
+      "file": "res://assets/game/locations/overworld/boards/sign_south_v1.png",
+      "pixels": [
+        266,
+        304
+      ],
+      "sha256": "e056e2978742f5a14c046e695a9e465be14f9c6b7f372d662f2894548bfba8ef",
+      "layout": "standalone",
+      "import": {
+        "compress/mode": 0,
+        "mipmaps/generate": false,
+        "process/fix_alpha_border": true,
+        "process/premult_alpha": false
+      },
+      "intent": "color_srgb"
+    },
+    "village_sign_west_v1": {
+      "file": "res://assets/game/locations/overworld/boards/sign_west_v1.png",
+      "pixels": [
+        66,
+        304
+      ],
+      "sha256": "216959c28a886bcb4f804e615c38b9e5eb8bf813418774153b63a6e797c24af0",
+      "layout": "standalone",
+      "import": {
+        "compress/mode": 0,
+        "mipmaps/generate": false,
+        "process/fix_alpha_border": true,
+        "process/premult_alpha": false
+      },
+      "intent": "color_srgb"
+    },
+    "village_sign_east_v1": {
+      "file": "res://assets/game/locations/overworld/boards/sign_east_v1.png",
+      "pixels": [
+        62,
+        304
+      ],
+      "sha256": "7864602946b28ad055e0344e2ca020848105828e210b673f1b6dbf03e7d7cf83",
+      "layout": "standalone",
+      "import": {
+        "compress/mode": 0,
+        "mipmaps/generate": false,
+        "process/fix_alpha_border": true,
+        "process/premult_alpha": false
+      },
+      "intent": "color_srgb"
+    }
+  },
+  "resources": {
+    "prop.rustic_table": {
+      "kind": "prop",
+      "space": "world",
+      "owner": "FarmLifeVisualSystem + HouseFurnitureVisualSystem",
+      "task": "VPIPELINE-002",
+      "source": {
+        "kind": "legacy_runtime",
+        "commit": "7c7facd2b882b063953158b342bbd9a7e69e25b0"
+      },
+      "filter": "linear",
+      "default_quality": "standard",
+      "views": {
+        "south": {
+          "logical_size": [
+            96.0,
+            72.0
+          ],
+          "footprint_size": [
+            72.0,
+            48.0
+          ],
+          "pivot": [
+            0.5,
+            1.0
+          ],
+          "variants": {
+            "standard": {
+              "texture": "oak_table_south",
+              "source_rect": [
+                8.0,
+                8.0,
+                240.0,
+                160.0
+              ]
+            }
+          }
+        },
+        "west": {
+          "logical_size": [
+            72.0,
+            72.0
+          ],
+          "footprint_size": [
+            48.0,
+            72.0
+          ],
+          "pivot": [
+            0.5,
+            1.0
+          ],
+          "variants": {
+            "standard": {
+              "texture": "oak_table_west",
+              "source_rect": [
+                8.0,
+                8.0,
+                179.0,
+                240.0
+              ]
+            }
+          }
+        },
+        "east": {
+          "logical_size": [
+            72.0,
+            72.0
+          ],
+          "footprint_size": [
+            48.0,
+            72.0
+          ],
+          "pivot": [
+            0.5,
+            1.0
+          ],
+          "variants": {
+            "standard": {
+              "texture": "oak_table_east",
+              "source_rect": [
+                8.0,
+                8.0,
+                177.0,
+                240.0
+              ]
+            }
+          }
+        }
+      },
+      "sampling_family": "painted_world"
+    },
+    "prop.village_bench": {
+      "kind": "prop",
+      "space": "world",
+      "owner": "VillageBenchVisual + VillagePropRenderer",
+      "task": "VPROP-002",
+      "source": {
+        "kind": "master",
+        "file": "docs/reports/visual-overhaul/vprop-002/source.json",
+        "sha256": "350c3b10cdcc306c5d596502c4b136a3f3a52015f4c4388347f0bbd5ba8e396a"
+      },
+      "filter": "linear",
+      "sampling_family": "painted_world",
+      "default_quality": "standard",
+      "views": {
+        "south": {
+          "logical_size": [
+            84.0,
+            43.5
+          ],
+          "footprint_size": [
+            72,
+            24
+          ],
+          "pivot": [
+            0.49897740055220374,
+            0.9434796389903741
+          ],
+          "variants": {
+            "standard": {
+              "texture": "village_bench_south_v1",
+              "source_rect": [
+                0,
+                0,
+                336,
+                174
+              ]
+            }
+          }
+        },
+        "west": {
+          "logical_size": [
+            44.25,
+            84.0
+          ],
+          "footprint_size": [
+            24,
+            48
+          ],
+          "pivot": [
+            0.42649660446270615,
+            0.9665093483390815
+          ],
+          "variants": {
+            "standard": {
+              "texture": "village_bench_west_v1",
+              "source_rect": [
+                0,
+                0,
+                177,
+                336
+              ]
+            }
+          }
+        },
+        "east": {
+          "logical_size": [
+            45.75,
+            84.0
+          ],
+          "footprint_size": [
+            24,
+            48
+          ],
+          "pivot": [
+            0.5686059704996284,
+            0.9667022475241653
+          ],
+          "variants": {
+            "standard": {
+              "texture": "village_bench_east_v1",
+              "source_rect": [
+                0,
+                0,
+                183,
+                336
+              ]
+            }
+          }
+        }
+      }
+    },
+    "prop.village_well": {
+      "kind": "prop",
+      "space": "world",
+      "owner": "VillageStreetVisual + VillagePropRenderer",
+      "task": "VPROP-003",
+      "source": {
+        "kind": "master",
+        "file": "docs/reports/visual-overhaul/vprop-003/source.json",
+        "sha256": "573d1bad103ad716836e6e1acdf83390e8e3fdd94076c6e609a291e3de18d3e4"
+      },
+      "filter": "linear",
+      "sampling_family": "painted_world",
+      "default_quality": "standard",
+      "views": {
+        "south": {
+          "logical_size": [
+            94.5,
+            124.0
+          ],
+          "footprint_size": [
+            72,
+            48
+          ],
+          "pivot": [
+            0.49304484053087405,
+            0.9757181291953149
+          ],
+          "variants": {
+            "standard": {
+              "texture": "village_well_south_v1",
+              "source_rect": [
+                0,
+                0,
+                378,
+                496
+              ]
+            }
+          }
+        },
+        "west": {
+          "logical_size": [
+            70.25,
+            124.0
+          ],
+          "footprint_size": [
+            72,
+            48
+          ],
+          "pivot": [
+            0.5577096722791736,
+            0.9758994526226284
+          ],
+          "variants": {
+            "standard": {
+              "texture": "village_well_west_v1",
+              "source_rect": [
+                0,
+                0,
+                281,
+                496
+              ]
+            }
+          }
+        },
+        "east": {
+          "logical_size": [
+            75.75,
+            124.0
+          ],
+          "footprint_size": [
+            72,
+            48
+          ],
+          "pivot": [
+            0.4117681631176816,
+            0.9751382677498742
+          ],
+          "variants": {
+            "standard": {
+              "texture": "village_well_east_v1",
+              "source_rect": [
+                0,
+                0,
+                303,
+                496
+              ]
+            }
+          }
+        }
+      }
+    },
+    "prop.village_cart": {
+      "kind": "prop",
+      "space": "world",
+      "owner": "VillageStreetVisual + VillagePropRenderer",
+      "task": "VPROP-003",
+      "source": {
+        "kind": "master",
+        "file": "docs/reports/visual-overhaul/vprop-003/source.json",
+        "sha256": "573d1bad103ad716836e6e1acdf83390e8e3fdd94076c6e609a291e3de18d3e4"
+      },
+      "filter": "linear",
+      "sampling_family": "painted_world",
+      "default_quality": "standard",
+      "views": {
+        "south": {
+          "logical_size": [
+            86.25,
+            100.0
+          ],
+          "footprint_size": [
+            96,
+            48
+          ],
+          "pivot": [
+            0.4942552819975555,
+            0.6149295774647887
+          ],
+          "variants": {
+            "standard": {
+              "texture": "village_cart_south_v1",
+              "source_rect": [
+                0,
+                0,
+                345,
+                400
+              ]
+            }
+          }
+        },
+        "west": {
+          "logical_size": [
+            148.0,
+            76.25
+          ],
+          "footprint_size": [
+            48,
+            96
+          ],
+          "pivot": [
+            0.7389642687342282,
+            0.9609831640892902
+          ],
+          "variants": {
+            "standard": {
+              "texture": "village_cart_west_v1",
+              "source_rect": [
+                0,
+                0,
+                592,
+                305
+              ]
+            }
+          }
+        },
+        "east": {
+          "logical_size": [
+            148.0,
+            76.75
+          ],
+          "footprint_size": [
+            48,
+            96
+          ],
+          "pivot": [
+            0.2483467510063255,
+            0.9602220126864393
+          ],
+          "variants": {
+            "standard": {
+              "texture": "village_cart_east_v1",
+              "source_rect": [
+                0,
+                0,
+                592,
+                307
+              ]
+            }
+          }
+        }
+      }
+    },
+    "prop.village_lamp": {
+      "kind": "prop",
+      "space": "world",
+      "owner": "VillageLampVisual + VillagePropRenderer + AtmosphereRenderer",
+      "task": "VPROP-004",
+      "source": {
+        "kind": "master",
+        "file": "docs/reports/visual-overhaul/vprop-004/source.json",
+        "sha256": "9d558547c5ec427f134b435f4c6b90e44a180dfbe3ffc79fbcf8a3dcbb6f4a8d"
+      },
+      "filter": "linear",
+      "sampling_family": "painted_world",
+      "default_quality": "standard",
+      "views": {
+        "south": {
+          "logical_size": [
+            28.75,
+            124.0
+          ],
+          "footprint_size": [
+            24,
+            24
+          ],
+          "pivot": [
+            0.4971304347826087,
+            0.976584751937471
+          ],
+          "variants": {
+            "standard": {
+              "texture": "village_lamp_south_v1",
+              "source_rect": [
+                0,
+                0,
+                115,
+                496
+              ]
+            }
+          }
+        },
+        "west": {
+          "logical_size": [
+            52.75,
+            124.0
+          ],
+          "footprint_size": [
+            24,
+            24
+          ],
+          "pivot": [
+            0.705456112177353,
+            0.976061348894722
+          ],
+          "variants": {
+            "standard": {
+              "texture": "village_lamp_west_v1",
+              "source_rect": [
+                0,
+                0,
+                211,
+                496
+              ]
+            }
+          }
+        },
+        "east": {
+          "logical_size": [
+            54.25,
+            124.0
+          ],
+          "footprint_size": [
+            24,
+            24
+          ],
+          "pivot": [
+            0.2998067489222536,
+            0.9747413268411442
+          ],
+          "variants": {
+            "standard": {
+              "texture": "village_lamp_east_v1",
+              "source_rect": [
+                0,
+                0,
+                217,
+                496
+              ]
+            }
+          }
+        }
+      }
+    },
+    "part.village_fence_post": {
+      "kind": "tile",
+      "space": "world",
+      "owner": "VillageFenceVisual",
+      "task": "VPROP-005",
+      "source": {
+        "kind": "master",
+        "file": "docs/reports/visual-overhaul/vprop-005/source.json",
+        "sha256": "af6e721f4dd26c5a16cf492f4539bb8bfadd3b5157f8b38269a9dd7fc67457dc"
+      },
+      "filter": "linear",
+      "sampling_family": "painted_world",
+      "default_quality": "standard",
+      "views": {
+        "south": {
+          "logical_size": [
+            9.25,
+            36.0
+          ],
+          "footprint_size": [
+            24,
+            24
+          ],
+          "pivot": [
+            0.5,
+            1
+          ],
+          "variants": {
+            "standard": {
+              "texture": "village_fence_post_v1",
+              "source_rect": [
+                0,
+                0,
+                37,
+                144
+              ]
+            }
+          }
+        }
+      }
+    },
+    "part.village_fence_rail": {
+      "kind": "tile",
+      "space": "world",
+      "owner": "VillageFenceVisual",
+      "task": "VPROP-005",
+      "source": {
+        "kind": "master",
+        "file": "docs/reports/visual-overhaul/vprop-005/source.json",
+        "sha256": "af6e721f4dd26c5a16cf492f4539bb8bfadd3b5157f8b38269a9dd7fc67457dc"
+      },
+      "filter": "linear",
+      "sampling_family": "painted_world",
+      "default_quality": "standard",
+      "views": {
+        "south": {
+          "logical_size": [
+            87.5,
+            20.0
+          ],
+          "footprint_size": [
+            24,
+            24
+          ],
+          "pivot": [
+            0.5,
+            1
+          ],
+          "variants": {
+            "standard": {
+              "texture": "village_fence_rail_v1",
+              "source_rect": [
+                0,
+                0,
+                350,
+                80
+              ]
+            }
+          }
+        }
+      }
+    },
+    "part.village_fence_depth": {
+      "kind": "tile",
+      "space": "world",
+      "owner": "VillageFenceVisual",
+      "task": "VPROP-005",
+      "source": {
+        "kind": "master",
+        "file": "docs/reports/visual-overhaul/vprop-005/source.json",
+        "sha256": "af6e721f4dd26c5a16cf492f4539bb8bfadd3b5157f8b38269a9dd7fc67457dc"
+      },
+      "filter": "linear",
+      "sampling_family": "painted_world",
+      "default_quality": "standard",
+      "views": {
+        "south": {
+          "logical_size": [
+            11.0,
+            36.0
+          ],
+          "footprint_size": [
+            24,
+            24
+          ],
+          "pivot": [
+            0.5,
+            1
+          ],
+          "variants": {
+            "standard": {
+              "texture": "village_fence_depth_v1",
+              "source_rect": [
+                0,
+                0,
+                44,
+                144
+              ]
+            }
+          }
+        }
+      }
+    },
+    "prop.village_board": {
+      "kind": "prop",
+      "space": "world",
+      "owner": "VillageBoardVisual + VillagePropRenderer",
+      "task": "VPROP-006",
+      "source": {
+        "kind": "master",
+        "file": "docs/reports/visual-overhaul/vprop-006/source.json",
+        "sha256": "cb78c51db8ef6c9f46ffaa18ce4383b900c52dd643df9184be675742a11b2b45"
+      },
+      "filter": "linear",
+      "sampling_family": "painted_world",
+      "default_quality": "standard",
+      "views": {
+        "south": {
+          "logical_size": [
+            113.25,
+            76.0
+          ],
+          "footprint_size": [
+            72,
+            24
+          ],
+          "pivot": [
+            0.5,
+            0.9595443833464257
+          ],
+          "variants": {
+            "standard": {
+              "texture": "village_board_south_v1",
+              "source_rect": [
+                0,
+                0,
+                453,
+                304
+              ]
+            }
+          }
+        },
+        "west": {
+          "logical_size": [
+            15.5,
+            76.0
+          ],
+          "footprint_size": [
+            24,
+            72
+          ],
+          "pivot": [
+            0.5370967741935483,
+            0.9613189600507293
+          ],
+          "variants": {
+            "standard": {
+              "texture": "village_board_west_v1",
+              "source_rect": [
+                0,
+                0,
+                62,
+                304
+              ]
+            }
+          }
+        },
+        "east": {
+          "logical_size": [
+            16.75,
+            76.0
+          ],
+          "footprint_size": [
+            24,
+            72
+          ],
+          "pivot": [
+            0.4264038921415025,
+            0.9615980579515521
+          ],
+          "variants": {
+            "standard": {
+              "texture": "village_board_east_v1",
+              "source_rect": [
+                0,
+                0,
+                67,
+                304
+              ]
+            }
+          }
+        }
+      }
+    },
+    "prop.village_sign": {
+      "kind": "prop",
+      "space": "world",
+      "owner": "VillageBoardVisual + VillagePropRenderer",
+      "task": "VPROP-006",
+      "source": {
+        "kind": "master",
+        "file": "docs/reports/visual-overhaul/vprop-006/source.json",
+        "sha256": "cb78c51db8ef6c9f46ffaa18ce4383b900c52dd643df9184be675742a11b2b45"
+      },
+      "filter": "linear",
+      "sampling_family": "painted_world",
+      "default_quality": "standard",
+      "views": {
+        "south": {
+          "logical_size": [
+            66.5,
+            76.0
+          ],
+          "footprint_size": [
+            24,
+            24
+          ],
+          "pivot": [
+            0.5,
+            0.9631488901895459
+          ],
+          "variants": {
+            "standard": {
+              "texture": "village_sign_south_v1",
+              "source_rect": [
+                0,
+                0,
+                266,
+                304
+              ]
+            }
+          }
+        },
+        "west": {
+          "logical_size": [
+            16.5,
+            76.0
+          ],
+          "footprint_size": [
+            24,
+            24
+          ],
+          "pivot": [
+            0.5557040998217468,
+            0.9615488336554453
+          ],
+          "variants": {
+            "standard": {
+              "texture": "village_sign_west_v1",
+              "source_rect": [
+                0,
+                0,
+                66,
+                304
+              ]
+            }
+          }
+        },
+        "east": {
+          "logical_size": [
+            15.5,
+            76.0
+          ],
+          "footprint_size": [
+            24,
+            24
+          ],
+          "pivot": [
+            0.4583405209591168,
+            0.9632026875699887
+          ],
+          "variants": {
+            "standard": {
+              "texture": "village_sign_east_v1",
+              "source_rect": [
+                0,
+                0,
+                62,
+                304
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -8541,7 +8541,7 @@
       "id": "VPROP-007",
       "epic": "VPROP",
       "title": "Подготовить торговый декор",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "phase": "pilot",
       "kind": "engineering",
@@ -8577,8 +8577,22 @@
         "confidence": "low",
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
-      "branch": "codex/vprop-007-visual-task",
-      "evidence": []
+      "branch": "codex/vprop-007-trade-decor",
+      "evidence": [
+        "docs/reports/visual-overhaul/vprop-007/README.md",
+        "docs/reports/visual-overhaul/vprop-007/source.json",
+        "docs/reports/visual-overhaul/vprop-007/prompts.json",
+        "docs/reports/visual-overhaul/vprop-007/summary.json",
+        "docs/reports/visual-overhaul/vprop-007/native/before/source.json",
+        "docs/reports/visual-overhaul/vprop-007/native/after/source.json",
+        "docs/reports/visual-overhaul/vprop-007/review.txt",
+        "docs/reports/visual-overhaul/vprop-007/python-check.txt",
+        "docs/reports/visual-overhaul/vprop-007/completion.json",
+        "docs/reports/visual-overhaul/vprop-007/quality-check.txt",
+        "docs/reports/visual-overhaul/vprop-007/wiki-check.txt",
+        "docs/reports/visual-overhaul/vprop-007/browser-review.json"
+      ],
+      "result": "Перерисованы и подключены прилавок, ящик, бочка и мешок: восемь RGBA, три прямых вида и явные нейтральные aliases. Ярмарка на суше; прежние услуги, коллизии, содержимое и открытие мешков сохранены. Приняты 132 PNG/656 callbacks в двух видимых окнах, 149 профильных условий, 11 Python-контролей, Wiki102/0 и браузер. Фокус отсутствовал и честно записан: статическая приёмка без ввода/FPS/VMAP-003. Общий игровой набор: 46408/0."
     },
     {
       "id": "VPROP-008",
@@ -8764,7 +8778,7 @@
       "id": "VRELEASE-002",
       "epic": "VRELEASE",
       "title": "Принять статичный пилот первой локации",
-      "status": "backlog",
+      "status": "ready",
       "priority": "P0",
       "phase": "rollout",
       "kind": "engineering",

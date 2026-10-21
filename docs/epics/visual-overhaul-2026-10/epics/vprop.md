@@ -249,11 +249,11 @@
 
 ## VPROP-007 — Подготовить торговый декор
 
-Статус: `ready` · P1 · этап `pilot` · `engineering`
+Статус: `done` · P1 · этап `pilot` · `engineering`
 
 Ящики, мешки, бочки и прилавки не закрывают доступ к услугам; на воду не попадают
 
-Ветка: `codex/vprop-007-visual-task`.
+Ветка: `codex/vprop-007-trade-decor`.
 
 Зависимости: VART-004, VART-008.
 
@@ -265,7 +265,7 @@
 - [scripts/presentation/house_furniture_visual_system.gd](../../../../scripts/presentation/house_furniture_visual_system.gd)
 - [scripts/systems/furniture_facing_system.gd](../../../../scripts/systems/furniture_facing_system.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vprop-007/`.
+Результаты: `docs/reports/visual-overhaul/vprop-007/`.
 
 Критерии:
 
@@ -283,7 +283,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vprop-007/README.md, docs/reports/visual-overhaul/vprop-007/source.json, docs/reports/visual-overhaul/vprop-007/prompts.json, docs/reports/visual-overhaul/vprop-007/summary.json, docs/reports/visual-overhaul/vprop-007/native/before/source.json, docs/reports/visual-overhaul/vprop-007/native/after/source.json, docs/reports/visual-overhaul/vprop-007/review.txt, docs/reports/visual-overhaul/vprop-007/python-check.txt, docs/reports/visual-overhaul/vprop-007/completion.json, docs/reports/visual-overhaul/vprop-007/quality-check.txt, docs/reports/visual-overhaul/vprop-007/wiki-check.txt, docs/reports/visual-overhaul/vprop-007/browser-review.json.
 
 <a id="vprop-008"></a>
 

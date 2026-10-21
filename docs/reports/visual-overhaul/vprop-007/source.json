@@ -1,0 +1,337 @@
+{
+  "schema": 1,
+  "task": "VPROP-007",
+  "tool": "built-in image_gen",
+  "render_scale": 0.25,
+  "views": {
+    "stall-south": {
+      "master": "masters/stall-south.png",
+      "master_sha256": "124ffb4c50834630b1ce13b3573d46c96888383312805ca3fa32d2d5b1384bd1",
+      "crop": [
+        67,
+        18,
+        1364,
+        1033
+      ],
+      "pixels": [
+        399,
+        316
+      ],
+      "anchor": [
+        199.35235158057054,
+        298.2463054187192
+      ],
+      "contacts": [
+        [
+          32.50963762528913,
+          298.2463054187192
+        ],
+        [
+          366.19506553585194,
+          298.2463054187192
+        ]
+      ],
+      "source_contacts": [
+        [
+          150,
+          1000
+        ],
+        [
+          1280,
+          1000
+        ]
+      ],
+      "source_anchor": [
+        715.0,
+        1000
+      ],
+      "authoring_major": 300,
+      "render_scale": 0.25,
+      "runtime": "assets/game/locations/overworld/trade/stall_south_v1.png",
+      "sha256": "3fe49da9e1e79746c7e4e2f13db29b10eda3a761ef111f9b9534387bd74b574d"
+    },
+    "stall-west": {
+      "master": "masters/stall-west.png",
+      "master_sha256": "33f7572b499a8d04a940dd6fb23f820c771b67f94394d36052f2190c3d7bd219",
+      "crop": [
+        419,
+        22,
+        1007,
+        1058
+      ],
+      "pixels": [
+        186,
+        316
+      ],
+      "anchor": [
+        96.46938775510205,
+        299.8918918918919
+      ],
+      "contacts": [
+        [
+          31.418367346938776,
+          299.8918918918919
+        ],
+        [
+          161.5204081632653,
+          299.8918918918919
+        ]
+      ],
+      "source_contacts": [
+        [
+          500,
+          1030
+        ],
+        [
+          950,
+          1030
+        ]
+      ],
+      "source_anchor": [
+        725.0,
+        1030
+      ],
+      "authoring_major": 300,
+      "render_scale": 0.25,
+      "runtime": "assets/game/locations/overworld/trade/stall_west_v1.png",
+      "sha256": "c27594fbe4cb66e8de24de4b5eef375ec451384210bd3c60d0ff23dad99da37b"
+    },
+    "stall-east": {
+      "master": "masters/stall-east.png",
+      "master_sha256": "7b8c563f04a743177f45838068732fbbfd004af776bbf9b08a3d33e3f36e9733",
+      "crop": [
+        448,
+        18,
+        1022,
+        1059
+      ],
+      "pixels": [
+        181,
+        316
+      ],
+      "anchor": [
+        81.87630662020906,
+        300.2190201729107
+      ],
+      "contacts": [
+        [
+          28.696864111498257,
+          300.2190201729107
+        ],
+        [
+          135.05574912891984,
+          300.2190201729107
+        ]
+      ],
+      "source_contacts": [
+        [
+          520,
+          1032
+        ],
+        [
+          890,
+          1032
+        ]
+      ],
+      "source_anchor": [
+        705.0,
+        1032
+      ],
+      "authoring_major": 300,
+      "render_scale": 0.25,
+      "runtime": "assets/game/locations/overworld/trade/stall_east_v1.png",
+      "sha256": "66e84295ed2f85b0aae12c4b70075eb54fb61ea5397cda74e9d80cfc0eef39f6"
+    },
+    "crate-south": {
+      "master": "masters/crate-south.png",
+      "master_sha256": "002cab243b0f4e379cc52bde1c542612227978c647c18e396a00a5c96f0cdec3",
+      "crop": [
+        197,
+        236,
+        1126,
+        1039
+      ],
+      "pixels": [
+        112,
+        99
+      ],
+      "anchor": [
+        55.84499461786868,
+        88.20921544209216
+      ],
+      "contacts": [
+        [
+          55.84499461786868,
+          88.20921544209216
+        ]
+      ],
+      "source_contacts": [
+        [
+          660,
+          1012
+        ]
+      ],
+      "source_anchor": [
+        660.0,
+        1012
+      ],
+      "authoring_major": 96,
+      "render_scale": 0.25,
+      "runtime": "assets/game/locations/overworld/trade/crate_south_v1.png",
+      "sha256": "bf388e3c713de26f6b68f081ee4968c26e2189b424c339f11104b952a153510e"
+    },
+    "crate-west": {
+      "master": "masters/crate-west.png",
+      "master_sha256": "efc911ffe618445308e0ae759b1f44cc312f2c61a98600b8fb81205d4bcd3692",
+      "crop": [
+        132,
+        208,
+        1173,
+        1034
+      ],
+      "pixels": [
+        112,
+        92
+      ],
+      "anchor": [
+        55.76945244956772,
+        81.60774818401937
+      ],
+      "contacts": [
+        [
+          55.76945244956772,
+          81.60774818401937
+        ]
+      ],
+      "source_contacts": [
+        [
+          650,
+          1008
+        ]
+      ],
+      "source_anchor": [
+        650.0,
+        1008
+      ],
+      "authoring_major": 96,
+      "render_scale": 0.25,
+      "runtime": "assets/game/locations/overworld/trade/crate_west_v1.png",
+      "sha256": "ffe300eee58b4b1e2588cc60b471501e8d7a42e56f9c26b30178c077bcce70ae"
+    },
+    "crate-east": {
+      "master": "masters/crate-east.png",
+      "master_sha256": "f40a5ab00931550058c71d232d81b37802d2b065fc1bd9354435ab9de72a98f2",
+      "crop": [
+        110,
+        120,
+        1356,
+        966
+      ],
+      "pixels": [
+        112,
+        81
+      ],
+      "anchor": [
+        55.768860353130016,
+        71.07919621749409
+      ],
+      "contacts": [
+        [
+          55.768860353130016,
+          71.07919621749409
+        ]
+      ],
+      "source_contacts": [
+        [
+          730,
+          941
+        ]
+      ],
+      "source_anchor": [
+        730.0,
+        941
+      ],
+      "authoring_major": 96,
+      "render_scale": 0.25,
+      "runtime": "assets/game/locations/overworld/trade/crate_east_v1.png",
+      "sha256": "fa4775a8f0e9bcb071bc8b5ea2f1f85a6778f27aab79f74a6df5b64b34d74308"
+    },
+    "barrel-south": {
+      "master": "masters/barrel-south.png",
+      "master_sha256": "9be786dda1aa7a6d923abbaff4558612e41323e5f750477d21ac57544ff3aaf2",
+      "crop": [
+        210,
+        334,
+        844,
+        1213
+      ],
+      "pixels": [
+        112,
+        149
+      ],
+      "anchor": [
+        55.84858044164038,
+        136.00682593856655
+      ],
+      "contacts": [
+        [
+          55.84858044164038,
+          136.00682593856655
+        ]
+      ],
+      "source_contacts": [
+        [
+          526,
+          1180
+        ]
+      ],
+      "source_anchor": [
+        526.0,
+        1180
+      ],
+      "authoring_major": 96,
+      "render_scale": 0.25,
+      "runtime": "assets/game/locations/overworld/trade/barrel_south_v1.png",
+      "sha256": "75871cf3dfad65e7ab32adc9e77f4ac381fd59b23b5489ffc77726826235cad8"
+    },
+    "sack-south": {
+      "master": "masters/sack-south.png",
+      "master_sha256": "5a9c6fb1d9cddcb0db3f551bf197060bbe73e17e4644fba82796149d00b3b8f4",
+      "crop": [
+        138,
+        96,
+        1022,
+        1280
+      ],
+      "pixels": [
+        208,
+        273
+      ],
+      "anchor": [
+        104.0,
+        259.1393581081081
+      ],
+      "contacts": [
+        [
+          104.0,
+          259.1393581081081
+        ]
+      ],
+      "source_contacts": [
+        [
+          580,
+          1253
+        ]
+      ],
+      "source_anchor": [
+        580.0,
+        1253
+      ],
+      "authoring_major": 192,
+      "render_scale": 0.25,
+      "runtime": "assets/game/locations/overworld/trade/sack_south_v1.png",
+      "sha256": "bf507f20bc18c6792ad9a76752924b63aab139564715e8b476179770cc5615c1"
+    }
+  },
+  "calibration": "Stall height300 authoring px; crate/barrel width96; sack width192; fixed uniform0.25 runtime density. Trading sack explicitly uses0.5 instance scale. Neutral unmarked round barrel/sack share one source across cardinal views. No texture mirroring, background removal or per-axis fit. Contact shadows are separate cached geometry. Measured lower visible supports/base anchor original gameplay positions; other maps and baked facade decorations remain legacy."
+}

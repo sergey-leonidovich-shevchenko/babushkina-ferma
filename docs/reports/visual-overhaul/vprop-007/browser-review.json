@@ -1,0 +1,64 @@
+{
+  "task": "VPROP-007",
+  "url": "http://127.0.0.1:4175/#/guides/village-trade",
+  "images_complete": true,
+  "images": [
+    {
+      "alt": "До: составная ярмарка у речной полосы",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    },
+    {
+      "alt": "После: отдельный прилавок и припасы на суше",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    },
+    {
+      "alt": "Прилавок: три ракурса и герой перед/за ним",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    },
+    {
+      "alt": "Ящик: края на тёмном фоне",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    },
+    {
+      "alt": "Бочка: нейтральный круглый корпус на траве",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    },
+    {
+      "alt": "Открытый мешок: прежняя подпись и полупрозрачность",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    }
+  ],
+  "downloads": [
+    {
+      "name": "Нативная сверка",
+      "file": "summary.json",
+      "exact": true,
+      "sha256": "804e726114947d3dea7614b50f3017fe3242b31d3063f6dd73b561505f5d353a"
+    },
+    {
+      "name": "Мастера и масштаб",
+      "file": "source.json",
+      "exact": true,
+      "sha256": "bafc72a631beb171b6ed0c3a0061937d3c1e0f98d172be2b6427bdf1c9c6b1d7"
+    },
+    {
+      "name": "Промпты",
+      "file": "prompts.json",
+      "exact": true,
+      "sha256": "7257ea1e698f8977187faf4ef6804ab9352cc0b16f75ca27ef8c6b37c6d5fa2f"
+    }
+  ],
+  "search_verified": true
+}

@@ -1,0 +1,20 @@
+{
+  "task": "VPROP-007",
+  "native_acceptance": true,
+  "performance_eligible": false,
+  "game_version": "0.0.298",
+  "native_base_commit": "4ff434f6d27eb85fdb5c49cff0c1d3878c2174aa",
+  "checks": {
+    "profile_passed": 149,
+    "python_tests": 11,
+    "native_png": 132,
+    "draw_callbacks": 656,
+    "architecture": "passed",
+    "game_passed": 46408,
+    "game_failed": 0,
+    "wiki_passed": 102,
+    "wiki_failed": 0,
+    "browser": "six images, search, three exact JSON downloads"
+  },
+  "scope": "existing overworld market event and loot sacks; eight small PNG, cardinal/neutral views, dry ground and original services/collisions/loot/save retained; visible static windows with focus=false; no native input, FPS or whole-map acceptance"
+}

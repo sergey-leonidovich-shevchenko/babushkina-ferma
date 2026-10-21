@@ -1,5 +1,6 @@
 extends RefCounted
 
+const Trade:=preload("res://scripts/presentation/village_trade_visual.gd")
 const WorldLootVisualSystem := preload("res://scripts/systems/world_loot_visual_system.gd")
 
 
@@ -47,10 +48,18 @@ static func draw(game:Node2D)->void:
 		if container.location!=game.current_location or not preload("res://scripts/systems/cave_boss_arena_system.gd").container_visible(game,container): continue
 		var position:Vector2=container.position.round(); var alpha:=0.38 if container.opened else 1.0
 		var tint:=Color(0.82,0.92,1.0,alpha) if container.kind=="pirate_chest" else Color(1.0,1.0,1.0,alpha)
-		if container.location == "cave_sanctum":
+		if Trade.painted_sack(container):pass
+		elif container.location == "cave_sanctum":
 			game.EnvironmentVisualSystem.draw(game,"moon_chest",position,tint,0.65)
 		else: game.draw_texture_rect(texture(container.kind),visual_rect(container.kind,position),false,tint)
 		if container.opened: preload("res://scripts/presentation/world_label_renderer.gd").draw(game,position+Vector2(0,28),game.LocaleSystem.ui("empty"),position,110)
+
+	Trade.draw_sacks(game)
+
+
+## Дорисовывает только новые мешки первой карты перед героем по прежнему основанию.
+static func draw_front(game:Node2D)->void:
+	Trade.draw_sacks(game,true)
 
 
 ## Готовит игровую витрину восьми контейнеров без врагов и случайного расположения.

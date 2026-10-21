@@ -1,0 +1,51 @@
+{
+  "task": "VPROP-007",
+  "tool": "built-in image_gen",
+  "prompts": [
+    {
+      "id": "stall-south",
+      "prompt": "One standalone EMPTY small rustic village market stall for a soft painterly 2D farming RPG, warm valley palette, honey oak and a cream/slate-blue striped canvas awning. Strict orthographic front facing screen bottom, slight overhead camera, zero diagonal yaw and zero isometric corners. Broad horizontal countertop, two front corner posts and two rear supports with straight horizontal beam; simple open work/display space, no seller. Entire stall fits a compact roughly square silhouette, about1.3width:1height. NO crates, sacks, barrels, food, letters, price tags, signs, icons or symbols: separate modules will supply goods. All legs/feet complete, level baseline, robust craft joinery, subtle painted woodgrain and soft folds, natural edges without thick outline, upper-left daylight. Smooth detailed hand-painted nonpixel art. Transparent RGBA background, isolated complete prop, generous padding, no ground, cast shadow, scenery or people. Grid-aligned horizontal/vertical structure only."
+    },
+    {
+      "id": "crate-south",
+      "prompt": "One isolated SMALL empty square oak produce crate, soft painterly 2D farming RPG production sprite, warm medium honey-oak grain with dark iron nails, upper-left soft daylight. Strict orthographic front faces screen bottom, slight overhead camera: front face perfectly horizontal, top opening axis-aligned rectangle, no visible broad side, no diagonal yaw, no isometric corner. The crate is a cube-like reusable module with a cutout carrying handle on the FRONT face only. Open top, three sturdy planks on each side, no contents. Entire complete object centered with generous transparent RGBA margins. No words, logos, stamps, symbols, ground, background, cast shadow or scenery. Detailed smooth natural painted edges, nonpixel art, consistent with a small rustic oak market stall."
+    },
+    {
+      "id": "barrel-south",
+      "prompt": "A single plain closed wooden village market barrel, soft painterly 2D top-down farming RPG production sprite. Warm honey oak staves, two dark iron hoops, a simple round lid seen as a shallow horizontal ellipse. Cylindrical shape with NO tap, handles, front emblem, labels, lettering, arrows, symbols or unique directional feature: direction independent. Strict upright vertical axis, slight overhead orthographic camera from screen bottom, no diagonal yaw or isometric tilt. Whole barrel with complete grounded lower rim, balanced width to height about0.7, subtle handcrafted grain, upper-left daylight, natural smooth painted nonpixel edges, no thick outline. Isolated centered on transparent RGBA background with generous margins, no ground, shadow, objects or scene."
+    },
+    {
+      "id": "sack-south",
+      "prompt": "A single tied burlap supply sack, production sprite for a soft painterly 2D top-down farming RPG. Rounded plump direction-independent sack with a simple tied neck, no printing, logo, wheat icon, words, symbols or numbers; subtle coarse flax weave and gentle folds. Warm cream-tan jute, modest soft upper-left daylight, naturally shaded base with no separate cast shadow. Slight overhead orthographic front camera facing screen bottom, upright vertical axis, no diagonal yaw or isometric tilt. Whole sack including flat rounded foot, width about0.8height. Detailed smooth painterly nonpixel art, natural soft edge without heavy outline. Entire object isolated centered on transparent RGBA with generous padding, no scene, ground, extra goods or objects."
+    },
+    {
+      "id": "sack-painted",
+      "ref": "/Users/sergeyshevchenko/.codex/generated_images/01a122e8-fdd8-7301-97c2-1709638e6385/exec-0d218111-6ceb-43b9-bfc5-01bc9a8aaa13.png",
+      "prompt": "Edit target: the attached tied sack. Preserve the complete silhouette, upright orthographic pose and tied neck. Change only the material rendering: this must be a hand-painted soft 2D farming RPG sprite, NOT a photograph. Replace the dense realistic thread grid with broad quiet brush-painted tan cloth, a few suggestive flax flecks, gentle large folds. Match warm painterly oak props, natural smooth edge, subtle upper-left sunlight, no harsh outline. No text, symbols, ground or baked cast shadow. Keep genuine transparent RGBA background and generous margins."
+    },
+    {
+      "id": "stall-west",
+      "ref": "/Users/sergeyshevchenko/.codex/generated_images/01a122e8-fdd8-7301-97c2-1709638e6385/exec-dfb1cc3e-50cc-4ce6-9246-3cc89d8a89c0.png",
+      "prompt": "Edit target: the attached oak market stall, cream/slate blue striped awning. Redraw the SAME object facing exactly screen LEFT. Strict cardinal SIDE ELEVATION with slight top-down view. Camera looks perpendicular at its narrow end. The long countertop and the canopy ridge run vertically in screen coordinates, the short end edges horizontal. No diagonal yaw, no isometric three-quarter corner. Four posts: two columns of screen-x coordinates; near and far supports in each column have identical x, separated only in screen-y. Opening towards LEFT, never back to camera. Preserve proportions, empty counter, complete feet, craft joinery and painterly wood/fabric. Independently light upper-left (do not mirror lighting). Transparent RGBA, generous margins; no additional goods, ground, cast shadow, people, text or signs. One standalone full side sprite."
+    },
+    {
+      "id": "stall-east",
+      "ref": "/Users/sergeyshevchenko/.codex/generated_images/01a122e8-fdd8-7301-97c2-1709638e6385/exec-dfb1cc3e-50cc-4ce6-9246-3cc89d8a89c0.png",
+      "prompt": "Edit target: the attached oak market stall, cream/slate blue striped awning. Redraw the SAME object facing exactly screen RIGHT. Strict cardinal SIDE ELEVATION with slight top-down view. Camera looks perpendicular at its narrow end. The long countertop and the canopy ridge run vertically in screen coordinates, the short end edges horizontal. No diagonal yaw, no isometric three-quarter corner. Four posts: two columns of screen-x coordinates; near and far supports in each column have identical x, separated only in screen-y. Opening towards RIGHT, never back to camera. Preserve proportions, empty counter, complete feet, craft joinery and painterly wood/fabric. Independently light upper-left (do not mirror lighting). Transparent RGBA, generous margins; no additional goods, ground, cast shadow, people, text or signs. One standalone full side sprite."
+    },
+    {
+      "id": "crate-west",
+      "ref": "/Users/sergeyshevchenko/.codex/generated_images/01a122e8-fdd8-7301-97c2-1709638e6385/exec-75e1906f-86e4-4b73-955b-6e4d74917ac0.png",
+      "prompt": "Edit target: attached empty square oak crate. Redraw same complete cube crate, now carrying-handle face points exactly screen LEFT. Orthographic cardinal elevation with mild overhead camera: broad face towards viewer has plain horizontal planks, no handle; handle cutout sits on the left narrow side rim. Square footprint aligned screen horizontal/vertical axes. No isometric rotation, diagonal yaw, broad angled corner or back view. Preserve three honey oak planks, dark nails, open empty top, shape and paint technique; independently light from upper left, do not mirror lighting. Smooth hand-painted nonpixel art. Isolated full object with generous transparent RGBA margins, no ground/cast shadow/contents/text/stamps."
+    },
+    {
+      "id": "crate-east",
+      "ref": "/Users/sergeyshevchenko/.codex/generated_images/01a122e8-fdd8-7301-97c2-1709638e6385/exec-75e1906f-86e4-4b73-955b-6e4d74917ac0.png",
+      "prompt": "Edit target: attached empty square oak crate. Redraw same complete cube crate, now carrying-handle face points exactly screen RIGHT. Orthographic cardinal elevation with mild overhead camera: broad face towards viewer has plain horizontal planks, no handle; handle cutout sits on the right narrow side rim. Square footprint aligned screen horizontal/vertical axes. No isometric rotation, diagonal yaw, broad angled corner or back view. Preserve three honey oak planks, dark nails, open empty top, shape and paint technique; independently light from upper left, do not mirror lighting. Smooth hand-painted nonpixel art. Isolated full object with generous transparent RGBA margins, no ground/cast shadow/contents/text/stamps."
+    },
+    {
+      "id": "crate-east-fixed",
+      "prompt": "Edit this exact crate. Correct camera alignment ONLY: remove the broad visible RIGHT exterior side face and diagonal corner. Box must be viewed square-on, a flat wide rectangular front with horizontal level planks and no handle. Centered symmetric trapezoid top opening, equal thin left and right rims. A carrying cutout may appear INSIDE right rim only. Front panel horizontal, straight vertical corner posts. No three-quarter yaw. Preserve material, warm oak planks, nails, subtle overhead view, upper-left painterly light, natural edges and empty interior. Transparent RGBA with generous margins, isolated no ground/shadow/text. This is the exact east-facing counterpart of a square-on crate, not an isometric sprite."
+    }
+  ]
+}

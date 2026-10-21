@@ -1,0 +1,369 @@
+VERSION: 0.0.297 -> 0.0.298
+VERSION: 0.0.298 synchronized
+................
+----------------------------------------------------------------------
+Ran 16 tests in 9.740s
+
+OK
+DOCUMENTATION: обязательные файлы и локальные ссылки корректны
+DOCUMENTATION TEST: свои ссылки проверяются, зависимости и сборки исключены
+WORLD SPRITE AUDIT TEST: dynamic discovery and dead preload checks are valid
+WORLD SPRITE AUDIT: 29 семейств; готово 28; открыто P1=1, P2=0, P3=0
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 0.043s
+
+OK
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+OK
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 0.037s
+
+OK
+SPRITE CLEANUP: 90 retired resources; dynamic paths and consumers preserved
+BACKLOG OK: 6 epics / 50 tasks / 6 Ready; network: 0
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 0.086s
+
+OK
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+OK
+VISUAL BACKLOG: 25 epics, 1037 tasks, graph/coverage/archive/documents valid
+..............
+----------------------------------------------------------------------
+Ran 14 tests in 6.140s
+
+OK
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 0.657s
+
+OK
+.................
+----------------------------------------------------------------------
+Ran 17 tests in 5.712s
+
+OK
+.................
+----------------------------------------------------------------------
+Ran 17 tests in 4.036s
+
+OK
+CAMERA: valid static reference contract
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 0.280s
+
+OK
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 2.456s
+
+OK
+COORDINATES: native transforms, pointer, feet, videos and artifact hashes valid
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 2.626s
+
+OK
+......................
+----------------------------------------------------------------------
+Ran 22 tests in 14.553s
+
+OK
+................
+----------------------------------------------------------------------
+Ran 16 tests in 5.540s
+
+OK
+..........................
+----------------------------------------------------------------------
+Ran 26 tests in 4.549s
+
+OK
+.....................................
+----------------------------------------------------------------------
+Ran 37 tests in 1.788s
+
+OK
+...............
+----------------------------------------------------------------------
+Ran 15 tests in 11.100s
+
+OK
+..................
+----------------------------------------------------------------------
+Ran 18 tests in 8.659s
+
+OK
+....................
+----------------------------------------------------------------------
+Ran 20 tests in 7.245s
+
+OK
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 0.019s
+
+OK
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 0.018s
+
+OK
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 0.016s
+
+OK
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 2.503s
+
+OK
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 0.461s
+
+OK
+............
+----------------------------------------------------------------------
+Ran 12 tests in 0.376s
+
+OK
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 2.409s
+
+OK
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 6.252s
+
+OK
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 7.847s
+
+OK
+...............
+----------------------------------------------------------------------
+Ran 15 tests in 0.445s
+
+OK
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 1.628s
+
+OK
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 2.641s
+
+OK
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 2.135s
+
+OK
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 1.608s
+
+OK
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 0.956s
+
+OK
+.............
+----------------------------------------------------------------------
+Ran 13 tests in 3.011s
+
+OK
+VISUAL SCALE: geometry, native pixels, fixed HUD and physics valid
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 2.663s
+
+OK
+VISUAL PALETTE: six motifs, 24 ramps, alpha bounds, source hashes and scale valid; choice approved
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 1.111s
+
+OK
+VISUAL PERSPECTIVE: three sides, nine sources, uniform reference scale, grid, anchors and browser proof valid
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 0.087s
+
+OK
+VISUAL EDGES: six regions, 8 browser cases, alpha, sources and explicit choice valid
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 3.376s
+
+OK
+VISUAL DENSITY: five subjects, common hero, 12 browser cases, scale and source provenance valid
+........
+----------------------------------------------------------------------
+Ran 8 tests in 4.912s
+
+OK
+VART-007: approved A, 24 native frames, independent form/contact/cast, hashes valid
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.051s
+
+OK
+VART-008: both facades approved, 28 exact crops, 19 native frames, camera and sources valid
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 2.932s
+
+OK
+VART-009: 29 decisions, 238 declarations / 236 files, 58 comparisons + 12 overviews valid; runtime unchanged
+........
+----------------------------------------------------------------------
+Ran 8 tests in 1.419s
+
+OK
+VART-010: 12 masters, 24 independent exports, 24 native frames and browser states valid; approved
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 0.914s
+
+OK
+VISUAL PIPELINE: boundaries, development I/O, runtime images and references valid
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 0.404s
+
+OK
+VISUAL RESOURCES: stable IDs, geometry, alpha, variants, imports and provenance valid
+.............
+----------------------------------------------------------------------
+Ran 13 tests in 1.892s
+
+OK
+VISUAL SAMPLING: families, real PNG/imports, native matrix and protected UI valid
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 4.311s
+
+OK
+PADDED ATLAS: all frames, RGBA gutters, independent levels and imports valid
+............
+----------------------------------------------------------------------
+Ran 12 tests in 11.087s
+
+OK
+TEXTURE INTENTS: color/data imports, full RGBA and native GPU matrix are valid
+............
+----------------------------------------------------------------------
+Ran 12 tests in 6.504s
+
+OK
+ITEM SIZES: canonical 64/160 PNGs, imports, cold cabinet and LRU proof valid
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 12.911s
+
+OK
+ALPHA AUDIT: read-only; known legacy candidates 311; new matte candidates require review
+............
+----------------------------------------------------------------------
+Ran 12 tests in 0.454s
+
+OK
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 1.983s
+
+OK
+SLICE AUDIT: {"frames": 5603, "textures": 2824, "atlas_resources": 321, "warning_frames": 1786} ; geometry valid; existing tight frames remain explicit debt
+..............
+----------------------------------------------------------------------
+Ran 14 tests in 0.242s
+
+OK
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 10.349s
+
+OK
+ASSET MIGRATION: 29 family plans, historical consumer graph, isolated rename/rollback and two negative controls valid; production unchanged
+................
+----------------------------------------------------------------------
+Ran 16 tests in 1.208s
+
+OK
+......
+----------------------------------------------------------------------
+Ran 6 tests in 32.997s
+
+OK
+ASSET REPORT: provenance dispositions, sizes, nominal memory and native export proof valid; release clearance not implied
+.................
+----------------------------------------------------------------------
+Ran 17 tests in 0.119s
+
+OK
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 5.767s
+
+OK
+{
+  "selected": 52,
+  "done": 50,
+  "next": null
+}
+...............
+----------------------------------------------------------------------
+Ran 15 tests in 1.064s
+
+OK
+ARTIST PACKET: Git-pinned sources, palette, 28 modules and handoff example valid; runtime gates remain open
+........
+----------------------------------------------------------------------
+Ran 8 tests in 16.298s
+
+OK
+SHORE KIT: 16 bank parts + wider modular deck, 29 exact crops, 11 native frames, camera video and 845 WATER assertions valid; no runtime/FPS acceptance
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 30.449s
+
+OK
+ARCHITECTURE: boundaries and whitespace are valid
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started Инициализация проекта (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Сканирование структуры файлов…[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | Загрузка глобальных имен классов…[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | Проверка GDExtensions…[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | Создание скриптов автозагрузки…[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | Инициализация плагинов…[39m[0m
+[  83% ] [90m[1mfirst_scan_filesystem[22m | Начало сканирование файлов…[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Started Загрузка редактора (5 steps)[39m[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Загрузка макета редактора…[39m[0m
+[  16% ] [90m[1mloading_editor_layout[22m | Загрузка док-панели…[39m[0m
+[  33% ] [90m[1mloading_editor_layout[22m | Повторное открытие сцен…[39m[0m
+[  50% ] [90m[1mloading_editor_layout[22m | Загрузка макета центрального редактора…[39m[0m
+[  66% ] [90m[1mloading_editor_layout[22m | Загрузка макета окна плагина…[39m[0m
+[  83% ] [90m[1mloading_editor_layout[22m | Макет редактора готов.[39m[0m
+[92m[ DONE ][39m [1mloading_editor_layout[22m
+[0m
+TESTS: 46408 passed, 0 failed

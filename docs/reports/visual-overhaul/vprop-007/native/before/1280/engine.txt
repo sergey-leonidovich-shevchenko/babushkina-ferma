@@ -1,0 +1,29 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+OpenGL API 4.1 ATI-7.0.3 - Compatibility - Using Device: ATI Technologies Inc. - AMD Radeon Pro 5300M OpenGL Engine
+
+TRADE FRAME market-0-72
+TRADE FRAME market-0--12
+TRADE FRAME market--80-12
+TRADE FRAME market-80-12
+TRADE FRAME sack-0-closed
+TRADE FRAME sack-0-opened
+TRADE FRAME sack-1-closed
+TRADE FRAME sack-1-opened
+TRADE FRAME sack-2-closed
+TRADE FRAME sack-2-opened
+TRADE FRAME sack-3-closed
+TRADE FRAME sack-3-opened
+TRADE FRAME sack-4-closed
+TRADE FRAME sack-4-opened
+TRADE FRAME event-festival-control
+TRADE FRAME event-traveler-control
+TRADE FRAME event-raid-control
+TRADE FRAME shop-control
+TRADE FRAME sale-control
+TRADE FRAME bridge-west
+TRADE FRAME bridge-east
+TRADE FRAME manual-pause
+TRADE FRAME interior
+TRADE FRAME market-control
+TRADE FRAME returned
+TRADE CAPTURE: before 25 cases; []
