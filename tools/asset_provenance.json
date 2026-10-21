@@ -795,6 +795,31 @@
         "assets/game/locations/overworld/lamps/lamp_west_v1.png": "18f0e0dc0004a666d9673c1203f942172ba96b28a5edb8ccd255c0e85a0d09af",
         "assets/game/locations/overworld/lamps/lamp_east_v1.png": "b53cad46f1e3b1315908fca4daacdca1b1191029e7d10b3fa30b800732a4146b"
       }
+    },
+    {
+      "id": "vprop-005-oak-fences",
+      "paths": [
+        "assets/game/locations/overworld/fences/post_v1.png",
+        "assets/game/locations/overworld/fences/rail_v1.png",
+        "assets/game/locations/overworld/fences/depth_v1.png"
+      ],
+      "kind": "project-generation-documented",
+      "claim": "Original built-in image_gen oak construction parts. Uniform mechanical alpha crop/downsample only, no keying or bitmap rotation. World source regions retain density.",
+      "license_status": "project-record-not-legal-opinion",
+      "evidence": [
+        "docs/reports/visual-overhaul/vprop-005/README.md",
+        "docs/reports/visual-overhaul/vprop-005/source.json",
+        "docs/reports/visual-overhaul/vprop-005/prompts.json",
+        "docs/reports/visual-overhaul/vprop-005/masters/post.png",
+        "docs/reports/visual-overhaul/vprop-005/masters/rail.png",
+        "docs/reports/visual-overhaul/vprop-005/masters/depth.png",
+        "tools/village_fence_assets.py"
+      ],
+      "asset_sha256": {
+        "assets/game/locations/overworld/fences/post_v1.png": "e1230e4289195f723f80f6b9d277c5dca1cf03593885afaf8f1919e69e893f1f",
+        "assets/game/locations/overworld/fences/rail_v1.png": "c021acf8a6bb3e132ead8aeb5585261d0aedcdf63f453eb63184140b1b374ec1",
+        "assets/game/locations/overworld/fences/depth_v1.png": "1541063b17592624d663be5f586fbe9e57951b8d56b3885b8017ff4dbd6bc959"
+      }
     }
   ],
   "local_matches": {

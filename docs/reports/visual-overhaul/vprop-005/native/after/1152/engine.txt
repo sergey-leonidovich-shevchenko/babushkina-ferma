@@ -1,0 +1,20 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+OpenGL API 4.1 ATI-7.0.3 - Compatibility - Using Device: ATI Technologies Inc. - AMD Radeon Pro 5300M OpenGL Engine
+
+FENCE FRAME farm-nw
+FENCE FRAME farm-ne
+FENCE FRAME farm-south
+FENCE FRAME gap-north
+FENCE FRAME gap-east
+FENCE FRAME pens
+FENCE FRAME gate-0-false
+FENCE FRAME gate-0-true
+FENCE FRAME gate-1-false
+FENCE FRAME gate-1-true
+FENCE FRAME interior
+FENCE FRAME street-control
+FENCE FRAME gallery-light
+FENCE FRAME gallery-dark
+FENCE FRAME gallery-grass
+FENCE FRAME gallery-evening
+FENCE CAPTURE: after 16 cases; []

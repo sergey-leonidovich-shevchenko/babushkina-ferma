@@ -1,0 +1,20 @@
+{
+  "task": "VPROP-005",
+  "native_acceptance": true,
+  "performance_eligible": false,
+  "game_version": "0.0.296",
+  "native_base_commit": "152f1080837c9ba13e48c229ec87fd60a2845302",
+  "checks": {
+    "profile_passed": 56,
+    "python_tests": 10,
+    "native_png": 56,
+    "draw_callbacks": 256,
+    "architecture": "passed",
+    "game_passed": 46142,
+    "game_failed": 0,
+    "wiki_passed": 98,
+    "wiki_failed": 0,
+    "browser": "six images, search, three exact JSON downloads"
+  },
+  "scope": "first-map existing oak fences and open passages, exact old collisions and saved gate states; no new mechanics, other maps or FPS acceptance"
+}

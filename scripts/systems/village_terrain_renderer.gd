@@ -41,7 +41,6 @@ static func draw_base(canvas:Node2D,season:String,weather:String,painted_grass:b
 ## Оставляет ограды, неподвижные цветы и мосты над водой в прежнем порядке команд.
 static func draw_cover(canvas:Node2D,season:String,weather:String)->void:
 	var tint:=ground_tint(season,weather)
-	_draw_fences(canvas,tint)
 	for flower in MapData.FLOWERS:
 		if season!="winter": Ambient.draw_cell(canvas,"flowers",flower,Color(0.92,0.95,0.84,0.88))
 	for bridge in MapData.BRIDGES:

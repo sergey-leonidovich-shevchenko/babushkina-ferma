@@ -240,6 +240,54 @@
         "process/premult_alpha": false
       },
       "intent": "color_srgb"
+    },
+    "village_fence_post_v1": {
+      "file": "res://assets/game/locations/overworld/fences/post_v1.png",
+      "pixels": [
+        37,
+        144
+      ],
+      "sha256": "e1230e4289195f723f80f6b9d277c5dca1cf03593885afaf8f1919e69e893f1f",
+      "layout": "standalone",
+      "import": {
+        "compress/mode": 0,
+        "mipmaps/generate": false,
+        "process/fix_alpha_border": true,
+        "process/premult_alpha": false
+      },
+      "intent": "color_srgb"
+    },
+    "village_fence_rail_v1": {
+      "file": "res://assets/game/locations/overworld/fences/rail_v1.png",
+      "pixels": [
+        350,
+        80
+      ],
+      "sha256": "c021acf8a6bb3e132ead8aeb5585261d0aedcdf63f453eb63184140b1b374ec1",
+      "layout": "standalone",
+      "import": {
+        "compress/mode": 0,
+        "mipmaps/generate": false,
+        "process/fix_alpha_border": true,
+        "process/premult_alpha": false
+      },
+      "intent": "color_srgb"
+    },
+    "village_fence_depth_v1": {
+      "file": "res://assets/game/locations/overworld/fences/depth_v1.png",
+      "pixels": [
+        44,
+        144
+      ],
+      "sha256": "1541063b17592624d663be5f586fbe9e57951b8d56b3885b8017ff4dbd6bc959",
+      "layout": "standalone",
+      "import": {
+        "compress/mode": 0,
+        "mipmaps/generate": false,
+        "process/fix_alpha_border": true,
+        "process/premult_alpha": false
+      },
+      "intent": "color_srgb"
     }
   },
   "resources": {
@@ -691,6 +739,129 @@
                 0,
                 217,
                 496
+              ]
+            }
+          }
+        }
+      }
+    },
+    "part.village_fence_post": {
+      "kind": "tile",
+      "space": "world",
+      "owner": "VillageFenceVisual",
+      "task": "VPROP-005",
+      "source": {
+        "kind": "master",
+        "file": "docs/reports/visual-overhaul/vprop-005/source.json",
+        "sha256": "af6e721f4dd26c5a16cf492f4539bb8bfadd3b5157f8b38269a9dd7fc67457dc"
+      },
+      "filter": "linear",
+      "sampling_family": "painted_world",
+      "default_quality": "standard",
+      "views": {
+        "south": {
+          "logical_size": [
+            9.25,
+            36.0
+          ],
+          "footprint_size": [
+            24,
+            24
+          ],
+          "pivot": [
+            0.5,
+            1
+          ],
+          "variants": {
+            "standard": {
+              "texture": "village_fence_post_v1",
+              "source_rect": [
+                0,
+                0,
+                37,
+                144
+              ]
+            }
+          }
+        }
+      }
+    },
+    "part.village_fence_rail": {
+      "kind": "tile",
+      "space": "world",
+      "owner": "VillageFenceVisual",
+      "task": "VPROP-005",
+      "source": {
+        "kind": "master",
+        "file": "docs/reports/visual-overhaul/vprop-005/source.json",
+        "sha256": "af6e721f4dd26c5a16cf492f4539bb8bfadd3b5157f8b38269a9dd7fc67457dc"
+      },
+      "filter": "linear",
+      "sampling_family": "painted_world",
+      "default_quality": "standard",
+      "views": {
+        "south": {
+          "logical_size": [
+            87.5,
+            20.0
+          ],
+          "footprint_size": [
+            24,
+            24
+          ],
+          "pivot": [
+            0.5,
+            1
+          ],
+          "variants": {
+            "standard": {
+              "texture": "village_fence_rail_v1",
+              "source_rect": [
+                0,
+                0,
+                350,
+                80
+              ]
+            }
+          }
+        }
+      }
+    },
+    "part.village_fence_depth": {
+      "kind": "tile",
+      "space": "world",
+      "owner": "VillageFenceVisual",
+      "task": "VPROP-005",
+      "source": {
+        "kind": "master",
+        "file": "docs/reports/visual-overhaul/vprop-005/source.json",
+        "sha256": "af6e721f4dd26c5a16cf492f4539bb8bfadd3b5157f8b38269a9dd7fc67457dc"
+      },
+      "filter": "linear",
+      "sampling_family": "painted_world",
+      "default_quality": "standard",
+      "views": {
+        "south": {
+          "logical_size": [
+            11.0,
+            36.0
+          ],
+          "footprint_size": [
+            24,
+            24
+          ],
+          "pivot": [
+            0.5,
+            1
+          ],
+          "variants": {
+            "standard": {
+              "texture": "village_fence_depth_v1",
+              "source_rect": [
+                0,
+                0,
+                44,
+                144
               ]
             }
           }

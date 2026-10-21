@@ -461,6 +461,11 @@
       "calls": 1,
       "scope": "bounded-procedural-or-resource",
       "reason": "VRENDER-004 replay accepts only a positive finite source enclosed by its actual Texture2D, validated before draw by ObjectDrawCommand. The current provider reuses the three declared workbench AtlasTextures; no new source family or production pass is enabled. ObjectDrawCommandSuite covers region rejection; native replay acceptance remains pending."
+    },
+    "scripts/presentation/village_fence_visual.gd": {
+      "calls": 1,
+      "scope": "bounded-procedural-or-resource",
+      "reason": "VPROP-005 oak construction parts, not an animation atlas. draw_section uses12px half-arms, draw_wall <=24px grid segments, draw_gate four12/13px pieces. source rect origin (8,8), dimensions exactly4*destination, max rail96x64 / depth28x96 fit the uniformly derived standalone content. VillageFenceSuite checks both maximum regions against actual imported PNG sizes; village_fence_assets.py verifies exact RGBA/headroom and source derivation; native VPROP-005 tests all16 masks, both gate orientations/states and four backgrounds."
     }
   },
   "initial_geometry_issues": [

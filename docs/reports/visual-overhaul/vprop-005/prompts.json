@@ -1,0 +1,17 @@
+{
+  "tool": "built-in image_gen",
+  "prompts": [
+    [
+      "post",
+      "A single standalone upright wooden fence post for a soft painterly 2D top-down farming RPG, warm valley palette, handmade oak wood grain. Full object with a square small cap, long solid shaft, narrow iron nail detail, grounded clean flat foot. Camera looking slightly down, broad face faces screen bottom, vertical axis exactly upright; natural edges, no outline, upper-left soft daylight. Neutral medium honey oak, restrained craft texture, detailed smooth brushwork, not pixel art. Transparent RGBA background. No background, ground, cast shadow, other posts, rails, scene, text. Entire post centered with generous transparent margins. A modular production sprite, consistent orthographic camera, not isometric."
+    ],
+    [
+      "rail",
+      "One isolated horizontal oak fence panel consisting ONLY OF TWO parallel horizontal narrow wooden rails, upper rail and lower rail, connected by a single short upright strut at center. NO end posts. The rails are perfectly horizontal in the screen plane, ends at same x and square cut. Gentle looking-down orthographic farm camera, front face pointing toward player at screen bottom. Warm medium honey oak craft woodgrain, natural soft painterly edge, upper-left soft daylight. A two rail open field fence, plenty of transparent negative space between upper and lower rails. No terrain, background, shadow, grass, diagonals, perspective convergence, text. Entire object isolated centered with generous alpha margins; detailed smooth painterly production sprite, not pixel art, matching a small oak post."
+    ],
+    [
+      "depth",
+      "One isolated fence infill for a north-south screen-aligned oak fence, seen in a soft painterly 2D orthographic farming RPG camera looking down at 45 degrees. ONLY TWO narrow wooden rails spanning strictly along the screen VERTICAL axis, upper/front edge visible in depth. Side-on fence elevation is projected along screen y, no posts. Two wooden strips appear as two parallel upright in screen wood bars, joined by one short horizontal support at middle. Long axis exactly vertical with square ends, symmetrical, zero isometric or diagonal convergence. Medium honey oak with subtle craft grain, upper-left soft daylight. No poles, terrain, scenery, grass, shadow or text. Transparent RGBA background, generous alpha margins, smooth detailed painterly non-pixel production sprite. This modular part is for a strict grid north-south fence; camera remains same as front fence, never rotate a horizontal fence image in plane."
+    ]
+  ]
+}

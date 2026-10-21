@@ -1,0 +1,64 @@
+{
+  "task": "VPROP-005",
+  "url": "http://127.0.0.1:4175/#/guides/village-fences",
+  "images_complete": true,
+  "images": [
+    {
+      "alt": "До: старый периметр",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    },
+    {
+      "alt": "После: соединённые столбы и перекладины",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    },
+    {
+      "alt": "Закрытая калитка",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    },
+    {
+      "alt": "Открытая калитка",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    },
+    {
+      "alt": "Все соединения на светлом фоне",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    },
+    {
+      "alt": "Те же части на вечернем фоне",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    }
+  ],
+  "downloads": [
+    {
+      "label": "Нативная сводка",
+      "file": "summary.json",
+      "sha256": "3b2e10ce413b30029afe44d58c4e09f645ca5d5ee7645bdd9d673d6d27553e73",
+      "exact": true
+    },
+    {
+      "label": "Паспорт трёх частей",
+      "file": "source.json",
+      "sha256": "af6e721f4dd26c5a16cf492f4539bb8bfadd3b5157f8b38269a9dd7fc67457dc",
+      "exact": true
+    },
+    {
+      "label": "Промпты built-in image_gen",
+      "file": "prompts.json",
+      "sha256": "81565650af61ac96be5e5ebdca01bef3d5cfdba10fa2680677c4421d06788772",
+      "exact": true
+    }
+  ],
+  "search_verified": true
+}

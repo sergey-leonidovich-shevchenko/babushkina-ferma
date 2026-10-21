@@ -20,10 +20,10 @@ static func draw(game: Node2D, foreground: bool = false) -> void:
 	for wall in Data.walls(): records.append({"wall":wall,"position":Vector2(wall.get_center().x,wall.end.y)})
 	records.sort_custom(func(left,right): return left.position.y<right.position.y)
 	for record in records:
-		if (float(record.position.y)>game.player.y)!=foreground: continue
 		if record.has("wall"):
-			if visible.intersects(Rect2(record.wall).grow(32)): draw_fence(game,record.wall)
+			if visible.intersects(Rect2(record.wall).grow(40)):preload("res://scripts/presentation/village_fence_visual.gd").draw_wall(game,record.wall,foreground)
 			continue
+		if (float(record.position.y)>game.player.y)!=foreground:continue
 		if not visible.intersects(Visual.destination_rect(record.kind,record.frame,record.position).grow(32)): continue
 		Visual.draw(game,record.kind,record.frame,record.position,record.flip)
 		if record.has("animal") and game.player.distance_to(record.position)<150:

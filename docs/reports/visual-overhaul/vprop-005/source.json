@@ -1,0 +1,71 @@
+{
+  "task": "VPROP-005",
+  "tool": "built-in image_gen",
+  "parts": {
+    "post": {
+      "master": "masters/post.png",
+      "master_sha256": "8e8a4c9245ce4eeaae02da39df29f7438a350641ba8b315397e9306c37646b4a",
+      "crop": [
+        404,
+        103,
+        619,
+        1435
+      ],
+      "uniform_resize": 0.0960960960960961,
+      "pixels": [
+        37,
+        144
+      ],
+      "content_size": [
+        21,
+        128
+      ],
+      "runtime": "assets/game/locations/overworld/fences/post_v1.png",
+      "sha256": "e1230e4289195f723f80f6b9d277c5dca1cf03593885afaf8f1919e69e893f1f"
+    },
+    "rail": {
+      "master": "masters/rail.png",
+      "master_sha256": "af2628927a0f037b43f9ded69782729049c016d14204bbb786211b5df1e54434",
+      "crop": [
+        61,
+        183,
+        2109,
+        575
+      ],
+      "uniform_resize": 0.16326530612244897,
+      "pixels": [
+        350,
+        80
+      ],
+      "content_size": [
+        334,
+        64
+      ],
+      "runtime": "assets/game/locations/overworld/fences/rail_v1.png",
+      "sha256": "c021acf8a6bb3e132ead8aeb5585261d0aedcdf63f453eb63184140b1b374ec1"
+    },
+    "depth": {
+      "master": "masters/depth.png",
+      "master_sha256": "9f989abd9abc9fe6e398314e5172df4e3d6e73a525155fdd38776ff3a4b58453",
+      "crop": [
+        363,
+        129,
+        645,
+        1416
+      ],
+      "uniform_resize": 0.09945609945609946,
+      "pixels": [
+        44,
+        144
+      ],
+      "content_size": [
+        28,
+        128
+      ],
+      "runtime": "assets/game/locations/overworld/fences/depth_v1.png",
+      "sha256": "1541063b17592624d663be5f586fbe9e57951b8d56b3885b8017ff4dbd6bc959"
+    }
+  },
+  "render_scale": 0.25,
+  "processing": "Alpha >=8 measured ROI plus8 source pixels, uniform Lanczos reduction and8 output padding; no repaint, rotation, keying or mirroring. Subregions repeat at the same density, never fit a rectangular sprite to a square."
+}

@@ -169,11 +169,11 @@
 
 ## VPROP-005 — Подготовить ограждения и ворота
 
-Статус: `ready` · P1 · этап `pilot` · `engineering`
+Статус: `done` · P1 · этап `pilot` · `engineering`
 
 Прямые секции, углы и проходы привязаны к сетке; визуальный забор совпадает с блокировкой
 
-Ветка: `codex/vprop-005-visual-task`.
+Ветка: `codex/vprop-005-fence-grid`.
 
 Зависимости: VART-004, VART-008.
 
@@ -185,7 +185,7 @@
 - [scripts/presentation/house_furniture_visual_system.gd](../../../../scripts/presentation/house_furniture_visual_system.gd)
 - [scripts/systems/furniture_facing_system.gd](../../../../scripts/systems/furniture_facing_system.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vprop-005/`.
+Результаты: `docs/reports/visual-overhaul/vprop-005/`.
 
 Критерии:
 
@@ -203,13 +203,13 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vprop-005/README.md, docs/reports/visual-overhaul/vprop-005/source.json, docs/reports/visual-overhaul/vprop-005/prompts.json, docs/reports/visual-overhaul/vprop-005/summary.json, docs/reports/visual-overhaul/vprop-005/native/before/source.json, docs/reports/visual-overhaul/vprop-005/native/after/source.json, docs/reports/visual-overhaul/vprop-005/review.txt, docs/reports/visual-overhaul/vprop-005/python-check.txt, docs/reports/visual-overhaul/vprop-005/completion.json, docs/reports/visual-overhaul/vprop-005/quality-check.txt, docs/reports/visual-overhaul/vprop-005/wiki-check.txt, docs/reports/visual-overhaul/vprop-005/browser-review.json.
 
 <a id="vprop-006"></a>
 
 ## VPROP-006 — Согласовать указатели и доски
 
-Статус: `backlog` · P1 · этап `pilot` · `engineering`
+Статус: `ready` · P1 · этап `pilot` · `engineering`
 
 Читаемые силуэты, общий масштаб и три стороны; подпись не встроена в текстуру для шести локалей
 

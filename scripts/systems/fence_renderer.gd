@@ -34,18 +34,29 @@ static func climate_color(game: Node) -> Color:
 
 
 ## Рисует все пользовательские секции с автосоединением, глубиной и открытыми калитками.
-static func draw_world(game: Node2D) -> void:
+static func draw_world(game: Node2D, foreground: bool=false) -> void:
 	var values: Array=game.FenceSystem.structures(game); var visible:=[]
 	for structure in values:
 		if structure.location==game.current_location: visible.append(structure)
 	visible.sort_custom(func(left: Dictionary,right: Dictionary): return game.FenceSystem.structure_center(left).y<game.FenceSystem.structure_center(right).y)
 	for structure in visible:
+		var painted:bool=game.current_location=="overworld" and int(structure.style)==0
+		if painted:
+			if (game.FenceSystem.structure_center(structure).y>game.player.y)!=foreground:continue
+		elif foreground:continue
 		draw_structure(game,structure)
-	if game.FenceSystem.active(game): draw_target(game)
+	if not foreground and game.FenceSystem.active(game):draw_target(game)
 
 
 ## Рисует одну секцию или калитку из строки выбранного материала.
 static func draw_structure(game: Node2D, structure: Dictionary) -> void:
+	if game.current_location=="overworld" and int(structure.style)==0:
+		var f=preload("res://scripts/presentation/village_fence_visual.gd")
+		var p:Vector2=game.FenceSystem.structure_center(structure)
+		if structure.kind=="gate":f.draw_gate(game,p,int(structure.orientation),bool(structure.open),climate_color(game))
+		else:f.draw_section(game,p,game.FenceSystem.connection_mask(game,structure),climate_color(game))
+		draw_weather_detail(game,p,WorldVisualProfileSystem.visual_size("fence_gate" if structure.kind=="gate" else "fence_section"))
+		return
 	var center: Vector2=game.FenceSystem.structure_center(structure); var rotation:=0.0; var column:=0; var profile_id:="fence_section"
 	if structure.kind=="gate": column=7 if structure.open else 6; rotation=PI*0.5 if int(structure.orientation)==1 else 0.0; profile_id="fence_gate"
 	else:

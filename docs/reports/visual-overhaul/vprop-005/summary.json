@@ -1,0 +1,54 @@
+{
+  "task": "VPROP-005",
+  "base_commit": "152f1080837c9ba13e48c229ec87fd60a2845302",
+  "performance_eligible": false,
+  "scope": "original farm perimeter, pen walls, existing oak player fences on overworld only",
+  "windows": {
+    "1152": {
+      "before_png": 12,
+      "after_png": 16,
+      "draw_callbacks": 128,
+      "changed_pixels": {
+        "farm-nw": 50334,
+        "farm-ne": 48532,
+        "farm-south": 63869,
+        "gap-north": 36758,
+        "gap-east": 77154,
+        "pens": 69575,
+        "gate-0-false": 18470,
+        "gate-0-true": 18159,
+        "gate-1-false": 18150,
+        "gate-1-true": 18384,
+        "interior": 0,
+        "street-control": 4598
+      },
+      "outside_fence_equal": true,
+      "gallery_backgrounds": 4,
+      "all_masks": 16,
+      "gate_states": 4
+    },
+    "1280": {
+      "before_png": 12,
+      "after_png": 16,
+      "draw_callbacks": 128,
+      "changed_pixels": {
+        "farm-nw": 62346,
+        "farm-ne": 60161,
+        "farm-south": 78864,
+        "gap-north": 45527,
+        "gap-east": 95679,
+        "pens": 85191,
+        "gate-0-false": 22913,
+        "gate-0-true": 22516,
+        "gate-1-false": 22609,
+        "gate-1-true": 22850,
+        "interior": 0,
+        "street-control": 5779
+      },
+      "outside_fence_equal": true,
+      "gallery_backgrounds": 4,
+      "all_masks": 16,
+      "gate_states": 4
+    }
+  }
+}

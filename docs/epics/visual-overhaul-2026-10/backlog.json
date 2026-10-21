@@ -8427,7 +8427,7 @@
       "id": "VPROP-005",
       "epic": "VPROP",
       "title": "Подготовить ограждения и ворота",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "phase": "pilot",
       "kind": "engineering",
@@ -8463,14 +8463,28 @@
         "confidence": "low",
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
-      "branch": "codex/vprop-005-visual-task",
-      "evidence": []
+      "branch": "codex/vprop-005-fence-grid",
+      "evidence": [
+        "docs/reports/visual-overhaul/vprop-005/README.md",
+        "docs/reports/visual-overhaul/vprop-005/source.json",
+        "docs/reports/visual-overhaul/vprop-005/prompts.json",
+        "docs/reports/visual-overhaul/vprop-005/summary.json",
+        "docs/reports/visual-overhaul/vprop-005/native/before/source.json",
+        "docs/reports/visual-overhaul/vprop-005/native/after/source.json",
+        "docs/reports/visual-overhaul/vprop-005/review.txt",
+        "docs/reports/visual-overhaul/vprop-005/python-check.txt",
+        "docs/reports/visual-overhaul/vprop-005/completion.json",
+        "docs/reports/visual-overhaul/vprop-005/quality-check.txt",
+        "docs/reports/visual-overhaul/vprop-005/wiki-check.txt",
+        "docs/reports/visual-overhaul/vprop-005/browser-review.json"
+      ],
+      "result": "Подключены три осевые деревянные части ограды к прежнему периметру, стенкам загонов и деревянным постройкам игрока первой карты. Все16 масок, углы и два направления калиток без поворота PNG. Старые проходы, коллизии, E, стоимость и сохранения сохранены; другой материал/карты не расширены. Приняты56 нативных PNG/256 draw в двух окнах, четыре фона, ограниченные области изменений,56 профильных условия,10 Python-проверок,98 Wiki-тестов и браузер. FPS и полная VMAP-003 остаются отдельно. Полный игровой набор: 46142/0."
     },
     {
       "id": "VPROP-006",
       "epic": "VPROP",
       "title": "Согласовать указатели и доски",
-      "status": "backlog",
+      "status": "ready",
       "priority": "P1",
       "phase": "pilot",
       "kind": "engineering",

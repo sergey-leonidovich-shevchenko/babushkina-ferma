@@ -414,3 +414,10 @@ assets/inbox/*
 !tools/village_lamp*.py
 !tools/test_village_lamp.py
 !docs/reports/visual-overhaul/vprop-004/native/**/*.png.import
+
+# VPROP-005: modular oak fences and source-bound native evidence.
+!tools/village_fence*.gd
+!tools/village_fence*.gd.uid
+!tools/village_fence*.py
+!tools/test_village_fence.py
+!docs/reports/visual-overhaul/vprop-005/native/**/*.png.import

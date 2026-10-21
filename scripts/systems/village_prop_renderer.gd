@@ -21,6 +21,7 @@ const Lamp := preload("res://scripts/presentation/village_lamp_visual.gd")
 ## Рисует самостоятельные деревенские объекты на заднем либо переднем плане без замены рисунка при приближении.
 static func draw(game:Node2D,foreground:bool)->void:
 	if game.current_location!="overworld": return
+	preload("res://scripts/presentation/village_fence_visual.gd").draw_farm(game,foreground)
 	var visible := WorldVisibility.visible_rect(game)
 	if not foreground:
 		for prop in Layout.PROP_PLACEMENTS:
