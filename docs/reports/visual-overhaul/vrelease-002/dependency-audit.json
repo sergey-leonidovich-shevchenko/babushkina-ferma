@@ -1,0 +1,2819 @@
+{
+  "task": "VRELEASE-002",
+  "base_commit": "cc55ff9a3a2b1bfaf8e6887c912a7b4b1c474fa7",
+  "canonical_queue": "docs/reports/visual-overhaul/vrelease-001/queue.json",
+  "predecessors": [
+    {
+      "id": "VBASE-001",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vbase-001/README.md",
+          "git_type": "blob",
+          "sha256": "fe55046b50dbfb7fe972c2b1c1e3a3f5a44e57a1ede5e140a9d58e019e9b2b2a"
+        }
+      ],
+      "canonical_claims": [
+        "[Нативный отчёт и воспроизведение](../../../reports/visual-overhaul/vbase-001/README.md)",
+        "Три свежих процесса: окно и framebuffer 1152×648; весь фокус; 16 точек на одинаковых 902 физических шагах; все интервалы сохранены. Runtime daeeeec и SHA256 инструментов находятся в session.json",
+        "VALID_BASELINE во всех повторах, бюджет FAIL: p95 19.148 / 34.945 / 19.236 мс; худший повтор не исключён. Результат не закрывает OPT-01 и не объявляет игру оптимизированной",
+        "Нативные resize/pause/focus и headless отклонены. 11 тестовых методов проверяют отрицательные сценарии, включая секундный рывок. Обязательные architecture и игровые проверки выполняет pre-commit до публикации"
+      ]
+    },
+    {
+      "id": "VBASE-002",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vbase-002/README.md",
+          "git_type": "blob",
+          "sha256": "35305e1368471a480d90970edd6c47cf05c0189aae2443642e27775a1b3b8818"
+        }
+      ],
+      "canonical_claims": [
+        "[Аппаратный профиль, raw-повторы и ограничения](../../../reports/visual-overhaul/vbase-002/README.md)",
+        "Выбран проверяемый ориентир разработки: MacBookPro16,1, i7-9750H, 16 GiB, AMD Radeon Pro 5300M 4 GB, macOS 15.4.1; окно/framebuffer 1152×648. Релизный минимум, Windows/Linux/Apple Silicon и встроенный GPU остаются непроверенными.",
+        "Три свежих процесса одного батарейного профиля: камера (0,348), seed 20261015, 16 точек/902 физических шага, живой мир и полный фокус. VALID_REFERENCE_DEVICE; p95 44.197 / 36.526 / 37.124 мс, диагностический бюджет FAIL во всех повторах. OPT-01 и VPERF/VMAP этим не закрыты.",
+        "Реальный отказ AC-профиля сохранён отдельно; после выявления батарейного питания снята новая серия. Raw, шесть PNG и пять точных исходников инструментария подписаны. Runtime d2820e06 / 0.0.256; последующий bump не выдаётся за новый замер.",
+        "17 профильных сценариев и проверка отчёта пройдены на Python 3.9.6 и 3.12.14; допустимо только численное округление сводки. Полный игровой набор: 44082 passed, 0 failed; architecture и Wiki check (56/56 после объединения с WIKI-002) пройдены, перед завершением повторяются штатным hook.",
+        "Wiki обновлена: отдельная глава visual-hardware, паспорт JSON и сводки для скачивания; очередь первой локации сохраняется, следующая VBASE-005."
+      ]
+    },
+    {
+      "id": "VBASE-003",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vbase-003/README.md",
+          "git_type": "blob",
+          "sha256": "80cbfb5fe9b9dc7027625187e3b1fccfdeda29db1092393dec1af9d60c4abc08"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vbase-003/camera-points.json",
+          "git_type": "blob",
+          "sha256": "3848320b5130ce3b29baf65a0a6ca1705e0675f2186d28934cc9d8ff9f2df7b8"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vbase-003/native/source.json",
+          "git_type": "blob",
+          "sha256": "5c6da0134aa82214eefa8d93844f0529b058e3d201cee8a54092c6b427321d41"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vbase-003/native/index.html",
+          "git_type": "blob",
+          "sha256": "be61dafb887160c1f80a18cd0406f3d66d22f99511f0a2c510d12ab58d0123ac"
+        },
+        {
+          "file": "tools/test_visual_camera.py",
+          "git_type": "blob",
+          "sha256": "1aa39d46d3a069c52df5f546b928b62558fe8f5e8dfda6dc77ec40be4e24f217"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vbase-003/README.md",
+        "docs/reports/visual-overhaul/vbase-003/camera-points.json",
+        "docs/reports/visual-overhaul/vbase-003/native/source.json",
+        "docs/reports/visual-overhaul/vbase-003/native/index.html",
+        "tests/suites/visual_camera_suite.gd",
+        "tools/test_visual_camera.py"
+      ]
+    },
+    {
+      "id": "VBASE-004",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vbase-004/README.md",
+          "git_type": "blob",
+          "sha256": "4979fcfedbc37a9f14219495a9ad947b6466836053aa85734ae13be3aa838904"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vbase-004/native/index.html",
+          "git_type": "blob",
+          "sha256": "c9569732d1f3d86f7d5dc44b436f2579f9e3e142edd7a10219f88398fbada31f"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vbase-004/native/source.json",
+          "git_type": "blob",
+          "sha256": "88f393b29b470107db22b9a3b1de0981a2bd0a9136e0ded65c31ad8a70c8552f"
+        },
+        {
+          "file": "tools/test_visual_static.py",
+          "git_type": "blob",
+          "sha256": "32d1079c7f7c0194c60cac61f99bc24516229182cb1e97d181b606ea26ab7dfb"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vbase-004/README.md",
+        "docs/reports/visual-overhaul/vbase-004/native/index.html",
+        "docs/reports/visual-overhaul/vbase-004/native/source.json",
+        "tests/suites/visual_static_suite.gd",
+        "tools/test_visual_static.py"
+      ]
+    },
+    {
+      "id": "VBASE-005",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vbase-005/README.md",
+          "git_type": "blob",
+          "sha256": "e6c64948cca934d2afef83e8d02b6c44c7a7ffadfbcafcc70652b9d90246674a"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vbase-005/acceptance.json",
+          "git_type": "blob",
+          "sha256": "7911d1f52c7c1ba8e4bb703d5be04488d6df3fc9e978bfa976162043a58bc492"
+        }
+      ],
+      "canonical_claims": [
+        "[Маршрут, два нативных видео и ограничения](../../../reports/visual-overhaul/vbase-005/README.md)",
+        "[Приёмка и выполненные проверки](../../../reports/visual-overhaul/vbase-005/acceptance.json): runtime 0b00534cdeed61f23763f7494e888d8727134bc0 / 0.0.260; точные 14 файлов инструментария сохранены отдельно. Новая графика, QA-01 целиком и FPS этим не принимаются.",
+        "Два независимых нативных процесса одного preset: окно/root/Image 1152×648, мир 100%, seed 20261015, 18 точек и 630 физических шагов. Полностью совпали ввод, поза, камера, жители и две обычные двери; 48 шагов вне дороги и 74 рядом минимум с тремя жителями. Перестановки героя внутри маршрута нет.",
+        "Оба MP4 содержат 211 GPU-кадров, 20 кадров видео/с и 10,55 с. Реальные отказы resize/pause/focus/teleport сохранены с raw, наблюдаемой причиной и Image. Вся фиксированная съёмка исключена из performance gate; headless дополнительно отклонён.",
+        "Проверены валидаторы и 17 отрицательных/положительных Python-сценариев; 13 GDScript-утверждений на реальном вводе и GameLoop. Полный игровой набор: 44095 passed, 0 failed; architecture пройден, Wiki check: 58/58. Штатный commit hook повторяет общий gate и игровой набор.",
+        "Wiki получила главу visual-motion и два плеера: оба проверены запуском/паузой в браузере, 1152×648 и 10,55 с, без ошибок/горизонтального переполнения. MP4 ограничены отчётами/8 MiB/SHA256; MIME и экранирование проверены. Следующая — VCAMERA-002; курс до VMAP-003 сохраняется."
+      ]
+    },
+    {
+      "id": "VART-001",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vart-001/README.md",
+          "git_type": "blob",
+          "sha256": "8ab817a6833264d106575ef099fcee8a2f6913f0e5983a80cc9a6f0d3c7baa65"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-001/index.html",
+          "git_type": "blob",
+          "sha256": "181d69adaee258c8e0964bae9f7d02571dfa171b29822e882d1f81870741b024"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-001/review.json",
+          "git_type": "blob",
+          "sha256": "defe65064af63ee43b79b0224c3dfce5bcbd1bf804d647ff21647a092dd7ec26"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-001/scene-a.png",
+          "git_type": "blob",
+          "sha256": "79e0797fd154c079fda867c1c5b52c4ffeb76c755a2cd9f78f7f974c6c00b799"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-001/scene-b.png",
+          "git_type": "blob",
+          "sha256": "f4741d135051c5fbd3ad7ab042bca9ff0452e95725379a48442c3f0e59e5ee7a"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-001/modules-a.png",
+          "git_type": "blob",
+          "sha256": "2afb68cd0e08844f161a6aebb0f8f7522e06da00011b75157ba271a5be1908fc"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-001/modules-b.png",
+          "git_type": "blob",
+          "sha256": "49083bb1b88a29d806fb4072cbcfb5f1aec342c46086e08ed1ff47b6208bdd7b"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vart-001/README.md",
+        "docs/reports/visual-overhaul/vart-001/index.html",
+        "docs/reports/visual-overhaul/vart-001/review.json",
+        "docs/reports/visual-overhaul/vart-001/scene-a.png",
+        "docs/reports/visual-overhaul/vart-001/scene-b.png",
+        "docs/reports/visual-overhaul/vart-001/modules-a.png",
+        "docs/reports/visual-overhaul/vart-001/modules-b.png"
+      ]
+    },
+    {
+      "id": "VCAMERA-001",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vcamera-001/README.md",
+          "git_type": "blob",
+          "sha256": "b6451ce8b27e6d6381ebfeb32f8d1c4958e4c80680fb06f64131e9d421628877"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vcamera-001/native/source.json",
+          "git_type": "blob",
+          "sha256": "ddd20e1d457911443c3c9de2d3b8e1624f94b4cce0cd54fb8f72b5c96462a292"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vcamera-001/index.html",
+          "git_type": "blob",
+          "sha256": "4e2b3ad55ad8ab86270d711ffafe4a934367aec4f3d5f34e75d00d54e0aedb71"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vcamera-001/README.md",
+        "docs/reports/visual-overhaul/vcamera-001/native/source.json",
+        "docs/reports/visual-overhaul/vcamera-001/index.html"
+      ]
+    },
+    {
+      "id": "VART-002",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vart-002/README.md",
+          "git_type": "blob",
+          "sha256": "52aff19e2c48480ca4a793617db58a01fa6778d139c98acfad112f1cefcf4639"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-002/index.html",
+          "git_type": "blob",
+          "sha256": "8b8e3e8a3cd853a65f75f5a05d0b4332b3923794e0da4bbc4d49107a159133df"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-002/review.json",
+          "git_type": "blob",
+          "sha256": "534e9b4195488a858ebed42434daec76a9871a4a64a15912f6884378b9caf470"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-002/scale-profile.json",
+          "git_type": "blob",
+          "sha256": "4bed99c250c9522a07c6c600f426cfd970ab25929aa1796f89e67a7e61b5fca8"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-002/native/source.json",
+          "git_type": "blob",
+          "sha256": "73e3f75395e7fd5f182b5ea881c67c1bec8815033e46ee645c2851cf9b2db440"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-002/native/capture.json",
+          "git_type": "blob",
+          "sha256": "b77406fb40969fdfce16d9f40fe28079cec727847bc64d9c8c5a636d651eca5a"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vart-002/README.md",
+        "docs/reports/visual-overhaul/vart-002/index.html",
+        "docs/reports/visual-overhaul/vart-002/review.json",
+        "docs/reports/visual-overhaul/vart-002/scale-profile.json",
+        "docs/reports/visual-overhaul/vart-002/native/source.json",
+        "docs/reports/visual-overhaul/vart-002/native/capture.json"
+      ]
+    },
+    {
+      "id": "VART-003",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vart-003/README.md",
+          "git_type": "blob",
+          "sha256": "992c4b554388e6ac7342c4436b59ae398be1883f4a30ec0a9d1e5b4b5cf17093"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-003/index.html",
+          "git_type": "blob",
+          "sha256": "088bd35840148bf60433c4dec94c395edd879dd91e1653e08b95314990b17528"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-003/palette.json",
+          "git_type": "blob",
+          "sha256": "1a7e5fdcf9995c215f3ccd910f0d704d723c77d6621196db4701de80a3b1a7e4"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-003/source.json",
+          "git_type": "blob",
+          "sha256": "8e9da7cc111a5aa726e2e1b3019262a7009c0fe7f46e77948d9f438e70748497"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-003/measurements.json",
+          "git_type": "blob",
+          "sha256": "f458cdaf19b11d64699eda0ac8a229056b9a83b1cd974c950bd6491c5b8dbc74"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-003/browser-check.json",
+          "git_type": "blob",
+          "sha256": "c329085eba3dd40c9663caf3613a07a4ab620cdd3acb1c4c0b660a0796f75acf"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-003/browser-artifacts.json",
+          "git_type": "blob",
+          "sha256": "97c069ed514c5680723f127ee3b504ed965b87a4bed69b9fd21afad621f8cae8"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vart-003/README.md",
+        "docs/reports/visual-overhaul/vart-003/index.html",
+        "docs/reports/visual-overhaul/vart-003/palette.json",
+        "docs/reports/visual-overhaul/vart-003/source.json",
+        "docs/reports/visual-overhaul/vart-003/measurements.json",
+        "docs/reports/visual-overhaul/vart-003/browser-check.json",
+        "docs/reports/visual-overhaul/vart-003/browser-artifacts.json"
+      ]
+    },
+    {
+      "id": "VART-004",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vart-004/README.md",
+          "git_type": "blob",
+          "sha256": "61ffa1a33607ef0ce6ab2a6a423ed165c6dbfc6dc71d8fe0044991f13058e71d"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-004/index.html",
+          "git_type": "blob",
+          "sha256": "b7137f59b54babeab4b4ef094be1c4f3ade7700e880c8c56cc0fadfedd56b5ae"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-004/standard.json",
+          "git_type": "blob",
+          "sha256": "631596721dcef9f54f3339c2ca9e4902d074543d4d13cfcb4b1afffca24a481e"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-004/runtime-export.json",
+          "git_type": "blob",
+          "sha256": "e56b821086c936a1ad4e13afd9d14ca61bb6520b3acb907e111bd23aac8d2b0e"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-004/source.json",
+          "git_type": "blob",
+          "sha256": "3b99eeb8912747278e730fafb87e1638770c2ed61419986c51f987dccf9e98d7"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-004/export-check.json",
+          "git_type": "blob",
+          "sha256": "56234dfef283fc54108942ff3a38328b38b67edee50777e99b48dddef1c24f2a"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-004/browser-check.json",
+          "git_type": "blob",
+          "sha256": "1411d3653148dc557cc34ee3333364fc5ae4ae4159d1b74c695ae79f19797c6b"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-004/browser-artifacts.json",
+          "git_type": "blob",
+          "sha256": "8dc1420c070ae3946c9d12b5e4c33bcc5d9cef240acf41da3fd6d919cb95acb3"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vart-004/README.md",
+        "docs/reports/visual-overhaul/vart-004/index.html",
+        "docs/reports/visual-overhaul/vart-004/standard.json",
+        "docs/reports/visual-overhaul/vart-004/runtime-export.json",
+        "docs/reports/visual-overhaul/vart-004/source.json",
+        "docs/reports/visual-overhaul/vart-004/export-check.json",
+        "docs/reports/visual-overhaul/vart-004/browser-check.json",
+        "docs/reports/visual-overhaul/vart-004/browser-artifacts.json"
+      ]
+    },
+    {
+      "id": "VART-005",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vart-005/README.md",
+          "git_type": "blob",
+          "sha256": "701a827c412f226fc4b2de5573f21615017d677763a66d4414588a1e149bcb14"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-005/edge-profile.json",
+          "git_type": "blob",
+          "sha256": "bf7b837d7eaf8291366af49f3f075e68f70578f9ed49a0b8549bac302e6b9e3c"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-005/source.json",
+          "git_type": "blob",
+          "sha256": "57b806cd79a2703e19cb431e9d471a9879973d51b2d2f19a2c0cb4d12ccf2271"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-005/browser-check.json",
+          "git_type": "blob",
+          "sha256": "143e1791375005aeb8980b54290286434a7eac9f1523e11946f57652bdab3f83"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-005/browser-artifacts.json",
+          "git_type": "blob",
+          "sha256": "e2a4473bbbffd2b145255d71b25ad54edbcbdbef1b025c86f07206607d8708e2"
+        },
+        {
+          "file": "tools/visual_edges.py",
+          "git_type": "blob",
+          "sha256": "d2c96a1d315fb3b526a7483689e4898c44eb394b6e7a36f4e4816491a42b59ce"
+        },
+        {
+          "file": "tools/test_visual_edges.py",
+          "git_type": "blob",
+          "sha256": "ae13d360bd26f7dde0a4f5de84a9af7d997ca1e18c935050b1252bcc892ea0b4"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vart-005/README.md",
+        "docs/reports/visual-overhaul/vart-005/edge-profile.json",
+        "docs/reports/visual-overhaul/vart-005/source.json",
+        "docs/reports/visual-overhaul/vart-005/browser-check.json",
+        "docs/reports/visual-overhaul/vart-005/browser-artifacts.json",
+        "tools/visual_edges.py",
+        "tools/test_visual_edges.py",
+        "17 октября 2026: прямой ответ пользователя «A — естественный край (рекомендую)»; принят стандарт без общей дополнительной обводки. Шесть модулей одного RGBA-мастера, A/B × четыре фона, неизменные область 1152×648, поле 960×540 и проекция 1.2. Это браузерная художественная приёмка; runtime и assets/game не менялись."
+      ]
+    },
+    {
+      "id": "VART-006",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vart-006/README.md",
+          "git_type": "blob",
+          "sha256": "76900cf643bc21555db62e0b8c6348a9840df7b64c59169aa0f5fd7bb95144d5"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-006/density-profile.json",
+          "git_type": "blob",
+          "sha256": "ca8db546c37709f419387d0bcd30db8dd8a3e95344ccbad3f0a229241151bc20"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-006/source.json",
+          "git_type": "blob",
+          "sha256": "c78c7e573daa10f46b6b5a5e817b39cba0a85f7c9de3274a1f7dada9163cb405"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-006/browser-check.json",
+          "git_type": "blob",
+          "sha256": "d550b4fd2590c08b4e1f4be7330417ad10a82390b85eed23b92f2aa6c29b31b9"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-006/native/capture.json",
+          "git_type": "blob",
+          "sha256": "e8e76864736a70e5b036f87a85ab2908c5108ff8b6d02a3000c890bd14f40933"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-006/native/pairs.png",
+          "git_type": "blob",
+          "sha256": "c7ccd8caabb75227b83b7ca45de539c945d32db17be19c6f8b8eca94b0d6ef95"
+        },
+        {
+          "file": "tools/visual_density.py",
+          "git_type": "blob",
+          "sha256": "ce2cf008d7a01a54b000584caca7eeec260def9675d349ce0af35724e01fa212"
+        },
+        {
+          "file": "tools/test_visual_density.py",
+          "git_type": "blob",
+          "sha256": "f89bc9a2388a06731b8373576a1f31c50e55b9a4ed81bf8141a85678cfe43a13"
+        },
+        {
+          "file": "tools/visual_density_capture.gd",
+          "git_type": "blob",
+          "sha256": "0699ede725cd4d4c4087cdc868eef1835bf1c885bdeed62b9862659b6620e558"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vart-006/README.md",
+        "docs/reports/visual-overhaul/vart-006/density-profile.json",
+        "docs/reports/visual-overhaul/vart-006/source.json",
+        "docs/reports/visual-overhaul/vart-006/browser-check.json",
+        "docs/reports/visual-overhaul/vart-006/native/capture.json",
+        "docs/reports/visual-overhaul/vart-006/native/pairs.png",
+        "tools/visual_density.py",
+        "tools/test_visual_density.py",
+        "tools/visual_density_capture.gd",
+        "17 октября 2026: пользователь выбрал «B — ремесленная фактура». Сохранены мягкий стиль VART-001 A, палитра A и край A. Пять образцов с общим героем, одинаковыми source rect/опорами и проекцией 1.2; 12 DOM-состояний, шесть настоящих GPU Image 1152×648 и парный лист 1152×960 с равными повторами. Этюды не импортированы в игру; FPS и игровые локации не принимаются."
+      ]
+    },
+    {
+      "id": "VART-007",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vart-007/README.md",
+          "git_type": "blob",
+          "sha256": "682ec1a730fafc7176d34b2122b3506d272329417b8ad085cb349a0681524bfb"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-007/light-profile.json",
+          "git_type": "blob",
+          "sha256": "472364e2f1a6317e39ce7d94d880be7737dc91dfec75e44170cfe3b37a1d9053"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-007/native/capture.json",
+          "git_type": "blob",
+          "sha256": "bd188813fa0dc6f9130dccb3ce561c5863df0d8dc7ecedac9289c6bc6ba8245e"
+        },
+        {
+          "file": "tools/visual_light.py",
+          "git_type": "blob",
+          "sha256": "d58f642add5a236a5f51752b498c81025bc6a34590a92b3fd6f8f793ba125e7b"
+        },
+        {
+          "file": "tools/test_visual_light.py",
+          "git_type": "blob",
+          "sha256": "87c788e6454642c62db1b649019ee86ea2dd55bf48679d8bf7dea4a110e84874"
+        },
+        {
+          "file": "tools/visual_light_capture.gd",
+          "git_type": "blob",
+          "sha256": "53eb8f29a2b66d7896c9e87de8f1a872dfd48f02c12c2d6e3ab0800f8064c53e"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vart-007/README.md",
+        "docs/reports/visual-overhaul/vart-007/light-profile.json",
+        "docs/reports/visual-overhaul/vart-007/native/capture.json",
+        "tools/visual_light.py",
+        "tools/test_visual_light.py",
+        "tools/visual_light_capture.gd"
+      ]
+    },
+    {
+      "id": "VART-008",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vart-008/README.md",
+          "git_type": "blob",
+          "sha256": "10e71d09e3d5ac96d30cdeba597fa185ff17681c0779d778b60bc5bd2bcd8692"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-008/modules.json",
+          "git_type": "blob",
+          "sha256": "ebb7ab17aee83fd7a56ae6d6a6722b0afbfb164cfa0716c07eca8ee4fc4d9f07"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-008/measurements.json",
+          "git_type": "blob",
+          "sha256": "e160dc77a9069be9db89d36372b72f859ea1c195cdd593e653a031863af44c88"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-008/source.json",
+          "git_type": "blob",
+          "sha256": "47e4a8dae644ac9dd9d07c8d13f58db1c2263abe547f07d2e31236f74ffd3509"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-008/native/capture.json",
+          "git_type": "blob",
+          "sha256": "806463d016cc5734c646bcc7f8e154f478e323c566951c3f06911a12ce437720"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-008/browser.json",
+          "git_type": "blob",
+          "sha256": "300824ec19b396afae30903d3d9df170c07338bd522a303c9aa6ff6612ad7195"
+        },
+        {
+          "file": "tools/visual_modules.py",
+          "git_type": "blob",
+          "sha256": "83c757ff5fd523dc2e6d6fb3746d360769c02c1d0505473b3b151d0af722fa7d"
+        },
+        {
+          "file": "tools/test_visual_modules.py",
+          "git_type": "blob",
+          "sha256": "1d36f9679b897055415626a530a099006f318c5200d033b484e1d6cd66a7f4e6"
+        },
+        {
+          "file": "tools/visual_modules_capture.gd",
+          "git_type": "blob",
+          "sha256": "f2bc0bf2af0f96c78e15101ca23685600d1752c5bda15e0fbd383ca22e6d5b5b"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vart-008/README.md",
+        "docs/reports/visual-overhaul/vart-008/modules.json",
+        "docs/reports/visual-overhaul/vart-008/measurements.json",
+        "docs/reports/visual-overhaul/vart-008/source.json",
+        "docs/reports/visual-overhaul/vart-008/native/capture.json",
+        "docs/reports/visual-overhaul/vart-008/browser.json",
+        "tools/visual_modules.py",
+        "tools/test_visual_modules.py",
+        "tools/visual_modules_capture.gd"
+      ]
+    },
+    {
+      "id": "VART-009",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vart-009/README.md",
+          "git_type": "blob",
+          "sha256": "85f5e394a0c0b201bbc896a470b731382e207642f5301036abebedac21762b9d"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-009/decisions.json",
+          "git_type": "blob",
+          "sha256": "86c412d40ebd5239f8f86b65aedf91e0d6da056c38be7981706ed535406246e6"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-009/inventory.json",
+          "git_type": "blob",
+          "sha256": "5fee2b7e9ea0e721c172307aca8f708b26dcb8bc9c7e15c91a95534a81849d36"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-009/native/capture.json",
+          "git_type": "blob",
+          "sha256": "37a7fa0fd045c68b94995a03876e1996edcbf091eb5a393acd37cf99e8b55726"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-009/browser.json",
+          "git_type": "blob",
+          "sha256": "0a6bd24f77b7cb8471e03abba2ceed8432d373ac19d2bd8cbba0a2f7aed75490"
+        },
+        {
+          "file": "tools/visual_reuse.py",
+          "git_type": "blob",
+          "sha256": "ad175d8c64f1e3afd513c6072e5f426ea1dcd26c5e7585093615d1cde32d0f3a"
+        },
+        {
+          "file": "tools/test_visual_reuse.py",
+          "git_type": "blob",
+          "sha256": "94c4d44631cf8b466fa7127ec806827f2913d819ca2fa23717dcb2ed7cfd8c99"
+        },
+        {
+          "file": "tools/visual_reuse_capture.gd",
+          "git_type": "blob",
+          "sha256": "7f40d05788c223c92f30b299c5cb10e5dac16290035b2df3ddfc8a01ded511ba"
+        },
+        {
+          "file": "tools/visual_reuse_sources.gd",
+          "git_type": "blob",
+          "sha256": "868c354fef37aa46f0678c32f7e99607c8e8cee0e03cf50596bf157f08d3f4ab"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vart-009/README.md",
+        "docs/reports/visual-overhaul/vart-009/decisions.json",
+        "docs/reports/visual-overhaul/vart-009/inventory.json",
+        "docs/reports/visual-overhaul/vart-009/native/capture.json",
+        "docs/reports/visual-overhaul/vart-009/browser.json",
+        "tools/visual_reuse.py",
+        "tools/test_visual_reuse.py",
+        "tools/visual_reuse_capture.gd",
+        "tools/visual_reuse_sources.gd"
+      ]
+    },
+    {
+      "id": "VART-010",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vart-010/README.md",
+          "git_type": "blob",
+          "sha256": "54855b3c7aee858410b325e88b8d3ecb8dda2cc91d23b028806e0f82e5154c35"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-010/icons.json",
+          "git_type": "blob",
+          "sha256": "f4f8549534ba313e7d3e1b4368ebfc8540cd6cc8640e6baebc96d0796772e0d9"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-010/review.json",
+          "git_type": "blob",
+          "sha256": "33cac765e6495d517297bce42c5d6a914162969409433e8b2d7ce879222da3d5"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-010/source.json",
+          "git_type": "blob",
+          "sha256": "ea0875d2451c4dcbcc70efb97cfe12799443b754c581e768b99a2f98890724d8"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-010/native/capture.json",
+          "git_type": "blob",
+          "sha256": "a9ca5f135ba103924918bfa3e72aa4e913afd152f6a741bee322697fcf7857e8"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vart-010/browser.json",
+          "git_type": "blob",
+          "sha256": "fd7452ce470a0f73b436199cf27a6820e338f152fa15c03602ccc661451d18ac"
+        },
+        {
+          "file": "tools/visual_icons.py",
+          "git_type": "blob",
+          "sha256": "d27bb69cf3ce0753ec8a5d11e952e98ff8f9f8f55a68726657b46d2a8bc23319"
+        },
+        {
+          "file": "tools/test_visual_icons.py",
+          "git_type": "blob",
+          "sha256": "1a5dff224ddee9d4947d7f6511179ca87b87315e5e6d62c017f085cf8d970a68"
+        },
+        {
+          "file": "tools/visual_icons_capture.gd",
+          "git_type": "blob",
+          "sha256": "bd0449587db04950b8dae2713cab832ac7a8dc9c16d7c3e41b16ac488c5359f2"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vart-010/README.md",
+        "docs/reports/visual-overhaul/vart-010/icons.json",
+        "docs/reports/visual-overhaul/vart-010/review.json",
+        "docs/reports/visual-overhaul/vart-010/source.json",
+        "docs/reports/visual-overhaul/vart-010/native/capture.json",
+        "docs/reports/visual-overhaul/vart-010/browser.json",
+        "tools/visual_icons.py",
+        "tools/test_visual_icons.py",
+        "tools/visual_icons_capture.gd"
+      ]
+    },
+    {
+      "id": "VPIPELINE-001",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-001/README.md",
+          "git_type": "blob",
+          "sha256": "a39379dc7bd5e30edfe8e4d3bffc2ae1f0285b95dea173f1ec780f1fb94c12b2"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-001/baseline.json",
+          "git_type": "blob",
+          "sha256": "67e4fc1b0b81320a58b0115c5283463b72594676c8e465cf7784fc77edb6fe69"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-001/import-comparison.json",
+          "git_type": "blob",
+          "sha256": "7662c1f4f086fe3e722f79cdde0eaf1466d5a7b79b2cb9a6dcef4ce3223c2f88"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-001/native-comparison.json",
+          "git_type": "blob",
+          "sha256": "291eec4cce1a00a3a5c268d4983ca9232193e1cbe9e07063c40bf4ae27902f93"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-001/browser.json",
+          "git_type": "blob",
+          "sha256": "5ef049aece4a4fafcbba90e0813bc4d59a28187cd1682f7796b4291cf47eacf0"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-001/verification.json",
+          "git_type": "blob",
+          "sha256": "a9dd801cd51b2edf7c78bb07d3929f055487a720b570936973aaa1552855f023"
+        },
+        {
+          "file": "tools/visual_pipeline.py",
+          "git_type": "blob",
+          "sha256": "3506254370995a381050b823d7ca7c3f029007bc6d47a12e6980d7aeb66c4973"
+        },
+        {
+          "file": "tools/test_visual_pipeline.py",
+          "git_type": "blob",
+          "sha256": "85709a569826c891a2ac6fb1f3b2502177bdd769f5c07d3ce842761a2fde2939"
+        },
+        {
+          "file": "wiki/articles/visual-pipeline.md",
+          "git_type": "blob",
+          "sha256": "c2075395e932ad74fa6ba974f0e81deb0cb7f89d1362afaa54e5ee6224eb9937"
+        },
+        {
+          "file": "wiki/articles/IDEA-001.md",
+          "git_type": "blob",
+          "sha256": "345b89d2bb3bc86d3b8187c881891c7ff45e69585ea2e230889eeec9f3f36053"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-001/additional-local-preview-audit.json",
+          "git_type": "blob",
+          "sha256": "63d7fc50237482ebdb0e1efcc106e55fc7dffadc41e8638f56235baf2e1ce734"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-001/local-tile-preview-relocation.json",
+          "git_type": "blob",
+          "sha256": "599068c496606650e2315778271148ab71d23d2f4b2ebe88f5a2e890dcb4bd16"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-001/editor-textures-after.json",
+          "git_type": "blob",
+          "sha256": "43738c035cc6696769b7f8e2f58b1598d755ed779a141e3c5ecb3a490e079ff6"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vpipeline-001/README.md",
+        "docs/reports/visual-overhaul/vpipeline-001/baseline.json",
+        "docs/reports/visual-overhaul/vpipeline-001/import-comparison.json",
+        "docs/reports/visual-overhaul/vpipeline-001/native-comparison.json",
+        "docs/reports/visual-overhaul/vpipeline-001/browser.json",
+        "docs/reports/visual-overhaul/vpipeline-001/verification.json",
+        "tools/visual_pipeline.py",
+        "tools/test_visual_pipeline.py",
+        "tests/suites/asset_boundary_suite.gd",
+        "wiki/articles/visual-pipeline.md",
+        "wiki/articles/IDEA-001.md",
+        "docs/reports/visual-overhaul/vpipeline-001/additional-local-preview-audit.json",
+        "docs/reports/visual-overhaul/vpipeline-001/local-tile-preview-relocation.json",
+        "docs/reports/visual-overhaul/vpipeline-001/editor-textures-after.json"
+      ]
+    },
+    {
+      "id": "VPIPELINE-002",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-002/README.md",
+          "git_type": "blob",
+          "sha256": "7b650ca64ac154f2a175f5558f8bf74be08133f989ae38aefc24a7bcb996e2e8"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-002/native-comparison.json",
+          "git_type": "blob",
+          "sha256": "08b2595fac7695b807e699744f567e6132b69c0ac5c285aacaeaab4096ffe66d"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-002/verification.json",
+          "git_type": "blob",
+          "sha256": "55c3780a4ab08ae74857c7da227f7def6d6dcfdd670b4209e19133c40e2eedbd"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-002/browser.json",
+          "git_type": "blob",
+          "sha256": "5973e8f7ce1f62c423e218d819d8c04db793fc60a962c1a0ea0da7ff1e703f9c"
+        },
+        {
+          "file": "assets/game/visual_resources.json",
+          "git_type": "blob",
+          "sha256": "3935d9dc9b799ce59b63298eba863b9183e400cf26c526503b8add91f2c4c801"
+        },
+        {
+          "file": "tools/visual_resources.py",
+          "git_type": "blob",
+          "sha256": "221ac4287a2f82799b9d9e96e05882991a521953724362c44069076e06bd13df"
+        },
+        {
+          "file": "tools/test_visual_resources.py",
+          "git_type": "blob",
+          "sha256": "455244e8cd6e3abf746506a8604de5817c931c741334c4467e21f48509e56857"
+        },
+        {
+          "file": "docs/VISUAL_RESOURCE_FORMAT.md",
+          "git_type": "blob",
+          "sha256": "7e2d74958404d19f35c6c3f38269f7ad1e97aa4ec56fc3e7e5eb12342f5c2d82"
+        },
+        {
+          "file": "wiki/articles/visual-resources.md",
+          "git_type": "blob",
+          "sha256": "f7c5f47920df7887d8170703ecad1796aeb888869fb6e187e007feb7b3341c1b"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vpipeline-002/README.md",
+        "docs/reports/visual-overhaul/vpipeline-002/native-comparison.json",
+        "docs/reports/visual-overhaul/vpipeline-002/verification.json",
+        "docs/reports/visual-overhaul/vpipeline-002/browser.json",
+        "assets/game/visual_resources.json",
+        "scripts/systems/visual_resource_catalog.gd",
+        "tools/visual_resources.py",
+        "tools/test_visual_resources.py",
+        "tests/suites/visual_resource_suite.gd",
+        "docs/VISUAL_RESOURCE_FORMAT.md",
+        "wiki/articles/visual-resources.md"
+      ]
+    },
+    {
+      "id": "VPIPELINE-003",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-003/README.md",
+          "git_type": "blob",
+          "sha256": "33cc028311a159d991a0feace8f955ab961635cb7affcfeaa37d21e7c2a67610"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-003/native-comparison.json",
+          "git_type": "blob",
+          "sha256": "d63020809b3b3af27d212192b89a8bbff3fd33e0b9a095dce7067f35cd673e77"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-003/native/after/capture.json",
+          "git_type": "blob",
+          "sha256": "f85ea86d23f16868a4b1cd71e8fa27bb25655f07ef1852fc44fdcfbb914fb90f"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-003/browser.json",
+          "git_type": "blob",
+          "sha256": "09bf3bc94be7a7a733ac237eff02303fb210584b35ec9f7b75fef0f8841f1e94"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-003/verification.json",
+          "git_type": "blob",
+          "sha256": "0c15928b5586b44603e229ffddb4262cb15034df79f9b69936b147d9d678ee0c"
+        },
+        {
+          "file": "assets/game/visual_sampling.json",
+          "git_type": "blob",
+          "sha256": "6dcb752185303546f2f867bf73f3bd2adfcf1585be4e22121b41bdcf979003a7"
+        },
+        {
+          "file": "tools/visual_sampling.py",
+          "git_type": "blob",
+          "sha256": "6d3917205c612351030a0344678dc3a230b33129a874e696c4561f19a6fb213e"
+        },
+        {
+          "file": "tools/test_visual_sampling.py",
+          "git_type": "blob",
+          "sha256": "d6c1f56cccacbd08cec05528cb28821e2112ff9e6fea099ba8347c7726117303"
+        },
+        {
+          "file": "wiki/articles/visual-sampling.md",
+          "git_type": "blob",
+          "sha256": "35d8c3c550a97a53af2befa554f0ca2072f218e5bfd44a2b24d8efed87b5ab6a"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vpipeline-003/README.md",
+        "docs/reports/visual-overhaul/vpipeline-003/native-comparison.json",
+        "docs/reports/visual-overhaul/vpipeline-003/native/after/capture.json",
+        "docs/reports/visual-overhaul/vpipeline-003/browser.json",
+        "docs/reports/visual-overhaul/vpipeline-003/verification.json",
+        "assets/game/visual_sampling.json",
+        "scripts/presentation/visual_sampling_system.gd",
+        "tools/visual_sampling.py",
+        "tools/test_visual_sampling.py",
+        "tests/suites/visual_sampling_suite.gd",
+        "wiki/articles/visual-sampling.md"
+      ]
+    },
+    {
+      "id": "VPIPELINE-004",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-004/README.md",
+          "git_type": "blob",
+          "sha256": "c3e99ee243db9b244a350fb159d7e07a799dde6f6434569d3bfc38138d9d4cc8"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-004/native-comparison.json",
+          "git_type": "blob",
+          "sha256": "d7ec21588b75177c3ca9ddbb2be3d734762684f3f5921a928a749420a1176ee7"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-004/native/capture.json",
+          "git_type": "blob",
+          "sha256": "4507db0408187cbbd5484c262115d4cc8202e8333c80e923ee58c041e7d34012"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-004/browser.json",
+          "git_type": "blob",
+          "sha256": "e5c1ab11933e4394549983f77a87b4d6fff07c217b55b5849b4d36c8b52e711d"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-004/verification.json",
+          "git_type": "blob",
+          "sha256": "f6800bd0e71e5f0ab8f9e7f73cb742f4ff261dd9b2c72033b630ff9aa6cee70e"
+        },
+        {
+          "file": "assets/game/items/ui/padded/catalog.json",
+          "git_type": "blob",
+          "sha256": "9f9143c55597e62108afcee1f7086a7ee0165f38dc2d81923b1666f8e90121e8"
+        },
+        {
+          "file": "tools/padded_atlases.py",
+          "git_type": "blob",
+          "sha256": "70c2fe442eb7cc22f94ff71b785d359cb18ccbaca371db873e3d424d297029d0"
+        },
+        {
+          "file": "tools/test_padded_atlases.py",
+          "git_type": "blob",
+          "sha256": "cafccd1dd99bad137b8773b251a157eaf93531c78ab3c8fb903739b7fedb4593"
+        },
+        {
+          "file": "wiki/articles/padded-atlases.md",
+          "git_type": "blob",
+          "sha256": "f248f80a3b71789f00438b4b8f157a576d6a2575b447c4c5ccb4b59b0ad3f25a"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vpipeline-004/README.md",
+        "docs/reports/visual-overhaul/vpipeline-004/native-comparison.json",
+        "docs/reports/visual-overhaul/vpipeline-004/native/capture.json",
+        "docs/reports/visual-overhaul/vpipeline-004/browser.json",
+        "docs/reports/visual-overhaul/vpipeline-004/verification.json",
+        "assets/game/items/ui/padded/catalog.json",
+        "scripts/presentation/padded_atlas_system.gd",
+        "tools/padded_atlases.py",
+        "tools/test_padded_atlases.py",
+        "tests/suites/padded_atlas_suite.gd",
+        "wiki/articles/padded-atlases.md"
+      ]
+    },
+    {
+      "id": "VPIPELINE-005",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-005/README.md",
+          "git_type": "blob",
+          "sha256": "1c1b4726eed748b3006b9e2bf43f5b026929a5d844353cb3435834720a999f39"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-005/numeric-proof.json",
+          "git_type": "blob",
+          "sha256": "ddf254f00a08e796900a190f6326f7f1e5ea00a15d330812bca7faa9506fad06"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-005/room-comparison.json",
+          "git_type": "blob",
+          "sha256": "508053067176458320f8e33752c0552499aa672a41efde383f37d80dcad40dcb"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-005/browser.json",
+          "git_type": "blob",
+          "sha256": "61953bec7692b3cb10eb26c82888111cbcb1800d2f777f5ee00e2363d1fcd519"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-005/verification.json",
+          "git_type": "blob",
+          "sha256": "5f2a68df27222afd9ba0e9b4b05b29c1329cce272c1751f7391dd1e60ea8011c"
+        },
+        {
+          "file": "assets/game/visual_texture_intents.json",
+          "git_type": "blob",
+          "sha256": "be4e4d8d1d5cf0d88e4084ab523d08b2df678bf06df22d02ebf0541449425e0e"
+        },
+        {
+          "file": "tools/texture_intents.py",
+          "git_type": "blob",
+          "sha256": "386ac01afc5456ed4e8103db9834fb78e81b258af4f88c34fee590fbcb98e86e"
+        },
+        {
+          "file": "tools/test_texture_intents.py",
+          "git_type": "blob",
+          "sha256": "154e526e22bb7dafcab34843ced122bc53814af22e8a99d08083d66d95c71b7a"
+        },
+        {
+          "file": "wiki/articles/data-textures.md",
+          "git_type": "blob",
+          "sha256": "33d3c07a296ff635ed274f43f3e3f088570601052234ac08a0681aa226b841c0"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vpipeline-005/README.md",
+        "docs/reports/visual-overhaul/vpipeline-005/numeric-proof.json",
+        "docs/reports/visual-overhaul/vpipeline-005/room-comparison.json",
+        "docs/reports/visual-overhaul/vpipeline-005/browser.json",
+        "docs/reports/visual-overhaul/vpipeline-005/verification.json",
+        "assets/game/visual_texture_intents.json",
+        "scripts/presentation/texture_intent_system.gd",
+        "tools/texture_intents.py",
+        "tools/test_texture_intents.py",
+        "tests/suites/texture_intent_suite.gd",
+        "wiki/articles/data-textures.md"
+      ]
+    },
+    {
+      "id": "VPIPELINE-006",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-006/README.md",
+          "git_type": "blob",
+          "sha256": "4c0f4d15672514e79e3e159d672eaadb7512fcade6cca4d53afd2f672fd493b1"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-006/proof.json",
+          "git_type": "blob",
+          "sha256": "43a2cba6586ecd8f6a475a9036ac88e9bce3a851a2abe62588749be35b668bb5"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-006/after/capture.json",
+          "git_type": "blob",
+          "sha256": "dff1ffa6b872c8b8df3c47414ebeaf5cef63315253fff871c0ccc55be2ee8812"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-006/browser.json",
+          "git_type": "blob",
+          "sha256": "ee0e97263f00760b9cc19ae48e87d10d9557fff239b42d95cc04136222d27a04"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-006/verification.json",
+          "git_type": "blob",
+          "sha256": "c0349d383f199df849ba3e20a5c662cae489945a56f6c4860d52ae10e1e30710"
+        },
+        {
+          "file": "tools/item_ui_fitter.gd",
+          "git_type": "blob",
+          "sha256": "47743787c4b31016690a8ccd9b9c886fe72b8b5312620f38510006c594aa6c7e"
+        },
+        {
+          "file": "tools/item_sizes.py",
+          "git_type": "blob",
+          "sha256": "bb1e420bdc0b8cf366b7a8ab3872c3e4d5861875124666dfb05207b55e602727"
+        },
+        {
+          "file": "tools/test_item_sizes.py",
+          "git_type": "blob",
+          "sha256": "9a60756baad7d0b82b03b07ab002b2b579ccd6204a23ab60e47cc2f2564e675e"
+        },
+        {
+          "file": "wiki/articles/item-icon-sizes.md",
+          "git_type": "blob",
+          "sha256": "9aa6599cbbee12126f074874f10c95ef33701150cc843da82e3e9736b952fc11"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vpipeline-006/README.md",
+        "docs/reports/visual-overhaul/vpipeline-006/proof.json",
+        "docs/reports/visual-overhaul/vpipeline-006/after/capture.json",
+        "docs/reports/visual-overhaul/vpipeline-006/browser.json",
+        "docs/reports/visual-overhaul/vpipeline-006/verification.json",
+        "scripts/presentation/prepared_item_icon_system.gd",
+        "tools/item_ui_fitter.gd",
+        "tools/item_sizes.py",
+        "tools/test_item_sizes.py",
+        "tests/suites/item_sizes_suite.gd",
+        "wiki/articles/item-icon-sizes.md"
+      ]
+    },
+    {
+      "id": "VPIPELINE-007",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-007/README.md",
+          "git_type": "blob",
+          "sha256": "824aa3553f4e300c5364125e1a715b57dff86d9ffb4e1a0e50ff200320e58b94"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-007/legacy-baseline.json",
+          "git_type": "blob",
+          "sha256": "d66f4d35f6450186c0c9093bc82b83df7f3fb6cf521a150de02b0a3694857123"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-007/proof.json",
+          "git_type": "blob",
+          "sha256": "f14c70f24ff34eaf61d9428d5610127f0e9788fbd98a744eb60bec915491e035"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-007/native/capture.json",
+          "git_type": "blob",
+          "sha256": "149fcf7372d97f8ffd5a17f3b65d61d23597a0c8fc4cc385858f430f7593c8a1"
+        },
+        {
+          "file": "tools/alpha_audit.py",
+          "git_type": "blob",
+          "sha256": "d5838e016cd71078ad374032ddbf71cd32c5bfaf68eb040fae25342ff855a6e2"
+        },
+        {
+          "file": "tools/alpha_metrics.py",
+          "git_type": "blob",
+          "sha256": "f301d32d7ebf3d2c80a0aeb210089b78f8d06377da54751324a837a18381f17b"
+        },
+        {
+          "file": "tools/test_alpha_audit.py",
+          "git_type": "blob",
+          "sha256": "8ca55b70cba5a55238501e8d3049977951f8bfc79d74aed4870772b2f6a5e7f4"
+        },
+        {
+          "file": "tools/test_alpha_proof.py",
+          "git_type": "blob",
+          "sha256": "9e5ebbc2023aa3cc0eab3f6aee1d25190fdaf59bc552ed11b60359b096868d6f"
+        },
+        {
+          "file": "wiki/articles/alpha-edges.md",
+          "git_type": "blob",
+          "sha256": "9f9ac06ac4c7ef63784452c534350f9ccc97a7932fced86e0b029dc226ebf85b"
+        },
+        {
+          "file": "wiki/articles/alpha-candidates.md",
+          "git_type": "blob",
+          "sha256": "57cc274003f347cccc45794d7fd442cd512b794d786e54f86745311ca8fb7da5"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vpipeline-007/README.md",
+        "docs/reports/visual-overhaul/vpipeline-007/legacy-baseline.json",
+        "docs/reports/visual-overhaul/vpipeline-007/proof.json",
+        "docs/reports/visual-overhaul/vpipeline-007/native/capture.json",
+        "tools/alpha_audit.py",
+        "tools/alpha_metrics.py",
+        "tools/test_alpha_audit.py",
+        "tools/test_alpha_proof.py",
+        "wiki/articles/alpha-edges.md",
+        "wiki/articles/alpha-candidates.md"
+      ]
+    },
+    {
+      "id": "VPIPELINE-008",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/README.md",
+          "git_type": "blob",
+          "sha256": "44f5cab08ffc94f13ddf98ec9d324b6a9ca639f8d76ffad779d4637d08c1a08c"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/proof.json",
+          "git_type": "blob",
+          "sha256": "2af7b226452b4b19f2da4a2e9be34130bbd881bed71c012583eefc2be74600f5"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-slices.json",
+          "git_type": "blob",
+          "sha256": "f35de0c8ded673a5dbf824bc9200ff7195420216517da9dff005f8dc19676bc8"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/after/inventory.json",
+          "git_type": "blob",
+          "sha256": "6807a6844df55d0824d758536f905a78d942e2d2edf08ab34b8ea915b61a6b6a"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/after/measurements.json",
+          "git_type": "blob",
+          "sha256": "3c6d017e0a08ae5030b797adff6555287971cfc40d6adc7c00fee628461167c1"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/before-native/capture.json",
+          "git_type": "blob",
+          "sha256": "dc548075d14d1d7844a2049fbd750ff36a97abfa21de8c25f092fc35b0bcaee8"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/after-native/capture.json",
+          "git_type": "blob",
+          "sha256": "ed777e75fec42a4284aee0d2208500051bfcd1a5a9a3f8b91de8d76d857d37d0"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/legacy-native/capture.json",
+          "git_type": "blob",
+          "sha256": "f8627c1c4fde3e099f4304ca57b12c90f6e3bab9f98aff3fe51b1193503fb584"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/browser.json",
+          "git_type": "blob",
+          "sha256": "0699af333cd375dd332d0807ea5530c164ec598ab1558133c6d74c8545b9d81c"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-008/verification.json",
+          "git_type": "blob",
+          "sha256": "f875dec8954ff3950eb63009450ea6763bb2173e4a07b5210d5d2f361a27ebdf"
+        },
+        {
+          "file": "tools/slice_audit.py",
+          "git_type": "blob",
+          "sha256": "5e5d0dac4b5e6af31dc8ff539d01a7de8955dfc9ce2ca102458d66eb7cbcdf26"
+        },
+        {
+          "file": "tools/slice_metrics.py",
+          "git_type": "blob",
+          "sha256": "32dd7871ee05ee5531d90d0533005a0302afa87be658035471ac9ad4b54dde86"
+        },
+        {
+          "file": "tools/slice_export.gd",
+          "git_type": "blob",
+          "sha256": "f4c1bbd6ed24392b35483297d3f93f4badc575bbf3a7f1542422880879023dd0"
+        },
+        {
+          "file": "tools/slice_catalogs.gd",
+          "git_type": "blob",
+          "sha256": "4953f2b4dd14887826fc06f7e6ae946676a7cde9887fae13678ce70dc04dcfc8"
+        },
+        {
+          "file": "tools/slice_policy.json",
+          "git_type": "blob",
+          "sha256": "7e6de712745efda93bee0336c25abb47b162a4ee053c3aa1d5caed1348dbaf0c"
+        },
+        {
+          "file": "tools/slice_proof.py",
+          "git_type": "blob",
+          "sha256": "6d372d0c2982dcf187f1c8c69003e67d7283ac0830387ba89fbd2d223cf81bce"
+        },
+        {
+          "file": "tools/test_slice_audit.py",
+          "git_type": "blob",
+          "sha256": "dcb632180c53ffccec8ca054ab8157f14c7111d465144e180300ad7da3da4b99"
+        },
+        {
+          "file": "tools/test_slice_proof.py",
+          "git_type": "blob",
+          "sha256": "1ce6da422eb427eb9a6487e9356f3f7b0283d257041ebe6d1c793d344a68d01c"
+        },
+        {
+          "file": "wiki/articles/sprite-slices.md",
+          "git_type": "blob",
+          "sha256": "05c2338c0b164d2fc72d909a7dbe1b7442bb77103cd052cf3ab54077999c37f3"
+        },
+        {
+          "file": "wiki/articles/slice-risks.md",
+          "git_type": "blob",
+          "sha256": "9cc8a13f409a0aaacda48cbe2a37f1b324b6e8306a2bdc2c799ab4ace07277d6"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vpipeline-008/README.md",
+        "docs/reports/visual-overhaul/vpipeline-008/proof.json",
+        "docs/reports/visual-overhaul/vpipeline-008/legacy-slices.json",
+        "docs/reports/visual-overhaul/vpipeline-008/after/inventory.json",
+        "docs/reports/visual-overhaul/vpipeline-008/after/measurements.json",
+        "docs/reports/visual-overhaul/vpipeline-008/before-native/capture.json",
+        "docs/reports/visual-overhaul/vpipeline-008/after-native/capture.json",
+        "docs/reports/visual-overhaul/vpipeline-008/legacy-native/capture.json",
+        "docs/reports/visual-overhaul/vpipeline-008/browser.json",
+        "docs/reports/visual-overhaul/vpipeline-008/verification.json",
+        "tools/slice_audit.py",
+        "tools/slice_metrics.py",
+        "tools/slice_export.gd",
+        "tools/slice_catalogs.gd",
+        "tools/slice_policy.json",
+        "tools/slice_proof.py",
+        "tools/test_slice_audit.py",
+        "tools/test_slice_proof.py",
+        "tests/suites/atlas_source_geometry_suite.gd",
+        "wiki/articles/sprite-slices.md",
+        "wiki/articles/slice-risks.md"
+      ]
+    },
+    {
+      "id": "VPIPELINE-009",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-009/README.md",
+          "git_type": "blob",
+          "sha256": "92b1dc96fd5e64fc2b06995659f04dae5dc8157841f73b8a9380cc25eb7a0399"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-009/plan.json",
+          "git_type": "blob",
+          "sha256": "8e79696c99bbeb1a359a840d93150cc2060ea4a1f1eceec82c71b7d10089144c"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-009/inventory.json",
+          "git_type": "blob",
+          "sha256": "2908b8caba0c85dcb5e6309d86af02e951add130f663e63b021dea5714a414d8"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-009/proof.json",
+          "git_type": "blob",
+          "sha256": "40aab6c18731ae16827e5f467a131be558f041342dceabd058ad776511e913d0"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-009/fixture-sources.json",
+          "git_type": "blob",
+          "sha256": "dfd5c6179184d640ed1e4ef5dd2a8f630739cef76f68286fa766a26832b5f873"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-009/production-unchanged.json",
+          "git_type": "blob",
+          "sha256": "e786b9b5a0d22355988f2e44e7ae72ead8aecad9eaa3371126e2ac3a397759f2"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-009/wiki-contract.json",
+          "git_type": "blob",
+          "sha256": "c8cfb92873e66a89e6130c6676a4488bfa51005fce59382ddcf8fa2b903bcdd6"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-009/browser.json",
+          "git_type": "blob",
+          "sha256": "85e1d44807ca2add8ed32d9d6d167e72fd21671dd3d656eed1ffdbc0d5483438"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-009/verification.json",
+          "git_type": "blob",
+          "sha256": "eb7fc4a0f781dd0cb009af20ebe75d1671a74921875389ef548eb865bfa2837e"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-009/historical-replay.json",
+          "git_type": "blob",
+          "sha256": "fa722a44297c07b09b266b96c1572cc01e3cbe18634a4dd578c6754dfd5648c6"
+        },
+        {
+          "file": "tools/asset_migration.py",
+          "git_type": "blob",
+          "sha256": "2adb4f900eb76ac4482e96db2b1d36fba3d1eb2549a9a59005e044279d34b4dd"
+        },
+        {
+          "file": "tools/migration_inventory.py",
+          "git_type": "blob",
+          "sha256": "4b9cc690faef431b6e93ef2040600c2f078e27c5f50820e4baf3d373a246916c"
+        },
+        {
+          "file": "tools/migration_fixture.py",
+          "git_type": "blob",
+          "sha256": "bb5591b99aa3558ce3b1b8a11e00c7bfe7fe14da717e7d041932ec9a5ceae0cc"
+        },
+        {
+          "file": "tools/migration_capture.gd",
+          "git_type": "blob",
+          "sha256": "69ed4b0872c57161d9ff56d742a3db0bfe89eeddb1dae85aa240af54bb68f7f6"
+        },
+        {
+          "file": "tools/migration_proof.py",
+          "git_type": "blob",
+          "sha256": "05409a0479c07890a5f01b07792ca5d30ba527ecc42084e0ce9dce34b67921fb"
+        },
+        {
+          "file": "tools/test_asset_migration.py",
+          "git_type": "blob",
+          "sha256": "a7ecf2a1e3c93cc03653fe78ffa51f9df440490610d36aa0c76411d1106813f2"
+        },
+        {
+          "file": "tools/test_migration_proof.py",
+          "git_type": "blob",
+          "sha256": "030b959ae3d8a46441c0bbf0f63d50321ee026e24525d5f550571577da03a734"
+        },
+        {
+          "file": "wiki/articles/asset-migration.md",
+          "git_type": "blob",
+          "sha256": "dea4666bf68ff7afc065c5fc57c885e0514a481f493b9de462923c2ae434568b"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vpipeline-009/README.md",
+        "docs/reports/visual-overhaul/vpipeline-009/plan.json",
+        "docs/reports/visual-overhaul/vpipeline-009/inventory.json",
+        "docs/reports/visual-overhaul/vpipeline-009/proof.json",
+        "docs/reports/visual-overhaul/vpipeline-009/fixture-sources.json",
+        "docs/reports/visual-overhaul/vpipeline-009/production-unchanged.json",
+        "docs/reports/visual-overhaul/vpipeline-009/wiki-contract.json",
+        "docs/reports/visual-overhaul/vpipeline-009/browser.json",
+        "docs/reports/visual-overhaul/vpipeline-009/verification.json",
+        "docs/reports/visual-overhaul/vpipeline-009/historical-replay.json",
+        "tools/asset_migration.py",
+        "tools/migration_inventory.py",
+        "tools/migration_fixture.py",
+        "tools/migration_capture.gd",
+        "tools/migration_proof.py",
+        "tools/test_asset_migration.py",
+        "tools/test_migration_proof.py",
+        "wiki/articles/asset-migration.md"
+      ]
+    },
+    {
+      "id": "VPIPELINE-010",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vpipeline-010/README.md",
+          "git_type": "blob",
+          "sha256": "f43a48b276801e7ba4593a9f3a2af3c505e161499518d871380c6c50f49ee573"
+        }
+      ],
+      "canonical_claims": [
+        "18 октября 2026: docs/reports/visual-overhaul/vpipeline-010/README.md; снимок commit 6ade4a2c, 2839 production-файлов, 1190 растров/встроенных текстур, SHA, размеры, альфа, импорт, адресные источники и номинальная RGBA8-оценка. 400 прямых медиа с неустановленным происхождением и 31 вычисляемый источник превью остаются долгом перед VRELEASE; отчёт не выдаёт разрешение на выпуск.",
+        "Настоящий export-pack: 3874 записи / 1595 ресурсов; исходники и архивы макетов исключены, JSON/TXT включены. Нативные 1190 текстур и восемь GPU-кадров 1152x648: реальные деревня/дом при одной камере и состоянии, 0 разных пикселей. Пакет запущен из пустой физической папки; испорченная копия выявила утечку архива и потерянный ctex. Production-пиксели, ссылки и сохранения не изменены.",
+        "17 сценариев стоимости/источников/ZIP + 8 порчи доказательств; architecture gate, полный игровой набор 44082/0, Wiki build/TypeScript и 41 Node-тест. Wiki: asset-costs, CSV/JSON; скачанный в браузере CSV имеет 2839 строк с SHA источника; 921 игровая статья не изменилась. Версия 0.0.247."
+      ]
+    },
+    {
+      "id": "VCAMERA-002",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vcamera-002/README.md",
+          "git_type": "blob",
+          "sha256": "2ed93f8af8e8529229911a34fd9dab0661e9a484eda8f75f49c0047f81a13bcf"
+        }
+      ],
+      "canonical_claims": [
+        "[Принятая нативная серия, метрики и проверки](../../../reports/visual-overhaul/vcamera-002/README.md)",
+        "Экран включён пользователем; через LaunchServices записаны шесть независимых нативных роликов: 1152×648, 1920×1080, Retina 2304×1296, по 360 GPU-кадров и 358 шагов полного GameLoop. Фокус/readback/стопы/указатель проверены на каждом кадре, native verify проходит. Точные 17 исходников и SHA256 сохранены.",
+        "22/22 Python-сценария, 1077 профильных GDScript-утверждений, общий architecture, 44 710 игровых утверждений / 0 ошибок и 58 Wiki-тестов прошли после съёмки.",
+        "Браузер подтвердил размеры, длительность и полное воспроизведение всех шести MP4. Вариант B с дробной камерой принят: опора героя имеет нулевой размах, камера движется шагами до 0,2122 логического px без остановок; физика, часы, указатель и границы совпадают с контролем. Тестовый viewport сброшен."
+      ]
+    },
+    {
+      "id": "VCAMERA-003",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vcamera-003/README.md",
+          "git_type": "blob",
+          "sha256": "6412379c49cfa4540b9403e8a027a500d38f823da2737861e7604e745343fadb"
+        }
+      ],
+      "canonical_claims": [
+        "[Нативная серия, общий отображаемый кадр и приёмка](../../../reports/visual-overhaul/vcamera-003/README.md)",
+        "Две завершённые физические опоры дают одну отображаемую позицию и часы ходьбы; стопа, тень, камера, фон, перекрытие предметами/деревьями и root_contact используют её. Физика, бой, коллизии и сохранение продолжают читать настоящую позицию. Пауза, фокус, переносы, двери и F12 проверены.",
+        "Шесть независимых нативных процессов: 1152×648, 1920×1080 и Retina 2304×1296, по 360 GPU-кадров и 178 физических шагов. Попарные физика/часы/ввод одинаковы; в 89 переходах A даёт 45 повторов камеры, B — 0, максимум шага 0,4243 → 0,2122 логического px. Корень настоящего QA-шейдера и указатель проверены покадрово. Точные 22 исходника и архив возобновлённого коллектора сохранены.",
+        "544 профильных GDScript-утверждения, автоматические callbacks 240 кадров / 119 межтактовых поз, 16 Python-сценариев, общий architecture, 45 254 игровых утверждения / 0 ошибок и 58 Wiki-тестов. Браузер воспроизвёл все шесть MP4 до конца без ошибок; декодированные последовательные кадры просмотрены отдельно.",
+        "Принят вариант B с общей позой. Это не FPS-gate, не художественная приёмка новой травы и не переход на 120%; следующие владельцы — VCAMERA-006, VPERF и VMAP-003."
+      ]
+    },
+    {
+      "id": "VCAMERA-006",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vcamera-006/README.md",
+          "git_type": "blob",
+          "sha256": "a1b8588a5fef136aff259604d9143f7e1039bb683d5a9ba465c1437e4087d6f3"
+        }
+      ],
+      "canonical_claims": [
+        "[Итоговая проекция, пакеты и приёмка](../../../reports/visual-overhaul/vcamera-006/README.md)",
+        "Принят выбранный VART-002 профиль 120% первой overworld: поле 960×540, HUD 100%. Фон, вложенные матрицы, свет, отсечение, подписи и обратный ввод используют одну проекцию. Остальные карты, ручной F12 и опубликованный preview сохраняют 100%; переходы сразу синхронизируют фон. Физика, сетка и сохранения сохраняют единицы.",
+        "Шесть новых schema 2 MP4: 1152×648, 1920×1080, Retina 2304×1296, по 240 GPU-кадров; попарные физика/часы/указатель и реальные пиксели HUD совпали. Все шесть роликов воспроизведены в Wiki до конца без ошибок. Архивы 42 исходников видео и 44 живых замеров соответствуют окончательному коду 0.0.272.",
+        "18 независимых живых запусков, по три повтора каждого масштаба и формата: AC, VSync, фокус, автоматические callbacks, без readback и других Godot-процессов. Медианы p95 100/120: 37,810/36,422; 35,575/39,090; 38,450/39,796 мс. Все относительные пределы PASS; абсолютный бюджет 60 FPS FAIL во всех 18. Общая производительность и новая художественная карта не объявляются принятыми.",
+        "Прошли 2225 адресных утверждений, включая 382 нового профиля, 45 636 общего игрового набора, 26 Python-сценариев и полная сборка Wiki с 58 тестами. Архитектурный gate включает проверки обоих пакетов и отрицательные сценарии; pre-commit повторяет обязательные проверки. Неудачные прежние попытки и их данные сохранены отдельно."
+      ]
+    },
+    {
+      "id": "VPERF-001",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vperf-001/README.md",
+          "git_type": "blob",
+          "sha256": "80f03970faad7c34048e292c60ff860dcc86de092becab6a46f3468d876d80aa"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vperf-001/summary.json",
+          "git_type": "blob",
+          "sha256": "ab8aa78a9a68029028d15b16e567694df64a64af10f3f1058b9e991d18bf021b"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vperf-001/native/source.json",
+          "git_type": "blob",
+          "sha256": "93351e05072d66a4e785435e69bf7f55e22eeb8b6ad4f1813c37255c66974728"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vperf-001/controls/source.json",
+          "git_type": "blob",
+          "sha256": "da48768aa8da6fcecb56a47dc47e343bcb204c4fdbf73fbfc7a90ed2a3882de9"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vperf-001/browser-review.json",
+          "git_type": "blob",
+          "sha256": "c2194d6a569bed1a01df20c907fcf14c2827cb6d70e51d857eb52497b842cc8e"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vperf-001/README.md",
+        "docs/reports/visual-overhaul/vperf-001/summary.json",
+        "docs/reports/visual-overhaul/vperf-001/native/source.json",
+        "docs/reports/visual-overhaul/vperf-001/controls/source.json",
+        "docs/reports/visual-overhaul/vperf-001/browser-review.json"
+      ]
+    },
+    {
+      "id": "VRELEASE-005",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vrelease-005/README.md",
+          "git_type": "blob",
+          "sha256": "58fd529fd5f012d0079fd3caf7c02651589ec5d3cdc8bbe0e35094035da1df64"
+        },
+        {
+          "file": "wiki/articles/artist-packet.md",
+          "git_type": "blob",
+          "sha256": "1f81bce8f34e9df444131f7954b9847ce7a635e298479e4916ce58cc2cbc33d4"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vrelease-005/references.json",
+          "git_type": "blob",
+          "sha256": "31a1b36152f03d7ed3577abd155db208cf7c87be92a2e3e5ad3a88d35408862b"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vrelease-005/acceptance.json",
+          "git_type": "blob",
+          "sha256": "d38ba765c970dd453eaa91bbce9c69ab3510c0667f1537480dcd2ed69523a19f"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vrelease-005/README.md",
+        "wiki/articles/artist-packet.md",
+        "docs/reports/visual-overhaul/vrelease-005/references.json",
+        "docs/reports/visual-overhaul/vrelease-005/acceptance.json"
+      ]
+    },
+    {
+      "id": "VRENDER-001",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vrender-001/README.md",
+          "git_type": "blob",
+          "sha256": "c655c1df3845c22d5a337f5e4f879c7c29e39e63376a8b10bb9ec49f891bac71"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vrender-001/contract.json",
+          "git_type": "blob",
+          "sha256": "0aacc0d5a3f8815f6a3729e8c804d86f90d5f29db2e93b3b436ff0ccd53aa7c6"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vrender-001/summary.json",
+          "git_type": "blob",
+          "sha256": "a8b33fe1ea335b55d13195c79cc2097cdeeca2dc6f68525603d9d238e24c19e3"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vrender-001/native/source.json",
+          "git_type": "blob",
+          "sha256": "821ec9377164eddcc9a11b83a39609cab7d5cf4194d31106d4a094afaa984a46"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vrender-001/browser-review.json",
+          "git_type": "blob",
+          "sha256": "f92920c70e6c1245b5dec9836c63dd02d72cacd42c58b9ad5b3feb95a7d2de9d"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vrender-001/README.md",
+        "docs/reports/visual-overhaul/vrender-001/contract.json",
+        "docs/reports/visual-overhaul/vrender-001/summary.json",
+        "docs/reports/visual-overhaul/vrender-001/native/source.json",
+        "docs/reports/visual-overhaul/vrender-001/browser-review.json"
+      ]
+    },
+    {
+      "id": "VRENDER-002",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vrender-002/README.md",
+          "git_type": "blob",
+          "sha256": "96b5aa090a67feb9fe359bd81489f5cb825a474329e4b0c61c4117e49bc1861a"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vrender-002/ADR.md",
+          "git_type": "blob",
+          "sha256": "c563f207a5dcd9ca33022f6f6f4992c478c4c74884124920e7bbee6f49bd9c60"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vrender-002/summary.json",
+          "git_type": "blob",
+          "sha256": "30fa13c74c07112dd04448bb975d5352608308b8675ed0bdd89eb486bf8bebdf"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vrender-002/bench/source.json",
+          "git_type": "blob",
+          "sha256": "1f4458c353c9ef63b7ace8f43e40f3a2f19bd4159237ebf5b9c965954c9d33a1"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vrender-002/cpu-only/source.json",
+          "git_type": "blob",
+          "sha256": "7f115e0bb6512a0f48a39c35695c5d9894ce4ff4fd83406e91a50ae8467b7a5a"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vrender-002/quality/source.json",
+          "git_type": "blob",
+          "sha256": "8ab26eb8a640f7614188cea8a63f16fa4139ff8c65746977f6c7073601d2bde8"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vrender-002/browser-review.json",
+          "git_type": "blob",
+          "sha256": "5dd292d0b2333edd2d74fc5d589b2d9d51459b21f69e719cc56aa0667f7f7ef8"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vrender-002/checks.json",
+          "git_type": "blob",
+          "sha256": "e69bb7892433b6e6c8ee4900ffe7344744a32a73df74736a9d30155ce1313369"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vrender-002/README.md",
+        "docs/reports/visual-overhaul/vrender-002/ADR.md",
+        "docs/reports/visual-overhaul/vrender-002/summary.json",
+        "docs/reports/visual-overhaul/vrender-002/bench/source.json",
+        "docs/reports/visual-overhaul/vrender-002/cpu-only/source.json",
+        "docs/reports/visual-overhaul/vrender-002/quality/source.json",
+        "docs/reports/visual-overhaul/vrender-002/browser-review.json",
+        "docs/reports/visual-overhaul/vrender-002/checks.json"
+      ]
+    },
+    {
+      "id": "VRENDER-003",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vrender-003/README.md",
+          "git_type": "blob",
+          "sha256": "eb4e472a7ce0d164739692aafa263f467b32cfc083025a358c9ee9ef67c24c7a"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vrender-003/summary.json",
+          "git_type": "blob",
+          "sha256": "dadbf243b5c025d7a9413f4a9cb5b7f2df16449917aa77a826aca6265c64c347"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vrender-003/native/source.json",
+          "git_type": "blob",
+          "sha256": "2985be9771c8222e6e0c8989cebd60edc9d42360f5182f0b9aa6df61873dce84"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vrender-003/native/1152/hot-loop.json",
+          "git_type": "blob",
+          "sha256": "8b358421917c5d6627afac21b041b53843cbc55283d4949c3e2357317a66a24b"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vrender-003/native/1152/cold.json",
+          "git_type": "blob",
+          "sha256": "2f58e883034c5fe06addccda6104cdc63a949b70b831b5110282b2eaf413eaab"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vrender-003/review.txt",
+          "git_type": "blob",
+          "sha256": "b5361bc8250c1aa85966129d5a7d9f5e96308e263b770eb5f5276536a0bd1095"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vrender-003/browser-review.json",
+          "git_type": "blob",
+          "sha256": "aa6e823d69e353831886fe18eaa0195932260475fec54fd6895711effd0f05e4"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vrender-003/README.md",
+        "docs/reports/visual-overhaul/vrender-003/summary.json",
+        "docs/reports/visual-overhaul/vrender-003/native/source.json",
+        "docs/reports/visual-overhaul/vrender-003/native/1152/hot-loop.json",
+        "docs/reports/visual-overhaul/vrender-003/native/1152/cold.json",
+        "docs/reports/visual-overhaul/vrender-003/review.txt",
+        "docs/reports/visual-overhaul/vrender-003/browser-review.json"
+      ]
+    },
+    {
+      "id": "VGROUND-001",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vground-001/README.md",
+          "git_type": "blob",
+          "sha256": "77b57b8a2779ab20b9e8280eadc9630496049f4dc2eec6d8b5c89f1d19802883"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-001/art-source.json",
+          "git_type": "blob",
+          "sha256": "932fa06735ceed84d5ee74aa4ab6139824666de9d0faed152b24f61d72155338"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-001/summary.json",
+          "git_type": "blob",
+          "sha256": "f31c4f7743a6e059537a76f3899c747088fcf06188ad5d0b669e994af0d21f23"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-001/completion.json",
+          "git_type": "blob",
+          "sha256": "77a801d23b5878719e7971cedf5741a5a59d241208842f62d252c287cad8b2df"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-001/native/source.json",
+          "git_type": "blob",
+          "sha256": "500bb0978d57a2feb9a5ba85df8796f0c068389d20d61c319f4fcba1f3d23238"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-001/review.txt",
+          "git_type": "blob",
+          "sha256": "8f9385d640472fd0afd6ac931b445be84adf38bf1269b1a95ab31d7ac869b1af"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-001/browser-review.json",
+          "git_type": "blob",
+          "sha256": "1e9f1b5c83ca29237373c54e47f1a51475d672e77abc10f767244b31ede1728a"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vground-001/README.md",
+        "docs/reports/visual-overhaul/vground-001/art-source.json",
+        "docs/reports/visual-overhaul/vground-001/summary.json",
+        "docs/reports/visual-overhaul/vground-001/completion.json",
+        "docs/reports/visual-overhaul/vground-001/native/source.json",
+        "docs/reports/visual-overhaul/vground-001/review.txt",
+        "docs/reports/visual-overhaul/vground-001/browser-review.json"
+      ]
+    },
+    {
+      "id": "VGROUND-003",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vground-003/README.md",
+          "git_type": "blob",
+          "sha256": "9c435f1ffba9b105ad2019abe0bfebf47ecb642bf345460b5db116f04b241485"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-003/completion.json",
+          "git_type": "blob",
+          "sha256": "28dcb0361c3c860b1cdf002ee7b4dae322e1985c7ba51c49d81e419b69e38583"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-003/summary.json",
+          "git_type": "blob",
+          "sha256": "7775a5b55cde59f3e22c4a8e431b24e92e98534b8e7da7e61e082cc1a3a08129"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-003/native/source.json",
+          "git_type": "blob",
+          "sha256": "f225684fb62e312899e367767510afbe2ad90f6b4fa8af27a63466d5b60912a0"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-003/review.txt",
+          "git_type": "blob",
+          "sha256": "c6cf40d758fde83a4f1ea595f496d1385ba07212d8c49a1b344fcac7e2301663"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-003/compile.txt",
+          "git_type": "blob",
+          "sha256": "4dfdeff4b6820a8dccd7eaf330eefd4397c69f9be2b2c7575b0020446c3eb0d7"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-003/browser-review.json",
+          "git_type": "blob",
+          "sha256": "332f231d9de31cc1fff1763dfa63ee363b21826726093e0143a9bea17aa2e300"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vground-003/README.md",
+        "docs/reports/visual-overhaul/vground-003/completion.json",
+        "docs/reports/visual-overhaul/vground-003/summary.json",
+        "docs/reports/visual-overhaul/vground-003/native/source.json",
+        "docs/reports/visual-overhaul/vground-003/review.txt",
+        "docs/reports/visual-overhaul/vground-003/compile.txt",
+        "docs/reports/visual-overhaul/vground-003/browser-review.json"
+      ]
+    },
+    {
+      "id": "VGROUND-004",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vground-004/README.md",
+          "git_type": "blob",
+          "sha256": "5b1d5c44d44893f050656b69cd8c4df2a463ed6bb8f46212b56fc105e3acf9cb"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-004/completion.json",
+          "git_type": "blob",
+          "sha256": "e20034d112c891a4e1f1b35f83c256a9f7904b378eea31238ca44ce07b5dba37"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-004/summary.json",
+          "git_type": "blob",
+          "sha256": "8e40698f816e25d58e657d377a5ea9f95c915bc5b55b2d63b4ac69be7fb76aaf"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-004/native/source.json",
+          "git_type": "blob",
+          "sha256": "8c8bb71ffb11a0f70fc25de0d2badb189c0fb83f46632ef9fb2131d451ba3a6f"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-004/review.txt",
+          "git_type": "blob",
+          "sha256": "f376153da8da549fada1da4f8a65627081eb85bce4f4a2082486a07054bcabb5"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-004/compile.txt",
+          "git_type": "blob",
+          "sha256": "e4f164af58addb4778a3b526937005bd56185d0318e4deae5d33a2add2d97f05"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-004/browser-review.json",
+          "git_type": "blob",
+          "sha256": "1e72e8aeed2b5b7213295b23d1951997543e1963efc5518905f4eec8d693d12e"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vground-004/README.md",
+        "docs/reports/visual-overhaul/vground-004/completion.json",
+        "docs/reports/visual-overhaul/vground-004/summary.json",
+        "docs/reports/visual-overhaul/vground-004/native/source.json",
+        "docs/reports/visual-overhaul/vground-004/review.txt",
+        "docs/reports/visual-overhaul/vground-004/compile.txt",
+        "docs/reports/visual-overhaul/vground-004/browser-review.json"
+      ]
+    },
+    {
+      "id": "VGROUND-005",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vground-005/README.md",
+          "git_type": "blob",
+          "sha256": "be364f8b6bd61ead3601ed1fcfc14367d37f3275848dbf394906024ce1351b50"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-005/completion.json",
+          "git_type": "blob",
+          "sha256": "d56b0d9b329ec4f3a47ae6d5d221f7d675e8f5d50a890d7093f4c6c6c973a38b"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-005/summary.json",
+          "git_type": "blob",
+          "sha256": "379bfee8ba373cc73fe0adc1da6483060003a282e05fb07275acc23bdee77fc5"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-005/review.txt",
+          "git_type": "blob",
+          "sha256": "704afe69832a8393d0eca61a7db2fec558cdec354bcfe617c698ae26e9fb33ac"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-005/native/source.json",
+          "git_type": "blob",
+          "sha256": "5e1a9fc0ee357c065668f50f8a8b0b863f3841cdb67d32e4f03ce062351e80c0"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-005/browser-review.json",
+          "git_type": "blob",
+          "sha256": "608da87c05fae9ebd24177ecc5bc4d8429e6023db717a05034ba36a1f0e17abe"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vground-005/README.md",
+        "docs/reports/visual-overhaul/vground-005/completion.json",
+        "docs/reports/visual-overhaul/vground-005/summary.json",
+        "docs/reports/visual-overhaul/vground-005/review.txt",
+        "docs/reports/visual-overhaul/vground-005/native/source.json",
+        "docs/reports/visual-overhaul/vground-005/browser-review.json"
+      ]
+    },
+    {
+      "id": "VGROUND-006",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vground-006/README.md",
+          "git_type": "blob",
+          "sha256": "4017de25d5b1d0ddf1dbaa4acdac62b71c0ffc5c161437b35a41f672ccad0aa5"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-006/completion.json",
+          "git_type": "blob",
+          "sha256": "dbebff8a7c33474786e7af47cbf110a323f245e8a5a471ba62b810f06aee12ac"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-006/summary.json",
+          "git_type": "blob",
+          "sha256": "652bb3d28baaeb06d10762675b780bf48d095cabe6dabc58c68d1281a87860a7"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-006/review.txt",
+          "git_type": "blob",
+          "sha256": "475774f888f5e42ee2feaebdf17108a58e1060494462c85fd1010238ec910df3"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-006/art-source.json",
+          "git_type": "blob",
+          "sha256": "57405f211486971f25d3acd1b78398e01d3ebc24fc9bedb410f5fd4d71e8156a"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-006/native/source.json",
+          "git_type": "blob",
+          "sha256": "be95bb85ab98e83c0adf47908bbd850d8a89a3477fe58557f449ff9121322aac"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-006/browser-review.json",
+          "git_type": "blob",
+          "sha256": "6e53de95c86abe97652091439091a884f55816e5cdcb8aadfda378d1951747a4"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vground-006/README.md",
+        "docs/reports/visual-overhaul/vground-006/completion.json",
+        "docs/reports/visual-overhaul/vground-006/summary.json",
+        "docs/reports/visual-overhaul/vground-006/review.txt",
+        "docs/reports/visual-overhaul/vground-006/art-source.json",
+        "docs/reports/visual-overhaul/vground-006/native/source.json",
+        "docs/reports/visual-overhaul/vground-006/browser-review.json"
+      ]
+    },
+    {
+      "id": "VGROUND-007",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vground-007/README.md",
+          "git_type": "blob",
+          "sha256": "dd1e1061b5b86c6a2372351a166494004539e2fcb729a3f3c9c698357620617c"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-007/completion.json",
+          "git_type": "blob",
+          "sha256": "af543ab5b3573a34153a155c67d8b1785931660f0a46254e8e04f26adc678a67"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-007/summary.json",
+          "git_type": "blob",
+          "sha256": "ad22229134e20f8554710d167b99fd85194dcb2d5b7b85609dd7d76ab123f20e"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-007/review.txt",
+          "git_type": "blob",
+          "sha256": "8b0bb5e6bba34b291b9917d39835dfada0ffe0279ec6ad4b39d1b9427a539fbc"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-007/art-source.json",
+          "git_type": "blob",
+          "sha256": "d2b9fea3e565fbb982d6dcf9aee2e40d63e1b4c2193a813320c6466db461b85e"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-007/native/source.json",
+          "git_type": "blob",
+          "sha256": "eb160a74226c35c657749ee045f4f56ee2c65ce700207af7575908d4e0dc8ac4"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-007/browser-review.json",
+          "git_type": "blob",
+          "sha256": "d75ebe945d598995fbe4f6f961999d3dd97d2bb4d0d54168243c48701d0281a4"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-007/quality-check.txt",
+          "git_type": "blob",
+          "sha256": "1f861bc83ad7f012784bd1b81a0cdf8223a08cadb7e6832adcbe254e7ed195dc"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vground-007/README.md",
+        "docs/reports/visual-overhaul/vground-007/completion.json",
+        "docs/reports/visual-overhaul/vground-007/summary.json",
+        "docs/reports/visual-overhaul/vground-007/review.txt",
+        "docs/reports/visual-overhaul/vground-007/art-source.json",
+        "docs/reports/visual-overhaul/vground-007/native/source.json",
+        "docs/reports/visual-overhaul/vground-007/browser-review.json",
+        "docs/reports/visual-overhaul/vground-007/quality-check.txt"
+      ]
+    },
+    {
+      "id": "VGROUND-008",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vground-008/README.md",
+          "git_type": "blob",
+          "sha256": "a6817af184b372019ad8e3c714a9c9eb53228fff8e0b318d45c586360fc423fe"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-008/completion.json",
+          "git_type": "blob",
+          "sha256": "322f6d136ae43e51c581fc448c3d7bfbf48e8418c9a90e2e0081b8446658492c"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-008/summary.json",
+          "git_type": "blob",
+          "sha256": "d412a89735cd5fb28ac551d88493240be0e53580ff0fdc4fae2db4341c1377a6"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-008/review.txt",
+          "git_type": "blob",
+          "sha256": "f6984394d81bbf7808108b3786cb513d13e37afebf4821ad69092a2565766235"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-008/native/source.json",
+          "git_type": "blob",
+          "sha256": "382912ee8ec4f3008371e906137165ac4e4efaf91bb7defeb916d41a34f148b3"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-008/sampling-notes.json",
+          "git_type": "blob",
+          "sha256": "c19d99594b7817501d570bc93854880b9eeab537e30eb4f90dc35bd89a2f92ba"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-008/browser-review.json",
+          "git_type": "blob",
+          "sha256": "844854eea8a50d86d069ad1c6406a168bbe7f69ee8dd58826b065d16ef67cc8a"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-008/quality-check.txt",
+          "git_type": "blob",
+          "sha256": "93fa79cf34b091ed4cb90c70b13982ca7a491c973a4dad74c079b28a5b4f6ae6"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vground-008/README.md",
+        "docs/reports/visual-overhaul/vground-008/completion.json",
+        "docs/reports/visual-overhaul/vground-008/summary.json",
+        "docs/reports/visual-overhaul/vground-008/review.txt",
+        "docs/reports/visual-overhaul/vground-008/native/source.json",
+        "docs/reports/visual-overhaul/vground-008/sampling-notes.json",
+        "docs/reports/visual-overhaul/vground-008/browser-review.json",
+        "docs/reports/visual-overhaul/vground-008/quality-check.txt"
+      ]
+    },
+    {
+      "id": "VGROUND-009",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vground-009/README.md",
+          "git_type": "blob",
+          "sha256": "95c892551b08efcbdb1329449191dc6f2d49e9ff4aa5c46d6a4a757eb298ad14"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-009/completion.json",
+          "git_type": "blob",
+          "sha256": "0b9954fc8a1ba63f0bad224711f5bcb4b5a586f77c611b44888938ef8a73eaeb"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-009/summary.json",
+          "git_type": "blob",
+          "sha256": "697d026de9f5b7ffe9bdf89e8be605dd2886254ed8d36cbca5640e46450aa3db"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-009/review.txt",
+          "git_type": "blob",
+          "sha256": "b42cec5f87268128e84e567ef98ad42dca2e688bf3c78fe145ce86cf9d7d2383"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-009/native/source.json",
+          "git_type": "blob",
+          "sha256": "22b77135b9cfc4be71a37722808248cb5371cd6bf8ed6a239e40920a8ced37b5"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-009/browser-review.json",
+          "git_type": "blob",
+          "sha256": "8560af42990d0139074ef213ee2100308d22b251102e03ac19893f461a0e0ffb"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-009/quality-check.txt",
+          "git_type": "blob",
+          "sha256": "99ecc11f60d615e58d3e4f68783f0b3bcb028c9ed40cc3b45bbe006bf79e4df0"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vground-009/README.md",
+        "docs/reports/visual-overhaul/vground-009/completion.json",
+        "docs/reports/visual-overhaul/vground-009/summary.json",
+        "docs/reports/visual-overhaul/vground-009/review.txt",
+        "docs/reports/visual-overhaul/vground-009/native/source.json",
+        "docs/reports/visual-overhaul/vground-009/browser-review.json",
+        "docs/reports/visual-overhaul/vground-009/quality-check.txt"
+      ]
+    },
+    {
+      "id": "VGROUND-010",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vground-010/README.md",
+          "git_type": "blob",
+          "sha256": "e4b8a8780456905f12d464f2a6f2ea9b69302717cc3cf25f358fd93e5f1b8fea"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-010/completion.json",
+          "git_type": "blob",
+          "sha256": "c087946b0e42cd44d6a6da8cb217dd8bb09596b2f31ba2c229676e442266e71c"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-010/summary.json",
+          "git_type": "blob",
+          "sha256": "1b85d2254949f3f0619152a0b4531572d17c775d5069a88a9f79a5cab2b37d10"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-010/review.txt",
+          "git_type": "blob",
+          "sha256": "1075af6ba2ea4e8017f83fa69b7ce57a22626ce117ea85500ad19ea9cb841f4e"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-010/native/source.json",
+          "git_type": "blob",
+          "sha256": "74f58a505da4f226adcbb0261623b17f80c4270e3cc80fa0c0184f15a7444907"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-010/browser-review.json",
+          "git_type": "blob",
+          "sha256": "aa9441d3f4bebadfc6b3169c6860db554d097c3561698e2933bb5002670e558d"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vground-010/quality-check.txt",
+          "git_type": "blob",
+          "sha256": "1798fa64f539be2ab68a9e593acc201332b19b192f369142d057c665fdb27300"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vground-010/README.md",
+        "docs/reports/visual-overhaul/vground-010/completion.json",
+        "docs/reports/visual-overhaul/vground-010/summary.json",
+        "docs/reports/visual-overhaul/vground-010/review.txt",
+        "docs/reports/visual-overhaul/vground-010/native/source.json",
+        "docs/reports/visual-overhaul/vground-010/browser-review.json",
+        "docs/reports/visual-overhaul/vground-010/quality-check.txt"
+      ]
+    },
+    {
+      "id": "VSHORE-001",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vshore-001/README.md",
+          "git_type": "blob",
+          "sha256": "58b98feea4fd1e10ce650c3f3b01074d1d369665d521242444b2a8a83d3e0fa2"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vshore-001/profile.json",
+          "git_type": "blob",
+          "sha256": "a9c2706945b266ff25c12b49530316fa59453c595a9be2b1dd36813496ff7a1c"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vshore-001/source.json",
+          "git_type": "blob",
+          "sha256": "22a2c64a7d0ab4039e9d509371d6fccd96001463741f17b99aabbbd6123197e2"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vshore-001/native/capture.json",
+          "git_type": "blob",
+          "sha256": "8ae70fce7e1ec8e9b6afd48704f75cb9df223bbf29f65c2c00866eaabe136e43"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vshore-001/water-review.json",
+          "git_type": "blob",
+          "sha256": "bd05fe5098eb982603b7bab784ed753a7b48c40dd28131d8c326c57c2184ee6d"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vshore-001/acceptance.json",
+          "git_type": "blob",
+          "sha256": "47fae0cdeb2824c2069a4a1161f3ff1bc3c41e9d8dc59930b47a6d74020a567b"
+        },
+        {
+          "file": "wiki/articles/shore-kit.md",
+          "git_type": "blob",
+          "sha256": "fea071e6605c767f4563930b24a5c4a5b1d112fda30caf6446bea7c1581564b5"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vshore-001/README.md",
+        "docs/reports/visual-overhaul/vshore-001/profile.json",
+        "docs/reports/visual-overhaul/vshore-001/source.json",
+        "docs/reports/visual-overhaul/vshore-001/native/capture.json",
+        "docs/reports/visual-overhaul/vshore-001/water-review.json",
+        "docs/reports/visual-overhaul/vshore-001/acceptance.json",
+        "wiki/articles/shore-kit.md"
+      ]
+    },
+    {
+      "id": "VPROP-002",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vprop-002/README.md",
+          "git_type": "blob",
+          "sha256": "a1727e9372814ca64bfb05004b7742335e6a424bb43b7301e56ab304b953d8fc"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-002/source.json",
+          "git_type": "blob",
+          "sha256": "350c3b10cdcc306c5d596502c4b136a3f3a52015f4c4388347f0bbd5ba8e396a"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-002/prompts.json",
+          "git_type": "blob",
+          "sha256": "f9367a08bab2ba7b6a16b5b9a3c82286ff48ab8a1919586c366adffd5abb6d1b"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-002/summary.json",
+          "git_type": "blob",
+          "sha256": "4abb087b9ce9f2df832bd1213743fb1ab8fdec5c9e219553c75cb0989470ede8"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-002/native/before/source.json",
+          "git_type": "blob",
+          "sha256": "5fab0f4d3cca57fbb8f44bf5f3ae9fdbb66069a415aca0000e990c1dbefb77d8"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-002/native/after/source.json",
+          "git_type": "blob",
+          "sha256": "9a4b424069a03f0504f52c93f6b0933fd961c64fc8b0c1de512d331c19d7dc97"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-002/review.txt",
+          "git_type": "blob",
+          "sha256": "6c7b0858386c5793bb76810e7638229523648f7c6c0a06aa8b95aab8b12eb8c6"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-002/python-check.txt",
+          "git_type": "blob",
+          "sha256": "7ada09a6fdeed9c41740abfc320fb886eb17432348861877b2482dcfea69be6f"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-002/completion.json",
+          "git_type": "blob",
+          "sha256": "11cc37327ccb1ed3b11a166709e6592550498ffc0344db68d5a90747bab5769c"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-002/quality-check.txt",
+          "git_type": "blob",
+          "sha256": "d46a8022714b30fa6f464cb3f1e8555bcafd0da08d25649d9433f8ff9e024a4e"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-002/wiki-check.txt",
+          "git_type": "blob",
+          "sha256": "8a14c0ce3952309693a72d7a0974092d9afca22662a715b84265854f5f3b06ec"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-002/browser-review.json",
+          "git_type": "blob",
+          "sha256": "e2a9a74eba4b6400c3b2c232f36f65754cc57f1d4765684130547b301c275e98"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vprop-002/README.md",
+        "docs/reports/visual-overhaul/vprop-002/source.json",
+        "docs/reports/visual-overhaul/vprop-002/prompts.json",
+        "docs/reports/visual-overhaul/vprop-002/summary.json",
+        "docs/reports/visual-overhaul/vprop-002/native/before/source.json",
+        "docs/reports/visual-overhaul/vprop-002/native/after/source.json",
+        "docs/reports/visual-overhaul/vprop-002/review.txt",
+        "docs/reports/visual-overhaul/vprop-002/python-check.txt",
+        "docs/reports/visual-overhaul/vprop-002/completion.json",
+        "docs/reports/visual-overhaul/vprop-002/quality-check.txt",
+        "docs/reports/visual-overhaul/vprop-002/wiki-check.txt",
+        "docs/reports/visual-overhaul/vprop-002/browser-review.json"
+      ]
+    },
+    {
+      "id": "VPROP-003",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vprop-003/README.md",
+          "git_type": "blob",
+          "sha256": "6afabf41cedaa4cc530e07d1425e823ce12e3ed569f30fc4c7316c699665fe55"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-003/alpha-review.json",
+          "git_type": "blob",
+          "sha256": "af84216a1486587166e3c54cf7857e780fc677ebca1ccbaccd881920c2273543"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-003/source.json",
+          "git_type": "blob",
+          "sha256": "573d1bad103ad716836e6e1acdf83390e8e3fdd94076c6e609a291e3de18d3e4"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-003/prompts.json",
+          "git_type": "blob",
+          "sha256": "14c61fa1ba3f065751148f5546bc00bf6d5a58b9ef78bfd16cd86045b6eb35c7"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-003/summary.json",
+          "git_type": "blob",
+          "sha256": "c99fd26715f0014f71870517b5ee5e764d34962c507e573b5be927942cc3238f"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-003/native/before/source.json",
+          "git_type": "blob",
+          "sha256": "cbb390a5e9ca4a0da9420c0a453dc3352f6a49c6bc3f16e37587cdb86c0b91dc"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-003/native/after/source.json",
+          "git_type": "blob",
+          "sha256": "ab263bc8c441d18e9b9b8b9386c076ba84b87ee5972fbc7eba6fb336597fb61a"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-003/review.txt",
+          "git_type": "blob",
+          "sha256": "125254f7d4d95b0db8d06f7d2e046662c6f97d835216f4d00ff881af1e9b87d8"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-003/python-check.txt",
+          "git_type": "blob",
+          "sha256": "1899ae3e1e610195de7152e4d97066728e4ff0dc5ef2dc3a42698a931a0794bf"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-003/sampling-notes.json",
+          "git_type": "blob",
+          "sha256": "3c70a7519e70dae23d7d511e3fc8bc725f77e55e66233fd98b36fcf8b7d8487d"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-003/completion.json",
+          "git_type": "blob",
+          "sha256": "915041ff5d42331bbc12e486ad3cc47efa78923fc5705baa696284cc3eaa8adf"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-003/quality-check.txt",
+          "git_type": "blob",
+          "sha256": "8abf183ca0f924ba17597e8361a18253a4c4100e1d40d0f7a5fa754908ae2c9a"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-003/wiki-check.txt",
+          "git_type": "blob",
+          "sha256": "bd8ae23b8c862e73ee0d2f71a8299eea45766b09a6be272f8161fcef6c979010"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-003/browser-review.json",
+          "git_type": "blob",
+          "sha256": "6c76ef5089f2284a92e9800d04b1df21fbf966da5f55cc6a7e2b46c184826ab7"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vprop-003/README.md",
+        "docs/reports/visual-overhaul/vprop-003/alpha-review.json",
+        "docs/reports/visual-overhaul/vprop-003/source.json",
+        "docs/reports/visual-overhaul/vprop-003/prompts.json",
+        "docs/reports/visual-overhaul/vprop-003/summary.json",
+        "docs/reports/visual-overhaul/vprop-003/native/before/source.json",
+        "docs/reports/visual-overhaul/vprop-003/native/after/source.json",
+        "docs/reports/visual-overhaul/vprop-003/review.txt",
+        "docs/reports/visual-overhaul/vprop-003/python-check.txt",
+        "docs/reports/visual-overhaul/vprop-003/sampling-notes.json",
+        "docs/reports/visual-overhaul/vprop-003/completion.json",
+        "docs/reports/visual-overhaul/vprop-003/quality-check.txt",
+        "docs/reports/visual-overhaul/vprop-003/wiki-check.txt",
+        "docs/reports/visual-overhaul/vprop-003/browser-review.json"
+      ]
+    },
+    {
+      "id": "VPROP-004",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vprop-004/README.md",
+          "git_type": "blob",
+          "sha256": "129392cba9267ae90d4cacd9599db747b5b3aa4d361a3e8960745f3927fc170f"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-004/source.json",
+          "git_type": "blob",
+          "sha256": "9d558547c5ec427f134b435f4c6b90e44a180dfbe3ffc79fbcf8a3dcbb6f4a8d"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-004/prompts.json",
+          "git_type": "blob",
+          "sha256": "6ff71e1f70aa55a0927da8857a1e83afaec722e3f80d24ce6fc260ea81d6af11"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-004/summary.json",
+          "git_type": "blob",
+          "sha256": "6242292ee86dcf5c131285e4894888d4dcfb3e83b8eec061d42251c43a1e5ad3"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-004/native/before/source.json",
+          "git_type": "blob",
+          "sha256": "2d363b7006cc02f4a8c43572477c7a152ee763dffcc66ba959190372bf6db6d5"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-004/native/after/source.json",
+          "git_type": "blob",
+          "sha256": "d9004622e1c5e6ac804442b3eb41976daaf4409f5ad9d38a935f65444cd07abd"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-004/review.txt",
+          "git_type": "blob",
+          "sha256": "4680db6651c937e4bbc19cfee28eb74f7068451aa3106264a69b557b51229a0a"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-004/python-check.txt",
+          "git_type": "blob",
+          "sha256": "c5fccc5a457c150e95cb0f3d5dd2ba1437732b24a86e475e43ae51109404191b"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-004/completion.json",
+          "git_type": "blob",
+          "sha256": "b47e73e6ed352f34e05b9d0089e2fa30e2bf45d983e9975f7aa5efd62128aead"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-004/quality-check.txt",
+          "git_type": "blob",
+          "sha256": "10ab4b3faddd73edcea222d762687f0a05606fb53ee7e305dc83b84d5bd52bd0"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-004/wiki-check.txt",
+          "git_type": "blob",
+          "sha256": "479ef402a5567bfe0a5ba936d6834c869bf19a2322dac7cdabab0bb41b6f1a1b"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-004/browser-review.json",
+          "git_type": "blob",
+          "sha256": "3e30381de445923bba929e1787c2260e9859cc27006101f4bab23279d3c79795"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vprop-004/README.md",
+        "docs/reports/visual-overhaul/vprop-004/source.json",
+        "docs/reports/visual-overhaul/vprop-004/prompts.json",
+        "docs/reports/visual-overhaul/vprop-004/summary.json",
+        "docs/reports/visual-overhaul/vprop-004/native/before/source.json",
+        "docs/reports/visual-overhaul/vprop-004/native/after/source.json",
+        "docs/reports/visual-overhaul/vprop-004/review.txt",
+        "docs/reports/visual-overhaul/vprop-004/python-check.txt",
+        "docs/reports/visual-overhaul/vprop-004/completion.json",
+        "docs/reports/visual-overhaul/vprop-004/quality-check.txt",
+        "docs/reports/visual-overhaul/vprop-004/wiki-check.txt",
+        "docs/reports/visual-overhaul/vprop-004/browser-review.json"
+      ]
+    },
+    {
+      "id": "VPROP-005",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vprop-005/README.md",
+          "git_type": "blob",
+          "sha256": "ee3ff30c6e886f5d07aedf344c8d0381c65c9730bdc3592f06bcc879f71af20a"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-005/source.json",
+          "git_type": "blob",
+          "sha256": "af6e721f4dd26c5a16cf492f4539bb8bfadd3b5157f8b38269a9dd7fc67457dc"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-005/prompts.json",
+          "git_type": "blob",
+          "sha256": "81565650af61ac96be5e5ebdca01bef3d5cfdba10fa2680677c4421d06788772"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-005/summary.json",
+          "git_type": "blob",
+          "sha256": "3b2e10ce413b30029afe44d58c4e09f645ca5d5ee7645bdd9d673d6d27553e73"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-005/native/before/source.json",
+          "git_type": "blob",
+          "sha256": "ae49ee8e6309395e2885ca0be650e7d78e0af7acfa66e96dc140b3f07f41581c"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-005/native/after/source.json",
+          "git_type": "blob",
+          "sha256": "6a53a0852081de4a918944f203fcffbe08e994d13c9ea9a28c01010e0da9d9d6"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-005/review.txt",
+          "git_type": "blob",
+          "sha256": "ec7ea5b94af96fea5b62e5511d85a9159bbb418ee897a9352190478094afd27c"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-005/python-check.txt",
+          "git_type": "blob",
+          "sha256": "c883327064d9d5a1396a5357fdf292401568843eb46f595eb7f8660bf50e24d1"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-005/completion.json",
+          "git_type": "blob",
+          "sha256": "8436071eee89897f52b24e9b8319bf64b25d1c9b0479a8d40b614be3f1b32845"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-005/quality-check.txt",
+          "git_type": "blob",
+          "sha256": "16a14011bc305afeb6ce1d86285d641ad4e21dcef3171f5348d9db9174d5eefc"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-005/wiki-check.txt",
+          "git_type": "blob",
+          "sha256": "ebe2b8bda6fa7b4f602fd5cfb2b980dd460b24d3429cc3a2ce0dc4db29646660"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-005/browser-review.json",
+          "git_type": "blob",
+          "sha256": "680fb5bcd3185dadd0a91f99a56648a97af6cfee02f9430325ba88c251cb82f5"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vprop-005/README.md",
+        "docs/reports/visual-overhaul/vprop-005/source.json",
+        "docs/reports/visual-overhaul/vprop-005/prompts.json",
+        "docs/reports/visual-overhaul/vprop-005/summary.json",
+        "docs/reports/visual-overhaul/vprop-005/native/before/source.json",
+        "docs/reports/visual-overhaul/vprop-005/native/after/source.json",
+        "docs/reports/visual-overhaul/vprop-005/review.txt",
+        "docs/reports/visual-overhaul/vprop-005/python-check.txt",
+        "docs/reports/visual-overhaul/vprop-005/completion.json",
+        "docs/reports/visual-overhaul/vprop-005/quality-check.txt",
+        "docs/reports/visual-overhaul/vprop-005/wiki-check.txt",
+        "docs/reports/visual-overhaul/vprop-005/browser-review.json"
+      ]
+    },
+    {
+      "id": "VPROP-006",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vprop-006/README.md",
+          "git_type": "blob",
+          "sha256": "a827b545fed29ed2851a6a0510483376a246ed47ab27d85176ad0995e5a7c9ba"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-006/source.json",
+          "git_type": "blob",
+          "sha256": "cb78c51db8ef6c9f46ffaa18ce4383b900c52dd643df9184be675742a11b2b45"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-006/prompts.json",
+          "git_type": "blob",
+          "sha256": "03c28fdd7b8c2f2142139488fccac4c74c91da92812a90d0d274b5ee829f6359"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-006/summary.json",
+          "git_type": "blob",
+          "sha256": "2a6faa6609adbf18ac695925746552dc1712130ba79b428202bf442326ebb850"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-006/native/before/source.json",
+          "git_type": "blob",
+          "sha256": "7cea463989d503cdc625cc7bc85b869e62a21c31ffd3dbb13698730028bfa1f5"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-006/native/after/source.json",
+          "git_type": "blob",
+          "sha256": "bb2ffd47c8a3b95e42017f073d336aa1db5873ca2fa3369e9dfe638ff38d34a9"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-006/review.txt",
+          "git_type": "blob",
+          "sha256": "9c152c04fa24e8edeaa8de2ebe8032fec100379f9e399ca1460c43c2052a0780"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-006/python-check.txt",
+          "git_type": "blob",
+          "sha256": "46350065374c94d17f7567d3cff8e6a9a50705c1a4115043c9c8c6acab254cfa"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-006/completion.json",
+          "git_type": "blob",
+          "sha256": "6c15b58e95fcc6d2835a2b9985abb98d8925c8859e4f60778f64f309faa78f9f"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-006/quality-check.txt",
+          "git_type": "blob",
+          "sha256": "254196ef9e2e1fc89548cf1c59e15f60993392f42cd240ca4bd9e5398b7cc3bb"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-006/wiki-check.txt",
+          "git_type": "blob",
+          "sha256": "c21b852d6ecb01d65c0e07e349f4cb0d6a2ec33427b6b1bc010c92137738055b"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-006/browser-review.json",
+          "git_type": "blob",
+          "sha256": "ad21f4d2d0ecfff898d554bf1ef858e92ae4e7479b40e1f1019492537064901d"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vprop-006/README.md",
+        "docs/reports/visual-overhaul/vprop-006/source.json",
+        "docs/reports/visual-overhaul/vprop-006/prompts.json",
+        "docs/reports/visual-overhaul/vprop-006/summary.json",
+        "docs/reports/visual-overhaul/vprop-006/native/before/source.json",
+        "docs/reports/visual-overhaul/vprop-006/native/after/source.json",
+        "docs/reports/visual-overhaul/vprop-006/review.txt",
+        "docs/reports/visual-overhaul/vprop-006/python-check.txt",
+        "docs/reports/visual-overhaul/vprop-006/completion.json",
+        "docs/reports/visual-overhaul/vprop-006/quality-check.txt",
+        "docs/reports/visual-overhaul/vprop-006/wiki-check.txt",
+        "docs/reports/visual-overhaul/vprop-006/browser-review.json"
+      ]
+    },
+    {
+      "id": "VPROP-007",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vprop-007/README.md",
+          "git_type": "blob",
+          "sha256": "9f22f483dc3ce53c8b21f0ea446e5974ffb450e0a9395a13802058d53f341c53"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-007/source.json",
+          "git_type": "blob",
+          "sha256": "bafc72a631beb171b6ed0c3a0061937d3c1e0f98d172be2b6427bdf1c9c6b1d7"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-007/prompts.json",
+          "git_type": "blob",
+          "sha256": "7257ea1e698f8977187faf4ef6804ab9352cc0b16f75ca27ef8c6b37c6d5fa2f"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-007/summary.json",
+          "git_type": "blob",
+          "sha256": "804e726114947d3dea7614b50f3017fe3242b31d3063f6dd73b561505f5d353a"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-007/native/before/source.json",
+          "git_type": "blob",
+          "sha256": "3c53d37a62388ce6658159b24e284ebe464cb378c852a715ff2ce5773e203e28"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-007/native/after/source.json",
+          "git_type": "blob",
+          "sha256": "fc437ad94dfbfe690a70216eb596a3b747cc8f78830f831bccef723c43668f3c"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-007/review.txt",
+          "git_type": "blob",
+          "sha256": "2a2ef257ff36b8ccccab015cc6b37921816a0e1ae16bc600ddb719c865023a21"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-007/python-check.txt",
+          "git_type": "blob",
+          "sha256": "31b0abe7bfcebe20f3ee8f973c2222ffcd32cd9a168fb0e298ca081f41d1fd65"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-007/completion.json",
+          "git_type": "blob",
+          "sha256": "ff6c8e9a55460c050b5d6a40901e68b2ae761fc60fc8ec16bfe709f76e478ef6"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-007/quality-check.txt",
+          "git_type": "blob",
+          "sha256": "e630f86f7af22d5e7d70b88be4262ab1bde6a0ebcbdc4176af6eda2a72aa8cbc"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-007/wiki-check.txt",
+          "git_type": "blob",
+          "sha256": "0ce2a5dbb71cf870d8637d9dae33fbe0524103cf333b3ef29c3aeb7a32b9d18e"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vprop-007/browser-review.json",
+          "git_type": "blob",
+          "sha256": "d143e18a6fc42d0b787a8f8c7efdbddb897e4072dce69de0dc67d96f821cae7b"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vprop-007/README.md",
+        "docs/reports/visual-overhaul/vprop-007/source.json",
+        "docs/reports/visual-overhaul/vprop-007/prompts.json",
+        "docs/reports/visual-overhaul/vprop-007/summary.json",
+        "docs/reports/visual-overhaul/vprop-007/native/before/source.json",
+        "docs/reports/visual-overhaul/vprop-007/native/after/source.json",
+        "docs/reports/visual-overhaul/vprop-007/review.txt",
+        "docs/reports/visual-overhaul/vprop-007/python-check.txt",
+        "docs/reports/visual-overhaul/vprop-007/completion.json",
+        "docs/reports/visual-overhaul/vprop-007/quality-check.txt",
+        "docs/reports/visual-overhaul/vprop-007/wiki-check.txt",
+        "docs/reports/visual-overhaul/vprop-007/browser-review.json"
+      ]
+    },
+    {
+      "id": "VRENDER-004",
+      "status_at_base": "done",
+      "evidence": [
+        {
+          "file": "docs/reports/visual-overhaul/vrender-004/README.md",
+          "git_type": "blob",
+          "sha256": "3eeccfeec667d82eebbf89d03b4260bbb555e3ed8a2e122756a3acf788a2b894"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vrender-004/contract.json",
+          "git_type": "blob",
+          "sha256": "609600b325e8eab537bb3dee5472ca73610b47a93d7ea52e5f17055555b2103e"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vrender-004/review.txt",
+          "git_type": "blob",
+          "sha256": "a86bfcbfec7f9baa69c6b4d18aa8c255dd67d3ee874527086aadc46ecd134db1"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vrender-004/python-check.txt",
+          "git_type": "blob",
+          "sha256": "c0ecf02de25106fe1cbf298f8c8454cb2bc6d87274b5607b703875e0902b8430"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vrender-004/sampling-notes.json",
+          "git_type": "blob",
+          "sha256": "1df4f17407f690845bfa11e5345473882555168299be2391d6fa2950a03f97ce"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vrender-004/progress-check.json",
+          "git_type": "blob",
+          "sha256": "61ea5756615d45db85f498214e641c36f61cad9b37d8431ce7b57068ea584c91"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vrender-004/quality-check.txt",
+          "git_type": "blob",
+          "sha256": "36e41ad287e53f7c5c3913c6edeabcbb0036278c32c5326d551fa1ec6c244c63"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vrender-004/browser-review.json",
+          "git_type": "blob",
+          "sha256": "97f23ee82c8e038f7293ecc653e9313d3f89ebcd2a554c6cf95eacc71c5e348c"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vrender-004/summary.json",
+          "git_type": "blob",
+          "sha256": "5b31e9f962a7f212d22d6a94b9fef2e930b8ee03d0ccd47496f370802cc75b94"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vrender-004/native/source.json",
+          "git_type": "blob",
+          "sha256": "28489dce30f4534552f6e036fd5ffc70706195b2b20f5dbc789aa2a3913e1d37"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vrender-004/completion.json",
+          "git_type": "blob",
+          "sha256": "093eaa6ace4ace105790fbdbcc674691ef83c4a4142792235c37f8f5f654d949"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vrender-004/final-quality-check.txt",
+          "git_type": "blob",
+          "sha256": "8066d65d47287141f1f4fe648140b218d34d32e8a55b2cee72adba1b11fee5f7"
+        },
+        {
+          "file": "docs/reports/visual-overhaul/vrender-004/wiki-check.txt",
+          "git_type": "blob",
+          "sha256": "ce1ecef4a73a27e47a5ff3abe86aff552769e36517ba1bd194f36e5bf090a811"
+        }
+      ],
+      "canonical_claims": [
+        "docs/reports/visual-overhaul/vrender-004/README.md",
+        "docs/reports/visual-overhaul/vrender-004/contract.json",
+        "docs/reports/visual-overhaul/vrender-004/review.txt",
+        "docs/reports/visual-overhaul/vrender-004/python-check.txt",
+        "docs/reports/visual-overhaul/vrender-004/sampling-notes.json",
+        "docs/reports/visual-overhaul/vrender-004/progress-check.json",
+        "docs/reports/visual-overhaul/vrender-004/quality-check.txt",
+        "docs/reports/visual-overhaul/vrender-004/browser-review.json",
+        "docs/reports/visual-overhaul/vrender-004/summary.json",
+        "docs/reports/visual-overhaul/vrender-004/native/source.json",
+        "docs/reports/visual-overhaul/vrender-004/completion.json",
+        "docs/reports/visual-overhaul/vrender-004/final-quality-check.txt",
+        "docs/reports/visual-overhaul/vrender-004/wiki-check.txt"
+      ]
+    }
+  ],
+  "predecessor_count": 51,
+  "grid": 24,
+  "scope_cells": 960,
+  "max_cells": 1000,
+  "projection": {
+    "field": [
+      960,
+      540
+    ],
+    "framebuffer": [
+      1152,
+      648
+    ],
+    "zoom": 1.2
+  },
+  "accepted_facades": [
+    "a",
+    "b"
+  ],
+  "standalone_study": true,
+  "ordinary_game_is_separate_control": true,
+  "whole_overworld_accepted": false,
+  "performance_eligible": false
+}

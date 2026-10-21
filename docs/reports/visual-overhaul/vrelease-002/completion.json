@@ -1,0 +1,26 @@
+{
+  "task": "VRELEASE-002",
+  "native_acceptance": true,
+  "standalone_study": true,
+  "runtime_changed": false,
+  "performance_eligible": false,
+  "full_map_accepted": false,
+  "live_pilot_accepted": false,
+  "game_version": "0.0.299",
+  "native_base_commit": "cc55ff9a3a2b1bfaf8e6887c912a7b4b1c474fa7",
+  "checks": {
+    "predecessors": 51,
+    "native_png": 44,
+    "draw_callbacks": 304,
+    "study_pairs": 16,
+    "old_slot_loaded": true,
+    "ordinary_rollback_equal": true,
+    "python_tests": 12,
+    "architecture": "passed",
+    "game_passed": 46408,
+    "game_failed": 0,
+    "wiki_passed": 104,
+    "wiki_failed": 0,
+    "browser": "six images, search and three exact JSON attachments"
+  }
+}

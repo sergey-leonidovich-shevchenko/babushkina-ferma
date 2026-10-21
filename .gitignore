@@ -435,3 +435,10 @@ assets/inbox/*
 !tools/village_trade*.py
 !tools/test_village_trade.py
 !docs/reports/visual-overhaul/vprop-007/native/**/*.png.import
+
+# VRELEASE-002: static pilot acceptance tooling and frozen inputs.
+!tools/pilot_static*.gd
+!tools/pilot_static*.gd.uid
+!tools/pilot_static*.py
+!tools/test_pilot_static.py
+!docs/reports/visual-overhaul/vrelease-002/native/**/*.png.import

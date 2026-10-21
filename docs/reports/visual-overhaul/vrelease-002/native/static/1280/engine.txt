@@ -1,0 +1,26 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+OpenGL API 4.1 ATI-7.0.3 - Compatibility - Using Device: ATI Technologies Inc. - AMD Radeon Pro 5300M OpenGL Engine
+
+STATIC PILOT FRAME ordinary
+STATIC PILOT FRAME study-legacy-a-front
+STATIC PILOT FRAME study-legacy-a-back
+STATIC PILOT FRAME study-legacy-a-bridge
+STATIC PILOT FRAME study-legacy-a-grid
+STATIC PILOT FRAME study-legacy-b-front
+STATIC PILOT FRAME study-legacy-b-back
+STATIC PILOT FRAME study-legacy-b-bridge
+STATIC PILOT FRAME study-legacy-b-grid
+STATIC PILOT FRAME study-painted-a-front
+STATIC PILOT FRAME study-painted-a-back
+STATIC PILOT FRAME study-painted-a-bridge
+STATIC PILOT FRAME study-painted-a-grid
+STATIC PILOT FRAME study-painted-b-front
+STATIC PILOT FRAME study-painted-b-back
+STATIC PILOT FRAME study-painted-b-bridge
+STATIC PILOT FRAME study-painted-b-grid
+STATIC PILOT FRAME rollback
+STATIC PILOT FRAME normal-home-enter
+STATIC PILOT FRAME normal-home-exit
+STATIC PILOT FRAME old-slot-interior
+STATIC PILOT FRAME old-slot-overworld
+STATIC PILOT CAPTURE: static 22 cases; []

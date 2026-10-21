@@ -108,6 +108,9 @@ python3 tools/village_board_verify.py >/dev/null
 python3 tools/test_village_board.py
 python3 tools/village_trade_verify.py >/dev/null
 python3 tools/test_village_trade.py
+python3 tools/pilot_static_audit.py >/dev/null
+python3 tools/pilot_static_verify.py >/dev/null
+python3 tools/test_pilot_static.py
 python3 tools/village_fence_verify.py >/dev/null
 python3 tools/test_village_fence.py
 python3 tools/village_lamp_verify.py >/dev/null

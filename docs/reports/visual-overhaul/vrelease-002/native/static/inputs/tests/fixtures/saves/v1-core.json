@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "player": [
+    500,
+    500
+  ],
+  "location": "cottage_interior",
+  "day": 3,
+  "minutes": 620,
+  "energy": 9,
+  "coins": 41,
+  "xp": 4,
+  "level": 1,
+  "hp": 90,
+  "counts": {
+    "wood": 14,
+    "apple": 2
+  },
+  "slots": [
+    "wood",
+    "apple"
+  ],
+  "hotbar": [
+    "hoe",
+    "water",
+    "hand",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+  ],
+  "equipment": {
+    "head": ""
+  },
+  "quest_active": false,
+  "quest_complete": false,
+  "weapons": {
+    "sword": false,
+    "bow": false,
+    "crystal": false,
+    "equipped": "none"
+  },
+  "plots": [],
+  "resource_hits": []
+}

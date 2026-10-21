@@ -8778,7 +8778,7 @@
       "id": "VRELEASE-002",
       "epic": "VRELEASE",
       "title": "Принять статичный пилот первой локации",
-      "status": "ready",
+      "status": "done",
       "priority": "P0",
       "phase": "rollout",
       "kind": "engineering",
@@ -8821,8 +8821,19 @@
         "confidence": "low",
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
-      "branch": "codex/vrelease-002-visual-task",
-      "evidence": []
+      "branch": "codex/vrelease-002-static-pilot",
+      "evidence": [
+        "docs/reports/visual-overhaul/vrelease-002/README.md",
+        "docs/reports/visual-overhaul/vrelease-002/dependency-audit.json",
+        "docs/reports/visual-overhaul/vrelease-002/summary.json",
+        "docs/reports/visual-overhaul/vrelease-002/native/static/source.json",
+        "docs/reports/visual-overhaul/vrelease-002/python-check.txt",
+        "docs/reports/visual-overhaul/vrelease-002/completion.json",
+        "docs/reports/visual-overhaul/vrelease-002/quality-check.txt",
+        "docs/reports/visual-overhaul/vrelease-002/wiki-check.txt",
+        "docs/reports/visual-overhaul/vrelease-002/browser-review.json"
+      ],
+      "result": "Принят отдельный статичный композиционный стенд VART-008 со всеми наружными семействами VPROP-002…007: оба фасада, дерево, берег/мост, текущий герой и 120%. 51 предшественник проверен по каноническому Git-плану. Приняты 44 PNG/304 callbacks, 16 пар с одинаковым фоном, точный возврат к обычной игре, настоящий слот v1 и вход/выход дома, 12 Python-контролей, Wiki104/0 и браузер. Это не полная новая графика overworld, живой пилот или FPS; VRELEASE-003/004 и VMAP-001…003 остаются открытыми. Штатный игровой код и assets/game не менялись. Общий игровой набор: 46408/0."
     },
     {
       "id": "VRELEASE-003",

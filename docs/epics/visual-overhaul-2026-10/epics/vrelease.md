@@ -46,11 +46,11 @@
 
 ## VRELEASE-002 — Принять статичный пилот первой локации
 
-Статус: `ready` · P0 · этап `rollout` · `engineering`
+Статус: `done` · P0 · этап `rollout` · `engineering`
 
 Одобрена модульная статичная сцена overworld: земля, осевые тропы, берег, мост, дерево, фасад и наружные предметы VPROP-002…007. Общий набор интерьера/пещер не является условием пилота.
 
-Ветка: `codex/vrelease-002-visual-task`.
+Ветка: `codex/vrelease-002-static-pilot`.
 
 Зависимости: VART-008, VGROUND-010, VSHORE-001, VPROP-002, VPROP-003, VPROP-004, VPROP-005, VPROP-006, VPROP-007.
 
@@ -62,7 +62,7 @@
 - [QA_CHECKLIST.md](../../../../QA_CHECKLIST.md)
 - [docs/BACKLOG_WORKFLOW.md](../../../../docs/BACKLOG_WORKFLOW.md)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vrelease-002/`.
+Результаты: `docs/reports/visual-overhaul/vrelease-002/`.
 
 Критерии:
 
@@ -80,7 +80,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vrelease-002/README.md, docs/reports/visual-overhaul/vrelease-002/dependency-audit.json, docs/reports/visual-overhaul/vrelease-002/summary.json, docs/reports/visual-overhaul/vrelease-002/native/static/source.json, docs/reports/visual-overhaul/vrelease-002/python-check.txt, docs/reports/visual-overhaul/vrelease-002/completion.json, docs/reports/visual-overhaul/vrelease-002/quality-check.txt, docs/reports/visual-overhaul/vrelease-002/wiki-check.txt, docs/reports/visual-overhaul/vrelease-002/browser-review.json.
 
 <a id="vrelease-003"></a>
 

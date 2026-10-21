@@ -1,0 +1,64 @@
+{
+  "task": "VRELEASE-002",
+  "url": "http://127.0.0.1:4175/#/guides/static-pilot",
+  "images_complete": true,
+  "images": [
+    {
+      "alt": "Стенд до: прежний наружный декор",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    },
+    {
+      "alt": "Стенд после: готовые лавочка, колодец, телега, фонарь, ограда, доска, указатель и торговый набор",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    },
+    {
+      "alt": "Второй принятый фасад с тёплой черепицей",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    },
+    {
+      "alt": "Герой за деревом в том же масштабе",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    },
+    {
+      "alt": "Герой между перилами модульного моста",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    },
+    {
+      "alt": "Настоящий overworld после выхода из дома старого слота: часть прежнего арта ещё остаётся",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    }
+  ],
+  "downloads": [
+    {
+      "name": "Нативная сверка",
+      "file": "summary.json",
+      "exact": true,
+      "sha256": "0ac7b394f4d018f1992e597bd243dcb378d277c40510364982a54b59501d55c3"
+    },
+    {
+      "name": "Предшественники и доказательства",
+      "file": "dependency-audit.json",
+      "exact": true,
+      "sha256": "48c49e5360b7a952c93cce5cdab2c963867247015d4e86c451365967ae2a0b5b"
+    },
+    {
+      "name": "Исходники и конфигурация",
+      "file": "native/static/source.json",
+      "exact": true,
+      "sha256": "28118328998285f888057044d469065d5b2b405d3ec027e913e26b5a7ed45823"
+    }
+  ],
+  "search_verified": true
+}
