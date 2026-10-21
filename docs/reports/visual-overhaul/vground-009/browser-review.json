@@ -1,0 +1,49 @@
+{
+  "task": "VGROUND-009",
+  "url": "http://127.0.0.1:4175/#/guides/local-ground-revision",
+  "version": "0.0.288",
+  "page_loaded": true,
+  "images_complete": true,
+  "images": [
+    {
+      "width": 1000,
+      "height": 380
+    },
+    {
+      "width": 1152,
+      "height": 648
+    },
+    {
+      "width": 1152,
+      "height": 648
+    }
+  ],
+  "viewport": {
+    "clientWidth": 1280,
+    "height": 720,
+    "scrollWidth": 1280,
+    "width": 1280
+  },
+  "narrow_width_test": null,
+  "viewport_override_used": false,
+  "search": "VGROUND-009 returned guide; opened from results",
+  "card": "VGROUND-009 in progress; dependency VGROUND-001 done; acceptance read",
+  "downloads": [
+    {
+      "artifact": "docs/reports/visual-overhaul/vground-009/summary.json",
+      "sha256": "697d026de9f5b7ffe9bdf89e8be605dd2886254ed8d36cbca5640e46450aa3db",
+      "exact": true
+    },
+    {
+      "artifact": "docs/reports/visual-overhaul/vground-009/native/source.json",
+      "sha256": "22b77135b9cfc4be71a37722808248cb5371cd6bf8ed6a239e40920a8ced37b5",
+      "exact": true
+    },
+    {
+      "artifact": "docs/reports/visual-overhaul/vground-009/native/1152/capture.json",
+      "sha256": "660159d17374ad56dd2b562ecea0b3849c8331b8248b7115b27488f024c1ccff",
+      "exact": true
+    }
+  ],
+  "scope": "Static local/full equality, initial plot water set by fixture, direct/cache and historical loot/RNG limits visible"
+}

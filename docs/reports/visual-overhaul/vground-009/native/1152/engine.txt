@@ -1,0 +1,29 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+OpenGL API 4.1 ATI-7.0.3 - Compatibility - Using Device: ATI Technologies Inc. - AMD Radeon Pro 5300M OpenGL Engine
+
+TERRAIN REVISION SHOT full-before
+TERRAIN REVISION SHOT full-after
+TERRAIN REVISION SHOT local-before
+TERRAIN REVISION SHOT local-after
+TERRAIN REVISION SHOT plot-before
+TERRAIN REVISION SHOT plot-after
+TERRAIN REVISION SHOT cottage-local
+TERRAIN REVISION SHOT cottage-full
+TERRAIN REVISION SHOT bridge-west-local
+TERRAIN REVISION SHOT bridge-west-full
+TERRAIN REVISION SHOT bridge-east-local
+TERRAIN REVISION SHOT bridge-east-full
+TERRAIN REVISION SHOT road-turn-local
+TERRAIN REVISION SHOT road-turn-full
+TERRAIN REVISION SHOT road-end-local
+TERRAIN REVISION SHOT road-end-full
+TERRAIN REVISION SHOT summer-local
+TERRAIN REVISION SHOT summer-full
+TERRAIN REVISION SHOT autumn-local
+TERRAIN REVISION SHOT autumn-full
+TERRAIN REVISION SHOT winter-local
+TERRAIN REVISION SHOT winter-full
+TERRAIN REVISION SHOT direct-fallback
+TERRAIN REVISION SHOT cached-final
+TERRAIN REVISION SHOT interior
+TERRAIN REVISION SHOT returned

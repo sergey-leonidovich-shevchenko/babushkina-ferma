@@ -48,6 +48,10 @@ var water_layer: Node2D
 var cover_layer: Node2D
 var cutout_layer: Node2D
 var terrain_requests := 0
+var local_terrain_updates := true
+var terrain_clip: Control
+var terrain_erase: Node2D
+var terrain_revision := preload("res://scripts/presentation/terrain_local_revision.gd").new()
 
 ## Подготавливает узел к работе: создаёт зависимые данные и синхронизирует начальное состояние.
 func _ready() -> void:
@@ -70,7 +74,11 @@ func _ready() -> void:
 		terrain_viewport.canvas_item_default_texture_filter=Viewport.DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_NEAREST
 		terrain_viewport.render_target_update_mode=SubViewport.UPDATE_DISABLED
 		add_child(terrain_viewport)
-		terrain_viewport.add_child(terrain_canvas)
+		terrain_clip=Control.new(); terrain_clip.name="TerrainClip"; terrain_clip.clip_contents=true
+		terrain_clip.mouse_filter=Control.MOUSE_FILTER_IGNORE; terrain_viewport.add_child(terrain_clip)
+		terrain_erase=preload("res://scripts/presentation/terrain_region_clear.gd").new()
+		var erase_material:=ShaderMaterial.new(); erase_material.shader=preload("res://scripts/presentation/terrain_cutout.gdshader")
+		terrain_erase.material=erase_material; terrain_clip.add_child(terrain_erase); terrain_clip.add_child(terrain_canvas)
 		refresh_terrain()
 	else:
 		terrain_canvas.visible=false; add_child(terrain_canvas)
@@ -124,7 +132,7 @@ func set_soft_plaza(enabled: bool) -> void:
 func set_soft_garden(enabled: bool) -> void:
 	if soft_garden==enabled: return
 	soft_garden=enabled
-	if location=="overworld": refresh_terrain()
+	if location=="overworld": invalidate_terrain_rect(preload("res://scripts/presentation/garden_soil.gd").FARM)
 	queue_redraw()
 
 ## Оставляет дополнительные проходы только первой карте и скрывает их при прямом fallback.
@@ -139,6 +147,7 @@ func _sync_ground_layers() -> void:
 func set_location(value: String) -> void:
 	if location != value:
 		location = value
+		if location!="overworld": terrain_revision.pending.clear()
 		_sync_ground_layers()
 		if preload("res://scripts/systems/village_region_data.gd").contains(location): refresh_terrain()
 		queue_redraw()
@@ -154,10 +163,30 @@ func set_environment(next_season: String, next_weather: String) -> void:
 func refresh_terrain() -> void:
 	if terrain_viewport==null or not preload("res://scripts/systems/village_region_data.gd").contains(location): return
 	terrain_requests+=1
+	terrain_revision.begin_full()
 	terrain_ready=false
 	_sync_ground_layers()
 	queue_redraw()
 	terrain_viewport.size=Vector2i(preload("res://scripts/systems/world_bounds_system.gd").size(location))
+	terrain_clip.position=Vector2.ZERO; terrain_clip.size=Vector2(terrain_viewport.size)
+	terrain_canvas.position=Vector2.ZERO; terrain_erase.visible=false
+	terrain_viewport.render_target_clear_mode=SubViewport.CLEAR_MODE_ALWAYS
+	_configure_terrain_canvas()
+	terrain_viewport.render_target_update_mode=SubViewport.UPDATE_ONCE
+	if not RenderingServer.frame_post_draw.is_connected(_terrain_rendered): RenderingServer.frame_post_draw.connect(_terrain_rendered,CONNECT_ONE_SHOT)
+
+## Обновляет только прямоугольник первой карты в том же render target; плохой ввод не меняет кеш.
+func invalidate_terrain_rect(rect: Rect2) -> bool:
+	if location!="overworld" or not terrain_revision.clipped(rect).has_area(): return false
+	if terrain_viewport==null: queue_redraw(); return true
+	if not local_terrain_updates: refresh_terrain(); return true
+	if not terrain_revision.request(rect): refresh_terrain(); return true
+	terrain_ready=false; _sync_ground_layers(); _configure_terrain_canvas()
+	_start_terrain_region(); queue_redraw()
+	return true
+
+## Переносит текущие визуальные флаги в существующий CanvasItem без смены текстур или игровых данных.
+func _configure_terrain_canvas() -> void:
 	terrain_canvas.location=location
 	terrain_canvas.base_only=location=="overworld" and ground_split
 	terrain_canvas.painted_grass=painted_grass
@@ -167,13 +196,25 @@ func refresh_terrain() -> void:
 	terrain_canvas.soft_plaza=soft_plaza
 	terrain_canvas.soft_garden=soft_garden
 	terrain_canvas.season=season; terrain_canvas.weather=weather; terrain_canvas.queue_redraw()
+
+## Применяет аппаратное отсечение и локальный прозрачный clear, сохраняя остальную текстуру.
+func _start_terrain_region() -> void:
+	if location!="overworld": terrain_revision.pending.clear(); return
+	var rect: Rect2=terrain_revision.take()
+	if not rect.has_area(): return
+	terrain_clip.position=rect.position; terrain_clip.size=rect.size; terrain_canvas.position=-rect.position
+	terrain_erase.size=rect.size; terrain_erase.visible=true; terrain_erase.queue_redraw()
+	terrain_viewport.render_target_clear_mode=SubViewport.CLEAR_MODE_NEVER
 	terrain_viewport.render_target_update_mode=SubViewport.UPDATE_ONCE
 	if not RenderingServer.frame_post_draw.is_connected(_terrain_rendered): RenderingServer.frame_post_draw.connect(_terrain_rendered,CONNECT_ONE_SHOT)
 
 ## Подменяет готовые команды грунта одним GPU-слоем после реального завершения его отрисовки.
 func _terrain_rendered() -> void:
 	terrain_viewport.render_target_update_mode=SubViewport.UPDATE_DISABLED
-	terrain_ready=true
+	terrain_revision.complete()
+	terrain_ready=terrain_revision.pending.is_empty()
+	# Новый локальный проход ставится после завершения одноразового сигнала, без потери подписки.
+	if not terrain_ready: _start_terrain_region.call_deferred()
 	_sync_ground_layers()
 	if preload("res://scripts/systems/village_region_data.gd").contains(location): queue_redraw()
 

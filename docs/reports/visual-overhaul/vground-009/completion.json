@@ -1,0 +1,27 @@
+{
+  "task": "VGROUND-009",
+  "accepted": true,
+  "checks": {
+    "game_passed": 45895,
+    "game_failed": 0,
+    "architecture": "passed",
+    "profile_passed": 60,
+    "python_tests": 9,
+    "wiki_passed": 86,
+    "wiki_failed": 0,
+    "native_png": 80,
+    "native_draw_snapshots": 212
+  },
+  "runtime_matches_native_archive": [
+    "scripts/world_background.gd",
+    "scripts/presentation/terrain_local_revision.gd",
+    "scripts/presentation/terrain_region_clear.gd"
+  ],
+  "result": "Локальная ревизия покрытия первой overworld: существующий render target, clip и прозрачный clear; set_soft_garden обновляет только прежний огород288×240. Generic Rect2 API,32 ожидающих+1 активный участок,60 секций, независимые копии, отказ плохого ввода, полный fallback при overflow. Далёкие области раздельны, повтор активного не теряется; сезон/карта/профиль заменяют очередь. При уходе ожидание удаляется; новых target/таймеров/покадрового CPU-readback нет, два постоянных узла. Нативная серия80 PNG/212 draw: два окна/120%,69 120 изменённых пикселей внутри/0 снаружи,2.105% области целевой текстуры; полные RGBA и первые кадры локального/полного метода точны, ресурсные ID удержаны. Три далёких области включают воду/мост; rapid и global проверены. Полив по-прежнему не обновляет фон: пять соседних мешей из30 меняются, остальные25 удержаны. Четыре сезона, дороги/мосты/дом,120 неизменных callbacks. Прежняя разница direct/cache203/195 не закрыта; исторический контроль008 не принят из-за другого containers/rng/world_loot_seed, сравнения идут внутри новой серии при равном полном save. Нативная влага задана fixture; реальные инструменты покрыты отдельным профилем, физический ввод не заявлен. 60 профильных/9 Python сценариев; save,1200 правил земли/8 движений сохранены. Wiki86/0, браузер3 изображения/поиск/карточка/3 точных JSON/1280px без overflow; narrow не заявлен. Architecture и полный игровой набор 45895/0 прошли реальным pre-commit. local_terrain_updates=false возвращает полный метод; save-миграции нет. Статическая приёмка, не FPS/GPU-time/RSS/VRAM; CPU-команды целого canvas ещё могут пересобираться. F12-интеграция,VPERF,VMAP-003 открыты, механики и другие карты не расширены.",
+  "limitations": [
+    "direct/cache sampling gap is pre-existing; no equality claim",
+    "historical loot/RNG differs; use same-state full/local pair",
+    "static region writes do not measure FPS, GPU time or memory",
+    "all F12 callers are not integrated"
+  ]
+}

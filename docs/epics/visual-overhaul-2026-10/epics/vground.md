@@ -310,11 +310,11 @@
 
 ## VGROUND-009 — Ввести локальную ревизию покрытия
 
-Статус: `ready` · P0 · этап `pilot` · `engineering`
+Статус: `done` · P0 · этап `pilot` · `engineering`
 
 Изменение одной грядки или секции обновляет нужный участок, а не текстуры всей карты
 
-Ветка: `codex/vground-009-visual-task`.
+Ветка: `codex/vground-009-local-ground-revision`.
 
 Зависимости: VGROUND-001.
 
@@ -324,7 +324,7 @@
 - [scripts/presentation/village_region_terrain.gd](../../../../scripts/presentation/village_region_terrain.gd)
 - [scripts/systems/village_map_data.gd](../../../../scripts/systems/village_map_data.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vground-009/`.
+Результаты: `docs/reports/visual-overhaul/vground-009/`.
 
 Критерии:
 
@@ -342,13 +342,13 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vground-009/README.md, docs/reports/visual-overhaul/vground-009/completion.json, docs/reports/visual-overhaul/vground-009/summary.json, docs/reports/visual-overhaul/vground-009/review.txt, docs/reports/visual-overhaul/vground-009/native/source.json, docs/reports/visual-overhaul/vground-009/browser-review.json, docs/reports/visual-overhaul/vground-009/quality-check.txt.
 
 <a id="vground-010"></a>
 
 ## VGROUND-010 — Принять сезонные переходы земли
 
-Статус: `backlog` · P0 · этап `pilot` · `engineering`
+Статус: `ready` · P0 · этап `pilot` · `engineering`
 
 Весна, лето, осень, зима и мокрый вариант проверены на одной геометрии; коллизии и маршруты идентичны
 

@@ -369,6 +369,10 @@ assets/inbox/*
 !tools/decoration*.gd.uid
 !tools/decoration*.py
 !tools/test_decoration_rules.py
+!tools/terrain_revision*.gd
+!tools/terrain_revision*.gd.uid
+!tools/terrain_revision*.py
+!tools/test_terrain_revision.py
 !tools/garden*.gd
 !tools/garden*.gd.uid
 !tools/garden*.py

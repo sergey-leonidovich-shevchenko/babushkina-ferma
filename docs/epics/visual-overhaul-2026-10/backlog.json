@@ -2449,7 +2449,7 @@
       "id": "VGROUND-009",
       "epic": "VGROUND",
       "title": "Ввести локальную ревизию покрытия",
-      "status": "ready",
+      "status": "done",
       "priority": "P0",
       "phase": "pilot",
       "kind": "engineering",
@@ -2484,14 +2484,23 @@
         "confidence": "low",
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
-      "branch": "codex/vground-009-visual-task",
-      "evidence": []
+      "branch": "codex/vground-009-local-ground-revision",
+      "evidence": [
+        "docs/reports/visual-overhaul/vground-009/README.md",
+        "docs/reports/visual-overhaul/vground-009/completion.json",
+        "docs/reports/visual-overhaul/vground-009/summary.json",
+        "docs/reports/visual-overhaul/vground-009/review.txt",
+        "docs/reports/visual-overhaul/vground-009/native/source.json",
+        "docs/reports/visual-overhaul/vground-009/browser-review.json",
+        "docs/reports/visual-overhaul/vground-009/quality-check.txt"
+      ],
+      "result": "Локальная ревизия покрытия первой overworld: существующий render target, clip и прозрачный clear; set_soft_garden обновляет только прежний огород288×240. Generic Rect2 API,32 ожидающих+1 активный участок,60 секций, независимые копии, отказ плохого ввода, полный fallback при overflow. Далёкие области раздельны, повтор активного не теряется; сезон/карта/профиль заменяют очередь. При уходе ожидание удаляется; новых target/таймеров/покадрового CPU-readback нет, два постоянных узла. Нативная серия80 PNG/212 draw: два окна/120%,69 120 изменённых пикселей внутри/0 снаружи,2.105% области целевой текстуры; полные RGBA и первые кадры локального/полного метода точны, ресурсные ID удержаны. Три далёких области включают воду/мост; rapid и global проверены. Полив по-прежнему не обновляет фон: пять соседних мешей из30 меняются, остальные25 удержаны. Четыре сезона, дороги/мосты/дом,120 неизменных callbacks. Прежняя разница direct/cache203/195 не закрыта; исторический контроль008 не принят из-за другого containers/rng/world_loot_seed, сравнения идут внутри новой серии при равном полном save. Нативная влага задана fixture; реальные инструменты покрыты отдельным профилем, физический ввод не заявлен. 60 профильных/9 Python сценариев; save,1200 правил земли/8 движений сохранены. Wiki86/0, браузер3 изображения/поиск/карточка/3 точных JSON/1280px без overflow; narrow не заявлен. Architecture и полный игровой набор 45895/0 прошли реальным pre-commit. local_terrain_updates=false возвращает полный метод; save-миграции нет. Статическая приёмка, не FPS/GPU-time/RSS/VRAM; CPU-команды целого canvas ещё могут пересобираться. F12-интеграция,VPERF,VMAP-003 открыты, механики и другие карты не расширены."
     },
     {
       "id": "VGROUND-010",
       "epic": "VGROUND",
       "title": "Принять сезонные переходы земли",
-      "status": "backlog",
+      "status": "ready",
       "priority": "P0",
       "phase": "pilot",
       "kind": "engineering",
