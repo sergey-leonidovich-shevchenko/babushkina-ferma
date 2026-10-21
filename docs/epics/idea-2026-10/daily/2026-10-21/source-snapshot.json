@@ -1,0 +1,670 @@
+{
+  "schema": 1,
+  "automation_id": "10",
+  "from_utc": "2026-10-20T14:22:16Z",
+  "through_utc": "2026-10-21T09:24:00.346Z",
+  "source_main": "559277afcefcccc1d8efad5ae04469a193ba13d2",
+  "source_origin_main": "c9ae970781fae8d1aab95644873668036b5c3011",
+  "previous_review_commit": "6f20f2e366ba21c6d38ef4a4d6b3a644761c0410",
+  "non_merge_commits": [
+    "559277afcefcccc1d8efad5ae04469a193ba13d2",
+    "b3c847f2812e4d7c245fb69f751a670725e7236d",
+    "c9ae970781fae8d1aab95644873668036b5c3011",
+    "06cb4aa218c521d41d36ee98932d131bef4e6d2c",
+    "6c3656ea5355c626a0a4baf9166c7206a2f28f33",
+    "5182226a04977b7839d7c5d199b3746c44b892bc",
+    "873c2fc19f9572d81058a82cbd7c75ae0ec030c7",
+    "e680a87744bf639d2d127ada050fa97092655841",
+    "f002d52d426e5bcc93abd378ec8a64529806cfcc",
+    "246456c4ec62169665178a0e587270e3a7488cc7",
+    "58ddc3d0233858d98c0be98e149f79dc5821dc41",
+    "705667f3f3d4357b87ec3968c0f1dd421a502fb5"
+  ],
+  "merge_commits": [
+    "79070100ede18dfa91f815180f9d18ae911bcab7"
+  ],
+  "remote_refs": [
+    {
+      "ref": "origin/codex/camp-00-travel-crafting-plan",
+      "commit": "afb458f156be2986ddce000bd383918cca172d83",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/echo-00-puzzle-epic-plan",
+      "commit": "4a7f9966e7e67f3f2e16d77b7db14d9b527f0881",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/farm-01-early-economy-map",
+      "commit": "820331fd9572aceb6b133ea37b634df3c5da9080",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/farm-02-recycling-cycle-balance",
+      "commit": "4c6eade99e90d2863684b4266a8acb6457c004f6",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/farm-03-seasonal-crop-access",
+      "commit": "232b645a0dad2eccc739f07c2a59688f32c2fdf0",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/farm-04-livestock-daily-loop",
+      "commit": "b3fb78a0996b2e0fa04c1669b17e7e13470264f6",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/farm-05-production-queue-contract",
+      "commit": "652334ab9e2f9a5f12a436e5a32bee162b368f5c",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/farm-06-alchemy-learning-sequence",
+      "commit": "fb444bb8b636b18704aa6cd70fc768482e1e24f9",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/farm-07-fishing-quest-access",
+      "commit": "2e03412a59c960c8a4da2846a456ddf183708822",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/farm-08-production-chain-guide",
+      "commit": "3edf326ad703e3990f5a84842894d5edcbafe50b",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/idea-002-00-living-world-plan",
+      "commit": "6deaf6475ac408a00d7c64c2f4ec543995b964ec",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/lstory-00-living-stories-plan",
+      "commit": "b6c1cd261d15fd6fd30ebd45253c3eb4e0a51d56",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/lstory-01-weekly-hedgehog-gifts",
+      "commit": "80b0641ac19a8de28d8a3c3b3de6b3c861956de9",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/safe-01-world-rng-streams",
+      "commit": "a60e5b88de9c09733b0d4c38051a62885bf23bef",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/safe-02-inventory-transaction-invariants",
+      "commit": "ffac9ac4698ad8f4ab36f29f0812dfd48d990667",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/safe-03-save-catalog-migrations",
+      "commit": "2edd5893da77e75cc318872891a15e8fb7e45e63",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/safe-04-save-crash-injection",
+      "commit": "2b33c615c0d2726f28e112ded0f5827402646fa4",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/safe-05-focus-loss-pause",
+      "commit": "b1de03001ddab8bcba65d8610f863e28df9969cc",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/safe-06-content-reference-contracts",
+      "commit": "5d74831b7fe4f8d4606482f05fdc2af1325267b3",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/safe-07-action-lifecycle-contract",
+      "commit": "8adb661ce2079273549d0fa41711131ace2c163f",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/vart-001-visual-task",
+      "commit": "6a8aa6d033f66fcf9ca74c18edd3b0ec9e35c9b3",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/vart-002-visual-task",
+      "commit": "d09c3b21bd2f3b85d5b496f5badb86f0418ef3ac",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/vart-003-visual-task",
+      "commit": "e0d919c52e14c8995d26f7087ab1d24b52beb1c4",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/vart-004-visual-task",
+      "commit": "ff260be6c750b8326e03e97a042d33606d0bb057",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/vart-005-visual-task",
+      "commit": "640839592f5fbcc81182563fd49ebf8ff7ede2cb",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/vart-006-visual-task",
+      "commit": "4507586115ffc378c7fecf89ad28ae0b6ae74201",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/vart-007-visual-task",
+      "commit": "1aea10735d9ebaaa1336cdbcf46c5a04f89c0b61",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/vart-008-visual-task",
+      "commit": "1b1c39af20b48559904b4a775135305690d0bd10",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/vart-009-visual-task",
+      "commit": "6b9cc2927374e345553ddb8d9ba7e2e66e6392ec",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/vart-010-visual-task",
+      "commit": "10dde42542d3e9a3238c346dbce87995b647e20b",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/vbase-001-visual-task",
+      "commit": "d633318f2a7cf97d0e970f1f16adf3c0526de755",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/vbase-003-visual-task",
+      "commit": "39c3b42643e1ddbca332d56b78b48fb930cb95ba",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/vbase-004-visual-task",
+      "commit": "e562ce2774945090ca49dfecf445a2879ca2c3d7",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/vcamera-001-visual-task",
+      "commit": "97ef1902263ee850fe5806b6ccbcc68dd540b225",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/vis-00-visual-overhaul-audit",
+      "commit": "daeeeecea25819e5c54c715f4c17cda313ce08df",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/vpipeline-001-visual-task",
+      "commit": "7c7facd2b882b063953158b342bbd9a7e69e25b0",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/vpipeline-002-visual-task",
+      "commit": "1cac1d36810a4f0d6bcd20aea11e6ba6ac67ca76",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/vpipeline-003-visual-task",
+      "commit": "4c930d1266bed5083f2b24b376f5df82f002d65d",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/vpipeline-004-visual-task",
+      "commit": "be3c28d609033845200291d72394bf9fa85c7826",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/vtree-00-living-trees-plan",
+      "commit": "5c3dbdc06d500fe24b73fad4131d0d9cf9210ea5",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/water-00-epic-plan",
+      "commit": "734320780499aa8af753eb20508d099ad18f6e0f",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/water-01-audit-baseline",
+      "commit": "661d9477b894c0fa4812927a0d3cc654f58eea45",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/water-02-visual-direction",
+      "commit": "2a1dfb173d0bf99c1865afdd1bdfc5bff2e8fed2",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/water-03-cardinal-topology",
+      "commit": "0465c4ac69bdc5d9c22173082c6252b0a3fb00a6",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/water-07-navigation-migration",
+      "commit": "45822ef1de25975b566596ee15ea58bc367b99e4",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/water-11-fishing-queries",
+      "commit": "7fef29fa97d326e10e1429d2f4accfa4943a8345",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/world-01-first-week-vertical-slice",
+      "commit": "570f80832d9401059414f960f273051bf958c7c1",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/world-02-village-wayfinding",
+      "commit": "1a220097c9c146c672485ab8ec33a8b8433aeb8e",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/codex/world-03-npc-schedule-availability",
+      "commit": "057fbb30188de54d4d504e3cb6d85e70e6bf18f7",
+      "new_window_commits_outside_main": []
+    },
+    {
+      "ref": "origin/main",
+      "commit": "c9ae970781fae8d1aab95644873668036b5c3011",
+      "new_window_commits_outside_main": []
+    }
+  ],
+  "first_location_queue": {
+    "selected": 52,
+    "done": 43,
+    "next": "VGROUND-010",
+    "rows": [
+      {
+        "id": "VBASE-001",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VBASE-002",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VBASE-003",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VBASE-004",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VBASE-005",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VART-001",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VCAMERA-001",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VART-002",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VART-003",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VART-004",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VART-005",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VART-006",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VART-007",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VART-008",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VART-009",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VART-010",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VPIPELINE-001",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VPIPELINE-002",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VPIPELINE-003",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VPIPELINE-004",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VPIPELINE-005",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VPIPELINE-006",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VPIPELINE-007",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VPIPELINE-008",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VPIPELINE-009",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VPIPELINE-010",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VCAMERA-002",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VCAMERA-003",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VCAMERA-006",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VPERF-001",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VRELEASE-005",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VRENDER-001",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VRENDER-002",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VRENDER-003",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VGROUND-001",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VGROUND-003",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VGROUND-004",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VGROUND-005",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VGROUND-006",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VGROUND-007",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VGROUND-008",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VGROUND-009",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VGROUND-010",
+        "status": "ready",
+        "blockers": [],
+        "eligible": true,
+        "preparable": false
+      },
+      {
+        "id": "VSHORE-001",
+        "status": "done",
+        "blockers": [],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VPROP-002",
+        "status": "backlog",
+        "blockers": [],
+        "eligible": false,
+        "preparable": true
+      },
+      {
+        "id": "VPROP-003",
+        "status": "backlog",
+        "blockers": [],
+        "eligible": false,
+        "preparable": true
+      },
+      {
+        "id": "VPROP-004",
+        "status": "backlog",
+        "blockers": [],
+        "eligible": false,
+        "preparable": true
+      },
+      {
+        "id": "VPROP-005",
+        "status": "backlog",
+        "blockers": [],
+        "eligible": false,
+        "preparable": true
+      },
+      {
+        "id": "VPROP-006",
+        "status": "backlog",
+        "blockers": [],
+        "eligible": false,
+        "preparable": true
+      },
+      {
+        "id": "VPROP-007",
+        "status": "backlog",
+        "blockers": [],
+        "eligible": false,
+        "preparable": true
+      },
+      {
+        "id": "VRELEASE-002",
+        "status": "backlog",
+        "blockers": [
+          "VGROUND-010",
+          "VPROP-002",
+          "VPROP-003",
+          "VPROP-004",
+          "VPROP-005",
+          "VPROP-006",
+          "VPROP-007"
+        ],
+        "eligible": false,
+        "preparable": false
+      },
+      {
+        "id": "VRENDER-004",
+        "status": "ready",
+        "blockers": [],
+        "eligible": true,
+        "preparable": false
+      }
+    ]
+  },
+  "original_idea_count": 191,
+  "new_ideas": [
+    "IDEA-192",
+    "IDEA-193",
+    "IDEA-194",
+    "IDEA-195",
+    "IDEA-196",
+    "IDEA-197",
+    "IDEA-198",
+    "IDEA-199",
+    "IDEA-200",
+    "IDEA-201"
+  ]
+}

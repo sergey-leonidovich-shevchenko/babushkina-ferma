@@ -1,23 +1,22 @@
 {
   "schema": 1,
   "automation_id": "10",
-  "review_date": "2026-10-20",
-  "review_edition": "evening",
-  "from_utc": "2026-10-19T19:20:02Z",
-  "through_utc": "2026-10-20T14:22:16Z",
-  "source_main": "7056f24d949477d01aefd2c42b7640acf7794f09",
-  "source_origin_main": "6b866c3b7538d6d7bdf486cf3be55b45ad757c06",
+  "review_date": "2026-10-21",
+  "from_utc": "2026-10-20T14:22:16Z",
+  "through_utc": "2026-10-21T09:24:00.346Z",
+  "source_main": "559277afcefcccc1d8efad5ae04469a193ba13d2",
+  "source_origin_main": "c9ae970781fae8d1aab95644873668036b5c3011",
   "ideas": [
-    "IDEA-182",
-    "IDEA-183",
-    "IDEA-184",
-    "IDEA-185",
-    "IDEA-186",
-    "IDEA-187",
-    "IDEA-188",
-    "IDEA-189",
-    "IDEA-190",
-    "IDEA-191"
+    "IDEA-192",
+    "IDEA-193",
+    "IDEA-194",
+    "IDEA-195",
+    "IDEA-196",
+    "IDEA-197",
+    "IDEA-198",
+    "IDEA-199",
+    "IDEA-200",
+    "IDEA-201"
   ],
-  "report": "docs/epics/idea-2026-10/daily/2026-10-20-evening/REVIEW.md"
+  "report": "docs/epics/idea-2026-10/daily/2026-10-21/REVIEW.md"
 }

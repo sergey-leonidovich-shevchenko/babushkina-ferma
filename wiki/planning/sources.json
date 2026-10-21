@@ -196,6 +196,20 @@
           "file": "docs/epics/idea-2026-10/daily/2026-10-20-evening/TASKS.md"
         }
       ]
+    },
+    {
+      "id": "daily-20261021",
+      "title": "Творческие предложения 21 октября 2026",
+      "format": "markdown",
+      "group": "gameplay",
+      "expected": 31,
+      "epics": [
+        {
+          "id": "IDEA-DAILY-20261021",
+          "title": "Ежедневные идеи 21 октября 2026",
+          "file": "docs/epics/idea-2026-10/daily/2026-10-21/TASKS.md"
+        }
+      ]
     }
   ],
   "queues": [
