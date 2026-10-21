@@ -1,0 +1,32 @@
+{
+  "task": "VPROP-004",
+  "mode": "built-in image_gen",
+  "selected": [
+    {
+      "id": "south",
+      "prompt": "Redraw this lamp in a STRICTLY STRAIGHT-ON FRONT view facing DOWN toward player, eliminating the three-quarter turn. The lantern's front rectangular glass panel must be exactly centered on the vertical post: glass center x equals post center x. The lantern front top and bottom rails are EXACTLY horizontal, and left and right front frame uprights are symmetrical. We must NOT see a left or right side face of the square lantern cage or the square timber post. Support arm projects out TOWARD the viewer, centered, so its long axis projects vertically in the image, not diagonally to left or right. Keep a softly visible top plane of the blue-grey lantern cap and stone base because the camera is slightly elevated, but yaw must be zero. Symmetrical centered composition. Preserve the warm oak, dark iron fittings, small stone plinth, short chain and unlit grey smoked glass with a tiny dark wick. DAYTIME OFF: no flame, yellow illumination, glow, external shadow or ground. Same hand-painted farming-RPG craft style and upper-left material lighting. Complete prop on genuine transparent alpha, generous clean margins. One front sprite only, no text.",
+      "output": "exec-ffa04414-32d2-4724-b1d4-44a78939f27e.png",
+      "reference": "exec-7431d228-a254-4f49-8510-0b0a32b1cc51.png"
+    },
+    {
+      "id": "west",
+      "prompt": "Create the matching strict LEFT-facing WEST variant of this exact UNLIT oak-post lantern. Keep camera yaw aligned to the grid, no three-quarter/isometric turn. The post stays vertical with the same small stone plinth and height. Rotate ONLY the support assembly so a wooden arm extends EXACTLY HORIZONTALLY LEFT from the top of the post and the lantern hangs LEFT of the post on a short chain. Arm top and bottom long edges exactly horizontal in screen. The square hanging lantern has its same straight-on readable glass front with horizontal rails; a hanging lantern can retain its own facing independently of the arm. Keep its blue-grey metal cap, dark iron and cool grey smoked glass, tiny dark unlit wick. NO flame, yellow glass, glow, external halo, ground or cast/contact shadow. Same honey oak craft texture, soft painterly RPG style, upper-left material light. Do not mirror lighting. Same relative height, base and lantern dimensions as reference. Whole silhouette with generous transparent padding, genuine transparent alpha through all openings. One left view only, no text or scenery.",
+      "output": "exec-7d674c7f-ce4c-4313-bdb9-2ebef0bdb6a5.png",
+      "reference": "exec-ffa04414-32d2-4724-b1d4-44a78939f27e.png"
+    },
+    {
+      "id": "east",
+      "prompt": "Make the matching RIGHT-facing EAST variant of this left-facing UNLIT village post lantern. The vertical oak post and small stone base keep the same dimensions; the beam extends EXACTLY HORIZONTALLY RIGHT and the lantern hangs RIGHT of the post. Keep the hanging cage's readable straight front with horizontal upper/lower rails, grey smoked glass and tiny unlit dark wick; lantern faces can remain fixed independently of the rotating support. Preserve same camera height, blue-grey cap, dark iron fittings and warm honey-oak craft textures. Repaint illumination so light still comes from UPPER LEFT in the image; do not mirror highlights. No diagonal/isometric turn, no back view, no flame, luminous yellow glass, glow or ground shadow. Whole complete prop centered with ample transparent padding and genuine transparent alpha through all holes. One right variant only, no scenery/people/text.",
+      "output": "exec-8696fea9-7e86-4445-bc9a-f87c09a867b3.png",
+      "reference": "exec-7d674c7f-ce4c-4313-bdb9-2ebef0bdb6a5.png"
+    }
+  ],
+  "discarded": [
+    {
+      "id": "initial-front",
+      "reason": "Support and cage retained a three-quarter angle; replaced with strict front.",
+      "prompt": "ONE isolated production 2D game sprite: UNLIT rustic village lantern on a tall honey-oak post with a small dark iron foot on a modest round grey stone plinth. Exact FRONT DOWN-facing orthographic elevated game camera 35 degrees. The post is perfectly vertical, the support arm projects toward the player, so the hanging lantern is centered in front of the upper post, no diagonal plan rotation. A simple short chain, dark wrought-iron lantern frame and muted blue-grey metal roof cap, three clear grey smoked-glass panels, tiny UNLIT wick visible inside. CRITICAL it is DAYTIME OFF: NO flame, NO candle light, NO yellow luminous glass, NO glow, NO halo, NO surrounding light, NO ground or cast shadow. Glass should have restrained cool grey-blue values, no brilliant white rim/reflection. Hand-painted cozy farming RPG style, warm calm honey wood and iron craft texture, gently worn surfaces within large clear shapes, natural antialiased edges, no outline, not pixel art, not photorealistic. Soft local illumination from upper LEFT; this lights materials only, not the lamp. Full complete silhouette, all chain/roof/post/base fully inside generous transparent padding. Genuine transparent alpha around the prop and through structural openings, no matte backing or checkerboard. About 1.5 adult character heights, not a giant streetlight. One lamp one front view only, no labels/text/scenery/people.",
+      "output": "exec-7431d228-a254-4f49-8510-0b0a32b1cc51.png"
+    }
+  ]
+}

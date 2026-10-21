@@ -27,15 +27,12 @@ static func draw_lights(game: Node2D, darkness: float) -> void:
 		game.draw_circle(return_screen, 72.0, Color(0.32, 0.66, 1.0, 0.14))
 		return
 	if game.current_location != "overworld": return
-	# Свет привязан к настоящим фонарям атласа, а несколько колец дают мягкий край без висящих в воздухе дисков.
+	# Корпус остаётся сухим; отдельный профиль привязывает свет к измеренному центру стекла.
 	for prop in VillageLayoutSystem.PROP_PLACEMENTS + VillageLayoutSystem.SCENIC_PLACEMENTS:
 		if prop.kind != "lamp": continue
 		var projection:=preload("res://scripts/systems/world_projection_system.gd")
-		var screen: Vector2 = projection.world_to_screen(game,Vector2(prop.position)-Vector2(0,38))
-		for ring in 4:
-			var radius := (42.0 - ring * 8.0)*projection.zoom(game)
-			game.draw_circle(screen, radius, Color(1.0, 0.72 + ring * 0.025, 0.28, darkness * (0.035 + ring * 0.025)))
-		game.draw_circle(screen, 5.0*projection.zoom(game), Color(1.0, 0.88, 0.56, darkness * 0.58))
+		var screen:Vector2=projection.world_to_screen(game,Vector2(prop.position)+Vector2(0,24))
+		preload("res://scripts/presentation/village_lamp_visual.gd").draw_glow(game,screen,projection.zoom(game),darkness)
 	if game.WorldEventSystem.eclipse_active(game.day, game.game_minutes):
 		var projection:=preload("res://scripts/systems/world_projection_system.gd")
 		var portal_screen: Vector2 = projection.world_to_screen(game,game.WorldEventSystem.PORTAL_POSITION)

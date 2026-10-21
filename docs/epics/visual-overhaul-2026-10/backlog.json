@@ -8370,7 +8370,7 @@
       "id": "VPROP-004",
       "epic": "VPROP",
       "title": "Разделить светильник и свечение",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "phase": "pilot",
       "kind": "engineering",
@@ -8406,14 +8406,28 @@
         "confidence": "low",
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
-      "branch": "codex/vprop-004-visual-task",
-      "evidence": []
+      "branch": "codex/vprop-004-lamp-glow",
+      "evidence": [
+        "docs/reports/visual-overhaul/vprop-004/README.md",
+        "docs/reports/visual-overhaul/vprop-004/source.json",
+        "docs/reports/visual-overhaul/vprop-004/prompts.json",
+        "docs/reports/visual-overhaul/vprop-004/summary.json",
+        "docs/reports/visual-overhaul/vprop-004/native/before/source.json",
+        "docs/reports/visual-overhaul/vprop-004/native/after/source.json",
+        "docs/reports/visual-overhaul/vprop-004/review.txt",
+        "docs/reports/visual-overhaul/vprop-004/python-check.txt",
+        "docs/reports/visual-overhaul/vprop-004/completion.json",
+        "docs/reports/visual-overhaul/vprop-004/quality-check.txt",
+        "docs/reports/visual-overhaul/vprop-004/wiki-check.txt",
+        "docs/reports/visual-overhaul/vprop-004/browser-review.json"
+      ],
+      "result": "Встроенным image_gen нарисованы три самостоятельных негорящих корпуса вниз/влево/вправо; передний разворот исправлен до прямого. Мастера, промпты, точные RGB/опоры/центры стекла и производные сохранены отдельно. Два прежних фонаря overworld подключены с общей плотностью0.25, адресным linear и прежними коллизиями24×24. Свет отделён от PNG и связан с измеренным стеклом: один радиальный mesh и одна контактная тень общие для всех видов/размещений. Прежние жёсткие кольца заменены в текущем проходе атмосферы; календарная кривая, ночной слой, HUD, осадки/затмение и другие карты сохранены. Новых таймеров/узлов/render target/readback нет. Нативные before/after от28fa0aa8: 84PNG/400реальных callbacks в двух окнах, обычные день/сумерки/ночь и ночь второго фонаря, пауза, дом, соседние объекты, dry/lit на четырёх фонах. За пределами корпуса/контакта/света RGBA точны; интерьер и кадр с фонарями вне экрана полностью равны.48 измерений стекла показывают отдельный прирост яркости, остальной корпус совпадает. Профиль42/0 включает настоящий физический цикл паузы/продолжения и непрерывные рассвет/сумерки; Python13/0, Wiki96/0, браузер: шесть картинок, поиск и три точных JSON. Новая механика зажигания, физические динамические тени, нормали, FPS и вся VMAP-003 не заявлены. Общий architecture gate пройден; полный игровой набор: 46086/0."
     },
     {
       "id": "VPROP-005",
       "epic": "VPROP",
       "title": "Подготовить ограждения и ворота",
-      "status": "backlog",
+      "status": "ready",
       "priority": "P1",
       "phase": "pilot",
       "kind": "engineering",

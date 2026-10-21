@@ -1,0 +1,20 @@
+{
+  "task": "VPROP-004",
+  "native_acceptance": true,
+  "performance_eligible": false,
+  "game_version": "0.0.295",
+  "native_base_commit": "28fa0aa897eabeac65b502860e18fcb7abe8ac2c",
+  "checks": {
+    "profile_passed": 42,
+    "python_tests": 13,
+    "native_png": 84,
+    "draw_callbacks": 400,
+    "architecture": "passed",
+    "game_passed": 46086,
+    "game_failed": 0,
+    "wiki_passed": 96,
+    "wiki_failed": 0,
+    "browser": "six images, search, three exact JSON downloads"
+  },
+  "scope": "two existing overworld lamps; three unlit bodies; separate shared glow/base shadow, existing calendar and paused physics; no new interactions, physical lighting or FPS acceptance"
+}

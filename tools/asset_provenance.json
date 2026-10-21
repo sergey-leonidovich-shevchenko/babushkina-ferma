@@ -770,6 +770,31 @@
         "assets/game/locations/overworld/street_props/cart_west_v1.png": "15642063de51553e4b6746bb541fb0704c034820bc900b36af20d6f1f131b744",
         "assets/game/locations/overworld/street_props/cart_east_v1.png": "0b33065aec59997d4d2a25df82195f984014946fc58b5835f2ef4ff5c10ea3ad"
       }
+    },
+    {
+      "id": "vprop-004-lamps",
+      "paths": [
+        "assets/game/locations/overworld/lamps/lamp_south_v1.png",
+        "assets/game/locations/overworld/lamps/lamp_west_v1.png",
+        "assets/game/locations/overworld/lamps/lamp_east_v1.png"
+      ],
+      "kind": "project-generation-documented",
+      "claim": "Original built-in image_gen unlit lamp bodies, strict front correction and separately repainted left/right supports. Mechanical crop and uniform Lanczos reduction only. Glow remains separate code/profile, not baked PNG.",
+      "license_status": "project-record-not-legal-opinion",
+      "evidence": [
+        "docs/reports/visual-overhaul/vprop-004/README.md",
+        "docs/reports/visual-overhaul/vprop-004/source.json",
+        "docs/reports/visual-overhaul/vprop-004/prompts.json",
+        "docs/reports/visual-overhaul/vprop-004/masters/south.png",
+        "docs/reports/visual-overhaul/vprop-004/masters/west.png",
+        "docs/reports/visual-overhaul/vprop-004/masters/east.png",
+        "tools/village_lamp_assets.py"
+      ],
+      "asset_sha256": {
+        "assets/game/locations/overworld/lamps/lamp_south_v1.png": "756c8636dbc0dcbd6d3d9c2a787637e235c6d913469907386d8a3cb61944dd1e",
+        "assets/game/locations/overworld/lamps/lamp_west_v1.png": "18f0e0dc0004a666d9673c1203f942172ba96b28a5edb8ccd255c0e85a0d09af",
+        "assets/game/locations/overworld/lamps/lamp_east_v1.png": "b53cad46f1e3b1315908fca4daacdca1b1191029e7d10b3fa30b800732a4146b"
+      }
     }
   ],
   "local_matches": {

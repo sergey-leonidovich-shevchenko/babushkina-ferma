@@ -129,11 +129,11 @@
 
 ## VPROP-004 — Разделить светильник и свечение
 
-Статус: `ready` · P1 · этап `pilot` · `engineering`
+Статус: `done` · P1 · этап `pilot` · `engineering`
 
 Сухой рисунок фонаря пригоден днём; свет подключается отдельным профилем вечером
 
-Ветка: `codex/vprop-004-visual-task`.
+Ветка: `codex/vprop-004-lamp-glow`.
 
 Зависимости: VART-004, VART-008.
 
@@ -145,7 +145,7 @@
 - [scripts/presentation/house_furniture_visual_system.gd](../../../../scripts/presentation/house_furniture_visual_system.gd)
 - [scripts/systems/furniture_facing_system.gd](../../../../scripts/systems/furniture_facing_system.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vprop-004/`.
+Результаты: `docs/reports/visual-overhaul/vprop-004/`.
 
 Критерии:
 
@@ -163,13 +163,13 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vprop-004/README.md, docs/reports/visual-overhaul/vprop-004/source.json, docs/reports/visual-overhaul/vprop-004/prompts.json, docs/reports/visual-overhaul/vprop-004/summary.json, docs/reports/visual-overhaul/vprop-004/native/before/source.json, docs/reports/visual-overhaul/vprop-004/native/after/source.json, docs/reports/visual-overhaul/vprop-004/review.txt, docs/reports/visual-overhaul/vprop-004/python-check.txt, docs/reports/visual-overhaul/vprop-004/completion.json, docs/reports/visual-overhaul/vprop-004/quality-check.txt, docs/reports/visual-overhaul/vprop-004/wiki-check.txt, docs/reports/visual-overhaul/vprop-004/browser-review.json.
 
 <a id="vprop-005"></a>
 
 ## VPROP-005 — Подготовить ограждения и ворота
 
-Статус: `backlog` · P1 · этап `pilot` · `engineering`
+Статус: `ready` · P1 · этап `pilot` · `engineering`
 
 Прямые секции, углы и проходы привязаны к сетке; визуальный забор совпадает с блокировкой
 

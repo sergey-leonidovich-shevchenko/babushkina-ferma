@@ -1,0 +1,134 @@
+{
+  "schema": 1,
+  "task": "VPROP-004",
+  "tool": "built-in image_gen",
+  "unlit_body": true,
+  "render_scale": 0.25,
+  "views": {
+    "south": {
+      "master": "masters/south.png",
+      "master_sha256": "d1c854b94fd804e31afc4c9bba408cfb319903009494777f6ac3bc45aee7d857",
+      "crop": [
+        362,
+        37,
+        662,
+        1498
+      ],
+      "pixels": [
+        115,
+        496
+      ],
+      "anchor": [
+        57.17,
+        484.3860369609856
+      ],
+      "emitter": [
+        57.17,
+        214.32443531827516
+      ],
+      "source_anchor": [
+        511,
+        1487
+      ],
+      "source_emitter": [
+        511,
+        665
+      ],
+      "runtime": "assets/game/locations/overworld/lamps/lamp_south_v1.png",
+      "render_scale": 0.25,
+      "sha256": "756c8636dbc0dcbd6d3d9c2a787637e235c6d913469907386d8a3cb61944dd1e"
+    },
+    "west": {
+      "master": "masters/west.png",
+      "master_sha256": "2ecebc3c3ec9400c77c686b8228179c3c99fa6fd7f3af8912c8ab53f6f3b2e50",
+      "crop": [
+        184,
+        14,
+        789,
+        1501
+      ],
+      "pixels": [
+        211,
+        496
+      ],
+      "anchor": [
+        148.8512396694215,
+        484.1264290517821
+      ],
+      "emitter": [
+        46.67768595041322,
+        208.45729657027573
+      ],
+      "source_anchor": [
+        621,
+        1489
+      ],
+      "source_emitter": [
+        304,
+        635
+      ],
+      "runtime": "assets/game/locations/overworld/lamps/lamp_west_v1.png",
+      "render_scale": 0.25,
+      "sha256": "18f0e0dc0004a666d9673c1203f942172ba96b28a5edb8ccd255c0e85a0d09af"
+    },
+    "east": {
+      "master": "masters/east.png",
+      "master_sha256": "d06b8bcc17f10e0219983279953ca06c22616f295577052f0319b0d3fc604d07",
+      "crop": [
+        242,
+        14,
+        862,
+        1498
+      ],
+      "pixels": [
+        217,
+        496
+      ],
+      "anchor": [
+        65.05806451612904,
+        483.47169811320754
+      ],
+      "emitter": [
+        169.7725806451613,
+        208.86253369272237
+      ],
+      "source_anchor": [
+        418,
+        1484
+      ],
+      "source_emitter": [
+        741,
+        635
+      ],
+      "runtime": "assets/game/locations/overworld/lamps/lamp_east_v1.png",
+      "render_scale": 0.25,
+      "sha256": "b53cad46f1e3b1315908fca4daacdca1b1191029e7d10b3fa30b800732a4146b"
+    }
+  },
+  "glow": {
+    "darkness_peak": 0.62,
+    "radii": [
+      0,
+      3,
+      7,
+      16,
+      32
+    ],
+    "alpha": [
+      0.65,
+      0.4,
+      0.16,
+      0.055,
+      0
+    ],
+    "color": [
+      1,
+      0.77,
+      0.36
+    ],
+    "segments": 24,
+    "clock": "WorldEventSystem.darkness; no separate timer"
+  },
+  "processing": "Mechanical alpha>=8 ROI plus 8 source pixels, uniform Lanczos height 480 and 8 output pixels of padding. No repaint, mirroring, background keying or runtime axis fitting. RGBA at zero alpha retained.",
+  "separation": "Grey unlit panes remain the same PNG at every time. WorldEventSystem.darkness drives one radial mesh shared by all facings and placements; no baked emissive bitmap or added timer."
+}

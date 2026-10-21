@@ -192,6 +192,54 @@
         "process/premult_alpha": false
       },
       "intent": "color_srgb"
+    },
+    "village_lamp_south_v1": {
+      "file": "res://assets/game/locations/overworld/lamps/lamp_south_v1.png",
+      "pixels": [
+        115,
+        496
+      ],
+      "sha256": "756c8636dbc0dcbd6d3d9c2a787637e235c6d913469907386d8a3cb61944dd1e",
+      "layout": "standalone",
+      "import": {
+        "compress/mode": 0,
+        "mipmaps/generate": false,
+        "process/fix_alpha_border": true,
+        "process/premult_alpha": false
+      },
+      "intent": "color_srgb"
+    },
+    "village_lamp_west_v1": {
+      "file": "res://assets/game/locations/overworld/lamps/lamp_west_v1.png",
+      "pixels": [
+        211,
+        496
+      ],
+      "sha256": "18f0e0dc0004a666d9673c1203f942172ba96b28a5edb8ccd255c0e85a0d09af",
+      "layout": "standalone",
+      "import": {
+        "compress/mode": 0,
+        "mipmaps/generate": false,
+        "process/fix_alpha_border": true,
+        "process/premult_alpha": false
+      },
+      "intent": "color_srgb"
+    },
+    "village_lamp_east_v1": {
+      "file": "res://assets/game/locations/overworld/lamps/lamp_east_v1.png",
+      "pixels": [
+        217,
+        496
+      ],
+      "sha256": "b53cad46f1e3b1315908fca4daacdca1b1191029e7d10b3fa30b800732a4146b",
+      "layout": "standalone",
+      "import": {
+        "compress/mode": 0,
+        "mipmaps/generate": false,
+        "process/fix_alpha_border": true,
+        "process/premult_alpha": false
+      },
+      "intent": "color_srgb"
     }
   },
   "resources": {
@@ -552,6 +600,97 @@
                 0,
                 592,
                 307
+              ]
+            }
+          }
+        }
+      }
+    },
+    "prop.village_lamp": {
+      "kind": "prop",
+      "space": "world",
+      "owner": "VillageLampVisual + VillagePropRenderer + AtmosphereRenderer",
+      "task": "VPROP-004",
+      "source": {
+        "kind": "master",
+        "file": "docs/reports/visual-overhaul/vprop-004/source.json",
+        "sha256": "9d558547c5ec427f134b435f4c6b90e44a180dfbe3ffc79fbcf8a3dcbb6f4a8d"
+      },
+      "filter": "linear",
+      "sampling_family": "painted_world",
+      "default_quality": "standard",
+      "views": {
+        "south": {
+          "logical_size": [
+            28.75,
+            124.0
+          ],
+          "footprint_size": [
+            24,
+            24
+          ],
+          "pivot": [
+            0.4971304347826087,
+            0.976584751937471
+          ],
+          "variants": {
+            "standard": {
+              "texture": "village_lamp_south_v1",
+              "source_rect": [
+                0,
+                0,
+                115,
+                496
+              ]
+            }
+          }
+        },
+        "west": {
+          "logical_size": [
+            52.75,
+            124.0
+          ],
+          "footprint_size": [
+            24,
+            24
+          ],
+          "pivot": [
+            0.705456112177353,
+            0.976061348894722
+          ],
+          "variants": {
+            "standard": {
+              "texture": "village_lamp_west_v1",
+              "source_rect": [
+                0,
+                0,
+                211,
+                496
+              ]
+            }
+          }
+        },
+        "east": {
+          "logical_size": [
+            54.25,
+            124.0
+          ],
+          "footprint_size": [
+            24,
+            24
+          ],
+          "pivot": [
+            0.2998067489222536,
+            0.9747413268411442
+          ],
+          "variants": {
+            "standard": {
+              "texture": "village_lamp_east_v1",
+              "source_rect": [
+                0,
+                0,
+                217,
+                496
               ]
             }
           }

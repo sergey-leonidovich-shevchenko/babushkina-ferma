@@ -1,0 +1,88 @@
+{
+  "task": "VPROP-004",
+  "base_commit": "28fa0aa897eabeac65b502860e18fcb7abe8ac2c",
+  "performance_eligible": false,
+  "props": [
+    "lamp"
+  ],
+  "directions": [
+    "south",
+    "west",
+    "east"
+  ],
+  "normal_render_scale": 0.25,
+  "windows": {
+    "1152": {
+      "before_png": 17,
+      "after_png": 25,
+      "draw_callbacks": 200,
+      "changed_pixels": {
+        "lamp-768-0-62": 3851,
+        "lamp-768-0--10": 4167,
+        "lamp-768--60-12": 4157,
+        "lamp-768-60-12": 4157,
+        "lamp-1728-0-62": 2675,
+        "lamp-1728-0--10": 4165,
+        "lamp-1728--60-12": 4152,
+        "lamp-1728-60-12": 4152,
+        "normal-day": 3852,
+        "normal-sunset": 8831,
+        "normal-night": 8683,
+        "normal-east-night": 8576,
+        "manual-pause": 1358,
+        "interior": 0,
+        "returned": 3851,
+        "bench-control": 0,
+        "street-control": 4022
+      },
+      "outside_lamp_equal": true,
+      "gallery_backgrounds": 4,
+      "gallery_modes": [
+        "dry",
+        "lit"
+      ],
+      "separate_glow": true,
+      "glow_comparison": {
+        "pane_samples": 24,
+        "minimum_luma_gain": 15.237537500000059,
+        "body_outside_glow_equal": true
+      }
+    },
+    "1280": {
+      "before_png": 17,
+      "after_png": 25,
+      "draw_callbacks": 200,
+      "changed_pixels": {
+        "lamp-768-0-62": 4741,
+        "lamp-768-0--10": 5080,
+        "lamp-768--60-12": 5108,
+        "lamp-768-60-12": 5108,
+        "lamp-1728-0-62": 3326,
+        "lamp-1728-0--10": 5082,
+        "lamp-1728--60-12": 5078,
+        "lamp-1728-60-12": 5078,
+        "normal-day": 4741,
+        "normal-sunset": 10859,
+        "normal-night": 10728,
+        "normal-east-night": 10587,
+        "manual-pause": 1724,
+        "interior": 0,
+        "returned": 4741,
+        "bench-control": 0,
+        "street-control": 4874
+      },
+      "outside_lamp_equal": true,
+      "gallery_backgrounds": 4,
+      "gallery_modes": [
+        "dry",
+        "lit"
+      ],
+      "separate_glow": true,
+      "glow_comparison": {
+        "pane_samples": 24,
+        "minimum_luma_gain": 17.32285600000003,
+        "body_outside_glow_equal": true
+      }
+    }
+  }
+}

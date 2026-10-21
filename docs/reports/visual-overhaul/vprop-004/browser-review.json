@@ -1,0 +1,66 @@
+{
+  "task": "VPROP-004",
+  "url": "http://127.0.0.1:4175/#/guides/village-lamps",
+  "images": [
+    {
+      "alt": "До: прежний горящий рисунок фонаря днём",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    },
+    {
+      "alt": "После: негорящий корпус в дневном кадре",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    },
+    {
+      "alt": "До: прежние световые кольца",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    },
+    {
+      "alt": "После: мягкое свечение у измеренного стекла",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    },
+    {
+      "alt": "Сухие корпуса вниз, влево и вправо",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    },
+    {
+      "alt": "Те же корпуса с отдельным вечерним светом",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    }
+  ],
+  "images_complete": true,
+  "downloads": [
+    {
+      "file": "summary.json",
+      "exact": true,
+      "sha256": "6242292ee86dcf5c131285e4894888d4dcfb3e83b8eec061d42251c43a1e5ad3"
+    },
+    {
+      "file": "source.json",
+      "exact": true,
+      "sha256": "9d558547c5ec427f134b435f4c6b90e44a180dfbe3ffc79fbcf8a3dcbb6f4a8d"
+    },
+    {
+      "file": "prompts.json",
+      "exact": true,
+      "sha256": "6ff71e1f70aa55a0927da8857a1e83afaec722e3f80d24ce6fc260ea81d6af11"
+    }
+  ],
+  "search_verified": true,
+  "viewport": {
+    "scrollWidth": 1280,
+    "width": 1280
+  },
+  "narrow_viewport_tested": false
+}
