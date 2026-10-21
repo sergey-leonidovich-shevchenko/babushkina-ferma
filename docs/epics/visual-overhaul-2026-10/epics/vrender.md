@@ -126,11 +126,11 @@
 
 ## VRENDER-004 — Определить контракт команды объекта
 
-Статус: `ready` · P0 · этап `foundation` · `engineering`
+Статус: `in_progress` · P0 · этап `foundation` · `engineering`
 
 Пакет содержит опору, bounds, материал, локальный UV и слой; прежний draw путь остаётся рабочим fallback
 
-Ветка: `codex/vrender-004-visual-task`.
+Ветка: `codex/vrender-004-object-command`.
 
 Зависимости: VRENDER-002.
 
@@ -142,7 +142,7 @@
 - [scripts/world_background.gd](../../../../scripts/world_background.gd)
 - [scripts/presentation/village_terrain_canvas.gd](../../../../scripts/presentation/village_terrain_canvas.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vrender-004/`.
+Результаты: `docs/reports/visual-overhaul/vrender-004/`.
 
 Критерии:
 
@@ -160,7 +160,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vrender-004/README.md, docs/reports/visual-overhaul/vrender-004/contract.json, docs/reports/visual-overhaul/vrender-004/review.txt, docs/reports/visual-overhaul/vrender-004/python-check.txt, docs/reports/visual-overhaul/vrender-004/sampling-notes.json, docs/reports/visual-overhaul/vrender-004/progress-check.json, docs/reports/visual-overhaul/vrender-004/quality-check.txt, docs/reports/visual-overhaul/vrender-004/browser-review.json.
 
 <a id="vrender-005"></a>
 

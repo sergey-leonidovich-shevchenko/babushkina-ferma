@@ -20,3 +20,12 @@ static func collision_rect(ground: Vector2) -> Rect2:
 ## Рисует тиски, киянку, рубанок и полку без поворота готовой картинки и без растягивания.
 static func draw(canvas: CanvasItem, ground: Vector2, direction: int = 0) -> void:
 	canvas.draw_texture_rect(texture(direction),destination(ground,direction),false)
+
+## Описывает тот же верстак для будущего прохода; обычный draw пока сохраняет прежний маршрут.
+static func command(ground: Vector2, direction: int = 0) -> Dictionary:
+	var image := texture(direction)
+	return preload("res://scripts/presentation/object_draw_command.gd").create({
+		"version":1,"id":"workbench:%s:%s"%[ground,direction],"world":"overworld","space":"world",
+		"anchor":ground,"bounds":destination(ground,direction),"texture":image,
+		"source":Rect2(Vector2.ZERO,image.get_size()),"material":null,"modulate":Color.WHITE,
+		"local_uv":Rect2(0,0,1,1),"layer":"behind_actors"})

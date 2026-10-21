@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="560" viewBox="0 0 1000 560" role="img" aria-labelledby="title desc">
+<title id="title">Контракт команды объекта VRENDER-004</title>
+<desc id="desc">Данные команды проверяются до рисования. Совпавшие мир, фаза и собственный материал дают replay. Отказ вызывает старый draw один раз. Нативная приёмка ещё не завершена.</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10" fill="none" stroke="#716955" stroke-width="1.5"/></marker></defs>
+<rect width="1000" height="560" rx="20" fill="#f4ecd9"/>
+<g font-family="Arial,sans-serif" fill="#403c31">
+<text x="32" y="44" font-size="25" font-weight="bold">Одна команда — один осевой рисунок</text>
+<text x="32" y="74" font-size="17">VRENDER-004 · техническая подготовка · нативная приёмка ожидается</text>
+<rect x="32" y="102" width="360" height="350" rx="12" fill="#fffaf0" stroke="#b4a680" stroke-width="2"/>
+<text x="52" y="136" font-size="20" font-weight="bold">Read-only снимок v1</text>
+<g font-size="18"><text x="52" y="171">ID · мир · space: world</text><text x="52" y="205">Опора в мировых пикселях</text><text x="52" y="239">Bounds рисунка ≠ коллизия</text><text x="52" y="273">Texture + source в пикселях</text><text x="52" y="307">Локальный UV: 0…1</text><text x="52" y="341">Материал · цвет · альфа</text><text x="52" y="375">Явная фаза мирового слоя</text></g>
+<text x="52" y="420" font-size="15" fill="#746a55">Общие ресурсы не копируются</text>
+<rect x="444" y="181" width="205" height="166" rx="12" fill="#e7dfc8" stroke="#a39470" stroke-width="2"/>
+<g font-size="18" text-anchor="middle"><text x="546" y="215" font-weight="bold">Проверка до draw</text><text x="546" y="248">Типы и границы</text><text x="546" y="279">Мир и фаза</text><text x="546" y="310">Свой материал узла</text></g>
+<rect x="718" y="133" width="250" height="108" rx="12" fill="#dce5c8" stroke="#8a986e" stroke-width="2"/>
+<text x="739" y="167" font-size="19" font-weight="bold">Replay</text><text x="739" y="198" font-size="16">Те же CanvasItem API</text><text x="739" y="221" font-size="16">Общий root не меняется</text>
+<rect x="718" y="301" width="250" height="118" rx="12" fill="#efdfc3" stroke="#b49b75" stroke-width="2"/>
+<text x="739" y="335" font-size="19" font-weight="bold">Прежний draw</text><text x="739" y="366" font-size="16">Ровно один fallback</text><text x="739" y="392" font-size="16">Без callback: rejected</text>
+<g fill="none" stroke="#716955" stroke-width="2" marker-end="url(#arrow)"><path d="M392 264 H434"/><path d="M649 230 H680 V187 H708"/><path d="M649 300 H680 V359 H708"/></g>
+<text x="32" y="496" font-size="18">Обычная игра пока сохраняет прежний маршрут верстака.</text>
+<text x="32" y="528" font-size="16" fill="#746a55">Включение прохода — VRENDER-005. Сортировка и перила — отдельные задачи.</text>
+</g></svg>

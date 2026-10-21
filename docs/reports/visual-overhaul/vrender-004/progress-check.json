@@ -1,0 +1,15 @@
+{
+  "task": "VRENDER-004",
+  "native_acceptance": false,
+  "production_pass_enabled": false,
+  "checks": {
+    "profile_passed": 41,
+    "python_schema_tests": 10,
+    "wiki_passed": 90,
+    "wiki_failed": 0,
+    "architecture": "passed",
+    "game_passed": 45970,
+    "game_failed": 0
+  },
+  "remaining": "real native two-window image/draw/material/fallback acceptance; no Task-Complete or main merge yet"
+}

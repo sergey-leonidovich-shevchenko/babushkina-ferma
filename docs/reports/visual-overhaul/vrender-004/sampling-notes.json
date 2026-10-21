@@ -1,0 +1,17 @@
+{
+  "attempt_a": {
+    "complete": false,
+    "accepted": false,
+    "reason": "own process exceeded 180-second limit before first shot; no engine error logged",
+    "cause": "not proven",
+    "ordinary_processes_preserved": true
+  },
+  "attempt_b": {
+    "complete": false,
+    "accepted": false,
+    "reason": "180-second timeout after village/tree-behind; no complete capture.json",
+    "root_cause": "not proven; initial window focus false, later native frames intermittent",
+    "user_available_for_focus": false,
+    "ordinary_processes_preserved": true
+  }
+}

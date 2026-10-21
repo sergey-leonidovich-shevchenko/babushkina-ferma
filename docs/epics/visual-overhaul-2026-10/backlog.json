@@ -1312,7 +1312,7 @@
       "id": "VRENDER-004",
       "epic": "VRENDER",
       "title": "Определить контракт команды объекта",
-      "status": "ready",
+      "status": "in_progress",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -1347,8 +1347,18 @@
         "confidence": "low",
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
-      "branch": "codex/vrender-004-visual-task",
-      "evidence": []
+      "branch": "codex/vrender-004-object-command",
+      "evidence": [
+        "docs/reports/visual-overhaul/vrender-004/README.md",
+        "docs/reports/visual-overhaul/vrender-004/contract.json",
+        "docs/reports/visual-overhaul/vrender-004/review.txt",
+        "docs/reports/visual-overhaul/vrender-004/python-check.txt",
+        "docs/reports/visual-overhaul/vrender-004/sampling-notes.json",
+        "docs/reports/visual-overhaul/vrender-004/progress-check.json",
+        "docs/reports/visual-overhaul/vrender-004/quality-check.txt",
+        "docs/reports/visual-overhaul/vrender-004/browser-review.json"
+      ],
+      "result": "Подготовлены read-only контракт v1, проверенный replay с атомарным fallback и дескриптор существующего верстака в трёх рабочих ракурсах. Обычный draw сохранён точно, новый проход не включён; нет новых runtime viewport/таймеров/readback. 41 профильная проверка и10 Python-сценариев валидатора на явно синтетических fixtures прошли. Полный save,1200 правил и8 движений сохранены. Нативные A/B неполные, обе отклонены; пользователь сейчас не может держать QA-окно активным. Статус in_progress; требуются свежие два окна, реальная сверка PNG/material/save/HUD/fallback и общие gates перед done. Ожидаемые80 PNG/248 draw — план, не результат; VRENDER-005/008 не разблокированы. Actual intermediate gates: architecture passed; full game 45970/0; Wiki 90/0; browser pending-state/search/diagram/two exact JSON verified. Native acceptance remains pending."
     },
     {
       "id": "VRENDER-005",

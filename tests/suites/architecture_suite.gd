@@ -17,6 +17,7 @@ static func run(context: SceneTree) -> void:
 	preload("res://tests/suites/decoration_rules_suite.gd").run(context)
 	preload("res://tests/suites/terrain_revision_suite.gd").run(context)
 	preload("res://tests/suites/ground_seasons_suite.gd").run(context)
+	preload("res://tests/suites/object_draw_command_suite.gd").run(context)
 	preload("res://tests/suites/coordinate_contract_suite.gd").run(context)
 	preload("res://tests/suites/camera_quantization_suite.gd").run(context)
 	preload("res://tests/suites/presentation_pose_suite.gd").run(context)

@@ -390,3 +390,8 @@ assets/inbox/*
 
 # VGROUND-006 exact archived import settings
 !docs/reports/visual-overhaul/vground-006/native/inputs/assets/game/locations/overworld/modular/plaza_limestone_v1.png.import
+
+!tools/object_command*.gd
+!tools/object_command*.gd.uid
+!tools/object_command*.py
+!tools/test_object_command.py

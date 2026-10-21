@@ -1,0 +1,33 @@
+{
+  "task": "VRENDER-004",
+  "url": "http://127.0.0.1:4175/#/guides/object-draw-command",
+  "images": [
+    {
+      "alt": "Поля команды объекта и безопасный возврат к прежнему рисованию",
+      "complete": true,
+      "height": 560,
+      "width": 1000
+    }
+  ],
+  "viewport": {
+    "scrollWidth": 1280,
+    "width": 1280
+  },
+  "search_verified": true,
+  "card_status": "in_progress",
+  "dependencies_unlocked": false,
+  "downloads": [
+    {
+      "file": "contract.json",
+      "exact": true,
+      "sha256": "609600b325e8eab537bb3dee5472ca73610b47a93d7ea52e5f17055555b2103e"
+    },
+    {
+      "file": "sampling-notes.json",
+      "exact": true,
+      "sha256": "1df4f17407f690845bfa11e5345473882555168299be2391d6fa2950a03f97ce"
+    }
+  ],
+  "native_acceptance": false,
+  "narrow_viewport_tested": false
+}

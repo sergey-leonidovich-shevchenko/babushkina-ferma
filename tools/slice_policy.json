@@ -456,6 +456,11 @@
       "calls": 1,
       "scope": "bounded-procedural-or-resource",
       "reason": "Existing renderer; exported family API or declared AtlasTexture, with procedural UI and user editor input checked by their existing suites."
+    },
+    "scripts/presentation/object_draw_replay.gd": {
+      "calls": 1,
+      "scope": "bounded-procedural-or-resource",
+      "reason": "VRENDER-004 replay accepts only a positive finite source enclosed by its actual Texture2D, validated before draw by ObjectDrawCommand. The current provider reuses the three declared workbench AtlasTextures; no new source family or production pass is enabled. ObjectDrawCommandSuite covers region rejection; native replay acceptance remains pending."
     }
   },
   "initial_geometry_issues": [
