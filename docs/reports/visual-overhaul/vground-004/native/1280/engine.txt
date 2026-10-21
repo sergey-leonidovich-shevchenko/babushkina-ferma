@@ -1,0 +1,23 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+OpenGL API 4.1 ATI-7.0.3 - Compatibility - Using Device: ATI Technologies Inc. - AMD Radeon Pro 5300M OpenGL Engine
+
+AXIAL SHOT spring-before
+AXIAL SHOT spring-after
+AXIAL SHOT summer-before
+AXIAL SHOT summer-after
+AXIAL SHOT autumn-before
+AXIAL SHOT autumn-after
+AXIAL SHOT winter-before
+AXIAL SHOT winter-after
+AXIAL SHOT rain-before
+AXIAL SHOT rain-after
+AXIAL SHOT bridge-west-before
+AXIAL SHOT bridge-west-after
+AXIAL SHOT bridge-east-before
+AXIAL SHOT bridge-east-after
+AXIAL SHOT interior-before
+AXIAL SHOT interior-after
+AXIAL SHOT returned-before
+AXIAL SHOT returned-after
+AXIAL SHOT direct
+AXIAL SHOT cached

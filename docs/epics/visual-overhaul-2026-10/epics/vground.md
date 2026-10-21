@@ -120,11 +120,11 @@
 
 ## VGROUND-004 — Убрать капсульную форму дорог
 
-Статус: `ready` · P0 · этап `pilot` · `engineering`
+Статус: `done` · P0 · этап `pilot` · `engineering`
 
 Оси путей остаются ортогональными; художественные потёртости края не создают диагональные сокращения маршрута
 
-Ветка: `codex/vground-004-visual-task`.
+Ветка: `codex/vground-004-axial-road-shape`.
 
 Зависимости: VGROUND-001.
 
@@ -134,7 +134,7 @@
 - [scripts/presentation/village_region_terrain.gd](../../../../scripts/presentation/village_region_terrain.gd)
 - [scripts/systems/village_map_data.gd](../../../../scripts/systems/village_map_data.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vground-004/`.
+Результаты: `docs/reports/visual-overhaul/vground-004/`.
 
 Критерии:
 
@@ -152,7 +152,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vground-004/README.md, docs/reports/visual-overhaul/vground-004/completion.json, docs/reports/visual-overhaul/vground-004/summary.json, docs/reports/visual-overhaul/vground-004/native/source.json, docs/reports/visual-overhaul/vground-004/review.txt, docs/reports/visual-overhaul/vground-004/compile.txt, docs/reports/visual-overhaul/vground-004/browser-review.json.
 
 <a id="vground-005"></a>
 

@@ -37,9 +37,9 @@ static func flower_patch(location: String, point: Vector2) -> bool:
 	return true
 
 ## Рисует дорожные ветви и повороты по индивидуальному чертежу района.
-static func paths(canvas: Node2D, location: String, soft_edges: bool=false) -> void:
+static func paths(canvas: Node2D, location: String, soft_edges: bool=false, rectangular: bool=false) -> void:
 	if location=="overworld" and soft_edges:
-		preload("res://scripts/presentation/ground_edge_masks.gd").draw(canvas,Terrain.PATH,true,Color("ddc79e"))
+		preload("res://scripts/presentation/ground_edge_masks.gd").draw(canvas,Terrain.PATH,true,Color("ddc79e"),rectangular)
 		return
 	for path in Data.routes(location):
 		for index in range(1,path.size()): Terrain.material(canvas,Terrain.capsule(path[index-1],path[index],36),Terrain.PATH,Color("ddc79e"))

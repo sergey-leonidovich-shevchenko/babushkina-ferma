@@ -2193,7 +2193,7 @@
       "id": "VGROUND-004",
       "epic": "VGROUND",
       "title": "Убрать капсульную форму дорог",
-      "status": "ready",
+      "status": "done",
       "priority": "P0",
       "phase": "pilot",
       "kind": "engineering",
@@ -2228,8 +2228,17 @@
         "confidence": "low",
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
-      "branch": "codex/vground-004-visual-task",
-      "evidence": []
+      "branch": "codex/vground-004-axial-road-shape",
+      "evidence": [
+        "docs/reports/visual-overhaul/vground-004/README.md",
+        "docs/reports/visual-overhaul/vground-004/completion.json",
+        "docs/reports/visual-overhaul/vground-004/summary.json",
+        "docs/reports/visual-overhaul/vground-004/native/source.json",
+        "docs/reports/visual-overhaul/vground-004/review.txt",
+        "docs/reports/visual-overhaul/vground-004/compile.txt",
+        "docs/reports/visual-overhaul/vground-004/browser-review.json"
+      ],
+      "result": "Первая overworld использует осевые прямоугольные маски с малым скруглением 4 мира вместо широких полукругов. Мягкая кромка 9 мира, материал и центры путей сохранены. Контур внутри прежнего AABB изменился; это рисунок, а не новая коллизия. Две новые готовые маски отдельно от прежних ресурсов, офлайн-компиляция, белые RGB/альфа/мировые UV и шесть отпечатков исходников. Серия A: 54 нативных PNG / 162 draw, два окна, стыки, сезонные тона, дождь, оба моста, дом/возврат и холодный fallback. Новый торец 255/255/255 против 166/255/141 у прежнего полукруга; альфа совпадает при смене материала. HUD/интерьер точны, полные saves/геометрия/очередь сохранены; кеш неизменен за 120 callbacks. 24 профильных утверждения: 1200 точек навигации/вспашки и восемь диагональных движений у мостов с прежними результатами; 11 Python-тестов отказов. Новых постоянных узлов/targets/обновлений каждый кадр нет. Новые материалы, берег воды, снег, FPS и VMAP-003 остаются открытыми. Полный игровой gate обязателен в настоящем pre-commit."
     },
     {
       "id": "VGROUND-005",

@@ -40,6 +40,7 @@ var terrain_ready := false
 var ground_split := true
 var painted_grass := true
 var soft_ground_edges := true
+var rectangular_roads := true
 var water_layer: Node2D
 var cover_layer: Node2D
 var cutout_layer: Node2D
@@ -95,13 +96,20 @@ func set_soft_ground_edges(enabled: bool) -> void:
 	if location=="overworld": refresh_terrain()
 	queue_redraw()
 
+## Возвращает прежнюю капсульную маску либо новые осевые торцы без изменения маршрутов и слотов.
+func set_rectangular_roads(enabled: bool) -> void:
+	if rectangular_roads==enabled: return
+	rectangular_roads=enabled
+	if location=="overworld": refresh_terrain()
+	queue_redraw()
+
 ## Оставляет дополнительные проходы только первой карте и скрывает их при прямом fallback.
 func _sync_ground_layers() -> void:
 	if water_layer==null or cover_layer==null: return
 	var enabled:=location=="overworld" and ground_split
 	water_layer.visible=enabled and terrain_ready and not bool(get_meta("terrain_direct",false)); cover_layer.visible=enabled
 	cutout_layer.visible=enabled
-	water_layer.configure(season,weather,false); cover_layer.configure(season,weather,true,false,soft_ground_edges); cutout_layer.configure(season,weather,false,true)
+	water_layer.configure(season,weather,false); cover_layer.configure(season,weather,true,false,soft_ground_edges,rectangular_roads); cutout_layer.configure(season,weather,false,true)
 
 ## Устанавливает относящееся к методу значение и синхронизирует зависимое состояние.
 func set_location(value: String) -> void:
@@ -130,6 +138,7 @@ func refresh_terrain() -> void:
 	terrain_canvas.base_only=location=="overworld" and ground_split
 	terrain_canvas.painted_grass=painted_grass
 	terrain_canvas.soft_ground_edges=soft_ground_edges
+	terrain_canvas.rectangular_roads=rectangular_roads
 	terrain_canvas.season=season; terrain_canvas.weather=weather; terrain_canvas.queue_redraw()
 	terrain_viewport.render_target_update_mode=SubViewport.UPDATE_ONCE
 	if not RenderingServer.frame_post_draw.is_connected(_terrain_rendered): RenderingServer.frame_post_draw.connect(_terrain_rendered,CONNECT_ONE_SHOT)
@@ -187,8 +196,8 @@ func draw_overworld() -> void:
 	if terrain_ready and not bool(get_meta("terrain_direct",false)):
 		draw_texture_rect(terrain_viewport.get_texture(),Rect2(Vector2.ZERO,VillageLayoutSystem.MapData.WORLD_SIZE),false)
 	else:
-		VillageTerrainRenderer.draw(self,season,weather,painted_grass,soft_ground_edges)
-		preload("res://scripts/presentation/village_region_terrain.gd").paths(self,location,soft_ground_edges)
+		VillageTerrainRenderer.draw(self,season,weather,painted_grass,soft_ground_edges,rectangular_roads)
+		preload("res://scripts/presentation/village_region_terrain.gd").paths(self,location,soft_ground_edges,rectangular_roads)
 
 ## Рисует новую карту деревни из её собственного графического кеша или того же модульного чертежа.
 func draw_village_region() -> void:
