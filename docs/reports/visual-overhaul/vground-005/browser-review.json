@@ -1,0 +1,40 @@
+{
+  "task": "VGROUND-005",
+  "url": "http://127.0.0.1:4175/#/guides/road-junctions",
+  "images": {
+    "loaded": 4,
+    "native_dimensions": [
+      [
+        1152,
+        648
+      ],
+      [
+        1152,
+        648
+      ],
+      [
+        1152,
+        1152
+      ],
+      [
+        1152,
+        1152
+      ]
+    ]
+  },
+  "search_found_guide": true,
+  "canonical_task_status": "done",
+  "mobile": {
+    "url": "#/guides/road-junctions",
+    "viewport": 390,
+    "body_scroll_width": 390,
+    "document_scroll_width": 390,
+    "reset": true
+  },
+  "summary_download_sha256": "379bfee8ba373cc73fe0adc1da6483060003a282e05fb07275acc23bdee77fc5",
+  "download_exact": true,
+  "wiki_tests": {
+    "passed": 78,
+    "failed": 0
+  }
+}

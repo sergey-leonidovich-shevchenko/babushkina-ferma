@@ -1,0 +1,4 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+main {"color_independent":true,"corner":4.0,"feather":4.5,"indices":214092,"occupied_cells":129401,"owner":0,"period_world":384.0,"radius":36.0,"shape":"axial-union-partition","size":[2400.0,1368.0],"step":2,"vertices":41192}
+connectors {"color_independent":true,"corner":4.0,"feather":4.5,"indices":61644,"occupied_cells":36609,"owner":1,"period_world":384.0,"radius":36.0,"shape":"axial-union-partition","size":[2400.0,1368.0],"step":2,"vertices":11878}

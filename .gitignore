@@ -357,3 +357,9 @@ assets/inbox/*
 
 # VGROUND-001: exact archived import settings are evidence, not a regenerated report import.
 !docs/reports/visual-overhaul/vground-001/native/inputs/assets/game/locations/overworld/modular/grass_painted_v2.png.import
+
+# VGROUND-005 road junctions
+!tools/road_network*.gd
+!tools/road_network*.gd.uid
+!tools/road_network*.py
+!tools/test_road_network.py

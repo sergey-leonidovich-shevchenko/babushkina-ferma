@@ -158,11 +158,11 @@
 
 ## VGROUND-005 — Собрать соединения дорожной сети
 
-Статус: `ready` · P0 · этап `pilot` · `engineering`
+Статус: `done` · P0 · этап `pilot` · `engineering`
 
 Т-стык, крест, тупик и поворот имеют одну толщину и общие UV; нет двойной тёмной линии
 
-Ветка: `codex/vground-005-visual-task`.
+Ветка: `codex/vground-005-road-junctions`.
 
 Зависимости: VGROUND-001.
 
@@ -172,7 +172,7 @@
 - [scripts/presentation/village_region_terrain.gd](../../../../scripts/presentation/village_region_terrain.gd)
 - [scripts/systems/village_map_data.gd](../../../../scripts/systems/village_map_data.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vground-005/`.
+Результаты: `docs/reports/visual-overhaul/vground-005/`.
 
 Критерии:
 
@@ -190,7 +190,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vground-005/README.md, docs/reports/visual-overhaul/vground-005/completion.json, docs/reports/visual-overhaul/vground-005/summary.json, docs/reports/visual-overhaul/vground-005/review.txt, docs/reports/visual-overhaul/vground-005/native/source.json, docs/reports/visual-overhaul/vground-005/browser-review.json.
 
 <a id="vground-006"></a>
 

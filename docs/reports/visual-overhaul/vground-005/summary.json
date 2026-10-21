@@ -1,0 +1,170 @@
+{
+  "task": "VGROUND-005",
+  "base_commit": "5182226a04977b7839d7c5d199b3746c44b892bc",
+  "windows": {
+    "1152": {
+      "mask": {
+        "alpha": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          11,
+          21,
+          42,
+          84,
+          125,
+          164,
+          206,
+          230,
+          243,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255
+        ],
+        "max_step": 42,
+        "levels": 11,
+        "alpha_exact_after_recolor": true,
+        "single_pass_color": {
+          "mean": 0.00033104664994855964,
+          "max": 1
+        },
+        "single_pass_mask_rgb": {
+          "mean": 0.0,
+          "max": 0
+        },
+        "alpha_max_error": 0,
+        "arm_width_pixels": [
+          85,
+          87,
+          85,
+          88,
+          86
+        ]
+      },
+      "png_count": 34,
+      "draw_callbacks": 105,
+      "spring": {
+        "mean": 0.0,
+        "max": 0
+      },
+      "junctions": {
+        "junction-north": {
+          "mean": 2.4876739683356197,
+          "max": 62
+        },
+        "junction-east": {
+          "mean": 2.4279424582761777,
+          "max": 62
+        },
+        "junction-south": {
+          "mean": 0.719348351051669,
+          "max": 60
+        }
+      },
+      "board_change": {
+        "mean": 2.9049830809542185,
+        "max": 62
+      },
+      "fallback": {
+        "mean": 1.0589054283836306,
+        "max": 204
+      },
+      "draw_calls_before": 145.0,
+      "draw_calls_after": 145.0
+    },
+    "1280": {
+      "mask": {
+        "alpha": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          11,
+          21,
+          42,
+          84,
+          125,
+          164,
+          206,
+          230,
+          243,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255
+        ],
+        "max_step": 42,
+        "levels": 11,
+        "alpha_exact_after_recolor": true,
+        "single_pass_color": {
+          "mean": 0.00033104664994855964,
+          "max": 1
+        },
+        "single_pass_mask_rgb": {
+          "mean": 0.0,
+          "max": 0
+        },
+        "alpha_max_error": 0,
+        "arm_width_pixels": [
+          85,
+          87,
+          85,
+          88,
+          86
+        ]
+      },
+      "png_count": 34,
+      "draw_callbacks": 105,
+      "spring": {
+        "mean": 0.0,
+        "max": 0
+      },
+      "junctions": {
+        "junction-north": {
+          "mean": 2.602144458912037,
+          "max": 62
+        },
+        "junction-east": {
+          "mean": 2.5345138888888887,
+          "max": 62
+        },
+        "junction-south": {
+          "mean": 0.721533203125,
+          "max": 60
+        }
+      },
+      "board_change": {
+        "mean": 2.9049830809542185,
+        "max": 62
+      },
+      "fallback": {
+        "mean": 0.9574348958333334,
+        "max": 191
+      },
+      "draw_calls_before": 144.0,
+      "draw_calls_after": 144.0
+    }
+  },
+  "performance_eligible": false,
+  "gpu_time_ms": null
+}

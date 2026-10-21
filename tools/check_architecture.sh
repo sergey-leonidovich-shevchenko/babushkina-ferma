@@ -86,6 +86,8 @@ python3 tools/ground_edge_verify.py >/dev/null
 python3 tools/test_ground_edge.py
 python3 tools/axial_road_verify.py >/dev/null
 python3 tools/test_axial_road.py
+python3 tools/road_network_verify.py >/dev/null
+python3 tools/test_road_network.py
 python3 tools/visual_scale.py verify
 python3 tools/test_visual_scale.py
 python3 tools/visual_palette.py
