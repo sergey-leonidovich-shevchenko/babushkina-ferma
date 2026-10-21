@@ -1251,6 +1251,19 @@
     ]
   },
   {
+    "id": "pilot-object-pass",
+    "file": "pilot-object-pass.md",
+    "title": "Выбранный проход первой карты",
+    "summary": "VRENDER-005: реальная команда одной доски, default-on и точный legacy fallback; 136 нативных PNG, неизменные HUD, F12 и другие карты.",
+    "tags": [
+      "Разработка",
+      "VRENDER-005",
+      "Первая локация",
+      "Рендер",
+      "QA"
+    ]
+  },
+  {
     "id": "village-benches",
     "file": "village-benches.md",
     "title": "Живописные деревенские лавочки",

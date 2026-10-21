@@ -442,3 +442,10 @@ assets/inbox/*
 !tools/pilot_static*.py
 !tools/test_pilot_static.py
 !docs/reports/visual-overhaul/vrelease-002/native/**/*.png.import
+
+# VRENDER-005: source-bound scoped object pass.
+!tools/pilot_pass*.gd
+!tools/pilot_pass*.gd.uid
+!tools/pilot_pass*.py
+!tools/test_pilot_pass.py
+!docs/reports/visual-overhaul/vrender-005/native/**/*.png.import

@@ -17,6 +17,7 @@ const WorldVisibility := preload("res://scripts/systems/world_visibility_system.
 const Bench := preload("res://scripts/presentation/village_bench_visual.gd")
 const Street := preload("res://scripts/presentation/village_street_visual.gd")
 const Board := preload("res://scripts/presentation/village_board_visual.gd")
+const PilotPass:=preload("res://scripts/presentation/pilot_object_pass.gd")
 const Lamp := preload("res://scripts/presentation/village_lamp_visual.gd")
 
 ## Рисует самостоятельные деревенские объекты на заднем либо переднем плане без замены рисунка при приближении.
@@ -34,7 +35,7 @@ static func draw(game:Node2D,foreground:bool)->void:
 	for prop in Layout.PROP_PLACEMENTS:
 		if _in_front(Vector2(prop.position),game.AnimationRenderer.player_ground(game))!=foreground: continue
 		if prop.kind=="board":
-			if visible.intersects(Board.destination("board",prop.position+Vector2(0,24)),true):Board.draw(game,"board",prop.position+Vector2(0,24))
+			if visible.intersects(Board.destination("board",prop.position+Vector2(0,24)),true):PilotPass.draw(game,prop,foreground,Board.draw.bind(game,"board",prop.position+Vector2(0,24)))
 			continue
 		if prop.kind=="lamp":
 			var destination:Rect2=Lamp.destination(prop.position+Vector2(0,24))

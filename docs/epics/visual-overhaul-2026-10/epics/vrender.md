@@ -166,11 +166,11 @@
 
 ## VRENDER-005 — Включить один выбранный проход
 
-Статус: `ready` · P0 · этап `foundation` · `engineering`
+Статус: `done` · P0 · этап `foundation` · `engineering`
 
 Feature flag переключает только эталонный участок; остальные карты и HUD дают прежнее поведение
 
-Ветка: `codex/vrender-005-visual-task`.
+Ветка: `codex/vrender-005-pilot-pass`.
 
 Зависимости: VRENDER-003, VRENDER-004.
 
@@ -182,7 +182,7 @@ Feature flag переключает только эталонный участо
 - [scripts/world_background.gd](../../../../scripts/world_background.gd)
 - [scripts/presentation/village_terrain_canvas.gd](../../../../scripts/presentation/village_terrain_canvas.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vrender-005/`.
+Результаты: `docs/reports/visual-overhaul/vrender-005/`.
 
 Критерии:
 
@@ -200,13 +200,13 @@ Feature flag переключает только эталонный участо
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vrender-005/README.md, docs/reports/visual-overhaul/vrender-005/summary.json, docs/reports/visual-overhaul/vrender-005/native/before/source.json, docs/reports/visual-overhaul/vrender-005/native/after/source.json, docs/reports/visual-overhaul/vrender-005/review.txt, docs/reports/visual-overhaul/vrender-005/python-check.txt, docs/reports/visual-overhaul/vrender-005/completion.json, docs/reports/visual-overhaul/vrender-005/quality-check.txt, docs/reports/visual-overhaul/vrender-005/wiki-check.txt, docs/reports/visual-overhaul/vrender-005/browser-review.json.
 
 <a id="vrender-006"></a>
 
 ## VRENDER-006 — Свести сортировку героя и растений
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 Передний и задний проход не создают непрозрачный дубль; переход через равный ground_y имеет стабильный порядок
 

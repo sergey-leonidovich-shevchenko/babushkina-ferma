@@ -1369,7 +1369,7 @@
       "id": "VRENDER-005",
       "epic": "VRENDER",
       "title": "Включить один выбранный проход",
-      "status": "ready",
+      "status": "done",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -1405,14 +1405,26 @@
         "confidence": "low",
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
-      "branch": "codex/vrender-005-visual-task",
-      "evidence": []
+      "branch": "codex/vrender-005-pilot-pass",
+      "evidence": [
+        "docs/reports/visual-overhaul/vrender-005/README.md",
+        "docs/reports/visual-overhaul/vrender-005/summary.json",
+        "docs/reports/visual-overhaul/vrender-005/native/before/source.json",
+        "docs/reports/visual-overhaul/vrender-005/native/after/source.json",
+        "docs/reports/visual-overhaul/vrender-005/review.txt",
+        "docs/reports/visual-overhaul/vrender-005/python-check.txt",
+        "docs/reports/visual-overhaul/vrender-005/completion.json",
+        "docs/reports/visual-overhaul/vrender-005/quality-check.txt",
+        "docs/reports/visual-overhaul/vrender-005/wiki-check.txt",
+        "docs/reports/visual-overhaul/vrender-005/browser-review.json"
+      ],
+      "result": "Включён один выбранный проход тела доски (648,576), behind_actors, только overworld и область 240,312,960,576. Default-on, ограниченный кеш трёх read-only команд; редактор/передний проход/другие объекты сохраняют legacy. 136 нативных PNG/544 callbacks, 90 точных RGBA-пар; шесть реальных отказов дают fallback ровно один раз, save/HUD/карты/материалы неизменны. 33 профильных условия,16 отрицательных Python-сценариев,106 Wiki-тестов; браузер:6 кадров и3 точных JSON. Общая сортировка/живой пилот/FPS/VMAP-003 ещё открыты. Настоящие architecture и полный игровой набор: 46441/0."
     },
     {
       "id": "VRENDER-006",
       "epic": "VRENDER",
       "title": "Свести сортировку героя и растений",
-      "status": "backlog",
+      "status": "ready",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",

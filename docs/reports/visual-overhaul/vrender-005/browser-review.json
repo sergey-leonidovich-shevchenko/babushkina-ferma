@@ -1,0 +1,73 @@
+{
+  "task": "VRENDER-005",
+  "url": "http://127.0.0.1:4175/#/guides/pilot-object-pass",
+  "search_verified": true,
+  "images_complete": true,
+  "images": [
+    {
+      "alt": "Исходный renderer: герой перед доской",
+      "complete": true,
+      "height": 648,
+      "src": "http://127.0.0.1:4175/generated/illustrations/e682266a11905350cbf9d1ab.png",
+      "width": 1152
+    },
+    {
+      "alt": "Включённая команда: та же доска, камера, герой и HUD",
+      "complete": true,
+      "height": 648,
+      "src": "http://127.0.0.1:4175/generated/illustrations/e682266a11905350cbf9d1ab.png",
+      "width": 1152
+    },
+    {
+      "alt": "Герой за доской: прежний передний план",
+      "complete": true,
+      "height": 648,
+      "src": "http://127.0.0.1:4175/generated/illustrations/73874438f62f80830fbf4298.png",
+      "width": 1152
+    },
+    {
+      "alt": "Отсутствующий допустимый source: атомарный fallback сохраняет прежний кадр",
+      "complete": true,
+      "height": 648,
+      "src": "http://127.0.0.1:4175/generated/illustrations/8790af3ed56caa4acc96ee13.png",
+      "width": 1152
+    },
+    {
+      "alt": "Существующий редактор: выбранный проход отключён",
+      "complete": true,
+      "height": 648,
+      "src": "http://127.0.0.1:4175/generated/illustrations/443f6c5d72f3bb167fe7a2f2.png",
+      "width": 1152
+    },
+    {
+      "alt": "Соседний рынок: флаг не меняет его renderer",
+      "complete": true,
+      "height": 648,
+      "src": "http://127.0.0.1:4175/generated/illustrations/b4c0f0a0b3e24295cbc9700a.png",
+      "width": 1152
+    }
+  ],
+  "downloads": [
+    {
+      "name": "Нативная сводка",
+      "path": "/Users/sergeyshevchenko/Downloads/109a15219fac2d704b566751abf98dac95b2c7c8317e6f82cdc1358fbfb26114.json",
+      "source": "summary.json",
+      "exact": true,
+      "sha256": "109a15219fac2d704b566751abf98dac95b2c7c8317e6f82cdc1358fbfb26114"
+    },
+    {
+      "name": "Исходный renderer и конфигурация",
+      "path": "/Users/sergeyshevchenko/Downloads/38eca1dc343e25f67878974232c97d8f7ef4923e61934babad466bb878307853.json",
+      "source": "native/before/source.json",
+      "exact": true,
+      "sha256": "38eca1dc343e25f67878974232c97d8f7ef4923e61934babad466bb878307853"
+    },
+    {
+      "name": "Включённый проход и конфигурация",
+      "path": "/Users/sergeyshevchenko/Downloads/c6e962b9208b2f634d7920f5fae8379ff15ffb790df291d1611d852bb4f55e55.json",
+      "source": "native/after/source.json",
+      "exact": true,
+      "sha256": "c6e962b9208b2f634d7920f5fae8379ff15ffb790df291d1611d852bb4f55e55"
+    }
+  ]
+}
