@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
-"""Exercise evidence-parser refusals with explicit synthetic schema fixtures, never native proof."""
+"""Check explicit schema fixtures and the separately recorded native replay evidence."""
 import copy
+import gzip
+import json
+import shutil
 import tempfile
 import unittest
 from pathlib import Path
 from PIL import Image
-from object_command_verify import CASES,PROBES,FALLBACK,metadata,probe_draws,equal,provenance,legacy_body,ROOT
+from object_command_verify import CASES,PROBES,FALLBACK,metadata,probe_draws,equal,provenance,legacy_body,ROOT,REPORT,load
 
 
 def fixture():
@@ -89,6 +92,46 @@ class ObjectCommandEvidenceTests(unittest.TestCase):
         name='scripts/presentation/world_workbench_visual_system.gd'
         old=subprocess.check_output(['git','show','HEAD:'+name],cwd=ROOT,text=True)
         self.assertEqual(legacy_body(old),legacy_body((ROOT/name).read_text()))
+
+
+class RecordedObjectCommandTests(unittest.TestCase):
+    """Actual archived captures must survive validation and reject temporary corruptions."""
+    def test_two_recorded_windows_have_complete_native_cases(self):
+        for width in [1152,1280]:
+            data=load(REPORT/'native'/str(width)/'capture.json')
+            rows,probes=metadata(data,width)
+            self.assertEqual((len(rows),len(probes)),(9,11))
+            self.assertNotEqual(data['display_server'],'headless')
+
+    def test_real_fallbacks_are_atomic_and_reject_a_duplicate(self):
+        path=REPORT/'native/1152';_,probes=metadata(load(path/'capture.json'),1152)
+        for name in FALLBACK:
+            draws=json.loads(gzip.decompress((path/('probe-'+name+'-command-draws.json.gz')).read_bytes()))
+            probe_draws(draws,'command','fallback',probes[name]['packet'])
+            draws[0]['fallback_calls']+=1
+            with self.assertRaisesRegex(ValueError,'duplicate fallback'):probe_draws(draws,'command','fallback',probes[name]['packet'])
+
+    def test_real_shader_callbacks_reject_save_mutation(self):
+        path=REPORT/'native/1280';_,probes=metadata(load(path/'capture.json'),1280)
+        draws=json.loads(gzip.decompress((path/'probe-shader-command-draws.json.gz').read_bytes()))
+        probe_draws(draws,'command','command',probes['shader']['packet'])
+        draws[0]['after']['coins']+=1
+        with self.assertRaisesRegex(ValueError,'mutated gameplay'):probe_draws(draws,'command','command',probes['shader']['packet'])
+
+    def test_archived_runtime_tampering_is_rejected(self):
+        with tempfile.TemporaryDirectory(prefix='object-command-archive-') as tmp:
+            folder=Path(tmp)/'native';shutil.copytree(REPORT/'native',folder)
+            target=folder/'inputs/scripts/presentation/object_draw_replay.gd'
+            target.write_text(target.read_text()+'\n# temporary corruption\n')
+            with self.assertRaisesRegex(ValueError,'archived source changed'):provenance(folder)
+
+    def test_actual_png_pixel_tampering_is_rejected(self):
+        source=REPORT/'native/1152/probe-source-region-command.png'
+        with tempfile.TemporaryDirectory(prefix='object-command-native-pixel-') as tmp:
+            target=Path(tmp)/'changed.png'
+            with Image.open(source) as native:
+                image=native.convert('RGBA');r,g,b,a=image.getpixel((0,0));image.putpixel((0,0),((r+1)%256,g,b,a));image.save(target)
+            with self.assertRaisesRegex(ValueError,'pixel equality'):equal(source,target)
 
 
 if __name__=='__main__':unittest.main()

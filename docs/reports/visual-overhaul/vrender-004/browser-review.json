@@ -7,6 +7,12 @@
       "complete": true,
       "height": 560,
       "width": 1000
+    },
+    {
+      "alt": "Нативная проверка: герой за деревом, прежний HUD и сохранённый порядок сцены",
+      "complete": true,
+      "height": 648,
+      "width": 1152
     }
   ],
   "viewport": {
@@ -14,8 +20,9 @@
     "width": 1280
   },
   "search_verified": true,
-  "card_status": "in_progress",
-  "dependencies_unlocked": false,
+  "native_acceptance": true,
+  "production_pass_enabled": false,
+  "narrow_viewport_tested": false,
   "downloads": [
     {
       "file": "contract.json",
@@ -23,11 +30,14 @@
       "sha256": "609600b325e8eab537bb3dee5472ca73610b47a93d7ea52e5f17055555b2103e"
     },
     {
+      "file": "summary.json",
+      "exact": true,
+      "sha256": "5b31e9f962a7f212d22d6a94b9fef2e930b8ee03d0ccd47496f370802cc75b94"
+    },
+    {
       "file": "sampling-notes.json",
       "exact": true,
       "sha256": "1df4f17407f690845bfa11e5345473882555168299be2391d6fa2950a03f97ce"
     }
-  ],
-  "native_acceptance": false,
-  "narrow_viewport_tested": false
+  ]
 }

@@ -1,0 +1,25 @@
+{
+  "task": "VRENDER-004",
+  "native_acceptance": true,
+  "production_pass_enabled": false,
+  "performance_eligible": false,
+  "native_source_commit": "91620aa716924555640557c541a455ca8e1afa2a",
+  "native_source_sha256": "28489dce30f4534552f6e036fd5ffc70706195b2b20f5dbc789aa2a3913e1d37",
+  "checks": {
+    "native_png": 80,
+    "native_draw_callbacks": 248,
+    "profile_passed": 41,
+    "python_tests": 15,
+    "architecture": "passed",
+    "game_passed": 45970,
+    "game_failed": 0,
+    "wiki_passed": 90,
+    "wiki_failed": 0,
+    "browser": "guide, two images, search, three exact JSON downloads at the normal viewport verified"
+  },
+  "limits": [
+    "production pass activation belongs to VRENDER-005",
+    "no new shader local-UV binding or GPU batching",
+    "no FPS/GPU time or VMAP-003 acceptance"
+  ]
+}

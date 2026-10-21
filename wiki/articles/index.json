@@ -1241,7 +1241,7 @@
     "id": "object-draw-command",
     "file": "object-draw-command.md",
     "title": "Команда отрисовки объекта",
-    "summary": "VRENDER-004 в работе: опора, границы, локальный UV, материал и fallback; нативная приёмка ожидается, новый проход ещё не включён.",
+    "summary": "VRENDER-004: проверенный контракт и fallback, 80 нативных PNG / 248 draw callbacks; новый проход и FPS остаются отдельными задачами.",
     "tags": [
       "Разработка",
       "VRENDER-004",

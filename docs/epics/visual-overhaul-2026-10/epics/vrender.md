@@ -126,7 +126,7 @@
 
 ## VRENDER-004 — Определить контракт команды объекта
 
-Статус: `in_progress` · P0 · этап `foundation` · `engineering`
+Статус: `done` · P0 · этап `foundation` · `engineering`
 
 Пакет содержит опору, bounds, материал, локальный UV и слой; прежний draw путь остаётся рабочим fallback
 
@@ -160,13 +160,13 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: docs/reports/visual-overhaul/vrender-004/README.md, docs/reports/visual-overhaul/vrender-004/contract.json, docs/reports/visual-overhaul/vrender-004/review.txt, docs/reports/visual-overhaul/vrender-004/python-check.txt, docs/reports/visual-overhaul/vrender-004/sampling-notes.json, docs/reports/visual-overhaul/vrender-004/progress-check.json, docs/reports/visual-overhaul/vrender-004/quality-check.txt, docs/reports/visual-overhaul/vrender-004/browser-review.json.
+Доказательства: docs/reports/visual-overhaul/vrender-004/README.md, docs/reports/visual-overhaul/vrender-004/contract.json, docs/reports/visual-overhaul/vrender-004/review.txt, docs/reports/visual-overhaul/vrender-004/python-check.txt, docs/reports/visual-overhaul/vrender-004/sampling-notes.json, docs/reports/visual-overhaul/vrender-004/progress-check.json, docs/reports/visual-overhaul/vrender-004/quality-check.txt, docs/reports/visual-overhaul/vrender-004/browser-review.json, docs/reports/visual-overhaul/vrender-004/summary.json, docs/reports/visual-overhaul/vrender-004/native/source.json, docs/reports/visual-overhaul/vrender-004/completion.json, docs/reports/visual-overhaul/vrender-004/final-quality-check.txt, docs/reports/visual-overhaul/vrender-004/wiki-check.txt.
 
 <a id="vrender-005"></a>
 
 ## VRENDER-005 — Включить один выбранный проход
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 Feature flag переключает только эталонный участок; остальные карты и HUD дают прежнее поведение
 
@@ -286,7 +286,7 @@ Feature flag переключает только эталонный участо
 
 ## VRENDER-008 — Передавать время после движения
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 Сервис получает фактическую позицию после столкновений и перехода карты; уткнувшийся в стену герой не продавливает дальнюю траву
 
