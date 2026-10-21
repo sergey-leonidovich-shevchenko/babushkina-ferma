@@ -1,0 +1,51 @@
+{
+  "task": "VGROUND-001",
+  "url": "http://127.0.0.1:4175/#/guides/meadow-base",
+  "images": [
+    {
+      "size": [
+        1152,
+        648
+      ],
+      "loaded": true
+    },
+    {
+      "size": [
+        1152,
+        648
+      ],
+      "loaded": true
+    },
+    {
+      "size": [
+        1152,
+        1152
+      ],
+      "loaded": true
+    },
+    {
+      "size": [
+        1152,
+        1152
+      ],
+      "loaded": true
+    }
+  ],
+  "search_found_guide": true,
+  "task_status": "done",
+  "mobile": {
+    "viewport": 390,
+    "body_scroll_width": 390,
+    "document_scroll_width": 390,
+    "reset": true
+  },
+  "download": {
+    "file": "summary.json",
+    "sha256": "f31c4f7743a6e059537a76f3899c747088fcf06188ad5d0b669e994af0d21f23",
+    "exact_bytes": true
+  },
+  "wiki_tests": {
+    "passed": 72,
+    "failed": 0
+  }
+}

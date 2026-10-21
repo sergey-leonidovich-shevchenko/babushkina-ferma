@@ -657,6 +657,24 @@
       "asset_sha256": {
         "assets/title_art_rpg.png": "7142be3a26836672e5399b1f7d67b78feead4eb88df90b7a613d6a91de71ecb7"
       }
+    },
+    {
+      "id": "vground-001-meadow",
+      "paths": [
+        "assets/game/locations/overworld/modular/grass_painted_v2.png"
+      ],
+      "kind": "project-generation-documented",
+      "claim": "VGROUND-001 original built-in image_gen short-grass master v2; standard Godot Lanczos 512x512 import. Prompt, master, selection and byte signatures retained. No release clearance is inferred.",
+      "license_status": "project-record-not-legal-opinion",
+      "evidence": [
+        "docs/reports/visual-overhaul/vground-001/art-source.json",
+        "docs/reports/visual-overhaul/vground-001/prompts/grass-calm-v2.txt",
+        "docs/reports/visual-overhaul/vground-001/masters/grass-calm-v2.png",
+        "tools/meadow_import.gd"
+      ],
+      "asset_sha256": {
+        "assets/game/locations/overworld/modular/grass_painted_v2.png": "8644a4ac4be5e912f38da87baa2afe23f0896e2ae29da2485804b7026de5231e"
+      }
     }
   ],
   "local_matches": {

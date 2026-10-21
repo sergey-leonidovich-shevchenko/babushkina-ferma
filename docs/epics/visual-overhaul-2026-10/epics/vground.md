@@ -6,11 +6,11 @@
 
 ## VGROUND-001 — Собрать бесшовную базу травы
 
-Статус: `ready` · P0 · этап `pilot` · `engineering`
+Статус: `done` · P0 · этап `pilot` · `engineering`
 
 Показать повтор 5×5 при игровом масштабе; крупных узнаваемых одинаковых пятен нет
 
-Ветка: `codex/vground-001-visual-task`.
+Ветка: `codex/vground-001-seamless-grass`.
 
 Зависимости: VART-008, VRENDER-003.
 
@@ -20,7 +20,7 @@
 - [scripts/presentation/village_region_terrain.gd](../../../../scripts/presentation/village_region_terrain.gd)
 - [scripts/systems/village_map_data.gd](../../../../scripts/systems/village_map_data.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vground-001/`.
+Результаты: `docs/reports/visual-overhaul/vground-001/`.
 
 Критерии:
 
@@ -38,13 +38,13 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vground-001/README.md, docs/reports/visual-overhaul/vground-001/art-source.json, docs/reports/visual-overhaul/vground-001/summary.json, docs/reports/visual-overhaul/vground-001/completion.json, docs/reports/visual-overhaul/vground-001/native/source.json, docs/reports/visual-overhaul/vground-001/review.txt, docs/reports/visual-overhaul/vground-001/browser-review.json.
 
 <a id="vground-002"></a>
 
 ## VGROUND-002 — Добавить крупные цветовые пятна
 
-Статус: `backlog` · P0 · этап `pilot` · `engineering`
+Статус: `ready` · P0 · этап `pilot` · `engineering`
 
 Распределение детерминированно и меняется по биому; цветовые пятна не требуют отдельного процесса на клетку
 
@@ -82,7 +82,7 @@
 
 ## VGROUND-003 — Нарисовать края травы и земли
 
-Статус: `backlog` · P0 · этап `pilot` · `engineering`
+Статус: `ready` · P0 · этап `pilot` · `engineering`
 
 Прямые, выпуклые и вогнутые углы соединяются без ступеней альфа-канала; маски отделены от цвета
 
@@ -120,7 +120,7 @@
 
 ## VGROUND-004 — Убрать капсульную форму дорог
 
-Статус: `backlog` · P0 · этап `pilot` · `engineering`
+Статус: `ready` · P0 · этап `pilot` · `engineering`
 
 Оси путей остаются ортогональными; художественные потёртости края не создают диагональные сокращения маршрута
 
@@ -158,7 +158,7 @@
 
 ## VGROUND-005 — Собрать соединения дорожной сети
 
-Статус: `backlog` · P0 · этап `pilot` · `engineering`
+Статус: `ready` · P0 · этап `pilot` · `engineering`
 
 Т-стык, крест, тупик и поворот имеют одну толщину и общие UV; нет двойной тёмной линии
 
@@ -196,7 +196,7 @@
 
 ## VGROUND-006 — Согласовать площадь и грунт
 
-Статус: `backlog` · P0 · этап `pilot` · `engineering`
+Статус: `ready` · P0 · этап `pilot` · `engineering`
 
 Переход камня в землю имеет обломки и контакт; узор площади не доминирует над героями и лутом
 
@@ -234,7 +234,7 @@
 
 ## VGROUND-007 — Отделить огород от декоративной земли
 
-Статус: `backlog` · P0 · этап `pilot` · `engineering`
+Статус: `ready` · P0 · этап `pilot` · `engineering`
 
 Новая текстура не меняет разрешённые клетки вспашки; влажное и сухое состояние различимы без большой капли
 
@@ -272,7 +272,7 @@
 
 ## VGROUND-008 — Ограничить процедурный декор
 
-Статус: `backlog` · P0 · этап `pilot` · `engineering`
+Статус: `ready` · P0 · этап `pilot` · `engineering`
 
 Двери, служебные подходы, грядки, вода и мосты исключены из посева; ручные элементы не перетираются
 
@@ -310,7 +310,7 @@
 
 ## VGROUND-009 — Ввести локальную ревизию покрытия
 
-Статус: `backlog` · P0 · этап `pilot` · `engineering`
+Статус: `ready` · P0 · этап `pilot` · `engineering`
 
 Изменение одной грядки или секции обновляет нужный участок, а не текстуры всей карты
 

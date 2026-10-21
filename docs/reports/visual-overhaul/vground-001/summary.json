@@ -1,0 +1,36 @@
+{
+  "task": "VGROUND-001",
+  "base_commit": "f002d52d426e5bcc93abd378ec8a64529806cfcc",
+  "windows": {
+    "1152": {
+      "png_count": 24,
+      "draw_callbacks": 81,
+      "spring": {
+        "mean": 2.034813761002515,
+        "max": 69
+      },
+      "fallback": {
+        "mean": 1.0561257751771833,
+        "max": 204
+      },
+      "draw_calls_before": 144.0,
+      "draw_calls_after": 144.0
+    },
+    "1280": {
+      "png_count": 24,
+      "draw_callbacks": 81,
+      "spring": {
+        "mean": 2.0078294994212964,
+        "max": 69
+      },
+      "fallback": {
+        "mean": 0.9406542968749999,
+        "max": 191
+      },
+      "draw_calls_before": 146.0,
+      "draw_calls_after": 146.0
+    }
+  },
+  "performance_eligible": false,
+  "gpu_time_ms": null
+}

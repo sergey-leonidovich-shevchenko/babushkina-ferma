@@ -1,0 +1,23 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+OpenGL API 4.1 ATI-7.0.3 - Compatibility - Using Device: ATI Technologies Inc. - AMD Radeon Pro 5300M OpenGL Engine
+
+MEADOW SHOT spring-before
+MEADOW SHOT spring-after
+MEADOW SHOT summer-before
+MEADOW SHOT summer-after
+MEADOW SHOT autumn-before
+MEADOW SHOT autumn-after
+MEADOW SHOT winter-before
+MEADOW SHOT winter-after
+MEADOW SHOT rain-before
+MEADOW SHOT rain-after
+MEADOW SHOT bridge-west-before
+MEADOW SHOT bridge-west-after
+MEADOW SHOT bridge-east-before
+MEADOW SHOT bridge-east-after
+MEADOW SHOT interior-before
+MEADOW SHOT interior-after
+MEADOW SHOT returned-before
+MEADOW SHOT returned-after
+MEADOW SHOT direct
+MEADOW SHOT cached

@@ -678,6 +678,7 @@
       "family": "Модульная игровая деревня: тихие материалы, мосты и отдельные объекты",
       "assets": [
         {"path":"assets/game/locations/overworld/modular/grass_meadow_tile_v1.png","width":384,"height":384},
+        {"path":"assets/game/locations/overworld/modular/grass_painted_v2.png","width":512,"height":512},
         {"path":"assets/game/locations/overworld/modular/path_material_v1.png","width":384,"height":384},
         {"path":"assets/game/locations/overworld/modular/dirt_material_v1.png","width":192,"height":192},
         {"path":"assets/game/locations/overworld/modular/stone_material_v1.png","width":192,"height":192},
@@ -689,7 +690,7 @@
         {"path":"assets/game/locations/overworld/modular/prop_board_v1.png","width":120,"height":96},
         {"path":"assets/game/locations/overworld/modular/prop_cart_v1.png","width":120,"height":96}
       ],
-      "render_owner": "VillageTerrainRenderer и VillagePropRenderer",
+      "render_owner": "VillageTerrainRenderer, MeadowGround и VillagePropRenderer",
       "source_layout": "Отдельные материалы и прозрачные PNG; исходники и воспроизводимая нарезка сохранены рядом с проектом",
       "runtime_sizes": ["24×24", "144×216", "120×120", "96×72", "48×120", "120×96"],
       "target_modules": ["24×24", "144×216", "120×120", "96×72", "48×120", "120×96"],

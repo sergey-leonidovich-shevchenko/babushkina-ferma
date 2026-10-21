@@ -3,6 +3,17 @@
 wiki/planning/*.lock
 wiki/planning/*.tmp
 tools/*
+!tools/meadow_collect.py
+!tools/meadow_verify.py
+!tools/test_meadow_ground.py
+!tools/meadow_capture.gd
+!tools/meadow_capture.gd.uid
+!tools/meadow_board.gd
+!tools/meadow_board.gd.uid
+!tools/meadow_import.gd
+!tools/meadow_import.gd.uid
+!tools/meadow_review.gd
+!tools/meadow_review.gd.uid
 !tools/artist_packet.py
 !tools/test_artist_packet.py
 !tools/shore_kit.py
@@ -313,3 +324,6 @@ assets/inbox/*
 !tools/ground_layers_capture.gd.uid
 !tools/ground_layers_review.gd
 !tools/ground_layers_review.gd.uid
+
+# VGROUND-001: exact archived import settings are evidence, not a regenerated report import.
+!docs/reports/visual-overhaul/vground-001/native/inputs/assets/game/locations/overworld/modular/grass_painted_v2.png.import

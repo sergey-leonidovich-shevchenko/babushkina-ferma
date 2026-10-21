@@ -38,6 +38,7 @@ var terrain_viewport: SubViewport
 var terrain_canvas: Node2D
 var terrain_ready := false
 var ground_split := true
+var painted_grass := true
 var water_layer: Node2D
 var cover_layer: Node2D
 var cutout_layer: Node2D
@@ -79,6 +80,13 @@ func set_ground_split(enabled: bool) -> void:
 	if location=="overworld": refresh_terrain()
 	queue_redraw()
 
+## Переключает только основу травы первой карты; позволяет сравнение и откат без миграции слотов.
+func set_painted_grass(enabled: bool) -> void:
+	if painted_grass == enabled: return
+	painted_grass = enabled
+	if location == "overworld": refresh_terrain()
+	queue_redraw()
+
 ## Оставляет дополнительные проходы только первой карте и скрывает их при прямом fallback.
 func _sync_ground_layers() -> void:
 	if water_layer==null or cover_layer==null: return
@@ -112,6 +120,7 @@ func refresh_terrain() -> void:
 	terrain_viewport.size=Vector2i(preload("res://scripts/systems/world_bounds_system.gd").size(location))
 	terrain_canvas.location=location
 	terrain_canvas.base_only=location=="overworld" and ground_split
+	terrain_canvas.painted_grass=painted_grass
 	terrain_canvas.season=season; terrain_canvas.weather=weather; terrain_canvas.queue_redraw()
 	terrain_viewport.render_target_update_mode=SubViewport.UPDATE_ONCE
 	if not RenderingServer.frame_post_draw.is_connected(_terrain_rendered): RenderingServer.frame_post_draw.connect(_terrain_rendered,CONNECT_ONE_SHOT)
@@ -169,7 +178,7 @@ func draw_overworld() -> void:
 	if terrain_ready and not bool(get_meta("terrain_direct",false)):
 		draw_texture_rect(terrain_viewport.get_texture(),Rect2(Vector2.ZERO,VillageLayoutSystem.MapData.WORLD_SIZE),false)
 	else:
-		VillageTerrainRenderer.draw(self,season,weather)
+		VillageTerrainRenderer.draw(self,season,weather,painted_grass)
 		preload("res://scripts/presentation/village_region_terrain.gd").paths(self,location)
 
 ## Рисует новую карту деревни из её собственного графического кеша или того же модульного чертежа.

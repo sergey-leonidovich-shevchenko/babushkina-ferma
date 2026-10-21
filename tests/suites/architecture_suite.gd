@@ -8,6 +8,7 @@ static func run(context: SceneTree) -> void:
 	preload("res://tests/suites/visual_camera_suite.gd").run(context)
 	preload("res://tests/suites/visual_static_suite.gd").run(context)
 	preload("res://tests/suites/ground_layers_suite.gd").run(context)
+	preload("res://tests/suites/meadow_ground_suite.gd").run(context)
 	preload("res://tests/suites/coordinate_contract_suite.gd").run(context)
 	preload("res://tests/suites/camera_quantization_suite.gd").run(context)
 	preload("res://tests/suites/presentation_pose_suite.gd").run(context)

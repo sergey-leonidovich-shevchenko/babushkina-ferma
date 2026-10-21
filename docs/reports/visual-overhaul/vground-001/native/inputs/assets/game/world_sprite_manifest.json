@@ -1,0 +1,994 @@
+{
+  "schema_version": 2,
+  "base_cell": 24,
+  "scan_roots": ["scripts"],
+  "ignored_assets": [
+    "assets/game/generated/pirate_item_atlas.png",
+    "assets/game/generated/pirate_enemy_atlas.png",
+    "assets/game/generated/potion_atlas.png",
+    "assets/game/generated/inventory_core_atlas.png",
+    "assets/game/generated/inventory_rare_atlas.png",
+    "assets/game/generated/farm_food_atlas.png"
+  ],
+  "entries": [
+    {
+      "id": "WS-001",
+      "family": "Первая локация: архивный мастер-арт прототипа",
+      "assets": [{"path":"assets/game/locations/overworld/overworld_master_24_v2.png","width":2400,"height":1200}],
+      "render_owner": "FirstLevelArtSystem",
+      "source_layout": "нативная область 100×50 по 24×24; композиционный исходник хранится отдельно",
+      "runtime_sizes": ["24×24"],
+      "target_modules": ["24×24", "48×48"],
+      "anchor": "верхний левый угол базовой ячейки",
+      "collision": "навигация и F10 используют ту же сетку 24×24",
+      "status": "compliant",
+      "priority": "P1",
+      "debt": "Сохранён как исходный концепт. Начиная с ревизии карты 2 игровая деревня собирается из отдельных материалов и объектов WS-024; старые запечённые препятствия отключены.",
+      "done_when": "Локация собирается в 100×50 базовых тайлов без 50-пиксельной мировой сетки; ключевые опоры и коллизии привязаны к 24 px."
+    },
+    {
+      "id": "WS-002",
+      "family": "Трава и вариации земли",
+      "assets": [
+        {"path":"assets/game/tiles/grass.png","width":24,"height":24},
+        {"path":"assets/game/tiles/grass_var_1.png","width":24,"height":24},
+        {"path":"assets/game/tiles/grass_var_2.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/terrain/grass_flowers.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/terrain/grass_lush.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/terrain/grass_spring.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/terrain/grass_autumn.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/terrain/ground_snow_grass.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/terrain/ground_gravel.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/transitions/dirt_edge.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/transitions/gravel_edge.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/transitions/sand_edge.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/transitions/dirt_inner_corner.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/transitions/gravel_inner_corner.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/transitions/sand_inner_corner.png","width":24,"height":24}
+      ],
+      "render_owner": "WorldBackground",
+      "source_layout": "отдельные бесшовные сезонные тайлы и прозрачные прямые/диагональные переходы",
+      "runtime_sizes": ["24×24"],
+      "target_modules": ["24×24"],
+      "anchor": "верхний левый угол клетки",
+      "collision": "проходимая поверхность",
+      "status": "compliant",
+      "priority": "P3",
+      "debt": "Закрыт: четыре сезона травы сохраняют выбранное семейство; земля, песок и гравий получили прямые и внутренние диагональные переходы без ручного выбора поворота.",
+      "done_when": "Все варианты остаются бесшовными 24×24, используют nearest-фильтрацию и стыкуются через transition_masks и transition_corner_masks."
+    },
+    {
+      "id": "WS-003",
+      "family": "Дороги и тропы",
+      "assets": [
+        {"path":"assets/game/tiles/editor/terrain/dirt_path_horizontal.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/terrain/dirt_path_vertical.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/terrain/dirt_path_corner.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/terrain/dirt_path_t_junction.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/terrain/dirt_path_cross.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/terrain/dirt_path_end.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/terrain/stone_road_horizontal.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/terrain/stone_road_vertical.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/terrain/stone_road_corner.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/terrain/stone_road_t_junction.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/terrain/stone_road_cross.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/terrain/stone_road_end.png","width":24,"height":24}
+      ],
+      "render_owner": "RoadVisualSystem, WorldBackground и LevelEditorValidationSystem",
+      "source_layout": "два семейства по шесть отдельных crop-safe RGBA PNG 24×24: прямая, угол, T/X-развилка и окончание",
+      "runtime_sizes": ["24×24"],
+      "target_modules": ["24×24"],
+      "anchor": "клетка земли",
+      "collision": "проходимая поверхность; минимальная ширина тропы 48 px",
+      "status": "compliant",
+      "priority": "P1",
+      "debt": "Закрыт: старый растягиваемый тайл 32×32 удалён из runtime; игра и конструктор используют общий каталог 24×24 и одну N/E/S/W-топологию.",
+      "done_when": "Сохраняются оба полных семейства 24×24, все шестнадцать масок соседства разрешаются в модуль и маршруты остаются четырёхсвязными."
+    },
+    {
+      "id": "WS-004",
+      "family": "Пол пещеры",
+      "assets": [{"path":"assets/game/tiles/cave-floor.png","width":24,"height":24}],
+      "render_owner": "WorldBackground и GameRenderer",
+      "source_layout": "один бесшовный тайл",
+      "runtime_sizes": ["24×24"],
+      "target_modules": ["24×24"],
+      "anchor": "клетка земли",
+      "collision": "проходимая поверхность",
+      "status": "compliant",
+      "priority": "P3",
+      "debt": "Сетка корректна, но художественной вариативности мало.",
+      "done_when": "Базовый тайл остаётся 24×24; дополнительные трещины и камни добавляются отдельными 24×24 вариантами."
+    },
+    {
+      "id": "WS-005",
+      "family": "Вода, рыба и всплески",
+      "assets": [
+        {"path":"assets/game/tiles/editor/water/water_clear.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/water/water_ripples.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/water/water_deep.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/water/water_shallow.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/water/water_lilies.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/water/water_sparkles.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/water/shore_north.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/water/shore_south.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/water/shore_west.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/water/shore_east.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/water/shore_outer_corner.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/water/shore_inner_corner.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/water/river_horizontal.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/water/river_vertical.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/water/river_corner.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/water/river_t_junction.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/water/river_cross.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/water/river_end.png","width":24,"height":24},
+        {"path":"assets/game/tiles/editor/water/pond_rocky.png","width":24,"height":24},
+        {"path":"assets/game/fishing/Fish Swimming.png","width":160,"height":16},
+        {"path":"assets/game/fishing/Splash Effect.png","width":288,"height":16},
+        {"path":"assets/game/fishing/Bubbles Rising.png","width":128,"height":16}
+      ],
+      "render_owner": "WaterVisualSystem, WorldBackground и LevelEditorValidationSystem",
+      "source_layout": "19 отдельных crop-safe RGBA-модулей 24×24 с кардинальной и диагональной топологией; прозрачные CC0-эффекты в изолированных кадрах 16×16",
+      "runtime_sizes": ["24×24", "48×48", "72×72"],
+      "target_modules": ["24×24", "48×48", "72×72"],
+      "anchor": "вода по верхнему левому углу клетки; эффекты по центру модульной рамки",
+      "collision": "видимый базовый контур и навигация используют один is_water; мост удаляет клетку из водной топологии",
+      "status": "compliant",
+      "priority": "P1",
+      "debt": "Закрыт: runtime и конструктор используют один каталог, маски N/E/S/W и NE/SE/SW/NW; ранее неиспользуемый внутренний берег выбирается при диагональном разрыве. Рыба, пузырьки и всплеск имеют целочисленный масштаб содержимого 48/48/64 внутри рамок 48/48/72.",
+      "done_when": "Сохраняются 19 модулей 24×24, все кардинальные и диагональные случаи разрешаются, водные клетки совпадают с is_water, рыба остаётся 48 px, всплеск — в рамке 72 px."
+    },
+    {
+      "id": "WS-006",
+      "family": "Грядки и культуры",
+      "assets": [
+        {"path":"assets/game/environment/farm_plot_atlas.png","width":240,"height":96},
+        {"path":"assets/game/tiles/editor/terrain/ground_farm_soil.png","width":24,"height":24},
+        {"path":"assets/game/farming/crops/atlases/annual_a.png","width":320,"height":256},
+        {"path":"assets/game/farming/crops/atlases/annual_b.png","width":320,"height":256},
+        {"path":"assets/game/farming/crops/atlases/annual_c.png","width":320,"height":256},
+        {"path":"assets/game/farming/crops/atlases/annual_d.png","width":320,"height":128},
+        {"path":"assets/game/farming/crops/atlases/strawberry_seasons.png","width":320,"height":256},
+        {"path":"assets/game/farming/crops/atlases/herbs_seasons.png","width":320,"height":256}
+      ],
+      "render_owner": "FarmVisualSystem и FarmRenderer",
+      "source_layout": "плоская почва 24×24 по четыре тайла на грядку; прежний атлас 5×2 по 48×48 сохранён для редактора; культуры 5 стадий по 64×64, сезонные многолетники 5×4",
+      "runtime_sizes": ["24×24", "48×48"],
+      "target_modules": ["24×24", "48×48"],
+      "anchor": "центр участка 2×2",
+      "collision": "грядки проходимы; взаимодействие по клетке 48×48",
+      "status": "compliant",
+      "priority": "P1",
+      "debt": "Закрыт: шестнадцать культур получили пять изолированных стадий; клубника и травы имеют четыре сезонных ряда. Невскопанные клетки сохраняют фон, обработанная почва использует плоский бесшовный модуль без объёмных зелёных кубов.",
+      "done_when": "Все культуры используют пять ячеек 64×64, единый нижний anchor и nearest-фильтрацию; сезонные многолетники содержат четыре полных ряда. Почва появляется после вспашки, остаётся после сбора и состоит из тайлов 24×24 без коллизий."
+    },
+    {
+      "id": "WS-007",
+      "family": "Мосты",
+      "assets": [
+        {"path":"assets/game/environment/bridges/bridge_stone_vertical.png","width":96,"height":192},
+        {"path":"assets/game/environment/bridges/bridge_stone_arch.png","width":168,"height":96},
+        {"path":"assets/game/environment/bridges/bridge_stone_wood_vertical.png","width":96,"height":192},
+        {"path":"assets/game/environment/bridges/bridge_stone_wood_horizontal.png","width":168,"height":96},
+        {"path":"assets/game/environment/bridges/bridge_wood_vertical.png","width":72,"height":168},
+        {"path":"assets/game/environment/bridges/bridge_wood_horizontal.png","width":168,"height":96},
+        {"path":"assets/game/environment/bridges/bridge_copper_vertical.png","width":72,"height":240},
+        {"path":"assets/game/environment/bridges/bridge_copper_arch.png","width":192,"height":96},
+        {"path":"assets/game/environment/bridges/bridge_copper_arch_rail.png","width":192,"height":120}
+      ],
+      "render_owner": "LevelEditorAssetCatalogSystem и VillageLayoutSystem",
+      "source_layout": "девять самостоятельных crop-safe PNG из лицензионного монтажного исходника; генератор хранится в tools/build_bridge_sprites.py",
+      "runtime_sizes": ["72×168", "72×240", "96×192", "168×96", "192×96", "192×120"],
+      "target_modules": ["72×168", "72×240", "96×192", "168×96", "192×96", "192×120"],
+      "anchor": "нижний центр модульного холста; навигационный мост — центр прохода",
+      "collision": "редактор помечает мосты твёрдыми; опубликованная локация использует явный прямоугольник прохода",
+      "status": "compliant",
+      "priority": "P1",
+      "debt": "Закрыт: нерегулярный лист удалён из runtime-каталога, варианты разделены без соседнего bleed и доступны конструктору по отдельности.",
+      "done_when": "Каждый вариант имеет прозрачный модульный PNG, нижнюю опору, запись каталога и контрольный preview без частей соседей."
+    },
+    {
+      "id": "WS-008",
+      "family": "Деревья, саженцы и пни",
+      "assets": [
+        {"path":"assets/game/environment/forest_tree_growth_atlas_v1.png","width":1024,"height":256}
+      ],
+      "render_owner": "GameRenderer и TreeSystem",
+      "source_layout": "строгий атлас 4×1 с целыми ячейками 256×256",
+      "runtime_sizes": ["72×72", "120×120", "192×192"],
+      "target_modules": ["72×72", "120×120", "192×192"],
+      "anchor": "нижний центр ствола",
+      "collision": "единое основание 48×48 из профиля стадии; пень и саженец проходимы",
+      "status": "compliant",
+      "priority": "P1",
+      "debt": "Закрыт: четыре отдельные стадии кратны сетке, используют общую нижнюю опору и один источник геометрии для F10 и навигации.",
+      "done_when": "Пень 72×72, саженец 72×72, молодое дерево 120×120, взрослое 192×192; единая опора и основание 48×48."
+    },
+    {
+      "id": "WS-009",
+      "family": "Заборы, калитки и деревенский декор",
+      "assets": [
+        {"path":"assets/game/environment/village_prop_atlas_v2.png","width":2048,"height":1024},
+        {"path":"assets/game/environment/village_ambient_atlas_v1.png","width":1448,"height":1086},
+        {"path":"assets/game/environment/buildable_fence_atlas_v1.png","width":512,"height":320}
+      ],
+      "render_owner": "WorldBackground, VillageAmbientRenderer и FenceRenderer",
+      "source_layout": "строгий декор 4×2 по 512×512, ambient 4×3 по 362×362, пользовательская ограда 8×5 по 64×64",
+      "runtime_sizes": ["48×48", "72×72", "96×72", "120×96", "120×120", "48×120", "288×240"],
+      "target_modules": ["48×48", "72×72", "96×72", "120×96", "120×120", "48×120", "288×240"],
+      "anchor": "общий нижний центр; секции ограды привязаны к центру базовой клетки",
+      "collision": "крупный декор, статическая и строящаяся ограда используют прямоугольники тех же визуальных профилей; мелкий ambient проходим",
+      "status": "compliant",
+      "priority": "P1",
+      "debt": "Закрыт: дробный атлас заменён целыми ячейками, случайные размеры удалены, вид, F10 и навигация используют общий каталог профилей.",
+      "done_when": "Все деревенские props кратны 24 px, имеют общий нижний anchor и совпадающие данные вида, инспектора и коллизии."
+    },
+    {
+      "id": "WS-010",
+      "family": "Камни, кристаллы и пещерный декор",
+      "assets": [
+        {
+          "path": "assets/game/resources/rock.png",
+          "width": 64,
+          "height": 64
+        },
+        {
+          "path": "assets/game/resources/blue-crystal.png",
+          "width": 64,
+          "height": 64
+        },
+        {
+          "path": "assets/game/environment/cave_crystal.png",
+          "width": 64,
+          "height": 64
+        },
+        {
+          "path": "assets/game/environment/red_mushrooms.png",
+          "width": 64,
+          "height": 64
+        },
+        {
+          "path": "assets/game/locations/cave/modular/boulder_v1.png",
+          "width": 240,
+          "height": 192
+        },
+        {
+          "path": "assets/game/locations/cave/modular/corner_inner_v1.png",
+          "width": 288,
+          "height": 336
+        },
+        {
+          "path": "assets/game/locations/cave/modular/corner_left_v1.png",
+          "width": 288,
+          "height": 336
+        },
+        {
+          "path": "assets/game/locations/cave/modular/corner_right_v1.png",
+          "width": 288,
+          "height": 336
+        },
+        {
+          "path": "assets/game/locations/cave/modular/crystal_blue_v1.png",
+          "width": 240,
+          "height": 240
+        },
+        {
+          "path": "assets/game/locations/cave/modular/crystal_fragments_v1.png",
+          "width": 144,
+          "height": 144
+        },
+        {
+          "path": "assets/game/locations/cave/modular/crystal_green_v1.png",
+          "width": 240,
+          "height": 240
+        },
+        {
+          "path": "assets/game/locations/cave/modular/crystal_red_v1.png",
+          "width": 240,
+          "height": 240
+        },
+        {
+          "path": "assets/game/locations/cave/modular/entrance_v1.png",
+          "width": 384,
+          "height": 384
+        },
+        {
+          "path": "assets/game/locations/cave/modular/floor_v1.png",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "path": "assets/game/locations/cave/modular/mushrooms_v1.png",
+          "width": 96,
+          "height": 96
+        },
+        {
+          "path": "assets/game/locations/cave/modular/ore_metal_v1.png",
+          "width": 240,
+          "height": 240
+        },
+        {
+          "path": "assets/game/locations/cave/modular/rubble_v1.png",
+          "width": 192,
+          "height": 144
+        },
+        {
+          "path": "assets/game/locations/cave/modular/stalagmites_v1.png",
+          "width": 144,
+          "height": 240
+        },
+        {
+          "path": "assets/game/locations/cave/modular/torch_v1.png",
+          "width": 96,
+          "height": 192
+        },
+        {
+          "path": "assets/game/locations/cave/modular/wall_end_v1.png",
+          "width": 288,
+          "height": 336
+        },
+        {
+          "path": "assets/game/locations/cave/modular/wall_rim_v1.png",
+          "width": 288,
+          "height": 192
+        },
+        {
+          "path": "assets/game/locations/cave/modular/wall_side_left_v1.png",
+          "width": 192,
+          "height": 336
+        },
+        {
+          "path": "assets/game/locations/cave/modular/wall_side_right_v1.png",
+          "width": 192,
+          "height": 336
+        },
+        {
+          "path": "assets/game/locations/cave/modular/wall_straight_a_v1.png",
+          "width": 288,
+          "height": 336
+        },
+        {
+          "path": "assets/game/locations/cave/modular/wall_straight_b_v1.png",
+          "width": 288,
+          "height": 336
+        }
+      ],
+      "render_owner": "CaveAssetSystem, GameRenderer и WorldBackground",
+      "source_layout": "Отдельные PNG согласованного набора пещеры; native-разрешение вдвое выше модульного runtime-размера; пол — повторяемый материал",
+      "runtime_sizes": [
+        "24×24",
+        "48×48",
+        "72×72",
+        "120×96",
+        "96×168",
+        "144×168",
+        "144×96",
+        "192×192",
+        "120×120",
+        "72×120",
+        "96×72",
+        "48×96"
+      ],
+      "target_modules": [
+        "24×24",
+        "48×48",
+        "72×72",
+        "120×96",
+        "96×168",
+        "144×168",
+        "144×96",
+        "192×192",
+        "120×120",
+        "72×120",
+        "96×72",
+        "48×96"
+      ],
+      "anchor": "нижний центр ресурса",
+      "collision": "Добываемые жилы имеют основание 72×48; стены — отдельный модульный каталог; старый ресурс 48×48 сохранён для остальных локаций",
+      "status": "compliant",
+      "priority": "P2",
+      "debt": "Новый согласованный дизайн нарезан на двадцать самостоятельных PNG с общей нижней опорой. Реестр также сохраняет старые пещерные ресурсы для остальных биомов.",
+      "done_when": "Самостоятельные PNG, прозрачные поля и размеры кратны базовой сетке; профиль одинаков для отображения и навигации."
+    },
+    {
+      "id": "WS-011",
+      "family": "Ягоды, грибы, арбузы и плодовые деревья",
+      "assets": [
+        {"path":"assets/game/environment/farm_plants.png","width":768,"height":432},
+        {"path":"assets/game/environment/farm_plants_objects_atlas_v1.png","width":1152,"height":672},
+        {"path":"assets/game/environment/orchard/fruit_trees_4x4_v2.png","width":1024,"height":1024},
+        {"path":"assets/game/environment/red_mushrooms.png","width":64,"height":64},
+        {"path":"assets/game/items/watermelon.png","width":64,"height":64}
+      ],
+      "render_owner": "GameRenderer.draw_food_nodes и LevelEditorAssetCatalogSystem",
+      "source_layout": "runtime-монтаж, нормализованный редакторский атлас 12×7 с ячейкой 96×96 и отдельные PNG",
+      "runtime_sizes": ["48×48", "72×72", "120×120", "168×168", "192×192"],
+      "target_modules": ["48×48", "72×72", "120×120", "168×168", "192×192"],
+      "anchor": "нижний центр растения",
+      "collision": "основание 24×24 для малых растений и 48×48 для деревьев из общего профиля",
+      "status": "compliant",
+      "priority": "P2",
+      "debt": "Закрыт: отдельные PNG и целые ячейки атласов используют модульные размеры, общую линию земли и коллизию из того же профиля; перекрывающийся монтаж растений заменён в конструкторе на 84 изолированные ячейки.",
+      "done_when": "Гриб 48×48, арбуз и куст 72×72, дикий орешник 120×120, садовые стадии 72/120/168/192; редактор показывает только целые спрайты 96×96, а опора и основание заданы рядом с визуальным размером."
+    },
+    {
+      "id": "WS-012",
+      "family": "Здания внешних локаций",
+      "assets": [
+        {"path":"assets/game/buildings/exteriors/cottage.png","width":336,"height":408},
+        {"path":"assets/game/buildings/exteriors/shop_house.png","width":384,"height":360},
+        {"path":"assets/game/buildings/exteriors/guild_hall.png","width":408,"height":408},
+        {"path":"assets/game/buildings/exteriors/forge.png","width":360,"height":384},
+        {"path":"assets/game/buildings/exteriors/chapel.png","width":288,"height":408},
+        {"path":"assets/game/buildings/exteriors/prison.png","width":384,"height":336},
+        {"path":"assets/game/buildings/exteriors/wizard_tower.png","width":312,"height":432},
+        {"path":"assets/game/buildings/exteriors/moon_castle.png","width":432,"height":384}
+      ],
+      "render_owner": "BuildingVisualSystem, BuildingSystem и GameRenderer",
+      "source_layout": "восемь самостоятельных crop-safe RGBA-фасадов без выборки соседней ячейки",
+      "runtime_sizes": ["288×408", "312×432", "336×408", "360×384", "384×336", "384×360", "408×408", "432×384"],
+      "target_modules": ["288×408", "312×432", "336×408", "360×384", "384×336", "384×360", "408×408", "432×384"],
+      "anchor": "нижний центр фасада; видимая ступень привязана к координате двери",
+      "collision": "фундамент из двух прямоугольников по сетке 24 px с реальным свободным дверным проёмом 48×24",
+      "status": "compliant",
+      "priority": "P2",
+      "debt": "Закрыт: дробный авторский лист хранится только как источник, runtime использует отдельные фасады и общий геометрический профиль.",
+      "done_when": "Сохранить независимые PNG без масштабирования, модульные фасады и фундаменты, свободную дверь 48×24, F10-контур и кадры четырёх внешних биомов."
+    },
+    {
+      "id": "WS-013",
+      "family": "Сезонные объекты и Лунная поляна",
+      "assets": [
+        {"path":"assets/game/environment/seasons/tree_spring.png","width":264,"height":360},
+        {"path":"assets/game/environment/seasons/tree_summer.png","width":264,"height":360},
+        {"path":"assets/game/environment/seasons/tree_autumn.png","width":264,"height":360},
+        {"path":"assets/game/environment/seasons/tree_winter.png","width":264,"height":360},
+        {"path":"assets/game/environment/seasons/ground_spring.png","width":144,"height":144},
+        {"path":"assets/game/environment/seasons/ground_summer.png","width":144,"height":144},
+        {"path":"assets/game/environment/seasons/ground_autumn.png","width":144,"height":144},
+        {"path":"assets/game/environment/seasons/ground_winter.png","width":144,"height":144},
+        {"path":"assets/game/environment/moon/portal.png","width":168,"height":240},
+        {"path":"assets/game/environment/moon/flower.png","width":144,"height":216},
+        {"path":"assets/game/environment/moon/crystal.png","width":192,"height":240},
+        {"path":"assets/game/environment/moon/altar.png","width":288,"height":384},
+        {"path":"assets/game/environment/moon/echo.png","width":144,"height":216},
+        {"path":"assets/game/environment/moon/guardian.png","width":168,"height":240},
+        {"path":"assets/game/environment/moon/stag.png","width":168,"height":240},
+        {"path":"assets/game/environment/moon/chest.png","width":168,"height":168}
+      ],
+      "render_owner": "EnvironmentVisualSystem и MoonGladeRenderer",
+      "source_layout": "шестнадцать самостоятельных crop-safe RGBA-спрайтов без дробных source-rect",
+      "runtime_sizes": ["144×144", "144×216", "168×168", "168×240", "192×240", "264×360", "288×384"],
+      "target_modules": ["144×144", "144×216", "168×168", "168×240", "192×240", "264×360", "288×384"],
+      "anchor": "калиброванная нижняя опора 0.74/0.78/0.97 из общего профиля",
+      "collision": "модульные прямоугольные основания 72×48 и 96×48 принадлежат тому же профилю",
+      "status": "compliant",
+      "priority": "P2",
+      "debt": "Закрыт: старые листы остаются только воспроизводимыми источниками, соседние фрагменты и внешний chroma-key ореол удалены при сборке.",
+      "done_when": "Сохранить отдельные модульные PNG, естественные пропорции, общие опоры/коллизии и сезонный, лунный и F10-preview."
+    },
+    {
+      "id": "WS-014",
+      "family": "Объекты приключенческих биомов",
+      "assets": [
+        {"path":"assets/game/environment/biomes/forest_landmark.png","width":168,"height":240},
+        {"path":"assets/game/environment/biomes/forest_detail.png","width":144,"height":168},
+        {"path":"assets/game/environment/biomes/rocky_landmark.png","width":192,"height":240},
+        {"path":"assets/game/environment/biomes/rocky_detail.png","width":144,"height":168},
+        {"path":"assets/game/environment/biomes/ruins_landmark.png","width":192,"height":240},
+        {"path":"assets/game/environment/biomes/ruins_detail.png","width":144,"height":168},
+        {"path":"assets/game/environment/biomes/cursed_landmark.png","width":168,"height":240},
+        {"path":"assets/game/environment/biomes/cursed_detail.png","width":144,"height":168},
+        {"path":"assets/game/environment/biomes/glassworks_landmark.png","width":168,"height":240},
+        {"path":"assets/game/environment/biomes/glassworks_detail.png","width":144,"height":168}
+      ],
+      "render_owner": "EnvironmentVisualSystem",
+      "source_layout": "по два самостоятельных crop-safe RGBA-спрайта на каждый из пяти биомов",
+      "runtime_sizes": ["144×168", "168×240", "192×240"],
+      "target_modules": ["144×168", "168×240", "192×240"],
+      "anchor": "нижняя опора 0.82 для ориентира и 0.74 для малого декора",
+      "collision": "основания ориентиров 72×48 либо 96×72 из общего профиля; малый декор проходим",
+      "status": "compliant",
+      "priority": "P2",
+      "debt": "Закрыт: дробный лист больше не загружается runtime, пропорции не искажаются, пурпурный внешний ореол очищен.",
+      "done_when": "Сохранить десять отдельных PNG, три модульных класса размера, единый профиль опоры/основания и F10-preview."
+    },
+    {
+      "id": "WS-015",
+      "family": "Случайные контейнеры мира",
+      "assets": [
+        {"path":"assets/game/world_loot/containers/sack.png","width":72,"height":72},
+        {"path":"assets/game/world_loot/containers/trash.png","width":96,"height":72},
+        {"path":"assets/game/world_loot/containers/chest.png","width":96,"height":72},
+        {"path":"assets/game/world_loot/containers/bone_pile.png","width":96,"height":72},
+        {"path":"assets/game/world_loot/containers/supply_crate.png","width":72,"height":72},
+        {"path":"assets/game/world_loot/containers/barrel.png","width":72,"height":72},
+        {"path":"assets/game/world_loot/containers/hollow_log.png","width":96,"height":72},
+        {"path":"assets/game/world_loot/containers/fairy_cache.png","width":72,"height":72}
+      ],
+      "render_owner": "WorldLootRenderer",
+      "source_layout": "восемь самостоятельных crop-safe RGBA PNG, извлечённых из авторского master без дробной runtime-выборки",
+      "runtime_sizes": ["72×72", "96×72"],
+      "target_modules": ["72×72", "96×72"],
+      "anchor": "совместимый центр сохранённой логической позиции; геометрия принадлежит общему профилю",
+      "collision": "индивидуальные прямоугольники 48×24, 48×48, 72×24 или 72×48 из профиля вида",
+      "status": "compliant",
+      "priority": "P2",
+      "debt": "Закрыт: дробный исходный лист остаётся master, а runtime использует восемь независимых изображений без соседних фрагментов и растяжения.",
+      "done_when": "Сохраняются восемь отдельных PNG, размеры кратны 24, а навигация и F10 получают основание из WorldLootRenderer."
+    },
+    {
+      "id": "WS-016",
+      "family": "Полировка мира, события и предметы в руке",
+      "assets": [
+        {"path":"assets/game/world_polish/village_polish_atlas.png","width":640,"height":512},
+        {"path":"assets/game/effects/actions/effect_00.png","width":72,"height":72},
+        {"path":"assets/game/effects/actions/effect_01.png","width":72,"height":72},
+        {"path":"assets/game/effects/actions/effect_02.png","width":72,"height":72},
+        {"path":"assets/game/effects/actions/effect_03.png","width":72,"height":72},
+        {"path":"assets/game/effects/actions/effect_04.png","width":72,"height":72},
+        {"path":"assets/game/effects/actions/effect_05.png","width":72,"height":72},
+        {"path":"assets/game/effects/actions/effect_06.png","width":72,"height":72},
+        {"path":"assets/game/effects/actions/effect_07.png","width":72,"height":72},
+        {"path":"assets/game/effects/actions/effect_08.png","width":72,"height":72},
+        {"path":"assets/game/effects/actions/effect_09.png","width":72,"height":72},
+        {"path":"assets/game/effects/actions/effect_10.png","width":72,"height":72},
+        {"path":"assets/game/effects/actions/effect_11.png","width":72,"height":72},
+        {"path":"assets/game/effects/actions/effect_12.png","width":72,"height":72},
+        {"path":"assets/game/effects/actions/effect_13.png","width":72,"height":72},
+        {"path":"assets/game/effects/actions/effect_14.png","width":72,"height":72},
+        {"path":"assets/game/effects/actions/effect_15.png","width":72,"height":72}
+      ],
+      "render_owner": "ActionEffectVisualSystem, WorldPolishRenderer и VillageEventRenderer",
+      "source_layout": "строгий декоративный атлас 5×4 по 128 и шестнадцать самостоятельных эффектов 72×72",
+      "runtime_sizes": ["24×24", "48×48", "72×72", "120×120", "144×144"],
+      "target_modules": ["24×24", "48×48", "72×72", "120×120", "144×144"],
+      "anchor": "рука 48 px, центр эффекта 72 px, центр мирового события 120/144 px",
+      "collision": "эффекты и hand-слоты не блокируют; событийная коллизия принадлежит механике события",
+      "status": "compliant",
+      "priority": "P2",
+      "debt": "Закрыт: дробный атлас эффектов остаётся только источником; оружие, стрелы, частицы, врата и события используют пять документированных модульных классов.",
+      "done_when": "Сохранить 16 отдельных эффектов 72×72, hand-слоты 24/48, декор 72, врата 120 и события 144 с полным визуальным каталогом."
+    },
+    {
+      "id": "WS-017",
+      "family": "Фермерская жизнь, мебель и музей",
+      "assets": [{"path":"assets/game/expansion_pack/expansion_atlas.png","width":640,"height":512}],
+      "render_owner": "FarmLifeVisualSystem и FarmLifeRenderer",
+      "source_layout": "строгий RGBA-атлас 5×4 по 128×128 с семантическим каталогом двенадцати мировых объектов",
+      "runtime_sizes": ["72×72", "72×96", "96×72", "96×96", "96×120"],
+      "target_modules": ["72×72", "72×96", "96×72", "96×96", "96×120"],
+      "anchor": "единый нижний центр логической позиции животного, мебели или интерактивного объекта",
+      "collision": "индивидуальные модульные основания 48×24, 48×48, 72×24 или 72×48; ковёр и знамя проходимы",
+      "status": "compliant",
+      "priority": "P2",
+      "debt": "Закрыт: шесть произвольных близких размеров удалены, строгие ячейки получают размер, опору и основание из одного профиля.",
+      "done_when": "Все двенадцать назначений проходят runtime-валидацию; renderer и мебельная навигация используют FarmLifeVisualSystem."
+    },
+    {
+      "id": "WS-018",
+      "family": "Герой, NPC и напарники",
+      "assets": [
+        {"path":"assets/game/characters/hero_v3/walk_master.png","width":1254,"height":1254},
+        {"path":"assets/game/characters/hero_v3/hoe_master.png","width":1281,"height":1228},
+        {"path":"assets/game/characters/grandmother_v2/walk_master.png","width":1254,"height":1254},
+        {"path":"assets/game/characters/directional/npc_grandmother_walk_8dir.png","width":888,"height":1776},
+        {"path":"assets/game/characters/directional/npc_official_walk_8dir.png","width":888,"height":1776},
+        {"path":"assets/game/characters/directional/npc_herbalist_walk_8dir.png","width":888,"height":1776},
+        {"path":"assets/game/characters/directional/companion_mila_walk_8dir.png","width":888,"height":1776},
+        {"path":"assets/game/characters/directional/companion_borislav_walk_8dir.png","width":888,"height":1776},
+        {"path":"assets/game/characters/directional/companion_luna_walk_8dir.png","width":888,"height":1776},
+        {"path":"assets/game/characters/walk_v2/npc_official.png","width":512,"height":1024},
+        {"path":"assets/game/characters/walk_v2/npc_herbalist.png","width":512,"height":1024},
+        {"path":"assets/game/characters/walk_v2/companion_mila.png","width":512,"height":1024},
+        {"path":"assets/game/characters/walk_v2/companion_borislav.png","width":512,"height":1024},
+        {"path":"assets/game/characters/walk_v2/companion_luna.png","width":512,"height":1024}
+      ],
+      "render_owner": "HeroVisualSystem, GrandmotherVisualSystem, ResidentVisualSystem и DirectionalCharacterSystem",
+      "source_layout": "Герой и бабушка: 4 ракурса × 4 фазы; жители/спутники: подготовленные 4×8 по128×128, целые фигуры и измеренные ботинки",
+      "runtime_sizes": ["96×96"],
+      "target_modules": ["96×96"],
+      "anchor": "У всех людей стопы и тень совпадают с физической позицией; прежнее смещение +24 удалено. Пять человеческих наборов подготовлены к росту84px.",
+      "collision": "круг героя 18 px; NPC не блокируют движение",
+      "status": "compliant",
+      "priority": "P2",
+      "debt": "Герой и бабушка перерисованы; остальные пять наборов переиспользованы с нарезкой целых фигур, нормализованным ростом и очищенными внешними краями. Старые исходники сохранены для совместимости, runtime загружает пять атласов512×1024.",
+      "done_when": "Ходьба и мотыга сохраняют один pixel scale и ground pivot, источники не захватывают соседей, native витрина показывает четыре направления и фазы; радиус героя18px."
+    },
+    {
+      "id": "WS-019",
+      "family": "Мобильные враги и пираты",
+      "assets": [
+		{"path":"assets/game/enemies/enemy_rank_atlas.png","width":1620,"height":972},
+        {"path":"assets/game/enemies/animated/core_enemy_walk_8dir.png","width":1536,"height":1024},
+        {"path":"assets/game/enemies/animated/core_enemy_actions_8dir.png","width":1536,"height":1024},
+        {"path":"assets/game/enemies/animated/pirate_enemy_walk_8dir.png","width":1536,"height":1024},
+        {"path":"assets/game/enemies/animated/pirate_enemy_actions_8dir.png","width":1536,"height":1024},
+        {"path":"assets/game/enemies/skeleton_v2/walk.png","width":384,"height":1024},
+        {"path":"assets/game/enemies/skeleton_v2/actions.png","width":384,"height":1024},
+        {"path":"assets/game/enemies/cave_guardian.png","width":256,"height":256}
+      ],
+      "render_owner": "EnemyAnimationLibrary, AnimationRenderer и CreatureVisualProfileSystem",
+      "source_layout": "общие боевые атласы 12×8; скелет — отдельные 3×8; хранитель — временная цельная поза 256×256 вместо физически обрезанного общего листа",
+      "runtime_sizes": ["96×96", "120×120", "144×144"],
+      "target_modules": ["96×96", "120×120", "144×144"],
+      "anchor": "общая нижняя опора 0.72 для трёх рангов; у цельного хранителя измеренные стопы128,236 исходника256×256",
+      "collision": "радиус 30 px для обычных врагов",
+      "status": "migration",
+      "priority": "P1",
+      "debt": "Размеры рангов96/120/144 сохранены. Хранитель временно использует прежний цельный рисунок; подробные варианты A/B хранятся отдельно до выбора. Требуется настоящий новый направленный пакет ходьбы и действий.",
+      "done_when": "После выбора облика хранитель получает четыре настоящие стороны, четыре фазы ходьбы и отдельные фазы атаки/ранения/поражения; каждая фигура целая с прозрачными полями и устойчивыми стопами, native кадры и тесты подтверждают результат."
+    },
+    {
+      "id": "WS-020",
+      "family": "Дикие животные",
+      "assets": [
+        {"path":"assets/game/wildlife/directional/deer_actions_8dir.png","width":768,"height":1024},
+        {"path":"assets/game/wildlife/directional/fox_actions_8dir.png","width":768,"height":1024},
+        {"path":"assets/game/wildlife/directional/boar_actions_8dir.png","width":768,"height":1024},
+        {"path":"assets/game/wildlife/directional/bat_actions_8dir.png","width":768,"height":1024},
+        {"path":"assets/game/wildlife/directional/lizard_actions_8dir.png","width":768,"height":1024},
+        {"path":"assets/game/wildlife/directional/fox_walk_4dir_v2.png","width":1312,"height":1199},
+        {"path":"assets/game/wildlife/directional/bat_flight_4dir_v2.png","width":1254,"height":1254},
+        {"path":"assets/game/wildlife/directional/lizard_walk_4dir_v2.png","width":1285,"height":1224}
+      ],
+      "render_owner": "WildlifeVisualSystem и SpriteMatteSystem",
+      "source_layout": "Четыре стороны: новые лиса/мышь/ящерица 4×4 с явно измеренными source regions; выбранные согласованные позы старых deer/boar",
+      "runtime_sizes": ["96×96"],
+      "target_modules": ["96×96"],
+      "anchor": "нижняя точка лап",
+      "collision": "животные не блокируют героя",
+      "status": "compliant",
+      "priority": "P2",
+      "debt": "Ходьба и hurt больше не выбирают крошечные дефектные кадры. Кабан временно использует два качественных кадра шага; расширение его анимации требует отдельного redraw.",
+      "done_when": "Четыре различимые стороны, постоянный world-pixel scale, опора лап, реальные регрессии цикла, у лисы, ящерицы и мыши новые полные 4-кадровые наборы."
+    },
+    {
+      "id": "WS-021",
+      "family": "Неподвижные опасные растения",
+      "assets": [{"path":"assets/game/environment/hazard_rank_atlas.png","width":1254,"height":1254}],
+      "render_owner": "GameRenderer.draw_hazards и CreatureVisualProfileSystem",
+      "source_layout": "3×3 с ячейкой 418×418",
+      "runtime_sizes": ["96×96", "120×120"],
+      "target_modules": ["96×96", "120×120"],
+      "anchor": "нижний центр",
+      "collision": "радиус 30 px",
+      "status": "compliant",
+      "priority": "P2",
+      "debt": "Закрыт: три произвольных прямоугольника заменены малым профилем 96 и крупным 120 с общей опорой.",
+      "done_when": "Ядовитый плющ и кактус используют 96×96, колючий цветок 120×120; F10 получает тот же actor_rect."
+    },
+    {
+      "id": "WS-022",
+      "family": "Интерьеры, сервисы и домашний сундук",
+      "assets": [{"path":"assets/game/world_polish/village_polish_atlas.png","width":640,"height":512}],
+      "render_owner": "InteriorVisualSystem и InteriorRenderer",
+      "source_layout": "строгий атлас 5×4 с целой ячейкой 128×128",
+      "runtime_sizes": ["96×96", "144×120", "192×120", "192×144", "216×120"],
+      "target_modules": ["96×96", "144×120", "192×120", "192×144", "216×120"],
+      "anchor": "единая нижняя центральная опора",
+      "collision": "footprint 72×48, 120×48, 144×72, 168×48 или 192×48 из того же профиля",
+      "status": "compliant",
+      "priority": "P2",
+      "debt": "Закрыт: произвольные размеры и INTERIOR_SOLIDS удалены; мебель, сервисы, сундук, навигация и F10 используют один профиль.",
+      "done_when": "Сохранять единый каталог, целые source-rect, модульные размеры и четыре игровых preview интерьеров."
+    },
+    {
+      "id": "WS-024",
+      "family": "Модульная игровая деревня: тихие материалы, мосты и отдельные объекты",
+      "assets": [
+        {"path":"assets/game/locations/overworld/modular/grass_meadow_tile_v1.png","width":384,"height":384},
+        {"path":"assets/game/locations/overworld/modular/grass_painted_v2.png","width":512,"height":512},
+        {"path":"assets/game/locations/overworld/modular/path_material_v1.png","width":384,"height":384},
+        {"path":"assets/game/locations/overworld/modular/dirt_material_v1.png","width":192,"height":192},
+        {"path":"assets/game/locations/overworld/modular/stone_material_v1.png","width":192,"height":192},
+        {"path":"assets/game/locations/overworld/modular/water_material_v1.png","width":192,"height":192},
+        {"path":"assets/game/locations/overworld/modular/bridge_modular_v1.png","width":144,"height":216},
+        {"path":"assets/game/locations/overworld/modular/prop_well_v1.png","width":120,"height":120},
+        {"path":"assets/game/locations/overworld/modular/prop_bench_v1.png","width":96,"height":72},
+        {"path":"assets/game/locations/overworld/modular/prop_lamp_v1.png","width":48,"height":120},
+        {"path":"assets/game/locations/overworld/modular/prop_board_v1.png","width":120,"height":96},
+        {"path":"assets/game/locations/overworld/modular/prop_cart_v1.png","width":120,"height":96}
+      ],
+      "render_owner": "VillageTerrainRenderer, MeadowGround и VillagePropRenderer",
+      "source_layout": "Отдельные материалы и прозрачные PNG; исходники и воспроизводимая нарезка сохранены рядом с проектом",
+      "runtime_sizes": ["24×24", "144×216", "120×120", "96×72", "48×120", "120×96"],
+      "target_modules": ["24×24", "144×216", "120×120", "96×72", "48×120", "120×96"],
+      "anchor": "Материалы в мировых координатах; предметы нижним центром, мост центром настила",
+      "collision": "VillageMapData задаёт общие контуры воды, дороги, мосты96×192 и размещения; NavigationSystem и миникарта используют те же данные",
+      "status": "compliant",
+      "priority": "P1",
+      "debt": "Базовый редизайн закрыт: 14 физических маршрутов и два моста проверяются в VillageMapSuite. Дальнейшие сезонные материалы — отдельное улучшение, не повод возвращать baked-коллизии.",
+      "done_when": "Сохранять шаг24, отдельный alpha, общий чертёж рендера/навигации и проходы шире диаметра героя; повторять реальные игровые снимки при изменении пропорций."
+    },
+    {
+      "id": "WS-023",
+      "family": "Намеренный fallback сюжетного слизня",
+      "assets": [
+        {"path":"assets/game/enemies/slime_idle.png","width":384,"height":256},
+        {"path":"assets/game/enemies/slime_attack.png","width":640,"height":256},
+        {"path":"assets/game/enemies/slime_hurt.png","width":320,"height":256},
+        {"path":"assets/game/enemies/slime_death.png","width":640,"height":256}
+      ],
+      "render_owner": "AnimationRenderer.draw_slime",
+      "source_layout": "четыре горизонтальных листа с целыми кадрами 64×64 для уникального сюжетного противника",
+      "runtime_sizes": ["72×72"],
+      "target_modules": ["72×72"],
+      "anchor": "общая нижняя опора CreatureVisualProfileSystem",
+      "collision": "намеренный круг r28 сюжетной механики; F10 использует модульную видимую рамку 72×72",
+      "status": "compliant",
+      "priority": "P3",
+      "debt": "Закрыт: девять перекрытых листов героя, орка и хищного растения удалены; четыре листа слизня имеют единственного подтверждённого владельца.",
+      "done_when": "Сохранять сюжетного слизня в модульной рамке 72×72 и не возвращать удалённые preloads рядом с восьминаправленными пакетами."
+    },
+    {
+      "id": "WS-025",
+      "family": "Ремесленная мастерская A: четыре семейства по три уровня",
+      "assets": [
+        {
+          "path": "assets/game/workshops/workshops_atlas_a.png",
+          "width": 1402,
+          "height": 1122
+        },
+        {
+          "path": "assets/game/workshops/research_atlas_a.png",
+          "width": 2172,
+          "height": 724
+        }
+      ],
+      "render_owner": "WorkshopVisualSystem.draw through InteriorVisualSystem",
+      "source_layout": "12 separate AtlasTexture resources; measured integer silhouette regions with transparent gutters; sprites.json contains exact regions and pivots",
+      "runtime_sizes": [
+        "168×144",
+        "192×144"
+      ],
+      "target_modules": [
+        "168×144",
+        "192×144"
+      ],
+      "anchor": "fixed bottom-center ground pivot; aspect-preserving fit inside modular box; existing service coordinates documented in ART_GUIDE",
+      "collision": "120×48 for workshops, 144×48 for study desk; constant through all levels; normal interior depth pass",
+      "status": "compliant",
+      "priority": "P3",
+      "debt": "Закрыт: выбранные A уровни имеют отдельные прозрачные ресурсы, неизменные опоры и коллизии; пути и границы проверены тестами и нативными кадрами.",
+      "done_when": "Keep complete silhouettes, padded regions, constant footprints and actual room service access for all twelve sprites."
+    },
+    {
+      "id": "WS-026",
+      "family": "Тёплый кирпичный подвал A и десять строящихся личных станков",
+      "assets": [
+        {
+          "path": "assets/game/basement/alchemy_atlas_a.png",
+          "width": 1448,
+          "height": 1086
+        },
+        {
+          "path": "assets/game/basement/cauldron_atlas_a.png",
+          "width": 1408,
+          "height": 1117
+        },
+        {
+          "path": "assets/game/basement/floor_a.png",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "path": "assets/game/basement/forge_atlas_a.png",
+          "width": 1470,
+          "height": 1070
+        },
+        {
+          "path": "assets/game/basement/furnace_atlas_a.png",
+          "width": 1292,
+          "height": 1218
+        },
+        {
+          "path": "assets/game/basement/glassblowing_atlas_a.png",
+          "width": 1402,
+          "height": 1122
+        },
+        {
+          "path": "assets/game/basement/pottery_atlas_a.png",
+          "width": 1402,
+          "height": 1122
+        },
+        {
+          "path": "assets/game/basement/recycling_atlas_a.png",
+          "width": 1536,
+          "height": 1024
+        },
+        {
+          "path": "assets/game/basement/sawmill_atlas_a.png",
+          "width": 1402,
+          "height": 1122
+        },
+        {
+          "path": "assets/game/basement/shell_atlas_a.png",
+          "width": 1448,
+          "height": 1086
+        },
+        {
+          "path": "assets/game/basement/study_atlas_a.png",
+          "width": 1536,
+          "height": 1024
+        },
+        {
+          "path": "assets/game/basement/workbench_atlas_a.png",
+          "width": 1402,
+          "height": 1122
+        }
+      ],
+      "render_owner": "BasementRoomRenderer and BasementRenderer through InteriorRenderer",
+      "source_layout": "172 measured AtlasTexture regions: 10 kinds × (3 levels + material pile) × 4 true directions, plus 12 modular room pieces; unchanged original RGBA pixels; sprites.json records regions and pivots",
+      "runtime_sizes": [
+        "144×168",
+        "120×168",
+        "96×168",
+        "288×288",
+        "216×168",
+        "192×144"
+      ],
+      "target_modules": [
+        "144×168",
+        "120×168",
+        "96×168",
+        "288×288",
+        "216×168",
+        "192×144"
+      ],
+      "anchor": "fixed bottom-center on each 24px-snapped foundation; proportional silhouette fit",
+      "collision": "24px-grid rectangle unchanged across all levels and phases; orientation swaps width/depth; hero radius18, 12px route subgrid; F10 draws the same bases and one operating point",
+      "status": "compliant",
+      "priority": "P3",
+      "debt": "Закрыт: выбран A; оформление собрано из отдельных ресурсов, станции имеют четыре настоящих ракурса, независимые очереди и собственные строительные кучи.",
+      "done_when": "Keep distinct true sprite directions, intact transparent gutters, constant footprints, complete floor grid and accessible stairs/blueprint/operating points."
+    },
+    {
+      "id": "WS-027",
+      "family": "Личная кухня A: котелок, очаг, светлая домашняя печь и блюда",
+      "assets": [
+        {
+          "path": "assets/game/kitchen/fire_atlas_a.png",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "path": "assets/game/kitchen/food_atlas_a.png",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "path": "assets/game/kitchen/station_atlas_a.png",
+          "width": 1254,
+          "height": 1254
+        }
+      ],
+      "render_owner": "KitchenVisualSystem and KitchenFxRenderer through BasementRenderer; food icons through VisualAssetSystem",
+      "source_layout": "24 measured AtlasTexture regions: 3 levels plus pile × 4 true directions, 4 food icons and 4 flame frames; unchanged transparent RGBA originals; regions in docs/design/kitchen-station-2026-10-13/atlas-regions.json",
+      "runtime_sizes": [
+        "120×168",
+        "120×120"
+      ],
+      "target_modules": [
+        "120×168",
+        "120×120"
+      ],
+      "anchor": "bottom-center on fixed 4×4-cell foundation; all silhouettes fit proportionally",
+      "collision": "same 96×96 footprint and single approach for all levels, phases and true directions; fire/steam are visual only",
+      "status": "compliant",
+      "priority": "P3",
+      "debt": "Закрыт: пользователь выбрал A; уровни готовки, независимые очереди, чистое топливо и 4 ракурса подключены. Старый cauldron-атлас WS-026 сохранён как прежняя ревизия.",
+      "done_when": "Keep fireplace cold at idle; animate only fueled thermal work using saved job progress; preserve footprint, paid ingredients and legacy public meals."
+    },
+    {
+      "id": "WS-028",
+      "family": "Деревянная пасека A: 3 уровня, дикое гнездо и пчелиное сырьё",
+      "assets": [
+        {
+          "path": "assets/game/apiary/apiary_atlas_a.png",
+          "width": 1254,
+          "height": 1254
+        }
+      ],
+      "render_owner": "ApiaryVisualSystem through FarmLifeRenderer/RenderSystem; raw icons through AlchemyIconSystem",
+      "source_layout": "9 measured AtlasTexture regions: 3 south-facing modular hive levels, hollow-stump wild nest, bees, honeycomb, wax, pollen and propolis; intact transparent original RGBA, regions in docs/design/apiary-2026-10-13/atlas-regions.json",
+      "runtime_sizes": [
+        "96×144",
+        "72×96",
+        "72×48"
+      ],
+      "target_modules": [
+        "96×144",
+        "72×96",
+        "72×48"
+      ],
+      "anchor": "bottom-center at base south edge; proportional sprite fit; flying bees use game calendar phase",
+      "collision": "same 72×48 physical base for every built hive tier and wild nest; empty plots passable; one south approach +48px; F10 uses identical bases and approaches",
+      "status": "compliant",
+      "priority": "P3",
+      "debt": "Закрыт: пользователь выбрал A, 3 отдельные пасеки и 2 диких гнезда подключены; сырьё идёт в алхимию, пчелиный полёт стоит на паузе с игровым временем.",
+      "done_when": "Keep populations and stocks independent, preserve silhouettes, accessible approaches, one harvest per stock and fixed collision footprint."
+    },
+    {
+      "id": "WS-029",
+      "family": "Ремесленные мастерские A: 8 видов × 3 уровня × 4 ракурса, кучи и продукты",
+      "assets": [
+        {
+          "path": "assets/game/artisan/candlebench_atlas_a.png",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "path": "assets/game/artisan/fermenter_atlas_a.png",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "path": "assets/game/artisan/fruit_press_atlas_a.png",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "path": "assets/game/artisan/gardenbench_atlas_a.png",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "path": "assets/game/artisan/items_0_atlas_a.png",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "path": "assets/game/artisan/items_1_atlas_a.png",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "path": "assets/game/artisan/items_2_atlas_a.png",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "path": "assets/game/artisan/loom_atlas_a.png",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "path": "assets/game/artisan/preserver_atlas_a.png",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "path": "assets/game/artisan/smoker_atlas_a.png",
+          "width": 1254,
+          "height": 1254
+        },
+        {
+          "path": "assets/game/artisan/tannery_atlas_a.png",
+          "width": 1254,
+          "height": 1254
+        }
+      ],
+      "render_owner": "ArtisanVisualSystem via BasementVisualSystem and BasementRenderer; inventory through VisualAssetSystem",
+      "source_layout": "169 measured AtlasTexture regions: eight stations × (three levels plus pile) × four true directions, plus 41 item icons; original unchanged transparent RGBA; measured regions in docs/design/artisan-expansion-2026-10-13/atlas-regions.json",
+      "runtime_sizes": [
+        "120×168",
+        "144×168",
+        "168×168",
+        "120×120"
+      ],
+      "target_modules": [
+        "120×168",
+        "144×168",
+        "168×168",
+        "120×120"
+      ],
+      "anchor": "fixed bottom-center on each 24px-snapped foundation; proportional fit preserves silhouette",
+      "collision": "unchanged rectangular foundation at all levels and phases; orientation swaps dimensions; exactly one operating point, shared path and placement checks",
+      "status": "compliant",
+      "priority": "P3",
+      "debt": "Закрыт: пользователь выбрал A; 8 видов построек, 128 ракурсов и 41 иконка, очереди и рецепты подключены.",
+      "done_when": "Preserve distinct true directions, whole sprites, constant foundations, paid recipe inputs and cellar-only station binding."
+    }
+  ]
+}
