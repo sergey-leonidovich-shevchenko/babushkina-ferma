@@ -820,6 +820,40 @@
         "assets/game/locations/overworld/fences/rail_v1.png": "c021acf8a6bb3e132ead8aeb5585261d0aedcdf63f453eb63184140b1b374ec1",
         "assets/game/locations/overworld/fences/depth_v1.png": "1541063b17592624d663be5f586fbe9e57951b8d56b3885b8017ff4dbd6bc959"
       }
+    },
+    {
+      "id": "vprop-006-notice-signs",
+      "paths": [
+        "assets/game/locations/overworld/boards/board_south_v1.png",
+        "assets/game/locations/overworld/boards/board_west_v1.png",
+        "assets/game/locations/overworld/boards/board_east_v1.png",
+        "assets/game/locations/overworld/boards/sign_south_v1.png",
+        "assets/game/locations/overworld/boards/sign_west_v1.png",
+        "assets/game/locations/overworld/boards/sign_east_v1.png"
+      ],
+      "kind": "project-generation-documented",
+      "claim": "Original built-in image_gen blank notice boards and signposts, with separate cardinal side edits and explicit orthographic correction. Uniform mechanical alpha crop/downsample only. Live localized labels remain outside PNG.",
+      "license_status": "project-record-not-legal-opinion",
+      "evidence": [
+        "docs/reports/visual-overhaul/vprop-006/README.md",
+        "docs/reports/visual-overhaul/vprop-006/source.json",
+        "docs/reports/visual-overhaul/vprop-006/prompts.json",
+        "docs/reports/visual-overhaul/vprop-006/masters/board-south.png",
+        "docs/reports/visual-overhaul/vprop-006/masters/board-west.png",
+        "docs/reports/visual-overhaul/vprop-006/masters/board-east.png",
+        "docs/reports/visual-overhaul/vprop-006/masters/sign-south.png",
+        "docs/reports/visual-overhaul/vprop-006/masters/sign-west.png",
+        "docs/reports/visual-overhaul/vprop-006/masters/sign-east.png",
+        "tools/village_board_assets.py"
+      ],
+      "asset_sha256": {
+        "assets/game/locations/overworld/boards/board_south_v1.png": "e9201e136fa7b7122cb4af17a5ce0caa79e3e4e96d23fcc4264d1579f5814a9d",
+        "assets/game/locations/overworld/boards/board_west_v1.png": "03cff9800a0ec86260ea92bf98034743f858cd69dd815a11228432603fc16ee6",
+        "assets/game/locations/overworld/boards/board_east_v1.png": "bb7ce3695f744f2b449eb8d915867d625670364a2689320ee9ebdd76caffa8a2",
+        "assets/game/locations/overworld/boards/sign_south_v1.png": "e056e2978742f5a14c046e695a9e465be14f9c6b7f372d662f2894548bfba8ef",
+        "assets/game/locations/overworld/boards/sign_west_v1.png": "216959c28a886bcb4f804e615c38b9e5eb8bf813418774153b63a6e797c24af0",
+        "assets/game/locations/overworld/boards/sign_east_v1.png": "7864602946b28ad055e0344e2ca020848105828e210b673f1b6dbf03e7d7cf83"
+      }
     }
   ],
   "local_matches": {

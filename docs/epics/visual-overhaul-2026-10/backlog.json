@@ -8484,7 +8484,7 @@
       "id": "VPROP-006",
       "epic": "VPROP",
       "title": "Согласовать указатели и доски",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "phase": "pilot",
       "kind": "engineering",
@@ -8520,14 +8520,28 @@
         "confidence": "low",
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
-      "branch": "codex/vprop-006-visual-task",
-      "evidence": []
+      "branch": "codex/vprop-006-wayfinding",
+      "evidence": [
+        "docs/reports/visual-overhaul/vprop-006/README.md",
+        "docs/reports/visual-overhaul/vprop-006/source.json",
+        "docs/reports/visual-overhaul/vprop-006/prompts.json",
+        "docs/reports/visual-overhaul/vprop-006/summary.json",
+        "docs/reports/visual-overhaul/vprop-006/native/before/source.json",
+        "docs/reports/visual-overhaul/vprop-006/native/after/source.json",
+        "docs/reports/visual-overhaul/vprop-006/review.txt",
+        "docs/reports/visual-overhaul/vprop-006/python-check.txt",
+        "docs/reports/visual-overhaul/vprop-006/completion.json",
+        "docs/reports/visual-overhaul/vprop-006/quality-check.txt",
+        "docs/reports/visual-overhaul/vprop-006/wiki-check.txt",
+        "docs/reports/visual-overhaul/vprop-006/browser-review.json"
+      ],
+      "result": "Подключены две прежние доски и три указателя overworld: шесть самостоятельных прямых PNG, общий масштаб, измеренные опоры и ограниченный кеш теней. Тексты и стрелки остаются отдельными в шести языках. Прежние 72×24, точки переходов, дом и настоящий переход на рынок/возврат сохранены. Приняты 140 нативных PNG / 624 draw callbacks в двух окнах, 30 побайтовых сравнений тел между локалями, 117 профильных условий, 11 Python-проверок, 100 Wiki-тестов и браузер. FPS, другие карты и полная VMAP-003 остаются отдельно. Полный игровой набор: 46259/0."
     },
     {
       "id": "VPROP-007",
       "epic": "VPROP",
       "title": "Подготовить торговый декор",
-      "status": "backlog",
+      "status": "ready",
       "priority": "P1",
       "phase": "pilot",
       "kind": "engineering",

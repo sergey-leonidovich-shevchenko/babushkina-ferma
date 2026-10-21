@@ -1,0 +1,55 @@
+{
+  "tool": "built-in image_gen",
+  "prompts": [
+    [
+      "board-south",
+      "Production game sprite, one freestanding village notice board for a soft painterly 2D top-down farming RPG. Strict orthographic front facing screen bottom; broad board is perfectly horizontal, no isometric or diagonal yaw. Two sturdy medium honey-oak posts, simple warm timber frame, small blue-grey slate rain cap, four blank cream paper notes pinned with plain dark nails. Papers have absolutely no writing, glyphs, symbols, pseudo letters, stamps or scribbles. Feet form a level ground baseline. Warm Valley palette, subtle handmade wood grain, natural soft edge, upper-left daylight, no thick outline, detailed smooth painted non-pixel art. Entire object isolated on transparent RGBA background with generous padding. No terrain, flowers, scenery, cast shadow or text. Squat broad legible notice board, overall width about 1.35 times height, straight top-down orthographic camera."
+    ],
+    [
+      "sign-south",
+      "Production game sprite, one small rustic village direction signpost for a soft painterly 2D orthographic farming RPG, matching warm medium honey oak with natural craft woodgrain, upper-left soft daylight, smooth detailed non-pixel painting. Front faces screen bottom. A single square upright wooden post with a small plain cap and two short blank horizontal rectangular sign boards at different heights. No arrow shaped ends: rectangular straight planks. Entire structure perfectly axis-aligned, no diagonal or isometric yaw, no back view. Clear silhouette, overall width about equal to height; long post down to level simple foot. The boards are COMPLETELY BLANK, no lettering, icons, glyphs, symbols, scratches resembling words or numbers. No rope or decorative foliage, no ground or cast shadow. Transparent RGBA background, isolated whole prop centered with generous padding. Village wayfinding names will be drawn separately in game in six languages."
+    ]
+  ],
+  "side_edits": [
+    [
+      "board-west",
+      "/Users/sergeyshevchenko/.codex/generated_images/01a122e8-fdd8-7301-97c2-1709638e6385/exec-43b47762-f948-4697-a297-fb0ac11f85c5.png",
+      "Redraw this exact empty notice board as its WEST-FACING cardinal game sprite, it faces screen LEFT. Same materials, small slate rain cap, two timber supports and blank cream pinned notes, upper-left light. Orthographic slight overhead farm camera: notice-board plane now runs along screen vertical/depth axis and is seen mostly EDGE-ON from its left end, visibly much NARROWER than the front. Do not keep the broad front panel. Show the left readable face as a narrow side plane, two supports one behind the other with ground contacts at different y levels, without diagonal yaw or isometric slant. Strict left-facing only, never rear surface. Natural softly painted detail, no outlined pixel art. Papers stay absolutely blank. Entire isolated prop, transparent background, generous margins, no ground, no cast shadow, no text."
+    ],
+    [
+      "board-east",
+      "/Users/sergeyshevchenko/.codex/generated_images/01a122e8-fdd8-7301-97c2-1709638e6385/exec-43b47762-f948-4697-a297-fb0ac11f85c5.png",
+      "Redraw this exact empty notice board as its EAST-FACING cardinal game sprite, it faces screen RIGHT. Same materials, small slate rain cap, two timber supports and blank cream pinned notes, upper-left light must stay upper-left (not a mirrored highlight). Orthographic slight overhead farm camera: notice-board plane now runs along screen vertical/depth axis and is seen mostly EDGE-ON from its right end, visibly much NARROWER than the front. Do not keep broad front panel. Show the right readable face as a narrow side plane, two supports one behind the other with ground contacts at different y levels, without diagonal yaw or isometric slant. Strict right-facing only, never rear surface. Natural softly painted detail, no outlined pixel art. Papers stay absolutely blank. Entire isolated prop, transparent background, generous margins, no ground, no cast shadow, no text."
+    ],
+    [
+      "sign-west",
+      "/Users/sergeyshevchenko/.codex/generated_images/01a122e8-fdd8-7301-97c2-1709638e6385/exec-887e7ad9-537f-481a-8921-bfdf056e1e15.png",
+      "Redraw this exact simple blank oak signpost as a WEST-FACING cardinal game sprite facing screen LEFT. Same square post, cap, two blank rectangular sign planks at staggered heights, no arrow heads, same upper-left daylight and craft grain. Orthographic slight overhead farm game camera, rotate prop exactly90 degrees in world: plank planes run along the screen vertical/depth axis, mostly seen edge-on and MUCH NARROWER than front; show their left-facing thin surfaces and attachment brackets, no broad front planks. Keep axes exactly horizontal/vertical, no diagonal yaw, no isometric slant, no rear view. Single foot grounds at bottom. Soft painted nonpixel natural edge. Absolutely no lettering, icons or symbols. Entire isolated object on transparent background with generous clear padding, no ground, no cast shadow."
+    ],
+    [
+      "sign-east",
+      "/Users/sergeyshevchenko/.codex/generated_images/01a122e8-fdd8-7301-97c2-1709638e6385/exec-887e7ad9-537f-481a-8921-bfdf056e1e15.png",
+      "Redraw this exact simple blank oak signpost as an EAST-FACING cardinal game sprite facing screen RIGHT. Same square post, cap, two blank rectangular sign planks at staggered heights, no arrow heads, same upper-left daylight and craft grain (do not mirror lighting). Orthographic slight overhead farm game camera, rotate prop exactly90 degrees in world: plank planes run along screen vertical/depth axis, mostly seen edge-on and MUCH NARROWER than front; show their right-facing thin surfaces and attachment brackets, no broad front planks. Keep axes exactly horizontal/vertical, no diagonal yaw, no isometric slant, no rear view. Single foot grounds at bottom. Soft painted nonpixel natural edge. Absolutely no lettering, icons or symbols. Entire isolated object on transparent background with generous clear padding, no ground, no cast shadow."
+    ]
+  ],
+  "cardinal_corrections": [
+    [
+      "board-west",
+      "/Users/sergeyshevchenko/.codex/generated_images/01a122e8-fdd8-7301-97c2-1709638e6385/exec-cef7f571-0652-48b3-89e0-eda93aefa9fa.png",
+      "Correct the camera of this notice-board side sprite: the two post shafts MUST SHARE EXACTLY THE SAME SCREEN X CENTER, one completely behind the other, not offset left/right. This is a strict90-degree west-facing END ELEVATION, not three-quarter. The far post is largely occluded behind the near one, with just a small cap above at the SAME X. Board panel seen as a very thin straight VERTICAL strip on the LEFT side of the near post; slate cap reads as a narrow left-projecting straight cross-section, no diagonal ridge receding sideways. Remove the broad diagonal depth plane and any horizontally offset far post. Keep slight overhead elevation only in tiny cap top surfaces, upper-left light and oak/slate/blank paper materials. No writing, glyphs or symbols, no back-facing broad panel. Entire slim vertical silhouette on transparent RGBA, generous margins, no scenery or shadow."
+    ],
+    [
+      "board-east",
+      "/Users/sergeyshevchenko/.codex/generated_images/01a122e8-fdd8-7301-97c2-1709638e6385/exec-e749997c-085e-4111-b5cf-4a08116b566c.png",
+      "Correct the camera of this notice-board side sprite: the two post shafts MUST SHARE EXACTLY THE SAME SCREEN X CENTER, one completely behind the other, not offset left/right. This is a strict90-degree east-facing END ELEVATION, not three-quarter. The far post is largely occluded behind the near one, with just a small cap above at the SAME X. Board panel seen as a very thin straight VERTICAL strip on the RIGHT side of the near post; slate cap reads as a narrow right-projecting straight cross-section, no diagonal ridge receding sideways. Remove the broad diagonal depth plane and any horizontally offset far post. Keep slight overhead elevation only in tiny cap top surfaces, upper-left light and oak/slate/blank paper materials; do not mirror lighting. No writing, glyphs or symbols, no back-facing broad panel. Entire slim vertical silhouette on transparent RGBA, generous margins, no scenery or shadow."
+    ]
+  ],
+  "selected": {
+    "board-south": "exec-43b47762-f948-4697-a297-fb0ac11f85c5.png",
+    "board-west": "exec-dd836d83-f37e-46fc-b0f8-8daa148563d6.png",
+    "board-east": "exec-9a2ec59f-f8c6-45f1-8da4-e2f6999899cb.png",
+    "sign-south": "exec-887e7ad9-537f-481a-8921-bfdf056e1e15.png",
+    "sign-west": "exec-313630a8-f2fe-410d-bf37-9df74e08bc6a.png",
+    "sign-east": "exec-6f4d2811-6662-4160-820c-487f24c6f8bf.png"
+  }
+}

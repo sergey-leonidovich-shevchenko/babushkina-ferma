@@ -421,3 +421,10 @@ assets/inbox/*
 !tools/village_fence*.py
 !tools/test_village_fence.py
 !docs/reports/visual-overhaul/vprop-005/native/**/*.png.import
+
+# VPROP-006: first-map boards/signs and exact native source imports.
+!tools/village_board*.gd
+!tools/village_board*.gd.uid
+!tools/village_board*.py
+!tools/test_village_board.py
+!docs/reports/visual-overhaul/vprop-006/native/**/*.png.import

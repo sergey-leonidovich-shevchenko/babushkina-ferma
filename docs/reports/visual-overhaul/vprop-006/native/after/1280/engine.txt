@@ -1,0 +1,43 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+OpenGL API 4.1 ATI-7.0.3 - Compatibility - Using Device: ATI Technologies Inc. - AMD Radeon Pro 5300M OpenGL Engine
+
+BOARD FRAME board-648-0-62
+BOARD FRAME board-648-0--10
+BOARD FRAME board-648--60-12
+BOARD FRAME board-648-60-12
+BOARD FRAME board-1656-0-62
+BOARD FRAME board-1656-0--10
+BOARD FRAME board-1656--60-12
+BOARD FRAME board-1656-60-12
+BOARD FRAME sign-right-ru
+BOARD FRAME sign-top-ru
+BOARD FRAME sign-bottom-ru
+BOARD FRAME sign-right-en
+BOARD FRAME sign-top-en
+BOARD FRAME sign-bottom-en
+BOARD FRAME sign-right-es
+BOARD FRAME sign-top-es
+BOARD FRAME sign-bottom-es
+BOARD FRAME sign-right-de
+BOARD FRAME sign-top-de
+BOARD FRAME sign-bottom-de
+BOARD FRAME sign-right-fr
+BOARD FRAME sign-top-fr
+BOARD FRAME sign-bottom-fr
+BOARD FRAME sign-right-zh
+BOARD FRAME sign-top-zh
+BOARD FRAME sign-bottom-zh
+BOARD FRAME manual-pause
+BOARD FRAME interior
+BOARD FRAME market-control
+BOARD FRAME returned
+BOARD FRAME fence-control
+BOARD FRAME gallery-board-light
+BOARD FRAME gallery-board-dark
+BOARD FRAME gallery-board-grass
+BOARD FRAME gallery-board-evening
+BOARD FRAME gallery-sign-light
+BOARD FRAME gallery-sign-dark
+BOARD FRAME gallery-sign-grass
+BOARD FRAME gallery-sign-evening
+BOARD CAPTURE: after 39 cases; []

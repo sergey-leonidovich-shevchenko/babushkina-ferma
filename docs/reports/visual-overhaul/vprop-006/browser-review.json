@@ -1,0 +1,64 @@
+{
+  "task": "VPROP-006",
+  "url": "http://127.0.0.1:4175/#/guides/village-boards",
+  "images_complete": true,
+  "images": [
+    {
+      "alt": "Прежняя доска",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    },
+    {
+      "alt": "Новая доска с пустыми листами",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    },
+    {
+      "alt": "Немецкая подпись у того же указателя",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    },
+    {
+      "alt": "Китайская подпись у того же указателя",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    },
+    {
+      "alt": "Доски вниз, влево и вправо с героем",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    },
+    {
+      "alt": "Указатели на вечернем фоне",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    }
+  ],
+  "downloads": [
+    {
+      "label": "Нативная сводка",
+      "file": "summary.json",
+      "sha256": "2a6faa6609adbf18ac695925746552dc1712130ba79b428202bf442326ebb850",
+      "exact": true
+    },
+    {
+      "label": "Паспорт шести PNG",
+      "file": "source.json",
+      "sha256": "cb78c51db8ef6c9f46ffaa18ce4383b900c52dd643df9184be675742a11b2b45",
+      "exact": true
+    },
+    {
+      "label": "Промпты built-in image_gen",
+      "file": "prompts.json",
+      "sha256": "03c28fdd7b8c2f2142139488fccac4c74c91da92812a90d0d274b5ee829f6359",
+      "exact": true
+    }
+  ],
+  "search_verified": true
+}

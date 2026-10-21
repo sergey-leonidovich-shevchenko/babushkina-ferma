@@ -1,0 +1,299 @@
+{
+  "schema": 1,
+  "task": "VPROP-006",
+  "tool": "built-in image_gen",
+  "render_scale": 0.25,
+  "views": {
+    "board-south": {
+      "master": "masters/board-south.png",
+      "master_sha256": "c01be2ec097140b2d9a6f7947a8ea40c43fc60a6fd9c16c76443ca003f629efc",
+      "crop": [
+        17,
+        73,
+        1440,
+        1011
+      ],
+      "pixels": [
+        453,
+        304
+      ],
+      "anchor": [
+        226.5,
+        291.7014925373134
+      ],
+      "contacts": [
+        {
+          "point": [
+            37.78847505270555,
+            291.7014925373134
+          ],
+          "visible": true
+        },
+        {
+          "point": [
+            415.21152494729444,
+            291.7014925373134
+          ],
+          "visible": true
+        }
+      ],
+      "source_contacts": [
+        [
+          114,
+          997,
+          true
+        ],
+        [
+          1343,
+          997,
+          true
+        ]
+      ],
+      "source_anchor": [
+        728.5,
+        997
+      ],
+      "authoring_major": 288,
+      "render_scale": 0.25,
+      "runtime": "assets/game/locations/overworld/boards/board_south_v1.png",
+      "sha256": "e9201e136fa7b7122cb4af17a5ce0caa79e3e4e96d23fcc4264d1579f5814a9d"
+    },
+    "board-west": {
+      "master": "masters/board-west.png",
+      "master_sha256": "78fe187b997fdc85557ac5eee34b0078fdfd51863327122e9982c7c46a7bd074",
+      "crop": [
+        640,
+        34,
+        800,
+        1030
+      ],
+      "pixels": [
+        62,
+        304
+      ],
+      "anchor": [
+        33.3,
+        292.2409638554217
+      ],
+      "contacts": [
+        {
+          "point": [
+            33.3,
+            292.2409638554217
+          ],
+          "visible": true
+        },
+        {
+          "point": [
+            33.3,
+            276.6265060240964
+          ],
+          "visible": false
+        }
+      ],
+      "source_contacts": [
+        [
+          728,
+          1017,
+          true
+        ],
+        [
+          728,
+          963,
+          false
+        ]
+      ],
+      "source_anchor": [
+        728,
+        1017
+      ],
+      "authoring_major": 288,
+      "render_scale": 0.25,
+      "runtime": "assets/game/locations/overworld/boards/board_west_v1.png",
+      "sha256": "03cff9800a0ec86260ea92bf98034743f858cd69dd815a11228432603fc16ee6"
+    },
+    "board-east": {
+      "master": "masters/board-east.png",
+      "master_sha256": "598789e80b10925964e6761c06e8dd3910dd19e191d6e7e0bd92abc7c3376eab",
+      "crop": [
+        657,
+        18,
+        838,
+        1037
+      ],
+      "pixels": [
+        67,
+        304
+      ],
+      "anchor": [
+        28.569060773480665,
+        292.32580961727183
+      ],
+      "contacts": [
+        {
+          "point": [
+            28.569060773480665,
+            292.32580961727183
+          ],
+          "visible": true
+        },
+        {
+          "point": [
+            28.569060773480665,
+            269.9980372914622
+          ],
+          "visible": false
+        }
+      ],
+      "source_contacts": [
+        [
+          730,
+          1024,
+          true
+        ],
+        [
+          730,
+          945,
+          false
+        ]
+      ],
+      "source_anchor": [
+        730,
+        1024
+      ],
+      "authoring_major": 288,
+      "render_scale": 0.25,
+      "runtime": "assets/game/locations/overworld/boards/board_east_v1.png",
+      "sha256": "bb7ce3695f744f2b449eb8d915867d625670364a2689320ee9ebdd76caffa8a2"
+    },
+    "sign-south": {
+      "master": "masters/sign-south.png",
+      "master_sha256": "15148f451fe2c865c7afb501d5b034e0a0c4045c1e50c57c0560c4ef2921ba91",
+      "crop": [
+        120,
+        44,
+        1134,
+        1213
+      ],
+      "pixels": [
+        266,
+        304
+      ],
+      "anchor": [
+        133.0,
+        292.7972626176219
+      ],
+      "contacts": [
+        {
+          "point": [
+            133.0,
+            292.7972626176219
+          ],
+          "visible": true
+        }
+      ],
+      "source_contacts": [
+        [
+          627,
+          1200,
+          true
+        ]
+      ],
+      "source_anchor": [
+        627,
+        1200
+      ],
+      "authoring_major": 288,
+      "render_scale": 0.25,
+      "runtime": "assets/game/locations/overworld/boards/sign_south_v1.png",
+      "sha256": "e056e2978742f5a14c046e695a9e465be14f9c6b7f372d662f2894548bfba8ef"
+    },
+    "sign-west": {
+      "master": "masters/sign-west.png",
+      "master_sha256": "77a85cff007a42b79619c9199b9289164998ef5c5ac0dee43af58e3d8ab99b0e",
+      "crop": [
+        504,
+        40,
+        708,
+        1211
+      ],
+      "pixels": [
+        66,
+        304
+      ],
+      "anchor": [
+        36.67647058823529,
+        292.31084543125536
+      ],
+      "contacts": [
+        {
+          "point": [
+            36.67647058823529,
+            292.31084543125536
+          ],
+          "visible": true
+        }
+      ],
+      "source_contacts": [
+        [
+          621,
+          1196,
+          true
+        ]
+      ],
+      "source_anchor": [
+        621,
+        1196
+      ],
+      "authoring_major": 288,
+      "render_scale": 0.25,
+      "runtime": "assets/game/locations/overworld/boards/sign_west_v1.png",
+      "sha256": "216959c28a886bcb4f804e615c38b9e5eb8bf813418774153b63a6e797c24af0"
+    },
+    "sign-east": {
+      "master": "masters/sign-east.png",
+      "master_sha256": "3bce151d6e6490976365090890377b21e43335722368ec160b0ef07a9a2bc12f",
+      "crop": [
+        543,
+        40,
+        730,
+        1215
+      ],
+      "pixels": [
+        62,
+        304
+      ],
+      "anchor": [
+        28.41711229946524,
+        292.81361702127657
+      ],
+      "contacts": [
+        {
+          "point": [
+            28.41711229946524,
+            292.81361702127657
+          ],
+          "visible": true
+        }
+      ],
+      "source_contacts": [
+        [
+          626,
+          1202,
+          true
+        ]
+      ],
+      "source_anchor": [
+        626,
+        1202
+      ],
+      "authoring_major": 288,
+      "render_scale": 0.25,
+      "runtime": "assets/game/locations/overworld/boards/sign_east_v1.png",
+      "sha256": "7864602946b28ad055e0344e2ca020848105828e210b673f1b6dbf03e7d7cf83"
+    }
+  },
+  "calibration": "Both families share uniformly derived authoring height288 and render scale0.25. Measured contacts anchor two existing solid boards and three existing non-solid direction signs. No runtime fitting or axis stretch; no text baked into any PNG.",
+  "alpha": "Opaque-prop ROI alpha>=8 plus 8 source pixels, preserving RGBA. Brown RGB at alpha=0 is retained and never made opaque. No background keying or painted edits.",
+  "contacts": "Front board has two measured post feet. Side far support is occluded, with inferred position visible=false, not claimed as a visible pixel. Every sign has one measured post foot. Blank papers/planks were manually inspected; labels remain live six-locale wayfinding text."
+}

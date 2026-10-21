@@ -104,6 +104,8 @@ python3 tools/village_bench_verify.py >/dev/null
 python3 tools/test_village_bench.py
 python3 tools/village_street_verify.py >/dev/null
 python3 tools/test_village_street.py
+python3 tools/village_board_verify.py >/dev/null
+python3 tools/test_village_board.py
 python3 tools/village_fence_verify.py >/dev/null
 python3 tools/test_village_fence.py
 python3 tools/village_lamp_verify.py >/dev/null

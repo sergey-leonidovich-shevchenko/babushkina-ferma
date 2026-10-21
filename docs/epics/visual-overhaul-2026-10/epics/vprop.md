@@ -209,11 +209,11 @@
 
 ## VPROP-006 — Согласовать указатели и доски
 
-Статус: `ready` · P1 · этап `pilot` · `engineering`
+Статус: `done` · P1 · этап `pilot` · `engineering`
 
 Читаемые силуэты, общий масштаб и три стороны; подпись не встроена в текстуру для шести локалей
 
-Ветка: `codex/vprop-006-visual-task`.
+Ветка: `codex/vprop-006-wayfinding`.
 
 Зависимости: VART-004, VART-008.
 
@@ -225,7 +225,7 @@
 - [scripts/presentation/house_furniture_visual_system.gd](../../../../scripts/presentation/house_furniture_visual_system.gd)
 - [scripts/systems/furniture_facing_system.gd](../../../../scripts/systems/furniture_facing_system.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vprop-006/`.
+Результаты: `docs/reports/visual-overhaul/vprop-006/`.
 
 Критерии:
 
@@ -243,13 +243,13 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vprop-006/README.md, docs/reports/visual-overhaul/vprop-006/source.json, docs/reports/visual-overhaul/vprop-006/prompts.json, docs/reports/visual-overhaul/vprop-006/summary.json, docs/reports/visual-overhaul/vprop-006/native/before/source.json, docs/reports/visual-overhaul/vprop-006/native/after/source.json, docs/reports/visual-overhaul/vprop-006/review.txt, docs/reports/visual-overhaul/vprop-006/python-check.txt, docs/reports/visual-overhaul/vprop-006/completion.json, docs/reports/visual-overhaul/vprop-006/quality-check.txt, docs/reports/visual-overhaul/vprop-006/wiki-check.txt, docs/reports/visual-overhaul/vprop-006/browser-review.json.
 
 <a id="vprop-007"></a>
 
 ## VPROP-007 — Подготовить торговый декор
 
-Статус: `backlog` · P1 · этап `pilot` · `engineering`
+Статус: `ready` · P1 · этап `pilot` · `engineering`
 
 Ящики, мешки, бочки и прилавки не закрывают доступ к услугам; на воду не попадают
 

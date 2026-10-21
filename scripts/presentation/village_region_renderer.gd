@@ -15,7 +15,7 @@ static func draw_ground(game: Node2D) -> void:
 	if not Data.contains(game.current_location): return
 	for link in Data.passages(game.current_location):
 		var point:Vector2=link.position; var sign:=point+Vector2(0,-44)
-		game.draw_texture_rect(Props.Props.board,game.VillageLayoutSystem.prop_rect({"kind":"board","position":sign}),false)
+		if game.current_location!="overworld":game.draw_texture_rect(Props.Props.board,game.VillageLayoutSystem.prop_rect({"kind":"board","position":sign}),false)
 		if game.player.distance_to(point)<240:
 			draw_sign(game,link)
 
