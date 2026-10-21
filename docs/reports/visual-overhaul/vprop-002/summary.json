@@ -1,0 +1,51 @@
+{
+  "task": "VPROP-002",
+  "base_commit": "d009a1b9601ba81c6a1d46ef6a0266f4cae86f5c",
+  "performance_eligible": false,
+  "leg_count": 4,
+  "normal_render_scale": 0.25,
+  "windows": {
+    "1152": {
+      "before_png": 11,
+      "after_png": 14,
+      "draw_callbacks": 112,
+      "changed_pixels": {
+        "bench-1176-0-62": 12948,
+        "bench-1176-0--10": 13282,
+        "bench-1176--60-12": 13263,
+        "bench-1176-60-12": 13263,
+        "bench-1512-0-62": 12922,
+        "bench-1512-0--10": 13267,
+        "bench-1512--60-12": 13241,
+        "bench-1512-60-12": 13241,
+        "manual-pause": 6603,
+        "interior": 0,
+        "returned": 12948
+      },
+      "outside_bench_equal": true,
+      "gallery_backgrounds": 3,
+      "four_contacts_per_direction": true
+    },
+    "1280": {
+      "before_png": 11,
+      "after_png": 14,
+      "draw_callbacks": 112,
+      "changed_pixels": {
+        "bench-1176-0-62": 15885,
+        "bench-1176-0--10": 16283,
+        "bench-1176--60-12": 16432,
+        "bench-1176-60-12": 16432,
+        "bench-1512-0-62": 15876,
+        "bench-1512-0--10": 16283,
+        "bench-1512--60-12": 16432,
+        "bench-1512-60-12": 16432,
+        "manual-pause": 8199,
+        "interior": 0,
+        "returned": 15885
+      },
+      "outside_bench_equal": true,
+      "gallery_backgrounds": 3,
+      "four_contacts_per_direction": true
+    }
+  }
+}

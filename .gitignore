@@ -395,3 +395,8 @@ assets/inbox/*
 !tools/object_command*.gd.uid
 !tools/object_command*.py
 !tools/test_object_command.py
+!tools/village_bench*.gd
+!tools/village_bench*.gd.uid
+!tools/village_bench*.py
+!tools/test_village_bench.py
+!docs/reports/visual-overhaul/vprop-002/native/*/inputs/assets/game/locations/overworld/benches/*.png.import

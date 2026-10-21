@@ -1,0 +1,33 @@
+{
+  "mode": "built-in image_gen",
+  "transparent_background": true,
+  "selected": [
+    {
+      "side": "south",
+      "master": "masters/south.png",
+      "generated_file": "exec-c9b7a67e-12c3-476b-bda7-2a276e707df9.png",
+      "prompt": "Use case: stylized-concept. Asset type: production transparent 2D game sprite, ONE village bench, SOUTH FRONT VIEW. Create a beautiful hand-painted wooden village bench for a soft painterly farming RPG called Lunar Valley. Rich warm honey oak planks with restrained handcrafted grain and slightly softened corners, two horizontal backrest planks, three broad seat planks, two simple sturdy dark forged iron end supports and four small feet, no carvings, no decorative objects. Orthographic 2D RPG camera elevated about 38 degrees, directly aligned to the FRONT: the bench long axis is exactly horizontal across the image, all long seat/backrest edges exactly horizontal and the two ends symmetrical. We can see the front of the backrest, top of the seat and the front supports. Absolutely NO diagonal or isometric rotation, no tilted long axis. Natural smoothly antialiased painted silhouette, subtle brush texture, large calm readable forms, not pixel art, not 3D toy render, not photoreal, no black cartoon outline, no white fringe. Gentle upper-left daylight with the light painted into the material volume, NO ground shadow at all (a separate runtime shadow will be used), no ground patch. Entire single object centered with generous transparent padding on every side, all feet fully visible, sprite takes about 78% image width and 60% height, landscape bench proportions about 1.7:1. No text, grid, border, labels, scenery, people or background; real transparent alpha."
+    },
+    {
+      "side": "west",
+      "master": "masters/west.png",
+      "generated_file": "exec-c10940b7-aff1-4cad-8958-8795555be70c.png",
+      "input_generated_files": [
+        "exec-94105d92-abfb-479f-9179-934bb9f8c8a6.png",
+        "exec-c9b7a67e-12c3-476b-bda7-2a276e707df9.png"
+      ],
+      "prompt": "Use case: precise-object-edit. FIX THE LEG COUNT of WEST-facing bench in image 1, using the matching front-view bench in image 2 as construction reference. Mandatory: FOUR separate solid iron legs and FOUR clearly visible separate rectangular foot pads on the ground, one at each corner of the seat. The previous west image accidentally has only two supports; rebuild its under-seat frame to FOUR legs. At the far/top end show both left and right legs and their two foot pads peeking clearly out from underneath the seat, and at the near/bottom end show both left and right legs and two foot pads. Keep a readable negative-space gap between all four supports; do not hide a leg behind another, do not merge paired feet, no floating extra feet. Slightly splayed feet can extend beyond the seat edges so all FOUR contact points are distinctly visible from the elevated orthographic camera. Preserve all other details: same honey oak TWO backrest boards, THREE seat planks, dark forged iron arms, painterly smooth edges, upper-left lighting, exact WEST-facing vertical orientation, bench backrest on screen RIGHT, open seat facing LEFT, long seat axis exactly VERTICAL with no diagonal isometric turn. Preserve complete object framing, transparent canvas and generous padding. No ground or cast shadow, no text or scenery."
+    },
+    {
+      "side": "east",
+      "master": "masters/east.png",
+      "generated_file": "exec-a1248af7-4c1d-409b-a3b3-214a5cc1af8b.png",
+      "input_generated_files": [
+        "exec-71c51e16-0457-467e-aeb9-f6f3596f1e16.png",
+        "exec-c10940b7-aff1-4cad-8958-8795555be70c.png",
+        "exec-c9b7a67e-12c3-476b-bda7-2a276e707df9.png"
+      ],
+      "prompt": "Use case: precise-object-edit. Fix ONLY the under-seat supports in EAST-facing bench image 1 to have FOUR separate iron legs and FOUR distinct visible foot pads, matching the corrected FOUR-leg construction of WEST bench image 2 and front bench image 3. Two legs under each end of the seat: BOTH near/bottom legs must be fully visible with a gap between them; BOTH far/top legs must have distinct visible foot pads protruding at their correct corners beneath the seat, not hidden behind another support. Exactly FOUR foot contact points, structurally connected to the frame, not extra floating stubs. Preserve image 1's EAST orientation (long axis exactly VERTICAL, backrest to LEFT, usable seat opens RIGHT), same honey oak planks, forged iron arms, all board count and material textures, upper-left lighting and elevated orthographic RPG camera. No diagonal isometric turn and do not mirror the light. Complete object centered on same landscape canvas, generous padding. No cast shadow or ground, text, people or scenery. Genuine transparent alpha."
+    }
+  ]
+}

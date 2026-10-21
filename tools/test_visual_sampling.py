@@ -16,12 +16,17 @@ class SamplingTests(unittest.TestCase):
     """Изолирует настоящие PNG и профили импорта от повреждений в негативных сценариях."""
 
     def setUp(self):
-        """Копирует три настоящих файла с их импортами в независимый временный проект."""
+        """Копирует runtime-текстуры, импорты и закрытые исходники в независимый проект."""
         self.temp=tempfile.TemporaryDirectory(); self.addCleanup(self.temp.cleanup); self.root=Path(self.temp.name)
         self.policy=parse((ROOT/POLICY).read_text()); self.resources=parse((ROOT/MANIFEST).read_text())
         for row in self.resources['textures'].values():
             name=row['file'][6:]; path=self.root/name; path.parent.mkdir(parents=True,exist_ok=True)
             shutil.copy2(ROOT/name,path); shutil.copy2(str(ROOT/name)+'.import',str(path)+'.import')
+        for record in self.resources['resources'].values():
+            source=record.get('source',{})
+            if source.get('kind')=='master':
+                target=self.root/source['file']; target.parent.mkdir(parents=True,exist_ok=True)
+                shutil.copy2(ROOT/source['file'],target); (target.parent/'.gdignore').touch()
 
     def check(self):
         """Сверяет изменённую копию политики с настоящими изображениями и паспортом."""

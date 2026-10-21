@@ -25,7 +25,13 @@ class ResourceTests(unittest.TestCase):
             texture['file']='res://'+path.relative_to(self.root).as_posix(); texture['pixels']=[16,16]
             texture['sha256']=hashlib.sha256(path.read_bytes()).hexdigest()
             self.write_import(path,texture)
-        for view in self.data['resources']['prop.rustic_table']['views'].values(): view['variants']['standard']['source_rect']=[2,2,12,12]
+        for record in self.data['resources'].values():
+            for view in record['views'].values():
+                for variant in view['variants'].values():variant['source_rect']=[2,2,12,12]
+            source=record.get('source',{})
+            if source.get('kind')=='master':
+                target=self.root/source['file'];target.parent.mkdir(parents=True,exist_ok=True)
+                shutil.copyfile(ROOT/source['file'],target);(target.parent/'.gdignore').touch()
 
     def write_import(self,path,texture):
         """Записывает минимальный профиль с настоящей связью источника и всеми проверяемыми опциями."""
@@ -100,8 +106,9 @@ class ResourceTests(unittest.TestCase):
             image=Image.new('RGBA',(32,32)); image.paste((180,120,60,255),(4,4,28,28)); image.save(path)
             dense['sha256']=hashlib.sha256(path.read_bytes()).hexdigest(); self.write_import(path,dense)
             self.data['textures'][key+'_dense']=dense
-        for view in self.data['resources']['prop.rustic_table']['views'].values():
-            key=view['variants']['standard']['texture']; view['variants']['dense']={'texture':key+'_dense','source_rect':[4,4,24,24]}
+        for record in self.data['resources'].values():
+            for view in record['views'].values():
+                key=view['variants']['standard']['texture']; view['variants']['dense']={'texture':key+'_dense','source_rect':[4,4,24,24]}
         self.assertEqual(self.check(),[])
         view=self.data['resources']['prop.rustic_table']['views']['south']
         view['variants']['dense']['source_rect']=[4,4,24,25]

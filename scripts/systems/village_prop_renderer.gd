@@ -14,13 +14,21 @@ const BuildingSystem:=preload("res://scripts/systems/building_system.gd")
 const BuildingVisualSystem:=preload("res://scripts/systems/building_visual_system.gd")
 const TreeOcclusion := preload("res://scripts/systems/tree_occlusion_system.gd")
 const WorldVisibility := preload("res://scripts/systems/world_visibility_system.gd")
+const Bench := preload("res://scripts/presentation/village_bench_visual.gd")
 
 ## Рисует самостоятельные деревенские объекты на заднем либо переднем плане без замены рисунка при приближении.
 static func draw(game:Node2D,foreground:bool)->void:
 	if game.current_location!="overworld": return
 	var visible := WorldVisibility.visible_rect(game)
+	if not foreground:
+		for prop in Layout.PROP_PLACEMENTS:
+			if prop.kind=="bench" and visible.intersects(Bench.destination(prop.position+Vector2(0,24)).grow(12),true):Bench.draw_shadow(game,prop.position+Vector2(0,24))
 	for prop in Layout.PROP_PLACEMENTS:
 		if _in_front(Vector2(prop.position),game.AnimationRenderer.player_ground(game))!=foreground: continue
+		if prop.kind=="bench":
+			var destination:Rect2=Bench.destination(prop.position+Vector2(0,24))
+			if visible.intersects(destination,true):Bench.draw(game,prop.position+Vector2(0,24))
+			continue
 		var rect: Rect2 = Layout.prop_rect(prop)
 		if visible.intersects(rect, true): game.draw_texture_rect(Props[prop.kind],rect,false)
 	if not foreground:

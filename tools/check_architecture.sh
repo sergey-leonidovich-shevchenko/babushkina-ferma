@@ -100,6 +100,8 @@ python3 tools/ground_seasons_verify.py >/dev/null
 python3 tools/test_ground_seasons.py
 python3 tools/object_command_verify.py >/dev/null
 python3 tools/test_object_command.py
+python3 tools/village_bench_verify.py >/dev/null
+python3 tools/test_village_bench.py
 python3 tools/visual_scale.py verify
 python3 tools/test_visual_scale.py
 python3 tools/visual_palette.py

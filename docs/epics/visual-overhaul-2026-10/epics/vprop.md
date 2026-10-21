@@ -49,11 +49,11 @@
 
 ## VPROP-002 — Перерисовать деревенские лавки
 
-Статус: `ready` · P1 · этап `pilot` · `engineering`
+Статус: `done` · P1 · этап `pilot` · `engineering`
 
 Лево, право и вниз читаются с игровой камеры; основание и тень одинаковы у трёх видов
 
-Ветка: `codex/vprop-002-visual-task`.
+Ветка: `codex/vprop-002-village-benches`.
 
 Зависимости: VART-004, VART-008.
 
@@ -65,7 +65,7 @@
 - [scripts/presentation/house_furniture_visual_system.gd](../../../../scripts/presentation/house_furniture_visual_system.gd)
 - [scripts/systems/furniture_facing_system.gd](../../../../scripts/systems/furniture_facing_system.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vprop-002/`.
+Результаты: `docs/reports/visual-overhaul/vprop-002/`.
 
 Критерии:
 
@@ -83,13 +83,13 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vprop-002/README.md, docs/reports/visual-overhaul/vprop-002/source.json, docs/reports/visual-overhaul/vprop-002/prompts.json, docs/reports/visual-overhaul/vprop-002/summary.json, docs/reports/visual-overhaul/vprop-002/native/before/source.json, docs/reports/visual-overhaul/vprop-002/native/after/source.json, docs/reports/visual-overhaul/vprop-002/review.txt, docs/reports/visual-overhaul/vprop-002/python-check.txt, docs/reports/visual-overhaul/vprop-002/completion.json, docs/reports/visual-overhaul/vprop-002/quality-check.txt, docs/reports/visual-overhaul/vprop-002/wiki-check.txt, docs/reports/visual-overhaul/vprop-002/browser-review.json.
 
 <a id="vprop-003"></a>
 
 ## VPROP-003 — Перерисовать колодец и телегу
 
-Статус: `backlog` · P1 · этап `pilot` · `engineering`
+Статус: `ready` · P1 · этап `pilot` · `engineering`
 
 Убраны белые края и диагональная телега; колодец имеет видимый объём и понятный подход
 

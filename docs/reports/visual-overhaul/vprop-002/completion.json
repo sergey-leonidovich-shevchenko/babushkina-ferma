@@ -1,0 +1,22 @@
+{
+  "task": "VPROP-002",
+  "native_acceptance": true,
+  "performance_eligible": false,
+  "game_version": "0.0.293",
+  "native_base_commit": "d009a1b9601ba81c6a1d46ef6a0266f4cae86f5c",
+  "checks": {
+    "native_png": 50,
+    "draw_callbacks": 224,
+    "profile_passed": 24,
+    "python_tests": 9,
+    "architecture": "passed",
+    "game_passed": 45994,
+    "game_failed": 0,
+    "wiki_passed": 92,
+    "wiki_failed": 0,
+    "browser": "before/after and four illustrations, three exact JSON downloads and search verified"
+  },
+  "scope": "two existing overworld bench placements; three views with four legs and separate cached contact shadow; existing solid 72x24 preserved; no sitting/new mechanics/other-map/FPS acceptance",
+  "checked_git_tree": "e67c1ee4c5497e609806ef5f425c7389c5f60b5a",
+  "finalization": "The real pre-commit completed architecture and 45994/0 game checks. A temporary completion-script decoder error occurred afterwards. The temporary script was converted to ASCII, then report/backlog/Wiki finalization resumed. Final commit guard requires identical checked game/test inputs; only completion documents may differ. No game checks were skipped."
+}

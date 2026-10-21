@@ -1,0 +1,18 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+OpenGL API 4.1 ATI-7.0.3 - Compatibility - Using Device: ATI Technologies Inc. - AMD Radeon Pro 5300M OpenGL Engine
+
+BENCH FRAME bench-1176-0-62
+BENCH FRAME bench-1176-0--10
+BENCH FRAME bench-1176--60-12
+BENCH FRAME bench-1176-60-12
+BENCH FRAME bench-1512-0-62
+BENCH FRAME bench-1512-0--10
+BENCH FRAME bench-1512--60-12
+BENCH FRAME bench-1512-60-12
+BENCH FRAME manual-pause
+BENCH FRAME interior
+BENCH FRAME returned
+BENCH FRAME gallery-light
+BENCH FRAME gallery-dark
+BENCH FRAME gallery-grass
+BENCH CAPTURE: after 14 cases; []

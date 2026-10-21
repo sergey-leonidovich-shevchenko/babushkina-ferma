@@ -8254,7 +8254,7 @@
       "id": "VPROP-002",
       "epic": "VPROP",
       "title": "Перерисовать деревенские лавки",
-      "status": "ready",
+      "status": "done",
       "priority": "P1",
       "phase": "pilot",
       "kind": "engineering",
@@ -8290,14 +8290,28 @@
         "confidence": "low",
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
-      "branch": "codex/vprop-002-visual-task",
-      "evidence": []
+      "branch": "codex/vprop-002-village-benches",
+      "evidence": [
+        "docs/reports/visual-overhaul/vprop-002/README.md",
+        "docs/reports/visual-overhaul/vprop-002/source.json",
+        "docs/reports/visual-overhaul/vprop-002/prompts.json",
+        "docs/reports/visual-overhaul/vprop-002/summary.json",
+        "docs/reports/visual-overhaul/vprop-002/native/before/source.json",
+        "docs/reports/visual-overhaul/vprop-002/native/after/source.json",
+        "docs/reports/visual-overhaul/vprop-002/review.txt",
+        "docs/reports/visual-overhaul/vprop-002/python-check.txt",
+        "docs/reports/visual-overhaul/vprop-002/completion.json",
+        "docs/reports/visual-overhaul/vprop-002/quality-check.txt",
+        "docs/reports/visual-overhaul/vprop-002/wiki-check.txt",
+        "docs/reports/visual-overhaul/vprop-002/browser-review.json"
+      ],
+      "result": "Встроенным image_gen нарисованы три самостоятельных живописных вида вниз/влево/вправо. По замечанию пользователя боковые мастера исправлены до четырёх ножек; все четыре видимые опоры просмотрены и отмечены в паспорте. Отдельные мастера, механическая нарезка без растяжения, общие 0.25 мировых единицы на исходный пиксель, адресный linear и один кешированный mesh четырёх контактов/мягкого выноса. В overworld заменены две лавочки, прежние сетка/позиции/коллизия72×24, порядок героя и старый fallback сохранены; другие карты не перерисованы. Нативные before/after от d009a1b9: два окна, 50 PNG/224 настоящих draw callbacks, RGBA вне лавочек/теней и полный интерьер побайтно равны. Четыре стороны обхода, герой за/перед всеми ракурсами, светлый/тёмный/травяной фон, пауза и вход/выход дома проверены. Профиль24/0, Python9/0, architecture, полный набор 45994/0, Wiki92/0; браузер проверил четыре иллюстрации, поиск и три точных JSON. Первая baseline с ошибкой физического fullscreen отклонена и снята заново. Сидение, другие предметы/карты, FPS и VMAP-003 не заявлены."
     },
     {
       "id": "VPROP-003",
       "epic": "VPROP",
       "title": "Перерисовать колодец и телегу",
-      "status": "backlog",
+      "status": "ready",
       "priority": "P1",
       "phase": "pilot",
       "kind": "engineering",

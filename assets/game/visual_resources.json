@@ -48,6 +48,54 @@
         "process/premult_alpha": false
       },
       "intent": "color_srgb"
+    },
+    "village_bench_south_v1": {
+      "file": "res://assets/game/locations/overworld/benches/bench_south_v1.png",
+      "pixels": [
+        336,
+        174
+      ],
+      "sha256": "7cb670ffecd1605d503e9b4edef4bab398aa1c188ae0ec1e2518542b8c8d096f",
+      "layout": "standalone",
+      "import": {
+        "compress/mode": 0,
+        "mipmaps/generate": false,
+        "process/fix_alpha_border": true,
+        "process/premult_alpha": false
+      },
+      "intent": "color_srgb"
+    },
+    "village_bench_west_v1": {
+      "file": "res://assets/game/locations/overworld/benches/bench_west_v1.png",
+      "pixels": [
+        177,
+        336
+      ],
+      "sha256": "48d872bdd7c924604d6942ae8d88ee5df5f8e1c82ec23de3ed5b42e4f5ba317a",
+      "layout": "standalone",
+      "import": {
+        "compress/mode": 0,
+        "mipmaps/generate": false,
+        "process/fix_alpha_border": true,
+        "process/premult_alpha": false
+      },
+      "intent": "color_srgb"
+    },
+    "village_bench_east_v1": {
+      "file": "res://assets/game/locations/overworld/benches/bench_east_v1.png",
+      "pixels": [
+        183,
+        336
+      ],
+      "sha256": "ea0a9de4274ae98d79d2467b0551bf257e5dc9462f49058f1ee12d55c095850c",
+      "layout": "standalone",
+      "import": {
+        "compress/mode": 0,
+        "mipmaps/generate": false,
+        "process/fix_alpha_border": true,
+        "process/premult_alpha": false
+      },
+      "intent": "color_srgb"
     }
   },
   "resources": {
@@ -140,6 +188,97 @@
         }
       },
       "sampling_family": "painted_world"
+    },
+    "prop.village_bench": {
+      "kind": "prop",
+      "space": "world",
+      "owner": "VillageBenchVisual + VillagePropRenderer",
+      "task": "VPROP-002",
+      "source": {
+        "kind": "master",
+        "file": "docs/reports/visual-overhaul/vprop-002/source.json",
+        "sha256": "350c3b10cdcc306c5d596502c4b136a3f3a52015f4c4388347f0bbd5ba8e396a"
+      },
+      "filter": "linear",
+      "sampling_family": "painted_world",
+      "default_quality": "standard",
+      "views": {
+        "south": {
+          "logical_size": [
+            84.0,
+            43.5
+          ],
+          "footprint_size": [
+            72,
+            24
+          ],
+          "pivot": [
+            0.49897740055220374,
+            0.9434796389903741
+          ],
+          "variants": {
+            "standard": {
+              "texture": "village_bench_south_v1",
+              "source_rect": [
+                0,
+                0,
+                336,
+                174
+              ]
+            }
+          }
+        },
+        "west": {
+          "logical_size": [
+            44.25,
+            84.0
+          ],
+          "footprint_size": [
+            24,
+            48
+          ],
+          "pivot": [
+            0.42649660446270615,
+            0.9665093483390815
+          ],
+          "variants": {
+            "standard": {
+              "texture": "village_bench_west_v1",
+              "source_rect": [
+                0,
+                0,
+                177,
+                336
+              ]
+            }
+          }
+        },
+        "east": {
+          "logical_size": [
+            45.75,
+            84.0
+          ],
+          "footprint_size": [
+            24,
+            48
+          ],
+          "pivot": [
+            0.5686059704996284,
+            0.9667022475241653
+          ],
+          "variants": {
+            "standard": {
+              "texture": "village_bench_east_v1",
+              "source_rect": [
+                0,
+                0,
+                183,
+                336
+              ]
+            }
+          }
+        }
+      }
     }
   }
 }

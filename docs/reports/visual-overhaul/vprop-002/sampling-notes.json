@@ -1,0 +1,8 @@
+{
+  "rejected_baseline": {
+    "accepted": false,
+    "reason": "1280 window was overridden to fullscreen during asynchronous bootstrap; readback dimensions alone were insufficient",
+    "correction": "reapply windowed mode after initial settle; collect a completely fresh pair",
+    "partial_data": "tmp/vprop-002-rejected-before-size"
+  }
+}

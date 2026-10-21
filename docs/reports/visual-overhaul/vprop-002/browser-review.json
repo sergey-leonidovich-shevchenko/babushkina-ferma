@@ -1,0 +1,54 @@
+{
+  "task": "VPROP-002",
+  "url": "http://127.0.0.1:4175/#/guides/village-benches",
+  "images": [
+    {
+      "alt": "До: прежние маленькие пиксельные лавочки",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    },
+    {
+      "alt": "После: новые лавочки к игроку и отдельная мягкая тень",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    },
+    {
+      "alt": "Вниз, влево и вправо: четыре контакта, герой позади и спереди",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    },
+    {
+      "alt": "Контроль края на тёмном фоне",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    }
+  ],
+  "images_complete": true,
+  "viewport": {
+    "scrollWidth": 1280,
+    "width": 1280
+  },
+  "search_verified": true,
+  "narrow_viewport_tested": false,
+  "downloads": [
+    {
+      "file": "summary.json",
+      "exact": true,
+      "sha256": "4abb087b9ce9f2df832bd1213743fb1ab8fdec5c9e219553c75cb0989470ede8"
+    },
+    {
+      "file": "source.json",
+      "exact": true,
+      "sha256": "350c3b10cdcc306c5d596502c4b136a3f3a52015f4c4388347f0bbd5ba8e396a"
+    },
+    {
+      "file": "prompts.json",
+      "exact": true,
+      "sha256": "f9367a08bab2ba7b6a16b5b9a3c82286ff48ab8a1919586c366adffd5abb6d1b"
+    }
+  ]
+}
