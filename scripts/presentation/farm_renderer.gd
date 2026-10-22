@@ -32,6 +32,11 @@ static func draw_plot(game: Node2D, rect: Rect2, plot: Dictionary) -> void:
 		for offset in [Vector2(8,38),Vector2(16,40),Vector2(10,31)]: game.draw_circle(rect.position+offset,1.5,color)
 	if not plot.planted:
 		return
+	preload("res://scripts/systems/tree_occlusion_system.gd").submit_body(game,preload("res://scripts/systems/tree_occlusion_system.gd").key_for("crop",rect.position),rect.grow(24),rect.end.y,_draw_planted.bind(game,rect,plot))
+
+## Сохраняет растение, прогресс и значки единым рисунком в одном выбранном проходе относительно героя.
+static func _draw_planted(game:Node2D,rect:Rect2,plot:Dictionary)->void:
+	var painted:=preload("res://scripts/presentation/garden_soil.gd").enabled(game)
 	draw_crop(game, rect, plot)
 	draw_crop_progress(game, rect, plot)
 	var crop_kind: String = String(plot.get("crop_kind", "carrot"))

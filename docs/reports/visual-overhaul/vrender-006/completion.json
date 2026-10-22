@@ -1,0 +1,23 @@
+{
+  "task": "VRENDER-006",
+  "game_version": "0.0.304",
+  "native_base_commit": "630a6030792736125072180956b26549e1740f8f",
+  "native_acceptance": true,
+  "plant_depth_enabled": true,
+  "performance_eligible": false,
+  "full_map_accepted": false,
+  "checks": {
+    "native_png": 288,
+    "draw_callbacks": 576,
+    "exact_legacy_pairs": 96,
+    "full_state_triples": 96,
+    "profile_passed": 30,
+    "python_tests": 20,
+    "architecture": "passed",
+    "game_passed": 46519,
+    "game_failed": 0,
+    "wiki_passed": 119,
+    "wiki_failed": 0,
+    "browser": "four images, four videos to end, three exact JSON downloads"
+  }
+}

@@ -240,38 +240,7 @@ func forage_sprite_layout(kind: String, position: Vector2) -> Dictionary:
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_food_nodes() -> void:
-	var visible := preload("res://scripts/systems/world_visibility_system.gd").visible_rect(self)
-	for food in food_nodes:
-		if food.get("location", "overworld") != current_location:
-			continue
-		var position: Vector2 = food.position
-		var bounds := OrchardSystem.destination_rect(position,OrchardSystem.stage(food)) if OrchardSystem.handles(food.kind) else ForageSystem.destination_rect(food)
-		if not visible.intersects(bounds.grow(64)): continue
-		if preload("res://scripts/systems/alchemy_herb_data.gd").is_herb(food.kind):
-			preload("res://scripts/presentation/alchemy_renderer.gd").draw_herb(self,food)
-			if not ForageSystem.is_collectable(self,food): draw_ui_string(UI_FONT,position+Vector2(-55,20),ForageSystem.remaining_text(self,food),HORIZONTAL_ALIGNMENT_CENTER,110,11,Color("e7d6a3"))
-			continue
-		var alpha := 1.0 if food.active else 0.36
-		if OrchardSystem.handles(food.kind):
-			OrchardSystem.draw_tree(self, food)
-			if not food.active:
-				draw_string(UI_FONT, position + Vector2(-55, 42), ForageSystem.remaining_text(self, food), HORIZONTAL_ALIGNMENT_CENTER, 110, 12, Color("e7d6a3"))
-			continue
-		match food.kind:
-			"mushroom":
-				draw_texture_rect(RED_MUSHROOMS, ForageSystem.destination_rect(food), false, Color(1, 1, 1, alpha))
-			"watermelon":
-				# Бахча выглядит растением; после сбора остаётся молодая листва, а не полупрозрачный плод.
-				var melon_stage := 4 if food.active else 2
-				draw_texture_rect_region(FarmVisualSystem.crop_texture("melon"), ForageSystem.destination_rect(food), FarmVisualSystem.crop_source(melon_stage,"melon"), Color(0.84,1.0,0.76,1.0))
-			"nut":
-				# Умеренная ореховая роща использует древесный силуэт местного биома вместо старой тропической пальмы.
-				TreeOcclusion.submit(self,TreeOcclusion.key_for("nut",position),FOREST_TREE_GROWTH_ATLAS,ForageSystem.destination_rect(food),TreeSystem.source_rect(3),ForageSystem.ground_anchor(position).y,Color("e3dfb3"))
-			"berries":
-				var layout := forage_sprite_layout(food.kind, position)
-				draw_texture_rect_region(PLANT_SHEET, layout.destination, layout.source, Color(1, 1, 1, alpha))
-		if not food.active:
-			draw_string(UI_FONT, position + Vector2(-55, 42), ForageSystem.remaining_text(self, food), HORIZONTAL_ALIGNMENT_CENTER, 110, 12, Color("e7d6a3"))
+	preload("res://scripts/presentation/forage_depth_renderer.gd").draw(self)
 
 ## Отрисовывает соответствующий элемент по текущим данным активной сцены.
 func draw_fishing_animations() -> void:
@@ -287,7 +256,7 @@ func draw_tree_nodes() -> void:
 		var destination:=TreeSystem.destination_rect(tree)
 		if not visible.intersects(destination.grow(32)): continue
 		var tint := Color(1.0, 0.72, 0.62) if flash > 0.0 else Color.WHITE
-		if stage >= 2: TreeOcclusion.submit(self,TreeOcclusion.key_for("timber",tree.position),FOREST_TREE_GROWTH_ATLAS,destination,TreeSystem.source_rect(stage),TreeSystem.ground_anchor(tree.position).y,tint)
+		if stage >= 2 or TreeOcclusion.enabled(self): TreeOcclusion.submit(self,TreeOcclusion.key_for("timber",tree.position),FOREST_TREE_GROWTH_ATLAS,destination,TreeSystem.source_rect(stage),TreeSystem.ground_anchor(tree.position).y,tint,Callable(),stage>=2)
 		else: draw_texture_rect_region(FOREST_TREE_GROWTH_ATLAS,destination,TreeSystem.source_rect(stage),tint)
 		if stage < 3:
 			var progress: float = TreeSystem.regrow_progress(tree)

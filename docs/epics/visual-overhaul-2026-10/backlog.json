@@ -1424,7 +1424,7 @@
       "id": "VRENDER-006",
       "epic": "VRENDER",
       "title": "Свести сортировку героя и растений",
-      "status": "ready",
+      "status": "done",
       "priority": "P0",
       "phase": "foundation",
       "kind": "engineering",
@@ -1459,8 +1459,23 @@
         "confidence": "low",
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
-      "branch": "codex/vrender-006-visual-task",
-      "evidence": []
+      "branch": "codex/vrender-006-plant-depth",
+      "evidence": [
+        "docs/reports/visual-overhaul/vrender-006/README.md",
+        "docs/reports/visual-overhaul/vrender-006/dependency-audit.json",
+        "docs/reports/visual-overhaul/vrender-006/changes.json",
+        "docs/reports/visual-overhaul/vrender-006/runtime.patch",
+        "docs/reports/visual-overhaul/vrender-006/summary.json",
+        "docs/reports/visual-overhaul/vrender-006/native/before/source.json",
+        "docs/reports/visual-overhaul/vrender-006/native/after/source.json",
+        "docs/reports/visual-overhaul/vrender-006/review.txt",
+        "docs/reports/visual-overhaul/vrender-006/python-check.txt",
+        "docs/reports/visual-overhaul/vrender-006/completion.json",
+        "docs/reports/visual-overhaul/vrender-006/quality-check.txt",
+        "docs/reports/visual-overhaul/vrender-006/wiki-check.txt",
+        "docs/reports/visual-overhaul/vrender-006/browser-review.json"
+      ],
+      "result": "Первой карте подключён общий барьер деревьев/кустов/трав/грядок/пней: одна отображаемая стопа, один рисунок на ключ/кадр, постоянный ключ при равном корне. Низкие тела и составные индикаторы не создают непрозрачный дубль; callback очищается после переднего прохода и смены мира, flag-off/неверный тип/F12/другие карты сохраняют прежний вывод. Действующие PNG, коллизии, рост, урожай и save не менялись; прежняя прозрачность крон сохранена. Нативный пакет от630a6030: 288PNG/576callbacks, два окна, 96 точных legacy-пар и96 полных троек состояний, настоящий физический проход, равные корни, оба моста, Escape/хранилище, дом, F12 и рынок/возврат. Четыре изменённых кадра на размер ограничены новым перекрытием растений, остальное/HUD точно равно. Первый отрицательный тест ложной фазы не менял исходное значение; исправленный полный набор20/0 повторён. Профиль30/0, Wiki119/0, четыре ролика просмотрены до конца, три JSON побайтно сверены. Ветер, новый художественный каталог, общий Y-sort NPC, FPS/VRELEASE-003/VMAP-003 не приняты. Полный игровой набор: 46519/0."
     },
     {
       "id": "VRENDER-007",
@@ -3458,7 +3473,7 @@
       "id": "VTREE-001",
       "epic": "VTREE",
       "title": "Выбрать семейства деревьев",
-      "status": "backlog",
+      "status": "ready",
       "priority": "P1",
       "phase": "pilot",
       "kind": "engineering",

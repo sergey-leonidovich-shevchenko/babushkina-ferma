@@ -206,11 +206,11 @@ Feature flag переключает только эталонный участо
 
 ## VRENDER-006 — Свести сортировку героя и растений
 
-Статус: `ready` · P0 · этап `foundation` · `engineering`
+Статус: `done` · P0 · этап `foundation` · `engineering`
 
 Передний и задний проход не создают непрозрачный дубль; переход через равный ground_y имеет стабильный порядок
 
-Ветка: `codex/vrender-006-visual-task`.
+Ветка: `codex/vrender-006-plant-depth`.
 
 Зависимости: VRENDER-005.
 
@@ -222,7 +222,7 @@ Feature flag переключает только эталонный участо
 - [scripts/world_background.gd](../../../../scripts/world_background.gd)
 - [scripts/presentation/village_terrain_canvas.gd](../../../../scripts/presentation/village_terrain_canvas.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vrender-006/`.
+Результаты: `docs/reports/visual-overhaul/vrender-006/`.
 
 Критерии:
 
@@ -240,7 +240,7 @@ Feature flag переключает только эталонный участо
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vrender-006/README.md, docs/reports/visual-overhaul/vrender-006/dependency-audit.json, docs/reports/visual-overhaul/vrender-006/changes.json, docs/reports/visual-overhaul/vrender-006/runtime.patch, docs/reports/visual-overhaul/vrender-006/summary.json, docs/reports/visual-overhaul/vrender-006/native/before/source.json, docs/reports/visual-overhaul/vrender-006/native/after/source.json, docs/reports/visual-overhaul/vrender-006/review.txt, docs/reports/visual-overhaul/vrender-006/python-check.txt, docs/reports/visual-overhaul/vrender-006/completion.json, docs/reports/visual-overhaul/vrender-006/quality-check.txt, docs/reports/visual-overhaul/vrender-006/wiki-check.txt, docs/reports/visual-overhaul/vrender-006/browser-review.json.
 
 <a id="vrender-007"></a>
 

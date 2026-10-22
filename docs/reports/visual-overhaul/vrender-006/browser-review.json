@@ -1,0 +1,83 @@
+{
+  "task": "VRENDER-006",
+  "url": "http://127.0.0.1:4175/#/guides/plant-depth",
+  "game_version": "0.0.304",
+  "search_verified": true,
+  "images_complete": true,
+  "images": [
+    {
+      "alt": "Прежний путь: ноги героя поверх ягодного куста",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    },
+    {
+      "alt": "Единый передний проход: куст перед героем",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    },
+    {
+      "alt": "Грядка с героем сзади: один составной передний рисунок",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    },
+    {
+      "alt": "Дерево: прежняя полупрозрачная крона без непрозрачной подложки",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    }
+  ],
+  "videos": [
+    {
+      "currentTime": 4.8,
+      "duration": 4.8,
+      "ended": true,
+      "paused": true,
+      "src": "http://127.0.0.1:4175/generated/attachments/4b8f8b694314dee216aa9d8d6247e6b8564dde91183c8580636bf4a02b95ebc6.mp4"
+    },
+    {
+      "currentTime": 4.8,
+      "duration": 4.8,
+      "ended": true,
+      "paused": true,
+      "src": "http://127.0.0.1:4175/generated/attachments/c7e52cebc9333b15f9c6fe8e6b5443a5cb0eb65bb5673f2fcbbe599a68324ddf.mp4"
+    },
+    {
+      "currentTime": 4.8,
+      "duration": 4.8,
+      "ended": true,
+      "paused": true,
+      "src": "http://127.0.0.1:4175/generated/attachments/67c98afc47ceed26cee5956cb4a49adb81fc395ea5da768cd1e6c1b06a8e3c9c.mp4"
+    },
+    {
+      "currentTime": 4.8,
+      "duration": 4.8,
+      "ended": true,
+      "paused": true,
+      "src": "http://127.0.0.1:4175/generated/attachments/7b99bfc9c72e25f02c8b01775a2d30785885c84ef88057ed5e8a1eb71eb5b80a.mp4"
+    }
+  ],
+  "downloads": [
+    {
+      "name": "Нативная сводка",
+      "path": "summary.json",
+      "bytes": 938,
+      "exact": true
+    },
+    {
+      "name": "Исходные слои и конфигурация",
+      "path": "native/before/source.json",
+      "bytes": 33218,
+      "exact": true
+    },
+    {
+      "name": "Единичные проходы и конфигурация",
+      "path": "native/after/source.json",
+      "bytes": 44090,
+      "exact": true
+    }
+  ]
+}

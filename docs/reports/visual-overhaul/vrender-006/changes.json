@@ -1,0 +1,22 @@
+{
+  "task": "VRENDER-006",
+  "base_commit": "630a6030792736125072180956b26549e1740f8f",
+  "files": {
+    "scripts/game_renderer.gd": {
+      "before_sha256": "7bcc4356ed928984a7d4d272dc6c43d5272929b621f39a97b76e9f45b6e8dd7e",
+      "after_sha256": "6f146f95d2e88c67f9f2dd9d7a8db23b162f31e2ca0fce413accff880c5be45d"
+    },
+    "scripts/presentation/farm_renderer.gd": {
+      "before_sha256": "74fed202be7c7aaacd67b7a0bca358ab88fe9c4d4825d0f509a0af6c13724b17",
+      "after_sha256": "ad694ce79c4766ba89ad6baf84a511561e4ca88fe3fdaf69c8ff45f788595509"
+    },
+    "scripts/systems/tree_occlusion_system.gd": {
+      "before_sha256": "23ab0f9acf423baa1b725c160a6290fccb566e8bb97e27a798fed776f8ade342",
+      "after_sha256": "90891995b1f284803de189d0e9b7e96dfaca86f6cf33bb33d9fb97b233491170"
+    },
+    "scripts/presentation/forage_depth_renderer.gd": {
+      "before_sha256": null,
+      "after_sha256": "7f6433e1446f7d22181785b358ca413d6cbe18e7f5a7a639e980e2ce395b8bb4"
+    }
+  }
+}

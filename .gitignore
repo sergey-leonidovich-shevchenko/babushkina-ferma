@@ -456,3 +456,10 @@ assets/inbox/*
 !tools/post_motion*.py
 !tools/test_post_motion.py
 !docs/reports/visual-overhaul/vrender-008/native/**/*.png.import
+
+# VRENDER-006: source-bound vegetation depth proof.
+!tools/plant_depth*.gd
+!tools/plant_depth*.gd.uid
+!tools/plant_depth*.py
+!tools/test_plant_depth.py
+!docs/reports/visual-overhaul/vrender-006/native/**/*.png.import

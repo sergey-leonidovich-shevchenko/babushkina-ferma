@@ -298,9 +298,14 @@
       "reason": "Existing renderer; exported family API or declared AtlasTexture, with procedural UI and user editor input checked by their existing suites."
     },
     "scripts/game_renderer.gd": {
-      "calls": 5,
+      "calls": 3,
       "scope": "bounded-procedural-or-resource",
       "reason": "Existing renderer; exported family API or declared AtlasTexture, with procedural UI and user editor input checked by their existing suites."
+    },
+    "scripts/presentation/forage_depth_renderer.gd": {
+      "calls": 2,
+      "scope": "runtime-provider",
+      "reason": "VRENDER-006 moves the existing melon crop_source and berry forage_sprite_layout calls from GameRenderer without changing textures, regions or geometry. The existing farm/forage slice exporters cover both providers; native legacy pairs remain pixel-identical."
     },
     "scripts/systems/resident_visual_system.gd": {
       "calls": 1,

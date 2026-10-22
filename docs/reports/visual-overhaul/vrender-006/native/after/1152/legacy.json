@@ -1,0 +1,10 @@
+{
+  "bitrate" : 4000000,
+  "decoded_first_frame" : "legacy.decoded.png",
+  "duration" : 4.7999999999999998,
+  "encoder" : "AVFoundation H.264",
+  "fps" : 10,
+  "frames" : 48,
+  "height" : 648,
+  "width" : 1152
+}
