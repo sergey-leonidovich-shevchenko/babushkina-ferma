@@ -1,0 +1,53 @@
+{
+  "task": "VSHADOW-001",
+  "protocol": "visible static native inventory; production game plus isolated production-contact helpers",
+  "logical": [
+    1152,
+    648
+  ],
+  "native_windows": [
+    [
+      1152,
+      648
+    ],
+    [
+      1280,
+      720
+    ]
+  ],
+  "target": [
+    768,
+    256
+  ],
+  "world_zoom": 1.2,
+  "minutes": [
+    720,
+    1140
+  ],
+  "groups": [
+    "single",
+    "street",
+    "boards",
+    "trade"
+  ],
+  "runtime_changed": false,
+  "dynamic_solar_implemented": false,
+  "performance_eligible": false,
+  "hardware_input_accepted": false,
+  "full_map_accepted": false,
+  "focus": "recorded actual bool; informational for visible static controls",
+  "body_core_alpha_min": 250,
+  "body_core_rgba_max_delta": 1,
+  "opaque_rgba_max_delta": 0,
+  "body_rgba_across_time_windows": "exact full image",
+  "minimum_changed_contact_pixels": 80,
+  "bounds": "all complete body destinations within target, 4px margin; no cropped ROI",
+  "failed_probes": [
+    "probe1: cart drawbar lower edge cropped; rejected",
+    "probe2: new parallel headless Godot process between windows; incomplete and rejected",
+    "probe3: observer script assignment reset loot seed; rejected after visual browser review"
+  ],
+  "accepted_probe": "probe4; original bytes moved without re-signing",
+  "seed": 20261015,
+  "game_state_across_groups_windows": "exact full snapshot at same hour"
+}

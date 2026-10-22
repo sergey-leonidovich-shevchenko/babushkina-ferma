@@ -3,6 +3,10 @@
 wiki/planning/*.lock
 wiki/planning/*.tmp
 tools/*
+!tools/shadow_inventory*.gd
+!tools/shadow_inventory*.gd.uid
+!tools/shadow_inventory*.py
+!tools/test_shadow_inventory.py
 !tools/foliage_uv*.gd
 !tools/foliage_uv*.gd.uid
 !tools/foliage_uv*.py

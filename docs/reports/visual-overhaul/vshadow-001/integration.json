@@ -1,0 +1,26 @@
+{
+  "task": "VSHADOW-001",
+  "purpose": "checked integration with independent idea-planning work",
+  "main_parent": "9c2946ef7be42be617a11f5432b97cb58711c60e",
+  "accepted_task_commit": "10790562c5e61c8d6663b3bc1ac020d9b42d0ad4",
+  "game_version": "0.0.309",
+  "runtime_changed": false,
+  "preserved_parallel_idea_ids": [
+    202,
+    203,
+    204,
+    205,
+    206,
+    207,
+    208,
+    209,
+    210,
+    211
+  ],
+  "planning_state_preserved_exactly": true,
+  "architecture": "passed",
+  "game_passed": 47364,
+  "game_failed": 0,
+  "wiki_passed": 127,
+  "wiki_failed": 0
+}

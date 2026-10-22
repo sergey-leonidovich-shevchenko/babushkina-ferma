@@ -1,0 +1,34 @@
+{
+  "task": "VSHADOW-001",
+  "route": "VRELEASE-003",
+  "base_commit": "85ae79d809ebe15958900afde0115a72845e5d1c",
+  "prepared_from": "backlog; all prerequisites verified, ready and claimed in this transition",
+  "ancestors": [
+    {
+      "id": "VART-001",
+      "status": "done"
+    },
+    {
+      "id": "VART-007",
+      "status": "done"
+    },
+    {
+      "id": "VBASE-001",
+      "status": "done"
+    },
+    {
+      "id": "VBASE-003",
+      "status": "done"
+    },
+    {
+      "id": "VBASE-004",
+      "status": "done"
+    },
+    {
+      "id": "VRENDER-001",
+      "status": "done"
+    }
+  ],
+  "needs": [],
+  "scope": "inventory of baked/contact/cast shadow ownership; no new shadow effect or other-map implementation"
+}

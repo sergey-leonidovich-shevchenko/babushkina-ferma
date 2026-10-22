@@ -6,11 +6,11 @@
 
 ## VSHADOW-001 — Инвентаризировать встроенные тени
 
-Статус: `backlog` · P1 · этап `pilot` · `engineering`
+Статус: `done` · P1 · этап `pilot` · `engineering`
 
 Отметить какие рисунки уже имеют контакт и солнечную тень; не накладывать второй источник вслепую
 
-Ветка: `codex/vshadow-001-visual-task`.
+Ветка: `codex/vshadow-001-embedded-audit`.
 
 Зависимости: VART-007, VRENDER-001.
 
@@ -20,7 +20,7 @@
 - [scripts/systems/interior_renderer.gd](../../../../scripts/systems/interior_renderer.gd)
 - [scripts/systems/tree_occlusion_system.gd](../../../../scripts/systems/tree_occlusion_system.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vshadow-001/`.
+Результаты: `docs/reports/visual-overhaul/vshadow-001/`.
 
 Критерии:
 
@@ -38,13 +38,13 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vshadow-001/README.md, docs/reports/visual-overhaul/vshadow-001/dependency-audit.json, docs/reports/visual-overhaul/vshadow-001/inventory.json, docs/reports/visual-overhaul/vshadow-001/inventory.csv, docs/reports/visual-overhaul/vshadow-001/native-admission.json, docs/reports/visual-overhaul/vshadow-001/summary.json, docs/reports/visual-overhaul/vshadow-001/native/source.json, docs/reports/visual-overhaul/vshadow-001/python-check.txt, docs/reports/visual-overhaul/vshadow-001/completion.json, docs/reports/visual-overhaul/vshadow-001/quality-check.txt, docs/reports/visual-overhaul/vshadow-001/wiki-check.txt, docs/reports/visual-overhaul/vshadow-001/browser-review.json.
 
 <a id="vshadow-002"></a>
 
 ## VSHADOW-002 — Сделать набор контактных пятен
 
-Статус: `backlog` · P1 · этап `pilot` · `engineering`
+Статус: `ready` · P1 · этап `pilot` · `engineering`
 
 Стол, колонна, дерево и персонаж используют разные формы опоры; тень не похожа на чёрный круг под любым объектом
 
@@ -82,7 +82,7 @@
 
 ## VSHADOW-003 — Отделить землю от принимающих стен
 
-Статус: `backlog` · P1 · этап `pilot` · `engineering`
+Статус: `ready` · P1 · этап `pilot` · `engineering`
 
 Тени на полу не рисуются поверх лица героя, крыши и стены; порядок доказан контрольной сценой
 
@@ -120,7 +120,7 @@
 
 ## VSHADOW-004 — Согласовать солнечную проекцию
 
-Статус: `backlog` · P1 · этап `pilot` · `engineering`
+Статус: `ready` · P1 · этап `pilot` · `engineering`
 
 Общее направление и длина согласованы с высотой объектов; 2D occluder не объявляется физически точной 3D тенью
 
@@ -158,7 +158,7 @@
 
 ## VSHADOW-005 — Привязать тень к анимации героя
 
-Статус: `backlog` · P1 · этап `pilot` · `engineering`
+Статус: `ready` · P1 · этап `pilot` · `engineering`
 
 Контакт под ногами стабилен при смене кадров и инструмента; выпадение пикселей альфы не смещает опору
 
@@ -196,7 +196,7 @@
 
 ## VSHADOW-006 — Согласовать тень предметов трёх видов
 
-Статус: `backlog` · P1 · этап `pilot` · `engineering`
+Статус: `ready` · P1 · этап `pilot` · `engineering`
 
 Лево, право и вниз сохраняют один свет и основание; зеркалирование не меняет направление солнца
 
@@ -234,7 +234,7 @@
 
 ## VSHADOW-007 — Затемнить стыки пола и стен
 
-Статус: `backlog` · P1 · этап `pilot` · `engineering`
+Статус: `ready` · P1 · этап `pilot` · `engineering`
 
 Интерьер и пещера имеют мягкий контакт без повторного общего затемнения всего кадра
 
@@ -272,7 +272,7 @@
 
 ## VSHADOW-008 — Добавить тень береговой кладки
 
-Статус: `backlog` · P1 · этап `pilot` · `engineering`
+Статус: `ready` · P1 · этап `pilot` · `engineering`
 
 Видимая толщина берега согласована с водой и мостом; край не превращается в белую кайму
 
@@ -310,7 +310,7 @@
 
 ## VSHADOW-009 — Ограничить динамические тени
 
-Статус: `backlog` · P1 · этап `pilot` · `engineering`
+Статус: `ready` · P1 · этап `pilot` · `engineering`
 
 Статика кешируется, динамические тени только у нужных объектов; смена времени не пересобирает весь мир каждый кадр
 
@@ -348,7 +348,7 @@
 
 ## VSHADOW-010 — Принять тени на светлом и тёмном фоне
 
-Статус: `backlog` · P1 · этап `pilot` · `engineering`
+Статус: `ready` · P1 · этап `pilot` · `engineering`
 
 День, сумерки и интерьер проверены без bloom; нет двойного контура и потери читаемости лута
 
