@@ -1,0 +1,22 @@
+{
+  "task": "VFOLIAGE-003",
+  "version": "0.0.312",
+  "main_before": "82ea4dfae4816eacfc2771a2f8f25981416f2634",
+  "feature_commit": "160c353807b8d6c1c966fb246ee2b2d1d98bff56",
+  "production_matches_native": true,
+  "planning_state_and_sources_preserved": true,
+  "foreign_plans_preserved": [
+    "HURT-00",
+    "PERK-00"
+  ],
+  "checks": {
+    "architecture": "passed",
+    "game_passed": 47798,
+    "game_failed": 0,
+    "wiki_passed": 129,
+    "wiki_failed": 0
+  },
+  "native_config_version": "0.0.310",
+  "runtime_recaptured": false,
+  "reason": "Only metadata, planning sources and guide index differ from the accepted feature; every production script/shader hash is identical."
+}

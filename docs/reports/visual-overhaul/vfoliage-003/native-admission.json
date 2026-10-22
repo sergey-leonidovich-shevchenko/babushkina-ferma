@@ -1,0 +1,27 @@
+{
+  "task": "VFOLIAGE-003",
+  "windows": [
+    [
+      1152,
+      648
+    ],
+    [
+      1280,
+      720
+    ]
+  ],
+  "world_zoom": 1.2,
+  "tufts": 8,
+  "groups": 2,
+  "cases_per_window": 68,
+  "rgba_geometry_max": 1,
+  "rgba_geometry_actual": 0,
+  "fixed_lower_strip": "exact full RGBA including padding",
+  "phase_storage_error_max_radians": 0.004,
+  "samples": 49,
+  "simulation_seconds": 4,
+  "animation": "lossless APNG, controlled 12Hz samples, not measured FPS",
+  "performance_eligible": false,
+  "hardware_input_accepted": false,
+  "full_map_accepted": false
+}

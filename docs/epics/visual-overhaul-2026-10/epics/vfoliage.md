@@ -82,11 +82,11 @@
 
 ## VFOLIAGE-003 — Сделать слабый фоновый ветер
 
-Статус: `ready` · P0 · этап `pilot` · `engineering`
+Статус: `done` · P0 · этап `pilot` · `engineering`
 
 Корни неподвижны, фазы пространственно различаются; вся картинка больше не ездит целиком
 
-Ветка: `codex/vfoliage-003-visual-task`.
+Ветка: `codex/vfoliage-003-background-wind`.
 
 Зависимости: VFOLIAGE-002, VRENDER-005, VRENDER-008.
 
@@ -96,7 +96,7 @@
 - [scripts/systems/world_visual_profile_system.gd](../../../../scripts/systems/world_visual_profile_system.gd)
 - [scripts/core/game_loop.gd](../../../../scripts/core/game_loop.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vfoliage-003/`.
+Результаты: `docs/reports/visual-overhaul/vfoliage-003/`.
 
 Критерии:
 
@@ -114,13 +114,13 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vfoliage-003/README.md, docs/reports/visual-overhaul/vfoliage-003/summary.json, docs/reports/visual-overhaul/vfoliage-003/completion.json, docs/reports/visual-overhaul/vfoliage-003/native/source.json, wiki/articles/foliage-wind.md.
 
 <a id="vfoliage-004"></a>
 
 ## VFOLIAGE-004 — Добавить отклонение от героя
 
-Статус: `backlog` · P0 · этап `pilot` · `engineering`
+Статус: `ready` · P0 · этап `pilot` · `engineering`
 
 Подход с четырёх сторон и остановка точно в корне не дают NaN, резкого перелома и чрезмерного изгиба
 

@@ -32,8 +32,12 @@ const FirstChapterSuite = preload("res://tests/suites/first_chapter_suite.gd"); 
 var passed := 0
 var failed := 0
 
-## Запускает все наборы тестов и завершает процесс с кодом результата.
+## Ожидает входа корневого окна в SceneTree, чтобы реальные дочерние viewport проверялись в рабочем дереве.
 func _initialize() -> void:
+	_run.call_deferred()
+
+## Запускает прежние наборы в прежнем порядке и завершает процесс с кодом результата, без пропуска in-tree сценариев.
+func _run() -> void:
 	CoreSuite.new(self).run()
 	var suites: Array = [
 		ComfortSuite, GameplaySuite, WorldSuite, WaterVisualSuite, BuildingsSuite,

@@ -1,0 +1,27 @@
+{
+  "task": "VFOLIAGE-003",
+  "base_commit": "7cf646e22f04353aa4220979623baa852d1d4a9a",
+  "runtime": {
+    "scripts/game_core.gd": {
+      "before": "a91691cdcbbf696cd6de272f88b3176905fad156794f62229582c846592453fe",
+      "after": "8304a7bf5fd1999b56d1d71199b45dffd4e89be7e4040518fdcb7ecb8cf49cd4"
+    },
+    "scripts/systems/village_ambient_renderer.gd": {
+      "before": "d6a1dbfb2f86727802169721298835ffc4493337009b83691b694e9b13048292",
+      "after": "73ccef7e6c051a665639547d81e7ec91a081cf59b72bb3a2702f688e82c3145d"
+    },
+    "scripts/presentation/foliage_wind.gd": {
+      "before": null,
+      "after": "ec7c61690ba6816b99056e92a232f8367b878e76780226133e53fda3192acc1e"
+    },
+    "scripts/presentation/foliage_wind_batch.gd": {
+      "before": null,
+      "after": "6bb05ca0dd2fe35a8bace70e4e4db90ce0300ba4c983bc2b5fa439374863ea07"
+    },
+    "scripts/presentation/foliage_wind.gdshader": {
+      "before": null,
+      "after": "d53f3be813537129a23e598874ffece608567935baccb41e75ac5e3074694b40"
+    }
+  },
+  "artwork_changed": false
+}

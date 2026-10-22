@@ -24,6 +24,7 @@ static func run(context: SceneTree) -> void:
 	preload("res://tests/suites/transient_visual_save_suite.gd").run(context)
 	preload("res://tests/suites/foliage_root_suite.gd").run(context)
 	preload("res://tests/suites/foliage_uv_suite.gd").run(context)
+	preload("res://tests/suites/foliage_wind_suite.gd").run(context)
 	preload("res://tests/suites/village_bench_suite.gd").run(context)
 	preload("res://tests/suites/village_street_suite.gd").run(context)
 	preload("res://tests/suites/village_lamp_suite.gd").run(context)
