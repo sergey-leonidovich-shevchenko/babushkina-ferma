@@ -1,0 +1,14 @@
+{
+  "task": "VFOLIAGE-002",
+  "base_commit": "e3b3db2383a4d29295f9192205f77ae19d73e7a4",
+  "runtime": {
+    "scripts/presentation/foliage_uv.gd": {
+      "before_sha256": null,
+      "after_sha256": "d41de355f20d69b60e0ad89fe444e0fc259f1e47820312de6517ca4ac58bfe7c"
+    },
+    "scripts/presentation/foliage_uv.gdshader": {
+      "before_sha256": null,
+      "after_sha256": "6f1fef08c6a7bd0e547fc277cc6ff7e74f12388364336ab8c47b9c4a1684280a"
+    }
+  }
+}

@@ -44,11 +44,11 @@
 
 ## VFOLIAGE-002 — Подготовить локальные UV растения
 
-Статус: `ready` · P0 · этап `pilot` · `engineering`
+Статус: `done` · P0 · этап `pilot` · `engineering`
 
 Соседняя ячейка не попадает в выборку при деформации и linear; flip не переворачивает закреплённый низ
 
-Ветка: `codex/vfoliage-002-visual-task`.
+Ветка: `codex/vfoliage-002-local-uv`.
 
 Зависимости: VFOLIAGE-001.
 
@@ -58,7 +58,7 @@
 - [scripts/systems/world_visual_profile_system.gd](../../../../scripts/systems/world_visual_profile_system.gd)
 - [scripts/core/game_loop.gd](../../../../scripts/core/game_loop.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vfoliage-002/`.
+Результаты: `docs/reports/visual-overhaul/vfoliage-002/`.
 
 Критерии:
 
@@ -76,13 +76,13 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vfoliage-002/README.md, docs/reports/visual-overhaul/vfoliage-002/dependency-audit.json, docs/reports/visual-overhaul/vfoliage-002/changes.json, docs/reports/visual-overhaul/vfoliage-002/native-admission.json, docs/reports/visual-overhaul/vfoliage-002/summary.json, docs/reports/visual-overhaul/vfoliage-002/native/source.json, docs/reports/visual-overhaul/vfoliage-002/review.txt, docs/reports/visual-overhaul/vfoliage-002/python-check.txt, docs/reports/visual-overhaul/vfoliage-002/completion.json, docs/reports/visual-overhaul/vfoliage-002/quality-check.txt, docs/reports/visual-overhaul/vfoliage-002/wiki-check.txt, docs/reports/visual-overhaul/vfoliage-002/browser-review.json.
 
 <a id="vfoliage-003"></a>
 
 ## VFOLIAGE-003 — Сделать слабый фоновый ветер
 
-Статус: `backlog` · P0 · этап `pilot` · `engineering`
+Статус: `ready` · P0 · этап `pilot` · `engineering`
 
 Корни неподвижны, фазы пространственно различаются; вся картинка больше не ездит целиком
 

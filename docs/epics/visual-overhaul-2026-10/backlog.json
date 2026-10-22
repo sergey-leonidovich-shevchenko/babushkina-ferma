@@ -3106,7 +3106,7 @@
       "id": "VFOLIAGE-002",
       "epic": "VFOLIAGE",
       "title": "Подготовить локальные UV растения",
-      "status": "ready",
+      "status": "done",
       "priority": "P0",
       "phase": "pilot",
       "kind": "engineering",
@@ -3141,14 +3141,28 @@
         "confidence": "low",
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
-      "branch": "codex/vfoliage-002-visual-task",
-      "evidence": []
+      "branch": "codex/vfoliage-002-local-uv",
+      "evidence": [
+        "docs/reports/visual-overhaul/vfoliage-002/README.md",
+        "docs/reports/visual-overhaul/vfoliage-002/dependency-audit.json",
+        "docs/reports/visual-overhaul/vfoliage-002/changes.json",
+        "docs/reports/visual-overhaul/vfoliage-002/native-admission.json",
+        "docs/reports/visual-overhaul/vfoliage-002/summary.json",
+        "docs/reports/visual-overhaul/vfoliage-002/native/source.json",
+        "docs/reports/visual-overhaul/vfoliage-002/review.txt",
+        "docs/reports/visual-overhaul/vfoliage-002/python-check.txt",
+        "docs/reports/visual-overhaul/vfoliage-002/completion.json",
+        "docs/reports/visual-overhaul/vfoliage-002/quality-check.txt",
+        "docs/reports/visual-overhaul/vfoliage-002/wiki-check.txt",
+        "docs/reports/visual-overhaul/vfoliage-002/browser-review.json"
+      ],
+      "result": "Подготовлены локальная сетка и отдельный ShaderMaterial для всех 13 профилей. Выборка ограничена центрами крайних texel своей ячейки; repeat и mipmap-фильтр не используются. Только горизонтальный flip с переносом локального root.x, Y и нижние ряды остаются закреплёнными. Числовой L8 sampler отделён от source_color; вертикальный вес вычисляется из UV и собственных uniform, без shader-global/TIME или изменяемого общего материала. По умолчанию bend=0; ±8/±5 — статические QA-воздействия в объявленном AABB. Renderer, PNG, размещения, физика и сохранения не заменены. Профиль413/0, в общий suite добавлены412 условий: все регионы/flip/границы/неверные параметры, независимые материалы, обычные шаги, stop/столкновение/настоящий QA-перенос/пауза/offscreen/reduced-motion, чистое игровое состояние. Два видимых нативных окна и три отдельных target на случай:156 корректных GPU-троек/4 ошибочных,480 target PNG/960 mesh/320 игровых/320 витринных callbacks. Основная выборка≤1/255, независимое геометрическое отражение≤2/255, нижние полосы и жёсткие виды точны; обязательные ошибочные shader-контроли дают244/255 и тысячи изменённых пикселей. Фактические uniform/shader SHA, full snapshot и ownership1→0 проверены.21 Python-сценарий, Wiki125/0 и браузер:3 нативных вида, поиск,3 точных JSON. Фокус информационный; физический ввод, FPS, новый ветер и VMAP-003 не приняты. Полный игровой набор: 47364/0."
     },
     {
       "id": "VFOLIAGE-003",
       "epic": "VFOLIAGE",
       "title": "Сделать слабый фоновый ветер",
-      "status": "backlog",
+      "status": "ready",
       "priority": "P0",
       "phase": "pilot",
       "kind": "engineering",

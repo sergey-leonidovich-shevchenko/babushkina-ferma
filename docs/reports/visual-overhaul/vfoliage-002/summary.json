@@ -1,0 +1,60 @@
+{
+  "task": "VFOLIAGE-002",
+  "base_commit": "e3b3db2383a4d29295f9192205f77ae19d73e7a4",
+  "profiles": 13,
+  "positive_gpu_triplets": 156,
+  "negative_gpu_triplets": 4,
+  "target_png": 480,
+  "quad_callbacks": 960,
+  "game_callbacks": 320,
+  "board_callbacks": 320,
+  "performance_eligible": false,
+  "hardware_input_accepted": false,
+  "full_map_accepted": false,
+  "windows": {
+    "1152": {
+      "source_max": 1,
+      "reflection_max": 2,
+      "negative": [
+        {
+          "id": "grass-0-8-unsafe",
+          "max": 244,
+          "changed_pixels": 2723
+        },
+        {
+          "id": "grass-1-8-unsafe",
+          "max": 244,
+          "changed_pixels": 2698
+        }
+      ],
+      "fixed_lower_strips": 26,
+      "rigid_types": 8,
+      "focused": 0,
+      "unfocused": 80,
+      "ownership_returns_to_zero": true,
+      "full_gameplay_unchanged": true
+    },
+    "1280": {
+      "source_max": 1,
+      "reflection_max": 2,
+      "negative": [
+        {
+          "id": "grass-0-8-unsafe",
+          "max": 244,
+          "changed_pixels": 2723
+        },
+        {
+          "id": "grass-1-8-unsafe",
+          "max": 244,
+          "changed_pixels": 2698
+        }
+      ],
+      "fixed_lower_strips": 26,
+      "rigid_types": 8,
+      "focused": 0,
+      "unfocused": 80,
+      "ownership_returns_to_zero": true,
+      "full_gameplay_unchanged": true
+    }
+  }
+}

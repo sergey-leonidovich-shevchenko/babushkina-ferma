@@ -1,0 +1,70 @@
+{
+  "task": "VFOLIAGE-002",
+  "route": "VRELEASE-003",
+  "base_commit": "e3b3db2383a4d29295f9192205f77ae19d73e7a4",
+  "prepared_from": "ready",
+  "needs": [],
+  "ancestors": [
+    {
+      "id": "VART-001",
+      "status": "done"
+    },
+    {
+      "id": "VART-002",
+      "status": "done"
+    },
+    {
+      "id": "VART-003",
+      "status": "done"
+    },
+    {
+      "id": "VART-004",
+      "status": "done"
+    },
+    {
+      "id": "VART-005",
+      "status": "done"
+    },
+    {
+      "id": "VART-006",
+      "status": "done"
+    },
+    {
+      "id": "VART-007",
+      "status": "done"
+    },
+    {
+      "id": "VART-008",
+      "status": "done"
+    },
+    {
+      "id": "VBASE-001",
+      "status": "done"
+    },
+    {
+      "id": "VBASE-003",
+      "status": "done"
+    },
+    {
+      "id": "VBASE-004",
+      "status": "done"
+    },
+    {
+      "id": "VCAMERA-001",
+      "status": "done"
+    },
+    {
+      "id": "VFOLIAGE-001",
+      "status": "done"
+    },
+    {
+      "id": "VRENDER-001",
+      "status": "done"
+    },
+    {
+      "id": "VRENDER-002",
+      "status": "done"
+    }
+  ],
+  "scope": "local UV, reusable mesh/material and static GPU evidence only; no wind controller or normal renderer replacement"
+}

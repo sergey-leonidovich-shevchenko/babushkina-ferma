@@ -1,0 +1,47 @@
+{
+  "task": "VFOLIAGE-002",
+  "url": "http://127.0.0.1:4175/#/guides/foliage-local-uv",
+  "game_version": "0.0.307",
+  "search_verified": true,
+  "image_complete": true,
+  "images": [
+    {
+      "alt": "Живописная трава: атлас и отдельный эталон",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    },
+    {
+      "alt": "Горизонтальное отражение и проверочное воздействие",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    },
+    {
+      "alt": "Отрицательный контроль утечки цвета",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    }
+  ],
+  "downloads": [
+    {
+      "name": "Нативная сводка",
+      "path": "summary.json",
+      "bytes": 1387,
+      "exact": true
+    },
+    {
+      "name": "Параметры и shader",
+      "path": "changes.json",
+      "bytes": 453,
+      "exact": true
+    },
+    {
+      "name": "Условия GPU-проверки",
+      "path": "native-admission.json",
+      "bytes": 1338,
+      "exact": true
+    }
+  ]
+}

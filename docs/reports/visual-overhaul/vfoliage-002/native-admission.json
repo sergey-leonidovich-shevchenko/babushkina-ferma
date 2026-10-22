@@ -1,0 +1,17 @@
+{
+  "task": "VFOLIAGE-002",
+  "scope": "Static GPU verification of reusable local-UV geometry and materials; production overworld rendering is not replaced and no wind clock is introduced.",
+  "projection": 1.2,
+  "target_size": [192, 192],
+  "physical_windows": [[1152, 648], [1280, 720]],
+  "sampling_rgba_max": 1,
+  "independent_reflection_rgba_max": 2,
+  "fixed_lower_strip": "exact full RGBA equality across static bend values",
+  "negative_control": "Four unclamped shader controls must differ by at least 64/255 in at least 500 pixels, with the same source texture and an explicitly extended UV range.",
+  "ownership": "Exactly one quad per each of three independent viewports during a case; zero after queue_free.",
+  "focus": "Recorded truthfully and informational for static GPU targets, consistent with TESTING.md static-data protocols.",
+  "hardware_input_accepted": false,
+  "performance_eligible": false,
+  "full_map_accepted": false,
+  "exploration": "First probe was rejected for assigning canvas_transform before adding its viewport. Second probe compared atlas sampling directly against geometric reflection and exposed a two-byte raster precision delta. The accepted fresh third probe separates strict same-geometry sampling from independent geometric reflection; no failed native files were relabeled or re-signed."
+}

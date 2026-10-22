@@ -3,6 +3,10 @@
 wiki/planning/*.lock
 wiki/planning/*.tmp
 tools/*
+!tools/foliage_uv*.gd
+!tools/foliage_uv*.gd.uid
+!tools/foliage_uv*.py
+!tools/test_foliage_uv.py
 !tools/foliage_root*.gd
 !tools/foliage_root*.gd.uid
 !tools/foliage_root*.py
