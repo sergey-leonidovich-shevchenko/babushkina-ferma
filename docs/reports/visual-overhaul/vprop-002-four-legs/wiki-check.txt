@@ -1,0 +1,133 @@
+$ pnpm run build && pnpm run test
+$ node scripts/prepare.mjs && vue-tsc --noEmit && vite build
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+WIKI EXPORT: 921 articles, 704 sprite resources
+WIKI CONTENT: 1118 articles; characters=42, items=386, craft=321, missions=44, plants=40, buildings=27, locations=30, skills=20, fishing=11, guides=197
+vite v8.3.4 building client environment for production...
+transforming...
+✓ 70 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.73 kB │ gzip:  0.48 kB
+dist/assets/index-_2KknXMk.css   35.02 kB │ gzip:  7.63 kB
+dist/assets/index-CaoxNVfW.js   181.34 kB │ gzip: 62.87 kB
+
+✓ built in 2.83s
+$ node --experimental-strip-types --test tests/*.test.mjs
+✔ visual pipeline and numbered idea are published and linked (204.599788ms)
+✔ article manifest rejects duplicates, empty content and escaped paths (7.508542ms)
+✔ artist packet publishes every illustration and exact handoff download (18.645406ms)
+✔ artist packet is linked from the first-map route with honest release limits (0.620913ms)
+✔ axial road guide exposes native flat-end proof and canonical task (57.985148ms)
+✔ axial road guide preserves navigation, legacy rollback and release limits (7.244233ms)
+✔ item tint is preserved in linked recipe and plant previews (9.04915ms)
+✔ complete live catalogs and all cross-links validate (9.2497ms)
+✔ every sprite is a real PNG and every character can be inspected (560.232342ms)
+✔ guardian exposes its whole temporary pose without invented animation clips (0.371395ms)
+✔ skeleton south-west bow matches game pose and all three shot phases (0.309006ms)
+✔ workstations only expose front and side views (0.496632ms)
+✔ broken references and sprite bounds stop publication (232.612031ms)
+✔ guide chapters have stable unique addresses and complete text (50.780005ms)
+✔ decoration guide publishes diagnostic comparison, ordinary control and exact policy (71.474342ms)
+✔ decoration guide keeps dormant seed, manual priority and performance limits explicit (3.147419ms)
+✔ first location resolves all selected epics without changing the catalog (331.678338ms)
+✔ map and release progress exclude other locations and later releases (114.758498ms)
+✔ live changes update active cards and per-epic counts (135.830805ms)
+✔ only the canonical final acceptance completes the first location (69.172792ms)
+✔ catalog-wide scopes and missing epic data remain explicit (5.147733ms)
+✔ garden guide publishes real comparison, moisture panels and original art (44.406662ms)
+✔ garden proof preserves the first-map and static-only scope (17.410183ms)
+✔ grass methods publish distinct cost series and the canonical decision (28.495517ms)
+✔ grass comparison keeps visual prototype and live FPS acceptance separate (9.608007ms)
+✔ ground edge guide exposes native mask independence and canonical task (39.241202ms)
+✔ ground edge guide preserves static scope and open release gates (4.554487ms)
+✔ ground layers publish native separation and canonical evidence links (28.625795ms)
+✔ ground layer proof keeps first-frame, FPS and art limits explicit (13.267701ms)
+✔ seasonal ground guide exposes five natural climates and real first-map evidence (16.412961ms)
+✔ seasonal guide preserves fixture, pause-event and performance limitations (2.063529ms)
+✔ desktop bundle contains a real ICNS and a portable executable launcher (121.756725ms)
+✔ local ground guide exposes real soil frames, scope diagram and exact revision records (11.591754ms)
+✔ local update proof keeps performance, fixture and rollback limitations explicit (1.833293ms)
+✔ meadow guide exposes source-bound native art and actual comparison evidence (65.902304ms)
+✔ meadow guide preserves art, simulation, memory and full-map limits (3.082885ms)
+✔ object command guide publishes actual descriptors and native acceptance (11.161608ms)
+✔ accepted native contract keeps the production pass and FPS gate separate (2.783139ms)
+✔ performance contract distinguishes accepted protocol from FPS and rejected history (22.487902ms)
+✔ performance contract source links the canonical first-location route (5.671622ms)
+✔ selected pass guide records the actual scope, phase and default-on fallback (9.480437ms)
+✔ selected pass proof contains actual command and one-call refusal outcomes in two viewports (4.70406ms)
+✔ refresh after conflict preserves local edits and accepts independent remote fields (1.788638ms)
+✔ planning imports every registered plan and preserves source statuses and acceptance (100.825086ms)
+✔ new standard plans are discovered with live task counts (19.250139ms)
+✔ markdown adapter ignores index entries and refuses an unstated status (1.217786ms)
+✔ planning sources cannot escape the repository through paths or symlinks (5.202857ms)
+✔ approval survives a new store instance and leaves implementation untouched (193.574041ms)
+✔ stale and simultaneous edits cannot overwrite a newer decision (38.405693ms)
+✔ refinement needs approval and actual epics and can be reopened (104.715438ms)
+✔ new ideas and article ideas share one collision-free sequence (54.816819ms)
+✔ group creation renaming and moving do not duplicate or mutate tasks (188.656492ms)
+✔ invalid mutations are atomic and release the write lock (32.210843ms)
+✔ corrupt saved state is never replaced with a blank workspace (3.814917ms)
+✔ HTTP approval queue and server restart preserve decisions (239.823894ms)
+✔ static review exposes no planning mutation API (16.093757ms)
+✔ HTTP writes reject cross-origin malformed oversized and non-JSON requests (23.666957ms)
+✔ plaza guide exposes the final native comparison and original art (14.359243ms)
+✔ plaza proof keeps static process policy and release limits explicit (10.427661ms)
+✔ post-motion guide separates resolved contact, QA shader and future live art (7.875317ms)
+✔ post-motion native proof contains both complete windows and full-state comparisons (5.20852ms)
+✔ browser plans match every Godot recipe and batch fixture (222.271504ms)
+✔ recipe articles and external sources remain connected (3.011427ms)
+✔ byproducts rounding and cycles keep material conservation (0.362011ms)
+✔ hard depth and operation limits reject misleading full plans (14.138974ms)
+✔ render order publishes complete source inventory and canonical route (12.992426ms)
+✔ render order preserves native proof and explicit rendering limits (2.193699ms)
+✔ report download preserves bytes and has a content-bound address (37.206307ms)
+✔ report attachments reject traversal, siblings, symlinks and executable formats (13.013732ms)
+✔ oversized report attachments fail explicitly (53.20077ms)
+✔ diagnostic video is bounded, content-addressed and cannot be renamed HTML (66.662205ms)
+✔ report video escapes labels and rejects arbitrary URLs without autoplay (1.04269ms)
+✔ road junction guide exposes native pairs and independent union proof (22.099386ms)
+✔ road junction guide keeps gameplay and release boundaries explicit (3.908424ms)
+✔ registered pilot contains the full bounded graph without copied statuses (4.854474ms)
+✔ queue rejects unknown cards, missing closure, cycles and invalid stage order (13.698496ms)
+✔ changed canonical dependencies require a refreshed build even with a still valid order (54.123061ms)
+✔ a completed acceptance cannot hide an open extra condition (57.306929ms)
+✔ registered queues reject traversal, escaping symlinks, duplicate IDs and mismatched names (61.761929ms)
+✔ editorial links resolve only real tasks and known queue stages (2.87778ms)
+✔ live status changes update progress without mutating tasks or queue (477.525184ms)
+✔ backlog and externally blocked tasks are never recommended as ready (26.275201ms)
+✔ stage filters preserve dependency order and unknown routes return no global fallback (1.590969ms)
+✔ live refresh exposes missing or later dependencies and false done cards (60.537721ms)
+✔ launcher prefers the available pnpm wrapper and respects an explicit override (16.073119ms)
+✔ Russian aliases, actor names, ingredient combinations and internal IDs are searchable (29.059323ms)
+✔ category filtering and blank requests preserve catalog completeness (4.801787ms)
+✔ batch calculator handles exact quantities and invalid input without changing the recipe (2.011942ms)
+✔ static server serves assets and denies escape or unauthenticated control (161.039232ms)
+✔ occupied ports are skipped without stopping another application (5.195193ms)
+✔ build publication is complete and failed replacement restores the working version (10.079635ms)
+✔ shore kit publishes bridge comparison, native camera video and exact manifests (38.235666ms)
+✔ shore kit remains on first-map course and preserves open runtime gates (0.66687ms)
+✔ static pilot guide distinguishes modular study and real overworld controls (6.522305ms)
+✔ static pilot proof has all predecessors, actual pairs and no whole-map/live/performance claim (1.521589ms)
+✔ wiki shares readable parchment roles with the game (9.722685ms)
+✔ bench guide preserves first-map scope, three sides and corrected four-leg construction (10.446436ms)
+✔ bench native report contains two accepted windows and no performance claim (2.736749ms)
+✔ notice guide separates blank sprites and live six-locale labels (8.710623ms)
+✔ notice proof contains actual locale bodies, two windows and offscreen controls (2.99316ms)
+✔ fence guide preserves open passages and scopes the first-map art (20.156692ms)
+✔ fence proof contains two physical windows and bounded native comparisons (5.893434ms)
+✔ lamp guide separates body and light while preserving calendar and collision (23.971018ms)
+✔ lamp report contains real normal night passes and separated glow on four backgrounds (4.414742ms)
+✔ street prop guide preserves cardinal directions, measured contacts and existing trade (14.018901ms)
+✔ street report binds two genuine windows and four contrast backgrounds without FPS acceptance (3.042726ms)
+✔ trade guide records the neutral aliases, unchanged loot and focus limitation (9.148764ms)
+✔ trade native proof covers five actual loot slots and only static visible-window acceptance (3.533339ms)
+ℹ tests 108
+ℹ suites 0
+ℹ pass 108
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2208.479234

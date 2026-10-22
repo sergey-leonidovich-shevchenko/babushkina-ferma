@@ -1,0 +1,26 @@
+{
+  "mode": "built-in image_gen",
+  "transparent_background": true,
+  "selected": [
+    {
+      "side": "west",
+      "master": "masters/west.png",
+      "generated_file": "exec-c58235de-e286-4551-9e77-b0f10dbb460f.png",
+      "input": "docs/reports/visual-overhaul/vprop-002/masters/west.png",
+      "prompt": "Edit target: one WEST facing vertical bench, honey oak, black forged iron. CRITICAL visible geometry correction, not a subtle refinement. Keep the two long lower legs. ADD THE MISSING UPPER PAIR OF FULL LEGS: one full black iron leg clearly protrudes OUTWARD LEFT from underneath the upper third of the seat, then descends to its rectangular foot at mid-image height; the other full black iron leg protrudes OUTWARD RIGHT from underneath that same upper third and descends to its rectangular foot at mid-image height. The far/top support frame must be significantly WIDER than the seat, so these TWO additional LONG SHANKS and their rectangular feet are unobstructed on the left and right side of the seat. The result should have FOUR obvious exposed legs/feet: two wide-spaced upper/middle feet, and the existing two lower feet. Four legs connected to four seat corners, no hidden legs, no tiny disconnected tabs, no extra legs. It is OK to make the entire upper support visibly wider and more splayed than before to make the fourth leg unambiguous. Keep seat long axis exactly vertical, backrest to RIGHT, seat facing LEFT, NOT isometric or diagonal. Same oak boards and material style, smooth painterly edges and upper-left lighting. Transparent background, whole object centered with room for both newly splayed upper side legs. No shadows, no floor, no text, no other objects."
+    },
+    {
+      "side": "east",
+      "master": "masters/east.png",
+      "generated_file": "exec-6a760c3b-0e84-41b0-b9c5-ad462c06c8b0.png",
+      "inputs": ["docs/reports/visual-overhaul/vprop-002/masters/east.png", "masters/west.png"],
+      "prompt": "Use case precise-object-edit. Image1 is the EAST-facing bench to fix. Image2 is the APPROVED four-leg construction of the same bench WEST-facing: match its FOUR clearly visible fully connected iron legs and FOUR separate broad rectangular feet. Rebuild ONLY the under-seat supports of Image1. Preserve EAST orientation exactly: vertical long seat axis, backrest LEFT, open seat RIGHT. Keep both existing bottom/near legs. Replace the tiny obscured far/top support tabs with a wider splayed support frame and TWO FULL iron shanks descending outward from under the upper third of the seat, one clearly visible outside the LEFT edge, one outside the RIGHT edge, ending in two distinct rectangular feet near middle height, just like Image2. Exactly four legs: two outward middle feet plus two near/bottom feet. All four shanks must visibly connect to the seat; no floating tabs, no hidden fourth leg, no extra fifth leg. Keep seat dimensions and rich honey oak three seat boards/two backrest boards, black forged iron arms, smooth soft hand-painted RPG treatment, upper-LEFT lighting (do not mirror light). No diagonal or isometric turn. Whole single object centered, all four feet visible, transparent padding on all sides, no shadow, no floor or scene or text."
+    },
+    {
+      "side": "south",
+      "master": "masters/south.png",
+      "copied_unchanged_from": "docs/reports/visual-overhaul/vprop-002/masters/south.png"
+    }
+  ],
+  "rejected": [{"generated_file": "exec-fce238bd-6182-440a-99f5-f19cad926ffe.png", "reason": "Far legs still hidden; not used in runtime."}]
+}

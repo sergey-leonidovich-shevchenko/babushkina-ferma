@@ -4,10 +4,10 @@ import argparse,hashlib,io,json
 from pathlib import Path
 from PIL import Image
 ROOT=Path(__file__).resolve().parents[1]
-REPORT=ROOT/'docs/reports/visual-overhaul/vprop-002'
+REPORT=ROOT/'docs/reports/visual-overhaul/vprop-002-four-legs'
 RUNTIME=ROOT/'assets/game/locations/overworld/benches'
-FEET={'south':[(173,820),(1460,820),(234,700),(1412,700)],'west':[(688,822),(914,822),(657,460),(990,540)],'east':[(693,825),(933,759),(612,540),(969,493)]}
-ANCHORS={'south':(817,834),'west':(801,845),'east':(813,855)}
+FEET={'south':[(173,820),(1460,820),(234,700),(1412,700)],'west':[(690,856),(918,856),(626,503),(1053,502)],'east':[(690,835),(962,835),(580,510),(1003,510)]}
+ANCHORS={'south':(817,834),'west':(806,880),'east':(826,866)}
 
 def sha(path):
     """Bind both authoring masters and runtime derivatives to exact bytes."""

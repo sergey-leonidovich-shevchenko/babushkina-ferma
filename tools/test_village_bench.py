@@ -48,7 +48,7 @@ class VillageBenchEvidenceTests(unittest.TestCase):
 
     def test_removed_fourth_contact_in_runtime_profile_is_rejected(self):
         with tempfile.TemporaryDirectory(prefix='bench-contacts-') as tmp:
-            root=Path(tmp);report=root/'docs/reports/visual-overhaul/vprop-002';runtime=root/'assets/game/locations/overworld/benches'
+            root=Path(tmp);report=root/assets.REPORT.relative_to(assets.ROOT);runtime=root/'assets/game/locations/overworld/benches'
             shutil.copytree(assets.REPORT/'masters',report/'masters');shutil.copyfile(assets.REPORT/'source.json',report/'source.json');shutil.copytree(assets.RUNTIME,runtime)
             profile=load(runtime/'profile.json');profile['views']['west']['contacts'].pop();(runtime/'profile.json').write_text(json.dumps(profile))
             with patch.multiple(assets,ROOT=root,REPORT=report,RUNTIME=runtime):

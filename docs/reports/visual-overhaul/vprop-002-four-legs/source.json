@@ -1,0 +1,198 @@
+{
+  "schema": 1,
+  "task": "VPROP-002",
+  "tool": "built-in image_gen",
+  "style": "VART-001 A / VART-003 A / VART-006 B / VART-007 A",
+  "leg_count": 4,
+  "orientation": [
+    "south",
+    "west",
+    "east"
+  ],
+  "calibration": "Each generated master is uniformly reduced once to the authoring major axis. All runtime pixels then share exactly 0.25 world units per pixel; no per-frame fit or stretch. Source ROI uses alpha >=8 plus 8px for opaque furniture, not translucent effects.",
+  "views": {
+    "south": {
+      "master": "masters/south.png",
+      "master_sha256": "588c3f88e56b872b566a52b433eadb20634fcba35adb08ba91599517ffffab74",
+      "crop": [
+        120,
+        153,
+        1517,
+        842
+      ],
+      "pixels": [
+        336,
+        174
+      ],
+      "anchor": [
+        167.65640658554045,
+        164.1654571843251
+      ],
+      "contacts": [
+        [
+          20.14030064423765,
+          160.95500725689405
+        ],
+        [
+          314.94345025053684,
+          160.95500725689405
+        ],
+        [
+          34.113099498926275,
+          133.4368650217707
+        ],
+        [
+          303.9484609878311,
+          133.4368650217707
+        ]
+      ],
+      "source_contacts": [
+        [
+          173,
+          820
+        ],
+        [
+          1460,
+          820
+        ],
+        [
+          234,
+          700
+        ],
+        [
+          1412,
+          700
+        ]
+      ],
+      "render_scale": 0.25,
+      "physical_footprint": [
+        72,
+        24
+      ],
+      "runtime": "assets/game/locations/overworld/benches/bench_south_v1.png",
+      "sha256": "7cb670ffecd1605d503e9b4edef4bab398aa1c188ae0ec1e2518542b8c8d096f"
+    },
+    "west": {
+      "master": "masters/west.png",
+      "master_sha256": "2362dc533e39886036c3e918bee4b8141974a700db44ea167c8948bcd52b644a",
+      "crop": [
+        580,
+        48,
+        1096,
+        888
+      ],
+      "pixels": [
+        213,
+        336
+      ],
+      "anchor": [
+        94.28294573643412,
+        324.95238095238096
+      ],
+      "contacts": [
+        [
+          49.99612403100775,
+          315.8095238095238
+        ],
+        [
+          137.04263565891472,
+          315.8095238095238
+        ],
+        [
+          25.56201550387597,
+          181.33333333333334
+        ],
+        [
+          188.58333333333334,
+          180.95238095238096
+        ]
+      ],
+      "source_contacts": [
+        [
+          690,
+          856
+        ],
+        [
+          918,
+          856
+        ],
+        [
+          626,
+          503
+        ],
+        [
+          1053,
+          502
+        ]
+      ],
+      "render_scale": 0.25,
+      "physical_footprint": [
+        24,
+        48
+      ],
+      "runtime": "assets/game/locations/overworld/benches/bench_west_v1.png",
+      "sha256": "b731c2359f3b04cada926b76674cea85b2cf5ce2d4be925f9f31dfab2e3619e7"
+    },
+    "east": {
+      "master": "masters/east.png",
+      "master_sha256": "bbb6a5370a8029d0eeb09f00df6374410770ebdb6bfd9aee4f1e3fd2d7de7253",
+      "crop": [
+        539,
+        41,
+        1049,
+        870
+      ],
+      "pixels": [
+        213,
+        336
+      ],
+      "anchor": [
+        118.86078431372549,
+        326.45597104945716
+      ],
+      "contacts": [
+        [
+          66.32745098039216,
+          314.4897466827503
+        ],
+        [
+          171.39411764705883,
+          314.4897466827503
+        ],
+        [
+          23.837254901960783,
+          189.03739445114596
+        ],
+        [
+          187.2313725490196,
+          189.03739445114596
+        ]
+      ],
+      "source_contacts": [
+        [
+          690,
+          835
+        ],
+        [
+          962,
+          835
+        ],
+        [
+          580,
+          510
+        ],
+        [
+          1003,
+          510
+        ]
+      ],
+      "render_scale": 0.25,
+      "physical_footprint": [
+        24,
+        48
+      ],
+      "runtime": "assets/game/locations/overworld/benches/bench_east_v1.png",
+      "sha256": "4effb0064a6e8fdbcb0fc6f421b5e3ce8303a6765b6af15591f576be13af0278"
+    }
+  }
+}

@@ -68,10 +68,10 @@
     "village_bench_west_v1": {
       "file": "res://assets/game/locations/overworld/benches/bench_west_v1.png",
       "pixels": [
-        177,
+        213,
         336
       ],
-      "sha256": "48d872bdd7c924604d6942ae8d88ee5df5f8e1c82ec23de3ed5b42e4f5ba317a",
+      "sha256": "b731c2359f3b04cada926b76674cea85b2cf5ce2d4be925f9f31dfab2e3619e7",
       "layout": "standalone",
       "import": {
         "compress/mode": 0,
@@ -84,10 +84,10 @@
     "village_bench_east_v1": {
       "file": "res://assets/game/locations/overworld/benches/bench_east_v1.png",
       "pixels": [
-        183,
+        213,
         336
       ],
-      "sha256": "ea0a9de4274ae98d79d2467b0551bf257e5dc9462f49058f1ee12d55c095850c",
+      "sha256": "4effb0064a6e8fdbcb0fc6f421b5e3ce8303a6765b6af15591f576be13af0278",
       "layout": "standalone",
       "import": {
         "compress/mode": 0,
@@ -612,8 +612,8 @@
       "task": "VPROP-002",
       "source": {
         "kind": "master",
-        "file": "docs/reports/visual-overhaul/vprop-002/source.json",
-        "sha256": "350c3b10cdcc306c5d596502c4b136a3f3a52015f4c4388347f0bbd5ba8e396a"
+        "file": "docs/reports/visual-overhaul/vprop-002-four-legs/source.json",
+        "sha256": "dcfd125f5b86f9d491878e7cc38eb505cae497e9d28a22c9112aaa62ca4cafe8"
       },
       "filter": "linear",
       "sampling_family": "painted_world",
@@ -646,7 +646,7 @@
         },
         "west": {
           "logical_size": [
-            44.25,
+            53.25,
             84.0
           ],
           "footprint_size": [
@@ -654,8 +654,8 @@
             48
           ],
           "pivot": [
-            0.42649660446270615,
-            0.9665093483390815
+            0.4426429377297376,
+            0.9671201814058957
           ],
           "variants": {
             "standard": {
@@ -663,7 +663,7 @@
               "source_rect": [
                 0,
                 0,
-                177,
+                213,
                 336
               ]
             }
@@ -671,7 +671,7 @@
         },
         "east": {
           "logical_size": [
-            45.75,
+            53.25,
             84.0
           ],
           "footprint_size": [
@@ -679,8 +679,8 @@
             48
           ],
           "pivot": [
-            0.5686059704996284,
-            0.9667022475241653
+            0.5580318512381478,
+            0.9715951519329082
           ],
           "variants": {
             "standard": {
@@ -688,7 +688,7 @@
               "source_rect": [
                 0,
                 0,
-                183,
+                213,
                 336
               ]
             }

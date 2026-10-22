@@ -7,7 +7,7 @@ import {projectRoot,wikiRoot} from '../scripts/runtime.mjs'
 test('bench guide preserves first-map scope, three sides and corrected four-leg construction',async()=>{
   const article=await readFile(join(wikiRoot,'articles/village-benches.md'),'utf8')
   for(const text of ['visual--VPROP-002','visual-pilot.md','четыре ножки в каждом','Боковые мастера исправлены','50 нативных PNG / 224 draw','72×24','VMAP-003','summary.json','source.json','prompts.json'])assert.ok(article.includes(text),text)
-  const source=JSON.parse(await readFile(join(projectRoot,'docs/reports/visual-overhaul/vprop-002/source.json'),'utf8'))
+  const source=JSON.parse(await readFile(join(projectRoot,'docs/reports/visual-overhaul/vprop-002-four-legs/source.json'),'utf8'))
   assert.equal(source.leg_count,4);assert.deepEqual(source.orientation,['south','west','east'])
   for(const view of Object.values(source.views)){assert.equal(view.contacts.length,4);assert.equal(view.render_scale,.25)}
 })

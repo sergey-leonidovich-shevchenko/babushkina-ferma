@@ -1,0 +1,32 @@
+{
+  "task": "VPROP-002",
+  "revision": "four-visible-legs",
+  "base_commit": "630a6030",
+  "runtime_changed": false,
+  "runtime_assets_changed": true,
+  "front_png_unchanged": true,
+  "performance_eligible": false,
+  "native_png": 4,
+  "draw_callbacks": 8,
+  "zoom": 1.2,
+  "inputs": {
+    "tools/village_bench_assets.py": "fb1a4aa366d42df2bee694d2799e3fa2537d0e51c2a254cc7da3302d46e2923a",
+    "tools/village_bench_leg_capture.gd": "4e470d18b5465fa076562bd23c989779d559335b6f4c0b68effad36edc997ac1",
+    "scripts/presentation/village_bench_visual.gd": "847dce57297018e989c756daf46bb6a56078ab55963cd926631e88750c3fd619",
+    "assets/game/visual_resources.json": "5486c6bf09da9e9ba4acc2be84aeeea01500b0780551800e5f833c6dacc82e5c",
+    "assets/game/locations/overworld/benches/profile.json": "ddda503259696c4f3d34d437d2ed414dbf3ae5b6e83549d2aaa12199a85f9a1b",
+    "assets/game/locations/overworld/benches/bench_south_v1.png": "7cb670ffecd1605d503e9b4edef4bab398aa1c188ae0ec1e2518542b8c8d096f",
+    "assets/game/locations/overworld/benches/bench_west_v1.png": "b731c2359f3b04cada926b76674cea85b2cf5ce2d4be925f9f31dfab2e3619e7",
+    "assets/game/locations/overworld/benches/bench_east_v1.png": "4effb0064a6e8fdbcb0fc6f421b5e3ce8303a6765b6af15591f576be13af0278"
+  },
+  "artifacts": {
+    "native/1152/dark.png": "8450e5320f2c44b5269ffbcd7afc5695fe4953c264f933fabe9df3df5f3a2672",
+    "native/1152/engine.txt": "b5c42bcf0f9ce96281898eb3064c46787a7a115f182a02a7b690f59816a71ea7",
+    "native/1152/capture.json": "ad7874ab0b0b66323c4073cf6a294e0eff10d4046be862d9011ce095c7744d66",
+    "native/1152/light.png": "36093ed3fc507e8b5bebc4c73b3046b6fe4732e763ce1d6a55e84f8f9e303a28",
+    "native/1280/dark.png": "add5b4ff7ed954b28bb1ffdd8faa47ba75dc9307f2f948df18dd448de022c2be",
+    "native/1280/engine.txt": "bcc50c8661c038e3f5316e6e0c945738b63a3ec0262c17e13baae09613041a5e",
+    "native/1280/capture.json": "f22126c8e4d1103a98bb348f039c443dd9aa1e6c38e96ac85610a9df075bef08",
+    "native/1280/light.png": "5447d6e3143488bd318ddec57f923c288fdf627063eca3db0997b8d7144a7260"
+  }
+}
