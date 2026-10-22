@@ -1,0 +1,53 @@
+{
+  "old_ideas_deep_equal": 201,
+  "old_assessments_deep_equal": 40,
+  "old_groups_deep_equal": true,
+  "new_ideas": 10,
+  "new_own_epics": 10,
+  "new_future_tasks": 57,
+  "dependency_cycles": 0,
+  "new_article_task_links_valid": true,
+  "new_analogues_explicitly_unverified": 10,
+  "catalog": {
+    "plans": 63,
+    "epics": 117,
+    "tasks": 1781
+  },
+  "schema": 1,
+  "task": "IDEA-REVIEW-20261022",
+  "status": "accepted_editorial",
+  "documentation": "passed",
+  "wiki_tests": {
+    "passed": 123,
+    "failed": 0
+  },
+  "browser": {
+    "article": "IDEA-207",
+    "own_epic": "idea-207--IDEA-207",
+    "task": "idea-207--IDEA-207-03",
+    "pack_dependency_links": [
+      "PACK-02",
+      "PACK-03",
+      "PACK-05"
+    ],
+    "search": "IDEA-211",
+    "ratings_visible": true,
+    "narrow_width": 390,
+    "scroll_widths": {
+      "article": 390,
+      "task": 390,
+      "ideas": 390
+    },
+    "viewport_reset": true,
+    "proof": "wiki-preview.png"
+  },
+  "architecture": {
+    "command": "tools/check_architecture.sh",
+    "enforcement": "unchanged pre-commit hook"
+  },
+  "game_tests": {
+    "command": "./run_tests.sh",
+    "enforcement": "unchanged pre-commit hook"
+  },
+  "gameplay_implemented": false
+}
