@@ -3262,7 +3262,7 @@
       "id": "VFOLIAGE-005",
       "epic": "VFOLIAGE",
       "title": "Учитывать реальную скорость прохода",
-      "status": "ready",
+      "status": "done",
       "priority": "P0",
       "phase": "pilot",
       "kind": "engineering",
@@ -3297,14 +3297,21 @@
         "confidence": "low",
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
-      "branch": "codex/vfoliage-005-visual-task",
-      "evidence": []
+      "branch": "codex/vfoliage-005-actual-speed",
+      "evidence": [
+        "docs/reports/visual-overhaul/vfoliage-005/README.md",
+        "docs/reports/visual-overhaul/vfoliage-005/summary.json",
+        "docs/reports/visual-overhaul/vfoliage-005/completion.json",
+        "docs/reports/visual-overhaul/vfoliage-005/native/source.json",
+        "wiki/articles/foliage-speed.md"
+      ],
+      "result": "0.0.314: отклонение восьми прежних пучков усиливается по фактической скорости после коллизий и simulation delta. Предел 1,9; стена не усиливает контакт, скольжение учитывает только разрешённое движение, hit stop использует сокращённый такт. Пауза, stop, интерполяция, fallback, скачок и штатный QA-перенос проверены. Один target/две группы без пересборки; старый пространственный контакт доступен отдельным флагом. 200 нативных случаев двух окон, 1600 неподвижных полос, 16 slow/run-пар, GPU/CPU RGBA побайтно; полный snapshot не меняется при draw, фон и мир имеют одну камеру. Профиль 1559/0, Python 29/0, architecture, игра 49356/0, Wiki 133/0 и браузер. Это не FPS/hardware/VMAP-003 или восстановление VFOLIAGE-006. Отчёт docs/reports/visual-overhaul/vfoliage-005/README.md; Git-base ff5b2d2c."
     },
     {
       "id": "VFOLIAGE-006",
       "epic": "VFOLIAGE",
       "title": "Добавить мягкое восстановление",
-      "status": "backlog",
+      "status": "ready",
       "priority": "P0",
       "phase": "pilot",
       "kind": "engineering",

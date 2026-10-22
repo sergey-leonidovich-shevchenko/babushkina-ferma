@@ -1,5 +1,7 @@
 # Разработка
 
+VFOLIAGE-005: `FoliageSpeed` публикуется после итогового `update_player` и PostMotionFrame, используя фактический simulation delta. Один неизменяемый замер из шести полей проверяется по миру, позиции и часам; желаемый ввод не даёт силы. Множитель ограничен 1…1,9 и вычисляется один раз для всего буфера контакта, без новых mesh/узлов/сохранений. [Владение, флаги, допуски и нативная проверка](reports/visual-overhaul/vfoliage-005/README.md).
+
 VFOLIAGE-004: FoliageContact использует компактное поле без нормализации, PostMotionFrame и PresentationPose.ground. Wind.update выполняется после present, передаёт два uniform-буфера вместо изменений mesh и обновляет target при изменении видимой стопы даже без clock delta. Paused freeze, invalid frame/transfer/reset, dirty-buffer после offscreen и contact-only rollback обязательны; данные не входят в snapshot. [Контракт и проверка](reports/visual-overhaul/vfoliage-004/README.md).
 
 VFOLIAGE-003: FoliageWind.update готовит визуальные ресурсы в _process, вне draw, читая VillageGroundClock. FoliageWindBatch хранит две MultiMesh-группы/один ограниченный target для восьми существующих пучков; UV/опоры прежние, фаза пространственная, нижние ряды неподвижны. Shader имеет собственные часы, не TIME; материал не назначается миру/HUD. Offscreen/low/reference/reduced_motion выключают target или дают stationary fallback; новая карта/механика не добавляется. [Владение, стоимость и нативные доказательства](reports/visual-overhaul/vfoliage-003/README.md).

@@ -44,9 +44,11 @@ static func physics_process(game: Node, delta: float) -> void:
 	if gameplay_window_open(game):
 		game.queue_redraw()
 		return
+	var step_origin:=Vector2(game.player);var step_world:=String(game.current_location)
 	update_player(game, delta)
 	preload("res://scripts/systems/dropped_loot_system.gd").update(game,delta)
 	preload("res://scripts/presentation/post_motion_frame.gd").publish(game,delta)
+	preload("res://scripts/presentation/foliage_speed.gd").publish(game,step_origin,step_world,delta)
 	game.queue_redraw()
 
 ## Проверяет, блокирует ли текущее модальное состояние симуляцию мира.

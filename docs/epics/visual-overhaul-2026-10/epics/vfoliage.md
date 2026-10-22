@@ -158,11 +158,11 @@
 
 ## VFOLIAGE-005 — Учитывать реальную скорость прохода
 
-Статус: `ready` · P0 · этап `pilot` · `engineering`
+Статус: `done` · P0 · этап `pilot` · `engineering`
 
 Медленный шаг и бег имеют разные импульсы; ввод в стену без движения не создаёт сильного эффекта
 
-Ветка: `codex/vfoliage-005-visual-task`.
+Ветка: `codex/vfoliage-005-actual-speed`.
 
 Зависимости: VFOLIAGE-004.
 
@@ -172,7 +172,7 @@
 - [scripts/systems/world_visual_profile_system.gd](../../../../scripts/systems/world_visual_profile_system.gd)
 - [scripts/core/game_loop.gd](../../../../scripts/core/game_loop.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vfoliage-005/`.
+Результаты: `docs/reports/visual-overhaul/vfoliage-005/`.
 
 Критерии:
 
@@ -190,13 +190,13 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vfoliage-005/README.md, docs/reports/visual-overhaul/vfoliage-005/summary.json, docs/reports/visual-overhaul/vfoliage-005/completion.json, docs/reports/visual-overhaul/vfoliage-005/native/source.json, wiki/articles/foliage-speed.md.
 
 <a id="vfoliage-006"></a>
 
 ## VFOLIAGE-006 — Добавить мягкое восстановление
 
-Статус: `backlog` · P0 · этап `pilot` · `engineering`
+Статус: `ready` · P0 · этап `pilot` · `engineering`
 
 После выхода состояние возвращается без скачка; активный набор имеет предел и удаляет затухшие записи
 

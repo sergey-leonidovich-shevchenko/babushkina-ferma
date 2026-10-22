@@ -1,0 +1,63 @@
+{
+  "task": "VFOLIAGE-005",
+  "accepted": true,
+  "url": "http://127.0.0.1:4175/#/guides/foliage-speed",
+  "images_loaded": 3,
+  "images_exact_via_page_assets": [
+    {
+      "source": "native/1152/motion-70-0.png",
+      "sha256": "74f1218b5b806a4bf130881ac61f028e18083669212c168304f4d19a0dd91f60",
+      "frames": 13,
+      "size": [
+        1152,
+        648
+      ]
+    },
+    {
+      "source": "native/1152/motion-273-0.png",
+      "sha256": "984fd0469866d462cd772a0942329f90f8c23958c3861dafabdb7b167283da99",
+      "frames": 13,
+      "size": [
+        1152,
+        648
+      ]
+    },
+    {
+      "source": "native/1152/wall/on-window.png",
+      "sha256": "663490640809bde236f9728aa131d95128c6fdc8ce0c0df47ae31785a50b87ae",
+      "frames": 1,
+      "size": [
+        1152,
+        648
+      ]
+    }
+  ],
+  "motion_assets_exact": true,
+  "search_verified": true,
+  "keyboard_search_enter_verified": true,
+  "task_dependency_verified": true,
+  "narrow": {
+    "width": 390,
+    "scroll_width": 390,
+    "image_width": 318
+  },
+  "attachments_exact_in_build": [
+    {
+      "source": "summary.json",
+      "sha256": "6822559755e07452f81251f113af3886c61c7333b085609c8090bafb903bc451",
+      "built_path": "wiki/dist/generated/attachments/6822559755e07452f81251f113af3886c61c7333b085609c8090bafb903bc451.json"
+    },
+    {
+      "source": "changes.json",
+      "sha256": "39a9a34727db618b917112085f027ec25cd54224f3a381a63b221fd1c0cb5040",
+      "built_path": "wiki/dist/generated/attachments/39a9a34727db618b917112085f027ec25cd54224f3a381a63b221fd1c0cb5040.json"
+    },
+    {
+      "source": "native-admission.json",
+      "sha256": "0dabce323adfb1814e2946c4062b7c578233ec771a2cc8bfa277ee06bb09b2a4",
+      "built_path": "wiki/dist/generated/attachments/0dabce323adfb1814e2946c4062b7c578233ec771a2cc8bfa277ee06bb09b2a4.json"
+    }
+  ],
+  "browser_download_event_verified": false,
+  "attachment_scope": "DOM href/download attributes and exact built bytes checked; native browser download event not tested. The three rendered images were exported through documented pageAssets.bundle and matched source bytes."
+}

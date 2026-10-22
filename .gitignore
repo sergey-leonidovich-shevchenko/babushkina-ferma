@@ -489,3 +489,8 @@ assets/inbox/*
 !tools/transient_save*.gd.uid
 !tools/transient_save*.py
 !tools/test_transient_save.py
+# VFOLIAGE-005: measured physical speed and isolated native proof.
+!tools/foliage_speed*.gd
+!tools/foliage_speed*.gd.uid
+!tools/foliage_speed*.py
+!tools/test_foliage_speed.py

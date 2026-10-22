@@ -1,0 +1,71 @@
+{
+  "format": "lossless APNG",
+  "scope": "controlled real physics samples; not keyboard input, real-time duration or FPS",
+  "frames": [
+    {
+      "case": "sweep-273-0-00",
+      "rgba_sha": "5a4a6aea2c34031138309b8df7a24057f1de93c93021dba4dfbecc8ed602a257",
+      "frame": 0
+    },
+    {
+      "case": "sweep-273-0-01",
+      "rgba_sha": "2a6c201de580737ed4ff3960cc4a51c4ea4bfbf9eac24253b773f73febf8b401",
+      "frame": 1
+    },
+    {
+      "case": "sweep-273-0-02",
+      "rgba_sha": "d13d692f7d9b3f97a38f8d5e23c0281a2eeece1db8b34bcf7d2d1d5c5410a172",
+      "frame": 2
+    },
+    {
+      "case": "sweep-273-0-03",
+      "rgba_sha": "be1b99f1afe716db43f1e3e83703427d51d13c6a74d2239e2edc770f99921200",
+      "frame": 3
+    },
+    {
+      "case": "sweep-273-0-04",
+      "rgba_sha": "98958c1d3431001db5696c5cdbc54d0f75106baaaf9f62c598aec559ae3534ee",
+      "frame": 4
+    },
+    {
+      "case": "sweep-273-0-05",
+      "rgba_sha": "3023e0562c29023b92681122988d36d8cb453ebd0f6ba8d631dbd0c34e037880",
+      "frame": 5
+    },
+    {
+      "case": "sweep-273-0-06",
+      "rgba_sha": "c06ff5b2b67d13d40e74c178e1eba45a9e389a92e34d75bd4925aaf3ac6b483b",
+      "frame": 6
+    },
+    {
+      "case": "sweep-273-0-07",
+      "rgba_sha": "377834217d59a6d5ce932964e9b440b89242106b7882cb6594b066a9939a2f28",
+      "frame": 7
+    },
+    {
+      "case": "sweep-273-0-08",
+      "rgba_sha": "1fa817e1eba23304a94001a3f4f437bcba19946393f95267099632b6d2e8aa2f",
+      "frame": 8
+    },
+    {
+      "case": "sweep-273-0-09",
+      "rgba_sha": "1393141719dee2540aa999faa212f9dfb29789bbdb6614de1824fc2bf1733b4e",
+      "frame": 9
+    },
+    {
+      "case": "sweep-273-0-10",
+      "rgba_sha": "1bc04a0d809d86b62c72edcdaf0714ee08b294196b32640cda9a4fcfbbea6c46",
+      "frame": 10
+    },
+    {
+      "case": "sweep-273-0-11",
+      "rgba_sha": "8f0242b861983bb70b3fbd4df40a842b4b63be6c339a039ab4d4a2f0ed2db57c",
+      "frame": 11
+    },
+    {
+      "case": "sweep-273-0-12",
+      "rgba_sha": "daf5bb3bdabdad8d81a058a42fa2c3e87feded9b64145576628d766af60694e4",
+      "frame": 12
+    }
+  ]
+}

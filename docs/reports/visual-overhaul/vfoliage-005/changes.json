@@ -1,0 +1,20 @@
+{
+  "task": "VFOLIAGE-005",
+  "base_commit": "ff5b2d2c7e6abf7a98d98d3c90b37650c9318101",
+  "runtime": {
+    "scripts/core/game_loop.gd": {
+      "before": "8c6e8f2dacf54b273bca6a1221fa1aa041c9cafbbf853a4ee518adb0988a78bf",
+      "after": "609a87664e107215358dfbaa61d21e8b19da955f34802f523141652478f17b43"
+    },
+    "scripts/presentation/foliage_contact.gd": {
+      "before": "fcd1d2a981a3a5c951aa6c8526fbb430b52dfb69628b9f878c263efd63591965",
+      "after": "858f48a10df2e3db3e4f94143c5cfd0e1bef962a4a8a170ddfe7bd65d003fc4d"
+    },
+    "scripts/presentation/foliage_speed.gd": {
+      "before": null,
+      "after": "cda922373a7b240348616744108fc58f3c710b0e6939411b89b8b276090aac3c"
+    }
+  },
+  "artwork_changed": false,
+  "shader_changed": false
+}

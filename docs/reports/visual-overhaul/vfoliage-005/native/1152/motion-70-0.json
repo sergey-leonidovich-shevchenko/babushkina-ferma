@@ -1,0 +1,71 @@
+{
+  "format": "lossless APNG",
+  "scope": "controlled real physics samples; not keyboard input, real-time duration or FPS",
+  "frames": [
+    {
+      "case": "sweep-70-0-00",
+      "rgba_sha": "87ce03c4b010824f64e4602b337159bdf35ccbd8cb73de5d4d47fde90bd4dbf7",
+      "frame": 0
+    },
+    {
+      "case": "sweep-70-0-01",
+      "rgba_sha": "9065cb4764f5b3791c0c8003247f011b513e3614250618a5cd7215e2b9247f9e",
+      "frame": 1
+    },
+    {
+      "case": "sweep-70-0-02",
+      "rgba_sha": "917e95a10a5ac1732555736627be7daec455e20ce1a0d74563c47d8979597fd6",
+      "frame": 2
+    },
+    {
+      "case": "sweep-70-0-03",
+      "rgba_sha": "348805f95a0ddea03d25bb0670b5843267ba79bf0469f5f0812104949bcc5c9a",
+      "frame": 3
+    },
+    {
+      "case": "sweep-70-0-04",
+      "rgba_sha": "1df18e89844359a8658fd873ef0f4c2b08fa3a75fe7c69e48d9a46b4aa39a475",
+      "frame": 4
+    },
+    {
+      "case": "sweep-70-0-05",
+      "rgba_sha": "ea0a936af6d956035f0efaf6b236ff23e3ec5a70b5de163c4f68d7c8f84c8bae",
+      "frame": 5
+    },
+    {
+      "case": "sweep-70-0-06",
+      "rgba_sha": "5e56cab7d150abe68c2fbd2b76e786c163458f2e1888f920f56731a9e514f23f",
+      "frame": 6
+    },
+    {
+      "case": "sweep-70-0-07",
+      "rgba_sha": "4111251d6cbc9ec3148b4a50e8f3416c549fedabbf823d5758166421e4ffcbab",
+      "frame": 7
+    },
+    {
+      "case": "sweep-70-0-08",
+      "rgba_sha": "8c285277042b370aee458571228729d92191fbc4197f4873b743bce9e681fdda",
+      "frame": 8
+    },
+    {
+      "case": "sweep-70-0-09",
+      "rgba_sha": "850c1d6947483856286ad561c3d11041ad7c691da576b4ed785f862d1215e877",
+      "frame": 9
+    },
+    {
+      "case": "sweep-70-0-10",
+      "rgba_sha": "63faf2fb5ad8b42ff665f0a542cc1e006b2b3afd3429a0ae79d605ae895db9ca",
+      "frame": 10
+    },
+    {
+      "case": "sweep-70-0-11",
+      "rgba_sha": "6626aa4c45b5c9d184a3cc9acc32866eecd3ebcdb01770667f6592d505733bb9",
+      "frame": 11
+    },
+    {
+      "case": "sweep-70-0-12",
+      "rgba_sha": "feb21ac890583215fde9af3c89b5b2a68f527c85756143df526c51ceb03765df",
+      "frame": 12
+    }
+  ]
+}
