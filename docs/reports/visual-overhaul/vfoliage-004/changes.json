@@ -1,0 +1,27 @@
+{
+  "task": "VFOLIAGE-004",
+  "base_commit": "785d1967f2c9d1a56fc5b62c315144e0974e5fe8",
+  "runtime": {
+    "scripts/game_core.gd": {
+      "before": "8304a7bf5fd1999b56d1d71199b45dffd4e89be7e4040518fdcb7ecb8cf49cd4",
+      "after": "65294374ec3b527deacc65d4d20128c0b7f16e421d5f24d6541f6a91c20f0288"
+    },
+    "scripts/presentation/foliage_contact.gd": {
+      "before": null,
+      "after": "fcd1d2a981a3a5c951aa6c8526fbb430b52dfb69628b9f878c263efd63591965"
+    },
+    "scripts/presentation/foliage_wind.gd": {
+      "before": "ec7c61690ba6816b99056e92a232f8367b878e76780226133e53fda3192acc1e",
+      "after": "932e3d46ea9ece767ce1b1f23e073ac119dd5607c1abcc64fa80c967fb247f5b"
+    },
+    "scripts/presentation/foliage_wind_batch.gd": {
+      "before": "6bb05ca0dd2fe35a8bace70e4e4db90ce0300ba4c983bc2b5fa439374863ea07",
+      "after": "aab9d9259d879d5f8e37da301f3d48a757ff9340dcb4c849f04da7831eb77f8f"
+    },
+    "scripts/presentation/foliage_wind.gdshader": {
+      "before": "d53f3be813537129a23e598874ffece608567935baccb41e75ac5e3074694b40",
+      "after": "3fa6c277b2777cb701e3f02639a4ea3a2f9ff80aab711632c74ef4e468ff9f0b"
+    }
+  },
+  "artwork_changed": false
+}

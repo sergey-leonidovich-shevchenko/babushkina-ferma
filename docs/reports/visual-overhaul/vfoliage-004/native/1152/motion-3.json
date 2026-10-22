@@ -1,0 +1,71 @@
+{
+  "format": "lossless APNG",
+  "scope": "controlled pose samples; not real keyboard input or FPS",
+  "frames": [
+    {
+      "case": "sweep-3-00",
+      "rgba_sha": "147c2de6ca14663dbae7aadb9483092f272519510a77aab120b5ccbb3aa66805",
+      "frame": 0
+    },
+    {
+      "case": "sweep-3-01",
+      "rgba_sha": "ebc96f61864509b79cd390c69e86819412a32d3c824234c32248e212010dd1b0",
+      "frame": 1
+    },
+    {
+      "case": "sweep-3-02",
+      "rgba_sha": "e8a68fa79cddcee16e560aa4487724f8ae2040dc6f30e934f2dab2817157dbb9",
+      "frame": 2
+    },
+    {
+      "case": "sweep-3-03",
+      "rgba_sha": "7231c033187913d0f03b52ff0b65d6aae30fe0cd2a3561486af6682db1b7199d",
+      "frame": 3
+    },
+    {
+      "case": "sweep-3-04",
+      "rgba_sha": "eb180c500b56e8701f513abca4433a106d12b423defe0a57fdf902db23391391",
+      "frame": 4
+    },
+    {
+      "case": "sweep-3-05",
+      "rgba_sha": "7578d2d3419c4224e78b91b04ba0dcbb4d8757a8368c151289126836b241a77d",
+      "frame": 5
+    },
+    {
+      "case": "sweep-3-06",
+      "rgba_sha": "9068cf079d92bf497ad4c23c0b1ebb6a9e41bb176e79d615866eac3a23aeffd8",
+      "frame": 6
+    },
+    {
+      "case": "sweep-3-07",
+      "rgba_sha": "f7911f3ddb3073a7f092047bb06ba17977a4ef0bf45e122ba4a9b21e8f8bb857",
+      "frame": 7
+    },
+    {
+      "case": "sweep-3-08",
+      "rgba_sha": "5490c818e5374fb31fc7ad35a87683d885eb15fb63c1dd5a1985599fe4e86f0e",
+      "frame": 8
+    },
+    {
+      "case": "sweep-3-09",
+      "rgba_sha": "3807541a25c40adb76c471dcad6130f4140fad4ed4219556a46a6bfef4c60d90",
+      "frame": 9
+    },
+    {
+      "case": "sweep-3-10",
+      "rgba_sha": "03c1edd6ef1be4af8b84b1a8ede4e9fb006b0aec8d37172b217f582904e13ca6",
+      "frame": 10
+    },
+    {
+      "case": "sweep-3-11",
+      "rgba_sha": "0dbd058de0dd72ca799f4dbccea584b58faf4dd40d0e76a58731bdeb0f35accc",
+      "frame": 11
+    },
+    {
+      "case": "sweep-3-12",
+      "rgba_sha": "ea782c8e2d571e20668b237f9e3e40b30d1649cce0a1d589ed40dd427fc92190",
+      "frame": 12
+    }
+  ]
+}

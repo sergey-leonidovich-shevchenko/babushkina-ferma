@@ -1,0 +1,63 @@
+{
+  "task": "VFOLIAGE-004",
+  "accepted": true,
+  "url": "http://127.0.0.1:4175/#/guides/foliage-contact",
+  "images_loaded": 3,
+  "images_exact_via_page_assets": [
+    {
+      "source": "native/1152/motion-0.png",
+      "sha256": "3c99b3bcd1afde180a119f41a56f0a1c6fbc0e9347694ae64542655976356c4b",
+      "frames": 13,
+      "size": [
+        1152,
+        648
+      ]
+    },
+    {
+      "source": "native/1280/motion-2.png",
+      "sha256": "e49f890d680c7fc20ddf32bc98a91350a8f6a4499074ada2ed6dd027aae1fd34",
+      "frames": 13,
+      "size": [
+        1280,
+        720
+      ]
+    },
+    {
+      "source": "native/1152/physics-0-3/on-window.png",
+      "sha256": "64d9ea239a51e6692a19b6143ac1f02a43e9fe39591226e2773d2b21dd88550b",
+      "frames": 1,
+      "size": [
+        1152,
+        648
+      ]
+    }
+  ],
+  "motion_download_exact": true,
+  "search_verified": true,
+  "keyboard_search_enter_verified": true,
+  "task_dependency_verified": true,
+  "narrow": {
+    "width": 390,
+    "scroll_width": 390,
+    "image_width": 318
+  },
+  "attachments_exact_in_build": [
+    {
+      "source": "summary.json",
+      "sha256": "a317e5ebf2ba288965a0c25d2d723bae6171a3c8404bfd4f5aa397f9b7bcc6ec",
+      "built_path": "wiki/dist/generated/attachments/a317e5ebf2ba288965a0c25d2d723bae6171a3c8404bfd4f5aa397f9b7bcc6ec.json"
+    },
+    {
+      "source": "changes.json",
+      "sha256": "00ac9733aee8af19140151816282e26405c064e52ef57e0251e7818d1e8948a4",
+      "built_path": "wiki/dist/generated/attachments/00ac9733aee8af19140151816282e26405c064e52ef57e0251e7818d1e8948a4.json"
+    },
+    {
+      "source": "native-admission.json",
+      "sha256": "0ad9048bcac96a1fc867bcffa5317ba9f0c0eea9ed233b392f724513d143adcd",
+      "built_path": "wiki/dist/generated/attachments/0ad9048bcac96a1fc867bcffa5317ba9f0c0eea9ed233b392f724513d143adcd.json"
+    }
+  ],
+  "browser_download_event_verified": false,
+  "download_limitation": "JSON links carry correct download/href attributes and built files match exactly. Browser downloadMedia and native click download event timed out; downloads are not claimed verified. Image bytes were exported through documented pageAssets.bundle and match source APNG/PNG exactly."
+}

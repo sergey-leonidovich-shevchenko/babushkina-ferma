@@ -42,7 +42,7 @@ static func build(rows:Array,atlas:Texture2D,scale:int)->Dictionary:
 		for instance in indices.size():
 			var index:int=indices[instance];var origin:=slot(index).position+Vector2.ONE*PAD+Vector2(profile.root)*72.0/Vector2(profile.size)
 			multi.set_instance_transform_2d(instance,Transform2D(0,Vector2.ONE*scale,0,origin*scale))
-			multi.set_instance_custom_data(instance,Color(phase(rows[index].anchor),0,0,0))
+			multi.set_instance_custom_data(instance,Color(phase(rows[index].anchor),index,0,0))
 		var material:=ShaderMaterial.new();material.shader=ShaderSource
 		material.set_shader_parameter("source_atlas",atlas);material.set_shader_parameter("atlas_size",atlas.get_size())
 		var region:Rect2=rows[indices[0]].source

@@ -1,0 +1,24 @@
+{
+  "task": "VFOLIAGE-004",
+  "cases_per_window": 89,
+  "windows": [
+    [
+      1152,
+      648
+    ],
+    [
+      1280,
+      720
+    ]
+  ],
+  "world_zoom": 1.2,
+  "radius_world": 36,
+  "max_contact_world": 2.3,
+  "max_combined_world": 3.65,
+  "rgba_tolerance": 1,
+  "rgba_actual": 0,
+  "fixed_root_bands": "exact full lower-strip RGBA",
+  "hardware_input_accepted": false,
+  "performance_eligible": false,
+  "full_map_accepted": false
+}

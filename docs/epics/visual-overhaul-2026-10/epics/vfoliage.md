@@ -120,11 +120,11 @@
 
 ## VFOLIAGE-004 — Добавить отклонение от героя
 
-Статус: `ready` · P0 · этап `pilot` · `engineering`
+Статус: `done` · P0 · этап `pilot` · `engineering`
 
 Подход с четырёх сторон и остановка точно в корне не дают NaN, резкого перелома и чрезмерного изгиба
 
-Ветка: `codex/vfoliage-004-visual-task`.
+Ветка: `codex/vfoliage-004-hero-contact`.
 
 Зависимости: VFOLIAGE-003.
 
@@ -134,7 +134,7 @@
 - [scripts/systems/world_visual_profile_system.gd](../../../../scripts/systems/world_visual_profile_system.gd)
 - [scripts/core/game_loop.gd](../../../../scripts/core/game_loop.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vfoliage-004/`.
+Результаты: `docs/reports/visual-overhaul/vfoliage-004/`.
 
 Критерии:
 
@@ -152,13 +152,13 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vfoliage-004/README.md, docs/reports/visual-overhaul/vfoliage-004/summary.json, docs/reports/visual-overhaul/vfoliage-004/completion.json, docs/reports/visual-overhaul/vfoliage-004/native/source.json, wiki/articles/foliage-contact.md.
 
 <a id="vfoliage-005"></a>
 
 ## VFOLIAGE-005 — Учитывать реальную скорость прохода
 
-Статус: `backlog` · P0 · этап `pilot` · `engineering`
+Статус: `ready` · P0 · этап `pilot` · `engineering`
 
 Медленный шаг и бег имеют разные импульсы; ввод в стену без движения не создаёт сильного эффекта
 
@@ -310,7 +310,7 @@
 
 ## VFOLIAGE-009 — Заморозить эффекты на игровой паузе
 
-Статус: `backlog` · P0 · этап `pilot` · `engineering`
+Статус: `ready` · P0 · этап `pilot` · `engineering`
 
 Рюкзак, шкаф, меню, фокус и редактор останавливают visual clock согласно политике; возврат не даёт скачка
 

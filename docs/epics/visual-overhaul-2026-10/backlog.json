@@ -3213,7 +3213,7 @@
       "id": "VFOLIAGE-004",
       "epic": "VFOLIAGE",
       "title": "Добавить отклонение от героя",
-      "status": "ready",
+      "status": "done",
       "priority": "P0",
       "phase": "pilot",
       "kind": "engineering",
@@ -3248,14 +3248,21 @@
         "confidence": "low",
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
-      "branch": "codex/vfoliage-004-visual-task",
-      "evidence": []
+      "branch": "codex/vfoliage-004-hero-contact",
+      "evidence": [
+        "docs/reports/visual-overhaul/vfoliage-004/README.md",
+        "docs/reports/visual-overhaul/vfoliage-004/summary.json",
+        "docs/reports/visual-overhaul/vfoliage-004/completion.json",
+        "docs/reports/visual-overhaul/vfoliage-004/native/source.json",
+        "wiki/articles/foliage-contact.md"
+      ],
+      "result": "0.0.313: восемь существующих пучков отклоняются от видимой стопы в радиусе 36; гладкое поле без нормализации, точный центр нулевой, корни неподвижны. Пауза, межтактовая поза, четыре стороны, физические stop/wall, offscreen/return, low/reduced/reference и QA-перенос проверены. Один target, две группы, прежние размещения и сохранения; индексы 0…7 прочитаны на GPU. 178 нативных случаев двух окон, 1424 нижние полосы, GPU/CPU RGBA побайтно, 108 положительных и 52 нулевых контроля; восемь lossless APNG. Профиль 1189/0, Python 20/0, architecture, игра 48986/0, Wiki 131/0 и браузер. Это не FPS/hardware/VMAP-003; скорость и восстановление остаются VFOLIAGE-005/006. Отчёт docs/reports/visual-overhaul/vfoliage-004/README.md; Git-base 785d1967."
     },
     {
       "id": "VFOLIAGE-005",
       "epic": "VFOLIAGE",
       "title": "Учитывать реальную скорость прохода",
-      "status": "backlog",
+      "status": "ready",
       "priority": "P0",
       "phase": "pilot",
       "kind": "engineering",
@@ -3423,7 +3430,7 @@
       "id": "VFOLIAGE-009",
       "epic": "VFOLIAGE",
       "title": "Заморозить эффекты на игровой паузе",
-      "status": "backlog",
+      "status": "ready",
       "priority": "P0",
       "phase": "pilot",
       "kind": "engineering",

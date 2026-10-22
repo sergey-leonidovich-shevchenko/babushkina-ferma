@@ -15,8 +15,8 @@ func _ready() -> void:
 
 ## Сохраняет автоматические игровые скриншоты после нескольких отрисованных кадров в режимах визуальной проверки.
 func _process(_delta: float) -> void:
-	preload("res://scripts/presentation/foliage_wind.gd").update(self)
 	if is_physics_processing() and PresentationPose.present(self,Engine.get_physics_interpolation_fraction()): queue_redraw()
+	preload("res://scripts/presentation/foliage_wind.gd").update(self)
 	GamePreviewController.process(self)
 ## Готовит безопасную витрину пяти рангов врагов, трёх угроз и максимального облика героя.
 func configure_enemy_levels_preview() -> void:

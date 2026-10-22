@@ -1,0 +1,29 @@
+{
+  "task": "VFOLIAGE-004",
+  "base_commit": "785d1967f2c9d1a56fc5b62c315144e0974e5fe8",
+  "hardware_input_accepted": false,
+  "performance_eligible": false,
+  "full_map_accepted": false,
+  "windows": {
+    "1152": {
+      "cases": 89,
+      "max_geometry_rgba": 0,
+      "fixed_root_bands": 712,
+      "positive_controls": 54,
+      "zero_controls": 26,
+      "motion_samples": 52,
+      "game_callbacks": 350,
+      "group_callbacks": 700
+    },
+    "1280": {
+      "cases": 89,
+      "max_geometry_rgba": 0,
+      "fixed_root_bands": 712,
+      "positive_controls": 54,
+      "zero_controls": 26,
+      "motion_samples": 52,
+      "game_callbacks": 350,
+      "group_callbacks": 700
+    }
+  }
+}
