@@ -919,6 +919,291 @@
           "goal": "Согласованная реализация: общее окно защиты после прямого урона, база 1,00 с и четыре ранга до 5 с; без продления отказами, с отдельными правилами продолжающихся статусов."
         }
       ]
+    },
+    {
+      "id": "perk-progression",
+      "title": "Общий кошелёк и дерево перков",
+      "format": "markdown",
+      "group": "gameplay",
+      "expected": 12,
+      "epics": [
+        {
+          "id": "PERK",
+          "title": "Одно очко за уровень и дерево развития",
+          "file": "docs/epics/perk-progression/TASKS.md",
+          "goal": "Согласованное развитие: 18 направлений, один кошелёк, безопасный сброс и сохранность нынешних рангов. 122 узла, новые перки в собственных тематических эпиках."
+        }
+      ]
+    },
+    {
+      "id": "perks-strength",
+      "title": "Перки: Сила и стойкость",
+      "format": "markdown",
+      "group": "group-b0bd95e1",
+      "expected": 1,
+      "epics": [
+        {
+          "id": "PERK-STRENGTH",
+          "title": "Перки: Сила и стойкость",
+          "file": "docs/epics/perk-progression/branches/strength/TASKS.md",
+          "goal": "Сила и стойкость: 1 новый перк; CombatSystem / TalentSystem / SkillSystem. Текущий бой и HURT; без нового XP за полученный урон. Согласованный план, не готовая реализация."
+        }
+      ]
+    },
+    {
+      "id": "perks-blade",
+      "title": "Перки: Мечи и одноручное оружие",
+      "format": "markdown",
+      "group": "group-b0bd95e1",
+      "expected": 7,
+      "epics": [
+        {
+          "id": "PERK-BLADE",
+          "title": "Перки: Мечи и одноручное оружие",
+          "file": "docs/epics/perk-progression/branches/blade/TASKS.md",
+          "goal": "Мечи и одноручное оружие: 7 новых перков; WeaponSystem / PlayerAttackSystem. Классы оружия и сильные атаки; реальные контакты вместо увеличения радиуса картинки. Согласованный план, не готовая реализация."
+        }
+      ]
+    },
+    {
+      "id": "perks-heavy",
+      "title": "Перки: Тяжёлое оружие",
+      "format": "markdown",
+      "group": "group-b0bd95e1",
+      "expected": 5,
+      "epics": [
+        {
+          "id": "PERK-HEAVY",
+          "title": "Перки: Тяжёлое оружие",
+          "file": "docs/epics/perk-progression/branches/heavy/TASKS.md",
+          "goal": "Тяжёлое оружие: 5 новых перков; WeaponSystem / CombatSystem. Утверждённые классы молота/двуручного оружия; не считать каждый меч двуручным. Согласованный план, не готовая реализация."
+        }
+      ]
+    },
+    {
+      "id": "perks-archery",
+      "title": "Перки: Стрельба из лука",
+      "format": "markdown",
+      "group": "group-b0bd95e1",
+      "expected": 8,
+      "epics": [
+        {
+          "id": "PERK-ARCHERY",
+          "title": "Перки: Стрельба из лука",
+          "file": "docs/epics/perk-progression/branches/archery/TASKS.md",
+          "goal": "Стрельба из лука: 8 новых перков; WeaponSystem / PlayerProjectileSystem. Настоящие стрелы, коллизии и PACK для возврата расходников. Согласованный план, не готовая реализация."
+        }
+      ]
+    },
+    {
+      "id": "perks-defense",
+      "title": "Перки: Щит и броня",
+      "format": "markdown",
+      "group": "group-b0bd95e1",
+      "expected": 8,
+      "epics": [
+        {
+          "id": "PERK-DEFENSE",
+          "title": "Перки: Щит и броня",
+          "file": "docs/epics/perk-progression/branches/defense/TASKS.md",
+          "goal": "Щит и броня: 8 новых перков; CombatSystem / InventorySystem. Метки лёгкой/тяжёлой брони и фронта щита; прямой и периодический урон раздельны. Согласованный план, не готовая реализация."
+        }
+      ]
+    },
+    {
+      "id": "perks-stealth",
+      "title": "Перки: Скрытность",
+      "format": "markdown",
+      "group": "group-228fed01",
+      "expected": 8,
+      "epics": [
+        {
+          "id": "PERK-STEALTH",
+          "title": "Перки: Скрытность",
+          "file": "docs/epics/perk-progression/branches/stealth/TASKS.md",
+          "goal": "Скрытность: 8 новых перков; Новый общий владелец обнаружения + Navigation/Combat. Нужны состояния незаметен/подозрение/поиск/бой, линия зрения, шум и читаемый HUD. Согласованный план, не готовая реализация."
+        }
+      ]
+    },
+    {
+      "id": "perks-locks",
+      "title": "Перки: Замки и ловкость рук",
+      "format": "markdown",
+      "group": "group-228fed01",
+      "expected": 6,
+      "epics": [
+        {
+          "id": "PERK-LOCKS",
+          "title": "Перки: Замки и ловкость рук",
+          "file": "docs/epics/perk-progression/branches/locks/TASKS.md",
+          "goal": "Замки и ловкость рук: 6 новых перков; Новый владелец замка/взятия + Inventory. Подлинные ключевые двери, охрана и владение предметом; нет обхода сюжета. Согласованный план, не готовая реализация."
+        }
+      ]
+    },
+    {
+      "id": "perks-smithing",
+      "title": "Перки: Кузнечное дело и ремесло",
+      "format": "markdown",
+      "group": "group-4d504b08",
+      "expected": 4,
+      "epics": [
+        {
+          "id": "PERK-SMITHING",
+          "title": "Перки: Кузнечное дело и ремесло",
+          "file": "docs/epics/perk-progression/branches/smithing/TASKS.md",
+          "goal": "Кузнечное дело и ремесло: 4 новых перка; ForgeSystem / Crafting / TalentSystem. Единый рецепт и экземпляр PACK/ENCHANT; старые доступы не отнимать. Согласованный план, не готовая реализация."
+        }
+      ]
+    },
+    {
+      "id": "perks-cooking",
+      "title": "Перки: Готовка",
+      "format": "markdown",
+      "group": "group-4d504b08",
+      "expected": 5,
+      "epics": [
+        {
+          "id": "PERK-COOKING",
+          "title": "Перки: Готовка",
+          "file": "docs/epics/perk-progression/branches/cooking/TASKS.md",
+          "goal": "Готовка: 5 новых перков; Владелец еды и обычного рецепта. Блюдо, еда работников/отношений и будущий холод остаются у своих владельцев. Согласованный план, не готовая реализация."
+        }
+      ]
+    },
+    {
+      "id": "perks-alchemy",
+      "title": "Перки: Алхимия",
+      "format": "markdown",
+      "group": "items-equipment",
+      "expected": 5,
+      "epics": [
+        {
+          "id": "PERK-ALCHEMY",
+          "title": "Перки: Алхимия",
+          "file": "docs/epics/perk-progression/branches/alchemy/TASKS.md",
+          "goal": "Алхимия: 5 новых перков; AlchemySystem / Inventory / Status. Формулы, яды и бутылки проверяет владелец; не вводить цикл усиления зачарований. Согласованный план, не готовая реализация."
+        }
+      ]
+    },
+    {
+      "id": "perks-staff",
+      "title": "Перки: Владение посохом",
+      "format": "markdown",
+      "group": "group-b0bd95e1",
+      "expected": 6,
+      "epics": [
+        {
+          "id": "PERK-STAFF",
+          "title": "Перки: Владение посохом",
+          "file": "docs/epics/perk-progression/branches/staff/TASKS.md",
+          "goal": "Владение посохом: 6 новых перков; WeaponSystem / SpellSystem. moon_staff как нынешний класс оружия; отдельная школа без второй шкалы заряда. Согласованный план, не готовая реализация."
+        }
+      ]
+    },
+    {
+      "id": "perks-magic",
+      "title": "Перки: Боевая магия",
+      "format": "markdown",
+      "group": "group-b0bd95e1",
+      "expected": 6,
+      "epics": [
+        {
+          "id": "PERK-MAGIC",
+          "title": "Перки: Боевая магия",
+          "file": "docs/epics/perk-progression/branches/magic/TASKS.md",
+          "goal": "Боевая магия: 6 новых перков; SpellSystem / CombatSystem. Три действующих заклинания и поэтапно новые стихии; эффект не выдаётся до появления владельца. Согласованный план, не готовая реализация."
+        }
+      ]
+    },
+    {
+      "id": "perks-ward",
+      "title": "Перки: Защита, лечение и иллюзии",
+      "format": "markdown",
+      "group": "group-b0bd95e1",
+      "expected": 6,
+      "epics": [
+        {
+          "id": "PERK-WARD",
+          "title": "Перки: Защита, лечение и иллюзии",
+          "file": "docs/epics/perk-progression/branches/ward/TASKS.md",
+          "goal": "Защита, лечение и иллюзии: 6 новых перков; SpellSystem / Damage / AI. Новые защитные/иллюзорные действия требуют своего принятого определения. Согласованный план, не готовая реализация."
+        }
+      ]
+    },
+    {
+      "id": "perks-summon",
+      "title": "Перки: Призыв и зачарования",
+      "format": "markdown",
+      "group": "group-b0bd95e1",
+      "expected": 6,
+      "epics": [
+        {
+          "id": "PERK-SUMMON",
+          "title": "Перки: Призыв и зачарования",
+          "file": "docs/epics/perk-progression/branches/summon/TASKS.md",
+          "goal": "Призыв и зачарования: 6 новых перков; Companion / Spell / ENCHANT. Общий лимит боевых помощников и экземпляры ENCHANT; второго владельца вставок нет. Согласованный план, не готовая реализация."
+        }
+      ]
+    },
+    {
+      "id": "perks-speech",
+      "title": "Перки: Торговля и речь",
+      "format": "markdown",
+      "group": "trade-services",
+      "expected": 6,
+      "epics": [
+        {
+          "id": "PERK-SPEECH",
+          "title": "Перки: Торговля и речь",
+          "file": "docs/epics/perk-progression/branches/speech/TASKS.md",
+          "goal": "Торговля и речь: 6 новых перков; Merchant / Quest / FAIR. Транзакция с подтверждением, недельный выкуп и запрет торговли без места сохраняются. Согласованный план, не готовая реализация."
+        }
+      ]
+    },
+    {
+      "id": "perks-leadership",
+      "title": "Перки: Лидерство",
+      "format": "markdown",
+      "group": "group-2f98c889",
+      "expected": 4,
+      "epics": [
+        {
+          "id": "PERK-LEADERSHIP",
+          "title": "Перки: Лидерство",
+          "file": "docs/epics/perk-progression/branches/leadership/TASKS.md",
+          "goal": "Лидерство: 4 новых перка; SkillSystem / CompanionSystem. Команды и инвентарь спутника остаются базовыми; новые перки не дают третьего спутника. Согласованный план, не готовая реализация."
+        }
+      ]
+    },
+    {
+      "id": "perks-farmfish",
+      "title": "Перки: Земледелие и рыбалка",
+      "format": "markdown",
+      "group": "farm-garden",
+      "expected": 2,
+      "epics": [
+        {
+          "id": "PERK-FARMFISH",
+          "title": "Перки: Земледелие и рыбалка",
+          "file": "docs/epics/perk-progression/branches/farmfish/TASKS.md",
+          "goal": "Земледелие и рыбалка: 2 новых перка; Crop / Fishing / TalentSystem. Сохранить прежние сезонность, улов и индивидуальные ID. Согласованный план, не готовая реализация."
+        }
+      ]
+    },
+    {
+      "id": "perks-backpack",
+      "title": "Перки: Рюкзак и поход",
+      "format": "markdown",
+      "group": "items-equipment",
+      "expected": 4,
+      "epics": [
+        {
+          "id": "PERK-BACKPACK",
+          "title": "Перки: Рюкзак и поход",
+          "file": "docs/epics/perk-progression/branches/backpack/TASKS.md",
+          "goal": "Рюкзак и поход: 4 новых перка; InventoryState / PACK / CAMP. Вместимость 60/72/84/96/108 через единый PACK, стаки 999, никакого обязательного ручного подбора. Согласованный план, не готовая реализация."
+        }
+      ]
     }
   ],
   "queues": [

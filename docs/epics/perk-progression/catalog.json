@@ -1,0 +1,2727 @@
+{
+  "schema": 1,
+  "kind": "design-only",
+  "branches": [
+    {
+      "id": "strength",
+      "title": "Сила и стойкость",
+      "owner": "CombatSystem / TalentSystem / SkillSystem",
+      "needs": "Текущий бой и HURT; без нового XP за полученный урон",
+      "nodes": [
+        {
+          "id": "skill:vitality",
+          "title": "Здоровье",
+          "rule": "Сохранить нынешние +10 max HP за ручной ранг и прежние вложения; покупка из общего кошелька.",
+          "requires": [],
+          "max_rank": null,
+          "status": "current",
+          "hero_levels": [],
+          "cost_per_rank": 1,
+          "branch": "strength"
+        },
+        {
+          "id": "skill:stamina",
+          "title": "Запас сил",
+          "rule": "Сохранить нынешние +2 силы за ручной ранг; не выдавать второй бонус при открытии экрана.",
+          "requires": [],
+          "max_rank": null,
+          "status": "current",
+          "hero_levels": [],
+          "cost_per_rank": 1,
+          "branch": "strength"
+        },
+        {
+          "id": "combat_strength",
+          "title": "Сила",
+          "rule": "Нынешние +1 урона за ранг. Не создавать вторую силу поверх этого ID.",
+          "requires": [],
+          "max_rank": 3,
+          "status": "current",
+          "hero_levels": [],
+          "cost_per_rank": 1,
+          "branch": "strength"
+        },
+        {
+          "id": "combat_agility",
+          "title": "Ловкость",
+          "rule": "Нынешние +4% скорости движения за ранг; не ограничивать эффект только скрытностью.",
+          "requires": [],
+          "max_rank": 3,
+          "status": "current",
+          "hero_levels": [],
+          "cost_per_rank": 1,
+          "branch": "strength"
+        },
+        {
+          "id": "combat_vitality",
+          "title": "Закалка",
+          "rule": "Нынешние +10 max HP за ранг, родитель Сила.",
+          "requires": [
+            "combat_strength"
+          ],
+          "max_rank": 3,
+          "status": "current",
+          "hero_levels": [],
+          "cost_per_rank": 1,
+          "branch": "strength"
+        },
+        {
+          "id": "combat_power_strike",
+          "title": "Мощный удар",
+          "rule": "Сохранить нынешние +2 урона на каждом четвёртом настоящем попадании.",
+          "requires": [
+            "combat_strength"
+          ],
+          "max_rank": 1,
+          "status": "current",
+          "hero_levels": [],
+          "cost_per_rank": 1,
+          "branch": "strength"
+        },
+        {
+          "id": "combat_master",
+          "title": "Мастер боя",
+          "rule": "Сохранить нынешние +1 урона и +10% скорости после двух прежних родителей.",
+          "requires": [
+            "combat_agility",
+            "combat_power_strike"
+          ],
+          "max_rank": 1,
+          "status": "current",
+          "hero_levels": [],
+          "cost_per_rank": 1,
+          "branch": "strength"
+        },
+        {
+          "id": "combat_recovery",
+          "title": "Выдержка",
+          "rule": "Общее окно HURT: база 1 с, ранги 2/3/4/5 с; не продлевается отказами, не отключает продолжающийся урон.",
+          "requires": [
+            "combat_vitality"
+          ],
+          "max_rank": 4,
+          "status": "planned",
+          "hero_levels": [
+            4,
+            8,
+            13,
+            18
+          ],
+          "cost_per_rank": 1,
+          "task": "HURT-04",
+          "task_key": "hurt-recovery--HURT-04",
+          "branch": "strength"
+        },
+        {
+          "id": "strength_brace",
+          "title": "Крепкая опора",
+          "rule": "Принятое отталкивание меньше на 25%; стена/вода остаются непроходимы, длительность HURT и боли не меняется.",
+          "requires": [
+            "combat_vitality"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-STRENGTH-01",
+          "task_key": "perks-strength--PERK-STRENGTH-01",
+          "branch": "strength",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-04",
+            "HURT-01"
+          ]
+        }
+      ],
+      "plan": "perks-strength",
+      "epic": "PERK-STRENGTH",
+      "group": "group-b0bd95e1"
+    },
+    {
+      "id": "blade",
+      "title": "Мечи и одноручное оружие",
+      "owner": "WeaponSystem / PlayerAttackSystem",
+      "needs": "Классы оружия и сильные атаки; реальные контакты вместо увеличения радиуса картинки",
+      "nodes": [
+        {
+          "id": "blade_training",
+          "title": "Знакомый клинок",
+          "rule": "Урон одноручного меча +10/20/30% по рангу после плоских бонусов; округление один раз, не действует на лук/посох.",
+          "requires": [],
+          "max_rank": 3,
+          "status": "planned",
+          "hero_levels": [
+            2,
+            7,
+            13
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-BLADE-01",
+          "task_key": "perks-blade--PERK-BLADE-01",
+          "branch": "blade",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-04"
+          ]
+        },
+        {
+          "id": "blade_stance",
+          "title": "Экономный замах",
+          "rule": "Сильная атака мечом тратит на 1 силу меньше, минимум 1; обычный удар не становится источником силы.",
+          "requires": [
+            "blade_training"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-BLADE-02",
+          "task_key": "perks-blade--PERK-BLADE-02",
+          "branch": "blade",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-04",
+            "PERK-BLADE-01"
+          ]
+        },
+        {
+          "id": "blade_counter",
+          "title": "Ответный рез",
+          "rule": "После настоящего точного блока следующий удар мечом за 1 с получает +2 урона; заряд один, повтор не чаще 3 с.",
+          "requires": [
+            "blade_stance",
+            "guard_timing"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            11
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-BLADE-03",
+          "task_key": "perks-blade--PERK-BLADE-03",
+          "branch": "blade",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-04",
+            "PERK-BLADE-02",
+            "PERK-DEFENSE-02"
+          ]
+        },
+        {
+          "id": "blade_lunge",
+          "title": "Шаг с клинком",
+          "rule": "Сильный удар с шагом вперёд до одной клетки за 2 силы; стены проверяются, промах не возвращает цену.",
+          "requires": [
+            "blade_stance"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-BLADE-04",
+          "task_key": "perks-blade--PERK-BLADE-04",
+          "branch": "blade",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-04",
+            "PERK-BLADE-02"
+          ]
+        },
+        {
+          "id": "blade_bleed",
+          "title": "Рваный порез",
+          "rule": "Каждый третий реальный удар по живой уязвимой цели даёт 1 HP в секунду на 3 с; один эффект, нежить/механизмы устойчивы.",
+          "requires": [
+            "blade_training"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            11
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-BLADE-05",
+          "task_key": "perks-blade--PERK-BLADE-05",
+          "branch": "blade",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-04",
+            "PERK-BLADE-01"
+          ]
+        },
+        {
+          "id": "blade_dual",
+          "title": "Парные клинки",
+          "rule": "Открыть отдельную стойку двух совместимых лёгких клинков: чередование рук, -10% recovery; щит в этой стойке недоступен.",
+          "requires": [
+            "blade_training"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            11
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-BLADE-06",
+          "task_key": "perks-blade--PERK-BLADE-06",
+          "branch": "blade",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-04",
+            "PERK-BLADE-01"
+          ]
+        },
+        {
+          "id": "blade_disarm",
+          "title": "Сбить оружие",
+          "rule": "Успешный ответный сильный удар задерживает следующую оружейную атаку обычного врага на 1,5 с; CD 8 с, боссу 0,3 с; предмет не дублируется в лут.",
+          "requires": [
+            "blade_counter"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            18
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-BLADE-07",
+          "task_key": "perks-blade--PERK-BLADE-07",
+          "branch": "blade",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-04",
+            "PERK-BLADE-03"
+          ]
+        }
+      ],
+      "plan": "perks-blade",
+      "epic": "PERK-BLADE",
+      "group": "group-b0bd95e1"
+    },
+    {
+      "id": "heavy",
+      "title": "Тяжёлое оружие",
+      "owner": "WeaponSystem / CombatSystem",
+      "needs": "Утверждённые классы молота/двуручного оружия; не считать каждый меч двуручным",
+      "nodes": [
+        {
+          "id": "heavy_training",
+          "title": "Тяжёлый хват",
+          "rule": "Молот/двуручное оружие получает +10/20/30% урона, один расчёт класса и округления.",
+          "requires": [],
+          "max_rank": 3,
+          "status": "planned",
+          "hero_levels": [
+            2,
+            7,
+            13
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-HEAVY-01",
+          "task_key": "perks-heavy--PERK-HEAVY-01",
+          "branch": "heavy",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-04"
+          ]
+        },
+        {
+          "id": "heavy_fracture",
+          "title": "Расшатать защиту",
+          "rule": "Сильное попадание временно уменьшает броню цели на 20% на 4 с; не складывается, итоговая защита не отрицательная.",
+          "requires": [
+            "heavy_training"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-HEAVY-02",
+          "task_key": "perks-heavy--PERK-HEAVY-02",
+          "branch": "heavy",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-04",
+            "PERK-HEAVY-01"
+          ]
+        },
+        {
+          "id": "heavy_sweep",
+          "title": "Широкий взмах",
+          "rule": "Сильная дуга бьёт до трёх разных целей: основная 100%, две вторичные 60%; стены и один ID атаки соблюдаются.",
+          "requires": [
+            "heavy_fracture"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            11
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-HEAVY-03",
+          "task_key": "perks-heavy--PERK-HEAVY-03",
+          "branch": "heavy",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-04",
+            "PERK-HEAVY-02"
+          ]
+        },
+        {
+          "id": "heavy_dash",
+          "title": "Разбег с молотом",
+          "rule": "После 1 с настоящего бега сильная атака +2 урона за +1 силу; перемещение меню/телепортом не заряжает её.",
+          "requires": [
+            "heavy_training"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-HEAVY-04",
+          "task_key": "perks-heavy--PERK-HEAVY-04",
+          "branch": "heavy",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-04",
+            "PERK-HEAVY-01"
+          ]
+        },
+        {
+          "id": "heavy_finish",
+          "title": "Опрокидывающий удар",
+          "rule": "По обычной цели ниже 25% HP сильное попадание даёт 0,6 с stagger; CD 8 с; босс только коротко замедляет следующую атаку.",
+          "requires": [
+            "heavy_sweep"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            18
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-HEAVY-05",
+          "task_key": "perks-heavy--PERK-HEAVY-05",
+          "branch": "heavy",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-04",
+            "PERK-HEAVY-03"
+          ]
+        }
+      ],
+      "plan": "perks-heavy",
+      "epic": "PERK-HEAVY",
+      "group": "group-b0bd95e1"
+    },
+    {
+      "id": "archery",
+      "title": "Стрельба из лука",
+      "owner": "WeaponSystem / PlayerProjectileSystem",
+      "needs": "Настоящие стрелы, коллизии и PACK для возврата расходников",
+      "nodes": [
+        {
+          "id": "bow_training",
+          "title": "Натяжение",
+          "rule": "Урон обычной стрелы +10/20/30%; лук и боеприпас имеют один расчёт, зачарование не умножается отдельно.",
+          "requires": [],
+          "max_rank": 3,
+          "status": "planned",
+          "hero_levels": [
+            2,
+            7,
+            13
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-ARCHERY-01",
+          "task_key": "perks-archery--PERK-ARCHERY-01",
+          "branch": "archery",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-04"
+          ]
+        },
+        {
+          "id": "bow_aim",
+          "title": "Ровная мушка",
+          "rule": "Удержание прицела 0,5 с показывает ограниченный прогноз направления до первой стены; не раскрывает скрытых врагов.",
+          "requires": [
+            "bow_training"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-ARCHERY-02",
+          "task_key": "perks-archery--PERK-ARCHERY-02",
+          "branch": "archery",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-04",
+            "PERK-ARCHERY-01"
+          ]
+        },
+        {
+          "id": "bow_quickdraw",
+          "title": "Быстрая тетива",
+          "rule": "Подготовка стрелы короче на 15%; контакт и расход ровно одной стрелы остаются общими.",
+          "requires": [
+            "bow_training"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-ARCHERY-03",
+          "task_key": "perks-archery--PERK-ARCHERY-03",
+          "branch": "archery",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-04",
+            "PERK-ARCHERY-01"
+          ]
+        },
+        {
+          "id": "bow_stride",
+          "title": "Подвижный стрелок",
+          "rule": "Скорость ходьбы при натянутом луке +25% относительно обычного штрафа прицеливания; не быстрее свободного бега.",
+          "requires": [
+            "bow_aim"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            11
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-ARCHERY-04",
+          "task_key": "perks-archery--PERK-ARCHERY-04",
+          "branch": "archery",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-04",
+            "PERK-ARCHERY-02"
+          ]
+        },
+        {
+          "id": "bow_stop",
+          "title": "Остановить натиск",
+          "rule": "Каждая третья попавшая стрела даёт обычной цели 0,3 с stagger; боссу 0,1 с, общий CD контроля не менее 3 с.",
+          "requires": [
+            "bow_training"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            11
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-ARCHERY-05",
+          "task_key": "perks-archery--PERK-ARCHERY-05",
+          "branch": "archery",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-04",
+            "PERK-ARCHERY-01"
+          ]
+        },
+        {
+          "id": "bow_recover",
+          "title": "Сохранить стрелу",
+          "rule": "При завершении поражённой цели 50% шанс вернуть одну именно выпущенную обычную стрелу; один roll на её ID, нет копии зачарованного расходника.",
+          "requires": [
+            "bow_aim"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-ARCHERY-06",
+          "task_key": "perks-archery--PERK-ARCHERY-06",
+          "branch": "archery",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-04",
+            "PERK-ARCHERY-02"
+          ]
+        },
+        {
+          "id": "bow_precision",
+          "title": "Прицельная серия",
+          "rule": "Каждое четвёртое настоящее попадание луком +2 урона; промахи не увеличивают серию, перк Мощный удар не даёт ещё одну серию на вторичной цели.",
+          "requires": [
+            "bow_training"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            11
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-ARCHERY-07",
+          "task_key": "perks-archery--PERK-ARCHERY-07",
+          "branch": "archery",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-04",
+            "PERK-ARCHERY-01"
+          ]
+        },
+        {
+          "id": "bow_pierce",
+          "title": "Сквозной выстрел",
+          "rule": "Стрела может пройти одну обычную цель и нанести следующей 50% исходного урона; максимум два контакта, стену не пробивает, proc не повторяется.",
+          "requires": [
+            "bow_stop",
+            "bow_precision"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            18
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-ARCHERY-08",
+          "task_key": "perks-archery--PERK-ARCHERY-08",
+          "branch": "archery",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-04",
+            "PERK-ARCHERY-05",
+            "PERK-ARCHERY-07"
+          ]
+        }
+      ],
+      "plan": "perks-archery",
+      "epic": "PERK-ARCHERY",
+      "group": "group-b0bd95e1"
+    },
+    {
+      "id": "defense",
+      "title": "Щит и броня",
+      "owner": "CombatSystem / InventorySystem",
+      "needs": "Метки лёгкой/тяжёлой брони и фронта щита; прямой и периодический урон раздельны",
+      "nodes": [
+        {
+          "id": "guard_training",
+          "title": "Прочная защита",
+          "rule": "Положительный урон после обычного блока умножается на 0,40 вместо нынешних 0,45; минимум и сила по общему правилу.",
+          "requires": [],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            2
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-DEFENSE-01",
+          "task_key": "perks-defense--PERK-DEFENSE-01",
+          "branch": "defense",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-04"
+          ]
+        },
+        {
+          "id": "guard_timing",
+          "title": "Точный блок",
+          "rule": "Первые 0,18 с поднятого щита дают точный блок direct: половина обычного урона блока и возможность контратаки; не новый бесплатный HURT.",
+          "requires": [
+            "guard_training"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-DEFENSE-02",
+          "task_key": "perks-defense--PERK-DEFENSE-02",
+          "branch": "defense",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-04",
+            "PERK-DEFENSE-01"
+          ]
+        },
+        {
+          "id": "guard_arrow",
+          "title": "Отвести стрелу",
+          "rule": "Один фронтальный обычный снаряд при точном блоке полностью отклоняется; CD 2 с, сила тратится один раз, задняя стрела не защищена.",
+          "requires": [
+            "guard_timing"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            11
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-DEFENSE-03",
+          "task_key": "perks-defense--PERK-DEFENSE-03",
+          "branch": "defense",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-04",
+            "PERK-DEFENSE-02"
+          ]
+        },
+        {
+          "id": "guard_element",
+          "title": "Стихийный заслон",
+          "rule": "Фронтальная магическая direct-атака под щитом слабее на 25%; действующий яд/горение/холод не отменяется.",
+          "requires": [
+            "guard_training"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            11
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-DEFENSE-04",
+          "task_key": "perks-defense--PERK-DEFENSE-04",
+          "branch": "defense",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-04",
+            "PERK-DEFENSE-01"
+          ]
+        },
+        {
+          "id": "guard_bash",
+          "title": "Толчок щитом",
+          "rule": "Новая атака щитом в одной клетке за 2 силы, CD 2 с; сбивает обычный замах, босс имеет явную устойчивость.",
+          "requires": [
+            "guard_training"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-DEFENSE-05",
+          "task_key": "perks-defense--PERK-DEFENSE-05",
+          "branch": "defense",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-04",
+            "PERK-DEFENSE-01"
+          ]
+        },
+        {
+          "id": "armor_light",
+          "title": "Лёгкая оснастка",
+          "rule": "При принятом лёгком комплекте восстановление силы быстрее на 15%; замена одной части снимает только этот бонус.",
+          "requires": [],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-DEFENSE-06",
+          "task_key": "perks-defense--PERK-DEFENSE-06",
+          "branch": "defense",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-04"
+          ]
+        },
+        {
+          "id": "armor_heavy",
+          "title": "Тяжёлая опора",
+          "rule": "При принятом тяжёлом комплекте отталкивание короче на 30%; с Крепкой опорой общий предел снижения 50%, HURT не растёт.",
+          "requires": [],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-DEFENSE-07",
+          "task_key": "perks-defense--PERK-DEFENSE-07",
+          "branch": "defense",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-04"
+          ]
+        },
+        {
+          "id": "guard_reflect",
+          "title": "Ответ доспеха",
+          "rule": "После принятого direct-контакта вернуть атакующему 10% действительно снятого HP, минимум 1; CD 5 с, отражение не отражается и не вызывает новые проки.",
+          "requires": [
+            "armor_heavy",
+            "guard_timing"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            18
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-DEFENSE-08",
+          "task_key": "perks-defense--PERK-DEFENSE-08",
+          "branch": "defense",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-04",
+            "PERK-DEFENSE-07",
+            "PERK-DEFENSE-02"
+          ]
+        }
+      ],
+      "plan": "perks-defense",
+      "epic": "PERK-DEFENSE",
+      "group": "group-b0bd95e1"
+    },
+    {
+      "id": "stealth",
+      "title": "Скрытность",
+      "owner": "Новый общий владелец обнаружения + Navigation/Combat",
+      "needs": "Нужны состояния незаметен/подозрение/поиск/бой, линия зрения, шум и читаемый HUD",
+      "nodes": [
+        {
+          "id": "sneak_step",
+          "title": "Мягкая поступь",
+          "rule": "В режиме крадущегося движения радиус шагового шума меньше на 25%; стены и прямая видимость не исчезают.",
+          "requires": [],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            2
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-STEALTH-01",
+          "task_key": "perks-stealth--PERK-STEALTH-01",
+          "branch": "stealth",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-05"
+          ]
+        },
+        {
+          "id": "sneak_shadow",
+          "title": "Пользоваться тенью",
+          "rule": "В реально затемнённой точке накопление зрительного обнаружения медленнее на 25%; визуальная тень без игровой метки не достаточна.",
+          "requires": [
+            "sneak_step"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-STEALTH-02",
+          "task_key": "perks-stealth--PERK-STEALTH-02",
+          "branch": "stealth",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-05",
+            "PERK-STEALTH-01"
+          ]
+        },
+        {
+          "id": "sneak_escape",
+          "title": "Потеряться из виду",
+          "rule": "После 2 с вне зрения быстрее на 25% убывает поиск обычных врагов; приседание перед лицом не сбрасывает бой.",
+          "requires": [
+            "sneak_shadow"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            11
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-STEALTH-03",
+          "task_key": "perks-stealth--PERK-STEALTH-03",
+          "branch": "stealth",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-05",
+            "PERK-STEALTH-02"
+          ]
+        },
+        {
+          "id": "sneak_blade",
+          "title": "Удар из укрытия",
+          "rule": "Первое попадание клинком по не заметившей героя цели +50% урона; один бонус за встречу, босс имеет явную отметку устойчивости.",
+          "requires": [
+            "sneak_step"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-STEALTH-04",
+          "task_key": "perks-stealth--PERK-STEALTH-04",
+          "branch": "stealth",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-05",
+            "PERK-STEALTH-01"
+          ]
+        },
+        {
+          "id": "sneak_bow",
+          "title": "Тихая засада",
+          "rule": "Первый выстрел по не заметившей героя цели +50% урона; момент выстрела раскрывает шум по правилам лука, не выдаёт серию бонусов.",
+          "requires": [
+            "sneak_step"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-STEALTH-05",
+          "task_key": "perks-stealth--PERK-STEALTH-05",
+          "branch": "stealth",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-05",
+            "PERK-STEALTH-01"
+          ]
+        },
+        {
+          "id": "sneak_plate",
+          "title": "Осторожная стопа",
+          "rule": "Крадучись можно не нажать помеченную обычную нажимную ловушку; нити, сюжетные плиты и весовые загадки не обходятся.",
+          "requires": [
+            "sneak_shadow"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            11
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-STEALTH-06",
+          "task_key": "perks-stealth--PERK-STEALTH-06",
+          "branch": "stealth",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-05",
+            "PERK-STEALTH-02"
+          ]
+        },
+        {
+          "id": "sneak_roll",
+          "title": "Тихий перекат",
+          "rule": "Текущий рывок в скрытности создаёт меньше шума на 50%; цена 2 силы и 0,32 с остаются, бессрочной невидимости нет.",
+          "requires": [
+            "sneak_step"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-STEALTH-07",
+          "task_key": "perks-stealth--PERK-STEALTH-07",
+          "branch": "stealth",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-05",
+            "PERK-STEALTH-01"
+          ]
+        },
+        {
+          "id": "sneak_cast",
+          "title": "Приглушённое заклинание",
+          "rule": "Шум разрешённого заклинания меньше на 75%; вспышку/попадание и прямую видимость перк не скрывает.",
+          "requires": [
+            "sneak_escape"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            18
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-STEALTH-08",
+          "task_key": "perks-stealth--PERK-STEALTH-08",
+          "branch": "stealth",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-05",
+            "PERK-STEALTH-03"
+          ]
+        }
+      ],
+      "plan": "perks-stealth",
+      "epic": "PERK-STEALTH",
+      "group": "group-228fed01"
+    },
+    {
+      "id": "locks",
+      "title": "Замки и ловкость рук",
+      "owner": "Новый владелец замка/взятия + Inventory",
+      "needs": "Подлинные ключевые двери, охрана и владение предметом; нет обхода сюжета",
+      "nodes": [
+        {
+          "id": "lock_training",
+          "title": "Чувствовать замок",
+          "rule": "Допуск обычного замка шире на 15%; ключевые сюжетные двери не становятся взламываемыми.",
+          "requires": [],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            2
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-LOCKS-01",
+          "task_key": "perks-locks--PERK-LOCKS-01",
+          "branch": "locks",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-06"
+          ]
+        },
+        {
+          "id": "lock_tools",
+          "title": "Бережные отмычки",
+          "rule": "Каждая вторая настоящая ошибка не расходует обычную отмычку; счётчик на сессию замка, загрузка не даёт новую попытку.",
+          "requires": [
+            "lock_training"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-LOCKS-02",
+          "task_key": "perks-locks--PERK-LOCKS-02",
+          "branch": "locks",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-06",
+            "PERK-LOCKS-01"
+          ]
+        },
+        {
+          "id": "lock_imprint",
+          "title": "Запомнить механизм",
+          "rule": "После первого успешного вскрытия обычного собственного замка повторное открытие без мини-игры; не создаёт сюжетный ключ и не работает на чужом новом замке.",
+          "requires": [
+            "lock_training"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-LOCKS-03",
+          "task_key": "perks-locks--PERK-LOCKS-03",
+          "branch": "locks",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-06",
+            "PERK-LOCKS-01"
+          ]
+        },
+        {
+          "id": "lock_coins",
+          "title": "Двойное дно",
+          "rule": "У обычного разрешённого сундука +10% монет при первом создании содержимого; повторное открытие и respec не перебрасывают добычу.",
+          "requires": [
+            "lock_training"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-LOCKS-04",
+          "task_key": "perks-locks--PERK-LOCKS-04",
+          "branch": "locks",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-06",
+            "PERK-LOCKS-01"
+          ]
+        },
+        {
+          "id": "lock_find",
+          "title": "Искатель редкостей",
+          "rule": "В специально разрешённых обычных тайниках +5 процентных пунктов шанса малого редкого предмета; не меняет уникальные награды/боссов.",
+          "requires": [
+            "lock_coins"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            18
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-LOCKS-05",
+          "task_key": "perks-locks--PERK-LOCKS-05",
+          "branch": "locks",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-06",
+            "PERK-LOCKS-04"
+          ]
+        },
+        {
+          "id": "hands_pickpocket",
+          "title": "Ловкие пальцы",
+          "rule": "Одна попытка взять обычный помеченный предмет у не заметившего героя противника; 1,5 с действия, шанс до 80% виден до подтверждения; ключи/экипировка/деньги сюжета защищены.",
+          "requires": [
+            "sneak_step",
+            "lock_training"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            11
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-LOCKS-06",
+          "task_key": "perks-locks--PERK-LOCKS-06",
+          "branch": "locks",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-06",
+            "PERK-STEALTH-01",
+            "PERK-LOCKS-01"
+          ]
+        }
+      ],
+      "plan": "perks-locks",
+      "epic": "PERK-LOCKS",
+      "group": "group-228fed01"
+    },
+    {
+      "id": "smithing",
+      "title": "Кузнечное дело и ремесло",
+      "owner": "ForgeSystem / Crafting / TalentSystem",
+      "needs": "Единый рецепт и экземпляр PACK/ENCHANT; старые доступы не отнимать",
+      "nodes": [
+        {
+          "id": "craft_apprentice",
+          "title": "Ученик мастера",
+          "rule": "Сохранить прежний доступ к сложным инструментам и устройствам.",
+          "requires": [],
+          "max_rank": 1,
+          "status": "current",
+          "hero_levels": [],
+          "cost_per_rank": 1,
+          "branch": "smithing"
+        },
+        {
+          "id": "craft_efficient",
+          "title": "Бережливость",
+          "rule": "Прежняя скидка материалов сложных рецептов по двум рангам; не переименовывать в новую копию.",
+          "requires": [
+            "craft_apprentice"
+          ],
+          "max_rank": 2,
+          "status": "current",
+          "hero_levels": [],
+          "cost_per_rank": 1,
+          "branch": "smithing"
+        },
+        {
+          "id": "craft_engineering",
+          "title": "Механизмы",
+          "rule": "Сохранить прежний доступ к механизмам и снаряжению.",
+          "requires": [
+            "craft_apprentice"
+          ],
+          "max_rank": 1,
+          "status": "current",
+          "hero_levels": [],
+          "cost_per_rank": 1,
+          "branch": "smithing"
+        },
+        {
+          "id": "craft_master",
+          "title": "Мастерская",
+          "rule": "Сохранить существующий дополнительный предмет каждого пятого крафта; один счётчик события.",
+          "requires": [
+            "craft_efficient",
+            "craft_engineering"
+          ],
+          "max_rank": 1,
+          "status": "current",
+          "hero_levels": [],
+          "cost_per_rank": 1,
+          "branch": "smithing"
+        },
+        {
+          "id": "smith_temper",
+          "title": "Точная закалка",
+          "rule": "У уже улучшенного до 3 уровня поддерживаемого клинка +1 урона, не четвёртый скрытый уровень кузницы.",
+          "requires": [
+            "craft_apprentice"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-SMITHING-01",
+          "task_key": "perks-smithing--PERK-SMITHING-01",
+          "branch": "smithing",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-04",
+            "PACK-11"
+          ]
+        },
+        {
+          "id": "smith_arcane",
+          "title": "Рунная ковка",
+          "rule": "Обычное улучшение предмета у кузницы сохраняет его законную вставку ENCHANT и индивидуальные свойства; не добавляет второго гнезда.",
+          "requires": [
+            "craft_apprentice"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            11
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-SMITHING-02",
+          "task_key": "perks-smithing--PERK-SMITHING-02",
+          "branch": "smithing",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-04",
+            "PACK-11",
+            "ENCHANT-02"
+          ]
+        },
+        {
+          "id": "smith_reclaim",
+          "title": "Разбор по швам",
+          "rule": "Разобрать обычный предмет с возвратом 30% фактически записанных затрат, округление вниз; квестовые/неизвестные расходы не порождают ресурсы.",
+          "requires": [
+            "craft_efficient"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-SMITHING-03",
+          "task_key": "perks-smithing--PERK-SMITHING-03",
+          "branch": "smithing",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-04",
+            "PACK-11"
+          ]
+        },
+        {
+          "id": "smith_fitting",
+          "title": "Подгонка мастера",
+          "rule": "Один выбор свойства экземпляра: +15% прочности либо -5% восстановления замаха; переподгонка заменяет свойство, без бесконечного сложения.",
+          "requires": [
+            "smith_temper",
+            "craft_engineering"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            18
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-SMITHING-04",
+          "task_key": "perks-smithing--PERK-SMITHING-04",
+          "branch": "smithing",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-04",
+            "PACK-11",
+            "PERK-SMITHING-01"
+          ]
+        }
+      ],
+      "plan": "perks-smithing",
+      "epic": "PERK-SMITHING",
+      "group": "group-4d504b08"
+    },
+    {
+      "id": "cooking",
+      "title": "Готовка",
+      "owner": "Владелец еды и обычного рецепта",
+      "needs": "Блюдо, еда работников/отношений и будущий холод остаются у своих владельцев",
+      "nodes": [
+        {
+          "id": "farm_cooking",
+          "title": "Домашняя кухня",
+          "rule": "Сохранить прежнее открытие готовки в установленном котелке; старый ID переезжает только в представлении.",
+          "requires": [],
+          "max_rank": 1,
+          "status": "current",
+          "hero_levels": [],
+          "cost_per_rank": 1,
+          "branch": "cooking"
+        },
+        {
+          "id": "cook_spices",
+          "title": "Точные специи",
+          "rule": "Положительный пищевой баф длится на 20% дольше; не усиливает зелья, яд или базовую покупку еды.",
+          "requires": [
+            "farm_cooking"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-COOKING-01",
+          "task_key": "perks-cooking--PERK-COOKING-01",
+          "branch": "cooking",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-09"
+          ]
+        },
+        {
+          "id": "cook_warm",
+          "title": "Горячий обед",
+          "rule": "Помеченное горячее блюдо возвращает дополнительно 10 тепла один раз; только после принятия холодного района, не замена тёплой одежде.",
+          "requires": [
+            "farm_cooking"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-COOKING-02",
+          "task_key": "perks-cooking--PERK-COOKING-02",
+          "branch": "cooking",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-09"
+          ]
+        },
+        {
+          "id": "cook_satisfying",
+          "title": "Сытная порция",
+          "rule": "При настоящем приёме приготовленной еды +1 сила до максимума; полная сила не даёт XP/предметов/нового события еды.",
+          "requires": [
+            "farm_cooking"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-COOKING-03",
+          "task_key": "perks-cooking--PERK-COOKING-03",
+          "branch": "cooking",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-09"
+          ]
+        },
+        {
+          "id": "cook_favorite",
+          "title": "По любимому рецепту",
+          "rule": "Любимое блюдо работника даёт +15% срока его принятого пищевого бонуса; порция, зарплата и разнообразие предпочтений сохраняются.",
+          "requires": [
+            "cook_spices"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            11
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-COOKING-04",
+          "task_key": "perks-cooking--PERK-COOKING-04",
+          "branch": "cooking",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-09",
+            "PERK-COOKING-01"
+          ]
+        },
+        {
+          "id": "cook_batch",
+          "title": "Общий котёл",
+          "rule": "Каждая четвёртая завершённая партия минимум трёх обычных одинаковых блюд даёт одну дополнительную порцию; не новая партия, учёт ровно один раз.",
+          "requires": [
+            "cook_spices",
+            "cook_satisfying"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            18
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-COOKING-05",
+          "task_key": "perks-cooking--PERK-COOKING-05",
+          "branch": "cooking",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-09",
+            "PERK-COOKING-01",
+            "PERK-COOKING-03"
+          ]
+        }
+      ],
+      "plan": "perks-cooking",
+      "epic": "PERK-COOKING",
+      "group": "group-4d504b08"
+    },
+    {
+      "id": "alchemy",
+      "title": "Алхимия",
+      "owner": "AlchemySystem / Inventory / Status",
+      "needs": "Формулы, яды и бутылки проверяет владелец; не вводить цикл усиления зачарований",
+      "nodes": [
+        {
+          "id": "craft_alchemy",
+          "title": "Алхимия",
+          "rule": "Прежнее открытие продвинутых зелий, прежний родитель craft_apprentice.",
+          "requires": [
+            "craft_apprentice"
+          ],
+          "max_rank": 1,
+          "status": "current",
+          "hero_levels": [],
+          "cost_per_rank": 1,
+          "branch": "alchemy"
+        },
+        {
+          "id": "alchemy_restorative",
+          "title": "Лечебная смесь",
+          "rule": "Восстанавливающая часть собственных зелий +15%; без бесконечного превышения max HP/маны/силы.",
+          "requires": [
+            "craft_alchemy"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-ALCHEMY-01",
+          "task_key": "perks-alchemy--PERK-ALCHEMY-01",
+          "branch": "alchemy",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-09"
+          ]
+        },
+        {
+          "id": "alchemy_gather",
+          "title": "Щадящий сбор",
+          "rule": "У первого сбора разрешённой дикой травы шанс 20% на одну дополнительную единицу; уникальная находка не удваивается, один roll экземпляра.",
+          "requires": [
+            "craft_alchemy"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-ALCHEMY-02",
+          "task_key": "perks-alchemy--PERK-ALCHEMY-02",
+          "branch": "alchemy",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-09"
+          ]
+        },
+        {
+          "id": "alchemy_coating",
+          "title": "Цепкая настойка",
+          "rule": "Одна обычная доза яда остаётся ещё на одно подтверждённое попадание; урон/время яда не складываются с размером стака.",
+          "requires": [
+            "craft_alchemy"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            11
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-ALCHEMY-03",
+          "task_key": "perks-alchemy--PERK-ALCHEMY-03",
+          "branch": "alchemy",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-09"
+          ]
+        },
+        {
+          "id": "alchemy_distill",
+          "title": "Чистая перегонка",
+          "rule": "Положительный временный эффект собственной смеси длится на 15% дольше; не умножать бесконечно через другой крафт.",
+          "requires": [
+            "alchemy_restorative"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            11
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-ALCHEMY-04",
+          "task_key": "perks-alchemy--PERK-ALCHEMY-04",
+          "branch": "alchemy",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-09",
+            "PERK-ALCHEMY-01"
+          ]
+        },
+        {
+          "id": "alchemy_bottle",
+          "title": "Сохранить склянку",
+          "rule": "После употребления смеси вернуть одну пустую бутылку, только если одна была физически вложена в рецепт; PACK принимает предмет либо оставляет непоместившуюся склянку мировым лутом; дублирования нет.",
+          "requires": [
+            "alchemy_distill"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            18
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-ALCHEMY-05",
+          "task_key": "perks-alchemy--PERK-ALCHEMY-05",
+          "branch": "alchemy",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-09",
+            "PERK-ALCHEMY-04"
+          ]
+        }
+      ],
+      "plan": "perks-alchemy",
+      "epic": "PERK-ALCHEMY",
+      "group": "items-equipment"
+    },
+    {
+      "id": "staff",
+      "title": "Владение посохом",
+      "owner": "WeaponSystem / SpellSystem",
+      "needs": "moon_staff как нынешний класс оружия; отдельная школа без второй шкалы заряда",
+      "nodes": [
+        {
+          "id": "staff_grip",
+          "title": "Хват проводника",
+          "rule": "Восстановление обычного замаха посохом короче на 10%; контакт не перескакивает через замах.",
+          "requires": [],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            2
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-STAFF-01",
+          "task_key": "perks-staff--PERK-STAFF-01",
+          "branch": "staff",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-07"
+          ]
+        },
+        {
+          "id": "staff_channel",
+          "title": "Проводник",
+          "rule": "Боевая магическая стрела при экипированном совместимом посохе +1 урона; лечение и чужие источники не увеличиваются.",
+          "requires": [
+            "staff_grip"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-STAFF-02",
+          "task_key": "perks-staff--PERK-STAFF-02",
+          "branch": "staff",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-07",
+            "PERK-STAFF-01"
+          ]
+        },
+        {
+          "id": "staff_range",
+          "title": "Дальний выпуск",
+          "rule": "Дальность совместимого заклинания посохом +20%; препятствия/видимость не отменяются.",
+          "requires": [
+            "staff_channel"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-STAFF-03",
+          "task_key": "perks-staff--PERK-STAFF-03",
+          "branch": "staff",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-07",
+            "PERK-STAFF-02"
+          ]
+        },
+        {
+          "id": "staff_thrift",
+          "title": "Экономный проводник",
+          "rule": "Совместимое заклинание через посох стоит на 1 ману меньше, минимум 1; все скидки считаются вместе один раз.",
+          "requires": [
+            "staff_channel"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            11
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-STAFF-04",
+          "task_key": "perks-staff--PERK-STAFF-04",
+          "branch": "staff",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-07",
+            "PERK-STAFF-02"
+          ]
+        },
+        {
+          "id": "staff_sweep",
+          "title": "Опорный взмах",
+          "rule": "Сильное попадание посохом толкает обычную цель до одной клетки по проверенной земле; CD 4 с, нельзя через стену/воду.",
+          "requires": [
+            "staff_grip"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-STAFF-05",
+          "task_key": "perks-staff--PERK-STAFF-05",
+          "branch": "staff",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-07",
+            "PERK-STAFF-01"
+          ]
+        },
+        {
+          "id": "staff_guard",
+          "title": "Посох-страж",
+          "rule": "После 0,8 с неподвижной стойки можно отклонить один фронтальный слабый снаряд; цена 2 маны и CD 6 с, без дополнительного окна HURT.",
+          "requires": [
+            "staff_thrift",
+            "staff_sweep"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            18
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-STAFF-06",
+          "task_key": "perks-staff--PERK-STAFF-06",
+          "branch": "staff",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-07",
+            "PERK-STAFF-04",
+            "PERK-STAFF-05"
+          ]
+        }
+      ],
+      "plan": "perks-staff",
+      "epic": "PERK-STAFF",
+      "group": "group-b0bd95e1"
+    },
+    {
+      "id": "magic",
+      "title": "Боевая магия",
+      "owner": "SpellSystem / CombatSystem",
+      "needs": "Три действующих заклинания и поэтапно новые стихии; эффект не выдаётся до появления владельца",
+      "nodes": [
+        {
+          "id": "skill:mana",
+          "title": "Мана",
+          "rule": "Сохранить нынешние запас/восстановление маны и влияние ручного ранга на три заклинания; не делать новую mana-копию.",
+          "requires": [],
+          "max_rank": null,
+          "status": "current",
+          "hero_levels": [],
+          "cost_per_rank": 1,
+          "branch": "magic"
+        },
+        {
+          "id": "magic_charge",
+          "title": "Заряженная стрела",
+          "rule": "Удержание 0,6 с: магическая стрела +2 урона за +2 маны; отмена/промах по правилам действия, есть toggle вместо удержания.",
+          "requires": [
+            "skill:mana"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-MAGIC-01",
+          "task_key": "perks-magic--PERK-MAGIC-01",
+          "branch": "magic",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-07"
+          ]
+        },
+        {
+          "id": "magic_split",
+          "title": "Раздвоенный импульс",
+          "rule": "Успешная магическая стрела поражает ещё одну видимую цель не дальше 5 клеток от первой с 50% урона; копия не раздваивается.",
+          "requires": [
+            "skill:mana"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-MAGIC-02",
+          "task_key": "perks-magic--PERK-MAGIC-02",
+          "branch": "magic",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-07"
+          ]
+        },
+        {
+          "id": "magic_flame",
+          "title": "Долгое пламя",
+          "rule": "Принятая огненная атака даёт горючей цели 1 урона в секунду 3 с; один periodic без повторного proc, устойчивость видна.",
+          "requires": [
+            "skill:mana"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            11
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-MAGIC-03",
+          "task_key": "perks-magic--PERK-MAGIC-03",
+          "branch": "magic",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-07"
+          ]
+        },
+        {
+          "id": "magic_frost",
+          "title": "Сковывающая волна",
+          "rule": "Текущая frost_nova дополнительно замедляет обычную цель на 20% на 2 с; босс 10% на 1 с, без сложения и бессрочного stun.",
+          "requires": [
+            "skill:mana"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-MAGIC-04",
+          "task_key": "perks-magic--PERK-MAGIC-04",
+          "branch": "magic",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-07"
+          ]
+        },
+        {
+          "id": "magic_spark",
+          "title": "Прыжок искры",
+          "rule": "Будущая электрическая атака прыгает на одну дополнительную видимую цель с 50% урона; максимум два попадания и общий ID.",
+          "requires": [
+            "magic_split"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            11
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-MAGIC-05",
+          "task_key": "perks-magic--PERK-MAGIC-05",
+          "branch": "magic",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-07",
+            "PERK-MAGIC-02"
+          ]
+        },
+        {
+          "id": "magic_weave",
+          "title": "Чередование чар",
+          "rule": "Иное успешно применённое заклинание после предыдущего дешевле на 2 маны; CD 6 с, минимум 1, смена выбора без cast не даёт бонус.",
+          "requires": [
+            "magic_charge",
+            "magic_split"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            18
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-MAGIC-06",
+          "task_key": "perks-magic--PERK-MAGIC-06",
+          "branch": "magic",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-07",
+            "PERK-MAGIC-01",
+            "PERK-MAGIC-02"
+          ]
+        }
+      ],
+      "plan": "perks-magic",
+      "epic": "PERK-MAGIC",
+      "group": "group-b0bd95e1"
+    },
+    {
+      "id": "ward",
+      "title": "Защита, лечение и иллюзии",
+      "owner": "SpellSystem / Damage / AI",
+      "needs": "Новые защитные/иллюзорные действия требуют своего принятого определения",
+      "nodes": [
+        {
+          "id": "magic_afterglow",
+          "title": "Целительное послесвечение",
+          "rule": "После настоящего healing_light ещё три тика по 3 HP раз в секунду; не складываются, нет XP за тики.",
+          "requires": [
+            "skill:mana"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-WARD-01",
+          "task_key": "perks-ward--PERK-WARD-01",
+          "branch": "ward",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-07"
+          ]
+        },
+        {
+          "id": "magic_respite",
+          "title": "Вернуть дыхание",
+          "rule": "Healing_light, действительно восстановивший HP, возвращает 2 силы; полный HP не запускает бесплатный цикл.",
+          "requires": [
+            "magic_afterglow"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            11
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-WARD-02",
+          "task_key": "perks-ward--PERK-WARD-02",
+          "branch": "ward",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-07",
+            "PERK-WARD-01"
+          ]
+        },
+        {
+          "id": "magic_ward",
+          "title": "Оберег",
+          "rule": "Один управляемый оберег поглощает до 8 HP direct на 3 с за 4 маны, CD 8 с; остаток идёт в HP/HURT обычным путём.",
+          "requires": [
+            "skill:mana"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-WARD-03",
+          "task_key": "perks-ward--PERK-WARD-03",
+          "branch": "ward",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-07"
+          ]
+        },
+        {
+          "id": "magic_resist",
+          "title": "Магическая стойкость",
+          "rule": "Входящий прямой магический урон меньше на 15%; с другими сопротивлениями общий предел снижения 50%, periodic отдельно.",
+          "requires": [
+            "magic_ward"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            11
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-WARD-04",
+          "task_key": "perks-ward--PERK-WARD-04",
+          "branch": "ward",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-07",
+            "PERK-WARD-03"
+          ]
+        },
+        {
+          "id": "illusion_decoy",
+          "title": "Ложный след",
+          "rule": "Создать нематериальную приманку на 5 с за 8 маны, CD 12 с; только обычный AI, без коллизии/лута/взаимодействий.",
+          "requires": [
+            "skill:mana"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-WARD-05",
+          "task_key": "perks-ward--PERK-WARD-05",
+          "branch": "ward",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-07"
+          ]
+        },
+        {
+          "id": "illusion_calm",
+          "title": "Тихая роща",
+          "rule": "Обычное разъярённое животное успокаивается на 3 с; нападение снимает эффект, босс/сюжетный враг устойчив.",
+          "requires": [
+            "illusion_decoy"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            18
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-WARD-06",
+          "task_key": "perks-ward--PERK-WARD-06",
+          "branch": "ward",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-07",
+            "PERK-WARD-05"
+          ]
+        }
+      ],
+      "plan": "perks-ward",
+      "epic": "PERK-WARD",
+      "group": "group-b0bd95e1"
+    },
+    {
+      "id": "summon",
+      "title": "Призыв и зачарования",
+      "owner": "Companion / Spell / ENCHANT",
+      "needs": "Общий лимит боевых помощников и экземпляры ENCHANT; второго владельца вставок нет",
+      "nodes": [
+        {
+          "id": "summon_spirit",
+          "title": "Дух-помощник",
+          "rule": "Один временный дух на 12 с занимает свободное боевое место из общего будущего лимита двух; нет лута/инвентаря, цена 16 маны, CD 20 с.",
+          "requires": [
+            "skill:mana"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-SUMMON-01",
+          "task_key": "perks-summon--PERK-SUMMON-01",
+          "branch": "summon",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-07",
+            "PERK-08"
+          ]
+        },
+        {
+          "id": "summon_reach",
+          "title": "Точка призыва",
+          "rule": "Разместить дух в разрешённой точке до 4 клеток вместо 2; видимость и проходимость обязательны.",
+          "requires": [
+            "summon_spirit"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-SUMMON-02",
+          "task_key": "perks-summon--PERK-SUMMON-02",
+          "branch": "summon",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-07",
+            "PERK-08",
+            "PERK-SUMMON-01"
+          ]
+        },
+        {
+          "id": "summon_duration",
+          "title": "Долгий зов",
+          "rule": "Дух живёт 18 с вместо 12, не добавляет ещё одно место и не сбрасывает перезарядку.",
+          "requires": [
+            "summon_spirit"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            11
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-SUMMON-03",
+          "task_key": "perks-summon--PERK-SUMMON-03",
+          "branch": "summon",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-07",
+            "PERK-08",
+            "PERK-SUMMON-01"
+          ]
+        },
+        {
+          "id": "summon_banish",
+          "title": "Развеять привязанность",
+          "rule": "Магическая стрела +20% урона только по явно призванным враждебным сущностям; обычная нежить/спутник не подменяют тег.",
+          "requires": [
+            "summon_reach"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            11
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-SUMMON-04",
+          "task_key": "perks-summon--PERK-SUMMON-04",
+          "branch": "summon",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-07",
+            "PERK-08",
+            "PERK-SUMMON-02"
+          ]
+        },
+        {
+          "id": "enchant_tuning",
+          "title": "Тонкая настройка",
+          "rule": "Один основной числовой эффект совместимой вставки ENCHANT +10% при создании/установке; ограничения владельца и одно гнездо сохраняются.",
+          "requires": [
+            "craft_alchemy"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            11
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-SUMMON-05",
+          "task_key": "perks-summon--PERK-SUMMON-05",
+          "branch": "summon",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-07",
+            "PERK-08",
+            "ENCHANT-02"
+          ]
+        },
+        {
+          "id": "enchant_exchange",
+          "title": "Бережная перенастройка",
+          "rule": "Услуга замены разрешённой вставки дешевле на 20% монет; снятая вставка возвращается той же операцией PACK, без бесплатных копий.",
+          "requires": [
+            "enchant_tuning"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            18
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-SUMMON-06",
+          "task_key": "perks-summon--PERK-SUMMON-06",
+          "branch": "summon",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-07",
+            "PERK-08",
+            "PERK-SUMMON-05",
+            "ENCHANT-02"
+          ]
+        }
+      ],
+      "plan": "perks-summon",
+      "epic": "PERK-SUMMON",
+      "group": "group-b0bd95e1"
+    },
+    {
+      "id": "speech",
+      "title": "Торговля и речь",
+      "owner": "Merchant / Quest / FAIR",
+      "needs": "Транзакция с подтверждением, недельный выкуп и запрет торговли без места сохраняются",
+      "nodes": [
+        {
+          "id": "trade_haggle",
+          "title": "Разумный торг",
+          "rule": "Обычная покупка -3%, продажа +3%; после всех скидок обратная операция не приносит прибыли на том же предмете.",
+          "requires": [],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            2
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-SPEECH-01",
+          "task_key": "perks-speech--PERK-SPEECH-01",
+          "branch": "speech",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-10"
+          ]
+        },
+        {
+          "id": "trade_specialist",
+          "title": "Знаток товара",
+          "rule": "Один выбранный тип обычных товаров получает ещё +5% цены продажи; смена типа у мастера не переоценивает старый выкуп.",
+          "requires": [
+            "trade_haggle"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-SPEECH-02",
+          "task_key": "perks-speech--PERK-SPEECH-02",
+          "branch": "speech",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-10",
+            "PERK-SPEECH-01"
+          ]
+        },
+        {
+          "id": "trade_invest",
+          "title": "Доля в лавке",
+          "rule": "Один раз вложить 500 монет в подходящую лавку и увеличить её доступный оборот на 300; состояние лавки постоянное, respec не возвращает вклад.",
+          "requires": [
+            "trade_haggle"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            11
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-SPEECH-03",
+          "task_key": "perks-speech--PERK-SPEECH-03",
+          "branch": "speech",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-10",
+            "PERK-SPEECH-01"
+          ]
+        },
+        {
+          "id": "speech_reason",
+          "title": "Убедительный довод",
+          "rule": "Открыть помеченный дополнительный аргумент в обычном диалоге при достаточной местной репутации; не пропускает ключ/босса/сюжетное условие.",
+          "requires": [],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-SPEECH-04",
+          "task_key": "perks-speech--PERK-SPEECH-04",
+          "branch": "speech",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-10"
+          ]
+        },
+        {
+          "id": "trade_batch",
+          "title": "Торг за партию",
+          "rule": "Продажа от 10 обычных единиц одного товара +5% к цене партии; не стекается по каждой строке и не относится к уникальным вещам.",
+          "requires": [
+            "trade_specialist"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            11
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-SPEECH-05",
+          "task_key": "perks-speech--PERK-SPEECH-05",
+          "branch": "speech",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-10",
+            "PERK-SPEECH-02"
+          ]
+        },
+        {
+          "id": "trade_buyback",
+          "title": "Свои вещи дешевле",
+          "rule": "Наценка недельного выкупа собственных вещей меньше на 10% от наценки, но итог не ниже полученной при продаже суммы; срок не обновляется.",
+          "requires": [
+            "trade_invest"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            18
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-SPEECH-06",
+          "task_key": "perks-speech--PERK-SPEECH-06",
+          "branch": "speech",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-10",
+            "PERK-SPEECH-03"
+          ]
+        }
+      ],
+      "plan": "perks-speech",
+      "epic": "PERK-SPEECH",
+      "group": "trade-services"
+    },
+    {
+      "id": "leadership",
+      "title": "Лидерство",
+      "owner": "SkillSystem / CompanionSystem",
+      "needs": "Команды и инвентарь спутника остаются базовыми; новые перки не дают третьего спутника",
+      "nodes": [
+        {
+          "id": "skill:leadership",
+          "title": "Лидерство",
+          "rule": "Сохранить нынешние ранги найма; со второго два помощника. Неработающий следующий ранг без будущего эффекта не продавать.",
+          "requires": [],
+          "max_rank": null,
+          "status": "current",
+          "hero_levels": [],
+          "cost_per_rank": 1,
+          "branch": "leadership"
+        },
+        {
+          "id": "leader_focus",
+          "title": "Общая цель",
+          "rule": "Одна видимая отмеченная цель получает +1 урона от обычного удара спутника; одна отметка карты, не на вторичные/отражённые попадания.",
+          "requires": [
+            "skill:leadership"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-LEADERSHIP-01",
+          "task_key": "perks-leadership--PERK-LEADERSHIP-01",
+          "branch": "leadership",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-08"
+          ]
+        },
+        {
+          "id": "leader_guard",
+          "title": "Держать строй",
+          "rule": "В режиме defend при спутнике не дальше трёх клеток +2 к общей плоской защите один раз на группу; сила/HURT не копируются.",
+          "requires": [
+            "skill:leadership"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-LEADERSHIP-02",
+          "task_key": "perks-leadership--PERK-LEADERSHIP-02",
+          "branch": "leadership",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-08"
+          ]
+        },
+        {
+          "id": "leader_formation",
+          "title": "Шире фронт",
+          "rule": "При leadership ≥ 2 и двух спутниках выбрать широкое следование слева/справа; каждый идёт по доступной земле, узкий проход возвращает обычную формацию.",
+          "requires": [
+            "skill:leadership"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            11
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-LEADERSHIP-03",
+          "task_key": "perks-leadership--PERK-LEADERSHIP-03",
+          "branch": "leadership",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-08"
+          ],
+          "required_ranks": {
+            "skill:leadership": 2
+          }
+        },
+        {
+          "id": "leader_cover",
+          "title": "Прикрыть отход",
+          "rule": "После настоящего прямого попадания по герою ближайший готовый спутник замедляет видимого атакующего на 20% на 1,5 с; CD группы 8 с, боссу половина.",
+          "requires": [
+            "leader_guard"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            18
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-LEADERSHIP-04",
+          "task_key": "perks-leadership--PERK-LEADERSHIP-04",
+          "branch": "leadership",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-08",
+            "PERK-LEADERSHIP-02"
+          ]
+        }
+      ],
+      "plan": "perks-leadership",
+      "epic": "PERK-LEADERSHIP",
+      "group": "group-2f98c889"
+    },
+    {
+      "id": "farmfish",
+      "title": "Земледелие и рыбалка",
+      "owner": "Crop / Fishing / TalentSystem",
+      "needs": "Сохранить прежние сезонность, улов и индивидуальные ID",
+      "nodes": [
+        {
+          "id": "farm_orchard",
+          "title": "Садовод",
+          "rule": "Прежний доступ к фруктовым саженцам.",
+          "requires": [],
+          "max_rank": 1,
+          "status": "current",
+          "hero_levels": [],
+          "cost_per_rank": 1,
+          "branch": "farmfish"
+        },
+        {
+          "id": "farm_wide_till",
+          "title": "Широкая борозда",
+          "rule": "Прежняя линия из трёх клеток.",
+          "requires": [],
+          "max_rank": 1,
+          "status": "current",
+          "hero_levels": [],
+          "cost_per_rank": 1,
+          "branch": "farmfish"
+        },
+        {
+          "id": "farm_field_master",
+          "title": "Поле 3×3",
+          "rule": "Прежние девять клеток; не новый размер карты.",
+          "requires": [
+            "farm_wide_till"
+          ],
+          "max_rank": 1,
+          "status": "current",
+          "hero_levels": [],
+          "cost_per_rank": 1,
+          "branch": "farmfish"
+        },
+        {
+          "id": "farm_exotic_crops",
+          "title": "Редкие культуры",
+          "rule": "Прежние тыква/дыня/хлопок/подсолнух.",
+          "requires": [
+            "farm_orchard"
+          ],
+          "max_rank": 1,
+          "status": "current",
+          "hero_levels": [],
+          "cost_per_rank": 1,
+          "branch": "farmfish"
+        },
+        {
+          "id": "fish_fine_rod",
+          "title": "Точная снасть",
+          "rule": "Прежний доступ к продвинутой удочке и рыбе.",
+          "requires": [],
+          "max_rank": 1,
+          "status": "current",
+          "hero_levels": [],
+          "cost_per_rank": 1,
+          "branch": "farmfish"
+        },
+        {
+          "id": "fish_deep_water",
+          "title": "Глубокая вода",
+          "rule": "Прежний доступ к глубине при допустимой снасти.",
+          "requires": [
+            "fish_fine_rod"
+          ],
+          "max_rank": 1,
+          "status": "current",
+          "hero_levels": [],
+          "cost_per_rank": 1,
+          "branch": "farmfish"
+        },
+        {
+          "id": "fish_big_game",
+          "title": "Большой улов",
+          "rule": "Прежние +8% размера за ранг.",
+          "requires": [
+            "fish_fine_rod"
+          ],
+          "max_rank": 3,
+          "status": "current",
+          "hero_levels": [],
+          "cost_per_rank": 1,
+          "branch": "farmfish"
+        },
+        {
+          "id": "fish_crab_traps",
+          "title": "Крабовые ловушки",
+          "rule": "Прежний доступ к созданию и установке ловушек.",
+          "requires": [],
+          "max_rank": 1,
+          "status": "current",
+          "hero_levels": [],
+          "cost_per_rank": 1,
+          "branch": "farmfish"
+        },
+        {
+          "id": "fish_master",
+          "title": "Речной знаток",
+          "rule": "Прежние зелёная зона и качество улова.",
+          "requires": [
+            "fish_deep_water",
+            "fish_big_game"
+          ],
+          "max_rank": 1,
+          "status": "current",
+          "hero_levels": [],
+          "cost_per_rank": 1,
+          "branch": "farmfish"
+        },
+        {
+          "id": "farm_seed_keeper",
+          "title": "Семеновод",
+          "rule": "При первом зрелом урожае растения 20% на одно обычное семя этого вида; один roll на посаженный экземпляр, отрастающие сборы не повторяют его.",
+          "requires": [
+            "farm_orchard"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-FARMFISH-01",
+          "task_key": "perks-farmfish--PERK-FARMFISH-01",
+          "branch": "farmfish",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-09"
+          ]
+        },
+        {
+          "id": "fish_soft_line",
+          "title": "Мягкая леска",
+          "rule": "Первый выход из зелёной зоны до 0,35 с не уменьшает catch_progress; натяжение и потеря perfect работают обычно, один запас на улов.",
+          "requires": [
+            "fish_fine_rod"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-FARMFISH-02",
+          "task_key": "perks-farmfish--PERK-FARMFISH-02",
+          "branch": "farmfish",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-09"
+          ]
+        }
+      ],
+      "plan": "perks-farmfish",
+      "epic": "PERK-FARMFISH",
+      "group": "farm-garden"
+    },
+    {
+      "id": "backpack",
+      "title": "Рюкзак и поход",
+      "owner": "InventoryState / PACK / CAMP",
+      "needs": "Вместимость один раз через PACK, стаки 999, никакого обязательного ручного подбора",
+      "nodes": [
+        {
+          "id": "carry_packing",
+          "title": "Укладка рюкзака",
+          "rule": "Четыре ранга дают доступ к уже согласованным уровням 72/84/96/108 слотов вместо базы 60. Эффективный уровень = max(купленный, ранг), не сумма.",
+          "requires": [],
+          "max_rank": 4,
+          "status": "planned",
+          "hero_levels": [
+            4,
+            8,
+            13,
+            18
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-BACKPACK-01",
+          "task_key": "perks-backpack--PERK-BACKPACK-01",
+          "branch": "backpack",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-10"
+          ]
+        },
+        {
+          "id": "carry_belt",
+          "title": "Разгрузочный пояс",
+          "rule": "Две дополнительные ссылки быстрого доступа к уже лежащим вещам; не создают слоты рюкзака и не обходят cooldown расходника.",
+          "requires": [
+            "carry_packing"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-BACKPACK-02",
+          "task_key": "perks-backpack--PERK-BACKPACK-02",
+          "branch": "backpack",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-10",
+            "PERK-BACKPACK-01"
+          ]
+        },
+        {
+          "id": "carry_load",
+          "title": "Ровный груз",
+          "rule": "Штраф скорости при переносе явно помеченного крупного груза/волокуши меньше на 25%; обычной сумке новый вес/штраф не добавляется.",
+          "requires": [
+            "carry_packing"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            11
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-BACKPACK-03",
+          "task_key": "perks-backpack--PERK-BACKPACK-03",
+          "branch": "backpack",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-10",
+            "PERK-BACKPACK-01"
+          ]
+        },
+        {
+          "id": "carry_firecare",
+          "title": "Беречь огонь",
+          "rule": "Время горения обычного расходуемого походного факела больше на 25%; поясной фонарь остаётся у CAMP, вечный свет не создаётся.",
+          "requires": [
+            "carry_packing"
+          ],
+          "max_rank": 1,
+          "status": "planned",
+          "hero_levels": [
+            6
+          ],
+          "cost_per_rank": 1,
+          "task": "PERK-BACKPACK-04",
+          "task_key": "perks-backpack--PERK-BACKPACK-04",
+          "branch": "backpack",
+          "dependencies": [
+            "PERK-01",
+            "PERK-02",
+            "PERK-10",
+            "PERK-BACKPACK-01"
+          ]
+        }
+      ],
+      "plan": "perks-backpack",
+      "epic": "PERK-BACKPACK",
+      "group": "items-equipment"
+    }
+  ]
+}
