@@ -33,4 +33,4 @@
 
 Сейчас реализация продолжает первую карту до VMAP-003. Эти три направления обсуждаются для следующего этапа.
 
-[Редакционная подготовка](#/development/tasks/daily-20261021--IDEA-DAILY-20261021-00) · [Первая будущая карточка](#/development/tasks/daily-20261021--IDEA-192-01) · [Предыдущий обзор](creative-review-2026-10-20-evening.md).
+[Редакционная подготовка](#/development/tasks/wiki--IDEA-DAILY-20261021-00) · [Первая будущая карточка](#/development/tasks/idea-192--IDEA-192-01) · [Предыдущий обзор](creative-review-2026-10-20-evening.md).

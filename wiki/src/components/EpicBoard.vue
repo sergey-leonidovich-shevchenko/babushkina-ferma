@@ -11,6 +11,7 @@ import {
 } from '../lib/planning.ts'
 import WikiIcon from './WikiIcon.vue'
 import TaskBoard from './TaskBoard.vue'
+import IdeaAssessment from './IdeaAssessment.vue'
 
 const route = useRoute(),
   router = useRouter()
@@ -20,6 +21,19 @@ const query = computed(() => String(route.query.q ?? ''))
 const selected = computed(() =>
   planning.value?.catalog.epics.find((epic) => epic.key === route.params.id)
 )
+const linkedIdea = computed(() =>
+  planning.value?.workspace.ideas.find((idea) =>
+    idea.linkedEpics.includes(selected.value?.key ?? '')
+  )
+)
+const sourceTitle = computed(
+  () => planning.value?.catalog.plans.find((plan) => plan.id === selected.value?.plan)?.title
+)
+const selectedGroup = computed(() => {
+  if (!selected.value) return ''
+  const id = epicGroup(selected.value.key, selected.value.group)
+  return planning.value?.workspace.groups.find((group) => group.id === id)?.title ?? ''
+})
 const epics = computed(() =>
   planning.value!.catalog.epics.filter(
     (epic) =>
@@ -80,9 +94,21 @@ async function createGroup(rename = false) {
         <span class="planning-code">{{ selected.id }}</span>
         <h2>{{ selected.title }}</h2>
         <p v-if="selected.goal">{{ selected.goal }}</p>
-        <span class="muted">
-          {{ planning!.catalog.plans.find((plan) => plan.id === selected?.plan)?.title }}
-        </span>
+        <div v-if="linkedIdea" class="planning-detail-actions">
+          <RouterLink
+            v-if="linkedIdea.article"
+            class="text-button"
+            :to="`/guides/${linkedIdea.article}`"
+          >
+            Описание механики
+          </RouterLink>
+          <RouterLink class="text-button" :to="developmentPath('ideas', linkedIdea.id)">
+            Карточка идеи
+          </RouterLink>
+        </div>
+        <IdeaAssessment v-if="linkedIdea" :id="linkedIdea.id" />
+        <span class="idea-group">{{ selectedGroup }}</span>
+        <span v-if="sourceTitle !== selected.title" class="muted">{{ sourceTitle }}</span>
       </div>
       <TaskBoard :epic-key="selected.key" />
     </template>

@@ -13,6 +13,7 @@ import type { IdeaStatus } from '../lib/planning.ts'
 import { refreshIdeaDraft } from '../lib/planning-draft.ts'
 import type { IdeaDraft } from '../lib/planning-draft.ts'
 import WikiIcon from './WikiIcon.vue'
+import IdeaAssessment from './IdeaAssessment.vue'
 
 const props = defineProps<{ id: string; queue: boolean }>()
 const router = useRouter()
@@ -213,6 +214,10 @@ async function linkEpics() {
       </div>
     </form>
     <aside v-if="idea" class="idea-side">
+      <section class="planning-panel">
+        <h2>Оценка идеи</h2>
+        <IdeaAssessment :id="idea.id" detailed />
+      </section>
       <section class="planning-panel idea-decision">
         <span class="eyebrow">СЛЕДУЮЩИЙ ШАГ</span>
         <h2>{{ idea.status === 'proposed' ? 'Дать идее ход' : ideaLabels[idea.status] }}</h2>

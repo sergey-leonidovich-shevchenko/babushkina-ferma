@@ -1,0 +1,1156 @@
+{
+  "schema": 1,
+  "task": "IDEA-STRUCTURE-00",
+  "date": "2026-10-22",
+  "baseCommit": "630a6030792736125072180956b26549e1740f8f",
+  "userRevision": 239,
+  "retiredEpics": [
+    "daily-20261019--IDEA-DAILY-20261019",
+    "daily-20261020--IDEA-DAILY-20261020",
+    "daily-20261020b--IDEA-DAILY-20261020B",
+    "daily-20261021--IDEA-DAILY-20261021"
+  ],
+  "features": [
+    {
+      "idea": "IDEA-155",
+      "title": "План посадок на собственной земле",
+      "plan": "idea-155",
+      "epic": "idea-155--IDEA-155",
+      "group": "farm-garden",
+      "tasks": 6,
+      "article": "IDEA-155",
+      "legacyPlan": "daily-20261019"
+    },
+    {
+      "idea": "IDEA-156",
+      "title": "Красильная мастерская и собственные цвета тканей",
+      "plan": "idea-156",
+      "epic": "idea-156--IDEA-156",
+      "group": "group-4d504b08",
+      "tasks": 6,
+      "article": "IDEA-156",
+      "legacyPlan": "daily-20261019"
+    },
+    {
+      "idea": "IDEA-157",
+      "title": "Кулинарные опыты и собственная книга вкусов",
+      "plan": "idea-157",
+      "epic": "idea-157--IDEA-157",
+      "group": "group-4d504b08",
+      "tasks": 6,
+      "article": "IDEA-157",
+      "legacyPlan": "daily-20261019"
+    },
+    {
+      "idea": "IDEA-158",
+      "title": "Погодные окна для выбранной дороги",
+      "plan": "idea-158",
+      "epic": "idea-158--IDEA-158",
+      "group": "travel",
+      "tasks": 6,
+      "article": "IDEA-158",
+      "legacyPlan": "daily-20261019"
+    },
+    {
+      "idea": "IDEA-159",
+      "title": "Школа безопасных спаррингов",
+      "plan": "idea-159",
+      "epic": "idea-159--IDEA-159",
+      "group": "group-b0bd95e1",
+      "tasks": 6,
+      "article": "IDEA-159",
+      "legacyPlan": "daily-20261019"
+    },
+    {
+      "idea": "IDEA-160",
+      "title": "Садовые фигуры из живых кустов",
+      "plan": "idea-160",
+      "epic": "idea-160--IDEA-160",
+      "group": "group-333cb1a4",
+      "tasks": 6,
+      "article": "IDEA-160",
+      "legacyPlan": "daily-20261019"
+    },
+    {
+      "idea": "IDEA-161",
+      "title": "Витражная мастерская с собственными узорами",
+      "plan": "idea-161",
+      "epic": "idea-161--IDEA-161",
+      "group": "group-4d504b08",
+      "tasks": 6,
+      "article": "IDEA-161",
+      "legacyPlan": "daily-20261019"
+    },
+    {
+      "idea": "IDEA-162",
+      "title": "Верховая езда и забота о собственном ослике",
+      "plan": "idea-162",
+      "epic": "idea-162--IDEA-162",
+      "group": "travel",
+      "tasks": 6,
+      "article": "IDEA-162",
+      "legacyPlan": "daily-20261019"
+    },
+    {
+      "idea": "IDEA-163",
+      "title": "Севооборот на добровольных опытных грядках",
+      "plan": "idea-163",
+      "epic": "idea-163--IDEA-163",
+      "group": "farm-garden",
+      "tasks": 6,
+      "article": "IDEA-163",
+      "legacyPlan": "daily-20261019"
+    },
+    {
+      "idea": "IDEA-164",
+      "title": "Сохранённые комплекты экипировки героя",
+      "plan": "idea-164",
+      "epic": "idea-164--IDEA-164",
+      "group": "items-equipment",
+      "tasks": 5,
+      "article": "IDEA-164",
+      "legacyPlan": "daily-20261019"
+    },
+    {
+      "idea": "IDEA-172",
+      "title": "Опись личных запасов — найти вещь, не открывая каждый сундук",
+      "plan": "idea-172",
+      "epic": "idea-172--IDEA-172",
+      "group": "items-equipment",
+      "tasks": 5,
+      "article": "IDEA-172",
+      "legacyPlan": "daily-20261020"
+    },
+    {
+      "idea": "IDEA-173",
+      "title": "Перестановка мастерской без разборки станков",
+      "plan": "idea-173",
+      "epic": "idea-173--IDEA-173",
+      "group": "group-4d504b08",
+      "tasks": 6,
+      "article": "IDEA-173",
+      "legacyPlan": "daily-20261020"
+    },
+    {
+      "idea": "IDEA-174",
+      "title": "Ночная обсерватория и собственный звёздный атлас",
+      "plan": "idea-174",
+      "epic": "idea-174--IDEA-174",
+      "group": "group-89472e22",
+      "tasks": 6,
+      "article": "IDEA-174",
+      "legacyPlan": "daily-20261020"
+    },
+    {
+      "idea": "IDEA-175",
+      "title": "Медоносный сад и характер собственного мёда",
+      "plan": "idea-175",
+      "epic": "idea-175--IDEA-175",
+      "group": "farm-garden",
+      "tasks": 6,
+      "article": "IDEA-175",
+      "legacyPlan": "daily-20261020"
+    },
+    {
+      "idea": "IDEA-176",
+      "title": "Береговой рыбный питомник с ограниченным разведением",
+      "plan": "idea-176",
+      "epic": "idea-176--IDEA-176",
+      "group": "farm-garden",
+      "tasks": 6,
+      "article": "IDEA-176",
+      "legacyPlan": "daily-20261020"
+    },
+    {
+      "idea": "IDEA-177",
+      "title": "Промывка речного песка и поиски тяжёлых крупинок",
+      "plan": "idea-177",
+      "epic": "idea-177--IDEA-177",
+      "group": "group-4d504b08",
+      "tasks": 6,
+      "article": "IDEA-177",
+      "legacyPlan": "daily-20261020"
+    },
+    {
+      "idea": "IDEA-178",
+      "title": "Выращивание кристаллов с выбранной формой",
+      "plan": "idea-178",
+      "epic": "idea-178--IDEA-178",
+      "group": "group-4d504b08",
+      "tasks": 6,
+      "article": "IDEA-178",
+      "legacyPlan": "daily-20261020"
+    },
+    {
+      "idea": "IDEA-179",
+      "title": "Дорожная почта — отправить небольшую посылку в известную деревню",
+      "plan": "idea-179",
+      "epic": "idea-179--IDEA-179",
+      "group": "trade-services",
+      "tasks": 6,
+      "article": "IDEA-179",
+      "legacyPlan": "daily-20261020"
+    },
+    {
+      "idea": "IDEA-180",
+      "title": "Забытое письмо — собрать словарь древних знаков",
+      "plan": "idea-180",
+      "epic": "idea-180--IDEA-180",
+      "group": "group-89472e22",
+      "tasks": 6,
+      "article": "IDEA-180",
+      "legacyPlan": "daily-20261020"
+    },
+    {
+      "idea": "IDEA-181",
+      "title": "Перемирие с отколотой артелью — опасный лагерь может стать нейтральным",
+      "plan": "idea-181",
+      "epic": "idea-181--IDEA-181",
+      "group": "group-b0bd95e1",
+      "tasks": 6,
+      "article": "IDEA-181",
+      "legacyPlan": "daily-20261020"
+    },
+    {
+      "idea": "IDEA-182",
+      "title": "Речные блинчики — запускать плоские камни по воде",
+      "plan": "idea-182",
+      "epic": "idea-182--IDEA-182",
+      "group": "gameplay",
+      "tasks": 5,
+      "article": "IDEA-182",
+      "legacyPlan": "daily-20261020b"
+    },
+    {
+      "idea": "IDEA-183",
+      "title": "Речной паром с расписанием и спокойной поездкой",
+      "plan": "idea-183",
+      "epic": "idea-183--IDEA-183",
+      "group": "travel",
+      "tasks": 6,
+      "article": "IDEA-183",
+      "legacyPlan": "daily-20261020b"
+    },
+    {
+      "idea": "IDEA-184",
+      "title": "Равновесные подвесы — собрать собственный движущийся мобиль",
+      "plan": "idea-184",
+      "epic": "idea-184--IDEA-184",
+      "group": "group-333cb1a4",
+      "tasks": 5,
+      "article": "IDEA-184",
+      "legacyPlan": "daily-20261020b"
+    },
+    {
+      "idea": "IDEA-185",
+      "title": "Гончарный круг — вылепить вещь с собственным силуэтом",
+      "plan": "idea-185",
+      "epic": "idea-185--IDEA-185",
+      "group": "group-4d504b08",
+      "tasks": 6,
+      "article": "IDEA-185",
+      "legacyPlan": "daily-20261020b"
+    },
+    {
+      "idea": "IDEA-186",
+      "title": "Аукцион известных вещей с прозрачными ставками",
+      "plan": "idea-186",
+      "epic": "idea-186--IDEA-186",
+      "group": "group-529868c8",
+      "tasks": 6,
+      "article": "IDEA-186",
+      "legacyPlan": "daily-20261020b"
+    },
+    {
+      "idea": "IDEA-187",
+      "title": "Старинные замки с дисками знаков",
+      "plan": "idea-187",
+      "epic": "idea-187--IDEA-187",
+      "group": "group-89472e22",
+      "tasks": 5,
+      "article": "IDEA-187",
+      "legacyPlan": "daily-20261020b"
+    },
+    {
+      "idea": "IDEA-188",
+      "title": "Свой садовый лабиринт для прогулок жителей",
+      "plan": "idea-188",
+      "epic": "idea-188--IDEA-188",
+      "group": "group-333cb1a4",
+      "tasks": 6,
+      "article": "IDEA-188",
+      "legacyPlan": "daily-20261020b"
+    },
+    {
+      "idea": "IDEA-189",
+      "title": "Путь малого огня — добровольный поход с выбранным условием",
+      "plan": "idea-189",
+      "epic": "idea-189--IDEA-189",
+      "group": "stories",
+      "tasks": 5,
+      "article": "IDEA-189",
+      "legacyPlan": "daily-20261020b"
+    },
+    {
+      "idea": "IDEA-190",
+      "title": "Пастушьи пробы — направлять овечку вместе с собакой",
+      "plan": "idea-190",
+      "epic": "idea-190--IDEA-190",
+      "group": "world",
+      "tasks": 6,
+      "article": "IDEA-190",
+      "legacyPlan": "daily-20261020b"
+    },
+    {
+      "idea": "IDEA-191",
+      "title": "Дорожный лист — собрать несколько дел в одну прогулку",
+      "plan": "idea-191",
+      "epic": "idea-191--IDEA-191",
+      "group": "travel",
+      "tasks": 5,
+      "article": "IDEA-191",
+      "legacyPlan": "daily-20261020b"
+    },
+    {
+      "idea": "IDEA-192",
+      "title": "Следы сапог на сырой земле",
+      "plan": "idea-192",
+      "epic": "idea-192--IDEA-192",
+      "group": "visual",
+      "tasks": 3,
+      "article": "IDEA-192",
+      "legacyPlan": "daily-20261021"
+    },
+    {
+      "idea": "IDEA-193",
+      "title": "Полив самотёком — канавки и ручной затвор",
+      "plan": "idea-193",
+      "epic": "idea-193--IDEA-193",
+      "group": "farm-garden",
+      "tasks": 6,
+      "article": "IDEA-193",
+      "legacyPlan": "daily-20261021"
+    },
+    {
+      "idea": "IDEA-194",
+      "title": "Живой компостер — небольшая червячная ферма",
+      "plan": "idea-194",
+      "epic": "idea-194--IDEA-194",
+      "group": "farm-garden",
+      "tasks": 6,
+      "article": "IDEA-194",
+      "legacyPlan": "daily-20261021"
+    },
+    {
+      "idea": "IDEA-195",
+      "title": "Копилка на мечту — личные цели накопления",
+      "plan": "idea-195",
+      "epic": "idea-195--IDEA-195",
+      "group": "trade-services",
+      "tasks": 5,
+      "article": "IDEA-195",
+      "legacyPlan": "daily-20261021"
+    },
+    {
+      "idea": "IDEA-196",
+      "title": "Три сада — коллекционная карточная игра жителей",
+      "plan": "idea-196",
+      "epic": "idea-196--IDEA-196",
+      "group": "group-89472e22",
+      "tasks": 8,
+      "article": "IDEA-196",
+      "legacyPlan": "daily-20261021"
+    },
+    {
+      "idea": "IDEA-197",
+      "title": "Наставник для жителя — выучить одного взрослого подмастерья",
+      "plan": "idea-197",
+      "epic": "idea-197--IDEA-197",
+      "group": "stories",
+      "tasks": 6,
+      "article": "IDEA-197",
+      "legacyPlan": "daily-20261021"
+    },
+    {
+      "idea": "IDEA-198",
+      "title": "Добровольная ночная вахта у трёх фонарей",
+      "plan": "idea-198",
+      "epic": "idea-198--IDEA-198",
+      "group": "stories",
+      "tasks": 6,
+      "article": "IDEA-198",
+      "legacyPlan": "daily-20261021"
+    },
+    {
+      "idea": "IDEA-199",
+      "title": "Клад по приметам — карты без точного крестика",
+      "plan": "idea-199",
+      "epic": "idea-199--IDEA-199",
+      "group": "group-89472e22",
+      "tasks": 6,
+      "article": "IDEA-199",
+      "legacyPlan": "daily-20261021"
+    },
+    {
+      "idea": "IDEA-200",
+      "title": "Лоскутная память — собственное одеяло с вышивкой",
+      "plan": "idea-200",
+      "epic": "idea-200--IDEA-200",
+      "group": "group-333cb1a4",
+      "tasks": 6,
+      "article": "IDEA-200",
+      "legacyPlan": "daily-20261021"
+    },
+    {
+      "idea": "IDEA-201",
+      "title": "Бюро находок — вернуть вещь настоящему владельцу",
+      "plan": "idea-201",
+      "epic": "idea-201--IDEA-201",
+      "group": "stories",
+      "tasks": 6,
+      "article": "IDEA-201",
+      "legacyPlan": "daily-20261021"
+    }
+  ],
+  "preservedTasks": [
+    {
+      "id": "IDEA-155-01",
+      "oldKey": "daily-20261019--IDEA-155-01",
+      "newKey": "idea-155--IDEA-155-01",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-155-02",
+      "oldKey": "daily-20261019--IDEA-155-02",
+      "newKey": "idea-155--IDEA-155-02",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-155-03",
+      "oldKey": "daily-20261019--IDEA-155-03",
+      "newKey": "idea-155--IDEA-155-03",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-156-01",
+      "oldKey": "daily-20261019--IDEA-156-01",
+      "newKey": "idea-156--IDEA-156-01",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-156-02",
+      "oldKey": "daily-20261019--IDEA-156-02",
+      "newKey": "idea-156--IDEA-156-02",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-156-03",
+      "oldKey": "daily-20261019--IDEA-156-03",
+      "newKey": "idea-156--IDEA-156-03",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-157-01",
+      "oldKey": "daily-20261019--IDEA-157-01",
+      "newKey": "idea-157--IDEA-157-01",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-157-02",
+      "oldKey": "daily-20261019--IDEA-157-02",
+      "newKey": "idea-157--IDEA-157-02",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-157-03",
+      "oldKey": "daily-20261019--IDEA-157-03",
+      "newKey": "idea-157--IDEA-157-03",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-158-01",
+      "oldKey": "daily-20261019--IDEA-158-01",
+      "newKey": "idea-158--IDEA-158-01",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-158-02",
+      "oldKey": "daily-20261019--IDEA-158-02",
+      "newKey": "idea-158--IDEA-158-02",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-158-03",
+      "oldKey": "daily-20261019--IDEA-158-03",
+      "newKey": "idea-158--IDEA-158-03",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-159-01",
+      "oldKey": "daily-20261019--IDEA-159-01",
+      "newKey": "idea-159--IDEA-159-01",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-159-02",
+      "oldKey": "daily-20261019--IDEA-159-02",
+      "newKey": "idea-159--IDEA-159-02",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-159-03",
+      "oldKey": "daily-20261019--IDEA-159-03",
+      "newKey": "idea-159--IDEA-159-03",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-160-01",
+      "oldKey": "daily-20261019--IDEA-160-01",
+      "newKey": "idea-160--IDEA-160-01",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-160-02",
+      "oldKey": "daily-20261019--IDEA-160-02",
+      "newKey": "idea-160--IDEA-160-02",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-160-03",
+      "oldKey": "daily-20261019--IDEA-160-03",
+      "newKey": "idea-160--IDEA-160-03",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-161-01",
+      "oldKey": "daily-20261019--IDEA-161-01",
+      "newKey": "idea-161--IDEA-161-01",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-161-02",
+      "oldKey": "daily-20261019--IDEA-161-02",
+      "newKey": "idea-161--IDEA-161-02",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-161-03",
+      "oldKey": "daily-20261019--IDEA-161-03",
+      "newKey": "idea-161--IDEA-161-03",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-162-01",
+      "oldKey": "daily-20261019--IDEA-162-01",
+      "newKey": "idea-162--IDEA-162-01",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-162-02",
+      "oldKey": "daily-20261019--IDEA-162-02",
+      "newKey": "idea-162--IDEA-162-02",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-162-03",
+      "oldKey": "daily-20261019--IDEA-162-03",
+      "newKey": "idea-162--IDEA-162-03",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-163-01",
+      "oldKey": "daily-20261019--IDEA-163-01",
+      "newKey": "idea-163--IDEA-163-01",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-163-02",
+      "oldKey": "daily-20261019--IDEA-163-02",
+      "newKey": "idea-163--IDEA-163-02",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-163-03",
+      "oldKey": "daily-20261019--IDEA-163-03",
+      "newKey": "idea-163--IDEA-163-03",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-164-01",
+      "oldKey": "daily-20261019--IDEA-164-01",
+      "newKey": "idea-164--IDEA-164-01",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-164-02",
+      "oldKey": "daily-20261019--IDEA-164-02",
+      "newKey": "idea-164--IDEA-164-02",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-164-03",
+      "oldKey": "daily-20261019--IDEA-164-03",
+      "newKey": "idea-164--IDEA-164-03",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-172-01",
+      "oldKey": "daily-20261020--IDEA-172-01",
+      "newKey": "idea-172--IDEA-172-01",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-172-02",
+      "oldKey": "daily-20261020--IDEA-172-02",
+      "newKey": "idea-172--IDEA-172-02",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-172-03",
+      "oldKey": "daily-20261020--IDEA-172-03",
+      "newKey": "idea-172--IDEA-172-03",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-173-01",
+      "oldKey": "daily-20261020--IDEA-173-01",
+      "newKey": "idea-173--IDEA-173-01",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-173-02",
+      "oldKey": "daily-20261020--IDEA-173-02",
+      "newKey": "idea-173--IDEA-173-02",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-173-03",
+      "oldKey": "daily-20261020--IDEA-173-03",
+      "newKey": "idea-173--IDEA-173-03",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-174-01",
+      "oldKey": "daily-20261020--IDEA-174-01",
+      "newKey": "idea-174--IDEA-174-01",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-174-02",
+      "oldKey": "daily-20261020--IDEA-174-02",
+      "newKey": "idea-174--IDEA-174-02",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-174-03",
+      "oldKey": "daily-20261020--IDEA-174-03",
+      "newKey": "idea-174--IDEA-174-03",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-175-01",
+      "oldKey": "daily-20261020--IDEA-175-01",
+      "newKey": "idea-175--IDEA-175-01",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-175-02",
+      "oldKey": "daily-20261020--IDEA-175-02",
+      "newKey": "idea-175--IDEA-175-02",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-175-03",
+      "oldKey": "daily-20261020--IDEA-175-03",
+      "newKey": "idea-175--IDEA-175-03",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-176-01",
+      "oldKey": "daily-20261020--IDEA-176-01",
+      "newKey": "idea-176--IDEA-176-01",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-176-02",
+      "oldKey": "daily-20261020--IDEA-176-02",
+      "newKey": "idea-176--IDEA-176-02",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-176-03",
+      "oldKey": "daily-20261020--IDEA-176-03",
+      "newKey": "idea-176--IDEA-176-03",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-177-01",
+      "oldKey": "daily-20261020--IDEA-177-01",
+      "newKey": "idea-177--IDEA-177-01",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-177-02",
+      "oldKey": "daily-20261020--IDEA-177-02",
+      "newKey": "idea-177--IDEA-177-02",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-177-03",
+      "oldKey": "daily-20261020--IDEA-177-03",
+      "newKey": "idea-177--IDEA-177-03",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-178-01",
+      "oldKey": "daily-20261020--IDEA-178-01",
+      "newKey": "idea-178--IDEA-178-01",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-178-02",
+      "oldKey": "daily-20261020--IDEA-178-02",
+      "newKey": "idea-178--IDEA-178-02",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-178-03",
+      "oldKey": "daily-20261020--IDEA-178-03",
+      "newKey": "idea-178--IDEA-178-03",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-179-01",
+      "oldKey": "daily-20261020--IDEA-179-01",
+      "newKey": "idea-179--IDEA-179-01",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-179-02",
+      "oldKey": "daily-20261020--IDEA-179-02",
+      "newKey": "idea-179--IDEA-179-02",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-179-03",
+      "oldKey": "daily-20261020--IDEA-179-03",
+      "newKey": "idea-179--IDEA-179-03",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-180-01",
+      "oldKey": "daily-20261020--IDEA-180-01",
+      "newKey": "idea-180--IDEA-180-01",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-180-02",
+      "oldKey": "daily-20261020--IDEA-180-02",
+      "newKey": "idea-180--IDEA-180-02",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-180-03",
+      "oldKey": "daily-20261020--IDEA-180-03",
+      "newKey": "idea-180--IDEA-180-03",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-181-01",
+      "oldKey": "daily-20261020--IDEA-181-01",
+      "newKey": "idea-181--IDEA-181-01",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-181-02",
+      "oldKey": "daily-20261020--IDEA-181-02",
+      "newKey": "idea-181--IDEA-181-02",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-181-03",
+      "oldKey": "daily-20261020--IDEA-181-03",
+      "newKey": "idea-181--IDEA-181-03",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-182-01",
+      "oldKey": "daily-20261020b--IDEA-182-01",
+      "newKey": "idea-182--IDEA-182-01",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-182-02",
+      "oldKey": "daily-20261020b--IDEA-182-02",
+      "newKey": "idea-182--IDEA-182-02",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-182-03",
+      "oldKey": "daily-20261020b--IDEA-182-03",
+      "newKey": "idea-182--IDEA-182-03",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-183-01",
+      "oldKey": "daily-20261020b--IDEA-183-01",
+      "newKey": "idea-183--IDEA-183-01",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-183-02",
+      "oldKey": "daily-20261020b--IDEA-183-02",
+      "newKey": "idea-183--IDEA-183-02",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-183-03",
+      "oldKey": "daily-20261020b--IDEA-183-03",
+      "newKey": "idea-183--IDEA-183-03",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-184-01",
+      "oldKey": "daily-20261020b--IDEA-184-01",
+      "newKey": "idea-184--IDEA-184-01",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-184-02",
+      "oldKey": "daily-20261020b--IDEA-184-02",
+      "newKey": "idea-184--IDEA-184-02",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-184-03",
+      "oldKey": "daily-20261020b--IDEA-184-03",
+      "newKey": "idea-184--IDEA-184-03",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-185-01",
+      "oldKey": "daily-20261020b--IDEA-185-01",
+      "newKey": "idea-185--IDEA-185-01",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-185-02",
+      "oldKey": "daily-20261020b--IDEA-185-02",
+      "newKey": "idea-185--IDEA-185-02",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-185-03",
+      "oldKey": "daily-20261020b--IDEA-185-03",
+      "newKey": "idea-185--IDEA-185-03",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-186-01",
+      "oldKey": "daily-20261020b--IDEA-186-01",
+      "newKey": "idea-186--IDEA-186-01",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-186-02",
+      "oldKey": "daily-20261020b--IDEA-186-02",
+      "newKey": "idea-186--IDEA-186-02",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-186-03",
+      "oldKey": "daily-20261020b--IDEA-186-03",
+      "newKey": "idea-186--IDEA-186-03",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-187-01",
+      "oldKey": "daily-20261020b--IDEA-187-01",
+      "newKey": "idea-187--IDEA-187-01",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-187-02",
+      "oldKey": "daily-20261020b--IDEA-187-02",
+      "newKey": "idea-187--IDEA-187-02",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-187-03",
+      "oldKey": "daily-20261020b--IDEA-187-03",
+      "newKey": "idea-187--IDEA-187-03",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-188-01",
+      "oldKey": "daily-20261020b--IDEA-188-01",
+      "newKey": "idea-188--IDEA-188-01",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-188-02",
+      "oldKey": "daily-20261020b--IDEA-188-02",
+      "newKey": "idea-188--IDEA-188-02",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-188-03",
+      "oldKey": "daily-20261020b--IDEA-188-03",
+      "newKey": "idea-188--IDEA-188-03",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-189-01",
+      "oldKey": "daily-20261020b--IDEA-189-01",
+      "newKey": "idea-189--IDEA-189-01",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-189-02",
+      "oldKey": "daily-20261020b--IDEA-189-02",
+      "newKey": "idea-189--IDEA-189-02",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-189-03",
+      "oldKey": "daily-20261020b--IDEA-189-03",
+      "newKey": "idea-189--IDEA-189-03",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-190-01",
+      "oldKey": "daily-20261020b--IDEA-190-01",
+      "newKey": "idea-190--IDEA-190-01",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-190-02",
+      "oldKey": "daily-20261020b--IDEA-190-02",
+      "newKey": "idea-190--IDEA-190-02",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-190-03",
+      "oldKey": "daily-20261020b--IDEA-190-03",
+      "newKey": "idea-190--IDEA-190-03",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-191-01",
+      "oldKey": "daily-20261020b--IDEA-191-01",
+      "newKey": "idea-191--IDEA-191-01",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-191-02",
+      "oldKey": "daily-20261020b--IDEA-191-02",
+      "newKey": "idea-191--IDEA-191-02",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-191-03",
+      "oldKey": "daily-20261020b--IDEA-191-03",
+      "newKey": "idea-191--IDEA-191-03",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-192-01",
+      "oldKey": "daily-20261021--IDEA-192-01",
+      "newKey": "idea-192--IDEA-192-01",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-192-02",
+      "oldKey": "daily-20261021--IDEA-192-02",
+      "newKey": "idea-192--IDEA-192-02",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-192-03",
+      "oldKey": "daily-20261021--IDEA-192-03",
+      "newKey": "idea-192--IDEA-192-03",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-193-01",
+      "oldKey": "daily-20261021--IDEA-193-01",
+      "newKey": "idea-193--IDEA-193-01",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-193-02",
+      "oldKey": "daily-20261021--IDEA-193-02",
+      "newKey": "idea-193--IDEA-193-02",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-193-03",
+      "oldKey": "daily-20261021--IDEA-193-03",
+      "newKey": "idea-193--IDEA-193-03",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-194-01",
+      "oldKey": "daily-20261021--IDEA-194-01",
+      "newKey": "idea-194--IDEA-194-01",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-194-02",
+      "oldKey": "daily-20261021--IDEA-194-02",
+      "newKey": "idea-194--IDEA-194-02",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-194-03",
+      "oldKey": "daily-20261021--IDEA-194-03",
+      "newKey": "idea-194--IDEA-194-03",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-195-01",
+      "oldKey": "daily-20261021--IDEA-195-01",
+      "newKey": "idea-195--IDEA-195-01",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-195-02",
+      "oldKey": "daily-20261021--IDEA-195-02",
+      "newKey": "idea-195--IDEA-195-02",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-195-03",
+      "oldKey": "daily-20261021--IDEA-195-03",
+      "newKey": "idea-195--IDEA-195-03",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-196-01",
+      "oldKey": "daily-20261021--IDEA-196-01",
+      "newKey": "idea-196--IDEA-196-01",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-196-02",
+      "oldKey": "daily-20261021--IDEA-196-02",
+      "newKey": "idea-196--IDEA-196-02",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-196-03",
+      "oldKey": "daily-20261021--IDEA-196-03",
+      "newKey": "idea-196--IDEA-196-03",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-197-01",
+      "oldKey": "daily-20261021--IDEA-197-01",
+      "newKey": "idea-197--IDEA-197-01",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-197-02",
+      "oldKey": "daily-20261021--IDEA-197-02",
+      "newKey": "idea-197--IDEA-197-02",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-197-03",
+      "oldKey": "daily-20261021--IDEA-197-03",
+      "newKey": "idea-197--IDEA-197-03",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-198-01",
+      "oldKey": "daily-20261021--IDEA-198-01",
+      "newKey": "idea-198--IDEA-198-01",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-198-02",
+      "oldKey": "daily-20261021--IDEA-198-02",
+      "newKey": "idea-198--IDEA-198-02",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-198-03",
+      "oldKey": "daily-20261021--IDEA-198-03",
+      "newKey": "idea-198--IDEA-198-03",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-199-01",
+      "oldKey": "daily-20261021--IDEA-199-01",
+      "newKey": "idea-199--IDEA-199-01",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-199-02",
+      "oldKey": "daily-20261021--IDEA-199-02",
+      "newKey": "idea-199--IDEA-199-02",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-199-03",
+      "oldKey": "daily-20261021--IDEA-199-03",
+      "newKey": "idea-199--IDEA-199-03",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-200-01",
+      "oldKey": "daily-20261021--IDEA-200-01",
+      "newKey": "idea-200--IDEA-200-01",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-200-02",
+      "oldKey": "daily-20261021--IDEA-200-02",
+      "newKey": "idea-200--IDEA-200-02",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-200-03",
+      "oldKey": "daily-20261021--IDEA-200-03",
+      "newKey": "idea-200--IDEA-200-03",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-201-01",
+      "oldKey": "daily-20261021--IDEA-201-01",
+      "newKey": "idea-201--IDEA-201-01",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-201-02",
+      "oldKey": "daily-20261021--IDEA-201-02",
+      "newKey": "idea-201--IDEA-201-02",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-201-03",
+      "oldKey": "daily-20261021--IDEA-201-03",
+      "newKey": "idea-201--IDEA-201-03",
+      "statusAtMigration": "backlog"
+    },
+    {
+      "id": "IDEA-DAILY-20261020-00",
+      "oldKey": "daily-20261020--IDEA-DAILY-20261020-00",
+      "newKey": "wiki--IDEA-DAILY-20261020-00",
+      "statusAtMigration": "done"
+    },
+    {
+      "id": "IDEA-DAILY-20261020B-00",
+      "oldKey": "daily-20261020b--IDEA-DAILY-20261020B-00",
+      "newKey": "wiki--IDEA-DAILY-20261020B-00",
+      "statusAtMigration": "done"
+    },
+    {
+      "id": "IDEA-DAILY-20261021-00",
+      "oldKey": "daily-20261021--IDEA-DAILY-20261021-00",
+      "newKey": "wiki--IDEA-DAILY-20261021-00",
+      "statusAtMigration": "done"
+    }
+  ],
+  "newFocusedTasks": 111
+}

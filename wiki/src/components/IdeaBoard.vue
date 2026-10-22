@@ -12,6 +12,9 @@ import {
 } from '../lib/planning.ts'
 import WikiIcon from './WikiIcon.vue'
 import IdeaEditor from './IdeaEditor.vue'
+import IdeaAssessment from './IdeaAssessment.vue'
+import assessments from '../../planning/assessments.json'
+import { compareAssessmentIdeas } from '../lib/idea-assessment.ts'
 
 const props = defineProps<{ queue: boolean }>()
 const route = useRoute(),
@@ -19,6 +22,7 @@ const route = useRoute(),
 const query = computed(() => String(route.query.q ?? ''))
 const status = computed(() => String(route.query.status ?? ''))
 const group = computed(() => String(route.query.group ?? ''))
+const order = computed(() => String(route.query.order ?? 'recent'))
 const ideas = computed(() =>
   (props.queue ? refinementIdeas.value : planning.value!.workspace.ideas)
     .filter(
@@ -28,7 +32,7 @@ const ideas = computed(() =>
         matchesQuery(query.value, idea.id, idea.title, idea.description, idea.notes)
     )
     .slice()
-    .sort((a, b) => b.id.localeCompare(a.id, 'ru', { numeric: true }))
+    .sort((a, b) => compareAssessmentIdeas(a, b, order.value, assessments))
 )
 /** После подтверждённой записи открывает очередь, а не оставляет локальную имитацию одобрения. */
 async function approve(id: string) {
@@ -105,6 +109,24 @@ async function approve(id: string) {
         <WikiIcon name="plus" :size="17" />
         Новая идея
       </RouterLink>
+      <label class="planning-select">
+        Сортировка
+        <select
+          :value="order"
+          aria-label="Сортировка идей"
+          @change="
+            router.replace({
+              query: { ...route.query, order: ($event.target as HTMLSelectElement).value },
+            })
+          "
+        >
+          <option value="recent">Сначала новые</option>
+          <option value="value">Оценка ценности</option>
+          <option value="interest">Оценка интереса</option>
+          <option value="usefulness">Оценка пользы</option>
+          <option value="cost">Стоимость: сначала ниже</option>
+        </select>
+      </label>
     </div>
     <div v-if="queue" class="refinement-intro">
       <WikiIcon name="spark" :size="27" />
@@ -123,6 +145,7 @@ async function approve(id: string) {
           <h2>{{ idea.title }}</h2>
         </RouterLink>
         <p>{{ idea.description }}</p>
+        <IdeaAssessment :id="idea.id" />
         <span class="idea-group">
           <WikiIcon name="layers" :size="14" />
           {{ planning!.workspace.groups.find((group) => group.id === idea.group)?.title }}

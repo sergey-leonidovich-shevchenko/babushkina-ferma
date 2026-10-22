@@ -269,7 +269,7 @@ export async function readPlanningCatalog({
           key: `${plan.id}--${definition.id}`,
           id: definition.id,
           title: definition.title,
-          goal: '',
+          goal: definition.goal ?? '',
           plan: plan.id,
           group: plan.group,
           source: definition.file,
