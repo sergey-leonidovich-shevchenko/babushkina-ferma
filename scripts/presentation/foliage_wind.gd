@@ -7,6 +7,7 @@ const Clock:=preload("res://scripts/presentation/village_ground_clock.gd")
 const WorldProjection:=preload("res://scripts/systems/world_projection_system.gd")
 const Visibility:=preload("res://scripts/systems/world_visibility_system.gd")
 const Contact:=preload("res://scripts/presentation/foliage_contact.gd")
+const Recovery:=preload("res://scripts/presentation/foliage_recovery.gd")
 const FLAG:=&"foliage_wind_enabled"
 const QUALITY:=&"foliage_wind_quality"
 const NAME:="FoliageWind"
@@ -16,6 +17,8 @@ var mesh_builds:=0
 var uploads:=0
 var last_seconds:=-1.0
 var last_contacts:=Contact.empty()
+var render_contacts:=Contact.empty()
+var recovery:=Recovery.new()
 var contact_uploads:=0
 var contacts_dirty:=true
 
@@ -45,7 +48,7 @@ static func update(game:Node2D)->void:
 			var row:Dictionary=rows[index]
 			if Ambient.is_visible_in_season(row.kind,season) and view.intersects(row.rect.grow(Batch.PAD)):visible.append(index)
 	if visible.is_empty():
-		if owner!=null:owner.visible_rows.clear();owner.batch.viewport.render_target_update_mode=SubViewport.UPDATE_DISABLED;owner.last_contacts=Contact.empty();owner.contacts_dirty=true
+		if owner!=null:owner.visible_rows.clear();owner.batch.viewport.render_target_update_mode=SubViewport.UPDATE_DISABLED;owner.last_contacts=Contact.empty();owner.render_contacts=Contact.empty();owner.recovery.clear();owner.contacts_dirty=true
 		return
 	if owner==null:owner=new();owner.name=NAME;game.add_child(owner)
 	owner.prepare(game,visible)
@@ -55,12 +58,13 @@ func prepare(game:Node2D,visible:Array)->void:
 	var scale:=clampi(ceili(game.get_viewport().get_texture().get_size().x/1152.0*WorldProjection.zoom(game)),1,4)
 	if batch.is_empty() or batch.scale!=scale:
 		if not batch.is_empty():remove_child(batch.viewport);batch.viewport.free()
-		batch=Batch.build(placements(),Ambient.ATLAS,scale);add_child(batch.viewport);mesh_builds+=1;last_seconds=-1;last_contacts=Contact.empty();contacts_dirty=true
+		batch=Batch.build(placements(),Ambient.ATLAS,scale);add_child(batch.viewport);mesh_builds+=1;last_seconds=-1;last_contacts=Contact.empty();render_contacts=Contact.empty();recovery.clear();contacts_dirty=true
 	var returning:=visible_rows.is_empty()
 	visible_rows=visible
 	var seconds:=Clock.seconds(game)
-	var contacts:=Contact.values(game,batch.rows,last_contacts)
-	var contact_changed:=contacts_dirty or contacts!=last_contacts
+	last_contacts=Contact.values(game,batch.rows,last_contacts)
+	var contacts:=recovery.values(game,last_contacts,visible)
+	var contact_changed:=contacts_dirty or contacts!=render_contacts
 	if seconds==last_seconds and not contact_changed:
 		if returning:batch.viewport.render_target_update_mode=SubViewport.UPDATE_ONCE
 		return
@@ -69,7 +73,7 @@ func prepare(game:Node2D,visible:Array)->void:
 		if contact_changed:group.material.set_shader_parameter("contact_bends",contacts)
 	if seconds!=last_seconds:uploads+=1
 	if contact_changed:contact_uploads+=1
-	batch.viewport.render_target_update_mode=SubViewport.UPDATE_ONCE;last_seconds=seconds;last_contacts=contacts;contacts_dirty=false
+	batch.viewport.render_target_update_mode=SubViewport.UPDATE_ONCE;last_seconds=seconds;render_contacts=contacts;contacts_dirty=false
 
 ## Выводит подготовленный слот в прежней фазе ambient; ни материал мира, ни HUD не меняются.
 static func draw(game:Node2D,kind:String,position:Vector2,tint:Color)->bool:
@@ -89,4 +93,4 @@ static func draw(game:Node2D,kind:String,position:Vector2,tint:Color)->bool:
 static func statistics(game:Node)->Dictionary:
 	var owner:Node=game.get_node_or_null(NAME)
 	if owner==null:return {"active":0,"owners":0,"groups":0,"builds":0,"uploads":0}
-	return {"active":owner.visible_rows.size(),"owners":1,"groups":owner.batch.groups.size(),"builds":owner.mesh_builds,"uploads":owner.uploads,"seconds":owner.last_seconds,"scale":owner.batch.scale,"contact_uploads":owner.contact_uploads}
+	return {"active":owner.visible_rows.size(),"owners":1,"groups":owner.batch.groups.size(),"builds":owner.mesh_builds,"uploads":owner.uploads,"seconds":owner.last_seconds,"scale":owner.batch.scale,"contact_uploads":owner.contact_uploads,"recovery_active":owner.recovery.entries.size(),"recovery_limit":Recovery.LIMIT}

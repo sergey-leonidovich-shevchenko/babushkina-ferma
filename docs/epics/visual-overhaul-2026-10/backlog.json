@@ -3311,7 +3311,7 @@
       "id": "VFOLIAGE-006",
       "epic": "VFOLIAGE",
       "title": "Добавить мягкое восстановление",
-      "status": "ready",
+      "status": "done",
       "priority": "P0",
       "phase": "pilot",
       "kind": "engineering",
@@ -3346,8 +3346,15 @@
         "confidence": "low",
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
-      "branch": "codex/vfoliage-006-visual-task",
-      "evidence": []
+      "branch": "codex/vfoliage-006-soft-recovery",
+      "evidence": [
+        "docs/reports/visual-overhaul/vfoliage-006/README.md",
+        "docs/reports/visual-overhaul/vfoliage-006/summary.json",
+        "docs/reports/visual-overhaul/vfoliage-006/completion.json",
+        "docs/reports/visual-overhaul/vfoliage-006/native/source.json",
+        "wiki/articles/foliage-recovery.md"
+      ],
+      "result": "0.0.315: мягкое восстановление восьми прежних пучков по часам симуляции. Нарастание 0,08 с, возврат 0,18 с, очистка при ≤0,005; максимум64 числовые записи, повторный draw не интегрирует такт снова. Пауза без долга, четыре подхода, ускорение, stop/wall, перенос, invalid frame, offscreen, low/reduced/reference и технический откат. Один target/две группы без пересборки, полный save сохранён. 118 нативных случаев, 798 промежуточных отсчётов, 944 неподвижные нижние полосы, GPU/CPU RGBA побайтно. Профиль2553/0, Python26/0, architecture, игра50350/0, Wiki135/0 и браузер. Не FPS/hardware/VMAP-003. Отчёт docs/reports/visual-overhaul/vfoliage-006/README.md; Git-base ab52022a."
     },
     {
       "id": "VFOLIAGE-007",
@@ -3395,7 +3402,7 @@
       "id": "VFOLIAGE-008",
       "epic": "VFOLIAGE",
       "title": "Ограничить влияние NPC и животных",
-      "status": "backlog",
+      "status": "ready",
       "priority": "P0",
       "phase": "pilot",
       "kind": "engineering",

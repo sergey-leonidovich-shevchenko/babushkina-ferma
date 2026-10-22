@@ -1,5 +1,7 @@
 # Разработка
 
+VFOLIAGE-006: один `FoliageRecovery` внутри `FoliageWind` фильтрует только визуальный контакт. `last_contacts` хранит мгновенную цель, `render_contacts` — итоговый GPU-буфер. Аналитическая экспонента работает по часам симуляции, предел64, очистка при ≤0,005; переходы/невидимость/отключение очищают записи. Флаг `foliage_recovery_enabled` возвращает прежнее поведение без новых настроек. [Контракт и независимая проверка](reports/visual-overhaul/vfoliage-006/README.md).
+
 VFOLIAGE-005: `FoliageSpeed` публикуется после итогового `update_player` и PostMotionFrame, используя фактический simulation delta. Один неизменяемый замер из шести полей проверяется по миру, позиции и часам; желаемый ввод не даёт силы. Множитель ограничен 1…1,9 и вычисляется один раз для всего буфера контакта, без новых mesh/узлов/сохранений. [Владение, флаги, допуски и нативная проверка](reports/visual-overhaul/vfoliage-005/README.md).
 
 VFOLIAGE-004: FoliageContact использует компактное поле без нормализации, PostMotionFrame и PresentationPose.ground. Wind.update выполняется после present, передаёт два uniform-буфера вместо изменений mesh и обновляет target при изменении видимой стопы даже без clock delta. Paused freeze, invalid frame/transfer/reset, dirty-buffer после offscreen и contact-only rollback обязательны; данные не входят в snapshot. [Контракт и проверка](reports/visual-overhaul/vfoliage-004/README.md).

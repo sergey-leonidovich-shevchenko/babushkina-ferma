@@ -494,3 +494,7 @@ assets/inbox/*
 !tools/foliage_speed*.gd.uid
 !tools/foliage_speed*.py
 !tools/test_foliage_speed.py
+!tools/foliage_recovery*.gd
+!tools/foliage_recovery*.gd.uid
+!tools/foliage_recovery*.py
+!tools/test_foliage_recovery.py

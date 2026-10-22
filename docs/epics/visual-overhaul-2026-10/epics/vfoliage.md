@@ -196,11 +196,11 @@
 
 ## VFOLIAGE-006 — Добавить мягкое восстановление
 
-Статус: `ready` · P0 · этап `pilot` · `engineering`
+Статус: `done` · P0 · этап `pilot` · `engineering`
 
 После выхода состояние возвращается без скачка; активный набор имеет предел и удаляет затухшие записи
 
-Ветка: `codex/vfoliage-006-visual-task`.
+Ветка: `codex/vfoliage-006-soft-recovery`.
 
 Зависимости: VFOLIAGE-005.
 
@@ -210,7 +210,7 @@
 - [scripts/systems/world_visual_profile_system.gd](../../../../scripts/systems/world_visual_profile_system.gd)
 - [scripts/core/game_loop.gd](../../../../scripts/core/game_loop.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vfoliage-006/`.
+Результаты: `docs/reports/visual-overhaul/vfoliage-006/`.
 
 Критерии:
 
@@ -228,7 +228,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vfoliage-006/README.md, docs/reports/visual-overhaul/vfoliage-006/summary.json, docs/reports/visual-overhaul/vfoliage-006/completion.json, docs/reports/visual-overhaul/vfoliage-006/native/source.json, wiki/articles/foliage-recovery.md.
 
 <a id="vfoliage-007"></a>
 
@@ -272,7 +272,7 @@
 
 ## VFOLIAGE-008 — Ограничить влияние NPC и животных
 
-Статус: `backlog` · P0 · этап `pilot` · `engineering`
+Статус: `ready` · P0 · этап `pilot` · `engineering`
 
 Только ближайшие выбранные акторы влияют на видимые пучки; число источников ограничено и измеряется
 

@@ -129,6 +129,8 @@ python3 tools/foliage_contact_verify.py >/dev/null
 python3 tools/test_foliage_contact.py
 python3 tools/foliage_speed_verify.py >/dev/null
 python3 tools/test_foliage_speed.py
+python3 tools/foliage_recovery_verify.py >/dev/null
+python3 tools/test_foliage_recovery.py
 python3 tools/shadow_inventory_verify.py >/dev/null
 python3 tools/test_shadow_inventory.py
 python3 tools/village_fence_verify.py >/dev/null
