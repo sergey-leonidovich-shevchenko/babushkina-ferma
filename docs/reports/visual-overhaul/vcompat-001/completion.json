@@ -1,0 +1,24 @@
+{
+  "task": "VCOMPAT-001",
+  "game_version": "0.0.305",
+  "save_version": 2,
+  "native_base_commit": "9225275e519bfbc4861e95295f9f68db9f3ed516",
+  "native_acceptance": true,
+  "performance_eligible": false,
+  "full_map_accepted": false,
+  "checks": {
+    "profile_passed": 61,
+    "python_tests": 17,
+    "native_png": 8,
+    "draw_callbacks": 16,
+    "rgba_pairs": 4,
+    "historical_fixtures": 3,
+    "same_input_comparisons": 5,
+    "architecture": "passed",
+    "game_passed": 46580,
+    "game_failed": 0,
+    "wiki_passed": 121,
+    "wiki_failed": 0,
+    "browser": "current native image, search and three exact JSON attachments"
+  }
+}

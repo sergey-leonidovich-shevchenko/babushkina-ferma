@@ -1,0 +1,122 @@
+{
+  "task": "VCOMPAT-001",
+  "save_version": 2,
+  "max_value_depth": 64,
+  "snapshot_keys": [
+    "castle_campaign",
+    "cave_arena",
+    "coins",
+    "companions",
+    "containers",
+    "contracts",
+    "counts",
+    "day",
+    "drops",
+    "effects",
+    "enemies",
+    "energy",
+    "equipment",
+    "estate",
+    "fishing",
+    "food_active",
+    "forage",
+    "forge",
+    "hazards",
+    "hotbar",
+    "hp",
+    "inventory_meta",
+    "level",
+    "location",
+    "minutes",
+    "missions",
+    "moon_glade",
+    "player",
+    "plots",
+    "profile",
+    "progression",
+    "quest_active",
+    "quest_complete",
+    "resource_hits",
+    "rng",
+    "slots",
+    "state_schema",
+    "storage",
+    "trees",
+    "tutorial",
+    "version",
+    "weapons",
+    "wildlife",
+    "world_loot_seed",
+    "world_plots",
+    "xp"
+  ],
+  "transient_owners": [
+    {
+      "source": "scripts/systems/presentation_pose_system.gd",
+      "anchor": "presentation_pose",
+      "owner": "Game metadata",
+      "sha256": "734a32ba9b254edda8b0165a195295d7df6079eb2a27385e95506886dccad110",
+      "in_game_save": false
+    },
+    {
+      "source": "scripts/presentation/post_motion_frame.gd",
+      "anchor": "post_motion_visual_frame",
+      "owner": "Game metadata",
+      "sha256": "7b0b120ad4d0fc5125a2d9b003cefee44ebb73719bc36c9c03a59201104bd351",
+      "in_game_save": false
+    },
+    {
+      "source": "scripts/presentation/village_ground_clock.gd",
+      "anchor": "village_live_ground_seconds",
+      "owner": "Game metadata",
+      "sha256": "84db09d30a8e5b6c9ff2e7daebd5b0ddbff0751da5a48dd8c5d37e30ff996ab4",
+      "in_game_save": false
+    },
+    {
+      "source": "scripts/systems/tree_occlusion_system.gd",
+      "anchor": "tree_occlusion_frame",
+      "owner": "Game metadata",
+      "sha256": "90891995b1f284803de189d0e9b7e96dfaca86f6cf33bb33d9fb97b233491170",
+      "in_game_save": false
+    },
+    {
+      "source": "scripts/systems/level_editor_system.gd",
+      "anchor": "level_editor",
+      "owner": "Game metadata",
+      "sha256": "02657f16c6aa323d1b945062b56dd2b0c06ddb222b45c6c04c9ef2dcf3e85770",
+      "in_game_save": false
+    },
+    {
+      "source": "scripts/systems/visual_resource_catalog.gd",
+      "anchor": "_sampled_textures",
+      "owner": "static resource cache",
+      "sha256": "886db3ce32c40cc205ea0a44f0e485b12fdb7b0355dd82f788739d2195fa3213",
+      "in_game_save": false
+    },
+    {
+      "source": "scripts/presentation/village_terrain_canvas.gd",
+      "anchor": "extends Node2D",
+      "owner": "transient CanvasItem",
+      "sha256": "9c2826ac077febacebefb77b8cbd16acda191032104b4eac86240718280ce2e6",
+      "in_game_save": false
+    }
+  ],
+  "persistent_sources": {
+    "scripts/state/game_state.gd": "229559cf93190beff1d980c5cf7e5af355a77712c16c1778ce79fb4af44798d9",
+    "scripts/state/world_state.gd": "5aec1f42a03a2a4c6c8e86924f490e6d271ca7857f5e336dc6ac0d9882df12be",
+    "scripts/systems/save_system.gd": "1fa54fd78cbfcba2188d22b78f05c0270808069b2223237145a116e061d86e10",
+    "scripts/systems/save_vector_codec.gd": "6862b74d56c5be7d694042d15f88e7edb2d178fdb39b96b0d2084fbcf4b45256",
+    "scripts/systems/atomic_json_store.gd": "f0ad6faad3a8d94b64b594c24b2fcb5238d5faadb77973d3da6ff3b76ed2ce74"
+  },
+  "forbidden_runtime_types": [
+    "Object",
+    "RID",
+    "Callable",
+    "Signal"
+  ],
+  "persistent_visual_choices": [
+    "profile.character stable ids",
+    "tutorial.animation learned directions"
+  ],
+  "scope": "game save whitelist plus generic writer guard; settings have their own owner; no new wind or bending implemented"
+}

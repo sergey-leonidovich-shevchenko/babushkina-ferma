@@ -1,0 +1,35 @@
+{
+  "task": "VCOMPAT-001",
+  "url": "http://127.0.0.1:4175/#/guides/visual-save-boundary",
+  "game_version": "0.0.305",
+  "search_verified": true,
+  "image_complete": true,
+  "images": [
+    {
+      "alt": "Нативный игровой кадр: GPU metadata не меняет прогресс или изображение",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    }
+  ],
+  "downloads": [
+    {
+      "name": "Нативная сводка",
+      "path": "summary.json",
+      "bytes": 732,
+      "exact": true
+    },
+    {
+      "name": "Владельцы и граница JSON",
+      "path": "ownership.json",
+      "bytes": 3578,
+      "exact": true
+    },
+    {
+      "name": "Проверенный код writer",
+      "path": "changes.json",
+      "bytes": 312,
+      "exact": true
+    }
+  ]
+}

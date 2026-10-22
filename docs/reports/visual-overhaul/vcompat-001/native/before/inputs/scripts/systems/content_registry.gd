@@ -1,0 +1,82 @@
+extends RefCounted
+
+const InventorySystem := preload("res://scripts/systems/inventory_system.gd")
+const CraftingSystem := preload("res://scripts/systems/crafting_system.gd")
+const CombatSystem := preload("res://scripts/systems/combat_system.gd")
+const WildlifeSystem := preload("res://scripts/systems/wildlife_system.gd")
+const ResourceSystem := preload("res://scripts/systems/resource_system.gd")
+const ForageSystem := preload("res://scripts/systems/forage_system.gd")
+const ShopSystem := preload("res://scripts/systems/shop_system.gd")
+const QuestSystem := preload("res://scripts/systems/quest_system.gd")
+const LootContainerSystem := preload("res://scripts/systems/loot_container_system.gd")
+const TutorialSystem := preload("res://scripts/systems/tutorial_system.gd")
+const WorldSystem := preload("res://scripts/systems/world_system.gd")
+const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
+const ForgeSystem := preload("res://scripts/systems/forge_system.gd")
+const ContractSystem := preload("res://scripts/systems/contract_system.gd")
+const CropCatalogSystem := preload("res://scripts/systems/crop_catalog_system.gd")
+const WorldVisualAuditSystem := preload("res://scripts/systems/world_visual_audit_system.gd")
+
+## Проверяет ссылки между управляемыми данными каталогами до начала игры. Добавление
+## контента с опечаткой падает в тестах, а не через несколько часов прохождения.
+static func validate() -> Array[String]:
+	var errors: Array[String] = []
+	errors.append_array(WorldVisualAuditSystem.validation_errors())
+	var items: Dictionary = InventorySystem.ITEM_DATA
+	errors.append_array(preload("res://scripts/systems/content_reference_graph.gd").errors(preload("res://scripts/systems/content_reference_graph.gd").snapshot()))
+	errors.append_array(preload("res://scripts/systems/research_system.gd").validation_errors(items))
+	for product_index in ShopSystem.PRODUCTS.size():
+		_validate_item(errors, items, ShopSystem.PRODUCTS[product_index].kind, "shop[%d]" % product_index)
+	for crop_kind in CropCatalogSystem.CROPS:
+		var crop: Dictionary = CropCatalogSystem.CROPS[crop_kind]
+		_validate_item(errors, items, crop.seed, "crop.%s.seed" % crop_kind)
+		_validate_item(errors, items, crop.harvest, "crop.%s.harvest" % crop_kind)
+	for upgrade_index in ForgeSystem.UPGRADES.size():
+		var upgrade: Dictionary = ForgeSystem.UPGRADES[upgrade_index]
+		_validate_item(errors, items, upgrade.kind, "forge[%d].kind" % upgrade_index)
+		for kind in upgrade.cost:
+			_validate_item(errors, items, kind, "forge[%d].cost" % upgrade_index)
+	for contract_id in ContractSystem.POOLS:
+		for contract in ContractSystem.POOLS[contract_id]:
+			_validate_item(errors, items, contract.item, "contract.%s.item" % contract_id)
+	for enemy_kind in CombatSystem.TYPES:
+		for kind in CombatSystem.TYPES[enemy_kind].loot:
+			if kind != "coins": _validate_item(errors, items, kind, "enemy.%s.loot" % enemy_kind)
+	for animal_kind in WildlifeSystem.TYPES:
+		for kind in WildlifeSystem.TYPES[animal_kind].loot:
+			_validate_item(errors, items, kind, "wildlife.%s.loot" % animal_kind)
+	for npc_id in QuestSystem.NPCS:
+		_validate_location(errors, QuestSystem.NPCS[npc_id].location, "quest npc.%s" % npc_id)
+		for mission_id in QuestSystem.NPCS[npc_id].missions:
+			if not QuestSystem.MISSIONS.has(mission_id): errors.append("quest npc.%s references unknown mission: %s" % [npc_id, mission_id])
+	for container_kind in LootContainerSystem.TYPES:
+		for entry in LootContainerSystem.TYPES[container_kind].table:
+			if entry[0] != "coins": _validate_item(errors, items, entry[0], "container.%s.loot" % container_kind)
+	for node in ResourceSystem.default_nodes():
+		_validate_item(errors, items, node.kind, "resource spawn")
+		_validate_location(errors, node.location, "resource spawn")
+	for node in ForageSystem.default_nodes():
+		_validate_item(errors, items, node.kind, "forage spawn")
+		if not ForageSystem.TYPES.has(node.kind): errors.append("forage spawn has unknown type: %s" % node.kind)
+		_validate_location(errors, node.location, "forage spawn")
+	for enemy in CombatSystem.default_enemies():
+		if not CombatSystem.TYPES.has(enemy.kind): errors.append("enemy spawn has unknown type: %s" % enemy.kind)
+		_validate_location(errors, enemy.location, "enemy spawn")
+	for animal in WildlifeSystem.SPAWNS:
+		if not WildlifeSystem.TYPES.has(animal.kind): errors.append("wildlife spawn has unknown type: %s" % animal.kind)
+		_validate_location(errors, animal.location, "wildlife spawn")
+	for event_id in TutorialSystem.STEP_IDS:
+		if not LocaleSystem.TUTORIAL.has(event_id): errors.append("tutorial has no translation: %s" % event_id)
+	return errors
+
+
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
+static func _validate_item(errors: Array[String], items: Dictionary, kind: String, owner: String) -> void:
+	if not items.has(kind):
+		errors.append("%s references unknown item: %s" % [owner, kind])
+
+
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
+static func _validate_location(errors: Array[String], location: String, owner: String) -> void:
+	if not WorldSystem.NAMES.has(location) and not preload("res://scripts/systems/cave_room_data.gd").is_cave(location):
+		errors.append("%s references unknown location: %s" % [owner, location])

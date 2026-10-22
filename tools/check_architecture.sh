@@ -117,6 +117,8 @@ python3 tools/post_motion_verify.py >/dev/null
 python3 tools/test_post_motion.py
 python3 tools/plant_depth_verify.py >/dev/null
 python3 tools/test_plant_depth.py
+python3 tools/transient_save_verify.py >/dev/null
+python3 tools/test_transient_save.py
 python3 tools/village_fence_verify.py >/dev/null
 python3 tools/test_village_fence.py
 python3 tools/village_lamp_verify.py >/dev/null

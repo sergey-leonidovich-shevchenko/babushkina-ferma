@@ -1,0 +1,7 @@
+{
+  "task": "VCOMPAT-001",
+  "base_commit": "9225275e519bfbc4861e95295f9f68db9f3ed516",
+  "file": "scripts/systems/atomic_json_store.gd",
+  "before_sha256": "1494a01bc2c6ff734302fccae03caf231c3d28d266b3471f2d885066546f0621",
+  "after_sha256": "f0ad6faad3a8d94b64b594c24b2fcb5238d5faadb77973d3da6ff3b76ed2ce74"
+}

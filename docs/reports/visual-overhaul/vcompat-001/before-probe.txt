@@ -1,0 +1,3 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+TRANSIENT SAVE PROBE: { "healthy_writes": true, "unsafe_accepted": true, "primary_unchanged": false, "backup_unchanged": false, "resource_became_string": true, "material_rid_valid": true, "temporary_exists": false, &"task": "VCOMPAT-001", &"engine": "4.7.1-stable (official)", &"display": "headless" }

@@ -1,0 +1,192 @@
+extends RefCounted
+
+const RANGE := 144.0
+const CARD_DURATION := 6.0
+const SCAN_INTERVAL := 0.25
+
+const STATIC_HINTS := {
+	"grandmother": {"title":"Бабушка","text":"Даёт первое фермерское задание. Подойди и нажми E для разговора."},
+	"guild_master": {"title":"Староста Мирон","text":"Выдаёт сюжетные миссии. Маркер ! означает новое задание, ? — цель выполнена."},
+	"herbalist": {"title":"Травница Агафья","text":"Выдаёт побочные задания на лесные растения и редкие ингредиенты."},
+	"shop": {"title":"Сельская лавка","text":"Здесь можно покупать и продавать товары. Подойди и нажми E или B."},
+	"workbench": {"title":"Верстак","text":"Открывает рецепты. Выбери рецепт стрелками и создай его клавишей Enter."},
+	"farm": {"title":"Грядки","text":"Мотыга → семена → лейка → повторный полив → сбор руками. Инструменты находятся на панели 1–0."},
+	"pond": {"title":"Рыбное место","text":"Возьми удочку [6], нажми E, дождись поклёвки и нажми E ещё раз."},
+	"cave": {"title":"Кристальная пещера","text":"Внутри есть руды, скелеты и сюжетный босс. Возьми кирку и оружие."},
+	"world_gate": {"title":"Золотые врата","text":"Переносят в следующую область мира. Подойди к свечению и нажми E."},
+	"bridge": {"title":"Мост","text":"Воду нельзя пересечь пешком. Ищи мосты — только по ним можно перейти реку."},
+	"slime": {"title":"Слизень","text":"Враг ближнего боя. Атакуй клавишей F; выпавшие ресурсы подбираются через E."},
+	"home_chest": {"title":"Домашний сундук","text":"Хранит предметы дома и переносит целые стопки."},
+	"forge": {"title":"Наковальня","text":"Улучшает оружие, броню и наконечники стрел."},
+	"contracts": {"title":"Доска контрактов","text":"Предлагает ежедневные заказы за монеты, опыт и репутацию."},
+}
+
+const LOCATION_HINTS := {
+	"overworld": {"title":"Деревня и ферма","text":"Поговори с жителями, выращивай урожай и подготовься к путешествию."},
+	"forest": {"title":"Обычный лес","text":"Здесь водятся хищные растения и растут съедобные ягоды, грибы и орехи."},
+	"rocky": {"title":"Каменистая область","text":"Ищи залежи для кирки и проходы в более опасные земли."},
+	"ruins": {"title":"Орочьи руины","text":"Орки оставляют монеты, металл и оружие. Перед боем проверь здоровье."},
+	"cave": {"title":"Кристальная пещера","text":"Камень, металл и три цвета кристаллов находятся у скальных стен. Выход в деревню — снизу слева, путь дальше — сверху справа."},
+	"cursed": {"title":"Проклятая земля","text":"Сильная нежить оставляет кости, ключи и редкие самоцветы."},
+	"glassworks": {"title":"Мастерская стеклодува","text":"Безопасная ремесленная точка для будущих рецептов из цветных кристаллов."},
+	"moon_glade": {"title":"Лунная поляна","text":"Редкое приключение затмения: следуй по светящейся тропе от цветка до сундука."},
+}
+
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
+static func update(game: Node, delta: float) -> void:
+	if game.discovery_timer > 0.0:
+		game.discovery_timer = maxf(game.discovery_timer - delta, 0.0)
+		if game.discovery_timer <= 0.0:
+			game.discovery_current.clear()
+	if game.current_location == "overworld" and game.tutorial_step < 2:
+		return
+	game.discovery_scan_timer -= delta
+	if game.discovery_scan_timer > 0.0 or not game.discovery_current.is_empty():
+		return
+	game.discovery_scan_timer = SCAN_INTERVAL
+	scan_nearby(game)
+
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
+static func show_location(game: Node, location: String) -> bool:
+	if not LOCATION_HINTS.has(location):
+		return false
+	var hint := "hint_cave_labyrinth" if preload("res://scripts/systems/cave_room_data.gd").is_cave(location) else "hint_location"
+	return show(game,"location:%s" % location,{"title":game.LocaleSystem.location(location),"text":game.LocaleSystem.ui(hint)})
+
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
+static func dismiss(game: Node) -> void:
+	game.discovery_timer = 0.0
+	game.discovery_current.clear()
+
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
+static func scan_nearby(game: Node) -> bool:
+	var candidates: Array[Dictionary] = []
+	if preload("res://scripts/systems/cave_boss_arena_system.gd").altar_available(game):
+		add_candidate(candidates,"cave_altar",preload("res://scripts/systems/cave_boss_arena_data.gd").ALTAR,{"title":game.LocaleSystem.entity("cave_altar"),"text":game.LocaleSystem.tutorial("cave_boss_altar")})
+	if game.current_location == "overworld":
+		add_candidate(candidates, "grandmother", game.npc_position, static_hint(game, "grandmother"))
+		add_candidate(candidates, "shop", game.BuildingSystem.SHOP_STALL_POSITION, static_hint(game, "shop"))
+		add_candidate(candidates, "workbench", game.workbench_position, static_hint(game, "workbench"))
+		add_candidate(candidates, "farm", Vector2(game.FARM_ORIGIN) + Vector2(game.FARM_SIZE * game.TILE) * 0.5, static_hint(game, "farm"))
+		add_candidate(candidates, "pond", game.pond_position, static_hint(game, "pond"))
+		add_candidate(candidates, "cave", game.cave_entrance_position, static_hint(game, "cave"))
+		add_candidate(candidates, "bridge", game.VillageLayoutSystem.nearest_bridge_center(game.player), static_hint(game, "bridge"))
+		for tree in game.state.world.tree_nodes:
+			if int(tree.stage) == 3: add_candidate(candidates, String(tree.id), tree.position, {"title":game.LocaleSystem.text("tree_title"),"text":game.LocaleSystem.tutorial("tree_chop")})
+		if game.slime_alive:
+			add_candidate(candidates, "slime", game.slime_position, static_hint(game, "slime"))
+	for food in game.food_nodes:
+		if food.active and food.get("location", "overworld") == game.current_location:
+			add_candidate(candidates, "food:%s" % food.kind, food.position, food_hint(game, food.kind))
+	if not game.BuildingSystem.is_interior(game.current_location):
+		if not preload("res://scripts/systems/cave_room_data.gd").is_cave(game.current_location) or preload("res://scripts/systems/cave_room_data.gd").has_world_exit(game.current_location):
+			if preload("res://scripts/systems/cave_boss_arena_system.gd").can_exit(game): add_candidate(candidates,"world_gate",game.world_gate_position,static_hint(game,"world_gate"))
+			else: add_candidate(candidates,"cave_seal",game.world_gate_position,{"title":game.LocaleSystem.entity("cave_seal"),"text":game.LocaleSystem.tutorial("cave_boss_altar")})
+		for building_id in game.BuildingSystem.buildings_at(game.current_location):
+			var building: Dictionary = game.BuildingSystem.BUILDINGS[building_id]
+			add_candidate(candidates, "building:%s" % building_id, building.door, {"title":game.LocaleSystem.location(building.interior),"text":game.LocaleSystem.ui("hint_building")})
+		for npc_id in game.QuestSystem.NPCS:
+			if game.QuestSystem.NPCS[npc_id].location == game.current_location:
+				add_candidate(candidates, "quest_npc:%s" % npc_id, game.QuestSystem.npc_position(game, npc_id), {"title":game.QuestSystem.npc_name(npc_id),"text":game.LocaleSystem.ui("hint_quest_npc")})
+	if game.current_location == "prison_interior":
+		for companion_id in game.CompanionSystem.COMPANIONS:
+			var companion: Dictionary = game.CompanionSystem.COMPANIONS[companion_id]
+			add_candidate(candidates, "companion:%s" % companion_id, companion.position, {"title":game.CompanionSystem.name(game, companion_id),"text":game.LocaleSystem.ui("hint_companion")})
+	if game.current_location == "cottage_interior" and game.home_chest_owned:
+		add_candidate(candidates, "home_chest", game.StorageSystem.CHEST_POSITION, static_hint(game, "home_chest"))
+	if game.current_location == "moon_glade":
+		var moon_state: Dictionary = game.state.world.moon_glade
+		if not moon_state.flower_collected: add_candidate(candidates, "moon_flower", game.MoonGladeSystem.FLOWER_POSITION, {"title":game.LocaleSystem.entity("moon_flower"),"text":game.LocaleSystem.tutorial("moon_flower")})
+		elif not moon_state.crystal_charged: add_candidate(candidates, "moon_crystal", game.MoonGladeSystem.CRYSTAL_POSITION, {"title":game.LocaleSystem.entity("moon_crystal"),"text":game.LocaleSystem.tutorial("moon_crystal")})
+		elif not game.MoonGladeSystem.echoes_complete(moon_state):
+			for index in game.MoonGladeSystem.ECHO_POSITIONS.size():
+				if not moon_state.echoes[index]: add_candidate(candidates, "moon_echo:%d" % index, game.MoonGladeSystem.ECHO_POSITIONS[index], {"title":game.LocaleSystem.entity("moon_echo"),"text":game.LocaleSystem.tutorial("moon_echoes")})
+		elif not moon_state.altar_activated: add_candidate(candidates, "moon_altar", game.MoonGladeSystem.ALTAR_POSITION, {"title":game.LocaleSystem.entity("moon_altar"),"text":game.LocaleSystem.tutorial("moon_altar")})
+	if game.current_location == "forge_interior":
+		add_candidate(candidates, "forge", game.BuildingSystem.INTERIORS.forge_interior.service_position, static_hint(game, "forge"))
+	if game.current_location == "guild_interior":
+		add_candidate(candidates, "contracts", game.BuildingSystem.INTERIORS.guild_interior.service_position, static_hint(game, "contracts"))
+	for resource in game.resource_nodes:
+		if resource.hits > 0 and resource.location == game.current_location:
+			add_candidate(candidates, "resource:%s" % resource.kind, resource.position, resource_hint(game, resource.kind))
+	for enemy in game.enemy_nodes:
+		if enemy.alive and enemy.location == game.current_location:
+			add_candidate(candidates, "enemy:%s:%d" % [enemy.kind, enemy.level], enemy.position, enemy_hint(game, enemy.kind, enemy.level))
+	for hazard in game.hazard_nodes:
+		if hazard.location == game.current_location:
+			add_candidate(candidates, "hazard:%s:%d" % [hazard.kind, hazard.level], hazard.position, hazard_hint(game, hazard.kind, hazard.level))
+	for animal in game.wildlife_nodes:
+		if animal.alive and animal.location == game.current_location:
+			add_candidate(candidates, "wildlife:%s" % animal.kind, animal.position, wildlife_hint(game, animal.kind))
+	for item in game.dropped_items:
+		add_candidate(candidates, "item:%s" % item.kind, item.position, item_hint(game, item.kind))
+	for container in game.world_loot_nodes:
+		if not container.opened and container.location == game.current_location and preload("res://scripts/systems/cave_boss_arena_system.gd").container_visible(game,container):
+			add_candidate(candidates, "container:%s" % container.kind, container.position, container_hint(game, container.kind))
+	var nearest: Dictionary = {}
+	var nearest_distance := RANGE
+	for candidate in candidates:
+		if game.seen_discoveries.has(candidate.id):
+			continue
+		var distance: float = game.player.distance_to(candidate.position)
+		if distance <= nearest_distance:
+			nearest_distance = distance
+			nearest = candidate
+	if nearest.is_empty():
+		return false
+	return show(game, nearest.id, nearest.hint)
+
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
+static func show(game: Node, id: String, hint: Dictionary) -> bool:
+	if game.seen_discoveries.has(id):
+		return false
+	game.seen_discoveries[id] = true
+	game.discovery_current = {"id":id,"title":hint.title,"text":hint.text}
+	game.discovery_timer = CARD_DURATION
+	return true
+
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
+static func add_candidate(candidates: Array[Dictionary], id: String, position: Vector2, hint: Dictionary) -> void:
+	candidates.append({"id":id,"position":position,"hint":hint})
+
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
+static func static_hint(game: Node, kind: String) -> Dictionary:
+	var tutorial_key: String = {"grandmother":"talk","guild_master":"mission_accept","herbalist":"side_mission","shop":"trade","workbench":"craft_window","farm":"plant","pond":"fish","cave":"travel","bridge":"collision","slime":"fight","world_gate":"locations","home_chest":"chest_open","forge":"forge_open","contracts":"contract_board"}.get(kind, "move")
+	var title: String = game.LocaleSystem.entity(kind)
+	if kind == "guild_master": title = game.LocaleSystem.quest("story_relic", "giver")
+	if kind == "herbalist": title = game.LocaleSystem.quest("side_seed", "giver")
+	if kind == "shop": title = game.LocaleSystem.ui("shop")
+	if kind == "cave": title = game.LocaleSystem.location("cave")
+	return {"title":title,"text":game.LocaleSystem.tutorial(tutorial_key)}
+
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
+static func resource_hint(game: Node, kind: String) -> Dictionary:
+	if kind == "metal": return {"title":game.LocaleSystem.item(kind),"text":game.LocaleSystem.tutorial("cave_veins")}
+	return {"title":game.LocaleSystem.item(kind),"text":game.LocaleSystem.tutorial("mine")}
+
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
+static func enemy_hint(game: Node, kind: String, level: int = 1) -> Dictionary:
+	return {"title":"%s • %s" % [game.LocaleSystem.entity(kind), game.LocaleSystem.ui("enemy_level", [level])],"text":game.LocaleSystem.ui("hint_enemy")}
+
+## Собирает локализованную карточку неподвижной природной угрозы и её уровня.
+static func hazard_hint(game: Node, kind: String, level: int = 1) -> Dictionary:
+	return {"title":"%s • %s" % [game.LocaleSystem.entity(kind), game.LocaleSystem.ui("enemy_level", [level])],"text":game.LocaleSystem.ui("hint_hazard")}
+
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
+static func food_hint(game: Node, kind: String) -> Dictionary:
+	return {"title":game.LocaleSystem.entity(kind),"text":game.LocaleSystem.ui("hint_forage")}
+
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
+static func wildlife_hint(game: Node, kind: String) -> Dictionary:
+	return {"title":game.LocaleSystem.entity(kind),"text":game.LocaleSystem.ui("hint_wildlife")}
+
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
+static func item_hint(game: Node, kind: String) -> Dictionary:
+	var item: Dictionary = game.InventorySystem.data(kind)
+	var action: String = game.LocaleSystem.ui("hint_quest_item" if kind == "moon_relic" else "hint_item")
+	return {"title":game.LocaleSystem.ui("new_item", [item.name]),"text":action}
+
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
+static func container_hint(game: Node, kind: String) -> Dictionary:
+	var title: String = game.LocaleSystem.entity(kind)
+	return {"title":title,"text":game.LocaleSystem.ui("hint_container")}

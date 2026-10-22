@@ -1,0 +1,318 @@
+extends RefCounted
+
+const LocaleSystem := preload("res://scripts/systems/locale_system.gd")
+const Projectiles := preload("res://scripts/systems/enemy_projectile_system.gd")
+
+const MAX_ENEMY_LEVEL := 5
+const AGGRO_RADIUS := 380.0
+const MELEE_DISTANCE := 68.0
+const FAMILY_ORDER := ["plant", "orc", "skeleton", "undead", "cave_guardian"]
+const PIRATE_FAMILIES := ["pirate", "zombie_pirate", "sea_ghost", "drowned_captain"]
+const TYPES := {
+	"plant": {"name":"Хищное растение","hp":5,"damage":12,"xp":14,"speed":0.0,"mobile":false,"range":155.0,"loot":{"fiber":2,"rare_seeds":1}},
+	"orc": {"name":"Орк-разбойник","hp":8,"damage":18,"xp":22,"speed":105.0,"mobile":true,"range":MELEE_DISTANCE,"loot":{"metal":2,"coins":15,"orc_blade":1}},
+	"skeleton": {"name":"Скелет","hp":6,"damage":16,"xp":18,"speed":92.0,"mobile":true,"range":220.0,"loot":{"bones":3,"ancient_key":1}},
+	"undead": {"name":"Проклятый рыцарь","hp":10,"damage":22,"xp":30,"speed":78.0,"mobile":true,"range":185.0,"loot":{"bones":2,"blue_gem":1}},
+	"cave_guardian": {"name":"Хранитель глубин","hp":12,"damage":24,"xp":40,"speed":66.0,"mobile":true,"range":145.0,"loot":{"blue_gem":2}},
+	"pirate": {"name":"Пират-корсар","hp":9,"damage":18,"xp":24,"speed":108.0,"mobile":true,"range":220.0,"loot":{"pirate_doubloon":2,"metal":1}},
+	"zombie_pirate": {"name":"Зомби-матрос","hp":12,"damage":21,"xp":30,"speed":76.0,"mobile":true,"range":MELEE_DISTANCE,"loot":{"pirate_doubloon":2,"bones":2}},
+	"sea_ghost": {"name":"Морской призрак","hp":10,"damage":20,"xp":34,"speed":96.0,"mobile":true,"range":190.0,"loot":{"ectoplasm":2,"pirate_doubloon":1}},
+	"drowned_captain": {"name":"Утопший капитан","hp":18,"damage":26,"xp":65,"speed":72.0,"mobile":true,"range":230.0,"loot":{"cursed_compass":1,"pirate_doubloon":6}}
+}
+const SPAWNS := [
+	{"kind":"plant","location":"forest","position":Vector2(920,430),"level":1},
+	{"kind":"orc","location":"ruins","position":Vector2(1180,500),"level":1},
+	{"kind":"skeleton","location":"cave","position":Vector2(880,520),"level":1},
+	{"kind":"undead","location":"cursed","position":Vector2(1320,460),"level":1},
+	{"kind":"cave_guardian","location":"cave","position":Vector2(1450,500),"level":1},
+	{"kind":"plant","location":"forest","position":Vector2(520,420),"level":2},
+	{"kind":"plant","location":"forest","position":Vector2(1260,700),"level":3},
+	{"kind":"plant","location":"forest","position":Vector2(1880,690),"level":4},
+	{"kind":"plant","location":"forest","position":Vector2(2180,390),"level":5},
+	{"kind":"orc","location":"ruins","position":Vector2(720,680),"level":2},
+	{"kind":"orc","location":"ruins","position":Vector2(1040,780),"level":3},
+	{"kind":"orc","location":"ruins","position":Vector2(1920,720),"level":4},
+	{"kind":"orc","location":"ruins","position":Vector2(2140,340),"level":5},
+	{"kind":"skeleton","location":"cave","position":Vector2(500,720),"level":2},
+	{"kind":"skeleton","location":"cave","position":Vector2(1120,300),"level":3},
+	{"kind":"skeleton","location":"cave","position":Vector2(1740,730),"level":4},
+	{"kind":"skeleton","location":"cave","position":Vector2(2080,340),"level":5},
+	{"kind":"undead","location":"cursed","position":Vector2(760,720),"level":2},
+	{"kind":"undead","location":"cursed","position":Vector2(1080,300),"level":3},
+	{"kind":"undead","location":"cursed","position":Vector2(1800,680),"level":4},
+	{"kind":"undead","location":"cursed","position":Vector2(2140,360),"level":5},
+	{"kind":"cave_guardian","location":"cave","position":Vector2(640,300),"level":2},
+	{"kind":"cave_guardian","location":"cave","position":Vector2(1220,760),"level":3},
+	{"kind":"cave_guardian","location":"cave","position":Vector2(1680,300),"level":4},
+	{"kind":"cave_guardian","location":"cave","position":Vector2(2160,680),"level":5},
+	{"kind":"pirate","location":"pirate_ship","position":Vector2(650,430),"level":2},
+	{"kind":"pirate","location":"pirate_ship","position":Vector2(1180,760),"level":3},
+	{"kind":"zombie_pirate","location":"pirate_ship","position":Vector2(1420,450),"level":3},
+	{"kind":"sea_ghost","location":"pirate_ship","position":Vector2(1740,740),"level":4},
+	{"kind":"drowned_captain","location":"pirate_ship","position":Vector2(1980,520),"level":5},
+]
+
+
+## Создаёт противников с рассчитанными характеристиками и runtime-состоянием AI.
+static func default_enemies() -> Array:
+	var result: Array = []
+	for spawn in SPAWNS + preload("res://scripts/systems/cave_dungeon_content.gd").ENEMIES:
+		var enemy: Dictionary = spawn.duplicate(true)
+		enemy.level = clampi(int(enemy.level), 1, MAX_ENEMY_LEVEL)
+		enemy.max_hp = preload("res://scripts/systems/cave_boss_data.gd").MAX_HP if enemy.get("cave_boss", false) else max_hp(enemy.kind, enemy.level)
+		enemy.hp = enemy.max_hp
+		enemy.alive = true
+		enemy.home = enemy.position
+		enemy.direction = Vector2.DOWN
+		enemy.moving = false
+		enemy.attack_timer = 0.0
+		enemy.attack_pending = false
+		enemy.impact_timer = 0.0
+		enemy.visual_state = "idle"
+		enemy.visual_time = 0.0
+		enemy.action_kind = enemy_action_kind(enemy.kind)
+		enemy.action_target = enemy.position
+		result.append(enemy)
+	return result
+
+
+## Рассчитывает здоровье врага с ростом примерно на 45 процентов за уровень.
+static func max_hp(kind: String, level: int) -> int:
+	var base: int = int(TYPES[kind].hp)
+	return base + ceili(base * 0.45 * float(clampi(level, 1, MAX_ENEMY_LEVEL) - 1))
+
+
+## Рассчитывает силу удара конкретного уровня.
+static func attack_damage(kind: String, level: int) -> int:
+	return int(TYPES[kind].damage) + (clampi(level, 1, MAX_ENEMY_LEVEL) - 1) * 3
+
+
+## Рассчитывает награду опыта конкретного уровня.
+static func xp_reward(kind: String, level: int) -> int:
+	return int(roundi(float(TYPES[kind].xp) * (1.0 + 0.5 * float(clampi(level, 1, MAX_ENEMY_LEVEL) - 1))))
+
+
+## Сопоставляет уровни 1–2, 3–4 и 5 трём различимым строкам атласа.
+static func visual_rank(level: int) -> int:
+	return mini(floori(float(clampi(level, 1, MAX_ENEMY_LEVEL) - 1) / 2.0), 2)
+
+
+## Возвращает визуальный тип атаки, который определяет удар, стрелу или магию противника.
+static func enemy_action_kind(kind: String) -> String:
+	if kind in ["skeleton", "pirate", "drowned_captain"]: return "shoot"
+	if kind in ["plant", "undead", "sea_ghost"]: return "cast"
+	if kind == "cave_guardian": return "slam"
+	return "melee"
+
+
+## Возвращает множитель добычи: обычный, двойной для ветерана и тройной для элиты.
+static func loot_multiplier(level: int) -> int:
+	return 1 + floori(float(clampi(level, 1, MAX_ENEMY_LEVEL) - 1) / 2.0)
+
+
+## Находит ближайшего живого противника в радиусе выбранного оружия.
+static func nearest(game: Node) -> int:
+	var result := -1
+	var distance_limit: float = game.WeaponSystem.range_of(game.equipped_weapon)
+	var locked := int(game.state.player.adventure_ui.get("target_enemy", -1))
+	if locked >= 0 and locked < game.enemy_nodes.size():
+		var target: Dictionary = game.enemy_nodes[locked]
+		if target.get("cave_boss",false) and not game.state.world.cave_boss.active: locked = -1
+		if locked >= 0 and target.alive and target.location == game.current_location and game.player.distance_to(target.position) < distance_limit: return locked
+	for index in game.enemy_nodes.size():
+		var enemy: Dictionary = game.enemy_nodes[index]
+		if enemy.get("cave_boss",false) and not game.state.world.cave_boss.active: continue
+		if enemy.alive and enemy.location == game.current_location:
+			var distance: float = game.player.distance_to(enemy.position)
+			if distance < distance_limit:
+				distance_limit = distance
+				result = index
+	return result
+
+
+## Обновляет погоню, направление и атаки всех противников активной локации.
+static func update(game: Node, delta: float) -> void:
+	Projectiles.update(game,delta)
+	game.state.player.dodge_timer = maxf(game.state.player.dodge_timer - delta, 0.0)
+	game.state.player.dodge_cooldown = maxf(game.state.player.dodge_cooldown - delta, 0.0)
+	for index in game.enemy_nodes.size():
+		var enemy: Dictionary = game.enemy_nodes[index]
+		if not enemy.alive or enemy.location != game.current_location or bool(enemy.get("cave_boss", false)):
+			continue
+		if game.invisibility_timer > 0.0:
+			enemy.moving = false
+			enemy.attack_timer = maxf(float(enemy.get("attack_timer", 0.0)) - delta, 0.0)
+			game.enemy_nodes[index] = enemy
+			continue
+		if enemy.get("visual_state","")=="hurt" and float(enemy.get("visual_time",0.0))<game.AnimationSystem.HURT_DURATION:
+			enemy.moving=false; enemy.attack_timer=maxf(float(enemy.get("attack_timer",0.0))-delta,0.0)
+			game.enemy_nodes[index]=enemy; continue
+		var data: Dictionary = TYPES[enemy.kind]
+		if bool(enemy.get("attack_pending", false)):
+			var before_impact := float(enemy.get("impact_timer",0.0))
+			enemy.impact_timer = maxf(float(enemy.get("impact_timer", 0.0)) - delta, 0.0)
+			if enemy.impact_timer <= 0.0:
+				enemy.attack_pending = false
+				if String(enemy.action_kind) in ["shoot","cast"]:
+					Projectiles.launch(game,enemy,maxf(delta-before_impact,0.0))
+				elif (game.player.distance_to(enemy.action_target)<=43.0+game.PLAYER_RADIUS if enemy.action_kind=="slam" else enemy.position.distance_to(game.player)<=float(data.range)+game.PLAYER_RADIUS):
+					damage_player(game, boss_attack_damage(enemy), LocaleSystem.entity(enemy.kind), enemy.position)
+					apply_boss_side_effect(game, enemy)
+		enemy.boss_phase = boss_phase(enemy)
+		var distance: float = enemy.position.distance_to(game.player)
+		enemy.moving = false
+		if bool(data.mobile) and distance <= AGGRO_RADIUS and distance > float(data.range):
+			var direction: Vector2 = enemy.position.direction_to(game.player)
+			var motion := direction * (float(data.speed) + float(enemy.level - 1) * 7.0) * delta
+			var next_position: Vector2 = game.NavigationSystem.move_enemy(game, index, motion)
+			enemy.moving = next_position.distance_squared_to(enemy.position) > 0.04
+			if enemy.moving:
+				enemy.direction = enemy.position.direction_to(next_position)
+				enemy.position = next_position
+				game.notify_tutorial("enemy_movement")
+		distance = enemy.position.distance_to(game.player)
+		enemy.attack_timer = maxf(float(enemy.get("attack_timer", 0.0)) - delta, 0.0)
+		if distance <= float(data.range) and enemy.attack_timer <= 0.0 and not bool(enemy.get("attack_pending", false)):
+			enemy.attack_timer = maxf(0.75, 1.65 - float(enemy.level) * 0.09)
+			enemy.direction = enemy.position.direction_to(game.player)
+			enemy.visual_state = "attack"
+			enemy.visual_time = 0.0
+			enemy.action_kind = enemy_action_kind(enemy.kind)
+			enemy.action_target = game.player
+			enemy.attack_pending = true
+			enemy.impact_timer = attack_impact_delay(enemy.action_kind)
+			game.notify_tutorial("enemy_attack_styles")
+		game.enemy_nodes[index] = enemy
+
+
+## Возвращает момент контакта внутри анимации для ближней, дальней и тяжёлой атаки.
+static func attack_impact_delay(action_kind: String) -> float:
+	return {"melee":0.24, "shoot":0.48, "cast":0.42, "slam":0.46}.get(action_kind, 0.28)
+
+
+## Возвращает особую фазу уникального босса либо ноль для обычного противника.
+static func boss_phase(enemy: Dictionary) -> int:
+	if enemy.get("cave_boss", false): return preload("res://scripts/systems/cave_boss_data.gd").phase(int(enemy.hp), int(enemy.max_hp))
+	if enemy.kind not in ["cave_guardian", "drowned_captain"]: return 0
+	return 2 if int(enemy.hp) * 2 <= int(enemy.max_hp) else 1
+
+
+## Рассчитывает разный фазовый удар землетрясения Хранителя и ярости Капитана.
+static func boss_attack_damage(enemy: Dictionary) -> int:
+	var damage := attack_damage(enemy.kind, enemy.level)
+	if boss_phase(enemy) == 2: damage += 6 if enemy.kind == "cave_guardian" else 3
+	return damage
+
+
+## Применяет уникальное похищение монет Утопшим капитаном во второй фазе.
+static func apply_boss_side_effect(game: Node, enemy: Dictionary) -> void:
+	if enemy.kind == "drowned_captain" and boss_phase(enemy) == 2:
+		game.coins = maxi(0, game.coins - 2); game.notify_tutorial("boss_identity")
+	elif enemy.kind == "cave_guardian" and boss_phase(enemy) == 2: game.notify_tutorial("boss_identity")
+
+
+## Перемещает проверенный удар героя в общую систему урона.
+static func attack(game: Node, index: int) -> bool:
+	return preload("res://scripts/systems/player_attack_system.gd").begin(game,"enemy",index)
+
+
+## Рассчитывает единый урон героя для обычных врагов и событийных боссов.
+static func player_attack_damage(game: Node) -> int:
+	var damage: int = 1 + (1 if game.strength_timer > 0 else 0) + game.InventorySystem.damage_bonus(game) + game.TalentSystem.combat_damage_bonus(game)
+	damage += game.WeaponSystem.damage_bonus(game.equipped_weapon)
+	var campaign_bonus := 2 if game.state.world.castle_campaign.get("choice", "") == "power" else 0
+	if game.TalentSystem.has(game, "combat_power_strike") and posmod(game.state.player.combat_hits + 1, 4) == 0:
+		damage += 2
+	return damage + game.ForgeSystem.weapon_damage_bonus(game, game.equipped_weapon) + campaign_bonus
+
+
+## Наносит урон цели и масштабирует опыт с добычей по её уровню ровно один раз.
+static func apply_damage(game: Node, index: int, damage: int, attacker_name: String = "") -> bool:
+	if index < 0 or index >= game.enemy_nodes.size() or damage <= 0:
+		return false
+	var enemy: Dictionary = game.enemy_nodes[index]
+	if not enemy.alive or enemy.location != game.current_location:
+		return false
+	if enemy.get("cave_boss",false) and not game.state.world.cave_boss.active: return false
+	if enemy.level > 1:
+		game.notify_tutorial("enemy_levels")
+	enemy.hp -= damage
+	enemy.attack_pending = false; enemy.impact_timer = 0.0
+	enemy.hurt_direction = game.player.direction_to(enemy.position)
+	if enemy.hp > 0 and bool(TYPES[enemy.kind].mobile) and not enemy.get("cave_boss", false): enemy.position = game.NavigationSystem.move_enemy(game, index, game.player.direction_to(enemy.position) * 22.0)
+	enemy = game.AnimationSystem.hit_enemy(enemy, enemy.hp <= 0)
+	game.play_sfx("defeat" if enemy.hp <= 0 else "hit")
+	if enemy.hp <= 0:
+		enemy.alive = false
+		var reward := xp_reward(enemy.kind, enemy.level)
+		game.award_xp(reward)
+		game.SkillSystem.award_profession_xp(game, "combat", reward / 2)
+		var multiplier := loot_multiplier(enemy.level)
+		for kind in TYPES[enemy.kind].loot:
+			var count: int = int(TYPES[enemy.kind].loot[kind]) * multiplier
+			if kind == "coins": game.coins += count
+			else: game.dropped_items.append({"kind":kind,"count":count,"position":enemy.position,"location":game.current_location})
+		game.message = "%s • ур. %d: +%d XP" % [LocaleSystem.entity(enemy.kind), enemy.level, reward]
+		game.FirstChapterSystem.on_enemy_defeated(game,enemy)
+		if enemy.kind in PIRATE_FAMILIES: game.notify_tutorial("pirate_loot")
+	else:
+		var prefix := "%s → " % attacker_name if not attacker_name.is_empty() else ""
+		game.message = "%s%s: -%d HP" % [prefix, LocaleSystem.entity(enemy.kind), damage]
+	game.enemy_nodes[index] = enemy
+	if enemy.get("cave_boss", false): game.CaveBossSystem.on_damage(game)
+	return true
+
+
+## Применяет входящий урон с учётом экипировки, напарников и спасения после поражения.
+static func damage_player(game: Node, raw_damage: int, source_name: String, source_position: Vector2 = Vector2.INF) -> int:
+	if game.menu_state.defeat_open or preload("res://scripts/systems/recovery_system.gd").protected(game): return 0
+	if game.state.player.dodge_timer > 0.0:
+		game.message = game.LocaleSystem.text("combat_evaded"); return 0
+	var potion_defense := 4 if game.defense_timer > 0.0 else 0
+	var incoming := maxi(1, game.InventorySystem.incoming_damage(game, raw_damage) - game.CompanionSystem.defense_bonus(game) - potion_defense)
+	if game.state.player.blocking and game.energy > 0:
+		incoming = maxi(1, ceili(float(incoming) * 0.45)); game.energy -= 1; game.notify_tutorial("combat_block")
+	game.player_hp -= incoming
+	game.WeaponSystem.hit_player(game, game.player - game.facing * 24.0 if not source_position.is_finite() else source_position)
+	game.message = "%s: -%d HP" % [source_name, incoming]
+	if game.player_hp <= 0:
+		var lost_coins := mini(5, game.coins)
+		game.player_hp = game.player_max_hp
+		game.player=preload("res://scripts/systems/recovery_system.gd").safe_spawn(game)
+		game.coins -= lost_coins
+		game.MenuSystem.open_defeat(game, source_name, lost_coins)
+	return incoming
+
+
+## Начинает короткий рывок с неуязвимостью после проверки сил и перезарядки.
+static func start_dodge(game: Node) -> bool:
+	if game.state.player.dodge_cooldown > 0.0 or game.energy < 2: return false
+	game.energy -= 2; game.state.player.dodge_timer = 0.32; game.state.player.dodge_cooldown = 1.15
+	game.NavigationSystem.move(game, game.facing.normalized() * 92.0)
+	game.play_sfx("travel"); game.notify_tutorial("combat_dodge")
+	return true
+
+
+## Включает удерживаемый блок с клавиатуры, геймпада или сенсорной кнопки.
+static func set_blocking(game: Node, active: bool) -> bool:
+	game.state.player.blocking = active and game.energy > 0
+	if game.state.player.blocking: game.notify_tutorial("combat_block")
+	return game.state.player.blocking
+
+
+## Передаёт атаку напарника в общий конвейер урона без анимации героя.
+static func companion_attack(game: Node, index: int, damage: int, attacker_name: String) -> bool:
+	return apply_damage(game, index, damage, attacker_name)
+
+## Сбрасывает не сохранённые замахи, угрозы и визуальный отклик после загрузки или поражения.
+static func reset_transients(game: Node) -> void:
+	preload("res://scripts/systems/recovery_system.gd").clear(game)
+	preload("res://scripts/systems/player_attack_system.gd").reset(game)
+	Projectiles.reset(game)
+	game.slime_attack_pending=false; game.slime_attack_impact_timer=0.0; game.slime_attack_timer=0.0
+	for enemy in game.enemy_nodes:
+		enemy.attack_pending=false; enemy.impact_timer=0.0; enemy.visual_state="idle"; enemy.visual_time=0.0
+	for hazard in game.hazard_nodes:
+		hazard.windup=0.0
+	var life: Dictionary = game.FarmLifeSystem.state(game)
+	life.projectiles=[]; life.hit_stop=0.0

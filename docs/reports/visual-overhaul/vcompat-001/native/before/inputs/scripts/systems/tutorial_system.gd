@@ -1,0 +1,66 @@
+extends RefCounted
+
+const STEP_IDS := [
+	"move", "village_paths", "audio_feedback", "character_animation", "npc_wander", "npc_schedule", "forage_harvest", "forage_regrow", "forage_sale", "orchard_trees", "orchard_planting",
+	"talk", "hold_action", "free_farming", "wide_tilling", "buried_loot", "plant", "water", "rewater", "harvest", "shop", "trade", "seed_catalog", "crop_variety", "perennial_crop",
+	"quest_complete", "fight", "combat_animation", "weapon_cooldown", "combat_hit_reaction", "combat_dodge", "combat_block", "critical_hit", "magic_cycle", "magic_cast", "loot", "inventory", "inventory_filters", "hotbar", "eat", "equipment", "mine", "tree_chop", "tree_fall", "tree_regrow", "lumber_process",
+	"fish_cast", "fish_hook", "fish_control", "fish", "advanced_fishing", "crab_trap_place", "crab_trap_collect", "craft_window", "cooking", "animal_feed_recipe", "textile_chain", "equip", "collision", "travel", "locations", "mission_accept", "story_chain", "side_quests",
+	"mission_complete", "journal", "side_mission", "colored_crystal", "day", "chapter_bridge", "chapter_guardian", "chapter_reward", "level_up",
+	"skill_point", "talent_tree", "talent_respec", "profession", "pause_menu", "settings", "save", "wildlife", "wildlife_behavior", "world_loot", "watermelon", "potion",
+	"shield", "lizard",
+	"building_enter", "locked_building", "castle_floor", "companion_recruit", "companion_change", "companion_commands",
+	"enemy_levels", "enemy_movement", "enemy_attack_styles", "enemy_projectiles", "boss_identity", "contact_hazard", "static_attacker", "hero_skin",
+	"chest_install", "chest_open", "chest_deposit", "chest_withdraw", "estate_upgrade", "item_quality", "world_calendar", "world_map",
+	"forge_open", "weapon_sharpen", "armor_upgrade", "arrow_sharpen",
+	"contract_board", "contract_accept", "contract_complete", "guild_rank",
+	"pirate_ship", "pirate_quest", "pirate_loot", "invisibility", "season", "weather", "night", "eclipse", "moon_portal", "moon_flower", "moon_crystal", "moon_echoes", "moon_altar", "moon_guardian", "moon_treasure", "story_after_eclipse", "castle_investigation", "quest_investigation", "boss_phases", "story_choice",
+	"character_creation", "dialogue_choices", "npc_gift", "personal_request", "market_event", "festival_event", "night_trader", "raid_event", "interior_furniture", "debug_inspector", "target_lock", "durability_low", "durability_broken", "repair", "backpack_upgrade", "farmyard", "animal_feed", "animal_water", "animal_pet", "animal_product", "museum", "secret_puzzle", "furniture_place", "photo_mode", "fence_build", "fence_gate", "fence_weather",
+	"cave_veins",
+	"cave_labyrinth",
+	"cave_boss_altar", "cave_boss_phases", "cave_boss_attacks", "cave_boss_summons", "cave_boss_flies", "cave_boss_victory",
+	"celestial_clock",
+	"hero_tools",
+	"player_contact", "alchemy_herbs", "alchemy_processing", "alchemy_brewing", "alchemy_effects",
+	"furnace_queue", "furnace_fuel", "furnace_upgrade", "furnace_done",
+	"study_table", "study_learn", "study_upgrade", "study_dismantle", "study_reuse",
+	"sawmill", "pottery", "pottery_firing", "glassblowing", "workshop_queue", "workshop_upgrade", "workshop_recycling",
+	"kitchen_queue", "kitchen_fuel", "kitchen_done",
+	"apiary_wild", "apiary_build", "apiary_populate", "apiary_harvest", "apiary_alchemy",
+	"basement_enter", "basement_blueprint", "basement_place", "basement_build", "basement_finish", "basement_upgrade", "basement_dismantle",
+	"fruit_press", "fermenter", "preserver", "smoker", "loom", "tannery", "candlebench", "gardenbench", "fertilizer", "fishing_bait", "dev_cabinet", "storage_quick", "village_regions", "rescue", "qa_teleport",
+	"production_cancel",
+	"alchemy_learning",
+	"production_plan",
+]
+
+
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
+static func steps() -> Array:
+	var result := []
+	for event_id in STEP_IDS:
+		if event_id == "qa_teleport" and not (bool(ProjectSettings.get_setting("development/qa_teleport_enabled",false)) and bool(ProjectSettings.get_setting("development/supply_cabinet_enabled",false))): continue
+		result.append({"event":event_id})
+	return result
+
+## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
+static func notify(game: Node, event_name: String) -> bool:
+	game.tutorial_events_completed[event_name] = true
+	var previous_step: int = game.tutorial_step
+	while game.tutorial_step < game.tutorial_steps.size():
+		var required_event: String = game.tutorial_steps[game.tutorial_step].event
+		if not game.tutorial_events_completed.has(required_event):
+			break
+		game.tutorial_step += 1
+	return game.tutorial_step > previous_step
+
+## Выполняет операцию «сброса» и возвращает результат согласно контракту метода.
+static func reset(game: Node) -> void:
+	game.tutorial_step = 0
+	game.tutorial_events_completed.clear()
+	game.seen_discoveries.clear()
+	game.discovery_current.clear()
+	game.discovery_timer = 0.0
+	game.discovery_scan_timer = 0.0
+	game.character_animation_directions.clear()
+	game.tutorial_visible = true
+	game.message = game.LocaleSystem.text("tutorial_reset")

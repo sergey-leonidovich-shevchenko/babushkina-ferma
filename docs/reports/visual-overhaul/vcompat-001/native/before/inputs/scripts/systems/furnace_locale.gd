@@ -1,0 +1,34 @@
+extends RefCounted
+
+const UI := {
+	"furnace_title":["ГОРН · УРОВЕНЬ %d","FURNACE · LEVEL %d","HORNO · NIVEL %d","OFEN · STUFE %d","FOUR · NIVEAU %d","熔炉 · 等级%d"],
+	"furnace_service":["Горн","Furnace","Horno","Ofen","Four","熔炉"],
+	"furnace_queue_names":["Очередь: %s","Queue: %s","Cola: %s","Schlange: %s","File : %s","队列：%s"],
+	"furnace_context":["Открыть горн","Open furnace","Abrir horno","Ofen öffnen","Ouvrir le four","打开熔炉"],
+	"furnace_action":["В ОЧЕРЕДЬ","QUEUE","ENCOLAR","EINREIHEN","EN FILE","加入队列"],
+	"furnace_load":["Топливо +1","Fuel +1","Combustible +1","Brennstoff +1","Combustible +1","燃料+1"],
+	"furnace_upgrade":["Улучшить","Upgrade","Mejorar","Verbessern","Améliorer","升级"],
+	"furnace_help":["Q/LB–RB: топливо · F/Y: загрузить · U/L3: улучшить · Закрой меню для плавки","Q/LB–RB: fuel · F/Y: load · U/L3: upgrade · Close menu to smelt","Q/LB–RB: combustible · F/Y: cargar · U/L3: mejorar · Cierra para fundir","Q/LB–RB: Brennstoff · F/Y: laden · U/L3: verbessern · Zum Schmelzen schließen","Q/LB–RB : combustible · F/Y : charger · U/L3 : améliorer · Fermer pour fondre","Q/LB–RB：燃料 · F/Y：添加 · U/L3：升级 · 关闭菜单开始熔炼"],
+	"furnace_station_need":["Подойди к горну в кузнице","Approach the workshop furnace","Acércate al horno de la forja","Zum Ofen in der Schmiede gehen","Approche du four de la forge","请靠近铁匠铺熔炉"],
+	"furnace_level_need":["Нужен горн уровня %d","Furnace level %d required","Requiere horno nivel %d","Ofenstufe %d benötigt","Four niveau %d requis","需要%d级熔炉"],
+	"furnace_queue_full":["Очередь заполнена","Queue is full","Cola llena","Warteschlange voll","File pleine","队列已满"],
+	"furnace_empty_fuel":["Нет выбранного топлива","No selected fuel available","No hay combustible elegido","Gewählter Brennstoff fehlt","Combustible choisi absent","没有所选燃料"],
+	"furnace_fuel_full":["Топливо не помещается","Fuel reserve is full","Reserva de combustible llena","Brennstoffvorrat voll","Réserve pleine","燃料储备已满"],
+	"furnace_upgrade_cost":["Улучшение: %d монет · %s","Upgrade: %d coins · %s","Mejora: %d monedas · %s","Ausbau: %d Münzen · %s","Amélioration : %d pièces · %s","升级：%d金币 · %s"],
+	"furnace_max":["Достигнут уровень 3","Level 3 reached","Nivel 3 alcanzado","Stufe 3 erreicht","Niveau 3 atteint","已达到3级"],
+	"furnace_upgraded":["Горн улучшен до уровня %d","Furnace upgraded to level %d","Horno mejorado al nivel %d","Ofen auf Stufe %d verbessert","Four amélioré au niveau %d","熔炉已升至%d级"],
+	"furnace_queued":["Партия добавлена в очередь","Batch added to queue","Lote añadido a la cola","Durchgang eingereiht","Lot ajouté en file","批次已加入队列"],
+	"furnace_queued_many":["В очередь добавлено партий: %d","Batches queued: %d","Lotes en cola: %d","Durchgänge eingereiht: %d","Lots en file : %d","已加入队列批次：%d"],
+	"furnace_finished":["Горн: %s ×%d готово","Furnace: %s ×%d ready","Horno: %s ×%d listo","Ofen: %s ×%d fertig","Four : %s ×%d prêt","熔炉：%s ×%d已完成"],
+	"furnace_status":["Жар: %.1f с · Очередь %d/%d","Heat: %.1f s · Queue %d/%d","Calor: %.1f s · Cola %d/%d","Hitze: %.1f s · Schlange %d/%d","Chaleur : %.1f s · File %d/%d","热量：%.1f秒 · 队列%d/%d"],
+	"furnace_waiting":["Добавь топливо; плавка ждёт","Add fuel; smelting is waiting","Añade combustible; horno en espera","Brennstoff fehlt; Schmelzen wartet","Ajoute du combustible ; en attente","请添加燃料，熔炼等待中"],
+	"furnace_remaining":["Осталось %.1f с · В меню пауза","%.1f s left · Paused in menu","Quedan %.1f s · Pausa en menú","Noch %.1f s · Menü pausiert","Reste %.1f s · Menu en pause","剩余%.1f秒 · 菜单中暂停"],
+	"furnace_summary":["Выход ×%d · %.1f с\nОчередь %d/%d","Output ×%d · %.1f s\nQueue %d/%d","Salida ×%d · %.1f s\nCola %d/%d","Ergebnis ×%d · %.1f s\nSchlange %d/%d","Sortie ×%d · %.1f s\nFile %d/%d","产出×%d · %.1f秒\n队列%d/%d"],
+	"furnace_mix":["Компонентов: %d · Ур. %d","Ingredients: %d · Lvl %d","Ingredientes: %d · Nv. %d","Zutaten: %d · Stufe %d","Ingrédients : %d · Nv. %d","材料：%d · 等级%d"],
+}
+const TUTORIAL := {
+	"furnace_queue":["У горна в кузнице E открывает плавку. Сырьё списывается при постановке в очередь; результат поступит после нагрева. Закрой меню, чтобы плавка шла.","E by the workshop furnace opens smelting. Inputs are spent when queued; output arrives after heating. Close the menu to run it.","E junto al horno abre fundición. Materiales se gastan al encolar; el resultado llega después. Cierra el menú para avanzar.","E am Ofen öffnet Schmelzen. Zutaten werden beim Einreihen verbraucht; das Ergebnis folgt nach Erhitzen. Menü schließen.","E au four ouvre la fonte. Les ingrédients sont dépensés en file ; le résultat arrive après chauffe. Ferme le menu.","靠近熔炉按E打开熔炼。加入队列时消耗材料，加热完成后获得成品。关闭菜单以开始熔炼。"],
+	"furnace_fuel":["Q меняет топливо, F загружает одну порцию. Дрова, бревно, уголь, древесный уголь и мусор дают разный жар. Топливо расходуется только во время плавки.","Q cycles fuel; F loads one portion. Wood, logs, coal, charcoal and trash provide different heat. Fuel burns only while smelting.","Q cambia combustible, F añade una porción. Madera, troncos, carbón y basura dan distinto calor. Solo se gasta al fundir.","Q wählt Brennstoff, F lädt eine Portion. Holz, Stamm, Kohle, Holzkohle und Müll liefern unterschiedliche Hitze. Verbrauch nur beim Schmelzen.","Q change le combustible, F ajoute une portion. Bois, bûches, charbon, charbon de bois et déchets donnent des chaleurs différentes. Consommation pendant la fonte.","Q切换燃料，F添加一份。木材、原木、煤、木炭和垃圾提供不同热量，仅在熔炼时消耗。"],
+	"furnace_upgrade":["U улучшает горн до уровня 3. Растут скорость, экономия топлива, очередь и запас жара. Уровень 2 открывает сталь, уровень 3 — возврат металла из шлака.","U upgrades the furnace to level 3. Speed, fuel efficiency, queue and heat reserve grow. Level 2 unlocks steel; level 3 recovers metal from slag.","U mejora hasta nivel 3: velocidad, eficiencia, cola y reserva. Nivel 2 abre acero, nivel 3 recupera metal de escoria.","U verbessert bis Stufe 3: Tempo, Effizienz, Schlange und Vorrat steigen. Stufe 2: Stahl; Stufe 3: Metall aus Schlacke.","U améliore jusqu’au niveau 3 : vitesse, rendement, file et réserve augmentent. Niveau 2 : acier ; niveau 3 : métal des scories.","U将熔炉升级至3级，提高速度、燃料效率、队列和热量储备。2级解锁钢，3级从炉渣回收金属。"],
+	"furnace_done":["Готовая партия автоматически попадает в рюкзак. Руда и лом дают металл и шлак; песок даёт стекло, из стекла делаются алхимические флаконы.","Finished batches enter the bag automatically. Ore and scrap yield metal and slag; sand yields glass, used for alchemy vials.","El lote listo entra en la mochila. Mineral y chatarra dan metal y escoria; arena da vidrio para frascos alquímicos.","Fertige Durchgänge landen im Rucksack. Erz und Schrott geben Metall und Schlacke; Sand gibt Glas für Alchemieflaschen.","Les lots finis vont dans le sac. Minerai et ferraille donnent métal et scories ; le sable donne du verre pour les fioles.","成品自动进入背包。矿石和废金属产出金属与炉渣，沙子变成玻璃，可制作炼金瓶。"],
+}

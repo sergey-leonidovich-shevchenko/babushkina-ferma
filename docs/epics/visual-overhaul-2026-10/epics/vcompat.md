@@ -6,11 +6,11 @@
 
 ## VCOMPAT-001 — Отделить transient visual state
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `done` · P0 · этап `foundation` · `engineering`
 
 В сохранение не попадают GPU handles, сгиб травы, shader time и кеши; JSON остаётся совместимым
 
-Ветка: `codex/vcompat-001-visual-task`.
+Ветка: `codex/vcompat-001-transient-save-boundary`.
 
 Зависимости: VRENDER-001.
 
@@ -20,7 +20,7 @@
 - [scripts/systems/atomic_json_store.gd](../../../../scripts/systems/atomic_json_store.gd)
 - [scripts/systems/content_reference_graph.gd](../../../../scripts/systems/content_reference_graph.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vcompat-001/`.
+Результаты: `docs/reports/visual-overhaul/vcompat-001/`.
 
 Критерии:
 
@@ -38,13 +38,13 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vcompat-001/README.md, docs/reports/visual-overhaul/vcompat-001/dependency-audit.json, docs/reports/visual-overhaul/vcompat-001/changes.json, docs/reports/visual-overhaul/vcompat-001/runtime.patch, docs/reports/visual-overhaul/vcompat-001/ownership.json, docs/reports/visual-overhaul/vcompat-001/summary.json, docs/reports/visual-overhaul/vcompat-001/before-probe.json, docs/reports/visual-overhaul/vcompat-001/after-probe.json, docs/reports/visual-overhaul/vcompat-001/native/before/source.json, docs/reports/visual-overhaul/vcompat-001/native/after/source.json, docs/reports/visual-overhaul/vcompat-001/review.txt, docs/reports/visual-overhaul/vcompat-001/python-check.txt, docs/reports/visual-overhaul/vcompat-001/completion.json, docs/reports/visual-overhaul/vcompat-001/quality-check.txt, docs/reports/visual-overhaul/vcompat-001/wiki-check.txt, docs/reports/visual-overhaul/vcompat-001/browser-review.json.
 
 <a id="vcompat-002"></a>
 
 ## VCOMPAT-002 — Проверить старые слоты
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 Слот до визуальной миграции загружается без смены инвентаря, заданий, календаря и положения станков
 
@@ -82,7 +82,7 @@
 
 ## VCOMPAT-003 — Сохранить строительную сетку
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 Размер рисунка не меняет footprint; блокировка красных клеток и единственный подход к станку сохранены
 
@@ -120,7 +120,7 @@
 
 ## VCOMPAT-004 — Сохранить вспашку и сбор
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 Новые края земли не разрешают грядки на дороге и площади; сбор и полив проверены на прежних клетках
 
@@ -158,7 +158,7 @@
 
 ## VCOMPAT-005 — Сохранить коллизии воды
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 WaterTopology остаётся владельцем воды, мостов и рыбалки; визуальная прозрачность не означает проходимость
 
@@ -196,7 +196,7 @@ WaterTopology остаётся владельцем воды, мостов и р
 
 ## VCOMPAT-006 — Сохранить точность боя
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 Новая анимация не наносит урон мимо героя; направление лука и снаряда совпадает на всех существующих направлениях
 
@@ -236,7 +236,7 @@ WaterTopology остаётся владельцем воды, мостов и р
 
 ## VCOMPAT-007 — Проверить паузу во всех окнах
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 Рюкзак, шкаф, сундук, диалог и blueprint сохраняют игровую политику; закрытие не запускает лишний удар
 
@@ -274,7 +274,7 @@ WaterTopology остаётся владельцем воды, мостов и р
 
 ## VCOMPAT-008 — Проверить спасение и переходы
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 Смерть не открывает блокирующее полноэкранное окно и не оставляет инструменты/эффекты на прежней карте
 
@@ -312,7 +312,7 @@ WaterTopology остаётся владельцем воды, мостов и р
 
 ## VCOMPAT-009 — Проверить производственные очереди
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 Перерисовка уровней и эффектов не меняет оплату, прогресс, возврат и выход рецептов
 
@@ -350,7 +350,7 @@ WaterTopology остаётся владельцем воды, мостов и р
 
 ## VCOMPAT-010 — Проверить откат визуальной версии
 
-Статус: `backlog` · P0 · этап `foundation` · `engineering`
+Статус: `ready` · P0 · этап `foundation` · `engineering`
 
 Отключение флага возвращает старую отрисовку без миграции сохранений и потери пользовательских уровней
 

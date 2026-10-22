@@ -1,5 +1,7 @@
 extends RefCounted
 
+const MAX_VALUE_DEPTH := 64
+
 ## Читает только полный JSON-словарь; ошибки доступа и синтаксиса возвращают пустой документ.
 static func read(path: String) -> Dictionary:
 	var file := FileAccess.open(path, FileAccess.READ)
@@ -28,6 +30,8 @@ static func write(path: String, data: Dictionary, validator: Callable = Callable
 ## Проверяет весь временный документ; каждая граница допускает управляемый отказ без глобального состояния.
 static func _stage(path: String, data: Dictionary, validator: Callable, fault: Callable, phase: String) -> bool:
 	if not _point(fault,phase+".before_stage",path): return false
+	# JSON.stringify превращает GPU/объектные ссылки в строки; такой документ нельзя подтверждать или ротировать.
+	if _has_runtime_reference(data): return false
 	var temporary := path + ".tmp"
 	var text := JSON.stringify(data, "  ")
 	var file := FileAccess.open(temporary, FileAccess.WRITE)
@@ -44,6 +48,18 @@ static func _stage(path: String, data: Dictionary, validator: Callable, fault: C
 	if checked.is_empty() or (validator.is_valid() and not validator.call(checked)) or not _point(fault,phase+".after_validate",path):
 		_discard(path); return false
 	return true
+
+## Не допускает ссылки любого уровня или циклический кеш до открытия файла; прежние координатные значения не меняет.
+static func _has_runtime_reference(value: Variant, depth: int = 0) -> bool:
+	if depth > MAX_VALUE_DEPTH: return true
+	if typeof(value) in [TYPE_OBJECT, TYPE_RID, TYPE_CALLABLE, TYPE_SIGNAL]: return true
+	if value is Dictionary:
+		for key in value:
+			if _has_runtime_reference(key,depth+1) or _has_runtime_reference(value[key],depth+1): return true
+	elif value is Array:
+		for item in value:
+			if _has_runtime_reference(item,depth+1): return true
+	return false
 
 ## Передаёт конкретную границу только явно переданному наблюдателю; обычная запись не хранит тестовых флагов.
 static func _point(fault: Callable, checkpoint: String, path: String) -> bool:

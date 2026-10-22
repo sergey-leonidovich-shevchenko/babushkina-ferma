@@ -463,3 +463,9 @@ assets/inbox/*
 !tools/plant_depth*.py
 !tools/test_plant_depth.py
 !docs/reports/visual-overhaul/vrender-006/native/**/*.png.import
+
+# VCOMPAT-001: isolated save-boundary review and native evidence.
+!tools/transient_save*.gd
+!tools/transient_save*.gd.uid
+!tools/transient_save*.py
+!tools/test_transient_save.py
