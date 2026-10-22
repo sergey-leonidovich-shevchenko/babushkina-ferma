@@ -720,21 +720,21 @@
         "assets/game/locations/overworld/benches/bench_east_v1.png"
       ],
       "kind": "project-generation-documented",
-      "claim": "Original built-in image_gen bench masters, including four-leg side corrections. Deterministic bounded crop and uniform Lanczos reduction only; exact prompts, three masters, derivative source and four annotated contacts retained.",
+      "claim": "Built-in image_gen bench masters, with visibly exposed four-leg side corrections reviewed on 22 October 2026. Front PNG unchanged. Deterministic bounded crop and uniform Lanczos reduction only; exact prompts, masters, native comparison and four annotated contacts retained.",
       "license_status": "project-record-not-legal-opinion",
       "evidence": [
-        "docs/reports/visual-overhaul/vprop-002/README.md",
-        "docs/reports/visual-overhaul/vprop-002/prompts.json",
-        "docs/reports/visual-overhaul/vprop-002/source.json",
-        "docs/reports/visual-overhaul/vprop-002/masters/south.png",
-        "docs/reports/visual-overhaul/vprop-002/masters/west.png",
-        "docs/reports/visual-overhaul/vprop-002/masters/east.png",
+        "docs/reports/visual-overhaul/vprop-002-four-legs/README.md",
+        "docs/reports/visual-overhaul/vprop-002-four-legs/prompts.json",
+        "docs/reports/visual-overhaul/vprop-002-four-legs/source.json",
+        "docs/reports/visual-overhaul/vprop-002-four-legs/masters/south.png",
+        "docs/reports/visual-overhaul/vprop-002-four-legs/masters/west.png",
+        "docs/reports/visual-overhaul/vprop-002-four-legs/masters/east.png",
         "tools/village_bench_assets.py"
       ],
       "asset_sha256": {
         "assets/game/locations/overworld/benches/bench_south_v1.png": "7cb670ffecd1605d503e9b4edef4bab398aa1c188ae0ec1e2518542b8c8d096f",
-        "assets/game/locations/overworld/benches/bench_west_v1.png": "48d872bdd7c924604d6942ae8d88ee5df5f8e1c82ec23de3ed5b42e4f5ba317a",
-        "assets/game/locations/overworld/benches/bench_east_v1.png": "ea0a9de4274ae98d79d2467b0551bf257e5dc9462f49058f1ee12d55c095850c"
+        "assets/game/locations/overworld/benches/bench_west_v1.png": "b731c2359f3b04cada926b76674cea85b2cf5ce2d4be925f9f31dfab2e3619e7",
+        "assets/game/locations/overworld/benches/bench_east_v1.png": "4effb0064a6e8fdbcb0fc6f421b5e3ce8303a6765b6af15591f576be13af0278"
       }
     },
     {

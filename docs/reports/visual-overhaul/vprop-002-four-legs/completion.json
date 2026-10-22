@@ -1,0 +1,21 @@
+{
+  "task": "VPROP-002",
+  "revision": "four-visible-legs",
+  "status": "done",
+  "game_version": "0.0.302",
+  "runtime_assets_changed": true,
+  "runtime_code_changed": false,
+  "front_png_unchanged": true,
+  "native_png": 4,
+  "draw_callbacks": 8,
+  "profile_passed": 24,
+  "python_tests": 9,
+  "architecture": "passed",
+  "game_passed": 46489,
+  "game_failed": 0,
+  "wiki_passed": 108,
+  "wiki_failed": 0,
+  "browser": "two current native images loaded",
+  "performance_eligible": false,
+  "full_map_accepted": false
+}

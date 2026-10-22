@@ -1,0 +1,22 @@
+{
+  "task": "VPROP-002",
+  "revision": "four-visible-legs",
+  "url": "http://127.0.0.1:4176/#/guides/village-benches",
+  "current_images_complete": true,
+  "images": [
+    {
+      "alt": "Сверху прежние лавочки, снизу исправленные: вниз, влево, вправо; одинаковые 120%",
+      "complete": true,
+      "height": 648,
+      "src": "http://127.0.0.1:4176/generated/illustrations/36093ed3fc507e8b5bebc4c7.png",
+      "width": 1152
+    },
+    {
+      "alt": "Исправленные четыре опоры и края на тёмном фоне",
+      "complete": true,
+      "height": 648,
+      "src": "http://127.0.0.1:4176/generated/illustrations/8450e5320f2c44b5269ffbcd.png",
+      "width": 1152
+    }
+  ]
+}
