@@ -1,22 +1,22 @@
 {
   "schema": 1,
   "automation_id": "10",
-  "review_date": "2026-10-22",
-  "from_utc": "2026-10-21T09:24:00.346Z",
-  "through_utc": "2026-10-22T05:20:45.818Z",
-  "source_main": "85ae79d809ebe15958900afde0115a72845e5d1c",
-  "source_origin_main": "2f844d14e4ea6ab6c56503c694135dc29e0eb4a2",
+  "review_date": "2026-10-23",
+  "from_utc": "2026-10-22T05:20:45.818Z",
+  "through_utc": "2026-10-22T23:31:21.617799+00:00",
+  "source_main": "ab52022ac0ba38954c95bfcc8b3cc94d1cda03e0",
+  "source_origin_main": "9c2946ef7be42be617a11f5432b97cb58711c60e",
   "ideas": [
-    "IDEA-202",
-    "IDEA-203",
-    "IDEA-204",
-    "IDEA-205",
-    "IDEA-206",
-    "IDEA-207",
-    "IDEA-208",
-    "IDEA-209",
-    "IDEA-210",
-    "IDEA-211"
+    "IDEA-212",
+    "IDEA-213",
+    "IDEA-214",
+    "IDEA-215",
+    "IDEA-216",
+    "IDEA-217",
+    "IDEA-218",
+    "IDEA-219",
+    "IDEA-220",
+    "IDEA-221"
   ],
-  "report": "docs/reports/creative/2026-10-22/README.md"
+  "report": "docs/reports/creative/2026-10-23/README.md"
 }
