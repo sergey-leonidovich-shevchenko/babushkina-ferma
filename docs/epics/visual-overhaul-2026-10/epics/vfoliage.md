@@ -6,11 +6,11 @@
 
 ## VFOLIAGE-001 — Определить корни внутри атласа
 
-Статус: `backlog` · P0 · этап `pilot` · `engineering`
+Статус: `done` · P0 · этап `pilot` · `engineering`
 
 Каждая используемая область 362×362 имеет реальный anchor и маску гибкости; прозрачный низ не считается корнем
 
-Ветка: `codex/vfoliage-001-visual-task`.
+Ветка: `codex/vfoliage-001-atlas-roots`.
 
 Зависимости: VART-008, VRENDER-002.
 
@@ -20,7 +20,7 @@
 - [scripts/systems/world_visual_profile_system.gd](../../../../scripts/systems/world_visual_profile_system.gd)
 - [scripts/core/game_loop.gd](../../../../scripts/core/game_loop.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vfoliage-001/`.
+Результаты: `docs/reports/visual-overhaul/vfoliage-001/`.
 
 Критерии:
 
@@ -38,13 +38,13 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vfoliage-001/README.md, docs/reports/visual-overhaul/vfoliage-001/dependency-audit.json, docs/reports/visual-overhaul/vfoliage-001/changes.json, docs/reports/visual-overhaul/vfoliage-001/runtime.patch, docs/reports/visual-overhaul/vfoliage-001/native-admission.json, docs/reports/visual-overhaul/vfoliage-001/profiles.json, docs/reports/visual-overhaul/vfoliage-001/summary.json, docs/reports/visual-overhaul/vfoliage-001/native/source.json, docs/reports/visual-overhaul/vfoliage-001/review.txt, docs/reports/visual-overhaul/vfoliage-001/python-check.txt, docs/reports/visual-overhaul/vfoliage-001/completion.json, docs/reports/visual-overhaul/vfoliage-001/quality-check.txt, docs/reports/visual-overhaul/vfoliage-001/wiki-check.txt, docs/reports/visual-overhaul/vfoliage-001/browser-review.json.
 
 <a id="vfoliage-002"></a>
 
 ## VFOLIAGE-002 — Подготовить локальные UV растения
 
-Статус: `backlog` · P0 · этап `pilot` · `engineering`
+Статус: `ready` · P0 · этап `pilot` · `engineering`
 
 Соседняя ячейка не попадает в выборку при деформации и linear; flip не переворачивает закреплённый низ
 
@@ -234,7 +234,7 @@
 
 ## VFOLIAGE-007 — Разделить жёсткость растений
 
-Статус: `backlog` · P0 · этап `pilot` · `engineering`
+Статус: `ready` · P0 · этап `pilot` · `engineering`
 
 Трава, камыш, цветок и куст имеют разные параметры; цветы не превращаются в резиновый веер
 

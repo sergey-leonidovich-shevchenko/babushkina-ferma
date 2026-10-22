@@ -1,0 +1,12 @@
+{
+  "task": "VFOLIAGE-001",
+  "contract": "static-root-data-v1",
+  "scope": "Static root coordinates, compiled R8 masks, pure world projection and same-state native rendering. Held flags drive existing physics programmatically; keyboard/gamepad hardware is not accepted.",
+  "required": ["visible native window", "exact physical and logical geometry", "two actual production draw callbacks", "two actual board callbacks for each sheet", "complete unchanged gameplay snapshot", "same-camera exact RGBA query/plain pairs", "every mask texel matches its source coverage and fixed root", "immutable source and artwork hashes"],
+  "focus": "Recorded honestly as a boolean, informational for this static-data protocol. TESTING.md already distinguishes unfocused static VPROP-007 from hardware-input/FPS acceptance.",
+  "hardware_input_accepted": false,
+  "pixel_pair": "Existing reduced_motion is enabled only while reading the static framebuffer and restored afterwards. Programmatic physics steps retain each case's declared motion preference. This freezes the unrelated Time-driven resource exclamation marker; no pixels are masked out of the exact RGBA comparison.",
+  "performance_eligible": false,
+  "full_map_accepted": false,
+  "preflight": "Two preliminary series were rejected by an unnecessarily broad focused-window condition. They remain outside accepted evidence in tmp. The contract was reviewed before collecting this fresh static-data series; no focus value or failed series was relabeled."
+}

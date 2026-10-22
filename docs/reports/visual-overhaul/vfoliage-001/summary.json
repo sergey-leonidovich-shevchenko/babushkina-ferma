@@ -1,0 +1,165 @@
+{
+  "task": "VFOLIAGE-001",
+  "base_commit": "5dd9ddc4b5c894972f29c382ad4c9eb084703fa5",
+  "performance_eligible": false,
+  "full_map_accepted": false,
+  "profiles": 13,
+  "native_png": 48,
+  "game_draw_callbacks": 96,
+  "board_callbacks": 16,
+  "rgba_pairs": 20,
+  "windows": {
+    "1152": {
+      "native_png": 24,
+      "rgba_pairs": 10,
+      "masks": {
+        "flowers": {
+          "root_alpha": 255,
+          "nonzero": 24341,
+          "bytes": 131044
+        },
+        "grass": {
+          "root_alpha": 255,
+          "nonzero": 27857,
+          "bytes": 131044
+        },
+        "reeds": {
+          "root_alpha": 255,
+          "nonzero": 21486,
+          "bytes": 131044
+        },
+        "berry_bush": {
+          "root_alpha": 255,
+          "nonzero": 35740,
+          "bytes": 131044
+        },
+        "mossy_stone": {
+          "root_alpha": 255,
+          "nonzero": 0,
+          "bytes": 131044
+        },
+        "stump": {
+          "root_alpha": 255,
+          "nonzero": 0,
+          "bytes": 131044
+        },
+        "signpost": {
+          "root_alpha": 255,
+          "nonzero": 0,
+          "bytes": 131044
+        },
+        "flower_fence": {
+          "root_alpha": 255,
+          "nonzero": 0,
+          "bytes": 131044
+        },
+        "lantern": {
+          "root_alpha": 255,
+          "nonzero": 0,
+          "bytes": 131044
+        },
+        "footbridge": {
+          "root_alpha": 255,
+          "nonzero": 0,
+          "bytes": 131044
+        },
+        "leaves": {
+          "root_alpha": 255,
+          "nonzero": 0,
+          "bytes": 131044
+        },
+        "water_lilies": {
+          "root_alpha": 255,
+          "nonzero": 0,
+          "bytes": 131044
+        },
+        "grass_low": {
+          "root_alpha": 249,
+          "nonzero": 51803,
+          "bytes": 224256
+        }
+      },
+      "root_queries": 240,
+      "full_state_equal": true,
+      "focused_frames": 0,
+      "unfocused_frames": 24,
+      "hardware_input_accepted": false
+    },
+    "1280": {
+      "native_png": 24,
+      "rgba_pairs": 10,
+      "masks": {
+        "flowers": {
+          "root_alpha": 255,
+          "nonzero": 24341,
+          "bytes": 131044
+        },
+        "grass": {
+          "root_alpha": 255,
+          "nonzero": 27857,
+          "bytes": 131044
+        },
+        "reeds": {
+          "root_alpha": 255,
+          "nonzero": 21486,
+          "bytes": 131044
+        },
+        "berry_bush": {
+          "root_alpha": 255,
+          "nonzero": 35740,
+          "bytes": 131044
+        },
+        "mossy_stone": {
+          "root_alpha": 255,
+          "nonzero": 0,
+          "bytes": 131044
+        },
+        "stump": {
+          "root_alpha": 255,
+          "nonzero": 0,
+          "bytes": 131044
+        },
+        "signpost": {
+          "root_alpha": 255,
+          "nonzero": 0,
+          "bytes": 131044
+        },
+        "flower_fence": {
+          "root_alpha": 255,
+          "nonzero": 0,
+          "bytes": 131044
+        },
+        "lantern": {
+          "root_alpha": 255,
+          "nonzero": 0,
+          "bytes": 131044
+        },
+        "footbridge": {
+          "root_alpha": 255,
+          "nonzero": 0,
+          "bytes": 131044
+        },
+        "leaves": {
+          "root_alpha": 255,
+          "nonzero": 0,
+          "bytes": 131044
+        },
+        "water_lilies": {
+          "root_alpha": 255,
+          "nonzero": 0,
+          "bytes": 131044
+        },
+        "grass_low": {
+          "root_alpha": 249,
+          "nonzero": 51803,
+          "bytes": 224256
+        }
+      },
+      "root_queries": 240,
+      "full_state_equal": true,
+      "focused_frames": 0,
+      "unfocused_frames": 24,
+      "hardware_input_accepted": false
+    }
+  }
+}

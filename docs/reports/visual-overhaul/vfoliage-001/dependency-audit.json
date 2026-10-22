@@ -1,0 +1,67 @@
+{
+  "task": "VFOLIAGE-001",
+  "route": "VRELEASE-003",
+  "base_commit": "5dd9ddc4b5c894972f29c382ad4c9eb084703fa5",
+  "prepared_from": "backlog",
+  "prepared_status": "ready",
+  "needs": [],
+  "ancestors": [
+    {
+      "id": "VART-001",
+      "status": "done"
+    },
+    {
+      "id": "VART-002",
+      "status": "done"
+    },
+    {
+      "id": "VART-003",
+      "status": "done"
+    },
+    {
+      "id": "VART-004",
+      "status": "done"
+    },
+    {
+      "id": "VART-005",
+      "status": "done"
+    },
+    {
+      "id": "VART-006",
+      "status": "done"
+    },
+    {
+      "id": "VART-007",
+      "status": "done"
+    },
+    {
+      "id": "VART-008",
+      "status": "done"
+    },
+    {
+      "id": "VBASE-001",
+      "status": "done"
+    },
+    {
+      "id": "VBASE-003",
+      "status": "done"
+    },
+    {
+      "id": "VBASE-004",
+      "status": "done"
+    },
+    {
+      "id": "VCAMERA-001",
+      "status": "done"
+    },
+    {
+      "id": "VRENDER-001",
+      "status": "done"
+    },
+    {
+      "id": "VRENDER-002",
+      "status": "done"
+    }
+  ],
+  "scope": "12 existing atlas cells and one accepted painterly pilot profile; data preparation only, no new art, wind, mechanics or maps"
+}

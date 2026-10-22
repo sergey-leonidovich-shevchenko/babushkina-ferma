@@ -1,0 +1,215 @@
+{
+  "task": "VFOLIAGE-001",
+  "base_commit": "5dd9ddc4b5c894972f29c382ad4c9eb084703fa5",
+  "alpha_threshold": 224,
+  "entries": [
+    {
+      "kind": "flowers",
+      "lock_y": 324,
+      "mask_sha256": "af557f0cef2b6431245ec4b04e4029ce8a897a8bf7e79f51e70a1e70c7094d20",
+      "mode": "ground",
+      "root": [
+        180,
+        330
+      ],
+      "root_alpha": 255,
+      "size": [
+        362,
+        362
+      ],
+      "top": 129
+    },
+    {
+      "kind": "grass",
+      "lock_y": 319,
+      "mask_sha256": "6cab5a928e993bdc43121b7b10c25a6ae2f45943138cdebf1862f726eb39b4db",
+      "mode": "ground",
+      "root": [
+        178,
+        325
+      ],
+      "root_alpha": 255,
+      "size": [
+        362,
+        362
+      ],
+      "top": 110
+    },
+    {
+      "kind": "reeds",
+      "lock_y": 294,
+      "mask_sha256": "0aea3869e44f3766161b6ec729ec7a9607992e57196a6ad4030f82fc44f1f12d",
+      "mode": "ground",
+      "root": [
+        148,
+        300
+      ],
+      "root_alpha": 255,
+      "size": [
+        362,
+        362
+      ],
+      "top": 62
+    },
+    {
+      "kind": "berry_bush",
+      "lock_y": 319,
+      "mask_sha256": "9706ea416870f89d27d91efd955483209c8a80abe6bc2bdc515b9944f7d602ce",
+      "mode": "ground",
+      "root": [
+        150,
+        325
+      ],
+      "root_alpha": 255,
+      "size": [
+        362,
+        362
+      ],
+      "top": 119
+    },
+    {
+      "kind": "mossy_stone",
+      "lock_y": 274,
+      "mask_sha256": "5967c887b823305268738f98439ccd58dbd540e1ffa5ef22707fef5c9d90d136",
+      "mode": "rigid",
+      "root": [
+        180,
+        280
+      ],
+      "root_alpha": 255,
+      "size": [
+        362,
+        362
+      ],
+      "top": 73
+    },
+    {
+      "kind": "stump",
+      "lock_y": 274,
+      "mask_sha256": "5967c887b823305268738f98439ccd58dbd540e1ffa5ef22707fef5c9d90d136",
+      "mode": "rigid",
+      "root": [
+        180,
+        280
+      ],
+      "root_alpha": 255,
+      "size": [
+        362,
+        362
+      ],
+      "top": 87
+    },
+    {
+      "kind": "signpost",
+      "lock_y": 251,
+      "mask_sha256": "5967c887b823305268738f98439ccd58dbd540e1ffa5ef22707fef5c9d90d136",
+      "mode": "rigid",
+      "root": [
+        145,
+        257
+      ],
+      "root_alpha": 255,
+      "size": [
+        362,
+        362
+      ],
+      "top": 40
+    },
+    {
+      "kind": "flower_fence",
+      "lock_y": 280,
+      "mask_sha256": "5967c887b823305268738f98439ccd58dbd540e1ffa5ef22707fef5c9d90d136",
+      "mode": "rigid",
+      "root": [
+        232,
+        286
+      ],
+      "root_alpha": 255,
+      "size": [
+        362,
+        362
+      ],
+      "top": 93
+    },
+    {
+      "kind": "lantern",
+      "lock_y": 221,
+      "mask_sha256": "5967c887b823305268738f98439ccd58dbd540e1ffa5ef22707fef5c9d90d136",
+      "mode": "rigid",
+      "root": [
+        145,
+        227
+      ],
+      "root_alpha": 255,
+      "size": [
+        362,
+        362
+      ],
+      "top": 0
+    },
+    {
+      "kind": "footbridge",
+      "lock_y": 229,
+      "mask_sha256": "5967c887b823305268738f98439ccd58dbd540e1ffa5ef22707fef5c9d90d136",
+      "mode": "rigid",
+      "root": [
+        185,
+        235
+      ],
+      "root_alpha": 255,
+      "size": [
+        362,
+        362
+      ],
+      "top": 48
+    },
+    {
+      "kind": "leaves",
+      "lock_y": 204,
+      "mask_sha256": "5967c887b823305268738f98439ccd58dbd540e1ffa5ef22707fef5c9d90d136",
+      "mode": "floating",
+      "root": [
+        140,
+        210
+      ],
+      "root_alpha": 255,
+      "size": [
+        362,
+        362
+      ],
+      "top": 30
+    },
+    {
+      "kind": "water_lilies",
+      "lock_y": 174,
+      "mask_sha256": "5967c887b823305268738f98439ccd58dbd540e1ffa5ef22707fef5c9d90d136",
+      "mode": "floating",
+      "root": [
+        150,
+        180
+      ],
+      "root_alpha": 255,
+      "size": [
+        362,
+        362
+      ],
+      "top": 62
+    },
+    {
+      "kind": "grass_low",
+      "lock_y": 474,
+      "mask_sha256": "355e23892238745d6ee291a92215556314e2a895071dc7fe58c3bea10ad00583",
+      "mode": "ground",
+      "root": [
+        219,
+        480
+      ],
+      "root_alpha": 249,
+      "size": [
+        438,
+        512
+      ],
+      "top": 214
+    }
+  ]
+}

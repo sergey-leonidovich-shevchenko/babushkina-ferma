@@ -1,0 +1,26 @@
+{
+  "task": "VFOLIAGE-001",
+  "game_version": "0.0.306",
+  "native_base_commit": "5dd9ddc4b5c894972f29c382ad4c9eb084703fa5",
+  "profiles": 13,
+  "runtime_art_changed": false,
+  "new_wind_accepted": false,
+  "hardware_input_accepted": false,
+  "performance_eligible": false,
+  "full_map_accepted": false,
+  "checks": {
+    "profile_passed": 373,
+    "python_tests": 22,
+    "native_png": 48,
+    "game_callbacks": 96,
+    "board_callbacks": 16,
+    "rgba_pairs": 20,
+    "root_queries": 480,
+    "architecture": "passed",
+    "game_passed": 46952,
+    "game_failed": 0,
+    "wiki_passed": 123,
+    "wiki_failed": 0,
+    "browser": "four native sheets, search and three exact JSON attachments"
+  }
+}

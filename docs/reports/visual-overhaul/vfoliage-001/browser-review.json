@@ -1,0 +1,53 @@
+{
+  "task": "VFOLIAGE-001",
+  "url": "http://127.0.0.1:4175/#/guides/foliage-roots",
+  "game_version": "0.0.306",
+  "search_verified": true,
+  "image_complete": true,
+  "images": [
+    {
+      "alt": "Четыре наземных растения и их маски",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    },
+    {
+      "alt": "Жёсткий декор с нулевой гибкостью",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    },
+    {
+      "alt": "Фонарь, мостик и плавающий декор",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    },
+    {
+      "alt": "Живописная трава с реальной опорой",
+      "complete": true,
+      "height": 648,
+      "width": 1152
+    }
+  ],
+  "downloads": [
+    {
+      "name": "Нативная сводка",
+      "path": "summary.json",
+      "bytes": 3740,
+      "exact": true
+    },
+    {
+      "name": "Паспорта опор",
+      "path": "profiles.json",
+      "bytes": 4221,
+      "exact": true
+    },
+    {
+      "name": "Условия статической приёмки",
+      "path": "native-admission.json",
+      "bytes": 1504,
+      "exact": true
+    }
+  ]
+}

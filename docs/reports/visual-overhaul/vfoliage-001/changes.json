@@ -1,0 +1,14 @@
+{
+  "task": "VFOLIAGE-001",
+  "base_commit": "5dd9ddc4b5c894972f29c382ad4c9eb084703fa5",
+  "runtime": {
+    "scripts/presentation/foliage_root_profile.gd": {
+      "before_sha256": null,
+      "after_sha256": "ecc9c4acde136a461373b9bfa76d25f42433eeb2b839faec55bd3565dc37d372"
+    },
+    "scripts/systems/village_ambient_renderer.gd": {
+      "before_sha256": "f9e7a7ae288ff3cb3f693b8e60e2c14a04ec056f2f12380b47e820adcff64f6f",
+      "after_sha256": "d6a1dbfb2f86727802169721298835ffc4493337009b83691b694e9b13048292"
+    }
+  }
+}

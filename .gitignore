@@ -3,6 +3,10 @@
 wiki/planning/*.lock
 wiki/planning/*.tmp
 tools/*
+!tools/foliage_root*.gd
+!tools/foliage_root*.gd.uid
+!tools/foliage_root*.py
+!tools/test_foliage_root.py
 !tools/axial_road_field.gd
 !tools/axial_road_field.gd.uid
 !tools/axial_road_builder.gd

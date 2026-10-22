@@ -2,6 +2,7 @@ extends RefCounted
 
 const ATLAS := preload("res://assets/game/environment/village_ambient_atlas_v1.png")
 const WorldVisualProfileSystem := preload("res://scripts/systems/world_visual_profile_system.gd")
+const RootProfile := preload("res://scripts/presentation/foliage_root_profile.gd")
 const COLUMNS := 4
 const ROWS := 3
 const CELL := Vector2(362, 362)
@@ -40,6 +41,10 @@ static func draw_cell(canvas: Node2D, kind: String, position: Vector2, modulate:
 ## Возвращает стабильный прямоугольник 72×72 без масштабирования во время анимации ветра.
 static func destination_rect(position: Vector2) -> Rect2:
 	return WorldVisualProfileSystem.visual_rect("village_ambient",position+Vector2(0,24))
+
+## Читает настоящую опору рисунка внутри прежнего прямоугольника, не перемещая декор или физические клетки.
+static func root_anchor(kind:String,position:Vector2)->Vector2:
+	return RootProfile.world_anchor(kind,destination_rect(position))
 
 
 ## Добавляет над мастер-артом сезонный живой слой травы, камыша и водных растений.
