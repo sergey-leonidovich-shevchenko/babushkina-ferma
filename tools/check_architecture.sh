@@ -123,6 +123,8 @@ python3 tools/foliage_root_verify.py >/dev/null
 python3 tools/test_foliage_root.py
 python3 tools/foliage_uv_verify.py >/dev/null
 python3 tools/test_foliage_uv.py
+python3 tools/shadow_inventory_verify.py >/dev/null
+python3 tools/test_shadow_inventory.py
 python3 tools/village_fence_verify.py >/dev/null
 python3 tools/test_village_fence.py
 python3 tools/village_lamp_verify.py >/dev/null

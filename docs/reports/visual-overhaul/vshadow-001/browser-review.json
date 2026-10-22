@@ -1,0 +1,73 @@
+{
+  "task": "VSHADOW-001",
+  "game_version": "0.0.308",
+  "url": "http://127.0.0.1:4175/#/guides/shadow-inventory",
+  "images": [
+    {
+      "alt": "Уличные предметы: материал и прозрачные края",
+      "complete": true,
+      "height": 1000,
+      "src": "http://127.0.0.1:4175/generated/illustrations/e2b067d84220eac846540832.png",
+      "width": 1200
+    },
+    {
+      "alt": "Указатели, торговля и фасады",
+      "complete": true,
+      "height": 1000,
+      "src": "http://127.0.0.1:4175/generated/illustrations/c1faf3b0057eb13564f95010.png",
+      "width": 1200
+    },
+    {
+      "alt": "Фасады, декор, деревья и контекст интерьера",
+      "complete": true,
+      "height": 1000,
+      "src": "http://127.0.0.1:4175/generated/illustrations/e73571b8d022d0aae9f874ca.png",
+      "width": 1200
+    },
+    {
+      "alt": "День: существующие контакты включены и отключены",
+      "complete": true,
+      "height": 648,
+      "src": "http://127.0.0.1:4175/generated/illustrations/e0504ab4a7df2aaae6929364.png",
+      "width": 1152
+    },
+    {
+      "alt": "Вечер: контакты торговых предметов",
+      "complete": true,
+      "height": 648,
+      "src": "http://127.0.0.1:4175/generated/illustrations/1d15564797fa62347ae1ce7c.png",
+      "width": 1152
+    },
+    {
+      "alt": "Обычная первая локация вечером",
+      "complete": true,
+      "height": 648,
+      "src": "http://127.0.0.1:4175/generated/illustrations/b28bc77173fad85dfda3512e.png",
+      "width": 1152
+    }
+  ],
+  "image_complete": true,
+  "downloads": [
+    {
+      "label": "решения по рисункам",
+      "file": "inventory.json",
+      "bytes": 31247,
+      "exact": true
+    },
+    {
+      "label": "CSV для художника",
+      "file": "inventory.csv",
+      "bytes": 12167,
+      "exact": true
+    },
+    {
+      "label": "нативная сводка",
+      "file": "summary.json",
+      "bytes": 2976,
+      "exact": true
+    }
+  ],
+  "search_verified": true,
+  "card_dependencies_verified": true,
+  "scope": "read-only browser review; no planning decisions changed"
+}

@@ -1,0 +1,828 @@
+{
+  "schema": 1,
+  "task": "VSHADOW-001",
+  "base_commit": "85ae79d809ebe15958900afde0115a72845e5d1c",
+  "runtime_changed": false,
+  "dynamic_solar_implemented": false,
+  "performance_eligible": false,
+  "full_map_accepted": false,
+  "scope": "All registered village prop PNG/views plus eight existing facades, six tree/growth rasters, ambient and legacy interior atlases. Actors/crops/fallbacks remain under renderer ownership; this is not a full animation catalogue acceptance.",
+  "review_method": "Manual RGBA review on checkerboard; distinguish material self shading, baked base/ground fragments and separately drawn contact. No dark-pixel extraction.",
+  "raster_gate": "Unreviewed or changed source cannot receive a new cast under this inventory. Keep material shading; separate or redraw inseparable base before adding projected cast.",
+  "assets": [
+    {
+      "file": "assets/game/locations/overworld/benches/bench_south_v1.png",
+      "sha256": "7cb670ffecd1605d503e9b4edef4bab398aa1c188ae0ec1e2518542b8c8d096f",
+      "pixels": [
+        336,
+        174
+      ],
+      "family": "benches",
+      "material_shading": "retain",
+      "baked_contact": "none_visible_outside_body",
+      "baked_solar": "none_visible",
+      "separate_runtime_contact": "existing_contact_mesh",
+      "owner": "village_bench_visual.gd",
+      "decision": "preserve_material_shading_and_existing_contact"
+    },
+    {
+      "file": "assets/game/locations/overworld/benches/bench_west_v1.png",
+      "sha256": "b731c2359f3b04cada926b76674cea85b2cf5ce2d4be925f9f31dfab2e3619e7",
+      "pixels": [
+        213,
+        336
+      ],
+      "family": "benches",
+      "material_shading": "retain",
+      "baked_contact": "none_visible_outside_body",
+      "baked_solar": "none_visible",
+      "separate_runtime_contact": "existing_contact_mesh",
+      "owner": "village_bench_visual.gd",
+      "decision": "preserve_material_shading_and_existing_contact"
+    },
+    {
+      "file": "assets/game/locations/overworld/benches/bench_east_v1.png",
+      "sha256": "4effb0064a6e8fdbcb0fc6f421b5e3ce8303a6765b6af15591f576be13af0278",
+      "pixels": [
+        213,
+        336
+      ],
+      "family": "benches",
+      "material_shading": "retain",
+      "baked_contact": "none_visible_outside_body",
+      "baked_solar": "none_visible",
+      "separate_runtime_contact": "existing_contact_mesh",
+      "owner": "village_bench_visual.gd",
+      "decision": "preserve_material_shading_and_existing_contact"
+    },
+    {
+      "file": "assets/game/locations/overworld/street_props/well_south_v1.png",
+      "sha256": "cacfd472689c2a904e573e46cf493e446c9ad6179be09e2cd1aa852ec6014228",
+      "pixels": [
+        378,
+        496
+      ],
+      "family": "street_props",
+      "material_shading": "retain",
+      "baked_contact": "none_visible_outside_body",
+      "baked_solar": "none_visible",
+      "separate_runtime_contact": "existing_contact_mesh",
+      "owner": "village_street_visual.gd",
+      "decision": "preserve_material_shading_and_existing_contact"
+    },
+    {
+      "file": "assets/game/locations/overworld/street_props/well_west_v1.png",
+      "sha256": "cd2c231826382e2c583167a1a5d719f3d2cf669ae6ff6afeb42bcd5b95131951",
+      "pixels": [
+        281,
+        496
+      ],
+      "family": "street_props",
+      "material_shading": "retain",
+      "baked_contact": "none_visible_outside_body",
+      "baked_solar": "none_visible",
+      "separate_runtime_contact": "existing_contact_mesh",
+      "owner": "village_street_visual.gd",
+      "decision": "preserve_material_shading_and_existing_contact"
+    },
+    {
+      "file": "assets/game/locations/overworld/street_props/well_east_v1.png",
+      "sha256": "c24e241277808a1e5a24a0a9ff486ebbdc1e2bf49c7fe03170e9f13d2d07336a",
+      "pixels": [
+        303,
+        496
+      ],
+      "family": "street_props",
+      "material_shading": "retain",
+      "baked_contact": "none_visible_outside_body",
+      "baked_solar": "none_visible",
+      "separate_runtime_contact": "existing_contact_mesh",
+      "owner": "village_street_visual.gd",
+      "decision": "preserve_material_shading_and_existing_contact"
+    },
+    {
+      "file": "assets/game/locations/overworld/street_props/cart_south_v1.png",
+      "sha256": "7107b8d991d1449e5b5cc36a9c59775fcfdbbef283e45463ca618e4da95968f9",
+      "pixels": [
+        345,
+        400
+      ],
+      "family": "street_props",
+      "material_shading": "retain",
+      "baked_contact": "none_visible_outside_body",
+      "baked_solar": "none_visible",
+      "separate_runtime_contact": "existing_contact_mesh",
+      "owner": "village_street_visual.gd",
+      "decision": "preserve_material_shading_and_existing_contact"
+    },
+    {
+      "file": "assets/game/locations/overworld/street_props/cart_west_v1.png",
+      "sha256": "15642063de51553e4b6746bb541fb0704c034820bc900b36af20d6f1f131b744",
+      "pixels": [
+        592,
+        305
+      ],
+      "family": "street_props",
+      "material_shading": "retain",
+      "baked_contact": "none_visible_outside_body",
+      "baked_solar": "none_visible",
+      "separate_runtime_contact": "existing_contact_mesh",
+      "owner": "village_street_visual.gd",
+      "decision": "preserve_material_shading_and_existing_contact"
+    },
+    {
+      "file": "assets/game/locations/overworld/street_props/cart_east_v1.png",
+      "sha256": "0b33065aec59997d4d2a25df82195f984014946fc58b5835f2ef4ff5c10ea3ad",
+      "pixels": [
+        592,
+        307
+      ],
+      "family": "street_props",
+      "material_shading": "retain",
+      "baked_contact": "none_visible_outside_body",
+      "baked_solar": "none_visible",
+      "separate_runtime_contact": "existing_contact_mesh",
+      "owner": "village_street_visual.gd",
+      "decision": "preserve_material_shading_and_existing_contact"
+    },
+    {
+      "file": "assets/game/locations/overworld/lamps/lamp_south_v1.png",
+      "sha256": "756c8636dbc0dcbd6d3d9c2a787637e235c6d913469907386d8a3cb61944dd1e",
+      "pixels": [
+        115,
+        496
+      ],
+      "family": "lamps",
+      "material_shading": "retain",
+      "baked_contact": "none_visible_outside_body",
+      "baked_solar": "none_visible",
+      "separate_runtime_contact": "existing_contact_mesh",
+      "owner": "village_lamp_visual.gd",
+      "decision": "preserve_material_shading_and_existing_contact"
+    },
+    {
+      "file": "assets/game/locations/overworld/lamps/lamp_west_v1.png",
+      "sha256": "18f0e0dc0004a666d9673c1203f942172ba96b28a5edb8ccd255c0e85a0d09af",
+      "pixels": [
+        211,
+        496
+      ],
+      "family": "lamps",
+      "material_shading": "retain",
+      "baked_contact": "none_visible_outside_body",
+      "baked_solar": "none_visible",
+      "separate_runtime_contact": "existing_contact_mesh",
+      "owner": "village_lamp_visual.gd",
+      "decision": "preserve_material_shading_and_existing_contact"
+    },
+    {
+      "file": "assets/game/locations/overworld/lamps/lamp_east_v1.png",
+      "sha256": "b53cad46f1e3b1315908fca4daacdca1b1191029e7d10b3fa30b800732a4146b",
+      "pixels": [
+        217,
+        496
+      ],
+      "family": "lamps",
+      "material_shading": "retain",
+      "baked_contact": "none_visible_outside_body",
+      "baked_solar": "none_visible",
+      "separate_runtime_contact": "existing_contact_mesh",
+      "owner": "village_lamp_visual.gd",
+      "decision": "preserve_material_shading_and_existing_contact"
+    },
+    {
+      "file": "assets/game/locations/overworld/fences/post_v1.png",
+      "sha256": "e1230e4289195f723f80f6b9d277c5dca1cf03593885afaf8f1919e69e893f1f",
+      "pixels": [
+        37,
+        144
+      ],
+      "family": "fences",
+      "material_shading": "retain",
+      "baked_contact": "none_visible_outside_body",
+      "baked_solar": "none_visible",
+      "separate_runtime_contact": "none",
+      "owner": "village_fence_visual.gd",
+      "decision": "preserve_material_shading_and_existing_contact"
+    },
+    {
+      "file": "assets/game/locations/overworld/fences/rail_v1.png",
+      "sha256": "c021acf8a6bb3e132ead8aeb5585261d0aedcdf63f453eb63184140b1b374ec1",
+      "pixels": [
+        350,
+        80
+      ],
+      "family": "fences",
+      "material_shading": "retain",
+      "baked_contact": "none_visible_outside_body",
+      "baked_solar": "none_visible",
+      "separate_runtime_contact": "none",
+      "owner": "village_fence_visual.gd",
+      "decision": "preserve_material_shading_and_existing_contact"
+    },
+    {
+      "file": "assets/game/locations/overworld/fences/depth_v1.png",
+      "sha256": "1541063b17592624d663be5f586fbe9e57951b8d56b3885b8017ff4dbd6bc959",
+      "pixels": [
+        44,
+        144
+      ],
+      "family": "fences",
+      "material_shading": "retain",
+      "baked_contact": "none_visible_outside_body",
+      "baked_solar": "none_visible",
+      "separate_runtime_contact": "none",
+      "owner": "village_fence_visual.gd",
+      "decision": "preserve_material_shading_and_existing_contact"
+    },
+    {
+      "file": "assets/game/locations/overworld/boards/board_south_v1.png",
+      "sha256": "e9201e136fa7b7122cb4af17a5ce0caa79e3e4e96d23fcc4264d1579f5814a9d",
+      "pixels": [
+        453,
+        304
+      ],
+      "family": "boards",
+      "material_shading": "retain",
+      "baked_contact": "none_visible_outside_body",
+      "baked_solar": "none_visible",
+      "separate_runtime_contact": "existing_contact_mesh",
+      "owner": "village_board_visual.gd",
+      "decision": "preserve_material_shading_and_existing_contact"
+    },
+    {
+      "file": "assets/game/locations/overworld/boards/board_west_v1.png",
+      "sha256": "03cff9800a0ec86260ea92bf98034743f858cd69dd815a11228432603fc16ee6",
+      "pixels": [
+        62,
+        304
+      ],
+      "family": "boards",
+      "material_shading": "retain",
+      "baked_contact": "none_visible_outside_body",
+      "baked_solar": "none_visible",
+      "separate_runtime_contact": "existing_contact_mesh",
+      "owner": "village_board_visual.gd",
+      "decision": "preserve_material_shading_and_existing_contact"
+    },
+    {
+      "file": "assets/game/locations/overworld/boards/board_east_v1.png",
+      "sha256": "bb7ce3695f744f2b449eb8d915867d625670364a2689320ee9ebdd76caffa8a2",
+      "pixels": [
+        67,
+        304
+      ],
+      "family": "boards",
+      "material_shading": "retain",
+      "baked_contact": "none_visible_outside_body",
+      "baked_solar": "none_visible",
+      "separate_runtime_contact": "existing_contact_mesh",
+      "owner": "village_board_visual.gd",
+      "decision": "preserve_material_shading_and_existing_contact"
+    },
+    {
+      "file": "assets/game/locations/overworld/boards/sign_south_v1.png",
+      "sha256": "e056e2978742f5a14c046e695a9e465be14f9c6b7f372d662f2894548bfba8ef",
+      "pixels": [
+        266,
+        304
+      ],
+      "family": "boards",
+      "material_shading": "retain",
+      "baked_contact": "none_visible_outside_body",
+      "baked_solar": "none_visible",
+      "separate_runtime_contact": "existing_contact_mesh",
+      "owner": "village_board_visual.gd",
+      "decision": "preserve_material_shading_and_existing_contact"
+    },
+    {
+      "file": "assets/game/locations/overworld/boards/sign_west_v1.png",
+      "sha256": "216959c28a886bcb4f804e615c38b9e5eb8bf813418774153b63a6e797c24af0",
+      "pixels": [
+        66,
+        304
+      ],
+      "family": "boards",
+      "material_shading": "retain",
+      "baked_contact": "none_visible_outside_body",
+      "baked_solar": "none_visible",
+      "separate_runtime_contact": "existing_contact_mesh",
+      "owner": "village_board_visual.gd",
+      "decision": "preserve_material_shading_and_existing_contact"
+    },
+    {
+      "file": "assets/game/locations/overworld/boards/sign_east_v1.png",
+      "sha256": "7864602946b28ad055e0344e2ca020848105828e210b673f1b6dbf03e7d7cf83",
+      "pixels": [
+        62,
+        304
+      ],
+      "family": "boards",
+      "material_shading": "retain",
+      "baked_contact": "none_visible_outside_body",
+      "baked_solar": "none_visible",
+      "separate_runtime_contact": "existing_contact_mesh",
+      "owner": "village_board_visual.gd",
+      "decision": "preserve_material_shading_and_existing_contact"
+    },
+    {
+      "file": "assets/game/locations/overworld/trade/stall_south_v1.png",
+      "sha256": "3fe49da9e1e79746c7e4e2f13db29b10eda3a761ef111f9b9534387bd74b574d",
+      "pixels": [
+        399,
+        316
+      ],
+      "family": "trade",
+      "material_shading": "retain",
+      "baked_contact": "none_visible_outside_body",
+      "baked_solar": "none_visible",
+      "separate_runtime_contact": "existing_contact_mesh",
+      "owner": "village_trade_visual.gd",
+      "decision": "preserve_material_shading_and_existing_contact"
+    },
+    {
+      "file": "assets/game/locations/overworld/trade/stall_west_v1.png",
+      "sha256": "c27594fbe4cb66e8de24de4b5eef375ec451384210bd3c60d0ff23dad99da37b",
+      "pixels": [
+        186,
+        316
+      ],
+      "family": "trade",
+      "material_shading": "retain",
+      "baked_contact": "none_visible_outside_body",
+      "baked_solar": "none_visible",
+      "separate_runtime_contact": "existing_contact_mesh",
+      "owner": "village_trade_visual.gd",
+      "decision": "preserve_material_shading_and_existing_contact"
+    },
+    {
+      "file": "assets/game/locations/overworld/trade/stall_east_v1.png",
+      "sha256": "66e84295ed2f85b0aae12c4b70075eb54fb61ea5397cda74e9d80cfc0eef39f6",
+      "pixels": [
+        181,
+        316
+      ],
+      "family": "trade",
+      "material_shading": "retain",
+      "baked_contact": "none_visible_outside_body",
+      "baked_solar": "none_visible",
+      "separate_runtime_contact": "existing_contact_mesh",
+      "owner": "village_trade_visual.gd",
+      "decision": "preserve_material_shading_and_existing_contact"
+    },
+    {
+      "file": "assets/game/locations/overworld/trade/crate_south_v1.png",
+      "sha256": "bf388e3c713de26f6b68f081ee4968c26e2189b424c339f11104b952a153510e",
+      "pixels": [
+        112,
+        99
+      ],
+      "family": "trade",
+      "material_shading": "retain",
+      "baked_contact": "none_visible_outside_body",
+      "baked_solar": "none_visible",
+      "separate_runtime_contact": "existing_contact_mesh",
+      "owner": "village_trade_visual.gd",
+      "decision": "preserve_material_shading_and_existing_contact"
+    },
+    {
+      "file": "assets/game/locations/overworld/trade/crate_west_v1.png",
+      "sha256": "ffe300eee58b4b1e2588cc60b471501e8d7a42e56f9c26b30178c077bcce70ae",
+      "pixels": [
+        112,
+        92
+      ],
+      "family": "trade",
+      "material_shading": "retain",
+      "baked_contact": "none_visible_outside_body",
+      "baked_solar": "none_visible",
+      "separate_runtime_contact": "existing_contact_mesh",
+      "owner": "village_trade_visual.gd",
+      "decision": "preserve_material_shading_and_existing_contact"
+    },
+    {
+      "file": "assets/game/locations/overworld/trade/crate_east_v1.png",
+      "sha256": "fa4775a8f0e9bcb071bc8b5ea2f1f85a6778f27aab79f74a6df5b64b34d74308",
+      "pixels": [
+        112,
+        81
+      ],
+      "family": "trade",
+      "material_shading": "retain",
+      "baked_contact": "none_visible_outside_body",
+      "baked_solar": "none_visible",
+      "separate_runtime_contact": "existing_contact_mesh",
+      "owner": "village_trade_visual.gd",
+      "decision": "preserve_material_shading_and_existing_contact"
+    },
+    {
+      "file": "assets/game/locations/overworld/trade/barrel_south_v1.png",
+      "sha256": "75871cf3dfad65e7ab32adc9e77f4ac381fd59b23b5489ffc77726826235cad8",
+      "pixels": [
+        112,
+        149
+      ],
+      "family": "trade",
+      "material_shading": "retain",
+      "baked_contact": "none_visible_outside_body",
+      "baked_solar": "none_visible",
+      "separate_runtime_contact": "existing_contact_mesh",
+      "owner": "village_trade_visual.gd",
+      "decision": "preserve_material_shading_and_existing_contact"
+    },
+    {
+      "file": "assets/game/locations/overworld/trade/sack_south_v1.png",
+      "sha256": "bf507f20bc18c6792ad9a76752924b63aab139564715e8b476179770cc5615c1",
+      "pixels": [
+        208,
+        273
+      ],
+      "family": "trade",
+      "material_shading": "retain",
+      "baked_contact": "none_visible_outside_body",
+      "baked_solar": "none_visible",
+      "separate_runtime_contact": "existing_contact_mesh",
+      "owner": "village_trade_visual.gd",
+      "decision": "preserve_material_shading_and_existing_contact"
+    },
+    {
+      "file": "assets/game/buildings/exteriors/chapel.png",
+      "sha256": "b17e89f6d6ad634e66543eb1c9c776d7bda38c4690e93f807b69d097d576360b",
+      "pixels": [
+        288,
+        408
+      ],
+      "family": "facades",
+      "material_shading": "retain",
+      "baked_contact": "painted_base_edge_and_step_ao",
+      "baked_solar": "no_extended_ground_cast_visible",
+      "separate_runtime_contact": "none",
+      "owner": "building_visual_system.gd",
+      "decision": "retain_step_ao_do_not_treat_dark_roof_as_ground_cast"
+    },
+    {
+      "file": "assets/game/buildings/exteriors/cottage.png",
+      "sha256": "c125cd3d713e38de8ea8e2c8b2632f22b397272d1eeef8fdc73325f9b665b2cb",
+      "pixels": [
+        336,
+        408
+      ],
+      "family": "facades",
+      "material_shading": "retain",
+      "baked_contact": "painted_base_edge_and_step_ao",
+      "baked_solar": "no_extended_ground_cast_visible",
+      "separate_runtime_contact": "none",
+      "owner": "building_visual_system.gd",
+      "decision": "retain_step_ao_do_not_treat_dark_roof_as_ground_cast"
+    },
+    {
+      "file": "assets/game/buildings/exteriors/forge.png",
+      "sha256": "860a9ca6f39af0d6c85601a254f55f1ee3d81d85a15804db60c722a9c7b3b6d9",
+      "pixels": [
+        360,
+        384
+      ],
+      "family": "facades",
+      "material_shading": "retain",
+      "baked_contact": "painted_base_edge_and_step_ao",
+      "baked_solar": "no_extended_ground_cast_visible",
+      "separate_runtime_contact": "none",
+      "owner": "building_visual_system.gd",
+      "decision": "retain_step_ao_do_not_treat_dark_roof_as_ground_cast"
+    },
+    {
+      "file": "assets/game/buildings/exteriors/guild_hall.png",
+      "sha256": "16e91786f12c072ff5b5e2fb0a6d80f67acf8e8c2bd937b73495e7aa61fd63be",
+      "pixels": [
+        408,
+        408
+      ],
+      "family": "facades",
+      "material_shading": "retain",
+      "baked_contact": "painted_base_edge_and_step_ao",
+      "baked_solar": "no_extended_ground_cast_visible",
+      "separate_runtime_contact": "none",
+      "owner": "building_visual_system.gd",
+      "decision": "retain_step_ao_do_not_treat_dark_roof_as_ground_cast"
+    },
+    {
+      "file": "assets/game/buildings/exteriors/moon_castle.png",
+      "sha256": "3c775858a6ec0b0437ab09df9723c0098de920b84b6e0bee006dddc822aaef23",
+      "pixels": [
+        432,
+        384
+      ],
+      "family": "facades",
+      "material_shading": "retain",
+      "baked_contact": "painted_base_edge_and_step_ao",
+      "baked_solar": "no_extended_ground_cast_visible",
+      "separate_runtime_contact": "none",
+      "owner": "building_visual_system.gd",
+      "decision": "retain_step_ao_do_not_treat_dark_roof_as_ground_cast"
+    },
+    {
+      "file": "assets/game/buildings/exteriors/prison.png",
+      "sha256": "8028b35d871e66112731b421775336be4b06b2655438a3f3db61f3f4a139641e",
+      "pixels": [
+        384,
+        336
+      ],
+      "family": "facades",
+      "material_shading": "retain",
+      "baked_contact": "painted_base_edge_and_step_ao",
+      "baked_solar": "no_extended_ground_cast_visible",
+      "separate_runtime_contact": "none",
+      "owner": "building_visual_system.gd",
+      "decision": "retain_step_ao_do_not_treat_dark_roof_as_ground_cast"
+    },
+    {
+      "file": "assets/game/buildings/exteriors/shop_house.png",
+      "sha256": "3337ae11456e463f3ade072011ca3c4c7370c74769319b348324fc3691a0c25e",
+      "pixels": [
+        384,
+        360
+      ],
+      "family": "facades",
+      "material_shading": "retain",
+      "baked_contact": "painted_base_edge_and_step_ao",
+      "baked_solar": "no_extended_ground_cast_visible",
+      "separate_runtime_contact": "none",
+      "owner": "building_visual_system.gd",
+      "decision": "retain_step_ao_do_not_treat_dark_roof_as_ground_cast"
+    },
+    {
+      "file": "assets/game/buildings/exteriors/wizard_tower.png",
+      "sha256": "2f648c44d8838217f2310569d9a4645400dbd87b070ef9aacbb94080cb9b4ac4",
+      "pixels": [
+        312,
+        432
+      ],
+      "family": "facades",
+      "material_shading": "retain",
+      "baked_contact": "painted_base_edge_and_step_ao",
+      "baked_solar": "no_extended_ground_cast_visible",
+      "separate_runtime_contact": "none",
+      "owner": "building_visual_system.gd",
+      "decision": "retain_step_ao_do_not_treat_dark_roof_as_ground_cast"
+    },
+    {
+      "file": "assets/game/environment/village_ambient_atlas_v1.png",
+      "sha256": "f2ae3f426d44813f805aaef364895982c74ab26ad08cd7ad4e17092fe8c0b4a5",
+      "pixels": [
+        1448,
+        1086
+      ],
+      "family": "ambient_atlas",
+      "material_shading": "retain",
+      "baked_contact": "painted_turf_stone_and_object_base",
+      "baked_solar": "no_independent_mask",
+      "separate_runtime_contact": "none",
+      "owner": "village_ambient_renderer.gd",
+      "decision": "per_cell_review_do_not_treat_lilies_or_turf_as_cast"
+    },
+    {
+      "file": "assets/game/environment/forest_tree_growth_atlas_v1.png",
+      "sha256": "cbaf0170734b3e0a4f29d9a3daccc57c4348019934b4f26c8fe6c79a9ce5cf14",
+      "pixels": [
+        1024,
+        256
+      ],
+      "family": "trees",
+      "material_shading": "retain",
+      "baked_contact": "painted_root_base_and_ground_fragments",
+      "baked_solar": "no_independent_mask",
+      "separate_runtime_contact": "none",
+      "owner": "environment_visual_system.gd / game_renderer.gd",
+      "decision": "separate_or_redraw_base_before_projected_cast_do_not_alpha_cut_roots"
+    },
+    {
+      "file": "assets/game/environment/forest_tree.png",
+      "sha256": "da68677caf9df8d7e781ae42a6b583d761109579487268b2349dc6ad4dc516c7",
+      "pixels": [
+        256,
+        256
+      ],
+      "family": "trees",
+      "material_shading": "retain",
+      "baked_contact": "painted_root_base_and_ground_fragments",
+      "baked_solar": "no_independent_mask",
+      "separate_runtime_contact": "none",
+      "owner": "environment_visual_system.gd / game_renderer.gd",
+      "decision": "separate_or_redraw_base_before_projected_cast_do_not_alpha_cut_roots"
+    },
+    {
+      "file": "assets/game/environment/seasons/tree_spring.png",
+      "sha256": "ff7a09d0fa78aeaf09435fbc9b63dcee9b3dbb68aba61413e9f151358058db0e",
+      "pixels": [
+        264,
+        360
+      ],
+      "family": "trees",
+      "material_shading": "retain",
+      "baked_contact": "painted_root_base_and_ground_fragments",
+      "baked_solar": "no_independent_mask",
+      "separate_runtime_contact": "none",
+      "owner": "environment_visual_system.gd / game_renderer.gd",
+      "decision": "separate_or_redraw_base_before_projected_cast_do_not_alpha_cut_roots"
+    },
+    {
+      "file": "assets/game/environment/seasons/tree_summer.png",
+      "sha256": "61e2c445433f55103aa723c9bd337ae707f7d534f08c680bcacabce5980a5b35",
+      "pixels": [
+        264,
+        360
+      ],
+      "family": "trees",
+      "material_shading": "retain",
+      "baked_contact": "painted_root_base_and_ground_fragments",
+      "baked_solar": "no_independent_mask",
+      "separate_runtime_contact": "none",
+      "owner": "environment_visual_system.gd / game_renderer.gd",
+      "decision": "separate_or_redraw_base_before_projected_cast_do_not_alpha_cut_roots"
+    },
+    {
+      "file": "assets/game/environment/seasons/tree_autumn.png",
+      "sha256": "6d1509f918d3a79292882de4e0f414d3b6db05e5359c897f849ddd56d6618210",
+      "pixels": [
+        264,
+        360
+      ],
+      "family": "trees",
+      "material_shading": "retain",
+      "baked_contact": "painted_root_base_and_ground_fragments",
+      "baked_solar": "no_independent_mask",
+      "separate_runtime_contact": "none",
+      "owner": "environment_visual_system.gd / game_renderer.gd",
+      "decision": "separate_or_redraw_base_before_projected_cast_do_not_alpha_cut_roots"
+    },
+    {
+      "file": "assets/game/environment/seasons/tree_winter.png",
+      "sha256": "c58a8e9b25a9b27fe71dbe40f9e0a30f9140387d6884f90cdbfb006e38d0ff25",
+      "pixels": [
+        264,
+        360
+      ],
+      "family": "trees",
+      "material_shading": "retain",
+      "baked_contact": "painted_root_base_and_ground_fragments",
+      "baked_solar": "no_independent_mask",
+      "separate_runtime_contact": "none",
+      "owner": "environment_visual_system.gd / game_renderer.gd",
+      "decision": "separate_or_redraw_base_before_projected_cast_do_not_alpha_cut_roots"
+    },
+    {
+      "file": "assets/game/interiors/village_interior_atlas_v2.png",
+      "sha256": "a4db4a0ac1bb62bca7dbfa988b08bea1f8fa62cdf7062f883c73d8d11d39465b",
+      "pixels": [
+        640,
+        512
+      ],
+      "family": "interior_context",
+      "material_shading": "retain",
+      "baked_contact": "painted_object_base_ao",
+      "baked_solar": "no_independent_mask",
+      "separate_runtime_contact": "floor_wall_band_only",
+      "owner": "interior_renderer.gd / interior_visual_system.gd",
+      "decision": "retain_raster_ao_no_interior_implementation"
+    }
+  ],
+  "renderer_rules": [
+    {
+      "file": "scripts/systems/render_system.gd",
+      "sha256": "e227d03f7ee1e86dc8d4e143a9342b366b56b3a795847123a664cabdd68ff59c",
+      "function": "draw",
+      "line": 11,
+      "rule": "World order; no global projected solar pass."
+    },
+    {
+      "file": "scripts/systems/tree_occlusion_system.gd",
+      "sha256": "90891995b1f284803de189d0e9b7e96dfaca86f6cf33bb33d9fb97b233491170",
+      "function": "draw_packet",
+      "line": 132,
+      "rule": "Opacity/depth only; does not create ground shadows."
+    },
+    {
+      "file": "scripts/systems/interior_renderer.gd",
+      "sha256": "4e9410653cfadc242a077a1920a1d6b0e64998310c513e0d6c6fd7f4f0d725bb",
+      "function": "draw_textured_shell",
+      "line": 74,
+      "rule": "Floor-wall AO band and room perimeter retained; not solar projection."
+    },
+    {
+      "file": "scripts/systems/hero_visual_system.gd",
+      "sha256": "41020a67d6a7ee5766216d2115c7efd8f8909e465dddf09a95ef35e33d70edc8",
+      "function": "draw_actor",
+      "line": 61,
+      "rule": "One existing separate contact ellipse; raster material shading stays."
+    },
+    {
+      "file": "scripts/systems/resident_visual_system.gd",
+      "sha256": "e2ae1392499bf97c4292c01873ff44223a57f3445532d46998b7e61494e49572",
+      "function": "draw_actor",
+      "line": 37,
+      "rule": "Common actor contact; do not stack another per-resident overlay."
+    },
+    {
+      "file": "scripts/systems/directional_character_system.gd",
+      "sha256": "b5565f30f6594cbc4c09bfea0e8226576806a2cecd597ea2491f53574e4bc961",
+      "function": "draw_soft_shadow",
+      "line": 146,
+      "rule": "Fixed ellipse, no calendar-dependent direction."
+    },
+    {
+      "file": "scripts/systems/livestock_visual_system.gd",
+      "sha256": "cc4dbb70913dd83ef984f0413bc67ade30312f767edaaf77fbcb94ae5683fa27",
+      "function": "draw",
+      "line": 26,
+      "rule": "Two soft ellipse passes form one contact effect; do not add a third."
+    },
+    {
+      "file": "scripts/systems/wildlife_visual_system.gd",
+      "sha256": "f457e8950bbf054a77fe1f73176743683ce56e9c0e125eb966722a50869bd9e6",
+      "function": "draw_contact_shadow",
+      "line": 120,
+      "rule": "Existing contact; full animation catalogue not visually reaccepted."
+    },
+    {
+      "file": "scripts/systems/cave_renderer.gd",
+      "sha256": "46a7c4235661fa91aa2aee169ed2e71479c790f0c9cf1e7e66b8cf5db4a9e979",
+      "function": "_draw_shadow",
+      "line": 96,
+      "rule": "Existing contact ellipses; context inventory, no cave redesign."
+    },
+    {
+      "file": "scripts/systems/cave_boss_renderer.gd",
+      "sha256": "e54b1b7ca1322d18002098f4d247b4baba14ce41b50194bb55ea80630a4753f5",
+      "function": "shadow",
+      "line": 94,
+      "rule": "Existing boss/minion contact; outside first-map implementation."
+    },
+    {
+      "file": "scripts/systems/village_terrain_renderer.gd",
+      "sha256": "5ce25192ad2cf9bbb112fc1d91102497acac5f9fe6b87636277b8e3193664620",
+      "function": "draw_banks",
+      "line": 99,
+      "rule": "Bank material/edge contrast is not a solar caster."
+    },
+    {
+      "file": "scripts/systems/atmosphere_renderer.gd",
+      "sha256": "a013bde0dc9cb57c382a37b84716035578708f9554bd4a5452937390c9290582",
+      "function": "draw",
+      "line": 7,
+      "rule": "Screen darkness and lamp glow, not projected solar geometry."
+    },
+    {
+      "file": "scripts/presentation/village_bench_visual.gd",
+      "sha256": "847dce57297018e989c756daf46bb6a56078ab55963cd926631e88750c3fd619",
+      "function": "draw_shadow",
+      "line": 34,
+      "rule": "One cached mesh, four contact points."
+    },
+    {
+      "file": "scripts/presentation/village_street_visual.gd",
+      "sha256": "4ab038dc1f470364201dce690e8826499b1d324ee9688341809c97be817b8694",
+      "function": "draw_shadow",
+      "line": 37,
+      "rule": "Cached contacts at base/wheels."
+    },
+    {
+      "file": "scripts/presentation/village_board_visual.gd",
+      "sha256": "050146331cc48425477c29b64749f2ea84e4d7d36c63ea040ae3518287133386",
+      "function": "draw_shadow",
+      "line": 38,
+      "rule": "Cached contacts at posts."
+    },
+    {
+      "file": "scripts/presentation/village_lamp_visual.gd",
+      "sha256": "8b7fc17535f0007fbe3790d14c4f98b75682694690984758003afa9fc5ac8d4f",
+      "function": "draw_shadow",
+      "line": 40,
+      "rule": "Static base contact; glow separate."
+    },
+    {
+      "file": "scripts/presentation/village_trade_visual.gd",
+      "sha256": "a181d01332810d53ef375c753427645b130ec88299337e5d8b735ff367cb7f43",
+      "function": "draw_shadow",
+      "line": 37,
+      "rule": "Existing contact per visible component."
+    },
+    {
+      "file": "scripts/presentation/village_fence_visual.gd",
+      "sha256": "6ec262003ec8e0103d0cefdbe58af5452a7f8b1f9203d1449490792434829d0a",
+      "function": "draw_section",
+      "line": 38,
+      "rule": "Posts/rails body only, no shadow helper."
+    }
+  ],
+  "followups": {
+    "VSHADOW-002": "Reuse/replace existing contacts; never stack duplicates.",
+    "VSHADOW-003": "Separate ground/wall receivers from raster self shading.",
+    "VSHADOW-004": "Upper-left sun agreed; add separately disableable cast only after base review.",
+    "VSHADOW-005": "One presented-ground actor contact; inspect complete animation masks before projected cast.",
+    "VSHADOW-006": "Three views, same contact ownership.",
+    "VSHADOW-007": "Retain interior wall band; no new interior work here.",
+    "VSHADOW-008": "Bank AO separate from water/bridge receiver.",
+    "VSHADOW-009": "Bound active casts; no frame budget accepted here.",
+    "VSHADOW-010": "Final day/evening shadow acceptance remains open."
+  }
+}
