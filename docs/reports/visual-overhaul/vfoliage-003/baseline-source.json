@@ -1,0 +1,9 @@
+{
+  "base_commit": "7cf646e22f04353aa4220979623baa852d1d4a9a",
+  "sources": {
+    "scripts/systems/village_ambient_renderer.gd": "d6a1dbfb2f86727802169721298835ffc4493337009b83691b694e9b13048292",
+    "scripts/game_core.gd": "a91691cdcbbf696cd6de272f88b3176905fad156794f62229582c846592453fe",
+    "tools/foliage_wind_baseline.gd": "d2eec8755ccd235c1b25be246835ebe5d6d0aeef46635ae5e6675c22a81128cd",
+    "assets/game/environment/village_ambient_atlas_v1.png": "f2ae3f426d44813f805aaef364895982c74ab26ad08cd7ad4e17092fe8c0b4a5"
+  }
+}

@@ -56,6 +56,11 @@ static func draw_ground(game: Node2D) -> void:
 	for placement in PLACEMENTS:
 		var kind: String = placement.kind
 		if not is_visible_in_season(kind, season): continue
+		if RootProfile.profile(kind).flexible:
+			var wind:=game.get_node_or_null("FoliageWind")
+			if wind==null or not wind.draw(game,kind,placement.position,Color(1,1,1,0.82)):
+				draw_cell(game,kind,placement.position,Color(1,1,1,0.82))
+			continue
 		var pose:=ground_pose(kind,placement.position,float(placement.phase),time,animated)
 		var tint := Color(0.88, 0.92, 1.0, pose.alpha) if season == "winter" else Color(1.0, 1.0, 1.0, pose.alpha)
 		draw_cell(game,kind,pose.position,tint)

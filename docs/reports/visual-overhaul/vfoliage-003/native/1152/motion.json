@@ -1,0 +1,251 @@
+{
+  "format": "lossless APNG",
+  "scope": "49 controlled shader-time samples over four simulation seconds; not a measured game frame rate",
+  "frames": [
+    {
+      "case": "wind-00",
+      "rgba_sha": "4810d9785177547657f6ebf772f74aeee34625942e1c8913c13f5e83eb06b6e0",
+      "frame": 0
+    },
+    {
+      "case": "wind-01",
+      "rgba_sha": "63f5bcd50efb080b1cd037a4ad25cd6e322b49a3a39380234214e8e125510885",
+      "frame": 1
+    },
+    {
+      "case": "wind-02",
+      "rgba_sha": "be23d1b33130c185e6e8b0ed5a8f16ff8be99997c7bc2029f90cf1dc82d9e415",
+      "frame": 2
+    },
+    {
+      "case": "wind-03",
+      "rgba_sha": "0e99ea6f85e64354ea763be96186ea87066ab895c75ae4b2d69ab34ca6d9397a",
+      "frame": 3
+    },
+    {
+      "case": "wind-04",
+      "rgba_sha": "f092103f179f37cd4db4e40a1b3a2921380d7238b596339aaebba7a24f1338e2",
+      "frame": 4
+    },
+    {
+      "case": "wind-05",
+      "rgba_sha": "a08aa726f6bafababa31669ffbba99ecdf2b2346c5a5f1f1fef3d11311700162",
+      "frame": 5
+    },
+    {
+      "case": "wind-06",
+      "rgba_sha": "b5f4492dd3ed6d323d75dbcc211b7c6f048b6cc548f4c248e87a30859258bcb7",
+      "frame": 6
+    },
+    {
+      "case": "wind-07",
+      "rgba_sha": "b560875007074b77e6ca5971df508fd93b2f6ed87a9c0892147e834d1ea4e5b9",
+      "frame": 7
+    },
+    {
+      "case": "wind-08",
+      "rgba_sha": "cef679cbd2602655c4636868f60978677ba597fdcd6d4627131a4b08ed91277b",
+      "frame": 8
+    },
+    {
+      "case": "wind-09",
+      "rgba_sha": "55edc36a489020633b4ad1dc443116c3f437af849c9c81070632c0d29f65df9d",
+      "frame": 9
+    },
+    {
+      "case": "wind-10",
+      "rgba_sha": "6d8da2c937f9ec380830fb5adc3b02078f613e3fe9cf6acf3e4f691d4c43c5d6",
+      "frame": 10
+    },
+    {
+      "case": "wind-11",
+      "rgba_sha": "e33c61c6aa903c610ba858b9aa8849316418774c96a7f07d0b4b22d12939b621",
+      "frame": 11
+    },
+    {
+      "case": "wind-12",
+      "rgba_sha": "0d5c26cb4ee1fda675a4580d8cb7d8018567ac8c267a9033702ab38307b4dbb6",
+      "frame": 12
+    },
+    {
+      "case": "wind-13",
+      "rgba_sha": "6b3f5c22460e2448d8100b5666da91a483bc0f76197be8146b677bfb5e9bacee",
+      "frame": 13
+    },
+    {
+      "case": "wind-14",
+      "rgba_sha": "43dfb6cb5be9df89c11bd966fa87eb6e087341ecef65623def48ba4238387bbb",
+      "frame": 14
+    },
+    {
+      "case": "wind-15",
+      "rgba_sha": "060eee635b5266be7950a5d4c17ccb1dd359557a07b500fbcc955ba450ea613f",
+      "frame": 15
+    },
+    {
+      "case": "wind-16",
+      "rgba_sha": "227c6924e183feb7a1ddc9a12e72aea6821c6551aa4b7d935ef1ad63b87a8402",
+      "frame": 16
+    },
+    {
+      "case": "wind-17",
+      "rgba_sha": "c9afffe6a5c4d5a60f5c3c3787fec1d35baeffde60594f6ba6caf23ab097fba8",
+      "frame": 17
+    },
+    {
+      "case": "wind-18",
+      "rgba_sha": "5e9b966cbed7e90e417bfe70cec2cd7a5b06ccd68ebf21564fe824123cc10b2b",
+      "frame": 18
+    },
+    {
+      "case": "wind-19",
+      "rgba_sha": "6f4e52432dfae8cd936c07b751037d5ec4c4982f570ceaf4dcd717267a8f8b9f",
+      "frame": 19
+    },
+    {
+      "case": "wind-20",
+      "rgba_sha": "f4ded1f08b7de409147173905ffc863e6e92e91c0eff0041b1ade9d1e8740455",
+      "frame": 20
+    },
+    {
+      "case": "wind-21",
+      "rgba_sha": "ab60a40685c721dc78aea8b42dca40647d1b26afcdcd19b3024524006d63c00e",
+      "frame": 21
+    },
+    {
+      "case": "wind-22",
+      "rgba_sha": "e85c760912347f041bb73022609810084744231337ebe051f0b731e26f9b13bc",
+      "frame": 22
+    },
+    {
+      "case": "wind-23",
+      "rgba_sha": "648317fae0f5dd31bd3e4bac301aef71c9fdcd8799ed7309e82c54630ed1d40d",
+      "frame": 23
+    },
+    {
+      "case": "wind-24",
+      "rgba_sha": "9c771987c1293bc260c623e3798212365ce79de890667dba12acd8f8425eec94",
+      "frame": 24
+    },
+    {
+      "case": "wind-25",
+      "rgba_sha": "a938e14e62fcdef1c0b994601f872afaca575e5dda4a38a552b9bc12a2575271",
+      "frame": 25
+    },
+    {
+      "case": "wind-26",
+      "rgba_sha": "efe271907e6f81737093f2f2f31a566354bb8fb071a652b51ee1834c27bab63f",
+      "frame": 26
+    },
+    {
+      "case": "wind-27",
+      "rgba_sha": "8dc8408866195d7f1226ff27c3268bfd10b7b795d8ed33789fa473fd3b226aa4",
+      "frame": 27
+    },
+    {
+      "case": "wind-28",
+      "rgba_sha": "d4c9aa7f4b3a94e7c4a153a2041ee7d92a539c8173ae9ca5f5e63622845b6a32",
+      "frame": 28
+    },
+    {
+      "case": "wind-29",
+      "rgba_sha": "d7ae1551ad275bf5eea3700ea20042fac1ffd634ed60a74fe2b03b0c238a366c",
+      "frame": 29
+    },
+    {
+      "case": "wind-30",
+      "rgba_sha": "def08b00a0f91ccbc70165473ffbdbd5b3d23e41c7a5b2efe7f1fcb78068e046",
+      "frame": 30
+    },
+    {
+      "case": "wind-31",
+      "rgba_sha": "5b50275939643ade418ff8d6d0926adbb552f75e18880aade02d682415cfb3b5",
+      "frame": 31
+    },
+    {
+      "case": "wind-32",
+      "rgba_sha": "bc66782dc73427ff8c489d5eecbfbd1272fb135eec1558c13b8d13c1df51363e",
+      "frame": 32
+    },
+    {
+      "case": "wind-33",
+      "rgba_sha": "648c2acdd21671312f0aaa6ae20c0dc4d6aed3f296390fcfeefd5660995f5a0a",
+      "frame": 33
+    },
+    {
+      "case": "wind-34",
+      "rgba_sha": "4897fc9a8da950684e2b83583e9c3e7559cd19dce1ab9907c43c4d644de201ec",
+      "frame": 34
+    },
+    {
+      "case": "wind-35",
+      "rgba_sha": "900fccb8ad9e65829c3771e472e8eb9504ee82c6ffcdc3b2dc7f30941c9230db",
+      "frame": 35
+    },
+    {
+      "case": "wind-36",
+      "rgba_sha": "7b55dd313203648a938ee05192e68eb4d4c99e010bd78de7bb9d476e20eab626",
+      "frame": 36
+    },
+    {
+      "case": "wind-37",
+      "rgba_sha": "f9c1ce2ca3aaa01c47ab29ff0d9016b3d27e5fb71941136fa56c67c8a08c0a39",
+      "frame": 37
+    },
+    {
+      "case": "wind-38",
+      "rgba_sha": "728599a202ae6133ccb1f1644a26e455c3b5d7a16cfcd0710292b6efd44a9d2c",
+      "frame": 38
+    },
+    {
+      "case": "wind-39",
+      "rgba_sha": "9fa98df8ede487c6c842d91232213f7af4cd4e3b8904cc117cb6a199b902d43a",
+      "frame": 39
+    },
+    {
+      "case": "wind-40",
+      "rgba_sha": "e4744a7a8c204044dd8148e87ca30c5dfe2d439e9fb5191a306dc418219fe390",
+      "frame": 40
+    },
+    {
+      "case": "wind-41",
+      "rgba_sha": "7c9a353aaae3ec64d4b9be846121984b1c36eb93d54db6ba514da03bfa97a7cc",
+      "frame": 41
+    },
+    {
+      "case": "wind-42",
+      "rgba_sha": "dac9455323643235d4c5464ededd53e7c59783f42348a1858d99e588f8ab6e80",
+      "frame": 42
+    },
+    {
+      "case": "wind-43",
+      "rgba_sha": "607b95bda816403538077d5265e02990f0c800ec5a10e5f7a0907e8a5961dff8",
+      "frame": 43
+    },
+    {
+      "case": "wind-44",
+      "rgba_sha": "bf75983e7e75bb6424e673b51ea6d0bda5413ce7a2a5e4f86554262a1f9067fe",
+      "frame": 44
+    },
+    {
+      "case": "wind-45",
+      "rgba_sha": "5089db9c575fc434fb73392ce1c9ec28ddd5310b14bf1251308311274b113c50",
+      "frame": 45
+    },
+    {
+      "case": "wind-46",
+      "rgba_sha": "2fd156556b6a5c207b8b91346eeaa8e451a271d83183eb801c75b59917cec6ad",
+      "frame": 46
+    },
+    {
+      "case": "wind-47",
+      "rgba_sha": "a71756497bff743d31ec1c6aae7eeac2fdcb896863dc7e7141313c372434af87",
+      "frame": 47
+    },
+    {
+      "case": "wind-48",
+      "rgba_sha": "58ce70ee0602f917f14edace06b9198fde96be1d45ff2ba5a89f56f6dfcd2c51",
+      "frame": 48
+    }
+  ]
+}

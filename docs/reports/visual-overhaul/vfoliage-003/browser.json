@@ -1,0 +1,28 @@
+{
+  "task": "VFOLIAGE-003",
+  "url": "http://127.0.0.1:4175/#/guides/foliage-wind",
+  "version": "0.0.310",
+  "accepted": true,
+  "images_loaded": 2,
+  "downloads_exact": 3,
+  "search_verified": true,
+  "animated_png_bytes_exact": true,
+  "after_return_fix": true,
+  "downloads": [
+    {
+      "name": "summary.json",
+      "equal": true,
+      "bytes": 890
+    },
+    {
+      "name": "changes.json",
+      "equal": true,
+      "bytes": 1049
+    },
+    {
+      "name": "native-admission.json",
+      "equal": true,
+      "bytes": 571
+    }
+  ]
+}

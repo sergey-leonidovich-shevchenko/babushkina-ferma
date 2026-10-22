@@ -3162,7 +3162,7 @@
       "id": "VFOLIAGE-003",
       "epic": "VFOLIAGE",
       "title": "Сделать слабый фоновый ветер",
-      "status": "ready",
+      "status": "done",
       "priority": "P0",
       "phase": "pilot",
       "kind": "engineering",
@@ -3199,14 +3199,21 @@
         "confidence": "low",
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
-      "branch": "codex/vfoliage-003-visual-task",
-      "evidence": []
+      "branch": "codex/vfoliage-003-background-wind",
+      "evidence": [
+        "docs/reports/visual-overhaul/vfoliage-003/README.md",
+        "docs/reports/visual-overhaul/vfoliage-003/summary.json",
+        "docs/reports/visual-overhaul/vfoliage-003/completion.json",
+        "docs/reports/visual-overhaul/vfoliage-003/native/source.json",
+        "wiki/articles/foliage-wind.md"
+      ],
+      "result": "0.0.310: слабый shader-ветер подключён к восьми существующим пучкам первой карты. Реальные корни и вертикаль неподвижны, фазы пространственные; один ограниченный target и две MultiMesh-группы без новых размещений/механик. Пауза/offscreen/low/fallback/возврат, четыре подхода, stop/wall и штатный QA-телепорт проверены. Нативно 136 случаев двух окон,1088 точных нижних полос, GPU/CPU RGBA побайтно, полный snapshot неизменен; 49 отсчётов motion каждого окна сохранены lossless APNG. Профиль435/0, Python19/0, architecture, игра47798/0, Wiki129/0 и браузер. Это не FPS/hardware, контакт или VMAP-003. Отчёт docs/reports/visual-overhaul/vfoliage-003/README.md; исходники связаны с Git-base7cf646e2."
     },
     {
       "id": "VFOLIAGE-004",
       "epic": "VFOLIAGE",
       "title": "Добавить отклонение от героя",
-      "status": "backlog",
+      "status": "ready",
       "priority": "P0",
       "phase": "pilot",
       "kind": "engineering",
