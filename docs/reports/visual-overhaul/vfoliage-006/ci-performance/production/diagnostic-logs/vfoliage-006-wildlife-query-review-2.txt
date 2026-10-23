@@ -1,0 +1,46 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+PASS: resource view contains only the current map: overworld
+PASS: container view contains only the current map: overworld
+PASS: food view retains the legacy default map: overworld
+PASS: resource view contains only the current map: forest
+PASS: container view contains only the current map: forest
+PASS: food view retains the legacy default map: forest
+PASS: resource view contains only the current map: rocky
+PASS: container view contains only the current map: rocky
+PASS: food view retains the legacy default map: rocky
+PASS: resource view contains only the current map: ruins
+PASS: container view contains only the current map: ruins
+PASS: food view retains the legacy default map: ruins
+PASS: resource view contains only the current map: cave
+PASS: container view contains only the current map: cave
+PASS: food view retains the legacy default map: cave
+PASS: resource view contains only the current map: cursed
+PASS: container view contains only the current map: cursed
+PASS: food view retains the legacy default map: cursed
+PASS: resource view contains only the current map: pirate_ship
+PASS: container view contains only the current map: pirate_ship
+PASS: food view retains the legacy default map: pirate_ship
+PASS: resource view contains only the current map: cottage_interior
+PASS: container view contains only the current map: cottage_interior
+PASS: food view retains the legacy default map: cottage_interior
+PASS: local batch preserves all sampled real collision reasons: []
+PASS: local view avoids remote nodes without removing original world objects
+PASS: filtered obstacles share the live dictionary instead of freezing a copy
+PASS: batch still blocks the complete live resource footprint
+PASS: mining the resource is visible in the same batch
+PASS: next synchronous batch sees newly added blockers without a cache invalidation protocol
+PASS: food without a location remains an overworld obstacle
+PASS: map switch discards a foreign local view and preserves exact collision reasons
+PASS: local query preserves exact habitat and every reference wildlife substep
+PASS: first physics tick receives the F10 render-frame budget
+PASS: eight catch-up physics ticks cannot multiply the diagnostic grid budget
+PASS: next rendered frame can continue the pending navigation grid
+PASS: independent diagnostic states do not share a global starvation lock
+PASS: F10 update applies its frame-clock guard to repeated physics catch-up calls
+PASS: resting wildlife does not run ten redundant collision probes each physics tick
+PASS: horizontal wildlife motion performs only its real axis collision probe
+PASS: skipping empty axes never skips the actual wall collision
+PASS: reduced grid budget finishes without starving the queue
+PASS: incremental F10 publishes every real collision classification
+WILDLIFE QUERY REVIEW: 43 passed, 0 failed

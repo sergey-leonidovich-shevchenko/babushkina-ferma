@@ -41,9 +41,33 @@ static func is_walkable(game: Node, position: Vector2) -> bool:
 	return walkability_reason(game, position) == "walkable"
 
 
+## Выбирает живые препятствия одной карты для синхронного пакета запросов; за его пределами выборка не хранится.
+static func location_query(game: Node) -> Dictionary:
+	var location: String = game.current_location
+	return {
+		"owner_id": game.get_instance_id(),
+		"location": location,
+		"resources": game.resource_nodes.filter(func(node): return node.location == location),
+		"containers": game.world_loot_nodes.filter(func(node): return node.location == location),
+		"food": game.food_nodes.filter(func(node): return node.get("location", "overworld") == location),
+	}
+
+
 ## Объясняет результат навигации кодом конкретного препятствия для игровой диагностики.
 ## Reference-режим отключает только broadphase для сравнений, не меняя правила коллизий или состояние мира.
-static func walkability_reason(game: Node, position: Vector2, ignored_enemy: int = -1, include_enemies: bool = true, use_broadphase: bool = true) -> String:
+static func walkability_reason(
+	game: Node,
+	position: Vector2,
+	ignored_enemy: int = -1,
+	include_enemies: bool = true,
+	use_broadphase: bool = true,
+	query: Dictionary = {}
+) -> String:
+	if not query.is_empty() and (
+		query.get("owner_id", 0) != game.get_instance_id()
+		or query.get("location", "") != game.current_location
+	):
+		query = {}
 	if game.current_location=="cellar_workshop": return "walkable" if game.BasementSystem.walkable(game,position,game.PLAYER_RADIUS) else "basement_obstacle"
 	if game.DebugPlaygroundSystem.active(game): return "walkable" if game.DebugPlaygroundSystem.is_walkable(game, position, game.PLAYER_RADIUS) else "debug_obstacle"
 	if game.PublishedLevelSystem.blocks_position(game,position,game.PLAYER_RADIUS): return "published_collision"
@@ -110,17 +134,17 @@ static func walkability_reason(game: Node, position: Vector2, ignored_enemy: int
 	for hazard in game.hazard_nodes:
 		if hazard.location == game.current_location and position.distance_to(hazard.position) < game.PLAYER_RADIUS + 30.0:
 			return "hazard"
-	for node in game.resource_nodes:
+	for node in query.get("resources", game.resource_nodes):
 		if node.hits<=0 or node.location!=game.current_location: continue
 		if use_broadphase and not Broadphase.near_dynamic(position, node.position, game.PLAYER_RADIUS): continue
 		if circle_intersects_rect(position,game.PLAYER_RADIUS,game.ResourceSystem.collision_rect(node)):
 			return "resource"
-	for container in game.world_loot_nodes:
+	for container in query.get("containers", game.world_loot_nodes):
 		if container.location != game.current_location or not preload("res://scripts/systems/cave_boss_arena_system.gd").container_visible(game,container): continue
 		if use_broadphase and not Broadphase.near_dynamic(position, container.position, game.PLAYER_RADIUS): continue
 		if circle_intersects_rect(position,game.PLAYER_RADIUS,game.WorldLootRenderer.container_collision(container)):
 			return "loot"
-	for food in game.food_nodes:
+	for food in query.get("food", game.food_nodes):
 		if food.get("location", "overworld") != game.current_location:
 			continue
 		if game.ForageSystem.Herbs.is_herb(String(food.kind)): continue

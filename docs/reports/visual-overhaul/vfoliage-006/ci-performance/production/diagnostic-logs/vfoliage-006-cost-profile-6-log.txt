@@ -1,0 +1,2 @@
+normal {"calls": 603, "max_us": 3195, "total_us": 817269}
+f10 {"calls": 601, "max_us": 3046, "total_us": 703848}

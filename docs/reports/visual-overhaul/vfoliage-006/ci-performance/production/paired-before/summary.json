@@ -1,0 +1,477 @@
+{
+  "purpose": "paired_headless_CPU_comparison_not_hardware_admission",
+  "utc": "2026-10-23T09:24:57.100577+00:00",
+  "baseline_commit": "fe5919686aed1b6ea66cd1112a8075a57d448946",
+  "head_commit": "ed44048fd4ff8ab96b14cceaa8309b183c47c7c6",
+  "plan_sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7",
+  "engine_file_sha256": "ecc8da2d60100102cfca6e833d3860d7436b46ae062fa072ce89a6c95d664a3f",
+  "order": [
+    [
+      "base-normal",
+      "head-normal",
+      "base-f10",
+      "head-f10"
+    ],
+    [
+      "head-f10",
+      "base-f10",
+      "head-normal",
+      "base-normal"
+    ],
+    [
+      "base-normal",
+      "head-normal",
+      "base-f10",
+      "head-f10"
+    ]
+  ],
+  "statement": "All twelve predeclared cases retained; no threshold changes, censoring, or retries to pick success.",
+  "complete": true,
+  "groups": {
+    "base-normal": {
+      "valid": true,
+      "all_pass_50": false,
+      "fps_in_planned_repeat_order": [
+        43.3,
+        47.4,
+        43.4
+      ],
+      "median_fps": 43.4,
+      "minimum_fps": 43.3
+    },
+    "base-f10": {
+      "valid": true,
+      "all_pass_50": false,
+      "fps_in_planned_repeat_order": [
+        21.9,
+        33.7,
+        46.6
+      ],
+      "median_fps": 33.7,
+      "minimum_fps": 21.9
+    },
+    "head-normal": {
+      "valid": true,
+      "all_pass_50": false,
+      "fps_in_planned_repeat_order": [
+        53.4,
+        44.6,
+        45.5
+      ],
+      "median_fps": 45.5,
+      "minimum_fps": 44.6
+    },
+    "head-f10": {
+      "valid": true,
+      "all_pass_50": false,
+      "fps_in_planned_repeat_order": [
+        36.4,
+        39.4,
+        19.4
+      ],
+      "median_fps": 36.4,
+      "minimum_fps": 19.4
+    }
+  },
+  "cases": [
+    {
+      "repeat": 1,
+      "side": "base",
+      "mode": "normal",
+      "folder": "1-base-normal",
+      "result": {
+        "mode": "normal",
+        "valid": true,
+        "budget_passed": false,
+        "status": "budget_exceeded",
+        "average_fps": 43.3,
+        "minimum_fps": 50,
+        "samples": [
+          60,
+          20,
+          6,
+          9,
+          38,
+          60,
+          60,
+          60,
+          60,
+          60
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10000290,
+        "window_frames": 433,
+        "profile": "Codex-Performance-904ef770169c4372ac343d72342a0c45",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1689986
+      }
+    },
+    {
+      "repeat": 1,
+      "side": "head",
+      "mode": "normal",
+      "folder": "1-head-normal",
+      "result": {
+        "mode": "normal",
+        "valid": true,
+        "budget_passed": true,
+        "status": "passed",
+        "average_fps": 53.4,
+        "minimum_fps": 50,
+        "samples": [
+          59,
+          52,
+          37,
+          28,
+          58,
+          60,
+          60,
+          60,
+          60,
+          60
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10009591,
+        "window_frames": 534,
+        "profile": "Codex-Performance-62b559aea55f4bdfb6f6ae719ee29411",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1690526
+      }
+    },
+    {
+      "repeat": 1,
+      "side": "base",
+      "mode": "f10",
+      "folder": "1-base-f10",
+      "result": {
+        "mode": "f10",
+        "valid": true,
+        "budget_passed": false,
+        "status": "budget_exceeded",
+        "average_fps": 21.9,
+        "minimum_fps": 50,
+        "samples": [
+          6,
+          15,
+          29,
+          8,
+          6,
+          12,
+          38,
+          30,
+          15,
+          60
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10001337,
+        "window_frames": 219,
+        "profile": "Codex-Performance-aad0c749e7c044aeb03adaf68d83a650",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 2620912
+      }
+    },
+    {
+      "repeat": 1,
+      "side": "head",
+      "mode": "f10",
+      "folder": "1-head-f10",
+      "result": {
+        "mode": "f10",
+        "valid": true,
+        "budget_passed": false,
+        "status": "budget_exceeded",
+        "average_fps": 36.4,
+        "minimum_fps": 50,
+        "samples": [
+          44,
+          28,
+          6,
+          7,
+          10,
+          60,
+          35,
+          54,
+          60,
+          60
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10003537,
+        "window_frames": 364,
+        "profile": "Codex-Performance-a00b5059afe642ddb572b01f60aba208",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1318686
+      }
+    },
+    {
+      "repeat": 2,
+      "side": "head",
+      "mode": "f10",
+      "folder": "2-head-f10",
+      "result": {
+        "mode": "f10",
+        "valid": true,
+        "budget_passed": false,
+        "status": "budget_exceeded",
+        "average_fps": 39.4,
+        "minimum_fps": 50,
+        "samples": [
+          41,
+          42,
+          12,
+          7,
+          24,
+          59,
+          52,
+          37,
+          60,
+          60
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10007183,
+        "window_frames": 394,
+        "profile": "Codex-Performance-b294899fc4d7495bae65aae89de5195d",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1299627
+      }
+    },
+    {
+      "repeat": 2,
+      "side": "base",
+      "mode": "f10",
+      "folder": "2-base-f10",
+      "result": {
+        "mode": "f10",
+        "valid": true,
+        "budget_passed": false,
+        "status": "budget_exceeded",
+        "average_fps": 33.7,
+        "minimum_fps": 50,
+        "samples": [
+          30,
+          37,
+          6,
+          7,
+          15,
+          39,
+          23,
+          60,
+          59,
+          61
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10015590,
+        "window_frames": 337,
+        "profile": "Codex-Performance-1060438c8b6b4c9b8edc630bc9f70c6e",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1700797
+      }
+    },
+    {
+      "repeat": 2,
+      "side": "head",
+      "mode": "normal",
+      "folder": "2-head-normal",
+      "result": {
+        "mode": "normal",
+        "valid": true,
+        "budget_passed": false,
+        "status": "budget_exceeded",
+        "average_fps": 44.6,
+        "minimum_fps": 50,
+        "samples": [
+          60,
+          35,
+          31,
+          9,
+          34,
+          60,
+          59,
+          61,
+          60,
+          37
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10000153,
+        "window_frames": 446,
+        "profile": "Codex-Performance-0daa915c50554bb7ba5aa0583b1f48e0",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1768851
+      }
+    },
+    {
+      "repeat": 2,
+      "side": "base",
+      "mode": "normal",
+      "folder": "2-base-normal",
+      "result": {
+        "mode": "normal",
+        "valid": true,
+        "budget_passed": false,
+        "status": "budget_exceeded",
+        "average_fps": 47.4,
+        "minimum_fps": 50,
+        "samples": [
+          59,
+          55,
+          34,
+          18,
+          39,
+          40,
+          60,
+          60,
+          49,
+          60
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10015671,
+        "window_frames": 474,
+        "profile": "Codex-Performance-b252befbf6ee4076bb877d7794c397ad",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1415014
+      }
+    },
+    {
+      "repeat": 3,
+      "side": "base",
+      "mode": "normal",
+      "folder": "3-base-normal",
+      "result": {
+        "mode": "normal",
+        "valid": true,
+        "budget_passed": false,
+        "status": "budget_exceeded",
+        "average_fps": 43.4,
+        "minimum_fps": 50,
+        "samples": [
+          59,
+          41,
+          12,
+          32,
+          61,
+          60,
+          60,
+          60,
+          27,
+          22
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10013160,
+        "window_frames": 434,
+        "profile": "Codex-Performance-5751dcd47c344fecb8c1f0890e194a30",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1236264
+      }
+    },
+    {
+      "repeat": 3,
+      "side": "head",
+      "mode": "normal",
+      "folder": "3-head-normal",
+      "result": {
+        "mode": "normal",
+        "valid": true,
+        "budget_passed": false,
+        "status": "budget_exceeded",
+        "average_fps": 45.5,
+        "minimum_fps": 50,
+        "samples": [
+          50,
+          15,
+          9,
+          30,
+          51,
+          60,
+          60,
+          60,
+          60,
+          60
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10009210,
+        "window_frames": 455,
+        "profile": "Codex-Performance-aa9e71bbf6a64d088bb5cb2ab86cbf07",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1486973
+      }
+    },
+    {
+      "repeat": 3,
+      "side": "base",
+      "mode": "f10",
+      "folder": "3-base-f10",
+      "result": {
+        "mode": "f10",
+        "valid": true,
+        "budget_passed": false,
+        "status": "budget_exceeded",
+        "average_fps": 46.6,
+        "minimum_fps": 50,
+        "samples": [
+          56,
+          21,
+          9,
+          33,
+          49,
+          58,
+          60,
+          60,
+          60,
+          60
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10003718,
+        "window_frames": 466,
+        "profile": "Codex-Performance-7790a648cc4f4466bb73923b3a070bcb",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1155305
+      }
+    },
+    {
+      "repeat": 3,
+      "side": "head",
+      "mode": "f10",
+      "folder": "3-head-f10",
+      "result": {
+        "mode": "f10",
+        "valid": true,
+        "budget_passed": false,
+        "status": "budget_exceeded",
+        "average_fps": 19.4,
+        "minimum_fps": 50,
+        "samples": [
+          10,
+          5,
+          6,
+          6,
+          10,
+          9,
+          12,
+          16,
+          60,
+          60
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10011261,
+        "window_frames": 194,
+        "profile": "Codex-Performance-51c60176663741268077ce943bbafe5b",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1400840
+      }
+    }
+  ],
+  "all_valid": true,
+  "all_head_pass_50": false,
+  "final_CI_and_exact_SHA_review_still_required": true
+}

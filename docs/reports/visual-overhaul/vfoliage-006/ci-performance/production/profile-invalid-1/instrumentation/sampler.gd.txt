@@ -1,0 +1,30 @@
+extends "res://tools/performance_sampler.gd"
+const Cost = preload("res://tmp/vfoliage-006-cost-entry/cost.gd")
+const ProfileLoop = preload("res://tmp/vfoliage-006-cost-entry/loop.gd")
+const ProfileRender = preload("res://tmp/vfoliage-006-cost-entry/render.gd")
+
+func _physics_process(delta: float) -> void:
+	var started := Time.get_ticks_usec()
+	PresentationPose.begin_tick(self)
+	ProfileLoop.physics_process(self,delta)
+	PresentationPose.end_tick(self,delta)
+	Cost.record("physics_total",Time.get_ticks_usec()-started)
+
+func _process(delta: float) -> void:
+	var started := Time.get_ticks_usec()
+	super._process(delta)
+	Cost.record("process_total",Time.get_ticks_usec()-started)
+
+func _draw() -> void:
+	var started := Time.get_ticks_usec()
+	ProfileRender.draw(self)
+	Cost.record("draw_total",Time.get_ticks_usec()-started)
+
+func perf_emit(row: Dictionary) -> void:
+	if row.kind == "begin":
+		Cost.rows.clear()
+		Cost.enabled = true
+	if row.kind == "end":
+		Cost.enabled = false
+		print("COST_DIAGNOSTIC " + JSON.stringify({"purpose":"instrumented_not_gate_admission","rows":Cost.rows}))
+	super.perf_emit(row)

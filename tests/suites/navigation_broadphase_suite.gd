@@ -5,6 +5,7 @@ const Broadphase := preload("res://scripts/systems/navigation_broadphase_system.
 
 ## Запускает сравнение ускоренного запроса с полным обходом и контракт неизменности живых коллизий.
 func run() -> void:
+	preload("res://tests/suites/wildlife_query_suite.gd").new(context).run()
 	test_indexed_navigation_matches_exhaustive_navigation()
 	test_cached_geometry_preserves_live_changes()
 	test_dynamic_bound_covers_every_registered_family()

@@ -1,0 +1,121 @@
+extends RefCounted
+const Cost = preload("res://tmp/vfoliage-006-cost-entry-2/cost.gd")
+
+const FishingRenderer := preload("res://scripts/systems/fishing_renderer.gd")
+const VillagePropRenderer:=preload("res://scripts/systems/village_prop_renderer.gd")
+const TreeOcclusion := preload("res://scripts/systems/tree_occlusion_system.gd")
+const CaveRenderer := preload("res://scripts/systems/cave_renderer.gd")
+const BossRenderer := preload("res://scripts/systems/cave_boss_renderer.gd")
+const WorldProjection := preload("res://scripts/systems/world_projection_system.gd")
+
+## Координирует отрисовку текущего состояния без изменения игровой логики.
+static func draw(game: Node2D) -> void:
+	if game.language_screen:
+		var cost_started_0 := Time.get_ticks_usec()
+		game.draw_language_screen(); game.UiFeedbackRenderer.draw(game); return
+		Cost.record("render_system.gd:13", Time.get_ticks_usec() - cost_started_0)
+	if game.title_screen:
+		var cost_started_1 := Time.get_ticks_usec()
+		game.draw_title_screen(); game.UiFeedbackRenderer.draw(game); return
+		Cost.record("render_system.gd:15", Time.get_ticks_usec() - cost_started_1)
+	if opaque_storage(game):
+		var cost_started_2 := Time.get_ticks_usec()
+		game.draw_set_transform(Vector2.ZERO); draw_screen(game,false); return
+		Cost.record("render_system.gd:17", Time.get_ticks_usec() - cost_started_2)
+	var cost_started_3 := Time.get_ticks_usec()
+	TreeOcclusion.begin_frame(game)
+	Cost.record("render_system.gd:18", Time.get_ticks_usec() - cost_started_3)
+	var cost_started_4 := Time.get_ticks_usec()
+	WorldProjection.apply(game)
+	Cost.record("render_system.gd:19", Time.get_ticks_usec() - cost_started_4)
+	if game.BuildingSystem.is_interior(game.current_location):
+		var cost_started_5 := Time.get_ticks_usec()
+		game.draw_interior_objects(); game.draw_quest_npcs()
+		Cost.record("render_system.gd:21", Time.get_ticks_usec() - cost_started_5)
+	elif game.current_location == "overworld":
+		var cost_started_6 := Time.get_ticks_usec()
+		game.VillageAmbientRenderer.draw_ground(game); game.draw_farm(); VillagePropRenderer.draw(game,false); game.draw_rpg_world()
+		Cost.record("render_system.gd:23", Time.get_ticks_usec() - cost_started_6)
+	else:
+		var cost_started_7 := Time.get_ticks_usec()
+		game.draw_farm()
+		Cost.record("render_system.gd:25", Time.get_ticks_usec() - cost_started_7)
+	var cost_started_8 := Time.get_ticks_usec()
+	preload("res://scripts/presentation/village_region_renderer.gd").draw_ground(game)
+	Cost.record("render_system.gd:26", Time.get_ticks_usec() - cost_started_8)
+	var cost_started_9 := Time.get_ticks_usec()
+	preload("res://scripts/presentation/village_region_renderer.gd").draw_objects(game)
+	Cost.record("render_system.gd:27", Time.get_ticks_usec() - cost_started_9)
+	if game.current_location in ["overworld","village_river"]: game.draw_fishing_animations()
+	var cost_started_10 := Time.get_ticks_usec()
+	game.EnvironmentVisualSystem.draw_biome_trees(game, game.current_location)
+	Cost.record("render_system.gd:29", Time.get_ticks_usec() - cost_started_10)
+	var cost_started_11 := Time.get_ticks_usec()
+	CaveRenderer.draw_lights(game); BossRenderer.draw_ground(game)
+	Cost.record("render_system.gd:30", Time.get_ticks_usec() - cost_started_11)
+	var cost_started_12 := Time.get_ticks_usec()
+	game.PublishedLevelRenderer.draw_layer(game,"background"); game.PublishedLevelRenderer.draw_layer(game,"ground"); game.LevelEditorRenderer.draw_layer(game,"background"); game.LevelEditorRenderer.draw_layer(game,"ground")
+	Cost.record("render_system.gd:31", Time.get_ticks_usec() - cost_started_12)
+	if not game.BuildingSystem.is_interior(game.current_location):
+		var cost_started_13 := Time.get_ticks_usec()
+		game.draw_buildings(); game.draw_world_events(); game.VillageEventRenderer.draw(game); game.draw_quest_npcs()
+		Cost.record("render_system.gd:33", Time.get_ticks_usec() - cost_started_13)
+	var cost_started_14 := Time.get_ticks_usec()
+	game.CastleCampaignRenderer.draw(game); game.draw_hazards(); game.draw_enemy_nodes_and_gate(); BossRenderer.draw_actors(game); game.draw_tree_nodes(); game.draw_resource_nodes(); game.draw_food_nodes(); game.draw_world_loot(); game.draw_wildlife(); game.draw_dropped_items(); FishingRenderer.draw_traps(game); game.draw_companions(); game.FarmLifeRenderer.draw_world(game); game.FirstChapterRenderer.draw_world(game); game.FenceRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,"objects"); game.LevelEditorRenderer.draw_layer(game,"objects"); game.draw_player(); game.WorldLootRenderer.draw_front(game); game.VillageEventRenderer.draw(game,true); game.FenceRenderer.draw_world(game,true); preload("res://scripts/systems/livestock_renderer.gd").draw(game,true); BossRenderer.draw_front(game); CaveRenderer.draw_foreground(game); game.SpellRenderer.draw_world(game); game.InteriorRenderer.draw_foreground(game); game.VillageForegroundRenderer.draw(game); game.AdventurePolishRenderer.draw_world(game); game.PublishedLevelRenderer.draw_layer(game,"foreground"); game.LevelEditorRenderer.draw_layer(game,"foreground"); game.DebugPlaygroundRenderer.draw_world_overlay(game); game.DebugOverlayRenderer.draw_world(game)
+	Cost.record("render_system.gd:34", Time.get_ticks_usec() - cost_started_14)
+	var cost_started_15 := Time.get_ticks_usec()
+	preload("res://scripts/presentation/apiary_visual_system.gd").draw_world(game,true)
+	Cost.record("render_system.gd:35", Time.get_ticks_usec() - cost_started_15)
+	var cost_started_16 := Time.get_ticks_usec()
+	preload("res://scripts/presentation/house_furniture_placement_renderer.gd").draw(game)
+	Cost.record("render_system.gd:36", Time.get_ticks_usec() - cost_started_16)
+	var cost_started_17 := Time.get_ticks_usec()
+	preload("res://scripts/presentation/basement_renderer.gd").placement(game)
+	Cost.record("render_system.gd:37", Time.get_ticks_usec() - cost_started_17)
+	var cost_started_18 := Time.get_ticks_usec()
+	preload("res://scripts/presentation/basement_renderer.gd").work_overlay(game)
+	Cost.record("render_system.gd:38", Time.get_ticks_usec() - cost_started_18)
+	var cost_started_19 := Time.get_ticks_usec()
+	game.draw_set_transform(Vector2.ZERO); game.AtmosphereRenderer.draw(game)
+	Cost.record("render_system.gd:39", Time.get_ticks_usec() - cost_started_19)
+	var clean_level_capture := game.has_meta("capture_first_level_clean")
+	var cost_started_20 := Time.get_ticks_usec()
+	draw_screen(game,clean_level_capture)
+	Cost.record("render_system.gd:41", Time.get_ticks_usec() - cost_started_20)
+
+## Отсекает только мир за полностью непрозрачным хранилищем; режимы чистого захвата и редактор сохраняют свой маршрут.
+static func opaque_storage(game: Node) -> bool:
+	return not game.has_meta("capture_first_level_clean") and not bool(game.FarmLifeSystem.state(game).photo_mode) and not game.LevelEditorSystem.active(game) and (game.storage_open or preload("res://scripts/systems/dev_cabinet_system.gd").active(game))
+
+## Сохраняет общий порядок экранов, диагностических панелей, подтверждений и уведомлений поверх мира либо непрозрачного окна.
+static func draw_screen(game: Node2D, clean_level_capture: bool) -> void:
+	if not preload("res://scripts/presentation/visual_reference_mode.gd").hud_visible(game): return
+	if not clean_level_capture and not bool(game.FarmLifeSystem.state(game).photo_mode) and not game.LevelEditorSystem.active(game): game.draw_ui(); BossRenderer.draw_ui(game); FishingRenderer.draw(game); game.WorldMapRenderer.draw(game); game.AdventurePolishRenderer.draw_ui(game); game.FenceRenderer.draw_ui(game); game.SpellRenderer.draw_ui(game)
+	if not clean_level_capture and not game.LevelEditorSystem.active(game):
+		var cost_started_21 := Time.get_ticks_usec()
+		game.FarmLifeRenderer.draw_ui(game)
+		Cost.record("render_system.gd:52", Time.get_ticks_usec() - cost_started_21)
+		if not game.has_meta("capture_hud_clean"): game.FirstChapterRenderer.draw_ui(game)
+		var cost_started_22 := Time.get_ticks_usec()
+		game.StoryUiRenderer.draw_notification(game)
+		Cost.record("render_system.gd:54", Time.get_ticks_usec() - cost_started_22)
+		var cost_started_23 := Time.get_ticks_usec()
+		game.DebugPlaygroundRenderer.draw_overlay(game); game.DebugOverlayRenderer.draw_panel(game)
+		Cost.record("render_system.gd:55", Time.get_ticks_usec() - cost_started_23)
+	if not clean_level_capture: game.LevelEditorRenderer.draw_panel(game)
+	var cost_started_24 := Time.get_ticks_usec()
+	preload("res://scripts/presentation/basement_renderer.gd").ui(game)
+	Cost.record("render_system.gd:57", Time.get_ticks_usec() - cost_started_24)
+	if game.menu_state.pause_open or game.menu_state.settings_open or game.menu_state.defeat_open: game.MenuRenderer.draw_pause_layer(game)
+	var cost_started_25 := Time.get_ticks_usec()
+	preload("res://scripts/systems/menu_hub_system.gd").draw_chrome(game)
+	Cost.record("render_system.gd:59", Time.get_ticks_usec() - cost_started_25)
+	var cost_started_26 := Time.get_ticks_usec()
+	preload("res://scripts/presentation/qa_teleport_renderer.gd").draw(game)
+	Cost.record("render_system.gd:60", Time.get_ticks_usec() - cost_started_26)
+	var cost_started_27 := Time.get_ticks_usec()
+	game.UiFeedbackRenderer.draw(game)
+	Cost.record("render_system.gd:61", Time.get_ticks_usec() - cost_started_27)
+	var cost_started_28 := Time.get_ticks_usec()
+	preload("res://scripts/presentation/recovery_notice_renderer.gd").draw(game)
+	Cost.record("render_system.gd:62", Time.get_ticks_usec() - cost_started_28)

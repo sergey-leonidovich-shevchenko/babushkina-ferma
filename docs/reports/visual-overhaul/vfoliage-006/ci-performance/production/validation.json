@@ -1,0 +1,25 @@
+{
+  "status": "production_change_verified_pending_new_CI_and_review_local_budget_not_closed",
+  "version": "0.0.326",
+  "parent": "ed44048fd4ff8ab96b14cceaa8309b183c47c7c6",
+  "architecture_suites": 77,
+  "python_tests": 1043,
+  "game_passed": 50405,
+  "game_failed": 0,
+  "wiki_passed": 135,
+  "wiki_failed": 0,
+  "all_24_comparison_processes_valid_and_preserved": true,
+  "local_budget_closed": false,
+  "same_before_after_profile_instrumentation_bytes": true,
+  "production_source_changes": [
+    "scripts/systems/navigation_system.gd",
+    "scripts/systems/wildlife_navigation_system.gd",
+    "scripts/systems/wildlife_system.gd"
+  ],
+  "assets_unchanged": true,
+  "previous_QA_CI_run": 39931541823,
+  "previous_QA_CI_head": "ed44048fd4ff8ab96b14cceaa8309b183c47c7c6",
+  "new_head_CI": "required_after_publish",
+  "final_review_requested": false,
+  "main_merge_allowed": false
+}

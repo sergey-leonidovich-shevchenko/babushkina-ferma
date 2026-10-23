@@ -512,6 +512,8 @@ assets/inbox/*
 !tools/test_item_export_contract.py
 !tools/performance_sampler.gd
 !tools/performance_sampler.gd.uid
+!tools/wildlife_query_review.gd
+!tools/wildlife_query_review.gd.uid
 !tools/performance_protocol.py
 !tools/performance_gate.py
 !tools/test_performance_gate.py

@@ -53,6 +53,9 @@ static func migrate_village_habitats(game: Node) -> void:
 
 ## Выполняет изолированную операцию своей подсистемы и возвращает результат согласно контракту.
 static func update(game: Node, delta: float) -> void:
+	# Навигационные подшаги зверей повторно используют только выборку текущего синхронного обновления.
+	# Сами словари препятствий живые; при смене карты запрос автоматически возвращается к полному обходу.
+	var query: Dictionary = {}
 	for index in game.wildlife_nodes.size():
 		var animal: Dictionary = game.wildlife_nodes[index]
 		if animal.location != game.current_location:
@@ -60,8 +63,12 @@ static func update(game: Node, delta: float) -> void:
 		animal.state_timer = maxf(float(animal.get("state_timer", 0.0)) - delta, 0.0)
 		animal.attack_timer = maxf(float(animal.get("attack_timer", 0.0)) - delta, 0.0)
 		if not animal.alive:
-			animal.visual_state = "death"; game.wildlife_nodes[index] = animal; continue
-		WildlifeNavigation.ensure_habitat(game, animal)
+			animal.visual_state = "death"
+			game.wildlife_nodes[index] = animal
+			continue
+		if query.get("location", "") != game.current_location:
+			query = game.NavigationSystem.location_query(game)
+		WildlifeNavigation.ensure_habitat(game, animal, query)
 		animal.animation += delta
 		animal.wander_timer -= delta
 		animal.panic = maxf(animal.panic - delta, 0.0)
@@ -69,22 +76,42 @@ static func update(game: Node, delta: float) -> void:
 		animal.recovery_timer = maxf(float(animal.get("recovery_timer", 0.0)) - delta, 0.0)
 		var previous_flee := float(animal.get("flee_timer", 0.0))
 		animal.flee_timer = maxf(previous_flee - delta, 0.0)
-		if previous_flee > 0.0 and animal.flee_timer <= 0.0: animal.recovery_timer = FLEE_RECOVERY
-		if (distance_to_player <= FEAR_RADIUS or animal.panic > 0.0) and animal.recovery_timer <= 0.0 and animal.flee_timer <= 0.0:
+		if previous_flee > 0.0 and animal.flee_timer <= 0.0:
+			animal.recovery_timer = FLEE_RECOVERY
+		if (
+			(distance_to_player <= FEAR_RADIUS or animal.panic > 0.0)
+			and animal.recovery_timer <= 0.0
+			and animal.flee_timer <= 0.0
+		):
 			animal.flee_timer = FLEE_BURST
 		var afraid: bool = animal.flee_timer > 0.0
 		if animal.visual_state == "hurt" and animal.state_timer > 0.0:
-			game.wildlife_nodes[index] = animal; continue
+			game.wildlife_nodes[index] = animal
+			continue
 		if animal.visual_state == "attack" and animal.state_timer > 0.0:
 			if animal.state_timer <= 0.12 and not bool(animal.get("attack_hit", false)):
 				animal.attack_hit = true
 				if distance_to_player <= BOAR_ATTACK_DISTANCE + 12.0:
-					game.CombatSystem.damage_player(game, 7, LocaleSystem.entity("boar"), animal.position)
-			animal.moving = false; game.wildlife_nodes[index] = animal; continue
-		if animal.kind == "boar" and distance_to_player <= BOAR_ATTACK_DISTANCE and animal.attack_timer <= 0.0:
-			animal.direction = animal.position.direction_to(game.player); animal.visual_state = "attack"; animal.state_timer = 0.34; animal.attack_timer = 1.2
-			animal.attack_hit = false; animal.moving = false
-			game.wildlife_nodes[index] = animal; game.notify_tutorial("wildlife_behavior"); continue
+					game.CombatSystem.damage_player(
+						game, 7, LocaleSystem.entity("boar"), animal.position
+					)
+			animal.moving = false
+			game.wildlife_nodes[index] = animal
+			continue
+		if (
+			animal.kind == "boar"
+			and distance_to_player <= BOAR_ATTACK_DISTANCE
+			and animal.attack_timer <= 0.0
+		):
+			animal.direction = animal.position.direction_to(game.player)
+			animal.visual_state = "attack"
+			animal.state_timer = 0.34
+			animal.attack_timer = 1.2
+			animal.attack_hit = false
+			animal.moving = false
+			game.wildlife_nodes[index] = animal
+			game.notify_tutorial("wildlife_behavior")
+			continue
 		var direction: Vector2 = animal.direction
 		var move_speed := 38.0
 		if animal.position.distance_to(animal.home) >= ROAM_RADIUS - 8.0:
@@ -101,9 +128,12 @@ static func update(game: Node, delta: float) -> void:
 			var angle: float = animal.animation * 1.7 + float(index) * 2.13
 			direction = Vector2(cos(angle), sin(angle)).normalized()
 			animal.wander_timer = 1.6 + fmod(float(index) * 0.71, 1.8)
-		var next_position := WildlifeNavigation.steer(game, animal, direction, move_speed * delta, ROAM_RADIUS)
+		var next_position := WildlifeNavigation.steer(
+			game, animal, direction, move_speed * delta, ROAM_RADIUS, query
+		)
 		animal.moving = next_position.distance_squared_to(animal.position) > 0.01
-		if animal.moving: animal.direction = animal.position.direction_to(next_position)
+		if animal.moving:
+			animal.direction = animal.position.direction_to(next_position)
 		animal.position = next_position
 		animal.visual_state = ("flee" if afraid else "run") if animal.moving else "idle"
 		game.wildlife_nodes[index] = animal

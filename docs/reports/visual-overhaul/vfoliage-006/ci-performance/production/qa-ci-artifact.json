@@ -1,0 +1,11 @@
+{
+  "run_id": 39931541823,
+  "head": "ed44048fd4ff8ab96b14cceaa8309b183c47c7c6",
+  "all_four_jobs_success": true,
+  "artifact_id": 12491828594,
+  "artifact_name": "performance-measurements",
+  "zip_sha256": "c2e1d8a8a8bbf1f7ebcd4b3d3c05c47f36cc7e26c2cc5a8b14044512939e8a14",
+  "sha_verified_before_extract": true,
+  "files": 37,
+  "production_change_included": false
+}
