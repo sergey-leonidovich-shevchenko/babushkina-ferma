@@ -4,6 +4,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 import re
+import subprocess
 from PIL import Image,ImageChops
 from migration_inventory import sha,git_bytes
 
@@ -33,6 +34,29 @@ def comparisons(report):
                 delta=ImageChops.difference(first,current).convert('RGB')
                 values[phase][background]={name:sum(any(pixel) for pixel in delta.crop(box).getdata()) for name,box in [('catalog',(0,0,1152,320)),('saved_draft',(0,320,1152,648))]}
     return values
+
+
+def fixture_bytes(root: Path, base: str, name: str, digest: str) -> bytes:
+    """Читает точные байты из checkout, Git или сохранённого неотслеживаемого import-компаньона."""
+    path = (root / name).resolve()
+    if not path.is_relative_to(root.resolve()) or not re.fullmatch(r"[a-f0-9]{64}", digest):
+        raise ValueError("unsafe fixture source")
+    raw = path.read_bytes() if path.is_file() else b""
+    if sha(raw) == digest:
+        return raw
+    try:
+        raw = git_bytes(root, base, name)
+    except subprocess.CalledProcessError as exc:
+        # Только исходный import, совпадающий с уже закреплённым SHA; PNG и код не подменяются.
+        if path.suffix != ".import":
+            raise ValueError("fixture source unavailable: " + name) from exc
+        archive = root / REPORT / "historical-inputs" / (digest + ".import")
+        if not archive.resolve().is_relative_to((root / REPORT).resolve()):
+            raise ValueError("unsafe archived fixture source")
+        raw = archive.read_bytes()
+    if sha(raw) != digest:
+        raise ValueError("fixture source differs: " + name)
+    return raw
 
 
 def validate(root:Path):
@@ -93,9 +117,7 @@ def validate(root:Path):
         for name,digest in sources['files'].items():
             path=(root/name).resolve()
             if not path.is_relative_to(root.resolve()):errors.append('unsafe fixture source');continue
-            raw=path.read_bytes() if path.is_file() else b''
-            if sha(raw)!=digest:raw=git_bytes(root,inventory['base_commit'],name)
-            if sha(raw)!=digest:errors.append('fixture source differs: '+name)
+            fixture_bytes(root, inventory['base_commit'], name, digest)
         unchanged=read(report/'production-unchanged.json')
         if unchanged.get('runtime_changed') or unchanged.get('runtime_file_changes')!=[] or unchanged.get('reader_source_changes')!=[] or unchanged.get('runtime_files')!=len(inventory['files']) or unchanged.get('reader_sources')!=len(inventory['sources']):errors.append('production unchanged evidence differs')
         wiki=read(report/'wiki-contract.json')

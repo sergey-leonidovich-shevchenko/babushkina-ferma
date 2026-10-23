@@ -1,0 +1,27 @@
+Traceback (most recent call last):
+2026-10-23T03:27:37.5780867Z   File "/home/runner/work/babushkina-ferma/babushkina-ferma/tools/asset_migration.py", line 120, in <module>
+2026-10-23T03:27:37.5781536Z     if __name__=='__main__':main()
+2026-10-23T03:27:37.5781824Z                             ^^^^^^
+2026-10-23T03:27:37.5782499Z   File "/home/runner/work/babushkina-ferma/babushkina-ferma/tools/asset_migration.py", line 115, in main
+2026-10-23T03:27:37.5783454Z     errors=verify(ROOT)
+2026-10-23T03:27:37.5783688Z            ^^^^^^^^^^^^
+2026-10-23T03:27:37.5784168Z   File "/home/runner/work/babushkina-ferma/babushkina-ferma/tools/asset_migration.py", line 92, in verify
+2026-10-23T03:27:37.5784686Z     errors.extend(validate(root))
+2026-10-23T03:27:37.5784935Z                   ^^^^^^^^^^^^^^
+2026-10-23T03:27:37.5785434Z   File "/home/runner/work/babushkina-ferma/babushkina-ferma/tools/migration_proof.py", line 97, in validate
+2026-10-23T03:27:37.5786048Z     if sha(raw)!=digest:raw=git_bytes(root,inventory['base_commit'],name)
+2026-10-23T03:27:37.5786436Z                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-23T03:27:37.5786992Z   File "/home/runner/work/babushkina-ferma/babushkina-ferma/tools/migration_inventory.py", line 26, in git_bytes
+2026-10-23T03:27:37.5787539Z     return git_read(root,'show',commit+':'+name)
+2026-10-23T03:27:37.5787829Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-23T03:27:37.5788372Z   File "/home/runner/work/babushkina-ferma/babushkina-ferma/tools/migration_inventory.py", line 32, in git_read
+2026-10-23T03:27:37.5789094Z     return subprocess.check_output(['git','-C',str(root),*args],env=env,text=text,stderr=subprocess.PIPE)
+2026-10-23T03:27:37.5789628Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-23T03:27:37.5790200Z   File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/subprocess.py", line 466, in check_output
+2026-10-23T03:27:37.5844367Z     return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+2026-10-23T03:27:37.5845041Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-23T03:27:37.5845914Z   File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/subprocess.py", line 571, in run
+2026-10-23T03:27:37.5916961Z     raise CalledProcessError(retcode, process.args,
+2026-10-23T03:27:37.5919002Z subprocess.CalledProcessError: Command '['git', '-C', '/home/runner/work/babushkina-ferma/babushkina-ferma', 'show', '1621d49502cd244c1036168f9d235561b708b33a:assets/generated/level_drafts/water_navigation_ingame_preview.png.import']' returned non-zero exit status 128.
+2026-10-23T03:27:37.6199232Z ##[error]Process completed with exit code 1.
+2026-10-23T03:27:37.6354515Z Post job cleanup

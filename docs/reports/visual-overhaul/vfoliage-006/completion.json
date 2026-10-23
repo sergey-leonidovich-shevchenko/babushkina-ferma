@@ -37,5 +37,5 @@
     "report": "pr-handoff.json"
   },
   "current_review_evidence": "review-1/completion.json",
-  "latest_branch_checks": "ci-godot-env/completion.json"
+  "latest_branch_checks": "ci-migration-source/completion.json"
 }
