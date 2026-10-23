@@ -1,6 +1,6 @@
 # Вечерний творческий обзор 23 октября 2026
 
-**Редакционная задача IDEA-REVIEW-20261023-EVENING: in_progress, PR готовится.** База fe591968, игровая версия 0.0.315. Десять отдельных тематических эпиков IDEA-222…231,53 будущие карточки и 60 сценариев. Ни одна новая механика не объявлена работающей; курс VMAP-003 сохранён.
+**Редакционная задача IDEA-REVIEW-20261023-EVENING: in_progress, [PR#2](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/2) (draft, base main).** База fe591968, игровая версия 0.0.315. Десять отдельных тематических эпиков IDEA-222…231,53 будущие карточки и 60 сценариев. Ни одна новая механика не объявлена работающей; курс VMAP-003 сохранён.
 
 ## Период и фактически изученные изменения
 
@@ -40,7 +40,28 @@
 
 ## Проверки и границы результата
 
-Редакционный аудит: [editorial-check.json](editorial-check.json). Документация и git diff --check прошли; Wiki build/TypeScript и133 Node-теста прошли. Браузер проверил обзор→статью→эпик→задачу, поиск IDEA-230, шесть отдельных оценок/связь с эпиком,390 px (document/body390) и обычный вид. Первый pre-commit остановился на test_task_batch: при bundled Git в fixture не появился ожидаемый hooks; отдельный повтор всех16 случаев с /usr/bin/git прошёл. PATH общего повтора выбирает системный Git, тесты/код не изменены. Общие architecture/game выполняет обязательный pre-commit; их фактический итог будет дописан после завершения. Воспроизводимый редакционный аудит: node --experimental-strip-types docs/reports/creative/2026-10-23-evening/editorial-audit.mjs (база fe591968 должна быть доступна). Все 60 игровых сценариев — будущие тесты, сейчас они не исполнялись. Браузерная иллюстрация: [wiki-preview.png](wiki-preview.png).
+[Локальный протокол](local-validation.json) привязан к коммиту17208b717ab9f4f94ba350dbd05d245c1d0da389; [полный pre-commit лог](precommit-1.log.gz) содержит фактический итог. Architecture:73 Python-набора /935 случаев; игровой набор49356 passed /0 failed. Wiki build/TypeScript и133 Node-теста прошли; документация, git diff --check и [воспроизводимый редакционный аудит](editorial-audit.mjs) прошли. [Результат аудита](editorial-check.json):103 плана /157 эпиков /2003 задачи, прежние221 идея/60 оценок неизменны. Запуск: `node --experimental-strip-types docs/reports/creative/2026-10-23-evening/editorial-audit.mjs`, с доступной базой fe591968.
+
+Браузер проверил обзор→статью→эпик→задачу, поиск IDEA-230, отдельные оценки и связь с эпиком. На390 px document/body390, меню складывается, переполнения нет. [Кадр](wiki-preview.png). [URL PR и ожидание ревью в карточке](wiki-review-status.png) проверены на финальной сборке0.0.317. Все60 игровых сценариев статей — будущая приёмка, сейчас они не исполнялись.
+
+### Исторический вход и ограничение чистого CI
+
+Чистый worktree воспроизвёл известный отказ migration_proof: `assets/generated/level_drafts/water_navigation_ingame_preview.png.import` перечислен в старом доказательстве, но отсутствует в baseline1621d495. Для локальных проверок восстановлен только игнорируемый исходник из опубликованного08b028c3; SHA256 `fd5557669eaa3a93d0630eadc770588b89ea0975d265870e986fba6ae9e01a15` точно совпал. Папка assets/generated закрыта .gdignore. Runtime/валидаторы PR#1 не перенесены; historical proof/кадры не переподписаны.
+
+```sh
+git show 08b028c3:docs/reports/visual-overhaul/vpipeline-009/historical-inputs/fd5557669eaa3a93d0630eadc770588b89ea0975d265870e986fba6ae9e01a15.import > assets/generated/level_drafts/water_navigation_ingame_preview.png.import
+shasum -a 256 assets/generated/level_drafts/water_navigation_ingame_preview.png.import
+```
+
+Первый запуск с bundled Git остановился на fixture каталога hooks;16 случаев прошли с системным /usr/bin/git. Один промежуточный PATH не содержал rg: rendering guard выполнен отдельно; **полный успешный повтор** использовал настоящий rg и системный Git, без изменения тестов/пропусков. Локально Godot4.7.1 stable a13da4feb, Python3.9 и закреплённые зависимости Wiki.
+
+Чистый CI этой ветки остаётся зависим от принятия профильного исправления PR#1. Локальный PASS с точно восстановленным historical input не называется чистым CI PASS. В момент создания PR GitHub ещё не вернул связанный workflow-run; итог проверяется для последнего опубликованного SHA. Метаданные URL/протокола идут следующим обычным коммитом с повторным штатным pre-commit; фактический итог нового head передаётся ревьюеру отдельно.
+
+### Фактический CI первого опубликованного head
+
+[Run375](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/40013965877), [сводка](ci-first-head.json), head17208b717ab9f4f94ba350dbd05d245c1d0da389: Wiki quality gate success. Общий test-job остановился в Check architecture: PerfContractTests37 случаев,2 failures /3 errors, причина `Git base missing`; игровые тесты, smoke и performance на CI пропущены вследствие отказа. В логе checkout fetch-depth1 и конечная выборка исторических refs. Это отказ загрузки истории, **не измеренный отказ FPS и не подтверждённый в этом CI migration-error**. Отсутствующий historical import отдельно воспроизведён локально выше.
+
+Опубликованное непринятое исправление [4ac0975f](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/commit/4ac0975fea99eb2b446cdc21bab1c3f95c167b2b) в PR#1 добавляет полную историю и воспроизводимое QA-окружение. В творческую ветку CI/runtime не переносились. Итоговый CI нового head после обычного push передаётся Tech Lead Agent отдельно; этот первый отказ не выдаётся за итог нового SHA.
 
 ## Три следующих направления после VMAP-003
 
@@ -52,4 +73,4 @@ IDEA-228 сначала требует бумажной пробы и общег
 
 ## Публикация
 
-PR готовится, задача in_progress. До одобрения текущего head SHA и решения Team Lead Agent main не обновляется, Task-Complete не ставится. Соседний Tech Lead Agent получит PR, ID, SHA и фактические проверки.
+[PR#2](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/2), base main, draft; задача IDEA-REVIEW-20261023-EVENING остаётся in_progress. Слияние, Task-Complete и done отсутствуют до независимого одобрения точного head и решения Team Lead Agent. После финального push Tech Lead Agent получает PR, ID, полный SHA и фактические проверки; ограничение чистого CI передаётся явно.

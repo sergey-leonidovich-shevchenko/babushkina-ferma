@@ -2,7 +2,7 @@
 
 70 отдельных эпиков, 391 будущая карточка. У каждой механики свой владелец, тематическая группа, подробный первый выпуск, оценка и предметные задачи. Дата относится к обзору, а не объединяет игровые эпики. Все предложения остаются в прежних статусах; курс первой overworld до VMAP-003 сохраняется.
 
-[Каталог в Wiki](../../../wiki/articles/idea-feature-epics.md) · [Методика](../../../wiki/articles/idea-assessment-method.md) · [Обзор 22 октября](../../reports/creative/2026-10-22/README.md) · [Обзор 23 октября](../../reports/creative/2026-10-23/README.md).
+[Каталог в Wiki](../../../wiki/articles/idea-feature-epics.md) · [Методика](../../../wiki/articles/idea-assessment-method.md) · [Обзор 22 октября](../../reports/creative/2026-10-22/README.md) · [Обзор 23 октября](../../reports/creative/2026-10-23/README.md). [Вечерний обзор23 октября](../../reports/creative/2026-10-23-evening/README.md).
 
 ## Графика и атмосфера
 

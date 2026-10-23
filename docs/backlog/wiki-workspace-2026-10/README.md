@@ -180,6 +180,8 @@
 
 **Ветка:** codex/idea-review-20261023-evening.
 
+**Pull Request:** https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/2 — draft, base main, ожидание ревью текущего head.
+
 **Результат и объём:** сверка checkpoint/main/51 опубликованного ref и 221 прежней идеи; IDEA-222…231, 10 отдельных тематических эпиков,53 будущие карточки, оценки и [отчёт](../../reports/creative/2026-10-23-evening/README.md). Уточнены пять референсов пользователя и будущий автоматический процесс.
 
 **Приёмка:**
@@ -191,4 +193,4 @@
 
 **Проверка:** [TESTING.md](../../../TESTING.md), [редакционный аудит](../../reports/creative/2026-10-23-evening/editorial-check.json), фактические результаты в отчёте.
 
-**Подтверждения / результат:** PR готовится; карточка in_progress, ожидает ревью текущего head. Task-Complete отсутствует до принятия. Игровые этапы остаются backlog.
+**Подтверждения / результат:** [PR#2](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/2) (draft, base main); карточка in_progress, ожидает ревью текущего head. Первый проверенный коммит17208b717ab9f4f94ba350dbd05d245c1d0da389: architecture73/935, игровой набор49356/0, Wiki133/0. Итоговый head передаётся Tech Lead Agent после обычного push. CI первого head (run375): Wiki pass, общий gate Git base missing; отдельно локально восстановлен старый migration-input. Подробности/точные входы в отчёте; нового CI PASS не заявлено. Task-Complete отсутствует до принятия. Игровые этапы остаются backlog.

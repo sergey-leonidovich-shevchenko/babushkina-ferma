@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "checkedCommit": "17208b717ab9f4f94ba350dbd05d245c1d0da389",
+  "checks": {
+    "architecture": {
+      "pythonSuites": 73,
+      "cases": 935,
+      "passed": true
+    },
+    "game": {
+      "passed": 49356,
+      "failed": 0
+    },
+    "wiki": {
+      "tests": 133,
+      "failed": 0,
+      "build": true,
+      "typeScript": true
+    },
+    "documentation": true,
+    "editorialAudit": true,
+    "diffCheck": true,
+    "browser": [
+      "overview",
+      "article",
+      "epic",
+      "task",
+      "idea search",
+      "assessment",
+      "390px"
+    ]
+  },
+  "historicalInput": {
+    "path": "assets/generated/level_drafts/water_navigation_ingame_preview.png.import",
+    "sourceCommit": "08b028c33b8f1bbc2d8d7db87b2b8e317ecb835c",
+    "sha256": "fd5557669eaa3a93d0630eadc770588b89ea0975d265870e986fba6ae9e01a15",
+    "ignored": true
+  },
+  "rawLog": {
+    "file": "precommit-1.log.gz",
+    "sha256": "cbd483b535c5858df32b6cf679ade1cba2461c2c49096e53dc218eeb2d989ce9"
+  },
+  "cleanCI": "not_confirmed; known baseline migration dependency on PR#1",
+  "futureGameplayScenariosExecuted": false
+}

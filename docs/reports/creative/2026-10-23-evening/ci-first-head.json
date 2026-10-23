@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "head": "17208b717ab9f4f94ba350dbd05d245c1d0da389",
+  "run": 40013965877,
+  "runNumber": 375,
+  "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/actions/runs/40013965877",
+  "conclusion": "failure",
+  "jobs": [
+    {
+      "id": 120621144713,
+      "name": "test",
+      "conclusion": "failure",
+      "failedStep": "Check architecture",
+      "testSuite": "PerfContractTests",
+      "tests": 37,
+      "failures": 2,
+      "errors": 3,
+      "cause": "Git base missing",
+      "gameTests": "skipped",
+      "smoke": "skipped",
+      "performance": "skipped"
+    },
+    {
+      "id": 120621144868,
+      "name": "Wiki quality gate",
+      "conclusion": "success"
+    }
+  ],
+  "observedCheckoutFetchDepth": 1,
+  "source": "GitHub connector workflow/job/log reads on 2026-10-23T19:54Z",
+  "comparison": "Main CI loads a finite list of visual baselines. Published unmerged PR#1 commit4ac0975f adds full history and reproducible runtime; local full-history checks pass. This run does not prove a migration error in CI: that separate missing import was reproduced locally in a clean worktree.",
+  "latestHeadCI": "must be checked after the next ordinary push"
+}
