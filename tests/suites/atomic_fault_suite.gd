@@ -22,7 +22,7 @@ func cleanup(path: String) -> void:
 ## Ожидаемый результат: до подтверждения основной файл прежний, после него новый; хотя бы один последний здоровый слот доступен.
 func test_every_write_boundary() -> void:
 	for checkpoint in POINTS:
-		var path:="/private/tmp/farm-safe-fault-%d.json"%Time.get_ticks_usec()
+		var path:=OS.get_temp_dir().path_join("farm-safe-fault-%d.json" % Time.get_ticks_usec())
 		expect(Store.write(path,{"revision":1,"payload":"healthy"},valid),"fault baseline writes: "+checkpoint)
 		var reached:=[false]
 		var fault:=func(point: String, _path: String) -> bool:
@@ -39,7 +39,7 @@ func test_every_write_boundary() -> void:
 ## Исходное состояние: исправный основной документ и временный путь, недоступный только для текущей операции.
 ## Ожидаемый результат: ни синтаксическая, ни структурная ошибка не заменяет здоровый файл; инъекция не остаётся включённой.
 func test_corrupt_temporary_and_invalid_payload() -> void:
-	var path:="/private/tmp/farm-safe-fault-%d.json"%Time.get_ticks_usec()
+	var path:=OS.get_temp_dir().path_join("farm-safe-fault-%d.json" % Time.get_ticks_usec())
 	Store.write(path,{"revision":1,"payload":"healthy"},valid)
 	var corrupt:=func(point: String, target: String) -> bool:
 		if point=="primary.after_flush":

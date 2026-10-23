@@ -241,7 +241,7 @@ func test_controls_geometry_and_save() -> void:
 	expect(game.message==game.LocaleSystem.ui("furnace_queued_many",[2]),"batch message accurately describes deferred queued work")
 	expect(game.CraftingSystem.recipe_at(game,Vector2(300,521))==-1,"footer cannot select a hidden recipe below seven visible rows")
 	Workshop.update(game,1); var duration:float=Workshop.state(game,"sawmill").queue[0].remaining
-	var path:="/private/tmp/farm-workshops-save-%d.json"%Time.get_ticks_usec()
+	var path:=OS.get_temp_dir().path_join("farm-workshops-save-%d.json" % Time.get_ticks_usec())
 	expect(game.SaveSystem.save_at(game,path),"workshops write a real validated disk save")
 	var restored:=make_game(); expect(restored.SaveSystem.load_at(restored,path) and Workshop.state(restored,"sawmill").queue.size()==2 and is_equal_approx(Workshop.state(restored,"sawmill").queue[0].remaining,duration),"partial duration and two reserved jobs survive disk loading")
 	Workshop.update(restored,100); expect(restored.inventory_item_count("plank")==8 and restored.inventory_item_count("sawdust")==4 and restored.inventory_item_count("log")==2,"loaded reserved jobs finish without paying or granting twice")

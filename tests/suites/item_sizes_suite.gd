@@ -79,5 +79,39 @@ func test_prepared_files_match_full_resolution_sources() -> void:
 		if source.is_compressed(): source.decompress()
 		var expected := fitter.fitted(source,source.get_used_rect(),160,8)
 		var actual := Image.load_from_file(ProjectSettings.globalize_path("res://assets/game/items/ui/preview/"+kind+".png"))
+		if actual.get_data() != expected.get_data():
+			print("ITEM PREVIEW DIFFERENCE: ", kind, " ", JSON.stringify(pixel_difference(actual, expected, source)))
 		expect(actual.get_format()==Image.FORMAT_RGBA8 and actual.get_data()==expected.get_data(),"prepared preview matches direct canonical export: "+kind)
 	Assets.initialize_item_icons(game.InventorySystem.ITEM_DATA.keys()); game.free()
+
+
+## Печатает точную диагностику расхождения, сохраняя требование побайтного совпадения превью.
+func pixel_difference(actual: Image, expected: Image, source: Image) -> Dictionary:
+	var actual_bytes := actual.get_data()
+	var expected_bytes := expected.get_data()
+	var differing_bytes := 0
+	var max_delta := 0
+	for index in mini(actual_bytes.size(), expected_bytes.size()):
+		var delta := absi(int(actual_bytes[index]) - int(expected_bytes[index]))
+		if delta > 0:
+			differing_bytes += 1
+			max_delta = maxi(max_delta, delta)
+	return {
+		"actual_bytes": actual_bytes.size(),
+		"expected_bytes": expected_bytes.size(),
+		"differing_bytes": differing_bytes,
+		"max_delta": max_delta,
+		"source_size": str(source.get_size()),
+		"source_bounds": str(source.get_used_rect()),
+		"source_sha256": image_digest(source),
+		"actual_sha256": image_digest(actual),
+		"expected_sha256": image_digest(expected),
+	}
+
+
+## Вычисляет SHA исходного PNG для сопоставления платформенного вывода с паспортом сборщика.
+func image_digest(image: Image) -> String:
+	var context := HashingContext.new()
+	context.start(HashingContext.HASH_SHA256)
+	context.update(image.save_png_to_buffer())
+	return context.finish().hex_encode()

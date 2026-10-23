@@ -160,7 +160,7 @@ func test_controls_and_real_save() -> void:
 	game.handle_crafting_input(joypad_button_event(JOY_BUTTON_DPAD_UP,true)); expect(game.crafting_selected==0,"gamepad returns to first study row")
 	game.ItemWindowRenderer.handle_crafting_pointer(game,game.ItemWindowRenderer.CRAFT_ACTION.get_center())
 	expect(Research.learned(game,"plank") and game.inventory_item_count("plank")==2,"touch study preserves the selected sample")
-	var path:="/private/tmp/farm-research-save-%d.json"%Time.get_ticks_usec()
+	var path:=OS.get_temp_dir().path_join("farm-research-save-%d.json" % Time.get_ticks_usec())
 	Research.state(game).dismantled=7; expect(game.SaveSystem.save_at(game,path),"research writes a real validated disk save")
 	var restored:=make_game(); expect(restored.SaveSystem.load_at(restored,path) and Research.state(restored).known==["plank"] and Research.state(restored).dismantled==7,"disk restores permanent research without charging the sample again")
 	var unchanged:Dictionary=restored.SaveSystem.snapshot(restored); var broken:Dictionary=unchanged.duplicate(true); broken.estate.expansion.research.known=[9]

@@ -1,0 +1,4 @@
+FONT AUDIT: ["Arial", "Noto Sans", "DejaVu Sans"] []
+FONT AUDIT: ["Noto Sans"] [{"code":"locale.hud.ru.tutorial_fertilizer","message":"Многострочный текст не помещается с минимально читаемым размером","passed":false}]
+FONT AUDIT: ["DejaVu Sans"] [{"code":"locale.hud.ru.tutorial_fertilizer","message":"Многострочный текст не помещается с минимально читаемым размером","passed":false}]
+FONT AUDIT: ["Liberation Sans"] [{"code":"locale.hud.ru.tutorial_fertilizer","message":"Многострочный текст не помещается с минимально читаемым размером","passed":false}]

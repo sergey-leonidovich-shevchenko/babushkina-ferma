@@ -1,5 +1,7 @@
 # Правила тестирования
 
+Тестовые файловые фикстуры используют `OS.get_temp_dir()` вместо macOS-пути `/private/tmp`. Прямое сравнение превью остаётся побайтным; при отказе печатаются SHA и величина расхождения. UI-аудит печатает конкретные issues, сохраняя нулевой порог. [Диагностика чистого Linux](docs/reports/visual-overhaul/vfoliage-006/ci-platform/README.md).
+
 Историческая VPIPELINE-009 сохраняет один неотслеживаемый import-компаньон по исходному SHA в historical-inputs. `tools/test_migration_proof.py` содержит 11 проверок: fallback только для точного `.import`, повреждение/утрата оригинала и запрет замены PNG/кода. [Воспроизведение чистого CI](docs/reports/visual-overhaul/vfoliage-006/ci-migration-source/README.md).
 
 Общий CI закреплён на Python 3.11 и Pillow 11.3.0 для воспроизводимости исторических числовых сводок. Полная поддержка Python 3.12 ещё не принята. Сравнение отдельной сводки VPERF-001 поддерживает Python 3.9/3.11/3.12: только суммы длительностей нормализуются до наносекунды, остальные метрики и хеши остаются точными. Восемь регрессий входят в профиль `tools/test_perf_contract.py` (45 тестов); [обоснование и воспроизведение CI](docs/reports/visual-overhaul/vfoliage-006/ci-portability/README.md).

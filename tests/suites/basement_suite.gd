@@ -150,7 +150,7 @@ func test_research_knowledge_and_local_recipe_levels() -> void:
 func test_disk_save_and_invalid_layout_are_atomic() -> void:
 	var game:=make_game(); enter(game); var item:=place(game,"pottery",30,18); game.player=Basement.Layout.center(Basement.Layout.approach_cell(item))
 	Stations.interact(game,item.id); Build.update_hold(game,1.5)
-	var path:="/private/tmp/farm-basement-save-%d.json"%Time.get_ticks_usec()
+	var path:=OS.get_temp_dir().path_join("farm-basement-save-%d.json" % Time.get_ticks_usec())
 	expect(game.SaveSystem.save_at(game,path),"partially assembled workstation writes a real validated file")
 	var restored:=make_game(); expect(restored.SaveSystem.load_at(restored,path),"real disk loading restores the construction payload")
 	var loaded:=Basement.object(restored,item.id)

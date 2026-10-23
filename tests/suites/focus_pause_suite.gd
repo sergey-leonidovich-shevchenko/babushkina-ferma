@@ -60,7 +60,7 @@ func test_resume_keeps_manual_menus_and_releases_input() -> void:
 ## Исходное состояние: отдельный временный файл настроек версии пять без нового параметра.
 ## Ожидаемый результат: старый конфиг по умолчанию безопасен, выключенная настройка переживает загрузку, язык сохраняется.
 func test_saved_setting_and_legacy_default() -> void:
-	var path:="/private/tmp/farm-safe-focus-%d.cfg"%Time.get_ticks_usec(); var config:=ConfigFile.new()
+	var path:=OS.get_temp_dir().path_join("farm-safe-focus-%d.cfg" % Time.get_ticks_usec()); var config:=ConfigFile.new()
 	config.set_value("meta","schema_version",5); config.set_value("language","locale","de"); config.save(path)
 	var game:=active_game(); game.SettingsSystem.load(game,path,false)
 	expect(game.settings_state.pause_on_focus_loss,"old settings default to focus pause")
