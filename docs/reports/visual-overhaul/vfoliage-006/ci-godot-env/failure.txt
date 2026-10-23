@@ -1,0 +1,22 @@
+n 1.113s
+2026-10-23T02:48:43.1314301Z 
+2026-10-23T02:48:43.1314519Z OK
+2026-10-23T02:48:43.6667399Z Traceback (most recent call last):
+2026-10-23T02:48:43.6676571Z   File "/home/runner/work/babushkina-ferma/babushkina-ferma/tools/slice_audit.py", line 192, in <module>
+2026-10-23T02:48:43.6677322Z     if __name__=='__main__':main()
+2026-10-23T02:48:43.6677654Z                             ^^^^^^
+2026-10-23T02:48:43.6678650Z   File "/home/runner/work/babushkina-ferma/babushkina-ferma/tools/slice_audit.py", line 158, in main
+2026-10-23T02:48:43.6679459Z     if folder is None:folder=Path(temporary)/'export';export(ROOT,folder)
+2026-10-23T02:48:43.6679979Z                                                       ^^^^^^^^^^^^^^^^^^^
+2026-10-23T02:48:43.6680694Z   File "/home/runner/work/babushkina-ferma/babushkina-ferma/tools/slice_audit.py", line 144, in export
+2026-10-23T02:48:43.6681874Z     process=subprocess.run([binary,'--headless','--path',str(root),'--script','res://tools/slice_export.gd'],env=env,text=True,capture_output=True,timeout=240)
+2026-10-23T02:48:43.6683083Z             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-23T02:48:43.6683953Z   File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/subprocess.py", line 548, in run
+2026-10-23T02:48:43.7078415Z     with Popen(*popenargs, **kwargs) as process:
+2026-10-23T02:48:43.7079197Z          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-10-23T02:48:43.7080414Z   File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/subprocess.py", line 1026, in __init__
+2026-10-23T02:48:43.7081451Z     self._execute_child(args, executable, preexec_fn, close_fds,
+2026-10-23T02:48:43.7082534Z   File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/subprocess.py", line 1955, in _execute_child
+2026-10-23T02:48:43.7085563Z     raise child_exception_type(errno_num, err_msg, err_filename)
+2026-10-23T02:48:43.7086372Z FileNotFoundError: [Errno 2] No such file or directory: 'godot'
+2026-10-23T02:48:43.7204466Z ##[error]Process completed

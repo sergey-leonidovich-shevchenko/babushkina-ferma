@@ -1,0 +1,1 @@
+CI: shared absolute engine, download/import/check order, all four mandatory checks valid

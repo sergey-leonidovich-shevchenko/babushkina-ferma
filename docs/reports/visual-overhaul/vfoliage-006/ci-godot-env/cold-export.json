@@ -1,0 +1,8 @@
+{
+  "probe": "isolated project, source symlinks, no .godot import cache",
+  "script": "res://tools/slice_export.gd",
+  "exit_code": 0,
+  "engine_errors": 80,
+  "accepted": false,
+  "production_changed": false
+}
