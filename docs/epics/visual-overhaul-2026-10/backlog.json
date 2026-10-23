@@ -3311,7 +3311,7 @@
       "id": "VFOLIAGE-006",
       "epic": "VFOLIAGE",
       "title": "Добавить мягкое восстановление",
-      "status": "done",
+      "status": "in_progress",
       "priority": "P0",
       "phase": "pilot",
       "kind": "engineering",
@@ -3354,7 +3354,14 @@
         "docs/reports/visual-overhaul/vfoliage-006/native/source.json",
         "wiki/articles/foliage-recovery.md"
       ],
-      "result": "0.0.315: мягкое восстановление восьми прежних пучков по часам симуляции. Нарастание 0,08 с, возврат 0,18 с, очистка при ≤0,005; максимум64 числовые записи, повторный draw не интегрирует такт снова. Пауза без долга, четыре подхода, ускорение, stop/wall, перенос, invalid frame, offscreen, low/reduced/reference и технический откат. Один target/две группы без пересборки, полный save сохранён. 118 нативных случаев, 798 промежуточных отсчётов, 944 неподвижные нижние полосы, GPU/CPU RGBA побайтно. Профиль2553/0, Python26/0, architecture, игра50350/0, Wiki135/0 и браузер. Не FPS/hardware/VMAP-003. Отчёт docs/reports/visual-overhaul/vfoliage-006/README.md; Git-base ab52022a."
+      "result": "0.0.315: мягкое восстановление восьми прежних пучков по часам симуляции. Нарастание 0,08 с, возврат 0,18 с, очистка при ≤0,005; максимум64 числовые записи, повторный draw не интегрирует такт снова. Пауза без долга, четыре подхода, ускорение, stop/wall, перенос, invalid frame, offscreen, low/reduced/reference и технический откат. Один target/две группы без пересборки, полный save сохранён. 118 нативных случаев, 798 промежуточных отсчётов, 944 неподвижные нижние полосы, GPU/CPU RGBA побайтно. Профиль2553/0, Python26/0, architecture, игра50350/0, Wiki135/0 и браузер. Не FPS/hardware/VMAP-003. Отчёт docs/reports/visual-overhaul/vfoliage-006/README.md; Git-base ab52022a. С 23 октября применяется обязательный PR review: реализация и перечисленные проверки готовы, но задача ожидает Tech Lead Agent и решение Team Lead Agent; main не содержит эту задачу. PR: https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/1.",
+      "review": {
+        "state": "pending",
+        "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/1",
+        "code_sha": "e9817390281e5dc8a2f3fedbf220365baf4e5505",
+        "reviewer": "Tech Lead Agent",
+        "coordinator": "Team Lead Agent"
+      }
     },
     {
       "id": "VFOLIAGE-007",
@@ -3402,7 +3409,7 @@
       "id": "VFOLIAGE-008",
       "epic": "VFOLIAGE",
       "title": "Ограничить влияние NPC и животных",
-      "status": "ready",
+      "status": "backlog",
       "priority": "P0",
       "phase": "pilot",
       "kind": "engineering",

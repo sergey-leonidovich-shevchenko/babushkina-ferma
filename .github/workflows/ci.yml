@@ -8,9 +8,11 @@ jobs:
   wiki:
     name: Wiki quality gate
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
@@ -34,11 +36,13 @@ jobs:
           pnpm check
   test:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Load visual audit baselines
-        run: git fetch --no-tags --depth=1 origin 1b1c39af20b48559904b4a775135305690d0bd10 6b9cc2927374e345553ddb8d9ba7e2e66e6392ec 1621d49502cd244c1036168f9d235561b708b33a 6ade4a2c8a2fac640109d3365c69bd4b6ccadfc4 12e6e2c7ac30f87af839cdb8cd0e2a4d1e558ee5
+        run: git fetch --no-tags origin 1b1c39af20b48559904b4a775135305690d0bd10 6b9cc2927374e345553ddb8d9ba7e2e66e6392ec 1621d49502cd244c1036168f9d235561b708b33a 6ade4a2c8a2fac640109d3365c69bd4b6ccadfc4 12e6e2c7ac30f87af839cdb8cd0e2a4d1e558ee5
       - name: Install quality gate dependencies
         run: |
           sudo apt-get update

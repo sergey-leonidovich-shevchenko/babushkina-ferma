@@ -4,15 +4,17 @@ VFOLIAGE-006 добавляет короткое плавное восстано
 
 [Карточка VFOLIAGE-006](#/development/tasks/visual--VFOLIAGE-006) · [Первая локация](visual-pilot.md) · [Сила шага и бега](foliage-speed.md).
 
+Реализация проверена в ветке задачи. [PR #1](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/1) ожидает ревью Tech Lead Agent и решения Team Lead Agent; в `main` задача ещё не перенесена.
+
 ## Проход и возвращение
 
 Усиленный проход с существующим эффектом скорости:
 
-![Проход и затухание: направление влево](../../docs/reports/visual-overhaul/vfoliage-006/native/1152/motion-0.png)
+![Проход и затухание: подход слева](../../docs/reports/visual-overhaul/vfoliage-006/native/1152/motion-0.png)
 
 Обычный проход через тот же пучок по вертикали:
 
-![Проход и затухание: направление вверх](../../docs/reports/visual-overhaul/vfoliage-006/native/1152/motion-2.png)
+![Проход и затухание: подход сверху](../../docs/reports/visual-overhaul/vfoliage-006/native/1152/motion-2.png)
 
 Это нативные кадры Godot с фиксированной камерой и настоящими вызовами игрового физического цикла. Время между отсчётами в анимации соответствует времени симуляции; последний кадр задержан на 350 мс перед повтором. Героя возвращают в начало только в QA-стенде. Это не запись физической клавиатуры и не измерение FPS.
 

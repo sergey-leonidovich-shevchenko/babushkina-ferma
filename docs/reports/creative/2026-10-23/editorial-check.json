@@ -1,0 +1,20 @@
+{
+  "old_ideas_deep_equal": 211,
+  "old_assessments_deep_equal": 50,
+  "old_groups_history_decisions_preserved": true,
+  "old_sources_preserved_except_editorial_count": true,
+  "old_articles_registry_preserved": 127,
+  "new_ideas": 10,
+  "new_own_epics": 10,
+  "new_future_tasks": 50,
+  "future_observable_scenarios": 60,
+  "dependency_cycles": 0,
+  "new_article_task_links_valid": true,
+  "new_analogues_explicitly_unverified": 10,
+  "catalog": {
+    "plans": 93,
+    "epics": 147,
+    "tasks": 1949
+  },
+  "gameplay_implemented": false
+}

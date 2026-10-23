@@ -22,5 +22,18 @@
     "group_callbacks": 920,
     "max_geometry_rgba": 0,
     "browser": "passed"
+  },
+  "acceptance_state": "implementation_verified_review_pending",
+  "review": {
+    "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/1",
+    "state": "pending",
+    "main_merged": false
+  },
+  "review_branch_checks": {
+    "game_version": "0.0.316",
+    "architecture": "passed",
+    "game_passed": 50350,
+    "game_failed": 0,
+    "report": "pr-handoff.json"
   }
 }
