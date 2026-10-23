@@ -1,0 +1,10 @@
+{
+  "purpose": "actual_instrumentation_for_this_fixed_six_run_capture",
+  "source_hashes": {
+    "tools/performance_sampler.gd": "27db1abf21456b846ebbc0391ff716eb0033e9cbd24ea5bb84d023ab37d61684",
+    "tools/performance_protocol.py": "d879368bdf2a32ebb15d91d60387de49204394fc65571c8cbe233ec0650d3c79",
+    "tools/performance_gate.py": "756df1e7f99fbd48330a8bea6df90a093de2e299a66ad670290f3ca17f751fd1",
+    "tools/performance_gate.sh": "6a7c0b8938ddd605cb47af1ed09ccc5c2f7e57490b76f72d7778fe25a36b0075",
+    "docs/reports/visual-overhaul/vfoliage-006/ci-performance/plan.json": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+  }
+}

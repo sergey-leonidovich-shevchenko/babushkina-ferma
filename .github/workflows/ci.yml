@@ -138,4 +138,13 @@ jobs:
       - name: Run gameplay smoke test
         run: zsh tools/smoke_test.sh
       - name: Enforce performance budget
+        id: performance_gate
         run: zsh tools/performance_gate.sh
+      - name: Preserve actual performance measurements including failures
+        if: ${{ always() && steps.performance_gate.outcome != 'skipped' && steps.performance_gate.outcome != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: performance-measurements
+          path: .ci/performance-gate
+          if-no-files-found: error
+          retention-days: 14

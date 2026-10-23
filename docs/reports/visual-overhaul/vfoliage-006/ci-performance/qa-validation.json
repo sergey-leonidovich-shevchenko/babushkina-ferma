@@ -1,0 +1,54 @@
+{
+  "version": "0.0.325",
+  "parent": "60171026dc21c6f40cfc44a0a90a48bfe927a392",
+  "status": "qa_sampling_fixed_pending_same_environment_base_comparison_and_final_green_CI",
+  "architecture_suites": 77,
+  "python_tests": 1043,
+  "game_passed": 50371,
+  "game_failed": 0,
+  "wiki_passed": 135,
+  "wiki_failed": 0,
+  "negative_tests": 28,
+  "fixed_gate_cases": 6,
+  "fixed_gate_samples": 60,
+  "all_predefined_repeats_passed": true,
+  "threshold": 50,
+  "results": [
+    [
+      1,
+      "normal",
+      54.4
+    ],
+    [
+      1,
+      "f10",
+      52.1
+    ],
+    [
+      2,
+      "f10",
+      53.5
+    ],
+    [
+      2,
+      "normal",
+      53.4
+    ],
+    [
+      3,
+      "normal",
+      52.0
+    ],
+    [
+      3,
+      "f10",
+      51.9
+    ]
+  ],
+  "runtime_scripts_assets_unchanged": true,
+  "linux_UI_checks": 36400,
+  "linux_UI_failed": 0,
+  "baseline_comparison": "next_step_not_claimed",
+  "final_review_requested": false,
+  "main_merge_allowed": false
+}
