@@ -2,10 +2,10 @@
   {
     "id": "pull-request-review",
     "file": "pull-request-review.md",
-    "title": "PR review: Tech Lead Agent / Team Lead Agent",
-    "summary": "PR, review, exact SHA, revision queue, main and Music Agent.",
+    "title": "Ревью кода и работа агентов",
+    "summary": "Порядок PR, проверка текущего SHA, доработки через тимлида и звуковые задания Music Agent.",
     "tags": [
-      "Development",
+      "Разработка",
       "PR",
       "Tech Lead Agent",
       "Team Lead Agent",

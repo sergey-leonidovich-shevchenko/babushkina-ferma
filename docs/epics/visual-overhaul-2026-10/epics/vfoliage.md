@@ -228,7 +228,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: docs/reports/visual-overhaul/vfoliage-006/README.md, docs/reports/visual-overhaul/vfoliage-006/summary.json, docs/reports/visual-overhaul/vfoliage-006/completion.json, docs/reports/visual-overhaul/vfoliage-006/native/source.json, wiki/articles/foliage-recovery.md.
+Доказательства: docs/reports/visual-overhaul/vfoliage-006/README.md, docs/reports/visual-overhaul/vfoliage-006/summary.json, docs/reports/visual-overhaul/vfoliage-006/completion.json, docs/reports/visual-overhaul/vfoliage-006/native/source.json, wiki/articles/foliage-recovery.md, docs/reports/visual-overhaul/vfoliage-006/review-1/README.md, docs/reports/visual-overhaul/vfoliage-006/review-1/summary.json, docs/reports/visual-overhaul/vfoliage-006/review-1/completion.json, docs/reports/visual-overhaul/vfoliage-006/review-1/native/source.json.
 
 <a id="vfoliage-007"></a>
 

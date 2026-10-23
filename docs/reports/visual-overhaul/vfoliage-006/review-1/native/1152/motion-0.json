@@ -1,0 +1,66 @@
+{
+  "format": "lossless APNG",
+  "scope": "controlled physical samples; durations follow simulation time except final 350ms hold; not keyboard input or FPS",
+  "frames": [
+    {
+      "case": "sweep-0-00",
+      "rgba_sha": "2b8644d9720a4f574cd77a447cf27a785fc5c4ac5f4a037bf3a7e35bbc02733e",
+      "frame": 0,
+      "duration_ms": 133.33333333333334
+    },
+    {
+      "case": "sweep-0-04",
+      "rgba_sha": "4a6c9600a2740db7afeb6e27b4bb7d78a1a7d456227b1098ab7e7470fc13a6c2",
+      "frame": 1,
+      "duration_ms": 133.33333333333334
+    },
+    {
+      "case": "sweep-0-08",
+      "rgba_sha": "d5c083002f8c5c3373acaadbef4a59ee69495d172e07b6ebdcdc4f19629173f6",
+      "frame": 2,
+      "duration_ms": 133.33333333333334
+    },
+    {
+      "case": "sweep-0-12",
+      "rgba_sha": "86d45a9cca5bc72d31840a7d008148f5dda5aa2b9cc623e72bfc193ca3d209f3",
+      "frame": 3,
+      "duration_ms": 133.33333333333334
+    },
+    {
+      "case": "sweep-0-16",
+      "rgba_sha": "1cb41ee8a1fa3a27b5f98b08ceedacb82759ed7eb4a721a07ed3232dc40b4eb3",
+      "frame": 4,
+      "duration_ms": 133.33333333333334
+    },
+    {
+      "case": "sweep-0-20",
+      "rgba_sha": "b2c5e548db197590aecd5ca295cdbd08af9e46c47f616e4a14f662a3ac7f3077",
+      "frame": 5,
+      "duration_ms": 133.33333333333334
+    },
+    {
+      "case": "sweep-0-24",
+      "rgba_sha": "cefc536df0e80a85d32eb239b5aec91b5e982b0a3bb41ee0d7515b8092e496ad",
+      "frame": 6,
+      "duration_ms": 200.0
+    },
+    {
+      "case": "sweep-0-30",
+      "rgba_sha": "565c9bcda1ccd4db4d7ec1801fc69130bc636a66478e143be99963eb66579a5c",
+      "frame": 7,
+      "duration_ms": 266.6666666666667
+    },
+    {
+      "case": "sweep-0-38",
+      "rgba_sha": "2b6d1e91fe3c87f3f5af72ac661d8999a1ce8e9be538fcaef0482047cd1344da",
+      "frame": 8,
+      "duration_ms": 333.3333333333333
+    },
+    {
+      "case": "sweep-0-48",
+      "rgba_sha": "385a58a962e465101887e0894ae711701408918c1b7426594a70dc713ef5caca",
+      "frame": 9,
+      "duration_ms": 350
+    }
+  ]
+}
