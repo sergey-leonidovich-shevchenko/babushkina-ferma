@@ -93,6 +93,40 @@ class ProtocolTests(unittest.TestCase):
             raw=b"ERROR: failed resource\n" + self.raw, pattern="engine_error"
         )
 
+    def test_ansi_colored_engine_error_rejects_real_good_trace(self):
+        self.check_invalid(
+            raw=b"\x1b[1;31mERROR:\x1b[0m failed resource\n" + self.raw,
+            pattern="engine_error",
+        )
+
+    def test_indented_engine_error_rejects_real_good_trace(self):
+        self.check_invalid(
+            raw=b"  ERROR: failed resource\n" + self.raw, pattern="engine_error"
+        )
+
+    def test_ansi_and_indent_cannot_hide_other_existing_engine_errors(self):
+        for error in [
+            b"\t \x1b[31mER\x1b[0mROR: failed resource",
+            b"  \x1b[1mSCRIPT ERROR:\x1b[0m failed script",
+            b"  \x1b[31mParse Error\x1b[0m: failed parse",
+            b"progress\r \x1b[31mERROR:\x1b[0m failed resource",
+            b"\x1b]8;;https://example.invalid\x1b\\  ERROR: failed resource",
+            b"\x1b]unterminated\nERROR: failed resource\n\x07",
+        ]:
+            with self.subTest(error=error):
+                self.check_invalid(raw=error + b"\n" + self.raw, pattern="engine_error")
+
+    def test_ansi_normalization_does_not_rewrite_protocol_records(self):
+        raw = self.raw.replace(b"PERF_CAPTURE ", b"\x1b[32mPERF_CAPTURE ", 1)
+        self.check_invalid(raw=raw, pattern="missing_or_duplicate_window")
+
+    def test_benign_ansi_output_preserves_original_good_trace(self):
+        raw = b"\x1b[32mINFO: capture starting\x1b[0m\n" + self.raw
+        fingerprint = digest(raw)
+        self.assertEqual(events(raw, 0), self.rows)
+        self.assertEqual(validate(raw, 0, "normal", self.expected)["average_fps"], 55.5)
+        self.assertEqual(digest(raw), fingerprint)
+
     def test_no_end_marker_is_incomplete(self):
         self.check_invalid(self.rows[:-1], "missing_or_duplicate_window")
 
@@ -249,6 +283,20 @@ class ProcessTests(unittest.TestCase):
         self.assertEqual((self.output / "stdout.txt").read_bytes(), b"failure-output")
         self.assertIsNone(result["average_fps"])
         self.assertIn("process_error: 42", result["status"])
+
+    def test_colored_and_indented_errors_keep_exact_raw_bytes_and_sha(self):
+        raw = (
+            b"  \x1b[31mERROR:\x1b[0m failed resource\n"
+            + (FIXTURE / "stdout.txt").read_bytes()
+        )
+        result = self.run_failure(SimpleNamespace(stdout=raw, returncode=0))
+        self.assertEqual((self.output / "stdout.txt").read_bytes(), raw)
+        context = json.loads((self.output / "context.json").read_text())
+        self.assertEqual(context["stdout_sha256"], digest(raw))
+        self.assertEqual(result["status"], "engine_error")
+        self.assertIsNone(result["average_fps"])
+        self.assertFalse(result["valid"])
+        self.assertFalse(result["budget_passed"])
 
     def test_launch_error_is_preserved(self):
         result = self.run_failure(error=OSError("test launch failed"))

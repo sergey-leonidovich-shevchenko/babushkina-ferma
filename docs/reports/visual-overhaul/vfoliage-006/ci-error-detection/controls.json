@@ -1,0 +1,74 @@
+{
+  "parent": "60b3f8827da861bc6974a595970dbdde73bbbbbe",
+  "old_parser_sha256": "d879368bdf2a32ebb15d91d60387de49204394fc65571c8cbe233ec0650d3c79",
+  "new_parser_sha256": "3864b7945d7d852f7b400e4b1f13792bdc43e7d1e7bd8b6a3f8f9b04f7fb90d0",
+  "fixture_manifest_sha256": "a49fd35f153c37e9ae39485bdfe2c835452a2c28acc2231e3325efb9715653e9",
+  "cases": [
+    {
+      "input": "colored-error.bin",
+      "sha256": "32591d71e6318b627145e7c2a8c50b6d5833dc3d6b60ab2cb619701a819c780f",
+      "before_result": {
+        "mode": "normal",
+        "valid": true,
+        "budget_passed": true,
+        "status": "passed",
+        "average_fps": 55.5,
+        "minimum_fps": 50,
+        "samples": [
+          59,
+          55,
+          41,
+          41,
+          59,
+          60,
+          61,
+          59,
+          60,
+          60
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10002574,
+        "window_frames": 555,
+        "profile": "Codex-Performance-af3271b46db54c22afca7adcb23e2937",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1113463
+      },
+      "after_error": "engine_error",
+      "raw_bytes_unchanged": true
+    },
+    {
+      "input": "indented-error.bin",
+      "sha256": "9d4a36e968ef739c03f32fc409655b106813248cb880be45b0537045df855af9",
+      "before_result": {
+        "mode": "normal",
+        "valid": true,
+        "budget_passed": true,
+        "status": "passed",
+        "average_fps": 55.5,
+        "minimum_fps": 50,
+        "samples": [
+          59,
+          55,
+          41,
+          41,
+          59,
+          60,
+          61,
+          59,
+          60,
+          60
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10002574,
+        "window_frames": 555,
+        "profile": "Codex-Performance-af3271b46db54c22afca7adcb23e2937",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1113463
+      },
+      "after_error": "engine_error",
+      "raw_bytes_unchanged": true
+    }
+  ]
+}

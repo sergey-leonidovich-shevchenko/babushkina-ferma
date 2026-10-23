@@ -13,6 +13,9 @@ ROOT = Path(__file__).resolve().parents[1]
 PLAN = ROOT / "docs/reports/visual-overhaul/vfoliage-006/ci-performance/plan.json"
 PREFIX = "PERF_CAPTURE "
 ENGINE = "a13da4feb8d8aefc283c3763d33a2f170a18d541"
+ANSI_ESCAPE = re.compile(
+    r"(?:\x1b\[|\x9b)[0-?]*[ -/]*[@-~]|\x1b\][^\x07\x1b\r\n]*(?:\x07|\x1b\\)"
+)
 
 
 class MeasurementError(ValueError):
@@ -52,7 +55,11 @@ def events(raw: bytes, returncode: int) -> list[dict]:
         text = raw.decode("utf-8")
     except UnicodeDecodeError as exc:
         raise MeasurementError("invalid_utf8") from exc
-    if re.search(r"^ERROR:|SCRIPT ERROR:|Parse Error", text, re.M):
+    # Нормализуем только копию для поиска ошибок; raw/SHA и строки протокола остаются исходными.
+    error_text = "\n".join(
+        line.lstrip() for line in ANSI_ESCAPE.sub("", text).splitlines()
+    )
+    if re.search(r"^ERROR:|SCRIPT ERROR:|Parse Error", error_text, re.M):
         raise MeasurementError("engine_error")
     rows = []
 

@@ -1,0 +1,20 @@
+{
+  "status": "ANSI_error_detection_fixed_pending_P1_investigation",
+  "version": "0.0.328",
+  "parent": "60b3f8827da861bc6974a595970dbdde73bbbbbe",
+  "architecture_suites": 77,
+  "python_tests": 1049,
+  "game_passed": 50405,
+  "game_failed": 0,
+  "wiki_passed": 135,
+  "wiki_failed": 0,
+  "protocol_tests": 34,
+  "two_original_bypasses_rejected": true,
+  "all_24_old_cases_valid_and_results_unchanged": true,
+  "raw_data_sha_and_fixture_unchanged": true,
+  "production_unchanged": true,
+  "old_plan_and_budget_unchanged": true,
+  "local_budget_closed": false,
+  "final_review_requested": false,
+  "main_merge_allowed": false
+}
