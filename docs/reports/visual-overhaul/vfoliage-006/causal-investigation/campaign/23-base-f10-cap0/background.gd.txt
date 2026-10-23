@@ -1,0 +1,5 @@
+extends "res://scripts/world_background.gd"
+func _draw() -> void:
+	var diag_start := Time.get_ticks_usec()
+	super._draw()
+	get_parent().diag_record("background._draw",diag_start,Time.get_ticks_usec())

@@ -1,0 +1,7 @@
+extends SceneTree
+## API metadata only: no Game instance, callbacks or FPS measurement.
+func _initialize() -> void:
+	ProjectSettings.set_setting("application/config/use_custom_user_dir",true)
+	ProjectSettings.set_setting("application/config/custom_user_dir_name","Codex-Causal-API-"+str(Time.get_ticks_usec()))
+	print("CAUSAL_API ",JSON.stringify({"engine":Engine.get_version_info(),"display":DisplayServer.get_name(),"driver":RenderingServer.get_current_rendering_driver_name(),"method":RenderingServer.get_current_rendering_method(),"render_loop":RenderingServer.render_loop_enabled,"low_processor_usage_mode":OS.low_processor_usage_mode,"idle_sleep_usec":OS.low_processor_usage_mode_sleep_usec,"delta_smoothing":OS.delta_smoothing,"max_fps":Engine.max_fps,"time_scale":Engine.time_scale,"physics_ticks_per_second":Engine.physics_ticks_per_second,"max_physics_steps_per_frame":Engine.max_physics_steps_per_frame}))
+	quit()

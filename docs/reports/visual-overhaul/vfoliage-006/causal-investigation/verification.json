@@ -1,0 +1,206 @@
+{
+  "cases": [
+    {
+      "index": 1,
+      "case": "01-base-normal-cap60",
+      "fps": 42.9,
+      "cap": 60,
+      "raw_sha256": "f145358c80a95d3ab07a6bfbdb18adfac8655f0a9b120f4ec7f21e3987f123bc",
+      "source_and_same_PID_CPU_verified": true
+    },
+    {
+      "index": 2,
+      "case": "02-head-normal-cap60",
+      "fps": 46.0,
+      "cap": 60,
+      "raw_sha256": "04a3defeb2998df778ceead2fdb35b22d5a18c39f218e196cbdcf8138ca2eef6",
+      "source_and_same_PID_CPU_verified": true
+    },
+    {
+      "index": 3,
+      "case": "03-base-f10-cap60",
+      "fps": 35.2,
+      "cap": 60,
+      "raw_sha256": "9da54ca8a9eac0d140e64d411805a127d3f5c8418a53081c77ef337c3efb5a63",
+      "source_and_same_PID_CPU_verified": true
+    },
+    {
+      "index": 4,
+      "case": "04-head-f10-cap60",
+      "fps": 43.7,
+      "cap": 60,
+      "raw_sha256": "9a99f717a73c3c2a529d4cba340f3e5655531eee1885177738b3c5f4129317d2",
+      "source_and_same_PID_CPU_verified": true
+    },
+    {
+      "index": 5,
+      "case": "05-base-normal-cap0",
+      "fps": 355.7,
+      "cap": 0,
+      "raw_sha256": "7e3f8896811446b10f55fc99ed323d1b42907ff92d9622408d223e01b1b840c4",
+      "source_and_same_PID_CPU_verified": true
+    },
+    {
+      "index": 6,
+      "case": "06-head-normal-cap0",
+      "fps": 469.0,
+      "cap": 0,
+      "raw_sha256": "09ae678c7b6b7a345b233ff9f5e5d1b546ebac904d649e141edeb11fd18fd777",
+      "source_and_same_PID_CPU_verified": true
+    },
+    {
+      "index": 7,
+      "case": "07-base-f10-cap0",
+      "fps": 197.5,
+      "cap": 0,
+      "raw_sha256": "991e96474a833efa65d0654315b3d9fba0e5f9df15b2e324fc89cf53134d6388",
+      "source_and_same_PID_CPU_verified": true
+    },
+    {
+      "index": 8,
+      "case": "08-head-f10-cap0",
+      "fps": 229.4,
+      "cap": 0,
+      "raw_sha256": "9f6ab1299793c8eafbf9fb8da9a0b61ea5e68ac8997296a40b1d44597eb123b6",
+      "source_and_same_PID_CPU_verified": true
+    },
+    {
+      "index": 9,
+      "case": "09-head-f10-cap0",
+      "fps": 195.0,
+      "cap": 0,
+      "raw_sha256": "d600e7e142d11f7923444a24a55c0edb53b988dc329af2c15a47a636e1decd68",
+      "source_and_same_PID_CPU_verified": true
+    },
+    {
+      "index": 10,
+      "case": "10-base-f10-cap0",
+      "fps": 205.6,
+      "cap": 0,
+      "raw_sha256": "a2ea4e780536edfdb8e0271d1db84380505f64b11d981eb752ada3f1458a35b8",
+      "source_and_same_PID_CPU_verified": true
+    },
+    {
+      "index": 11,
+      "case": "11-head-normal-cap0",
+      "fps": 521.5,
+      "cap": 0,
+      "raw_sha256": "f8c492d439960ccb68ebf33ac2d2c2ef7c94f6096f4d99bbfec4bd49ca99dbc9",
+      "source_and_same_PID_CPU_verified": true
+    },
+    {
+      "index": 12,
+      "case": "12-base-normal-cap0",
+      "fps": 369.7,
+      "cap": 0,
+      "raw_sha256": "d6b9be849ad96d2aa3c1f24ee551d1cf91a31adb422bb95f523766ab13e54141",
+      "source_and_same_PID_CPU_verified": true
+    },
+    {
+      "index": 13,
+      "case": "13-head-f10-cap60",
+      "fps": 40.7,
+      "cap": 60,
+      "raw_sha256": "ac174c7eedb67743e3be1a3c47cadbcb0ade202a9fc4c0fbe2bceabf9e7fb9ff",
+      "source_and_same_PID_CPU_verified": true
+    },
+    {
+      "index": 14,
+      "case": "14-base-f10-cap60",
+      "fps": 45.3,
+      "cap": 60,
+      "raw_sha256": "15906ad95fcbf4b165eb4d618a15dac9c7bd0806f348e73a30518f9a5a564f6c",
+      "source_and_same_PID_CPU_verified": true
+    },
+    {
+      "index": 15,
+      "case": "15-head-normal-cap60",
+      "fps": 46.2,
+      "cap": 60,
+      "raw_sha256": "7b834bd8cfb45bc99ed2c622a6b1b44eee43788f9196f9e63dd9a7645c0edb7f",
+      "source_and_same_PID_CPU_verified": true
+    },
+    {
+      "index": 16,
+      "case": "16-base-normal-cap60",
+      "fps": 43.3,
+      "cap": 60,
+      "raw_sha256": "3d1d0e9ffeaa41eaa5a8a76c428e97ac219bb2b7ea7b3ace092c3747c4105feb",
+      "source_and_same_PID_CPU_verified": true
+    },
+    {
+      "index": 17,
+      "case": "17-base-normal-cap60",
+      "fps": 40.7,
+      "cap": 60,
+      "raw_sha256": "611b4b7ae4163395f2ce5a50b950f831fc7b444f641b84e87c0a0c81bf118b1b",
+      "source_and_same_PID_CPU_verified": true
+    },
+    {
+      "index": 18,
+      "case": "18-head-normal-cap60",
+      "fps": 43.9,
+      "cap": 60,
+      "raw_sha256": "0337161ee8e904812c1667e5a19d5d5591684862bfcca6dbd930aeea2514bfa5",
+      "source_and_same_PID_CPU_verified": true
+    },
+    {
+      "index": 19,
+      "case": "19-base-f10-cap60",
+      "fps": 41.4,
+      "cap": 60,
+      "raw_sha256": "eaad9aa888f0b40f14a89bdf1ea0db9b0406ab6dcaa0c46a8b7bdc8ee5c0ed8b",
+      "source_and_same_PID_CPU_verified": true
+    },
+    {
+      "index": 20,
+      "case": "20-head-f10-cap60",
+      "fps": 36.5,
+      "cap": 60,
+      "raw_sha256": "d0404de049383195b79e4faf6a750c90d1bb291d9149e05421b1868075b58436",
+      "source_and_same_PID_CPU_verified": true
+    },
+    {
+      "index": 21,
+      "case": "21-base-normal-cap0",
+      "fps": 369.6,
+      "cap": 0,
+      "raw_sha256": "f5d698a406f3b583b8611320214a4a27c97ca94e38f1ba4a276110a368a6f9d5",
+      "source_and_same_PID_CPU_verified": true
+    },
+    {
+      "index": 22,
+      "case": "22-head-normal-cap0",
+      "fps": 478.9,
+      "cap": 0,
+      "raw_sha256": "862bbb98bc3ec7ab6dd77300c066f8eb8a35766fe40302365c2ef16556876d5b",
+      "source_and_same_PID_CPU_verified": true
+    },
+    {
+      "index": 23,
+      "case": "23-base-f10-cap0",
+      "fps": 289.1,
+      "cap": 0,
+      "raw_sha256": "4f3aa2d43f941c37d7ff8f9fcf2853bcc9a36fc32578840d26fa36846f44bc6b",
+      "source_and_same_PID_CPU_verified": true
+    },
+    {
+      "index": 24,
+      "case": "24-head-f10-cap0",
+      "fps": 328.3,
+      "cap": 0,
+      "raw_sha256": "e7b729a9533081d3d07c38dd5b58595ee08a9cdce8624cf1d74d24276f873868",
+      "source_and_same_PID_CPU_verified": true
+    }
+  ],
+  "archive": {
+    "files": 96,
+    "raw_bytes": 73108947,
+    "gzip_bytes": 9139721,
+    "all_round_trips_and_sha_match": true
+  },
+  "all_24_inputs_replayed": true,
+  "old_series_unchanged": true,
+  "production_changed": false,
+  "local_budget_closed": false
+}

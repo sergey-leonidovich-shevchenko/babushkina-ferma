@@ -1,3 +1,5 @@
+VFOLIAGE-006 P1: до production-правки сохранена отдельная24-case causal-серия с заранее записанным plan SHA, CPU того же PID в том же окне, сырыми frame/method spans, native stacks и фактическими settings. 13 контролей Mach timebase/структуры/отказов и QA-наследника включены в architecture. [Полный план, сырые данные и ограничения](docs/reports/visual-overhaul/vfoliage-006/causal-investigation/README.md). Все прежние отрицательные серии остаются неизменны; новые диагностические FPS не являются допуском.
+
 # Правила тестирования
 
 VFOLIAGE-006 P2 error detection: `tools/test_performance_gate.py` содержит34 случая, включая цветную/отступную ERROR при exit0 и сохранность точного raw/SHA в драйвере. Для поиска ошибок нормализуется только копия; JSON-протокол остаётся строгим. Все24 прежних случая парных серий остаются валидными с прежними отрицательными результатами. [Контроли и проверки](docs/reports/visual-overhaul/vfoliage-006/ci-error-detection/README.md). Это не закрытие P1 локального бюджета50.

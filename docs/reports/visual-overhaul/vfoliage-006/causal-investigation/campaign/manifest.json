@@ -1,0 +1,569 @@
+{
+  "plan_sha256": "c9dde035fbf4f3e71810d3e8542ba0c39eed8d6cb817a3aaecb343db2421c3e8",
+  "tool_sources": {
+    "causal_capture.py": "c65725581c6100097e640d019c8c3f57d55a8acb5e2919b60a32151f576091d2",
+    "causal_sampler.py": "7261880936672977d82b8bdb7adf0eb5f05167d909959ea655fe6d1bd1eca9c5",
+    "causal_process.py": "ef46796f33b851f91d740fdff1dac1385da91796e44c8f36934ba18d338e04fb"
+  },
+  "start_utc": "2026-10-23T12:52:04.617115+00:00",
+  "own_qa_completed": true,
+  "initial_power": {
+    "available": true,
+    "queries": {
+      "power": {
+        "returncode": 0,
+        "stdout": "Now drawing from 'AC Power'\n -InternalBattery-0 (id=6750307)\t100%; charged; 0:00 remaining present: true\n",
+        "stderr": ""
+      },
+      "thermal": {
+        "returncode": 0,
+        "stdout": "Note: No thermal warning level has been recorded\nNote: No performance warning level has been recorded\n2026-10-23 17:52:04 +0500 CPU Power notify\n\tCPU_Scheduler_Limit \t= 100\n\tCPU_Available_CPUs \t= 12\n\tCPU_Speed_Limit \t= 100\n",
+        "stderr": ""
+      }
+    }
+  },
+  "cases": [
+    {
+      "folder": "01-base-normal-cap60",
+      "target": "base",
+      "mode": "normal",
+      "cap": 60,
+      "measurement": {
+        "mode": "normal",
+        "valid": true,
+        "budget_passed": false,
+        "status": "budget_exceeded",
+        "average_fps": 42.9,
+        "minimum_fps": 50,
+        "samples": [
+          53,
+          21,
+          6,
+          13,
+          37,
+          59,
+          61,
+          60,
+          59,
+          60
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10000142,
+        "window_frames": 429,
+        "profile": "Codex-Performance-13b81fd352c74787be46eca101f8ade9",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1348790
+      }
+    },
+    {
+      "folder": "02-head-normal-cap60",
+      "target": "head",
+      "mode": "normal",
+      "cap": 60,
+      "measurement": {
+        "mode": "normal",
+        "valid": true,
+        "budget_passed": false,
+        "status": "budget_exceeded",
+        "average_fps": 46.0,
+        "minimum_fps": 50,
+        "samples": [
+          59,
+          32,
+          7,
+          13,
+          49,
+          60,
+          60,
+          60,
+          60,
+          60
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10003849,
+        "window_frames": 460,
+        "profile": "Codex-Performance-262d2517c04746ee9d075016d5c2fbd3",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1419830
+      }
+    },
+    {
+      "folder": "03-base-f10-cap60",
+      "target": "base",
+      "mode": "f10",
+      "cap": 60,
+      "measurement": {
+        "mode": "f10",
+        "valid": true,
+        "budget_passed": false,
+        "status": "budget_exceeded",
+        "average_fps": 35.2,
+        "minimum_fps": 50,
+        "samples": [
+          7,
+          12,
+          11,
+          8,
+          22,
+          61,
+          60,
+          59,
+          52,
+          60
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10013919,
+        "window_frames": 352,
+        "profile": "Codex-Performance-22410b94b7154725aa575f63a77ebf68",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1554741
+      }
+    },
+    {
+      "folder": "04-head-f10-cap60",
+      "target": "head",
+      "mode": "f10",
+      "cap": 60,
+      "measurement": {
+        "mode": "f10",
+        "valid": true,
+        "budget_passed": false,
+        "status": "budget_exceeded",
+        "average_fps": 43.7,
+        "minimum_fps": 50,
+        "samples": [
+          49,
+          18,
+          7,
+          16,
+          48,
+          60,
+          59,
+          60,
+          60,
+          60
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10006272,
+        "window_frames": 437,
+        "profile": "Codex-Performance-8a5c1333408e4594a73ed057d02b5ec3",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1234494
+      }
+    },
+    {
+      "folder": "05-base-normal-cap0",
+      "target": "base",
+      "mode": "normal",
+      "cap": 0,
+      "measurement": {
+        "diagnostic_only": true,
+        "window_frames": 3557,
+        "average_fps": 355.7,
+        "budget_applicable": false
+      }
+    },
+    {
+      "folder": "06-head-normal-cap0",
+      "target": "head",
+      "mode": "normal",
+      "cap": 0,
+      "measurement": {
+        "diagnostic_only": true,
+        "window_frames": 4690,
+        "average_fps": 469.0,
+        "budget_applicable": false
+      }
+    },
+    {
+      "folder": "07-base-f10-cap0",
+      "target": "base",
+      "mode": "f10",
+      "cap": 0,
+      "measurement": {
+        "diagnostic_only": true,
+        "window_frames": 1975,
+        "average_fps": 197.5,
+        "budget_applicable": false
+      }
+    },
+    {
+      "folder": "08-head-f10-cap0",
+      "target": "head",
+      "mode": "f10",
+      "cap": 0,
+      "measurement": {
+        "diagnostic_only": true,
+        "window_frames": 2294,
+        "average_fps": 229.4,
+        "budget_applicable": false
+      }
+    },
+    {
+      "folder": "09-head-f10-cap0",
+      "target": "head",
+      "mode": "f10",
+      "cap": 0,
+      "measurement": {
+        "diagnostic_only": true,
+        "window_frames": 1950,
+        "average_fps": 195.0,
+        "budget_applicable": false
+      }
+    },
+    {
+      "folder": "10-base-f10-cap0",
+      "target": "base",
+      "mode": "f10",
+      "cap": 0,
+      "measurement": {
+        "diagnostic_only": true,
+        "window_frames": 2056,
+        "average_fps": 205.6,
+        "budget_applicable": false
+      }
+    },
+    {
+      "folder": "11-head-normal-cap0",
+      "target": "head",
+      "mode": "normal",
+      "cap": 0,
+      "measurement": {
+        "diagnostic_only": true,
+        "window_frames": 5215,
+        "average_fps": 521.5,
+        "budget_applicable": false
+      }
+    },
+    {
+      "folder": "12-base-normal-cap0",
+      "target": "base",
+      "mode": "normal",
+      "cap": 0,
+      "measurement": {
+        "diagnostic_only": true,
+        "window_frames": 3697,
+        "average_fps": 369.7,
+        "budget_applicable": false
+      }
+    },
+    {
+      "folder": "13-head-f10-cap60",
+      "target": "head",
+      "mode": "f10",
+      "cap": 60,
+      "measurement": {
+        "mode": "f10",
+        "valid": true,
+        "budget_passed": false,
+        "status": "budget_exceeded",
+        "average_fps": 40.7,
+        "minimum_fps": 50,
+        "samples": [
+          47,
+          28,
+          10,
+          6,
+          20,
+          60,
+          58,
+          58,
+          59,
+          61
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10013247,
+        "window_frames": 407,
+        "profile": "Codex-Performance-c1b61cea7e234878ac455f3b0697835d",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1166888
+      }
+    },
+    {
+      "folder": "14-base-f10-cap60",
+      "target": "base",
+      "mode": "f10",
+      "cap": 60,
+      "measurement": {
+        "mode": "f10",
+        "valid": true,
+        "budget_passed": false,
+        "status": "budget_exceeded",
+        "average_fps": 45.3,
+        "minimum_fps": 50,
+        "samples": [
+          51,
+          19,
+          14,
+          19,
+          50,
+          60,
+          60,
+          60,
+          60,
+          60
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10010479,
+        "window_frames": 453,
+        "profile": "Codex-Performance-0ded4ba2d65f4677bb3081808b744abf",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1157452
+      }
+    },
+    {
+      "folder": "15-head-normal-cap60",
+      "target": "head",
+      "mode": "normal",
+      "cap": 60,
+      "measurement": {
+        "mode": "normal",
+        "valid": true,
+        "budget_passed": false,
+        "status": "budget_exceeded",
+        "average_fps": 46.2,
+        "minimum_fps": 50,
+        "samples": [
+          58,
+          15,
+          8,
+          23,
+          58,
+          60,
+          60,
+          60,
+          59,
+          61
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10006911,
+        "window_frames": 462,
+        "profile": "Codex-Performance-7b62be9eccd549bd943f8ea0896735ce",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1163124
+      }
+    },
+    {
+      "folder": "16-base-normal-cap60",
+      "target": "base",
+      "mode": "normal",
+      "cap": 60,
+      "measurement": {
+        "mode": "normal",
+        "valid": true,
+        "budget_passed": false,
+        "status": "budget_exceeded",
+        "average_fps": 43.3,
+        "minimum_fps": 50,
+        "samples": [
+          24,
+          13,
+          28,
+          25,
+          43,
+          60,
+          60,
+          60,
+          60,
+          60
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10009544,
+        "window_frames": 433,
+        "profile": "Codex-Performance-a500cb8c270f4888a82ba5089fa5126b",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1439567
+      }
+    },
+    {
+      "folder": "17-base-normal-cap60",
+      "target": "base",
+      "mode": "normal",
+      "cap": 60,
+      "measurement": {
+        "mode": "normal",
+        "valid": true,
+        "budget_passed": false,
+        "status": "budget_exceeded",
+        "average_fps": 40.7,
+        "minimum_fps": 50,
+        "samples": [
+          48,
+          7,
+          6,
+          8,
+          38,
+          60,
+          59,
+          61,
+          59,
+          61
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10015356,
+        "window_frames": 407,
+        "profile": "Codex-Performance-162fe5813d704a75950ba47dfe48cac3",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1319309
+      }
+    },
+    {
+      "folder": "18-head-normal-cap60",
+      "target": "head",
+      "mode": "normal",
+      "cap": 60,
+      "measurement": {
+        "mode": "normal",
+        "valid": true,
+        "budget_passed": false,
+        "status": "budget_exceeded",
+        "average_fps": 43.9,
+        "minimum_fps": 50,
+        "samples": [
+          16,
+          40,
+          31,
+          14,
+          38,
+          60,
+          60,
+          60,
+          60,
+          60
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10010357,
+        "window_frames": 439,
+        "profile": "Codex-Performance-fb3cb3e886284f7cabde500c6edc13bb",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1423046
+      }
+    },
+    {
+      "folder": "19-base-f10-cap60",
+      "target": "base",
+      "mode": "f10",
+      "cap": 60,
+      "measurement": {
+        "mode": "f10",
+        "valid": true,
+        "budget_passed": false,
+        "status": "budget_exceeded",
+        "average_fps": 41.4,
+        "minimum_fps": 50,
+        "samples": [
+          50,
+          23,
+          6,
+          13,
+          46,
+          50,
+          51,
+          60,
+          59,
+          56
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10019153,
+        "window_frames": 414,
+        "profile": "Codex-Performance-99544fd455e149b6a96887f83b0deae4",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1175338
+      }
+    },
+    {
+      "folder": "20-head-f10-cap60",
+      "target": "head",
+      "mode": "f10",
+      "cap": 60,
+      "measurement": {
+        "mode": "f10",
+        "valid": true,
+        "budget_passed": false,
+        "status": "budget_exceeded",
+        "average_fps": 36.5,
+        "minimum_fps": 50,
+        "samples": [
+          9,
+          21,
+          24,
+          10,
+          36,
+          60,
+          60,
+          43,
+          41,
+          61
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10014566,
+        "window_frames": 365,
+        "profile": "Codex-Performance-3e7b06f352414ae1b731aa8f710ca6f5",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1434592
+      }
+    },
+    {
+      "folder": "21-base-normal-cap0",
+      "target": "base",
+      "mode": "normal",
+      "cap": 0,
+      "measurement": {
+        "diagnostic_only": true,
+        "window_frames": 3696,
+        "average_fps": 369.6,
+        "budget_applicable": false
+      }
+    },
+    {
+      "folder": "22-head-normal-cap0",
+      "target": "head",
+      "mode": "normal",
+      "cap": 0,
+      "measurement": {
+        "diagnostic_only": true,
+        "window_frames": 4789,
+        "average_fps": 478.9,
+        "budget_applicable": false
+      }
+    },
+    {
+      "folder": "23-base-f10-cap0",
+      "target": "base",
+      "mode": "f10",
+      "cap": 0,
+      "measurement": {
+        "diagnostic_only": true,
+        "window_frames": 2891,
+        "average_fps": 289.1,
+        "budget_applicable": false
+      }
+    },
+    {
+      "folder": "24-head-f10-cap0",
+      "target": "head",
+      "mode": "f10",
+      "cap": 0,
+      "measurement": {
+        "diagnostic_only": true,
+        "window_frames": 3283,
+        "average_fps": 328.3,
+        "budget_applicable": false
+      }
+    }
+  ],
+  "complete": true,
+  "end_utc": "2026-10-23T13:03:32.020314+00:00"
+}

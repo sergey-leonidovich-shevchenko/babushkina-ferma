@@ -1,0 +1,3 @@
+Sampling process 47420 for 3 seconds with 10 milliseconds of run time between samples
+Sampling completed, processing symbols...
+Sample analysis of process 47420 written to file docs/reports/visual-overhaul/vfoliage-006/causal-investigation/campaign/08-head-f10-cap0/native-sample.txt

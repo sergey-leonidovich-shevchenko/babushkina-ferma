@@ -1,0 +1,644 @@
+{
+  "folder": "04-head-f10-cap60",
+  "measurement": {
+    "mode": "f10",
+    "valid": true,
+    "budget_passed": false,
+    "status": "budget_exceeded",
+    "average_fps": 43.7,
+    "minimum_fps": 50,
+    "samples": [
+      49,
+      18,
+      7,
+      16,
+      48,
+      60,
+      59,
+      60,
+      60,
+      60
+    ],
+    "window_us": 10000000,
+    "actual_close_us": 10006272,
+    "window_frames": 437,
+    "profile": "Codex-Performance-8a5c1333408e4594a73ed057d02b5ec3",
+    "cap_before": 0,
+    "cap_after": 60,
+    "startup_us": 1234494
+  },
+  "cpu_window": {
+    "available": true,
+    "cpu_ns": 8928355574,
+    "wall_bounds_ns": [
+      10006743908,
+      10006763234
+    ],
+    "cpu_to_wall_bounds": [
+      0.8922321199390536,
+      0.8922338431047615
+    ],
+    "boundary_query_ns": [
+      8312,
+      11014
+    ]
+  },
+  "game_marker_interval_us": 10006272,
+  "marker_delivery_interval_ns": 10006738914,
+  "effective_settings_match": true,
+  "all_frame_settings_match": true,
+  "recorded_route_locations": [
+    "cave",
+    "overworld"
+  ],
+  "overflow": false,
+  "span_count": 18091,
+  "state_count": 438,
+  "root_union_us": 8952062,
+  "bins": [
+    {
+      "index": 0,
+      "frames": 49,
+      "root_union_us": 959788,
+      "approx_game_cpu_to_wall": 0.9172092492065473,
+      "approx_runner_cpu_to_wall": 0.00993293248250529,
+      "approx_sample_cpu_to_wall": null,
+      "approx_host_busy": 0.12033195020746888,
+      "host_load_average": [
+        3.36962890625,
+        3.23583984375,
+        3.31982421875
+      ]
+    },
+    {
+      "index": 1,
+      "frames": 18,
+      "root_union_us": 993168,
+      "approx_game_cpu_to_wall": 0.966656092838814,
+      "approx_runner_cpu_to_wall": 0.008151201599691444,
+      "approx_sample_cpu_to_wall": 0.03137841911778222,
+      "approx_host_busy": 0.1206896551724138,
+      "host_load_average": [
+        3.36962890625,
+        3.23583984375,
+        3.31982421875
+      ]
+    },
+    {
+      "index": 2,
+      "frames": 7,
+      "root_union_us": 994463,
+      "approx_game_cpu_to_wall": 0.9681906607579406,
+      "approx_runner_cpu_to_wall": 0.008483862576813998,
+      "approx_sample_cpu_to_wall": 0.03055168011792955,
+      "approx_host_busy": 0.16234309623430962,
+      "host_load_average": [
+        3.36962890625,
+        3.23583984375,
+        3.31982421875
+      ]
+    },
+    {
+      "index": 3,
+      "frames": 16,
+      "root_union_us": 994559,
+      "approx_game_cpu_to_wall": 0.9830912522233665,
+      "approx_runner_cpu_to_wall": 0.006129628156770324,
+      "approx_sample_cpu_to_wall": null,
+      "approx_host_busy": 0.14202476329206118,
+      "host_load_average": [
+        3.36962890625,
+        3.23583984375,
+        3.31982421875
+      ]
+    },
+    {
+      "index": 4,
+      "frames": 48,
+      "root_union_us": 862716,
+      "approx_game_cpu_to_wall": 0.8683517570931505,
+      "approx_runner_cpu_to_wall": 0.008479818747257208,
+      "approx_sample_cpu_to_wall": null,
+      "approx_host_busy": 0.11879259980525804,
+      "host_load_average": [
+        3.36962890625,
+        3.23583984375,
+        3.31982421875
+      ]
+    },
+    {
+      "index": 5,
+      "frames": 60,
+      "root_union_us": 870135,
+      "approx_game_cpu_to_wall": 0.8870218524803143,
+      "approx_runner_cpu_to_wall": 0.011263259608044118,
+      "approx_sample_cpu_to_wall": null,
+      "approx_host_busy": 0.10323574730354391,
+      "host_load_average": [
+        3.33984375,
+        3.2314453125,
+        3.31787109375
+      ]
+    },
+    {
+      "index": 6,
+      "frames": 59,
+      "root_union_us": 872338,
+      "approx_game_cpu_to_wall": 0.88480654732315,
+      "approx_runner_cpu_to_wall": 0.011419247678162037,
+      "approx_sample_cpu_to_wall": null,
+      "approx_host_busy": 0.1549165120593692,
+      "host_load_average": [
+        3.33984375,
+        3.2314453125,
+        3.31787109375
+      ]
+    },
+    {
+      "index": 7,
+      "frames": 60,
+      "root_union_us": 740980,
+      "approx_game_cpu_to_wall": 0.7557911204678291,
+      "approx_runner_cpu_to_wall": 0.008501324072005895,
+      "approx_sample_cpu_to_wall": null,
+      "approx_host_busy": 0.12736921910538287,
+      "host_load_average": [
+        3.33984375,
+        3.2314453125,
+        3.31787109375
+      ]
+    },
+    {
+      "index": 8,
+      "frames": 60,
+      "root_union_us": 800526,
+      "approx_game_cpu_to_wall": 0.8111366048315268,
+      "approx_runner_cpu_to_wall": 0.008636908095251111,
+      "approx_sample_cpu_to_wall": null,
+      "approx_host_busy": 0.09415337889141989,
+      "host_load_average": [
+        3.33984375,
+        3.2314453125,
+        3.31787109375
+      ]
+    },
+    {
+      "index": 9,
+      "frames": 60,
+      "root_union_us": 863389,
+      "approx_game_cpu_to_wall": 0.8792891800908672,
+      "approx_runner_cpu_to_wall": 0.011144043297953475,
+      "approx_sample_cpu_to_wall": null,
+      "approx_host_busy": 0.10138248847926268,
+      "host_load_average": [
+        3.33984375,
+        3.2314453125,
+        3.31787109375
+      ]
+    }
+  ],
+  "phase_inclusive_us": {
+    "update_hud_feedback": {
+      "count": 585,
+      "sum": 18177,
+      "median": 31,
+      "p95": 44,
+      "max": 182
+    },
+    "update_game_clock": {
+      "count": 585,
+      "sum": 3808,
+      "median": 6,
+      "p95": 9,
+      "max": 42
+    },
+    "update_crops": {
+      "count": 585,
+      "sum": 129470,
+      "median": 218,
+      "p95": 282,
+      "max": 746
+    },
+    "update_combat": {
+      "count": 585,
+      "sum": 481999,
+      "median": 236,
+      "p95": 2286,
+      "max": 3783
+    },
+    "update_fishing": {
+      "count": 585,
+      "sum": 5691,
+      "median": 8,
+      "p95": 14,
+      "max": 402
+    },
+    "update_status_effects": {
+      "count": 585,
+      "sum": 10809,
+      "median": 17,
+      "p95": 29,
+      "max": 110
+    },
+    "update_benchmark_route": {
+      "count": 584,
+      "sum": 20118,
+      "median": 2.0,
+      "p95": 4,
+      "max": 18769
+    },
+    "update_player_movement": {
+      "count": 585,
+      "sum": 161889,
+      "median": 18,
+      "p95": 910,
+      "max": 10027
+    },
+    "update_held_action": {
+      "count": 585,
+      "sum": 2838,
+      "median": 4,
+      "p95": 7,
+      "max": 34
+    },
+    "update_held_attack": {
+      "count": 585,
+      "sum": 1236,
+      "median": 2,
+      "p95": 3,
+      "max": 11
+    },
+    "_physics_process": {
+      "count": 585,
+      "sum": 3887815,
+      "median": 6231,
+      "p95": 9859,
+      "max": 23798
+    },
+    "draw_farm": {
+      "count": 632,
+      "sum": 45360,
+      "median": 35.5,
+      "p95": 145,
+      "max": 622
+    },
+    "draw_rpg_world": {
+      "count": 289,
+      "sum": 32899,
+      "median": 106,
+      "p95": 163,
+      "max": 813
+    },
+    "draw_fishing_animations": {
+      "count": 289,
+      "sum": 18749,
+      "median": 58,
+      "p95": 99,
+      "max": 390
+    },
+    "draw_buildings": {
+      "count": 632,
+      "sum": 22276,
+      "median": 14.0,
+      "p95": 77,
+      "max": 591
+    },
+    "draw_world_events": {
+      "count": 632,
+      "sum": 17832,
+      "median": 9.0,
+      "p95": 65,
+      "max": 266
+    },
+    "draw_quest_npcs": {
+      "count": 632,
+      "sum": 63879,
+      "median": 77.0,
+      "p95": 178,
+      "max": 585
+    },
+    "draw_hazards": {
+      "count": 632,
+      "sum": 5517,
+      "median": 8.0,
+      "p95": 13,
+      "max": 61
+    },
+    "draw_enemy_nodes_and_gate": {
+      "count": 632,
+      "sum": 216281,
+      "median": 475.5,
+      "p95": 762,
+      "max": 1190
+    },
+    "draw_tree_nodes": {
+      "count": 632,
+      "sum": 23077,
+      "median": 3.0,
+      "p95": 112,
+      "max": 368
+    },
+    "draw_resource_nodes": {
+      "count": 632,
+      "sum": 74126,
+      "median": 156.0,
+      "p95": 216,
+      "max": 473
+    },
+    "draw_food_nodes": {
+      "count": 632,
+      "sum": 99794,
+      "median": 83.5,
+      "p95": 341,
+      "max": 996
+    },
+    "draw_world_loot": {
+      "count": 632,
+      "sum": 54315,
+      "median": 78.0,
+      "p95": 142,
+      "max": 569
+    },
+    "draw_wildlife": {
+      "count": 632,
+      "sum": 96292,
+      "median": 138.0,
+      "p95": 217,
+      "max": 543
+    },
+    "draw_dropped_items": {
+      "count": 631,
+      "sum": 1510,
+      "median": 2,
+      "p95": 4,
+      "max": 12
+    },
+    "draw_companions": {
+      "count": 631,
+      "sum": 2271,
+      "median": 3,
+      "p95": 6,
+      "max": 30
+    },
+    "draw_player": {
+      "count": 631,
+      "sum": 113040,
+      "median": 156,
+      "p95": 299,
+      "max": 1134
+    },
+    "draw_ui": {
+      "count": 631,
+      "sum": 1566554,
+      "median": 2269,
+      "p95": 3480,
+      "max": 10610
+    },
+    "_draw": {
+      "count": 632,
+      "sum": 4957307,
+      "median": 7632.0,
+      "p95": 11872,
+      "max": 17067
+    },
+    "_process": {
+      "count": 437,
+      "sum": 104803,
+      "median": 157,
+      "p95": 486,
+      "max": 1329
+    },
+    "draw_discovery_card": {
+      "count": 526,
+      "sum": 41197,
+      "median": 88.0,
+      "p95": 188,
+      "max": 764
+    },
+    "background._draw": {
+      "count": 1,
+      "sum": 2137,
+      "median": 2137,
+      "p95": 2137,
+      "max": 2137
+    }
+  },
+  "frame_gap_us": {
+    "median": 16845.0,
+    "p95": 49007,
+    "max": 208604
+  },
+  "long_frames_gt_33333us": 44,
+  "heavy_frames_gt_100000us": 10,
+  "longest_frames": [
+    {
+      "finish_us": 14144283,
+      "frame": 134,
+      "gap_us": 208604,
+      "root_union_us": 207079,
+      "outside_root_us": 1525,
+      "approx_cpu_to_wall": 0.9476576927462541,
+      "approx_host_busy": null,
+      "closing_callback": false
+    },
+    {
+      "finish_us": 14343600,
+      "frame": 135,
+      "gap_us": 199317,
+      "root_union_us": 197974,
+      "outside_root_us": 1343,
+      "approx_cpu_to_wall": 0.9604046570389367,
+      "approx_host_busy": 0.16234309623430962,
+      "closing_callback": false
+    },
+    {
+      "finish_us": 14542300,
+      "frame": 136,
+      "gap_us": 198700,
+      "root_union_us": 197727,
+      "outside_root_us": 973,
+      "approx_cpu_to_wall": 0.9623974522231851,
+      "approx_host_busy": null,
+      "closing_callback": false
+    },
+    {
+      "finish_us": 14862172,
+      "frame": 138,
+      "gap_us": 162645,
+      "root_union_us": 161876,
+      "outside_root_us": 769,
+      "approx_cpu_to_wall": 0.9485530258096051,
+      "approx_host_busy": null,
+      "closing_callback": false
+    },
+    {
+      "finish_us": 14699527,
+      "frame": 137,
+      "gap_us": 157227,
+      "root_union_us": 156282,
+      "outside_root_us": 945,
+      "approx_cpu_to_wall": 0.9680849185074669,
+      "approx_host_busy": null,
+      "closing_callback": false
+    },
+    {
+      "finish_us": 14999685,
+      "frame": 139,
+      "gap_us": 137513,
+      "root_union_us": 136898,
+      "outside_root_us": 615,
+      "approx_cpu_to_wall": 1.009033722703886,
+      "approx_host_busy": null,
+      "closing_callback": false
+    },
+    {
+      "finish_us": 15126601,
+      "frame": 140,
+      "gap_us": 126916,
+      "root_union_us": 126374,
+      "outside_root_us": 542,
+      "approx_cpu_to_wall": 0.9690119373058951,
+      "approx_host_busy": null,
+      "closing_callback": false
+    },
+    {
+      "finish_us": 13935679,
+      "frame": 133,
+      "gap_us": 120241,
+      "root_union_us": 119550,
+      "outside_root_us": 691,
+      "approx_cpu_to_wall": 0.9591309624151009,
+      "approx_host_busy": null,
+      "closing_callback": false
+    },
+    {
+      "finish_us": 15243269,
+      "frame": 141,
+      "gap_us": 116668,
+      "root_union_us": 116096,
+      "outside_root_us": 572,
+      "approx_cpu_to_wall": 0.9871157288925343,
+      "approx_host_busy": 0.14681208053691275,
+      "closing_callback": false
+    },
+    {
+      "finish_us": 15350166,
+      "frame": 142,
+      "gap_us": 106897,
+      "root_union_us": 106413,
+      "outside_root_us": 484,
+      "approx_cpu_to_wall": 0.9796895165277719,
+      "approx_host_busy": 0.1171875,
+      "closing_callback": false
+    },
+    {
+      "finish_us": 13815438,
+      "frame": 132,
+      "gap_us": 96828,
+      "root_union_us": 96178,
+      "outside_root_us": 650,
+      "approx_cpu_to_wall": 0.9668430245268358,
+      "approx_host_busy": null,
+      "closing_callback": false
+    },
+    {
+      "finish_us": 15441128,
+      "frame": 143,
+      "gap_us": 90962,
+      "root_union_us": 90528,
+      "outside_root_us": 434,
+      "approx_cpu_to_wall": 0.9633620002415039,
+      "approx_host_busy": 0.09433962264150944,
+      "closing_callback": false
+    },
+    {
+      "finish_us": 15522777,
+      "frame": 144,
+      "gap_us": 81649,
+      "root_union_us": 81268,
+      "outside_root_us": 381,
+      "approx_cpu_to_wall": 0.9807105475061478,
+      "approx_host_busy": null,
+      "closing_callback": false
+    },
+    {
+      "finish_us": 15652491,
+      "frame": 146,
+      "gap_us": 65142,
+      "root_union_us": 64806,
+      "outside_root_us": 336,
+      "approx_cpu_to_wall": 0.9748666568316964,
+      "approx_host_busy": null,
+      "closing_callback": false
+    },
+    {
+      "finish_us": 15587349,
+      "frame": 145,
+      "gap_us": 64572,
+      "root_union_us": 64168,
+      "outside_root_us": 404,
+      "approx_cpu_to_wall": 0.9964964156954207,
+      "approx_host_busy": null,
+      "closing_callback": false
+    },
+    {
+      "finish_us": 15835759,
+      "frame": 149,
+      "gap_us": 62837,
+      "root_union_us": 62498,
+      "outside_root_us": 339,
+      "approx_cpu_to_wall": 1.0270691426223975,
+      "approx_host_busy": null,
+      "closing_callback": false
+    },
+    {
+      "finish_us": 15713678,
+      "frame": 147,
+      "gap_us": 61187,
+      "root_union_us": 60867,
+      "outside_root_us": 320,
+      "approx_cpu_to_wall": 0.985236376507233,
+      "approx_host_busy": null,
+      "closing_callback": false
+    },
+    {
+      "finish_us": 15772922,
+      "frame": 148,
+      "gap_us": 59244,
+      "root_union_us": 58906,
+      "outside_root_us": 338,
+      "approx_cpu_to_wall": 0.9358030155964375,
+      "approx_host_busy": null,
+      "closing_callback": false
+    },
+    {
+      "finish_us": 13718610,
+      "frame": 131,
+      "gap_us": 56916,
+      "root_union_us": 56563,
+      "outside_root_us": 353,
+      "approx_cpu_to_wall": 1.0054789637657786,
+      "approx_host_busy": null,
+      "closing_callback": false
+    },
+    {
+      "finish_us": 16472551,
+      "frame": 165,
+      "gap_us": 53406,
+      "root_union_us": 52554,
+      "outside_root_us": 852,
+      "approx_cpu_to_wall": 0.958029874295967,
+      "approx_host_busy": null,
+      "closing_callback": false
+    }
+  ],
+  "native_profiler": {
+    "requested_ns": 195876108354823,
+    "target_pid": 47297,
+    "pid": 47304,
+    "returncode": 0,
+    "finished_ns": 195879538075833
+  },
+  "sources_unchanged": true,
+  "assets_unchanged": true
+}

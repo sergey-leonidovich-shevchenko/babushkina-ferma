@@ -1,0 +1,196 @@
+{
+  "schema": 1,
+  "purpose": "predeclared_P1_causal_investigation_not_admission",
+  "head": "1a1871110f30df264e8a24707f427753e76f201a",
+  "base": "fe5919686aed1b6ea66cd1112a8075a57d448946",
+  "device": {
+    "model": "MacBookPro16,1",
+    "cpu": "Intel i7-9750H",
+    "ram_bytes": 17179869184,
+    "logical_cpus": 12,
+    "macos": "15.4.1"
+  },
+  "engine_hash": "a13da4feb8d8aefc283c3763d33a2f170a18d541",
+  "engine_file_sha256": "ecc8da2d60100102cfca6e833d3860d7436b46ae062fa072ce89a6c95d664a3f",
+  "backend": {
+    "display": "headless",
+    "driver": "opengl3",
+    "method": "gl_compatibility",
+    "physical_window": false,
+    "focus": null,
+    "vsync": null
+  },
+  "effective_after_startup": {
+    "low_processor_usage_mode": true,
+    "idle_sleep_usec": 500,
+    "delta_smoothing": true,
+    "time_scale": 1.0,
+    "physics_ticks_per_second": 60,
+    "max_physics_steps_per_frame": 8,
+    "render_loop": true,
+    "tree_paused": false,
+    "process_enabled": true,
+    "physics_enabled": true
+  },
+  "seed": 21101986,
+  "locale": "ru",
+  "save": "unique fresh Codex-Performance UUID, no user save",
+  "normal_route_start": [
+    432,
+    672
+  ],
+  "f10_route_start": [
+    1160,
+    650
+  ],
+  "gate_plan_sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7",
+  "canonical_sampler_sha256": "27db1abf21456b846ebbc0391ff716eb0033e9cbd24ea5bb84d023ab37d61684",
+  "warmup_usec": 3000000,
+  "window_usec": 10000000,
+  "sample_usec": 1000000,
+  "repeats": 3,
+  "minimum_fps_unchanged": 50,
+  "settle_seconds": 60,
+  "between_seconds": 2,
+  "cpu_sampling_seconds": 0.02,
+  "native_sample": {
+    "offset_seconds": 0.5,
+    "duration_seconds": 3,
+    "interval_ms": 10,
+    "owned_pid_only": true
+  },
+  "span_limit": 500000,
+  "post_end_cpu_snapshot_hold_ms": 500,
+  "watchdog_seconds": 60,
+  "all_results_retained": true,
+  "old_24_cases_unchanged": true,
+  "order": [
+    [
+      "base",
+      "normal",
+      60
+    ],
+    [
+      "head",
+      "normal",
+      60
+    ],
+    [
+      "base",
+      "f10",
+      60
+    ],
+    [
+      "head",
+      "f10",
+      60
+    ],
+    [
+      "base",
+      "normal",
+      0
+    ],
+    [
+      "head",
+      "normal",
+      0
+    ],
+    [
+      "base",
+      "f10",
+      0
+    ],
+    [
+      "head",
+      "f10",
+      0
+    ],
+    [
+      "head",
+      "f10",
+      0
+    ],
+    [
+      "base",
+      "f10",
+      0
+    ],
+    [
+      "head",
+      "normal",
+      0
+    ],
+    [
+      "base",
+      "normal",
+      0
+    ],
+    [
+      "head",
+      "f10",
+      60
+    ],
+    [
+      "base",
+      "f10",
+      60
+    ],
+    [
+      "head",
+      "normal",
+      60
+    ],
+    [
+      "base",
+      "normal",
+      60
+    ],
+    [
+      "base",
+      "normal",
+      60
+    ],
+    [
+      "head",
+      "normal",
+      60
+    ],
+    [
+      "base",
+      "f10",
+      60
+    ],
+    [
+      "head",
+      "f10",
+      60
+    ],
+    [
+      "base",
+      "normal",
+      0
+    ],
+    [
+      "head",
+      "normal",
+      0
+    ],
+    [
+      "base",
+      "f10",
+      0
+    ],
+    [
+      "head",
+      "f10",
+      0
+    ]
+  ],
+  "plan_text_sha256": "b0faeace9952517e215755d7813fad851073b5b678257989864ecdd0a940cd65",
+  "instrumentation_sha256": {
+    "causal_capture.py": "c65725581c6100097e640d019c8c3f57d55a8acb5e2919b60a32151f576091d2",
+    "causal_process.py": "ef46796f33b851f91d740fdff1dac1385da91796e44c8f36934ba18d338e04fb",
+    "causal_sampler.py": "7261880936672977d82b8bdb7adf0eb5f05167d909959ea655fe6d1bd1eca9c5",
+    "test_causal.py": "d8c929a2c37978d21a1533d2080885ae3afbe94fe44840d3e6213b8ec6a0f75d"
+  }
+}

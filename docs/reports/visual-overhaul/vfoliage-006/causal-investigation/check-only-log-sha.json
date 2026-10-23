@@ -1,0 +1,12 @@
+[
+  {
+    "file": "causal-check.txt.gz",
+    "original_sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "gzip_sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  },
+  {
+    "file": "causal-base-check.txt.gz",
+    "original_sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+    "gzip_sha256": "40055f372d77102e2f4751050baece9740fefc06f51be4f4d463319383875856"
+  }
+]
