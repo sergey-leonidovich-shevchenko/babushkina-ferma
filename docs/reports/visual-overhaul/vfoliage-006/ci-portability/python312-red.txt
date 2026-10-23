@@ -1,0 +1,15 @@
+F
+======================================================================
+FAIL: test_native_summary_reproducible (__main__.PerfContractTests.test_native_summary_reproducible)
+The complete raw package reproduces the stored result without closing FPS or leak gates.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/test_perf_contract.py", line 223, in test_native_summary_reproducible
+    self.assertEqual(result,p.read(p.REPORT/'summary.json'))
+AssertionError: {'tas[686 chars]11631, 'frames': 691, 'static_bytes': {'first'[6804 chars].306} != {'tas[686 chars]1163100000001, 'frames': 691, 'static_bytes': [6843 chars].306}
+Diff is 20310 characters long. Set self.maxDiff to None to see it.
+
+----------------------------------------------------------------------
+Ran 1 test in 0.760s
+
+FAILED (failures=1)

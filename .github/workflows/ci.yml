@@ -41,12 +41,17 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.11'
       - name: Load visual audit baselines
         run: git fetch --no-tags origin 1b1c39af20b48559904b4a775135305690d0bd10 6b9cc2927374e345553ddb8d9ba7e2e66e6392ec 1621d49502cd244c1036168f9d235561b708b33a 6ade4a2c8a2fac640109d3365c69bd4b6ccadfc4 12e6e2c7ac30f87af839cdb8cd0e2a4d1e558ee5
       - name: Install quality gate dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install --no-install-recommends -y zsh ripgrep fonts-noto-cjk python3-pil
+          sudo apt-get install --no-install-recommends -y zsh ripgrep fonts-noto-cjk
+      - name: Install pinned image tooling
+        run: python -m pip install Pillow==11.3.0
       - name: Download Godot 4.7.1
         run: |
           mkdir -p .ci

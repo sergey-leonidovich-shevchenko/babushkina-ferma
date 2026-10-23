@@ -36,5 +36,6 @@
     "game_failed": 0,
     "report": "pr-handoff.json"
   },
-  "current_review_evidence": "review-1/completion.json"
+  "current_review_evidence": "review-1/completion.json",
+  "latest_branch_checks": "ci-portability/completion.json"
 }
