@@ -1,0 +1,14 @@
+{
+  "version": "0.0.322",
+  "source_revision_at_capture": "9c8eef568f07130f0c4a69eb9ee9e0160afe8548",
+  "tracked_worktree_changes": [],
+  "workflow_revision": "9c8eef568f07130f0c4a69eb9ee9e0160afe8548",
+  "engine_executable_file_sha256": "ecc8da2d60100102cfca6e833d3860d7436b46ae062fa072ce89a6c95d664a3f",
+  "python": "3.11.9 (v3.11.9:de54cf5be3, Apr  2 2024, 07:12:50) [Clang 13.0.0 (clang-1300.0.29.30)]",
+  "pillow": "11.3.0",
+  "platform": "macOS-15.7.9-x86_64-i386-64bit",
+  "libc": [
+    "",
+    ""
+  ]
+}

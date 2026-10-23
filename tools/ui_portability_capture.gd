@@ -9,6 +9,7 @@ var game: Node
 var rows: Array[Dictionary] = []
 var errors: Array[String] = []
 var production_text: Dictionary
+var cache_directories: Array[String] = []
 
 
 ## Требует новое место вывода и отдельный профиль, сохраняя пользовательские слоты и настройки.
@@ -19,10 +20,22 @@ func _initialize() -> void:
 	if output.is_empty() or DirAccess.dir_exists_absolute(output):
 		quit(2)
 		return
+	# GLES создаёт user://shader_cache до SceneTree._initialize. После смены профиля
+	# тот же относительный путь требует прежнего дерева папок в новом QA-профиле.
+	cache_directories = cache_layout(ProjectSettings.globalize_path("user://shader_cache"))
 	ProjectSettings.set_setting("application/config/use_custom_user_dir", true)
 	ProjectSettings.set_setting(
 		"application/config/custom_user_dir_name", "Codex-CI-UI-" + str(Time.get_ticks_usec())
 	)
+	for relative in cache_directories:
+		var cache_path := OS.get_user_data_dir().path_join("shader_cache").path_join(relative)
+		var error := DirAccess.make_dir_recursive_absolute(cache_path)
+		if error != OK:
+			push_error(
+				"UI PORTABILITY: cannot create isolated shader cache directories: " + str(error)
+			)
+			quit(2)
+			return
 	_start.call_deferred()
 
 
@@ -81,6 +94,7 @@ func _start() -> void:
 		"text_scale": 1.2,
 		"profile": OS.get_user_data_dir().get_file(),
 		"requested_font_paths": paths,
+		"cache_directory_skeleton": cache_directories,
 		"baseline_text_sha256": digest(FileAccess.get_file_as_bytes(BASELINE)),
 		"before_audit": before_audit,
 		"after_audit": after_audit,
@@ -104,6 +118,18 @@ func _start() -> void:
 	)
 	game.free()
 	quit(0 if errors.is_empty() and int(after_audit.failed) == 0 else 1)
+
+
+## Читает только имена папок кеша; не переносит шейдерные файлы, настройки или сохранения пользователя.
+func cache_layout(folder: String, prefix: String = "") -> Array[String]:
+	var paths: Array[String] = []
+	if not DirAccess.dir_exists_absolute(folder):
+		return paths
+	for child in DirAccess.get_directories_at(folder):
+		var relative := prefix.path_join(child)
+		paths.append(relative)
+		paths.append_array(cache_layout(folder.path_join(child), relative))
+	return paths
 
 
 ## Сохраняет целый framebuffer и четыре настоящих вызова подсказки, сопоставляя общую геометрию и состояние.

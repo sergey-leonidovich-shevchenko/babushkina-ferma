@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "artifacts": [
+    {
+      "folder": "linux-x64",
+      "artifact_id": 12483681922,
+      "zip_sha256": "9d74aeabf7aaf6f69c65bbfeedc4309e00701c0d66580e71cd783b7cfc1db39b",
+      "run_id": 39912695233,
+      "head_sha": "65fb6147c7dc7a0388ebf9eacea73e5e65498a4c",
+      "status": "failed_shader_cache_after_valid_frames"
+    },
+    {
+      "folder": "macos-x64",
+      "artifact_id": 12484095569,
+      "zip_sha256": "66053db16dc7ea397cd0fb3c8d867ee7b5a8a97e4edbacbc3406ef3e33c1da7c",
+      "run_id": 39912695233,
+      "head_sha": "65fb6147c7dc7a0388ebf9eacea73e5e65498a4c",
+      "status": "diagnostic_success"
+    }
+  ]
+}

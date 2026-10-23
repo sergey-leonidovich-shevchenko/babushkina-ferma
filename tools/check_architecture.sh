@@ -169,6 +169,8 @@ python3 tools/item_sizes.py
 python3 tools/test_item_sizes.py
 python3 tools/preview_portability.py
 python3 tools/test_preview_portability.py
+python3 tools/item_export_contract.py
+python3 tools/test_item_export_contract.py
 python3 tools/alpha_audit.py
 python3 tools/test_alpha_audit.py
 python3 tools/test_alpha_proof.py

@@ -506,3 +506,8 @@ assets/inbox/*
 !tools/foliage_recovery*.gd.uid
 !tools/foliage_recovery*.py
 !tools/test_foliage_recovery.py
+!tools/item_export_contract*.gd
+!tools/item_export_contract*.gd.uid
+!tools/item_export_contract.py
+!tools/test_item_export_contract.py
+!docs/reports/visual-overhaul/vfoliage-006/ci-repro/**/*.log

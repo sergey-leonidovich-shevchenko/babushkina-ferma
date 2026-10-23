@@ -1,0 +1,163 @@
+{
+  "architecture": "x86_64",
+  "cases": [
+    {
+      "actual_bytes": 102400,
+      "bounds": [
+        41.0,
+        30.0,
+        175.0,
+        206.0
+      ],
+      "derived_bytes": 102400,
+      "derived_file": "wood_dowel-resized.png",
+      "derived_file_sha256": "097a81e6802304e1fa4f847ecdf1f54c02bf9bb58018e191de5059f18f40671b",
+      "derived_png_serialized_sha256": "097a81e6802304e1fa4f847ecdf1f54c02bf9bb58018e191de5059f18f40671b",
+      "derived_rgba_sha256": "5ce3c2cf799af4119955c0f392511c568530554e117311c16b5f797c7b3d76c2",
+      "differing_bytes": 1,
+      "id": "wood_dowel",
+      "max_delta": 1,
+      "padding": 8.0,
+      "reference_file_sha256": "3ee13cd968f347142624d048c8156e18588a18946371e5719dcaa5bb7454e7f6",
+      "reference_png_serialized_sha256": "3ee13cd968f347142624d048c8156e18588a18946371e5719dcaa5bb7454e7f6",
+      "reference_rgba_sha256": "1064b3affcabf45ccb7ea1878448a164d658a03814058a80b5c7c31543317aaa",
+      "samples": [
+        {
+          "actual": 254,
+          "channel": "a",
+          "expected": 255,
+          "offset": 66311,
+          "x": 97,
+          "y": 103
+        }
+      ],
+      "size": 160.0,
+      "source_file_sha256": "fa69cd28511e354eddfaf598da1dddb652bfc1e0ea70c559c381bfcee03c6e78",
+      "source_png_serialized_sha256": "fa69cd28511e354eddfaf598da1dddb652bfc1e0ea70c559c381bfcee03c6e78",
+      "source_rgba_sha256": "017dface12d60655a1ee24d2853b6b225dd3483078fc75b6f1b4d7697907a1a1"
+    },
+    {
+      "actual_bytes": 102400,
+      "bounds": [
+        0.0,
+        0.0,
+        240.0,
+        264.0
+      ],
+      "derived_bytes": 102400,
+      "derived_file": "wax_candle-resized.png",
+      "derived_file_sha256": "dee00f612bd810f176124fd6c25103d12269a894124bc171368d96a012d29957",
+      "derived_png_serialized_sha256": "dee00f612bd810f176124fd6c25103d12269a894124bc171368d96a012d29957",
+      "derived_rgba_sha256": "72a1983d9b55f45c2bcb8a10c7e53fdb485f0a6c708e844915c5b484141f931d",
+      "differing_bytes": 1,
+      "id": "wax_candle",
+      "max_delta": 1,
+      "padding": 8.0,
+      "reference_file_sha256": "87256cf402770b1460e173b4d775367d2ff886361584863b1b31c4f896d0cf85",
+      "reference_png_serialized_sha256": "87256cf402770b1460e173b4d775367d2ff886361584863b1b31c4f896d0cf85",
+      "reference_rgba_sha256": "eb110f05baa65a0c30ac08a25bdde3a99dc31bfa86ebb76e1965e1cbf92f72f0",
+      "samples": [
+        {
+          "actual": 38,
+          "channel": "b",
+          "expected": 39,
+          "offset": 22798,
+          "x": 99,
+          "y": 35
+        }
+      ],
+      "size": 160.0,
+      "source_file_sha256": "2150142571b9b7eae63d6847a71f0c6f1ccbbcab4ab75218d44959cd5b01f345",
+      "source_png_serialized_sha256": "2150142571b9b7eae63d6847a71f0c6f1ccbbcab4ab75218d44959cd5b01f345",
+      "source_rgba_sha256": "8c80dec19eae6cb10a2536142414d7a7fc1cc67d5ad7c730894a656a99ed18c1"
+    },
+    {
+      "actual_bytes": 102400,
+      "bounds": [
+        0.0,
+        0.0,
+        403.0,
+        373.0
+      ],
+      "derived_bytes": 102400,
+      "derived_file": "compost-resized.png",
+      "derived_file_sha256": "b4a70ebaec0ad01ab9219f284ec5851098c36b0362a4330916034451e310dd35",
+      "derived_png_serialized_sha256": "b4a70ebaec0ad01ab9219f284ec5851098c36b0362a4330916034451e310dd35",
+      "derived_rgba_sha256": "e87aec9eec87e50f7f8ea9ab1236c715c1f8acf70461880aba700409c212569b",
+      "differing_bytes": 1,
+      "id": "compost",
+      "max_delta": 1,
+      "padding": 8.0,
+      "reference_file_sha256": "27917b5af0e94fdc2ac238c53e6d7d6f0767aa3b022b8fea4a4c779226bc7c1d",
+      "reference_png_serialized_sha256": "27917b5af0e94fdc2ac238c53e6d7d6f0767aa3b022b8fea4a4c779226bc7c1d",
+      "reference_rgba_sha256": "18f38fd0bfeea526b39a285efef87ccc43f9425b8ab580b396a10509d173312d",
+      "samples": [
+        {
+          "actual": 76,
+          "channel": "r",
+          "expected": 75,
+          "offset": 14956,
+          "x": 59,
+          "y": 23
+        }
+      ],
+      "size": 160.0,
+      "source_file_sha256": "fcac15e9fef851f176a4c54c27aa05692e4e57f835cfe7ac2c5c3e79e5cb43ba",
+      "source_png_serialized_sha256": "fcac15e9fef851f176a4c54c27aa05692e4e57f835cfe7ac2c5c3e79e5cb43ba",
+      "source_rgba_sha256": "e2f144f6bcb1661c479508db8b24a89f3770c5e5fa850bf79f8aa56f590a571b"
+    },
+    {
+      "actual_bytes": 102400,
+      "bounds": [
+        0.0,
+        0.0,
+        333.0,
+        241.0
+      ],
+      "derived_bytes": 102400,
+      "derived_file": "fishing_bait-resized.png",
+      "derived_file_sha256": "5ed70b5f3b73ed71d4fe3ac999c05c08189f3b9f5ef7e50134d8fb061c3302ca",
+      "derived_png_serialized_sha256": "5ed70b5f3b73ed71d4fe3ac999c05c08189f3b9f5ef7e50134d8fb061c3302ca",
+      "derived_rgba_sha256": "5385a559794a0bfae14905b94b7efd4ea6db4f6280b69110f9fd3982fdb32e0f",
+      "differing_bytes": 1,
+      "id": "fishing_bait",
+      "max_delta": 1,
+      "padding": 8.0,
+      "reference_file_sha256": "1f549271a3530b20bf1733e3b0191928cfe1ccbf1e201c8a00672047fc3a641c",
+      "reference_png_serialized_sha256": "1f549271a3530b20bf1733e3b0191928cfe1ccbf1e201c8a00672047fc3a641c",
+      "reference_rgba_sha256": "f3d463de71d0a3ca3db8456f1b4a51b87f8507b2d753d430653c461157301e5b",
+      "samples": [
+        {
+          "actual": 34,
+          "channel": "b",
+          "expected": 33,
+          "offset": 35006,
+          "x": 111,
+          "y": 54
+        }
+      ],
+      "size": 160.0,
+      "source_file_sha256": "b8deced424f71fb1eab627057db831eb4250f005a2b671b18b3b3b7cdf1f4ca3",
+      "source_png_serialized_sha256": "b8deced424f71fb1eab627057db831eb4250f005a2b671b18b3b3b7cdf1f4ca3",
+      "source_rgba_sha256": "68d057aa4de3d188ad24b638699ee904ba287e003f2082fc527850526c37439a"
+    }
+  ],
+  "collector_sha256": "40dae9d2458dafcaa7e7ea3ac057d981e2c9c82b7dd44a2a7ad235fbbf8948b2",
+  "engine": {
+    "build": "official",
+    "hash": "a13da4feb8d8aefc283c3763d33a2f170a18d541",
+    "hex": 263937,
+    "major": 4,
+    "minor": 7,
+    "patch": 1,
+    "status": "stable",
+    "string": "4.7.1-stable (official)",
+    "timestamp": 0
+  },
+  "fitter_sha256": "47743787c4b31016690a8ccd9b9c886fe72b8b5312620f38510006c594aa6c7e",
+  "input_manifest_sha256": "d6c58526775d0f863c6b998175b636da3b7a4515656bf6a5f87358afef47b6f6",
+  "os": "Linux",
+  "purpose": "diagnostics_only_not_acceptance",
+  "revision": "9c8eef568f07130f0c4a69eb9ee9e0160afe8548",
+  "schema": 1
+}
