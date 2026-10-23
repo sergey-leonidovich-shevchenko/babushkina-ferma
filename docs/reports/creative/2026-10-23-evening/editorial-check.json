@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "checkedAt": "2026-10-23T19:20:29.160Z",
+  "base": "fe5919686aed1b6ea66cd1112a8075a57d448946",
+  "preserved": {
+    "ideas": 221,
+    "assessments": 60,
+    "indexPrefix": 138,
+    "groups": true,
+    "epicGroups": true,
+    "sources": 90
+  },
+  "added": {
+    "ideas": 10,
+    "ownPlans": 10,
+    "ownEpics": 10,
+    "futureTasks": 53,
+    "futureGameScenarios": 60,
+    "editorialTask": "IDEA-REVIEW-20261023-EVENING",
+    "editorialStatus": "in_progress"
+  },
+  "catalog": {
+    "plans": 103,
+    "epics": 157,
+    "tasks": 2003
+  },
+  "checks": {
+    "uniqueTaskIDs": true,
+    "allDependenciesResolve": true,
+    "acyclic": true,
+    "assessmentSchema": true,
+    "oldRecordsDeepEqual": true,
+    "ownEpicGroups": true,
+    "noDailyGameplayEpics": true
+  },
+  "gameplayScenariosExecuted": false
+}

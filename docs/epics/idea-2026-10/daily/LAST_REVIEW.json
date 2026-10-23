@@ -2,21 +2,22 @@
   "schema": 1,
   "automation_id": "10",
   "review_date": "2026-10-23",
-  "from_utc": "2026-10-22T05:20:45.818Z",
-  "through_utc": "2026-10-22T23:31:21.617799+00:00",
-  "source_main": "ab52022ac0ba38954c95bfcc8b3cc94d1cda03e0",
-  "source_origin_main": "9c2946ef7be42be617a11f5432b97cb58711c60e",
+  "run": "evening",
+  "from_utc": "2026-10-22T23:31:21.617799+00:00",
+  "through_utc": "2026-10-23T18:28:37.501744+00:00",
+  "source_main": "fe5919686aed1b6ea66cd1112a8075a57d448946",
+  "source_origin_main": "fe5919686aed1b6ea66cd1112a8075a57d448946",
   "ideas": [
-    "IDEA-212",
-    "IDEA-213",
-    "IDEA-214",
-    "IDEA-215",
-    "IDEA-216",
-    "IDEA-217",
-    "IDEA-218",
-    "IDEA-219",
-    "IDEA-220",
-    "IDEA-221"
+    "IDEA-222",
+    "IDEA-223",
+    "IDEA-224",
+    "IDEA-225",
+    "IDEA-226",
+    "IDEA-227",
+    "IDEA-228",
+    "IDEA-229",
+    "IDEA-230",
+    "IDEA-231"
   ],
-  "report": "docs/reports/creative/2026-10-23/README.md"
+  "report": "docs/reports/creative/2026-10-23-evening/README.md"
 }
