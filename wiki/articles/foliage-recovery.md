@@ -41,3 +41,10 @@ VFOLIAGE-006 добавляет короткое плавное восстано
 [Нативная сводка](../../docs/reports/visual-overhaul/vfoliage-006/review-1/summary.json) · [Изменённые исходники](../../docs/reports/visual-overhaul/vfoliage-006/review-1/changes.json) · [Условия приёмки](../../docs/reports/visual-overhaul/vfoliage-006/review-1/native-admission.json).
 
 [Как проходит ревью](pull-request-review.md).
+
+
+## Переносимость проверок и ревью
+
+В PR №1 отдельно рассмотрен контракт повторного экспорта preview: реальные source-файлы/RGBA, геометрия и неизменные preview PNG/RGBA сверяются точно. Для 382 предметов закреплён один целый derived hash, для четырёх — два доказанных на одинаковых данных Linux/macOS. Неизвестный результат, даже с отличием 1/255, отклоняется; игровой PNG нельзя подменить известным Linux-derived. Engine/fitter и реестр сохранены без расширения. Team Lead разрешил интеграцию рассмотренного patch после предметного ревью на 0.0.323.
+
+Это ещё не принятие VFOLIAGE-006: карточка остаётся в работе, до merge необходимы полный зелёный CI, отдельное полное ревью окончательного SHA и решение Team Lead. [Интеграция и фактические проверки](../../docs/reports/visual-overhaul/vfoliage-006/ci-integration/README.md).

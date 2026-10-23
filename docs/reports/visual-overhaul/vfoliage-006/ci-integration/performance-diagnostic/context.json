@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "purpose": "diagnostic_only_not_performance_acceptance",
+  "gate_changed": false,
+  "minimum_fps": 50,
+  "engine_frame_limit": 480,
+  "candidate": "QA-only cap60 after super._ready; not connected to gate",
+  "candidate_f10_passed": false,
+  "runtime_paths_unchanged": true,
+  "files": {
+    "original-gate.txt": "77f0a6670c2bbc17be87e9633bf263cf60e3395ea7a2f0ce949df7673c3a6166",
+    "original-f10-raw.txt": "4a24c52ed68d49d9a85864aa3647aeacbbe483a754515e10e368f27802eadc36",
+    "prototype-normal.txt": "44e42f0e2c02a7b864a207d981345aed9056c1887939c710278e84b94f2f34d0",
+    "prototype-f10.txt": "8e36a53cd5ad0e69ca7a64472120bf516db3064468aa5631099c4265c4d3a72e",
+    "prototype.gd": "93106ef0648a83186057facb09c909c5884a17a81474d7f1c31bd3d35791cb7f",
+    "prototype.tscn": "28ed649e53d1c882969397591517ed319af10c883a7f997ba7b65d2393409c28"
+  }
+}

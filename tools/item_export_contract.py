@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Проверяет отдельное предложение конечных точных экспортов; не меняет игровой gate."""
+"""Сверяет рассмотренный конечный реестр экспортов с реальными капсулами и игровыми файлами."""
 
 from pathlib import Path
 import json
@@ -130,5 +130,5 @@ if __name__ == "__main__":
     if problems:
         raise SystemExit("\n".join(problems))
     print(
-        "EXPORT CONTRACT PROPOSAL: exact source/reference files and finite outputs valid; pending review"
+        "EXPORT CONTRACT: exact source/reference files and reviewed finite outputs valid"
     )

@@ -3,7 +3,7 @@ extends RefCounted
 const PATH := "res://tests/fixtures/item_export_contract/manifest.json"
 
 
-## Загружает отдельное предложение контракта; старый игровой suite его пока не вызывает.
+## Читает рассмотренный конечный реестр для игрового suite; историческая маркировка данных сохранена.
 static func manifest() -> Dictionary:
 	return JSON.parse_string(FileAccess.get_file_as_string(PATH))
 

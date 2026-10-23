@@ -69,23 +69,57 @@ func test_catalogue_has_two_roles_without_original_requests() -> void:
 	expect(Prepared.cache_info().preview_load_requests==Catalog.DATA.entries.size(),"each first preview visit has one explicit load request")
 	Assets.initialize_item_icons(game.InventorySystem.ITEM_DATA.keys()); game.free()
 
-## Сценарий: готовые превью сверяются с повторным прямым экспортом канонического источника.
-## Исходное состояние: все оригиналы доступны сборщику; игровые пути выбора уже проверены отдельно без их загрузки.
-## Ожидаемый результат: каждый 160px PNG получен напрямую из целого источника, а не растянут из маленькой иконки.
+## Сценарий: источник и готовый preview проверяются точно, прямой экспорт — по рассмотренным полным RGBA-хешам.
+## Исходное состояние: закреплённые engine/fitter, все оригиналы и неизменный реестр двух реальных CI-капсул.
+## Ожидаемый результат: игровые PNG/source побайтно сохранны; неизвестный вывод resize, даже 1/255, запрещён.
 func test_prepared_files_match_full_resolution_sources() -> void:
-	var game := make_game(); var fitter := preload("res://tools/item_ui_fitter.gd")
+	var game := make_game()
+	var fitter := preload("res://tools/item_ui_fitter.gd")
+	var contract := preload("res://tools/item_export_contract.gd")
+	var manifest := contract.manifest()
+	expect(
+		contract.environment(manifest, game.InventorySystem.ITEM_DATA.keys()).is_empty(),
+		"exact export environment and source files"
+	)
 	for kind in game.InventorySystem.ITEM_DATA:
-		var source: Image=Assets.item_visual(kind).texture.get_image()
-		if source.is_compressed(): source.decompress()
-		var expected := fitter.fitted(source,source.get_used_rect(),160,8)
-		var actual := Image.load_from_file(ProjectSettings.globalize_path("res://assets/game/items/ui/preview/"+kind+".png"))
+		var visual := Assets.item_visual(kind)
+		var source: Image = visual.texture.get_image()
+		if source.is_compressed():
+			source.decompress()
+		var expected := fitter.fitted(source, source.get_used_rect(), 160, 8)
+		var actual := Image.load_from_file(
+			ProjectSettings.globalize_path("res://assets/game/items/ui/preview/" + kind + ".png")
+		)
 		if actual.get_data() != expected.get_data():
-			print("ITEM PREVIEW DIFFERENCE: ", kind, " ", JSON.stringify(pixel_difference(actual, expected, source)))
-		expect(actual.get_format()==Image.FORMAT_RGBA8 and actual.get_data()==expected.get_data(),"prepared preview matches direct canonical export: "+kind)
-	Assets.initialize_item_icons(game.InventorySystem.ITEM_DATA.keys()); game.free()
+			print(
+				"ITEM PREVIEW DIFFERENCE: ",
+				kind,
+				" ",
+				JSON.stringify(pixel_difference(actual, expected, source))
+			)
+		var path := "res://assets/game/items/ui/preview/" + String(kind) + ".png"
+		var errors := contract.inspect(
+			manifest.entries[kind],
+			visual,
+			source,
+			actual,
+			FileAccess.get_file_as_bytes(path),
+			expected
+		)
+		expect(
+			errors.is_empty(),
+			(
+				"exact actual PNG/source and evidenced complete direct export: "
+				+ kind
+				+ ": "
+				+ str(errors)
+			)
+		)
+	Assets.initialize_item_icons(game.InventorySystem.ITEM_DATA.keys())
+	game.free()
 
 
-## Печатает точную диагностику расхождения, сохраняя требование побайтного совпадения превью.
+## Печатает точное отличие resize для диагностики; решение принимает отдельный закреплённый контракт.
 func pixel_difference(actual: Image, expected: Image, source: Image) -> Dictionary:
 	var actual_bytes := actual.get_data()
 	var expected_bytes := expected.get_data()
@@ -109,7 +143,7 @@ func pixel_difference(actual: Image, expected: Image, source: Image) -> Dictiona
 	}
 
 
-## Вычисляет SHA исходного PNG для сопоставления платформенного вывода с паспортом сборщика.
+## Хеширует новую PNG-сериализацию для диагностики; это не SHA исходного файла или raw RGBA.
 func image_digest(image: Image) -> String:
 	var context := HashingContext.new()
 	context.start(HashingContext.HASH_SHA256)

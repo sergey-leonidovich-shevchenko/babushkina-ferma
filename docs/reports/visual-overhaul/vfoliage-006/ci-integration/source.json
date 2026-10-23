@@ -1,0 +1,26 @@
+{
+  "version": "0.0.324",
+  "parent_revision": "0ee148dcf47da7e314d885cbdda9c063d8f447c5",
+  "worktree_sources": {
+    ".github/workflows/ci.yml": "01e072f8c4fc9f3cc509cfbc9f8660a6e6a184e5977774b451b1887420fa956b",
+    "TESTING.md": "d8b3d79666f7a137a26db374c39f3b6b80fafcee1cd6d559f48d8948e48804f0",
+    "VERSION": "92a284994d8ede72963dfaa8e365d4896fe874e0550733ac493f115b2396f93c",
+    "docs/epics/visual-overhaul-2026-10/backlog.json": "2107dd60550507bf098818a39a1bec50e6421561fc48ac170476e4c8c2a13067",
+    "docs/epics/visual-overhaul-2026-10/epics/vfoliage.md": "5f721801e35be45906ac6190751690e64878e26124aec22d7c8c1b8839b165bd",
+    "docs/reports/visual-overhaul/vfoliage-006/ci-integration/README.md": "ac0223f73ce0d53493c203da7e2c23e495844ce62165b95d5cecf201ec37b686",
+    "docs/reports/visual-overhaul/vfoliage-006/ci-integration/performance-diagnostic/context.json": "77dda1479ae6e20379a5ec3132b65e229aa7361004fa1cca8bd71b99d39d3313",
+    "docs/reports/visual-overhaul/vfoliage-006/ci-integration/performance-diagnostic/original-f10-raw.txt": "4a24c52ed68d49d9a85864aa3647aeacbbe483a754515e10e368f27802eadc36",
+    "docs/reports/visual-overhaul/vfoliage-006/ci-integration/performance-diagnostic/original-gate.txt": "77f0a6670c2bbc17be87e9633bf263cf60e3395ea7a2f0ce949df7673c3a6166",
+    "docs/reports/visual-overhaul/vfoliage-006/ci-integration/performance-diagnostic/prototype-f10.txt": "8e36a53cd5ad0e69ca7a64472120bf516db3064468aa5631099c4265c4d3a72e",
+    "docs/reports/visual-overhaul/vfoliage-006/ci-integration/performance-diagnostic/prototype-normal.txt": "44e42f0e2c02a7b864a207d981345aed9056c1887939c710278e84b94f2f34d0",
+    "docs/reports/visual-overhaul/vfoliage-006/ci-integration/performance-diagnostic/prototype.gd": "93106ef0648a83186057facb09c909c5884a17a81474d7f1c31bd3d35791cb7f",
+    "docs/reports/visual-overhaul/vfoliage-006/ci-integration/performance-diagnostic/prototype.tscn": "28ed649e53d1c882969397591517ed319af10c883a7f997ba7b65d2393409c28",
+    "docs/reports/visual-overhaul/vfoliage-006/ci-repro/README.md": "e99579e91ecd876481dfde3795a94c38a24bbc02651648069903e59b42f33c86",
+    "project.godot": "ade65eb0028097aa3f3aae4b5f27bbc52db5d6a8744fcdec4cdf053d9de6cc83",
+    "tests/suites/item_sizes_suite.gd": "f540ada019127436300b742667807cb19b729944aad4355c75f75bbe3df1d8e2",
+    "tools/item_export_contract.gd": "ae118892874be3e5dbba32864636c6f8c328b9537d180f6b599f5ac5a438f6a9",
+    "tools/item_export_contract.py": "04219a9073aac08a249497e5b3e5654acf5c11ead92ecc26b167de62671eeac3",
+    "tools/item_export_contract_review.gd": "85adb9f3750bdf0d959508db125c8c9bd2f1bbc0adef8b7a1784c2a13824791e",
+    "wiki/articles/foliage-recovery.md": "98ef8b038b5a4d228145a595762a180ef78adb2da798f758f6fbf9d8904554e3"
+  }
+}

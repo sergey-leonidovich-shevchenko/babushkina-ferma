@@ -8,7 +8,7 @@ var checks := 0
 var failures: Array[String] = []
 
 
-## Выполняет предложение отдельно от неизменного item_sizes_suite и портит только копии настоящих ресурсов.
+## Проверяет конечный реестр отдельным процессом и портит только копии настоящих ресурсов.
 func _initialize() -> void:
 	ProjectSettings.set_setting("application/config/use_custom_user_dir", true)
 	ProjectSettings.set_setting(

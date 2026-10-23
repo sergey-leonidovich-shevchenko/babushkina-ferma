@@ -1,0 +1,9 @@
+{
+  "capture": "ci-repro/mac-gl-cachefix",
+  "unchanged_source_count": 396,
+  "differences": [
+    "project.godot"
+  ],
+  "project_version_only": true,
+  "no_new_UI_or_foliage_capture_claimed": true
+}

@@ -1,5 +1,7 @@
 # VFOLIAGE-006: одинаковый стенд Linux/macOS и реальные подсказки HUD
 
+Текущий статус: предметное ревью предложения на `0ee148dc` завершено; Team Lead разрешил интеграцию ровно рассмотренного patch. [Интеграционный отчёт](../ci-integration/README.md) описывает текущее состояние. Ниже сохранены материалы и ограничения исторического предложения; полное одобрение PR ещё ожидается.
+
 Адресная очередь тимлида относится к текущему PR №1, а не к новой игровой карточке. Обязательные замечания: [P1 экспорт](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/1#discussion_r4356305843) и [P2 текст](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/1#discussion_r4356305851). Предыдущий общий путь Godot принят ревьюером; run 39902663777 прошёл import/architecture/Wiki, но игра дала 50383/5, поэтому smoke/performance были пропущены.
 
 ## Фиксированный вход
