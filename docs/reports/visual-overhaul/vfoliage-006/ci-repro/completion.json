@@ -1,0 +1,54 @@
+{
+  "task": "VFOLIAGE-006",
+  "version": "0.0.322",
+  "previous_head": "dd683fc84e4ad58f246860c8d523a2abaaf83ccd",
+  "previous_ci_run": 39902663777,
+  "previous_test_job": 120247508113,
+  "purpose": "addressed CI diagnostics and HUD text fix; final acceptance pending",
+  "python": "3.11.17 (main, Oct 21 2026, 17:37:42) [Clang 23.1.3 ]",
+  "pillow": "11.3.0",
+  "architecture": "passed",
+  "python_suites": 75,
+  "python_tests": 1001,
+  "game_passed": 50370,
+  "game_failed": 0,
+  "profile_tests": 21,
+  "fixed_mac_cases": 4,
+  "fixed_mac_differing_bytes": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "catalogue_items": 386,
+  "physical_source_files": 275,
+  "mac_catalogue_different_ids": [],
+  "mac_ui_audit_passed": 36400,
+  "mac_ui_audit_failed": 0,
+  "mac_ui_frames": 15,
+  "mac_ui_real_callbacks": 60,
+  "native_foliage_version": "0.0.317",
+  "native_sources_identical": 402,
+  "native_source_changes": {
+    "project.godot": {
+      "native": "c41942e1c8a4de6d3815290234b122ca9ae0c20258960b070518c1390ded1722",
+      "current": "41bd2c67b9b130c132940eaae8842489d093cf5915a69d5622765e2e87c2becd"
+    },
+    "scripts/systems/artisan_locale.gd": {
+      "native": "9bd0147bc47406b5378f79183106cdf0a3ded37eb8d534ca28c3c25e54d803d1",
+      "current": "7f1e115974ac3c09697b152ef846182747c158a34a261b433edfdc3798b02798"
+    },
+    "scripts/systems/locale_system.gd": {
+      "native": "12e04e1a8dacaf1185481c21e4dec4ebe1142c93979b293b36b1cfef1df2ba9f",
+      "current": "4e84c4119083e632a36491cd2beca196a0f96827341b57d09ab2937430b68b88"
+    }
+  },
+  "native_change_scope": "two tutorial payloads and project version only; foliage code/shader/assets unchanged",
+  "thresholds_changed": false,
+  "runtime_asset_files_changed": false,
+  "linux_state_at_commit": "new fixed-input matrix not yet published; actual outcome must be inspected",
+  "review_state": "changes_requested",
+  "main_merged": false,
+  "wiki_passed": 135,
+  "wiki_failed": 0
+}

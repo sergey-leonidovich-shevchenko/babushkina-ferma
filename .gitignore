@@ -3,6 +3,14 @@
 wiki/planning/*.lock
 wiki/planning/*.tmp
 tools/*
+!tools/preview_portability*.py
+!tools/preview_portability*.gd
+!tools/preview_portability*.gd.uid
+!tools/ui_portability*.gd
+!tools/ui_portability*.gd.uid
+!tools/test_preview_portability.py
+!tools/item_fingerprint_capture.gd
+!tools/item_fingerprint_capture.gd.uid
 !tools/foliage_contact*.gd
 !tools/foliage_contact*.gd.uid
 !tools/foliage_contact*.py

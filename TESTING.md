@@ -1,5 +1,7 @@
 # Правила тестирования
 
+VFOLIAGE-006, следующий CI-блокер: `tools/preview_portability.py` проверяет фиксированные исходные PNG/сырые RGBA/bounds/движок, `tools/test_preview_portability.py` содержит 21 сценарий: 11 проверок настоящего минимального Godot и десять проверок порчи копий реального HUD. Оба входят в architecture. Дополнительная одинаковая матрица Linux/macOS собирает координату и канал каждого отличия прежнего fitter, не принимая его за byte-exact успех. `tools/ui_portability_capture.gd` снимает полный UI-аудит шести локалей при 120% и 15 настоящих HUD-кадров с наблюдаемыми вызовами; нулевой аудит, кегль ≥8 и ≤3 строки обязательны. [Методика и ограничения](docs/reports/visual-overhaul/vfoliage-006/ci-repro/README.md).
+
 Тестовые файловые фикстуры используют `OS.get_temp_dir()` вместо macOS-пути `/private/tmp`. Прямое сравнение превью остаётся побайтным; при отказе печатаются SHA и величина расхождения. UI-аудит печатает конкретные issues, сохраняя нулевой порог. [Диагностика чистого Linux](docs/reports/visual-overhaul/vfoliage-006/ci-platform/README.md).
 
 Историческая VPIPELINE-009 сохраняет один неотслеживаемый import-компаньон по исходному SHA в historical-inputs. `tools/test_migration_proof.py` содержит 11 проверок: fallback только для точного `.import`, повреждение/утрата оригинала и запрет замены PNG/кода. [Воспроизведение чистого CI](docs/reports/visual-overhaul/vfoliage-006/ci-migration-source/README.md).

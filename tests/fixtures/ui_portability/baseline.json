@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "origin_commit": "dd683fc84e4ad58f246860c8d523a2abaaf83ccd",
+  "source_files": {
+    "scripts/systems/locale_system.gd": "12e04e1a8dacaf1185481c21e4dec4ebe1142c93979b293b36b1cfef1df2ba9f",
+    "scripts/systems/artisan_locale.gd": "9bd0147bc47406b5378f79183106cdf0a3ded37eb8d534ca28c3c25e54d803d1"
+  },
+  "tutorial": {
+    "player_contact": [
+      "Урон появляется при контакте после замаха. Стрелы и магия летят по выбранной линии: можно промахнуться или попасть в преграду. Входящий удар отменяет ещё не выпущенную атаку.",
+      "Damage happens on contact after windup. Arrows and magic follow the aimed line and can miss or hit cover. Getting hit cancels an unreleased attack.",
+      "El daño llega al contacto tras preparar el golpe. Flechas y magia siguen la línea apuntada y pueden fallar o chocar. Recibir daño cancela el ataque sin lanzar.",
+      "Schaden entsteht erst beim Kontakt nach dem Ausholen. Pfeile und Magie folgen der Ziellinie und können verfehlen oder Deckung treffen. Treffer unterbrechen noch nicht ausgelöste Angriffe.",
+      "Les dégâts arrivent au contact après la préparation. Flèches et magie suivent la ligne visée et peuvent rater ou toucher un obstacle. Un coup interrompt une attaque non lancée.",
+      "前摇后命中才造成伤害。箭矢和魔法沿瞄准线飞行，可能打空或撞到掩体。受到攻击会取消尚未释放的攻击。"
+    ],
+    "fertilizer": [
+      "Встань лицом к пустой вспаханной грядке и используй удобрение из рюкзака. Компост ускоряет рост на 20%, смесь роста на 35%, смесь урожая даёт +1 плод. Один сбор расходует удобрение.",
+      "Face an empty tilled bed and use fertilizer from your bag. Compost speeds growth 20%, growth mix 35%, yield mix adds one crop. One harvest uses it up.",
+      "Mira una parcela arada vacía y usa abono. Compost acelera 20%, mezcla de crecimiento 35%, mezcla de rendimiento da +1 fruto. Dura una cosecha.",
+      "Leeres gepflügtes Beet ansehen und Dünger im Rucksack verwenden. Kompost: +20% Wachstum; Wachstumsmix: +35%; Ertragsmix: +1 Frucht. Gilt für eine Ernte.",
+      "Face à un carré labouré vide, utilise l’engrais du sac. Compost : croissance +20%, mélange +35%, rendement +1 fruit. Une récolte le consomme.",
+      "面向空的已耕田地并在背包使用肥料。堆肥加速20%，生长肥35%，丰收肥多产1个作物。一次收获后消耗。"
+    ]
+  }
+}
