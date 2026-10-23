@@ -42,6 +42,8 @@ static func is_walkable(game: Node, position: Vector2) -> bool:
 
 
 ## Выбирает живые препятствия одной карты для синхронного пакета запросов; за его пределами выборка не хранится.
+## Поля словарей остаются живыми, но состав массивов зафиксирован до конца текущего пакета.
+## Изменения состава учитываются при построении новой выборки в следующем Wildlife.update.
 static func location_query(game: Node) -> Dictionary:
 	var location: String = game.current_location
 	return {
