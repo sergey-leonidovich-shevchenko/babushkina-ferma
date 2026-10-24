@@ -1,0 +1,40 @@
+{
+  "task": "VFOLIAGE-009",
+  "version": "0.0.333",
+  "date": "2026-10-24",
+  "checks": [
+    {
+      "name": "architecture",
+      "command": "tools/check_architecture.sh",
+      "exit_code": 0,
+      "log": "controls/architecture-complete.txt.gz",
+      "raw_sha256": "03b8522d2edb0f263146a7993094c40cf64c964b0a079cfdcebf4c8d4ee929c0"
+    },
+    {
+      "name": "game",
+      "command": "./run_tests.sh",
+      "exit_code": 0,
+      "log": "controls/game-complete.txt.gz",
+      "raw_sha256": "f4d8b7297fdedbe915cd956196a5fde15b999ef166bfdef3db70d4cd36084c77"
+    },
+    {
+      "name": "wiki",
+      "command": "pnpm --dir wiki check",
+      "exit_code": 0,
+      "log": "controls/wiki-complete.txt.gz",
+      "raw_sha256": "c33ef295af52c3b7fb5ecf48f9fc13b01471d7bcb0d40d0fdddd11182033a69f"
+    },
+    {
+      "name": "python",
+      "command": "python3 tools/test_foliage_pause.py",
+      "exit_code": 0,
+      "log": "controls/python-complete.txt.gz",
+      "raw_sha256": "ccd1a075ae9e7a0b09d23fce9537300aec85037c348d5b944db10878c195d8de"
+    }
+  ],
+  "native_accepted": false,
+  "pr_state": "draft pending accessible native focus",
+  "runtime_change": "version metadata only; production scripts/assets/main unchanged",
+  "task_status": "in_progress",
+  "task_complete_trailer": false
+}

@@ -3503,7 +3503,7 @@
       "id": "VFOLIAGE-009",
       "epic": "VFOLIAGE",
       "title": "Заморозить эффекты на игровой паузе",
-      "status": "ready",
+      "status": "in_progress",
       "priority": "P0",
       "phase": "pilot",
       "kind": "engineering",
@@ -3539,8 +3539,15 @@
         "confidence": "low",
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
-      "branch": "codex/vfoliage-009-visual-task",
-      "evidence": []
+      "branch": "codex/vfoliage-009-pause-clock",
+      "evidence": [
+        "docs/reports/visual-overhaul/vfoliage-009/README.md",
+        "wiki/articles/foliage-pause.md",
+        "tests/suites/foliage_pause_suite.gd",
+        "tools/foliage_pause_verify.py",
+        "tools/test_foliage_pause.py"
+      ],
+      "result": "В работе, нативная приёмка не завершена. На базе eb7f424129935cf361655a112d007e0c69ff7853/0.0.333 профиль2966/0 подтвердил13 причин паузы при30/60/120Гц, неизменные state/save, первый resume без долга; production scripts/assets/main не изменены. Первая серия130 состояний/260PNG отклонена: focused=false; повторная прервана до первого кадра без доступного системного фокуса (экран macOS заблокирован). Все попытки, планы и403 исходника каждой сохранены.13 Python-контролей отклоняют порчу данных и ложный допуск. Требуется новый заранее закреплённый нативный запуск при разблокированном дисплее; затем exact-head CI/review и решение Team Lead. PR готовится как draft, Task-Complete отсутствует; VFOLIAGE-010/VRELEASE-003/VMAP-003 не закрыты."
     },
     {
       "id": "VFOLIAGE-010",

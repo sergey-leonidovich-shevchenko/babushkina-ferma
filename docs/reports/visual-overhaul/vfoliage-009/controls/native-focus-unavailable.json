@@ -1,0 +1,25 @@
+{
+  "task": "VFOLIAGE-009",
+  "date": "2026-10-24",
+  "source": "ioreg -n Root -d1; own Godot native captured root.has_focus",
+  "system_report": {
+    "IOConsoleLocked": false,
+    "CGSSessionScreenIsLocked": true
+  },
+  "attempts": [
+    {
+      "path": "native",
+      "collection_complete": true,
+      "accepted": false,
+      "unfocused_states": 130
+    },
+    {
+      "path": "native-focused",
+      "collection_complete": false,
+      "accepted": false,
+      "error": "inventory: actual native focus unavailable"
+    }
+  ],
+  "raw_files_unchanged": true,
+  "next_action": "Fresh predeclared native run after display unlock; no relaxation of focus requirement"
+}

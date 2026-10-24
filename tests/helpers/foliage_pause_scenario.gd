@@ -1,0 +1,112 @@
+extends RefCounted
+
+const Points := preload("res://tools/visual_camera_points.gd")
+const Wind := preload("res://scripts/presentation/foliage_wind.gd")
+const Pose := preload("res://scripts/systems/presentation_pose_system.gd")
+const Focus := preload("res://scripts/systems/focus_pause_system.gd")
+const Hub := preload("res://scripts/systems/menu_hub_system.gd")
+const Cabinet := preload("res://scripts/systems/dev_cabinet_system.gd")
+const MODES := [
+	"inventory", "journal", "hero_menu", "world_map", "pause", "settings",
+	"confirmation", "focus", "suspended", "focus_inventory", "editor", "cabinet", "storage"
+]
+
+
+## Создаёт настоящую сцену в изолированном профиле; ручные такты QA не являются FPS или аппаратным вводом.
+static func create(tree: SceneTree) -> Node:
+	var game := Points.create_game()
+	tree.root.add_child(game)
+	Points.configure(game, Points.registry().points[0])
+	game.settings_state.reduced_motion = false
+	game.set_meta(&"camera_reference_zoom", 1.2)
+	game.player = Wind.placements()[6].anchor + Vector2(-12, 0)
+	game.update_camera()
+	Pose.reset(game)
+	for index in 12:
+		step(game, 1.0 / 60.0)
+	return game
+
+
+## Выполняет реальный физический callback и общий отображаемый кадр; часы вручную не подменяются.
+static func step(game: Node, delta: float) -> void:
+	game._physics_process(delta)
+	Pose.present(game, 1.0)
+	game._process(delta)
+
+
+## Открывает существующие окна штатными API; домашний шкаф проверяется в прежнем доме без новой графики.
+static func enter(game: Node, mode: String) -> bool:
+	game.set_meta(&"pause_qa_focus_policy", game.settings_state.pause_on_focus_loss)
+	game.set_meta(&"pause_qa_cabinet_setting", Cabinet.enabled())
+	match mode:
+		"inventory": Hub.open(game, "inventory")
+		"journal": Hub.open(game, "quests")
+		"hero_menu": Hub.open(game, "hero")
+		"world_map": Hub.open(game, "world")
+		"pause": return game.MenuSystem.open_pause(game)
+		"settings": game.MenuSystem.open_settings(game, false)
+		"confirmation":
+			game.MenuSystem.open_pause(game)
+			game.MenuSystem.request_confirmation(game, "exit_game")
+		"focus", "suspended", "focus_inventory":
+			if mode == "focus_inventory": Hub.open(game, "inventory")
+			game.settings_state.pause_on_focus_loss = true
+			game._notification(
+				MainLoop.NOTIFICATION_APPLICATION_PAUSED if mode == "suspended"
+				else MainLoop.NOTIFICATION_APPLICATION_FOCUS_OUT
+			)
+		"editor": game.LevelEditorSystem.toggle(game)
+		"cabinet", "storage":
+			game.current_location = "cottage_interior"
+			game.player = Cabinet.POSITION if mode == "cabinet" else game.StorageSystem.CHEST_POSITION
+			game.sync_background_location()
+			game.update_camera()
+			Pose.reset(game)
+			Wind.update(game)
+			if mode == "cabinet":
+				ProjectSettings.set_setting(Cabinet.SETTING, true)
+				return Cabinet.open(game)
+			game.home_chest_owned = true
+			return game.StorageSystem.open(game)
+		_: return false
+	return game.GameLoop.modal_active(game) or game.GameLoop.gameplay_window_open(game) or game.LevelEditorSystem.active(game)
+
+
+## Закрывает только тестируемые окна; уведомления возвращают фокус, не отменяя ручное меню за игрока.
+static func leave(game: Node) -> void:
+	Cabinet.close(game)
+	game.storage_open = false
+	Hub.close(game)
+	game.MenuSystem.cancel_confirmation(game)
+	game.MenuSystem.resume(game)
+	if game.LevelEditorSystem.active(game): game.LevelEditorSystem.toggle(game)
+	game._notification(MainLoop.NOTIFICATION_APPLICATION_FOCUS_IN)
+	game._notification(MainLoop.NOTIFICATION_APPLICATION_RESUMED)
+	game.settings_state.pause_on_focus_loss = bool(game.get_meta(&"pause_qa_focus_policy", false))
+	ProjectSettings.set_setting(Cabinet.SETTING, game.get_meta(&"pause_qa_cabinet_setting", false))
+
+
+## Снимает реальные числовые часы, память восстановления и uniforms; копии не владеют игровыми узлами.
+static func observe(game: Node) -> Dictionary:
+	var result := {
+		"seconds": Wind.Clock.seconds(game),
+		"frame": game.get_meta(Wind.Contact.Frame.META, {}).duplicate(true),
+		"statistics": Wind.statistics(game),
+		"minutes": game.game_minutes,
+		"player": game.player,
+		"camera": game.camera_offset,
+		"zoom": preload("res://scripts/systems/world_projection_system.gd").zoom(game),
+		"world": game.current_location,
+		"uniforms": []
+	}
+	var owner: Node = game.get_node_or_null(Wind.NAME)
+	if owner != null and not owner.batch.is_empty():
+		result["contacts"] = owner.render_contacts.duplicate()
+		result["recovery"] = owner.recovery.entries.duplicate(true)
+		for group in owner.batch.groups:
+			result.uniforms.append({
+				"name": group.name,
+				"seconds": group.material.get_shader_parameter("seconds"),
+				"contact_bends": group.material.get_shader_parameter("contact_bends")
+			})
+	return result
