@@ -1,0 +1,33 @@
+{
+  "task": "VFOLIAGE-009",
+  "date": "2026-10-24",
+  "browser": "Codex in-app browser",
+  "url": "http://127.0.0.1:4175/#/guides/foliage-pause",
+  "checks": {
+    "article_rendered": true,
+    "status_in_progress_visible": true,
+    "native_acceptance_pending_visible": true,
+    "search_finds_article": true,
+    "task_filter_finds_exact_id": true,
+    "task_detail_dependencies_done": true,
+    "task_detail_result_pending": true
+  },
+  "attachments": [
+    {
+      "source": "plan.json",
+      "sha256": "872d2115385bb80febd177dc9f98b486ce8d8285af134dcbb3c2134af63e3bd6",
+      "exact_dist_bytes": true
+    },
+    {
+      "source": "plan-focused.json",
+      "sha256": "797fe59cfe8ecd572f7cb274607bb19a959668d989ed64adddbde3b45aeb9157",
+      "exact_dist_bytes": true
+    },
+    {
+      "source": "controls/native-focus-unavailable.json",
+      "sha256": "a8a37714b0ad7b18273cb2b4da15ca17fa643c571c294dd0522b0df907a7fa07",
+      "exact_dist_bytes": true
+    }
+  ],
+  "native_evidence_admitted": false
+}

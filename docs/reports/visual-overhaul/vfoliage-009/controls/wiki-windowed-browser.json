@@ -1,0 +1,42 @@
+{
+  "task": "VFOLIAGE-009",
+  "article": "http://127.0.0.1:4175/#/guides/foliage-pause",
+  "article_local_native_pass_visible": true,
+  "review_pending_visible": true,
+  "search_exact_id_finds_article": true,
+  "task_detail_in_progress_with_PR4": true,
+  "attachments_observed_in_DOM_and_bytes_verified": [
+    {
+      "source": "plan.json",
+      "sha256": "872d2115385bb80febd177dc9f98b486ce8d8285af134dcbb3c2134af63e3bd6",
+      "exact_dist_bytes": true
+    },
+    {
+      "source": "plan-focused.json",
+      "sha256": "797fe59cfe8ecd572f7cb274607bb19a959668d989ed64adddbde3b45aeb9157",
+      "exact_dist_bytes": true
+    },
+    {
+      "source": "controls/native-focus-unavailable.json",
+      "sha256": "a8a37714b0ad7b18273cb2b4da15ca17fa643c571c294dd0522b0df907a7fa07",
+      "exact_dist_bytes": true
+    },
+    {
+      "source": "plan-unlocked.json",
+      "sha256": "668e17d81254475de8f636d88df99c3a96adaf53fd4e547c25645e46c40975d1",
+      "exact_dist_bytes": true
+    },
+    {
+      "source": "plan-windowed.json",
+      "sha256": "55e39d845d304b36b5d22e7f5fd7915a62b719cda9ae77f3b92b11d464fcf294",
+      "exact_dist_bytes": true
+    },
+    {
+      "source": "native-windowed/source.json",
+      "sha256": "b142c2f3c460f2601a1a2f0c6db637270c76aec20b68b5a9b3b73d087f8fdd6b",
+      "exact_dist_bytes": true
+    }
+  ],
+  "native_manual_visual_review": "13 held UI contact sheet plus original1280 settings held; actual scene/UI present",
+  "formal_review_approved": false
+}

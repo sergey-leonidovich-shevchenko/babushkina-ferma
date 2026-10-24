@@ -1,0 +1,21 @@
+{
+  "task": "VFOLIAGE-009",
+  "accepted": false,
+  "series": "native-unlocked",
+  "completed_states_1152": 65,
+  "partial_states_1280": 5,
+  "cause": "asynchronous macOS window transition; root and readback sizes differ from requested; first marker missing",
+  "actual_root": [
+    3584,
+    2240
+  ],
+  "actual_readback": [
+    3584,
+    2016
+  ],
+  "requested": [
+    1280,
+    720
+  ],
+  "producer_change_next_series": "bounded startup geometry readiness before matrix; every probe retained; phase criteria unchanged"
+}

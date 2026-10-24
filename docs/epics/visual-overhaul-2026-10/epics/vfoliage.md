@@ -310,11 +310,11 @@
 
 ## VFOLIAGE-009 — Заморозить эффекты на игровой паузе
 
-Статус: `ready` · P0 · этап `pilot` · `engineering`
+Статус: `in_progress` · P0 · этап `pilot` · `engineering`
 
 Рюкзак, шкаф, меню, фокус и редактор останавливают visual clock согласно политике; возврат не даёт скачка
 
-Ветка: `codex/vfoliage-009-visual-task`.
+Ветка: `codex/vfoliage-009-pause-clock`.
 
 Зависимости: VFOLIAGE-004, VRENDER-008.
 
@@ -324,7 +324,7 @@
 - [scripts/systems/world_visual_profile_system.gd](../../../../scripts/systems/world_visual_profile_system.gd)
 - [scripts/core/game_loop.gd](../../../../scripts/core/game_loop.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vfoliage-009/`.
+Результаты: `docs/reports/visual-overhaul/vfoliage-009/`.
 
 Критерии:
 
@@ -342,7 +342,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vfoliage-009/README.md, wiki/articles/foliage-pause.md, tests/suites/foliage_pause_suite.gd, tools/foliage_pause_verify.py, tools/test_foliage_pause.py, docs/reports/visual-overhaul/vfoliage-009/plan-windowed.json, docs/reports/visual-overhaul/vfoliage-009/native-windowed/source.json.
 
 <a id="vfoliage-010"></a>
 

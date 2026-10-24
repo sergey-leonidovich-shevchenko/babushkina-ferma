@@ -1,0 +1,26 @@
+{
+  "complete": false,
+  "display": "macOS",
+  "engine": {
+    "build": "official",
+    "hash": "a13da4feb8d8aefc283c3763d33a2f170a18d541",
+    "hex": 263937,
+    "major": 4,
+    "minor": 7,
+    "patch": 1,
+    "status": "stable",
+    "string": "4.7.1-stable (official)",
+    "timestamp": 0
+  },
+  "errors": [
+    "inventory: actual native focus unavailable"
+  ],
+  "hardware_input_accepted": false,
+  "performance_eligible": false,
+  "profile": "Codex-VFOLIAGE-009-c7c3d9b709ff4d0cb4f7e8c74fe604f6",
+  "protocol": "controlled actual callbacks and native GPU, fixed steps, no FPS or physical input admission",
+  "records": [],
+  "requested_width": 1152,
+  "snapshots": {},
+  "task": "VFOLIAGE-009"
+}

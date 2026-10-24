@@ -3503,7 +3503,7 @@
       "id": "VFOLIAGE-009",
       "epic": "VFOLIAGE",
       "title": "Заморозить эффекты на игровой паузе",
-      "status": "ready",
+      "status": "in_progress",
       "priority": "P0",
       "phase": "pilot",
       "kind": "engineering",
@@ -3539,8 +3539,18 @@
         "confidence": "low",
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
-      "branch": "codex/vfoliage-009-visual-task",
-      "evidence": []
+      "branch": "codex/vfoliage-009-pause-clock",
+      "evidence": [
+        "docs/reports/visual-overhaul/vfoliage-009/README.md",
+        "wiki/articles/foliage-pause.md",
+        "tests/suites/foliage_pause_suite.gd",
+        "tools/foliage_pause_verify.py",
+        "tools/test_foliage_pause.py",
+        "docs/reports/visual-overhaul/vfoliage-009/plan-windowed.json",
+        "docs/reports/visual-overhaul/vfoliage-009/native-windowed/source.json"
+      ],
+      "result": "В работе, локальная нативная приёмка пройдена; ожидаются CI/review текущего head и решение Team Lead. PR #4: https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/4. База возобновления 8d4e166f9fb796468f7a93f75b4213ca2f7ee57e, версия 0.0.333. Native-windowed: 130 состояний в двух окнах, 260 PNG, 936 paused отсчётов, настоящий фокус/present/геометрия, точные state/save/RGBA, первый resume без долга. Профиль 2966/0; 18 Python-контролей. Native, native-focused и native-unlocked сохранены как отклонённые; после разблокировки обнаружен незавершённый оконный переход macOS, исправлено только QA-ожидание устойчивой геометрии. Production scripts/assets/main не менялись. Task-Complete отсутствует; VFOLIAGE-010/VRELEASE-003/VMAP-003 не закрыты.",
+      "pull_request": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/4"
     },
     {
       "id": "VFOLIAGE-010",

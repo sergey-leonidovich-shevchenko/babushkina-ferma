@@ -1,0 +1,9 @@
+{
+  "command": "tools/Godot.app/Contents/MacOS/Godot --headless --path . --script res://tools/foliage_pause_review.gd",
+  "raw_sha256": "78bc024706bfb66fcea964c5e37a531fdddf4476474d3e31e7adaa04621123ce",
+  "assertions_passed": 2966,
+  "assertions_failed": 0,
+  "original": "tmp/vfoliage-009-review-camera.txt",
+  "source_capsule": "../inputs.zip",
+  "source_delta_after_capture": "only two expanded Russian documentation comments in foliage_pause_suite.gd; no executable change"
+}

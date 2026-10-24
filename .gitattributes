@@ -5,3 +5,5 @@ docs/reports/visual-overhaul/vfoliage-006/ci-performance/production/diagnostic-l
 docs/reports/visual-overhaul/vfoliage-006/ci-performance/production/paired-after/head-working.diff.txt -whitespace
 docs/reports/visual-overhaul/vfoliage-006/ci-performance/production/qa-ci-test-job.txt -whitespace
 docs/reports/visual-overhaul/vfoliage-006/redraw-scheduling/candidate.patch -whitespace
+# Preserve VFOLIAGE-009's rejected Godot log, including the final empty line.
+docs/reports/visual-overhaul/vfoliage-009/native-focused/1152/engine.txt -whitespace

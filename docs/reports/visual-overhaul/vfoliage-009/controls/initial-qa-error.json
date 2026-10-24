@@ -1,0 +1,7 @@
+{
+  "kind": "QA implementation error, not runtime finding",
+  "cause": "MenuHubSystem is not a Game property; use actual preloaded menu_hub_system module",
+  "result_rejected": true,
+  "log_raw_SHA256": "e3f9ab3f5a388cd576ee676d8929a9dc2821b4ff915b58dd5d271a0dc23fa6d0",
+  "production_changed": false
+}
