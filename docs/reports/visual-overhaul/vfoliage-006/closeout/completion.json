@@ -1,0 +1,77 @@
+{
+  "task": "VFOLIAGE-006",
+  "task_status": "done",
+  "accepted_head": "7dde3eeb9cb1969cd170ce84a152b9498ac6b675",
+  "merged_commit": "8288409bff46c136fcef57cdc0396e2062ef8d14",
+  "merged_at": "2026-10-24T03:52:15Z",
+  "implementation_PR": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/1",
+  "review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/1#pullrequestreview-5636691069",
+  "reviewer_verdict": "APPROVE explicit exact-head verdict; shared-account COMMENTED review",
+  "Team_Lead_decision": "Accepted exact head; merge delegated to Tech Lead, confirmed through GitHub",
+  "implementation_CI": {
+    "push": 40056564926,
+    "pull_request": 40056572059,
+    "all_jobs": "8/8 success",
+    "game_each": [
+      50423,
+      0
+    ],
+    "actual_main_modes_each": [
+      90,
+      0
+    ],
+    "smoke_frames": 180,
+    "FPS_each": [
+      60.0,
+      60.0,
+      60.0,
+      60.0,
+      60.0,
+      60.0
+    ],
+    "artifact": 12546316195,
+    "artifact_zip_SHA256": "53f8409b6c6cf3d7bf8f6d002dd67bd4ec2fd2d6dfbf633e151dc722e9ea89a7"
+  },
+  "closed_findings": [
+    "exact-zero recovery",
+    "readability",
+    "CI shared engine path/history",
+    "historical source fallback",
+    "export/HUD portability",
+    "ANSI/error parser",
+    "local CPU FPS/redraw",
+    "QA output ownership",
+    "collector purpose comments"
+  ],
+  "closeout_scope": "canonical status, Wiki/progress, acceptance record and version metadata; no gameplay change",
+  "primary_evidence_relabelled": false,
+  "hardware_input_accepted": false,
+  "GPU_budget_accepted": false,
+  "VMAP_003_accepted": false,
+  "new_card_started": false,
+  "old_implementation_branch_removed_after_merge": true,
+  "baseline_worktree_archive": "confirmed archived by managed artifacts inventory",
+  "closeout_checks": {
+    "architecture_suites": 80,
+    "python_tests": 1083,
+    "game": [
+      50405,
+      0
+    ],
+    "actual_main_normal": [
+      90,
+      0
+    ],
+    "actual_main_f10": [
+      90,
+      0
+    ],
+    "wiki": [
+      135,
+      0
+    ],
+    "runtime_scene_assets_tests_tools_byte_exact_to_merge": true,
+    "project_only_delta": "version331→332"
+  },
+  "closeout_PR": "created after checks; requires its own exact-head review and Team Lead decision"
+}
