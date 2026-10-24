@@ -35,6 +35,13 @@ game_godot="$(resolve_godot_path)" || {
 	exit 1
 }
 
+# Атомарно резервируем новый корень до запуска движка: прежние доказательства не трогаем.
+redraw_capture_root="$FARM_REDRAW_TEST_OUTPUT"
+if [[ -n "$redraw_capture_root" ]] && ! mkdir "$redraw_capture_root"; then
+	print -u2 -- "Fresh redraw output root with an existing parent is required"
+	exit 1
+fi
+
 "$game_godot" --version >/dev/null
 # Импортируем новые изображения и ресурсы до компиляции тестов.
 "$game_godot" --headless --editor --path . --quit
@@ -69,9 +76,29 @@ for redraw_mode in normal f10; do
 	"$game_godot" --headless --path . --script res://tools/redraw_frame_review.gd -- "${redraw_options[@]}" >"$test_log" 2>&1
 	redraw_code=$?
 	set -e
-	if [[ -n "$FARM_REDRAW_TEST_OUTPUT" ]]; then
-		mkdir -p "$FARM_REDRAW_TEST_OUTPUT/$redraw_mode"
-		cp "$test_log" "$FARM_REDRAW_TEST_OUTPUT/$redraw_mode/engine.txt"
+	if [[ -n "$redraw_capture_root" ]]; then
+		redraw_capture_mode="$redraw_capture_root/$redraw_mode"
+		# GDScript мог отказать до создания mode; каталог всё равно принадлежит нашему новому корню.
+		if [[ -L "$redraw_capture_mode" ]]; then
+			print -u2 -- "Owned redraw mode directory is required"
+			exit 1
+		fi
+		if [[ ! -d "$redraw_capture_mode" ]]; then
+			if ! mkdir "$redraw_capture_mode"; then
+				print -u2 -- "Owned redraw mode directory is required"
+				exit 1
+			fi
+		fi
+		# Даже внутри своего опыта не заменяем уже существующий файл или ссылку на него.
+		redraw_capture_log="$redraw_capture_mode/engine.txt"
+		if [[ -e "$redraw_capture_log" || -L "$redraw_capture_log" ]]; then
+			print -u2 -- "Refusing to overwrite redraw engine evidence"
+			exit 1
+		fi
+		if ! (setopt NO_CLOBBER; cat "$test_log" > "$redraw_capture_log"); then
+			print -u2 -- "Refusing to overwrite redraw engine evidence"
+			exit 1
+		fi
 	fi
 	if [[ $redraw_code -ne 0 ]] || grep -Eq 'ERROR:|SCRIPT ERROR|Parse Error|Failed to load script' "$test_log" || ! grep -Eq '^REDRAW: [0-9]+ passed, 0 failed$' "$test_log"; then
 		cat "$test_log"

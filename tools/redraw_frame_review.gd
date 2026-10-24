@@ -10,6 +10,7 @@ var phases: Array = []
 var review_presented := 0
 
 
+## Выбирает режим и новый изолированный профиль; существующий output отклоняется до записи.
 func _initialize() -> void:
 	for arg in OS.get_cmdline_user_args():
 		if arg.begins_with("--redraw-output="):
@@ -47,6 +48,7 @@ func check(condition: bool, message: String) -> void:
 		print("REDRAW_FAIL ", message)
 
 
+## Запускает настоящую main при cap10, вынуждая physics60/max8 пройти catch-up перед draw.
 func _run() -> void:
 	RenderingServer.frame_post_draw.connect(_review_presented_frame)
 	seed(21101986)
@@ -103,6 +105,8 @@ func _run() -> void:
 	quit(0 if failed == 0 else 1)
 
 
+## Сохраняет переходные кадры, исключая первые два только из steady-проверок;
+## нативный снимок требует свежую фазу после реального present, отдельно от CPU callback.
 func phase(label: String, count: int) -> void:
 	game.menu_state.pause_open = false
 	game.inventory_open = false

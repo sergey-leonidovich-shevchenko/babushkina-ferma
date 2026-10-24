@@ -1,0 +1,608 @@
+[
+  {
+    "run_id": 40050181004,
+    "head": "79a1a65fc3f699fe590d7eb030071bb8a809e0e2",
+    "jobs": [
+      {
+        "id": 120740901328,
+        "name": "Fixed-input reproduction (linux-x64)",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v7",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Install Linux rendering and font dependencies",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Install pinned image tooling",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Download and verify the same official engine release",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Import resources for the actual HUD",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Verify fixed inputs and negative controls",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Verify reviewed exact export contract and negative controls",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Collect resampling data and Linux HUD frames",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Preserve fixed-input diagnostics and actual HUD frames",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v7",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      },
+      {
+        "id": 120740901539,
+        "name": "Wiki quality gate",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-node@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Install wiki tooling",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Download Godot 4.7.1",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Check wiki catalogs, sprites, TypeScript, production build and tests",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-node@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      },
+      {
+        "id": 120740901545,
+        "name": "test",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v7",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Load visual audit baselines",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Install quality gate dependencies",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Install pinned image tooling",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Download Godot 4.7.1",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Import Godot resources",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Check architecture",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run automated tests",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run gameplay smoke test",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Enforce performance budget",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Preserve actual performance measurements including failures",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v7",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      },
+      {
+        "id": 120740901662,
+        "name": "Fixed-input reproduction (macos-x64)",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v7",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Install Linux rendering and font dependencies",
+            "status": "completed",
+            "conclusion": "skipped"
+          },
+          {
+            "name": "Install pinned image tooling",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Download and verify the same official engine release",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Import resources for the actual HUD",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Verify fixed inputs and negative controls",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Verify reviewed exact export contract and negative controls",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Collect resampling data and Linux HUD frames",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Preserve fixed-input diagnostics and actual HUD frames",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v7",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "run_id": 40050188257,
+    "head": "79a1a65fc3f699fe590d7eb030071bb8a809e0e2",
+    "jobs": [
+      {
+        "id": 120740924800,
+        "name": "Wiki quality gate",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-node@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Install wiki tooling",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Download Godot 4.7.1",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Check wiki catalogs, sprites, TypeScript, production build and tests",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-node@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      },
+      {
+        "id": 120740924862,
+        "name": "Fixed-input reproduction (linux-x64)",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v7",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Install Linux rendering and font dependencies",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Install pinned image tooling",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Download and verify the same official engine release",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Import resources for the actual HUD",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Verify fixed inputs and negative controls",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Verify reviewed exact export contract and negative controls",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Collect resampling data and Linux HUD frames",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Preserve fixed-input diagnostics and actual HUD frames",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v7",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      },
+      {
+        "id": 120740924932,
+        "name": "Fixed-input reproduction (macos-x64)",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v7",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Install Linux rendering and font dependencies",
+            "status": "completed",
+            "conclusion": "skipped"
+          },
+          {
+            "name": "Install pinned image tooling",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Download and verify the same official engine release",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Import resources for the actual HUD",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Verify fixed inputs and negative controls",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Verify reviewed exact export contract and negative controls",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Collect resampling data and Linux HUD frames",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Preserve fixed-input diagnostics and actual HUD frames",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v7",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      },
+      {
+        "id": 120740924955,
+        "name": "test",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v7",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Load visual audit baselines",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Install quality gate dependencies",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Install pinned image tooling",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Download Godot 4.7.1",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Import Godot resources",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Check architecture",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run automated tests",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run gameplay smoke test",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Enforce performance budget",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Preserve actual performance measurements including failures",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-python@v7",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  }
+]

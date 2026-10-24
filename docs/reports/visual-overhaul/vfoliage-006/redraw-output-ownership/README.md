@@ -1,0 +1,13 @@
+# VFOLIAGE-006: владение папкой QA-опыта
+
+В ревью79a1a65f Tech Lead принял production redraw и закрыл прежний P1. Найден отдельный обязательный P2: shell wrapper перезаписывал старый `mode/engine.txt` даже после отказа GDScript принять существующий output. Это могло уничтожить исходное доказательство. [Ревью](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/1#pullrequestreview-5636274291).
+
+`run_tests.sh` теперь атомарно резервирует новый `FARM_REDRAW_TEST_OUTPUT` до любого запуска движка. Родитель обязан существовать. Существующий корень, файл или symlink дают отказ без записи и без запуска Godot. Каждый mode находится только в зарезервированном корне; после отказа до создания mode wrapper сохраняет текущий лог в новом каталоге. Ссылки mode/engine и существующий engine-файл не заменяются; exclusive noclobber защищает запись. Без переменной стандартный gate работает как прежде.
+
+15 регрессий вызывают настоящий shell wrapper с fake executable: воспроизведение ошибки на79a1a65f, полный/пустой прежний root, файл/symlink, отсутствующий parent, новый success обоих режимов, failure до/после создания mode, ERROR при exit0, перенаправляющие ссылки mode/engine (включая dangling), существующий engine-файл и отсутствие output. Это проверка wrapper, не замена настоящего игрового regression. Для прежней директории сверяются все имена/цели ссылок и SHA каждого файла. Дополнительно настоящий wrapper с прежним report/output отклонён; все файлы полного redraw-scheduling побайтно неизменны.
+
+В `tools/redraw_frame_review.gd` добавлены только назначение `_initialize`, `_run`, `phase`: изоляция, cap10/catch-up, transition/steady и native present. Исполняемые условия collector прежние. Production `scripts/`, сцена, ресурсы, план5384 и все primary source records не меняются и новая FPS-серия не снимается. Версия331 — metadata delta относительно измеренного79a1a65f/330; она не присваивается старым замерам.
+
+Предыдущий точный head79a1a65f имеет два успешных CI, все8jobs. Оба лога: Game50423/0, REDRAW90/0 normal/F10 и smoke180; все6 raw FPS60.0. ZIP artifact12543317805 сохранён, SHA35f28d376282cd458db2da5d18fc9fd0cbe3024a2facd545380726a73660f6a3 проверен; каждый raw независимо пересчитан и каждый runtime SHA сравнен с Git79a1a65f. Это историческое доказательство, не CI будущего331. Данные — previous-head-ci/.
+
+Полные текущие gates, source/metadata delta и неизменность прежних данных фиксируются в completion.json. Новый обычный commit/push требует отдельного CI и changed-scope review точного SHA. PRdraft, карточка in_progress, безTaskComplete/merge до одобрения и решения Team Lead. Аппаратный/GPU/VMAP-допуск не заявляется.

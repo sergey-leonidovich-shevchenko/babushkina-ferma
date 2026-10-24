@@ -1,0 +1,55 @@
+{
+  "version": "0.0.331",
+  "measured_production_head": "79a1a65fc3f699fe590d7eb030071bb8a809e0e2",
+  "review_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/1#pullrequestreview-5636274291",
+  "previous_P1_closed_by_Tech_Lead": true,
+  "new_P2": "run_tests output ownership",
+  "P3": "purpose comments on collector entry points",
+  "targeted_wrapper_tests": [
+    15,
+    0
+  ],
+  "all_prior_evidence_SHA_unchanged": true,
+  "production_scripts_changed": false,
+  "primary_FPS_repeated": false,
+  "full_current_checks": {
+    "architecture_suites": 80,
+    "python_tests": 1083,
+    "game": [
+      50406,
+      0
+    ],
+    "actual_main_normal": [
+      90,
+      0
+    ],
+    "actual_main_f10": [
+      90,
+      0
+    ],
+    "wiki": [
+      135,
+      0
+    ]
+  },
+  "current_CI": "pending_new_head",
+  "main_merge_allowed": false,
+  "task_status": "in_progress",
+  "source_identity": {
+    "production_scripts_scene_assets_byte_exact": "79a1a65fc3f699fe590d7eb030071bb8a809e0e2",
+    "project_only_delta": "config/version330→331",
+    "collector_executable_body_byte_exact": true,
+    "old_report_all_265_SHA_unchanged": true,
+    "primary_plan_and_source_records_preserved": true
+  },
+  "quality_log": {
+    "file": "quality.txt.gz",
+    "raw_sha256": "a2c4b3218dd140febe88a15c9997e618893f7bea00c99378c8fcf2ccb8b980c5",
+    "gzip_sha256": "b21ab38040716f9db50614c36caafaf2e26e298b0c167eccce391fbbc4a3f4f2"
+  },
+  "wiki_log": {
+    "file": "wiki.txt.gz",
+    "raw_sha256": "4d42dbe17a3a9015adeffb046fef047499d87cec0beaf3d984a30638bc1cb7cf",
+    "gzip_sha256": "f859138cd830c4ccde06f9172f827365c087ee4a20e5c7754ab37852b73cd88d"
+  }
+}
