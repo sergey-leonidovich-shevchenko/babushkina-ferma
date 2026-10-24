@@ -3547,7 +3547,8 @@
         "tools/foliage_pause_verify.py",
         "tools/test_foliage_pause.py"
       ],
-      "result": "В работе, нативная приёмка не завершена. На базе eb7f424129935cf361655a112d007e0c69ff7853/0.0.333 профиль2966/0 подтвердил13 причин паузы при30/60/120Гц, неизменные state/save, первый resume без долга; production scripts/assets/main не изменены. Первая серия130 состояний/260PNG отклонена: focused=false; повторная прервана до первого кадра без доступного системного фокуса (экран macOS заблокирован). Все попытки, планы и403 исходника каждой сохранены.13 Python-контролей отклоняют порчу данных и ложный допуск. Требуется новый заранее закреплённый нативный запуск при разблокированном дисплее; затем exact-head CI/review и решение Team Lead. PR готовится как draft, Task-Complete отсутствует; VFOLIAGE-010/VRELEASE-003/VMAP-003 не закрыты."
+      "result": "В работе, нативная приёмка не завершена. На базе eb7f424129935cf361655a112d007e0c69ff7853/0.0.333 профиль 2966/0 подтвердил 13 причин паузы при 30/60/120 Гц, неизменные state/save, первый resume без долга; production scripts/assets/main не изменены. Первая серия 130 состояний/260 PNG отклонена: focused=false; повторная прервана до первого кадра без доступного системного фокуса (экран macOS заблокирован). Все попытки, планы и 403 исходника каждой сохранены.13 Python-контролей отклоняют порчу данных и ложный допуск. Требуется новый заранее закреплённый нативный запуск при разблокированном дисплее; затем exact-head CI/review и решение Team Lead. Draft PR #4: https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/4; implementation SHA 7a69863aaca54e272f3567e26471c9d9ef6e4130. Нативная приёмка и формальное exact-head ревью ожидаются; Task-Complete отсутствует; VFOLIAGE-010/VRELEASE-003/VMAP-003 не закрыты.",
+      "pull_request": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/4"
     },
     {
       "id": "VFOLIAGE-010",

@@ -36,5 +36,14 @@
   "pr_state": "draft pending accessible native focus",
   "runtime_change": "version metadata only; production scripts/assets/main unchanged",
   "task_status": "in_progress",
-  "task_complete_trailer": false
+  "task_complete_trailer": false,
+  "implementation_commit": "7a69863aaca54e272f3567e26471c9d9ef6e4130",
+  "pull_request": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/4",
+  "link_only_followup": {
+    "command": "pnpm --dir wiki run build",
+    "exit_code": 0,
+    "log": "controls/wiki-pr-link-build.txt.gz",
+    "raw_sha256": "2efa2bfbeb8208cb9d13e6e145d2cdda335998c33a4f093046d04bf02af60eea",
+    "scope": "only PR URL/readable status metadata; no executable/runtime changes"
+  }
 }
