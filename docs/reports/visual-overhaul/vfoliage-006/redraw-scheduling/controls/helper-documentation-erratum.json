@@ -1,0 +1,13 @@
+{
+  "reason": "four adjacent Russian comments required on new helper methods",
+  "old_sha256": "400b0fb4381c71d40923e13a38672eb3460007c56f3075153bf13cf4c9967998",
+  "documented_helper_sha256": "3de33f89247e4e9bcf3f35ea8b4d10b9459fdb7ae4b4cd4b83ab9149391c4c98",
+  "only_four_comment_lines_added": true,
+  "executable_body_unchanged": true,
+  "failed_game_passed": 50404,
+  "failed_game_failed": 1,
+  "original_failure_raw_sha256": "d6c4b8d1b30d882b0846e0008b02e1b7f6541305b0c1adfb8609d06f962e88e7",
+  "primary_campaign_not_started": true,
+  "predeclared_game_conditions_and_expectations_unchanged": true,
+  "original_instrumentation_and_plan_unchanged": true
+}

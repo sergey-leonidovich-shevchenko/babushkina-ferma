@@ -2,6 +2,7 @@
 """Protocol mutation tests use synthetic inputs; native acceptance remains a separate gate."""
 import copy
 import json
+import math
 import shutil
 from pathlib import Path
 import tempfile
@@ -27,6 +28,20 @@ def fixture():
             absolute_minutes=720+i*.034,camera_x=120.25,camera_y=430.25,focused=1,window_x=1152,window_y=648)
         values.append(row)
     return data,values
+
+
+def comparable_summary(summary):
+    """Сравнивает суммы длительностей до наносекунды; остальные поля и архивы остаются точными."""
+    result = copy.deepcopy(summary)
+    # Python 3.12 изменил sum(float). Не округляем p95, память, флаги или исходные отсчёты.
+    for name in ["repeat-1", "repeat-2", "repeat-3", "long-cycle"]:
+        run = result["runs"][name]
+        for section in [run, run["render"]]:
+            seconds = section["seconds"]
+            if type(seconds) is not float or not math.isfinite(seconds):
+                raise ValueError("finite float duration required")
+            section["seconds"] = round(seconds, 9)
+    return result
 
 
 class PerfContractTests(unittest.TestCase):
@@ -220,7 +235,10 @@ class PerfContractTests(unittest.TestCase):
     def test_native_summary_reproducible(self):
         """The complete raw package reproduces the stored result without closing FPS or leak gates."""
         result=p.verify(p.REPORT/'native')
-        self.assertEqual(result,p.read(p.REPORT/'summary.json'))
+        self.assertEqual(
+            comparable_summary(result),
+            comparable_summary(p.read(p.REPORT / 'summary.json')),
+        )
         self.assertTrue(result['contract_accepted'])
         self.assertFalse(result['release_fps_accepted'])
         self.assertFalse(result['leak_plateau_accepted'])
@@ -245,6 +263,49 @@ class PerfContractTests(unittest.TestCase):
             folder=Path(name)/'native'; shutil.copytree(p.REPORT/'native',folder)
             (folder/'repeat-1/render-rows.csv.gz').unlink()
             with self.assertRaisesRegex(ValueError,'artifact coverage'): p.verify(folder)
+
+
+class SummaryPrecisionTests(unittest.TestCase):
+    """Отличает шум суммирования от изменения измерений, структуры и решения приёмки."""
+
+    def setUp(self):
+        self.stored = p.read(p.REPORT / "summary.json")
+        self.changed = copy.deepcopy(self.stored)
+
+    def test_subnanosecond_sum_difference(self):
+        self.changed["runs"]["long-cycle"]["render"]["seconds"] += 4e-12
+        self.assertEqual(comparable_summary(self.changed), comparable_summary(self.stored))
+        self.assertNotEqual(self.changed, self.stored)
+
+    def test_nanosecond_duration_change_is_rejected(self):
+        self.changed["runs"]["long-cycle"]["render"]["seconds"] += 1e-9
+        self.assertNotEqual(comparable_summary(self.changed), comparable_summary(self.stored))
+
+    def test_microsecond_duration_change_is_rejected(self):
+        self.changed["runs"]["long-cycle"]["render"]["seconds"] += 1e-6
+        self.assertNotEqual(comparable_summary(self.changed), comparable_summary(self.stored))
+
+    def test_quantile_stays_exact(self):
+        self.changed["runs"]["repeat-1"]["interval_ms"]["p95"] += 1e-12
+        self.assertNotEqual(comparable_summary(self.changed), comparable_summary(self.stored))
+
+    def test_memory_stays_exact(self):
+        self.changed["runs"]["repeat-1"]["static_bytes"]["first"] += 1
+        self.assertNotEqual(comparable_summary(self.changed), comparable_summary(self.stored))
+
+    def test_acceptance_stays_exact(self):
+        self.changed["release_fps_accepted"] = True
+        self.assertNotEqual(comparable_summary(self.changed), comparable_summary(self.stored))
+
+    def test_missing_section_is_rejected(self):
+        del self.changed["runs"]["repeat-1"]["render"]
+        with self.assertRaises(KeyError):
+            comparable_summary(self.changed)
+
+    def test_nonfinite_duration_is_rejected(self):
+        self.changed["runs"]["repeat-1"]["seconds"] = float("nan")
+        with self.assertRaisesRegex(ValueError, "finite float"):
+            comparable_summary(self.changed)
 
 
 if __name__=='__main__': unittest.main()

@@ -1,0 +1,24 @@
+{
+  "version": "0.0.322",
+  "source_revision_at_capture": "dd683fc84e4ad58f246860c8d523a2abaaf83ccd",
+  "tracked_worktree_changes": [
+    ".github/workflows/ci.yml",
+    ".gitignore",
+    "TESTING.md",
+    "VERSION",
+    "project.godot",
+    "scripts/systems/artisan_locale.gd",
+    "scripts/systems/locale_system.gd",
+    "tools/check_architecture.sh",
+    "\"\\320\\221\\320\\260\\320\\261\\321\\203\\321\\210\\320\\272\\320\\270\\320\\275\\320\\260 \\321\\204\\320\\265\\321\\200\\320\\274\\320\\260.app/Contents/Info.plist\""
+  ],
+  "workflow_revision": "",
+  "engine_executable_file_sha256": "ecc8da2d60100102cfca6e833d3860d7436b46ae062fa072ce89a6c95d664a3f",
+  "python": "3.11.17 (main, Oct 21 2026, 17:37:42) [Clang 23.1.3 ]",
+  "pillow": "11.3.0",
+  "platform": "macOS-15.4.1-x86_64-i386-64bit",
+  "libc": [
+    "",
+    ""
+  ]
+}

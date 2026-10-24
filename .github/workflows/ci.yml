@@ -5,12 +5,83 @@ on:
   pull_request:
 
 jobs:
+  platform_repro:
+    name: Fixed-input reproduction (${{ matrix.id }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - id: linux-x64
+            os: ubuntu-24.04
+            archive: Godot_v4.7.1-stable_linux.x86_64.zip
+            binary: Godot_v4.7.1-stable_linux.x86_64
+            sha256: c7ff14fd28472c8d4f193043de30278dcf7e5241a1dcf7566b02e27addaa33ba
+          - id: macos-x64
+            os: macos-15-intel
+            archive: Godot_v4.7.1-stable_macos.universal.zip
+            binary: Godot.app/Contents/MacOS/Godot
+            sha256: 897cb7f9799796c717ae75f31446aed883dc92b1d6c3b33d893cc7843fff2fa9
+    env:
+      FARM_GODOT_BIN: ${{ github.workspace }}/.ci/${{ matrix.binary }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.11'
+      - name: Install Linux rendering and font dependencies
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y fonts-noto-cjk fonts-liberation xvfb xauth libgl1-mesa-dri libglx-mesa0
+      - name: Install pinned image tooling
+        run: python -m pip install Pillow==11.3.0
+      - name: Download and verify the same official engine release
+        env:
+          ENGINE_ARCHIVE: ${{ matrix.archive }}
+          ENGINE_SHA256: ${{ matrix.sha256 }}
+        run: |
+          mkdir -p .ci
+          curl -fsSL -o .ci/probe-engine.zip "https://github.com/godotengine/godot/releases/download/4.7.1-stable/$ENGINE_ARCHIVE"
+          python -c 'import hashlib,os,pathlib; assert hashlib.sha256(pathlib.Path(".ci/probe-engine.zip").read_bytes()).hexdigest() == os.environ["ENGINE_SHA256"]'
+          unzip -q .ci/probe-engine.zip -d .ci
+          chmod +x "$FARM_GODOT_BIN"
+      - name: Import resources for the actual HUD
+        run: '"$FARM_GODOT_BIN" --headless --editor --path . --quit'
+      - name: Verify fixed inputs and negative controls
+        run: python tools/test_preview_portability.py
+      - name: Verify reviewed exact export contract and negative controls
+        run: |
+          python tools/item_export_contract.py
+          python tools/test_item_export_contract.py
+          "$FARM_GODOT_BIN" --headless --path . --script res://tools/item_export_contract_review.gd
+      - name: Collect resampling data and Linux HUD frames
+        run: |
+          if [ "$RUNNER_OS" = "Linux" ]; then
+            export LIBGL_ALWAYS_SOFTWARE=1
+            xvfb-run -a -s "-screen 0 1152x648x24" python tools/preview_portability.py --capture .ci/platform-repro --ui
+          else
+            python tools/preview_portability.py --capture .ci/platform-repro
+          fi
+      - name: Preserve fixed-input diagnostics and actual HUD frames
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: platform-repro-${{ matrix.id }}
+          path: .ci/platform-repro
+          if-no-files-found: error
+          retention-days: 14
   wiki:
     name: Wiki quality gate
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
@@ -34,32 +105,46 @@ jobs:
           pnpm check
   test:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 45
+    env:
+      FARM_GODOT_BIN: ${{ github.workspace }}/.ci/Godot_v4.7.1-stable_linux.x86_64
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.11'
       - name: Load visual audit baselines
-        run: git fetch --no-tags --depth=1 origin 1b1c39af20b48559904b4a775135305690d0bd10 6b9cc2927374e345553ddb8d9ba7e2e66e6392ec 1621d49502cd244c1036168f9d235561b708b33a 6ade4a2c8a2fac640109d3365c69bd4b6ccadfc4 12e6e2c7ac30f87af839cdb8cd0e2a4d1e558ee5
+        run: git fetch --no-tags origin 1b1c39af20b48559904b4a775135305690d0bd10 6b9cc2927374e345553ddb8d9ba7e2e66e6392ec 1621d49502cd244c1036168f9d235561b708b33a 6ade4a2c8a2fac640109d3365c69bd4b6ccadfc4 12e6e2c7ac30f87af839cdb8cd0e2a4d1e558ee5
       - name: Install quality gate dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install --no-install-recommends -y zsh ripgrep fonts-noto-cjk python3-pil
+          sudo apt-get install --no-install-recommends -y zsh ripgrep fonts-noto-cjk fonts-liberation
+      - name: Install pinned image tooling
+        run: python -m pip install Pillow==11.3.0
       - name: Download Godot 4.7.1
         run: |
           mkdir -p .ci
           curl -fsSL -o .ci/godot.zip https://github.com/godotengine/godot/releases/download/4.7.1-stable/Godot_v4.7.1-stable_linux.x86_64.zip
           unzip -q .ci/godot.zip -d .ci
           chmod +x .ci/Godot_v4.7.1-stable_linux.x86_64
+      - name: Import Godot resources
+        run: '"$FARM_GODOT_BIN" --headless --editor --path . --quit'
       - name: Check architecture
         run: zsh tools/check_architecture.sh
       - name: Run automated tests
-        env:
-          FARM_GODOT_BIN: ${{ github.workspace }}/.ci/Godot_v4.7.1-stable_linux.x86_64
         run: zsh run_tests.sh
       - name: Run gameplay smoke test
-        env:
-          FARM_GODOT_BIN: ${{ github.workspace }}/.ci/Godot_v4.7.1-stable_linux.x86_64
         run: zsh tools/smoke_test.sh
       - name: Enforce performance budget
-        env:
-          FARM_GODOT_BIN: ${{ github.workspace }}/.ci/Godot_v4.7.1-stable_linux.x86_64
+        id: performance_gate
         run: zsh tools/performance_gate.sh
+      - name: Preserve actual performance measurements including failures
+        if: ${{ always() && steps.performance_gate.outcome != 'skipped' && steps.performance_gate.outcome != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: performance-measurements
+          path: .ci/performance-gate
+          if-no-files-found: error
+          retention-days: 14

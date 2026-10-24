@@ -6,8 +6,8 @@ import shutil
 import tempfile
 import unittest
 from PIL import Image
-from migration_inventory import sha,git_bytes
-from migration_proof import REPORT,comparisons,validate
+from migration_inventory import sha
+from migration_proof import REPORT,comparisons,validate,fixture_bytes
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -23,8 +23,7 @@ class MigrationProofTests(unittest.TestCase):
         inventory=json.loads((self.report/'fixture-sources.json').read_text())
         for name,digest in inventory['files'].items():
             path=self.root/name;path.parent.mkdir(parents=True,exist_ok=True)
-            raw=(ROOT/name).read_bytes() if (ROOT/name).is_file() else b''
-            if sha(raw)!=digest:raw=git_bytes(ROOT,inventory['base_commit'],name)
+            raw=fixture_bytes(ROOT, inventory['base_commit'], name, digest)
             path.write_bytes(raw)
         (self.root/'tools').mkdir(exist_ok=True);shutil.copyfile(ROOT/'tools/migration_capture.gd',self.root/'tools/migration_capture.gd')
 
@@ -91,6 +90,46 @@ class MigrationProofTests(unittest.TestCase):
             else:data['runtime_file_changes']=['assets/game/moved.png']
             self.save(name,data);self.refresh();self.assertTrue(validate(self.root),name)
             self.save(name,original)
+
+    def legacy_import(self):
+        """Находит единственный исходный компаньон, отсутствующий в старом Git commit."""
+        name = "assets/generated/level_drafts/water_navigation_ingame_preview.png.import"
+        sources = json.loads((self.report / "fixture-sources.json").read_text())
+        digest = sources["files"][name]
+        return self.root / name, self.report / "historical-inputs" / (digest + ".import")
+
+    def test_regenerated_import_uses_exact_archived_original(self):
+        """Новый автоматический UID checkout не меняет исторические байты доказательства."""
+        current, archive = self.legacy_import()
+        current.write_bytes(b"platform-regenerated import")
+        self.assertTrue(archive.is_file())
+        self.assertEqual(validate(self.root), [])
+
+    def test_missing_generated_import_uses_exact_archived_original(self):
+        """Чистый checkout без игнорируемого компаньона получает проверенный оригинал."""
+        current, _ = self.legacy_import()
+        current.unlink()
+        self.assertEqual(validate(self.root), [])
+
+    def test_corrupt_import_archive_is_rejected(self):
+        """Изменённый архивный компаньон не проходит даже при наличии файла по нужному SHA-имени."""
+        current, archive = self.legacy_import()
+        current.write_bytes(b"regenerated")
+        archive.write_bytes(b"corrupt archive")
+        self.assertTrue(any("fixture source differs" in row for row in validate(self.root)))
+
+    def test_missing_import_archive_is_rejected(self):
+        """Утраченный оригинал остаётся ошибкой, а не разрешением пропустить проверку."""
+        current, archive = self.legacy_import()
+        current.write_bytes(b"regenerated")
+        archive.unlink()
+        self.assertTrue(validate(self.root))
+
+    def test_png_cannot_use_import_archive_fallback(self):
+        """Для PNG и кода сохраняется прежняя привязка к checkout или настоящему Git baseline."""
+        name = "assets/game/interiors/furniture_a/rustic_table_south.png"
+        (self.root / name).write_bytes(b"changed PNG")
+        self.assertTrue(any("fixture source unavailable" in row for row in validate(self.root)))
 
 
 if __name__=='__main__':unittest.main()

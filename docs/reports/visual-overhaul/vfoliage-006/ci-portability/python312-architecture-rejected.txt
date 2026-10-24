@@ -1,0 +1,124 @@
+VERSION: 0.0.317 -> 0.0.318
+VERSION: 0.0.318 synchronized
+................
+----------------------------------------------------------------------
+Ran 16 tests in 15.539s
+
+OK
+tools/check_architecture.sh:38: command not found: rg
+DOCUMENTATION: обязательные файлы и локальные ссылки корректны
+DOCUMENTATION TEST: свои ссылки проверяются, зависимости и сборки исключены
+WORLD SPRITE AUDIT TEST: dynamic discovery and dead preload checks are valid
+WORLD SPRITE AUDIT: 29 семейств; готово 28; открыто P1=1, P2=0, P3=0
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 0.034s
+
+OK
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+OK
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 0.025s
+
+OK
+SPRITE CLEANUP: 90 retired resources; dynamic paths and consumers preserved
+BACKLOG OK: 6 epics / 50 tasks / 6 Ready; network: 0
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 0.092s
+
+OK
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+OK
+/Users/sergeyshevchenko/my farm/tools/visual_backlog.py:139: SyntaxWarning: invalid escape sequence '\s'
+  function render(){const words=query.value.toLocaleLowerCase('ru').split(/\s+/).filter(Boolean);const found=data.filter(t=>(!epic.value||t.epic===epic.value)&&(!phase.value||t.phase===phase.value)&&words.every(w=>(t.id+' '+t.title+' '+t.goal).toLocaleLowerCase('ru').includes(w)));results.replaceChildren();for(const t of found.slice(0,limit)){const row=document.createElement('article'),heading=document.createElement('h2'),link=document.createElement('a'),meta=document.createElement('p'),goal=document.createElement('p'),deps=document.createElement('p');link.href='epics/'+t.epic.toLowerCase()+'.md#'+t.id.toLowerCase();link.textContent=t.id+' · '+t.title;heading.append(link);meta.className='meta';meta.textContent=t.priority+' · '+stateNames[t.status]+' · '+t.phase+(t.parent_owner?' · Владелец: '+t.parent_owner:'');goal.textContent=t.goal;deps.className='meta';deps.textContent='Зависимости: '+(t.depends_on.join(', ')||'нет');row.append(heading,meta,goal,deps);results.append(row)}count.textContent='Найдено '+found.length+' · показано '+Math.min(found.length,limit);more.hidden=found.length<=limit;}
+VISUAL BACKLOG: 25 epics, 1037 tasks, graph/coverage/archive/documents valid
+/Users/sergeyshevchenko/my farm/tools/visual_backlog.py:139: SyntaxWarning: invalid escape sequence '\s'
+  function render(){const words=query.value.toLocaleLowerCase('ru').split(/\s+/).filter(Boolean);const found=data.filter(t=>(!epic.value||t.epic===epic.value)&&(!phase.value||t.phase===phase.value)&&words.every(w=>(t.id+' '+t.title+' '+t.goal).toLocaleLowerCase('ru').includes(w)));results.replaceChildren();for(const t of found.slice(0,limit)){const row=document.createElement('article'),heading=document.createElement('h2'),link=document.createElement('a'),meta=document.createElement('p'),goal=document.createElement('p'),deps=document.createElement('p');link.href='epics/'+t.epic.toLowerCase()+'.md#'+t.id.toLowerCase();link.textContent=t.id+' · '+t.title;heading.append(link);meta.className='meta';meta.textContent=t.priority+' · '+stateNames[t.status]+' · '+t.phase+(t.parent_owner?' · Владелец: '+t.parent_owner:'');goal.textContent=t.goal;deps.className='meta';deps.textContent='Зависимости: '+(t.depends_on.join(', ')||'нет');row.append(heading,meta,goal,deps);results.append(row)}count.textContent='Найдено '+found.length+' · показано '+Math.min(found.length,limit);more.hidden=found.length<=limit;}
+..............
+----------------------------------------------------------------------
+Ran 14 tests in 7.255s
+
+OK
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 0.414s
+
+OK
+.................
+----------------------------------------------------------------------
+Ran 17 tests in 2.086s
+
+OK
+.................
+----------------------------------------------------------------------
+Ran 17 tests in 2.883s
+
+OK
+CAMERA: valid static reference contract
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 0.223s
+
+OK
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 3.199s
+
+OK
+COORDINATES: native transforms, pointer, feet, videos and artifact hashes valid
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 1.613s
+
+OK
+......................
+----------------------------------------------------------------------
+Ran 22 tests in 8.956s
+
+OK
+................
+----------------------------------------------------------------------
+Ran 16 tests in 3.805s
+
+OK
+..........................
+----------------------------------------------------------------------
+Ran 26 tests in 3.382s
+
+OK
+.............................................
+----------------------------------------------------------------------
+Ran 45 tests in 1.350s
+
+OK
+/Users/sergeyshevchenko/my farm/tools/render_order.py:186: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  changed=sum(1 for pixel in diff.getdata() if any(pixel))
+/Users/sergeyshevchenko/my farm/tools/render_order.py:186: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  changed=sum(1 for pixel in diff.getdata() if any(pixel))
+.../Users/sergeyshevchenko/my farm/tools/render_order.py:186: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  changed=sum(1 for pixel in diff.getdata() if any(pixel))
+....../Users/sergeyshevchenko/my farm/tools/render_order.py:186: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  changed=sum(1 for pixel in diff.getdata() if any(pixel))
+...../Users/sergeyshevchenko/my farm/tools/render_order.py:186: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  changed=sum(1 for pixel in diff.getdata() if any(pixel))
+.
+----------------------------------------------------------------------
+Ran 15 tests in 9.549s
+
+OK
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/grass_methods.py", line 271, in <module>
+    if (REPORT/'summary.json').exists(): require(read(REPORT/'summary.json')==result,'published summary differs from raw evidence')
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tools/grass_methods.py", line 29, in require
+    if not condition: raise ValueError(message)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: published summary differs from raw evidence

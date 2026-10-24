@@ -8,6 +8,9 @@ const GameInteractionRouter := preload("res://scripts/core/game_interaction_rout
 const CameraSystem := preload("res://scripts/systems/camera_system.gd")
 const HeroActionSystem := preload("res://scripts/systems/hero_action_system.gd")
 const PresentationPose := preload("res://scripts/systems/presentation_pose_system.gd")
+
+# Физический catch-up помечает изменение; flush draw выполняется после последнего шага в _process.
+var _physics_redraw_pending := false
 ## Подготавливает узел к работе: создаёт зависимые данные и синхронизирует начальное состояние.
 func _ready() -> void:
 	GameBootstrap.initialize(self)
@@ -15,9 +18,15 @@ func _ready() -> void:
 
 ## Сохраняет автоматические игровые скриншоты после нескольких отрисованных кадров в режимах визуальной проверки.
 func _process(_delta: float) -> void:
-	if is_physics_processing() and PresentationPose.present(self,Engine.get_physics_interpolation_fraction()): queue_redraw()
+	var pose_changed := (
+		is_physics_processing()
+		and PresentationPose.present(self, Engine.get_physics_interpolation_fraction())
+	)
 	preload("res://scripts/presentation/foliage_wind.gd").update(self)
 	GamePreviewController.process(self)
+	if _physics_redraw_pending or pose_changed:
+		_physics_redraw_pending = false
+		queue_redraw()
 ## Готовит безопасную витрину пяти рангов врагов, трёх угроз и максимального облика героя.
 func configure_enemy_levels_preview() -> void:
 	GamePreviewController.configure_enemy_levels(self)
@@ -32,6 +41,7 @@ func _physics_process(delta: float) -> void:
 	PresentationPose.begin_tick(self)
 	GameLoop.physics_process(self, delta)
 	PresentationPose.end_tick(self,delta)
+	_physics_redraw_pending = true
 
 
 ## Обновляет короткие реакции HUD и автоматически убирает прочитанное системное сообщение.

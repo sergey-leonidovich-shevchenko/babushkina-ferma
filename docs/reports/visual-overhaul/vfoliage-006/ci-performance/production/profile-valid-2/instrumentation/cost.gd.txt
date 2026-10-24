@@ -1,0 +1,11 @@
+extends RefCounted
+static var enabled := false
+static var rows: Dictionary = {}
+
+static func record(key: String, elapsed: int) -> void:
+	if not enabled: return
+	var row: Dictionary = rows.get(key, {"calls":0,"total_us":0,"max_us":0})
+	row.calls += 1
+	row.total_us += elapsed
+	row.max_us = maxi(row.max_us, elapsed)
+	rows[key] = row

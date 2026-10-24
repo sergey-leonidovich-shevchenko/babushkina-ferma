@@ -1,0 +1,75 @@
+{
+  "status": "local_evidence_complete_exact_head_CI_and_independent_review_pending",
+  "version": "0.0.330",
+  "before_commit": "9f9c0baa44d82bfd2e9c1bbb98d0ecf4b6876a6f",
+  "plan_sha256": "5384a3bedb06a07910e44e683cc20d92a87794cb92ccc22d2c89e15e965c096c",
+  "architecture_suites": 79,
+  "python_tests": 1068,
+  "architecture_attestation": "current full check_architecture.sh passed after final native collector changes",
+  "game_passed": 50405,
+  "game_failed": 0,
+  "actual_main_headless_normal": [
+    90,
+    0
+  ],
+  "actual_main_headless_f10": [
+    90,
+    0
+  ],
+  "wiki_before_restriction": [
+    135,
+    0
+  ],
+  "native_normal": [
+    105,
+    0
+  ],
+  "native_f10_callback_checks": [
+    100,
+    0
+  ],
+  "native_visual_accepted": true,
+  "native_visual_reason": "Both focused runs have advancing present counters, fresh phase pixels and manually reviewed actual UI in all ten PNGs",
+  "primary_cases_completed": 12,
+  "profiling_cases_completed": 6,
+  "local_game_runs_currently_prohibited": false,
+  "remaining_local_checks": "none for declared changed-scope local protocol; independent exact-head CI/review pending",
+  "local_budget_closed": false,
+  "P1_closed": false,
+  "main_merge_allowed": false,
+  "remote_CI": "pending_new_SHA",
+  "original_negative_series_preserved": true,
+  "no_Task_Complete": true,
+  "primary_after_all_six_valid_ge50": true,
+  "native_normal_initial": "incomplete exit0 without summary; retained",
+  "native_f10_initial": "100/0 CPU/nonempty checks, stale framebuffer; retained and rejected",
+  "native_f10": [
+    105,
+    0
+  ],
+  "local_primary_budget_evidence_passed": true,
+  "production_runtime_sha256": {
+    "scripts/game_core.gd": "806f11a22a107322122b6904a8d6098b9a28f879d3a9fa94dbb3c2d706dc08aa",
+    "scripts/core/game_loop.gd": "cbff3c931b85ff8b03ffb379d41e33d1d0454ab106e3e6ac8b4e2537627fb713",
+    "project.godot": "eb1da393a292450a6ac65a5e4ca8aa512c4a348a314971ce2b947e522e84859f"
+  },
+  "qa_current_sha256": {
+    "tools/redraw_frame_review.gd": "83981535e7abba6f0a88120554cc79ac559434722971f4a8d8b7dd70da1b4185",
+    "tests/helpers/redraw_frame_probe.gd": "24067906e01450fbee7ab4480fefb64ad54e8384fddc0ee35d3a46383dbabc4c"
+  },
+  "actual_main_current_headless_normal": [
+    90,
+    0
+  ],
+  "actual_main_current_headless_f10": [
+    90,
+    0
+  ],
+  "wiki_current": [
+    135,
+    0
+  ],
+  "quality_log": "final-quality-check.txt.gz",
+  "wiki_log": "final-wiki-links-check.txt.gz",
+  "report_link_check": "New report links use local JSON attachments; prior generic Markdown fallback avoided"
+}

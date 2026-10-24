@@ -1,0 +1,309 @@
+[
+  {
+    "mode": "normal",
+    "command": [
+      "/usr/bin/open",
+      "-n",
+      "-W",
+      "-a",
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app",
+      "--args",
+      "--path",
+      "/Users/sergeyshevchenko/my farm",
+      "--log-file",
+      "/Users/sergeyshevchenko/my farm/docs/reports/visual-overhaul/vfoliage-006/redraw-scheduling/functional/after-native-focus-normal.engine.txt",
+      "--windowed",
+      "--resolution",
+      "1152x648",
+      "--rendering-method",
+      "gl_compatibility",
+      "--script",
+      "res://tools/redraw_frame_review.gd",
+      "--",
+      "--autoplay",
+      "--redraw-mode=normal",
+      "--redraw-output=/Users/sergeyshevchenko/my farm/docs/reports/visual-overhaul/vfoliage-006/redraw-scheduling/functional/after-native-focus/normal"
+    ],
+    "returncode": 0,
+    "timeout": false,
+    "launch_stdout": "",
+    "summary": {
+      "cap": 10,
+      "display": "macOS",
+      "engine": {
+        "build": "official",
+        "hash": "a13da4feb8d8aefc283c3763d33a2f170a18d541",
+        "hex": 263937,
+        "major": 4,
+        "minor": 7,
+        "patch": 1,
+        "status": "stable",
+        "string": "4.7.1-stable (official)",
+        "timestamp": 0
+      },
+      "failed": 0,
+      "max_catchup": 8,
+      "mode": "normal",
+      "passed": 105,
+      "phases": [
+        {
+          "draws": 6,
+          "end_frame_exclusive": 13,
+          "first_frame": 5,
+          "frames_drawn_after": 15,
+          "frames_drawn_before": 13,
+          "image_size": [
+            3584,
+            2016
+          ],
+          "label": "world",
+          "minute_after": 361.333333333332,
+          "minute_before": 360.533333333333,
+          "phase_marker_fresh": true,
+          "physics_calls": 36,
+          "present_wait_complete": true,
+          "steady_frames": 6,
+          "window_focused": true,
+          "window_visible": true
+        },
+        {
+          "draws": 4,
+          "end_frame_exclusive": 21,
+          "first_frame": 15,
+          "frames_drawn_after": 23,
+          "frames_drawn_before": 21,
+          "image_size": [
+            3584,
+            2016
+          ],
+          "label": "pause",
+          "minute_after": 361.549999999999,
+          "minute_before": 361.549999999999,
+          "phase_marker_fresh": true,
+          "physics_calls": 17,
+          "present_wait_complete": true,
+          "steady_frames": 4,
+          "window_focused": true,
+          "window_visible": true
+        },
+        {
+          "draws": 4,
+          "end_frame_exclusive": 29,
+          "first_frame": 23,
+          "frames_drawn_after": 31,
+          "frames_drawn_before": 29,
+          "image_size": [
+            3584,
+            2016
+          ],
+          "label": "inventory",
+          "minute_after": 361.549999999999,
+          "minute_before": 361.549999999999,
+          "phase_marker_fresh": true,
+          "physics_calls": 17,
+          "present_wait_complete": true,
+          "steady_frames": 4,
+          "window_focused": true,
+          "window_visible": true
+        },
+        {
+          "draws": 4,
+          "end_frame_exclusive": 37,
+          "first_frame": 31,
+          "frames_drawn_after": 39,
+          "frames_drawn_before": 37,
+          "image_size": [
+            3584,
+            2016
+          ],
+          "label": "editor",
+          "minute_after": 361.549999999999,
+          "minute_before": 361.549999999999,
+          "phase_marker_fresh": true,
+          "physics_calls": 18,
+          "present_wait_complete": true,
+          "steady_frames": 4,
+          "window_focused": true,
+          "window_visible": true
+        },
+        {
+          "draws": 6,
+          "end_frame_exclusive": 47,
+          "first_frame": 39,
+          "frames_drawn_after": 49,
+          "frames_drawn_before": 47,
+          "image_size": [
+            3584,
+            2016
+          ],
+          "label": "resumed",
+          "minute_after": 362.266666666665,
+          "minute_before": 361.549999999999,
+          "phase_marker_fresh": true,
+          "physics_calls": 29,
+          "present_wait_complete": true,
+          "steady_frames": 6,
+          "window_focused": true,
+          "window_visible": true
+        }
+      ],
+      "physics_hz": 60,
+      "profile": "Codex-Redraw-68689-1355647",
+      "purpose": "functional_catchup_and_latest_UI_not_FPS_admission"
+    }
+  },
+  {
+    "mode": "f10",
+    "command": [
+      "/usr/bin/open",
+      "-n",
+      "-W",
+      "-a",
+      "/Users/sergeyshevchenko/my farm/tools/Godot.app",
+      "--args",
+      "--path",
+      "/Users/sergeyshevchenko/my farm",
+      "--log-file",
+      "/Users/sergeyshevchenko/my farm/docs/reports/visual-overhaul/vfoliage-006/redraw-scheduling/functional/after-native-focus-f10.engine.txt",
+      "--windowed",
+      "--resolution",
+      "1152x648",
+      "--rendering-method",
+      "gl_compatibility",
+      "--script",
+      "res://tools/redraw_frame_review.gd",
+      "--",
+      "--autoplay",
+      "--redraw-mode=f10",
+      "--redraw-output=/Users/sergeyshevchenko/my farm/docs/reports/visual-overhaul/vfoliage-006/redraw-scheduling/functional/after-native-focus/f10",
+      "--benchmark-debug-overlay"
+    ],
+    "returncode": 0,
+    "timeout": false,
+    "launch_stdout": "",
+    "summary": {
+      "cap": 10,
+      "display": "macOS",
+      "engine": {
+        "build": "official",
+        "hash": "a13da4feb8d8aefc283c3763d33a2f170a18d541",
+        "hex": 263937,
+        "major": 4,
+        "minor": 7,
+        "patch": 1,
+        "status": "stable",
+        "string": "4.7.1-stable (official)",
+        "timestamp": 0
+      },
+      "failed": 0,
+      "max_catchup": 8,
+      "mode": "f10",
+      "passed": 105,
+      "phases": [
+        {
+          "draws": 6,
+          "end_frame_exclusive": 13,
+          "first_frame": 5,
+          "frames_drawn_after": 15,
+          "frames_drawn_before": 13,
+          "image_size": [
+            3584,
+            2016
+          ],
+          "label": "world",
+          "minute_after": 361.349999999999,
+          "minute_before": 360.533333333333,
+          "phase_marker_fresh": true,
+          "physics_calls": 37,
+          "present_wait_complete": true,
+          "steady_frames": 6,
+          "window_focused": true,
+          "window_visible": true
+        },
+        {
+          "draws": 4,
+          "end_frame_exclusive": 21,
+          "first_frame": 15,
+          "frames_drawn_after": 23,
+          "frames_drawn_before": 21,
+          "image_size": [
+            3584,
+            2016
+          ],
+          "label": "pause",
+          "minute_after": 361.549999999999,
+          "minute_before": 361.549999999999,
+          "phase_marker_fresh": true,
+          "physics_calls": 18,
+          "present_wait_complete": true,
+          "steady_frames": 4,
+          "window_focused": true,
+          "window_visible": true
+        },
+        {
+          "draws": 4,
+          "end_frame_exclusive": 29,
+          "first_frame": 23,
+          "frames_drawn_after": 31,
+          "frames_drawn_before": 29,
+          "image_size": [
+            3584,
+            2016
+          ],
+          "label": "inventory",
+          "minute_after": 361.549999999999,
+          "minute_before": 361.549999999999,
+          "phase_marker_fresh": true,
+          "physics_calls": 18,
+          "present_wait_complete": true,
+          "steady_frames": 4,
+          "window_focused": true,
+          "window_visible": true
+        },
+        {
+          "draws": 4,
+          "end_frame_exclusive": 37,
+          "first_frame": 31,
+          "frames_drawn_after": 39,
+          "frames_drawn_before": 37,
+          "image_size": [
+            3584,
+            2016
+          ],
+          "label": "editor",
+          "minute_after": 361.549999999999,
+          "minute_before": 361.549999999999,
+          "phase_marker_fresh": true,
+          "physics_calls": 18,
+          "present_wait_complete": true,
+          "steady_frames": 4,
+          "window_focused": true,
+          "window_visible": true
+        },
+        {
+          "draws": 6,
+          "end_frame_exclusive": 47,
+          "first_frame": 39,
+          "frames_drawn_after": 49,
+          "frames_drawn_before": 47,
+          "image_size": [
+            3584,
+            2016
+          ],
+          "label": "resumed",
+          "minute_after": 362.266666666665,
+          "minute_before": 361.549999999999,
+          "phase_marker_fresh": true,
+          "physics_calls": 29,
+          "present_wait_complete": true,
+          "steady_frames": 6,
+          "window_focused": true,
+          "window_visible": true
+        }
+      ],
+      "physics_hz": 60,
+      "profile": "Codex-Redraw-69139-1253901",
+      "purpose": "functional_catchup_and_latest_UI_not_FPS_admission"
+    }
+  }
+]

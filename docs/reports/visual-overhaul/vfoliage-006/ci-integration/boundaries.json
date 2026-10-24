@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "base": "0ee148dcf47da7e314d885cbdda9c063d8f447c5",
+  "immutable": {
+    "tests/fixtures/item_export_contract/manifest.json": "e6aec0ab797bd0ba54121d8908bb01be7213a310013303e0a6020568e0a8f668",
+    "tools/item_ui_fitter.gd": "47743787c4b31016690a8ccd9b9c886fe72b8b5312620f38510006c594aa6c7e"
+  },
+  "production_scripts_assets_unchanged": true,
+  "entries": 386,
+  "physical_sources": 275,
+  "one_derived": 382,
+  "two_derived": [
+    "compost",
+    "fishing_bait",
+    "wax_candle",
+    "wood_dowel"
+  ]
+}

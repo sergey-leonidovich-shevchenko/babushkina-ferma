@@ -129,6 +129,8 @@ python3 tools/foliage_contact_verify.py >/dev/null
 python3 tools/test_foliage_contact.py
 python3 tools/foliage_speed_verify.py >/dev/null
 python3 tools/test_foliage_speed.py
+python3 tools/foliage_recovery_verify.py >/dev/null
+python3 tools/test_foliage_recovery.py
 python3 tools/shadow_inventory_verify.py >/dev/null
 python3 tools/test_shadow_inventory.py
 python3 tools/village_fence_verify.py >/dev/null
@@ -165,6 +167,14 @@ python3 tools/texture_intents.py
 python3 tools/test_texture_intents.py
 python3 tools/item_sizes.py
 python3 tools/test_item_sizes.py
+python3 tools/preview_portability.py
+python3 tools/test_preview_portability.py
+python3 tools/item_export_contract.py
+python3 tools/test_item_export_contract.py
+python3 tools/test_performance_gate.py
+python3 docs/reports/visual-overhaul/vfoliage-006/causal-investigation/instrumentation/test_causal.py
+python3 docs/reports/visual-overhaul/vfoliage-006/redraw-scheduling/instrumentation/test_redraw_observer.py
+python3 tools/test_redraw_output.py
 python3 tools/alpha_audit.py
 python3 tools/test_alpha_audit.py
 python3 tools/test_alpha_proof.py

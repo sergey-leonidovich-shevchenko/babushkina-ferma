@@ -1,0 +1,6 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Requested V-Sync mode: Enabled - FPS will likely be capped to the monitor refresh rate.
+
+PERF_CAPTURE {"autoplay":true,"camera":[0.0,0.0],"cap_after":0,"cap_before":0,"debug":false,"display":"headless","engine_hash":"a13da4feb8d8aefc283c3763d33a2f170a18d541","kind":"ready","locale":"ru","location":"overworld","minimum_samples":10,"mode":"normal","plan_sha256":"af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7","player":[432.0,672.0],"profile":"Codex-Performance-d8daac25f9d848ea97490978992aae69","purpose":"original480_diagnostic","sample_us":1000000,"sampler_sha256":"af26ebd58ad078cc12302b22ad2eb29d489d9d767d3e978e34e3db265adf5b8a","scene_sha256":"850e050bc3df4971ec130b5b0a39dba6aa71082ce2fc20607dd504a3d55c98a9","schema":1,"seed":21101986,"startup_us":1351053,"time_us":9197471,"warmup_us":3000000,"window_us":10000000}
+Project FPS: 234 (4.27 mspf)
+PERF_CAPTURE {"callback_elapsed_us":3133220,"callbacks":480,"cap":0,"exit_elapsed_us":3133279,"kind":"original_end"}

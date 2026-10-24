@@ -1,0 +1,10 @@
+{
+  "purpose": "real_normal_capture_for_negative_protocol_tests_not_full_gate",
+  "files": {
+    "stdout.txt": "01076837e1456301a49b7a827322eb663fd49abf2e321b284dacbcc057a5aa77",
+    "context.json": "8f8a27a9e01e756f68b04b9f752e02c75d972c2cb3a645a980b3af35c2e3fb11",
+    "result.json": "1932358c520263c391cfd1a8749c563b2eec5408a6efbb9b4520209363c83819",
+    "sampler-source.gd.txt": "af26ebd58ad078cc12302b22ad2eb29d489d9d767d3e978e34e3db265adf5b8a",
+    "plan-copy.json": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+  }
+}

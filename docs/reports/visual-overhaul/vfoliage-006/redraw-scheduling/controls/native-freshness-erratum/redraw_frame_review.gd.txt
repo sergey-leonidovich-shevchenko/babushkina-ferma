@@ -1,0 +1,180 @@
+extends SceneTree
+
+var game: Node2D
+var review_output := ""
+var review_mode := "normal"
+var review_probe := "res://tests/helpers/redraw_frame_probe.gd"
+var passed := 0
+var failed := 0
+var phases: Array = []
+
+
+func _initialize() -> void:
+	for arg in OS.get_cmdline_user_args():
+		if arg.begins_with("--redraw-output="):
+			review_output = arg.trim_prefix("--redraw-output=")
+		elif arg.begins_with("--redraw-mode="):
+			review_mode = arg.trim_prefix("--redraw-mode=")
+		elif arg.begins_with("--redraw-probe="):
+			review_probe = arg.trim_prefix("--redraw-probe=")
+	var profile := "Codex-Redraw-" + str(OS.get_process_id()) + "-" + str(Time.get_ticks_usec())
+	if review_output.is_empty() and OS.has_environment("FARM_REDRAW_TEST_OUTPUT"):
+		review_output = OS.get_environment("FARM_REDRAW_TEST_OUTPUT").path_join(review_mode)
+	ProjectSettings.set_setting("application/config/use_custom_user_dir", true)
+	ProjectSettings.set_setting("application/config/custom_user_dir_name", profile)
+	if (
+		DirAccess.dir_exists_absolute(OS.get_user_data_dir())
+		or review_mode not in ["normal", "f10"]
+	):
+		push_error("fresh isolated redraw profile/mode required")
+		quit(2)
+		return
+	if not review_output.is_empty():
+		if DirAccess.dir_exists_absolute(review_output):
+			push_error("fresh redraw output required")
+			quit(2)
+			return
+		DirAccess.make_dir_recursive_absolute(review_output)
+	_run.call_deferred()
+
+
+func check(condition: bool, message: String) -> void:
+	if condition:
+		passed += 1
+	else:
+		failed += 1
+		print("REDRAW_FAIL ", message)
+
+
+func _run() -> void:
+	seed(21101986)
+	game = load("res://main.tscn").instantiate()
+	game.set_script(load(review_probe))  # Before entering the tree: no live-node state reset.
+	game.world_loot_seed = 21101986
+	root.add_child(game)
+	game.LocaleSystem.set_locale("ru", false)
+	game.settings_state.pause_on_focus_loss = false  # Isolated QA profile; no user settings written.
+	Engine.max_fps = 10
+	check(game.has_node("WorldBackground"), "actual main retains WorldBackground")
+	check(game.benchmark_autoplay, "actual autoplay startup")
+	check(game.DebugOverlaySystem.active(game) == (review_mode == "f10"), "actual F10 startup mode")
+	for index in 6:
+		await process_frame
+	for specification in [
+		["world", 8], ["pause", 6], ["inventory", 6], ["editor", 6], ["resumed", 8]
+	]:
+		await phase(String(specification[0]), int(specification[1]))
+	var records := PackedStringArray()
+	for key in game.review_process:
+		var encoded := JSON.stringify(
+			{
+				"process": game.review_process[key],
+				"physics": game.review_physics.get(key, {}),
+				"draws": game.review_draw.get(key, 0),
+				"draw_ui": game.review_draw_state.get(key, [])
+			}
+		)
+		print("REDRAW_FRAME ", encoded)
+		records.append(encoded)
+	var summary := {
+		"mode": review_mode,
+		"passed": passed,
+		"failed": failed,
+		"phases": phases,
+		"profile": OS.get_user_data_dir().get_file(),
+		"display": DisplayServer.get_name(),
+		"engine": Engine.get_version_info(),
+		"cap": Engine.max_fps,
+		"physics_hz": Engine.physics_ticks_per_second,
+		"max_catchup": Engine.max_physics_steps_per_frame,
+		"purpose": "functional_catchup_and_latest_UI_not_FPS_admission"
+	}
+	print("REDRAW_SUMMARY ", JSON.stringify(summary))
+	if not review_output.is_empty():
+		var raw_file := FileAccess.open(review_output.path_join("frames.jsonl"), FileAccess.WRITE)
+		raw_file.store_string("\n".join(records) + "\n")
+		var file := FileAccess.open(review_output.path_join("summary.json"), FileAccess.WRITE)
+		file.store_string(JSON.stringify(summary, "  ") + "\n")
+	print("REDRAW: %d passed, %d failed" % [passed, failed])
+	quit(0 if failed == 0 else 1)
+
+
+func phase(label: String, count: int) -> void:
+	game.menu_state.pause_open = false
+	game.inventory_open = false
+	if game.LevelEditorSystem.active(game):
+		game.LevelEditorSystem.toggle(game)
+	if review_mode == "f10" and not game.DebugOverlaySystem.active(game):
+		game.DebugOverlaySystem.toggle(game)
+	if label == "pause":
+		game.menu_state.pause_open = true
+	elif label == "inventory":
+		game.inventory_open = true
+	elif label == "editor":
+		game.LevelEditorSystem.toggle(game)
+	game.review_phase = label
+	var first := Engine.get_process_frames()
+	var minute_before: float = game.game_minutes
+	for index in count:
+		await process_frame
+	var last := Engine.get_process_frames()
+	var frames := 0
+	var physics := 0
+	var draws := 0
+	for key in game.review_process:
+		# All raw frames are retained. Exclude the first two transition frames from steady-phase assertions.
+		if key < first + 2 or key >= last:
+			continue
+		frames += 1
+		var rendered := int(game.review_draw.get(key, 0))
+		var updates: Dictionary = game.review_physics.get(key, {"count": 0, "delta_sum": 0.0})
+		physics += int(updates.count)
+		draws += rendered
+		check(rendered == 1, label + ": one draw after all catch-up steps, frame" + str(key))
+		check(
+			game.review_draw_state.get(key, []) == game.review_process[key].ui,
+			label + ": last process UI is rendered"
+		)
+		check(
+			absf(float(updates.delta_sum) - float(updates.count) / 60.0) < 0.000001,
+			label + ": physics deltas retained"
+		)
+	check(frames >= 3, label + ": complete observed frames")
+	check(physics > frames * 2, label + ": actual multi-step physics catch-up")
+	var advances := float(game.game_minutes) > minute_before
+	check(
+		advances if label in ["world", "resumed"] else not advances,
+		label + ": simulation advances/freezes as intended"
+	)
+	var result := {
+		"label": label,
+		"first_frame": first,
+		"end_frame_exclusive": last,
+		"steady_frames": frames,
+		"physics_calls": physics,
+		"draws": draws,
+		"minute_before": minute_before,
+		"minute_after": game.game_minutes
+	}
+	if DisplayServer.get_name() != "headless" and not review_output.is_empty():
+		var before_present := Engine.get_frames_drawn()
+		await RenderingServer.frame_post_draw
+		await RenderingServer.frame_post_draw
+		var image := root.get_texture().get_image()
+		check(not image.is_empty(), label + ": real native framebuffer")
+		if not image.is_empty():
+			var path := review_output.path_join(label + ".png")
+			check(image.save_png(path) == OK, label + ": native PNG saved")
+			result["image_size"] = [image.get_width(), image.get_height()]
+			var expected_color: Color = game.review_marker_color()
+			var fresh := false
+			for y in mini(64, image.get_height()):
+				if image.get_pixel(mini(16, image.get_width() - 1), y).is_equal_approx(expected_color):
+					fresh = true
+			check(fresh, label + ": framebuffer contains current draw phase marker")
+			result["phase_marker_fresh"] = fresh
+			result["frames_drawn_before"] = before_present
+			result["frames_drawn_after"] = Engine.get_frames_drawn()
+			result["window_focused"] = root.has_focus()
+			result["window_visible"] = root.visible
+	phases.append(result)

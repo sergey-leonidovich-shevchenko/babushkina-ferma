@@ -1,0 +1,41 @@
+extends "res://scripts/game.gd"
+
+var review_phase := "warmup"
+var review_process: Dictionary = {}
+var review_physics: Dictionary = {}
+var review_draw: Dictionary = {}
+var review_draw_state: Dictionary = {}
+
+
+func review_ui() -> Array:
+	return [menu_state.pause_open, inventory_open, LevelEditorSystem.active(self)]
+
+
+func _process(delta: float) -> void:
+	super._process(delta)
+	var frame := Engine.get_process_frames()
+	review_process[frame] = {
+		"frame": frame,
+		"phase": review_phase,
+		"time_us": Time.get_ticks_usec(),
+		"physics_frame": Engine.get_physics_frames(),
+		"ui": review_ui(),
+		"minutes": game_minutes,
+		"location": current_location
+	}
+
+
+func _physics_process(delta: float) -> void:
+	super._physics_process(delta)
+	var frame := Engine.get_process_frames()
+	var row: Dictionary = review_physics.get(frame, {"count": 0, "delta_sum": 0.0})
+	row.count += 1
+	row.delta_sum += delta
+	review_physics[frame] = row
+
+
+func _draw() -> void:
+	super._draw()
+	var frame := Engine.get_process_frames()
+	review_draw[frame] = int(review_draw.get(frame, 0)) + 1
+	review_draw_state[frame] = review_ui()

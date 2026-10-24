@@ -1,0 +1,8 @@
+{
+  "failure": "Only report packaging assertion expected TAP # prefix; current Node emits \u2139",
+  "all_actual_gates_completed_successfully_before_failure": true,
+  "fix": "Accept the two actual summary prefixes, keep pass135/fail0 strict",
+  "game_runtime_and_test_sources_changed_after_gate": false,
+  "later_changes": "Report packaging and local JSON links only; Wiki build/tests repeated135/0; offline full18case recheck passed",
+  "failure_log": "finalizer-format-failure.txt"
+}

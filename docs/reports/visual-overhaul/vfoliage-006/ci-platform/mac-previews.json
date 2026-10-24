@@ -1,0 +1,54 @@
+[
+  {
+    "actual_bytes": 102400,
+    "actual_sha256": "3ee13cd968f347142624d048c8156e18588a18946371e5719dcaa5bb7454e7f6",
+    "catalog_source_sha256": "fa69cd28511e354eddfaf598da1dddb652bfc1e0ea70c559c381bfcee03c6e78",
+    "differing_bytes": 0,
+    "expected_bytes": 102400,
+    "expected_sha256": "3ee13cd968f347142624d048c8156e18588a18946371e5719dcaa5bb7454e7f6",
+    "kind": "wood_dowel",
+    "max_delta": 0,
+    "source_bounds": "[P: (41, 30), S: (175, 206)]",
+    "source_sha256": "fa69cd28511e354eddfaf598da1dddb652bfc1e0ea70c559c381bfcee03c6e78",
+    "source_size": "(256, 256)"
+  },
+  {
+    "actual_bytes": 102400,
+    "actual_sha256": "87256cf402770b1460e173b4d775367d2ff886361584863b1b31c4f896d0cf85",
+    "catalog_source_sha256": "2150142571b9b7eae63d6847a71f0c6f1ccbbcab4ab75218d44959cd5b01f345",
+    "differing_bytes": 0,
+    "expected_bytes": 102400,
+    "expected_sha256": "87256cf402770b1460e173b4d775367d2ff886361584863b1b31c4f896d0cf85",
+    "kind": "wax_candle",
+    "max_delta": 0,
+    "source_bounds": "[P: (0, 0), S: (240, 264)]",
+    "source_sha256": "2150142571b9b7eae63d6847a71f0c6f1ccbbcab4ab75218d44959cd5b01f345",
+    "source_size": "(240, 264)"
+  },
+  {
+    "actual_bytes": 102400,
+    "actual_sha256": "27917b5af0e94fdc2ac238c53e6d7d6f0767aa3b022b8fea4a4c779226bc7c1d",
+    "catalog_source_sha256": "fcac15e9fef851f176a4c54c27aa05692e4e57f835cfe7ac2c5c3e79e5cb43ba",
+    "differing_bytes": 0,
+    "expected_bytes": 102400,
+    "expected_sha256": "27917b5af0e94fdc2ac238c53e6d7d6f0767aa3b022b8fea4a4c779226bc7c1d",
+    "kind": "compost",
+    "max_delta": 0,
+    "source_bounds": "[P: (0, 0), S: (403, 373)]",
+    "source_sha256": "fcac15e9fef851f176a4c54c27aa05692e4e57f835cfe7ac2c5c3e79e5cb43ba",
+    "source_size": "(404, 373)"
+  },
+  {
+    "actual_bytes": 102400,
+    "actual_sha256": "1f549271a3530b20bf1733e3b0191928cfe1ccbf1e201c8a00672047fc3a641c",
+    "catalog_source_sha256": "b8deced424f71fb1eab627057db831eb4250f005a2b671b18b3b3b7cdf1f4ca3",
+    "differing_bytes": 0,
+    "expected_bytes": 102400,
+    "expected_sha256": "1f549271a3530b20bf1733e3b0191928cfe1ccbf1e201c8a00672047fc3a641c",
+    "kind": "fishing_bait",
+    "max_delta": 0,
+    "source_bounds": "[P: (0, 0), S: (333, 241)]",
+    "source_sha256": "b8deced424f71fb1eab627057db831eb4250f005a2b671b18b3b3b7cdf1f4ca3",
+    "source_size": "(333, 241)"
+  }
+]

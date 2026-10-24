@@ -1,0 +1,224 @@
+{
+  "schema": 1,
+  "purpose": "predeclared_central_redraw_before_after",
+  "before_commit": "9f9c0baa44d82bfd2e9c1bbb98d0ecf4b6876a6f",
+  "candidate_definition": "same Git base plus only exact declared runtime delta; final production commit must match every captured runtime SHA",
+  "candidate_runtime_delta": {
+    "scripts/game_core.gd": {
+      "before": "65294374ec3b527deacc65d4d20128c0b7f16e421d5f24d6541f6a91c20f0288",
+      "after": "806f11a22a107322122b6904a8d6098b9a28f879d3a9fa94dbb3c2d706dc08aa"
+    },
+    "scripts/core/game_loop.gd": {
+      "before": "609a87664e107215358dfbaa61d21e8b19da955f34802f523141652478f17b43",
+      "after": "cbff3c931b85ff8b03ffb379d41e33d1d0454ab106e3e6ac8b4e2537627fb713"
+    },
+    "project.godot": {
+      "before": "c2d398b1b29b5a9d15a2a553f3bfe53f41c81f533753425b4548d4c5a8723ef8",
+      "after": "eb1da393a292450a6ac65a5e4ca8aa512c4a348a314971ce2b947e522e84859f"
+    }
+  },
+  "candidate_patch_sha256": "fa159b5352e0e6ec2d0d29e37fb708a69f74b21283a92c11730028ee171e2e4e",
+  "before_version": "0.0.329",
+  "candidate_version": "0.0.330",
+  "engine_hash": "a13da4feb8d8aefc283c3763d33a2f170a18d541",
+  "engine_file_sha256": "ecc8da2d60100102cfca6e833d3860d7436b46ae062fa072ce89a6c95d664a3f",
+  "device": {
+    "model": "MacBookPro16,1",
+    "cpu": "Intel i7-9750H",
+    "ram_bytes": 17179869184,
+    "logical_cpus": 12,
+    "macos": "15.4.1"
+  },
+  "backend": {
+    "display": "headless",
+    "driver": "opengl3",
+    "method": "gl_compatibility",
+    "physical_window": false,
+    "focus": null,
+    "vsync": null
+  },
+  "effective_after_startup": {
+    "low_processor_usage_mode": true,
+    "idle_sleep_usec": 500,
+    "delta_smoothing": true,
+    "time_scale": 1.0,
+    "physics_ticks_per_second": 60,
+    "max_physics_steps_per_frame": 8,
+    "render_loop": true,
+    "tree_paused": false,
+    "process_enabled": true,
+    "physics_enabled": true
+  },
+  "seed": 21101986,
+  "locale": "ru",
+  "normal_route_start": [
+    432,
+    672
+  ],
+  "f10_route_start": [
+    1160,
+    650
+  ],
+  "canonical_sampler_sha256": "27db1abf21456b846ebbc0391ff716eb0033e9cbd24ea5bb84d023ab37d61684",
+  "canonical_gate_plan_sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7",
+  "warmup_usec": 3000000,
+  "window_usec": 10000000,
+  "sample_usec": 1000000,
+  "repeats": 3,
+  "minimum_fps": 50,
+  "settle_seconds": 60,
+  "between_seconds": 2,
+  "cpu_sampling_seconds": 0.02,
+  "primary_no_native_sample": true,
+  "primary_no_method_timers": true,
+  "profile_native_sample": {
+    "offset_seconds": 0.5,
+    "duration_seconds": 3,
+    "interval_ms": 10,
+    "owned_pid_only": true
+  },
+  "profile_span_limit": 500000,
+  "profile_purpose": "diagnostic_not_primary_admission",
+  "functional_cap": 10,
+  "functional_physics_hz": 60,
+  "functional_max_catchup": 8,
+  "functional_warmup_frames": 6,
+  "functional_phases": [
+    [
+      "world",
+      8
+    ],
+    [
+      "pause",
+      6
+    ],
+    [
+      "inventory",
+      6
+    ],
+    [
+      "editor",
+      6
+    ],
+    [
+      "resumed",
+      8
+    ]
+  ],
+  "functional_transition_frames_retained_but_not_steady_asserted": 2,
+  "functional_case_order": [
+    "before-headless-normal",
+    "before-headless-f10",
+    "after-headless-normal-via-run_tests",
+    "after-headless-f10-via-run_tests",
+    "after-native-normal",
+    "after-native-f10"
+  ],
+  "native_requested_logical_window": [
+    1152,
+    648
+  ],
+  "native_rendering_method": "gl_compatibility",
+  "functional_pause_on_focus_loss": false,
+  "all_results_retained": true,
+  "order": [
+    [
+      "primary",
+      "before",
+      "normal"
+    ],
+    [
+      "primary",
+      "after",
+      "normal"
+    ],
+    [
+      "primary",
+      "before",
+      "f10"
+    ],
+    [
+      "primary",
+      "after",
+      "f10"
+    ],
+    [
+      "primary",
+      "after",
+      "f10"
+    ],
+    [
+      "primary",
+      "before",
+      "f10"
+    ],
+    [
+      "primary",
+      "after",
+      "normal"
+    ],
+    [
+      "primary",
+      "before",
+      "normal"
+    ],
+    [
+      "primary",
+      "before",
+      "normal"
+    ],
+    [
+      "primary",
+      "after",
+      "normal"
+    ],
+    [
+      "primary",
+      "before",
+      "f10"
+    ],
+    [
+      "primary",
+      "after",
+      "f10"
+    ],
+    [
+      "profile",
+      "before",
+      "f10"
+    ],
+    [
+      "profile",
+      "after",
+      "f10"
+    ],
+    [
+      "profile",
+      "after",
+      "f10"
+    ],
+    [
+      "profile",
+      "before",
+      "f10"
+    ],
+    [
+      "profile",
+      "before",
+      "f10"
+    ],
+    [
+      "profile",
+      "after",
+      "f10"
+    ]
+  ],
+  "plan_text_sha256": "b36fc94ed0b87a35b94460e1185a1bd0a5d6a1c68bca8b4fdc7f24053f8b8f0d",
+  "instrumentation_sha256": {
+    "redraw_compare.py": "41c8c72958e3ebb891cd18a717eb8213ae123bf6114ae65ff2792cf8d52230f5",
+    "redraw_frame_probe.gd.txt": "400b0fb4381c71d40923e13a38672eb3460007c56f3075153bf13cf4c9967998",
+    "redraw_frame_review.gd.txt": "4f2b4983a10e15eadf51432f33aa174b130343f085d7c8d0cde4856c94cc439f",
+    "redraw_observer.py": "f642bf58a7f0189de2109a4f6228aa02618dc6a20e7cbb5a34bdd30e949f60f7",
+    "test_redraw_observer.py": "4317d32cd5ea19da88f15853a53f9aace7a5b94068fcef59fa99a96ce0d2f683"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "purpose": "paired_headless_CPU_comparison_not_hardware_admission",
+  "utc": "2026-10-23T09:54:45.360334+00:00",
+  "baseline_commit": "fe5919686aed1b6ea66cd1112a8075a57d448946",
+  "head_commit": "ed44048fd4ff8ab96b14cceaa8309b183c47c7c6",
+  "head_working_diff_sha256": "6776e2e65458c4862794e597f6c6f6c7e96880b65b3c7c77d3125e7e49ecb909",
+  "phase": "after_targeted_wildlife_navigation_change_before_production_commit",
+  "plan_sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7",
+  "engine_file_sha256": "ecc8da2d60100102cfca6e833d3860d7436b46ae062fa072ce89a6c95d664a3f",
+  "order": [
+    [
+      "base-normal",
+      "head-normal",
+      "base-f10",
+      "head-f10"
+    ],
+    [
+      "head-f10",
+      "base-f10",
+      "head-normal",
+      "base-normal"
+    ],
+    [
+      "base-normal",
+      "head-normal",
+      "base-f10",
+      "head-f10"
+    ]
+  ],
+  "statement": "All twelve predeclared cases retained; no threshold changes, censoring, or retries to pick success."
+}

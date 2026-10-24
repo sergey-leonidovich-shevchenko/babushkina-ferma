@@ -1,0 +1,14 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+Requested V-Sync mode: Enabled - FPS will likely be capped to the monitor refresh rate.
+
+PERFORMANCE CONFIG: {"autoplay":true,"cap":60,"debug":true}
+Project FPS: 46 (21.73 mspf)
+Project FPS: 60 (16.66 mspf)
+Project FPS: 55 (18.18 mspf)
+Project FPS: 23 (43.47 mspf)
+Project FPS: 24 (41.66 mspf)
+Project FPS: 43 (23.25 mspf)
+Project FPS: 60 (16.66 mspf)
+Project FPS: 60 (16.66 mspf)
+Project FPS: 55 (18.18 mspf)
+Project FPS: 7 (142.85 mspf)

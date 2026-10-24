@@ -1,0 +1,16 @@
+{
+  "task": "VFOLIAGE-006",
+  "base_commit": "ab52022ac0ba38954c95bfcc8b3cc94d1cda03e0",
+  "runtime": {
+    "scripts/presentation/foliage_wind.gd": {
+      "before": "932e3d46ea9ece767ce1b1f23e073ac119dd5607c1abcc64fa80c967fb247f5b",
+      "after": "9416aac6d83e4b7bdf69ecc8ca9bba8384bd7f06cd54203cf92175174b5b4219"
+    },
+    "scripts/presentation/foliage_recovery.gd": {
+      "before": null,
+      "after": "175a678dcbe7891a23d9b759bda8f691494c6faa9322b08954316758d76b0996"
+    }
+  },
+  "artwork_changed": false,
+  "shader_changed": false
+}

@@ -1,0 +1,5 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+before: (1.0, 0.0)
+zero: (0.0, 0.0) stored: { 6: (1.0, 0.0) }
+next: (0.0, 0.0) stored: { 6: (1.0, 0.0) }

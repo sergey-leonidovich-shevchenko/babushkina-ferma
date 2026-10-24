@@ -1,0 +1,14 @@
+{
+  "version": "0.0.324",
+  "source_revision_at_capture": "0c73691d494cf27117b976ffe47e71a5ae1f7ab6",
+  "tracked_worktree_changes": [],
+  "workflow_revision": "0c73691d494cf27117b976ffe47e71a5ae1f7ab6",
+  "engine_executable_file_sha256": "32f8d7596c4b41185512b1c49d69f2da3be018fd784a53e349fa92a98a97bcde",
+  "python": "3.11.17 (main, Oct  1 2026, 14:32:31) [GCC 13.3.0]",
+  "pillow": "11.3.0",
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "libc": [
+    "glibc",
+    "2.39"
+  ]
+}

@@ -133,7 +133,7 @@ func test_input_and_disk_roundtrip() -> void:
 	game.ItemWindowRenderer.handle_crafting_pointer(game,Visual.LOAD_BUTTON.get_center())
 	expect(Furnace.state(game).heat==36.0 and game.inventory_item_count("coal")==1,"touch loads one coal without enqueuing a recipe")
 	game.CraftingSystem.craft(game,index_for(game,"ore")); Furnace.update(game,3.0)
-	var path:="/private/tmp/farm-furnace-save-%d.json"%Time.get_ticks_usec()
+	var path:=OS.get_temp_dir().path_join("farm-furnace-save-%d.json" % Time.get_ticks_usec())
 	expect(game.SaveSystem.save_at(game,path),"partial furnace queue writes an actual validated disk slot")
 	var restored:=make_game(); expect(game.SaveSystem.load_at(restored,path),"partial furnace queue reloads from disk")
 	expect(Furnace.state(restored).fuel=="coal" and Furnace.state(restored).heat==33.0 and Furnace.state(restored).queue[0].remaining==9.0,"selected fuel, unspent heat and partial work roundtrip exactly")

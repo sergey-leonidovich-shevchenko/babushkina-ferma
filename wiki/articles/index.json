@@ -1,5 +1,32 @@
 [
   {
+    "id": "pull-request-review",
+    "file": "pull-request-review.md",
+    "title": "Ревью кода и работа агентов",
+    "summary": "Порядок PR, проверка текущего SHA, доработки через тимлида и звуковые задания Music Agent.",
+    "tags": [
+      "Разработка",
+      "PR",
+      "Tech Lead Agent",
+      "Team Lead Agent",
+      "Music Agent"
+    ]
+  },
+  {
+    "id": "foliage-recovery",
+    "file": "foliage-recovery.md",
+    "title": "Трава мягко выпрямляется после прохода",
+    "summary": "VFOLIAGE-006: плавное затухание контакта, пауза без долга, ограниченные записи и нативные анимации.",
+    "tags": [
+      "Разработка",
+      "VFOLIAGE-006",
+      "Первая локация",
+      "Растения",
+      "Шейдеры",
+      "QA"
+    ]
+  },
+  {
     "id": "foliage-speed",
     "file": "foliage-speed.md",
     "title": "Шаг и бег по-разному отклоняют траву",

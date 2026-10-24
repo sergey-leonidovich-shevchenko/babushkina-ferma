@@ -1,0 +1,20 @@
+{
+  "purpose": "actual_Mac_OpenGL_cache_fix_verification_not_fps",
+  "source_revision_at_capture": "65fb6147c7dc7a0388ebf9eacea73e5e65498a4c",
+  "version_at_capture": "0.0.323",
+  "tracked_worktree_changes": [
+    ".github/workflows/ci.yml",
+    ".gitignore",
+    "TESTING.md",
+    "VERSION",
+    "docs/epics/visual-overhaul-2026-10/backlog.json",
+    "docs/epics/visual-overhaul-2026-10/epics/vfoliage.md",
+    "docs/reports/visual-overhaul/vfoliage-006/ci-repro/README.md",
+    "project.godot",
+    "tools/check_architecture.sh",
+    "tools/ui_portability_capture.gd",
+    "\"\\320\\221\\320\\260\\320\\261\\321\\203\\321\\210\\320\\272\\320\\270\\320\\275\\320\\260 \\321\\204\\320\\265\\321\\200\\320\\274\\320\\260.app/Contents/Info.plist\""
+  ],
+  "command": "Godot --rendering-method gl_compatibility --audio-driver Dummy --path . --script res://tools/ui_portability_capture.gd -- --output=tmp/vfoliage-006-ui-cachefix-mac-gl-final",
+  "engine_file_sha256": "ecc8da2d60100102cfca6e833d3860d7436b46ae062fa072ce89a6c95d664a3f"
+}

@@ -1,0 +1,20 @@
+test_dangling_engine_log_symlink_cannot_create_foreign_file (__main__.RedrawOutputTests.test_dangling_engine_log_symlink_cannot_create_foreign_file) ... ok
+test_engine_log_symlink_cannot_modify_prior_target (__main__.RedrawOutputTests.test_engine_log_symlink_cannot_modify_prior_target) ... ok
+test_even_current_engine_file_is_never_clobbered (__main__.RedrawOutputTests.test_even_current_engine_file_is_never_clobbered) ... ok
+test_existing_complete_output_is_immutable (__main__.RedrawOutputTests.test_existing_complete_output_is_immutable) ... ok
+test_existing_empty_root_is_also_rejected (__main__.RedrawOutputTests.test_existing_empty_root_is_also_rejected) ... ok
+test_existing_file_is_immutable (__main__.RedrawOutputTests.test_existing_file_is_immutable) ... ok
+test_existing_root_symlink_and_target_are_immutable (__main__.RedrawOutputTests.test_existing_root_symlink_and_target_are_immutable) ... ok
+test_exit_zero_engine_error_is_still_saved_and_rejected (__main__.RedrawOutputTests.test_exit_zero_engine_error_is_still_saved_and_rejected) ... ok
+test_fresh_failure_after_mode_creation_keeps_frames_and_log (__main__.RedrawOutputTests.test_fresh_failure_after_mode_creation_keeps_frames_and_log) ... ok
+test_fresh_failure_before_mode_creation_saves_current_log (__main__.RedrawOutputTests.test_fresh_failure_before_mode_creation_saves_current_log) ... ok
+test_fresh_success_saves_current_log_in_both_modes (__main__.RedrawOutputTests.test_fresh_success_saves_current_log_in_both_modes) ... ok
+test_missing_parent_refuses_before_engine_launch (__main__.RedrawOutputTests.test_missing_parent_refuses_before_engine_launch) ... ok
+test_mode_symlink_cannot_redirect_log_into_prior_evidence (__main__.RedrawOutputTests.test_mode_symlink_cannot_redirect_log_into_prior_evidence) ... ok
+test_reviewed_old_wrapper_reproduces_overwrite (__main__.RedrawOutputTests.test_reviewed_old_wrapper_reproduces_overwrite) ... ok
+test_without_capture_root_regular_execution_still_works (__main__.RedrawOutputTests.test_without_capture_root_regular_execution_still_works) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 12.614s
+
+OK

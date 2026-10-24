@@ -1,0 +1,99 @@
+{
+  "schema": 1,
+  "purpose": "fixed_inputs_for_diagnostics_not_acceptance",
+  "origin_commit": "dd683fc84e4ad58f246860c8d523a2abaaf83ccd",
+  "engine_release": "4.7.1-stable",
+  "fitter_file": "tools/item_ui_fitter.gd",
+  "fitter_sha256": "47743787c4b31016690a8ccd9b9c886fe72b8b5312620f38510006c594aa6c7e",
+  "cases": [
+    {
+      "id": "wood_dowel",
+      "source_file": "tests/fixtures/preview_portability/sources/wood_dowel.png",
+      "source_file_sha256": "fa69cd28511e354eddfaf598da1dddb652bfc1e0ea70c559c381bfcee03c6e78",
+      "source_rgba_sha256": "017dface12d60655a1ee24d2853b6b225dd3483078fc75b6f1b4d7697907a1a1",
+      "source_size": [
+        256,
+        256
+      ],
+      "bounds": [
+        41,
+        30,
+        175,
+        206
+      ],
+      "reference_file": "tests/fixtures/preview_portability/reference/wood_dowel.png",
+      "reference_file_sha256": "3ee13cd968f347142624d048c8156e18588a18946371e5719dcaa5bb7454e7f6",
+      "reference_rgba_sha256": "1064b3affcabf45ccb7ea1878448a164d658a03814058a80b5c7c31543317aaa",
+      "size": 160,
+      "padding": 8,
+      "source_rgba_file": "tests/fixtures/preview_portability/sources/wood_dowel.rgba"
+    },
+    {
+      "id": "wax_candle",
+      "source_file": "tests/fixtures/preview_portability/sources/wax_candle.png",
+      "source_file_sha256": "2150142571b9b7eae63d6847a71f0c6f1ccbbcab4ab75218d44959cd5b01f345",
+      "source_rgba_sha256": "8c80dec19eae6cb10a2536142414d7a7fc1cc67d5ad7c730894a656a99ed18c1",
+      "source_size": [
+        240,
+        264
+      ],
+      "bounds": [
+        0,
+        0,
+        240,
+        264
+      ],
+      "reference_file": "tests/fixtures/preview_portability/reference/wax_candle.png",
+      "reference_file_sha256": "87256cf402770b1460e173b4d775367d2ff886361584863b1b31c4f896d0cf85",
+      "reference_rgba_sha256": "eb110f05baa65a0c30ac08a25bdde3a99dc31bfa86ebb76e1965e1cbf92f72f0",
+      "size": 160,
+      "padding": 8,
+      "source_rgba_file": "tests/fixtures/preview_portability/sources/wax_candle.rgba"
+    },
+    {
+      "id": "compost",
+      "source_file": "tests/fixtures/preview_portability/sources/compost.png",
+      "source_file_sha256": "fcac15e9fef851f176a4c54c27aa05692e4e57f835cfe7ac2c5c3e79e5cb43ba",
+      "source_rgba_sha256": "e2f144f6bcb1661c479508db8b24a89f3770c5e5fa850bf79f8aa56f590a571b",
+      "source_size": [
+        404,
+        373
+      ],
+      "bounds": [
+        0,
+        0,
+        403,
+        373
+      ],
+      "reference_file": "tests/fixtures/preview_portability/reference/compost.png",
+      "reference_file_sha256": "27917b5af0e94fdc2ac238c53e6d7d6f0767aa3b022b8fea4a4c779226bc7c1d",
+      "reference_rgba_sha256": "18f38fd0bfeea526b39a285efef87ccc43f9425b8ab580b396a10509d173312d",
+      "size": 160,
+      "padding": 8,
+      "source_rgba_file": "tests/fixtures/preview_portability/sources/compost.rgba"
+    },
+    {
+      "id": "fishing_bait",
+      "source_file": "tests/fixtures/preview_portability/sources/fishing_bait.png",
+      "source_file_sha256": "b8deced424f71fb1eab627057db831eb4250f005a2b671b18b3b3b7cdf1f4ca3",
+      "source_rgba_sha256": "68d057aa4de3d188ad24b638699ee904ba287e003f2082fc527850526c37439a",
+      "source_size": [
+        333,
+        241
+      ],
+      "bounds": [
+        0,
+        0,
+        333,
+        241
+      ],
+      "reference_file": "tests/fixtures/preview_portability/reference/fishing_bait.png",
+      "reference_file_sha256": "1f549271a3530b20bf1733e3b0191928cfe1ccbf1e201c8a00672047fc3a641c",
+      "reference_rgba_sha256": "f3d463de71d0a3ca3db8456f1b4a51b87f8507b2d753d430653c461157301e5b",
+      "size": 160,
+      "padding": 8,
+      "source_rgba_file": "tests/fixtures/preview_portability/sources/fishing_bait.rgba"
+    }
+  ],
+  "engine_hash": "a13da4feb8d8aefc283c3763d33a2f170a18d541"
+}

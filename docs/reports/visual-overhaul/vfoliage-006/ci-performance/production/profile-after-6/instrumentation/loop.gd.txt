@@ -1,0 +1,231 @@
+extends RefCounted
+const Cost = preload("res://tmp/vfoliage-006-cost-entry-3/cost.gd")
+
+## Выполняет один физический кадр и задаёт единственный порядок обновления игровых подсистем.
+static func physics_process(game: Node, delta: float) -> void:
+	var cost_started_0 := Time.get_ticks_usec()
+	preload("res://scripts/systems/runtime_maintenance_system.gd").update(game)
+	Cost.record("game_loop.gd:5", Time.get_ticks_usec() - cost_started_0)
+	var cost_started_1 := Time.get_ticks_usec()
+	preload("res://scripts/systems/focus_pause_system.gd").update(game)
+	Cost.record("game_loop.gd:6", Time.get_ticks_usec() - cost_started_1)
+	var cost_started_2 := Time.get_ticks_usec()
+	preload("res://scripts/systems/basement_input_system.gd").update(game,delta)
+	Cost.record("game_loop.gd:7", Time.get_ticks_usec() - cost_started_2)
+	var cost_started_3 := Time.get_ticks_usec()
+	game.AudioSystem.update(game, delta)
+	Cost.record("game_loop.gd:8", Time.get_ticks_usec() - cost_started_3)
+	var cost_started_4 := Time.get_ticks_usec()
+	game.update_hud_feedback(delta)
+	Cost.record("game_loop.gd:9", Time.get_ticks_usec() - cost_started_4)
+	var cost_started_5 := Time.get_ticks_usec()
+	game.UiFeedbackSystem.update(game, delta)
+	Cost.record("game_loop.gd:10", Time.get_ticks_usec() - cost_started_5)
+	var cost_started_6 := Time.get_ticks_usec()
+	preload("res://scripts/systems/recovery_system.gd").update(game,delta)
+	Cost.record("game_loop.gd:11", Time.get_ticks_usec() - cost_started_6)
+	if preload("res://scripts/systems/focus_pause_system.gd").blocked(game) or gameplay_window_open(game) or game.menu_state.pause_open or game.menu_state.settings_open or game.menu_state.defeat_open or not game.menu_state.confirmation.is_empty():
+		var cost_started_7 := Time.get_ticks_usec()
+		game.queue_redraw()
+		Cost.record("game_loop.gd:13", Time.get_ticks_usec() - cost_started_7)
+		return
+	if game.LevelEditorSystem.active(game):
+		var cost_started_8 := Time.get_ticks_usec()
+		game.queue_redraw()
+		Cost.record("game_loop.gd:16", Time.get_ticks_usec() - cost_started_8)
+		return
+	var cost_started_9 := Time.get_ticks_usec()
+	game.PublishedLevelSystem.update(game)
+	Cost.record("game_loop.gd:18", Time.get_ticks_usec() - cost_started_9)
+	if game.LevelEditorSystem.active(game):
+		var cost_started_10 := Time.get_ticks_usec()
+		game.queue_redraw()
+		Cost.record("game_loop.gd:20", Time.get_ticks_usec() - cost_started_10)
+		return
+	var cost_started_11 := Time.get_ticks_usec()
+	game.FenceSystem.update(game, delta)
+	Cost.record("game_loop.gd:22", Time.get_ticks_usec() - cost_started_11)
+	var cost_started_12 := Time.get_ticks_usec()
+	game.DebugOverlaySystem.update(game, delta)
+	Cost.record("game_loop.gd:23", Time.get_ticks_usec() - cost_started_12)
+	delta = game.DebugOverlaySystem.simulation_delta(game, delta)
+	if delta <= 0.0:
+		var cost_started_13 := Time.get_ticks_usec()
+		game.queue_redraw()
+		Cost.record("game_loop.gd:26", Time.get_ticks_usec() - cost_started_13)
+		return
+	var cost_started_14 := Time.get_ticks_usec()
+	game.AdventurePolishSystem.update(game, delta)
+	Cost.record("game_loop.gd:28", Time.get_ticks_usec() - cost_started_14)
+	delta = game.FarmLifeSystem.simulation_delta(game, delta)
+	if delta <= 0.0:
+		var cost_started_15 := Time.get_ticks_usec()
+		game.queue_redraw()
+		Cost.record("game_loop.gd:31", Time.get_ticks_usec() - cost_started_15)
+		return
+	if game.DebugPlaygroundSystem.active(game):
+		var cost_started_16 := Time.get_ticks_usec()
+		game.DebugPlaygroundSystem.update(game, delta)
+		Cost.record("game_loop.gd:34", Time.get_ticks_usec() - cost_started_16)
+		delta = game.DebugPlaygroundSystem.simulation_delta(game, delta)
+		if delta <= 0.0:
+			var cost_started_17 := Time.get_ticks_usec()
+			game.queue_redraw()
+			Cost.record("game_loop.gd:37", Time.get_ticks_usec() - cost_started_17)
+			return
+	var cost_started_18 := Time.get_ticks_usec()
+	game.FirstChapterSystem.update(game)
+	Cost.record("game_loop.gd:39", Time.get_ticks_usec() - cost_started_18)
+	if modal_active(game):
+		var cost_started_19 := Time.get_ticks_usec()
+		game.queue_redraw()
+		Cost.record("game_loop.gd:41", Time.get_ticks_usec() - cost_started_19)
+		return
+	var cost_started_20 := Time.get_ticks_usec()
+	update_world(game, delta)
+	Cost.record("game_loop.gd:43", Time.get_ticks_usec() - cost_started_20)
+	if gameplay_window_open(game):
+		var cost_started_21 := Time.get_ticks_usec()
+		game.queue_redraw()
+		Cost.record("game_loop.gd:45", Time.get_ticks_usec() - cost_started_21)
+		return
+	var step_origin:=Vector2(game.player);var step_world:=String(game.current_location)
+	var cost_started_22 := Time.get_ticks_usec()
+	update_player(game, delta)
+	Cost.record("game_loop.gd:48", Time.get_ticks_usec() - cost_started_22)
+	var cost_started_23 := Time.get_ticks_usec()
+	preload("res://scripts/systems/dropped_loot_system.gd").update(game,delta)
+	Cost.record("game_loop.gd:49", Time.get_ticks_usec() - cost_started_23)
+	var cost_started_24 := Time.get_ticks_usec()
+	preload("res://scripts/presentation/post_motion_frame.gd").publish(game,delta)
+	Cost.record("game_loop.gd:50", Time.get_ticks_usec() - cost_started_24)
+	var cost_started_25 := Time.get_ticks_usec()
+	preload("res://scripts/presentation/foliage_speed.gd").publish(game,step_origin,step_world,delta)
+	Cost.record("game_loop.gd:51", Time.get_ticks_usec() - cost_started_25)
+	var cost_started_26 := Time.get_ticks_usec()
+	game.queue_redraw()
+	Cost.record("game_loop.gd:52", Time.get_ticks_usec() - cost_started_26)
+
+## Проверяет, блокирует ли текущее модальное состояние симуляцию мира.
+static func modal_active(game: Node) -> bool:
+	return preload("res://scripts/systems/focus_pause_system.gd").blocked(game) or game.title_screen \
+		or game.menu_state.pause_open \
+		or game.menu_state.settings_open \
+		or game.menu_state.defeat_open \
+		or game.AdventurePolishSystem.has_modal(game) \
+		or game.FarmLifeSystem.modal_active(game) \
+		or game.FirstChapterSystem.modal_active(game)
+
+## Проверяет полноэкранные игровые окна, при которых мир и боевые события поставлены на паузу.
+static func gameplay_window_open(game: Node) -> bool:
+	return preload("res://scripts/systems/qa_teleport_system.gd").active(game) or preload("res://scripts/systems/dev_cabinet_system.gd").active(game) or preload("res://scripts/systems/apiary_input_system.gd").active(game) or game.BasementSystem.modal(game) or game.shop_open \
+		or game.inventory_open \
+		or game.crafting_open \
+		or game.storage_open \
+		or game.forge_open \
+		or game.contract_open \
+		or game.quest_log_open \
+		or game.skill_menu_open \
+		or game.world_map_open
+
+## Обновляет мир, существ и прогресс в детерминированном порядке одного кадра.
+static func update_world(game: Node, delta: float) -> void:
+	var cost_started_27 := Time.get_ticks_usec()
+	game.update_game_clock(delta)
+	Cost.record("game_loop.gd:78", Time.get_ticks_usec() - cost_started_27)
+	var cost_started_28 := Time.get_ticks_usec()
+	game.WorldEventSystem.update(game)
+	Cost.record("game_loop.gd:79", Time.get_ticks_usec() - cost_started_28)
+	var cost_started_29 := Time.get_ticks_usec()
+	game.sync_background_environment()
+	Cost.record("game_loop.gd:80", Time.get_ticks_usec() - cost_started_29)
+	var cost_started_30 := Time.get_ticks_usec()
+	game.EstateSystem.update_daily_event(game)
+	Cost.record("game_loop.gd:81", Time.get_ticks_usec() - cost_started_30)
+	var cost_started_31 := Time.get_ticks_usec()
+	game.VillageEventSystem.update(game)
+	Cost.record("game_loop.gd:82", Time.get_ticks_usec() - cost_started_31)
+	var cost_started_32 := Time.get_ticks_usec()
+	game.FarmLifeSystem.update(game, delta)
+	Cost.record("game_loop.gd:83", Time.get_ticks_usec() - cost_started_32)
+	var cost_started_33 := Time.get_ticks_usec()
+	game.update_crops(delta)
+	Cost.record("game_loop.gd:84", Time.get_ticks_usec() - cost_started_33)
+	var cost_started_34 := Time.get_ticks_usec()
+	game.TreeSystem.update(game, delta)
+	Cost.record("game_loop.gd:85", Time.get_ticks_usec() - cost_started_34)
+	var cost_started_35 := Time.get_ticks_usec()
+	game.MoonGladeSystem.update(game, delta)
+	Cost.record("game_loop.gd:86", Time.get_ticks_usec() - cost_started_35)
+	var cost_started_36 := Time.get_ticks_usec()
+	game.CastleCampaignSystem.update(game, delta)
+	Cost.record("game_loop.gd:87", Time.get_ticks_usec() - cost_started_36)
+	var cost_started_37 := Time.get_ticks_usec()
+	game.update_combat(delta)
+	Cost.record("game_loop.gd:88", Time.get_ticks_usec() - cost_started_37)
+	var cost_started_38 := Time.get_ticks_usec()
+	game.update_fishing(delta)
+	Cost.record("game_loop.gd:89", Time.get_ticks_usec() - cost_started_38)
+	var cost_started_39 := Time.get_ticks_usec()
+	game.update_status_effects(delta)
+	Cost.record("game_loop.gd:90", Time.get_ticks_usec() - cost_started_39)
+	var cost_started_40 := Time.get_ticks_usec()
+	game.FurnaceSystem.update(game,delta)
+	Cost.record("game_loop.gd:91", Time.get_ticks_usec() - cost_started_40)
+	var cost_started_41 := Time.get_ticks_usec()
+	game.WorkshopSystem.update(game,delta)
+	Cost.record("game_loop.gd:92", Time.get_ticks_usec() - cost_started_41)
+	var cost_started_42 := Time.get_ticks_usec()
+	preload("res://scripts/systems/basement_production_system.gd").update(game,delta)
+	Cost.record("game_loop.gd:93", Time.get_ticks_usec() - cost_started_42)
+	var cost_started_43 := Time.get_ticks_usec()
+	game.SpellSystem.update(game, delta)
+	Cost.record("game_loop.gd:94", Time.get_ticks_usec() - cost_started_43)
+	var cost_started_44 := Time.get_ticks_usec()
+	game.CompanionSystem.update(game, delta)
+	Cost.record("game_loop.gd:95", Time.get_ticks_usec() - cost_started_44)
+	var cost_started_45 := Time.get_ticks_usec()
+	game.NpcMovementSystem.update(game, delta)
+	Cost.record("game_loop.gd:96", Time.get_ticks_usec() - cost_started_45)
+	var cost_started_46 := Time.get_ticks_usec()
+	game.PlayerSystem.update_animation(game, delta)
+	Cost.record("game_loop.gd:97", Time.get_ticks_usec() - cost_started_46)
+	var cost_started_47 := Time.get_ticks_usec()
+	game.AnimationSystem.update(game, delta)
+	Cost.record("game_loop.gd:98", Time.get_ticks_usec() - cost_started_47)
+	var cost_started_48 := Time.get_ticks_usec()
+	game.SkillSystem.update_resources(game, delta)
+	Cost.record("game_loop.gd:99", Time.get_ticks_usec() - cost_started_48)
+	var cost_started_49 := Time.get_ticks_usec()
+	game.ForageSystem.update(game)
+	Cost.record("game_loop.gd:100", Time.get_ticks_usec() - cost_started_49)
+	if not game.DebugPlaygroundSystem.active(game):
+		var cost_started_50 := Time.get_ticks_usec()
+		game.DiscoverySystem.update(game, delta)
+		Cost.record("game_loop.gd:102", Time.get_ticks_usec() - cost_started_50)
+		var cost_started_51 := Time.get_ticks_usec()
+		game.WildlifeSystem.update(game, delta)
+		Cost.record("game_loop.gd:103", Time.get_ticks_usec() - cost_started_51)
+	if game.benchmark_autoplay:
+		var cost_started_52 := Time.get_ticks_usec()
+		game.update_benchmark_route(delta)
+		Cost.record("game_loop.gd:105", Time.get_ticks_usec() - cost_started_52)
+
+## Обновляет перемещение и удерживаемые действия героя после симуляции мира.
+static func update_player(game: Node, delta: float) -> void:
+	if preload("res://scripts/systems/basement_construction_system.gd").update_hold(game,delta): game.update_camera(); return
+	var cost_started_53 := Time.get_ticks_usec()
+	game.update_player_movement(delta)
+	Cost.record("game_loop.gd:110", Time.get_ticks_usec() - cost_started_53)
+	var cost_started_54 := Time.get_ticks_usec()
+	game.LocationTransitionSystem.update(game, delta)
+	Cost.record("game_loop.gd:111", Time.get_ticks_usec() - cost_started_54)
+	var cost_started_55 := Time.get_ticks_usec()
+	game.update_held_action(delta)
+	Cost.record("game_loop.gd:112", Time.get_ticks_usec() - cost_started_55)
+	var cost_started_56 := Time.get_ticks_usec()
+	game.update_held_attack(delta)
+	Cost.record("game_loop.gd:113", Time.get_ticks_usec() - cost_started_56)
+	var cost_started_57 := Time.get_ticks_usec()
+	game.update_camera()
+	Cost.record("game_loop.gd:114", Time.get_ticks_usec() - cost_started_57)

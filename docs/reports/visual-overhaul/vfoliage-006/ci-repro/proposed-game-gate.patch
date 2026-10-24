@@ -1,0 +1,25 @@
+--- a/tests/suites/item_sizes_suite.gd
++++ b/tests/suites/item_sizes_suite.gd
+@@ -74,14 +74,20 @@
+ ## Ожидаемый результат: каждый 160px PNG получен напрямую из целого источника, а не растянут из маленькой иконки.
+ func test_prepared_files_match_full_resolution_sources() -> void:
+ 	var game := make_game(); var fitter := preload("res://tools/item_ui_fitter.gd")
++	var contract := preload("res://tools/item_export_contract.gd")
++	var manifest := contract.manifest()
++	expect(contract.environment(manifest, game.InventorySystem.ITEM_DATA.keys()).is_empty(), "exact export environment and source files")
+ 	for kind in game.InventorySystem.ITEM_DATA:
+-		var source: Image=Assets.item_visual(kind).texture.get_image()
++		var visual := Assets.item_visual(kind)
++		var source: Image=visual.texture.get_image()
+ 		if source.is_compressed(): source.decompress()
+ 		var expected := fitter.fitted(source,source.get_used_rect(),160,8)
+ 		var actual := Image.load_from_file(ProjectSettings.globalize_path("res://assets/game/items/ui/preview/"+kind+".png"))
+ 		if actual.get_data() != expected.get_data():
+ 			print("ITEM PREVIEW DIFFERENCE: ", kind, " ", JSON.stringify(pixel_difference(actual, expected, source)))
+-		expect(actual.get_format()==Image.FORMAT_RGBA8 and actual.get_data()==expected.get_data(),"prepared preview matches direct canonical export: "+kind)
++		var path := "res://assets/game/items/ui/preview/" + String(kind) + ".png"
++		var errors := contract.inspect(manifest.entries[kind], visual, source, actual, FileAccess.get_file_as_bytes(path), expected)
++		expect(errors.is_empty(), "exact actual PNG/source and evidenced complete direct export: " + kind + ": " + str(errors))
+ 	Assets.initialize_item_icons(game.InventorySystem.ITEM_DATA.keys()); game.free()
+ 
+ 

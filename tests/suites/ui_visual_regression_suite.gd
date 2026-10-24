@@ -131,6 +131,8 @@ func test_adaptive_hud_profiles_preserve_safe_layout()->void:
 func test_key_interfaces_pass_project_layout_audit()->void:
 	var game:=make_game(); var report:Dictionary=game.UiLayoutAuditSystem.project_report(game)
 	expect(int(report.surfaces)==8 and int(report.checks)>=2200,"layout analytics covers eight key UI surfaces with a broad deterministic contract")
+	if int(report.failed) > 0:
+		print("UI LAYOUT ISSUES: ", JSON.stringify(report.issues))
 	expect(int(report.failed)==0 and int(report.passed)==int(report.checks),"project UI report contains no padding overlap containment centering or typography violations")
 	expect(FileAccess.file_exists("res://docs/UI_AUDIT.md") and FileAccess.file_exists("res://docs/reports/ui_layout_audit.json"),"human requirements and machine-readable UI audit remain versioned together")
 	game.free()

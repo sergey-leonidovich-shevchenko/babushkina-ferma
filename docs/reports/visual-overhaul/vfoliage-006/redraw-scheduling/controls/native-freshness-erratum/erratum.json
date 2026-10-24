@@ -1,0 +1,19 @@
+{
+  "change": "QA collector only: await two actual frame_post_draw signals, then verify phase-specific opaque RGB marker emitted at the end of the same Game CanvasItem draw; save render counters/window state",
+  "reason": "old F10 captures pause/inventory/editor/resumed had identical RGBA despite changed CPU flags; hidden MenuHub latch ruled out by code, cause not yet proven",
+  "production_runtime_unchanged": true,
+  "original_plan_and_source_files_unchanged": true,
+  "original_failed_and_partial_captures_preserved": true,
+  "new_native_expectations": "100 prior assertions plus five phase-freshness checks; normal/F10105/0 onlyifactualpixelsmatch",
+  "headless_expectations_unchanged": "90/0 per mode, no marker readback in headless",
+  "before_first_primary_case": true,
+  "new_case_order": [
+    "normal",
+    "f10"
+  ],
+  "new_outputs": "functional/after-native-fresh/{normal,f10}, fresh paths; no overwrite",
+  "hashes": {
+    "redraw_frame_probe.gd": "24067906e01450fbee7ab4480fefb64ad54e8384fddc0ee35d3a46383dbabc4c",
+    "redraw_frame_review.gd": "568dad5c9d01d8f83f6bb61858583374cad69f1fabad275f072e10b1018b716a"
+  }
+}

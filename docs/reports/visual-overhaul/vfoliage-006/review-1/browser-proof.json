@@ -1,0 +1,70 @@
+{
+  "review_revision": 1,
+  "result": "passed",
+  "url": "http://127.0.0.1:4175/#/guides/foliage-recovery",
+  "version": "0.0.317",
+  "search": "VFOLIAGE-006 found and opened via Enter",
+  "card_state": "in_progress; predecessor VFOLIAGE-005 complete; main merge pending",
+  "layout_390": {
+    "viewport_width": 390,
+    "document_width": 390,
+    "image_width": 318
+  },
+  "pr_link": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/1",
+  "review_guide": "#/guides/pull-request-review",
+  "image_assets": [
+    {
+      "source": "docs/reports/visual-overhaul/vfoliage-006/review-1/native/1152/motion-0.png",
+      "sha256": "1f0806d44324e352a6883dafbc3d957e9280a4fe1a5392704fd849c61e51c3c5",
+      "frames": 10,
+      "size": [
+        1152,
+        648
+      ],
+      "all_frames_lossless": "native verifier decodes every frame; browser asset matches complete original bytes"
+    },
+    {
+      "source": "docs/reports/visual-overhaul/vfoliage-006/review-1/native/1152/motion-2.png",
+      "sha256": "185a7833ed7d6dc8c6d7df492ef2158c24416718266fde61295717ed0e1bd634",
+      "frames": 10,
+      "size": [
+        1152,
+        648
+      ],
+      "all_frames_lossless": "native verifier decodes every frame; browser asset matches complete original bytes"
+    },
+    {
+      "source": "docs/reports/visual-overhaul/vfoliage-006/review-1/native/1152/stop/window.png",
+      "sha256": "ff52c5c1cf7b07965a2ecc27b0629c896a052282399f24f0766ddf8ba3c42563",
+      "frames": 1,
+      "size": [
+        1152,
+        648
+      ],
+      "all_frames_lossless": "native verifier decodes every frame; browser asset matches complete original bytes"
+    }
+  ],
+  "attachments": [
+    {
+      "name": "summary.json",
+      "sha256": "67ebc89dfb6a2f72081d212b254d01609aebc3605e35b3b4b0018d42dfd92250",
+      "download_attribute": "summary.json"
+    },
+    {
+      "name": "changes.json",
+      "sha256": "e41fc9d24d2cdaedd950ad97483c9ac39f17f686f9aa89f760a63ebe362c3e34",
+      "download_attribute": "changes.json"
+    },
+    {
+      "name": "native-admission.json",
+      "sha256": "ded76047e8eb8b84d56fa924c8df779b4c4aa8d68c2d3bd3c9b3c5b6607cd6e7",
+      "download_attribute": "native-admission.json"
+    }
+  ],
+  "download_event_exercised": false,
+  "scope": "DOM links/download attributes plus exact built attachment bytes, not browser download event",
+  "screenshots": {
+    "browser-desktop.png": "b20eb7c673f6c7056126ef2cbc802271776d811eda15f4120cf271deb1c52b96",
+    "browser-mobile.png": "f5a07aa7b1fe9e0dcfc00b0437f8b578b56f742f5bb5d286b5b84ae7912de8d1"
+  }
+}

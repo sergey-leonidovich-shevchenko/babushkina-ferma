@@ -1,0 +1,42 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+ERROR: Unable to open file: res://.godot/imported/Fish Swimming.png-6b56f2c487a336be80b13d97d4dbe79e.ctex.
+   at: _load_data (scene/resources/compressed_texture.cpp:45)
+ERROR: Failed loading resource: res://.godot/imported/Fish Swimming.png-6b56f2c487a336be80b13d97d4dbe79e.ctex.
+   at: _load (core/io/resource_loader.cpp:317)
+ERROR: Failed loading resource: res://assets/game/fishing/Fish Swimming.png.
+   at: _load (core/io/resource_loader.cpp:317)
+ERROR: Unable to open file: res://.godot/imported/Splash Effect.png-4ed97eed823ae9a767910ab543a0e42f.ctex.
+   at: _load_data (scene/resources/compressed_texture.cpp:45)
+ERROR: Failed loading resource: res://.godot/imported/Splash Effect.png-4ed97eed823ae9a767910ab543a0e42f.ctex.
+   at: _load (core/io/resource_loader.cpp:317)
+ERROR: Failed loading resource: res://assets/game/fishing/Splash Effect.png.
+   at: _load (core/io/resource_loader.cpp:317)
+ERROR: Unable to open file: res://.godot/imported/Bubbles Rising.png-e2da388910bfa44a7bc6a3269f9fb427.ctex.
+   at: _load_data (scene/resources/compressed_texture.cpp:45)
+ERROR: Failed loading resource: res://.godot/imported/Bubbles Rising.png-e2da388910bfa44a7bc6a3269f9fb427.ctex.
+   at: _load (core/io/resource_loader.cpp:317)
+ERROR: Failed loading resource: res://assets/game/fishing/Bubbles Rising.png.
+   at: _load (core/io/resource_loader.cpp:317)
+ERROR: Unable to open file: res://.godot/imported/forest_tree_growth_atlas_v1.png-e3d15626c2ed2eaec5d6d1deb63ce5a1.ctex.
+   at: _load_data (scene/resources/compressed_texture.cpp:45)
+ERROR: Failed loading resource: res://.godot/imported/forest_tree_growth_atlas_v1.png-e3d15626c2ed2eaec5d6d1deb63ce5a1.ctex.
+   at: _load (core/io/resource_loader.cpp:317)
+ERROR: Failed loading resource: res://assets/game/environment/forest_tree_growth_atlas_v1.png.
+   at: _load (core/io/resource_loader.cpp:317)
+ERROR: Unable to open file: res://.godot/imported/fruit_trees_4x4_v2.png-12397b1468f7ad7f0ddb0edce2a75df4.ctex.
+   at: _load_data (scene/resources/compressed_texture.cpp:45)
+ERROR: Failed loading resource: res://.godot/imported/fruit_trees_4x4_v2.png-12397b1468f7ad7f0ddb0edce2a75df4.ctex.
+   at: _load (core/io/resource_loader.cpp:317)
+ERROR: Failed loading resource: res://assets/game/environment/orchard/fruit_trees_4x4_v2.png.
+   at: _load (core/io/resource_loader.cpp:317)
+ERROR: Unable to open file: res://.godot/imported/wall_straight_a_v1.png-90b2e7928a7f88fa1746cd8078fc2d37.ctex.
+   at: _load_data (scene/resources/compressed_texture.cpp:45)
+ERROR: Failed loading resource: res://.godot/imported/wall_straight_a_v1.png-90b2e7928a7f88fa1746cd8078fc2d37.ctex.
+   at: _load (core/io/resource_loader.cpp:317)
+ERROR: Failed loading resource: res://assets/game/locations/cave/modular/wall_straight_a_v1.png.
+   at: _load (core/io/resource_loader.cpp:317)
+ERROR: Unable to open file: res://.godot/imported/wall_straight_b_v1.png-86324aa8a902812446d5148ed16a5169.ctex.
+   at: _load_data (scene/resources/compressed_texture.cpp:45)
+ERROR: Failed loading resource: res://.godot/imported/wall_straight_b_v1.png-86324aa8a902812446d5148ed16a5169.ctex.
+   at: _load (core/io/resource_loader.cpp:317)

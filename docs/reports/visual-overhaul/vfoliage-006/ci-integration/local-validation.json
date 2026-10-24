@@ -1,0 +1,28 @@
+{
+  "version": "0.0.324",
+  "parent_revision": "0ee148dcf47da7e314d885cbdda9c063d8f447c5",
+  "status": "integrated_reviewed_contract_awaiting_full_CI_and_final_full_review",
+  "local_architecture_suites": 76,
+  "local_python_tests": 1015,
+  "game_passed": 50371,
+  "game_failed": 0,
+  "wiki_passed": 135,
+  "wiki_failed": 0,
+  "item_sizes": 1205,
+  "negative_python": 14,
+  "contract_godot": 411,
+  "smoke": "180 frames passed",
+  "performance_status": "failed_missing_F10_samples_in_unchanged_gate",
+  "performance": "PERFORMANCE: обычная игра · средний FPS 63 · порог 50 · 480 кадров\nPERFORMANCE: игра с F10 — средний FPS 0 ниже порога 50\n",
+  "native": {
+    "capture": "ci-repro/mac-gl-cachefix",
+    "unchanged_source_count": 396,
+    "differences": [
+      "project.godot"
+    ],
+    "project_version_only": true,
+    "no_new_UI_or_foliage_capture_claimed": true
+  },
+  "main_unchanged": true,
+  "merge_authorized": false
+}

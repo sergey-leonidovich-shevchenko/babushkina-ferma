@@ -1,0 +1,64 @@
+{
+  "task": "VFOLIAGE-006",
+  "accepted": true,
+  "url": "http://127.0.0.1:4175/#/guides/foliage-recovery",
+  "images_loaded": 3,
+  "images_exact_via_page_assets": [
+    {
+      "source": "native/1152/motion-0.png",
+      "sha256": "76faf3c9e896e8d0865aba4014344b62cb913542f20a4443a20a039fa4220825",
+      "frames": 10,
+      "size": [
+        1152,
+        648
+      ]
+    },
+    {
+      "source": "native/1152/motion-2.png",
+      "sha256": "5625eba941dfd558e4250fd2891e21c09cccfd4beb522422d9b0e0b4dd927227",
+      "frames": 10,
+      "size": [
+        1152,
+        648
+      ]
+    },
+    {
+      "source": "native/1152/stop/window.png",
+      "sha256": "56072450cb654197931f8367ff2a5b47415f1f4260de88de6cabde8907210a6e",
+      "frames": 1,
+      "size": [
+        1152,
+        648
+      ]
+    }
+  ],
+  "motion_assets_exact": true,
+  "search_verified": true,
+  "keyboard_search_enter_verified": true,
+  "task_dependency_verified": true,
+  "task_status_at_review": "in_progress",
+  "narrow": {
+    "width": 390,
+    "scroll_width": 390,
+    "image_width": 318
+  },
+  "attachments_exact_in_build": [
+    {
+      "source": "summary.json",
+      "sha256": "f5657b5a82b223b4bc65b676d7981a5ad82263467987af33ca982d98879d0c6f",
+      "built_path": "wiki/dist/generated/attachments/f5657b5a82b223b4bc65b676d7981a5ad82263467987af33ca982d98879d0c6f.json"
+    },
+    {
+      "source": "changes.json",
+      "sha256": "6cb4cc33b5ce7635afb41560b70fc35968d7007069d3cf59b6698e89eb43568d",
+      "built_path": "wiki/dist/generated/attachments/6cb4cc33b5ce7635afb41560b70fc35968d7007069d3cf59b6698e89eb43568d.json"
+    },
+    {
+      "source": "native-admission.json",
+      "sha256": "85a6b7d960b6785156be407cadbb469618042b6d6e3ca060d68b24e295f9c2cd",
+      "built_path": "wiki/dist/generated/attachments/85a6b7d960b6785156be407cadbb469618042b6d6e3ca060d68b24e295f9c2cd.json"
+    }
+  ],
+  "browser_download_event_verified": false,
+  "attachment_scope": "DOM href/download attributes and exact built bytes checked; native browser download event not tested. Three rendered images exported with pageAssets.bundle match exact native bytes."
+}

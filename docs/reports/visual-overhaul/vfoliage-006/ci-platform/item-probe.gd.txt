@@ -1,0 +1,26 @@
+extends SceneTree
+
+const Game := preload("res://scripts/game.gd")
+const Assets := preload("res://scripts/systems/visual_asset_system.gd")
+const Fitter := preload("res://tools/item_ui_fitter.gd")
+const Catalog := preload("res://assets/game/items/ui/catalog.gd")
+const Suite := preload("res://tests/suites/item_sizes_suite.gd")
+
+## Снимает контрольные SHA четырёх источников без изменения готовых игровых PNG.
+func _initialize() -> void:
+	var game := Game.new()
+	game._ready()
+	Assets.initialize_item_icons(game.InventorySystem.ITEM_DATA.keys())
+	var checks := Suite.new(self)
+	for kind in ["wood_dowel", "wax_candle", "compost", "fishing_bait"]:
+		var source: Image = Assets.item_visual(kind).texture.get_image()
+		if source.is_compressed():
+			source.decompress()
+		var actual := Image.load_from_file(ProjectSettings.globalize_path("res://assets/game/items/ui/preview/" + kind + ".png"))
+		var expected := Fitter.fitted(source, source.get_used_rect(), 160, 8)
+		var record: Dictionary = checks.pixel_difference(actual, expected, source)
+		record["kind"] = kind
+		record["catalog_source_sha256"] = Catalog.DATA.entries[kind].sourceHash
+		print("MAC PREVIEW: ", JSON.stringify(record))
+	game.free()
+	quit()

@@ -106,7 +106,7 @@ func test_duplicate_approaches_and_queue_save() -> void:
 	game.change_inventory_count("log",1); var index:int=game.CraftingSystem.RECIPES.find_custom(func(recipe): return recipe.get("id","")=="sawmill:planks")
 	expect(game.CraftingSystem.craft(game,index),"real saved job reserves its inputs")
 	game.crafting_open=false; Production.update(game,2)
-	var path:="/private/tmp/farm-basement-queue-%d.json"%Time.get_ticks_usec()
+	var path:=OS.get_temp_dir().path_join("farm-basement-queue-%d.json" % Time.get_ticks_usec())
 	expect(game.SaveSystem.save_at(game,path),"private queue writes a validated disk save")
 	var restored:=make_game(); expect(restored.SaveSystem.load_at(restored,path),"private queue loads from a real disk save")
 	var loaded:=Basement.object(restored,item.id)

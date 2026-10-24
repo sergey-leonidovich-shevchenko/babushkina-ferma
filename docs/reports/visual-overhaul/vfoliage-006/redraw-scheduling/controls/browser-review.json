@@ -1,0 +1,18 @@
+{
+  "url": "http://127.0.0.1:4175/#/guides/foliage-recovery",
+  "version": "0.0.330",
+  "article_loaded": true,
+  "all_three_images_complete": true,
+  "images_size": [
+    1152,
+    648
+  ],
+  "rendered_article_readable": true,
+  "new_report_link_fixed": "Use local JSON attachments, not generic Markdown article fallback",
+  "new_attachment_links": [
+    "49dcaa6a6335a1248442f6ec591d1bea305229dd0b23c09920bb737b2e2e5e0e.json",
+    "5384a3bedb06a07910e44e683cc20d92a87794cb92ccc22d2c89e15e965c096c.json",
+    "5eb81f53ca7d172e47e9cc6e4a90df80358b8ff41a0cd96d8a2355d593ed7b34.json"
+  ],
+  "scope": "Current article/illustrations/new links; no global Wiki redesign or whole-game acceptance"
+}

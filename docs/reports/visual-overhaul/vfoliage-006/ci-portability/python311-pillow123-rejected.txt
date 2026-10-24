@@ -1,0 +1,191 @@
+VERSION: 0.0.317 -> 0.0.318
+VERSION: 0.0.318 synchronized
+................
+----------------------------------------------------------------------
+Ran 16 tests in 15.317s
+
+OK
+tools/check_architecture.sh:38: command not found: rg
+DOCUMENTATION: обязательные файлы и локальные ссылки корректны
+DOCUMENTATION TEST: свои ссылки проверяются, зависимости и сборки исключены
+WORLD SPRITE AUDIT TEST: dynamic discovery and dead preload checks are valid
+WORLD SPRITE AUDIT: 29 семейств; готово 28; открыто P1=1, P2=0, P3=0
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 0.031s
+
+OK
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+OK
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 0.019s
+
+OK
+SPRITE CLEANUP: 90 retired resources; dynamic paths and consumers preserved
+BACKLOG OK: 6 epics / 50 tasks / 6 Ready; network: 0
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 0.071s
+
+OK
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+OK
+VISUAL BACKLOG: 25 epics, 1037 tasks, graph/coverage/archive/documents valid
+..............
+----------------------------------------------------------------------
+Ran 14 tests in 5.193s
+
+OK
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 0.388s
+
+OK
+.................
+----------------------------------------------------------------------
+Ran 17 tests in 1.817s
+
+OK
+.................
+----------------------------------------------------------------------
+Ran 17 tests in 2.887s
+
+OK
+CAMERA: valid static reference contract
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 0.222s
+
+OK
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 3.149s
+
+OK
+COORDINATES: native transforms, pointer, feet, videos and artifact hashes valid
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 1.727s
+
+OK
+......................
+----------------------------------------------------------------------
+Ran 22 tests in 9.574s
+
+OK
+................
+----------------------------------------------------------------------
+Ran 16 tests in 3.990s
+
+OK
+..........................
+----------------------------------------------------------------------
+Ran 26 tests in 3.503s
+
+OK
+.............................................
+----------------------------------------------------------------------
+Ran 45 tests in 1.366s
+
+OK
+/Users/sergeyshevchenko/my farm/tools/render_order.py:186: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  changed=sum(1 for pixel in diff.getdata() if any(pixel))
+/Users/sergeyshevchenko/my farm/tools/render_order.py:186: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  changed=sum(1 for pixel in diff.getdata() if any(pixel))
+.../Users/sergeyshevchenko/my farm/tools/render_order.py:186: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  changed=sum(1 for pixel in diff.getdata() if any(pixel))
+....../Users/sergeyshevchenko/my farm/tools/render_order.py:186: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  changed=sum(1 for pixel in diff.getdata() if any(pixel))
+...../Users/sergeyshevchenko/my farm/tools/render_order.py:186: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  changed=sum(1 for pixel in diff.getdata() if any(pixel))
+.
+----------------------------------------------------------------------
+Ran 15 tests in 9.362s
+
+OK
+..................
+----------------------------------------------------------------------
+Ran 18 tests in 6.629s
+
+OK
+....................
+----------------------------------------------------------------------
+Ran 20 tests in 5.385s
+
+OK
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 0.011s
+
+OK
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 0.010s
+
+OK
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 0.009s
+
+OK
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 0.450s
+
+OK
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 0.121s
+
+OK
+............
+----------------------------------------------------------------------
+Ran 12 tests in 0.123s
+
+OK
+/Users/sergeyshevchenko/my farm/tools/decoration_verify.py:156: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  require(sum(before.getchannel('A').getdata())>sum(after.getchannel('A').getdata())>0,'seed filtering is empty or ineffective')
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 1.446s
+
+OK
+/Users/sergeyshevchenko/my farm/tools/terrain_revision_verify.py:117: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  changed=sum(v!=0 for v in diff.convert('RGB').convert('L').getdata())
+/Users/sergeyshevchenko/my farm/tools/terrain_revision_verify.py:117: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  changed=sum(v!=0 for v in diff.convert('RGB').convert('L').getdata())
+../Users/sergeyshevchenko/my farm/tools/terrain_revision_verify.py:117: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  changed=sum(v!=0 for v in diff.convert('RGB').convert('L').getdata())
+.......
+----------------------------------------------------------------------
+Ran 9 tests in 2.234s
+
+OK
+...........
+----------------------------------------------------------------------
+Ran 11 tests in 3.354s
+
+OK
+...............
+----------------------------------------------------------------------
+Ran 15 tests in 0.609s
+
+OK
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/village_bench_verify.py", line 97, in <module>
+    parser=argparse.ArgumentParser();parser.add_argument('--write',action='store_true');args=parser.parse_args();result=verify()
+                                                                                                                        ^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tools/village_bench_verify.py", line 67, in verify
+    verify_assets();sources={p:provenance(REPORT/'native'/p,p) for p in ['before','after']}
+    ^^^^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tools/village_bench_assets.py", line 51, in verify
+    raw,expected=derive(side);assert (ROOT/row['runtime']).read_bytes()==raw,'derivative changed'
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: derivative changed

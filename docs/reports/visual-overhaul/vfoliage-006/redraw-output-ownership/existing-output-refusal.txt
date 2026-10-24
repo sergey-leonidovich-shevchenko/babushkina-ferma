@@ -1,0 +1,2 @@
+mkdir: /Users/sergeyshevchenko/my farm/docs/reports/visual-overhaul/vfoliage-006/redraw-scheduling/functional/final-headless: File exists
+Fresh redraw output root with an existing parent is required

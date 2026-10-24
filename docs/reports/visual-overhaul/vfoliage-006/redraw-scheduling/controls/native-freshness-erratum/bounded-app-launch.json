@@ -1,0 +1,15 @@
+{
+  "reason": "two earlier fresh-native attempts timed out while waiting for actual post_draw; retained in functional/after-native-fresh",
+  "change": "bounded5second present-signal wait with window/counter log; normal macOS app bundle launch viaopen, two predefined modes",
+  "production_runtime_unchanged": true,
+  "original_primary_plan_unchanged": true,
+  "after_source_sha256": "80193d5d036731c4fe6da6f738d4c6a06c6fd838f165b229b864638027b16347",
+  "output": "functional/after-native-app/{normal,f10}",
+  "no_overwrite": true,
+  "fixed_modes": [
+    "normal",
+    "f10"
+  ],
+  "watchdog_per_mode_seconds": 80,
+  "primary_campaign_not_started": true
+}

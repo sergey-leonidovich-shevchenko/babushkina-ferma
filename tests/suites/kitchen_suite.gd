@@ -87,7 +87,7 @@ func test_upgrade_capacity_and_independence() -> void:
 func test_save_refund_and_invalid_payloads() -> void:
 	var game:=make_game(); enter(game); var item:=place(game,"cauldron",30,18); finish(game,item); improve(game,item); improve(game,item)
 	var recipe:=prepare(game,item,"vegetable_casserole"); Kitchen.enqueue(game,recipe); item.production.heat=80; Production.update(game,2.5)
-	var path:="/private/tmp/farm-kitchen-save-%d.json"%Time.get_ticks_usec()
+	var path:=OS.get_temp_dir().path_join("farm-kitchen-save-%d.json" % Time.get_ticks_usec())
 	expect(game.SaveSystem.save_at(game,path),"real file accepts full paid kitchen ledger and timed food job")
 	var restored:=make_game(); expect(restored.SaveSystem.load_at(restored,path),"disk load restores approved three-tier kitchen")
 	var loaded:=Basement.object(restored,item.id)

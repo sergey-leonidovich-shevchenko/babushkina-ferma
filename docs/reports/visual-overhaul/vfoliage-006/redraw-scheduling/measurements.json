@@ -1,0 +1,979 @@
+{
+  "cases": [
+    {
+      "folder": "01-primary-before-normal",
+      "cohort": "primary",
+      "target": "before",
+      "mode": "normal",
+      "result": {
+        "mode": "normal",
+        "valid": true,
+        "budget_passed": false,
+        "status": "budget_exceeded",
+        "average_fps": 44.0,
+        "minimum_fps": 50,
+        "samples": [
+          59,
+          22,
+          11,
+          9,
+          39,
+          60,
+          60,
+          60,
+          60,
+          60
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10012307,
+        "window_frames": 440,
+        "profile": "Codex-Performance-c5056fc538cd4436bcc587beea2b458b",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1482179
+      },
+      "cpu_window": {
+        "available": true,
+        "cpu_ns": 8131402120,
+        "wall_bounds_ns": [
+          10012607265,
+          10012624453
+        ],
+        "cpu_to_wall_bounds": [
+          0.8121149612840672,
+          0.8121163553896769
+        ],
+        "boundary_query_ns": [
+          8909,
+          8279
+        ]
+      }
+    },
+    {
+      "folder": "02-primary-after-normal",
+      "cohort": "primary",
+      "target": "after",
+      "mode": "normal",
+      "result": {
+        "mode": "normal",
+        "valid": true,
+        "budget_passed": true,
+        "status": "passed",
+        "average_fps": 59.3,
+        "minimum_fps": 50,
+        "samples": [
+          59,
+          59,
+          59,
+          56,
+          61,
+          60,
+          59,
+          61,
+          60,
+          59
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10001477,
+        "window_frames": 593,
+        "profile": "Codex-Performance-bf6f0561ff2a4389a351aed2025c969b",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1323811
+      },
+      "cpu_window": {
+        "available": true,
+        "cpu_ns": 8080729749,
+        "wall_bounds_ns": [
+          10002058933,
+          10002077033
+        ],
+        "cpu_to_wall_bounds": [
+          0.8079051703300354,
+          0.8079066323373761
+        ],
+        "boundary_query_ns": [
+          8697,
+          9403
+        ]
+      }
+    },
+    {
+      "folder": "03-primary-before-f10",
+      "cohort": "primary",
+      "target": "before",
+      "mode": "f10",
+      "result": {
+        "mode": "f10",
+        "valid": true,
+        "budget_passed": false,
+        "status": "budget_exceeded",
+        "average_fps": 40.9,
+        "minimum_fps": 50,
+        "samples": [
+          56,
+          18,
+          7,
+          8,
+          24,
+          60,
+          55,
+          60,
+          60,
+          61
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10017403,
+        "window_frames": 409,
+        "profile": "Codex-Performance-893834e302e04acc8c6843a173291445",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1302927
+      },
+      "cpu_window": {
+        "available": true,
+        "cpu_ns": 9268302256,
+        "wall_bounds_ns": [
+          10017749096,
+          10017765560
+        ],
+        "cpu_to_wall_bounds": [
+          0.9251865798304827,
+          0.9251881003588673
+        ],
+        "boundary_query_ns": [
+          7739,
+          8725
+        ]
+      }
+    },
+    {
+      "folder": "04-primary-after-f10",
+      "cohort": "primary",
+      "target": "after",
+      "mode": "f10",
+      "result": {
+        "mode": "f10",
+        "valid": true,
+        "budget_passed": true,
+        "status": "passed",
+        "average_fps": 57.9,
+        "minimum_fps": 50,
+        "samples": [
+          57,
+          54,
+          55,
+          54,
+          59,
+          60,
+          60,
+          60,
+          60,
+          60
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10016023,
+        "window_frames": 579,
+        "profile": "Codex-Performance-2ba22863cc6d4a4f85a56d56161cd110",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1322979
+      },
+      "cpu_window": {
+        "available": true,
+        "cpu_ns": 9141212534,
+        "wall_bounds_ns": [
+          10016342776,
+          10016361163
+        ],
+        "cpu_to_wall_bounds": [
+          0.91262808770986,
+          0.9126297630212011
+        ],
+        "boundary_query_ns": [
+          9209,
+          9178
+        ]
+      }
+    },
+    {
+      "folder": "05-primary-after-f10",
+      "cohort": "primary",
+      "target": "after",
+      "mode": "f10",
+      "result": {
+        "mode": "f10",
+        "valid": true,
+        "budget_passed": true,
+        "status": "passed",
+        "average_fps": 56.4,
+        "minimum_fps": 50,
+        "samples": [
+          55,
+          53,
+          55,
+          41,
+          61,
+          60,
+          60,
+          60,
+          59,
+          60
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10003344,
+        "window_frames": 564,
+        "profile": "Codex-Performance-b8184599b245454fb9f060e9062a32a4",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1339846
+      },
+      "cpu_window": {
+        "available": true,
+        "cpu_ns": 9018382067,
+        "wall_bounds_ns": [
+          10003643747,
+          10003661742
+        ],
+        "cpu_to_wall_bounds": [
+          0.9015080976935336,
+          0.9015097193664587
+        ],
+        "boundary_query_ns": [
+          7651,
+          10344
+        ]
+      }
+    },
+    {
+      "folder": "06-primary-before-f10",
+      "cohort": "primary",
+      "target": "before",
+      "mode": "f10",
+      "result": {
+        "mode": "f10",
+        "valid": true,
+        "budget_passed": false,
+        "status": "budget_exceeded",
+        "average_fps": 39.2,
+        "minimum_fps": 50,
+        "samples": [
+          46,
+          24,
+          8,
+          8,
+          9,
+          61,
+          60,
+          60,
+          60,
+          56
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10002225,
+        "window_frames": 392,
+        "profile": "Codex-Performance-e6d16e691d9d43ae929752e00bc80238",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1398697
+      },
+      "cpu_window": {
+        "available": true,
+        "cpu_ns": 9237877648,
+        "wall_bounds_ns": [
+          10002554347,
+          10002570547
+        ],
+        "cpu_to_wall_bounds": [
+          0.9235503618388027,
+          0.9235518576083174
+        ],
+        "boundary_query_ns": [
+          7915,
+          8285
+        ]
+      }
+    },
+    {
+      "folder": "07-primary-after-normal",
+      "cohort": "primary",
+      "target": "after",
+      "mode": "normal",
+      "result": {
+        "mode": "normal",
+        "valid": true,
+        "budget_passed": true,
+        "status": "passed",
+        "average_fps": 58.9,
+        "minimum_fps": 50,
+        "samples": [
+          59,
+          59,
+          59,
+          53,
+          60,
+          60,
+          59,
+          60,
+          61,
+          59
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10000104,
+        "window_frames": 589,
+        "profile": "Codex-Performance-ee1df493df8940cc9e6eb3ff55d61d00",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1286031
+      },
+      "cpu_window": {
+        "available": true,
+        "cpu_ns": 7939003299,
+        "wall_bounds_ns": [
+          10000446263,
+          10000461133
+        ],
+        "cpu_to_wall_bounds": [
+          0.793863722224018,
+          0.7938649026466951
+        ],
+        "boundary_query_ns": [
+          8302,
+          6568
+        ]
+      }
+    },
+    {
+      "folder": "08-primary-before-normal",
+      "cohort": "primary",
+      "target": "before",
+      "mode": "normal",
+      "result": {
+        "mode": "normal",
+        "valid": true,
+        "budget_passed": false,
+        "status": "budget_exceeded",
+        "average_fps": 44.2,
+        "minimum_fps": 50,
+        "samples": [
+          59,
+          21,
+          9,
+          8,
+          44,
+          60,
+          61,
+          59,
+          60,
+          61
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10014286,
+        "window_frames": 442,
+        "profile": "Codex-Performance-9a2211f0a2e3493ab7da859390129520",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1345077
+      },
+      "cpu_window": {
+        "available": true,
+        "cpu_ns": 8122132333,
+        "wall_bounds_ns": [
+          10014542582,
+          10014566576
+        ],
+        "cpu_to_wall_bounds": [
+          0.8110318376099036,
+          0.8110337807738327
+        ],
+        "boundary_query_ns": [
+          14131,
+          9863
+        ]
+      }
+    },
+    {
+      "folder": "09-primary-before-normal",
+      "cohort": "primary",
+      "target": "before",
+      "mode": "normal",
+      "result": {
+        "mode": "normal",
+        "valid": true,
+        "budget_passed": false,
+        "status": "budget_exceeded",
+        "average_fps": 44.4,
+        "minimum_fps": 50,
+        "samples": [
+          59,
+          22,
+          12,
+          8,
+          43,
+          60,
+          60,
+          60,
+          60,
+          60
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10011767,
+        "window_frames": 444,
+        "profile": "Codex-Performance-2d505cea1aa842b6bcc5902eca50faa7",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1318681
+      },
+      "cpu_window": {
+        "available": true,
+        "cpu_ns": 8117988357,
+        "wall_bounds_ns": [
+          10012176416,
+          10012197005
+        ],
+        "cpu_to_wall_bounds": [
+          0.8108098904711873,
+          0.8108115578174406
+        ],
+        "boundary_query_ns": [
+          9850,
+          10739
+        ]
+      }
+    },
+    {
+      "folder": "10-primary-after-normal",
+      "cohort": "primary",
+      "target": "after",
+      "mode": "normal",
+      "result": {
+        "mode": "normal",
+        "valid": true,
+        "budget_passed": true,
+        "status": "passed",
+        "average_fps": 59.1,
+        "minimum_fps": 50,
+        "samples": [
+          60,
+          56,
+          59,
+          55,
+          61,
+          60,
+          60,
+          60,
+          60,
+          60
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10010983,
+        "window_frames": 591,
+        "profile": "Codex-Performance-c22dac515d0a4902abd9b98be8aaf6bd",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1362436
+      },
+      "cpu_window": {
+        "available": true,
+        "cpu_ns": 8096373005,
+        "wall_bounds_ns": [
+          10011359568,
+          10011376830
+        ],
+        "cpu_to_wall_bounds": [
+          0.8087172366480585,
+          0.8087186310717474
+        ],
+        "boundary_query_ns": [
+          8022,
+          9240
+        ]
+      }
+    },
+    {
+      "folder": "11-primary-before-f10",
+      "cohort": "primary",
+      "target": "before",
+      "mode": "f10",
+      "result": {
+        "mode": "f10",
+        "valid": true,
+        "budget_passed": false,
+        "status": "budget_exceeded",
+        "average_fps": 42.1,
+        "minimum_fps": 50,
+        "samples": [
+          48,
+          20,
+          8,
+          8,
+          37,
+          60,
+          60,
+          60,
+          60,
+          60
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10017152,
+        "window_frames": 421,
+        "profile": "Codex-Performance-39bfcd82bd3e4ea192a6b15a44c27bb3",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1362416
+      },
+      "cpu_window": {
+        "available": true,
+        "cpu_ns": 9169617784,
+        "wall_bounds_ns": [
+          10017526667,
+          10017542932
+        ],
+        "cpu_to_wall_bounds": [
+          0.9153559756363617,
+          0.9153574618580049
+        ],
+        "boundary_query_ns": [
+          8181,
+          8084
+        ]
+      }
+    },
+    {
+      "folder": "12-primary-after-f10",
+      "cohort": "primary",
+      "target": "after",
+      "mode": "f10",
+      "result": {
+        "mode": "f10",
+        "valid": true,
+        "budget_passed": true,
+        "status": "passed",
+        "average_fps": 58.0,
+        "minimum_fps": 50,
+        "samples": [
+          56,
+          55,
+          55,
+          55,
+          59,
+          60,
+          60,
+          60,
+          60,
+          60
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10002685,
+        "window_frames": 580,
+        "profile": "Codex-Performance-3201c5c026d74e2aa26d224119185594",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1337156
+      },
+      "cpu_window": {
+        "available": true,
+        "cpu_ns": 9066777234,
+        "wall_bounds_ns": [
+          10003035173,
+          10003051788
+        ],
+        "cpu_to_wall_bounds": [
+          0.9064011089972376,
+          0.9064026145257262
+        ],
+        "boundary_query_ns": [
+          8070,
+          8545
+        ]
+      }
+    },
+    {
+      "folder": "13-profile-before-f10",
+      "cohort": "profile",
+      "target": "before",
+      "mode": "f10",
+      "result": {
+        "mode": "f10",
+        "valid": true,
+        "budget_passed": false,
+        "status": "budget_exceeded",
+        "average_fps": 37.7,
+        "minimum_fps": 50,
+        "samples": [
+          36,
+          7,
+          6,
+          7,
+          21,
+          60,
+          60,
+          60,
+          59,
+          61
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10012646,
+        "window_frames": 377,
+        "profile": "Codex-Performance-856d2f02a6334930974a7beb1742a67f",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1338036
+      },
+      "cpu_window": {
+        "available": true,
+        "cpu_ns": 9031184975,
+        "wall_bounds_ns": [
+          10012924807,
+          10012940806
+        ],
+        "cpu_to_wall_bounds": [
+          0.9019512998207572,
+          0.9019527409899584
+        ],
+        "boundary_query_ns": [
+          9139,
+          6860
+        ]
+      },
+      "profile": {
+        "draws": 606,
+        "max_draws_per_process_frame": 9,
+        "excess_draws": 229,
+        "excess_wall_us": 2257164,
+        "draw_wall_us": 5133873,
+        "physics_calls": 582,
+        "process_calls": 377,
+        "root_union_us": 9159792,
+        "frame_gap_us": {
+          "median": 16822.0,
+          "p95": 126205,
+          "max": 208060
+        }
+      }
+    },
+    {
+      "folder": "14-profile-after-f10",
+      "cohort": "profile",
+      "target": "after",
+      "mode": "f10",
+      "result": {
+        "mode": "f10",
+        "valid": true,
+        "budget_passed": true,
+        "status": "passed",
+        "average_fps": 55.8,
+        "minimum_fps": 50,
+        "samples": [
+          50,
+          48,
+          49,
+          53,
+          58,
+          60,
+          60,
+          60,
+          60,
+          60
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10009843,
+        "window_frames": 558,
+        "profile": "Codex-Performance-c3eef4e3e927482592e5146e5d7aacf5",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1309307
+      },
+      "cpu_window": {
+        "available": true,
+        "cpu_ns": 9004591985,
+        "wall_bounds_ns": [
+          10010361818,
+          10010387247
+        ],
+        "cpu_to_wall_bounds": [
+          0.8995248398306044,
+          0.899527124864609
+        ],
+        "boundary_query_ns": [
+          14510,
+          10919
+        ]
+      },
+      "profile": {
+        "draws": 557,
+        "max_draws_per_process_frame": 2,
+        "excess_draws": 1,
+        "excess_wall_us": 8251,
+        "draw_wall_us": 4555443,
+        "physics_calls": 601,
+        "process_calls": 558,
+        "root_union_us": 9018596,
+        "frame_gap_us": {
+          "median": 16949,
+          "p95": 27073,
+          "max": 52196
+        }
+      }
+    },
+    {
+      "folder": "15-profile-after-f10",
+      "cohort": "profile",
+      "target": "after",
+      "mode": "f10",
+      "result": {
+        "mode": "f10",
+        "valid": true,
+        "budget_passed": true,
+        "status": "passed",
+        "average_fps": 53.7,
+        "minimum_fps": 50,
+        "samples": [
+          50,
+          45,
+          48,
+          52,
+          60,
+          51,
+          53,
+          60,
+          58,
+          60
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10005619,
+        "window_frames": 537,
+        "profile": "Codex-Performance-94f44b2bff7c4a5a9b3732fc621f7bf7",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1319146
+      },
+      "cpu_window": {
+        "available": true,
+        "cpu_ns": 8868687592,
+        "wall_bounds_ns": [
+          10006019774,
+          10006038795
+        ],
+        "cpu_to_wall_bounds": [
+          0.886333520556773,
+          0.8863352054375022
+        ],
+        "boundary_query_ns": [
+          8171,
+          10850
+        ]
+      },
+      "profile": {
+        "draws": 534,
+        "max_draws_per_process_frame": 2,
+        "excess_draws": 1,
+        "excess_wall_us": 8172,
+        "draw_wall_us": 4483649,
+        "physics_calls": 601,
+        "process_calls": 537,
+        "root_union_us": 9036980,
+        "frame_gap_us": {
+          "median": 16871.0,
+          "p95": 28500,
+          "max": 151092
+        }
+      }
+    },
+    {
+      "folder": "16-profile-before-f10",
+      "cohort": "profile",
+      "target": "before",
+      "mode": "f10",
+      "result": {
+        "mode": "f10",
+        "valid": true,
+        "budget_passed": false,
+        "status": "budget_exceeded",
+        "average_fps": 38.1,
+        "minimum_fps": 50,
+        "samples": [
+          29,
+          11,
+          7,
+          8,
+          28,
+          59,
+          60,
+          60,
+          59,
+          60
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10008188,
+        "window_frames": 381,
+        "profile": "Codex-Performance-b26dd7eeb00b4307bbd559d5c3624daf",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1325641
+      },
+      "cpu_window": {
+        "available": true,
+        "cpu_ns": 9055504487,
+        "wall_bounds_ns": [
+          10008496387,
+          10008510003
+        ],
+        "cpu_to_wall_bounds": [
+          0.9047804802398817,
+          0.9047817111431605
+        ],
+        "boundary_query_ns": [
+          8137,
+          5479
+        ]
+      },
+      "profile": {
+        "draws": 616,
+        "max_draws_per_process_frame": 9,
+        "excess_draws": 236,
+        "excess_wall_us": 2210206,
+        "draw_wall_us": 5046220,
+        "physics_calls": 589,
+        "process_calls": 381,
+        "root_union_us": 9114520,
+        "frame_gap_us": {
+          "median": 16838.0,
+          "p95": 102029,
+          "max": 221249
+        }
+      }
+    },
+    {
+      "folder": "17-profile-before-f10",
+      "cohort": "profile",
+      "target": "before",
+      "mode": "f10",
+      "result": {
+        "mode": "f10",
+        "valid": true,
+        "budget_passed": false,
+        "status": "budget_exceeded",
+        "average_fps": 36.7,
+        "minimum_fps": 50,
+        "samples": [
+          33,
+          12,
+          5,
+          8,
+          17,
+          60,
+          61,
+          60,
+          56,
+          55
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10010334,
+        "window_frames": 367,
+        "profile": "Codex-Performance-71c2c46dbfcc4ff79ceadcfbb782cce4",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1318667
+      },
+      "cpu_window": {
+        "available": true,
+        "cpu_ns": 9043107457,
+        "wall_bounds_ns": [
+          10010633953,
+          10010650881
+        ],
+        "cpu_to_wall_bounds": [
+          0.9033485998561416,
+          0.9033501274202469
+        ],
+        "boundary_query_ns": [
+          11499,
+          5429
+        ]
+      },
+      "profile": {
+        "draws": 605,
+        "max_draws_per_process_frame": 9,
+        "excess_draws": 240,
+        "excess_wall_us": 2376841,
+        "draw_wall_us": 5178856,
+        "physics_calls": 578,
+        "process_calls": 367,
+        "root_union_us": 9239079,
+        "frame_gap_us": {
+          "median": 16923.0,
+          "p95": 105643,
+          "max": 286567
+        }
+      }
+    },
+    {
+      "folder": "18-profile-after-f10",
+      "cohort": "profile",
+      "target": "after",
+      "mode": "f10",
+      "result": {
+        "mode": "f10",
+        "valid": true,
+        "budget_passed": true,
+        "status": "passed",
+        "average_fps": 54.0,
+        "minimum_fps": 50,
+        "samples": [
+          49,
+          46,
+          47,
+          51,
+          59,
+          48,
+          60,
+          60,
+          60,
+          60
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10004348,
+        "window_frames": 540,
+        "profile": "Codex-Performance-4cc2de5a7af0499a8af98a7e979f2c9f",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1326434
+      },
+      "cpu_window": {
+        "available": true,
+        "cpu_ns": 9006153931,
+        "wall_bounds_ns": [
+          10004695926,
+          10004713023
+        ],
+        "cpu_to_wall_bounds": [
+          0.9001911309495438,
+          0.90019266928393
+        ],
+        "boundary_query_ns": [
+          7406,
+          9691
+        ]
+      },
+      "profile": {
+        "draws": 538,
+        "max_draws_per_process_frame": 2,
+        "excess_draws": 1,
+        "excess_wall_us": 9144,
+        "draw_wall_us": 4599320,
+        "physics_calls": 600,
+        "process_calls": 540,
+        "root_union_us": 9119695,
+        "frame_gap_us": {
+          "median": 16945,
+          "p95": 28583,
+          "max": 108353
+        }
+      }
+    }
+  ],
+  "all_18_valid": true,
+  "primary_after_all6_ge50": true,
+  "native_freshness_not_accepted": true
+}

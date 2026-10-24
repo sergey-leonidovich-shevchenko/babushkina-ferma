@@ -1,0 +1,54 @@
+extends RefCounted
+const Cost = preload("res://tmp/vfoliage-006-cost-entry-4/cost.gd")
+const ProfileNav = preload("res://tmp/vfoliage-006-cost-entry-4/navigation.gd")
+
+const STEP := 6.0
+
+
+## Возвращает зверя на ближайшую доступную землю после старого сохранения или перестройки карты.
+static func ensure_habitat(game: Node, animal: Dictionary) -> void:
+	var position: Vector2 = animal.position
+	if ProfileNav.walkability_reason(game, position, -1, false) == "walkable":
+		if not bool(animal.get("habitat_validated", false)):
+			animal.home = position; animal.habitat_validated = true
+		return
+	for radius in range(24, 289, 24):
+		for direction_index in 16:
+			var candidate := position + Vector2.RIGHT.rotated(TAU * direction_index / 16.0) * radius
+			if ProfileNav.walkability_reason(game, candidate, -1, false) == "walkable":
+				animal.position = candidate; animal.home = candidate; animal.habitat_validated = true
+				return
+
+
+## Проводит лапы или проекцию летучей мыши по тому же маршруту, которым сможет пройти охотник.
+static func move(game: Node, start: Vector2, motion: Vector2, home: Vector2, radius: float) -> Vector2:
+	if motion.is_zero_approx():
+		return start
+	var position := start
+	var steps := maxi(1, ceili(motion.length() / STEP))
+	var step := motion / float(steps)
+	for _index in steps:
+		for axis in [Vector2(step.x, 0.0), Vector2(0.0, step.y)]:
+			if axis.is_zero_approx():
+				continue
+			var candidate: Vector2 = position + axis
+			if candidate.distance_to(home) > radius and candidate.distance_to(home) >= position.distance_to(home):
+				continue
+			if ProfileNav.is_walkable(game, candidate):
+				position = candidate
+	return position
+
+
+## Скользит вдоль края камня или ограды, вместо бесконечного разворота в одну и ту же стену.
+static func steer(game: Node, animal: Dictionary, direction: Vector2, distance: float, radius: float) -> Vector2:
+	var start: Vector2 = animal.position
+	if is_zero_approx(distance) or direction.is_zero_approx():
+		return start
+	var next := move(game, start, direction * distance, animal.home, radius)
+	if next.distance_squared_to(start) > 0.01:
+		return next
+	for angle in [PI / 4.0, -PI / 4.0, PI / 2.0, -PI / 2.0]:
+		next = move(game, start, direction.rotated(angle) * distance, animal.home, radius)
+		if next.distance_squared_to(start) > 0.01:
+			return next
+	return start

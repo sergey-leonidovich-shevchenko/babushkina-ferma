@@ -72,7 +72,7 @@ func test_unknown_catalog_paths_are_atomic() -> void:
 ## Исходное состояние: отдельный временный путь и живой мир с другим количеством монет.
 ## Ожидаемый результат: резерв загружается, оба исходных файла остаются неизменными, без резерва отказ атомарен.
 func test_disk_source_and_backup_policy() -> void:
-	var game:=make_game(); var path:="/private/tmp/farm-safe-catalog-%d.json"%Time.get_ticks_usec()
+	var game:=make_game(); var path:=OS.get_temp_dir().path_join("farm-safe-catalog-%d.json" % Time.get_ticks_usec())
 	var data:=Save.snapshot(game); data.counts.future_material=7
 	var file:=FileAccess.open(path,FileAccess.WRITE); file.store_string(JSON.stringify(data)); file.close()
 	var original:=FileAccess.get_file_as_string(path); var before:=Save.snapshot(game)

@@ -1,0 +1,21 @@
+{
+  "task": "VFOLIAGE-006",
+  "pr_url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/1",
+  "code_sha": "e9817390281e5dc8a2f3fedbf220365baf4e5505",
+  "base_main_sha": "fe5919686aed1b6ea66cd1112a8075a57d448946",
+  "branch_version": "0.0.316",
+  "native_version": "0.0.315",
+  "native_sources_unchanged": 404,
+  "project_change": "version field only",
+  "review_state": "pending",
+  "main_merged": false,
+  "architecture": "passed",
+  "game_passed": 50350,
+  "game_failed": 0,
+  "initial_ci_run": 39880234150,
+  "initial_ci_result": "failure: Git base missing in shallow checkout; Wiki job passed",
+  "ci_change": "full checkout history, baseline fetch no longer makes shallow boundaries, explicit time limits",
+  "updated_ci_result": "pending push and GitHub Actions",
+  "wiki_passed": 135,
+  "wiki_failed": 0
+}

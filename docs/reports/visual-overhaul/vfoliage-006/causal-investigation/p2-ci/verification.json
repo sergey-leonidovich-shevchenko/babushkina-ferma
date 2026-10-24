@@ -1,0 +1,203 @@
+{
+  "head": "1a1871110f30df264e8a24707f427753e76f201a",
+  "push_run": 39955662896,
+  "pr_run": 39955675286,
+  "all_eight_jobs_success": true,
+  "artifact_id": 12502583278,
+  "zip_sha256": "a15a40cce74dcb260c422b088976ce81ef76c9e2281fa5cf907bae0537df0e75",
+  "cases": [
+    {
+      "case": "1-f10",
+      "result": {
+        "mode": "f10",
+        "valid": true,
+        "budget_passed": true,
+        "status": "passed",
+        "average_fps": 60.0,
+        "minimum_fps": 50,
+        "samples": [
+          60,
+          59,
+          61,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10013919,
+        "window_frames": 600,
+        "profile": "Codex-Performance-e4522c9ff1c643a49f33f7422fc7a824",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1045283
+      },
+      "raw_sha256": "8df2def1c09ac057a7166a3c2baab34e08d5ef4f31c573f228d24fb4f04545d1",
+      "all_runtime_sources_match_Git_head": true
+    },
+    {
+      "case": "1-normal",
+      "result": {
+        "mode": "normal",
+        "valid": true,
+        "budget_passed": true,
+        "status": "passed",
+        "average_fps": 60.0,
+        "minimum_fps": 50,
+        "samples": [
+          59,
+          60,
+          60,
+          61,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10013093,
+        "window_frames": 600,
+        "profile": "Codex-Performance-6642e811365f44a3a6f9a12b9ac1dcb1",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1037263
+      },
+      "raw_sha256": "81d098d2cb1ab0cb7dc5539efce1bb6724ae4cf6c665586c5f505de2db5702be",
+      "all_runtime_sources_match_Git_head": true
+    },
+    {
+      "case": "2-f10",
+      "result": {
+        "mode": "f10",
+        "valid": true,
+        "budget_passed": true,
+        "status": "passed",
+        "average_fps": 60.0,
+        "minimum_fps": 50,
+        "samples": [
+          60,
+          59,
+          61,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10012517,
+        "window_frames": 600,
+        "profile": "Codex-Performance-281238a2f75a4c38b25c40c70d1acec4",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1033212
+      },
+      "raw_sha256": "423a9ebef1eecc88325c7342ff35586f5d5a60972fd3d6a2f5d0d45bbbf379d0",
+      "all_runtime_sources_match_Git_head": true
+    },
+    {
+      "case": "2-normal",
+      "result": {
+        "mode": "normal",
+        "valid": true,
+        "budget_passed": true,
+        "status": "passed",
+        "average_fps": 60.0,
+        "minimum_fps": 50,
+        "samples": [
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10011882,
+        "window_frames": 600,
+        "profile": "Codex-Performance-a47295a0934c4a5ebff8e9a161f8bcf7",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1034196
+      },
+      "raw_sha256": "abaa05a410fb800f35b7da0cd56490447c3f90e701068eb3e167d3cfa21e704b",
+      "all_runtime_sources_match_Git_head": true
+    },
+    {
+      "case": "3-f10",
+      "result": {
+        "mode": "f10",
+        "valid": true,
+        "budget_passed": true,
+        "status": "passed",
+        "average_fps": 60.0,
+        "minimum_fps": 50,
+        "samples": [
+          59,
+          60,
+          60,
+          61,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10013468,
+        "window_frames": 600,
+        "profile": "Codex-Performance-21aa2864ec6b49adb362e58422b7edba",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1030522
+      },
+      "raw_sha256": "22563eae892096cd2c543d57e87cfea06eb7a18346b2e5b209c094f742d7f6be",
+      "all_runtime_sources_match_Git_head": true
+    },
+    {
+      "case": "3-normal",
+      "result": {
+        "mode": "normal",
+        "valid": true,
+        "budget_passed": true,
+        "status": "passed",
+        "average_fps": 60.0,
+        "minimum_fps": 50,
+        "samples": [
+          59,
+          60,
+          60,
+          61,
+          60,
+          60,
+          60,
+          60,
+          60,
+          60
+        ],
+        "window_us": 10000000,
+        "actual_close_us": 10014072,
+        "window_frames": 600,
+        "profile": "Codex-Performance-16917ebe02bf4656afef612a16b9b30c",
+        "cap_before": 0,
+        "cap_after": 60,
+        "startup_us": 1037939
+      },
+      "raw_sha256": "de894fc99aacc42fadbc683ab6059b4e57f52872658208cca7e3b1a7c8e41afb",
+      "all_runtime_sources_match_Git_head": true
+    }
+  ],
+  "local_budget_closed": false
+}

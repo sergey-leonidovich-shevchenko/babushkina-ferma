@@ -94,7 +94,7 @@ func test_pause_save_and_invalid_stocks() -> void:
 	var minutes:float=game.game_minutes; game._physics_process(600)
 	expect(game.game_minutes==minutes and item.stock.is_empty(),"apiary modal blocks world time, fights and daily production")
 	Controls.close(game); game.day+=1; Apiary.update(game)
-	var path:="/private/tmp/farm-apiary-%d.json"%Time.get_ticks_usec(); expect(game.SaveSystem.save_at(game,path),"real file saves paid level and colony stock")
+	var path:=OS.get_temp_dir().path_join("farm-apiary-%d.json" % Time.get_ticks_usec()); expect(game.SaveSystem.save_at(game,path),"real file saves paid level and colony stock")
 	var restored:=make_game(); expect(restored.SaveSystem.load_at(restored,path),"disk load restores apiary payload")
 	var loaded:Dictionary=Apiary.state(restored).hives[0]; expect(loaded.colonized and loaded.level==1 and loaded.stock.honeycomb==1 and not Controls.active(restored),"load preserves colony and stock but closes ephemeral UI")
 	Apiary.update(restored); expect(loaded.stock.honeycomb==1,"load on same day cannot repeat already credited comb")

@@ -1,0 +1,180 @@
+{
+  "scope": "functional native freshness, not FPS/hardware or VMAP acceptance",
+  "manual_review": "All ten original PNGs viewed. World/resumed show world/HUD and startup banner; pause shows pause menu; inventory shows backpack; editor shows level editor. F10 overlay retained where production draws it. Unique RGB phase bars match the actual same-CanvasItem draw. No prior pause framebuffer copies.",
+  "qa_only_focus_change": true,
+  "production_runtime_hashes_unchanged": true,
+  "results": [
+    {
+      "mode": "normal",
+      "phase": "world",
+      "path": "functional/after-native-focus/normal/world.png",
+      "png_sha256": "5ed8955de5de3074ed4e0bdae60aafc1ff15b552764df57e1496ec48060bc56c",
+      "rgba_sha256": "3622b7921f3345680491e38f41eb28d1fb94e8e5166927e907fbac3220e146c2",
+      "size": [
+        3584,
+        2016
+      ],
+      "frames_drawn_before": 13,
+      "frames_drawn_after": 15,
+      "phase_marker_fresh": true,
+      "present_wait_complete": true,
+      "window_focused": true,
+      "window_visible": true
+    },
+    {
+      "mode": "normal",
+      "phase": "pause",
+      "path": "functional/after-native-focus/normal/pause.png",
+      "png_sha256": "c34f5941e0b1839c06d30dcbe6271833fdb31a3b7500c86b378f46899c1b37ff",
+      "rgba_sha256": "e2c9c214e5c682c63cc608d27d136c3a699605333dc130f500a9527b1ea6d5b8",
+      "size": [
+        3584,
+        2016
+      ],
+      "frames_drawn_before": 21,
+      "frames_drawn_after": 23,
+      "phase_marker_fresh": true,
+      "present_wait_complete": true,
+      "window_focused": true,
+      "window_visible": true
+    },
+    {
+      "mode": "normal",
+      "phase": "inventory",
+      "path": "functional/after-native-focus/normal/inventory.png",
+      "png_sha256": "f89c87baf4e529259e75f8c85795277f3f2bac6bfeb75cf2b16fa7936b15cba6",
+      "rgba_sha256": "5d53291f4af8947622f079270eab1da59b59e44154b9edf58b70a0ec24aa2948",
+      "size": [
+        3584,
+        2016
+      ],
+      "frames_drawn_before": 29,
+      "frames_drawn_after": 31,
+      "phase_marker_fresh": true,
+      "present_wait_complete": true,
+      "window_focused": true,
+      "window_visible": true
+    },
+    {
+      "mode": "normal",
+      "phase": "editor",
+      "path": "functional/after-native-focus/normal/editor.png",
+      "png_sha256": "c96e5b09cd8b96c529cd9d5143c85a0e9a6be77938a8e390c417a454454a5b97",
+      "rgba_sha256": "37a0ff7718ff9617149f8d28e00e39cd65b1067852a4fa73ceda987086470a4e",
+      "size": [
+        3584,
+        2016
+      ],
+      "frames_drawn_before": 37,
+      "frames_drawn_after": 39,
+      "phase_marker_fresh": true,
+      "present_wait_complete": true,
+      "window_focused": true,
+      "window_visible": true
+    },
+    {
+      "mode": "normal",
+      "phase": "resumed",
+      "path": "functional/after-native-focus/normal/resumed.png",
+      "png_sha256": "a8b6a9d6416fb91395695b59c3a0add5b52fae263ea4e4b55ee56e447302b2e8",
+      "rgba_sha256": "9e148f0afce2a9aa1887a36ad01356a43e9617e73a6bc17493c0253093f98f7b",
+      "size": [
+        3584,
+        2016
+      ],
+      "frames_drawn_before": 47,
+      "frames_drawn_after": 49,
+      "phase_marker_fresh": true,
+      "present_wait_complete": true,
+      "window_focused": true,
+      "window_visible": true
+    },
+    {
+      "mode": "f10",
+      "phase": "world",
+      "path": "functional/after-native-focus/f10/world.png",
+      "png_sha256": "09c27cd7fa56adff72def650284f7da1b58a693af663d52168beaf9660b1418c",
+      "rgba_sha256": "a8ac342194ea6ac47b59c1a6e534a4a313a82b357fde65c2016070a06df38697",
+      "size": [
+        3584,
+        2016
+      ],
+      "frames_drawn_before": 13,
+      "frames_drawn_after": 15,
+      "phase_marker_fresh": true,
+      "present_wait_complete": true,
+      "window_focused": true,
+      "window_visible": true
+    },
+    {
+      "mode": "f10",
+      "phase": "pause",
+      "path": "functional/after-native-focus/f10/pause.png",
+      "png_sha256": "70fc087e689ef9638fe022e0bbf7be3fc90a23077dbbd4485b0ab0d8cc610e01",
+      "rgba_sha256": "7689d6f635e19360d7028c0eab2bfa084a56f8ba588d3b01a3b5258be1ece6d4",
+      "size": [
+        3584,
+        2016
+      ],
+      "frames_drawn_before": 21,
+      "frames_drawn_after": 23,
+      "phase_marker_fresh": true,
+      "present_wait_complete": true,
+      "window_focused": true,
+      "window_visible": true
+    },
+    {
+      "mode": "f10",
+      "phase": "inventory",
+      "path": "functional/after-native-focus/f10/inventory.png",
+      "png_sha256": "4df5cc9c4525f54d8280508f5a978cb4860cfc05542db155954bbaac26e5f1d9",
+      "rgba_sha256": "345525449251bb95ed0a6afec3a762873475f517f32cb1ed5bb9f5873c232145",
+      "size": [
+        3584,
+        2016
+      ],
+      "frames_drawn_before": 29,
+      "frames_drawn_after": 31,
+      "phase_marker_fresh": true,
+      "present_wait_complete": true,
+      "window_focused": true,
+      "window_visible": true
+    },
+    {
+      "mode": "f10",
+      "phase": "editor",
+      "path": "functional/after-native-focus/f10/editor.png",
+      "png_sha256": "c1ca2a8d2a663aadef3afe69f6a10ea181caef78591392f2c7f7789ed617e206",
+      "rgba_sha256": "8362cc873158b2bb806b895ccad7bf01ad04fc23e115d9aff46954f6f462b607",
+      "size": [
+        3584,
+        2016
+      ],
+      "frames_drawn_before": 37,
+      "frames_drawn_after": 39,
+      "phase_marker_fresh": true,
+      "present_wait_complete": true,
+      "window_focused": true,
+      "window_visible": true
+    },
+    {
+      "mode": "f10",
+      "phase": "resumed",
+      "path": "functional/after-native-focus/f10/resumed.png",
+      "png_sha256": "4da0b4cf90082abc4a4fb875dd98cd435eccc0c4d5f26df907082aede3c95b4e",
+      "rgba_sha256": "d885eacb9768ddb29fb65341b7af3fac35e3e8f384fe2b4fc1e1144341aef6d8",
+      "size": [
+        3584,
+        2016
+      ],
+      "frames_drawn_before": 47,
+      "frames_drawn_after": 49,
+      "phase_marker_fresh": true,
+      "present_wait_complete": true,
+      "window_focused": true,
+      "window_visible": true
+    }
+  ],
+  "old_failed_incomplete_attempts_preserved": true,
+  "P1_closed_by_author": false
+}

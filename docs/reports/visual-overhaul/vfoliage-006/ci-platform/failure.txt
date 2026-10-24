@@ -1,0 +1,77 @@
+2026-10-23T04:11:07.6611984Z SLICE AUDIT: {"frames": 5603, "textures": 2824, "atlas_resources": 321, "warning_frames": 1786} ; geometry valid; existing tight frames remain explicit debt
+2026-10-23T04:12:32.9742905Z ARCHITECTURE: boundaries and whitespace are valid
+2026-10-23T04:16:05.7849539Z SCRIPT ERROR: Cannot call method 'store_string' on a null value.
+2026-10-23T04:16:05.7898993Z ERROR: FAIL: fault baseline writes: primary.before_stage
+2026-10-23T04:16:05.7905640Z ERROR: FAIL: latest healthy primary survives fault: primary.before_stage
+2026-10-23T04:16:05.7912769Z ERROR: FAIL: fault baseline writes: primary.after_open
+2026-10-23T04:16:05.7918766Z ERROR: FAIL: write result follows the commit boundary: primary.after_open
+2026-10-23T04:16:05.7924936Z ERROR: FAIL: latest healthy primary survives fault: primary.after_open
+2026-10-23T04:16:05.7931879Z ERROR: FAIL: fault baseline writes: primary.after_write
+2026-10-23T04:16:05.7938019Z ERROR: FAIL: write result follows the commit boundary: primary.after_write
+2026-10-23T04:16:05.7943109Z ERROR: FAIL: latest healthy primary survives fault: primary.after_write
+2026-10-23T04:16:05.7947109Z ERROR: FAIL: fault baseline writes: primary.after_flush
+2026-10-23T04:16:05.7951272Z ERROR: FAIL: write result follows the commit boundary: primary.after_flush
+2026-10-23T04:16:05.7954948Z ERROR: FAIL: latest healthy primary survives fault: primary.after_flush
+2026-10-23T04:16:05.7959081Z ERROR: FAIL: fault baseline writes: primary.after_validate
+2026-10-23T04:16:05.7964471Z ERROR: FAIL: write result follows the commit boundary: primary.after_validate
+2026-10-23T04:16:05.7968707Z ERROR: FAIL: latest healthy primary survives fault: primary.after_validate
+2026-10-23T04:16:05.7973429Z ERROR: FAIL: fault baseline writes: backup.before_stage
+2026-10-23T04:16:05.7976874Z ERROR: FAIL: write result follows the commit boundary: backup.before_stage
+2026-10-23T04:16:05.8050369Z ERROR: FAIL: latest healthy primary survives fault: backup.before_stage
+2026-10-23T04:16:05.8054589Z ERROR: FAIL: fault baseline writes: backup.after_open
+2026-10-23T04:16:05.8058044Z ERROR: FAIL: write result follows the commit boundary: backup.after_open
+2026-10-23T04:16:05.8061747Z ERROR: FAIL: latest healthy primary survives fault: backup.after_open
+2026-10-23T04:16:05.8065845Z ERROR: FAIL: fault baseline writes: backup.after_write
+2026-10-23T04:16:05.8069419Z ERROR: FAIL: write result follows the commit boundary: backup.after_write
+2026-10-23T04:16:05.8073162Z ERROR: FAIL: latest healthy primary survives fault: backup.after_write
+2026-10-23T04:16:05.8077040Z ERROR: FAIL: fault baseline writes: backup.after_flush
+2026-10-23T04:16:05.8080703Z ERROR: FAIL: write result follows the commit boundary: backup.after_flush
+2026-10-23T04:16:05.8084320Z ERROR: FAIL: latest healthy primary survives fault: backup.after_flush
+2026-10-23T04:16:05.8088327Z ERROR: FAIL: fault baseline writes: backup.after_validate
+2026-10-23T04:16:05.8092098Z ERROR: FAIL: write result follows the commit boundary: backup.after_validate
+2026-10-23T04:16:05.8095618Z ERROR: FAIL: latest healthy primary survives fault: backup.after_validate
+2026-10-23T04:16:05.8099669Z ERROR: FAIL: fault baseline writes: backup.before_replace
+2026-10-23T04:16:05.8103531Z ERROR: FAIL: write result follows the commit boundary: backup.before_replace
+2026-10-23T04:16:05.8107107Z ERROR: FAIL: latest healthy primary survives fault: backup.before_replace
+2026-10-23T04:16:05.8111304Z ERROR: FAIL: fault baseline writes: backup.after_replace
+2026-10-23T04:16:05.8114760Z ERROR: FAIL: write result follows the commit boundary: backup.after_replace
+2026-10-23T04:16:05.8118434Z ERROR: FAIL: latest healthy primary survives fault: backup.after_replace
+2026-10-23T04:16:05.8122660Z ERROR: FAIL: fault baseline writes: primary.before_replace
+2026-10-23T04:16:05.8126105Z ERROR: FAIL: write result follows the commit boundary: primary.before_replace
+2026-10-23T04:16:05.8129597Z ERROR: FAIL: latest healthy primary survives fault: primary.before_replace
+2026-10-23T04:16:05.8133859Z ERROR: FAIL: fault baseline writes: primary.after_replace
+2026-10-23T04:16:05.8137373Z ERROR: FAIL: write result follows the commit boundary: primary.after_replace
+2026-10-23T04:16:05.8141177Z ERROR: FAIL: latest healthy primary survives fault: primary.after_replace
+2026-10-23T04:16:05.8145197Z SCRIPT ERROR: Invalid access to property or key 'revision' on a base object of type 'Dictionary'.
+2026-10-23T04:16:05.8694303Z ERROR: FAIL: menu toggle persists and loads the opt-out
+2026-10-23T04:16:05.8695588Z ERROR: FAIL: new settings schema keeps language and saves its focus policy
+2026-10-23T04:16:06.2250978Z ERROR: FAIL: partially assembled workstation writes a real validated file
+2026-10-23T04:16:06.2252275Z ERROR: FAIL: real disk loading restores the construction payload
+2026-10-23T04:16:06.2253686Z SCRIPT ERROR: Invalid access to property or key 'work' on a base object of type 'Dictionary'.
+2026-10-23T04:16:06.2472394Z ERROR: FAIL: private queue writes a validated disk save
+2026-10-23T04:16:06.2473875Z ERROR: FAIL: private queue loads from a real disk save
+2026-10-23T04:16:06.2475320Z SCRIPT ERROR: Invalid access to property or key 'production' on a base object of type 'Dictionary'.
+2026-10-23T04:16:06.2483174Z ERROR: FAIL: real file accepts full paid kitchen ledger and timed food job
+2026-10-23T04:16:06.2484483Z ERROR: FAIL: disk load restores approved three-tier kitchen
+2026-10-23T04:16:06.2485817Z SCRIPT ERROR: Invalid access to property or key 'level' on a base object of type 'Dictionary'.
+2026-10-23T04:16:06.2590517Z ERROR: FAIL: workshops write a real validated disk save
+2026-10-23T04:16:06.2591829Z ERROR: FAIL: partial duration and two reserved jobs survive disk loading
+2026-10-23T04:16:06.2593179Z ERROR: FAIL: loaded reserved jobs finish without paying or granting twice
+2026-10-23T04:16:06.2594594Z SCRIPT ERROR: Invalid access to property or key 'workshops' on a base object of type 'Dictionary'.
+2026-10-23T04:16:06.2866686Z ERROR: FAIL: research writes a real validated disk save
+2026-10-23T04:16:06.2868027Z ERROR: FAIL: disk restores permanent research without charging the sample again
+2026-10-23T04:16:06.2869613Z SCRIPT ERROR: Invalid access to property or key 'research' on a base object of type 'Dictionary'.
+2026-10-23T04:16:06.2886543Z ERROR: FAIL: partial furnace queue writes an actual validated disk slot
+2026-10-23T04:16:06.2887880Z ERROR: FAIL: partial furnace queue reloads from disk
+2026-10-23T04:16:06.2889158Z ERROR: FAIL: selected fuel, unspent heat and partial work roundtrip exactly
+2026-10-23T04:16:06.2890507Z ERROR: FAIL: loaded work finishes without charging ore again
+2026-10-23T04:16:06.4759817Z ERROR: FAIL: real file saves paid level and colony stock
+2026-10-23T04:16:06.4761423Z ERROR: FAIL: disk load restores apiary payload
+2026-10-23T04:16:06.4763163Z ERROR: FAIL: load preserves colony and stock but closes ephemeral UI
+2026-10-23T04:16:06.4764776Z SCRIPT ERROR: Invalid access to property or key 'honeycomb' on a base object of type 'Dictionary'.
+2026-10-23T04:16:06.6141107Z ERROR: FAIL: prepared preview matches direct canonical export: wood_dowel
+2026-10-23T04:16:06.6152791Z ERROR: FAIL: prepared preview matches direct canonical export: wax_candle
+2026-10-23T04:16:06.6155067Z ERROR: FAIL: prepared preview matches direct canonical export: compost
+2026-10-23T04:16:06.6156935Z ERROR: FAIL: prepared preview matches direct canonical export: fishing_bait
+2026-10-23T04:16:06.6235999Z ERROR: FAIL: project UI report contains no padding overlap containment centering or typography violations
+2026-10-23T04:16:06.7476137Z TESTS: 50260 passed, 66 failed

@@ -1,0 +1,12 @@
+{
+  "reason": "both native modes had visible=true/focus=false and stuck render/post_draw counters=2",
+  "bounded_change": "QA ownWindow.grab_focus at startup and before snapshot, no changes to production scripts, primaryFPS data or expectations",
+  "fixed_cases": [
+    "normal",
+    "f10"
+  ],
+  "fresh_output": "functional/after-native-focus/{normal,f10}",
+  "controller_sha256": "83981535e7abba6f0a88120554cc79ac559434722971f4a8d8b7dd70da1b4185",
+  "prior_all_failures_preserved": true,
+  "no_additional_primaryFPS_runs": true
+}

@@ -1,0 +1,419 @@
+{
+  "status": "P3_contract_clarified_pending_new_head_CI_and_full_review",
+  "version": "0.0.327",
+  "parent": "de7e2c2768213ff3a5bccca92145c4d613d39563",
+  "runtime_instructions_changed": false,
+  "exact_added_comment": "## Поля словарей остаются живыми, но состав массивов зафиксирован до конца текущего пакета.\n## Изменения состава учитываются при построении новой выборки в следующем Wildlife.update.\n",
+  "script_before_sha256": "fbc7c1175f9513c97e51c58e673606bd34b5595815372935fecc55ecb53ec418",
+  "script_after_sha256": "651aa3cf996f745d9b45607264ce62664f37d9a7e9f5cd56973b3f1ee139d56f",
+  "removing_only_these_two_comment_lines_matches_parent_bytes": true,
+  "all_other_scripts_assets_scene_unchanged": true,
+  "project_and_app_metadata_only_version_changed": true,
+  "architecture_suites": 77,
+  "python_tests": 1043,
+  "game_passed": 50405,
+  "game_failed": 0,
+  "wiki_passed": 135,
+  "wiki_failed": 0,
+  "measurements": "original326_sources_and_raw_preserved_not_relabelled_as327",
+  "local_FPS_budget_closed": false,
+  "previous_CI_run_not_cancelled": 39941254787,
+  "final_review_requested": false,
+  "main_merge_allowed": false,
+  "previous_CI": {
+    "run_id": 39941254787,
+    "head": "de7e2c2768213ff3a5bccca92145c4d613d39563",
+    "jobs": [
+      {
+        "id": 120372958995,
+        "name": "test",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2
+          },
+          {
+            "name": "Run actions/setup-python@v7",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3
+          },
+          {
+            "name": "Load visual audit baselines",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4
+          },
+          {
+            "name": "Install quality gate dependencies",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5
+          },
+          {
+            "name": "Install pinned image tooling",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6
+          },
+          {
+            "name": "Download Godot 4.7.1",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7
+          },
+          {
+            "name": "Import Godot resources",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 8
+          },
+          {
+            "name": "Check architecture",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 9
+          },
+          {
+            "name": "Run automated tests",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 10
+          },
+          {
+            "name": "Run gameplay smoke test",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 11
+          },
+          {
+            "name": "Enforce performance budget",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 12
+          },
+          {
+            "name": "Preserve actual performance measurements including failures",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 13
+          },
+          {
+            "name": "Post Run actions/setup-python@v7",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 25
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 26
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 27
+          }
+        ]
+      },
+      {
+        "id": 120372959273,
+        "name": "Fixed-input reproduction (macos-x64)",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2
+          },
+          {
+            "name": "Run actions/setup-python@v7",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3
+          },
+          {
+            "name": "Install Linux rendering and font dependencies",
+            "status": "completed",
+            "conclusion": "skipped",
+            "number": 4
+          },
+          {
+            "name": "Install pinned image tooling",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5
+          },
+          {
+            "name": "Download and verify the same official engine release",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6
+          },
+          {
+            "name": "Import resources for the actual HUD",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7
+          },
+          {
+            "name": "Verify fixed inputs and negative controls",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 8
+          },
+          {
+            "name": "Verify reviewed exact export contract and negative controls",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 9
+          },
+          {
+            "name": "Collect resampling data and Linux HUD frames",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 10
+          },
+          {
+            "name": "Preserve fixed-input diagnostics and actual HUD frames",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 11
+          },
+          {
+            "name": "Post Run actions/setup-python@v7",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 21
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 22
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 23
+          }
+        ]
+      },
+      {
+        "id": 120372959321,
+        "name": "Fixed-input reproduction (linux-x64)",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2
+          },
+          {
+            "name": "Run actions/setup-python@v7",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3
+          },
+          {
+            "name": "Install Linux rendering and font dependencies",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4
+          },
+          {
+            "name": "Install pinned image tooling",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5
+          },
+          {
+            "name": "Download and verify the same official engine release",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6
+          },
+          {
+            "name": "Import resources for the actual HUD",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7
+          },
+          {
+            "name": "Verify fixed inputs and negative controls",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 8
+          },
+          {
+            "name": "Verify reviewed exact export contract and negative controls",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 9
+          },
+          {
+            "name": "Collect resampling data and Linux HUD frames",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 10
+          },
+          {
+            "name": "Preserve fixed-input diagnostics and actual HUD frames",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 11
+          },
+          {
+            "name": "Post Run actions/setup-python@v7",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 21
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 22
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 23
+          }
+        ]
+      },
+      {
+        "id": 120372959352,
+        "name": "Wiki quality gate",
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2
+          },
+          {
+            "name": "Run actions/setup-node@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3
+          },
+          {
+            "name": "Install wiki tooling",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4
+          },
+          {
+            "name": "Download Godot 4.7.1",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5
+          },
+          {
+            "name": "Check wiki catalogs, sprites, TypeScript, production build and tests",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6
+          },
+          {
+            "name": "Post Run actions/setup-node@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 11
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 12
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 13
+          }
+        ]
+      }
+    ],
+    "all_four_jobs_success": true,
+    "artifact_id": 12497155835,
+    "artifact_zip_sha256": "eb5d664b689cdb41c0c370ea701b2d28ce320050013b906adc116a89dc98cc7f",
+    "zip_sha_verified": true,
+    "game_passed": 50423,
+    "game_failed": 0,
+    "performance": [
+      [
+        1,
+        "normal",
+        60.0
+      ],
+      [
+        1,
+        "f10",
+        60.0
+      ],
+      [
+        2,
+        "f10",
+        59.9
+      ],
+      [
+        2,
+        "normal",
+        59.9
+      ],
+      [
+        3,
+        "normal",
+        60.0
+      ],
+      [
+        3,
+        "f10",
+        60.0
+      ]
+    ],
+    "all_six_raw_cases_recomputed": true,
+    "runtime_source_hashes_match_de7e2c27": true
+  }
+}

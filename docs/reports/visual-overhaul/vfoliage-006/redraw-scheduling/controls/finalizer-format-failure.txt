@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tmp/redraw-close-checks.py", line 7, in <module>
+    assert re.search(r'# pass 135\b',wiki) and re.search(r'# fail 0\b',wiki)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

@@ -1,0 +1,1668 @@
+{
+  "schema": 1,
+  "status": "targeted_production_change_pending_full_checks_and_review_local_budget_still_open",
+  "version": "0.0.326",
+  "parent": "ed44048fd4ff8ab96b14cceaa8309b183c47c7c6",
+  "plan_sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7",
+  "all_attempts_preserved": true,
+  "local_budget_closed": false,
+  "hardware_admission": false,
+  "merge_allowed": false,
+  "data": [
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/1-base-f10/context.json",
+      "stored": "paired-before/1-base-f10/context.json",
+      "sha256": "1f3c4618e6675de090ef9ce79931ff3013eb47f858633dbe66803d9cef5940a0"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/1-base-f10/entry-scene.txt",
+      "stored": "paired-before/1-base-f10/entry-scene.txt",
+      "sha256": "9c27e4bc6f643a4d2f203086be9680f879395fcce159fe87cff054ff07761315"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/1-base-f10/plan-copy.json",
+      "stored": "paired-before/1-base-f10/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/1-base-f10/result.json",
+      "stored": "paired-before/1-base-f10/result.json",
+      "sha256": "ad3a98152454ebf2eaf32698fd89e9abbc67e6ec0267d00bb2c304561dd33815"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/1-base-f10/sampler-source.gd.txt",
+      "stored": "paired-before/1-base-f10/sampler-source.gd.txt",
+      "sha256": "27db1abf21456b846ebbc0391ff716eb0033e9cbd24ea5bb84d023ab37d61684"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/1-base-f10/stdout.txt",
+      "stored": "paired-before/1-base-f10/stdout.txt",
+      "sha256": "bc2975d31b8c2aa06a6931298fd96bf76ab152268203e48aa4905f9b088157e0"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/1-base-normal/context.json",
+      "stored": "paired-before/1-base-normal/context.json",
+      "sha256": "3285bf4a7b11d36e5ae6af359998efa98334074eb6759526d57e7f8679cef89a"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/1-base-normal/entry-scene.txt",
+      "stored": "paired-before/1-base-normal/entry-scene.txt",
+      "sha256": "d25d6b3b887ad0250df55964709c326a6c6913ab0ae79e3553bb19c0a2929efa"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/1-base-normal/plan-copy.json",
+      "stored": "paired-before/1-base-normal/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/1-base-normal/result.json",
+      "stored": "paired-before/1-base-normal/result.json",
+      "sha256": "3ba0292fae0b26fb436ea5059d861340cf46b806557e5e1d66a08f6d5f4c66e9"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/1-base-normal/sampler-source.gd.txt",
+      "stored": "paired-before/1-base-normal/sampler-source.gd.txt",
+      "sha256": "27db1abf21456b846ebbc0391ff716eb0033e9cbd24ea5bb84d023ab37d61684"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/1-base-normal/stdout.txt",
+      "stored": "paired-before/1-base-normal/stdout.txt",
+      "sha256": "376b1b7acd18e41710fab809ac8f6a68740e712f46474cbca47439071fb4e9f4"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/1-head-f10/context.json",
+      "stored": "paired-before/1-head-f10/context.json",
+      "sha256": "876854d0e260433b78d96a26ba327e16bd8b4f4bb72094cc9459447d52c85790"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/1-head-f10/entry-scene.txt",
+      "stored": "paired-before/1-head-f10/entry-scene.txt",
+      "sha256": "406f713a2b3c449d7366659b0f756104beceab2dd607d9bf6ef3b2a9e590cbaf"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/1-head-f10/plan-copy.json",
+      "stored": "paired-before/1-head-f10/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/1-head-f10/result.json",
+      "stored": "paired-before/1-head-f10/result.json",
+      "sha256": "c83b4f87b76d2c7915dd4e1b75f35143f992b6f09bf1369c3f6c0205ebdb63d1"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/1-head-f10/sampler-source.gd.txt",
+      "stored": "paired-before/1-head-f10/sampler-source.gd.txt",
+      "sha256": "27db1abf21456b846ebbc0391ff716eb0033e9cbd24ea5bb84d023ab37d61684"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/1-head-f10/stdout.txt",
+      "stored": "paired-before/1-head-f10/stdout.txt",
+      "sha256": "f432082a17bc7ebc8ab1d7ad046c442d723eac8da8ae957dea991b3b582c4573"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/1-head-normal/context.json",
+      "stored": "paired-before/1-head-normal/context.json",
+      "sha256": "4465382bd4a37026ddab934335da8a95cb8208d4a0a3635146829765977bdc34"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/1-head-normal/entry-scene.txt",
+      "stored": "paired-before/1-head-normal/entry-scene.txt",
+      "sha256": "4a5aee3532c2acaf8108fa0c3873d3e16449dc4e3abf7b94af98fe6a9b715be5"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/1-head-normal/plan-copy.json",
+      "stored": "paired-before/1-head-normal/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/1-head-normal/result.json",
+      "stored": "paired-before/1-head-normal/result.json",
+      "sha256": "49e8042223c2273c455031c2c30d04a3b6bb4c698c4bb510d66ed25b830cff57"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/1-head-normal/sampler-source.gd.txt",
+      "stored": "paired-before/1-head-normal/sampler-source.gd.txt",
+      "sha256": "27db1abf21456b846ebbc0391ff716eb0033e9cbd24ea5bb84d023ab37d61684"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/1-head-normal/stdout.txt",
+      "stored": "paired-before/1-head-normal/stdout.txt",
+      "sha256": "cd3de588f2728b95ebe2c74521909265c84676477aaf34f3d2c95bb2dcabe068"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/2-base-f10/context.json",
+      "stored": "paired-before/2-base-f10/context.json",
+      "sha256": "ac0a0bfc43b3debebb60bf4daa49359c42af883fc502b08995eb4114df9b38b9"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/2-base-f10/entry-scene.txt",
+      "stored": "paired-before/2-base-f10/entry-scene.txt",
+      "sha256": "545e15aa71e2e03782aaaffe015af5c42bda77eb16a840373d7b9fd1fbffbfb4"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/2-base-f10/plan-copy.json",
+      "stored": "paired-before/2-base-f10/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/2-base-f10/result.json",
+      "stored": "paired-before/2-base-f10/result.json",
+      "sha256": "49e64c496908a8467e784fb9f38ded47e71da8f5a97a8399155a7059939d2da6"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/2-base-f10/sampler-source.gd.txt",
+      "stored": "paired-before/2-base-f10/sampler-source.gd.txt",
+      "sha256": "27db1abf21456b846ebbc0391ff716eb0033e9cbd24ea5bb84d023ab37d61684"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/2-base-f10/stdout.txt",
+      "stored": "paired-before/2-base-f10/stdout.txt",
+      "sha256": "0c457d510c363ed3c3949d964d5414a056ec4a8a9df8444283fa3bc02030ef18"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/2-base-normal/context.json",
+      "stored": "paired-before/2-base-normal/context.json",
+      "sha256": "25fe782dbcd89627abb2d3f1a62e7367a822e595a7d8be4195c5c22f3db038b5"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/2-base-normal/entry-scene.txt",
+      "stored": "paired-before/2-base-normal/entry-scene.txt",
+      "sha256": "5d72881179544c746cc61f91b8779576fad952d9681ee65537ef71a3aea34fe3"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/2-base-normal/plan-copy.json",
+      "stored": "paired-before/2-base-normal/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/2-base-normal/result.json",
+      "stored": "paired-before/2-base-normal/result.json",
+      "sha256": "eaea88921faf7aaede1b79db0ca680e2f0cef740c414a4ec5dd662146c97c2dc"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/2-base-normal/sampler-source.gd.txt",
+      "stored": "paired-before/2-base-normal/sampler-source.gd.txt",
+      "sha256": "27db1abf21456b846ebbc0391ff716eb0033e9cbd24ea5bb84d023ab37d61684"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/2-base-normal/stdout.txt",
+      "stored": "paired-before/2-base-normal/stdout.txt",
+      "sha256": "8fe3f43104ddf803ecb06599e81920bb129d8eaf9513809d12118f2efb342606"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/2-head-f10/context.json",
+      "stored": "paired-before/2-head-f10/context.json",
+      "sha256": "2a93005e852d91025ae11f691bd89b755baec70cf4eea418fb2b4bac94e0e675"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/2-head-f10/entry-scene.txt",
+      "stored": "paired-before/2-head-f10/entry-scene.txt",
+      "sha256": "ad4e45e7d35b099590ede8b3b2c1f172a1969982eaac6d89107c3f0ccdd8dfe8"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/2-head-f10/plan-copy.json",
+      "stored": "paired-before/2-head-f10/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/2-head-f10/result.json",
+      "stored": "paired-before/2-head-f10/result.json",
+      "sha256": "bbcc383d8a7c86779c63b82eaec72fffef4768f09e25993709bc5a35fe7a07ad"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/2-head-f10/sampler-source.gd.txt",
+      "stored": "paired-before/2-head-f10/sampler-source.gd.txt",
+      "sha256": "27db1abf21456b846ebbc0391ff716eb0033e9cbd24ea5bb84d023ab37d61684"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/2-head-f10/stdout.txt",
+      "stored": "paired-before/2-head-f10/stdout.txt",
+      "sha256": "92a1a42494c8220db812f3b78f52bd954b300b055cdd88d25caae307d702b268"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/2-head-normal/context.json",
+      "stored": "paired-before/2-head-normal/context.json",
+      "sha256": "de2feb14a1559574130a4b9b20311c5a61dcf64276b2a20c4ca8f4c7ecacf27c"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/2-head-normal/entry-scene.txt",
+      "stored": "paired-before/2-head-normal/entry-scene.txt",
+      "sha256": "ba020dc62732986b1b59ca991b5bcbe808d861b4a835145c3c43eb4aaf713639"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/2-head-normal/plan-copy.json",
+      "stored": "paired-before/2-head-normal/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/2-head-normal/result.json",
+      "stored": "paired-before/2-head-normal/result.json",
+      "sha256": "c7c7f1d1dca6adeecab4f310ee826b49f4c1d77fb810256362d1879d1acff78a"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/2-head-normal/sampler-source.gd.txt",
+      "stored": "paired-before/2-head-normal/sampler-source.gd.txt",
+      "sha256": "27db1abf21456b846ebbc0391ff716eb0033e9cbd24ea5bb84d023ab37d61684"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/2-head-normal/stdout.txt",
+      "stored": "paired-before/2-head-normal/stdout.txt",
+      "sha256": "ae86a94ee72cb0b644bec771a5a8bf36cdf5e275454d36c4d28f9810cacfe6ca"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/3-base-f10/context.json",
+      "stored": "paired-before/3-base-f10/context.json",
+      "sha256": "1e13b3f39da48eb10ab2e7214ec97d586ec3294b678291a26627597802a9c9d9"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/3-base-f10/entry-scene.txt",
+      "stored": "paired-before/3-base-f10/entry-scene.txt",
+      "sha256": "fd09c58810e219f7f003a8aa42cb41e31026545603634fc36a58cc6bc37f76c4"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/3-base-f10/plan-copy.json",
+      "stored": "paired-before/3-base-f10/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/3-base-f10/result.json",
+      "stored": "paired-before/3-base-f10/result.json",
+      "sha256": "3d356319ea4f4c582689a926cc9c433fd5d3534b49f19d523fb2ee47f2925409"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/3-base-f10/sampler-source.gd.txt",
+      "stored": "paired-before/3-base-f10/sampler-source.gd.txt",
+      "sha256": "27db1abf21456b846ebbc0391ff716eb0033e9cbd24ea5bb84d023ab37d61684"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/3-base-f10/stdout.txt",
+      "stored": "paired-before/3-base-f10/stdout.txt",
+      "sha256": "714f95ba3f4609c18b90b1c4616862b65f9d716a05fa0920910e249bfe9d80bf"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/3-base-normal/context.json",
+      "stored": "paired-before/3-base-normal/context.json",
+      "sha256": "c9b8ed95a66fee36399eadf2c47e68136333f6bc0abb4d62a9a7046505631670"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/3-base-normal/entry-scene.txt",
+      "stored": "paired-before/3-base-normal/entry-scene.txt",
+      "sha256": "c5c61af41a0f1e4b87f7b34a1607b95a1893623d63fa2117601868229115dbe1"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/3-base-normal/plan-copy.json",
+      "stored": "paired-before/3-base-normal/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/3-base-normal/result.json",
+      "stored": "paired-before/3-base-normal/result.json",
+      "sha256": "4b3b3c8a914041155f72c5f8a756d07f71373f940b356388dd6d3147cb0511c3"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/3-base-normal/sampler-source.gd.txt",
+      "stored": "paired-before/3-base-normal/sampler-source.gd.txt",
+      "sha256": "27db1abf21456b846ebbc0391ff716eb0033e9cbd24ea5bb84d023ab37d61684"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/3-base-normal/stdout.txt",
+      "stored": "paired-before/3-base-normal/stdout.txt",
+      "sha256": "64d3d53100e7e7ab4eace658bb236038bbed937cb690db15273577092eff076e"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/3-head-f10/context.json",
+      "stored": "paired-before/3-head-f10/context.json",
+      "sha256": "3f0aa994d7b639fd00a0a1beea64dbe4a3ddbd2900c9e551046f0451174fdc29"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/3-head-f10/entry-scene.txt",
+      "stored": "paired-before/3-head-f10/entry-scene.txt",
+      "sha256": "3735c9dc70cf331151bc81aadd5e51bec5d0f98243b98f0a46dd2c7f9a1f30d5"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/3-head-f10/plan-copy.json",
+      "stored": "paired-before/3-head-f10/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/3-head-f10/result.json",
+      "stored": "paired-before/3-head-f10/result.json",
+      "sha256": "f9b1df9993160e730a35f050af7fcf7197de7597db75cfba1b5370688fec6d94"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/3-head-f10/sampler-source.gd.txt",
+      "stored": "paired-before/3-head-f10/sampler-source.gd.txt",
+      "sha256": "27db1abf21456b846ebbc0391ff716eb0033e9cbd24ea5bb84d023ab37d61684"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/3-head-f10/stdout.txt",
+      "stored": "paired-before/3-head-f10/stdout.txt",
+      "sha256": "4921d272d455e9048eb1851c3947277988fe24cae6b34280949f41d76c7f74e9"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/3-head-normal/context.json",
+      "stored": "paired-before/3-head-normal/context.json",
+      "sha256": "1d7187e39a14fa15d1368674ab07599059c93b96df1195b2026c7f4923082e3c"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/3-head-normal/entry-scene.txt",
+      "stored": "paired-before/3-head-normal/entry-scene.txt",
+      "sha256": "53126a00a19810d76e810db06be52473a62de60784d349d2cfd285a7a14854dd"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/3-head-normal/plan-copy.json",
+      "stored": "paired-before/3-head-normal/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/3-head-normal/result.json",
+      "stored": "paired-before/3-head-normal/result.json",
+      "sha256": "98c7858c65452d7148804dbe979bdfdb540f837c1ac0ce257b004e2d5d55f03b"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/3-head-normal/sampler-source.gd.txt",
+      "stored": "paired-before/3-head-normal/sampler-source.gd.txt",
+      "sha256": "27db1abf21456b846ebbc0391ff716eb0033e9cbd24ea5bb84d023ab37d61684"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/3-head-normal/stdout.txt",
+      "stored": "paired-before/3-head-normal/stdout.txt",
+      "sha256": "e669372827932ec10d287e39b5e8a75bb609db91dc54c0ddae54438d78fd9496"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/plan-copy.json",
+      "stored": "paired-before/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/preflight.json",
+      "stored": "paired-before/preflight.json",
+      "sha256": "376ff008a39296a67b68ea7ff34d800273f3a94b5d44d08cf2165658b973c5d2"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/progress.json",
+      "stored": "paired-before/progress.json",
+      "sha256": "b1a697f88bbe53c0cdc8a118a842e3331282769bf01cb0a16fecac244e8af3c8"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-1/summary.json",
+      "stored": "paired-before/summary.json",
+      "sha256": "ed1dcc16c8e40dd1c430d8c7bc6bf125edb6410b3baf692f09012cd0569e1356"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/1-base-f10/context.json",
+      "stored": "paired-after/1-base-f10/context.json",
+      "sha256": "26c7fe4e9c001c2fc04be81e5f41a75f0532f32f2d5933a730801783b8977d15"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/1-base-f10/entry-scene.txt",
+      "stored": "paired-after/1-base-f10/entry-scene.txt",
+      "sha256": "69c1844e4450352119a7f5c8f0abb80612294f4f606596e83fae6c4b501fd89d"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/1-base-f10/plan-copy.json",
+      "stored": "paired-after/1-base-f10/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/1-base-f10/result.json",
+      "stored": "paired-after/1-base-f10/result.json",
+      "sha256": "84156beaad4c353e5811b2d881fd7a71cfa60ce3f42b929c1aac694e0cc9b1ba"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/1-base-f10/sampler-source.gd.txt",
+      "stored": "paired-after/1-base-f10/sampler-source.gd.txt",
+      "sha256": "27db1abf21456b846ebbc0391ff716eb0033e9cbd24ea5bb84d023ab37d61684"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/1-base-f10/stdout.txt",
+      "stored": "paired-after/1-base-f10/stdout.txt",
+      "sha256": "499a194fb44494a8819ca791fdaf2c027f09109d3e2c70097a704bce8e987887"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/1-base-normal/context.json",
+      "stored": "paired-after/1-base-normal/context.json",
+      "sha256": "da6987c1f5e8f14a88cd0c8b8016f393d934d1c183123547f8774914ccbddd22"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/1-base-normal/entry-scene.txt",
+      "stored": "paired-after/1-base-normal/entry-scene.txt",
+      "sha256": "bb9b6c7148b3d1627e48e6d6ce0a080b753dcf552396347f0257075b49db6394"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/1-base-normal/plan-copy.json",
+      "stored": "paired-after/1-base-normal/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/1-base-normal/result.json",
+      "stored": "paired-after/1-base-normal/result.json",
+      "sha256": "7461f2180ed5b970d6e4e99438d635c2b9e8e2c0a76610fc961600370c2ca22f"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/1-base-normal/sampler-source.gd.txt",
+      "stored": "paired-after/1-base-normal/sampler-source.gd.txt",
+      "sha256": "27db1abf21456b846ebbc0391ff716eb0033e9cbd24ea5bb84d023ab37d61684"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/1-base-normal/stdout.txt",
+      "stored": "paired-after/1-base-normal/stdout.txt",
+      "sha256": "9ddba19bad5ac4e27a2ba87218c9b7b08c73e795e4ac81f13bbb119855ac02fc"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/1-head-f10/context.json",
+      "stored": "paired-after/1-head-f10/context.json",
+      "sha256": "e278ed545710bd842aa5901cc64d591589b40490b4137681679aa9edadf6368b"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/1-head-f10/entry-scene.txt",
+      "stored": "paired-after/1-head-f10/entry-scene.txt",
+      "sha256": "a68f03a5fb6486c81e8dacd76adfebe617f8e7a74746f503c02c45932639f5f1"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/1-head-f10/plan-copy.json",
+      "stored": "paired-after/1-head-f10/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/1-head-f10/result.json",
+      "stored": "paired-after/1-head-f10/result.json",
+      "sha256": "bdc315ea98da1fff74431d0326eab2dc7746d6ddddf99705ad2977b62d764565"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/1-head-f10/sampler-source.gd.txt",
+      "stored": "paired-after/1-head-f10/sampler-source.gd.txt",
+      "sha256": "27db1abf21456b846ebbc0391ff716eb0033e9cbd24ea5bb84d023ab37d61684"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/1-head-f10/stdout.txt",
+      "stored": "paired-after/1-head-f10/stdout.txt",
+      "sha256": "44696d3a1a84b3a1da6507b5742e47e8a225721b857bb7b908328e203a423186"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/1-head-normal/context.json",
+      "stored": "paired-after/1-head-normal/context.json",
+      "sha256": "f29ac2b1fb306f92c477fca4ed3c3c25f6f93a49ffe7bb25a3b89e6d08aa0db0"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/1-head-normal/entry-scene.txt",
+      "stored": "paired-after/1-head-normal/entry-scene.txt",
+      "sha256": "e51d607d92916aeb59643d71d1e131e2ee90b4cc21d29b7ca55d9e8511124026"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/1-head-normal/plan-copy.json",
+      "stored": "paired-after/1-head-normal/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/1-head-normal/result.json",
+      "stored": "paired-after/1-head-normal/result.json",
+      "sha256": "1e11e77b6578d171786ad2844c11d492c661f22d478357f51af742b4bc49b184"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/1-head-normal/sampler-source.gd.txt",
+      "stored": "paired-after/1-head-normal/sampler-source.gd.txt",
+      "sha256": "27db1abf21456b846ebbc0391ff716eb0033e9cbd24ea5bb84d023ab37d61684"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/1-head-normal/stdout.txt",
+      "stored": "paired-after/1-head-normal/stdout.txt",
+      "sha256": "5de3bcd101b0624a7c9cabf87ec38ceb8018ed5de030d58479094da7990925cf"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/2-base-f10/context.json",
+      "stored": "paired-after/2-base-f10/context.json",
+      "sha256": "286d9bcc9eb779d642784982b034c67497bb79b2d97357a559218e95f6fa4179"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/2-base-f10/entry-scene.txt",
+      "stored": "paired-after/2-base-f10/entry-scene.txt",
+      "sha256": "4a31e3e672853579da33c62158128c5fd4230bdb7b3dccb07016e1890576b069"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/2-base-f10/plan-copy.json",
+      "stored": "paired-after/2-base-f10/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/2-base-f10/result.json",
+      "stored": "paired-after/2-base-f10/result.json",
+      "sha256": "453fe2a0b48985aa4af4fd544786bb2da2239e87e4e09d6c0d6c0078f35388f0"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/2-base-f10/sampler-source.gd.txt",
+      "stored": "paired-after/2-base-f10/sampler-source.gd.txt",
+      "sha256": "27db1abf21456b846ebbc0391ff716eb0033e9cbd24ea5bb84d023ab37d61684"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/2-base-f10/stdout.txt",
+      "stored": "paired-after/2-base-f10/stdout.txt",
+      "sha256": "ec7cf6f0f9bd716792662c29dfe3ef7d990a511adfa06ac3919c3fecdf1986ad"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/2-base-normal/context.json",
+      "stored": "paired-after/2-base-normal/context.json",
+      "sha256": "9f426fe9187a2f838d31f0b66f7a2d5c19e455917ab07fa3b68210747664a2f6"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/2-base-normal/entry-scene.txt",
+      "stored": "paired-after/2-base-normal/entry-scene.txt",
+      "sha256": "09b0a5927aa23f14b2b913fc79938c656337116c36a45bda7afdbe4a0f05828c"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/2-base-normal/plan-copy.json",
+      "stored": "paired-after/2-base-normal/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/2-base-normal/result.json",
+      "stored": "paired-after/2-base-normal/result.json",
+      "sha256": "b67c868121f561f09f00d9bb5e2677a390981019cebc6cca70451aea421a08f5"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/2-base-normal/sampler-source.gd.txt",
+      "stored": "paired-after/2-base-normal/sampler-source.gd.txt",
+      "sha256": "27db1abf21456b846ebbc0391ff716eb0033e9cbd24ea5bb84d023ab37d61684"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/2-base-normal/stdout.txt",
+      "stored": "paired-after/2-base-normal/stdout.txt",
+      "sha256": "1567f3aa9518125c8a4cc431fb5c33652191358a4518ec3c40f017394217ef74"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/2-head-f10/context.json",
+      "stored": "paired-after/2-head-f10/context.json",
+      "sha256": "93d4ea87a1c135445103b65269246e78a714b85dcd1fa91e484b187134d6a58a"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/2-head-f10/entry-scene.txt",
+      "stored": "paired-after/2-head-f10/entry-scene.txt",
+      "sha256": "d14f48b7f2b300730169a18334ed3b010b32c38a28dda83ff4055d4385b9432b"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/2-head-f10/plan-copy.json",
+      "stored": "paired-after/2-head-f10/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/2-head-f10/result.json",
+      "stored": "paired-after/2-head-f10/result.json",
+      "sha256": "0881a77003b023739c16edae3f46fb616493aa4574308818bff126506e433ab4"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/2-head-f10/sampler-source.gd.txt",
+      "stored": "paired-after/2-head-f10/sampler-source.gd.txt",
+      "sha256": "27db1abf21456b846ebbc0391ff716eb0033e9cbd24ea5bb84d023ab37d61684"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/2-head-f10/stdout.txt",
+      "stored": "paired-after/2-head-f10/stdout.txt",
+      "sha256": "da87f9c502c5bf33d76792ba2d3bcaf660348a29ccc1a27e60383218a305aa8d"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/2-head-normal/context.json",
+      "stored": "paired-after/2-head-normal/context.json",
+      "sha256": "d4fc7949e41eccfd0d78f9d306190b52ceb7daaa2c1f974646b3394fdb99dcaf"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/2-head-normal/entry-scene.txt",
+      "stored": "paired-after/2-head-normal/entry-scene.txt",
+      "sha256": "d69ae4d5c3291693f71e02659927ae01c1bb3a8c0ab463a313d4d5eaa88d879a"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/2-head-normal/plan-copy.json",
+      "stored": "paired-after/2-head-normal/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/2-head-normal/result.json",
+      "stored": "paired-after/2-head-normal/result.json",
+      "sha256": "3dacbee1e11efa660a15c045f2f5c97a9ca1afd66fbea3258d9207972a6ef5e4"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/2-head-normal/sampler-source.gd.txt",
+      "stored": "paired-after/2-head-normal/sampler-source.gd.txt",
+      "sha256": "27db1abf21456b846ebbc0391ff716eb0033e9cbd24ea5bb84d023ab37d61684"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/2-head-normal/stdout.txt",
+      "stored": "paired-after/2-head-normal/stdout.txt",
+      "sha256": "debafdbaaf296f6aa51970808e23ecdd84fe721ec54e018649050e58397026c2"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/3-base-f10/context.json",
+      "stored": "paired-after/3-base-f10/context.json",
+      "sha256": "0f8d04475505576fe263fcffe544dc6903b0fbacefed8331cfddc1eecae687a3"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/3-base-f10/entry-scene.txt",
+      "stored": "paired-after/3-base-f10/entry-scene.txt",
+      "sha256": "2bad0378deba6aea3b63ef5b1c61cdba946b0e52d251cc1ba8ad42ac33973e35"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/3-base-f10/plan-copy.json",
+      "stored": "paired-after/3-base-f10/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/3-base-f10/result.json",
+      "stored": "paired-after/3-base-f10/result.json",
+      "sha256": "05e23f3e32fca0035e0fa5098d0d596d38a6167fc94f66c4cd28952965ef21fd"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/3-base-f10/sampler-source.gd.txt",
+      "stored": "paired-after/3-base-f10/sampler-source.gd.txt",
+      "sha256": "27db1abf21456b846ebbc0391ff716eb0033e9cbd24ea5bb84d023ab37d61684"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/3-base-f10/stdout.txt",
+      "stored": "paired-after/3-base-f10/stdout.txt",
+      "sha256": "70f29e0730ee69724ed7eca22ec543108794e7a8cb07c6a35a4a94990f334972"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/3-base-normal/context.json",
+      "stored": "paired-after/3-base-normal/context.json",
+      "sha256": "87d5a060cd769aaaa3f264aa4b22fad9b9191d0c4fc91615c2764e89ee8f4b42"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/3-base-normal/entry-scene.txt",
+      "stored": "paired-after/3-base-normal/entry-scene.txt",
+      "sha256": "bf90b35f75a3fdc6a397126b5d68381fbfb3844203489a03d61a0ba0158e1281"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/3-base-normal/plan-copy.json",
+      "stored": "paired-after/3-base-normal/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/3-base-normal/result.json",
+      "stored": "paired-after/3-base-normal/result.json",
+      "sha256": "85b38d39fa2fc36aab306fa74a1a3723285e4ab79114b46193e7652190a67694"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/3-base-normal/sampler-source.gd.txt",
+      "stored": "paired-after/3-base-normal/sampler-source.gd.txt",
+      "sha256": "27db1abf21456b846ebbc0391ff716eb0033e9cbd24ea5bb84d023ab37d61684"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/3-base-normal/stdout.txt",
+      "stored": "paired-after/3-base-normal/stdout.txt",
+      "sha256": "90f05bf78696e50d37a949e3a77ec620d992ceb78dd8c2df9059ab0c1145b178"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/3-head-f10/context.json",
+      "stored": "paired-after/3-head-f10/context.json",
+      "sha256": "a9c180c80f4953c75c0496cf5f596b3f7d5b7d32a387da21492ec64b40215f0d"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/3-head-f10/entry-scene.txt",
+      "stored": "paired-after/3-head-f10/entry-scene.txt",
+      "sha256": "705397830ea9955dd7d2e34b6eea3221177347ebc7626532d065f71aef6d0302"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/3-head-f10/plan-copy.json",
+      "stored": "paired-after/3-head-f10/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/3-head-f10/result.json",
+      "stored": "paired-after/3-head-f10/result.json",
+      "sha256": "d056bd374f6bf20b30aede7cc7baf5b4fb3083518f8f99595ed528e1d742cdf0"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/3-head-f10/sampler-source.gd.txt",
+      "stored": "paired-after/3-head-f10/sampler-source.gd.txt",
+      "sha256": "27db1abf21456b846ebbc0391ff716eb0033e9cbd24ea5bb84d023ab37d61684"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/3-head-f10/stdout.txt",
+      "stored": "paired-after/3-head-f10/stdout.txt",
+      "sha256": "96e4e9bb4e923a899374da48f5e223d4617900991b3e7d180f3a58d4762bb40c"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/3-head-normal/context.json",
+      "stored": "paired-after/3-head-normal/context.json",
+      "sha256": "daca2c72300fd1bfdc26ced7e5ce35016001131826274dd57efc0f9e62cc584c"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/3-head-normal/entry-scene.txt",
+      "stored": "paired-after/3-head-normal/entry-scene.txt",
+      "sha256": "8f412b253080d625fcf11a4aab18b43bf9542f056baf838e262bc38f47d879e6"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/3-head-normal/plan-copy.json",
+      "stored": "paired-after/3-head-normal/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/3-head-normal/result.json",
+      "stored": "paired-after/3-head-normal/result.json",
+      "sha256": "1c63d7639783667320f4123c66cb33ae07a4f62cce5566d65b10b2270bfc1d58"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/3-head-normal/sampler-source.gd.txt",
+      "stored": "paired-after/3-head-normal/sampler-source.gd.txt",
+      "sha256": "27db1abf21456b846ebbc0391ff716eb0033e9cbd24ea5bb84d023ab37d61684"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/3-head-normal/stdout.txt",
+      "stored": "paired-after/3-head-normal/stdout.txt",
+      "sha256": "0ba75f2b508f691241631717621878f133633c348ec9c041ed73bca31c79a018"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/head-working.diff.txt",
+      "stored": "paired-after/head-working.diff.txt",
+      "sha256": "6776e2e65458c4862794e597f6c6f6c7e96880b65b3c7c77d3125e7e49ecb909"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/plan-copy.json",
+      "stored": "paired-after/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/preflight.json",
+      "stored": "paired-after/preflight.json",
+      "sha256": "f87aa1c5923c87eab14cbc070a6d21cccb56da29c27b3a55f9e53caa6eeb56e3"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/progress.json",
+      "stored": "paired-after/progress.json",
+      "sha256": "6c64ee8755b7f8076583559b94deb51f9ab769b0df86a44bdba1dffd60791765"
+    },
+    {
+      "source": "tmp/vfoliage-006-paired-comparison-2/summary.json",
+      "stored": "paired-after/summary.json",
+      "sha256": "d68bfc965a64d63223318c8e98decff5f6d7c3654810608cd086c994cfcd9f4e"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-1/instrumentation/.gdignore",
+      "stored": "profile-invalid-1/instrumentation/.gdignore",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-1/instrumentation/cost.gd",
+      "stored": "profile-invalid-1/instrumentation/cost.gd.txt",
+      "sha256": "31a94dad39507db6f7164851c59b081b188f89cf36011e1769f3254b435204b7"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-1/instrumentation/loop.gd",
+      "stored": "profile-invalid-1/instrumentation/loop.gd.txt",
+      "sha256": "10b526e25baf3ebefe377cfa4876dddc2d9bfc5be95f9d554b87b7130de8b83c"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-1/instrumentation/render.gd",
+      "stored": "profile-invalid-1/instrumentation/render.gd.txt",
+      "sha256": "b4871807aaef9aa2f6bff75109137f5b44a830f34cce1564f0e9d72bfed38ee8"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-1/instrumentation/sampler.gd",
+      "stored": "profile-invalid-1/instrumentation/sampler.gd.txt",
+      "sha256": "5314caecc9d4b012e893f2416e4b0f027bc0aff2f55bb5d6138eda5b22deb3ba"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-1/labels.json",
+      "stored": "profile-invalid-1/labels.json",
+      "sha256": "5480f654bca689ec567bc73c34ee1cdb30277d923adffecf4d40b98fd44eda5c"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-1/normal/context.json",
+      "stored": "profile-invalid-1/normal/context.json",
+      "sha256": "0d571ed4eb0a7730cb359183c97e5984cb73eeeb2a4169b5156f3c940f609338"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-1/normal/entry-scene.txt",
+      "stored": "profile-invalid-1/normal/entry-scene.txt",
+      "sha256": "cef30b655655ca5806bc9ec5dd615b4ee03a8b9bf7d68b49a31093e70ace9e13"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-1/normal/plan-copy.json",
+      "stored": "profile-invalid-1/normal/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-1/normal/result.json",
+      "stored": "profile-invalid-1/normal/result.json",
+      "sha256": "1dee5c0a9d5f8b5746918029229bb40fa02a00ea5b549d250f1d691edfbc537b"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-1/normal/sampler-source.gd.txt",
+      "stored": "profile-invalid-1/normal/sampler-source.gd.txt",
+      "sha256": "5314caecc9d4b012e893f2416e4b0f027bc0aff2f55bb5d6138eda5b22deb3ba"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-1/normal/stdout.txt",
+      "stored": "profile-invalid-1/normal/stdout.txt",
+      "sha256": "14c934ff41dd87bd1bd423a9890043ba8f8b762b6f7a63e1264a53a53dadb85b"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-2/f10/context.json",
+      "stored": "profile-valid-2/f10/context.json",
+      "sha256": "fbd0b60fdc55e0becc20094eff9bf410172d5751cd3c43533067b38876e62542"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-2/f10/cost.json",
+      "stored": "profile-valid-2/f10/cost.json",
+      "sha256": "f4aad849708945966ed5d3a500d2454e70815aa115e15be192029c840d6c00a2"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-2/f10/entry-scene.txt",
+      "stored": "profile-valid-2/f10/entry-scene.txt",
+      "sha256": "1bed350f3356c385064467c86429a5e2bf686146c1db099a1bfbed56ab6ba5bd"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-2/f10/plan-copy.json",
+      "stored": "profile-valid-2/f10/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-2/f10/result.json",
+      "stored": "profile-valid-2/f10/result.json",
+      "sha256": "9566d4fd9ffba01961923986d75b5106ff89164d6ef2524f33cb81c1857a6c65"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-2/f10/sampler-source.gd.txt",
+      "stored": "profile-valid-2/f10/sampler-source.gd.txt",
+      "sha256": "aef54a295e45adf748d4acc7b609f7f865fc03c8a9458bcf2ab284be97662bb1"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-2/f10/stdout.txt",
+      "stored": "profile-valid-2/f10/stdout.txt",
+      "sha256": "0b354a1c54baf2859f2eca76acdc9f6019aa6fb480fc15502644e9d95590aae1"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-2/instrumentation/.gdignore",
+      "stored": "profile-valid-2/instrumentation/.gdignore",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-2/instrumentation/cost.gd",
+      "stored": "profile-valid-2/instrumentation/cost.gd.txt",
+      "sha256": "31a94dad39507db6f7164851c59b081b188f89cf36011e1769f3254b435204b7"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-2/instrumentation/loop.gd",
+      "stored": "profile-valid-2/instrumentation/loop.gd.txt",
+      "sha256": "5ee0522d351b23d869c0565ded048f9785852a82f2ae631b3bdf7052ff8f85cd"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-2/instrumentation/render.gd",
+      "stored": "profile-valid-2/instrumentation/render.gd.txt",
+      "sha256": "046e024f7b8bacf8dcaa1c485318c609459bc818a173eb9f809b8ed85ede34b4"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-2/instrumentation/sampler.gd",
+      "stored": "profile-valid-2/instrumentation/sampler.gd.txt",
+      "sha256": "aef54a295e45adf748d4acc7b609f7f865fc03c8a9458bcf2ab284be97662bb1"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-2/labels.json",
+      "stored": "profile-valid-2/labels.json",
+      "sha256": "920c3c27e8126070c1db69d479a4d381a2a6aab9e6a6c7975ab386d727b83cd4"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-2/normal/context.json",
+      "stored": "profile-valid-2/normal/context.json",
+      "sha256": "30aa348b82bf203d948ef0733be0dddb711b19e74a1dfe5974d27bab956f9a1b"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-2/normal/cost.json",
+      "stored": "profile-valid-2/normal/cost.json",
+      "sha256": "ca6a5facea9aef858de87cbab561222138acd2f8e9810eb12177ba5761eac8e6"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-2/normal/entry-scene.txt",
+      "stored": "profile-valid-2/normal/entry-scene.txt",
+      "sha256": "23d45435cab53761c60dfb86f322d1695c689e50be1a3e8ffc83f9608365bd9a"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-2/normal/plan-copy.json",
+      "stored": "profile-valid-2/normal/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-2/normal/result.json",
+      "stored": "profile-valid-2/normal/result.json",
+      "sha256": "77c21eb0e947091800dc18fca54d381252e306cbfa58197ec67c57cf38ecf456"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-2/normal/sampler-source.gd.txt",
+      "stored": "profile-valid-2/normal/sampler-source.gd.txt",
+      "sha256": "aef54a295e45adf748d4acc7b609f7f865fc03c8a9458bcf2ab284be97662bb1"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-2/normal/stdout.txt",
+      "stored": "profile-valid-2/normal/stdout.txt",
+      "sha256": "066f4f9f0cd7822600009d45bbf30350a88a219582616ad92179af7e30b13c64"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-3/f10/context.json",
+      "stored": "profile-valid-3/f10/context.json",
+      "sha256": "f495cd39af24de3479d4d87f6af2f0f48a4e63260f27108753c893a310b85f9a"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-3/f10/cost.json",
+      "stored": "profile-valid-3/f10/cost.json",
+      "sha256": "b4010865daba7e2408b0995b9e69c7f904a7ca0583dd0b3ab0ec08ecd656c75d"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-3/f10/entry-scene.txt",
+      "stored": "profile-valid-3/f10/entry-scene.txt",
+      "sha256": "48373c756daf47a72968951f5ee703e75a353f121aaa963a6f29bccd822cd1f5"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-3/f10/plan-copy.json",
+      "stored": "profile-valid-3/f10/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-3/f10/result.json",
+      "stored": "profile-valid-3/f10/result.json",
+      "sha256": "80ff24d565db2e2d6c7b0c8c1d92e1367f9044df84fd09e3e7365510ae2f0439"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-3/f10/sampler-source.gd.txt",
+      "stored": "profile-valid-3/f10/sampler-source.gd.txt",
+      "sha256": "b56e17e1745220b9ac25501d64c3a782d165c1bb821cc9bb923665e1343ace73"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-3/f10/stdout.txt",
+      "stored": "profile-valid-3/f10/stdout.txt",
+      "sha256": "d9ac568820c4169c267d072ba5e8305d9c7e0f4e4a26c07aa18e0f69cbe73fee"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-3/instrumentation/.gdignore",
+      "stored": "profile-valid-3/instrumentation/.gdignore",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-3/instrumentation/cost.gd",
+      "stored": "profile-valid-3/instrumentation/cost.gd.txt",
+      "sha256": "31a94dad39507db6f7164851c59b081b188f89cf36011e1769f3254b435204b7"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-3/instrumentation/debug.gd",
+      "stored": "profile-valid-3/instrumentation/debug.gd.txt",
+      "sha256": "740670957ae1956631f734ddad1c6b81c4cea11912a53ff9d1da350487b631ab"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-3/instrumentation/loop.gd",
+      "stored": "profile-valid-3/instrumentation/loop.gd.txt",
+      "sha256": "c17d1809b49186cf7bd3904655c4d52518f2b426fa5f3b651e7b11a8707b0cb0"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-3/instrumentation/render.gd",
+      "stored": "profile-valid-3/instrumentation/render.gd.txt",
+      "sha256": "f16bc7e1f53ca0c6fdc1a0168bd26bc35774ec5840650f5a0ab954024c1b147c"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-3/instrumentation/sampler.gd",
+      "stored": "profile-valid-3/instrumentation/sampler.gd.txt",
+      "sha256": "b56e17e1745220b9ac25501d64c3a782d165c1bb821cc9bb923665e1343ace73"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-3/labels.json",
+      "stored": "profile-valid-3/labels.json",
+      "sha256": "7d58329346309428c2bf2770d7b894e4abdda01e00c8be59bcab9277110a4abe"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-3/normal/context.json",
+      "stored": "profile-valid-3/normal/context.json",
+      "sha256": "a675f6e8f18871ffdaf7373d0feae56d1ce844053d79a14d1a1073dbfe5306ec"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-3/normal/cost.json",
+      "stored": "profile-valid-3/normal/cost.json",
+      "sha256": "235f40b8cef213dea49c18e0cdc5102eef4f0e7b4b3a25e490879123843c9d9f"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-3/normal/entry-scene.txt",
+      "stored": "profile-valid-3/normal/entry-scene.txt",
+      "sha256": "3b8a9d3e86dde81107b1963eb93566e8c70346c0c34493d8e26a57463752da03"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-3/normal/plan-copy.json",
+      "stored": "profile-valid-3/normal/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-3/normal/result.json",
+      "stored": "profile-valid-3/normal/result.json",
+      "sha256": "f28f024a551362b4ca002068c00df7333831bee5076b8f64a008e0063e7c24c2"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-3/normal/sampler-source.gd.txt",
+      "stored": "profile-valid-3/normal/sampler-source.gd.txt",
+      "sha256": "b56e17e1745220b9ac25501d64c3a782d165c1bb821cc9bb923665e1343ace73"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-3/normal/stdout.txt",
+      "stored": "profile-valid-3/normal/stdout.txt",
+      "sha256": "2bd59c2da632819618570e130ecdd308477346cda623bc42f99231a36b8859a0"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-4/f10/context.json",
+      "stored": "profile-invalid-4/f10/context.json",
+      "sha256": "84e237779aef2d74501f6bd0dba7071b8fa664f73aad98675ff3af4d4e2b621f"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-4/f10/cost.json",
+      "stored": "profile-invalid-4/f10/cost.json",
+      "sha256": "6f01e393f4702339e057eeb1f36b3108ee902981710c089477b61eb534e1a50a"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-4/f10/entry-scene.txt",
+      "stored": "profile-invalid-4/f10/entry-scene.txt",
+      "sha256": "a3137b1bb3928abe70cf6f2eec0bdb8e56827364b75fca432247c6a0bbe78fbb"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-4/f10/plan-copy.json",
+      "stored": "profile-invalid-4/f10/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-4/f10/result.json",
+      "stored": "profile-invalid-4/f10/result.json",
+      "sha256": "f6f67d0a1138a27679a8155384ff869065e1e38528009b14c67f8a281097d01a"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-4/f10/sampler-source.gd.txt",
+      "stored": "profile-invalid-4/f10/sampler-source.gd.txt",
+      "sha256": "8bc871d3aecf821f9fae6d679eb11a1e15b0503c440eb0563751849e688e2fed"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-4/f10/stdout.txt",
+      "stored": "profile-invalid-4/f10/stdout.txt",
+      "sha256": "2f5da6d205f01564bd1c6bb4fc8192b8e6572d5135706a577aec94be81a7f448"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-4/instrumentation/.gdignore",
+      "stored": "profile-invalid-4/instrumentation/.gdignore",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-4/instrumentation/cost.gd",
+      "stored": "profile-invalid-4/instrumentation/cost.gd.txt",
+      "sha256": "31a94dad39507db6f7164851c59b081b188f89cf36011e1769f3254b435204b7"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-4/instrumentation/debug.gd",
+      "stored": "profile-invalid-4/instrumentation/debug.gd.txt",
+      "sha256": "3c27cc4efbd7904014abb6eed7319ffe9a35aebd53b84dfe8f81f1a8f9f0758b"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-4/instrumentation/loop.gd",
+      "stored": "profile-invalid-4/instrumentation/loop.gd.txt",
+      "sha256": "2bde1fdfa0fc06313db55d6fd6d1380ca5c715bcfbfddd9f7ee9d7063b473507"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-4/instrumentation/navigation.gd",
+      "stored": "profile-invalid-4/instrumentation/navigation.gd.txt",
+      "sha256": "45973e0ed3be9ed75ed840c12c81413fd90ec7424dfe8fb1e9130edfeee6a69c"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-4/instrumentation/render.gd",
+      "stored": "profile-invalid-4/instrumentation/render.gd.txt",
+      "sha256": "d5ae1d17af484260626aea442071734eec2c2269dcccfba50f36456e90264650"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-4/instrumentation/sampler.gd",
+      "stored": "profile-invalid-4/instrumentation/sampler.gd.txt",
+      "sha256": "8bc871d3aecf821f9fae6d679eb11a1e15b0503c440eb0563751849e688e2fed"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-4/instrumentation/wildlife.gd",
+      "stored": "profile-invalid-4/instrumentation/wildlife.gd.txt",
+      "sha256": "3f3e1973d457282f712e7b24f857385426536432c0da0908001a07f14ea78d2e"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-4/instrumentation/wildlife_navigation.gd",
+      "stored": "profile-invalid-4/instrumentation/wildlife_navigation.gd.txt",
+      "sha256": "0e5d25a75cef9a4b696706f4033fc9b2960cac95cf3c76ec0383852b1ce3f6d2"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-4/labels.json",
+      "stored": "profile-invalid-4/labels.json",
+      "sha256": "5360447dbc615f98e5e3b6ad72957b91a44b038a322d17b62bd6bd1052349513"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-4/normal/context.json",
+      "stored": "profile-invalid-4/normal/context.json",
+      "sha256": "e218a083154a4bb1123350d48e086fce3314f9b35258fc8d3da30ddf9e625315"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-4/normal/cost.json",
+      "stored": "profile-invalid-4/normal/cost.json",
+      "sha256": "f9f1940d1f3571f8656150fbc3ebb0fc24070648990dfeba1a07cf17450c42b5"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-4/normal/entry-scene.txt",
+      "stored": "profile-invalid-4/normal/entry-scene.txt",
+      "sha256": "ad8c52bd7ca08c0c749a6dcab84b05ef80bbdb65e8166c5dba6f35c2d1fdb2ba"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-4/normal/plan-copy.json",
+      "stored": "profile-invalid-4/normal/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-4/normal/result.json",
+      "stored": "profile-invalid-4/normal/result.json",
+      "sha256": "4279ae94f86cbc5d33dc4c72eea5eba698639acd9d82f8929e29aeed0e96a902"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-4/normal/sampler-source.gd.txt",
+      "stored": "profile-invalid-4/normal/sampler-source.gd.txt",
+      "sha256": "8bc871d3aecf821f9fae6d679eb11a1e15b0503c440eb0563751849e688e2fed"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-4/normal/stdout.txt",
+      "stored": "profile-invalid-4/normal/stdout.txt",
+      "sha256": "37bb3a2ed0b86e9a89bde9dd83865e752be53d5a9daf336f4f4e166a973374e3"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-5/f10/context.json",
+      "stored": "profile-valid-5/f10/context.json",
+      "sha256": "be6d477694954e38b775bf876f519d2f88e9a67810f8e294eb64af416c41b803"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-5/f10/cost.json",
+      "stored": "profile-valid-5/f10/cost.json",
+      "sha256": "f71d5e76ece9976743cfe44292bce6faa3552a4228c809d2ced03770294e3467"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-5/f10/entry-scene.txt",
+      "stored": "profile-valid-5/f10/entry-scene.txt",
+      "sha256": "4f4bc5593f8aa34d1a9c6e00e912f9916d1b8ebd31b7602aebfe3b5f46a4d108"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-5/f10/plan-copy.json",
+      "stored": "profile-valid-5/f10/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-5/f10/result.json",
+      "stored": "profile-valid-5/f10/result.json",
+      "sha256": "ac3bce57dad096aa4021e933efcb27242e1fc684a979025846ff62d95581129d"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-5/f10/sampler-source.gd.txt",
+      "stored": "profile-valid-5/f10/sampler-source.gd.txt",
+      "sha256": "e2722aa97f61707d7cc9642b82592b3548cf8637dd45c1b02764f74af68ecf1e"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-5/f10/stdout.txt",
+      "stored": "profile-valid-5/f10/stdout.txt",
+      "sha256": "1afcd74a96b7e6e418a892bef668d2b083382a2a495b3a1f7b689a0a28c0d63f"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-5/instrumentation/.gdignore",
+      "stored": "profile-valid-5/instrumentation/.gdignore",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-5/instrumentation/cost.gd",
+      "stored": "profile-valid-5/instrumentation/cost.gd.txt",
+      "sha256": "31a94dad39507db6f7164851c59b081b188f89cf36011e1769f3254b435204b7"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-5/instrumentation/debug.gd",
+      "stored": "profile-valid-5/instrumentation/debug.gd.txt",
+      "sha256": "b0041d1040c92039cf78535bbbe514c196d8f15e51724538866dcca7f2eaacfd"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-5/instrumentation/loop.gd",
+      "stored": "profile-valid-5/instrumentation/loop.gd.txt",
+      "sha256": "c4bb32ca5dfea6fee7aaa3548da73e9047c114b0f134c2151a23583015728d99"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-5/instrumentation/navigation.gd",
+      "stored": "profile-valid-5/instrumentation/navigation.gd.txt",
+      "sha256": "7f62c17e6235df62836846c7951829496dc92afdc0f4a74e25a15877b8fb71df"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-5/instrumentation/render.gd",
+      "stored": "profile-valid-5/instrumentation/render.gd.txt",
+      "sha256": "b861bcfcaa34321165d663282be80edaf723ff1a611811693147145201c6d8e4"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-5/instrumentation/sampler.gd",
+      "stored": "profile-valid-5/instrumentation/sampler.gd.txt",
+      "sha256": "e2722aa97f61707d7cc9642b82592b3548cf8637dd45c1b02764f74af68ecf1e"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-5/instrumentation/wildlife.gd",
+      "stored": "profile-valid-5/instrumentation/wildlife.gd.txt",
+      "sha256": "f9a4b335580b9e20bafb967ef39535d4b531cbbb7eb5c5147714b876d05e68d6"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-5/instrumentation/wildlife_navigation.gd",
+      "stored": "profile-valid-5/instrumentation/wildlife_navigation.gd.txt",
+      "sha256": "3c739b83b2415c40ecdbbd662517dd97535bdab9c4a09b092fce7914c0c2d130"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-5/labels.json",
+      "stored": "profile-valid-5/labels.json",
+      "sha256": "79d919e00f3499e915bd8601b0643a88b1da9f6927065b08a1b6675b39ddbcfd"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-5/normal/context.json",
+      "stored": "profile-valid-5/normal/context.json",
+      "sha256": "b8a52f257b810534146fe26ecbd1df643d0dc0b71fd7990c3ce9a7f4bca7db20"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-5/normal/cost.json",
+      "stored": "profile-valid-5/normal/cost.json",
+      "sha256": "eed1a5fc189dd2331abf1a1f9b9c16f29b9bc9d8bd9ebc1951f2f9df7bebc1e9"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-5/normal/entry-scene.txt",
+      "stored": "profile-valid-5/normal/entry-scene.txt",
+      "sha256": "45c3b516d00bdcd743ebcd6a93714ba113f577b99074241e790703b50b35d2be"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-5/normal/plan-copy.json",
+      "stored": "profile-valid-5/normal/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-5/normal/result.json",
+      "stored": "profile-valid-5/normal/result.json",
+      "sha256": "7a0239ba9ef7a336f579221d3d5b6bf7ebec3e5e56a7fdc2748d7409ab6eafd5"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-5/normal/sampler-source.gd.txt",
+      "stored": "profile-valid-5/normal/sampler-source.gd.txt",
+      "sha256": "e2722aa97f61707d7cc9642b82592b3548cf8637dd45c1b02764f74af68ecf1e"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-5/normal/stdout.txt",
+      "stored": "profile-valid-5/normal/stdout.txt",
+      "sha256": "ff05c754d76b1298aeb45801b20a22114e38eda87775604a357081303675d6b7"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-6/f10/context.json",
+      "stored": "profile-after-6/f10/context.json",
+      "sha256": "2ccd97917e84a172b25cbb2edc6568f5935c5f83ed98e01fa365f831b0c1598f"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-6/f10/cost.json",
+      "stored": "profile-after-6/f10/cost.json",
+      "sha256": "b8c964b1aaff77c0d8832cd74091f93ccc4ab753bce0433417f963b8ce7bb9fb"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-6/f10/entry-scene.txt",
+      "stored": "profile-after-6/f10/entry-scene.txt",
+      "sha256": "d06494565b254daf8dab11402b5aa03cad9766ef736b461fbaad090aaf861d6a"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-6/f10/plan-copy.json",
+      "stored": "profile-after-6/f10/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-6/f10/result.json",
+      "stored": "profile-after-6/f10/result.json",
+      "sha256": "ba6d25024fb206e2d1f2c1ad0978e040a4a94d8409c52060b295a53cef7ab0b3"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-6/f10/sampler-source.gd.txt",
+      "stored": "profile-after-6/f10/sampler-source.gd.txt",
+      "sha256": "b56e17e1745220b9ac25501d64c3a782d165c1bb821cc9bb923665e1343ace73"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-6/f10/stdout.txt",
+      "stored": "profile-after-6/f10/stdout.txt",
+      "sha256": "76b76306250c0360258776a34fb581fa51a7000f988a44bacb273b16081d4198"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-6/instrumentation/.gdignore",
+      "stored": "profile-after-6/instrumentation/.gdignore",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-6/instrumentation/cost.gd",
+      "stored": "profile-after-6/instrumentation/cost.gd.txt",
+      "sha256": "31a94dad39507db6f7164851c59b081b188f89cf36011e1769f3254b435204b7"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-6/instrumentation/debug.gd",
+      "stored": "profile-after-6/instrumentation/debug.gd.txt",
+      "sha256": "740670957ae1956631f734ddad1c6b81c4cea11912a53ff9d1da350487b631ab"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-6/instrumentation/loop.gd",
+      "stored": "profile-after-6/instrumentation/loop.gd.txt",
+      "sha256": "c17d1809b49186cf7bd3904655c4d52518f2b426fa5f3b651e7b11a8707b0cb0"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-6/instrumentation/render.gd",
+      "stored": "profile-after-6/instrumentation/render.gd.txt",
+      "sha256": "f16bc7e1f53ca0c6fdc1a0168bd26bc35774ec5840650f5a0ab954024c1b147c"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-6/instrumentation/sampler.gd",
+      "stored": "profile-after-6/instrumentation/sampler.gd.txt",
+      "sha256": "b56e17e1745220b9ac25501d64c3a782d165c1bb821cc9bb923665e1343ace73"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-6/labels.json",
+      "stored": "profile-after-6/labels.json",
+      "sha256": "7d58329346309428c2bf2770d7b894e4abdda01e00c8be59bcab9277110a4abe"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-6/normal/context.json",
+      "stored": "profile-after-6/normal/context.json",
+      "sha256": "2dab9b3ca26ddc9e2b36a85ce411fc9ad175ee93d7e39feb985fdac29541489c"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-6/normal/cost.json",
+      "stored": "profile-after-6/normal/cost.json",
+      "sha256": "2ba4603a1ad8f5981a65602baf199537012b14f774336501b3ff536122698c0c"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-6/normal/entry-scene.txt",
+      "stored": "profile-after-6/normal/entry-scene.txt",
+      "sha256": "95f452d2101f0e2ebfd7abe46487dfe28ee44d0e62c5ab0a6ed208ddebfbc47a"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-6/normal/plan-copy.json",
+      "stored": "profile-after-6/normal/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-6/normal/result.json",
+      "stored": "profile-after-6/normal/result.json",
+      "sha256": "c966c18f1191099d5a5a71034df1e6119859634d0138b008122d73ff8eea739d"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-6/normal/sampler-source.gd.txt",
+      "stored": "profile-after-6/normal/sampler-source.gd.txt",
+      "sha256": "b56e17e1745220b9ac25501d64c3a782d165c1bb821cc9bb923665e1343ace73"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-6/normal/stdout.txt",
+      "stored": "profile-after-6/normal/stdout.txt",
+      "sha256": "4c5ddd667c977f11caea33a45ac084b007cd92cb2c8aaa31a60321624a31f761"
+    },
+    {
+      "source": "tmp/vfoliage-006-host-observer-1/f10/context.json",
+      "stored": "host-observer/f10/context.json",
+      "sha256": "be9fa1f59285fe6c8e636230f9212837e7601dbd00e420fa6100aa908611c4ef"
+    },
+    {
+      "source": "tmp/vfoliage-006-host-observer-1/f10/entry-scene.txt",
+      "stored": "host-observer/f10/entry-scene.txt",
+      "sha256": "f6f87c38d629dccb2e1a30991cebb1f1ac33998a0c04f34f35a57fc74e936411"
+    },
+    {
+      "source": "tmp/vfoliage-006-host-observer-1/f10/plan-copy.json",
+      "stored": "host-observer/f10/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-host-observer-1/f10/result.json",
+      "stored": "host-observer/f10/result.json",
+      "sha256": "7199e47a136dff9dcce57e0b091f1bc5a265f42de0dab38bc54e096e8aea28a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-host-observer-1/f10/sampler-source.gd.txt",
+      "stored": "host-observer/f10/sampler-source.gd.txt",
+      "sha256": "27db1abf21456b846ebbc0391ff716eb0033e9cbd24ea5bb84d023ab37d61684"
+    },
+    {
+      "source": "tmp/vfoliage-006-host-observer-1/f10/stdout.txt",
+      "stored": "host-observer/f10/stdout.txt",
+      "sha256": "f7ccbe717aecb776502cf99e856718619dd947b838994b14ad232cf17583579d"
+    },
+    {
+      "source": "tmp/vfoliage-006-host-observer-1/host.json",
+      "stored": "host-observer/host.json",
+      "sha256": "6b3918ba1adb78891d6bbf7f3f6b2d86e284fe1d5b8f57aaa78db7993a9505e8"
+    },
+    {
+      "source": "tmp/vfoliage-006-qa-ci-performance/1-f10/context.json",
+      "stored": "qa-ci-performance/1-f10/context.json",
+      "sha256": "5ce7b920368f1037cb18da4181dd2842cdd1ecaffe9ac22cb6f79190b5c4a130"
+    },
+    {
+      "source": "tmp/vfoliage-006-qa-ci-performance/1-f10/entry-scene.txt",
+      "stored": "qa-ci-performance/1-f10/entry-scene.txt",
+      "sha256": "de66d59964d0accc87ed89c9f7606d9b36b6043fba884ed3a7be13ebeab36579"
+    },
+    {
+      "source": "tmp/vfoliage-006-qa-ci-performance/1-f10/plan-copy.json",
+      "stored": "qa-ci-performance/1-f10/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-qa-ci-performance/1-f10/result.json",
+      "stored": "qa-ci-performance/1-f10/result.json",
+      "sha256": "77ca9850042561ff8451587278c9d69d058e9bf1c36a5415ae16c2d2c9832dc3"
+    },
+    {
+      "source": "tmp/vfoliage-006-qa-ci-performance/1-f10/sampler-source.gd.txt",
+      "stored": "qa-ci-performance/1-f10/sampler-source.gd.txt",
+      "sha256": "27db1abf21456b846ebbc0391ff716eb0033e9cbd24ea5bb84d023ab37d61684"
+    },
+    {
+      "source": "tmp/vfoliage-006-qa-ci-performance/1-f10/stdout.txt",
+      "stored": "qa-ci-performance/1-f10/stdout.txt",
+      "sha256": "d1802dbe7baafe5a16b5f23ae7bf71e50a38d4d3c243cc131cd9310f393a37df"
+    },
+    {
+      "source": "tmp/vfoliage-006-qa-ci-performance/1-normal/context.json",
+      "stored": "qa-ci-performance/1-normal/context.json",
+      "sha256": "b655be97ed7bd28e15cfaceec07b22bc5b830992a2b864707b5b1f924ff4d165"
+    },
+    {
+      "source": "tmp/vfoliage-006-qa-ci-performance/1-normal/entry-scene.txt",
+      "stored": "qa-ci-performance/1-normal/entry-scene.txt",
+      "sha256": "cb1344b22d30151fa49b6732d17ed0ca417a104bd6c4c51e20441da08f8af2b1"
+    },
+    {
+      "source": "tmp/vfoliage-006-qa-ci-performance/1-normal/plan-copy.json",
+      "stored": "qa-ci-performance/1-normal/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-qa-ci-performance/1-normal/result.json",
+      "stored": "qa-ci-performance/1-normal/result.json",
+      "sha256": "e256d898769d2d6a12113fab2ae5dd6cec0cbec42feeea9810ffa60c51db5ad6"
+    },
+    {
+      "source": "tmp/vfoliage-006-qa-ci-performance/1-normal/sampler-source.gd.txt",
+      "stored": "qa-ci-performance/1-normal/sampler-source.gd.txt",
+      "sha256": "27db1abf21456b846ebbc0391ff716eb0033e9cbd24ea5bb84d023ab37d61684"
+    },
+    {
+      "source": "tmp/vfoliage-006-qa-ci-performance/1-normal/stdout.txt",
+      "stored": "qa-ci-performance/1-normal/stdout.txt",
+      "sha256": "ae9632f4965bc8db71336b42fdaaf0e0c53f2bff8cb55a38385271034b1969ff"
+    },
+    {
+      "source": "tmp/vfoliage-006-qa-ci-performance/2-f10/context.json",
+      "stored": "qa-ci-performance/2-f10/context.json",
+      "sha256": "33a207c6a9f7a76d4d5d5555c1965371ce53d7df03e1476ab7201d3a29bd3caf"
+    },
+    {
+      "source": "tmp/vfoliage-006-qa-ci-performance/2-f10/entry-scene.txt",
+      "stored": "qa-ci-performance/2-f10/entry-scene.txt",
+      "sha256": "2e8faaf52308b7400942b93f3fad3f0cc7d63749cdf3156527d20f526ca941e6"
+    },
+    {
+      "source": "tmp/vfoliage-006-qa-ci-performance/2-f10/plan-copy.json",
+      "stored": "qa-ci-performance/2-f10/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-qa-ci-performance/2-f10/result.json",
+      "stored": "qa-ci-performance/2-f10/result.json",
+      "sha256": "c76d3c59d8e6b037273f28021002cea5c23de7ff9c4ea6e787b9e03ddbe4f9f8"
+    },
+    {
+      "source": "tmp/vfoliage-006-qa-ci-performance/2-f10/sampler-source.gd.txt",
+      "stored": "qa-ci-performance/2-f10/sampler-source.gd.txt",
+      "sha256": "27db1abf21456b846ebbc0391ff716eb0033e9cbd24ea5bb84d023ab37d61684"
+    },
+    {
+      "source": "tmp/vfoliage-006-qa-ci-performance/2-f10/stdout.txt",
+      "stored": "qa-ci-performance/2-f10/stdout.txt",
+      "sha256": "b9649582a4be874073bf6e10f99b07ed41723d4536399a122f6dea8184bba2f5"
+    },
+    {
+      "source": "tmp/vfoliage-006-qa-ci-performance/2-normal/context.json",
+      "stored": "qa-ci-performance/2-normal/context.json",
+      "sha256": "f50b0b20cdcc49627ca67ab60f17b87dd96aba328c9f7feba0e944ee1d36603d"
+    },
+    {
+      "source": "tmp/vfoliage-006-qa-ci-performance/2-normal/entry-scene.txt",
+      "stored": "qa-ci-performance/2-normal/entry-scene.txt",
+      "sha256": "23d2cdaad9ed5e1577123c90d5719ce26c55a2892c9a1d861e31f5bcf2a3d3f6"
+    },
+    {
+      "source": "tmp/vfoliage-006-qa-ci-performance/2-normal/plan-copy.json",
+      "stored": "qa-ci-performance/2-normal/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-qa-ci-performance/2-normal/result.json",
+      "stored": "qa-ci-performance/2-normal/result.json",
+      "sha256": "c6620e6bad1f7be7c3b2131482504b6a896275426d7924ec8559ee48426c4674"
+    },
+    {
+      "source": "tmp/vfoliage-006-qa-ci-performance/2-normal/sampler-source.gd.txt",
+      "stored": "qa-ci-performance/2-normal/sampler-source.gd.txt",
+      "sha256": "27db1abf21456b846ebbc0391ff716eb0033e9cbd24ea5bb84d023ab37d61684"
+    },
+    {
+      "source": "tmp/vfoliage-006-qa-ci-performance/2-normal/stdout.txt",
+      "stored": "qa-ci-performance/2-normal/stdout.txt",
+      "sha256": "ef2299a02e7aebfca5f4fae6b2de3ae9d1899cabee7d15725b7fe7bd45828484"
+    },
+    {
+      "source": "tmp/vfoliage-006-qa-ci-performance/3-f10/context.json",
+      "stored": "qa-ci-performance/3-f10/context.json",
+      "sha256": "4fe53269e60abcd03a0134c656401411d6a777ff02ce9a18fe891977c780d0cf"
+    },
+    {
+      "source": "tmp/vfoliage-006-qa-ci-performance/3-f10/entry-scene.txt",
+      "stored": "qa-ci-performance/3-f10/entry-scene.txt",
+      "sha256": "02f6c2856aba46f35c7b96f22c7f848236812cf8fee5fa5f18a9444a9aebf40c"
+    },
+    {
+      "source": "tmp/vfoliage-006-qa-ci-performance/3-f10/plan-copy.json",
+      "stored": "qa-ci-performance/3-f10/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-qa-ci-performance/3-f10/result.json",
+      "stored": "qa-ci-performance/3-f10/result.json",
+      "sha256": "a55040ce71fa6e3a795059f0fda611084b97becb7c50fbbfc62ef15bde0c95e9"
+    },
+    {
+      "source": "tmp/vfoliage-006-qa-ci-performance/3-f10/sampler-source.gd.txt",
+      "stored": "qa-ci-performance/3-f10/sampler-source.gd.txt",
+      "sha256": "27db1abf21456b846ebbc0391ff716eb0033e9cbd24ea5bb84d023ab37d61684"
+    },
+    {
+      "source": "tmp/vfoliage-006-qa-ci-performance/3-f10/stdout.txt",
+      "stored": "qa-ci-performance/3-f10/stdout.txt",
+      "sha256": "9d20bee3886ca67d06ef2b6f1595f3600d35047b52e6a91868a279690579025b"
+    },
+    {
+      "source": "tmp/vfoliage-006-qa-ci-performance/3-normal/context.json",
+      "stored": "qa-ci-performance/3-normal/context.json",
+      "sha256": "018db8bb172ce96fd3271c46067c589ae635720d85a53296c61aaddc78337975"
+    },
+    {
+      "source": "tmp/vfoliage-006-qa-ci-performance/3-normal/entry-scene.txt",
+      "stored": "qa-ci-performance/3-normal/entry-scene.txt",
+      "sha256": "ff454960cbc8d8f953ac4733922a681779eb4196badc725477564b5f87b6008d"
+    },
+    {
+      "source": "tmp/vfoliage-006-qa-ci-performance/3-normal/plan-copy.json",
+      "stored": "qa-ci-performance/3-normal/plan-copy.json",
+      "sha256": "af9a9eb4e387c99d96283530d18a3126e3d4a9c9d9eca66fe666bca6d2ecd3a7"
+    },
+    {
+      "source": "tmp/vfoliage-006-qa-ci-performance/3-normal/result.json",
+      "stored": "qa-ci-performance/3-normal/result.json",
+      "sha256": "12056c13c1926bf75105354b5638d09fd5539aa6f602cdb2dcdea3ddb4f3a6e3"
+    },
+    {
+      "source": "tmp/vfoliage-006-qa-ci-performance/3-normal/sampler-source.gd.txt",
+      "stored": "qa-ci-performance/3-normal/sampler-source.gd.txt",
+      "sha256": "27db1abf21456b846ebbc0391ff716eb0033e9cbd24ea5bb84d023ab37d61684"
+    },
+    {
+      "source": "tmp/vfoliage-006-qa-ci-performance/3-normal/stdout.txt",
+      "stored": "qa-ci-performance/3-normal/stdout.txt",
+      "sha256": "1712e148df84e69560f7294e95432c34ecc7404aa6686da3b1cfcb84d7590eed"
+    },
+    {
+      "source": "tmp/vfoliage-006-qa-ci-performance/summary.json",
+      "stored": "qa-ci-performance/summary.json",
+      "sha256": "41c2bd4972550a99f98c97bca5c6e8a100a547f6acbe06f12473d56485601de5"
+    },
+    {
+      "source": "tmp/vfoliage-006-wildlife-query-review-1.txt",
+      "stored": "diagnostic-logs/vfoliage-006-wildlife-query-review-1.txt",
+      "sha256": "0f17ad88be44e863c9de3d7a5e9fec8825fcc40b04d7524d96328f57fa7ca997"
+    },
+    {
+      "source": "tmp/vfoliage-006-wildlife-query-review-2.txt",
+      "stored": "diagnostic-logs/vfoliage-006-wildlife-query-review-2.txt",
+      "sha256": "66c0aac3627ab3fa99e3d456ecbd19082a967bb94b1c0db3a8519cde78bcfefb"
+    },
+    {
+      "source": "tmp/vfoliage-006-wildlife-query-review-3.txt",
+      "stored": "diagnostic-logs/vfoliage-006-wildlife-query-review-3.txt",
+      "sha256": "3b5bc9724db2e758637ae38382c39049886e10d9be7a39ef11b7d3c08b5de006"
+    },
+    {
+      "source": "tmp/vfoliage-006-perf-base-import.txt",
+      "stored": "diagnostic-logs/vfoliage-006-perf-base-import.txt",
+      "sha256": "99b0e0d83e4b63d7a3b584b299f66ab8c779908d69dddc81fe858b3c5e332852"
+    },
+    {
+      "source": "tmp/vfoliage-006-nav-profile-parse.txt",
+      "stored": "diagnostic-logs/vfoliage-006-nav-profile-parse.txt",
+      "sha256": "6e3030b1a50e020fad1fe3a80f3dfb1c05488c62bc7a2a5437ff2f3eb6894dca"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-log.txt",
+      "stored": "diagnostic-logs/vfoliage-006-cost-profile-log.txt",
+      "sha256": "4908bb169a47b25fafdeaad46396c917fcfa7b0c2a30b0c91c7ed405d217408f"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-2-log.txt",
+      "stored": "diagnostic-logs/vfoliage-006-cost-profile-2-log.txt",
+      "sha256": "1d81553d2761f89ad625f4a9f6beb763e47562a3292e6c5f613db003ed9b6e92"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-3-log.txt",
+      "stored": "diagnostic-logs/vfoliage-006-cost-profile-3-log.txt",
+      "sha256": "6bfb645ff252912e951912e633086311905ca3c5e3c38dca4fd87fe78c8f93d8"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-4-log.txt",
+      "stored": "diagnostic-logs/vfoliage-006-cost-profile-4-log.txt",
+      "sha256": "56e897dbabffba54a5f680a0fdcf602a185a68c2b0fa45c4b54a00a519a8719a"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-5-log.txt",
+      "stored": "diagnostic-logs/vfoliage-006-cost-profile-5-log.txt",
+      "sha256": "cb661443d54a0be293f04116f2ab22112c252127de0815d123103b286b1f2f7f"
+    },
+    {
+      "source": "tmp/vfoliage-006-cost-profile-6-log.txt",
+      "stored": "diagnostic-logs/vfoliage-006-cost-profile-6-log.txt",
+      "sha256": "b6ce8bfd287f72c4255dc0c96eef20922ec18ac15b65cec98c1e2fcdc674317f"
+    },
+    {
+      "source": "tmp/vfoliage-006-host-observer-log.txt",
+      "stored": "diagnostic-logs/vfoliage-006-host-observer-log.txt",
+      "sha256": "6e6e5f9cb0a2ec4d3e73edcedba17dc9453f5996e9d17743ca5920c227efa781"
+    }
+  ]
+}

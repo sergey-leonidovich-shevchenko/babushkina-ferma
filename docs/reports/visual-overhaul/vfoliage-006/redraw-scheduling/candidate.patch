@@ -1,0 +1,86 @@
+--- a/scripts/game_core.gd
++++ b/scripts/game_core.gd
+@@ -8,6 +8,9 @@
+ const CameraSystem := preload("res://scripts/systems/camera_system.gd")
+ const HeroActionSystem := preload("res://scripts/systems/hero_action_system.gd")
+ const PresentationPose := preload("res://scripts/systems/presentation_pose_system.gd")
++
++# Физический catch-up помечает изменение; flush draw выполняется после последнего шага в _process.
++var _physics_redraw_pending := false
+ ## Подготавливает узел к работе: создаёт зависимые данные и синхронизирует начальное состояние.
+ func _ready() -> void:
+ 	GameBootstrap.initialize(self)
+@@ -15,9 +18,15 @@
+ 
+ ## Сохраняет автоматические игровые скриншоты после нескольких отрисованных кадров в режимах визуальной проверки.
+ func _process(_delta: float) -> void:
+-	if is_physics_processing() and PresentationPose.present(self,Engine.get_physics_interpolation_fraction()): queue_redraw()
++	var pose_changed := (
++		is_physics_processing()
++		and PresentationPose.present(self, Engine.get_physics_interpolation_fraction())
++	)
+ 	preload("res://scripts/presentation/foliage_wind.gd").update(self)
+ 	GamePreviewController.process(self)
++	if _physics_redraw_pending or pose_changed:
++		_physics_redraw_pending = false
++		queue_redraw()
+ ## Готовит безопасную витрину пяти рангов врагов, трёх угроз и максимального облика героя.
+ func configure_enemy_levels_preview() -> void:
+ 	GamePreviewController.configure_enemy_levels(self)
+@@ -32,6 +41,7 @@
+ 	PresentationPose.begin_tick(self)
+ 	GameLoop.physics_process(self, delta)
+ 	PresentationPose.end_tick(self,delta)
++	_physics_redraw_pending = true
+ 
+ 
+ ## Обновляет короткие реакции HUD и автоматически убирает прочитанное системное сообщение.
+--- a/scripts/core/game_loop.gd
++++ b/scripts/core/game_loop.gd
+@@ -10,46 +10,37 @@
+ 	game.UiFeedbackSystem.update(game, delta)
+ 	preload("res://scripts/systems/recovery_system.gd").update(game,delta)
+ 	if preload("res://scripts/systems/focus_pause_system.gd").blocked(game) or gameplay_window_open(game) or game.menu_state.pause_open or game.menu_state.settings_open or game.menu_state.defeat_open or not game.menu_state.confirmation.is_empty():
+-		game.queue_redraw()
+ 		return
+ 	if game.LevelEditorSystem.active(game):
+-		game.queue_redraw()
+ 		return
+ 	game.PublishedLevelSystem.update(game)
+ 	if game.LevelEditorSystem.active(game):
+-		game.queue_redraw()
+ 		return
+ 	game.FenceSystem.update(game, delta)
+ 	game.DebugOverlaySystem.update(game, delta)
+ 	delta = game.DebugOverlaySystem.simulation_delta(game, delta)
+ 	if delta <= 0.0:
+-		game.queue_redraw()
+ 		return
+ 	game.AdventurePolishSystem.update(game, delta)
+ 	delta = game.FarmLifeSystem.simulation_delta(game, delta)
+ 	if delta <= 0.0:
+-		game.queue_redraw()
+ 		return
+ 	if game.DebugPlaygroundSystem.active(game):
+ 		game.DebugPlaygroundSystem.update(game, delta)
+ 		delta = game.DebugPlaygroundSystem.simulation_delta(game, delta)
+ 		if delta <= 0.0:
+-			game.queue_redraw()
+ 			return
+ 	game.FirstChapterSystem.update(game)
+ 	if modal_active(game):
+-		game.queue_redraw()
+ 		return
+ 	update_world(game, delta)
+ 	if gameplay_window_open(game):
+-		game.queue_redraw()
+ 		return
+ 	var step_origin:=Vector2(game.player);var step_world:=String(game.current_location)
+ 	update_player(game, delta)
+ 	preload("res://scripts/systems/dropped_loot_system.gd").update(game,delta)
+ 	preload("res://scripts/presentation/post_motion_frame.gd").publish(game,delta)
+ 	preload("res://scripts/presentation/foliage_speed.gd").publish(game,step_origin,step_world,delta)
+-	game.queue_redraw()
+ 
+ ## Проверяет, блокирует ли текущее модальное состояние симуляцию мира.
+ static func modal_active(game: Node) -> bool:

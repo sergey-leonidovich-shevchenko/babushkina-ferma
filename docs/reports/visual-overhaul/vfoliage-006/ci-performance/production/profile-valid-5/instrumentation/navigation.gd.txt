@@ -1,0 +1,454 @@
+extends RefCounted
+const Cost = preload("res://tmp/vfoliage-006-cost-entry-5/cost.gd")
+
+const PirateShipSystem := preload("res://scripts/systems/pirate_ship_system.gd")
+const VillageLayoutSystem := preload("res://scripts/systems/village_layout_system.gd")
+const Broadphase := preload("res://scripts/systems/navigation_broadphase_system.gd")
+const CornerAssist := preload("res://scripts/systems/player_corner_assist_system.gd")
+const CaveLayout := preload("res://scripts/systems/cave_layout_system.gd")
+
+## Перемещает героя безопасными подшагами; необязательная помощь краю разрешена только для ручной ходьбы.
+static func move(game: Node, motion: Vector2, corner_assist: bool = false) -> bool:
+	var cost_started_0 := Time.get_ticks_usec()
+	var cost_value_0 = game.DebugOverlaySystem.noclip(game)
+	Cost.record("navigation_system.gd:11", Time.get_ticks_usec() - cost_started_0)
+	if cost_value_0:
+		game.player += motion
+		return false
+	var step_count := maxi(1, ceili(motion.length() / 8.0))
+	var step := motion / float(step_count)
+	var was_blocked := false
+	var assisted := false
+	for _index in step_count:
+		var before: Vector2 = game.player
+		var horizontal: Vector2 = game.player + Vector2(step.x, 0.0)
+		var cost_started_1 := Time.get_ticks_usec()
+		var cost_value_1 = not is_zero_approx(step.x) and player_step_walkable(game, horizontal)
+		Cost.record("navigation_system.gd:21", Time.get_ticks_usec() - cost_started_1)
+		if cost_value_1:
+			game.player = horizontal
+		elif not is_zero_approx(step.x):
+			was_blocked = true
+		var vertical: Vector2 = game.player + Vector2(0.0, step.y)
+		var cost_started_2 := Time.get_ticks_usec()
+		var cost_value_2 = not is_zero_approx(step.y) and player_step_walkable(game, vertical)
+		Cost.record("navigation_system.gd:26", Time.get_ticks_usec() - cost_started_2)
+		if cost_value_2:
+			game.player = vertical
+		elif not is_zero_approx(step.y):
+			was_blocked = true
+		var cost_started_3 := Time.get_ticks_usec()
+		var cost_value_3 = corner_assist and game.player.is_equal_approx(before)
+		Cost.record("navigation_system.gd:30", Time.get_ticks_usec() - cost_started_3)
+		if cost_value_3:
+			var correction := CornerAssist.resolve(game, step)
+			var cost_started_4 := Time.get_ticks_usec()
+			var cost_value_4 = not correction.is_zero_approx()
+			Cost.record("navigation_system.gd:32", Time.get_ticks_usec() - cost_started_4)
+			if cost_value_4:
+				game.player += correction
+				assisted = true
+	if was_blocked:
+		game.notify_tutorial("collision")
+	return assisted
+
+## Проверяет заявленное методом условие без изменения игрового состояния.
+static func is_walkable(game: Node, position: Vector2) -> bool:
+	return walkability_reason(game, position) == "walkable"
+
+
+## Объясняет результат навигации кодом конкретного препятствия для игровой диагностики.
+## Reference-режим отключает только broadphase для сравнений, не меняя правила коллизий или состояние мира.
+static func walkability_reason(game: Node, position: Vector2, ignored_enemy: int = -1, include_enemies: bool = true, use_broadphase: bool = true) -> String:
+	if game.current_location=="cellar_workshop":
+		return "walkable" if game.BasementSystem.walkable(game,position,game.PLAYER_RADIUS) else "basement_obstacle"
+	var cost_started_5 := Time.get_ticks_usec()
+	var cost_value_5 = game.DebugPlaygroundSystem.active(game)
+	Cost.record("navigation_system.gd:49", Time.get_ticks_usec() - cost_started_5)
+	if cost_value_5:
+		return "walkable" if game.DebugPlaygroundSystem.is_walkable(game, position, game.PLAYER_RADIUS) else "debug_obstacle"
+	var cost_started_6 := Time.get_ticks_usec()
+	var cost_value_6 = game.PublishedLevelSystem.blocks_position(game,position,game.PLAYER_RADIUS)
+	Cost.record("navigation_system.gd:51", Time.get_ticks_usec() - cost_started_6)
+	if cost_value_6:
+		return "published_collision"
+	var cost_started_7 := Time.get_ticks_usec()
+	var cost_value_7 = game.MoonGladeSystem.blocks_position(game, position, game.PLAYER_RADIUS)
+	Cost.record("navigation_system.gd:53", Time.get_ticks_usec() - cost_started_7)
+	if cost_value_7:
+		return "guardian"
+	var cost_started_8 := Time.get_ticks_usec()
+	var cost_value_8 = preload("res://scripts/systems/apiary_system.gd").blocks(game,position,game.PLAYER_RADIUS)
+	Cost.record("navigation_system.gd:55", Time.get_ticks_usec() - cost_started_8)
+	if cost_value_8:
+		return "apiary"
+	var cost_started_9 := Time.get_ticks_usec()
+	var cost_value_9 = game.BuildingSystem.is_interior(game.current_location)
+	Cost.record("navigation_system.gd:57", Time.get_ticks_usec() - cost_started_9)
+	if cost_value_9:
+		var cost_started_10 := Time.get_ticks_usec()
+		var cost_value_10 = game.FarmLifeSystem.blocks_position(game,position,game.PLAYER_RADIUS)
+		Cost.record("navigation_system.gd:58", Time.get_ticks_usec() - cost_started_10)
+		if cost_value_10:
+			return "furniture"
+		var cost_started_11 := Time.get_ticks_usec()
+		var cost_value_11 = game.current_location == "cottage_interior" and game.home_chest_owned and circle_intersects_rect(position,game.PLAYER_RADIUS,game.InteriorVisualSystem.collision_rect("home_chest",game.StorageSystem.CHEST_POSITION))
+		Cost.record("navigation_system.gd:60", Time.get_ticks_usec() - cost_started_11)
+		if cost_value_11:
+			return "storage"
+		return "walkable" if game.BuildingSystem.is_walkable_inside(game.current_location, position, game.PLAYER_RADIUS) else "interior"
+	var cost_started_12 := Time.get_ticks_usec()
+	var cost_value_12 = game.current_location == "pirate_ship" and not PirateShipSystem.is_walkable(position, game.PLAYER_RADIUS)
+	Cost.record("navigation_system.gd:63", Time.get_ticks_usec() - cost_started_12)
+	if cost_value_12:
+		return "ship"
+	var bounds: Vector2 = game.WorldBoundsSystem.size(game.current_location)
+	if position.x < 40.0 or position.x > bounds.x - 40.0 or position.y < 120.0 or position.y > bounds.y - 80.0:
+		return "boundary"
+	var cost_started_13 := Time.get_ticks_usec()
+	var cost_value_13 = CaveLayout.Rooms.is_cave(game.current_location)
+	Cost.record("navigation_system.gd:68", Time.get_ticks_usec() - cost_started_13)
+	if cost_value_13:
+		var cost_started_14 := Time.get_ticks_usec()
+		var cost_value_14 = CaveLayout.blocks_position(position,game.PLAYER_RADIUS,game.current_location)
+		Cost.record("navigation_system.gd:69", Time.get_ticks_usec() - cost_started_14)
+		if cost_value_14:
+			return "cave_wall"
+		var cost_started_15 := Time.get_ticks_usec()
+		var cost_value_15 = CaveLayout.blocks_water(position,game.PLAYER_RADIUS,game.current_location)
+		Cost.record("navigation_system.gd:71", Time.get_ticks_usec() - cost_started_15)
+		if cost_value_15:
+			return "cave_water"
+		var cost_started_16 := Time.get_ticks_usec()
+		var cost_value_16 = CaveLayout.blocks_decoration(position,game.PLAYER_RADIUS,game.current_location)
+		Cost.record("navigation_system.gd:73", Time.get_ticks_usec() - cost_started_16)
+		if cost_value_16:
+			return "cave_prop"
+		var cost_started_17 := Time.get_ticks_usec()
+		var cost_value_17 = preload("res://scripts/systems/cave_boss_arena_system.gd").blocks_seal(game,position,game.PLAYER_RADIUS)
+		Cost.record("navigation_system.gd:75", Time.get_ticks_usec() - cost_started_17)
+		if cost_value_17:
+			return "cave_seal"
+	var cost_started_18 := Time.get_ticks_usec()
+	var cost_value_18 = preload("res://scripts/systems/village_region_system.gd").blocks(game,position,game.PLAYER_RADIUS)
+	Cost.record("navigation_system.gd:77", Time.get_ticks_usec() - cost_started_18)
+	if cost_value_18:
+		return "village_region_prop"
+	if use_broadphase:
+		var cost_started_19 := Time.get_ticks_usec()
+		var cost_value_19 = Broadphase.blocks(game, "building", position, game.PLAYER_RADIUS)
+		Cost.record("navigation_system.gd:80", Time.get_ticks_usec() - cost_started_19)
+		if cost_value_19:
+			return "building"
+	else:
+		for building_id in game.BuildingSystem.buildings_at(game.current_location):
+			for solid in game.BuildingSystem.collision_rects(building_id):
+				var cost_started_20 := Time.get_ticks_usec()
+				var cost_value_20 = circle_intersects_rect(position,game.PLAYER_RADIUS,solid)
+				Cost.record("navigation_system.gd:85", Time.get_ticks_usec() - cost_started_20)
+				if cost_value_20:
+					return "building"
+			var cost_started_21 := Time.get_ticks_usec()
+			var cost_value_21 = not game.BuildingSystem.can_enter(game,building_id) and circle_intersects_rect(position,game.PLAYER_RADIUS,game.BuildingSystem.door_rect(building_id))
+			Cost.record("navigation_system.gd:87", Time.get_ticks_usec() - cost_started_21)
+			if cost_value_21:
+				return "building"
+	var cost_started_22 := Time.get_ticks_usec()
+	var cost_value_22 = game.EnvironmentVisualSystem.blocks_biome_position(game.current_location, position, game.PLAYER_RADIUS)
+	Cost.record("navigation_system.gd:89", Time.get_ticks_usec() - cost_started_22)
+	if cost_value_22:
+		return "biome_prop"
+	var cost_started_23 := Time.get_ticks_usec()
+	var cost_value_23 = game.EnvironmentVisualSystem.blocks_event_position(game.current_location, position, game.PLAYER_RADIUS)
+	Cost.record("navigation_system.gd:91", Time.get_ticks_usec() - cost_started_23)
+	if cost_value_23:
+		return "event_prop"
+	var cost_started_24 := Time.get_ticks_usec()
+	var cost_value_24 = game.FenceSystem.blocks_position(game,position,game.PLAYER_RADIUS)
+	Cost.record("navigation_system.gd:93", Time.get_ticks_usec() - cost_started_24)
+	if cost_value_24:
+		return "player_fence"
+	if game.current_location == "cursed":
+		for decoration in game.CAVE_DECORATIONS:
+			var cost_started_25 := Time.get_ticks_usec()
+			var cost_value_25 = circle_intersects_rect(position,game.PLAYER_RADIUS,game.CaveVisualSystem.collision_rect(decoration))
+			Cost.record("navigation_system.gd:97", Time.get_ticks_usec() - cost_started_25)
+			if cost_value_25:
+				return "cave_prop"
+	elif game.current_location == "overworld":
+		var cost_started_26 := Time.get_ticks_usec()
+		var cost_value_26 = game.VillageEventSystem.blocks_position(game, position, game.PLAYER_RADIUS)
+		Cost.record("navigation_system.gd:100", Time.get_ticks_usec() - cost_started_26)
+		if cost_value_26:
+			return "village_event"
+		var cost_started_27 := Time.get_ticks_usec()
+		var cost_value_27 = VillageLayoutSystem.is_water(position, game.PLAYER_RADIUS)
+		Cost.record("navigation_system.gd:102", Time.get_ticks_usec() - cost_started_27)
+		if cost_value_27:
+			return "water"
+		var cost_started_28 := Time.get_ticks_usec()
+		var cost_value_28 = (Broadphase.blocks(game, "scenic", position, game.PLAYER_RADIUS) if use_broadphase else VillageLayoutSystem.blocks_scenic_prop(position, game.PLAYER_RADIUS))
+		Cost.record("navigation_system.gd:104", Time.get_ticks_usec() - cost_started_28)
+		if cost_value_28:
+			return "scenic_prop"
+		for tree in game.state.world.tree_nodes:
+			var cost_started_29 := Time.get_ticks_usec()
+			var cost_value_29 = use_broadphase and not Broadphase.near_dynamic(position, tree.position, game.PLAYER_RADIUS)
+			Cost.record("navigation_system.gd:107", Time.get_ticks_usec() - cost_started_29)
+			if cost_value_29:
+				continue
+			var cost_started_30 := Time.get_ticks_usec()
+			var cost_value_30 = game.TreeSystem.is_solid(tree) and circle_intersects_rect(position,game.PLAYER_RADIUS,game.TreeSystem.collision_rect(tree))
+			Cost.record("navigation_system.gd:109", Time.get_ticks_usec() - cost_started_30)
+			if cost_value_30:
+				return "tree"
+		if use_broadphase:
+			var cost_started_31 := Time.get_ticks_usec()
+			var cost_value_31 = Broadphase.blocks(game, "farm_fence", position, game.PLAYER_RADIUS)
+			Cost.record("navigation_system.gd:112", Time.get_ticks_usec() - cost_started_31)
+			if cost_value_31:
+				return "fence"
+		else:
+			for fence_rect in game.BuildingSystem.farm_fence_rects():
+				var cost_started_32 := Time.get_ticks_usec()
+				var cost_value_32 = circle_intersects_rect(position, game.PLAYER_RADIUS, fence_rect)
+				Cost.record("navigation_system.gd:116", Time.get_ticks_usec() - cost_started_32)
+				if cost_value_32:
+					return "fence"
+		var solid_rects := [
+			game.BuildingSystem.SELL_CRATE_RECT, Rect2(game.workbench_position - Vector2(32, 20), Vector2(64, 44))
+		]
+		for rect in solid_rects:
+			var cost_started_33 := Time.get_ticks_usec()
+			var cost_value_33 = circle_intersects_rect(position, game.PLAYER_RADIUS, rect)
+			Cost.record("navigation_system.gd:122", Time.get_ticks_usec() - cost_started_33)
+			if cost_value_33:
+				return "world_prop"
+		var cost_started_34 := Time.get_ticks_usec()
+		var cost_value_34 = include_enemies and game.slime_alive and position.distance_to(game.slime_position) < game.PLAYER_RADIUS + 28.0
+		Cost.record("navigation_system.gd:124", Time.get_ticks_usec() - cost_started_34)
+		if cost_value_34:
+			return "enemy"
+	for enemy_index in game.enemy_nodes.size():
+		var enemy: Dictionary = game.enemy_nodes[enemy_index]
+		var cost_started_35 := Time.get_ticks_usec()
+		var cost_value_35 = include_enemies and enemy_index != ignored_enemy and enemy.alive and enemy.location == game.current_location and position.distance_to(enemy.position) < game.PLAYER_RADIUS + 30.0
+		Cost.record("navigation_system.gd:128", Time.get_ticks_usec() - cost_started_35)
+		if cost_value_35:
+			return "enemy"
+	for hazard in game.hazard_nodes:
+		var cost_started_36 := Time.get_ticks_usec()
+		var cost_value_36 = hazard.location == game.current_location and position.distance_to(hazard.position) < game.PLAYER_RADIUS + 30.0
+		Cost.record("navigation_system.gd:131", Time.get_ticks_usec() - cost_started_36)
+		if cost_value_36:
+			return "hazard"
+	for node in game.resource_nodes:
+		if node.hits<=0 or node.location!=game.current_location:
+			continue
+		var cost_started_37 := Time.get_ticks_usec()
+		var cost_value_37 = use_broadphase and not Broadphase.near_dynamic(position, node.position, game.PLAYER_RADIUS)
+		Cost.record("navigation_system.gd:136", Time.get_ticks_usec() - cost_started_37)
+		if cost_value_37:
+			continue
+		var cost_started_38 := Time.get_ticks_usec()
+		var cost_value_38 = circle_intersects_rect(position,game.PLAYER_RADIUS,game.ResourceSystem.collision_rect(node))
+		Cost.record("navigation_system.gd:138", Time.get_ticks_usec() - cost_started_38)
+		if cost_value_38:
+			return "resource"
+	for container in game.world_loot_nodes:
+		var cost_started_39 := Time.get_ticks_usec()
+		var cost_value_39 = container.location != game.current_location or not preload("res://scripts/systems/cave_boss_arena_system.gd").container_visible(game,container)
+		Cost.record("navigation_system.gd:141", Time.get_ticks_usec() - cost_started_39)
+		if cost_value_39:
+			continue
+		var cost_started_40 := Time.get_ticks_usec()
+		var cost_value_40 = use_broadphase and not Broadphase.near_dynamic(position, container.position, game.PLAYER_RADIUS)
+		Cost.record("navigation_system.gd:143", Time.get_ticks_usec() - cost_started_40)
+		if cost_value_40:
+			continue
+		var cost_started_41 := Time.get_ticks_usec()
+		var cost_value_41 = circle_intersects_rect(position,game.PLAYER_RADIUS,game.WorldLootRenderer.container_collision(container))
+		Cost.record("navigation_system.gd:145", Time.get_ticks_usec() - cost_started_41)
+		if cost_value_41:
+			return "loot"
+	for food in game.food_nodes:
+		var cost_started_42 := Time.get_ticks_usec()
+		var cost_value_42 = food.get("location", "overworld") != game.current_location
+		Cost.record("navigation_system.gd:148", Time.get_ticks_usec() - cost_started_42)
+		if cost_value_42:
+			continue
+		var cost_started_43 := Time.get_ticks_usec()
+		var cost_value_43 = game.ForageSystem.Herbs.is_herb(String(food.kind))
+		Cost.record("navigation_system.gd:150", Time.get_ticks_usec() - cost_started_43)
+		if cost_value_43:
+			continue
+		var cost_started_44 := Time.get_ticks_usec()
+		var cost_value_44 = use_broadphase and not Broadphase.near_dynamic(position, food.position, game.PLAYER_RADIUS)
+		Cost.record("navigation_system.gd:152", Time.get_ticks_usec() - cost_started_44)
+		if cost_value_44:
+			continue
+		var collision:Rect2=game.OrchardSystem.collision_rect(food.position,game.OrchardSystem.stage(food)) if game.OrchardSystem.handles(food.kind) else game.ForageSystem.collision_rect(food)
+		var cost_started_45 := Time.get_ticks_usec()
+		var cost_value_45 = circle_intersects_rect(position,game.PLAYER_RADIUS,collision)
+		Cost.record("navigation_system.gd:155", Time.get_ticks_usec() - cost_started_45)
+		if cost_value_45:
+			return "forage"
+	if include_enemies and game.current_location == "cave_sanctum":
+		for minion in game.state.world.cave_boss.minions:
+			var cost_started_46 := Time.get_ticks_usec()
+			var cost_value_46 = minion.alive and float(minion.emerge) <= 0.0 and position.distance_to(minion.position) < game.PLAYER_RADIUS + 22.0
+			Cost.record("navigation_system.gd:159", Time.get_ticks_usec() - cost_started_46)
+			if cost_value_46:
+				return "enemy"
+	return "walkable"
+
+## Проверяет физическое основание; пустой профиль декора не превращается в невидимую круглую стену.
+static func circle_intersects_rect(center: Vector2, radius: float, rect: Rect2) -> bool:
+	var cost_started_47 := Time.get_ticks_usec()
+	var cost_value_47 = not rect.has_area()
+	Cost.record("navigation_system.gd:165", Time.get_ticks_usec() - cost_started_47)
+	if cost_value_47:
+		return false
+	var closest := Vector2(clampf(center.x, rect.position.x, rect.end.x), clampf(center.y, rect.position.y, rect.end.y))
+	return center.distance_squared_to(closest) < radius * radius
+
+
+## Разрешает выход из уже возникшего пересечения врага, но не вход в него и не проход сквозь стены.
+static func player_step_walkable(game: Node, position: Vector2) -> bool:
+	var cost_started_48 := Time.get_ticks_usec()
+	var cost_value_48 = is_walkable(game, position)
+	Cost.record("navigation_system.gd:173", Time.get_ticks_usec() - cost_started_48)
+	if cost_value_48:
+		return true
+	var cost_started_49 := Time.get_ticks_usec()
+	var cost_value_49 = walkability_reason(game, position, -1, false) != "walkable"
+	Cost.record("navigation_system.gd:175", Time.get_ticks_usec() - cost_started_49)
+	if cost_value_49:
+		return false
+	var current_depth := enemy_penetration(game, game.player)
+	return current_depth > 0.0 and enemy_penetration(game, position) < current_depth - 0.001
+
+
+## Измеряет суммарную глубину наложения героя на живых врагов для монотонного выхода наружу.
+static func enemy_penetration(game: Node, position: Vector2) -> float:
+	var depth := 0.0
+	if game.current_location == "overworld" and game.slime_alive:
+		depth += maxf(0.0, game.PLAYER_RADIUS + 28.0 - position.distance_to(game.slime_position))
+	for enemy in game.enemy_nodes:
+		if enemy.alive and enemy.location == game.current_location:
+			depth += maxf(0.0, game.PLAYER_RADIUS + 30.0 - position.distance_to(enemy.position))
+	if game.current_location == "cave_sanctum":
+		for minion in game.state.world.cave_boss.minions:
+			var cost_started_50 := Time.get_ticks_usec()
+			var cost_value_50 = minion.alive and float(minion.emerge) <= 0.0
+			Cost.record("navigation_system.gd:191", Time.get_ticks_usec() - cost_started_50)
+			if cost_value_50:
+				depth += maxf(0.0, game.PLAYER_RADIUS + 22.0 - position.distance_to(minion.position))
+	return depth
+
+
+## Перемещает мобильного врага по двум осям, позволяя скользить вдоль препятствий.
+static func move_enemy(game: Node, enemy_index: int, motion: Vector2) -> Vector2:
+	var cost_started_51 := Time.get_ticks_usec()
+	var cost_value_51 = enemy_index < 0 or enemy_index >= game.enemy_nodes.size()
+	Cost.record("navigation_system.gd:198", Time.get_ticks_usec() - cost_started_51)
+	if cost_value_51:
+		return Vector2.ZERO
+	var position: Vector2 = game.enemy_nodes[enemy_index].position
+	var steps := maxi(1, ceili(motion.length() / 6.0))
+	var step := motion / float(steps)
+	for _index in steps:
+		var horizontal := position + Vector2(step.x, 0.0)
+		var cost_started_52 := Time.get_ticks_usec()
+		var cost_value_52 = not is_zero_approx(step.x) and enemy_position_walkable(game, horizontal, enemy_index, position)
+		Cost.record("navigation_system.gd:205", Time.get_ticks_usec() - cost_started_52)
+		if cost_value_52:
+			position = horizontal
+		var vertical := position + Vector2(0.0, step.y)
+		var cost_started_53 := Time.get_ticks_usec()
+		var cost_value_53 = not is_zero_approx(step.y) and enemy_position_walkable(game, vertical, enemy_index, position)
+		Cost.record("navigation_system.gd:208", Time.get_ticks_usec() - cost_started_53)
+		if cost_value_53:
+			position = vertical
+	return position
+
+
+## Проверяет путь врага без ложного столкновения с ним самим.
+static func enemy_position_walkable(game: Node, position: Vector2, enemy_index: int, previous: Vector2 = Vector2.INF) -> bool:
+	const RADIUS := 27.0
+	var cost_started_54 := Time.get_ticks_usec()
+	var cost_value_54 = CaveLayout.Rooms.is_cave(game.current_location) and (CaveLayout.blocks_position(position,RADIUS,game.current_location) or CaveLayout.blocks_water(position,RADIUS,game.current_location) or CaveLayout.blocks_decoration(position,RADIUS,game.current_location))
+	Cost.record("navigation_system.gd:216", Time.get_ticks_usec() - cost_started_54)
+	if cost_value_54:
+		return false
+	# Общая карта препятствий учитывает также заборы, сундуки, события и опубликованные уровни.
+	var cost_started_55 := Time.get_ticks_usec()
+	var cost_value_55 = walkability_reason(game, position, enemy_index) != "walkable"
+	Cost.record("navigation_system.gd:219", Time.get_ticks_usec() - cost_started_55)
+	if cost_value_55:
+		return false
+	var player_distance: float = position.distance_to(game.player)
+	if player_distance < game.PLAYER_RADIUS + 30.0:
+		var cost_started_56 := Time.get_ticks_usec()
+		var cost_value_56 = not previous.is_finite() or player_distance <= previous.distance_to(game.player) + 0.001
+		Cost.record("navigation_system.gd:223", Time.get_ticks_usec() - cost_started_56)
+		if cost_value_56:
+			return false
+	var cost_started_57 := Time.get_ticks_usec()
+	var cost_value_57 = game.current_location == "pirate_ship" and not PirateShipSystem.is_walkable(position, RADIUS)
+	Cost.record("navigation_system.gd:225", Time.get_ticks_usec() - cost_started_57)
+	if cost_value_57:
+		return false
+	var bounds: Vector2 = game.WorldBoundsSystem.size(game.current_location)
+	if position.x < 40.0 or position.x > bounds.x - 40.0 or position.y < 120.0 or position.y > bounds.y - 80.0:
+		return false
+	for building_id in game.BuildingSystem.buildings_at(game.current_location):
+		var cost_started_58 := Time.get_ticks_usec()
+		var cost_value_58 = circle_intersects_rect(position,RADIUS,game.BuildingSystem.collision_rect(building_id))
+		Cost.record("navigation_system.gd:231", Time.get_ticks_usec() - cost_started_58)
+		if cost_value_58:
+			return false
+	var cost_started_59 := Time.get_ticks_usec()
+	var cost_value_59 = game.EnvironmentVisualSystem.blocks_biome_position(game.current_location, position, RADIUS)
+	Cost.record("navigation_system.gd:233", Time.get_ticks_usec() - cost_started_59)
+	if cost_value_59:
+		return false
+	if game.current_location == "overworld":
+		var cost_started_60 := Time.get_ticks_usec()
+		var cost_value_60 = VillageLayoutSystem.is_water(position, RADIUS)
+		Cost.record("navigation_system.gd:236", Time.get_ticks_usec() - cost_started_60)
+		if cost_value_60:
+			return false
+		var cost_started_61 := Time.get_ticks_usec()
+		var cost_value_61 = VillageLayoutSystem.blocks_scenic_prop(position, RADIUS)
+		Cost.record("navigation_system.gd:238", Time.get_ticks_usec() - cost_started_61)
+		if cost_value_61:
+			return false
+		for tree in game.state.world.tree_nodes:
+			var cost_started_62 := Time.get_ticks_usec()
+			var cost_value_62 = game.TreeSystem.is_solid(tree) and circle_intersects_rect(position,RADIUS,game.TreeSystem.collision_rect(tree))
+			Cost.record("navigation_system.gd:241", Time.get_ticks_usec() - cost_started_62)
+			if cost_value_62:
+				return false
+	for index in game.enemy_nodes.size():
+		if index == enemy_index:
+			continue
+		var other: Dictionary = game.enemy_nodes[index]
+		var cost_started_63 := Time.get_ticks_usec()
+		var cost_value_63 = other.alive and other.location == game.current_location and position.distance_to(other.position) < RADIUS * 2.0
+		Cost.record("navigation_system.gd:247", Time.get_ticks_usec() - cost_started_63)
+		if cost_value_63:
+			return false
+	for hazard in game.hazard_nodes:
+		var cost_started_64 := Time.get_ticks_usec()
+		var cost_value_64 = hazard.location == game.current_location and position.distance_to(hazard.position) < RADIUS + 30.0
+		Cost.record("navigation_system.gd:250", Time.get_ticks_usec() - cost_started_64)
+		if cost_value_64:
+			return false
+	for node in game.resource_nodes:
+		var cost_started_65 := Time.get_ticks_usec()
+		var cost_value_65 = node.hits > 0 and node.location == game.current_location and circle_intersects_rect(position,RADIUS,game.ResourceSystem.collision_rect(node))
+		Cost.record("navigation_system.gd:253", Time.get_ticks_usec() - cost_started_65)
+		if cost_value_65:
+			return false
+	return true

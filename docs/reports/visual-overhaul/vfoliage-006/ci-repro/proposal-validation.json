@@ -1,0 +1,29 @@
+{
+  "version": "0.0.323",
+  "purpose": "separate_contract_proposal_pending_review_not_game_gate_acceptance",
+  "local_architecture_suites": 76,
+  "local_python_tests": 1015,
+  "local_game": "TESTS: 50370 passed, 0 failed",
+  "wiki_passed": "135",
+  "wiki_failed": 0,
+  "proposal_godot_checks": 411,
+  "proposal_python_tests": 14,
+  "mac_GL_UI": {
+    "checks": 36400,
+    "failed": 0,
+    "frames": 15,
+    "actual_draws": 60
+  },
+  "ci_head_65fb6147": {
+    "run": 39912695233,
+    "architecture": "success",
+    "wiki": "success",
+    "game": "50384 passed,4 failed",
+    "smoke": "skipped",
+    "performance": "skipped",
+    "linux_probe": "failed shader cache, archived frame/audit data validated",
+    "macos_probe": "success"
+  },
+  "old_game_gate_unchanged": true,
+  "review": "separate proposed contract review required; final full rereview waits for green CI"
+}
