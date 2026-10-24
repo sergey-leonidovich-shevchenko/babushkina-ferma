@@ -173,6 +173,7 @@ python3 tools/item_export_contract.py
 python3 tools/test_item_export_contract.py
 python3 tools/test_performance_gate.py
 python3 docs/reports/visual-overhaul/vfoliage-006/causal-investigation/instrumentation/test_causal.py
+python3 docs/reports/visual-overhaul/vfoliage-006/redraw-scheduling/instrumentation/test_redraw_observer.py
 python3 tools/alpha_audit.py
 python3 tools/test_alpha_audit.py
 python3 tools/test_alpha_proof.py

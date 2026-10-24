@@ -1,0 +1,19 @@
+{
+  "client_date": "2026-10-24",
+  "instruction": "Do not run game/Godot on this PC until a new explicit user permission",
+  "all_own_game_processes_finished": true,
+  "waiting_hook_stopped": true,
+  "primary_campaign_started": false,
+  "profiling_campaign_started": false,
+  "primary_cases_completed": 0,
+  "profiling_cases_completed": 0,
+  "native_normal": "incomplete_exit0_no_summary_preserved",
+  "native_f10": "completed100/0_existing_data_only",
+  "remaining_local_checks": "pending_separate_user_permission",
+  "remote_CI_and_code_analysis_allowed": true,
+  "P1_closed": false,
+  "main_merge_allowed": false,
+  "restriction_active": false,
+  "revoked_by_new_explicit_user_permission": true,
+  "historical_unfinished_checks_preserved": true
+}

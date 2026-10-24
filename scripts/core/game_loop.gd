@@ -10,46 +10,37 @@ static func physics_process(game: Node, delta: float) -> void:
 	game.UiFeedbackSystem.update(game, delta)
 	preload("res://scripts/systems/recovery_system.gd").update(game,delta)
 	if preload("res://scripts/systems/focus_pause_system.gd").blocked(game) or gameplay_window_open(game) or game.menu_state.pause_open or game.menu_state.settings_open or game.menu_state.defeat_open or not game.menu_state.confirmation.is_empty():
-		game.queue_redraw()
 		return
 	if game.LevelEditorSystem.active(game):
-		game.queue_redraw()
 		return
 	game.PublishedLevelSystem.update(game)
 	if game.LevelEditorSystem.active(game):
-		game.queue_redraw()
 		return
 	game.FenceSystem.update(game, delta)
 	game.DebugOverlaySystem.update(game, delta)
 	delta = game.DebugOverlaySystem.simulation_delta(game, delta)
 	if delta <= 0.0:
-		game.queue_redraw()
 		return
 	game.AdventurePolishSystem.update(game, delta)
 	delta = game.FarmLifeSystem.simulation_delta(game, delta)
 	if delta <= 0.0:
-		game.queue_redraw()
 		return
 	if game.DebugPlaygroundSystem.active(game):
 		game.DebugPlaygroundSystem.update(game, delta)
 		delta = game.DebugPlaygroundSystem.simulation_delta(game, delta)
 		if delta <= 0.0:
-			game.queue_redraw()
 			return
 	game.FirstChapterSystem.update(game)
 	if modal_active(game):
-		game.queue_redraw()
 		return
 	update_world(game, delta)
 	if gameplay_window_open(game):
-		game.queue_redraw()
 		return
 	var step_origin:=Vector2(game.player);var step_world:=String(game.current_location)
 	update_player(game, delta)
 	preload("res://scripts/systems/dropped_loot_system.gd").update(game,delta)
 	preload("res://scripts/presentation/post_motion_frame.gd").publish(game,delta)
 	preload("res://scripts/presentation/foliage_speed.gd").publish(game,step_origin,step_world,delta)
-	game.queue_redraw()
 
 ## Проверяет, блокирует ли текущее модальное состояние симуляцию мира.
 static func modal_active(game: Node) -> bool:

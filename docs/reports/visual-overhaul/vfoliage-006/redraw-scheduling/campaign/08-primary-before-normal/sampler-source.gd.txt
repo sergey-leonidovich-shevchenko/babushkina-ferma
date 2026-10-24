@@ -1,0 +1,191 @@
+extends "res://scripts/game.gd"
+
+const PREFIX := "PERF_CAPTURE "
+var perf_plan: Dictionary = {}
+var perf_profile := ""
+var perf_mode := ""
+var perf_plan_path := ""
+var perf_original := false
+var perf_valid := false
+var perf_finished := false
+var perf_enter_us := 0
+var perf_ready_us := 0
+var perf_window_start_us := 0
+var perf_last_us := 0
+var perf_frames := 0
+var perf_bins: Array[int] = []
+
+
+## Меняет только QA-профиль до штатного startup; настоящая сцена и игровые обработчики сохраняются.
+func _enter_tree() -> void:
+	perf_enter_us = Time.get_ticks_usec()
+	for argument in OS.get_cmdline_user_args():
+		if argument.begins_with("--perf-profile="):
+			perf_profile = argument.trim_prefix("--perf-profile=")
+		elif argument.begins_with("--perf-plan="):
+			perf_plan_path = argument.trim_prefix("--perf-plan=")
+		elif argument.begins_with("--perf-mode="):
+			perf_mode = argument.trim_prefix("--perf-mode=")
+		elif argument == "--perf-original480":
+			perf_original = true
+	if (
+		DisplayServer.get_name() != "headless"
+		or not perf_profile.begins_with("Codex-Performance-")
+		or "/" in perf_profile
+		or "\\" in perf_profile
+		or perf_mode not in ["normal", "f10"]
+	):
+		perf_fail("invalid isolated headless configuration")
+		return
+	var parsed = JSON.parse_string(FileAccess.get_file_as_string(perf_plan_path))
+	if not parsed is Dictionary:
+		perf_fail("missing fixed plan")
+		return
+	perf_plan = parsed
+	ProjectSettings.set_setting("application/config/use_custom_user_dir", true)
+	ProjectSettings.set_setting("application/config/custom_user_dir_name", perf_profile)
+	if (
+		OS.get_user_data_dir().get_file() != perf_profile
+		or DirAccess.dir_exists_absolute(OS.get_user_data_dir())
+	):
+		perf_fail("fresh profile required")
+		return
+	seed(int(perf_plan.seed))
+	world_loot_seed = int(perf_plan.seed)
+	perf_bins.resize(10)
+	perf_bins.fill(0)
+	perf_valid = true
+
+
+## Выполняет настоящий startup и подтверждает реальные autoplay/F10 до восстановления QA cap60.
+func _ready() -> void:
+	if not perf_valid:
+		return
+	super._ready()
+	LocaleSystem.set_locale(String(perf_plan.locale), false)
+	perf_ready_us = Time.get_ticks_usec()
+	var original_cap := Engine.max_fps
+	if not perf_original:
+		Engine.max_fps = 60
+	var actual_debug: bool = DebugOverlaySystem.active(self)
+	if not benchmark_autoplay or actual_debug != (perf_mode == "f10"):
+		perf_fail("actual autoplay/F10 mode differs")
+		return
+	perf_emit(
+		{
+			"kind": "ready",
+			"schema": 1,
+			"time_us": perf_ready_us,
+			"purpose": "original480_diagnostic" if perf_original else "fixed_window_headless_gate",
+			"startup_us": perf_ready_us - perf_enter_us,
+			"mode": perf_mode,
+			"autoplay": benchmark_autoplay,
+			"debug": actual_debug,
+			"cap_before": original_cap,
+			"cap_after": Engine.max_fps,
+			"profile": OS.get_user_data_dir().get_file(),
+			"display": DisplayServer.get_name(),
+			"engine_hash": String(Engine.get_version_info().hash),
+			"sampler_sha256": FileAccess.get_sha256(get_script().resource_path),
+			"scene_sha256": FileAccess.get_sha256("res://main.tscn"),
+			"plan_sha256": FileAccess.get_sha256(perf_plan_path),
+			"warmup_us": int(perf_plan.warmup_usec),
+			"window_us": int(perf_plan.window_usec),
+			"sample_us": int(perf_plan.sample_usec),
+			"minimum_samples": 10,
+			"seed": world_loot_seed,
+			"locale": LocaleSystem.current,
+			"location": current_location,
+			"player": [player.x, player.y],
+			"camera": [camera_offset.x, camera_offset.y]
+		}
+	)
+
+
+## Реальный process выполняется ровно один раз; все кадры окна и замыкающий callback остаются в сырье.
+func _process(delta: float) -> void:
+	if not perf_valid or perf_finished:
+		return
+	super._process(delta)
+	perf_frames += 1
+	perf_last_us = Time.get_ticks_usec()
+	if perf_original:
+		return
+	if Engine.max_fps != 60:
+		perf_fail("effective cap changed after startup")
+		return
+	if perf_window_start_us == 0:
+		if perf_last_us - perf_ready_us >= int(perf_plan.warmup_usec):
+			perf_window_start_us = perf_last_us
+			perf_emit({"kind": "begin", "time_us": perf_last_us, "frame": perf_frames})
+		return
+	perf_emit(
+		{
+			"kind": "frame",
+			"time_us": perf_last_us,
+			"frame": perf_frames,
+			"engine_frame": Engine.get_process_frames(),
+			"cap": Engine.max_fps
+		}
+	)
+	var elapsed := perf_last_us - perf_window_start_us
+	if elapsed < int(perf_plan.window_usec):
+		var index := int(elapsed / int(perf_plan.sample_usec))
+		perf_bins[index] += 1
+		return
+	for index in 10:
+		perf_emit(
+			{
+				"kind": "sample",
+				"index": index,
+				"start_us": perf_window_start_us + index * int(perf_plan.sample_usec),
+				"duration_us": int(perf_plan.sample_usec),
+				"frames": perf_bins[index],
+				"fps": float(perf_bins[index])
+			}
+		)
+	perf_emit(
+		{
+			"kind": "end",
+			"time_us": perf_last_us,
+			"frame": perf_frames,
+			"window_frames": perf_bins.reduce(func(total, count): return total + count, 0),
+			"window_us": int(perf_plan.window_usec),
+			"location": current_location,
+			"player": [player.x, player.y]
+		}
+	)
+	perf_finished = true
+	OS.delay_msec(500)
+	get_tree().quit(0)
+
+
+## В исходном 480-frame опыте отдельно показывает время реальных callbacks и итоговую конфигурацию.
+func _exit_tree() -> void:
+	if perf_original and perf_valid and perf_ready_us > 0:
+		perf_emit(
+			{
+				"kind": "original_end",
+				"callbacks": perf_frames,
+				"callback_elapsed_us": perf_last_us - perf_ready_us,
+				"exit_elapsed_us": Time.get_ticks_usec() - perf_ready_us,
+				"cap": Engine.max_fps
+			}
+		)
+
+
+## Пишет однозначные записи поверх полного stdout, не скрывая предупреждения или ошибки движка.
+func perf_emit(value: Dictionary) -> void:
+	print(PREFIX, JSON.stringify(value))
+	if value.kind in ["ready","begin","end"]: print("REVIEW_SETTINGS ",JSON.stringify({"marker":value.kind,"settings":review_settings()}))
+
+
+## Некорректные настройки завершают процесс явной ошибкой, а не нулевым FPS.
+func perf_fail(reason: String) -> void:
+	perf_finished = true
+	perf_emit({"kind": "error", "reason": reason})
+	push_error("PERFORMANCE SAMPLER: " + reason)
+	get_tree().quit(2)
+
+func review_settings() -> Dictionary:
+	return {"plan_sha256":"5384a3bedb06a07910e44e683cc20d92a87794cb92ccc22d2c89e15e965c096c","display":DisplayServer.get_name(),"driver":RenderingServer.get_current_rendering_driver_name(),"method":RenderingServer.get_current_rendering_method(),"render_loop":RenderingServer.render_loop_enabled,"max_fps":Engine.max_fps,"low_processor_usage_mode":OS.low_processor_usage_mode,"idle_sleep_usec":OS.low_processor_usage_mode_sleep_usec,"delta_smoothing":OS.delta_smoothing,"time_scale":Engine.time_scale,"physics_ticks_per_second":Engine.physics_ticks_per_second,"max_physics_steps_per_frame":Engine.max_physics_steps_per_frame,"tree_paused":get_tree().paused,"process_enabled":is_processing(),"physics_enabled":is_physics_processing(),"window_available":false,"focus":null,"vsync":null,"location":current_location,"player":[player.x,player.y],"camera":[camera_offset.x,camera_offset.y]}

@@ -1,0 +1,67 @@
+{
+  "native_visual_accepted": false,
+  "callback_assertions_passed": 100,
+  "callback_assertions_failed": 0,
+  "framebuffer_size": [
+    3584,
+    2016
+  ],
+  "pause_inventory_editor_resumed_rgba_identical": true,
+  "observation": "inventory/editor/resumed images show prior pause menu; CPU callback state is insufficient to certify framebuffer freshness",
+  "cause": "not established; no new local Game run allowed",
+  "images": [
+    {
+      "phase": "world",
+      "path": "functional/after-native/f10/world.png",
+      "size": [
+        3584,
+        2016
+      ],
+      "file_sha256": "422efcb91e747500069016bae5257f389d960d105606cd6abe74e5e3780a6ff5",
+      "rgba_sha256": "6576f1bf8925cf018cc4f627ac7e389194f371999269531b106a9f6ed9aafbc6"
+    },
+    {
+      "phase": "pause",
+      "path": "functional/after-native/f10/pause.png",
+      "size": [
+        3584,
+        2016
+      ],
+      "file_sha256": "59d3540888ccf918862b6e09d597e2006715416d270606b0b790bd8514f67d9e",
+      "rgba_sha256": "4b1ccc1b730d47ed38ed42746107bd2e9d33b553b9c08f0da26fe1de6a9042f8"
+    },
+    {
+      "phase": "inventory",
+      "path": "functional/after-native/f10/inventory.png",
+      "size": [
+        3584,
+        2016
+      ],
+      "file_sha256": "59d3540888ccf918862b6e09d597e2006715416d270606b0b790bd8514f67d9e",
+      "rgba_sha256": "4b1ccc1b730d47ed38ed42746107bd2e9d33b553b9c08f0da26fe1de6a9042f8"
+    },
+    {
+      "phase": "editor",
+      "path": "functional/after-native/f10/editor.png",
+      "size": [
+        3584,
+        2016
+      ],
+      "file_sha256": "59d3540888ccf918862b6e09d597e2006715416d270606b0b790bd8514f67d9e",
+      "rgba_sha256": "4b1ccc1b730d47ed38ed42746107bd2e9d33b553b9c08f0da26fe1de6a9042f8"
+    },
+    {
+      "phase": "resumed",
+      "path": "functional/after-native/f10/resumed.png",
+      "size": [
+        3584,
+        2016
+      ],
+      "file_sha256": "59d3540888ccf918862b6e09d597e2006715416d270606b0b790bd8514f67d9e",
+      "rgba_sha256": "4b1ccc1b730d47ed38ed42746107bd2e9d33b553b9c08f0da26fe1de6a9042f8"
+    }
+  ],
+  "required_followup": "after separate user permission, confirm actual frame_post_draw/present and phase freshness in native collector before accepting latest UI",
+  "P1_closed": false,
+  "main_merge_allowed": false
+}
