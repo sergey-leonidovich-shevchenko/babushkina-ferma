@@ -1,4 +1,4 @@
-VFOLIAGE-009: [политика паузы и отклонённые нативные попытки](docs/reports/visual-overhaul/vfoliage-009/README.md). Профиль2966/0; нативная приёмка остаётся незачтённой до доступного фокуса окна. Проверить полный state/save, одинаковый target entered/held, свежий оконный draw/present и resume ровно на текущий delta.
+VFOLIAGE-009: [пауза и все нативные попытки](docs/reports/visual-overhaul/vfoliage-009/README.md). Полная локальная серия 130 состояний пройдена после разблокировки дисплея и исправления QA-ожидания оконного перехода. Проверяются полный state/save, одинаковый target entered/held, свежий draw/present, фактические focus/размеры и resume на текущий delta. Три прежних отказа не изменены. Статус in_progress до CI/review текущего SHA и решения Team Lead.
 
 # Пошаговая проверка «Бабушкиной фермы»
 

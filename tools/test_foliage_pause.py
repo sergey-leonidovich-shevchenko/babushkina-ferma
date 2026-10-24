@@ -135,6 +135,47 @@ class FoliagePauseProofTests(unittest.TestCase):
                 for path, digest in plan['sources'].items():
                     self.assertEqual(proof.sha(archive.read(path)), digest)
 
+    def test_actual_unlocked_campaign_passes(self):
+        result = proof.verify()
+        self.assertEqual((result['native_states'], result['png'], result['paused_samples']), (130, 260, 936))
+        self.assertFalse(result['hardware_input_accepted'])
+        self.assertFalse(result['performance_eligible'])
+
+    def test_old_incomplete_campaign_still_fails_public_verifier(self):
+        with self.assertRaisesRegex(ValueError, 'incomplete source'):
+            proof.verify(proof.REPORT / 'native-focused', proof.REPORT / 'plan-focused.json')
+
+    def test_new_artifact_sha_corruption_is_rejected(self):
+        output = proof.REPORT / 'native-windowed'
+        plan_file = proof.REPORT / 'plan-windowed.json'
+        original = proof.load
+        source = copy.deepcopy(original(output / 'source.json'))
+        source['artifacts'][next(k for k in source['artifacts'] if k.endswith('.png'))] = '0' * 64
+        with patch.object(proof, 'load', side_effect=lambda path: source if path == output / 'source.json' else original(path)):
+            with self.assertRaisesRegex(ValueError, 'artifact SHA'):
+                proof.provenance(output, original(plan_file), plan_file)
+
+    def test_new_impossible_timestamps_are_rejected(self):
+        output = proof.REPORT / 'native-windowed'
+        plan_file = proof.REPORT / 'plan-windowed.json'
+        original = proof.load
+        source = copy.deepcopy(original(output / 'source.json'))
+        source['runs'][0]['before']['utc'] = source['runs'][0]['after']['utc'] + 1
+        with patch.object(proof, 'load', side_effect=lambda path: source if path == output / 'source.json' else original(path)):
+            with self.assertRaisesRegex(ValueError, 'timestamps'):
+                proof.provenance(output, original(plan_file), plan_file)
+
+    def test_startup_geometry_cannot_be_missing_or_fullscreen(self):
+        original = proof.load(proof.REPORT / 'native-windowed/1152/native/capture.json')
+        for empty in [True, False]:
+            data = copy.deepcopy(original)
+            if empty:
+                data['startup_geometry'] = []
+            else:
+                data['startup_geometry'][-1]['window'] = [3584, 2240]
+            with self.assertRaisesRegex(ValueError, 'startup'):
+                proof.geometry(data, 1152)
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -342,7 +342,7 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: docs/reports/visual-overhaul/vfoliage-009/README.md, wiki/articles/foliage-pause.md, tests/suites/foliage_pause_suite.gd, tools/foliage_pause_verify.py, tools/test_foliage_pause.py.
+Доказательства: docs/reports/visual-overhaul/vfoliage-009/README.md, wiki/articles/foliage-pause.md, tests/suites/foliage_pause_suite.gd, tools/foliage_pause_verify.py, tools/test_foliage_pause.py, docs/reports/visual-overhaul/vfoliage-009/plan-windowed.json, docs/reports/visual-overhaul/vfoliage-009/native-windowed/source.json.
 
 <a id="vfoliage-010"></a>
 

@@ -1,0 +1,6 @@
+{
+  "base_commit": "8d4e166f9fb796468f7a93f75b4213ca2f7ee57e",
+  "checked_files": 277,
+  "all_byte_exact": true,
+  "method": "compare each tracked native/native-focused original, plans and capsules with git show base:path"
+}

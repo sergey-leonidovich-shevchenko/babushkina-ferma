@@ -64,6 +64,8 @@ def metadata(data: dict, width: int) -> dict:
         tag = row['mode'] + '/' + row['stage']
         require(row['tag'] == tag and row['marker_fresh'] and row['present_complete'], 'present/tag')
         require(row['visible'] and row['focused'], 'actual visible/focused window')
+        if 'windowed' in row:
+            require(row['windowed'], 'actual window mode')
         require(row['frames_before'] >= last_frame and row['frames_after'] >= row['frames_before'] + 2, 'actual present frames')
         last_frame = row['frames_after']
         size = [width, width * 9 // 16]
@@ -138,11 +140,11 @@ def pixels(folder: Path, data: dict, width: int) -> int:
     return len(rows) * 2
 
 
-def provenance(output: Path, plan: dict) -> dict:
+def provenance(output: Path, plan: dict, plan_file: Path) -> dict:
     source = load(output / 'source.json')
     require(source['complete'] and source['task'] == 'VFOLIAGE-009', 'incomplete source')
     require(source['base_commit'] == plan['base_commit'], 'base commit')
-    require(source['plan_sha256'] == sha((output / 'plan-copy.json').read_bytes()) == sha((REPORT / 'plan-focused.json').read_bytes()), 'plan SHA')
+    require(source['plan_sha256'] == sha((output / 'plan-copy.json').read_bytes()) == sha(plan_file.read_bytes()), 'plan SHA')
     require(source['sources'] == plan['sources'], 'declared sources')
     require([r['width'] for r in source['runs']] == [1152, 1280], 'native run coverage')
     require(len({r['profile'] for r in source['runs']}) == 2, 'unique native profiles')
@@ -160,12 +162,12 @@ def provenance(output: Path, plan: dict) -> dict:
     return source
 
 
-def inputs(report: Path, plan: dict) -> None:
+def inputs(report: Path, plan: dict, capsule_name: str = 'inputs-focused.zip') -> None:
     runtime_paths = ['scripts', 'main.tscn', 'project.godot', 'assets/game/environment/village_ambient_atlas_v1.png']
     raw = subprocess.check_output(['git', 'archive', plan['base_commit'], *runtime_paths], cwd=ROOT)
     with tarfile.open(fileobj=io.BytesIO(raw)) as base:
         historical = {m.name: base.extractfile(m).read() for m in base.getmembers() if m.isfile()}
-    with zipfile.ZipFile(report / 'inputs-focused.zip') as archive:
+    with zipfile.ZipFile(report / capsule_name) as archive:
         require(set(archive.namelist()) == set(plan['sources']), 'source capsule coverage')
         for name, digest in plan['sources'].items():
             require(sha(archive.read(name)) == digest, 'source capsule SHA: ' + name)
@@ -177,19 +179,44 @@ def inputs(report: Path, plan: dict) -> None:
                 require(archive.read(name) == expected, 'production source differs from base: ' + name)
 
 
-def verify(output: Path = REPORT / 'native-focused') -> dict:
-    plan = load(REPORT / 'plan-focused.json')
+def verify(output: Path = REPORT / 'native-windowed', plan_file: Path = REPORT / 'plan-windowed.json') -> dict:
+    plan = load(plan_file)
+    suffix = plan_file.stem.removeprefix('plan')
     require(plan['modes'] == MODES and plan['stages'] == STAGES and plan['widths'] == [1152, 1280], 'fixed plan')
-    require(sha((REPORT / 'PLAN-focused.md').read_bytes()) == plan['plan_text_sha256'], 'plan text SHA')
-    require(sha((REPORT / 'plan.json').read_bytes()) == plan['supersedes_plan_sha256'], 'initial plan SHA')
-    inputs(REPORT, plan)
-    provenance(output, plan)
-    count = sum(pixels(output / str(w) / 'native', load(output / str(w) / 'native/capture.json'), w) for w in [1152, 1280])
+    require(sha((REPORT / plan.get('plan_text_file', 'PLAN' + suffix + '.md')).read_bytes()) == plan['plan_text_sha256'], 'plan text SHA')
+    if 'supersedes_plan_sha256' in plan:
+        require(sha((REPORT / plan.get('supersedes_plan_file', 'plan.json')).read_bytes()) == plan['supersedes_plan_sha256'], 'previous plan SHA')
+    inputs(REPORT, plan, plan.get('source_capsule_file', 'inputs' + suffix + '.zip'))
+    provenance(output, plan, plan_file)
+    count = 0
+    for width in [1152, 1280]:
+        folder = output / str(width) / 'native'
+        data = load(folder / 'capture.json')
+        if plan.get('startup_geometry_required'):
+            geometry(data, width)
+            require(all(r.get('windowed') is True for r in data['records']), 'missing actual window mode')
+        count += pixels(folder, data, width)
     return {'task': 'VFOLIAGE-009', 'native_states': count // 2, 'png': count,
             'paused_samples': 13 * 36 * 2, 'hardware_input_accepted': False, 'performance_eligible': False}
 
 
+def geometry(data: dict, width: int) -> None:
+    probes = data.get('startup_geometry', [])
+    require(len(probes) >= 2, 'startup geometry missing')
+    require(all(0 <= p['elapsed_ms'] < 7000 for p in probes), 'startup deadline')
+    require(all(a['elapsed_ms'] <= b['elapsed_ms'] for a, b in zip(probes, probes[1:])), 'startup timestamps')
+    size = [width, width * 9 // 16]
+    tail = []
+    for probe in reversed(probes):
+        if probe['elapsed_ms'] < 1500 or not (probe['windowed'] and probe['window'] == probe['image'] == size):
+            break
+        tail.append(probe)
+    require(len(tail) >= 2 and tail[0]['elapsed_ms'] - tail[-1]['elapsed_ms'] >= 500, 'startup stable geometry duration')
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--output', type=Path, default=REPORT / 'native-focused')
-    print(json.dumps(verify(parser.parse_args().output), ensure_ascii=False))
+    parser.add_argument('--output', type=Path, default=REPORT / 'native-windowed')
+    parser.add_argument('--plan', type=Path, default=REPORT / 'plan-windowed.json')
+    args = parser.parse_args()
+    print(json.dumps(verify(args.output, args.plan), ensure_ascii=False))

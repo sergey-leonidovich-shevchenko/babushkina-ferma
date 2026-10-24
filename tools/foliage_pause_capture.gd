@@ -14,6 +14,7 @@ var errors: Array = []
 var group_draws: Array = []
 var presents := 0
 var snapshots := {}
+var startup_geometry: Array = []
 
 
 ## Требует отдельный свежий нативный профиль и output; headless никогда не подменяет GPU-съёмку.
@@ -46,7 +47,11 @@ func _run() -> void:
 	root.show()
 	root.grab_focus()
 	for index in 8: await process_frame
-	root.size = Vector2i(width, width * 9 / 16)
+	if not await _prepare_window():
+		errors.append("startup: native window/framebuffer did not settle")
+		_write(false)
+		quit(1)
+		return
 	for mode in Scenario.MODES:
 		await _mode(mode)
 		_write(false)
@@ -56,6 +61,29 @@ func _run() -> void:
 	_write(true)
 	print("FOLIAGE PAUSE NATIVE: ", records.size(), " captures; ", errors)
 	quit(0)
+
+
+## Дожидается завершения оконного перехода macOS до матрицы; сохраняет каждый замер геометрии.
+func _prepare_window() -> bool:
+	var started := Time.get_ticks_msec()
+	var stable_since := -1
+	var requested := Vector2i(width, width * 9 / 16)
+	while Time.get_ticks_msec() - started < 7000:
+		if root.mode != Window.MODE_WINDOWED: root.mode = Window.MODE_WINDOWED
+		if root.mode == Window.MODE_WINDOWED and root.size != requested: root.size = requested
+		await process_frame
+		var probe := root.get_texture().get_image()
+		var actual := Vector2i(probe.get_width(), probe.get_height())
+		var elapsed := Time.get_ticks_msec() - started
+		var ready := root.mode == Window.MODE_WINDOWED and root.size == requested and actual == requested
+		startup_geometry.append({"elapsed_ms": elapsed, "windowed": root.mode == Window.MODE_WINDOWED, "window": [root.size.x, root.size.y], "image": [actual.x, actual.y]})
+		if not ready or elapsed < 1500:
+			stable_since = -1
+		elif stable_since < 0:
+			stable_since = elapsed
+		elif elapsed - stable_since >= 500:
+			return true
+	return false
 
 
 ## Подготавливает прежнюю сцену до первого draw; ручные физические шаги не являются FPS-тестом.
@@ -140,6 +168,8 @@ func _capture(mode: String, stage: String) -> void:
 			if image.get_pixel(mini(16, image.get_width() - 1), y).is_equal_approx(color): native_fresh = true
 	var complete := presents >= first_present + 2 and Engine.get_frames_drawn() >= before + 2
 	if not complete or not native_fresh: errors.append(tag + ": actual native present or phase pixels missing")
+	if root.mode != Window.MODE_WINDOWED or root.size != Vector2i(width, width * 9 / 16) or image.get_size() != root.size:
+		errors.append(tag + ": actual native window/framebuffer dimensions differ")
 	if Scenario.observe(game) != state or game.SaveSystem.snapshot(game) != saved: errors.append(tag + ": rendering changed game or visual state")
 	var folder := output.path_join(mode).path_join(stage)
 	DirAccess.make_dir_recursive_absolute(folder)
@@ -154,6 +184,7 @@ func _capture(mode: String, stage: String) -> void:
 		"frames_before": before, "frames_after": Engine.get_frames_drawn(), "present_complete": complete,
 		"window_size": [root.size.x, root.size.y], "image_size": [image.get_width(), image.get_height()],
 		"target_size": [target.get_width(), target.get_height()], "focused": root.has_focus(), "visible": root.visible,
+		"windowed": root.mode == Window.MODE_WINDOWED,
 		"game_draws": game.pause_review_draws.duplicate(true), "group_draws": group_draws.duplicate(true),
 		"window": mode + "/" + stage + "/window.png", "target": mode + "/" + stage + "/target.png"
 	}
@@ -179,6 +210,7 @@ func _write(complete: bool) -> void:
 		"task": "VFOLIAGE-009", "complete": complete, "profile": profile,
 		"display": DisplayServer.get_name(), "engine": Engine.get_version_info(),
 		"requested_width": width, "records": records, "snapshots": snapshots, "errors": errors,
+		"startup_geometry": startup_geometry,
 		"hardware_input_accepted": false, "performance_eligible": false,
 		"protocol": "controlled actual callbacks and native GPU, fixed steps, no FPS or physical input admission"
 	}

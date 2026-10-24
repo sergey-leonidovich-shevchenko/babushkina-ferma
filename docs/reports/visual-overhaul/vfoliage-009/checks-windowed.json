@@ -1,0 +1,62 @@
+{
+  "task": "VFOLIAGE-009",
+  "date": "2026-10-24",
+  "version": "0.0.333",
+  "base_commit": "8d4e166f9fb796468f7a93f75b4213ca2f7ee57e",
+  "checks": [
+    {
+      "name": "architecture",
+      "command": "tools/check_architecture.sh",
+      "exit_code": 0,
+      "log": "controls/windowed-architecture-complete.txt.gz",
+      "raw_sha256": "e600857d64a335c783a7ba499ce4a287464862e9906851a5532d0f0bb1c29080"
+    },
+    {
+      "name": "game",
+      "command": "./run_tests.sh",
+      "exit_code": 0,
+      "log": "controls/windowed-game-complete.txt.gz",
+      "raw_sha256": "b0b00e6a03056d909c0282331a18e78757d8a7872a1f4a26cb483a2f0873cd5c"
+    },
+    {
+      "name": "wiki",
+      "command": "pnpm --dir wiki check",
+      "exit_code": 0,
+      "log": "controls/windowed-wiki-complete.txt.gz",
+      "raw_sha256": "e6aa42ab856273916a35b760ea3dc67366db315fe8d7e70c8d56fc8d12adf0d0"
+    },
+    {
+      "name": "native",
+      "command": "python3 tools/foliage_pause_verify.py",
+      "exit_code": 0,
+      "log": "controls/windowed-native-complete.txt.gz",
+      "raw_sha256": "109cd38e964c8bcf8ec3fe87e9160018261215bbaab1257e9a24f7d57fd82700"
+    },
+    {
+      "name": "controls",
+      "command": "python3 tools/test_foliage_pause.py",
+      "exit_code": 0,
+      "log": "controls/windowed-controls-complete.txt.gz",
+      "raw_sha256": "89592934149a14828347cc0f66eeba7cad4a6710e42aff0a4ddc15d4f45179d7"
+    }
+  ],
+  "checked_sources": {
+    "tools/foliage_pause_capture.gd": "cce85248cee0d54ca49f20ad76a18bcdd67bdeaa6b140496d7874598b3d12332",
+    "tools/foliage_pause_verify.py": "a36aac60ec0466a27190ad3bf92c766b642349ecd3dee89842b6e79bbbe0b4b0",
+    "tools/test_foliage_pause.py": "e65a311632e529f2f39f8ff1fe50c8e5df08a9714c3fe1c3ec250a67cd23487d",
+    "tools/check_architecture.sh": "27d2d378705fab01e5bcbc50de3f9e11b8fcd9bae63bede7122ce47d8cbddb4b",
+    "tests/helpers/foliage_pause_scenario.gd": "fad477d105f775d2b711c1419e9bd39e32a96e6e1e1f206b0834fc045afd7fc2",
+    "tests/suites/foliage_pause_suite.gd": "d04d13ca37a7bf1ac1a853ed907b9addfa9b29de4f2e05fb222080bee5540b26"
+  },
+  "native_series": "native-windowed",
+  "local_native_accepted": true,
+  "native_states": 130,
+  "png": 260,
+  "paused_samples": 936,
+  "historical_rejections_preserved": 3,
+  "hardware_input_accepted": false,
+  "performance_eligible": false,
+  "formal_review_approved": false,
+  "status": "in_progress; draft until exact-head review and Team Lead decision",
+  "ci": "new published head pending"
+}
