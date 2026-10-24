@@ -3503,7 +3503,7 @@
       "id": "VFOLIAGE-009",
       "epic": "VFOLIAGE",
       "title": "Заморозить эффекты на игровой паузе",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P0",
       "phase": "pilot",
       "kind": "engineering",
@@ -3547,10 +3547,23 @@
         "tools/foliage_pause_verify.py",
         "tools/test_foliage_pause.py",
         "docs/reports/visual-overhaul/vfoliage-009/plan-windowed.json",
-        "docs/reports/visual-overhaul/vfoliage-009/native-windowed/source.json"
+        "docs/reports/visual-overhaul/vfoliage-009/native-windowed/source.json",
+        "docs/reports/visual-overhaul/vfoliage-009/closeout/completion.json"
       ],
-      "result": "В работе, локальная нативная приёмка пройдена; ожидаются CI/review текущего head и решение Team Lead. PR #4: https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/4. База возобновления 8d4e166f9fb796468f7a93f75b4213ca2f7ee57e, версия 0.0.333. Native-windowed: 130 состояний в двух окнах, 260 PNG, 936 paused отсчётов, настоящий фокус/present/геометрия, точные state/save/RGBA, первый resume без долга. Профиль 2966/0; 18 Python-контролей. Native, native-focused и native-unlocked сохранены как отклонённые; после разблокировки обнаружен незавершённый оконный переход macOS, исправлено только QA-ожидание устойчивой геометрии. Production scripts/assets/main не менялись. Task-Complete отсутствует; VFOLIAGE-010/VRELEASE-003/VMAP-003 не закрыты.",
-      "pull_request": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/4"
+      "result": "Принято и влито 24 октября 2026: Tech Lead review 5637772163 одобрило точный head bb7f89a9dc731d82bfa0b6abaac170f7fe349fe7; Team Lead разрешил merge, который Tech Lead выполнил с проверкой SHA. PR #4: https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/4; фактический merge 020736f05b95f44ee05cc1869d326fa1a1512909, 2026-10-24T09:42:20Z. Push CI 40076870120 и PR CI 40076876898: 4/4 + 4/4, всего 8/8 success. Независимая native verify: 130 состояний, 260 PNG, 936 paused отсчётов, 18 контролей. Production scripts/assets/main не менялись. Все три отказанные серии, планы, капсулы и source records сохраняют исходные привязки; приёмка записана отдельно в closeout/completion.json. Уведомления игровые синтетические, оконные focus/readback реальные; физический ввод/OS switch/GPU-FPS/VFOLIAGE-010/VRELEASE-003/VMAP-003 не приняты. Учётная финализация и Task-Complete — отдельным PR. PR #2 и новая карточка не начаты.",
+      "pull_request": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/4",
+      "review": {
+        "state": "approved_and_merged",
+        "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/4",
+        "code_sha": "bb7f89a9dc731d82bfa0b6abaac170f7fe349fe7",
+        "code_sha_note": "Exact accepted implementation head; closeout accounting has a separate PR.",
+        "approved_review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/4#pullrequestreview-5637772163",
+        "reviewer": "Tech Lead Agent",
+        "coordinator": "Team Lead Agent",
+        "merged_commit": "020736f05b95f44ee05cc1869d326fa1a1512909",
+        "latest_branch_checks": "docs/reports/visual-overhaul/vfoliage-009/closeout/completion.json",
+        "open_findings": []
+      }
     },
     {
       "id": "VFOLIAGE-010",

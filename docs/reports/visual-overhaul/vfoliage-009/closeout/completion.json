@@ -1,0 +1,203 @@
+{
+  "task": "VFOLIAGE-009",
+  "task_status": "done",
+  "accepted_head": "bb7f89a9dc731d82bfa0b6abaac170f7fe349fe7",
+  "merged_commit": "020736f05b95f44ee05cc1869d326fa1a1512909",
+  "merged_at": "2026-10-24T09:42:20Z",
+  "implementation_PR": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/4",
+  "review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/4#pullrequestreview-5637772163",
+  "reviewer_verdict": "explicit exact-head APPROVE; shared-account COMMENTED review",
+  "reviewer_submission": {
+    "id": "PRR_kwDOTqkhCs8AAAABUAmTgw",
+    "state": "COMMENTED",
+    "body": "ОДОБРЯЮ точный head bb7f89a9dc731d82bfa0b6abaac170f7fe349fe7 для VFOLIAGE-009. Полное ревью QA/collector/verifier завершено, actionable findings и открытых threads нет. Нативный блокер промежуточного review5637146813 устранён новой полной серией; прежние неуспешные серии не переиспользованы как приёмка. При общем GitHub-аккаунте это явный exact-head вердикт по docs/CODE_REVIEW.md; merge — после решения Team Lead для того же SHA.\n\nProduction scripts/assets/main побайтно прежние относительно maineb7f4241; существующая runtime-политика подтверждена без необоснованного игрового патча. Новые функции сценария/collector описывают назначение, ручные реальные callbacks отделены от native readback и физического ввода. Проверены настоящие API13 причин паузы, fixed-step контракты30/60/120, штатный fallback/editor/дом, свежие профили, последовательный сбор без повторной выборки удачных половин, ограниченные ожидания окна/present и остановка только своего процесса при timeout. git diff --check PASS.\n\nНезависимо в изолированном Git-снимке: foliage_pause_verify.py PASS130states/260PNG/936paused samples; test_foliage_pause.py18/18 PASS. Все403 исходника plan-windowed/капсулы совпали с опубликованнымGitbb7. Проверены размеры1152×648/1280×720, фокус/видимость/windowed/present,117 startup probes каждого процесса, state/save/draw SHA и точные paused target RGBA; resume1=paused+delta, resume12=paused+12delta, без долга. Просмотрены кадры входа всех13 причин паузы и выбранные возвраты редактора/рюкзака/шкафа. Все260PNG проверены программно, не выдаются за260ручных просмотров. Исторические native/native-focused/native-unlocked повторно отвергнуты. Между8d4e166f и новым head из прежних report-файлов изменён толькоREADME, raw/планы/капсулы сохранены. Пять raw логов текущих gates и шесть source SHA изchecks-windowed сверены.\n\nCI именноbb7 подтверждён через headRevision/checks: push40076870120 и PR40076876898 completed/success8/8. Оба общих лога: architecture/native verifier PASS, Game53389/0, normal/F10 REDRAW90/0,smoke180,6×60.0FPS; Wiki/Linux/macOS success. Нативные/Godot-прогоны ревьюером не запускались: использованы опубликованные raw и офлайн пересчёт.\n\nДополнительно лично скачан PR artifact12554350135: ZIP SHA256d23dd9c948daee02c82981a3cc8ef7266fd7adf9c645b246fdc287e8d71a8a1c совпал с официальным digest. Все6 raw пересчитаны в60.0, stdout/plan/sampler и395runtime SHA каждого случая точныGitbb7. В artifact честно остаётся captured revision331421dc4e4ed371b42024ec464ec09006d4a839 — тестовый PR-merge commit; доказана идентичность исполняемых исходников проверенномуhead, метка не переименована.\n\nПриёмка относится к контролируемым actual-main callbacks и настоящим GPU readback паузы. Уведомления focus-out/app-suspended синтетические, оконный focus измерен независимо; физическое переключение приложений, клавиатура, аппаратный/GPU FPS, VFOLIAGE-010/VRELEASE-003/VMAP-003 этим не принимаются. До решения Team Lead сохраняются draft/in_progress; после принятия — установленная финализация.",
+    "submitted_at": "2026-10-24T09:31:52Z",
+    "author": {
+      "login": "sergey-leonidovich-shevchenko",
+      "name": "sergey-leonidovich-shevchenko",
+      "email": null,
+      "avatar_url": "https://avatars.githubusercontent.com/u/16123649?u=2416c834c1b00b1945488555da87abf38462eefa&v=4",
+      "id": null
+    }
+  },
+  "Team_Lead_decision": "Accepted exact head; merge assigned to Tech Lead and verified through GitHub. Developer performed no parallel PR merge.",
+  "implementation_CI": [
+    {
+      "run_id": 40076870120,
+      "jobs": [
+        {
+          "id": 120821986211,
+          "name": "test",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 120821986439,
+          "name": "Wiki quality gate",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 120821986521,
+          "name": "Fixed-input reproduction (macos-x64)",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 120821986525,
+          "name": "Fixed-input reproduction (linux-x64)",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ],
+      "passed": 4,
+      "total": 4
+    },
+    {
+      "run_id": 40076876898,
+      "jobs": [
+        {
+          "id": 120822006378,
+          "name": "test",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 120822006499,
+          "name": "Fixed-input reproduction (macos-x64)",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 120822006548,
+          "name": "Fixed-input reproduction (linux-x64)",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 120822007045,
+          "name": "Wiki quality gate",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ],
+      "passed": 4,
+      "total": 4
+    }
+  ],
+  "implementation_CI_total": "8/8 success (4/4 push + 4/4 PR)",
+  "reviewed_CI_game_each": [
+    53389,
+    0
+  ],
+  "reviewed_CI_normal_F10_each": [
+    90,
+    0
+  ],
+  "reviewed_CI_smoke_frames": 180,
+  "reviewed_CI_headless_CPU_FPS": [
+    60,
+    60,
+    60,
+    60,
+    60,
+    60
+  ],
+  "reviewed_artifact": {
+    "id": 12554350135,
+    "sha256": "d23dd9c948daee02c82981a3cc8ef7266fd7adf9c645b246fdc287e8d71a8a1c",
+    "captured_revision": "331421dc4e4ed371b42024ec464ec09006d4a839",
+    "scope": "Reviewer independently checked artifact digest/raw/source identity; preserved PR test-merge revision, not relabelled as head or hardware GPU data"
+  },
+  "native": {
+    "series": "native-windowed",
+    "states": 130,
+    "png": 260,
+    "paused_samples": 936,
+    "real_window_focus_and_readback": true,
+    "synthetic_game_focus_notifications": true,
+    "previous_rejected_series_preserved": 3
+  },
+  "limits": {
+    "physical_input_accepted": false,
+    "physical_OS_switch_accepted": false,
+    "GPU_FPS_accepted": false,
+    "VFOLIAGE_010_accepted": false,
+    "VRELEASE_003_accepted": false,
+    "VMAP_003_accepted": false
+  },
+  "closeout_scope": "Canonical status, Wiki/progress, acceptance record and version metadata only; historical evidence and executable sources unchanged",
+  "new_card_started": false,
+  "PR2_started": false,
+  "closeout_checks": {
+    "results": [
+      {
+        "command": "tools/check_architecture.sh",
+        "exit_code": 0,
+        "log": "architecture.txt.gz",
+        "raw_sha256": "185246374cc2d15b6a7c232a56b6c553b9e86e0328197839acf22f9b0ff21d4b"
+      },
+      {
+        "command": "./run_tests.sh",
+        "exit_code": 0,
+        "log": "game.txt.gz",
+        "raw_sha256": "16c3135ee1c72de08f9ceed5c438274634ee2e5127b405be8451ef28916de14f"
+      },
+      {
+        "command": "pnpm --dir wiki check",
+        "exit_code": 0,
+        "log": "wiki.txt.gz",
+        "raw_sha256": "363858e6c035a075bb1ad49b503d37f646b88c12543499fa86edd0da25915d4f"
+      }
+    ],
+    "local_game": [
+      53371,
+      0
+    ],
+    "local_normal_F10_each": [
+      90,
+      0
+    ],
+    "local_wiki": [
+      135,
+      0
+    ],
+    "native_verifier_historical_series": {
+      "states": 130,
+      "png": 260,
+      "samples": 936,
+      "controls": 18
+    },
+    "runtime_scene_assets_tests_tools_byte_exact_to_merge": true,
+    "project_only_delta": "version333->334",
+    "new_native_or_FPS_runs": false,
+    "browser": {
+      "card_done": true,
+      "article_acceptance_and_limits": true,
+      "first_location_VFOLIAGE_completed": 7,
+      "first_location_VFOLIAGE_total": 10,
+      "static_pilot_done": 52,
+      "static_pilot_total": 52,
+      "VMAP_done": 0,
+      "VMAP_total": 3
+    },
+    "headless_artifacts": {
+      "headless/f10/summary.json": "6b16d6a58da4fc19371bff0fa51755b6fb84bfd0897d8b54b6b3a05250382f05",
+      "headless/f10/engine.txt": "6f869a041740894bf5e4ef13dfa6c22bca1dc1dd46628789f9b9ae0552d4a5a8",
+      "headless/f10/frames.jsonl": "33e4d0a221fcf6f4cf72494a68af43fc1dc9c6abef7ee6db120136ec3ad44be4",
+      "headless/normal/summary.json": "71a83233ca0389d13928ed0d622034e94e42ce68603b1929f106019883476e8a",
+      "headless/normal/engine.txt": "018432eb85b87b686f427ec04338c70c243ec10773cf372c462d6904280a8978",
+      "headless/normal/frames.jsonl": "fb7c4244f09d4902239f39215251b44fe9441faff091e22b7e9762d4b88edfc2"
+    }
+  },
+  "closeout_PR": "Created after checks in separate branch; own exact-head review and Team Lead decision required",
+  "pre_merge_result": "В работе, локальная нативная приёмка пройдена; ожидаются CI/review текущего head и решение Team Lead. PR #4: https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/4. База возобновления 8d4e166f9fb796468f7a93f75b4213ca2f7ee57e, версия 0.0.333. Native-windowed: 130 состояний в двух окнах, 260 PNG, 936 paused отсчётов, настоящий фокус/present/геометрия, точные state/save/RGBA, первый resume без долга. Профиль 2966/0; 18 Python-контролей. Native, native-focused и native-unlocked сохранены как отклонённые; после разблокировки обнаружен незавершённый оконный переход macOS, исправлено только QA-ожидание устойчивой геометрии. Production scripts/assets/main не менялись. Task-Complete отсутствует; VFOLIAGE-010/VRELEASE-003/VMAP-003 не закрыты.",
+  "closeout_version": "0.0.334",
+  "native_capture_version_preserved": "0.0.333",
+  "checkout_ff_synced_to": "020736f05b95f44ee05cc1869d326fa1a1512909",
+  "closeout_branch": "codex/vfoliage-009-closeout",
+  "old_implementation_branch_removed_after_merge": true,
+  "old_branch_worktree_references": 0,
+  "foreign_branches_and_worktrees_unchanged": true,
+  "managed_worktrees_created_for_009": 0
+}
