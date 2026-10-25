@@ -1,0 +1,23 @@
+Collecting uv
+  Using cached uv-0.13.5-py3-none-macosx_10_12_x86_64.whl.metadata (11 kB)
+Using cached uv-0.13.5-py3-none-macosx_10_12_x86_64.whl (17.3 MB)
+Installing collected packages: uv
+Successfully installed uv-0.13.5
+
+[notice] A new release of pip is available: 26.2.1 -> 26.2.2
+[notice] To update, run: /Users/sergeyshevchenko/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 -m pip install --upgrade pip
+Downloading cpython-3.11.17-macos-x86_64-none (download) (25.4MiB)
+ Downloaded cpython-3.11.17-macos-x86_64-none (download)
+Installed Python 3.11.17 in 4.36s
+ + cpython-3.11.17-macos-x86_64-none
+error: the argument `--managed-python` cannot be used with `--python-preference`
+Using CPython 3.11.17 interpreter at: /private/tmp/npc-review-python/cpython-3.11.17-macos-x86_64-none/bin/python3.11
+Creating virtual environment at: /private/tmp/npc-review-py311
+Activate with: source /private/tmp/npc-review-py311/bin/activate
+Using Python 3.11.17 environment at: /private/tmp/npc-review-py311
+Resolved 1 package in 3.59s
+Downloading pillow (5.1MiB)
+ Downloaded pillow
+Prepared 1 package in 1.04s
+Installed 1 package in 5ms
+ + pillow==11.3.0

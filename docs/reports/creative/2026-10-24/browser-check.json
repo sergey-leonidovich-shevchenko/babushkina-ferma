@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "sourceBuildVersion": "0.0.335",
+  "scope": "Финальное содержимое Wiki до служебного version bump; это браузер, не игровая сцена/FPS.",
+  "checks": {
+    "overview": "32 nodes / 96 answers, 10 stories / 43 cards",
+    "navigation": "article → own epic → task; topic search; separate ratings",
+    "editorialCard": "in_progress, literal PR6 URL, zero gameplay blockers",
+    "mobile": {
+      "viewport": 390,
+      "document": 390,
+      "overflow": false
+    },
+    "viewportRestored": true
+  },
+  "sourceSha256": {
+    "wiki/articles/IDEA-232.md": "bdaa1bdbe760ff49ac7d990388934d071fd2fc2ee59f449ae6f86bd744f977b1",
+    "wiki/articles/IDEA-233.md": "fc6d3c8682141a25f2d5a97593fb432ac09510f74be90ace3517880ffdb6b1b6",
+    "wiki/articles/IDEA-234.md": "57b92a4a25f56c6489f5426a8edb95709fe1ac429ce344df14030b4e44448dfb",
+    "wiki/articles/IDEA-235.md": "07acbbcbf0a3d26323eccccd71d6cf70a5cea602221f19f84f25649e1a7dd35f",
+    "wiki/articles/IDEA-236.md": "203bae86068266e71de152026a71c3f9ac230d1c9dd20c42aec79b3d82db234e",
+    "wiki/articles/IDEA-237.md": "9167d907d35fe7ac9c8f5b00c8d324be580a02bb76e13fb7c15fdf0f6871ec4f",
+    "wiki/articles/IDEA-238.md": "c26c3e604f8d0982ea542acb85a378b5c3a99619dc2d2dc3e231e337d634e97e",
+    "wiki/articles/IDEA-239.md": "aea39932f118ec463b920ab492ed6b5e89dbf1d9a4d27d02c93aa6eb3db6008a",
+    "wiki/articles/IDEA-240.md": "677be3d98c9ea38bfc056652c7374f5e37aab75fc99172fa9b198a12fcee9e9a",
+    "wiki/articles/IDEA-241.md": "faa86fecfc20e6c73b8fc2641b3e87e24219cdbeeff146374969035b3ebdbbae",
+    "wiki/articles/creative-review-2026-10-24.md": "64a521bf934db81439ddfcc02293c2583aacbbfd4736b07f9b0c2e731bed584d",
+    "wiki/articles/npc-story-contracts.md": "a376d757452d4be8001ee31bfe38a10b14dffa8eb4f7c8a8ccd3c680998d1c98",
+    "wiki/articles/npc-story-places.md": "36f5e9127c05a4d9253b8e1bd91d1fea465ab77d7ced72461bfa22745e29dc1b",
+    "wiki/articles/index.json": "c2c2dcd7fe0aaeb9b123f6266bc95d17a1334a0a938ae08b8b15f5de7b926605",
+    "wiki/planning/state.json": "4f29dd686e7a4fc805d263e2d739cc3a6ccb5957c2a8e7e83f0ebefc05913192",
+    "wiki/planning/sources.json": "bd0ffba376ebf52509ee8f37b07f032cfa436a40168a324a496702b8a049debb",
+    "wiki/planning/assessments.json": "5c777839fa118ccc01c0c3c9360187f626f4f15f703a6b7ca0082c6f92e6eef9",
+    "docs/backlog/wiki-workspace-2026-10/README.md": "1dc6fd3d977af682ca3a35179df6c22618d3468f9713bbc8c6f990dbcac70a78",
+    "docs/epics/ideas/idea-232/TASKS.md": "e4c2001dc8dc5bae195fb5b2e8a7f0bda5931c6e17b78b417de6c012e462f520",
+    "docs/epics/ideas/idea-233/TASKS.md": "230e3ba0488159f7bfcd3c37830597a62e9d49896dd09fcde791ee5c7e613eae",
+    "docs/epics/ideas/idea-234/TASKS.md": "1d3099348a5998139dcf6709d6e645ce2d0e866e921836faba08e9b95bd75549",
+    "docs/epics/ideas/idea-235/TASKS.md": "9b10ce32b74743290822fe3d51713d7d25bd1b3e100a064cda71570ab6121919",
+    "docs/epics/ideas/idea-236/TASKS.md": "cb1d509300219662cad08e10e8238f1b83f76aa566f5401f01a54c1fe7cb5372",
+    "docs/epics/ideas/idea-237/TASKS.md": "38a75b31085b74a2eae0586c0cf5a84233834539c79d9d2170677b8a48b2d6be",
+    "docs/epics/ideas/idea-238/TASKS.md": "42c6be6a98a18100fbc066e5c7e45b4564e4c0c724ae676a12de7553041261df",
+    "docs/epics/ideas/idea-239/TASKS.md": "c7570b878074a5161ad8f04a153201be3dfba1bbcd7fa49480b6e1b803f00065",
+    "docs/epics/ideas/idea-240/TASKS.md": "0ec677a0994c0b53fc0580daa243e8ec17450284d207222fda28e5af7b3ebc55",
+    "docs/epics/ideas/idea-241/TASKS.md": "25fa3ec2b43faf2af3c5b47f8a207c301a9c63f1d6df2f48c5f430e18834b71c"
+  }
+}
