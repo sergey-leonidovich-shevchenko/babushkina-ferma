@@ -1,0 +1,25 @@
+{
+  "costText": "У травы один общий target768×384, две группы и две canvas draw calls,192 треугольника. Номинальный RGBA8 payload —1.125MiB. В выбранном неподвижном ракурсе окно 1152 даёт 127 root canvas draw calls с эффектом и 124 в low; окно 1280 —126 и 123 соответственно. При уходе за экран и в low очередь target отключается, восстановление очищается; возвращение использует тот же ресурс.",
+  "heading": "Трава у краёв камеры — VFOLIAGE-010",
+  "images": [
+    {
+      "alt": "",
+      "complete": true,
+      "height": 150,
+      "width": 150
+    },
+    {
+      "alt": "Полный кадр у куста",
+      "complete": true,
+      "height": 720,
+      "width": 1280
+    }
+  ],
+  "reviewLink": [
+    {
+      "href": "generated/attachments/f8b5eb8edcbbf4b903fbf258ef7da2ff91551d34ecd75244bff9181591d3b319.json",
+      "text": "Проверка после доработки"
+    }
+  ],
+  "url": "http://127.0.0.1:4175/#/guides/foliage-visibility"
+}

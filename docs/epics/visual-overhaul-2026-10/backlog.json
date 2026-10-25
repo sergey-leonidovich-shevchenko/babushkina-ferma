@@ -3612,19 +3612,26 @@
         "docs/reports/visual-overhaul/vfoliage-010/plan.json",
         "docs/reports/visual-overhaul/vfoliage-010/native-01/source.json",
         "docs/reports/visual-overhaul/vfoliage-010/verification.json",
-        "wiki/articles/foliage-visibility.md"
+        "wiki/articles/foliage-visibility.md",
+        "docs/reports/visual-overhaul/vfoliage-010/review-1/README.md"
       ],
-      "result": "Локальная проверка существующей травы: 512 нативных кадров в двух окнах,36 точных culling-пар и24 предельных target; реальные focus/present, четыре края камеры, проходы через x1920 и вдоль куста. Профиль131/0. Один target768×384, две canvas draw calls/192треугольника; реальные AABB покрывают изгиб, additive0/1/2 калиброван, максимум наложений1. Production scripts/assets/main неизменны относительно2fa58d3; новые механики не добавлены. Подробности: docs/reports/visual-overhaul/vfoliage-010/README.md. Опубликован PR #7: https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/7; локальные architecture/Game/Wiki/24 контроля прошли. Ожидаются ревью текущего head SHA и решение Team Lead; статус in_progress; FPS/VRELEASE-003/VMAP-003 не приняты.",
+      "result": "PR #7 остаётся in_progress после review5642594398 на8ef7feae. P1: исторический Git base/капсула со всеми3743 сохранёнными SHA отдельно от strict candidate guard; actual VERSION335→336 и будущий shader не ломают историю, guard отказывает изменённому кандидату. P2: reader разделён на понятные этапы, обе матрицы метаданных проверяются до decode. P3: текст1280 исправлен на126/123/126. Architecture/32контроля, Game53502/0 +normal/F10 по90/0, Wiki135/0 прошли;512/36/24 и223 первичных файла неизменны. Новые CI, повторное ревью точного head и решение Team Lead ещё требуются. https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/7",
       "pull_request": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/7",
       "review": {
-        "state": "awaiting_review",
+        "state": "awaiting_rereview",
         "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/7",
         "code_sha": "263b46f6f85bff382c863aa6d2061a16f1690eea",
-        "code_sha_note": "Implementation commit; the subsequent commit records PR routing only. Review must target the actual current PR head, not an older SHA.",
+        "code_sha_note": "Original implementation provenance only. Review5642594398 rejected head8ef7feae; addressed changes require review of the new actual PR head and Team Lead decision.",
         "reviewer": "Tech Lead Agent",
         "coordinator": "Team Lead Agent",
-        "latest_branch_checks": "docs/reports/visual-overhaul/vfoliage-010/checks/summary.json",
-        "open_findings": []
+        "latest_branch_checks": "docs/reports/visual-overhaul/vfoliage-010/review-1/checks.json",
+        "open_findings": [
+          "P1 historical provenance/current candidate separation",
+          "P2 verifier stages and readability",
+          "P3 cost text1280"
+        ],
+        "rejected_head": "8ef7feaefb5cc669997c871234ba0501c6e7d4cf",
+        "changes_requested_review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/7#pullrequestreview-5642594398"
       }
     },
     {

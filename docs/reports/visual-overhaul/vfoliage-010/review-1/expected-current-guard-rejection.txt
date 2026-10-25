@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/foliage_visibility_verify.py", line 98, in <module>
+    main()
+  File "/Users/sergeyshevchenko/my farm/tools/foliage_visibility_verify.py", line 80, in main
+    result = verify(
+             ^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/tools/foliage_visibility_verify.py", line 33, in verify
+    verify_current_candidate(plan, candidate_root)
+  File "/Users/sergeyshevchenko/my farm/tools/foliage_visibility_provenance.py", line 182, in verify_current_candidate
+    require(
+  File "/Users/sergeyshevchenko/my farm/tools/foliage_visibility_evidence.py", line 19, in require
+    raise ValueError(message)
+ValueError: current candidate source SHA: VERSION
