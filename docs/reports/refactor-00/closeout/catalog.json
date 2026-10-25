@@ -1,0 +1,62 @@
+{
+  "source": "actual readPlanningCatalog; read-only",
+  "plans": 104,
+  "epics": 158,
+  "tasks": 2000,
+  "refactor": [
+    {
+      "id": "REFACTOR-00",
+      "status": "done",
+      "dependencies": []
+    },
+    {
+      "id": "REFACTOR-01",
+      "status": "ready",
+      "dependencies": [
+        "REFACTOR-00",
+        "VFOLIAGE-010"
+      ]
+    },
+    {
+      "id": "REFACTOR-02",
+      "status": "blocked",
+      "dependencies": [
+        "REFACTOR-01"
+      ]
+    },
+    {
+      "id": "REFACTOR-03",
+      "status": "blocked",
+      "dependencies": [
+        "REFACTOR-02"
+      ]
+    },
+    {
+      "id": "REFACTOR-04",
+      "status": "blocked",
+      "dependencies": [
+        "REFACTOR-01",
+        "REFACTOR-06"
+      ]
+    },
+    {
+      "id": "REFACTOR-05",
+      "status": "blocked",
+      "dependencies": [
+        "REFACTOR-01",
+        "REFACTOR-04"
+      ]
+    },
+    {
+      "id": "REFACTOR-06",
+      "status": "blocked",
+      "dependencies": [
+        "REFACTOR-03"
+      ]
+    }
+  ],
+  "accepted_dependency": {
+    "id": "VFOLIAGE-010",
+    "status": "done"
+  }
+}
