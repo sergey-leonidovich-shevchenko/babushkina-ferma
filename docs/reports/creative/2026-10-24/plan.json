@@ -74,13 +74,13 @@
       "dialogueNodes": 4,
       "scores": [
         2,
-        5,
+        4,
         5,
         4,
         4,
         4
       ],
-      "value": 79
+      "value": 73
     },
     {
       "id": "IDEA-236",
@@ -103,16 +103,16 @@
       "title": "Северина и закрытая полка — тайна, которую можно доверить не всем",
       "group": "stories",
       "taskCount": 4,
-      "dialogueNodes": 3,
+      "dialogueNodes": 4,
       "scores": [
         2,
-        5,
+        4,
         5,
         5,
         4,
         4
       ],
-      "value": 82
+      "value": 76
     },
     {
       "id": "IDEA-238",
@@ -122,13 +122,13 @@
       "dialogueNodes": 3,
       "scores": [
         3,
-        5,
+        4,
         5,
         5,
         4,
         4
       ],
-      "value": 88
+      "value": 82
     },
     {
       "id": "IDEA-239",
@@ -138,13 +138,13 @@
       "dialogueNodes": 3,
       "scores": [
         2,
-        5,
+        4,
         4,
         5,
         4,
         5
       ],
-      "value": 77
+      "value": 71
     },
     {
       "id": "IDEA-240",
@@ -154,13 +154,13 @@
       "dialogueNodes": 3,
       "scores": [
         2,
-        5,
+        4,
         5,
         4,
         4,
         3
       ],
-      "value": 79
+      "value": 73
     },
     {
       "id": "IDEA-241",
@@ -170,13 +170,13 @@
       "dialogueNodes": 3,
       "scores": [
         3,
-        5,
+        4,
         5,
         5,
         4,
         4
       ],
-      "value": 88
+      "value": 82
     }
   ],
   "plannedLocations": 4,

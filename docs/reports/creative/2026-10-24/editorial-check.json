@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-25T06:53:28.749Z",
+  "checkedAt": "2026-10-25T07:30:53.415Z",
   "base": "2fa58d3719ff89f6f61a755e531d963807762ae9",
   "status": "pass",
   "preservedIdeas": 221,
@@ -18,8 +18,8 @@
   ],
   "newIdeas": 10,
   "futureTasks": 43,
-  "dialogueNodes": 31,
-  "playerAnswers": 93,
+  "dialogueNodes": 32,
+  "playerAnswers": 96,
   "futureScenarios": 60,
   "plannedLocations": 4,
   "catalog": {

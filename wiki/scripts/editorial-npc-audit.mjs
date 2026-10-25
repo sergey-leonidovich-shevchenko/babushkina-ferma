@@ -101,7 +101,18 @@ function tableText(source) {
 async function checkNewStories(plan, preserved, catalog) {
   const index = await readJson('wiki/articles/index.json')
   const previousIndex = baselineJson(plan.base, 'wiki/articles/index.json')
-  assertPreservedRows(previousIndex, index, 'id', 'статьи Wiki')
+  // Указатель уже изменён этой подборкой; его старое резюме «пятьдесят»
+  // заменено без числа. Адрес, заголовок, файл и метки сохранены.
+  const expectedIndex = previousIndex.map((row) =>
+    row.id === 'idea-feature-epics'
+      ? {
+          ...row,
+          summary:
+            'Каталог самостоятельных тематических эпиков с подробными контрактами, предметными задачами и раздельными оценками.',
+        }
+      : row
+  )
+  assertPreservedRows(expectedIndex, index, 'id', 'статьи Wiki')
   let dialogueNodes = 0
   let playerAnswers = 0
   const sections = [
@@ -134,6 +145,14 @@ async function checkNewStories(plan, preserved, catalog) {
     assert.equal(tasks.length, idea.taskCount)
     assert(tasks.every((row) => row.status === 'backlog'))
     assert(tasks.every((row) => row.goal && row.acceptance.length >= 2))
+    for (const task of tasks) {
+      const branch = task.content.match(/^\*\*Ветка:\*\* (codex\/[^\n]+)$/m)?.[1]
+      assert(branch, `нет явной ветки ${task.id}`)
+      execFileSync('git', ['check-ref-format', '--branch', branch], {
+        cwd: projectRoot,
+        stdio: 'pipe',
+      })
+    }
     assert.equal(tasks[0].dependencies.length, 0, 'бумажная стадия самостоятельна')
 
     const source = await readFile(join(projectRoot, `wiki/articles/${idea.id}.md`), 'utf8')
@@ -192,6 +211,7 @@ async function main() {
   const content = await checkNewStories(plan, preserved, catalog)
   const editorial = catalog.tasks.find((row) => row.id === 'IDEA-REVIEW-20261024')
   assert.equal(editorial?.status, 'in_progress')
+  assert.equal(editorial.dependencies.length, 0, 'редакционный обзор не ждёт будущую карту')
   assert(editorial.result.includes('ревью'))
   const result = {
     checkedAt: new Date().toISOString(),
