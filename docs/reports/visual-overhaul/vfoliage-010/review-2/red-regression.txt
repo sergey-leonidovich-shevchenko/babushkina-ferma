@@ -1,0 +1,14 @@
+F
+======================================================================
+FAIL: test_git_index_does_not_hide_untracked_production (__main__.FutureCandidateControls.test_git_index_does_not_hide_untracked_production)
+Настоящий Git-индекс принимает baseline и не скрывает добавленный untracked-исходник.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/tools/test_foliage_visibility.py", line 320, in test_git_index_does_not_hide_untracked_production
+    with self.assertRaisesRegex(ValueError, 'current candidate production inventory'):
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 23.301s
+
+FAILED (failures=1)

@@ -1,0 +1,10 @@
+{
+  "before_sha256": "801813ce2227d6aa79065deaa1f411e597e951b299db211341b340f1b58df958",
+  "files_verified": 223,
+  "changed": [],
+  "old_verification_windows_equal": true,
+  "new_current_candidate_checked": false,
+  "current_guard_expected_exit": 1,
+  "current_guard_expected_reason": "current candidate source SHA: VERSION",
+  "candidate_version": "0.0.336"
+}

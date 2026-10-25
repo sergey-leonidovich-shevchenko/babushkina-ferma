@@ -1,0 +1,1 @@
+FOLIAGE VISIBILITY VERIFIED: 512 native frames, 36 exact pairs, 24 coverage targets; historical evidence; current candidate not checked; no FPS admission

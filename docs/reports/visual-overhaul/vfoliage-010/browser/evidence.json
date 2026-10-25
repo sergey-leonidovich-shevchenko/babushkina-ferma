@@ -1,0 +1,136 @@
+{
+  "url": "http://127.0.0.1:4175/#/guides/foliage-visibility",
+  "videos": [
+    {
+      "duration": 1.5,
+      "ended": true,
+      "height": 648,
+      "label": "left — 1152",
+      "time": 1.5,
+      "width": 1152
+    },
+    {
+      "duration": 1.5,
+      "ended": true,
+      "height": 648,
+      "label": "right — 1152",
+      "time": 1.5,
+      "width": 1152
+    },
+    {
+      "duration": 1.5,
+      "ended": true,
+      "height": 648,
+      "label": "top — 1152",
+      "time": 1.5,
+      "width": 1152
+    },
+    {
+      "duration": 1.5,
+      "ended": true,
+      "height": 648,
+      "label": "bottom — 1152",
+      "time": 1.5,
+      "width": 1152
+    },
+    {
+      "duration": 1.5,
+      "ended": true,
+      "height": 648,
+      "label": "chunk — 1152",
+      "time": 1.5,
+      "width": 1152
+    },
+    {
+      "duration": 1.5,
+      "ended": true,
+      "height": 648,
+      "label": "bush — 1152",
+      "time": 1.5,
+      "width": 1152
+    },
+    {
+      "duration": 1.5,
+      "ended": true,
+      "height": 720,
+      "label": "left — 1280",
+      "time": 1.5,
+      "width": 1280
+    },
+    {
+      "duration": 1.5,
+      "ended": true,
+      "height": 720,
+      "label": "right — 1280",
+      "time": 1.5,
+      "width": 1280
+    },
+    {
+      "duration": 1.5,
+      "ended": true,
+      "height": 720,
+      "label": "top — 1280",
+      "time": 1.5,
+      "width": 1280
+    },
+    {
+      "duration": 1.5,
+      "ended": true,
+      "height": 720,
+      "label": "bottom — 1280",
+      "time": 1.5,
+      "width": 1280
+    },
+    {
+      "duration": 1.5,
+      "ended": true,
+      "height": 720,
+      "label": "chunk — 1280",
+      "time": 1.5,
+      "width": 1280
+    },
+    {
+      "duration": 1.5,
+      "ended": true,
+      "height": 720,
+      "label": "bush — 1280",
+      "time": 1.5,
+      "width": 1280
+    }
+  ],
+  "dom": {
+    "attachments": [
+      {
+        "href": "generated/attachments/cf81cbce6d9f422a23af1e57ab2514465ca1bfb837725acf34e6f2b541f92528.json",
+        "title": "План и границы проверки"
+      },
+      {
+        "href": "generated/attachments/e73fa41eab1019b1a2451768ee93609d4e4e413b0a5c1625c811f5c08c6b363f.json",
+        "title": "Независимые числа"
+      },
+      {
+        "href": "generated/attachments/3bb81b12ee27e066d190ac6760d89ca6de41ddf24e3a5a9b555c9643201c31a7.json",
+        "title": "Исходная серия"
+      }
+    ],
+    "heading": "Трава у краёв камеры — VFOLIAGE-010",
+    "images": [
+      {
+        "alt": "",
+        "complete": true,
+        "height": 150,
+        "width": 150
+      },
+      {
+        "alt": "Полный кадр у куста",
+        "complete": true,
+        "height": 720,
+        "width": 1280
+      }
+    ],
+    "title": "Лунная долина · Wiki"
+  },
+  "search": {
+    "url": "http://127.0.0.1:4175/#/search?q=VFOLIAGE-010"
+  }
+}

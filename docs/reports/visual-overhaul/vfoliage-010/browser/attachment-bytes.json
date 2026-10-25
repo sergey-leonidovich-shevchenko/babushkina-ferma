@@ -1,0 +1,23 @@
+[
+  {
+    "label": "План и границы проверки",
+    "href": "generated/attachments/cf81cbce6d9f422a23af1e57ab2514465ca1bfb837725acf34e6f2b541f92528.json",
+    "source": "docs/reports/visual-overhaul/vfoliage-010/plan.json",
+    "sha256": "cf81cbce6d9f422a23af1e57ab2514465ca1bfb837725acf34e6f2b541f92528",
+    "exact_bytes": true
+  },
+  {
+    "label": "Независимые числа",
+    "href": "generated/attachments/e73fa41eab1019b1a2451768ee93609d4e4e413b0a5c1625c811f5c08c6b363f.json",
+    "source": "docs/reports/visual-overhaul/vfoliage-010/verification.json",
+    "sha256": "e73fa41eab1019b1a2451768ee93609d4e4e413b0a5c1625c811f5c08c6b363f",
+    "exact_bytes": true
+  },
+  {
+    "label": "Исходная серия",
+    "href": "generated/attachments/3bb81b12ee27e066d190ac6760d89ca6de41ddf24e3a5a9b555c9643201c31a7.json",
+    "source": "docs/reports/visual-overhaul/vfoliage-010/native-01/source.json",
+    "sha256": "3bb81b12ee27e066d190ac6760d89ca6de41ddf24e3a5a9b555c9643201c31a7",
+    "exact_bytes": true
+  }
+]

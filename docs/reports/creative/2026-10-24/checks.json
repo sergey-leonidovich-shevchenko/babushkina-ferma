@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "scope": "Первый успешный полный pre-commit; финальный head и повторный gate указываются в PR/передаче ревьюеру.",
+  "head": "708673b206cd9ca93572bf3b02a0d85a8ae7242e",
+  "environment": {
+    "python": "3.11.17",
+    "pillow": "11.3.0",
+    "godot": "4.7.1.stable.official.a13da4feb",
+    "git": "system /usr/bin/git"
+  },
+  "architecture": {
+    "status": "pass",
+    "pythonSuites": 81,
+    "cases": 1101
+  },
+  "game": {
+    "passed": 53371,
+    "failed": 0
+  },
+  "redraw": {
+    "normal": {
+      "passed": 90,
+      "failed": 0
+    },
+    "f10": {
+      "passed": 90,
+      "failed": 0
+    }
+  },
+  "wiki": {
+    "passed": 135,
+    "failed": 0
+  },
+  "raw": "checks/precommit-708673b2-pass.txt",
+  "rawSha256": "864f05e86a5d6073622a72918751e5541b779497598227c1ff7bb3159faf5ab5",
+  "gameplayImplemented": false
+}

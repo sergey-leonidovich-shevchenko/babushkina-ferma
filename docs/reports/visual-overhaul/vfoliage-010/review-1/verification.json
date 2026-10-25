@@ -1,0 +1,481 @@
+{
+  "task": "VFOLIAGE-010",
+  "windows": [
+    {
+      "width": 1152,
+      "root_draw_calls_range": [
+        5,
+        281
+      ],
+      "cost": {
+        "normal": {
+          "global_static_bytes": 147835560.0,
+          "global_texture_bytes": 694474058.0,
+          "nominal_target_rgba8_bytes": 1179648,
+          "root_draw_calls": 127,
+          "statistics": {
+            "active": 5,
+            "builds": 1,
+            "contact_uploads": 12,
+            "groups": 2,
+            "owners": 1,
+            "recovery_active": 1,
+            "recovery_limit": 64,
+            "scale": 2,
+            "seconds": 0.1,
+            "uploads": 12
+          },
+          "target_draw_calls_last_frame": 2,
+          "target_id": 850873289570,
+          "target_primitives_last_frame": 192,
+          "target_size": [
+            768,
+            384
+          ],
+          "target_update_mode": 1
+        },
+        "low": {
+          "global_static_bytes": 147881808.0,
+          "global_texture_bytes": 694474058.0,
+          "nominal_target_rgba8_bytes": 1179648,
+          "root_draw_calls": 124,
+          "statistics": {
+            "active": 0,
+            "builds": 1,
+            "contact_uploads": 12,
+            "groups": 2,
+            "owners": 1,
+            "recovery_active": 0,
+            "recovery_limit": 64,
+            "scale": 2,
+            "seconds": 0.1,
+            "uploads": 12
+          },
+          "target_draw_calls_last_frame": 2,
+          "target_id": 850873289570,
+          "target_primitives_last_frame": 192,
+          "target_size": [
+            768,
+            384
+          ],
+          "target_update_mode": 0
+        },
+        "offscreen": {
+          "global_static_bytes": 147924968.0,
+          "global_texture_bytes": 694474058.0,
+          "nominal_target_rgba8_bytes": 1179648,
+          "root_draw_calls": 104,
+          "statistics": {
+            "active": 0,
+            "builds": 1,
+            "contact_uploads": 12,
+            "groups": 2,
+            "owners": 1,
+            "recovery_active": 0,
+            "recovery_limit": 64,
+            "scale": 2,
+            "seconds": 0.1,
+            "uploads": 12
+          },
+          "target_draw_calls_last_frame": 2,
+          "target_id": 850873289570,
+          "target_primitives_last_frame": 192,
+          "target_size": [
+            768,
+            384
+          ],
+          "target_update_mode": 0
+        },
+        "returned": {
+          "global_static_bytes": 147971044.0,
+          "global_texture_bytes": 694474058.0,
+          "nominal_target_rgba8_bytes": 1179648,
+          "root_draw_calls": 127,
+          "statistics": {
+            "active": 5,
+            "builds": 1,
+            "contact_uploads": 13,
+            "groups": 2,
+            "owners": 1,
+            "recovery_active": 0,
+            "recovery_limit": 64,
+            "scale": 2,
+            "seconds": 0.1,
+            "uploads": 12
+          },
+          "target_draw_calls_last_frame": 2,
+          "target_id": 850873289570,
+          "target_primitives_last_frame": 192,
+          "target_size": [
+            768,
+            384
+          ],
+          "target_update_mode": 1
+        }
+      },
+      "coverage": [
+        {
+          "scale": 1,
+          "extreme": [
+            -1.0,
+            -1.0
+          ],
+          "fragments": 43776,
+          "fill_ratio": 0.59375,
+          "maximum": 1
+        },
+        {
+          "scale": 1,
+          "extreme": [
+            1.0,
+            -1.0
+          ],
+          "fragments": 43776,
+          "fill_ratio": 0.59375,
+          "maximum": 1
+        },
+        {
+          "scale": 1,
+          "extreme": [
+            -1.0,
+            1.0
+          ],
+          "fragments": 39168,
+          "fill_ratio": 0.53125,
+          "maximum": 1
+        },
+        {
+          "scale": 1,
+          "extreme": [
+            1.0,
+            1.0
+          ],
+          "fragments": 39168,
+          "fill_ratio": 0.53125,
+          "maximum": 1
+        },
+        {
+          "scale": 2,
+          "extreme": [
+            -1.0,
+            -1.0
+          ],
+          "fragments": 176256,
+          "fill_ratio": 0.59765625,
+          "maximum": 1
+        },
+        {
+          "scale": 2,
+          "extreme": [
+            1.0,
+            -1.0
+          ],
+          "fragments": 176256,
+          "fill_ratio": 0.59765625,
+          "maximum": 1
+        },
+        {
+          "scale": 2,
+          "extreme": [
+            -1.0,
+            1.0
+          ],
+          "fragments": 155520,
+          "fill_ratio": 0.52734375,
+          "maximum": 1
+        },
+        {
+          "scale": 2,
+          "extreme": [
+            1.0,
+            1.0
+          ],
+          "fragments": 155520,
+          "fill_ratio": 0.52734375,
+          "maximum": 1
+        },
+        {
+          "scale": 4,
+          "extreme": [
+            -1.0,
+            -1.0
+          ],
+          "fragments": 702720,
+          "fill_ratio": 0.595703125,
+          "maximum": 1
+        },
+        {
+          "scale": 4,
+          "extreme": [
+            1.0,
+            -1.0
+          ],
+          "fragments": 702720,
+          "fill_ratio": 0.595703125,
+          "maximum": 1
+        },
+        {
+          "scale": 4,
+          "extreme": [
+            -1.0,
+            1.0
+          ],
+          "fragments": 624384,
+          "fill_ratio": 0.529296875,
+          "maximum": 1
+        },
+        {
+          "scale": 4,
+          "extreme": [
+            1.0,
+            1.0
+          ],
+          "fragments": 624384,
+          "fill_ratio": 0.529296875,
+          "maximum": 1
+        }
+      ]
+    },
+    {
+      "width": 1280,
+      "root_draw_calls_range": [
+        5,
+        281
+      ],
+      "cost": {
+        "normal": {
+          "global_static_bytes": 150431216.0,
+          "global_texture_bytes": 695874890.0,
+          "nominal_target_rgba8_bytes": 1179648,
+          "root_draw_calls": 126,
+          "statistics": {
+            "active": 5,
+            "builds": 1,
+            "contact_uploads": 12,
+            "groups": 2,
+            "owners": 1,
+            "recovery_active": 1,
+            "recovery_limit": 64,
+            "scale": 2,
+            "seconds": 0.1,
+            "uploads": 12
+          },
+          "target_draw_calls_last_frame": 2,
+          "target_id": 851108170594,
+          "target_primitives_last_frame": 192,
+          "target_size": [
+            768,
+            384
+          ],
+          "target_update_mode": 1
+        },
+        "low": {
+          "global_static_bytes": 150477464.0,
+          "global_texture_bytes": 695874890.0,
+          "nominal_target_rgba8_bytes": 1179648,
+          "root_draw_calls": 123,
+          "statistics": {
+            "active": 0,
+            "builds": 1,
+            "contact_uploads": 12,
+            "groups": 2,
+            "owners": 1,
+            "recovery_active": 0,
+            "recovery_limit": 64,
+            "scale": 2,
+            "seconds": 0.1,
+            "uploads": 12
+          },
+          "target_draw_calls_last_frame": 2,
+          "target_id": 851108170594,
+          "target_primitives_last_frame": 192,
+          "target_size": [
+            768,
+            384
+          ],
+          "target_update_mode": 0
+        },
+        "offscreen": {
+          "global_static_bytes": 150520624.0,
+          "global_texture_bytes": 695874890.0,
+          "nominal_target_rgba8_bytes": 1179648,
+          "root_draw_calls": 105,
+          "statistics": {
+            "active": 0,
+            "builds": 1,
+            "contact_uploads": 12,
+            "groups": 2,
+            "owners": 1,
+            "recovery_active": 0,
+            "recovery_limit": 64,
+            "scale": 2,
+            "seconds": 0.1,
+            "uploads": 12
+          },
+          "target_draw_calls_last_frame": 2,
+          "target_id": 851108170594,
+          "target_primitives_last_frame": 192,
+          "target_size": [
+            768,
+            384
+          ],
+          "target_update_mode": 0
+        },
+        "returned": {
+          "global_static_bytes": 150566700.0,
+          "global_texture_bytes": 695874890.0,
+          "nominal_target_rgba8_bytes": 1179648,
+          "root_draw_calls": 126,
+          "statistics": {
+            "active": 5,
+            "builds": 1,
+            "contact_uploads": 13,
+            "groups": 2,
+            "owners": 1,
+            "recovery_active": 0,
+            "recovery_limit": 64,
+            "scale": 2,
+            "seconds": 0.1,
+            "uploads": 12
+          },
+          "target_draw_calls_last_frame": 2,
+          "target_id": 851108170594,
+          "target_primitives_last_frame": 192,
+          "target_size": [
+            768,
+            384
+          ],
+          "target_update_mode": 1
+        }
+      },
+      "coverage": [
+        {
+          "scale": 1,
+          "extreme": [
+            -1.0,
+            -1.0
+          ],
+          "fragments": 43776,
+          "fill_ratio": 0.59375,
+          "maximum": 1
+        },
+        {
+          "scale": 1,
+          "extreme": [
+            1.0,
+            -1.0
+          ],
+          "fragments": 43776,
+          "fill_ratio": 0.59375,
+          "maximum": 1
+        },
+        {
+          "scale": 1,
+          "extreme": [
+            -1.0,
+            1.0
+          ],
+          "fragments": 39168,
+          "fill_ratio": 0.53125,
+          "maximum": 1
+        },
+        {
+          "scale": 1,
+          "extreme": [
+            1.0,
+            1.0
+          ],
+          "fragments": 39168,
+          "fill_ratio": 0.53125,
+          "maximum": 1
+        },
+        {
+          "scale": 2,
+          "extreme": [
+            -1.0,
+            -1.0
+          ],
+          "fragments": 176256,
+          "fill_ratio": 0.59765625,
+          "maximum": 1
+        },
+        {
+          "scale": 2,
+          "extreme": [
+            1.0,
+            -1.0
+          ],
+          "fragments": 176256,
+          "fill_ratio": 0.59765625,
+          "maximum": 1
+        },
+        {
+          "scale": 2,
+          "extreme": [
+            -1.0,
+            1.0
+          ],
+          "fragments": 155520,
+          "fill_ratio": 0.52734375,
+          "maximum": 1
+        },
+        {
+          "scale": 2,
+          "extreme": [
+            1.0,
+            1.0
+          ],
+          "fragments": 155520,
+          "fill_ratio": 0.52734375,
+          "maximum": 1
+        },
+        {
+          "scale": 4,
+          "extreme": [
+            -1.0,
+            -1.0
+          ],
+          "fragments": 702720,
+          "fill_ratio": 0.595703125,
+          "maximum": 1
+        },
+        {
+          "scale": 4,
+          "extreme": [
+            1.0,
+            -1.0
+          ],
+          "fragments": 702720,
+          "fill_ratio": 0.595703125,
+          "maximum": 1
+        },
+        {
+          "scale": 4,
+          "extreme": [
+            -1.0,
+            1.0
+          ],
+          "fragments": 624384,
+          "fill_ratio": 0.529296875,
+          "maximum": 1
+        },
+        {
+          "scale": 4,
+          "extreme": [
+            1.0,
+            1.0
+          ],
+          "fragments": 624384,
+          "fill_ratio": 0.529296875,
+          "maximum": 1
+        }
+      ]
+    }
+  ],
+  "frames": 512,
+  "exact_pairs": 36,
+  "coverage_targets": 24,
+  "fps_admitted": false,
+  "historical_base": "2fa58d3719ff89f6f61a755e531d963807762ae9",
+  "current_candidate_checked": false
+}

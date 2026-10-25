@@ -1,0 +1,234 @@
+{
+  "primary_pixel_oracle": false,
+  "encoder_source_sha256": "a450da5cb35c57cc5846c435b4b04657c6d6fc8ac4e75dba70872991c8cf5d83",
+  "clips": [
+    {
+      "width": 1152,
+      "route": "left",
+      "metadata": {
+        "bitrate": 8000000,
+        "decoded_first_frame": "motion.decoded.png",
+        "duration": 1.5,
+        "encoder": "AVFoundation H.264",
+        "fps": 24,
+        "frames": 36,
+        "height": 648,
+        "width": 1152
+      },
+      "files": {
+        "1152/native/left/motion.mp4": "cbeb8924c11e510b6f46d2b44179ffe44098d04e4bdb591c6b58a4451a9906f6",
+        "1152/native/left/motion.json": "4d9a687c633394f7dfdae9ee87f5439985d13e7954a54a91a4868eb716bb04b6",
+        "1152/native/left/motion.decoded.png": "35a6b264e7386bb88a5131933429430d4a240f1c8a0a20416e74a174b60266ed"
+      }
+    },
+    {
+      "width": 1152,
+      "route": "right",
+      "metadata": {
+        "bitrate": 8000000,
+        "decoded_first_frame": "motion.decoded.png",
+        "duration": 1.5,
+        "encoder": "AVFoundation H.264",
+        "fps": 24,
+        "frames": 36,
+        "height": 648,
+        "width": 1152
+      },
+      "files": {
+        "1152/native/right/motion.mp4": "928f4b68f5576f1f7b36e177d4e2f1a916d1d70659a4e4e35ae4678662dad6b5",
+        "1152/native/right/motion.json": "4d9a687c633394f7dfdae9ee87f5439985d13e7954a54a91a4868eb716bb04b6",
+        "1152/native/right/motion.decoded.png": "a73f0e3e1849ef83a8ad1dd2dff85b50083762375bb8b8db9d43745ce6a31317"
+      }
+    },
+    {
+      "width": 1152,
+      "route": "top",
+      "metadata": {
+        "bitrate": 8000000,
+        "decoded_first_frame": "motion.decoded.png",
+        "duration": 1.5,
+        "encoder": "AVFoundation H.264",
+        "fps": 24,
+        "frames": 36,
+        "height": 648,
+        "width": 1152
+      },
+      "files": {
+        "1152/native/top/motion.mp4": "d19d9d8aa4a45799f486b876a83c6f44705fe9a42a2f1ea38e9afa2a5291ca9b",
+        "1152/native/top/motion.json": "4d9a687c633394f7dfdae9ee87f5439985d13e7954a54a91a4868eb716bb04b6",
+        "1152/native/top/motion.decoded.png": "b9b7cb119e679548bd89ca9b21a823818b55d072db2b05172544d94ae5d0972f"
+      }
+    },
+    {
+      "width": 1152,
+      "route": "bottom",
+      "metadata": {
+        "bitrate": 8000000,
+        "decoded_first_frame": "motion.decoded.png",
+        "duration": 1.5,
+        "encoder": "AVFoundation H.264",
+        "fps": 24,
+        "frames": 36,
+        "height": 648,
+        "width": 1152
+      },
+      "files": {
+        "1152/native/bottom/motion.mp4": "e462c6347dfa054e93f37231c608faaf6a9062f3290854e050d7dda86e2f42e0",
+        "1152/native/bottom/motion.json": "4d9a687c633394f7dfdae9ee87f5439985d13e7954a54a91a4868eb716bb04b6",
+        "1152/native/bottom/motion.decoded.png": "8efcfd4e30f5d2a1c482266fae00f89a6efb32fa954b58b5bc60647c75350d5b"
+      }
+    },
+    {
+      "width": 1152,
+      "route": "chunk",
+      "metadata": {
+        "bitrate": 8000000,
+        "decoded_first_frame": "motion.decoded.png",
+        "duration": 1.5,
+        "encoder": "AVFoundation H.264",
+        "fps": 24,
+        "frames": 36,
+        "height": 648,
+        "width": 1152
+      },
+      "files": {
+        "1152/native/chunk/motion.mp4": "6b50dd5bc56cdd00558e2a46b289ce2fbec1bfe4a93ce6b57cbb10ac893f1cd4",
+        "1152/native/chunk/motion.json": "4d9a687c633394f7dfdae9ee87f5439985d13e7954a54a91a4868eb716bb04b6",
+        "1152/native/chunk/motion.decoded.png": "35e57865aee0ae05c32766e10f742a2548e95ffd3061650c2e66ee647bae07f7"
+      }
+    },
+    {
+      "width": 1152,
+      "route": "bush",
+      "metadata": {
+        "bitrate": 8000000,
+        "decoded_first_frame": "motion.decoded.png",
+        "duration": 1.5,
+        "encoder": "AVFoundation H.264",
+        "fps": 24,
+        "frames": 36,
+        "height": 648,
+        "width": 1152
+      },
+      "files": {
+        "1152/native/bush/motion.mp4": "4eb7f8313b22c52f1438b4686cf1771813d1569740c1d0e743259ed20328a47c",
+        "1152/native/bush/motion.json": "4d9a687c633394f7dfdae9ee87f5439985d13e7954a54a91a4868eb716bb04b6",
+        "1152/native/bush/motion.decoded.png": "ee4f130a81c7c624e1735f412edcb18c0dad45663e16e095471f20721f093b09"
+      }
+    },
+    {
+      "width": 1280,
+      "route": "left",
+      "metadata": {
+        "bitrate": 8000000,
+        "decoded_first_frame": "motion.decoded.png",
+        "duration": 1.5,
+        "encoder": "AVFoundation H.264",
+        "fps": 24,
+        "frames": 36,
+        "height": 720,
+        "width": 1280
+      },
+      "files": {
+        "1280/native/left/motion.mp4": "91dcfdcb88825c00a7523cf796d5c10ec2e38fad5670837b13bcac613e76a797",
+        "1280/native/left/motion.json": "356aa7a28d9a06003226eb0d20be8a23840176ab62799fdc6c4386b44fea8675",
+        "1280/native/left/motion.decoded.png": "078502e9043072d31096448ab189c00988bd00700dd9c434c9697348934af2ba"
+      }
+    },
+    {
+      "width": 1280,
+      "route": "right",
+      "metadata": {
+        "bitrate": 8000000,
+        "decoded_first_frame": "motion.decoded.png",
+        "duration": 1.5,
+        "encoder": "AVFoundation H.264",
+        "fps": 24,
+        "frames": 36,
+        "height": 720,
+        "width": 1280
+      },
+      "files": {
+        "1280/native/right/motion.mp4": "5a59cb82b8fe1ee62738fba31d9d50820a1db77654bcbf285e2e6ac3f7efc035",
+        "1280/native/right/motion.json": "356aa7a28d9a06003226eb0d20be8a23840176ab62799fdc6c4386b44fea8675",
+        "1280/native/right/motion.decoded.png": "42f06b031d0bd6a455a07bcb8192169c0f874eba72e79e2c399ce171b298a406"
+      }
+    },
+    {
+      "width": 1280,
+      "route": "top",
+      "metadata": {
+        "bitrate": 8000000,
+        "decoded_first_frame": "motion.decoded.png",
+        "duration": 1.5,
+        "encoder": "AVFoundation H.264",
+        "fps": 24,
+        "frames": 36,
+        "height": 720,
+        "width": 1280
+      },
+      "files": {
+        "1280/native/top/motion.mp4": "9172736582fcf58a17f329b378ffc420eb649d71e75d78e5e86ca34b61d76548",
+        "1280/native/top/motion.json": "356aa7a28d9a06003226eb0d20be8a23840176ab62799fdc6c4386b44fea8675",
+        "1280/native/top/motion.decoded.png": "a69f26128480268b6ca7f395dd31fb957ca14b0799a387f0cd815fd65c12c25a"
+      }
+    },
+    {
+      "width": 1280,
+      "route": "bottom",
+      "metadata": {
+        "bitrate": 8000000,
+        "decoded_first_frame": "motion.decoded.png",
+        "duration": 1.5,
+        "encoder": "AVFoundation H.264",
+        "fps": 24,
+        "frames": 36,
+        "height": 720,
+        "width": 1280
+      },
+      "files": {
+        "1280/native/bottom/motion.mp4": "9fe694b874a198a04403ce4eaa165b7efff7b292d6a8aac13f24064564f08e4c",
+        "1280/native/bottom/motion.json": "356aa7a28d9a06003226eb0d20be8a23840176ab62799fdc6c4386b44fea8675",
+        "1280/native/bottom/motion.decoded.png": "3214d53cbdcbaa47eae75d9c78cc363080198a90293b3764c51f630a00b60262"
+      }
+    },
+    {
+      "width": 1280,
+      "route": "chunk",
+      "metadata": {
+        "bitrate": 8000000,
+        "decoded_first_frame": "motion.decoded.png",
+        "duration": 1.5,
+        "encoder": "AVFoundation H.264",
+        "fps": 24,
+        "frames": 36,
+        "height": 720,
+        "width": 1280
+      },
+      "files": {
+        "1280/native/chunk/motion.mp4": "956b25bd0f86d8fb931c6f8bb513387f8033b53bcb4a2c1d3e4e4bfdfa212788",
+        "1280/native/chunk/motion.json": "356aa7a28d9a06003226eb0d20be8a23840176ab62799fdc6c4386b44fea8675",
+        "1280/native/chunk/motion.decoded.png": "3eeec80bc2c9b8db430afafd08eda3c271e1d6c5554460d0b4be5cd5175c44ff"
+      }
+    },
+    {
+      "width": 1280,
+      "route": "bush",
+      "metadata": {
+        "bitrate": 8000000,
+        "decoded_first_frame": "motion.decoded.png",
+        "duration": 1.5,
+        "encoder": "AVFoundation H.264",
+        "fps": 24,
+        "frames": 36,
+        "height": 720,
+        "width": 1280
+      },
+      "files": {
+        "1280/native/bush/motion.mp4": "fff7678d288d2021b0b889daa37bec7b036120f355b28521665b2121afd0c558",
+        "1280/native/bush/motion.json": "356aa7a28d9a06003226eb0d20be8a23840176ab62799fdc6c4386b44fea8675",
+        "1280/native/bush/motion.decoded.png": "d7c0709efd04f40359b7de8cf8c27311ea6d197f81d590e763cc22110ad0f433"
+      }
+    }
+  ]
+}

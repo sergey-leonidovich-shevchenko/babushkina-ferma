@@ -1,0 +1,16 @@
+{
+  "reviewed_head": "d3bf8f792cbf264c6a169755dfd1e66d5b3b68ea",
+  "historical_provenance_ast_unchanged": true,
+  "historical_reader_modules_unchanged": {
+    "tools/foliage_visibility_verify.py": "bf40a30eb673656edd3e2cfc8df11a7ded7114ba0d56379d561cb5d07973605f",
+    "tools/foliage_visibility_evidence.py": "b8a172cd40705b0a73de9dd10f82fd9c6347c2e44dbbd27f2df21f0f647afb97",
+    "tools/foliage_visibility_window.py": "51efce53682faa6f9e8a047c793d55ae78703fdd4d4fd27b45afd533fc679c53",
+    "tools/foliage_visibility_coverage.py": "b651efed84b0fdc194d183c89ec9d4c96985980bf7a0fae016feacb5dc389a31",
+    "tools/foliage_visibility_test_fixture.py": "7f503904a153b0b45478c879a38f3a23e3ba411a3c46bf87d0068f517a8c7519"
+  },
+  "primary_files_unchanged": 223,
+  "primary_manifest": "../review-1/primary-before.json",
+  "previous_review_packet_unchanged": true,
+  "red_regression_expected_exit": 1,
+  "green_regression_exit": 0
+}

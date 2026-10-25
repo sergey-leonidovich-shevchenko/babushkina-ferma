@@ -348,11 +348,11 @@
 
 ## VFOLIAGE-010 — Принять видимость и бюджет травы
 
-Статус: `backlog` · P0 · этап `pilot` · `engineering`
+Статус: `in_progress` · P0 · этап `pilot` · `engineering`
 
 Видео у краёв экрана, через куст и чанк; максимальные bounds учитывают изгиб, draw calls и overdraw записаны
 
-Ветка: `codex/vfoliage-010-visual-task`.
+Ветка: `codex/vfoliage-010-visibility-budget`.
 
 Зависимости: VFOLIAGE-006, VFOLIAGE-009, VRENDER-006.
 
@@ -362,7 +362,7 @@
 - [scripts/systems/world_visual_profile_system.gd](../../../../scripts/systems/world_visual_profile_system.gd)
 - [scripts/core/game_loop.gd](../../../../scripts/core/game_loop.gd)
 
-Результат / новые пути (пока не существуют): `docs/reports/visual-overhaul/vfoliage-010/`.
+Результаты: `docs/reports/visual-overhaul/vfoliage-010/`.
 
 Критерии:
 
@@ -380,4 +380,4 @@
 
 Оценка: [1, 3] рабочих дней, уверенность low. Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание.
 
-Доказательства: пока отсутствуют; задача не выполнена.
+Доказательства: docs/reports/visual-overhaul/vfoliage-010/README.md, docs/reports/visual-overhaul/vfoliage-010/plan.json, docs/reports/visual-overhaul/vfoliage-010/native-01/source.json, docs/reports/visual-overhaul/vfoliage-010/verification.json, wiki/articles/foliage-visibility.md, docs/reports/visual-overhaul/vfoliage-010/review-1/README.md, docs/reports/visual-overhaul/vfoliage-010/review-2/README.md, docs/reports/visual-overhaul/vfoliage-010/integration-1/README.md.
