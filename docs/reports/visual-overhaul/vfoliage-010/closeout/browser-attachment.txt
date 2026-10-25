@@ -1,0 +1,223 @@
+Browser tab: 9, Title: "127.0.0.1:4175/generated/attachments/986bde6be83511a6f5605262f842042368c58799aec4cd108ffcdee4f81944ec.json", URL: "http://127.0.0.1:4175/generated/attachments/986bde6be83511a6f5605262f842042368c58799aec4cd108ffcdee4f81944ec.json".
+1 AXWebArea 127.0.0.1:4175/generated/attachments/986bde6be83511a6f5605262f842042368c58799aec4cd108ffcdee4f81944ec.json
+	2 text {
+  "task": "VFOLIAGE-010",
+  "task_status": "done",
+  "accepted_head": "8913e2dce7fd0df424ee117bfd93c0fd11f011ee",
+  "accepted_base": "c2cedc8e84bbe512d60ee119f8bf3517ee5a4474",
+  "merged_commit": "7dde012ffba227da1277ddf14dccb48553531c09",
+  "merged_at": "2026-10-25T15:13:45Z",
+  "implementation_PR": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/7",
+  "review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/7#pullrequestreview-5643813863",
+  "reviewer_verdict": "Explicit exact-head APPROVED; shared-account COMMENTED review",
+  "reviewer_submission": {
+    "id": 5643813863,
+    "body": "APPROVED — Tech Lead changed-scope review of exact head 8913e2dce7fd0df424ee117bfd93c0fd11f011ee against accepted main c2cedc8e84bbe512d60ee119f8bf3517ee5a4474. New review replaces no prior SHA implicitly; no outstanding mandatory findings at this head. Independent reviewer, same shared GitHub account, so the verdict is recorded as COMMENT per docs/CODE_REVIEW.md.\n\nIndependently verified the two actual merge parents (9c098d74, c2cedc8e), all 62 incoming-only files and 304 own-only files against their parent Git objects. The five overlapping paths preserve both TESTING additions and the exact 155-entry/155-unique-ID three-way Wiki index; metadata is consistently 0.0.338 with all non-version contents unchanged. Two intentional VFOLIAGE planning updates retain in_progress and the old-head approval history. tools/scripts/assets/tests/main equal reviewed 9c098d74. The integration diff passes git diff --check.\n\nAll 276 prior report files retain both blob identity and declared SHA, including the 223 primary files and review-1/review-2. All 19 new artifact SHA and five source SHA match the new head. Capture-base 2fa58d37, historical plans/capsule/version 0.0.335 remain historical; fresh headless normal/F10 summaries are separately stored, 90/0 each. Independently ran the accepted PR #6 editorial audit on the combined snapshot: PASS. The original code review and independent 34/34 controls at 9c098d74 remain applicable because those sources are identical; the combined head was also tested by its own CI.\n\nCurrent exact-head CI: 8/8 success, runs 40204350557 and 40204344852. Read both complete test-job logs (121201980707, 121201963998), not truncated tails: each has 82 unittest suites / 1135 cases, historical reader 512 frames / 36 exact pairs / 24 targets, 34 visibility controls, Game 53520 passed / 0 failed, normal/F10 redraw 90/0 each, smoke 180 frames and six valid passing headless CPU-budget series. Wiki and fixed-input Linux/macOS checks are green. Local Game 53502/0 is separately documented and is not relabelled as CI.\n\nThis approves this integration and the reviewed VFOLIAGE-010 scope. It does not accept GPU-FPS, whole-scene overdraw, VRELEASE-003 or VMAP-003. No new native capture is required for unchanged measured sources plus metadata/editorial integration. Merge still requires Team Lead's decision for this exact new SHA; no main mutation was performed during review.",
+    "submitted_at": "2026-10-25T15:12:53Z"
+  },
+  "Team_Lead_decision": "Accepted exact integration head; actual merge verified through GitHub. Developer performed no parallel implementation merge. Closeout must use its own PR and exact-head review.",
+  "implementation_CI": [
+    {
+      "run_id": 40204350557,
+      "jobs": [
+        {
+          "id": 121201980707,
+          "name": "test",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 121201980871,
+          "name": "Fixed-input reproduction (linux-x64)",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 121201980897,
+          "name": "Wiki quality gate",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 121201980901,
+          "name": "Fixed-input reproduction (macos-x64)",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ],
+      "passed": 4,
+      "total": 4
+    },
+    {
+      "run_id": 40204344852,
+      "jobs": [
+        {
+          "id": 121201963998,
+          "name": "test",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 121201964199,
+          "name": "Fixed-input reproduction (linux-x64)",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 121201964244,
+          "name": "Fixed-input reproduction (macos-x64)",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 121201964264,
+          "name": "Wiki quality gate",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ],
+      "passed": 4,
+      "total": 4
+    }
+  ],
+  "implementation_CI_total": "8/8 success (4 push + 4 PR)",
+  "local_implementation_game": [
+    53502,
+    0
+  ],
+  "reviewed_CI_game_each": [
+    53520,
+    0
+  ],
+  "reviewed_CI_normal_F10_each": [
+    90,
+    0
+  ],
+  "reviewed_CI_unittest_suites": 82,
+  "reviewed_CI_unittest_cases": 1135,
+  "native": {
+    "frames": 512,
+    "exact_pairs": 36,
+    "coverage_targets": 24,
+    "capture_version": "0.0.335",
+    "capture_base": "2fa58d3719ff89f6f61a755e531d963807762ae9",
+    "primary_files_preserved": 223,
+    "visibility_controls": 34,
+    "controls_independently_executed_at": "9c098d748d89a4fcc610784a0ff4ae27ac8ac6b5",
+    "integration_reader_and_controls_source_identical": true
+  },
+  "limits": {
+    "GPU_FPS_accepted": false,
+    "whole_scene_overdraw_accepted": false,
+    "VRELEASE_003_accepted": false,
+    "VMAP_003_accepted": false
+  },
+  "closeout_scope": "Canonical done/result, Wiki/progress, acceptance record and version metadata only; all prior reports/production/QA sources preserved",
+  "closeout_version": "0.0.339",
+  "closeout_branch": "codex/vfoliage-010-closeout",
+  "checkout_ff_synced_to": "7dde012ffba227da1277ddf14dccb48553531c09",
+  "new_card_started": false,
+  "REFACTOR_01_started": false,
+  "next_work_gate": "Closeout accepted and canonical REFACTOR-00/PR9 accepted before REFACTOR-01; no new graphics card",
+  "closeout_PR": "Separate review required before merge; old implementation approval does not approve closeout head",
+  "closeout_checks": {
+    "state": "local mandatory gates passed",
+    "results": [
+      {
+        "command": "tools/check_architecture.sh",
+        "exit": 0,
+        "raw": "architecture.txt",
+        "sha256": "283bbdad70a5482a1eef1f324606c2b3493f65e71a931267a6d4e715d2048875"
+      },
+      {
+        "command": "./run_tests.sh",
+        "exit": 0,
+        "raw": "game.txt",
+        "sha256": "49b41012bede7a8c0923907ce453645758ff773f851431bbde5e9e1d0c724f70"
+      },
+      {
+        "command": "pnpm --dir wiki check",
+        "exit": 0,
+        "raw": "wiki.txt",
+        "sha256": "5385279c96374d51ce0f6b94b5eca8c3b576aaae39b74a1bfd9904cd765ab96d"
+      }
+    ],
+    "unittest_suites": 82,
+    "unittest_cases": 1135,
+    "visibility_controls": 34,
+    "historical_frames": 512,
+    "exact_pairs": 36,
+    "coverage_targets": 24,
+    "local_game": [
+      53502,
+      0
+    ],
+    "local_normal_F10_each": [
+      90,
+      0
+    ],
+    "local_wiki": [
+      135,
+      0
+    ],
+    "final_document_checks": [
+      {
+        "command": [
+          "tools/visual_backlog.py"
+        ],
+        "exit": 0,
+        "raw": "final-0.txt"
+      },
+      {
+        "command": [
+          "tools/test_visual_backlog.py"
+        ],
+        "exit": 0,
+        "raw": "final-1.txt"
+      },
+      {
+        "command": [
+          "tools/check_documentation.py"
+        ],
+        "exit": 0,
+        "raw": "final-2.txt"
+      },
+      {
+        "command": [
+          "tools/test_documentation.py"
+        ],
+        "exit": 0,
+        "raw": "final-3.txt"
+      },
+      {
+        "command": [
+          "tools/bump_version.py",
+          "--check"
+        ],
+        "exit": 0,
+        "raw": "final-4.txt"
+      }
+    ],
+    "runtime_scene_assets_tests_tools_planning_byte_exact_to_merge": true,
+    "project_only_delta": "0.0.338 -> 0.0.339",
+    "new_native_or_hardware_FPS_run": false,
+    "browser_record": "browser.json",
+    "final_metadata_refresh_record": "checks.json"
+  },
+  "accepted_report_files_unchanged": 296,
+  "branch_cleanup": {
+    "branch": "codex/vfoliage-010-visibility-budget",
+    "head": "8913e2dce7fd0df424ee117bfd93c0fd11f011ee",
+    "fully_merged_into": "7dde012ffba227da1277ddf14dccb48553531c09",
+    "worktree_references": 0,
+    "local_removed": true,
+    "remote_removed": true,
+    "foreign_branches_untouched": true
+  },
+  "pre_merge_result": "PR #7: прежний head 9c098d74 одобрен review 5643255148 и Team Lead, CI 8/8 success. По поручению Team Lead интегрирована main после PR #6 (c2cedc8e): только три metadata-конфликта, версия 0.0.338. Полный architecture прошёл (82 набора/1135 сценариев, visibility 34/34, reader 512/36/24); Game 53502/0, normal/F10 по 90/0; Wiki 135/0. Все 276 прежних файлов отчёта, включая 223 первичных и review-1/review-2, сохранены; редакционные правки PR #6 сохранены. Новому head требуются собственный CI, changed-scope review и решение Team Lead. in_progress, без Task-Complete/merge. https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/7"
+}
+
+	3 container
+		4 checkbox 0
+
+The focused UI element is 1 AXWebArea 127.0.0.1:4175/generated/attachments/986bde6be83511a6f5605262f842042368c58799aec4cd108ffcdee4f81944ec.json

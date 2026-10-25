@@ -3569,7 +3569,7 @@
       "id": "VFOLIAGE-010",
       "epic": "VFOLIAGE",
       "title": "Принять видимость и бюджет травы",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P0",
       "phase": "pilot",
       "kind": "engineering",
@@ -3615,18 +3615,19 @@
         "wiki/articles/foliage-visibility.md",
         "docs/reports/visual-overhaul/vfoliage-010/review-1/README.md",
         "docs/reports/visual-overhaul/vfoliage-010/review-2/README.md",
-        "docs/reports/visual-overhaul/vfoliage-010/integration-1/README.md"
+        "docs/reports/visual-overhaul/vfoliage-010/integration-1/README.md",
+        "docs/reports/visual-overhaul/vfoliage-010/closeout/completion.json"
       ],
-      "result": "PR #7: прежний head 9c098d74 одобрен review 5643255148 и Team Lead, CI 8/8 success. По поручению Team Lead интегрирована main после PR #6 (c2cedc8e): только три metadata-конфликта, версия 0.0.338. Полный architecture прошёл (82 набора/1135 сценариев, visibility 34/34, reader 512/36/24); Game 53502/0, normal/F10 по 90/0; Wiki 135/0. Все 276 прежних файлов отчёта, включая 223 первичных и review-1/review-2, сохранены; редакционные правки PR #6 сохранены. Новому head требуются собственный CI, changed-scope review и решение Team Lead. in_progress, без Task-Complete/merge. https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/7",
+      "result": "Принята и влита через PR #7: точный integration head 8913e2dce7fd0df424ee117bfd93c0fd11f011ee одобрен Tech Lead review 5643813863 и Team Lead; фактический merge 7dde012ffba227da1277ddf14dccb48553531c09 от 25 октября 2026. CI runs 40204350557/40204344852 — 8/8 success. Историческая серия: 512 кадров в двух окнах, 36 точных пар, 24 target; 34 контроля, сохранное происхождение base2fa58d37/версия335. Production/QA не менялись при metadata-интеграции; редакционные материалы PR #6 сохранены. GPU-FPS, whole-scene overdraw, VRELEASE-003 и VMAP-003 не приняты. Учётное закрытие публикуется отдельным PR; новой графической карточки нет.",
       "pull_request": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/7",
       "review": {
-        "state": "awaiting_changed_scope_rereview",
+        "state": "merged",
         "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/7",
         "code_sha": "263b46f6f85bff382c863aa6d2061a16f1690eea",
-        "code_sha_note": "Original capture implementation provenance only. Both returned heads are recorded in review_history; current PR head requires independent rereview and Team Lead decision.",
+        "code_sha_note": "Original capture provenance only. Accepted integration head and actual merge are recorded separately; rejected reviews remain historical.",
         "reviewer": "Tech Lead Agent",
         "coordinator": "Team Lead Agent",
-        "latest_branch_checks": "docs/reports/visual-overhaul/vfoliage-010/integration-1/checks.json",
+        "latest_branch_checks": "docs/reports/visual-overhaul/vfoliage-010/closeout/completion.json",
         "open_findings": [],
         "rejected_head": "d3bf8f792cbf264c6a169755dfd1e66d5b3b68ea",
         "changes_requested_review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/7#discussion_r4370635795",
@@ -3657,9 +3658,22 @@
             "review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/7#pullrequestreview-5643255148",
             "decision": "approved",
             "note": "Old head accepted; integration with PR6 requires new exact-head changed-scope review."
+          },
+          {
+            "head": "8913e2dce7fd0df424ee117bfd93c0fd11f011ee",
+            "base": "c2cedc8e84bbe512d60ee119f8bf3517ee5a4474",
+            "review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/7#pullrequestreview-5643813863",
+            "decision": "approved_and_merged",
+            "merge": "7dde012ffba227da1277ddf14dccb48553531c09"
           }
-        ]
-      }
+        ],
+        "accepted_head": "8913e2dce7fd0df424ee117bfd93c0fd11f011ee",
+        "accepted_base": "c2cedc8e84bbe512d60ee119f8bf3517ee5a4474",
+        "accepted_review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/7#pullrequestreview-5643813863",
+        "merged_commit": "7dde012ffba227da1277ddf14dccb48553531c09",
+        "merged_at": "2026-10-25T15:13:45Z"
+      },
+      "completion": "docs/reports/visual-overhaul/vfoliage-010/closeout/completion.json"
     },
     {
       "id": "VTREE-001",

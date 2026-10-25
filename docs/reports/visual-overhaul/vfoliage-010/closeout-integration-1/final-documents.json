@@ -1,0 +1,38 @@
+[
+  {
+    "command": [
+      "tools/visual_backlog.py"
+    ],
+    "exit": 0,
+    "raw": "final-0.txt"
+  },
+  {
+    "command": [
+      "tools/test_visual_backlog.py"
+    ],
+    "exit": 0,
+    "raw": "final-1.txt"
+  },
+  {
+    "command": [
+      "tools/check_documentation.py"
+    ],
+    "exit": 0,
+    "raw": "final-2.txt"
+  },
+  {
+    "command": [
+      "tools/test_documentation.py"
+    ],
+    "exit": 0,
+    "raw": "final-3.txt"
+  },
+  {
+    "command": [
+      "tools/bump_version.py",
+      "--check"
+    ],
+    "exit": 0,
+    "raw": "final-4.txt"
+  }
+]

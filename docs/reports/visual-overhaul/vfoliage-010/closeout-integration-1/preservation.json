@@ -1,0 +1,1397 @@
+{
+  "task": "VFOLIAGE-010",
+  "PR": 10,
+  "previous_closeout_head": "29e70fc9e8fa0c389b7d90ad25947fc10ba05388",
+  "incoming_main": "9e6474808da59a28a177f2d9a2c068917da2f16b",
+  "common_base": "7dde012ffba227da1277ddf14dccb48553531c09",
+  "method": "ordinary merge, no rebase or force",
+  "conflicts": [
+    "wiki/articles/visual-pilot.md"
+  ],
+  "resolved_version": "0.0.340",
+  "previous_review_not_transferred": true,
+  "previous_report_files_preserved": 324,
+  "original_report_files": 296,
+  "closeout_receipt_files": 28,
+  "saved_reports": {
+    "docs/reports/visual-overhaul/vfoliage-010/PLAN.md": {
+      "sha256": "572f1cba24447b53142e9496f0218cf9b81c193c84b5aeebc96ff54c5b31e3af",
+      "git_blob": "fc434325fa5e9a1aaab8276e288aabd4a762393f"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/README.md": {
+      "sha256": "c87675a46c7ffcc6c98732bc1738efad3b6137cb5c06d09dd5e8ef2113b523a7",
+      "git_blob": "ad963361cd68e3b24d27d7cadf9ecf2b6ea4c271"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/browser/attachment-bytes.json": {
+      "sha256": "2210644e164c58b2393a5212fdd83f53f99125cbddf3c5f03a42e0252c5df3c3",
+      "git_blob": "bec815f5f31ce7d5b7da69a8b313b1acf0cb84a9"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/browser/evidence.json": {
+      "sha256": "ab9e71db67051ae96a359167b08c6bad902eb6330557c1225261d8d24c89fa63",
+      "git_blob": "22b8663ae946623732dc4dd722cbf79b7f109774"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/browser/overview-pr.png": {
+      "sha256": "94c3da0a2b4f8389b4af238de333e26324de80e0741c04342d7acf5abe74af01",
+      "git_blob": "8f744b8edfdd5eb9e6eb7324dd296c5bd240bcf0"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/browser/overview.png": {
+      "sha256": "f707c2f96b035c9787d25eafbff7f030ff4478d3978aad03140caac59c630a0f",
+      "git_blob": "6b823467ecc9901c92321d1258e18a442bec6236"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/browser/pr-routing.json": {
+      "sha256": "1e63ef3c5f40af4673015df351870221cdcd18de4f621afae2dfe9ce938aebce",
+      "git_blob": "42793f6590b9e130ac58347ac4cc15da121f0f2a"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/checks/architecture.txt": {
+      "sha256": "60439eddbef535cc8b3c6d91745014b268df8afa2a43c36dd6d0918bd98571f4",
+      "git_blob": "3dd360796152ea1b552e5cb940ddd60d122e219a"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/checks/game.txt": {
+      "sha256": "edda9707533ef26aef64c521edd2ad048730205f096f1f4484e2039d4c114c42",
+      "git_blob": "091d862c503328024f8aab4e8908e701ac2c64ca"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/checks/inputs.json": {
+      "sha256": "9d7e770ce12c270525dccfa651fcde39b66f303170f9d1779dead009e42e69dd",
+      "git_blob": "a43cd5baec0d0d3891e8e3b7233cc381c9460122"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/checks/native_reader.txt": {
+      "sha256": "e5423f20c7f13a5ec093ce0287f515f64c2738cb4c7eab0f7c33c89d40ce47bd",
+      "git_blob": "13f883b5e5bf8edc83147cc62afecd286f636d0a"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/checks/routing-0.txt": {
+      "sha256": "8fa76395f497bae5bc9e5b46e8e4505262aed0edeac823060db81b46c2347bf9",
+      "git_blob": "756cee4e25eeeff5c2726475f3b43dc51fc97a79"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/checks/routing-1.txt": {
+      "sha256": "8fa76395f497bae5bc9e5b46e8e4505262aed0edeac823060db81b46c2347bf9",
+      "git_blob": "756cee4e25eeeff5c2726475f3b43dc51fc97a79"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/checks/routing-2.txt": {
+      "sha256": "a51f59ef1bd9eccf3a273b1e5f70178b3c56f8f856d5c7d417648d1535f2d4b1",
+      "git_blob": "927c9364917e4d580bac5e12255c8886bb635726"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/checks/routing-3.txt": {
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+      "git_blob": "df5753ce44864d322f62b36c35868f8ae4e926e4"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/checks/routing-4.txt": {
+      "sha256": "0b4ba0cf21167264432aa27e2e397f7a011076e3ee673d30c7045f615eefadc0",
+      "git_blob": "bc3699d3093323854488c4fafa9569355a0e318d"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/checks/routing-5.txt": {
+      "sha256": "beb858b933c531e14921bdea0ce3f1d7fd1323ce29b7bf1f685c477c9d939755",
+      "git_blob": "9df463d99458c35ec4da706063f8a5e3d6beec9a"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/checks/routing.json": {
+      "sha256": "1ab5c147e3e21d06cae238ebf4c4f606e145758d60ca1dfb63a8dfb7e449384c",
+      "git_blob": "d0e4486bb54734547eb9c5bfb8af0e0c503920b4"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/checks/summary.json": {
+      "sha256": "b12bb0766331d04d8f05052f4037a4797105c4f656fef08c703966fedff3d461",
+      "git_blob": "3c5cb1c8b8a35d5a0c147a40f091955df7311821"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/checks/wiki-routing.txt": {
+      "sha256": "7947f454fb7a0f3fa66068f87a2f949a94fc9255343c7a6adda7d2699937cd52",
+      "git_blob": "835a6d5696ebad36cf78ad4f81c3601eb8824129"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/checks/wiki.txt": {
+      "sha256": "5750352c289ab685581306a79dd376e3ccb95b456fd0b41ffacc4400b849aeba",
+      "git_blob": "33ddf8c937074b09ccc817f1150e0380989240d8"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/README.md": {
+      "sha256": "7591a23aff7f16492a59b31362575a0a13faa90ae371f08e4ed31362d8e9384c",
+      "git_blob": "f34e7a6891c3d28ccd201859221dd1f798f5f8bd"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/accepted-files.json": {
+      "sha256": "eb9fcdacaebb134d30463baac92751dad059f701bf7298000f40943ccb81903a",
+      "git_blob": "75270e84fae5f9a56ef4e7693a18c831e904f463"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/architecture.txt": {
+      "sha256": "283bbdad70a5482a1eef1f324606c2b3493f65e71a931267a6d4e715d2048875",
+      "git_blob": "c65ca3f73117db73d060d5d4eeef7024f3b1b519"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/backlog-refresh.txt": {
+      "sha256": "8fa76395f497bae5bc9e5b46e8e4505262aed0edeac823060db81b46c2347bf9",
+      "git_blob": "756cee4e25eeeff5c2726475f3b43dc51fc97a79"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/browser-article.png": {
+      "sha256": "0c49d09c16843e7379804f514e3ed3b0cb12802d30bb3ed3a25581af25b61734",
+      "git_blob": "8dc696395c754525fb0ed7ec43e268e693f15d1a"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/browser-attachment.txt": {
+      "sha256": "b70d8e5b0c3fc3f4a7eec0e5184e270fb5bb707fb082a0d5af9d5d0ba75f65f7",
+      "git_blob": "54330a7efea04df3359b406f9eed3c6c5327d512"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/browser-task.png": {
+      "sha256": "a2c6b60793ff2c373c6ea5b7ac098cc19b3d553d893753956104a85c1f87f10d",
+      "git_blob": "e2105afe4f9605a262e9ccc8b1358394ef970174"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/browser.json": {
+      "sha256": "cc596f3f74df39685c15da26c8ebc01cbde52ef692ea548481000c95e9d90257",
+      "git_blob": "27988230eaf1d8faf37ac6c897e770c776332ced"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/checks.json": {
+      "sha256": "a5bbdec162e565bbc5e8c88fc5f345dd6e688e5ec50900e66e15b3b6b16ba347",
+      "git_blob": "11700a128d807afe81d9f2ed090532ac2291ee46"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/completion.json": {
+      "sha256": "986bde6be83511a6f5605262f842042368c58799aec4cd108ffcdee4f81944ec",
+      "git_blob": "6b32fda7db6af5628b124425ea7d806f1bc44535"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/final-0.txt": {
+      "sha256": "8fa76395f497bae5bc9e5b46e8e4505262aed0edeac823060db81b46c2347bf9",
+      "git_blob": "756cee4e25eeeff5c2726475f3b43dc51fc97a79"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/final-1.txt": {
+      "sha256": "bb094c35d47145901048888411b7535c3d659d54525426db7b567f72aa8fe3c9",
+      "git_blob": "5640d5a1943c83fe29311231ac48e79d0373b744"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/final-2.txt": {
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+      "git_blob": "df5753ce44864d322f62b36c35868f8ae4e926e4"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/final-3.txt": {
+      "sha256": "0b4ba0cf21167264432aa27e2e397f7a011076e3ee673d30c7045f615eefadc0",
+      "git_blob": "bc3699d3093323854488c4fafa9569355a0e318d"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/final-4.txt": {
+      "sha256": "8fb5a67298ef1bc5205a24ee340f5daccc49bc0c6a2dca1d8f02c020c8efe1f8",
+      "git_blob": "6691ec9ca37bdf10f824c1be483135693b7541e5"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/final-documents.json": {
+      "sha256": "e680d1c43f5d35c1f20b9607f91a91da42fac8c04d15acfec03b51a8d67bc294",
+      "git_blob": "016826071c765b688e6a0c8ab7d70f588edee440"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/game.txt": {
+      "sha256": "49b41012bede7a8c0923907ce453645758ff773f851431bbde5e9e1d0c724f70",
+      "git_blob": "1f28375f1624f9c18a8e223e33343690efc7b70f"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/headless/f10/engine.txt": {
+      "sha256": "3a314eeb424a31f6c05742518411d75104b17d70dc180349e056565df924f846",
+      "git_blob": "20d96522c0c7a2a7d97334d500b86e031efcbe62"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/headless/f10/frames.jsonl": {
+      "sha256": "722edb414774ad5e3f55bab5572804b843d560964adae667402746236c546fe1",
+      "git_blob": "6f8c435af6bcb110816f3fdaa79e213cbe2116f6"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/headless/f10/summary.json": {
+      "sha256": "77ab159458aa09df2bcaefbedcf9555926fe6adbbe38ca764fa40c2ea0d4082f",
+      "git_blob": "7f1e0d59bd2a0011440eeaf75b59fac1a9aadc34"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/headless/normal/engine.txt": {
+      "sha256": "dd4b7d80d5deff0019817841c8e05e33c635f78a7a63a85f07530400977c1672",
+      "git_blob": "5ece3359e91e7bb5d7fc2586f1e3bffe7a282286"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/headless/normal/frames.jsonl": {
+      "sha256": "e814c41766f48a5d728ee7a26eb3e77327f0160e2e36defbcd15714c92942d64",
+      "git_blob": "7c29cb800047b2fa25043938f6075ca215bdfce3"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/headless/normal/summary.json": {
+      "sha256": "440aed09fad89fff01c3e9cbdc4dee8b9c4441348b00c34bc508c899c7150ecc",
+      "git_blob": "3dde1ff43748b86fde133bb6d534b83b2fcfdf5d"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/post-backlog.txt": {
+      "sha256": "8fa76395f497bae5bc9e5b46e8e4505262aed0edeac823060db81b46c2347bf9",
+      "git_blob": "756cee4e25eeeff5c2726475f3b43dc51fc97a79"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/post-documentation.txt": {
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+      "git_blob": "df5753ce44864d322f62b36c35868f8ae4e926e4"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/scope-audit.json": {
+      "sha256": "1816ae78a891c7d8276ad8f57981eb8545868e8d39d57c3e3efa432d39896240",
+      "git_blob": "f7934117adc4c9ab6b5c03419f9115cfbb1e4ff3"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/wiki-metadata.txt": {
+      "sha256": "a9506446621ad065160baa224027938a3665b9e5b4b82128e2b34cc0049606c3",
+      "git_blob": "1c98eafe8322460a41b6576294a440ddc0a63771"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/wiki.txt": {
+      "sha256": "5385279c96374d51ce0f6b94b5eca8c3b576aaae39b74a1bfd9904cd765ab96d",
+      "git_blob": "48d7ffd27b90dfb1832fa8a16c534d11f9890236"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/diagnostic-probe/coverage.png": {
+      "sha256": "d391a2cbdcbcb134fd5081c5f27489a604e5aa2efa455b72105caf48dca4f484",
+      "git_blob": "4ede4082d34a8cfc7e6c329295712126aacaa379"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/diagnostic-probe/engine.txt": {
+      "sha256": "1c3a196f7e19cbf4882f04a79327b04498f82a7667aacb9d187db4fabf8a114c",
+      "git_blob": "c47c328565281b5192bd26a5b4ce3867a11f6179"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/diagnostic-probe/probe.gd.txt": {
+      "sha256": "b4a1fc4fc09f8e02809e9d473168790334faeadab4f7a814e010894af2b4cef5",
+      "git_blob": "adf0049b500115231946db36a0ddaddd2a88f6dc"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/diagnostic-probe/probe.json": {
+      "sha256": "975156d2d1868e530f345affb5d8b203e6f5d4ebe846c808c6735027653f0b18",
+      "git_blob": "1576508c7e63491d2646562258b7e9d68f343574"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/diagnostics/vfoliage010-compile-capture.txt": {
+      "sha256": "1f4aefb7bdaa3aac5c3ea38b8d505eb0d072d02dfef33d1c42767bcd075bbb24",
+      "git_blob": "ba22ab33779fa7e5a99946072f1c84b2550157b9"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/diagnostics/vfoliage010-controls-before-pack.txt": {
+      "sha256": "4b8c932f673b7ed2891fc320c3a53d5fa3c4ce85420182f4ca437c5da1c7b6e5",
+      "git_blob": "a64f61563fda755631a6b0449db819953c14671a"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/diagnostics/vfoliage010-review-02.txt": {
+      "sha256": "8bb88e06811af0ead4db4b0051c3d9f147fc80dc9022d3475122d5b85ac3e21b",
+      "git_blob": "d35d0585fb493001f61e4fcf05275dde789e60dd"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/diagnostics/vfoliage010-review-03.txt": {
+      "sha256": "88322ae8c0a449c1da489b2e094367b5fbedb1c7c0992ab7499c712211ac746d",
+      "git_blob": "29887a3c67af6603def7bd21ca9c4ab92d075d7c"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/diagnostics/vfoliage010-review-04.txt": {
+      "sha256": "88322ae8c0a449c1da489b2e094367b5fbedb1c7c0992ab7499c712211ac746d",
+      "git_blob": "29887a3c67af6603def7bd21ca9c4ab92d075d7c"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/diagnostics/vfoliage010-review-05.txt": {
+      "sha256": "0e9448c8e0c59d54956a15c86eff500eca2017ccaf488e10a84bcf1e80805eed",
+      "git_blob": "b1b26bbed411a16c80997541a79964004fcb0006"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/diagnostics/vfoliage010-review-06.txt": {
+      "sha256": "ab9d440fee11f5b383afb9d7a0c4f9069ac4a760644e5fe5dc95b08f8f61cff7",
+      "git_blob": "6a027244724e2a2d59024d5bd0902823ad38555f"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/diagnostics/vfoliage010-review-07.txt": {
+      "sha256": "dde774b4547ea9f326d4f14368266dffeb797654a6eebfdc00a506cac2f530ce",
+      "git_blob": "3a4c2eaef5d5ce504558a2900861ca314425fd8d"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/diagnostics/vfoliage010-review-initial.txt": {
+      "sha256": "d73afd84dbc7f269a460db7881cdde16c244b8317f9c747f7a7cd63d3cb599b3",
+      "git_blob": "b2d51c3c73a4301f006ecab8a81c887aabcbe570"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/integration-1/README.md": {
+      "sha256": "e144dffc12f6d20fdb9cf8be2646ec80679f6a4b544a8cda551277a6e530381f",
+      "git_blob": "40784b2ce4570d28eba56cb3b1e5013bfcb50e13"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/integration-1/architecture.txt": {
+      "sha256": "14e1a7e84bf6aa13aca28294ed162fa97cfb370d01ac4b2055193b43c652ef00",
+      "git_blob": "c408a72908a9b7efbb3c20df74546dfc3a3596bb"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/integration-1/backlog-refresh.txt": {
+      "sha256": "8fa76395f497bae5bc9e5b46e8e4505262aed0edeac823060db81b46c2347bf9",
+      "git_blob": "756cee4e25eeeff5c2726475f3b43dc51fc97a79"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/integration-1/checks.json": {
+      "sha256": "039def936a61d64aaeb04db7048bee609dae57ee7273b3b3db5f26d438a0a02d",
+      "git_blob": "e4decb06595e170a9e9e3bd07e5674ced4573e05"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/integration-1/final-0.txt": {
+      "sha256": "8fa76395f497bae5bc9e5b46e8e4505262aed0edeac823060db81b46c2347bf9",
+      "git_blob": "756cee4e25eeeff5c2726475f3b43dc51fc97a79"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/integration-1/final-1.txt": {
+      "sha256": "aa20c603ed27f28168e8ed2a500407b140927628bbfb26da9239d86a736fe8a8",
+      "git_blob": "fa80677453ffbe50bb5aa816eea8562e93c01429"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/integration-1/final-2.txt": {
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+      "git_blob": "df5753ce44864d322f62b36c35868f8ae4e926e4"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/integration-1/final-3.txt": {
+      "sha256": "0b4ba0cf21167264432aa27e2e397f7a011076e3ee673d30c7045f615eefadc0",
+      "git_blob": "bc3699d3093323854488c4fafa9569355a0e318d"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/integration-1/final-4.txt": {
+      "sha256": "c71a6c455972f54d6e1cf08a4cb53f11ae0c15d1bbcd5873c35e258191154f1f",
+      "git_blob": "28e197d3d9cc9670ec4ecaf5e0fe805c60f7c1f5"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/integration-1/game.txt": {
+      "sha256": "69cd91b3acfb19e7677fc22fc0cde2a56335f7b548d84a0ad403ec505783c050",
+      "git_blob": "8a034487340df534dcfc9a50c65b60eb57421ce4"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/integration-1/headless/f10/engine.txt": {
+      "sha256": "9e0478d440aa76d99fab826664cf9233317ac017ae9a337f657d8c54ae739e0b",
+      "git_blob": "0a83140f6f23ab067e5da1c1c95142455883ed8f"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/integration-1/headless/f10/frames.jsonl": {
+      "sha256": "09303400c972645f4363f65add2334e14a0c92a7b08de90fae19dbc3e194170a",
+      "git_blob": "811de22ed7de51b76e8b8893487c7c3d9c2a94d8"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/integration-1/headless/f10/summary.json": {
+      "sha256": "1415ced163c66aad5d39b3471212115211b88d725d60f9b3ad932d887527b489",
+      "git_blob": "210654ef23927bd784384e6db7ee2303b1ae1cc4"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/integration-1/headless/normal/engine.txt": {
+      "sha256": "4441d7ee6eed41e3090c976e253aad153038bdb7da07526d1e2def089f8b8c5c",
+      "git_blob": "8b9028818304158bd8b3a012c7f5ec22cfece95a"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/integration-1/headless/normal/frames.jsonl": {
+      "sha256": "976515924eb51643c478fe23b10cab30aebc7e139d91eb705b15021a74c664d7",
+      "git_blob": "6f6c2dc082a6df43da12d14c743a580f952ee5b7"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/integration-1/headless/normal/summary.json": {
+      "sha256": "9cb50a7551236f18b11fedd3255a5a325e7767812108eecb576017184f931da0",
+      "git_blob": "32444fd83849731f6407ce9c3b22b13a935b8e24"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/integration-1/integration.json": {
+      "sha256": "3313e097199f2044bd6073b3df19e1c8f4afe5b41627969b9391433493f91c61",
+      "git_blob": "0b915cbaf65bfcdf05dca61fe7a9c0a625a41c97"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/integration-1/merge-preservation.json": {
+      "sha256": "734909349d5b1720cd79ad1800e2b1c39c8ffbdd493140d897f5f363b4ee174f",
+      "git_blob": "5c0e5b48753e928322f140f23f107058749d2d91"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/integration-1/wiki-metadata.txt": {
+      "sha256": "9e5f8546f3e3af81ba0954a3b42ede343a7cb94a6bc70f870b35b34e71bbddd3",
+      "git_blob": "310839adace8d6efee6c78905989a06a4d558964"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/integration-1/wiki.txt": {
+      "sha256": "c8509fd26284c027eab750f30a729bfed0d583f49ca8a42d473ca6f3d0092d84",
+      "git_blob": "96685e287c8f133ba2e0b7b68e83e041e5fcf6e4"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/engine.txt": {
+      "sha256": "bddddb527e21edc87bb33fb811bc5955cb4886bcd58cb363bce9da3458827af8",
+      "git_blob": "934eb3a59a3a4f56a62849bd3921056c8088fa8e"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/environment.json": {
+      "sha256": "4d48210401dfd6338b18332e8b600b39f828bf8f73f0c4675c046030c9c5cb0c",
+      "git_blob": "828c50e9bc15563a94a3ddf58d985abcee63d782"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/bottom/culled/000.png": {
+      "sha256": "0e0129c1fb931ed8c117e191381e2acca4650240c90f04de4e1fc4678efe3923",
+      "git_blob": "b620066e8705affeb93b882a63069aec451e083f"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/bottom/culled/017.png": {
+      "sha256": "400ac6552f27104f6584a411fb8d6736bcb5997c8e5b364502020b642fa36b42",
+      "git_blob": "9b24059a599509c458afaacdb8d20f24b31ec53b"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/bottom/culled/035.png": {
+      "sha256": "a39e304032bcd857d06cd5d9e2d3071e1b9bf42cc8206568c89e1461eed87ab8",
+      "git_blob": "cba08832eb3eda8ac4a1661894d6ca53630c71b2"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/bottom/full/000.png": {
+      "sha256": "c1908451d01283ad6b006f0bad2001fa088f0ea06f730d82a89a9c709a5804ad",
+      "git_blob": "fd75c54b316f3a982091834278e2cbd0d0d2f7bd"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/bottom/full/017.png": {
+      "sha256": "d1f64bef34b22c98b3f1e46c9db63b4ac0b4043e5aae41783641e3dd08596d00",
+      "git_blob": "98ac5723f5a868b813c3b84e2364cedb1ce810b8"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/bottom/full/035.png": {
+      "sha256": "a268577dbcc27f42b193d06c150507c137f0198205803e43849edef7d66d5ca3",
+      "git_blob": "59909d01b24b9e4ca6d14a18c10e9b401943ab7a"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/bottom/motion.decoded.png": {
+      "sha256": "8efcfd4e30f5d2a1c482266fae00f89a6efb32fa954b58b5bc60647c75350d5b",
+      "git_blob": "39eb560180ff55ef14ecccdee7c4a74628387907"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/bottom/motion.json": {
+      "sha256": "4d9a687c633394f7dfdae9ee87f5439985d13e7954a54a91a4868eb716bb04b6",
+      "git_blob": "71ac456bfb6015ce2c3899d2eb4fea80d386610e"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/bottom/motion.mp4": {
+      "sha256": "e462c6347dfa054e93f37231c608faaf6a9062f3290854e050d7dda86e2f42e0",
+      "git_blob": "ee83436456dbdb9c8a204b858d31e10d35328e1c"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/bottom/motion.webp": {
+      "sha256": "ea701723b0c2a8395f45c0f67a007b028a85f3b0f43ee157496f1e089ed0c0c2",
+      "git_blob": "d5e426ab2ba73a2f381aa3d3289534a8162c2140"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/bottom/unculled/000.png": {
+      "sha256": "dca92b7b9c029b132f1c3f7059555cbf3cabbdca4c50f80e1ada574556321c48",
+      "git_blob": "bfac75af2b8c066d07d0100c249b023d8e77539d"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/bottom/unculled/017.png": {
+      "sha256": "43398d0fc4f4c5930e93c55069b55b1c3fdee39a25826cb276ab24955a4239f0",
+      "git_blob": "df3dc431a4aa7ee0bf92b031b90cf5299d024d1c"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/bottom/unculled/035.png": {
+      "sha256": "6acc0c1ad1aeee4aec72968b146963b94457590c3548f3a8d2c846f3eb73fd3d",
+      "git_blob": "91a2bb58482b048ed960c56f5cbfadc61165b972"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/bush/culled/000.png": {
+      "sha256": "6e031d207479b19abeb882496a0a3cba445ab4f6b6df969afe2d3cd7c869e69e",
+      "git_blob": "f14e772f674a91dc6ea4b3ed2b13734a706de9c1"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/bush/culled/017.png": {
+      "sha256": "9296841b6ea2e4adb52e31d91bd3edb265bf3e3249029096f04fe528ae0b1936",
+      "git_blob": "0d9d60f93e4c372cb292ab08d949170ba2f14015"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/bush/culled/035.png": {
+      "sha256": "9ff0ddd1e86431f012bbce3fdf2ee868106f2a58cffa29ee6cbedba7f82e71d7",
+      "git_blob": "bf7bdbd91e30d8735b39012992272d562b8e7813"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/bush/full/000.png": {
+      "sha256": "8081221ae7308ba7e6be15972c747d9b4b027f5cf59d36b17aa5f8af954c5b1d",
+      "git_blob": "e4a5aea7d44cfc61417fce92a7dba68272e2726b"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/bush/full/017.png": {
+      "sha256": "de55a565f0450fb87f4e847f29131639311f4a62a327e9e7da6d5c29f50b07b3",
+      "git_blob": "3166c9af31368a9d2ffdbcf49f95dedde8180dcf"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/bush/full/035.png": {
+      "sha256": "f6e8061cd3a3c7688764fcf181ce0f74750f6bac170282a9fb0f3e9f2e5e7bae",
+      "git_blob": "39c56de62110bd92ff4df1471c429e2d908be3be"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/bush/motion.decoded.png": {
+      "sha256": "ee4f130a81c7c624e1735f412edcb18c0dad45663e16e095471f20721f093b09",
+      "git_blob": "39599f7d971d83ab6d1ab22fb450d6b91bfd9d8f"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/bush/motion.json": {
+      "sha256": "4d9a687c633394f7dfdae9ee87f5439985d13e7954a54a91a4868eb716bb04b6",
+      "git_blob": "71ac456bfb6015ce2c3899d2eb4fea80d386610e"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/bush/motion.mp4": {
+      "sha256": "4eb7f8313b22c52f1438b4686cf1771813d1569740c1d0e743259ed20328a47c",
+      "git_blob": "24abe37f32e73ac4e7d68f02bf2099f3f3850a16"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/bush/motion.webp": {
+      "sha256": "72a7d5f7e09d226db6fecf759651e74da431f3537dec1cb5791062e27be604ac",
+      "git_blob": "aaceba6c70e97dc7efc6c49e4514679b735ebc3e"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/bush/unculled/000.png": {
+      "sha256": "4ee7ef2740bbc336646afb05c11fd268edba0afdad3cd05bd9a068e559de1373",
+      "git_blob": "13d4a2c6725c5d1aaa48c7b6208f89cdfc3ae5b6"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/bush/unculled/017.png": {
+      "sha256": "148e37dd5436d6a74ffaf7028c7b9094eda44bdd8524545c5c7b2a6b54b518e2",
+      "git_blob": "42c8cbc2c0b1d386db75cf4ec08a36a95153c942"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/bush/unculled/035.png": {
+      "sha256": "f88f88b5f272ff0856ac1328ed9d7d70db358fe3dbb3186f6179c2d4ce96e4c4",
+      "git_blob": "fe60623856d7b7bd9da07418f0104ec6a913ef95"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/calibration.png": {
+      "sha256": "d391a2cbdcbcb134fd5081c5f27489a604e5aa2efa455b72105caf48dca4f484",
+      "git_blob": "4ede4082d34a8cfc7e6c329295712126aacaa379"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/capture.json": {
+      "sha256": "6644d9fb08bc55c688c7f03d57a7ca3f23efdcfd191b14fe131d67ec298c3fc4",
+      "git_blob": "9979cb720a0882311e7ffa22ba7eb27bd5d17959"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/chunk/culled/000.png": {
+      "sha256": "a462799f17558af4006a15dea3dc48629f505465af1d6b774cd723cea792fe5d",
+      "git_blob": "bd950b776db5cfb5d976293b76a6ec1c160d5f88"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/chunk/culled/017.png": {
+      "sha256": "2fcd0e3b674e4ae87e5fd55508036c285bd71f0a290883637f2f17e635c785aa",
+      "git_blob": "8eeefb5127e02daacad98da059de1b58d747b781"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/chunk/culled/035.png": {
+      "sha256": "b590674eb3459c3f7ac1448299af1d2217b20e63106f363fd29e223aa8c9200f",
+      "git_blob": "b32d920a8b5d4d686795c19b618ddf53b5e942d7"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/chunk/full/000.png": {
+      "sha256": "e30c6f5b17d74800211898b38df6f062a7a74b14e52aa4a8c5760794cc43a3d5",
+      "git_blob": "f7b318032f52b4e2225dbd2238f910dd9a4bff36"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/chunk/full/017.png": {
+      "sha256": "8fffc166b64b756201af4d5c09defa9bb740749def8dd0672f3affaaa84de905",
+      "git_blob": "c09f765a525304873b1b1fbe94ba2e1ba5c2cdf4"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/chunk/full/035.png": {
+      "sha256": "1b2df259f707409064272afebd6cf9ea88f1523193a5bbfda814b121c162afbc",
+      "git_blob": "38794597514d4d6011c5ab3374bf2f68cbe128ff"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/chunk/motion.decoded.png": {
+      "sha256": "35e57865aee0ae05c32766e10f742a2548e95ffd3061650c2e66ee647bae07f7",
+      "git_blob": "1ad134179f238f9429e3668c2016cc5af1fc1808"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/chunk/motion.json": {
+      "sha256": "4d9a687c633394f7dfdae9ee87f5439985d13e7954a54a91a4868eb716bb04b6",
+      "git_blob": "71ac456bfb6015ce2c3899d2eb4fea80d386610e"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/chunk/motion.mp4": {
+      "sha256": "6b50dd5bc56cdd00558e2a46b289ce2fbec1bfe4a93ce6b57cbb10ac893f1cd4",
+      "git_blob": "b3903ba202a1e0a9c1225f5747dc512ed9b969e6"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/chunk/motion.webp": {
+      "sha256": "9d16629fe0ce18e8a507f9ec5b62909cb0cbdf061a43c4f270ff31e694f01432",
+      "git_blob": "eae70a7d1eb47dcaa8eba09435aa0082064b4a84"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/chunk/unculled/000.png": {
+      "sha256": "53c430a8250a72abb618d918ed60a214ea194501207cdd74e66d1372fb3ea2cc",
+      "git_blob": "b9c085335622c7fdf3dada3eee6e0a8bf9fd0865"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/chunk/unculled/017.png": {
+      "sha256": "5357b8b5591b751bfb5367874732bef90f33a44b33935a328873a7075d15f836",
+      "git_blob": "b1085afee1a12137c4b20cd9137fcb27f88f6338"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/chunk/unculled/035.png": {
+      "sha256": "50e24ec8ec9294fd7dad1022e5ec044e98d652d52691d0be1dd3065be49499d9",
+      "git_blob": "c47eb9bdad2f64a6350da7844c089e464dfc3686"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/cost/low/000.png": {
+      "sha256": "7071d3c1587ba61a5e7fe8f8ea2a22d20bd4b60234236da46f070ca281e793cf",
+      "git_blob": "118e18e0a6dd665d6638389041be4d1c35941f57"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/cost/normal/000.png": {
+      "sha256": "e7d05a984d9f96ab1c97811077a8515974714b31a5a8f62a2f4ec6f69d087952",
+      "git_blob": "2473a8e5e3f2feaf62fd2b665e2d1ba5d4977adb"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/cost/offscreen/000.png": {
+      "sha256": "c242cf77aed632d05a3f71bae8a7747f525ada62b72af8d219c58a298e364b9a",
+      "git_blob": "9e75b773b5096f5818d83696ab23ca988bb9ab0e"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/cost/returned/000.png": {
+      "sha256": "1461d53109eae18ad4abddb8d7923981247af6a7a826a2960671d1f7a041a8f2",
+      "git_blob": "31636dd715013469279c592db8c719fbebdb3407"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/coverage-1--1--1.png": {
+      "sha256": "50565ecccb17c716d9f23c37a77f60ce2e17bb6e655cd454e2c127c33eb0fc96",
+      "git_blob": "c38702a74781ec298cba079400ff6e942eaf7ce3"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/coverage-1--1-1.png": {
+      "sha256": "7626d7ec800cb9325a6345e7986f596758be7f3528e2b7708f0c87fa5d1910e4",
+      "git_blob": "1c49d355c083ad9c43efbd1216dcf5d974be1a42"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/coverage-1-1--1.png": {
+      "sha256": "f826c697bbc96667fb43fa791b32dfd971e792adf5d77897f922624d33aa5412",
+      "git_blob": "2a1c9ab4a277ad2d1e294570c6bae42bed8afc76"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/coverage-1-1-1.png": {
+      "sha256": "524ea818fe8fe67a0a1a4048484263d8789aeb9694f7248f62104655dad81dd7",
+      "git_blob": "46c0e36307e00be0d7fd32da64a12ef3219fb592"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/coverage-2--1--1.png": {
+      "sha256": "936463f138afca3d5ca74da411b663d93eece2190edaf6137b4d9a869aff44d7",
+      "git_blob": "a6d3e6bd024b9435bd05c03a28325468d1291dca"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/coverage-2--1-1.png": {
+      "sha256": "14353ccdd77f202038489a6c05ebb7b6c2d344f561a4f967ce08083df5bcab35",
+      "git_blob": "300151ccc963f414f73790a2e76c520f6be59e57"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/coverage-2-1--1.png": {
+      "sha256": "6de739efdb5dad318c81873415772f0e40a39de9b85d0eb3f56788887279c7fe",
+      "git_blob": "7fadf277a94d0d0d517546b1ca970f38c250e3e0"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/coverage-2-1-1.png": {
+      "sha256": "e22407e2ca471c854e3afc2eebe735b272085da47380ec0dd8af13b1bf4372a7",
+      "git_blob": "cedf1bf9d503fc16b28678fdd0472ecec04e65ab"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/coverage-4--1--1.png": {
+      "sha256": "6db617e2b22e0f9efa907c36d961c38764e21f8ccce1c8ee5adb090982afb8c4",
+      "git_blob": "038e027d8c06ee2a42f354fc9cc9b6d1783360fa"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/coverage-4--1-1.png": {
+      "sha256": "29f6499c024ff9dc1369f0124ed6c2fb1b065824865cc44fbcabcb4583caa31a",
+      "git_blob": "d83a4398023185c5f32ea9b3382858eaba2d9879"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/coverage-4-1--1.png": {
+      "sha256": "ebed263bac58d51099b917bec99d6da8046b25bd8e6991e873954fa223e4c064",
+      "git_blob": "d6f22cd88f267561bca98a7394367f168a0c18ea"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/coverage-4-1-1.png": {
+      "sha256": "76f7ac69f2ea72e35efe9337eaa52150f5e4c1ef6140552989d3957603a55937",
+      "git_blob": "3aa375a43342b913cb6a7961401595a3afa777f7"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/left/culled/000.png": {
+      "sha256": "30552235614af6c0a0909227f377dc1b318cde1ba8e700def6f242286b7a77be",
+      "git_blob": "a5ce658ea509c429b236280016dabfcb162d70cc"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/left/culled/017.png": {
+      "sha256": "3975906b1b43cc97a5b5aee3726671d899fefd7d53a631f2c7e87d33179414ca",
+      "git_blob": "de403868476e018af0184adec428cf9276d0ea91"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/left/culled/035.png": {
+      "sha256": "fb83d821e6a022d6431a86923cf6a1d460f242cf3c00b22b38f8d7b244c856e9",
+      "git_blob": "7b9a2633b058e4fab99ec461be5fbb00b10232cf"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/left/full/000.png": {
+      "sha256": "684254d7a57ee7990f1d1bdd3bb26ad1bf4d23e435393c70b434e568947d04d6",
+      "git_blob": "a56bede54b10c7f7cf705d733319bfbccc12b61f"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/left/full/017.png": {
+      "sha256": "80b81d4800a5a2c68772fa768f24d704df31c7036e5fcd8fa95919ac355f2a29",
+      "git_blob": "671c810830887d22239a736719b2f2eaf0574c6f"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/left/full/035.png": {
+      "sha256": "ceddd43e626bd155b340a98f1c707a07cadd2202fb7a8dc823f30dc7aaf0e14e",
+      "git_blob": "e7cb16f02057fa80e030470f57bc04682ce97447"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/left/motion.decoded.png": {
+      "sha256": "35a6b264e7386bb88a5131933429430d4a240f1c8a0a20416e74a174b60266ed",
+      "git_blob": "17eadb44b878bf768ce981f89883f7c2da39f860"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/left/motion.json": {
+      "sha256": "4d9a687c633394f7dfdae9ee87f5439985d13e7954a54a91a4868eb716bb04b6",
+      "git_blob": "71ac456bfb6015ce2c3899d2eb4fea80d386610e"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/left/motion.mp4": {
+      "sha256": "cbeb8924c11e510b6f46d2b44179ffe44098d04e4bdb591c6b58a4451a9906f6",
+      "git_blob": "3d20045de1912a869033d0dfbd1625996fa20879"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/left/motion.webp": {
+      "sha256": "ed43835bde1b32f94f9ec18693e8f230d5c2db271fc9f8a8925c8ce1862ef10f",
+      "git_blob": "ba62f06b065bb10c0f0fd79cb394257c1a608f54"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/left/unculled/000.png": {
+      "sha256": "1222c8deb6aafaf41dcf6c3ac827da3303c214ca103c0ada31f71cc5e42b5758",
+      "git_blob": "ed310332bf52846e9c77524ae016cec4a94368d5"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/left/unculled/017.png": {
+      "sha256": "bdf82900e12dcf4cc328c03729f9fc5eead0047ff26da81f751c1eef333d8b3c",
+      "git_blob": "70605e42cc429dfc5c1048e8657df556e3c7f6cf"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/left/unculled/035.png": {
+      "sha256": "700c2d011fdff7a79128ceef9a0d071896bc6cc1875002c21764e82b973e0aa9",
+      "git_blob": "d60f042b7262ae15921c9fc714e218b9fa647ac0"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/right/culled/000.png": {
+      "sha256": "2b14734af85659ec20db925878511683c328f6316fab88b689bd6042514777d2",
+      "git_blob": "503b3a047e3b1dd6ee7866a973be099ca848591c"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/right/culled/017.png": {
+      "sha256": "b612e0503008f83ab1914e171cc00b353e8df05b3d14dc1ef99f0e47fb95e990",
+      "git_blob": "2cb43c282e1f2e413d2344625dd61e6671f2c5c4"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/right/culled/035.png": {
+      "sha256": "074c0f77eedaabad4558508b85914e6f8e79f39c4efdd7d14a6673b86fb63929",
+      "git_blob": "b2dacfedfc6a89370b8c4dcaf229f85ae3e4c62c"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/right/full/000.png": {
+      "sha256": "05b1089f29c3569557999daef431112acdd0b4363ab235e5c21de67c8d7e3e90",
+      "git_blob": "c26e5e2f80230437b85d0c213e4c32e25dc5af0c"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/right/full/017.png": {
+      "sha256": "05e1d72bfa8a1492933c5912f1ff4b2a3fa0cfbdade202923f99159cc484f82e",
+      "git_blob": "9754a894790e82823e0e98709c9433b1305a5fc1"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/right/full/035.png": {
+      "sha256": "b6b41720b0decbf37910346fd8ad7bd4403acfe29d89f090c743fcde48031f7c",
+      "git_blob": "f4c3f9ca048e4448e513fe1c629a368b4fe98d56"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/right/motion.decoded.png": {
+      "sha256": "a73f0e3e1849ef83a8ad1dd2dff85b50083762375bb8b8db9d43745ce6a31317",
+      "git_blob": "ccca436aa453e094748a7ba779dcbc4ddd9e5d48"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/right/motion.json": {
+      "sha256": "4d9a687c633394f7dfdae9ee87f5439985d13e7954a54a91a4868eb716bb04b6",
+      "git_blob": "71ac456bfb6015ce2c3899d2eb4fea80d386610e"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/right/motion.mp4": {
+      "sha256": "928f4b68f5576f1f7b36e177d4e2f1a916d1d70659a4e4e35ae4678662dad6b5",
+      "git_blob": "b3afbfb9ee10276693c65ef02c18430434e43f2a"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/right/motion.webp": {
+      "sha256": "741fa1a339afaba186f27e3b305ae040a6f5b9226bddbda22b4ca747e7cfd3a5",
+      "git_blob": "ab23041fd8e607465e6e48d3be934fbcd11c95d7"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/right/unculled/000.png": {
+      "sha256": "7fe9fcb2fc6c3ed3b7d0acba0ba52c51a23f250b26d58c84f29ddf2db68ce429",
+      "git_blob": "796c81753badaaf3206ab688ed1714fe0d82a70b"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/right/unculled/017.png": {
+      "sha256": "2e7b5d05b73a5cc0537b0b74caebce04be21e4d538667f9c09b0c7a08a4252fd",
+      "git_blob": "8e305a165de8955b18732f699d4eb4af4504c67c"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/right/unculled/035.png": {
+      "sha256": "0b27ff3ac47f8ae40fde4f44ecf94f08dd75433a6c5aeebb079955400f71e19d",
+      "git_blob": "0b683015af2f023e5f6c206cbe0bd4c5f63368dc"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/top/culled/000.png": {
+      "sha256": "37eca6b1cad5b7baaab93b07ae0013790cee5cc3abd5e26fbb540daf4245f608",
+      "git_blob": "5cbebc259df10d8fd0ad3a6a203d29056f493e8b"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/top/culled/017.png": {
+      "sha256": "56559d905f5c1dfa13ba3f49f5c1d6e231911868ebe5e1395119a030df5a3596",
+      "git_blob": "680f4c33a01a137a91359967b7f949993dc40ec7"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/top/culled/035.png": {
+      "sha256": "1b408db919078f775e7e19c6a3e275271e927e6e1db5067c9fe5743d4d9a2bfc",
+      "git_blob": "7a95d39927c38509396c4fd96643875d30a7b8cb"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/top/full/000.png": {
+      "sha256": "b38cb9624b294b0391911c3edb0cf94d8699327e283f2dd11183f7feb42dc52b",
+      "git_blob": "7a9d4cb503f5fb33b0446e5665ddab2a89c8b705"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/top/full/017.png": {
+      "sha256": "45acf2296aef32c17f69a639bfe27a024b6fa54f00dbea7f07286e4b7ecf44f2",
+      "git_blob": "e7f9909c9dca9a439ea5e6941a9fc1c6bdcd6cb1"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/top/full/035.png": {
+      "sha256": "614ef0721022bb107168360c9fbf8abfbbd126f327e52db2f93537efd4dc63d5",
+      "git_blob": "2b4f97c92f4fcd2ec032ae3e2d6f4088e93fe2bd"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/top/motion.decoded.png": {
+      "sha256": "b9b7cb119e679548bd89ca9b21a823818b55d072db2b05172544d94ae5d0972f",
+      "git_blob": "df72d53e610ebe68fa2569a5aaad922f589737ff"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/top/motion.json": {
+      "sha256": "4d9a687c633394f7dfdae9ee87f5439985d13e7954a54a91a4868eb716bb04b6",
+      "git_blob": "71ac456bfb6015ce2c3899d2eb4fea80d386610e"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/top/motion.mp4": {
+      "sha256": "d19d9d8aa4a45799f486b876a83c6f44705fe9a42a2f1ea38e9afa2a5291ca9b",
+      "git_blob": "5d4fa17469b98b4d860eb84df3934a0fa14231b6"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/top/motion.webp": {
+      "sha256": "2e04a4a6ce4aa8338a32573a3c297ee922d24ee30164ee56cea8b6d06e2c963d",
+      "git_blob": "c5575b62335a91581f314fcc1ec8ae8ef1664016"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/top/unculled/000.png": {
+      "sha256": "9e765937d7aea81bc22d1b025c7fec18853da7a468966438059b15efe513feb4",
+      "git_blob": "8c2bd8b930002f22ae8a03e0d02e0d3b458de045"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/top/unculled/017.png": {
+      "sha256": "f0e48dd439ff28fdabb8e37982674fc7dff6e87c30c1cbab6fc8845cc0348235",
+      "git_blob": "54290218f65a024beeb3f3493cefc4782229bf17"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1152/native/top/unculled/035.png": {
+      "sha256": "bd2e8bf5a753fd4fc95341a52f5d0bfa45b58ce228310899916a9df0c2559426",
+      "git_blob": "25a3da990a3fa309e71384c9bc9ce7cb31dcbf78"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/engine.txt": {
+      "sha256": "bddddb527e21edc87bb33fb811bc5955cb4886bcd58cb363bce9da3458827af8",
+      "git_blob": "934eb3a59a3a4f56a62849bd3921056c8088fa8e"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/environment.json": {
+      "sha256": "5579727522462e098bd3f3d963b020f4dcb419ac40ba22928f2416adcff1e1a1",
+      "git_blob": "500b1725700c8e909d89632314d5c7d170d917d6"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/bottom/culled/000.png": {
+      "sha256": "f8b431de38a837c798765483cbf34d767326db0d5a2d47d9b344b15bdc123c30",
+      "git_blob": "a13e90194aa7e0fa0c6e8fb74c1e98c7b65e8513"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/bottom/culled/017.png": {
+      "sha256": "f20c15dfd0faeccb10db93bd282a2d7b2ef255cff83a5210a09eb3cfaa4a38d9",
+      "git_blob": "93bd05105be9c4dcdf7d9a0ea816240ec12a5911"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/bottom/culled/035.png": {
+      "sha256": "af9c4e08f2a0e936dbe5a327b5fe0cacf68114a0e7b6f76696748ed976a6ebf0",
+      "git_blob": "1c5976b48b638ae6708cc637e99528c38b97f2b7"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/bottom/full/000.png": {
+      "sha256": "da3b1c840c53ffdc1da78fe4d0bd4ebbdd9dd1501d50b88a57f051b82afdad05",
+      "git_blob": "2c07a6fe5d6a0fdedf15d83fdf55e5e59aca8c27"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/bottom/full/017.png": {
+      "sha256": "64724366d7297f9d1b3ca1dd6233e85cae59535a9027b930b6161899428a9600",
+      "git_blob": "761f2d6c34b8ec8261d973d9c83d260265de1b70"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/bottom/full/035.png": {
+      "sha256": "9512fb134966a865f74ea55c061c34b1eb69dd9a0adf9bbe12231f78dd397f4b",
+      "git_blob": "a704f8d2ae5ba1278ba905af0bb50d80feb63fd3"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/bottom/motion.decoded.png": {
+      "sha256": "3214d53cbdcbaa47eae75d9c78cc363080198a90293b3764c51f630a00b60262",
+      "git_blob": "996d310a8b12baad6bf4c5d580969e007ad4b27c"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/bottom/motion.json": {
+      "sha256": "356aa7a28d9a06003226eb0d20be8a23840176ab62799fdc6c4386b44fea8675",
+      "git_blob": "dd502b4ee0f191672130ecb648cf6e7e5575856e"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/bottom/motion.mp4": {
+      "sha256": "9fe694b874a198a04403ce4eaa165b7efff7b292d6a8aac13f24064564f08e4c",
+      "git_blob": "46f4edd21d1a00e4525bbaad3bee7e490296ecbf"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/bottom/motion.webp": {
+      "sha256": "d0f2281e5342cb24156a1bf26a73688c3395f689892820135ae472c1e018332d",
+      "git_blob": "0f3a515f790cdcc1cb76dc45bbbe0f4719486570"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/bottom/unculled/000.png": {
+      "sha256": "e65a7221ea30565ff970a6092ec878caeb5074c657e56762532f5bbc5ff0e496",
+      "git_blob": "2cd142d34a07f6b6d48146510a6b8839fdc9edcb"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/bottom/unculled/017.png": {
+      "sha256": "5a32e0bcfe31f72b289ff112b5ff76b43f135a2c6e4b659d049147ff1862e7f0",
+      "git_blob": "6282ccc100b0d9c275c6344ac3330801825ef428"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/bottom/unculled/035.png": {
+      "sha256": "491e04aad6732fde00741a6d7047c865297a0138f825f5294bffc306c48ab92f",
+      "git_blob": "53c4ebab0810a5911bd120b314fce6811b668f33"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/bush/culled/000.png": {
+      "sha256": "8a71cc8b20245e7026485dee22803d50bc4d36654c91f3345acbdb3c83f2b078",
+      "git_blob": "f0dd281e62826d9e35dde35cca78209b0875dd45"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/bush/culled/017.png": {
+      "sha256": "d91a1e81ac9f1d4a37c75e9ca9c26c621bca45bbf1ef90d4d794c4f635a018e2",
+      "git_blob": "7bd9223c259b509bbec4df2133acccc4e71cccd4"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/bush/culled/035.png": {
+      "sha256": "cae64f5320dca7911456baa9504cc33090f3277fe4346540955fb5a3c1cfa3c8",
+      "git_blob": "efd34d5b9b59cdb45937b4ea7da0dbcb9bffc463"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/bush/full/000.png": {
+      "sha256": "ac0b810905a8fe00e0831c54879aacfe4597f0d416e8fe83a11d3c72e7da8b02",
+      "git_blob": "03751b6c77e45306a8c63806cc2ac559d361c3a5"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/bush/full/017.png": {
+      "sha256": "61189f601555fe8004eb5d8b81c8082eddbd8a46fb0b3e59278e22c034082199",
+      "git_blob": "c925ba496c242e7b3a18be157bba14e207a77641"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/bush/full/035.png": {
+      "sha256": "d5f94f111cd4ebcbaa41907ee07f427e772dc465b65580cf86a5675278c2d4ae",
+      "git_blob": "ae2ebb18971a187698b327712d104147046f7041"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/bush/motion.decoded.png": {
+      "sha256": "d7c0709efd04f40359b7de8cf8c27311ea6d197f81d590e763cc22110ad0f433",
+      "git_blob": "bb792546c750606e306ee8aaa101e10e7f4ab8e1"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/bush/motion.json": {
+      "sha256": "356aa7a28d9a06003226eb0d20be8a23840176ab62799fdc6c4386b44fea8675",
+      "git_blob": "dd502b4ee0f191672130ecb648cf6e7e5575856e"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/bush/motion.mp4": {
+      "sha256": "fff7678d288d2021b0b889daa37bec7b036120f355b28521665b2121afd0c558",
+      "git_blob": "058b5700f764511cdbf2b94b83a8bdc0370b2ac5"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/bush/motion.webp": {
+      "sha256": "899540083a4bc1dfe909cc4753bcba8ada6a0e530f3f993b624ad5d4620ff50b",
+      "git_blob": "b604ad6f271f02b6196654bad234ed720a50e9c5"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/bush/unculled/000.png": {
+      "sha256": "aa506a30682760492f11bb059c4deb07cce0c1e42b44928a48b49edfe6fb6459",
+      "git_blob": "5de984ad3fff8a714097543c5c404014ff2d57c9"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/bush/unculled/017.png": {
+      "sha256": "d20129d1c401b1f7f5825262c8e674844abacaa0cafa098ffa1eca2247c6e765",
+      "git_blob": "530c104564da632367c05c33adc2fdc436eea102"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/bush/unculled/035.png": {
+      "sha256": "ff3e48e380697c108b9676ed0edc9b1e34f0c63d4a3ccdd0410af5f9169ffebf",
+      "git_blob": "52da8a3a0db94a6ccfbb40d367b082c8f9c68299"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/calibration.png": {
+      "sha256": "d391a2cbdcbcb134fd5081c5f27489a604e5aa2efa455b72105caf48dca4f484",
+      "git_blob": "4ede4082d34a8cfc7e6c329295712126aacaa379"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/capture.json": {
+      "sha256": "22722b1bc935b518ccc971468ba34cd5a7486560da333050ef46b0f737667451",
+      "git_blob": "be73a398d2d11ac7d610ed4791d40bb390a170b0"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/chunk/culled/000.png": {
+      "sha256": "7d38650a3467bb9f1c5d51e92156bfabfeaf059aee9b0e095467103ae66c47e2",
+      "git_blob": "52f2aed73e709f8853177d5ae09922f79e40d8ef"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/chunk/culled/017.png": {
+      "sha256": "1d24c463677b9163007a48ee985dbd4cef3a3a9cfed45c84de2f2e6261301e7f",
+      "git_blob": "6096ee773b772bfaa2119ceae050630736bb96dd"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/chunk/culled/035.png": {
+      "sha256": "e3802fa6a85b92ff6566a279f693213495ad248b5bf4eaf2311f0417fa2ee0a7",
+      "git_blob": "81a42205c408e8386ea3faaff06ee48a584e0f68"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/chunk/full/000.png": {
+      "sha256": "3d7446599439b035aa1cfa660ab703155900474a26e80c557cdb27de142072ca",
+      "git_blob": "ba1efbc64bf4f8ba17db304fa56be2f24d06c1d0"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/chunk/full/017.png": {
+      "sha256": "9a5e14c06d01141cef4cb1704d2f74f9743c1031686905a946baaf82d009896a",
+      "git_blob": "ed024d59bd28e6a6e83bf2001ac8b9f1e5f839b6"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/chunk/full/035.png": {
+      "sha256": "30d8b3922589e98b03b5ab1e243e460a36ce93ad0d021414b19ef088909e72e5",
+      "git_blob": "4c92395f79303690f5473c31797cc9d8c692fece"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/chunk/motion.decoded.png": {
+      "sha256": "3eeec80bc2c9b8db430afafd08eda3c271e1d6c5554460d0b4be5cd5175c44ff",
+      "git_blob": "9c9ab4a66f5933a4b0854cd276fa93949bf8d1c1"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/chunk/motion.json": {
+      "sha256": "356aa7a28d9a06003226eb0d20be8a23840176ab62799fdc6c4386b44fea8675",
+      "git_blob": "dd502b4ee0f191672130ecb648cf6e7e5575856e"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/chunk/motion.mp4": {
+      "sha256": "956b25bd0f86d8fb931c6f8bb513387f8033b53bcb4a2c1d3e4e4bfdfa212788",
+      "git_blob": "8a740e8a4bb736801e62eff4f8ef961476d0669d"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/chunk/motion.webp": {
+      "sha256": "e3b4bc17d7b8999fd8afaf5a3c8da6787601fb1b2774e8c207684366157bcd87",
+      "git_blob": "45c8977c0ad9bd67dc8d57753e2b1362272572dc"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/chunk/unculled/000.png": {
+      "sha256": "3e35989b555a8163592ca542d885a4fc7c7e19da344094800ee502bbd2d85984",
+      "git_blob": "a4a36faf6ecddc035480aead0006e4d1d75bca98"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/chunk/unculled/017.png": {
+      "sha256": "eda0f19e37882a76c1f9ad25f80fa83fca85c4417f536ce837f11acb20745d54",
+      "git_blob": "4ffaca78a27f2d3142150642db00da8150ceb1b1"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/chunk/unculled/035.png": {
+      "sha256": "ab13e546882ab05c2095bf21ca353a0f22a815150f01dd34d87f7dcf00589725",
+      "git_blob": "53d39e662582c799e141218fbf06b7b49bd1aa2b"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/cost/low/000.png": {
+      "sha256": "c6be2df0191c98c22a568ffd7e6ccf80bd8fb87e9a56a4fd7cb46d82833b65e4",
+      "git_blob": "184b470693c30b367dd3d31598654b54fbe1a30a"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/cost/normal/000.png": {
+      "sha256": "d26ca6b26004f9ee978617929142ebf6d01a9b8585eae160b7b5aeda36793961",
+      "git_blob": "a4b5010554e7ff007cfbc3a2a8b76c708529ddd2"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/cost/offscreen/000.png": {
+      "sha256": "ff1cbf967400c5b081e1651256daa903c2a582ec15b15d6761f5b518d3bf8c39",
+      "git_blob": "f5fa7e39e789397d7570b3c94da32f4376d7b36b"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/cost/returned/000.png": {
+      "sha256": "667beb62fc90959e17817a67d6eac479b45a375c0748a29060428b97f886e002",
+      "git_blob": "98c7420b828afc619f7ed9abe66144c1572f27be"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/coverage-1--1--1.png": {
+      "sha256": "50565ecccb17c716d9f23c37a77f60ce2e17bb6e655cd454e2c127c33eb0fc96",
+      "git_blob": "c38702a74781ec298cba079400ff6e942eaf7ce3"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/coverage-1--1-1.png": {
+      "sha256": "7626d7ec800cb9325a6345e7986f596758be7f3528e2b7708f0c87fa5d1910e4",
+      "git_blob": "1c49d355c083ad9c43efbd1216dcf5d974be1a42"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/coverage-1-1--1.png": {
+      "sha256": "f826c697bbc96667fb43fa791b32dfd971e792adf5d77897f922624d33aa5412",
+      "git_blob": "2a1c9ab4a277ad2d1e294570c6bae42bed8afc76"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/coverage-1-1-1.png": {
+      "sha256": "524ea818fe8fe67a0a1a4048484263d8789aeb9694f7248f62104655dad81dd7",
+      "git_blob": "46c0e36307e00be0d7fd32da64a12ef3219fb592"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/coverage-2--1--1.png": {
+      "sha256": "936463f138afca3d5ca74da411b663d93eece2190edaf6137b4d9a869aff44d7",
+      "git_blob": "a6d3e6bd024b9435bd05c03a28325468d1291dca"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/coverage-2--1-1.png": {
+      "sha256": "14353ccdd77f202038489a6c05ebb7b6c2d344f561a4f967ce08083df5bcab35",
+      "git_blob": "300151ccc963f414f73790a2e76c520f6be59e57"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/coverage-2-1--1.png": {
+      "sha256": "6de739efdb5dad318c81873415772f0e40a39de9b85d0eb3f56788887279c7fe",
+      "git_blob": "7fadf277a94d0d0d517546b1ca970f38c250e3e0"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/coverage-2-1-1.png": {
+      "sha256": "e22407e2ca471c854e3afc2eebe735b272085da47380ec0dd8af13b1bf4372a7",
+      "git_blob": "cedf1bf9d503fc16b28678fdd0472ecec04e65ab"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/coverage-4--1--1.png": {
+      "sha256": "6db617e2b22e0f9efa907c36d961c38764e21f8ccce1c8ee5adb090982afb8c4",
+      "git_blob": "038e027d8c06ee2a42f354fc9cc9b6d1783360fa"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/coverage-4--1-1.png": {
+      "sha256": "29f6499c024ff9dc1369f0124ed6c2fb1b065824865cc44fbcabcb4583caa31a",
+      "git_blob": "d83a4398023185c5f32ea9b3382858eaba2d9879"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/coverage-4-1--1.png": {
+      "sha256": "ebed263bac58d51099b917bec99d6da8046b25bd8e6991e873954fa223e4c064",
+      "git_blob": "d6f22cd88f267561bca98a7394367f168a0c18ea"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/coverage-4-1-1.png": {
+      "sha256": "76f7ac69f2ea72e35efe9337eaa52150f5e4c1ef6140552989d3957603a55937",
+      "git_blob": "3aa375a43342b913cb6a7961401595a3afa777f7"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/left/culled/000.png": {
+      "sha256": "55b9b941ce27b1a32657c62dcfa619c904587cf4926892d6c215a94855ca1424",
+      "git_blob": "abe13aefb4b9e8db57685b35c06ca4adf884353c"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/left/culled/017.png": {
+      "sha256": "873e479be43673e56f97c31c2583bb6ca3eb31c3ef873c296e5a2a4d05501c95",
+      "git_blob": "bb06903c6ddd688fd2029ca47c9288447356e3c4"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/left/culled/035.png": {
+      "sha256": "11586894f4aac7c0c98c54dcf97114ffe306ee6f5069b9dc4ee99425819ffc5e",
+      "git_blob": "5ec13827e970eafd6de4dc51c0afcc2b77086a46"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/left/full/000.png": {
+      "sha256": "93c8995d2d18ff181399e513eac665addbf612abdd390bd36fad409e0de9126e",
+      "git_blob": "a3c8bff831ff09719caafec2f0d52a806829e02b"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/left/full/017.png": {
+      "sha256": "e6ed9b30316f0d6bd3a2f291ef8c1573e6c36431685c2dec8cf61d4fdb1f5ed1",
+      "git_blob": "08758378b3c17a463c14d045ca3112212e409788"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/left/full/035.png": {
+      "sha256": "867fca1403f6b37507aa572e680a3f0bfe917805c08a56bdbad507e13917f3ae",
+      "git_blob": "b94aa6fe174d64504cb3a0c01978cd207372d183"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/left/motion.decoded.png": {
+      "sha256": "078502e9043072d31096448ab189c00988bd00700dd9c434c9697348934af2ba",
+      "git_blob": "1b66baa820342784a359a6387863b34ad218e02d"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/left/motion.json": {
+      "sha256": "356aa7a28d9a06003226eb0d20be8a23840176ab62799fdc6c4386b44fea8675",
+      "git_blob": "dd502b4ee0f191672130ecb648cf6e7e5575856e"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/left/motion.mp4": {
+      "sha256": "91dcfdcb88825c00a7523cf796d5c10ec2e38fad5670837b13bcac613e76a797",
+      "git_blob": "f5b1a6086f97809783a2c4d3a7827a434f3bc3b8"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/left/motion.webp": {
+      "sha256": "c7f67310e6db44beeaaf1f39ecc1a2dd3c0fa67be6765c10ff2e3ff68203502e",
+      "git_blob": "59eb363046bfc0c8629913685e42bedf3d5dcfdf"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/left/unculled/000.png": {
+      "sha256": "4c2a6ed989f59884dfbeb1fcbe19579cb47bd367619e808a946fd2bcdf10203a",
+      "git_blob": "4cc092acbe040911f09067e0b7c3a3174667f7fe"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/left/unculled/017.png": {
+      "sha256": "faf04cae3bb0ad6fc66712bdb3d9c8ea3dd7ce07b1586069cc20c8bd7f01efbb",
+      "git_blob": "430e00acd393d437231eb20d0e28c69abae53649"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/left/unculled/035.png": {
+      "sha256": "83be946ff65c3a65bbcffb431c24cbb262b165075868db64307f5aac22b7c5a9",
+      "git_blob": "321bb2f46ac614ce59c02d8122bc44423b0d855a"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/right/culled/000.png": {
+      "sha256": "acf287959e201bdab6aa41dfa1be98949186ce6ac1ae7bd6370b1093d4e537ed",
+      "git_blob": "1c4038e1bd199340e4a8e7c7c2b49a0140f953d0"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/right/culled/017.png": {
+      "sha256": "1321994ffe0926cdbf30053197b8b214a41e93b744802ed6a4077c92de9bec5e",
+      "git_blob": "91bd9383523b153c95bacee92e0d0fca9aa125b8"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/right/culled/035.png": {
+      "sha256": "1e54600e801abc663f7faf1550ef427bf69a7ee3a0ae3d1c1c601445bc16604d",
+      "git_blob": "9d1ce5d095c962fe70f980e61d2191a4b81a9533"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/right/full/000.png": {
+      "sha256": "99e28dd13dace292044af84022a6cb782136be00696871e5143ee6341f3c80d2",
+      "git_blob": "cb6845b8070ac5ca7fb7bda9d8082192b54f9a4c"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/right/full/017.png": {
+      "sha256": "c424d749f3316a3db4d253d272245efcc4c391074b77c0ef6539588937f091d1",
+      "git_blob": "92ed56ad2c51ff5706d7f51c2b4b3a39664c5729"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/right/full/035.png": {
+      "sha256": "b62281a961ae76ee70b462f7047ce9171eb1b99970a35a68c62ddb5bed347cb0",
+      "git_blob": "eda806d9ea8b168011496050546fe30785a880d6"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/right/motion.decoded.png": {
+      "sha256": "42f06b031d0bd6a455a07bcb8192169c0f874eba72e79e2c399ce171b298a406",
+      "git_blob": "f3013799450cad0f5dc7642a9282d6fdfe59561f"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/right/motion.json": {
+      "sha256": "356aa7a28d9a06003226eb0d20be8a23840176ab62799fdc6c4386b44fea8675",
+      "git_blob": "dd502b4ee0f191672130ecb648cf6e7e5575856e"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/right/motion.mp4": {
+      "sha256": "5a59cb82b8fe1ee62738fba31d9d50820a1db77654bcbf285e2e6ac3f7efc035",
+      "git_blob": "420da27645a28cba4cdde0098993e0b188f6a7b5"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/right/motion.webp": {
+      "sha256": "7f0421fef5359eb4f84b7a9f17664c6e6aa09570e5288c467605ea6f271a6e05",
+      "git_blob": "a488d1d135ba90944feb96ceff2bb7e56ba91a74"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/right/unculled/000.png": {
+      "sha256": "dc908a1d96a07b001de73720a74b48183fac7c049910a158dada5bc44beb30c8",
+      "git_blob": "d8dc79a19caedc841aa047bcc63bddb17a3e6b55"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/right/unculled/017.png": {
+      "sha256": "d5325a26a27400a09d9929b4445d44e9837b73ba78a7d048bf0ca0623982246a",
+      "git_blob": "2b7e03dc24c4d363c514eb306c42e0ad65329d2a"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/right/unculled/035.png": {
+      "sha256": "5d45fe9760e0965ae19569672a9dc317483f7b2305f6d939b2f1430fce0027eb",
+      "git_blob": "09557debdfdf2cdce96f102b54d1d7c44a3f885c"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/top/culled/000.png": {
+      "sha256": "622d09e9b6e6d7e2e42814236e2f167d69307a80df18bc86b98e4149b228064a",
+      "git_blob": "13ebb60e6833a7d7dc7129a7f2bfc4548d35d0cb"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/top/culled/017.png": {
+      "sha256": "e8e56acd8e5d7e129eec20b35d3aafe9146a5a088e6ead4e45bb8cdd3cab5d58",
+      "git_blob": "7f091c1a880996a824d20d6f55730c7748550126"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/top/culled/035.png": {
+      "sha256": "c521fd3ed877d66d84a30718a67343d16c894de6d076a99a915a8ab809f5370b",
+      "git_blob": "184c04d54cc48768706f793e4b6e9f54dfe68c61"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/top/full/000.png": {
+      "sha256": "785df5448f187551381c5a6fa9d6742b200b876d8e4f052ef160a867e257f772",
+      "git_blob": "0db66d69ca43b0076ec5391802d61fa9831b3d19"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/top/full/017.png": {
+      "sha256": "3143ca3e9082dcb89eb8595e425a93ca39d900f2376df6fc22dedccb296c8767",
+      "git_blob": "4f91addf31d3dd02ce8d7d763a1bf30c12c646bd"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/top/full/035.png": {
+      "sha256": "583f5f35d4ae6906670894aaf53e745117e791f86ab3e1b51d62da6645ca8446",
+      "git_blob": "60ead86daa8d19a3c589909273310cd7b1129b62"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/top/motion.decoded.png": {
+      "sha256": "a69f26128480268b6ca7f395dd31fb957ca14b0799a387f0cd815fd65c12c25a",
+      "git_blob": "ec67f9aeb287680facb0f4bccdb455679c2ba77e"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/top/motion.json": {
+      "sha256": "356aa7a28d9a06003226eb0d20be8a23840176ab62799fdc6c4386b44fea8675",
+      "git_blob": "dd502b4ee0f191672130ecb648cf6e7e5575856e"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/top/motion.mp4": {
+      "sha256": "9172736582fcf58a17f329b378ffc420eb649d71e75d78e5e86ca34b61d76548",
+      "git_blob": "17e7eb1078216f783c157a5d49e5aa8d177ba91e"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/top/motion.webp": {
+      "sha256": "82598fdb38ec860b0ff4bad910ee4ee96377f48cc3bbdd7882b0d53e0a5d04f7",
+      "git_blob": "8bf94c871e1118cdd754f7bd02ac1ad83f908c02"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/top/unculled/000.png": {
+      "sha256": "7731552569367a40da029b9789f0534c847d1184eb49184f8c308a0a5158efda",
+      "git_blob": "d4fea0d6e8509f35239e11f046fc6fc427d663eb"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/top/unculled/017.png": {
+      "sha256": "343079a294d5294c019c8157151cc280ed0a93226f031d1fb62709d8089111e8",
+      "git_blob": "57160afcc64648af36e7538cfbbcd7b4bc59af97"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/1280/native/top/unculled/035.png": {
+      "sha256": "ecf82e7c05f92064f94f568faf0aee2275c848bb7564ba8fd52b8cfc81d92118",
+      "git_blob": "e84f846607d62a3165f3e9ace9ac34b794c35169"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/plan-copy.json": {
+      "sha256": "cf81cbce6d9f422a23af1e57ab2514465ca1bfb837725acf34e6f2b541f92528",
+      "git_blob": "02f7be6f2582eec98ee6c76abad293f3058c68b6"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/source.json": {
+      "sha256": "3bb81b12ee27e066d190ac6760d89ca6de41ddf24e3a5a9b555c9643201c31a7",
+      "git_blob": "b3fdbb37aee1261408e793abbad36ab25b3291b7"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/storage.json": {
+      "sha256": "431865ae3c0a19cd8e4baef98094f0bf091aa8b216e0837a138ab4afc7f97b57",
+      "git_blob": "7bd0d3451726fac091edd183300a6ae49a82dfaa"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/native-01/viewing.json": {
+      "sha256": "af52208cf6d97d529836b355515ff024773da948ec9d33991d85c7e6252a3003",
+      "git_blob": "04cb63013ae78ebf2ea096235b70099980b70271"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/plan.json": {
+      "sha256": "cf81cbce6d9f422a23af1e57ab2514465ca1bfb837725acf34e6f2b541f92528",
+      "git_blob": "02f7be6f2582eec98ee6c76abad293f3058c68b6"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/profile.txt": {
+      "sha256": "ef8b1bb90feec5d8f6849ff5fd7e709167860147ce992c029518a7806260d7b2",
+      "git_blob": "25ce0a5898d6d7850841c367e24c595a0e653863"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/review-1/README.md": {
+      "sha256": "44c4c3db2b2836915901954315bf3eab38c56fce1dd918014c732ae699b792b8",
+      "git_blob": "f53df79f0845410ae808bed41034166cb34ff2a2"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/review-1/architecture.txt": {
+      "sha256": "cc338956b947f63ddf41b383df0747b3857b4410b3eefe59c8e8e1da029701d3",
+      "git_blob": "fde6be72fe94841d3338c4fe52725debbfa89ef1"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/review-1/browser.json": {
+      "sha256": "fed7822370e9a8fc28812eab70be833b5d223709c5b2328120ddafe4756d8aec",
+      "git_blob": "513f16557c7b1775745868a519a9b2c0d9fb3377"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/review-1/browser.png": {
+      "sha256": "d3b1237f16469de6f479f28240a239c23d8d86e1cdaee6284581ecd547adc049",
+      "git_blob": "db21f17f3d541090e44929ea7bf53ec272cd1c99"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/review-1/checks.json": {
+      "sha256": "54d0e1b3dca0aa80bbf8b5714455add1674c6edf7c1ee362714414495b9c7b0c",
+      "git_blob": "7f05a9ddef015c0b9051b74e3936b2a5e1e70d93"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/review-1/controls-development.txt": {
+      "sha256": "8188565bc3e7c7e317e6d904498204184ece4e85180f5d3ca61ffef99643a369",
+      "git_blob": "0839728e76e7e36bb56e23a3fd84c9ce62c5b728"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/review-1/expected-current-guard-rejection.txt": {
+      "sha256": "904824cc57bb760e1458e6feec12abbc0e149e8f0a192375b61d9fbb17ecc7eb",
+      "git_blob": "debaf003448a040a0f8c64f2757518b8f0311739"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/review-1/final-0.txt": {
+      "sha256": "8fa76395f497bae5bc9e5b46e8e4505262aed0edeac823060db81b46c2347bf9",
+      "git_blob": "756cee4e25eeeff5c2726475f3b43dc51fc97a79"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/review-1/final-1.txt": {
+      "sha256": "9656f04cbf8fbede9b1a92988edce8db05e77cb84f808b9be0fbfdb68dde9c6b",
+      "git_blob": "fe1dedf4bc5095428b04cb2d06ed28b3d5466443"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/review-1/final-2.txt": {
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+      "git_blob": "df5753ce44864d322f62b36c35868f8ae4e926e4"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/review-1/final-3.txt": {
+      "sha256": "0b4ba0cf21167264432aa27e2e397f7a011076e3ee673d30c7045f615eefadc0",
+      "git_blob": "bc3699d3093323854488c4fafa9569355a0e318d"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/review-1/final-4.txt": {
+      "sha256": "09df85cfe5d1420bb76228872b62fe8806518ebdfa8ace0dcc107892c31a185b",
+      "git_blob": "aa3db2355bd3adabd9333e5f1f39f53ad201ca49"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/review-1/game.txt": {
+      "sha256": "69cd91b3acfb19e7677fc22fc0cde2a56335f7b548d84a0ad403ec505783c050",
+      "git_blob": "8a034487340df534dcfc9a50c65b60eb57421ce4"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/review-1/primary-before.json": {
+      "sha256": "801813ce2227d6aa79065deaa1f411e597e951b299db211341b340f1b58df958",
+      "git_blob": "1a9554904cef496be85fedcf8181b46c53cd698b"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/review-1/primary-preserved.json": {
+      "sha256": "c0e10f01a16151965e2e7ffd6f3d51c2896bafb04debc5ec0d1ae155d41f0c98",
+      "git_blob": "fdf84d7dec8b9485d97d7e124cbaf634706661b7"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/review-1/reader.txt": {
+      "sha256": "e49c573251fe6a0af735319dcd5034ba3761372cc27a116d141311977118095f",
+      "git_blob": "bc3922616c70d15640736022d26370fe1f24e114"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/review-1/verification.json": {
+      "sha256": "f8b5eb8edcbbf4b903fbf258ef7da2ff91551d34ecd75244bff9181591d3b319",
+      "git_blob": "1f36181a6d3f965d97778d16661c45804364b0f5"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/review-1/wiki-metadata.txt": {
+      "sha256": "c46b7f0a05d4bc9d16630a6e9fa1f45e87f0a9e4d04baf5301e22f8af7328eaa",
+      "git_blob": "502dda25d88467ed6ff9725d33e31a7a615f2091"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/review-1/wiki.txt": {
+      "sha256": "538bc3e81cd62c112e51af168bf9687a3390fa9420c7c8614829e02dc551f49c",
+      "git_blob": "03aa2800e83b11fb76814a078d368e67070215ff"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/review-2/README.md": {
+      "sha256": "436dae83747f31dc7df2064d1f7dde0a6af995fc5e62436cd913ae65c4e0f5e5",
+      "git_blob": "700444573f402eff9880b4730a02c1ca9a8a5691"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/review-2/architecture.txt": {
+      "sha256": "4bf660596c4cbd720748b1803b6d99cbaf8b328f01e520b43e17834da934e58b",
+      "git_blob": "4bb67973d9def89324d727b3775858ef54f1091b"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/review-2/backlog-refresh.txt": {
+      "sha256": "8fa76395f497bae5bc9e5b46e8e4505262aed0edeac823060db81b46c2347bf9",
+      "git_blob": "756cee4e25eeeff5c2726475f3b43dc51fc97a79"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/review-2/checks.json": {
+      "sha256": "c960121747ca95ea80d1299632e5e4f9cea2efacd16e9055bc471e88e11732c9",
+      "git_blob": "6cae9d1c54fcdbcf744d310fe687ad72211bdabe"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/review-2/controls-before-hook-isolation.txt": {
+      "sha256": "87a1471411a31c643f6f0fce14f099a8e5683e2d64ef93032939ea26137b5034",
+      "git_blob": "6eee0c5318cc07644338e86a2752703a80929874"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/review-2/environment-regression.txt": {
+      "sha256": "a4296b2040b72ad04a6a0a89b156c1ebe3aae5c3a403377721662cf8fcc12d2f",
+      "git_blob": "10115ac4dbc58dfbb231a7b1285443d25399a11d"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/review-2/final-0.txt": {
+      "sha256": "8fa76395f497bae5bc9e5b46e8e4505262aed0edeac823060db81b46c2347bf9",
+      "git_blob": "756cee4e25eeeff5c2726475f3b43dc51fc97a79"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/review-2/final-1.txt": {
+      "sha256": "b51a1043de580e26f78f45d16ecfeb1923bb99c12bfb0bc041d0602f041c5d83",
+      "git_blob": "ad600bee2d95ebb98c847185f740e9d045263cd4"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/review-2/final-2.txt": {
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+      "git_blob": "df5753ce44864d322f62b36c35868f8ae4e926e4"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/review-2/final-3.txt": {
+      "sha256": "0b4ba0cf21167264432aa27e2e397f7a011076e3ee673d30c7045f615eefadc0",
+      "git_blob": "bc3699d3093323854488c4fafa9569355a0e318d"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/review-2/final-4.txt": {
+      "sha256": "023b7e8afefb66e83f8b4e9cedf9aa673ba94ee5ddb54a121c12169e93cd4158",
+      "git_blob": "614710a615b48435ecb8f105fd803ef14a9ff875"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/review-2/game.txt": {
+      "sha256": "69cd91b3acfb19e7677fc22fc0cde2a56335f7b548d84a0ad403ec505783c050",
+      "git_blob": "8a034487340df534dcfc9a50c65b60eb57421ce4"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/review-2/green-regression.txt": {
+      "sha256": "41a03a8b39f490f320cd7616c5cd45de1eaa3e8c6cef8932cd2bc9605c8f9f7a",
+      "git_blob": "3bb42f4e19bf20f2eb14d7f5d099b13a9bd841e5"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/review-2/parent-repository-preserved.json": {
+      "sha256": "c087327ef3ae1248f4f89c1c33bf252fb3369c324670899a4cafac35e9517b8c",
+      "git_blob": "de5e593a595d3260bf0c47a9b45e5d7f1c4f4b84"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/review-2/preservation.json": {
+      "sha256": "b3f86a16bd0812cd61a5fc1e19df74a9c0abc497d925f843688b679fa6de7849",
+      "git_blob": "4fcfb40382155993e6c39242892a9ec4b7f8d7a5"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/review-2/red-regression.txt": {
+      "sha256": "0c3df2c92031e5a1e2055db048047b206ab5378dacf8bfb2848a9af5805b2e76",
+      "git_blob": "e1b163388c82b5e28e45e36da22f29b62bc6072d"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/review-2/wiki-metadata-sandbox.txt": {
+      "sha256": "00584cbe0c5b82038017e89a0a9432b5ffdcb8dc4a8fa27a5dd6a42cf04b93c1",
+      "git_blob": "61cd0543db48454e41bc7a2b3528fda5398cdead"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/review-2/wiki-metadata.txt": {
+      "sha256": "d218150cfc6a63a0927532d5263e8e2b3da5d162031ee658df859d9774c2abcc",
+      "git_blob": "33e11ccf66b844bfbc11b38002433bdeee09acd6"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/review-2/wiki.txt": {
+      "sha256": "a9bd60c31b89d6c8ff0b93834801e2d1f65c73103ed20f3ffc265e30a759ab7e",
+      "git_blob": "302bf370a0721b08e9a036e518356b200d752cf6"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/sources.tar.gz": {
+      "sha256": "56727315cf46c5cf020033a2023f762870af57668c18d1870fbde55760d0f776",
+      "git_blob": "b7c522a35a919dacf50f2d2c7ead61fd35ccdf08"
+    },
+    "docs/reports/visual-overhaul/vfoliage-010/verification.json": {
+      "sha256": "e73fa41eab1019b1a2451768ee93609d4e4e413b0a5c1625c811f5c08c6b363f",
+      "git_blob": "b8adb75aec0b3ae23085d2f0217e2d074de4a948"
+    }
+  },
+  "incoming_files_exact": {
+    "AGENTS.md": "b7e9443dcd2cc481ad85fc360fca5dc2b7b4bfaf0ea5d0a93a122b29991f13d4",
+    "TESTING.md": "58eb664fe05d8fe7b9f5f8575402ad5baccae42f5b3a4117f9056c403e39e914",
+    "docs/backlog/README.md": "d0edf8e764015a75dcd062d84e045ea79b55462c00e29930ffb1dd084d363c6b",
+    "docs/epics/refactoring-2026-10/README.md": "d551ae6c745824e8345159bfaa4789332d558a9b5a7b79df41a2fb7129f0dd61",
+    "docs/epics/refactoring-2026-10/TASKS.md": "a3f5e456d971c2451e3af59982f5b089b0b4a806e70deb3c77c48fa682017da7",
+    "docs/reports/refactor-00/README.md": "2f4e85fddacf522ef775b06700af77823e1c63c41901bd6b9135b4db8c81c406",
+    "docs/reports/refactor-00/checks-first.json": "680a436477a35c7a3435ba82f3417e3ddc513c3288d41627f58e87cb6698a451",
+    "docs/reports/refactor-00/integration-1/README.md": "c4c1554665d03607cc79bfa0d66dee114b5e183c8d50813bafb8017d662cf558",
+    "docs/reports/refactor-00/integration-1/architecture.txt": "ca1b83408c591451fc07c70e4a3aa02faaab5bbe4f712d6eed44a56cb4839f8b",
+    "docs/reports/refactor-00/integration-1/browser.json": "0cfcc87b1eb5f833779f1367cbbe84d71c1ccf8b4fbff816a1179a101ecb811c",
+    "docs/reports/refactor-00/integration-1/checks.json": "a2543cdcbbc76303735eb70667f4e2c783e29aeb842ad3fc677f9aff2156780e",
+    "docs/reports/refactor-00/integration-1/final-0.txt": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+    "docs/reports/refactor-00/integration-1/final-1.txt": "7b0c62667cec0862b51794006bde95ad404d96c3436f5b19527cf6240bb61d3a",
+    "docs/reports/refactor-00/integration-1/final-2.txt": "8fa76395f497bae5bc9e5b46e8e4505262aed0edeac823060db81b46c2347bf9",
+    "docs/reports/refactor-00/integration-1/final-3.txt": "8fb5a67298ef1bc5205a24ee340f5daccc49bc0c6a2dca1d8f02c020c8efe1f8",
+    "docs/reports/refactor-00/integration-1/final-4.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/reports/refactor-00/integration-1/game.txt": "493f576e7003c093e8e7067962157022602b7045e81f11a55139a8f15d9667e0",
+    "docs/reports/refactor-00/integration-1/preservation.json": "7447cbaf4350370b6c397b086004ad749d236fa503d463b5fd488c29d436663f",
+    "docs/reports/refactor-00/integration-1/wiki-final.txt": "da7606d61bbcbc63c960d0184a5fb77bd62b9f8b8bf1df4613affe42228268b0",
+    "docs/reports/refactor-00/integration-1/wiki-first.txt": "d68d3c621ca525d95d3a54a7cdff22a3f96b086d6a61cedbd9e6fa7b2d801dc9",
+    "docs/reports/refactor-00/inventory.json": "9ae497f847e82c5d0095030e2e80fae6b5595c9853048145270846e9077677de",
+    "docs/reports/refactor-00/precommit-first.txt": "7ee78bc2e3580622412abfd85609cb612cef6c4a7bb97145555aa3e9a4559719",
+    "wiki/articles/project-refactoring.md": "da8bfb949562da066ac8ef3f10f7e4c3f1802d7f1e0f70dbe2226ca2d0dbd07a",
+    "wiki/planning/sources.json": "02bb479081c92d080b672db671e6c3ac6f6bee13e8ba3c96809e69d420b3ea7b"
+  },
+  "own_files_exact": {
+    "docs/epics/visual-overhaul-2026-10/backlog.json": "b1934d14272b4a7c2c280b6e7a0d33c790e60bbf2f3e132c3dd84f52d4f87426",
+    "docs/epics/visual-overhaul-2026-10/epics/vfoliage.md": "6646ce0eed8b59ef1a5e684665f1da5ab8ba86b1f588a46f40700453cbf155b0",
+    "docs/epics/visual-overhaul-2026-10/index.html": "3912b55d4cf9ce7a28a6e000f2ba43356d2a8d937af36ca2711b148c03f3aca8",
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/README.md": "7591a23aff7f16492a59b31362575a0a13faa90ae371f08e4ed31362d8e9384c",
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/accepted-files.json": "eb9fcdacaebb134d30463baac92751dad059f701bf7298000f40943ccb81903a",
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/architecture.txt": "283bbdad70a5482a1eef1f324606c2b3493f65e71a931267a6d4e715d2048875",
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/backlog-refresh.txt": "8fa76395f497bae5bc9e5b46e8e4505262aed0edeac823060db81b46c2347bf9",
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/browser-article.png": "0c49d09c16843e7379804f514e3ed3b0cb12802d30bb3ed3a25581af25b61734",
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/browser-attachment.txt": "b70d8e5b0c3fc3f4a7eec0e5184e270fb5bb707fb082a0d5af9d5d0ba75f65f7",
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/browser-task.png": "a2c6b60793ff2c373c6ea5b7ac098cc19b3d553d893753956104a85c1f87f10d",
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/browser.json": "cc596f3f74df39685c15da26c8ebc01cbde52ef692ea548481000c95e9d90257",
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/checks.json": "a5bbdec162e565bbc5e8c88fc5f345dd6e688e5ec50900e66e15b3b6b16ba347",
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/completion.json": "986bde6be83511a6f5605262f842042368c58799aec4cd108ffcdee4f81944ec",
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/final-0.txt": "8fa76395f497bae5bc9e5b46e8e4505262aed0edeac823060db81b46c2347bf9",
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/final-1.txt": "bb094c35d47145901048888411b7535c3d659d54525426db7b567f72aa8fe3c9",
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/final-2.txt": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/final-3.txt": "0b4ba0cf21167264432aa27e2e397f7a011076e3ee673d30c7045f615eefadc0",
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/final-4.txt": "8fb5a67298ef1bc5205a24ee340f5daccc49bc0c6a2dca1d8f02c020c8efe1f8",
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/final-documents.json": "e680d1c43f5d35c1f20b9607f91a91da42fac8c04d15acfec03b51a8d67bc294",
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/game.txt": "49b41012bede7a8c0923907ce453645758ff773f851431bbde5e9e1d0c724f70",
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/headless/f10/engine.txt": "3a314eeb424a31f6c05742518411d75104b17d70dc180349e056565df924f846",
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/headless/f10/frames.jsonl": "722edb414774ad5e3f55bab5572804b843d560964adae667402746236c546fe1",
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/headless/f10/summary.json": "77ab159458aa09df2bcaefbedcf9555926fe6adbbe38ca764fa40c2ea0d4082f",
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/headless/normal/engine.txt": "dd4b7d80d5deff0019817841c8e05e33c635f78a7a63a85f07530400977c1672",
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/headless/normal/frames.jsonl": "e814c41766f48a5d728ee7a26eb3e77327f0160e2e36defbcd15714c92942d64",
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/headless/normal/summary.json": "440aed09fad89fff01c3e9cbdc4dee8b9c4441348b00c34bc508c899c7150ecc",
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/post-backlog.txt": "8fa76395f497bae5bc9e5b46e8e4505262aed0edeac823060db81b46c2347bf9",
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/post-documentation.txt": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/scope-audit.json": "1816ae78a891c7d8276ad8f57981eb8545868e8d39d57c3e3efa432d39896240",
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/wiki-metadata.txt": "a9506446621ad065160baa224027938a3665b9e5b4b82128e2b34cc0049606c3",
+    "docs/reports/visual-overhaul/vfoliage-010/closeout/wiki.txt": "5385279c96374d51ce0f6b94b5eca8c3b576aaae39b74a1bfd9904cd765ab96d",
+    "wiki/articles/foliage-visibility.md": "c58f0c79b9c67a774e59276b7c6ce23c3dc479e58aaca048b030a8def57f4773"
+  },
+  "wiki_index_three_way_merge": true,
+  "refactor_cards_preserved": [
+    "REFACTOR-00",
+    "REFACTOR-01",
+    "REFACTOR-02",
+    "REFACTOR-03",
+    "REFACTOR-04",
+    "REFACTOR-05",
+    "REFACTOR-06"
+  ],
+  "priority_and_done_paragraph_preserved": true,
+  "both_closeouts_required_before_REFACTOR_01": true,
+  "runtime_tests_assets_QA_unchanged": true,
+  "new_native_capture": false,
+  "new_graphics_card_started": false,
+  "limits": {
+    "GPU_FPS_accepted": false,
+    "VRELEASE_003_accepted": false,
+    "VMAP_003_accepted": false
+  },
+  "nonversion_metadata_identical_to_both_parents": true,
+  "incoming_PR9_head": "7667c7e0ea04a9b61b458b825afcc552dd9d7fb9",
+  "incoming_PR9_review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/9#pullrequestreview-5644081658"
+}
