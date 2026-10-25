@@ -1,0 +1,184 @@
+{
+  "schema": 1,
+  "base": "2fa58d3719ff89f6f61a755e531d963807762ae9",
+  "reservedPR": {
+    "number": 2,
+    "head": "9592ad3f65ea5e219580fb13027d4981df4d0fbb",
+    "ideas": [
+      "IDEA-222",
+      "IDEA-223",
+      "IDEA-224",
+      "IDEA-225",
+      "IDEA-226",
+      "IDEA-227",
+      "IDEA-228",
+      "IDEA-229",
+      "IDEA-230",
+      "IDEA-231"
+    ]
+  },
+  "ideas": [
+    {
+      "id": "IDEA-232",
+      "title": "Последний фонарь — обещание до заката и необратимый исход",
+      "group": "stories",
+      "taskCount": 5,
+      "dialogueNodes": 3,
+      "scores": [
+        4,
+        5,
+        5,
+        5,
+        4,
+        5
+      ],
+      "value": 94
+    },
+    {
+      "id": "IDEA-233",
+      "title": "Через двор или водовод — вывести раненого двумя путями",
+      "group": "travel",
+      "taskCount": 5,
+      "dialogueNodes": 3,
+      "scores": [
+        3,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "value": 88
+    },
+    {
+      "id": "IDEA-234",
+      "title": "Тёплый костёр — последний шанс найти уведённого беглеца",
+      "group": "stories",
+      "taskCount": 5,
+      "dialogueNodes": 3,
+      "scores": [
+        3,
+        5,
+        5,
+        5,
+        4,
+        4
+      ],
+      "value": 88
+    },
+    {
+      "id": "IDEA-235",
+      "title": "Нера у переправы — решить, кому назвать настоящее имя",
+      "group": "stories",
+      "taskCount": 4,
+      "dialogueNodes": 4,
+      "scores": [
+        2,
+        5,
+        5,
+        4,
+        4,
+        4
+      ],
+      "value": 79
+    },
+    {
+      "id": "IDEA-236",
+      "title": "Слово перед клинком — ссора, предупреждение и возможность отступить",
+      "group": "group-b0bd95e1",
+      "taskCount": 4,
+      "dialogueNodes": 3,
+      "scores": [
+        3,
+        5,
+        4,
+        5,
+        4,
+        5
+      ],
+      "value": 83
+    },
+    {
+      "id": "IDEA-237",
+      "title": "Северина и закрытая полка — тайна, которую можно доверить не всем",
+      "group": "stories",
+      "taskCount": 4,
+      "dialogueNodes": 3,
+      "scores": [
+        2,
+        5,
+        5,
+        5,
+        4,
+        4
+      ],
+      "value": 82
+    },
+    {
+      "id": "IDEA-238",
+      "title": "Каменная расписка — помочь человеку выйти из рабочего долга",
+      "group": "trade-services",
+      "taskCount": 4,
+      "dialogueNodes": 3,
+      "scores": [
+        3,
+        5,
+        5,
+        5,
+        4,
+        4
+      ],
+      "value": 88
+    },
+    {
+      "id": "IDEA-239",
+      "title": "После поднятого щита — принять сдачу и встретить бывшего врага",
+      "group": "group-b0bd95e1",
+      "taskCount": 4,
+      "dialogueNodes": 3,
+      "scores": [
+        2,
+        5,
+        4,
+        5,
+        4,
+        5
+      ],
+      "value": 77
+    },
+    {
+      "id": "IDEA-240",
+      "title": "Сторож Створ — договориться с тем, кто понимает слова буквально",
+      "group": "group-89472e22",
+      "taskCount": 4,
+      "dialogueNodes": 3,
+      "scores": [
+        2,
+        5,
+        5,
+        4,
+        4,
+        3
+      ],
+      "value": 79
+    },
+    {
+      "id": "IDEA-241",
+      "title": "Чужими руками — заметить, что простое поручение кому-то навредит",
+      "group": "stories",
+      "taskCount": 4,
+      "dialogueNodes": 3,
+      "scores": [
+        3,
+        5,
+        5,
+        5,
+        4,
+        4
+      ],
+      "value": 88
+    }
+  ],
+  "plannedLocations": 4,
+  "gameplayImplemented": false
+}
