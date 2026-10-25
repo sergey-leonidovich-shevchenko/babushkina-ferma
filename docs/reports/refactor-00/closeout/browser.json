@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "read_only": true,
+  "wiki_version": "0.0.341",
+  "origin": "http://127.0.0.1:4179",
+  "task_00_route": "#/development/tasks/refactoring--REFACTOR-00",
+  "task_00_status": "done",
+  "task_01_route": "#/development/tasks/refactoring--REFACTOR-01",
+  "task_01_status": "ready",
+  "task_01_dependencies": {
+    "REFACTOR-00": "done",
+    "VFOLIAGE-010": "done"
+  },
+  "task_01_audit_not_started": true,
+  "epic_route": "#/development/epics/refactoring--REFACTOR",
+  "epic_cards": 7,
+  "epics_total": 158,
+  "tasks_total": 2000,
+  "guide_route": "#/guides/project-refactoring",
+  "accepted_PR9_merge_visible": "9e647480",
+  "accepted_PR10_merge_visible": "3befe835",
+  "completion_attachment": "generated/attachments/a93b8a52716af22e15932afac1f44de0c1935cc0900510b2cab1d7120f088266.json",
+  "completion_attachment_sha256": "a93b8a52716af22e15932afac1f44de0c1935cc0900510b2cab1d7120f088266",
+  "completion_source_public_dist_identical": true,
+  "actual_attachment_json_fields_read_in_browser": true,
+  "screenshot_inspected": true,
+  "screenshot_file_saved": false
+}

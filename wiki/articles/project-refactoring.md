@@ -1,6 +1,6 @@
 # Рефакторинг: инструменты по назначению
 
-**Поручение пользователя 25 октября 2026.** После полного завершения текущей VFOLIAGE-010 разработчик приоритетно начинает [REFACTOR-01 — ведомость и карта переносов](#/development/tasks/refactoring--REFACTOR-01), затем упорядочивает tools. Текущие исправления PR №7, ревью и учёт не прерываются. Сам перенос ещё не выполнен.
+**Поручение пользователя 25 октября 2026.** Постановка принята через [PR #9](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/9), merge `9e647480`; учёт VFOLIAGE-010 принят через [PR #10](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/10), merge `3befe835`. После принятия отдельного учёта REFACTOR-00 следующая задача Developer — [REFACTOR-01: ведомость и карта переносов](#/development/tasks/refactoring--REFACTOR-01), затем тематические переносы tools. Аудит и переносы ещё не выполнены. [Запись приёмки постановки](../../docs/reports/refactor-00/closeout/completion.json).
 
 [Эпик и карточки](#/development/epics/refactoring--REFACTOR) · [Постановка в PR #9](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/9) · [Исходная ведомость](../../docs/reports/refactor-00/inventory.json).
 

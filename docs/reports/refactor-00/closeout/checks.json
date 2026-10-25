@@ -1,0 +1,141 @@
+{
+  "schema": 1,
+  "task": "REFACTOR-00",
+  "scope": "Accounting of accepted PR9 and readiness of the next audit after accepted PR10; no code moves",
+  "base": "3befe8356aa7beafd0b93c2eb7d3d3d004c9cfdd",
+  "version": "0.0.341",
+  "exact_closeout_head": "Reported in its PR after commit; this local receipt is not self-approval or current CI",
+  "mandatory_gates": {
+    "architecture": {
+      "command": "tools/check_architecture.sh",
+      "exit_code": 0,
+      "suites": 82,
+      "cases": 1135,
+      "reader": [
+        512,
+        36,
+        24
+      ],
+      "visibility_controls": 34,
+      "raw": "architecture.txt"
+    },
+    "game": {
+      "command": "./run_tests.sh",
+      "exit_code": 0,
+      "passed": 53502,
+      "failed": 0,
+      "redraw_normal_F10_each": [
+        90,
+        0
+      ],
+      "raw": "game.txt"
+    },
+    "wiki_first": {
+      "command": "pnpm --dir wiki check",
+      "exit_code": 0,
+      "passed": 135,
+      "failed": 0,
+      "raw": "wiki-first.txt"
+    },
+    "wiki_final": {
+      "command": "pnpm --dir wiki check",
+      "exit_code": 0,
+      "passed": 135,
+      "failed": 0,
+      "raw": "wiki-final.txt"
+    }
+  },
+  "source_sha256": {
+    "AGENTS.md": "b7e9443dcd2cc481ad85fc360fca5dc2b7b4bfaf0ea5d0a93a122b29991f13d4",
+    "TESTING.md": "0c32f06176d143029134208f4cee75709ec37d6f66a4cdacfed03c677fa2fa69",
+    "VERSION": "fb633054386f9575af3b905982b86d82f6e8f7c5eb9e243d13c28a8cd4c94af2",
+    "project.godot": "1a7f744530dfd71a0e0ba86ccd383bafc2d7cabed200a7a0d73e06b4f64b66fa",
+    "Бабушкина ферма.app/Contents/Info.plist": "7a399603acee946c8633e83c6cfbe1d1a52da16aa81c3740669ef05f0a0473f2",
+    "docs/epics/refactoring-2026-10/README.md": "5b1733b6f2f876953d83ede7dc84a494b98f726635f38f512fed6e800e53082c",
+    "docs/epics/refactoring-2026-10/TASKS.md": "a9e99876209926b54b461147a8f6331ab17ba0f8ac9f45207a21833e6458ba5c",
+    "wiki/articles/index.json": "d51f3a99841269dacbdd4832b7d1d738933742d78c17287ce2e352e9853a4493",
+    "wiki/articles/project-refactoring.md": "3842d0ce1318c8751522a72bce9a8dcc539880e3bbaf0ade4ab2d08b065ee400",
+    "wiki/articles/visual-pilot.md": "d14ad3889585da1f71ff2215e23703545705bb0cbf824f2688e3cdf9489d5ebe",
+    "wiki/planning/sources.json": "02bb479081c92d080b672db671e6c3ac6f6bee13e8ba3c96809e69d420b3ea7b",
+    "wiki/planning/state.json": "4f29dd686e7a4fc805d263e2d739cc3a6ccb5957c2a8e7e83f0ebefc05913192",
+    "wiki/planning/assessments.json": "5c777839fa118ccc01c0c3c9360187f626f4f15f703a6b7ca0082c6f92e6eef9",
+    "docs/epics/visual-overhaul-2026-10/backlog.json": "b1934d14272b4a7c2c280b6e7a0d33c790e60bbf2f3e132c3dd84f52d4f87426"
+  },
+  "artifact_sha256": {
+    "scope-audit.json": "f4cf8cfbbac68b987ec48e6990463f5cc70b1368f5405a4c29548d3c435c73ef",
+    "wiki-final.txt": "63b9737abc32513c0e32ddcfeb8433fa1c1ad5cba7f08643eb358fb73ea39655",
+    "game.txt": "493f576e7003c093e8e7067962157022602b7045e81f11a55139a8f15d9667e0",
+    "README.md": "038c4c48e50f9e620d045a3d4bc8378970cf073f05078a40b57a0d8a31591065",
+    "final-4.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "final-3.txt": "026fff8a5fa68a6048dd645d6dee18ecb725a940d3c9ca0912400ec13e3d3f87",
+    "final-2.txt": "8fa76395f497bae5bc9e5b46e8e4505262aed0edeac823060db81b46c2347bf9",
+    "final-0.txt": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+    "architecture.txt": "f58ad5188ffe7e5301e6664e61ec26d2c2e604c290a4614905fa16d372bbe80b",
+    "final-1.txt": "7b0c62667cec0862b51794006bde95ad404d96c3436f5b19527cf6240bb61d3a",
+    "catalog.json": "ab01c5103eb8919e1e81353c535d568feafb193bf514732f5c4f96e18c721808",
+    "wiki-first.txt": "884433adcc3802556cd011da80208805e4b40f35e25fe7a220609437f4736ae4",
+    "accepted-files.json": "5027c18ff9115a820ac83555d26458b2395e885be45523eca2916f5b691bcf0c",
+    "browser.json": "e08f34eb3023f556a97b5c961b59ec3ef054f80bee8e79cd63e5936818f654af",
+    "completion.json": "a93b8a52716af22e15932afac1f44de0c1935cc0900510b2cab1d7120f088266",
+    "headless/f10/summary.json": "3db9c3e341ec53fd57c8fdb6def2730879c74cf3fb0e61bf3a276d0486871e13",
+    "headless/f10/engine.txt": "2ba84acbf1b9480c9bac4e3eb3ff944a174834baec362db948d219582b53318e",
+    "headless/f10/frames.jsonl": "47fbf4c30e0cb77e102843168b931ab007c2040617b93a94986c805425db3451",
+    "headless/normal/summary.json": "6ed9992ccd2007ab9f1f0df8dec5340a00d824418a40f680e5715e796766b5f6",
+    "headless/normal/engine.txt": "ca9656beee503f1656249c232fed1af4953a2353f2049820a0959d70d8b99991",
+    "headless/normal/frames.jsonl": "f1525e48735f6f3581ace3f3c659164718bc4291dc04641676ce0588844370f2"
+  },
+  "final_checks": [
+    {
+      "command": [
+        "python3",
+        "tools/check_documentation.py"
+      ],
+      "exit_code": 0,
+      "raw": "final-0.txt"
+    },
+    {
+      "command": [
+        "python3",
+        "tools/project_backlog.py"
+      ],
+      "exit_code": 0,
+      "raw": "final-1.txt"
+    },
+    {
+      "command": [
+        "python3",
+        "tools/visual_backlog.py"
+      ],
+      "exit_code": 0,
+      "raw": "final-2.txt"
+    },
+    {
+      "command": [
+        "python3",
+        "tools/bump_version.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "raw": "final-3.txt"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check",
+        "3befe8356aa7beafd0b93c2eb7d3d3d004c9cfdd"
+      ],
+      "exit_code": 0,
+      "raw": "final-4.txt"
+    }
+  ],
+  "independent_review_required": "Team Lead; preparation author does not self-approve",
+  "commit_hooks": "Full mandatory gates executed explicitly; only duplicate pre-commit is skipped, normal post-commit retained",
+  "old_reports_preserved": {
+    "refactoring": 17,
+    "VFOLIAGE": 344
+  },
+  "new_audit_or_moves_started": false,
+  "browser_record": "browser.json",
+  "completion_attachment_sha256": "a93b8a52716af22e15932afac1f44de0c1935cc0900510b2cab1d7120f088266"
+}
