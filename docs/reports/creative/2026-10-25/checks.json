@@ -1,0 +1,22 @@
+{
+  "phase": "content before first normal commit",
+  "environment": {
+    "python": "3.11.17",
+    "pillow": "11.3.0",
+    "godot": "4.7.1.stable.official.a13da4feb",
+    "base": "2fa58d3719ff89f6f61a755e531d963807762ae9"
+  },
+  "documentation": "pass",
+  "editorialAudit": "pass; 221 old ideas/60 old assessments preserved; 43 future tasks; 30 nodes/91 answers; acyclic dependencies",
+  "wiki": {
+    "command": "pnpm --dir wiki check",
+    "log": "/private/tmp/creative25-wiki-final-content.log",
+    "tests": 135,
+    "failed": 0,
+    "version": "0.0.334"
+  },
+  "browser": "pass; browser-content.json",
+  "mandatoryPreCommit": "pending normal .githooks/pre-commit: architecture + full run_tests",
+  "gameplayScenarios": "not implemented; not run",
+  "audienceProbe": "future hypothesis, no observations yet"
+}
