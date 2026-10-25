@@ -3569,7 +3569,7 @@
       "id": "VFOLIAGE-010",
       "epic": "VFOLIAGE",
       "title": "Принять видимость и бюджет травы",
-      "status": "backlog",
+      "status": "in_progress",
       "priority": "P0",
       "phase": "pilot",
       "kind": "engineering",
@@ -3606,8 +3606,15 @@
         "confidence": "low",
         "basis": "Рабочая гипотеза на одну карточку; уточнить по пилоту. Не календарное обещание."
       },
-      "branch": "codex/vfoliage-010-visual-task",
-      "evidence": []
+      "branch": "codex/vfoliage-010-visibility-budget",
+      "evidence": [
+        "docs/reports/visual-overhaul/vfoliage-010/README.md",
+        "docs/reports/visual-overhaul/vfoliage-010/plan.json",
+        "docs/reports/visual-overhaul/vfoliage-010/native-01/source.json",
+        "docs/reports/visual-overhaul/vfoliage-010/verification.json",
+        "wiki/articles/foliage-visibility.md"
+      ],
+      "result": "Локальная проверка существующей травы: 512 нативных кадров в двух окнах,36 точных culling-пар и24 предельных target; реальные focus/present, четыре края камеры, проходы через x1920 и вдоль куста. Профиль131/0. Один target768×384, две canvas draw calls/192треугольника; реальные AABB покрывают изгиб, additive0/1/2 калиброван, максимум наложений1. Production scripts/assets/main неизменны относительно2fa58d3; новые механики не добавлены. Подробности: docs/reports/visual-overhaul/vfoliage-010/README.md. До публикации PR и ревью текущего SHA/решения Team Lead статус in_progress; FPS/VRELEASE-003/VMAP-003 не приняты."
     },
     {
       "id": "VTREE-001",

@@ -13,6 +13,19 @@
     ]
   },
   {
+    "id": "foliage-visibility",
+    "file": "foliage-visibility.md",
+    "title": "Трава у краёв камеры — VFOLIAGE-010",
+    "summary": "Четыре края, чанк и куст: 512 нативных кадров,36 точных пар и ограниченный target. Локально проверено; ожидается PR/review.",
+    "tags": [
+      "Разработка",
+      "VFOLIAGE-010",
+      "Первая локация",
+      "Растения",
+      "QA"
+    ]
+  },
+  {
     "id": "foliage-pause",
     "file": "foliage-pause.md",
     "title": "Эффекты на паузе — VFOLIAGE-009",
