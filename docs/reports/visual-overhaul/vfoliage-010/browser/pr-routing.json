@@ -1,0 +1,95 @@
+{
+  "heading": "Трава у краёв камеры — VFOLIAGE-010",
+  "pr": [
+    {
+      "href": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/7",
+      "text": "PR #7"
+    }
+  ],
+  "videos": [
+    {
+      "duration": 1.5,
+      "height": 648,
+      "label": "left — 1152",
+      "ready": 4,
+      "width": 1152
+    },
+    {
+      "duration": 1.5,
+      "height": 648,
+      "label": "right — 1152",
+      "ready": 4,
+      "width": 1152
+    },
+    {
+      "duration": 1.5,
+      "height": 648,
+      "label": "top — 1152",
+      "ready": 4,
+      "width": 1152
+    },
+    {
+      "duration": 1.5,
+      "height": 648,
+      "label": "bottom — 1152",
+      "ready": 4,
+      "width": 1152
+    },
+    {
+      "duration": 1.5,
+      "height": 648,
+      "label": "chunk — 1152",
+      "ready": 4,
+      "width": 1152
+    },
+    {
+      "duration": 1.5,
+      "height": 648,
+      "label": "bush — 1152",
+      "ready": 4,
+      "width": 1152
+    },
+    {
+      "duration": 1.5,
+      "height": 720,
+      "label": "left — 1280",
+      "ready": 4,
+      "width": 1280
+    },
+    {
+      "duration": 1.5,
+      "height": 720,
+      "label": "right — 1280",
+      "ready": 4,
+      "width": 1280
+    },
+    {
+      "duration": 1.5,
+      "height": 720,
+      "label": "top — 1280",
+      "ready": 4,
+      "width": 1280
+    },
+    {
+      "duration": 1.5,
+      "height": 720,
+      "label": "bottom — 1280",
+      "ready": 4,
+      "width": 1280
+    },
+    {
+      "duration": 1.5,
+      "height": 720,
+      "label": "chunk — 1280",
+      "ready": 4,
+      "width": 1280
+    },
+    {
+      "duration": 1.5,
+      "height": 720,
+      "label": "bush — 1280",
+      "ready": 4,
+      "width": 1280
+    }
+  ]
+}

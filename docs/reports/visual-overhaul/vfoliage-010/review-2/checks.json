@@ -1,0 +1,133 @@
+{
+  "task": "VFOLIAGE-010",
+  "review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/7#discussion_r4370635795",
+  "reviewed_head": "d3bf8f792cbf264c6a169755dfd1e66d5b3b68ea",
+  "candidate_version": "0.0.337",
+  "local_checks_complete": true,
+  "checks": [
+    {
+      "command": "tools/check_architecture.sh",
+      "exit": 0,
+      "raw": "architecture.txt",
+      "controls": 34,
+      "historical_frames": 512,
+      "exact_pairs": 36,
+      "coverage_targets": 24
+    },
+    {
+      "command": "./run_tests.sh",
+      "exit": 0,
+      "raw": "game.txt",
+      "passed": 53502,
+      "failed": 0,
+      "redraw": [
+        90,
+        90
+      ]
+    },
+    {
+      "command": "pnpm check (wiki)",
+      "exit": 0,
+      "raw": "wiki.txt",
+      "passed": 135,
+      "failed": 0
+    },
+    {
+      "command": "FutureCandidateControls.test_git_index_does_not_hide_untracked_production (old guard)",
+      "exit": 1,
+      "expected_red": true,
+      "raw": "red-regression.txt"
+    },
+    {
+      "command": "FutureCandidateControls.test_git_index_does_not_hide_untracked_production (fixed guard)",
+      "exit": 0,
+      "raw": "green-regression.txt"
+    },
+    {
+      "command": "FutureCandidateControls.test_inherited_hook_environment_preserves_parent_config_and_index",
+      "exit": 0,
+      "raw": "environment-regression.txt"
+    }
+  ],
+  "primary_files_unchanged": 223,
+  "historical_reader_and_previous_packet_unchanged": true,
+  "production_code_and_assets_unchanged": true,
+  "approval_state": "awaiting exact-new-head CI, independent review and Team Lead decision; no merge or Task-Complete",
+  "source_files": {
+    "tools/foliage_visibility_provenance.py": "ee2c962141890f02ee5d060ea8e5a4f35b3a3c0a95906c932eaa8ceea75db2b9",
+    "tools/test_foliage_visibility.py": "dcaa942f8d6c5bd0f673406a4c7c61670a7b4c2d3b623fd2d8bf9ba0485cc8cd",
+    "VERSION": "24360f9e48a54bbe8596f7d2a608dc0576350da8633d57e70dd03b6432edcdb0",
+    "project.godot": "c7d700801de12d9b921965d25a1736515d028f044b0aa161c2802f5081edf587",
+    "Бабушкина ферма.app/Contents/Info.plist": "adcee06ee832e70af50bf42fcc8a68ad19ca1128b2c7e7d559760f1f7b41b332"
+  },
+  "final_document_checks": [
+    {
+      "command": [
+        "tools/visual_backlog.py"
+      ],
+      "exit": 0,
+      "raw": "final-0.txt"
+    },
+    {
+      "command": [
+        "tools/test_visual_backlog.py"
+      ],
+      "exit": 0,
+      "raw": "final-1.txt"
+    },
+    {
+      "command": [
+        "tools/check_documentation.py"
+      ],
+      "exit": 0,
+      "raw": "final-2.txt"
+    },
+    {
+      "command": [
+        "tools/test_documentation.py"
+      ],
+      "exit": 0,
+      "raw": "final-3.txt"
+    },
+    {
+      "command": [
+        "tools/bump_version.py",
+        "--check"
+      ],
+      "exit": 0,
+      "raw": "final-4.txt"
+    }
+  ],
+  "wiki_metadata_refresh": {
+    "command": "pnpm --dir wiki check",
+    "exit": 0,
+    "passed": 135,
+    "failed": 0,
+    "raw": "wiki-metadata.txt",
+    "sandbox_attempt": {
+      "exit": 1,
+      "raw": "wiki-metadata-sandbox.txt",
+      "reason": "macOS get_system_ca_certificates; retry outside sandbox passed"
+    }
+  },
+  "artifacts": {
+    "README.md": "436dae83747f31dc7df2064d1f7dde0a6af995fc5e62436cd913ae65c4e0f5e5",
+    "architecture.txt": "4bf660596c4cbd720748b1803b6d99cbaf8b328f01e520b43e17834da934e58b",
+    "backlog-refresh.txt": "8fa76395f497bae5bc9e5b46e8e4505262aed0edeac823060db81b46c2347bf9",
+    "controls-before-hook-isolation.txt": "87a1471411a31c643f6f0fce14f099a8e5683e2d64ef93032939ea26137b5034",
+    "environment-regression.txt": "a4296b2040b72ad04a6a0a89b156c1ebe3aae5c3a403377721662cf8fcc12d2f",
+    "final-0.txt": "8fa76395f497bae5bc9e5b46e8e4505262aed0edeac823060db81b46c2347bf9",
+    "final-1.txt": "b51a1043de580e26f78f45d16ecfeb1923bb99c12bfb0bc041d0602f041c5d83",
+    "final-2.txt": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+    "final-3.txt": "0b4ba0cf21167264432aa27e2e397f7a011076e3ee673d30c7045f615eefadc0",
+    "final-4.txt": "023b7e8afefb66e83f8b4e9cedf9aa673ba94ee5ddb54a121c12169e93cd4158",
+    "game.txt": "69cd91b3acfb19e7677fc22fc0cde2a56335f7b548d84a0ad403ec505783c050",
+    "green-regression.txt": "41a03a8b39f490f320cd7616c5cd45de1eaa3e8c6cef8932cd2bc9605c8f9f7a",
+    "parent-repository-preserved.json": "c087327ef3ae1248f4f89c1c33bf252fb3369c324670899a4cafac35e9517b8c",
+    "preservation.json": "b3f86a16bd0812cd61a5fc1e19df74a9c0abc497d925f843688b679fa6de7849",
+    "red-regression.txt": "0c3df2c92031e5a1e2055db048047b206ab5378dacf8bfb2848a9af5805b2e76",
+    "wiki-metadata-sandbox.txt": "00584cbe0c5b82038017e89a0a9432b5ffdcb8dc4a8fa27a5dd6a42cf04b93c1",
+    "wiki-metadata.txt": "d218150cfc6a63a0927532d5263e8e2b3da5d162031ee658df859d9774c2abcc",
+    "wiki.txt": "a9bd60c31b89d6c8ff0b93834801e2d1f65c73103ed20f3ffc265e30a759ab7e"
+  }
+}

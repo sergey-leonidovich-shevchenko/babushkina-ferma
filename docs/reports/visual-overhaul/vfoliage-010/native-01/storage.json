@@ -1,0 +1,3048 @@
+{
+  "schema": 1,
+  "format": "animated WebP lossless/exact, every decoded RGBA byte verified",
+  "view_fps": 24,
+  "simulation_hz": 120,
+  "steps_per_frame": 2,
+  "slowdown": 2.5,
+  "frames": {
+    "1152/native/left/full/000.png": {
+      "archive": "1152/native/left/motion.webp",
+      "frame": 0,
+      "png_sha256": "684254d7a57ee7990f1d1bdd3bb26ad1bf4d23e435393c70b434e568947d04d6",
+      "rgba_sha256": "73e4c0b17133eab02117f605d87f949650e4cf2d1bfd993d77c5fd7432a97d64",
+      "kept_png": true
+    },
+    "1152/native/left/full/001.png": {
+      "archive": "1152/native/left/motion.webp",
+      "frame": 1,
+      "png_sha256": "b5170e6f6ce58a9eb2473d5c1f74e75768cbf6090ce1ab1b6c0269991c89ec01",
+      "rgba_sha256": "8be8eea53a5dfd0347e4f8d5a3af2f648ee8b4c6bd86d594519e03b04a2c06e5",
+      "kept_png": false
+    },
+    "1152/native/left/full/002.png": {
+      "archive": "1152/native/left/motion.webp",
+      "frame": 2,
+      "png_sha256": "1bd1e6c33ceabff2bf9c8177bacd00230b802df49a33e4a14913ea3b10d80c15",
+      "rgba_sha256": "3797d9e15c39bd2369e80cbc54b0429c51a771e379772ae1f8e8868d2bbf53f3",
+      "kept_png": false
+    },
+    "1152/native/left/full/003.png": {
+      "archive": "1152/native/left/motion.webp",
+      "frame": 3,
+      "png_sha256": "8e12bf4fa1a3beb541cf9b45dea58149b799b4f169d9cf1dc2418310e0443c77",
+      "rgba_sha256": "7501aa651f852c1a611b81decdd2f8ee813329434e8a4e0afdc9a8212ebb2e32",
+      "kept_png": false
+    },
+    "1152/native/left/full/004.png": {
+      "archive": "1152/native/left/motion.webp",
+      "frame": 4,
+      "png_sha256": "0f0586036fff139f96bf625458e91f9b6ab41f8631704d54db5d505e89927219",
+      "rgba_sha256": "eeb23b6556522898eb29477452219d3cfbd80795b25e2c4a665e3540249d8100",
+      "kept_png": false
+    },
+    "1152/native/left/full/005.png": {
+      "archive": "1152/native/left/motion.webp",
+      "frame": 5,
+      "png_sha256": "d09193c93558998cb97eb10312658b6efcda38df1f32dffb0c8c841b5302364c",
+      "rgba_sha256": "8550330301afd25bc720579d5fc3362c4739f69e5c16a1d496d4ec77671abc73",
+      "kept_png": false
+    },
+    "1152/native/left/full/006.png": {
+      "archive": "1152/native/left/motion.webp",
+      "frame": 6,
+      "png_sha256": "add6e5d7845526ca9cba552628f75a7fa63d881bff77577746e347bbeba41698",
+      "rgba_sha256": "79c90046212bd4e5a9c0d02830ae12cfca21993c2ca3b062dc0bc02f38b8a2d5",
+      "kept_png": false
+    },
+    "1152/native/left/full/007.png": {
+      "archive": "1152/native/left/motion.webp",
+      "frame": 7,
+      "png_sha256": "f6b49aa02b5f309f1cdd712b8ae9f7da42d68e30fa57ecd705ea4ddb1d193932",
+      "rgba_sha256": "1151af244a38c7849b27c255c452fdd11c072c4eb5f3e7e9700b481083386c13",
+      "kept_png": false
+    },
+    "1152/native/left/full/008.png": {
+      "archive": "1152/native/left/motion.webp",
+      "frame": 8,
+      "png_sha256": "cc69e93eee18a15d352680f0272dd9e53bc9e66bb1319a9acc2701a960f81bde",
+      "rgba_sha256": "b039e1249109df8105162a78040c2686df6bef81324d483b9166246822ac4eed",
+      "kept_png": false
+    },
+    "1152/native/left/full/009.png": {
+      "archive": "1152/native/left/motion.webp",
+      "frame": 9,
+      "png_sha256": "cd48701ab9bc9eea7dd1b4c0ddb4d7a2f2c7902568229b2e3b95da8df53d6f28",
+      "rgba_sha256": "357bb37cffac5f627a82b15bdcb212c141009b1924eede73c87d5fb3391149fc",
+      "kept_png": false
+    },
+    "1152/native/left/full/010.png": {
+      "archive": "1152/native/left/motion.webp",
+      "frame": 10,
+      "png_sha256": "435308a9ed4d46e0994e6156a4c641b8ac1b922deef85bd2c81274d155a24a77",
+      "rgba_sha256": "90f6d856be522c4f34125114e36b0976421ec57342cbd17cd89a994b8e9a316f",
+      "kept_png": false
+    },
+    "1152/native/left/full/011.png": {
+      "archive": "1152/native/left/motion.webp",
+      "frame": 11,
+      "png_sha256": "3556c51aaf4992c6f8bdebaa87349b7f55209dd883ab5470cdc40d22407d682a",
+      "rgba_sha256": "e90fa36cb4a881a48943c9570bd17cebce312f6f23a918f6f1b8902257e5a241",
+      "kept_png": false
+    },
+    "1152/native/left/full/012.png": {
+      "archive": "1152/native/left/motion.webp",
+      "frame": 12,
+      "png_sha256": "d49de65a403f402b10ce970e9cf4ba421bd01edbaaf7fa42e5d0f82708f7e9fe",
+      "rgba_sha256": "3dbc918ef02971d9429d33e608e7dbb4589209939290f10acffeba99003c498f",
+      "kept_png": false
+    },
+    "1152/native/left/full/013.png": {
+      "archive": "1152/native/left/motion.webp",
+      "frame": 13,
+      "png_sha256": "9e8d0a28970e795f3de3df9fb206c5190b420e97d0a53d39ee110a7694376928",
+      "rgba_sha256": "89ce72177fa47a1d8c74e9ad580bf1c9aad72bd50a9844a6844291cf60bc0227",
+      "kept_png": false
+    },
+    "1152/native/left/full/014.png": {
+      "archive": "1152/native/left/motion.webp",
+      "frame": 14,
+      "png_sha256": "fc06319a3a041aa1b196d89da66ef8fb78053ada11e1801cbf7c36d18d398095",
+      "rgba_sha256": "adeb2b04ce7e136a8629595cf5c5747f5ca28dd20e39b1630e35426e22818424",
+      "kept_png": false
+    },
+    "1152/native/left/full/015.png": {
+      "archive": "1152/native/left/motion.webp",
+      "frame": 15,
+      "png_sha256": "b8abbb0a24d8f2950c787bee9ca08c2e684e599fb8b18db050da485786bd79d3",
+      "rgba_sha256": "4637942c3d8757d2abbb0387bbe025ab8de60261512e9519f39ffa993f381c71",
+      "kept_png": false
+    },
+    "1152/native/left/full/016.png": {
+      "archive": "1152/native/left/motion.webp",
+      "frame": 16,
+      "png_sha256": "051bb86a89c1ccef43d7a3668f3fb3c3a0069f76b9acc9a82704ce514cf15052",
+      "rgba_sha256": "52acf0cd06b7bbc5cd3b37fa4dd382a725344367d6851f38c400c7f1a1c53681",
+      "kept_png": false
+    },
+    "1152/native/left/full/017.png": {
+      "archive": "1152/native/left/motion.webp",
+      "frame": 17,
+      "png_sha256": "80b81d4800a5a2c68772fa768f24d704df31c7036e5fcd8fa95919ac355f2a29",
+      "rgba_sha256": "2dbced490b5f4a9a04b49bc5dea89ede10d04e141e11eb6e99bd79d301e87cbb",
+      "kept_png": true
+    },
+    "1152/native/left/full/018.png": {
+      "archive": "1152/native/left/motion.webp",
+      "frame": 18,
+      "png_sha256": "5341e610527832116260d28d87a56b41b39f8867964f73495476686fd475dcdd",
+      "rgba_sha256": "090df219aff2b22139c464fe92475759cc8a836825b43c1fbbcac901a9b94e70",
+      "kept_png": false
+    },
+    "1152/native/left/full/019.png": {
+      "archive": "1152/native/left/motion.webp",
+      "frame": 19,
+      "png_sha256": "9ce1555bde40c2a0b449de52fd62618f422506e852b498944eae00ae55636eae",
+      "rgba_sha256": "5beac2d6647e55d1962f0d4119f5cab7e1f7cbe7a657e76ce29e3f0d8e946dab",
+      "kept_png": false
+    },
+    "1152/native/left/full/020.png": {
+      "archive": "1152/native/left/motion.webp",
+      "frame": 20,
+      "png_sha256": "2f7f1a496bd9eb01bbeaffd9156ed970650117a28d02ef1e90da8c19d796521e",
+      "rgba_sha256": "abdd689ceb6caad8332b6e57d30035b92afea8acd83f04c5884585c80e63fa38",
+      "kept_png": false
+    },
+    "1152/native/left/full/021.png": {
+      "archive": "1152/native/left/motion.webp",
+      "frame": 21,
+      "png_sha256": "02f50a106d14a09344bfbbc1eea10d17eff056acfbfc17423a79bc6af0cb0371",
+      "rgba_sha256": "5bbea3016b697fe3200f1220b81923b038c5ebe5d4a18dd4eeb6041beaa99a6d",
+      "kept_png": false
+    },
+    "1152/native/left/full/022.png": {
+      "archive": "1152/native/left/motion.webp",
+      "frame": 22,
+      "png_sha256": "7d1b05d732a85fb61bfe8d5af8368684721e0dbd2365a31ea75b005c8cc0c34a",
+      "rgba_sha256": "49ae37ea5c8cf80da670f2b2f428c4d59356db1eeefd6278f75dab5240ced11f",
+      "kept_png": false
+    },
+    "1152/native/left/full/023.png": {
+      "archive": "1152/native/left/motion.webp",
+      "frame": 23,
+      "png_sha256": "c22df958f37729c2d8832a73c83ee060179bb7cfa283c056e3c25b442c563ac2",
+      "rgba_sha256": "d28164fcf7f85a6d177f9e369659de3ed433a98fe6b186e783f037cb05b4b11e",
+      "kept_png": false
+    },
+    "1152/native/left/full/024.png": {
+      "archive": "1152/native/left/motion.webp",
+      "frame": 24,
+      "png_sha256": "54ebe2ebf34910582910289132cca3f4d93e4bbff6a8cc0daff5c0a593173473",
+      "rgba_sha256": "a5f2acd09b625e6e1cc8b511aeb3cbc69f8202778a179e38f7ca7b33dcb98b8d",
+      "kept_png": false
+    },
+    "1152/native/left/full/025.png": {
+      "archive": "1152/native/left/motion.webp",
+      "frame": 25,
+      "png_sha256": "c99a89c35999128c8e2d58988b4b9a4ad5bb73bef7807de26a6e28005f1bc381",
+      "rgba_sha256": "5221bb7e164f9c5ea631d763532372c85c6c1d6cd52f2fe3cd8c3371555a94c1",
+      "kept_png": false
+    },
+    "1152/native/left/full/026.png": {
+      "archive": "1152/native/left/motion.webp",
+      "frame": 26,
+      "png_sha256": "ca828a735cfd42f75b735f3198d03c408a506fd810f779f3d0b0bc9a5d6a92aa",
+      "rgba_sha256": "b516e8b269746276f9e0f9fa991e833d21fd26f8b10d38e8995cb0555eafade4",
+      "kept_png": false
+    },
+    "1152/native/left/full/027.png": {
+      "archive": "1152/native/left/motion.webp",
+      "frame": 27,
+      "png_sha256": "ad5a466017036b9be785448a6ebb0725db31c61dab587466917f11bfafff8a79",
+      "rgba_sha256": "336692f630b25899a3e420c8bb1ea062663a1d5605eaf1243bded19ef5e7adc8",
+      "kept_png": false
+    },
+    "1152/native/left/full/028.png": {
+      "archive": "1152/native/left/motion.webp",
+      "frame": 28,
+      "png_sha256": "9bd9cc6e3a83ec602d0102e0f76addfbdbff4e2562709553c93cc86050a6ff8e",
+      "rgba_sha256": "3ef122328f64d48906de002539525ae7b87612b403c9744eda5727e31aa92663",
+      "kept_png": false
+    },
+    "1152/native/left/full/029.png": {
+      "archive": "1152/native/left/motion.webp",
+      "frame": 29,
+      "png_sha256": "1ea7bad9692f75deb5589527eea37ac57f7a7b0e5dcc0cceaedd6ebb66e32c08",
+      "rgba_sha256": "01f77446fbe915587e194125c94e3e2fcb86676a043b5340222380ac8b70dfc9",
+      "kept_png": false
+    },
+    "1152/native/left/full/030.png": {
+      "archive": "1152/native/left/motion.webp",
+      "frame": 30,
+      "png_sha256": "9dad1e06ce48d50024e2b8a45896fca67f34cb5adb268366135f23b29bc4f3a9",
+      "rgba_sha256": "d1356f87f2efa1f25c2beff7458752e67449f4844f8020cb8029fd9a55efd6ef",
+      "kept_png": false
+    },
+    "1152/native/left/full/031.png": {
+      "archive": "1152/native/left/motion.webp",
+      "frame": 31,
+      "png_sha256": "c3d3cce65a2c2fc1145636829e0621efd2bbb49f800c91ba1ea0e294bb28ce8f",
+      "rgba_sha256": "7dfe40169b46b5f5c57fdc63d04dca820b56c56de2c78644110ff5f235fe7e17",
+      "kept_png": false
+    },
+    "1152/native/left/full/032.png": {
+      "archive": "1152/native/left/motion.webp",
+      "frame": 32,
+      "png_sha256": "003df9f40b35e76a06245a4e25e519f4d8ae9668822f68fdb897fe16f0f1c33b",
+      "rgba_sha256": "a558601ac5499da4a9fc8de8c6222d36d239f64d54ae16bbef1ea7912652e3f3",
+      "kept_png": false
+    },
+    "1152/native/left/full/033.png": {
+      "archive": "1152/native/left/motion.webp",
+      "frame": 33,
+      "png_sha256": "8c8e9f2ec768c4a3be5102b44acd72aa9e5cf8f8762465799632a535e54ae444",
+      "rgba_sha256": "cf0129f7be94f5eff4629401a8b2eddd2e4b255fd3be8155d7c5f0f559e5c84c",
+      "kept_png": false
+    },
+    "1152/native/left/full/034.png": {
+      "archive": "1152/native/left/motion.webp",
+      "frame": 34,
+      "png_sha256": "0a95cbb00b2bf72ebb36e91d02ed1aa5d81e2725df9b3146d693dd97f98f86e3",
+      "rgba_sha256": "7fbe33160f1ff0d67ff59a620156d5330cb9b489ef88ee07aad0121197b0afd5",
+      "kept_png": false
+    },
+    "1152/native/left/full/035.png": {
+      "archive": "1152/native/left/motion.webp",
+      "frame": 35,
+      "png_sha256": "ceddd43e626bd155b340a98f1c707a07cadd2202fb7a8dc823f30dc7aaf0e14e",
+      "rgba_sha256": "8f3a2a5a38dbdd439de3e9eec9b0f8fe077f3af8d00a4eadafb0bea4fae52d2c",
+      "kept_png": true
+    },
+    "1152/native/right/full/000.png": {
+      "archive": "1152/native/right/motion.webp",
+      "frame": 0,
+      "png_sha256": "05b1089f29c3569557999daef431112acdd0b4363ab235e5c21de67c8d7e3e90",
+      "rgba_sha256": "39d26981b1ad202af930a25d10fb21a32b4ff0dcb76d0ffb362527c78b932a71",
+      "kept_png": true
+    },
+    "1152/native/right/full/001.png": {
+      "archive": "1152/native/right/motion.webp",
+      "frame": 1,
+      "png_sha256": "6e25f3a602b05af7f5781f4da09a553b5278f90f13c0be89cec9b2d41ba3ada6",
+      "rgba_sha256": "ff12db6ba6aaff20f5eaeb7e1bb2afa68528b7c37870cb5ee8cdc62bd4eaf5c9",
+      "kept_png": false
+    },
+    "1152/native/right/full/002.png": {
+      "archive": "1152/native/right/motion.webp",
+      "frame": 2,
+      "png_sha256": "24020f38089b9d11107f94569138633135679b53dc54826e7230e8be27aaecaf",
+      "rgba_sha256": "ae1d3f9c7b394141a9e42f874b735eb70f30c616d31619cbd0e34f2c5db67763",
+      "kept_png": false
+    },
+    "1152/native/right/full/003.png": {
+      "archive": "1152/native/right/motion.webp",
+      "frame": 3,
+      "png_sha256": "dd4a4298659723d943ea213dd34b313bd39f6396b49cf1940e226d6c56dbf64a",
+      "rgba_sha256": "f031b1274931a9a136f636a36439e5caf4aac59619484d415bda0a24ec572b84",
+      "kept_png": false
+    },
+    "1152/native/right/full/004.png": {
+      "archive": "1152/native/right/motion.webp",
+      "frame": 4,
+      "png_sha256": "388c27985030b8f16b5cd63832cbbe74abfccd829c5167e3b63e231b95ec889c",
+      "rgba_sha256": "475f9e9870de7edc1d2def8f11a11e8be1152151162ae1ee32988e3be505e856",
+      "kept_png": false
+    },
+    "1152/native/right/full/005.png": {
+      "archive": "1152/native/right/motion.webp",
+      "frame": 5,
+      "png_sha256": "3bd0c5805c403281fdf4441285a1c37c610e7f6fa428097891ded9250649ab2e",
+      "rgba_sha256": "31cd684685fa481fb6124fc1352e26be894f6d70a2b70a1a6c825eeaa6a238e8",
+      "kept_png": false
+    },
+    "1152/native/right/full/006.png": {
+      "archive": "1152/native/right/motion.webp",
+      "frame": 6,
+      "png_sha256": "c57b247413665951abfcc7d0d870aa69318aaecc5414963a0b47105e4232553a",
+      "rgba_sha256": "a98632cdb464b6140918af9f6a4ac2cd9fca4165af7f1ae19e7cbe9dd6f1188a",
+      "kept_png": false
+    },
+    "1152/native/right/full/007.png": {
+      "archive": "1152/native/right/motion.webp",
+      "frame": 7,
+      "png_sha256": "7b5270c73e6d501ee3d14c105630c46480ed385f15bce670d193978a41c4cecc",
+      "rgba_sha256": "82e555c8729289ae211d913a285c7e566bdc09b7caa9ffb44120e1b787dac8c0",
+      "kept_png": false
+    },
+    "1152/native/right/full/008.png": {
+      "archive": "1152/native/right/motion.webp",
+      "frame": 8,
+      "png_sha256": "f19026ef7daaf2522db6ecf8228795548ad5b63aaf8a23e666403c6768a2facb",
+      "rgba_sha256": "54856e4b80b682f9c7d06f51c0661ce6858af444aff47a858fc711f5da6d9c14",
+      "kept_png": false
+    },
+    "1152/native/right/full/009.png": {
+      "archive": "1152/native/right/motion.webp",
+      "frame": 9,
+      "png_sha256": "175fdb5ba78870f658e16cb9b5143ae2159435d72d4550ab1ae74aabe3bcccc9",
+      "rgba_sha256": "e988fb6ac758f9265d63445c34ffba211817d7e96b9396ecc8a9d503fbb0fff5",
+      "kept_png": false
+    },
+    "1152/native/right/full/010.png": {
+      "archive": "1152/native/right/motion.webp",
+      "frame": 10,
+      "png_sha256": "8f094e1bcfbea492f0a59879b1f906a0df3e6b4c68158add29c9f9124a43ac9e",
+      "rgba_sha256": "c8f1b8bf4747904ad5f998569ea8376f68f3d109f975daae82b4a29e3e8d54f7",
+      "kept_png": false
+    },
+    "1152/native/right/full/011.png": {
+      "archive": "1152/native/right/motion.webp",
+      "frame": 11,
+      "png_sha256": "3796b7f72583bc8283df8144b17794c38b66ca915d5f550bc8a85354a4d3a126",
+      "rgba_sha256": "b8045c69bb4e66ea70558720e2efc86b90ba71dbab092da9e5a8cd0ecc9e0f18",
+      "kept_png": false
+    },
+    "1152/native/right/full/012.png": {
+      "archive": "1152/native/right/motion.webp",
+      "frame": 12,
+      "png_sha256": "735dcf317354e6bb9e2f77bf8ce187b598192a3d66e637910d884d4cd29b3c44",
+      "rgba_sha256": "9c53433c695deff91220e6701f80f617ab870cb25fc82bbb191c4014ee8a90ee",
+      "kept_png": false
+    },
+    "1152/native/right/full/013.png": {
+      "archive": "1152/native/right/motion.webp",
+      "frame": 13,
+      "png_sha256": "8e12921afebac79741e1b22de7cbe542ddd1aec86f8a9e174073344d2328910c",
+      "rgba_sha256": "d69df20491193e3b17c185e001b240f0e0fbadb8f163306ac57ae76fd15aed1a",
+      "kept_png": false
+    },
+    "1152/native/right/full/014.png": {
+      "archive": "1152/native/right/motion.webp",
+      "frame": 14,
+      "png_sha256": "b36904f78507db9f61812408f0932ec39fff97a19f7f1679af2ba4179fdd36dd",
+      "rgba_sha256": "979faf0670a7bad8ef72307729873511666699427e5c19f579ba947df5912486",
+      "kept_png": false
+    },
+    "1152/native/right/full/015.png": {
+      "archive": "1152/native/right/motion.webp",
+      "frame": 15,
+      "png_sha256": "b7bbce5d1896d1821300d9cf45764b2a3f69cb99e8b7d2eb387b9e784dd255e5",
+      "rgba_sha256": "4131ba0520faaed6b1a91fef7ba905999795b73777854ecaae470e3f6710d288",
+      "kept_png": false
+    },
+    "1152/native/right/full/016.png": {
+      "archive": "1152/native/right/motion.webp",
+      "frame": 16,
+      "png_sha256": "1531c33298c879ed42a8207d6d8fedc9a27b994f80edbc5e57ae0277ad7e46d7",
+      "rgba_sha256": "4d9cffcf3fcdc2fa9ebd15736603f6f3c9baf24cf4758a6a2c4fdb226b11d4e6",
+      "kept_png": false
+    },
+    "1152/native/right/full/017.png": {
+      "archive": "1152/native/right/motion.webp",
+      "frame": 17,
+      "png_sha256": "05e1d72bfa8a1492933c5912f1ff4b2a3fa0cfbdade202923f99159cc484f82e",
+      "rgba_sha256": "439d911d63c134d5cc64170014877768299e78a9f073f1bef42616599eb282a6",
+      "kept_png": true
+    },
+    "1152/native/right/full/018.png": {
+      "archive": "1152/native/right/motion.webp",
+      "frame": 18,
+      "png_sha256": "77a372c002e361f3b69e02c7f4edb880c73cbc94ed9943d2ea41f29c084647ab",
+      "rgba_sha256": "880d8f7a751cda59456d56e73a24281322e7c5cf1c6beaad3427eaaa2bcda5b1",
+      "kept_png": false
+    },
+    "1152/native/right/full/019.png": {
+      "archive": "1152/native/right/motion.webp",
+      "frame": 19,
+      "png_sha256": "236828b878b66b30ae5f77f3c8707dd9d6ea061b7f9d6695dd34044ebc6cc7d8",
+      "rgba_sha256": "e2b60e2fc78ae2036bedbcfb0fd0c93076dcb97991323040b96c6c48dfe91847",
+      "kept_png": false
+    },
+    "1152/native/right/full/020.png": {
+      "archive": "1152/native/right/motion.webp",
+      "frame": 20,
+      "png_sha256": "11649ab2e65082394c290ef913abf080721e0ef2b694a86e6636847a0411a7dd",
+      "rgba_sha256": "d3f48acb9862e84a0b5bf8d6a2c2e7a9c81c81a24e8b2982ed5d7f4b3fa9f842",
+      "kept_png": false
+    },
+    "1152/native/right/full/021.png": {
+      "archive": "1152/native/right/motion.webp",
+      "frame": 21,
+      "png_sha256": "ae9ee47516fd921b8921f2e0bf61a34ee8a7fc3c30c290a4750a56929e203c5f",
+      "rgba_sha256": "3d8887f90c8bb1cc0fbe6532d48ec0d927b6ffeab888a9d76aa189a7f3940267",
+      "kept_png": false
+    },
+    "1152/native/right/full/022.png": {
+      "archive": "1152/native/right/motion.webp",
+      "frame": 22,
+      "png_sha256": "5a59b87bca8153b211b84d4ea79faba52f9e9cb8c60b47b4bfd185d2ee87702d",
+      "rgba_sha256": "a3903faa327b0d960bcec7a5daed74eb6a1e63433ee2645afa4a8f36a5d17e69",
+      "kept_png": false
+    },
+    "1152/native/right/full/023.png": {
+      "archive": "1152/native/right/motion.webp",
+      "frame": 23,
+      "png_sha256": "6fc9aa83f15497a8ef585d63e332b112120a5391c301031d7182c3693cc59183",
+      "rgba_sha256": "40271a5db8d3f79de41246019aa8cab417eaf7e5c3723e0a5ddcc69b309a39c2",
+      "kept_png": false
+    },
+    "1152/native/right/full/024.png": {
+      "archive": "1152/native/right/motion.webp",
+      "frame": 24,
+      "png_sha256": "c89565db3d74b78b4742c5d8018c1fe491d96ed824e85be2798159a96421eadb",
+      "rgba_sha256": "91cbe27220b512ac93e86944487f28d62e2122fc74ad89f6c87a185e5559aecd",
+      "kept_png": false
+    },
+    "1152/native/right/full/025.png": {
+      "archive": "1152/native/right/motion.webp",
+      "frame": 25,
+      "png_sha256": "3ccf802d8556b24d8bb6c44fef7b53bb41e68891f61143b372a015a6bbde034a",
+      "rgba_sha256": "08750ed6d781c4e21297160e45b93785801f30be350464e798e13e90012781e5",
+      "kept_png": false
+    },
+    "1152/native/right/full/026.png": {
+      "archive": "1152/native/right/motion.webp",
+      "frame": 26,
+      "png_sha256": "293363bf7c6192c8667e902af4c2794c79173627e7d19da51dab18bfa2dee227",
+      "rgba_sha256": "c5ef3ebb16d02c7e60e2e925e1f151e12361d822fba5b4c8575163e15ba244ea",
+      "kept_png": false
+    },
+    "1152/native/right/full/027.png": {
+      "archive": "1152/native/right/motion.webp",
+      "frame": 27,
+      "png_sha256": "0c551d3bc43ceb1282361406a576adcbab5b80bbd0ee479a7f9a9ef6dd58355f",
+      "rgba_sha256": "dc021d14d0e9e4acac21d3122fb91b6bdd19acf487b9447435ef1806096618c4",
+      "kept_png": false
+    },
+    "1152/native/right/full/028.png": {
+      "archive": "1152/native/right/motion.webp",
+      "frame": 28,
+      "png_sha256": "5df8757eb1e0f36de60fb94b2eebe39687d1eebe00d325caa4c3470ab797f831",
+      "rgba_sha256": "f969e5a7660ef02c518c5c8731310f619899ea43e99854fe0643beff5dc026ff",
+      "kept_png": false
+    },
+    "1152/native/right/full/029.png": {
+      "archive": "1152/native/right/motion.webp",
+      "frame": 29,
+      "png_sha256": "37c20a7a58a907ec6ec3c97a84ebddcebb55cdce9562360111c94cdfbac23f9b",
+      "rgba_sha256": "f5c4d0f3de0b69f68b31a68854bb9716137172c2f2d69c94276c01c07cbdffbb",
+      "kept_png": false
+    },
+    "1152/native/right/full/030.png": {
+      "archive": "1152/native/right/motion.webp",
+      "frame": 30,
+      "png_sha256": "df6fdf6938419c1431d8be470e629b29a513107ee48747dea1bbc64b6cd0877f",
+      "rgba_sha256": "e41e292d5d44023efc51104e79f89d067cbd61001486fb4e06a6e7aebdca4249",
+      "kept_png": false
+    },
+    "1152/native/right/full/031.png": {
+      "archive": "1152/native/right/motion.webp",
+      "frame": 31,
+      "png_sha256": "8dc1e6a4d150158b4ec537f99f4af65e2bcbbcbccc05967b796070c1ec772637",
+      "rgba_sha256": "3dbfd4f096a9231c35afeff632cbfca47059adf647a89c19c68c09a7ea73d254",
+      "kept_png": false
+    },
+    "1152/native/right/full/032.png": {
+      "archive": "1152/native/right/motion.webp",
+      "frame": 32,
+      "png_sha256": "ce32edb498b393ecc0943cab2743c35422a316e2be62a5c96c29bbbd6728cc19",
+      "rgba_sha256": "ce49fb9246295bb7d517176065f51a8c5d51d07966fe6205b5921af383dedb07",
+      "kept_png": false
+    },
+    "1152/native/right/full/033.png": {
+      "archive": "1152/native/right/motion.webp",
+      "frame": 33,
+      "png_sha256": "075293b998117d6f420fe88a7a918629299d2ff96ba6b1d8e78424e52bac6ff0",
+      "rgba_sha256": "46d65d7e91081b058afa25513650fca8af6b7a274f5b753e0e96ab6e1e1e2d47",
+      "kept_png": false
+    },
+    "1152/native/right/full/034.png": {
+      "archive": "1152/native/right/motion.webp",
+      "frame": 34,
+      "png_sha256": "654c2a241842d353e18923244954bb5b36d84b3cf558a982bcb961a7a1db2cf8",
+      "rgba_sha256": "debd2ddb73f4c71b357fd5a0f261178cd144e75a632d112896971e86c05433c7",
+      "kept_png": false
+    },
+    "1152/native/right/full/035.png": {
+      "archive": "1152/native/right/motion.webp",
+      "frame": 35,
+      "png_sha256": "b6b41720b0decbf37910346fd8ad7bd4403acfe29d89f090c743fcde48031f7c",
+      "rgba_sha256": "52303a33f15d3c43eb1c26fcf2c72df21189c692729a817c1b7a19bd9e834d44",
+      "kept_png": true
+    },
+    "1152/native/top/full/000.png": {
+      "archive": "1152/native/top/motion.webp",
+      "frame": 0,
+      "png_sha256": "b38cb9624b294b0391911c3edb0cf94d8699327e283f2dd11183f7feb42dc52b",
+      "rgba_sha256": "f41058b7ee46654b778a454cb4c6e7107ca38b30da803d8e25859b903b497984",
+      "kept_png": true
+    },
+    "1152/native/top/full/001.png": {
+      "archive": "1152/native/top/motion.webp",
+      "frame": 1,
+      "png_sha256": "58bbd5c93971d979e8f6b40cca9adf43d8a95aa76e188ca6f2cb0264681b313d",
+      "rgba_sha256": "cc14ddafd5d7c79bf7591dadd17c04e62a41d2b631dab54ea6817cace9ad8657",
+      "kept_png": false
+    },
+    "1152/native/top/full/002.png": {
+      "archive": "1152/native/top/motion.webp",
+      "frame": 2,
+      "png_sha256": "f7a850487fff95d15f84f5c92ae431a9ec55598defa82b2e32b3a2a8fce18b39",
+      "rgba_sha256": "3cd7636adf09022bf47843c4daca2474850f6e90cd2944d5fe0de92ec7085124",
+      "kept_png": false
+    },
+    "1152/native/top/full/003.png": {
+      "archive": "1152/native/top/motion.webp",
+      "frame": 3,
+      "png_sha256": "c0ea592be57b611ce02141427273937815d5f40726cacd930432d4052fa33dba",
+      "rgba_sha256": "6bf7efd82ac98ab75611cb736c869f008efb9269f06a957471a1ffcbf354cc31",
+      "kept_png": false
+    },
+    "1152/native/top/full/004.png": {
+      "archive": "1152/native/top/motion.webp",
+      "frame": 4,
+      "png_sha256": "8b7e2d5ec97dd5a9ce4468a36bad08ce0b455a840aca70641250625ff7cdf799",
+      "rgba_sha256": "29b9b7812f96763574779fd938af4ebae57830bbdb9ecf7f17fac2160d043864",
+      "kept_png": false
+    },
+    "1152/native/top/full/005.png": {
+      "archive": "1152/native/top/motion.webp",
+      "frame": 5,
+      "png_sha256": "85e65d87db007d89f0391521ce01fb9f9c38c987f6dcb38a1ebb3b28d058c8c6",
+      "rgba_sha256": "d1c54a502506df0b65315452540d1c08021e8eb8a72ea460665a6ad0a1eb3dab",
+      "kept_png": false
+    },
+    "1152/native/top/full/006.png": {
+      "archive": "1152/native/top/motion.webp",
+      "frame": 6,
+      "png_sha256": "39850b4bb14cf67d6887fd50881f82dcce7fedd8fa06aac090eda31a86bb268f",
+      "rgba_sha256": "e968e3ac80be970e9bf938bc80430d17d4c665b29c878136d8ee9bf4fea896e5",
+      "kept_png": false
+    },
+    "1152/native/top/full/007.png": {
+      "archive": "1152/native/top/motion.webp",
+      "frame": 7,
+      "png_sha256": "90be6a9017e30d7a1c450381dba5b6bcf2fd6083e238132e7826d099666d80b8",
+      "rgba_sha256": "acffe915ce7570805364f7cc5efc68cd2c721b6f59595b5330bdab588da25838",
+      "kept_png": false
+    },
+    "1152/native/top/full/008.png": {
+      "archive": "1152/native/top/motion.webp",
+      "frame": 8,
+      "png_sha256": "5b4439328475d7f7fa4429780a8059b30fb56c99e834314612c4129ed9c7e9b6",
+      "rgba_sha256": "888900adbe18e2252415363ec753c6382522a1214667d911506bd04b3ed8b989",
+      "kept_png": false
+    },
+    "1152/native/top/full/009.png": {
+      "archive": "1152/native/top/motion.webp",
+      "frame": 9,
+      "png_sha256": "d198d873101639c614a5728c32173351b7bd81bb13d5cab9c82fb8512cf3eded",
+      "rgba_sha256": "4dc83ee9c2c1a468e95c68925c90cbceed7e40423295e0c62474ceb3aaf1dfb9",
+      "kept_png": false
+    },
+    "1152/native/top/full/010.png": {
+      "archive": "1152/native/top/motion.webp",
+      "frame": 10,
+      "png_sha256": "5e9b5a40b92cab9b036fdfa5426bc36983ddb5d8ab1e3dda23fbc956f96ed8ad",
+      "rgba_sha256": "5db5c3bf602674c1e32dc19f47e3951157b5460e67cfbcd2b0a3ac373763ec32",
+      "kept_png": false
+    },
+    "1152/native/top/full/011.png": {
+      "archive": "1152/native/top/motion.webp",
+      "frame": 11,
+      "png_sha256": "cda2d9ae879b817580c050cb0d22c15178dc60c4e012e2f61f03f2dbf0a2312e",
+      "rgba_sha256": "48320f923d82b9816165d1ef7da2b9dd925ed3026d97693cc879661705e5fd92",
+      "kept_png": false
+    },
+    "1152/native/top/full/012.png": {
+      "archive": "1152/native/top/motion.webp",
+      "frame": 12,
+      "png_sha256": "142dd65d3a649cfcda0930e5a64b8c1f5897396de9b5b314531c07b62406313c",
+      "rgba_sha256": "05c4b31d02c79196e6eb889d3ff385c3e798041d4f3e339e1e6b704b0579e7e4",
+      "kept_png": false
+    },
+    "1152/native/top/full/013.png": {
+      "archive": "1152/native/top/motion.webp",
+      "frame": 13,
+      "png_sha256": "9be0df7abde2821be16fe3872bdb39a7245f8b57cb50978a6180f02db74b7330",
+      "rgba_sha256": "dd2a8fcf14a9088c1129311aa8075e04a01746a6f78c2d6cdd9387b5acd466ad",
+      "kept_png": false
+    },
+    "1152/native/top/full/014.png": {
+      "archive": "1152/native/top/motion.webp",
+      "frame": 14,
+      "png_sha256": "6650980fb15bf6e65690b16b09b0d3f41e7943cf74f8cef944924eebb9236b73",
+      "rgba_sha256": "41eb3da0ff9a6d456c58ad59e42ca37ab48114b4925d81ce8a4f913fbfc55f20",
+      "kept_png": false
+    },
+    "1152/native/top/full/015.png": {
+      "archive": "1152/native/top/motion.webp",
+      "frame": 15,
+      "png_sha256": "9f07a939e54b469434db44efde2bed3961a6e35e41cda7777527e3c07f011a7a",
+      "rgba_sha256": "81dc799937a20d91ed02135b2654b8ed82703031edd1f69975af534a3006cb45",
+      "kept_png": false
+    },
+    "1152/native/top/full/016.png": {
+      "archive": "1152/native/top/motion.webp",
+      "frame": 16,
+      "png_sha256": "e828bf66b2ef10edd052cc9719726c7f0829e8c9cb3d4ba54161a60a698c5be6",
+      "rgba_sha256": "356d5313764a0e9f27692a94bb691d26fa138e86c9c1fb29757f4c8b879e6ad4",
+      "kept_png": false
+    },
+    "1152/native/top/full/017.png": {
+      "archive": "1152/native/top/motion.webp",
+      "frame": 17,
+      "png_sha256": "45acf2296aef32c17f69a639bfe27a024b6fa54f00dbea7f07286e4b7ecf44f2",
+      "rgba_sha256": "a048d4428a4df146349d623b75b247475e69ab20bfdb4269328e11ed8d0e1673",
+      "kept_png": true
+    },
+    "1152/native/top/full/018.png": {
+      "archive": "1152/native/top/motion.webp",
+      "frame": 18,
+      "png_sha256": "40bf697ef808bc128f387d130370dd7d923c60852f5d3534597c033b86362e47",
+      "rgba_sha256": "225ae1b4edd625a1e1d53a361b2a3b3717ed57cd41d050f7c4b037cda5669960",
+      "kept_png": false
+    },
+    "1152/native/top/full/019.png": {
+      "archive": "1152/native/top/motion.webp",
+      "frame": 19,
+      "png_sha256": "fd38ba6bb6fa9f590ce8e08179996cb27c5f510724d23c0e447aab6245caaff2",
+      "rgba_sha256": "869acac1ec24c11ad46cc4a35be531d53063acc1575e3dda082302be405df58d",
+      "kept_png": false
+    },
+    "1152/native/top/full/020.png": {
+      "archive": "1152/native/top/motion.webp",
+      "frame": 20,
+      "png_sha256": "5361dd3f30b393b3842c0719bd8606d7ac7275a2d5fdd2c7f868399554afcbb4",
+      "rgba_sha256": "9fdd503477fce6e0efd4a95e66bf20eb9d947eb788794403a6c41b16624773eb",
+      "kept_png": false
+    },
+    "1152/native/top/full/021.png": {
+      "archive": "1152/native/top/motion.webp",
+      "frame": 21,
+      "png_sha256": "bac089bb818df4454a92a93f3c23834f13f7696b826c50dd0969677c5d1045b3",
+      "rgba_sha256": "0eb2108bfffb49b0357e9b3e0d6a42d20f79bab4ab8e6d63774f082efdb6e24c",
+      "kept_png": false
+    },
+    "1152/native/top/full/022.png": {
+      "archive": "1152/native/top/motion.webp",
+      "frame": 22,
+      "png_sha256": "c471c8fe87006edd66b50fe434fffee80bd74ba9137b028c936d06a573082ec1",
+      "rgba_sha256": "ed64b66fe8c75f65368a976cb6ce5693ff72f1c79455287762bfe3a206b9d882",
+      "kept_png": false
+    },
+    "1152/native/top/full/023.png": {
+      "archive": "1152/native/top/motion.webp",
+      "frame": 23,
+      "png_sha256": "f90902f9f126e12511ef0d88aaad34f0ba468d2d1a00bfe999d1e7d26e52a717",
+      "rgba_sha256": "5fc64d34455dcda049866d2b802d2652037bbf9e49281c8b300e9ae45876d8c4",
+      "kept_png": false
+    },
+    "1152/native/top/full/024.png": {
+      "archive": "1152/native/top/motion.webp",
+      "frame": 24,
+      "png_sha256": "f9ae200b0459812b20723643a96bbe2da73cba49f9396c314d3068f80d7a08c9",
+      "rgba_sha256": "3b8f51537347c179d7ec30092496347711db9df55ba0ec5b971b1437619f561d",
+      "kept_png": false
+    },
+    "1152/native/top/full/025.png": {
+      "archive": "1152/native/top/motion.webp",
+      "frame": 25,
+      "png_sha256": "de945ccba17e01137a96b02c45bee68304908d63d3a28e626c8fa160499ee5b9",
+      "rgba_sha256": "7d3e76f53c4215b37ca3c831d513318c7b2706e4b4110315a49aeaf328015f44",
+      "kept_png": false
+    },
+    "1152/native/top/full/026.png": {
+      "archive": "1152/native/top/motion.webp",
+      "frame": 26,
+      "png_sha256": "eb9075850e601378ded1b2a0b052e6a32587cdd793c323ad79dd0fb3f47b8dc6",
+      "rgba_sha256": "803b0dffde368490d0b56cbca4680ab61941d134f37a48195af3f49d45a78079",
+      "kept_png": false
+    },
+    "1152/native/top/full/027.png": {
+      "archive": "1152/native/top/motion.webp",
+      "frame": 27,
+      "png_sha256": "ab7efb878fb494a94bcd13e2c3e1856f8ce9c9c7f42e275e7e7531d6aa80734e",
+      "rgba_sha256": "b566a90b591ca1ddac93d0209045c9cdccb295382d6f530a71077ef6df8245d0",
+      "kept_png": false
+    },
+    "1152/native/top/full/028.png": {
+      "archive": "1152/native/top/motion.webp",
+      "frame": 28,
+      "png_sha256": "0df14cbd2bdfcfeaffdb886d72737f946512b475e417612b9f62a1b179e18475",
+      "rgba_sha256": "9887e1fa03d0aa5c1dfbb1887122c5fa26babc05d7680931df9a648b8b0d4b3a",
+      "kept_png": false
+    },
+    "1152/native/top/full/029.png": {
+      "archive": "1152/native/top/motion.webp",
+      "frame": 29,
+      "png_sha256": "4b736e731df98815743958020b02e73f1f29ec2f6e03922a410630b6da14f639",
+      "rgba_sha256": "ce12d9d7f994b9a11d56a012653267767fc509fd2331e15e34402b3b8fbb26c6",
+      "kept_png": false
+    },
+    "1152/native/top/full/030.png": {
+      "archive": "1152/native/top/motion.webp",
+      "frame": 30,
+      "png_sha256": "418a65600f41d709652f0c66c6ae524e070e1f2359229b5217dc55815b22bc79",
+      "rgba_sha256": "38addea39f46b78ea2fb4f77f5d31b9a59521ecc3da224ec83c4f90e6793b550",
+      "kept_png": false
+    },
+    "1152/native/top/full/031.png": {
+      "archive": "1152/native/top/motion.webp",
+      "frame": 31,
+      "png_sha256": "3330c6528e5328859eacfd09f212577e9c1e2fbf0a7a1542674bc5764e08ede5",
+      "rgba_sha256": "dba4b25b95ff251b0caabf97aa6939bbcbf8a00296aabaed3a635020e55c0ed7",
+      "kept_png": false
+    },
+    "1152/native/top/full/032.png": {
+      "archive": "1152/native/top/motion.webp",
+      "frame": 32,
+      "png_sha256": "957a1440fd0396fa5a8df3be3e1b68abd01ee329b2d4c60dd4b9f02b4254b4a8",
+      "rgba_sha256": "8fb3aa1f8513e5376fe6e1e1bda213fb4a65a9906e49902535dbfc61069c1c35",
+      "kept_png": false
+    },
+    "1152/native/top/full/033.png": {
+      "archive": "1152/native/top/motion.webp",
+      "frame": 33,
+      "png_sha256": "6370af16eaa6a26e64906c816c35e947c8c22fc02dafa1d111e0a5fd37484ee0",
+      "rgba_sha256": "b8665bfe7daaf838afab2df7fca0df063f495df9b893c23476ea3bd3f6365483",
+      "kept_png": false
+    },
+    "1152/native/top/full/034.png": {
+      "archive": "1152/native/top/motion.webp",
+      "frame": 34,
+      "png_sha256": "2168f45a015c6548c905de0c2fc89b4629186ddf8519d421471012fd55f8b565",
+      "rgba_sha256": "5178b02208dc95f41b2ae0cccf4f995cf8a94b5bc724546ae3adc766f43006a8",
+      "kept_png": false
+    },
+    "1152/native/top/full/035.png": {
+      "archive": "1152/native/top/motion.webp",
+      "frame": 35,
+      "png_sha256": "614ef0721022bb107168360c9fbf8abfbbd126f327e52db2f93537efd4dc63d5",
+      "rgba_sha256": "7361d860d864676763b1bb1892ac6e1c1a8c77d0b8568ab0c7fd9a2c00ffe84f",
+      "kept_png": true
+    },
+    "1152/native/bottom/full/000.png": {
+      "archive": "1152/native/bottom/motion.webp",
+      "frame": 0,
+      "png_sha256": "c1908451d01283ad6b006f0bad2001fa088f0ea06f730d82a89a9c709a5804ad",
+      "rgba_sha256": "7980c038a52cc1d82a1be0c3f22869afd5be2dbba35563e1776fc63acee6496e",
+      "kept_png": true
+    },
+    "1152/native/bottom/full/001.png": {
+      "archive": "1152/native/bottom/motion.webp",
+      "frame": 1,
+      "png_sha256": "6c6cb0ded55f28dc700aa9f91b38bb0ab1b0b7a4118063c62a7d5d005326b64d",
+      "rgba_sha256": "a3db7c31c1673332e0665a30b95f1bb6cbb8dbb21b44ccdb0fec968c63aa3779",
+      "kept_png": false
+    },
+    "1152/native/bottom/full/002.png": {
+      "archive": "1152/native/bottom/motion.webp",
+      "frame": 2,
+      "png_sha256": "81b25ca25938935f1aff47710eae3b77a8109739da199ebf6c4ebeb95016ac4d",
+      "rgba_sha256": "e1de688bd7091f45ffa422bbad192a995e4427cdebae80241a80fc695cf6f626",
+      "kept_png": false
+    },
+    "1152/native/bottom/full/003.png": {
+      "archive": "1152/native/bottom/motion.webp",
+      "frame": 3,
+      "png_sha256": "642b69f00d045a710d0ffb46806c26315871672d691b5eb69bc5e7a7c2c9e5ca",
+      "rgba_sha256": "9605ad83243c2f742f47371b3968a3a9bcf66b12454f8df1d6b5a2be2c314148",
+      "kept_png": false
+    },
+    "1152/native/bottom/full/004.png": {
+      "archive": "1152/native/bottom/motion.webp",
+      "frame": 4,
+      "png_sha256": "81bd083e536257a0afbcd6642334ab6eec3c4ffaeae7dad52e38ac1c35af6145",
+      "rgba_sha256": "4c42030f9241813114b4938a3b49d8422b122dcfd09d3bff9010d1f4fdc1d456",
+      "kept_png": false
+    },
+    "1152/native/bottom/full/005.png": {
+      "archive": "1152/native/bottom/motion.webp",
+      "frame": 5,
+      "png_sha256": "a76c40fabb82e022773879fb9c0e35bb076d04874244a378aa744df279527743",
+      "rgba_sha256": "0d07f1aba70c4a170e7d9a9750988975ef30288dc414375f58988c1ac3aaf254",
+      "kept_png": false
+    },
+    "1152/native/bottom/full/006.png": {
+      "archive": "1152/native/bottom/motion.webp",
+      "frame": 6,
+      "png_sha256": "671d62aaede1f1eb7d631a4bacc72be977d2ef53b266042867c11102e4d4031b",
+      "rgba_sha256": "db29eedc9212241466a11be0aa4ba101f9874c63234a4d9b61fe697ca28ccbd9",
+      "kept_png": false
+    },
+    "1152/native/bottom/full/007.png": {
+      "archive": "1152/native/bottom/motion.webp",
+      "frame": 7,
+      "png_sha256": "2f4fa034d7e4a54f859c7ae3f11ffeca4b16b099a43bac654e97dd7d749d8429",
+      "rgba_sha256": "73506618c4b18387b7b46c65ca0e16feb7bba79361610938ce523abd3120efad",
+      "kept_png": false
+    },
+    "1152/native/bottom/full/008.png": {
+      "archive": "1152/native/bottom/motion.webp",
+      "frame": 8,
+      "png_sha256": "910ad078a0b09a94da7c648c8ac49d2d6adaa323d20f961890de9eabc0fc78de",
+      "rgba_sha256": "752f6126f201b05df0223acd528cf25320a84545155c261d9d50be4383cce106",
+      "kept_png": false
+    },
+    "1152/native/bottom/full/009.png": {
+      "archive": "1152/native/bottom/motion.webp",
+      "frame": 9,
+      "png_sha256": "fb8cf5b395ea2c84ae854c5b89e4030d736a3a6b3fc0c67ec7947e4ab028a20f",
+      "rgba_sha256": "5a7240ca5b2c53308066a9fb2f6c0f7d02f2d1e25820a84a6a393cf0fc8f3f13",
+      "kept_png": false
+    },
+    "1152/native/bottom/full/010.png": {
+      "archive": "1152/native/bottom/motion.webp",
+      "frame": 10,
+      "png_sha256": "80a0ea3edd2171c9a91edb1fe5303e008c9594ecd99f371756388a12fa69672f",
+      "rgba_sha256": "61e03094261c05da210b538ad99856445eb013565e328f9004c043a1bcc8b72c",
+      "kept_png": false
+    },
+    "1152/native/bottom/full/011.png": {
+      "archive": "1152/native/bottom/motion.webp",
+      "frame": 11,
+      "png_sha256": "5df6870081ecb3767671aa7ba4f684220cc834b074ef730f612826a91c789428",
+      "rgba_sha256": "dbff77ca5acf4edd4bbd973c5ced8d3002a806fc572f2e70567ec75f9ee4a990",
+      "kept_png": false
+    },
+    "1152/native/bottom/full/012.png": {
+      "archive": "1152/native/bottom/motion.webp",
+      "frame": 12,
+      "png_sha256": "f7b999a44253274046bb2e25849b3967c610ff3dd7cd31c72c73d9f657309745",
+      "rgba_sha256": "407d2ab1bf0af64cc2ded80022991a643716a0d1149887d096ecf2f8b10455ad",
+      "kept_png": false
+    },
+    "1152/native/bottom/full/013.png": {
+      "archive": "1152/native/bottom/motion.webp",
+      "frame": 13,
+      "png_sha256": "bfdec23b16e8ae86073717c591c4093a9c467cdfcf5edbc86bcf30f4f3a57db7",
+      "rgba_sha256": "f2fa7510a98031b7bc52b9a3309a12e7c647e89629a65c13176038f88effd523",
+      "kept_png": false
+    },
+    "1152/native/bottom/full/014.png": {
+      "archive": "1152/native/bottom/motion.webp",
+      "frame": 14,
+      "png_sha256": "25f6be66222543a096fe102ef898abf825107308400239060ffd0ead652aeb47",
+      "rgba_sha256": "8ad5dc912b03e1667a32d85e47cf7a2dcdfe3b2400b20229598ad1328a262e37",
+      "kept_png": false
+    },
+    "1152/native/bottom/full/015.png": {
+      "archive": "1152/native/bottom/motion.webp",
+      "frame": 15,
+      "png_sha256": "db414e64cf245402df189ee4b1cd0c3b0cea7db87603dd2dce5fdf2edb204e1c",
+      "rgba_sha256": "31eadc1cdebdffedb05fff46d4599a0c4b62d06133d63d354ff4c3fb8c0050bb",
+      "kept_png": false
+    },
+    "1152/native/bottom/full/016.png": {
+      "archive": "1152/native/bottom/motion.webp",
+      "frame": 16,
+      "png_sha256": "da7d2c6d068d94f1a7ee80d2907697ca5c67b89af1ed90d68373e7c07f3a3088",
+      "rgba_sha256": "83ff56ba8c28e14326adc02ed2fafe611dd424586791fd91cc72bda40ffc5f15",
+      "kept_png": false
+    },
+    "1152/native/bottom/full/017.png": {
+      "archive": "1152/native/bottom/motion.webp",
+      "frame": 17,
+      "png_sha256": "d1f64bef34b22c98b3f1e46c9db63b4ac0b4043e5aae41783641e3dd08596d00",
+      "rgba_sha256": "b89ad9b0f58eb8f204c3b9fcadbc6bcf3a5347c5c99892cec0c79eca390d06d0",
+      "kept_png": true
+    },
+    "1152/native/bottom/full/018.png": {
+      "archive": "1152/native/bottom/motion.webp",
+      "frame": 18,
+      "png_sha256": "80650c753a6d4c668a11a41a2492a6f3736e230c667ef84037bd53f3d264d36a",
+      "rgba_sha256": "30f1c25d0e9b76e3c0074fe3ccb28d8feb3cbc33760b3a775251cc11054b5f29",
+      "kept_png": false
+    },
+    "1152/native/bottom/full/019.png": {
+      "archive": "1152/native/bottom/motion.webp",
+      "frame": 19,
+      "png_sha256": "c70fd1b17bf81456335dddf909db97257b13bf13b46a49d9938d44a4d2a70589",
+      "rgba_sha256": "454e5951fd60b06b796523449e31eea9b14246b4a16e88e264d39e4bca1dfa14",
+      "kept_png": false
+    },
+    "1152/native/bottom/full/020.png": {
+      "archive": "1152/native/bottom/motion.webp",
+      "frame": 20,
+      "png_sha256": "d6da52383bd705333d856055cf19a6d502318805c3d25ec9e269fb010b251a72",
+      "rgba_sha256": "10fd4a79d3a4821cdc78149af3718ea548b8a86f5dabcd1ada5836b8c5f926d8",
+      "kept_png": false
+    },
+    "1152/native/bottom/full/021.png": {
+      "archive": "1152/native/bottom/motion.webp",
+      "frame": 21,
+      "png_sha256": "48caf1cea896b10ea46597f045edf5a78859ff143840da4189241fa1b501f860",
+      "rgba_sha256": "e1fc9798d89cbfd4569924710bfb26b9dac0606d43f631f7a4e3c95f862eb77e",
+      "kept_png": false
+    },
+    "1152/native/bottom/full/022.png": {
+      "archive": "1152/native/bottom/motion.webp",
+      "frame": 22,
+      "png_sha256": "4fadf8196927cb7cad9cadbdafbb5bba411919268f4a15cedcf6e01e076652f1",
+      "rgba_sha256": "2590edffc81fd12ac24497f10c2bbc7363e850006171ed6b91595fec62863e85",
+      "kept_png": false
+    },
+    "1152/native/bottom/full/023.png": {
+      "archive": "1152/native/bottom/motion.webp",
+      "frame": 23,
+      "png_sha256": "d840481048883a99d9856a08da37430a166c190dd46555997aa044b7ffeca488",
+      "rgba_sha256": "96df3845047a491ff41674ec3e0cb8866d82c49799094e5cf3b3fb77214a49d8",
+      "kept_png": false
+    },
+    "1152/native/bottom/full/024.png": {
+      "archive": "1152/native/bottom/motion.webp",
+      "frame": 24,
+      "png_sha256": "7be162575414d39b7c2eea63e7380e3a71cd1071453f359c9ee9f39b39fe55ac",
+      "rgba_sha256": "366e1f9476122afd3b634aa0fa9ccfa8f79ed679cbba02e87fb96c5bb95cd8c4",
+      "kept_png": false
+    },
+    "1152/native/bottom/full/025.png": {
+      "archive": "1152/native/bottom/motion.webp",
+      "frame": 25,
+      "png_sha256": "505c23bbdec5668cc6c7825935404882a84f643600c7d380bcf594724622bdee",
+      "rgba_sha256": "444e866b1a6deb8da305064008c0186e3ac2c6e4d31020e690f31414f5ad1408",
+      "kept_png": false
+    },
+    "1152/native/bottom/full/026.png": {
+      "archive": "1152/native/bottom/motion.webp",
+      "frame": 26,
+      "png_sha256": "67d38f7a3ab87d8bd674b3516e428ec02f7c09e3199ff9a332db8398b60aba87",
+      "rgba_sha256": "f0328052db6c0925b9a7a3951516449c615a873afb41de251826c8bd7f7e1196",
+      "kept_png": false
+    },
+    "1152/native/bottom/full/027.png": {
+      "archive": "1152/native/bottom/motion.webp",
+      "frame": 27,
+      "png_sha256": "2a0a1b09fc6b5eb65ed33f81094efbd963861caf5cf2bf3406301a4c45ac980e",
+      "rgba_sha256": "64de9fa95fdc9880841cbba5ccd5c638836d588b27979ed6db97a4d152bde278",
+      "kept_png": false
+    },
+    "1152/native/bottom/full/028.png": {
+      "archive": "1152/native/bottom/motion.webp",
+      "frame": 28,
+      "png_sha256": "488a368a964a37c67f26de8853a04463983b46ef492da25c7ab32c30d3f27187",
+      "rgba_sha256": "fd0674cb984fbc32f2a385c92d189d262b5073c49c413c18b3ea99d0b9f70fe6",
+      "kept_png": false
+    },
+    "1152/native/bottom/full/029.png": {
+      "archive": "1152/native/bottom/motion.webp",
+      "frame": 29,
+      "png_sha256": "0b016d6fe80605a4ed216998487ae87532f8ee209da409486498c5448869bd9c",
+      "rgba_sha256": "7ed7314b58675647b942f05b03176cd9b6139a2e5b06e0c43e59227c3004474f",
+      "kept_png": false
+    },
+    "1152/native/bottom/full/030.png": {
+      "archive": "1152/native/bottom/motion.webp",
+      "frame": 30,
+      "png_sha256": "62ec92f37afa3df7c906090f27f962bf18e08ca85531c7ee3fe724b57521d08a",
+      "rgba_sha256": "80a5b11b470c4a4059b4b274662012fcc2314821c0921aeeda6d5bc95c35490b",
+      "kept_png": false
+    },
+    "1152/native/bottom/full/031.png": {
+      "archive": "1152/native/bottom/motion.webp",
+      "frame": 31,
+      "png_sha256": "02774a84de007653e19fbe035c5cf4584797fc57c0aca9a58d910ef2ba7ae095",
+      "rgba_sha256": "ba481d33956920ff444a64d350a0229439776540f38bcc2bf98b242ff7db5a76",
+      "kept_png": false
+    },
+    "1152/native/bottom/full/032.png": {
+      "archive": "1152/native/bottom/motion.webp",
+      "frame": 32,
+      "png_sha256": "dfe90d8741022ac2e19acc5e50d059e30cd51d24e945a4d1fd17316a769dbfbe",
+      "rgba_sha256": "66cba09e8adb0bd8199d89ae3ef47c249499f83d6b2d4e47f40f50e2ccae9f8e",
+      "kept_png": false
+    },
+    "1152/native/bottom/full/033.png": {
+      "archive": "1152/native/bottom/motion.webp",
+      "frame": 33,
+      "png_sha256": "17a3e8a331e4eb7262c61e1385bc58a5c7ea416d79be6d5c142f1d21063ed026",
+      "rgba_sha256": "7900facc9aec633376e08cf88129c07cc3948b200ce638e3744f5b3453f128fb",
+      "kept_png": false
+    },
+    "1152/native/bottom/full/034.png": {
+      "archive": "1152/native/bottom/motion.webp",
+      "frame": 34,
+      "png_sha256": "1867232f83e38a5362614b841408f2d3c5c651f604d5a35b33da7f4d7bf38604",
+      "rgba_sha256": "9523539378ed8904c5002107c3de6d58590eb8c6448c6b99ab9ab5224b5de203",
+      "kept_png": false
+    },
+    "1152/native/bottom/full/035.png": {
+      "archive": "1152/native/bottom/motion.webp",
+      "frame": 35,
+      "png_sha256": "a268577dbcc27f42b193d06c150507c137f0198205803e43849edef7d66d5ca3",
+      "rgba_sha256": "6f494f4112ae3d966ee588d6a10fa285fd4aff6ced3c176dd13a0d2d19c6a3c2",
+      "kept_png": true
+    },
+    "1152/native/chunk/full/000.png": {
+      "archive": "1152/native/chunk/motion.webp",
+      "frame": 0,
+      "png_sha256": "e30c6f5b17d74800211898b38df6f062a7a74b14e52aa4a8c5760794cc43a3d5",
+      "rgba_sha256": "0e156e10e58a78ca1d046769f203e3dca967a4c42a587e4a53769b2447d6479e",
+      "kept_png": true
+    },
+    "1152/native/chunk/full/001.png": {
+      "archive": "1152/native/chunk/motion.webp",
+      "frame": 1,
+      "png_sha256": "098b915f670a40aff3afb90139323d86e2bcb7c7d039d7df87bca68661d8a9d2",
+      "rgba_sha256": "9eec95a9d30c1fe44792dcda05843362bc07e70424824fbae751d3cfbbb5aa22",
+      "kept_png": false
+    },
+    "1152/native/chunk/full/002.png": {
+      "archive": "1152/native/chunk/motion.webp",
+      "frame": 2,
+      "png_sha256": "fa63b7e0aeed4ff7958efd28b4686f04ef811eecf3b264bbb1d9ed76383461ff",
+      "rgba_sha256": "c3f33d392f482fc7effae2f6483410e49d5905562c431d1a7300f1b1e3bfa788",
+      "kept_png": false
+    },
+    "1152/native/chunk/full/003.png": {
+      "archive": "1152/native/chunk/motion.webp",
+      "frame": 3,
+      "png_sha256": "a73246a6cf1870890f1bc5018e12afb6056f561f42f2132349590c3532249067",
+      "rgba_sha256": "de2a7c141e66d55b67090a79d7907039fa920d29d7530502851cbd050708ed4c",
+      "kept_png": false
+    },
+    "1152/native/chunk/full/004.png": {
+      "archive": "1152/native/chunk/motion.webp",
+      "frame": 4,
+      "png_sha256": "e392c9bd21abb5bbf73a9366336966c68a4d1e4fbaa0b6654a47e5363de1168d",
+      "rgba_sha256": "2d0696f066ecdf2d8c15d28100b006b3917958713376c301ec4679749bfe5862",
+      "kept_png": false
+    },
+    "1152/native/chunk/full/005.png": {
+      "archive": "1152/native/chunk/motion.webp",
+      "frame": 5,
+      "png_sha256": "e3c380792f62b3ccc97abbce46ee816c6f2462a68ecd5e4a8d6735743824aaf0",
+      "rgba_sha256": "4690d30aef4878860cf280709d163f2d73da5a64063752b31c28b2658e443f07",
+      "kept_png": false
+    },
+    "1152/native/chunk/full/006.png": {
+      "archive": "1152/native/chunk/motion.webp",
+      "frame": 6,
+      "png_sha256": "158fad8f48b22b13c6973c3cadf572c6d3860d0c5c9c66d93043827fbcad2347",
+      "rgba_sha256": "85bd478d8dd964747f0b92c960ab877b46123bd85b66a6917fc3e4b17193ec88",
+      "kept_png": false
+    },
+    "1152/native/chunk/full/007.png": {
+      "archive": "1152/native/chunk/motion.webp",
+      "frame": 7,
+      "png_sha256": "91ab1681949993ba9f1cb46278cc5ee1261dfb11037b524324809610e7214343",
+      "rgba_sha256": "5eed6458249c68d3d1b1d3596de6b14500ba85284e7ea4612af97462676f076d",
+      "kept_png": false
+    },
+    "1152/native/chunk/full/008.png": {
+      "archive": "1152/native/chunk/motion.webp",
+      "frame": 8,
+      "png_sha256": "cc95e000772d466c3f7618af79dc7b0ef0bd662e707f6f1627b6189158c1a3e3",
+      "rgba_sha256": "9ab0428c462b6b24942d6e38c91078f8fec7e0a2b915a1ec0845ceba7cd5b451",
+      "kept_png": false
+    },
+    "1152/native/chunk/full/009.png": {
+      "archive": "1152/native/chunk/motion.webp",
+      "frame": 9,
+      "png_sha256": "5892935b99e924afcc5a4bdc95f4f14963cfd389892fce7bb6aa3edb05b9ec70",
+      "rgba_sha256": "135a0d8a5529dd10101e92b80dc7fe585987d30c774ac7c91661b3d39a34b13d",
+      "kept_png": false
+    },
+    "1152/native/chunk/full/010.png": {
+      "archive": "1152/native/chunk/motion.webp",
+      "frame": 10,
+      "png_sha256": "c2f5736cbe1c6ba90929e9d597f8d42d82917e3961cfd9827a40904817ec655e",
+      "rgba_sha256": "f01957ed51a09bccb01f4dcf6c56ad6e41c6e90e43864c3bb9bcc3f7d8bb3f0d",
+      "kept_png": false
+    },
+    "1152/native/chunk/full/011.png": {
+      "archive": "1152/native/chunk/motion.webp",
+      "frame": 11,
+      "png_sha256": "6e323ed4967ad5e5254491b1464218ca27396a77478b6bc804346087a652b38b",
+      "rgba_sha256": "4e9bb273fd096ac73730b8dda0b8474260dec91d8e01cb9bd081b8623fb4a286",
+      "kept_png": false
+    },
+    "1152/native/chunk/full/012.png": {
+      "archive": "1152/native/chunk/motion.webp",
+      "frame": 12,
+      "png_sha256": "069027befb4129a6d58507bbe57269711cfdc54e5b355cd7c057e05e6eca0d00",
+      "rgba_sha256": "254cc68f71b632fb2fc28f5e4ff67805f3c738745c054151c68fefb831cb6a33",
+      "kept_png": false
+    },
+    "1152/native/chunk/full/013.png": {
+      "archive": "1152/native/chunk/motion.webp",
+      "frame": 13,
+      "png_sha256": "564929514c3591373fe488e1b1d22ee004f790a1de29c92e6e48a6c588e84df3",
+      "rgba_sha256": "96f8ac329847d71969b1c72ab44bfb553579d8898afecb1b2696265d1253ea69",
+      "kept_png": false
+    },
+    "1152/native/chunk/full/014.png": {
+      "archive": "1152/native/chunk/motion.webp",
+      "frame": 14,
+      "png_sha256": "ddb8339ba809259c8a435149aa0fbbf67fc3c6d009c46129d6c02634cafba76d",
+      "rgba_sha256": "d1a03af028aa8dd6a7a027f8266a2af2789cfb1b75b3ffcf744187fe26e21d07",
+      "kept_png": false
+    },
+    "1152/native/chunk/full/015.png": {
+      "archive": "1152/native/chunk/motion.webp",
+      "frame": 15,
+      "png_sha256": "603c4250d2def6069cc8ab67e0c3e9d207eee805571eabc132215856e04db6e1",
+      "rgba_sha256": "5a28a76d215e8e3da546293c9e15c175896e4baee833131ea6acbb6852cf9c9e",
+      "kept_png": false
+    },
+    "1152/native/chunk/full/016.png": {
+      "archive": "1152/native/chunk/motion.webp",
+      "frame": 16,
+      "png_sha256": "bbee8d67a19893b05f2f1df8355c22d46674734f5c21120da482e267c35ac332",
+      "rgba_sha256": "5cb2a212cc73835504d65e7249788bf9777a9be58d6145fa5053fcb03ee067df",
+      "kept_png": false
+    },
+    "1152/native/chunk/full/017.png": {
+      "archive": "1152/native/chunk/motion.webp",
+      "frame": 17,
+      "png_sha256": "8fffc166b64b756201af4d5c09defa9bb740749def8dd0672f3affaaa84de905",
+      "rgba_sha256": "cdf8fa633ad1a6899321febf315dd6b915d9b0e72ffe1372bd9e01eb734c849b",
+      "kept_png": true
+    },
+    "1152/native/chunk/full/018.png": {
+      "archive": "1152/native/chunk/motion.webp",
+      "frame": 18,
+      "png_sha256": "435fcc661ca21b822872f129052e2d72e42e2828bf16a358a2c675c14c429692",
+      "rgba_sha256": "909b44b079ebda09e7fc46a4b371801b9e794d81de8a1e7b4582854a18ebfd7c",
+      "kept_png": false
+    },
+    "1152/native/chunk/full/019.png": {
+      "archive": "1152/native/chunk/motion.webp",
+      "frame": 19,
+      "png_sha256": "cc66478824c7b05215b992576b6fccf2b5ea95d87609fc3b8721887635835757",
+      "rgba_sha256": "aa4f0385917b891a6a6763aa4d99a89c580dc9a27d8b1de2a4b5f7cd8af88dd7",
+      "kept_png": false
+    },
+    "1152/native/chunk/full/020.png": {
+      "archive": "1152/native/chunk/motion.webp",
+      "frame": 20,
+      "png_sha256": "ceefa8fbafede695dafda4ae2955be3bf49e9b5df1f573764125976ba6ebef18",
+      "rgba_sha256": "96d91ff876ac54af48ec5311f50140110180098f29c9e4d1e99bf60d67ebddcd",
+      "kept_png": false
+    },
+    "1152/native/chunk/full/021.png": {
+      "archive": "1152/native/chunk/motion.webp",
+      "frame": 21,
+      "png_sha256": "989260c644d455bdd494470e88e4c6c2f5b8b57e04e0ba19dbebaebb9e50b12b",
+      "rgba_sha256": "298b2d58103f891d8724189170ba3e9313335baed90f5268021385b9d5aadae9",
+      "kept_png": false
+    },
+    "1152/native/chunk/full/022.png": {
+      "archive": "1152/native/chunk/motion.webp",
+      "frame": 22,
+      "png_sha256": "160ae5be411d5ed0cce1052bb6da6e9aba6b058ac8b390399b8a67d16002f782",
+      "rgba_sha256": "4662ec228de0e50cca85283badaa6a34e94838139086473837f5c582da3e1f72",
+      "kept_png": false
+    },
+    "1152/native/chunk/full/023.png": {
+      "archive": "1152/native/chunk/motion.webp",
+      "frame": 23,
+      "png_sha256": "6a914144a503339d2afdc55640e2cfa49e04a9858eb889c0eb47b122dc116b99",
+      "rgba_sha256": "7cf2dc1fda9c4be39fad0891d62618794f8612c7f875506724f242cc8ddc474b",
+      "kept_png": false
+    },
+    "1152/native/chunk/full/024.png": {
+      "archive": "1152/native/chunk/motion.webp",
+      "frame": 24,
+      "png_sha256": "2f26fad00c41697c8ee235dc6649101a8330ffe4b2f8e5f16fc6ae32685ce7d2",
+      "rgba_sha256": "d0dd177e8d873173abb3c4fa2db0dbe31d550ee6a411acfa0f0b28740c1862a6",
+      "kept_png": false
+    },
+    "1152/native/chunk/full/025.png": {
+      "archive": "1152/native/chunk/motion.webp",
+      "frame": 25,
+      "png_sha256": "638d785f597bc4f71f5f79fadd937db6aee5e10e3dd04d4430df4fbf6b708bd7",
+      "rgba_sha256": "8d1b375ac2040aecd1b2c13e09890a4b20140ecd51008989d48defe9193ae63c",
+      "kept_png": false
+    },
+    "1152/native/chunk/full/026.png": {
+      "archive": "1152/native/chunk/motion.webp",
+      "frame": 26,
+      "png_sha256": "4a5dd736712103d0e7e28258c3318bb74130b85f50901b8c4b05416bdd213d23",
+      "rgba_sha256": "3965b4c0113cdd36f24df6c131df80a2b2951b57e625e6517d1baca622b07c0d",
+      "kept_png": false
+    },
+    "1152/native/chunk/full/027.png": {
+      "archive": "1152/native/chunk/motion.webp",
+      "frame": 27,
+      "png_sha256": "43801f74b21a7bea83714e5d89b94d97a57abffb63a05fcaa09a3d18425b72b7",
+      "rgba_sha256": "e6527ca3c5947cc256c9143d8b48baa0e4af0484c20df6a2b80c4b6e7e5569bc",
+      "kept_png": false
+    },
+    "1152/native/chunk/full/028.png": {
+      "archive": "1152/native/chunk/motion.webp",
+      "frame": 28,
+      "png_sha256": "817b1b189c26e2ab1942ac9c86fcd20dea51af26a3f8db1b97e42e15a3847f27",
+      "rgba_sha256": "b4284f1191e5a55ecd447053c83b5213b9b545d73ea0e19b223308b6335e8aaf",
+      "kept_png": false
+    },
+    "1152/native/chunk/full/029.png": {
+      "archive": "1152/native/chunk/motion.webp",
+      "frame": 29,
+      "png_sha256": "e83887c5a712f437a18918563b1f87b0383a0d9dada43f5ae4eff15346988a04",
+      "rgba_sha256": "cc639053d097279ead336417e374eb11da089960d5ed67f1e122cd28d03366a1",
+      "kept_png": false
+    },
+    "1152/native/chunk/full/030.png": {
+      "archive": "1152/native/chunk/motion.webp",
+      "frame": 30,
+      "png_sha256": "bd6684002d9ec3360807908673b1cc03cbd3ce0a873510bd1040fea63b9aa62c",
+      "rgba_sha256": "e937190061c380b8efa24f9371b2961893db30f0695d90fe4a9708ed075fae61",
+      "kept_png": false
+    },
+    "1152/native/chunk/full/031.png": {
+      "archive": "1152/native/chunk/motion.webp",
+      "frame": 31,
+      "png_sha256": "94a46879413b26e11fae830c10f7e01a8f1d30b4d28a84273e1fa56e9b2c498b",
+      "rgba_sha256": "1bee474b051a6345881d318429d27335b9865dc1554745a37bdcde5253c1aef4",
+      "kept_png": false
+    },
+    "1152/native/chunk/full/032.png": {
+      "archive": "1152/native/chunk/motion.webp",
+      "frame": 32,
+      "png_sha256": "f6263df8907864b1680a2a95245ce6b188340bd4654161c504c8bc36c529c542",
+      "rgba_sha256": "3457d144911f1a4b7bdb64648f9b06401bf375d1125ee0017c40dfb182f8ef62",
+      "kept_png": false
+    },
+    "1152/native/chunk/full/033.png": {
+      "archive": "1152/native/chunk/motion.webp",
+      "frame": 33,
+      "png_sha256": "4dd6e1653990a2bad373274af134c6b98a9be777c7a34ddcf9a261ced0a0e164",
+      "rgba_sha256": "dbcb5372b09dce3fe09cc0ff5fabcb2ce97978cafce19879254323943d867893",
+      "kept_png": false
+    },
+    "1152/native/chunk/full/034.png": {
+      "archive": "1152/native/chunk/motion.webp",
+      "frame": 34,
+      "png_sha256": "b9fcdda42f882926b1ecda4a2fcd41528794ef4e6a813168427cba02d1a3dd73",
+      "rgba_sha256": "f4d9a84a3e10f74a467de1d9bf3fbd3bb22a3e54d6b30bf4ddc22ea1bc6432a6",
+      "kept_png": false
+    },
+    "1152/native/chunk/full/035.png": {
+      "archive": "1152/native/chunk/motion.webp",
+      "frame": 35,
+      "png_sha256": "1b2df259f707409064272afebd6cf9ea88f1523193a5bbfda814b121c162afbc",
+      "rgba_sha256": "f63f33a178a22650fac4d883d4ab365dea2889d79dde456598bab907adce30ec",
+      "kept_png": true
+    },
+    "1152/native/bush/full/000.png": {
+      "archive": "1152/native/bush/motion.webp",
+      "frame": 0,
+      "png_sha256": "8081221ae7308ba7e6be15972c747d9b4b027f5cf59d36b17aa5f8af954c5b1d",
+      "rgba_sha256": "84165ae0956cc6246225dbd92415c65d55cd180d593f26b28c2d2543496dcd3c",
+      "kept_png": true
+    },
+    "1152/native/bush/full/001.png": {
+      "archive": "1152/native/bush/motion.webp",
+      "frame": 1,
+      "png_sha256": "f6d4ab0e2d16896c4ef5ba09b3fd95508dcd4095d6581f1a84ec316fa5c5e326",
+      "rgba_sha256": "db237b8b58a43de0a21b89a326cbcc333d39f02fe698f623eca27b9adcd3c2ec",
+      "kept_png": false
+    },
+    "1152/native/bush/full/002.png": {
+      "archive": "1152/native/bush/motion.webp",
+      "frame": 2,
+      "png_sha256": "29531612a0f5c89f468b91f8e3a7eee4c7c4abb1bd67b1793373ae98b91a38c4",
+      "rgba_sha256": "177c38a8af7a88e9f05ce92187721ec2b1bfb60c3434e28065f378c805f5f33c",
+      "kept_png": false
+    },
+    "1152/native/bush/full/003.png": {
+      "archive": "1152/native/bush/motion.webp",
+      "frame": 3,
+      "png_sha256": "3db2c384206c1d25b855f6d47662e168f91f7da2d3045c562ed5b13ddda22944",
+      "rgba_sha256": "c8c20201203aec4394b7dbb87e43da1368fcd2eacb7f59b2e719083a5a785cac",
+      "kept_png": false
+    },
+    "1152/native/bush/full/004.png": {
+      "archive": "1152/native/bush/motion.webp",
+      "frame": 4,
+      "png_sha256": "abc593dea2575f9670d51051b242693ff4e5de46ac1066a0c5622163a00f3f9d",
+      "rgba_sha256": "2ee9bf6f01ec53d880a91a574d9b90cc1a4ce921b5aaee4a71fac2d28823cc53",
+      "kept_png": false
+    },
+    "1152/native/bush/full/005.png": {
+      "archive": "1152/native/bush/motion.webp",
+      "frame": 5,
+      "png_sha256": "aed149b3a08cd4b702219b0fcb5047ea4e72ebaf51b468fe923cabb6140f2aa0",
+      "rgba_sha256": "9f81601773d44810b44098e221fa161847c3704916389f9c9965727d438d302a",
+      "kept_png": false
+    },
+    "1152/native/bush/full/006.png": {
+      "archive": "1152/native/bush/motion.webp",
+      "frame": 6,
+      "png_sha256": "4b3a117c62efaf6b4db92b8c45ad7e432327e96d199b0bf6746486472e77810f",
+      "rgba_sha256": "6e2e6e340f37576e3ddfd376cd7c4866aca4d0f7797c52ec659598200380b071",
+      "kept_png": false
+    },
+    "1152/native/bush/full/007.png": {
+      "archive": "1152/native/bush/motion.webp",
+      "frame": 7,
+      "png_sha256": "a99123834235ecafa7790d3f94ad70b0a9fe5f619bfafe053766b85696207d7f",
+      "rgba_sha256": "52e820d435ce7a33b09839c0dfbc28c1fd7bbc0514694348c22fd4bbf4fd10b9",
+      "kept_png": false
+    },
+    "1152/native/bush/full/008.png": {
+      "archive": "1152/native/bush/motion.webp",
+      "frame": 8,
+      "png_sha256": "4ea02b0ef428e0c6d2d67fde0438a8879288987cf405184acdf855eef315d314",
+      "rgba_sha256": "5384c0af344a69da6965aa7e234101b402f231c9b235affa6f2c05892a0d0af7",
+      "kept_png": false
+    },
+    "1152/native/bush/full/009.png": {
+      "archive": "1152/native/bush/motion.webp",
+      "frame": 9,
+      "png_sha256": "e3a6dc21a818a5ff43efe36c6c47e0b707653907b9619092cb934eb57ed1c847",
+      "rgba_sha256": "a2acf6e7da98fd052e55b0755c8a817365a68bf8ebe37212d33429c8c90d3806",
+      "kept_png": false
+    },
+    "1152/native/bush/full/010.png": {
+      "archive": "1152/native/bush/motion.webp",
+      "frame": 10,
+      "png_sha256": "d1b3c22b240508444fb04ee036e0451c4bd0434174f70a110867f47d2f370f35",
+      "rgba_sha256": "59c5fcbda1720e1add5aaf363a43b049851686a3e22a32c5e1e2a328fe41431d",
+      "kept_png": false
+    },
+    "1152/native/bush/full/011.png": {
+      "archive": "1152/native/bush/motion.webp",
+      "frame": 11,
+      "png_sha256": "71f874799c31557068604ac88b444b3fa2008230f4be821b0060a65d8ae58e84",
+      "rgba_sha256": "5f805bb56ea41a8f8495a799f5324d39fce75c4d1a86a86238fa748ceb5b7414",
+      "kept_png": false
+    },
+    "1152/native/bush/full/012.png": {
+      "archive": "1152/native/bush/motion.webp",
+      "frame": 12,
+      "png_sha256": "b37048810a5054a5e355e734bddc2c6a1168993604655fd7138194ddeb7344c3",
+      "rgba_sha256": "ef55b09385e1d96669b49ae9c87da1bfc2c908b6e4c507e4699c50b913ab0211",
+      "kept_png": false
+    },
+    "1152/native/bush/full/013.png": {
+      "archive": "1152/native/bush/motion.webp",
+      "frame": 13,
+      "png_sha256": "d3b5ef733b4f3c7a4f5d21424b9f97e3e1626bb246b4222fc842bc424c36cd0e",
+      "rgba_sha256": "c0eb354bf5f2645b8883ef8981dbe0ed9ec02a4a1c774bdf795c6192edf98ad2",
+      "kept_png": false
+    },
+    "1152/native/bush/full/014.png": {
+      "archive": "1152/native/bush/motion.webp",
+      "frame": 14,
+      "png_sha256": "1c3ed88dbe860d633d0c9edcf39dc8ddb07fe311cf7640ba5036d295d92841b9",
+      "rgba_sha256": "2da2affd06e727aadaffa17b575b99550f53ac9aca3666e8e24a704342cea812",
+      "kept_png": false
+    },
+    "1152/native/bush/full/015.png": {
+      "archive": "1152/native/bush/motion.webp",
+      "frame": 15,
+      "png_sha256": "d4a1d607214af7f06a6415128061fdac672eff9710d3ac972786977cc56d34bf",
+      "rgba_sha256": "8e6556d929dc93df0fa6a82d4f26a0cb0558068c19fdb012672819baea6461f9",
+      "kept_png": false
+    },
+    "1152/native/bush/full/016.png": {
+      "archive": "1152/native/bush/motion.webp",
+      "frame": 16,
+      "png_sha256": "abf34653d54b3211a6ae2839c120ae524ba2df65a38e78b5f6608328357d2bea",
+      "rgba_sha256": "80d249158d8a47a63c6a0a59ce2a115576f97d8bc1d2ff52adef09e8f00e22f6",
+      "kept_png": false
+    },
+    "1152/native/bush/full/017.png": {
+      "archive": "1152/native/bush/motion.webp",
+      "frame": 17,
+      "png_sha256": "de55a565f0450fb87f4e847f29131639311f4a62a327e9e7da6d5c29f50b07b3",
+      "rgba_sha256": "799c7b853f644e4becf7af52232541ef7edf2c8cc3fc7045cac1a33f6423b3a3",
+      "kept_png": true
+    },
+    "1152/native/bush/full/018.png": {
+      "archive": "1152/native/bush/motion.webp",
+      "frame": 18,
+      "png_sha256": "fc6c466685779def0f97680703f74a2c6f1d982f350b9881a5c64733537acf79",
+      "rgba_sha256": "32abdc9fcc352935c7a42e695842fc7cba1ef2c9800bace5b6ac88849fdcd59b",
+      "kept_png": false
+    },
+    "1152/native/bush/full/019.png": {
+      "archive": "1152/native/bush/motion.webp",
+      "frame": 19,
+      "png_sha256": "1105a97cfb9abd7e8088e7f81af08ac96149689d1b2d41ef70352d1f6aa50a43",
+      "rgba_sha256": "7939854a9f89ae0afca2b92d1bdedb6bbf2b161e75d34f2f3b5c73b5e2eb07ef",
+      "kept_png": false
+    },
+    "1152/native/bush/full/020.png": {
+      "archive": "1152/native/bush/motion.webp",
+      "frame": 20,
+      "png_sha256": "58414b6d96898fb4e8eea98bd24782f65847fe43cf986e8b57e5f9b2978d1f84",
+      "rgba_sha256": "802391ab76d298d3ed420b696d4641817f4e287e37fdfe725006970fac307374",
+      "kept_png": false
+    },
+    "1152/native/bush/full/021.png": {
+      "archive": "1152/native/bush/motion.webp",
+      "frame": 21,
+      "png_sha256": "b437350ddc94a73e4638d956f9ff65b41353929f62abc8fa25d34a90819aab5f",
+      "rgba_sha256": "f1466829bf8b716d7f26915a10996d49b05182e164f4a49a6695facca766dca3",
+      "kept_png": false
+    },
+    "1152/native/bush/full/022.png": {
+      "archive": "1152/native/bush/motion.webp",
+      "frame": 22,
+      "png_sha256": "b413ba2a834eacbbc9f070e9d9f3cb45586a0ef437f072465213f709a7e71571",
+      "rgba_sha256": "953eda24cb0833fe55eaf34e836e347086ddcc34f4c088d9c327f10dc5dcbe61",
+      "kept_png": false
+    },
+    "1152/native/bush/full/023.png": {
+      "archive": "1152/native/bush/motion.webp",
+      "frame": 23,
+      "png_sha256": "e58464688ec11d75dead3706d106c1213283ca8a9d8b29e5ba6235ae10a5c691",
+      "rgba_sha256": "e8ee47cb4df67398f71a1db1051431cce878b7c45bb434d1f46ec2c01459ddac",
+      "kept_png": false
+    },
+    "1152/native/bush/full/024.png": {
+      "archive": "1152/native/bush/motion.webp",
+      "frame": 24,
+      "png_sha256": "9d4b624db1350e1dc614e17143f942becfc67bcd63662d09843abfc6ce51302f",
+      "rgba_sha256": "d1366c44f9fe86f6ee62eef02a979d2e1a9c46782477e319c2bee5d108d56014",
+      "kept_png": false
+    },
+    "1152/native/bush/full/025.png": {
+      "archive": "1152/native/bush/motion.webp",
+      "frame": 25,
+      "png_sha256": "568f86a50044aadfd15e07b74711f6dc777c5810f39d7aae00fba5b7140b2ab4",
+      "rgba_sha256": "85ed616ef58c76edfc3057e670b2e2031e4e4866146950662b01613764d1f9a9",
+      "kept_png": false
+    },
+    "1152/native/bush/full/026.png": {
+      "archive": "1152/native/bush/motion.webp",
+      "frame": 26,
+      "png_sha256": "4987f6f726f5e4e52adf90d8bc050ef75a9c9a3dd397542517c711fee5caf2a6",
+      "rgba_sha256": "a484961d955e851354ca8542b95f31cac12b33a7c02d388e252ae219dddcfea7",
+      "kept_png": false
+    },
+    "1152/native/bush/full/027.png": {
+      "archive": "1152/native/bush/motion.webp",
+      "frame": 27,
+      "png_sha256": "dbf88f30657d1c01e15f0d2bf5d23d4a7e47ba4294785100209b1ddbaa3c6a40",
+      "rgba_sha256": "a09d0460def422f1ae668f8794226366d68e7fe8d753a18ed2f06bf56826c01b",
+      "kept_png": false
+    },
+    "1152/native/bush/full/028.png": {
+      "archive": "1152/native/bush/motion.webp",
+      "frame": 28,
+      "png_sha256": "efd0c0d4ab8d78b55b254766d04c47ce62fbb102997191aca39ec77b5eb46b94",
+      "rgba_sha256": "44869bda912b144ae4f2050966beb96e5f754c032f31066dc22c4791902443cd",
+      "kept_png": false
+    },
+    "1152/native/bush/full/029.png": {
+      "archive": "1152/native/bush/motion.webp",
+      "frame": 29,
+      "png_sha256": "6e4cc0139b58adac845f1b3b62464032b14a5d3cf9e99dac74ef6685dfc5fe48",
+      "rgba_sha256": "b832d1bf823d3e6669b16c17ba04c72b110f13b940a0adb936aeafd4a8bc5608",
+      "kept_png": false
+    },
+    "1152/native/bush/full/030.png": {
+      "archive": "1152/native/bush/motion.webp",
+      "frame": 30,
+      "png_sha256": "47686f5b8a0058067a320be183e871b61181a14bfa2c0d82d0263b529f1912c2",
+      "rgba_sha256": "525e129d32fef928f3dd71077b5a89355600d87057501bc0d94075d9b2c2f211",
+      "kept_png": false
+    },
+    "1152/native/bush/full/031.png": {
+      "archive": "1152/native/bush/motion.webp",
+      "frame": 31,
+      "png_sha256": "0b09a03ab52c0c8b6620045e4567a5f878ef558d7191fc0a944a85e7d5a08397",
+      "rgba_sha256": "e05d71b3b2e30628dd7dcadd1239ea3e40b4fe20c2f4b488d7a15e02d6e82c73",
+      "kept_png": false
+    },
+    "1152/native/bush/full/032.png": {
+      "archive": "1152/native/bush/motion.webp",
+      "frame": 32,
+      "png_sha256": "bfbefc4ea90bc37cb52e1a79a1eeda5001691bd23d05231ef39075a58cd3e84e",
+      "rgba_sha256": "950acab4208c60233efdc9c7003d4e08af2edf8a189d245eb32d24364a885abe",
+      "kept_png": false
+    },
+    "1152/native/bush/full/033.png": {
+      "archive": "1152/native/bush/motion.webp",
+      "frame": 33,
+      "png_sha256": "8b9dda97ac9a8cb3aea0db2c68784bfff46ccc32ed3c3d51ebf39bf76b944108",
+      "rgba_sha256": "10e9384d126feb3e584ffc4e5b4c05f467fc7e7c3037d56d1e17e9da5514328a",
+      "kept_png": false
+    },
+    "1152/native/bush/full/034.png": {
+      "archive": "1152/native/bush/motion.webp",
+      "frame": 34,
+      "png_sha256": "bb4ccff516ae3b873501be95f25ccd91230e95459ee90527fdd27eab52964e3c",
+      "rgba_sha256": "93dfde8d02689689015163749ddb5a8103961b94382bfe6ec69a9eae00e7cfa9",
+      "kept_png": false
+    },
+    "1152/native/bush/full/035.png": {
+      "archive": "1152/native/bush/motion.webp",
+      "frame": 35,
+      "png_sha256": "f6e8061cd3a3c7688764fcf181ce0f74750f6bac170282a9fb0f3e9f2e5e7bae",
+      "rgba_sha256": "a4f94364cfe9a6edfb2f9711f8370024cb65213d41dcf1f61831971cf833ed95",
+      "kept_png": true
+    },
+    "1280/native/left/full/000.png": {
+      "archive": "1280/native/left/motion.webp",
+      "frame": 0,
+      "png_sha256": "93c8995d2d18ff181399e513eac665addbf612abdd390bd36fad409e0de9126e",
+      "rgba_sha256": "0db82f8ad67b2d859514264b2f4a797e352598d0cb1460859d1cfb07c8adad87",
+      "kept_png": true
+    },
+    "1280/native/left/full/001.png": {
+      "archive": "1280/native/left/motion.webp",
+      "frame": 1,
+      "png_sha256": "2fd6f17c4dfd4f76cacfb14b22b89d8ad0fba5e7d2f6409c1ded53c7e7a2c1fd",
+      "rgba_sha256": "94dd60077433a53126a18ecc4702d9afb819ad6fc95772ee1cd7bebf925fe54c",
+      "kept_png": false
+    },
+    "1280/native/left/full/002.png": {
+      "archive": "1280/native/left/motion.webp",
+      "frame": 2,
+      "png_sha256": "5972d428a059964a5718f28b36d92cbefacdb99744c2313e5c67d6ed43431a0a",
+      "rgba_sha256": "fdec02f1db6f15c330ec4a33d4d2edb8db625ab4a08b365fe14ab42e709d842e",
+      "kept_png": false
+    },
+    "1280/native/left/full/003.png": {
+      "archive": "1280/native/left/motion.webp",
+      "frame": 3,
+      "png_sha256": "37d9e0d1bdbfd142dc83c22340d1baed30a8ae5e8de00bebd4559be610b7f211",
+      "rgba_sha256": "05da768f8c4c1a38cc314311a9991f29e4375f747639eb85bc0e7daa7c9dc943",
+      "kept_png": false
+    },
+    "1280/native/left/full/004.png": {
+      "archive": "1280/native/left/motion.webp",
+      "frame": 4,
+      "png_sha256": "7d2e5b5f8409120e6765a23b43a38146fbfefb2b3474732f4ef3af6c281aab5c",
+      "rgba_sha256": "772ae461e27d4a2529e95760a0b5c3f011fa220b850bda7535fe7268123976c4",
+      "kept_png": false
+    },
+    "1280/native/left/full/005.png": {
+      "archive": "1280/native/left/motion.webp",
+      "frame": 5,
+      "png_sha256": "d127b2baeb8b93892fedc58a3051a84843c0bfe7356ff04a139f82737a50ce75",
+      "rgba_sha256": "ae457bc18e40f9084842d77f0080a9ee9be260cb8f62c942778cb98ae6bf6485",
+      "kept_png": false
+    },
+    "1280/native/left/full/006.png": {
+      "archive": "1280/native/left/motion.webp",
+      "frame": 6,
+      "png_sha256": "1089c204407f8eb05d6667b0d5a4c9499ae1e514050bab107a9bfeb3ae3a643d",
+      "rgba_sha256": "c1f8baf910481fede79e8b27462e67f3a06bbe06cc0a517c437a024a210d0a8b",
+      "kept_png": false
+    },
+    "1280/native/left/full/007.png": {
+      "archive": "1280/native/left/motion.webp",
+      "frame": 7,
+      "png_sha256": "504670aacae4e832b2e12b10717e1297adb80194f3b7bd4570256647a3d85655",
+      "rgba_sha256": "26e71c9fb58a78459c1dcbc9c07461de431ec6a94a9eb049dbbe8d0136396020",
+      "kept_png": false
+    },
+    "1280/native/left/full/008.png": {
+      "archive": "1280/native/left/motion.webp",
+      "frame": 8,
+      "png_sha256": "9259ed479e714616f7b3725d8d3f10144a12e5962755f7095ecf54cfba92fccc",
+      "rgba_sha256": "3ef93544d3570da0e4aa6764eed1031f3409e39873f07cd1ac5ec57b7ff64a26",
+      "kept_png": false
+    },
+    "1280/native/left/full/009.png": {
+      "archive": "1280/native/left/motion.webp",
+      "frame": 9,
+      "png_sha256": "8052668b509e490456ecaa70085cc99f94fed1908af070a121a02c39d91400a5",
+      "rgba_sha256": "c281dd87ffeb53baa2a88629ad3ad422dc890f859b2257982d1cb89444790f62",
+      "kept_png": false
+    },
+    "1280/native/left/full/010.png": {
+      "archive": "1280/native/left/motion.webp",
+      "frame": 10,
+      "png_sha256": "14180031f0a2800f6f6fa08daf9cf16ffaa819be3a94965d53bc004697d1bf83",
+      "rgba_sha256": "7b4125625d6a95091104e483b08f20ce8667e836ddee6cab20e57b7bc601ec06",
+      "kept_png": false
+    },
+    "1280/native/left/full/011.png": {
+      "archive": "1280/native/left/motion.webp",
+      "frame": 11,
+      "png_sha256": "2ae2d585d73939714cfc45277febbc4a0a4ca0bf59d731510dd44c742c4e5838",
+      "rgba_sha256": "8e62a293a937d9b215c04ea409a122e6be80f4e6da605971fed54fae63229f7f",
+      "kept_png": false
+    },
+    "1280/native/left/full/012.png": {
+      "archive": "1280/native/left/motion.webp",
+      "frame": 12,
+      "png_sha256": "a5528fad40cc955800279bb0e060abe48b2c65df523b5785458fab8386c859f1",
+      "rgba_sha256": "3f40ca1dfa788ce3dbc8290a40d04ddd4cdfc6297382121de16ea4e229f05b2d",
+      "kept_png": false
+    },
+    "1280/native/left/full/013.png": {
+      "archive": "1280/native/left/motion.webp",
+      "frame": 13,
+      "png_sha256": "171345cfee79402de7491f81472ff214205b8c2b34e9e64c6cf32f3e051c2b49",
+      "rgba_sha256": "731c4562e6be8ce077436bfdde82e0dc32e3f9e057de88a9015e5a2988a681a9",
+      "kept_png": false
+    },
+    "1280/native/left/full/014.png": {
+      "archive": "1280/native/left/motion.webp",
+      "frame": 14,
+      "png_sha256": "fe209098285a21ac9e21e84ad24e7fc520e78e474429623a045474d60808f85c",
+      "rgba_sha256": "fe20847c8317d0a498c0631e54daef4253ebb89b89146d3f288609231e34ac87",
+      "kept_png": false
+    },
+    "1280/native/left/full/015.png": {
+      "archive": "1280/native/left/motion.webp",
+      "frame": 15,
+      "png_sha256": "77ae31fe1fc6e6d4ebe5b8001e8d6dbdd7ee44bc459b3fb18472df5f609d397c",
+      "rgba_sha256": "34d58793f62e5bd21d54db152c47749179884ab405a9949f3f2997060ba16b03",
+      "kept_png": false
+    },
+    "1280/native/left/full/016.png": {
+      "archive": "1280/native/left/motion.webp",
+      "frame": 16,
+      "png_sha256": "ef6f34766a5106ee36f98a50bf8d8a7b680001925e4c237b702bf3688be3995e",
+      "rgba_sha256": "2237db09ff7b513e47fba0e15259afc92f582b589d29e1ec270d46b1a2f2e7dc",
+      "kept_png": false
+    },
+    "1280/native/left/full/017.png": {
+      "archive": "1280/native/left/motion.webp",
+      "frame": 17,
+      "png_sha256": "e6ed9b30316f0d6bd3a2f291ef8c1573e6c36431685c2dec8cf61d4fdb1f5ed1",
+      "rgba_sha256": "eaaca6e5b66ed3022867ea50daef9991ad3509cd37ef2353d51dedb7191cfcca",
+      "kept_png": true
+    },
+    "1280/native/left/full/018.png": {
+      "archive": "1280/native/left/motion.webp",
+      "frame": 18,
+      "png_sha256": "b78522a3bff764708b7dfb3d51be6efcfe3ca64e685f2edaaf7a22da7f21ad31",
+      "rgba_sha256": "b1abd2f31dfd0bf7b50d87791d56e4ff0a89cef9634d5a6370b33dc1a8073fee",
+      "kept_png": false
+    },
+    "1280/native/left/full/019.png": {
+      "archive": "1280/native/left/motion.webp",
+      "frame": 19,
+      "png_sha256": "c27e0eb415c44e17e791f9ef02b4cb4c87cb9083cbea9c92e2a974e93c3f9ee7",
+      "rgba_sha256": "856e43de06b46f7fcb6dcb7f4c9d6595ed3944e01e019b621d47f2d8cee09557",
+      "kept_png": false
+    },
+    "1280/native/left/full/020.png": {
+      "archive": "1280/native/left/motion.webp",
+      "frame": 20,
+      "png_sha256": "b5006b14c0d65d4bb64ab9024ab90dab30a93abc38a84fcdd536570e806655dd",
+      "rgba_sha256": "998b1a520cdd2012bac60005d4d7921a9643dbbfa361ea3e855bba5ff8670e16",
+      "kept_png": false
+    },
+    "1280/native/left/full/021.png": {
+      "archive": "1280/native/left/motion.webp",
+      "frame": 21,
+      "png_sha256": "d4a992045b79c2e1c5ff897bcdee617847b4b339ae04b433b560dc8d9b4d7817",
+      "rgba_sha256": "325fcc3f70c3a2d508b869c0d2796f840a387bbd3dca1f2947c40e0b1b5b3372",
+      "kept_png": false
+    },
+    "1280/native/left/full/022.png": {
+      "archive": "1280/native/left/motion.webp",
+      "frame": 22,
+      "png_sha256": "040d34fe1b4c4b25b8b14a49dc9cbd16c0e3197e709d9361bee30eb0cebb6cbd",
+      "rgba_sha256": "db5f4031702fc3505e9b1018a898dfd65bd586fd42cd58c4ab8522dccb0ddb31",
+      "kept_png": false
+    },
+    "1280/native/left/full/023.png": {
+      "archive": "1280/native/left/motion.webp",
+      "frame": 23,
+      "png_sha256": "3966bd0a061a487df897f7dec9d7c3269a557143936ea20a9ec998664c9baa2c",
+      "rgba_sha256": "563a9aa4bc9226a286acccc87392b4f075c2df24a23dc4a83216cb9bf4a559b1",
+      "kept_png": false
+    },
+    "1280/native/left/full/024.png": {
+      "archive": "1280/native/left/motion.webp",
+      "frame": 24,
+      "png_sha256": "5ec11e84b830bc8215684808ec078e97eac5e248fd762c4899a7beac353e0ec5",
+      "rgba_sha256": "77dc1cee78d76108ebec04460524972cfba844e6393b684146ded9cffec9eefd",
+      "kept_png": false
+    },
+    "1280/native/left/full/025.png": {
+      "archive": "1280/native/left/motion.webp",
+      "frame": 25,
+      "png_sha256": "ea6f4873349731af588e6982cec1b0ca617fcfdfcde93b663540242e01aa2b27",
+      "rgba_sha256": "c89b7a81e2e2974acce1982d24900b520950ea3e9b67f75214eb1d088b610423",
+      "kept_png": false
+    },
+    "1280/native/left/full/026.png": {
+      "archive": "1280/native/left/motion.webp",
+      "frame": 26,
+      "png_sha256": "13b8bccacba83ad39ebca493f12a6a7ead78b07855948215ba02a23d02d5cafe",
+      "rgba_sha256": "808ec4621b750cac21faed8cc85c3854bc5020c38008e6464af92f422ea8c5d3",
+      "kept_png": false
+    },
+    "1280/native/left/full/027.png": {
+      "archive": "1280/native/left/motion.webp",
+      "frame": 27,
+      "png_sha256": "2cb0e24e89d3e2e07014b90c53d77efed204a062fbc672edd9327c73db4d2770",
+      "rgba_sha256": "4ce28ee4bf6251b9bfdca92ead9296cb1e4a4efa512c06ca1c860d8061120dba",
+      "kept_png": false
+    },
+    "1280/native/left/full/028.png": {
+      "archive": "1280/native/left/motion.webp",
+      "frame": 28,
+      "png_sha256": "c40c11d90ade67a9a5e36d1dfde4959c33a9ee42399641574f011096efd6929d",
+      "rgba_sha256": "5d5a61b6a9aa77aeee0084a01dfc2af42cc05f217fe5b352b6fe2c94db5f8b2f",
+      "kept_png": false
+    },
+    "1280/native/left/full/029.png": {
+      "archive": "1280/native/left/motion.webp",
+      "frame": 29,
+      "png_sha256": "01d749def600db636488ff497a8194e9354c6563d1e24ca51a476f64280e6704",
+      "rgba_sha256": "130e44d78d320a90ccf11ecd09b3bbbad708c013e49ccd2b9dd924568d31dc21",
+      "kept_png": false
+    },
+    "1280/native/left/full/030.png": {
+      "archive": "1280/native/left/motion.webp",
+      "frame": 30,
+      "png_sha256": "815e6da31d8c3bbc955e739d3d2beb2869d4401bdf8e175a29f358b009b397e5",
+      "rgba_sha256": "e36b386d55fe6f46c6d8d57cb0ab3135370ac1e8ab447b06b2498c85650b4f84",
+      "kept_png": false
+    },
+    "1280/native/left/full/031.png": {
+      "archive": "1280/native/left/motion.webp",
+      "frame": 31,
+      "png_sha256": "7a988bbcbfe2103515fa79bb4e05b172624176f08c6e38da3babcf8e1d21e1d4",
+      "rgba_sha256": "1a59ddd553c8308777a682343a4b8f9a7abf1735accd14fcbb5d1cc9b6e8052b",
+      "kept_png": false
+    },
+    "1280/native/left/full/032.png": {
+      "archive": "1280/native/left/motion.webp",
+      "frame": 32,
+      "png_sha256": "c38bf2dd2d4ece6cec8e4bbfeb2d5a362c611af441c977a1961acc52073bd177",
+      "rgba_sha256": "98c6a5f9dda9379d5b0bb0832229246a72517c2df9cbd0165db51b34b78005f8",
+      "kept_png": false
+    },
+    "1280/native/left/full/033.png": {
+      "archive": "1280/native/left/motion.webp",
+      "frame": 33,
+      "png_sha256": "9089dae3362074ff3fff8fa0f87468383cc890449e186557f2c4b4505cc83fc9",
+      "rgba_sha256": "3272ce535945358ae32965d87f065c7cf413f70acf08c18b6ab08169770f4a62",
+      "kept_png": false
+    },
+    "1280/native/left/full/034.png": {
+      "archive": "1280/native/left/motion.webp",
+      "frame": 34,
+      "png_sha256": "e331a2f918c090138d2e4c128c3b1f649ce043b36ac47694c5172ae2c2a8e915",
+      "rgba_sha256": "2f260e7b256593c042b1c5543d2df359e42ce2b1c933c4c64f60f50fed3b4e01",
+      "kept_png": false
+    },
+    "1280/native/left/full/035.png": {
+      "archive": "1280/native/left/motion.webp",
+      "frame": 35,
+      "png_sha256": "867fca1403f6b37507aa572e680a3f0bfe917805c08a56bdbad507e13917f3ae",
+      "rgba_sha256": "3933423573634bab936480505ec5e8385068203d38a2516c4121fdc0e059a483",
+      "kept_png": true
+    },
+    "1280/native/right/full/000.png": {
+      "archive": "1280/native/right/motion.webp",
+      "frame": 0,
+      "png_sha256": "99e28dd13dace292044af84022a6cb782136be00696871e5143ee6341f3c80d2",
+      "rgba_sha256": "2c5d8af2dbe9183f10e4324dae12c2993964b15450cbe538eefbb8070f0c754a",
+      "kept_png": true
+    },
+    "1280/native/right/full/001.png": {
+      "archive": "1280/native/right/motion.webp",
+      "frame": 1,
+      "png_sha256": "9c6dabac21f522a0dac22b0c424ef708f5827ecb0dc7d6fa942a8da214c81e2e",
+      "rgba_sha256": "a1d47f611c6f2648aa7763ce1192f53d1ec7cff8276305b94f57b82c0e8ad296",
+      "kept_png": false
+    },
+    "1280/native/right/full/002.png": {
+      "archive": "1280/native/right/motion.webp",
+      "frame": 2,
+      "png_sha256": "b2bec240970830905387b4f62f3ce5afd4fc1c70bf0773b7de4fcc227f275580",
+      "rgba_sha256": "3c47646966b376dfb8672d55f163787f1dccff92bdc54097ae97240209ec599b",
+      "kept_png": false
+    },
+    "1280/native/right/full/003.png": {
+      "archive": "1280/native/right/motion.webp",
+      "frame": 3,
+      "png_sha256": "de34fd869ce339365b379bb1d59de474822da2c23124a9155997c574beb98bde",
+      "rgba_sha256": "679a708783925b8f837e9b2bfea6f93d42846e63fbac697db30b1776753ec9ce",
+      "kept_png": false
+    },
+    "1280/native/right/full/004.png": {
+      "archive": "1280/native/right/motion.webp",
+      "frame": 4,
+      "png_sha256": "364511f404b53646d1a1636898424a5f7414a0623cba322ccd873b4c4917b069",
+      "rgba_sha256": "ae4a95f8c92c4ecd7eb23aced82b2d331dbc05b11f1084144a12696f3cdcfd04",
+      "kept_png": false
+    },
+    "1280/native/right/full/005.png": {
+      "archive": "1280/native/right/motion.webp",
+      "frame": 5,
+      "png_sha256": "f1a73a53eecd62a5dc0c3ba76a852b9317b16c2d02f5656154441d444e1ffad3",
+      "rgba_sha256": "ba4117461f62ac94f5b003769a00cd8e4861b1b338aaf82a2cc34920c5f94a8f",
+      "kept_png": false
+    },
+    "1280/native/right/full/006.png": {
+      "archive": "1280/native/right/motion.webp",
+      "frame": 6,
+      "png_sha256": "312c9193cae1ec29be64ec2bb3a78a23f4e6294eebc4c67a14daf235513261ca",
+      "rgba_sha256": "b3751462b6d2f19b5c47d2e38c5569f5982d598f17a307b8b6034a337e0cebf1",
+      "kept_png": false
+    },
+    "1280/native/right/full/007.png": {
+      "archive": "1280/native/right/motion.webp",
+      "frame": 7,
+      "png_sha256": "04f6963b77404e555f8dd9437a729a5123cf0f093d1738b07155e2beb851d431",
+      "rgba_sha256": "c6c6ba61238e86624b672253b6adb2e466f373d8e0ad663bf495de014cdc58ae",
+      "kept_png": false
+    },
+    "1280/native/right/full/008.png": {
+      "archive": "1280/native/right/motion.webp",
+      "frame": 8,
+      "png_sha256": "c01df1bf97341d68ddd773c146aa9ee33ce22b99bd8a129044c2b922430a4079",
+      "rgba_sha256": "07b62638a1bbc2ae922281a3b596aff9744f75d954dfd4cec53ca73f144f59d2",
+      "kept_png": false
+    },
+    "1280/native/right/full/009.png": {
+      "archive": "1280/native/right/motion.webp",
+      "frame": 9,
+      "png_sha256": "2f0b8086a455b419f232ff0733c17c1f35f5156462e6ea685bfe3d58d7d5f733",
+      "rgba_sha256": "4715efb347e65925e8c559aca08150c58315e483dd4f47530eda2ee455c287e0",
+      "kept_png": false
+    },
+    "1280/native/right/full/010.png": {
+      "archive": "1280/native/right/motion.webp",
+      "frame": 10,
+      "png_sha256": "dcc86e35f18d7bf74273dcc22233193509e00de772d61c6604f2e232cf44f624",
+      "rgba_sha256": "24b67979551b1cd251359291fd31a5b90fe0ab160fb4b10e1eef53957be1470f",
+      "kept_png": false
+    },
+    "1280/native/right/full/011.png": {
+      "archive": "1280/native/right/motion.webp",
+      "frame": 11,
+      "png_sha256": "fe225880dcb3dd35970fff50e0a25717301953a95d1584e0e6c37ed74155a1b1",
+      "rgba_sha256": "2652d3e548198562391e8f3af597aba0c453412610de5c1e5041b70710544130",
+      "kept_png": false
+    },
+    "1280/native/right/full/012.png": {
+      "archive": "1280/native/right/motion.webp",
+      "frame": 12,
+      "png_sha256": "d12c7b6542f683cac495ef6a8af7d0540a413ab2abe3805c6f873697f9a71d11",
+      "rgba_sha256": "96e0a07db88b071d92fc2e0d4b650b6b4b4429108d270ff2f891978810878410",
+      "kept_png": false
+    },
+    "1280/native/right/full/013.png": {
+      "archive": "1280/native/right/motion.webp",
+      "frame": 13,
+      "png_sha256": "b6cb0703785caae285007baab611f4ca1638bf8bc24f0fc75e38832d54fc1d2d",
+      "rgba_sha256": "48af0f959a9c23ae62aa79a74c123be606ce0d8068fcb5f3aac95d3bd5d5dc1d",
+      "kept_png": false
+    },
+    "1280/native/right/full/014.png": {
+      "archive": "1280/native/right/motion.webp",
+      "frame": 14,
+      "png_sha256": "91dba5d8802bf042ca7e1be7770a6b77123c243358e013faaf334e4fa7f20a77",
+      "rgba_sha256": "7f2e712495c9df129c4f3d9614dd954da8a1d9bc1a66aea6b3cb042133e156c1",
+      "kept_png": false
+    },
+    "1280/native/right/full/015.png": {
+      "archive": "1280/native/right/motion.webp",
+      "frame": 15,
+      "png_sha256": "ef997ccb01624990543eeabffd71b7f6e0d8261430531bff09c497f7d5a4075f",
+      "rgba_sha256": "750f7fb200b1a6ea43dfc70a174e0ee94ac92bec3bc20f27ec2be998b2c158c6",
+      "kept_png": false
+    },
+    "1280/native/right/full/016.png": {
+      "archive": "1280/native/right/motion.webp",
+      "frame": 16,
+      "png_sha256": "e18d77d4be15c0b3261ea958e66eea6e9657f2e4074be4625864534ec883449b",
+      "rgba_sha256": "6301f9d20593fdc2209eaed5d9a8be73c24f3e6498bd79e76c9e4a7b2a97664d",
+      "kept_png": false
+    },
+    "1280/native/right/full/017.png": {
+      "archive": "1280/native/right/motion.webp",
+      "frame": 17,
+      "png_sha256": "c424d749f3316a3db4d253d272245efcc4c391074b77c0ef6539588937f091d1",
+      "rgba_sha256": "11b8c3e70a5ac89e1f5bb61d19f0bc34477aa02dd0351c86ec60f8b45a8c3f4b",
+      "kept_png": true
+    },
+    "1280/native/right/full/018.png": {
+      "archive": "1280/native/right/motion.webp",
+      "frame": 18,
+      "png_sha256": "762cd16a52e2aaa1a2b8ea21a41ce984ddacc463b98b70e6c53ef9faf785b755",
+      "rgba_sha256": "a661daa073e66425e7b62c87382e853f6d8dbdc8f695f8d60bf415fb18ff3c63",
+      "kept_png": false
+    },
+    "1280/native/right/full/019.png": {
+      "archive": "1280/native/right/motion.webp",
+      "frame": 19,
+      "png_sha256": "19f4da5cbbd077a368907878d912b955e0d022d35dda4938cce7ecffb70c0249",
+      "rgba_sha256": "2e533f9bd1d9f0676db8a4b359d377f8a6afb11aedf535ccdcbbde0e51944197",
+      "kept_png": false
+    },
+    "1280/native/right/full/020.png": {
+      "archive": "1280/native/right/motion.webp",
+      "frame": 20,
+      "png_sha256": "016c5b80b92ef8fa2f587a0c8ca40ead4f4ad424f93a7febbc976f0381b666a6",
+      "rgba_sha256": "7bb89815b818168db1626d80768af2bd5e452d2a51873ba8fb2df4852feff401",
+      "kept_png": false
+    },
+    "1280/native/right/full/021.png": {
+      "archive": "1280/native/right/motion.webp",
+      "frame": 21,
+      "png_sha256": "cc6f624f4992c6163643d0af923509f1a4a69f8404e035a0fce980b2bf91c484",
+      "rgba_sha256": "6487009bd593cd8a65c206b6b9bd5c99c15f3ff7df8ab65b7cf658e5a2a0784b",
+      "kept_png": false
+    },
+    "1280/native/right/full/022.png": {
+      "archive": "1280/native/right/motion.webp",
+      "frame": 22,
+      "png_sha256": "67cc0743492e0ec8ff8e9375033dbf054769d1a72fff74fc1ce18bc08165b7fe",
+      "rgba_sha256": "013d03f78623a63fe611a005ce8b245b764950f7ad482cc19ed03b064e802f82",
+      "kept_png": false
+    },
+    "1280/native/right/full/023.png": {
+      "archive": "1280/native/right/motion.webp",
+      "frame": 23,
+      "png_sha256": "2659f678cb73aeb13bc6dd276d5968c02c4feeb113cb345602f3c3536138b74f",
+      "rgba_sha256": "dd8ee0b9e7675c64476c61c77f4b78afb75fedc38f6dd6396042ee19c8e78906",
+      "kept_png": false
+    },
+    "1280/native/right/full/024.png": {
+      "archive": "1280/native/right/motion.webp",
+      "frame": 24,
+      "png_sha256": "714441deb9f479054339bb04c8be1e871106d4aab4830686d4bda2d5e97ce748",
+      "rgba_sha256": "6520dc863cd43d25587444bdd7181f10d71b987a857c2a475c58c9cefb436c73",
+      "kept_png": false
+    },
+    "1280/native/right/full/025.png": {
+      "archive": "1280/native/right/motion.webp",
+      "frame": 25,
+      "png_sha256": "d8be35ca8a3d21ac3719b34abef2dd9a1730288fa7f713c40c7ff0e715da4c80",
+      "rgba_sha256": "dda02b36b8d9f27dd5c879a6f33604375bbcd1d35aa2e1850c4a0400564f4c3f",
+      "kept_png": false
+    },
+    "1280/native/right/full/026.png": {
+      "archive": "1280/native/right/motion.webp",
+      "frame": 26,
+      "png_sha256": "8959e83f86665f94a650ad936d7dde4c438aac14ed9a923065bf62fbf0909a56",
+      "rgba_sha256": "71da5531e6089c8bb7d27a3bc0715d182ef6e0df26062fcc0dc4627410df023c",
+      "kept_png": false
+    },
+    "1280/native/right/full/027.png": {
+      "archive": "1280/native/right/motion.webp",
+      "frame": 27,
+      "png_sha256": "06f024f43347e51e1be52a1492e99bd6288472030558c2fa280aac5a57f6a382",
+      "rgba_sha256": "0d8e178db5f0083292efcbd857ffbddf0025e7e403bcdddac8ab25d62539f053",
+      "kept_png": false
+    },
+    "1280/native/right/full/028.png": {
+      "archive": "1280/native/right/motion.webp",
+      "frame": 28,
+      "png_sha256": "df116c264189cdac3bc496c181286a67b80ddffca76e6e771f9149df76e118cd",
+      "rgba_sha256": "817a800ef88f7940690b9900d389b7d9e9ec38df92fa6898c6412c99186ab25a",
+      "kept_png": false
+    },
+    "1280/native/right/full/029.png": {
+      "archive": "1280/native/right/motion.webp",
+      "frame": 29,
+      "png_sha256": "4935f4cd753b821cacb214e11636b24334de941ff271b0b87f5a832fe8be06e4",
+      "rgba_sha256": "9455a2b8d08ee59028e844d5ee5b55568bc44f81db665c52ba8af53f022cdde4",
+      "kept_png": false
+    },
+    "1280/native/right/full/030.png": {
+      "archive": "1280/native/right/motion.webp",
+      "frame": 30,
+      "png_sha256": "1f082011eddf76a3c360c7222b75bf38416a8167b0a98165057ea5799a16a4cd",
+      "rgba_sha256": "c23d8d8363a0b9ad92a6b9839b3d9445785d2216cf4c05456bbb8df75b0514d2",
+      "kept_png": false
+    },
+    "1280/native/right/full/031.png": {
+      "archive": "1280/native/right/motion.webp",
+      "frame": 31,
+      "png_sha256": "70f736cfa0fafe21aa7759c3da1cae062aa41bebb5e47903aaeb0a0d4af7ee6b",
+      "rgba_sha256": "d289d4d6e64adfb8130943c23297b6dea1e5190ea70c45158fa55fb89f3d9aa1",
+      "kept_png": false
+    },
+    "1280/native/right/full/032.png": {
+      "archive": "1280/native/right/motion.webp",
+      "frame": 32,
+      "png_sha256": "9fd79217212501914601f1887307fdfc8f9a65685e988b601140744bb2ef6793",
+      "rgba_sha256": "16c4099b8908e06ecf9964488840d9003fa492c61629811852c3f1bdbb6f229b",
+      "kept_png": false
+    },
+    "1280/native/right/full/033.png": {
+      "archive": "1280/native/right/motion.webp",
+      "frame": 33,
+      "png_sha256": "0df2c90239bbaf8150490285c8c48e12c8de991f3842fc766ccb00a9d3f808b7",
+      "rgba_sha256": "f2b5d89d8ee396eca89a9f03dd582c6e50bcf988a2aa37f2c9088237f733a87e",
+      "kept_png": false
+    },
+    "1280/native/right/full/034.png": {
+      "archive": "1280/native/right/motion.webp",
+      "frame": 34,
+      "png_sha256": "37cacdab9292a433f951a64b73ce4be8db7a360ba89539c1ba55f97bcbc59d55",
+      "rgba_sha256": "5c9f3380649b1d4ba619d6d180a421e85d4d08cf4d477dcc14657b75339eb980",
+      "kept_png": false
+    },
+    "1280/native/right/full/035.png": {
+      "archive": "1280/native/right/motion.webp",
+      "frame": 35,
+      "png_sha256": "b62281a961ae76ee70b462f7047ce9171eb1b99970a35a68c62ddb5bed347cb0",
+      "rgba_sha256": "d7f024b86e3f40614056a0cdc3bd420540a0fb553651b824b1e92cb4071bd919",
+      "kept_png": true
+    },
+    "1280/native/top/full/000.png": {
+      "archive": "1280/native/top/motion.webp",
+      "frame": 0,
+      "png_sha256": "785df5448f187551381c5a6fa9d6742b200b876d8e4f052ef160a867e257f772",
+      "rgba_sha256": "0f60c23a423c70b436af23c8d89e4ef4a7da2d577090fd5dc405ef7091e9b17a",
+      "kept_png": true
+    },
+    "1280/native/top/full/001.png": {
+      "archive": "1280/native/top/motion.webp",
+      "frame": 1,
+      "png_sha256": "fd47676b0e165b504fcbe8d75ed3d6fefbec2e977d5c6c692ca34b4c396ee178",
+      "rgba_sha256": "8003563a405f6ccd4717837865712a33b9736991e95522b94e410bba0093943b",
+      "kept_png": false
+    },
+    "1280/native/top/full/002.png": {
+      "archive": "1280/native/top/motion.webp",
+      "frame": 2,
+      "png_sha256": "02c35612fd77eefb22162cfeadbc1ba0452555583a3edcd024e5f22c79c7f10d",
+      "rgba_sha256": "33b70ff9b28e8b7ecf1503605afcfc6d96001e21ccfe7593c1ef390cb239f5fc",
+      "kept_png": false
+    },
+    "1280/native/top/full/003.png": {
+      "archive": "1280/native/top/motion.webp",
+      "frame": 3,
+      "png_sha256": "e009e5430d6fb6643ffbee87f29736c3d393e18f8a2877684cad34c4630d5eff",
+      "rgba_sha256": "b40c2b60af8f0feba46e69ececbe4aa1c035e382fb5567eb2ba67969d7a2987c",
+      "kept_png": false
+    },
+    "1280/native/top/full/004.png": {
+      "archive": "1280/native/top/motion.webp",
+      "frame": 4,
+      "png_sha256": "875bc1ea0ae6a677e5188e5f6bd6e44553e23b0150ea20eea8caafa16765bc3f",
+      "rgba_sha256": "3ba261e874ca03cf060c10b6c3bb85cbc78bb6fa14643882ea62da07ad8169a9",
+      "kept_png": false
+    },
+    "1280/native/top/full/005.png": {
+      "archive": "1280/native/top/motion.webp",
+      "frame": 5,
+      "png_sha256": "5ef2f00823465d29acc57ead2f7e6e21073e988462b2dbb28cc1c334d9625355",
+      "rgba_sha256": "c7f10e00a748583f245f9611fd67179a07f782dae780ea585c03807e8e1618bf",
+      "kept_png": false
+    },
+    "1280/native/top/full/006.png": {
+      "archive": "1280/native/top/motion.webp",
+      "frame": 6,
+      "png_sha256": "49604e21a15f411f8641b07dd6cb68021e45a1c5267edb3f73b1c38aa3cabf5d",
+      "rgba_sha256": "2713f3e3d6f914b423d1ee1e08d3cfc35bb094af2361d45a7b90038b8766ac8e",
+      "kept_png": false
+    },
+    "1280/native/top/full/007.png": {
+      "archive": "1280/native/top/motion.webp",
+      "frame": 7,
+      "png_sha256": "6392328c2c857db5fde3c354430b74a41c69d1ea0ca023754c0ff1f21989c98a",
+      "rgba_sha256": "473c7aa842f1b180626186095b574ff5966582b4f48316be4d07731ecf851078",
+      "kept_png": false
+    },
+    "1280/native/top/full/008.png": {
+      "archive": "1280/native/top/motion.webp",
+      "frame": 8,
+      "png_sha256": "6909992e69c3ca26ab24eeb9ea81841d6ed53e6951ee9c0683d340246f3baaeb",
+      "rgba_sha256": "a0c383c9e8ff4a5b61e4b98b04e359899814976a14b6dabd160b26fedbce0592",
+      "kept_png": false
+    },
+    "1280/native/top/full/009.png": {
+      "archive": "1280/native/top/motion.webp",
+      "frame": 9,
+      "png_sha256": "217332245eec01ce8280f2704bb912549271b30cba974fe84c431ce07afdcb4c",
+      "rgba_sha256": "78578613d5737d9e652275edf7f8f05b4aafdfd5a5b7bf1569e5204b28b6c0fa",
+      "kept_png": false
+    },
+    "1280/native/top/full/010.png": {
+      "archive": "1280/native/top/motion.webp",
+      "frame": 10,
+      "png_sha256": "453335cec8e2055f7acfa3e6da6d8b7f5b6b1371f3e5b16fec0c2ece36af3bca",
+      "rgba_sha256": "a3f0eb4841263c474cc2cf8871cc30cc7b3da3aa12db04d6847cb6d10036a30a",
+      "kept_png": false
+    },
+    "1280/native/top/full/011.png": {
+      "archive": "1280/native/top/motion.webp",
+      "frame": 11,
+      "png_sha256": "3291542ea07b2c194cd7a55c7b8b154fbec946ec8a2b00129420cc92d25c6dac",
+      "rgba_sha256": "be98d1817150a7573fb1b1ec2f5feec0ab474c5ccd5dd5cd0c52e019021203e4",
+      "kept_png": false
+    },
+    "1280/native/top/full/012.png": {
+      "archive": "1280/native/top/motion.webp",
+      "frame": 12,
+      "png_sha256": "e85e983e5286594f164d0ac9c1390b7b90a6b9e8e4921546a60893b7f899d09c",
+      "rgba_sha256": "f27165a37b37bf2ea55937b57682cb4b48ab93de434f545fada3f940295a2a46",
+      "kept_png": false
+    },
+    "1280/native/top/full/013.png": {
+      "archive": "1280/native/top/motion.webp",
+      "frame": 13,
+      "png_sha256": "80c320ef45ad52404b1b61555f1b20603848296dbf18382306b837052e31dad2",
+      "rgba_sha256": "bfcfe3499a6195a1e9e46f88b0a4d65fd7f01a72372851efa481e66c3bd84b6d",
+      "kept_png": false
+    },
+    "1280/native/top/full/014.png": {
+      "archive": "1280/native/top/motion.webp",
+      "frame": 14,
+      "png_sha256": "7410643bfafb9f9fc0a0e7558fd41a02d084609f82ab7b1c89acfc76d2e13806",
+      "rgba_sha256": "51dd10bfa84dcfdfcc47247229c6d362119cd8f67cf0dd0e462cced8dcbc2808",
+      "kept_png": false
+    },
+    "1280/native/top/full/015.png": {
+      "archive": "1280/native/top/motion.webp",
+      "frame": 15,
+      "png_sha256": "c468ee69bd3021661da135f6b4866b794dfdf697990990ed6d7aa64badb52a87",
+      "rgba_sha256": "514b09374775651283121f21a4d07fef1ed950c05d2056ce0c9ac28697a671bf",
+      "kept_png": false
+    },
+    "1280/native/top/full/016.png": {
+      "archive": "1280/native/top/motion.webp",
+      "frame": 16,
+      "png_sha256": "0c85ad75b0584976d3831c04a9bf528bbf7bbbc8b2148a47c4258f722cf078e6",
+      "rgba_sha256": "7c1fe0ac161ae4a0d1fbc2af57447c1a417aadc6e5e7c22a2c814588307a2bca",
+      "kept_png": false
+    },
+    "1280/native/top/full/017.png": {
+      "archive": "1280/native/top/motion.webp",
+      "frame": 17,
+      "png_sha256": "3143ca3e9082dcb89eb8595e425a93ca39d900f2376df6fc22dedccb296c8767",
+      "rgba_sha256": "f6c4000dc479d29850d6761aa0c41f2de9b32c2fa0498ed43f51a27e4cadd9b5",
+      "kept_png": true
+    },
+    "1280/native/top/full/018.png": {
+      "archive": "1280/native/top/motion.webp",
+      "frame": 18,
+      "png_sha256": "4939bdb95c07914fd1e5be40aa4ba6707ce9c56f3785ab5dc8a4aeb7701d5608",
+      "rgba_sha256": "ab73df88a79af6e26fc3249e97095df2222cad303af8046fa306b13b77e14515",
+      "kept_png": false
+    },
+    "1280/native/top/full/019.png": {
+      "archive": "1280/native/top/motion.webp",
+      "frame": 19,
+      "png_sha256": "c21172102f772f080b1b1c2226e9f9c9809c0116b7538612594ae857eb820867",
+      "rgba_sha256": "2c54fff2235fe71e32df0d322035e28ed061904b650f3c7633f2c865bade7eb2",
+      "kept_png": false
+    },
+    "1280/native/top/full/020.png": {
+      "archive": "1280/native/top/motion.webp",
+      "frame": 20,
+      "png_sha256": "77ebf9694803c2a714c3132dad87abe5472718ac0365a1c502cb4bc46eb5b629",
+      "rgba_sha256": "e62b92d57a8a9c9456fe53d828c08717d90d19fe54116eee32af60df58a9f676",
+      "kept_png": false
+    },
+    "1280/native/top/full/021.png": {
+      "archive": "1280/native/top/motion.webp",
+      "frame": 21,
+      "png_sha256": "904aa91951992795ac88692acc9aeb441012ccedab41bd70a05f235ce645b6e5",
+      "rgba_sha256": "f1c55519cec4f8e6e5058f2aae7e7a201227a03e61d90db6194affbe8dce5807",
+      "kept_png": false
+    },
+    "1280/native/top/full/022.png": {
+      "archive": "1280/native/top/motion.webp",
+      "frame": 22,
+      "png_sha256": "6ccc794090a36b1a72ad7699879ce21a22d905a680cdba8c62d9a1d092be2f4b",
+      "rgba_sha256": "72b44272d8f3230a70f4eaf83bc148e5a141195d18548cdfda37ccc45a332c51",
+      "kept_png": false
+    },
+    "1280/native/top/full/023.png": {
+      "archive": "1280/native/top/motion.webp",
+      "frame": 23,
+      "png_sha256": "95762530633190594897be44853ac43455b3b879e419a49eebd10c74d4835ac7",
+      "rgba_sha256": "1928c88f591b4a561190a015a9f4c3349c083ec1bc742dadad3e77cae922d554",
+      "kept_png": false
+    },
+    "1280/native/top/full/024.png": {
+      "archive": "1280/native/top/motion.webp",
+      "frame": 24,
+      "png_sha256": "b37d5adf86627598c0f643f563582b66815afa25a18abf4b3695496d031ffa0a",
+      "rgba_sha256": "f09403d956f479fef7a1b6a5494fd54c55c4848f112a4eaa32b0b467c570e30b",
+      "kept_png": false
+    },
+    "1280/native/top/full/025.png": {
+      "archive": "1280/native/top/motion.webp",
+      "frame": 25,
+      "png_sha256": "8800411b9c87811d4ad46736f8c019d0511089a1ef485479df94a91d4392c150",
+      "rgba_sha256": "64b04cf3e5e3a5e5155da76c4d4b69178e333dcf41e973a1c12f150cd5f767c4",
+      "kept_png": false
+    },
+    "1280/native/top/full/026.png": {
+      "archive": "1280/native/top/motion.webp",
+      "frame": 26,
+      "png_sha256": "1d01e37eda8176be60d4ecae02b034d83e8ac8d2ff0ec6258dd6063277c09830",
+      "rgba_sha256": "5c7afa750488c4d840787f86b8f1526d11b19f2b0ad5847ac7474ce2992f7c56",
+      "kept_png": false
+    },
+    "1280/native/top/full/027.png": {
+      "archive": "1280/native/top/motion.webp",
+      "frame": 27,
+      "png_sha256": "90ff5a0a7e15e122283f2f6d599b8902477a436b8146461a31e979ab8a8a7065",
+      "rgba_sha256": "55dc2b09ac4388af4247729c11ef388bb13e5c2a9acdddd5b961bc1cfbafb7b2",
+      "kept_png": false
+    },
+    "1280/native/top/full/028.png": {
+      "archive": "1280/native/top/motion.webp",
+      "frame": 28,
+      "png_sha256": "586bb8265fa5deb0604de6c345f13e54d3817faacd67980e4a7f0cdc3515f06f",
+      "rgba_sha256": "9ed0460076d1b5cdbea386876f8f3d73f31230a448705176ea00c6140dbc3d61",
+      "kept_png": false
+    },
+    "1280/native/top/full/029.png": {
+      "archive": "1280/native/top/motion.webp",
+      "frame": 29,
+      "png_sha256": "e644be620b8465b56300a82185417c47ca1c94c2f34cc61bb567d614405830c2",
+      "rgba_sha256": "0bcb2e9be6b6f0ba7da6f7260626d2471bae300be3c13258cad598668eb1de0d",
+      "kept_png": false
+    },
+    "1280/native/top/full/030.png": {
+      "archive": "1280/native/top/motion.webp",
+      "frame": 30,
+      "png_sha256": "c2bd6e8a469d62c442b7238e2a0661974d42cc5034c8c72aace3c429a317b32c",
+      "rgba_sha256": "ed27f0c1a62aa95b5c64e33a44a8b0be465747a51c34e7c219e233d53e9bdac0",
+      "kept_png": false
+    },
+    "1280/native/top/full/031.png": {
+      "archive": "1280/native/top/motion.webp",
+      "frame": 31,
+      "png_sha256": "82b0ee87a54f3a1b6268c0f0afeed7588ca289d38711a6386b6c90010c5e1563",
+      "rgba_sha256": "33ec84e3ba82513190bd592401e407a3a11a218615cb7c000a898e61183e6e7e",
+      "kept_png": false
+    },
+    "1280/native/top/full/032.png": {
+      "archive": "1280/native/top/motion.webp",
+      "frame": 32,
+      "png_sha256": "1bf2cfc723c541b59f878409711e8a2d12d990a58af2b55bf8eb775160b2f86b",
+      "rgba_sha256": "0709da1c30d50f51ca0cb57516e5e69f971c7d6366a9740fe41ce3f5a3056ca6",
+      "kept_png": false
+    },
+    "1280/native/top/full/033.png": {
+      "archive": "1280/native/top/motion.webp",
+      "frame": 33,
+      "png_sha256": "8b38ac60e4ce2b1e13902401f8a83fc2f6f155834d8e37f862f563218cc1e6a1",
+      "rgba_sha256": "bda0bd3cbc72d821b497a66b5bcc2bb9b382e3bedfd41496598985ddcb1fd709",
+      "kept_png": false
+    },
+    "1280/native/top/full/034.png": {
+      "archive": "1280/native/top/motion.webp",
+      "frame": 34,
+      "png_sha256": "17b51210637414387d50cc8b69898c52fd7dbea245733c79b35a36b1d59d1ecf",
+      "rgba_sha256": "09d7a2111e57a59559054e6c9e2b3932f81f9e333f2d1be07bc711f1b109d8ce",
+      "kept_png": false
+    },
+    "1280/native/top/full/035.png": {
+      "archive": "1280/native/top/motion.webp",
+      "frame": 35,
+      "png_sha256": "583f5f35d4ae6906670894aaf53e745117e791f86ab3e1b51d62da6645ca8446",
+      "rgba_sha256": "664423d33e12cc909e32d0dea0cbbfeb14b04a5aa98f5c788364b78572c18d04",
+      "kept_png": true
+    },
+    "1280/native/bottom/full/000.png": {
+      "archive": "1280/native/bottom/motion.webp",
+      "frame": 0,
+      "png_sha256": "da3b1c840c53ffdc1da78fe4d0bd4ebbdd9dd1501d50b88a57f051b82afdad05",
+      "rgba_sha256": "3ff6d0da9e6854455e1bce79bd913d09066ae06d79dffce3ba0a032216a61a9d",
+      "kept_png": true
+    },
+    "1280/native/bottom/full/001.png": {
+      "archive": "1280/native/bottom/motion.webp",
+      "frame": 1,
+      "png_sha256": "d5a5e288f4111360b236177ae3e9f22f87b17757f28f2427a5c912efe67c10e7",
+      "rgba_sha256": "02d2cf80acb376241cef43d49686e72890379db40b609a94a8807e14d14fa868",
+      "kept_png": false
+    },
+    "1280/native/bottom/full/002.png": {
+      "archive": "1280/native/bottom/motion.webp",
+      "frame": 2,
+      "png_sha256": "e9f164742369ac030fa2af1c21d012ae3304edf2f2a2cd61445da0856cc0e8ab",
+      "rgba_sha256": "0eeb4e2f358f038b1e65de1ac0d0ca325f5e2f095b042f9643663ae661f4db7a",
+      "kept_png": false
+    },
+    "1280/native/bottom/full/003.png": {
+      "archive": "1280/native/bottom/motion.webp",
+      "frame": 3,
+      "png_sha256": "0ace16105de148aed743a21c91fdc171160124429dc433cf2bcfabdb14173031",
+      "rgba_sha256": "0629191012643e9c8cc320e2497c05a09531da1aa4b977a6fb34628be5cff035",
+      "kept_png": false
+    },
+    "1280/native/bottom/full/004.png": {
+      "archive": "1280/native/bottom/motion.webp",
+      "frame": 4,
+      "png_sha256": "54231a70dbe0bc4bf37edd81fda37b06cdbfd26bed7bd7c733ccf9c2a2bc71fb",
+      "rgba_sha256": "6b05b489086df7c34e9b87fb1df126c8e8831ec1ad8a63c18ceabe000737a220",
+      "kept_png": false
+    },
+    "1280/native/bottom/full/005.png": {
+      "archive": "1280/native/bottom/motion.webp",
+      "frame": 5,
+      "png_sha256": "a660a54dbef1948da72674444c4adcc5be3da8ee4e4f99a3e54f099a255016f5",
+      "rgba_sha256": "fd23d66f38b226270f45a78d0b7f97ea06a95ea24583c12fc1433bf7f60b52d2",
+      "kept_png": false
+    },
+    "1280/native/bottom/full/006.png": {
+      "archive": "1280/native/bottom/motion.webp",
+      "frame": 6,
+      "png_sha256": "38b6f5ef2423bc4f6fa90407efd550e4b7e3cadd0bc93a4478c0cc59db35de36",
+      "rgba_sha256": "e966e6b04ca1a1efbe52c6861ed5599b17d62d89c27e1907fc1a98bea2ef395e",
+      "kept_png": false
+    },
+    "1280/native/bottom/full/007.png": {
+      "archive": "1280/native/bottom/motion.webp",
+      "frame": 7,
+      "png_sha256": "c0e69073ff2a50a99471be9abb19eb71c64c512d511b24a4a4b5480686efcfb5",
+      "rgba_sha256": "46a3c8f8db300f100e0feef5afd668abac791538004731edc95cedcee4b16630",
+      "kept_png": false
+    },
+    "1280/native/bottom/full/008.png": {
+      "archive": "1280/native/bottom/motion.webp",
+      "frame": 8,
+      "png_sha256": "6ed4a9a2912f0a5dde2ed378bd2277749c37b218ab8ab0bc4d50de45f21f68eb",
+      "rgba_sha256": "69a1c56b1ac4474a1fcb782a42b83daba6fb4efb2e1a97fd5d380c1877064297",
+      "kept_png": false
+    },
+    "1280/native/bottom/full/009.png": {
+      "archive": "1280/native/bottom/motion.webp",
+      "frame": 9,
+      "png_sha256": "b5709db1bcbbe7b276a7a64196483cf263467bd54dc04e2a4053560322ff2cc9",
+      "rgba_sha256": "6ce870c421c9242ceb44b832e0f50fe9b14c5284a104425840d84b76b30843e9",
+      "kept_png": false
+    },
+    "1280/native/bottom/full/010.png": {
+      "archive": "1280/native/bottom/motion.webp",
+      "frame": 10,
+      "png_sha256": "0e123227723e742fccf916b9a4dbb4dfe518c444db3a14d43c70732236893de1",
+      "rgba_sha256": "335db8d9f20d2c9410a684c22106b9789889fc6c7186c58b43d3e83c9c5be075",
+      "kept_png": false
+    },
+    "1280/native/bottom/full/011.png": {
+      "archive": "1280/native/bottom/motion.webp",
+      "frame": 11,
+      "png_sha256": "0b4f98b93015f995232ad0fc02d7a51a99ea8420c2e4c6a4a029bc475fa6fe2f",
+      "rgba_sha256": "20f616db394ffcac87beb5b0354b0190ae8fa9dae6adf366a714778390ee0a4f",
+      "kept_png": false
+    },
+    "1280/native/bottom/full/012.png": {
+      "archive": "1280/native/bottom/motion.webp",
+      "frame": 12,
+      "png_sha256": "c58c6cd6ca5f85123cb060bcc3de8dce3e90741bbea57add84c46eb3e182b818",
+      "rgba_sha256": "ba527268d3cfc28df6bc93593e91018c136b7ddfb3232108531da272da5973d7",
+      "kept_png": false
+    },
+    "1280/native/bottom/full/013.png": {
+      "archive": "1280/native/bottom/motion.webp",
+      "frame": 13,
+      "png_sha256": "ffba23332b9360b7b748890d893a7d5caa123d829f0ef66eb6144b9db5092dc9",
+      "rgba_sha256": "f5e1521a5a620204167b3937a182ec107b77ee410c7e0c31fd046e706b74190a",
+      "kept_png": false
+    },
+    "1280/native/bottom/full/014.png": {
+      "archive": "1280/native/bottom/motion.webp",
+      "frame": 14,
+      "png_sha256": "2f3bdc0bc1b05b8db791ac49ab9bf56c133326e48f72f50034ae7d044df79690",
+      "rgba_sha256": "f64fd929a939f09cc90bfddaecde4663ffb8847cbb787abc3fe40f9f9683de69",
+      "kept_png": false
+    },
+    "1280/native/bottom/full/015.png": {
+      "archive": "1280/native/bottom/motion.webp",
+      "frame": 15,
+      "png_sha256": "a9e915120ee1e108864bf8a8f3dd808c450a0698314ede9e45370bbc1a1fbd33",
+      "rgba_sha256": "7ef44a4ab7862eb64116e0e4c5b9a435eae606b52e37d0d4ae78039a3d37a92e",
+      "kept_png": false
+    },
+    "1280/native/bottom/full/016.png": {
+      "archive": "1280/native/bottom/motion.webp",
+      "frame": 16,
+      "png_sha256": "18dbd86762c1f7462de42ee65c5dba591a57ead15a277cf451718f209e19f6f9",
+      "rgba_sha256": "daff389c442396e4f2aff85bf559c5b579fc4a3df651a575182dfa70b8a9401e",
+      "kept_png": false
+    },
+    "1280/native/bottom/full/017.png": {
+      "archive": "1280/native/bottom/motion.webp",
+      "frame": 17,
+      "png_sha256": "64724366d7297f9d1b3ca1dd6233e85cae59535a9027b930b6161899428a9600",
+      "rgba_sha256": "27e666f86681bc8595f25f2f30685508f4a550469163ea97580919e0e9bc7432",
+      "kept_png": true
+    },
+    "1280/native/bottom/full/018.png": {
+      "archive": "1280/native/bottom/motion.webp",
+      "frame": 18,
+      "png_sha256": "0d6f99850bed0719437099c20d84fe906d35440fbda97ac08613cc169e29c7b2",
+      "rgba_sha256": "00c68d36acb064ce4c969739e74babbd95aa3eaea61b93091e952d088c9d5491",
+      "kept_png": false
+    },
+    "1280/native/bottom/full/019.png": {
+      "archive": "1280/native/bottom/motion.webp",
+      "frame": 19,
+      "png_sha256": "26d3fff09ce6f2f01648cac5254b21c6baaf15c13015f8f6e5309a6617fe9de2",
+      "rgba_sha256": "79242914e5d659352401f0387a831a750bd3ae6a81f8c7e1935cd476fba3305f",
+      "kept_png": false
+    },
+    "1280/native/bottom/full/020.png": {
+      "archive": "1280/native/bottom/motion.webp",
+      "frame": 20,
+      "png_sha256": "7ad38668da92d3566c171651ee61f076c77b31d20cc0d4fa254561d2b2612061",
+      "rgba_sha256": "479bd074b1ca1ed64d42cd66183e3d943509d22b754d5210e9a869a702e16946",
+      "kept_png": false
+    },
+    "1280/native/bottom/full/021.png": {
+      "archive": "1280/native/bottom/motion.webp",
+      "frame": 21,
+      "png_sha256": "a947a9e41b5782e74da85ecaafe57c51d11b51aafc68f620bb6f5d27195d4e95",
+      "rgba_sha256": "8c91ce19c1b263ba57d90b09d60a2b6392acb10afb9000f9f3a83571fb174ae5",
+      "kept_png": false
+    },
+    "1280/native/bottom/full/022.png": {
+      "archive": "1280/native/bottom/motion.webp",
+      "frame": 22,
+      "png_sha256": "1234eadb7379949cdd70283f15d7ff332012723576d4ce7ea85a206550e1ebd4",
+      "rgba_sha256": "56358d27e443c87b244d3af2990e1f5bd1c7e8bdc71ff410026542877ae484d4",
+      "kept_png": false
+    },
+    "1280/native/bottom/full/023.png": {
+      "archive": "1280/native/bottom/motion.webp",
+      "frame": 23,
+      "png_sha256": "977114fc2ac3b83d6291f29ca26e85381a62859de35840e3d57706770376a010",
+      "rgba_sha256": "b22e1f14019141ff1fb734f1fac864e5e679016aeade5a608c4a2d63ab10e97a",
+      "kept_png": false
+    },
+    "1280/native/bottom/full/024.png": {
+      "archive": "1280/native/bottom/motion.webp",
+      "frame": 24,
+      "png_sha256": "52324fb641648c08d6f9b60f3ded8bedb0f4a8590cb9ccc0ac9e01aca7218f36",
+      "rgba_sha256": "14c49a655a6c1750788277093707cca084df18b602d73593aecb9c69cc92dd4a",
+      "kept_png": false
+    },
+    "1280/native/bottom/full/025.png": {
+      "archive": "1280/native/bottom/motion.webp",
+      "frame": 25,
+      "png_sha256": "2279d9a06c26c7b7bc479232a5e51176506254d1cd36d197b6562bd1929e86f2",
+      "rgba_sha256": "136fd746a9c2510540d34de7a68b032b6253076c7df918de5484e60e5c345b7c",
+      "kept_png": false
+    },
+    "1280/native/bottom/full/026.png": {
+      "archive": "1280/native/bottom/motion.webp",
+      "frame": 26,
+      "png_sha256": "494b0f7a449cd019fa9a7468c2789f2ac69a7e7425ac0daa4fb901a1f596d17f",
+      "rgba_sha256": "a7d8c763c9685ebc305ca87302f3d814cdbb20bbba00778af413f2aaa4a8ed94",
+      "kept_png": false
+    },
+    "1280/native/bottom/full/027.png": {
+      "archive": "1280/native/bottom/motion.webp",
+      "frame": 27,
+      "png_sha256": "e986de21f06fea7e371d48a2b9f57765a3d496b41e9747ae82f760fea5d6cdc6",
+      "rgba_sha256": "906dc3d33c7086fb61333c24b4da44cf35a11bc59363f3e3cd9c97bbdf9e996d",
+      "kept_png": false
+    },
+    "1280/native/bottom/full/028.png": {
+      "archive": "1280/native/bottom/motion.webp",
+      "frame": 28,
+      "png_sha256": "0c5253d443e52359ec4c30e0ab516b0d55008bf1d8a6640407ab2bee6d6202e2",
+      "rgba_sha256": "d78fa94301d138d5e0a3a9674623a6559191af6df8f492d15d055a5d695b9d4d",
+      "kept_png": false
+    },
+    "1280/native/bottom/full/029.png": {
+      "archive": "1280/native/bottom/motion.webp",
+      "frame": 29,
+      "png_sha256": "60c466798dc65f03bb83140f8e223bb24c33ab0ace56a5fff07eec489fc3ce54",
+      "rgba_sha256": "1ac518469ed8b78249c5bb86d846a64c359916f4a7c289e538f08a29424b4ed8",
+      "kept_png": false
+    },
+    "1280/native/bottom/full/030.png": {
+      "archive": "1280/native/bottom/motion.webp",
+      "frame": 30,
+      "png_sha256": "5da16444ba123e432404a66d71d8adc54301e8ced5e85e0b8044845a4dc82679",
+      "rgba_sha256": "fda291667fe8c78cec6bd43d9578e098d8e9ad18a065b0e2c4d7dc4e4661a8d0",
+      "kept_png": false
+    },
+    "1280/native/bottom/full/031.png": {
+      "archive": "1280/native/bottom/motion.webp",
+      "frame": 31,
+      "png_sha256": "fd220f6a5c39b657af95edc196e25f1a576f8b66371da937344229b355c7399c",
+      "rgba_sha256": "577b041e2929d20dce55388b85acd39e51b8be137f70bcb1e0c98affa516aa70",
+      "kept_png": false
+    },
+    "1280/native/bottom/full/032.png": {
+      "archive": "1280/native/bottom/motion.webp",
+      "frame": 32,
+      "png_sha256": "1a9440601ce7245f87a56044d6a89fd8a9743337f56bcfdc4789ae4548f7f0aa",
+      "rgba_sha256": "fe202617bf2e98dfc8adf229707390950e61fef21e3d72b410770ed55a2f8105",
+      "kept_png": false
+    },
+    "1280/native/bottom/full/033.png": {
+      "archive": "1280/native/bottom/motion.webp",
+      "frame": 33,
+      "png_sha256": "cb5f90c34af46efb8d67fe5b96046e14132b21fd7422f7f79bc68b32598af0ad",
+      "rgba_sha256": "5a587b7019cb8146ca47948c06053e6910132cbc349806514338fcfe0e940ed4",
+      "kept_png": false
+    },
+    "1280/native/bottom/full/034.png": {
+      "archive": "1280/native/bottom/motion.webp",
+      "frame": 34,
+      "png_sha256": "4e81a8644a4b0b37d3ecc038f9a3b2a7c891966210d1a22086accd8f4074348f",
+      "rgba_sha256": "67b07f837081e4e2594a39ede8e72529b6b5de4a65e2bf2dd51a6b1aaa2c5f0a",
+      "kept_png": false
+    },
+    "1280/native/bottom/full/035.png": {
+      "archive": "1280/native/bottom/motion.webp",
+      "frame": 35,
+      "png_sha256": "9512fb134966a865f74ea55c061c34b1eb69dd9a0adf9bbe12231f78dd397f4b",
+      "rgba_sha256": "5862a0eba2a64b9bba36c45922eabf2826e66d9eb3aa4d518d58977c74c6b6b4",
+      "kept_png": true
+    },
+    "1280/native/chunk/full/000.png": {
+      "archive": "1280/native/chunk/motion.webp",
+      "frame": 0,
+      "png_sha256": "3d7446599439b035aa1cfa660ab703155900474a26e80c557cdb27de142072ca",
+      "rgba_sha256": "456073bdd6be9875897177baf100961930ebaae8a2845c2fe7f5cd309be1a9f8",
+      "kept_png": true
+    },
+    "1280/native/chunk/full/001.png": {
+      "archive": "1280/native/chunk/motion.webp",
+      "frame": 1,
+      "png_sha256": "ac582c560db96e4b5ed93918668fefb49a16925e900eecb165594763169ccb26",
+      "rgba_sha256": "d244d2f4fb42ea78904784f5e6d2f60396162f8d3cb71fc05e3a7c756b4128fb",
+      "kept_png": false
+    },
+    "1280/native/chunk/full/002.png": {
+      "archive": "1280/native/chunk/motion.webp",
+      "frame": 2,
+      "png_sha256": "472348ab4c2832fdd7115821188fa77867b5084fcc76343c73903bf707f3d8fc",
+      "rgba_sha256": "8ce3f735d59d2c80b51d275370af96f17aef8bf5b9607c3eb795429c1e4a7685",
+      "kept_png": false
+    },
+    "1280/native/chunk/full/003.png": {
+      "archive": "1280/native/chunk/motion.webp",
+      "frame": 3,
+      "png_sha256": "cff32ff87473a1b1232288e50d9b9ee03de03029e46362b0ee2523ecdfd55826",
+      "rgba_sha256": "6d3da5fe1db4ba9fa76dcf00a0048fc05ed177b59502f915349f6a66f33cabee",
+      "kept_png": false
+    },
+    "1280/native/chunk/full/004.png": {
+      "archive": "1280/native/chunk/motion.webp",
+      "frame": 4,
+      "png_sha256": "27b07f700bc1c15a6ba112ec46fb5e87691fb015aaf1bdb9d1950755dcf6984d",
+      "rgba_sha256": "6b054610d562c2b3d459a14ead5babc290ec2ac40f5976e18b687a001eee7e23",
+      "kept_png": false
+    },
+    "1280/native/chunk/full/005.png": {
+      "archive": "1280/native/chunk/motion.webp",
+      "frame": 5,
+      "png_sha256": "4a863afc2422565a91aead232f7449c3c30ab00ef338cd04c9fba0c50a930101",
+      "rgba_sha256": "99feec4170d8a327cbde86e6b4e32c3047854a74605a8ddc90a4b436011b8227",
+      "kept_png": false
+    },
+    "1280/native/chunk/full/006.png": {
+      "archive": "1280/native/chunk/motion.webp",
+      "frame": 6,
+      "png_sha256": "834b57bd33fb16f41481ce8a3f52be3875a8b61219cb8131dc437293b0c16e07",
+      "rgba_sha256": "537861b42cfd467a5906df0ee0414ec7a1494c9ffda7eec82201c6d98f96962a",
+      "kept_png": false
+    },
+    "1280/native/chunk/full/007.png": {
+      "archive": "1280/native/chunk/motion.webp",
+      "frame": 7,
+      "png_sha256": "eaddd1f33ecbc34a2bcff37097a55e7e91878864b1f861e5f03865270720463a",
+      "rgba_sha256": "3c665a4fba29d659c704399027d1a85e1a510ed9100823c0d6818a398273d908",
+      "kept_png": false
+    },
+    "1280/native/chunk/full/008.png": {
+      "archive": "1280/native/chunk/motion.webp",
+      "frame": 8,
+      "png_sha256": "21f528f4441d9ddef3ccfb3083e2386c62ae797fca2bc2370cb01b7370196058",
+      "rgba_sha256": "713ecaa6afbf5f70dc366ae0e6cf00dc9bb3421c5b48210f8304a6329769aa81",
+      "kept_png": false
+    },
+    "1280/native/chunk/full/009.png": {
+      "archive": "1280/native/chunk/motion.webp",
+      "frame": 9,
+      "png_sha256": "2e4680bbbe8e48376e12628524bff05f92c061857c165c3fc5ff654ea89b7b75",
+      "rgba_sha256": "55b802aae361f2c71be79610180b5afcf1b20bcac5b814392f6a0ea35cb6ab0b",
+      "kept_png": false
+    },
+    "1280/native/chunk/full/010.png": {
+      "archive": "1280/native/chunk/motion.webp",
+      "frame": 10,
+      "png_sha256": "bc146d4cfae1213e7e444f3045153d2000229203774e45cf9d45ca3ad5fb8c07",
+      "rgba_sha256": "cd4378f34719775f6aeddd6a2946b4daca9cb29ad0106ac044293f088db691c7",
+      "kept_png": false
+    },
+    "1280/native/chunk/full/011.png": {
+      "archive": "1280/native/chunk/motion.webp",
+      "frame": 11,
+      "png_sha256": "f16b3082b24e50e331221284224394a9dd631583c79423625acdcf97800895ab",
+      "rgba_sha256": "fb27678ae122ce154ce43134978bbb886b9375da41e15b45005be35e566e4426",
+      "kept_png": false
+    },
+    "1280/native/chunk/full/012.png": {
+      "archive": "1280/native/chunk/motion.webp",
+      "frame": 12,
+      "png_sha256": "d5a71bc54572fd932a2cd99f37fa127eef02382c332a0cc4b8f75beee42875b1",
+      "rgba_sha256": "7ce7432a39185e51dd763ea5434319f0a47f81b3adf625927bb0af164583dd27",
+      "kept_png": false
+    },
+    "1280/native/chunk/full/013.png": {
+      "archive": "1280/native/chunk/motion.webp",
+      "frame": 13,
+      "png_sha256": "83a3f5225703db2812ded2da1b616e881690791a7e9c43fa5f99f74e1569e6eb",
+      "rgba_sha256": "6a87a2422fe778feb6c9880bdb66cc08a13e11b55461be5ee0e38626afe80693",
+      "kept_png": false
+    },
+    "1280/native/chunk/full/014.png": {
+      "archive": "1280/native/chunk/motion.webp",
+      "frame": 14,
+      "png_sha256": "f6c1621daac544ee172ff44752acbe86ffac64995c3b6fc1a26367f83ec004f8",
+      "rgba_sha256": "09045312fac70064dc7e2188cc0f19d589a434e9230e5c538877ba105b4a8990",
+      "kept_png": false
+    },
+    "1280/native/chunk/full/015.png": {
+      "archive": "1280/native/chunk/motion.webp",
+      "frame": 15,
+      "png_sha256": "a9be3f425883d9e8a781da923a657697b9a3cd627ffc945c7a1dbc69d515ffa0",
+      "rgba_sha256": "770764f77b11c0d7daf2de7093cd3b52a0870561df439a3ae5178156e3994890",
+      "kept_png": false
+    },
+    "1280/native/chunk/full/016.png": {
+      "archive": "1280/native/chunk/motion.webp",
+      "frame": 16,
+      "png_sha256": "6ab7c3315d3a0bf98db180ed1caad1329caa0d6c07db611f5ece23d9fe9e745d",
+      "rgba_sha256": "814900b680c84e512d4859ba76fcf0b82b81756f098b7678df68bdaaa8cb74e0",
+      "kept_png": false
+    },
+    "1280/native/chunk/full/017.png": {
+      "archive": "1280/native/chunk/motion.webp",
+      "frame": 17,
+      "png_sha256": "9a5e14c06d01141cef4cb1704d2f74f9743c1031686905a946baaf82d009896a",
+      "rgba_sha256": "ea79ba9aa596f25aac366a1c31d0754abebfdf679e809fcb7ef2f8db6cc3df6c",
+      "kept_png": true
+    },
+    "1280/native/chunk/full/018.png": {
+      "archive": "1280/native/chunk/motion.webp",
+      "frame": 18,
+      "png_sha256": "280d755ffc1918ac1a5efe1a73a82708c8687d0a9214a2ab6c5cc1d04820012f",
+      "rgba_sha256": "b05daee0c9d56bd5ae14dbd3b50ea8d101897d19db40da03f5789e4e84fd9a4a",
+      "kept_png": false
+    },
+    "1280/native/chunk/full/019.png": {
+      "archive": "1280/native/chunk/motion.webp",
+      "frame": 19,
+      "png_sha256": "96228e4a09a92c1d8849d60b0de37f58f37e919c3f35fe9a13cc32d53a7e4914",
+      "rgba_sha256": "17425d855a50461347a204625d430776c350ef0cd8560eb1d1d0c849e1be6b39",
+      "kept_png": false
+    },
+    "1280/native/chunk/full/020.png": {
+      "archive": "1280/native/chunk/motion.webp",
+      "frame": 20,
+      "png_sha256": "b41875857e5fd522a3af850f99cbe7ad9c2f30f8fa236d0d59e39ed49a345adf",
+      "rgba_sha256": "d63cbe7e8d813195c8f62a15fc4fc95efd6d4186ce99e25a5b081a9a53964c35",
+      "kept_png": false
+    },
+    "1280/native/chunk/full/021.png": {
+      "archive": "1280/native/chunk/motion.webp",
+      "frame": 21,
+      "png_sha256": "4ec042b89153db6e037b05d0a76d816a7a66c2921cddfe37c995db52dfb649e9",
+      "rgba_sha256": "313a9d65ccd03e3f316b483e014d5ee8c07ba4c1bdb6f432006a2dbf33755291",
+      "kept_png": false
+    },
+    "1280/native/chunk/full/022.png": {
+      "archive": "1280/native/chunk/motion.webp",
+      "frame": 22,
+      "png_sha256": "1de10c4782adf5d7343f5d16ed9fa0d542269af6aaa604dff289b149293c45c3",
+      "rgba_sha256": "100908d700469174381789ba6a362631aa0905b44d74f210dfc03fbb201a8874",
+      "kept_png": false
+    },
+    "1280/native/chunk/full/023.png": {
+      "archive": "1280/native/chunk/motion.webp",
+      "frame": 23,
+      "png_sha256": "496637c7d5cd64b7abb431632d2ffadf662c4c01fdea4daa4b8778095919c394",
+      "rgba_sha256": "20d7174539b1ee9e5af874d0d7b168c0186232e6f5d36cedb5decb6fd4bcc531",
+      "kept_png": false
+    },
+    "1280/native/chunk/full/024.png": {
+      "archive": "1280/native/chunk/motion.webp",
+      "frame": 24,
+      "png_sha256": "c8672fa735ae9335cf7dd0b0961970c13a180b7105f67d1215684b1e10845517",
+      "rgba_sha256": "13262f76d6ee473b74ba5f8d56bf9a3db7f840d6b1c4e3d4c478d35c4f2c63da",
+      "kept_png": false
+    },
+    "1280/native/chunk/full/025.png": {
+      "archive": "1280/native/chunk/motion.webp",
+      "frame": 25,
+      "png_sha256": "433e8da50139262e0857969afb3fbbe6e5f0bf837d2e43c368f24473281518bf",
+      "rgba_sha256": "57ee39f1914a39678d12fb8f535431617ab2bb6e1c8fa0be06667a1f12e5108b",
+      "kept_png": false
+    },
+    "1280/native/chunk/full/026.png": {
+      "archive": "1280/native/chunk/motion.webp",
+      "frame": 26,
+      "png_sha256": "0d189c29889498a559548632622ad0d895e157912a79b2a6cc3ea9ebbee464dc",
+      "rgba_sha256": "e3e2c282060be23fd295e540836401bd35ce155e534bb26445905304c9e32eab",
+      "kept_png": false
+    },
+    "1280/native/chunk/full/027.png": {
+      "archive": "1280/native/chunk/motion.webp",
+      "frame": 27,
+      "png_sha256": "b959651d90d279db54d47f5a4077f9f978baa4b7448a1890ddeb26655b6f23e2",
+      "rgba_sha256": "77bdde188b8e471814c4b724c28f7ac89e8ede0439acd4196dc8b686a24dca6e",
+      "kept_png": false
+    },
+    "1280/native/chunk/full/028.png": {
+      "archive": "1280/native/chunk/motion.webp",
+      "frame": 28,
+      "png_sha256": "c81b9232e678f953ca29967d3d942b22cee799cfc0b91889a8f3d7c25e8672db",
+      "rgba_sha256": "cc4a09463df266c17de2fec354d6411c0280a06201b6197761cb9abc42d423a3",
+      "kept_png": false
+    },
+    "1280/native/chunk/full/029.png": {
+      "archive": "1280/native/chunk/motion.webp",
+      "frame": 29,
+      "png_sha256": "a7eeaf51f650cdc8140c7a68e35ce801b88289002847eeae2359eafb48d5876c",
+      "rgba_sha256": "0f5fb08aceaf1c125ac4c41ad52e820d22ecbac89f524ef2f4dfa3a10bd2f0a3",
+      "kept_png": false
+    },
+    "1280/native/chunk/full/030.png": {
+      "archive": "1280/native/chunk/motion.webp",
+      "frame": 30,
+      "png_sha256": "1d0483b244414beb95e13bb68b401dd20e7192115359620f4c9849a3f0bc2f6c",
+      "rgba_sha256": "2d53fe5b95760e70a9832f1e7bce103906ce4eadc480280f37cc724863352e0b",
+      "kept_png": false
+    },
+    "1280/native/chunk/full/031.png": {
+      "archive": "1280/native/chunk/motion.webp",
+      "frame": 31,
+      "png_sha256": "17c33ea44ee5685ebd106d9cb0f95a6d20da3485d47173048c8000c428f61d90",
+      "rgba_sha256": "a8621b0d991fe93df3fc8bfc63525f198d072052596048c2b3eb26039e10655a",
+      "kept_png": false
+    },
+    "1280/native/chunk/full/032.png": {
+      "archive": "1280/native/chunk/motion.webp",
+      "frame": 32,
+      "png_sha256": "6300484c92b99b41b14c88b0cc17e5a3c4e47d0887289466e2a8c2393cda6552",
+      "rgba_sha256": "2c7589001ad65ac3d164d030b75e5446ef9c168b84b23be69c25bc519e074ace",
+      "kept_png": false
+    },
+    "1280/native/chunk/full/033.png": {
+      "archive": "1280/native/chunk/motion.webp",
+      "frame": 33,
+      "png_sha256": "be3f4d42704f37605648ee0ba45def7dbd3d996aefce25d312ac3f23d9459df7",
+      "rgba_sha256": "eb3442e9313677a29b039cb2b88e88fcfb875023dc11df45633cbf4ad68aab9b",
+      "kept_png": false
+    },
+    "1280/native/chunk/full/034.png": {
+      "archive": "1280/native/chunk/motion.webp",
+      "frame": 34,
+      "png_sha256": "88087562f546cf5ba27db3220d3a63fa44c0e6248fc95028a8511e2745f827bb",
+      "rgba_sha256": "7ba308d74077d2285728aeea10990a213dd420cbd5a47667d6c79474074648c0",
+      "kept_png": false
+    },
+    "1280/native/chunk/full/035.png": {
+      "archive": "1280/native/chunk/motion.webp",
+      "frame": 35,
+      "png_sha256": "30d8b3922589e98b03b5ab1e243e460a36ce93ad0d021414b19ef088909e72e5",
+      "rgba_sha256": "56083c2f8f08f77496976e94274ab67883a45db5249e7b4f28469ef9838b3b7c",
+      "kept_png": true
+    },
+    "1280/native/bush/full/000.png": {
+      "archive": "1280/native/bush/motion.webp",
+      "frame": 0,
+      "png_sha256": "ac0b810905a8fe00e0831c54879aacfe4597f0d416e8fe83a11d3c72e7da8b02",
+      "rgba_sha256": "19f668fd922741df654d620f46f841b26eaf4c270e7aa18b5d23157fa9e8c4ed",
+      "kept_png": true
+    },
+    "1280/native/bush/full/001.png": {
+      "archive": "1280/native/bush/motion.webp",
+      "frame": 1,
+      "png_sha256": "cd1f652166c9b6f0c1f6c0c0ece3c777cbe05dba6e64a7caf1d944d0aaedb982",
+      "rgba_sha256": "2955cff4a0336ef3a8cad275320548d05b72092ccfca538154325e79eb5818d8",
+      "kept_png": false
+    },
+    "1280/native/bush/full/002.png": {
+      "archive": "1280/native/bush/motion.webp",
+      "frame": 2,
+      "png_sha256": "5d7332c2e61a428efa85452426232ad2e7a4acc8111e2eab3cf0c6d7cb453803",
+      "rgba_sha256": "b52568b917d22bc116bcb62be7e7ef1a524cf2cc933ecb17f37eca25b2badfaa",
+      "kept_png": false
+    },
+    "1280/native/bush/full/003.png": {
+      "archive": "1280/native/bush/motion.webp",
+      "frame": 3,
+      "png_sha256": "17d9b074b10fa2e8cff1cba4ccfc8704f43cfed8cd6aa0dc6fb5da81ff010ea1",
+      "rgba_sha256": "185cfd15a21931fbf85d8bd9299014fa2ed45eae51f0a0959fd999e04fb2612c",
+      "kept_png": false
+    },
+    "1280/native/bush/full/004.png": {
+      "archive": "1280/native/bush/motion.webp",
+      "frame": 4,
+      "png_sha256": "605442a06c119987783c6eebe81ebef4f22716bc97e6ce8db78def800a813877",
+      "rgba_sha256": "bc308880e8c2f6ebb9a2f62262890932505f715ac91f37526d5be8470f1f3420",
+      "kept_png": false
+    },
+    "1280/native/bush/full/005.png": {
+      "archive": "1280/native/bush/motion.webp",
+      "frame": 5,
+      "png_sha256": "4c83b213f6ad14905932971367d15597dd638d3aab1b2ea459ef158edd210997",
+      "rgba_sha256": "6394170f7545dd77c2d48d69e7dd4b62f48013245a9f81272f139b0ae1935ab8",
+      "kept_png": false
+    },
+    "1280/native/bush/full/006.png": {
+      "archive": "1280/native/bush/motion.webp",
+      "frame": 6,
+      "png_sha256": "049f3b4ddf25e86f8665d1512022e88643d3e109a8f838926b521a9137df8550",
+      "rgba_sha256": "5a16005de2fec3c888d6c25b4cbdd3d6921e777c9550c8482f9671cc4f5d2a15",
+      "kept_png": false
+    },
+    "1280/native/bush/full/007.png": {
+      "archive": "1280/native/bush/motion.webp",
+      "frame": 7,
+      "png_sha256": "88c9150a03a67d98a51443485f66051661fb2360dfd5b35e1f88069c596bea92",
+      "rgba_sha256": "9026d44c11dfc5bcbe160d93ba8cb44ae1073a77365ae3dcefa5e1eabc2f0a77",
+      "kept_png": false
+    },
+    "1280/native/bush/full/008.png": {
+      "archive": "1280/native/bush/motion.webp",
+      "frame": 8,
+      "png_sha256": "6b405600daa06bfd5615359ed91612589d757f923576813c39ea03a8216f0b61",
+      "rgba_sha256": "2311b7f56eca69c4d31e355d727269dea740cc595898ba9f103e5fa41c658961",
+      "kept_png": false
+    },
+    "1280/native/bush/full/009.png": {
+      "archive": "1280/native/bush/motion.webp",
+      "frame": 9,
+      "png_sha256": "0c5fa09a778ff29c950d726616088a64fc247e514c53493821dfea8d6aae25ee",
+      "rgba_sha256": "9425041a85154714d601ef0d78137b23742a5d5f61cde43a3e39485f2a137688",
+      "kept_png": false
+    },
+    "1280/native/bush/full/010.png": {
+      "archive": "1280/native/bush/motion.webp",
+      "frame": 10,
+      "png_sha256": "7ba8254f8d32e22590a3c7dd8c1f2ba69e3fa691010566dcd84c4d424b19fe1b",
+      "rgba_sha256": "7dbf107f6bae0625cd565f628dc353eb074fb04710758b84e8ec9931d1910bb1",
+      "kept_png": false
+    },
+    "1280/native/bush/full/011.png": {
+      "archive": "1280/native/bush/motion.webp",
+      "frame": 11,
+      "png_sha256": "12d18b3e368fe04b7586f4695bbec18961a2e2e9bd06ebcfb11dba6c3ec67592",
+      "rgba_sha256": "e398c2052d48abba01a1f44ec5b4505f3eae0062b04beb1e6a801a867516871f",
+      "kept_png": false
+    },
+    "1280/native/bush/full/012.png": {
+      "archive": "1280/native/bush/motion.webp",
+      "frame": 12,
+      "png_sha256": "9993ecf178a2adca1df8b5d334b827eb1105e73718589de4d046e4e2c282848b",
+      "rgba_sha256": "849edc12ac11369757855fd1ec943a7ba32df28422edc83291fb231fb10080e7",
+      "kept_png": false
+    },
+    "1280/native/bush/full/013.png": {
+      "archive": "1280/native/bush/motion.webp",
+      "frame": 13,
+      "png_sha256": "283931840fed701f6d456211fb019644df34f1b0c994df08d7f0dee505d57de8",
+      "rgba_sha256": "c86a2a4ad26728c4ab2e0c15e73e351b9a5837c325e5d0c7fe2a5f0aa00a3e11",
+      "kept_png": false
+    },
+    "1280/native/bush/full/014.png": {
+      "archive": "1280/native/bush/motion.webp",
+      "frame": 14,
+      "png_sha256": "863a526c18b6e03ec18f86e5f9552b28d6f3b5cba9a05134efd450a837ed43c4",
+      "rgba_sha256": "07d23a2acb465c130ea6145d24503ee0f08d2021d671e1d50596fff7f7964387",
+      "kept_png": false
+    },
+    "1280/native/bush/full/015.png": {
+      "archive": "1280/native/bush/motion.webp",
+      "frame": 15,
+      "png_sha256": "9e13c52313cc9b6eb0c6bffd92687a3789d9034a5a7311955e332f32472cb9ed",
+      "rgba_sha256": "c9c9737c4759594dc54a401bc56253cfcd582a903160f630f42ec76134036060",
+      "kept_png": false
+    },
+    "1280/native/bush/full/016.png": {
+      "archive": "1280/native/bush/motion.webp",
+      "frame": 16,
+      "png_sha256": "3fcd582078271718e5b8263cca0fcf8c1bce3df5326d5740d1d08ae743aa95b0",
+      "rgba_sha256": "105a89c97e671f1cba15484acc0915364903431363d664927e4ef452ac9a383a",
+      "kept_png": false
+    },
+    "1280/native/bush/full/017.png": {
+      "archive": "1280/native/bush/motion.webp",
+      "frame": 17,
+      "png_sha256": "61189f601555fe8004eb5d8b81c8082eddbd8a46fb0b3e59278e22c034082199",
+      "rgba_sha256": "7d4c2453cedca0f46e2ddd3e2d534f0b20caf2b4260451e53a8408c5e3e51d88",
+      "kept_png": true
+    },
+    "1280/native/bush/full/018.png": {
+      "archive": "1280/native/bush/motion.webp",
+      "frame": 18,
+      "png_sha256": "bf59093da5ddacfd994eb29397769a73406d8a790f775a2815f7eb229adb7e3d",
+      "rgba_sha256": "27bc76f45de98f18696e09746fa3164d0bec0bd892d1f8e5f9e21197f5dab5a0",
+      "kept_png": false
+    },
+    "1280/native/bush/full/019.png": {
+      "archive": "1280/native/bush/motion.webp",
+      "frame": 19,
+      "png_sha256": "f240778f623f089d8875d72dfefa03b0dda336a59aa2c7e260eea5d9f8ceb233",
+      "rgba_sha256": "d2e2ac330ec1ef296cb27c40dc3f175a84dcc3077825e707b8794f11128e2c04",
+      "kept_png": false
+    },
+    "1280/native/bush/full/020.png": {
+      "archive": "1280/native/bush/motion.webp",
+      "frame": 20,
+      "png_sha256": "914e63d13d522ca90fe5e48e28b523325171800f9d003fd5e9b14fbe12b8fd7a",
+      "rgba_sha256": "5dd3b34a6ebcadec5d7d329de96b04d9cc81a401d3e747d0491668c67f8c1fd8",
+      "kept_png": false
+    },
+    "1280/native/bush/full/021.png": {
+      "archive": "1280/native/bush/motion.webp",
+      "frame": 21,
+      "png_sha256": "187389949d7820dc8a5fee64bad5e29c4827e234087ddfd6424d9c1e0d36c431",
+      "rgba_sha256": "20f288d2a9f58f0b6b5385b39bf915021c0a2e1d4fb630faf2750574be504d25",
+      "kept_png": false
+    },
+    "1280/native/bush/full/022.png": {
+      "archive": "1280/native/bush/motion.webp",
+      "frame": 22,
+      "png_sha256": "a6e55b63415b371b9556787670f36d6383de5737cc462c46aef890ffe740694d",
+      "rgba_sha256": "8866d69d7bf61cf5186b809da62350a2d7d9fb6e2315e2f0320c923441705795",
+      "kept_png": false
+    },
+    "1280/native/bush/full/023.png": {
+      "archive": "1280/native/bush/motion.webp",
+      "frame": 23,
+      "png_sha256": "c386831c4a308843d7a4db4cbebfbfe6b86a3c1b9b4bc73a04ce70a0d127cb30",
+      "rgba_sha256": "2e0068af4dc558bdf1c24268cdd60bc947bcd7a662d1815624aa280ee4cdc01a",
+      "kept_png": false
+    },
+    "1280/native/bush/full/024.png": {
+      "archive": "1280/native/bush/motion.webp",
+      "frame": 24,
+      "png_sha256": "58476feda72e4c430069a1dfb6178df69bc8ab63827b1d177fa863ce2d4cc63e",
+      "rgba_sha256": "f566af53d0b9f43762f0b33b2bdaf742633b228fe84f4a3ae2dd79cb01a41eb7",
+      "kept_png": false
+    },
+    "1280/native/bush/full/025.png": {
+      "archive": "1280/native/bush/motion.webp",
+      "frame": 25,
+      "png_sha256": "2d6ddc02e10e5ddb445d88eacdfe30664b89efdc6abefeb7fcda39c9725bf4c5",
+      "rgba_sha256": "afc51193f2d7d2d0e9fc918f275c51072db9b6648b174ff1128d3367167441a4",
+      "kept_png": false
+    },
+    "1280/native/bush/full/026.png": {
+      "archive": "1280/native/bush/motion.webp",
+      "frame": 26,
+      "png_sha256": "e362c6f75c975172d84998da65b6da84c2df0d37cd80daf67f4d744892aed708",
+      "rgba_sha256": "b09d7e36f9bf04823f7ac54b82c9159661fcce698c9e06055da1846003c9a6fe",
+      "kept_png": false
+    },
+    "1280/native/bush/full/027.png": {
+      "archive": "1280/native/bush/motion.webp",
+      "frame": 27,
+      "png_sha256": "5a83a6b0454df268ef6026d543d126144239653890ca171a8447edae05e7bfb5",
+      "rgba_sha256": "b9c0474ad8ad14663795a61a4d8aaccb485969ddaed2315e81956567a48ae719",
+      "kept_png": false
+    },
+    "1280/native/bush/full/028.png": {
+      "archive": "1280/native/bush/motion.webp",
+      "frame": 28,
+      "png_sha256": "7cb99fbe3c36639469795e1a3d279c26f5d0f7990a5437c53cb359cc708bbf80",
+      "rgba_sha256": "d601d836223f7c8a61f246cc75f732285b95d4ba64340ab71241cd23e8ce1e97",
+      "kept_png": false
+    },
+    "1280/native/bush/full/029.png": {
+      "archive": "1280/native/bush/motion.webp",
+      "frame": 29,
+      "png_sha256": "7dfc30fbcf385a1c3e6cff299c903a3b9905bd0ba97e031f74f88162267c10cb",
+      "rgba_sha256": "58ee05b1c18414fd4332baefcb81c1e47f9dc300239733934b2761d2164bc101",
+      "kept_png": false
+    },
+    "1280/native/bush/full/030.png": {
+      "archive": "1280/native/bush/motion.webp",
+      "frame": 30,
+      "png_sha256": "39fc57878e724d43ae4afebd4fd134e350cd675309aab777e84a58be4bf020cd",
+      "rgba_sha256": "084d6ad2de1303204d4dcddd04683cd00ba00a9be03250adfe16fbb2c843f312",
+      "kept_png": false
+    },
+    "1280/native/bush/full/031.png": {
+      "archive": "1280/native/bush/motion.webp",
+      "frame": 31,
+      "png_sha256": "b9a6955c644af6a11dfd8afdd34f4ea612c89e0dbddff711a3f65ac9d825b8de",
+      "rgba_sha256": "a6b17eba877274ce11aa9145653d49c286601160864ea0ed350174b4eea54b52",
+      "kept_png": false
+    },
+    "1280/native/bush/full/032.png": {
+      "archive": "1280/native/bush/motion.webp",
+      "frame": 32,
+      "png_sha256": "0c57e79d13f6b07e96f346608a5c625ef085afeb35bf8455d9e2deb2349a44ed",
+      "rgba_sha256": "9f6e6475ae4f529820a74e7dd5878ff538b72b6de2631543544001765bbcf292",
+      "kept_png": false
+    },
+    "1280/native/bush/full/033.png": {
+      "archive": "1280/native/bush/motion.webp",
+      "frame": 33,
+      "png_sha256": "6a074ddaea4aabc9ef8d82d3ac101f5e979e61ebcde0e8d242f218f076e17841",
+      "rgba_sha256": "c05741c3c1033ab2a3143a9ef36a13efd524072f19e86e789d55a629cd6f327a",
+      "kept_png": false
+    },
+    "1280/native/bush/full/034.png": {
+      "archive": "1280/native/bush/motion.webp",
+      "frame": 34,
+      "png_sha256": "0f0aaf9cd41a0ac0015b64e03789c098c11355d10b073688be95b04763dbe071",
+      "rgba_sha256": "c80aee4cc745d2bf5c457424a008beaf1ce4600d91686b9303e7425c8eb003ea",
+      "kept_png": false
+    },
+    "1280/native/bush/full/035.png": {
+      "archive": "1280/native/bush/motion.webp",
+      "frame": 35,
+      "png_sha256": "d5f94f111cd4ebcbaa41907ee07f427e772dc465b65580cf86a5675278c2d4ae",
+      "rgba_sha256": "724e412418b18c0e2e06c765a69d25de48b79fe0fe30feef2cfc7264c7c7fa15",
+      "kept_png": true
+    }
+  },
+  "archives": {
+    "1152/native/left/motion.webp": "ed43835bde1b32f94f9ec18693e8f230d5c2db271fc9f8a8925c8ce1862ef10f",
+    "1152/native/right/motion.webp": "741fa1a339afaba186f27e3b305ae040a6f5b9226bddbda22b4ca747e7cfd3a5",
+    "1152/native/top/motion.webp": "2e04a4a6ce4aa8338a32573a3c297ee922d24ee30164ee56cea8b6d06e2c963d",
+    "1152/native/bottom/motion.webp": "ea701723b0c2a8395f45c0f67a007b028a85f3b0f43ee157496f1e089ed0c0c2",
+    "1152/native/chunk/motion.webp": "9d16629fe0ce18e8a507f9ec5b62909cb0cbdf061a43c4f270ff31e694f01432",
+    "1152/native/bush/motion.webp": "72a7d5f7e09d226db6fecf759651e74da431f3537dec1cb5791062e27be604ac",
+    "1280/native/left/motion.webp": "c7f67310e6db44beeaaf1f39ecc1a2dd3c0fa67be6765c10ff2e3ff68203502e",
+    "1280/native/right/motion.webp": "7f0421fef5359eb4f84b7a9f17664c6e6aa09570e5288c467605ea6f271a6e05",
+    "1280/native/top/motion.webp": "82598fdb38ec860b0ff4bad910ee4ee96377f48cc3bbdd7882b0d53e0a5d04f7",
+    "1280/native/bottom/motion.webp": "d0f2281e5342cb24156a1bf26a73688c3395f689892820135ae472c1e018332d",
+    "1280/native/chunk/motion.webp": "e3b4bc17d7b8999fd8afaf5a3c8da6787601fb1b2774e8c207684366157bcd87",
+    "1280/native/bush/motion.webp": "899540083a4bc1dfe909cc4753bcba8ada6a0e530f3f993b624ad5d4620ff50b"
+  }
+}

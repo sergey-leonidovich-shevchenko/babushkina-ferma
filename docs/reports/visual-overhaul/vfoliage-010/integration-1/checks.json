@@ -1,0 +1,108 @@
+{
+  "task": "VFOLIAGE-010",
+  "local_checks_complete": true,
+  "checks": [
+    {
+      "command": "tools/check_architecture.sh",
+      "exit": 0,
+      "raw": "architecture.txt",
+      "unittest_suites": 82,
+      "unittest_cases": 1135,
+      "visibility_controls": 34,
+      "historical_frames": 512,
+      "exact_pairs": 36,
+      "coverage_targets": 24
+    },
+    {
+      "command": "./run_tests.sh",
+      "exit": 0,
+      "raw": "game.txt",
+      "passed": 53502,
+      "failed": 0,
+      "redraw": [
+        90,
+        90
+      ]
+    },
+    {
+      "command": "pnpm --dir wiki check",
+      "exit": 0,
+      "raw": "wiki.txt",
+      "passed": 135,
+      "failed": 0
+    }
+  ],
+  "source_files": {
+    "tools/foliage_visibility_provenance.py": "ee2c962141890f02ee5d060ea8e5a4f35b3a3c0a95906c932eaa8ceea75db2b9",
+    "tools/test_foliage_visibility.py": "dcaa942f8d6c5bd0f673406a4c7c61670a7b4c2d3b623fd2d8bf9ba0485cc8cd",
+    "VERSION": "c9ae9d3e6d8e890e5566dd27dca3240c0b56e8f3a3ffccf835d5c3565903d8be",
+    "project.godot": "1eb8a0a7e246776f9242eb54ba2ad2caec5e4fea0e486646982470ce1fb908aa",
+    "Бабушкина ферма.app/Contents/Info.plist": "d3044d84506df3cd8fb2352bc4130b95f2af85fd9ea28c7d53434a5416097e5c"
+  },
+  "final_document_checks": [
+    {
+      "command": [
+        "tools/visual_backlog.py"
+      ],
+      "exit": 0,
+      "raw": "final-0.txt"
+    },
+    {
+      "command": [
+        "tools/test_visual_backlog.py"
+      ],
+      "exit": 0,
+      "raw": "final-1.txt"
+    },
+    {
+      "command": [
+        "tools/check_documentation.py"
+      ],
+      "exit": 0,
+      "raw": "final-2.txt"
+    },
+    {
+      "command": [
+        "tools/test_documentation.py"
+      ],
+      "exit": 0,
+      "raw": "final-3.txt"
+    },
+    {
+      "command": [
+        "tools/bump_version.py",
+        "--check"
+      ],
+      "exit": 0,
+      "raw": "final-4.txt"
+    }
+  ],
+  "wiki_metadata_refresh": {
+    "command": "pnpm --dir wiki check",
+    "exit": 0,
+    "raw": "wiki-metadata.txt",
+    "passed": 135,
+    "failed": 0
+  },
+  "artifacts": {
+    "README.md": "e144dffc12f6d20fdb9cf8be2646ec80679f6a4b544a8cda551277a6e530381f",
+    "architecture.txt": "14e1a7e84bf6aa13aca28294ed162fa97cfb370d01ac4b2055193b43c652ef00",
+    "backlog-refresh.txt": "8fa76395f497bae5bc9e5b46e8e4505262aed0edeac823060db81b46c2347bf9",
+    "final-0.txt": "8fa76395f497bae5bc9e5b46e8e4505262aed0edeac823060db81b46c2347bf9",
+    "final-1.txt": "aa20c603ed27f28168e8ed2a500407b140927628bbfb26da9239d86a736fe8a8",
+    "final-2.txt": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+    "final-3.txt": "0b4ba0cf21167264432aa27e2e397f7a011076e3ee673d30c7045f615eefadc0",
+    "final-4.txt": "c71a6c455972f54d6e1cf08a4cb53f11ae0c15d1bbcd5873c35e258191154f1f",
+    "game.txt": "69cd91b3acfb19e7677fc22fc0cde2a56335f7b548d84a0ad403ec505783c050",
+    "headless/f10/engine.txt": "9e0478d440aa76d99fab826664cf9233317ac017ae9a337f657d8c54ae739e0b",
+    "headless/f10/frames.jsonl": "09303400c972645f4363f65add2334e14a0c92a7b08de90fae19dbc3e194170a",
+    "headless/f10/summary.json": "1415ced163c66aad5d39b3471212115211b88d725d60f9b3ad932d887527b489",
+    "headless/normal/engine.txt": "4441d7ee6eed41e3090c976e253aad153038bdb7da07526d1e2def089f8b8c5c",
+    "headless/normal/frames.jsonl": "976515924eb51643c478fe23b10cab30aebc7e139d91eb705b15021a74c664d7",
+    "headless/normal/summary.json": "9cb50a7551236f18b11fedd3255a5a325e7767812108eecb576017184f931da0",
+    "integration.json": "3313e097199f2044bd6073b3df19e1c8f4afe5b41627969b9391433493f91c61",
+    "merge-preservation.json": "734909349d5b1720cd79ad1800e2b1c39c8ffbdd493140d897f5f363b4ee174f",
+    "wiki-metadata.txt": "9e5f8546f3e3af81ba0954a3b42ede343a7cb94a6bc70f870b35b34e71bbddd3",
+    "wiki.txt": "c8509fd26284c027eab750f30a729bfed0d583f49ca8a42d473ca6f3d0092d84"
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "task": "VFOLIAGE-010",
+  "review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/7#pullrequestreview-5642594398",
+  "reviewed_head": "8ef7feaefb5cc669997c871234ba0501c6e7d4cf",
+  "candidate_version": "0.0.336",
+  "local_checks_complete": true,
+  "checks": [
+    {
+      "command": "tools/check_architecture.sh",
+      "exit": 0,
+      "raw": "architecture.txt",
+      "controls": 32
+    },
+    {
+      "command": "./run_tests.sh",
+      "exit": 0,
+      "raw": "game.txt",
+      "passed": 53502,
+      "failed": 0,
+      "redraw": [
+        90,
+        90
+      ]
+    },
+    {
+      "command": "pnpm check (wiki)",
+      "exit": 0,
+      "raw": "wiki.txt",
+      "passed": 135,
+      "failed": 0
+    },
+    {
+      "command": "tools/foliage_visibility_verify.py",
+      "exit": 0,
+      "raw": "reader.txt",
+      "frames": 512,
+      "exact_pairs": 36,
+      "coverage_targets": 24
+    },
+    {
+      "command": "tools/foliage_visibility_verify.py --check-current-candidate",
+      "exit": 1,
+      "expected_rejection": true,
+      "raw": "expected-current-guard-rejection.txt",
+      "reason": "current candidate source SHA: VERSION"
+    }
+  ],
+  "primary_files_unchanged": 223,
+  "production_code_and_assets_unchanged": true,
+  "source_files": {
+    "tools/foliage_visibility_verify.py": "bf40a30eb673656edd3e2cfc8df11a7ded7114ba0d56379d561cb5d07973605f",
+    "tools/foliage_visibility_provenance.py": "c8531dd0c4d352c319e7756ebaf0babd74ac7e2ae04ec7fa30c3b0a7a2bf54b5",
+    "tools/foliage_visibility_evidence.py": "b8a172cd40705b0a73de9dd10f82fd9c6347c2e44dbbd27f2df21f0f647afb97",
+    "tools/foliage_visibility_window.py": "51efce53682faa6f9e8a047c793d55ae78703fdd4d4fd27b45afd533fc679c53",
+    "tools/foliage_visibility_coverage.py": "b651efed84b0fdc194d183c89ec9d4c96985980bf7a0fae016feacb5dc389a31",
+    "tools/foliage_visibility_test_fixture.py": "7f503904a153b0b45478c879a38f3a23e3ba411a3c46bf87d0068f517a8c7519",
+    "tools/test_foliage_visibility.py": "2da2506e505e137ada8a3e085a607d242071c568d1cd5e3a2cc8f3f2d6ced7ee",
+    "VERSION": "70385ccef65c0b83b1c53f1a4f335a17e3120ea9c444d77f4a09e9c5f754515f",
+    "project.godot": "ec04918b0997eb55365fae3bb83d073abf5c7284999c247b07bbdbbc6e4fcf31",
+    "Бабушкина ферма.app/Contents/Info.plist": "ff4d6a62ac7f06c9b93c65181da65250c4494c63e582991d80773f9581332d7c"
+  },
+  "artifacts": {
+    "wiki-metadata.txt": "c46b7f0a05d4bc9d16630a6e9fa1f45e87f0a9e4d04baf5301e22f8af7328eaa",
+    "reader.txt": "e49c573251fe6a0af735319dcd5034ba3761372cc27a116d141311977118095f",
+    "game.txt": "69cd91b3acfb19e7677fc22fc0cde2a56335f7b548d84a0ad403ec505783c050",
+    "wiki.txt": "538bc3e81cd62c112e51af168bf9687a3390fa9420c7c8614829e02dc551f49c",
+    "primary-preserved.json": "c0e10f01a16151965e2e7ffd6f3d51c2896bafb04debc5ec0d1ae155d41f0c98",
+    "README.md": "44c4c3db2b2836915901954315bf3eab38c56fce1dd918014c732ae699b792b8",
+    "final-4.txt": "09df85cfe5d1420bb76228872b62fe8806518ebdfa8ace0dcc107892c31a185b",
+    "primary-before.json": "801813ce2227d6aa79065deaa1f411e597e951b299db211341b340f1b58df958",
+    "controls-development.txt": "8188565bc3e7c7e317e6d904498204184ece4e85180f5d3ca61ffef99643a369",
+    "final-3.txt": "0b4ba0cf21167264432aa27e2e397f7a011076e3ee673d30c7045f615eefadc0",
+    "final-2.txt": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+    "final-0.txt": "8fa76395f497bae5bc9e5b46e8e4505262aed0edeac823060db81b46c2347bf9",
+    "architecture.txt": "cc338956b947f63ddf41b383df0747b3857b4410b3eefe59c8e8e1da029701d3",
+    "final-1.txt": "9656f04cbf8fbede9b1a92988edce8db05e77cb84f808b9be0fbfdb68dde9c6b",
+    "verification.json": "f8b5eb8edcbbf4b903fbf258ef7da2ff91551d34ecd75244bff9181591d3b319",
+    "browser.png": "d3b1237f16469de6f479f28240a239c23d8d86e1cdaee6284581ecd547adc049",
+    "browser.json": "fed7822370e9a8fc28812eab70be833b5d223709c5b2328120ddafe4756d8aec",
+    "expected-current-guard-rejection.txt": "904824cc57bb760e1458e6feec12abbc0e149e8f0a192375b61d9fbb17ecc7eb"
+  },
+  "approval_state": "awaiting exact-new-head review and Team Lead decision; findings addressed but not independently closed",
+  "wiki_metadata_refresh": {
+    "exit": 0,
+    "passed": 135,
+    "raw": "wiki-metadata.txt"
+  },
+  "final_document_checks": [
+    {
+      "command": [
+        "tools/visual_backlog.py"
+      ],
+      "exit": 0,
+      "raw": "final-0.txt"
+    },
+    {
+      "command": [
+        "tools/test_visual_backlog.py"
+      ],
+      "exit": 0,
+      "raw": "final-1.txt"
+    },
+    {
+      "command": [
+        "tools/check_documentation.py"
+      ],
+      "exit": 0,
+      "raw": "final-2.txt"
+    },
+    {
+      "command": [
+        "tools/test_documentation.py"
+      ],
+      "exit": 0,
+      "raw": "final-3.txt"
+    },
+    {
+      "command": [
+        "tools/bump_version.py",
+        "--check"
+      ],
+      "exit": 0,
+      "raw": "final-4.txt"
+    }
+  ]
+}

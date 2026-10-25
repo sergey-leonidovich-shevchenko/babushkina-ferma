@@ -1,0 +1,78 @@
+extends SceneTree
+
+var output := ""
+var profile := ""
+var viewport: SubViewport
+
+class Cards extends Node2D:
+	## Рисует два известных перекрывающихся прямоугольника для калибровки счётчика фрагментов.
+	func _draw() -> void:
+		draw_rect(Rect2(0, 0, 32, 32), Color.WHITE)
+		draw_rect(Rect2(16, 16, 32, 32), Color.WHITE)
+
+
+## Требует новый диагностический каталог и профиль; результат не является приёмкой задачи или FPS.
+func _initialize() -> void:
+	for arg in OS.get_cmdline_user_args():
+		if arg.begins_with("--output="): output = arg.trim_prefix("--output=")
+		elif arg.begins_with("--profile="): profile = arg.trim_prefix("--profile=")
+	if output.is_empty() or DirAccess.dir_exists_absolute(output) or not profile.begins_with("Codex-VFOLIAGE-010-probe-") or DisplayServer.get_name() == "headless":
+		quit(2)
+		return
+	ProjectSettings.set_setting("application/config/use_custom_user_dir", true)
+	ProjectSettings.set_setting("application/config/custom_user_dir_name", profile)
+	_run.call_deferred()
+
+
+## Проверяет настоящую canvas-статистику и коды 0/1/2 additive readback; не меняет игровой renderer.
+func _run() -> void:
+	DirAccess.make_dir_recursive_absolute(output)
+	root.title = "VFOLIAGE-010 | coverage calibration only"
+	var started := Time.get_ticks_msec()
+	var stable := -1
+	var ready := false
+	var probes := []
+	while Time.get_ticks_msec() - started < 7000:
+		if root.mode != Window.MODE_WINDOWED: root.mode = Window.MODE_WINDOWED
+		if root.size != Vector2i(1152, 648): root.size = Vector2i(1152, 648)
+		root.show()
+		DisplayServer.window_move_to_foreground()
+		root.grab_focus()
+		await process_frame
+		var image := root.get_texture().get_image()
+		var ms := Time.get_ticks_msec() - started
+		var valid := root.has_focus() and root.size == Vector2i(1152, 648) and image.get_size() == root.size
+		probes.append({"ms": ms, "focused": root.has_focus(), "window": str(root.size), "image": str(image.get_size())})
+		if not valid or ms < 1500: stable = -1
+		elif stable < 0: stable = ms
+		elif ms - stable >= 500:
+			ready = true
+			break
+	var data := {"task": "VFOLIAGE-010", "diagnostic_only": true, "admitted": false, "ready": ready, "probes": probes, "engine": Engine.get_version_info(), "display": DisplayServer.get_name()}
+	if ready:
+		viewport = SubViewport.new()
+		viewport.disable_3d = true
+		viewport.transparent_bg = true
+		viewport.size = Vector2i(128, 96)
+		viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+		root.add_child(viewport)
+		var cards := Cards.new()
+		var shader := Shader.new()
+		shader.code = "shader_type canvas_item; render_mode unshaded, blend_add; void fragment() { COLOR = vec4(1.0/255.0, 0.0, 0.0, 1.0); }"
+		var material := ShaderMaterial.new()
+		material.shader = shader
+		cards.material = material
+		viewport.add_child(cards)
+		for index in 5: await RenderingServer.frame_post_draw
+		var image := viewport.get_texture().get_image()
+		image.save_png(output.path_join("coverage.png"))
+		data["pixels"] = {}
+		for key in {"zero": Vector2i(64,64), "one": Vector2i(8,8), "two": Vector2i(24,24)}:
+			var color := image.get_pixelv({"zero": Vector2i(64,64), "one": Vector2i(8,8), "two": Vector2i(24,24)}[key])
+			data.pixels[key] = [color.r8, color.g8, color.b8, color.a8]
+		data["canvas_draw_calls"] = viewport.get_render_info(Viewport.RENDER_INFO_TYPE_CANVAS, Viewport.RENDER_INFO_DRAW_CALLS_IN_FRAME)
+		data["canvas_primitives"] = viewport.get_render_info(Viewport.RENDER_INFO_TYPE_CANVAS, Viewport.RENDER_INFO_PRIMITIVES_IN_FRAME)
+		data["global_draw_calls"] = Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME)
+	FileAccess.open(output.path_join("probe.json"), FileAccess.WRITE).store_string(JSON.stringify(data, "  ") + "\n")
+	print("COVERAGE PROBE ", data.get("pixels", {}), " draws=", data.get("canvas_draw_calls", -1), " primitives=", data.get("canvas_primitives", -1))
+	quit(0 if ready else 1)

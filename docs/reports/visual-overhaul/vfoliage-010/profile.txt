@@ -1,0 +1,4 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+ROUTES: [{"camera_only":true,"camera_start":[626.0,125.668518066406],"direction":[-1.0,0.0],"id":"left","row":0,"start":[1931.4033203125,664.640869140625]},{"camera_only":true,"camera_start":[766.0,581.668518066406],"direction":[1.0,0.0],"id":"right","row":4,"start":[1931.4033203125,664.640869140625]},{"camera_only":true,"camera_start":[1440.0,710.0],"direction":[0.0,-1.0],"id":"top","row":6,"start":[1931.4033203125,664.640869140625]},{"camera_only":true,"camera_start":[1440.0,262.0],"direction":[0.0,1.0],"id":"bottom","row":7,"start":[1931.4033203125,664.640869140625]},{"direction":[1.0,0.0],"id":"chunk","offset":0,"row":6,"start":[1880.4033203125,664.640869140625]},{"bush_index":1,"bush_root":[2064.0,864.0],"direction":[1.0,0.0],"id":"bush","row":6,"start":[2001.0,888.0]}]
+FOLIAGE VISIBILITY REVIEW: 131 passed, 0 failed
