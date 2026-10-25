@@ -159,6 +159,17 @@ async function checkNewStories(plan, preserved, catalog) {
     for (const section of sections) assert(source.includes(`## ${section}\n`))
     const nodes = [...source.matchAll(new RegExp(`^### ${idea.id}-[a-z]+ — `, 'gm'))]
     assert.equal(nodes.length, idea.dialogueNodes)
+    // ID и написанные ответы — данные будущего разговора. Подсчёта строк
+    // недостаточно: копия узла с тем же ID могла бы незаметно заменить тему.
+    assert.equal(new Set(idea.dialogue.map((node) => node.id)).size, idea.dialogueNodes)
+    assert.equal(new Set(nodes.map((match) => match[0])).size, idea.dialogueNodes)
+    for (const node of idea.dialogue) {
+      assert(source.includes(node.condition), `условие узла ${node.id}`)
+      assert(source.includes(node.line), `реплика узла ${node.id}`)
+      for (const answer of node.answers) {
+        for (const part of answer) assert(source.includes(part), `написанный ответ ${node.id}`)
+      }
+    }
     const answers = [...source.matchAll(/^\d+\. \*\*Герой:\*\*/gm)]
     assert.equal(answers.length, idea.answerCount)
     const scenarios = source

@@ -118,7 +118,6 @@
     "wiki/articles/IDEA-249.md": "98d056b5fe2c8e82396b3c4d88581aadf35e5588c68754580c50a851db41d8f4",
     "wiki/articles/IDEA-250.md": "4568890f68e54d2296e8045c901c7f5b1d8b7176d128a262337a71a2a2bcd493",
     "wiki/articles/IDEA-251.md": "4b6e971c065f608f28fd38134989c6c685c0032d97df2333b8238fa08b14c455",
-    "wiki/articles/creative-review-2026-10-25.md": "a76197fdc079b2b3b708c960d115c1434fd5901f1863d6ba4c774d1d85291e3c",
     "wiki/articles/npc-life-contracts.md": "15c0aa7ef71f3e2b9fe7d31e4762793f48e424260b7c783e0120bbfb193ab77e",
     "wiki/articles/idea-assessment-method.md": "65818199e9ff8ecfd7f090dad8d9c2d8bf2d66d297ef8c4186b6d6e2725252fb",
     "wiki/articles/idea-feature-epics.md": "33444079e791464571bb60ed960fafe9a5cdfa15e44000bf36872127d1b0f844",
@@ -134,5 +133,5 @@
     "browser-report.png"
   ],
   "diagnostic": "diagnostic-mobile-table-before.png is the real earlier cramped table, not accepted final UI",
-  "note": "Initial content browser proof before the mandatory version bump and creation of PR. Routing URL will receive a separate final check. The appended protocol line was added after screenshots; the ten idea designs and tested routes are unchanged."
+  "note": "Initial content browser proof before the mandatory version bump and creation of PR. Routing URL will receive a separate final check. The appended protocol line was added after screenshots; the ten idea designs and tested routes are unchanged. Report screenshots are layout-only initial evidence; the appended protocol has no capture hash here. Final complete source bindings are stored separately."
 }
