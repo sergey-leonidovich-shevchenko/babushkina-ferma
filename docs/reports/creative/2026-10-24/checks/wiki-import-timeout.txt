@@ -1,0 +1,10 @@
+$ pnpm run build && pnpm run test
+$ node scripts/prepare.mjs && vue-tsc --noEmit && vite build
+Превышено время выполнения: --headless --editor --path /Users/sergeyshevchenko/.codex/worktrees/creative-npc-review-24/my farm --quit
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started Инициализация проекта (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Сканирование структуры файлов…[39m[0m
+
+[ELIFECYCLE] Command failed with exit code 1.
+[ELIFECYCLE] Command failed with exit code 1.
