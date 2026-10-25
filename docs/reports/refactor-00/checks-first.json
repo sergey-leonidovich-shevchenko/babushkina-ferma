@@ -1,0 +1,25 @@
+{
+  "task": "REFACTOR-00",
+  "head": "069abc2f9711bd1e1197c6d3bb42d0bc8cba919e",
+  "base": "2fa58d3719ff89f6f61a755e531d963807762ae9",
+  "version": "0.0.335",
+  "pull_request": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/9",
+  "architecture": {
+    "exit": 0,
+    "unittest_suites": 81,
+    "unittest_cases": 1101
+  },
+  "game": {
+    "exit": 0,
+    "passed": 53371,
+    "failed": 0,
+    "redraw": [
+      90,
+      90
+    ]
+  },
+  "raw": "precommit-first.txt",
+  "raw_sha256": "7ee78bc2e3580622412abfd85609cb612cef6c4a7bb97145555aa3e9a4559719",
+  "scope": "Initial preparation commit only; routing commit and its current-head CI are reported separately in PR.",
+  "hook_environment": "Unchanged repository pre/post-commit hooks, local Git environment cleared by an external wrapper. No tracked hook/test change."
+}

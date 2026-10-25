@@ -1,0 +1,41 @@
+{
+  "read_only_browser": true,
+  "wiki_version": "0.0.340",
+  "route": "http://127.0.0.1:4175/#/guides/visual-pilot",
+  "user_priority_preserved": true,
+  "accepted_REFACTOR_00_merge_visible": "9e647480",
+  "VFOLIAGE_010_done_paragraph_preserved": true,
+  "both_closeouts_required_before_REFACTOR_01": true,
+  "new_graphics_card_started": false,
+  "priority_screenshot": "browser-priority.png",
+  "exported_refactor_cards": [
+    {
+      "id": "REFACTOR-00",
+      "status": "in_progress"
+    },
+    {
+      "id": "REFACTOR-01",
+      "status": "blocked"
+    },
+    {
+      "id": "REFACTOR-02",
+      "status": "blocked"
+    },
+    {
+      "id": "REFACTOR-03",
+      "status": "blocked"
+    },
+    {
+      "id": "REFACTOR-04",
+      "status": "blocked"
+    },
+    {
+      "id": "REFACTOR-05",
+      "status": "blocked"
+    },
+    {
+      "id": "REFACTOR-06",
+      "status": "blocked"
+    }
+  ]
+}

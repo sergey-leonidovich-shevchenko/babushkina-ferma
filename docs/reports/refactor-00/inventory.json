@@ -1,0 +1,188 @@
+{
+  "task": "REFACTOR-00",
+  "date": "2026-10-25",
+  "method": "git ls-tree -r --name-only <exact SHA>; immediate parent only; UID separate; ignored/untracked excluded",
+  "executable_extensions": [
+    ".gd",
+    ".py",
+    ".mjs",
+    ".sh",
+    ".swift"
+  ],
+  "snapshots": [
+    {
+      "sha": "2fa58d3719ff89f6f61a755e531d963807762ae9",
+      "role": "accepted main baseline",
+      "directories": {
+        "tools": {
+          "tracked_files": 750,
+          "executable_sources": 540,
+          "uid_files": 206,
+          "extensions": {
+            ".gd": 292,
+            ".json": 4,
+            ".mjs": 1,
+            ".py": 242,
+            ".sh": 3,
+            ".swift": 2,
+            ".uid": 206
+          }
+        },
+        "scripts/systems": {
+          "tracked_files": 564,
+          "executable_sources": 282,
+          "uid_files": 282,
+          "extensions": {
+            ".gd": 282,
+            ".uid": 282
+          }
+        },
+        "scripts/presentation": {
+          "tracked_files": 184,
+          "executable_sources": 89,
+          "uid_files": 92,
+          "extensions": {
+            ".gd": 89,
+            ".gdshader": 3,
+            ".uid": 92
+          }
+        },
+        "tests/suites": {
+          "tracked_files": 348,
+          "executable_sources": 174,
+          "uid_files": 174,
+          "extensions": {
+            ".gd": 174,
+            ".uid": 174
+          }
+        },
+        "tests/helpers": {
+          "tracked_files": 4,
+          "executable_sources": 2,
+          "uid_files": 2,
+          "extensions": {
+            ".gd": 2,
+            ".uid": 2
+          }
+        },
+        "wiki/scripts": {
+          "tracked_files": 17,
+          "executable_sources": 17,
+          "uid_files": 0,
+          "extensions": {
+            ".gd": 5,
+            ".mjs": 12
+          }
+        },
+        "docs/reports": {
+          "tracked_files": 263,
+          "executable_sources": 0,
+          "uid_files": 0,
+          "extensions": {
+            ".import": 110,
+            ".json": 18,
+            ".md": 17,
+            ".png": 116,
+            ".wav": 2
+          }
+        },
+        "assets/game/items/ui/preview": {
+          "tracked_files": 772,
+          "executable_sources": 0,
+          "uid_files": 0,
+          "extensions": {
+            ".import": 386,
+            ".png": 386
+          }
+        }
+      }
+    },
+    {
+      "sha": "8ef7feaefb5cc669997c871234ba0501c6e7d4cf",
+      "role": "open PR7 reference, not accepted main",
+      "directories": {
+        "tools": {
+          "tracked_files": 762,
+          "executable_sources": 548,
+          "uid_files": 210,
+          "extensions": {
+            ".gd": 296,
+            ".json": 4,
+            ".mjs": 1,
+            ".py": 246,
+            ".sh": 3,
+            ".swift": 2,
+            ".uid": 210
+          }
+        },
+        "scripts/systems": {
+          "tracked_files": 564,
+          "executable_sources": 282,
+          "uid_files": 282,
+          "extensions": {
+            ".gd": 282,
+            ".uid": 282
+          }
+        },
+        "scripts/presentation": {
+          "tracked_files": 184,
+          "executable_sources": 89,
+          "uid_files": 92,
+          "extensions": {
+            ".gd": 89,
+            ".gdshader": 3,
+            ".uid": 92
+          }
+        },
+        "tests/suites": {
+          "tracked_files": 350,
+          "executable_sources": 175,
+          "uid_files": 175,
+          "extensions": {
+            ".gd": 175,
+            ".uid": 175
+          }
+        },
+        "tests/helpers": {
+          "tracked_files": 6,
+          "executable_sources": 3,
+          "uid_files": 3,
+          "extensions": {
+            ".gd": 3,
+            ".uid": 3
+          }
+        },
+        "wiki/scripts": {
+          "tracked_files": 17,
+          "executable_sources": 17,
+          "uid_files": 0,
+          "extensions": {
+            ".gd": 5,
+            ".mjs": 12
+          }
+        },
+        "docs/reports": {
+          "tracked_files": 263,
+          "executable_sources": 0,
+          "uid_files": 0,
+          "extensions": {
+            ".import": 110,
+            ".json": 18,
+            ".md": 17,
+            ".png": 116,
+            ".wav": 2
+          }
+        },
+        "assets/game/items/ui/preview": {
+          "tracked_files": 772,
+          "executable_sources": 0,
+          "uid_files": 0,
+          "extensions": {
+            ".import": 386,
+            ".png": 386
+          }
+        }
+      }
+    }
+  ]
+}
