@@ -158,11 +158,15 @@ def verify_current_candidate(plan: dict, candidate_root: Path = ROOT) -> int:
         if name.startswith(("scripts/", "assets/game/")) or name == "main.tscn"
     }
     if (candidate_root / ".git").exists():
-        tracked = subprocess.check_output(
-            ["git", "ls-files", "-z", "--", "scripts", "assets/game", "main.tscn"],
+        # Индекс сам по себе скрывает новые исходники, ещё не добавленные через git add.
+        inventory = subprocess.check_output(
+            [
+                "git", "ls-files", "-z", "--cached", "--others", "--exclude-standard",
+                "--", "scripts", "assets/game", "main.tscn",
+            ],
             cwd=candidate_root,
         )
-        actual_production = {name.decode() for name in tracked.split(b"\0") if name}
+        actual_production = {name.decode() for name in inventory.split(b"\0") if name}
     else:
         # Изолированная fixture не требует изменения Git worktree основной игры.
         actual_production = {

@@ -7,6 +7,8 @@ import json
 import os
 from pathlib import Path
 import shutil
+import subprocess
+import sys
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -20,9 +22,17 @@ from foliage_visibility_test_fixture import build_candidate
 NATIVE = REPORT / 'native-01'
 
 
+def isolated_git_environment() -> dict[str, str]:
+    """Не передаёт локальные GIT_* из hook во вложенные тестовые репозитории."""
+    return {key: value for key, value in os.environ.items() if not key.startswith('GIT_')}
+
+
 class VisibilityControls(unittest.TestCase):
     """Переподписывает только изменённые копии метаданных, чтобы проверить также смысловые отказы."""
     def setUp(self) -> None:
+        environment = patch.dict(os.environ, isolated_git_environment(), clear=True)
+        environment.start()
+        self.addCleanup(environment.stop)
         self.temp = tempfile.TemporaryDirectory(prefix='vfoliage010-control-')
         self.root = Path(self.temp.name) / 'copy'
         shutil.copytree(
@@ -231,10 +241,14 @@ class FutureCandidateControls(unittest.TestCase):
         cls.fixture = tempfile.TemporaryDirectory(prefix='vfoliage010-candidate-base-')
         cls.addClassCleanup(cls.fixture.cleanup)
         cls.template = Path(cls.fixture.name) / 'base'
-        build_candidate(cls.template)
+        with patch.dict(os.environ, isolated_git_environment(), clear=True):
+            build_candidate(cls.template)
         cls.plan = json.loads((REPORT / 'plan.json').read_text())
 
     def setUp(self) -> None:
+        environment = patch.dict(os.environ, isolated_git_environment(), clear=True)
+        environment.start()
+        self.addCleanup(environment.stop)
         self.temp = tempfile.TemporaryDirectory(prefix='vfoliage010-future-')
         self.addCleanup(self.temp.cleanup)
         self.candidate = Path(self.temp.name) / 'candidate'
@@ -294,6 +308,71 @@ class FutureCandidateControls(unittest.TestCase):
         extra.write_text('extends Node\n')
         with self.assertRaisesRegex(ValueError, 'current candidate production inventory'):
             verify_current_candidate(self.plan, self.candidate)
+
+    def test_git_index_does_not_hide_untracked_production(self):
+        """Настоящий Git-индекс принимает baseline и не скрывает добавленный untracked-исходник."""
+        self.assertFalse(any(key.startswith('GIT_') for key in os.environ))
+        subprocess.run(['git', 'init', '--quiet', str(self.candidate)], check=True)
+        subprocess.run(['git', 'add', '--all', '--', '.'], cwd=self.candidate, check=True)
+        self.assertTrue((self.candidate / '.git/index').is_file())
+        self.assertEqual(verify_current_candidate(self.plan, self.candidate), 3743)
+
+        name = 'scripts/future_effect.gd'
+        extra = self.candidate / name
+        self.assertFalse(extra.exists())
+        extra.write_text('extends Node\n')
+        indexed = subprocess.check_output(
+            ['git', 'ls-files', '-z', '--', name],
+            cwd=self.candidate,
+        )
+        untracked = subprocess.check_output(
+            ['git', 'ls-files', '--others', '--exclude-standard', '-z', '--', name],
+            cwd=self.candidate,
+        )
+        self.assertEqual(indexed, b'')
+        self.assertEqual(untracked, (name + '\0').encode())
+        with self.assertRaisesRegex(ValueError, 'current candidate production inventory'):
+            verify_current_candidate(self.plan, self.candidate)
+
+    def test_inherited_hook_environment_preserves_parent_config_and_index(self):
+        """Дочерний fixture очищает hook-окружение и сохраняет config/index своего Git-родителя."""
+        parent = Path(self.temp.name) / 'parent'
+        parent.mkdir()
+        clean = isolated_git_environment()
+        self.assertFalse(any(key.startswith('GIT_') for key in clean))
+        subprocess.run(['git', 'init', '--quiet', str(parent)], env=clean, check=True)
+        (parent / 'tracked.txt').write_text('parent index sentinel\n')
+        subprocess.run(['git', 'add', '--', 'tracked.txt'], cwd=parent, env=clean, check=True)
+        config = parent / '.git/config'
+        index = parent / '.git/index'
+        before = {'config': digest(config), 'index': digest(index)}
+        hook = {
+            **clean,
+            'GIT_DIR': str(parent / '.git'),
+            'GIT_WORK_TREE': str(parent),
+            'GIT_INDEX_FILE': str(index),
+        }
+        child = subprocess.run(
+            [
+                sys.executable, str(Path(__file__).resolve()),
+                'FutureCandidateControls.test_git_index_does_not_hide_untracked_production',
+            ],
+            cwd=parent,
+            env=hook,
+            capture_output=True,
+            text=True,
+            timeout=180,
+        )
+        self.assertEqual(child.returncode, 0, child.stdout + child.stderr)
+        self.assertIn('Ran 1 test', child.stderr)
+        self.assertEqual({'config': digest(config), 'index': digest(index)}, before)
+        self.assertEqual(
+            subprocess.check_output(
+                ['git', 'config', '--local', '--get', 'core.bare'],
+                cwd=parent, env=clean, text=True,
+            ).strip(),
+            'false',
+        )
 
 
 if __name__ == '__main__':

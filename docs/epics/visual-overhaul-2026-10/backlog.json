@@ -3613,25 +3613,46 @@
         "docs/reports/visual-overhaul/vfoliage-010/native-01/source.json",
         "docs/reports/visual-overhaul/vfoliage-010/verification.json",
         "wiki/articles/foliage-visibility.md",
-        "docs/reports/visual-overhaul/vfoliage-010/review-1/README.md"
+        "docs/reports/visual-overhaul/vfoliage-010/review-1/README.md",
+        "docs/reports/visual-overhaul/vfoliage-010/review-2/README.md"
       ],
-      "result": "PR #7 остаётся in_progress после review5642594398 на8ef7feae. P1: исторический Git base/капсула со всеми3743 сохранёнными SHA отдельно от strict candidate guard; actual VERSION335→336 и будущий shader не ломают историю, guard отказывает изменённому кандидату. P2: reader разделён на понятные этапы, обе матрицы метаданных проверяются до decode. P3: текст1280 исправлен на126/123/126. Architecture/32контроля, Game53502/0 +normal/F10 по90/0, Wiki135/0 прошли;512/36/24 и223 первичных файла неизменны. Новые CI, повторное ревью точного head и решение Team Lead ещё требуются. https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/7",
+      "result": "PR #7, in_progress: исправлен P2 повторного ревью d3bf8f79 — строгая проверка учитывает Git index и неигнорируемые untracked-файлы. Регрессия с настоящим индексом дала красный/зелёный результат; fixture очищают hook GIT_*, дочерний опыт сохранил config/index родителя. Полный architecture прошёл, включая все 34 контроля и исторический reader 512/36/24; Game 53502/0, normal/F10 по 90/0; Wiki 135/0. Исторические модули, review-1 и 223 первичных файла неизменны. Требуются CI и повторное ревью нового опубликованного head, затем решение Team Lead; merge и Task-Complete пока не разрешены. https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/7",
       "pull_request": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/7",
       "review": {
         "state": "awaiting_rereview",
         "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/7",
         "code_sha": "263b46f6f85bff382c863aa6d2061a16f1690eea",
-        "code_sha_note": "Original implementation provenance only. Review5642594398 rejected head8ef7feae; addressed changes require review of the new actual PR head and Team Lead decision.",
+        "code_sha_note": "Original capture implementation provenance only. Both returned heads are recorded in review_history; current PR head requires independent rereview and Team Lead decision.",
         "reviewer": "Tech Lead Agent",
         "coordinator": "Team Lead Agent",
-        "latest_branch_checks": "docs/reports/visual-overhaul/vfoliage-010/review-1/checks.json",
+        "latest_branch_checks": "docs/reports/visual-overhaul/vfoliage-010/review-2/checks.json",
         "open_findings": [
-          "P1 historical provenance/current candidate separation",
-          "P2 verifier stages and readability",
-          "P3 cost text1280"
+          "P2 Git untracked inventory and fixture hook isolation: locally addressed; awaiting exact-new-head independent review"
         ],
-        "rejected_head": "8ef7feaefb5cc669997c871234ba0501c6e7d4cf",
-        "changes_requested_review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/7#pullrequestreview-5642594398"
+        "rejected_head": "d3bf8f792cbf264c6a169755dfd1e66d5b3b68ea",
+        "changes_requested_review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/7#discussion_r4370635795",
+        "review_history": [
+          {
+            "head": "8ef7feaefb5cc669997c871234ba0501c6e7d4cf",
+            "review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/7#pullrequestreview-5642594398",
+            "decision": "changes_requested",
+            "findings": [
+              "P1 historical provenance",
+              "P2 verifier structure",
+              "P3 cost text"
+            ]
+          },
+          {
+            "head": "d3bf8f792cbf264c6a169755dfd1e66d5b3b68ea",
+            "review_id": "PRR_kwDOTqkhCs8AAAABUFeifA",
+            "review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/7#discussion_r4370635795",
+            "decision": "changes_requested",
+            "previous_findings_addressed": true,
+            "findings": [
+              "P2 Git untracked inventory"
+            ]
+          }
+        ]
       }
     },
     {
