@@ -1,0 +1,72 @@
+{
+  "task": "VFOLIAGE-010",
+  "pr": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/7",
+  "implementation_sha": "263b46f6f85bff382c863aa6d2061a16f1690eea",
+  "executable_test_inputs_unchanged": true,
+  "checked_inputs": 4895,
+  "full_checks": "summary.json",
+  "note": "Full architecture/Game passed before both commits. Only PR routing, documentation, generated views and their receipts change; 4895 code/test/asset files remain byte-identical. Relevant document/backlog checks and Wiki rerun. No claim of a second full Game invocation. README also states that the common child WorldBackground stays in the QA pair; primary plan/data remain unchanged.",
+  "checks": [
+    {
+      "command": [
+        "tools/visual_backlog.py",
+        "--write"
+      ],
+      "exit": 0,
+      "raw": "routing-0.txt",
+      "sha256": "8fa76395f497bae5bc9e5b46e8e4505262aed0edeac823060db81b46c2347bf9"
+    },
+    {
+      "command": [
+        "tools/visual_backlog.py"
+      ],
+      "exit": 0,
+      "raw": "routing-1.txt",
+      "sha256": "8fa76395f497bae5bc9e5b46e8e4505262aed0edeac823060db81b46c2347bf9"
+    },
+    {
+      "command": [
+        "tools/test_visual_backlog.py"
+      ],
+      "exit": 0,
+      "raw": "routing-2.txt",
+      "sha256": "a51f59ef1bd9eccf3a273b1e5f70178b3c56f8f856d5c7d417648d1535f2d4b1"
+    },
+    {
+      "command": [
+        "tools/check_documentation.py"
+      ],
+      "exit": 0,
+      "raw": "routing-3.txt",
+      "sha256": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7"
+    },
+    {
+      "command": [
+        "tools/test_documentation.py"
+      ],
+      "exit": 0,
+      "raw": "routing-4.txt",
+      "sha256": "0b4ba0cf21167264432aa27e2e397f7a011076e3ee673d30c7045f615eefadc0"
+    },
+    {
+      "command": [
+        "tools/bump_version.py",
+        "--check"
+      ],
+      "exit": 0,
+      "raw": "routing-5.txt",
+      "sha256": "beb858b933c531e14921bdea0ce3f1d7fd1323ce29b7bf1f685c477c9d939755"
+    }
+  ],
+  "wiki": {
+    "command": "pnpm check (wiki)",
+    "exit": 0,
+    "passed": 135,
+    "raw": "wiki-routing.txt",
+    "sha256": "7947f454fb7a0f3fa66068f87a2f949a94fc9255343c7a6adda7d2699937cd52"
+  },
+  "browser": {
+    "browser/pr-routing.json": "1e63ef3c5f40af4673015df351870221cdcd18de4f621afae2dfe9ce938aebce",
+    "browser/overview-pr.png": "94c3da0a2b4f8389b4af238de333e26324de80e0741c04342d7acf5abe74af01"
+  }
+}

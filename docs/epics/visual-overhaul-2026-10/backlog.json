@@ -3614,7 +3614,18 @@
         "docs/reports/visual-overhaul/vfoliage-010/verification.json",
         "wiki/articles/foliage-visibility.md"
       ],
-      "result": "Локальная проверка существующей травы: 512 нативных кадров в двух окнах,36 точных culling-пар и24 предельных target; реальные focus/present, четыре края камеры, проходы через x1920 и вдоль куста. Профиль131/0. Один target768×384, две canvas draw calls/192треугольника; реальные AABB покрывают изгиб, additive0/1/2 калиброван, максимум наложений1. Production scripts/assets/main неизменны относительно2fa58d3; новые механики не добавлены. Подробности: docs/reports/visual-overhaul/vfoliage-010/README.md. До публикации PR и ревью текущего SHA/решения Team Lead статус in_progress; FPS/VRELEASE-003/VMAP-003 не приняты."
+      "result": "Локальная проверка существующей травы: 512 нативных кадров в двух окнах,36 точных culling-пар и24 предельных target; реальные focus/present, четыре края камеры, проходы через x1920 и вдоль куста. Профиль131/0. Один target768×384, две canvas draw calls/192треугольника; реальные AABB покрывают изгиб, additive0/1/2 калиброван, максимум наложений1. Production scripts/assets/main неизменны относительно2fa58d3; новые механики не добавлены. Подробности: docs/reports/visual-overhaul/vfoliage-010/README.md. Опубликован PR #7: https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/7; локальные architecture/Game/Wiki/24 контроля прошли. Ожидаются ревью текущего head SHA и решение Team Lead; статус in_progress; FPS/VRELEASE-003/VMAP-003 не приняты.",
+      "pull_request": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/7",
+      "review": {
+        "state": "awaiting_review",
+        "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/7",
+        "code_sha": "263b46f6f85bff382c863aa6d2061a16f1690eea",
+        "code_sha_note": "Implementation commit; the subsequent commit records PR routing only. Review must target the actual current PR head, not an older SHA.",
+        "reviewer": "Tech Lead Agent",
+        "coordinator": "Team Lead Agent",
+        "latest_branch_checks": "docs/reports/visual-overhaul/vfoliage-010/checks/summary.json",
+        "open_findings": []
+      }
     },
     {
       "id": "VTREE-001",
