@@ -1,5 +1,18 @@
 [
   {
+    "id": "project-refactoring",
+    "file": "project-refactoring.md",
+    "title": "Рефакторинг: инструменты по назначению",
+    "summary": "Приоритет после текущей VFOLIAGE-010: разнести tools по ответственности, сохранить импорты/UID/CI и проверить похожие перегруженные каталоги.",
+    "tags": [
+      "Разработка",
+      "Рефакторинг",
+      "Технологии",
+      "REFACTOR",
+      "tools"
+    ]
+  },
+  {
     "id": "pull-request-review",
     "file": "pull-request-review.md",
     "title": "Ревью кода и работа агентов",
