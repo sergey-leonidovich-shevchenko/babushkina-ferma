@@ -1,0 +1,22 @@
+{
+  "task": "WIKI-003",
+  "version": true,
+  "implementation_head": "768d507d31d44949a49a2642a9ca354ecc7ec027",
+  "publication_scope": "URL and result in canonical card; metadata; own publication evidence only",
+  "Wiki": {
+    "exit": 0,
+    "passed": 145,
+    "failed": 0
+  },
+  "documentation": true,
+  "backlog": true,
+  "current_head_CI_and_review": "required, pending",
+  "raw_sha256": {
+    "README.md": "0532aa9f9a27e8e7b4873cef582eb693b76a05a419bb10c1bce77e9aa49f841e",
+    "backlog.txt": "7b0c62667cec0862b51794006bde95ad404d96c3436f5b19527cf6240bb61d3a",
+    "documentation.txt": "af541e212466bf687852c55f64f9b21e86c427cf29a5de2f0ad356c6f885fcc7",
+    "scope.json": "95e5c5424df626cdec637b19c2f03d781fd21154ca987e0ba4a9bb9f39ee88d7",
+    "version.txt": "a919ca57d9d8acf3eb59a6f8ad319c8dd8b6a49bb347734ae1972e48a9a92a71",
+    "wiki.txt": "1adc83f8a1b3d31659af1818ef10fbc14097d938bb4e939b53ce63441527b29d"
+  }
+}
