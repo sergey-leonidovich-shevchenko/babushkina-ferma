@@ -1,0 +1,22 @@
+{
+  "controls": true,
+  "links": [
+    {
+      "href": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/14",
+      "text": "Доработка P2 в PR14"
+    },
+    {
+      "href": "generated/attachments/099ad784b7a5a833a3cffe90e8abd47d25b60de49504e2473ba38bb0e56adf07.json",
+      "text": "Отказ повреждённых production-планов"
+    },
+    {
+      "href": "generated/attachments/660e22ea57a8c55d8a3b9d8f761adb68bb060f44e2d07251452327a8feda79b7.json",
+      "text": "Новый inventory"
+    },
+    {
+      "href": "generated/attachments/6723deb131a7545f68700551095a03403642e3ad893e1a209f14465abed40959.json",
+      "text": "Новый packet"
+    }
+  ],
+  "version": true
+}

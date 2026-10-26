@@ -1,0 +1,4436 @@
+[
+  {
+    "consumer": "docs/concepts/cave-boss-2026-10/v1/build_comparison.py",
+    "line": 6,
+    "kind": "file_relative_binding",
+    "text": "root = Path(__file__).resolve().parent"
+  },
+  {
+    "consumer": "docs/concepts/quest-marker-2026-10-14/v1/build_preview.py",
+    "line": 15,
+    "kind": "file_relative_binding",
+    "text": "root = Path(__file__).resolve().parent"
+  },
+  {
+    "consumer": "docs/concepts/quest-marker-2026-10-14/v1/build_preview.py",
+    "line": 16,
+    "kind": "fixed_parent_depth",
+    "text": "repo = root.parents[3]"
+  },
+  {
+    "consumer": "docs/concepts/watering-drop-2026-10-14/v1/build_preview.py",
+    "line": 15,
+    "kind": "file_relative_binding",
+    "text": "root = Path(__file__).resolve().parent"
+  },
+  {
+    "consumer": "docs/concepts/watering-drop-2026-10-14/v1/build_preview.py",
+    "line": 16,
+    "kind": "fixed_parent_depth",
+    "text": "repo = root.parents[3]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vbase-002/measurement/instrumentation/tools/analyze_visual_baseline.py",
+    "line": 11,
+    "kind": "module_search_path_requires_review",
+    "text": "analyze_optimization_audit"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vbase-002/measurement/instrumentation/tools/run_visual_baseline.py",
+    "line": 15,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vbase-002/measurement/instrumentation/tools/run_visual_baseline.py",
+    "line": 15,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vbase-005/controls/collector.py",
+    "line": 17,
+    "kind": "module_search_path_requires_review",
+    "text": "run_visual_baseline"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vbase-005/controls/collector.py",
+    "line": 19,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vbase-005/controls/collector.py",
+    "line": 19,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vbase-005/native/instrumentation/tools/visual_motion.py",
+    "line": 17,
+    "kind": "module_search_path_requires_review",
+    "text": "run_visual_baseline"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vbase-005/native/instrumentation/tools/visual_motion.py",
+    "line": 19,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vbase-005/native/instrumentation/tools/visual_motion.py",
+    "line": 19,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-002/native/instrumentation/tools/camera_quantization.py",
+    "line": 19,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-002/native/instrumentation/tools/camera_quantization.py",
+    "line": 19,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-003/controls/edge-window-04/instrumentation/tools/camera_quantization.py",
+    "line": 19,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-003/controls/edge-window-04/instrumentation/tools/camera_quantization.py",
+    "line": 19,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-003/controls/edge-window-04/instrumentation/tools/presentation_pose.py",
+    "line": 14,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from camera_quantization import ROOT, CASES, SOURCES as BASE_SOURCES, read, sha, require, near, manifest"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-003/controls/fullscreen-02/instrumentation/tools/camera_quantization.py",
+    "line": 19,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-003/controls/fullscreen-02/instrumentation/tools/camera_quantization.py",
+    "line": 19,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-003/controls/fullscreen-02/instrumentation/tools/presentation_pose.py",
+    "line": 14,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from camera_quantization import ROOT, CASES, SOURCES as BASE_SOURCES, read, sha, require, near, manifest"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-003/controls/marker-occlusion-03/instrumentation/tools/camera_quantization.py",
+    "line": 19,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-003/controls/marker-occlusion-03/instrumentation/tools/camera_quantization.py",
+    "line": 19,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-003/controls/marker-occlusion-03/instrumentation/tools/presentation_pose.py",
+    "line": 14,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from camera_quantization import ROOT, CASES, SOURCES as BASE_SOURCES, read, sha, require, near, manifest"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-003/controls/no-frame-01/instrumentation/tools/camera_quantization.py",
+    "line": 19,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-003/controls/no-frame-01/instrumentation/tools/camera_quantization.py",
+    "line": 19,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-003/controls/no-frame-01/instrumentation/tools/presentation_pose.py",
+    "line": 14,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from camera_quantization import ROOT, CASES, SOURCES as BASE_SOURCES, read, sha, require, near, manifest"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-003/native/collection-tools/03e783a37978f51d32c8960c8c886456d39012a795de1c075bb488687fab5ff0.py",
+    "line": 15,
+    "kind": "module_search_path_requires_review",
+    "text": "camera_quantization"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-003/native/collection-tools/03e783a37978f51d32c8960c8c886456d39012a795de1c075bb488687fab5ff0.py",
+    "line": 15,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from camera_quantization import ROOT, CASES, SOURCES as BASE_SOURCES, read, sha, require, near, manifest"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-003/native/collection-tools/03e783a37978f51d32c8960c8c886456d39012a795de1c075bb488687fab5ff0.py",
+    "line": 153,
+    "kind": "file_relative_binding",
+    "text": "tool=folder/'collection-tools'/(sha(Path(__file__))+'.py'); tool.parent.mkdir(exist_ok=True); shutil.copy2(__file__,tool)"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-003/native/collection-tools/03e783a37978f51d32c8960c8c886456d39012a795de1c075bb488687fab5ff0.py",
+    "line": 182,
+    "kind": "file_relative_binding",
+    "text": "(target/'environment.json').write_text(json.dumps({'command':launch,'exit_code':result.returncode,'collector_sha256':sha(Path(__file__)),'exit_code_scope':'LaunchServices; engine completion checked in capture.json'},indent=2)+'\\n')"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-003/native/instrumentation/tools/camera_quantization.py",
+    "line": 19,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-003/native/instrumentation/tools/camera_quantization.py",
+    "line": 19,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-003/native/instrumentation/tools/presentation_pose.py",
+    "line": 14,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from camera_quantization import ROOT, CASES, SOURCES as BASE_SOURCES, read, sha, require, near, manifest"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/native-before-final-fixes/instrumentation/tools/camera_quantization.py",
+    "line": 19,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/native-before-final-fixes/instrumentation/tools/camera_quantization.py",
+    "line": 19,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/native-before-final-fixes/instrumentation/tools/presentation_pose.py",
+    "line": 15,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from camera_quantization import ROOT, CASES, SOURCES as BASE_SOURCES, read, sha, require, near, manifest"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/native-before-final-fixes/instrumentation/tools/presentation_pose.py",
+    "line": 157,
+    "kind": "file_relative_binding",
+    "text": "collector_digest=sha(Path(__file__))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/native-before-final-fixes/instrumentation/tools/presentation_pose.py",
+    "line": 174,
+    "kind": "file_relative_binding",
+    "text": "tool=folder/'collection-tools'/(collector_digest+'.py'); tool.parent.mkdir(exist_ok=True); shutil.copy2(__file__,tool)"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/native-before-final-fixes/instrumentation/tools/reference_zoom.py",
+    "line": 13,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from camera_quantization import ROOT, CASES, SOURCES as BASE_SOURCES, read, sha, require, near, manifest"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/native-before-final-fixes/instrumentation/tools/reference_zoom.py",
+    "line": 142,
+    "kind": "file_relative_binding",
+    "text": "digest=sha(Path(__file__))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/native-before-final-fixes/instrumentation/tools/reference_zoom.py",
+    "line": 157,
+    "kind": "file_relative_binding",
+    "text": "target=folder/'collection-tools'/(digest+'.py'); target.parent.mkdir(exist_ok=True); shutil.copy2(__file__,target)"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/native/instrumentation/tools/camera_quantization.py",
+    "line": 19,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/native/instrumentation/tools/camera_quantization.py",
+    "line": 19,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/native/instrumentation/tools/presentation_pose.py",
+    "line": 15,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from camera_quantization import ROOT, CASES, SOURCES as BASE_SOURCES, read, sha, require, near, manifest"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/native/instrumentation/tools/presentation_pose.py",
+    "line": 157,
+    "kind": "file_relative_binding",
+    "text": "collector_digest=sha(Path(__file__))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/native/instrumentation/tools/presentation_pose.py",
+    "line": 174,
+    "kind": "file_relative_binding",
+    "text": "tool=folder/'collection-tools'/(collector_digest+'.py'); tool.parent.mkdir(exist_ok=True); shutil.copy2(__file__,tool)"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/native/instrumentation/tools/reference_zoom.py",
+    "line": 14,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from camera_quantization import ROOT, CASES, SOURCES as BASE_SOURCES, read, sha, require, near, manifest"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/native/instrumentation/tools/reference_zoom.py",
+    "line": 161,
+    "kind": "file_relative_binding",
+    "text": "digest=sha(Path(__file__))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/native/instrumentation/tools/reference_zoom.py",
+    "line": 177,
+    "kind": "file_relative_binding",
+    "text": "target=folder/'collection-tools'/(digest+'.py'); target.parent.mkdir(exist_ok=True); shutil.copy2(__file__,target)"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/timing-before-final-fixes/instrumentation/tools/camera_quantization.py",
+    "line": 19,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/timing-before-final-fixes/instrumentation/tools/camera_quantization.py",
+    "line": 19,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/timing-before-final-fixes/instrumentation/tools/presentation_pose.py",
+    "line": 15,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from camera_quantization import ROOT, CASES, SOURCES as BASE_SOURCES, read, sha, require, near, manifest"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/timing-before-final-fixes/instrumentation/tools/presentation_pose.py",
+    "line": 157,
+    "kind": "file_relative_binding",
+    "text": "collector_digest=sha(Path(__file__))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/timing-before-final-fixes/instrumentation/tools/presentation_pose.py",
+    "line": 174,
+    "kind": "file_relative_binding",
+    "text": "tool=folder/'collection-tools'/(collector_digest+'.py'); tool.parent.mkdir(exist_ok=True); shutil.copy2(__file__,tool)"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/timing-before-final-fixes/instrumentation/tools/reference_zoom.py",
+    "line": 14,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from camera_quantization import ROOT, CASES, SOURCES as BASE_SOURCES, read, sha, require, near, manifest"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/timing-before-final-fixes/instrumentation/tools/reference_zoom.py",
+    "line": 152,
+    "kind": "file_relative_binding",
+    "text": "digest=sha(Path(__file__))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/timing-before-final-fixes/instrumentation/tools/reference_zoom.py",
+    "line": 167,
+    "kind": "file_relative_binding",
+    "text": "target=folder/'collection-tools'/(digest+'.py'); target.parent.mkdir(exist_ok=True); shutil.copy2(__file__,target)"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/timing-before-final-fixes/instrumentation/tools/reference_zoom_perf.py",
+    "line": 65,
+    "kind": "historical_overlay_prefix_review",
+    "text": "jobs=[line.strip() for line in lines if '/Godot ' in line or line.strip().split(' ',1)[-1].startswith('tools/Godot.app')]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/timing-interrupted-power/instrumentation/tools/camera_quantization.py",
+    "line": 19,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/timing-interrupted-power/instrumentation/tools/camera_quantization.py",
+    "line": 19,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/timing-interrupted-power/instrumentation/tools/presentation_pose.py",
+    "line": 15,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from camera_quantization import ROOT, CASES, SOURCES as BASE_SOURCES, read, sha, require, near, manifest"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/timing-interrupted-power/instrumentation/tools/presentation_pose.py",
+    "line": 157,
+    "kind": "file_relative_binding",
+    "text": "collector_digest=sha(Path(__file__))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/timing-interrupted-power/instrumentation/tools/presentation_pose.py",
+    "line": 174,
+    "kind": "file_relative_binding",
+    "text": "tool=folder/'collection-tools'/(collector_digest+'.py'); tool.parent.mkdir(exist_ok=True); shutil.copy2(__file__,tool)"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/timing-interrupted-power/instrumentation/tools/reference_zoom.py",
+    "line": 14,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from camera_quantization import ROOT, CASES, SOURCES as BASE_SOURCES, read, sha, require, near, manifest"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/timing-interrupted-power/instrumentation/tools/reference_zoom.py",
+    "line": 152,
+    "kind": "file_relative_binding",
+    "text": "digest=sha(Path(__file__))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/timing-interrupted-power/instrumentation/tools/reference_zoom.py",
+    "line": 167,
+    "kind": "file_relative_binding",
+    "text": "target=folder/'collection-tools'/(digest+'.py'); target.parent.mkdir(exist_ok=True); shutil.copy2(__file__,target)"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/timing-interrupted-power/instrumentation/tools/reference_zoom_perf.py",
+    "line": 65,
+    "kind": "historical_overlay_prefix_review",
+    "text": "jobs=[line.strip() for line in lines if '/Godot ' in line or line.strip().split(' ',1)[-1].startswith('tools/Godot.app')]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/timing-rejected-native/instrumentation/tools/camera_quantization.py",
+    "line": 19,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/timing-rejected-native/instrumentation/tools/camera_quantization.py",
+    "line": 19,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/timing-rejected-native/instrumentation/tools/presentation_pose.py",
+    "line": 15,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from camera_quantization import ROOT, CASES, SOURCES as BASE_SOURCES, read, sha, require, near, manifest"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/timing-rejected-native/instrumentation/tools/presentation_pose.py",
+    "line": 157,
+    "kind": "file_relative_binding",
+    "text": "collector_digest=sha(Path(__file__))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/timing-rejected-native/instrumentation/tools/presentation_pose.py",
+    "line": 174,
+    "kind": "file_relative_binding",
+    "text": "tool=folder/'collection-tools'/(collector_digest+'.py'); tool.parent.mkdir(exist_ok=True); shutil.copy2(__file__,tool)"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/timing-rejected-native/instrumentation/tools/reference_zoom.py",
+    "line": 14,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from camera_quantization import ROOT, CASES, SOURCES as BASE_SOURCES, read, sha, require, near, manifest"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/timing-rejected-native/instrumentation/tools/reference_zoom.py",
+    "line": 152,
+    "kind": "file_relative_binding",
+    "text": "digest=sha(Path(__file__))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/timing-rejected-native/instrumentation/tools/reference_zoom.py",
+    "line": 167,
+    "kind": "file_relative_binding",
+    "text": "target=folder/'collection-tools'/(digest+'.py'); target.parent.mkdir(exist_ok=True); shutil.copy2(__file__,target)"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/timing-rejected-native/instrumentation/tools/reference_zoom_perf.py",
+    "line": 65,
+    "kind": "historical_overlay_prefix_review",
+    "text": "jobs=[line.strip() for line in lines if '/Godot ' in line or line.strip().split(' ',1)[-1].startswith('tools/Godot.app')]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/timing/instrumentation/tools/camera_quantization.py",
+    "line": 19,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/timing/instrumentation/tools/camera_quantization.py",
+    "line": 19,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/timing/instrumentation/tools/presentation_pose.py",
+    "line": 15,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from camera_quantization import ROOT, CASES, SOURCES as BASE_SOURCES, read, sha, require, near, manifest"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/timing/instrumentation/tools/presentation_pose.py",
+    "line": 157,
+    "kind": "file_relative_binding",
+    "text": "collector_digest=sha(Path(__file__))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/timing/instrumentation/tools/presentation_pose.py",
+    "line": 174,
+    "kind": "file_relative_binding",
+    "text": "tool=folder/'collection-tools'/(collector_digest+'.py'); tool.parent.mkdir(exist_ok=True); shutil.copy2(__file__,tool)"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/timing/instrumentation/tools/reference_zoom.py",
+    "line": 14,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from camera_quantization import ROOT, CASES, SOURCES as BASE_SOURCES, read, sha, require, near, manifest"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/timing/instrumentation/tools/reference_zoom.py",
+    "line": 161,
+    "kind": "file_relative_binding",
+    "text": "digest=sha(Path(__file__))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/timing/instrumentation/tools/reference_zoom.py",
+    "line": 177,
+    "kind": "file_relative_binding",
+    "text": "target=folder/'collection-tools'/(digest+'.py'); target.parent.mkdir(exist_ok=True); shutil.copy2(__file__,target)"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcamera-006/timing/instrumentation/tools/reference_zoom_perf.py",
+    "line": 66,
+    "kind": "historical_overlay_prefix_review",
+    "text": "jobs=[line.strip() for line in lines if '/Godot ' in line or line.strip().split(' ',1)[-1].startswith('tools/Godot.app')]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcompat-001/native/after/inputs/tools/transient_save_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vcompat-001/native/before/inputs/tools/transient_save_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vfoliage-001/native/inputs/tools/foliage_root_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vfoliage-002/native/inputs/tools/foliage_uv_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vfoliage-003/native/inputs/tools/foliage_wind_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vfoliage-004/native/inputs/tools/foliage_contact_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vfoliage-005/native/inputs/tools/foliage_speed_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vfoliage-006/causal-investigation/analysis/analyze.py",
+    "line": 160,
+    "kind": "fixed_parent_depth",
+    "text": "wanted = json.loads((folder.parents[1] / \"plan.json\").read_text())"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vfoliage-006/causal-investigation/analysis/verify.py",
+    "line": 13,
+    "kind": "file_relative_binding",
+    "text": "p for p in Path(__file__).resolve().parents if (p / \"project.godot\").is_file()"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vfoliage-006/causal-investigation/analysis/verify.py",
+    "line": 15,
+    "kind": "import_search_path",
+    "text": "sys.path.insert(0, str(ROOT / \"tools\"))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vfoliage-006/causal-investigation/analysis/verify.py",
+    "line": 16,
+    "kind": "file_relative_binding",
+    "text": "sys.path.insert(0, str(Path(__file__).resolve().parents[1] / \"instrumentation\"))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vfoliage-006/causal-investigation/analysis/verify.py",
+    "line": 16,
+    "kind": "fixed_parent_depth",
+    "text": "sys.path.insert(0, str(Path(__file__).resolve().parents[1] / \"instrumentation\"))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vfoliage-006/causal-investigation/analysis/verify.py",
+    "line": 16,
+    "kind": "import_search_path",
+    "text": "sys.path.insert(0, str(Path(__file__).resolve().parents[1] / \"instrumentation\"))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vfoliage-006/causal-investigation/analysis/verify.py",
+    "line": 17,
+    "kind": "module_search_path_requires_review",
+    "text": "performance_protocol"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vfoliage-006/causal-investigation/analysis/verify.py",
+    "line": 170,
+    "kind": "file_relative_binding",
+    "text": "folder = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vfoliage-006/causal-investigation/analysis/verify.py",
+    "line": 170,
+    "kind": "fixed_parent_depth",
+    "text": "folder = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vfoliage-006/causal-investigation/instrumentation/causal_capture.py",
+    "line": 19,
+    "kind": "file_relative_binding",
+    "text": "p for p in Path(__file__).resolve().parents if (p / \"project.godot\").is_file()"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vfoliage-006/causal-investigation/instrumentation/causal_capture.py",
+    "line": 21,
+    "kind": "import_search_path",
+    "text": "sys.path.insert(0, str(ROOT / \"tools\"))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vfoliage-006/causal-investigation/instrumentation/causal_capture.py",
+    "line": 22,
+    "kind": "module_search_path_requires_review",
+    "text": "performance_gate"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vfoliage-006/causal-investigation/instrumentation/causal_capture.py",
+    "line": 23,
+    "kind": "module_search_path_requires_review",
+    "text": "performance_protocol"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vfoliage-006/causal-investigation/instrumentation/causal_capture.py",
+    "line": 266,
+    "kind": "file_relative_binding",
+    "text": "name: sha((Path(__file__).parent / name).read_bytes())"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vfoliage-006/causal-investigation/instrumentation/causal_capture.py",
+    "line": 285,
+    "kind": "file_relative_binding",
+    "text": "sha((Path(__file__).parent / name).read_bytes()) != value"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vfoliage-006/causal-investigation/instrumentation/test_causal.py",
+    "line": 8,
+    "kind": "file_relative_binding",
+    "text": "p for p in Path(__file__).resolve().parents if (p / \"project.godot\").is_file()"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vfoliage-006/ci-performance/fixed-gate/instrumentation/performance_protocol.py",
+    "line": 12,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vfoliage-006/ci-performance/fixed-gate/instrumentation/performance_protocol.py",
+    "line": 12,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vfoliage-006/native/inputs/tools/foliage_recovery_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vfoliage-006/redraw-scheduling/instrumentation/redraw_compare.py",
+    "line": 12,
+    "kind": "file_relative_binding",
+    "text": "p for p in Path(__file__).resolve().parents if (p / \"project.godot\").is_file()"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vfoliage-006/redraw-scheduling/instrumentation/redraw_compare.py",
+    "line": 14,
+    "kind": "import_search_path",
+    "text": "sys.path.insert(0, str(ROOT / \"tools\"))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vfoliage-006/redraw-scheduling/instrumentation/redraw_compare.py",
+    "line": 15,
+    "kind": "import_search_path",
+    "text": "sys.path.insert("
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vfoliage-006/redraw-scheduling/instrumentation/redraw_compare.py",
+    "line": 22,
+    "kind": "module_search_path_requires_review",
+    "text": "performance_gate"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vfoliage-006/redraw-scheduling/instrumentation/redraw_compare.py",
+    "line": 83,
+    "kind": "file_relative_binding",
+    "text": "name: digest(Path(__file__).parent / name)"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vfoliage-006/redraw-scheduling/instrumentation/redraw_compare.py",
+    "line": 99,
+    "kind": "file_relative_binding",
+    "text": "assert all(digest(Path(__file__).parent / k) == v for k, v in frozen.items())"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vfoliage-006/redraw-scheduling/instrumentation/redraw_observer.py",
+    "line": 12,
+    "kind": "file_relative_binding",
+    "text": "p for p in Path(__file__).resolve().parents if (p / \"project.godot\").is_file()"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vfoliage-006/redraw-scheduling/instrumentation/redraw_observer.py",
+    "line": 14,
+    "kind": "import_search_path",
+    "text": "sys.path.insert("
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vfoliage-006/redraw-scheduling/verify.py",
+    "line": 13,
+    "kind": "file_relative_binding",
+    "text": "REPORT = Path(__file__).resolve().parent"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vfoliage-006/redraw-scheduling/verify.py",
+    "line": 14,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = REPORT.parents[4]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vfoliage-006/redraw-scheduling/verify.py",
+    "line": 15,
+    "kind": "import_search_path",
+    "text": "sys.path.insert(0, str(ROOT / \"tools\"))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vfoliage-006/redraw-scheduling/verify.py",
+    "line": 16,
+    "kind": "import_search_path",
+    "text": "sys.path.insert(0, str(REPORT.parent / \"causal-investigation\" / \"analysis\"))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vfoliage-006/redraw-scheduling/verify.py",
+    "line": 18,
+    "kind": "module_search_path_requires_review",
+    "text": "performance_protocol"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vfoliage-006/redraw-scheduling/verify.py",
+    "line": 19,
+    "kind": "module_search_path_requires_review",
+    "text": "performance_gate"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vfoliage-006/review-1/native/inputs/tools/foliage_recovery_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vground-001/native/inputs/tools/meadow_collect.py",
+    "line": 11,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vground-001/native/inputs/tools/meadow_collect.py",
+    "line": 58,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vground-003/native/inputs/tools/ground_edge_collect.py",
+    "line": 11,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vground-003/native/inputs/tools/ground_edge_collect.py",
+    "line": 23,
+    "kind": "historical_overlay_prefix_review",
+    "text": "OVERLAY = set(SOURCES[:8]+[p for p in SOURCES if p.startswith('tools/ground_edge_')]+['project.godot'])"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vground-003/native/inputs/tools/ground_edge_collect.py",
+    "line": 59,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vground-004/native/inputs/tools/axial_road_collect.py",
+    "line": 11,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vground-004/native/inputs/tools/axial_road_collect.py",
+    "line": 23,
+    "kind": "historical_overlay_prefix_review",
+    "text": "OVERLAY = set(SOURCES[:8]+[p for p in SOURCES if p.startswith('tools/axial_road_')]+['project.godot'])"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vground-004/native/inputs/tools/axial_road_collect.py",
+    "line": 59,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vground-005/native/inputs/tools/road_network_collect.py",
+    "line": 11,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vground-005/native/inputs/tools/road_network_collect.py",
+    "line": 27,
+    "kind": "historical_overlay_prefix_review",
+    "text": "OVERLAY = set(SOURCES[:6]+[p for p in SOURCES if p.startswith('tools/road_network') or '/road_network_masks/' in p]+['project.godot'])"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vground-005/native/inputs/tools/road_network_collect.py",
+    "line": 61,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vground-006/native/inputs/tools/plaza_collect.py",
+    "line": 12,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vground-006/native/inputs/tools/plaza_collect.py",
+    "line": 60,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vground-007/native/inputs/tools/garden_collect.py",
+    "line": 12,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vground-007/native/inputs/tools/garden_collect.py",
+    "line": 14,
+    "kind": "module_search_path_requires_review",
+    "text": "plaza_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vground-007/native/inputs/tools/garden_collect.py",
+    "line": 14,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from plaza_collect import SOURCES as PLAZA_SOURCES"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vground-007/native/inputs/tools/garden_collect.py",
+    "line": 15,
+    "kind": "historical_overlay_prefix_review",
+    "text": "SOURCES = [p for p in PLAZA_SOURCES if not p.startswith('tools/plaza_')]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vground-007/native/inputs/tools/garden_collect.py",
+    "line": 60,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vground-008/native/inputs/tools/decoration_collect.py",
+    "line": 12,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vground-008/native/inputs/tools/decoration_collect.py",
+    "line": 104,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vground-009/native/inputs/tools/terrain_revision_collect.py",
+    "line": 12,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vground-009/native/inputs/tools/terrain_revision_collect.py",
+    "line": 111,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vground-010/native/inputs/tools/ground_seasons_collect.py",
+    "line": 12,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vground-010/native/inputs/tools/ground_seasons_collect.py",
+    "line": 117,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vperf-001/controls/instrumentation/tools/perf_contract_collect.py",
+    "line": 17,
+    "kind": "file_relative_binding",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vperf-001/controls/instrumentation/tools/perf_contract_collect.py",
+    "line": 17,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vperf-001/interrupted/instrumentation/tools/perf_contract_collect.py",
+    "line": 16,
+    "kind": "file_relative_binding",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vperf-001/interrupted/instrumentation/tools/perf_contract_collect.py",
+    "line": 16,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vperf-001/native/instrumentation/tools/perf_contract_collect.py",
+    "line": 17,
+    "kind": "file_relative_binding",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vperf-001/native/instrumentation/tools/perf_contract_collect.py",
+    "line": 17,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vperf-001/revisions/idle-only-v1/instrumentation/tools/perf_contract_collect.py",
+    "line": 17,
+    "kind": "file_relative_binding",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vperf-001/revisions/idle-only-v1/instrumentation/tools/perf_contract_collect.py",
+    "line": 17,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vperf-001/revisions/render-focus-v4/instrumentation/tools/perf_contract_collect.py",
+    "line": 17,
+    "kind": "file_relative_binding",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vperf-001/revisions/render-focus-v4/instrumentation/tools/perf_contract_collect.py",
+    "line": 17,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-002/native/after/inputs/tools/object_command_collect.py",
+    "line": 12,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-002/native/after/inputs/tools/object_command_collect.py",
+    "line": 50,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-002/native/after/inputs/tools/village_bench_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-002/native/after/inputs/tools/village_bench_collect.py",
+    "line": 6,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from object_command_collect import SOURCES as ORIGINAL"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-002/native/after/inputs/tools/village_bench_collect.py",
+    "line": 13,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "folder.mkdir(parents=True);initial=jobs();sources=sorted(set(ORIGINAL+EXTRA+[str(p.relative_to(ROOT)) for p in (ROOT/'assets/game/locations/overworld/benches').glob('*') if p.suffix in ['.png','.json','.import']]))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-002/native/after/inputs/tools/village_bench_collect.py",
+    "line": 40,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-002/native/before/inputs/tools/object_command_collect.py",
+    "line": 12,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-002/native/before/inputs/tools/object_command_collect.py",
+    "line": 50,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-002/native/before/inputs/tools/village_bench_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-002/native/before/inputs/tools/village_bench_collect.py",
+    "line": 6,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from object_command_collect import SOURCES as ORIGINAL"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-002/native/before/inputs/tools/village_bench_collect.py",
+    "line": 13,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "folder.mkdir(parents=True);initial=jobs();sources=sorted(set(ORIGINAL+EXTRA+[str(p.relative_to(ROOT)) for p in (ROOT/'assets/game/locations/overworld/benches').glob('*') if p.suffix in ['.png','.json','.import']]))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-002/native/before/inputs/tools/village_bench_collect.py",
+    "line": 40,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-003/native/after/inputs/tools/object_command_collect.py",
+    "line": 12,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-003/native/after/inputs/tools/object_command_collect.py",
+    "line": 50,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-003/native/after/inputs/tools/village_bench_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-003/native/after/inputs/tools/village_bench_collect.py",
+    "line": 6,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from object_command_collect import SOURCES as ORIGINAL"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-003/native/after/inputs/tools/village_bench_collect.py",
+    "line": 13,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "folder.mkdir(parents=True);initial=jobs();sources=sorted(set(ORIGINAL+EXTRA+[str(p.relative_to(ROOT)) for p in (ROOT/'assets/game/locations/overworld/benches').glob('*') if p.suffix in ['.png','.json','.import']]))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-003/native/after/inputs/tools/village_bench_collect.py",
+    "line": 40,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-003/native/after/inputs/tools/village_street_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-003/native/after/inputs/tools/village_street_collect.py",
+    "line": 7,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "ORIGINAL=sorted(set(COMMON+BENCH_EXTRA+['assets/game/locations/overworld/modular/prop_well_v1.png','assets/game/locations/overworld/modular/prop_cart_v1.png']+[str(p.relative_to(ROOT)) for p in (ROOT/'assets/game/locations/overworld/benches').glob('*') if p.suffix in ['.png','.json','.import']]))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-003/native/after/inputs/tools/village_street_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-003/native/before/inputs/tools/object_command_collect.py",
+    "line": 12,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-003/native/before/inputs/tools/object_command_collect.py",
+    "line": 50,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-003/native/before/inputs/tools/village_bench_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-003/native/before/inputs/tools/village_bench_collect.py",
+    "line": 6,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from object_command_collect import SOURCES as ORIGINAL"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-003/native/before/inputs/tools/village_bench_collect.py",
+    "line": 13,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "folder.mkdir(parents=True);initial=jobs();sources=sorted(set(ORIGINAL+EXTRA+[str(p.relative_to(ROOT)) for p in (ROOT/'assets/game/locations/overworld/benches').glob('*') if p.suffix in ['.png','.json','.import']]))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-003/native/before/inputs/tools/village_bench_collect.py",
+    "line": 40,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-003/native/before/inputs/tools/village_street_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-003/native/before/inputs/tools/village_street_collect.py",
+    "line": 7,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "ORIGINAL=sorted(set(COMMON+BENCH_EXTRA+['assets/game/locations/overworld/modular/prop_well_v1.png','assets/game/locations/overworld/modular/prop_cart_v1.png']+[str(p.relative_to(ROOT)) for p in (ROOT/'assets/game/locations/overworld/benches').glob('*') if p.suffix in ['.png','.json','.import']]))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-003/native/before/inputs/tools/village_street_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-004/native/after/inputs/tools/object_command_collect.py",
+    "line": 12,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-004/native/after/inputs/tools/object_command_collect.py",
+    "line": 50,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-004/native/after/inputs/tools/village_bench_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-004/native/after/inputs/tools/village_bench_collect.py",
+    "line": 6,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from object_command_collect import SOURCES as ORIGINAL"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-004/native/after/inputs/tools/village_bench_collect.py",
+    "line": 13,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "folder.mkdir(parents=True);initial=jobs();sources=sorted(set(ORIGINAL+EXTRA+[str(p.relative_to(ROOT)) for p in (ROOT/'assets/game/locations/overworld/benches').glob('*') if p.suffix in ['.png','.json','.import']]))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-004/native/after/inputs/tools/village_bench_collect.py",
+    "line": 40,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-004/native/after/inputs/tools/village_lamp_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-004/native/after/inputs/tools/village_lamp_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-004/native/after/inputs/tools/village_street_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-004/native/after/inputs/tools/village_street_collect.py",
+    "line": 7,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "ORIGINAL=sorted(set(COMMON+BENCH_EXTRA+['assets/game/locations/overworld/modular/prop_well_v1.png','assets/game/locations/overworld/modular/prop_cart_v1.png']+[str(p.relative_to(ROOT)) for p in (ROOT/'assets/game/locations/overworld/benches').glob('*') if p.suffix in ['.png','.json','.import']]))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-004/native/after/inputs/tools/village_street_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-004/native/before/inputs/tools/object_command_collect.py",
+    "line": 12,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-004/native/before/inputs/tools/object_command_collect.py",
+    "line": 50,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-004/native/before/inputs/tools/village_bench_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-004/native/before/inputs/tools/village_bench_collect.py",
+    "line": 6,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from object_command_collect import SOURCES as ORIGINAL"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-004/native/before/inputs/tools/village_bench_collect.py",
+    "line": 13,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "folder.mkdir(parents=True);initial=jobs();sources=sorted(set(ORIGINAL+EXTRA+[str(p.relative_to(ROOT)) for p in (ROOT/'assets/game/locations/overworld/benches').glob('*') if p.suffix in ['.png','.json','.import']]))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-004/native/before/inputs/tools/village_bench_collect.py",
+    "line": 40,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-004/native/before/inputs/tools/village_lamp_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-004/native/before/inputs/tools/village_lamp_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-004/native/before/inputs/tools/village_street_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-004/native/before/inputs/tools/village_street_collect.py",
+    "line": 7,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "ORIGINAL=sorted(set(COMMON+BENCH_EXTRA+['assets/game/locations/overworld/modular/prop_well_v1.png','assets/game/locations/overworld/modular/prop_cart_v1.png']+[str(p.relative_to(ROOT)) for p in (ROOT/'assets/game/locations/overworld/benches').glob('*') if p.suffix in ['.png','.json','.import']]))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-004/native/before/inputs/tools/village_street_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-005/native/after/inputs/tools/object_command_collect.py",
+    "line": 12,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-005/native/after/inputs/tools/object_command_collect.py",
+    "line": 50,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-005/native/after/inputs/tools/village_bench_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-005/native/after/inputs/tools/village_bench_collect.py",
+    "line": 6,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from object_command_collect import SOURCES as ORIGINAL"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-005/native/after/inputs/tools/village_bench_collect.py",
+    "line": 13,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "folder.mkdir(parents=True);initial=jobs();sources=sorted(set(ORIGINAL+EXTRA+[str(p.relative_to(ROOT)) for p in (ROOT/'assets/game/locations/overworld/benches').glob('*') if p.suffix in ['.png','.json','.import']]))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-005/native/after/inputs/tools/village_bench_collect.py",
+    "line": 40,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-005/native/after/inputs/tools/village_fence_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-005/native/after/inputs/tools/village_fence_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-005/native/after/inputs/tools/village_lamp_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-005/native/after/inputs/tools/village_lamp_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-005/native/after/inputs/tools/village_street_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-005/native/after/inputs/tools/village_street_collect.py",
+    "line": 7,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "ORIGINAL=sorted(set(COMMON+BENCH_EXTRA+['assets/game/locations/overworld/modular/prop_well_v1.png','assets/game/locations/overworld/modular/prop_cart_v1.png']+[str(p.relative_to(ROOT)) for p in (ROOT/'assets/game/locations/overworld/benches').glob('*') if p.suffix in ['.png','.json','.import']]))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-005/native/after/inputs/tools/village_street_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-005/native/before/inputs/tools/object_command_collect.py",
+    "line": 12,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-005/native/before/inputs/tools/object_command_collect.py",
+    "line": 50,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-005/native/before/inputs/tools/village_bench_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-005/native/before/inputs/tools/village_bench_collect.py",
+    "line": 6,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from object_command_collect import SOURCES as ORIGINAL"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-005/native/before/inputs/tools/village_bench_collect.py",
+    "line": 13,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "folder.mkdir(parents=True);initial=jobs();sources=sorted(set(ORIGINAL+EXTRA+[str(p.relative_to(ROOT)) for p in (ROOT/'assets/game/locations/overworld/benches').glob('*') if p.suffix in ['.png','.json','.import']]))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-005/native/before/inputs/tools/village_bench_collect.py",
+    "line": 40,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-005/native/before/inputs/tools/village_fence_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-005/native/before/inputs/tools/village_fence_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-005/native/before/inputs/tools/village_lamp_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-005/native/before/inputs/tools/village_lamp_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-005/native/before/inputs/tools/village_street_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-005/native/before/inputs/tools/village_street_collect.py",
+    "line": 7,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "ORIGINAL=sorted(set(COMMON+BENCH_EXTRA+['assets/game/locations/overworld/modular/prop_well_v1.png','assets/game/locations/overworld/modular/prop_cart_v1.png']+[str(p.relative_to(ROOT)) for p in (ROOT/'assets/game/locations/overworld/benches').glob('*') if p.suffix in ['.png','.json','.import']]))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-005/native/before/inputs/tools/village_street_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-006/native/after/inputs/tools/object_command_collect.py",
+    "line": 12,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-006/native/after/inputs/tools/object_command_collect.py",
+    "line": 50,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-006/native/after/inputs/tools/village_bench_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-006/native/after/inputs/tools/village_bench_collect.py",
+    "line": 6,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from object_command_collect import SOURCES as ORIGINAL"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-006/native/after/inputs/tools/village_bench_collect.py",
+    "line": 13,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "folder.mkdir(parents=True);initial=jobs();sources=sorted(set(ORIGINAL+EXTRA+[str(p.relative_to(ROOT)) for p in (ROOT/'assets/game/locations/overworld/benches').glob('*') if p.suffix in ['.png','.json','.import']]))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-006/native/after/inputs/tools/village_bench_collect.py",
+    "line": 40,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-006/native/after/inputs/tools/village_board_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-006/native/after/inputs/tools/village_board_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-006/native/after/inputs/tools/village_fence_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-006/native/after/inputs/tools/village_fence_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-006/native/after/inputs/tools/village_lamp_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-006/native/after/inputs/tools/village_lamp_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-006/native/after/inputs/tools/village_street_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-006/native/after/inputs/tools/village_street_collect.py",
+    "line": 7,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "ORIGINAL=sorted(set(COMMON+BENCH_EXTRA+['assets/game/locations/overworld/modular/prop_well_v1.png','assets/game/locations/overworld/modular/prop_cart_v1.png']+[str(p.relative_to(ROOT)) for p in (ROOT/'assets/game/locations/overworld/benches').glob('*') if p.suffix in ['.png','.json','.import']]))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-006/native/after/inputs/tools/village_street_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-006/native/before/inputs/tools/object_command_collect.py",
+    "line": 12,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-006/native/before/inputs/tools/object_command_collect.py",
+    "line": 50,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-006/native/before/inputs/tools/village_bench_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-006/native/before/inputs/tools/village_bench_collect.py",
+    "line": 6,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from object_command_collect import SOURCES as ORIGINAL"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-006/native/before/inputs/tools/village_bench_collect.py",
+    "line": 13,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "folder.mkdir(parents=True);initial=jobs();sources=sorted(set(ORIGINAL+EXTRA+[str(p.relative_to(ROOT)) for p in (ROOT/'assets/game/locations/overworld/benches').glob('*') if p.suffix in ['.png','.json','.import']]))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-006/native/before/inputs/tools/village_bench_collect.py",
+    "line": 40,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-006/native/before/inputs/tools/village_board_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-006/native/before/inputs/tools/village_board_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-006/native/before/inputs/tools/village_fence_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-006/native/before/inputs/tools/village_fence_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-006/native/before/inputs/tools/village_lamp_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-006/native/before/inputs/tools/village_lamp_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-006/native/before/inputs/tools/village_street_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-006/native/before/inputs/tools/village_street_collect.py",
+    "line": 7,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "ORIGINAL=sorted(set(COMMON+BENCH_EXTRA+['assets/game/locations/overworld/modular/prop_well_v1.png','assets/game/locations/overworld/modular/prop_cart_v1.png']+[str(p.relative_to(ROOT)) for p in (ROOT/'assets/game/locations/overworld/benches').glob('*') if p.suffix in ['.png','.json','.import']]))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-006/native/before/inputs/tools/village_street_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-007/native/after/inputs/tools/object_command_collect.py",
+    "line": 12,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-007/native/after/inputs/tools/object_command_collect.py",
+    "line": 50,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-007/native/after/inputs/tools/village_bench_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-007/native/after/inputs/tools/village_bench_collect.py",
+    "line": 6,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from object_command_collect import SOURCES as ORIGINAL"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-007/native/after/inputs/tools/village_bench_collect.py",
+    "line": 13,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "folder.mkdir(parents=True);initial=jobs();sources=sorted(set(ORIGINAL+EXTRA+[str(p.relative_to(ROOT)) for p in (ROOT/'assets/game/locations/overworld/benches').glob('*') if p.suffix in ['.png','.json','.import']]))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-007/native/after/inputs/tools/village_bench_collect.py",
+    "line": 40,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-007/native/after/inputs/tools/village_board_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-007/native/after/inputs/tools/village_board_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-007/native/after/inputs/tools/village_fence_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-007/native/after/inputs/tools/village_fence_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-007/native/after/inputs/tools/village_lamp_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-007/native/after/inputs/tools/village_lamp_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-007/native/after/inputs/tools/village_street_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-007/native/after/inputs/tools/village_street_collect.py",
+    "line": 7,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "ORIGINAL=sorted(set(COMMON+BENCH_EXTRA+['assets/game/locations/overworld/modular/prop_well_v1.png','assets/game/locations/overworld/modular/prop_cart_v1.png']+[str(p.relative_to(ROOT)) for p in (ROOT/'assets/game/locations/overworld/benches').glob('*') if p.suffix in ['.png','.json','.import']]))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-007/native/after/inputs/tools/village_street_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-007/native/after/inputs/tools/village_trade_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-007/native/after/inputs/tools/village_trade_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-007/native/before/inputs/tools/object_command_collect.py",
+    "line": 12,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-007/native/before/inputs/tools/object_command_collect.py",
+    "line": 50,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-007/native/before/inputs/tools/village_bench_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-007/native/before/inputs/tools/village_bench_collect.py",
+    "line": 6,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from object_command_collect import SOURCES as ORIGINAL"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-007/native/before/inputs/tools/village_bench_collect.py",
+    "line": 13,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "folder.mkdir(parents=True);initial=jobs();sources=sorted(set(ORIGINAL+EXTRA+[str(p.relative_to(ROOT)) for p in (ROOT/'assets/game/locations/overworld/benches').glob('*') if p.suffix in ['.png','.json','.import']]))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-007/native/before/inputs/tools/village_bench_collect.py",
+    "line": 40,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-007/native/before/inputs/tools/village_board_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-007/native/before/inputs/tools/village_board_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-007/native/before/inputs/tools/village_fence_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-007/native/before/inputs/tools/village_fence_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-007/native/before/inputs/tools/village_lamp_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-007/native/before/inputs/tools/village_lamp_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-007/native/before/inputs/tools/village_street_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-007/native/before/inputs/tools/village_street_collect.py",
+    "line": 7,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "ORIGINAL=sorted(set(COMMON+BENCH_EXTRA+['assets/game/locations/overworld/modular/prop_well_v1.png','assets/game/locations/overworld/modular/prop_cart_v1.png']+[str(p.relative_to(ROOT)) for p in (ROOT/'assets/game/locations/overworld/benches').glob('*') if p.suffix in ['.png','.json','.import']]))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-007/native/before/inputs/tools/village_street_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-007/native/before/inputs/tools/village_trade_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vprop-007/native/before/inputs/tools/village_trade_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrelease-002/native/static/inputs/tools/object_command_collect.py",
+    "line": 12,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrelease-002/native/static/inputs/tools/object_command_collect.py",
+    "line": 50,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrelease-002/native/static/inputs/tools/pilot_static_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrelease-002/native/static/inputs/tools/pilot_static_collect.py",
+    "line": 7,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "ORIGINAL=sorted(set(COMMON+PREVIOUS_EXTRA+TRADE_ASSETS+['tools/visual_modules_capture.gd','docs/reports/visual-overhaul/vart-008/modules.json','tests/fixtures/saves/v1-core.json']+[str(p.relative_to(ROOT)) for p in (ROOT/'docs/reports/visual-overhaul/vart-008/native/sprites').glob('*.png')]))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrelease-002/native/static/inputs/tools/pilot_static_collect.py",
+    "line": 39,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrelease-002/native/static/inputs/tools/village_bench_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrelease-002/native/static/inputs/tools/village_bench_collect.py",
+    "line": 6,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from object_command_collect import SOURCES as ORIGINAL"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrelease-002/native/static/inputs/tools/village_bench_collect.py",
+    "line": 13,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "folder.mkdir(parents=True);initial=jobs();sources=sorted(set(ORIGINAL+EXTRA+[str(p.relative_to(ROOT)) for p in (ROOT/'assets/game/locations/overworld/benches').glob('*') if p.suffix in ['.png','.json','.import']]))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrelease-002/native/static/inputs/tools/village_bench_collect.py",
+    "line": 40,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrelease-002/native/static/inputs/tools/village_board_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrelease-002/native/static/inputs/tools/village_board_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrelease-002/native/static/inputs/tools/village_fence_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrelease-002/native/static/inputs/tools/village_fence_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrelease-002/native/static/inputs/tools/village_lamp_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrelease-002/native/static/inputs/tools/village_lamp_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrelease-002/native/static/inputs/tools/village_street_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrelease-002/native/static/inputs/tools/village_street_collect.py",
+    "line": 7,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "ORIGINAL=sorted(set(COMMON+BENCH_EXTRA+['assets/game/locations/overworld/modular/prop_well_v1.png','assets/game/locations/overworld/modular/prop_cart_v1.png']+[str(p.relative_to(ROOT)) for p in (ROOT/'assets/game/locations/overworld/benches').glob('*') if p.suffix in ['.png','.json','.import']]))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrelease-002/native/static/inputs/tools/village_street_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrelease-002/native/static/inputs/tools/village_trade_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrelease-002/native/static/inputs/tools/village_trade_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-001/native/instrumentation/tools/render_order.py",
+    "line": 17,
+    "kind": "file_relative_binding",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-001/native/instrumentation/tools/render_order.py",
+    "line": 17,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-001/native/instrumentation/tools/render_order.py",
+    "line": 127,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for path in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-001/revisions/outdated-tree-fixture/instrumentation/tools/render_order.py",
+    "line": 17,
+    "kind": "file_relative_binding",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-001/revisions/outdated-tree-fixture/instrumentation/tools/render_order.py",
+    "line": 17,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-001/revisions/outdated-tree-fixture/instrumentation/tools/render_order.py",
+    "line": 127,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for path in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-002/bench/instrumentation/tools/grass_compare_collect.py",
+    "line": 73,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for path in target.glob(pattern):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-002/bench/instrumentation/tools/perf_contract_collect.py",
+    "line": 17,
+    "kind": "file_relative_binding",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-002/bench/instrumentation/tools/perf_contract_collect.py",
+    "line": 17,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-002/cpu-only/instrumentation/tools/grass_compare_collect.py",
+    "line": 75,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for path in target.glob(pattern):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-002/cpu-only/instrumentation/tools/perf_contract_collect.py",
+    "line": 17,
+    "kind": "file_relative_binding",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-002/cpu-only/instrumentation/tools/perf_contract_collect.py",
+    "line": 17,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-002/quality/instrumentation/tools/grass_compare_collect.py",
+    "line": 75,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for path in target.glob(pattern):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-002/quality/instrumentation/tools/perf_contract_collect.py",
+    "line": 17,
+    "kind": "file_relative_binding",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-002/quality/instrumentation/tools/perf_contract_collect.py",
+    "line": 17,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-003/native/inputs/tools/ground_layers.py",
+    "line": 17,
+    "kind": "module_search_path_requires_review",
+    "text": "grass_methods"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-003/native/inputs/tools/ground_layers.py",
+    "line": 18,
+    "kind": "module_search_path_requires_review",
+    "text": "render_order"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-003/native/inputs/tools/ground_layers.py",
+    "line": 74,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for path in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-003/native/inputs/tools/perf_contract_collect.py",
+    "line": 17,
+    "kind": "file_relative_binding",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-003/native/inputs/tools/perf_contract_collect.py",
+    "line": 17,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-004/native/inputs/tools/object_command_collect.py",
+    "line": 12,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-004/native/inputs/tools/object_command_collect.py",
+    "line": 50,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-005/native/after/inputs/tools/object_command_collect.py",
+    "line": 12,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-005/native/after/inputs/tools/object_command_collect.py",
+    "line": 50,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-005/native/after/inputs/tools/pilot_pass_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-005/native/after/inputs/tools/pilot_pass_collect.py",
+    "line": 40,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in list(target.glob('*-draws.json'))+list(target.glob('*-routes.json')):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-005/native/after/inputs/tools/village_bench_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-005/native/after/inputs/tools/village_bench_collect.py",
+    "line": 6,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from object_command_collect import SOURCES as ORIGINAL"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-005/native/after/inputs/tools/village_bench_collect.py",
+    "line": 13,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "folder.mkdir(parents=True);initial=jobs();sources=sorted(set(ORIGINAL+EXTRA+[str(p.relative_to(ROOT)) for p in (ROOT/'assets/game/locations/overworld/benches').glob('*') if p.suffix in ['.png','.json','.import']]))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-005/native/after/inputs/tools/village_bench_collect.py",
+    "line": 40,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-005/native/after/inputs/tools/village_board_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-005/native/after/inputs/tools/village_board_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-005/native/after/inputs/tools/village_fence_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-005/native/after/inputs/tools/village_fence_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-005/native/after/inputs/tools/village_lamp_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-005/native/after/inputs/tools/village_lamp_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-005/native/after/inputs/tools/village_street_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-005/native/after/inputs/tools/village_street_collect.py",
+    "line": 7,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "ORIGINAL=sorted(set(COMMON+BENCH_EXTRA+['assets/game/locations/overworld/modular/prop_well_v1.png','assets/game/locations/overworld/modular/prop_cart_v1.png']+[str(p.relative_to(ROOT)) for p in (ROOT/'assets/game/locations/overworld/benches').glob('*') if p.suffix in ['.png','.json','.import']]))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-005/native/after/inputs/tools/village_street_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-005/native/after/inputs/tools/village_trade_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-005/native/after/inputs/tools/village_trade_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-005/native/before/inputs/tools/object_command_collect.py",
+    "line": 12,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-005/native/before/inputs/tools/object_command_collect.py",
+    "line": 50,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-005/native/before/inputs/tools/pilot_pass_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-005/native/before/inputs/tools/pilot_pass_collect.py",
+    "line": 40,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in list(target.glob('*-draws.json'))+list(target.glob('*-routes.json')):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-005/native/before/inputs/tools/village_bench_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-005/native/before/inputs/tools/village_bench_collect.py",
+    "line": 6,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from object_command_collect import SOURCES as ORIGINAL"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-005/native/before/inputs/tools/village_bench_collect.py",
+    "line": 13,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "folder.mkdir(parents=True);initial=jobs();sources=sorted(set(ORIGINAL+EXTRA+[str(p.relative_to(ROOT)) for p in (ROOT/'assets/game/locations/overworld/benches').glob('*') if p.suffix in ['.png','.json','.import']]))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-005/native/before/inputs/tools/village_bench_collect.py",
+    "line": 40,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-005/native/before/inputs/tools/village_board_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-005/native/before/inputs/tools/village_board_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-005/native/before/inputs/tools/village_fence_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-005/native/before/inputs/tools/village_fence_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-005/native/before/inputs/tools/village_lamp_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-005/native/before/inputs/tools/village_lamp_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-005/native/before/inputs/tools/village_street_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-005/native/before/inputs/tools/village_street_collect.py",
+    "line": 7,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "ORIGINAL=sorted(set(COMMON+BENCH_EXTRA+['assets/game/locations/overworld/modular/prop_well_v1.png','assets/game/locations/overworld/modular/prop_cart_v1.png']+[str(p.relative_to(ROOT)) for p in (ROOT/'assets/game/locations/overworld/benches').glob('*') if p.suffix in ['.png','.json','.import']]))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-005/native/before/inputs/tools/village_street_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-005/native/before/inputs/tools/village_trade_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-005/native/before/inputs/tools/village_trade_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/after/inputs/tools/object_command_collect.py",
+    "line": 12,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/after/inputs/tools/object_command_collect.py",
+    "line": 50,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/after/inputs/tools/pilot_pass_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/after/inputs/tools/pilot_pass_collect.py",
+    "line": 40,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in list(target.glob('*-draws.json'))+list(target.glob('*-routes.json')):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/after/inputs/tools/plant_depth_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/after/inputs/tools/post_motion_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/after/inputs/tools/village_bench_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/after/inputs/tools/village_bench_collect.py",
+    "line": 6,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from object_command_collect import SOURCES as ORIGINAL"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/after/inputs/tools/village_bench_collect.py",
+    "line": 13,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "folder.mkdir(parents=True);initial=jobs();sources=sorted(set(ORIGINAL+EXTRA+[str(p.relative_to(ROOT)) for p in (ROOT/'assets/game/locations/overworld/benches').glob('*') if p.suffix in ['.png','.json','.import']]))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/after/inputs/tools/village_bench_collect.py",
+    "line": 40,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/after/inputs/tools/village_board_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/after/inputs/tools/village_board_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/after/inputs/tools/village_fence_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/after/inputs/tools/village_fence_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/after/inputs/tools/village_lamp_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/after/inputs/tools/village_lamp_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/after/inputs/tools/village_street_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/after/inputs/tools/village_street_collect.py",
+    "line": 7,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "ORIGINAL=sorted(set(COMMON+BENCH_EXTRA+['assets/game/locations/overworld/modular/prop_well_v1.png','assets/game/locations/overworld/modular/prop_cart_v1.png']+[str(p.relative_to(ROOT)) for p in (ROOT/'assets/game/locations/overworld/benches').glob('*') if p.suffix in ['.png','.json','.import']]))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/after/inputs/tools/village_street_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/after/inputs/tools/village_trade_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/after/inputs/tools/village_trade_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/before/inputs/tools/object_command_collect.py",
+    "line": 12,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/before/inputs/tools/object_command_collect.py",
+    "line": 50,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/before/inputs/tools/pilot_pass_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/before/inputs/tools/pilot_pass_collect.py",
+    "line": 40,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in list(target.glob('*-draws.json'))+list(target.glob('*-routes.json')):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/before/inputs/tools/plant_depth_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/before/inputs/tools/post_motion_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/before/inputs/tools/village_bench_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/before/inputs/tools/village_bench_collect.py",
+    "line": 6,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from object_command_collect import SOURCES as ORIGINAL"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/before/inputs/tools/village_bench_collect.py",
+    "line": 13,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "folder.mkdir(parents=True);initial=jobs();sources=sorted(set(ORIGINAL+EXTRA+[str(p.relative_to(ROOT)) for p in (ROOT/'assets/game/locations/overworld/benches').glob('*') if p.suffix in ['.png','.json','.import']]))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/before/inputs/tools/village_bench_collect.py",
+    "line": 40,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/before/inputs/tools/village_board_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/before/inputs/tools/village_board_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/before/inputs/tools/village_fence_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/before/inputs/tools/village_fence_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/before/inputs/tools/village_lamp_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/before/inputs/tools/village_lamp_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/before/inputs/tools/village_street_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/before/inputs/tools/village_street_collect.py",
+    "line": 7,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "ORIGINAL=sorted(set(COMMON+BENCH_EXTRA+['assets/game/locations/overworld/modular/prop_well_v1.png','assets/game/locations/overworld/modular/prop_cart_v1.png']+[str(p.relative_to(ROOT)) for p in (ROOT/'assets/game/locations/overworld/benches').glob('*') if p.suffix in ['.png','.json','.import']]))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/before/inputs/tools/village_street_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/before/inputs/tools/village_trade_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-006/native/before/inputs/tools/village_trade_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-008/native/after/inputs/tools/object_command_collect.py",
+    "line": 12,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-008/native/after/inputs/tools/object_command_collect.py",
+    "line": 50,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-008/native/after/inputs/tools/pilot_pass_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-008/native/after/inputs/tools/pilot_pass_collect.py",
+    "line": 40,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in list(target.glob('*-draws.json'))+list(target.glob('*-routes.json')):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-008/native/after/inputs/tools/post_motion_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-008/native/after/inputs/tools/village_bench_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-008/native/after/inputs/tools/village_bench_collect.py",
+    "line": 6,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from object_command_collect import SOURCES as ORIGINAL"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-008/native/after/inputs/tools/village_bench_collect.py",
+    "line": 13,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "folder.mkdir(parents=True);initial=jobs();sources=sorted(set(ORIGINAL+EXTRA+[str(p.relative_to(ROOT)) for p in (ROOT/'assets/game/locations/overworld/benches').glob('*') if p.suffix in ['.png','.json','.import']]))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-008/native/after/inputs/tools/village_bench_collect.py",
+    "line": 40,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-008/native/after/inputs/tools/village_board_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-008/native/after/inputs/tools/village_board_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-008/native/after/inputs/tools/village_fence_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-008/native/after/inputs/tools/village_fence_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-008/native/after/inputs/tools/village_lamp_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-008/native/after/inputs/tools/village_lamp_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-008/native/after/inputs/tools/village_street_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-008/native/after/inputs/tools/village_street_collect.py",
+    "line": 7,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "ORIGINAL=sorted(set(COMMON+BENCH_EXTRA+['assets/game/locations/overworld/modular/prop_well_v1.png','assets/game/locations/overworld/modular/prop_cart_v1.png']+[str(p.relative_to(ROOT)) for p in (ROOT/'assets/game/locations/overworld/benches').glob('*') if p.suffix in ['.png','.json','.import']]))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-008/native/after/inputs/tools/village_street_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-008/native/after/inputs/tools/village_trade_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-008/native/after/inputs/tools/village_trade_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-008/native/before/inputs/tools/object_command_collect.py",
+    "line": 12,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-008/native/before/inputs/tools/object_command_collect.py",
+    "line": 50,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-008/native/before/inputs/tools/pilot_pass_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-008/native/before/inputs/tools/pilot_pass_collect.py",
+    "line": 40,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in list(target.glob('*-draws.json'))+list(target.glob('*-routes.json')):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-008/native/before/inputs/tools/post_motion_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-008/native/before/inputs/tools/village_bench_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-008/native/before/inputs/tools/village_bench_collect.py",
+    "line": 6,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from object_command_collect import SOURCES as ORIGINAL"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-008/native/before/inputs/tools/village_bench_collect.py",
+    "line": 13,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "folder.mkdir(parents=True);initial=jobs();sources=sorted(set(ORIGINAL+EXTRA+[str(p.relative_to(ROOT)) for p in (ROOT/'assets/game/locations/overworld/benches').glob('*') if p.suffix in ['.png','.json','.import']]))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-008/native/before/inputs/tools/village_bench_collect.py",
+    "line": 40,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-008/native/before/inputs/tools/village_board_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-008/native/before/inputs/tools/village_board_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-008/native/before/inputs/tools/village_fence_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-008/native/before/inputs/tools/village_fence_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-008/native/before/inputs/tools/village_lamp_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-008/native/before/inputs/tools/village_lamp_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-008/native/before/inputs/tools/village_street_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-008/native/before/inputs/tools/village_street_collect.py",
+    "line": 7,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "ORIGINAL=sorted(set(COMMON+BENCH_EXTRA+['assets/game/locations/overworld/modular/prop_well_v1.png','assets/game/locations/overworld/modular/prop_cart_v1.png']+[str(p.relative_to(ROOT)) for p in (ROOT/'assets/game/locations/overworld/benches').glob('*') if p.suffix in ['.png','.json','.import']]))"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-008/native/before/inputs/tools/village_street_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-008/native/before/inputs/tools/village_trade_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vrender-008/native/before/inputs/tools/village_trade_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "docs/reports/visual-overhaul/vshadow-001/native/inputs/tools/shadow_inventory_collect.py",
+    "line": 5,
+    "kind": "module_search_path_requires_review",
+    "text": "perf_contract_collect"
+  },
+  {
+    "consumer": "scripts/generate_level_concepts.py",
+    "line": 10,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "scripts/generate_level_concepts.py",
+    "line": 10,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "scripts/split_fairytale_level_tiles.py",
+    "line": 11,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "scripts/split_fairytale_level_tiles.py",
+    "line": 11,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tests/suites/architecture_suite.gd",
+    "line": 180,
+    "kind": "file_relative_binding",
+    "text": "var portable := not concept_source.contains(\"/Users/\") and not split_source.contains(\"/Users/\") and concept_source.contains(\"Path(__file__).resolve()\")"
+  },
+  {
+    "consumer": "tools/alpha_audit.py",
+    "line": 16,
+    "kind": "file_relative_binding",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/alpha_audit.py",
+    "line": 16,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/analyze_optimization_audit.py",
+    "line": 7,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/analyze_optimization_audit.py",
+    "line": 7,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/analyze_optimization_audit.py",
+    "line": 77,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for path in sorted(folder.glob(\"sweep*/metrics.json\")):"
+  },
+  {
+    "consumer": "tools/analyze_storage_perf.py",
+    "line": 7,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/analyze_storage_perf.py",
+    "line": 7,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/analyze_storage_perf.py",
+    "line": 48,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for path in sorted(folder.glob(\"*/metrics.json\")):"
+  },
+  {
+    "consumer": "tools/analyze_water_audit.py",
+    "line": 8,
+    "kind": "file_relative_binding",
+    "text": "FOLDER = Path(__file__).resolve().parents[1] / 'docs/reports/water-2026-10'"
+  },
+  {
+    "consumer": "tools/analyze_water_audit.py",
+    "line": 8,
+    "kind": "fixed_parent_depth",
+    "text": "FOLDER = Path(__file__).resolve().parents[1] / 'docs/reports/water-2026-10'"
+  },
+  {
+    "consumer": "tools/artist_packet.py",
+    "line": 13,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/artist_packet.py",
+    "line": 13,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/asset_migration.py",
+    "line": 11,
+    "kind": "file_relative_binding",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/asset_migration.py",
+    "line": 11,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/asset_migration.py",
+    "line": 105,
+    "kind": "nested_git_environment_review",
+    "text": "if base!=BASE or subprocess.check_output(['git','diff',base,'--name-only','--','scripts','assets/game','wiki/scripts','level_designs'],text=True).strip():raise SystemExit('initial migration snapshot requires unchanged VPIPELINE-008 base')"
+  },
+  {
+    "consumer": "tools/asset_report.py",
+    "line": 17,
+    "kind": "file_relative_binding",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/asset_report.py",
+    "line": 17,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/asset_report.py",
+    "line": 30,
+    "kind": "historical_overlay_prefix_review",
+    "text": "selected=[n for n in available if n.startswith(('assets/game/','scripts/','level_designs/')) or n.startswith('tools/') and n.endswith('.py') or n in ['project.godot','main.tscn','tools/visual_asset_policy.json','assets/app_icon.png','assets/app_icon.png.import','assets/title_art_rpg.png','assets/tit"
+  },
+  {
+    "consumer": "tools/audio_composer.py",
+    "line": 12,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/audio_composer.py",
+    "line": 12,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/audit_audio_assets.py",
+    "line": 42,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "paths = sorted((AUDIO / \"music\").glob(\"*.wav\")) + sorted(path for path in (AUDIO / \"sfx\").glob(\"*.wav\") if path.stem != \"step\")"
+  },
+  {
+    "consumer": "tools/audit_save_crashes.py",
+    "line": 11,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/audit_save_crashes.py",
+    "line": 11,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/axial_road_collect.py",
+    "line": 23,
+    "kind": "historical_overlay_prefix_review",
+    "text": "OVERLAY = set(SOURCES[:8]+[p for p in SOURCES if p.startswith('tools/axial_road_')]+['project.godot'])"
+  },
+  {
+    "consumer": "tools/axial_road_collect.py",
+    "line": 59,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "tools/axial_road_verify.py",
+    "line": 10,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from axial_road_collect import ROOT, SOURCES, OVERLAY"
+  },
+  {
+    "consumer": "tools/build_art_backlog.py",
+    "line": 6,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/build_art_backlog.py",
+    "line": 6,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/build_bridge_sprites.py",
+    "line": 9,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/build_bridge_sprites.py",
+    "line": 9,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/build_building_sprites.py",
+    "line": 70,
+    "kind": "file_relative_binding",
+    "text": "root = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/build_building_sprites.py",
+    "line": 70,
+    "kind": "fixed_parent_depth",
+    "text": "root = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/build_editor_transition_tiles.py",
+    "line": 9,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/build_editor_transition_tiles.py",
+    "line": 9,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/build_environment_sprites.py",
+    "line": 10,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/build_environment_sprites.py",
+    "line": 10,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/build_fence_atlas.py",
+    "line": 9,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parent.parent"
+  },
+  {
+    "consumer": "tools/build_fence_atlas.py",
+    "line": 9,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parent.parent"
+  },
+  {
+    "consumer": "tools/build_forest_tree_atlas.py",
+    "line": 92,
+    "kind": "file_relative_binding",
+    "text": "parser.add_argument(\"--project\", type=Path, default=Path(__file__).resolve().parents[1])"
+  },
+  {
+    "consumer": "tools/build_forest_tree_atlas.py",
+    "line": 92,
+    "kind": "fixed_parent_depth",
+    "text": "parser.add_argument(\"--project\", type=Path, default=Path(__file__).resolve().parents[1])"
+  },
+  {
+    "consumer": "tools/build_level_editor_tiles.py",
+    "line": 111,
+    "kind": "file_relative_binding",
+    "text": "parser.add_argument(\"--project\", type=Path, default=Path(__file__).resolve().parents[1])"
+  },
+  {
+    "consumer": "tools/build_level_editor_tiles.py",
+    "line": 111,
+    "kind": "fixed_parent_depth",
+    "text": "parser.add_argument(\"--project\", type=Path, default=Path(__file__).resolve().parents[1])"
+  },
+  {
+    "consumer": "tools/build_optimization_matrix.py",
+    "line": 6,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/build_optimization_matrix.py",
+    "line": 6,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/build_ui_kit.py",
+    "line": 9,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/build_ui_kit.py",
+    "line": 9,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/build_village_prop_atlas.py",
+    "line": 34,
+    "kind": "file_relative_binding",
+    "text": "root = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/build_village_prop_atlas.py",
+    "line": 34,
+    "kind": "fixed_parent_depth",
+    "text": "root = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/bump_version.py",
+    "line": 12,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/bump_version.py",
+    "line": 12,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/camera_quantization.py",
+    "line": 19,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/camera_quantization.py",
+    "line": 19,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/check_alchemy_reports.py",
+    "line": 6,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/check_alchemy_reports.py",
+    "line": 6,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/check_architecture.sh",
+    "line": 28,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for module in scripts/presentation/*.gd; do"
+  },
+  {
+    "consumer": "tools/check_architecture.sh",
+    "line": 31,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for suite in tests/suites/*_suite.gd; do"
+  },
+  {
+    "consumer": "tools/check_art_review.py",
+    "line": 11,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/check_art_review.py",
+    "line": 11,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/check_documentation.py",
+    "line": 78,
+    "kind": "file_relative_binding",
+    "text": "root = Path(__file__).resolve().parent.parent"
+  },
+  {
+    "consumer": "tools/check_documentation.py",
+    "line": 78,
+    "kind": "fixed_parent_depth",
+    "text": "root = Path(__file__).resolve().parent.parent"
+  },
+  {
+    "consumer": "tools/check_native_frame_reports.py",
+    "line": 6,
+    "kind": "file_relative_binding",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/check_native_frame_reports.py",
+    "line": 6,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/check_sprite_cleanup.py",
+    "line": 9,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/check_sprite_cleanup.py",
+    "line": 9,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/check_sprite_cleanup.py",
+    "line": 19,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "names += [str(p.relative_to(root)) for p in (root/\"tools\").glob(\"*\") if p.is_file()]"
+  },
+  {
+    "consumer": "tools/check_world_sprite_manifest.py",
+    "line": 176,
+    "kind": "file_relative_binding",
+    "text": "root = Path(__file__).resolve().parent.parent"
+  },
+  {
+    "consumer": "tools/check_world_sprite_manifest.py",
+    "line": 176,
+    "kind": "fixed_parent_depth",
+    "text": "root = Path(__file__).resolve().parent.parent"
+  },
+  {
+    "consumer": "tools/decoration_collect.py",
+    "line": 104,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "tools/decoration_verify.py",
+    "line": 11,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from decoration_collect import ROOT, SOURCES, OVERLAY"
+  },
+  {
+    "consumer": "tools/decoration_verify.py",
+    "line": 176,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "result['windows'][str(width)]={'png_count':len(list(target.glob('*.png'))),'draw_callbacks':callbacks,'ordinary_exact_cases':len(CASES)-len(moving),'snapshot_only_cases':moving,'rain_pixel_equality':False,'diagnostic_changed_cases':changed,"
+  },
+  {
+    "consumer": "tools/extract_artisan_assets.py",
+    "line": 8,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/extract_artisan_assets.py",
+    "line": 8,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/extract_basement_atlases.py",
+    "line": 6,
+    "kind": "file_relative_binding",
+    "text": "root=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/extract_basement_atlases.py",
+    "line": 6,
+    "kind": "fixed_parent_depth",
+    "text": "root=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/extract_kitchen_atlases.py",
+    "line": 5,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/extract_kitchen_atlases.py",
+    "line": 5,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/foliage_pause_verify.py",
+    "line": 18,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/foliage_pause_verify.py",
+    "line": 18,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/foliage_uv_verify.py",
+    "line": 113,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for file in target.glob('pairs/*/window.png'):"
+  },
+  {
+    "consumer": "tools/foliage_visibility_evidence.py",
+    "line": 10,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/foliage_visibility_evidence.py",
+    "line": 10,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/foliage_wind_verify.py",
+    "line": 6,
+    "kind": "file_relative_binding",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/foliage_wind_verify.py",
+    "line": 6,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/garden_collect.py",
+    "line": 14,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from plaza_collect import SOURCES as PLAZA_SOURCES"
+  },
+  {
+    "consumer": "tools/garden_collect.py",
+    "line": 15,
+    "kind": "historical_overlay_prefix_review",
+    "text": "SOURCES = [p for p in PLAZA_SOURCES if not p.startswith('tools/plaza_')]"
+  },
+  {
+    "consumer": "tools/garden_collect.py",
+    "line": 60,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "tools/garden_verify.py",
+    "line": 10,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from garden_collect import ROOT, SOURCES, OVERLAY"
+  },
+  {
+    "consumer": "tools/grass_compare_collect.py",
+    "line": 75,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for path in target.glob(pattern):"
+  },
+  {
+    "consumer": "tools/grass_methods.py",
+    "line": 24,
+    "kind": "historical_overlay_prefix_review",
+    "text": "OVERLAY={'project.godot','tools/grass_compare_collect.py',*[p for p in FROZEN if p.startswith('tools/grass_compare/')]}"
+  },
+  {
+    "consumer": "tools/ground_edge_collect.py",
+    "line": 23,
+    "kind": "historical_overlay_prefix_review",
+    "text": "OVERLAY = set(SOURCES[:8]+[p for p in SOURCES if p.startswith('tools/ground_edge_')]+['project.godot'])"
+  },
+  {
+    "consumer": "tools/ground_edge_collect.py",
+    "line": 59,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "tools/ground_edge_verify.py",
+    "line": 10,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from ground_edge_collect import ROOT, SOURCES, OVERLAY"
+  },
+  {
+    "consumer": "tools/ground_layers.py",
+    "line": 74,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for path in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "tools/ground_seasons_collect.py",
+    "line": 117,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "tools/ground_seasons_verify.py",
+    "line": 11,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from ground_seasons_collect import ROOT, SOURCES, OVERLAY"
+  },
+  {
+    "consumer": "tools/ground_seasons_verify.py",
+    "line": 148,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "require(len(list(path.glob('*.png')))==44,'unexpected PNG coverage')"
+  },
+  {
+    "consumer": "tools/import_pixabay_assets.py",
+    "line": 8,
+    "kind": "file_relative_binding",
+    "text": "OUTPUT = Path(__file__).resolve().parents[1] / \"assets\" / \"game\" / \"items\""
+  },
+  {
+    "consumer": "tools/import_pixabay_assets.py",
+    "line": 8,
+    "kind": "fixed_parent_depth",
+    "text": "OUTPUT = Path(__file__).resolve().parents[1] / \"assets\" / \"game\" / \"items\""
+  },
+  {
+    "consumer": "tools/item_sizes.py",
+    "line": 12,
+    "kind": "file_relative_binding",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/item_sizes.py",
+    "line": 12,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/meadow_collect.py",
+    "line": 58,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "tools/meadow_verify.py",
+    "line": 10,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from meadow_collect import ROOT, SOURCES, OVERLAY"
+  },
+  {
+    "consumer": "tools/measure_character_walk.py",
+    "line": 7,
+    "kind": "file_relative_binding",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/measure_character_walk.py",
+    "line": 7,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/measure_hero_actions.py",
+    "line": 6,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/measure_hero_actions.py",
+    "line": 6,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/migration_fixture.py",
+    "line": 52,
+    "kind": "file_relative_binding",
+    "text": "(target/'tools').mkdir(exist_ok=True);shutil.copyfile(Path(__file__).with_name('migration_capture.gd'),target/'tools/migration_capture.gd')"
+  },
+  {
+    "consumer": "tools/migration_fixture.py",
+    "line": 70,
+    "kind": "file_relative_binding",
+    "text": "if target.is_relative_to(Path(__file__).resolve().parents[1]) or 'config/name=\"VPIPELINE-009 isolated fixture\"' not in (target/'project.godot').read_text():raise ValueError('not an external isolated fixture')"
+  },
+  {
+    "consumer": "tools/migration_fixture.py",
+    "line": 70,
+    "kind": "fixed_parent_depth",
+    "text": "if target.is_relative_to(Path(__file__).resolve().parents[1]) or 'config/name=\"VPIPELINE-009 isolated fixture\"' not in (target/'project.godot').read_text():raise ValueError('not an external isolated fixture')"
+  },
+  {
+    "consumer": "tools/migration_inventory.py",
+    "line": 43,
+    "kind": "historical_overlay_prefix_review",
+    "text": "return 'runtime' if name.startswith('scripts/') or name in ['project.godot','main.tscn'] else ('level' if name.startswith('level_designs/') else 'wiki' if name.startswith('wiki/') else 'tool' if name.startswith('tools/') else 'test' if name.startswith('tests/') else 'metadata')"
+  },
+  {
+    "consumer": "tools/migration_inventory.py",
+    "line": 89,
+    "kind": "file_relative_binding",
+    "text": "return {'schema_version':1,'base_commit':commit,'kind':'potential-consumers-not-runtime-usage','deletion_authorized':False,'files':records,'sources':sources,'unresolved_calls':unresolved,'duplicate_uids':{uid:paths for uid,paths in uids.items() if len(set(paths))>1},'scanner_sha256':sha(Path(__file_"
+  },
+  {
+    "consumer": "tools/migration_inventory.py",
+    "line": 102,
+    "kind": "file_relative_binding",
+    "text": "if inventory.get('scanner_sha256')!=sha(Path(__file__).read_bytes()):errors.append('migration scanner changed: review historical snapshot adapter')"
+  },
+  {
+    "consumer": "tools/object_command_collect.py",
+    "line": 50,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "tools/object_command_verify.py",
+    "line": 11,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from object_command_collect import ROOT,SOURCES,OVERLAY"
+  },
+  {
+    "consumer": "tools/object_command_verify.py",
+    "line": 122,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "require(len(list(path.glob('*.png')))==40,'unexpected PNG coverage')"
+  },
+  {
+    "consumer": "tools/optimization_asset_audit.py",
+    "line": 8,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/optimization_asset_audit.py",
+    "line": 8,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/padded_atlases.py",
+    "line": 13,
+    "kind": "file_relative_binding",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/padded_atlases.py",
+    "line": 13,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/perf_contract_collect.py",
+    "line": 17,
+    "kind": "file_relative_binding",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/perf_contract_collect.py",
+    "line": 17,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/performance_protocol.py",
+    "line": 12,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/performance_protocol.py",
+    "line": 12,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/pilot_pass_collect.py",
+    "line": 40,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in list(target.glob('*-draws.json'))+list(target.glob('*-routes.json')):"
+  },
+  {
+    "consumer": "tools/pilot_rollout.py",
+    "line": 10,
+    "kind": "file_relative_binding",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/pilot_rollout.py",
+    "line": 10,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/pilot_static_audit.py",
+    "line": 27,
+    "kind": "historical_overlay_prefix_review",
+    "text": "if entry.startswith(('docs/','tools/','wiki/','assets/')) and len(entry)<240 and ' ' not in entry:paths.append(ROOT/entry)"
+  },
+  {
+    "consumer": "tools/pilot_static_collect.py",
+    "line": 7,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "ORIGINAL=sorted(set(COMMON+PREVIOUS_EXTRA+TRADE_ASSETS+['tools/visual_modules_capture.gd','docs/reports/visual-overhaul/vart-008/modules.json','tests/fixtures/saves/v1-core.json']+[str(p.relative_to(ROOT)) for p in (ROOT/'docs/reports/visual-overhaul/vart-008/native/sprites').glob('*.png')]))"
+  },
+  {
+    "consumer": "tools/pilot_static_collect.py",
+    "line": 39,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "tools/plant_depth_verify.py",
+    "line": 8,
+    "kind": "file_relative_binding",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/plant_depth_verify.py",
+    "line": 8,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/plaza_collect.py",
+    "line": 60,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "tools/plaza_verify.py",
+    "line": 10,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from plaza_collect import ROOT, SOURCES, OVERLAY"
+  },
+  {
+    "consumer": "tools/pose_video_strip.py",
+    "line": 31,
+    "kind": "file_relative_binding",
+    "text": "'decoder_sha256':sha(ROOT/'tools/pose_video_frames.swift'),'plot_sha256':sha(Path(__file__))}"
+  },
+  {
+    "consumer": "tools/post_motion_verify.py",
+    "line": 7,
+    "kind": "file_relative_binding",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/post_motion_verify.py",
+    "line": 7,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/presentation_pose.py",
+    "line": 15,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from camera_quantization import ROOT, CASES, SOURCES as BASE_SOURCES, read, sha, require, near, manifest"
+  },
+  {
+    "consumer": "tools/presentation_pose.py",
+    "line": 157,
+    "kind": "file_relative_binding",
+    "text": "collector_digest=sha(Path(__file__))"
+  },
+  {
+    "consumer": "tools/presentation_pose.py",
+    "line": 174,
+    "kind": "file_relative_binding",
+    "text": "tool=folder/'collection-tools'/(collector_digest+'.py'); tool.parent.mkdir(exist_ok=True); shutil.copy2(__file__,tool)"
+  },
+  {
+    "consumer": "tools/preview_portability.py",
+    "line": 19,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/preview_portability.py",
+    "line": 19,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/project_backlog.py",
+    "line": 10,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/project_backlog.py",
+    "line": 10,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/reference_zoom.py",
+    "line": 14,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from camera_quantization import ROOT, CASES, SOURCES as BASE_SOURCES, read, sha, require, near, manifest"
+  },
+  {
+    "consumer": "tools/reference_zoom.py",
+    "line": 161,
+    "kind": "file_relative_binding",
+    "text": "digest=sha(Path(__file__))"
+  },
+  {
+    "consumer": "tools/reference_zoom.py",
+    "line": 177,
+    "kind": "file_relative_binding",
+    "text": "target=folder/'collection-tools'/(digest+'.py'); target.parent.mkdir(exist_ok=True); shutil.copy2(__file__,target)"
+  },
+  {
+    "consumer": "tools/reference_zoom_perf.py",
+    "line": 66,
+    "kind": "historical_overlay_prefix_review",
+    "text": "jobs=[line.strip() for line in lines if '/Godot ' in line or line.strip().split(' ',1)[-1].startswith('tools/Godot.app')]"
+  },
+  {
+    "consumer": "tools/render_order.py",
+    "line": 17,
+    "kind": "file_relative_binding",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/render_order.py",
+    "line": 17,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/render_order.py",
+    "line": 127,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for path in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "tools/road_network_collect.py",
+    "line": 27,
+    "kind": "historical_overlay_prefix_review",
+    "text": "OVERLAY = set(SOURCES[:6]+[p for p in SOURCES if p.startswith('tools/road_network') or '/road_network_masks/' in p]+['project.godot'])"
+  },
+  {
+    "consumer": "tools/road_network_collect.py",
+    "line": 61,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "tools/road_network_verify.py",
+    "line": 10,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from road_network_collect import ROOT, SOURCES, OVERLAY"
+  },
+  {
+    "consumer": "tools/run_visual_baseline.py",
+    "line": 15,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/run_visual_baseline.py",
+    "line": 15,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/shadow_inventory.py",
+    "line": 7,
+    "kind": "file_relative_binding",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/shadow_inventory.py",
+    "line": 7,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/shadow_inventory.py",
+    "line": 43,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "result+=sorted(str(p.relative_to(ROOT)) for p in (ROOT/'assets/game/buildings/exteriors').glob('*.png'))"
+  },
+  {
+    "consumer": "tools/shadow_inventory.py",
+    "line": 73,
+    "kind": "nested_git_environment_review",
+    "text": "data={'schema':1,'task':'VSHADOW-001','base_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'runtime_changed':False,'dynamic_solar_implemented':False,'performance_eligible':False,'full_map_accepted':False,'scope':'All registered village prop PNG/views plus eigh"
+  },
+  {
+    "consumer": "tools/shore_kit.py",
+    "line": 14,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/shore_kit.py",
+    "line": 14,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/slice_audit.py",
+    "line": 17,
+    "kind": "file_relative_binding",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/slice_audit.py",
+    "line": 17,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/slice_audit.py",
+    "line": 169,
+    "kind": "nested_git_environment_review",
+    "text": "if subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()!=policy['baseline_commit']:raise SystemExit('initial slice snapshot requires exact base commit')"
+  },
+  {
+    "consumer": "tools/slice_item_icons.py",
+    "line": 12,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/slice_item_icons.py",
+    "line": 12,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/slice_item_icons.py",
+    "line": 189,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for path in OUTPUT.glob(\"*.png\"):"
+  },
+  {
+    "consumer": "tools/slice_item_icons.py",
+    "line": 194,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "print(f\"ITEM ICONS: {len(list(OUTPUT.glob('*.png')))} sprites written to {OUTPUT.relative_to(ROOT)}\")"
+  },
+  {
+    "consumer": "tools/task_batch.py",
+    "line": 11,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/task_batch.py",
+    "line": 11,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/terrain_revision_collect.py",
+    "line": 111,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "tools/terrain_revision_verify.py",
+    "line": 11,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from terrain_revision_collect import ROOT, SOURCES, OVERLAY"
+  },
+  {
+    "consumer": "tools/terrain_revision_verify.py",
+    "line": 162,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "result['windows'][str(width)]={'png_count':len(list(path.glob('*.png'))),'draw_callbacks':callbacks,'changed_cache_pixels':changed,"
+  },
+  {
+    "consumer": "tools/test_alpha_audit.py",
+    "line": 67,
+    "kind": "file_relative_binding",
+    "text": "extra=self.path.with_name('new.png');self.data['magenta-opaque-rim'].save(extra)"
+  },
+  {
+    "consumer": "tools/test_asset_migration.py",
+    "line": 24,
+    "kind": "file_relative_binding",
+    "text": "self.before=json.loads((Path(__file__).resolve().parents[1]/'assets/game/visual_resources.json').read_text())"
+  },
+  {
+    "consumer": "tools/test_asset_migration.py",
+    "line": 24,
+    "kind": "fixed_parent_depth",
+    "text": "self.before=json.loads((Path(__file__).resolve().parents[1]/'assets/game/visual_resources.json').read_text())"
+  },
+  {
+    "consumer": "tools/test_asset_migration.py",
+    "line": 98,
+    "kind": "file_relative_binding",
+    "text": "with self.assertRaisesRegex(ValueError,'external isolated'):phase(Path(__file__).resolve().parents[1],'retired')"
+  },
+  {
+    "consumer": "tools/test_asset_migration.py",
+    "line": 98,
+    "kind": "fixed_parent_depth",
+    "text": "with self.assertRaisesRegex(ValueError,'external isolated'):phase(Path(__file__).resolve().parents[1],'retired')"
+  },
+  {
+    "consumer": "tools/test_decoration_rules.py",
+    "line": 64,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for path in (self.folder/'1152').glob('*.png'): shutil.copyfile(path,target/path.name)"
+  },
+  {
+    "consumer": "tools/test_foliage_visibility.py",
+    "line": 315,
+    "kind": "nested_git_environment_review",
+    "text": "subprocess.run(['git', 'init', '--quiet', str(self.candidate)], check=True)"
+  },
+  {
+    "consumer": "tools/test_foliage_visibility.py",
+    "line": 316,
+    "kind": "nested_git_environment_review",
+    "text": "subprocess.run(['git', 'add', '--all', '--', '.'], cwd=self.candidate, check=True)"
+  },
+  {
+    "consumer": "tools/test_foliage_visibility.py",
+    "line": 343,
+    "kind": "nested_git_environment_review",
+    "text": "subprocess.run(['git', 'init', '--quiet', str(parent)], env=clean, check=True)"
+  },
+  {
+    "consumer": "tools/test_foliage_visibility.py",
+    "line": 345,
+    "kind": "nested_git_environment_review",
+    "text": "subprocess.run(['git', 'add', '--', 'tracked.txt'], cwd=parent, env=clean, check=True)"
+  },
+  {
+    "consumer": "tools/test_foliage_visibility.py",
+    "line": 357,
+    "kind": "file_relative_binding",
+    "text": "sys.executable, str(Path(__file__).resolve()),"
+  },
+  {
+    "consumer": "tools/test_ground_seasons.py",
+    "line": 83,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for path in self.folder.glob('*.png'):shutil.copyfile(path,folder/path.name)"
+  },
+  {
+    "consumer": "tools/test_migration_proof.py",
+    "line": 12,
+    "kind": "file_relative_binding",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/test_migration_proof.py",
+    "line": 12,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/test_optimization_audit.py",
+    "line": 78,
+    "kind": "file_relative_binding",
+    "text": "committed = Path(__file__).resolve().parents[1]/\"docs/epics/optimization-2026-10\""
+  },
+  {
+    "consumer": "tools/test_optimization_audit.py",
+    "line": 78,
+    "kind": "fixed_parent_depth",
+    "text": "committed = Path(__file__).resolve().parents[1]/\"docs/epics/optimization-2026-10\""
+  },
+  {
+    "consumer": "tools/test_redraw_output.py",
+    "line": 14,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/test_redraw_output.py",
+    "line": 14,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/test_shore_kit.py",
+    "line": 60,
+    "kind": "nested_git_environment_review",
+    "text": "subprocess.run(['git','init','-q',str(root)],check=True,capture_output=True)"
+  },
+  {
+    "consumer": "tools/test_shore_kit.py",
+    "line": 64,
+    "kind": "nested_git_environment_review",
+    "text": "subprocess.run(['git','-C',str(root),'add','-f','review.log'],check=True,capture_output=True)"
+  },
+  {
+    "consumer": "tools/test_task_batch.py",
+    "line": 77,
+    "kind": "file_relative_binding",
+    "text": "[sys.executable, __file__, \"TaskBatchTests.test_empty_batch\"],"
+  },
+  {
+    "consumer": "tools/test_village_lamp.py",
+    "line": 89,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in self.path.glob('gallery-*.png'):shutil.copyfile(p,folder/p.name)"
+  },
+  {
+    "consumer": "tools/test_visual_resources.py",
+    "line": 54,
+    "kind": "file_relative_binding",
+    "text": "old=self.root/texture['file'][6:]; target=old.with_name(f'neutral{index}.png')"
+  },
+  {
+    "consumer": "tools/texture_intents.py",
+    "line": 15,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/texture_intents.py",
+    "line": 15,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/update_ui_visual_manifest.py",
+    "line": 14,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/update_ui_visual_manifest.py",
+    "line": 14,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/village_bench_assets.py",
+    "line": 6,
+    "kind": "file_relative_binding",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/village_bench_assets.py",
+    "line": 6,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/village_bench_collect.py",
+    "line": 6,
+    "kind": "shared_live_historical_descriptor",
+    "text": "from object_command_collect import SOURCES as ORIGINAL"
+  },
+  {
+    "consumer": "tools/village_bench_collect.py",
+    "line": 13,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "folder.mkdir(parents=True);initial=jobs();sources=sorted(set(ORIGINAL+EXTRA+[str(p.relative_to(ROOT)) for p in (ROOT/'assets/game/locations/overworld/benches').glob('*') if p.suffix in ['.png','.json','.import']]))"
+  },
+  {
+    "consumer": "tools/village_bench_collect.py",
+    "line": 40,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "tools/village_bench_verify.py",
+    "line": 28,
+    "kind": "historical_overlay_prefix_review",
+    "text": "overlay=name.startswith('tools/village_bench') or (phase=='after' and (name in ['scripts/systems/village_prop_renderer.gd','assets/game/visual_resources.json','scripts/presentation/village_bench_visual.gd'] or name.startswith('assets/game/locations/overworld/benches/')))"
+  },
+  {
+    "consumer": "tools/village_bench_verify.py",
+    "line": 71,
+    "kind": "historical_overlay_prefix_review",
+    "text": "if name not in allowed and not name.startswith('tools/village_bench'):require(sources['after']['sources'].get(name)==digest,'unrelated source changed: '+name)"
+  },
+  {
+    "consumer": "tools/village_board_assets.py",
+    "line": 6,
+    "kind": "file_relative_binding",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/village_board_assets.py",
+    "line": 6,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/village_board_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "tools/village_board_verify.py",
+    "line": 31,
+    "kind": "historical_overlay_prefix_review",
+    "text": "overlay=name.startswith('tools/village_board') or (phase=='after' and (name in list(CHANGED) or name.startswith('assets/game/locations/overworld/boards/')))"
+  },
+  {
+    "consumer": "tools/village_board_verify.py",
+    "line": 102,
+    "kind": "historical_overlay_prefix_review",
+    "text": "if name not in CHANGED and not name.startswith('tools/village_board'):require(sources['after']['sources'].get(name)==digest,'unrelated source changed: '+name)"
+  },
+  {
+    "consumer": "tools/village_fence_assets.py",
+    "line": 6,
+    "kind": "file_relative_binding",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/village_fence_assets.py",
+    "line": 6,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/village_fence_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "tools/village_fence_verify.py",
+    "line": 29,
+    "kind": "historical_overlay_prefix_review",
+    "text": "overlay=name.startswith('tools/village_fence') or (phase=='after' and (name in list(CHANGED) or name.startswith('assets/game/locations/overworld/fences/')))"
+  },
+  {
+    "consumer": "tools/village_fence_verify.py",
+    "line": 92,
+    "kind": "historical_overlay_prefix_review",
+    "text": "if name not in CHANGED and not name.startswith('tools/village_fence'):require(sources['after']['sources'].get(name)==digest,'unrelated source changed: '+name)"
+  },
+  {
+    "consumer": "tools/village_lamp_assets.py",
+    "line": 6,
+    "kind": "file_relative_binding",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/village_lamp_assets.py",
+    "line": 6,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/village_lamp_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "tools/village_lamp_verify.py",
+    "line": 32,
+    "kind": "historical_overlay_prefix_review",
+    "text": "overlay=name.startswith('tools/village_lamp') or (phase=='after' and (name in ['scripts/systems/village_prop_renderer.gd','scripts/systems/atmosphere_renderer.gd','assets/game/visual_resources.json','scripts/presentation/village_lamp_visual.gd'] or name.startswith('assets/game/locations/overworld/la"
+  },
+  {
+    "consumer": "tools/village_lamp_verify.py",
+    "line": 114,
+    "kind": "historical_overlay_prefix_review",
+    "text": "if name not in allowed and not name.startswith('tools/village_lamp'):require(sources['after']['sources'].get(name)==digest,'unrelated source changed: '+name)"
+  },
+  {
+    "consumer": "tools/village_street_assets.py",
+    "line": 6,
+    "kind": "file_relative_binding",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/village_street_assets.py",
+    "line": 6,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/village_street_collect.py",
+    "line": 7,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "ORIGINAL=sorted(set(COMMON+BENCH_EXTRA+['assets/game/locations/overworld/modular/prop_well_v1.png','assets/game/locations/overworld/modular/prop_cart_v1.png']+[str(p.relative_to(ROOT)) for p in (ROOT/'assets/game/locations/overworld/benches').glob('*') if p.suffix in ['.png','.json','.import']]))"
+  },
+  {
+    "consumer": "tools/village_street_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "tools/village_street_verify.py",
+    "line": 40,
+    "kind": "historical_overlay_prefix_review",
+    "text": "overlay=name.startswith('tools/village_street') or (phase=='after' and (name in ['scripts/systems/village_prop_renderer.gd','assets/game/visual_resources.json','scripts/presentation/village_street_visual.gd'] or name.startswith('assets/game/locations/overworld/street_props/')))"
+  },
+  {
+    "consumer": "tools/village_street_verify.py",
+    "line": 91,
+    "kind": "historical_overlay_prefix_review",
+    "text": "if name not in allowed and not name.startswith('tools/village_street'):require(sources['after']['sources'].get(name)==digest,'unrelated source changed: '+name)"
+  },
+  {
+    "consumer": "tools/village_trade_assets.py",
+    "line": 6,
+    "kind": "file_relative_binding",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/village_trade_assets.py",
+    "line": 6,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/village_trade_collect.py",
+    "line": 41,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for p in target.glob('*-draws.json'):"
+  },
+  {
+    "consumer": "tools/village_trade_verify.py",
+    "line": 31,
+    "kind": "historical_overlay_prefix_review",
+    "text": "overlay=name.startswith('tools/village_trade') or (phase=='after' and (name in CHANGED or name.startswith('assets/game/locations/overworld/trade/')))"
+  },
+  {
+    "consumer": "tools/village_trade_verify.py",
+    "line": 84,
+    "kind": "historical_overlay_prefix_review",
+    "text": "if name not in CHANGED and not name.startswith('tools/village_trade'):require(sources['after']['sources'].get(name)==digest,'unrelated source changed: '+name)"
+  },
+  {
+    "consumer": "tools/visual_backlog.py",
+    "line": 14,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/visual_backlog.py",
+    "line": 14,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/visual_camera.py",
+    "line": 18,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/visual_camera.py",
+    "line": 18,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/visual_camera.py",
+    "line": 141,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for path in run.glob('*.png'): source['images'][f'run-{repeat}/{path.name}'] = digest(path)"
+  },
+  {
+    "consumer": "tools/visual_coordinates.py",
+    "line": 16,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/visual_coordinates.py",
+    "line": 16,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/visual_density.py",
+    "line": 10,
+    "kind": "file_relative_binding",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/visual_density.py",
+    "line": 10,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/visual_edges.py",
+    "line": 11,
+    "kind": "file_relative_binding",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/visual_edges.py",
+    "line": 11,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/visual_icons.py",
+    "line": 11,
+    "kind": "file_relative_binding",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/visual_icons.py",
+    "line": 11,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/visual_light.py",
+    "line": 9,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/visual_light.py",
+    "line": 9,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/visual_modules.py",
+    "line": 9,
+    "kind": "file_relative_binding",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/visual_modules.py",
+    "line": 9,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/visual_motion.py",
+    "line": 20,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/visual_motion.py",
+    "line": 20,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/visual_palette.py",
+    "line": 11,
+    "kind": "file_relative_binding",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/visual_palette.py",
+    "line": 11,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/visual_perspective.py",
+    "line": 11,
+    "kind": "file_relative_binding",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/visual_perspective.py",
+    "line": 11,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/visual_pipeline.py",
+    "line": 14,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/visual_pipeline.py",
+    "line": 14,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/visual_pipeline.py",
+    "line": 101,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "candidates = sorted((root / \"assets/game/tiles\").glob(\"*_preview.png\")) if tiles_only else sorted("
+  },
+  {
+    "consumer": "tools/visual_pipeline.py",
+    "line": 102,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "p for p in root.glob(\"*.png\") if re.fullmatch(r\"(?:level_|showcase_).+\\.png\", p.name))"
+  },
+  {
+    "consumer": "tools/visual_resources.py",
+    "line": 12,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/visual_resources.py",
+    "line": 12,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/visual_reuse.py",
+    "line": 13,
+    "kind": "file_relative_binding",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/visual_reuse.py",
+    "line": 13,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT=Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/visual_scale.py",
+    "line": 14,
+    "kind": "file_relative_binding",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/visual_scale.py",
+    "line": 14,
+    "kind": "fixed_parent_depth",
+    "text": "ROOT = Path(__file__).resolve().parents[1]"
+  },
+  {
+    "consumer": "tools/visual_static.py",
+    "line": 110,
+    "kind": "nonrecursive_pattern_candidate",
+    "text": "for path in run.glob('*.png'): source['images'][f'run-{number}/{path.name}'] = digest(path)"
+  }
+]

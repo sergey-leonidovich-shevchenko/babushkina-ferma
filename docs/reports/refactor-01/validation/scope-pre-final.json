@@ -1,0 +1,72 @@
+{
+  "task": "REFACTOR-01",
+  "baseline": "ad60faf4bd46faa335babb6075737694927fc61f",
+  "method": "Every accepted Git blob SHA256 compared with current worktree, including symlink bytes; only nine declared tracked changes allowed",
+  "baseline_files_checked": 24056,
+  "unchanged": 24047,
+  "old_missing": [],
+  "unexpected_changes": [],
+  "declared_changes": {
+    "TESTING.md": {
+      "before": "a1adc6d94bbdb1db1616d5912bd8fa667bc27b677e8eeaf95c400d768e7d3be5",
+      "after": "6a5e65c3ee7e158442572033220abd55bb1c776bcd24e696461c09ce83a9bfbd"
+    },
+    "VERSION": {
+      "before": "fb633054386f9575af3b905982b86d82f6e8f7c5eb9e243d13c28a8cd4c94af2",
+      "after": "e2b32148a288ed960d5abe75607104665d33239eb6057017dd5cdd2755b79119"
+    },
+    "docs/epics/refactoring-2026-10/README.md": {
+      "before": "5b1733b6f2f876953d83ede7dc84a494b98f726635f38f512fed6e800e53082c",
+      "after": "0e243fd42fba5a67ed874e21bf4e6136a6fbe655e4172a1427da44efef5b5866"
+    },
+    "docs/epics/refactoring-2026-10/TASKS.md": {
+      "before": "a9e99876209926b54b461147a8f6331ab17ba0f8ac9f45207a21833e6458ba5c",
+      "after": "c9d85c07c468010a355ef467af7d2b03b5d81405086dd2f69a8ae5f556842861"
+    },
+    "project.godot": {
+      "before": "1a7f744530dfd71a0e0ba86ccd383bafc2d7cabed200a7a0d73e06b4f64b66fa",
+      "after": "9cd5a790db5a0d50d09dd2bf88147e9452ef02f7e7300c41f9609032207c3558"
+    },
+    "wiki/articles/index.json": {
+      "before": "27df04725c4a092829e5add558fc9d6484230ed58eb6817b9f310f019bc5df85",
+      "after": "274d9c274aec63f6b1b8e5a80d6f2481847551beada93f70b727465889093ebb"
+    },
+    "wiki/articles/project-refactoring.md": {
+      "before": "3842d0ce1318c8751522a72bce9a8dcc539880e3bbaf0ade4ab2d08b065ee400",
+      "after": "86e7bff24742ca613d7f8dd2a86e95872305e0f7fa4823f9ea7a23ca451f01f0"
+    },
+    "wiki/articles/visual-pilot.md": {
+      "before": "d14ad3889585da1f71ff2215e23703545705bb0cbf824f2688e3cdf9489d5ebe",
+      "after": "8b0fb929311ca65193f8244011751e6dd7d7ed79b36fddb16e9819eab8690b15"
+    },
+    "Бабушкина ферма.app/Contents/Info.plist": {
+      "before": "7a399603acee946c8633e83c6cfbe1d1a52da16aa81c3740669ef05f0a0473f2",
+      "after": "a253ccbdfd4a771052ed3b76220f2081826ad9a9778527fbfef01be2fde634bf"
+    }
+  },
+  "protected_unchanged": {
+    "assets/": 3058,
+    "docs/reports/": 17297,
+    "scripts/": 794,
+    "tests/": 390,
+    "tools/": 779,
+    "wiki/scripts/": 20
+  },
+  "planning_sha256_preserved": {
+    "wiki/planning/sources.json": "38d352726eb463ad21156ffd3b3a5559e86438fa8b8c2a209e530a2f01fc70ae",
+    "wiki/planning/state.json": "c8180d8bbc3ca195471633273d315eaec15f31db6ccfd28249977e3294e8d1b4",
+    "wiki/planning/assessments.json": "82e929a2ac358a00762461b091e42877defdeaa547dee1474b9cec3cd185cde8"
+  },
+  "index": {
+    "previous_entries_preserved": 168,
+    "changed_summary_only": "project-refactoring",
+    "new_entry": "tools-migration-map"
+  },
+  "task_fields_changed": [
+    "REFACTOR-01.status ready -> in_progress",
+    "REFACTOR-01.result"
+  ],
+  "other_task_sections_byte_identical": true,
+  "initial_base_snapshot_preserved": "initial-206918ab/snapshot",
+  "native_FPS_claim": false
+}

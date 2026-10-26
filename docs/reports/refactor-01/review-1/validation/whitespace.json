@@ -1,0 +1,8 @@
+{
+  "comparison_base": "da9fa07e2f4c7f1fe05d9e89eebc454afc79d4ff",
+  "full_PR_diff_check_exit": 2,
+  "known_preserved_frozen_warnings": 66,
+  "new_or_live_source_warnings": 0,
+  "incremental_c9_review_diff_check_exit": 0,
+  "raw_uncompressed_sha256": "ecdbe5698c002a32d611f5801ca8b41d439063473b488feb4f8ab50dc8bf927a"
+}

@@ -1,0 +1,63 @@
+{
+  "task": "REFACTOR-01",
+  "accepted_baseline": "206918abb963b542af8dd3faf3bba80f30b5e908",
+  "version": "0.0.341",
+  "basis": "PR11 merged; preceding PR10 closes VFOLIAGE-010",
+  "PR11": {
+    "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/11",
+    "accepted_head": "18a937e9bb5f9a4f3738a9d94f0799d7ede43f00",
+    "merge": "206918abb963b542af8dd3faf3bba80f30b5e908",
+    "review": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/11#pullrequestreview-5644648650",
+    "CI_PR_run": 40219014223,
+    "CI_push_run": 40218896521,
+    "push_failed_checkout_preserved": 121245953847,
+    "same_sha_successful_mac_retry": 121250740735
+  },
+  "accepted_existing_local_checks": {
+    "architecture": {
+      "command": "tools/check_architecture.sh",
+      "exit": 0,
+      "suites": 82,
+      "cases": 1135,
+      "historical_reader": [
+        512,
+        36,
+        24
+      ],
+      "visibility_controls": 34,
+      "raw": "architecture.txt"
+    },
+    "game": {
+      "command": "./run_tests.sh",
+      "exit": 0,
+      "passed": 53502,
+      "failed": 0,
+      "normal_F10_each": [
+        90,
+        0
+      ],
+      "raw": "game.txt"
+    },
+    "wiki_first": {
+      "command": "pnpm --dir wiki check",
+      "exit": 0,
+      "passed": 135,
+      "failed": 0,
+      "raw": "wiki-first.txt"
+    },
+    "logs_sha256": {
+      "architecture.txt": "f58ad5188ffe7e5301e6664e61ec26d2c2e604c290a4614905fa16d372bbe80b",
+      "game.txt": "493f576e7003c093e8e7067962157022602b7045e81f11a55139a8f15d9667e0",
+      "wiki-first.txt": "884433adcc3802556cd011da80208805e4b40f35e25fe7a220609437f4736ae4"
+    },
+    "final_export_and_browser_results": "Recorded separately in checks.json after the final Wiki refresh; this receipt content is not rewritten afterward."
+  },
+  "existing_logs_verified_sha256": {
+    "architecture.txt": "f58ad5188ffe7e5301e6664e61ec26d2c2e604c290a4614905fa16d372bbe80b",
+    "game.txt": "493f576e7003c093e8e7067962157022602b7045e81f11a55139a8f15d9667e0",
+    "wiki-first.txt": "884433adcc3802556cd011da80208805e4b40f35e25fe7a220609437f4736ae4"
+  },
+  "existing_logs_directory": "docs/reports/refactor-00/closeout",
+  "fresh_task_checks": "checks.json",
+  "limits": "These are accepted baseline logs, not newly executed REFACTOR-01 gates. Historical failures and source/capsule SHA are not rewritten."
+}

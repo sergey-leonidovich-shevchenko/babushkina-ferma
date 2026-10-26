@@ -1,0 +1,34 @@
+test_actual_worktree_git_file_and_spaces (test_audit.GitControls.test_actual_worktree_git_file_and_spaces) ... ok
+test_corrupted_packet_rejected_before_git_read (test_audit.GitControls.test_corrupted_packet_rejected_before_git_read) ... ok
+test_existing_output_is_never_overwritten (test_audit.GitControls.test_existing_output_is_never_overwritten) ... ok
+test_full_reproduction_from_different_cwd_with_spaces (test_audit.GitControls.test_full_reproduction_from_different_cwd_with_spaces) ... ok
+test_root_finder_does_not_depend_on_parent_depth (test_audit.GitControls.test_root_finder_does_not_depend_on_parent_depth) ... ok
+test_snapshot_ignores_inherited_git_dir_and_preserves_index (test_audit.GitControls.test_snapshot_ignores_inherited_git_dir_and_preserves_index) ... ok
+test_complete_map (test_audit.PlanControls.test_complete_map) ... ok
+test_missing_source (test_audit.PlanControls.test_missing_source) ... ok
+test_new_entry_collision (test_audit.PlanControls.test_new_entry_collision) ... ok
+test_path_escape (test_audit.PlanControls.test_path_escape) ... ok
+test_public_registry_disagreement (test_audit.PlanControls.test_public_registry_disagreement) ... ok
+test_root_budget (test_audit.PlanControls.test_root_budget) ... ok
+test_split_uid (test_audit.PlanControls.test_split_uid) ... ok
+test_target_collision (test_audit.PlanControls.test_target_collision) ... ok
+test_unexplained_root_source (test_audit.PlanControls.test_unexplained_root_source) ... ok
+test_unknown_family (test_audit.PlanControls.test_unknown_family) ... ok
+test_archive_member_is_normalized_without_extraction (test_audit.ReferenceControls.test_archive_member_is_normalized_without_extraction) ... ok
+test_argument_declarations_are_separate_from_help_safety (test_audit.ReferenceControls.test_argument_declarations_are_separate_from_help_safety) ... ok
+test_counts_keep_uid_shader_and_nested_sources_distinct (test_audit.ReferenceControls.test_counts_keep_uid_shader_and_nested_sources_distinct) ... ok
+test_cross_directory_import_is_only_candidate (test_audit.ReferenceControls.test_cross_directory_import_is_only_candidate) ... ok
+test_frozen_markdown_link_has_its_physical_target (test_audit.ReferenceControls.test_frozen_markdown_link_has_its_physical_target) ... ok
+test_glob_does_not_hide_nested_directory (test_audit.ReferenceControls.test_glob_does_not_hide_nested_directory) ... ok
+test_local_import_and_external_module (test_audit.ReferenceControls.test_local_import_and_external_module) ... ok
+test_other_catalog_decision_lists_only_selected_family_and_uid (test_audit.ReferenceControls.test_other_catalog_decision_lists_only_selected_family_and_uid) ... ok
+test_prefix_filter_is_not_a_missing_file (test_audit.ReferenceControls.test_prefix_filter_is_not_a_missing_file) ... ok
+test_suite_graph_exposes_duplicate_activation (test_audit.ReferenceControls.test_suite_graph_exposes_duplicate_activation) ... ok
+test_suite_graph_tracks_nested_run_not_unused_preload (test_audit.ReferenceControls.test_suite_graph_tracks_nested_run_not_unused_preload) ... ok
+test_uid_resolution_and_frozen_scope (test_audit.ReferenceControls.test_uid_resolution_and_frozen_scope) ... ok
+test_windows_engine_is_not_tracked_source_debt (test_audit.ReferenceControls.test_windows_engine_is_not_tracked_source_debt) ... ok
+
+----------------------------------------------------------------------
+Ran 29 tests in 3.054s
+
+OK

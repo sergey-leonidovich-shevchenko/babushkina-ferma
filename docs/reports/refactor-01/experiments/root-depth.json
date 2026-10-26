@@ -1,0 +1,22 @@
+{
+  "baseline": "ad60faf4bd46faa335babb6075737694927fc61f",
+  "source": "tools/check_documentation.py",
+  "source_sha256": "ea7ea7d99be00a1e4e719264c9b34bcb1e20ef27f212436bbbc238acda5afedb",
+  "source_bytes_identical": true,
+  "real_project_moved": false,
+  "results": [
+    {
+      "location": "tools/check_documentation.py",
+      "exit": 0,
+      "stdout": "DOCUMENTATION: обязательные файлы и локальные ссылки корректны\n",
+      "stderr": ""
+    },
+    {
+      "location": "tools/quality/check_documentation.py",
+      "exit": 1,
+      "stdout": "",
+      "stderr": "DOCUMENTATION ERROR: отсутствует обязательный документ: README.md\nDOCUMENTATION ERROR: отсутствует обязательный документ: CONTRIBUTING.md\nDOCUMENTATION ERROR: отсутствует обязательный документ: ARCHITECTURE.md\nDOCUMENTATION ERROR: отсутствует обязательный документ: TESTING.md\nDOCUMENTATION ERROR: отсутствует обязательный документ: QA_CHECKLIST.md\nDOCUMENTATION ERROR: отсутствует обязательный документ: PERFORMANCE.md\nDOCUMENTATION ERROR: отсутствует обязательный документ: TECH_DEBT.md\nDOCUMENTATION ERROR: отсутствует обязательный документ: SPRITE_AUDIT.md\nDOCUMENTATION ERROR: отсутствует обязательный документ: docs/ART_GUIDE.md\nDOCUMENTATION ERROR: отсутствует обязательный документ: docs/README.md\nDOCUMENTATION ERROR: отсутствует обязательный документ: docs/GAME_GUIDE.md\nDOCUMENTATION ERROR: отсутствует обязательный документ: docs/CONTROLS.md\nDOCUMENTATION ERROR: отсутствует обязательный документ: docs/DEVELOPMENT.md\n"
+    }
+  ],
+  "conclusion": "naive nested copy breaks parent.parent root; shared root discovery is a precondition, not implemented here"
+}

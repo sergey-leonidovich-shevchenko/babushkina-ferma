@@ -1,0 +1,13 @@
+EXPECTED NEGATIVE: unrelated new source rejected
+Traceback (most recent call last):
+  File "/Users/sergeyshevchenko/my farm/docs/reports/refactor-01/integration-1/verify_scope.py", line 122, in <module>
+    main()
+  File "/Users/sergeyshevchenko/my farm/docs/reports/refactor-01/integration-1/verify_scope.py", line 114, in main
+    text = json.dumps(verify(root), ensure_ascii=False, indent=2) + "\n"
+                      ^^^^^^^^^^^^
+  File "/Users/sergeyshevchenko/my farm/docs/reports/refactor-01/integration-1/verify_scope.py", line 68, in verify
+    assert all(name.startswith("docs/reports/refactor-01/") or name == "wiki/articles/tools-migration-map.md"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpected new files
+
+Owned fixture removed after exact-byte check.

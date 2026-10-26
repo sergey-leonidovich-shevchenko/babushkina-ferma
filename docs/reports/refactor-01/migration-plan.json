@@ -1,0 +1,4441 @@
+{
+  "schema": 1,
+  "task": "REFACTOR-01",
+  "baseline_commit": "ad60faf4bd46faa335babb6075737694927fc61f",
+  "input_scope": "Every tracked tools blob recursively; immediate root counted separately; ignored runtime excluded",
+  "source_extensions": [
+    ".py",
+    ".gd",
+    ".mjs",
+    ".sh",
+    ".swift"
+  ],
+  "shader_extensions": [
+    ".gdshader"
+  ],
+  "families": {
+    "quality": {
+      "title": "Проверки репозитория",
+      "target_directory": "tools/quality",
+      "stage": "REFACTOR-02"
+    },
+    "planning": {
+      "title": "Бэклоги и служебный учёт",
+      "target_directory": "tools/planning",
+      "stage": "REFACTOR-02"
+    },
+    "assets-authoring": {
+      "title": "Подготовка графических ресурсов",
+      "target_directory": "tools/assets/authoring",
+      "stage": "REFACTOR-03"
+    },
+    "assets-alpha": {
+      "title": "Альфа и края изображений",
+      "target_directory": "tools/assets/alpha",
+      "stage": "REFACTOR-03"
+    },
+    "assets-slicing": {
+      "title": "Нарезка атласов",
+      "target_directory": "tools/assets/slicing",
+      "stage": "REFACTOR-03"
+    },
+    "assets-migration": {
+      "title": "Происхождение и миграция ресурсов",
+      "target_directory": "tools/assets/migration",
+      "stage": "REFACTOR-03"
+    },
+    "assets-contracts": {
+      "title": "Контракты текстур и размеров UI",
+      "target_directory": "tools/assets/contracts",
+      "stage": "REFACTOR-03"
+    },
+    "assets-audio": {
+      "title": "Подготовка и аудит аудио",
+      "target_directory": "tools/assets/audio",
+      "stage": "REFACTOR-03"
+    },
+    "build": {
+      "title": "Пакеты ресурсов и передача художнику",
+      "target_directory": "tools/build",
+      "stage": "REFACTOR-03"
+    },
+    "art-review": {
+      "title": "Ручной просмотр и редакционные экспорты",
+      "target_directory": "tools/dev/art_review",
+      "stage": "REFACTOR-03"
+    },
+    "art-standard": {
+      "title": "Проверки художественного стандарта",
+      "target_directory": "tools/qa/art",
+      "stage": "REFACTOR-03"
+    },
+    "camera": {
+      "title": "Камера, presentation и нативный baseline",
+      "target_directory": "tools/qa/camera",
+      "stage": "REFACTOR-03"
+    },
+    "foliage": {
+      "title": "Ветер и контакт растительности",
+      "target_directory": "tools/qa/foliage",
+      "stage": "REFACTOR-03"
+    },
+    "ground": {
+      "title": "Грунт, дороги и грядки",
+      "target_directory": "tools/qa/ground",
+      "stage": "REFACTOR-03"
+    },
+    "world": {
+      "title": "Слои и объекты первой карты",
+      "target_directory": "tools/qa/world",
+      "stage": "REFACTOR-03"
+    },
+    "performance": {
+      "title": "CPU, память и диагностические бюджеты",
+      "target_directory": "tools/qa/performance",
+      "stage": "REFACTOR-03"
+    },
+    "compatibility": {
+      "title": "Регрессии существующих игровых систем",
+      "target_directory": "tools/qa/compatibility",
+      "stage": "REFACTOR-03"
+    }
+  },
+  "public_facades": {
+    "tools/check_architecture.sh": "Штатный вход pre-commit и GitHub Actions; делегирует единственной реализации quality.",
+    "tools/smoke_test.sh": "Публичный smoke-вход Actions; прежний CLI и 180 кадров сохраняются.",
+    "tools/performance_gate.sh": "Публичный CPU gate Actions; окружение и коды отказа сохраняются.",
+    "tools/bump_version.py": "Публичный CLI hook и проверки версии; внутренняя реализация planning.",
+    "tools/task_batch.py": "Публичный status CLI post-commit; publish остаётся историческим, не маршрутом PR.",
+    "tools/performance_gate.py": "Frozen исполняемый redraw_compare.py:22 импортирует performance_gate после ROOT/tools и присваивает gate.SAMPLER:81. Один import/CLI facade обязан сохранять идентичность модуля, API и перенаправление mutable globals; реализация в qa/performance."
+  },
+  "new_entries_proposed_not_implemented": [
+    {
+      "path": "tools/run.py",
+      "reason": "Single Python module launcher from root or arbitrary cwd; preserves each command argv/output contract without global PYTHONPATH."
+    }
+  ],
+  "protected_anchor": "tools/performance_sampler.gd",
+  "protected_anchors": [
+    "tools/performance_sampler.gd",
+    "tools/water_audit.gd"
+  ],
+  "root_source_budget": 30,
+  "future_root_source_count": 9,
+  "assignments": {
+    "tools/action_lifecycle_native.gd": {
+      "target": "tools/qa/compatibility/action_lifecycle_native.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/action_lifecycle_native.gd.uid": {
+      "target": "tools/qa/compatibility/action_lifecycle_native.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/action_lifecycle_native.gd"
+    },
+    "tools/alchemy_capture.gd": {
+      "target": "tools/qa/compatibility/alchemy_capture.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/alchemy_capture.gd.uid": {
+      "target": "tools/qa/compatibility/alchemy_capture.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/alchemy_capture.gd"
+    },
+    "tools/alchemy_catalog_export.gd": {
+      "target": "tools/qa/compatibility/alchemy_catalog_export.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/alchemy_catalog_export.gd.uid": {
+      "target": "tools/qa/compatibility/alchemy_catalog_export.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/alchemy_catalog_export.gd"
+    },
+    "tools/alchemy_review.gd": {
+      "target": "tools/qa/compatibility/alchemy_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/alchemy_review.gd.uid": {
+      "target": "tools/qa/compatibility/alchemy_review.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/alchemy_review.gd"
+    },
+    "tools/alpha_audit.py": {
+      "target": "tools/assets/alpha/alpha_audit.py",
+      "family": "assets-alpha",
+      "action": "move"
+    },
+    "tools/alpha_capture.gd": {
+      "target": "tools/assets/alpha/alpha_capture.gd",
+      "family": "assets-alpha",
+      "action": "move"
+    },
+    "tools/alpha_fixtures.py": {
+      "target": "tools/assets/alpha/alpha_fixtures.py",
+      "family": "assets-alpha",
+      "action": "move"
+    },
+    "tools/alpha_metrics.py": {
+      "target": "tools/assets/alpha/alpha_metrics.py",
+      "family": "assets-alpha",
+      "action": "move"
+    },
+    "tools/alpha_policy.json": {
+      "target": "tools/assets/alpha/alpha_policy.json",
+      "family": "assets-alpha",
+      "action": "move"
+    },
+    "tools/alpha_proof.py": {
+      "target": "tools/assets/alpha/alpha_proof.py",
+      "family": "assets-alpha",
+      "action": "move"
+    },
+    "tools/analyze_optimization_audit.py": {
+      "target": "tools/qa/performance/analyze_optimization_audit.py",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/analyze_storage_perf.py": {
+      "target": "tools/qa/performance/analyze_storage_perf.py",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/analyze_visual_baseline.py": {
+      "target": "tools/qa/camera/analyze_visual_baseline.py",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/analyze_water_audit.py": {
+      "target": "tools/qa/world/analyze_water_audit.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/apiary_capture.gd": {
+      "target": "tools/qa/compatibility/apiary_capture.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/apiary_capture.gd.uid": {
+      "target": "tools/qa/compatibility/apiary_capture.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/apiary_capture.gd"
+    },
+    "tools/apiary_review.gd": {
+      "target": "tools/qa/compatibility/apiary_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/apiary_review.gd.uid": {
+      "target": "tools/qa/compatibility/apiary_review.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/apiary_review.gd"
+    },
+    "tools/art_review_export.gd": {
+      "target": "tools/dev/art_review/art_review_export.gd",
+      "family": "art-review",
+      "action": "move"
+    },
+    "tools/art_review_export.gd.uid": {
+      "target": "tools/dev/art_review/art_review_export.gd.uid",
+      "family": "art-review",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/art_review_export.gd"
+    },
+    "tools/art_review_serve.mjs": {
+      "target": "tools/dev/art_review/art_review_serve.mjs",
+      "family": "art-review",
+      "action": "move"
+    },
+    "tools/artisan_capture.gd": {
+      "target": "tools/qa/compatibility/artisan_capture.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/artisan_capture.gd.uid": {
+      "target": "tools/qa/compatibility/artisan_capture.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/artisan_capture.gd"
+    },
+    "tools/artisan_review.gd": {
+      "target": "tools/qa/compatibility/artisan_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/artisan_review.gd.uid": {
+      "target": "tools/qa/compatibility/artisan_review.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/artisan_review.gd"
+    },
+    "tools/artist_packet.py": {
+      "target": "tools/build/artist_packet.py",
+      "family": "build",
+      "action": "move"
+    },
+    "tools/asset_costs.py": {
+      "target": "tools/assets/contracts/asset_costs.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/asset_game_probe.gd": {
+      "target": "tools/assets/contracts/asset_game_probe.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/asset_migration.py": {
+      "target": "tools/assets/migration/asset_migration.py",
+      "family": "assets-migration",
+      "action": "move"
+    },
+    "tools/asset_pack.py": {
+      "target": "tools/build/asset_pack.py",
+      "family": "build",
+      "action": "move"
+    },
+    "tools/asset_pack_probe.gd": {
+      "target": "tools/build/asset_pack_probe.gd",
+      "family": "build",
+      "action": "move"
+    },
+    "tools/asset_provenance.json": {
+      "target": "tools/assets/contracts/asset_provenance.json",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/asset_report.py": {
+      "target": "tools/assets/contracts/asset_report.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/audio_composer.py": {
+      "target": "tools/assets/audio/audio_composer.py",
+      "family": "assets-audio",
+      "action": "move"
+    },
+    "tools/audio_sound_effects.py": {
+      "target": "tools/assets/audio/audio_sound_effects.py",
+      "family": "assets-audio",
+      "action": "move"
+    },
+    "tools/audit_audio_assets.py": {
+      "target": "tools/assets/audio/audit_audio_assets.py",
+      "family": "assets-audio",
+      "action": "move"
+    },
+    "tools/audit_save_crashes.py": {
+      "target": "tools/qa/performance/audit_save_crashes.py",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/axial_road_board.gd": {
+      "target": "tools/qa/ground/axial_road_board.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/axial_road_board.gd.uid": {
+      "target": "tools/qa/ground/axial_road_board.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/axial_road_board.gd"
+    },
+    "tools/axial_road_builder.gd": {
+      "target": "tools/qa/ground/axial_road_builder.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/axial_road_builder.gd.uid": {
+      "target": "tools/qa/ground/axial_road_builder.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/axial_road_builder.gd"
+    },
+    "tools/axial_road_capture.gd": {
+      "target": "tools/qa/ground/axial_road_capture.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/axial_road_capture.gd.uid": {
+      "target": "tools/qa/ground/axial_road_capture.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/axial_road_capture.gd"
+    },
+    "tools/axial_road_collect.py": {
+      "target": "tools/qa/ground/axial_road_collect.py",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/axial_road_compile.gd": {
+      "target": "tools/qa/ground/axial_road_compile.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/axial_road_compile.gd.uid": {
+      "target": "tools/qa/ground/axial_road_compile.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/axial_road_compile.gd"
+    },
+    "tools/axial_road_field.gd": {
+      "target": "tools/qa/ground/axial_road_field.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/axial_road_field.gd.uid": {
+      "target": "tools/qa/ground/axial_road_field.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/axial_road_field.gd"
+    },
+    "tools/axial_road_review.gd": {
+      "target": "tools/qa/ground/axial_road_review.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/axial_road_review.gd.uid": {
+      "target": "tools/qa/ground/axial_road_review.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/axial_road_review.gd"
+    },
+    "tools/axial_road_verify.py": {
+      "target": "tools/qa/ground/axial_road_verify.py",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/basement_capture.gd": {
+      "target": "tools/qa/compatibility/basement_capture.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/basement_capture.gd.uid": {
+      "target": "tools/qa/compatibility/basement_capture.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/basement_capture.gd"
+    },
+    "tools/basement_review.gd": {
+      "target": "tools/qa/compatibility/basement_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/basement_review.gd.uid": {
+      "target": "tools/qa/compatibility/basement_review.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/basement_review.gd"
+    },
+    "tools/basement_ui_review.gd": {
+      "target": "tools/qa/compatibility/basement_ui_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/basement_ui_review.gd.uid": {
+      "target": "tools/qa/compatibility/basement_ui_review.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/basement_ui_review.gd"
+    },
+    "tools/boss_balance_review.gd": {
+      "target": "tools/qa/compatibility/boss_balance_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/boss_cpu_review.gd": {
+      "target": "tools/qa/performance/boss_cpu_review.gd",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/boss_cpu_review.gd.uid": {
+      "target": "tools/qa/performance/boss_cpu_review.gd.uid",
+      "family": "performance",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/boss_cpu_review.gd"
+    },
+    "tools/build_art_backlog.py": {
+      "target": "tools/planning/build_art_backlog.py",
+      "family": "planning",
+      "action": "move"
+    },
+    "tools/build_bridge_sprites.py": {
+      "target": "tools/assets/authoring/build_bridge_sprites.py",
+      "family": "assets-authoring",
+      "action": "move"
+    },
+    "tools/build_building_sprites.py": {
+      "target": "tools/assets/authoring/build_building_sprites.py",
+      "family": "assets-authoring",
+      "action": "move"
+    },
+    "tools/build_clean_interior_atlas.gd": {
+      "target": "tools/assets/authoring/build_clean_interior_atlas.gd",
+      "family": "assets-authoring",
+      "action": "move"
+    },
+    "tools/build_editor_transition_tiles.py": {
+      "target": "tools/assets/authoring/build_editor_transition_tiles.py",
+      "family": "assets-authoring",
+      "action": "move"
+    },
+    "tools/build_environment_sprites.py": {
+      "target": "tools/assets/authoring/build_environment_sprites.py",
+      "family": "assets-authoring",
+      "action": "move"
+    },
+    "tools/build_fence_atlas.py": {
+      "target": "tools/assets/authoring/build_fence_atlas.py",
+      "family": "assets-authoring",
+      "action": "move"
+    },
+    "tools/build_forest_tree_atlas.py": {
+      "target": "tools/assets/authoring/build_forest_tree_atlas.py",
+      "family": "assets-authoring",
+      "action": "move"
+    },
+    "tools/build_house_furniture.gd": {
+      "target": "tools/assets/authoring/build_house_furniture.gd",
+      "family": "assets-authoring",
+      "action": "move"
+    },
+    "tools/build_house_furniture.gd.uid": {
+      "target": "tools/assets/authoring/build_house_furniture.gd.uid",
+      "family": "assets-authoring",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/build_house_furniture.gd"
+    },
+    "tools/build_item_ui_textures.gd": {
+      "target": "tools/assets/authoring/build_item_ui_textures.gd",
+      "family": "assets-authoring",
+      "action": "move"
+    },
+    "tools/build_item_ui_textures.gd.uid": {
+      "target": "tools/assets/authoring/build_item_ui_textures.gd.uid",
+      "family": "assets-authoring",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/build_item_ui_textures.gd"
+    },
+    "tools/build_level_editor_tiles.py": {
+      "target": "tools/assets/authoring/build_level_editor_tiles.py",
+      "family": "assets-authoring",
+      "action": "move"
+    },
+    "tools/build_optimization_matrix.py": {
+      "target": "tools/planning/build_optimization_matrix.py",
+      "family": "planning",
+      "action": "move"
+    },
+    "tools/build_painted_item_icons.gd": {
+      "target": "tools/assets/authoring/build_painted_item_icons.gd",
+      "family": "assets-authoring",
+      "action": "move"
+    },
+    "tools/build_painted_item_icons.gd.uid": {
+      "target": "tools/assets/authoring/build_painted_item_icons.gd.uid",
+      "family": "assets-authoring",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/build_painted_item_icons.gd"
+    },
+    "tools/build_prepared_pixels.gd": {
+      "target": "tools/assets/authoring/build_prepared_pixels.gd",
+      "family": "assets-authoring",
+      "action": "move"
+    },
+    "tools/build_prepared_pixels.gd.uid": {
+      "target": "tools/assets/authoring/build_prepared_pixels.gd.uid",
+      "family": "assets-authoring",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/build_prepared_pixels.gd"
+    },
+    "tools/build_ui_kit.py": {
+      "target": "tools/assets/authoring/build_ui_kit.py",
+      "family": "assets-authoring",
+      "action": "move"
+    },
+    "tools/build_village_materials.gd": {
+      "target": "tools/assets/authoring/build_village_materials.gd",
+      "family": "assets-authoring",
+      "action": "move"
+    },
+    "tools/build_village_prop_atlas.py": {
+      "target": "tools/assets/authoring/build_village_prop_atlas.py",
+      "family": "assets-authoring",
+      "action": "move"
+    },
+    "tools/build_village_props.gd": {
+      "target": "tools/assets/authoring/build_village_props.gd",
+      "family": "assets-authoring",
+      "action": "move"
+    },
+    "tools/bump_version.py": {
+      "target": "tools/planning/bump_version.py",
+      "family": "planning",
+      "action": "move_implementation_keep_public_facade",
+      "public_entry": "tools/bump_version.py",
+      "exception_reason": "Публичный CLI hook и проверки версии; внутренняя реализация planning."
+    },
+    "tools/camera_quantization.py": {
+      "target": "tools/qa/camera/camera_quantization.py",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/camera_quantization_capture.gd": {
+      "target": "tools/qa/camera/camera_quantization_capture.gd",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/camera_quantization_review.gd": {
+      "target": "tools/qa/camera/camera_quantization_review.gd",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/cave_boss_frame_review.gd": {
+      "target": "tools/qa/performance/cave_boss_frame_review.gd",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/cave_boss_frame_review.gd.uid": {
+      "target": "tools/qa/performance/cave_boss_frame_review.gd.uid",
+      "family": "performance",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/cave_boss_frame_review.gd"
+    },
+    "tools/character_polish_capture.gd": {
+      "target": "tools/qa/compatibility/character_polish_capture.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/check_alchemy_reports.py": {
+      "target": "tools/qa/compatibility/check_alchemy_reports.py",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/check_architecture.sh": {
+      "target": "tools/quality/check_architecture.sh",
+      "family": "quality",
+      "action": "move_implementation_keep_public_facade",
+      "public_entry": "tools/check_architecture.sh",
+      "exception_reason": "Штатный вход pre-commit и GitHub Actions; делегирует единственной реализации quality."
+    },
+    "tools/check_art_review.py": {
+      "target": "tools/dev/art_review/check_art_review.py",
+      "family": "art-review",
+      "action": "move"
+    },
+    "tools/check_documentation.py": {
+      "target": "tools/quality/check_documentation.py",
+      "family": "quality",
+      "action": "move"
+    },
+    "tools/check_native_frame_reports.py": {
+      "target": "tools/qa/camera/check_native_frame_reports.py",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/check_sprite_cleanup.py": {
+      "target": "tools/assets/contracts/check_sprite_cleanup.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/check_world_sprite_manifest.py": {
+      "target": "tools/assets/contracts/check_world_sprite_manifest.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/compact_dialogue_capture.gd": {
+      "target": "tools/qa/compatibility/compact_dialogue_capture.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/compact_dialogue_capture.gd.uid": {
+      "target": "tools/qa/compatibility/compact_dialogue_capture.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/compact_dialogue_capture.gd"
+    },
+    "tools/compact_dialogue_preview.gd": {
+      "target": "tools/qa/compatibility/compact_dialogue_preview.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/compact_dialogue_preview.gd.uid": {
+      "target": "tools/qa/compatibility/compact_dialogue_preview.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/compact_dialogue_preview.gd"
+    },
+    "tools/compact_dialogue_review.gd": {
+      "target": "tools/qa/compatibility/compact_dialogue_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/compact_dialogue_review.gd.uid": {
+      "target": "tools/qa/compatibility/compact_dialogue_review.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/compact_dialogue_review.gd"
+    },
+    "tools/compact_hud_review.gd": {
+      "target": "tools/qa/compatibility/compact_hud_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/content_reference_audit.gd": {
+      "target": "tools/qa/compatibility/content_reference_audit.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/content_reference_audit.gd.uid": {
+      "target": "tools/qa/compatibility/content_reference_audit.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/content_reference_audit.gd"
+    },
+    "tools/cooking_capture.gd": {
+      "target": "tools/qa/compatibility/cooking_capture.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/cooking_review.gd": {
+      "target": "tools/qa/compatibility/cooking_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/cpu_profile_game.gd": {
+      "target": "tools/qa/performance/cpu_profile_game.gd",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/decoration_capture.gd": {
+      "target": "tools/qa/ground/decoration_capture.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/decoration_capture.gd.uid": {
+      "target": "tools/qa/ground/decoration_capture.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/decoration_capture.gd"
+    },
+    "tools/decoration_collect.py": {
+      "target": "tools/qa/ground/decoration_collect.py",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/decoration_overlay.gd": {
+      "target": "tools/qa/ground/decoration_overlay.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/decoration_overlay.gd.uid": {
+      "target": "tools/qa/ground/decoration_overlay.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/decoration_overlay.gd"
+    },
+    "tools/decoration_review.gd": {
+      "target": "tools/qa/ground/decoration_review.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/decoration_review.gd.uid": {
+      "target": "tools/qa/ground/decoration_review.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/decoration_review.gd"
+    },
+    "tools/decoration_verify.py": {
+      "target": "tools/qa/ground/decoration_verify.py",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/depth_guardian_capture.gd": {
+      "target": "tools/qa/compatibility/depth_guardian_capture.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/depth_guardian_capture.gd.uid": {
+      "target": "tools/qa/compatibility/depth_guardian_capture.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/depth_guardian_capture.gd"
+    },
+    "tools/depth_guardian_review.gd": {
+      "target": "tools/qa/compatibility/depth_guardian_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/depth_guardian_review.gd.uid": {
+      "target": "tools/qa/compatibility/depth_guardian_review.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/depth_guardian_review.gd"
+    },
+    "tools/design_audit_capture.gd": {
+      "target": "tools/qa/compatibility/design_audit_capture.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/design_audit_capture.gd.uid": {
+      "target": "tools/qa/compatibility/design_audit_capture.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/design_audit_capture.gd"
+    },
+    "tools/design_audit_gallery.gd": {
+      "target": "tools/qa/compatibility/design_audit_gallery.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/design_audit_gallery.gd.uid": {
+      "target": "tools/qa/compatibility/design_audit_gallery.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/design_audit_gallery.gd"
+    },
+    "tools/design_audit_review.gd": {
+      "target": "tools/qa/compatibility/design_audit_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/design_audit_review.gd.uid": {
+      "target": "tools/qa/compatibility/design_audit_review.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/design_audit_review.gd"
+    },
+    "tools/dev_cabinet_capture.gd": {
+      "target": "tools/qa/compatibility/dev_cabinet_capture.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/dev_cabinet_capture.gd.uid": {
+      "target": "tools/qa/compatibility/dev_cabinet_capture.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/dev_cabinet_capture.gd"
+    },
+    "tools/dev_cabinet_review.gd": {
+      "target": "tools/qa/compatibility/dev_cabinet_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/dev_cabinet_review.gd.uid": {
+      "target": "tools/qa/compatibility/dev_cabinet_review.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/dev_cabinet_review.gd"
+    },
+    "tools/dropped_loot_capture.gd": {
+      "target": "tools/qa/compatibility/dropped_loot_capture.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/dropped_loot_capture.gd.uid": {
+      "target": "tools/qa/compatibility/dropped_loot_capture.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/dropped_loot_capture.gd"
+    },
+    "tools/dropped_loot_review.gd": {
+      "target": "tools/qa/compatibility/dropped_loot_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/dropped_loot_review.gd.uid": {
+      "target": "tools/qa/compatibility/dropped_loot_review.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/dropped_loot_review.gd"
+    },
+    "tools/encode_coordinate_video.swift": {
+      "target": "tools/qa/camera/encode_coordinate_video.swift",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/end_to_end_capture.gd": {
+      "target": "tools/qa/compatibility/end_to_end_capture.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/end_to_end_capture.gd.uid": {
+      "target": "tools/qa/compatibility/end_to_end_capture.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/end_to_end_capture.gd"
+    },
+    "tools/end_to_end_review.gd": {
+      "target": "tools/qa/compatibility/end_to_end_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/end_to_end_review.gd.uid": {
+      "target": "tools/qa/compatibility/end_to_end_review.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/end_to_end_review.gd"
+    },
+    "tools/extract_artisan_assets.py": {
+      "target": "tools/assets/authoring/extract_artisan_assets.py",
+      "family": "assets-authoring",
+      "action": "move"
+    },
+    "tools/extract_basement_atlases.py": {
+      "target": "tools/assets/authoring/extract_basement_atlases.py",
+      "family": "assets-authoring",
+      "action": "move"
+    },
+    "tools/extract_farm_icons.gd": {
+      "target": "tools/assets/authoring/extract_farm_icons.gd",
+      "family": "assets-authoring",
+      "action": "move"
+    },
+    "tools/extract_farmyard_sprites.gd": {
+      "target": "tools/assets/authoring/extract_farmyard_sprites.gd",
+      "family": "assets-authoring",
+      "action": "move"
+    },
+    "tools/extract_hero_combat_sprites.gd": {
+      "target": "tools/assets/authoring/extract_hero_combat_sprites.gd",
+      "family": "assets-authoring",
+      "action": "move"
+    },
+    "tools/extract_hero_combat_sprites.gd.uid": {
+      "target": "tools/assets/authoring/extract_hero_combat_sprites.gd.uid",
+      "family": "assets-authoring",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/extract_hero_combat_sprites.gd"
+    },
+    "tools/extract_kitchen_atlases.py": {
+      "target": "tools/assets/authoring/extract_kitchen_atlases.py",
+      "family": "assets-authoring",
+      "action": "move"
+    },
+    "tools/farm_bounds_capture.gd": {
+      "target": "tools/qa/compatibility/farm_bounds_capture.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/farm_bounds_review.gd": {
+      "target": "tools/qa/compatibility/farm_bounds_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/farm_bounds_review.gd.uid": {
+      "target": "tools/qa/compatibility/farm_bounds_review.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/farm_bounds_review.gd"
+    },
+    "tools/farm_cursor_review.gd": {
+      "target": "tools/qa/compatibility/farm_cursor_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/farm_cycles.py": {
+      "target": "tools/qa/compatibility/farm_cycles.py",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/farm_native.gd": {
+      "target": "tools/qa/compatibility/farm_native.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/farm_native.gd.uid": {
+      "target": "tools/qa/compatibility/farm_native.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/farm_native.gd"
+    },
+    "tools/farm_review.gd": {
+      "target": "tools/qa/compatibility/farm_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/farm_review.gd.uid": {
+      "target": "tools/qa/compatibility/farm_review.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/farm_review.gd"
+    },
+    "tools/focus_pause_native.gd": {
+      "target": "tools/qa/compatibility/focus_pause_native.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/focus_pause_native.gd.uid": {
+      "target": "tools/qa/compatibility/focus_pause_native.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/focus_pause_native.gd"
+    },
+    "tools/foliage_contact_capture.gd": {
+      "target": "tools/qa/foliage/foliage_contact_capture.gd",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_contact_capture.gd.uid": {
+      "target": "tools/qa/foliage/foliage_contact_capture.gd.uid",
+      "family": "foliage",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/foliage_contact_capture.gd"
+    },
+    "tools/foliage_contact_collect.py": {
+      "target": "tools/qa/foliage/foliage_contact_collect.py",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_contact_review.gd": {
+      "target": "tools/qa/foliage/foliage_contact_review.gd",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_contact_review.gd.uid": {
+      "target": "tools/qa/foliage/foliage_contact_review.gd.uid",
+      "family": "foliage",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/foliage_contact_review.gd"
+    },
+    "tools/foliage_contact_verify.py": {
+      "target": "tools/qa/foliage/foliage_contact_verify.py",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_pause_capture.gd": {
+      "target": "tools/qa/foliage/foliage_pause_capture.gd",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_pause_capture.gd.uid": {
+      "target": "tools/qa/foliage/foliage_pause_capture.gd.uid",
+      "family": "foliage",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/foliage_pause_capture.gd"
+    },
+    "tools/foliage_pause_collect.py": {
+      "target": "tools/qa/foliage/foliage_pause_collect.py",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_pause_game.gd": {
+      "target": "tools/qa/foliage/foliage_pause_game.gd",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_pause_game.gd.uid": {
+      "target": "tools/qa/foliage/foliage_pause_game.gd.uid",
+      "family": "foliage",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/foliage_pause_game.gd"
+    },
+    "tools/foliage_pause_review.gd": {
+      "target": "tools/qa/foliage/foliage_pause_review.gd",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_pause_review.gd.uid": {
+      "target": "tools/qa/foliage/foliage_pause_review.gd.uid",
+      "family": "foliage",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/foliage_pause_review.gd"
+    },
+    "tools/foliage_pause_verify.py": {
+      "target": "tools/qa/foliage/foliage_pause_verify.py",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_recovery_capture.gd": {
+      "target": "tools/qa/foliage/foliage_recovery_capture.gd",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_recovery_capture.gd.uid": {
+      "target": "tools/qa/foliage/foliage_recovery_capture.gd.uid",
+      "family": "foliage",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/foliage_recovery_capture.gd"
+    },
+    "tools/foliage_recovery_collect.py": {
+      "target": "tools/qa/foliage/foliage_recovery_collect.py",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_recovery_review.gd": {
+      "target": "tools/qa/foliage/foliage_recovery_review.gd",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_recovery_review.gd.uid": {
+      "target": "tools/qa/foliage/foliage_recovery_review.gd.uid",
+      "family": "foliage",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/foliage_recovery_review.gd"
+    },
+    "tools/foliage_recovery_verify.py": {
+      "target": "tools/qa/foliage/foliage_recovery_verify.py",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_root_board.gd": {
+      "target": "tools/qa/foliage/foliage_root_board.gd",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_root_board.gd.uid": {
+      "target": "tools/qa/foliage/foliage_root_board.gd.uid",
+      "family": "foliage",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/foliage_root_board.gd"
+    },
+    "tools/foliage_root_capture.gd": {
+      "target": "tools/qa/foliage/foliage_root_capture.gd",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_root_capture.gd.uid": {
+      "target": "tools/qa/foliage/foliage_root_capture.gd.uid",
+      "family": "foliage",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/foliage_root_capture.gd"
+    },
+    "tools/foliage_root_collect.py": {
+      "target": "tools/qa/foliage/foliage_root_collect.py",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_root_observer.gd": {
+      "target": "tools/qa/foliage/foliage_root_observer.gd",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_root_observer.gd.uid": {
+      "target": "tools/qa/foliage/foliage_root_observer.gd.uid",
+      "family": "foliage",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/foliage_root_observer.gd"
+    },
+    "tools/foliage_root_review.gd": {
+      "target": "tools/qa/foliage/foliage_root_review.gd",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_root_review.gd.uid": {
+      "target": "tools/qa/foliage/foliage_root_review.gd.uid",
+      "family": "foliage",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/foliage_root_review.gd"
+    },
+    "tools/foliage_root_verify.py": {
+      "target": "tools/qa/foliage/foliage_root_verify.py",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_speed_capture.gd": {
+      "target": "tools/qa/foliage/foliage_speed_capture.gd",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_speed_capture.gd.uid": {
+      "target": "tools/qa/foliage/foliage_speed_capture.gd.uid",
+      "family": "foliage",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/foliage_speed_capture.gd"
+    },
+    "tools/foliage_speed_collect.py": {
+      "target": "tools/qa/foliage/foliage_speed_collect.py",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_speed_review.gd": {
+      "target": "tools/qa/foliage/foliage_speed_review.gd",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_speed_review.gd.uid": {
+      "target": "tools/qa/foliage/foliage_speed_review.gd.uid",
+      "family": "foliage",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/foliage_speed_review.gd"
+    },
+    "tools/foliage_speed_verify.py": {
+      "target": "tools/qa/foliage/foliage_speed_verify.py",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_uv_board.gd": {
+      "target": "tools/qa/foliage/foliage_uv_board.gd",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_uv_board.gd.uid": {
+      "target": "tools/qa/foliage/foliage_uv_board.gd.uid",
+      "family": "foliage",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/foliage_uv_board.gd"
+    },
+    "tools/foliage_uv_capture.gd": {
+      "target": "tools/qa/foliage/foliage_uv_capture.gd",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_uv_capture.gd.uid": {
+      "target": "tools/qa/foliage/foliage_uv_capture.gd.uid",
+      "family": "foliage",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/foliage_uv_capture.gd"
+    },
+    "tools/foliage_uv_collect.py": {
+      "target": "tools/qa/foliage/foliage_uv_collect.py",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_uv_quad.gd": {
+      "target": "tools/qa/foliage/foliage_uv_quad.gd",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_uv_quad.gd.uid": {
+      "target": "tools/qa/foliage/foliage_uv_quad.gd.uid",
+      "family": "foliage",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/foliage_uv_quad.gd"
+    },
+    "tools/foliage_uv_review.gd": {
+      "target": "tools/qa/foliage/foliage_uv_review.gd",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_uv_review.gd.uid": {
+      "target": "tools/qa/foliage/foliage_uv_review.gd.uid",
+      "family": "foliage",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/foliage_uv_review.gd"
+    },
+    "tools/foliage_uv_verify.py": {
+      "target": "tools/qa/foliage/foliage_uv_verify.py",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_visibility_budget.gd": {
+      "target": "tools/qa/foliage/foliage_visibility_budget.gd",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_visibility_budget.gd.uid": {
+      "target": "tools/qa/foliage/foliage_visibility_budget.gd.uid",
+      "family": "foliage",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/foliage_visibility_budget.gd"
+    },
+    "tools/foliage_visibility_capture.gd": {
+      "target": "tools/qa/foliage/foliage_visibility_capture.gd",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_visibility_capture.gd.uid": {
+      "target": "tools/qa/foliage/foliage_visibility_capture.gd.uid",
+      "family": "foliage",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/foliage_visibility_capture.gd"
+    },
+    "tools/foliage_visibility_collect.py": {
+      "target": "tools/qa/foliage/foliage_visibility_collect.py",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_visibility_coverage.py": {
+      "target": "tools/qa/foliage/foliage_visibility_coverage.py",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_visibility_evidence.py": {
+      "target": "tools/qa/foliage/foliage_visibility_evidence.py",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_visibility_game.gd": {
+      "target": "tools/qa/foliage/foliage_visibility_game.gd",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_visibility_game.gd.uid": {
+      "target": "tools/qa/foliage/foliage_visibility_game.gd.uid",
+      "family": "foliage",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/foliage_visibility_game.gd"
+    },
+    "tools/foliage_visibility_pack.py": {
+      "target": "tools/qa/foliage/foliage_visibility_pack.py",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_visibility_provenance.py": {
+      "target": "tools/qa/foliage/foliage_visibility_provenance.py",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_visibility_review.gd": {
+      "target": "tools/qa/foliage/foliage_visibility_review.gd",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_visibility_review.gd.uid": {
+      "target": "tools/qa/foliage/foliage_visibility_review.gd.uid",
+      "family": "foliage",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/foliage_visibility_review.gd"
+    },
+    "tools/foliage_visibility_test_fixture.py": {
+      "target": "tools/qa/foliage/foliage_visibility_test_fixture.py",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_visibility_verify.py": {
+      "target": "tools/qa/foliage/foliage_visibility_verify.py",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_visibility_window.py": {
+      "target": "tools/qa/foliage/foliage_visibility_window.py",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_wind_baseline.gd": {
+      "target": "tools/qa/foliage/foliage_wind_baseline.gd",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_wind_baseline.gd.uid": {
+      "target": "tools/qa/foliage/foliage_wind_baseline.gd.uid",
+      "family": "foliage",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/foliage_wind_baseline.gd"
+    },
+    "tools/foliage_wind_capture.gd": {
+      "target": "tools/qa/foliage/foliage_wind_capture.gd",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_wind_capture.gd.uid": {
+      "target": "tools/qa/foliage/foliage_wind_capture.gd.uid",
+      "family": "foliage",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/foliage_wind_capture.gd"
+    },
+    "tools/foliage_wind_collect.py": {
+      "target": "tools/qa/foliage/foliage_wind_collect.py",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_wind_review.gd": {
+      "target": "tools/qa/foliage/foliage_wind_review.gd",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/foliage_wind_review.gd.uid": {
+      "target": "tools/qa/foliage/foliage_wind_review.gd.uid",
+      "family": "foliage",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/foliage_wind_review.gd"
+    },
+    "tools/foliage_wind_verify.py": {
+      "target": "tools/qa/foliage/foliage_wind_verify.py",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/front_facing_capture.gd": {
+      "target": "tools/qa/compatibility/front_facing_capture.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/front_facing_capture.gd.uid": {
+      "target": "tools/qa/compatibility/front_facing_capture.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/front_facing_capture.gd"
+    },
+    "tools/front_facing_review.gd": {
+      "target": "tools/qa/compatibility/front_facing_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/front_facing_review.gd.uid": {
+      "target": "tools/qa/compatibility/front_facing_review.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/front_facing_review.gd"
+    },
+    "tools/furnace_capture.gd": {
+      "target": "tools/qa/compatibility/furnace_capture.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/furnace_capture.gd.uid": {
+      "target": "tools/qa/compatibility/furnace_capture.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/furnace_capture.gd"
+    },
+    "tools/furnace_review.gd": {
+      "target": "tools/qa/compatibility/furnace_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/furnace_review.gd.uid": {
+      "target": "tools/qa/compatibility/furnace_review.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/furnace_review.gd"
+    },
+    "tools/garden_board.gd": {
+      "target": "tools/qa/ground/garden_board.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/garden_board.gd.uid": {
+      "target": "tools/qa/ground/garden_board.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/garden_board.gd"
+    },
+    "tools/garden_capture.gd": {
+      "target": "tools/qa/ground/garden_capture.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/garden_capture.gd.uid": {
+      "target": "tools/qa/ground/garden_capture.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/garden_capture.gd"
+    },
+    "tools/garden_collect.py": {
+      "target": "tools/qa/ground/garden_collect.py",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/garden_import.gd": {
+      "target": "tools/qa/ground/garden_import.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/garden_import.gd.uid": {
+      "target": "tools/qa/ground/garden_import.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/garden_import.gd"
+    },
+    "tools/garden_review.gd": {
+      "target": "tools/qa/ground/garden_review.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/garden_review.gd.uid": {
+      "target": "tools/qa/ground/garden_review.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/garden_review.gd"
+    },
+    "tools/garden_verify.py": {
+      "target": "tools/qa/ground/garden_verify.py",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/generate_adaptive_hud_previews.gd": {
+      "target": "tools/qa/compatibility/generate_adaptive_hud_previews.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/generate_audio_assets.py": {
+      "target": "tools/assets/audio/generate_audio_assets.py",
+      "family": "assets-audio",
+      "action": "move"
+    },
+    "tools/generate_hero_pose_preview.gd": {
+      "target": "tools/qa/compatibility/generate_hero_pose_preview.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/generate_ui_layout_audit.gd": {
+      "target": "tools/qa/compatibility/generate_ui_layout_audit.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/geometry_benchmark.gd": {
+      "target": "tools/qa/performance/geometry_benchmark.gd",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/grandmother_animation_review.gd": {
+      "target": "tools/qa/compatibility/grandmother_animation_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/grass_compare/capture.gd": {
+      "target": "tools/qa/foliage/grass_compare/capture.gd",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/grass_compare/capture.gd.uid": {
+      "target": "tools/qa/foliage/grass_compare/capture.gd.uid",
+      "family": "foliage",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/grass_compare/capture.gd"
+    },
+    "tools/grass_compare/field.gd": {
+      "target": "tools/qa/foliage/grass_compare/field.gd",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/grass_compare/field.gd.uid": {
+      "target": "tools/qa/foliage/grass_compare/field.gd.uid",
+      "family": "foliage",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/grass_compare/field.gd"
+    },
+    "tools/grass_compare/mesh_data.gd": {
+      "target": "tools/qa/foliage/grass_compare/mesh_data.gd",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/grass_compare/mesh_data.gd.uid": {
+      "target": "tools/qa/foliage/grass_compare/mesh_data.gd.uid",
+      "family": "foliage",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/grass_compare/mesh_data.gd"
+    },
+    "tools/grass_compare/observer.gd": {
+      "target": "tools/qa/foliage/grass_compare/observer.gd",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/grass_compare/observer.gd.uid": {
+      "target": "tools/qa/foliage/grass_compare/observer.gd.uid",
+      "family": "foliage",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/grass_compare/observer.gd"
+    },
+    "tools/grass_compare/review.gd": {
+      "target": "tools/qa/foliage/grass_compare/review.gd",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/grass_compare/review.gd.uid": {
+      "target": "tools/qa/foliage/grass_compare/review.gd.uid",
+      "family": "foliage",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/grass_compare/review.gd"
+    },
+    "tools/grass_compare/wind.gdshader": {
+      "target": "tools/qa/foliage/grass_compare/wind.gdshader",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/grass_compare/wind.gdshader.uid": {
+      "target": "tools/qa/foliage/grass_compare/wind.gdshader.uid",
+      "family": "foliage",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/grass_compare/wind.gdshader"
+    },
+    "tools/grass_compare_collect.py": {
+      "target": "tools/qa/foliage/grass_compare_collect.py",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/grass_methods.py": {
+      "target": "tools/qa/foliage/grass_methods.py",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/ground_edge_board.gd": {
+      "target": "tools/qa/ground/ground_edge_board.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/ground_edge_board.gd.uid": {
+      "target": "tools/qa/ground/ground_edge_board.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/ground_edge_board.gd"
+    },
+    "tools/ground_edge_builder.gd": {
+      "target": "tools/qa/ground/ground_edge_builder.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/ground_edge_builder.gd.uid": {
+      "target": "tools/qa/ground/ground_edge_builder.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/ground_edge_builder.gd"
+    },
+    "tools/ground_edge_capture.gd": {
+      "target": "tools/qa/ground/ground_edge_capture.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/ground_edge_capture.gd.uid": {
+      "target": "tools/qa/ground/ground_edge_capture.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/ground_edge_capture.gd"
+    },
+    "tools/ground_edge_collect.py": {
+      "target": "tools/qa/ground/ground_edge_collect.py",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/ground_edge_compile.gd": {
+      "target": "tools/qa/ground/ground_edge_compile.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/ground_edge_compile.gd.uid": {
+      "target": "tools/qa/ground/ground_edge_compile.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/ground_edge_compile.gd"
+    },
+    "tools/ground_edge_field.gd": {
+      "target": "tools/qa/ground/ground_edge_field.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/ground_edge_field.gd.uid": {
+      "target": "tools/qa/ground/ground_edge_field.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/ground_edge_field.gd"
+    },
+    "tools/ground_edge_review.gd": {
+      "target": "tools/qa/ground/ground_edge_review.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/ground_edge_review.gd.uid": {
+      "target": "tools/qa/ground/ground_edge_review.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/ground_edge_review.gd"
+    },
+    "tools/ground_edge_verify.py": {
+      "target": "tools/qa/ground/ground_edge_verify.py",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/ground_layers.py": {
+      "target": "tools/qa/ground/ground_layers.py",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/ground_layers_capture.gd": {
+      "target": "tools/qa/ground/ground_layers_capture.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/ground_layers_capture.gd.uid": {
+      "target": "tools/qa/ground/ground_layers_capture.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/ground_layers_capture.gd"
+    },
+    "tools/ground_layers_review.gd": {
+      "target": "tools/qa/ground/ground_layers_review.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/ground_layers_review.gd.uid": {
+      "target": "tools/qa/ground/ground_layers_review.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/ground_layers_review.gd"
+    },
+    "tools/ground_seasons_capture.gd": {
+      "target": "tools/qa/ground/ground_seasons_capture.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/ground_seasons_capture.gd.uid": {
+      "target": "tools/qa/ground/ground_seasons_capture.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/ground_seasons_capture.gd"
+    },
+    "tools/ground_seasons_collect.py": {
+      "target": "tools/qa/ground/ground_seasons_collect.py",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/ground_seasons_fixture.gd": {
+      "target": "tools/qa/ground/ground_seasons_fixture.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/ground_seasons_fixture.gd.uid": {
+      "target": "tools/qa/ground/ground_seasons_fixture.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/ground_seasons_fixture.gd"
+    },
+    "tools/ground_seasons_review.gd": {
+      "target": "tools/qa/ground/ground_seasons_review.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/ground_seasons_review.gd.uid": {
+      "target": "tools/qa/ground/ground_seasons_review.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/ground_seasons_review.gd"
+    },
+    "tools/ground_seasons_verify.py": {
+      "target": "tools/qa/ground/ground_seasons_verify.py",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/held_weapon_capture.gd": {
+      "target": "tools/qa/compatibility/held_weapon_capture.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/held_weapon_capture.gd.uid": {
+      "target": "tools/qa/compatibility/held_weapon_capture.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/held_weapon_capture.gd"
+    },
+    "tools/held_weapon_review.gd": {
+      "target": "tools/qa/compatibility/held_weapon_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/held_weapon_review.gd.uid": {
+      "target": "tools/qa/compatibility/held_weapon_review.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/held_weapon_review.gd"
+    },
+    "tools/hero_actions_capture.gd": {
+      "target": "tools/qa/compatibility/hero_actions_capture.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/hero_actions_review.gd": {
+      "target": "tools/qa/compatibility/hero_actions_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/house_furniture_capture.gd": {
+      "target": "tools/qa/compatibility/house_furniture_capture.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/house_furniture_capture.gd.uid": {
+      "target": "tools/qa/compatibility/house_furniture_capture.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/house_furniture_capture.gd"
+    },
+    "tools/house_furniture_review.gd": {
+      "target": "tools/qa/compatibility/house_furniture_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/house_furniture_review.gd.uid": {
+      "target": "tools/qa/compatibility/house_furniture_review.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/house_furniture_review.gd"
+    },
+    "tools/import_pixabay_assets.py": {
+      "target": "tools/assets/audio/import_pixabay_assets.py",
+      "family": "assets-audio",
+      "action": "move"
+    },
+    "tools/inspector_benchmark.gd": {
+      "target": "tools/qa/performance/inspector_benchmark.gd",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/item_export_contract.gd": {
+      "target": "tools/assets/contracts/item_export_contract.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/item_export_contract.gd.uid": {
+      "target": "tools/assets/contracts/item_export_contract.gd.uid",
+      "family": "assets-contracts",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/item_export_contract.gd"
+    },
+    "tools/item_export_contract.py": {
+      "target": "tools/assets/contracts/item_export_contract.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/item_export_contract_review.gd": {
+      "target": "tools/assets/contracts/item_export_contract_review.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/item_export_contract_review.gd.uid": {
+      "target": "tools/assets/contracts/item_export_contract_review.gd.uid",
+      "family": "assets-contracts",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/item_export_contract_review.gd"
+    },
+    "tools/item_fingerprint_capture.gd": {
+      "target": "tools/assets/contracts/item_fingerprint_capture.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/item_fingerprint_capture.gd.uid": {
+      "target": "tools/assets/contracts/item_fingerprint_capture.gd.uid",
+      "family": "assets-contracts",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/item_fingerprint_capture.gd"
+    },
+    "tools/item_icon_contract_review.gd": {
+      "target": "tools/assets/contracts/item_icon_contract_review.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/item_icon_contract_review.gd.uid": {
+      "target": "tools/assets/contracts/item_icon_contract_review.gd.uid",
+      "family": "assets-contracts",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/item_icon_contract_review.gd"
+    },
+    "tools/item_sizes.py": {
+      "target": "tools/assets/contracts/item_sizes.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/item_sizes_capture.gd": {
+      "target": "tools/assets/contracts/item_sizes_capture.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/item_sizes_review.gd": {
+      "target": "tools/assets/contracts/item_sizes_review.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/item_ui_fitter.gd": {
+      "target": "tools/assets/contracts/item_ui_fitter.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/kitchen_capture.gd": {
+      "target": "tools/qa/compatibility/kitchen_capture.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/kitchen_capture.gd.uid": {
+      "target": "tools/qa/compatibility/kitchen_capture.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/kitchen_capture.gd"
+    },
+    "tools/kitchen_review.gd": {
+      "target": "tools/qa/compatibility/kitchen_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/kitchen_review.gd.uid": {
+      "target": "tools/qa/compatibility/kitchen_review.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/kitchen_review.gd"
+    },
+    "tools/lazy_item_icons_review.gd": {
+      "target": "tools/qa/compatibility/lazy_item_icons_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/lazy_item_icons_review.gd.uid": {
+      "target": "tools/qa/compatibility/lazy_item_icons_review.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/lazy_item_icons_review.gd"
+    },
+    "tools/lazy_item_storage_perf.gd": {
+      "target": "tools/qa/performance/lazy_item_storage_perf.gd",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/lazy_item_storage_perf.gd.uid": {
+      "target": "tools/qa/performance/lazy_item_storage_perf.gd.uid",
+      "family": "performance",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/lazy_item_storage_perf.gd"
+    },
+    "tools/livestock_review.gd": {
+      "target": "tools/qa/compatibility/livestock_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/meadow_board.gd": {
+      "target": "tools/qa/ground/meadow_board.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/meadow_board.gd.uid": {
+      "target": "tools/qa/ground/meadow_board.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/meadow_board.gd"
+    },
+    "tools/meadow_capture.gd": {
+      "target": "tools/qa/ground/meadow_capture.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/meadow_capture.gd.uid": {
+      "target": "tools/qa/ground/meadow_capture.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/meadow_capture.gd"
+    },
+    "tools/meadow_collect.py": {
+      "target": "tools/qa/ground/meadow_collect.py",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/meadow_import.gd": {
+      "target": "tools/qa/ground/meadow_import.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/meadow_import.gd.uid": {
+      "target": "tools/qa/ground/meadow_import.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/meadow_import.gd"
+    },
+    "tools/meadow_review.gd": {
+      "target": "tools/qa/ground/meadow_review.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/meadow_review.gd.uid": {
+      "target": "tools/qa/ground/meadow_review.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/meadow_review.gd"
+    },
+    "tools/meadow_verify.py": {
+      "target": "tools/qa/ground/meadow_verify.py",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/measure_character_walk.py": {
+      "target": "tools/assets/authoring/measure_character_walk.py",
+      "family": "assets-authoring",
+      "action": "move"
+    },
+    "tools/measure_hero_actions.py": {
+      "target": "tools/assets/authoring/measure_hero_actions.py",
+      "family": "assets-authoring",
+      "action": "move"
+    },
+    "tools/measure_skeleton_regions.py": {
+      "target": "tools/assets/authoring/measure_skeleton_regions.py",
+      "family": "assets-authoring",
+      "action": "move"
+    },
+    "tools/migration_capture.gd": {
+      "target": "tools/assets/migration/migration_capture.gd",
+      "family": "assets-migration",
+      "action": "move"
+    },
+    "tools/migration_fixture.py": {
+      "target": "tools/assets/migration/migration_fixture.py",
+      "family": "assets-migration",
+      "action": "move"
+    },
+    "tools/migration_inventory.py": {
+      "target": "tools/assets/migration/migration_inventory.py",
+      "family": "assets-migration",
+      "action": "move"
+    },
+    "tools/migration_proof.py": {
+      "target": "tools/assets/migration/migration_proof.py",
+      "family": "assets-migration",
+      "action": "move"
+    },
+    "tools/object_command_canvas.gd": {
+      "target": "tools/qa/world/object_command_canvas.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/object_command_canvas.gd.uid": {
+      "target": "tools/qa/world/object_command_canvas.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/object_command_canvas.gd"
+    },
+    "tools/object_command_capture.gd": {
+      "target": "tools/qa/world/object_command_capture.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/object_command_capture.gd.uid": {
+      "target": "tools/qa/world/object_command_capture.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/object_command_capture.gd"
+    },
+    "tools/object_command_collect.py": {
+      "target": "tools/qa/world/object_command_collect.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/object_command_review.gd": {
+      "target": "tools/qa/world/object_command_review.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/object_command_review.gd.uid": {
+      "target": "tools/qa/world/object_command_review.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/object_command_review.gd"
+    },
+    "tools/object_command_verify.py": {
+      "target": "tools/qa/world/object_command_verify.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/optimization_asset_audit.py": {
+      "target": "tools/qa/performance/optimization_asset_audit.py",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/optimization_audit_boss.gd": {
+      "target": "tools/qa/performance/optimization_audit_boss.gd",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/optimization_audit_boss.gd.uid": {
+      "target": "tools/qa/performance/optimization_audit_boss.gd.uid",
+      "family": "performance",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/optimization_audit_boss.gd"
+    },
+    "tools/optimization_audit_route.gd": {
+      "target": "tools/qa/performance/optimization_audit_route.gd",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/optimization_audit_route.gd.uid": {
+      "target": "tools/qa/performance/optimization_audit_route.gd.uid",
+      "family": "performance",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/optimization_audit_route.gd"
+    },
+    "tools/optimization_audit_sweep.gd": {
+      "target": "tools/qa/performance/optimization_audit_sweep.gd",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/optimization_audit_sweep.gd.uid": {
+      "target": "tools/qa/performance/optimization_audit_sweep.gd.uid",
+      "family": "performance",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/optimization_audit_sweep.gd"
+    },
+    "tools/padded_atlas_capture.gd": {
+      "target": "tools/assets/contracts/padded_atlas_capture.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/padded_atlas_review.gd": {
+      "target": "tools/assets/contracts/padded_atlas_review.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/padded_atlases.py": {
+      "target": "tools/assets/contracts/padded_atlases.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/paper_theme_capture.gd": {
+      "target": "tools/qa/compatibility/paper_theme_capture.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/paper_theme_capture.gd.uid": {
+      "target": "tools/qa/compatibility/paper_theme_capture.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/paper_theme_capture.gd"
+    },
+    "tools/paper_theme_reference_capture.gd": {
+      "target": "tools/qa/compatibility/paper_theme_reference_capture.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/paper_theme_reference_capture.gd.uid": {
+      "target": "tools/qa/compatibility/paper_theme_reference_capture.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/paper_theme_reference_capture.gd"
+    },
+    "tools/paper_theme_review.gd": {
+      "target": "tools/qa/compatibility/paper_theme_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/paper_theme_review.gd.uid": {
+      "target": "tools/qa/compatibility/paper_theme_review.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/paper_theme_review.gd"
+    },
+    "tools/perf_contract.py": {
+      "target": "tools/qa/performance/perf_contract.py",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/perf_contract_capture.gd": {
+      "target": "tools/qa/performance/perf_contract_capture.gd",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/perf_contract_capture.gd.uid": {
+      "target": "tools/qa/performance/perf_contract_capture.gd.uid",
+      "family": "performance",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/perf_contract_capture.gd"
+    },
+    "tools/perf_contract_collect.py": {
+      "target": "tools/qa/performance/perf_contract_collect.py",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/performance_gate.py": {
+      "target": "tools/qa/performance/performance_gate.py",
+      "family": "performance",
+      "action": "move_implementation_keep_public_facade",
+      "public_entry": "tools/performance_gate.py",
+      "exception_reason": "Frozen исполняемый redraw_compare.py:22 импортирует performance_gate после ROOT/tools и присваивает gate.SAMPLER:81. Один import/CLI facade обязан сохранять идентичность модуля, API и перенаправление mutable globals; реализация в qa/performance."
+    },
+    "tools/performance_gate.sh": {
+      "target": "tools/qa/performance/performance_gate.sh",
+      "family": "performance",
+      "action": "move_implementation_keep_public_facade",
+      "public_entry": "tools/performance_gate.sh",
+      "exception_reason": "Публичный CPU gate Actions; окружение и коды отказа сохраняются."
+    },
+    "tools/performance_protocol.py": {
+      "target": "tools/qa/performance/performance_protocol.py",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/performance_sampler.gd": {
+      "target": "tools/performance_sampler.gd",
+      "family": "performance",
+      "action": "retain_protected_anchor",
+      "exception_reason": "Frozen causal/redraw instrumentation actively reads this exact sampler path; preserve its source and UID."
+    },
+    "tools/performance_sampler.gd.uid": {
+      "target": "tools/performance_sampler.gd.uid",
+      "family": "performance",
+      "action": "retain_uid_with_anchor",
+      "paired_source": "tools/performance_sampler.gd"
+    },
+    "tools/pilot_pass_capture.gd": {
+      "target": "tools/qa/world/pilot_pass_capture.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/pilot_pass_capture.gd.uid": {
+      "target": "tools/qa/world/pilot_pass_capture.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/pilot_pass_capture.gd"
+    },
+    "tools/pilot_pass_collect.py": {
+      "target": "tools/qa/world/pilot_pass_collect.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/pilot_pass_game.gd": {
+      "target": "tools/qa/world/pilot_pass_game.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/pilot_pass_game.gd.uid": {
+      "target": "tools/qa/world/pilot_pass_game.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/pilot_pass_game.gd"
+    },
+    "tools/pilot_pass_review.gd": {
+      "target": "tools/qa/world/pilot_pass_review.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/pilot_pass_review.gd.uid": {
+      "target": "tools/qa/world/pilot_pass_review.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/pilot_pass_review.gd"
+    },
+    "tools/pilot_pass_verify.py": {
+      "target": "tools/qa/world/pilot_pass_verify.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/pilot_rollout.py": {
+      "target": "tools/planning/pilot_rollout.py",
+      "family": "planning",
+      "action": "move"
+    },
+    "tools/pilot_static_audit.py": {
+      "target": "tools/qa/world/pilot_static_audit.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/pilot_static_capture.gd": {
+      "target": "tools/qa/world/pilot_static_capture.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/pilot_static_capture.gd.uid": {
+      "target": "tools/qa/world/pilot_static_capture.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/pilot_static_capture.gd"
+    },
+    "tools/pilot_static_collect.py": {
+      "target": "tools/qa/world/pilot_static_collect.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/pilot_static_scene.gd": {
+      "target": "tools/qa/world/pilot_static_scene.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/pilot_static_scene.gd.uid": {
+      "target": "tools/qa/world/pilot_static_scene.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/pilot_static_scene.gd"
+    },
+    "tools/pilot_static_verify.py": {
+      "target": "tools/qa/world/pilot_static_verify.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/plant_depth_capture.gd": {
+      "target": "tools/qa/foliage/plant_depth_capture.gd",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/plant_depth_capture.gd.uid": {
+      "target": "tools/qa/foliage/plant_depth_capture.gd.uid",
+      "family": "foliage",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/plant_depth_capture.gd"
+    },
+    "tools/plant_depth_collect.py": {
+      "target": "tools/qa/foliage/plant_depth_collect.py",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/plant_depth_game.gd": {
+      "target": "tools/qa/foliage/plant_depth_game.gd",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/plant_depth_game.gd.uid": {
+      "target": "tools/qa/foliage/plant_depth_game.gd.uid",
+      "family": "foliage",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/plant_depth_game.gd"
+    },
+    "tools/plant_depth_review.gd": {
+      "target": "tools/qa/foliage/plant_depth_review.gd",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/plant_depth_review.gd.uid": {
+      "target": "tools/qa/foliage/plant_depth_review.gd.uid",
+      "family": "foliage",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/plant_depth_review.gd"
+    },
+    "tools/plant_depth_verify.py": {
+      "target": "tools/qa/foliage/plant_depth_verify.py",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/player_contact_capture.gd": {
+      "target": "tools/qa/compatibility/player_contact_capture.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/player_contact_review.gd": {
+      "target": "tools/qa/compatibility/player_contact_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/plaza_board.gd": {
+      "target": "tools/qa/ground/plaza_board.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/plaza_board.gd.uid": {
+      "target": "tools/qa/ground/plaza_board.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/plaza_board.gd"
+    },
+    "tools/plaza_builder.gd": {
+      "target": "tools/qa/ground/plaza_builder.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/plaza_builder.gd.uid": {
+      "target": "tools/qa/ground/plaza_builder.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/plaza_builder.gd"
+    },
+    "tools/plaza_capture.gd": {
+      "target": "tools/qa/ground/plaza_capture.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/plaza_capture.gd.uid": {
+      "target": "tools/qa/ground/plaza_capture.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/plaza_capture.gd"
+    },
+    "tools/plaza_collect.py": {
+      "target": "tools/qa/ground/plaza_collect.py",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/plaza_compile.gd": {
+      "target": "tools/qa/ground/plaza_compile.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/plaza_compile.gd.uid": {
+      "target": "tools/qa/ground/plaza_compile.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/plaza_compile.gd"
+    },
+    "tools/plaza_field.gd": {
+      "target": "tools/qa/ground/plaza_field.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/plaza_field.gd.uid": {
+      "target": "tools/qa/ground/plaza_field.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/plaza_field.gd"
+    },
+    "tools/plaza_import.gd": {
+      "target": "tools/qa/ground/plaza_import.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/plaza_import.gd.uid": {
+      "target": "tools/qa/ground/plaza_import.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/plaza_import.gd"
+    },
+    "tools/plaza_review.gd": {
+      "target": "tools/qa/ground/plaza_review.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/plaza_review.gd.uid": {
+      "target": "tools/qa/ground/plaza_review.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/plaza_review.gd"
+    },
+    "tools/plaza_verify.py": {
+      "target": "tools/qa/ground/plaza_verify.py",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/pose_video_frames.swift": {
+      "target": "tools/qa/camera/pose_video_frames.swift",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/pose_video_strip.py": {
+      "target": "tools/qa/camera/pose_video_strip.py",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/post_motion_capture.gd": {
+      "target": "tools/qa/world/post_motion_capture.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/post_motion_capture.gd.uid": {
+      "target": "tools/qa/world/post_motion_capture.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/post_motion_capture.gd"
+    },
+    "tools/post_motion_collect.py": {
+      "target": "tools/qa/world/post_motion_collect.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/post_motion_game.gd": {
+      "target": "tools/qa/world/post_motion_game.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/post_motion_game.gd.uid": {
+      "target": "tools/qa/world/post_motion_game.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/post_motion_game.gd"
+    },
+    "tools/post_motion_review.gd": {
+      "target": "tools/qa/world/post_motion_review.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/post_motion_review.gd.uid": {
+      "target": "tools/qa/world/post_motion_review.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/post_motion_review.gd"
+    },
+    "tools/post_motion_verify.py": {
+      "target": "tools/qa/world/post_motion_verify.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/prepare_celestial_dial.gd": {
+      "target": "tools/assets/authoring/prepare_celestial_dial.gd",
+      "family": "assets-authoring",
+      "action": "move"
+    },
+    "tools/prepare_character_walk.gd": {
+      "target": "tools/assets/authoring/prepare_character_walk.gd",
+      "family": "assets-authoring",
+      "action": "move"
+    },
+    "tools/prepare_hero_actions.gd": {
+      "target": "tools/assets/authoring/prepare_hero_actions.gd",
+      "family": "assets-authoring",
+      "action": "move"
+    },
+    "tools/prepare_skeleton_v2.gd": {
+      "target": "tools/assets/authoring/prepare_skeleton_v2.gd",
+      "family": "assets-authoring",
+      "action": "move"
+    },
+    "tools/prepared_pixels_review.gd": {
+      "target": "tools/qa/compatibility/prepared_pixels_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/prepared_pixels_review.gd.uid": {
+      "target": "tools/qa/compatibility/prepared_pixels_review.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/prepared_pixels_review.gd"
+    },
+    "tools/presentation_pose.py": {
+      "target": "tools/qa/camera/presentation_pose.py",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/presentation_pose_capture.gd": {
+      "target": "tools/qa/camera/presentation_pose_capture.gd",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/presentation_pose_live.gd": {
+      "target": "tools/qa/camera/presentation_pose_live.gd",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/presentation_pose_review.gd": {
+      "target": "tools/qa/camera/presentation_pose_review.gd",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/preview_portability.py": {
+      "target": "tools/assets/contracts/preview_portability.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/preview_portability_capture.gd": {
+      "target": "tools/assets/contracts/preview_portability_capture.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/preview_portability_capture.gd.uid": {
+      "target": "tools/assets/contracts/preview_portability_capture.gd.uid",
+      "family": "assets-contracts",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/preview_portability_capture.gd"
+    },
+    "tools/project_backlog.py": {
+      "target": "tools/planning/project_backlog.py",
+      "family": "planning",
+      "action": "move"
+    },
+    "tools/prop_edges_capture.gd": {
+      "target": "tools/qa/compatibility/prop_edges_capture.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/qa_teleport_capture.gd": {
+      "target": "tools/qa/compatibility/qa_teleport_capture.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/qa_teleport_capture.gd.uid": {
+      "target": "tools/qa/compatibility/qa_teleport_capture.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/qa_teleport_capture.gd"
+    },
+    "tools/qa_teleport_review.gd": {
+      "target": "tools/qa/compatibility/qa_teleport_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/qa_teleport_review.gd.uid": {
+      "target": "tools/qa/compatibility/qa_teleport_review.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/qa_teleport_review.gd"
+    },
+    "tools/ranged_combat_capture.gd": {
+      "target": "tools/qa/compatibility/ranged_combat_capture.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/ranged_combat_review.gd": {
+      "target": "tools/qa/compatibility/ranged_combat_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/recovery_capture.gd": {
+      "target": "tools/qa/compatibility/recovery_capture.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/recovery_capture.gd.uid": {
+      "target": "tools/qa/compatibility/recovery_capture.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/recovery_capture.gd"
+    },
+    "tools/recovery_review.gd": {
+      "target": "tools/qa/compatibility/recovery_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/recovery_review.gd.uid": {
+      "target": "tools/qa/compatibility/recovery_review.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/recovery_review.gd"
+    },
+    "tools/redraw_frame_review.gd": {
+      "target": "tools/qa/performance/redraw_frame_review.gd",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/redraw_frame_review.gd.uid": {
+      "target": "tools/qa/performance/redraw_frame_review.gd.uid",
+      "family": "performance",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/redraw_frame_review.gd"
+    },
+    "tools/reference_zoom.py": {
+      "target": "tools/qa/camera/reference_zoom.py",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/reference_zoom_capture.gd": {
+      "target": "tools/qa/camera/reference_zoom_capture.gd",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/reference_zoom_live.gd": {
+      "target": "tools/qa/camera/reference_zoom_live.gd",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/reference_zoom_perf.py": {
+      "target": "tools/qa/camera/reference_zoom_perf.py",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/reference_zoom_review.gd": {
+      "target": "tools/qa/camera/reference_zoom_review.gd",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/render_order.py": {
+      "target": "tools/qa/world/render_order.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/render_order_capture.gd": {
+      "target": "tools/qa/world/render_order_capture.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/render_order_capture.gd.uid": {
+      "target": "tools/qa/world/render_order_capture.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/render_order_capture.gd"
+    },
+    "tools/render_order_game.gd": {
+      "target": "tools/qa/world/render_order_game.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/render_order_game.gd.uid": {
+      "target": "tools/qa/world/render_order_game.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/render_order_game.gd"
+    },
+    "tools/research_capture.gd": {
+      "target": "tools/qa/compatibility/research_capture.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/research_capture.gd.uid": {
+      "target": "tools/qa/compatibility/research_capture.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/research_capture.gd"
+    },
+    "tools/research_catalog_export.gd": {
+      "target": "tools/qa/compatibility/research_catalog_export.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/research_catalog_export.gd.uid": {
+      "target": "tools/qa/compatibility/research_catalog_export.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/research_catalog_export.gd"
+    },
+    "tools/research_review.gd": {
+      "target": "tools/qa/compatibility/research_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/research_review.gd.uid": {
+      "target": "tools/qa/compatibility/research_review.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/research_review.gd"
+    },
+    "tools/resident_review.gd": {
+      "target": "tools/qa/compatibility/resident_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/road_network_board.gd": {
+      "target": "tools/qa/ground/road_network_board.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/road_network_board.gd.uid": {
+      "target": "tools/qa/ground/road_network_board.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/road_network_board.gd"
+    },
+    "tools/road_network_builder.gd": {
+      "target": "tools/qa/ground/road_network_builder.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/road_network_builder.gd.uid": {
+      "target": "tools/qa/ground/road_network_builder.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/road_network_builder.gd"
+    },
+    "tools/road_network_capture.gd": {
+      "target": "tools/qa/ground/road_network_capture.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/road_network_capture.gd.uid": {
+      "target": "tools/qa/ground/road_network_capture.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/road_network_capture.gd"
+    },
+    "tools/road_network_collect.py": {
+      "target": "tools/qa/ground/road_network_collect.py",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/road_network_compile.gd": {
+      "target": "tools/qa/ground/road_network_compile.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/road_network_compile.gd.uid": {
+      "target": "tools/qa/ground/road_network_compile.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/road_network_compile.gd"
+    },
+    "tools/road_network_review.gd": {
+      "target": "tools/qa/ground/road_network_review.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/road_network_review.gd.uid": {
+      "target": "tools/qa/ground/road_network_review.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/road_network_review.gd"
+    },
+    "tools/road_network_verify.py": {
+      "target": "tools/qa/ground/road_network_verify.py",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/run_visual_baseline.py": {
+      "target": "tools/qa/camera/run_visual_baseline.py",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/runtime_cleanup_review.gd": {
+      "target": "tools/qa/performance/runtime_cleanup_review.gd",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/runtime_cleanup_review.gd.uid": {
+      "target": "tools/qa/performance/runtime_cleanup_review.gd.uid",
+      "family": "performance",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/runtime_cleanup_review.gd"
+    },
+    "tools/runtime_cleanup_soak.gd": {
+      "target": "tools/qa/performance/runtime_cleanup_soak.gd",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/runtime_cleanup_soak.gd.uid": {
+      "target": "tools/qa/performance/runtime_cleanup_soak.gd.uid",
+      "family": "performance",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/runtime_cleanup_soak.gd"
+    },
+    "tools/runtime_comfort_review.gd": {
+      "target": "tools/qa/compatibility/runtime_comfort_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/runtime_frame_review.gd": {
+      "target": "tools/qa/performance/runtime_frame_review.gd",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/runtime_maintenance_tests.gd": {
+      "target": "tools/qa/compatibility/runtime_maintenance_tests.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/runtime_maintenance_tests.gd.uid": {
+      "target": "tools/qa/compatibility/runtime_maintenance_tests.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/runtime_maintenance_tests.gd"
+    },
+    "tools/safe_review.gd": {
+      "target": "tools/qa/compatibility/safe_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/safe_review.gd.uid": {
+      "target": "tools/qa/compatibility/safe_review.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/safe_review.gd"
+    },
+    "tools/save_crash_worker.gd": {
+      "target": "tools/qa/performance/save_crash_worker.gd",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/save_crash_worker.gd.uid": {
+      "target": "tools/qa/performance/save_crash_worker.gd.uid",
+      "family": "performance",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/save_crash_worker.gd"
+    },
+    "tools/shadow_inventory.py": {
+      "target": "tools/qa/world/shadow_inventory.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/shadow_inventory_canvas.gd": {
+      "target": "tools/qa/world/shadow_inventory_canvas.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/shadow_inventory_canvas.gd.uid": {
+      "target": "tools/qa/world/shadow_inventory_canvas.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/shadow_inventory_canvas.gd"
+    },
+    "tools/shadow_inventory_capture.gd": {
+      "target": "tools/qa/world/shadow_inventory_capture.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/shadow_inventory_capture.gd.uid": {
+      "target": "tools/qa/world/shadow_inventory_capture.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/shadow_inventory_capture.gd"
+    },
+    "tools/shadow_inventory_collect.py": {
+      "target": "tools/qa/world/shadow_inventory_collect.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/shadow_inventory_verify.py": {
+      "target": "tools/qa/world/shadow_inventory_verify.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/shore_kit.py": {
+      "target": "tools/qa/world/shore_kit.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/shore_kit_canvas.gd": {
+      "target": "tools/qa/world/shore_kit_canvas.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/shore_kit_capture.gd": {
+      "target": "tools/qa/world/shore_kit_capture.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/shore_kit_review.gd": {
+      "target": "tools/qa/world/shore_kit_review.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/skeleton_aim_capture.gd": {
+      "target": "tools/qa/compatibility/skeleton_aim_capture.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/skeleton_aim_capture.gd.uid": {
+      "target": "tools/qa/compatibility/skeleton_aim_capture.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/skeleton_aim_capture.gd"
+    },
+    "tools/slice_audit.py": {
+      "target": "tools/assets/slicing/slice_audit.py",
+      "family": "assets-slicing",
+      "action": "move"
+    },
+    "tools/slice_capture.gd": {
+      "target": "tools/assets/slicing/slice_capture.gd",
+      "family": "assets-slicing",
+      "action": "move"
+    },
+    "tools/slice_catalogs.gd": {
+      "target": "tools/assets/slicing/slice_catalogs.gd",
+      "family": "assets-slicing",
+      "action": "move"
+    },
+    "tools/slice_export.gd": {
+      "target": "tools/assets/slicing/slice_export.gd",
+      "family": "assets-slicing",
+      "action": "move"
+    },
+    "tools/slice_item_icons.py": {
+      "target": "tools/assets/authoring/slice_item_icons.py",
+      "family": "assets-authoring",
+      "action": "move"
+    },
+    "tools/slice_legacy_capture.gd": {
+      "target": "tools/assets/slicing/slice_legacy_capture.gd",
+      "family": "assets-slicing",
+      "action": "move"
+    },
+    "tools/slice_metrics.py": {
+      "target": "tools/assets/slicing/slice_metrics.py",
+      "family": "assets-slicing",
+      "action": "move"
+    },
+    "tools/slice_policy.json": {
+      "target": "tools/assets/slicing/slice_policy.json",
+      "family": "assets-slicing",
+      "action": "move"
+    },
+    "tools/slice_proof.py": {
+      "target": "tools/assets/slicing/slice_proof.py",
+      "family": "assets-slicing",
+      "action": "move"
+    },
+    "tools/slice_review.gd": {
+      "target": "tools/assets/slicing/slice_review.gd",
+      "family": "assets-slicing",
+      "action": "move"
+    },
+    "tools/smoke_test.sh": {
+      "target": "tools/qa/performance/smoke_test.sh",
+      "family": "performance",
+      "action": "move_implementation_keep_public_facade",
+      "public_entry": "tools/smoke_test.sh",
+      "exception_reason": "Публичный smoke-вход Actions; прежний CLI и 180 кадров сохраняются."
+    },
+    "tools/sprite_usage_review.gd": {
+      "target": "tools/assets/contracts/sprite_usage_review.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/sprite_usage_review.gd.uid": {
+      "target": "tools/assets/contracts/sprite_usage_review.gd.uid",
+      "family": "assets-contracts",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/sprite_usage_review.gd"
+    },
+    "tools/startup_review.gd": {
+      "target": "tools/qa/compatibility/startup_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/startup_review.gd.uid": {
+      "target": "tools/qa/compatibility/startup_review.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/startup_review.gd"
+    },
+    "tools/storage_actions_capture.gd": {
+      "target": "tools/qa/compatibility/storage_actions_capture.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/storage_actions_capture.gd.uid": {
+      "target": "tools/qa/compatibility/storage_actions_capture.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/storage_actions_capture.gd"
+    },
+    "tools/storage_perf_game.gd": {
+      "target": "tools/qa/performance/storage_perf_game.gd",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/storage_perf_game.gd.uid": {
+      "target": "tools/qa/performance/storage_perf_game.gd.uid",
+      "family": "performance",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/storage_perf_game.gd"
+    },
+    "tools/storage_perf_review.gd": {
+      "target": "tools/qa/performance/storage_perf_review.gd",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/storage_perf_review.gd.uid": {
+      "target": "tools/qa/performance/storage_perf_review.gd.uid",
+      "family": "performance",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/storage_perf_review.gd"
+    },
+    "tools/storage_window_capture.gd": {
+      "target": "tools/qa/compatibility/storage_window_capture.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/storage_window_capture.gd.uid": {
+      "target": "tools/qa/compatibility/storage_window_capture.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/storage_window_capture.gd"
+    },
+    "tools/task_batch.py": {
+      "target": "tools/planning/task_batch.py",
+      "family": "planning",
+      "action": "move_implementation_keep_public_facade",
+      "public_entry": "tools/task_batch.py",
+      "exception_reason": "Публичный status CLI post-commit; publish остаётся историческим, не маршрутом PR."
+    },
+    "tools/terrain_cache_review.gd": {
+      "target": "tools/qa/compatibility/terrain_cache_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/terrain_revision_capture.gd": {
+      "target": "tools/qa/ground/terrain_revision_capture.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/terrain_revision_capture.gd.uid": {
+      "target": "tools/qa/ground/terrain_revision_capture.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/terrain_revision_capture.gd"
+    },
+    "tools/terrain_revision_collect.py": {
+      "target": "tools/qa/ground/terrain_revision_collect.py",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/terrain_revision_review.gd": {
+      "target": "tools/qa/ground/terrain_revision_review.gd",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/terrain_revision_review.gd.uid": {
+      "target": "tools/qa/ground/terrain_revision_review.gd.uid",
+      "family": "ground",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/terrain_revision_review.gd"
+    },
+    "tools/terrain_revision_verify.py": {
+      "target": "tools/qa/ground/terrain_revision_verify.py",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/test_alpha_audit.py": {
+      "target": "tools/assets/alpha/test_alpha_audit.py",
+      "family": "assets-alpha",
+      "action": "move"
+    },
+    "tools/test_alpha_proof.py": {
+      "target": "tools/assets/alpha/test_alpha_proof.py",
+      "family": "assets-alpha",
+      "action": "move"
+    },
+    "tools/test_art_review.py": {
+      "target": "tools/dev/art_review/test_art_review.py",
+      "family": "art-review",
+      "action": "move"
+    },
+    "tools/test_artist_packet.py": {
+      "target": "tools/build/test_artist_packet.py",
+      "family": "build",
+      "action": "move"
+    },
+    "tools/test_asset_migration.py": {
+      "target": "tools/assets/migration/test_asset_migration.py",
+      "family": "assets-migration",
+      "action": "move"
+    },
+    "tools/test_asset_pack_proof.py": {
+      "target": "tools/build/test_asset_pack_proof.py",
+      "family": "build",
+      "action": "move"
+    },
+    "tools/test_asset_report.py": {
+      "target": "tools/assets/contracts/test_asset_report.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/test_axial_road.py": {
+      "target": "tools/qa/ground/test_axial_road.py",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/test_camera_quantization.py": {
+      "target": "tools/qa/camera/test_camera_quantization.py",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/test_decoration_rules.py": {
+      "target": "tools/qa/ground/test_decoration_rules.py",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/test_documentation.py": {
+      "target": "tools/quality/test_documentation.py",
+      "family": "quality",
+      "action": "move"
+    },
+    "tools/test_foliage_contact.py": {
+      "target": "tools/qa/foliage/test_foliage_contact.py",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/test_foliage_pause.py": {
+      "target": "tools/qa/foliage/test_foliage_pause.py",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/test_foliage_recovery.py": {
+      "target": "tools/qa/foliage/test_foliage_recovery.py",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/test_foliage_root.py": {
+      "target": "tools/qa/foliage/test_foliage_root.py",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/test_foliage_speed.py": {
+      "target": "tools/qa/foliage/test_foliage_speed.py",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/test_foliage_uv.py": {
+      "target": "tools/qa/foliage/test_foliage_uv.py",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/test_foliage_visibility.py": {
+      "target": "tools/qa/foliage/test_foliage_visibility.py",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/test_foliage_wind.py": {
+      "target": "tools/qa/foliage/test_foliage_wind.py",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/test_garden_soil.py": {
+      "target": "tools/qa/ground/test_garden_soil.py",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/test_grass_methods.py": {
+      "target": "tools/qa/foliage/test_grass_methods.py",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/test_ground_edge.py": {
+      "target": "tools/qa/ground/test_ground_edge.py",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/test_ground_layers.py": {
+      "target": "tools/qa/ground/test_ground_layers.py",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/test_ground_seasons.py": {
+      "target": "tools/qa/ground/test_ground_seasons.py",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/test_item_export_contract.py": {
+      "target": "tools/assets/contracts/test_item_export_contract.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/test_item_sizes.py": {
+      "target": "tools/assets/contracts/test_item_sizes.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/test_meadow_ground.py": {
+      "target": "tools/qa/ground/test_meadow_ground.py",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/test_migration_proof.py": {
+      "target": "tools/assets/migration/test_migration_proof.py",
+      "family": "assets-migration",
+      "action": "move"
+    },
+    "tools/test_object_command.py": {
+      "target": "tools/qa/world/test_object_command.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/test_optimization_audit.py": {
+      "target": "tools/qa/performance/test_optimization_audit.py",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/test_padded_atlases.py": {
+      "target": "tools/assets/contracts/test_padded_atlases.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/test_perf_contract.py": {
+      "target": "tools/qa/performance/test_perf_contract.py",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/test_performance_gate.py": {
+      "target": "tools/qa/performance/test_performance_gate.py",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/test_pilot_pass.py": {
+      "target": "tools/qa/world/test_pilot_pass.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/test_pilot_rollout.py": {
+      "target": "tools/planning/test_pilot_rollout.py",
+      "family": "planning",
+      "action": "move"
+    },
+    "tools/test_pilot_static.py": {
+      "target": "tools/qa/world/test_pilot_static.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/test_plant_depth.py": {
+      "target": "tools/qa/foliage/test_plant_depth.py",
+      "family": "foliage",
+      "action": "move"
+    },
+    "tools/test_plaza_ground.py": {
+      "target": "tools/qa/ground/test_plaza_ground.py",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/test_post_motion.py": {
+      "target": "tools/qa/world/test_post_motion.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/test_presentation_pose.py": {
+      "target": "tools/qa/camera/test_presentation_pose.py",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/test_preview_portability.py": {
+      "target": "tools/assets/contracts/test_preview_portability.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/test_project_backlog.py": {
+      "target": "tools/planning/test_project_backlog.py",
+      "family": "planning",
+      "action": "move"
+    },
+    "tools/test_redraw_output.py": {
+      "target": "tools/qa/performance/test_redraw_output.py",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/test_reference_zoom.py": {
+      "target": "tools/qa/camera/test_reference_zoom.py",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/test_render_order.py": {
+      "target": "tools/qa/world/test_render_order.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/test_road_network.py": {
+      "target": "tools/qa/ground/test_road_network.py",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/test_shadow_inventory.py": {
+      "target": "tools/qa/world/test_shadow_inventory.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/test_shore_kit.py": {
+      "target": "tools/qa/world/test_shore_kit.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/test_slice_audit.py": {
+      "target": "tools/assets/slicing/test_slice_audit.py",
+      "family": "assets-slicing",
+      "action": "move"
+    },
+    "tools/test_slice_proof.py": {
+      "target": "tools/assets/slicing/test_slice_proof.py",
+      "family": "assets-slicing",
+      "action": "move"
+    },
+    "tools/test_sprite_cleanup.py": {
+      "target": "tools/assets/contracts/test_sprite_cleanup.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/test_storage_perf.py": {
+      "target": "tools/qa/performance/test_storage_perf.py",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/test_task_batch.py": {
+      "target": "tools/planning/test_task_batch.py",
+      "family": "planning",
+      "action": "move"
+    },
+    "tools/test_terrain_revision.py": {
+      "target": "tools/qa/ground/test_terrain_revision.py",
+      "family": "ground",
+      "action": "move"
+    },
+    "tools/test_texture_intents.py": {
+      "target": "tools/assets/contracts/test_texture_intents.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/test_transient_save.py": {
+      "target": "tools/qa/world/test_transient_save.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/test_village_bench.py": {
+      "target": "tools/qa/world/test_village_bench.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/test_village_board.py": {
+      "target": "tools/qa/world/test_village_board.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/test_village_fence.py": {
+      "target": "tools/qa/world/test_village_fence.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/test_village_lamp.py": {
+      "target": "tools/qa/world/test_village_lamp.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/test_village_street.py": {
+      "target": "tools/qa/world/test_village_street.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/test_village_trade.py": {
+      "target": "tools/qa/world/test_village_trade.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/test_visual_backlog.py": {
+      "target": "tools/planning/test_visual_backlog.py",
+      "family": "planning",
+      "action": "move"
+    },
+    "tools/test_visual_baseline.py": {
+      "target": "tools/qa/camera/test_visual_baseline.py",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/test_visual_camera.py": {
+      "target": "tools/qa/camera/test_visual_camera.py",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/test_visual_coordinates.py": {
+      "target": "tools/qa/camera/test_visual_coordinates.py",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/test_visual_density.py": {
+      "target": "tools/qa/art/test_visual_density.py",
+      "family": "art-standard",
+      "action": "move"
+    },
+    "tools/test_visual_edges.py": {
+      "target": "tools/qa/art/test_visual_edges.py",
+      "family": "art-standard",
+      "action": "move"
+    },
+    "tools/test_visual_hardware.py": {
+      "target": "tools/qa/camera/test_visual_hardware.py",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/test_visual_icons.py": {
+      "target": "tools/assets/contracts/test_visual_icons.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/test_visual_light.py": {
+      "target": "tools/qa/art/test_visual_light.py",
+      "family": "art-standard",
+      "action": "move"
+    },
+    "tools/test_visual_modules.py": {
+      "target": "tools/qa/art/test_visual_modules.py",
+      "family": "art-standard",
+      "action": "move"
+    },
+    "tools/test_visual_motion.py": {
+      "target": "tools/qa/camera/test_visual_motion.py",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/test_visual_palette.py": {
+      "target": "tools/qa/art/test_visual_palette.py",
+      "family": "art-standard",
+      "action": "move"
+    },
+    "tools/test_visual_perspective.py": {
+      "target": "tools/qa/art/test_visual_perspective.py",
+      "family": "art-standard",
+      "action": "move"
+    },
+    "tools/test_visual_pipeline.py": {
+      "target": "tools/assets/contracts/test_visual_pipeline.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/test_visual_resources.py": {
+      "target": "tools/assets/contracts/test_visual_resources.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/test_visual_reuse.py": {
+      "target": "tools/qa/art/test_visual_reuse.py",
+      "family": "art-standard",
+      "action": "move"
+    },
+    "tools/test_visual_sampling.py": {
+      "target": "tools/assets/contracts/test_visual_sampling.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/test_visual_scale.py": {
+      "target": "tools/qa/art/test_visual_scale.py",
+      "family": "art-standard",
+      "action": "move"
+    },
+    "tools/test_visual_static.py": {
+      "target": "tools/qa/camera/test_visual_static.py",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/test_water_audit.py": {
+      "target": "tools/qa/world/test_water_audit.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/test_world_sprite_manifest.py": {
+      "target": "tools/assets/contracts/test_world_sprite_manifest.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/texture_data_probe.gd": {
+      "target": "tools/assets/contracts/texture_data_probe.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/texture_data_room_capture.gd": {
+      "target": "tools/assets/contracts/texture_data_room_capture.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/texture_intent_review.gd": {
+      "target": "tools/assets/contracts/texture_intent_review.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/texture_intents.py": {
+      "target": "tools/assets/contracts/texture_intents.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/transient_save_capture.gd": {
+      "target": "tools/qa/world/transient_save_capture.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/transient_save_capture.gd.uid": {
+      "target": "tools/qa/world/transient_save_capture.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/transient_save_capture.gd"
+    },
+    "tools/transient_save_collect.py": {
+      "target": "tools/qa/world/transient_save_collect.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/transient_save_probe.gd": {
+      "target": "tools/qa/world/transient_save_probe.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/transient_save_probe.gd.uid": {
+      "target": "tools/qa/world/transient_save_probe.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/transient_save_probe.gd"
+    },
+    "tools/transient_save_review.gd": {
+      "target": "tools/qa/world/transient_save_review.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/transient_save_review.gd.uid": {
+      "target": "tools/qa/world/transient_save_review.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/transient_save_review.gd"
+    },
+    "tools/transient_save_verify.py": {
+      "target": "tools/qa/world/transient_save_verify.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/tree_occlusion_review.gd": {
+      "target": "tools/qa/compatibility/tree_occlusion_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/ui_portability_capture.gd": {
+      "target": "tools/assets/contracts/ui_portability_capture.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/ui_portability_capture.gd.uid": {
+      "target": "tools/assets/contracts/ui_portability_capture.gd.uid",
+      "family": "assets-contracts",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/ui_portability_capture.gd"
+    },
+    "tools/ui_portability_observer.gd": {
+      "target": "tools/assets/contracts/ui_portability_observer.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/ui_portability_observer.gd.uid": {
+      "target": "tools/assets/contracts/ui_portability_observer.gd.uid",
+      "family": "assets-contracts",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/ui_portability_observer.gd"
+    },
+    "tools/update_ui_visual_manifest.py": {
+      "target": "tools/assets/authoring/update_ui_visual_manifest.py",
+      "family": "assets-authoring",
+      "action": "move"
+    },
+    "tools/village_bench_assets.py": {
+      "target": "tools/qa/world/village_bench_assets.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/village_bench_capture.gd": {
+      "target": "tools/qa/world/village_bench_capture.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/village_bench_capture.gd.uid": {
+      "target": "tools/qa/world/village_bench_capture.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_bench_capture.gd"
+    },
+    "tools/village_bench_collect.py": {
+      "target": "tools/qa/world/village_bench_collect.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/village_bench_gallery.gd": {
+      "target": "tools/qa/world/village_bench_gallery.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/village_bench_gallery.gd.uid": {
+      "target": "tools/qa/world/village_bench_gallery.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_bench_gallery.gd"
+    },
+    "tools/village_bench_leg_capture.gd": {
+      "target": "tools/qa/world/village_bench_leg_capture.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/village_bench_leg_capture.gd.uid": {
+      "target": "tools/qa/world/village_bench_leg_capture.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_bench_leg_capture.gd"
+    },
+    "tools/village_bench_review.gd": {
+      "target": "tools/qa/world/village_bench_review.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/village_bench_review.gd.uid": {
+      "target": "tools/qa/world/village_bench_review.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_bench_review.gd"
+    },
+    "tools/village_bench_verify.py": {
+      "target": "tools/qa/world/village_bench_verify.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/village_board_assets.py": {
+      "target": "tools/qa/world/village_board_assets.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/village_board_capture.gd": {
+      "target": "tools/qa/world/village_board_capture.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/village_board_capture.gd.uid": {
+      "target": "tools/qa/world/village_board_capture.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_board_capture.gd"
+    },
+    "tools/village_board_collect.py": {
+      "target": "tools/qa/world/village_board_collect.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/village_board_gallery.gd": {
+      "target": "tools/qa/world/village_board_gallery.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/village_board_gallery.gd.uid": {
+      "target": "tools/qa/world/village_board_gallery.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_board_gallery.gd"
+    },
+    "tools/village_board_review.gd": {
+      "target": "tools/qa/world/village_board_review.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/village_board_review.gd.uid": {
+      "target": "tools/qa/world/village_board_review.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_board_review.gd"
+    },
+    "tools/village_board_verify.py": {
+      "target": "tools/qa/world/village_board_verify.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/village_clearance_review.gd": {
+      "target": "tools/qa/world/village_clearance_review.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/village_fence_assets.py": {
+      "target": "tools/qa/world/village_fence_assets.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/village_fence_capture.gd": {
+      "target": "tools/qa/world/village_fence_capture.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/village_fence_capture.gd.uid": {
+      "target": "tools/qa/world/village_fence_capture.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_fence_capture.gd"
+    },
+    "tools/village_fence_collect.py": {
+      "target": "tools/qa/world/village_fence_collect.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/village_fence_gallery.gd": {
+      "target": "tools/qa/world/village_fence_gallery.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/village_fence_gallery.gd.uid": {
+      "target": "tools/qa/world/village_fence_gallery.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_fence_gallery.gd"
+    },
+    "tools/village_fence_review.gd": {
+      "target": "tools/qa/world/village_fence_review.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/village_fence_review.gd.uid": {
+      "target": "tools/qa/world/village_fence_review.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_fence_review.gd"
+    },
+    "tools/village_fence_verify.py": {
+      "target": "tools/qa/world/village_fence_verify.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/village_lamp_assets.py": {
+      "target": "tools/qa/world/village_lamp_assets.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/village_lamp_capture.gd": {
+      "target": "tools/qa/world/village_lamp_capture.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/village_lamp_capture.gd.uid": {
+      "target": "tools/qa/world/village_lamp_capture.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_lamp_capture.gd"
+    },
+    "tools/village_lamp_collect.py": {
+      "target": "tools/qa/world/village_lamp_collect.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/village_lamp_gallery.gd": {
+      "target": "tools/qa/world/village_lamp_gallery.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/village_lamp_gallery.gd.uid": {
+      "target": "tools/qa/world/village_lamp_gallery.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_lamp_gallery.gd"
+    },
+    "tools/village_lamp_review.gd": {
+      "target": "tools/qa/world/village_lamp_review.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/village_lamp_review.gd.uid": {
+      "target": "tools/qa/world/village_lamp_review.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_lamp_review.gd"
+    },
+    "tools/village_lamp_verify.py": {
+      "target": "tools/qa/world/village_lamp_verify.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/village_map_review.gd": {
+      "target": "tools/qa/world/village_map_review.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/village_regions_capture.gd": {
+      "target": "tools/qa/world/village_regions_capture.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/village_regions_capture.gd.uid": {
+      "target": "tools/qa/world/village_regions_capture.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_regions_capture.gd"
+    },
+    "tools/village_regions_review.gd": {
+      "target": "tools/qa/world/village_regions_review.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/village_regions_review.gd.uid": {
+      "target": "tools/qa/world/village_regions_review.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_regions_review.gd"
+    },
+    "tools/village_street_assets.py": {
+      "target": "tools/qa/world/village_street_assets.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/village_street_capture.gd": {
+      "target": "tools/qa/world/village_street_capture.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/village_street_capture.gd.uid": {
+      "target": "tools/qa/world/village_street_capture.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_street_capture.gd"
+    },
+    "tools/village_street_collect.py": {
+      "target": "tools/qa/world/village_street_collect.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/village_street_gallery.gd": {
+      "target": "tools/qa/world/village_street_gallery.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/village_street_gallery.gd.uid": {
+      "target": "tools/qa/world/village_street_gallery.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_street_gallery.gd"
+    },
+    "tools/village_street_review.gd": {
+      "target": "tools/qa/world/village_street_review.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/village_street_review.gd.uid": {
+      "target": "tools/qa/world/village_street_review.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_street_review.gd"
+    },
+    "tools/village_street_verify.py": {
+      "target": "tools/qa/world/village_street_verify.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/village_trade_assets.py": {
+      "target": "tools/qa/world/village_trade_assets.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/village_trade_capture.gd": {
+      "target": "tools/qa/world/village_trade_capture.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/village_trade_capture.gd.uid": {
+      "target": "tools/qa/world/village_trade_capture.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_trade_capture.gd"
+    },
+    "tools/village_trade_collect.py": {
+      "target": "tools/qa/world/village_trade_collect.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/village_trade_gallery.gd": {
+      "target": "tools/qa/world/village_trade_gallery.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/village_trade_gallery.gd.uid": {
+      "target": "tools/qa/world/village_trade_gallery.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_trade_gallery.gd"
+    },
+    "tools/village_trade_review.gd": {
+      "target": "tools/qa/world/village_trade_review.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/village_trade_review.gd.uid": {
+      "target": "tools/qa/world/village_trade_review.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/village_trade_review.gd"
+    },
+    "tools/village_trade_verify.py": {
+      "target": "tools/qa/world/village_trade_verify.py",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/visual_asset_policy.json": {
+      "target": "tools/assets/contracts/visual_asset_policy.json",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/visual_backlog.py": {
+      "target": "tools/planning/visual_backlog.py",
+      "family": "planning",
+      "action": "move"
+    },
+    "tools/visual_baseline.gd": {
+      "target": "tools/qa/camera/visual_baseline.gd",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/visual_camera.py": {
+      "target": "tools/qa/camera/visual_camera.py",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/visual_camera_capture.gd": {
+      "target": "tools/qa/camera/visual_camera_capture.gd",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/visual_camera_points.gd": {
+      "target": "tools/qa/camera/visual_camera_points.gd",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/visual_camera_review.gd": {
+      "target": "tools/qa/camera/visual_camera_review.gd",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/visual_coordinates.py": {
+      "target": "tools/qa/camera/visual_coordinates.py",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/visual_coordinates_capture.gd": {
+      "target": "tools/qa/camera/visual_coordinates_capture.gd",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/visual_coordinates_capture.gd.uid": {
+      "target": "tools/qa/camera/visual_coordinates_capture.gd.uid",
+      "family": "camera",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/visual_coordinates_capture.gd"
+    },
+    "tools/visual_coordinates_review.gd": {
+      "target": "tools/qa/camera/visual_coordinates_review.gd",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/visual_coordinates_review.gd.uid": {
+      "target": "tools/qa/camera/visual_coordinates_review.gd.uid",
+      "family": "camera",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/visual_coordinates_review.gd"
+    },
+    "tools/visual_density.py": {
+      "target": "tools/qa/art/visual_density.py",
+      "family": "art-standard",
+      "action": "move"
+    },
+    "tools/visual_density_capture.gd": {
+      "target": "tools/qa/art/visual_density_capture.gd",
+      "family": "art-standard",
+      "action": "move"
+    },
+    "tools/visual_density_capture.gd.uid": {
+      "target": "tools/qa/art/visual_density_capture.gd.uid",
+      "family": "art-standard",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/visual_density_capture.gd"
+    },
+    "tools/visual_edges.py": {
+      "target": "tools/qa/art/visual_edges.py",
+      "family": "art-standard",
+      "action": "move"
+    },
+    "tools/visual_hardware.py": {
+      "target": "tools/qa/camera/visual_hardware.py",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/visual_icons.py": {
+      "target": "tools/assets/contracts/visual_icons.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/visual_icons_capture.gd": {
+      "target": "tools/assets/contracts/visual_icons_capture.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/visual_light.py": {
+      "target": "tools/qa/art/visual_light.py",
+      "family": "art-standard",
+      "action": "move"
+    },
+    "tools/visual_light_capture.gd": {
+      "target": "tools/qa/art/visual_light_capture.gd",
+      "family": "art-standard",
+      "action": "move"
+    },
+    "tools/visual_modules.py": {
+      "target": "tools/qa/art/visual_modules.py",
+      "family": "art-standard",
+      "action": "move"
+    },
+    "tools/visual_modules_capture.gd": {
+      "target": "tools/qa/art/visual_modules_capture.gd",
+      "family": "art-standard",
+      "action": "move"
+    },
+    "tools/visual_motion.py": {
+      "target": "tools/qa/camera/visual_motion.py",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/visual_motion_capture.gd": {
+      "target": "tools/qa/camera/visual_motion_capture.gd",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/visual_motion_review.gd": {
+      "target": "tools/qa/camera/visual_motion_review.gd",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/visual_motion_route.gd": {
+      "target": "tools/qa/camera/visual_motion_route.gd",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/visual_palette.py": {
+      "target": "tools/qa/art/visual_palette.py",
+      "family": "art-standard",
+      "action": "move"
+    },
+    "tools/visual_perspective.py": {
+      "target": "tools/qa/art/visual_perspective.py",
+      "family": "art-standard",
+      "action": "move"
+    },
+    "tools/visual_perspective_export.gd": {
+      "target": "tools/qa/art/visual_perspective_export.gd",
+      "family": "art-standard",
+      "action": "move"
+    },
+    "tools/visual_perspective_export.gd.uid": {
+      "target": "tools/qa/art/visual_perspective_export.gd.uid",
+      "family": "art-standard",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/visual_perspective_export.gd"
+    },
+    "tools/visual_pipeline.py": {
+      "target": "tools/assets/contracts/visual_pipeline.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/visual_pipeline_capture.gd": {
+      "target": "tools/assets/contracts/visual_pipeline_capture.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/visual_pipeline_review.gd": {
+      "target": "tools/assets/contracts/visual_pipeline_review.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/visual_resource_capture.gd": {
+      "target": "tools/assets/contracts/visual_resource_capture.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/visual_resources.py": {
+      "target": "tools/assets/contracts/visual_resources.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/visual_resources_review.gd": {
+      "target": "tools/assets/contracts/visual_resources_review.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/visual_reuse.py": {
+      "target": "tools/qa/art/visual_reuse.py",
+      "family": "art-standard",
+      "action": "move"
+    },
+    "tools/visual_reuse_capture.gd": {
+      "target": "tools/qa/art/visual_reuse_capture.gd",
+      "family": "art-standard",
+      "action": "move"
+    },
+    "tools/visual_reuse_sources.gd": {
+      "target": "tools/qa/art/visual_reuse_sources.gd",
+      "family": "art-standard",
+      "action": "move"
+    },
+    "tools/visual_sampling.py": {
+      "target": "tools/assets/contracts/visual_sampling.py",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/visual_sampling_capture.gd": {
+      "target": "tools/assets/contracts/visual_sampling_capture.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/visual_sampling_review.gd": {
+      "target": "tools/assets/contracts/visual_sampling_review.gd",
+      "family": "assets-contracts",
+      "action": "move"
+    },
+    "tools/visual_scale.py": {
+      "target": "tools/qa/art/visual_scale.py",
+      "family": "art-standard",
+      "action": "move"
+    },
+    "tools/visual_scale_capture.gd": {
+      "target": "tools/qa/art/visual_scale_capture.gd",
+      "family": "art-standard",
+      "action": "move"
+    },
+    "tools/visual_scale_capture.gd.uid": {
+      "target": "tools/qa/art/visual_scale_capture.gd.uid",
+      "family": "art-standard",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/visual_scale_capture.gd"
+    },
+    "tools/visual_static.py": {
+      "target": "tools/qa/camera/visual_static.py",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/visual_static_capture.gd": {
+      "target": "tools/qa/camera/visual_static_capture.gd",
+      "family": "camera",
+      "action": "move"
+    },
+    "tools/water_audit.gd": {
+      "target": "tools/water_audit.gd",
+      "family": "world",
+      "action": "retain_protected_anchor",
+      "exception_reason": "Frozen water-2026-10 README has a checked physical Markdown link to this public WATER entry; retain it so link validation remains enabled without changing history."
+    },
+    "tools/water_fishing_capture.gd": {
+      "target": "tools/qa/world/water_fishing_capture.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/water_fishing_capture.gd.uid": {
+      "target": "tools/qa/world/water_fishing_capture.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/water_fishing_capture.gd"
+    },
+    "tools/water_fishing_review.gd": {
+      "target": "tools/qa/world/water_fishing_review.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/water_fishing_review.gd.uid": {
+      "target": "tools/qa/world/water_fishing_review.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/water_fishing_review.gd"
+    },
+    "tools/water_navigation_review.gd": {
+      "target": "tools/qa/world/water_navigation_review.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/water_navigation_review.gd.uid": {
+      "target": "tools/qa/world/water_navigation_review.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/water_navigation_review.gd"
+    },
+    "tools/water_topology_review.gd": {
+      "target": "tools/qa/world/water_topology_review.gd",
+      "family": "world",
+      "action": "move"
+    },
+    "tools/water_topology_review.gd.uid": {
+      "target": "tools/qa/world/water_topology_review.gd.uid",
+      "family": "world",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/water_topology_review.gd"
+    },
+    "tools/wildlife_query_review.gd": {
+      "target": "tools/qa/performance/wildlife_query_review.gd",
+      "family": "performance",
+      "action": "move"
+    },
+    "tools/wildlife_query_review.gd.uid": {
+      "target": "tools/qa/performance/wildlife_query_review.gd.uid",
+      "family": "performance",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/wildlife_query_review.gd"
+    },
+    "tools/workshops_capture.gd": {
+      "target": "tools/qa/compatibility/workshops_capture.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/workshops_capture.gd.uid": {
+      "target": "tools/qa/compatibility/workshops_capture.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/workshops_capture.gd"
+    },
+    "tools/workshops_catalog_export.gd": {
+      "target": "tools/qa/compatibility/workshops_catalog_export.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/workshops_catalog_export.gd.uid": {
+      "target": "tools/qa/compatibility/workshops_catalog_export.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/workshops_catalog_export.gd"
+    },
+    "tools/workshops_review.gd": {
+      "target": "tools/qa/compatibility/workshops_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/workshops_review.gd.uid": {
+      "target": "tools/qa/compatibility/workshops_review.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/workshops_review.gd"
+    },
+    "tools/world_native.gd": {
+      "target": "tools/qa/compatibility/world_native.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/world_native.gd.uid": {
+      "target": "tools/qa/compatibility/world_native.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/world_native.gd"
+    },
+    "tools/world_review.gd": {
+      "target": "tools/qa/compatibility/world_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/world_review.gd.uid": {
+      "target": "tools/qa/compatibility/world_review.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/world_review.gd"
+    },
+    "tools/world_workbench_review.gd": {
+      "target": "tools/qa/compatibility/world_workbench_review.gd",
+      "family": "compatibility",
+      "action": "move"
+    },
+    "tools/world_workbench_review.gd.uid": {
+      "target": "tools/qa/compatibility/world_workbench_review.gd.uid",
+      "family": "compatibility",
+      "action": "move_uid_with_source",
+      "paired_source": "tools/world_workbench_review.gd"
+    }
+  },
+  "audit_day": "2026-10-26",
+  "other_catalogs": [
+    {
+      "id": "systems-storage",
+      "directory": "scripts/systems",
+      "selectors": [
+        "storage_*.gd"
+      ],
+      "decision": "future_addressed_move",
+      "target_directory": "scripts/systems/storage",
+      "owner_task": "REFACTOR-05",
+      "reason": "Шесть связанных модулей ввода, сортировки и переноса предметов. Отдельная граница storage делает владельца понятным; обновляются реальные preload-потребители, не алгоритмы.",
+      "preconditions": [
+        "REFACTOR-04",
+        "REFACTOR-06",
+        "Team Lead approves this family"
+      ],
+      "verification": [
+        "storage suites",
+        "full Game",
+        "old-save/stock chest/cabinet behavior",
+        "UID and preload parity"
+      ]
+    },
+    {
+      "id": "systems-furnace",
+      "directory": "scripts/systems",
+      "selectors": [
+        "furnace_*.gd"
+      ],
+      "decision": "future_addressed_move",
+      "target_directory": "scripts/systems/furnace",
+      "owner_task": "REFACTOR-05",
+      "reason": "Data/locale/system образуют небольшой замкнутый ремесленный домен. Не переносить заодно всю алхимию и остальные станки.",
+      "preconditions": [
+        "REFACTOR-04",
+        "REFACTOR-06",
+        "Team Lead approves this family"
+      ],
+      "verification": [
+        "furnace_suite.gd",
+        "crafting compatibility",
+        "UID/preload/old-save checks"
+      ]
+    },
+    {
+      "id": "presentation-storage",
+      "directory": "scripts/presentation",
+      "selectors": [
+        "storage_*.gd"
+      ],
+      "decision": "future_addressed_move",
+      "target_directory": "scripts/presentation/storage",
+      "owner_task": "REFACTOR-05",
+      "reason": "Четыре модуля действий, геометрии, renderer и cache имеют общий storage-контракт. Переносить совместно с перечисленными системами, отдельно от переделки UI.",
+      "preconditions": [
+        "REFACTOR-04",
+        "REFACTOR-06",
+        "systems-storage package reviewed"
+      ],
+      "verification": [
+        "storage_grid_suite",
+        "storage_view_cache_suite",
+        "existing native storage evidence unchanged"
+      ]
+    },
+    {
+      "id": "presentation-foliage",
+      "directory": "scripts/presentation",
+      "selectors": [
+        "foliage_*.gd",
+        "foliage_*.gdshader"
+      ],
+      "decision": "future_addressed_move",
+      "target_directory": "scripts/presentation/foliage",
+      "owner_task": "REFACTOR-05",
+      "reason": "Семь GDScript и два shader составляют принятый домен корней/UV/ветра/контакта/восстановления. Все UID и текущие bindings должны сохраниться.",
+      "preconditions": [
+        "REFACTOR-04",
+        "REFACTOR-06",
+        "Team Lead approves after tools release"
+      ],
+      "verification": [
+        "eight foliage suites",
+        "actual native historical readers and negative controls",
+        "fresh import",
+        "no new GPU-FPS admission"
+      ]
+    },
+    {
+      "id": "suites-foliage",
+      "directory": "tests/suites",
+      "selectors": [
+        "foliage_*_suite.gd"
+      ],
+      "decision": "future_addressed_move",
+      "target_directory": "tests/suites/foliage",
+      "owner_task": "REFACTOR-04",
+      "reason": "Восемь профильных наборов имеют единого владельца. Сохранять вложенные run из ArchitectureSuite и прямые QA-профили, а не только верхний runner.",
+      "preconditions": [
+        "REFACTOR-01",
+        "REFACTOR-06",
+        "recursive scanners before move"
+      ],
+      "verification": [
+        "suite-registry run/preload parity",
+        "eight native owner verifiers",
+        "full Game"
+      ]
+    },
+    {
+      "id": "suites-storage",
+      "directory": "tests/suites",
+      "selectors": [
+        "storage_*_suite.gd"
+      ],
+      "decision": "future_addressed_move",
+      "target_directory": "tests/suites/storage",
+      "owner_task": "REFACTOR-04",
+      "reason": "Четыре набора storage подключаются не только из runner: учитывать вложенный storage_grid и cache.",
+      "preconditions": [
+        "REFACTOR-01",
+        "REFACTOR-06",
+        "recursive scanners before move"
+      ],
+      "verification": [
+        "suite-registry parity",
+        "storage compatibility",
+        "full Game"
+      ]
+    },
+    {
+      "id": "helpers",
+      "directory": "tests/helpers",
+      "selectors": [
+        "*.gd"
+      ],
+      "decision": "leave",
+      "owner_task": "REFACTOR-04",
+      "reason": "Всего три коротких сценарных helper, уже отделённых от suites. Имена однозначны, пути используются QA/архивами; дополнительная вложенность сейчас не даёт пользы.",
+      "preconditions": [],
+      "verification": [
+        "existing helper preloads",
+        "full Game/redraw"
+      ]
+    },
+    {
+      "id": "reports",
+      "directory": "docs/reports",
+      "selectors": [],
+      "decision": "leave_frozen",
+      "owner_task": "REFACTOR-01",
+      "reason": "Высокий рекурсивный счётчик — следствие настоящих PNG/WebP/MP4, source-копий и raw. Сохранять byte identity; улучшать только отдельные индексы/Wiki. Два защищённых root-entry устраняют необходимость менять frozen code/Markdown.",
+      "preconditions": [],
+      "verification": [
+        "full baseline SHA256 manifest",
+        "historical readers/negative controls",
+        "link checker remains enabled"
+      ]
+    },
+    {
+      "id": "wiki-scripts",
+      "directory": "wiki/scripts",
+      "selectors": [
+        "*.mjs",
+        "*.gd"
+      ],
+      "decision": "leave",
+      "owner_task": "separate approved task only if a concrete issue appears",
+      "reason": "20 исходников уже имеют границы catalog/store/API/runtime/export; наибольший prepare.mjs — 332 физические строки. Массовое разбиение ради симметрии добавит риск при нулевой доказанной пользе.",
+      "preconditions": [],
+      "verification": [
+        "Wiki build/tests/browser",
+        "source and planning catalog preservation"
+      ]
+    },
+    {
+      "id": "item-preview",
+      "directory": "assets/game/items/ui/preview",
+      "selectors": [],
+      "decision": "leave",
+      "owner_task": "not part of mechanical code reorganization",
+      "reason": "772 файла — 386 адресуемых PNG и их import metadata. Каталог является стабильным ID→preview API; число файлов не оправдывает новую адресацию и регенерацию импорта.",
+      "preconditions": [],
+      "verification": [
+        "item_sizes and icon/export contracts",
+        "full assets SHA manifest"
+      ]
+    }
+  ]
+}
