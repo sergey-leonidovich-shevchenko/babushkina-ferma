@@ -1,6 +1,6 @@
 # Полная карта tools — REFACTOR-01
 
-Предложение по принятой базе `da9fa07e2f4c7f1fe05d9e89eebc454afc79d4ff` (0.0.342). **Все 779 файлов учтены; переносов ещё нет.** UID отдельно доступны в CSV/JSON; здесь они показаны у исходника. Текущая карточка in_progress до принятия PR.
+Принятая карта базы `da9fa07e2f4c7f1fe05d9e89eebc454afc79d4ff` (0.0.342). **Все 779 файлов учтены; переносов ещё нет.** UID отдельно доступны в CSV/JSON; здесь они показаны у исходника. REFACTOR-01 принят через PR #14: head `567b05c7`, merge `d43c4550`, независимое ревью и CI 8/8. Таблица остаётся картой именно этой базы, а не измерением будущего переноса.
 
 [Обзор и риски](project-refactoring.md) · [карточка REFACTOR-01](#/development/tasks/refactoring--REFACTOR-01) · [полная JSON-карта с consumers](../../docs/reports/refactor-01/integration-1/snapshot/tool-map.json) · [CSV](../../docs/reports/refactor-01/integration-1/snapshot/tool-map.csv) · [счётчики](../../docs/reports/refactor-01/integration-1/snapshot/inventory.json) · [граф suites](../../docs/reports/refactor-01/integration-1/snapshot/suite-registry.json) · [другие каталоги](../../docs/reports/refactor-01/integration-1/snapshot/other-catalogs.json).
 

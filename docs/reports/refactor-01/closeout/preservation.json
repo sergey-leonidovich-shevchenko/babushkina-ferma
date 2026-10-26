@@ -1,0 +1,25 @@
+{
+  "base": "d43c455046bf333e145f7cd097768ec4f60dabac",
+  "previous_reports_preserved": 214,
+  "all_report_bytes_identical": true,
+  "changed_existing_files": [
+    "AGENTS.md",
+    "TESTING.md",
+    "VERSION",
+    "docs/CODE_REVIEW.md",
+    "docs/epics/refactoring-2026-10/README.md",
+    "docs/epics/refactoring-2026-10/TASKS.md",
+    "project.godot",
+    "wiki/articles/project-refactoring.md",
+    "wiki/articles/tools-migration-map.md",
+    "Бабушкина ферма.app/Contents/Info.plist"
+  ],
+  "only_changed_cards": [
+    "REFACTOR-01",
+    "REFACTOR-02"
+  ],
+  "existing_task_complete_count": 0,
+  "production_tools_tests_assets_unchanged": true,
+  "planning_state_and_sources_unchanged": true,
+  "diagnostic": "First ad-hoc scope assertion rejected Git C-quoted Cyrillic plist path; rerun consumes NUL-delimited Git names. No project defect or source change."
+}
