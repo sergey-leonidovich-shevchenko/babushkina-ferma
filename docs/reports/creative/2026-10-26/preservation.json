@@ -1,0 +1,18 @@
+{
+  "status": "pass",
+  "base": "da9fa07e2f4c7f1fe05d9e89eebc454afc79d4ff",
+  "ideas": 251,
+  "assessments": 90,
+  "plans": 124,
+  "epics": 178,
+  "tasks": 2091,
+  "previousTasksPreserved": 2044,
+  "newTasks": 46,
+  "dialogueNodes": 30,
+  "answers": 90,
+  "futureScenarios": 60,
+  "preservedFiles": 24058,
+  "historicalFiles": 17320,
+  "gameplayImplemented": false,
+  "audienceTested": false
+}

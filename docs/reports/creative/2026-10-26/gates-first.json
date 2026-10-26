@@ -1,0 +1,91 @@
+{
+  "task": "IDEA-REVIEW-20261026",
+  "checkpoint": "first",
+  "finishedAt": "2026-10-26T06:44:11.693769+00:00",
+  "command": ".githooks/pre-commit, full unchanged repository hook",
+  "exitCode": 0,
+  "metadata": "0.0.343",
+  "architecture": {
+    "pythonSuites": 82,
+    "pythonCases": 1135
+  },
+  "game": {
+    "passed": 53502,
+    "failed": 0
+  },
+  "redraw": [
+    {
+      "passed": 90,
+      "failed": 0
+    },
+    {
+      "passed": 90,
+      "failed": 0
+    }
+  ],
+  "wiki": {
+    "passed": 135,
+    "failed": 0,
+    "scope": "build/export/links/TypeScript/Node, independent complete run"
+  },
+  "sourceSHA256": {
+    "TESTING.md": "2607141286c1874ed5cead27690f494df07397e2636167f7c10a0ff6ec718aad",
+    "VERSION": "a147b646d8cdbb24184186b1cee3a7c8782c4ce494e97e12b71d26f8dfee0d6c",
+    "docs/backlog/README.md": "a41a877cf3e82efefd2906b2e36c325ea9e42ab2b2721b7ea021fb49dbbe539f",
+    "docs/backlog/wiki-workspace-2026-10/README.md": "b00f8f8ef5ac3b0b6cb7e96cf13fd6767b93435a308ffddf90ef8e4a53f15579",
+    "docs/epics/ideas/README.md": "80c8659e157b33235afe3d197876e16fc04ef9cdbc48b0cf22a68ace7191afd8",
+    "docs/epics/ideas/idea-252/README.md": "d5cd88582620fe8c4c873de408135ac8fd8e8f533fa905a85e5269dc9a3188a7",
+    "docs/epics/ideas/idea-252/TASKS.md": "7af45a88bbb7e667bb0b34c928bd94dd8fbf47a61adfd310bf76bac6dd650c96",
+    "docs/epics/ideas/idea-253/README.md": "0e2b810e37667ee9fe809a1b476e1f8e9abea06ce78a379c58ffb0dee6693017",
+    "docs/epics/ideas/idea-253/TASKS.md": "6c15b7b4a18702cb4ca8b0bf88519fee9882a49bf79577d5896ed558342f2d85",
+    "docs/epics/ideas/idea-254/README.md": "3f453df4244ea4102f0f6539c19f4deed2f85f2bc1a6f0c13b132875f64edd6e",
+    "docs/epics/ideas/idea-254/TASKS.md": "2f1e59e8d54060ca5ce2c5b3074285d8aceb5b62e98b810e1edab82ffd6f3e5d",
+    "docs/epics/ideas/idea-255/README.md": "79abc682f005aacc1e1ecd153aad1dc9ea8798113670aabaee7b0aa0aca6dea9",
+    "docs/epics/ideas/idea-255/TASKS.md": "468a903037229294b7c96d4d6b11c3ba7827f1e5410a89271da8a9bd4c104f47",
+    "docs/epics/ideas/idea-256/README.md": "77da0687addad8d6da168f3066f9c59d85920dbf9b746b787f5eb7cefaffc781",
+    "docs/epics/ideas/idea-256/TASKS.md": "f23f7e72d544884bc1e3977480643a4454965cbdcedbfcbc1a28f7156902b2e8",
+    "docs/epics/ideas/idea-257/README.md": "2e28b5666c707efea1bcdbbc0ff676cfe16f8bd19ac82a1ab8ea574402fbc099",
+    "docs/epics/ideas/idea-257/TASKS.md": "092252dc6c8991831f73c1a6c33b3d8d2d08991729f028d5e499e0f6a4a6e9c1",
+    "docs/epics/ideas/idea-258/README.md": "82be454958370470c8f0b9acdbd4df691ff809b3821e03ae7f7ada0ad7d4fa3b",
+    "docs/epics/ideas/idea-258/TASKS.md": "0abd9101471e9b1743390d577c4c1a233703b3aac3c9a79d722ded90ff486c28",
+    "docs/epics/ideas/idea-259/README.md": "b1b791ac26fe433a8cac27c15674f0db0fe831f28f025cb19ec005628016f9de",
+    "docs/epics/ideas/idea-259/TASKS.md": "fc53448646a3863ee887ecfaf0112565f827f18182895a327203f2583a458846",
+    "docs/epics/ideas/idea-260/README.md": "dc6f8836c8d9091caf53908866dfd33f959ca151ed002054e3e899e5187d049a",
+    "docs/epics/ideas/idea-260/TASKS.md": "e6ea94b4130b53bc67408ffa83a17a2c46edcf427ea474578c5f02effa6a7b99",
+    "docs/epics/ideas/idea-261/README.md": "25fe6da8441ba3612f87adadce57a5fba74b6565942847b0137cb246b70547f1",
+    "docs/epics/ideas/idea-261/TASKS.md": "04933bf4ffa951c4db306355e80817aa0243df31d70429e35a779e2748e779fb",
+    "docs/reports/creative/2026-10-26/README.md": "9b108273fffb94b25e48a121eeef13a7b8a1b023064a4eacb55be0da1d9fd73b",
+    "docs/reports/creative/2026-10-26/idea-390-343.png": "d43802c8d8539a572b28213906f61fe2d7441c202ecf2af5292c7911dbdecee3",
+    "docs/reports/creative/2026-10-26/plan.json": "b26780ac8d11a40a414c5ebde80e16dbdda9f74fc92ac25fcbcde5aca055d66f",
+    "docs/reports/creative/2026-10-26/preservation.json": "e7b78b882ab2ef0400ed6cce805328a63a3aa8a12e058b7759921d553d56df36",
+    "project.godot": "e9286dc20efd98c13fd51f5ee6d271c3e5e7171249650fcef05156b6c462ff20",
+    "wiki/articles/IDEA-252.md": "02a6a947721c179cd94c749032f3fc635b7a7f3536706f550464a72770f3acc6",
+    "wiki/articles/IDEA-253.md": "1b55c68fb8b0e08b18106c8b3e94d915fcdd5902e00ff62376d3c09c229bd814",
+    "wiki/articles/IDEA-254.md": "986835e2b410b95fac4f46c285ffed1b5240e4f30f9008c1aaf191dbeaeca929",
+    "wiki/articles/IDEA-255.md": "bb1aebffdfeb4c09b86fffd5b5419bba089684e766b8552c326cc3e6cf0aabf7",
+    "wiki/articles/IDEA-256.md": "8e0a9cdf5594ad6132fc0bbc2f69fbb8da4ad3db1a7024d0a2887e6e3cb18045",
+    "wiki/articles/IDEA-257.md": "477d68dad7a6182a9908ca01afe0baec1e3e0c23c48ddd6b4d1fcb22394eb63d",
+    "wiki/articles/IDEA-258.md": "3d0e2d549f5a1efd5d4510fd89e7492520f92d51e6a2578f388c3bac0a8eccc0",
+    "wiki/articles/IDEA-259.md": "d88b1581c703b769daa323a7189da625a421945a14c8c114b96497ffbfb6c4c2",
+    "wiki/articles/IDEA-260.md": "045a74ed27f9ecc9003dadca75344623fdf0822de7742470f49bc7dc439e10f0",
+    "wiki/articles/IDEA-261.md": "9ec0853668f7b7b48a59d02aa71e453e8358a25a55e7039bbe731dd4f54afeb1",
+    "wiki/articles/creative-review-2026-10-26.md": "e354d295dd878a302123b724869928de825d5c925f86333bcc218c80350b5b2b",
+    "wiki/articles/idea-feature-epics.md": "a4d9fcd48595a1ecc0815c2cefd3f1613d2a9b003364d4502152a25ba64e7b80",
+    "wiki/articles/index.json": "95680be5c4d68783d64c1aaa8284744ee40058602a5771d8c2726dda2ca04748",
+    "wiki/planning/assessments.json": "e72447cfb346d780af23e882143b773ce7741b1e253e8b09d924a49b0070694f",
+    "wiki/planning/sources.json": "4674ba5304625a64419d0c1d94c356fd37f7b2fe4c6b271d40ec566279d8c7e7",
+    "wiki/planning/state.json": "dddb0a30c32d3125ef74a6e8a26f0408d08dd0f1d3b89796cdb932f070e65e7b",
+    "wiki/scripts/editorial-review26-audit.mjs": "d77a4b31396718dfaaa04ea6f2102075b47ca45393cbe108651de08a80618b89"
+  },
+  "rawSHA256": {
+    "fullHook": "047918fea5e703c162f8930b3f4573946719cd8c082e9bf93733ebe11d295c81",
+    "wiki": "0d0935b2bece16b00bd71199cdbcffba19d315cb1817a2303098d5dd07d78a27"
+  },
+  "runtime": {
+    "python": "3.11.17",
+    "pillow": "11.3.0",
+    "node": "v24.19.0",
+    "godot": "4.7.1.stable.official.a13da4feb"
+  },
+  "limits": "Editorial verification only. Future gameplay F tests, audience, GPU/FPS and VMAP-003 not accepted. External ignored wrapper clears inherited Git-local vars, executes original hook, then adds only receipts/raw logs."
+}
