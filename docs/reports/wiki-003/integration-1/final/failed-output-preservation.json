@@ -1,0 +1,9 @@
+{
+  "original_path": "final/wiki-351-first.txt",
+  "archived_path": "final/wiki-351-first.txt.gz",
+  "decoded_bytes": 14747,
+  "decoded_sha256": "021686393e24d075fbd09916201ba244d00b10a16a42d5b387dfcea9927f7c1b",
+  "archive_sha256": "46bbdae51688fb1c37caaaffff8269e5c6ca1479b27a8bf21246662d5ce63358",
+  "raw_byte_identical": true,
+  "reason": "Two whitespace-only lines in authentic Node assertion diff; data compressed, not normalized."
+}

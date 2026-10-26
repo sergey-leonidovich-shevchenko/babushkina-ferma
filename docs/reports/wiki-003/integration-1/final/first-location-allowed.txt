@@ -1,0 +1,16 @@
+✔ first location resolves all selected epics without changing the catalog (104.874443ms)
+✔ map and release progress exclude other locations and later releases (48.342482ms)
+✔ live changes update active cards and per-epic counts (55.519716ms)
+✔ current technical work is visible without accepting or inflating the map (48.262124ms)
+✔ history uses canonical done, stable dates, and bounded route/support scopes (2.502942ms)
+✔ only the canonical final acceptance completes the first location (54.157628ms)
+✔ catalog-wide scopes and missing epic data remain explicit (6.597539ms)
+✔ API refresh keeps active work and completion history coherent (928.773032ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1796.695417

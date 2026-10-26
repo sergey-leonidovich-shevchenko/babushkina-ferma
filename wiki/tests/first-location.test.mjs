@@ -205,6 +205,17 @@ test('catalog-wide scopes and missing epic data remain explicit', () => {
 test('API refresh keeps active work and completion history coherent', async (t) => {
   const data = structuredClone(catalog)
   const task = data.tasks.find((task) => task.key === 'visual--VGROUND-001')
+  // Две даты после всего каталога сохраняют сценарий при новых настоящих completion-коммитах.
+  const latest = Math.max(
+    Date.UTC(2000, 0, 1),
+    ...data.tasks
+      .map((row) => Date.parse(`${row.completion?.date}T00:00:00Z`))
+      .filter(Number.isFinite)
+  )
+  const dayAfter = (offset) => new Date(latest + offset * 86_400_000).toISOString().slice(0, 10)
+  const previous = data.tasks.find((row) => row.key === 'refactoring--REFACTOR-00')
+  previous.status = 'done'
+  previous.completion = { date: dayAfter(1), basis: 'fixture', evidence: [] }
   const server = createWikiServer(process.cwd(), {
     planning: {
       loadCatalog: async () => structuredClone(data),
@@ -225,18 +236,21 @@ test('API refresh keeps active work and completion history coherent', async (t) 
   task.status = 'in_progress'
   let view = await refresh()
   assert.ok(view.active.some((row) => row.key === task.key))
+  assert.equal(view.history[0].key, previous.key)
   assert.equal(
     view.history.some((row) => row.key === task.key),
     false
   )
   task.status = 'done'
-  task.completion = { date: '2026-10-26', basis: 'fixture', evidence: [] }
+  task.completion = { date: dayAfter(2), basis: 'fixture', evidence: [] }
   view = await refresh()
   assert.equal(
     view.active.some((row) => row.key === task.key),
     false
   )
   assert.equal(view.history[0].key, task.key)
+  assert.equal(view.history[0].completion.date, dayAfter(2))
+  assert.equal(view.history[1].key, previous.key)
   for (const row of data.tasks) if (row.status === 'in_progress') row.status = 'backlog'
   assert.equal((await refresh()).active.length, 0)
 })

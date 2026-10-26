@@ -1,0 +1,20 @@
+{
+  "accepted_base": "364acd8fd666c6bcc4227886041ff6f1f8589abc",
+  "merge": "86c74faf0addf7c9068431ac51f7394288640930",
+  "old_PR15": "f095a345f290464f11c0579275435b863ead73ac",
+  "old_reports_unchanged": 299,
+  "premerge_packet_files_unchanged": 24,
+  "old_implementation_unchanged_files": 11,
+  "only_changed_old_code": [
+    "wiki/tests/first-location.test.mjs"
+  ],
+  "runtime_WIKI_unchanged": true,
+  "production_tools_tests_assets_match_main": true,
+  "other_canonical_task_blocks_unchanged": 10,
+  "sources_same_as_f095": true,
+  "sources_main_delta": "only Wiki expected10->11 registration",
+  "planning_state_unchanged": true,
+  "REFACTOR_cards_exact_accepted_main": true,
+  "WIKI_003_Task_Complete_absent": true,
+  "REFACTOR_01_Task_Complete_count": 1
+}

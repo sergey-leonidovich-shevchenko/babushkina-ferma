@@ -1,0 +1,36 @@
+{
+  "active": [
+    {
+      "href": "#/development/tasks/wiki--WIKI-003",
+      "text": "WIKI-003Показывать текущую работу и историю завершения в обзоре первой локацииОбслуживание разработки: Wiki и прозрачный учёт работы."
+    },
+    {
+      "href": "#/development/tasks/wiki--IDEA-REVIEW-20261024",
+      "text": "IDEA-REVIEW-20261024Проработать десять самостоятельных NPC-историйДругое направление. Его статус не означает смену курса первой локации."
+    }
+  ],
+  "docWidth": 1280,
+  "first": [
+    {
+      "date": "2026-10-27",
+      "href": "#/development/tasks/refactoring--REFACTOR-01",
+      "key": "refactoring--REFACTOR-01"
+    },
+    {
+      "date": "2026-10-25",
+      "href": "#/development/tasks/visual--VFOLIAGE-010",
+      "key": "visual--VFOLIAGE-010"
+    },
+    {
+      "date": "2026-10-25",
+      "href": "#/development/tasks/refactoring--REFACTOR-00",
+      "key": "refactoring--REFACTOR-00"
+    }
+  ],
+  "historyCount": 81,
+  "historyTop": 1428.3984375,
+  "pilot": "",
+  "unknown": 20,
+  "url": "http://127.0.0.1:4189/#/development/first-location",
+  "width": 1280
+}

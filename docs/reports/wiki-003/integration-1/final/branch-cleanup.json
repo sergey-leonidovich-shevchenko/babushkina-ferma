@@ -1,0 +1,20 @@
+[
+  {
+    "branch": "codex/refactor-01-maintainable-layout",
+    "tip": "567b05c7d032d40f243df750ea25070e86f6d678",
+    "accepted_in_main": true,
+    "worktree_references": 0,
+    "local_deleted": true,
+    "remote_deleted": true,
+    "remote_already_absent": false
+  },
+  {
+    "branch": "codex/refactor-01-closeout",
+    "tip": "6a48a35397aa80f3f93c4c5d9cdfc1eda7696df1",
+    "accepted_in_main": true,
+    "worktree_references": 0,
+    "local_deleted": true,
+    "remote_deleted": true,
+    "remote_already_absent": false
+  }
+]
