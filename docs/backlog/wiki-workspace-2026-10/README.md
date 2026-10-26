@@ -204,7 +204,7 @@
 
 ## IDEA-REVIEW-20261025 — Подготовить десять самостоятельных историй повседневной жизни NPC
 
-**Статус:** in_progress · **Приоритет:** P2 · **Объём:** L · **Тип:** planning.
+**Статус:** done · **Приоритет:** P2 · **Объём:** L · **Тип:** planning.
 
 **Ветка:** codex/idea-review-20261025-neighbors
 
@@ -222,8 +222,12 @@
 
 **Проверка:** Редакционный аудит, документация, diff --check, Wiki check, браузер (статья → эпик → задача, поиск, оценки, 390 px), штатные architecture и полный Game.
 
-**Подтверждения / результат:** Подготовлены десять самостоятельных эпиков/43 будущие карточки,31 узел/94 ответа и три проектных места. Первый штатный полный pre-commit PASS: architecture81/1101, Game53371/0, normal/F10 по90/0; Wiki135/0 и браузер PASS. Ожидается ревью итогового head SHA и решение Team Lead Agent. Игровые сценарии не реализованы. Pull Request: https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/8
+**Подтверждения / результат:** Редакционная работа принята и влита через [PR №8](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/8): approved head `5f847da5ef15a3bfc13e9fb477525b504f9c81a2`, [независимое итоговое ревью 5647129421](https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/8#pullrequestreview-5647129421), фактический merge `ad60faf4bd46faa335babb6075737694927fc61f` от 26 октября 2026. CI принятого head — 8/8 success; по опубликованному ревью CI Game 53520/0, локальный Game 53502/0 сохранён отдельно. Приняты только редакционная подготовка и сохранность: десять эпиков, 43 будущие карточки, 31 узел / 94 ответа. Игровые предложения остаются backlog, 60 игровых F-сценариев и пробы аудитории не выполнены. [Запись приёмки и прежняя карточка](../../reports/creative/2026-10-26-review25-closeout/completion.json); [отдельный учётный отчёт](../../reports/creative/2026-10-26-review25-closeout/README.md). Учётный PR требует собственного exact-head ревью, CI и решения Team Lead; его одобрение не выводится из приёмки PR №8. Канонический Pull Request: https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/8
 
 **Pull Request:** https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/8
 
-**Интеграция PR №8:** принятое состояние main206918abb963b542af8dd3faf3bba80f30b5e908 объединено обычным merge; обе подборки/оценки/ID/статусы сохранены. Старое одобрение dcfc8085 относится только к прежнему head. Новый exact-head ожидает повторного ревью и решения Team Lead Agent; карточка остаётся in_progress. Новые проверки отдельны: docs/reports/creative/2026-10-25-pr8-integration-1/. Учёт принятого PR №6 не закрывается этой задачей.
+**История интеграции до приёмки:** принятое состояние main206918abb963b542af8dd3faf3bba80f30b5e908 объединено обычным merge; обе подборки/оценки/ID/статусы сохранены. Старое одобрение dcfc8085 относится только к прежнему head. Новый exact-head ожидает повторного ревью и решения Team Lead Agent; карточка остаётся in_progress. Новые проверки отдельны: docs/reports/creative/2026-10-25-pr8-integration-1/. Учёт принятого PR №6 не закрывается этой задачей.
+
+**Учётная ветка:** codex/idea-review-20261025-closeout
+
+**Границы закрытия:** статус done относится к уже принятой редакционной задаче за 25 октября. Все 241 идея / 80 оценок и игровые карточки сохранены; учёт IDEA-REVIEW-20261024 выполняется другим PR. Приоритет первого выпуска tools 01 → 02 → 03 → 06 перед новой графикой сохраняется.
