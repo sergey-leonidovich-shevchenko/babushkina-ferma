@@ -1,0 +1,14 @@
+{
+  "command": [
+    "node",
+    "wiki/scripts/editorial-review26-audit.mjs",
+    "--committed-range"
+  ],
+  "head": "828d65ac1b8711cb99d190f1274cbf88a08aab1c",
+  "exitCode": 1,
+  "expectedRejection": true,
+  "underlyingGitExit": 2,
+  "visibleTrailingWhitespace": 36,
+  "visibleBlankLineAtEOF": 10,
+  "rawSHA256": "bb5e4a62b107bd19a8d65d6b8992a96820171d8a012bf2fd48c85e0bc9e90c67"
+}

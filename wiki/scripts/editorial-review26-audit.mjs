@@ -13,6 +13,29 @@ const json = async (path) => JSON.parse(await readFile(join(projectRoot, path), 
 const git = (args) => execFileSync('git', args, { cwd: projectRoot, maxBuffer: 32 * 1024 * 1024 })
 const at = (ref, path) => JSON.parse(git(['show', `${ref}:${path}`]).toString())
 const plan = await json(`${directory}/plan.json`)
+
+// Проверяется весь PR от закреплённой базы. Пустой unstaged diff не доказывает
+// чистоту уже опубликованных добавлений. После commit проверяем оба диапазона.
+const formattingChecks = process.argv.includes('--committed-range')
+  ? [
+      ['diff', '--check', `${plan.base}...HEAD`],
+      ['diff', '--check', plan.base, 'HEAD'],
+    ]
+  : [
+      ['diff', '--check', plan.base, '--'],
+      ['diff', '--cached', '--check', plan.base, '--'],
+    ]
+for (const command of formattingChecks) {
+  try {
+    git(command)
+  } catch (error) {
+    // execFileSync хранит диагностику в Buffer; показываем реальные строки отказа.
+    if (error.stdout) process.stderr.write(error.stdout.toString())
+    if (error.stderr) process.stderr.write(error.stderr.toString())
+    throw error
+  }
+}
+
 const state = await json('wiki/planning/state.json')
 const ratings = await json('wiki/planning/assessments.json')
 const sources = await json('wiki/planning/sources.json')
@@ -264,6 +287,7 @@ if (plan.previousCheckpoint) {
 const result = {
   status: 'pass',
   base: plan.base,
+  formattingChecks: formattingChecks.map((args) => ({ command: ['git', ...args], exitCode: 0 })),
   ideas: state.ideas.length,
   assessments: ratings.ideas.length,
   plans: catalog.plans.length,

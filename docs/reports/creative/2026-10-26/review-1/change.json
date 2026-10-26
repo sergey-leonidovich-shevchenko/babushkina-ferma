@@ -1,0 +1,125 @@
+{
+  "task": "IDEA-REVIEW-20261026",
+  "review": {
+    "url": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/13#pullrequestreview-5649137003",
+    "inline": "https://github.com/sergey-leonidovich-shevchenko/babushkina-ferma/pull/13#discussion_r4375182430"
+  },
+  "actualPRBase": "da9fa07e2f4c7f1fe05d9e89eebc454afc79d4ff",
+  "reviewedHead": "828d65ac1b8711cb99d190f1274cbf88a08aab1c",
+  "before": {
+    "command": [
+      "git",
+      "diff",
+      "--check",
+      "da9fa07e2f4c7f1fe05d9e89eebc454afc79d4ff...828d65ac1b8711cb99d190f1274cbf88a08aab1c"
+    ],
+    "exitCode": 2,
+    "trailingWhitespace": 36,
+    "blankLineAtEOF": 10,
+    "affectedFiles": 20,
+    "rawSHA256": "a8c8db978225723c2c866f51384cbff2ca8195e5347b0cee63d3aaa499d4d8f2"
+  },
+  "normalizedFiles": [
+    {
+      "path": "docs/epics/ideas/idea-252/TASKS.md",
+      "beforeSHA256": "7af45a88bbb7e667bb0b34c928bd94dd8fbf47a61adfd310bf76bac6dd650c96",
+      "afterSHA256": "81d4d182f53769021eea552f878aaee21065bd63d851674865b8be906e4d6abb"
+    },
+    {
+      "path": "wiki/articles/IDEA-252.md",
+      "beforeSHA256": "f0847ad1f6281bcaccf09cb410d4908f99de06d976ca6c4109ed970aac30dea0",
+      "afterSHA256": "6c0c8986fa2b7c88d2ac2cef85be889605e57cb1ca750b7846b2059d75d2c462"
+    },
+    {
+      "path": "docs/epics/ideas/idea-253/TASKS.md",
+      "beforeSHA256": "6c15b7b4a18702cb4ca8b0bf88519fee9882a49bf79577d5896ed558342f2d85",
+      "afterSHA256": "e19bc1847550b0057e1e1dea89e188c9d4772fb617967eded1f49e348e685617"
+    },
+    {
+      "path": "wiki/articles/IDEA-253.md",
+      "beforeSHA256": "5919df3fddafc0b2e87486fd0a9ee6033bc03ee801e0ad1e82d41ed215fc6a30",
+      "afterSHA256": "04b07a36ab8b0db62eff7fc9bacc9acaad0974bc6960c23b50ac258fbb7e0bac"
+    },
+    {
+      "path": "docs/epics/ideas/idea-254/TASKS.md",
+      "beforeSHA256": "2f1e59e8d54060ca5ce2c5b3074285d8aceb5b62e98b810e1edab82ffd6f3e5d",
+      "afterSHA256": "fdcc0db5fc9e83b351cbd715e8785afc33ac0a70abae08f11c86e855abb14275"
+    },
+    {
+      "path": "wiki/articles/IDEA-254.md",
+      "beforeSHA256": "f1a648cfba3a00406fe49e05c57d5355e7f198b7f6e56f50206b42378f23d4f1",
+      "afterSHA256": "454fcaf574deb0b3aa0950977d7122ba53a1a73fad83cfec717093a381020d64"
+    },
+    {
+      "path": "docs/epics/ideas/idea-255/TASKS.md",
+      "beforeSHA256": "468a903037229294b7c96d4d6b11c3ba7827f1e5410a89271da8a9bd4c104f47",
+      "afterSHA256": "e300825a3f4c9f9ee7b1681b7eaecad72ab299de6e91bb978da1784b95863ea2"
+    },
+    {
+      "path": "wiki/articles/IDEA-255.md",
+      "beforeSHA256": "a70b858607ce67bee3fa05bfe9cc779c90227bc888ddd60d7afba36a5566e064",
+      "afterSHA256": "7297bcd566de8dd98996f58d6c1bdbdd3c816d49df0a5fc86d93f44796bf511f"
+    },
+    {
+      "path": "docs/epics/ideas/idea-256/TASKS.md",
+      "beforeSHA256": "f23f7e72d544884bc1e3977480643a4454965cbdcedbfcbc1a28f7156902b2e8",
+      "afterSHA256": "15942ec0a150c348a2284edb7204bb60f263e080b813e70524ec3e630aafec2b"
+    },
+    {
+      "path": "wiki/articles/IDEA-256.md",
+      "beforeSHA256": "ffae0c17041663a15547fcf967f03b346f326d39f8c48ec3adee7ce6f5452297",
+      "afterSHA256": "fdf5a9e622c0da96a17c1c687903f565eb1d40ad7e150fbe36a6d562a7241d28"
+    },
+    {
+      "path": "docs/epics/ideas/idea-257/TASKS.md",
+      "beforeSHA256": "092252dc6c8991831f73c1a6c33b3d8d2d08991729f028d5e499e0f6a4a6e9c1",
+      "afterSHA256": "1731fd1eec65e5eafe00e120fbf6aa35ae66b22261638692f80f170b8e69e743"
+    },
+    {
+      "path": "wiki/articles/IDEA-257.md",
+      "beforeSHA256": "21eec9bf339770f51171014d5e4c2cf1a074ce4aa66e219bc552afe83046e374",
+      "afterSHA256": "96554c3b6025f34885cd27598947e6ad69307b2484746cd59f28150261230f46"
+    },
+    {
+      "path": "docs/epics/ideas/idea-258/TASKS.md",
+      "beforeSHA256": "0abd9101471e9b1743390d577c4c1a233703b3aac3c9a79d722ded90ff486c28",
+      "afterSHA256": "faf5361b89be8bd50c85e26962716d9c7b81c56812681e2db9638aca35dcfdf5"
+    },
+    {
+      "path": "wiki/articles/IDEA-258.md",
+      "beforeSHA256": "e450d0b75159088e77684c8f2b127971634d078a66c4319fdb9b6259fde83086",
+      "afterSHA256": "cba65484cde2d8d58bc2086cda2d89f295f072bc5a1f0db43813debe975579ee"
+    },
+    {
+      "path": "docs/epics/ideas/idea-259/TASKS.md",
+      "beforeSHA256": "fc53448646a3863ee887ecfaf0112565f827f18182895a327203f2583a458846",
+      "afterSHA256": "ce7e210a74a3f55f5214d1502fed715b2baf90239177e7c7ef93b0089f8d09a0"
+    },
+    {
+      "path": "wiki/articles/IDEA-259.md",
+      "beforeSHA256": "ddaf107324afd25d364e5ef62f3f4ec5608c0d3563e7ae94ea3ca96f4f8db337",
+      "afterSHA256": "4ba1b70215219071642171c81071ced6ca23a954c323dfc2f718458f9cce7096"
+    },
+    {
+      "path": "docs/epics/ideas/idea-260/TASKS.md",
+      "beforeSHA256": "e6ea94b4130b53bc67408ffa83a17a2c46edcf427ea474578c5f02effa6a7b99",
+      "afterSHA256": "8dea36bd0c7740765ceacc1c35aeb8feeb894ed364116c58dce401758668a075"
+    },
+    {
+      "path": "wiki/articles/IDEA-260.md",
+      "beforeSHA256": "5ad832721aa5abb3ae0c88ef333581f1c83ee35ca6b58f97d21bc3eee5830b06",
+      "afterSHA256": "e023cffb69dfd64d2951cb8eb53a9f19fc0323e4862d0d9c13b527f08627e97a"
+    },
+    {
+      "path": "docs/epics/ideas/idea-261/TASKS.md",
+      "beforeSHA256": "04933bf4ffa951c4db306355e80817aa0243df31d70429e35a779e2748e779fb",
+      "afterSHA256": "67039e37e506496d8793e9ec52392210fdd0215303d6b556059444c8875b7ca2"
+    },
+    {
+      "path": "wiki/articles/IDEA-261.md",
+      "beforeSHA256": "162d3b443ac738a7bee3c3a2165ff159aa94ff475851e5eefb714fe304052bb6",
+      "afterSHA256": "3f7fcad035738a7be65484f78ae50e5d323ff87773e175c79cd408a5f35d7ccc"
+    }
+  ],
+  "limits": "Whitespace-only normalization; published raw/PNG/checkpoints remain unchanged. New source, gate and committed-range confirmations are separate."
+}
